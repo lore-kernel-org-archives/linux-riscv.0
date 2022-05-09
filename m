@@ -4,57 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E33AC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 03:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6738C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 03:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H/RIS53RazybxlZjVjDPgaZZ+5M6b6wKpiD4J5RgdyI=; b=BhWcvv4OO9d4i+
-	R9p5JwMyFyGXjkjDL51Nxxeyf2odFdS5eCvVUiiKDjMmeqRcmfjtX3m7K81iYMwUEKATypSYLWqZH
-	ionEA0zvoFROfNhfRvlpCO008NM1jtkjVQzVq8Ra9hd3lRwT2oUUFz9cUVlzKCAUN+lAgFaffhbY2
-	S2v/1JgCEwG/AxEzf5w2AAZ/IJhGXGQQp5je4CW8rK1u3bifZ4SCpe6Q5sGdrjMoahIYxZI49HPyZ
-	KWAY4G1Rg536r1XzPH+Z7ygzYGLUBhMB4nImL92Q+vf+FdxNyTmebH5k8oB/yPDtDgANt/iyivvL8
-	8YKmxHDebXswPlqw56qQ==;
+	List-Owner; bh=10bWCLyjj2C2MDLY93EcizG8T+Qt9p/QQ4tcMeDT4d4=; b=NrfZTbjc8bY+De
+	skN5xLLWWUF4rUKVXKyKuPl9U5Ayb2UepYey/sFcNw4vx58PpNK6DwGjtyEzFliUqT9sps+oJLnPD
+	TMc9Trl0WttJX75EwrMMp3EB+Wlk64Lv54gcn9fEjxmlxexNtFxLZFDi6dIqU2SjELDO4Rc4tGFLk
+	oDXX9g1ngwM8uA8OALwZDlbvk52MD2NU34htqLJcNzyJIag7tnvCzc5cLjBoxXIJJrlQ5rs6DfHZC
+	CWqik0fINh4ZK/lAnhyNKfgPPHEpwjRL9aBefZEg7b20YUAl/2bjktwB9lvXvj8UwFoMaLsiBdjHv
+	+gFHVlIs+y2JYW4TLGMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nnuPQ-00CGWZ-2Q; Mon, 09 May 2022 03:50:08 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1nnuQg-00CH04-Vq; Mon, 09 May 2022 03:51:27 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nnuPJ-00CGRa-Cw
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 03:50:04 +0000
-Received: from kwepemi500013.china.huawei.com (unknown [172.30.72.56])
- by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4KxRxl6KpyzhZ3T;
- Mon,  9 May 2022 11:49:31 +0800 (CST)
-Received: from M910t (10.110.54.157) by kwepemi500013.china.huawei.com
- (7.221.188.120) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Mon, 9 May
- 2022 11:49:56 +0800
-Date: Mon, 9 May 2022 11:49:51 +0800
-From: Changbin Du <changbin.du@huawei.com>
-To: Changbin Du <changbin.du@huawei.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt
- <rostedt@goodmis.org>, <linux-riscv@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>,
- <llvm-dev@lists.llvm.org>, <llvm-bugs@lists.llvm.org>,
- <hw.huiwang@huawei.com>
-Subject: Re: riscv: llvm-compiler: calling convention violation: temporary
- register $t2 is used to pass the ninth function parameter
-Message-ID: <20220509034951.trbbxhmgedocoxqm@M910t>
-References: <20220509034658.kzwh7ocn4ilo4aed@M910t>
+ id 1nnuQd-00CGyN-M8
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 03:51:25 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id b19so17611740wrh.11
+ for <linux-riscv@lists.infradead.org>; Sun, 08 May 2022 20:51:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=kY8j3urZiYftEoIWj6itnjrLji/bjKW8y+9+36z3Zcs=;
+ b=x1Timy6cr18MwlxY9CF20GOJ+EnM2i6uvBz1w/xy/gkEKH0DgUot6cF7QhnrQn6KL8
+ 9Ry9NGv/m6fXIAOBPNitKX7+Oup8CPJBsSoYtximCtydKFwTLK5grzqVsIph+N7vJIEC
+ eyzDRFYZxht7POr0XFGsw7Qu/aBfAre1m7VjYbJOCOfMXCV5WKmcHQtGg6dCGuD4Ye5w
+ PMSwN6Q2BpYNmhg+hSklRbTVHJJKcN5+aQCvAopHMDtQXrKjkd1UdaXrNZ1QOY2TtcAb
+ 1jH0OOjse1qPAJijLMVZJr58Z27OUbdb91gOA+mMQcYgrGFNEIPpMXgGXqsnFeV1gOTS
+ Dqcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=kY8j3urZiYftEoIWj6itnjrLji/bjKW8y+9+36z3Zcs=;
+ b=39sJNCDx1vvs0SpSc3G+6mYDG5ocg0NhOZm9w+LcGJSgasvpa/+G4mXGtyZVLZvuTo
+ +h9LzcMloK2zNLtJY1n1mY89OScAHimUNAp8acj2BfGH6o+9xGEr3OZFYbt7p2Ux6RLd
+ upykJWHnnNrw5WPVVhZtZym0Qirtyx+rmwEf4gAuB9DdrhA+AmNwQUqt3+gzIzF8xJ9H
+ O+c9emL27HuhpkTUqVYNEZGX8/L0bH03Abw/I1G3P1/4ALmV24dr5c8nQl5KfeLQPvjU
+ EYGED7q9fTSZscKrESctErfKHM4OgUyk70BkVwLJVfyNKmiPS2lf+b4WMrE5ij/urC4B
+ Mrzg==
+X-Gm-Message-State: AOAM532EXxvaT8rkaVegZDO2L8Ff7T/h88OZRm4nhF+EwYYl520Kqp6/
+ mDV4GfoBYyddKJ7hNWEHkwd8ChStmP5JA+FFothEHQ==
+X-Google-Smtp-Source: ABdhPJzGALp9+kp1rOS/bBcWeW4rsd2dKqwnGmnsPp3YJ+N0Itw9CLsIZkoFqr5YwhcZF3R01ErVkbi/Wfw0+uHyIOo=
+X-Received: by 2002:a5d:6483:0:b0:20c:5c21:5c8c with SMTP id
+ o3-20020a5d6483000000b0020c5c215c8cmr12089506wri.86.1652068280641; Sun, 08
+ May 2022 20:51:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220509034658.kzwh7ocn4ilo4aed@M910t>
-X-Originating-IP: [10.110.54.157]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemi500013.china.huawei.com (7.221.188.120)
-X-CFilter-Loop: Reflected
+References: <20220509012121.40031-1-samuel@sholland.org>
+In-Reply-To: <20220509012121.40031-1-samuel@sholland.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 9 May 2022 09:21:09 +0530
+Message-ID: <CAAhSdy0U23M1wL9xxh20w23xEY-MjxoxxdXVy50G7p8=eXxWKw@mail.gmail.com>
+Subject: Re: [PATCH] clocksource/drivers/riscv: Events are stopped during CPU
+ suspend
+To: Samuel Holland <samuel@sholland.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, 
+ Dmitriy Cherkasov <dmitriy@oss-tech.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220508_205001_898672_55E1C161 
-X-CRM114-Status: GOOD (  28.51  )
+X-CRM114-CacheID: sfid-20220508_205123_978906_C7C4FAC5 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,167 +89,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+cc hw.huiwang@huawei.com
+On Mon, May 9, 2022 at 6:51 AM Samuel Holland <samuel@sholland.org> wrote:
+>
+> Some implementations of the SBI time extension depend on hart-local
+> state (for example, CSRs) that are lost or hardware that is powered
+> down when a CPU is suspended. To be safe, the clockevents driver
+> cannot assume that timer IRQs will be received during CPU suspend.
+>
+> Fixes: 62b019436814 ("clocksource: new RISC-V SBI timer driver")
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
 
-On Mon, May 09, 2022 at 11:47:01AM +0800, Changbin Du wrote:
-> Hello, folks,
-> 
-> Recently I encountered a kernel crash problem when using ftrace with 'perf ftrace'
-> command on risc-v kernel built with llvm.
-> 
-> This crash only exists on llvm build, not reproducable with GCC. So I hope llvm
-> guys can take a look :)
-> 
-> The llvm versions I have tried are llvm-13.0.0 and mainline (commit 102bc634cb
-> ("[runtime] Build compiler-rt with --unwindlib=none")).
-> 
-> [  612.947887][  T496] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000001
-> [  613.050789][  T496] Hardware name: riscv-virtio,qemu (DT)
-> [  613.087976][  T496] epc : __find_rr_leaf+0x128/0x220
-> [  613.107493][  T496]  ra : return_to_handler+0x22/0x24
-> [  613.125322][  T496] epc : ffffffff80a1915a ra : ffffffff80009506 sp : ff20000011e43860
-> [  613.150124][  T496]  gp : ffffffff81812f40 tp : ff6000008bb01580 t0 : ff600000806cf0f0
-> [  613.173657][  T496]  t1 : 000000000001b29a t2 : 0000000000000001 s0 : ff20000011e43920
-> [  613.187311][  T496]  s1 : ff600000848c2a00 a0 : 0000000000000002 a1 : 0000000000000002
-> [  613.202731][  T496]  a2 : fffffffffffffffd a3 : ff6000009d287000 a4 : 00000000000002c0
-> [  613.213723][  T496]  a5 : ff6000009d259b40 a6 : ffffffffffffff9c a7 : ffffffffffffffff
-> [  613.226648][  T496]  s2 : 0000000000000001 s3 : ff20000011e439d8 s4 : ffffffff8160d140
-> [  613.246571][  T496]  s5 : 0000000000000002 s6 : 0000000000000000 s7 : 0000000000000000
-> [  613.264681][  T496]  s8 : 0000000000000064 s9 : 0000000000000000 s10: 0000000000400000
-> [  613.277999][  T496]  s11: ff600000848c2aa8 t3 : 0000000000000290 t4 : 00000000004002c0
-> [  613.303729][  T496]  t5 : 00000000ffffffff t6 : ff6000009d2872d0
-> [  613.322145][  T496] status: 0000000200000120 badaddr: 0000000000000001 cause: 000000000000000d
-> [  613.346228][  T496] [<ffffffff80a12526>] ip6_pol_route+0xb6/0x602
-> [  613.365722][  T496] [<ffffffff80a1321a>] ip6_pol_route_output+0x2c/0x34
-> [  613.386374][  T496] [<ffffffff80a1c028>] fib6_rule_lookup+0x36/0xa0
-> [  613.401865][  T496] [<ffffffff80a131da>] ip6_route_output_flags_noref+0xd6/0xea
-> [  613.412776][  T496] [<ffffffff80a13274>] ip6_route_output_flags+0x52/0xd4
-> [  613.432013][  T496] [<ffffffff809ffb3a>] ip6_dst_lookup_tail+0x68/0x23a
-> [  613.456198][  T496] [<ffffffff809ffec6>] ip6_sk_dst_lookup_flow+0x132/0x1cc
-> [  613.513174][  T496] [<ffffffff80003cd8>] ret_from_syscall+0x0/0x2
-> [  613.518973][  T496] [<ffffffff800094e4>] return_to_handler+0x0/0x24
-> [  613.563961][  T496] Kernel panic - not syncing: Fatal exception
-> [  613.572278][  T496] SMP: stopping secondary CPUs
-> [  613.587449][  T496] ---[ end Kernel panic - not syncing: Fatal exception ]---
-> 
-> The crash happened when dereferencing the point 'mpri' at route.c:758.
-> 
-> (gdb) l *__find_rr_leaf+0x128
-> 0xffffffff809da9c4 is in __find_rr_leaf (net/ipv6/route.c:758).
-> 753
-> 754             if (strict & RT6_LOOKUP_F_REACHABLE)
-> 755                     rt6_probe(nh);
-> 756
-> 757             /* note that m can be RT6_NUD_FAIL_PROBE at this point */
-> 758             if (m > *mpri) {
-> 759                     *do_rr = match_do_rr;
-> 760                     *mpri = m;
-> 761                     rc = true;
-> 762             }
-> 
-> Adding some logs, I found the problem. The ninth passed parameter of function
-> __find_rr_leaf() which is the address of local variable 'mpri', is changed to
-> value '0x1' when inside the function __find_rr_leaf.
-> Here is the code snippet and full link
-> https://github.com/torvalds/linux/blob/9cb7c013420f98fa6fd12fc6a5dc055170c108db/net/ipv6/route.c.
-> 
-> static void find_rr_leaf(struct fib6_node *fn, struct fib6_info *leaf,
-> 			 struct fib6_info *rr_head, int oif, int strict,
-> 			 bool *do_rr, struct fib6_result *res)
-> {
-> 	u32 metric = rr_head->fib6_metric;
-> 	struct fib6_info *cont = NULL;
-> 	int mpri = -1;
-> 
-> 	__find_rr_leaf(rr_head, NULL, metric, res, &cont,
-> 		       oif, strict, do_rr, &mpri);
-> 	...
-> }
-> 
-> Then debugging with gdb, I found this probably is a compiler bug. We can see the
-> local function __find_rr_leaf() is not optimized out and the compiler generates
-> a local symbol for it. The find_rr_leaf() (inlined by fib6_table_lookup) invokes
-> this function with 'jalr' instruction.
-> 
-> (gdb) disassemble fib6_table_lookup
-> Dump of assembler code for function fib6_table_lookup:
->    [snip]
->    0xffffffff80a1240e <+412>:   beqz    a1,0xffffffff80a12436 <fib6_table_lookup+452>
->    0xffffffff80a12410 <+414>:   slli    a1,s9,0x20
->    0xffffffff80a12414 <+418>:   srli    a1,a1,0x20
->    0xffffffff80a12416 <+420>:   sext.w  a2,a1
->    0xffffffff80a1241a <+424>:   addi    a7,s0,-125
->    0xffffffff80a1241e <+428>:   addi    t2,s0,-124
->    0xffffffff80a12422 <+432>:   li      a1,0
->    0xffffffff80a12424 <+434>:   mv      a3,s10
->    0xffffffff80a12426 <+436>:   li      a4,0
->    0xffffffff80a12428 <+438>:   ld      a5,-152(s0)
->    0xffffffff80a1242c <+442>:   mv      a6,s8
->    0xffffffff80a1242e <+444>:   auipc   ra,0x7
->    0xffffffff80a12432 <+448>:   jalr    -686(ra) # 0xffffffff80a19180 <__find_rr_leaf>
->    [snip]
-> 
-> And at line route.c:758, the value of point 'mpri' is stored in temporary register
-> $t2 and $s3 (copied from $t2).
-> 
-> (gdb) info scope __find_rr_leaf
-> [snip]
-> Symbol mpri is multi-location:
->   Base address 0xffffffff80a10564  Range 0xffffffff80a19190-0xffffffff80a191ae: a variable in $t2
->   Range 0xffffffff80a191c0-0xffffffff80a191d6: a variable in $s3
->   Range 0xffffffff80a19200-0xffffffff80a19208: a variable in $s3
->   Range 0xffffffff80a1921e-0xffffffff80a192fe: a variable in $s3
->   Range 0xffffffff80a1930a-0xffffffff80a19356: a variable in $s3
-> 
-> Let's see when register $t2 is corrupted with single-step mode. Obviously, register
-> $t2 is changed by mcount function ftrace_caller(). This is why the bug happens
-> to ftrace.
-> 
-> Dump of assembler code for function __find_rr_leaf:
->    0xffffffff80a19180 <+0>:     sd      ra,-8(sp)   #  $t2 = 0xff200000120db7b4
->    0xffffffff80a19184 <+4>:     auipc   ra,0xff5f1
->    0xffffffff80a19188 <+8>:     jalr    -1744(ra) # 0xffffffff80009ab4 <ftrace_caller> #  $t2 = 0xff200000120db7b4
-> => 0xffffffff80a1918c <+12>:    ld      ra,-8(sp)    #  $t2 = 0x1, bug, $t2 is corrupted!!
->    0xffffffff80a19190 <+16>:    addi    sp,sp,-176
->    [snip]
-> 
-> So now we can come to a conclusion. The generated local function __find_rr_leaf()
-> violates the risc-v calling convention and leads to the panic. It should use stack
-> but *not* temporary register $t2 to pass the ninth parameter! It's okay if the
-> callsite can take care of local symbol callees, but the Function Instrumentation
-> features should be considerated carefully.
-> 
-> For comparison, here is the result from gcc (9.2.0):
-> (gdb) info scope __find_rr_leaf
-> [snip]
-> Symbol mpri is a complex DWARF expression:
->      0: DW_OP_fbreg 0, length 8.
-> 
-> I also built a simple test function with 9 parameters by clang and same cflags,
-> but cannot reproduce it. Maybe it is conditional?
-> 
-> Simple test code:
-> __attribute__ ((noinline))
-> void test_func(int *a, int *b, int *c, int *d, int *e, int *f, int *g, int *h, int *i)
-> {
->         printf("__find_rr_leaf: %d\n", *i);
-> }
-> 
-> int main(void)
-> {
->         int a,b,c,d,e,f,g,h,i = 100;
-> 
->         test_func(&a,&b,&c,&d,&e,&f,&g,&h,&i);
->         return 0;
-> }
-> 
-> -- 
-> Cheers,
-> Changbin Du
+Looks good to me.
 
--- 
-Cheers,
-Changbin Du
+Reviewed-by: Anup Patel <anup@brainfault.org>
+
+Regards,
+Anup
+
+> ---
+>
+>  drivers/clocksource/timer-riscv.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+> index 1767f8bf2013..593d5a957b69 100644
+> --- a/drivers/clocksource/timer-riscv.c
+> +++ b/drivers/clocksource/timer-riscv.c
+> @@ -34,7 +34,7 @@ static int riscv_clock_next_event(unsigned long delta,
+>  static unsigned int riscv_clock_event_irq;
+>  static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
+>         .name                   = "riscv_timer_clockevent",
+> -       .features               = CLOCK_EVT_FEAT_ONESHOT,
+> +       .features               = CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_C3STOP,
+>         .rating                 = 100,
+>         .set_next_event         = riscv_clock_next_event,
+>  };
+> --
+> 2.35.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
