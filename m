@@ -4,74 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C909C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 07:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B67C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 09:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0IDohkgWeqnMhhDBoGPZcbY5LT8WXnbZjAfARTea1rs=; b=D1SGBlK760HgZh
-	HQEE5oE/a/O0mZf8uVRYIxh+LPBCvm/ctghV3wrPKLQQNG9PphMNUo8J70Jaob54/kldrOWqKh+eV
-	2fmhUA0oPgGx0O2wydhh8AqzhMIg/Tlwz+Dv9H7imFP6MzoziSPPMVHFEj7Q52iw/BikvIO7Dwiw0
-	QpeQap8Y+IT9Zc9qloCiw0PVBEXs0AQXj700VRpLEqkba4Byj08VE82mt2N4+j/JqEOi8lwNkz0/M
-	kdqWon0yfwnUDWXX5BN+V49g8s38QKyHorkuEDn1ZCi9VgXFwDu59nVsPuinrCI1E53D5T/+lFCIf
-	JjI/MnyyvD/VxSeGDZ0w==;
+	List-Owner; bh=At7elcJE7JZ2yEnewoF6TaX885L/XkmM9zcNtO6Ig20=; b=t7z9t2gGfD6avi
+	xFS2CRHLwqQfUKxAeqWKxZytfzZFH9WKMTQMwKtzr9TZ6gtpToa0b8JayryUnlonnDjvlMPjHgVzj
+	C967jW7dVG0+F7tUx7Fk/8f4tE0OBlAom9WKH4Rf5mbdoXe34ckQ0A2YZH+TooCgYMoiqAh5fFsFc
+	MSu7/CAEfOkRBBWhoCH3ahVhbiQG8pBpJHgNBfJlgRW3ZmeDvpbrnWbTd5Oh8A0fitJt8XzTVZRam
+	aikTqVYy7JAet5zOJQjJ3ps2g/pOivjUmT7wcJwRPukwghzn9uOzZFptubLbr1df4ybkmbIH5356W
+	xo56yB9Y9I33hhGeEBnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nnyDh-00Czjn-0I; Mon, 09 May 2022 07:54:17 +0000
-Received: from mga14.intel.com ([192.55.52.115])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nnyD2-00CzPO-3B; Mon, 09 May 2022 07:53:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1652082816; x=1683618816;
- h=date:from:to:cc:subject:message-id:references:
- mime-version:in-reply-to;
- bh=Ino11uijCuvYEBBiCsBGTBzxkPq0irZ5o3V4YaCc+Eo=;
- b=PaZD6NQSyR4lHS0a57i5YnsLNoiC8yD36bu3F92MYGo+jlN4WsSrWTMW
- f2LQ8GWSA5BiMbN6vLPIOiGPIrQ+3sMOSR9rxDAaqo2mU6a2dXGEqb3G5
- vmiQUC4H88L0pNKWsn/rsOzMRUcJqi488hFJUuP3YZNUWxdpUjrKqjJgT
- y3S9VEW1mO1dHzFHFzb6t5zQagt7YDKVTCJLWgmjgqqln4FoUFoNl0epm
- RCsK7gU7xAvjsKyiLGF7+goqkqt7boVbYITPiuxscLyogZHb0kmxn9iyx
- 19lBMD+YbcvLS6ft48PeTW6xLqW3qRnrOeX/2pRSLCgyCFCWtl3cu4Y2+ Q==;
-X-IronPort-AV: E=McAfee;i="6400,9594,10341"; a="269111928"
-X-IronPort-AV: E=Sophos;i="5.91,210,1647327600"; d="scan'208";a="269111928"
-Received: from fmsmga002.fm.intel.com ([10.253.24.26])
- by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 09 May 2022 00:53:35 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.91,210,1647327600"; d="scan'208";a="668848352"
-Received: from lkp-server01.sh.intel.com (HELO 5056e131ad90) ([10.239.97.150])
- by fmsmga002.fm.intel.com with ESMTP; 09 May 2022 00:53:31 -0700
-Received: from kbuild by 5056e131ad90 with local (Exim 4.95)
- (envelope-from <lkp@intel.com>) id 1nnyCw-000GJq-Jm;
- Mon, 09 May 2022 07:53:30 +0000
-Date: Mon, 9 May 2022 15:52:43 +0800
-From: kernel test robot <lkp@intel.com>
-To: Samuel Holland <samuel@sholland.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: llvm@lists.linux.dev, kbuild-all@lists.01.org,
- Samuel Holland <samuel@sholland.org>,
- Florian Fainelli <f.fainelli@gmail.com>, Guo Ren <guoren@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Russell King <linux@armlinux.org.uk>, Wei Xu <xuwei5@hisilicon.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 3/5] genirq: Provide an IRQ affinity mask in non-SMP
- configs
-Message-ID: <202205091545.QhhCDxVm-lkp@intel.com>
-References: <20220509034333.60017-4-samuel@sholland.org>
+	id 1nnzNM-00DLZt-2v; Mon, 09 May 2022 09:08:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nnzN8-00DLVf-9N; Mon, 09 May 2022 09:08:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 430B21480;
+ Mon,  9 May 2022 02:08:03 -0700 (PDT)
+Received: from [10.163.34.187] (unknown [10.163.34.187])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 594C83F66F;
+ Mon,  9 May 2022 02:07:54 -0700 (PDT)
+Message-ID: <730c7b4a-663f-d7e3-6e0f-090d322103d4@arm.com>
+Date: Mon, 9 May 2022 14:39:04 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220509034333.60017-4-samuel@sholland.org>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.5.0
+Subject: Re: [PATCH -next v7 5/6] arm64/mm: Enable
+ ARCH_SUPPORTS_PAGE_TABLE_CHECK
+Content-Language: en-US
+To: Tong Tiangen <tongtiangen@huawei.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Guohanjun <guohanjun@huawei.com>
+References: <20220507110114.4128854-1-tongtiangen@huawei.com>
+ <20220507110114.4128854-6-tongtiangen@huawei.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20220507110114.4128854-6-tongtiangen@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220509_005336_242168_D5671C13 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20220509_020806_483563_837DD924 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,142 +73,175 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
-
-I love your patch! Yet something to improve:
-
-[auto build test ERROR on tip/irq/core]
-[also build test ERROR on soc/for-next linus/master v5.18-rc6 next-20220506]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Samuel-Holland/genirq-irqchip-RISC-V-PLIC-cleanup-and-optimization/20220509-115510
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git ce4818957fdc5bca57fc2c92b0dfe109d26bcc47
-config: mips-randconfig-r024-20220509 (https://download.01.org/0day-ci/archive/20220509/202205091545.QhhCDxVm-lkp@intel.com/config)
-compiler: clang version 15.0.0 (https://github.com/llvm/llvm-project a385645b470e2d3a1534aae618ea56b31177639f)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install mips cross compiling tool for clang build
-        # apt-get install binutils-mips-linux-gnu
-        # https://github.com/intel-lab-lkp/linux/commit/4bca5b436c97eb2ee232dd23f262ebad05fa183c
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Samuel-Holland/genirq-irqchip-RISC-V-PLIC-cleanup-and-optimization/20220509-115510
-        git checkout 4bca5b436c97eb2ee232dd23f262ebad05fa183c
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=mips SHELL=/bin/bash
-
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
-
-All errors (new ones prefixed by >>):
-
->> kernel/irq/ipi.c:94:30: error: no member named 'affinity' in 'struct irq_common_data'
-                   cpumask_copy(data->common->affinity, dest);
-                                ~~~~~~~~~~~~  ^
-   1 error generated.
 
 
-vim +94 kernel/irq/ipi.c
+On 5/7/22 16:31, Tong Tiangen wrote:
+> From: Kefeng Wang <wangkefeng.wang@huawei.com>
+> 
+> As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table check")
+> , enable ARCH_SUPPORTS_PAGE_TABLE_CHECK on arm64.
+> 
+> Add additional page table check stubs for page table helpers, these stubs
+> can be used to check the existing page table entries.
+> 
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
 
-d17bf24e695290 Qais Yousef     2015-12-08   13  
-d17bf24e695290 Qais Yousef     2015-12-08   14  /**
-d17bf24e695290 Qais Yousef     2015-12-08   15   * irq_reserve_ipi() - Setup an IPI to destination cpumask
-d17bf24e695290 Qais Yousef     2015-12-08   16   * @domain:	IPI domain
-3b35e7e6daef5a Randy Dunlap    2021-08-10   17   * @dest:	cpumask of CPUs which can receive the IPI
-d17bf24e695290 Qais Yousef     2015-12-08   18   *
-d17bf24e695290 Qais Yousef     2015-12-08   19   * Allocate a virq that can be used to send IPI to any CPU in dest mask.
-d17bf24e695290 Qais Yousef     2015-12-08   20   *
-3b35e7e6daef5a Randy Dunlap    2021-08-10   21   * Return: Linux IRQ number on success or error code on failure
-d17bf24e695290 Qais Yousef     2015-12-08   22   */
-7cec18a3906b52 Matt Redfearn   2016-04-25   23  int irq_reserve_ipi(struct irq_domain *domain,
-d17bf24e695290 Qais Yousef     2015-12-08   24  			     const struct cpumask *dest)
-d17bf24e695290 Qais Yousef     2015-12-08   25  {
-d17bf24e695290 Qais Yousef     2015-12-08   26  	unsigned int nr_irqs, offset;
-d17bf24e695290 Qais Yousef     2015-12-08   27  	struct irq_data *data;
-d17bf24e695290 Qais Yousef     2015-12-08   28  	int virq, i;
-d17bf24e695290 Qais Yousef     2015-12-08   29  
-d17bf24e695290 Qais Yousef     2015-12-08   30  	if (!domain ||!irq_domain_is_ipi(domain)) {
-d17bf24e695290 Qais Yousef     2015-12-08   31  		pr_warn("Reservation on a non IPI domain\n");
-7cec18a3906b52 Matt Redfearn   2016-04-25   32  		return -EINVAL;
-d17bf24e695290 Qais Yousef     2015-12-08   33  	}
-d17bf24e695290 Qais Yousef     2015-12-08   34  
-d17bf24e695290 Qais Yousef     2015-12-08   35  	if (!cpumask_subset(dest, cpu_possible_mask)) {
-d17bf24e695290 Qais Yousef     2015-12-08   36  		pr_warn("Reservation is not in possible_cpu_mask\n");
-7cec18a3906b52 Matt Redfearn   2016-04-25   37  		return -EINVAL;
-d17bf24e695290 Qais Yousef     2015-12-08   38  	}
-d17bf24e695290 Qais Yousef     2015-12-08   39  
-d17bf24e695290 Qais Yousef     2015-12-08   40  	nr_irqs = cpumask_weight(dest);
-d17bf24e695290 Qais Yousef     2015-12-08   41  	if (!nr_irqs) {
-d17bf24e695290 Qais Yousef     2015-12-08   42  		pr_warn("Reservation for empty destination mask\n");
-7cec18a3906b52 Matt Redfearn   2016-04-25   43  		return -EINVAL;
-d17bf24e695290 Qais Yousef     2015-12-08   44  	}
-d17bf24e695290 Qais Yousef     2015-12-08   45  
-d17bf24e695290 Qais Yousef     2015-12-08   46  	if (irq_domain_is_ipi_single(domain)) {
-d17bf24e695290 Qais Yousef     2015-12-08   47  		/*
-d17bf24e695290 Qais Yousef     2015-12-08   48  		 * If the underlying implementation uses a single HW irq on
-d17bf24e695290 Qais Yousef     2015-12-08   49  		 * all cpus then we only need a single Linux irq number for
-d17bf24e695290 Qais Yousef     2015-12-08   50  		 * it. We have no restrictions vs. the destination mask. The
-d17bf24e695290 Qais Yousef     2015-12-08   51  		 * underlying implementation can deal with holes nicely.
-d17bf24e695290 Qais Yousef     2015-12-08   52  		 */
-d17bf24e695290 Qais Yousef     2015-12-08   53  		nr_irqs = 1;
-d17bf24e695290 Qais Yousef     2015-12-08   54  		offset = 0;
-d17bf24e695290 Qais Yousef     2015-12-08   55  	} else {
-d17bf24e695290 Qais Yousef     2015-12-08   56  		unsigned int next;
-d17bf24e695290 Qais Yousef     2015-12-08   57  
-d17bf24e695290 Qais Yousef     2015-12-08   58  		/*
-c5f48c0a7aa1a8 Ingo Molnar     2018-12-03   59  		 * The IPI requires a separate HW irq on each CPU. We require
-d17bf24e695290 Qais Yousef     2015-12-08   60  		 * that the destination mask is consecutive. If an
-d17bf24e695290 Qais Yousef     2015-12-08   61  		 * implementation needs to support holes, it can reserve
-d17bf24e695290 Qais Yousef     2015-12-08   62  		 * several IPI ranges.
-d17bf24e695290 Qais Yousef     2015-12-08   63  		 */
-d17bf24e695290 Qais Yousef     2015-12-08   64  		offset = cpumask_first(dest);
-d17bf24e695290 Qais Yousef     2015-12-08   65  		/*
-d17bf24e695290 Qais Yousef     2015-12-08   66  		 * Find a hole and if found look for another set bit after the
-d17bf24e695290 Qais Yousef     2015-12-08   67  		 * hole. For now we don't support this scenario.
-d17bf24e695290 Qais Yousef     2015-12-08   68  		 */
-d17bf24e695290 Qais Yousef     2015-12-08   69  		next = cpumask_next_zero(offset, dest);
-d17bf24e695290 Qais Yousef     2015-12-08   70  		if (next < nr_cpu_ids)
-d17bf24e695290 Qais Yousef     2015-12-08   71  			next = cpumask_next(next, dest);
-d17bf24e695290 Qais Yousef     2015-12-08   72  		if (next < nr_cpu_ids) {
-d17bf24e695290 Qais Yousef     2015-12-08   73  			pr_warn("Destination mask has holes\n");
-7cec18a3906b52 Matt Redfearn   2016-04-25   74  			return -EINVAL;
-d17bf24e695290 Qais Yousef     2015-12-08   75  		}
-d17bf24e695290 Qais Yousef     2015-12-08   76  	}
-d17bf24e695290 Qais Yousef     2015-12-08   77  
-06ee6d571f0e35 Thomas Gleixner 2016-07-04   78  	virq = irq_domain_alloc_descs(-1, nr_irqs, 0, NUMA_NO_NODE, NULL);
-d17bf24e695290 Qais Yousef     2015-12-08   79  	if (virq <= 0) {
-d17bf24e695290 Qais Yousef     2015-12-08   80  		pr_warn("Can't reserve IPI, failed to alloc descs\n");
-7cec18a3906b52 Matt Redfearn   2016-04-25   81  		return -ENOMEM;
-d17bf24e695290 Qais Yousef     2015-12-08   82  	}
-d17bf24e695290 Qais Yousef     2015-12-08   83  
-d17bf24e695290 Qais Yousef     2015-12-08   84  	virq = __irq_domain_alloc_irqs(domain, virq, nr_irqs, NUMA_NO_NODE,
-eb0dc47ab6810c Vincent Stehle  2016-07-18   85  				       (void *) dest, true, NULL);
-d17bf24e695290 Qais Yousef     2015-12-08   86  
-d17bf24e695290 Qais Yousef     2015-12-08   87  	if (virq <= 0) {
-d17bf24e695290 Qais Yousef     2015-12-08   88  		pr_warn("Can't reserve IPI, failed to alloc hw irqs\n");
-d17bf24e695290 Qais Yousef     2015-12-08   89  		goto free_descs;
-d17bf24e695290 Qais Yousef     2015-12-08   90  	}
-d17bf24e695290 Qais Yousef     2015-12-08   91  
-d17bf24e695290 Qais Yousef     2015-12-08   92  	for (i = 0; i < nr_irqs; i++) {
-d17bf24e695290 Qais Yousef     2015-12-08   93  		data = irq_get_irq_data(virq + i);
-d17bf24e695290 Qais Yousef     2015-12-08  @94  		cpumask_copy(data->common->affinity, dest);
-d17bf24e695290 Qais Yousef     2015-12-08   95  		data->common->ipi_offset = offset;
-4589f450fb285a Matt Redfearn   2016-04-21   96  		irq_set_status_flags(virq + i, IRQ_NO_BALANCING);
-d17bf24e695290 Qais Yousef     2015-12-08   97  	}
-d17bf24e695290 Qais Yousef     2015-12-08   98  	return virq;
-d17bf24e695290 Qais Yousef     2015-12-08   99  
-d17bf24e695290 Qais Yousef     2015-12-08  100  free_descs:
-d17bf24e695290 Qais Yousef     2015-12-08  101  	irq_free_descs(virq, nr_irqs);
-7cec18a3906b52 Matt Redfearn   2016-04-25  102  	return -EBUSY;
-d17bf24e695290 Qais Yousef     2015-12-08  103  }
-d17bf24e695290 Qais Yousef     2015-12-08  104  
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
--- 
-0-DAY CI Kernel Test Service
-https://01.org/lkp
+> ---
+>  arch/arm64/Kconfig               |  1 +
+>  arch/arm64/include/asm/pgtable.h | 61 ++++++++++++++++++++++++++++----
+>  2 files changed, 56 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 272c75af9302..3055fb5b3fb4 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -92,6 +92,7 @@ config ARM64
+>  	select ARCH_SUPPORTS_ATOMIC_RMW
+>  	select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
+>  	select ARCH_SUPPORTS_NUMA_BALANCING
+> +	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
+>  	select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
+>  	select ARCH_WANT_DEFAULT_BPF_JIT
+>  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 8ebf1cec5d90..4e61cde27f9f 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -33,6 +33,7 @@
+>  #include <linux/mmdebug.h>
+>  #include <linux/mm_types.h>
+>  #include <linux/sched.h>
+> +#include <linux/page_table_check.h>
+>  
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+> @@ -96,6 +97,7 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
+>  #define pte_young(pte)		(!!(pte_val(pte) & PTE_AF))
+>  #define pte_special(pte)	(!!(pte_val(pte) & PTE_SPECIAL))
+>  #define pte_write(pte)		(!!(pte_val(pte) & PTE_WRITE))
+> +#define pte_user(pte)		(!!(pte_val(pte) & PTE_USER))
+>  #define pte_user_exec(pte)	(!(pte_val(pte) & PTE_UXN))
+>  #define pte_cont(pte)		(!!(pte_val(pte) & PTE_CONT))
+>  #define pte_devmap(pte)		(!!(pte_val(pte) & PTE_DEVMAP))
+> @@ -312,8 +314,8 @@ static inline void __check_racy_pte_update(struct mm_struct *mm, pte_t *ptep,
+>  		     __func__, pte_val(old_pte), pte_val(pte));
+>  }
+>  
+> -static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
+> -			      pte_t *ptep, pte_t pte)
+> +static inline void __set_pte_at(struct mm_struct *mm, unsigned long addr,
+> +				pte_t *ptep, pte_t pte)
+>  {
+>  	if (pte_present(pte) && pte_user_exec(pte) && !pte_special(pte))
+>  		__sync_icache_dcache(pte);
+> @@ -343,6 +345,13 @@ static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
+>  	set_pte(ptep, pte);
+>  }
+>  
+> +static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
+> +			      pte_t *ptep, pte_t pte)
+> +{
+> +	page_table_check_pte_set(mm, addr, ptep, pte);
+> +	return __set_pte_at(mm, addr, ptep, pte);
+> +}
+> +
+>  /*
+>   * Huge pte definitions.
+>   */
+> @@ -454,6 +463,8 @@ static inline int pmd_trans_huge(pmd_t pmd)
+>  #define pmd_dirty(pmd)		pte_dirty(pmd_pte(pmd))
+>  #define pmd_young(pmd)		pte_young(pmd_pte(pmd))
+>  #define pmd_valid(pmd)		pte_valid(pmd_pte(pmd))
+> +#define pmd_user(pmd)		pte_user(pmd_pte(pmd))
+> +#define pmd_user_exec(pmd)	pte_user_exec(pmd_pte(pmd))
+>  #define pmd_cont(pmd)		pte_cont(pmd_pte(pmd))
+>  #define pmd_wrprotect(pmd)	pte_pmd(pte_wrprotect(pmd_pte(pmd)))
+>  #define pmd_mkold(pmd)		pte_pmd(pte_mkold(pmd_pte(pmd)))
+> @@ -501,8 +512,19 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
+>  #define pud_pfn(pud)		((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT)
+>  #define pfn_pud(pfn,prot)	__pud(__phys_to_pud_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
+>  
+> -#define set_pmd_at(mm, addr, pmdp, pmd)	set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd))
+> -#define set_pud_at(mm, addr, pudp, pud)	set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud))
+> +static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+> +			      pmd_t *pmdp, pmd_t pmd)
+> +{
+> +	page_table_check_pmd_set(mm, addr, pmdp, pmd);
+> +	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
+> +}
+> +
+> +static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+> +			      pud_t *pudp, pud_t pud)
+> +{
+> +	page_table_check_pud_set(mm, addr, pudp, pud);
+> +	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
+> +}
+>  
+>  #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
+>  #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
+> @@ -643,6 +665,24 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+>  #define pud_present(pud)	pte_present(pud_pte(pud))
+>  #define pud_leaf(pud)		(pud_present(pud) && !pud_table(pud))
+>  #define pud_valid(pud)		pte_valid(pud_pte(pud))
+> +#define pud_user(pud)		pte_user(pud_pte(pud))
+> +
+> +#ifdef CONFIG_PAGE_TABLE_CHECK
+> +static inline bool pte_user_accessible_page(pte_t pte)
+> +{
+> +	return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
+> +}
+> +
+> +static inline bool pmd_user_accessible_page(pmd_t pmd)
+> +{
+> +	return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
+> +}
+> +
+> +static inline bool pud_user_accessible_page(pud_t pud)
+> +{
+> +	return pud_present(pud) && pud_user(pud);
+> +}
+> +#endif
+>  
+>  static inline void set_pud(pud_t *pudp, pud_t pud)
+>  {
+> @@ -876,7 +916,11 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
+>  static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>  				       unsigned long address, pte_t *ptep)
+>  {
+> -	return __pte(xchg_relaxed(&pte_val(*ptep), 0));
+> +	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
+> +
+> +	page_table_check_pte_clear(mm, address, pte);
+> +
+> +	return pte;
+>  }
+>  
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+> @@ -884,7 +928,11 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+>  					    unsigned long address, pmd_t *pmdp)
+>  {
+> -	return pte_pmd(ptep_get_and_clear(mm, address, (pte_t *)pmdp));
+> +	pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
+> +
+> +	page_table_check_pmd_clear(mm, address, pmd);
+> +
+> +	return pmd;
+>  }
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+>  
+> @@ -918,6 +966,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
+>  static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+>  		unsigned long address, pmd_t *pmdp, pmd_t pmd)
+>  {
+> +	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+>  	return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
+>  }
+>  #endif
 
 _______________________________________________
 linux-riscv mailing list
