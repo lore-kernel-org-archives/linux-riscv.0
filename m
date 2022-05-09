@@ -4,167 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E1AC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 14:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9626C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 14:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mb9D9vuLpnQ5OKGYUR4K5qzn6FuTcQaKnt8DE5MuztQ=; b=DgJ1Y1O+e069z6
-	h/2v8wInu23dldtwcu1rX8YGs64dHM7OiEy8fD7ECGZM8azwJCAA6Njm3StSd4T8I/ah+mlJ7Y0j9
-	LvBIQjwAVWWPdk0Q0R+88dC2AHFpkLjJzsZclugHL6nRzLF2erRREvuIcTAhho5RfQuOyIOVm4e2l
-	UVGiRxIGSXLfPw6S0RERvl/qNemDEP9m126YgmGdQOujQH7xeBa0fsIMH2dzE/fWsuVhC9VzyBNZV
-	v4FWg/f3QibzzyTVwCe9PhKz2+kphzHI4gGiCfxPR7ZD+NtMO28pixQ81wBCSlIFuHoczD/icU4ge
-	NF03p1Mlt8YAwCkcMB1Q==;
+	List-Owner; bh=07ZH07BMW4ObeT58PIEyqDyoV0ewYvl1DE8PBLmt+E8=; b=SlnSg656apbcmg
+	E+lrHz4/8fzKkAB/Ulr8IrP7S1H1CxhYmOpBLmTxl5z4iFt9TJM49BQoTlEnRUGNAaCxp49CnYOyG
+	aMMvn013A72YxETVveVkGOHy7HPhyjrUBxDH/HTvzRchjEloJCvu+R7SrKCudgXaIfnv4fjYJWY2f
+	Njf8freiIkxhvG00hzoUVAhb23DFFfL+yptPge/6gLTwSW9T2QaR1GnAL2KM+R11LyHNlew394zz8
+	Br24gGtNdWyz+yfsVM/G1+wk+WB3amNiAwLoz+Mw81JgZura+nfGYDuZdQqCbGHdR1zzsbyMGy1aP
+	nKETt0AaMPWwdIay5E4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1no4Xt-00Etdz-H6; Mon, 09 May 2022 14:39:33 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1no4iT-00Ewup-Cz; Mon, 09 May 2022 14:50:29 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1no4Xp-00EtcQ-LH
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 14:39:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1652107169; x=1683643169;
- h=from:to:cc:subject:date:message-id:references:
- in-reply-to:content-id:content-transfer-encoding: mime-version;
- bh=4whDr0HviR+JbcUG0MJrCbuDUtiVSl5deJxlepssbiY=;
- b=WzfKr1FJc+PEiugRo5yCwnbT2svGxaMv8/WV59EH7FQUAO/D9axdC2ne
- SDMmi49i00vPrNd8iM2wOaqNVPivOOKBbsjBsaozF+zt2pOhTZO0Ob9j+
- si/E5EOle3o0mpg7tfFPMr2HHY7pCtLa/RZUdRXj0nhx3r8dcR3MMYAuZ
- XmCeqFmY+wXnDzxgkGSudWbR5hy6xpcuDACSLUHcGAObAZQ0hsl9HPcmL
- zu1c/fBR5p4KIj2u/TX/awWSPdNvL5yzNZPIK+6P6KwlPwelMsRoZ8HQC
- 7VtpNKETP0KpZQ6GhFH3HbdUwNkOXIYoybuyk6etE7caSfO9OR8dq3Xkz Q==;
-X-IronPort-AV: E=Sophos;i="5.91,211,1647327600"; d="scan'208";a="158301372"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 09 May 2022 07:39:27 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Mon, 9 May 2022 07:39:24 -0700
-Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server
- (version=TLS1_2, 
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Mon, 9 May 2022 07:39:24 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ZlFp5v4qyvEAp5bCFbNM6E26EkzFyVz3yBW1U3omarGtDqx4SW5LkCL7lT8RguoUe5C3Kcsb0PEUDwp557ENceKrd+nbFmJPiekJEEMiwmP1bNMi2kvwIbDdQXJM6pBXieqcbfrgH/n/D85VIq9QY9bYTBDR2rHEFgHJ/Bg32TKaD4zKy2DThvOaHB7L2xq60pOibquepsCbfIv1eEH8HpONbYg14Hf4FE60HX6ChPPuIEraoTxXB8WFg81pQhTmUnSYZ3FkHyLssrywLj5oJ1u5D01c5yil9qK41tzlaIR139wJc2BGboMWwSnZuzFLGITxIIvLjEmd6PayfOY4aQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4whDr0HviR+JbcUG0MJrCbuDUtiVSl5deJxlepssbiY=;
- b=JVMRBKxilF810eYlusUg1g3eKcIcsmxujUWd3zKbqkAR/MHFqgywsqLikihc3/cgRSQ5QQGKM91Wn5pdSyEjD8Z0rCzokTWuA7xkuNncKJfEx1pqc7s5CPTHisdgzWvF7e+4rNr0/WXk7HwdqrYkgrKTg1JN/YH8xQ81jVWjicz/U326JJeiHnKn0GaSaIC9o+/oRv/GNFyKGMTz2uWHTi3bzbk4V9y1MHXwZ/Bpr5YbMYW4UJ9y8Y8gXySiOb2E8qHHw+qRyLNWVgmfAlsRT42gjA64Z6nNuvm/H8/NBh2CZeoGlZoFKAnqUQINmEwGMRxX4njflA+cAhVgAR4yxQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4whDr0HviR+JbcUG0MJrCbuDUtiVSl5deJxlepssbiY=;
- b=AxTu/nFfM0TjVhvSBNRKYxWOGt11DyYgDhzLgnXj6RHdfZV68FNw6kk6HRLHMWteF6hLk/cd/48QlFgi3mk7aYzJ/DAFk+Pdhjn/MuP8/VlGPXZTNVTFB3I14OAgAru+dFNEcbdUDdCw7e8h+zjNAkt459YEXVFIlR4eggEZhXM=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:95::7)
- by BYAPR11MB2583.namprd11.prod.outlook.com (2603:10b6:a02:c6::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5227.20; Mon, 9 May
- 2022 14:39:13 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::fcd4:8f8a:f0e9:8b18]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::fcd4:8f8a:f0e9:8b18%9]) with mapi id 15.20.5206.025; Mon, 9 May 2022
- 14:39:12 +0000
-From: <Conor.Dooley@microchip.com>
-To: <hch@lst.de>
-CC: <sfr@canb.auug.org.au>, <linux-next@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: linux-next: Tree for May 3
-Thread-Topic: linux-next: Tree for May 3
-Thread-Index: AQHYX5FrH/BqiZa6/06OwkWdFdBwha0Wk2YAgAAKyQCAAAevAA==
-Date: Mon, 9 May 2022 14:39:12 +0000
-Message-ID: <dd946220-eaf6-773a-06b4-307cda466c9c@microchip.com>
-References: <20220503172926.08215c77@canb.auug.org.au>
- <3f94c9a8-c927-5cc0-7d67-4b21c3d9dbaf@microchip.com>
- <9a424be9-380f-f99c-4126-25a00eba0271@microchip.com>
- <20220509141122.GA14555@lst.de>
-In-Reply-To: <20220509141122.GA14555@lst.de>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 4bf1b162-d1fb-4eff-5ca7-08da31c9af73
-x-ms-traffictypediagnostic: BYAPR11MB2583:EE_
-x-microsoft-antispam-prvs: <BYAPR11MB25837C25103ACC45F14EC93298C69@BYAPR11MB2583.namprd11.prod.outlook.com>
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: B5uJZIg/tjJ458StAGW3xPaJeRKGsR/zs/qxdSP4SNzRidy3gSllBHKM4XzU2Ya32gMUhCz6OQwn4tNPlhLzm6TzgoQX0eT4vQQTTfSI5vwmnDgvlCOh1xobmsTitBxaiCSR58TZRWZcME2d4AyUY3meFYT9fMOICLnFZM0MKGilFbLQt5awcrsBTGf3IrAdFCfCjx/IFWZ0hO1K4teDwN8aDVn9dvwaatr+KGDOyoDdsjGEoI3+bG0b/NxpzTNMFOA7SDuo2FUMBiB8MDO4GN36cofKs1EMud/2ZpeZTEIlx6dVmjac6iMfwFIjXZmCxQlhLKpyuJNrBi0t2OPTFL3ig1/DX6saHcMbGSs6v6b2wjEB9JzvjvDpJl853v9WhF2llpQV1C9IDp57exEjCFAx317oD2INTFsO/7PY8gxm7XboNh9UyQCEsnoHchMNvai5Scc9zrwOcRnkwjdEAsBYj9uSdGRmKKf2Dh2qTGTAIQl/lBGiIfr3EymFPUPrdW4ZDaZAzPXIG0EVTY6VpHOHy61PsJiqB8pnrm+Idq7ggufpxbX7yRTtyUulsiFoVV7RK5CqVwCjiwiRpwtnoGJ0/RLoZQm500QZwSX3pDgpn2ku6ftB87OfN2/+PDh6MxBIkNLF5oW7is1Q8i76W+vcRQjfSuGY0BU/R4BERjmeQf5p4RzH5/AP5jzevHhJc8PuPRzutEQfNbM6o5P/5vygqsdn9SxaLifaZZS1UP5IgzblF3V0DeOMjI+ZVMDWoSjodDWaO++7C9Fb4pfBXw==
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:CO1PR11MB5154.namprd11.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(366004)(86362001)(186003)(6512007)(31696002)(5660300002)(38100700002)(2616005)(26005)(8936002)(122000001)(83380400001)(64756008)(66946007)(8676002)(38070700005)(66476007)(66446008)(66556008)(2906002)(76116006)(91956017)(4326008)(6486002)(6506007)(71200400001)(31686004)(6916009)(508600001)(54906003)(36756003)(53546011)(316002)(43740500002)(45980500001);
- DIR:OUT; SFP:1101; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NlQ5R3VmYWdFMFBZY0dVZXQ5L1RoL2N0QVQyc2pzZDhVMU1HYkV4MjVJSEJV?=
- =?utf-8?B?MnIweHBWZnZmeS9TQ0ROS0RIZ0dOTHBEZEpjZVJoSVpka2ZTcFlOTU1sYnAx?=
- =?utf-8?B?K0dJSEwyRzZ4YXZzRzQzZm85ckRmSHNNbXZZWEtWa1BHajRGdmRKR2RFZ2VT?=
- =?utf-8?B?cXFEZEdhbUIzU1ZWVDliMVNwVVU2ZHRGVWppYWhPRzYrUFlxTWhiOVZxV2c2?=
- =?utf-8?B?ajdIcXhkL0R1eDRBalIzem1WdGUwNytydDU4MWttK2hVTkFXSUZKZVllZzhJ?=
- =?utf-8?B?RDc4YzUrbmU3eldxTUlTSS9jMVJwSzJpeE1WdW5NMUJkZmlxVFNTUDduV2tC?=
- =?utf-8?B?N1Q4aTdPcFlzME1RcHB2bnMyYlpONFlIdVlmZFhjUElqNFhKdElKRjllcHdE?=
- =?utf-8?B?TjR1R0hKUE9sbEU5cnF4ekhCcEF3dytQRi9wWTZKN2tVRVpBSlNxbU93UVo1?=
- =?utf-8?B?TnVwaG94R0gvYzZ5QnNpQnhWWTNRSFBPbDh0WXUzcTg2b1Vlekw5bEdYd3la?=
- =?utf-8?B?VlJqdXg1QWtVYnlFQlBXSDZEU1RhNksyWVBqdCtyWmdCUytab1J4VmhxTzQx?=
- =?utf-8?B?Y1V2MnB6WXpaTndhUmZBVG5ENGRPVlZVaFNHTUJvaTF1WmFTS1pzNVhxSUts?=
- =?utf-8?B?QnBHOSsrM2o5TFhyYTNVdGh3Q2hjSXFRNmpkN3VWZmhvNHl2OU1XemlqVnVP?=
- =?utf-8?B?U1p2K2RoRitGVG5lRkFYV3NRTWgzbkhzUmVxajZ3WjM0MGJaYkZFU3UxU2Y5?=
- =?utf-8?B?RlFZN1JVN1JEZC9KQWFjWnY1Z1dMamorU2FhTWNGSVNDUXJGNWs4bTVQME4y?=
- =?utf-8?B?M2V6T0hncEI5VDErMmpGMUNFVzhNWk1ENUh4cjlZbVJqUWQ4Vm9UdHJWWW83?=
- =?utf-8?B?WlR0UW56SUpzN0RxS0RWZGk5cWp6eWh4VjJtaVNtdGJNMURxZUhGbDEwSlBt?=
- =?utf-8?B?ZGdhQXFHSkxHdUphWkVwbFJhQ25Ec01uUlVuaFgzUXlmOGlhSzlMdmxDRE1D?=
- =?utf-8?B?RUxNT29LUGtsVHVMMk41TTZtN1RERElMQ2g0bHBMVW5uMGtWMEVwNHF1eFBX?=
- =?utf-8?B?Q2NvRVVCRmlGSkFsczFKeUFhcDF2dXN2OElJbGdKN3BETGpLS1NOMkFaUEE3?=
- =?utf-8?B?YVZJcHFFdGpMaW9aNnkyb2tsQmVCeGFBUTlENDJGbmRCVkh1d3dFMzZBdE9o?=
- =?utf-8?B?UkxreDl1M2h1aDJudXJqS2wwT2JOUHBUeElKRDN2TWpqWG51Q0tlZW1QWjVz?=
- =?utf-8?B?RWt3ZEdTbkVhVHhBa0UyRTh5S1VKUkxYbEo5YmV6M3J1Tit0U2FWMkFmMEps?=
- =?utf-8?B?NFVNSE5STGpsWXlPSnpHcTg4OTdhMlROT3RtemR6aTVBSEhzQkh4VWc5SW5k?=
- =?utf-8?B?UklDaDlQSmZMdDY5MnJteS9VdURReEZSVzZmcml2cXdOdnNIRWdSb2pkV0pQ?=
- =?utf-8?B?UTA5QXpOenlMbFloa2IvZ0JYZWpaK2F1WGNvTTdTRTRmbHU4b0V4b2FQQXVD?=
- =?utf-8?B?V3NIdm9LNUlvK0EyR2hOc3hqN0d4dURtcXpNQURYVTRiT0dXTFJvVFJCVEdK?=
- =?utf-8?B?OVlNNkVYUzl6QXd1MURTWTdMN21TNE9wSU1lVmV5Ym40SnhFek85U0d3bFhF?=
- =?utf-8?B?UlNHTy9nQ0tUUHB2R3Q2eTY5bnk5eCs3NGh4ekFJVW0wVEY3YlJucE1nQW1y?=
- =?utf-8?B?a0J0cmxwaDVFQUNLOXBNOXpPT0lEVThENkViL1BEOG1jMGp5enBQOVNMOEV0?=
- =?utf-8?B?ZllQVS9MbitUbzJsUk9qNWZaOHVrMFZUNUtxK1FrMTE5T0lFMDVqMXNWcmFn?=
- =?utf-8?B?OWhoVk5YQktUUDBRakJCWDcvR3lTWStzRlYzM3JGSkpwSUt5eUVxNVpTWGxT?=
- =?utf-8?B?cVBEVklML0p4SkZvNGQ2dzUvVjlqRUtubkJpaSsrb25OMEc4RTNmMkVUZG5W?=
- =?utf-8?B?QjNYaTZHTXZTZlZTUzB0UExGM0xCd202Mm11ai9hM2hHVDVVWnNVNE9nZWdw?=
- =?utf-8?B?d0ZaU3BxNCtXLy9mN0ZXVlRwdFVxVVRoYmcrT0hjdzlNeXhRMFF2ZWNTd2N5?=
- =?utf-8?B?SHl6cXFQbFA0c2pJa0JKSENJcVFqVGtEVmlDd05aWHhsdUR4MHNDUHdNd3ZU?=
- =?utf-8?B?QnhzMDBWRFBXamxQZTlwL0Q3VXpnV09mSG5rcHZaUFFUeVlPZVZCVmZUNDd5?=
- =?utf-8?B?MlNmWEw4SjVUdkdKQ2ZuZmJXQ29uK011eG5hVEU2UitHWDRCQklXTzl0T0sr?=
- =?utf-8?B?V2pLUmE1bW8yWlFTR0lWbUdRZEhieTBaNVFwM1pvd29zL3VkYWEwZWttVDBZ?=
- =?utf-8?B?d2Z3Z3BuZlhlS25UbkVnYnppOGNHZmZ2c2liTmZvZFV5Y0g2RUtRRXRLaEhx?=
- =?utf-8?Q?EC9CWF4m76ibBdhU=3D?=
-Content-ID: <625D63939E74D84D9B160137FAA887A2@namprd11.prod.outlook.com>
+ id 1no4iQ-00Ewtf-1X
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 14:50:28 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 51EDBB815FC;
+ Mon,  9 May 2022 14:50:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2E39C385AE;
+ Mon,  9 May 2022 14:50:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1652107823;
+ bh=sCik9b2J8z4qKhC7dJTlulosPrFpWgmIs+sNCU2Kixw=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=tAj9LYXqpEYM8NiDXcNHzW0AR62LHQcbbEAxj5YCpL4eg6K8XSlxL+1anuLD87v73
+ kOe9o1bqboH7LlhEd71U1E27lKgIbYXUJ716EeFcPncydU31ClogvplwrwzwQsFvXT
+ Ju5B/VFO36/d5lAMn55OZwMn+JBlUa7ke1owR+fTof2FXv3/yBI3eh43N+4Xq/peRY
+ bTY1o4p85YSAmllg/l9sMTRd2EXGfb5RuVbFVO9pbxTSWbcLVyRtVSxuJTomJIlVwW
+ 7QhEDtBtjQ2KJgPSOPAEI3dyPV4yWBjQHqHOxzxqXFoZj7Brjx2rCg5gPF3PNJ9Jpv
+ aGDmrTLU6HYuQ==
+Date: Mon, 9 May 2022 22:41:47 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ kasan-dev@googlegroups.com
+Subject: Re: [PATCH v2 2/4] riscv: introduce unified static key mechanism for
+ CPU features
+Message-ID: <YnkoKxaPbrTnZPQv@xhacker>
+References: <20220508160749.984-1-jszhang@kernel.org>
+ <20220508160749.984-3-jszhang@kernel.org>
+ <CAK9=C2Xinc6Y9ue+3ZOvKOOgru7wvJNcEPLvO4aZGuQqETXi2w@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4bf1b162-d1fb-4eff-5ca7-08da31c9af73
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 May 2022 14:39:12.7482 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ltml/9Q8JiXp0uedwGyvD3STWfzzIgtP0T85m67s/l1ahOoBZvnECKD2V9LeYqhha5MK8wBEuCB/4pPx+4WxWt72YDb+azlosCOWpRlADdo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR11MB2583
+Content-Disposition: inline
+In-Reply-To: <CAK9=C2Xinc6Y9ue+3ZOvKOOgru7wvJNcEPLvO4aZGuQqETXi2w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220509_073929_800560_34A12890 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20220509_075026_467741_BEC1F55B 
+X-CRM114-Status: GOOD (  57.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,44 +84,407 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 09/05/2022 15:11, Christoph Hellwig wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+On Mon, May 09, 2022 at 09:17:10AM +0530, Anup Patel wrote:
+> On Sun, May 8, 2022 at 9:47 PM Jisheng Zhang <jszhang@kernel.org> wrote:
+> >
+> > Currently, riscv has several features why may not be supported on all
+> > riscv platforms, for example, FPU, SV48 and so on. To support unified
+> > kernel Image style, we need to check whether the feature is suportted
+> > or not. If the check sits at hot code path, then performance will be
+> > impacted a lot. static key can be used to solve the issue. In the past
+> > FPU support has been converted to use static key mechanism. I believe
+> > we will have similar cases in the future.
 > 
-> On Mon, May 09, 2022 at 01:33:07PM +0000, Conor.Dooley@microchip.com wrote:
->> @Christoph, I know /nothing/ about swiotlb, so if you have any
->> suggestions for debugging that you would like me to try, let me
->> know please.
+> It's not just FPU and Sv48. There are several others such as Svinval,
+> Vector, Svnapot, Svpbmt, and many many others.
 > 
-> Hi Conor,
+> Overall, I agree with the approach of using static key array but I
+> disagree with the semantics and the duplicate stuff being added.
 > 
-> sorry for dropping this on the flor.  I was at LSF/MM least week and
-> my plan to go through my backlog today didn't go to plan as I unepectedly
-> spent half the day at doctors appointments.
+> Please see more comments below ..
+> 
+> >
+> > Similar as arm64 does(in fact, some code is borrowed from arm64), this
+> > patch tries to add an unified mechanism to use static keys for all
+> > the cpu features by implementing an array of default-false static keys
+> > and enabling them when detected. The cpus_have_*_cap() check uses the
+> > static keys if riscv_const_caps_ready is finalized, otherwise the
+> > compiler generates the bitmap test.
+> 
+> First of all, we should stop calling this a feature (like ARM does). Rather,
+> we should call these as isa extensions ("isaext") to align with the RISC-V
+> priv spec and RISC-V profiles spec. For all the ISA optionalities which do
+> not have distinct extension name, the RISC-V profiles spec is assigning
+> names to all such optionalities.
 
-Ye, no worries. Such is life.
+Same as the reply a few minutes ago, the key problem here is do all
+CPU features belong to *ISA* extensions? For example, SV48, SV57 etc.
+I agree with Atish's comments here:
 
-> The commit looks like a somewhat unusual culprit for a boot failure,
-> so any chance you could do another manual verifiation pass where
-> you checkout 6424e31b1c05 and then the commit before it (i.e. as
-> git checkout 6424e31b1c05^) to make sure it really is this commits?
+"I think the cpu feature is a superset of the ISA extension.
+cpu feature != ISA extension"
 
-I reverted that commit & that was sufficient to boot again. I'll give
-that a go, but it might be tomorrow morning before I get there.
+https://lore.kernel.org/linux-riscv/CAHBxVyF65jC_wvxcD6bueqpCY8-Kbahu1yxsSoBmO1s15dGkSQ@mail.gmail.com/
 
-> Some of the commits around it just seems like more likely culprits to
-> me, so I'd like to really be 100% sure here.  In the meantime I'll
-> look through the patch.
+> 
+> Another issue with semantics is that this patch assumes all features are
+> enabled by default and we selectively disable it. This contrary to the
+> approach taken by existing arch/riscv/kernel/cpufeature.c which assumes
+> nothing is enabled by default and we selectively enable it.
 
-Sure, I can have a poke around the commits in that area some more.
+This is implementation related, can be modified in next version. From
+another side, assuming some feature enabled by default can result in
+trivial performance improvement for most platforms. For example, if
+most platforms are FPU capable, we'd better assume FPU enabled by default.
 
-> Also you don't happen to have earlycon support
-> on this plaform to see if there are any interesting messages on the
-> serial console?
+> 
+> >
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> >  arch/riscv/Makefile                 |  3 +
+> >  arch/riscv/include/asm/cpufeature.h | 94 +++++++++++++++++++++++++++++
+> >  arch/riscv/kernel/cpufeature.c      | 23 +++++++
+> >  arch/riscv/tools/Makefile           | 22 +++++++
+> >  arch/riscv/tools/cpucaps            |  5 ++
+> >  arch/riscv/tools/gen-cpucaps.awk    | 40 ++++++++++++
+> >  6 files changed, 187 insertions(+)
+> >  create mode 100644 arch/riscv/include/asm/cpufeature.h
+> >  create mode 100644 arch/riscv/tools/Makefile
+> >  create mode 100644 arch/riscv/tools/cpucaps
+> >  create mode 100755 arch/riscv/tools/gen-cpucaps.awk
+> >
+> > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> > index 7d81102cffd4..f4df67369d84 100644
+> > --- a/arch/riscv/Makefile
+> > +++ b/arch/riscv/Makefile
+> > @@ -154,3 +154,6 @@ PHONY += rv64_randconfig
+> >  rv64_randconfig:
+> >         $(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/riscv/configs/64-bit.config \
+> >                 -f $(srctree)/Makefile randconfig
+> > +
+> > +archprepare:
+> > +       $(Q)$(MAKE) $(build)=arch/riscv/tools kapi
+> > diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
+> > new file mode 100644
+> > index 000000000000..d80ddd2f3b49
+> > --- /dev/null
+> > +++ b/arch/riscv/include/asm/cpufeature.h
+> 
+> We don't need a separate header for this.
+> 
+> All this belongs to arch/riscv/include/asm/hwcap.h
+> 
+> > @@ -0,0 +1,94 @@
+> > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > +/*
+> > + * Copyright (C) 2014 Linaro Ltd. <ard.biesheuvel@linaro.org>
+> > + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
+> > + */
+> > +
+> > +#ifndef __ASM_CPUFEATURE_H
+> > +#define __ASM_CPUFEATURE_H
+> > +
+> > +#include <asm/cpucaps.h>
+> > +
+> > +#include <linux/bug.h>
+> > +#include <linux/jump_label.h>
+> > +#include <linux/kernel.h>
+> > +
+> > +extern DECLARE_BITMAP(cpu_hwcaps, RISCV_NCAPS);
+> 
+> This is a redundant bitmap. Please re-use "riscv_isa" bitmap for this
+> the ISA extensions.
+> 
+> > +extern struct static_key_false cpu_hwcap_keys[RISCV_NCAPS];
+> 
+> This should be called "riscv_isa_keys"
+> 
+> > +extern struct static_key_false riscv_const_caps_ready;
+> 
+> This should be called "riscv_isa_keys_ready".
+> 
+> > +
+> > +static __always_inline bool system_capabilities_finalized(void)
+> 
+> Another misaligned name. This should be called
+> "riscv_isa_keys_finalized()".
+> 
+> > +{
+> > +       return static_branch_likely(&riscv_const_caps_ready);
+> > +}
+> > +
+> > +/*
+> > + * Test for a capability with a runtime check.
+> > + *
+> > + * Before the capability is detected, this returns false.
+> > + */
+> > +static inline bool cpus_have_cap(unsigned int num)
+> > +{
+> > +       if (num >= RISCV_NCAPS)
+> > +               return false;
+> > +       return test_bit(num, cpu_hwcaps);
+> > +}
+> 
+> This should be called riscv_isa_have_extension() and it should
+> internally call "__riscv_isa_extension_available(NULL, num)".
+> 
+> > +
+> > +/*
+> > + * Test for a capability without a runtime check.
+> > + *
+> > + * Before capabilities are finalized, this returns false.
+> > + * After capabilities are finalized, this is patched to avoid a runtime check.
+> > + *
+> > + * @num must be a compile-time constant.
+> > + */
+> > +static __always_inline bool __cpus_have_const_cap(int num)
+> 
+> This should be named "__riscv_isa_have_const_extension()"
+> 
+> > +{
+> > +       if (num >= RISCV_NCAPS)
+> > +               return false;
+> > +       return static_branch_unlikely(&cpu_hwcap_keys[num]);
+> > +}
+> > +
+> > +/*
+> > + * Test for a capability without a runtime check.
+> > + *
+> > + * Before capabilities are finalized, this will BUG().
+> > + * After capabilities are finalized, this is patched to avoid a runtime check.
+> > + *
+> > + * @num must be a compile-time constant.
+> > + */
+> > +static __always_inline bool cpus_have_final_cap(int num)
+> 
+> This should be called "riscv_isa_have_final_extension()"
+> 
+> > +{
+> > +       if (system_capabilities_finalized())
+> > +               return __cpus_have_const_cap(num);
+> > +       else
+> > +               BUG();
+> > +}
+> > +
+> > +/*
+> > + * Test for a capability, possibly with a runtime check.
+> > + *
+> > + * Before capabilities are finalized, this behaves as cpus_have_cap().
+> > + * After capabilities are finalized, this is patched to avoid a runtime check.
+> > + *
+> > + * @num must be a compile-time constant.
+> > + */
+> > +static __always_inline bool cpus_have_const_cap(int num)
+> 
+> Same comment as above.
+> 
+> > +{
+> > +       if (system_capabilities_finalized())
+> > +               return __cpus_have_const_cap(num);
+> > +       else
+> > +               return cpus_have_cap(num);
+> > +}
+> > +
+> > +static inline void cpus_set_cap(unsigned int num)
+> 
+> Same comment as above.
+> 
+> > +{
+> > +       if (num >= RISCV_NCAPS) {
+> > +               pr_warn("Attempt to set an illegal CPU capability (%d >= %d)\n",
+> > +                       num, RISCV_NCAPS);
+> > +       } else {
+> > +               __set_bit(num, cpu_hwcaps);
+> > +       }
+> > +}
+> > +
+> > +#endif
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index 1b2d42d7f589..e6c72cad0c1c 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -9,6 +9,7 @@
+> >  #include <linux/bitmap.h>
+> >  #include <linux/ctype.h>
+> >  #include <linux/of.h>
+> > +#include <asm/cpufeature.h>
+> >  #include <asm/processor.h>
+> >  #include <asm/hwcap.h>
+> >  #include <asm/smp.h>
+> > @@ -25,6 +26,15 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+> >  __ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
+> >  #endif
+> >
+> > +DECLARE_BITMAP(cpu_hwcaps, RISCV_NCAPS);
+> > +EXPORT_SYMBOL(cpu_hwcaps);
+> 
+> Just like the previous comment. This is a redundant bitmap.
+> Please use "riscv_isa" bitmap for this purpose.
+> 
+> > +
+> > +DEFINE_STATIC_KEY_ARRAY_FALSE(cpu_hwcap_keys, RISCV_NCAPS);
+> > +EXPORT_SYMBOL(cpu_hwcap_keys);
+> > +
+> > +DEFINE_STATIC_KEY_FALSE(riscv_const_caps_ready);
+> > +EXPORT_SYMBOL(riscv_const_caps_ready);
+> 
+> Please see comments above.
+> 
+> > +
+> >  /**
+> >   * riscv_isa_extension_base() - Get base extension word
+> >   *
+> > @@ -62,6 +72,17 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
+> >  }
+> >  EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
+> >
+> > +static void __init enable_cpu_capabilities(void)
+> > +{
+> > +       int i;
+> > +
+> > +       for (i = 0; i < RISCV_NCAPS; i++) {
+> > +               if (!cpus_have_cap(i))
+> > +                       continue;
+> > +               static_branch_enable(&cpu_hwcap_keys[i]);
+> > +       }
+> > +}
+> > +
+> >  void __init riscv_fill_hwcap(void)
+> >  {
+> >         struct device_node *node;
+> > @@ -236,4 +257,6 @@ void __init riscv_fill_hwcap(void)
+> >         if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
+> >                 static_branch_enable(&cpu_hwcap_fpu);
+> >  #endif
+> > +       enable_cpu_capabilities();
+> > +       static_branch_enable(&riscv_const_caps_ready);
+> >  }
+> > diff --git a/arch/riscv/tools/Makefile b/arch/riscv/tools/Makefile
+> > new file mode 100644
+> > index 000000000000..932b4fe5c768
+> > --- /dev/null
+> > +++ b/arch/riscv/tools/Makefile
+> > @@ -0,0 +1,22 @@
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +
+> > +gen := arch/$(ARCH)/include/generated
+> > +kapi := $(gen)/asm
+> > +
+> > +kapi-hdrs-y := $(kapi)/cpucaps.h
+> > +
+> > +targets += $(addprefix ../../../,$(gen-y) $(kapi-hdrs-y))
+> > +
+> > +PHONY += kapi
+> > +
+> > +kapi:   $(kapi-hdrs-y) $(gen-y)
+> > +
+> > +# Create output directory if not already present
+> > +_dummy := $(shell [ -d '$(kapi)' ] || mkdir -p '$(kapi)')
+> > +
+> > +quiet_cmd_gen_cpucaps = GEN     $@
+> > +      cmd_gen_cpucaps = mkdir -p $(dir $@) && \
+> > +                     $(AWK) -f $(filter-out $(PHONY),$^) > $@
+> > +
+> > +$(kapi)/cpucaps.h: $(src)/gen-cpucaps.awk $(src)/cpucaps FORCE
+> > +       $(call if_changed,gen_cpucaps)
+> > diff --git a/arch/riscv/tools/cpucaps b/arch/riscv/tools/cpucaps
+> > new file mode 100644
+> > index 000000000000..cb1ff2747859
+> > --- /dev/null
+> > +++ b/arch/riscv/tools/cpucaps
+> > @@ -0,0 +1,5 @@
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +#
+> > +# Internal CPU capabilities constants, keep this list sorted
+> > +
+> > +HAS_NO_FPU
+> 
+> How can "No FPU" be a CPU capability ?
+> 
+> We have ISA extensions 'F' and 'D' which tells us whether an FPU is available
+> or not.
+> 
+> I think this file should be a table with two columns
+> "<lower_case_extension_name> <parsed_from_isa_string_yes_no>"
+> I this this file should look like this:
+> 
+> i yes
+> m yes
+> a yes
+> c yes
+> f yes
+> d yes
+> h yes
+> sv48 no
+> sv57 no
+> sstc yes
+> svinval yes
+> svpbmt yes
+> svnapot yes
+> sscofpmf yes
+> ...
+> 
+> > diff --git a/arch/riscv/tools/gen-cpucaps.awk b/arch/riscv/tools/gen-cpucaps.awk
+> > new file mode 100755
+> > index 000000000000..52a1e1b064ad
+> > --- /dev/null
+> > +++ b/arch/riscv/tools/gen-cpucaps.awk
+> > @@ -0,0 +1,40 @@
+> > +#!/bin/awk -f
+> > +# SPDX-License-Identifier: GPL-2.0
+> > +# gen-cpucaps.awk: riscv cpucaps header generator
+> > +#
+> > +# Usage: awk -f gen-cpucaps.awk cpucaps.txt
+> > +
+> > +# Log an error and terminate
+> > +function fatal(msg) {
+> > +       print "Error at line " NR ": " msg > "/dev/stderr"
+> > +       exit 1
+> > +}
+> > +
+> > +# skip blank lines and comment lines
+> > +/^$/ { next }
+> > +/^#/ { next }
+> > +
+> > +BEGIN {
+> > +       print "#ifndef __ASM_CPUCAPS_H"
+> > +       print "#define __ASM_CPUCAPS_H"
+> > +       print ""
+> > +       print "/* Generated file - do not edit */"
+> > +       cap_num = 0
+> > +       print ""
+> > +}
+> > +
+> > +/^[vA-Z0-9_]+$/ {
+> > +       printf("#define RISCV_%-30s\t%d\n", $0, cap_num++)
+> > +       next
+> > +}
+> > +
+> > +END {
+> > +       printf("#define RISCV_NCAPS\t\t\t\t%d\n", cap_num)
+> > +       print ""
+> > +       print "#endif /* __ASM_CPUCAPS_H */"
+> > +}
+> 
+> This script need to change refer capabilities as extensions.
+> 
+> For every extension, there should be two defines.
+> For e.g. "sstc" extension should have following defines
+> #define RISCV_ISA_EXT_sstc <#num>
+> #define RISCV_ISA_EXT_FROMSTR_sstc <1|0>
+> 
+> > +
+> > +# Any lines not handled by previous rules are unexpected
+> > +{
+> > +       fatal("unhandled statement")
+> > +}
+> > --
+> > 2.34.1
+> >
+> 
+> Regards,
+> Anup
 
-Aye, I should've done that in the beginning... I'll let you know.
-
-Thanks,
-Conor.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
