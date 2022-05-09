@@ -4,93 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A177BC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 03:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE72C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 03:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hAUp6exj+veG6C9e5YP2CEjxdDgRVJTtfChaeRxYvqQ=; b=ycxfB5VRPuhMnz
-	kDpY5s2sJMdFlLXPgAKiyNBMQyjv4qLlnUWj++RwzyN1JSLuyqxBFRi36U/1u+ZC31E8F59GJ8zmy
-	rmM4GHKVfeMepR2WT7BTKjhrrQZLjVpMDKFLqxakUJPF9fsBJqepg4eFpHsW0/nHf96BetuHF7HOW
-	3+8qghTYPDHe86vd3puPKPUZCtaQDHwp7pixZadAB9HSXMgNsoQJmTx2jGzaLzPO7heg4nYYSrz1c
-	v+99shYCDfTvBGFTn0RjKKNA7DGbT5aP1psMqKLdfRMTxXJa32b5yE95fyPTg+3axNBYs96gQO7eM
-	H3PW+LrZbTlslJz8m3YQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WXJyGeDJcBisirsDu5x2CWzrqYDh+QH9SnhMLIymXrs=; b=p+DMz6ZX5hS1Rz
+	x1wYQZkU3aYNFgAGVgzm0c+vkK3obGqeUvVksKJ4inrOUULKosOMpetCpfo0il/9nvk8+s3NTLz9b
+	zMQpYuDVvREuVINgV9/UGs7j2R6yWVg4p266WL3izs0EfSgBNkkf8xNkvSIn7ra4NONCmlqCnHw4q
+	LgNnP5rtqCyAq+VFMhvNFWSgofwJAYGDQ52Fs20BdohAt/lIDqpZjMW+e0VtDPxilwUM9kpEMDjWz
+	I6qit78TfiG0o0EN5WLFjn091dxWhJbGCVTVvxy0hEljhs0Y3XsImw/rA3xYWeWkpQkd/8ieBvmUl
+	lr/CeA1vfLMwYZ8NWr0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nnuKi-00CEU6-Tz; Mon, 09 May 2022 03:45:17 +0000
-Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+	id 1nnuMf-00CFff-2H; Mon, 09 May 2022 03:47:17 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nnuJE-00CDhG-Lt; Mon, 09 May 2022 03:43:46 +0000
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
- by mailout.nyi.internal (Postfix) with ESMTP id 9AD2E5C0115;
- Sun,  8 May 2022 23:43:41 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute2.internal (MEProxy); Sun, 08 May 2022 23:43:41 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
- cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
- :in-reply-to:message-id:mime-version:references:reply-to:sender
- :subject:subject:to:to; s=fm2; t=1652067821; x=1652154221; bh=/2
- 9rtCFFrhMq7Dm0L/1ahNgZdkKRCrzt5ZSJjaaJ7o4=; b=pml44wNydIpx6sIAHs
- QutFDoKw+jCtahf93JAI2UzQkHx8pxJc7ge66fT7SvrhOBQuwoAUZxyKQBl8btEh
- BYbQjjDUPPxoBF9g/0ACHSU9E+N4hu6Rf3M/qMKTRxV4TZSV5NR1W4xotiypXbQ1
- vnHI2cusAcXs+NhIMwqjYA/s1zduVRR/iBVQEIuDJrrFeh37QlHFCWEV+TnysPIr
- B9lD9Cj2IrUya1DeMf3CExgyB0XPwNX0PqodEFaNqxmXQTOoDK76fEVdjq3/XYBX
- OuWtT6yA42ILLi9KJ7Hi1iY1iUzzlbIPgaqt2nvRCjin/CI6dbFJT/UN5tyLgoU3
- rOTA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
- :from:from:in-reply-to:in-reply-to:message-id:mime-version
- :references:reply-to:sender:subject:subject:to:to:x-me-proxy
- :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
- 1652067821; x=1652154221; bh=/29rtCFFrhMq7Dm0L/1ahNgZdkKRCrzt5ZS
- JjaaJ7o4=; b=F5EJGKjhgjYiMng4/n8TtMnPjEZ1TLztMgYNwJXbI5qi3EJuwid
- jOx+ZNcXcgAHZWOWjXFYjQchpO7hxa79iDd2FruWGeXa6sqH8RqSLRrQ8MtOaxw1
- svD8YkLU4nK4ekOr5TVcodRSvRFslGq+EYwaS1R1hG7RWkFKGd/dZahEtV/XqVzQ
- YjOEtvbIvnuWW7snrLHz6GRCIddoYqsWTkoKs4lyIGdJS6cZgodpTI4t9LRdRsGj
- VtlpcQ5/+iRh1/NwdAOBi2qsTVvHyzy5KkRbDlM1oeYXfHu4gC2Wc5uyhpPM0syp
- szwrq6pNyQ7tGT2EeKmnvINAZGiHLx2iVFw==
-X-ME-Sender: <xms:7Y14YmEESqvVCuF8oy4RX1zWLGMohKBfRlUJKQLwSOyrbpunpt8JGw>
- <xme:7Y14YnUf1d1OArytOZnuh8qADLeWxttJrTT4dvWVErvP1Kr9u6qLGD5tvT59QKfX5
- JOb3U8SzANRZtzIpQ>
-X-ME-Received: <xmr:7Y14YgLbPVvm5Hvrjq6yxLQrCsGDsWsdZ0ztwYuEs_9UYHVNH9k7QVoi56g8PhJFO-GRM4Jh0Ct9wzStbIyYdUsmkfCTv84nO8KVKpRPiFxDQ9B9V0l6Gl3weszMfEcOuS1PVQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfeekgdejiecutefuodetggdotefrodftvf
- curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
- uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
- fjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgv
- lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
- frrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeehgfdu
- feeitdevteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
- hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:7Y14YgF41VKTEU3VBDJl3CzjTlMOgrzD0O5LMmMw7BiiNkIcjgLAVw>
- <xmx:7Y14YsXC5MnXadZNwC5VnGWWmTPLONt_9Fzmk0AorOGl-K-jgxdUaw>
- <xmx:7Y14YjOI5mHJUxlZwYRYk2Z5M8NiZcQ8-Ih_leB7ALFMLJbfNr7_Uw>
- <xmx:7Y14YtV8ggjvNp-j6HIIsp_QyYwo7xxyt4gI_TnXkhPqnzMs6YhWQQ>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 8 May 2022 23:43:40 -0400 (EDT)
-From: Samuel Holland <samuel@sholland.org>
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Samuel Holland <samuel@sholland.org>,
- Florian Fainelli <f.fainelli@gmail.com>, Guo Ren <guoren@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Mark Rutland <mark.rutland@arm.com>, Russell King <linux@armlinux.org.uk>,
- Wei Xu <xuwei5@hisilicon.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [PATCH 5/5] irqchip/sifive-plic: Separate the enable and mask
- operations
-Date: Sun,  8 May 2022 22:43:33 -0500
-Message-Id: <20220509034333.60017-6-samuel@sholland.org>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220509034333.60017-1-samuel@sholland.org>
-References: <20220509034333.60017-1-samuel@sholland.org>
+ id 1nnuMb-00CFc1-0h
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 03:47:15 +0000
+Received: from kwepemi500013.china.huawei.com (unknown [172.30.72.55])
+ by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4KxRqk1v62zGpgn;
+ Mon,  9 May 2022 11:44:18 +0800 (CST)
+Received: from M910t (10.110.54.157) by kwepemi500013.china.huawei.com
+ (7.221.188.120) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Mon, 9 May
+ 2022 11:47:04 +0800
+Date: Mon, 9 May 2022 11:46:58 +0800
+From: Changbin Du <changbin.du@huawei.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt
+ <rostedt@goodmis.org>
+CC: <changbin.du@huawei.com>, <linux-riscv@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>,
+ <llvm-dev@lists.llvm.org>, <llvm-bugs@lists.llvm.org>
+Subject: riscv: llvm-compiler: calling convention violation: temporary
+ register $t2 is used to pass the ninth function parameter
+Message-ID: <20220509034658.kzwh7ocn4ilo4aed@M910t>
 MIME-Version: 1.0
+Content-Disposition: inline
+X-Originating-IP: [10.110.54.157]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemi500013.china.huawei.com (7.221.188.120)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220508_204344_829279_A73F559B 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20220508_204713_442001_01FCF9D4 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,142 +68,160 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The PLIC has two per-IRQ checks before sending an IRQ to a hart context.
-First, it checks that the IRQ's priority is nonzero. Then, it checks
-that the enable bit is set for that combination of IRQ and context.
+Hello, folks,
 
-Currently, the PLIC driver sets both the priority value and the enable
-bit in its (un)mask operations. However, modifying the enable bit is
-problematic for two reasons:
-  1) The enable bits are packed, so changes are not atomic and require
-     taking a spinlock.
-  2) The following requirememnt from the PLIC spec, which explains the
-     racy (un)mask operations in plic_irq_eoi():
+Recently I encountered a kernel crash problem when using ftrace with 'perf ftrace'
+command on risc-v kernel built with llvm.
 
-       If the completion ID does not match an interrupt source
-       that is currently enabled for the target, the completion
-       is silently ignored.
+This crash only exists on llvm build, not reproducable with GCC. So I hope llvm
+guys can take a look :)
 
-Both of these problems are solved by using the priority value to mask
-IRQs. Each IRQ has a separate priority register, so writing the priority
-value is atomic. And since the enable bit remains set while an IRQ is
-masked, the EOI operation works normally. The enable bits are still used
-to control the IRQ's affinity.
+The llvm versions I have tried are llvm-13.0.0 and mainline (commit 102bc634cb
+("[runtime] Build compiler-rt with --unwindlib=none")).
 
-Signed-off-by: Samuel Holland <samuel@sholland.org>
----
+[  612.947887][  T496] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000001
+[  613.050789][  T496] Hardware name: riscv-virtio,qemu (DT)
+[  613.087976][  T496] epc : __find_rr_leaf+0x128/0x220
+[  613.107493][  T496]  ra : return_to_handler+0x22/0x24
+[  613.125322][  T496] epc : ffffffff80a1915a ra : ffffffff80009506 sp : ff20000011e43860
+[  613.150124][  T496]  gp : ffffffff81812f40 tp : ff6000008bb01580 t0 : ff600000806cf0f0
+[  613.173657][  T496]  t1 : 000000000001b29a t2 : 0000000000000001 s0 : ff20000011e43920
+[  613.187311][  T496]  s1 : ff600000848c2a00 a0 : 0000000000000002 a1 : 0000000000000002
+[  613.202731][  T496]  a2 : fffffffffffffffd a3 : ff6000009d287000 a4 : 00000000000002c0
+[  613.213723][  T496]  a5 : ff6000009d259b40 a6 : ffffffffffffff9c a7 : ffffffffffffffff
+[  613.226648][  T496]  s2 : 0000000000000001 s3 : ff20000011e439d8 s4 : ffffffff8160d140
+[  613.246571][  T496]  s5 : 0000000000000002 s6 : 0000000000000000 s7 : 0000000000000000
+[  613.264681][  T496]  s8 : 0000000000000064 s9 : 0000000000000000 s10: 0000000000400000
+[  613.277999][  T496]  s11: ff600000848c2aa8 t3 : 0000000000000290 t4 : 00000000004002c0
+[  613.303729][  T496]  t5 : 00000000ffffffff t6 : ff6000009d2872d0
+[  613.322145][  T496] status: 0000000200000120 badaddr: 0000000000000001 cause: 000000000000000d
+[  613.346228][  T496] [<ffffffff80a12526>] ip6_pol_route+0xb6/0x602
+[  613.365722][  T496] [<ffffffff80a1321a>] ip6_pol_route_output+0x2c/0x34
+[  613.386374][  T496] [<ffffffff80a1c028>] fib6_rule_lookup+0x36/0xa0
+[  613.401865][  T496] [<ffffffff80a131da>] ip6_route_output_flags_noref+0xd6/0xea
+[  613.412776][  T496] [<ffffffff80a13274>] ip6_route_output_flags+0x52/0xd4
+[  613.432013][  T496] [<ffffffff809ffb3a>] ip6_dst_lookup_tail+0x68/0x23a
+[  613.456198][  T496] [<ffffffff809ffec6>] ip6_sk_dst_lookup_flow+0x132/0x1cc
+[  613.513174][  T496] [<ffffffff80003cd8>] ret_from_syscall+0x0/0x2
+[  613.518973][  T496] [<ffffffff800094e4>] return_to_handler+0x0/0x24
+[  613.563961][  T496] Kernel panic - not syncing: Fatal exception
+[  613.572278][  T496] SMP: stopping secondary CPUs
+[  613.587449][  T496] ---[ end Kernel panic - not syncing: Fatal exception ]---
 
- drivers/irqchip/irq-sifive-plic.c | 53 +++++++++++++++++++------------
- 1 file changed, 32 insertions(+), 21 deletions(-)
+The crash happened when dereferencing the point 'mpri' at route.c:758.
 
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index bf7d5bee0c0c..53d266a571be 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -103,9 +103,7 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
- 				   struct irq_data *d, int enable)
- {
- 	int cpu;
--	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
- 
--	writel(enable, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
- 	for_each_cpu(cpu, mask) {
- 		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
- 
-@@ -113,16 +111,37 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
- 	}
- }
- 
--static void plic_irq_unmask(struct irq_data *d)
-+static void plic_irq_enable(struct irq_data *d)
- {
- 	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 1);
- }
- 
--static void plic_irq_mask(struct irq_data *d)
-+static void plic_irq_disable(struct irq_data *d)
- {
- 	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
- }
- 
-+static void plic_irq_unmask(struct irq_data *d)
-+{
-+	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
-+
-+	writel(1, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
-+}
-+
-+static void plic_irq_mask(struct irq_data *d)
-+{
-+	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
-+
-+	writel(0, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
-+}
-+
-+static void plic_irq_eoi(struct irq_data *d)
-+{
-+	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-+
-+	writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-+}
-+
- #ifdef CONFIG_SMP
- static int plic_set_affinity(struct irq_data *d,
- 			     const struct cpumask *mask_val, bool force)
-@@ -141,32 +160,21 @@ static int plic_set_affinity(struct irq_data *d,
- 	if (cpu >= nr_cpu_ids)
- 		return -EINVAL;
- 
--	plic_irq_mask(d);
-+	plic_irq_disable(d);
- 
- 	irq_data_update_effective_affinity(d, cpumask_of(cpu));
- 
--	if (!irqd_irq_masked(d))
--		plic_irq_unmask(d);
-+	if (!irqd_irq_disabled(d))
-+		plic_irq_enable(d);
- 
- 	return IRQ_SET_MASK_OK_DONE;
- }
- #endif
- 
--static void plic_irq_eoi(struct irq_data *d)
--{
--	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
--
--	if (irqd_irq_masked(d)) {
--		plic_irq_unmask(d);
--		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
--		plic_irq_mask(d);
--	} else {
--		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
--	}
--}
--
- static struct irq_chip plic_chip = {
- 	.name		= "SiFive PLIC",
-+	.irq_enable	= plic_irq_enable,
-+	.irq_disable	= plic_irq_disable,
- 	.irq_mask	= plic_irq_mask,
- 	.irq_unmask	= plic_irq_unmask,
- 	.irq_eoi	= plic_irq_eoi,
-@@ -372,8 +380,11 @@ static int __init plic_init(struct device_node *node,
- 			i * CONTEXT_ENABLE_SIZE;
- 		handler->priv = priv;
- done:
--		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
-+		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
- 			plic_toggle(handler, hwirq, 0);
-+			writel(1, priv->regs + PRIORITY_BASE +
-+				  hwirq * PRIORITY_PER_ID);
-+		}
- 		nr_handlers++;
- 	}
- 
+(gdb) l *__find_rr_leaf+0x128
+0xffffffff809da9c4 is in __find_rr_leaf (net/ipv6/route.c:758).
+753
+754             if (strict & RT6_LOOKUP_F_REACHABLE)
+755                     rt6_probe(nh);
+756
+757             /* note that m can be RT6_NUD_FAIL_PROBE at this point */
+758             if (m > *mpri) {
+759                     *do_rr = match_do_rr;
+760                     *mpri = m;
+761                     rc = true;
+762             }
+
+Adding some logs, I found the problem. The ninth passed parameter of function
+__find_rr_leaf() which is the address of local variable 'mpri', is changed to
+value '0x1' when inside the function __find_rr_leaf.
+Here is the code snippet and full link
+https://github.com/torvalds/linux/blob/9cb7c013420f98fa6fd12fc6a5dc055170c108db/net/ipv6/route.c.
+
+static void find_rr_leaf(struct fib6_node *fn, struct fib6_info *leaf,
+			 struct fib6_info *rr_head, int oif, int strict,
+			 bool *do_rr, struct fib6_result *res)
+{
+	u32 metric = rr_head->fib6_metric;
+	struct fib6_info *cont = NULL;
+	int mpri = -1;
+
+	__find_rr_leaf(rr_head, NULL, metric, res, &cont,
+		       oif, strict, do_rr, &mpri);
+	...
+}
+
+Then debugging with gdb, I found this probably is a compiler bug. We can see the
+local function __find_rr_leaf() is not optimized out and the compiler generates
+a local symbol for it. The find_rr_leaf() (inlined by fib6_table_lookup) invokes
+this function with 'jalr' instruction.
+
+(gdb) disassemble fib6_table_lookup
+Dump of assembler code for function fib6_table_lookup:
+   [snip]
+   0xffffffff80a1240e <+412>:   beqz    a1,0xffffffff80a12436 <fib6_table_lookup+452>
+   0xffffffff80a12410 <+414>:   slli    a1,s9,0x20
+   0xffffffff80a12414 <+418>:   srli    a1,a1,0x20
+   0xffffffff80a12416 <+420>:   sext.w  a2,a1
+   0xffffffff80a1241a <+424>:   addi    a7,s0,-125
+   0xffffffff80a1241e <+428>:   addi    t2,s0,-124
+   0xffffffff80a12422 <+432>:   li      a1,0
+   0xffffffff80a12424 <+434>:   mv      a3,s10
+   0xffffffff80a12426 <+436>:   li      a4,0
+   0xffffffff80a12428 <+438>:   ld      a5,-152(s0)
+   0xffffffff80a1242c <+442>:   mv      a6,s8
+   0xffffffff80a1242e <+444>:   auipc   ra,0x7
+   0xffffffff80a12432 <+448>:   jalr    -686(ra) # 0xffffffff80a19180 <__find_rr_leaf>
+   [snip]
+
+And at line route.c:758, the value of point 'mpri' is stored in temporary register
+$t2 and $s3 (copied from $t2).
+
+(gdb) info scope __find_rr_leaf
+[snip]
+Symbol mpri is multi-location:
+  Base address 0xffffffff80a10564  Range 0xffffffff80a19190-0xffffffff80a191ae: a variable in $t2
+  Range 0xffffffff80a191c0-0xffffffff80a191d6: a variable in $s3
+  Range 0xffffffff80a19200-0xffffffff80a19208: a variable in $s3
+  Range 0xffffffff80a1921e-0xffffffff80a192fe: a variable in $s3
+  Range 0xffffffff80a1930a-0xffffffff80a19356: a variable in $s3
+
+Let's see when register $t2 is corrupted with single-step mode. Obviously, register
+$t2 is changed by mcount function ftrace_caller(). This is why the bug happens
+to ftrace.
+
+Dump of assembler code for function __find_rr_leaf:
+   0xffffffff80a19180 <+0>:     sd      ra,-8(sp)   #  $t2 = 0xff200000120db7b4
+   0xffffffff80a19184 <+4>:     auipc   ra,0xff5f1
+   0xffffffff80a19188 <+8>:     jalr    -1744(ra) # 0xffffffff80009ab4 <ftrace_caller> #  $t2 = 0xff200000120db7b4
+=> 0xffffffff80a1918c <+12>:    ld      ra,-8(sp)    #  $t2 = 0x1, bug, $t2 is corrupted!!
+   0xffffffff80a19190 <+16>:    addi    sp,sp,-176
+   [snip]
+
+So now we can come to a conclusion. The generated local function __find_rr_leaf()
+violates the risc-v calling convention and leads to the panic. It should use stack
+but *not* temporary register $t2 to pass the ninth parameter! It's okay if the
+callsite can take care of local symbol callees, but the Function Instrumentation
+features should be considerated carefully.
+
+For comparison, here is the result from gcc (9.2.0):
+(gdb) info scope __find_rr_leaf
+[snip]
+Symbol mpri is a complex DWARF expression:
+     0: DW_OP_fbreg 0, length 8.
+
+I also built a simple test function with 9 parameters by clang and same cflags,
+but cannot reproduce it. Maybe it is conditional?
+
+Simple test code:
+__attribute__ ((noinline))
+void test_func(int *a, int *b, int *c, int *d, int *e, int *f, int *g, int *h, int *i)
+{
+        printf("__find_rr_leaf: %d\n", *i);
+}
+
+int main(void)
+{
+        int a,b,c,d,e,f,g,h,i = 100;
+
+        test_func(&a,&b,&c,&d,&e,&f,&g,&h,&i);
+        return 0;
+}
+
 -- 
-2.35.1
-
+Cheers,
+Changbin Du
 
 _______________________________________________
 linux-riscv mailing list
