@@ -4,78 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B11EC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 05:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32DB7C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 06:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j/bwxgurwvvCTUVrqFghvCPJMPu6OIb0ybaYAajJU18=; b=0uMxt5I6M/wNAk
-	kXpYgbaGvGD9vzbjP33895ti50kYygVc7AQtr/MisOZdQnOCtoQsSXKTdJ+Yn1I2PAXVlS6d0hqHV
-	2f2izC16p4hRPHA5FlPMRqmfwf7L3BilMe44faeuqhIkdtPrGyXvp0SgKL1TXVYKqdv516vsk5arA
-	mNAmr5sEqPL4oYJa13HI0/UrZXMdN+xtXU7odnpFcw4+peRGEidvOOW6HCxwh95HRCv1N/9Jw5KNB
-	lMuC67MVp/f1NEmjgUhwSq1fdwxL4dvtX9uJ4AefAFTIJ7S4X8CCT9q7TFslufkg3RwiB7XP8ntuG
-	ciHx8OwiHNxSsvOQZJ+g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gxgntW9mECk5UMYVDfPPFATCThwIPg6w6h0WwonCDrs=; b=RWSA0o7kbEFJnm
+	Hcmd7/t2rXub0U7o829c+X79klAhdkkSukTOpT5ixN5r/q7GNJtfc1slS2TqJ8MPLBdhHt4jG2VXe
+	y1094YQcEwfHE5NdD1LjHfFqN8SB/YQwl6mr0zqD7UaQHNnrsG8BE/r95mc/jLHK0XlpBEaI24vzy
+	TBrymh+qX6zYPa7geXKY7EuzHbg4qwGADx6rVpx/8nFnHmA6QyfOWrMj//KOcGRNTBIEcm0W3b6B/
+	Oc5cQPCdZydGH15+f5qxQ8mJbZePlo9DRdrpgq2PwkM4W8knsDnlRkh9/MRwd6pID0IJ+OKz6c9gE
+	sahOFH1leFqNPezBqwSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nnwFO-00CZuH-4X; Mon, 09 May 2022 05:47:54 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1nnwYL-00CcAS-PW; Mon, 09 May 2022 06:07:29 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nnwFL-00CZrv-Cl
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 05:47:52 +0000
-Received: by mail-wm1-x335.google.com with SMTP id
- k126-20020a1ca184000000b003943fd07180so7611747wme.3
- for <linux-riscv@lists.infradead.org>; Sun, 08 May 2022 22:47:50 -0700 (PDT)
+ id 1nnwYI-00Cc9i-Jp
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 06:07:27 +0000
+Received: by mail-pg1-x534.google.com with SMTP id a191so11181933pge.2
+ for <linux-riscv@lists.infradead.org>; Sun, 08 May 2022 23:07:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=lhjB+0fLqvVfgEW7nyDfKQG6j1ynFgP4NXUc8d2xwM0=;
- b=KRBKPxV+qsGatSWPNAc3af3H5ujwxrs+Gr4pVdA3sBnGGPhWhQGPoUsRMVfVwjGa8j
- BRwOOMwqH/BzQZnX9jaFYzJ3OibUiMA4SHKqxXI6lcf5NuQPNtjEYGayAZjmfEuE9NU/
- r76isaumn9lMtqZGvlFDl4ajlk0FhNpASTSF9v4cwSVq37OFP40NTs1AP8L97gsXfb/O
- Lu4uvNTjfW40FgGojYmF/GKAMnkaoGJxLi6h4uLsDIqN9X4AjULKqsA/mpibHQcF/WaG
- VZKXAjCy8fkbeYEFVbywdIE7WtOOLDH1Q1YuMO2sv6JUhiTPI8WmiCs+mJJseczfJUAK
- LYfw==
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=dNam4NRqULz5ngQJv/Hr3VjArBiTEWxDny0ZL2+Io9U=;
+ b=dPq3yY7EG5ylSK+rjMmRLKT+ixv0ENM3fCJuMlr93a3g3nsC3YidXBc7z1I53YnSt+
+ G064wONruJW7U1oAvryn/yC/EH1CMKZAz8wPzoWibJ3aLmJ7LvjDMxXUpDb3c2XmRJOH
+ A1zjn1n7BpVaeaiw7tApKppo7kZg8ythmCIJAP6je7afYD04nOqUbKMkKdfGrafqpald
+ N+QaLI77ovp24bmcPODSy05aMrLtXd4smLr1AR5tfcVVWZg90iW3q5ROCMZKIfk1Io02
+ hMvQdzr/JVJOHp2282+DZnEt+ldYKcWp5sDjZdj+n7oTp220vEB0MwDwCuMgStHr66VH
+ Weow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=lhjB+0fLqvVfgEW7nyDfKQG6j1ynFgP4NXUc8d2xwM0=;
- b=pxrTmGhyLFoqiCcpRQt3L0XkBeCZsAupbS4GfBhEUnoTVU21D5i3tdCqZg3Z3oiAEW
- UpyrTbS3WJy4lsEjwjclqPJuvqun9H8hpzw5HT5HsVeacWA+uPnLCitnmiDkRUXY5asH
- ucUnWJVd22jFjM1G8JDS2Ac6EnOs2ZIv7/cAVnNjwIF6+57/oIKN1D8RWhudWXhfRaDr
- P0hRN7fIaMneAd8fn/R3cO53hGaIyY+Dgo26PD69l11Q4P0wOzny21mqtv8p3BZ3ku7v
- 9pZsbjMoMB9ItYkd2eE/DsnJjQw/fxpbKr4Vq8vtzo4vBHur5iUFLUZ1b3U/xtbP7k5u
- VjYw==
-X-Gm-Message-State: AOAM532hBo34ndKcBn3jXb7ICg+I8jJHILd0pWQyp/KiZjbzbFofcE/i
- 4dJXKk8bF9UvKECp+Mj99q/d75me+/RlBAD3DDifXQ==
-X-Google-Smtp-Source: ABdhPJy6eKa8jOFSpWN4A5O+QMgITHEAyUrGpHyC5wDtjCGOldB0UCq0bDht4iqGngOrVCjXcZWNcYVLIZBj+rjLbNY=
-X-Received: by 2002:a05:600c:1d08:b0:394:54ee:c994 with SMTP id
- l8-20020a05600c1d0800b0039454eec994mr14116539wms.137.1652075269206; Sun, 08
- May 2022 22:47:49 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220506094512.116729-1-jiapeng.chong@linux.alibaba.com>
- <CAAhSdy15CE5ZUROH-mOwhpR0AuwsK8h+8W-Kd0jxwsTixpQOQg@mail.gmail.com>
- <918affc0a0a91dab08647696ed6587021264f25f.camel@perches.com>
-In-Reply-To: <918affc0a0a91dab08647696ed6587021264f25f.camel@perches.com>
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=dNam4NRqULz5ngQJv/Hr3VjArBiTEWxDny0ZL2+Io9U=;
+ b=T1c7Io5MDdfUP20KBE4K1vU1+1edSfelnGdlvmyzI5Ue3nk2if7STjgppoVCjsfCgZ
+ dUsRFm3oqqRB4flEaSLqBAOB9yX9lJ7s6OrhRIQXywMMYYFXXoUCi/AA4Avmz4O+/7Am
+ aUyW/wCYzLmAH5/ewY/gqD9yXKlXVM9dXloHAQnYz2Nlo+9it7A9DeiV3PahE96eSHbH
+ 8oxUzU4UgO4Zf0JlkOyZJ46r7SQvAqSpNNCsbSzsJ03mq2uzzZOW2x4df9kccIhJn7Ev
+ YYSdvtLhIx5aPTTaJ2R6Q7jxarUhUyi6DOCeU1HlLtsXznQ4olQiPQ75/QaXixGILdS4
+ lDuA==
+X-Gm-Message-State: AOAM531aXsNPI4uki3tcraRT+0krX04AOdGAvav7vfdL+HPu5G2GkoyN
+ KhPrqbEJ5aP+51Vk/9vdfipy1Q==
+X-Google-Smtp-Source: ABdhPJwhPZEA9MJp5FqlgDa6QmKne+WzgM7zzcJh6yNP8eD7tE4O+NrmEyx8KPG1/ObV9NbCTfC5Tw==
+X-Received: by 2002:a63:165f:0:b0:3c6:ab6b:a6d2 with SMTP id
+ 31-20020a63165f000000b003c6ab6ba6d2mr4338868pgw.610.1652076443185; 
+ Sun, 08 May 2022 23:07:23 -0700 (PDT)
+Received: from anup-ubuntu64-vm.. ([171.76.80.217])
+ by smtp.gmail.com with ESMTPSA id
+ g6-20020a170902d5c600b0015e8d4eb291sm6126748plh.219.2022.05.08.23.07.18
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sun, 08 May 2022 23:07:22 -0700 (PDT)
 From: Anup Patel <anup@brainfault.org>
-Date: Mon, 9 May 2022 11:17:37 +0530
-Message-ID: <CAAhSdy1iVV1qfpaYcr+XuFjMYz+Df4vCdcJGLOYK+MQO_y+PSA@mail.gmail.com>
-Subject: Re: [PATCH] KVM: selftests: riscv: Remove unneeded semicolon
-To: Joe Perches <joe@perches.com>
-Cc: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>,
- Paolo Bonzini <pbonzini@redhat.com>, 
- Shuah Khan <shuah@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- KVM General <kvm@vger.kernel.org>, linux-kselftest@vger.kernel.org, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Abaci Robot <abaci@linux.alibaba.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Alistair Francis <Alistair.Francis@wdc.com>,
+ Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH] MAINTAINERS: Update KVM RISC-V entry to cover selftests
+ support
+Date: Mon,  9 May 2022 11:36:34 +0530
+Message-Id: <20220509060634.134068-1-anup@brainfault.org>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220508_224751_464944_43D4DDF9 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20220508_230726_677375_576D9BB6 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +95,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 9, 2022 at 11:06 AM Joe Perches <joe@perches.com> wrote:
->
-> On Mon, 2022-05-09 at 10:37 +0530, Anup Patel wrote:
-> > On Fri, May 6, 2022 at 3:15 PM Jiapeng Chong
-> > <jiapeng.chong@linux.alibaba.com> wrote:
-> > >
-> > > Fix the following coccicheck warnings:
-> > >
-> > > ./tools/testing/selftests/kvm/lib/riscv/processor.c:353:3-4: Unneeded
-> > > semicolon.
-> > >
-> > > Reported-by: Abaci Robot <abaci@linux.alibaba.com>
-> > > Signed-off-by: Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-> >
-> > In future, please CC kvm-riscv@lists.infradead.org for KVM RISC-V related
-> > patches.
->
-> Perhaps add or update some MAINTAINERS entry as this list is not
-> currently specified by:
->
-> $ ./scripts/get_maintainer.pl -f tools/testing/selftests/kvm/lib/riscv/processor.c --nogit --nogit-fallback
-> Paolo Bonzini <pbonzini@redhat.com> (supporter:KERNEL VIRTUAL MACHINE (KVM))
-> Shuah Khan <shuah@kernel.org> (maintainer:KERNEL SELFTEST FRAMEWORK)
-> Paul Walmsley <paul.walmsley@sifive.com> (supporter:RISC-V ARCHITECTURE)
-> Palmer Dabbelt <palmer@dabbelt.com> (supporter:RISC-V ARCHITECTURE)
-> Albert Ou <aou@eecs.berkeley.edu> (supporter:RISC-V ARCHITECTURE)
-> kvm@vger.kernel.org (open list:KERNEL VIRTUAL MACHINE (KVM))
-> linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK)
-> linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
-> linux-kernel@vger.kernel.org (open list)
-> $
+We update KVM RISC-V maintainers entry to include appropriate KVM
+selftests directories so that RISC-V related KVM selftests patches
+are CC'ed to KVM RISC-V mailing list.
 
-Ahh, I see. I will certainly update the MAINTAINERS entry for
-KVM RISC-V selftests.
+Signed-off-by: Anup Patel <anup@brainfault.org>
+---
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Thanks,
-Anup
+diff --git a/MAINTAINERS b/MAINTAINERS
+index e8c52d0192a6..ee73a71c1500 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -10767,6 +10767,8 @@ T:	git git://github.com/kvm-riscv/linux.git
+ F:	arch/riscv/include/asm/kvm*
+ F:	arch/riscv/include/uapi/asm/kvm*
+ F:	arch/riscv/kvm/
++F:	tools/testing/selftests/kvm/*/riscv/
++F:	tools/testing/selftests/kvm/riscv/
+ 
+ KERNEL VIRTUAL MACHINE for s390 (KVM/s390)
+ M:	Christian Borntraeger <borntraeger@linux.ibm.com>
+-- 
+2.34.1
 
->
->
 
 _______________________________________________
 linux-riscv mailing list
