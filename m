@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA69CC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 23:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B09EBC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 23:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ihGP8e06mi8Fd1bHhWz6CNfkTx9pbkq1l6FCW8DkzaY=; b=Ks3GW6avX8VgSY
-	Yu7EEkEuRExmykh5+Cw7p59d9XdPop6FD0ckTAC8ipUq9vDjD8w/6dbbksrbz4qrflxqZI/IB0Q1D
-	jGDKRyeqNMmX+mdYE5AQ+Sj/5UfB9PhOHUsmlmd2ihBPoEfZsBw6YloX4vSpAEOfpflueSzP1ZyDM
-	ZhUCjHDyomP4VBd9767wVV1DzGPFgna0bkAGUQheVG50EhTdXNBQflOn+CzFF3grLNU0Sjjt16b/h
-	hCXUAnsq5CaXGnU/Q89EVf4yPLtLogUew2gmw/BYKDVTagMHfjslQmn0FfIOJc551hiArkzb1hphw
-	5c3EsGX5PbkAgG+FA4Qw==;
+	List-Owner; bh=m8U50fJ+10OOX/03rRTFcYuRiiAOC00WOse0wZKVlKk=; b=ES9hqr2QEG0opg
+	XsVMSj9rOvtfFtT1H/fdbXiYV1zyJ9QHc6ewlaq8qEqHZwgaGrq+m6yFgLpn3RgTrIoTiJ6EXYnnq
+	WEKDfIlrhpxxmBYUocjocwfrd2anEgPPFKVy1IFjLiFa8dNwoodXEwlAg0Z6iToG6L6EXG7TelVrU
+	U1h4HNPWK6V7GTDBveY6csFHR0Bq25axWYTwsEjI8NmG/EP11MDlLkNkycmLXWGXcaJ8yCywy5N6N
+	63q2LXEPQODvZ+sbUkA+2tvRgZiFpOuFssLV7qD/R6VJcJqR70O7+pMeCW2BndAAHaZFr926R0V3t
+	Vp/xVS0eOgM4xTeqhKdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noCsk-00Gk8K-Ky; Mon, 09 May 2022 23:33:38 +0000
+	id 1noCso-00GkCB-KY; Mon, 09 May 2022 23:33:42 +0000
 Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noCsh-00Gk5M-Ke
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 23:33:37 +0000
+ id 1noCsl-00Gk8Z-LL
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 23:33:41 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id C21B61F430BF
+ (Authenticated sender: dmitry.osipenko) with ESMTPSA id A88FB1F441C3
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1652139214;
- bh=hTMdSPi0zN4MGEkpm7fbCDxWpGgYrC/cc+PuY565mHY=;
+ s=mail; t=1652139218;
+ bh=/bbH+Hh9V2YndQhc7/67mfw0LR0d7fqSt60jiFNw1kc=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=Sk8pDCwXSAwTQ9cVTZlPz8a8ySrGY3hGrPt+VGDskV6R+uCOw9LADMc/JKfeftNPo
- asFxJcHbxHiK/3w91N3jvIgWMJgwCq+N4MlCfsgguAazqG3J0kdIxL0enJF0AIFfvB
- qrj4DZBOnMGXRehw13w/Gqu1lXja85Nu7DH8kFwOkMscD0FBV8ggmpXlUuebyAbpd6
- 13JtTCF+jbP9cTENV6T22N6ht/UOp/jY7vlhjRhQskgAm5LbyaAdU+aqJl1oWzNotR
- zhh4iJ4DmsyzvGmL9Z1V2DZh2YCAdFZhUlWdl4dlLp7iND0uYa6NncprgcDCwwXRCN
- BwArMJ/2esCeg==
+ b=XE7jAqlilaRm1qFyVJmdFiOcQE2mx2GpAzjp9x+hQpDU+THCNRvBbiF6FVpK3+5yS
+ 82w4D4eeCNNvv6nQPxE5UwDkhkPAxFHquaCbm89nOaewJDUdVYjX5Yphlz72I9m2oP
+ aqrsHnyfl/saba93bLh4VJUO8giHF8bPUVfUyZMjgLAS+bzTpXF7ychpLmP1Vt+aIl
+ Zu/FmOq55jBKM4kYdGNSVn7a+x3olBfZR181fkRaNnBCZ3S1S989WuVERiM8OC6pcj
+ oxTa+Q4R/ks+7k0J6Yl56HJvyuX8TCYUq+eaffXZQvgEDu5aAWj74y2TJU/dyn1+Qq
+ RnfUlcGWtezjA==
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -79,16 +79,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v8 08/27] kernel/reboot: Add register_platform_power_off()
-Date: Tue, 10 May 2022 02:32:16 +0300
-Message-Id: <20220509233235.995021-9-dmitry.osipenko@collabora.com>
+Subject: [PATCH v8 09/27] ARM: Use do_kernel_power_off()
+Date: Tue, 10 May 2022 02:32:17 +0300
+Message-Id: <20220509233235.995021-10-dmitry.osipenko@collabora.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220509233235.995021-1-dmitry.osipenko@collabora.com>
 References: <20220509233235.995021-1-dmitry.osipenko@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220509_163335_969905_AAE9EE49 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20220509_163339_867982_C2E6A511 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,106 +100,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add platform-level registration helpers that will ease transition of the
-arch/platform power-off callbacks to the new sys-off based API, allowing
-us to remove the global pm_power_off variable in the future.
-
-Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
----
- include/linux/reboot.h |  3 +++
- kernel/reboot.c        | 55 ++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 58 insertions(+)
-
-diff --git a/include/linux/reboot.h b/include/linux/reboot.h
-index c52f77ee4ddd..f185b64faae0 100644
---- a/include/linux/reboot.h
-+++ b/include/linux/reboot.h
-@@ -141,6 +141,9 @@ int devm_register_sys_off_handler(struct device *dev,
- 				  int (*callback)(struct sys_off_data *data),
- 				  void *cb_data);
- 
-+int register_platform_power_off(void (*power_off)(void));
-+void unregister_platform_power_off(void (*power_off)(void));
-+
- /*
-  * Architecture independent implemenations of sys_reboot commands.
-  */
-diff --git a/kernel/reboot.c b/kernel/reboot.c
-index 982e58c11ce8..e74103f2a801 100644
---- a/kernel/reboot.c
-+++ b/kernel/reboot.c
-@@ -469,6 +469,61 @@ int devm_register_sys_off_handler(struct device *dev,
- }
- EXPORT_SYMBOL_GPL(devm_register_sys_off_handler);
- 
-+static struct sys_off_handler *platform_power_off_handler;
-+
-+static int platform_power_off_notify(struct sys_off_data *data)
-+{
-+	void (*platform_power_power_off_cb)(void) = data->cb_data;
-+
-+	platform_power_power_off_cb();
-+
-+	return NOTIFY_DONE;
-+}
-+
-+/**
-+ *	register_platform_power_off - Register platform-level power-off callback
-+ *	@power_off: Power-off callback
-+ *
-+ *	Registers power-off callback that will be called as last step
-+ *	of the power-off sequence. This callback is expected to be invoked
-+ *	for the last resort. Only one platform power-off callback is allowed
-+ *	to be registered at a time.
-+ *
-+ *	Returns zero on success, or error code on failure.
-+ */
-+int register_platform_power_off(void (*power_off)(void))
-+{
-+	struct sys_off_handler *handler;
-+
-+	handler = register_sys_off_handler(SYS_OFF_MODE_POWER_OFF,
-+					   SYS_OFF_PRIO_PLATFORM,
-+					   platform_power_off_notify,
-+					   power_off);
-+	if (IS_ERR(handler))
-+		return PTR_ERR(handler);
-+
-+	platform_power_off_handler = handler;
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(register_platform_power_off);
-+
-+/**
-+ *	unregister_platform_power_off - Unregister platform-level power-off callback
-+ *	@power_off: Power-off callback
-+ *
-+ *	Unregisters previously registered platform power-off callback.
-+ */
-+void unregister_platform_power_off(void (*power_off)(void))
-+{
-+	if (platform_power_off_handler &&
-+	    platform_power_off_handler->cb_data == power_off) {
-+		unregister_sys_off_handler(platform_power_off_handler);
-+		platform_power_off_handler = NULL;
-+	}
-+}
-+EXPORT_SYMBOL_GPL(unregister_platform_power_off);
-+
- static int legacy_pm_power_off_prepare(struct sys_off_data *data)
- {
- 	if (pm_power_off_prepare)
--- 
-2.35.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+S2VybmVsIG5vdyBzdXBwb3J0cyBjaGFpbmVkIHBvd2VyLW9mZiBoYW5kbGVycy4gVXNlIGRvX2tl
+cm5lbF9wb3dlcl9vZmYoKQp0aGF0IGludm9rZXMgY2hhaW5lZCBwb3dlci1vZmYgaGFuZGxlcnMu
+IEl0IGFsc28gaW52b2tlcyBsZWdhY3kKcG1fcG93ZXJfb2ZmKCkgZm9yIG5vdywgd2hpY2ggd2ls
+bCBiZSByZW1vdmVkIG9uY2UgYWxsIGRyaXZlcnMgd2lsbApiZSBjb252ZXJ0ZWQgdG8gdGhlIG5l
+dyBzeXMtb2ZmIEFQSS4KClJldmlld2VkLWJ5OiBSdXNzZWxsIEtpbmcgKE9yYWNsZSkgPHJtaytr
+ZXJuZWxAYXJtbGludXgub3JnLnVrPgpSZXZpZXdlZC1ieTogTWljaGHFgiBNaXJvc8WCYXcgPG1p
+cnEtbGludXhAcmVyZS5xbXFtLnBsPgpTaWduZWQtb2ZmLWJ5OiBEbWl0cnkgT3NpcGVua28gPGRt
+aXRyeS5vc2lwZW5rb0Bjb2xsYWJvcmEuY29tPgotLS0KIGFyY2gvYXJtL2tlcm5lbC9yZWJvb3Qu
+YyB8IDQgKy0tLQogMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAzIGRlbGV0aW9ucygt
+KQoKZGlmZiAtLWdpdCBhL2FyY2gvYXJtL2tlcm5lbC9yZWJvb3QuYyBiL2FyY2gvYXJtL2tlcm5l
+bC9yZWJvb3QuYwppbmRleCAzMDQ0ZmNiOGQwNzMuLjJjYjk0MzQyMjU1NCAxMDA2NDQKLS0tIGEv
+YXJjaC9hcm0va2VybmVsL3JlYm9vdC5jCisrKyBiL2FyY2gvYXJtL2tlcm5lbC9yZWJvb3QuYwpA
+QCAtMTE2LDkgKzExNiw3IEBAIHZvaWQgbWFjaGluZV9wb3dlcl9vZmYodm9pZCkKIHsKIAlsb2Nh
+bF9pcnFfZGlzYWJsZSgpOwogCXNtcF9zZW5kX3N0b3AoKTsKLQotCWlmIChwbV9wb3dlcl9vZmYp
+Ci0JCXBtX3Bvd2VyX29mZigpOworCWRvX2tlcm5lbF9wb3dlcl9vZmYoKTsKIH0KIAogLyoKLS0g
+CjIuMzUuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
