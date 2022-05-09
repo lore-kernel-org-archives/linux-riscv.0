@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A6EC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 23:35:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D0A3C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 23:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ka5wOHOc6sSZMwPwkRD3bm+y4KDUU6GrUxXzug5r8Gc=; b=BrCsw3T3sGbKcP
-	IaowrrmfQMM/GyR63qpbgtqvwjJUbteHWhfvDep+ATicEMueOX0lkoiSJHhz3lIg8fp4Zzv1nnSCh
-	ijlYEiCzsLwUEgm+GTNiA1fAslKnbphuJcqbBqozoLsqV6iwBwloi4N3Po4l/hvrj4q2yLtXYt282
-	vmmwbnyH9X9qsrxKNd6rX9IQA6JdHmABXsP+UQsMfzDro2tkVZpr9B5iJAL4ZzI1rtUq7ojrP0VlJ
-	+OAfxApOMzU2pNGRfspP6g3272N6Db2zq+m/4UhJvdXEfO3RhXwMGlE4ZbAYjqNUhgrcPbcTr4h/8
-	qzVtjPrdmJeN/Ia5Nq1g==;
+	List-Owner; bh=i0h6JiEJmgB3azkfzsQ5WumIZe239p3gYwYIZ0hO9ak=; b=XS00uveKB1TaTw
+	C5EHApkNWgJSavIbWCrdQz96Sp8ZSdG0/z6SRrs8m3HBdzzcxIJbyi5ARxaLonVawXmaRiHRd3PPg
+	JriEVxgulljgceb0ghroEHGPzpkMoG/elPzytq2cxwjl3cHzKSCaTFc3IJf1ClgaGs+EOf5k3vu4X
+	gx/in/JsAKg66847bk49qA+ubmaCgSCVYzYhVsoJYksEtZYQMAG5vwp8nmUsdCm6AdSEVjJZCDa4m
+	OYIaiRaq/H3wRcj4CHhmYMQik8G8kUdqV1oqZ2geLPvCpuORI6MvsxG7h7BXYJNhe6rSInFxLJ7IW
+	7iGP2SQ6j53GAtQktomA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noCuV-00Glse-Mw; Mon, 09 May 2022 23:35:27 +0000
+	id 1noCug-00Gm0z-Us; Mon, 09 May 2022 23:35:39 +0000
 Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noCti-00GlCa-CI
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 23:34:40 +0000
+ id 1noCtm-00GlGg-E1
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 23:34:44 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id 6D3621F4422E
+ (Authenticated sender: dmitry.osipenko) with ESMTPSA id 5FA2B1F44233
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1652139277;
- bh=G4Vm4i3PSuNHHHXU+oCPvsxvVX3S/U1mmDmC4crDrZ0=;
+ s=mail; t=1652139281;
+ bh=Ge1//7i6Q7MuMgcY2ArEpQFOii60ywtSL9zBDeDpHaM=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=J1T7cZ+8sXSyoqCiUswKzOPFbdK4lnLHa5BLo2lX4nJpcRZIVTEMOuLWjxgIELGye
- ufjX2Hcm977X8wW9VIKwmYrPBZIT2jZyQSJcd3y3ctDLGwG6vbfYYfBucmxM0e6f69
- n4G6fiy/jZG4ulLYGXCzk/NXBNl9yxR3LdmM8xgsi+aeIQil2CBs1nL1/qF9yAqQb6
- TwsvXlIqKT1rIXf2rsjmkGmeFCnf76sZCJi24rB3dPW7e5fbOXyqchk0i1LS7WPsiA
- hJ3XzxAXeaIo84Zou6nGR4l+Tqo+kILO2aR+d7l0+SuSwY5z4aIqVSkb+wJg4dCx15
- lDprZUGzZAd+g==
+ b=H63Tb2tlpLUiWc6ACD6bN74KE3zuMrgz9FpthVYg38IHOdVsOtd5gN8jhFLo+Pa26
+ hs3OdXJ/W7jQd8mbRnl7S0Tm0sIYF5zc1kuEqf5uJUQxP7C97twdtSpF0zmaMHFZpP
+ ONQppB1vE3Lpbt5fwJ8pEErw8LFPXaCyFxpYTqpIqc9itsfVnIkxxLday9aSt7wpJs
+ YxQBKfwJ/Iz+5zQnhlFym5/j9qqEfpuYXBe4Vcz//MAzUbelLYvi5aQm6UbmkDj593
+ dwr3JjS/IdqCE0xS5mAXyMmGozEFSLnZzAzFvgIjlivvRPRrzc9t4UYSSRAb0HfzCv
+ wv4pCpKHdQ9Jw==
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -79,16 +79,17 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v8 24/27] reboot: Remove pm_power_off_prepare()
-Date: Tue, 10 May 2022 02:32:32 +0300
-Message-Id: <20220509233235.995021-25-dmitry.osipenko@collabora.com>
+Subject: [PATCH v8 25/27] soc/tegra: pmc: Use sys-off handler API to power off
+ Nexus 7 properly
+Date: Tue, 10 May 2022 02:32:33 +0300
+Message-Id: <20220509233235.995021-26-dmitry.osipenko@collabora.com>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220509233235.995021-1-dmitry.osipenko@collabora.com>
 References: <20220509233235.995021-1-dmitry.osipenko@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220509_163438_641133_F1DCF402 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20220509_163442_828861_E4666BEB 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,71 +106,174 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-All pm_power_off_prepare() users were converted to sys-off handler API.
-Remove the obsolete global callback variable.
+Nexus 7 Android tablet can be turned off using a special bootloader
+command which is conveyed to bootloader by putting magic value into the
+special scratch register and then rebooting normally. This power-off
+method should be invoked if USB cable is connected. Bootloader then will
+display battery status and power off the device. This behaviour is
+borrowed from downstream kernel and matches user expectations, otherwise
+it looks like device got hung during power-off and it may wake up on
+USB disconnect.
+
+Switch PMC driver to sys-off handler API, which provides drivers with
+chained power-off callbacks functionality that is required for powering-off
+devices properly. It also brings resource-managed API for the restart
+handler registration that makes PMC driver code cleaner.
 
 Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 ---
- include/linux/pm.h |  1 -
- kernel/reboot.c    | 19 -------------------
- 2 files changed, 20 deletions(-)
+ drivers/soc/tegra/pmc.c | 87 +++++++++++++++++++++++++++++------------
+ 1 file changed, 62 insertions(+), 25 deletions(-)
 
-diff --git a/include/linux/pm.h b/include/linux/pm.h
-index 70ec69d8bafd..871c9c49ec9d 100644
---- a/include/linux/pm.h
-+++ b/include/linux/pm.h
-@@ -21,7 +21,6 @@
-  * Callbacks for platform drivers to implement.
-  */
- extern void (*pm_power_off)(void);
--extern void (*pm_power_off_prepare)(void);
+diff --git a/drivers/soc/tegra/pmc.c b/drivers/soc/tegra/pmc.c
+index c77ecf61818b..5611d14d3ba2 100644
+--- a/drivers/soc/tegra/pmc.c
++++ b/drivers/soc/tegra/pmc.c
+@@ -39,6 +39,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
+ #include <linux/pm_opp.h>
++#include <linux/power_supply.h>
+ #include <linux/reboot.h>
+ #include <linux/regmap.h>
+ #include <linux/reset.h>
+@@ -108,6 +109,7 @@
+ #define PMC_USB_DEBOUNCE_DEL		0xec
+ #define PMC_USB_AO			0xf0
  
- struct device; /* we have a circular dep with device.h */
- #ifdef CONFIG_VT_CONSOLE_SLEEP
-diff --git a/kernel/reboot.c b/kernel/reboot.c
-index e74103f2a801..66033e12e8eb 100644
---- a/kernel/reboot.c
-+++ b/kernel/reboot.c
-@@ -63,13 +63,6 @@ struct sys_off_handler {
-  */
- void __weak (*pm_power_off)(void);
++#define PMC_SCRATCH37			0x130
+ #define PMC_SCRATCH41			0x140
  
--/*
-- * If set, this is used for preparing the system to power off.
-- */
--
--void (*pm_power_off_prepare)(void);
--EXPORT_SYMBOL_GPL(pm_power_off_prepare);
--
- /**
-  *	emergency_restart - reboot the system
-  *
-@@ -524,14 +517,6 @@ void unregister_platform_power_off(void (*power_off)(void))
+ #define PMC_WAKE2_MASK			0x160
+@@ -1101,8 +1103,7 @@ static struct notifier_block tegra_pmc_reboot_notifier = {
+ 	.notifier_call = tegra_pmc_reboot_notify,
+ };
+ 
+-static int tegra_pmc_restart_notify(struct notifier_block *this,
+-				    unsigned long action, void *data)
++static void tegra_pmc_restart(void)
+ {
+ 	u32 value;
+ 
+@@ -1110,14 +1111,31 @@ static int tegra_pmc_restart_notify(struct notifier_block *this,
+ 	value = tegra_pmc_readl(pmc, PMC_CNTRL);
+ 	value |= PMC_CNTRL_MAIN_RST;
+ 	tegra_pmc_writel(pmc, value, PMC_CNTRL);
++}
++
++static int tegra_pmc_restart_handler(struct sys_off_data *data)
++{
++	tegra_pmc_restart();
+ 
+ 	return NOTIFY_DONE;
  }
- EXPORT_SYMBOL_GPL(unregister_platform_power_off);
  
--static int legacy_pm_power_off_prepare(struct sys_off_data *data)
--{
--	if (pm_power_off_prepare)
--		pm_power_off_prepare();
--
--	return NOTIFY_DONE;
--}
--
- static int legacy_pm_power_off(struct sys_off_data *data)
- {
- 	if (pm_power_off)
-@@ -549,10 +534,6 @@ static int legacy_pm_power_off(struct sys_off_data *data)
-  */
- static int __init legacy_pm_init(void)
- {
--	register_sys_off_handler(SYS_OFF_MODE_POWER_OFF_PREPARE,
--				 SYS_OFF_PRIO_DEFAULT,
--				 legacy_pm_power_off_prepare, NULL);
--
- 	register_sys_off_handler(SYS_OFF_MODE_POWER_OFF, SYS_OFF_PRIO_DEFAULT,
- 				 legacy_pm_power_off, NULL);
+-static struct notifier_block tegra_pmc_restart_handler = {
+-	.notifier_call = tegra_pmc_restart_notify,
+-	.priority = 128,
+-};
++static int tegra_pmc_power_off_handler(struct sys_off_data *data)
++{
++	/*
++	 * Reboot Nexus 7 into special bootloader mode if USB cable is
++	 * connected in order to display battery status and power off.
++	 */
++	if (of_machine_is_compatible("asus,grouper") &&
++	    power_supply_is_system_supplied()) {
++		const u32 go_to_charger_mode = 0xa5a55a5a;
++
++		tegra_pmc_writel(pmc, go_to_charger_mode, PMC_SCRATCH37);
++		tegra_pmc_restart();
++	}
++
++	return NOTIFY_DONE;
++}
  
+ static int powergate_show(struct seq_file *s, void *data)
+ {
+@@ -2879,6 +2897,42 @@ static int tegra_pmc_probe(struct platform_device *pdev)
+ 		pmc->clk = NULL;
+ 	}
+ 
++	/*
++	 * PMC should be last resort for restarting since it soft-resets
++	 * CPU without resetting everything else.
++	 */
++	err = devm_register_reboot_notifier(&pdev->dev,
++					    &tegra_pmc_reboot_notifier);
++	if (err) {
++		dev_err(&pdev->dev, "unable to register reboot notifier, %d\n",
++			err);
++		return err;
++	}
++
++	err = devm_register_sys_off_handler(&pdev->dev,
++					    SYS_OFF_MODE_RESTART,
++					    SYS_OFF_PRIO_LOW,
++					    tegra_pmc_restart_handler, NULL);
++	if (err) {
++		dev_err(&pdev->dev, "failed to register sys-off handler: %d\n",
++			err);
++		return err;
++	}
++
++	/*
++	 * PMC should be primary power-off method if it soft-resets CPU,
++	 * asking bootloader to shutdown hardware.
++	 */
++	err = devm_register_sys_off_handler(&pdev->dev,
++					    SYS_OFF_MODE_POWER_OFF,
++					    SYS_OFF_PRIO_FIRMWARE,
++					    tegra_pmc_power_off_handler, NULL);
++	if (err) {
++		dev_err(&pdev->dev, "failed to register sys-off handler: %d\n",
++			err);
++		return err;
++	}
++
+ 	/*
+ 	 * PCLK clock rate can't be retrieved using CLK API because it
+ 	 * causes lockup if CPU enters LP2 idle state from some other
+@@ -2910,28 +2964,13 @@ static int tegra_pmc_probe(struct platform_device *pdev)
+ 			goto cleanup_sysfs;
+ 	}
+ 
+-	err = devm_register_reboot_notifier(&pdev->dev,
+-					    &tegra_pmc_reboot_notifier);
+-	if (err) {
+-		dev_err(&pdev->dev, "unable to register reboot notifier, %d\n",
+-			err);
+-		goto cleanup_debugfs;
+-	}
+-
+-	err = register_restart_handler(&tegra_pmc_restart_handler);
+-	if (err) {
+-		dev_err(&pdev->dev, "unable to register restart handler, %d\n",
+-			err);
+-		goto cleanup_debugfs;
+-	}
+-
+ 	err = tegra_pmc_pinctrl_init(pmc);
+ 	if (err)
+-		goto cleanup_restart_handler;
++		goto cleanup_debugfs;
+ 
+ 	err = tegra_pmc_regmap_init(pmc);
+ 	if (err < 0)
+-		goto cleanup_restart_handler;
++		goto cleanup_debugfs;
+ 
+ 	err = tegra_powergate_init(pmc, pdev->dev.of_node);
+ 	if (err < 0)
+@@ -2954,8 +2993,6 @@ static int tegra_pmc_probe(struct platform_device *pdev)
+ 
+ cleanup_powergates:
+ 	tegra_powergate_remove_all(pdev->dev.of_node);
+-cleanup_restart_handler:
+-	unregister_restart_handler(&tegra_pmc_restart_handler);
+ cleanup_debugfs:
+ 	debugfs_remove(pmc->debugfs);
+ cleanup_sysfs:
 -- 
 2.35.1
 
