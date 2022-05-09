@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9626C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 14:50:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E49A9C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 18:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=07ZH07BMW4ObeT58PIEyqDyoV0ewYvl1DE8PBLmt+E8=; b=SlnSg656apbcmg
-	E+lrHz4/8fzKkAB/Ulr8IrP7S1H1CxhYmOpBLmTxl5z4iFt9TJM49BQoTlEnRUGNAaCxp49CnYOyG
-	aMMvn013A72YxETVveVkGOHy7HPhyjrUBxDH/HTvzRchjEloJCvu+R7SrKCudgXaIfnv4fjYJWY2f
-	Njf8freiIkxhvG00hzoUVAhb23DFFfL+yptPge/6gLTwSW9T2QaR1GnAL2KM+R11LyHNlew394zz8
-	Br24gGtNdWyz+yfsVM/G1+wk+WB3amNiAwLoz+Mw81JgZura+nfGYDuZdQqCbGHdR1zzsbyMGy1aP
-	nKETt0AaMPWwdIay5E4g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kn7/3uEn2NVm16qyKxQT+Ua7t/hulFS0Z5d88CX0LV8=; b=JJ9kTaVuqJyUzN
+	+XoXWt9V6uBF1jRjJ1IhrTmsb77J+Ida+ibCRiuMWEfRFkLdiIED9hbWBm9n8FkeqOnxWDuUHnZQh
+	qiQyqntINx+ltc7Y2T8o+TmEGjr1e8U51h3o1KkyMPzm+BuoUinzVogZ3yGvb451N7kezmTYZsdb2
+	mFwvdPZUY1tnYAGQphwqh0G6f9raS0Bil3LLHO62i0LWgR7tqmKUappB6AopTwexeifyI6/YeKyek
+	jfoFLv50hlg2T5wk1cNG/aQH3TLJTOuygknMGR9x22aPntCe+rHa6k881AmlMGqDw0uck9JoLFetV
+	4iwxIbO5ZBtsh6PRjejA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1no4iT-00Ewup-Cz; Mon, 09 May 2022 14:50:29 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1no88k-00FtiR-In; Mon, 09 May 2022 18:29:50 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1no4iQ-00Ewtf-1X
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 14:50:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 51EDBB815FC;
- Mon,  9 May 2022 14:50:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2E39C385AE;
- Mon,  9 May 2022 14:50:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1652107823;
- bh=sCik9b2J8z4qKhC7dJTlulosPrFpWgmIs+sNCU2Kixw=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=tAj9LYXqpEYM8NiDXcNHzW0AR62LHQcbbEAxj5YCpL4eg6K8XSlxL+1anuLD87v73
- kOe9o1bqboH7LlhEd71U1E27lKgIbYXUJ716EeFcPncydU31ClogvplwrwzwQsFvXT
- Ju5B/VFO36/d5lAMn55OZwMn+JBlUa7ke1owR+fTof2FXv3/yBI3eh43N+4Xq/peRY
- bTY1o4p85YSAmllg/l9sMTRd2EXGfb5RuVbFVO9pbxTSWbcLVyRtVSxuJTomJIlVwW
- 7QhEDtBtjQ2KJgPSOPAEI3dyPV4yWBjQHqHOxzxqXFoZj7Brjx2rCg5gPF3PNJ9Jpv
- aGDmrTLU6HYuQ==
-Date: Mon, 9 May 2022 22:41:47 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>,
- Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Alexandre Ghiti <alexandre.ghiti@canonical.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- kasan-dev@googlegroups.com
-Subject: Re: [PATCH v2 2/4] riscv: introduce unified static key mechanism for
- CPU features
-Message-ID: <YnkoKxaPbrTnZPQv@xhacker>
-References: <20220508160749.984-1-jszhang@kernel.org>
- <20220508160749.984-3-jszhang@kernel.org>
- <CAK9=C2Xinc6Y9ue+3ZOvKOOgru7wvJNcEPLvO4aZGuQqETXi2w@mail.gmail.com>
+ id 1no88h-00Ftgx-BM
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 18:29:48 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id bo5so12961904pfb.4
+ for <linux-riscv@lists.infradead.org>; Mon, 09 May 2022 11:29:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=HT8JD8HOTg70SDyIzNGh8qklo/ybWwxwLyVZIAu4uKc=;
+ b=XcvLTWGxN4frUHzM4LzCHdAuFx3DpO20/OXKwC2zVshCYLJaALwhqZIRXwaXuun6OA
+ gwtIPYUj8zYlJGRfZpiR/xVyPUYBP58JmN68uPjbdKjbpGg3Th2W16JOjKWNOB3LxWd4
+ iWp1/IaoAx7+oCYctKVczAa6fFdOvkoVFg2hPG/ks0+DECCoo14DWpdUleauO0QAY/Lb
+ uaTxBtvLt1hevoDrFbYIppb2fVwy+IdqvduULR3vLQn9RJYoI75+KKP/4kbExVvFgkpv
+ n4DvUXLPNOOLQpaVSAgsIGfPY9P7auJjP9FtCLlZMZOI979Eeeres3CyWxbQibIJYuVQ
+ H0+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=HT8JD8HOTg70SDyIzNGh8qklo/ybWwxwLyVZIAu4uKc=;
+ b=BVV4jGbhNmAHhZdsFFAd4m9Y6COpl5fGoSS7EoJioDO/mtr3ZC3kTyC6elVeZJCqaF
+ rvheI8rTS1Zc1o220XM71KpY1sOso+BBLNUbmcTicm4shHmIQpEn7GyoYlaSrv3HUvGi
+ pbEnLQgh9novQsKrRpldOgjjVAD0HXpxg4t1ulk7UB51wh2LQ3MI0/BjGhTUAuQEO8dL
+ 9+jf/ShxqvLJa5qUlorlCaGSFth6Qy0Y74OuIU2HYzuad6RKPgxcuSvNb2ClPz5jBs/q
+ m+FL6m7r36w2eExwVKPHgXx6jYafQ7GcslLs2nMoVXBQzlZFBKauFJwbK+27W7MCsWmj
+ g9NA==
+X-Gm-Message-State: AOAM530YWfweZ2P2U5KRL2AIAS2sVe5dL7yhKExvvw/Jg4Rp8dZxptid
+ fg8RgtYGAziB7pEkZMeS9VJV7A==
+X-Google-Smtp-Source: ABdhPJzSD1S4Vbwz090UVw92it+rCH+3IIV0yVjA3VXqDucYwpY7LMkmNRSFkJFpxGMCjeM1K3cCpA==
+X-Received: by 2002:a05:6a00:16c7:b0:4f7:e497:69b8 with SMTP id
+ l7-20020a056a0016c700b004f7e49769b8mr17070165pfc.6.1652120984019; 
+ Mon, 09 May 2022 11:29:44 -0700 (PDT)
+Received: from atishp.ba.rivosinc.com ([66.220.2.162])
+ by smtp.gmail.com with ESMTPSA id
+ d20-20020a170902aa9400b0015ebbaccc46sm177241plr.159.2022.05.09.11.29.42
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 09 May 2022 11:29:43 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+To: kvm@vger.kernel.org
+Cc: Atish Patra <atishp@rivosinc.com>, Atish Patra <atishp@atishpatra.org>,
+ Anup Patel <anup@brainfault.org>, Damien Le Moal <damien.lemoal@wdc.com>,
+ devicetree@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
+ kvm-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+Subject: [PATCH v3] RISC-V: KVM: Introduce ISA extension register
+Date: Mon,  9 May 2022 11:29:37 -0700
+Message-Id: <20220509182937.1881849-1-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.36.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAK9=C2Xinc6Y9ue+3ZOvKOOgru7wvJNcEPLvO4aZGuQqETXi2w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220509_075026_467741_BEC1F55B 
-X-CRM114-Status: GOOD (  57.80  )
+X-CRM114-CacheID: sfid-20220509_112947_415190_910E0432 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,406 +93,195 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 09, 2022 at 09:17:10AM +0530, Anup Patel wrote:
-> On Sun, May 8, 2022 at 9:47 PM Jisheng Zhang <jszhang@kernel.org> wrote:
-> >
-> > Currently, riscv has several features why may not be supported on all
-> > riscv platforms, for example, FPU, SV48 and so on. To support unified
-> > kernel Image style, we need to check whether the feature is suportted
-> > or not. If the check sits at hot code path, then performance will be
-> > impacted a lot. static key can be used to solve the issue. In the past
-> > FPU support has been converted to use static key mechanism. I believe
-> > we will have similar cases in the future.
-> 
-> It's not just FPU and Sv48. There are several others such as Svinval,
-> Vector, Svnapot, Svpbmt, and many many others.
-> 
-> Overall, I agree with the approach of using static key array but I
-> disagree with the semantics and the duplicate stuff being added.
-> 
-> Please see more comments below ..
-> 
-> >
-> > Similar as arm64 does(in fact, some code is borrowed from arm64), this
-> > patch tries to add an unified mechanism to use static keys for all
-> > the cpu features by implementing an array of default-false static keys
-> > and enabling them when detected. The cpus_have_*_cap() check uses the
-> > static keys if riscv_const_caps_ready is finalized, otherwise the
-> > compiler generates the bitmap test.
-> 
-> First of all, we should stop calling this a feature (like ARM does). Rather,
-> we should call these as isa extensions ("isaext") to align with the RISC-V
-> priv spec and RISC-V profiles spec. For all the ISA optionalities which do
-> not have distinct extension name, the RISC-V profiles spec is assigning
-> names to all such optionalities.
+Currently, there is no provision for vmm (qemu-kvm or kvmtool) to
+query about multiple-letter ISA extensions. The config register
+is only used for base single letter ISA extensions.
 
-Same as the reply a few minutes ago, the key problem here is do all
-CPU features belong to *ISA* extensions? For example, SV48, SV57 etc.
-I agree with Atish's comments here:
+A new ISA extension register is added that will allow the vmm
+to query about any ISA extension one at a time. It is enabled for
+both single letter or multi-letter ISA extensions. The ISA extension
+register is useful to if the vmm requires to retrieve/set single
+extension while the config register should be used if all the base
+ISA extension required to retrieve or set.
 
-"I think the cpu feature is a superset of the ISA extension.
-cpu feature != ISA extension"
+For any multi-letter ISA extensions, the new register interface
+must be used.
 
-https://lore.kernel.org/linux-riscv/CAHBxVyF65jC_wvxcD6bueqpCY8-Kbahu1yxsSoBmO1s15dGkSQ@mail.gmail.com/
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+Changes from v2->v3:
+1. Fixed the comment style.
+2. Fixed the kvm_riscv_vcpu_get_reg_isa_ext function.
+---
+ arch/riscv/include/uapi/asm/kvm.h | 20 +++++++
+ arch/riscv/kvm/vcpu.c             | 99 +++++++++++++++++++++++++++++++
+ 2 files changed, 119 insertions(+)
 
-> 
-> Another issue with semantics is that this patch assumes all features are
-> enabled by default and we selectively disable it. This contrary to the
-> approach taken by existing arch/riscv/kernel/cpufeature.c which assumes
-> nothing is enabled by default and we selectively enable it.
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index f808ad1ce500..92bd469e2ba6 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -82,6 +82,23 @@ struct kvm_riscv_timer {
+ 	__u64 state;
+ };
+ 
++/**
++ * ISA extension IDs specific to KVM. This is not the same as the host ISA
++ * extension IDs as that is internal to the host and should not be exposed
++ * to the guest. This should always be contiguous to keep the mapping simple
++ * in KVM implementation.
++ */
++enum KVM_RISCV_ISA_EXT_ID {
++	KVM_RISCV_ISA_EXT_A = 0,
++	KVM_RISCV_ISA_EXT_C,
++	KVM_RISCV_ISA_EXT_D,
++	KVM_RISCV_ISA_EXT_F,
++	KVM_RISCV_ISA_EXT_H,
++	KVM_RISCV_ISA_EXT_I,
++	KVM_RISCV_ISA_EXT_M,
++	KVM_RISCV_ISA_EXT_MAX,
++};
++
+ /* Possible states for kvm_riscv_timer */
+ #define KVM_RISCV_TIMER_STATE_OFF	0
+ #define KVM_RISCV_TIMER_STATE_ON	1
+@@ -123,6 +140,9 @@ struct kvm_riscv_timer {
+ #define KVM_REG_RISCV_FP_D_REG(name)	\
+ 		(offsetof(struct __riscv_d_ext_state, name) / sizeof(__u64))
+ 
++/* ISA Extension registers are mapped as type 7 */
++#define KVM_REG_RISCV_ISA_EXT		(0x07 << KVM_REG_RISCV_TYPE_SHIFT)
++
+ #endif
+ 
+ #endif /* __LINUX_KVM_RISCV_H */
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 7461f964d20a..0875beaa1973 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -365,6 +365,101 @@ static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
+ 	return 0;
+ }
+ 
++/* Mapping between KVM ISA Extension ID & Host ISA extension ID */
++static unsigned long kvm_isa_ext_arr[] = {
++	RISCV_ISA_EXT_a,
++	RISCV_ISA_EXT_c,
++	RISCV_ISA_EXT_d,
++	RISCV_ISA_EXT_f,
++	RISCV_ISA_EXT_h,
++	RISCV_ISA_EXT_i,
++	RISCV_ISA_EXT_m,
++};
++
++static int kvm_riscv_vcpu_get_reg_isa_ext(struct kvm_vcpu *vcpu,
++					  const struct kvm_one_reg *reg)
++{
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    KVM_REG_RISCV_ISA_EXT);
++	unsigned long reg_val = 0;
++	unsigned long host_isa_ext;
++
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
++
++	if (reg_num >= KVM_RISCV_ISA_EXT_MAX || reg_num >= ARRAY_SIZE(kvm_isa_ext_arr))
++		return -EINVAL;
++
++	host_isa_ext = kvm_isa_ext_arr[reg_num];
++	if (__riscv_isa_extension_available(&vcpu->arch.isa, host_isa_ext))
++		reg_val = 1; /* Mark the given extension as available */
++
++	if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	return 0;
++}
++
++static int kvm_riscv_vcpu_set_reg_isa_ext(struct kvm_vcpu *vcpu,
++					  const struct kvm_one_reg *reg)
++{
++	unsigned long __user *uaddr =
++			(unsigned long __user *)(unsigned long)reg->addr;
++	unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
++					    KVM_REG_SIZE_MASK |
++					    KVM_REG_RISCV_ISA_EXT);
++	unsigned long reg_val;
++	unsigned long host_isa_ext;
++	unsigned long host_isa_ext_mask;
++
++	if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
++		return -EINVAL;
++
++	if (reg_num >= KVM_RISCV_ISA_EXT_MAX || reg_num >= ARRAY_SIZE(kvm_isa_ext_arr))
++		return -EINVAL;
++
++	if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
++		return -EFAULT;
++
++	host_isa_ext = kvm_isa_ext_arr[reg_num];
++	if (!__riscv_isa_extension_available(NULL, host_isa_ext))
++		return	-EOPNOTSUPP;
++
++	if (host_isa_ext >= RISCV_ISA_EXT_BASE &&
++	    host_isa_ext < RISCV_ISA_EXT_MAX) {
++		/*
++		 * Multi-letter ISA extension. Currently there is no provision
++		 * to enable/disable the multi-letter ISA extensions for guests.
++		 * Return success if the request is to enable any ISA extension
++		 * that is available in the hardware.
++		 * Return -EOPNOTSUPP otherwise.
++		 */
++		if (!reg_val)
++			return -EOPNOTSUPP;
++		else
++			return 0;
++	}
++
++	/* Single letter base ISA extension */
++	if (!vcpu->arch.ran_atleast_once) {
++		host_isa_ext_mask = BIT_MASK(host_isa_ext);
++		if (!reg_val && (host_isa_ext_mask & KVM_RISCV_ISA_DISABLE_ALLOWED))
++			vcpu->arch.isa &= ~host_isa_ext_mask;
++		else
++			vcpu->arch.isa |= host_isa_ext_mask;
++		vcpu->arch.isa &= riscv_isa_extension_base(NULL);
++		vcpu->arch.isa &= KVM_RISCV_ISA_ALLOWED;
++		kvm_riscv_vcpu_fp_reset(vcpu);
++	} else {
++		return -EOPNOTSUPP;
++	}
++
++	return 0;
++}
++
+ static int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
+ 				  const struct kvm_one_reg *reg)
+ {
+@@ -382,6 +477,8 @@ static int kvm_riscv_vcpu_set_reg(struct kvm_vcpu *vcpu,
+ 	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_FP_D)
+ 		return kvm_riscv_vcpu_set_reg_fp(vcpu, reg,
+ 						 KVM_REG_RISCV_FP_D);
++	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_ISA_EXT)
++		return kvm_riscv_vcpu_set_reg_isa_ext(vcpu, reg);
+ 
+ 	return -EINVAL;
+ }
+@@ -403,6 +500,8 @@ static int kvm_riscv_vcpu_get_reg(struct kvm_vcpu *vcpu,
+ 	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_FP_D)
+ 		return kvm_riscv_vcpu_get_reg_fp(vcpu, reg,
+ 						 KVM_REG_RISCV_FP_D);
++	else if ((reg->id & KVM_REG_RISCV_TYPE_MASK) == KVM_REG_RISCV_ISA_EXT)
++		return kvm_riscv_vcpu_get_reg_isa_ext(vcpu, reg);
+ 
+ 	return -EINVAL;
+ }
+-- 
+2.36.0
 
-This is implementation related, can be modified in next version. From
-another side, assuming some feature enabled by default can result in
-trivial performance improvement for most platforms. For example, if
-most platforms are FPU capable, we'd better assume FPU enabled by default.
-
-> 
-> >
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > ---
-> >  arch/riscv/Makefile                 |  3 +
-> >  arch/riscv/include/asm/cpufeature.h | 94 +++++++++++++++++++++++++++++
-> >  arch/riscv/kernel/cpufeature.c      | 23 +++++++
-> >  arch/riscv/tools/Makefile           | 22 +++++++
-> >  arch/riscv/tools/cpucaps            |  5 ++
-> >  arch/riscv/tools/gen-cpucaps.awk    | 40 ++++++++++++
-> >  6 files changed, 187 insertions(+)
-> >  create mode 100644 arch/riscv/include/asm/cpufeature.h
-> >  create mode 100644 arch/riscv/tools/Makefile
-> >  create mode 100644 arch/riscv/tools/cpucaps
-> >  create mode 100755 arch/riscv/tools/gen-cpucaps.awk
-> >
-> > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > index 7d81102cffd4..f4df67369d84 100644
-> > --- a/arch/riscv/Makefile
-> > +++ b/arch/riscv/Makefile
-> > @@ -154,3 +154,6 @@ PHONY += rv64_randconfig
-> >  rv64_randconfig:
-> >         $(Q)$(MAKE) KCONFIG_ALLCONFIG=$(srctree)/arch/riscv/configs/64-bit.config \
-> >                 -f $(srctree)/Makefile randconfig
-> > +
-> > +archprepare:
-> > +       $(Q)$(MAKE) $(build)=arch/riscv/tools kapi
-> > diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm/cpufeature.h
-> > new file mode 100644
-> > index 000000000000..d80ddd2f3b49
-> > --- /dev/null
-> > +++ b/arch/riscv/include/asm/cpufeature.h
-> 
-> We don't need a separate header for this.
-> 
-> All this belongs to arch/riscv/include/asm/hwcap.h
-> 
-> > @@ -0,0 +1,94 @@
-> > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > +/*
-> > + * Copyright (C) 2014 Linaro Ltd. <ard.biesheuvel@linaro.org>
-> > + * Copyright (C) 2022 Jisheng Zhang <jszhang@kernel.org>
-> > + */
-> > +
-> > +#ifndef __ASM_CPUFEATURE_H
-> > +#define __ASM_CPUFEATURE_H
-> > +
-> > +#include <asm/cpucaps.h>
-> > +
-> > +#include <linux/bug.h>
-> > +#include <linux/jump_label.h>
-> > +#include <linux/kernel.h>
-> > +
-> > +extern DECLARE_BITMAP(cpu_hwcaps, RISCV_NCAPS);
-> 
-> This is a redundant bitmap. Please re-use "riscv_isa" bitmap for this
-> the ISA extensions.
-> 
-> > +extern struct static_key_false cpu_hwcap_keys[RISCV_NCAPS];
-> 
-> This should be called "riscv_isa_keys"
-> 
-> > +extern struct static_key_false riscv_const_caps_ready;
-> 
-> This should be called "riscv_isa_keys_ready".
-> 
-> > +
-> > +static __always_inline bool system_capabilities_finalized(void)
-> 
-> Another misaligned name. This should be called
-> "riscv_isa_keys_finalized()".
-> 
-> > +{
-> > +       return static_branch_likely(&riscv_const_caps_ready);
-> > +}
-> > +
-> > +/*
-> > + * Test for a capability with a runtime check.
-> > + *
-> > + * Before the capability is detected, this returns false.
-> > + */
-> > +static inline bool cpus_have_cap(unsigned int num)
-> > +{
-> > +       if (num >= RISCV_NCAPS)
-> > +               return false;
-> > +       return test_bit(num, cpu_hwcaps);
-> > +}
-> 
-> This should be called riscv_isa_have_extension() and it should
-> internally call "__riscv_isa_extension_available(NULL, num)".
-> 
-> > +
-> > +/*
-> > + * Test for a capability without a runtime check.
-> > + *
-> > + * Before capabilities are finalized, this returns false.
-> > + * After capabilities are finalized, this is patched to avoid a runtime check.
-> > + *
-> > + * @num must be a compile-time constant.
-> > + */
-> > +static __always_inline bool __cpus_have_const_cap(int num)
-> 
-> This should be named "__riscv_isa_have_const_extension()"
-> 
-> > +{
-> > +       if (num >= RISCV_NCAPS)
-> > +               return false;
-> > +       return static_branch_unlikely(&cpu_hwcap_keys[num]);
-> > +}
-> > +
-> > +/*
-> > + * Test for a capability without a runtime check.
-> > + *
-> > + * Before capabilities are finalized, this will BUG().
-> > + * After capabilities are finalized, this is patched to avoid a runtime check.
-> > + *
-> > + * @num must be a compile-time constant.
-> > + */
-> > +static __always_inline bool cpus_have_final_cap(int num)
-> 
-> This should be called "riscv_isa_have_final_extension()"
-> 
-> > +{
-> > +       if (system_capabilities_finalized())
-> > +               return __cpus_have_const_cap(num);
-> > +       else
-> > +               BUG();
-> > +}
-> > +
-> > +/*
-> > + * Test for a capability, possibly with a runtime check.
-> > + *
-> > + * Before capabilities are finalized, this behaves as cpus_have_cap().
-> > + * After capabilities are finalized, this is patched to avoid a runtime check.
-> > + *
-> > + * @num must be a compile-time constant.
-> > + */
-> > +static __always_inline bool cpus_have_const_cap(int num)
-> 
-> Same comment as above.
-> 
-> > +{
-> > +       if (system_capabilities_finalized())
-> > +               return __cpus_have_const_cap(num);
-> > +       else
-> > +               return cpus_have_cap(num);
-> > +}
-> > +
-> > +static inline void cpus_set_cap(unsigned int num)
-> 
-> Same comment as above.
-> 
-> > +{
-> > +       if (num >= RISCV_NCAPS) {
-> > +               pr_warn("Attempt to set an illegal CPU capability (%d >= %d)\n",
-> > +                       num, RISCV_NCAPS);
-> > +       } else {
-> > +               __set_bit(num, cpu_hwcaps);
-> > +       }
-> > +}
-> > +
-> > +#endif
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > index 1b2d42d7f589..e6c72cad0c1c 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -9,6 +9,7 @@
-> >  #include <linux/bitmap.h>
-> >  #include <linux/ctype.h>
-> >  #include <linux/of.h>
-> > +#include <asm/cpufeature.h>
-> >  #include <asm/processor.h>
-> >  #include <asm/hwcap.h>
-> >  #include <asm/smp.h>
-> > @@ -25,6 +26,15 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
-> >  __ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
-> >  #endif
-> >
-> > +DECLARE_BITMAP(cpu_hwcaps, RISCV_NCAPS);
-> > +EXPORT_SYMBOL(cpu_hwcaps);
-> 
-> Just like the previous comment. This is a redundant bitmap.
-> Please use "riscv_isa" bitmap for this purpose.
-> 
-> > +
-> > +DEFINE_STATIC_KEY_ARRAY_FALSE(cpu_hwcap_keys, RISCV_NCAPS);
-> > +EXPORT_SYMBOL(cpu_hwcap_keys);
-> > +
-> > +DEFINE_STATIC_KEY_FALSE(riscv_const_caps_ready);
-> > +EXPORT_SYMBOL(riscv_const_caps_ready);
-> 
-> Please see comments above.
-> 
-> > +
-> >  /**
-> >   * riscv_isa_extension_base() - Get base extension word
-> >   *
-> > @@ -62,6 +72,17 @@ bool __riscv_isa_extension_available(const unsigned long *isa_bitmap, int bit)
-> >  }
-> >  EXPORT_SYMBOL_GPL(__riscv_isa_extension_available);
-> >
-> > +static void __init enable_cpu_capabilities(void)
-> > +{
-> > +       int i;
-> > +
-> > +       for (i = 0; i < RISCV_NCAPS; i++) {
-> > +               if (!cpus_have_cap(i))
-> > +                       continue;
-> > +               static_branch_enable(&cpu_hwcap_keys[i]);
-> > +       }
-> > +}
-> > +
-> >  void __init riscv_fill_hwcap(void)
-> >  {
-> >         struct device_node *node;
-> > @@ -236,4 +257,6 @@ void __init riscv_fill_hwcap(void)
-> >         if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
-> >                 static_branch_enable(&cpu_hwcap_fpu);
-> >  #endif
-> > +       enable_cpu_capabilities();
-> > +       static_branch_enable(&riscv_const_caps_ready);
-> >  }
-> > diff --git a/arch/riscv/tools/Makefile b/arch/riscv/tools/Makefile
-> > new file mode 100644
-> > index 000000000000..932b4fe5c768
-> > --- /dev/null
-> > +++ b/arch/riscv/tools/Makefile
-> > @@ -0,0 +1,22 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +
-> > +gen := arch/$(ARCH)/include/generated
-> > +kapi := $(gen)/asm
-> > +
-> > +kapi-hdrs-y := $(kapi)/cpucaps.h
-> > +
-> > +targets += $(addprefix ../../../,$(gen-y) $(kapi-hdrs-y))
-> > +
-> > +PHONY += kapi
-> > +
-> > +kapi:   $(kapi-hdrs-y) $(gen-y)
-> > +
-> > +# Create output directory if not already present
-> > +_dummy := $(shell [ -d '$(kapi)' ] || mkdir -p '$(kapi)')
-> > +
-> > +quiet_cmd_gen_cpucaps = GEN     $@
-> > +      cmd_gen_cpucaps = mkdir -p $(dir $@) && \
-> > +                     $(AWK) -f $(filter-out $(PHONY),$^) > $@
-> > +
-> > +$(kapi)/cpucaps.h: $(src)/gen-cpucaps.awk $(src)/cpucaps FORCE
-> > +       $(call if_changed,gen_cpucaps)
-> > diff --git a/arch/riscv/tools/cpucaps b/arch/riscv/tools/cpucaps
-> > new file mode 100644
-> > index 000000000000..cb1ff2747859
-> > --- /dev/null
-> > +++ b/arch/riscv/tools/cpucaps
-> > @@ -0,0 +1,5 @@
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +#
-> > +# Internal CPU capabilities constants, keep this list sorted
-> > +
-> > +HAS_NO_FPU
-> 
-> How can "No FPU" be a CPU capability ?
-> 
-> We have ISA extensions 'F' and 'D' which tells us whether an FPU is available
-> or not.
-> 
-> I think this file should be a table with two columns
-> "<lower_case_extension_name> <parsed_from_isa_string_yes_no>"
-> I this this file should look like this:
-> 
-> i yes
-> m yes
-> a yes
-> c yes
-> f yes
-> d yes
-> h yes
-> sv48 no
-> sv57 no
-> sstc yes
-> svinval yes
-> svpbmt yes
-> svnapot yes
-> sscofpmf yes
-> ...
-> 
-> > diff --git a/arch/riscv/tools/gen-cpucaps.awk b/arch/riscv/tools/gen-cpucaps.awk
-> > new file mode 100755
-> > index 000000000000..52a1e1b064ad
-> > --- /dev/null
-> > +++ b/arch/riscv/tools/gen-cpucaps.awk
-> > @@ -0,0 +1,40 @@
-> > +#!/bin/awk -f
-> > +# SPDX-License-Identifier: GPL-2.0
-> > +# gen-cpucaps.awk: riscv cpucaps header generator
-> > +#
-> > +# Usage: awk -f gen-cpucaps.awk cpucaps.txt
-> > +
-> > +# Log an error and terminate
-> > +function fatal(msg) {
-> > +       print "Error at line " NR ": " msg > "/dev/stderr"
-> > +       exit 1
-> > +}
-> > +
-> > +# skip blank lines and comment lines
-> > +/^$/ { next }
-> > +/^#/ { next }
-> > +
-> > +BEGIN {
-> > +       print "#ifndef __ASM_CPUCAPS_H"
-> > +       print "#define __ASM_CPUCAPS_H"
-> > +       print ""
-> > +       print "/* Generated file - do not edit */"
-> > +       cap_num = 0
-> > +       print ""
-> > +}
-> > +
-> > +/^[vA-Z0-9_]+$/ {
-> > +       printf("#define RISCV_%-30s\t%d\n", $0, cap_num++)
-> > +       next
-> > +}
-> > +
-> > +END {
-> > +       printf("#define RISCV_NCAPS\t\t\t\t%d\n", cap_num)
-> > +       print ""
-> > +       print "#endif /* __ASM_CPUCAPS_H */"
-> > +}
-> 
-> This script need to change refer capabilities as extensions.
-> 
-> For every extension, there should be two defines.
-> For e.g. "sstc" extension should have following defines
-> #define RISCV_ISA_EXT_sstc <#num>
-> #define RISCV_ISA_EXT_FROMSTR_sstc <1|0>
-> 
-> > +
-> > +# Any lines not handled by previous rules are unexpected
-> > +{
-> > +       fatal("unhandled statement")
-> > +}
-> > --
-> > 2.34.1
-> >
-> 
-> Regards,
-> Anup
 
 _______________________________________________
 linux-riscv mailing list
