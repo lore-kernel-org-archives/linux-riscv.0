@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38BE0C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 14:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F67EC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 14:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=770M8OD554mu1D2HULp/B6jUx9vqMml5ir3Pk4Gn2G4=; b=cyJyhDqt+s91EG
-	tM9z4iaTcw5zGxIHidem9aYnjzvBeyyLOuDHzajUIpt7f9RbimyI/0G3bwblSF6uAgTy0c3F43xcY
-	CLHPesRjQ9RDpWEH5uFfi6ABqKGCg6Al0hCBnlQwMs6hKuPP+FXRe36sNopMiTgSQP+PfJOOxyFmD
-	MIQ+iJ3t6V7wlhOY961+Ug7TX8Os/96MW2BhUNoV/9yJ6vokphWNUYavJ/qyBlVt0WVBC/b+CjAHp
-	mSo1k6c3KfvbQJbtrMyUrveFkJS3d0dycrPZ6MbncRe/BUMj3bJaJB4YvSz9Hjd1NA8sf2WY4Ja+C
-	XL1xHv9KeDwxdFE5GZZw==;
+	List-Owner; bh=yhUN00YKU7GYLc253vHIn7esJwtXfQ5dmguGHLdVvIE=; b=aYSIinT1CspEt+
+	q+C9yUfIijk1WszewSPY+4RPt0CN55gw5YNmczrwNereVr+9uBWAgRgAFuoSVOnDGhxYJJIg3qMbH
+	Dn7DptTziU0/oEQdU/S5UjJzUe8NXmOG3XkD2ooQOxRJq2tvkxoLFk1JSZVnLN+IV8xcQVtpPquaa
+	W5YxJR/2EPtw16H/lTQ+071TrBxaw7PsDI3OSlCbTfwDHFVHXFuGqmpWHvDhGrtUiMTNS+eh1Lua2
+	mAgLlTlQ5tBhLM6mqoLP1Um33r1DFKrxBk7msJRNPLaToKduCZHdt51FZ5OIUL9VQ6QLpPq8GlXbS
+	besGz2vWO4EGs/Io1oxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1no4MC-00Eq9Y-48; Mon, 09 May 2022 14:27:28 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1no4Te-00Et0v-0S; Mon, 09 May 2022 14:35:10 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1no4M5-00Epza-Cp
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 14:27:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1652106442; x=1683642442;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=sE8P8jfstaqRSnBMIC2Y8y6T/ZDavu/2NYcDCqLH/cs=;
- b=lY6kHnJb9EZ+XQLc9QfVpUclCL/Wsh5X/FqZlS1PP9D6G+ygSTTRFtgn
- jrHMehCqPRkQPpSNmHj9cGuACkG++3yKvhqU0Fvn2zsim/+oYfxR7g1By
- VTUdDShPGWG7yFL6gJ48ZW0wTsvSHevA4+tZ9+cjYSBfO717WtYVzAZdu
- 9IwI9WhpOET5zdBIiBjfb4XZic/2xNhBNN0GAK/fLmyDj3m+2/kHCvbap
- 4b83yEaHH6QmZi2bKSCaP6z6VoSND0ZuAU0dDwCovOSWcWW5nShhhKuFG
- OC5O8FQK8s3w6eo2APReUv/L9FYzjsKxq+Y3014i8nW6OkzNhbKHSZTmD A==;
-X-IronPort-AV: E=Sophos;i="5.91,211,1647327600"; d="scan'208";a="155299047"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 09 May 2022 07:27:15 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Mon, 9 May 2022 07:27:13 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Mon, 9 May 2022 07:27:10 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley
- <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>,
- Cyril Jean <Cyril.Jean@microchip.com>, <devicetree@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <heiko@sntech.de>, Arnd Bergmann <arnd@arndb.de>
-Subject: [PATCH v5 09/10] riscv: microchip: icicle: readability fixes
-Date: Mon, 9 May 2022 15:26:10 +0100
-Message-ID: <20220509142610.128590-10-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.35.2
-In-Reply-To: <20220509142610.128590-1-conor.dooley@microchip.com>
-References: <20220509142610.128590-1-conor.dooley@microchip.com>
+ id 1no4TV-00Esz6-Ms
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 14:35:03 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 4A825B816D6;
+ Mon,  9 May 2022 14:35:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43AC8C385AF;
+ Mon,  9 May 2022 14:34:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1652106899;
+ bh=vfDKNwLVPbOGrvBsC/bFHFyH9ByxjZk7Ny2bY3inWbM=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=uQMwhwbUUnAYDeU++/wgIqkeNZBLHJbf4vMQP3gzxkpB844FBoWNBm7/rABZXhYbb
+ y80q28vwC0lHQsVKNbnuRokPCXjavY1s3HiZRWGfLa9iqs17PEVV4J8svIomw/wlm+
+ Sq0ef9UE3VvBex/8y+iXuEkyOlM7ebQRcemtcw9krX5jZV11zF8a5T0S/dM2RyAgK4
+ 0ruHLnRwU5TYL7hKuRvGeQkBQmaHSFj+4rNF+RNQh45T4GAOuD8nnKrelvJXHdrLuU
+ MuntnYMOO70yE1B9QhQTsn75W0OfuIC4nsU461yplhBtOmr4MZ64PkiY4oxbrvFiVD
+ Jd10kMiGCcfZA==
+Date: Mon, 9 May 2022 22:26:20 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Anup Patel <anup@brainfault.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ kasan-dev@googlegroups.com
+Subject: Re: [PATCH v2 0/4] unified way to use static key and optimize
+ pgtable_l4_enabled
+Message-ID: <YnkkjC065kCTtHBC@xhacker>
+References: <20220508160749.984-1-jszhang@kernel.org>
+ <CAAhSdy1qri5L9pVcZO8areB=TXMSJBg2+cTNMZGQ3g+3Qhxmfg@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAAhSdy1qri5L9pVcZO8areB=TXMSJBg2+cTNMZGQ3g+3Qhxmfg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220509_072721_529049_4DC1BD9D 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20220509_073501_975737_401AC15F 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,59 +83,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fix the sort order of the status properties, remove some
-extra whitespace in the mmc entry & add whitespace to the mac entry
-containing the phys so that the dt is easier to read.
+On Mon, May 09, 2022 at 10:07:16AM +0530, Anup Patel wrote:
+> On Sun, May 8, 2022 at 9:46 PM Jisheng Zhang <jszhang@kernel.org> wrote:
+> >
+> > Currently, riscv has several features which may not be supported on all
+> > riscv platforms, for example, FPU, SV48, SV57 and so on. To support
+> > unified kernel Image style, we need to check whether the feature is
+> > suportted or not. If the check sits at hot code path, then performance
+> > will be impacted a lot. static key can be used to solve the issue. In
+> > the past, FPU support has been converted to use static key mechanism.
+> > I believe we will have similar cases in the future. For example, the
+> > SV48 support can take advantage of static key[1].
+> >
+> > patch1 is a simple W=1 warning fix.
+> > patch2 introduces an unified mechanism to use static key for riscv cpu
+> > features.
+> > patch3 converts has_cpu() to use the mechanism.
+> > patch4 uses the mechanism to optimize pgtable_l4|[l5]_enabled.
+> >
+> > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
+> 
+> Overall, using a script to generate CPU capabilities seems a bit
+> over-engineered to me. We already have RISC-V ISA extension
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+Not all riscv features are *ISA* extensions. For example, SV48 and SV57
+are not ISA extensions. IIRC, I asked this question before, here are
+Atish's comments:
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-index 739dfa52bed1..9cd1a30edf2c 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-@@ -64,8 +64,6 @@ &mmuart4 {
- };
- 
- &mmc {
--	status = "okay";
--
- 	bus-width = <4>;
- 	disable-wp;
- 	cap-sd-highspeed;
-@@ -77,6 +75,7 @@ &mmc {
- 	sd-uhs-sdr25;
- 	sd-uhs-sdr50;
- 	sd-uhs-sdr104;
-+	status = "okay";
- };
- 
- &spi0 {
-@@ -106,16 +105,19 @@ &i2c2 {
- &mac0 {
- 	phy-mode = "sgmii";
- 	phy-handle = <&phy0>;
-+	status = "okay";
- };
- 
- &mac1 {
--	status = "okay";
- 	phy-mode = "sgmii";
- 	phy-handle = <&phy1>;
-+	status = "okay";
-+
- 	phy1: ethernet-phy@9 {
- 		reg = <9>;
- 		ti,fifo-depth = <0x1>;
- 	};
-+
- 	phy0: ethernet-phy@8 {
- 		reg = <8>;
- 		ti,fifo-depth = <0x1>;
--- 
-2.35.2
+https://lore.kernel.org/linux-riscv/CAHBxVyF65jC_wvxcD6bueqpCY8-Kbahu1yxsSoBmO1s15dGkSQ@mail.gmail.com/
+
+> parsing infrastructure which can be easily extended to support
+> static key arrays.
+> 
 
 
 _______________________________________________
