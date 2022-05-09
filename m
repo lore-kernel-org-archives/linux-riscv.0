@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF812C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 22:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C51DC43217
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 22:32:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MKg4tnPDJMFeGRmuvT1ya8CZFJgb+ooiJOR2yueWGJw=; b=5GNtm7yZ8PP04s
-	66/flJ5ytCgEPzq2A7hBMNHwFiKXSlceWHX6+7bqqM1eJg2aPzVNNuTyL6i6b6jJZuNnRxbsreoyh
-	BIYu8yIGaAhWrV9Z9GsfeD9cDqhnUU6Lh5eqT+BDwJxeEHGu38AYswnve7iINHTqcKDCm+w3GVhXU
-	ddbjF/hy6CtgMP1Utk+Mq/n3GI43PWfUF7osnjSzCZLYmJ1q5y4dJ6e6XdVNUJ0D9R44xt9ZUnLkA
-	t3RLZk6WTjRiFokY6dYlhmtcQFSFB2cjVM0MSGeBAfYV++Y7y/8Mwl2kzwWL0Y8tPHHsnadwxNV6f
-	ZW1qsyS+mBX1Dm/IME0Q==;
+	List-Owner; bh=Ra29Gcre4593FaAbMMCLVpJITR5s1KbiPkhD5upv+9c=; b=s/1qth6EZHrDd9
+	+XQqMhQUv/Lyijaw2WyPYe5y/zgiPnvuWoZ+1SKFa2WAfEpI6zP0nmKrHDtN4Hi4B5skZ8yvqeKVG
+	9seEZlZEe5hW4Z3WQF2kd6lPLMrPSQ/K1gP3F4gNMBWZZVG2O6R9keVEjsRgdR5g9/456MwVZblGn
+	2jWzEVYXPkWd90IcpKX98oRjMmHLp3S4hy5mW3YdAdS7t+HCd/lvBhLGkK1wVs2xTiyRICpzbW08W
+	wyGe1r8ydDfZb1d++OhEsmAl6kwBoIl1Q8qWq6bshujtHy1VN2hUAy0R+t6I4gAwzB3rXfZ6WdLRZ
+	lYjM0u7hL09+x9oNrehg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noBvh-00GZCC-Pz; Mon, 09 May 2022 22:32:37 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1noBvf-00GZBG-OM; Mon, 09 May 2022 22:32:35 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noBvZ-00GZ4r-Qg
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 22:32:32 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id c9so14481414plh.2
- for <linux-riscv@lists.infradead.org>; Mon, 09 May 2022 15:32:26 -0700 (PDT)
+ id 1noBvY-00GZ53-Gx
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 22:32:29 +0000
+Received: by mail-pf1-x430.google.com with SMTP id p8so13417308pfh.8
+ for <linux-riscv@lists.infradead.org>; Mon, 09 May 2022 15:32:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
  h=subject:date:message-id:in-reply-to:references:mime-version
  :content-transfer-encoding:cc:from:to;
- bh=08o9m5Hkc1DwgHXwEhIgYa1O84W5gO7UU5kFrcD0IRY=;
- b=Ivfni2BR3drjv+XoR/hBXUrgG62qyubSK3Ofq7nGB2uI3j7DeKiw7jRrhjYIPRgbiL
- fX9foK05Y7Jog/gVmvwsgPmkiISwecG0vWlaNbZPsib7PJe/U0FrjNlpjZeqJTMnA4Ud
- xD2a5Ri7G1reYFJHWM8J0ABchfZtYYpFEJm7EacP6oMYWcpyn/f0Z1zDck1YxAxeMMcF
- un3MVzMWYPTLkAP7W6QyxETK9WwzzVdbB+7M0G8w56mYUpSu+iAgFJ/e7C0edwi86i0F
- 9CtnFPdWIKaX25L03L6TPjghHJhiIfuQAKj24e211/mTSajbwfjFHu6V4QDWxV3ozgp7
- ADmw==
+ bh=pWbw2Mwy88SDSkfpA4D7g/Rmsq9eS9lL/9r9k9KvO7g=;
+ b=aKb0kPhWVd5eMpmlkl9NknitMxg8gh5oazT3otM1H7wNssSLITeEgVYd3fLrFpqhAN
+ 6lW7y7N8edPrk+YAtulN/xaP8NiOVNXKZAi6KA0NNveYzfnxDp9ggPIafs2mYWMuEWpF
+ yisEk6Vl9il9YEGMryMzMjf2wBlPJtypJNMiXj/O7kxrK4628fYPSch836eJYFLJD5Wl
+ OrKTh30iRJgEMKA4TvqbYiX+DIHWjjGEmbm+VHeiIrDIZkzUjvIVMUmJT2O64m4s1rq4
+ s75jC01yaX0ljYX5/96b4XICWLQpDnMGWrtzgp0A1FvhK7kRpUekOBDbUefjzvvkL2IY
+ V5Zg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:subject:date:message-id:in-reply-to:references
  :mime-version:content-transfer-encoding:cc:from:to;
- bh=08o9m5Hkc1DwgHXwEhIgYa1O84W5gO7UU5kFrcD0IRY=;
- b=WSOW759guBgBe8gYHztum7973x7eNnte3YE3v5YpuF+HqSsVVQZIDzjjeoMMuD2bkS
- XjYGMZ4hY3PEf+xadWtF4Y+Eg1hwVMqjqxurw7VCMYv9SNPfSxRd5nv67LG1a7WBKET2
- f+A34MgDsR3LpACC1rM9wA7SzIj/hY7N9lLdIzIAhaluQ0vcCnj7MCIEyaLqK6/2CgL9
- /jpInkYHLGlw8/hAzQQXRzJpFVZYBhqAiGwrbMXgQOs4mmLtLnOSRkfTWX2xkRCzM+B5
- +FZlVRafRj0vSSd83vFDMb4daAYnYB6MUorR4u0ac5kX0P4qpDo3bCqSr1qG86aoG1SV
- fT1g==
-X-Gm-Message-State: AOAM533WTxqKqS7vEC858IRTcwaiSBixEn2sYX9g6aXNGjLUswJDoyw8
- OmPC7P2XUzN/ZEXezFjLfcvMVQ==
-X-Google-Smtp-Source: ABdhPJwfKDrkaUHJSNgn6XFJOuCcJbR4otch9RHfl10t4H02hdxl8ivFVYd6BH4xCpPZNyXowDk67w==
-X-Received: by 2002:a17:903:1205:b0:15e:804c:fab4 with SMTP id
- l5-20020a170903120500b0015e804cfab4mr18051563plh.112.1652135545965; 
- Mon, 09 May 2022 15:32:25 -0700 (PDT)
+ bh=pWbw2Mwy88SDSkfpA4D7g/Rmsq9eS9lL/9r9k9KvO7g=;
+ b=Sy/opS4xR5DWZxssJ8gEHJWcC8DbNLKB6Cx8castqcn00tIsNPE32K/6ZVev+oPwYH
+ vbe70STDkMRb3S6JQCXBXSOagOPgwv1j/38Dht/HOqoJOV+gjCQmWkmTEQ6QSsi5JJ0v
+ u9ap6nMxBYBMGkvicJLaX8hYismY/5YjYq0FAkTN6bRI3HLUSMCXxKtSaLdc85OWt1c4
+ T+CPaOlonLMkC5DCZ3DwnbI+9ly6sz38QhPtXyZMpNy5/jOvvT5DkJCOHac297c5mop3
+ mXY1PBJF8LAa2c5P6xKEbKoPdNqc6q4K/beeoFGZOnEcwCS0Oz5pYZO/mJ8RuP0sHx66
+ FLmw==
+X-Gm-Message-State: AOAM533EmuFUrPnl+zt7Ki2/Twkq1mQjVhqRI+B/4ZlZmql3lpQKan2B
+ MBQgiFLuhw+Xh2LMftmiLI4vUA==
+X-Google-Smtp-Source: ABdhPJxUc/qGM9x1mbDewFdh0f2iSebcv/MH281VDWnsTPJAYa63hm5brMdaLkqzPiol6IuhZdvYkA==
+X-Received: by 2002:a05:6a02:10d:b0:381:f4c8:ad26 with SMTP id
+ bg13-20020a056a02010d00b00381f4c8ad26mr14585787pgb.135.1652135546996; 
+ Mon, 09 May 2022 15:32:26 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- oa7-20020a17090b1bc700b001dcc0cb262asm224098pjb.17.2022.05.09.15.32.25
+ w19-20020a1709029a9300b0015e8d4eb1ddsm407885plp.39.2022.05.09.15.32.26
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 09 May 2022 15:32:25 -0700 (PDT)
-Subject: [PATCH v5 2/7] asm-generic: qspinlock: Indicate the use of mixed-size
- atomics
-Date: Mon,  9 May 2022 15:29:51 -0700
-Message-Id: <20220509222956.2886-3-palmer@rivosinc.com>
+ Mon, 09 May 2022 15:32:26 -0700 (PDT)
+Subject: [PATCH v5 3/7] asm-generic: qrwlock: Document the spinlock fairness
+ requirements
+Date: Mon,  9 May 2022 15:29:52 -0700
+Message-Id: <20220509222956.2886-4-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20220509222956.2886-1-palmer@rivosinc.com>
 References: <20220509222956.2886-1-palmer@rivosinc.com>
@@ -83,8 +83,8 @@ Cc: guoren@kernel.org, peterz@infradead.org, mingo@redhat.com,
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220509_153229_971782_E0AE6171 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20220509_153228_611271_C0F212EE 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,64 +101,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Peter Zijlstra <peterz@infradead.org>
+From: Palmer Dabbelt <palmer@rivosinc.com>
 
-The qspinlock implementation depends on having well behaved mixed-size
-atomics.  This is true on the more widely-used platforms, but these
-requirements are somewhat subtle and may not be satisfied by all the
-platforms that qspinlock is used on.
+I could only find the fairness requirements documented as the C code,
+this calls them out in a comment just to be a bit more explicit.
 
-Document these requirements, so ports that use qspinlock can more easily
-determine if they meet these requirements.
-
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Acked-by: Waiman Long <longman@redhat.com>
 Reviewed-by: Arnd Bergmann <arnd@arndb.de
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- include/asm-generic/qspinlock.h | 29 +++++++++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
+ include/asm-generic/qrwlock.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/include/asm-generic/qspinlock.h b/include/asm-generic/qspinlock.h
-index d74b13825501..995513fa2690 100644
---- a/include/asm-generic/qspinlock.h
-+++ b/include/asm-generic/qspinlock.h
-@@ -2,6 +2,35 @@
+diff --git a/include/asm-generic/qrwlock.h b/include/asm-generic/qrwlock.h
+index 7ae0ece07b4e..24ae09c1db9f 100644
+--- a/include/asm-generic/qrwlock.h
++++ b/include/asm-generic/qrwlock.h
+@@ -2,6 +2,10 @@
  /*
-  * Queued spinlock
+  * Queue read/write lock
   *
-+ * A 'generic' spinlock implementation that is based on MCS locks. For an
-+ * architecture that's looking for a 'generic' spinlock, please first consider
-+ * ticket-lock.h and only come looking here when you've considered all the
-+ * constraints below and can show your hardware does actually perform better
-+ * with qspinlock.
++ * These use generic atomic and locking routines, but depend on a fair spinlock
++ * implementation in order to be fair themselves.  The implementation in
++ * asm-generic/spinlock.h meets these requirements.
 + *
-+ * qspinlock relies on atomic_*_release()/atomic_*_acquire() to be RCsc (or no
-+ * weaker than RCtso if you're power), where regular code only expects atomic_t
-+ * to be RCpc.
-+ *
-+ * qspinlock relies on a far greater (compared to asm-generic/spinlock.h) set
-+ * of atomic operations to behave well together, please audit them carefully to
-+ * ensure they all have forward progress. Many atomic operations may default to
-+ * cmpxchg() loops which will not have good forward progress properties on
-+ * LL/SC architectures.
-+ *
-+ * One notable example is atomic_fetch_or_acquire(), which x86 cannot (cheaply)
-+ * do. Carefully read the patches that introduced
-+ * queued_fetch_set_pending_acquire().
-+ *
-+ * qspinlock also heavily relies on mixed size atomic operations, in specific
-+ * it requires architectures to have xchg16; something which many LL/SC
-+ * architectures need to implement as a 32bit and+or in order to satisfy the
-+ * forward progress guarantees mentioned above.
-+ *
-+ * Further reading on mixed size atomics that might be relevant:
-+ *
-+ *   http://www.cl.cam.ac.uk/~pes20/popl17/mixed-size.pdf
-+ *
-  * (C) Copyright 2013-2015 Hewlett-Packard Development Company, L.P.
-  * (C) Copyright 2015 Hewlett-Packard Enterprise Development LP
+  * (C) Copyright 2013-2014 Hewlett-Packard Development Company, L.P.
   *
+  * Authors: Waiman Long <waiman.long@hp.com>
 -- 
 2.34.1
 
