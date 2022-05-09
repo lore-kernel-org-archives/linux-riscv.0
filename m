@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE9DC4332F
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 23:33:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25135C3527B
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 23:33:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lxths4wJ6qBHw8QK7mvcpQRixEu9RYUfO1/+XxQyyro=; b=s4b41ii0iTnI17
-	S7mT1EcLL/pdjtD9xXBYco0L4Zo8ePu0wGuw905DLd+vL3TBmQ7Z7eJMZQM7Se+dFvyQIf1l70tqC
-	76ytW8oR2VOF9tktQGanOawg4Yp2MA6rq9qaxUb3lrfn/CP8wbyBJG2/+YZe6sDz4wp13TGC3JEVs
-	rHH9fkYpWifFt1HOW+2qrlKEF7dxnPQcwKuL3oZVQwd9CZdn3Ye9sbIIo1GkH6MnqNNZd5+gjS2ks
-	E8Ribg9f171XTTEFnA9PQy3/oFpWSptyUVCaatoJzkR60hO0yYk4dxi7gsODHGQYnyllI4UOkZHr/
-	Iicrk1uuUKkbuw/GSzRQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=w+uEB2NbvoNos0unphCvcfIJ0LywfgKkKl4XY8/qLQI=; b=2QQ+1b47oBXfGZ
+	zcsSLuNBZ1PM82eqPRetYxVzY5D7MR9l1R6a9txTtWANbAvQl9kcRnpE6tIqhEmD9a/GF1xyWi2NB
+	sOwSPxgZX7es2Ris7gcOfzk4pzt43V6fYGe0E0the1Ibw9wd8wPE8y9EfIm2Y83E6ADdukb0O0Nme
+	Ewl4mEcGXxvSU0nTT3AQ6DirTO/CBRfUXTG9naYS3nP5Xf/dd4UGIhV8UGb8LBVB64idCa6K7s/y9
+	lXns7axsjxIIZcAZCcRGOH+/o6meG9bpyhNWfa/2VdzV0uziwtyhfUcO6bwmtcI8rSyo7av3SWPEy
+	7skfCQ4wYcOy8JA2mNPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noCsP-00Gjml-Ar; Mon, 09 May 2022 23:33:17 +0000
+	id 1noCsS-00Gjpg-UI; Mon, 09 May 2022 23:33:20 +0000
 Received: from bhuna.collabora.co.uk ([46.235.227.227])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noCsJ-00Gjg2-KQ
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 23:33:14 +0000
+ id 1noCsO-00GjmE-1E
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 23:33:18 +0000
 Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id 607931F416C1
+ (Authenticated sender: dmitry.osipenko) with ESMTPSA id 2F8AA1F41C30
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1652139183;
- bh=lLgNEvskjYPed89A1nrHxa9JSdRs0IUn4pOHSUK7jTc=;
- h=From:To:Cc:Subject:Date:From;
- b=WUHzEmLOMl++gIYprzLY4Y5ZgwkylBFM3NXfpKcZkd+7BNaZaUmiGqg0VUYWRABmv
- hJH1Ou7MvzVQEeCAUDDHWRMZxDQoppEXGKbM2j06jRJrIABXsEZZwm7i9NM879gB6O
- 2Y1Se37TomGB4d2h1mXO6OlgzOTBjNFsW3GHIFZ7/mIkei0JXAEQaCq8Rz0ut+bUea
- RPU0PjopsaMLBS9qFclxouby5tVIWXA/d0NuIMg3imq9abL7b/0/41RgiE9Je581Oh
- wDZpoyFknmJS5vpV9L2nPVYSN0vUloiI1KAFaWeUbC9qrgYElXNzM0KEblyCj/O68o
- va3jAifDGqHhA==
+ s=mail; t=1652139194;
+ bh=bWEhd2ly681MLGj7UVCJAzYeXMznG9pbqJy3OeFWJRg=;
+ h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+ b=BPDQwkauvsVGCV6donoyMBQqi6nfKh7S+Iw/1P9iMbIBBqyoUvSgbLuYvsqdYh/ls
+ GMjWJ14AyXBDnXQre3telXmHCJzLKXlCCI3qHan6n6N+oKtio7vMszlQ/fxWkoZQss
+ FWDRbd6hKveTgyIf56hKjN7sgj9kRrU43a5oXc/b4FYAyh/tffvNibZf6DI0vK54ws
+ zhTvXytd8B9ucimFodcLV0sRbymSo1ScARgq6soV9eL7++8Wv9QDXGNUEog3feDRa0
+ 8MU4GtColV6cUkO+UZwfe5puFbTFwvmAXe5mtb2I6jqpygEimE8CDtmiPOapiivdh/
+ Y3sLj2Qbwqplg==
 From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
  Jonathan Hunter <jonathanh@nvidia.com>,
@@ -79,14 +79,16 @@ Cc: linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-sh@vger.kernel.org,
  xen-devel@lists.xenproject.org, linux-acpi@vger.kernel.org,
  linux-pm@vger.kernel.org, linux-tegra@vger.kernel.org
-Subject: [PATCH v8 00/27] Introduce power-off+restart call chain API
-Date: Tue, 10 May 2022 02:32:08 +0300
-Message-Id: <20220509233235.995021-1-dmitry.osipenko@collabora.com>
+Subject: [PATCH v8 03/27] kernel/reboot: Introduce sys-off handler API
+Date: Tue, 10 May 2022 02:32:11 +0300
+Message-Id: <20220509233235.995021-4-dmitry.osipenko@collabora.com>
 X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220509233235.995021-1-dmitry.osipenko@collabora.com>
+References: <20220509233235.995021-1-dmitry.osipenko@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220509_163311_951073_16CE7607 
-X-CRM114-Status: GOOD (  27.09  )
+X-CRM114-CacheID: sfid-20220509_163316_384634_F04671C4 
+X-CRM114-Status: GOOD (  24.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,164 +100,346 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UHJvYmxlbQotLS0tLS0tCgpTb0MgZGV2aWNlcyByZXF1aXJlIHBvd2VyLW9mZiBjYWxsIGNoYWlu
-aW5nIGZ1bmN0aW9uYWxpdHkgZnJvbSBrZXJuZWwuCldlIGhhdmUgYSB3aWRlbHkgdXNlZCByZXN0
-YXJ0IGNoYWluaW5nIHByb3ZpZGVkIGJ5IHJlc3RhcnQgbm90aWZpZXIgQVBJLApidXQgbm90aGlu
-ZyBmb3IgcG93ZXItb2ZmLgoKU29sdXRpb24KLS0tLS0tLS0KCkludHJvZHVjZSBuZXcgQVBJIHRo
-YXQgcHJvdmlkZXMgY2FsbCBjaGFpbnMgc3VwcG9ydCBmb3IgYWxsIHJlc3RhcnQgYW5kCnBvd2Vy
-LW9mZiBtb2Rlcy4gVGhlIG5ldyBBUEkgaXMgZGVzaWduZWQgd2l0aCBzaW1wbGljaXR5IGFuZCBl
-eHRlbnNpYmlsaXR5CmluIG1pbmQuCgpUaGlzIGlzIGEgdGhpcmQgYXR0ZW1wdCB0byBpbnRyb2R1
-Y2UgdGhlIG5ldyBBUEkuIEZpcnN0IHdhcyBtYWRlIGJ5Ckd1ZW50ZXIgUm9lY2sgYmFjayBpbiAy
-MDE0LCBzZWNvbmQgd2FzIG1hZGUgYnkgVGhpZXJyeSBSZWRpbmcgaW4gMjAxNy4KSW4gZmFjdCB0
-aGUgd29yayBkaWRuJ3Qgc3RvcCBhbmQgcmVjZW50bHkgYXJtX3BtX3Jlc3RhcnQoKSB3YXMgcmVt
-b3ZlZApmcm9tIHY1LjE0IGtlcm5lbCwgd2hpY2ggd2FzIGEgcGFydCBvZiBwcmVwYXJhdG9yeSB3
-b3JrIHN0YXJ0ZWQgYnkKR3VlbnRlciBSb2Vjay4KCkFkb3B0aW9uIHBsYW4KLS0tLS0tLS0tLS0t
-LQoKVGhpcyBwYXRjaHNldCBpbnRyb2R1Y2VzIHRoZSBuZXcgQVBJLiBJdCBhbHNvIGNvbnZlcnRz
-IG11bHRpcGxlIGRyaXZlcnMKYW5kIGFyY2ggY29kZSB0byB0aGUgbmV3IEFQSSB0byBkZW1vbnN0
-cmF0ZSBob3cgaXQgYWxsIGxvb2tzIGluIHByYWN0aWNlLApyZW1vdmluZyB0aGUgcG1fcG93ZXJf
-b2ZmX3ByZXBhcmUgZ2xvYmFsIHZhcmlhYmxlLgoKVGhlIHBsYW4gaXM6CgoxLiBNZXJnZSB0aGUg
-bmV3IEFQSSBhbmQgY29udmVydCBhcmNoIGNvZGUgdG8gdXNlIGRvX2tlcm5lbF9wb3dlcl9vZmYo
-KS4KICAgRm9yIG5vdyB0aGUgbmV3IEFQSSB3aWxsIGNvLWV4aXN0IHdpdGggdGhlIG9sZGVyIEFQ
-SS4KCjIuIENvbnZlcnQgYWxsIGRyaXZlcnMgYW5kIHBsYXRmb3JtIGNvZGUgdG8gdGhlIG5ldyBB
-UEkuCgozLiBSZW1vdmUgb2Jzb2xldGVkIHBtX3Bvd2VyX29mZiBhbmQgcG1fcG93ZXJfb2ZmX3By
-ZXBhcmUgdmFyaWFibGVzLgoKUmVzdWx0cwotLS0tLS0tCgoxLiBEZXZpY2VzIGNhbiBiZSBwb3dl
-cmVkIG9mZiBwcm9wZXJseS4KCjIuIEdsb2JhbCB2YXJpYWJsZXMgYXJlIHJlbW92ZWQgZnJvbSBk
-cml2ZXJzLgoKMy4gR2xvYmFsIHBtX3Bvd2VyX29mZiBhbmQgcG1fcG93ZXJfb2ZmX3ByZXBhcmUg
-Y2FsbGJhY2sgdmFyaWFibGVzIGFyZQpyZW1vdmVkIG9uY2UgYWxsIHVzZXJzIGFyZSBjb252ZXJ0
-ZWQgdG8gdGhlIG5ldyBBUEkuIFRoZSBsYXR0ZXIgY2FsbGJhY2sKaXMgcmVtb3ZlZCBieSBwYXRj
-aCAjMjQgb2YgdGhpcyBzZXJpZXMuCgo0LiBBbWJpZ3VvdXMgY2FsbCBjaGFpbiBvcmRlcmluZyBp
-cyBwcm9oaWJpdGVkIGZvciBub24tZGVmYXVsdCBwcmlvcml0aWVzLgoKQ2hhbmdlbG9nOgoKdjg6
-IC0gUmV3b3JrZWQgc3lzLW9mZiBoYW5kbGVyIGxpa2Ugd2FzIHN1Z2dlc3RlZCBieSBSYWZhZWwg
-V3lzb2NraSBpbgogICAgICB0aGUgY29tbWVudHMgdG8gdjcuCgogICAgLSBUaGUgc3RydWN0IHN5
-cy1vZmYgaGFuZGxlciBub3cgaXMgcHJpdmF0ZSB0byBrZXJuZWwvcmVib290LmMgYW5kCiAgICAg
-IG5ldyBBUEkgaXMgc2ltcGxpZmllZC4KCiAgICAtIFRoZXJlIGlzIGEgc2luZ2xlIHN5cy1vZmYg
-QVBJIGZ1bmN0aW9uIGZvciBhbGwgaGFuZGxlciB0eXBlcy4KICAgICAgVXNlcnMgc2hhbGwgcGFz
-cyB0aGUgcmVxdWlyZWQgc3lzLW9mZiBtb2RlIHR5cGUgKHJlc3RhcnQsIHBvd2VyLW9mZgogICAg
-ICBhbmQgZXRjKS4KCiAgICAtIFRoZXJlIGlzIHNpbmdsZSBzdHJ1Y3Qgc3lzX29mZl9kYXRhIGNh
-bGxiYWNrIGFyZ3VtZW50IGZvciBhbGwKICAgICAgaGFuZGxlciBtb2Rlcy4KCiAgICAtIFVzZXIn
-cyBjYWxsYmFjayBub3cgbXVzdCByZXR1cm4gTk9USUZZX0RPTkUgb3IgTk9USUZZX1NUT1AuCgog
-ICAgLSBUaGUgZGVmYXVsdCBwcmlvcml0eSBsZXZlbCBpcyB6ZXJvIG5vdy4KCiAgICAtIE11bHRp
-cGxlIGhhbmRsZXJzIG5vdyBhbGxvd2VkIHRvIGJlIHJlZ2lzdGVyZWQgYXQgdGhlIGRlZmF1bHQK
-ICAgICAgcHJpb3JpdHkgbGV2ZWwuCgogICAgLSBQb3dlci1vZmYgY2FsbCBjaGFpbiBpcyBhdG9t
-aWMgbm93LCBsaWtlIHRoZSByZXN0YXJ0IGNoYWluLgoKICAgIC0ga2VybmVsL3JlYm9vdC5jIGNo
-YW5nZXMgYXJlIHNwbGl0IHVwIGludG8gc2V2ZXJhbCBsb2dpY2FsIHBhdGNoZXMuCgogICAgLSBB
-ZGRlZCByLWIgZnJvbSBNaWNoYcWCIE1pcm9zxYJhdyB0byB1bm1vZGlmaWVkIHBhdGNoZXMgZnJv
-bSB2Ny4KCiAgICAtIEFkZGVkIGFja3MgdGhhdCB3ZXJlIG1pc3NpbmcgaW4gdjcgYnkgYWNjaWRl
-bnQuCgp2NzogLSBSZWJhc2VkIG9uIGEgcmVjZW50IGxpbnV4LW5leHQuIERyb3BwZWQgdGhlIHJl
-Y2VudGx5IHJlbW92ZWQKICAgICAgTkRTMzIgYXJjaGl0ZWN0dXJlLiBPbmx5IFNIIGFuZCB4ODYg
-YXJjaGVzIGxlZnQgdW4tYWNrZWQuCgogICAgLSBBZGRlZCBhY2tzIGZyb20gVGhvbWFzIEJvZ2Vu
-ZG9lcmZlciBhbmQgS3J6eXN6dG9mIEtvemxvd3NraQogICAgICB0byB0aGUgTUlQUyBhbmQgbWVt
-b3J5L2VtaWYgcGF0Y2hlcyByZXNwZWN0aXZlbHkuCgogICAgLSBNYWRlIGNvdXBsZSBtaW5vciBj
-b3NtZXRpYyBpbXByb3ZlbWVudHMgdG8gdGhlIG5ldyBBUEkuCgogICAgLSBBIG1vbnRoIGFnbyBJ
-IGpvaW5lZCBDb2xsYWJvcmEgYW5kIGNvbnRpbnVpbmcgdG8gd29yayBvbiB0aGlzIHNlcmllcwog
-ICAgICBvbiB0aGUgY29tcGFueSdzIHRpbWUsIHNvIGNoYW5nZWQgbXkgZW1haWwgYWRkcmVzcyB0
-byBjb2xsYWJvcmEuY29tCgp2NjogLSBSZWJhc2VkIG9uIGEgcmVjZW50IGxpbnV4LW5leHQuCgog
-ICAgLSBNYWRlIG1pbm9yIGNvdXBsZSBjb3NtZXRpYyBjaGFuZ2VzLgoKdjU6IC0gRHJvcHBlZCBw
-YXRjaGVzIHdoaWNoIGNsZWFuZWQgdXAgbm90aWZpZXIvcmVib290IGhlYWRlcnMsIGFzIHdhcwog
-ICAgICByZXF1ZXN0ZWQgYnkgUmFmYWVsIFd5c29ja2kuCgogICAgLSBEcm9wcGVkIFdBUk5fT04o
-KSBmcm9tIHRoZSBjb2RlLCBhcyB3YXMgcmVxdWVzdGVkIGJ5IFJhZmFlbCBXeXNvY2tpLgogICAg
-ICBSZXBsYWNlZCBpdCB3aXRoIHByX2VycigpIGFwcHJvcHJpYXRlbHkuCgogICAgLSBEcm9wcGVk
-ICpfbm90aWZpZXJfaGFzX3VuaXF1ZV9wcmlvcml0eSgpIGZ1bmN0aW9ucyBhbmQgYWRkZWQKICAg
-ICAgKl9ub3RpZmllcl9jaGFpbl9yZWdpc3Rlcl91bmlxdWVfcHJpbygpIGluc3RlYWQsIGFzIHdh
-cyBzdWdnZXN0ZWQKICAgICAgYnkgTWljaGHFgiBNaXJvc8WCYXcgYW5kIFJhZmFlbCBXeXNvY2tp
-LgoKICAgIC0gRHJvcHBlZCBleHBvcnQgb2YgYmxvY2tpbmdfbm90aWZpZXJfY2FsbF9jaGFpbl9p
-c19lbXB0eSgpIHN5bWJvbCwKICAgICAgYXMgd2FzIHN1Z2dlc3RlZCBieSBSYWZhZWwgV3lzb2Nr
-aS4KCiAgICAtIE1pY2hhxYIgTWlyb3PFgmF3IHN1Z2dlc3RlZCB0aGF0IHdpbGwgYmUgYmV0dGVy
-IHRvIHNwbGl0IHVwIHBhdGNoCiAgICAgIHRoYXQgYWRkcyB0aGUgbmV3IEFQSSB0byBlYXNlIHJl
-dmlld2luZywgYnV0IFJhZmFlbCBXeXNvY2tpIGFza2VkCiAgICAgIG5vdCBhZGQgbW9yZSBwYXRj
-aGVzLCBzbyBJIGtlcHQgaXQgYXMgYSBzaW5nbGUgcGF0Y2guCgogICAgLSBBZGRlZCB0ZW1wb3Jh
-cnkgIndlYWsiIHN0dWIgZm9yIHBtX3Bvd2VyX29mZigpIHdoaWNoIGZpeGVzIGxpbmthZ2UKICAg
-ICAgZmFpbHVyZSBvbmNlIHN5bWJvbCBpcyByZW1vdmVkIGZyb20gYXJjaC8qIGNvZGUuIFByZXZp
-b3VzbHkgSSBtaXNzZWQKICAgICAgdGhpcyBwcm9ibGVtIGJlY2F1c2Ugd2FzIG9ubHkgY29tcGls
-ZS10ZXN0aW5nIG9iamVjdCBmaWxlcy4KCnY0OiAtIE1hZGUgYSB2ZXJ5IG1pbm9yIGltcHJvdmVt
-ZW50IHRvIGRvYyBjb21tZW50cywgY2xhcmlmeWluZyBjb3VwbGUKICAgICAgZGVmYXVsdCB2YWx1
-ZXMuCgogICAgLSBDb3JyZWN0ZWQgbGlzdCBvZiBlbWFpbHMgcmVjaXBpZW50IGJ5IGFkZGluZyBM
-aW51cywgU2ViYXN0aWFuLAogICAgICBQaGlsaXBwIGFuZCBtb3JlIE5EUyBwZW9wbGUuIFJlbW92
-ZWQgYm91bmNpbmcgZW1haWxzLgoKICAgIC0gQWRkZWQgYWNrcyB0aGF0IHdlcmUgZ2l2ZW4gdG8g
-djMuCgp2MzogLSBSZW5hbWVkIHBvd2VyX2hhbmRsZXIgdG8gc3lzX29mZl9oYW5kbGVyIGFzIHdh
-cyBzdWdnZXN0ZWQgYnkKICAgICAgUmFmYWVsIFd5c29ja2kuCgogICAgLSBJbXByb3ZlZCBkb2Mt
-Y29tbWVudHMgYXMgd2FzIHN1Z2dlc3RlZCBieSBSYWZhZWwgV3lzb2NraS4gQWRkZWQgbW9yZQog
-ICAgICBkb2MtY29tbWVudHMuCgogICAgLSBJbXBsZW1lbnRlZCBmdWxsIHNldCBvZiAxODAgcGF0
-Y2hlcyB3aGljaCBjb252ZXJ0IHdob2xlIGtlcm5lbCBpbgogICAgICBhY2NvcmRhbmNlIHRvIHRo
-ZSBwbGFuLCBzZWUgbGluayBbMV0gYWJvdmUuIFNsaWdodGx5IGFkanVzdGVkIEFQSSB0bwogICAg
-ICBiZXR0ZXIgc3VpdCBmb3IgdGhlIHJlbWFpbmluZyBjb252ZXJ0ZWQgZHJpdmVycy4KCiAgICAg
-ICogQWRkZWQgdW5yZWdpc3Rlcl9zeXNfb2ZmX2hhbmRsZXIoKSB0aGF0IGlzIGhhbmR5IGZvciBh
-IGNvdXBsZSBvbGQKICAgICAgICBwbGF0Zm9ybSBkcml2ZXJzLgoKICAgICAgKiBEcm9wcGVkIGRl
-dm1fcmVnaXN0ZXJfdHJpdmlhbF9yZXN0YXJ0X2hhbmRsZXIoKSwgJ3NpbXBsZScgdmFyaWFudAog
-ICAgICAgIGlzIGVub3VnaCB0byBoYXZlLgoKICAgIC0gSW1wcm92ZWQgIkFkZCBhdG9taWMvYmxv
-Y2tpbmdfbm90aWZpZXJfaGFzX3VuaXF1ZV9wcmlvcml0eSgpIiBwYXRjaCwKICAgICAgYXMgd2Fz
-IHN1Z2dlc3RlZCBieSBBbmR5IFNoZXZjaGVua28uIEFsc28gcmVwbGFjZWQgZG93bl93cml0ZSgp
-IHdpdGgKICAgICAgZG93bl9yZWFkKCkgYW5kIGZhY3RvcmVkIG91dCBjb21tb24gbm90aWZpZXJf
-aGFzX3VuaXF1ZV9wcmlvcml0eSgpLgoKICAgIC0gQWRkZWQgc3RvcF9jaGFpbiBmaWVsZCB0byBz
-dHJ1Y3QgcmVzdGFydF9kYXRhIGFuZCByZWJvb3RfcHJlcF9kYXRhCiAgICAgIGFmdGVyIGRpc2Nv
-dmVyaW5nIGNvdXBsZSBkcml2ZXJzIHdhbnRpbmcgdGhhdCBmZWF0dXJlLgoKICAgIC0gQWRkZWQg
-YWNrcyB0aGF0IHdlcmUgZ2l2ZW4gdG8gdjIuCgp2MjogLSBSZXBsYWNlZCBzdGFuZGFsb25lIHBv
-d2VyLW9mZiBjYWxsIGNoYWluIGRlbW8tQVBJIHdpdGggdGhlIGNvbWJpbmVkCiAgICAgIHBvd2Vy
-LW9mZityZXN0YXJ0IEFQSSBiZWNhdXNlIHRoaXMgaXMgd2hhdCBkcml2ZXJzIHdhbnQuIEl0J3Mg
-YSBtb3JlCiAgICAgIGNvbXByZWhlbnNpdmUgc29sdXRpb24uCgogICAgLSBDb252ZXJ0ZWQgbXVs
-dGlwbGUgZHJpdmVycyBhbmQgYXJjaCBjb2RlIHRvIHRoZSBuZXcgQVBJLiBTdWdnZXN0ZWQgYnkK
-ICAgICAgQW5keSBTaGV2Y2hlbmtvLiBJIHNraW1tZWQgdGhyb3VnaCB0aGUgcmVzdCBvZiBkcml2
-ZXJzLCB2ZXJpZnlpbmcgdGhhdAogICAgICBuZXcgQVBJIHN1aXRzIHRoZW0uIFRoZSByZXN0IG9m
-IHRoZSBkcml2ZXJzIHdpbGwgYmUgY29udmVydGVkIG9uY2Ugd2UKICAgICAgd2lsbCBzZXR0bGUg
-b24gdGhlIG5ldyBBUEksIG90aGVyd2lzZSB3aWxsIGJlIHRvbyBtYW55IHBhdGNoZXMgaGVyZS4K
-CiAgICAtIHYyIEFQSSBkb2Vzbid0IGV4cG9zZSBub3RpZmllciB0byB1c2VycyBhbmQgcmVxdWly
-ZSBoYW5kbGVycyB0bwogICAgICBoYXZlIHVuaXF1ZSBwcmlvcml0eS4gU3VnZ2VzdGVkIGJ5IEd1
-ZW50ZXIgUm9lY2suCgogICAgLSB2MiBBUEkgaGFzIHBvd2VyLW9mZiBjaGFpbmluZyBkaXNhYmxl
-ZCBieSBkZWZhdWx0IGFuZCByZXF1aXJlCiAgICAgIGRyaXZlcnMgdG8gZXhwbGljaXRseSBvcHQt
-aW4gdG8gdGhlIGNoYWluaW5nLiBUaGlzIHByZXNlcnZlcyBvbGQKICAgICAgYmVoYXZpb3VyIGZv
-ciBleGlzdGluZyBkcml2ZXJzIG9uY2UgdGhleSBhcmUgY29udmVydGVkIHRvIHRoZSBuZXcKICAg
-ICAgQVBJLgoKRG1pdHJ5IE9zaXBlbmtvICgyNyk6CiAgbm90aWZpZXI6IEFkZCBhdG9taWNfbm90
-aWZpZXJfY2FsbF9jaGFpbl9pc19lbXB0eSgpCiAgbm90aWZpZXI6IEFkZCBibG9ja2luZy9hdG9t
-aWNfbm90aWZpZXJfY2hhaW5fcmVnaXN0ZXJfdW5pcXVlX3ByaW8oKQogIGtlcm5lbC9yZWJvb3Q6
-IEludHJvZHVjZSBzeXMtb2ZmIGhhbmRsZXIgQVBJCiAga2VybmVsL3JlYm9vdDogV3JhcCBsZWdh
-Y3kgcG93ZXItb2ZmIGNhbGxiYWNrcyBpbnRvIHN5cy1vZmYgaGFuZGxlcnMKICBrZXJuZWwvcmVi
-b290OiBBZGQgZG9fa2VybmVsX3Bvd2VyX29mZigpCiAga2VybmVsL3JlYm9vdDogQWRkIHN0dWIg
-Zm9yIHBtX3Bvd2VyX29mZgogIGtlcm5lbC9yZWJvb3Q6IEFkZCBrZXJuZWxfY2FuX3Bvd2VyX29m
-ZigpCiAga2VybmVsL3JlYm9vdDogQWRkIHJlZ2lzdGVyX3BsYXRmb3JtX3Bvd2VyX29mZigpCiAg
-QVJNOiBVc2UgZG9fa2VybmVsX3Bvd2VyX29mZigpCiAgY3NreTogVXNlIGRvX2tlcm5lbF9wb3dl
-cl9vZmYoKQogIHJpc2N2OiBVc2UgZG9fa2VybmVsX3Bvd2VyX29mZigpCiAgYXJtNjQ6IFVzZSBk
-b19rZXJuZWxfcG93ZXJfb2ZmKCkKICBwYXJpc2M6IFVzZSBkb19rZXJuZWxfcG93ZXJfb2ZmKCkK
-ICB4ZW4veDg2OiBVc2UgZG9fa2VybmVsX3Bvd2VyX29mZigpCiAgcG93ZXJwYzogVXNlIGRvX2tl
-cm5lbF9wb3dlcl9vZmYoKQogIG02OGs6IFN3aXRjaCB0byBuZXcgc3lzLW9mZiBoYW5kbGVyIEFQ
-SQogIHNoOiBVc2UgZG9fa2VybmVsX3Bvd2VyX29mZigpCiAgeDg2OiBVc2UgZG9fa2VybmVsX3Bv
-d2VyX29mZigpCiAgaWE2NDogVXNlIGRvX2tlcm5lbF9wb3dlcl9vZmYoKQogIG1pcHM6IFVzZSBk
-b19rZXJuZWxfcG93ZXJfb2ZmKCkKICBtZW1vcnk6IGVtaWY6IFVzZSBrZXJuZWxfY2FuX3Bvd2Vy
-X29mZigpCiAgQUNQSTogcG93ZXI6IFN3aXRjaCB0byBzeXMtb2ZmIGhhbmRsZXIgQVBJCiAgcmVn
-dWxhdG9yOiBwZnV6ZTEwMDogVXNlIGRldm1fcmVnaXN0ZXJfc3lzX29mZl9oYW5kbGVyKCkKICBy
-ZWJvb3Q6IFJlbW92ZSBwbV9wb3dlcl9vZmZfcHJlcGFyZSgpCiAgc29jL3RlZ3JhOiBwbWM6IFVz
-ZSBzeXMtb2ZmIGhhbmRsZXIgQVBJIHRvIHBvd2VyIG9mZiBOZXh1cyA3IHByb3Blcmx5CiAga2Vy
-bmVsL3JlYm9vdDogQWRkIGRldm1fcmVnaXN0ZXJfcG93ZXJfb2ZmX2hhbmRsZXIoKQogIGtlcm5l
-bC9yZWJvb3Q6IEFkZCBkZXZtX3JlZ2lzdGVyX3Jlc3RhcnRfaGFuZGxlcigpCgogYXJjaC9hcm0v
-a2VybmVsL3JlYm9vdC5jICAgICAgICAgICAgICAgfCAgIDQgKy0KIGFyY2gvYXJtNjQva2VybmVs
-L3Byb2Nlc3MuYyAgICAgICAgICAgIHwgICAzICstCiBhcmNoL2Nza3kva2VybmVsL3Bvd2VyLmMg
-ICAgICAgICAgICAgICB8ICAgNiArLQogYXJjaC9pYTY0L2tlcm5lbC9wcm9jZXNzLmMgICAgICAg
-ICAgICAgfCAgIDQgKy0KIGFyY2gvbTY4ay9lbXUvbmF0ZmVhdC5jICAgICAgICAgICAgICAgIHwg
-ICAzICstCiBhcmNoL202OGsvaW5jbHVkZS9hc20vbWFjaGRlcC5oICAgICAgICB8ICAgMSAtCiBh
-cmNoL202OGsva2VybmVsL3Byb2Nlc3MuYyAgICAgICAgICAgICB8ICAgNSArLQogYXJjaC9tNjhr
-L2tlcm5lbC9zZXR1cF9tbS5jICAgICAgICAgICAgfCAgIDEgLQogYXJjaC9tNjhrL2tlcm5lbC9z
-ZXR1cF9uby5jICAgICAgICAgICAgfCAgIDEgLQogYXJjaC9tNjhrL21hYy9jb25maWcuYyAgICAg
-ICAgICAgICAgICAgfCAgIDQgKy0KIGFyY2gvbWlwcy9rZXJuZWwvcmVzZXQuYyAgICAgICAgICAg
-ICAgIHwgICAzICstCiBhcmNoL3BhcmlzYy9rZXJuZWwvcHJvY2Vzcy5jICAgICAgICAgICB8ICAg
-NCArLQogYXJjaC9wb3dlcnBjL2tlcm5lbC9zZXR1cC1jb21tb24uYyAgICAgfCAgIDQgKy0KIGFy
-Y2gvcG93ZXJwYy94bW9uL3htb24uYyAgICAgICAgICAgICAgIHwgICAzICstCiBhcmNoL3Jpc2N2
-L2tlcm5lbC9yZXNldC5jICAgICAgICAgICAgICB8ICAxMiArLQogYXJjaC9zaC9rZXJuZWwvcmVi
-b290LmMgICAgICAgICAgICAgICAgfCAgIDMgKy0KIGFyY2gveDg2L2tlcm5lbC9yZWJvb3QuYyAg
-ICAgICAgICAgICAgIHwgICA0ICstCiBhcmNoL3g4Ni94ZW4vZW5saWdodGVuX3B2LmMgICAgICAg
-ICAgICB8ICAgNCArLQogZHJpdmVycy9hY3BpL3NsZWVwLmMgICAgICAgICAgICAgICAgICAgfCAg
-MTYgKy0KIGRyaXZlcnMvbWVtb3J5L2VtaWYuYyAgICAgICAgICAgICAgICAgIHwgICAyICstCiBk
-cml2ZXJzL3JlZ3VsYXRvci9wZnV6ZTEwMC1yZWd1bGF0b3IuYyB8ICA0MiArKy0KIGRyaXZlcnMv
-c29jL3RlZ3JhL3BtYy5jICAgICAgICAgICAgICAgIHwgIDg3ICsrKysrLS0KIGluY2x1ZGUvbGlu
-dXgvbm90aWZpZXIuaCAgICAgICAgICAgICAgIHwgICA3ICsKIGluY2x1ZGUvbGludXgvcG0uaCAg
-ICAgICAgICAgICAgICAgICAgIHwgICAxIC0KIGluY2x1ZGUvbGludXgvcmVib290LmggICAgICAg
-ICAgICAgICAgIHwgIDkxICsrKysrKysKIGtlcm5lbC9ub3RpZmllci5jICAgICAgICAgICAgICAg
-ICAgICAgIHwgMTAxICsrKysrLS0KIGtlcm5lbC9yZWJvb3QuYyAgICAgICAgICAgICAgICAgICAg
-ICAgIHwgMzQ3ICsrKysrKysrKysrKysrKysrKysrKysrKy0KIDI3IGZpbGVzIGNoYW5nZWQsIDYz
-OSBpbnNlcnRpb25zKCspLCAxMjQgZGVsZXRpb25zKC0pCgotLSAKMi4zNS4xCgoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGlu
-ZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJh
-ZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+In order to support power-off chaining we need to get rid of the global
+pm_* variables, replacing them with the new kernel API functions that
+support chaining.
+
+Introduce new generic sys-off handler API that brings the following
+features:
+
+1. Power-off and restart handlers are registered using same API function
+   that supports chaining, hence all power-off and restart modes will
+   support chaining using this unified function.
+
+2. Prevents notifier priority collisions by disallowing registration of
+   multiple handlers at the non-default priority level.
+
+3. Supports passing opaque user argument to callback, which allows us to
+   remove global variables from drivers.
+
+This patch adds support of the following sys-off modes:
+
+- SYS_OFF_MODE_POWER_OFF_PREPARE that replaces global pm_power_off_prepare
+  variable and provides chaining support for power-off-prepare handlers.
+
+- SYS_OFF_MODE_POWER_OFF that replaces global pm_power_off variable and
+  provides chaining support for power-off handlers.
+
+- SYS_OFF_MODE_RESTART that provides a better restart API, removing a need
+  from drivers to have a global scratch variable by utilizing the opaque
+  callback argument.
+
+Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+---
+ include/linux/reboot.h |  77 +++++++++++++++++
+ kernel/reboot.c        | 182 +++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 259 insertions(+)
+
+diff --git a/include/linux/reboot.h b/include/linux/reboot.h
+index a2429648d831..05981ef079d8 100644
+--- a/include/linux/reboot.h
++++ b/include/linux/reboot.h
+@@ -7,6 +7,7 @@
+ #include <uapi/linux/reboot.h>
+ 
+ struct device;
++struct sys_off_handler;
+ 
+ #define SYS_DOWN	0x0001	/* Notify of system down */
+ #define SYS_RESTART	SYS_DOWN
+@@ -62,6 +63,82 @@ extern void machine_shutdown(void);
+ struct pt_regs;
+ extern void machine_crash_shutdown(struct pt_regs *);
+ 
++/*
++ * sys-off handler API.
++ */
++
++/*
++ * Standard sys-off priority levels. Users are expected to set priorities
++ * relative to the standard levels.
++ *
++ * SYS_OFF_PRIO_PLATFORM:	Use this for platform-level handlers.
++ *
++ * SYS_OFF_PRIO_LOW:		Use this for handler of last resort.
++ *
++ * SYS_OFF_PRIO_DEFAULT:	Use this for normal handlers.
++ *
++ * SYS_OFF_PRIO_HIGH:		Use this for higher priority handlers.
++ *
++ * SYS_OFF_PRIO_FIRMWARE:	Use this if handler uses firmware call.
++ */
++#define SYS_OFF_PRIO_PLATFORM		-256
++#define SYS_OFF_PRIO_LOW		-128
++#define SYS_OFF_PRIO_DEFAULT		0
++#define SYS_OFF_PRIO_HIGH		192
++#define SYS_OFF_PRIO_FIRMWARE		224
++
++enum sys_off_mode {
++	/**
++	 * @SYS_OFF_MODE_POWER_OFF_PREPARE:
++	 *
++	 * Handlers prepare system to be powered off. Handlers are
++	 * allowed to sleep.
++	 */
++	SYS_OFF_MODE_POWER_OFF_PREPARE,
++
++	/**
++	 * @SYS_OFF_MODE_POWER_OFF:
++	 *
++	 * Handlers power-off system. Handlers are disallowed to sleep.
++	 */
++	SYS_OFF_MODE_POWER_OFF,
++
++	/**
++	 * @SYS_OFF_MODE_RESTART:
++	 *
++	 * Handlers restart system. Handlers are disallowed to sleep.
++	 */
++	SYS_OFF_MODE_RESTART,
++};
++
++/**
++ * struct sys_off_data - sys-off callback argument
++ *
++ * @mode: Mode ID. Currently used only by the sys-off restart mode,
++ *        see enum reboot_mode for the available modes.
++ * @cb_data: User's callback data.
++ * @cmd: Command string. Currently used only by the sys-off restart mode,
++ *       NULL otherwise.
++ */
++struct sys_off_data {
++	int mode;
++	void *cb_data;
++	const char *cmd;
++};
++
++struct sys_off_handler *
++register_sys_off_handler(enum sys_off_mode mode,
++			 int priority,
++			 int (*callback)(struct sys_off_data *data),
++			 void *cb_data);
++void unregister_sys_off_handler(struct sys_off_handler *handler);
++
++int devm_register_sys_off_handler(struct device *dev,
++				  enum sys_off_mode mode,
++				  int priority,
++				  int (*callback)(struct sys_off_data *data),
++				  void *cb_data);
++
+ /*
+  * Architecture independent implemenations of sys_reboot commands.
+  */
+diff --git a/kernel/reboot.c b/kernel/reboot.c
+index 8ce30fa0a104..672a658f21ee 100644
+--- a/kernel/reboot.c
++++ b/kernel/reboot.c
+@@ -48,6 +48,15 @@ int reboot_cpu;
+ enum reboot_type reboot_type = BOOT_ACPI;
+ int reboot_force;
+ 
++struct sys_off_handler {
++	struct notifier_block nb;
++	int (*sys_off_cb)(struct sys_off_data *data);
++	void *cb_data;
++	enum sys_off_mode mode;
++	bool blocking;
++	void *list;
++};
++
+ /*
+  * If set, this is used for preparing the system to power off.
+  */
+@@ -281,6 +290,179 @@ void kernel_halt(void)
+ }
+ EXPORT_SYMBOL_GPL(kernel_halt);
+ 
++/*
++ *	Notifier list for kernel code which wants to be called
++ *	to prepare system for power off.
++ */
++static BLOCKING_NOTIFIER_HEAD(power_off_prep_handler_list);
++
++/*
++ *	Notifier list for kernel code which wants to be called
++ *	to power off system.
++ */
++static ATOMIC_NOTIFIER_HEAD(power_off_handler_list);
++
++static int sys_off_notify(struct notifier_block *nb,
++			  unsigned long mode, void *cmd)
++{
++	struct sys_off_handler *handler;
++	struct sys_off_data data = {};
++
++	handler = container_of(nb, struct sys_off_handler, nb);
++	data.cb_data = handler->cb_data;
++	data.mode = mode;
++	data.cmd = cmd;
++
++	return handler->sys_off_cb(&data);
++}
++
++/**
++ *	register_sys_off_handler - Register sys-off handler
++ *	@mode: Sys-off mode
++ *	@priority: Handler priority
++ *	@callback: Callback function
++ *	@cb_data: Callback argument
++ *
++ *	Registers system power-off or restart handler that will be invoked
++ *	at the step corresponding to the given sys-off mode. Handler's callback
++ *	should return NOTIFY_DONE to permit execution of the next handler in
++ *	the call chain or NOTIFY_STOP to break the chain (in error case for
++ *	example).
++ *
++ *	Multiple handlers can be registered at the default priority level.
++ *
++ *	Only one handler can be registered at the non-default priority level,
++ *	otherwise ERR_PTR(-EBUSY) is returned.
++ *
++ *	Returns a new instance of struct sys_off_handler on success, or
++ *	an ERR_PTR()-encoded error code otherwise.
++ */
++struct sys_off_handler *
++register_sys_off_handler(enum sys_off_mode mode,
++			 int priority,
++			 int (*callback)(struct sys_off_data *data),
++			 void *cb_data)
++{
++	struct sys_off_handler *handler;
++	int err;
++
++	handler = kzalloc(sizeof(*handler), GFP_KERNEL);
++	if (!handler)
++		return ERR_PTR(-ENOMEM);
++
++	switch (mode) {
++	case SYS_OFF_MODE_POWER_OFF_PREPARE:
++		handler->list = &power_off_prep_handler_list;
++		handler->blocking = true;
++		break;
++
++	case SYS_OFF_MODE_POWER_OFF:
++		handler->list = &power_off_handler_list;
++		break;
++
++	case SYS_OFF_MODE_RESTART:
++		handler->list = &restart_handler_list;
++		break;
++
++	default:
++		kfree(handler);
++		return ERR_PTR(-EINVAL);
++	}
++
++	handler->nb.notifier_call = sys_off_notify;
++	handler->nb.priority = priority;
++	handler->sys_off_cb = callback;
++	handler->cb_data = cb_data;
++	handler->mode = mode;
++
++	if (handler->blocking) {
++		if (priority == SYS_OFF_PRIO_DEFAULT)
++			err = blocking_notifier_chain_register(handler->list,
++							       &handler->nb);
++		else
++			err = blocking_notifier_chain_register_unique_prio(handler->list,
++									   &handler->nb);
++	} else {
++		if (priority == SYS_OFF_PRIO_DEFAULT)
++			err = atomic_notifier_chain_register(handler->list,
++							     &handler->nb);
++		else
++			err = atomic_notifier_chain_register_unique_prio(handler->list,
++									 &handler->nb);
++	}
++
++	if (err) {
++		kfree(handler);
++		return ERR_PTR(err);
++	}
++
++	return handler;
++}
++EXPORT_SYMBOL_GPL(register_sys_off_handler);
++
++/**
++ *	unregister_sys_off_handler - Unregister sys-off handler
++ *	@handler: Sys-off handler
++ *
++ *	Unregisters given sys-off handler.
++ */
++void unregister_sys_off_handler(struct sys_off_handler *handler)
++{
++	int err;
++
++	if (!handler)
++		return;
++
++	if (handler->blocking)
++		err = blocking_notifier_chain_unregister(handler->list,
++							 &handler->nb);
++	else
++		err = atomic_notifier_chain_unregister(handler->list,
++						       &handler->nb);
++
++	/* sanity check, shall never happen */
++	WARN_ON(err);
++
++	kfree(handler);
++}
++EXPORT_SYMBOL_GPL(unregister_sys_off_handler);
++
++static void devm_unregister_sys_off_handler(void *data)
++{
++	struct sys_off_handler *handler = data;
++
++	unregister_sys_off_handler(handler);
++}
++
++/**
++ *	devm_register_sys_off_handler - Register sys-off handler
++ *	@dev: Device that registers handler
++ *	@mode: Sys-off mode
++ *	@priority: Handler priority
++ *	@callback: Callback function
++ *	@cb_data: Callback argument
++ *
++ *	Registers resource-managed sys-off handler.
++ *
++ *	Returns zero on success, or error code on failure.
++ */
++int devm_register_sys_off_handler(struct device *dev,
++				  enum sys_off_mode mode,
++				  int priority,
++				  int (*callback)(struct sys_off_data *data),
++				  void *cb_data)
++{
++	struct sys_off_handler *handler;
++
++	handler = register_sys_off_handler(mode, priority, callback, cb_data);
++	if (IS_ERR(handler))
++		return PTR_ERR(handler);
++
++	return devm_add_action_or_reset(dev, devm_unregister_sys_off_handler,
++					handler);
++}
++EXPORT_SYMBOL_GPL(devm_register_sys_off_handler);
++
+ /**
+  *	kernel_power_off - power_off the system
+  *
+-- 
+2.35.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
