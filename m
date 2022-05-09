@@ -4,82 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CAF7C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 02:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12903C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 03:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zx8ANxiAN8Dy9pXZeUiTtOreqhd089PgOTsgL8wUXdQ=; b=c6j4Qx6jSe3ee7
-	Qt40VnbXIbiIIxL6oW8SHt6OU/OG/FNj/v9dmpM3XOGvAq/Tdxs03dKk+LHtFxJuY97DJTKRUagf3
-	lycEddb1d30AxpJWfTbOlCmLe4h49FSwQPVLtyeHy1ZkM5gGBVRVBcdp7N4yvKHoigmk6LRycvRYj
-	t6kTWYyHYXnx1oSDJUKnicBGC+2iI+C6zgVV7Oxa7qQ0xqZm+r5/Siie752dCIxS7IpLQWcR2ZUmM
-	FhXtN8Xosa41OkhfEP2lJCHvhzjuZYlLnnN3ivHgR0BiGmKJDA5uBkbntKALIcXe62LWqcn5TCwcB
-	7mH0e1Pok0ws1aQpTv0w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bSCY6GyDxzKEc8SqvPUYiebRL+Xgqh3R9IJ7YrA1AFo=; b=RAe8EJXN1ANeOF
+	XsQhTfu34lKPM6OV+vZN8poQBZ+jZ7Nyb2z+drFPGO2aFbx2o02MSR6ncGrTnNkFIwTTRAXcZICmI
+	nvpt3qPNX/Y8kwM8XxCQWKVH1SDSVH544TSKAxbvQYnCT6P3tO8CTC6e0+2uWZ+lDcMVvdoSoVRMR
+	vt/DukwkB8sdMm85YzmqsT2qFTt3fAunVYqUecbhJcs+CKbu93GReB/WjQQypHSh80dj1nVMvBTFv
+	ck6Qr8ftWQSyiTcOGriLJVZJhEwMH+k8HG6nJK7T6WbpT8CEzCJljqth80EnBy1G1AUAQ2UjqH3Oh
+	Durt8rLf/Ac4P2JsK7cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nntZq-00C6sb-PO; Mon, 09 May 2022 02:56:50 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1nnuJY-00CDmJ-1Y; Mon, 09 May 2022 03:44:04 +0000
+Received: from out5-smtp.messagingengine.com ([66.111.4.29])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nntZn-00C6rM-DK
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 02:56:49 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id c11so17516764wrn.8
- for <linux-riscv@lists.infradead.org>; Sun, 08 May 2022 19:56:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=jrtc27.com; s=gmail.jrtc27.user;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=zGLs8GoeHHxow0QHkE6WAhpRqq163am1P8u8l/0Qawg=;
- b=bAwc46bgzRfoc2DLiYdlzCkJPvcTGnfgzRzweu1C2fVcg65WP1trATs3acTrH2BCpt
- 81BISgEST0FFiyAi91rjBzJ2CcK8WtoctbuwX8fVb6oHVQkkPjJti5aNXrfLRwEwdBwh
- Pooh4iBSsUnxbSHf7vQeTOP+CzQZbTv++VBlRsCQdHVNNn2ASO5mLA/QefvHvWD+6s0a
- eUj93XWAurLLDFWehur4TNlOEyKlCHm5EZoURSXu6c1XR7zzsn21bwm7Xhp36MO+emEL
- WZSA6YWOrVmJ2oan2T0b2rg6BfN2ZIYMVD5tTFdyhEhhJ+6MnkGdDRz3FeTqBXkviG3a
- arKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=zGLs8GoeHHxow0QHkE6WAhpRqq163am1P8u8l/0Qawg=;
- b=W+LD8smvOxTH3VgmlsK3Asg4/vCQWn2iP+B/njXqzn6GHwBtZk9SMdn+efOI2IPX5c
- jah/6gtDVgRBvR9o5jP0wtObd6FGLO9QKr69tGD2MZRieSeU4185hxIe8vakwEgadSta
- n35A2YwjOyKwsUU/2BgzANcSUaMHNytKidi4M960kRDfGYaS7cJNGmb/+X76lxSnFH++
- El+NW3CwQOZTAff/Qvot3ygsSbe8KmQHCfqryDeEfwkwaY0MM7OzB/gh5haQHVooJ568
- 67IDvNLEtnfuYVPINn0+0WpZp5YFrtR+/JkY5QTBz3LJtU/YEh7mwCnoPpUgj4H54Al/
- ARWg==
-X-Gm-Message-State: AOAM530FmxLjfVupppFKqO9fn1nNK5UCg2wme9rKq2Az4mbG+tUi9EZs
- MeZtrVZQR7bVDrSvdhNVUlGmkg==
-X-Google-Smtp-Source: ABdhPJy059/eM8oV+XQ+w8slguW1SE1QSeWz1ma5e97+6eHR1i6LQS94bQGbba8RybbXFq3PKp2VTw==
-X-Received: by 2002:a5d:584a:0:b0:20c:45fe:b02e with SMTP id
- i10-20020a5d584a000000b0020c45feb02emr11717800wrf.504.1652065004531; 
- Sun, 08 May 2022 19:56:44 -0700 (PDT)
-Received: from smtpclient.apple (global-5-141.nat-2.net.cam.ac.uk.
- [131.111.5.141]) by smtp.gmail.com with ESMTPSA id
- q20-20020a7bce94000000b0039456fb80b3sm13680708wmj.43.2022.05.08.19.56.43
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Sun, 08 May 2022 19:56:44 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.80.82.1.1\))
-Subject: Re: [PATCH] clocksource/drivers/riscv: Events are stopped during CPU
- suspend
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <20220509012121.40031-1-samuel@sholland.org>
-Date: Mon, 9 May 2022 03:56:43 +0100
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atishp@atishpatra.org>,
- Dmitriy Cherkasov <dmitriy@oss-tech.org>,
+ id 1nnuJC-00CDfn-4Q; Mon, 09 May 2022 03:43:44 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+ by mailout.nyi.internal (Postfix) with ESMTP id 8F93D5C0114;
+ Sun,  8 May 2022 23:43:40 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+ by compute5.internal (MEProxy); Sun, 08 May 2022 23:43:40 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+ cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
+ :in-reply-to:message-id:mime-version:references:reply-to:sender
+ :subject:subject:to:to; s=fm2; t=1652067820; x=1652154220; bh=cR
+ qjRcNVYtqC51Nn/ZV3tYv8+W5V46C9d1O6IJ4rhWE=; b=SOrY909sBDtvCDGLCq
+ mRkl4pc4UCfiUxpk/pPVcZpEUEASplhDWeb8Qig0cK2ddOzwgwEyCHkVar5UJZco
+ sxI/SfbwPL31fYNE5sDIvlKs3aHZnR8u/KDDvw4wOQHD3nrU9NTfMSAF0vePaC7C
+ tuFzON0lzlUShBKzS/cSZOzzSPWRRLef7MCVxScNkNjhE+Vayo9J03OAKXGNKpbf
+ 5atrE/GuToHnnkkF9qZ1lGS3zM9yibyCozX44GQ+64q5imRg5upAs4AqEYwAW6H+
+ lItGQFBPJq3dIK8ejF0gNNkMVMVOxysvcNRGnA2OZm5IM7Ltm33dIqZ+6uSFpH79
+ VPaQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
+ :from:from:in-reply-to:in-reply-to:message-id:mime-version
+ :references:reply-to:sender:subject:subject:to:to:x-me-proxy
+ :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+ 1652067820; x=1652154220; bh=cRqjRcNVYtqC51Nn/ZV3tYv8+W5V46C9d1O
+ 6IJ4rhWE=; b=uNmHDBSBOtjRDuRpgzvVwde0VP7Dpg1JBV5pXsbFZhy7VmI3USt
+ nCEvwcwUsNtJTWUlaNSvUbtaqIyiVArwHWgMrvFJ7j3O587CUL+aPe3dqPaubyVc
+ VWeEoDqZREt7MvXeTalkWED0zoVZ5sgeJ3hr8ytRHZ1Qdz3hCaHz4S6ODZ3ROsHx
+ oXOZ/9tINy42gFbn/gzeCDpp/5j5Znl0SNlJ9A/dgopL5gsWBpTmxoCYGv0jpMT/
+ 3KJycWKqMXQBaS2jf9ALtV4Ma4d2uWHOKHP/B/eDPdOFXgY2uaYITE6zBiPHjH0J
+ mPH72NlNuCuPHzFVDqIZP9/m/TmFtUw2Myw==
+X-ME-Sender: <xms:7I14Yj2Eptfgee3x6VL6mTx4hEMXYqvS5aohVuPwvVTYQEn-L1vZaw>
+ <xme:7I14YiE454L8T1975bjTnxMgHfjxXyMwn9v4G_0TK4sf_fsjxALpYfvfBFloj9zDY
+ UMuOG1bBN8eBZ-1UA>
+X-ME-Received: <xmr:7I14Yj7krMxADt78Rh6AZWB5_ZCy63lIKGh-ee72F1UT51uvDGEq5HutAaqgasZIpCVq2IPZMs-j0Lb2L1QotySsZP-ICTvi0yu66g3mDkLiO_FGfO2VVesqbiFGMMwEV58Pfw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfeekgdejhecutefuodetggdotefrodftvf
+ curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+ uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+ fjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgv
+ lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
+ frrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeehgfdu
+ feeitdevteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
+ hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
+X-ME-Proxy: <xmx:7I14Yo1OuOw5pn4TvQP80f3s1MJe1bamroihr7w_eHmtwGfxjaBCTA>
+ <xmx:7I14YmHkS02UozCCB-9R0M_Q56c5RA36hOYsElKxgnuK5Dvdj73XsQ>
+ <xmx:7I14Yp__0UDbDcbGQ4q9eRXFFO8J3nTXb0Guze9kwXJOgS8LEHYv2g>
+ <xmx:7I14YiEbpAzWoPDSHBdhC9pwQOLBMWt9v9eV4N_Aqwz7x2harDjnJw>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 8 May 2022 23:43:39 -0400 (EDT)
+From: Samuel Holland <samuel@sholland.org>
+To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Message-Id: <878D1D3C-E8F1-4B37-93F1-B3560E3F271E@jrtc27.com>
-References: <20220509012121.40031-1-samuel@sholland.org>
-To: Samuel Holland <samuel@sholland.org>
-X-Mailer: Apple Mail (2.3696.80.82.1.1)
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Samuel Holland <samuel@sholland.org>,
+ Florian Fainelli <f.fainelli@gmail.com>, Guo Ren <guoren@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Mark Rutland <mark.rutland@arm.com>, Russell King <linux@armlinux.org.uk>,
+ Wei Xu <xuwei5@hisilicon.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: [PATCH 4/5] irqchip/sifive-plic: Make better use of the effective
+ affinity mask
+Date: Sun,  8 May 2022 22:43:32 -0500
+Message-Id: <20220509034333.60017-5-samuel@sholland.org>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220509034333.60017-1-samuel@sholland.org>
+References: <20220509034333.60017-1-samuel@sholland.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220508_195647_508415_88AAE47C 
-X-CRM114-Status: GOOD (  19.75  )
+X-CRM114-CacheID: sfid-20220508_204342_752441_5DAF60A6 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,39 +102,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOSBNYXkgMjAyMiwgYXQgMDI6MjEsIFNhbXVlbCBIb2xsYW5kIDxzYW11ZWxAc2hvbGxhbmQu
-b3JnPiB3cm90ZToKPiAKPiBTb21lIGltcGxlbWVudGF0aW9ucyBvZiB0aGUgU0JJIHRpbWUgZXh0
-ZW5zaW9uIGRlcGVuZCBvbiBoYXJ0LWxvY2FsCj4gc3RhdGUgKGZvciBleGFtcGxlLCBDU1JzKSB0
-aGF0IGFyZSBsb3N0IG9yIGhhcmR3YXJlIHRoYXQgaXMgcG93ZXJlZAo+IGRvd24gd2hlbiBhIENQ
-VSBpcyBzdXNwZW5kZWQuIFRvIGJlIHNhZmUsIHRoZSBjbG9ja2V2ZW50cyBkcml2ZXIKPiBjYW5u
-b3QgYXNzdW1lIHRoYXQgdGltZXIgSVJRcyB3aWxsIGJlIHJlY2VpdmVkIGR1cmluZyBDUFUgc3Vz
-cGVuZC4KPiAKPiBGaXhlczogNjJiMDE5NDM2ODE0ICgiY2xvY2tzb3VyY2U6IG5ldyBSSVNDLVYg
-U0JJIHRpbWVyIGRyaXZlciIpCgpTdXJlbHkgdGhhdOKAmXMgbm90IHJpZ2h0PyBBIGNvbW1pdCBm
-cm9tIDIwMTggY2Fu4oCZdCBoYXZlIGJlZW4gZXhwZWN0ZWQgdG8KcHJlZGljdCB0aGUgZnV0dXJl
-LCBJIHdvdWxkIGV4cGVjdCB0aGlzIHRvIGJlIG9uZSBvZiB0aGUgcGF0Y2hlcyBhZGRpbmcKc3Vz
-cGVuZCB0byBSSVNDLVYgd2hpY2ggY2FtZSB5ZWFycyBsYXRlci4KCkplc3MKCj4gU2lnbmVkLW9m
-Zi1ieTogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbEBzaG9sbGFuZC5vcmc+Cj4gLS0tCj4gCj4gZHJp
-dmVycy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jIHwgMiArLQo+IDEgZmlsZSBjaGFuZ2VkLCAx
-IGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+IAo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Ns
-b2Nrc291cmNlL3RpbWVyLXJpc2N2LmMgYi9kcml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2
-LmMKPiBpbmRleCAxNzY3ZjhiZjIwMTMuLjU5M2Q1YTk1N2I2OSAxMDA2NDQKPiAtLS0gYS9kcml2
-ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2LmMKPiArKysgYi9kcml2ZXJzL2Nsb2Nrc291cmNl
-L3RpbWVyLXJpc2N2LmMKPiBAQCAtMzQsNyArMzQsNyBAQCBzdGF0aWMgaW50IHJpc2N2X2Nsb2Nr
-X25leHRfZXZlbnQodW5zaWduZWQgbG9uZyBkZWx0YSwKPiBzdGF0aWMgdW5zaWduZWQgaW50IHJp
-c2N2X2Nsb2NrX2V2ZW50X2lycTsKPiBzdGF0aWMgREVGSU5FX1BFUl9DUFUoc3RydWN0IGNsb2Nr
-X2V2ZW50X2RldmljZSwgcmlzY3ZfY2xvY2tfZXZlbnQpID0gewo+IAkubmFtZQkJCT0gInJpc2N2
-X3RpbWVyX2Nsb2NrZXZlbnQiLAo+IC0JLmZlYXR1cmVzCQk9IENMT0NLX0VWVF9GRUFUX09ORVNI
-T1QsCj4gKwkuZmVhdHVyZXMJCT0gQ0xPQ0tfRVZUX0ZFQVRfT05FU0hPVCB8IENMT0NLX0VWVF9G
-RUFUX0MzU1RPUCwKPiAJLnJhdGluZwkJCT0gMTAwLAo+IAkuc2V0X25leHRfZXZlbnQJCT0gcmlz
-Y3ZfY2xvY2tfbmV4dF9ldmVudCwKPiB9Owo+IC0tIAo+IDIuMzUuMQo+IAo+IAo+IF9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFp
-bGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+The PLIC driver already updates the effective affinity mask in its
+.irq_set_affinity callback. Take advantage of that information to only
+touch bits (and take spinlocks) for the specific relevant hart contexts.
+
+First, make sure the effective affinity mask is set before IRQ startup.
+Since this mask already takes priv->lmask into account, checking that
+mask later is no longer needed (and handler->present is equivalent to
+the bit being set in priv->lmask).
+
+Then, when (un)masking or changing affinity, only clear/set the enable
+bits in the specific old/new context(s). The cpumask operations in
+plic_irq_unmask() are not needed because they duplicate the code in
+plic_set_affinity().
+
+Signed-off-by: Samuel Holland <samuel@sholland.org>
+---
+
+ drivers/irqchip/Kconfig           |  1 +
+ drivers/irqchip/irq-sifive-plic.c | 26 ++++++++------------------
+ 2 files changed, 9 insertions(+), 18 deletions(-)
+
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index bc90500a7573..56ef2fc6d2eb 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -529,6 +529,7 @@ config SIFIVE_PLIC
+ 	bool "SiFive Platform-Level Interrupt Controller"
+ 	depends on RISCV
+ 	select IRQ_DOMAIN_HIERARCHY
++	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+ 	help
+ 	   This enables support for the PLIC chip found in SiFive (and
+ 	   potentially other) RISC-V systems.  The PLIC controls devices
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index bb87e4c3b88e..bf7d5bee0c0c 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -109,31 +109,18 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
+ 	for_each_cpu(cpu, mask) {
+ 		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
+ 
+-		if (handler->present &&
+-		    cpumask_test_cpu(cpu, &handler->priv->lmask))
+-			plic_toggle(handler, d->hwirq, enable);
++		plic_toggle(handler, d->hwirq, enable);
+ 	}
+ }
+ 
+ static void plic_irq_unmask(struct irq_data *d)
+ {
+-	struct cpumask amask;
+-	unsigned int cpu;
+-	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
+-
+-	cpumask_and(&amask, &priv->lmask, cpu_online_mask);
+-	cpu = cpumask_any_and(irq_data_get_affinity_mask(d),
+-					   &amask);
+-	if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
+-		return;
+-	plic_irq_toggle(cpumask_of(cpu), d, 1);
++	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 1);
+ }
+ 
+ static void plic_irq_mask(struct irq_data *d)
+ {
+-	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
+-
+-	plic_irq_toggle(&priv->lmask, d, 0);
++	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
+ }
+ 
+ #ifdef CONFIG_SMP
+@@ -154,11 +141,13 @@ static int plic_set_affinity(struct irq_data *d,
+ 	if (cpu >= nr_cpu_ids)
+ 		return -EINVAL;
+ 
+-	plic_irq_toggle(&priv->lmask, d, 0);
+-	plic_irq_toggle(cpumask_of(cpu), d, !irqd_irq_masked(d));
++	plic_irq_mask(d);
+ 
+ 	irq_data_update_effective_affinity(d, cpumask_of(cpu));
+ 
++	if (!irqd_irq_masked(d))
++		plic_irq_unmask(d);
++
+ 	return IRQ_SET_MASK_OK_DONE;
+ }
+ #endif
+@@ -184,6 +173,7 @@ static struct irq_chip plic_chip = {
+ #ifdef CONFIG_SMP
+ 	.irq_set_affinity = plic_set_affinity,
+ #endif
++	.flags		= IRQCHIP_AFFINITY_PRE_STARTUP,
+ };
+ 
+ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+-- 
+2.35.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
