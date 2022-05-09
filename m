@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBAB3C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 03:44:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A177BC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 03:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=21kdcT81RT8F+LLj6advkIvf8+Oszeh+8b/VIfjnQAI=; b=ioLbz6/xKpd4Bu
-	PemFEbCmlP8Q6ws9m7vbLA+VM6ogxNjmWDAxXGKEvxZUz1iE7iw+aNMyo2oQgeq/t+Nh2B5kpmpgF
-	PRDzJc4s46jiH7IwuwQ06Glo093CC8AZIRmA03rudce14Mg4KwUr46FLszBSJfhpojurJPNU2CLdX
-	coqsACXmm25MI9mcfYxS4ZkTdKrP7ytEzAfVYG0UatuOq0jfFpNcz/MfY6lxurw5FRExbbI1Bgoyy
-	eTkcM56jNSfJVny8TUEK3/KtsJeeH4veLYEhOWZZM1hkInEV4MbaH83QXMNFlmepymav9dOFZPmz4
-	2w2rJTROCYctZ41Ukp9A==;
+	List-Owner; bh=hAUp6exj+veG6C9e5YP2CEjxdDgRVJTtfChaeRxYvqQ=; b=ycxfB5VRPuhMnz
+	kDpY5s2sJMdFlLXPgAKiyNBMQyjv4qLlnUWj++RwzyN1JSLuyqxBFRi36U/1u+ZC31E8F59GJ8zmy
+	rmM4GHKVfeMepR2WT7BTKjhrrQZLjVpMDKFLqxakUJPF9fsBJqepg4eFpHsW0/nHf96BetuHF7HOW
+	3+8qghTYPDHe86vd3puPKPUZCtaQDHwp7pixZadAB9HSXMgNsoQJmTx2jGzaLzPO7heg4nYYSrz1c
+	v+99shYCDfTvBGFTn0RjKKNA7DGbT5aP1psMqKLdfRMTxXJa32b5yE95fyPTg+3axNBYs96gQO7eM
+	H3PW+LrZbTlslJz8m3YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nnuKF-00CE8O-E1; Mon, 09 May 2022 03:44:47 +0000
+	id 1nnuKi-00CEU6-Tz; Mon, 09 May 2022 03:45:17 +0000
 Received: from out5-smtp.messagingengine.com ([66.111.4.29])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nnuJC-00CDeq-4Q; Mon, 09 May 2022 03:43:45 +0000
+ id 1nnuJE-00CDhG-Lt; Mon, 09 May 2022 03:43:46 +0000
 Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
- by mailout.nyi.internal (Postfix) with ESMTP id 1CE8E5C0059;
- Sun,  8 May 2022 23:43:37 -0400 (EDT)
+ by mailout.nyi.internal (Postfix) with ESMTP id 9AD2E5C0115;
+ Sun,  8 May 2022 23:43:41 -0400 (EDT)
 Received: from mailfrontend1 ([10.202.2.162])
- by compute2.internal (MEProxy); Sun, 08 May 2022 23:43:37 -0400
+ by compute2.internal (MEProxy); Sun, 08 May 2022 23:43:41 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
  cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
  :in-reply-to:message-id:mime-version:references:reply-to:sender
- :subject:subject:to:to; s=fm2; t=1652067817; x=1652154217; bh=d0
- 1N/erYFX7bR8qphSaL0E+u7qcuOLHPoAFbrgswNxo=; b=SkhbTEZCfHoUSC+hT6
- Xw+sFgzQf3tB7PglZb4Gc/AEYXzaMxZaf7tMx7v9GuEQU1iBVtRfpyuY78VM7FN7
- O75GxUP5ljbDG1ROmHXc/s4/h+mFFmeziGzx/HGY/uxQlJFR9OrowoDRSLHo7EGT
- O6yHyoqTn5TYuWTUYzVcluxtV8SRntRHRn2J9NC8y7TgPgb53buYwtULZFMNv0Q4
- eAq4EPfV8Eg+MkaHzWOZgd33QddU93SLje5Flk/sjVsoAgXwm3EeGhThVZn1Uq04
- oHhJ8f9ZP+fLiNC6IDMG+idFltghxB3YOnkcv5D+lmWo+bqYmt4KTbCOJnqWw/RB
- cZqw==
+ :subject:subject:to:to; s=fm2; t=1652067821; x=1652154221; bh=/2
+ 9rtCFFrhMq7Dm0L/1ahNgZdkKRCrzt5ZSJjaaJ7o4=; b=pml44wNydIpx6sIAHs
+ QutFDoKw+jCtahf93JAI2UzQkHx8pxJc7ge66fT7SvrhOBQuwoAUZxyKQBl8btEh
+ BYbQjjDUPPxoBF9g/0ACHSU9E+N4hu6Rf3M/qMKTRxV4TZSV5NR1W4xotiypXbQ1
+ vnHI2cusAcXs+NhIMwqjYA/s1zduVRR/iBVQEIuDJrrFeh37QlHFCWEV+TnysPIr
+ B9lD9Cj2IrUya1DeMf3CExgyB0XPwNX0PqodEFaNqxmXQTOoDK76fEVdjq3/XYBX
+ OuWtT6yA42ILLi9KJ7Hi1iY1iUzzlbIPgaqt2nvRCjin/CI6dbFJT/UN5tyLgoU3
+ rOTA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
  messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
  :from:from:in-reply-to:in-reply-to:message-id:mime-version
  :references:reply-to:sender:subject:subject:to:to:x-me-proxy
  :x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
- 1652067817; x=1652154217; bh=d01N/erYFX7bR8qphSaL0E+u7qcuOLHPoAF
- brgswNxo=; b=waT+PST6TZOCYGD6+mgqu8u9k1ii+EPtIJNJguXjbc/Q/xk2Vv/
- fOX3Naupih4ONT8Ac/MzrVD47b0KOOXwRBlu2u8ln0u9klvMQbUwn6jgoqBA/ZI4
- Pvam9p4tP76MIPoHBqbsApWlvjG5ik5pd5/jsfqffpGG6ZVQSpPJ9QVp78VxcvDR
- GGfXa+M/wZbPBkCSuB76+aZre6Bckipgn6KMF82DRQr+m4j8upHqkHWRH4wEENnD
- qN58YlPEBVFeuqJpLRl/Y4a12Ty+Z9VBECWSVRDcgynuAlOUi2nzlAXwQyBpiVGI
- 6cUcszL+uxnia5sEmlZnVwnsvFN4fCqqKiA==
-X-ME-Sender: <xms:6I14YlfMxm6yXgecgNla9R1vp9G8_d6jTXfjEDhMHXs3IVnpO123ZQ>
- <xme:6I14YjNHZeDXcbF32oP_3t708469Lh6TmQQ4eLVYgx30sC_BayZve2QOlo7xFHaop
- POYy-MtbtlmMaa8WQ>
-X-ME-Received: <xmr:6I14Yuh6e13NnjrctaKO3V8PXQ9AHEnPeCQv_RQD5vkFm0RlZmbGbrdot9h9GZNAz5dH4l1PWbS_oVRc0lCcIHfdFxLOHDsBfy-k4R_vryZWY6Ae4CEUf-qd8ncjiwRUBTDG9A>
+ 1652067821; x=1652154221; bh=/29rtCFFrhMq7Dm0L/1ahNgZdkKRCrzt5ZS
+ JjaaJ7o4=; b=F5EJGKjhgjYiMng4/n8TtMnPjEZ1TLztMgYNwJXbI5qi3EJuwid
+ jOx+ZNcXcgAHZWOWjXFYjQchpO7hxa79iDd2FruWGeXa6sqH8RqSLRrQ8MtOaxw1
+ svD8YkLU4nK4ekOr5TVcodRSvRFslGq+EYwaS1R1hG7RWkFKGd/dZahEtV/XqVzQ
+ YjOEtvbIvnuWW7snrLHz6GRCIddoYqsWTkoKs4lyIGdJS6cZgodpTI4t9LRdRsGj
+ VtlpcQ5/+iRh1/NwdAOBi2qsTVvHyzy5KkRbDlM1oeYXfHu4gC2Wc5uyhpPM0syp
+ szwrq6pNyQ7tGT2EeKmnvINAZGiHLx2iVFw==
+X-ME-Sender: <xms:7Y14YmEESqvVCuF8oy4RX1zWLGMohKBfRlUJKQLwSOyrbpunpt8JGw>
+ <xme:7Y14YnUf1d1OArytOZnuh8qADLeWxttJrTT4dvWVErvP1Kr9u6qLGD5tvT59QKfX5
+ JOb3U8SzANRZtzIpQ>
+X-ME-Received: <xmr:7Y14YgLbPVvm5Hvrjq6yxLQrCsGDsWsdZ0ztwYuEs_9UYHVNH9k7QVoi56g8PhJFO-GRM4Jh0Ct9wzStbIyYdUsmkfCTv84nO8KVKpRPiFxDQ9B9V0l6Gl3weszMfEcOuS1PVQ>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfeekgdejiecutefuodetggdotefrodftvf
  curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
  uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
@@ -64,12 +64,12 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfeekgdejiecutefuodetggdote
  frrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeehgfdu
  feeitdevteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
  hmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:6I14Yu8ww4CedLGln1ZCC9mVFYIyQE8k3kSLV-gI-RVxGhfsww1Ukw>
- <xmx:6I14YhtUqsuXIR7sZi5sPTOF1LCBiD0m_pVaACz9V7pqLbp6EB__eA>
- <xmx:6I14YtGt4DKnc4WdT-HeJsB6j7wAHe9SzT8w9ZPFDLrzd19l6NDeEQ>
- <xmx:6Y14YiMmxiAlhAZmaToDDYiiXTxdIm0obahsuDaiptHj_PVMe96uCw>
+X-ME-Proxy: <xmx:7Y14YgF41VKTEU3VBDJl3CzjTlMOgrzD0O5LMmMw7BiiNkIcjgLAVw>
+ <xmx:7Y14YsXC5MnXadZNwC5VnGWWmTPLONt_9Fzmk0AorOGl-K-jgxdUaw>
+ <xmx:7Y14YjOI5mHJUxlZwYRYk2Z5M8NiZcQ8-Ih_leB7ALFMLJbfNr7_Uw>
+ <xmx:7Y14YtV8ggjvNp-j6HIIsp_QyYwo7xxyt4gI_TnXkhPqnzMs6YhWQQ>
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 8 May 2022 23:43:36 -0400 (EDT)
+ 8 May 2022 23:43:40 -0400 (EDT)
 From: Samuel Holland <samuel@sholland.org>
 To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>,
@@ -80,16 +80,17 @@ Cc: Samuel Holland <samuel@sholland.org>,
  Mark Rutland <mark.rutland@arm.com>, Russell King <linux@armlinux.org.uk>,
  Wei Xu <xuwei5@hisilicon.com>, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: [PATCH 1/5] genirq: GENERIC_IRQ_EFFECTIVE_AFF_MASK depends on SMP
-Date: Sun,  8 May 2022 22:43:29 -0500
-Message-Id: <20220509034333.60017-2-samuel@sholland.org>
+Subject: [PATCH 5/5] irqchip/sifive-plic: Separate the enable and mask
+ operations
+Date: Sun,  8 May 2022 22:43:33 -0500
+Message-Id: <20220509034333.60017-6-samuel@sholland.org>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220509034333.60017-1-samuel@sholland.org>
 References: <20220509034333.60017-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220508_204342_760881_E74D4B35 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20220508_204344_829279_A73F559B 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,111 +107,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-An IRQ's effective affinity can only be different from its configured
-affinity if there are multiple CPUs. Make it clear that this option is
-only meaningful when SMP is enabled. Most of the relevant code in
-irqdesc.c is already hidden behind CONFIG_SMP anyway.
+The PLIC has two per-IRQ checks before sending an IRQ to a hart context.
+First, it checks that the IRQ's priority is nonzero. Then, it checks
+that the enable bit is set for that combination of IRQ and context.
+
+Currently, the PLIC driver sets both the priority value and the enable
+bit in its (un)mask operations. However, modifying the enable bit is
+problematic for two reasons:
+  1) The enable bits are packed, so changes are not atomic and require
+     taking a spinlock.
+  2) The following requirememnt from the PLIC spec, which explains the
+     racy (un)mask operations in plic_irq_eoi():
+
+       If the completion ID does not match an interrupt source
+       that is currently enabled for the target, the completion
+       is silently ignored.
+
+Both of these problems are solved by using the priority value to mask
+IRQs. Each IRQ has a separate priority register, so writing the priority
+value is atomic. And since the enable bit remains set while an IRQ is
+masked, the EOI operation works normally. The enable bits are still used
+to control the IRQ's affinity.
 
 Signed-off-by: Samuel Holland <samuel@sholland.org>
 ---
 
- arch/arm/mach-hisi/Kconfig |  2 +-
- drivers/irqchip/Kconfig    | 14 +++++++-------
- kernel/irq/Kconfig         |  1 +
- 3 files changed, 9 insertions(+), 8 deletions(-)
+ drivers/irqchip/irq-sifive-plic.c | 53 +++++++++++++++++++------------
+ 1 file changed, 32 insertions(+), 21 deletions(-)
 
-diff --git a/arch/arm/mach-hisi/Kconfig b/arch/arm/mach-hisi/Kconfig
-index 2e980f834a6a..36d71f6797ca 100644
---- a/arch/arm/mach-hisi/Kconfig
-+++ b/arch/arm/mach-hisi/Kconfig
-@@ -40,7 +40,7 @@ config ARCH_HIP04
- 	select HAVE_ARM_ARCH_TIMER
- 	select MCPM if SMP
- 	select MCPM_QUAD_CLUSTER if SMP
--	select GENERIC_IRQ_EFFECTIVE_AFF_MASK
-+	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
- 	help
- 	  Support for Hisilicon HiP04 SoC family
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index bf7d5bee0c0c..53d266a571be 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -103,9 +103,7 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
+ 				   struct irq_data *d, int enable)
+ {
+ 	int cpu;
+-	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
  
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 15edb9a6fcae..bc90500a7573 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -8,7 +8,7 @@ config IRQCHIP
- config ARM_GIC
- 	bool
- 	select IRQ_DOMAIN_HIERARCHY
--	select GENERIC_IRQ_EFFECTIVE_AFF_MASK
-+	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+-	writel(enable, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
+ 	for_each_cpu(cpu, mask) {
+ 		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
  
- config ARM_GIC_PM
- 	bool
-@@ -34,7 +34,7 @@ config ARM_GIC_V3
- 	bool
- 	select IRQ_DOMAIN_HIERARCHY
- 	select PARTITION_PERCPU
--	select GENERIC_IRQ_EFFECTIVE_AFF_MASK
-+	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+@@ -113,16 +111,37 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
+ 	}
+ }
  
- config ARM_GIC_V3_ITS
- 	bool
-@@ -76,7 +76,7 @@ config ARMADA_370_XP_IRQ
- 	bool
- 	select GENERIC_IRQ_CHIP
- 	select PCI_MSI if PCI
--	select GENERIC_IRQ_EFFECTIVE_AFF_MASK
-+	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+-static void plic_irq_unmask(struct irq_data *d)
++static void plic_irq_enable(struct irq_data *d)
+ {
+ 	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 1);
+ }
  
- config ALPINE_MSI
- 	bool
-@@ -112,7 +112,7 @@ config BCM6345_L1_IRQ
- 	bool
- 	select GENERIC_IRQ_CHIP
- 	select IRQ_DOMAIN
--	select GENERIC_IRQ_EFFECTIVE_AFF_MASK
-+	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+-static void plic_irq_mask(struct irq_data *d)
++static void plic_irq_disable(struct irq_data *d)
+ {
+ 	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
+ }
  
- config BCM7038_L1_IRQ
- 	tristate "Broadcom STB 7038-style L1/L2 interrupt controller driver"
-@@ -120,7 +120,7 @@ config BCM7038_L1_IRQ
- 	default ARCH_BRCMSTB || BMIPS_GENERIC
- 	select GENERIC_IRQ_CHIP
- 	select IRQ_DOMAIN
--	select GENERIC_IRQ_EFFECTIVE_AFF_MASK
-+	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
++static void plic_irq_unmask(struct irq_data *d)
++{
++	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
++
++	writel(1, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
++}
++
++static void plic_irq_mask(struct irq_data *d)
++{
++	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
++
++	writel(0, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
++}
++
++static void plic_irq_eoi(struct irq_data *d)
++{
++	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
++
++	writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
++}
++
+ #ifdef CONFIG_SMP
+ static int plic_set_affinity(struct irq_data *d,
+ 			     const struct cpumask *mask_val, bool force)
+@@ -141,32 +160,21 @@ static int plic_set_affinity(struct irq_data *d,
+ 	if (cpu >= nr_cpu_ids)
+ 		return -EINVAL;
  
- config BCM7120_L2_IRQ
- 	tristate "Broadcom STB 7120-style L2 interrupt controller driver"
-@@ -179,7 +179,7 @@ config IRQ_MIPS_CPU
- 	select GENERIC_IRQ_CHIP
- 	select GENERIC_IRQ_IPI if SYS_SUPPORTS_MULTITHREADING
- 	select IRQ_DOMAIN
--	select GENERIC_IRQ_EFFECTIVE_AFF_MASK
-+	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+-	plic_irq_mask(d);
++	plic_irq_disable(d);
  
- config CLPS711X_IRQCHIP
- 	bool
-@@ -282,7 +282,7 @@ config VERSATILE_FPGA_IRQ_NR
- config XTENSA_MX
- 	bool
- 	select IRQ_DOMAIN
--	select GENERIC_IRQ_EFFECTIVE_AFF_MASK
-+	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+ 	irq_data_update_effective_affinity(d, cpumask_of(cpu));
  
- config XILINX_INTC
- 	bool "Xilinx Interrupt Controller IP"
-diff --git a/kernel/irq/Kconfig b/kernel/irq/Kconfig
-index 10929eda9825..a2a8df39c2bc 100644
---- a/kernel/irq/Kconfig
-+++ b/kernel/irq/Kconfig
-@@ -24,6 +24,7 @@ config GENERIC_IRQ_SHOW_LEVEL
+-	if (!irqd_irq_masked(d))
+-		plic_irq_unmask(d);
++	if (!irqd_irq_disabled(d))
++		plic_irq_enable(d);
  
- # Supports effective affinity mask
- config GENERIC_IRQ_EFFECTIVE_AFF_MASK
-+       depends on SMP
-        bool
+ 	return IRQ_SET_MASK_OK_DONE;
+ }
+ #endif
  
- # Support for delayed migration from interrupt context
+-static void plic_irq_eoi(struct irq_data *d)
+-{
+-	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+-
+-	if (irqd_irq_masked(d)) {
+-		plic_irq_unmask(d);
+-		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+-		plic_irq_mask(d);
+-	} else {
+-		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+-	}
+-}
+-
+ static struct irq_chip plic_chip = {
+ 	.name		= "SiFive PLIC",
++	.irq_enable	= plic_irq_enable,
++	.irq_disable	= plic_irq_disable,
+ 	.irq_mask	= plic_irq_mask,
+ 	.irq_unmask	= plic_irq_unmask,
+ 	.irq_eoi	= plic_irq_eoi,
+@@ -372,8 +380,11 @@ static int __init plic_init(struct device_node *node,
+ 			i * CONTEXT_ENABLE_SIZE;
+ 		handler->priv = priv;
+ done:
+-		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
++		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
+ 			plic_toggle(handler, hwirq, 0);
++			writel(1, priv->regs + PRIORITY_BASE +
++				  hwirq * PRIORITY_PER_ID);
++		}
+ 		nr_handlers++;
+ 	}
+ 
 -- 
 2.35.1
 
