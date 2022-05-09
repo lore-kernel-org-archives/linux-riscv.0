@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E37DC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 01:21:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CAF7C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 May 2022 02:57:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gQOyK2KB6RTz1AHWB/M9clslGO7naNa8ZHlHt2TAvQQ=; b=rhcBUJGgDzvUF1
-	QeiKsVE32ukDCTU/yux+DJZU4yX0Hiy1W6AEdHOv1W/YY6/My24IsXlCIkZSb/FEKt2+d2S0dPhrl
-	qQNQpuH8eVZ/MNxjMCawE+yRIakXinuWgRTZsbjz18f6EiRn/sp5e8mZRDKU0UBXNExKtEN8f8Awc
-	Tj653hPXR1AanTYqCM7tts957Amm2TG1X/LPPGcBtUGCU0E5JacZDbBUZvIU7oFw58QMfUEzQM6hc
-	FI8zFo3lF5Fm1Tu/2eqYizghDfB48K260eqhgeXZOlNoK9IFi75hLlaRNU4N860Ri44gnIFoaSjy0
-	teW9EnxwaXKqbCg0tvtQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
+	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
+	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zx8ANxiAN8Dy9pXZeUiTtOreqhd089PgOTsgL8wUXdQ=; b=c6j4Qx6jSe3ee7
+	Qt40VnbXIbiIIxL6oW8SHt6OU/OG/FNj/v9dmpM3XOGvAq/Tdxs03dKk+LHtFxJuY97DJTKRUagf3
+	lycEddb1d30AxpJWfTbOlCmLe4h49FSwQPVLtyeHy1ZkM5gGBVRVBcdp7N4yvKHoigmk6LRycvRYj
+	t6kTWYyHYXnx1oSDJUKnicBGC+2iI+C6zgVV7Oxa7qQ0xqZm+r5/Siie752dCIxS7IpLQWcR2ZUmM
+	FhXtN8Xosa41OkhfEP2lJCHvhzjuZYlLnnN3ivHgR0BiGmKJDA5uBkbntKALIcXe62LWqcn5TCwcB
+	7mH0e1Pok0ws1aQpTv0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nns5c-00Bvyf-OI; Mon, 09 May 2022 01:21:32 +0000
-Received: from out5-smtp.messagingengine.com ([66.111.4.29])
+	id 1nntZq-00C6sb-PO; Mon, 09 May 2022 02:56:50 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nns5Z-00BvxC-7Z
- for linux-riscv@lists.infradead.org; Mon, 09 May 2022 01:21:31 +0000
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
- by mailout.nyi.internal (Postfix) with ESMTP id B92D15C0037;
- Sun,  8 May 2022 21:21:23 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute2.internal (MEProxy); Sun, 08 May 2022 21:21:23 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
- cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
- :message-id:mime-version:reply-to:sender:subject:subject:to:to;
- s=fm2; t=1652059283; x=1652145683; bh=ocfO726Kgd2oGw0Tv8/aji7U+
- imgHZnPcKK9GAi4KlI=; b=d+9NBS2sBLLKEL2qcU/34D6uosjdcq9dBliOwCGFW
- TEU+O+EMDSKf7zz+BN8GSleUoPs2F+tUKhTUngLrZbSBMJN+doFn4svxQ3O2WPF5
- VpI2BKMOH+vEwYAnfB9vlP7F1SkQonpebKjjhCbPt48EWZQhZfDNhYqUwIeHG8Yv
- JfBiGp4kLgHHZa0F1j+UpclI7+uL6MpqMC+pV8ewBwWZwMvp3lGG6SG+lirIovrN
- l+rfoEo32ulilyStCA431Ey2z1Qb42pN7ptrLO6itrGcphAR9ydnetg+O8MGuagX
- SKjCZ5hf3R6aBCPOVwEbC2V/wTnAQ9V7iCNJEFbaHOAOA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
- :from:from:in-reply-to:message-id:mime-version:reply-to:sender
- :subject:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender
- :x-me-sender:x-sasl-enc; s=fm1; t=1652059283; x=1652145683; bh=o
- cfO726Kgd2oGw0Tv8/aji7U+imgHZnPcKK9GAi4KlI=; b=dO3GHKZMgU11UaHc1
- QEpGIP2jbuj/Tq8wFi4xsnDNa/1nCTFn7oBzY/qczvca4MVqMccEkLE067BjE7fk
- iscbjIOTlYo/sgzMh7Pn5vpORWNOzr4DAt3Iu6iHER0/j1UwO07Qn0zEat/sENne
- dnr8fzFzkCIEmpFwwcnZUrfplcMx/HG4LZhqROIcIFyvnQniLeL4fqw14oM48w9l
- NJ1WOxP40lCeeUCmjxXu2+8YfnZC3ZSIIooqkoGeZpuQSDaO4Pb0QGJkTkstlmgn
- PVchO3fBF83UKDSlQ3pjW1JzHz/fdGcRF6F+n+8ojHddjutJsA58zmOj/mSjQnOf
- k68iA==
-X-ME-Sender: <xms:k2x4Ysn70GTH1JovlHEbcp26RUS1-4ZuduHQlb2IKnisUuHDj7rj8A>
- <xme:k2x4Yr3mc2KBBIEce88Sw7l7n2y12T5jxJQJ9tamdYP-6NTsVyoAT2BTdnMrJw9PA
- u9yjELy5aorvBUJ5g>
-X-ME-Received: <xmr:k2x4YqpkQ6Cvb54l9UqgmOOsZfG7JORdkYtb9_OEMeqD1o5L46reCQk7eYZoyhr8J5hqcdErmYCJwgaUt9ukKOOULCMjxBhXY1KQefOanDG8TXqtLc3mBny9FLvl0S-nV1cGMQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfeekgdegiecutefuodetggdotefrodftvf
- curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
- uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
- fjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefurghmuhgvlhcu
- jfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtffrrg
- htthgvrhhnpeekveelhfejueelleetvdejvdeffeetgeelheeujeffhefgffefkeehhffh
- keekgeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
- hsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:k2x4YokEvkaTQfzTENfDRfAmV0SrrrP3NlUPcmEYuNhCXv3aOPLKWA>
- <xmx:k2x4Yq3Iig-cH0MnLWMZkppJEkW_sBIjCxSFwFVp8yGts_KOcwKi6w>
- <xmx:k2x4Yvt7xdRQidW0bA-lxRUTHmouqU4BMQPF0aCRilhuaefTCkpqTg>
- <xmx:k2x4YrLLnMwTQsUGyAtn9XgI8PMkvW_CrbF0SzkJm1I1RYKl5ZQD4A>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 8 May 2022 21:21:22 -0400 (EDT)
-From: Samuel Holland <samuel@sholland.org>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>
-Cc: Samuel Holland <samuel@sholland.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ id 1nntZn-00C6rM-DK
+ for linux-riscv@lists.infradead.org; Mon, 09 May 2022 02:56:49 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id c11so17516764wrn.8
+ for <linux-riscv@lists.infradead.org>; Sun, 08 May 2022 19:56:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=jrtc27.com; s=gmail.jrtc27.user;
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=zGLs8GoeHHxow0QHkE6WAhpRqq163am1P8u8l/0Qawg=;
+ b=bAwc46bgzRfoc2DLiYdlzCkJPvcTGnfgzRzweu1C2fVcg65WP1trATs3acTrH2BCpt
+ 81BISgEST0FFiyAi91rjBzJ2CcK8WtoctbuwX8fVb6oHVQkkPjJti5aNXrfLRwEwdBwh
+ Pooh4iBSsUnxbSHf7vQeTOP+CzQZbTv++VBlRsCQdHVNNn2ASO5mLA/QefvHvWD+6s0a
+ eUj93XWAurLLDFWehur4TNlOEyKlCHm5EZoURSXu6c1XR7zzsn21bwm7Xhp36MO+emEL
+ WZSA6YWOrVmJ2oan2T0b2rg6BfN2ZIYMVD5tTFdyhEhhJ+6MnkGdDRz3FeTqBXkviG3a
+ arKA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=zGLs8GoeHHxow0QHkE6WAhpRqq163am1P8u8l/0Qawg=;
+ b=W+LD8smvOxTH3VgmlsK3Asg4/vCQWn2iP+B/njXqzn6GHwBtZk9SMdn+efOI2IPX5c
+ jah/6gtDVgRBvR9o5jP0wtObd6FGLO9QKr69tGD2MZRieSeU4185hxIe8vakwEgadSta
+ n35A2YwjOyKwsUU/2BgzANcSUaMHNytKidi4M960kRDfGYaS7cJNGmb/+X76lxSnFH++
+ El+NW3CwQOZTAff/Qvot3ygsSbe8KmQHCfqryDeEfwkwaY0MM7OzB/gh5haQHVooJ568
+ 67IDvNLEtnfuYVPINn0+0WpZp5YFrtR+/JkY5QTBz3LJtU/YEh7mwCnoPpUgj4H54Al/
+ ARWg==
+X-Gm-Message-State: AOAM530FmxLjfVupppFKqO9fn1nNK5UCg2wme9rKq2Az4mbG+tUi9EZs
+ MeZtrVZQR7bVDrSvdhNVUlGmkg==
+X-Google-Smtp-Source: ABdhPJy059/eM8oV+XQ+w8slguW1SE1QSeWz1ma5e97+6eHR1i6LQS94bQGbba8RybbXFq3PKp2VTw==
+X-Received: by 2002:a5d:584a:0:b0:20c:45fe:b02e with SMTP id
+ i10-20020a5d584a000000b0020c45feb02emr11717800wrf.504.1652065004531; 
+ Sun, 08 May 2022 19:56:44 -0700 (PDT)
+Received: from smtpclient.apple (global-5-141.nat-2.net.cam.ac.uk.
+ [131.111.5.141]) by smtp.gmail.com with ESMTPSA id
+ q20-20020a7bce94000000b0039456fb80b3sm13680708wmj.43.2022.05.08.19.56.43
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Sun, 08 May 2022 19:56:44 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.80.82.1.1\))
+Subject: Re: [PATCH] clocksource/drivers/riscv: Events are stopped during CPU
+ suspend
+From: Jessica Clarke <jrtc27@jrtc27.com>
+In-Reply-To: <20220509012121.40031-1-samuel@sholland.org>
+Date: Mon, 9 May 2022 03:56:43 +0100
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Albert Ou <aou@eecs.berkeley.edu>,
  Atish Patra <atishp@atishpatra.org>,
  Dmitriy Cherkasov <dmitriy@oss-tech.org>,
  Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
-Subject: [PATCH] clocksource/drivers/riscv: Events are stopped during CPU
- suspend
-Date: Sun,  8 May 2022 20:21:21 -0500
-Message-Id: <20220509012121.40031-1-samuel@sholland.org>
-X-Mailer: git-send-email 2.35.1
-MIME-Version: 1.0
+Message-Id: <878D1D3C-E8F1-4B37-93F1-B3560E3F271E@jrtc27.com>
+References: <20220509012121.40031-1-samuel@sholland.org>
+To: Samuel Holland <samuel@sholland.org>
+X-Mailer: Apple Mail (2.3696.80.82.1.1)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220508_182129_820614_269A29BF 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20220508_195647_508415_88AAE47C 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,41 +91,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Some implementations of the SBI time extension depend on hart-local
-state (for example, CSRs) that are lost or hardware that is powered
-down when a CPU is suspended. To be safe, the clockevents driver
-cannot assume that timer IRQs will be received during CPU suspend.
-
-Fixes: 62b019436814 ("clocksource: new RISC-V SBI timer driver")
-Signed-off-by: Samuel Holland <samuel@sholland.org>
----
-
- drivers/clocksource/timer-riscv.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 1767f8bf2013..593d5a957b69 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -34,7 +34,7 @@ static int riscv_clock_next_event(unsigned long delta,
- static unsigned int riscv_clock_event_irq;
- static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
- 	.name			= "riscv_timer_clockevent",
--	.features		= CLOCK_EVT_FEAT_ONESHOT,
-+	.features		= CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_C3STOP,
- 	.rating			= 100,
- 	.set_next_event		= riscv_clock_next_event,
- };
--- 
-2.35.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gOSBNYXkgMjAyMiwgYXQgMDI6MjEsIFNhbXVlbCBIb2xsYW5kIDxzYW11ZWxAc2hvbGxhbmQu
+b3JnPiB3cm90ZToKPiAKPiBTb21lIGltcGxlbWVudGF0aW9ucyBvZiB0aGUgU0JJIHRpbWUgZXh0
+ZW5zaW9uIGRlcGVuZCBvbiBoYXJ0LWxvY2FsCj4gc3RhdGUgKGZvciBleGFtcGxlLCBDU1JzKSB0
+aGF0IGFyZSBsb3N0IG9yIGhhcmR3YXJlIHRoYXQgaXMgcG93ZXJlZAo+IGRvd24gd2hlbiBhIENQ
+VSBpcyBzdXNwZW5kZWQuIFRvIGJlIHNhZmUsIHRoZSBjbG9ja2V2ZW50cyBkcml2ZXIKPiBjYW5u
+b3QgYXNzdW1lIHRoYXQgdGltZXIgSVJRcyB3aWxsIGJlIHJlY2VpdmVkIGR1cmluZyBDUFUgc3Vz
+cGVuZC4KPiAKPiBGaXhlczogNjJiMDE5NDM2ODE0ICgiY2xvY2tzb3VyY2U6IG5ldyBSSVNDLVYg
+U0JJIHRpbWVyIGRyaXZlciIpCgpTdXJlbHkgdGhhdOKAmXMgbm90IHJpZ2h0PyBBIGNvbW1pdCBm
+cm9tIDIwMTggY2Fu4oCZdCBoYXZlIGJlZW4gZXhwZWN0ZWQgdG8KcHJlZGljdCB0aGUgZnV0dXJl
+LCBJIHdvdWxkIGV4cGVjdCB0aGlzIHRvIGJlIG9uZSBvZiB0aGUgcGF0Y2hlcyBhZGRpbmcKc3Vz
+cGVuZCB0byBSSVNDLVYgd2hpY2ggY2FtZSB5ZWFycyBsYXRlci4KCkplc3MKCj4gU2lnbmVkLW9m
+Zi1ieTogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbEBzaG9sbGFuZC5vcmc+Cj4gLS0tCj4gCj4gZHJp
+dmVycy9jbG9ja3NvdXJjZS90aW1lci1yaXNjdi5jIHwgMiArLQo+IDEgZmlsZSBjaGFuZ2VkLCAx
+IGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQo+IAo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2Ns
+b2Nrc291cmNlL3RpbWVyLXJpc2N2LmMgYi9kcml2ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2
+LmMKPiBpbmRleCAxNzY3ZjhiZjIwMTMuLjU5M2Q1YTk1N2I2OSAxMDA2NDQKPiAtLS0gYS9kcml2
+ZXJzL2Nsb2Nrc291cmNlL3RpbWVyLXJpc2N2LmMKPiArKysgYi9kcml2ZXJzL2Nsb2Nrc291cmNl
+L3RpbWVyLXJpc2N2LmMKPiBAQCAtMzQsNyArMzQsNyBAQCBzdGF0aWMgaW50IHJpc2N2X2Nsb2Nr
+X25leHRfZXZlbnQodW5zaWduZWQgbG9uZyBkZWx0YSwKPiBzdGF0aWMgdW5zaWduZWQgaW50IHJp
+c2N2X2Nsb2NrX2V2ZW50X2lycTsKPiBzdGF0aWMgREVGSU5FX1BFUl9DUFUoc3RydWN0IGNsb2Nr
+X2V2ZW50X2RldmljZSwgcmlzY3ZfY2xvY2tfZXZlbnQpID0gewo+IAkubmFtZQkJCT0gInJpc2N2
+X3RpbWVyX2Nsb2NrZXZlbnQiLAo+IC0JLmZlYXR1cmVzCQk9IENMT0NLX0VWVF9GRUFUX09ORVNI
+T1QsCj4gKwkuZmVhdHVyZXMJCT0gQ0xPQ0tfRVZUX0ZFQVRfT05FU0hPVCB8IENMT0NLX0VWVF9G
+RUFUX0MzU1RPUCwKPiAJLnJhdGluZwkJCT0gMTAwLAo+IAkuc2V0X25leHRfZXZlbnQJCT0gcmlz
+Y3ZfY2xvY2tfbmV4dF9ldmVudCwKPiB9Owo+IC0tIAo+IDIuMzUuMQo+IAo+IAo+IF9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCgpfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
+IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
