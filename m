@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2615FC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 May 2022 11:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47BB8C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 May 2022 13:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m+xKZaEQid6hlNg2mEEmzgUnN0y9W+mZGo3tf4M9xDU=; b=pz7rFkubTOp4lq
-	ElsRExUqk+pg03433isVjS0MAGqfo2HnmT0FC6Xye3mWuF5J7NvnMvTjcm1cJlxg4K0K4EEZqetdx
-	XVkWZAsVeRGdGJOHwV86xaFJYiv/u0zrEDdwtNc6P5xAZLwzXbl3KM/C+vP6cCdRDQ9AqV2aMRZXQ
-	JnN+9Rkb8UKoXZnlwAQNB714u7R7c6xVTrSfY2cu2j95swrskoTs8yF5ZOvMiaBlI5MdyhpWGexhU
-	gqcAhPhRZJ4M7USq7Za4VfUszZQNTwkzYsf8Emy/1G7e0qIB6xT9AN2ZLKEzkR5iRMZHokMie+ZoQ
-	B+pCivgKmmLRu9l5QLYw==;
+	List-Owner; bh=brBtSKTtjMn7z1ArhF33ewArpQGhXSLdo55Yb5c3e20=; b=nSHoRr7oS5Astx
+	g53P6V2ZwwplJT+YizcZwos/Hj/wSdzTXqrArqQz4gGlEe/jIP/VcRUcjp6/c8igwHZhpoTSSqPvk
+	atvfM7zYKkHHA+IGpTpcNx3D57qTJCe6DHG7xtHALPoMBFUJjA+KxV+kXGhnNmRvI78Z5xQTFVQSX
+	OnV4MtvQDsclJEu/xTCGgyWn+vLLx2oxogxmfQ6+GW/ZIKJVOw3swj8F8c3myhUwZY7juExpoOqaI
+	P4VRuon63+7W+wlGl0HCtkHwYLqjFybfp/OCHad0v+JI+R0X/n/wBcpgmHAlGL9VTcpsuRPJ7/zPy
+	78mjy6J3Z8rxNm1Mk1bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noOBh-001cx4-ST; Tue, 10 May 2022 11:37:57 +0000
-Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	id 1noPjP-002AuY-HY; Tue, 10 May 2022 13:16:51 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noOAE-001cEN-B8; Tue, 10 May 2022 11:36:29 +0000
-Received: by mail-io1-xd2b.google.com with SMTP id z26so18168565iot.8;
- Tue, 10 May 2022 04:36:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=4EZpR3qbj2OiB8Rs7HNB/ykkYoIogT5opUzlrLNV8YI=;
- b=VoJKpqMfxxTPHvVta4VrHB92nXtrqsdoFMCKO72GGQiiTNlssKn+AXRFv2R0zA/qJl
- ctxf5yvCTzchX0hBX89nV/pbn8AMQXcZyobufzGfOBQSZx6nhMaYwA+R8ZttLsdM8Xl+
- rpydufKYD/6bVeUkxjjhLcjOQR0qGg0c2UaMnbMITS+RV4LBbE8poluGb/ji6ozV4ggX
- 2ZOwstsWV1YYyBdttQncwLva3BWyKTcGbQP+6PrGtjhkepSKztq/WSV1uGa3OR1zPmHp
- fWEbAq+8c6Bu4dtUV2ivF9jPrKCiNZQT0HzmRt0DR1EBUHs6Rmtmvgahn+B8mMcFvjaB
- CbRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=4EZpR3qbj2OiB8Rs7HNB/ykkYoIogT5opUzlrLNV8YI=;
- b=4GaP/Mf9uwD0bw6v7e8DiCVI1Od0BycM/WiIzRJgfiJ5IL0jjf4JmSNhXymJxOEjXj
- KnF96dtxvCCvCIi7laaDkY5ESajlTWrASLrx1Ejik5keCW0i/U8UQAKM4J1NGhMgX3HF
- MiPb2HiEb+rObU0dHNbDP/mCz20SVCPIONmu+NQimMvpkYR/g0dYc9vR40w8LhuWi1ia
- aThh/MhDmHdhqKcG2p8wS2TMl6T7Cexc0xP45YnbP5rwZpGduzf4jxApKD8hE7vCLDsG
- PHiqfVqeEcj1PbjTsZzHq7fpnDyYXwWNUhc3OpC98ivh2rT79rXIAN0WjO6/JFFWgeFE
- 7qhw==
-X-Gm-Message-State: AOAM5320vqzVYwibEoZvZT5mFI8Myu+lIE9TiQIiIE1DUtPh4iczrq1L
- jjTJLs6ByF9flblG3uGGa1q6/s5Wnl4KoPZfhkY=
-X-Google-Smtp-Source: ABdhPJxse48OZESZFthVDv8nUynrMkvM0JCiuRjG7/tN4zNaiseDCEGjt9o4QzkyV4Z20WHbORCpQublLG3V37jZ2Dg=
-X-Received: by 2002:a02:8624:0:b0:32b:397d:eeb1 with SMTP id
- e33-20020a028624000000b0032b397deeb1mr9940559jai.264.1652182582955; Tue, 10
- May 2022 04:36:22 -0700 (PDT)
+ id 1noPjL-002AsG-34
+ for linux-riscv@lists.infradead.org; Tue, 10 May 2022 13:16:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1652188607; x=1683724607;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=8pp90tvf8kTP0zWhyfPDbb/zxfLJMKZ53ILcrsvHuto=;
+ b=0T9Ul6Tp3VfH9kjFT29cam8t1uD1NADlSt08YiljfMyhAaXQcF3eAxAp
+ 61OS/qAJmHvg+qKKYZSOE5fGyBc3XrdDovpqyGlcUVs4ix531RDWjbTm4
+ Pc+wweaIYyHsmSCo5sImjzHun1fU+L2TP2HH7fN1PlSrPOFgDRDIkQlem
+ EeqiedI3t2o+DXdJsbZav+RReKij/AmXczD6HudZSaDwOxkOoVYwOuTid
+ Y0SZAyTnAXGLh08L5JzsppwSt/fEeiYkMmygwvRBxJPBYD5NA652NJNDp
+ +pEt8WSPXP2WZZs0Yk4zAKGwiWxbacLwYO2yz6hjb8mBALZ10LqQQ302k A==;
+X-IronPort-AV: E=Sophos;i="5.91,214,1647327600"; d="scan'208";a="172695912"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 10 May 2022 06:16:45 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Tue, 10 May 2022 06:16:45 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
+ Frontend Transport; Tue, 10 May 2022 06:16:43 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <a.zummo@towertech.it>, <alexandre.belloni@bootlin.com>
+CC: <daire.mcnamara@microchip.com>, <lewis.hanly@microchip.com>,
+ <conor.dooley@microchip.com>, <linux-kernel@vger.kernel.org>,
+ <linux-rtc@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v2 2/2] MAINTAINERS: add PolarFire SoC's RTC
+Date: Tue, 10 May 2022 14:21:17 +0100
+Message-ID: <20220510132116.506572-3-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220510132116.506572-1-conor.dooley@microchip.com>
+References: <20220510132116.506572-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-References: <20220507052451.12890-1-ojeda@kernel.org>
- <CABVgOSm5S2=QYnHJ+B0JbYtFYKBDRZiOhE5YMKKUKZU56d17HQ@mail.gmail.com>
- <CANiq72=0ft6+QLbdwWD6cLm4FhWfv53GSg6HKEwxQ-q2N-UkOw@mail.gmail.com>
- <CABVgOSkrvfvA7Ay4GC5wg64S1gibvm5_U5VGBog3sw4_UFo8Cg@mail.gmail.com>
-In-Reply-To: <CABVgOSkrvfvA7Ay4GC5wg64S1gibvm5_U5VGBog3sw4_UFo8Cg@mail.gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Tue, 10 May 2022 13:36:11 +0200
-Message-ID: <CANiq72mcvKDW6qO=1PzYR_U0tAwVLyCWFZjFVLL81znWDSYq7A@mail.gmail.com>
-Subject: Re: [PATCH v6 00/23] Rust support
-To: David Gow <davidgow@google.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- rust-for-linux <rust-for-linux@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Jarkko Sakkinen <jarkko@kernel.org>, 
- KUnit Development <kunit-dev@googlegroups.com>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>, 
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- linux-perf-users@vger.kernel.org, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, live-patching@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220510_043626_445133_07F8EED4 
-X-CRM114-Status: GOOD (  25.00  )
+X-CRM114-CacheID: sfid-20220510_061647_193715_D302E179 
+X-CRM114-Status: UNSURE (   7.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,62 +81,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+Add an entry for PolarFire SoC's RTC drver to the existing support
+for PolarFire SoC.
 
-On Tue, May 10, 2022 at 6:45 AM David Gow <davidgow@google.com> wrote:
->
-> I've just sent out a pull request to get this working under UML as
-> well, which would simplify running these further:
-> https://github.com/Rust-for-Linux/linux/pull/766
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks a lot!
+diff --git a/MAINTAINERS b/MAINTAINERS
+index e8c52d0192a6..625d735f6a24 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -16952,6 +16952,7 @@ L:	linux-riscv@lists.infradead.org
+ S:	Supported
+ F:	arch/riscv/boot/dts/microchip/
+ F:	drivers/mailbox/mailbox-mpfs.c
++F:	drivers/rtc/rtc-mpfs.c
+ F:	drivers/soc/microchip/
+ F:	include/soc/microchip/mpfs.h
+ 
+-- 
+2.36.1
 
-> Yeah, these are all fair points: particularly for small doctests.
->
-> Maybe having an optional name, which more significant tests could use
-> to override the file:line names? That could be useful for a few of the
-> larger, more often referenced tests.
-
-Sounds reasonable. I can add support for that.
-
-> Ugh: it's a bit ugly either way. I suspect that file:line is still
-> probably better, if only because we need some way of looking up the
-> test in the code if it fails. I'd hate for people to be randomly
-> hashing bits of just to find out what test is failing.
-
-One redeeming quality is that the assertion prints the line/file
-number in the generated file, so it would still be possible to check
-where it came from:
-
-    [13:13:43] # rust_kernel_doctest_str_rs_somehash: ASSERTION FAILED
-at rust/doctests_kernel_generated.rs:2209
-    [13:13:43] Expected 2 > 3 to be true, but is false
-    [13:13:43] not ok 43 - rust_kernel_doctest_str_rs_somehash
-    [13:13:43] [FAILED] rust_kernel_doctest_str_rs_somehash
-
-Another alternative is to keep the file:line information around
-without embedding it into the test name, e.g. in a TAP comment or a
-mapping file (which `kunit.py` could read).
-
-But, yeah, before doing hashes or things like that, I would just go
-for simplicity and keep things as they are unless some use case really
-needs doctests to be stable.
-
-> Oops: I missed that (one of the issues with testing this on a
-> different machine which had a rust toolchain). Looks good to me.
->
-> Ah: I didn't realise the plan was always to have crate-specific
-> suites, and possibly to split things up.
->
-> The KTAP output specification does actually support arbitrary nesting
-> (though KUnit itself doesn't at the moment), which would potentially
-> be an option if (e.g.) providing the complete module nesting made
-> sense. I'm not convinced that'd make things easier to read, though.
-
-That is useful to know in case we need it, thanks!
-
-Cheers,
-Miguel
 
 _______________________________________________
 linux-riscv mailing list
