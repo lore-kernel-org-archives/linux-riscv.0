@@ -4,98 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2069AC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 May 2022 04:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75640C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 May 2022 04:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=O5XWz0iKgm/JrgOPyNLXSJsv+CJ04db3QuaVIi6tH04=; b=z/ddata4+cRYy68+6kz7xYDye4
-	E337adyCQSjT2Y9wp1nIT6Q3aNeZc55UACY5m5m7TBDDjrKP6LW3iPN/sTKWVISvTtM8NX2wzzx4b
-	yb857d7tIB4kibACVDkUc3N3NSTrvj9GE8wxlR5uqneE/X1Y1IVv5uC8fZuzl8pc+4nDaUP1+AodH
-	uO4ca8WBKSOwLfU8K+r78g3G5DzHoyd7JFHQ/z2zYRIZcfgZRWvXzzyQzGxwP1uBZQNZzDjyRTC9b
-	0bgl/bZvyFDbvxPUR0eN+UhDLnsgqWS4ffLvvIRa8OeaawLVayNPynIp/YQVhV3Ua/REAdZecT97x
-	B79Eg8zw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Yec7YT5JInoXfpja45FCkT3nT2jJZ2daFWIyr3OzztE=; b=o9Mo8OiG2APuJv
+	WvdPtkJdPSvf6c++V+NtqBacylp27yGiPuxs1a/8iiQ4e9NkO/GpEazEl7gbFbQ5UYi6E20qXzl3x
+	YN/+g3sZXNXZJliX/uzv8m0eizfe/WCG1FAhhDYDkFgAXQi+VC8JJ/QkXhqijX4NZlYlCkkOVNNis
+	BgEFVvzn/WJ6c1BWPx/p5bptmCI+OIv5lOa4khNdFjTpmqvvS7R0tfJkzwvvqV4REY9YAmQYhSI4c
+	kKipz8SybXRz5zvEwC9i2B+4qbwCOhwOPPAsQUnh7p8pAhprZYHJ5QsldSKXsmYXNcjUf4VDjKCVj
+	iLLPLlg3R/f8XMY8leVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noHMI-00HSge-2N; Tue, 10 May 2022 04:20:26 +0000
-Received: from out1-smtp.messagingengine.com ([66.111.4.25])
+	id 1noHkP-00HWNE-4I; Tue, 10 May 2022 04:45:21 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noHM6-00HSeT-9j; Tue, 10 May 2022 04:20:16 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
- by mailout.nyi.internal (Postfix) with ESMTP id 24CA25C01E5;
- Tue, 10 May 2022 00:20:07 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute5.internal (MEProxy); Tue, 10 May 2022 00:20:07 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
- cc:cc:content-transfer-encoding:content-type:date:date:from:from
- :in-reply-to:in-reply-to:message-id:mime-version:references
- :reply-to:sender:subject:subject:to:to; s=fm2; t=1652156407; x=
- 1652242807; bh=as0nbBT5XoQXRrXJLN/v8UdLz8TC49sB1/eyhm8FVLw=; b=t
- YS2ty10wMkPXkYiyfY2G+qolMiP1S3J8xOy92kP6dXeXhGRJOjExXfvw61mw1qso
- XAg0Or3fW/Z/4/Xr9gzlhT+S/kWmA5eP6jUaJEMpm0fC5WzLVTEQXXTunEpYcxA9
- QpmNciY1X+1UbmorloXqDEJWllSpUF/h2NVSMZIvBzl5UEXvi562t33gZaMFfObT
- wIsQIY9TnHSHNqXDEUnRbbpNF761Z1/VehVN3XlIC7JM2QQnGukVGvHrD0EeThI7
- nBy070didr9h1ZGW305wOQK9Zda6Js5F1Bvn/ggLAUD3RO09uNweZfAVxCP1u4Qv
- rm4rQ63LfOWoDfgDnCebQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:cc:content-transfer-encoding
- :content-type:date:date:from:from:in-reply-to:in-reply-to
- :message-id:mime-version:references:reply-to:sender:subject
- :subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
- :x-sasl-enc; s=fm1; t=1652156407; x=1652242807; bh=as0nbBT5XoQXR
- rXJLN/v8UdLz8TC49sB1/eyhm8FVLw=; b=aTgRkgfe4qujxTtpecU47cRkfSuMq
- 2eMCscoDer/3OKxwOMOl/7QRki793H816X+3AuIhkLM+YEA8+6I2ZQJl5pb6yAhN
- Tx3KzbY7Ns24LcvCb5Rk8Oj2yQEB+2U9aXdU4T76EK3yVy89qABAN2Q9MHFR1UML
- S7FkQawHWX/uUi91VECTBhfmt1OwuVBiMdrSokUueWqODTf8BIILhdM23y6eFGa8
- 5r8mY/OHZ6S+jSyydLTSyRu1H5tv0JleixCvKQpEYdEBjnM2vPZ0bcOMEQZVZdMq
- YNjG5WlN6JZ97cbTH1s5IUZfmoJbKoHAUU0oW52R/tB0+tpH4gQOxdGjg==
-X-ME-Sender: <xms:9ud5Yu78zKtL0VRMk98Sal9B9jDsDJcKNkIVueUs8x96WuuzTdzLCg>
- <xme:9ud5Yn6h4yjeomDqmJDEdO-f3eFTBOVN1IdRpKTp7QhweeJdIDNcfIhNFuqXmR1gp
- nXTZf0nR7a1PcCOLA>
-X-ME-Received: <xmr:9ud5YtdOiwemFqxVOKHTAcJGtIfb-6YC4QrM0cNys7Jt2qM7hFkN1l9M22Om2xbAt2lGuOgmo_Xq0wAZFpPzoFiKA7pSW-Vgk4GNtcbFFZA-cLQpKNk06VpGZA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrgedtgdekvdcutefuodetggdotefrodftvf
- curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
- uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
- fjughrpefuvfevfhfhkffffgggjggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
- vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
- ftrfgrthhtvghrnhepudeluedvhfdttedtvdethfdvhedvkedtvddtgeetueeuvdeufeff
- teevleekgeetnecuffhomhgrihhnpehgihhtqdhstghmrdgtohhmpdhgihhthhhusgdrtg
- homhdpkhgvrhhnvghlrdhorhhgpddtuddrohhrghdpghhithhhuhgsuhhsvghrtghonhht
- vghnthdrtghomhenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
- hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:9ud5YrInPcS0r2F0CBpRSo2ks6J7cquZh8BiQktOddVaCAZPEl0UOg>
- <xmx:9ud5YiKXD7CREvggdEGUU0B8Lpaf5CF1XbPtqEDMoz8XM2DXfqWDlw>
- <xmx:9ud5YsyBqkgCX2jjmaNRuSvaVv4jTq14LG8e1rLVJ8fQ6Sw_hRn9Rg>
- <xmx:9-d5YkA6OpxErHxIiBR9uSSqd-dWfH5_D4BKPRua290jOJpkffpaeQ>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 10 May 2022 00:20:06 -0400 (EDT)
-Subject: Re: [PATCH 3/5] genirq: Provide an IRQ affinity mask in non-SMP
- configs
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Florian Fainelli <f.fainelli@gmail.com>, Guo Ren <guoren@kernel.org>,
- Linus Walleij <linus.walleij@linaro.org>, Mark Rutland
- <mark.rutland@arm.com>, Russell King <linux@armlinux.org.uk>,
- Wei Xu <xuwei5@hisilicon.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20220509034333.60017-4-samuel@sholland.org>
- <202205091545.QhhCDxVm-lkp@intel.com>
-From: Samuel Holland <samuel@sholland.org>
-Message-ID: <372caaac-0a76-965f-2678-79ea368e39ba@sholland.org>
-Date: Mon, 9 May 2022 23:20:05 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ id 1noHkK-00HWJl-8y
+ for linux-riscv@lists.infradead.org; Tue, 10 May 2022 04:45:19 +0000
+Received: by mail-wr1-x430.google.com with SMTP id e2so22037608wrh.7
+ for <linux-riscv@lists.infradead.org>; Mon, 09 May 2022 21:45:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=9s1dagxJlyBeoN8vXdOpsPpdS8AD1RWVJWE0n8ehmas=;
+ b=OrctmfTVDCxyYdwcxCtO+PuFgHBDMDC7Bjk3TGUWyuOKGBhKLCCiUkxtYUOPWSujka
+ /OoqstAYhrGXcYieyOQKBFbwQ9tdHrrlfAgfjS6rNqvPEA5JdQz3D4E5NS7VzL5WOf+E
+ ppcl6vbGTOThxdSbDLD0FF3VNmQjZYs0YaRKW2LrfcKbI7iiYsOvdodP6Nf3qoZXPgQF
+ Um1ef/9fJDTkVoHV63EAahHnEkdwxgxf/Hc8y1wACrWcQPfhb2xVBIshPVinpye5CGSN
+ DoHok7Lf+NgFTiQMqtYLLj/aSoKi0RaOM3+EWbBDgDeG8Kjhw/dRvI6d3AEZbIIqfLAr
+ UHxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=9s1dagxJlyBeoN8vXdOpsPpdS8AD1RWVJWE0n8ehmas=;
+ b=j04SViYBNUNG9Mh//0IW0oUAUcy9xYk4s8X4bQZJyCI492aIti1Nm65/441XX9KxEh
+ +zIOydIWk2z4+dHbBnLIMwXAt2ctkroPUNIg9nVhVck5avbSFsG+Bi0z0sFLoPwcFWOX
+ Q0cUQnfw1p51gxLrnVc1YGBNOnaSf6slgoo+C1PoGjlau9nCnA6sKMm7S5peO6FzG4jm
+ ah9cs9i0gZdAX4vsNSmlifYMUKXA9cdpdUV19Ysen2pKC08Ffb3lz4kt68sk2j0U/u8i
+ sxHrAi/5EUwhH1vLXF8LDeiK7OUTjvYTjqPULsSko/BhOCz1jc1VVxOmo7kHTz3klKNm
+ fQJw==
+X-Gm-Message-State: AOAM530HmA7vEsUqkwiIHVsjwdnDmykO9TqKTuWgZyVosY+hTubNb9vU
+ eesDDUk9OCiGpESRZfIkcGhOiIrhOMLSxUenHcbdYg==
+X-Google-Smtp-Source: ABdhPJzfNwaPy5xjCTvC86K51nEH3yemeJZ1erUUa4xvtvCZqXN7MOjD5hnH0ntxxTlSOXapkot4g5ZMqXe6px9AH2Q=
+X-Received: by 2002:a5d:4806:0:b0:20a:da03:711b with SMTP id
+ l6-20020a5d4806000000b0020ada03711bmr16582569wrq.395.1652157908998; Mon, 09
+ May 2022 21:45:08 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <202205091545.QhhCDxVm-lkp@intel.com>
-Content-Language: en-US
+References: <20220507052451.12890-1-ojeda@kernel.org>
+ <CABVgOSm5S2=QYnHJ+B0JbYtFYKBDRZiOhE5YMKKUKZU56d17HQ@mail.gmail.com>
+ <CANiq72=0ft6+QLbdwWD6cLm4FhWfv53GSg6HKEwxQ-q2N-UkOw@mail.gmail.com>
+In-Reply-To: <CANiq72=0ft6+QLbdwWD6cLm4FhWfv53GSg6HKEwxQ-q2N-UkOw@mail.gmail.com>
+From: David Gow <davidgow@google.com>
+Date: Tue, 10 May 2022 12:44:57 +0800
+Message-ID: <CABVgOSkrvfvA7Ay4GC5wg64S1gibvm5_U5VGBog3sw4_UFo8Cg@mail.gmail.com>
+Subject: Re: [PATCH v6 00/23] Rust support
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Miguel Ojeda <ojeda@kernel.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ rust-for-linux <rust-for-linux@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Jarkko Sakkinen <jarkko@kernel.org>, 
+ KUnit Development <kunit-dev@googlegroups.com>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>, 
+ "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
+ Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
+ "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
+ linux-perf-users@vger.kernel.org, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, live-patching@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220509_212014_792917_C8F7F3FD 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20220509_214516_343283_70F350BE 
+X-CRM114-Status: GOOD (  44.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,49 +97,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/9/22 2:52 AM, kernel test robot wrote:
-> Hi Samuel,
-> 
-> I love your patch! Yet something to improve:
-> 
-> [auto build test ERROR on tip/irq/core]
-> [also build test ERROR on soc/for-next linus/master v5.18-rc6 next-20220506]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Samuel-Holland/genirq-irqchip-RISC-V-PLIC-cleanup-and-optimization/20220509-115510
-> base:   https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git ce4818957fdc5bca57fc2c92b0dfe109d26bcc47
-> config: mips-randconfig-r024-20220509 (https://download.01.org/0day-ci/archive/20220509/202205091545.QhhCDxVm-lkp@intel.com/config)
-> compiler: clang version 15.0.0 (https://github.com/llvm/llvm-project a385645b470e2d3a1534aae618ea56b31177639f)
-> reproduce (this is a W=1 build):
->         wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->         chmod +x ~/bin/make.cross
->         # install mips cross compiling tool for clang build
->         # apt-get install binutils-mips-linux-gnu
->         # https://github.com/intel-lab-lkp/linux/commit/4bca5b436c97eb2ee232dd23f262ebad05fa183c
->         git remote add linux-review https://github.com/intel-lab-lkp/linux
->         git fetch --no-tags linux-review Samuel-Holland/genirq-irqchip-RISC-V-PLIC-cleanup-and-optimization/20220509-115510
->         git checkout 4bca5b436c97eb2ee232dd23f262ebad05fa183c
->         # save the config file
->         mkdir build_dir && cp config build_dir/.config
->         COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=mips SHELL=/bin/bash
-> 
-> If you fix the issue, kindly add following tag as appropriate
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
-> All errors (new ones prefixed by >>):
-> 
->>> kernel/irq/ipi.c:94:30: error: no member named 'affinity' in 'struct irq_common_data'
->                    cpumask_copy(data->common->affinity, dest);
->                                 ~~~~~~~~~~~~  ^
->    1 error generated.
+On Sat, May 7, 2022 at 11:03 PM Miguel Ojeda
+<miguel.ojeda.sandonis@gmail.com> wrote:
+>
+> Hi David,
+>
+> On Sat, May 7, 2022 at 11:29 AM David Gow <davidgow@google.com> wrote:
+> >
+> > It's great to see some KUnit support here!
+>
+> Thanks!
+>
+> > It's also possible to run these tests using the KUnit wrapper tool with:
+> > $ ./tools/testing/kunit/kunit.py run --kconfig_add CONFIG_RUST=y
+> > --make_options LLVM=1 --arch x86_64 'rust_kernel_doctests'
+> >
+> > That also nicely formats the results.
+>
+> Indeed!
+>
+>     [16:55:52] ============ rust_kernel_doctests (70 subtests) ============
+>     [16:55:52] [PASSED] rust_kernel_doctest_build_assert_rs_12_0
+>     [16:55:52] [PASSED] rust_kernel_doctest_build_assert_rs_55_0
+>     ...
+>     [16:55:52] [PASSED] rust_kernel_doctest_types_rs_445_0
+>     [16:55:52] [PASSED] rust_kernel_doctest_types_rs_509_0
+>     [16:55:52] ============== [PASSED] rust_kernel_doctests ===============
+>     [16:55:52] ============================================================
+>     [16:55:52] Testing complete. Passed: 70, Failed: 0, Crashed: 0,
+>     Skipped: 0, Errors: 0
+>
 
-I think the fix here is to make GENERIC_IRQ_IPI also depend on SMP. I will add a
-patch doing this for v2.
+I've just sent out a pull request to get this working under UML as
+well, which would simplify running these further:
+https://github.com/Rust-for-Linux/linux/pull/766
 
-Regards,
-Samuel
+> > That all being said, I can't say I'm thrilled with the test names
+> > here: none of them are particularly descriptive, and they'll probably
+> > not be static (which would make it difficult to track results /
+> > regressions / etc between kernel versions). Neither of those are
+>
+> Yeah, the names are not great and would change from time to time
+> across kernel versions.
+>
+> We could ask example writers to give each example a name, but that
+> would make them fairly less convenient. For instance, sometimes they
+> may be very small snippets interleaved with docs' prose (where giving
+> a name may feel a bit of a burden, and people may end writing
+> `foo_example1`, `foo_example2` etc. for each small "step" of an
+> explanation). In other cases they may be very long, testing a wide API
+> surface (e.g. when describing a module or type), where it is also hard
+> to give non-generic names like `rbtree_doctest`. In those kind of
+> cases, I think we would end up with not much better names than
+> automatically generated ones.
+>
+> The other aspect is that, given they are part of the documentation,
+> the prose or how things are explained/split may change, thus the
+> doctests as well. For instance, one may need to split a very long
+> `rbtree_doctest` in pieces, and then the name would need to change
+> anyway.
+>
+> So I think we should avoid asking documentation writers to add a
+> manual name, even if that means a bit ugly test names. Also this way
+> they are consistently named. What do you think?
+
+Yeah, these are all fair points: particularly for small doctests.
+
+Maybe having an optional name, which more significant tests could use
+to override the file:line names? That could be useful for a few of the
+larger, more often referenced tests.
+
+> One idea could be giving them a name based on the hash of the content
+> and avoiding the line number, so that there is a higher chance for the
+> name to stay the same even when the file gets modified for other
+> reasons.
+
+Ugh: it's a bit ugly either way. I suspect that file:line is still
+probably better, if only because we need some way of looking up the
+test in the code if it fails. I'd hate for people to be randomly
+hashing bits of just to find out what test is failing.
+
+> > necessarily deal breakers, though it might make sense to hide them
+> > behind a kernel option (like all other KUnit tests) so that they can
+> > easily be excluded where they would otherwise clutter up results. (And
+>
+> Currently they are under `CONFIG_RUST_KERNEL_KUNIT_TEST` -- or do you
+> mean something else?
+>
+
+Oops: I missed that (one of the issues with testing this on a
+different machine which had a rust toolchain). Looks good to me.
+
+> > if there's a way to properly name them, or maybe even split them into
+> > per-file or per-module suites, that would make them a bit easier to
+> > deal.) Additionally, there are some plans to taint the kernel[1] when
+>
+> Yeah, splitting them further is definitely possible. We are also
+> likely splitting the `kernel` crate into several, which would also
+> make the suites smaller etc. so perhaps further splits may not be
+> needed.
+
+Ah: I didn't realise the plan was always to have crate-specific
+suites, and possibly to split things up.
+
+The KTAP output specification does actually support arbitrary nesting
+(though KUnit itself doesn't at the moment), which would potentially
+be an option if (e.g.) providing the complete module nesting made
+sense. I'm not convinced that'd make things easier to read, though.
+
+> > Regardless, this is very neat, and I'm looking forward to taking a
+> > closer look at it.
+>
+> Thanks again for taking a look and playing with it, I am glad you
+> liked it! (even if it is just a first approximation, and only supports
+> the `kernel` crate, etc.).
+>
+> Cheers,
+> Miguel
+
+Thanks,
+-- David
 
 _______________________________________________
 linux-riscv mailing list
