@@ -4,83 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75640C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 May 2022 04:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77203C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 May 2022 06:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Yec7YT5JInoXfpja45FCkT3nT2jJZ2daFWIyr3OzztE=; b=o9Mo8OiG2APuJv
-	WvdPtkJdPSvf6c++V+NtqBacylp27yGiPuxs1a/8iiQ4e9NkO/GpEazEl7gbFbQ5UYi6E20qXzl3x
-	YN/+g3sZXNXZJliX/uzv8m0eizfe/WCG1FAhhDYDkFgAXQi+VC8JJ/QkXhqijX4NZlYlCkkOVNNis
-	BgEFVvzn/WJ6c1BWPx/p5bptmCI+OIv5lOa4khNdFjTpmqvvS7R0tfJkzwvvqV4REY9YAmQYhSI4c
-	kKipz8SybXRz5zvEwC9i2B+4qbwCOhwOPPAsQUnh7p8pAhprZYHJ5QsldSKXsmYXNcjUf4VDjKCVj
-	iLLPLlg3R/f8XMY8leVw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TKRoXtYUJAS85X/NZL+n1KbSo/3XxmVd3cjRRVWor6s=; b=eUH9PTqr/73axL
+	k80mJrGTVbfAclLEkapDh3QNZiGTYA0gnft1zBrIaU1HqNCfsC/STvNXM1guJSCIZnQ9lACVM7lTN
+	TyDELaJ8RBKKKaX5cQRRBuc3eGbE8+PYwA1Y4Nq2uxYmLKfLT6y7an4rpf66Bn2yf/hZDV0Iz5iEW
+	UxO6UOhCO4dlHONtg/TvjEhC3csLGMWVjdOwHU3VXlyOC70kLJHXvVj81JVThT3vqpeGmrUbsbj5E
+	j4U3LD8v3ONwvGtGZF3MRLrxCDA7wV/cMfKoRK5QdOOA5GXvzgcTPDrF3iJW4SZ7DPM/RMbuRLi2G
+	gfYIdSw2rkgamy5kJWZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noHkP-00HWNE-4I; Tue, 10 May 2022 04:45:21 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1noJkt-000Feu-RV; Tue, 10 May 2022 06:53:59 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noHkK-00HWJl-8y
- for linux-riscv@lists.infradead.org; Tue, 10 May 2022 04:45:19 +0000
-Received: by mail-wr1-x430.google.com with SMTP id e2so22037608wrh.7
- for <linux-riscv@lists.infradead.org>; Mon, 09 May 2022 21:45:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=9s1dagxJlyBeoN8vXdOpsPpdS8AD1RWVJWE0n8ehmas=;
- b=OrctmfTVDCxyYdwcxCtO+PuFgHBDMDC7Bjk3TGUWyuOKGBhKLCCiUkxtYUOPWSujka
- /OoqstAYhrGXcYieyOQKBFbwQ9tdHrrlfAgfjS6rNqvPEA5JdQz3D4E5NS7VzL5WOf+E
- ppcl6vbGTOThxdSbDLD0FF3VNmQjZYs0YaRKW2LrfcKbI7iiYsOvdodP6Nf3qoZXPgQF
- Um1ef/9fJDTkVoHV63EAahHnEkdwxgxf/Hc8y1wACrWcQPfhb2xVBIshPVinpye5CGSN
- DoHok7Lf+NgFTiQMqtYLLj/aSoKi0RaOM3+EWbBDgDeG8Kjhw/dRvI6d3AEZbIIqfLAr
- UHxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=9s1dagxJlyBeoN8vXdOpsPpdS8AD1RWVJWE0n8ehmas=;
- b=j04SViYBNUNG9Mh//0IW0oUAUcy9xYk4s8X4bQZJyCI492aIti1Nm65/441XX9KxEh
- +zIOydIWk2z4+dHbBnLIMwXAt2ctkroPUNIg9nVhVck5avbSFsG+Bi0z0sFLoPwcFWOX
- Q0cUQnfw1p51gxLrnVc1YGBNOnaSf6slgoo+C1PoGjlau9nCnA6sKMm7S5peO6FzG4jm
- ah9cs9i0gZdAX4vsNSmlifYMUKXA9cdpdUV19Ysen2pKC08Ffb3lz4kt68sk2j0U/u8i
- sxHrAi/5EUwhH1vLXF8LDeiK7OUTjvYTjqPULsSko/BhOCz1jc1VVxOmo7kHTz3klKNm
- fQJw==
-X-Gm-Message-State: AOAM530HmA7vEsUqkwiIHVsjwdnDmykO9TqKTuWgZyVosY+hTubNb9vU
- eesDDUk9OCiGpESRZfIkcGhOiIrhOMLSxUenHcbdYg==
-X-Google-Smtp-Source: ABdhPJzfNwaPy5xjCTvC86K51nEH3yemeJZ1erUUa4xvtvCZqXN7MOjD5hnH0ntxxTlSOXapkot4g5ZMqXe6px9AH2Q=
-X-Received: by 2002:a5d:4806:0:b0:20a:da03:711b with SMTP id
- l6-20020a5d4806000000b0020ada03711bmr16582569wrq.395.1652157908998; Mon, 09
- May 2022 21:45:08 -0700 (PDT)
+ id 1noJkp-000FcV-5A
+ for linux-riscv@lists.infradead.org; Tue, 10 May 2022 06:53:57 +0000
+Received: from kwepemi500013.china.huawei.com (unknown [172.30.72.55])
+ by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4Ky7wb5SJ4zGpXV;
+ Tue, 10 May 2022 14:50:55 +0800 (CST)
+Received: from M910t (10.110.54.157) by kwepemi500013.china.huawei.com
+ (7.221.188.120) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Tue, 10 May
+ 2022 14:53:42 +0800
+Date: Tue, 10 May 2022 14:53:36 +0800
+From: Changbin Du <changbin.du@huawei.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt
+ <rostedt@goodmis.org>
+CC: <changbin.du@huawei.com>, <hw.huiwang@huawei.com>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <llvm@lists.linux.dev>, <codegen-riscv@discourse.llvm.org>,
+ <llvmproject@discourse.llvm.org>
+Subject: riscv: llvm-compiler: calling convention violation: temporary
+ register $t2 is used to pass the ninth function parameter
+Message-ID: <20220510065336.hlfjrc25ajed5zj4@M910t>
 MIME-Version: 1.0
-References: <20220507052451.12890-1-ojeda@kernel.org>
- <CABVgOSm5S2=QYnHJ+B0JbYtFYKBDRZiOhE5YMKKUKZU56d17HQ@mail.gmail.com>
- <CANiq72=0ft6+QLbdwWD6cLm4FhWfv53GSg6HKEwxQ-q2N-UkOw@mail.gmail.com>
-In-Reply-To: <CANiq72=0ft6+QLbdwWD6cLm4FhWfv53GSg6HKEwxQ-q2N-UkOw@mail.gmail.com>
-From: David Gow <davidgow@google.com>
-Date: Tue, 10 May 2022 12:44:57 +0800
-Message-ID: <CABVgOSkrvfvA7Ay4GC5wg64S1gibvm5_U5VGBog3sw4_UFo8Cg@mail.gmail.com>
-Subject: Re: [PATCH v6 00/23] Rust support
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>,
- Linus Torvalds <torvalds@linux-foundation.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- rust-for-linux <rust-for-linux@vger.kernel.org>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Jarkko Sakkinen <jarkko@kernel.org>, 
- KUnit Development <kunit-dev@googlegroups.com>, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>, 
- "open list:DOCUMENTATION" <linux-doc@vger.kernel.org>, 
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- linux-perf-users@vger.kernel.org, 
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, live-patching@vger.kernel.org
+Content-Disposition: inline
+X-Originating-IP: [10.110.54.157]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemi500013.china.huawei.com (7.221.188.120)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220509_214516_343283_70F350BE 
-X-CRM114-Status: GOOD (  44.01  )
+X-CRM114-CacheID: sfid-20220509_235355_584141_5445332B 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,126 +69,162 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 7, 2022 at 11:03 PM Miguel Ojeda
-<miguel.ojeda.sandonis@gmail.com> wrote:
->
-> Hi David,
->
-> On Sat, May 7, 2022 at 11:29 AM David Gow <davidgow@google.com> wrote:
-> >
-> > It's great to see some KUnit support here!
->
-> Thanks!
->
-> > It's also possible to run these tests using the KUnit wrapper tool with:
-> > $ ./tools/testing/kunit/kunit.py run --kconfig_add CONFIG_RUST=y
-> > --make_options LLVM=1 --arch x86_64 'rust_kernel_doctests'
-> >
-> > That also nicely formats the results.
->
-> Indeed!
->
->     [16:55:52] ============ rust_kernel_doctests (70 subtests) ============
->     [16:55:52] [PASSED] rust_kernel_doctest_build_assert_rs_12_0
->     [16:55:52] [PASSED] rust_kernel_doctest_build_assert_rs_55_0
->     ...
->     [16:55:52] [PASSED] rust_kernel_doctest_types_rs_445_0
->     [16:55:52] [PASSED] rust_kernel_doctest_types_rs_509_0
->     [16:55:52] ============== [PASSED] rust_kernel_doctests ===============
->     [16:55:52] ============================================================
->     [16:55:52] Testing complete. Passed: 70, Failed: 0, Crashed: 0,
->     Skipped: 0, Errors: 0
->
+[This is a resent to correct llvm mailist.]
 
-I've just sent out a pull request to get this working under UML as
-well, which would simplify running these further:
-https://github.com/Rust-for-Linux/linux/pull/766
+Hello, folks,
 
-> > That all being said, I can't say I'm thrilled with the test names
-> > here: none of them are particularly descriptive, and they'll probably
-> > not be static (which would make it difficult to track results /
-> > regressions / etc between kernel versions). Neither of those are
->
-> Yeah, the names are not great and would change from time to time
-> across kernel versions.
->
-> We could ask example writers to give each example a name, but that
-> would make them fairly less convenient. For instance, sometimes they
-> may be very small snippets interleaved with docs' prose (where giving
-> a name may feel a bit of a burden, and people may end writing
-> `foo_example1`, `foo_example2` etc. for each small "step" of an
-> explanation). In other cases they may be very long, testing a wide API
-> surface (e.g. when describing a module or type), where it is also hard
-> to give non-generic names like `rbtree_doctest`. In those kind of
-> cases, I think we would end up with not much better names than
-> automatically generated ones.
->
-> The other aspect is that, given they are part of the documentation,
-> the prose or how things are explained/split may change, thus the
-> doctests as well. For instance, one may need to split a very long
-> `rbtree_doctest` in pieces, and then the name would need to change
-> anyway.
->
-> So I think we should avoid asking documentation writers to add a
-> manual name, even if that means a bit ugly test names. Also this way
-> they are consistently named. What do you think?
+Recently I encountered a kernel crash problem when using ftrace with 'perf ftrace'
+command on risc-v kernel built with llvm.
 
-Yeah, these are all fair points: particularly for small doctests.
+This crash only exists on llvm build, not reproducable with GCC. So I hope llvm
+guys can take a look :)
 
-Maybe having an optional name, which more significant tests could use
-to override the file:line names? That could be useful for a few of the
-larger, more often referenced tests.
+The llvm versions I have tried are llvm-13.0.0 and mainline (commit 102bc634cb
+("[runtime] Build compiler-rt with --unwindlib=none")).
 
-> One idea could be giving them a name based on the hash of the content
-> and avoiding the line number, so that there is a higher chance for the
-> name to stay the same even when the file gets modified for other
-> reasons.
+[  612.947887][  T496] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000001
+[  613.050789][  T496] Hardware name: riscv-virtio,qemu (DT)
+[  613.087976][  T496] epc : __find_rr_leaf+0x128/0x220
+[  613.107493][  T496]  ra : return_to_handler+0x22/0x24
+[  613.125322][  T496] epc : ffffffff80a1915a ra : ffffffff80009506 sp : ff20000011e43860
+[  613.150124][  T496]  gp : ffffffff81812f40 tp : ff6000008bb01580 t0 : ff600000806cf0f0
+[  613.173657][  T496]  t1 : 000000000001b29a t2 : 0000000000000001 s0 : ff20000011e43920
+[  613.187311][  T496]  s1 : ff600000848c2a00 a0 : 0000000000000002 a1 : 0000000000000002
+[  613.202731][  T496]  a2 : fffffffffffffffd a3 : ff6000009d287000 a4 : 00000000000002c0
+[  613.213723][  T496]  a5 : ff6000009d259b40 a6 : ffffffffffffff9c a7 : ffffffffffffffff
+[  613.226648][  T496]  s2 : 0000000000000001 s3 : ff20000011e439d8 s4 : ffffffff8160d140
+[  613.246571][  T496]  s5 : 0000000000000002 s6 : 0000000000000000 s7 : 0000000000000000
+[  613.264681][  T496]  s8 : 0000000000000064 s9 : 0000000000000000 s10: 0000000000400000
+[  613.277999][  T496]  s11: ff600000848c2aa8 t3 : 0000000000000290 t4 : 00000000004002c0
+[  613.303729][  T496]  t5 : 00000000ffffffff t6 : ff6000009d2872d0
+[  613.322145][  T496] status: 0000000200000120 badaddr: 0000000000000001 cause: 000000000000000d
+[  613.346228][  T496] [<ffffffff80a12526>] ip6_pol_route+0xb6/0x602
+[  613.365722][  T496] [<ffffffff80a1321a>] ip6_pol_route_output+0x2c/0x34
+[  613.386374][  T496] [<ffffffff80a1c028>] fib6_rule_lookup+0x36/0xa0
+[  613.401865][  T496] [<ffffffff80a131da>] ip6_route_output_flags_noref+0xd6/0xea
+[  613.412776][  T496] [<ffffffff80a13274>] ip6_route_output_flags+0x52/0xd4
+[  613.432013][  T496] [<ffffffff809ffb3a>] ip6_dst_lookup_tail+0x68/0x23a
+[  613.456198][  T496] [<ffffffff809ffec6>] ip6_sk_dst_lookup_flow+0x132/0x1cc
+[  613.513174][  T496] [<ffffffff80003cd8>] ret_from_syscall+0x0/0x2
+[  613.518973][  T496] [<ffffffff800094e4>] return_to_handler+0x0/0x24
+[  613.563961][  T496] Kernel panic - not syncing: Fatal exception
+[  613.572278][  T496] SMP: stopping secondary CPUs
+[  613.587449][  T496] ---[ end Kernel panic - not syncing: Fatal exception ]---
 
-Ugh: it's a bit ugly either way. I suspect that file:line is still
-probably better, if only because we need some way of looking up the
-test in the code if it fails. I'd hate for people to be randomly
-hashing bits of just to find out what test is failing.
+The crash happened when dereferencing the point 'mpri' at route.c:758.
 
-> > necessarily deal breakers, though it might make sense to hide them
-> > behind a kernel option (like all other KUnit tests) so that they can
-> > easily be excluded where they would otherwise clutter up results. (And
->
-> Currently they are under `CONFIG_RUST_KERNEL_KUNIT_TEST` -- or do you
-> mean something else?
->
+(gdb) l *__find_rr_leaf+0x128
+0xffffffff809da9c4 is in __find_rr_leaf (net/ipv6/route.c:758).
+753
+754             if (strict & RT6_LOOKUP_F_REACHABLE)
+755                     rt6_probe(nh);
+756
+757             /* note that m can be RT6_NUD_FAIL_PROBE at this point */
+758             if (m > *mpri) {
+759                     *do_rr = match_do_rr;
+760                     *mpri = m;
+761                     rc = true;
+762             }
 
-Oops: I missed that (one of the issues with testing this on a
-different machine which had a rust toolchain). Looks good to me.
+Adding some logs, I found the problem. The ninth passed parameter of function
+__find_rr_leaf() which is the address of local variable 'mpri', is changed to
+value '0x1' when inside the function __find_rr_leaf.
+Here is the code snippet and full link
+https://github.com/torvalds/linux/blob/9cb7c013420f98fa6fd12fc6a5dc055170c108db/net/ipv6/route.c.
 
-> > if there's a way to properly name them, or maybe even split them into
-> > per-file or per-module suites, that would make them a bit easier to
-> > deal.) Additionally, there are some plans to taint the kernel[1] when
->
-> Yeah, splitting them further is definitely possible. We are also
-> likely splitting the `kernel` crate into several, which would also
-> make the suites smaller etc. so perhaps further splits may not be
-> needed.
+static void find_rr_leaf(struct fib6_node *fn, struct fib6_info *leaf,
+			 struct fib6_info *rr_head, int oif, int strict,
+			 bool *do_rr, struct fib6_result *res)
+{
+	u32 metric = rr_head->fib6_metric;
+	struct fib6_info *cont = NULL;
+	int mpri = -1;
 
-Ah: I didn't realise the plan was always to have crate-specific
-suites, and possibly to split things up.
+	__find_rr_leaf(rr_head, NULL, metric, res, &cont,
+		       oif, strict, do_rr, &mpri);
+	...
+}
 
-The KTAP output specification does actually support arbitrary nesting
-(though KUnit itself doesn't at the moment), which would potentially
-be an option if (e.g.) providing the complete module nesting made
-sense. I'm not convinced that'd make things easier to read, though.
+Then debugging with gdb, I found this probably is a compiler bug. We can see the
+local function __find_rr_leaf() is not optimized out and the compiler generates
+a local symbol for it. The find_rr_leaf() (inlined by fib6_table_lookup) invokes
+this function with 'jalr' instruction.
 
-> > Regardless, this is very neat, and I'm looking forward to taking a
-> > closer look at it.
->
-> Thanks again for taking a look and playing with it, I am glad you
-> liked it! (even if it is just a first approximation, and only supports
-> the `kernel` crate, etc.).
->
-> Cheers,
-> Miguel
+(gdb) disassemble fib6_table_lookup
+Dump of assembler code for function fib6_table_lookup:
+   [snip]
+   0xffffffff80a1240e <+412>:   beqz    a1,0xffffffff80a12436 <fib6_table_lookup+452>
+   0xffffffff80a12410 <+414>:   slli    a1,s9,0x20
+   0xffffffff80a12414 <+418>:   srli    a1,a1,0x20
+   0xffffffff80a12416 <+420>:   sext.w  a2,a1
+   0xffffffff80a1241a <+424>:   addi    a7,s0,-125
+   0xffffffff80a1241e <+428>:   addi    t2,s0,-124
+   0xffffffff80a12422 <+432>:   li      a1,0
+   0xffffffff80a12424 <+434>:   mv      a3,s10
+   0xffffffff80a12426 <+436>:   li      a4,0
+   0xffffffff80a12428 <+438>:   ld      a5,-152(s0)
+   0xffffffff80a1242c <+442>:   mv      a6,s8
+   0xffffffff80a1242e <+444>:   auipc   ra,0x7
+   0xffffffff80a12432 <+448>:   jalr    -686(ra) # 0xffffffff80a19180 <__find_rr_leaf>
+   [snip]
 
-Thanks,
--- David
+And at line route.c:758, the value of point 'mpri' is stored in temporary register
+$t2 and $s3 (copied from $t2).
+
+(gdb) info scope __find_rr_leaf
+[snip]
+Symbol mpri is multi-location:
+  Base address 0xffffffff80a10564  Range 0xffffffff80a19190-0xffffffff80a191ae: a variable in $t2
+  Range 0xffffffff80a191c0-0xffffffff80a191d6: a variable in $s3
+  Range 0xffffffff80a19200-0xffffffff80a19208: a variable in $s3
+  Range 0xffffffff80a1921e-0xffffffff80a192fe: a variable in $s3
+  Range 0xffffffff80a1930a-0xffffffff80a19356: a variable in $s3
+
+Let's see when register $t2 is corrupted with single-step mode. Obviously, register
+$t2 is changed by mcount function ftrace_caller(). This is why the bug happens
+to ftrace.
+
+Dump of assembler code for function __find_rr_leaf:
+   0xffffffff80a19180 <+0>:     sd      ra,-8(sp)   #  $t2 = 0xff200000120db7b4
+   0xffffffff80a19184 <+4>:     auipc   ra,0xff5f1
+   0xffffffff80a19188 <+8>:     jalr    -1744(ra) # 0xffffffff80009ab4 <ftrace_caller> #  $t2 = 0xff200000120db7b4
+=> 0xffffffff80a1918c <+12>:    ld      ra,-8(sp)    #  $t2 = 0x1, bug, $t2 is corrupted!!
+   0xffffffff80a19190 <+16>:    addi    sp,sp,-176
+   [snip]
+
+So now we can come to a conclusion. The generated local function __find_rr_leaf()
+violates the risc-v calling convention and leads to the panic. It should use stack
+but *not* temporary register $t2 to pass the ninth parameter! It's okay if the
+callsite can take care of local symbol callees, but the Function Instrumentation
+features should be considerated carefully.
+
+For comparison, here is the result from gcc (9.2.0):
+(gdb) info scope __find_rr_leaf
+[snip]
+Symbol mpri is a complex DWARF expression:
+     0: DW_OP_fbreg 0, length 8.
+
+I also built a simple test function with 9 parameters by clang and same cflags,
+but cannot reproduce it. Maybe it is conditional?
+
+Simple test code:
+__attribute__ ((noinline))
+void test_func(int *a, int *b, int *c, int *d, int *e, int *f, int *g, int *h, int *i)
+{
+        printf("__find_rr_leaf: %d\n", *i);
+}
+
+int main(void)
+{
+        int a,b,c,d,e,f,g,h,i = 100;
+
+        test_func(&a,&b,&c,&d,&e,&f,&g,&h,&i);
+        return 0;
+}
+
+-- 
+Cheers,
+Changbin Du
 
 _______________________________________________
 linux-riscv mailing list
