@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6B1DC433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 May 2022 13:17:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0BA0C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 May 2022 13:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3pXK7HP+AAgUf/xtK/aiIKyUrX5sCgjqRbkCQ8dpCJ0=; b=KjB/RalQaI0wgZ
-	1TlZcHLX8yckRykGxh9SD9hpWSI0B8N7B7tQxmdao+/B3jONiakCmjlv4y6UQ7n9jNvOOo7ckx1aG
-	UtVG5iRcq4PhIqxyKugaA/0LBd7UtxhYf5iMVr3f+AulRB7ICX9LZPBRJ83zgagwhTIwNTIsBjQu0
-	KvwWUgEtOaB6WrSBXX6OfOio4DsIVm1E6QdmWu6Xrxq62zK70TJ8Gdro/ptnmIHY7cDNHlziGOfL+
-	pzJcdFkEbGcndyhtbmlwGX6DrpVnZGUBviiuCGi0S1EmHvi1vtbkOQDX8sqVrPA5dUDqt4Jeshe4+
-	yVjZ665GZF+7t+CJ8OSQ==;
+	List-Owner; bh=JRpx/MlsGdAS9CGQoo5V1twnVZjXVoif4m8yjG6gEWQ=; b=GUkbfwHEAAm8Px
+	vOe6x5bmUJiajPMr1C/7gYR2bDXE+5zQYVahgBR8t/9othgTsnymGDQwXDDh1H9ac6K83SiMLy0BB
+	/21YLqKYLXHDs6uJ9HhQQgjoh4YiudewAkvHFoIKNdk0sQJ5FfWftuTH2gRx6AbLzT4lvFbU2kyZL
+	jqpAaFwhpCPFU3DIlq30MiBKLcP39H6rnzxGwOZrZB5BfiZohTZ1ovOGeiTwbp5N+xyzRzFBjqgAp
+	2PB5PkgZ4QI+UYolNiAKeGCboC6V8HXpvSe9CK7VLWRhFnJ9BDKDRApE3L+cciiQTZZDHtKSkaacG
+	QEnP3NefMJ/is3TG/1og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noPjQ-002AvD-VN; Tue, 10 May 2022 13:16:52 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1noQBI-002JxL-RO; Tue, 10 May 2022 13:45:40 +0000
+Received: from mail-vk1-xa32.google.com ([2607:f8b0:4864:20::a32])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noPjL-002Arm-32
- for linux-riscv@lists.infradead.org; Tue, 10 May 2022 13:16:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1652188607; x=1683724607;
- h=from:to:cc:subject:date:message-id:in-reply-to:
- references:mime-version:content-transfer-encoding;
- bh=Z+wkcPFgaLI/W7TPrfrb/qCEWLZD/AQJbcpUvu5HPSw=;
- b=BnyZzDJRiT4jubZQEXkbwHiTpHIlLRvLHiw6dQoqaQ2BCoVN4FmysxxT
- I9yxHk6oEWWX8T36LoaF5evXucfY1dRHQVoLEsYqkItbSFKNPCK5RK9Q6
- FKhnygfDzd+YZs+PfuucCWibzEw9O3/4fUvYifiszagcqWt71GgAKp+wK
- eaHRAlRyaIXK6T9YHodrF0qKgBk4CoVyRFKNju+suoGOAV8riWYg5gNOf
- RBs+KQgOBEYCPOf4DmTsqHhpseDpRyO7wbHbibaEW3bjIL9mu36LMpiif
- p+Y5v/hAyxATsaSzM4MJUnY5modzSyAYhX16JxzFapCMar7NB8s8bEJg/ A==;
-X-IronPort-AV: E=Sophos;i="5.91,214,1647327600"; d="scan'208";a="163025727"
-Received: from smtpout.microchip.com (HELO email.microchip.com)
- ([198.175.253.82])
- by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 10 May 2022 06:16:44 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Tue, 10 May 2022 06:16:43 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Tue, 10 May 2022 06:16:41 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <a.zummo@towertech.it>, <alexandre.belloni@bootlin.com>
-CC: <daire.mcnamara@microchip.com>, <lewis.hanly@microchip.com>,
- <conor.dooley@microchip.com>, <linux-kernel@vger.kernel.org>,
- <linux-rtc@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v2 1/2] rtc: Add driver for Microchip PolarFire SoC
-Date: Tue, 10 May 2022 14:21:16 +0100
-Message-ID: <20220510132116.506572-2-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220510132116.506572-1-conor.dooley@microchip.com>
-References: <20220510132116.506572-1-conor.dooley@microchip.com>
+ id 1noQBE-002JwZ-Q4
+ for linux-riscv@lists.infradead.org; Tue, 10 May 2022 13:45:39 +0000
+Received: by mail-vk1-xa32.google.com with SMTP id m203so8408964vke.13
+ for <linux-riscv@lists.infradead.org>; Tue, 10 May 2022 06:45:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=nigauri-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=4j5heW0SerX1dieMEzzQdRhIZ6klymqFRtGtKNhBQuk=;
+ b=SiyNLu7AHEf3GjUlWecnD8l40Ymi1BtHejii/bov0Deqt9T4Q68tQHv0njIy1tR2xt
+ qG+CDpaSZ/WGqw9NrG1VrpLBN4L09mqEIEku2wTae1LicTA6SOS/P92SHD+iWL+zdl5o
+ nC2FBS9VYkT96HbEnmYsFjVVXg2MqMf+NhfD/UUKCsczqsVSnDDWY/uQBLHIxC73LpnJ
+ q7zacFrP7yuBmiTwXtMEpIpUS9QKpnoehw4GYjm+s017kw3lYB54EDv31kp/xwr3AKIQ
+ 96KjMa0Dfyj8NpLVWzriQygy04OWUR2+tTuqQH/e7D0kxWNd70/sb3IiEnUueJhBgn8Z
+ rnjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=4j5heW0SerX1dieMEzzQdRhIZ6klymqFRtGtKNhBQuk=;
+ b=uCluEHh9WLu2fNiN2+5nPuKYvI3GUNb0YgZYJwjoudclAhG2R7s2IOJZ+APshDvtGa
+ Dy6RYQ57WDyd2fQsJ8kKeQhET7k4LPXsGN5KZ8KiSmSqtfVCV7wCQumC2N1T+jpaWb2a
+ 5oZXfzVvDVxWngO7zcrIv0V2D52m2K0eGoFvUmDHou38YYBIto4l0ujzZkSCsnEAvscC
+ 7WHvxcPmDE5mfqsmpPPXDfPXGj/Nbo+gLQXC+KdSgxF/aNkel4HDHhR3w8yt6vPZlfxP
+ CJB5J33QVq6T5OQjSM22JLEO0/4td06GTJp2QctO9tNksaqAP9jbf10TTzQCLiKkcgJA
+ m9EQ==
+X-Gm-Message-State: AOAM5332oqGbNGPcsbss+X7BPn5M5+1mAuGi/EgAbiXrL5UUjlOUkELI
+ +5Au5njFqNF3gEB0bXcI29vTp/QP2ezCbQx7zlp+
+X-Google-Smtp-Source: ABdhPJxGIqCToS46n+iZzm0SUIPobgqUeb2jhvw87sSHzFZlBUIAmrFKMDAH6MTXtrngcJbRiE82T+o3gN9Bkcz1J60=
+X-Received: by 2002:a05:6122:910:b0:352:720e:de05 with SMTP id
+ j16-20020a056122091000b00352720ede05mr11832050vka.7.1652190334429; Tue, 10
+ May 2022 06:45:34 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220510132116.506572-1-conor.dooley@microchip.com>
+ <20220510132116.506572-2-conor.dooley@microchip.com>
+In-Reply-To: <20220510132116.506572-2-conor.dooley@microchip.com>
+From: Nobuhiro Iwamatsu <iwamatsu@nigauri.org>
+Date: Tue, 10 May 2022 22:45:08 +0900
+Message-ID: <CABMQnVKU9FYpm1mqcD3U5ZGPqYWoFYpg6t6yEX9EtW_=9dxziA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] rtc: Add driver for Microchip PolarFire SoC
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Alessandro Zummo <a.zummo@towertech.it>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ daire.mcnamara@microchip.com, lewis.hanly@microchip.com, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-rtc@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220510_061647_201201_9BCAEDC6 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20220510_064537_084793_B374DD61 
+X-CRM114-Status: GOOD (  36.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,393 +83,229 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for the built-in RTC on Microchip PolarFire SoC
-
-Co-Developed-by: Daire McNamara <daire.mcnamara@microchip.com>
-Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/rtc/Kconfig    |  10 ++
- drivers/rtc/Makefile   |   1 +
- drivers/rtc/rtc-mpfs.c | 328 +++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 339 insertions(+)
- create mode 100644 drivers/rtc/rtc-mpfs.c
-
-diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
-index 41c65b4d2baf..a194422328da 100644
---- a/drivers/rtc/Kconfig
-+++ b/drivers/rtc/Kconfig
-@@ -1966,4 +1966,14 @@ config RTC_DRV_MSC313
- 	  This driver can also be built as a module, if so, the module
- 	  will be called "rtc-msc313".
- 
-+config RTC_DRV_POLARFIRE_SOC
-+	tristate "Microchip PolarFire SoC built-in RTC"
-+	depends on SOC_MICROCHIP_POLARFIRE
-+	help
-+	  If you say yes here you will get support for the
-+	  built-in RTC on Polarfire SoC.
-+
-+	  This driver can also be built as a module, if so, the module
-+	  will be called "rtc-mpfs".
-+
- endif # RTC_CLASS
-diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
-index 2d827d8261d5..25ee5ba870a9 100644
---- a/drivers/rtc/Makefile
-+++ b/drivers/rtc/Makefile
-@@ -130,6 +130,7 @@ obj-$(CONFIG_RTC_DRV_PIC32)	+= rtc-pic32.o
- obj-$(CONFIG_RTC_DRV_PL030)	+= rtc-pl030.o
- obj-$(CONFIG_RTC_DRV_PL031)	+= rtc-pl031.o
- obj-$(CONFIG_RTC_DRV_PM8XXX)	+= rtc-pm8xxx.o
-+obj-$(CONFIG_RTC_DRV_POLARFIRE_SOC)	+= rtc-mpfs.o
- obj-$(CONFIG_RTC_DRV_PS3)	+= rtc-ps3.o
- obj-$(CONFIG_RTC_DRV_PXA)	+= rtc-pxa.o
- obj-$(CONFIG_RTC_DRV_R7301)	+= rtc-r7301.o
-diff --git a/drivers/rtc/rtc-mpfs.c b/drivers/rtc/rtc-mpfs.c
-new file mode 100644
-index 000000000000..57867878f9c6
---- /dev/null
-+++ b/drivers/rtc/rtc-mpfs.c
-@@ -0,0 +1,328 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Microchip MPFS RTC driver
-+ *
-+ * Copyright (c) 2021-2022 Microchip Corporation. All rights reserved.
-+ *
-+ * Author: Daire McNamara <daire.mcnamara@microchip.com>
-+ *         & Conor Dooley <conor.dooley@microchip.com>
-+ */
-+#include "linux/bits.h"
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/kernel.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_wakeirq.h>
-+#include <linux/slab.h>
-+#include <linux/rtc.h>
-+
-+#define CONTROL_REG		0x00
-+#define MODE_REG		0x04
-+#define PRESCALER_REG		0x08
-+#define ALARM_LOWER_REG		0x0c
-+#define ALARM_UPPER_REG		0x10
-+#define COMPARE_LOWER_REG	0x14
-+#define COMPARE_UPPER_REG	0x18
-+#define DATETIME_LOWER_REG	0x20
-+#define DATETIME_UPPER_REG	0x24
-+
-+#define CONTROL_RUNNING_BIT	BIT(0)
-+#define CONTROL_START_BIT	BIT(0)
-+#define CONTROL_STOP_BIT	BIT(1)
-+#define CONTROL_ALARM_ON_BIT	BIT(2)
-+#define CONTROL_ALARM_OFF_BIT	BIT(3)
-+#define CONTROL_RESET_BIT	BIT(4)
-+#define CONTROL_UPLOAD_BIT	BIT(5)
-+#define CONTROL_DOWNLOAD_BIT	BIT(6)
-+#define CONTROL_DOWNLOAD_BIT	BIT(6)
-+#define CONTROL_WAKEUP_CLR_BIT	BIT(8)
-+#define CONTROL_WAKEUP_SET_BIT	BIT(9)
-+#define CONTROL_UPDATED_BIT	BIT(10)
-+
-+#define MODE_CLOCK_CALENDAR	BIT(0)
-+#define MODE_WAKE_EN		BIT(1)
-+#define MODE_WAKE_RESET		BIT(2)
-+#define MODE_WAKE_CONTINUE	BIT(3)
-+
-+#define MAX_PRESCALER_COUNT	GENMASK(25, 0)
-+#define DATETIME_UPPER_MASK	GENMASK(29, 0)
-+#define ALARM_UPPER_MASK	GENMASK(10, 0)
-+
-+struct mpfs_rtc_dev {
-+	struct rtc_device *rtc;
-+	void __iomem *base;
-+	int wakeup_irq;
-+	u32 prescaler;
-+};
-+
-+static void mpfs_rtc_start(struct mpfs_rtc_dev *rtcdev)
-+{
-+	u32 ctrl;
-+
-+	ctrl = readl(rtcdev->base + CONTROL_REG);
-+	ctrl &= ~(CONTROL_STOP_BIT | CONTROL_START_BIT);
-+	ctrl |= CONTROL_START_BIT;
-+	writel(ctrl, rtcdev->base + CONTROL_REG);
-+}
-+
-+static void mpfs_rtc_clear_irq(struct mpfs_rtc_dev *rtcdev)
-+{
-+	u32 val = readl(rtcdev->base + CONTROL_REG);
-+
-+	val &= ~(CONTROL_ALARM_ON_BIT | CONTROL_STOP_BIT);
-+	val |= CONTROL_ALARM_OFF_BIT;
-+	writel(val, rtcdev->base + CONTROL_REG);
-+	/*
-+	 * Ensure that the posted write to the CONTROL_REG register completed before
-+	 * returning from this function. Not doing this may result in the interrupt
-+	 * only being cleared some time after this function returns.
-+	 */
-+	(void)readl(rtcdev->base + CONTROL_REG);
-+}
-+
-+static int mpfs_rtc_readtime(struct device *dev, struct rtc_time *tm)
-+{
-+	struct mpfs_rtc_dev *rtcdev = dev_get_drvdata(dev);
-+	u64 time;
-+
-+	time = ((u64)readl(rtcdev->base + DATETIME_UPPER_REG) & DATETIME_UPPER_MASK) << 32;
-+	time |= readl(rtcdev->base + DATETIME_LOWER_REG);
-+	rtc_time64_to_tm(time + rtcdev->rtc->range_min, tm);
-+
-+	return 0;
-+}
-+
-+static int mpfs_rtc_settime(struct device *dev, struct rtc_time *tm)
-+{
-+	struct mpfs_rtc_dev *rtcdev = dev_get_drvdata(dev);
-+	u32 ctrl, prog;
-+	u64 time;
-+
-+	time = rtc_tm_to_time64(tm) - rtcdev->rtc->range_min;
-+
-+	writel((u32)time, rtcdev->base + DATETIME_LOWER_REG);
-+	writel((u32)(time >> 32) & DATETIME_UPPER_MASK, rtcdev->base + DATETIME_UPPER_REG);
-+
-+	ctrl = readl(rtcdev->base + CONTROL_REG);
-+	ctrl &= ~CONTROL_STOP_BIT;
-+	ctrl |= CONTROL_UPLOAD_BIT;
-+	writel(ctrl, rtcdev->base + CONTROL_REG);
-+
-+	do {
-+		prog = readl(rtcdev->base + CONTROL_REG);
-+		prog &= CONTROL_UPLOAD_BIT;
-+	} while (prog);
-+
-+	mpfs_rtc_start(rtcdev);
-+
-+	return 0;
-+}
-+
-+static int mpfs_rtc_readalarm(struct device *dev, struct rtc_wkalrm *alrm)
-+{
-+	struct mpfs_rtc_dev *rtcdev = dev_get_drvdata(dev);
-+	u32 mode = readl(rtcdev->base + MODE_REG);
-+	u64 time;
-+
-+	mode = readl(rtcdev->base + MODE_REG);
-+
-+	if (mode & MODE_WAKE_EN)
-+		alrm->enabled = true;
-+	else
-+		alrm->enabled = false;
-+
-+	time = (u64)readl(rtcdev->base + ALARM_LOWER_REG) << 32;
-+	time |= (readl(rtcdev->base + ALARM_UPPER_REG) & ALARM_UPPER_MASK);
-+	rtc_time64_to_tm(time + rtcdev->rtc->range_min, &alrm->time);
-+
-+	return 0;
-+}
-+
-+static int mpfs_rtc_setalarm(struct device *dev, struct rtc_wkalrm *alrm)
-+{
-+	struct mpfs_rtc_dev *rtcdev = dev_get_drvdata(dev);
-+	u32 mode, ctrl;
-+	u64 time;
-+
-+	/* Disable the alarm before updating */
-+	ctrl = readl(rtcdev->base + CONTROL_REG);
-+	ctrl |= CONTROL_ALARM_OFF_BIT;
-+	writel(ctrl, rtcdev->base + CONTROL_REG);
-+
-+	time = rtc_tm_to_time64(&alrm->time) - rtcdev->rtc->range_min;
-+
-+	writel((u32)time, rtcdev->base + ALARM_LOWER_REG);
-+	writel((u32)(time >> 32) & ALARM_UPPER_MASK, rtcdev->base + ALARM_UPPER_REG);
-+
-+	/* Bypass compare register in alarm mode */
-+	writel(GENMASK(31, 0), rtcdev->base + COMPARE_LOWER_REG);
-+	writel(GENMASK(29, 0), rtcdev->base + COMPARE_UPPER_REG);
-+
-+	/* Configure the RTC to enable the alarm. */
-+	ctrl = readl(rtcdev->base + CONTROL_REG);
-+	mode = readl(rtcdev->base + MODE_REG);
-+	if (alrm->enabled) {
-+		mode = MODE_WAKE_EN | MODE_WAKE_CONTINUE;
-+		/* Enable the alarm */
-+		ctrl &= ~CONTROL_ALARM_OFF_BIT;
-+		ctrl |= CONTROL_ALARM_ON_BIT;
-+	}
-+	ctrl &= ~CONTROL_STOP_BIT;
-+	ctrl |= CONTROL_START_BIT;
-+	writel(ctrl, rtcdev->base + CONTROL_REG);
-+	writel(mode, rtcdev->base + MODE_REG);
-+
-+	return 0;
-+}
-+
-+static int mpfs_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
-+{
-+	struct mpfs_rtc_dev *rtcdev = dev_get_drvdata(dev);
-+	u32 ctrl;
-+
-+	ctrl = readl(rtcdev->base + CONTROL_REG);
-+	ctrl &= ~(CONTROL_ALARM_ON_BIT | CONTROL_ALARM_OFF_BIT | CONTROL_STOP_BIT);
-+
-+	if (enabled)
-+		ctrl |= CONTROL_ALARM_ON_BIT;
-+	else
-+		ctrl |= CONTROL_ALARM_OFF_BIT;
-+
-+	writel(ctrl, rtcdev->base + CONTROL_REG);
-+
-+	return 0;
-+}
-+
-+static inline struct clk *mpfs_rtc_init_clk(struct device *dev)
-+{
-+	struct clk *clk;
-+	int ret;
-+
-+	clk = devm_clk_get(dev, "rtc");
-+	if (IS_ERR(clk))
-+		return clk;
-+
-+	ret = clk_prepare_enable(clk);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	devm_add_action_or_reset(dev, (void (*) (void *))clk_disable_unprepare, clk);
-+	return clk;
-+}
-+
-+static irqreturn_t mpfs_rtc_wakeup_irq_handler(int irq, void *d)
-+{
-+	struct mpfs_rtc_dev *rtcdev = d;
-+	unsigned long pending;
-+
-+	pending = readl(rtcdev->base + CONTROL_REG);
-+	pending &= CONTROL_ALARM_ON_BIT;
-+	mpfs_rtc_clear_irq(rtcdev);
-+
-+	rtc_update_irq(rtcdev->rtc, 1, RTC_IRQF | RTC_AF);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static const struct rtc_class_ops mpfs_rtc_ops = {
-+	.read_time		= mpfs_rtc_readtime,
-+	.set_time		= mpfs_rtc_settime,
-+	.read_alarm		= mpfs_rtc_readalarm,
-+	.set_alarm		= mpfs_rtc_setalarm,
-+	.alarm_irq_enable	= mpfs_rtc_alarm_irq_enable,
-+};
-+
-+static int mpfs_rtc_probe(struct platform_device *pdev)
-+{
-+	struct mpfs_rtc_dev *rtcdev;
-+	struct clk *clk;
-+	int ret;
-+
-+	rtcdev = devm_kzalloc(&pdev->dev, sizeof(struct mpfs_rtc_dev), GFP_KERNEL);
-+	if (!rtcdev)
-+		return -ENOMEM;
-+
-+	platform_set_drvdata(pdev, rtcdev);
-+
-+	rtcdev->rtc = devm_rtc_allocate_device(&pdev->dev);
-+	if (IS_ERR(rtcdev->rtc))
-+		return PTR_ERR(rtcdev->rtc);
-+
-+	rtcdev->rtc->ops = &mpfs_rtc_ops;
-+
-+	/* range is capped by alarm max, lower reg is 31:0 & upper is 10:0 */
-+	rtcdev->rtc->range_max = GENMASK_ULL(42, 0);
-+
-+	clk = mpfs_rtc_init_clk(&pdev->dev);
-+	if (IS_ERR(clk))
-+		return PTR_ERR(clk);
-+
-+	rtcdev->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(rtcdev->base)) {
-+		dev_dbg(&pdev->dev, "invalid ioremap resources\n");
-+		return PTR_ERR(rtcdev->base);
-+	}
-+
-+	rtcdev->wakeup_irq = platform_get_irq(pdev, 0);
-+	if (rtcdev->wakeup_irq <= 0) {
-+		dev_dbg(&pdev->dev, "could not get wakeup irq\n");
-+		return rtcdev->wakeup_irq;
-+	}
-+	ret = devm_request_irq(&pdev->dev, rtcdev->wakeup_irq, mpfs_rtc_wakeup_irq_handler, 0,
-+			       dev_name(&pdev->dev), rtcdev);
-+	if (ret) {
-+		dev_dbg(&pdev->dev, "could not request wakeup irq\n");
-+		return ret;
-+	}
-+
-+	// prescaler hardware adds 1 to reg value
-+	rtcdev->prescaler = clk_get_rate(devm_clk_get(&pdev->dev, "rtcref")) - 1;
-+
-+	if (rtcdev->prescaler > MAX_PRESCALER_COUNT) {
-+		dev_dbg(&pdev->dev, "invalid prescaler %d\n", rtcdev->prescaler);
-+		return -EPERM;
-+	}
-+
-+	writel(rtcdev->prescaler, rtcdev->base + PRESCALER_REG);
-+	dev_info(&pdev->dev, "prescaler set to: 0x%X \r\n", rtcdev->prescaler);
-+
-+	device_init_wakeup(&pdev->dev, true);
-+	ret = dev_pm_set_wake_irq(&pdev->dev, rtcdev->wakeup_irq);
-+	if (ret)
-+		dev_err(&pdev->dev, "failed to enable irq wake\n");
-+
-+	return devm_rtc_register_device(rtcdev->rtc);
-+}
-+
-+static int mpfs_rtc_remove(struct platform_device *pdev)
-+{
-+	mpfs_rtc_alarm_irq_enable(&pdev->dev, 0);
-+	device_init_wakeup(&pdev->dev, 0);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id mpfs_rtc_of_match[] = {
-+	{ .compatible = "microchip,mpfs-rtc" },
-+	{ }
-+};
-+
-+MODULE_DEVICE_TABLE(of, mpfs_rtc_of_match);
-+
-+static struct platform_driver mpfs_rtc_driver = {
-+	.probe = mpfs_rtc_probe,
-+	.remove = mpfs_rtc_remove,
-+	.driver	= {
-+		.name = "mpfs_rtc",
-+		.of_match_table = mpfs_rtc_of_match,
-+	},
-+};
-+
-+module_platform_driver(mpfs_rtc_driver);
-+
-+MODULE_DESCRIPTION("Real time clock for Microchip Polarfire SoC");
-+MODULE_AUTHOR("Daire McNamara <daire.mcnamara@microchip.com>");
-+MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.36.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGksCgoyMDIy5bm0NeaciDEw5pelKOeBqykgMjI6MTkgQ29ub3IgRG9vbGV5IDxjb25vci5kb29s
+ZXlAbWljcm9jaGlwLmNvbT46Cj4KPiBBZGQgc3VwcG9ydCBmb3IgdGhlIGJ1aWx0LWluIFJUQyBv
+biBNaWNyb2NoaXAgUG9sYXJGaXJlIFNvQwo+Cj4gQ28tRGV2ZWxvcGVkLWJ5OiBEYWlyZSBNY05h
+bWFyYSA8ZGFpcmUubWNuYW1hcmFAbWljcm9jaGlwLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBEYWly
+ZSBNY05hbWFyYSA8ZGFpcmUubWNuYW1hcmFAbWljcm9jaGlwLmNvbT4KPiBTaWduZWQtb2ZmLWJ5
+OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgo+IC0tLQo+ICBkcml2
+ZXJzL3J0Yy9LY29uZmlnICAgIHwgIDEwICsrCj4gIGRyaXZlcnMvcnRjL01ha2VmaWxlICAgfCAg
+IDEgKwo+ICBkcml2ZXJzL3J0Yy9ydGMtbXBmcy5jIHwgMzI4ICsrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKysrCj4gIDMgZmlsZXMgY2hhbmdlZCwgMzM5IGluc2VydGlvbnMo
+KykKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMvcnRjL3J0Yy1tcGZzLmMKPgo+IGRpZmYg
+LS1naXQgYS9kcml2ZXJzL3J0Yy9LY29uZmlnIGIvZHJpdmVycy9ydGMvS2NvbmZpZwo+IGluZGV4
+IDQxYzY1YjRkMmJhZi4uYTE5NDQyMjMyOGRhIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvcnRjL0tj
+b25maWcKPiArKysgYi9kcml2ZXJzL3J0Yy9LY29uZmlnCj4gQEAgLTE5NjYsNCArMTk2NiwxNCBA
+QCBjb25maWcgUlRDX0RSVl9NU0MzMTMKPiAgICAgICAgICAgVGhpcyBkcml2ZXIgY2FuIGFsc28g
+YmUgYnVpbHQgYXMgYSBtb2R1bGUsIGlmIHNvLCB0aGUgbW9kdWxlCj4gICAgICAgICAgIHdpbGwg
+YmUgY2FsbGVkICJydGMtbXNjMzEzIi4KPgo+ICtjb25maWcgUlRDX0RSVl9QT0xBUkZJUkVfU09D
+Cj4gKyAgICAgICB0cmlzdGF0ZSAiTWljcm9jaGlwIFBvbGFyRmlyZSBTb0MgYnVpbHQtaW4gUlRD
+Igo+ICsgICAgICAgZGVwZW5kcyBvbiBTT0NfTUlDUk9DSElQX1BPTEFSRklSRQo+ICsgICAgICAg
+aGVscAo+ICsgICAgICAgICBJZiB5b3Ugc2F5IHllcyBoZXJlIHlvdSB3aWxsIGdldCBzdXBwb3J0
+IGZvciB0aGUKPiArICAgICAgICAgYnVpbHQtaW4gUlRDIG9uIFBvbGFyZmlyZSBTb0MuCj4gKwo+
+ICsgICAgICAgICBUaGlzIGRyaXZlciBjYW4gYWxzbyBiZSBidWlsdCBhcyBhIG1vZHVsZSwgaWYg
+c28sIHRoZSBtb2R1bGUKPiArICAgICAgICAgd2lsbCBiZSBjYWxsZWQgInJ0Yy1tcGZzIi4KPiAr
+Cj4gIGVuZGlmICMgUlRDX0NMQVNTCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcnRjL01ha2VmaWxl
+IGIvZHJpdmVycy9ydGMvTWFrZWZpbGUKPiBpbmRleCAyZDgyN2Q4MjYxZDUuLjI1ZWU1YmE4NzBh
+OSAxMDA2NDQKPiAtLS0gYS9kcml2ZXJzL3J0Yy9NYWtlZmlsZQo+ICsrKyBiL2RyaXZlcnMvcnRj
+L01ha2VmaWxlCj4gQEAgLTEzMCw2ICsxMzAsNyBAQCBvYmotJChDT05GSUdfUlRDX0RSVl9QSUMz
+MikgKz0gcnRjLXBpYzMyLm8KPiAgb2JqLSQoQ09ORklHX1JUQ19EUlZfUEwwMzApICAgICs9IHJ0
+Yy1wbDAzMC5vCj4gIG9iai0kKENPTkZJR19SVENfRFJWX1BMMDMxKSAgICArPSBydGMtcGwwMzEu
+bwo+ICBvYmotJChDT05GSUdfUlRDX0RSVl9QTThYWFgpICAgKz0gcnRjLXBtOHh4eC5vCj4gK29i
+ai0kKENPTkZJR19SVENfRFJWX1BPTEFSRklSRV9TT0MpICAgICs9IHJ0Yy1tcGZzLm8KPiAgb2Jq
+LSQoQ09ORklHX1JUQ19EUlZfUFMzKSAgICAgICs9IHJ0Yy1wczMubwo+ICBvYmotJChDT05GSUdf
+UlRDX0RSVl9QWEEpICAgICAgKz0gcnRjLXB4YS5vCj4gIG9iai0kKENPTkZJR19SVENfRFJWX1I3
+MzAxKSAgICArPSBydGMtcjczMDEubwo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3J0Yy9ydGMtbXBm
+cy5jIGIvZHJpdmVycy9ydGMvcnRjLW1wZnMuYwo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5k
+ZXggMDAwMDAwMDAwMDAwLi41Nzg2Nzg3OGY5YzYKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvZHJp
+dmVycy9ydGMvcnRjLW1wZnMuYwo+IEBAIC0wLDAgKzEsMzI4IEBACj4gKy8vIFNQRFgtTGljZW5z
+ZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4gKy8qCj4gKyAqIE1pY3JvY2hpcCBNUEZTIFJUQyBkcml2
+ZXIKPiArICoKPiArICogQ29weXJpZ2h0IChjKSAyMDIxLTIwMjIgTWljcm9jaGlwIENvcnBvcmF0
+aW9uLiBBbGwgcmlnaHRzIHJlc2VydmVkLgo+ICsgKgo+ICsgKiBBdXRob3I6IERhaXJlIE1jTmFt
+YXJhIDxkYWlyZS5tY25hbWFyYUBtaWNyb2NoaXAuY29tPgo+ICsgKiAgICAgICAgICYgQ29ub3Ig
+RG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbT4KPiArICovCj4gKyNpbmNsdWRlICJs
+aW51eC9iaXRzLmgiCj4gKyNpbmNsdWRlIDxsaW51eC9jbGsuaD4KPiArI2luY2x1ZGUgPGxpbnV4
+L2lvLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4KPiArI2luY2x1ZGUgPGxpbnV4L2tl
+cm5lbC5oPgo+ICsjaW5jbHVkZSA8bGludXgvb2YuaD4KPiArI2luY2x1ZGUgPGxpbnV4L3BsYXRm
+b3JtX2RldmljZS5oPgo+ICsjaW5jbHVkZSA8bGludXgvcG1fd2FrZWlycS5oPgo+ICsjaW5jbHVk
+ZSA8bGludXgvc2xhYi5oPgo+ICsjaW5jbHVkZSA8bGludXgvcnRjLmg+Cj4gKwo+ICsjZGVmaW5l
+IENPTlRST0xfUkVHICAgICAgICAgICAgMHgwMAo+ICsjZGVmaW5lIE1PREVfUkVHICAgICAgICAg
+ICAgICAgMHgwNAo+ICsjZGVmaW5lIFBSRVNDQUxFUl9SRUcgICAgICAgICAgMHgwOAo+ICsjZGVm
+aW5lIEFMQVJNX0xPV0VSX1JFRyAgICAgICAgICAgICAgICAweDBjCj4gKyNkZWZpbmUgQUxBUk1f
+VVBQRVJfUkVHICAgICAgICAgICAgICAgIDB4MTAKPiArI2RlZmluZSBDT01QQVJFX0xPV0VSX1JF
+RyAgICAgIDB4MTQKPiArI2RlZmluZSBDT01QQVJFX1VQUEVSX1JFRyAgICAgIDB4MTgKPiArI2Rl
+ZmluZSBEQVRFVElNRV9MT1dFUl9SRUcgICAgIDB4MjAKPiArI2RlZmluZSBEQVRFVElNRV9VUFBF
+Ul9SRUcgICAgIDB4MjQKPiArCj4gKyNkZWZpbmUgQ09OVFJPTF9SVU5OSU5HX0JJVCAgICBCSVQo
+MCkKPiArI2RlZmluZSBDT05UUk9MX1NUQVJUX0JJVCAgICAgIEJJVCgwKQo+ICsjZGVmaW5lIENP
+TlRST0xfU1RPUF9CSVQgICAgICAgQklUKDEpCj4gKyNkZWZpbmUgQ09OVFJPTF9BTEFSTV9PTl9C
+SVQgICBCSVQoMikKPiArI2RlZmluZSBDT05UUk9MX0FMQVJNX09GRl9CSVQgIEJJVCgzKQo+ICsj
+ZGVmaW5lIENPTlRST0xfUkVTRVRfQklUICAgICAgQklUKDQpCj4gKyNkZWZpbmUgQ09OVFJPTF9V
+UExPQURfQklUICAgICBCSVQoNSkKPiArI2RlZmluZSBDT05UUk9MX0RPV05MT0FEX0JJVCAgIEJJ
+VCg2KQo+ICsjZGVmaW5lIENPTlRST0xfRE9XTkxPQURfQklUICAgQklUKDYpCj4gKyNkZWZpbmUg
+Q09OVFJPTF9XQUtFVVBfQ0xSX0JJVCBCSVQoOCkKPiArI2RlZmluZSBDT05UUk9MX1dBS0VVUF9T
+RVRfQklUIEJJVCg5KQo+ICsjZGVmaW5lIENPTlRST0xfVVBEQVRFRF9CSVQgICAgQklUKDEwKQo+
+ICsKPiArI2RlZmluZSBNT0RFX0NMT0NLX0NBTEVOREFSICAgIEJJVCgwKQo+ICsjZGVmaW5lIE1P
+REVfV0FLRV9FTiAgICAgICAgICAgQklUKDEpCj4gKyNkZWZpbmUgTU9ERV9XQUtFX1JFU0VUICAg
+ICAgICAgICAgICAgIEJJVCgyKQo+ICsjZGVmaW5lIE1PREVfV0FLRV9DT05USU5VRSAgICAgQklU
+KDMpCj4gKwo+ICsjZGVmaW5lIE1BWF9QUkVTQ0FMRVJfQ09VTlQgICAgR0VOTUFTSygyNSwgMCkK
+PiArI2RlZmluZSBEQVRFVElNRV9VUFBFUl9NQVNLICAgIEdFTk1BU0soMjksIDApCj4gKyNkZWZp
+bmUgQUxBUk1fVVBQRVJfTUFTSyAgICAgICBHRU5NQVNLKDEwLCAwKQo+ICsKPiArc3RydWN0IG1w
+ZnNfcnRjX2RldiB7Cj4gKyAgICAgICBzdHJ1Y3QgcnRjX2RldmljZSAqcnRjOwo+ICsgICAgICAg
+dm9pZCBfX2lvbWVtICpiYXNlOwo+ICsgICAgICAgaW50IHdha2V1cF9pcnE7Cj4gKyAgICAgICB1
+MzIgcHJlc2NhbGVyOwo+ICt9Owo+ICsKPiArc3RhdGljIHZvaWQgbXBmc19ydGNfc3RhcnQoc3Ry
+dWN0IG1wZnNfcnRjX2RldiAqcnRjZGV2KQo+ICt7Cj4gKyAgICAgICB1MzIgY3RybDsKPiArCj4g
+KyAgICAgICBjdHJsID0gcmVhZGwocnRjZGV2LT5iYXNlICsgQ09OVFJPTF9SRUcpOwo+ICsgICAg
+ICAgY3RybCAmPSB+KENPTlRST0xfU1RPUF9CSVQgfCBDT05UUk9MX1NUQVJUX0JJVCk7Cj4gKyAg
+ICAgICBjdHJsIHw9IENPTlRST0xfU1RBUlRfQklUOwo+ICsgICAgICAgd3JpdGVsKGN0cmwsIHJ0
+Y2Rldi0+YmFzZSArIENPTlRST0xfUkVHKTsKPiArfQo+ICsKPiArc3RhdGljIHZvaWQgbXBmc19y
+dGNfY2xlYXJfaXJxKHN0cnVjdCBtcGZzX3J0Y19kZXYgKnJ0Y2RldikKPiArewo+ICsgICAgICAg
+dTMyIHZhbCA9IHJlYWRsKHJ0Y2Rldi0+YmFzZSArIENPTlRST0xfUkVHKTsKPiArCj4gKyAgICAg
+ICB2YWwgJj0gfihDT05UUk9MX0FMQVJNX09OX0JJVCB8IENPTlRST0xfU1RPUF9CSVQpOwo+ICsg
+ICAgICAgdmFsIHw9IENPTlRST0xfQUxBUk1fT0ZGX0JJVDsKPiArICAgICAgIHdyaXRlbCh2YWws
+IHJ0Y2Rldi0+YmFzZSArIENPTlRST0xfUkVHKTsKPiArICAgICAgIC8qCj4gKyAgICAgICAgKiBF
+bnN1cmUgdGhhdCB0aGUgcG9zdGVkIHdyaXRlIHRvIHRoZSBDT05UUk9MX1JFRyByZWdpc3RlciBj
+b21wbGV0ZWQgYmVmb3JlCj4gKyAgICAgICAgKiByZXR1cm5pbmcgZnJvbSB0aGlzIGZ1bmN0aW9u
+LiBOb3QgZG9pbmcgdGhpcyBtYXkgcmVzdWx0IGluIHRoZSBpbnRlcnJ1cHQKPiArICAgICAgICAq
+IG9ubHkgYmVpbmcgY2xlYXJlZCBzb21lIHRpbWUgYWZ0ZXIgdGhpcyBmdW5jdGlvbiByZXR1cm5z
+Lgo+ICsgICAgICAgICovCj4gKyAgICAgICAodm9pZClyZWFkbChydGNkZXYtPmJhc2UgKyBDT05U
+Uk9MX1JFRyk7Cj4gK30KPiArCj4gK3N0YXRpYyBpbnQgbXBmc19ydGNfcmVhZHRpbWUoc3RydWN0
+IGRldmljZSAqZGV2LCBzdHJ1Y3QgcnRjX3RpbWUgKnRtKQo+ICt7Cj4gKyAgICAgICBzdHJ1Y3Qg
+bXBmc19ydGNfZGV2ICpydGNkZXYgPSBkZXZfZ2V0X2RydmRhdGEoZGV2KTsKPiArICAgICAgIHU2
+NCB0aW1lOwo+ICsKPiArICAgICAgIHRpbWUgPSAoKHU2NClyZWFkbChydGNkZXYtPmJhc2UgKyBE
+QVRFVElNRV9VUFBFUl9SRUcpICYgREFURVRJTUVfVVBQRVJfTUFTSykgPDwgMzI7Cj4gKyAgICAg
+ICB0aW1lIHw9IHJlYWRsKHJ0Y2Rldi0+YmFzZSArIERBVEVUSU1FX0xPV0VSX1JFRyk7Cj4gKyAg
+ICAgICBydGNfdGltZTY0X3RvX3RtKHRpbWUgKyBydGNkZXYtPnJ0Yy0+cmFuZ2VfbWluLCB0bSk7
+Cj4gKwo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30KPiArCj4gK3N0YXRpYyBpbnQgbXBmc19ydGNf
+c2V0dGltZShzdHJ1Y3QgZGV2aWNlICpkZXYsIHN0cnVjdCBydGNfdGltZSAqdG0pCj4gK3sKPiAr
+ICAgICAgIHN0cnVjdCBtcGZzX3J0Y19kZXYgKnJ0Y2RldiA9IGRldl9nZXRfZHJ2ZGF0YShkZXYp
+Owo+ICsgICAgICAgdTMyIGN0cmwsIHByb2c7Cj4gKyAgICAgICB1NjQgdGltZTsKPiArCj4gKyAg
+ICAgICB0aW1lID0gcnRjX3RtX3RvX3RpbWU2NCh0bSkgLSBydGNkZXYtPnJ0Yy0+cmFuZ2VfbWlu
+Owo+ICsKPiArICAgICAgIHdyaXRlbCgodTMyKXRpbWUsIHJ0Y2Rldi0+YmFzZSArIERBVEVUSU1F
+X0xPV0VSX1JFRyk7Cj4gKyAgICAgICB3cml0ZWwoKHUzMikodGltZSA+PiAzMikgJiBEQVRFVElN
+RV9VUFBFUl9NQVNLLCBydGNkZXYtPmJhc2UgKyBEQVRFVElNRV9VUFBFUl9SRUcpOwo+ICsKPiAr
+ICAgICAgIGN0cmwgPSByZWFkbChydGNkZXYtPmJhc2UgKyBDT05UUk9MX1JFRyk7Cj4gKyAgICAg
+ICBjdHJsICY9IH5DT05UUk9MX1NUT1BfQklUOwo+ICsgICAgICAgY3RybCB8PSBDT05UUk9MX1VQ
+TE9BRF9CSVQ7Cj4gKyAgICAgICB3cml0ZWwoY3RybCwgcnRjZGV2LT5iYXNlICsgQ09OVFJPTF9S
+RUcpOwo+ICsKPiArICAgICAgIGRvIHsKPiArICAgICAgICAgICAgICAgcHJvZyA9IHJlYWRsKHJ0
+Y2Rldi0+YmFzZSArIENPTlRST0xfUkVHKTsKPiArICAgICAgICAgICAgICAgcHJvZyAmPSBDT05U
+Uk9MX1VQTE9BRF9CSVQ7Cj4gKyAgICAgICB9IHdoaWxlIChwcm9nKTsKPiArCj4gKyAgICAgICBt
+cGZzX3J0Y19zdGFydChydGNkZXYpOwo+ICsKPiArICAgICAgIHJldHVybiAwOwo+ICt9Cj4gKwo+
+ICtzdGF0aWMgaW50IG1wZnNfcnRjX3JlYWRhbGFybShzdHJ1Y3QgZGV2aWNlICpkZXYsIHN0cnVj
+dCBydGNfd2thbHJtICphbHJtKQo+ICt7Cj4gKyAgICAgICBzdHJ1Y3QgbXBmc19ydGNfZGV2ICpy
+dGNkZXYgPSBkZXZfZ2V0X2RydmRhdGEoZGV2KTsKPiArICAgICAgIHUzMiBtb2RlID0gcmVhZGwo
+cnRjZGV2LT5iYXNlICsgTU9ERV9SRUcpOwo+ICsgICAgICAgdTY0IHRpbWU7Cj4gKwo+ICsgICAg
+ICAgbW9kZSA9IHJlYWRsKHJ0Y2Rldi0+YmFzZSArIE1PREVfUkVHKTsKPiArCj4gKyAgICAgICBp
+ZiAobW9kZSAmIE1PREVfV0FLRV9FTikKPiArICAgICAgICAgICAgICAgYWxybS0+ZW5hYmxlZCA9
+IHRydWU7Cj4gKyAgICAgICBlbHNlCj4gKyAgICAgICAgICAgICAgIGFscm0tPmVuYWJsZWQgPSBm
+YWxzZTsKPiArCj4gKyAgICAgICB0aW1lID0gKHU2NClyZWFkbChydGNkZXYtPmJhc2UgKyBBTEFS
+TV9MT1dFUl9SRUcpIDw8IDMyOwo+ICsgICAgICAgdGltZSB8PSAocmVhZGwocnRjZGV2LT5iYXNl
+ICsgQUxBUk1fVVBQRVJfUkVHKSAmIEFMQVJNX1VQUEVSX01BU0spOwo+ICsgICAgICAgcnRjX3Rp
+bWU2NF90b190bSh0aW1lICsgcnRjZGV2LT5ydGMtPnJhbmdlX21pbiwgJmFscm0tPnRpbWUpOwo+
+ICsKPiArICAgICAgIHJldHVybiAwOwo+ICt9Cj4gKwo+ICtzdGF0aWMgaW50IG1wZnNfcnRjX3Nl
+dGFsYXJtKHN0cnVjdCBkZXZpY2UgKmRldiwgc3RydWN0IHJ0Y193a2Fscm0gKmFscm0pCj4gK3sK
+PiArICAgICAgIHN0cnVjdCBtcGZzX3J0Y19kZXYgKnJ0Y2RldiA9IGRldl9nZXRfZHJ2ZGF0YShk
+ZXYpOwo+ICsgICAgICAgdTMyIG1vZGUsIGN0cmw7Cj4gKyAgICAgICB1NjQgdGltZTsKPiArCj4g
+KyAgICAgICAvKiBEaXNhYmxlIHRoZSBhbGFybSBiZWZvcmUgdXBkYXRpbmcgKi8KPiArICAgICAg
+IGN0cmwgPSByZWFkbChydGNkZXYtPmJhc2UgKyBDT05UUk9MX1JFRyk7Cj4gKyAgICAgICBjdHJs
+IHw9IENPTlRST0xfQUxBUk1fT0ZGX0JJVDsKPiArICAgICAgIHdyaXRlbChjdHJsLCBydGNkZXYt
+PmJhc2UgKyBDT05UUk9MX1JFRyk7Cj4gKwo+ICsgICAgICAgdGltZSA9IHJ0Y190bV90b190aW1l
+NjQoJmFscm0tPnRpbWUpIC0gcnRjZGV2LT5ydGMtPnJhbmdlX21pbjsKPiArCj4gKyAgICAgICB3
+cml0ZWwoKHUzMil0aW1lLCBydGNkZXYtPmJhc2UgKyBBTEFSTV9MT1dFUl9SRUcpOwo+ICsgICAg
+ICAgd3JpdGVsKCh1MzIpKHRpbWUgPj4gMzIpICYgQUxBUk1fVVBQRVJfTUFTSywgcnRjZGV2LT5i
+YXNlICsgQUxBUk1fVVBQRVJfUkVHKTsKPiArCj4gKyAgICAgICAvKiBCeXBhc3MgY29tcGFyZSBy
+ZWdpc3RlciBpbiBhbGFybSBtb2RlICovCj4gKyAgICAgICB3cml0ZWwoR0VOTUFTSygzMSwgMCks
+IHJ0Y2Rldi0+YmFzZSArIENPTVBBUkVfTE9XRVJfUkVHKTsKPiArICAgICAgIHdyaXRlbChHRU5N
+QVNLKDI5LCAwKSwgcnRjZGV2LT5iYXNlICsgQ09NUEFSRV9VUFBFUl9SRUcpOwo+ICsKPiArICAg
+ICAgIC8qIENvbmZpZ3VyZSB0aGUgUlRDIHRvIGVuYWJsZSB0aGUgYWxhcm0uICovCj4gKyAgICAg
+ICBjdHJsID0gcmVhZGwocnRjZGV2LT5iYXNlICsgQ09OVFJPTF9SRUcpOwo+ICsgICAgICAgbW9k
+ZSA9IHJlYWRsKHJ0Y2Rldi0+YmFzZSArIE1PREVfUkVHKTsKPiArICAgICAgIGlmIChhbHJtLT5l
+bmFibGVkKSB7Cj4gKyAgICAgICAgICAgICAgIG1vZGUgPSBNT0RFX1dBS0VfRU4gfCBNT0RFX1dB
+S0VfQ09OVElOVUU7Cj4gKyAgICAgICAgICAgICAgIC8qIEVuYWJsZSB0aGUgYWxhcm0gKi8KPiAr
+ICAgICAgICAgICAgICAgY3RybCAmPSB+Q09OVFJPTF9BTEFSTV9PRkZfQklUOwo+ICsgICAgICAg
+ICAgICAgICBjdHJsIHw9IENPTlRST0xfQUxBUk1fT05fQklUOwo+ICsgICAgICAgfQo+ICsgICAg
+ICAgY3RybCAmPSB+Q09OVFJPTF9TVE9QX0JJVDsKPiArICAgICAgIGN0cmwgfD0gQ09OVFJPTF9T
+VEFSVF9CSVQ7Cj4gKyAgICAgICB3cml0ZWwoY3RybCwgcnRjZGV2LT5iYXNlICsgQ09OVFJPTF9S
+RUcpOwo+ICsgICAgICAgd3JpdGVsKG1vZGUsIHJ0Y2Rldi0+YmFzZSArIE1PREVfUkVHKTsKPiAr
+Cj4gKyAgICAgICByZXR1cm4gMDsKPiArfQo+ICsKPiArc3RhdGljIGludCBtcGZzX3J0Y19hbGFy
+bV9pcnFfZW5hYmxlKHN0cnVjdCBkZXZpY2UgKmRldiwgdW5zaWduZWQgaW50IGVuYWJsZWQpCj4g
+K3sKPiArICAgICAgIHN0cnVjdCBtcGZzX3J0Y19kZXYgKnJ0Y2RldiA9IGRldl9nZXRfZHJ2ZGF0
+YShkZXYpOwo+ICsgICAgICAgdTMyIGN0cmw7Cj4gKwo+ICsgICAgICAgY3RybCA9IHJlYWRsKHJ0
+Y2Rldi0+YmFzZSArIENPTlRST0xfUkVHKTsKPiArICAgICAgIGN0cmwgJj0gfihDT05UUk9MX0FM
+QVJNX09OX0JJVCB8IENPTlRST0xfQUxBUk1fT0ZGX0JJVCB8IENPTlRST0xfU1RPUF9CSVQpOwo+
+ICsKPiArICAgICAgIGlmIChlbmFibGVkKQo+ICsgICAgICAgICAgICAgICBjdHJsIHw9IENPTlRS
+T0xfQUxBUk1fT05fQklUOwo+ICsgICAgICAgZWxzZQo+ICsgICAgICAgICAgICAgICBjdHJsIHw9
+IENPTlRST0xfQUxBUk1fT0ZGX0JJVDsKPiArCj4gKyAgICAgICB3cml0ZWwoY3RybCwgcnRjZGV2
+LT5iYXNlICsgQ09OVFJPTF9SRUcpOwo+ICsKPiArICAgICAgIHJldHVybiAwOwo+ICt9Cj4gKwo+
+ICtzdGF0aWMgaW5saW5lIHN0cnVjdCBjbGsgKm1wZnNfcnRjX2luaXRfY2xrKHN0cnVjdCBkZXZp
+Y2UgKmRldikKPiArewo+ICsgICAgICAgc3RydWN0IGNsayAqY2xrOwo+ICsgICAgICAgaW50IHJl
+dDsKPiArCj4gKyAgICAgICBjbGsgPSBkZXZtX2Nsa19nZXQoZGV2LCAicnRjIik7Cj4gKyAgICAg
+ICBpZiAoSVNfRVJSKGNsaykpCj4gKyAgICAgICAgICAgICAgIHJldHVybiBjbGs7Cj4gKwo+ICsg
+ICAgICAgcmV0ID0gY2xrX3ByZXBhcmVfZW5hYmxlKGNsayk7Cj4gKyAgICAgICBpZiAocmV0KQo+
+ICsgICAgICAgICAgICAgICByZXR1cm4gRVJSX1BUUihyZXQpOwo+ICsKPiArICAgICAgIGRldm1f
+YWRkX2FjdGlvbl9vcl9yZXNldChkZXYsICh2b2lkICgqKSAodm9pZCAqKSljbGtfZGlzYWJsZV91
+bnByZXBhcmUsIGNsayk7Cj4gKyAgICAgICByZXR1cm4gY2xrOwo+ICt9Cj4gKwo+ICtzdGF0aWMg
+aXJxcmV0dXJuX3QgbXBmc19ydGNfd2FrZXVwX2lycV9oYW5kbGVyKGludCBpcnEsIHZvaWQgKmQp
+Cj4gK3sKPiArICAgICAgIHN0cnVjdCBtcGZzX3J0Y19kZXYgKnJ0Y2RldiA9IGQ7Cj4gKyAgICAg
+ICB1bnNpZ25lZCBsb25nIHBlbmRpbmc7Cj4gKwo+ICsgICAgICAgcGVuZGluZyA9IHJlYWRsKHJ0
+Y2Rldi0+YmFzZSArIENPTlRST0xfUkVHKTsKPiArICAgICAgIHBlbmRpbmcgJj0gQ09OVFJPTF9B
+TEFSTV9PTl9CSVQ7Cj4gKyAgICAgICBtcGZzX3J0Y19jbGVhcl9pcnEocnRjZGV2KTsKPiArCj4g
+KyAgICAgICBydGNfdXBkYXRlX2lycShydGNkZXYtPnJ0YywgMSwgUlRDX0lSUUYgfCBSVENfQUYp
+Owo+ICsKPiArICAgICAgIHJldHVybiBJUlFfSEFORExFRDsKPiArfQo+ICsKPiArc3RhdGljIGNv
+bnN0IHN0cnVjdCBydGNfY2xhc3Nfb3BzIG1wZnNfcnRjX29wcyA9IHsKPiArICAgICAgIC5yZWFk
+X3RpbWUgICAgICAgICAgICAgID0gbXBmc19ydGNfcmVhZHRpbWUsCj4gKyAgICAgICAuc2V0X3Rp
+bWUgICAgICAgICAgICAgICA9IG1wZnNfcnRjX3NldHRpbWUsCj4gKyAgICAgICAucmVhZF9hbGFy
+bSAgICAgICAgICAgICA9IG1wZnNfcnRjX3JlYWRhbGFybSwKPiArICAgICAgIC5zZXRfYWxhcm0g
+ICAgICAgICAgICAgID0gbXBmc19ydGNfc2V0YWxhcm0sCj4gKyAgICAgICAuYWxhcm1faXJxX2Vu
+YWJsZSAgICAgICA9IG1wZnNfcnRjX2FsYXJtX2lycV9lbmFibGUsCj4gK307Cj4gKwo+ICtzdGF0
+aWMgaW50IG1wZnNfcnRjX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCj4gK3sK
+PiArICAgICAgIHN0cnVjdCBtcGZzX3J0Y19kZXYgKnJ0Y2RldjsKPiArICAgICAgIHN0cnVjdCBj
+bGsgKmNsazsKPiArICAgICAgIGludCByZXQ7Cj4gKwo+ICsgICAgICAgcnRjZGV2ID0gZGV2bV9r
+emFsbG9jKCZwZGV2LT5kZXYsIHNpemVvZihzdHJ1Y3QgbXBmc19ydGNfZGV2KSwgR0ZQX0tFUk5F
+TCk7Cj4gKyAgICAgICBpZiAoIXJ0Y2RldikKPiArICAgICAgICAgICAgICAgcmV0dXJuIC1FTk9N
+RU07Cj4gKwo+ICsgICAgICAgcGxhdGZvcm1fc2V0X2RydmRhdGEocGRldiwgcnRjZGV2KTsKPiAr
+Cj4gKyAgICAgICBydGNkZXYtPnJ0YyA9IGRldm1fcnRjX2FsbG9jYXRlX2RldmljZSgmcGRldi0+
+ZGV2KTsKPiArICAgICAgIGlmIChJU19FUlIocnRjZGV2LT5ydGMpKQo+ICsgICAgICAgICAgICAg
+ICByZXR1cm4gUFRSX0VSUihydGNkZXYtPnJ0Yyk7Cj4gKwo+ICsgICAgICAgcnRjZGV2LT5ydGMt
+Pm9wcyA9ICZtcGZzX3J0Y19vcHM7Cj4gKwo+ICsgICAgICAgLyogcmFuZ2UgaXMgY2FwcGVkIGJ5
+IGFsYXJtIG1heCwgbG93ZXIgcmVnIGlzIDMxOjAgJiB1cHBlciBpcyAxMDowICovCj4gKyAgICAg
+ICBydGNkZXYtPnJ0Yy0+cmFuZ2VfbWF4ID0gR0VOTUFTS19VTEwoNDIsIDApOwo+ICsKPiArICAg
+ICAgIGNsayA9IG1wZnNfcnRjX2luaXRfY2xrKCZwZGV2LT5kZXYpOwo+ICsgICAgICAgaWYgKElT
+X0VSUihjbGspKQo+ICsgICAgICAgICAgICAgICByZXR1cm4gUFRSX0VSUihjbGspOwo+ICsKPiAr
+ICAgICAgIHJ0Y2Rldi0+YmFzZSA9IGRldm1fcGxhdGZvcm1faW9yZW1hcF9yZXNvdXJjZShwZGV2
+LCAwKTsKPiArICAgICAgIGlmIChJU19FUlIocnRjZGV2LT5iYXNlKSkgewo+ICsgICAgICAgICAg
+ICAgICBkZXZfZGJnKCZwZGV2LT5kZXYsICJpbnZhbGlkIGlvcmVtYXAgcmVzb3VyY2VzXG4iKTsK
+PiArICAgICAgICAgICAgICAgcmV0dXJuIFBUUl9FUlIocnRjZGV2LT5iYXNlKTsKPiArICAgICAg
+IH0KPiArCj4gKyAgICAgICBydGNkZXYtPndha2V1cF9pcnEgPSBwbGF0Zm9ybV9nZXRfaXJxKHBk
+ZXYsIDApOwo+ICsgICAgICAgaWYgKHJ0Y2Rldi0+d2FrZXVwX2lycSA8PSAwKSB7Cj4gKyAgICAg
+ICAgICAgICAgIGRldl9kYmcoJnBkZXYtPmRldiwgImNvdWxkIG5vdCBnZXQgd2FrZXVwIGlycVxu
+Iik7Cj4gKyAgICAgICAgICAgICAgIHJldHVybiBydGNkZXYtPndha2V1cF9pcnE7Cj4gKyAgICAg
+ICB9Cj4gKyAgICAgICByZXQgPSBkZXZtX3JlcXVlc3RfaXJxKCZwZGV2LT5kZXYsIHJ0Y2Rldi0+
+d2FrZXVwX2lycSwgbXBmc19ydGNfd2FrZXVwX2lycV9oYW5kbGVyLCAwLAo+ICsgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBkZXZfbmFtZSgmcGRldi0+ZGV2KSwgcnRjZGV2KTsKPiArICAg
+ICAgIGlmIChyZXQpIHsKPiArICAgICAgICAgICAgICAgZGV2X2RiZygmcGRldi0+ZGV2LCAiY291
+bGQgbm90IHJlcXVlc3Qgd2FrZXVwIGlycVxuIik7Cj4gKyAgICAgICAgICAgICAgIHJldHVybiBy
+ZXQ7Cj4gKyAgICAgICB9Cj4gKwo+ICsgICAgICAgLy8gcHJlc2NhbGVyIGhhcmR3YXJlIGFkZHMg
+MSB0byByZWcgdmFsdWUKCkkgcHJlZmVyIHRvIHVuaWZ5IHRoZSBjb21tZW50IGZvcm1hdC4KCj4g
+KyAgICAgICBydGNkZXYtPnByZXNjYWxlciA9IGNsa19nZXRfcmF0ZShkZXZtX2Nsa19nZXQoJnBk
+ZXYtPmRldiwgInJ0Y3JlZiIpKSAtIDE7CgpUaGUgcHJlc2NhbGVyIHZhcmlhYmxlcyBzZWVtIHRv
+IGJlIHVzZWQgb25seSBpbiB0aGlzIGZ1bmN0aW9uLgpJIHRoaW5rIGl0IGNhbiBiZSBkZWxldGVk
+IGZyb20gc3RydWN0IG1wZnNfcnRjX2Rldi4KCj4gKwo+ICsgICAgICAgaWYgKHJ0Y2Rldi0+cHJl
+c2NhbGVyID4gTUFYX1BSRVNDQUxFUl9DT1VOVCkgewo+ICsgICAgICAgICAgICAgICBkZXZfZGJn
+KCZwZGV2LT5kZXYsICJpbnZhbGlkIHByZXNjYWxlciAlZFxuIiwgcnRjZGV2LT5wcmVzY2FsZXIp
+Owo+ICsgICAgICAgICAgICAgICByZXR1cm4gLUVQRVJNOwo+ICsgICAgICAgfQo+ICsKPiArICAg
+ICAgIHdyaXRlbChydGNkZXYtPnByZXNjYWxlciwgcnRjZGV2LT5iYXNlICsgUFJFU0NBTEVSX1JF
+Ryk7Cj4gKyAgICAgICBkZXZfaW5mbygmcGRldi0+ZGV2LCAicHJlc2NhbGVyIHNldCB0bzogMHgl
+WCBcclxuIiwgcnRjZGV2LT5wcmVzY2FsZXIpOwo+ICsKPiArICAgICAgIGRldmljZV9pbml0X3dh
+a2V1cCgmcGRldi0+ZGV2LCB0cnVlKTsKPiArICAgICAgIHJldCA9IGRldl9wbV9zZXRfd2FrZV9p
+cnEoJnBkZXYtPmRldiwgcnRjZGV2LT53YWtldXBfaXJxKTsKPiArICAgICAgIGlmIChyZXQpCj4g
+KyAgICAgICAgICAgICAgIGRldl9lcnIoJnBkZXYtPmRldiwgImZhaWxlZCB0byBlbmFibGUgaXJx
+IHdha2VcbiIpOwo+ICsKPiArICAgICAgIHJldHVybiBkZXZtX3J0Y19yZWdpc3Rlcl9kZXZpY2Uo
+cnRjZGV2LT5ydGMpOwo+ICt9CgpCZXN0IHJlZ2F0ZHMsCiAgTm9idWhpcm8KCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
