@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF1DEC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 May 2022 13:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6B1DC433FE
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 May 2022 13:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YekiNVvHxq4FqpuEDWw+BeMgYIRMwlL7+gF7Cw+Fr0I=; b=h4WDhxowaeHEgC
-	UUGJ3VVAYGp7xoab/YSQlPIUrGHyWb5aNb3zWmdebuIP4zYa3jdXJXxg1a1u9jpAOM0TH6e6IFz7V
-	AVpCIoCGLSG+r8+5sxpKOAoAjCAloivmF4uQj02a6/v3Z0XJ6ENHFEuFzBWpZUygGeaJqCxXV2/3n
-	frNM9q/Gmt2pcJCaUzy4F8y9OUl0UD/YU8j6QN6Lth+JbvnblHPIthvsWP8aQ+jZXSi/C2KgfpHz5
-	rnqjcChWns9a9y5KkI35mDAwBFuOsehc0eHHADAsKbuiwbcYUvfFWufP76vwuINdssx/9uiXD6itc
-	hnCFxR3O7yPgeLI5nX/w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3pXK7HP+AAgUf/xtK/aiIKyUrX5sCgjqRbkCQ8dpCJ0=; b=KjB/RalQaI0wgZ
+	1TlZcHLX8yckRykGxh9SD9hpWSI0B8N7B7tQxmdao+/B3jONiakCmjlv4y6UQ7n9jNvOOo7ckx1aG
+	UtVG5iRcq4PhIqxyKugaA/0LBd7UtxhYf5iMVr3f+AulRB7ICX9LZPBRJ83zgagwhTIwNTIsBjQu0
+	KvwWUgEtOaB6WrSBXX6OfOio4DsIVm1E6QdmWu6Xrxq62zK70TJ8Gdro/ptnmIHY7cDNHlziGOfL+
+	pzJcdFkEbGcndyhtbmlwGX6DrpVnZGUBviiuCGi0S1EmHvi1vtbkOQDX8sqVrPA5dUDqt4Jeshe4+
+	yVjZ665GZF+7t+CJ8OSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noPjN-002Atr-Va; Tue, 10 May 2022 13:16:49 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1noPjQ-002AvD-VN; Tue, 10 May 2022 13:16:52 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noPjK-002Ar6-GO
- for linux-riscv@lists.infradead.org; Tue, 10 May 2022 13:16:48 +0000
+ id 1noPjL-002Arm-32
+ for linux-riscv@lists.infradead.org; Tue, 10 May 2022 13:16:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
- t=1652188606; x=1683724606;
- h=from:to:cc:subject:date:message-id:mime-version:
- content-transfer-encoding;
- bh=cJFpqELHzhKnktUrPZO/GTJ1OjcJc3cKHEtNthHeXRo=;
- b=hCzGVJjN6Hs2tIuvXevjxB3WgApXv5RNBWzt5m8QiKTu0lLWzmidbquS
- 6nciisunfe9Bg/zIRZZ3M6epKpi5BoMuhGUqbbAEC5UecfthOIvKqW1sw
- oCVBU6DDGO6SinzHw/Yy9qvm/vT/zXdhUEJKRj3r4+O7BX4hnWTpSW0qb
- iDo3JyCeb6R1OxlCxJlYS++83tFgucwrwcstRsoUVSBSeZDHoILNeS3/e
- aHRj4BRyl5+uFBq1xTSZzDXyy32X3K8pU25NlJlhQYzXb/kUdcDyEbcxw
- kJVNS/bmjQ6Tu1cfYNXJY6aY/yTIRPCL4n2bzQ8nV3h9CL/qWdANgGf4g Q==;
-X-IronPort-AV: E=Sophos;i="5.91,214,1647327600"; d="scan'208";a="158457294"
+ t=1652188607; x=1683724607;
+ h=from:to:cc:subject:date:message-id:in-reply-to:
+ references:mime-version:content-transfer-encoding;
+ bh=Z+wkcPFgaLI/W7TPrfrb/qCEWLZD/AQJbcpUvu5HPSw=;
+ b=BnyZzDJRiT4jubZQEXkbwHiTpHIlLRvLHiw6dQoqaQ2BCoVN4FmysxxT
+ I9yxHk6oEWWX8T36LoaF5evXucfY1dRHQVoLEsYqkItbSFKNPCK5RK9Q6
+ FKhnygfDzd+YZs+PfuucCWibzEw9O3/4fUvYifiszagcqWt71GgAKp+wK
+ eaHRAlRyaIXK6T9YHodrF0qKgBk4CoVyRFKNju+suoGOAV8riWYg5gNOf
+ RBs+KQgOBEYCPOf4DmTsqHhpseDpRyO7wbHbibaEW3bjIL9mu36LMpiif
+ p+Y5v/hAyxATsaSzM4MJUnY5modzSyAYhX16JxzFapCMar7NB8s8bEJg/ A==;
+X-IronPort-AV: E=Sophos;i="5.91,214,1647327600"; d="scan'208";a="163025727"
 Received: from smtpout.microchip.com (HELO email.microchip.com)
  ([198.175.253.82])
- by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
- 10 May 2022 06:16:41 -0700
+ by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 10 May 2022 06:16:44 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Tue, 10 May 2022 06:16:41 -0700
+ 15.1.2375.17; Tue, 10 May 2022 06:16:43 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via
- Frontend Transport; Tue, 10 May 2022 06:16:39 -0700
+ Frontend Transport; Tue, 10 May 2022 06:16:41 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <a.zummo@towertech.it>, <alexandre.belloni@bootlin.com>
 CC: <daire.mcnamara@microchip.com>, <lewis.hanly@microchip.com>,
  <conor.dooley@microchip.com>, <linux-kernel@vger.kernel.org>,
  <linux-rtc@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v2 0/2] rtc: microchip: Add driver for PolarFire SoC
-Date: Tue, 10 May 2022 14:21:15 +0100
-Message-ID: <20220510132116.506572-1-conor.dooley@microchip.com>
+Subject: [PATCH v2 1/2] rtc: Add driver for Microchip PolarFire SoC
+Date: Tue, 10 May 2022 14:21:16 +0100
+Message-ID: <20220510132116.506572-2-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220510132116.506572-1-conor.dooley@microchip.com>
+References: <20220510132116.506572-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220510_061646_724877_2E1FD7FB 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20220510_061647_201201_9BCAEDC6 
+X-CRM114-Status: GOOD (  25.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,52 +80,383 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey all,
-This is technically a v2 of [0], although a fair bit of time has
-passed since then. In the meantime I upstreamed the dt-binding, which
-was in the v1, and this patch depends on the fixes to the dt-binding
-and device tree etc which landed in v5.18-rc5.
+Add support for the built-in RTC on Microchip PolarFire SoC
 
-The driver is quite substantially rewritten from the v1, as you wanted
-it to be switched to "binary" rather than calendar mode - so hopefully I
-have satisfied your concerns with the original driver. Specifically you
-had an significant issue with the counter being reset on startup & that
-is no longer the case.
-
-Thanks,
-Conor.
-
-Changes from v1:
-- remove duplicate and unused defines
-- remove oneline mpfs_rtc_set_prescaler function
-- dont unconditionally turn off the rtc in the init function
-- dont reset the rtc when init is run.
-- dont disable the alarm when we boot
-- use binary, not calendar mode
-- delete mpfs_rtc_init & set prescale in probe
-- use dev_pm_set_wake_irq rather than writing suspend/resume functions
-- delete calendar mode only register defines
-- since using binary mode, set range min to zero
-- set range max to max alarm value (is this acceptable?)
-- added a MAINTAINERS entry: when v1 was submitted there was nothing to
-  add to, but there is now.
-
-[0] https://lore.kernel.org/linux-rtc/20210512111133.1650740-1-daire.mcnamara@microchip.com/
-
-
-Conor Dooley (2):
-  rtc: Add driver for Microchip PolarFire SoC
-  MAINTAINERS: add PolarFire SoC's RTC
-
- MAINTAINERS            |   1 +
+Co-Developed-by: Daire McNamara <daire.mcnamara@microchip.com>
+Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
  drivers/rtc/Kconfig    |  10 ++
  drivers/rtc/Makefile   |   1 +
  drivers/rtc/rtc-mpfs.c | 328 +++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 340 insertions(+)
+ 3 files changed, 339 insertions(+)
  create mode 100644 drivers/rtc/rtc-mpfs.c
 
-
-base-commit: c5eb0a61238dd6faf37f58c9ce61c9980aaffd7a
+diff --git a/drivers/rtc/Kconfig b/drivers/rtc/Kconfig
+index 41c65b4d2baf..a194422328da 100644
+--- a/drivers/rtc/Kconfig
++++ b/drivers/rtc/Kconfig
+@@ -1966,4 +1966,14 @@ config RTC_DRV_MSC313
+ 	  This driver can also be built as a module, if so, the module
+ 	  will be called "rtc-msc313".
+ 
++config RTC_DRV_POLARFIRE_SOC
++	tristate "Microchip PolarFire SoC built-in RTC"
++	depends on SOC_MICROCHIP_POLARFIRE
++	help
++	  If you say yes here you will get support for the
++	  built-in RTC on Polarfire SoC.
++
++	  This driver can also be built as a module, if so, the module
++	  will be called "rtc-mpfs".
++
+ endif # RTC_CLASS
+diff --git a/drivers/rtc/Makefile b/drivers/rtc/Makefile
+index 2d827d8261d5..25ee5ba870a9 100644
+--- a/drivers/rtc/Makefile
++++ b/drivers/rtc/Makefile
+@@ -130,6 +130,7 @@ obj-$(CONFIG_RTC_DRV_PIC32)	+= rtc-pic32.o
+ obj-$(CONFIG_RTC_DRV_PL030)	+= rtc-pl030.o
+ obj-$(CONFIG_RTC_DRV_PL031)	+= rtc-pl031.o
+ obj-$(CONFIG_RTC_DRV_PM8XXX)	+= rtc-pm8xxx.o
++obj-$(CONFIG_RTC_DRV_POLARFIRE_SOC)	+= rtc-mpfs.o
+ obj-$(CONFIG_RTC_DRV_PS3)	+= rtc-ps3.o
+ obj-$(CONFIG_RTC_DRV_PXA)	+= rtc-pxa.o
+ obj-$(CONFIG_RTC_DRV_R7301)	+= rtc-r7301.o
+diff --git a/drivers/rtc/rtc-mpfs.c b/drivers/rtc/rtc-mpfs.c
+new file mode 100644
+index 000000000000..57867878f9c6
+--- /dev/null
++++ b/drivers/rtc/rtc-mpfs.c
+@@ -0,0 +1,328 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Microchip MPFS RTC driver
++ *
++ * Copyright (c) 2021-2022 Microchip Corporation. All rights reserved.
++ *
++ * Author: Daire McNamara <daire.mcnamara@microchip.com>
++ *         & Conor Dooley <conor.dooley@microchip.com>
++ */
++#include "linux/bits.h"
++#include <linux/clk.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/kernel.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/pm_wakeirq.h>
++#include <linux/slab.h>
++#include <linux/rtc.h>
++
++#define CONTROL_REG		0x00
++#define MODE_REG		0x04
++#define PRESCALER_REG		0x08
++#define ALARM_LOWER_REG		0x0c
++#define ALARM_UPPER_REG		0x10
++#define COMPARE_LOWER_REG	0x14
++#define COMPARE_UPPER_REG	0x18
++#define DATETIME_LOWER_REG	0x20
++#define DATETIME_UPPER_REG	0x24
++
++#define CONTROL_RUNNING_BIT	BIT(0)
++#define CONTROL_START_BIT	BIT(0)
++#define CONTROL_STOP_BIT	BIT(1)
++#define CONTROL_ALARM_ON_BIT	BIT(2)
++#define CONTROL_ALARM_OFF_BIT	BIT(3)
++#define CONTROL_RESET_BIT	BIT(4)
++#define CONTROL_UPLOAD_BIT	BIT(5)
++#define CONTROL_DOWNLOAD_BIT	BIT(6)
++#define CONTROL_DOWNLOAD_BIT	BIT(6)
++#define CONTROL_WAKEUP_CLR_BIT	BIT(8)
++#define CONTROL_WAKEUP_SET_BIT	BIT(9)
++#define CONTROL_UPDATED_BIT	BIT(10)
++
++#define MODE_CLOCK_CALENDAR	BIT(0)
++#define MODE_WAKE_EN		BIT(1)
++#define MODE_WAKE_RESET		BIT(2)
++#define MODE_WAKE_CONTINUE	BIT(3)
++
++#define MAX_PRESCALER_COUNT	GENMASK(25, 0)
++#define DATETIME_UPPER_MASK	GENMASK(29, 0)
++#define ALARM_UPPER_MASK	GENMASK(10, 0)
++
++struct mpfs_rtc_dev {
++	struct rtc_device *rtc;
++	void __iomem *base;
++	int wakeup_irq;
++	u32 prescaler;
++};
++
++static void mpfs_rtc_start(struct mpfs_rtc_dev *rtcdev)
++{
++	u32 ctrl;
++
++	ctrl = readl(rtcdev->base + CONTROL_REG);
++	ctrl &= ~(CONTROL_STOP_BIT | CONTROL_START_BIT);
++	ctrl |= CONTROL_START_BIT;
++	writel(ctrl, rtcdev->base + CONTROL_REG);
++}
++
++static void mpfs_rtc_clear_irq(struct mpfs_rtc_dev *rtcdev)
++{
++	u32 val = readl(rtcdev->base + CONTROL_REG);
++
++	val &= ~(CONTROL_ALARM_ON_BIT | CONTROL_STOP_BIT);
++	val |= CONTROL_ALARM_OFF_BIT;
++	writel(val, rtcdev->base + CONTROL_REG);
++	/*
++	 * Ensure that the posted write to the CONTROL_REG register completed before
++	 * returning from this function. Not doing this may result in the interrupt
++	 * only being cleared some time after this function returns.
++	 */
++	(void)readl(rtcdev->base + CONTROL_REG);
++}
++
++static int mpfs_rtc_readtime(struct device *dev, struct rtc_time *tm)
++{
++	struct mpfs_rtc_dev *rtcdev = dev_get_drvdata(dev);
++	u64 time;
++
++	time = ((u64)readl(rtcdev->base + DATETIME_UPPER_REG) & DATETIME_UPPER_MASK) << 32;
++	time |= readl(rtcdev->base + DATETIME_LOWER_REG);
++	rtc_time64_to_tm(time + rtcdev->rtc->range_min, tm);
++
++	return 0;
++}
++
++static int mpfs_rtc_settime(struct device *dev, struct rtc_time *tm)
++{
++	struct mpfs_rtc_dev *rtcdev = dev_get_drvdata(dev);
++	u32 ctrl, prog;
++	u64 time;
++
++	time = rtc_tm_to_time64(tm) - rtcdev->rtc->range_min;
++
++	writel((u32)time, rtcdev->base + DATETIME_LOWER_REG);
++	writel((u32)(time >> 32) & DATETIME_UPPER_MASK, rtcdev->base + DATETIME_UPPER_REG);
++
++	ctrl = readl(rtcdev->base + CONTROL_REG);
++	ctrl &= ~CONTROL_STOP_BIT;
++	ctrl |= CONTROL_UPLOAD_BIT;
++	writel(ctrl, rtcdev->base + CONTROL_REG);
++
++	do {
++		prog = readl(rtcdev->base + CONTROL_REG);
++		prog &= CONTROL_UPLOAD_BIT;
++	} while (prog);
++
++	mpfs_rtc_start(rtcdev);
++
++	return 0;
++}
++
++static int mpfs_rtc_readalarm(struct device *dev, struct rtc_wkalrm *alrm)
++{
++	struct mpfs_rtc_dev *rtcdev = dev_get_drvdata(dev);
++	u32 mode = readl(rtcdev->base + MODE_REG);
++	u64 time;
++
++	mode = readl(rtcdev->base + MODE_REG);
++
++	if (mode & MODE_WAKE_EN)
++		alrm->enabled = true;
++	else
++		alrm->enabled = false;
++
++	time = (u64)readl(rtcdev->base + ALARM_LOWER_REG) << 32;
++	time |= (readl(rtcdev->base + ALARM_UPPER_REG) & ALARM_UPPER_MASK);
++	rtc_time64_to_tm(time + rtcdev->rtc->range_min, &alrm->time);
++
++	return 0;
++}
++
++static int mpfs_rtc_setalarm(struct device *dev, struct rtc_wkalrm *alrm)
++{
++	struct mpfs_rtc_dev *rtcdev = dev_get_drvdata(dev);
++	u32 mode, ctrl;
++	u64 time;
++
++	/* Disable the alarm before updating */
++	ctrl = readl(rtcdev->base + CONTROL_REG);
++	ctrl |= CONTROL_ALARM_OFF_BIT;
++	writel(ctrl, rtcdev->base + CONTROL_REG);
++
++	time = rtc_tm_to_time64(&alrm->time) - rtcdev->rtc->range_min;
++
++	writel((u32)time, rtcdev->base + ALARM_LOWER_REG);
++	writel((u32)(time >> 32) & ALARM_UPPER_MASK, rtcdev->base + ALARM_UPPER_REG);
++
++	/* Bypass compare register in alarm mode */
++	writel(GENMASK(31, 0), rtcdev->base + COMPARE_LOWER_REG);
++	writel(GENMASK(29, 0), rtcdev->base + COMPARE_UPPER_REG);
++
++	/* Configure the RTC to enable the alarm. */
++	ctrl = readl(rtcdev->base + CONTROL_REG);
++	mode = readl(rtcdev->base + MODE_REG);
++	if (alrm->enabled) {
++		mode = MODE_WAKE_EN | MODE_WAKE_CONTINUE;
++		/* Enable the alarm */
++		ctrl &= ~CONTROL_ALARM_OFF_BIT;
++		ctrl |= CONTROL_ALARM_ON_BIT;
++	}
++	ctrl &= ~CONTROL_STOP_BIT;
++	ctrl |= CONTROL_START_BIT;
++	writel(ctrl, rtcdev->base + CONTROL_REG);
++	writel(mode, rtcdev->base + MODE_REG);
++
++	return 0;
++}
++
++static int mpfs_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
++{
++	struct mpfs_rtc_dev *rtcdev = dev_get_drvdata(dev);
++	u32 ctrl;
++
++	ctrl = readl(rtcdev->base + CONTROL_REG);
++	ctrl &= ~(CONTROL_ALARM_ON_BIT | CONTROL_ALARM_OFF_BIT | CONTROL_STOP_BIT);
++
++	if (enabled)
++		ctrl |= CONTROL_ALARM_ON_BIT;
++	else
++		ctrl |= CONTROL_ALARM_OFF_BIT;
++
++	writel(ctrl, rtcdev->base + CONTROL_REG);
++
++	return 0;
++}
++
++static inline struct clk *mpfs_rtc_init_clk(struct device *dev)
++{
++	struct clk *clk;
++	int ret;
++
++	clk = devm_clk_get(dev, "rtc");
++	if (IS_ERR(clk))
++		return clk;
++
++	ret = clk_prepare_enable(clk);
++	if (ret)
++		return ERR_PTR(ret);
++
++	devm_add_action_or_reset(dev, (void (*) (void *))clk_disable_unprepare, clk);
++	return clk;
++}
++
++static irqreturn_t mpfs_rtc_wakeup_irq_handler(int irq, void *d)
++{
++	struct mpfs_rtc_dev *rtcdev = d;
++	unsigned long pending;
++
++	pending = readl(rtcdev->base + CONTROL_REG);
++	pending &= CONTROL_ALARM_ON_BIT;
++	mpfs_rtc_clear_irq(rtcdev);
++
++	rtc_update_irq(rtcdev->rtc, 1, RTC_IRQF | RTC_AF);
++
++	return IRQ_HANDLED;
++}
++
++static const struct rtc_class_ops mpfs_rtc_ops = {
++	.read_time		= mpfs_rtc_readtime,
++	.set_time		= mpfs_rtc_settime,
++	.read_alarm		= mpfs_rtc_readalarm,
++	.set_alarm		= mpfs_rtc_setalarm,
++	.alarm_irq_enable	= mpfs_rtc_alarm_irq_enable,
++};
++
++static int mpfs_rtc_probe(struct platform_device *pdev)
++{
++	struct mpfs_rtc_dev *rtcdev;
++	struct clk *clk;
++	int ret;
++
++	rtcdev = devm_kzalloc(&pdev->dev, sizeof(struct mpfs_rtc_dev), GFP_KERNEL);
++	if (!rtcdev)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, rtcdev);
++
++	rtcdev->rtc = devm_rtc_allocate_device(&pdev->dev);
++	if (IS_ERR(rtcdev->rtc))
++		return PTR_ERR(rtcdev->rtc);
++
++	rtcdev->rtc->ops = &mpfs_rtc_ops;
++
++	/* range is capped by alarm max, lower reg is 31:0 & upper is 10:0 */
++	rtcdev->rtc->range_max = GENMASK_ULL(42, 0);
++
++	clk = mpfs_rtc_init_clk(&pdev->dev);
++	if (IS_ERR(clk))
++		return PTR_ERR(clk);
++
++	rtcdev->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(rtcdev->base)) {
++		dev_dbg(&pdev->dev, "invalid ioremap resources\n");
++		return PTR_ERR(rtcdev->base);
++	}
++
++	rtcdev->wakeup_irq = platform_get_irq(pdev, 0);
++	if (rtcdev->wakeup_irq <= 0) {
++		dev_dbg(&pdev->dev, "could not get wakeup irq\n");
++		return rtcdev->wakeup_irq;
++	}
++	ret = devm_request_irq(&pdev->dev, rtcdev->wakeup_irq, mpfs_rtc_wakeup_irq_handler, 0,
++			       dev_name(&pdev->dev), rtcdev);
++	if (ret) {
++		dev_dbg(&pdev->dev, "could not request wakeup irq\n");
++		return ret;
++	}
++
++	// prescaler hardware adds 1 to reg value
++	rtcdev->prescaler = clk_get_rate(devm_clk_get(&pdev->dev, "rtcref")) - 1;
++
++	if (rtcdev->prescaler > MAX_PRESCALER_COUNT) {
++		dev_dbg(&pdev->dev, "invalid prescaler %d\n", rtcdev->prescaler);
++		return -EPERM;
++	}
++
++	writel(rtcdev->prescaler, rtcdev->base + PRESCALER_REG);
++	dev_info(&pdev->dev, "prescaler set to: 0x%X \r\n", rtcdev->prescaler);
++
++	device_init_wakeup(&pdev->dev, true);
++	ret = dev_pm_set_wake_irq(&pdev->dev, rtcdev->wakeup_irq);
++	if (ret)
++		dev_err(&pdev->dev, "failed to enable irq wake\n");
++
++	return devm_rtc_register_device(rtcdev->rtc);
++}
++
++static int mpfs_rtc_remove(struct platform_device *pdev)
++{
++	mpfs_rtc_alarm_irq_enable(&pdev->dev, 0);
++	device_init_wakeup(&pdev->dev, 0);
++
++	return 0;
++}
++
++static const struct of_device_id mpfs_rtc_of_match[] = {
++	{ .compatible = "microchip,mpfs-rtc" },
++	{ }
++};
++
++MODULE_DEVICE_TABLE(of, mpfs_rtc_of_match);
++
++static struct platform_driver mpfs_rtc_driver = {
++	.probe = mpfs_rtc_probe,
++	.remove = mpfs_rtc_remove,
++	.driver	= {
++		.name = "mpfs_rtc",
++		.of_match_table = mpfs_rtc_of_match,
++	},
++};
++
++module_platform_driver(mpfs_rtc_driver);
++
++MODULE_DESCRIPTION("Real time clock for Microchip Polarfire SoC");
++MODULE_AUTHOR("Daire McNamara <daire.mcnamara@microchip.com>");
++MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
++MODULE_LICENSE("GPL");
 -- 
 2.36.1
 
