@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE00C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 11:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA6AC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 11:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
 	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6MJrW2wXrTZs7qFun7NZnutabeBxGk8iaOVk7Uz+ThE=; b=C65e6rffWFu+ce
-	jgsAOJzLA/ItS0gjtC0EC7FljnqldTo4wUpJi1ZcejTO7GPTcEhZK06/G69I4yCqWy9MHYkAYlX6V
-	GWQUQM7wzjosOt7lp1jbYxjmT1jM7lAu8UmpvY6SGLZ3mFz7WVQUGE37J+l8cuL2150IMZAcTIfgL
-	EeGPJsQdK3McrCwuxSBneEhqpXhdzkJQx11qOA/HqvsUMQWTa+LnIiCcZqOZ5HXFH1cRxREDXf4pW
-	Fbk+T9OwtbujtOyTbpMDJ7rNE2ahVgIc8FrT+zQHdfWfl4f/ZLMzpImTXJ+n7/rWQP9zyMT1UTzms
-	9ZPeHUhuFT4UU0nS0TZQ==;
+	List-Owner; bh=6MJrW2wXrTZs7qFun7NZnutabeBxGk8iaOVk7Uz+ThE=; b=38YqozSpivLdc5
+	7+gLdHs8Tlw/F4QdCB0pWnHVd2LH9HAL9+yY1b0Zy+7K4J5X7KM12FKumBX65v3hPx5g6YSni++WB
+	iC82HdEt4srtbdC73D6w9dHSRrRkxHBC+x4f/4tWLYEG4BSWXQDmtCLGfstSkBikEU44rSBzQmGWA
+	84iqSBghHirow5NhsWD+g/WOewrYRNyyT0tzydQ2p/aP4WFgJshkygm05uSV1iv2xHoAVZ++nZtSO
+	u6PAVNCcECL6iS/8+tatY0fAdztBSejjoQfu1DOUywtM4wjk92R6WpQzvJM22LYb1DY9NyGJBvd1D
+	Jdl3nd0udZ8HmyOf6nBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nokNM-006Twi-DR; Wed, 11 May 2022 11:19:28 +0000
-Received: from out199-10.us.a.mail.aliyun.com ([47.90.199.10])
+	id 1nokS8-006UU5-Qi; Wed, 11 May 2022 11:24:24 +0000
+Received: from out30-43.freemail.mail.aliyun.com ([115.124.30.43])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nokNJ-006Tvl-Gn
- for linux-riscv@lists.infradead.org; Wed, 11 May 2022 11:19:27 +0000
-X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R881e4; CH=green; DM=||false|;
- DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=alimailimapcm10staff010182156082;
- MF=xianting.tian@linux.alibaba.com; NM=1; PH=DS; RN=17; SR=0;
- TI=SMTPD_---0VCw.72d_1652267933; 
+ id 1nokS5-006UT9-Lw
+ for linux-riscv@lists.infradead.org; Wed, 11 May 2022 11:24:23 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R331e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04394;
+ MF=xianting.tian@linux.alibaba.com; NM=1; PH=DS; RN=19; SR=0;
+ TI=SMTPD_---0VCvu-9A_1652268255; 
 Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com
- fp:SMTPD_---0VCw.72d_1652267933) by smtp.aliyun-inc.com(127.0.0.1);
- Wed, 11 May 2022 19:18:54 +0800
+ fp:SMTPD_---0VCvu-9A_1652268255) by smtp.aliyun-inc.com(127.0.0.1);
+ Wed, 11 May 2022 19:24:16 +0800
 From: Xianting Tian <xianting.tian@linux.alibaba.com>
 To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
  akpm@linux-foundation.org, anup@brainfault.org, wangkefeng.wang@huawei.com,
  rppt@kernel.org, alex@ghiti.fr, twd2.me@gmail.com, david@redhat.com,
  seanjc@google.com, petr.pavlu@suse.com, atishp@rivosinc.com
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ guoren@kernel.org, jianghuaming.jhm@alibaba-inc.com,
  Xianting Tian <xianting.tian@linux.alibaba.com>,
  Nick Kossifidis <mick@ics.forth.gr>
 Subject: [PATCH] RISC-V: Remove IORESOURCE_BUSY flag for no-map reserved memory
-Date: Wed, 11 May 2022 19:18:51 +0800
-Message-Id: <20220511111851.559684-1-xianting.tian@linux.alibaba.com>
+Date: Wed, 11 May 2022 19:24:13 +0800
+Message-Id: <20220511112413.559734-1-xianting.tian@linux.alibaba.com>
 X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_041925_860684_8CC7FB72 
-X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-CacheID: sfid-20220511_042421_908654_AEFEF6AF 
+X-CRM114-Status: UNSURE (   8.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
