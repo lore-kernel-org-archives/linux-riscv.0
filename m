@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0962C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 19:29:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F8EC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 19:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gsq9daAEUYZSlnBBekxBEim3QNJLGY6/Y1r1+ObKkdk=; b=x3dIFLV4c4LJDY
-	Z+0f+UD/BIdcoo4ECltM/Bh3KaGxb+/h4TX3NHST58oGOtJ46fpcfTjcoJEC2O4CBrG6aBGIiisa2
-	z1HH7+7LZ9njefKBZN8v3ESY/6yIqGKcWcbevMLga+P9ZK6a4Qu6mIdeWxJMCEnGtmkHDsutyqFYr
-	u0yI4VmjecrAFGg0r5+sY7sHtORv3dzh6O75G0Ye0QYgUvZ4xLbfL0tHI7NvjCFwUMLfYXsBU/w1U
-	39e/C9rP23VviF9dKpBB2op1Xo/Sz3VgeeVrHfqBCuDadhx5F4LKNhOlyrY11/cnKPiauc/vI9Vvs
-	oWBGkC6r4tJgiLX9WQrw==;
+	List-Owner; bh=ERzaKFc59dl819sRIym01VNSByDVb1EftB5JvMthmVE=; b=3amHQrNy9PbZwO
+	iqaZ4jzW8tX7MJCAQ8/ohZQjvoIq2J9PSnOSWilCZSzeW9kPxU6PAsjWOLV2Ph+5W6l0Os0cGpoi4
+	UeuRmNbfTFNV8quTArgV6puYoUb2Vt4W+d36q08GIzdgAsHYIb1NZr/1HL/0/QB5Wgg1yv1M+FDYw
+	jTlyjE0BucGjNKASZOapXvOFCnUe82r1oUWxq/30hxEZZy3IiJrcea5JWUmlZKhWVGpa2iKCYYOaL
+	oZ/MGC9K9wuPXm9V0jWeEU3zK1u2DvseDR6gdLV91WllXzoSVtb3TmQJI4c463tIRLpNk4aXXdQKO
+	wrqMPveude8RF1rt75OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nos1t-008Jad-2X; Wed, 11 May 2022 19:29:49 +0000
+	id 1nos1q-008JZ5-96; Wed, 11 May 2022 19:29:46 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nos1l-008JSy-A4
- for linux-riscv@lists.infradead.org; Wed, 11 May 2022 19:29:44 +0000
+ id 1nos1l-008JSt-A9
+ for linux-riscv@lists.infradead.org; Wed, 11 May 2022 19:29:42 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
  helo=phil.lan)
  by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
  (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nos1g-0004fe-3q; Wed, 11 May 2022 21:29:36 +0200
+ id 1nos1i-0004fe-Fh; Wed, 11 May 2022 21:29:38 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
@@ -43,16 +43,17 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
  cmuellner@linux.com, philipp.tomsich@vrull.eu,
  Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH 03/12] riscv: implement module alternatives
-Date: Wed, 11 May 2022 21:29:12 +0200
-Message-Id: <20220511192921.2223629-4-heiko@sntech.de>
+Subject: [PATCH 06/12] riscv: prevent compressed instructions in alternatives
+Date: Wed, 11 May 2022 21:29:15 +0200
+Message-Id: <20220511192921.2223629-7-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220511192921.2223629-1-heiko@sntech.de>
 References: <20220511192921.2223629-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_122941_508166_FD523B7E 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20220511_122941_497459_287E79E3 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,178 +70,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This allows alternatives to also be applied when loading modules
-and follows the implementation of other architectures (e.g. arm64).
+Instructions are opportunistically compressed by the RISC-V assembler
+when possible, but in alternatives-blocks both the old and new content
+need to be the same size, so having the toolchain do somewhat random
+optimizations will cause strange side-effects like
+"attempt to move .org backwards" compile-time errors.
+
+Already a simple "and" used in alternatives assembly will cause these
+mismatched code sizes.
+
+So prevent compressed instructions to be generated in alternatives-
+code and use option-push and -pop to only limit this to the relevant
+code blocks
 
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 Reviewed-by: Philipp Tomsich <philipp.tomsich@vrull.eu>
 ---
- arch/riscv/errata/sifive/errata.c    | 14 +++++++++-----
- arch/riscv/include/asm/alternative.h |  3 +++
- arch/riscv/kernel/alternative.c      | 18 +++++++++++++----
- arch/riscv/kernel/module.c           | 29 ++++++++++++++++++++++++++++
- 4 files changed, 55 insertions(+), 9 deletions(-)
+ arch/riscv/include/asm/alternative-macros.h | 24 +++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-index 4fe03ac41fd7..3e39587a49dc 100644
---- a/arch/riscv/errata/sifive/errata.c
-+++ b/arch/riscv/errata/sifive/errata.c
-@@ -4,6 +4,7 @@
-  */
+diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+index 8c2bbc7bbe50..e13b1f6bb400 100644
+--- a/arch/riscv/include/asm/alternative-macros.h
++++ b/arch/riscv/include/asm/alternative-macros.h
+@@ -21,7 +21,11 @@
+ 	.popsection
+ 	.subsection 1
+ 888 :
++	.option push
++	.option norvc
++	.option norelax
+ 	\new_c
++	.option pop
+ 889 :
+ 	.previous
+ 	.org    . - (889b - 888b) + (887b - 886b)
+@@ -31,7 +35,11 @@
  
- #include <linux/kernel.h>
-+#include <linux/module.h>
- #include <linux/string.h>
- #include <linux/bug.h>
- #include <asm/patch.h>
-@@ -54,7 +55,8 @@ static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
- 	},
- };
+ .macro __ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, enable
+ 886 :
++	.option push
++	.option norvc
++	.option norelax
+ 	\old_c
++	.option pop
+ 887 :
+ 	ALT_NEW_CONTENT \vendor_id, \errata_id, \enable, \new_c
+ .endm
+@@ -42,7 +50,11 @@
+ .macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
+ 				  new_c_2, vendor_id_2, errata_id_2, enable_2
+ 886 :
++	.option push
++	.option norvc
++	.option norelax
+ 	\old_c
++	.option pop
+ 887 :
+ 	ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
+ 	ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
+@@ -76,7 +88,11 @@
+ 	".popsection\n"							\
+ 	".subsection 1\n"						\
+ 	"888 :\n"							\
++	".option push\n"						\
++	".option norvc\n"						\
++	".option norelax\n"						\
+ 	new_c "\n"							\
++	".option pop\n"							\
+ 	"889 :\n"							\
+ 	".previous\n"							\
+ 	".org	. - (887b - 886b) + (889b - 888b)\n"			\
+@@ -85,7 +101,11 @@
  
--static u32 __init sifive_errata_probe(unsigned long archid, unsigned long impid)
-+static u32 __init_or_module sifive_errata_probe(unsigned long archid,
-+						unsigned long impid)
- {
- 	int idx;
- 	u32 cpu_req_errata = 0;
-@@ -66,7 +68,7 @@ static u32 __init sifive_errata_probe(unsigned long archid, unsigned long impid)
- 	return cpu_req_errata;
- }
+ #define __ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, enable)	\
+ 	"886 :\n"							\
++	".option push\n"						\
++	".option norvc\n"						\
++	".option norelax\n"						\
+ 	old_c "\n"							\
++	".option pop\n"							\
+ 	"887 :\n"							\
+ 	ALT_NEW_CONTENT(vendor_id, errata_id, enable, new_c)
  
--static void __init warn_miss_errata(u32 miss_errata)
-+static void __init_or_module warn_miss_errata(u32 miss_errata)
- {
- 	int i;
- 
-@@ -79,9 +81,11 @@ static void __init warn_miss_errata(u32 miss_errata)
- 	pr_warn("----------------------------------------------------------------\n");
- }
- 
--void __init sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
--				     unsigned long archid, unsigned long impid,
--				     unsigned int stage)
-+void __init_or_module sifive_errata_patch_func(struct alt_entry *begin,
-+					       struct alt_entry *end,
-+					       unsigned long archid,
-+					       unsigned long impid,
-+					       unsigned int stage)
- {
- 	struct alt_entry *alt;
- 	u32 cpu_req_errata = sifive_errata_probe(archid, impid);
-diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-index 0ff550667e94..0859529ff08e 100644
---- a/arch/riscv/include/asm/alternative.h
-+++ b/arch/riscv/include/asm/alternative.h
-@@ -20,8 +20,10 @@
- #include <asm/hwcap.h>
- 
- #define RISCV_ALTERNATIVES_BOOT		0 /* alternatives applied during regular boot */
-+#define RISCV_ALTERNATIVES_MODULE	1 /* alternatives applied during module-init */
- 
- void __init apply_boot_alternatives(void);
-+void apply_module_alternatives(void *start, size_t length);
- 
- struct alt_entry {
- 	void *old_ptr;		 /* address of original instruciton or data  */
-@@ -43,6 +45,7 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
- #else /* CONFIG_RISCV_ALTERNATIVE */
- 
- static inline void apply_boot_alternatives(void) { }
-+static inline void apply_module_alternatives(void *start, size_t length) { }
- 
- #endif /* CONFIG_RISCV_ALTERNATIVE */
- 
-diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-index 02db62f55bac..223770b3945c 100644
---- a/arch/riscv/kernel/alternative.c
-+++ b/arch/riscv/kernel/alternative.c
-@@ -7,6 +7,7 @@
-  */
- 
- #include <linux/init.h>
-+#include <linux/module.h>
- #include <linux/cpu.h>
- #include <linux/uaccess.h>
- #include <asm/alternative.h>
-@@ -23,7 +24,7 @@ static struct cpu_manufacturer_info_t {
- 
- static void (*vendor_patch_func)(struct alt_entry *begin, struct alt_entry *end,
- 				 unsigned long archid, unsigned long impid,
--				 unsigned int stage) __initdata;
-+				 unsigned int stage) __initdata_or_module;
- 
- static inline void __init riscv_fill_cpu_mfr_info(void)
- {
-@@ -58,9 +59,9 @@ static void __init init_alternative(void)
-  * a feature detect on the boot CPU). No need to worry about other CPUs
-  * here.
-  */
--static void __init _apply_alternatives(struct alt_entry *begin,
--				       struct alt_entry *end,
--				       unsigned int stage)
-+static void __init_or_module _apply_alternatives(struct alt_entry *begin,
-+						 struct alt_entry *end,
-+						 unsigned int stage)
- {
- 	if (!vendor_patch_func)
- 		return;
-@@ -81,3 +82,12 @@ void __init apply_boot_alternatives(void)
- 			    (struct alt_entry *)__alt_end,
- 			    RISCV_ALTERNATIVES_BOOT);
- }
-+
-+#ifdef CONFIG_MODULES
-+void apply_module_alternatives(void *start, size_t length)
-+{
-+	_apply_alternatives((struct alt_entry *)start,
-+			    (struct alt_entry *)(start + length),
-+			    RISCV_ALTERNATIVES_MODULE);
-+}
-+#endif
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index c29cef90d1dd..91fe16bfaa07 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -11,6 +11,7 @@
- #include <linux/vmalloc.h>
- #include <linux/sizes.h>
- #include <linux/pgtable.h>
-+#include <asm/alternative.h>
- #include <asm/sections.h>
- 
- /*
-@@ -427,3 +428,31 @@ void *module_alloc(unsigned long size)
- 				    __builtin_return_address(0));
- }
- #endif
-+
-+static const Elf_Shdr *find_section(const Elf_Ehdr *hdr,
-+				    const Elf_Shdr *sechdrs,
-+				    const char *name)
-+{
-+	const Elf_Shdr *s, *se;
-+	const char *secstrs = (void *)hdr + sechdrs[hdr->e_shstrndx].sh_offset;
-+
-+	for (s = sechdrs, se = sechdrs + hdr->e_shnum; s < se; s++) {
-+		if (strcmp(name, secstrs + s->sh_name) == 0)
-+			return s;
-+	}
-+
-+	return NULL;
-+}
-+
-+int module_finalize(const Elf_Ehdr *hdr,
-+		    const Elf_Shdr *sechdrs,
-+		    struct module *me)
-+{
-+	const Elf_Shdr *s;
-+
-+	s = find_section(hdr, sechdrs, ".alternative");
-+	if (s)
-+		apply_module_alternatives((void *)s->sh_addr, s->sh_size);
-+
-+	return 0;
-+}
+@@ -97,7 +117,11 @@
+ 				   new_c_2, vendor_id_2, errata_id_2,	\
+ 					enable_2)			\
+ 	"886 :\n"							\
++	".option push\n"						\
++	".option norvc\n"						\
++	".option norelax\n"						\
+ 	old_c "\n"							\
++	".option pop\n"							\
+ 	"887 :\n"							\
+ 	ALT_NEW_CONTENT(vendor_id_1, errata_id_1, enable_1, new_c_1)	\
+ 	ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
 -- 
 2.35.1
 
