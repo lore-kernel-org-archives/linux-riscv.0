@@ -4,70 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B85FC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 08:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8741BC433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 08:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/UeZMixt8HzHys/Rjo8PPurmN8LSb5f2ZguzlNLSD1E=; b=ZNg/xlLufluItv
-	CdYvWrtLSxmXNkREr/WoXTAxC1Yzt6WJSiQ0tn7QKFZ8zyExTuUmTDdSy5Dmalh4HaZ85ImPpbaYw
-	jpG3E8yaDHkW6oRhRtq0VzD3PECU96ftDb/5Ro/UK4KNJzoH/6b6m/0y5ePMuxrp2iZeRJLjQ94Z7
-	eo616NV3oWhtbr1Vz3PXq8983T4mrrYBeuBWJPD/Y6IFcpcr6rqpMjCsR+no4RypsRhGaVDzoEjWP
-	YjbhYvWCG7tgTEDI+s+yH0Q5w3x3u/hkZy3JhOh869iLitxqPTK4s/yIaU4dWP99ngLXXvAvcG+0j
-	drlA5VRGHEU/6J2xgqgA==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rgvpqeMXFXudxmhUhj5d2rYTiRoFkMt9S0RPV2x5Zms=; b=gLJJnCa0GLzkNU
+	SBVwSuf7QedurL2UoBvqKLKsXaKzu/J+qXhpKrHrpA2Mj8IDiiXiArjGvAuapGxKW7vPFcnn7IDPJ
+	G+cTJg2AdpueeBKPQZIF1igJs6lyi2JAlceVSd1XXi3lV5U89fh6TTf8spZNX2+ebJ2rYPA61Gpsi
+	X3J3IW+M40H6q8Zmhx25xQHosoBqD14wjesp1TQOxJR/kVC5+GIG7lW3f3QeFXJD68w+lMBMIBYh2
+	Hvx7K8AuUuOh7zrCkPDrVAOeONIkZy5ixfkgPrLQYLZabrtpWpVrhZ8d5EMu5WI5PaA5TLMb8ps5M
+	47uj58hH204TJ723lXCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nohky-005xH1-AT; Wed, 11 May 2022 08:31:40 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1nohl1-005xOu-V1; Wed, 11 May 2022 08:31:43 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nohks-005xAv-Kb
- for linux-riscv@lists.infradead.org; Wed, 11 May 2022 08:31:36 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d17so1243459plg.0
- for <linux-riscv@lists.infradead.org>; Wed, 11 May 2022 01:31:29 -0700 (PDT)
+ id 1nohkv-005xCf-T8
+ for linux-riscv@lists.infradead.org; Wed, 11 May 2022 08:31:39 +0000
+Received: by mail-pf1-x430.google.com with SMTP id v11so1368701pff.6
+ for <linux-riscv@lists.infradead.org>; Wed, 11 May 2022 01:31:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:subject:date:message-id;
- bh=flCSwADTnhHibNznOKxkN5YZDvqkcXjACBh8CD0ghHc=;
- b=c2osYj1m09jU96EtoXunit6TMalPatArjsm29Sap/I7Mx1ZoKNUk3g8oXTpiovCJhu
- zsizXHjJpW8FvWuZIwH7mhIusngtkqmFw8210hqoL23pf4zciDzn2ll5v2OqcZO8X0BB
- sZo/5JOyTBDs1X8Kzsid5z95MthVmbKGnwg2RdEYaBjYGkh9NmNzKzz3En5d7CQllXPd
- NmkcjYQIk9ulN9L65xj00EJ5k8QiFVWS5vhl2T7F1sdMZgXDmCBp3d9KP1YMI3xOZARZ
- sCs+76g8F+N4AOz8zt6yFQUvCxWaHUm+OgZAQ5R7qPI87GeHsDGLu6yTZRzBYJxp7fFq
- 3LCQ==
+ h=from:to:subject:date:message-id:in-reply-to:references:in-reply-to
+ :references; bh=Enn39BPEC4WUCYgELDojANydnjOiUN1oJPfCEc+x7uM=;
+ b=Gp1gHM2j10a2iPLDhakfJsNgJKi88y9NRLaUJBNlnW78v2BGEQ6XPJOGBfu8m0uRGL
+ ibNSkQX5XwNmXbNfZ/MftsJHoyONfRJ4hQWYcLl30YYlJYJ+Xg7pEcTzQDyCeTdhUTHh
+ DWq8wd8Ezo9GwqLFMGv0oTzGHGR98VaxEGfsgKtehrYnB9nk3Hg1QLDYQmB7C8nyDlUU
+ 6XHZsSNESqI2r/wwwmz8exjfeW12g77zkQUDVncUsUKqXO2Jtg9tihNhKjZYCY9Dtqij
+ 0/WesLi+oyRtzIZUrxVWn8YdkRHR/wbZwgGn1vGnUclXV7MdLcIijK0Qp6+gxp8U+pnM
+ xenw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:subject:date:message-id;
- bh=flCSwADTnhHibNznOKxkN5YZDvqkcXjACBh8CD0ghHc=;
- b=WcsE+wLPNX5M42K5XqdlX3iyXsxYaqvYWVYDrtszZ/hG/r1jtaZxga7ZM/6Rd7cdtI
- MjJwryrOlGyhttdQvw4d98OM6Ua+RQTeVepK3bR2nqVyPS7Esx27NskbiWLgsoyAlUMO
- FwaWB+ZKL7gA75CjD/4WjqOV009u/E04/jHb5sENhzyWn8j4ZHkjZg1HvOEpMJCOMsWQ
- +fwh+uvu/ODl6mTCsOlko1Yd+t4dp9ZwYZJzRq65RTf7flcXJ677gpTeGcmI1qLVU5Ox
- sAhtQ4BVORgS1TcqohErgW3+M4k8gjYVOjkJ/E5JfO82UWWVoKpUmKa5rMSMoydxazj+
- KUHw==
-X-Gm-Message-State: AOAM530ZkCZttgkh1+Z1EQAiPqYnGhOitxirwK4oSc68gegFsl5x45mq
- XJFota+yfe2nz6Z1glIztVA47TxEfZAgzw==
-X-Google-Smtp-Source: ABdhPJwAxYdeKz6Lln3e1nl9r6NOr3gEH4mYsWwyN1oK5dEgNEn0osm0wxsWMnpjsrjH34WM1Ciqsg==
-X-Received: by 2002:a17:90b:3b46:b0:1dc:b314:52e6 with SMTP id
- ot6-20020a17090b3b4600b001dcb31452e6mr4192220pjb.134.1652257889377; 
- Wed, 11 May 2022 01:31:29 -0700 (PDT)
+ h=x-gm-message-state:from:to:subject:date:message-id:in-reply-to
+ :references:in-reply-to:references;
+ bh=Enn39BPEC4WUCYgELDojANydnjOiUN1oJPfCEc+x7uM=;
+ b=La0kY87DlcnkR8Cf4bAlBqLXVVdDdoWAsttxcRGJVj+Ik0Uiz8UWd666T1bjmzDB6G
+ yDHnadanCjo4ffEfi8bTdXRMlzRlWLpSZ7xRyEt0t34rq3Rph7x4iP+OA5NvzDtYYRSO
+ KGjU9ZLHW4diqplvFimt8VWxqqLyeQ4Zfu1HXMK6/EP70JISIsY9F2B8EcLfKQb/HPwu
+ tv6HL/ubJtMaIdAqP/HxcY+2xk1kK7YQknNHrI6sZFjSmu04Qqi9UaDUlrk05A9/zfyd
+ k/AfzTpotMR6NVZoxOuNwr14QSxIoFfwy5XabNVSTc3BHSOFE/ZXu+RdrmU6A5yiy1Hg
+ HjJQ==
+X-Gm-Message-State: AOAM530FdkL/GgxBlY3GX7sUd/vh5IqQ3gz4NVHVb0uxfttI/0Atj5la
+ 4OWZP9Xq00AUXDTQPIvdkrIDhQ==
+X-Google-Smtp-Source: ABdhPJzLN/nX3jESsXExXLfGAfX6dzBT5Ut7+OTmuducCoEMrkV+w/HchNMuYIp4KSucZL/AdZONwQ==
+X-Received: by 2002:a05:6a00:2484:b0:510:7f57:30b7 with SMTP id
+ c4-20020a056a00248400b005107f5730b7mr23823891pfv.70.1652257894092; 
+ Wed, 11 May 2022 01:31:34 -0700 (PDT)
 Received: from localhost.localdomain (59-124-168-89.hinet-ip.hinet.net.
  [59.124.168.89]) by smtp.gmail.com with ESMTPSA id
- m10-20020aa7900a000000b0050dc7628170sm1020202pfo.74.2022.05.11.01.31.28
+ m10-20020aa7900a000000b0050dc7628170sm1020202pfo.74.2022.05.11.01.31.32
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 11 May 2022 01:31:29 -0700 (PDT)
+ Wed, 11 May 2022 01:31:33 -0700 (PDT)
 From: Greentime Hu <greentime.hu@sifive.com>
 To: palmer@dabbelt.com, paul.walmsley@sifive.com,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  aou@eecs.berkeley.edu
-Subject: [PATCH v10 00/16] riscv: Add vector ISA support
-Date: Wed, 11 May 2022 08:31:10 +0000
-Message-Id: <cover.1652257230.git.greentime.hu@sifive.com>
+Subject: [PATCH v10 03/16] riscv: Add new csr defines related to vector
+ extension
+Date: Wed, 11 May 2022 08:31:13 +0000
+Message-Id: <5b13445101fcdef8706aaba6e5a480e31ae56e03.1652257230.git.greentime.hu@sifive.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <cover.1652257230.git.greentime.hu@sifive.com>
+References: <cover.1652257230.git.greentime.hu@sifive.com>
+In-Reply-To: <cover.1652257230.git.greentime.hu@sifive.com>
+References: <cover.1652257230.git.greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_013134_769752_C1F5A155 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20220511_013137_985659_9F561391 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,175 +92,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset is implemented based on vector 1.0 spec to add vector support
-in riscv Linux kernel. There are some assumptions for this implementations.
+Follow the riscv vector spec to add new csr numbers.
 
-1. We assume all harts has the same ISA in the system.
-2. We use vector like FPU in some ways instead of using vector like a
-   specific IP.
-3. We disable vector in kernel space by default unless kernel uses
-   kernel mode vector kernel_rvv_begin()/kernel_rvv_end().
-4. We detect "riscv,isa" to determine whether vector is support or not.
-
-We defined a new structure __riscv_v_state in struct thread_struct to save
-/restore the vector related registers. It is used for both kernel space and
-user space.
-
- - In kernel space, the datap pointer in __riscv_v_state will be allocated
-   to save vector registers.
- - In user space,
-        - In signal handler of user space, datap will point to the address
-          of the __riscv_v_state data structure to save vector registers
-          in stack. We also create a __reserved[] array in sigcontext for
-          future extensions.
-        - In ptrace, the data will be put in ubuf in which we use
-          riscv_vr_get()/riscv_vr_set() to get or set the
-          __riscv_v_state data structure from/to it, datap pointer
-          would be zeroed and vector registers will be copied to the
-          address right after the __riscv_v_state structure in ubuf.
-
-This patchset also adds support for kernel mode vector, kernel XOR
-implementation with vector ISA and includes several bug fixes and code
-refinement.
-
-This patchset is rebased to v5.18-rc6 and it is tested by running several
-vector programs simultaneously. It also can get the correct ucontext_t in
-signal handler and restore correct context after sigreturn. It is also
-tested with ptrace() syscall to use PTRACE_GETREGSET/PTRACE_SETREGSET to
-get/set the vector registers.
-
-TODO
-1. Refine the __riscv_v_state allocation in start_thread()
-2. Refine the vector context switching functions by lazy save/restore
-3. Add AMP support. To support harts with different ISA
-
- [1] https://github.com/riscv/riscv-v-spec/blob/master/v-spec.adoc
-
+[guoren@linux.alibaba.com: first porting for new vector related csr]
+Acked-by: Guo Ren <guoren@kernel.org>
+Co-developed-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
-Chnagelog V10
- - Rebase to v5.18-rc6
- - Merge several patches
- - Refine codes
- - Fix bugs
- - Add kvm vector support
+ arch/riscv/include/asm/csr.h | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-Changelog V9
- - Rebase to v5.15
- - Merge several patches
- - Refine codes
- - Fix a kernel panic issue
-
-Changelog V8
- - Rebase to v5.14
- - Refine struct __riscv_v_state with struct __riscv_ctx_hdr
- - Refine has_vector into a static key
- - Defined __reserved space in struct sigcontext for vector and future extensions
-
-Changelog V7
- - Add support for kernel mode vector
- - Add vector extension XOR implementation
- - Optimize task switch codes of vector
- - Allocate space for vector registers in start_thread()
- - Fix an illegal instruction exception when accessing vlenb
- - Optimize vector registers initialization
- - Initialize vector registers with proper vsetvli then it can work normally
- - Refine ptrace porting due to generic API changed
- - Code clean up
-
-Changelog V6
- - Replace vle.v/vse.v instructions with vle8.v/vse8.v based on 0.9 spec
- - Add comments based on mailinglist feedback
- - Fix rv32 build error
-
-Changelog V5
- - Using regset_size() correctly in generic ptrace
- - Fix the ptrace porting
- - Fix compile warning
-
-Changelog V4
- - Support dynamic vlen
- - Fix bugs: lazy save/resotre, not saving vtype
- - Update VS bit offset based on latest vector spec
- - Add new vector csr based on latest vector spec
- - Code refine and removed unused macros
-
-Changelog V3
- - Rebase linux-5.6-rc3 and tested with qemu
- - Seperate patches with Anup's advice
- - Give out a ABI puzzle with unlimited vlen
-
-Changelog V2
- - Fixup typo "vecotr, fstate_save->vstate_save".
- - Fixup wrong saved registers' length in vector.S.
- - Seperate unrelated patches from this one.
-
-Greentime Hu (9):
-  riscv: Add new csr defines related to vector extension
-  riscv: Add has_vector/riscv_vsize to save vector features.
-  riscv: Add vector struct and assembler definitions
-  riscv: Add task switch support for vector
-  riscv: Add ptrace vector support
-  riscv: Add sigcontext save/restore for vector
-  riscv: Add support for kernel mode vector
-  riscv: Add vector extension XOR implementation
-  riscv: Fix a kernel panic issue if $s2 is set to a specific value
-    before entering Linux
-
-Guo Ren (4):
-  riscv: Rename __switch_to_aux -> fpu
-  riscv: Extending cpufeature.c to detect V-extension
-  riscv: Add vector feature to compile
-  riscv: Reset vector register
-
-Vincent Chen (3):
-  riscv: signal: Report signal frame size to userspace via auxv
-  riscv: Add V extension to KVM ISA allow list
-  riscv: KVM: Add vector lazy save/restore support
-
- arch/riscv/Kconfig                       |  10 ++
- arch/riscv/Makefile                      |   1 +
- arch/riscv/include/asm/csr.h             |  16 ++-
- arch/riscv/include/asm/elf.h             |  41 +++---
- arch/riscv/include/asm/hwcap.h           |   1 +
- arch/riscv/include/asm/kvm_host.h        |   2 +
- arch/riscv/include/asm/kvm_vcpu_vector.h |  65 +++++++++
- arch/riscv/include/asm/processor.h       |   3 +
- arch/riscv/include/asm/switch_to.h       |  72 +++++++++-
- arch/riscv/include/asm/vector.h          |  17 +++
- arch/riscv/include/asm/xor.h             |  82 +++++++++++
- arch/riscv/include/uapi/asm/auxvec.h     |   1 +
- arch/riscv/include/uapi/asm/hwcap.h      |   1 +
- arch/riscv/include/uapi/asm/kvm.h        |   6 +
- arch/riscv/include/uapi/asm/ptrace.h     |  23 +++
- arch/riscv/include/uapi/asm/sigcontext.h |  24 ++++
- arch/riscv/kernel/Makefile               |   2 +
- arch/riscv/kernel/asm-offsets.c          |  15 ++
- arch/riscv/kernel/cpufeature.c           |  18 +++
- arch/riscv/kernel/entry.S                |   6 +-
- arch/riscv/kernel/head.S                 |  37 ++++-
- arch/riscv/kernel/kernel_mode_vector.c   | 132 +++++++++++++++++
- arch/riscv/kernel/process.c              |  43 ++++++
- arch/riscv/kernel/ptrace.c               |  71 ++++++++++
- arch/riscv/kernel/riscv_ksyms.c          |   6 +
- arch/riscv/kernel/setup.c                |   4 +
- arch/riscv/kernel/signal.c               | 173 ++++++++++++++++++++++-
- arch/riscv/kernel/vector.S               | 102 +++++++++++++
- arch/riscv/kvm/Makefile                  |   1 +
- arch/riscv/kvm/vcpu.c                    |  33 ++++-
- arch/riscv/kvm/vcpu_switch.S             |  69 +++++++++
- arch/riscv/kvm/vcpu_vector.c             | 173 +++++++++++++++++++++++
- arch/riscv/lib/Makefile                  |   1 +
- arch/riscv/lib/xor.S                     |  81 +++++++++++
- include/uapi/linux/elf.h                 |   1 +
- 35 files changed, 1298 insertions(+), 35 deletions(-)
- create mode 100644 arch/riscv/include/asm/kvm_vcpu_vector.h
- create mode 100644 arch/riscv/include/asm/vector.h
- create mode 100644 arch/riscv/include/asm/xor.h
- create mode 100644 arch/riscv/kernel/kernel_mode_vector.c
- create mode 100644 arch/riscv/kernel/vector.S
- create mode 100644 arch/riscv/kvm/vcpu_vector.c
- create mode 100644 arch/riscv/lib/xor.S
-
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index e935f27b10fd..ac95578a2908 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -24,6 +24,12 @@
+ #define SR_FS_CLEAN	_AC(0x00004000, UL)
+ #define SR_FS_DIRTY	_AC(0x00006000, UL)
+ 
++#define SR_VS           _AC(0x00000600, UL) /* Vector Status */
++#define SR_VS_OFF       _AC(0x00000000, UL)
++#define SR_VS_INITIAL   _AC(0x00000200, UL)
++#define SR_VS_CLEAN     _AC(0x00000400, UL)
++#define SR_VS_DIRTY     _AC(0x00000600, UL)
++
+ #define SR_XS		_AC(0x00018000, UL) /* Extension Status */
+ #define SR_XS_OFF	_AC(0x00000000, UL)
+ #define SR_XS_INITIAL	_AC(0x00008000, UL)
+@@ -31,9 +37,9 @@
+ #define SR_XS_DIRTY	_AC(0x00018000, UL)
+ 
+ #ifndef CONFIG_64BIT
+-#define SR_SD		_AC(0x80000000, UL) /* FS/XS dirty */
++#define SR_SD		_AC(0x80000000, UL) /* FS/VS/XS dirty */
+ #else
+-#define SR_SD		_AC(0x8000000000000000, UL) /* FS/XS dirty */
++#define SR_SD		_AC(0x8000000000000000, UL) /* FS/VS/XS dirty */
+ #endif
+ 
+ /* SATP flags */
+@@ -268,6 +274,12 @@
+ #define CSR_MIMPID		0xf13
+ #define CSR_MHARTID		0xf14
+ 
++#define CSR_VSTART		0x8
++#define CSR_VCSR		0xf
++#define CSR_VL			0xc20
++#define CSR_VTYPE		0xc21
++#define CSR_VLENB		0xc22
++
+ #ifdef CONFIG_RISCV_M_MODE
+ # define CSR_STATUS	CSR_MSTATUS
+ # define CSR_IE		CSR_MIE
 -- 
 2.17.1
 
