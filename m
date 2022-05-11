@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEEDC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 17:29:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D450EC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 18:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9KBet9UKJ19yR8XAN2ueo6YW1hvorUpole9ggKn0hPE=; b=oYIEIC563DwUfz
-	1uCEyhg7+8CLVz/GOTL9als5awBZfrkD3ayJRj795L6ml8TC6acbyqj2c6jnmjphqqS34e8souw3L
-	1Up3xzY6YhpAQnTxir/haazmGXXhIpWK6A2MEy1jY01abKfNUot97idYQVv7xFXsuDevmiSWd6+jm
-	rdEl67QgAPRHs1XdPYnQotkJ3iBJXUp/eA3Gl58FsGzN5H3YTC3+USaDJDewk5AOh3E6ugj4xWXA9
-	r7HP6xW2IFFOo/yj8B6L++ezzHEl+wzpzRUqXUFCZPUqT/jcSlt6G3vSyceO727S7TOcWJASjo2mk
-	2ASTAE2TMRBdB4k8rADA==;
+	List-Owner; bh=Lu+nwHyeJ2wrhfjoNpPoIH4mZcuN9HR388KHQtTZhWw=; b=xk8hH8GZf2Zj8Q
+	+HY5mp7SepXMQMlXFVgUKE7jYmL7QkxGOiiC9OLn6oeBMJ9gltR0iBgWq97iR8641aTK9odWHQT2V
+	tS7/gBnVEkRTStK2wBtmpGA9H+n0337lLc9pgZ//nA7vG9JyNlK3MooF8ED8jzWs3XTi88Zi6csuR
+	a9xT3UQtsPNt7e9n4yauyuc99D2VMEf3fxSu19b1FkM5MttFMOijK2fqFmqE2N+mvfqI2sFO15KLO
+	UXcKyulTtw45m0icbwnNwICq6Bi91q+argLVQgkT0a9brN+6grutM7ElSOjd6zv42ntD3WN4lQIwp
+	8KHnWtHQUpiQm61arCNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noq9d-007xsd-2m; Wed, 11 May 2022 17:29:41 +0000
-Received: from mga11.intel.com ([192.55.52.93])
+	id 1norF9-008D3W-34; Wed, 11 May 2022 18:39:27 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noq9a-007xrz-A4
- for linux-riscv@lists.infradead.org; Wed, 11 May 2022 17:29:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
- d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
- t=1652290178; x=1683826178;
- h=date:from:to:cc:subject:message-id:references:
- mime-version:in-reply-to;
- bh=bhnfCNtIOXA3pWntWcwwVfFEZU9diSfyJB8QnfCwTDI=;
- b=F6wj1X4Ph8Pct3P8/Zm3373Nrb3RTPkbYU2spfbZoPWMZXmNTiFF2HC0
- DlLhSno0C8GODLsmJKT3Zm9E0qXXrArgc6TEVzUccOnHYzOjscPB2VAsh
- 7HWQfsb2wQkT3GtsB8ukWGCUm/LfyN2ZEqH6P6UW8HEfm4q8mvHW5bH0p
- pUxI4v8r6a0THPW1/6wNkJPphb8jJgOBXgvfIs6OcxCf3RDDuI/IR+oZL
- 7r8OAnJTZOEdt1hmtwiLZSLxBOeCZDWirCjQkGBSQ8Cz9gwhw3OX6+SDh
- DBIiteMaX+xXEali00ljSO+BYk/b+tX7xDMRDJ9gosYrZ/rYnUC2Iq0O+ A==;
-X-IronPort-AV: E=McAfee;i="6400,9594,10344"; a="267350650"
-X-IronPort-AV: E=Sophos;i="5.91,217,1647327600"; d="scan'208";a="267350650"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
- by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
- 11 May 2022 10:29:03 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.91,217,1647327600"; d="scan'208";a="658250318"
-Received: from lkp-server01.sh.intel.com (HELO 5056e131ad90) ([10.239.97.150])
- by FMSMGA003.fm.intel.com with ESMTP; 11 May 2022 10:29:01 -0700
-Received: from kbuild by 5056e131ad90 with local (Exim 4.95)
- (envelope-from <lkp@intel.com>) id 1noq8z-000JMm-9E;
- Wed, 11 May 2022 17:29:01 +0000
-Date: Thu, 12 May 2022 01:28:34 +0800
-From: kernel test robot <lkp@intel.com>
-To: Greentime Hu <greentime.hu@sifive.com>, palmer@dabbelt.com,
- paul.walmsley@sifive.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, aou@eecs.berkeley.edu
-Cc: llvm@lists.linux.dev, kbuild-all@lists.01.org
-Subject: Re: [PATCH v10 08/16] riscv: Add task switch support for vector
-Message-ID: <202205120146.F7wGCoud-lkp@intel.com>
-References: <3f544b952369e55f72a8771d0bec387c2ff49ae0.1652257230.git.greentime.hu@sifive.com>
+ id 1norF5-008D2F-O9
+ for linux-riscv@lists.infradead.org; Wed, 11 May 2022 18:39:25 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id u23so5123656lfc.1
+ for <linux-riscv@lists.infradead.org>; Wed, 11 May 2022 11:39:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=WZrrRWWnKYCGWmQ+Q5VAgBLIrXxu/TL0XFvGr+F6p4Q=;
+ b=VHJwVCB1dKro4DgAW7K4W6tBjY8N+M80NYTT5vBdxstE2C8oefPBk7hXLGmpUoYx0+
+ N8vMUDZz7WPoul0qiH2DEuoCgIgVYYU7hCp+dyoOzEwXNoyLZdnw8Zz/PCOlj6jC5wWR
+ 6XbHmTeg1/3e2tMLGDNHUVUY75gHKQLw8AYg1exA4BDNB9izH7rKBR3M48fofh9pIKY7
+ qDPc3b3epetEmOrFCqn1D9mnvwbONUi18UjWmQujxn+99DfWCH9K60F03FX3Dwwld94e
+ O92vX57H/RPsvDl8PgRVn84qkdMJd9IhMaKHH28G6vrZsImk1SjiOVclJCNa8Cug8Xr3
+ fP7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=WZrrRWWnKYCGWmQ+Q5VAgBLIrXxu/TL0XFvGr+F6p4Q=;
+ b=Gu89jLXQ8YnyqPFF5IL01qYcS4p9qRvHddOzJcTnaNsYb1SJCSHKQQXcsOH/opCSGq
+ IjEBlJJHvnriNktCq1gyFEKjA4pKQFaOBCt5897i7K1l3xU91wlfNI65iDTKhVmGheFU
+ 5IxuoxxUWhCX1ScIn94oy5ymJq9yuTe5RZRvu2EfCPrXLwlXg2oHiOPEtDxSpdT+pBrp
+ UcinzE0lfEgGDuk786zigCaFWFLRFkjrwT/KbDlGeuu44wxneBQg75tqLAP1I+MaSyzV
+ hCZPGxqyCkVUDlrhV+9B4qNJNn0teVAl3X/qYvUhhwhdcoM8HT01fa+ZxJcVPeVqnp80
+ XzsQ==
+X-Gm-Message-State: AOAM530wL6O3fmuFq1MDFpLuYFH5Xi7WoVZ8VJ8yDk1rFPP1ot6tKbSU
+ VPylNw7Ty7W6mP3x4aV2UD1GskgktBotLyk5oqd10A==
+X-Google-Smtp-Source: ABdhPJwDiGaYEeuwcoTROEsK0+cljIqKjOORbI+w6etJDBdPW6qbFNKV8L6LhpsEbCNVqX740tnAN/qbGip4C7Px4z4=
+X-Received: by 2002:ac2:4646:0:b0:472:108e:51af with SMTP id
+ s6-20020ac24646000000b00472108e51afmr21199577lfo.184.1652294359560; Wed, 11
+ May 2022 11:39:19 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <3f544b952369e55f72a8771d0bec387c2ff49ae0.1652257230.git.greentime.hu@sifive.com>
+References: <20220510065336.hlfjrc25ajed5zj4@M910t>
+In-Reply-To: <20220510065336.hlfjrc25ajed5zj4@M910t>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Wed, 11 May 2022 11:39:07 -0700
+Message-ID: <CAKwvOd=OnJ=ZhsbX+epzbhg3sWg9yOaR=zQ4jF_Deo=B8Nx9Og@mail.gmail.com>
+Subject: Re: riscv: llvm-compiler: calling convention violation: temporary
+ register $t2 is used to pass the ninth function parameter
+To: Changbin Du <changbin.du@huawei.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Steven Rostedt <rostedt@goodmis.org>,
+ hw.huiwang@huawei.com, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, codegen-riscv@discourse.llvm.org, 
+ llvmproject@discourse.llvm.org, craig.topper@sifive.com, asb@asbradbury.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_102938_421776_39F726BD 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20220511_113923_838970_97AC3F6F 
+X-CRM114-Status: GOOD (  30.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,63 +88,177 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Greentime,
+On Mon, May 9, 2022 at 11:54 PM Changbin Du <changbin.du@huawei.com> wrote:
+>
+> [This is a resent to correct llvm mailist.]
+>
+> Hello, folks,
+>
+> Recently I encountered a kernel crash problem when using ftrace with 'perf ftrace'
+> command on risc-v kernel built with llvm.
+>
+> This crash only exists on llvm build, not reproducable with GCC. So I hope llvm
+> guys can take a look :)
+>
+> The llvm versions I have tried are llvm-13.0.0 and mainline (commit 102bc634cb
+> ("[runtime] Build compiler-rt with --unwindlib=none")).
+>
+> [  612.947887][  T496] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000001
+> [  613.050789][  T496] Hardware name: riscv-virtio,qemu (DT)
+> [  613.087976][  T496] epc : __find_rr_leaf+0x128/0x220
+> [  613.107493][  T496]  ra : return_to_handler+0x22/0x24
+> [  613.125322][  T496] epc : ffffffff80a1915a ra : ffffffff80009506 sp : ff20000011e43860
+> [  613.150124][  T496]  gp : ffffffff81812f40 tp : ff6000008bb01580 t0 : ff600000806cf0f0
+> [  613.173657][  T496]  t1 : 000000000001b29a t2 : 0000000000000001 s0 : ff20000011e43920
+> [  613.187311][  T496]  s1 : ff600000848c2a00 a0 : 0000000000000002 a1 : 0000000000000002
+> [  613.202731][  T496]  a2 : fffffffffffffffd a3 : ff6000009d287000 a4 : 00000000000002c0
+> [  613.213723][  T496]  a5 : ff6000009d259b40 a6 : ffffffffffffff9c a7 : ffffffffffffffff
+> [  613.226648][  T496]  s2 : 0000000000000001 s3 : ff20000011e439d8 s4 : ffffffff8160d140
+> [  613.246571][  T496]  s5 : 0000000000000002 s6 : 0000000000000000 s7 : 0000000000000000
+> [  613.264681][  T496]  s8 : 0000000000000064 s9 : 0000000000000000 s10: 0000000000400000
+> [  613.277999][  T496]  s11: ff600000848c2aa8 t3 : 0000000000000290 t4 : 00000000004002c0
+> [  613.303729][  T496]  t5 : 00000000ffffffff t6 : ff6000009d2872d0
+> [  613.322145][  T496] status: 0000000200000120 badaddr: 0000000000000001 cause: 000000000000000d
+> [  613.346228][  T496] [<ffffffff80a12526>] ip6_pol_route+0xb6/0x602
+> [  613.365722][  T496] [<ffffffff80a1321a>] ip6_pol_route_output+0x2c/0x34
+> [  613.386374][  T496] [<ffffffff80a1c028>] fib6_rule_lookup+0x36/0xa0
+> [  613.401865][  T496] [<ffffffff80a131da>] ip6_route_output_flags_noref+0xd6/0xea
+> [  613.412776][  T496] [<ffffffff80a13274>] ip6_route_output_flags+0x52/0xd4
+> [  613.432013][  T496] [<ffffffff809ffb3a>] ip6_dst_lookup_tail+0x68/0x23a
+> [  613.456198][  T496] [<ffffffff809ffec6>] ip6_sk_dst_lookup_flow+0x132/0x1cc
+> [  613.513174][  T496] [<ffffffff80003cd8>] ret_from_syscall+0x0/0x2
+> [  613.518973][  T496] [<ffffffff800094e4>] return_to_handler+0x0/0x24
+> [  613.563961][  T496] Kernel panic - not syncing: Fatal exception
+> [  613.572278][  T496] SMP: stopping secondary CPUs
+> [  613.587449][  T496] ---[ end Kernel panic - not syncing: Fatal exception ]---
+>
+> The crash happened when dereferencing the point 'mpri' at route.c:758.
+>
+> (gdb) l *__find_rr_leaf+0x128
+> 0xffffffff809da9c4 is in __find_rr_leaf (net/ipv6/route.c:758).
+> 753
+> 754             if (strict & RT6_LOOKUP_F_REACHABLE)
+> 755                     rt6_probe(nh);
+> 756
+> 757             /* note that m can be RT6_NUD_FAIL_PROBE at this point */
+> 758             if (m > *mpri) {
+> 759                     *do_rr = match_do_rr;
+> 760                     *mpri = m;
+> 761                     rc = true;
+> 762             }
+>
+> Adding some logs, I found the problem. The ninth passed parameter of function
+> __find_rr_leaf() which is the address of local variable 'mpri', is changed to
+> value '0x1' when inside the function __find_rr_leaf.
+> Here is the code snippet and full link
+> https://github.com/torvalds/linux/blob/9cb7c013420f98fa6fd12fc6a5dc055170c108db/net/ipv6/route.c.
+>
+> static void find_rr_leaf(struct fib6_node *fn, struct fib6_info *leaf,
+>                          struct fib6_info *rr_head, int oif, int strict,
+>                          bool *do_rr, struct fib6_result *res)
+> {
+>         u32 metric = rr_head->fib6_metric;
+>         struct fib6_info *cont = NULL;
+>         int mpri = -1;
+>
+>         __find_rr_leaf(rr_head, NULL, metric, res, &cont,
+>                        oif, strict, do_rr, &mpri);
+>         ...
+> }
+>
+> Then debugging with gdb, I found this probably is a compiler bug. We can see the
+> local function __find_rr_leaf() is not optimized out and the compiler generates
+> a local symbol for it. The find_rr_leaf() (inlined by fib6_table_lookup) invokes
+> this function with 'jalr' instruction.
+>
+> (gdb) disassemble fib6_table_lookup
+> Dump of assembler code for function fib6_table_lookup:
+>    [snip]
+>    0xffffffff80a1240e <+412>:   beqz    a1,0xffffffff80a12436 <fib6_table_lookup+452>
+>    0xffffffff80a12410 <+414>:   slli    a1,s9,0x20
+>    0xffffffff80a12414 <+418>:   srli    a1,a1,0x20
+>    0xffffffff80a12416 <+420>:   sext.w  a2,a1
+>    0xffffffff80a1241a <+424>:   addi    a7,s0,-125
+>    0xffffffff80a1241e <+428>:   addi    t2,s0,-124
+>    0xffffffff80a12422 <+432>:   li      a1,0
+>    0xffffffff80a12424 <+434>:   mv      a3,s10
+>    0xffffffff80a12426 <+436>:   li      a4,0
+>    0xffffffff80a12428 <+438>:   ld      a5,-152(s0)
+>    0xffffffff80a1242c <+442>:   mv      a6,s8
+>    0xffffffff80a1242e <+444>:   auipc   ra,0x7
+>    0xffffffff80a12432 <+448>:   jalr    -686(ra) # 0xffffffff80a19180 <__find_rr_leaf>
+>    [snip]
+>
+> And at line route.c:758, the value of point 'mpri' is stored in temporary register
+> $t2 and $s3 (copied from $t2).
+>
+> (gdb) info scope __find_rr_leaf
+> [snip]
+> Symbol mpri is multi-location:
+>   Base address 0xffffffff80a10564  Range 0xffffffff80a19190-0xffffffff80a191ae: a variable in $t2
+>   Range 0xffffffff80a191c0-0xffffffff80a191d6: a variable in $s3
+>   Range 0xffffffff80a19200-0xffffffff80a19208: a variable in $s3
+>   Range 0xffffffff80a1921e-0xffffffff80a192fe: a variable in $s3
+>   Range 0xffffffff80a1930a-0xffffffff80a19356: a variable in $s3
+>
+> Let's see when register $t2 is corrupted with single-step mode. Obviously, register
+> $t2 is changed by mcount function ftrace_caller(). This is why the bug happens
+> to ftrace.
+>
+> Dump of assembler code for function __find_rr_leaf:
+>    0xffffffff80a19180 <+0>:     sd      ra,-8(sp)   #  $t2 = 0xff200000120db7b4
+>    0xffffffff80a19184 <+4>:     auipc   ra,0xff5f1
+>    0xffffffff80a19188 <+8>:     jalr    -1744(ra) # 0xffffffff80009ab4 <ftrace_caller> #  $t2 = 0xff200000120db7b4
+> => 0xffffffff80a1918c <+12>:    ld      ra,-8(sp)    #  $t2 = 0x1, bug, $t2 is corrupted!!
+>    0xffffffff80a19190 <+16>:    addi    sp,sp,-176
+>    [snip]
+>
+> So now we can come to a conclusion. The generated local function __find_rr_leaf()
+> violates the risc-v calling convention and leads to the panic. It should use stack
+> but *not* temporary register $t2 to pass the ninth parameter! It's okay if the
+> callsite can take care of local symbol callees, but the Function Instrumentation
+> features should be considerated carefully.
+>
+> For comparison, here is the result from gcc (9.2.0):
+> (gdb) info scope __find_rr_leaf
+> [snip]
+> Symbol mpri is a complex DWARF expression:
+>      0: DW_OP_fbreg 0, length 8.
+>
+> I also built a simple test function with 9 parameters by clang and same cflags,
+> but cannot reproduce it. Maybe it is conditional?
+>
+> Simple test code:
+> __attribute__ ((noinline))
+> void test_func(int *a, int *b, int *c, int *d, int *e, int *f, int *g, int *h, int *i)
+> {
+>         printf("__find_rr_leaf: %d\n", *i);
+> }
+>
+> int main(void)
+> {
+>         int a,b,c,d,e,f,g,h,i = 100;
+>
+>         test_func(&a,&b,&c,&d,&e,&f,&g,&h,&i);
+>         return 0;
+> }
 
-I love your patch! Perhaps something to improve:
-
-[auto build test WARNING on linux/master]
-[also build test WARNING on linus/master v5.18-rc6]
-[cannot apply to kees/for-next/execve next-20220511]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Greentime-Hu/riscv-Add-vector-ISA-support/20220511-163610
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git feb9c5e19e913b53cb536a7aa7c9f20107bb51ec
-config: riscv-randconfig-r031-20220509 (https://download.01.org/0day-ci/archive/20220512/202205120146.F7wGCoud-lkp@intel.com/config)
-compiler: clang version 15.0.0 (https://github.com/llvm/llvm-project 18dd123c56754edf62c7042dcf23185c3727610f)
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # install riscv cross compiling tool for clang build
-        # apt-get install binutils-riscv64-linux-gnu
-        # https://github.com/intel-lab-lkp/linux/commit/dcb5b4bc0fc33bba0eb3219b9a8d29ddff58bbef
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Greentime-Hu/riscv-Add-vector-ISA-support/20220511-163610
-        git checkout dcb5b4bc0fc33bba0eb3219b9a8d29ddff58bbef
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/kernel/
-
-If you fix the issue, kindly add following tag as appropriate
-Reported-by: kernel test robot <lkp@intel.com>
-
-All warnings (new ones prefixed by >>):
-
->> arch/riscv/kernel/process.c:149:6: warning: no previous prototype for function 'arch_release_task_struct' [-Wmissing-prototypes]
-   void arch_release_task_struct(struct task_struct *tsk)
-        ^
-   arch/riscv/kernel/process.c:149:1: note: declare 'static' if the function is not intended to be used outside of this translation unit
-   void arch_release_task_struct(struct task_struct *tsk)
-   ^
-   static 
-   1 warning generated.
+Hmm...any chance you could come up with a more concise test case then
+using creduce [0] or cvise [1]?
+[0] https://embed.cs.utah.edu/creduce/
+[1] https://github.com/marxin/cvise
 
 
-vim +/arch_release_task_struct +149 arch/riscv/kernel/process.c
+>
+> --
+> Cheers,
+> Changbin Du
+>
 
-   148	
- > 149	void arch_release_task_struct(struct task_struct *tsk)
-   150	{
-   151		/* Free the vector context of datap. */
-   152		if (has_vector() && tsk->thread.vstate.datap)
-   153			kfree(tsk->thread.vstate.datap);
-   154	}
-   155	
 
 -- 
-0-DAY CI Kernel Test Service
-https://01.org/lkp
+Thanks,
+~Nick Desaulniers
 
 _______________________________________________
 linux-riscv mailing list
