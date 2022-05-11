@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A12C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 14:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3445DC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 14:38:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ve5tKrCIfaCVmQbLnAx5hTDoELvj4XwrTFCSj6PsELk=; b=TitTmI82TTjjNq
-	xuU1wt/57P5dw8FmvDFnMFqrBwt6qL8bOxJn53Q7tSqm4+LYrUHsMoyS3oxynW8oksHe4GehIR3M5
-	p95FAq1SfnhOGdGdchpCxoaGTUmI9YyjiWJnli/p8Qyo2/jpCHmai4P6bXcLIEPOx2ETJnmP8VYXt
-	mMheWmewWOOdcrAgXaAWZsM72AwWu2sUnSgO99ZGZd8TTB3O3JmG73UyedUQ07tr8E5R6HQy9jkjf
-	xA97lzwE4WR/koxoQbK7tsowH/FIWv0vd2UkiIJhusUtJiE6HgUtrg3MDNjxoA/bHVYQBmI3rRiBG
-	sWe9e0UJ4NwiJiPFUpTw==;
+	List-Owner; bh=nyFOwmpvq5kn8g2INv1TQkDkWlr0xIZ0FmtXognGF0Y=; b=Z4neFYz7pRSfUa
+	Dn3VF0m+m11TB8sm2i74y7tBX85wRkS2v3pBLHfZhHziu5wCVrLSyID9nQ/G8dj1Riu9nHKb1GzAv
+	wE4uwTUTj3oKHlJs+F3vd1he49WeMN9ZbdvOezyv3yjBFHke3ZhmZAN7Fx5KwcLPRgaLzKs5b8iEJ
+	Z+3StA9URY3TyIh/jkWb6aRFWQRtVIBQgB3xP197Kec81yaxLpJnPOxVjg2oS+4xgnTX+xF3xFBh0
+	3Elbx2lwla82AN2NOk4uaJUGdJt3IhTCcsXjZ/dJOZmtBGyXhl6l2sufJf8RpGhTf+kcakngsKvTV
+	2QH15UCrWkRjbPb81RfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1non5L-0077lF-9R; Wed, 11 May 2022 14:13:03 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1nonTj-007FqF-81; Wed, 11 May 2022 14:38:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1non5A-0077fQ-28
- for linux-riscv@lists.infradead.org; Wed, 11 May 2022 14:12:53 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id
- n126-20020a1c2784000000b0038e8af3e788so1322836wmn.1
- for <linux-riscv@lists.infradead.org>; Wed, 11 May 2022 07:12:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=RSGHn1F0BncOfTcKYhrKyIk0Nc9jRJLzLB3ecNcIZy4=;
- b=jW12ZwQnnCztcNwkigLKzLeyKxuLaypSdNh5RLphYPfrxCmn7JNKcAFQyhsDExQ715
- wJwjtZki4XfUaxqAYliizclV7JqcbjMJZH3O294nmneM4g9jdOzsk+Y7dwWTdMhJNmFr
- luTgFG70VKGd5rBsQuYZFTUjRfEcJ0/y7nPhAyW1ERcls1P51FqhBYBEYo8vF1V2mXNd
- 8SRsu7Z8MrurgPTYpBt1TQjav+1DEREjLXAbJ0D6pm6Q+pDArYfJ2vpNCWaWnM02wpn/
- 0SNSQoIcK+vj+GrpRIllI9L4jtsan3nrlQwi8mHwvPTLx1sPHdv/4t0fc5sKaLD/XZ2s
- 9LPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=RSGHn1F0BncOfTcKYhrKyIk0Nc9jRJLzLB3ecNcIZy4=;
- b=Il8JgrEijihDTlve8GR2Vet0MBy9JAudS6ZE+D66AdFjzR5ABLlxBVSu8DjYq/XK4q
- rlr//O1tCL1W8utSFBET8lo8TteWW5PrrrBEDj9znNUtgQpSfLopUHxp6Msb237ubJT2
- WjZO3cKGhNUmcvoCf4ZwyO/HwLctUUPUz+cfxPTRN4R7kw/T47fKrH3N+5h3Jg1LKU4L
- u/LWiq/Kw8kmfH7lZwUbEX8HZ+nC4YW8MelvrbuNEMbJs3IeAZ+LinymNWwAsKVBB8XY
- rjjul8c3EUGW6mAJYIAJoA1rDONTvyJuovQI8f/Wn/OCoutD63eQhtwPMWNYaOTI7cuW
- sxhQ==
-X-Gm-Message-State: AOAM531Xhw5wDx4p/7/h9TkN2of1YOlUkjwljXNwUJlW3s5ZFwsUC0tW
- klaK9ja4mB19QmlyP20uSeqFu7OVxSGjGB3ZWUdqqQ==
-X-Google-Smtp-Source: ABdhPJx0EgilpXqO9xhDBZma49ZiZYBQW1CYQalIbu7JvciYQUGx6pSOeqXv1MQtlngcxiEp7hb87+4QPXM1UtmgtzY=
-X-Received: by 2002:a05:600c:1d08:b0:394:54ee:c994 with SMTP id
- l8-20020a05600c1d0800b0039454eec994mr5072481wms.137.1652278359083; Wed, 11
- May 2022 07:12:39 -0700 (PDT)
+ id 1nonTT-007FiG-Ig
+ for linux-riscv@lists.infradead.org; Wed, 11 May 2022 14:38:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 184F1612EA;
+ Wed, 11 May 2022 14:37:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4790FC34114;
+ Wed, 11 May 2022 14:37:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1652279878;
+ bh=+EwM9/Fo/mYHUrlVBMU+VRCENMG+agU2bXee/mgnCV8=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=oivTdHg0ETsFfYJ3nLcAkKMxQ0DDelY3MOQqxmOwu5Xuv22ns3iZdX45d3cAK7+gA
+ Drnv1xYGqunk1VYAvfQrEnWxX7yE2xkTN9e1KfddBiCN3mAwL3f6DfrJaK6WQu1ULj
+ R+yHyy8Jwl4ab3b5AxKaHsVWivIS8vlYpjD1fX6ud5I8IPbdqvKya+zboCzBQO9+CC
+ FkWxj+PybERog6k6gyAWL+OGBO5AQ59i5DWruA/S8fs1QdRO0+mqbP5ngzmYGyk/nM
+ Jowgp9Xe/3mCaMVPGsw7O1QHK+cJV9R0BBGohbDBjcvMUwyp/hYsgYwMruZRMuv0pC
+ bePN1FXBaE7DA==
+Date: Wed, 11 May 2022 17:37:50 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Christoph Hellwig <hch@lst.de>
+Cc: Conor.Dooley@microchip.com, sfr@canb.auug.org.au,
+ linux-next@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+Subject: Re: linux-next: Tree for May 3
+Message-ID: <YnvKPu5uQ8rqEcvV@kernel.org>
+References: <20220509141122.GA14555@lst.de>
+ <dd946220-eaf6-773a-06b4-307cda466c9c@microchip.com>
+ <505d41d1-1bc8-c8bc-5ebb-8a2b7934f3de@microchip.com>
+ <20220511062232.GA32524@lst.de>
+ <102578f2-5c10-e9c2-c1ef-e76ba90d011e@microchip.com>
+ <20220511064832.GA761@lst.de>
+ <2c0e2fbe-4e45-4acc-c2a7-4f4dcf9161a3@microchip.com>
+ <20220511123724.GA25121@lst.de> <YnvDdPz4S5IJ7l/5@kernel.org>
+ <20220511141034.GA31732@lst.de>
 MIME-Version: 1.0
-References: <20220511120621.36956-1-guozhengkui@vivo.com>
-In-Reply-To: <20220511120621.36956-1-guozhengkui@vivo.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 11 May 2022 19:42:27 +0530
-Message-ID: <CAAhSdy3Ynx-8DgDEE6huye2nA_21CV6cN=keopaCJOK2b00k5g@mail.gmail.com>
-Subject: Re: [PATCH] selftests: kvm: replace ternary operator with min()
-To: Guo Zhengkui <guozhengkui@vivo.com>
-Cc: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>, 
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>, 
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>, 
- David Hildenbrand <david@redhat.com>, 
- "moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)"
- <linux-arm-kernel@lists.infradead.org>, 
- "moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)"
- <kvmarm@lists.cs.columbia.edu>, 
- "open list:KERNEL VIRTUAL MACHINE (KVM)" <kvm@vger.kernel.org>, 
- "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
- open list <linux-kernel@vger.kernel.org>, 
- "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>,
- zhengkui_guo@outlook.com
+Content-Disposition: inline
+In-Reply-To: <20220511141034.GA31732@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_071252_129033_C5491D4E 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20220511_073759_671593_2EFB6278 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,102 +81,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 11, 2022 at 5:38 PM Guo Zhengkui <guozhengkui@vivo.com> wrote:
->
-> Fix the following coccicheck warnings:
->
-> tools/testing/selftests/kvm/lib/s390x/ucall.c:25:15-17: WARNING
-> opportunity for min()
-> tools/testing/selftests/kvm/lib/x86_64/ucall.c:27:15-17: WARNING
-> opportunity for min()
-> tools/testing/selftests/kvm/lib/riscv/ucall.c:56:15-17: WARNING
-> opportunity for min()
-> tools/testing/selftests/kvm/lib/aarch64/ucall.c:82:15-17: WARNING
-> opportunity for min()
-> tools/testing/selftests/kvm/lib/aarch64/ucall.c:55:20-21: WARNING
-> opportunity for min()
->
-> min() is defined in tools/include/linux/kernel.h.
->
-> Signed-off-by: Guo Zhengkui <guozhengkui@vivo.com>
+On Wed, May 11, 2022 at 04:10:34PM +0200, Christoph Hellwig wrote:
+> On Wed, May 11, 2022 at 05:08:52PM +0300, Mike Rapoport wrote:
+> > I guess the default to use memblock_alloc_low() backfires on system with
+> > physical memory living at 0x1000200000:
+> > 
+> > [    0.000000] Early memory node ranges
+> > [    0.000000]   node   0: [mem 0x0000001000200000-0x000000103fffffff]
+> > 
+> > The default limit for "low" memory is 0xffffffff and there is simply no
+> > memory there.
+> 
+> Is there any way to ask memblock for a specific address limit?
+> swiotlb just wants <= 32-bit by default.  With the little caveat
+> that it should be 32-bit addressable for all devices, and we don't
+> know the physical to dma address mapping at time of allocation.
 
-For KVM RISC-V:
-Acked-by: Anup Patel <anup@brainfault.org>
+There is 
 
-Thanks,
-Anup
+void *memblock_alloc_try_nid(phys_addr_t size, phys_addr_t align,
+			     phys_addr_t min_addr, phys_addr_t max_addr,
+			     int nid);
 
-> ---
->  tools/testing/selftests/kvm/lib/aarch64/ucall.c | 4 ++--
->  tools/testing/selftests/kvm/lib/riscv/ucall.c   | 2 +-
->  tools/testing/selftests/kvm/lib/s390x/ucall.c   | 2 +-
->  tools/testing/selftests/kvm/lib/x86_64/ucall.c  | 2 +-
->  4 files changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/tools/testing/selftests/kvm/lib/aarch64/ucall.c b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
-> index e0b0164e9af8..00be3ef195ca 100644
-> --- a/tools/testing/selftests/kvm/lib/aarch64/ucall.c
-> +++ b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
-> @@ -52,7 +52,7 @@ void ucall_init(struct kvm_vm *vm, void *arg)
->          * lower and won't match physical addresses.
->          */
->         bits = vm->va_bits - 1;
-> -       bits = vm->pa_bits < bits ? vm->pa_bits : bits;
-> +       bits = min(vm->pa_bits, bits);
->         end = 1ul << bits;
->         start = end * 5 / 8;
->         step = end / 16;
-> @@ -79,7 +79,7 @@ void ucall(uint64_t cmd, int nargs, ...)
->         va_list va;
->         int i;
->
-> -       nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
-> +       nargs = min(nargs, UCALL_MAX_ARGS);
->
->         va_start(va, nargs);
->         for (i = 0; i < nargs; ++i)
-> diff --git a/tools/testing/selftests/kvm/lib/riscv/ucall.c b/tools/testing/selftests/kvm/lib/riscv/ucall.c
-> index 9e42d8248fa6..34f16fe70ce8 100644
-> --- a/tools/testing/selftests/kvm/lib/riscv/ucall.c
-> +++ b/tools/testing/selftests/kvm/lib/riscv/ucall.c
-> @@ -53,7 +53,7 @@ void ucall(uint64_t cmd, int nargs, ...)
->         va_list va;
->         int i;
->
-> -       nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
-> +       nargs = min(nargs, UCALL_MAX_ARGS);
->
->         va_start(va, nargs);
->         for (i = 0; i < nargs; ++i)
-> diff --git a/tools/testing/selftests/kvm/lib/s390x/ucall.c b/tools/testing/selftests/kvm/lib/s390x/ucall.c
-> index 9d3b0f15249a..665267c1135d 100644
-> --- a/tools/testing/selftests/kvm/lib/s390x/ucall.c
-> +++ b/tools/testing/selftests/kvm/lib/s390x/ucall.c
-> @@ -22,7 +22,7 @@ void ucall(uint64_t cmd, int nargs, ...)
->         va_list va;
->         int i;
->
-> -       nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
-> +       nargs = min(nargs, UCALL_MAX_ARGS);
->
->         va_start(va, nargs);
->         for (i = 0; i < nargs; ++i)
-> diff --git a/tools/testing/selftests/kvm/lib/x86_64/ucall.c b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-> index a3489973e290..2ea31a0ebe30 100644
-> --- a/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-> +++ b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-> @@ -24,7 +24,7 @@ void ucall(uint64_t cmd, int nargs, ...)
->         va_list va;
->         int i;
->
-> -       nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
-> +       nargs = min(nargs, UCALL_MAX_ARGS);
->
->         va_start(va, nargs);
->         for (i = 0; i < nargs; ++i)
-> --
-> 2.20.1
->
+that lets caller to specify min and max limits
+
+Presuming that devices see [0x1000200000-0x103fffffff] as
+[0x200000-0x3fffffff] we may try something like
+
+	min = memblock_start_of_DRAM();
+	max = min + 0xffffffff;
+
+	if (flags & SWIOTLB_ANY)
+		max = MEMBLOCK_ALLOC_ACCESSIBLE;
+
+	tlb = memblock_alloc_try_nid(bytes, PAGE_SIZE, min, max, NUMA_NO_NODE);
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
