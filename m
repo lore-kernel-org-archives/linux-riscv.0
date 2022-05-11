@@ -4,80 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9C4C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 20:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53460C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 21:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dcejteReCU4xL4JypncxKIGjxdfPuAnzJZe+IZh8dKY=; b=RsqvFRwYYiIpOz
-	b+5V4iq3Fg/rW325/e29gyFmek2taGuTAC9MXeMh5RRUd/3zFFz/tLWOOb+BA86Rb4FsCyr8JKrlp
-	ODjtMR4cvGSfKv2db8Jtf3AOjGJtoybrZQyTvz1xfwPNaHBD1mP1wemQYuNGgBagFLAJqchMNPG17
-	isc163TTHEuOUurFQA3vulvz+4IqIIlc/aGiFNQS8J4ht9XvIuxHc3bPcGFT00I9KI5OFOyTk5vUk
-	EZIWSC8j79kd2LdqFvCzarVoWd2saDNsp9e/g9/VDeatSFi0+4B9LoTjCzyUlymHlz69m4MJCrmop
-	KP9E5HWYvrrRqvx2t2AQ==;
+	List-Owner; bh=d0OhrT1KvYvJHkjjyZfVOOj2LMh0qOZTJ0s0JULqQ10=; b=GgkQTRQMvCMraq
+	QyIa9NOCbVW2Q27fFUSBsG2Mc83ATpRZpf1B8g1qGzkcgafAh5Yurg7iFVlSw4+T8YkE5CdINWgpI
+	VfnA9gwLF4YgCdqbo+cHFgPoZZQgYifULIRalbyNPctWs2m1gBxRWFwOtC+OZv11BInHFLuxnJVwx
+	G1QS6DzLeXdbLrxhi94DmrNFI8lw/iotM91P79nyOFtcntIGMTYNSIv7/4fHVaKwUV0pwWuSD6+iE
+	12oHYIjn2XsgdasU5qREKnJK8Xf9T9YbIpIqj+YwCGyvbq543wJlD3T0gOOqnWTAFyZqrmAeMxzxI
+	5lBiQA84lNOP6DF+A8Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nosg2-008To9-75; Wed, 11 May 2022 20:11:18 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1nou5H-008p2Y-9b; Wed, 11 May 2022 21:41:27 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nosfy-008TnY-NF
- for linux-riscv@lists.infradead.org; Wed, 11 May 2022 20:11:16 +0000
-Received: by mail-pf1-x432.google.com with SMTP id a11so2931320pff.1
- for <linux-riscv@lists.infradead.org>; Wed, 11 May 2022 13:11:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=uHI42L1gavukyJJ1KaKxOCH5Tc7LTCJwrgzmo7gt+ic=;
- b=CEnMlJz8RXwI1S1rRNYUHG8Wa9Fd9wdk3GcqUX3T6ZUKNP1zj6Bmc1A+yJqZswX752
- RqFVwmq5HfEaZdJ4WhyLAsjibiPeAkeBU1i0NWItqFrCO4QR2sfXQ1YpkyqCz+HXemLv
- GH1RZhqVGNf11iQygLdb3UoSuoJSgpztZscPBUZhUsDPh6KAjL+8YaL6fo2CzZEXClrE
- P+F8ulhEdJrmMXuGqfHTt5MU27wE3NF+LSzQS2hvtyESprlM1nUt2KJt43fNzqKuF/YM
- fUhILt1tkCXbj6Nj1W4JBnSz2rULdW0pbRqTKw9ZOYXtOCM1Ef3/e1Ukq3rgVBHEBw1y
- ShMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=uHI42L1gavukyJJ1KaKxOCH5Tc7LTCJwrgzmo7gt+ic=;
- b=O4Bh4hBqxEU2IgA5XxrV2cOKTLXKM/+xzK3Zz/VwWnwzduTvNPLa56JzYz5teOk7EA
- ABzUiZmiTrbCNcOWs5oJ2mOQhNms+114Gf4Asl3IOYY6Ta1z5FRrvM4R/lpXAGaJr7fG
- 8OGcE3MfQh7np/xaq4GlLmMMRW1ur5eDLacqcjsQRLpjvih3z0tGL9afh4EKwKzUOwjg
- LEXsEVat3u7rJ4qSdnInBoHWT8DQTccHq3cJ6ZhsdZo/oID5Ru+pwNKOm+rw+eqIbyz7
- f43y6AZ/eMqqMAU9l19Sp4726ubwuJefoMFUDPDQJkpya58DLjd/6MPVUCF+H+pPr2vU
- YBDA==
-X-Gm-Message-State: AOAM532ldpDRIpfNvVaCJ0o/dqFZjE50n+oaFQlFgrp034G8bSp+UrEs
- dUF9qtcKHYAluZBOZJsTzWBCNg==
-X-Google-Smtp-Source: ABdhPJxZo3l4QSHHKIjLb5Kep83BUBaCLt4ROcFAozCa4OPaPAafueGKZdyhwYYs+u+RkiK76fP3Ug==
-X-Received: by 2002:a63:6886:0:b0:3c5:11f4:f055 with SMTP id
- d128-20020a636886000000b003c511f4f055mr22407664pgc.44.1652299872589; 
- Wed, 11 May 2022 13:11:12 -0700 (PDT)
-Received: from atishp.ba.rivosinc.com ([66.220.2.162])
- by smtp.gmail.com with ESMTPSA id
- c13-20020a170902c2cd00b0015e8d4eb2e5sm2259005pla.303.2022.05.11.13.11.11
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 11 May 2022 13:11:12 -0700 (PDT)
-From: Atish Patra <atishp@rivosinc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, devicetree@vger.kernel.org,
- Jisheng Zhang <jszhang@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH 1/2] RISC-V: Fix counter restart during overflow for RV32
-Date: Wed, 11 May 2022 13:11:06 -0700
-Message-Id: <20220511201107.2311757-1-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.25.1
+ id 1nou5E-008p1N-3p
+ for linux-riscv@lists.infradead.org; Wed, 11 May 2022 21:41:25 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
+ helo=phil.lan)
+ by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+ (Exim 4.92) (envelope-from <heiko@sntech.de>)
+ id 1nou58-0005N8-MH; Wed, 11 May 2022 23:41:18 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ wefu@redhat.com, guoren@kernel.org, atishp@atishpatra.org,
+ anup@brainfault.org, mick@ics.forth.gr, samuel@sholland.org,
+ cmuellner@linux.com, philipp.tomsich@vrull.eu, robh+dt@kernel.org,
+ krzk+dt@kernel.org, devicetree@vger.kernel.org,
+ Heiko Stuebner <heiko@sntech.de>
+Subject: [PATCH v2 0/2] riscv: implement Zicbom-based CMO instructions + the
+ t-head variant
+Date: Wed, 11 May 2022 23:40:35 +0200
+Message-Id: <20220511214038.2281398-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_131114_986737_D1D5551A 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220511_144124_194077_C9E5D469 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,31 +64,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pass the upper half of the initial value of the counter correctly
-for RV32.
+This series is based on the alternatives changes done in my svpbmt series
+and thus also depends on Atish's isa-extension parsing series.
 
-Fixes: 4905ec2fb7e6 ("RISC-V: Add sscofpmf extension support")
+It implements using the cache-management instructions from the  Zicbom-
+extension to handle cache flush, etc actions on platforms needing them.
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- drivers/perf/riscv_pmu_sbi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+SoCs using cpu cores from T-Head like the Allwinne D1 implement a
+different set of cache instructions. But while they are different,
+instructions they provide the same functionality, so a variant can
+easly hook into the existing alternatives mechanism on those.
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index a1317a483512..24cea59612be 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -526,7 +526,7 @@ static inline void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
- 			max_period = riscv_pmu_ctr_get_width_mask(event);
- 			init_val = local64_read(&hwc->prev_count) & max_period;
- 			sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx, 1,
--				  flag, init_val, 0, 0);
-+				  flag, init_val, init_val >> 32, 0);
- 		}
- 		ctr_ovf_mask = ctr_ovf_mask >> 1;
- 		idx++;
+
+As Palmer suggested, merging might have to wait until the cache
+instructions have landed in compilers, but I wanted to put the
+block-size changes out there for people to look at already and
+also update the series to match the current svpbmt state.
+
+
+changes in v2:
+- cbom-block-size is hardware-specific and comes from firmware
+- update Kconfig name to use the ISA extension name
+- select the ALTERNATIVES symbol when enabled
+- shorten the line lengths of the errata-assembly
+
+Heiko Stuebner (3):
+  dt-bindings: riscv: document cbom-block-size
+  riscv: Implement Zicbom-based cache management operations
+  riscv: implement cache-management errata for T-Head SoCs
+
+ .../devicetree/bindings/riscv/cpus.yaml       |  7 ++
+ arch/riscv/Kconfig                            | 15 +++
+ arch/riscv/Kconfig.erratas                    | 10 ++
+ arch/riscv/errata/thead/errata.c              |  5 +
+ arch/riscv/include/asm/cacheflush.h           |  6 ++
+ arch/riscv/include/asm/errata_list.h          | 80 +++++++++++++++-
+ arch/riscv/include/asm/hwcap.h                |  1 +
+ arch/riscv/kernel/cpu.c                       |  1 +
+ arch/riscv/kernel/cpufeature.c                | 17 ++++
+ arch/riscv/kernel/setup.c                     |  2 +
+ arch/riscv/mm/Makefile                        |  1 +
+ arch/riscv/mm/dma-noncoherent.c               | 92 +++++++++++++++++++
+ 12 files changed, 235 insertions(+), 2 deletions(-)
+ create mode 100644 arch/riscv/mm/dma-noncoherent.c
+
 -- 
-2.25.1
+2.35.1
 
 
 _______________________________________________
