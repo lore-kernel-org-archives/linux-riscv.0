@@ -4,140 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A645C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 12:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618E1C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 12:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5qfV4W4uuKWnjJb54PCm/NYlaUlSvxWmAYtbY42x2Dk=; b=mQEnZQcD5nzos6
-	+A+xKzJbeBKoYThz1fo1NYtgD61jBdiwJCHZNwIETb9vFinIZR1vtrvGw9eTBwy+BQg2GuqQCV7J0
-	LpX4tCP36idwcNUPy/ZVQMgd8vpbTGlOWhhGPD0w030VwOqWomEe/+NiOnLubAtBMiyoCTLsQ2Btl
-	GUm67IzS6jSN0C5GK+qVE/C9fjaRUeypxb/CFm/vZAhVPWMHzONO4VtVbcXb2R9qbTo4IQIk4n8EQ
-	JEHeLD9wCTEMJG4TEVRKt76hEWuPXALjlCikdYXz/Q6f0rFhulJenbet1mSnyXugwpYvuend+MFRE
-	337+FztRJQYhE/ClH8eg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ua9jAKRd4mx/kKDEv+1YpxlNt9kIK3UaHPSe8AVJDBs=; b=wOTUOi35Ec3iaZ
+	7O2Ab+PmL2aYzWwMQxuFr5o96nBzDKZtSdYtACE79PdrbLHLKX8z2pjghcCXabVDrdQWNeSfU1+MI
+	efnP49nN2OZlgs8csWLGmSftaNj9WivHYyqX1NdU4ECCouVz6Z3DxTvjJrT8Pqh4r4ldgxNP/oe9z
+	bWN5HFUmiFbLkeajntW9d8vcRBMPCddtIQgtu3v6yQymnBdHEWNerGo4dqpGHv9oFpJG732GX43uO
+	GOD0M0n+QtaUz3P+SZ7q4CBdn0oyLNf3DG5yaL/yfPJbXkW1p5n9kSbs4Ai86yHopUeWLhh+5H5fS
+	D3JB+YbJoeBksaacegFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nol9S-006fS0-St; Wed, 11 May 2022 12:09:10 +0000
-Received: from mail-psaapc01on20716.outbound.protection.outlook.com
- ([2a01:111:f400:feae::716]
- helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1nolRZ-006ma6-AO; Wed, 11 May 2022 12:27:53 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nol9C-006fFP-9j; Wed, 11 May 2022 12:08:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HiSyKOHwsDu/YmdOVsNGKeXrPVWsbMPxsyvF251GaoJdn/PZg7Cxe40ULxayFAA8gB6F5tUF9v8dhM8r/hODkxVPrdns+mKnlr1GIwhWO5+IAxLJtxWqDvnkAUF+cEaPybKpSkgVAoFYfpdWhKJzsZJkACyU2c2qeX00wDWMp4/5spwoabB+3t8TjHHHm3Mdms7grt8zV/vwTYxM+G/qU7IEb6ojoQSPIGy+cGBT5ZOSFyyE+qUY5kTQhn4i/Lue2JtQKKAtz6YSvhrD3PQBv7Avk6Ar4QTW8PrjJAkqj59Io4Llaoj0yRJQKRto+kWrfg0b+aCE+WXqCSlkrv3K5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/1N/uXk7AEHS2GWXVVt4QbwD+RFIo6K0QOFlm16GZYk=;
- b=YDqWFVAnvWE7OG2HO3HpOXI6HlZuHHCKRkdpRSm8sN8vo5zrE44GkMmGxq8Qs66AXZ+UecWqU3a0Vc9IFHfVlfYe7bwKevooFxkmLHo/zcsSXhR1rH5Axyx6aj0wkviwcd/UcBnbtkEbDO9ugXA9XFCb2kVIGRspgvLMwR01+Z+hnMf26Xo92Hk2Xj4H//r2wox7gezlvOOsi/bb7ZdijoIuOi5LctWsn7PRzZvvtSotMjQ6fGVsccgirmJ05g+Dvv9oJmim5UZn0JXaB1pfEHqX5c3Lwb3/qhm6dlwaNEBgB+AgT+pkRoNaSM/61qcIdxupoSXaXV8VilI9LS4Yfw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vivo.com; dmarc=pass action=none header.from=vivo.com;
- dkim=pass header.d=vivo.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vivo0.onmicrosoft.com; 
- s=selector2-vivo0-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/1N/uXk7AEHS2GWXVVt4QbwD+RFIo6K0QOFlm16GZYk=;
- b=nCrabNMoNUSglMUikYkpPnafJWOc1HFGKTAlhogDg9tk7x3ubmrBo4G/AtejkfqLv5bIJOHzoXtYnvSV/oJOhViDSNTOCInRWZEHDTwYDzY5YT/FRPEdusyXsbBOpgE9GuhlTEUbDwJeYZQyrD2UylIYhzWjKV3aBxe/lBfef+k=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vivo.com;
-Received: from HK2PR06MB3492.apcprd06.prod.outlook.com (2603:1096:202:2f::10)
- by TY0PR06MB4942.apcprd06.prod.outlook.com (2603:1096:400:14f::12)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5250.13; Wed, 11 May
- 2022 12:08:31 +0000
-Received: from HK2PR06MB3492.apcprd06.prod.outlook.com
- ([fe80::88e1:dc04:6851:ad08]) by HK2PR06MB3492.apcprd06.prod.outlook.com
- ([fe80::88e1:dc04:6851:ad08%7]) with mapi id 15.20.5227.023; Wed, 11 May 2022
- 12:08:30 +0000
-From: Guo Zhengkui <guozhengkui@vivo.com>
-To: Marc Zyngier <maz@kernel.org>, James Morse <james.morse@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- David Hildenbrand <david@redhat.com>, Guo Zhengkui <guozhengkui@vivo.com>,
- Anup Patel <anup@brainfault.org>,
- linux-arm-kernel@lists.infradead.org (moderated list:KERNEL VIRTUAL MACHINE
- FOR ARM64 (KVM/arm64)), 
- kvmarm@lists.cs.columbia.edu (moderated list:KERNEL VIRTUAL MACHINE FOR ARM64
- (KVM/arm64)), 
- kvm@vger.kernel.org (open list:KERNEL VIRTUAL MACHINE (KVM)),
- linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK),
- linux-kernel@vger.kernel.org (open list),
- linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
-Cc: zhengkui_guo@outlook.com
-Subject: [PATCH] selftests: kvm: replace ternary operator with min()
-Date: Wed, 11 May 2022 20:05:55 +0800
-Message-Id: <20220511120621.36956-1-guozhengkui@vivo.com>
-X-Mailer: git-send-email 2.20.1
-X-ClientProxiedBy: HK2PR02CA0181.apcprd02.prod.outlook.com
- (2603:1096:201:21::17) To HK2PR06MB3492.apcprd06.prod.outlook.com
- (2603:1096:202:2f::10)
+ id 1nolRW-006mZA-Jy
+ for linux-riscv@lists.infradead.org; Wed, 11 May 2022 12:27:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1652272067;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=hUCEDpMcELwjroIKSRZI8OB/5UA+ogwez3KA5XNPQjQ=;
+ b=TwieXsqYkYmaZaxdocJQR4SiLRwlFY+1rfERYFxttyxDBve3Psyw0ef8QLlp2BW/bWq1u8
+ 7kTmtE15zxW3efzw0Nx9S3CrD224/2CLpD8jjNy+pThEfXlJyx1VW3ZNGRSwQ94tYR+z3D
+ EA3tK+PMkFbS969T8TQXH+e/90+vEr4=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-657-6iHZtpOePvadYigNKb1A5Q-1; Wed, 11 May 2022 08:27:37 -0400
+X-MC-Unique: 6iHZtpOePvadYigNKb1A5Q-1
+Received: by mail-wm1-f71.google.com with SMTP id
+ m124-20020a1c2682000000b00393fcd2722dso648930wmm.4
+ for <linux-riscv@lists.infradead.org>; Wed, 11 May 2022 05:27:36 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:organization:in-reply-to
+ :content-transfer-encoding;
+ bh=hUCEDpMcELwjroIKSRZI8OB/5UA+ogwez3KA5XNPQjQ=;
+ b=PuSibVIl8gZC6Fho9EmIVi14g80fCoYzlSQkNY3M1SaGmnIaaa5xz9cfBmJ7SF95Sy
+ PdgEoLMZ71AiB9CPLzNiyBdFV6fcwY3XNws+O2LCeVwQvE5SMj8Z7T+H8HRh7EkvfJFz
+ aDaH86hoLGi9FqUIsut57HObzTFXrjR1zpqG6y2qj0FBhA0NOTiMJexpUhTMSuYEOPyq
+ /JLR944a3RJjtGDh7EltH3FiLq6NTEkMpBjHn4RKyQlLb6/99RIupbbRXW00GSc30dDv
+ A2phonwIiDBncDqx/L0uxdijo8vpABTG+IOAPwN5o1dYFDm0X05xPFdm2wweowqOvo5P
+ OUTQ==
+X-Gm-Message-State: AOAM5312Rpujvt8GQalSc1d9EbC9wx2bi13TZCbNKzaJKXaKJWTXJm5w
+ twZKhAQ5qTkQG2HlPQys5gkbZNIme8qeZTPorut0ma8810GJyHBoNA3nnvxcxG9mQErModOCGJg
+ 6i2ahi8NXMnOFdgWuXpFchriIzfza
+X-Received: by 2002:adf:f809:0:b0:20a:c40d:ae9a with SMTP id
+ s9-20020adff809000000b0020ac40dae9amr22633091wrp.609.1652272055889; 
+ Wed, 11 May 2022 05:27:35 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJx4vhxqnTmWHdFk3+Z1Bppcfdj6GdhkeCnzL/pWI2XiCnosbdMq+/Y1YjqIsk754DQqSlF42g==
+X-Received: by 2002:adf:f809:0:b0:20a:c40d:ae9a with SMTP id
+ s9-20020adff809000000b0020ac40dae9amr22633063wrp.609.1652272055618; 
+ Wed, 11 May 2022 05:27:35 -0700 (PDT)
+Received: from ?IPV6:2003:cb:c701:700:2393:b0f4:ef08:bd51?
+ (p200300cbc70107002393b0f4ef08bd51.dip0.t-ipconnect.de.
+ [2003:cb:c701:700:2393:b0f4:ef08:bd51])
+ by smtp.gmail.com with ESMTPSA id
+ u10-20020a5d6aca000000b0020c5253d925sm1534898wrw.113.2022.05.11.05.27.34
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Wed, 11 May 2022 05:27:35 -0700 (PDT)
+Message-ID: <4407c84b-a64f-51b0-fa96-388aaf3b3e35@redhat.com>
+Date: Wed, 11 May 2022 14:27:34 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 4e341fa3-6220-4e4c-4860-08da3346f60e
-X-MS-TrafficTypeDiagnostic: TY0PR06MB4942:EE_
-X-Microsoft-Antispam-PRVS: <TY0PR06MB4942264913223A426B17C610C7C89@TY0PR06MB4942.apcprd06.prod.outlook.com>
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: xG3L7x0pBsoGkOdwpEn4exJkEIkwyHELIclP7pQwCZKtAI6DTh86EdnZtN3d3iMFbiD688Gd9w+7WHYiNCCqoY/nQhrKp9xo5+fNfJ9vCWGkXkNcJBaYRSWg+yBo1EdeD6mh3VkAb0Ps4csUfhCp0DiU2czJ+WHawpmeXbZLM/f6z3shmf2KwDv24h5T1zO5kVPJn0Qro8GmlZQzccnzDx6tVD4sqGmk21UctTCUjhm540D5GC9ALT1FB8UO1GWnaeHXi7johYkXRCXtAFZt+RQZAooWtiQVQUWZnVbfeQiP17MeVj6DWBOx1ZKpbvqIhzvvCkyC4zaPD4cHsAg7NyFp/OlYWU3lRDzZaVxH5c8aqzgHlUFakg+YS3GoruBHwI6DyxwxNPq8DoVL14H9DNhEfv+0NPKD45zbQdfs6TB02Gw+k/zWMWI0VQxWsuDT//dMQMjiKBRpPf7gyrCYoH1N3KD4eX6XlN2B7Z4WYPcn8aCXaszusJeetO4LFmudlVN5DED5WhRKyhq19vo0vxjMUQ44ygiexjpFBngxRIFkAE/YvbDCiQmJ6eKobBYAnJbnlDG/ZvHiwyTfDBai5kdCC2EmRSmGczB0Fges1CHxBKBoPNT6QHY+/aKfCWtKZpP9TgkGsIGfo/1kX1jtlicoccouLgIdl4/xSIRuBGOYYN2R1BnIVzVEUteWGh4FjKME8vn1CnIrvsivecC1m/soIUsOCfakuWWCbO7Tzdw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:HK2PR06MB3492.apcprd06.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230001)(4636009)(366004)(4326008)(66946007)(66476007)(8936002)(66556008)(8676002)(2906002)(1076003)(86362001)(186003)(26005)(6512007)(7416002)(5660300002)(52116002)(6506007)(38350700002)(83380400001)(508600001)(6486002)(36756003)(316002)(110136005)(921005)(38100700002)(2616005)(6666004);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2/sh6i/2gTxewd+/4kmfbcsxr2TEorVPFqLXss9J20Qvmy0QT7jzcVu6deSY?=
- =?us-ascii?Q?nTUHJi2vkhvX+PSsOa8IuTbbo+9LVXiksYfUEiCWf/ZBf6hhLL8x2Qmzf5sg?=
- =?us-ascii?Q?qdCXbUCB2thxnmya1IgQtul6eEF6H6L2pRogOdlxz2hmVTJBIlwB84KeMBhJ?=
- =?us-ascii?Q?GT1ty0bO4AOOzn2zSsq+zKtfyWqAPVgQ0Kc2Bh47205LvXdJ/ULO474d7NT2?=
- =?us-ascii?Q?eEjWsG6+64UkFFuqz/hHNRdrK1MOQfHzG8RfhTRgwaPdRddC9/s6rL+WpY9+?=
- =?us-ascii?Q?YE7z23lBiw9Fp4PukSuwDvt20+eSBmfO8YGXXM7laLuSYwhohMWJQQXHDE1v?=
- =?us-ascii?Q?KprNP6HDirYnQm1E5uk8Dx5C0p4Vtopee1ZBk1vetG2pm+GbKa5ah965clmV?=
- =?us-ascii?Q?DQbKBVmUy/HwGEZ/pvklWMIyK5LYRJxZjg9exAXEWZCv5+upsmyb4hfA8Gg5?=
- =?us-ascii?Q?5MG8wC5diwUxP3qXsx9/c5LXjTmuyrW7lqpij5Ha+ph8to5a2FcbojgbkJ2r?=
- =?us-ascii?Q?jRgWCFkZDRmzhoAnO/Af/RitmN8/UVDrTE6wtzgjPt9mWVHrq7C1HMRziUue?=
- =?us-ascii?Q?rs8t2gNpl/mkGNxZVZx9dqVXI5KLow2pDGY4Fk9WUYVe3izwxT7O8arhc4Gd?=
- =?us-ascii?Q?WeLBbR7Y23jwL6BmwlLgOTHhI8Z9Vmu881YDOWGy+V6SHrmhdDwsRSafF4YF?=
- =?us-ascii?Q?Spf4QBWaaWZmB1ORz/CMm6W5tWRFe6HkbI0KwluULsa5n2IUhXaKNoLw1nOZ?=
- =?us-ascii?Q?fJs+wLNHvuPOtS6TnB/hxk/oRcINShNZ2KOtbCWY3J6C1Ok4l4CdbxG6UDbX?=
- =?us-ascii?Q?YhDoF8wEGtSo+4BA9PmW3/gEcaT9bCDSu6CYxaWjOYu+a6dstceGUaFxylzn?=
- =?us-ascii?Q?RL0tOL9pxo9oT3XbkasMISjZjWFeGbE5MxAZlU7PJk8VclSLdxy+dhjOQ0Kd?=
- =?us-ascii?Q?hQvehfiTO0jbVCR3kCHyL48sCujXe1YECkmnEvqOY8WSJ/eam2sdFr25Ia7I?=
- =?us-ascii?Q?o90OCRKfiKXvo1LWCD/8zeS7aluNha3dB/yCbHTrwOeXIPkG/PVLtjzYwXP0?=
- =?us-ascii?Q?108rp+nMu7GXiZ9eraygk0q7uCZUem1XZ5dFxXGuHVPz0GBOQBFFUwAWxIZU?=
- =?us-ascii?Q?OqPAkQXLotugGNsXX61Gh4Wif+zeK/YJn7lWC2PK2SJsm3RNxtd/07RLvgJi?=
- =?us-ascii?Q?CyG63YVJ3JheUKnSaRnTmnU+wSZ8yfPeE20UUV5I1tUmG7egBOz+aG7rtNQC?=
- =?us-ascii?Q?E5s9sNYAxiA3l9+JABfwJhQI7WLArEzMdjWb7IC2EeDpWA96HOtKZl5yOxlX?=
- =?us-ascii?Q?7P77jgCD7cyq1pp6BTvs+1P4y/4hyI1XElVwiUBTkvtf2HLFz6ow8ankzQUx?=
- =?us-ascii?Q?jv5V40wyaex1IEvwiLNGtXOwyXmYBRxXxdAQfQpRLbXba9ouRkj2058oBU3V?=
- =?us-ascii?Q?wTuWUf4rBCpPYjSGNornluf/PU6Cq0C2JMkUuWNtbzbrCO3tf+JDIRogI7X7?=
- =?us-ascii?Q?gXWXJx3olmNm6NDYDaubp3NxoAYfThggmeMWTb4oQLncB9Cce3x7eQ/yFtXy?=
- =?us-ascii?Q?CqBGKJP5CqsVgn4h/9lbRdy9GeZh5FRQEHbtQasiHI5N3Pkey/UpOWz9uaC4?=
- =?us-ascii?Q?WqOW82HRFXo6RSNC/5OczB2NQcGxeHNMmEjE00lKYGmbD8ZtltzJeiIloo4C?=
- =?us-ascii?Q?eIpm+Dt1JYTKzs14rCb5nDb7avribrCxpdnSGPlcXOuFSYCAAtGe+fL2rdNu?=
- =?us-ascii?Q?JFjVsoT44g=3D=3D?=
-X-OriginatorOrg: vivo.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4e341fa3-6220-4e4c-4860-08da3346f60e
-X-MS-Exchange-CrossTenant-AuthSource: HK2PR06MB3492.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 May 2022 12:08:30.4423 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 923e42dc-48d5-4cbe-b582-1a797a6412ed
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: acYqY5f6uV2LeEyaDbvbRBe7ZyQ7xyRtMJaYPHvBkN2qUIwz12q4BER0gCBMDagwsrL/Y01r3G2ZMZrzsS52BQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB4942
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH] RISC-V: Remove IORESOURCE_BUSY flag for no-map reserved
+ memory
+To: Xianting Tian <xianting.tian@linux.alibaba.com>,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ akpm@linux-foundation.org, anup@brainfault.org, wangkefeng.wang@huawei.com,
+ rppt@kernel.org, alex@ghiti.fr, twd2.me@gmail.com, seanjc@google.com,
+ petr.pavlu@suse.com, atishp@rivosinc.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ guoren@kernel.org, jianghuaming.jhm@alibaba-inc.com,
+ Nick Kossifidis <mick@ics.forth.gr>
+References: <20220511112413.559734-1-xianting.tian@linux.alibaba.com>
+From: David Hildenbrand <david@redhat.com>
+Organization: Red Hat
+In-Reply-To: <20220511112413.559734-1-xianting.tian@linux.alibaba.com>
+Authentication-Results: relay.mimecast.com;
+ auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=david@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_050854_578597_392F242C 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220511_052750_758886_10E8E9CD 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,92 +115,59 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fix the following coccicheck warnings:
+On 11.05.22 13:24, Xianting Tian wrote:
+> Commit 00ab027a3b82 ("RISC-V: Add kernel image sections to the resource tree")
+> added IORESOURCE_BUSY flag for no-map reserved memory, this casued
+> devm_ioremap_resource() failed for the no-map reserved memory in subsequent
+> operations of related driver, so remove the IORESOURCE_BUSY flag.
+> 
+> The code to reproduce the issue,
+> dts:
+> 	mem0: memory@a0000000 {
+>                 reg = <0x0 0xa0000000 0 0x1000000>;
+>                 no-map;
+>         };
+> 
+> 	&test {
+> 		status = "okay";
+> 		memory-region = <&mem0>;
+> 	};
+> 
+> code:
+> 	np = of_parse_phandle(pdev->dev.of_node, "memory-region", 0);
+> 	ret = of_address_to_resource(np, 0, &r);
+> 	base = devm_ioremap_resource(&pdev->dev, &r);
+> 	// base = -EBUSY
+> 
+> Fixes: 00ab027a3b82 ("RISC-V: Add kernel image sections to the resource tree")
+> Reported-by: Huaming Jiang <jianghuaming.jhm@alibaba-inc.com>
+> Reviewed-by: Guo Ren <guoren@kernel.org>
+> CC: Nick Kossifidis <mick@ics.forth.gr>
+> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+> ---
+>  arch/riscv/kernel/setup.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 834eb652a7b9..71f2966b1474 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -214,7 +214,7 @@ static void __init init_resources(void)
+>  
+>  		if (unlikely(memblock_is_nomap(region))) {
+>  			res->name = "Reserved";
+> -			res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
+> +			res->flags = IORESOURCE_MEM;
+>  		} else {
+>  			res->name = "System RAM";
+>  			res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
 
-tools/testing/selftests/kvm/lib/s390x/ucall.c:25:15-17: WARNING
-opportunity for min()
-tools/testing/selftests/kvm/lib/x86_64/ucall.c:27:15-17: WARNING
-opportunity for min()
-tools/testing/selftests/kvm/lib/riscv/ucall.c:56:15-17: WARNING
-opportunity for min()
-tools/testing/selftests/kvm/lib/aarch64/ucall.c:82:15-17: WARNING
-opportunity for min()
-tools/testing/selftests/kvm/lib/aarch64/ucall.c:55:20-21: WARNING
-opportunity for min()
+I assume the "Reserved" part is essentially unused by the kernel correct?
 
-min() is defined in tools/include/linux/kernel.h.
-
-Signed-off-by: Guo Zhengkui <guozhengkui@vivo.com>
----
- tools/testing/selftests/kvm/lib/aarch64/ucall.c | 4 ++--
- tools/testing/selftests/kvm/lib/riscv/ucall.c   | 2 +-
- tools/testing/selftests/kvm/lib/s390x/ucall.c   | 2 +-
- tools/testing/selftests/kvm/lib/x86_64/ucall.c  | 2 +-
- 4 files changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/lib/aarch64/ucall.c b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
-index e0b0164e9af8..00be3ef195ca 100644
---- a/tools/testing/selftests/kvm/lib/aarch64/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
-@@ -52,7 +52,7 @@ void ucall_init(struct kvm_vm *vm, void *arg)
- 	 * lower and won't match physical addresses.
- 	 */
- 	bits = vm->va_bits - 1;
--	bits = vm->pa_bits < bits ? vm->pa_bits : bits;
-+	bits = min(vm->pa_bits, bits);
- 	end = 1ul << bits;
- 	start = end * 5 / 8;
- 	step = end / 16;
-@@ -79,7 +79,7 @@ void ucall(uint64_t cmd, int nargs, ...)
- 	va_list va;
- 	int i;
- 
--	nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
-+	nargs = min(nargs, UCALL_MAX_ARGS);
- 
- 	va_start(va, nargs);
- 	for (i = 0; i < nargs; ++i)
-diff --git a/tools/testing/selftests/kvm/lib/riscv/ucall.c b/tools/testing/selftests/kvm/lib/riscv/ucall.c
-index 9e42d8248fa6..34f16fe70ce8 100644
---- a/tools/testing/selftests/kvm/lib/riscv/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/ucall.c
-@@ -53,7 +53,7 @@ void ucall(uint64_t cmd, int nargs, ...)
- 	va_list va;
- 	int i;
- 
--	nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
-+	nargs = min(nargs, UCALL_MAX_ARGS);
- 
- 	va_start(va, nargs);
- 	for (i = 0; i < nargs; ++i)
-diff --git a/tools/testing/selftests/kvm/lib/s390x/ucall.c b/tools/testing/selftests/kvm/lib/s390x/ucall.c
-index 9d3b0f15249a..665267c1135d 100644
---- a/tools/testing/selftests/kvm/lib/s390x/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/s390x/ucall.c
-@@ -22,7 +22,7 @@ void ucall(uint64_t cmd, int nargs, ...)
- 	va_list va;
- 	int i;
- 
--	nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
-+	nargs = min(nargs, UCALL_MAX_ARGS);
- 
- 	va_start(va, nargs);
- 	for (i = 0; i < nargs; ++i)
-diff --git a/tools/testing/selftests/kvm/lib/x86_64/ucall.c b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-index a3489973e290..2ea31a0ebe30 100644
---- a/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-@@ -24,7 +24,7 @@ void ucall(uint64_t cmd, int nargs, ...)
- 	va_list va;
- 	int i;
- 
--	nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
-+	nargs = min(nargs, UCALL_MAX_ARGS);
- 
- 	va_start(va, nargs);
- 	for (i = 0; i < nargs; ++i)
 -- 
-2.20.1
+Thanks,
+
+David / dhildenb
 
 
 _______________________________________________
