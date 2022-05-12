@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD0AC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 04:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B826AC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 04:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jqVfXIE+cmmfte6kgB88w0CeQIYfB+mWDng05l9mXIE=; b=bzyHSaFfRhg0MY
-	0OSnoQqllGGGkb7MVzVMbK5x3VvSw0j2IS+oO0X+T4j/UBnUppMBseZUODb33YDeKZD4MDEx6QPFx
-	1yemhkpUC9Vn1vzK4hrUHvpK+VTI0cdomgkFre1uCekWO/fv3k+EQAcfScGnVlsAWxHyHUUOIRwn1
-	LQPzEJGbSoQAECSudVf0TIeHbEyOwtIQ8liV9ydyHwJOP6m4rH6EisYqfIsNN0bUXEM399eBbPtO7
-	JrRz+frgERjSB2mCMEGgMKpJ95BDBO+HhDK2NQef/0jaz0u5KrRyY1oM/C1hdWD9+Qt1q6IVgL7Ry
-	brFw1U90xbLXZwq+tEcw==;
+	List-Owner; bh=QdMgeX/FDZ9bNDgnmZyslfi4S1f8EZCXXlmN4APm0Mw=; b=QbAmIbHSHg5Buk
+	s82DKsUIGcpSAMB11+t+0VsbfQ7r1sjThLbqjQ2i05DnAq56GmLMKa85lJwTd37zVws+O9Jat6hpH
+	dRakeluei21Czmx38gyZu6rN6FenfzXjHA921xJzkZ7lFaCOkHXV9mRMiawrpf9vHKbiDGon5uRZw
+	+remzHY8sglhpKC/t7u2k8o1rC/hJX0hwnXZGGS/upC7Tk2qSf57CJ9O9L6W1535nc4W7Uak7QZ1R
+	hvDZe9SzAZKZp1/I9m6neMv5ru1Hn+1+pgAiunatPKwYv5bGzPnTBwXJ9Xg3pR9FJhUs9yJlkTt6z
+	edXusJqkBksb1v8mBeEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1np07Z-009sgU-8j; Thu, 12 May 2022 04:08:13 +0000
+	id 1np0Hs-009tcU-OQ; Thu, 12 May 2022 04:18:52 +0000
 Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1np07W-009sev-8u
- for linux-riscv@lists.infradead.org; Thu, 12 May 2022 04:08:11 +0000
+ id 1np0Hq-009tag-QI
+ for linux-riscv@lists.infradead.org; Thu, 12 May 2022 04:18:52 +0000
 Received: by mail-wm1-x335.google.com with SMTP id
- n6-20020a05600c3b8600b0039492b44ce7so2258880wms.5
- for <linux-riscv@lists.infradead.org>; Wed, 11 May 2022 21:08:07 -0700 (PDT)
+ a14-20020a7bc1ce000000b00393fb52a386so4380146wmj.1
+ for <linux-riscv@lists.infradead.org>; Wed, 11 May 2022 21:18:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=GyMW7JKE5ri9UseraSETF0tOwJpGQyvrKdzSI8W/128=;
- b=m0wkWQXmzJubMmCCz3hb0dBvjSodoZ9dQEYU1IkfHAfvxK3OJVHUpU+yoYJBVnJxDJ
- 7OmwhngCjmUyw0p79fkFhu5/hOx3+ItIrSrqmgZ2HZ3uGLyKsBPxmvY14JaG1+v7p63C
- 5pNqUf95Fy9OVplO1h2hIvuiPVSrQ12ryf0D1e7Ex6veIDPHwIVYLZbLFBR04kKOMMK+
- NsflxS5PvtG9YuQOz4jXaMTTi9q+1a7YBKBmprZquPgeCgmEvybP4ON8ixUzc8d42qb/
- yICTaYvM9QmtCkAdcdfy8N41+RFnIUNaEVbSJ/66vvVLvjccI+2Z1Yl47VCpcO+o/6Jy
- em1A==
+ :cc; bh=Ivj2ToufcJh9XX+t7cYN4gR1xGP2Eqnye3FyrAKzUwo=;
+ b=pevEQX99aUfHaf9ZrDK/7APbi+nhoR3NrOT9Lf9fouaWT/hRCJI8j764xXLTQCQKIs
+ hrE87yqMJxXMhHUsEBbWQdb9wVWRFmAtz2ZIYqANBFvdDzirkqpQqsokZB+g8vdz497y
+ E84xI/XyHyL8ZLSEAz2aTc81oXxATbhvV27mFRZICp+yWFgainNwcE4XciaZnlc29Wtp
+ Sy2eHNT2wIPzwylVTgUser+RHGp7IW8Vg4RZGn/Ah2HALPzMkE76MdwOrpKW4S2AwaLY
+ 9pj4oUrJWWHj4cHD8Jmo2BJVXA85ivlGSLmzl9yOrZ3D72qsJ8V5hfiJh4hWtkNtgZcB
+ 4nAw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=GyMW7JKE5ri9UseraSETF0tOwJpGQyvrKdzSI8W/128=;
- b=ws8jwM0Z1Qz8zvEY2buxfDfywcno9buQ+oV/lE8Tyka9lgHDfQkluFNL5pPVfJCEZ9
- v0GhzGCxMwa0kSARQS9pw9hAbMXj+smnAWbqcvJliNg5J15Q+LLNdqpYvKOjL5v4q8Vn
- HdEHMk+8YTRmYYoOW013qnN8SK0cpTvwtwfiikCVNaJpVBc+tl55hNMCq1NsqkdR6mGQ
- aep4jyXwAfs08WYnxW3XsLcqz/X6UtveBMJua7N9gjGIRGyRYr6+EsfW+81sSo2C75pX
- SfEGuLHklLtFUfC0gqkjmhBP/FyW4pHm0OP+jeHXjmdSNtmRa0doYXs8R3v8pRe4lxcV
- o1xA==
-X-Gm-Message-State: AOAM533NddpLw9Y3DBaYM7wj9UhSZwwG39vHO20iQKzmabIXynFCogJT
- pU9D/fRY1B/MuQrqQuppQspxADt6w8MM+HBPxKuLtQ==
-X-Google-Smtp-Source: ABdhPJzSoWdXfBkndIBZoZOFwrpb7uDQjD1gAUcPFwN57z7F+LfwyMvq3mjZg+CNFRS8Bl4vV/eiaroxEfBg1N23Sko=
-X-Received: by 2002:a05:600c:5113:b0:394:800c:4c36 with SMTP id
- o19-20020a05600c511300b00394800c4c36mr8028307wms.93.1652328486531; Wed, 11
- May 2022 21:08:06 -0700 (PDT)
+ bh=Ivj2ToufcJh9XX+t7cYN4gR1xGP2Eqnye3FyrAKzUwo=;
+ b=JKeuuAvwi6za6n9c93mQQbgvvCxtDq4sSzHm+S1Dw3iO/UtIwImxwuHsuNlmVfFunA
+ 52SoB6qC8xo+OCO8mLTPdae0rWWupCCydlBzMkNy2VOtVtVj/3nNk2Dyq7qcghIcxgWc
+ 0rjgyWPx2LoSfKq0UBtNTHDoDjFTyAsN7clK7XhYn+XYfITdDri0whNJ3Hrt/4SM1ZbU
+ yoJx8ym81vNS2Tn0Kaz9W3n9vxgIMcCXxsEGvvhzE31BZ7A+cUczlWUjmu+1cUpKlU/2
+ eEZ2ed+bj5wlIGeZyEBcjh3bhAPAmXaxcdfkngq/gl6ygeQu4nMFnKhQMaEhE50Pep+Q
+ XUPg==
+X-Gm-Message-State: AOAM531Wc5wrlXsI3/xZyfncK/V4PN0islJ49y8nUUi1Ec8rotU58ATj
+ Q9LW/ERbMrPXSozoavGoI7bmcyBLfzXL3PZAJuk9ng==
+X-Google-Smtp-Source: ABdhPJyqM/Y9gRPJ8ZkauV1Q+8wE6TNSjv45pTRi0KPrGuz2I1L7fH4zvTKxMF9kTPnLMIU1L03Ox9L8FlGJIIupGD8=
+X-Received: by 2002:a05:600c:4fd5:b0:394:55ae:32c7 with SMTP id
+ o21-20020a05600c4fd500b0039455ae32c7mr7934316wmq.73.1652329129005; Wed, 11
+ May 2022 21:18:49 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220511184408.2751850-1-masahiroy@kernel.org>
-In-Reply-To: <20220511184408.2751850-1-masahiroy@kernel.org>
+References: <20220511214132.2281431-1-heiko@sntech.de>
+ <20220511214132.2281431-2-heiko@sntech.de>
+In-Reply-To: <20220511214132.2281431-2-heiko@sntech.de>
 From: Anup Patel <anup@brainfault.org>
-Date: Thu, 12 May 2022 09:37:54 +0530
-Message-ID: <CAAhSdy1XvMV02ye-+mZ-DewmmpQz+NZZb8HqRcxhssy=WBmNUA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: move errata/ and kvm/ builds to arch/riscv/Kbuild
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+Date: Thu, 12 May 2022 09:48:37 +0530
+Message-ID: <CAAhSdy2PN8knGzyLadq-aoXVZqN3YASVVu7HxiO3YEb6XyqRxA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: riscv: document cbom-block-size
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
  linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ Wei Fu <wefu@redhat.com>, 
+ Guo Ren <guoren@kernel.org>, Atish Patra <atishp@atishpatra.org>, 
+ Nick Kossifidis <mick@ics.forth.gr>, Samuel Holland <samuel@sholland.org>, 
+ Christoph Muellner <cmuellner@linux.com>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>, 
+ Rob Herring <robh+dt@kernel.org>, krzk+dt@kernel.org,
+ DTML <devicetree@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_210810_571623_15AF5793 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20220511_211850_892081_CB4FBBEC 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,12 +94,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 12, 2022 at 12:17 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+On Thu, May 12, 2022 at 3:11 AM Heiko Stuebner <heiko@sntech.de> wrote:
 >
-> Commit 909548d6c578 ("riscv: add arch/riscv/Kbuild") intended that
-> subdirectories in arch/riscv/ would be added in arch/riscv/Kbuild.
+> The Zicbom operates on a block-size defined for the cpu-core,
+> which does not necessarily match other cache-sizes used.
 >
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> So add the necessary property for the system to know the core's
+> block-size.
+>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 
 Looks good to me.
 
@@ -101,46 +112,30 @@ Regards,
 Anup
 
 > ---
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 7 +++++++
+>  1 file changed, 7 insertions(+)
 >
->  arch/riscv/Kbuild   | 2 ++
->  arch/riscv/Makefile | 3 ---
->  2 files changed, 2 insertions(+), 3 deletions(-)
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> index d632ac76532e..b179bfd155a3 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> @@ -63,6 +63,13 @@ properties:
+>        - riscv,sv48
+>        - riscv,none
 >
-> diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-> index fb3397223d52..525ef2482253 100644
-> --- a/arch/riscv/Kbuild
-> +++ b/arch/riscv/Kbuild
-> @@ -2,6 +2,8 @@
->
->  obj-y += kernel/ mm/ net/
->  obj-$(CONFIG_BUILTIN_DTB) += boot/dts/
-> +obj-$(CONFIG_RISCV_ERRATA_ALTERNATIVE) += errata/
-> +obj-$(CONFIG_KVM) += kvm/
->
->  # for cleaning
->  subdir- += boot
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 7d81102cffd4..fd9fda67c038 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -103,9 +103,6 @@ endif
->
->  head-y := arch/riscv/kernel/head.o
->
-> -core-$(CONFIG_RISCV_ERRATA_ALTERNATIVE) += arch/riscv/errata/
-> -core-$(CONFIG_KVM) += arch/riscv/kvm/
-> -
->  libs-y += arch/riscv/lib/
->  libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
->
+> +  riscv,cbom-block-size:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description:
+> +      Blocksize in bytes for the Zicbom cache operations. The block
+> +      size is a property of the core itself and does not necessarily
+> +      match other software defined cache sizes.
+> +
+>    riscv,isa:
+>      description:
+>        Identifies the specific RISC-V instruction set architecture
 > --
-> 2.32.0
+> 2.35.1
 >
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
