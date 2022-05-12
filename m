@@ -4,56 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853D9C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 02:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFAFEC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 03:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ZBkIMRWpJbccgDqyFP+WgnhHX3w5j0unSTwqUr5Ugo=; b=Il/W/qDu3YT4RUw6DJ7PvRvJw5
-	Ckwlhh7i43Dt3X3x+zUMUTio4Vni9Gj8RRoYNdNrmhiMNMB0a+2ts77gae8GHYevm3pkO3rInO4Xx
-	Rvd+3ibcCI4SzhTx/HPjwik3A8jmdUndtWdG9pFfP1tdOo15eovGH9PMYNHKtEhLy1h/Ttyh090EA
-	MBTVVHHGG0cqlEfGOKpWy1b5apzj425/kfGqCpmIlh+xO/E8UKgYm3mK/jJ+jL/MZeMGpvuVBqw1k
-	wagzylQnZGd/YIeXnEVHFGk+1agtws9mMXSKjs48fS+fHbpHkACzXL8E8QI05b/Kq3RYUZuDAwplx
-	GvyEMIMA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mCCHfgYZsYUsoEI3N17c6jR/i2EWiMjiQSuoXNBVxsg=; b=o7nyFpKDJYWaZs
+	akpGW/TaeqQJTHFPVAeAZzOpWrcZ/kx6voxQU7DBVHMesSKCPlEl+RcYEZT1jp7pt9/oqFLnEwozy
+	BIV8wuyJJJoMB6pF5VM2OXaxkLK7rSuJEBCfJXf0ipeMfm0ocRuKroLa1OUSAh/G3xAZp81/4s2Tz
+	g1Lo1C/rwUmzbuP0Uh6rUJP8Qn7A5fjo8xb404kdMwrrqKPZMxXjiMsiHRWFBiVHsOK5TIOAXLteR
+	h345w2qfho33ZwTLPmmA0l14DbS6vdnS7SCMgl6V+VUKy5+pWURrzVLqUikRKi1giWCUNZoOWA3Zw
+	AnADV5CoD7QQSUXr9yvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noyuE-009alQ-V3; Thu, 12 May 2022 02:50:22 +0000
-Received: from out30-56.freemail.mail.aliyun.com ([115.124.30.56])
+	id 1nozXS-009ggT-Fb; Thu, 12 May 2022 03:30:54 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noyuA-009ajo-Gk
- for linux-riscv@lists.infradead.org; Thu, 12 May 2022 02:50:21 +0000
-X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R151e4; CH=green; DM=||false|;
- DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=alimailimapcm10staff010182156082;
- MF=xianting.tian@linux.alibaba.com; NM=1; PH=DS; RN=19; SR=0;
- TI=SMTPD_---0VCypSA6_1652323800; 
-Received: from B-LB6YLVDL-0141.local(mailfrom:xianting.tian@linux.alibaba.com
- fp:SMTPD_---0VCypSA6_1652323800) by smtp.aliyun-inc.com(127.0.0.1);
- Thu, 12 May 2022 10:50:02 +0800
-Subject: Re: [PATCH] RISC-V: Remove IORESOURCE_BUSY flag for no-map reserved
- memory
-To: Nick Kossifidis <mick@ics.forth.gr>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- akpm@linux-foundation.org, anup@brainfault.org, wangkefeng.wang@huawei.com,
- rppt@kernel.org, alex@ghiti.fr, twd2.me@gmail.com, david@redhat.com,
- seanjc@google.com, petr.pavlu@suse.com, atishp@rivosinc.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- guoren@kernel.org, jianghuaming.jhm@alibaba-inc.com,
- huanyi.xj@alibaba-inc.com
-References: <20220511111851.559684-1-xianting.tian@linux.alibaba.com>
- <c794b22ed0e91356e2c1a39849a4b893@mailhost.ics.forth.gr>
-From: Xianting Tian <xianting.tian@linux.alibaba.com>
-Message-ID: <de0fb09f-b966-5c42-7ac6-a68fbff2abad@linux.alibaba.com>
-Date: Thu, 12 May 2022 10:50:00 +0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
- Gecko/20100101 Thunderbird/78.10.1
+ id 1nozXP-009gfI-8H
+ for linux-riscv@lists.infradead.org; Thu, 12 May 2022 03:30:53 +0000
+Received: by mail-pf1-x431.google.com with SMTP id 204so3651604pfx.3
+ for <linux-riscv@lists.infradead.org>; Wed, 11 May 2022 20:30:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/JUiAQKzBnPtASw9bBA0S7cim7i54c+lQ4bL89Ie24Y=;
+ b=I1Hitc0sLSDuMW3ftGYZTxAqH/9FyBOmqNrTUHH81bqpO9FBcaQ/T+/LHHvkStLHRa
+ FU4Ub/I2yIy/K2Vwj28s9yropHNijLHUJ15ftInxMEgmf4XWvO9RIM8mXLkB3PTGugUW
+ d+Yq1psfwoFC1yfBuK6RzDkH0twRPszSUfv5Ohzj2bn2ZEr52p8wU6rBnsvcxU+CD1oL
+ HwFmvyDylbp2gw0rHcXFptpuvC5T5mArzgEIgOdcO7ym7PU9mSRQ4Q4Bqdz1pgOItv80
+ vwrRrqlNG9gugvt3g07tgEDVemCmKTPwp+XMVAdU/L74vBynDn3roP9wxqLyTYzrh24f
+ iJEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=/JUiAQKzBnPtASw9bBA0S7cim7i54c+lQ4bL89Ie24Y=;
+ b=ELkm+0vE/frIgbaAScgHcfwuba7aFZmaKt1Mi6l2dPv3iBNcu1t7d4bG/pbxx7VZbV
+ s+Z3XmaZmTxBn6p1yKNyXDvJp5flZsmb6NfBiLnR4JMhwlGzZ+oiDiT9zhBV/q+hNuIJ
+ g8j0DU5f4AyVRjMEy4mkhlN35aVOs5f/pDxYwj4XOSHnhE34EDrG4wQOiUc/XBA19vhP
+ VMTv2oI6x4aU+6au+3m1ny7tE1YTNamwo9YVHHb4VZj23LaR/G/5pfIITPNIZe7/Hm/4
+ iTrCnZ7xdGjsAr0su2vAadi2l4+NGuDNRveZuUZbsFMk3iGUV6OCW1c3CXZ4RSaY7NpF
+ oVbA==
+X-Gm-Message-State: AOAM530KKfXChGn1YY583zrnIfvmxs0bV5JMOUCUp0GM5cw2vhkrOZQb
+ uAdPnoPKqDEqdlJBBRtgCl9nBw==
+X-Google-Smtp-Source: ABdhPJykn6Ud83qc5fsETVgHN6MByMTgZhcIbGoXC/W37OdrZ8Vl/0675MIvuB2S1LCC0JPiPYwnog==
+X-Received: by 2002:aa7:88ce:0:b0:510:72bd:5a61 with SMTP id
+ k14-20020aa788ce000000b0051072bd5a61mr28315689pff.21.1652326249120; 
+ Wed, 11 May 2022 20:30:49 -0700 (PDT)
+Received: from daolu.ba.rivosinc.com ([66.220.2.162])
+ by smtp.gmail.com with ESMTPSA id
+ g10-20020a170902d5ca00b0015e8d4eb283sm2695684plh.205.2022.05.11.20.30.48
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 11 May 2022 20:30:48 -0700 (PDT)
+From: Dao Lu <daolu@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Dao Lu <daolu@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
+Subject: [PATCH] arch/riscv: Add Zihintpause extension support 
+Date: Wed, 11 May 2022 20:30:45 -0700
+Message-Id: <20220512033045.1101909-1-daolu@rivosinc.com>
+X-Mailer: git-send-email 2.36.0
 MIME-Version: 1.0
-In-Reply-To: <c794b22ed0e91356e2c1a39849a4b893@mailhost.ics.forth.gr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_195018_761424_12D74F07 
-X-CRM114-Status: GOOD (  37.36  )
+X-CRM114-CacheID: sfid-20220511_203051_554971_BAF659E9 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,84 +84,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CuWcqCAyMDIyLzUvMTIg5LiK5Y2IMTA6MzIsIE5pY2sgS29zc2lmaWRpcyDlhpnpgZM6Cj4gSGVs
-bG8gWGlhbnRpbmcsCj4KPj4gLS0tCj4+IMKgYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYyB8IDIg
-Ky0KPj4gwqAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPj4K
-Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMgYi9hcmNoL3Jpc2N2L2tl
-cm5lbC9zZXR1cC5jCj4+IGluZGV4IDgzNGViNjUyYTdiOS4uNzFmMjk2NmIxNDc0IDEwMDY0NAo+
-PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2Vy
-bmVsL3NldHVwLmMKPj4gQEAgLTIxNCw3ICsyMTQsNyBAQCBzdGF0aWMgdm9pZCBfX2luaXQgaW5p
-dF9yZXNvdXJjZXModm9pZCkKPj4KPj4gwqDCoMKgwqDCoMKgwqDCoCBpZiAodW5saWtlbHkobWVt
-YmxvY2tfaXNfbm9tYXAocmVnaW9uKSkpIHsKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJl
-cy0+bmFtZSA9ICJSZXNlcnZlZCI7Cj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJlcy0+Zmxh
-Z3MgPSBJT1JFU09VUkNFX01FTSB8IElPUkVTT1VSQ0VfQlVTWTsKPj4gK8KgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgcmVzLT5mbGFncyA9IElPUkVTT1VSQ0VfTUVNOwo+PiDCoMKgwqDCoMKgwqDCoMKg
-IH0gZWxzZSB7Cj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXMtPm5hbWUgPSAiU3lzdGVt
-IFJBTSI7Cj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXMtPmZsYWdzID0gSU9SRVNPVVJD
-RV9TWVNURU1fUkFNIHwgSU9SRVNPVVJDRV9CVVNZOwo+Cj4gVGhlIHNob3J0IHN0b3J5Ogo+Cj4g
-VGhpcyBtYWtlcyBzZW5zZSBidXQgd2Ugc2hvdWxkIGF0IGxlYXN0IG1hcmsgdGhlbSBhcyAKPiBJ
-T1JFU09VUkNFX0VYQ0xVU0lWRSwgYW5kIGFsc28gcmVtb3ZlIElPUkVTT1VSQ0VfQlVTWSBmcm9t
-IGxpbmUgMTkyIAo+IGFib3ZlIAo+IChodHRwczovL2VsaXhpci5ib290bGluLmNvbS9saW51eC92
-NS4xOC1yYzYvc291cmNlL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMjTDE5MikuClRoYW5rcyBO
-aWNrIGZvciB0aGUgZGV0YWlsZWQgcmVwbHksIEkgd2lsbCBzZW50IFYyIHBhdGNoIHNvb24gYWNj
-b3JkaW5nIAp0byB5b3VyIHN1Z2dlc3Rpb24uCj4KPiBUaGUgbG9uZyBzdG9yeToKPgo+IFRoZSBz
-cGVjIHNheXMgYWJvdXQgbm8tbWFwOgo+Cj4gIgo+IEluZGljYXRlcyB0aGUgb3BlcmF0aW5nIHN5
-c3RlbSBtdXN0IG5vdCBjcmVhdGUgYSB2aXJ0dWFsIG1hcHBpbmcKPiBvZiB0aGUgcmVnaW9uIGFz
-IHBhcnQgb2YgaXRzIHN0YW5kYXJkIG1hcHBpbmcgb2Ygc3lzdGVtIG1lbW9yeSwKPiBub3IgcGVy
-bWl0IHNwZWN1bGF0aXZlIGFjY2VzcyB0byBpdCB1bmRlciBhbnkgY2lyY3Vtc3RhbmNlcyBvdGhl
-cgo+IHRoYW4gdW5kZXIgdGhlIGNvbnRyb2wgb2YgdGhlIGRldmljZSBkcml2ZXIgdXNpbmcgdGhl
-IHJlZ2lvbi4KPiAiCj4KPiBJdCBiYXNpY2FsbHkgc2F5cyB0aGF0IG9ubHkgdGhlIGRyaXZlciB0
-aGF0IHVzZXMgdGhlIHJlZ2lvbiBzaG91bGQgYmUgCj4gYWJsZSB0byBjcmVhdGUgbWFwcGluZ3Mg
-Zm9yIGl0IGFuZCBhY2Nlc3MgaXQsIGFuZCBldmVuIHRoYXQgaXMgbm90IAo+IGVub3VnaCB0byBw
-cmV2ZW50IHNwZWN1bGF0aXZlIGFjY2VzcyB0byB0aGUgcmVnaW9uIGJ5IHNvbWVvbmUgb3RoZXIg
-Cj4gdGhhbiB0aGUgZHJpdmVyLiBUaGUgdGhpbmcgaXMgd2UgY2FuJ3QgaW1wbGVtZW50IHRoaXMg
-aW4gYSBzaW1wbGUgd2F5IAo+IGJlY2F1c2UgLXRvIGJlZ2luIHdpdGgtIHdlIGRvbid0IGhhdmUg
-YSB3YXkgdG8gcGluIHRob3NlIHJlZ2lvbnMgdG8gCj4gc3BlY2lmaWMgZGV2aWNlcy9kcml2ZXJz
-LCB0aGUgbWVtb3J5LXJlZ2lvbiBiaW5kaW5nIGRvZXNuJ3Qgc2F5IAo+IGFueXRoaW5nIGFib3V0
-IHRoYXQuIFdoZW4gdXNpbmcgZGV2bV9pb3JlbWFwX3Jlc291cmNlKCkgdGhlIGZpcnN0IAo+IGRy
-aXZlciB0byBjbGFpbSB0aGUgcmVzb3VyY2Ugd2lsbCBtYXJrIGl0IGFzIGJ1c3kgc28gb3RoZXIg
-ZHJpdmVycyAKPiB1c2luZyB0aGUgc2FtZSBhcGkgd29uJ3QgYmUgYWJsZSB0byB1c2UgaXQsIGhv
-d2V2ZXIgdGhlIHJlZ2lvbiBjYW4gCj4gc3RpbGwgYmUgbWFwcGVkIGluIG90aGVyIHdheXMgKGUu
-Zy4gdGhyb3VnaCBpb3JlbWFwIGRpcmVjdGx5KSBzbyB1c2luZyAKPiB0aGUgcmVzb3VyY2UgdHJl
-ZSB0byB0cmFjay9wcm90ZWN0IHRoZSByZWdpb25zIG1hcmtlZCB3aXRoIG5vLW1hcCAKPiBpc24n
-dCBlbm91Z2guIFRoZXkgY2FuIGV2ZW4gYmUgYWNjZXNzZWQgZnJvbSB1c2Vyc3BhY2UgdGhyb3Vn
-aCAKPiAvZGV2L21lbSB1bmxlc3Mgd2UgYWRkIHRoZW0gdG8gdGhlIHJlc291cmNlIHRyZWUgYXMg
-SU9SRVNPVVJDRV9NRU0gYW5kIAo+IGVuYWJsZS9zZXQgQ09ORklHX0lPX1NUUklDVF9ERVZNRU0v
-aW9tZW09c3RyaWN0LCBidXQgZXZlbiB0aGVuIGluIGNhc2UgCj4gdGhlIGNvcnJlc3BvbmRpbmcg
-aW9yZXNvdXJjZSBpc24ndCBidXN5IChlLmcuIGhhc24ndCBiZWVuIGNsYWltZWQgYnkgYSAKPiBk
-cml2ZXIgeWV0IHRocm91Z2ggZGV2bV9pb3JlbWFwX3Jlc291cmNlKSB3ZSBzdGlsbCBoYXZlIHRv
-IG1hcmsgdGhlbSAKPiBhcyBJT1JFU09VUkNFX0VYQ0xVU0lWRSBmb3IgaW9tZW1faXNfZXhjbHVz
-aXZlKCkgdG8gZG8gdGhlIHRyaWNrIAo+IChodHRwczovL2VsaXhpci5ib290bGluLmNvbS9saW51
-eC92NS4xOC1yYzYvc291cmNlL2tlcm5lbC9yZXNvdXJjZS5jI0wxNzM5KSAKPiBhbmQgcHJldmVu
-dCBhY2Nlc3MgdGhyb3VnaCAvZGV2L21lbS4KPgo+IEZpbmFsbHkgdGhlIGRlZmluaXRpb24gb2Yg
-bm8tbWFwIGFuZCB0aGUgZGVmaW5pdGlvbiBvZiBNRU1CTE9DS19OT01BUCAKPiBhcmUgbm90IHRo
-ZSBzYW1lLCBhbGwgTUVNQkxPQ0tfTk9NQVAgc2F5cyBpcyAiZG9uJ3QgYWRkIHRvIGtlcm5lbCAK
-PiBkaXJlY3QgbWFwcGluZyIgc28gaW9yZW1hcCB0aGF0IHVzZXMgdm1hbGxvYyBjYW4gc3RpbGwg
-YmUgdXNlZCBieSAKPiBldmVyeW9uZSwgaW4gZ2VuZXJhbCBpdCdzIGEgbWVzcy4gSXQgYmVjb21l
-cyB3b3JzZSwgaWYgeW91IG1hcmsgYSAKPiByZXNlcnZlZC1tZW1vcnkgcmVnaW9uIHdpdGggbm8t
-bWFwIGFuZCB0aGF0IHJlZ2lvbiBvdmVybGFwcyB3aXRoIAo+IC9tZW1vcnksIGVhcmx5X2luaXRf
-ZHRfcmVzZXJ2ZV9tZW1vcnlfYXJjaCgpIHdpbGwgaXNvbGF0ZSBpdCwgbWFyayBpdCAKPiBhcyBN
-RU1CTE9DS19OT01BUCBhbmQgd29uJ3QgYWRkIGl0IHRvIG1lbWJsb2NrLnJlc2VydmVkLCBpZiBp
-dCBkb2Vzbid0IAo+IG92ZXJsYXAgaXQgd2lsbCBqdXN0IGlnbm9yZSBpdCBhbmQgc3RpbGwgbm90
-IGFkZCBpdCB0byAKPiBtZW1ibG9jay5yZXNlcnZlZC4gU28gaWYgd2Ugd2FudCB0byBhZGQgYSBy
-ZXNlcnZlZC1tZW1vcnkgcmVnaW9uIHRoYXQgCj4gZG9lc24ndCBvdmVybGFwIHdpdGggL21lbW9y
-eSAoYSB2YWxpZCBzY2VuYXJpbyBhbGxvd2VkIGJ5IHRoZSAKPiBiaW5kaW5nKSwgdGhlcmUgaXMg
-bm8gd2F5IHRvIG1hcmsgaXQgd2l0aCBuby1tYXAuCj4KPiBXaGVuIEkgd3JvdGUgdGhhdCBjb2Rl
-IEkgd2FzIGxvb2tpbmcgZm9yIGEgd2F5IHRvIHByZXZlbnQgYWNjZXNzIHRvIAo+IHJlc2VydmVk
-IHJlZ2lvbnMgdGhyb3VnaCAvZGV2L21lbSBhbmQgYnkgb3RoZXIgZHJpdmVycywgcmVnYXJkbGVz
-cyBvZiAKPiBiZWluZyBwYXJ0IG9mIC9tZW1vcnkgb3Igbm90LCBhbmQgc2luY2UgSSBjb3VsZG4n
-dCBtYXJrIHRoZW0gd2l0aCAKPiBuby1tYXAgdG8gdHJhY2sgdGhlbSBiZWNhdXNlIG9mIGVhcmx5
-X2luaXRfZHRfcmVzZXJ2ZV9tZW1vcnlfYXJjaCgpLCBJIAo+IG1hcmtlZCB0aGVtIGFzIGJ1c3kg
-YW5kIHRoZW4gdXNlZCB0aGVtIGZyb20gdGhlIGRyaXZlciB3aXRoIGlvcmVtYXAgCj4gZGlyZWN0
-bHkuIEl0IHdhcyBhIHRlbXBvcmFyeSBtZWFzdXJlIHVudGlsIEkgaGFkIGEgYmV0dGVyIGFwcHJv
-YWNoIAo+IChlLmcuIG92ZXJyaWRlIGlvcmVtYXAgLyBkZXZtZW1faXNfYWxsb3dlZCBsaWtlIG90
-aGVyIGFyY2hzIGRvKSBidXQgSSAKPiBuZXZlciBnb3QgdGhlIHRpbWUgdG8gZmluaXNoIGl0LCBz
-b3JyeSBmb3IgdGhlIG1lc3MgIQo+Cj4gUmVnYXJkcywKPiBOaWNrCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This patch:
+  1. Build with _zihintpause if the toolchain has support for it
+  2. Detects if the platform supports the extension
+  3. Use PAUSE for cpu_relax if both toolchain and the platform support it
+
+Signed-off-by: Dao Lu <daolu@rivosinc.com>
+---
+ arch/riscv/Makefile                     |  4 ++++
+ arch/riscv/include/asm/hwcap.h          |  1 +
+ arch/riscv/include/asm/vdso/processor.h | 19 ++++++++++++++++---
+ arch/riscv/kernel/cpu.c                 |  1 +
+ arch/riscv/kernel/cpufeature.c          |  7 +++++++
+ 5 files changed, 29 insertions(+), 3 deletions(-)
+
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 7d81102cffd4..900a8fda1a2d 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -56,6 +56,10 @@ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
+ toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zicsr_zifencei)
+ riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
+ 
++# Check if the toolchain supports Zihintpause extension
++toolchain-supports-zihintpause := $(call cc-option-yn, -march=$(riscv-march-y)_zihintpause)
++riscv-march-$(toolchain-supports-zihintpause) := $(riscv-march-y)_zihintpause
++
+ KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
+ KBUILD_AFLAGS += -march=$(riscv-march-y)
+ 
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 0734e42f74f2..caa9ee5459b4 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -52,6 +52,7 @@ extern unsigned long elf_hwcap;
+  */
+ enum riscv_isa_ext_id {
+ 	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
++	RISCV_ISA_EXT_ZIHINTPAUSE,
+ 	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+ };
+ 
+diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
+index 134388cbaaa1..106b35ba8cac 100644
+--- a/arch/riscv/include/asm/vdso/processor.h
++++ b/arch/riscv/include/asm/vdso/processor.h
+@@ -4,15 +4,28 @@
+ 
+ #ifndef __ASSEMBLY__
+ 
++#include <linux/jump_label.h>
+ #include <asm/barrier.h>
++#include <asm/hwcap.h>
+ 
++extern struct static_key_false riscv_pause_available;
+ static inline void cpu_relax(void)
+ {
++	if (!static_branch_likely(&riscv_pause_available)) {
+ #ifdef __riscv_muldiv
+-	int dummy;
+-	/* In lieu of a halt instruction, induce a long-latency stall. */
+-	__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
++		int dummy;
++		/* In lieu of a halt instruction, induce a long-latency stall. */
++		__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
+ #endif
++	} else {
++#ifdef __riscv_zihintpause
++		/*
++		 * Reduce instruction retirement.
++		 * This assumes the PC changes.
++		 */
++		__asm__ __volatile__ ("pause");
++#endif
++	}
+ 	barrier();
+ }
+ 
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index ccb617791e56..89e563e9c4cc 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -88,6 +88,7 @@ int riscv_of_parent_hartid(struct device_node *node)
+  */
+ static struct riscv_isa_ext_data isa_ext_arr[] = {
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
++	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+ 	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+ };
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 1b2d42d7f589..327c19507dbb 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -24,6 +24,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+ #ifdef CONFIG_FPU
+ __ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
+ #endif
++DEFINE_STATIC_KEY_FALSE(riscv_pause_available);
++EXPORT_SYMBOL_GPL(riscv_pause_available);
+ 
+ /**
+  * riscv_isa_extension_base() - Get base extension word
+@@ -192,6 +194,7 @@ void __init riscv_fill_hwcap(void)
+ 				set_bit(*ext - 'a', this_isa);
+ 			} else {
+ 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
++				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+ 			}
+ #undef SET_ISA_EXT_MAP
+ 		}
+@@ -213,6 +216,10 @@ void __init riscv_fill_hwcap(void)
+ 
+ 	}
+ 
++	if (__riscv_isa_extension_available(riscv_isa, RISCV_ISA_EXT_ZIHINTPAUSE)) {
++		static_branch_enable(&riscv_pause_available);
++	}
++
+ 	/* We don't support systems with F but without D, so mask those out
+ 	 * here. */
+ 	if ((elf_hwcap & COMPAT_HWCAP_ISA_F) && !(elf_hwcap & COMPAT_HWCAP_ISA_D)) {
+-- 
+2.36.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
