@@ -4,54 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB63C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 06:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A486C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 08:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lExb3v2mwpGORLhBEdzwA4nISySnsId76ZbHuw1L3mI=; b=dw7iqPIQ1imRn6
-	z5uaIr9xt+cuOtoHAaKXmCVYFJLLGONoEvdqBu16DaEWVYVfHKmY/lbIzTljiqFEN+MhtPozWw9B7
-	Bxx1SlRw47KEaftyVA3C83ukUbsKupodY2tc4NRqD6lGq6R+TqEmpTJN+wsjWlGmluUuOMg+l+KJl
-	evOvj+GFRZdcZVq8qGzDWYuSINJF6KR3CRkN99rMolve0Nd5l2z7TDvlSA8QbAJcZlZJ+wk0bCf5m
-	COighQf4ktHI4FwbuzvhVppHD64x6e+KZrYWI26EiGqCSHGW2OB/OKOg84naXQVbea6dQvS4Yb2lt
-	Mv40zj4q/rsAJFVgphOA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2y+/KbyM6vzR5LyLI7crzRYgMc5ZOFqNNI7MfqMh9b8=; b=ZmMdsHdQwaog/a
+	8DhD6o4fjuRujGfS8MTQHt4YYPT/AwYf3zs3lnx5agkiruxl7s3g/RSHsxNnhKvTm94TN7OdekXbU
+	ak3ZU3zoyi5/b1+0aRsxqxbk8n520sQyy6E3SXq3jzMJEXbftTz99qBrbk6G47jRWfCDbmO+J1BwS
+	wWCjHU6qVWpxK+UX93Rdg4spJkC13RGJbmfdaep5IRRwJM4BXLtAY6HcqPPRGAOkpOblVm77atuIC
+	qhofvfc3865VBOxU4Qo93B3NJO6EpCACGIjz5u7CmLejTv/SNm36ssYIIKhPJxqRN10scBSi/YRYG
+	bgjRsYvGsFNSEjld9cRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1np2N0-00ATbY-VO; Thu, 12 May 2022 06:32:18 +0000
-Received: from [2400:dd01:100f:2:72e2:84ff:fe10:5f45] (helo=mail.nfschina.com)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1np2Lc-00ASjA-Al; Thu, 12 May 2022 06:30:55 +0000
-Received: from localhost (unknown [127.0.0.1])
- by mail.nfschina.com (Postfix) with ESMTP id 83DB51E80D04;
- Thu, 12 May 2022 14:25:10 +0800 (CST)
-X-Virus-Scanned: amavisd-new at test.com
-Received: from mail.nfschina.com ([127.0.0.1])
- by localhost (mail.nfschina.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id SAyNUW6O05i9; Thu, 12 May 2022 14:25:07 +0800 (CST)
-Received: from localhost.localdomain (unknown [219.141.250.2])
- (Authenticated sender: kunyu@nfschina.com)
- by mail.nfschina.com (Postfix) with ESMTPA id 4E9E91E80D22;
- Thu, 12 May 2022 14:25:07 +0800 (CST)
-From: Li kunyu <kunyu@nfschina.com>
-To: rostedt@goodmis.org, mingo@redhat.com, linux@armlinux.org.uk,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
- borntraeger@linux.ibm.com, svens@linux.ibm.com, tglx@linutronix.de,
- bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- Li kunyu <kunyu@nfschina.com>
-Subject: [PATCH] kernel: Ftrace seems to have functions to improve performance
- through optimization
-Date: Thu, 12 May 2022 14:30:17 +0800
-Message-Id: <20220512063017.57412-1-kunyu@nfschina.com>
-X-Mailer: git-send-email 2.18.2
+	id 1np4Ba-00AzkE-EV; Thu, 12 May 2022 08:28:38 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1np4BW-00Azac-7w
+ for linux-riscv@lists.infradead.org; Thu, 12 May 2022 08:28:36 +0000
+Received: from kwepemi500013.china.huawei.com (unknown [172.30.72.56])
+ by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4KzPwx4cDmzGpj2;
+ Thu, 12 May 2022 16:25:37 +0800 (CST)
+Received: from M910t (10.110.54.157) by kwepemi500013.china.huawei.com
+ (7.221.188.120) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Thu, 12 May
+ 2022 16:28:25 +0800
+Date: Thu, 12 May 2022 16:28:20 +0800
+From: Changbin Du <changbin.du@huawei.com>
+To: Nick Desaulniers <ndesaulniers@google.com>
+CC: Changbin Du <changbin.du@huawei.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+ <aou@eecs.berkeley.edu>, Steven Rostedt <rostedt@goodmis.org>,
+ <hw.huiwang@huawei.com>, <linux-riscv@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>,
+ <codegen-riscv@discourse.llvm.org>, <llvmproject@discourse.llvm.org>,
+ <craig.topper@sifive.com>, <asb@asbradbury.org>
+Subject: Re: riscv: llvm-compiler: calling convention violation: temporary
+ register $t2 is used to pass the ninth function parameter
+Message-ID: <20220512082820.7t2rwwo3fffgwoxn@M910t>
+References: <20220510065336.hlfjrc25ajed5zj4@M910t>
+ <CAKwvOd=OnJ=ZhsbX+epzbhg3sWg9yOaR=zQ4jF_Deo=B8Nx9Og@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAKwvOd=OnJ=ZhsbX+epzbhg3sWg9yOaR=zQ4jF_Deo=B8Nx9Og@mail.gmail.com>
+X-Originating-IP: [10.110.54.157]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ kwepemi500013.china.huawei.com (7.221.188.120)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_233052_859498_1DCD138B 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20220512_012834_499296_23B55755 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,191 +68,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-At present, it is found that two functions could be optimized, and the
-performance may be improved.
+On Wed, May 11, 2022 at 11:39:07AM -0700, Nick Desaulniers wrote:
+> On Mon, May 9, 2022 at 11:54 PM Changbin Du <changbin.du@huawei.com> wrote:
+> >
+[snip]
+> > I also built a simple test function with 9 parameters by clang and same cflags,
+> > but cannot reproduce it. Maybe it is conditional?
+> >
+> > Simple test code:
+> > __attribute__ ((noinline))
+> > void test_func(int *a, int *b, int *c, int *d, int *e, int *f, int *g, int *h, int *i)
+> > {
+> >         printf("__find_rr_leaf: %d\n", *i);
+> > }
+> >
+> > int main(void)
+> > {
+> >         int a,b,c,d,e,f,g,h,i = 100;
+> >
+> >         test_func(&a,&b,&c,&d,&e,&f,&g,&h,&i);
+> >         return 0;
+> > }
+> 
+> Hmm...any chance you could come up with a more concise test case then
+> using creduce [0] or cvise [1]?
+> [0] https://embed.cs.utah.edu/creduce/
+> [1] https://github.com/marxin/cvise
+> 
+>
+okay, let me try to reduce the orignal source with creduce.
 
-Signed-off-by: Li kunyu <kunyu@nfschina.com>
----
- arch/arm/kernel/ftrace.c   |  6 ++----
- arch/riscv/kernel/ftrace.c |  6 ++----
- arch/s390/kernel/ftrace.c  |  3 +--
- arch/x86/kernel/ftrace.c   |  6 ++----
- include/linux/ftrace.h     |  4 ++--
- kernel/trace/ftrace.c      | 16 ++++------------
- 6 files changed, 13 insertions(+), 28 deletions(-)
+> 
+> 
+> -- 
+> Thanks,
+> ~Nick Desaulniers
 
-diff --git a/arch/arm/kernel/ftrace.c b/arch/arm/kernel/ftrace.c
-index 83cc068586bc..a0b6d1e3812f 100644
---- a/arch/arm/kernel/ftrace.c
-+++ b/arch/arm/kernel/ftrace.c
-@@ -79,16 +79,14 @@ static unsigned long __ref adjust_address(struct dyn_ftrace *rec,
- 	return (unsigned long)&ftrace_regs_caller_from_init;
- }
- 
--int ftrace_arch_code_modify_prepare(void)
-+void ftrace_arch_code_modify_prepare(void)
- {
--	return 0;
- }
- 
--int ftrace_arch_code_modify_post_process(void)
-+void ftrace_arch_code_modify_post_process(void)
- {
- 	/* Make sure any TLB misses during machine stop are cleared. */
- 	flush_tlb_all();
--	return 0;
- }
- 
- static unsigned long ftrace_call_replace(unsigned long pc, unsigned long addr,
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index 4716f4cdc038..2086f6585773 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -12,16 +12,14 @@
- #include <asm/patch.h>
- 
- #ifdef CONFIG_DYNAMIC_FTRACE
--int ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
-+void ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
- {
- 	mutex_lock(&text_mutex);
--	return 0;
- }
- 
--int ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
-+void ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
- {
- 	mutex_unlock(&text_mutex);
--	return 0;
- }
- 
- static int ftrace_check_current_call(unsigned long hook_pos,
-diff --git a/arch/s390/kernel/ftrace.c b/arch/s390/kernel/ftrace.c
-index 1852d46babb1..416b5a94353d 100644
---- a/arch/s390/kernel/ftrace.c
-+++ b/arch/s390/kernel/ftrace.c
-@@ -225,14 +225,13 @@ void arch_ftrace_update_code(int command)
- 	ftrace_modify_all_code(command);
- }
- 
--int ftrace_arch_code_modify_post_process(void)
-+void ftrace_arch_code_modify_post_process(void)
- {
- 	/*
- 	 * Flush any pre-fetched instructions on all
- 	 * CPUs to make the new code visible.
- 	 */
- 	text_poke_sync_lock();
--	return 0;
- }
- 
- #ifdef CONFIG_MODULES
-diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
-index 1e31c7d21597..73d2719ed12c 100644
---- a/arch/x86/kernel/ftrace.c
-+++ b/arch/x86/kernel/ftrace.c
-@@ -37,7 +37,7 @@
- 
- static int ftrace_poke_late = 0;
- 
--int ftrace_arch_code_modify_prepare(void)
-+void ftrace_arch_code_modify_prepare(void)
-     __acquires(&text_mutex)
- {
- 	/*
-@@ -47,10 +47,9 @@ int ftrace_arch_code_modify_prepare(void)
- 	 */
- 	mutex_lock(&text_mutex);
- 	ftrace_poke_late = 1;
--	return 0;
- }
- 
--int ftrace_arch_code_modify_post_process(void)
-+void ftrace_arch_code_modify_post_process(void)
-     __releases(&text_mutex)
- {
- 	/*
-@@ -61,7 +60,6 @@ int ftrace_arch_code_modify_post_process(void)
- 	text_poke_finish();
- 	ftrace_poke_late = 0;
- 	mutex_unlock(&text_mutex);
--	return 0;
- }
- 
- static const char *ftrace_nop_replace(void)
-diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-index 4816b7e11047..a5f74f6e7e4e 100644
---- a/include/linux/ftrace.h
-+++ b/include/linux/ftrace.h
-@@ -449,8 +449,8 @@ static inline void stack_tracer_enable(void) { }
- 
- #ifdef CONFIG_DYNAMIC_FTRACE
- 
--int ftrace_arch_code_modify_prepare(void);
--int ftrace_arch_code_modify_post_process(void);
-+void ftrace_arch_code_modify_prepare(void);
-+void ftrace_arch_code_modify_post_process(void);
- 
- enum ftrace_bug_type {
- 	FTRACE_BUG_UNKNOWN,
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index 4f1d2f5e7263..35a899f136fe 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -2707,18 +2707,16 @@ ftrace_nop_initialize(struct module *mod, struct dyn_ftrace *rec)
-  * archs can override this function if they must do something
-  * before the modifying code is performed.
-  */
--int __weak ftrace_arch_code_modify_prepare(void)
-+void __weak ftrace_arch_code_modify_prepare(void)
- {
--	return 0;
- }
- 
- /*
-  * archs can override this function if they must do something
-  * after the modifying code is performed.
-  */
--int __weak ftrace_arch_code_modify_post_process(void)
-+void __weak ftrace_arch_code_modify_post_process(void)
- {
--	return 0;
- }
- 
- void ftrace_modify_all_code(int command)
-@@ -2804,12 +2802,7 @@ void __weak arch_ftrace_update_code(int command)
- 
- static void ftrace_run_update_code(int command)
- {
--	int ret;
--
--	ret = ftrace_arch_code_modify_prepare();
--	FTRACE_WARN_ON(ret);
--	if (ret)
--		return;
-+	ftrace_arch_code_modify_prepare();
- 
- 	/*
- 	 * By default we use stop_machine() to modify the code.
-@@ -2819,8 +2812,7 @@ static void ftrace_run_update_code(int command)
- 	 */
- 	arch_ftrace_update_code(command);
- 
--	ret = ftrace_arch_code_modify_post_process();
--	FTRACE_WARN_ON(ret);
-+	ftrace_arch_code_modify_post_process();
- }
- 
- static void ftrace_run_modify_code(struct ftrace_ops *ops, int command,
 -- 
-2.18.2
-
+Cheers,
+Changbin Du
 
 _______________________________________________
 linux-riscv mailing list
