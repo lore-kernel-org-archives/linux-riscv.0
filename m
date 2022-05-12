@@ -4,52 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1568C4332F
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 May 2022 21:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91136C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 02:35:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c1ZEZ35Y4/IIi+RgB/OY1a1wvIX5it57z62g/GkrlmE=; b=Mmi/Yx2ifbLKx7
-	VQcB8VXknKR0IvR4XZ7YaU5vLKHFZKB1kRTFoBAJ5jOP2FkeNeeP6AJxKS8Nj+N+KJixRmHBhSuwF
-	yivaT69LHipQVm7sxMylA91dF6QTX98UHSVsPoB469Nt8AtTiacQQ59S4wXi0h9U5nUEz7uYMwq60
-	m4LpxD285o2VoQAO/So8+WHE8Qc5n336fdgUB/pfCWLxlJU+DgP6Ea68dDxe8oaW8/wGm4B8BfIDm
-	Cgf6FEwyLdGrWycsVY2qV8n21/COAfjJFKoQ0CyAkhP3cDn5eUfBblyAVoP6PG50glE5si/GukkSe
-	G+MtR2aqic6zIrPC07Hg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
+	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CBlpV4+s9U8pUhh4Agh1UGJfl8WKVNWWx2htNgzjvOA=; b=pQfcxpOK3mEdrY/VnwOKKywxNI
+	pduwIHh0EiGjAy73QKfSVAca8kD/pbXu0CFId5AD3qo/MpAQ1BOU/c5FPpkaVQm/okVg3Cac8RjQc
+	jEbhqOsCF5aCzfjmBDDUf+Q7idBPvaiqDk4SKv1mSvVGFt23v042JP3dGwYDUmdcHa22lgBu00kuG
+	Ip4tbYMm+MnEJZN2LCjM9tL4HyW3AaLQAm2irtUEimJ2zp0rI8x/O5b4FxQWYOpg12MIP1TDlTF7L
+	t4Uj3fjaUelmv9KgiTZ15/bFn9I9P7JQp0lPll6bWc7qzUUbK4+6r4aOS4G3e9N6+h1FnaWuCSrSX
+	xtolbbmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nou5V-008p5Y-I9; Wed, 11 May 2022 21:41:41 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1noyfT-009W24-Jg; Thu, 12 May 2022 02:35:07 +0000
+Received: from mailgate.ics.forth.gr ([139.91.1.2])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nou5R-008p3o-P5
- for linux-riscv@lists.infradead.org; Wed, 11 May 2022 21:41:39 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=phil.lan)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1nou5P-0005NU-OT; Wed, 11 May 2022 23:41:35 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: palmer@dabbelt.com,
-	paul.walmsley@sifive.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- wefu@redhat.com, guoren@kernel.org, atishp@atishpatra.org,
- anup@brainfault.org, mick@ics.forth.gr, samuel@sholland.org,
- cmuellner@linux.com, philipp.tomsich@vrull.eu, robh+dt@kernel.org,
- krzk+dt@kernel.org, devicetree@vger.kernel.org,
- Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v2 3/3] riscv: implement cache-management errata for T-Head
- SoCs
-Date: Wed, 11 May 2022 23:41:32 +0200
-Message-Id: <20220511214132.2281431-4-heiko@sntech.de>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220511214132.2281431-1-heiko@sntech.de>
-References: <20220511214132.2281431-1-heiko@sntech.de>
+ id 1noydd-009V1e-7i
+ for linux-riscv@lists.infradead.org; Thu, 12 May 2022 02:33:17 +0000
+Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
+ by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
+ 24C2WxRg035549
+ for <linux-riscv@lists.infradead.org>; Thu, 12 May 2022 05:32:59 +0300 (EEST)
+DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
+ q=dns/txt; i=@ics.forth.gr; t=1652322774; x=1654914774;
+ h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+ Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
+ Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+ List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=/9Nv+1JztQ0pEZvkFRAl5cgwfegzNft3ByletLjOI2Q=;
+ b=TbTD5b6Z1PRLqtt2iDyZfy6yTx6pxUulvAXyLGg6PjPXTPFCR4WQhnrplSJ74Ai+
+ dpQqOqaHajN6sqo7iof5eyIvKI5uZese7fOhBJExRH3wm2pdmcjdKpbYCMVPlHnZ
+ 8VFGWG11xVRZWNkAvxPi/DQkfccn+ufEc8PHZpKxtR6WxzziFH4CVVQZJz7iwPYd
+ W3zaDiG86PzvNuCgWYah84Q9yhjXsanvhxp8mAPTCEWJUFL37rFCYVSdpPU/377P
+ 6LEIUK3Cu6esL4QTwr3Xmk+QRJh/UTRAMIXjMmoXYOArbiftjd/TUl+pkCmfeqPk
+ e2/sohW9jECEq+gzUMFnxA==;
+X-AuditID: 8b5b014d-f66b97000000641e-87-627c71d5b27f
+Received: from enigma.ics.forth.gr (enigma-1.ics.forth.gr [139.91.151.34])
+ by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
+ 84.F5.25630.5D17C726; Thu, 12 May 2022 05:32:53 +0300 (EEST)
+X-ICS-AUTH-INFO: Authenticated user: mick at ics.forth.gr
 MIME-Version: 1.0
+Date: Thu, 12 May 2022 05:32:50 +0300
+From: Nick Kossifidis <mick@ics.forth.gr>
+To: Xianting Tian <xianting.tian@linux.alibaba.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ akpm@linux-foundation.org, anup@brainfault.org,
+ wangkefeng.wang@huawei.com, rppt@kernel.org, alex@ghiti.fr,
+ twd2.me@gmail.com, david@redhat.com, seanjc@google.com,
+ petr.pavlu@suse.com, atishp@rivosinc.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Nick
+ Kossifidis <mick@ics.forth.gr>
+Subject: Re: [PATCH] RISC-V: Remove IORESOURCE_BUSY flag for no-map reserved
+ memory
+In-Reply-To: <20220511111851.559684-1-xianting.tian@linux.alibaba.com>
+References: <20220511111851.559684-1-xianting.tian@linux.alibaba.com>
+Message-ID: <c794b22ed0e91356e2c1a39849a4b893@mailhost.ics.forth.gr>
+X-Sender: mick@mailhost.ics.forth.gr
+Organization: FORTH
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrDIsWRmVeSWpSXmKPExsXSHT1dSfdqYU2SwZ7fNhZz1q9hs3h25yur
+ RcuHd6wWW3/PYrfY/P8Ls8XX9b+YLS7vmsNmse1zC5tF87tz7BYvL/cwW7TN4rdY+uUds8WR
+ 9duZLI6ev8Vksffge3aLxs/3GS32dyxkcxD0mPr7DIvHm5cvWTwOd3xh97h3Yhqrx85Zd9k9
+ Fmwq9Wg58pbV4+GmS0wem1Z1snmcmPGbxWPnQ0uPzUvqPd7vu8rmcWNWhMel5uvsHuu3XGUJ
+ EIzisklJzcksSy3St0vgylhz8yF7wTPZikMb9rA2MM6U6GLk5JAQMJGYO6mLsYuRi0NI4Dij
+ xJ/+/8wQCUuJzZ9esoDYvAKCEidnPgGzWQRUJc6dvckGYrMJaErMv3QQLC4iYCxx/cwjZpBB
+ zAIbmSX+PpjMDpIQFgiV2LZ3G9AGDg5OATeJu7PSQMJCAq4SnZPOsULMd5FYfe8PG8ReFYkP
+ vx+AtfILCEt8unuRFaSVWcBaon2PAUiYWUBeYvvbOcwTGAVmIbluFkLVLCRVCxiZVzEKJJYZ
+ 62UmF+ul5ReVZOilF21iBEcoo+8Oxtub3+odYmTiYDzEKMHBrCTCu7+vIkmINyWxsiq1KD++
+ qDQntfgQozQHi5I4L/uz8CQhgfTEktTs1NSC1CKYLBMHp1QDU8G87zsuvfJ9deOGZkH4hOD+
+ GQfe9JTELFveNUdr1/Wktq1PmLYzpOqsuNJRspl9wa0NVtuO/GJL9t/R4L+trop7ssbxxeX5
+ 9zQ1jBPeahralW99sadCZMK7rBv7uaa7aNdks7D4fI09wH6vc73AtufCUXE6zHrr31evvqP1
+ ZfeBvL4JZfr3r2W/0UoQjpgf+/l8BbfpzvW7tbbJ6GSvCIm+y9P68VqVcRQTw629G+K1p6zn
+ CJW6vf+HTZ2d1Jntb/ellx6WkJyY8lLiyG+b89pmkZdsb/pzKAgtfZr86rXa9dqQh2kyLU4G
+ XwsymEQd84+yLwtOuBzGkHi79SJz5JMOC1WbB2HfxdK5Hf+HK7EUZyQaajEXFScCAC1LXTA/
+ AwAA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_144137_862879_DC1ADF8D 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20220511_193313_706576_AA0B8E45 
+X-CRM114-Status: GOOD (  27.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,135 +95,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The T-Head C906 and C910 implement a scheme for handling
-cache operations different from the generic Zicbom extension.
+Hello Xianting,
 
-Add an errata for it next to the generic dma coherency ops.
+> ---
+>  arch/riscv/kernel/setup.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 834eb652a7b9..71f2966b1474 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -214,7 +214,7 @@ static void __init init_resources(void)
+> 
+>  		if (unlikely(memblock_is_nomap(region))) {
+>  			res->name = "Reserved";
+> -			res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
+> +			res->flags = IORESOURCE_MEM;
+>  		} else {
+>  			res->name = "System RAM";
+>  			res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
 
-Tested-by: Samuel Holland <samuel@sholland.org>
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- arch/riscv/Kconfig.erratas           | 10 ++++++
- arch/riscv/errata/thead/errata.c     |  5 +++
- arch/riscv/include/asm/errata_list.h | 47 +++++++++++++++++++++++++---
- 3 files changed, 58 insertions(+), 4 deletions(-)
+The short story:
 
-diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-index ebfcd5cc6eaf..213629bac5d7 100644
---- a/arch/riscv/Kconfig.erratas
-+++ b/arch/riscv/Kconfig.erratas
-@@ -54,4 +54,14 @@ config ERRATA_THEAD_PBMT
- 
- 	  If you don't know what to do here, say "Y".
- 
-+config ERRATA_THEAD_CMO
-+	bool "Apply T-Head cache management errata"
-+	depends on ERRATA_THEAD && RISCV_ISA_ZICBOM
-+	default y
-+	help
-+	  This will apply the cache management errata to handle the
-+	  non-standard handling on non-coherent operations on T-Head SoCs.
-+
-+	  If you don't know what to do here, say "Y".
-+
- endmenu
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-index e5d75270b99c..9545f43d3504 100644
---- a/arch/riscv/errata/thead/errata.c
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -33,6 +33,11 @@ static const struct errata_info errata_list[ERRATA_THEAD_NUMBER] = {
- 		.stage = RISCV_ALTERNATIVES_EARLY_BOOT,
- 		.check_func = errata_mt_check_func
- 	},
-+	{
-+		.name = "cache-management",
-+		.stage = RISCV_ALTERNATIVES_BOOT,
-+		.check_func = errata_mt_check_func
-+	},
- };
- 
- static u32 thead_errata_probe(unsigned int stage, unsigned long archid, unsigned long impid)
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index eebcd4415049..1da311fc5126 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -16,7 +16,8 @@
- 
- #ifdef CONFIG_ERRATA_THEAD
- #define	ERRATA_THEAD_PBMT 0
--#define	ERRATA_THEAD_NUMBER 1
-+#define	ERRATA_THEAD_CMO 1
-+#define	ERRATA_THEAD_NUMBER 2
- #endif
- 
- #define	CPUFEATURE_SVPBMT 0
-@@ -111,8 +112,37 @@ asm volatile(ALTERNATIVE(						\
- #define CBO_CLEAN_A0	".long 0x25200F"
- #define CBO_FLUSH_A0	".long 0x05200F"
- 
-+/*
-+ * dcache.ipa rs1 (invalidate, physical address)
-+ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-+ *   0000001    01010      rs1       000      00000  0001011
-+ * dache.iva rs1 (invalida, virtual address)
-+ *   0000001    00110      rs1       000      00000  0001011
-+ *
-+ * dcache.cpa rs1 (clean, physical address)
-+ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-+ *   0000001    01001      rs1       000      00000  0001011
-+ * dcache.cva rs1 (clean, virtual address)
-+ *   0000001    00100      rs1       000      00000  0001011
-+ *
-+ * dcache.cipa rs1 (clean then invalidate, physical address)
-+ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-+ *   0000001    01011      rs1       000      00000  0001011
-+ * dcache.civa rs1 (... virtual address)
-+ *   0000001    00111      rs1       000      00000  0001011
-+ *
-+ * sync.s (make sure all cache operations finished)
-+ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-+ *   0000000    11001     00000      000      00000  0001011
-+ */
-+#define THEAD_INVAL_A0	".long 0x0265000b"
-+#define THEAD_CLEAN_A0	".long 0x0245000b"
-+#define THEAD_FLUSH_A0	".long 0x0275000b"
-+#define THEAD_SYNC_S	".long 0x0190000b"
-+
- #define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
--asm volatile(ALTERNATIVE(						\
-+asm volatile(ALTERNATIVE_2(						\
-+	"nop\n\t"							\
- 	"nop\n\t"							\
- 	"nop\n\t"							\
- 	"nop\n\t"							\
-@@ -124,8 +154,17 @@ asm volatile(ALTERNATIVE(						\
- 	CBO_##_op##_A0 "\n\t"						\
- 	"add a0, a0, %0\n\t"						\
- 	"2:\n\t"							\
--	"bltu a0, %2, 3b\n\t", 0,					\
--		CPUFEATURE_CMO, CONFIG_RISCV_ISA_ZICBOM)		\
-+	"bltu a0, %2, 3b\n\t"						\
-+	"nop", 0, CPUFEATURE_CMO, CONFIG_RISCV_ISA_ZICBOM,		\
-+	"mv a0, %1\n\t"							\
-+	"j 2f\n\t"							\
-+	"3:\n\t"							\
-+	THEAD_##_op##_A0 "\n\t"						\
-+	"add a0, a0, %0\n\t"						\
-+	"2:\n\t"							\
-+	"bltu a0, %2, 3b\n\t"						\
-+	THEAD_SYNC_S, THEAD_VENDOR_ID,					\
-+			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)	\
- 	: : "r"(_cachesize),						\
- 	    "r"(ALIGN((_start), (_cachesize))),				\
- 	    "r"(ALIGN((_start) + (_size), (_cachesize))))
--- 
-2.35.1
+This makes sense but we should at least mark them as 
+IORESOURCE_EXCLUSIVE, and also remove IORESOURCE_BUSY from line 192 
+above 
+(https://elixir.bootlin.com/linux/v5.18-rc6/source/arch/riscv/kernel/setup.c#L192).
 
+The long story:
+
+The spec says about no-map:
+
+"
+Indicates the operating system must not create a virtual mapping
+of the region as part of its standard mapping of system memory,
+nor permit speculative access to it under any circumstances other
+than under the control of the device driver using the region.
+"
+
+It basically says that only the driver that uses the region should be 
+able to create mappings for it and access it, and even that is not 
+enough to prevent speculative access to the region by someone other than 
+the driver. The thing is we can't implement this in a simple way because 
+-to begin with- we don't have a way to pin those regions to specific 
+devices/drivers, the memory-region binding doesn't say anything about 
+that. When using devm_ioremap_resource() the first driver to claim the 
+resource will mark it as busy so other drivers using the same api won't 
+be able to use it, however the region can still be mapped in other ways 
+(e.g. through ioremap directly) so using the resource tree to 
+track/protect the regions marked with no-map isn't enough. They can even 
+be accessed from userspace through /dev/mem unless we add them to the 
+resource tree as IORESOURCE_MEM and enable/set 
+CONFIG_IO_STRICT_DEVMEM/iomem=strict, but even then in case the 
+corresponding ioresource isn't busy (e.g. hasn't been claimed by a 
+driver yet through devm_ioremap_resource) we still have to mark them as 
+IORESOURCE_EXCLUSIVE for iomem_is_exclusive() to do the trick 
+(https://elixir.bootlin.com/linux/v5.18-rc6/source/kernel/resource.c#L1739) 
+and prevent access through /dev/mem.
+
+Finally the definition of no-map and the definition of MEMBLOCK_NOMAP 
+are not the same, all MEMBLOCK_NOMAP says is "don't add to kernel direct 
+mapping" so ioremap that uses vmalloc can still be used by everyone, in 
+general it's a mess. It becomes worse, if you mark a reserved-memory 
+region with no-map and that region overlaps with /memory, 
+early_init_dt_reserve_memory_arch() will isolate it, mark it as 
+MEMBLOCK_NOMAP and won't add it to memblock.reserved, if it doesn't 
+overlap it will just ignore it and still not add it to 
+memblock.reserved. So if we want to add a reserved-memory region that 
+doesn't overlap with /memory (a valid scenario allowed by the binding), 
+there is no way to mark it with no-map.
+
+When I wrote that code I was looking for a way to prevent access to 
+reserved regions through /dev/mem and by other drivers, regardless of 
+being part of /memory or not, and since I couldn't mark them with no-map 
+to track them because of early_init_dt_reserve_memory_arch(), I marked 
+them as busy and then used them from the driver with ioremap directly. 
+It was a temporary measure until I had a better approach (e.g. override 
+ioremap / devmem_is_allowed like other archs do) but I never got the 
+time to finish it, sorry for the mess !
+
+Regards,
+Nick
 
 _______________________________________________
 linux-riscv mailing list
