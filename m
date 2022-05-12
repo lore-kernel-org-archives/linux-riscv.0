@@ -4,86 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91136C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 02:35:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853D9C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 02:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
-	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBlpV4+s9U8pUhh4Agh1UGJfl8WKVNWWx2htNgzjvOA=; b=pQfcxpOK3mEdrY/VnwOKKywxNI
-	pduwIHh0EiGjAy73QKfSVAca8kD/pbXu0CFId5AD3qo/MpAQ1BOU/c5FPpkaVQm/okVg3Cac8RjQc
-	jEbhqOsCF5aCzfjmBDDUf+Q7idBPvaiqDk4SKv1mSvVGFt23v042JP3dGwYDUmdcHa22lgBu00kuG
-	Ip4tbYMm+MnEJZN2LCjM9tL4HyW3AaLQAm2irtUEimJ2zp0rI8x/O5b4FxQWYOpg12MIP1TDlTF7L
-	t4Uj3fjaUelmv9KgiTZ15/bFn9I9P7JQp0lPll6bWc7qzUUbK4+6r4aOS4G3e9N6+h1FnaWuCSrSX
-	xtolbbmg==;
+	bh=/ZBkIMRWpJbccgDqyFP+WgnhHX3w5j0unSTwqUr5Ugo=; b=Il/W/qDu3YT4RUw6DJ7PvRvJw5
+	Ckwlhh7i43Dt3X3x+zUMUTio4Vni9Gj8RRoYNdNrmhiMNMB0a+2ts77gae8GHYevm3pkO3rInO4Xx
+	Rvd+3ibcCI4SzhTx/HPjwik3A8jmdUndtWdG9pFfP1tdOo15eovGH9PMYNHKtEhLy1h/Ttyh090EA
+	MBTVVHHGG0cqlEfGOKpWy1b5apzj425/kfGqCpmIlh+xO/E8UKgYm3mK/jJ+jL/MZeMGpvuVBqw1k
+	wagzylQnZGd/YIeXnEVHFGk+1agtws9mMXSKjs48fS+fHbpHkACzXL8E8QI05b/Kq3RYUZuDAwplx
+	GvyEMIMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1noyfT-009W24-Jg; Thu, 12 May 2022 02:35:07 +0000
-Received: from mailgate.ics.forth.gr ([139.91.1.2])
+	id 1noyuE-009alQ-V3; Thu, 12 May 2022 02:50:22 +0000
+Received: from out30-56.freemail.mail.aliyun.com ([115.124.30.56])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1noydd-009V1e-7i
- for linux-riscv@lists.infradead.org; Thu, 12 May 2022 02:33:17 +0000
-Received: from av3.ics.forth.gr (av3in.ics.forth.gr [139.91.1.77])
- by mailgate.ics.forth.gr (8.15.2/ICS-FORTH/V10-1.8-GATE) with ESMTP id
- 24C2WxRg035549
- for <linux-riscv@lists.infradead.org>; Thu, 12 May 2022 05:32:59 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; d=ics.forth.gr; s=av; c=relaxed/simple;
- q=dns/txt; i=@ics.forth.gr; t=1652322774; x=1654914774;
- h=From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
- Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:Resent-From:
- Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
- List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=/9Nv+1JztQ0pEZvkFRAl5cgwfegzNft3ByletLjOI2Q=;
- b=TbTD5b6Z1PRLqtt2iDyZfy6yTx6pxUulvAXyLGg6PjPXTPFCR4WQhnrplSJ74Ai+
- dpQqOqaHajN6sqo7iof5eyIvKI5uZese7fOhBJExRH3wm2pdmcjdKpbYCMVPlHnZ
- 8VFGWG11xVRZWNkAvxPi/DQkfccn+ufEc8PHZpKxtR6WxzziFH4CVVQZJz7iwPYd
- W3zaDiG86PzvNuCgWYah84Q9yhjXsanvhxp8mAPTCEWJUFL37rFCYVSdpPU/377P
- 6LEIUK3Cu6esL4QTwr3Xmk+QRJh/UTRAMIXjMmoXYOArbiftjd/TUl+pkCmfeqPk
- e2/sohW9jECEq+gzUMFnxA==;
-X-AuditID: 8b5b014d-f66b97000000641e-87-627c71d5b27f
-Received: from enigma.ics.forth.gr (enigma-1.ics.forth.gr [139.91.151.34])
- by av3.ics.forth.gr (Symantec Messaging Gateway) with SMTP id
- 84.F5.25630.5D17C726; Thu, 12 May 2022 05:32:53 +0300 (EEST)
-X-ICS-AUTH-INFO: Authenticated user: mick at ics.forth.gr
-MIME-Version: 1.0
-Date: Thu, 12 May 2022 05:32:50 +0300
-From: Nick Kossifidis <mick@ics.forth.gr>
-To: Xianting Tian <xianting.tian@linux.alibaba.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- akpm@linux-foundation.org, anup@brainfault.org,
- wangkefeng.wang@huawei.com, rppt@kernel.org, alex@ghiti.fr,
- twd2.me@gmail.com, david@redhat.com, seanjc@google.com,
- petr.pavlu@suse.com, atishp@rivosinc.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Nick
- Kossifidis <mick@ics.forth.gr>
+ id 1noyuA-009ajo-Gk
+ for linux-riscv@lists.infradead.org; Thu, 12 May 2022 02:50:21 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R151e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=alimailimapcm10staff010182156082;
+ MF=xianting.tian@linux.alibaba.com; NM=1; PH=DS; RN=19; SR=0;
+ TI=SMTPD_---0VCypSA6_1652323800; 
+Received: from B-LB6YLVDL-0141.local(mailfrom:xianting.tian@linux.alibaba.com
+ fp:SMTPD_---0VCypSA6_1652323800) by smtp.aliyun-inc.com(127.0.0.1);
+ Thu, 12 May 2022 10:50:02 +0800
 Subject: Re: [PATCH] RISC-V: Remove IORESOURCE_BUSY flag for no-map reserved
  memory
-In-Reply-To: <20220511111851.559684-1-xianting.tian@linux.alibaba.com>
+To: Nick Kossifidis <mick@ics.forth.gr>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ akpm@linux-foundation.org, anup@brainfault.org, wangkefeng.wang@huawei.com,
+ rppt@kernel.org, alex@ghiti.fr, twd2.me@gmail.com, david@redhat.com,
+ seanjc@google.com, petr.pavlu@suse.com, atishp@rivosinc.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ guoren@kernel.org, jianghuaming.jhm@alibaba-inc.com,
+ huanyi.xj@alibaba-inc.com
 References: <20220511111851.559684-1-xianting.tian@linux.alibaba.com>
-Message-ID: <c794b22ed0e91356e2c1a39849a4b893@mailhost.ics.forth.gr>
-X-Sender: mick@mailhost.ics.forth.gr
-Organization: FORTH
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrDIsWRmVeSWpSXmKPExsXSHT1dSfdqYU2SwZ7fNhZz1q9hs3h25yur
- RcuHd6wWW3/PYrfY/P8Ls8XX9b+YLS7vmsNmse1zC5tF87tz7BYvL/cwW7TN4rdY+uUds8WR
- 9duZLI6ev8Vksffge3aLxs/3GS32dyxkcxD0mPr7DIvHm5cvWTwOd3xh97h3Yhqrx85Zd9k9
- Fmwq9Wg58pbV4+GmS0wem1Z1snmcmPGbxWPnQ0uPzUvqPd7vu8rmcWNWhMel5uvsHuu3XGUJ
- EIzisklJzcksSy3St0vgylhz8yF7wTPZikMb9rA2MM6U6GLk5JAQMJGYO6mLsYuRi0NI4Dij
- xJ/+/8wQCUuJzZ9esoDYvAKCEidnPgGzWQRUJc6dvckGYrMJaErMv3QQLC4iYCxx/cwjZpBB
- zAIbmSX+PpjMDpIQFgiV2LZ3G9AGDg5OATeJu7PSQMJCAq4SnZPOsULMd5FYfe8PG8ReFYkP
- vx+AtfILCEt8unuRFaSVWcBaon2PAUiYWUBeYvvbOcwTGAVmIbluFkLVLCRVCxiZVzEKJJYZ
- 62UmF+ul5ReVZOilF21iBEcoo+8Oxtub3+odYmTiYDzEKMHBrCTCu7+vIkmINyWxsiq1KD++
- qDQntfgQozQHi5I4L/uz8CQhgfTEktTs1NSC1CKYLBMHp1QDU8G87zsuvfJ9deOGZkH4hOD+
- GQfe9JTELFveNUdr1/Wktq1PmLYzpOqsuNJRspl9wa0NVtuO/GJL9t/R4L+trop7ssbxxeX5
- 9zQ1jBPeahralW99sadCZMK7rBv7uaa7aNdks7D4fI09wH6vc73AtufCUXE6zHrr31evvqP1
- ZfeBvL4JZfr3r2W/0UoQjpgf+/l8BbfpzvW7tbbJ6GSvCIm+y9P68VqVcRQTw629G+K1p6zn
- CJW6vf+HTZ2d1Jntb/ellx6WkJyY8lLiyG+b89pmkZdsb/pzKAgtfZr86rXa9dqQh2kyLU4G
- XwsymEQd84+yLwtOuBzGkHi79SJz5JMOC1WbB2HfxdK5Hf+HK7EUZyQaajEXFScCAC1LXTA/
- AwAA
+ <c794b22ed0e91356e2c1a39849a4b893@mailhost.ics.forth.gr>
+From: Xianting Tian <xianting.tian@linux.alibaba.com>
+Message-ID: <de0fb09f-b966-5c42-7ac6-a68fbff2abad@linux.alibaba.com>
+Date: Thu, 12 May 2022 10:50:00 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.10.1
+MIME-Version: 1.0
+In-Reply-To: <c794b22ed0e91356e2c1a39849a4b893@mailhost.ics.forth.gr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220511_193313_706576_AA0B8E45 
-X-CRM114-Status: GOOD (  27.90  )
+X-CRM114-CacheID: sfid-20220511_195018_761424_12D74F07 
+X-CRM114-Status: GOOD (  37.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,94 +65,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Xianting,
-
-> ---
->  arch/riscv/kernel/setup.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 834eb652a7b9..71f2966b1474 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -214,7 +214,7 @@ static void __init init_resources(void)
-> 
->  		if (unlikely(memblock_is_nomap(region))) {
->  			res->name = "Reserved";
-> -			res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
-> +			res->flags = IORESOURCE_MEM;
->  		} else {
->  			res->name = "System RAM";
->  			res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
-
-The short story:
-
-This makes sense but we should at least mark them as 
-IORESOURCE_EXCLUSIVE, and also remove IORESOURCE_BUSY from line 192 
-above 
-(https://elixir.bootlin.com/linux/v5.18-rc6/source/arch/riscv/kernel/setup.c#L192).
-
-The long story:
-
-The spec says about no-map:
-
-"
-Indicates the operating system must not create a virtual mapping
-of the region as part of its standard mapping of system memory,
-nor permit speculative access to it under any circumstances other
-than under the control of the device driver using the region.
-"
-
-It basically says that only the driver that uses the region should be 
-able to create mappings for it and access it, and even that is not 
-enough to prevent speculative access to the region by someone other than 
-the driver. The thing is we can't implement this in a simple way because 
--to begin with- we don't have a way to pin those regions to specific 
-devices/drivers, the memory-region binding doesn't say anything about 
-that. When using devm_ioremap_resource() the first driver to claim the 
-resource will mark it as busy so other drivers using the same api won't 
-be able to use it, however the region can still be mapped in other ways 
-(e.g. through ioremap directly) so using the resource tree to 
-track/protect the regions marked with no-map isn't enough. They can even 
-be accessed from userspace through /dev/mem unless we add them to the 
-resource tree as IORESOURCE_MEM and enable/set 
-CONFIG_IO_STRICT_DEVMEM/iomem=strict, but even then in case the 
-corresponding ioresource isn't busy (e.g. hasn't been claimed by a 
-driver yet through devm_ioremap_resource) we still have to mark them as 
-IORESOURCE_EXCLUSIVE for iomem_is_exclusive() to do the trick 
-(https://elixir.bootlin.com/linux/v5.18-rc6/source/kernel/resource.c#L1739) 
-and prevent access through /dev/mem.
-
-Finally the definition of no-map and the definition of MEMBLOCK_NOMAP 
-are not the same, all MEMBLOCK_NOMAP says is "don't add to kernel direct 
-mapping" so ioremap that uses vmalloc can still be used by everyone, in 
-general it's a mess. It becomes worse, if you mark a reserved-memory 
-region with no-map and that region overlaps with /memory, 
-early_init_dt_reserve_memory_arch() will isolate it, mark it as 
-MEMBLOCK_NOMAP and won't add it to memblock.reserved, if it doesn't 
-overlap it will just ignore it and still not add it to 
-memblock.reserved. So if we want to add a reserved-memory region that 
-doesn't overlap with /memory (a valid scenario allowed by the binding), 
-there is no way to mark it with no-map.
-
-When I wrote that code I was looking for a way to prevent access to 
-reserved regions through /dev/mem and by other drivers, regardless of 
-being part of /memory or not, and since I couldn't mark them with no-map 
-to track them because of early_init_dt_reserve_memory_arch(), I marked 
-them as busy and then used them from the driver with ioremap directly. 
-It was a temporary measure until I had a better approach (e.g. override 
-ioremap / devmem_is_allowed like other archs do) but I never got the 
-time to finish it, sorry for the mess !
-
-Regards,
-Nick
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CuWcqCAyMDIyLzUvMTIg5LiK5Y2IMTA6MzIsIE5pY2sgS29zc2lmaWRpcyDlhpnpgZM6Cj4gSGVs
+bG8gWGlhbnRpbmcsCj4KPj4gLS0tCj4+IMKgYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYyB8IDIg
+Ky0KPj4gwqAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkKPj4K
+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMgYi9hcmNoL3Jpc2N2L2tl
+cm5lbC9zZXR1cC5jCj4+IGluZGV4IDgzNGViNjUyYTdiOS4uNzFmMjk2NmIxNDc0IDEwMDY0NAo+
+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2Vy
+bmVsL3NldHVwLmMKPj4gQEAgLTIxNCw3ICsyMTQsNyBAQCBzdGF0aWMgdm9pZCBfX2luaXQgaW5p
+dF9yZXNvdXJjZXModm9pZCkKPj4KPj4gwqDCoMKgwqDCoMKgwqDCoCBpZiAodW5saWtlbHkobWVt
+YmxvY2tfaXNfbm9tYXAocmVnaW9uKSkpIHsKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJl
+cy0+bmFtZSA9ICJSZXNlcnZlZCI7Cj4+IC3CoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJlcy0+Zmxh
+Z3MgPSBJT1JFU09VUkNFX01FTSB8IElPUkVTT1VSQ0VfQlVTWTsKPj4gK8KgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgcmVzLT5mbGFncyA9IElPUkVTT1VSQ0VfTUVNOwo+PiDCoMKgwqDCoMKgwqDCoMKg
+IH0gZWxzZSB7Cj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXMtPm5hbWUgPSAiU3lzdGVt
+IFJBTSI7Cj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXMtPmZsYWdzID0gSU9SRVNPVVJD
+RV9TWVNURU1fUkFNIHwgSU9SRVNPVVJDRV9CVVNZOwo+Cj4gVGhlIHNob3J0IHN0b3J5Ogo+Cj4g
+VGhpcyBtYWtlcyBzZW5zZSBidXQgd2Ugc2hvdWxkIGF0IGxlYXN0IG1hcmsgdGhlbSBhcyAKPiBJ
+T1JFU09VUkNFX0VYQ0xVU0lWRSwgYW5kIGFsc28gcmVtb3ZlIElPUkVTT1VSQ0VfQlVTWSBmcm9t
+IGxpbmUgMTkyIAo+IGFib3ZlIAo+IChodHRwczovL2VsaXhpci5ib290bGluLmNvbS9saW51eC92
+NS4xOC1yYzYvc291cmNlL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMjTDE5MikuClRoYW5rcyBO
+aWNrIGZvciB0aGUgZGV0YWlsZWQgcmVwbHksIEkgd2lsbCBzZW50IFYyIHBhdGNoIHNvb24gYWNj
+b3JkaW5nIAp0byB5b3VyIHN1Z2dlc3Rpb24uCj4KPiBUaGUgbG9uZyBzdG9yeToKPgo+IFRoZSBz
+cGVjIHNheXMgYWJvdXQgbm8tbWFwOgo+Cj4gIgo+IEluZGljYXRlcyB0aGUgb3BlcmF0aW5nIHN5
+c3RlbSBtdXN0IG5vdCBjcmVhdGUgYSB2aXJ0dWFsIG1hcHBpbmcKPiBvZiB0aGUgcmVnaW9uIGFz
+IHBhcnQgb2YgaXRzIHN0YW5kYXJkIG1hcHBpbmcgb2Ygc3lzdGVtIG1lbW9yeSwKPiBub3IgcGVy
+bWl0IHNwZWN1bGF0aXZlIGFjY2VzcyB0byBpdCB1bmRlciBhbnkgY2lyY3Vtc3RhbmNlcyBvdGhl
+cgo+IHRoYW4gdW5kZXIgdGhlIGNvbnRyb2wgb2YgdGhlIGRldmljZSBkcml2ZXIgdXNpbmcgdGhl
+IHJlZ2lvbi4KPiAiCj4KPiBJdCBiYXNpY2FsbHkgc2F5cyB0aGF0IG9ubHkgdGhlIGRyaXZlciB0
+aGF0IHVzZXMgdGhlIHJlZ2lvbiBzaG91bGQgYmUgCj4gYWJsZSB0byBjcmVhdGUgbWFwcGluZ3Mg
+Zm9yIGl0IGFuZCBhY2Nlc3MgaXQsIGFuZCBldmVuIHRoYXQgaXMgbm90IAo+IGVub3VnaCB0byBw
+cmV2ZW50IHNwZWN1bGF0aXZlIGFjY2VzcyB0byB0aGUgcmVnaW9uIGJ5IHNvbWVvbmUgb3RoZXIg
+Cj4gdGhhbiB0aGUgZHJpdmVyLiBUaGUgdGhpbmcgaXMgd2UgY2FuJ3QgaW1wbGVtZW50IHRoaXMg
+aW4gYSBzaW1wbGUgd2F5IAo+IGJlY2F1c2UgLXRvIGJlZ2luIHdpdGgtIHdlIGRvbid0IGhhdmUg
+YSB3YXkgdG8gcGluIHRob3NlIHJlZ2lvbnMgdG8gCj4gc3BlY2lmaWMgZGV2aWNlcy9kcml2ZXJz
+LCB0aGUgbWVtb3J5LXJlZ2lvbiBiaW5kaW5nIGRvZXNuJ3Qgc2F5IAo+IGFueXRoaW5nIGFib3V0
+IHRoYXQuIFdoZW4gdXNpbmcgZGV2bV9pb3JlbWFwX3Jlc291cmNlKCkgdGhlIGZpcnN0IAo+IGRy
+aXZlciB0byBjbGFpbSB0aGUgcmVzb3VyY2Ugd2lsbCBtYXJrIGl0IGFzIGJ1c3kgc28gb3RoZXIg
+ZHJpdmVycyAKPiB1c2luZyB0aGUgc2FtZSBhcGkgd29uJ3QgYmUgYWJsZSB0byB1c2UgaXQsIGhv
+d2V2ZXIgdGhlIHJlZ2lvbiBjYW4gCj4gc3RpbGwgYmUgbWFwcGVkIGluIG90aGVyIHdheXMgKGUu
+Zy4gdGhyb3VnaCBpb3JlbWFwIGRpcmVjdGx5KSBzbyB1c2luZyAKPiB0aGUgcmVzb3VyY2UgdHJl
+ZSB0byB0cmFjay9wcm90ZWN0IHRoZSByZWdpb25zIG1hcmtlZCB3aXRoIG5vLW1hcCAKPiBpc24n
+dCBlbm91Z2guIFRoZXkgY2FuIGV2ZW4gYmUgYWNjZXNzZWQgZnJvbSB1c2Vyc3BhY2UgdGhyb3Vn
+aCAKPiAvZGV2L21lbSB1bmxlc3Mgd2UgYWRkIHRoZW0gdG8gdGhlIHJlc291cmNlIHRyZWUgYXMg
+SU9SRVNPVVJDRV9NRU0gYW5kIAo+IGVuYWJsZS9zZXQgQ09ORklHX0lPX1NUUklDVF9ERVZNRU0v
+aW9tZW09c3RyaWN0LCBidXQgZXZlbiB0aGVuIGluIGNhc2UgCj4gdGhlIGNvcnJlc3BvbmRpbmcg
+aW9yZXNvdXJjZSBpc24ndCBidXN5IChlLmcuIGhhc24ndCBiZWVuIGNsYWltZWQgYnkgYSAKPiBk
+cml2ZXIgeWV0IHRocm91Z2ggZGV2bV9pb3JlbWFwX3Jlc291cmNlKSB3ZSBzdGlsbCBoYXZlIHRv
+IG1hcmsgdGhlbSAKPiBhcyBJT1JFU09VUkNFX0VYQ0xVU0lWRSBmb3IgaW9tZW1faXNfZXhjbHVz
+aXZlKCkgdG8gZG8gdGhlIHRyaWNrIAo+IChodHRwczovL2VsaXhpci5ib290bGluLmNvbS9saW51
+eC92NS4xOC1yYzYvc291cmNlL2tlcm5lbC9yZXNvdXJjZS5jI0wxNzM5KSAKPiBhbmQgcHJldmVu
+dCBhY2Nlc3MgdGhyb3VnaCAvZGV2L21lbS4KPgo+IEZpbmFsbHkgdGhlIGRlZmluaXRpb24gb2Yg
+bm8tbWFwIGFuZCB0aGUgZGVmaW5pdGlvbiBvZiBNRU1CTE9DS19OT01BUCAKPiBhcmUgbm90IHRo
+ZSBzYW1lLCBhbGwgTUVNQkxPQ0tfTk9NQVAgc2F5cyBpcyAiZG9uJ3QgYWRkIHRvIGtlcm5lbCAK
+PiBkaXJlY3QgbWFwcGluZyIgc28gaW9yZW1hcCB0aGF0IHVzZXMgdm1hbGxvYyBjYW4gc3RpbGwg
+YmUgdXNlZCBieSAKPiBldmVyeW9uZSwgaW4gZ2VuZXJhbCBpdCdzIGEgbWVzcy4gSXQgYmVjb21l
+cyB3b3JzZSwgaWYgeW91IG1hcmsgYSAKPiByZXNlcnZlZC1tZW1vcnkgcmVnaW9uIHdpdGggbm8t
+bWFwIGFuZCB0aGF0IHJlZ2lvbiBvdmVybGFwcyB3aXRoIAo+IC9tZW1vcnksIGVhcmx5X2luaXRf
+ZHRfcmVzZXJ2ZV9tZW1vcnlfYXJjaCgpIHdpbGwgaXNvbGF0ZSBpdCwgbWFyayBpdCAKPiBhcyBN
+RU1CTE9DS19OT01BUCBhbmQgd29uJ3QgYWRkIGl0IHRvIG1lbWJsb2NrLnJlc2VydmVkLCBpZiBp
+dCBkb2Vzbid0IAo+IG92ZXJsYXAgaXQgd2lsbCBqdXN0IGlnbm9yZSBpdCBhbmQgc3RpbGwgbm90
+IGFkZCBpdCB0byAKPiBtZW1ibG9jay5yZXNlcnZlZC4gU28gaWYgd2Ugd2FudCB0byBhZGQgYSBy
+ZXNlcnZlZC1tZW1vcnkgcmVnaW9uIHRoYXQgCj4gZG9lc24ndCBvdmVybGFwIHdpdGggL21lbW9y
+eSAoYSB2YWxpZCBzY2VuYXJpbyBhbGxvd2VkIGJ5IHRoZSAKPiBiaW5kaW5nKSwgdGhlcmUgaXMg
+bm8gd2F5IHRvIG1hcmsgaXQgd2l0aCBuby1tYXAuCj4KPiBXaGVuIEkgd3JvdGUgdGhhdCBjb2Rl
+IEkgd2FzIGxvb2tpbmcgZm9yIGEgd2F5IHRvIHByZXZlbnQgYWNjZXNzIHRvIAo+IHJlc2VydmVk
+IHJlZ2lvbnMgdGhyb3VnaCAvZGV2L21lbSBhbmQgYnkgb3RoZXIgZHJpdmVycywgcmVnYXJkbGVz
+cyBvZiAKPiBiZWluZyBwYXJ0IG9mIC9tZW1vcnkgb3Igbm90LCBhbmQgc2luY2UgSSBjb3VsZG4n
+dCBtYXJrIHRoZW0gd2l0aCAKPiBuby1tYXAgdG8gdHJhY2sgdGhlbSBiZWNhdXNlIG9mIGVhcmx5
+X2luaXRfZHRfcmVzZXJ2ZV9tZW1vcnlfYXJjaCgpLCBJIAo+IG1hcmtlZCB0aGVtIGFzIGJ1c3kg
+YW5kIHRoZW4gdXNlZCB0aGVtIGZyb20gdGhlIGRyaXZlciB3aXRoIGlvcmVtYXAgCj4gZGlyZWN0
+bHkuIEl0IHdhcyBhIHRlbXBvcmFyeSBtZWFzdXJlIHVudGlsIEkgaGFkIGEgYmV0dGVyIGFwcHJv
+YWNoIAo+IChlLmcuIG92ZXJyaWRlIGlvcmVtYXAgLyBkZXZtZW1faXNfYWxsb3dlZCBsaWtlIG90
+aGVyIGFyY2hzIGRvKSBidXQgSSAKPiBuZXZlciBnb3QgdGhlIHRpbWUgdG8gZmluaXNoIGl0LCBz
+b3JyeSBmb3IgdGhlIG1lc3MgIQo+Cj4gUmVnYXJkcywKPiBOaWNrCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
