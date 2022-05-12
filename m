@@ -4,68 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC66C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 13:57:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 678DBC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 14:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xUko4W/Aa3bbOt6E86csPVtJdWoGQLlJbTlu9w5Q+WM=; b=27Oi1a7PhUm/jU
-	99i/ZPto3WjyxpW7qG0FR4vhE/EjnyQX+TsqI8jw1YR4r4b1USJbioFCrPuQTWWzIiyAjAeEnaTnJ
-	CCac2uHpWAbw/laRFWcSRfA8cxtp7TehTQsErUJSPrXvmgctZiJLVBPD8r23e8bYxTiiv/wLJyvOS
-	4qYtFWMyl88BweKZU4FlHyJqyKh+eTwCUrfU3DpzB74SWmaeQc9+STKzUGJOb7UidW5wR6HxCzaS3
-	o0vXJ32BRNbM0l8ioLWoge5mkIj3NbshMxaL/FSv8l+Kqj6TPGn88PyWbZmSCB7K4fT0nmbVFqxol
-	8JzcMgGZxpv9qi2eyfBw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WoPMc5VWQVN4QQsD0NIZ5xrNBnGtSxrA6IZwIIKZn9k=; b=a2Tv9ZNbsXZB6i
+	UpdJpLIjgo3yl1rMhhcPdlbYINQAOlMMWLYaDeP8lXJUHD2zHbCAEjXj0a3zO/z4l75es9iMHDsrE
+	nTpvTWVLRFRNWC9LN5bno7bDDGfC/1FJyyz0Y8wUISp69/CHO/8XmV99pKo1rli4Ps8fkhuiq6W9k
+	LbmezbKtAmmgWkot8KZpIxMdYJfKxRDpGTo1xKcWNFaac+J/xIg0/XCSY40rvOo11XiJlK3AkxExI
+	OYC97chHPahl5htmruXelLrr98X9NRipA/87qm8JGteKneOXj83yERVtX6ciYnzVYrzwmSs316Rwa
+	n+B2fQmKsluGE305Evrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1np9JR-00CC4f-DH; Thu, 12 May 2022 13:57:05 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1np9R5-00CEQs-QH; Thu, 12 May 2022 14:04:59 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1np9JG-00CC2V-9Z; Thu, 12 May 2022 13:56:55 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 928CD61866;
- Thu, 12 May 2022 13:56:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E3BFC385B8;
- Thu, 12 May 2022 13:56:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1652363813;
- bh=u0smFFjUMhTt/JBgvJi9NyfEjj+cWk3ypDQeMQ3aJQ4=;
- h=From:To:Cc:Subject:Date:From;
- b=YQSjZ/8qzkUrg4jBFbJ0ShB7zfZdd5+Vz6ERJ0AfwP1CsLwbxnsUyOX0WZD2QZwxz
- enYTZorYc+5wR27nsoX76nz3wjw9qNHrybHqm70Egb09wnOWMNPaOIju7I5C17wS01
- 0M31Rt/yoGjKYDvuxrs63VwAGhB8Hk06yMZthHINx7MuNheHwm11UqpzlWdKIwBheo
- Wd2zR0EUPDgxWoHybXb6WkgP+1bMa/emh8qjnaKvZg4MHPB8Ax3I0g53tTvoGx8iyv
- EhKLYRmTy5cdCN7xbt3MV3/Xkk/O0d0cmknxF2lmDTsTMGMibQ8+z9XkpZCB4kdUuq
- YJ0E29+vf9nOg==
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Peter Zijlstra <peterz@infradead.org>, Sven Schnelle <svens@linux.ibm.com>,
- Mark Rutland <mark.rutland@arm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
- linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-Subject: [PATCH v2] bug: Use normal relative pointers in 'struct bug_entry'
-Date: Thu, 12 May 2022 06:56:23 -0700
-Message-Id: <f0e05be797a16f4fc2401eeb88c8450dcbe61df6.1652362951.git.jpoimboe@kernel.org>
-X-Mailer: git-send-email 2.34.1
+ id 1np9Qb-00CEDC-3b; Thu, 12 May 2022 14:04:30 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id ks9so10496510ejb.2;
+ Thu, 12 May 2022 07:04:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=sender:message-id:date:mime-version:user-agent:subject
+ :content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=fs8s4x4j/+asSW1i8f2Pukqgr0Ir/tJgvdWyY3yoq3U=;
+ b=SUG5R4mvQVZygGuRddCDO8dZQacyk07/cAZawwDbBHFiIcz+Eh01oOdFt+8NMsiteQ
+ s8AlWxu2/skdBIc9am1jSyRtORyb1BuvlFo2plpzUHEsxv9da1HNExENjJ/0t+nOi9bO
+ k6oU2HkXL/cV0mXaW/mfigdUplLND8VcIPAZZRcd10cHVVgLxpSC20yq2GqMhOEn4o3v
+ BX8j64LjIRumUuIVBipI3tL8S6DVa+sbn4U3DSEKiGesq+9Htf13sK9idkEcXbPWJtoW
+ pmum4BbxGst/QvpAJs+YLlKzd9hKoO2n+ygfnHiEf87Cm4zp15vme9Bvbc6JHtHUcLB8
+ yScg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:sender:message-id:date:mime-version:user-agent
+ :subject:content-language:to:cc:references:from:in-reply-to
+ :content-transfer-encoding;
+ bh=fs8s4x4j/+asSW1i8f2Pukqgr0Ir/tJgvdWyY3yoq3U=;
+ b=HM/xmmNf3/vDg+ln3VY8jJ5tvsM91Xu+G1JXoe1oOVvbN1TcWX/gc4+ZfaXASLaR4t
+ Y+zUmaYowN8TaiV4ZyupFT/EXlPP8+alqku72Uu64qLq3GKdPesnKIs9awqUj07otlFu
+ P7lrC9cGbGBNhqHffxbRk5xZRNSbw5813X/85dvW8PRAI3e53f2p25BEvSrTK84SuN41
+ Pjrw3a2hfVemldYqSASWrkWbKRisgN5Y66l5GnXaksCYOLRHs0+ocj2iG4Vy0PtYDWWo
+ h89wsvxO874TVxggwgXzQwfjoir0w9amtNsZNBOkWQDcRSPkbwCj3JrxNBUDOpEj+7bt
+ JNzQ==
+X-Gm-Message-State: AOAM533luStjyFFljtdiA0+oVeHdG15ilr2HHanaTvrj6yxgtYp9sQjS
+ x3G8OcMusl5glEjpqppfFpw=
+X-Google-Smtp-Source: ABdhPJyt50qyYPCyD03r3/AJ3OUGuB2lb9Kyp65SglIgNSyfP293qaN/xBFVKFZfLgIbEagAjedBOw==
+X-Received: by 2002:a17:907:3e86:b0:6f5:917:10cc with SMTP id
+ hs6-20020a1709073e8600b006f5091710ccmr63430ejc.53.1652364264897; 
+ Thu, 12 May 2022 07:04:24 -0700 (PDT)
+Received: from ?IPV6:2001:b07:6468:f312:c8dd:75d4:99ab:290a?
+ ([2001:b07:6468:f312:c8dd:75d4:99ab:290a])
+ by smtp.googlemail.com with ESMTPSA id
+ r10-20020a508d8a000000b00428bb4c952bsm2609603edh.31.2022.05.12.07.04.21
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Thu, 12 May 2022 07:04:24 -0700 (PDT)
+Message-ID: <0d4e0b40-a2b3-789f-3adb-9da30c61403f@redhat.com>
+Date: Thu, 12 May 2022 16:04:20 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH] selftests: kvm: replace ternary operator with min()
+Content-Language: en-US
+To: Guo Zhengkui <guozhengkui@vivo.com>, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Shuah Khan <shuah@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Janosch Frank <frankja@linux.ibm.com>,
+ Claudio Imbrenda <imbrenda@linux.ibm.com>,
+ David Hildenbrand <david@redhat.com>, Anup Patel <anup@brainfault.org>,
+ "moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)"
+ <kvmarm@lists.cs.columbia.edu>,
+ "open list:KERNEL VIRTUAL MACHINE (KVM)" <kvm@vger.kernel.org>,
+ "open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>
+Cc: zhengkui_guo@outlook.com
+References: <20220511120621.36956-1-guozhengkui@vivo.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <20220511120621.36956-1-guozhengkui@vivo.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220512_065654_454959_CFFA12A6 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20220512_070429_224884_B55492A2 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,199 +104,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With CONFIG_GENERIC_BUG_RELATIVE_POINTERS, the addr/file relative
-pointers are calculated weirdly: based on the beginning of the bug_entry
-struct address, rather than their respective pointer addresses.
+On 5/11/22 14:05, Guo Zhengkui wrote:
+> Fix the following coccicheck warnings:
+> 
+> tools/testing/selftests/kvm/lib/s390x/ucall.c:25:15-17: WARNING
+> opportunity for min()
+> tools/testing/selftests/kvm/lib/x86_64/ucall.c:27:15-17: WARNING
+> opportunity for min()
+> tools/testing/selftests/kvm/lib/riscv/ucall.c:56:15-17: WARNING
+> opportunity for min()
+> tools/testing/selftests/kvm/lib/aarch64/ucall.c:82:15-17: WARNING
+> opportunity for min()
+> tools/testing/selftests/kvm/lib/aarch64/ucall.c:55:20-21: WARNING
+> opportunity for min()
+> 
+> min() is defined in tools/include/linux/kernel.h.
+> 
+> Signed-off-by: Guo Zhengkui <guozhengkui@vivo.com>
+> ---
+>   tools/testing/selftests/kvm/lib/aarch64/ucall.c | 4 ++--
+>   tools/testing/selftests/kvm/lib/riscv/ucall.c   | 2 +-
+>   tools/testing/selftests/kvm/lib/s390x/ucall.c   | 2 +-
+>   tools/testing/selftests/kvm/lib/x86_64/ucall.c  | 2 +-
+>   4 files changed, 5 insertions(+), 5 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/lib/aarch64/ucall.c b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
+> index e0b0164e9af8..00be3ef195ca 100644
+> --- a/tools/testing/selftests/kvm/lib/aarch64/ucall.c
+> +++ b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
+> @@ -52,7 +52,7 @@ void ucall_init(struct kvm_vm *vm, void *arg)
+>   	 * lower and won't match physical addresses.
+>   	 */
+>   	bits = vm->va_bits - 1;
+> -	bits = vm->pa_bits < bits ? vm->pa_bits : bits;
+> +	bits = min(vm->pa_bits, bits);
+>   	end = 1ul << bits;
+>   	start = end * 5 / 8;
+>   	step = end / 16;
+> @@ -79,7 +79,7 @@ void ucall(uint64_t cmd, int nargs, ...)
+>   	va_list va;
+>   	int i;
+>   
+> -	nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
+> +	nargs = min(nargs, UCALL_MAX_ARGS);
+>   
+>   	va_start(va, nargs);
+>   	for (i = 0; i < nargs; ++i)
+> diff --git a/tools/testing/selftests/kvm/lib/riscv/ucall.c b/tools/testing/selftests/kvm/lib/riscv/ucall.c
+> index 9e42d8248fa6..34f16fe70ce8 100644
+> --- a/tools/testing/selftests/kvm/lib/riscv/ucall.c
+> +++ b/tools/testing/selftests/kvm/lib/riscv/ucall.c
+> @@ -53,7 +53,7 @@ void ucall(uint64_t cmd, int nargs, ...)
+>   	va_list va;
+>   	int i;
+>   
+> -	nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
+> +	nargs = min(nargs, UCALL_MAX_ARGS);
+>   
+>   	va_start(va, nargs);
+>   	for (i = 0; i < nargs; ++i)
+> diff --git a/tools/testing/selftests/kvm/lib/s390x/ucall.c b/tools/testing/selftests/kvm/lib/s390x/ucall.c
+> index 9d3b0f15249a..665267c1135d 100644
+> --- a/tools/testing/selftests/kvm/lib/s390x/ucall.c
+> +++ b/tools/testing/selftests/kvm/lib/s390x/ucall.c
+> @@ -22,7 +22,7 @@ void ucall(uint64_t cmd, int nargs, ...)
+>   	va_list va;
+>   	int i;
+>   
+> -	nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
+> +	nargs = min(nargs, UCALL_MAX_ARGS);
+>   
+>   	va_start(va, nargs);
+>   	for (i = 0; i < nargs; ++i)
+> diff --git a/tools/testing/selftests/kvm/lib/x86_64/ucall.c b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
+> index a3489973e290..2ea31a0ebe30 100644
+> --- a/tools/testing/selftests/kvm/lib/x86_64/ucall.c
+> +++ b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
+> @@ -24,7 +24,7 @@ void ucall(uint64_t cmd, int nargs, ...)
+>   	va_list va;
+>   	int i;
+>   
+> -	nargs = nargs <= UCALL_MAX_ARGS ? nargs : UCALL_MAX_ARGS;
+> +	nargs = min(nargs, UCALL_MAX_ARGS);
+>   
+>   	va_start(va, nargs);
+>   	for (i = 0; i < nargs; ++i)
 
-Make the relative pointers less surprising to both humans and tools by
-calculating them the normal way.
+Queued, thanks.
 
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Acked-by: Sven Schnelle <svens@linux.ibm.com> # s390
-Reviewed-by: Mark Rutland <mark.rutland@arm.com>
-Tested-by: Mark Rutland <mark.rutland@arm.com> [arm64]
-Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
----
-v2:
-- fix ppc64le C macros (and actually test them)
-
- arch/arm64/include/asm/asm-bug.h |  4 ++--
- arch/powerpc/include/asm/bug.h   | 14 ++++++++------
- arch/riscv/include/asm/bug.h     |  4 ++--
- arch/s390/include/asm/bug.h      |  5 +++--
- arch/x86/include/asm/bug.h       |  2 +-
- lib/bug.c                        | 15 +++++++--------
- 6 files changed, 23 insertions(+), 21 deletions(-)
-
-diff --git a/arch/arm64/include/asm/asm-bug.h b/arch/arm64/include/asm/asm-bug.h
-index 03f52f84a4f3..c762038ba400 100644
---- a/arch/arm64/include/asm/asm-bug.h
-+++ b/arch/arm64/include/asm/asm-bug.h
-@@ -14,7 +14,7 @@
- 	14472:	.string file;					\
- 		.popsection;					\
- 								\
--		.long 14472b - 14470b;				\
-+		.long 14472b - .;				\
- 		.short line;
- #else
- #define _BUGVERBOSE_LOCATION(file, line)
-@@ -25,7 +25,7 @@
- #define __BUG_ENTRY(flags) 				\
- 		.pushsection __bug_table,"aw";		\
- 		.align 2;				\
--	14470:	.long 14471f - 14470b;			\
-+	14470:	.long 14471f - .;			\
- _BUGVERBOSE_LOCATION(__FILE__, __LINE__)		\
- 		.short flags; 				\
- 		.popsection;				\
-diff --git a/arch/powerpc/include/asm/bug.h b/arch/powerpc/include/asm/bug.h
-index ecbae1832de3..61a4736355c2 100644
---- a/arch/powerpc/include/asm/bug.h
-+++ b/arch/powerpc/include/asm/bug.h
-@@ -13,7 +13,8 @@
- #ifdef CONFIG_DEBUG_BUGVERBOSE
- .macro __EMIT_BUG_ENTRY addr,file,line,flags
- 	 .section __bug_table,"aw"
--5001:	 .4byte \addr - 5001b, 5002f - 5001b
-+5001:	 .4byte \addr - .
-+	 .4byte 5002f - .
- 	 .short \line, \flags
- 	 .org 5001b+BUG_ENTRY_SIZE
- 	 .previous
-@@ -24,7 +25,7 @@
- #else
- .macro __EMIT_BUG_ENTRY addr,file,line,flags
- 	 .section __bug_table,"aw"
--5001:	 .4byte \addr - 5001b
-+5001:	 .4byte \addr - .
- 	 .short \flags
- 	 .org 5001b+BUG_ENTRY_SIZE
- 	 .previous
-@@ -49,15 +50,16 @@
- #ifdef CONFIG_DEBUG_BUGVERBOSE
- #define _EMIT_BUG_ENTRY				\
- 	".section __bug_table,\"aw\"\n"		\
--	"2:\t.4byte 1b - 2b, %0 - 2b\n"		\
--	"\t.short %1, %2\n"			\
-+	"2:	.4byte 1b - .\n"		\
-+	"	.4byte %0 - .\n"		\
-+	"	.short %1, %2\n"		\
- 	".org 2b+%3\n"				\
- 	".previous\n"
- #else
- #define _EMIT_BUG_ENTRY				\
- 	".section __bug_table,\"aw\"\n"		\
--	"2:\t.4byte 1b - 2b\n"			\
--	"\t.short %2\n"				\
-+	"2:	.4byte 1b - .\n"		\
-+	"	.short %2\n"			\
- 	".org 2b+%3\n"				\
- 	".previous\n"
- #endif
-diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-index d3804a2f9aad..1aaea81fb141 100644
---- a/arch/riscv/include/asm/bug.h
-+++ b/arch/riscv/include/asm/bug.h
-@@ -30,8 +30,8 @@
- typedef u32 bug_insn_t;
- 
- #ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
--#define __BUG_ENTRY_ADDR	RISCV_INT " 1b - 2b"
--#define __BUG_ENTRY_FILE	RISCV_INT " %0 - 2b"
-+#define __BUG_ENTRY_ADDR	RISCV_INT " 1b - ."
-+#define __BUG_ENTRY_FILE	RISCV_INT " %0 - ."
- #else
- #define __BUG_ENTRY_ADDR	RISCV_PTR " 1b"
- #define __BUG_ENTRY_FILE	RISCV_PTR " %0"
-diff --git a/arch/s390/include/asm/bug.h b/arch/s390/include/asm/bug.h
-index 0b25f28351ed..aebe1e22c7be 100644
---- a/arch/s390/include/asm/bug.h
-+++ b/arch/s390/include/asm/bug.h
-@@ -15,7 +15,8 @@
- 		"1:	.asciz	\""__FILE__"\"\n"		\
- 		".previous\n"					\
- 		".section __bug_table,\"awM\",@progbits,%2\n"	\
--		"2:	.long	0b-2b,1b-2b\n"			\
-+		"2:	.long	0b-.\n"				\
-+		"	.long	1b-.\n"				\
- 		"	.short	%0,%1\n"			\
- 		"	.org	2b+%2\n"			\
- 		".previous\n"					\
-@@ -30,7 +31,7 @@
- 	asm_inline volatile(					\
- 		"0:	mc	0,0\n"				\
- 		".section __bug_table,\"awM\",@progbits,%1\n"	\
--		"1:	.long	0b-1b\n"			\
-+		"1:	.long	0b-.\n"				\
- 		"	.short	%0\n"				\
- 		"	.org	1b+%1\n"			\
- 		".previous\n"					\
-diff --git a/arch/x86/include/asm/bug.h b/arch/x86/include/asm/bug.h
-index aaf0cb0db4ae..a3ec87d198ac 100644
---- a/arch/x86/include/asm/bug.h
-+++ b/arch/x86/include/asm/bug.h
-@@ -18,7 +18,7 @@
- #ifdef CONFIG_X86_32
- # define __BUG_REL(val)	".long " __stringify(val)
- #else
--# define __BUG_REL(val)	".long " __stringify(val) " - 2b"
-+# define __BUG_REL(val)	".long " __stringify(val) " - ."
- #endif
- 
- #ifdef CONFIG_DEBUG_BUGVERBOSE
-diff --git a/lib/bug.c b/lib/bug.c
-index 45a0584f6541..c223a2575b72 100644
---- a/lib/bug.c
-+++ b/lib/bug.c
-@@ -6,8 +6,7 @@
- 
-   CONFIG_BUG - emit BUG traps.  Nothing happens without this.
-   CONFIG_GENERIC_BUG - enable this code.
--  CONFIG_GENERIC_BUG_RELATIVE_POINTERS - use 32-bit pointers relative to
--	the containing struct bug_entry for bug_addr and file.
-+  CONFIG_GENERIC_BUG_RELATIVE_POINTERS - use 32-bit relative pointers for bug_addr and file
-   CONFIG_DEBUG_BUGVERBOSE - emit full file+line information for each BUG
- 
-   CONFIG_BUG and CONFIG_DEBUG_BUGVERBOSE are potentially user-settable
-@@ -53,10 +52,10 @@ extern struct bug_entry __start___bug_table[], __stop___bug_table[];
- 
- static inline unsigned long bug_addr(const struct bug_entry *bug)
- {
--#ifndef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
--	return bug->bug_addr;
-+#ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
-+	return (unsigned long)&bug->bug_addr_disp + bug->bug_addr_disp;
- #else
--	return (unsigned long)bug + bug->bug_addr_disp;
-+	return bug->bug_addr;
- #endif
- }
- 
-@@ -131,10 +130,10 @@ void bug_get_file_line(struct bug_entry *bug, const char **file,
- 		       unsigned int *line)
- {
- #ifdef CONFIG_DEBUG_BUGVERBOSE
--#ifndef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
--	*file = bug->file;
-+#ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
-+	*file = (const char *)&bug->file_disp + bug->file_disp;
- #else
--	*file = (const char *)bug + bug->file_disp;
-+	*file = bug->file;
- #endif
- 	*line = bug->line;
- #else
--- 
-2.34.1
-
+Paolo
 
 _______________________________________________
 linux-riscv mailing list
