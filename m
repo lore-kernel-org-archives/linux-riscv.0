@@ -4,52 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D4BC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 12:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAC66C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 13:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HtV1bayKiCTST6T8vsPs11WDoCxrO8JsLcxhl6NPkwY=; b=Ow0mRIw2xV8UY3
-	d5ek91Rgt08ZcnFFWE6vCw61guPWwyX6JQfdf63u2fbl5OEuq28DUW6M6DbgOttR/Np2GB33bv+3L
-	pkx06dll1nDXGTjzGd9f+wluyG6XSPdltbHylyx0lDjqzffHp+/ek5reC/6YKpolCSal+34YfWNIH
-	fmf8UVAZvIlFpotslnXfiRZ+trLEoy8EnCajokg8XDSp4v4c1SV0Yg9xmVU8z4SY1VqX3U0KhXuEE
-	BorjJ5iW7bBUFyr8DVXdnjz1RWVyWvlftricYTFtvcbxWGS6caKC+0nKVkawycfb4AVsjLLSkewHG
-	TGWIjfgUy3uqQIx+euZw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xUko4W/Aa3bbOt6E86csPVtJdWoGQLlJbTlu9w5Q+WM=; b=27Oi1a7PhUm/jU
+	99i/ZPto3WjyxpW7qG0FR4vhE/EjnyQX+TsqI8jw1YR4r4b1USJbioFCrPuQTWWzIiyAjAeEnaTnJ
+	CCac2uHpWAbw/laRFWcSRfA8cxtp7TehTQsErUJSPrXvmgctZiJLVBPD8r23e8bYxTiiv/wLJyvOS
+	4qYtFWMyl88BweKZU4FlHyJqyKh+eTwCUrfU3DpzB74SWmaeQc9+STKzUGJOb7UidW5wR6HxCzaS3
+	o0vXJ32BRNbM0l8ioLWoge5mkIj3NbshMxaL/FSv8l+Kqj6TPGn88PyWbZmSCB7K4fT0nmbVFqxol
+	8JzcMgGZxpv9qi2eyfBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1np89h-00Brfl-4O; Thu, 12 May 2022 12:42:57 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1np9JR-00CC4f-DH; Thu, 12 May 2022 13:57:05 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1np89e-00Brew-AW
- for linux-riscv@lists.infradead.org; Thu, 12 May 2022 12:42:55 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1np89T-00025a-Rp; Thu, 12 May 2022 14:42:43 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, DTML <devicetree@vger.kernel.org>,
- Jisheng Zhang <jszhang@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski@canonical.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Rob Herring <robh+dt@kernel.org>, Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH 1/2] RISC-V: Fix counter restart during overflow for RV32
-Date: Thu, 12 May 2022 14:42:42 +0200
-Message-ID: <23274575.ouqheUzb2q@diego>
-In-Reply-To: <CAAhSdy3mbGdK9LrLxZX0JL0mQxP5FrFUuneX1cQS2SABpO=7dw@mail.gmail.com>
-References: <20220511201107.2311757-1-atishp@rivosinc.com>
- <CAAhSdy3mbGdK9LrLxZX0JL0mQxP5FrFUuneX1cQS2SABpO=7dw@mail.gmail.com>
+ id 1np9JG-00CC2V-9Z; Thu, 12 May 2022 13:56:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 928CD61866;
+ Thu, 12 May 2022 13:56:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E3BFC385B8;
+ Thu, 12 May 2022 13:56:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1652363813;
+ bh=u0smFFjUMhTt/JBgvJi9NyfEjj+cWk3ypDQeMQ3aJQ4=;
+ h=From:To:Cc:Subject:Date:From;
+ b=YQSjZ/8qzkUrg4jBFbJ0ShB7zfZdd5+Vz6ERJ0AfwP1CsLwbxnsUyOX0WZD2QZwxz
+ enYTZorYc+5wR27nsoX76nz3wjw9qNHrybHqm70Egb09wnOWMNPaOIju7I5C17wS01
+ 0M31Rt/yoGjKYDvuxrs63VwAGhB8Hk06yMZthHINx7MuNheHwm11UqpzlWdKIwBheo
+ Wd2zR0EUPDgxWoHybXb6WkgP+1bMa/emh8qjnaKvZg4MHPB8Ax3I0g53tTvoGx8iyv
+ EhKLYRmTy5cdCN7xbt3MV3/Xkk/O0d0cmknxF2lmDTsTMGMibQ8+z9XkpZCB4kdUuq
+ YJ0E29+vf9nOg==
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Peter Zijlstra <peterz@infradead.org>, Sven Schnelle <svens@linux.ibm.com>,
+ Mark Rutland <mark.rutland@arm.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ Paul Mackerras <paulus@samba.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Subject: [PATCH v2] bug: Use normal relative pointers in 'struct bug_entry'
+Date: Thu, 12 May 2022 06:56:23 -0700
+Message-Id: <f0e05be797a16f4fc2401eeb88c8450dcbe61df6.1652362951.git.jpoimboe@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220512_054254_407830_FB2C82D6 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20220512_065654_454959_CFFA12A6 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,46 +82,193 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 12. Mai 2022, 06:44:12 CEST schrieb Anup Patel:
-> On Thu, May 12, 2022 at 1:41 AM Atish Patra <atishp@rivosinc.com> wrote:
-> >
-> > Pass the upper half of the initial value of the counter correctly
-> > for RV32.
-> >
-> > Fixes: 4905ec2fb7e6 ("RISC-V: Add sscofpmf extension support")
-> >
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  drivers/perf/riscv_pmu_sbi.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> > index a1317a483512..24cea59612be 100644
-> > --- a/drivers/perf/riscv_pmu_sbi.c
-> > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > @@ -526,7 +526,7 @@ static inline void pmu_sbi_start_overflow_mask(struct riscv_pmu *pmu,
-> >                         max_period = riscv_pmu_ctr_get_width_mask(event);
-> >                         init_val = local64_read(&hwc->prev_count) & max_period;
-> >                         sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, idx, 1,
-> > -                                 flag, init_val, 0, 0);
-> > +                                 flag, init_val, init_val >> 32, 0);
-> 
-> This should be under "#if __riscv_xlen == 32".
+With CONFIG_GENERIC_BUG_RELATIVE_POINTERS, the addr/file relative
+pointers are calculated weirdly: based on the beginning of the bug_entry
+struct address, rather than their respective pointer addresses.
 
-What's the difference between using CONFIG_32BIT
-and checking the __riscv_xlen flag value?
+Make the relative pointers less surprising to both humans and tools by
+calculating them the normal way.
 
-CONFIG_32BIT seems to be a bit the more kernel'ish
-way to do this, but it looks like most SBI parts check the
-__riscv_xlen instead.
+Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Acked-by: Sven Schnelle <svens@linux.ibm.com> # s390
+Reviewed-by: Mark Rutland <mark.rutland@arm.com>
+Tested-by: Mark Rutland <mark.rutland@arm.com> [arm64]
+Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
+---
+v2:
+- fix ppc64le C macros (and actually test them)
 
+ arch/arm64/include/asm/asm-bug.h |  4 ++--
+ arch/powerpc/include/asm/bug.h   | 14 ++++++++------
+ arch/riscv/include/asm/bug.h     |  4 ++--
+ arch/s390/include/asm/bug.h      |  5 +++--
+ arch/x86/include/asm/bug.h       |  2 +-
+ lib/bug.c                        | 15 +++++++--------
+ 6 files changed, 23 insertions(+), 21 deletions(-)
 
-In any case, looking at the opensbi-side of the call,
-this fix is abviously correct, so
-
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-
+diff --git a/arch/arm64/include/asm/asm-bug.h b/arch/arm64/include/asm/asm-bug.h
+index 03f52f84a4f3..c762038ba400 100644
+--- a/arch/arm64/include/asm/asm-bug.h
++++ b/arch/arm64/include/asm/asm-bug.h
+@@ -14,7 +14,7 @@
+ 	14472:	.string file;					\
+ 		.popsection;					\
+ 								\
+-		.long 14472b - 14470b;				\
++		.long 14472b - .;				\
+ 		.short line;
+ #else
+ #define _BUGVERBOSE_LOCATION(file, line)
+@@ -25,7 +25,7 @@
+ #define __BUG_ENTRY(flags) 				\
+ 		.pushsection __bug_table,"aw";		\
+ 		.align 2;				\
+-	14470:	.long 14471f - 14470b;			\
++	14470:	.long 14471f - .;			\
+ _BUGVERBOSE_LOCATION(__FILE__, __LINE__)		\
+ 		.short flags; 				\
+ 		.popsection;				\
+diff --git a/arch/powerpc/include/asm/bug.h b/arch/powerpc/include/asm/bug.h
+index ecbae1832de3..61a4736355c2 100644
+--- a/arch/powerpc/include/asm/bug.h
++++ b/arch/powerpc/include/asm/bug.h
+@@ -13,7 +13,8 @@
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+ .macro __EMIT_BUG_ENTRY addr,file,line,flags
+ 	 .section __bug_table,"aw"
+-5001:	 .4byte \addr - 5001b, 5002f - 5001b
++5001:	 .4byte \addr - .
++	 .4byte 5002f - .
+ 	 .short \line, \flags
+ 	 .org 5001b+BUG_ENTRY_SIZE
+ 	 .previous
+@@ -24,7 +25,7 @@
+ #else
+ .macro __EMIT_BUG_ENTRY addr,file,line,flags
+ 	 .section __bug_table,"aw"
+-5001:	 .4byte \addr - 5001b
++5001:	 .4byte \addr - .
+ 	 .short \flags
+ 	 .org 5001b+BUG_ENTRY_SIZE
+ 	 .previous
+@@ -49,15 +50,16 @@
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+ #define _EMIT_BUG_ENTRY				\
+ 	".section __bug_table,\"aw\"\n"		\
+-	"2:\t.4byte 1b - 2b, %0 - 2b\n"		\
+-	"\t.short %1, %2\n"			\
++	"2:	.4byte 1b - .\n"		\
++	"	.4byte %0 - .\n"		\
++	"	.short %1, %2\n"		\
+ 	".org 2b+%3\n"				\
+ 	".previous\n"
+ #else
+ #define _EMIT_BUG_ENTRY				\
+ 	".section __bug_table,\"aw\"\n"		\
+-	"2:\t.4byte 1b - 2b\n"			\
+-	"\t.short %2\n"				\
++	"2:	.4byte 1b - .\n"		\
++	"	.short %2\n"			\
+ 	".org 2b+%3\n"				\
+ 	".previous\n"
+ #endif
+diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
+index d3804a2f9aad..1aaea81fb141 100644
+--- a/arch/riscv/include/asm/bug.h
++++ b/arch/riscv/include/asm/bug.h
+@@ -30,8 +30,8 @@
+ typedef u32 bug_insn_t;
+ 
+ #ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
+-#define __BUG_ENTRY_ADDR	RISCV_INT " 1b - 2b"
+-#define __BUG_ENTRY_FILE	RISCV_INT " %0 - 2b"
++#define __BUG_ENTRY_ADDR	RISCV_INT " 1b - ."
++#define __BUG_ENTRY_FILE	RISCV_INT " %0 - ."
+ #else
+ #define __BUG_ENTRY_ADDR	RISCV_PTR " 1b"
+ #define __BUG_ENTRY_FILE	RISCV_PTR " %0"
+diff --git a/arch/s390/include/asm/bug.h b/arch/s390/include/asm/bug.h
+index 0b25f28351ed..aebe1e22c7be 100644
+--- a/arch/s390/include/asm/bug.h
++++ b/arch/s390/include/asm/bug.h
+@@ -15,7 +15,8 @@
+ 		"1:	.asciz	\""__FILE__"\"\n"		\
+ 		".previous\n"					\
+ 		".section __bug_table,\"awM\",@progbits,%2\n"	\
+-		"2:	.long	0b-2b,1b-2b\n"			\
++		"2:	.long	0b-.\n"				\
++		"	.long	1b-.\n"				\
+ 		"	.short	%0,%1\n"			\
+ 		"	.org	2b+%2\n"			\
+ 		".previous\n"					\
+@@ -30,7 +31,7 @@
+ 	asm_inline volatile(					\
+ 		"0:	mc	0,0\n"				\
+ 		".section __bug_table,\"awM\",@progbits,%1\n"	\
+-		"1:	.long	0b-1b\n"			\
++		"1:	.long	0b-.\n"				\
+ 		"	.short	%0\n"				\
+ 		"	.org	1b+%1\n"			\
+ 		".previous\n"					\
+diff --git a/arch/x86/include/asm/bug.h b/arch/x86/include/asm/bug.h
+index aaf0cb0db4ae..a3ec87d198ac 100644
+--- a/arch/x86/include/asm/bug.h
++++ b/arch/x86/include/asm/bug.h
+@@ -18,7 +18,7 @@
+ #ifdef CONFIG_X86_32
+ # define __BUG_REL(val)	".long " __stringify(val)
+ #else
+-# define __BUG_REL(val)	".long " __stringify(val) " - 2b"
++# define __BUG_REL(val)	".long " __stringify(val) " - ."
+ #endif
+ 
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+diff --git a/lib/bug.c b/lib/bug.c
+index 45a0584f6541..c223a2575b72 100644
+--- a/lib/bug.c
++++ b/lib/bug.c
+@@ -6,8 +6,7 @@
+ 
+   CONFIG_BUG - emit BUG traps.  Nothing happens without this.
+   CONFIG_GENERIC_BUG - enable this code.
+-  CONFIG_GENERIC_BUG_RELATIVE_POINTERS - use 32-bit pointers relative to
+-	the containing struct bug_entry for bug_addr and file.
++  CONFIG_GENERIC_BUG_RELATIVE_POINTERS - use 32-bit relative pointers for bug_addr and file
+   CONFIG_DEBUG_BUGVERBOSE - emit full file+line information for each BUG
+ 
+   CONFIG_BUG and CONFIG_DEBUG_BUGVERBOSE are potentially user-settable
+@@ -53,10 +52,10 @@ extern struct bug_entry __start___bug_table[], __stop___bug_table[];
+ 
+ static inline unsigned long bug_addr(const struct bug_entry *bug)
+ {
+-#ifndef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
+-	return bug->bug_addr;
++#ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
++	return (unsigned long)&bug->bug_addr_disp + bug->bug_addr_disp;
+ #else
+-	return (unsigned long)bug + bug->bug_addr_disp;
++	return bug->bug_addr;
+ #endif
+ }
+ 
+@@ -131,10 +130,10 @@ void bug_get_file_line(struct bug_entry *bug, const char **file,
+ 		       unsigned int *line)
+ {
+ #ifdef CONFIG_DEBUG_BUGVERBOSE
+-#ifndef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
+-	*file = bug->file;
++#ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
++	*file = (const char *)&bug->file_disp + bug->file_disp;
+ #else
+-	*file = (const char *)bug + bug->file_disp;
++	*file = bug->file;
+ #endif
+ 	*line = bug->line;
+ #else
+-- 
+2.34.1
 
 
 _______________________________________________
