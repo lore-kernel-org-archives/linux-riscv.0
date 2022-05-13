@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F853C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 May 2022 01:06:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D8BC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 May 2022 01:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=tNcOYE5A5I9Q9e3NDlcuUsiX5HC5DS4vKUUi8iEkCqQ=; b=NkNBfsHQiani8EzLRe9egXWCPb
-	/p7xU9j56IGhiAGyotuxE3xxmLRN7l4RlaWxRIblsIDTh8ZwbEXet4eOyhswS1Ajau0sqiiSOFcPw
-	IQnL6w3/JXxsW+SFdswsNjgNxkVwCu/AFoQ0if5VXqfSy4uEMA0AfwQAMoEXO3OYye25NsoZQfbUH
-	rkeP734mPWZP5veHWWQIzY78KrWwKI2X7U2FapKLeSdguEZRzlIGW+cr/KJSFGosIVVM//wVdbwqI
-	dbryTyxL6AlmIF4eigd/AYLNim43CtrT6gO+5Jg26ePcVn740fRgu1NOfFlmc7cEopm24UJTjwPGx
-	APaEgWcA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iQvlH/Os7hhiB15CFnESAv4lhzwIILNVTbnlzeTRnC4=; b=x8CP43htY65WiF
+	OF4nh9/TuGSWiZCI+gFpDooK9u/RiHN+yrGY7cDcG9AT2/RdMHNrYWzxGLnPmJN+AOgmAK8KsalOx
+	MgvebgX7WjPvfCeLycb2fF6qXIgC/ybHm0YnsQkwdaoO7OkXgHEklGNeSy9zmny386TgK15Hvz3u3
+	BWKYhCGUEdVReVFcdVOsMATKdSNIwFQs85n7/a7fdx3cs80p7aWmdNrbVlhSEKDsqEVJKulVRK2QU
+	jYx+XvtqwwjUDZSFTUwJeiaBXVpPmZkaxBWhwvsINxagD4Fganw3imYV9vtJfG5yHDJR6DVm3zhwo
+	U2HMASE8x7P9zQRCRdBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1npJke-00E28G-SY; Fri, 13 May 2022 01:05:52 +0000
-Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
+	id 1npKWw-00E8M1-Bn; Fri, 13 May 2022 01:55:46 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1npJkb-00E26W-Qb
- for linux-riscv@lists.infradead.org; Fri, 13 May 2022 01:05:51 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
- by mailout.west.internal (Postfix) with ESMTP id CC96F3200258;
- Thu, 12 May 2022 21:05:42 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute5.internal (MEProxy); Thu, 12 May 2022 21:05:43 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
- cc:cc:content-transfer-encoding:content-type:date:date:from:from
- :in-reply-to:in-reply-to:message-id:mime-version:references
- :reply-to:sender:subject:subject:to:to; s=fm2; t=1652403942; x=
- 1652490342; bh=Cq7ZSVTwL25kbQxcqdr88pN5c62HIusa24B8zt1PFHs=; b=P
- pvqq19hC3TXRZTaKKn/eiDxVVqXKeW1VOnQHcfegN3HdL9C/y8/lqPl+BpuPlaJE
- zFYnUd26TuFieluiPGOmrMAFDgWgh9Vb4l7eZaob/cyFfdyfDgkq3fwutaoUHjxq
- JWxa3KHSqwsjkN0sMf80fBrDTRxBg1ut/boJKDkOo+fk1d5cTKDDejYwB0rD/NAk
- 4IeFaj/XN4rtxc9nqFqSOAKSuZZpy8lNShumqPz2tOTpxc3gDrGYwJmiYztMbdcS
- XvasYohbYqF+Cab9xuaoSH68FXQfEa4ib9xOgQgTz5ORyQePH+CkgqEHa/6gg7TW
- oyF6R0hrmMYm35m+wOYcQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:cc:content-transfer-encoding
- :content-type:date:date:from:from:in-reply-to:in-reply-to
- :message-id:mime-version:references:reply-to:sender:subject
- :subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
- :x-sasl-enc; s=fm1; t=1652403942; x=1652490342; bh=Cq7ZSVTwL25kb
- Qxcqdr88pN5c62HIusa24B8zt1PFHs=; b=EP2OM0Er9+PSwucTshCSbkCpRE9dj
- fqqe5CSPSNA28kEYOpNOpMC9mw75uCtPA3HLGKhupxFZBxqna+/PxmxHD+NDWQAc
- VEvBuV9UBH9F+jeKdjnUO/7SdWNjyMKjNpwGjXjngih6CIhgRQZdCiP7D8WhMCkf
- JjqciVVXSdJnzILK5JbEQKXKJA3wlLC+b5GHXiXu7SGTg/PPvx/pbtCfErwtMj22
- WPesdBR11bbJYBTu3s5ZrzOHl0aBglo/8zE1xvGcFGZH3qM79WHdZ1TpxWJ3wJVm
- 3upQl4HX3EwuXSH1+U8rFuzmmyUOGr5FYUbvRuwahKpysmijnhFE9ZDDw==
-X-ME-Sender: <xms:5q59YrDrO0FYnPfqhnm7vq2FrM0Mo6bPQLRlBf_cS_ivrdJqD_jkiQ>
- <xme:5q59YhiWecqWFCoKAFM2rcuMb5OKi5q5AduXLgSScMm2B3xVPyFg5XaSuzN2gIBJS
- BA6_rprm4zkAlGRRg>
-X-ME-Received: <xmr:5q59YmnQHphEx478SgeUXyk9XO71E9fW35YbWhwJSSHF_lAwa46nBIZMCHKenxddE7SyroRUXZ4RmhV0kRJDbrRgBzOJ6BiP3cLmhtv1-h-48t3EVjj0wWdScw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrgeekgdegudcutefuodetggdotefrodftvf
- curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
- uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
- fjughrpefuvfevfhfhkffffgggjggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
- vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
- ftrfgrthhtvghrnhepffdtveekvdegkeeuueetgfetffeileevudekuefhheelvdfhiedt
- heduhfduhefhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
- homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:5q59Ytx-DOjfiahj54ZMZ99WAP-RFPHyI2XhCf1JHyIJ8FGG3fYHQg>
- <xmx:5q59YgRwX_4YA2u_DPFThfOIPukrFWLIiu-cWRSob596-5IOI0PSGg>
- <xmx:5q59Ygbm3El4cXhCaTLQxFccI9HoRclm2nVZjzjw_GtEwVqPQlrPUw>
- <xmx:5q59YmOjNY4qcQp7RvxlX8f_Hd_0iwKACpyYbUQyyyQgZUQdyDQq1g>
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 12 May 2022 21:05:41 -0400 (EDT)
-Subject: Re: [PATCH] arch/riscv: Add Zihintpause extension support
-To: Dao Lu <daolu@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org
-References: <20220512033045.1101909-1-daolu@rivosinc.com>
-From: Samuel Holland <samuel@sholland.org>
-Message-ID: <689ad3c4-0365-bd27-4873-bff8dbe6591b@sholland.org>
-Date: Thu, 12 May 2022 20:05:41 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+ id 1npKWq-00E8JM-TW
+ for linux-riscv@lists.infradead.org; Fri, 13 May 2022 01:55:42 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id
+ cu23-20020a17090afa9700b001d98d8e53b7so7166029pjb.0
+ for <linux-riscv@lists.infradead.org>; Thu, 12 May 2022 18:55:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=from:to:cc:subject:date:message-id:in-reply-to:references
+ :mime-version:content-transfer-encoding;
+ bh=pPoRCiwoBINJx2a5XFW6qeMxXLBrBULI+jQkr1qktFo=;
+ b=yeI2vNN+2d/X/8BAKhk7NJTErNc0t3Ri4UeoW4oeDLfEfpOVAFzJbZEdJd4OL5zlBt
+ 16CUDGhYrbnSYKwz5l4yd+yJBt2LGu1GYKKuQlU0JXxCrFhc0y0nLHz5FdBG0Cs/EC9Q
+ 2PipFMEIgbgErRSSzo9pc90GpReM2RdMLVJ4wjj5s3T1kCqIHw4Gtn8LQHJ6hBclILTU
+ eJ7PTZ7bi5WndFmDlxxf7NSTRrTcclZvJ/IHeF4p/XPtcyM4vfikQtmi6VqmJqgBGTXK
+ Hr0r7MsGu0t773x6K2OfWDTIoChx6ZbNlZ+vb2Xj4VxnpND6eIUNLaTpZDztoDBFnqlZ
+ MrOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+ :references:mime-version:content-transfer-encoding;
+ bh=pPoRCiwoBINJx2a5XFW6qeMxXLBrBULI+jQkr1qktFo=;
+ b=ymmCJlnCU10K2hCeTbuikGpVjbleAqvMb04YUhwYNIxFN5ApASUT9bfsZhBp9LJB/s
+ E4efxT1rXgspQSXf06IyTkFZuW2BwxRG85M2CY22CHEeB7c6ObF6lj70ZEk5rr8rBMvW
+ whPAbBT/asmCBEsUnw/KOPxQQ0y7uIU7UA6aEvS6wf5uXjES3mN/8hauqNR2uW0vRem4
+ 68jzaHTo21vTGhEOeZ6xwvMWkuf0iI8vABTU2Lyu6ttqfHpdSuh5/7fpejhco6qSXs1l
+ EgF5ytKdBB8cpdNO46iBqgAmql2UJkP4j9cZdsCUsCGtQbMG5a/KrwJ3OSnDq9acKUZy
+ 8FuQ==
+X-Gm-Message-State: AOAM530CCzFU+qhp9Jgv2iRlLaDquab1e1qM/63/+dscvIgVKBZNpiHa
+ PwINdtsmE1XfIKjFsq8v/7gVZQ==
+X-Google-Smtp-Source: ABdhPJwufGXGbLuIccz3+zyq2wHIQcgZXVxMmyj1l/g/wWcffrG37DEvEdIXB93ZMBkLn+2Hl79Afw==
+X-Received: by 2002:a17:902:850b:b0:15f:2a59:1c02 with SMTP id
+ bj11-20020a170902850b00b0015f2a591c02mr2595813plb.27.1652406939289; 
+ Thu, 12 May 2022 18:55:39 -0700 (PDT)
+Received: from atishp.ba.rivosinc.com ([66.220.2.162])
+ by smtp.gmail.com with ESMTPSA id
+ i1-20020a6561a1000000b003c14af5063fsm365883pgv.87.2022.05.12.18.55.38
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 12 May 2022 18:55:38 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Atish Patra <atishp@rivosinc.com>, Atish Patra <atishp@atishpatra.org>,
+ Anup Patel <anup@brainfault.org>, Jisheng Zhang <jszhang@kernel.org>,
+ linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
+Subject: [PATCH v2  3/3] RISC-V: Fix SBI PMU calls for RV32
+Date: Thu, 12 May 2022 18:55:22 -0700
+Message-Id: <20220513015522.910856-4-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220513015522.910856-1-atishp@rivosinc.com>
+References: <20220513015522.910856-1-atishp@rivosinc.com>
 MIME-Version: 1.0
-In-Reply-To: <20220512033045.1101909-1-daolu@rivosinc.com>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220512_180550_321905_A042DEAA 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20220512_185540_988344_B5B51271 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,137 +93,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/11/22 10:30 PM, Dao Lu wrote:
-> This patch:
->   1. Build with _zihintpause if the toolchain has support for it
->   2. Detects if the platform supports the extension
+Some of the SBI PMU calls does not pass 64bit arguments
+correctly and not under RV32 compile time flags. Currently,
+this doesn't create any incorrect results as RV64 ignores
+any value in the additional register and qemu doesn't support
+raw events.
 
-This instruction is a hint, meaning it is a harmless no-op if the extension is
-unsupported by the CPU. So we can use it as long as the compiler supports it.
-There is no need to probe for it at runtime.
+Fix those SBI calls in order to set correct values for RV32.
 
-Regards,
-Samuel
+Fixes: e9991434596f ("RISC-V: Add perf platform driver based on SBI PMU extension")
 
->   3. Use PAUSE for cpu_relax if both toolchain and the platform support it
-> 
-> Signed-off-by: Dao Lu <daolu@rivosinc.com>
-> ---
->  arch/riscv/Makefile                     |  4 ++++
->  arch/riscv/include/asm/hwcap.h          |  1 +
->  arch/riscv/include/asm/vdso/processor.h | 19 ++++++++++++++++---
->  arch/riscv/kernel/cpu.c                 |  1 +
->  arch/riscv/kernel/cpufeature.c          |  7 +++++++
->  5 files changed, 29 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 7d81102cffd4..900a8fda1a2d 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -56,6 +56,10 @@ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
->  toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zicsr_zifencei)
->  riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
->  
-> +# Check if the toolchain supports Zihintpause extension
-> +toolchain-supports-zihintpause := $(call cc-option-yn, -march=$(riscv-march-y)_zihintpause)
-> +riscv-march-$(toolchain-supports-zihintpause) := $(riscv-march-y)_zihintpause
-> +
->  KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
->  KBUILD_AFLAGS += -march=$(riscv-march-y)
->  
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index 0734e42f74f2..caa9ee5459b4 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -52,6 +52,7 @@ extern unsigned long elf_hwcap;
->   */
->  enum riscv_isa_ext_id {
->  	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-> +	RISCV_ISA_EXT_ZIHINTPAUSE,
->  	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
->  };
->  
-> diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
-> index 134388cbaaa1..106b35ba8cac 100644
-> --- a/arch/riscv/include/asm/vdso/processor.h
-> +++ b/arch/riscv/include/asm/vdso/processor.h
-> @@ -4,15 +4,28 @@
->  
->  #ifndef __ASSEMBLY__
->  
-> +#include <linux/jump_label.h>
->  #include <asm/barrier.h>
-> +#include <asm/hwcap.h>
->  
-> +extern struct static_key_false riscv_pause_available;
->  static inline void cpu_relax(void)
->  {
-> +	if (!static_branch_likely(&riscv_pause_available)) {
->  #ifdef __riscv_muldiv
-> -	int dummy;
-> -	/* In lieu of a halt instruction, induce a long-latency stall. */
-> -	__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
-> +		int dummy;
-> +		/* In lieu of a halt instruction, induce a long-latency stall. */
-> +		__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
->  #endif
-> +	} else {
-> +#ifdef __riscv_zihintpause
-> +		/*
-> +		 * Reduce instruction retirement.
-> +		 * This assumes the PC changes.
-> +		 */
-> +		__asm__ __volatile__ ("pause");
-> +#endif
-> +	}
->  	barrier();
->  }
->  
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index ccb617791e56..89e563e9c4cc 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -88,6 +88,7 @@ int riscv_of_parent_hartid(struct device_node *node)
->   */
->  static struct riscv_isa_ext_data isa_ext_arr[] = {
->  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> +	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
->  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
->  };
->  
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 1b2d42d7f589..327c19507dbb 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -24,6 +24,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
->  #ifdef CONFIG_FPU
->  __ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
->  #endif
-> +DEFINE_STATIC_KEY_FALSE(riscv_pause_available);
-> +EXPORT_SYMBOL_GPL(riscv_pause_available);
->  
->  /**
->   * riscv_isa_extension_base() - Get base extension word
-> @@ -192,6 +194,7 @@ void __init riscv_fill_hwcap(void)
->  				set_bit(*ext - 'a', this_isa);
->  			} else {
->  				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
-> +				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
->  			}
->  #undef SET_ISA_EXT_MAP
->  		}
-> @@ -213,6 +216,10 @@ void __init riscv_fill_hwcap(void)
->  
->  	}
->  
-> +	if (__riscv_isa_extension_available(riscv_isa, RISCV_ISA_EXT_ZIHINTPAUSE)) {
-> +		static_branch_enable(&riscv_pause_available);
-> +	}
-> +
->  	/* We don't support systems with F but without D, so mask those out
->  	 * here. */
->  	if ((elf_hwcap & COMPAT_HWCAP_ISA_F) && !(elf_hwcap & COMPAT_HWCAP_ISA_D)) {
-> 
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ drivers/perf/riscv_pmu_sbi.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 7ad92039a718..fab0dd497393 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -274,8 +274,13 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ 		cflags |= SBI_PMU_CFG_FLAG_SET_UINH;
+ 
+ 	/* retrieve the available counter index */
++#if defined(CONFIG_32BIT)
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase, cmask,
++			cflags, hwc->event_base, hwc->config, hwc->config >> 32);
++#else
+ 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase, cmask,
+ 			cflags, hwc->event_base, hwc->config, 0);
++#endif
+ 	if (ret.error) {
+ 		pr_debug("Not able to find a counter for event %lx config %llx\n",
+ 			hwc->event_base, hwc->config);
+@@ -417,8 +422,13 @@ static void pmu_sbi_ctr_start(struct perf_event *event, u64 ival)
+ 	struct hw_perf_event *hwc = &event->hw;
+ 	unsigned long flag = SBI_PMU_START_FLAG_SET_INIT_VALUE;
+ 
++#if defined(CONFIG_32BIT)
+ 	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->idx,
+ 			1, flag, ival, ival >> 32, 0);
++#else
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_START, hwc->idx,
++			1, flag, ival, 0, 0);
++#endif
+ 	if (ret.error && (ret.error != SBI_ERR_ALREADY_STARTED))
+ 		pr_err("Starting counter idx %d failed with error %d\n",
+ 			hwc->idx, sbi_err_map_linux_errno(ret.error));
+-- 
+2.25.1
 
 
 _______________________________________________
