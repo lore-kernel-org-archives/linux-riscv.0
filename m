@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC86CC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 May 2022 21:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F853C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 May 2022 01:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7rQ81XU459sw9j08iKllKr1Y3CbOMwlhJOQ8KgJweQU=; b=LFWhFpyDVLLWE/
-	f3Ha/ZMutpa8AW2lrFEEaJG7o/Zb9mXFxUd4/bP98vbb/yLFjevLNSTftlnSnYHGQU2Sa9kdRiqoG
-	NRu47Y52IFvUk1eys+xFPgWqmDGFZ4TKm3PJbSbyPGrtidlmpLbaU92Jart+TT4dwTn209kymN7LB
-	yVXp2USy8isgzvmdkML7eLaDh5gm7oFqlkO8YIptVEp97rxvDk9TUyqiidfMZ/Qs65wKyFgvTtTMZ
-	9/04MrxM8jxvvnImgpWFJb4Scg5dZR98Dw9sVgfgPGcCDvwlB35EyxMg7cNUG6+LlZ6JHOAgkdlFq
-	aB6sNhuJHYKNTw6gl8CQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=tNcOYE5A5I9Q9e3NDlcuUsiX5HC5DS4vKUUi8iEkCqQ=; b=NkNBfsHQiani8EzLRe9egXWCPb
+	/p7xU9j56IGhiAGyotuxE3xxmLRN7l4RlaWxRIblsIDTh8ZwbEXet4eOyhswS1Ajau0sqiiSOFcPw
+	IQnL6w3/JXxsW+SFdswsNjgNxkVwCu/AFoQ0if5VXqfSy4uEMA0AfwQAMoEXO3OYye25NsoZQfbUH
+	rkeP734mPWZP5veHWWQIzY78KrWwKI2X7U2FapKLeSdguEZRzlIGW+cr/KJSFGosIVVM//wVdbwqI
+	dbryTyxL6AlmIF4eigd/AYLNim43CtrT6gO+5Jg26ePcVn740fRgu1NOfFlmc7cEopm24UJTjwPGx
+	APaEgWcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1npGSb-00De3v-LK; Thu, 12 May 2022 21:35:01 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1npJke-00E28G-SY; Fri, 13 May 2022 01:05:52 +0000
+Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1npGSY-00De2C-Tf
- for linux-riscv@lists.infradead.org; Thu, 12 May 2022 21:35:00 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id s27so8119303ljd.2
- for <linux-riscv@lists.infradead.org>; Thu, 12 May 2022 14:34:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ZQ7XWRC9DHBCbnMYIg75BjuOh+AqnlsxWLkBLw38gMg=;
- b=RyvRBJqJ6A/80crvldPh+nyT51ONhyhj2H6A8d7bimHMuIlw7t236lI8FZ1x5sI7yo
- yecpm4AvtMfKa0ky8m4KWcfldVBnM+/jkS7rbn540P1gpzOkgDe/MNI5+7/Of4L0y/fx
- hUZrwUyiOHhsCAMP6t9xIKrbXsLAAP1yCdAenGft1xt7Gc4kFHjLu0CINeOAIdMMIl2r
- koQrhfmkYLuha/SpqrAH11rswzaH6Qw2sXOs3CUWytX2xxoxYT+NfwvOLTE9faNMzpyO
- naWtrKPMPuDZLzmY9oRapbK1L7miKvc/Nx2HxoxuERy/KNqDbk7hgcS3xnn+2rfUzdPP
- 2qMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=ZQ7XWRC9DHBCbnMYIg75BjuOh+AqnlsxWLkBLw38gMg=;
- b=rb+Fd9MJs56fOWHm3um1F3F1VlDnbRoGJh1+79EsqHl4ci7uNX5G7pOWkmN4K3doG4
- KjlEPP3gsrIQhZ1OKYaXwfdooFrFafxWZ6pYqk6ELOakNdiV/MN0Yo7X5RqVgMWb8j2i
- SYEPOOjcx7O3mKK1jOZhjBdKWGfxn/YhsBB2bhnIT3tb4wp2HYSfDIaoSuEVGy8CPaGL
- bsBRfcO1yjyZ3ThEqZBetrJKFbtCNoDi7adEEvOxFeg9VFNHfGgahTW8mWRpW6U0JFJ9
- H5YZpnIIutiWLIziK1gtFW43o9dvcfekUQmYV81rmVlT/Y8ZJneNxadSFGgPBp36u6cY
- Ea0g==
-X-Gm-Message-State: AOAM532XEAWJ3wwihgEOkW1FiLanIrcXb0oMsBABLuJ39jsH3YCHWQ35
- d9l00C9yGoYrwo62Dqe4d+8C21gP6SR+DGwlmrPd/A==
-X-Google-Smtp-Source: ABdhPJzR3FWSdYG+QG5HFvSiewtwfQztKLWDP3xQpQ+zlszBDRabO8sM7sQnvjzTjgI/rOHcfyTW54Hx4W5/HYZYibk=
-X-Received: by 2002:a2e:aa8e:0:b0:251:f929:3e7d with SMTP id
- bj14-20020a2eaa8e000000b00251f9293e7dmr1163096ljb.352.1652391291632; Thu, 12
- May 2022 14:34:51 -0700 (PDT)
+ id 1npJkb-00E26W-Qb
+ for linux-riscv@lists.infradead.org; Fri, 13 May 2022 01:05:51 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+ by mailout.west.internal (Postfix) with ESMTP id CC96F3200258;
+ Thu, 12 May 2022 21:05:42 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+ by compute5.internal (MEProxy); Thu, 12 May 2022 21:05:43 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+ cc:cc:content-transfer-encoding:content-type:date:date:from:from
+ :in-reply-to:in-reply-to:message-id:mime-version:references
+ :reply-to:sender:subject:subject:to:to; s=fm2; t=1652403942; x=
+ 1652490342; bh=Cq7ZSVTwL25kbQxcqdr88pN5c62HIusa24B8zt1PFHs=; b=P
+ pvqq19hC3TXRZTaKKn/eiDxVVqXKeW1VOnQHcfegN3HdL9C/y8/lqPl+BpuPlaJE
+ zFYnUd26TuFieluiPGOmrMAFDgWgh9Vb4l7eZaob/cyFfdyfDgkq3fwutaoUHjxq
+ JWxa3KHSqwsjkN0sMf80fBrDTRxBg1ut/boJKDkOo+fk1d5cTKDDejYwB0rD/NAk
+ 4IeFaj/XN4rtxc9nqFqSOAKSuZZpy8lNShumqPz2tOTpxc3gDrGYwJmiYztMbdcS
+ XvasYohbYqF+Cab9xuaoSH68FXQfEa4ib9xOgQgTz5ORyQePH+CkgqEHa/6gg7TW
+ oyF6R0hrmMYm35m+wOYcQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=cc:cc:content-transfer-encoding
+ :content-type:date:date:from:from:in-reply-to:in-reply-to
+ :message-id:mime-version:references:reply-to:sender:subject
+ :subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+ :x-sasl-enc; s=fm1; t=1652403942; x=1652490342; bh=Cq7ZSVTwL25kb
+ Qxcqdr88pN5c62HIusa24B8zt1PFHs=; b=EP2OM0Er9+PSwucTshCSbkCpRE9dj
+ fqqe5CSPSNA28kEYOpNOpMC9mw75uCtPA3HLGKhupxFZBxqna+/PxmxHD+NDWQAc
+ VEvBuV9UBH9F+jeKdjnUO/7SdWNjyMKjNpwGjXjngih6CIhgRQZdCiP7D8WhMCkf
+ JjqciVVXSdJnzILK5JbEQKXKJA3wlLC+b5GHXiXu7SGTg/PPvx/pbtCfErwtMj22
+ WPesdBR11bbJYBTu3s5ZrzOHl0aBglo/8zE1xvGcFGZH3qM79WHdZ1TpxWJ3wJVm
+ 3upQl4HX3EwuXSH1+U8rFuzmmyUOGr5FYUbvRuwahKpysmijnhFE9ZDDw==
+X-ME-Sender: <xms:5q59YrDrO0FYnPfqhnm7vq2FrM0Mo6bPQLRlBf_cS_ivrdJqD_jkiQ>
+ <xme:5q59YhiWecqWFCoKAFM2rcuMb5OKi5q5AduXLgSScMm2B3xVPyFg5XaSuzN2gIBJS
+ BA6_rprm4zkAlGRRg>
+X-ME-Received: <xmr:5q59YmnQHphEx478SgeUXyk9XO71E9fW35YbWhwJSSHF_lAwa46nBIZMCHKenxddE7SyroRUXZ4RmhV0kRJDbrRgBzOJ6BiP3cLmhtv1-h-48t3EVjj0wWdScw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrgeekgdegudcutefuodetggdotefrodftvf
+ curfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfghnecu
+ uegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenuc
+ fjughrpefuvfevfhfhkffffgggjggtgfesthejredttdefjeenucfhrhhomhepufgrmhhu
+ vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
+ ftrfgrthhtvghrnhepffdtveekvdegkeeuueetgfetffeileevudekuefhheelvdfhiedt
+ heduhfduhefhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
+ homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:5q59Ytx-DOjfiahj54ZMZ99WAP-RFPHyI2XhCf1JHyIJ8FGG3fYHQg>
+ <xmx:5q59YgRwX_4YA2u_DPFThfOIPukrFWLIiu-cWRSob596-5IOI0PSGg>
+ <xmx:5q59Ygbm3El4cXhCaTLQxFccI9HoRclm2nVZjzjw_GtEwVqPQlrPUw>
+ <xmx:5q59YmOjNY4qcQp7RvxlX8f_Hd_0iwKACpyYbUQyyyQgZUQdyDQq1g>
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 12 May 2022 21:05:41 -0400 (EDT)
+Subject: Re: [PATCH] arch/riscv: Add Zihintpause extension support
+To: Dao Lu <daolu@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org
+References: <20220512033045.1101909-1-daolu@rivosinc.com>
+From: Samuel Holland <samuel@sholland.org>
+Message-ID: <689ad3c4-0365-bd27-4873-bff8dbe6591b@sholland.org>
+Date: Thu, 12 May 2022 20:05:41 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-References: <20220512205545.992288-1-twd2.me@gmail.com>
-In-Reply-To: <20220512205545.992288-1-twd2.me@gmail.com>
-From: Nick Desaulniers <ndesaulniers@google.com>
-Date: Thu, 12 May 2022 14:34:40 -0700
-Message-ID: <CAKwvOdmJ26h4L=3+42xeWG0_mZmZXkye=+mNWgFOHbo59ZVz1w@mail.gmail.com>
-Subject: Re: [PATCH v2] RISC-V: build: Allow LTO to be selected
-To: Wende Tan <twd2.me@gmail.com>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
- linux-riscv@lists.infradead.org, nathan@kernel.org, llvm@lists.linux.dev, 
- Fangrui Song <maskray@google.com>
+In-Reply-To: <20220512033045.1101909-1-daolu@rivosinc.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220512_143458_993325_F4C6B2CE 
-X-CRM114-Status: GOOD (  26.42  )
+X-CRM114-CacheID: sfid-20220512_180550_321905_A042DEAA 
+X-CRM114-Status: GOOD (  23.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,97 +105,138 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 12, 2022 at 1:56 PM Wende Tan <twd2.me@gmail.com> wrote:
->
-> Allow LTO to be selected for RISC-V, only when LLD >= 14, since there is an
-> issue [1] in prior LLD versions that prevents LLD to generate proper
-> machine code for RISC-V when writing `nop`s.
->
-> I have tested enabling LTO for `defconfig`. The LLD took ~2m21s and ~3GiB
-> on our Intel Xeon Gold 6140 server and produced an 18MiB Image. The image
-> can boot to shell using an archriscv rootfs on QEMU.
->
-> I have also tested it for `allyesconfig` without COMPILE_TEST, FTRACE,
-> KASAN, and GCOV. The LLD took ~7h03m and ~335GiB on the server,
+On 5/11/22 10:30 PM, Dao Lu wrote:
+> This patch:
+>   1. Build with _zihintpause if the toolchain has support for it
+>   2. Detects if the platform supports the extension
 
-Haha! That's ok, allyesconfig is not expected to boot for any
-architectures AFAIK. For CI, we simply verify we can build them; we
-boot test everything but allyesconfig and allmodconfig (and
-architectures which don't yet have qemu ports).  It helps detect when
-assembler sources don't use enough encoding space when referenced
-external symbols are too far away for larger images, IME.
+This instruction is a hint, meaning it is a harmless no-op if the extension is
+unsupported by the CPU. So we can use it as long as the compiler supports it.
+There is no need to probe for it at runtime.
 
-That's a long time; first time I've seen a number from someone trying
-to LTO allyesconfig!
+Regards,
+Samuel
 
-> successfully producing a 1.7GiB Image. Unfortunately, we cannot boot this
-> image because the `create_kernel_page_table()` -> `alloc_pmd_early()` ->
-> `BUG_ON()` logic limits the image to be < 1GiB. Maybe we can fix it in a
-> separate patch further.
->
-> [1] https://github.com/llvm/llvm-project/issues/50505, resolved by LLVM
->     commit e63455d5e0e5 ("[MC] Use local MCSubtargetInfo in writeNops")
-
-So looking at that change, it doesn't look like it touches LLD at all.
-To me it touches both the assembler and the object streamer, which is
-used by the compiler (and assembler) to stream instructions directly
-into an object file (without the need for an external assembler).
-
-That makes me think that
-CLANG_VERSION >= 140000
-would be more appropriate than
-LLD_VERSION >= 140000
-
-WDYT?
-
-Also, I'm curious if the LLVM patch you had me commit for you recently
-is at all related or necessary for this? If so, then the version check
-should probably be against clang-15, not clang-14.
-https://github.com/llvm/llvm-project/commit/6baaad740a5abb4bfcff022a8114abb4eea66a2d
-
-Anyways, I just did a build+boot (in qemu) test of defconfig+thinlto
-and defconfig+lto. LGTM
-
-Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-
->
-> Tested-by: Wende Tan <twd2.me@gmail.com>
-> Signed-off-by: Wende Tan <twd2.me@gmail.com>
+>   3. Use PAUSE for cpu_relax if both toolchain and the platform support it
+> 
+> Signed-off-by: Dao Lu <daolu@rivosinc.com>
 > ---
-> v2:
-> - Some textual changes suggested by Nick.
-> - Drop the changes to `arch/riscv/Makefile`, since the LLVM issue is filed
->   and resolved.
-> - Drop the unnecessary changes to `arch/riscv/kernel/vdso/Makefile`.
->
-> v1: https://lore.kernel.org/linux-riscv/20210719205208.1023221-1-twd2.me@gmail.com/
-> ---
->  arch/riscv/Kconfig | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 00fd9c548f26..c55f6b95e5af 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -38,6 +38,10 @@ config RISCV
->         select ARCH_SUPPORTS_ATOMIC_RMW
->         select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
->         select ARCH_SUPPORTS_HUGETLBFS if MMU
-> +       # LLD >= 14:
-> +       # - https://github.com/llvm/llvm-project/issues/50505
-> +       select ARCH_SUPPORTS_LTO_CLANG if LLD_VERSION >= 140000
-> +       select ARCH_SUPPORTS_LTO_CLANG_THIN if LLD_VERSION >= 140000
->         select ARCH_USE_MEMTEST
->         select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
->         select ARCH_WANT_FRAME_POINTERS
-> --
-> 2.25.1
->
+>  arch/riscv/Makefile                     |  4 ++++
+>  arch/riscv/include/asm/hwcap.h          |  1 +
+>  arch/riscv/include/asm/vdso/processor.h | 19 ++++++++++++++++---
+>  arch/riscv/kernel/cpu.c                 |  1 +
+>  arch/riscv/kernel/cpufeature.c          |  7 +++++++
+>  5 files changed, 29 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 7d81102cffd4..900a8fda1a2d 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -56,6 +56,10 @@ riscv-march-$(CONFIG_RISCV_ISA_C)	:= $(riscv-march-y)c
+>  toolchain-need-zicsr-zifencei := $(call cc-option-yn, -march=$(riscv-march-y)_zicsr_zifencei)
+>  riscv-march-$(toolchain-need-zicsr-zifencei) := $(riscv-march-y)_zicsr_zifencei
+>  
+> +# Check if the toolchain supports Zihintpause extension
+> +toolchain-supports-zihintpause := $(call cc-option-yn, -march=$(riscv-march-y)_zihintpause)
+> +riscv-march-$(toolchain-supports-zihintpause) := $(riscv-march-y)_zihintpause
+> +
+>  KBUILD_CFLAGS += -march=$(subst fd,,$(riscv-march-y))
+>  KBUILD_AFLAGS += -march=$(riscv-march-y)
+>  
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 0734e42f74f2..caa9ee5459b4 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -52,6 +52,7 @@ extern unsigned long elf_hwcap;
+>   */
+>  enum riscv_isa_ext_id {
+>  	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+> +	RISCV_ISA_EXT_ZIHINTPAUSE,
+>  	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+>  };
+>  
+> diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
+> index 134388cbaaa1..106b35ba8cac 100644
+> --- a/arch/riscv/include/asm/vdso/processor.h
+> +++ b/arch/riscv/include/asm/vdso/processor.h
+> @@ -4,15 +4,28 @@
+>  
+>  #ifndef __ASSEMBLY__
+>  
+> +#include <linux/jump_label.h>
+>  #include <asm/barrier.h>
+> +#include <asm/hwcap.h>
+>  
+> +extern struct static_key_false riscv_pause_available;
+>  static inline void cpu_relax(void)
+>  {
+> +	if (!static_branch_likely(&riscv_pause_available)) {
+>  #ifdef __riscv_muldiv
+> -	int dummy;
+> -	/* In lieu of a halt instruction, induce a long-latency stall. */
+> -	__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
+> +		int dummy;
+> +		/* In lieu of a halt instruction, induce a long-latency stall. */
+> +		__asm__ __volatile__ ("div %0, %0, zero" : "=r" (dummy));
+>  #endif
+> +	} else {
+> +#ifdef __riscv_zihintpause
+> +		/*
+> +		 * Reduce instruction retirement.
+> +		 * This assumes the PC changes.
+> +		 */
+> +		__asm__ __volatile__ ("pause");
+> +#endif
+> +	}
+>  	barrier();
+>  }
+>  
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index ccb617791e56..89e563e9c4cc 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -88,6 +88,7 @@ int riscv_of_parent_hartid(struct device_node *node)
+>   */
+>  static struct riscv_isa_ext_data isa_ext_arr[] = {
+>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> +	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
+>  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+>  };
+>  
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 1b2d42d7f589..327c19507dbb 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -24,6 +24,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
+>  #ifdef CONFIG_FPU
+>  __ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
+>  #endif
+> +DEFINE_STATIC_KEY_FALSE(riscv_pause_available);
+> +EXPORT_SYMBOL_GPL(riscv_pause_available);
+>  
+>  /**
+>   * riscv_isa_extension_base() - Get base extension word
+> @@ -192,6 +194,7 @@ void __init riscv_fill_hwcap(void)
+>  				set_bit(*ext - 'a', this_isa);
+>  			} else {
+>  				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+> +				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
+>  			}
+>  #undef SET_ISA_EXT_MAP
+>  		}
+> @@ -213,6 +216,10 @@ void __init riscv_fill_hwcap(void)
+>  
+>  	}
+>  
+> +	if (__riscv_isa_extension_available(riscv_isa, RISCV_ISA_EXT_ZIHINTPAUSE)) {
+> +		static_branch_enable(&riscv_pause_available);
+> +	}
+> +
+>  	/* We don't support systems with F but without D, so mask those out
+>  	 * here. */
+>  	if ((elf_hwcap & COMPAT_HWCAP_ISA_F) && !(elf_hwcap & COMPAT_HWCAP_ISA_D)) {
+> 
 
-
--- 
-Thanks,
-~Nick Desaulniers
 
 _______________________________________________
 linux-riscv mailing list
