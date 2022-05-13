@@ -4,57 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4486C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 May 2022 02:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C60C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 13 May 2022 03:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V7zXUsldHK9wW/nfUbO0Kmp1Q82g1VrenB44OU3pCJk=; b=COfB//M/+Ozo7E
-	znY72tiDfPqi6gwarc6OZ8aS+UBDo/m+P2NFASuCqKxwUMhm51CYdvJqOf0QSpXTCddRdDmaQhB/5
-	Uw6i1k0x24EcM/mghNImBTEue+BVdlsHy9izZ8BROlAvzV8cV3DryHwEXmb+fmEhIasJlLZg41/15
-	mOPMyafScD8IH/3eUmG8ppj/e8BA96ScDO0r6wbVoniucuntL1GKl0b+FK7TzbHWArSRsVNpx78v6
-	sMPwtE/GL5vEYdZuro7SzQDB2pmlMw6ebDNiph3qjg0Z3jeHobPRbxqq/scpheXQiNrFJVHs3sVcB
-	AyvpOiZZ0asm3hr+UlRg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=4eLqoAQNwJFda8H1wlyNFh8v+7NnpGvNE1BepzmzSeM=; b=B43UVffN07ioDJ8Pn1DbuG9hwk
+	cgPsEIcdFob7fRTG2A4t5gfWW5VbfOy5bYxBxTayuZ7egSBwcWeXkjawYX4sQqRiLnvmihcJLghJv
+	6WSa35D/q3auBkXvDeD2cYyCZnjJ8B/Iv3nlpNwTQVNDkYD4UBdshvY8fE++C8L8T3Si0IgvZmChr
+	8bEHkqvGKqgGSMVepg+kr3XAdtrVHpePRJjgre/TXQ33g7y+OOBHxjU8jvRc0rvEzHcIEeFE1uN5j
+	BrMQr/KFpumBSG0OZM9tnZIMNaeCsZmdvURqG50lLP92rEAKdMXAL/YQvm+fnm3g6Z3elXIfnVfwL
+	Z+L1Pp9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1npKoY-00E9uZ-Ed; Fri, 13 May 2022 02:13:58 +0000
-Received: from [2400:dd01:100f:2:72e2:84ff:fe10:5f45] (helo=mail.nfschina.com)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1npKoK-00E9sh-OY; Fri, 13 May 2022 02:13:48 +0000
-Received: from localhost (unknown [127.0.0.1])
- by mail.nfschina.com (Postfix) with ESMTP id F0AF51E80C82;
- Fri, 13 May 2022 10:07:58 +0800 (CST)
-X-Virus-Scanned: amavisd-new at test.com
-Received: from mail.nfschina.com ([127.0.0.1])
- by localhost (mail.nfschina.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id 7ipRy1WLhqHg; Fri, 13 May 2022 10:07:56 +0800 (CST)
-Received: from localhost.localdomain (unknown [219.141.250.2])
- (Authenticated sender: kunyu@nfschina.com)
- by mail.nfschina.com (Postfix) with ESMTPA id B62C81E80C80;
- Fri, 13 May 2022 10:07:54 +0800 (CST)
-From: Li kunyu <kunyu@nfschina.com>
-To: rostedt@goodmis.org
-Cc: mingo@redhat.com, linux@armlinux.org.uk, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com,
- gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
- svens@linux.ibm.com, tglx@linutronix.de, bp@alien8.de,
- dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- liqiong@nfschina.com, Li kunyu <kunyu@nfschina.com>
-Subject: [PATCH] kernel: Ftrace seems to have functions to improve performance
- through optimization through optimization
-Date: Fri, 13 May 2022 10:13:14 +0800
-Message-Id: <20220513021314.59480-1-kunyu@nfschina.com>
-X-Mailer: git-send-email 2.18.2
-In-Reply-To: <20220512110725.22e69e3c@gandalf.local.home>
-References: <20220512110725.22e69e3c@gandalf.local.home>
+	id 1npM35-00ELBg-Ud; Fri, 13 May 2022 03:33:03 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1npM32-00EL4c-1i
+ for linux-riscv@lists.infradead.org; Fri, 13 May 2022 03:33:02 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id
+ l20-20020a17090a409400b001dd2a9d555bso6662561pjg.0
+ for <linux-riscv@lists.infradead.org>; Thu, 12 May 2022 20:32:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=OcucJbRdUHNune3yaXCjGWuujEoA53OSfN/roH/VTmQ=;
+ b=h5jdaoNvwxDkNplGIw9oZV3BTnBss2uRogYIhdDM1iyqd7DQUg8qHYA0uSKX6HErki
+ oNpj7mhG1PuwLc1MWGSTCGma/aYzA80qCW4A3Vpmj5R1ihdKaw2230FTC4HdcqzZ/VSY
+ fDSzYrMs5tKKKC4ZtX7nnF4YH/8fEpctmXxrFsHbiMsCpISNmsd7J6scmRGFqw4dbxGP
+ dwoh3occKJnH0peC380StFgJsp2PgLWAzASWlvemOWN/W4HmnMX59+vxpbuHywIuEhVu
+ ad7PIsdF3INnlxGSfY1yINLISZX2L/o23JDhmTSz2T4c1PnCAEzk1z88hYzg1xIJnWVf
+ uydg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=OcucJbRdUHNune3yaXCjGWuujEoA53OSfN/roH/VTmQ=;
+ b=MMgcsZr8TI3C/SXqZh+KV9esixwL09fDfmjmD0UdjQ1BeYqiA/j3WMHPzJbG/i8ltU
+ Stcfese94b14G2cjVs89RvA99/27arf7XurIQPMiQ/xIMvETiPsJwYySIfSSpc13g4Jb
+ G6902rWKd/ZOtrv3A7oMVL7+wdUHEJxNSl17Rbd/zhaCdaBnGiSyVA73lLMe8vt8qBeg
+ cQVm3yRS76nVDcRq3k2k9dd8I3spy9Dy+CpP5Vn3lKeUorEB4onLd2QTcIS2mExvlM0G
+ qcRIaqCPogH23FzBrMi+t48g7Bc/bq1Em97XkFe1WIH3zOL2HDqDJVzlfkJ9ld8TnK6p
+ JRXA==
+X-Gm-Message-State: AOAM532lzSt63BRu05mo+peyAak26g90lsPDOtYvm7C/qUD9M7qzUAIb
+ S1BTXAe2Kq5gKdYedsgwFzpc/A==
+X-Google-Smtp-Source: ABdhPJwDVScCgu2dBXj2idF0HxY+pJjo3fZtT3Ul4qy8cvfw2xsFS8WGa/v3nAY3+jwjxr88011yog==
+X-Received: by 2002:a17:90b:1a88:b0:1dc:e4a1:a81e with SMTP id
+ ng8-20020a17090b1a8800b001dce4a1a81emr14242416pjb.96.1652412770529; 
+ Thu, 12 May 2022 20:32:50 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
+ i9-20020a632209000000b003db7de758besm510377pgi.5.2022.05.12.20.32.49
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Thu, 12 May 2022 20:32:49 -0700 (PDT)
+Date: Thu, 12 May 2022 20:32:49 -0700 (PDT)
+X-Google-Original-Date: Thu, 12 May 2022 20:32:47 PDT (-0700)
+Subject: Re: [PATCH v10 00/12] riscv: support for Svpbmt and D1 memory types
+In-Reply-To: <20220511192921.2223629-1-heiko@sntech.de>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, wefu@redhat.com,
+ liush@allwinnertech.com, 
+ guoren@kernel.org, atishp@atishpatra.org, anup@brainfault.org,
+ drew@beagleboard.org, 
+ Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>, wens@csie.org,
+ maxime@cerno.tech, 
+ gfavor@ventanamicro.com, andrea.mondelli@huawei.com, behrensj@mit.edu,
+ xinhaoqu@huawei.com, 
+ mick@ics.forth.gr, allen.baum@esperantotech.com, jscheid@ventanamicro.com,
+ rtrauben@gmail.com, 
+ samuel@sholland.org, cmuellner@linux.com, philipp.tomsich@vrull.eu,
+ heiko@sntech.de
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: heiko@sntech.de
+Message-ID: <mhng-471ef84f-9ac4-44c9-ae85-0492d2a1ad99@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220512_191346_691550_5FC691F2 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20220512_203300_099409_E5D85096 
+X-CRM114-Status: GOOD (  45.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,190 +96,166 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-such as ftrace_ARCH_code_*, return 0, so the FTRACE_* check is not required
+On Wed, 11 May 2022 12:29:09 PDT (-0700), heiko@sntech.de wrote:
+> Svpbmt is an extension defining "Supervisor-mode: page-based memory types"
+> for things like non-cacheable pages or I/O memory pages.
+>
+>
+> So this is my 2nd try at implementing Svpbmt (and the diverging D1 memory
+> types) using the alternatives framework.
+>
+> This includes a number of changes to the alternatives mechanism itself.
+> The biggest one being the move to a more central location, as I expect
+> in the future, nearly every chip needing some sort of patching, be it
+> either for erratas or for optional features (svpbmt or others).
+>
+> Detection of the svpbmt functionality is done via Atish's isa extension
+> handling series [0] and thus does not need any dt-parsing of its own
+> anymore.
+>
+> The series also introduces support for the memory types of the D1
+> which are implemented differently to svpbmt. But when patching anyway
+> it's pretty clean to add the D1 variant via ALTERNATIVE_2 to the same
+> location.
+>
+> The only slightly bigger difference is that the "normal" type is not 0
+> as with svpbmt, so kernel patches for this PMA type need to be applied
+> even before the MMU is brought up, so the series introduces a separate
+> stage for that.
+>
+>
+> In theory this series is 2 parts:
+> - alternatives improvements
+> - svpbmt+d1
+>
+> I picked the recipient list from the previous versions, hopefully
+> I didn't forget anybody.
+>
+> I tested the series on:
+> - qemu-rv32 + buildroot rootfs
+> - qemu-rv64 + debian roots
+> - Allwinner D1-Nezha
+> - BeagleV - it at least reached the same point as without the series
 
-Signed-off-by: Li kunyu <kunyu@nfschina.com>
----
- arch/arm/kernel/ftrace.c   |  6 ++----
- arch/riscv/kernel/ftrace.c |  6 ++----
- arch/s390/kernel/ftrace.c  |  3 +--
- arch/x86/kernel/ftrace.c   |  6 ++----
- include/linux/ftrace.h     |  4 ++--
- kernel/trace/ftrace.c      | 16 ++++------------
- 6 files changed, 13 insertions(+), 28 deletions(-)
+IMO that's fine, it's also broken due to issues around non-coherence but 
+it has an entirely different way of handling things than.
 
-diff --git a/arch/arm/kernel/ftrace.c b/arch/arm/kernel/ftrace.c
-index 83cc068586bc..a0b6d1e3812f 100644
---- a/arch/arm/kernel/ftrace.c
-+++ b/arch/arm/kernel/ftrace.c
-@@ -79,16 +79,14 @@ static unsigned long __ref adjust_address(struct dyn_ftrace *rec,
- 	return (unsigned long)&ftrace_regs_caller_from_init;
- }
- 
--int ftrace_arch_code_modify_prepare(void)
-+void ftrace_arch_code_modify_prepare(void)
- {
--	return 0;
- }
- 
--int ftrace_arch_code_modify_post_process(void)
-+void ftrace_arch_code_modify_post_process(void)
- {
- 	/* Make sure any TLB misses during machine stop are cleared. */
- 	flush_tlb_all();
--	return 0;
- }
- 
- static unsigned long ftrace_call_replace(unsigned long pc, unsigned long addr,
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index 4716f4cdc038..2086f6585773 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -12,16 +12,14 @@
- #include <asm/patch.h>
- 
- #ifdef CONFIG_DYNAMIC_FTRACE
--int ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
-+void ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
- {
- 	mutex_lock(&text_mutex);
--	return 0;
- }
- 
--int ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
-+void ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
- {
- 	mutex_unlock(&text_mutex);
--	return 0;
- }
- 
- static int ftrace_check_current_call(unsigned long hook_pos,
-diff --git a/arch/s390/kernel/ftrace.c b/arch/s390/kernel/ftrace.c
-index 1852d46babb1..416b5a94353d 100644
---- a/arch/s390/kernel/ftrace.c
-+++ b/arch/s390/kernel/ftrace.c
-@@ -225,14 +225,13 @@ void arch_ftrace_update_code(int command)
- 	ftrace_modify_all_code(command);
- }
- 
--int ftrace_arch_code_modify_post_process(void)
-+void ftrace_arch_code_modify_post_process(void)
- {
- 	/*
- 	 * Flush any pre-fetched instructions on all
- 	 * CPUs to make the new code visible.
- 	 */
- 	text_poke_sync_lock();
--	return 0;
- }
- 
- #ifdef CONFIG_MODULES
-diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
-index 1e31c7d21597..73d2719ed12c 100644
---- a/arch/x86/kernel/ftrace.c
-+++ b/arch/x86/kernel/ftrace.c
-@@ -37,7 +37,7 @@
- 
- static int ftrace_poke_late = 0;
- 
--int ftrace_arch_code_modify_prepare(void)
-+void ftrace_arch_code_modify_prepare(void)
-     __acquires(&text_mutex)
- {
- 	/*
-@@ -47,10 +47,9 @@ int ftrace_arch_code_modify_prepare(void)
- 	 */
- 	mutex_lock(&text_mutex);
- 	ftrace_poke_late = 1;
--	return 0;
- }
- 
--int ftrace_arch_code_modify_post_process(void)
-+void ftrace_arch_code_modify_post_process(void)
-     __releases(&text_mutex)
- {
- 	/*
-@@ -61,7 +60,6 @@ int ftrace_arch_code_modify_post_process(void)
- 	text_poke_finish();
- 	ftrace_poke_late = 0;
- 	mutex_unlock(&text_mutex);
--	return 0;
- }
- 
- static const char *ftrace_nop_replace(void)
-diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-index 4816b7e11047..a5f74f6e7e4e 100644
---- a/include/linux/ftrace.h
-+++ b/include/linux/ftrace.h
-@@ -449,8 +449,8 @@ static inline void stack_tracer_enable(void) { }
- 
- #ifdef CONFIG_DYNAMIC_FTRACE
- 
--int ftrace_arch_code_modify_prepare(void);
--int ftrace_arch_code_modify_post_process(void);
-+void ftrace_arch_code_modify_prepare(void);
-+void ftrace_arch_code_modify_post_process(void);
- 
- enum ftrace_bug_type {
- 	FTRACE_BUG_UNKNOWN,
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index 4f1d2f5e7263..35a899f136fe 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -2707,18 +2707,16 @@ ftrace_nop_initialize(struct module *mod, struct dyn_ftrace *rec)
-  * archs can override this function if they must do something
-  * before the modifying code is performed.
-  */
--int __weak ftrace_arch_code_modify_prepare(void)
-+void __weak ftrace_arch_code_modify_prepare(void)
- {
--	return 0;
- }
- 
- /*
-  * archs can override this function if they must do something
-  * after the modifying code is performed.
-  */
--int __weak ftrace_arch_code_modify_post_process(void)
-+void __weak ftrace_arch_code_modify_post_process(void)
- {
--	return 0;
- }
- 
- void ftrace_modify_all_code(int command)
-@@ -2804,12 +2802,7 @@ void __weak arch_ftrace_update_code(int command)
- 
- static void ftrace_run_update_code(int command)
- {
--	int ret;
--
--	ret = ftrace_arch_code_modify_prepare();
--	FTRACE_WARN_ON(ret);
--	if (ret)
--		return;
-+	ftrace_arch_code_modify_prepare();
- 
- 	/*
- 	 * By default we use stop_machine() to modify the code.
-@@ -2819,8 +2812,7 @@ static void ftrace_run_update_code(int command)
- 	 */
- 	arch_ftrace_update_code(command);
- 
--	ret = ftrace_arch_code_modify_post_process();
--	FTRACE_WARN_ON(ret);
-+	ftrace_arch_code_modify_post_process();
- }
- 
- static void ftrace_run_modify_code(struct ftrace_ops *ops, int command,
--- 
-2.18.2
+> I also ran Palmers CI environment on 5.18-rc6 + this series and
+> it passed with all testcases now.
 
+Thanks, I know that's a bit of a mess.  If I ever get some time I'll try 
+and clean it up, but it keeps finding issues so I'm sort of stuck with 
+it for now.  As expected it now passes locally, so I've put this on 
+for-next.  I hadn't noticed your testing was on rc6, I put this on top 
+of rc1 -- that's what I usually do for merge window stuff, but if 
+there's something specific between rc1 and rc6 this depends on then LMK 
+and I'll sort it out.
+
+> changes in v10:
+> - add received review-tags
+> - put early patching behind a kconfig symbol
+> - adapt compiler flags of sources in use by early patching
+>   similar to other riscv arch-parts.
+>   This fixes the medlow cmodel issue on rv32 and also issues
+>   with Kasan.
+>
+> changes in v9:
+> - rebase onto 5.18-rc1
+> - drop the sbi null-ptr patch
+>   While I still think this to be non-ideal as is, it isn't really
+>   necessary for svpbmt support anymore
+> - merge cpufeature + svpbmt patch, as otherwise some empty shells
+>   cause build warnings when a bisection stops between these two
+>   patches
+> - address review comments from Christoph Hellwig:
+>   - keep alternatives optional, they now get selected by its
+>     users (erratas and also the newly introduced svpbmt kconfig)
+>   - wrap long lines and keep things below 80 characters
+>   - restyle svpbmt + thead errata assembly
+>   - introduce a helper for the repeated calls to
+>     (val & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT
+>
+> changes in v8:
+> - rebase onto 5.17-final + isa extension series
+>   We're halfway through the merge-window, so this series
+>   should be merge after that
+> - adapt to fix limiting alternatives to non-xip-kernels
+> - add .norelax option for alternatives
+> - fix unused cpu_apply_errata in thead errata
+> - don't use static globals to store cpu-manufacturer data
+>   as it makes machines hang if done too early
+>
+> changes in v7:
+> - fix typo in patch1 (Atish)
+> - moved to Atish's isa-extension framework
+> - and therefore move regular boot-alternatives directly behind fill_hwcaps
+> - change T-Head errata Kconfig text (Atish)
+>
+> changes in v6:
+> - rebase onto 5.17-rc1
+> - handle sbi null-ptr differently
+> - improve commit messages
+> - use riscv,mmu as property name
+>
+> changes in v5:
+> - move to use alternatives for runtime-patching
+> - add D1 variant
+>
+>
+> [0] https://lore.kernel.org/r/20220222204811.2281949-2-atishp@rivosinc.com
+>
+> Heiko Stuebner (12):
+>   riscv: integrate alternatives better into the main architecture
+>   riscv: allow different stages with alternatives
+>   riscv: implement module alternatives
+>   riscv: implement ALTERNATIVE_2 macro
+>   riscv: extend concatenated alternatives-lines to the same length
+>   riscv: prevent compressed instructions in alternatives
+>   riscv: move boot alternatives to after fill_hwcap
+>   riscv: Fix accessing pfn bits in PTEs for non-32bit variants
+>   riscv: add RISC-V Svpbmt extension support
+>   riscv: remove FIXMAP_PAGE_IO and fall back to its default value
+>   riscv: don't use global static vars to store alternative data
+>   riscv: add memory-type errata for T-Head
+>
+>  arch/riscv/Kconfig                          |  28 +++++
+>  arch/riscv/Kconfig.erratas                  |  34 ++++--
+>  arch/riscv/Kconfig.socs                     |   1 -
+>  arch/riscv/Makefile                         |   2 +-
+>  arch/riscv/errata/Makefile                  |   2 +-
+>  arch/riscv/errata/alternative.c             |  75 ------------
+>  arch/riscv/errata/sifive/errata.c           |  20 ++-
+>  arch/riscv/errata/thead/Makefile            |  11 ++
+>  arch/riscv/errata/thead/errata.c            |  82 +++++++++++++
+>  arch/riscv/include/asm/alternative-macros.h | 129 +++++++++++++++-----
+>  arch/riscv/include/asm/alternative.h        |  25 +++-
+>  arch/riscv/include/asm/errata_list.h        |  59 +++++++++
+>  arch/riscv/include/asm/fixmap.h             |   2 -
+>  arch/riscv/include/asm/hwcap.h              |   1 +
+>  arch/riscv/include/asm/pgtable-32.h         |  17 +++
+>  arch/riscv/include/asm/pgtable-64.h         |  79 +++++++++++-
+>  arch/riscv/include/asm/pgtable-bits.h       |  10 --
+>  arch/riscv/include/asm/pgtable.h            |  55 +++++++--
+>  arch/riscv/include/asm/vendorid_list.h      |   1 +
+>  arch/riscv/kernel/Makefile                  |  15 +++
+>  arch/riscv/kernel/alternative.c             | 118 ++++++++++++++++++
+>  arch/riscv/kernel/cpu.c                     |   1 +
+>  arch/riscv/kernel/cpufeature.c              |  80 +++++++++++-
+>  arch/riscv/kernel/module.c                  |  29 +++++
+>  arch/riscv/kernel/setup.c                   |   2 +
+>  arch/riscv/kernel/smpboot.c                 |   4 -
+>  arch/riscv/kernel/traps.c                   |   2 +-
+>  arch/riscv/mm/init.c                        |   1 +
+>  28 files changed, 724 insertions(+), 161 deletions(-)
+>  delete mode 100644 arch/riscv/errata/alternative.c
+>  create mode 100644 arch/riscv/errata/thead/Makefile
+>  create mode 100644 arch/riscv/errata/thead/errata.c
+>  create mode 100644 arch/riscv/kernel/alternative.c
 
 _______________________________________________
 linux-riscv mailing list
