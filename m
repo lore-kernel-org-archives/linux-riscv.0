@@ -4,52 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A6DC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 13 May 2022 21:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134AAC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 14 May 2022 05:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=McT98EscJWN+7xPIHHYwNyQwv7HEX6R1QcbN9L0qT/s=; b=04cjIHFPjtcj//
-	opuDpfsYJf/fIdqWSlXB5hLAEpPkx7YSaLCtLl0zne0McGfnhFTIdhqgG4bb5efDt8xbWnbGiWfy3
-	yVRSr54W77jvXyP1CoEBsYZ6wQMy2PuW2GMWnCzKYwW8hgz5zV7VWimC3eBg96JHQnq7BeoWpFI9R
-	2j+3x/ed6Mi+PvW5Xy4/Gdx9qYT7r7s3gZONhDLDyrUIULEX4qb73cg+/yJ5Vaz0hSTRDKSo1IHnI
-	hTOuNYmosCpNlwQSUmQBtzXIY9BFqOXBjbaB1n+ZEk64t/okP58tIp9OdPXBMNzUQgIkVUQNcuYbz
-	11FawXH3C5MjVd9WpEXw==;
+	List-Owner; bh=hF1wqyTD+nnRUSW6SQ0tZoDHMe113XASmhnHAn6I0Ro=; b=HmUfE9dTDkWtd2
+	OnaPN/yB1bmqGGdLEpRXOzJHYZjoOIuymqp68g/CdKjqX1Cs1EQ78fUtpy6sb422iiUXh4ZeaxWTW
+	/bEUL6LA9kWzdazFE9eEqvY5kWgZP8miUCciOAD4X2uV5Bn850NRm2B/u5o6AQB5TaW1gTQ3yTmbY
+	Xc/LHOrVgifOQkTqnOVxcnipuyoqbRm+CxZZOJSS8MQRFLuv4SdMWtmj9AR/IW1Ew3pDIPDm3kjVt
+	BjfJ4BV0AdnwAR3fR1/MGNnlrEzDC9nATOezN3eO/yR+MUhvmvt+4CcP3JwjRH3+7t5SD+pooiewb
+	n3VLQDKyZ6QAwdGXS1tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1npd2L-0008Z3-UX; Fri, 13 May 2022 21:41:26 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1npkIM-000pVx-2G; Sat, 14 May 2022 05:26:26 +0000
+Received: from mga11.intel.com ([192.55.52.93])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1npd2I-0008Xz-Mw
- for linux-riscv@lists.infradead.org; Fri, 13 May 2022 21:41:24 +0000
-Received: from p508fd4ce.dip0.t-ipconnect.de ([80.143.212.206]
- helo=phil.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1npd26-0003Vy-OT; Fri, 13 May 2022 23:41:10 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, wefu@redhat.com,
- liush@allwinnertech.com, guoren@kernel.org, atishp@atishpatra.org,
- anup@brainfault.org, drew@beagleboard.org, Christoph Hellwig <hch@lst.de>,
- Arnd Bergmann <arnd@arndb.de>, wens@csie.org, maxime@cerno.tech,
- gfavor@ventanamicro.com, andrea.mondelli@huawei.com, behrensj@mit.edu,
- xinhaoqu@huawei.com, mick@ics.forth.gr, allen.baum@esperantotech.com,
- jscheid@ventanamicro.com, rtrauben@gmail.com, samuel@sholland.org,
- cmuellner@linux.com, philipp.tomsich@vrull.eu
-Subject: Re: [PATCH v10 00/12] riscv: support for Svpbmt and D1 memory types
-Date: Fri, 13 May 2022 23:41:09 +0200
-Message-ID: <8248008.lOV4Wx5bFT@phil>
-In-Reply-To: <mhng-471ef84f-9ac4-44c9-ae85-0492d2a1ad99@palmer-ri-x1c9>
-References: <mhng-471ef84f-9ac4-44c9-ae85-0492d2a1ad99@palmer-ri-x1c9>
+ id 1npkII-000pTk-Pf
+ for linux-riscv@lists.infradead.org; Sat, 14 May 2022 05:26:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1652505982; x=1684041982;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=vOr1s4hyuADKclZdkCj1gSHUqC2uPya1MjINyW1/PRI=;
+ b=M4KITf8KTYJKnoXb6JBDqU6CUgA8o0uA/OOCV9dEf+RtF0EjQkG0zOsB
+ jl3uWZGUF0MgMVI76jI+XwFQmq0EVCWHaB2NoDdMoMxSOWUXQoPiqdJZ2
+ YXeGgAciX+T6VkQ8+roRI99JYRC+1oaXbneW7C7ehkG486lSVX9jxQlTH
+ Vl7iQMZlFc0Jke+jdkPieduEfJ3vWM0S+VRbOzeQYc9BAGTK0pDaGB+/G
+ LRzGn84uctm5HAImDApEYKsEdfSfG/21n3VTLNAJEbbNqoxHbYv15Flzx
+ hiAud7qIbJsCSCLpPeGh2suTS93kihvA99tQ/yEj36Bk9jHGs8W0TYoLq Q==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10346"; a="268060943"
+X-IronPort-AV: E=Sophos;i="5.91,225,1647327600"; d="scan'208";a="268060943"
+Received: from fmsmga007.fm.intel.com ([10.253.24.52])
+ by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 13 May 2022 22:26:22 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.91,225,1647327600"; d="scan'208";a="573282365"
+Received: from lkp-server01.sh.intel.com (HELO d1462bc4b09b) ([10.239.97.150])
+ by fmsmga007.fm.intel.com with ESMTP; 13 May 2022 22:26:20 -0700
+Received: from kbuild by d1462bc4b09b with local (Exim 4.95)
+ (envelope-from <lkp@intel.com>) id 1npkIF-0000Fa-NV;
+ Sat, 14 May 2022 05:26:19 +0000
+Date: Sat, 14 May 2022 13:25:57 +0800
+From: kernel test robot <lkp@intel.com>
+To: Dao Lu <daolu@rivosinc.com>, linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, kbuild-all@lists.01.org, Dao Lu <daolu@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] arch/riscv: Add Zihintpause extension support
+Message-ID: <202205141316.E2mCmmhu-lkp@intel.com>
+References: <20220512033045.1101909-1-daolu@rivosinc.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220512033045.1101909-1-daolu@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220513_144122_947275_D1271445 
-X-CRM114-Status: GOOD (  53.91  )
+X-CRM114-CacheID: sfid-20220513_222622_911676_DE534925 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,183 +81,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 13. Mai 2022, 05:32:49 CEST schrieb Palmer Dabbelt:
-> On Wed, 11 May 2022 12:29:09 PDT (-0700), heiko@sntech.de wrote:
-> > Svpbmt is an extension defining "Supervisor-mode: page-based memory types"
-> > for things like non-cacheable pages or I/O memory pages.
-> >
-> >
-> > So this is my 2nd try at implementing Svpbmt (and the diverging D1 memory
-> > types) using the alternatives framework.
-> >
-> > This includes a number of changes to the alternatives mechanism itself.
-> > The biggest one being the move to a more central location, as I expect
-> > in the future, nearly every chip needing some sort of patching, be it
-> > either for erratas or for optional features (svpbmt or others).
-> >
-> > Detection of the svpbmt functionality is done via Atish's isa extension
-> > handling series [0] and thus does not need any dt-parsing of its own
-> > anymore.
-> >
-> > The series also introduces support for the memory types of the D1
-> > which are implemented differently to svpbmt. But when patching anyway
-> > it's pretty clean to add the D1 variant via ALTERNATIVE_2 to the same
-> > location.
-> >
-> > The only slightly bigger difference is that the "normal" type is not 0
-> > as with svpbmt, so kernel patches for this PMA type need to be applied
-> > even before the MMU is brought up, so the series introduces a separate
-> > stage for that.
-> >
-> >
-> > In theory this series is 2 parts:
-> > - alternatives improvements
-> > - svpbmt+d1
-> >
-> > I picked the recipient list from the previous versions, hopefully
-> > I didn't forget anybody.
-> >
-> > I tested the series on:
-> > - qemu-rv32 + buildroot rootfs
-> > - qemu-rv64 + debian roots
-> > - Allwinner D1-Nezha
-> > - BeagleV - it at least reached the same point as without the series
-> 
-> IMO that's fine, it's also broken due to issues around non-coherence but 
-> it has an entirely different way of handling things than.
-> 
-> > I also ran Palmers CI environment on 5.18-rc6 + this series and
-> > it passed with all testcases now.
-> 
-> Thanks, I know that's a bit of a mess.  If I ever get some time I'll try 
-> and clean it up, but it keeps finding issues so I'm sort of stuck with 
-> it for now.
+Hi Dao,
 
-No worries, once I got it to run, it was easy to use, though needs
-quite a bit of time to build everything.
+Thank you for the patch! Yet something to improve:
 
-But now that I made it to run, I'll try to use in the future as well :-) .
+[auto build test ERROR on linux/master]
+[also build test ERROR on linus/master v5.18-rc6 next-20220513]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch]
 
-> As expected it now passes locally, so I've put this on 
-> for-next.  I hadn't noticed your testing was on rc6, I put this on top 
-> of rc1 -- that's what I usually do for merge window stuff, but if 
-> there's something specific between rc1 and rc6 this depends on then LMK 
-> and I'll sort it out.
+url:    https://github.com/intel-lab-lkp/linux/commits/Dao-Lu/arch-riscv-Add-Zihintpause-extension-support/20220512-113348
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git feb9c5e19e913b53cb536a7aa7c9f20107bb51ec
+config: riscv-randconfig-r035-20220512 (https://download.01.org/0day-ci/archive/20220514/202205141316.E2mCmmhu-lkp@intel.com/config)
+compiler: clang version 15.0.0 (https://github.com/llvm/llvm-project 38189438b69ca27b4c6ce707c52dbd217583d046)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install riscv cross compiling tool for clang build
+        # apt-get install binutils-riscv64-linux-gnu
+        # https://github.com/intel-lab-lkp/linux/commit/ebdb085998220eb16e6815608a3a6d8f87711d28
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Dao-Lu/arch-riscv-Add-Zihintpause-extension-support/20220512-113348
+        git checkout ebdb085998220eb16e6815608a3a6d8f87711d28
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv prepare
 
-In the past I also had it run on -rc1 without any issues.
-Just after refreshing with with your recent changes, it was back at
-5.17-something and then I went to 5.18-rc6 as base.
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kernel test robot <lkp@intel.com>
 
-So there wasn't any real reason for -rc6 except was the most current
-release :-)
+All errors (new ones prefixed by >>):
 
-Heiko
+>> ld.lld: error: section .text file range overlaps with __jump_table
+   >>> .text range is [0x800, 0x1277]
+   >>> __jump_table range is [0x878, 0x8D7]
+--
+>> ld.lld: error: section .text virtual address range overlaps with __jump_table
+   >>> .text range is [0x800, 0x1277]
+   >>> __jump_table range is [0x878, 0x8D7]
+--
+>> ld.lld: error: section .text load address range overlaps with __jump_table
+   >>> .text range is [0x800, 0x1277]
+   >>> __jump_table range is [0x878, 0x8D7]
+--
+>> ld.lld: error: section .text load address range overlaps with __jump_table
+   >>> .text range is [0x800, 0x1277]
+   >>> __jump_table range is [0x878, 0x8D7]
+--
+>> ld.lld: error: section .text load address range overlaps with __jump_table
+   >>> .text range is [0x800, 0x1277]
+   >>> __jump_table range is [0x878, 0x8D7]
+   llvm-nm: error: arch/riscv/kernel/vdso/vdso.so.dbg: No such file or directory
 
-> > changes in v10:
-> > - add received review-tags
-> > - put early patching behind a kconfig symbol
-> > - adapt compiler flags of sources in use by early patching
-> >   similar to other riscv arch-parts.
-> >   This fixes the medlow cmodel issue on rv32 and also issues
-> >   with Kasan.
-> >
-> > changes in v9:
-> > - rebase onto 5.18-rc1
-> > - drop the sbi null-ptr patch
-> >   While I still think this to be non-ideal as is, it isn't really
-> >   necessary for svpbmt support anymore
-> > - merge cpufeature + svpbmt patch, as otherwise some empty shells
-> >   cause build warnings when a bisection stops between these two
-> >   patches
-> > - address review comments from Christoph Hellwig:
-> >   - keep alternatives optional, they now get selected by its
-> >     users (erratas and also the newly introduced svpbmt kconfig)
-> >   - wrap long lines and keep things below 80 characters
-> >   - restyle svpbmt + thead errata assembly
-> >   - introduce a helper for the repeated calls to
-> >     (val & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT
-> >
-> > changes in v8:
-> > - rebase onto 5.17-final + isa extension series
-> >   We're halfway through the merge-window, so this series
-> >   should be merge after that
-> > - adapt to fix limiting alternatives to non-xip-kernels
-> > - add .norelax option for alternatives
-> > - fix unused cpu_apply_errata in thead errata
-> > - don't use static globals to store cpu-manufacturer data
-> >   as it makes machines hang if done too early
-> >
-> > changes in v7:
-> > - fix typo in patch1 (Atish)
-> > - moved to Atish's isa-extension framework
-> > - and therefore move regular boot-alternatives directly behind fill_hwcaps
-> > - change T-Head errata Kconfig text (Atish)
-> >
-> > changes in v6:
-> > - rebase onto 5.17-rc1
-> > - handle sbi null-ptr differently
-> > - improve commit messages
-> > - use riscv,mmu as property name
-> >
-> > changes in v5:
-> > - move to use alternatives for runtime-patching
-> > - add D1 variant
-> >
-> >
-> > [0] https://lore.kernel.org/r/20220222204811.2281949-2-atishp@rivosinc.com
-> >
-> > Heiko Stuebner (12):
-> >   riscv: integrate alternatives better into the main architecture
-> >   riscv: allow different stages with alternatives
-> >   riscv: implement module alternatives
-> >   riscv: implement ALTERNATIVE_2 macro
-> >   riscv: extend concatenated alternatives-lines to the same length
-> >   riscv: prevent compressed instructions in alternatives
-> >   riscv: move boot alternatives to after fill_hwcap
-> >   riscv: Fix accessing pfn bits in PTEs for non-32bit variants
-> >   riscv: add RISC-V Svpbmt extension support
-> >   riscv: remove FIXMAP_PAGE_IO and fall back to its default value
-> >   riscv: don't use global static vars to store alternative data
-> >   riscv: add memory-type errata for T-Head
-> >
-> >  arch/riscv/Kconfig                          |  28 +++++
-> >  arch/riscv/Kconfig.erratas                  |  34 ++++--
-> >  arch/riscv/Kconfig.socs                     |   1 -
-> >  arch/riscv/Makefile                         |   2 +-
-> >  arch/riscv/errata/Makefile                  |   2 +-
-> >  arch/riscv/errata/alternative.c             |  75 ------------
-> >  arch/riscv/errata/sifive/errata.c           |  20 ++-
-> >  arch/riscv/errata/thead/Makefile            |  11 ++
-> >  arch/riscv/errata/thead/errata.c            |  82 +++++++++++++
-> >  arch/riscv/include/asm/alternative-macros.h | 129 +++++++++++++++-----
-> >  arch/riscv/include/asm/alternative.h        |  25 +++-
-> >  arch/riscv/include/asm/errata_list.h        |  59 +++++++++
-> >  arch/riscv/include/asm/fixmap.h             |   2 -
-> >  arch/riscv/include/asm/hwcap.h              |   1 +
-> >  arch/riscv/include/asm/pgtable-32.h         |  17 +++
-> >  arch/riscv/include/asm/pgtable-64.h         |  79 +++++++++++-
-> >  arch/riscv/include/asm/pgtable-bits.h       |  10 --
-> >  arch/riscv/include/asm/pgtable.h            |  55 +++++++--
-> >  arch/riscv/include/asm/vendorid_list.h      |   1 +
-> >  arch/riscv/kernel/Makefile                  |  15 +++
-> >  arch/riscv/kernel/alternative.c             | 118 ++++++++++++++++++
-> >  arch/riscv/kernel/cpu.c                     |   1 +
-> >  arch/riscv/kernel/cpufeature.c              |  80 +++++++++++-
-> >  arch/riscv/kernel/module.c                  |  29 +++++
-> >  arch/riscv/kernel/setup.c                   |   2 +
-> >  arch/riscv/kernel/smpboot.c                 |   4 -
-> >  arch/riscv/kernel/traps.c                   |   2 +-
-> >  arch/riscv/mm/init.c                        |   1 +
-> >  28 files changed, 724 insertions(+), 161 deletions(-)
-> >  delete mode 100644 arch/riscv/errata/alternative.c
-> >  create mode 100644 arch/riscv/errata/thead/Makefile
-> >  create mode 100644 arch/riscv/errata/thead/errata.c
-> >  create mode 100644 arch/riscv/kernel/alternative.c
-> 
-
-
-
-
+-- 
+0-DAY CI Kernel Test Service
+https://01.org/lkp
 
 _______________________________________________
 linux-riscv mailing list
