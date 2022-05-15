@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B263C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 May 2022 05:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0181C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 May 2022 07:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t//S5Mhd1NjwXK+7+55C+Z8j0Mqd9XPWCf2ilUACgZ8=; b=eWHObzoYDEi0/u
-	fKA0sUNi1a1JLToaTPqtNMcTAD/20f6SH7Hbvgu3IvuWr02Or95UWGHEne/8OH5HLfqIpIdFENuYf
-	LJuHMa+s4M7LarfsB7lI/GkcMnNqAS2nEayYHVLSKnaA7ImUKeR7brrgqZ6Yff3TDChMSn8kazAsw
-	5obXRkZ48uYCqgxWNvKAhDf56EZUfILKfwJWmPq3L49XgOmmkHKs3uFm8ie4f9liYDI0ZUi/R6eQ9
-	xcTOZyI1/1aogic8/NBqLblAOQQbs43I6PU290Mt3GKd3yK2rn4LW0lu7RP4E7IOjJKwynBvS6s50
-	N6zj7LXqRLPP/UdtRddw==;
+	List-Owner; bh=CEAuA1rjZtYjvCENfTUX6ViymtvaNho0DvmYgzQaat8=; b=dY9PJOg6Hcvztk
+	MZSAPXqHUM5YwGNvhCQ/oY5ar/RdCw1wdWtXBO3joj0puf6U3JzDWXg1pLh0y0ZZ3G5yg/Im45sg0
+	LnWeUOO+dyjUocLEfdwCO8NVPABxev9LFxwbOOlUS2qB5NtEFihXA+aNOTMWb8MLUVrFJDa2KRNhQ
+	fBhMFfQiXq1iWTh7GLStCIqriMXjfIJOyPinxqWQgYnlvKzuGAKBkrVnmaMnVFJiprApTEBJnLr1+
+	8REv8e6MNLPU//qSbdjMnypE8L0fUDqozb13qZz/x0HAQG88je9HKw0/S6bI+YGMUTftBUzkIK+gU
+	2AoI4NCLvIPYio3muVjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nq6oM-003DQR-Vu; Sun, 15 May 2022 05:28:59 +0000
+	id 1nq8bv-003OJr-4V; Sun, 15 May 2022 07:24:15 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nq6oJ-003DQ6-WE
- for linux-riscv@lists.infradead.org; Sun, 15 May 2022 05:28:57 +0000
+ id 1nq8br-003OIu-TI
+ for linux-riscv@lists.infradead.org; Sun, 15 May 2022 07:24:13 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id D95D7B80B2A;
- Sun, 15 May 2022 05:28:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91874C385B8;
- Sun, 15 May 2022 05:28:50 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 64C4CB80AC5;
+ Sun, 15 May 2022 07:24:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4741C385B8;
+ Sun, 15 May 2022 07:24:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1652592532;
- bh=SpKDu6aHLnyStI7ayt2jfV3MbCZDcJojYH368H8D2ow=;
+ s=k20201202; t=1652599448;
+ bh=2PGo9NsLUewmGRkHS6RJc63L7P46JEsartEngldOhNg=;
  h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=Z0rOVFNTMYqljGG8dTDdzAGnekqM0MDikIwjJ9XF+1zVBpl6k8f2tiJy7TTDrLN1Q
- Yza5uVixAuAhtxoR8DHtP778uJaiWzIxs3jiRuUEJDUQPNY0yLfVTnrao77p3EKMLk
- JtiPWUVJhbZDV57AXyZCwJn1a1Ds6vvukvpp0Hcb93j0G30ez2gxaniNqzbgPRb8E6
- s+TCYbOCqv6XaSsVqDwA0LPvME/IoWyCAs7Kbvci4a6zUBY6mLTOWkoIGOfVhdnbXn
- kRcuRDk1aIW1adt33P5QXHPeNF+WcJQ7YtNX0AaErZnPBgWwJVEsaNNhWdraHxuZuI
- Byor57WxNJt3A==
-Date: Sun, 15 May 2022 13:20:21 +0800
+ b=SX3l+6L+B22OvT/rcofdvbZZzesdNJ72HpL7/7fw8pXVfwtecqyPLrJEf9WZMOTjC
+ btxz4EgPlv2KnK/aBpfRhaFr85ODVC+n6/6CngaG0V1nTr8mKvdkhtK8lKNsDp7cIT
+ awehGVF/PxauX2FH6GpaB4uVHTSIiVLjzsX9W7adwu1toxbC1BlrpPW+tx6m8LZHg7
+ RQAtI4elVMaVxNQaN9gT74oaGaBqB+VjJZ7StTT/jqhN4UBqSYGnxZ3+82F2nR7ad8
+ 4E0xHqlV69wCZUZht9pyPykQHgqbgeJs1VXa3CAH1An98wkUTeAGS1zCybg3Es0Hgp
+ 0TQL0AAn4Dswg==
+Date: Sun, 15 May 2022 15:15:34 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: David Laight <David.Laight@aculab.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Anup Patel <apatel@ventanamicro.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] riscv: add irq stack support
-Message-ID: <YoCNlWGUp02hgP27@xhacker>
-References: <20220307140804.1400-1-jszhang@kernel.org>
- <f7f46323619e4084b4cfc551cdb47dd0@AcuMS.aculab.com>
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ kasan-dev@googlegroups.com
+Subject: Re: [PATCH v2 2/4] riscv: introduce unified static key mechanism for
+ CPU features
+Message-ID: <YoCollqhS93NJZjL@xhacker>
+References: <20220508160749.984-1-jszhang@kernel.org>
+ <20220508160749.984-3-jszhang@kernel.org>
+ <CAK9=C2Xinc6Y9ue+3ZOvKOOgru7wvJNcEPLvO4aZGuQqETXi2w@mail.gmail.com>
+ <YnkoKxaPbrTnZPQv@xhacker>
+ <CAOnJCU+XR5mtqKBQLMj3JgsTPgvAQdO_jj2FWqcu7f9MezNCKA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <f7f46323619e4084b4cfc551cdb47dd0@AcuMS.aculab.com>
+In-Reply-To: <CAOnJCU+XR5mtqKBQLMj3JgsTPgvAQdO_jj2FWqcu7f9MezNCKA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220514_222856_230330_64B101ED 
-X-CRM114-Status: GOOD (  26.55  )
+X-CRM114-CacheID: sfid-20220515_002412_271079_31CD21E4 
+X-CRM114-Status: GOOD (  42.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,61 +87,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 07, 2022 at 02:32:34PM +0000, David Laight wrote:
-> From: Jisheng Zhang
-> > Sent: 07 March 2022 14:08
-> > Currently, IRQs are still handled on the kernel stack of the current
-> > task on riscv platforms. If the task has a deep call stack at the time
-> > of interrupt, and handling the interrupt also requires a deep stack,
-> > it's possible to see stack overflow.
-> > 
-> ...
-> I'd have thought that a single page is (probably) enough for the
-> IRQ stack.
-> Certainly its sizing isn't really related to the normal thread
-> stack size.
+On Wed, May 11, 2022 at 11:29:32PM -0700, Atish Patra wrote:
+> On Mon, May 9, 2022 at 7:50 AM Jisheng Zhang <jszhang@kernel.org> wrote:
+> >
+> > On Mon, May 09, 2022 at 09:17:10AM +0530, Anup Patel wrote:
+> > > On Sun, May 8, 2022 at 9:47 PM Jisheng Zhang <jszhang@kernel.org> wrote:
+> > > >
+> > > > Currently, riscv has several features why may not be supported on all
+> > > > riscv platforms, for example, FPU, SV48 and so on. To support unified
+> > > > kernel Image style, we need to check whether the feature is suportted
+> > > > or not. If the check sits at hot code path, then performance will be
+> > > > impacted a lot. static key can be used to solve the issue. In the past
+> > > > FPU support has been converted to use static key mechanism. I believe
+> > > > we will have similar cases in the future.
+> > >
+> > > It's not just FPU and Sv48. There are several others such as Svinval,
+> > > Vector, Svnapot, Svpbmt, and many many others.
+> > >
+> > > Overall, I agree with the approach of using static key array but I
+> > > disagree with the semantics and the duplicate stuff being added.
+> > >
+> > > Please see more comments below ..
+> > >
+> > > >
+> > > > Similar as arm64 does(in fact, some code is borrowed from arm64), this
+> > > > patch tries to add an unified mechanism to use static keys for all
+> > > > the cpu features by implementing an array of default-false static keys
+> > > > and enabling them when detected. The cpus_have_*_cap() check uses the
+> > > > static keys if riscv_const_caps_ready is finalized, otherwise the
+> > > > compiler generates the bitmap test.
+> > >
+> > > First of all, we should stop calling this a feature (like ARM does). Rather,
+> > > we should call these as isa extensions ("isaext") to align with the RISC-V
+> > > priv spec and RISC-V profiles spec. For all the ISA optionalities which do
+> > > not have distinct extension name, the RISC-V profiles spec is assigning
+> > > names to all such optionalities.
+> >
+> > Same as the reply a few minutes ago, the key problem here is do all
+> > CPU features belong to *ISA* extensions? For example, SV48, SV57 etc.
+> > I agree with Atish's comments here:
+> >
+> > "I think the cpu feature is a superset of the ISA extension.
+> > cpu feature != ISA extension"
+> >
 > 
-> > From another side, after this patch, it's possible to reduce the
-> > THREAD_SIZE to 8KB for RV64 platforms. This is especially useful for
-> > those systems with small memory size, e.g the Allwinner D1S platform
-> > which is RV64 but only has 64MB DDR.
+> It seems to be accurate at that point in time. However, the latest
+> profile spec seems to
+> define everything as an extension including sv48.
 > 
-> Are you sure?
-> Is the stack use likely to be very much less than that of x86-64?
-> The real problem isn't the stack use of the test you are doing,
-> but the horrid worst case stack of some path that has multiple
-> 1k+ buffers on stack.
+> https://github.com/riscv/riscv-profiles/blob/main/profiles.adoc#623-rva22s64-supported-optional-extensions
+> 
+> It may be a redundant effort and confusing to create two sets i.e.
+> feature and extension in this case.
+> But this specification is not frozen yet and may change in the future.
+> We at least know that that is the current intention.
+> 
+> Array of static keys is definitely useful and should be used for all
+> well defined ISA extensions by the ratified priv spec.
+> This will simplify this patch as well. For any feature/extensions
+> (i.e. sv48/sv57) which was never defined as an extension
+> in the priv spec but profile seems to define it now, I would leave it
+> alone for the time being. Converting the existing code
+> to static key probably has value but please do not include it in the
+> static key array setup.
+> 
+> Once the profile spec is frozen, we can decide which direction the
+> Linux kernel should go.
+>
 
-Hi David,
+Hi Atish, Anup,
 
-Sorry for delay. I think you are right, at least I should not
-put the confusing "it's possible to reduce the THREAD_SIZE to 8KB
-for RV64 platforms..." in the commit msg. For one thing, the 8KB
-IRQ stack isn't available in the mainline w/o a small patch; For
-another, I only do tests on Allwinner D1 platform. So I remove the
-section in V3's commit msg.
+I see your points and thanks for the information of the profile
+spec. Now, I have other two points about isa VS features:
 
-Thanks
+1. Not all isa extenstions need static key mechanism, so if we
+make a static key array with 1:1 riscv_isa <-> static key relationship
+there may be waste.
 
-> 
-> Apart from compiler fubar (which usually hit KASAN) that stack
-> is actually likely to be architecture independent.
-> (The difference between 32bit and 64bit is also likely to be
-> relatively small - unless there are on-stack arrays of 'long'.)
-> 
-> For VMAP stacks is there a 'guard' KVA page allocated below
-> all of the stacks?
-> 64bit systems should have lots of KVA so this shouldn't be
-> a problem.
-> Then stack overruns will fault and panic rather than trashing
-> another data area - which is really hard to debug.
-> 
-> 	David
-> 
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
-> 
+For example, the 'a', 'c', 'i', 'm' and so on don't have static
+key usage.
+
+2.We may need riscv architecture static keys for non-isa, this is
+usually related with the linux os itself, for example
+a static key for "unmap kernelspace at userspace".
+static keys for "spectre CVE mitigations"
+etc.
+
+In summary, I can see riscv_isa doesn't cover features which need static
+keys, and vice vesa.
+
+Could you please comment?
+
+Thanks in advance,
+Jisheng
 
 _______________________________________________
 linux-riscv mailing list
