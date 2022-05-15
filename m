@@ -4,73 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0181C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 May 2022 07:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D338C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 May 2022 13:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CEAuA1rjZtYjvCENfTUX6ViymtvaNho0DvmYgzQaat8=; b=dY9PJOg6Hcvztk
-	MZSAPXqHUM5YwGNvhCQ/oY5ar/RdCw1wdWtXBO3joj0puf6U3JzDWXg1pLh0y0ZZ3G5yg/Im45sg0
-	LnWeUOO+dyjUocLEfdwCO8NVPABxev9LFxwbOOlUS2qB5NtEFihXA+aNOTMWb8MLUVrFJDa2KRNhQ
-	fBhMFfQiXq1iWTh7GLStCIqriMXjfIJOyPinxqWQgYnlvKzuGAKBkrVnmaMnVFJiprApTEBJnLr1+
-	8REv8e6MNLPU//qSbdjMnypE8L0fUDqozb13qZz/x0HAQG88je9HKw0/S6bI+YGMUTftBUzkIK+gU
-	2AoI4NCLvIPYio3muVjA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bnEf0aKGJ0w87yU+HyQ89LKx+kJCPsdkLsb7DKc/E8U=; b=O85FuTHNWGdEsK
+	LKwjEO3Q0dSNaEktedKaunq19RPOGwIsEV136LAYUf+yI/zClvWppPP9cGUg2GMi2N0gvLliCIF2i
+	oYVP5zEhUqRCns/yJ8g0pSF9PYnIsZwlueWce8X52PcUOnnRBGnn/Me9wkiR7F+y+/UH/r6smN5Sb
+	BT2vmZeU03+Xl2LYDD+Sa476Bgdv5CZ3uPVvKBFhsSfCtrYaw0k4E3A+wp2vPA5E9kv6TSZEJntfU
+	gHOSVX54XyO28ORYvZUvWZ+8J0bAzDeZ6bsQND4ovj+NJtQdPUS0A4Ib5/HGOBYAa1mLPZ/2Mu9rZ
+	ykA79sAlEvbPTgOgmTxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nq8bv-003OJr-4V; Sun, 15 May 2022 07:24:15 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1nqE4r-00440L-1U; Sun, 15 May 2022 13:14:29 +0000
+Received: from out30-54.freemail.mail.aliyun.com ([115.124.30.54])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nq8br-003OIu-TI
- for linux-riscv@lists.infradead.org; Sun, 15 May 2022 07:24:13 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 64C4CB80AC5;
- Sun, 15 May 2022 07:24:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4741C385B8;
- Sun, 15 May 2022 07:24:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1652599448;
- bh=2PGo9NsLUewmGRkHS6RJc63L7P46JEsartEngldOhNg=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=SX3l+6L+B22OvT/rcofdvbZZzesdNJ72HpL7/7fw8pXVfwtecqyPLrJEf9WZMOTjC
- btxz4EgPlv2KnK/aBpfRhaFr85ODVC+n6/6CngaG0V1nTr8mKvdkhtK8lKNsDp7cIT
- awehGVF/PxauX2FH6GpaB4uVHTSIiVLjzsX9W7adwu1toxbC1BlrpPW+tx6m8LZHg7
- RQAtI4elVMaVxNQaN9gT74oaGaBqB+VjJZ7StTT/jqhN4UBqSYGnxZ3+82F2nR7ad8
- 4E0xHqlV69wCZUZht9pyPykQHgqbgeJs1VXa3CAH1An98wkUTeAGS1zCybg3Es0Hgp
- 0TQL0AAn4Dswg==
-Date: Sun, 15 May 2022 15:15:34 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Anup Patel <apatel@ventanamicro.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>,
- Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Alexandre Ghiti <alexandre.ghiti@canonical.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- kasan-dev@googlegroups.com
-Subject: Re: [PATCH v2 2/4] riscv: introduce unified static key mechanism for
- CPU features
-Message-ID: <YoCollqhS93NJZjL@xhacker>
-References: <20220508160749.984-1-jszhang@kernel.org>
- <20220508160749.984-3-jszhang@kernel.org>
- <CAK9=C2Xinc6Y9ue+3ZOvKOOgru7wvJNcEPLvO4aZGuQqETXi2w@mail.gmail.com>
- <YnkoKxaPbrTnZPQv@xhacker>
- <CAOnJCU+XR5mtqKBQLMj3JgsTPgvAQdO_jj2FWqcu7f9MezNCKA@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAOnJCU+XR5mtqKBQLMj3JgsTPgvAQdO_jj2FWqcu7f9MezNCKA@mail.gmail.com>
+ id 1nqE4n-0043xj-8H
+ for linux-riscv@lists.infradead.org; Sun, 15 May 2022 13:14:27 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R131e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04394;
+ MF=xianting.tian@linux.alibaba.com; NM=1; PH=DS; RN=13; SR=0;
+ TI=SMTPD_---0VDAcGqu_1652620449; 
+Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com
+ fp:SMTPD_---0VDAcGqu_1652620449) by smtp.aliyun-inc.com(127.0.0.1);
+ Sun, 15 May 2022 21:14:09 +0800
+From: Xianting Tian <xianting.tian@linux.alibaba.com>
+To: paul.walmsley@sifive.com, aou@eecs.berkeley.edu, palmer@dabbelt.com,
+ wangkefeng.wang@huawei.com, vitaly.wool@konsulko.com,
+ rmk+kernel@armlinux.org.uk, ebiederm@xmission.com, tongtiangen@huawei.co
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ guoren@kernel.org, mick@ics.forth.gr,
+ Xianting Tian <xianting.tian@linux.alibaba.com>
+Subject: [PATCH] RISC-V: Add fast call path of crash_kexec()
+Date: Sun, 15 May 2022 21:14:07 +0800
+Message-Id: <20220515131407.946832-1-xianting.tian@linux.alibaba.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220515_002412_271079_31CD21E4 
-X-CRM114-Status: GOOD (  42.59  )
+X-CRM114-CacheID: sfid-20220515_061425_524838_689B2A1B 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,104 +58,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 11, 2022 at 11:29:32PM -0700, Atish Patra wrote:
-> On Mon, May 9, 2022 at 7:50 AM Jisheng Zhang <jszhang@kernel.org> wrote:
-> >
-> > On Mon, May 09, 2022 at 09:17:10AM +0530, Anup Patel wrote:
-> > > On Sun, May 8, 2022 at 9:47 PM Jisheng Zhang <jszhang@kernel.org> wrote:
-> > > >
-> > > > Currently, riscv has several features why may not be supported on all
-> > > > riscv platforms, for example, FPU, SV48 and so on. To support unified
-> > > > kernel Image style, we need to check whether the feature is suportted
-> > > > or not. If the check sits at hot code path, then performance will be
-> > > > impacted a lot. static key can be used to solve the issue. In the past
-> > > > FPU support has been converted to use static key mechanism. I believe
-> > > > we will have similar cases in the future.
-> > >
-> > > It's not just FPU and Sv48. There are several others such as Svinval,
-> > > Vector, Svnapot, Svpbmt, and many many others.
-> > >
-> > > Overall, I agree with the approach of using static key array but I
-> > > disagree with the semantics and the duplicate stuff being added.
-> > >
-> > > Please see more comments below ..
-> > >
-> > > >
-> > > > Similar as arm64 does(in fact, some code is borrowed from arm64), this
-> > > > patch tries to add an unified mechanism to use static keys for all
-> > > > the cpu features by implementing an array of default-false static keys
-> > > > and enabling them when detected. The cpus_have_*_cap() check uses the
-> > > > static keys if riscv_const_caps_ready is finalized, otherwise the
-> > > > compiler generates the bitmap test.
-> > >
-> > > First of all, we should stop calling this a feature (like ARM does). Rather,
-> > > we should call these as isa extensions ("isaext") to align with the RISC-V
-> > > priv spec and RISC-V profiles spec. For all the ISA optionalities which do
-> > > not have distinct extension name, the RISC-V profiles spec is assigning
-> > > names to all such optionalities.
-> >
-> > Same as the reply a few minutes ago, the key problem here is do all
-> > CPU features belong to *ISA* extensions? For example, SV48, SV57 etc.
-> > I agree with Atish's comments here:
-> >
-> > "I think the cpu feature is a superset of the ISA extension.
-> > cpu feature != ISA extension"
-> >
-> 
-> It seems to be accurate at that point in time. However, the latest
-> profile spec seems to
-> define everything as an extension including sv48.
-> 
-> https://github.com/riscv/riscv-profiles/blob/main/profiles.adoc#623-rva22s64-supported-optional-extensions
-> 
-> It may be a redundant effort and confusing to create two sets i.e.
-> feature and extension in this case.
-> But this specification is not frozen yet and may change in the future.
-> We at least know that that is the current intention.
-> 
-> Array of static keys is definitely useful and should be used for all
-> well defined ISA extensions by the ratified priv spec.
-> This will simplify this patch as well. For any feature/extensions
-> (i.e. sv48/sv57) which was never defined as an extension
-> in the priv spec but profile seems to define it now, I would leave it
-> alone for the time being. Converting the existing code
-> to static key probably has value but please do not include it in the
-> static key array setup.
-> 
-> Once the profile spec is frozen, we can decide which direction the
-> Linux kernel should go.
->
+Currently, almost all archs (x86, arm64, mips...) support fast call
+of crash_kexec() when "regs && kexec_should_crash()" is true. But
+RISC-V not, it can only enter crash system via panic(). However panic()
+doesn't pass the regs of the real accident scene to crash_kexec(),
+it caused we can't get accurate backtrace via gdb,
+	$ riscv64-linux-gnu-gdb vmlinux vmcore
+	Reading symbols from vmlinux...
+	[New LWP 95]
+	#0  console_unlock () at kernel/printk/printk.c:2557
+	2557                    if (do_cond_resched)
+	(gdb) bt
+	#0  console_unlock () at kernel/printk/printk.c:2557
+	#1  0x0000000000000000 in ?? ()
 
-Hi Atish, Anup,
+With the patch we can get the accurate backtrace,
+	$ riscv64-linux-gnu-gdb vmlinux vmcore
+	Reading symbols from vmlinux...
+	[New LWP 95]
+	#0  0xffffffe00063a4e0 in test_thread (data=<optimized out>) at drivers/virtio/virtio_mmio.c:806
+	806             *(int *)p = 0xdead;
+	(gdb)
+	(gdb) bt
+	#0  0xffffffe00063a4e0 in test_thread (data=<optimized out>) at drivers/virtio/virtio_mmio.c:806
+	#1  0x0000000000000000 in ?? ()
 
-I see your points and thanks for the information of the profile
-spec. Now, I have other two points about isa VS features:
+Test code to produce NULL address dereference,
+	+extern int panic_on_oops;
+	+static struct task_struct *k;
+	+static int test_thread(void *data) {
+	+
+	+       void *p = NULL;
+	+
+	+       while (!panic_on_oops)
+	+               msleep(2000);
+	+
+	+       *(int *)p = 0xdead;
+	+
+	+       return 0;
+	+}
+	+
+	 static int __init virtio_mmio_init(void)
+	 {
+	+       k = kthread_run(test_thread, NULL, "test_thread");
+	+       if (IS_ERR(k))
+	+               pr_err("Couldn't create test kthread\n");
+	+
+	        return platform_driver_register(&virtio_mmio_driver);
+	 }
 
-1. Not all isa extenstions need static key mechanism, so if we
-make a static key array with 1:1 riscv_isa <-> static key relationship
-there may be waste.
+Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+---
+ arch/riscv/kernel/traps.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-For example, the 'a', 'c', 'i', 'm' and so on don't have static
-key usage.
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index fe92e119e6a3..e666ebfa2a64 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -16,6 +16,7 @@
+ #include <linux/mm.h>
+ #include <linux/module.h>
+ #include <linux/irq.h>
++#include <linux/kexec.h>
+ 
+ #include <asm/asm-prototypes.h>
+ #include <asm/bug.h>
+@@ -44,6 +45,9 @@ void die(struct pt_regs *regs, const char *str)
+ 
+ 	ret = notify_die(DIE_OOPS, str, regs, 0, regs->cause, SIGSEGV);
+ 
++	if (regs && kexec_should_crash(current))
++		crash_kexec(regs);
++
+ 	bust_spinlocks(0);
+ 	add_taint(TAINT_DIE, LOCKDEP_NOW_UNRELIABLE);
+ 	spin_unlock_irq(&die_lock);
+-- 
+2.17.1
 
-2.We may need riscv architecture static keys for non-isa, this is
-usually related with the linux os itself, for example
-a static key for "unmap kernelspace at userspace".
-static keys for "spectre CVE mitigations"
-etc.
-
-In summary, I can see riscv_isa doesn't cover features which need static
-keys, and vice vesa.
-
-Could you please comment?
-
-Thanks in advance,
-Jisheng
 
 _______________________________________________
 linux-riscv mailing list
