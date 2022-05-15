@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10DFAC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 15 May 2022 05:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7977FC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 15 May 2022 05:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YiLQ1AQ3u1l6b0a6/J5xVo8qMQ13WltDKhrNeDidK8A=; b=SA5Y4RFfq9nuxc
-	evM2J0I2dk/5y79wm/gQE8gpvTS1qLQyIsd+sEeR8/l8BGNuxe3Rc/0dV9E4X9ztCSDRnOvAn9PXQ
-	umO3pEbJ50UxzWnmHHsVWQrsBXrT1b3udbCZkXVrqsUFbjR1vGgz1KKKN2K490N10uZ6GOMiwiKGA
-	HijfM0pT5hXfyzXaQO3Q986T6twUF+SzBwL+mevFkDNaPVpCR7+hSqH2braqBf+HNufndF7FtXyBS
-	/gPDBTYwkWkxruf0kT0KH1/nzqkoxXNMyfPuPo86BGUI+KBuyKpF9Zayry0FDjMkCc5HXZozFfZ9M
-	qdpVC7RGSAG5JziGMVzQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4b7k00OJ+ZbKUueygJdLDvfaGEZ3i5THSHBHga3SC5Y=; b=J4awYrYPmSjk6d
+	ESiyu/kbNJclVI4B7FezLBBEXiKipEinLpWJJdD93oGsYdOAdckg0foXSJIFqcYe4g/2Gd9qDpi49
+	UpWhmxHJ1PGxgsBEM8y6+uAD0sy+QSX54Ybd3Wgb22qvj8tpZ8WXC66zj2TM+NKHmNZ1vlOnlpvfK
+	haEXFuVvqt6oUd47Sf4h+Qi3f6u3gGOu5Ti9sSk5ThykbIS3Qgz4X3sBEvAlU3CQ65X+WPqyUy8Ju
+	rwsaxtDzAXE9A9DmHbT68uonCR4qlhQRz9uB0M7CDlZpnD25RN5GPHD53615sN5AAhnQJ/310t+LM
+	S/Ib3DzOolyws0sV+oHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nq6YA-003C3B-Pu; Sun, 15 May 2022 05:12:14 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1nq6iS-003CkE-4K; Sun, 15 May 2022 05:22:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nq6Y7-003C2q-0V
- for linux-riscv@lists.infradead.org; Sun, 15 May 2022 05:12:12 +0000
+ id 1nq6iP-003Cjl-Pe
+ for linux-riscv@lists.infradead.org; Sun, 15 May 2022 05:22:51 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 85FD5B80AC5;
- Sun, 15 May 2022 05:12:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C031EC385B8;
- Sun, 15 May 2022 05:12:05 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id D4D3F60C88;
+ Sun, 15 May 2022 05:22:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD346C34100;
+ Sun, 15 May 2022 05:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1652591527;
- bh=7qrCaB40KpTA4LFePIZNR7GNlq1nhQHQleoNK2FIHSs=;
- h=From:To:Cc:Subject:Date:From;
- b=WsrdjM7cRFsGywpXdiSL3UiQtSKiF3Jj42RyLkwUD7+xomyVlUsgUQ6WRDTvcr5wZ
- CiIVsIswGZWpxw9kufLDPu1TclvR9w/ww1bvLYpiLzwEhRISL2lTr6kvwqygbtvUPL
- bRfJ+6+oyCmPeW3llVDXjVCJymGVQ+jbROfYkbgv3QUXhm1aXZGPBm/eMR0K4aq7Yq
- 0aOcYhXAKOdwa7YogjP6UfOgne/+l2IaxfmN/3zFfnN9qQlPTcyMw52DTTD5G76WLC
- CKEJaZiTuxKRVrgoikZ1boKoOwQWvUshA2A5hBwx9IY68PWXeFOFHsPNsyfm1ltVTt
- IF20ByfTxb4fg==
+ s=k20201202; t=1652592166;
+ bh=SMApoQBrwmguznnu6OZ3wGTSnLpxhB1UNHnIM9qqIW0=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=c1R023dFG2+WP4S5Q6tv6yFDBWsKyqf1eEWflFvhGN9juQgRQh+0cF+COpuMz8ai9
+ GXdsyIsoCV3LQL2TsMHCU41Tw8Sr30gdFcbYMVysS3VfrcGCtWKkpUVL60EtDIIgUi
+ 9fzlWcaAibf/eev2XaCjyRscovLRVIgaBU2pfkpqQ68UU0PxCfaIfV3+dxpdSCqgGX
+ rMbr2d8hMufOqGDsSpVIAlzmdaS95JHWX+Yn2jHzZAgUajAdI+3G2Thblv1fDl+Cva
+ xehQjYcQLyDp7fdmKK5OvohPMGNi0UtJPGD5hdNMrvR11078liDJas9SplZDEBVDIo
+ MKVMaNve0l4iQ==
+Date: Sun, 15 May 2022 13:14:14 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] riscv: add irq stack support
-Date: Sun, 15 May 2022 13:03:36 +0800
-Message-Id: <20220515050336.1023-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.34.1
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2] riscv: add irq stack support
+Message-ID: <YoCMJhH9EP4+01pB@xhacker>
+References: <20220307140804.1400-1-jszhang@kernel.org>
+ <CAK8P3a33aPwi0hBAyFREqM-BKVJwin=O9cOR4NzWPtr1j2pLiA@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAK8P3a33aPwi0hBAyFREqM-BKVJwin=O9cOR4NzWPtr1j2pLiA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220514_221211_387040_5B4E7669 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20220514_222249_947640_31542948 
+X-CRM114-Status: GOOD (  34.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,147 +75,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, IRQs are still handled on the kernel stack of the current
-task on riscv platforms. If the task has a deep call stack at the time
-of interrupt, and handling the interrupt also requires a deep stack,
-it's possible to see stack overflow.
+On Mon, Mar 07, 2022 at 08:19:35PM +0100, Arnd Bergmann wrote:
+> On Mon, Mar 7, 2022 at 3:08 PM Jisheng Zhang <jszhang@kernel.org> wrote:
+> >
+> > Currently, IRQs are still handled on the kernel stack of the current
+> > task on riscv platforms. If the task has a deep call stack at the time
+> > of interrupt, and handling the interrupt also requires a deep stack,
+> > it's possible to see stack overflow.
+> >
+> > Before this patch, the stack_max_size of a v5.17-rc1 kernel running on
+> > a lichee RV board gave:
+> > ~ # cat /sys/kernel/debug/tracing/stack_max_size
+> > 3736
+> >
+> > After this patch,
+> > ~ # cat /sys/kernel/debug/tracing/stack_max_size
+> > 3176
+> >
+> > We reduce the max kernel stack usage by 560 bytes!
+> >
+> > From another side, after this patch, it's possible to reduce the
+> > THREAD_SIZE to 8KB for RV64 platforms. This is especially useful for
+> > those systems with small memory size, e.g the Allwinner D1S platform
+> > which is RV64 but only has 64MB DDR.
+> >
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> 
+> Very nice!
+> 
+> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> > index ed29e9c8f660..57c9b64e16a5 100644
+> > --- a/arch/riscv/kernel/entry.S
+> > +++ b/arch/riscv/kernel/entry.S
+> > @@ -126,12 +126,39 @@ skip_context_tracking:
+> >          */
+> >         bge s4, zero, 1f
+> >
+> > -       la ra, ret_from_exception
+> > +       /* preserve the sp */
+> > +       move s0, sp
+> >
+> > -       /* Handle interrupts */
+> >         move a0, sp /* pt_regs */
+> > +
+> > +       /*
+> > +        * Compare sp with the base of the task stack.
+> > +        * If the top ~(THREAD_SIZE - 1) bits match, we are on a task stack,
+> > +        * and should switch to the irq stack.
+> > +        */
+> > +       REG_L t0, TASK_STACK(tp)
+> > +       xor t0, t0, s0
+> > +       li t1, ~(THREAD_SIZE - 1)
+> > +       and t0, t0, t1
+> > +       bnez t0, 2f
+> > +
+> > +       la t1, irq_stack
+> > +       REG_L t2, TASK_TI_CPU(tp)
+> > +       slli t2, t2, RISCV_LGPTR
+> > +       add t1, t1, t2
+> > +       REG_L t2, 0(t1)
+> > +       li t1, IRQ_STACK_SIZE
+> > +       /* switch to the irq stack */
+> > +       add sp, t2, t1
+> > +
+> > +2:
+> 
+> What is the benefit of doing this in assembler? Is it measurably faster?
+> 
+> I see that arm64 does the same thing in C code, and it would be best to
+> have a common implementation for doing this, in terms of maintainability.
+> 
 
-Before this patch, the stack_max_size of a v5.17-rc1 kernel running on
-a lichee RV board gave:
-~ # cat /sys/kernel/debug/tracing/stack_max_size
-3736
+Hi Arnd,
 
-After this patch,
-~ # cat /sys/kernel/debug/tracing/stack_max_size
-3176
+Sorry for delay. The assembler code is mainly to cal the stack ptr then
+change the SP to use the stack, which equals to arm64 call_on_irq_stack()
+which is implemented in assembler too.
 
-We reduce the max kernel stack usage by 560 bytes!
+> > +
+> > +       for_each_possible_cpu(cpu) {
+> > +#ifdef CONFIG_VMAP_STACK
+> > +               void *s = __vmalloc_node(IRQ_STACK_SIZE, THREAD_ALIGN,
+> > +                                        THREADINFO_GFP, cpu_to_node(cpu),
+> > +                                        __builtin_return_address(0));
+> > +#else
+> > +               void *s = (void *)__get_free_pages(GFP_KERNEL, get_order(IRQ_STACK_SIZE));
+> > +#endif
+> 
+> On a related topic: is there a reason to still keep the non-VMAP_STACK
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
-since v2:
- - rebase on v5.18-rcN
- - update commit msg, I.E remove the "it's possible to reduce the
-THREAD_SIZE to 8KB for RV64 platforms..."
+irq stack is 16KB on RV64 now, vmalloc doesn't gurantee physical
+continuous pages, I want to keep the stack physical continuous
+characteristic for !VMAP_STACK case.
 
-since v1:
- - add __ro_after_init to the irq_stack[] array.
+Thanks
 
- arch/riscv/include/asm/thread_info.h |  1 +
- arch/riscv/kernel/asm-offsets.c      |  2 ++
- arch/riscv/kernel/entry.S            | 33 +++++++++++++++++++++++++---
- arch/riscv/kernel/irq.c              | 16 ++++++++++++++
- 4 files changed, 49 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 74d888c8d631..98ea73721a0b 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -25,6 +25,7 @@
- #endif
- #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
- 
-+#define IRQ_STACK_SIZE		THREAD_SIZE
- /*
-  * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
-  * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index df9444397908..9e32748af0e8 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -37,6 +37,8 @@ void asm_offsets(void)
- 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
- 	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
- 	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
-+	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
-+	OFFSET(TASK_STACK, task_struct, stack);
- 
- 	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
- 	OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index c8b9ce274b9a..e91cae183ef4 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -126,12 +126,39 @@ skip_context_tracking:
- 	 */
- 	bge s4, zero, 1f
- 
--	la ra, ret_from_exception
-+	/* preserve the sp */
-+	move s0, sp
- 
--	/* Handle interrupts */
- 	move a0, sp /* pt_regs */
-+
-+	/*
-+	 * Compare sp with the base of the task stack.
-+	 * If the top ~(THREAD_SIZE - 1) bits match, we are on a task stack,
-+	 * and should switch to the irq stack.
-+	 */
-+	REG_L t0, TASK_STACK(tp)
-+	xor t0, t0, s0
-+	li t1, ~(THREAD_SIZE - 1)
-+	and t0, t0, t1
-+	bnez t0, 2f
-+
-+	la t1, irq_stack
-+	REG_L t2, TASK_TI_CPU(tp)
-+	slli t2, t2, RISCV_LGPTR
-+	add t1, t1, t2
-+	REG_L t2, 0(t1)
-+	li t1, IRQ_STACK_SIZE
-+	/* switch to the irq stack */
-+	add sp, t2, t1
-+
-+2:
-+	/* Handle interrupts */
- 	la a1, generic_handle_arch_irq
--	jr a1
-+	jalr a1
-+
-+	/* Restore sp */
-+	move sp, s0
-+	j ret_from_exception
- 1:
- 	/*
- 	 * Exceptions run with interrupts enabled or disabled depending on the
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 7207fa08d78f..f20cbfd42e82 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -10,6 +10,8 @@
- #include <linux/seq_file.h>
- #include <asm/smp.h>
- 
-+void *irq_stack[NR_CPUS] __ro_after_init;
-+
- int arch_show_interrupts(struct seq_file *p, int prec)
- {
- 	show_ipi_stats(p, prec);
-@@ -18,7 +20,21 @@ int arch_show_interrupts(struct seq_file *p, int prec)
- 
- void __init init_IRQ(void)
- {
-+	int cpu;
-+
- 	irqchip_init();
- 	if (!handle_arch_irq)
- 		panic("No interrupt controller found.");
-+
-+	for_each_possible_cpu(cpu) {
-+#ifdef CONFIG_VMAP_STACK
-+		void *s = __vmalloc_node(IRQ_STACK_SIZE, THREAD_ALIGN,
-+					 THREADINFO_GFP, cpu_to_node(cpu),
-+					 __builtin_return_address(0));
-+#else
-+		void *s = (void *)__get_free_pages(GFP_KERNEL, get_order(IRQ_STACK_SIZE));
-+#endif
-+
-+		irq_stack[cpu] = s;
-+	}
- }
--- 
-2.34.1
+> code path around? I see that it currently is optional for 64-bit with MMU,
+> but not available otherwise. The benefits should still outweigh the downside
+> (virtual address space usage mainly) on 32-bit, especially when this allows
+> a common implementation. Not sure about NOMMU, but I would guess
+> that it's not a big issue to use the same code there as well, since nommu
+> vmalloc just turns into a kmalloc as well.
+> 
 
 
 _______________________________________________
