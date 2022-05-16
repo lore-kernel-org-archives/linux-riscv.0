@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C0BCC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 May 2022 17:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C79AC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 May 2022 20:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=w0fvNM0rv+CtuWl/lgSULDgvaEGHRQDXmHTxe7Tesxg=; b=BRc0U40nTOxxrs
-	972vd67f+MQa1JG4zWZYYHv4UOZ9jm4xWv2xwIcXTmge63gFqlyPsbkYVmtQj7vRRtNmQkpMeq5Js
-	rJNY/bbgvHJqfOiF6AUYEdHaxlGhHLKJXIQXtz0RSuMqeaPPY7bG8i2v/Zhr0jo103b2VONOQ+QL5
-	16XpUMNlHLHGCDoIHu2ULLPCgQfrf3wkpTCsMQObLUJzqtwWRFxTJxj7e+8J0lLcIpcaImgvcj3gU
-	/fZSa5OkoCplog7lFx2wRA3ra/IJ+9i7NZbFFPn5eNHFN/kdIgIzdYUg1F+1WcpbjjVEZu2HnhNUl
-	wKQO8qK6dKNjYsMYxGhA==;
+	List-Owner; bh=aUEwj7DQMc97sLLdyz+GA+UQvMzjQWHIOnLW+4Z/jOI=; b=YKKlLEaPqjixgd
+	hoMI97GYWLmvhshirkAlxMMQtDE/m+Ptib7yCoPdh/k/TWbEuCJ6b1WYp8c0OY3pPOPdYNWRyVZeJ
+	vQF/HKr1OFWWMirwg8LZCAo1cF2Jv1LmEWXAyLehFolw40MskPyyStJedytXgZMx9IU491d9GLMeU
+	W8HrBX4mqjh3X37trdlRUgpvPKfl287c/+8bm4tW8nW2yM+S8PIpziP8/7PVRB6WZ7fldlQIdptw0
+	JN7jicC3u6+7/9s1FKmGp9BYAWFWCF2HYYXp8CkJY9o4h0kz4gEbGQiDo16mXcWO+LhlAjYfzA32x
+	A+NlEAOeQvcp2UpnmJgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nqeaV-009Mgg-Kf; Mon, 16 May 2022 17:32:55 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nqh4b-009zWs-WC; Mon, 16 May 2022 20:12:10 +0000
+Received: from mail-oi1-f175.google.com ([209.85.167.175])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nqeaR-009Mfh-P2
- for linux-riscv@lists.infradead.org; Mon, 16 May 2022 17:32:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
- (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 4CAEA612C6;
- Mon, 16 May 2022 17:32:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D093FC385AA;
- Mon, 16 May 2022 17:32:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1652722370;
- bh=C+8DnkQiB/fbUFTud5vWH4yzxrPp6tRfvOchMkKtD1c=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=jMNnoHdHRLWn6JpN6R7IruGuyFziCD7z91m1OPqjI3uHsgp2LtnJt3XtBseKrSiIn
- UQtZH3e5JVYkwYoeBqWsO5zdBA3Y1dSkPXccSe7RvOBE79vn5qGjUzlNph+AAA3ApK
- gXQu6ck7KiwI3Hh4+5W0UQrA29MivVLSp4D2sZe41Vh4X85IirgaNZqnNQW3OgAkqY
- 0E51XLIBfy/MkUlTWCFsGlBEQa8MbKFaOVUEH22y72JjyQ/p78ZZdT/mPvmGMmy6WC
- fcpCN2lsuskrRDWE2Ig5J4W3uq8ZDhaYvcqbxNUdVskL6b03EZyJkt+AlFP64M8QYn
- gx8p9Mav4Agpg==
-Date: Tue, 17 May 2022 01:24:15 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <apatel@ventanamicro.com>,
+ id 1nqh4P-009zTs-Vf; Mon, 16 May 2022 20:12:00 +0000
+Received: by mail-oi1-f175.google.com with SMTP id w123so20004971oiw.5;
+ Mon, 16 May 2022 13:11:56 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=tbR9l3pEjMl565dCavHPHWBXS1kr8LPe02PwsIH5GqA=;
+ b=EoptbSRgB1aqbsD0BmWXOv7j+dIAp0kbLXUz9JinoyGwXCbSpO1aGTLqwLktHJbNPu
+ 2zW8h24D4091Wx/9Oo+XnZiqIiRYPVK82nJ8TJB951OmjI3x9Pp3Z/W/rREoO1L2ZHAe
+ CSNjAXFaci97ATX/9ObnkehAtDQEmshcwi5FtWoSkX4eaavu1gYVgE+RMTKQAZjvM10E
+ qGLmFgw8GyJ/hd0KFKZCrODkKUqYE9wYZnOAWmdKy5A+cXtdykWnCAmz6ISzZLN6r6HU
+ 6yb+9RREuid9AJYU9dee8K4rnYRP5sRf+jwbPCk5OqF3gA50dfLsdwfod5iE3OZ7tgWH
+ VeRQ==
+X-Gm-Message-State: AOAM530tgg1EqFU+ENJ7v+YEj8wBsOSCcN4jVbfBFccJIoFukXsJ2IXx
+ 1KDt3SqdNlLm/Skvg8vkVQ==
+X-Google-Smtp-Source: ABdhPJzwngEn9PkcNX4eL6HIcc7veNtCe+uYOBZrmAqyqNkFnT8oDJRNMhVasycVSkPEvktxfWzmEQ==
+X-Received: by 2002:a05:6808:1a1e:b0:326:3846:c4a1 with SMTP id
+ bk30-20020a0568081a1e00b003263846c4a1mr14856541oib.80.1652731915819; 
+ Mon, 16 May 2022 13:11:55 -0700 (PDT)
+Received: from robh.at.kernel.org (66-90-144-107.dyn.grandenetworks.net.
+ [66.90.144.107]) by smtp.gmail.com with ESMTPSA id
+ z3-20020a056870d68300b000e686d13897sm5969446oap.49.2022.05.16.13.11.54
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 16 May 2022 13:11:55 -0700 (PDT)
+Received: (nullmailer pid 3187391 invoked by uid 1000);
+ Mon, 16 May 2022 20:11:53 -0000
+Date: Mon, 16 May 2022 15:11:53 -0500
+From: Rob Herring <robh@kernel.org>
+To: Serge Semin <Sergey.Semin@baikalelectronics.ru>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+ Gustavo Pimentel <gustavo.pimentel@synopsys.com>, 
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
+ Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, 
+ Xiaowei Song <songxiaowei@hisilicon.com>,
+ Binghui Wang <wangbinghui@hisilicon.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>,
- Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>,
- Alexandre Ghiti <alexandre.ghiti@canonical.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- kasan-dev@googlegroups.com
-Subject: Re: [PATCH v2 2/4] riscv: introduce unified static key mechanism for
- CPU features
-Message-ID: <YoKIv2ATRdQfYbBf@xhacker>
-References: <20220508160749.984-1-jszhang@kernel.org>
- <20220508160749.984-3-jszhang@kernel.org>
- <CAK9=C2Xinc6Y9ue+3ZOvKOOgru7wvJNcEPLvO4aZGuQqETXi2w@mail.gmail.com>
- <YnkoKxaPbrTnZPQv@xhacker>
- <CAOnJCU+XR5mtqKBQLMj3JgsTPgvAQdO_jj2FWqcu7f9MezNCKA@mail.gmail.com>
- <YoCollqhS93NJZjL@xhacker>
- <CAAhSdy3_av5H-V_d5ynwgfeZYsCnCSd5pFSEKCzDSDBbD+pGLA@mail.gmail.com>
+ Greentime Hu <greentime.hu@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>, 
+ Serge Semin <fancer.lancer@gmail.com>, 
+ Alexey Malahov <Alexey.Malahov@baikalelectronics.ru>, 
+ Pavel Parkhomenko <Pavel.Parkhomenko@baikalelectronics.ru>, 
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Frank Li <Frank.Li@nxp.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 01/17] dt-bindings: PCI: dwc: Define common and native
+ DT bindings
+Message-ID: <20220516201153.GA3073005-robh@kernel.org>
+References: <20220503214638.1895-1-Sergey.Semin@baikalelectronics.ru>
+ <20220503214638.1895-2-Sergey.Semin@baikalelectronics.ru>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAAhSdy3_av5H-V_d5ynwgfeZYsCnCSd5pFSEKCzDSDBbD+pGLA@mail.gmail.com>
+In-Reply-To: <20220503214638.1895-2-Sergey.Semin@baikalelectronics.ru>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220516_103251_916401_2DDF942A 
-X-CRM114-Status: GOOD (  49.73  )
+X-CRM114-CacheID: sfid-20220516_131158_897912_EC8A0AEA 
+X-CRM114-Status: GOOD (  42.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,116 +106,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 15, 2022 at 08:19:37PM +0530, Anup Patel wrote:
-> On Sun, May 15, 2022 at 12:54 PM Jisheng Zhang <jszhang@kernel.org> wrote:
-> >
-> > On Wed, May 11, 2022 at 11:29:32PM -0700, Atish Patra wrote:
-> > > On Mon, May 9, 2022 at 7:50 AM Jisheng Zhang <jszhang@kernel.org> wrote:
-> > > >
-> > > > On Mon, May 09, 2022 at 09:17:10AM +0530, Anup Patel wrote:
-> > > > > On Sun, May 8, 2022 at 9:47 PM Jisheng Zhang <jszhang@kernel.org> wrote:
-> > > > > >
-> > > > > > Currently, riscv has several features why may not be supported on all
-> > > > > > riscv platforms, for example, FPU, SV48 and so on. To support unified
-> > > > > > kernel Image style, we need to check whether the feature is suportted
-> > > > > > or not. If the check sits at hot code path, then performance will be
-> > > > > > impacted a lot. static key can be used to solve the issue. In the past
-> > > > > > FPU support has been converted to use static key mechanism. I believe
-> > > > > > we will have similar cases in the future.
-> > > > >
-> > > > > It's not just FPU and Sv48. There are several others such as Svinval,
-> > > > > Vector, Svnapot, Svpbmt, and many many others.
-> > > > >
-> > > > > Overall, I agree with the approach of using static key array but I
-> > > > > disagree with the semantics and the duplicate stuff being added.
-> > > > >
-> > > > > Please see more comments below ..
-> > > > >
-> > > > > >
-> > > > > > Similar as arm64 does(in fact, some code is borrowed from arm64), this
-> > > > > > patch tries to add an unified mechanism to use static keys for all
-> > > > > > the cpu features by implementing an array of default-false static keys
-> > > > > > and enabling them when detected. The cpus_have_*_cap() check uses the
-> > > > > > static keys if riscv_const_caps_ready is finalized, otherwise the
-> > > > > > compiler generates the bitmap test.
-> > > > >
-> > > > > First of all, we should stop calling this a feature (like ARM does). Rather,
-> > > > > we should call these as isa extensions ("isaext") to align with the RISC-V
-> > > > > priv spec and RISC-V profiles spec. For all the ISA optionalities which do
-> > > > > not have distinct extension name, the RISC-V profiles spec is assigning
-> > > > > names to all such optionalities.
-> > > >
-> > > > Same as the reply a few minutes ago, the key problem here is do all
-> > > > CPU features belong to *ISA* extensions? For example, SV48, SV57 etc.
-> > > > I agree with Atish's comments here:
-> > > >
-> > > > "I think the cpu feature is a superset of the ISA extension.
-> > > > cpu feature != ISA extension"
-> > > >
-> > >
-> > > It seems to be accurate at that point in time. However, the latest
-> > > profile spec seems to
-> > > define everything as an extension including sv48.
-> > >
-> > > https://github.com/riscv/riscv-profiles/blob/main/profiles.adoc#623-rva22s64-supported-optional-extensions
-> > >
-> > > It may be a redundant effort and confusing to create two sets i.e.
-> > > feature and extension in this case.
-> > > But this specification is not frozen yet and may change in the future.
-> > > We at least know that that is the current intention.
-> > >
-> > > Array of static keys is definitely useful and should be used for all
-> > > well defined ISA extensions by the ratified priv spec.
-> > > This will simplify this patch as well. For any feature/extensions
-> > > (i.e. sv48/sv57) which was never defined as an extension
-> > > in the priv spec but profile seems to define it now, I would leave it
-> > > alone for the time being. Converting the existing code
-> > > to static key probably has value but please do not include it in the
-> > > static key array setup.
-> > >
-> > > Once the profile spec is frozen, we can decide which direction the
-> > > Linux kernel should go.
-> > >
-> >
-> > Hi Atish, Anup,
-> >
-> > I see your points and thanks for the information of the profile
-> > spec. Now, I have other two points about isa VS features:
-> >
-> > 1. Not all isa extenstions need static key mechanism, so if we
-> > make a static key array with 1:1 riscv_isa <-> static key relationship
-> > there may be waste.
-> >
-> > For example, the 'a', 'c', 'i', 'm' and so on don't have static
-> > key usage.
-> 
-> Not all isa extensions but a large number of them will need a static
-> key. It's better to always have one static key per ISA extension
-> defined in cpufeatures.c
+On Wed, May 04, 2022 at 12:46:22AM +0300, Serge Semin wrote:
+> Currently both DW PCIe Root Port and End-point DT bindings are too generic
+> to be used as a descriptive set the device properties. Yes, it's very handy
+> to have them that way so the DT-schemas could be used to evaluate as many
+> DW PCIe-related DT-nodes as possible. But at the same time they don't
+> provide well defined DW PCIe RP/EP DT interface description thus leaving
+> too much flexibility for the new platforms, no encouraging the developers
 
-Currently, RISCV_ISA_EXT_MAX equals to 64 while the base ID is 26.
-In those 26 base IDs, only F/D and V need static key, it means
-we waste at least 24 static keys.
+s/no/not/
 
+> to preserve a compatible interface. It causes having many
+> platform-specific DT bindings of the same generic properties.
 > 
-> For example, F, D, V, Sstc, Svinval, Ssofpmt, Zb*, AIA, etc.
+> Instead of currently implemented approach we suggest to be more
+> restrictive and yet preserve some level of flexibility in the DW PCIe
+> DT-bindings description. The device tree DT-schema is split up into
+> three parts: a common YAML-schema applicable for both DWC Root Port and
+> End-point controller configs, DWC PCIe Root Port-specific YAML-schema
+> and DWC PCIe End-point-specific YAML-schema, where
+> 1) pci/snps,dw-pcie-common.yaml - the common DT-schema describes the most
+> generic constraints of the "reg", "interrupts", "clocks", "resets" and
+> "phys" properties together with a set of common for both device types
+> PCIe/AXI bus properties like a maximum number of lanes or a maximum link
+> speed, number of inbound and outbound iATU windows. In addition to that a
+> set of schema definitions declared under the "definitions" property with
+> "reg", "interrupt", "clock" and "reset" names common for DWC PCIe Root
+> Port and End-point devices. They can be used by the successive DT-schemas
+> in case they are supposed to be compatible with the generic DWC PCIe
+> controller DT-bindings.
+> 2) pci/snps,dw-pcie.yaml, pci/snps,dw-pcie-ep.yaml - generic DW PCIe Root
+> Port and End-point DT-bindings which aside with the device-specific
+> properties set also contain more restrictive constraints. All new DW PCIe
+> platforms are supposed to be compatible with one of these bindings by
+> using "allOf: " property and additionally defining their own constraints
+> to close up the DT-bindings set.
 > 
-> >
-> > 2.We may need riscv architecture static keys for non-isa, this is
-> > usually related with the linux os itself, for example
-> > a static key for "unmap kernelspace at userspace".
-> > static keys for "spectre CVE mitigations"
-> > etc.
+> So to speak in case if a DW PCIe-based device for some reason has too many
+> specific properties or it's bindings have already been defined in a
+> non-generic way, it's DT-schema is supposed to include 1) YAML-file and
+> provide its own constraints. Otherwise the ready-to-use bindings from 2)
+> should be utilized. There are only two DT-schemas compatible with 2) at the
+> moment are samsung,axynos-pcie.yaml and intel-gw-pcie.yaml. The
+> rest of the DW PCIe-related DT-schemas are supposed to use more generic
+> DW PCIe DT-bindings - pci/snps,dw-pcie-common.yaml.
 > 
-> These things look more like errata or workarounds so better
-> to use that framework instead of ISA extensions (or features).
+> Note the provided here generic properties and their possible values are
+> derived from the DW PCIe RC/EP hardware manuals and from the interface
+> implemented in the driver. The DT-bindings schemas are created to be as
+> full as possible with detailed properties/names description for the
+> easier interface comprehension and new platforms bindings development.
+> 
+> Also note since there are no generic DT-nodes can be found in the kernel
+> dts-es which would have a pure "snps,dw-pcie" compatible string, these
+> DT-bindings have been created to not be selected by default for
+> evaluation. They are supposed to be used by the new vendor-specific
+> DT-schemas to at least stop adding new bindings for the same set of DWC
+> PCIe signals or properties.
+> 
+> Signed-off-by: Serge Semin <Sergey.Semin@baikalelectronics.ru>
+> 
+> ---
+> 
+> If the '$defs' property is used instead of the 'definitions' one, the next
+> error will be spotted:
+> 
+> >  DTC     Documentation/devicetree/bindings/pci/snps,dw-pcie.example.dt.yaml
+> >  CHECK   Documentation/devicetree/bindings/pci/snps,dw-pcie.example.dt.yaml
+> > /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: reg-names:0: 'oneOf' conditional failed, one must be fixed:
+> >        'dbi' is not of type 'array'
+> >        From schema: /.../snps,dw-pcie.yaml
+> > /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: reg-names:1: 'oneOf' conditional failed, one must be fixed:
+> >         'config' is not of type 'array'
+> >         From schema: /.../snps,dw-pcie.yaml
+> > /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: interrupt-names:0: 'anyOf' conditional failed, one must be fixed:
+> >         /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: interrupt-names:0: 'oneOf' conditional failed, one must be fixed:
+> >                 'msi' is not of type 'array'
+> >         /../snps,dw-pcie.example.dt.yaml: pcie@1f052000: interrupt-names:0: 'oneOf' conditional failed, one must be fixed:
+> >                 'msi' is not of type 'array'
+> >         From schema: /.../snps,dw-pcie.yaml
+> 
+> The problem is caused by the 'def fixup_sub_schema()' method defined in
+> the dtschema parser. AFAIU It skips the sub-'$defs'-schemas evaluation thus
+> not having them fixed up properly. The next patch solves the denoted
 
-Currently, the errata workarounds are implemented with ALTERNATIVEs
-but I believe sometime we may need static key to implement the
-workarounds. However this can be checked later. Now I worried about
-the static key waste above.
+It's actually the opposite. The schemas in $defs are fixed-up, but you 
+don't want them to be because your definition entries apply to a single 
+entry where-as what the fix-ups do is make everything an array. It's 
+debatable whether $defs should be fixed up or not, but I'm pretty sure 
+we already have cases depending on the fixups.
 
-Thanks
+> problem:
+> --- a/lib.py     2022-04-23 19:51:38.829759258 +0300
+> +++ b/lib.py     2022-04-23 20:17:16.218137170 +0300
+> @@ -470,7 +470,7 @@
+>              for subschema in v:
+>                  fixup_sub_schema(subschema, True)
+> 
+> -        if k not in ['dependentRequired', 'dependentSchemas', 'dependencies', 'properties', 'patternProperties', '$defs']:
+> +        if k not in ['dependentRequired', 'dependentSchemas', 'dependencies', 'properties', 'patternProperties']:
+
+This list is all the json-schema keywords which have a dictionary of DT 
+properties under them. So $def belongs in the list. 'definitions' is not 
+there as it is used in limited places and those that exist don't need 
+fixups. Within the kernel tree, only $defs should be used and only if 
+really necessary. Primarily, I think it is cases where it saves writing 
+the same property schema more than once.
+
+
+This patch is doing multiple things and should be split up some if 
+possible. No doubt splitting the common schema from the 'generic' device 
+schema is needed. We've done that in other cases. 
+
+The main part I have issue with is how reg-names and interrupt-names are 
+handled. For reg-names currently, if a platform wants to add another 
+name, they have to modify the commmon binding. That's not great, but we 
+don't want that to happen and don't want to make that easier to do. Part 
+of the reason we have so many already is because no one stopped all the 
+random variations of the same names. The biggest validation gap I see is 
+we don't enforce the order and this patch does nothing to address that.
+
+Rob
 
 _______________________________________________
 linux-riscv mailing list
