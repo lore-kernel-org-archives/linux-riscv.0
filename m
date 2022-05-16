@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3668DC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 May 2022 06:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ADD2C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 May 2022 06:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y6NE64aMZMPOIGg0A6npEebJlh2bqNS3Xz8CHlRmryU=; b=d+tAdL1L91HhE6
-	kK8DfoinnKXd6MBUXhZ3glhryo6iNEZ1i+PjFCQSEG70SLqBaXvKofLTXMTWj/CgcqY0CgSOyS/b+
-	XWsX3v4AEwQQObcJ5SSh4kxxPqv73nFBbcXrhrVtHEPgaMdr7O3OunpER2RFxHgYLUD0c6qOG2+EP
-	JlvrJ6HTTLG1TJs7owUHRbPWtI1qcZw/VtFRNtBYXKRB5z/w0Ger6K628XbLcOVSDHPvZgrGnh1A5
-	/Zf6tKHgRGR9xmtWh/L5tltvaXXdUy/eEzzTI49Ptdck+Fs2usQqnAjiqogC4mXVxmN5Jv+YIHOtm
-	5oIDXyWq0zzbhQjJOoLg==;
+	List-Owner; bh=eGc5ScotY3UScD5gcA0k9UaOjR1+P9aFfNkVTmehG08=; b=RCqyXTenLZSM+w
+	PATLtun7nRiGG3QDjd5/z5cTPgkMCyVAtBBY1/e3yl9XJ7UJzndPQ2BzX0NE8Yj4yIvUBJ76182km
+	u4liFiS0NGyyhdgryPU0SJpXtKxS0PjzvgYV7MUBxnuVYROhfH8bcIanIdK1kJGw7aUufYghb2mQt
+	Glguj99WR/piUqi9VOl257scM2w+ziKvlfhGR2ZBu47yG6A4/Tq2254Nn6qicXRLj92/WL6blXbFB
+	tb3sC1y762aeJk6veX+CU+ueZSVfcw33lVk7DBz95dYNSE27aZNjzG5s6x8bc386eoRWG2MaPbX8x
+	3ciHeYnn6ZF+qV5bOCmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nqUcr-006GpQ-0g; Mon, 16 May 2022 06:54:41 +0000
+	id 1nqUd9-006Gwt-OJ; Mon, 16 May 2022 06:54:59 +0000
 Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nqUcm-006Gnc-VS
- for linux-riscv@lists.infradead.org; Mon, 16 May 2022 06:54:39 +0000
+ id 1nqUd5-006Guj-Vg
+ for linux-riscv@lists.infradead.org; Mon, 16 May 2022 06:54:58 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id C0E42B80E98
- for <linux-riscv@lists.infradead.org>; Mon, 16 May 2022 06:54:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B194C341C8
- for <linux-riscv@lists.infradead.org>; Mon, 16 May 2022 06:54:31 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 981D1B80B55
+ for <linux-riscv@lists.infradead.org>; Mon, 16 May 2022 06:54:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D9A8C36AE7
+ for <linux-riscv@lists.infradead.org>; Mon, 16 May 2022 06:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1652684071;
- bh=tM8VdVpQeGWfsS/JGL2TFIz5I1GWH0ZJrplDr+il9hM=;
+ s=k20201202; t=1652684092;
+ bh=Z7r8/HgEaFRztMM+sEwTZMelcIhQM0l1vKVED8bIwDE=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=Nvec5QiUWWMTDk/FGmTf3HFsKY7hZlFrs2v/UcJp5CQvPFw9mu4fya6JfpfVU2hvb
- u4t90qgveCOR3D4pGB8xm0N5LCK2XO/BInWRXIKr3VqwyNlwM0icdD0ctzYWoQQdzZ
- 1LdK5r+fEObsm8pA4Dif3Nqdx0wIf8kw/tGBng69G2UKEk+VX3Poed3Xt4BLVzM9ja
- mHygaV8JoPDdJ8mBqtDgMP05Zs0E59akJ1MTbnRa47gYaqgz4rTIMLaPZWqXo6vi/e
- CftXqUt6zHffjEL1vZX4AJ8DhjXKZFQnZ/HBdFrxjHERZHcA5pybm1Au5LaP7WkAil
- kO9cGattCGZWQ==
-Received: by mail-vs1-f42.google.com with SMTP id w124so14519853vsb.8
- for <linux-riscv@lists.infradead.org>; Sun, 15 May 2022 23:54:30 -0700 (PDT)
-X-Gm-Message-State: AOAM5303LLDt4eeNMVwxCiVgsPJatL93pw+pLFR8B3bknjV/NxCAPpT3
- Tnfz89p7UGg9uP/x4WOQ98DkS+9kYXL4SBEDS/Y=
-X-Google-Smtp-Source: ABdhPJwZBD52gp8yNtPoCr6xpm2XLKUyPVBcohCmwY5Uk7D3sNSl2jSgSrlxEtR9wLD7ZFNpAp4+wVs+U7n7NYbTt88=
-X-Received: by 2002:a67:ca09:0:b0:32d:4069:5657 with SMTP id
- z9-20020a67ca09000000b0032d40695657mr5513114vsk.59.1652684069944; Sun, 15 May
- 2022 23:54:29 -0700 (PDT)
+ b=jfSDwH9PRKVd+X7+E3oComxtk84NNEfaY8cvJbqa0z1bZweoT+5NyWHLBNI+rhNLQ
+ EAohJXf+y0hqJxsV59c3kcuyiGAnEVaItACirMN15wfB2+Q5AztEuJ12rUqhcnlYtk
+ H3+G1uVDNzL9BlvWBS/YkOW4uj5pkJ/iMW1NMrEvDkWS0OyXWnP27ZMOi6GPI9JjFT
+ 12yG+QLqA1Eq9VL7Blqy+q9SGWOzuSBu6wxlFbUFWZT3Tq/T2+smLjTHRnN2rdggFW
+ y57Aqk3Y0b4sDQ+uFgMZk7+E6gwv+G1aG11S44HrkJvKnjzjReUPpI30UNdJg6jWfm
+ FfbHlujkbtNRg==
+Received: by mail-vk1-f172.google.com with SMTP id e144so7027556vke.9
+ for <linux-riscv@lists.infradead.org>; Sun, 15 May 2022 23:54:52 -0700 (PDT)
+X-Gm-Message-State: AOAM530RcWFKSShNTknTr435Pcci5lbO0pgFYpTmj4eifWQKYhS2xhs8
+ ArcSz/tPkj8Ovqf1XpZEIrT8QqVJb4236SjSOqQ=
+X-Google-Smtp-Source: ABdhPJxK0jUxDo38IFCo+aamIzqLft2o8K1gPTVfOz01KxbCLrQyt4VVgntdfLWqMm4oTyLLN9iddI9RyiBviarw7sU=
+X-Received: by 2002:a1f:1856:0:b0:34e:be86:97b4 with SMTP id
+ 83-20020a1f1856000000b0034ebe8697b4mr5612859vky.8.1652684091532; Sun, 15 May
+ 2022 23:54:51 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220511192921.2223629-1-heiko@sntech.de>
- <20220511192921.2223629-4-heiko@sntech.de>
-In-Reply-To: <20220511192921.2223629-4-heiko@sntech.de>
+ <20220511192921.2223629-5-heiko@sntech.de>
+In-Reply-To: <20220511192921.2223629-5-heiko@sntech.de>
 From: Guo Ren <guoren@kernel.org>
-Date: Mon, 16 May 2022 14:54:19 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSrLArzaY7wdWF5XrPniF0C=r-2rcv59CteV68A8Uy=Uw@mail.gmail.com>
-Message-ID: <CAJF2gTSrLArzaY7wdWF5XrPniF0C=r-2rcv59CteV68A8Uy=Uw@mail.gmail.com>
-Subject: Re: [PATCH 03/12] riscv: implement module alternatives
+Date: Mon, 16 May 2022 14:54:40 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTS9_s9DFpbKJA3pDepK76TUNNp35_1ZUb+4wFwQZpFKwQ@mail.gmail.com>
+Message-ID: <CAJF2gTS9_s9DFpbKJA3pDepK76TUNNp35_1ZUb+4wFwQZpFKwQ@mail.gmail.com>
+Subject: Re: [PATCH 04/12] riscv: implement ALTERNATIVE_2 macro
 To: Heiko Stuebner <heiko@sntech.de>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -80,8 +80,8 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Christoph Muellner <cmuellner@linux.com>,
  Philipp Tomsich <philipp.tomsich@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220515_235437_357980_93622FD4 
-X-CRM114-Status: GOOD (  28.52  )
+X-CRM114-CacheID: sfid-20220515_235456_363691_1D981E64 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,178 +102,133 @@ Reviewed-by: Guo Ren <guoren@kernel.org>
 
 On Thu, May 12, 2022 at 3:29 AM Heiko Stuebner <heiko@sntech.de> wrote:
 >
-> This allows alternatives to also be applied when loading modules
-> and follows the implementation of other architectures (e.g. arm64).
+> When the alternatives were added the commit already provided a template
+> on how to implement 2 different alternatives for one piece of code.
+>
+> Make this usable.
 >
 > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 > Reviewed-by: Philipp Tomsich <philipp.tomsich@vrull.eu>
 > ---
->  arch/riscv/errata/sifive/errata.c    | 14 +++++++++-----
->  arch/riscv/include/asm/alternative.h |  3 +++
->  arch/riscv/kernel/alternative.c      | 18 +++++++++++++----
->  arch/riscv/kernel/module.c           | 29 ++++++++++++++++++++++++++++
->  4 files changed, 55 insertions(+), 9 deletions(-)
+>  arch/riscv/include/asm/alternative-macros.h | 78 +++++++++++++++------
+>  1 file changed, 58 insertions(+), 20 deletions(-)
 >
-> diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-> index 4fe03ac41fd7..3e39587a49dc 100644
-> --- a/arch/riscv/errata/sifive/errata.c
-> +++ b/arch/riscv/errata/sifive/errata.c
-> @@ -4,6 +4,7 @@
->   */
+> diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+> index 5dd8d03a13da..9e04cd53afc8 100644
+> --- a/arch/riscv/include/asm/alternative-macros.h
+> +++ b/arch/riscv/include/asm/alternative-macros.h
+> @@ -39,6 +39,24 @@
+>  #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
+>         __ALTERNATIVE_CFG old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k)
 >
->  #include <linux/kernel.h>
-> +#include <linux/module.h>
->  #include <linux/string.h>
->  #include <linux/bug.h>
->  #include <asm/patch.h>
-> @@ -54,7 +55,8 @@ static struct errata_info_t errata_list[ERRATA_SIFIVE_NUMBER] = {
->         },
->  };
+> +.macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
+> +                                 new_c_2, vendor_id_2, errata_id_2, enable_2
+> +886 :
+> +       \old_c
+> +887 :
+> +       ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
+> +       ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
+> +.endm
+> +
+> +#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,   \
+> +                                       CONFIG_k_1,                     \
+> +                                 new_c_2, vendor_id_2, errata_id_2,    \
+> +                                       CONFIG_k_2)                     \
+> +       __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1,   \
+> +                                       IS_ENABLED(CONFIG_k_1),         \
+> +                                  new_c_2, vendor_id_2, errata_id_2,   \
+> +                                       IS_ENABLED(CONFIG_k_2)
+> +
+>  #else /* !__ASSEMBLY__ */
 >
-> -static u32 __init sifive_errata_probe(unsigned long archid, unsigned long impid)
-> +static u32 __init_or_module sifive_errata_probe(unsigned long archid,
-> +                                               unsigned long impid)
->  {
->         int idx;
->         u32 cpu_req_errata = 0;
-> @@ -66,7 +68,7 @@ static u32 __init sifive_errata_probe(unsigned long archid, unsigned long impid)
->         return cpu_req_errata;
->  }
+>  #include <asm/asm.h>
+> @@ -74,6 +92,25 @@
+>  #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
+>         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k))
 >
-> -static void __init warn_miss_errata(u32 miss_errata)
-> +static void __init_or_module warn_miss_errata(u32 miss_errata)
->  {
->         int i;
+> +#define __ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,  \
+> +                                       enable_1,                       \
+> +                                  new_c_2, vendor_id_2, errata_id_2,   \
+> +                                       enable_2)                       \
+> +       "886 :\n"                                                       \
+> +       old_c "\n"                                                      \
+> +       "887 :\n"                                                       \
+> +       ALT_NEW_CONTENT(vendor_id_1, errata_id_1, enable_1, new_c_1)    \
+> +       ALT_NEW_CONTENT(vendor_id_2, errata_id_2, enable_2, new_c_2)
+> +
+> +#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,   \
+> +                                       CONFIG_k_1,                     \
+> +                                 new_c_2, vendor_id_2, errata_id_2,    \
+> +                                       CONFIG_k_2)                     \
+> +       __ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,   \
+> +                                       IS_ENABLED(CONFIG_k_1),         \
+> +                                  new_c_2, vendor_id_2, errata_id_2,   \
+> +                                       IS_ENABLED(CONFIG_k_2))
+> +
+>  #endif /* __ASSEMBLY__ */
 >
-> @@ -79,9 +81,11 @@ static void __init warn_miss_errata(u32 miss_errata)
->         pr_warn("----------------------------------------------------------------\n");
->  }
->
-> -void __init sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
-> -                                    unsigned long archid, unsigned long impid,
-> -                                    unsigned int stage)
-> +void __init_or_module sifive_errata_patch_func(struct alt_entry *begin,
-> +                                              struct alt_entry *end,
-> +                                              unsigned long archid,
-> +                                              unsigned long impid,
-> +                                              unsigned int stage)
->  {
->         struct alt_entry *alt;
->         u32 cpu_req_errata = sifive_errata_probe(archid, impid);
-> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-> index 0ff550667e94..0859529ff08e 100644
-> --- a/arch/riscv/include/asm/alternative.h
-> +++ b/arch/riscv/include/asm/alternative.h
-> @@ -20,8 +20,10 @@
->  #include <asm/hwcap.h>
->
->  #define RISCV_ALTERNATIVES_BOOT                0 /* alternatives applied during regular boot */
-> +#define RISCV_ALTERNATIVES_MODULE      1 /* alternatives applied during module-init */
->
->  void __init apply_boot_alternatives(void);
-> +void apply_module_alternatives(void *start, size_t length);
->
->  struct alt_entry {
->         void *old_ptr;           /* address of original instruciton or data  */
-> @@ -43,6 +45,7 @@ void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
 >  #else /* CONFIG_RISCV_ALTERNATIVE */
+> @@ -86,6 +123,12 @@
+>  #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
+>         __ALTERNATIVE_CFG old_c
 >
->  static inline void apply_boot_alternatives(void) { }
-> +static inline void apply_module_alternatives(void *start, size_t length) { }
+> +#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,   \
+> +                                       CONFIG_k_1,                     \
+> +                                 new_c_2, vendor_id_2, errata_id_2,    \
+> +                                       CONFIG_k_2)                     \
+> +       __ALTERNATIVE_CFG old_c
+> +
+>  #else /* !__ASSEMBLY__ */
 >
+>  #define __ALTERNATIVE_CFG(old_c)  \
+> @@ -94,6 +137,12 @@
+>  #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, CONFIG_k) \
+>         __ALTERNATIVE_CFG(old_c)
+>
+> +#define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1,   \
+> +                                       CONFIG_k_1,                     \
+> +                                 new_c_2, vendor_id_2, errata_id_2,    \
+> +                                       CONFIG_k_2) \
+> +       __ALTERNATIVE_CFG(old_c)
+> +
+>  #endif /* __ASSEMBLY__ */
 >  #endif /* CONFIG_RISCV_ALTERNATIVE */
 >
-> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
-> index 02db62f55bac..223770b3945c 100644
-> --- a/arch/riscv/kernel/alternative.c
-> +++ b/arch/riscv/kernel/alternative.c
-> @@ -7,6 +7,7 @@
+> @@ -119,25 +168,14 @@
+>   * this case, this vendor can create a new macro ALTERNATIVE_2() based
+>   * on the following sample code and then replace ALTERNATIVE() with
+>   * ALTERNATIVE_2() to append its customized content.
+> - *
+> - * .macro __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, enable_1, \
+> - *                                   new_c_2, vendor_id_2, errata_id_2, enable_2
+> - * 886 :
+> - *      \old_c
+> - * 887 :
+> - *      ALT_NEW_CONTENT \vendor_id_1, \errata_id_1, \enable_1, \new_c_1
+> - *      ALT_NEW_CONTENT \vendor_id_2, \errata_id_2, \enable_2, \new_c_2
+> - * .endm
+> - *
+> - * #define _ALTERNATIVE_CFG_2(old_c, new_c_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
+> - *                                   new_c_2, vendor_id_2, errata_id_2, CONFIG_k_2) \
+> - *        __ALTERNATIVE_CFG_2 old_c, new_c_1, vendor_id_1, errata_id_1, IS_ENABLED(CONFIG_k_1), \
+> - *                                   new_c_2, vendor_id_2, errata_id_2, IS_ENABLED(CONFIG_k_2) \
+> - *
+> - * #define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
+> - *                                    new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2) \
+> - *         _ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1, errata_id_1, CONFIG_k_1, \
+> - *                                         new_content_2, vendor_id_2, errata_id_2, CONFIG_k_2)
+> - *
 >   */
->
->  #include <linux/init.h>
-> +#include <linux/module.h>
->  #include <linux/cpu.h>
->  #include <linux/uaccess.h>
->  #include <asm/alternative.h>
-> @@ -23,7 +24,7 @@ static struct cpu_manufacturer_info_t {
->
->  static void (*vendor_patch_func)(struct alt_entry *begin, struct alt_entry *end,
->                                  unsigned long archid, unsigned long impid,
-> -                                unsigned int stage) __initdata;
-> +                                unsigned int stage) __initdata_or_module;
->
->  static inline void __init riscv_fill_cpu_mfr_info(void)
->  {
-> @@ -58,9 +59,9 @@ static void __init init_alternative(void)
->   * a feature detect on the boot CPU). No need to worry about other CPUs
->   * here.
->   */
-> -static void __init _apply_alternatives(struct alt_entry *begin,
-> -                                      struct alt_entry *end,
-> -                                      unsigned int stage)
-> +static void __init_or_module _apply_alternatives(struct alt_entry *begin,
-> +                                                struct alt_entry *end,
-> +                                                unsigned int stage)
->  {
->         if (!vendor_patch_func)
->                 return;
-> @@ -81,3 +82,12 @@ void __init apply_boot_alternatives(void)
->                             (struct alt_entry *)__alt_end,
->                             RISCV_ALTERNATIVES_BOOT);
->  }
+> +#define ALTERNATIVE_2(old_content, new_content_1, vendor_id_1,         \
+> +                                       errata_id_1, CONFIG_k_1,        \
+> +                                  new_content_2, vendor_id_2,          \
+> +                                       errata_id_2, CONFIG_k_2)        \
+> +       _ALTERNATIVE_CFG_2(old_content, new_content_1, vendor_id_1,     \
+> +                                           errata_id_1, CONFIG_k_1,    \
+> +                                       new_content_2, vendor_id_2,     \
+> +                                           errata_id_2, CONFIG_k_2)
 > +
-> +#ifdef CONFIG_MODULES
-> +void apply_module_alternatives(void *start, size_t length)
-> +{
-> +       _apply_alternatives((struct alt_entry *)start,
-> +                           (struct alt_entry *)(start + length),
-> +                           RISCV_ALTERNATIVES_MODULE);
-> +}
-> +#endif
-> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-> index c29cef90d1dd..91fe16bfaa07 100644
-> --- a/arch/riscv/kernel/module.c
-> +++ b/arch/riscv/kernel/module.c
-> @@ -11,6 +11,7 @@
->  #include <linux/vmalloc.h>
->  #include <linux/sizes.h>
->  #include <linux/pgtable.h>
-> +#include <asm/alternative.h>
->  #include <asm/sections.h>
->
->  /*
-> @@ -427,3 +428,31 @@ void *module_alloc(unsigned long size)
->                                     __builtin_return_address(0));
->  }
 >  #endif
-> +
-> +static const Elf_Shdr *find_section(const Elf_Ehdr *hdr,
-> +                                   const Elf_Shdr *sechdrs,
-> +                                   const char *name)
-> +{
-> +       const Elf_Shdr *s, *se;
-> +       const char *secstrs = (void *)hdr + sechdrs[hdr->e_shstrndx].sh_offset;
-> +
-> +       for (s = sechdrs, se = sechdrs + hdr->e_shnum; s < se; s++) {
-> +               if (strcmp(name, secstrs + s->sh_name) == 0)
-> +                       return s;
-> +       }
-> +
-> +       return NULL;
-> +}
-> +
-> +int module_finalize(const Elf_Ehdr *hdr,
-> +                   const Elf_Shdr *sechdrs,
-> +                   struct module *me)
-> +{
-> +       const Elf_Shdr *s;
-> +
-> +       s = find_section(hdr, sechdrs, ".alternative");
-> +       if (s)
-> +               apply_module_alternatives((void *)s->sh_addr, s->sh_size);
-> +
-> +       return 0;
-> +}
 > --
 > 2.35.1
 >
