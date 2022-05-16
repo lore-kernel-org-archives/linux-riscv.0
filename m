@@ -4,92 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C79AC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 May 2022 20:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44931C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 May 2022 21:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aUEwj7DQMc97sLLdyz+GA+UQvMzjQWHIOnLW+4Z/jOI=; b=YKKlLEaPqjixgd
-	hoMI97GYWLmvhshirkAlxMMQtDE/m+Ptib7yCoPdh/k/TWbEuCJ6b1WYp8c0OY3pPOPdYNWRyVZeJ
-	vQF/HKr1OFWWMirwg8LZCAo1cF2Jv1LmEWXAyLehFolw40MskPyyStJedytXgZMx9IU491d9GLMeU
-	W8HrBX4mqjh3X37trdlRUgpvPKfl287c/+8bm4tW8nW2yM+S8PIpziP8/7PVRB6WZ7fldlQIdptw0
-	JN7jicC3u6+7/9s1FKmGp9BYAWFWCF2HYYXp8CkJY9o4h0kz4gEbGQiDo16mXcWO+LhlAjYfzA32x
-	A+NlEAOeQvcp2UpnmJgw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qN6ttDXSrtU7jf9ymDzvqTp6Tp7wp8dqUYQE2/lRNXY=; b=S5/Mz8oklXxQAi
+	cwpzYXnzgW64wOANtwlGj1P2VvStBdS1GiX4Z3z7V0aJdC1794plQgsSZXo9RdX2urh+4R6xzOr4A
+	7i/eA+JvbpJEfUUSMioT+p5IxnWJgLp+m9zfHUtmHMrYsT8iIxmBOQclX1xr1SprjykaKUXG879CW
+	VYXJCdDByld0N6SbVAHtpaOdu2GZGfsXW03tMoGgKBoTCkeoD4LnZixT/ISfXYlAVmZrRnSwuaY/a
+	eApW15h1KeVTdYS/5fYCAuk+VYwzWKWkQyrUvBblCGu8o8Y4B9NjsqIOirqshNtAclayk7yd2E7gs
+	7ps+dzmcslCZxwpD8jKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nqh4b-009zWs-WC; Mon, 16 May 2022 20:12:10 +0000
-Received: from mail-oi1-f175.google.com ([209.85.167.175])
+	id 1nqiX9-00AMlX-2q; Mon, 16 May 2022 21:45:43 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nqh4P-009zTs-Vf; Mon, 16 May 2022 20:12:00 +0000
-Received: by mail-oi1-f175.google.com with SMTP id w123so20004971oiw.5;
- Mon, 16 May 2022 13:11:56 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=tbR9l3pEjMl565dCavHPHWBXS1kr8LPe02PwsIH5GqA=;
- b=EoptbSRgB1aqbsD0BmWXOv7j+dIAp0kbLXUz9JinoyGwXCbSpO1aGTLqwLktHJbNPu
- 2zW8h24D4091Wx/9Oo+XnZiqIiRYPVK82nJ8TJB951OmjI3x9Pp3Z/W/rREoO1L2ZHAe
- CSNjAXFaci97ATX/9ObnkehAtDQEmshcwi5FtWoSkX4eaavu1gYVgE+RMTKQAZjvM10E
- qGLmFgw8GyJ/hd0KFKZCrODkKUqYE9wYZnOAWmdKy5A+cXtdykWnCAmz6ISzZLN6r6HU
- 6yb+9RREuid9AJYU9dee8K4rnYRP5sRf+jwbPCk5OqF3gA50dfLsdwfod5iE3OZ7tgWH
- VeRQ==
-X-Gm-Message-State: AOAM530tgg1EqFU+ENJ7v+YEj8wBsOSCcN4jVbfBFccJIoFukXsJ2IXx
- 1KDt3SqdNlLm/Skvg8vkVQ==
-X-Google-Smtp-Source: ABdhPJzwngEn9PkcNX4eL6HIcc7veNtCe+uYOBZrmAqyqNkFnT8oDJRNMhVasycVSkPEvktxfWzmEQ==
-X-Received: by 2002:a05:6808:1a1e:b0:326:3846:c4a1 with SMTP id
- bk30-20020a0568081a1e00b003263846c4a1mr14856541oib.80.1652731915819; 
- Mon, 16 May 2022 13:11:55 -0700 (PDT)
-Received: from robh.at.kernel.org (66-90-144-107.dyn.grandenetworks.net.
- [66.90.144.107]) by smtp.gmail.com with ESMTPSA id
- z3-20020a056870d68300b000e686d13897sm5969446oap.49.2022.05.16.13.11.54
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 16 May 2022 13:11:55 -0700 (PDT)
-Received: (nullmailer pid 3187391 invoked by uid 1000);
- Mon, 16 May 2022 20:11:53 -0000
-Date: Mon, 16 May 2022 15:11:53 -0500
-From: Rob Herring <robh@kernel.org>
-To: Serge Semin <Sergey.Semin@baikalelectronics.ru>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
- Gustavo Pimentel <gustavo.pimentel@synopsys.com>, 
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
- Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>, 
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, 
- Xiaowei Song <songxiaowei@hisilicon.com>,
- Binghui Wang <wangbinghui@hisilicon.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>,
- Greentime Hu <greentime.hu@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
- Masami Hiramatsu <mhiramat@kernel.org>,
- Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>, 
- Serge Semin <fancer.lancer@gmail.com>, 
- Alexey Malahov <Alexey.Malahov@baikalelectronics.ru>, 
- Pavel Parkhomenko <Pavel.Parkhomenko@baikalelectronics.ru>, 
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Frank Li <Frank.Li@nxp.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 01/17] dt-bindings: PCI: dwc: Define common and native
- DT bindings
-Message-ID: <20220516201153.GA3073005-robh@kernel.org>
-References: <20220503214638.1895-1-Sergey.Semin@baikalelectronics.ru>
- <20220503214638.1895-2-Sergey.Semin@baikalelectronics.ru>
+ id 1nqiX6-00AMh9-34
+ for linux-riscv@lists.infradead.org; Mon, 16 May 2022 21:45:41 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by ams.source.kernel.org (Postfix) with ESMTPS id 38701B8165F;
+ Mon, 16 May 2022 21:45:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EAE0C385AA;
+ Mon, 16 May 2022 21:45:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1652737536;
+ bh=zN3GIOBzpH9pP/0yJi427+Aqc4nfKhALIaFtl/JNTRk=;
+ h=From:To:Cc:Subject:Date:From;
+ b=XqKxUKFIyW+1J/94sZx+Odzy1zf2mUD0dzXHCf8ffIvqHa1PaH2dhf49DUuHUN5Vv
+ gZNKY5J3iL5GBlQeqPhZmc2Mk/KQKezdvJIgklIoe120fEX7N6HLxY3ZElR4NVEqfV
+ FIVWSPBSgu5MilkLHcSyGSZ98LWzKNR4pTicIQKBEDxC3VapGY94HaYmH8mc7eXIHq
+ wTevjZA0MKX5Ge1eXtWpzIMwOqyjkGuwO0huwXyyJVJan8cI7Lc0mBFdmZYv4/nVtJ
+ C+WXue543uBp8bbEkcxk6xGe1W10D4ZsnBRr28tMcGb05ghtRmrr7Zi4vfsCrz/imE
+ ZztMr31JfR2zg==
+From: Nathan Chancellor <nathan@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: Nick Desaulniers <ndesaulniers@google.com>,
+ Heiko Stuebner <heiko@sntech.de>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+ patches@lists.linux.dev, Nathan Chancellor <nathan@kernel.org>,
+ kernel test robot <lkp@intel.com>
+Subject: [PATCH] riscv: Move alternative length validation into subsection
+Date: Mon, 16 May 2022 14:45:21 -0700
+Message-Id: <20220516214520.3252074-1-nathan@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220503214638.1895-2-Sergey.Semin@baikalelectronics.ru>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220516_131158_897912_EC8A0AEA 
-X-CRM114-Status: GOOD (  42.54  )
+X-CRM114-CacheID: sfid-20220516_144540_450390_0CF55BEE 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,127 +74,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 04, 2022 at 12:46:22AM +0300, Serge Semin wrote:
-> Currently both DW PCIe Root Port and End-point DT bindings are too generic
-> to be used as a descriptive set the device properties. Yes, it's very handy
-> to have them that way so the DT-schemas could be used to evaluate as many
-> DW PCIe-related DT-nodes as possible. But at the same time they don't
-> provide well defined DW PCIe RP/EP DT interface description thus leaving
-> too much flexibility for the new platforms, no encouraging the developers
+After commit 49b290e430d3 ("riscv: prevent compressed instructions in
+alternatives"), builds with LLVM's integrated assembler fail:
 
-s/no/not/
+  In file included from arch/riscv/mm/init.c:10:
+  In file included from ./include/linux/mm.h:29:
+  In file included from ./include/linux/pgtable.h:6:
+  In file included from ./arch/riscv/include/asm/pgtable.h:108:
+  ./arch/riscv/include/asm/tlbflush.h:23:2: error: expected assembly-time absolute expression
+          ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
+          ^
+  ./arch/riscv/include/asm/errata_list.h:33:5: note: expanded from macro 'ALT_FLUSH_TLB_PAGE'
+  asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,        \
+      ^
+  ./arch/riscv/include/asm/alternative-macros.h:187:2: note: expanded from macro 'ALTERNATIVE'
+          _ALTERNATIVE_CFG(old_content, new_content, vendor_id, errata_id, CONFIG_k)
+          ^
+  ./arch/riscv/include/asm/alternative-macros.h:113:2: note: expanded from macro '_ALTERNATIVE_CFG'
+          __ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k))
+          ^
+  ./arch/riscv/include/asm/alternative-macros.h:110:2: note: expanded from macro '__ALTERNATIVE_CFG'
+          ALT_NEW_CONTENT(vendor_id, errata_id, enable, new_c)
+          ^
+  ./arch/riscv/include/asm/alternative-macros.h:99:3: note: expanded from macro 'ALT_NEW_CONTENT'
+          ".org   . - (889b - 888b) + (887b - 886b)\n"                    \
+           ^
+  <inline asm>:26:6: note: instantiated into assembly here
+  .org    . - (889b - 888b) + (887b - 886b)
+          ^
 
-> to preserve a compatible interface. It causes having many
-> platform-specific DT bindings of the same generic properties.
-> 
-> Instead of currently implemented approach we suggest to be more
-> restrictive and yet preserve some level of flexibility in the DW PCIe
-> DT-bindings description. The device tree DT-schema is split up into
-> three parts: a common YAML-schema applicable for both DWC Root Port and
-> End-point controller configs, DWC PCIe Root Port-specific YAML-schema
-> and DWC PCIe End-point-specific YAML-schema, where
-> 1) pci/snps,dw-pcie-common.yaml - the common DT-schema describes the most
-> generic constraints of the "reg", "interrupts", "clocks", "resets" and
-> "phys" properties together with a set of common for both device types
-> PCIe/AXI bus properties like a maximum number of lanes or a maximum link
-> speed, number of inbound and outbound iATU windows. In addition to that a
-> set of schema definitions declared under the "definitions" property with
-> "reg", "interrupt", "clock" and "reset" names common for DWC PCIe Root
-> Port and End-point devices. They can be used by the successive DT-schemas
-> in case they are supposed to be compatible with the generic DWC PCIe
-> controller DT-bindings.
-> 2) pci/snps,dw-pcie.yaml, pci/snps,dw-pcie-ep.yaml - generic DW PCIe Root
-> Port and End-point DT-bindings which aside with the device-specific
-> properties set also contain more restrictive constraints. All new DW PCIe
-> platforms are supposed to be compatible with one of these bindings by
-> using "allOf: " property and additionally defining their own constraints
-> to close up the DT-bindings set.
-> 
-> So to speak in case if a DW PCIe-based device for some reason has too many
-> specific properties or it's bindings have already been defined in a
-> non-generic way, it's DT-schema is supposed to include 1) YAML-file and
-> provide its own constraints. Otherwise the ready-to-use bindings from 2)
-> should be utilized. There are only two DT-schemas compatible with 2) at the
-> moment are samsung,axynos-pcie.yaml and intel-gw-pcie.yaml. The
-> rest of the DW PCIe-related DT-schemas are supposed to use more generic
-> DW PCIe DT-bindings - pci/snps,dw-pcie-common.yaml.
-> 
-> Note the provided here generic properties and their possible values are
-> derived from the DW PCIe RC/EP hardware manuals and from the interface
-> implemented in the driver. The DT-bindings schemas are created to be as
-> full as possible with detailed properties/names description for the
-> easier interface comprehension and new platforms bindings development.
-> 
-> Also note since there are no generic DT-nodes can be found in the kernel
-> dts-es which would have a pure "snps,dw-pcie" compatible string, these
-> DT-bindings have been created to not be selected by default for
-> evaluation. They are supposed to be used by the new vendor-specific
-> DT-schemas to at least stop adding new bindings for the same set of DWC
-> PCIe signals or properties.
-> 
-> Signed-off-by: Serge Semin <Sergey.Semin@baikalelectronics.ru>
-> 
-> ---
-> 
-> If the '$defs' property is used instead of the 'definitions' one, the next
-> error will be spotted:
-> 
-> >  DTC     Documentation/devicetree/bindings/pci/snps,dw-pcie.example.dt.yaml
-> >  CHECK   Documentation/devicetree/bindings/pci/snps,dw-pcie.example.dt.yaml
-> > /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: reg-names:0: 'oneOf' conditional failed, one must be fixed:
-> >        'dbi' is not of type 'array'
-> >        From schema: /.../snps,dw-pcie.yaml
-> > /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: reg-names:1: 'oneOf' conditional failed, one must be fixed:
-> >         'config' is not of type 'array'
-> >         From schema: /.../snps,dw-pcie.yaml
-> > /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: interrupt-names:0: 'anyOf' conditional failed, one must be fixed:
-> >         /.../snps,dw-pcie.example.dt.yaml: pcie@1f052000: interrupt-names:0: 'oneOf' conditional failed, one must be fixed:
-> >                 'msi' is not of type 'array'
-> >         /../snps,dw-pcie.example.dt.yaml: pcie@1f052000: interrupt-names:0: 'oneOf' conditional failed, one must be fixed:
-> >                 'msi' is not of type 'array'
-> >         From schema: /.../snps,dw-pcie.yaml
-> 
-> The problem is caused by the 'def fixup_sub_schema()' method defined in
-> the dtschema parser. AFAIU It skips the sub-'$defs'-schemas evaluation thus
-> not having them fixed up properly. The next patch solves the denoted
+This error happens because LLVM's integrated assembler has a one-pass
+design, which means it cannot figure out the instruction lengths when
+the .org directive is outside of the subsection that contains the
+instructions, which was changed by the .option directives added by the
+above change.
 
-It's actually the opposite. The schemas in $defs are fixed-up, but you 
-don't want them to be because your definition entries apply to a single 
-entry where-as what the fix-ups do is make everything an array. It's 
-debatable whether $defs should be fixed up or not, but I'm pretty sure 
-we already have cases depending on the fixups.
+Move the .org directives before the .previous directive so that these
+directives are always within the same subsection, which resolves the
+failures and does not introduce any new issues with GNU as. This was
+done for arm64 in commit 966a0acce2fc ("arm64/alternatives: move length
+validation inside the subsection") and commit 22315a2296f4 ("arm64:
+alternatives: Move length validation in alternative_{insn, endif}").
 
-> problem:
-> --- a/lib.py     2022-04-23 19:51:38.829759258 +0300
-> +++ b/lib.py     2022-04-23 20:17:16.218137170 +0300
-> @@ -470,7 +470,7 @@
->              for subschema in v:
->                  fixup_sub_schema(subschema, True)
-> 
-> -        if k not in ['dependentRequired', 'dependentSchemas', 'dependencies', 'properties', 'patternProperties', '$defs']:
-> +        if k not in ['dependentRequired', 'dependentSchemas', 'dependencies', 'properties', 'patternProperties']:
+While there is no error from the assembly versions of the macro, they
+appear to have the same problem so just make the same change there as
+well so that there are no problems in the future.
 
-This list is all the json-schema keywords which have a dictionary of DT 
-properties under them. So $def belongs in the list. 'definitions' is not 
-there as it is used in limited places and those that exist don't need 
-fixups. Within the kernel tree, only $defs should be used and only if 
-really necessary. Primarily, I think it is cases where it saves writing 
-the same property schema more than once.
+Link: https://github.com/ClangBuiltLinux/linux/issues/1640
+Reported-by: kernel test robot <lkp@intel.com>
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ arch/riscv/include/asm/alternative-macros.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
+index e13b1f6bb400..ec2f3f1b836f 100644
+--- a/arch/riscv/include/asm/alternative-macros.h
++++ b/arch/riscv/include/asm/alternative-macros.h
+@@ -27,9 +27,9 @@
+ 	\new_c
+ 	.option pop
+ 889 :
+-	.previous
+ 	.org    . - (889b - 888b) + (887b - 886b)
+ 	.org    . - (887b - 886b) + (889b - 888b)
++	.previous
+ 	.endif
+ .endm
+ 
+@@ -94,9 +94,9 @@
+ 	new_c "\n"							\
+ 	".option pop\n"							\
+ 	"889 :\n"							\
+-	".previous\n"							\
+ 	".org	. - (887b - 886b) + (889b - 888b)\n"			\
+ 	".org	. - (889b - 888b) + (887b - 886b)\n"			\
++	".previous\n"							\
+ 	".endif\n"
+ 
+ #define __ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, enable)	\
 
-This patch is doing multiple things and should be split up some if 
-possible. No doubt splitting the common schema from the 'generic' device 
-schema is needed. We've done that in other cases. 
+base-commit: 93c0651617a62a69717299f1464dda798af8bebb
+-- 
+2.36.1
 
-The main part I have issue with is how reg-names and interrupt-names are 
-handled. For reg-names currently, if a platform wants to add another 
-name, they have to modify the commmon binding. That's not great, but we 
-don't want that to happen and don't want to make that easier to do. Part 
-of the reason we have so many already is because no one stopped all the 
-random variations of the same names. The biggest validation gap I see is 
-we don't enforce the order and this patch does nothing to address that.
-
-Rob
 
 _______________________________________________
 linux-riscv mailing list
