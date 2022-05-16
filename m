@@ -4,71 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68AAC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 16 May 2022 06:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44ABC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 16 May 2022 06:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q8EyapH4mLASE7zAkJBIUEmpYjS4Fw00fSrCNNm3zNA=; b=Uh5fhYSoK25Wos
-	9ng7LWHyszHCJd4EDScASMQ/rWe/HspixRoEuIzfhy5tzmVyJmIf1NVTLo3Dl3dC7mXJixBpcR9AW
-	ypqzk7R/G3rlFVADnyDIUSIu0hDJN9HXD63I7BOAe0bPIr4h5Eps4TLLTxJi8zzf/IyIhr8GbStxm
-	g1bEn3LY4rl1h0u1y98tEDQbxNxbNqnUwr4aeoAmI4GIIqLWsXWDBQAASXZ8kT34jpIeEsU+AJp4z
-	PIXiALKkdCJmkKiyYplsCwFwcPF5WonXpXFEh3G+jevFhxFhlnxSOUflPkLUWQypiUSrkpH1QHK+3
-	c0NArp06+to9wvyi2WeA==;
+	List-Owner; bh=zkRAQfyudXlMqq7zXb0d6aFeMKPTy78jI6t9+AiMtJ8=; b=dz9kcNUDWFLNfp
+	yauRX3Ev1t+xoULTL1VDg3DwhVyDLAlDAXbb2whLIGJWhkuCfdT8CSkM/4asHYBcpYratb7OiImyR
+	nmQabqA0vPQoQO3FYIp1r68DY8vAfUo5YVns7a2r8IBytSdRIuELAaxSMvD7GKaP1sfkfbDiLeS/E
+	DeTv7F/8obbsZ5PZ1bL5rCETVsppq0ym4AElmqIx1IPSiM5oQ45HIzrProF+jkDmGd472FKD3tQx7
+	NADHpREl10/N4I7fHhdyzvwHegMd5qAzLevfDErv8tITR+1aUduKO/LQ5Fkr0E0YDSk6W7UKb5ADH
+	vnW9pzIrq16i4nZMBetQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nqUZd-006Fys-0Z; Mon, 16 May 2022 06:51:21 +0000
+	id 1nqUZx-006G4T-2A; Mon, 16 May 2022 06:51:41 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nqUZY-006Fy9-Mz
- for linux-riscv@lists.infradead.org; Mon, 16 May 2022 06:51:20 +0000
+ id 1nqUZu-006G3N-5Y
+ for linux-riscv@lists.infradead.org; Mon, 16 May 2022 06:51:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id D864160FED
- for <linux-riscv@lists.infradead.org>; Mon, 16 May 2022 06:51:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF027C3411D
- for <linux-riscv@lists.infradead.org>; Mon, 16 May 2022 06:51:14 +0000 (UTC)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id B441F60FEE
+ for <linux-riscv@lists.infradead.org>; Mon, 16 May 2022 06:51:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C240DC36AF7
+ for <linux-riscv@lists.infradead.org>; Mon, 16 May 2022 06:51:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1652683874;
- bh=VnhplqP5C1OGrCIayDVu5lClsqFPYcrnV6QF9ztKEzI=;
+ s=k20201202; t=1652683896;
+ bh=ZIB7dC8NtI67j/b6vpXXZknBP0LWu3oU+SBW5aK8PLs=;
  h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
- b=rlCBtdsyM1BLOb6pklLk17Li+O4g9Sjs4+g2dOgvnhrrR2V3279c4/CNyFEqjBE7I
- jiHUg7zeXv4A6zC5a0B43hA+WriVHB6peH3CHzbVw/drmh8pXSXNGHEJkTMtzahs0w
- nour/DbCXZ5mmJaelC/946rdADD/JVKchXyUYr+iWr51Dng3BkOTHgMPG+w1Cx+SSu
- vT/K0IWkEQpnK46jVD6cEfaRMjJfP7E+Ulg5DfNxmYA7ep3RCc9DaLQAOvtO+uWBqr
- TBLfhjZsfjGyS6pvI2rivKts2a89BneaWVxymQUpK/Qb727vWoU6Pfp1iV9NQPPZOR
- zyo4WLSVUOmEw==
-Received: by mail-vs1-f43.google.com with SMTP id z144so14469576vsz.13
- for <linux-riscv@lists.infradead.org>; Sun, 15 May 2022 23:51:14 -0700 (PDT)
-X-Gm-Message-State: AOAM533EPqQHda4nyu36mc75dOu0WYvCKyXPtRH5y08Gk1KapOfNBTwX
- Ul96wZQ5hkCctYvTFrlPfMjbFRRZis3NDEdRj2Q=
-X-Google-Smtp-Source: ABdhPJzE0ghTRETFmmFWpTrlU6Xx8/k8CZMycNU4BOY6FtbZ6KEMJI6pw0TcqX4NszTl0oN6BxWhztxrBibIAQzmJ1M=
-X-Received: by 2002:a05:6102:390b:b0:32d:5fc3:bd2c with SMTP id
- e11-20020a056102390b00b0032d5fc3bd2cmr5076830vsu.51.1652683873645; Sun, 15
- May 2022 23:51:13 -0700 (PDT)
+ b=q5Few4/dhDYGSRcopONYyCXYqszi7Oz5ErPLLfu/rQKX2Mkl++OdWWmKKD4FDBaIO
+ U8Lt815l52n7/HI88QlBilj55iXUcTsUpE0LgkApCNLpJLkOhgw1PwgKzw34m3L8q9
+ DQSjKBRVRhEVULvj0WWQlJMwDFEaX4iJHwea+LvFrtWTP+gLKnvntbMg8ZgqTPdoqe
+ qSIZgUWyM5PLypr6JuJip/seoCip196ZRpbpIeraNL9t1JLacIIxe9w3BPX15YvaRw
+ HQRo/0p/T3UjJOG4nwsd/wrSj/nWYtSFrHDWgdr+jJyeU1RT+OeTldwqcwaqzBFXZz
+ wfZvSFA/m9Ebw==
+Received: by mail-vs1-f53.google.com with SMTP id a127so14521637vsa.3
+ for <linux-riscv@lists.infradead.org>; Sun, 15 May 2022 23:51:36 -0700 (PDT)
+X-Gm-Message-State: AOAM530/Wg3OpPuNmUGXS87GrBP9wq51zc+QO6ANbC/klOde0sGPKbE6
+ 85M56st6U6FYMQ1upGV7d+96/2vjcmbCge/k2Ss=
+X-Google-Smtp-Source: ABdhPJzGb0Pw089mtPFdIIzqP5DcyX1HLdLL0vBSYLdgeIwnhLDR+ogeJoLMkAYNcXUhpaIIsHxLRBQgGyoxl3AlYF8=
+X-Received: by 2002:a67:fc86:0:b0:32d:18ed:e71b with SMTP id
+ x6-20020a67fc86000000b0032d18ede71bmr5321965vsp.51.1652683895775; Sun, 15 May
+ 2022 23:51:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220515131407.946832-1-xianting.tian@linux.alibaba.com>
-In-Reply-To: <20220515131407.946832-1-xianting.tian@linux.alibaba.com>
+References: <20220511192921.2223629-1-heiko@sntech.de>
+ <20220511192921.2223629-3-heiko@sntech.de>
+In-Reply-To: <20220511192921.2223629-3-heiko@sntech.de>
 From: Guo Ren <guoren@kernel.org>
-Date: Mon, 16 May 2022 14:51:02 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS6StTP2QgEW65w79UaYLx2LEYLC8HF_VzFkgzRpfvXyw@mail.gmail.com>
-Message-ID: <CAJF2gTS6StTP2QgEW65w79UaYLx2LEYLC8HF_VzFkgzRpfvXyw@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Add fast call path of crash_kexec()
-To: Xianting Tian <xianting.tian@linux.alibaba.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Kefeng Wang <wangkefeng.wang@huawei.com>, 
- Vitaly Wool <vitaly.wool@konsulko.com>, rmk+kernel@armlinux.org.uk, 
- "Eric W. Biederman" <ebiederm@xmission.com>, tongtiangen@huawei.co, 
+Date: Mon, 16 May 2022 14:51:24 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQKsJ00MAyXGnBXR-tK1pAnHeuEr6Se79OYN4_kvPjjFQ@mail.gmail.com>
+Message-ID: <CAJF2gTQKsJ00MAyXGnBXR-tK1pAnHeuEr6Se79OYN4_kvPjjFQ@mail.gmail.com>
+Subject: Re: [PATCH 02/12] riscv: allow different stages with alternatives
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>,
  linux-riscv <linux-riscv@lists.infradead.org>, 
  Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Nick Kossifidis <mick@ics.forth.gr>
+ Wei Fu <wefu@redhat.com>, 
+ liush <liush@allwinnertech.com>, Atish Patra <atishp@atishpatra.org>, 
+ Anup Patel <anup@brainfault.org>, Drew Fustini <drew@beagleboard.org>, 
+ Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>,
+ Chen-Yu Tsai <wens@csie.org>, 
+ Maxime Ripard <maxime@cerno.tech>, Greg Favor <gfavor@ventanamicro.com>, 
+ Andrea Mondelli <andrea.mondelli@huawei.com>,
+ Jonathan Behrens <behrensj@mit.edu>, 
+ "Xinhaoqu (Freddie)" <xinhaoqu@huawei.com>, Nick Kossifidis <mick@ics.forth.gr>,
+ Allen Baum <allen.baum@esperantotech.com>,
+ Josh Scheid <jscheid@ventanamicro.com>, 
+ Richard Trauben <rtrauben@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+ Christoph Muellner <cmuellner@linux.com>,
+ Philipp Tomsich <philipp.tomsich@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220515_235116_870043_709E1E7C 
-X-CRM114-Status: GOOD (  24.04  )
+X-CRM114-CacheID: sfid-20220515_235138_324999_4C30FDA1 
+X-CRM114-Status: GOOD (  26.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,91 +98,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Great Job, I think it's a fixup, we should add Fix: and Cc: stable@kernel.org
-
 Reviewed-by: Guo Ren <guoren@kernel.org>
 
-On Sun, May 15, 2022 at 9:14 PM Xianting Tian
-<xianting.tian@linux.alibaba.com> wrote:
+On Thu, May 12, 2022 at 3:29 AM Heiko Stuebner <heiko@sntech.de> wrote:
 >
-> Currently, almost all archs (x86, arm64, mips...) support fast call
-> of crash_kexec() when "regs && kexec_should_crash()" is true. But
-> RISC-V not, it can only enter crash system via panic(). However panic()
-> doesn't pass the regs of the real accident scene to crash_kexec(),
-> it caused we can't get accurate backtrace via gdb,
->         $ riscv64-linux-gnu-gdb vmlinux vmcore
->         Reading symbols from vmlinux...
->         [New LWP 95]
->         #0  console_unlock () at kernel/printk/printk.c:2557
->         2557                    if (do_cond_resched)
->         (gdb) bt
->         #0  console_unlock () at kernel/printk/printk.c:2557
->         #1  0x0000000000000000 in ?? ()
+> Future features may need to be applied at a different
+> time during boot, so allow defining stages for alternatives
+> and handling them differently depending on the stage.
 >
-> With the patch we can get the accurate backtrace,
->         $ riscv64-linux-gnu-gdb vmlinux vmcore
->         Reading symbols from vmlinux...
->         [New LWP 95]
->         #0  0xffffffe00063a4e0 in test_thread (data=<optimized out>) at drivers/virtio/virtio_mmio.c:806
->         806             *(int *)p = 0xdead;
->         (gdb)
->         (gdb) bt
->         #0  0xffffffe00063a4e0 in test_thread (data=<optimized out>) at drivers/virtio/virtio_mmio.c:806
->         #1  0x0000000000000000 in ?? ()
+> Also make the alternatives-location more flexible so that
+> future stages may provide their own location.
 >
-> Test code to produce NULL address dereference,
->         +extern int panic_on_oops;
->         +static struct task_struct *k;
->         +static int test_thread(void *data) {
->         +
->         +       void *p = NULL;
->         +
->         +       while (!panic_on_oops)
->         +               msleep(2000);
->         +
->         +       *(int *)p = 0xdead;
->         +
->         +       return 0;
->         +}
->         +
->          static int __init virtio_mmio_init(void)
->          {
->         +       k = kthread_run(test_thread, NULL, "test_thread");
->         +       if (IS_ERR(k))
->         +               pr_err("Couldn't create test kthread\n");
->         +
->                 return platform_driver_register(&virtio_mmio_driver);
->          }
->
-> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> Reviewed-by: Philipp Tomsich <philipp.tomsich@vrull.eu>
 > ---
->  arch/riscv/kernel/traps.c | 4 ++++
->  1 file changed, 4 insertions(+)
+>  arch/riscv/errata/sifive/errata.c    |  3 ++-
+>  arch/riscv/include/asm/alternative.h |  5 ++++-
+>  arch/riscv/kernel/alternative.c      | 26 +++++++++++++++++---------
+>  3 files changed, 23 insertions(+), 11 deletions(-)
 >
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index fe92e119e6a3..e666ebfa2a64 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -16,6 +16,7 @@
->  #include <linux/mm.h>
->  #include <linux/module.h>
->  #include <linux/irq.h>
-> +#include <linux/kexec.h>
+> diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+> index f5e5ae70e829..4fe03ac41fd7 100644
+> --- a/arch/riscv/errata/sifive/errata.c
+> +++ b/arch/riscv/errata/sifive/errata.c
+> @@ -80,7 +80,8 @@ static void __init warn_miss_errata(u32 miss_errata)
+>  }
 >
->  #include <asm/asm-prototypes.h>
->  #include <asm/bug.h>
-> @@ -44,6 +45,9 @@ void die(struct pt_regs *regs, const char *str)
+>  void __init sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+> -                                    unsigned long archid, unsigned long impid)
+> +                                    unsigned long archid, unsigned long impid,
+> +                                    unsigned int stage)
+>  {
+>         struct alt_entry *alt;
+>         u32 cpu_req_errata = sifive_errata_probe(archid, impid);
+> diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
+> index 7b42bcef0ecf..0ff550667e94 100644
+> --- a/arch/riscv/include/asm/alternative.h
+> +++ b/arch/riscv/include/asm/alternative.h
+> @@ -19,6 +19,8 @@
+>  #include <linux/stddef.h>
+>  #include <asm/hwcap.h>
 >
->         ret = notify_die(DIE_OOPS, str, regs, 0, regs->cause, SIGSEGV);
->
-> +       if (regs && kexec_should_crash(current))
-> +               crash_kexec(regs);
+> +#define RISCV_ALTERNATIVES_BOOT                0 /* alternatives applied during regular boot */
 > +
->         bust_spinlocks(0);
->         add_taint(TAINT_DIE, LOCKDEP_NOW_UNRELIABLE);
->         spin_unlock_irq(&die_lock);
+>  void __init apply_boot_alternatives(void);
+>
+>  struct alt_entry {
+> @@ -35,7 +37,8 @@ struct errata_checkfunc_id {
+>  };
+>
+>  void sifive_errata_patch_func(struct alt_entry *begin, struct alt_entry *end,
+> -                             unsigned long archid, unsigned long impid);
+> +                             unsigned long archid, unsigned long impid,
+> +                             unsigned int stage);
+>
+>  #else /* CONFIG_RISCV_ALTERNATIVE */
+>
+> diff --git a/arch/riscv/kernel/alternative.c b/arch/riscv/kernel/alternative.c
+> index e8b4a0fe488c..02db62f55bac 100644
+> --- a/arch/riscv/kernel/alternative.c
+> +++ b/arch/riscv/kernel/alternative.c
+> @@ -22,8 +22,8 @@ static struct cpu_manufacturer_info_t {
+>  } cpu_mfr_info;
+>
+>  static void (*vendor_patch_func)(struct alt_entry *begin, struct alt_entry *end,
+> -                                unsigned long archid,
+> -                                unsigned long impid) __initdata;
+> +                                unsigned long archid, unsigned long impid,
+> +                                unsigned int stage) __initdata;
+>
+>  static inline void __init riscv_fill_cpu_mfr_info(void)
+>  {
+> @@ -58,6 +58,18 @@ static void __init init_alternative(void)
+>   * a feature detect on the boot CPU). No need to worry about other CPUs
+>   * here.
+>   */
+> +static void __init _apply_alternatives(struct alt_entry *begin,
+> +                                      struct alt_entry *end,
+> +                                      unsigned int stage)
+> +{
+> +       if (!vendor_patch_func)
+> +               return;
+> +
+> +       vendor_patch_func(begin, end,
+> +                         cpu_mfr_info.arch_id, cpu_mfr_info.imp_id,
+> +                         stage);
+> +}
+> +
+>  void __init apply_boot_alternatives(void)
+>  {
+>         /* If called on non-boot cpu things could go wrong */
+> @@ -65,11 +77,7 @@ void __init apply_boot_alternatives(void)
+>
+>         init_alternative();
+>
+> -       if (!vendor_patch_func)
+> -               return;
+> -
+> -       vendor_patch_func((struct alt_entry *)__alt_start,
+> -                         (struct alt_entry *)__alt_end,
+> -                         cpu_mfr_info.arch_id, cpu_mfr_info.imp_id);
+> +       _apply_alternatives((struct alt_entry *)__alt_start,
+> +                           (struct alt_entry *)__alt_end,
+> +                           RISCV_ALTERNATIVES_BOOT);
+>  }
+> -
 > --
-> 2.17.1
+> 2.35.1
 >
 
 
