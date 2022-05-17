@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 532EEC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 May 2022 07:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B507CC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 May 2022 10:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UulSb+Dlwp3cCVEIWtyXZjtffzddOW8IZ9nTYQbVIzU=; b=sMUPago/A28zLm
-	XjWbreNBf1e3QzI9iK+wuB4P3JeVABwmLgyZyeXob7bCScAa5BDfITRXdLx7SbapsfgQ0YdhR0T9G
-	UcYwFPRBrSM8a9jXsgJawDtPPL9g1f3WjWZTVTzSxOg9hhUNAcPWDIuTd8aeVwxcdz9LylPAgBVAH
-	6Lp3Rl4XlU3vJZ2JoMp49HHk4baD4JzhD3eC+eoqMKVcMzrKduFKAYFsCSshks4TgB4W4Za9X8UZr
-	5UZxTu0Fx4I1PWci/vHvklA4/oMg4G4P69CGX59b3jeAgx/y3i60m0ptp/JtFQxou6fL6PGGKzNjz
-	xpg4jX+3wtody8RlGPKQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JyxBZ8hycaVnlIACA/IZmJ4FAFws+7Nkzgi2P5olvII=; b=S78H9KCNnNFnl1
+	giMLKVm8h/GjaJx6LJ+TxibYlr+Q93VMn3ToXhwxSkNViYkPqJd2Dj64bdCKuCesQuBCUY7XmGc8O
+	PS6HUyb4jRuPJs/b7Dnv3DLlRnElJLriiuhY8aFn2pwhe9fvTX4PMCGtXsjdBMIfeEDTF8qNic8Il
+	/0JsdERtq3oQ/oEMoaK71wLqxZIJDNAGNXJ4sR86UbVjtH1qcFNdQ1K+FFsRXfTJWp3+ABkUSFKG8
+	pEniE86iddmWjcJl6T2xqCLO9uruvqpPUeP03kMwNTxV4ZyzkSCAg/aRGSmj+ePWew0VKFyLPZg84
+	z98b/om02ICV7A3AdQBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nqrci-00C8Rj-0C; Tue, 17 May 2022 07:28:04 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1nquf5-00DAor-UN; Tue, 17 May 2022 10:42:43 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nqrc8-00C88S-Ry; Tue, 17 May 2022 07:27:31 +0000
-Received: from kwepemi100018.china.huawei.com (unknown [172.30.72.53])
- by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4L2SL90wTHzGpxl;
- Tue, 17 May 2022 15:24:33 +0800 (CST)
-Received: from kwepemm600017.china.huawei.com (7.193.23.234) by
- kwepemi100018.china.huawei.com (7.221.188.35) with Microsoft SMTP Server
+ id 1nquf2-00DAn1-7B
+ for linux-riscv@lists.infradead.org; Tue, 17 May 2022 10:42:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1652784160; x=1684320160;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=WBs2eI6X8CZ5YiF7kldg80ncAuzPV9s8G23gHoKP1l0=;
+ b=ivVNoJGpW1YXUfQ4R6fn78IJcoF+LD7pW4ZeWVF30k1in9tmTIxQWkkA
+ F0dC5jJioUxB1SslmzgFyzYNELooZc0lCg9T8LATqLVbiRxy7otbClmVR
+ dd+zEpiGJRPIxdskPlp4GHOjzeS8F9tJKcLNYAh7MXL5UZoy+B0YyJ57G
+ NQrD75bTmXP61TppfkwRWQjKsSz5uIos9t/m1rNHAl74kRIv9vBjC3WoT
+ UN4p+wfsWTTzYysASqGiBPVM1F6rSFd6svJnq6v0nXq8U9Gopk6uZNqYL
+ 5M/bH/qVmwMFbgxBfsYr1+7q1QaLwosg+4ILkcUakU2x5LsiVtJt9h9Sg A==;
+X-IronPort-AV: E=Sophos;i="5.91,232,1647327600"; d="scan'208";a="156367300"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 17 May 2022 03:42:35 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Tue, 17 May 2022 15:27:26 +0800
-Received: from localhost.localdomain (10.175.112.125) by
- kwepemm600017.china.huawei.com (7.193.23.234) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Tue, 17 May 2022 15:27:25 +0800
-From: Tong Tiangen <tongtiangen@huawei.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Palmer Dabbelt <palmerdabbelt@google.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>, 
- <linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Tong Tiangen
- <tongtiangen@huawei.com>, <wangkefeng.wang@huawei.com>, Guohanjun
- <guohanjun@huawei.com>, Xie XiuQi <xiexiuqi@huawei.com>
-Subject: [PATCH -next 2/2] arm64/mm: fix page table check compile error for
- CONFIG_PGTABLE_LEVELS=2
-Date: Tue, 17 May 2022 07:45:48 +0000
-Message-ID: <20220517074548.2227779-3-tongtiangen@huawei.com>
+ 15.1.2375.17; Tue, 17 May 2022 03:42:34 -0700
+Received: from conor-HP-Z240-Tower-Workstation.microchip.com (10.10.115.15) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ id
+ 15.1.2375.17 via Frontend Transport; Tue, 17 May 2022 03:42:32 -0700
+From: Conor Paxton <conor.paxton@microchip.com>
+To: <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>
+CC: Lewis Hanly <lewis.hanly@microchip.com>, Rob Herring <robh+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, Conor Paxton <conor.paxton@microchip.com>
+Subject: [PATCH] riscv: dts: microchip: fix gpio1 reg property typo
+Date: Tue, 17 May 2022 11:40:58 +0100
+Message-ID: <20220517104058.2004734-1-conor.paxton@microchip.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220517074548.2227779-1-tongtiangen@huawei.com>
-References: <20220517074548.2227779-1-tongtiangen@huawei.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.175.112.125]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemm600017.china.huawei.com (7.193.23.234)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220517_002729_143219_31118DCF 
-X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-CacheID: sfid-20220517_034240_354687_DFB83929 
+X-CRM114-Status: UNSURE (   9.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,71 +82,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-If CONFIG_PGTABLE_LEVELS=2 and CONFIG_ARCH_SUPPORTS_PAGE_TABLE_CHECK=y,
-then we trigger a compile error:
+Fix reg address typo in the gpio1 stanza.
 
-  error: implicit declaration of function 'pte_user_accessible_page'
-
-Move the definition of page table check helper out of branch
-CONFIG_PGTABLE_LEVELS > 2
-
-Fixes: daf214c14dbe ("arm64/mm: enable ARCH_SUPPORTS_PAGE_TABLE_CHECK")
-Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+Signed-off-by: Conor Paxton <conor.paxton@microchip.com>
 ---
- arch/arm64/include/asm/pgtable.h | 33 ++++++++++++++++----------------
- 1 file changed, 17 insertions(+), 16 deletions(-)
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 4e61cde27f9f..979601528f1e 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -667,22 +667,6 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
- #define pud_valid(pud)		pte_valid(pud_pte(pud))
- #define pud_user(pud)		pte_user(pud_pte(pud))
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index 746c4d4e7686..cf2f55e1dcb6 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -366,7 +366,7 @@ gpio0: gpio@20120000 {
  
--#ifdef CONFIG_PAGE_TABLE_CHECK
--static inline bool pte_user_accessible_page(pte_t pte)
--{
--	return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
--}
--
--static inline bool pmd_user_accessible_page(pmd_t pmd)
--{
--	return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
--}
--
--static inline bool pud_user_accessible_page(pud_t pud)
--{
--	return pud_present(pud) && pud_user(pud);
--}
--#endif
- 
- static inline void set_pud(pud_t *pudp, pud_t pud)
- {
-@@ -855,6 +839,23 @@ static inline int pgd_devmap(pgd_t pgd)
- }
- #endif
- 
-+#ifdef CONFIG_PAGE_TABLE_CHECK
-+static inline bool pte_user_accessible_page(pte_t pte)
-+{
-+	return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
-+}
-+
-+static inline bool pmd_user_accessible_page(pmd_t pmd)
-+{
-+	return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
-+}
-+
-+static inline bool pud_user_accessible_page(pud_t pud)
-+{
-+	return pud_present(pud) && pud_user(pud);
-+}
-+#endif
-+
- /*
-  * Atomic pte/pmd modifications.
-  */
+ 		gpio1: gpio@20121000 {
+ 			compatible = "microchip,mpfs-gpio";
+-			reg = <000 0x20121000 0x0 0x1000>;
++			reg = <0x0 0x20121000 0x0 0x1000>;
+ 			interrupt-parent = <&plic>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <1>;
 -- 
 2.25.1
 
