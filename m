@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FC67C433FE
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 May 2022 14:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E417C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 May 2022 15:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T28WnLtQ0ytsDX10dr7qP+h7VAxhdE0oUG5rVqfN6kc=; b=ThkFHOaHSpkd5p
-	b4bCI9Hx7xNkUMJvLweP6H5Ar5IGPe+j5lbDXEsSBu0QCDw3pt9pY2QvL4Wyl09Kksl+bqhWX6bfy
-	sqwQrOxJekdELb7nJ+5hH4Y9bjQu5UhkzSiOOjiifPtoaHpXukIWiSOpwg9qdkQ0lz/ZcWnZt4Gm8
-	F4x5aXxxWtutSZnRZCvbiyxHfdGQ5F+wfGJ/udoNgmSJSitNHBaMXq23hD1tG3W5S7M9PKxX5WFoT
-	+1b/M2yzvPRehUc+LrBMM0fWQrYIEMqD9Eoa9xRKFIL5ezFCsRhMGbEQuLiHta+JFlGYgAZ+B4V/v
-	CDb//IMm9Gw6pGK7Mwqg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=pjm4etrwPsMD1qTsYCsddIUBiZqQdVl5qC1Dsl7gpFA=; b=Q9rta1lEFIG0uGfOzJYhoKbU3J
+	hYWBpwLNxURIvEQT75nY9BQBWUcqf0+V7x9z5annz7RJO6ATylmoeEzj0CW//Ew5GG0wMz2DYDXK8
+	Tt+jplkhbiqQEmuLikHA6QWHGfsOIdxTbtZCYmpdVe5uGicmfPX26ukkD1WayM5rHjIFx8IY0SM57
+	JE7Tq2UEWDJV52Jw8nXBLxBHTllueZJzXDTvjAoMrrRw+JmQh4KBm+OtGXu2etrb+7r1R7hwCt4BW
+	x7avsOMRgYoAxdsiN6w/X8lT2uRpu4p43rHAznFwnTU4jGrsiiuxAfKwLxMx/tAGKYgsoPbNzNtv6
+	XwS4jkEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nqyXx-00EXOv-SI; Tue, 17 May 2022 14:51:37 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1nqzVj-00Elur-5C; Tue, 17 May 2022 15:53:23 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nqyXv-00EXMj-JJ
- for linux-riscv@lists.infradead.org; Tue, 17 May 2022 14:51:36 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id o22so21178690ljp.8
- for <linux-riscv@lists.infradead.org>; Tue, 17 May 2022 07:51:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=message-id:date:mime-version:user-agent:subject:content-language:to
- :cc:references:from:in-reply-to:content-transfer-encoding;
- bh=fItPi4WH6eFny62sNLwk0x/dSWz/KeliSihrZvDBGCI=;
- b=SKZXvVEkhFni6NzylNm4G0Pn98ecOqHdH6IY3kqNwRU5BDemhZl6Sv2QTHDZ0+a3xG
- 3sHhiJ5rmPPO3CKqKQ+qHC+LALgxaG8MIqca3q6NaME1w9oWFnt/T+GbOubX0JaGfbVo
- I14YjlrOIt8p9CeG7NNfLtfQyn7Wnnutw46/dJDMRe72Vm5F3esQbw5nNu6drp7I4XmU
- GGF7duSC0YFVk5pOpwxrXEATYaGLxRMYwkyZOLlSvH/0pTPrgcbN6hd8ihEWvtLRpivt
- OKirjfEO/QElSePc92GOVlV0B/ybygpT8Kr5aP6WO14zg4+ZQbcPb5rFNiDmwhUncKBh
- QPYA==
+ id 1nqzVg-00Eltu-6i
+ for linux-riscv@lists.infradead.org; Tue, 17 May 2022 15:53:21 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id gg20so7713052pjb.1
+ for <linux-riscv@lists.infradead.org>; Tue, 17 May 2022 08:53:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Hs0EGDgiC/nheHQjay4f7d4Madw5Vg5K/0RTksKnNSc=;
+ b=viw4C9/ootWzvMXVM/iHkeQImM8GisZFZ0TUqXoBE9zK6OjPuTxbFKVlQLtZ4bF4KA
+ C8PaogOzBoJCm44PVbijfogy8HSlLmI0WQCKGNuy7tUYLvL3gYICpoII0EeHCI/ethJ0
+ HI1kYg+HH4gDRhwwjv/j03aKITL6+IUfisvTAMjthrpeqX7YCWniPtAnOiORvreozlbv
+ 4IY/wSFj3HJ9G0alg8ssJpSx6WHPzMY7+m+YvPXHTHoiC2ACHuFLAzpA5LbBgTBgjGrF
+ sM3Cn9HZTj+gGHGKEM9XO+34k/eeOVT/WRX3FRkWcVs44PbpX0Ehm0z8ieU+wKZ7UeGO
+ VMww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
- :content-transfer-encoding;
- bh=fItPi4WH6eFny62sNLwk0x/dSWz/KeliSihrZvDBGCI=;
- b=JsrQCEaoUYqeQeMn/HqQN02/ZWQt+Omc2BjTDibum5IfVeVWM2Fe7yuKXWwpFlYcQf
- kTjLh1HX44tlnZ06evj+URFVgk94gr4tQn23yz97uKrngtCmeEXZvBHKRpgJPe7lM3bW
- tS2pRUGUadRym/PcSBH9u95v+lGL3N4vBRlOrECMRQUMGYcZR0OK0MGrJs8+ddkx9gKE
- zIxVa/voeCSK+r59uYF3cEm/RCm9QXWMXGzU+JSYA+UN/mvYQVMo4asTRxDOJBZJbXwN
- hbaK0ICdPDswhAwnvpFIKleqAtUc/DxotIq10qpLePiO0Vvv1n3XRTi3KGlvbpToV/Uz
- T8KA==
-X-Gm-Message-State: AOAM531k3MgGAu9J839kLqhE7p5SRtxXt9V//er87Fy7SnrOKpYq74zh
- s1d6a4by/e9FCXYPQqFFNvrH0w==
-X-Google-Smtp-Source: ABdhPJyWm2Zl9OZhnOZge8xJaNB/lSejMQtbBHoeyzWsyXYfqc/xhWPGsDcU2RUdb22zZ0kRvGkOIw==
-X-Received: by 2002:a2e:8e84:0:b0:24f:1d40:ceb0 with SMTP id
- z4-20020a2e8e84000000b0024f1d40ceb0mr14890942ljk.292.1652799093975; 
- Tue, 17 May 2022 07:51:33 -0700 (PDT)
-Received: from [192.168.0.17] (78-11-189-27.static.ip.netia.com.pl.
- [78.11.189.27]) by smtp.gmail.com with ESMTPSA id
- d7-20020a05651221c700b0047255d210f0sm1607514lft.31.2022.05.17.07.51.32
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 17 May 2022 07:51:33 -0700 (PDT)
-Message-ID: <0f9398aa-ab7d-44e4-033a-e13bf57f88d2@linaro.org>
-Date: Tue, 17 May 2022 16:51:32 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.1
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=Hs0EGDgiC/nheHQjay4f7d4Madw5Vg5K/0RTksKnNSc=;
+ b=04uw0CUCC79Y9FXMFCxuamuUnfSBGCYhltYswULXtWmIrWGtZJHGFNxVFWX5GfgBOZ
+ Vk9OeX/kG1VxzOLxkCGn23sON3zKxrTIAOP/YvHrFWUM1h61T9lveumdfMaECUVcKNTd
+ ZKLZnhK1tzxp4vBOS2ryjaKHIhu/JHlWrhBNlqt0rW35DY2SW9yduvg71gDZp3OgNfnB
+ NExnXgVlXQXmjHdHPwZfuO8WFo3gWuDzaCfUCWCYFk4qCAr/vVFCvRI2Xatjdrx4wyux
+ CVIjIfvZpRhFvOSwz2z48cQzYFGaV9vpYChH4/EKvrkVVNPN+0mG1GkIJ9REnuII3mq4
+ 4Xng==
+X-Gm-Message-State: AOAM530JqtjXMhRbQwrdPEvUGGqfYM9GX6RgZsWFPPG8omNlt9Q3TsZp
+ RkYnDrm8rA1iNrutd1at/5fmhQ==
+X-Google-Smtp-Source: ABdhPJyCnhFvvuk6ZClBb8fG7LYd4wXxtM1aHKMyOUTynr2YG2isxqa1mMxyv/2NdJpo4oXMmj9yKg==
+X-Received: by 2002:a17:902:d4ce:b0:15e:8d66:d20d with SMTP id
+ o14-20020a170902d4ce00b0015e8d66d20dmr22875474plg.70.1652802798296; 
+ Tue, 17 May 2022 08:53:18 -0700 (PDT)
+Received: from localhost ([12.3.194.138]) by smtp.gmail.com with ESMTPSA id
+ cq24-20020a17090af99800b001df1f7c5941sm1875114pjb.16.2022.05.17.08.53.17
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 17 May 2022 08:53:17 -0700 (PDT)
+Date: Tue, 17 May 2022 08:53:17 -0700 (PDT)
+X-Google-Original-Date: Tue, 17 May 2022 08:53:15 PDT (-0700)
 Subject: Re: [PATCH] riscv: dts: microchip: fix gpio1 reg property typo
-Content-Language: en-US
-To: Conor Paxton <conor.paxton@microchip.com>, conor.dooley@microchip.com,
- Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Lewis Hanly <lewis.hanly@microchip.com>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20220517104058.2004734-1-conor.paxton@microchip.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220517104058.2004734-1-conor.paxton@microchip.com>
+In-Reply-To: <0f9398aa-ab7d-44e4-033a-e13bf57f88d2@linaro.org>
+CC: conor.paxton@microchip.com, conor.dooley@microchip.com,
+ lewis.hanly@microchip.com, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, 
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: krzysztof.kozlowski@linaro.org
+Message-ID: <mhng-3ddeb279-a369-4eef-b74f-5a4597852519@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220517_075135_703330_A7586069 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220517_085320_483057_38431F5C 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,25 +87,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/05/2022 12:40, Conor Paxton wrote:
-> Fix reg address typo in the gpio1 stanza.
-> 
-> Signed-off-by: Conor Paxton <conor.paxton@microchip.com>
-> ---
->  arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 2 +-
+On Tue, 17 May 2022 07:51:32 PDT (-0700), krzysztof.kozlowski@linaro.org wrote:
+> On 17/05/2022 12:40, Conor Paxton wrote:
+>> Fix reg address typo in the gpio1 stanza.
+>>
+>> Signed-off-by: Conor Paxton <conor.paxton@microchip.com>
+>> ---
+>>  arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 2 +-
+>
+> Pressed send to fast...
+>
+> Please add Fixes tag, unless fixed commit SHA is not considered stable.
 
-Pressed send to fast...
+Conor might be asleep, and as it's late in the cycle I figured I'd just 
+chime in directly.  This LGTM, I usually add fixes myself if there 
+aren't any.  Unless there's any objections to
 
-Please add Fixes tag, unless fixed commit SHA is not considered stable.
+Fixes: 528a5b1f2556 ("riscv: dts: microchip: add new peripherals to icicle kit device tree")
+
+I'll put this on fixes.
+
+Thanks!
 
 
-Best regards,
-Krzysztof
+>
+>
+> Best regards,
+> Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
