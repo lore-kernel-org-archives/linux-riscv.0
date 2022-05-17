@@ -4,81 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4684DC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 17 May 2022 14:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8B1C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 17 May 2022 14:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2G6d28PEyhuybsXbwoLRYfnSTXSAJYEIH1HGOVVw3HM=; b=E9K6jg94jWgDB6
-	WWlgdvp+hMJPCJWxiYH83uBVL0taiYZ9x6w9/RYFpQmMEeJBu9uM5/+BN1Id/1ZXKTm8oJkq5KYMk
-	52d4jyb/dOf0J2dOW+YKPOXi9DNcETQl+hOZyUz09F45bxz8PRXWuKoBZ6rIttIEyewn9iPQS6txK
-	Docex1nnRFhiIF2kAR/2/klyFVmOrvZekjp/gEp9r77Nceg+rKoYgyGI4rUO2oSDuFtmjQRML+g00
-	wq9+XzHVOWiXQJvV+h/sDm4xK6Loqocce4RMLy/qP5iAq80mEikOaVEiUQhHWA+8L2JuRtNMfw69M
-	7iHFX6/ShBQ3sJz+diaw==;
+	List-Owner; bh=ua9/OEFhJrs3+XNueXiRtNeV2KgbabcYQM0oD5otw8U=; b=D5+aXlML1D8ato
+	kB9Sa3KOoydoAFvUkmG7TrelB5uEZfBbMqMOXCHPJNs7+ri1WiCsqiibFLp7yeFbdQ+Iip1xKLX0G
+	JuoqlXXBYCLRfzm9TPQrCLx34WtwvdM9bqzskZ+JH9jtvoU0sJonaHgUzA1tZAxXwU9M8YUY5Emm9
+	Sb3TXKuN1U1eiLmdss0sSiKImo49NoImh6QDYw9vpwlDodX1oHrtVj7G+ST2ckTtI5IgFXBVdfCwW
+	s/xE0X6ODcWsLpiBAipGy29uqskJ2hTuA5CPxdPTUQDj1Ls3T6/Sy+rIF0/XSGU8BgYR3Wtmh+7IU
+	KqDT4Idf/5hHUd87wXYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nqxnc-00EB32-6s; Tue, 17 May 2022 14:03:44 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1nqxy9-00EGAX-6h; Tue, 17 May 2022 14:14:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nqxmf-00EAWu-Fn
- for linux-riscv@lists.infradead.org; Tue, 17 May 2022 14:02:50 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id ks9so34920744ejb.2
- for <linux-riscv@lists.infradead.org>; Tue, 17 May 2022 07:02:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=soleen.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=N9HewkSlUJVZn5Q/5DNbVooH5f3deVdZxeiACn1Li5Q=;
- b=D1Bhh2rFbxniirvRlq8fQpSsjhzTd4HG9tCO9tweapcfhjW/Zh+gssG0f1VEJ0SmlX
- lEjILkfOUWZaRc4WPbV2W6Nnj7uKhtjj0Yu0DwrRkePwpuJaqpXO1NMzG3fqnnQYiL5c
- 4o8vEwIookXG387ENoyDo+UuaMF6EJuQsmqw3+DhJ0s55EPeNU4tYlUk+Fmy3uX4vfP2
- sIxYN2GrvAkrYiUayOaCkhdtVRcHLwThhbN8nI7Iz7xQpXLTPC1V4W2f9DCvooesQcfp
- harY/gCcznNaXbYkuGnwboFsj9wtHrGUBBQPNfdUWMksNmk5vnf4Xnhc638E0z15KNqx
- yhuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=N9HewkSlUJVZn5Q/5DNbVooH5f3deVdZxeiACn1Li5Q=;
- b=Oaa0bVEFCQZAGBcT8K62d2PTS5QvadtnPsoFHTFMlLwNQLVOs7CAW2wSZIXLLFSDf3
- P/0KmmHqy0iage/JVeRLQGQ9EwxTfdblevxTXMOpYYMcX32ngw9MNbF+E4IDcmiDxrJw
- cKoH4YMqAhfzzjxdGUFv0GzXdt222ZmusS1r5lw9S5pOF+JNTBp9jIWj15OXzIvqGwLe
- k9PI79y0rgDe23F4bHGn9043DLDB4tTmLr8ydX3MAz8D/Y6XD0xy8qKledaMggi6HDTO
- gV+3X35UIdjwZHCJ3JEbuQ1Ll7u42euBhuwcWv9uSt7tmMIH/zdKOJMJEBnCWzniuzlz
- /H9g==
-X-Gm-Message-State: AOAM533eiWyR7o04OsxHEZ4ak/+DOokBgLTLtZ/Af4kpCs5ynqqGhcFr
- W2V+LTZd58ipeMsOvcjMvTEBmEuCf5XH+WLhfBc0Uw==
-X-Google-Smtp-Source: ABdhPJxOwyk4HNt9oPRkEy5I5QUZydIXq/f8v17gUcucRvEiHNgTHnnnO/ED+5cn5m9R2w8ThMMfQZEO3BpzSSqd1+g=
-X-Received: by 2002:a17:906:9b8b:b0:6fe:55db:14e with SMTP id
- dd11-20020a1709069b8b00b006fe55db014emr5506610ejc.327.1652796161372; Tue, 17
- May 2022 07:02:41 -0700 (PDT)
+ id 1nqxxU-00EFuk-Gm; Tue, 17 May 2022 14:14:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 60CF6615C7;
+ Tue, 17 May 2022 14:13:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E63AC385B8;
+ Tue, 17 May 2022 14:13:52 +0000 (UTC)
+Date: Tue, 17 May 2022 10:13:51 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Li kunyu <kunyu@nfschina.com>
+Cc: mingo@redhat.com, linux@armlinux.org.uk, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+ svens@linux.ibm.com, tglx@linutronix.de, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ liqiong@nfschina.com
+Subject: Re: [PATCH] kernel: Ftrace seems to have functions to improve
+ performance through optimization  through optimization
+Message-ID: <20220517101351.273b385f@gandalf.local.home>
+In-Reply-To: <20220513021314.59480-1-kunyu@nfschina.com>
+References: <20220512110725.22e69e3c@gandalf.local.home>
+ <20220513021314.59480-1-kunyu@nfschina.com>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20220507110114.4128854-1-tongtiangen@huawei.com>
- <20220507110114.4128854-6-tongtiangen@huawei.com> <20220517135435.GA553@mutt>
-In-Reply-To: <20220517135435.GA553@mutt>
-From: Pasha Tatashin <pasha.tatashin@soleen.com>
-Date: Tue, 17 May 2022 10:02:06 -0400
-Message-ID: <CA+CK2bAnfxTo-Osvo9=0t=RkC4rTR+mgg2JSypsu3wm6BZFT=A@mail.gmail.com>
-Subject: Re: [PATCH -next v7 5/6] arm64/mm: Enable
- ARCH_SUPPORTS_PAGE_TABLE_CHECK
-To: Anders Roxell <anders.roxell@linaro.org>
-Cc: Tong Tiangen <tongtiangen@huawei.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, 
- "maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
- "H. Peter Anvin" <hpa@zytor.com>, 
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Andrew Morton <akpm@linux-foundation.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, LKML <linux-kernel@vger.kernel.org>, 
- linux-mm <linux-mm@kvack.org>, Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-riscv@lists.infradead.org, Kefeng Wang <wangkefeng.wang@huawei.com>, 
- Guohanjun <guohanjun@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220517_070245_596238_84AFCEEC 
-X-CRM114-Status: GOOD (  30.35  )
+X-CRM114-CacheID: sfid-20220517_071356_662904_A8FAEA12 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,243 +69,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 17, 2022 at 9:54 AM Anders Roxell <anders.roxell@linaro.org> wrote:
->
-> On 2022-05-07 11:01, Tong Tiangen wrote:
-> > From: Kefeng Wang <wangkefeng.wang@huawei.com>
-> >
-> > As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table check")
-> > , enable ARCH_SUPPORTS_PAGE_TABLE_CHECK on arm64.
-> >
-> > Add additional page table check stubs for page table helpers, these stubs
-> > can be used to check the existing page table entries.
-> >
-> > Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> > Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-> > Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
->
-> When building and booting an arm64 allmodconfig kernel on the next tree, branch next-20220516,
-> see the following kernel oops when booting in QEMU [1]:
->
-> T35] ------------[ cut here ]------------
-> [  578.695796][   T35] kernel BUG at mm/page_table_check.c:82!
-> [  578.697292][   T35] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
-> [  578.704318][   T35] Modules linked in:
-> [  578.705907][   T35] CPU: 0 PID: 35 Comm: khugepaged Tainted: G                T 5.18.0-rc6-next-20220513 #1 893498a5d8159d9fb26e12492a93c07e83dd4b7f
-> [  578.711170][   T35] Hardware name: linux,dummy-virt (DT)
-> [  578.713315][   T35] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> [  578.716398][   T35] pc : page_table_check_clear.constprop.0+0x1f4/0x280
-> [  578.719107][   T35] lr : page_table_check_clear.constprop.0+0x1cc/0x280
-> [  578.721781][   T35] sp : ffff80000f3778b0
-> [  578.723446][   T35] x29: ffff80000f3778b0 x28: ffff80000b891218 x27: ffff000012dd55f0
-> [  578.726667][   T35] x26: 0000000000000008 x25: ffff80000c38cd80 x24: 0000000000000000
-> [  578.729870][   T35] x23: ffff80000c38c9c0 x22: 0000000000000000 x21: 0000000000000200
-> [  578.733079][   T35] x20: ffff000007bae000 x19: ffff000007bae008 x18: 0000000000000000
-> [  578.736299][   T35] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-> [  578.739505][   T35] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-> [  578.742735][   T35] x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
-> [  578.745925][   T35] x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
-> [  578.749145][   T35] x5 : 0000000000000000 x4 : 0000000000000000 x3 : ffff000007bae00c
-> [  578.752348][   T35] x2 : 0000000000000000 x1 : 0000000000000001 x0 : 00000000ffffffff
-> [  578.755556][   T35] Call trace:
-> [  578.756877][   T35]  page_table_check_clear.constprop.0+0x1f4/0x280
-> [  578.759446][   T35]  __page_table_check_pmd_clear+0xc4/0x140
-> [  578.761757][   T35]  pmdp_collapse_flush+0xa4/0x1c0
-> [  578.763771][   T35]  collapse_huge_page+0x4e4/0xb00
-> [  578.765778][   T35]  khugepaged_scan_pmd+0xc18/0xd00
-> [  578.767840][   T35]  khugepaged_scan_mm_slot+0x580/0x780
-> [  578.770018][   T35]  khugepaged+0x2dc/0x400
-> [  578.771786][   T35]  kthread+0x164/0x180
-> [  578.773430][   T35]  ret_from_fork+0x10/0x20
-> [  578.775253][   T35] Code: 52800021 91001263 14000388 36f80040 (d4210000)
-> [  578.777990][   T35] ---[ end trace 0000000000000000 ]---
-> [  578.778021][   T35] Kernel panic - not syncing: Oops - BUG: Fatal exception
-> [  578.782934][   T35] Kernel Offset: disabled
-> [  578.784642][   T35] CPU features: 0x000,00100010,00001086
-> [  578.786848][   T35] Memory Limit: none
-> [  578.788433][   T35] ---[ end Kernel panic - not syncing: Oops - BUG: Fatal exception ]---
->
-> Bisected down to this patch, see the bisect log [2].
->
-> When I revert this patch I don't see the issue anymore.
+On Fri, 13 May 2022 10:13:14 +0800
+Li kunyu <kunyu@nfschina.com> wrote:
 
-Thank you for reporting this. I believe, this is the same problem that
-Anshuman saw [1]. However, at that time he could not reproduce it
-anymore. Can you please provide QEMU command line, QEMU version,
-kernel config, and information about the base image you are using.
+> Subject: [PATCH] kernel: Ftrace seems to have functions to improve performance through optimization  through optimization
 
-Thank you,
-Pasha
-
-[1] https://lore.kernel.org/all/1c314feb-cd78-2bb3-462e-4ea3cefe122e@arm.com/
+Did you forget to add a subject line. The above looks to be the beginning
+of the paragraph below.
 
 
->
-> Cheers,
-> Anders
-> [1] https://people.linaro.org/~anders.roxell/output-next-20220513.log
-> [2] http://ix.io/3XZB
->
-> > ---
-> >  arch/arm64/Kconfig               |  1 +
-> >  arch/arm64/include/asm/pgtable.h | 61 ++++++++++++++++++++++++++++----
-> >  2 files changed, 56 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> > index 272c75af9302..3055fb5b3fb4 100644
-> > --- a/arch/arm64/Kconfig
-> > +++ b/arch/arm64/Kconfig
-> > @@ -92,6 +92,7 @@ config ARM64
-> >       select ARCH_SUPPORTS_ATOMIC_RMW
-> >       select ARCH_SUPPORTS_INT128 if CC_HAS_INT128
-> >       select ARCH_SUPPORTS_NUMA_BALANCING
-> > +     select ARCH_SUPPORTS_PAGE_TABLE_CHECK
-> >       select ARCH_WANT_COMPAT_IPC_PARSE_VERSION if COMPAT
-> >       select ARCH_WANT_DEFAULT_BPF_JIT
-> >       select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT
-> > diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> > index 8ebf1cec5d90..4e61cde27f9f 100644
-> > --- a/arch/arm64/include/asm/pgtable.h
-> > +++ b/arch/arm64/include/asm/pgtable.h
-> > @@ -33,6 +33,7 @@
-> >  #include <linux/mmdebug.h>
-> >  #include <linux/mm_types.h>
-> >  #include <linux/sched.h>
-> > +#include <linux/page_table_check.h>
-> >
-> >  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> >  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
-> > @@ -96,6 +97,7 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
-> >  #define pte_young(pte)               (!!(pte_val(pte) & PTE_AF))
-> >  #define pte_special(pte)     (!!(pte_val(pte) & PTE_SPECIAL))
-> >  #define pte_write(pte)               (!!(pte_val(pte) & PTE_WRITE))
-> > +#define pte_user(pte)                (!!(pte_val(pte) & PTE_USER))
-> >  #define pte_user_exec(pte)   (!(pte_val(pte) & PTE_UXN))
-> >  #define pte_cont(pte)                (!!(pte_val(pte) & PTE_CONT))
-> >  #define pte_devmap(pte)              (!!(pte_val(pte) & PTE_DEVMAP))
-> > @@ -312,8 +314,8 @@ static inline void __check_racy_pte_update(struct mm_struct *mm, pte_t *ptep,
-> >                    __func__, pte_val(old_pte), pte_val(pte));
-> >  }
-> >
-> > -static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
-> > -                           pte_t *ptep, pte_t pte)
-> > +static inline void __set_pte_at(struct mm_struct *mm, unsigned long addr,
-> > +                             pte_t *ptep, pte_t pte)
-> >  {
-> >       if (pte_present(pte) && pte_user_exec(pte) && !pte_special(pte))
-> >               __sync_icache_dcache(pte);
-> > @@ -343,6 +345,13 @@ static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
-> >       set_pte(ptep, pte);
-> >  }
-> >
-> > +static inline void set_pte_at(struct mm_struct *mm, unsigned long addr,
-> > +                           pte_t *ptep, pte_t pte)
-> > +{
-> > +     page_table_check_pte_set(mm, addr, ptep, pte);
-> > +     return __set_pte_at(mm, addr, ptep, pte);
-> > +}
-> > +
-> >  /*
-> >   * Huge pte definitions.
-> >   */
-> > @@ -454,6 +463,8 @@ static inline int pmd_trans_huge(pmd_t pmd)
-> >  #define pmd_dirty(pmd)               pte_dirty(pmd_pte(pmd))
-> >  #define pmd_young(pmd)               pte_young(pmd_pte(pmd))
-> >  #define pmd_valid(pmd)               pte_valid(pmd_pte(pmd))
-> > +#define pmd_user(pmd)                pte_user(pmd_pte(pmd))
-> > +#define pmd_user_exec(pmd)   pte_user_exec(pmd_pte(pmd))
-> >  #define pmd_cont(pmd)                pte_cont(pmd_pte(pmd))
-> >  #define pmd_wrprotect(pmd)   pte_pmd(pte_wrprotect(pmd_pte(pmd)))
-> >  #define pmd_mkold(pmd)               pte_pmd(pte_mkold(pmd_pte(pmd)))
-> > @@ -501,8 +512,19 @@ static inline pmd_t pmd_mkdevmap(pmd_t pmd)
-> >  #define pud_pfn(pud)         ((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT)
-> >  #define pfn_pud(pfn,prot)    __pud(__phys_to_pud_val((phys_addr_t)(pfn) << PAGE_SHIFT) | pgprot_val(prot))
-> >
-> > -#define set_pmd_at(mm, addr, pmdp, pmd)      set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd))
-> > -#define set_pud_at(mm, addr, pudp, pud)      set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud))
-> > +static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
-> > +                           pmd_t *pmdp, pmd_t pmd)
-> > +{
-> > +     page_table_check_pmd_set(mm, addr, pmdp, pmd);
-> > +     return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
-> > +}
-> > +
-> > +static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
-> > +                           pud_t *pudp, pud_t pud)
-> > +{
-> > +     page_table_check_pud_set(mm, addr, pudp, pud);
-> > +     return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
-> > +}
-> >
-> >  #define __p4d_to_phys(p4d)   __pte_to_phys(p4d_pte(p4d))
-> >  #define __phys_to_p4d_val(phys)      __phys_to_pte_val(phys)
-> > @@ -643,6 +665,24 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
-> >  #define pud_present(pud)     pte_present(pud_pte(pud))
-> >  #define pud_leaf(pud)                (pud_present(pud) && !pud_table(pud))
-> >  #define pud_valid(pud)               pte_valid(pud_pte(pud))
-> > +#define pud_user(pud)                pte_user(pud_pte(pud))
-> > +
-> > +#ifdef CONFIG_PAGE_TABLE_CHECK
-> > +static inline bool pte_user_accessible_page(pte_t pte)
-> > +{
-> > +     return pte_present(pte) && (pte_user(pte) || pte_user_exec(pte));
-> > +}
-> > +
-> > +static inline bool pmd_user_accessible_page(pmd_t pmd)
-> > +{
-> > +     return pmd_present(pmd) && (pmd_user(pmd) || pmd_user_exec(pmd));
-> > +}
-> > +
-> > +static inline bool pud_user_accessible_page(pud_t pud)
-> > +{
-> > +     return pud_present(pud) && pud_user(pud);
-> > +}
-> > +#endif
-> >
-> >  static inline void set_pud(pud_t *pudp, pud_t pud)
-> >  {
-> > @@ -876,7 +916,11 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
-> >  static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
-> >                                      unsigned long address, pte_t *ptep)
-> >  {
-> > -     return __pte(xchg_relaxed(&pte_val(*ptep), 0));
-> > +     pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
-> > +
-> > +     page_table_check_pte_clear(mm, address, pte);
-> > +
-> > +     return pte;
-> >  }
-> >
-> >  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> > @@ -884,7 +928,11 @@ static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
-> >  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
-> >                                           unsigned long address, pmd_t *pmdp)
-> >  {
-> > -     return pte_pmd(ptep_get_and_clear(mm, address, (pte_t *)pmdp));
-> > +     pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
-> > +
-> > +     page_table_check_pmd_clear(mm, address, pmd);
-> > +
-> > +     return pmd;
-> >  }
-> >  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
-> >
-> > @@ -918,6 +966,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
-> >  static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
-> >               unsigned long address, pmd_t *pmdp, pmd_t pmd)
-> >  {
-> > +     page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
-> >       return __pmd(xchg_relaxed(&pmd_val(*pmdp), pmd_val(pmd)));
-> >  }
-> >  #endif
-> > --
-> > 2.25.1
-> >
->
-> --
-> Anders Roxell
-> anders.roxell@linaro.org
-> M: +46 708 22 71 05 | IRC: roxell
+> Date: Fri, 13 May 2022 10:13:14 +0800
+> Message-Id: <20220513021314.59480-1-kunyu@nfschina.com>
+> 
+> such as ftrace_ARCH_code_*, return 0, so the FTRACE_* check is not required
+
+And even combined, the above makes no sense.
+
+This patch is not an optimization patch. If it were, the optimization
+provided is so small, it's not worth adding it.
+
+Just state that it's a clean up (I already told you this). Here, I'll do
+the work for you (but I expect a proper patch):
+
+  Subject: [PATCH v2] ftrace: Remove return value of ftrace_arch_modify_*()
+
+  All instances of the function ftrace_arch_modify_prepare() and
+  ftrace_arch_modify_post_process() return zero. There's no point in
+  checking their return value. Just have them be void functions.
+
+There, that's what I would like to see.
+
+-- Steve
+
+
+> 
+> Signed-off-by: Li kunyu <kunyu@nfschina.com>
 
 _______________________________________________
 linux-riscv mailing list
