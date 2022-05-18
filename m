@@ -4,52 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13637C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 01:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4121FC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 02:38:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=P4LPmX8zvdJ1+nPe4Mx17EqnY8NQ/D2sdbNL4+eP//I=; b=4Jll/p3Y2pgqQf
-	55dOyS9O4r0hKlk2PzvLTMEqvsuQ4wjBvJLz9R1qg2FvY+kFj/FECORvaP2GxvApmKLZY6OIbuuoH
-	7+edRTM7BSYqjhBMrF5WvZNWbRW0Q8hZvVyI9YqlyT/vYMRNSJxoTw23IqnlWNvcsDVClYYJC9dxB
-	lwvqKVbX9KWx5NfFU+7LUj+C+8BlNzflnETvPO2/9/duJx6tsBVX6emQTEjCHejZr3QXblVrNeK4y
-	kvE5DNwCXLhjwEXQgMseoo7Mz7In2uctDo9kX0bXO4G81wvLSikEbAadrwW0XJo27ZkYrR3zoVSkq
-	vpkyM6QAUHV1wNZz697Q==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=v+ymnf0Dr0F2SDzxBVvwi1+2mgMJ5wLOreMGZDGQhsw=; b=31KddjcE4q8o5S
+	nNtX/9iueHijHQ+ynz6r0hUZEn//uniKwgh//GUEF422KuyyyYGZc7xKSxCd8TClC3mgilIo4LXJV
+	cogS58vtp6SBhOQHvO+WX4idi+2YvUfLN3JVrUX2y4xK8CemH151Lb3xcahXT4z1sVZxnI17FaE52
+	p33LFqwhkFOuJfPV/zj3uyYjMEq0l6zrjERrGzkoWxREyDQLPYncT5P5iyLQCNrgJ1NI73uqpRPwe
+	J8sx4HNjm4cYgYf/XSUWnn7KSkOpn8U3CSitCPkDAKipNHemjknrfV2bBkQxkTcNyE8oLv1+xXFWv
+	DD40XFf9fZEr0HKdTILg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nr8aL-00Gb7f-QL; Wed, 18 May 2022 01:34:45 +0000
-Received: from out30-45.freemail.mail.aliyun.com ([115.124.30.45])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nr8aH-00Gb6m-Js
- for linux-riscv@lists.infradead.org; Wed, 18 May 2022 01:34:43 +0000
-X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R161e4; CH=green; DM=||false|;
- DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04423;
- MF=xianting.tian@linux.alibaba.com; NM=1; PH=DS; RN=21; SR=0;
- TI=SMTPD_---0VDYa6oI_1652837670; 
-Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com
- fp:SMTPD_---0VDYa6oI_1652837670) by smtp.aliyun-inc.com(127.0.0.1);
- Wed, 18 May 2022 09:34:31 +0800
-From: Xianting Tian <xianting.tian@linux.alibaba.com>
-To: mick@ics.forth.gr, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, anup@brainfault.org, akpm@linux-foundation.org,
- wangkefeng.wang@huawei.com, rppt@kernel.org, david@redhat.com,
- wangborong@cdjrlc.com, twd2.me@gmail.com, seanjc@google.com, alex@ghiti.fr,
- petr.pavlu@suse.com, atishp@rivosinc.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- jianghuaming.jhm@alibaba-inc.com, guoren@kernel.org, heiko@sntech.de,
- Xianting Tian <xianting.tian@linux.alibaba.com>
-Subject: [PATCH v3] RISC-V: Mark IORESOURCE_EXCLUSIVE for reserved mem instead
- of IORESOURCE_BUSY
-Date: Wed, 18 May 2022 09:34:28 +0800
-Message-Id: <20220518013428.1338983-1-xianting.tian@linux.alibaba.com>
-X-Mailer: git-send-email 2.17.1
+	id 1nr9ZT-00GjA7-KI; Wed, 18 May 2022 02:37:55 +0000
+Received: from [2400:dd01:100f:2:72e2:84ff:fe10:5f45] (helo=mail.nfschina.com)
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nr9ZH-00Gj8B-JR; Wed, 18 May 2022 02:37:46 +0000
+Received: from localhost (unknown [127.0.0.1])
+ by mail.nfschina.com (Postfix) with ESMTP id ADC4D1E80D72;
+ Wed, 18 May 2022 10:31:08 +0800 (CST)
+X-Virus-Scanned: amavisd-new at test.com
+Received: from mail.nfschina.com ([127.0.0.1])
+ by localhost (mail.nfschina.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 0HRLVRu_izNp; Wed, 18 May 2022 10:31:05 +0800 (CST)
+Received: from localhost.localdomain (unknown [219.141.250.2])
+ (Authenticated sender: kunyu@nfschina.com)
+ by mail.nfschina.com (Postfix) with ESMTPA id 61A3B1E80D71;
+ Wed, 18 May 2022 10:31:05 +0800 (CST)
+From: Li kunyu <kunyu@nfschina.com>
+To: rostedt@goodmis.org
+Cc: mingo@redhat.com, linux@armlinux.org.uk, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+ svens@linux.ibm.com, tglx@linutronix.de, bp@alien8.de,
+ dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ Li kunyu <kunyu@nfschina.com>
+Subject: [PATCH v2] ftrace: Remove return value of ftrace_arch_modify_*()
+Date: Wed, 18 May 2022 10:36:40 +0800
+Message-Id: <20220518023639.4065-1-kunyu@nfschina.com>
+X-Mailer: git-send-email 2.18.2
+In-Reply-To: <20220517101351.273b385f@gandalf.local.home>
+References: <20220517101351.273b385f@gandalf.local.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220517_183441_868442_3FAE68CE 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220517_193744_052450_3463850C 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,73 +71,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 00ab027a3b82 ("RISC-V: Add kernel image sections to the resource tree")
-marked IORESOURCE_BUSY for reserved memory, which caused resource map
-failed in subsequent operations of related driver, so remove the
-IORESOURCE_BUSY flag. In order to prohibit userland mapping reserved
-memory, mark IORESOURCE_EXCLUSIVE for it.
+All instances of the function ftrace_arch_modify_prepare() and
+  ftrace_arch_modify_post_process() return zero. There's no point in
+  checking their return value. Just have them be void functions.
 
-The code to reproduce the issue,
-dts:
-        mem0: memory@a0000000 {
-                reg = <0x0 0xa0000000 0 0x1000000>;
-                no-map;
-        };
-
-        &test {
-                status = "okay";
-                memory-region = <&mem0>;
-        };
-
-code:
-        np = of_parse_phandle(pdev->dev.of_node, "memory-region", 0);
-        ret = of_address_to_resource(np, 0, &r);
-        base = devm_ioremap_resource(&pdev->dev, &r);
-        // base = -EBUSY
-
-Fixes: 00ab027a3b82 ("RISC-V: Add kernel image sections to the resource tree")
-Reported-by: Huaming Jiang <jianghuaming.jhm@alibaba-inc.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-Tested-by: Heiko Stuebner <heiko@sntech.de>
-Co-developed-by: Nick Kossifidis <mick@ics.forth.gr>
-Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+Signed-off-by: Li kunyu <kunyu@nfschina.com>
 ---
-Changes from v2:
-- Fix typo in commit message: casued -> caused
-- Remove Reviewed-by of Nick Kossifidis, who didn't give Reviewed-by actually
-- Add Co-developed-by of Nick
+ arch/arm/kernel/ftrace.c   |  6 ++----
+ arch/riscv/kernel/ftrace.c |  6 ++----
+ arch/s390/kernel/ftrace.c  |  3 +--
+ arch/x86/kernel/ftrace.c   |  6 ++----
+ include/linux/ftrace.h     |  4 ++--
+ kernel/trace/ftrace.c      | 16 ++++------------
+ 6 files changed, 13 insertions(+), 28 deletions(-)
 
-Changes from v1:
-- Mark reserved memory as IORESOURCE_EXCLUSIVE, suggested by Nick
----
- arch/riscv/kernel/setup.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index 834eb652a7b9..e0a00739bd13 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -189,7 +189,7 @@ static void __init init_resources(void)
- 		res = &mem_res[res_idx--];
+diff --git a/arch/arm/kernel/ftrace.c b/arch/arm/kernel/ftrace.c
+index 83cc068586bc..a0b6d1e3812f 100644
+--- a/arch/arm/kernel/ftrace.c
++++ b/arch/arm/kernel/ftrace.c
+@@ -79,16 +79,14 @@ static unsigned long __ref adjust_address(struct dyn_ftrace *rec,
+ 	return (unsigned long)&ftrace_regs_caller_from_init;
+ }
  
- 		res->name = "Reserved";
--		res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
-+		res->flags = IORESOURCE_MEM | IORESOURCE_EXCLUSIVE;
- 		res->start = __pfn_to_phys(memblock_region_reserved_base_pfn(region));
- 		res->end = __pfn_to_phys(memblock_region_reserved_end_pfn(region)) - 1;
+-int ftrace_arch_code_modify_prepare(void)
++void ftrace_arch_code_modify_prepare(void)
+ {
+-	return 0;
+ }
  
-@@ -214,7 +214,7 @@ static void __init init_resources(void)
+-int ftrace_arch_code_modify_post_process(void)
++void ftrace_arch_code_modify_post_process(void)
+ {
+ 	/* Make sure any TLB misses during machine stop are cleared. */
+ 	flush_tlb_all();
+-	return 0;
+ }
  
- 		if (unlikely(memblock_is_nomap(region))) {
- 			res->name = "Reserved";
--			res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
-+			res->flags = IORESOURCE_MEM | IORESOURCE_EXCLUSIVE;
- 		} else {
- 			res->name = "System RAM";
- 			res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+ static unsigned long ftrace_call_replace(unsigned long pc, unsigned long addr,
+diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+index 4716f4cdc038..2086f6585773 100644
+--- a/arch/riscv/kernel/ftrace.c
++++ b/arch/riscv/kernel/ftrace.c
+@@ -12,16 +12,14 @@
+ #include <asm/patch.h>
+ 
+ #ifdef CONFIG_DYNAMIC_FTRACE
+-int ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
++void ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
+ {
+ 	mutex_lock(&text_mutex);
+-	return 0;
+ }
+ 
+-int ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
++void ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
+ {
+ 	mutex_unlock(&text_mutex);
+-	return 0;
+ }
+ 
+ static int ftrace_check_current_call(unsigned long hook_pos,
+diff --git a/arch/s390/kernel/ftrace.c b/arch/s390/kernel/ftrace.c
+index 1852d46babb1..416b5a94353d 100644
+--- a/arch/s390/kernel/ftrace.c
++++ b/arch/s390/kernel/ftrace.c
+@@ -225,14 +225,13 @@ void arch_ftrace_update_code(int command)
+ 	ftrace_modify_all_code(command);
+ }
+ 
+-int ftrace_arch_code_modify_post_process(void)
++void ftrace_arch_code_modify_post_process(void)
+ {
+ 	/*
+ 	 * Flush any pre-fetched instructions on all
+ 	 * CPUs to make the new code visible.
+ 	 */
+ 	text_poke_sync_lock();
+-	return 0;
+ }
+ 
+ #ifdef CONFIG_MODULES
+diff --git a/arch/x86/kernel/ftrace.c b/arch/x86/kernel/ftrace.c
+index 1e31c7d21597..73d2719ed12c 100644
+--- a/arch/x86/kernel/ftrace.c
++++ b/arch/x86/kernel/ftrace.c
+@@ -37,7 +37,7 @@
+ 
+ static int ftrace_poke_late = 0;
+ 
+-int ftrace_arch_code_modify_prepare(void)
++void ftrace_arch_code_modify_prepare(void)
+     __acquires(&text_mutex)
+ {
+ 	/*
+@@ -47,10 +47,9 @@ int ftrace_arch_code_modify_prepare(void)
+ 	 */
+ 	mutex_lock(&text_mutex);
+ 	ftrace_poke_late = 1;
+-	return 0;
+ }
+ 
+-int ftrace_arch_code_modify_post_process(void)
++void ftrace_arch_code_modify_post_process(void)
+     __releases(&text_mutex)
+ {
+ 	/*
+@@ -61,7 +60,6 @@ int ftrace_arch_code_modify_post_process(void)
+ 	text_poke_finish();
+ 	ftrace_poke_late = 0;
+ 	mutex_unlock(&text_mutex);
+-	return 0;
+ }
+ 
+ static const char *ftrace_nop_replace(void)
+diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
+index 4816b7e11047..a5f74f6e7e4e 100644
+--- a/include/linux/ftrace.h
++++ b/include/linux/ftrace.h
+@@ -449,8 +449,8 @@ static inline void stack_tracer_enable(void) { }
+ 
+ #ifdef CONFIG_DYNAMIC_FTRACE
+ 
+-int ftrace_arch_code_modify_prepare(void);
+-int ftrace_arch_code_modify_post_process(void);
++void ftrace_arch_code_modify_prepare(void);
++void ftrace_arch_code_modify_post_process(void);
+ 
+ enum ftrace_bug_type {
+ 	FTRACE_BUG_UNKNOWN,
+diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+index 4f1d2f5e7263..35a899f136fe 100644
+--- a/kernel/trace/ftrace.c
++++ b/kernel/trace/ftrace.c
+@@ -2707,18 +2707,16 @@ ftrace_nop_initialize(struct module *mod, struct dyn_ftrace *rec)
+  * archs can override this function if they must do something
+  * before the modifying code is performed.
+  */
+-int __weak ftrace_arch_code_modify_prepare(void)
++void __weak ftrace_arch_code_modify_prepare(void)
+ {
+-	return 0;
+ }
+ 
+ /*
+  * archs can override this function if they must do something
+  * after the modifying code is performed.
+  */
+-int __weak ftrace_arch_code_modify_post_process(void)
++void __weak ftrace_arch_code_modify_post_process(void)
+ {
+-	return 0;
+ }
+ 
+ void ftrace_modify_all_code(int command)
+@@ -2804,12 +2802,7 @@ void __weak arch_ftrace_update_code(int command)
+ 
+ static void ftrace_run_update_code(int command)
+ {
+-	int ret;
+-
+-	ret = ftrace_arch_code_modify_prepare();
+-	FTRACE_WARN_ON(ret);
+-	if (ret)
+-		return;
++	ftrace_arch_code_modify_prepare();
+ 
+ 	/*
+ 	 * By default we use stop_machine() to modify the code.
+@@ -2819,8 +2812,7 @@ static void ftrace_run_update_code(int command)
+ 	 */
+ 	arch_ftrace_update_code(command);
+ 
+-	ret = ftrace_arch_code_modify_post_process();
+-	FTRACE_WARN_ON(ret);
++	ftrace_arch_code_modify_post_process();
+ }
+ 
+ static void ftrace_run_modify_code(struct ftrace_ops *ops, int command,
 -- 
-2.17.1
+2.18.2
 
 
 _______________________________________________
