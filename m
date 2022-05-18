@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C605FC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 15:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3320C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 16:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4mqyW6ay/7NJHw0kZspnS503gICoXzWd43xqK0s5GgQ=; b=BkBT6HQGwhseAM
-	0Q7Y6FSTQywtfmzLoQeWS/fJ8FTB7fOSReo03Uu3GvC8e+h2Qvrs+sYVvccCcNuXSpHmBcv615FjC
-	DFH+UhohMGGWHfnLOl77+Fd5JnHMI4OyvwjUk4+Sj7sgiaaibJGw0euDza3kaUq9m7dIkFPsBAf/r
-	745d6FBJtoSN2EyiWdh2NULj4tj0Zl6XDJJf0t/FD1FLq8ZdmR76MbUYe6xCkv4DilckFt2XT2qzJ
-	MhC80CdrgiZ7VNj7wz4U/qVXwq1nq/9McENFzwqcvx/wOOX/sJAzYc0djaCjB+EkRdTHPxcNJFwBl
-	5Pa1TH6ttQDexaKESPHA==;
+	List-Owner; bh=G1J8vRDOXICxvtBfdGI0o8YB1wBpse6mGWH8SSg7nD4=; b=z0gr55kGWzrcd8
+	xEKY2RRd28ZT6e9VSEW2Sa5JsYecpwTtqk2TZxwfZ3Mp4Wi+4PRBws6ck4cWdpj+afJ61db4MQlp9
+	CEcC3ReoSesbNLXAPFZYRJlM7Fz0SxL/+QVrC4rY9nJPt7whocuGr7XHqHtb5wOySwis4Lwz3XZ6g
+	lu3L4SAZZtXu1PKkNLfMPWoLt5teEti3ngBwfln4FgnlvpHTjsGTxX8Dk11kYDVg3fyJXe72+tOTl
+	HFMwMa9FbDxOsvg4SpCQMoZK3qlgOPTBjYy8Kuy8lLwW6l25a7ecUbdpIcKkpz52dqmC15DBcVqh+
+	FFXQ2klDt/jHmt+Byq3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nrLBh-002hAu-Iv; Wed, 18 May 2022 15:02:09 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1nrMXg-0031OZ-8O; Wed, 18 May 2022 16:28:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nrLAk-002gT4-Ey
- for linux-riscv@lists.infradead.org; Wed, 18 May 2022 15:01:13 +0000
-Received: by mail-ed1-x530.google.com with SMTP id j28so3342219eda.13
- for <linux-riscv@lists.infradead.org>; Wed, 18 May 2022 08:01:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=QMOlyN/qTFm2XsoAL3zOzGQtzc1v4ZBdV7QAODxVM04=;
- b=S0/LlJPilupWVBxbepDWd4ALkj1jqFqOGpfsYt4oZz1IbJPM2jChXarVWCnPFrIQy9
- hu+uwPwW+dDlDg40DIBipE6hUIF+wt9Go2ORD00La3rPSt5ZM4A7EA+HWaxRqKql3jBg
- PM5Z4S/a3eM9dT8FMxAWQjOUqRtNfmTPxZlmzlCrpcT9qLLizJLUhLxpkxpj1SXuGHi+
- fLtlM7OvbfQQQhfiimB6ceSJKoRTW5RkRzk+nw2SkhaqBHDUvzffTR6ZIj+tx/L5IyMl
- aZkm37p4XFtuIYaoXm4tPfoiMUacEeEXWpqPzpnl5kmFA+0CGb1S6fXTYHw1ROypza5V
- 2pKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=QMOlyN/qTFm2XsoAL3zOzGQtzc1v4ZBdV7QAODxVM04=;
- b=I+kJ/+r+LUyEokVro7hl8kEf+p0HfVDlp0IwHp//RZqayQAengNrFx+QjdSgGl4Fgd
- jrhnr5Ey9SVN/x3VHSE/UeTGaS5pyINTCilJm2gxt4qVFXZOWbhQANcGF1ACu2px/b2f
- INqJnj+3YeDML7zRJa7RTdzgIQYUUJFEC9tI0fMosC+nc3cGI4I2m9c1wA9rdUkLD/yh
- jYazbtKbR7uq25bCwGvvpyoctvoEhPm/IlgoYOUQxe5ptt0K0XYO8iIaFVtpo0c4r1ep
- 3VJkdkSpGH/Ikh6vdqGJKz+Vn6a58YpJK2It+jH1elmnVBhiauPgVsfVW9RIsK/wvAY2
- aiHw==
-X-Gm-Message-State: AOAM533q+HWVit1TQJXLWSW6cxG9QT2rJ/HnPjv8D2sWvidS0zyCEBAO
- r27S+8ZiIoz23m/9kV1LxhS+XN/yl6fIAv8OxLc=
-X-Google-Smtp-Source: ABdhPJx8zUUBtXzXZ1/JGjDJmNbcSqyN0kVGya8Y12DFmgeWY/u12Mwo4rQLwdEYIPgK87Ktme506w5enXxDiPAOj64=
-X-Received: by 2002:aa7:d911:0:b0:42a:af69:e167 with SMTP id
- a17-20020aa7d911000000b0042aaf69e167mr189743edr.54.1652886063021; Wed, 18 May
- 2022 08:01:03 -0700 (PDT)
+ id 1nrMXV-0031M1-7c; Wed, 18 May 2022 16:28:46 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id BF94F616AF;
+ Wed, 18 May 2022 16:28:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88DE6C385A9;
+ Wed, 18 May 2022 16:28:41 +0000 (UTC)
+Date: Wed, 18 May 2022 17:28:38 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Tong Tiangen <tongtiangen@huawei.com>
+Cc: Will Deacon <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>,
+ Palmer Dabbelt <palmerdabbelt@google.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Arnd Bergmann <arnd@arndb.de>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
+ linux-kernel@vger.kernel.org, wangkefeng.wang@huawei.com,
+ Guohanjun <guohanjun@huawei.com>, Xie XiuQi <xiexiuqi@huawei.com>,
+ linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>
+Subject: Re: [PATCH -next 2/2] arm64/mm: fix page table check compile error
+ for CONFIG_PGTABLE_LEVELS=2
+Message-ID: <YoUetqxz7Q38RLAu@arm.com>
+References: <20220517074548.2227779-1-tongtiangen@huawei.com>
+ <20220517074548.2227779-3-tongtiangen@huawei.com>
 MIME-Version: 1.0
-References: <e6380b316db23ee03a9adbf0a7d1ad83538f9961.1652884676.git.geert+renesas@glider.be>
-In-Reply-To: <e6380b316db23ee03a9adbf0a7d1ad83538f9961.1652884676.git.geert+renesas@glider.be>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Wed, 18 May 2022 17:00:26 +0200
-Message-ID: <CAHp75VcWuYM=STsNW5mP19UBTkNmnhP_Ed+pUxoAhTU3JiWXtQ@mail.gmail.com>
-Subject: Re: [PATCH] gpio: dwapb: Make the irqchip immutable
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Hoan Tran <hoan@os.amperecomputing.com>,
- Serge Semin <fancer.lancer@gmail.com>, 
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
- Damien Le Moal <damien.lemoal@wdc.com>, Marc Zyngier <maz@kernel.org>, 
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
+Content-Disposition: inline
+In-Reply-To: <20220517074548.2227779-3-tongtiangen@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220518_080110_557476_CC240AF0 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20220518_092845_346229_B500981E 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,23 +70,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 18, 2022 at 4:40 PM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
->
-> Commit 6c846d026d49 ("gpio: Don't fiddle with irqchips marked as
-> immutable") added a warning to indicate if the gpiolib is altering the
-> internals of irqchips.  Following this change the following warning is
-> now observed for the dwapb driver:
->
->     gpio gpiochip0: (50200000.gpio): not an immutable chip, please consider fixing it!
->
-> Fix this by making the irqchip in the dwapb driver immutable.
+On Tue, May 17, 2022 at 07:45:48AM +0000, Tong Tiangen wrote:
+> If CONFIG_PGTABLE_LEVELS=2 and CONFIG_ARCH_SUPPORTS_PAGE_TABLE_CHECK=y,
+> then we trigger a compile error:
+> 
+>   error: implicit declaration of function 'pte_user_accessible_page'
+> 
+> Move the definition of page table check helper out of branch
+> CONFIG_PGTABLE_LEVELS > 2
+> 
+> Fixes: daf214c14dbe ("arm64/mm: enable ARCH_SUPPORTS_PAGE_TABLE_CHECK")
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
 
-Same comments as per PCA953x driver.
+I'd drop the fixes tag here since the patch is queued in the mm tree and
+AFAIK that one doesn't have stable git commit ids. Otherwise:
 
--- 
-With Best Regards,
-Andy Shevchenko
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+
+(I cc'ed Andrew and linux-mm as Andrew queued the original patches)
 
 _______________________________________________
 linux-riscv mailing list
