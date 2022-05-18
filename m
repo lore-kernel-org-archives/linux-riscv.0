@@ -4,85 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437A4C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 06:28:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B6FBC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 08:18:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lx1Ej0mTbm9I6djsaajiB4vZneGPm9p6PjUvv0ldBjI=; b=XFRsIA988ClJv3
-	ltu/Y9P+gPE4yRquFlnDwFO1LREP/SPMlAIDNHHty6V+ejp+HpFbmBMNUJwRaHDsMNVwCdtSQ752W
-	iROsjTJ9YP7fJLjmUwiPL5dVI9CKnQH88mPZG7iV1KqcCpT3e7+nMFhlW124LdNh9hkBz8CUaT0JE
-	sD983nfnk+by6Ayq8yJtkM6nkEgLdnlByc7NNWxTOIVKWfRBZ7DDjXyyIfRFOxS4kT3pz83p1H5us
-	Izp6IqHkjLzLVjIEusjVZfI0kXYEyG9jBWhTtSxBKHdAZjpETsIkpdvi3NY/lK7MTspNBTSA94GeH
-	io93q9sK2R6EZNGgr0qQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/JqIbvx5WDkhnlGlCmsDC6qArAY5Hgh6TeLd3SExbwE=; b=lV7NDht4K96clU
+	GsV7AWAKqljmlH/a9Lu928Bz3gbbh8Y4pdnXs4Q7QlU+1J9jVFf3KZ9EdK98/9lnAd00qH8ld2qBJ
+	PBe3qSbOGoKKnXaQS6wN8bs0AGE3WcZxVHUof2O+vNk7vJtefh9ap3mUkFXa5gEHyPODp/lj+sF+F
+	rXiGXLAXvPt4Ut2zHzS4UwPNmokGHbKZrVCKYGaDV5PwJnSewTkS1TTPCt+Bfj8d4bWIrojBHC1rR
+	/OYNyg8zxt83FQBNnbnXdB2Vin4nC7wJ5E/QMrvbjmPS8TuImOTVwITjNqE5Px+rJ8CxMejAPsJsf
+	ioFazi/fDjlnCywQR0Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nrDA4-00HMB9-5o; Wed, 18 May 2022 06:27:56 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1nrEt5-000YFV-Gq; Wed, 18 May 2022 08:18:31 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nrD9z-00HM94-0f
- for linux-riscv@lists.infradead.org; Wed, 18 May 2022 06:27:55 +0000
-Received: by mail-pl1-x629.google.com with SMTP id m1so878928plx.3
- for <linux-riscv@lists.infradead.org>; Tue, 17 May 2022 23:27:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ozlabs-ru.20210112.gappssmtp.com; s=20210112;
- h=message-id:date:mime-version:user-agent:subject:content-language:to
- :cc:references:from:in-reply-to:content-transfer-encoding;
- bh=75xfyRYdtbbnySXqxmJnPbT1F8O/OC516UJoNDb3t+I=;
- b=rU4jPYNN5+avyZvAhBPhq7YZ6GjdV3WB7hpSv3vUe8rapXH3vJwLu4MUdpNlxV7Vc7
- AV8lrXHmL8UpJxDY3siQzlIi1kvlEXBUds9/aloM3MCUVjIMrI4iBAGYA3gy0JSQINos
- J2NLdYng7g+nuuokCoIgmaPM+rIZ4qqyHTrVrqikCReYskpXMfmVSw50Tuf7ydEKBM2g
- PUMz0bT1ksqn8xtF4/6i6km4yBy40ueQ2nK1Qg8YPCIwQ/sBVS9ZuWg1r+69cmGh3Cvg
- 9pioG246hcisDKCTphyRZWV73OSMQekwe7OZpLnVyClkygpRM+XSdD6zw+4AQbzOaROG
- Zvcw==
+ id 1nrEt2-000YCC-4z
+ for linux-riscv@lists.infradead.org; Wed, 18 May 2022 08:18:29 +0000
+Received: by mail-pf1-x429.google.com with SMTP id w200so1452362pfc.10
+ for <linux-riscv@lists.infradead.org>; Wed, 18 May 2022 01:18:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
+ h=from:to:cc:subject:date:message-id:mime-version
+ :content-transfer-encoding;
+ bh=f22cXTNsoYn514XVAs+A0nZ4R63LnXxUaMnO5yshFsc=;
+ b=mUJJaZznPXm2bEg7PPxlgx7o3QntT81XPFfYXi4PPvdVoRy4k1G9xOeSgyJt4jpWfg
+ QE+A17kzFEKij01JyspqP1UXEAZaYitG0T4NmR7aoptr1Y3Ayr37p24GgnDWxynwDg2U
+ bxOuwGcq90qqgJv8MdBu/3h123882KI1Kn4EHIBP2A9eu9LKGhXMIqc7W8rLmuuWQllt
+ FESfWEd84TzBbbdEpYJcpcQL6ar4rpy+DlqZRBXS3kTiXWzW68YMR54dCwAeFO1wioca
+ eIrnaqwuz3PPYImQlcs+d0J/C9PWbrxA9Jjy3LfC46XuO4BhqjJ1Gb8nalaWbrLhKbqw
+ OMmQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
- :content-language:to:cc:references:from:in-reply-to
+ h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
  :content-transfer-encoding;
- bh=75xfyRYdtbbnySXqxmJnPbT1F8O/OC516UJoNDb3t+I=;
- b=SkaS9T5JPtn5ua2W1POqNdwXeNYFA7ctxaDAJB9e/iYKGTRn4z7cs6kspTC5AXrSR5
- 7k3c1v1AFJAhsJ8Fe6jVFHY6Fa+rqCu5Ax0/a7DT5x0dlJwXeicHaGWGsduqB4xWcLMv
- 98CUYFEuCVrgZAA/C7WCQwGR/auQEP/FSEDCLJ61GRCrr9jpF5nXXMAyN7lDwP8hF/zv
- 4HRKSgt2l/mQbg56YEGv3+jNjsBR2lx71GcgzRwuHqKn0XIQBq/3SB+hOSkgaey4hVMT
- 8SD1figE4HCQVYMDZsimSQftiNWbpT/OfMtT5dErvO8/ur3Zh4ubxsNoO0/2oAayPEi1
- 2wJA==
-X-Gm-Message-State: AOAM530xinfj3n3umm8IyEWci0yJY/zCV/ATaQ+3VULK/YaNn+k7mxGv
- sSnGHTZUcQfVerRbvNqwgI/GFw==
-X-Google-Smtp-Source: ABdhPJw8YU30pDANG+wArZ1ct34zmOOlVc4nOxwpHMfezBscu5qQRFfree+bbOiz/rSK3BWzuNhG2w==
-X-Received: by 2002:a17:90b:4f87:b0:1dd:100b:7342 with SMTP id
- qe7-20020a17090b4f8700b001dd100b7342mr39908296pjb.64.1652855267956; 
- Tue, 17 May 2022 23:27:47 -0700 (PDT)
-Received: from [10.61.2.177] (110-175-254-242.static.tpgi.com.au.
- [110.175.254.242]) by smtp.gmail.com with ESMTPSA id
- g3-20020a62f943000000b0050dc762815dsm895132pfm.55.2022.05.17.23.27.42
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Tue, 17 May 2022 23:27:47 -0700 (PDT)
-Message-ID: <0d4bb0fa-10c6-3f5a-34c8-293144b3fdbb@ozlabs.ru>
-Date: Wed, 18 May 2022 16:27:41 +1000
+ bh=f22cXTNsoYn514XVAs+A0nZ4R63LnXxUaMnO5yshFsc=;
+ b=YRRyLv42wpY2HO2HgrjLduiDDZc53rqSm2UXXbXSjtL1q9Po85rPBOsUMLgldm56B8
+ DQATXmpMypufRHq1J+wnKv2CIP/XIP/PzIAJyKl9yC5iaymeqECjI53vc+oyfSpDf8Ft
+ xIvB1kLePSpjP14iUqiYjPLOHYGFDsdznwnS/IQwJmKBr8CZMXXUXAmWEFTRjdy+Jp/V
+ EcgA32d6UxUJuzSp2KyvHk/LhBWAgzP7whQyH6tTvUrjlldSlfqFDivJNoznRehorFQR
+ z6DJkTtf+Fls9DnbV75dpqWHzO8Bp9qZObtnFNc1I/kox9RxOPfqzrD6+/Ot26JMN+Ps
+ 1Klw==
+X-Gm-Message-State: AOAM531Npg9WwBCjjMA4QmmydDf23IEEyk0gzGFObvO2Zd6l2YaJHP/7
+ 29Zi/Xba34zj9j9vLr9SizLEMQ==
+X-Google-Smtp-Source: ABdhPJzx8V6y2Rr4Fth9lL0g63c1SH5CDRzTfNW+60mdSK5B8TxPN0VIhHLmLBbA2PUNJIH5856MJg==
+X-Received: by 2002:a63:5b13:0:b0:3c2:163c:b9cb with SMTP id
+ p19-20020a635b13000000b003c2163cb9cbmr22699800pgb.145.1652861904658; 
+ Wed, 18 May 2022 01:18:24 -0700 (PDT)
+Received: from hsinchu01.internal.sifive.com
+ (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+ by smtp.gmail.com with ESMTPSA id
+ y23-20020a1709027c9700b001619cebbad4sm989560pll.148.2022.05.18.01.18.22
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Wed, 18 May 2022 01:18:24 -0700 (PDT)
+From: Po-Kai Chi <po-kai.chi@sifive.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Po-Kai Chi <po-kai.chi@sifive.com>
+Subject: [PATCH] riscv: Invalid instruction cache after copy the xol area
+Date: Wed, 18 May 2022 16:17:53 +0800
+Message-Id: <20220518081753.29589-1-po-kai.chi@sifive.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:100.0) Gecko/20100101
- Thunderbird/100.0
-Subject: Re: [PATCH kernel] KVM: PPC: Make KVM_CAP_IRQFD_RESAMPLE platform
- dependent
-Content-Language: en-US
-To: kvm-ppc@vger.kernel.org
-Cc: x86@kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- Alex Williamson <alex.williamson@redhat.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Fabiano Rosas <farosas@linux.ibm.com>
-References: <20220504074807.3616813-1-aik@ozlabs.ru>
-From: Alexey Kardashevskiy <aik@ozlabs.ru>
-In-Reply-To: <20220504074807.3616813-1-aik@ozlabs.ru>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220517_232751_314682_B0FA63C7 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20220518_011828_296643_F8D13C19 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,144 +84,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+We need to invalid the relevant instruction cache after
+copying the xol area, to ensure the changes takes effect.
 
+Signed-off-by: Po-Kai Chi <po-kai.chi@sifive.com>
+---
+ arch/riscv/kernel/probes/uprobes.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-On 5/4/22 17:48, Alexey Kardashevskiy wrote:
-> When introduced, IRQFD resampling worked on POWER8 with XICS. However
-> KVM on POWER9 has never implemented it - the compatibility mode code
-> ("XICS-on-XIVE") misses the kvm_notify_acked_irq() call and the native
-> XIVE mode does not handle INTx in KVM at all.
-> 
-> This moved the capability support advertising to platforms and stops
-> advertising it on XIVE, i.e. POWER9 and later.
-> 
-> Signed-off-by: Alexey Kardashevskiy <aik@ozlabs.ru>
-> ---
-> 
-> 
-> Or I could move this one together with KVM_CAP_IRQFD. Thoughts?
-
-
-Ping?
-
-> 
-> ---
->   arch/arm64/kvm/arm.c       | 3 +++
->   arch/mips/kvm/mips.c       | 3 +++
->   arch/powerpc/kvm/powerpc.c | 6 ++++++
->   arch/riscv/kvm/vm.c        | 3 +++
->   arch/s390/kvm/kvm-s390.c   | 3 +++
->   arch/x86/kvm/x86.c         | 3 +++
->   virt/kvm/kvm_main.c        | 1 -
->   7 files changed, 21 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 523bc934fe2f..092f0614bae3 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -210,6 +210,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   	case KVM_CAP_SET_GUEST_DEBUG:
->   	case KVM_CAP_VCPU_ATTRIBUTES:
->   	case KVM_CAP_PTP_KVM:
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +	case KVM_CAP_IRQFD_RESAMPLE:
-> +#endif
->   		r = 1;
->   		break;
->   	case KVM_CAP_SET_GUEST_DEBUG2:
-> diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
-> index a25e0b73ee70..0f3de470a73e 100644
-> --- a/arch/mips/kvm/mips.c
-> +++ b/arch/mips/kvm/mips.c
-> @@ -1071,6 +1071,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   	case KVM_CAP_READONLY_MEM:
->   	case KVM_CAP_SYNC_MMU:
->   	case KVM_CAP_IMMEDIATE_EXIT:
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +	case KVM_CAP_IRQFD_RESAMPLE:
-> +#endif
->   		r = 1;
->   		break;
->   	case KVM_CAP_NR_VCPUS:
-> diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-> index 875c30c12db0..87698ffef3be 100644
-> --- a/arch/powerpc/kvm/powerpc.c
-> +++ b/arch/powerpc/kvm/powerpc.c
-> @@ -591,6 +591,12 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   		break;
->   #endif
->   
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +	case KVM_CAP_IRQFD_RESAMPLE:
-> +		r = !xive_enabled();
-> +		break;
-> +#endif
-> +
->   	case KVM_CAP_PPC_ALLOC_HTAB:
->   		r = hv_enabled;
->   		break;
-> diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-> index c768f75279ef..b58579b386bb 100644
-> --- a/arch/riscv/kvm/vm.c
-> +++ b/arch/riscv/kvm/vm.c
-> @@ -63,6 +63,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   	case KVM_CAP_READONLY_MEM:
->   	case KVM_CAP_MP_STATE:
->   	case KVM_CAP_IMMEDIATE_EXIT:
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +	case KVM_CAP_IRQFD_RESAMPLE:
-> +#endif
->   		r = 1;
->   		break;
->   	case KVM_CAP_NR_VCPUS:
-> diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
-> index 156d1c25a3c1..85e093fc8d13 100644
-> --- a/arch/s390/kvm/kvm-s390.c
-> +++ b/arch/s390/kvm/kvm-s390.c
-> @@ -564,6 +564,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   	case KVM_CAP_SET_GUEST_DEBUG:
->   	case KVM_CAP_S390_DIAG318:
->   	case KVM_CAP_S390_MEM_OP_EXTENSION:
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +	case KVM_CAP_IRQFD_RESAMPLE:
-> +#endif
->   		r = 1;
->   		break;
->   	case KVM_CAP_SET_GUEST_DEBUG2:
-> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index 0c0ca599a353..a0a7b769483d 100644
-> --- a/arch/x86/kvm/x86.c
-> +++ b/arch/x86/kvm/x86.c
-> @@ -4273,6 +4273,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   	case KVM_CAP_SYS_ATTRIBUTES:
->   	case KVM_CAP_VAPIC:
->   	case KVM_CAP_ENABLE_CAP:
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +	case KVM_CAP_IRQFD_RESAMPLE:
-> +#endif
->   		r = 1;
->   		break;
->   	case KVM_CAP_EXIT_HYPERCALL:
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 70e05af5ebea..885e72e668a5 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -4293,7 +4293,6 @@ static long kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
->   #endif
->   #ifdef CONFIG_HAVE_KVM_IRQFD
->   	case KVM_CAP_IRQFD:
-> -	case KVM_CAP_IRQFD_RESAMPLE:
->   #endif
->   	case KVM_CAP_IOEVENTFD_ANY_LENGTH:
->   	case KVM_CAP_CHECK_EXTENSION_VM:
-
+diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
+index 7a057b5f0adc..9d52beeac73c 100644
+--- a/arch/riscv/kernel/probes/uprobes.c
++++ b/arch/riscv/kernel/probes/uprobes.c
+@@ -165,6 +165,7 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
+ 	/* Initialize the slot */
+ 	void *kaddr = kmap_atomic(page);
+ 	void *dst = kaddr + (vaddr & ~PAGE_MASK);
++	unsigned long addr = (unsigned long)dst;
+ 
+ 	memcpy(dst, src, len);
+ 
+@@ -177,10 +178,9 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
+ 	kunmap_atomic(kaddr);
+ 
+ 	/*
+-	 * We probably need flush_icache_user_page() but it needs vma.
+-	 * This should work on most of architectures by default. If
+-	 * architecture needs to do something different it can define
+-	 * its own version of the function.
++	 * Flush both I/D cache to ensure instruction modification
++	 * takes effect.
+ 	 */
+ 	flush_dcache_page(page);
++	flush_icache_range(addr, addr + len);
+ }
 -- 
-Alexey
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
