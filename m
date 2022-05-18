@@ -4,52 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B22C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 09:37:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCFECC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 09:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ryn+XmoPZA4BfLz7h3FoLRpvlAAvR/wTz0P+O/IpvZA=; b=Nw/zlmbTpnyrzE
-	X3xpMBJlTpFxHdFs3vn1YjxvZT7Vc9RzK0BoZxBSQVIwzB+wtKMc/bgjzpTwhixVazfwxnXkdf67u
-	zcuMMno6WmiZT6jVt4OFbOLoEMyi1S14jHzTjpRCAQblxjFxWlLknL/nnctkzW6QV7X/J5XGG0arV
-	GA/UiEwLo2ScAIalm+ep5Bcgtv82aQLF/GQqcPpaKDbCshjfLZRTnAHHhJ1S6jNnA9Uhvj5e+/QPM
-	CxJmzi8NZbx3VHzoTnX2d6boWZHlR77Ji+tO1I2T7cU1ELN+0ueOYnrwYmKL8FesWUbDzEZV20Zgm
-	5Ap4BMSDxosABnnyoXBA==;
+	List-Owner; bh=XO85ckaI2TiM+Nsv96Cma/Y7SrrQkMsFXM1w4B1BXn8=; b=1FTqtPl29wXggq
+	+fj3W7Cu0x9tezWnkjGhovHcaj1O54EmRr0S5YkWo3IO3WRl+pAq0ZxITii99DD8Av+cGE/eXdCVQ
+	1Uh5GOBa84DSlvCYHdau15eGiF/ZKqXo9iVsNy7dPbuPaUL4H4kJgYHU1AI3uB3RrpWpWS6NqUuKi
+	kpy3LXvFJXrn5oNiwi0QR+4/YA7HFRwnbKg3gFcWUaZz+Nzqwo/725P4esU4bCnpeOwdiB5RLhKaM
+	t4jHRDs8d16ytvWGRyJKzB5Ocy/3fgbwKgamyo3fPRHfxc0f72PHKLUPw4ae2Qy9TRq4d36mHd4fS
+	ZQIpVdVfVDTgBn5wDFUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nrG7o-0015CW-9f; Wed, 18 May 2022 09:37:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nrG4H-0012eD-54; Wed, 18 May 2022 09:34:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F6731042;
- Wed, 18 May 2022 02:34:08 -0700 (PDT)
-Received: from usa.arm.com (e103737-lin.cambridge.arm.com [10.1.197.49])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C4DC83F66F;
- Wed, 18 May 2022 02:34:06 -0700 (PDT)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Atish Patra <atishp@atishpatra.org>,
-	linux-kernel@vger.kernel.org
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Atish Patra <atishp@rivosinc.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Morten Rasmussen <morten.rasmussen@arm.com>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>, Qing Wang <wangqing@vivo.com>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH v2 8/8] arch_topology: Add support to build llc_sibling on DT
- platforms
-Date: Wed, 18 May 2022 10:33:25 +0100
-Message-Id: <20220518093325.2070336-9-sudeep.holla@arm.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220518093325.2070336-1-sudeep.holla@arm.com>
-References: <20220518093325.2070336-1-sudeep.holla@arm.com>
+	id 1nrGB8-0017DP-5O; Wed, 18 May 2022 09:41:14 +0000
+Received: from mail-os0jpn01on20706.outbound.protection.outlook.com
+ ([2a01:111:f403:700c::706]
+ helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1nrG9Z-0016Fj-PT
+ for linux-riscv@lists.infradead.org; Wed, 18 May 2022 09:39:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=LI3tp2blQtKDatHs7/Qpl9lSlAKCaJ0D++/3hGS3cOPMVXJngZFY4vSncdKbOKkpNnTar0TmzLucKgnZ6c4i5tXrJr65hOIsln889009kn/lif1mxG8V7LaqH4nC8Mrmn1MwDgYx/qp/1J1uZyYzYqUvl5SPO7oYYEwKohpaTHAFSFFTJ68BN8d+Mf9YvCRY1wMpFL4pcblzQUk3OtYY5lROCyU1qw29sB8g0CNJZDi7tISoR6IfjdAQQRQJttO+7/XZx9Zrx2qvkookPjZqZUUNxBG0HzS/XHCKSbjrKp6glFAQi2X6BK9kAf2ZCNZgK1UMwHVkXYP9yyLnsCUs7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wNfCgJR3Ja8v/vaWzIyIYaEoo716ETZ2a3s9k40pToE=;
+ b=KNRvifhtIPBDb9AkhiTWSDDJYs3QB0K4sY47iOE/TNMv2ukE/oCqYfY1mwoqzEUJQeYP4kO0kfqvZDPQGBRtC/LuTHqoD6m4mdK0L100rQkoDZDfaQmWrjXFExA/sfALovJ4mvUz/HSoxWVlBKrupFJTJmG4fve+/0cvIq8TbsfoNQNUf8N+ORPLz3qRFiMh+6ZmvCtDVwfbG2evaH2vTWORWSiL1m+9TbTtw5QsRoOo8XNLvHpk/qyfTj4xyci5bFgbLN1BCxFukqNfqe7VFNUfB7ANGVAXc3PcstgrE99d1GsihgAWe6ciHJFcSCQ8Sg8zu7IUV0QKpt0jTJcAxA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=zenithal.me; dmarc=pass action=none header.from=zenithal.me;
+ dkim=pass header.d=zenithal.me; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zenithal.me;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wNfCgJR3Ja8v/vaWzIyIYaEoo716ETZ2a3s9k40pToE=;
+ b=CGnm6ehlNosvzLECymMLxnqaBw+R/5bcKpBdGK4qoREe3TbH3tVGAWLMGpiNN92Lh4uYiv2ivWeOKjZ3Fp5Al/hU4rJci2c/gM5fS5VIDsvOxLBuDZUhYHN3jI71eEzAqyCSwZSHEWZGHVWYmpHsOuUFvduBasSsn2iLOrykuls=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=zenithal.me;
+Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:c0::6) by
+ OSZP286MB1324.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:13c::14) with
+ Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5250.14; Wed, 18 May 2022 09:25:09 +0000
+Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::bd99:5c83:e2dc:a8f7]) by TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
+ ([fe80::bd99:5c83:e2dc:a8f7%7]) with mapi id 15.20.5273.014; Wed, 18 May 2022
+ 09:25:09 +0000
+Date: Wed, 18 May 2022 17:25:01 +0800
+From: "Hongren (Zenithal) Zheng" <i@zenithal.me>
+To: Palmer Dabbelt <palmer@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>
+Cc: Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>,
+ Eric Biederman <ebiederm@xmission.com>,
+ Kees Cook <keescook@chromium.org>, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-api@vger.kernel.org, Michael Kerrisk <mtk.manpages@gmail.com>,
+ linux-man@vger.kernel.org, Jiatai He <jiatai2021@iscas.ac.cn>
+Subject: [PATCH -next v2 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from
+ DT
+Message-ID: <YoS7bT1B/+JrEn05@Sun>
+References: <YoS6qRhxGuwHmK7q@Sun>
+Content-Disposition: inline
+In-Reply-To: <YoS6qRhxGuwHmK7q@Sun>
+X-Operating-System: Linux Sun 5.15.26 
+X-Mailer: Mutt 2.2.1 (2022-02-19)
+X-ClientProxiedBy: SJ0PR03CA0253.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a0::18) To TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:c0::6)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: b1367cf5-9f74-4a0b-016b-08da38b04d5f
+X-MS-TrafficTypeDiagnostic: OSZP286MB1324:EE_
+X-Microsoft-Antispam-PRVS: <OSZP286MB132448B7C94E3FF2CFF4E814BCD19@OSZP286MB1324.JPNP286.PROD.OUTLOOK.COM>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: nLCVBNFW/ym6Egm2cma/unEDH3IqPoGIv5CBjeiHZQJ0ye+Y7dvk/6QuACIhNURte/J1NptRERXY+bHExK4vwF4ZC9XOlvt6JKlv50O8VsYLWOxtiBVm7/5qySFA6VLZSXQPFCLHFEWMIbau9qp944cf1794KI7Jg2IJJC2AR6gBDRCIcZo7ec70zl5G9tWHdH+GznyBC31/Kxv6On7f6/kFwlAbd5wahoMyWrEkOG4Nf+DHBC8CJNFHOsxOOf9+AVNWXv1FXtjivwhfAaDh+ZfwPbJ0TrGcEj3n7qNGxaphuKNFuAN/f2yPcJzikM4s5pHjMBb6YtkIVWFNpU2ZarDhudEAv67tZuPOx8PzVB2AhwcF1QwXby1sAPSBERonrUIJAkxqq/+rqFgKAw4gAYGfMGAc+Y2OsLoHDKN5/RfKO9u3k41oXNJ12r+hnGfUacWwc7xV83fbiwI1KXX85CbXnGN3qa9aRzb/zxKgKX6UtrpM6ObUHN4nW9Sv1dE9M0aa1saCDVUsi5RQk9PN5pXdjrjDTaKwugF8CSeA9Xuq32ca05sRmuTNS56H9CHER7O/zDVGE5ywcbvzRQ/z5CYSYA7cFGU09gfrblzVXSyfFafRPXED+m8DRIr5HbSY9gCcVylkllcYyB4u/E9JRgs5rECcCnaboEGTtlLjEXLc+uIM6qstlP8EugZmYnG8KTI7ot/S1McuK4Q2lxzoQw==
+X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM; PTR:; CAT:NONE;
+ SFS:(13230001)(7916004)(346002)(136003)(396003)(376002)(39830400003)(366004)(52116002)(6512007)(6506007)(186003)(38100700002)(508600001)(54906003)(110136005)(6486002)(2906002)(9686003)(33716001)(66946007)(8676002)(4326008)(66556008)(66476007)(6666004)(5660300002)(7416002)(8936002)(41300700001)(41320700001)(83380400001)(316002)(786003)(86362001)(49092004);
+ DIR:OUT; SFP:1102; 
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+sSh0HCXhW53nvPgK6opv1Il17XDdSbOhPwpHWvbhwkfqqVCIn3nPWwQqmHx?=
+ =?us-ascii?Q?AgZY39NQmMXW2un/vcG/QM2t5Um/XbEVy0I1Otk8rxYhPZ8GUFHBw5ZN0D6P?=
+ =?us-ascii?Q?8HHsFrk9Iblm5VD1tCEzexIsm3iY5se53JVO2pUgDOT1XXSjOnW30+lFck25?=
+ =?us-ascii?Q?3CSbGZpiFAjIk2XrVXGWossrkQwIcqPQIBCA7i06aggM7PcwzHqoRShkWWyb?=
+ =?us-ascii?Q?hMANolv0ANteAcppuqE2SJkNk9KfucezndivtlwMbVSbZnNXe4SFb5KFm6By?=
+ =?us-ascii?Q?Cya+7CT91Dj83bsxzhxxIU5EICgH77EOEXT6CyoncQIbWk0A5cVZRtHpuIsx?=
+ =?us-ascii?Q?oC9+aNIMgrgrC0CdvpFLtQ45HnDdznM1wG64DChOZR9zokRTrQJoB8IFcZMH?=
+ =?us-ascii?Q?WCR3QZDHZu+abEC4KItmckZF8ZbeOSSUEU56js8cTneGj656H2T5ZrGbiIiK?=
+ =?us-ascii?Q?PlYNdTK0VKbCrSdkRqOZQPiRpW744XTaVMpXePGWTwRJVXbNkhf+k20DyvGe?=
+ =?us-ascii?Q?cHf89H2RVFPRhxnZ+ULCeWyp4vHQ1jVgxlSpDMeYaPaSY13hpGtIghQtLFQ/?=
+ =?us-ascii?Q?azGZ8UATjTMPupMbjS8aEL9+fYiAJ+LryybuTPK8fyW31mlq29LEnSo3H15I?=
+ =?us-ascii?Q?40j/tGZiuxypaYIXTVTpd6/nYxOCC+7soh6l6tgnUvsfvubw4YhvGhA8ojGV?=
+ =?us-ascii?Q?BYNPkWvgh01TxUU3K3lb+iauxaTp4iaCGXrOd1ptCWYN+NlJgoB8gK0u6d3s?=
+ =?us-ascii?Q?4iV4jvbZ/NgZ0+g+DvMuhOOW403zV1L55CukW1A6J31ie4fsYGEzOjNBcGZ+?=
+ =?us-ascii?Q?poOl9iHQ56OpWL5HaHvr2zjRx2tRc71IRIJjLrgiE+zyjIq+YSBboczXmUMm?=
+ =?us-ascii?Q?kjkVCFd+nA1cVmTeLdInDApX+sg6yDHLr/XRtdguf9ibVyRINOPVZ33etANB?=
+ =?us-ascii?Q?G0PD2GLV4H0iCSwilygwObkkOrXz+FU1GoEDPnLOrMQ+0mopX2UERWliIoba?=
+ =?us-ascii?Q?Jz2dKcjaxMS5egOGW5iGuWB5gib+zcg9/sv3MJtq8JORkV98TgCj0CiZYBLT?=
+ =?us-ascii?Q?mRaPLcEY7ni99eAOUfX6rwPO2N8b9ENg/UIeeawlo3wkKL0o1fyUw9SFmHkG?=
+ =?us-ascii?Q?HTcWr2qThUFScIjb0FODOiwxpP1aAuVAPdvLRGChXJ1Xk+W+hnteRJcEK1Nz?=
+ =?us-ascii?Q?Pdxsza4QN4LqPrH4+ZoIf1cSRnjbzjDX2hYtrE+A8wbzN3RQNNqjYDRqcmec?=
+ =?us-ascii?Q?aOhRwb7MdVDtKGE9Lx9/x9jGVcdqfT1Bw/lIqWP4v0maJWzkjafBF02GqTYW?=
+ =?us-ascii?Q?zUvWgmOfPtFTmo1oeL+M5xOrPHtWmAvHi3Uqjc/v7LoBG8ambJDKjU2LVe23?=
+ =?us-ascii?Q?SP/BfJNlSmFYZqLt0SUzMVwgxg2fjzLmEOzXf8I9qRZQMcnbbX9QEYK1ij2r?=
+ =?us-ascii?Q?ScDvzrnCLUesAGTn7irJR9epghLSPEDen43ckMy4EA6KiR8zM6FdajSuh2Hf?=
+ =?us-ascii?Q?g2jml3mwPP3GqhhnxLSARkAJZOupxflpPdDH3IZaF5a3LgTLNXqhTBodNo1L?=
+ =?us-ascii?Q?1cUVDjWI+SCvCJXVzvn6CPJ70kYIyYWKXpy8L7ahgiDr8FmOcgKqu7x18pcq?=
+ =?us-ascii?Q?vTFbSNdOaRJkBJx1ZZ54dBVSayP4aknm3Y3Qt+8xbvw4outzyWcTyWMSQ8H5?=
+ =?us-ascii?Q?lUMPCDHA8Ow1EH8zwirHsIa7c3BlCyjLpOP2NdFAKMWtoz4yS+FkSTLirKLb?=
+ =?us-ascii?Q?PaBlcto6Lg=3D=3D?=
+X-OriginatorOrg: zenithal.me
+X-MS-Exchange-CrossTenant-Network-Message-Id: b1367cf5-9f74-4a0b-016b-08da38b04d5f
+X-MS-Exchange-CrossTenant-AuthSource: TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2022 09:25:09.1236 (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 436d481c-43b1-4418-8d7f-84c1e4887cf0
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jyxS+IJqzRrj1PiJmSXIWXKPZeYO/BkV2ouC8pg0ThH50lKjGTi4t+WhgoZ0u6D0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSZP286MB1324
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220518_023409_316153_E16F45E2 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20220518_023937_862791_7AA08FB5 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,99 +148,138 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ACPI PPTT provides cache identifiers and especially the last level cache
-identifier is used in obtaining last level cache siblings amongst CPUs.
+This commit parses Zb/Zk related string from DT and
+output them in cpuinfo
 
-While we have the cpu map representing all the CPUs sharing last level
-cache in the cacheinfo driver, it is populated quite late in the boot
-while the information is needed to build scheduler domains quite early.
+One thing worth noting is that if DT provides zk,
+all zbkb, zbkc, zbkx and zkn, zkr, zkt would be enabled.
 
-On DT platforms we can use the pointer to the last level cache as the
-firmware identifier for the last level cache and build the cpumap sharing
-the last level cache based on the same.
+Note that zk is a valid extension name and the current
+DT binding spec allows this.
 
-Cc: Rob Herring <robh+dt@kernel.org>
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+This commit also changes the logical id of
+existing multi-letter extensions and adds a statement
+that instead of logical id compatibility, the order
+is needed.
+
+There currently lacks a mechanism to merge them when
+producing cpuinfo. Namely if you provide a riscv,isa
+"rv64imafdc_zk_zks", the cpuinfo output would be
+"rv64imafdc_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_zksed
+_zksh_zkt"
+
+Tested-by: Jiatai He <jiatai2021@iscas.ac.cn>
+Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
 ---
- drivers/base/arch_topology.c  | 18 ++++++++++++++----
- include/linux/arch_topology.h |  1 +
- 2 files changed, 15 insertions(+), 4 deletions(-)
+ arch/riscv/include/asm/hwcap.h | 20 +++++++++++++++++++-
+ arch/riscv/kernel/cpu.c        | 14 ++++++++++++++
+ arch/riscv/kernel/cpufeature.c | 33 +++++++++++++++++++++++++++++++++
+ 3 files changed, 66 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 6d3346efe74b..bc57f0f1862e 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -661,11 +661,14 @@ static int __init parse_dt_topology(void)
- 	 * Check that all cores are in the topology; the SMP code will
- 	 * only mark cores described in the DT as possible.
- 	 */
--	for_each_possible_cpu(cpu)
-+	for_each_possible_cpu(cpu) {
- 		if (cpu_topology[cpu].package_id < 0) {
- 			ret = -EINVAL;
- 			break;
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 4e2486881840..02c454a12683 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -49,9 +49,27 @@ extern unsigned long elf_hwcap;
+  * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
+  * extensions while all the multi-letter extensions should define the next
+  * available logical extension id.
++ *
++ * The order of them should be maintained according to the riscv-isa-manual.
++ * As this is an internal API, changing the id of one extension does
++ * not affect compatibility.
+  */
+ enum riscv_isa_ext_id {
+-	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
++	RISCV_ISA_EXT_ZBA = RISCV_ISA_EXT_BASE,
++	RISCV_ISA_EXT_ZBB,
++	RISCV_ISA_EXT_ZBC,
++	RISCV_ISA_EXT_ZBKB,
++	RISCV_ISA_EXT_ZBKC,
++	RISCV_ISA_EXT_ZBKX,
++	RISCV_ISA_EXT_ZBS,
++	RISCV_ISA_EXT_ZKND,
++	RISCV_ISA_EXT_ZKNE,
++	RISCV_ISA_EXT_ZKNH,
++	RISCV_ISA_EXT_ZKR,
++	RISCV_ISA_EXT_ZKSED,
++	RISCV_ISA_EXT_ZKSH,
++	RISCV_ISA_EXT_ZKT,
++	RISCV_ISA_EXT_SSCOFPMF,
+ 	RISCV_ISA_EXT_SVPBMT,
+ 	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+ };
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 40c8776aec12..9d2bed2c1a37 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -87,6 +87,20 @@ int riscv_of_parent_hartid(struct device_node *node)
+  *    extensions by an underscore.
+  */
+ static struct riscv_isa_ext_data isa_ext_arr[] = {
++	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
++	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
++	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
++	__RISCV_ISA_EXT_DATA(zbkb, RISCV_ISA_EXT_ZBKB),
++	__RISCV_ISA_EXT_DATA(zbkc, RISCV_ISA_EXT_ZBKC),
++	__RISCV_ISA_EXT_DATA(zbkx, RISCV_ISA_EXT_ZBKX),
++	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
++	__RISCV_ISA_EXT_DATA(zknd, RISCV_ISA_EXT_ZKND),
++	__RISCV_ISA_EXT_DATA(zkne, RISCV_ISA_EXT_ZKNE),
++	__RISCV_ISA_EXT_DATA(zknh, RISCV_ISA_EXT_ZKNH),
++	__RISCV_ISA_EXT_DATA(zkr, RISCV_ISA_EXT_ZKR),
++	__RISCV_ISA_EXT_DATA(zksed, RISCV_ISA_EXT_ZKSED),
++	__RISCV_ISA_EXT_DATA(zksh, RISCV_ISA_EXT_ZKSH),
++	__RISCV_ISA_EXT_DATA(zkt, RISCV_ISA_EXT_ZKT),
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+ 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+ 	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index dea3ea19deee..800a7aebced3 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -199,6 +199,39 @@ void __init riscv_fill_hwcap(void)
+ 			} else {
+ 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+ 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
++				SET_ISA_EXT_MAP("zba", RISCV_ISA_EXT_ZBA);
++				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
++				SET_ISA_EXT_MAP("zbc", RISCV_ISA_EXT_ZBC);
++				SET_ISA_EXT_MAP("zbs", RISCV_ISA_EXT_ZBS);
++				SET_ISA_EXT_MAP("zbkb", RISCV_ISA_EXT_ZBKB);
++				SET_ISA_EXT_MAP("zbkc", RISCV_ISA_EXT_ZBKC);
++				SET_ISA_EXT_MAP("zbks", RISCV_ISA_EXT_ZBKX);
++				SET_ISA_EXT_MAP("zknd", RISCV_ISA_EXT_ZKND);
++				SET_ISA_EXT_MAP("zkne", RISCV_ISA_EXT_ZKNE);
++				SET_ISA_EXT_MAP("zknh", RISCV_ISA_EXT_ZKNH);
++				SET_ISA_EXT_MAP("zksed", RISCV_ISA_EXT_ZKSED);
++				SET_ISA_EXT_MAP("zksh", RISCV_ISA_EXT_ZKSH);
++				SET_ISA_EXT_MAP("zkr", RISCV_ISA_EXT_ZKR);
++				SET_ISA_EXT_MAP("zkt", RISCV_ISA_EXT_ZKT);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKB);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKC);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKX);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKND);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKNE);
++				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKNH);
++				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKB);
++				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKC);
++				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKX);
++				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZKSED);
++				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZKSH);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKB);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKC);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKX);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKND);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKNE);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKNH);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKR);
++				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKT);
+ 			}
+ #undef SET_ISA_EXT_MAP
  		}
-+		cpu_topology[cpu].llc_fw_node =
-+					of_find_last_level_cache_node(cpu);
-+	}
- 
- out_map:
- 	of_node_put(map);
-@@ -681,6 +684,12 @@ static int __init parse_dt_topology(void)
- struct cpu_topology cpu_topology[NR_CPUS];
- EXPORT_SYMBOL_GPL(cpu_topology);
- 
-+#define IS_VALID_LLC_ID(x)	\
-+	((x)->llc_id >= 0 || (x)->llc_fw_node)
-+#define IS_MATCH_LLC_ID(x, y)	\
-+	(((x)->llc_id >= 0 && (x)->llc_id == (y)->llc_id) || \
-+	 ((x)->llc_fw_node && (x)->llc_fw_node == (y)->llc_fw_node))
-+
- const struct cpumask *cpu_coregroup_mask(int cpu)
- {
- 	const cpumask_t *core_mask = cpumask_of_node(cpu_to_node(cpu));
-@@ -690,7 +699,8 @@ const struct cpumask *cpu_coregroup_mask(int cpu)
- 		/* not numa in package, lets use the package siblings */
- 		core_mask = &cpu_topology[cpu].core_sibling;
- 	}
--	if (cpu_topology[cpu].llc_id >= 0) {
-+
-+	if (IS_VALID_LLC_ID(&cpu_topology[cpu])) {
- 		if (cpumask_subset(&cpu_topology[cpu].llc_sibling, core_mask))
- 			core_mask = &cpu_topology[cpu].llc_sibling;
- 	}
-@@ -721,8 +731,7 @@ void update_siblings_masks(unsigned int cpuid)
- 	for_each_online_cpu(cpu) {
- 		cpu_topo = &cpu_topology[cpu];
- 
--		if (cpu_topo->llc_id >= 0 &&
--		    cpuid_topo->llc_id == cpu_topo->llc_id) {
-+		if (IS_MATCH_LLC_ID(cpu_topo, cpuid_topo)) {
- 			cpumask_set_cpu(cpu, &cpuid_topo->llc_sibling);
- 			cpumask_set_cpu(cpuid, &cpu_topo->llc_sibling);
- 		}
-@@ -777,6 +786,7 @@ void __init reset_cpu_topology(void)
- 		cpu_topo->cluster_id = -1;
- 		cpu_topo->package_id = -1;
- 		cpu_topo->llc_id = -1;
-+		cpu_topo->llc_fw_node = NULL;
- 
- 		clear_cpu_topology(cpu);
- 	}
-diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-index 58cbe18d825c..d8a36b0e27c9 100644
---- a/include/linux/arch_topology.h
-+++ b/include/linux/arch_topology.h
-@@ -69,6 +69,7 @@ struct cpu_topology {
- 	int cluster_id;
- 	int package_id;
- 	int llc_id;
-+	void *llc_fw_node;
- 	cpumask_t thread_sibling;
- 	cpumask_t core_sibling;
- 	cpumask_t cluster_sibling;
 -- 
-2.36.1
+2.35.1
 
 
 _______________________________________________
