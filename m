@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21291C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 18:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69006C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 20:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8DCjollFoeRAWQ/TpBrr5lgpKHmsvcfi+HV3uTEtlVw=; b=DOBzIFQ29RW1Qg
-	kR9+7B0qXe9tA/3qlilgyWj5arYLzjOd/RZDS8nYokvBP+zMBYCnGDZDZjXV3VkaJNWU4Beduf6s4
-	8XLkSGM1KkHcTUSWMPXAf9Y2AwFBxda/HtZFu5GTFYL67e5skMc7eAcbD1Av1LAE485nQuEKWuJrt
-	j6CMvGkHnEup3/pQYY5+6GeVM2JhvWTbIwsMFarbZBKcjvqi+v6M0RZO/LFoy35GSnoi/jOsSk+fw
-	BZRMjlzaT4hMPQeiVTuz8XvgHKibQd+2hZSnRMxzxi/zK5PQWAoU03EeZUY7YUtHXpcqSfO+085pf
-	UijKGUtSAf1LC1cldzDQ==;
+	List-Owner; bh=xWdYHVUtuwJv//rn4Bdtaeb1tXOGe5KRQGd3X1DaJ2M=; b=JPPF+EwPcyygDX
+	rVfZtK7APRK8hOkWNx02ZmG2taaPl6/yveAXrESLNXYzlIzLLIKqDxbYRc29E63lRYgykNcZzaa1L
+	yhlV4rdWtHKk1xeW4BWCEr9rkYCNWnJT/bbOGZnyHAGpxqUavxRcLIExHSIij5sZgSGhHBXTfhp3V
+	MJ9UdgZKXbt+f+ChMWtF+d4g0I05uTTCUM8QKgkYjNR6sxFeMHmMOmufHBcsD862etOUZvQtf68hy
+	fOljraCQraINdfHW/GqAZxdRxCkJ69vum6lAWhYwdvW2VZOTN8j793wVPaAd6ZAxlffE/dxQwRXb9
+	+2alLXnRs0N/ayAECk9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nrOkq-003V88-9T; Wed, 18 May 2022 18:50:40 +0000
-Received: from mail-yw1-f171.google.com ([209.85.128.171])
+	id 1nrQY3-003uwL-37; Wed, 18 May 2022 20:45:35 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nrOke-003V5w-Pd; Wed, 18 May 2022 18:50:30 +0000
-Received: by mail-yw1-f171.google.com with SMTP id
- 00721157ae682-2f83983782fso34419807b3.6; 
- Wed, 18 May 2022 11:50:27 -0700 (PDT)
+ id 1nrQY0-003uuJ-FC
+ for linux-riscv@lists.infradead.org; Wed, 18 May 2022 20:45:34 +0000
+Received: by mail-lf1-x131.google.com with SMTP id p22so5633348lfo.10
+ for <linux-riscv@lists.infradead.org>; Wed, 18 May 2022 13:45:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=yZJJPAZDkDqR7UoeGKaC6qUbpF8wvLcJmxmRJ8kYOSU=;
+ b=i+FtS1BM+D5y1Fijev4TprJqlINgopPryrnYc3eI6KH1HzKaxQQqr0voU6ZpMOGKv1
+ HmhzABK4RSTo3+zqOytKGeu8fgmUxsk+DnBWCyp2jEJpRzn2OrEsvlH5ZwanpF1UVsCv
+ 7jpzINan8lrclloeNnX9ohq+oRKKFzXhjqbRqmLLBMrGZyU7PLFmaMfOFkSYwONUsZlE
+ zadkzm2Vn+/5danHpEmCddVSLy6WFBPBcZsybyx6pk68M7WjscnNfqGopIHAXXkRKk41
+ MQkaGVfEN1oCsCqAI9edLvMJ9OXhS0J6cnlSLWwzuHVJ7QoubRxmasZ/pwwfnfrNRUTV
+ acZg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=JeOeCVH7gCGznzqm2nGSE0funGSjnIdlMb+nr+xRP/A=;
- b=cATO92eDIwFa8ZNUMj7M819PF1A/b45DjTwYz8N8YyrAaJmRwKc9syMTzNd7vcOcn0
- 6OJOYTNJIjeM19N/148Fa2zn90+8on6sKWqcrHKt+oP9FyAYZuZWDwueITAc2mqU63M4
- Z4FxiYebCC6FXbuJibjsyrkUwNKP6uLMK/TISMs8VbmWOAOrhsA3bAxQ6yKc55TGrY0y
- M1viqOHRhewzXhcNCFO4MxIBttdeDTRq/3uinyXKca8kQ6iP5OgAZ++Hj2/Jxiy8BsnI
- JWh0JhXRhUONMjXfWY2HbUxf8SIV+uXHofxFeQqIKaP5x5oh7q9hmj4a+yWdrvkA9cSN
- J1Nw==
-X-Gm-Message-State: AOAM533XFNgUI7Zr7gvdTxd9/o1PUhCqflWrVRjEvuJMh1sO17fuMCR3
- 28duHrH29GtcDzqq4sIRWufRdygAFiQ4AVRvqVw=
-X-Google-Smtp-Source: ABdhPJxcL5gAMOBXXOO+YGL6Y0P2PkXH2MCCVm1GVtiV2ayBXlf+abelWHS3qgKA5DVkPjc2lFFUvR3mDUeY/B0dZQA=
-X-Received: by 2002:a0d:c8c3:0:b0:2fe:e9eb:664 with SMTP id
- k186-20020a0dc8c3000000b002fee9eb0664mr844761ywd.301.1652899826747; Wed, 18
- May 2022 11:50:26 -0700 (PDT)
+ bh=yZJJPAZDkDqR7UoeGKaC6qUbpF8wvLcJmxmRJ8kYOSU=;
+ b=TMxB4D4TsAxGqnVroRE1SQVwFf+DDvW44MSnXumCuFGcx9vyeQ5ABxbCpNtW2L5Nsi
+ e2yf9XiyiJvHUZarn3wo7LUBrfhoQcCJHeL0/It16CEQWBvtqmksAxpigHtfZNNr0ct9
+ UBGySYnkx1YUciQvtaAbo/u1SP9jlaysSpPo84OTJmRbK+UU7Vs7TYUrC0uKOAQNYSd7
+ kExrkN9GcTidkjmiydCl1apmmHxI5m6njGHZq1Lwklf4hmhqTI+qccZJvsEnZha/d5PZ
+ RjMiQ9dczeshULMx15RRYu9hsv9r4V5i2Pi+vRKLO0DNSZnQq+LOIZvPW+WUh3+pu9zH
+ FgTg==
+X-Gm-Message-State: AOAM530JQsL19cfHhBAWomsy6KcMw7dqlvoypskrDOPLNLmSGqOj3ZNA
+ 0wdUGg4/20SgpnxgUP5aYULeOmg8O7kQe/7Y87ej1g==
+X-Google-Smtp-Source: ABdhPJzEuMLqq/YYkPJUgoDmG+EduOgOoFxh5PSOdtGXfVwKSqpQ0R2rlP/M7Z0qDdr7a4AlDOaaEEA/hCVff3/7Axk=
+X-Received: by 2002:a05:6512:1105:b0:477:b97f:4971 with SMTP id
+ l5-20020a056512110500b00477b97f4971mr883037lfg.87.1652906727396; Wed, 18 May
+ 2022 13:45:27 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220514152032.758738-1-ulf.hansson@linaro.org>
- <CAAhSdy3m3FzbkL-On5kPtrZgyO4x=6onr6mXi_=te5B=m_n8GQ@mail.gmail.com>
-In-Reply-To: <CAAhSdy3m3FzbkL-On5kPtrZgyO4x=6onr6mXi_=te5B=m_n8GQ@mail.gmail.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Wed, 18 May 2022 20:50:15 +0200
-Message-ID: <CAJZ5v0i+RR2nK8gew9tbnO_VVU3YUx2JgdRTBW07EPrB3UK87g@mail.gmail.com>
-Subject: Re: [PATCH 1/2] cpuidle: psci: Fix regression leading to no genpd
- governor
-To: Anup Patel <anup@brainfault.org>, Ulf Hansson <ulf.hansson@linaro.org>
-Cc: "Rafael J . Wysocki" <rjw@rjwysocki.net>,
- "open list:THERMAL" <linux-pm@vger.kernel.org>, 
- Sudeep Holla <sudeep.holla@arm.com>,
- Lorenzo Pieralisi <Lorenzo.Pieralisi@arm.com>, 
- Maulik Shah <quic_mkshah@quicinc.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@rivosinc.com>, 
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+References: <20220518184529.454008-1-nathan@kernel.org>
+In-Reply-To: <20220518184529.454008-1-nathan@kernel.org>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Wed, 18 May 2022 13:45:15 -0700
+Message-ID: <CAKwvOdk3HZkiZwtp1+xZULbm8BkOjdCQxPqsOHDJ5CboVy5ONw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Fix ALT_THEAD_PMA's asm parameters
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>,
+ linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, patches@lists.linux.dev, 
+ Jessica Clarke <jrtc27@jrtc27.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220518_115028_868453_6462F897 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20220518_134532_549003_AA3AB5CB 
+X-CRM114-Status: GOOD (  22.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,54 +86,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 14, 2022 at 6:49 PM Anup Patel <anup@brainfault.org> wrote:
+On Wed, May 18, 2022 at 11:45 AM Nathan Chancellor <nathan@kernel.org> wrote:
 >
-> On Sat, May 14, 2022 at 8:50 PM Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> >
-> > While factoring out the PM domain related code from PSCI domain driver into
-> > a set of library functions, a regression when initializing the genpds got
-> > introduced. More precisely, we fail to assign a genpd governor, so let's
-> > fix this.
-> >
-> > Fixes: 9d976d6721df ("cpuidle: Factor-out power domain related code from PSCI domain driver")
-> > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> After commit a35707c3d850 ("riscv: add memory-type errata for T-Head"),
+> builds with LLVM's integrated assembler fail like:
 >
-> Looks good to me.
+>   In file included from arch/riscv/kernel/asm-offsets.c:10:
+>   In file included from ./include/linux/mm.h:29:
+>   In file included from ./include/linux/pgtable.h:6:
+>   In file included from ./arch/riscv/include/asm/pgtable.h:114:
+>   ./arch/riscv/include/asm/pgtable-64.h:210:2: error: invalid input constraint '0' in asm
+>           ALT_THEAD_PMA(prot_val);
+>           ^
+>   ./arch/riscv/include/asm/errata_list.h:88:4: note: expanded from macro 'ALT_THEAD_PMA'
+>           : "0"(_val),                                                    \
+>             ^
 >
-> Reviewed-by: Anup Patel <anup@brainfault.org>
+> This was reported upstream to LLVM where Jessica pointed out a couple of
+> issues with the existing implementation of ALT_THEAD_PMA:
+>
+> * t3 is modified but not listed in the clobbers list.
+>
+> * "+r"(_val) marks _val as both an input and output of the asm but then
+>   "0"(_val) marks _val as an input matching constraint, which does not
+>   make much sense in this situation, as %1 is not actually used in the
+>   asm and matching constraints are designed to be used for different
+>   inputs that need to use the same register.
+>
+> Drop the matching contraint and shift all the operands by one, as %1 is
+
+s/contraint/constraint/
+
+Thanks for the fix!
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
+
+> unused, and mark t3 as clobbered. This resolves the build error and goes
+> not cause any problems with GNU as.
+>
+> Fixes: a35707c3d850 ("riscv: add memory-type errata for T-Head")
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1641
+> Link: https://github.com/llvm/llvm-project/issues/55514
+> Link: https://gcc.gnu.org/onlinedocs/gcc/Simple-Constraints.html
+> Suggested-by: Jessica Clarke <jrtc27@jrtc27.com>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> ---
+>  arch/riscv/include/asm/errata_list.h | 14 +++++++-------
+>  1 file changed, 7 insertions(+), 7 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> index 9e2888dbb5b1..416ead0f9a65 100644
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -75,20 +75,20 @@ asm volatile(ALTERNATIVE(                                           \
+>         "nop\n\t"                                                       \
+>         "nop\n\t"                                                       \
+>         "nop",                                                          \
+> -       "li      t3, %2\n\t"                                            \
+> -       "slli    t3, t3, %4\n\t"                                        \
+> +       "li      t3, %1\n\t"                                            \
+> +       "slli    t3, t3, %3\n\t"                                        \
+>         "and     t3, %0, t3\n\t"                                        \
+>         "bne     t3, zero, 2f\n\t"                                      \
+> -       "li      t3, %3\n\t"                                            \
+> -       "slli    t3, t3, %4\n\t"                                        \
+> +       "li      t3, %2\n\t"                                            \
+> +       "slli    t3, t3, %3\n\t"                                        \
+>         "or      %0, %0, t3\n\t"                                        \
+>         "2:",  THEAD_VENDOR_ID,                                         \
+>                 ERRATA_THEAD_PBMT, CONFIG_ERRATA_THEAD_PBMT)            \
+>         : "+r"(_val)                                                    \
+> -       : "0"(_val),                                                    \
+> -         "I"(_PAGE_MTMASK_THEAD >> ALT_THEAD_PBMT_SHIFT),              \
+> +       : "I"(_PAGE_MTMASK_THEAD >> ALT_THEAD_PBMT_SHIFT),              \
+>           "I"(_PAGE_PMA_THEAD >> ALT_THEAD_PBMT_SHIFT),                 \
+> -         "I"(ALT_THEAD_PBMT_SHIFT))
+> +         "I"(ALT_THEAD_PBMT_SHIFT)                                     \
+> +       : "t3")
+>  #else
+>  #define ALT_THEAD_PMA(_val)
+>  #endif
+>
+> base-commit: 93c0651617a62a69717299f1464dda798af8bebb
+> --
+> 2.36.1
 >
 
-Ulf, do you want me to take this lot or is it going to be handled elsewhere?
 
-> > ---
-> >  drivers/cpuidle/cpuidle-psci-domain.c | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
-> > index 755bbdfc5b82..3db4fca1172b 100644
-> > --- a/drivers/cpuidle/cpuidle-psci-domain.c
-> > +++ b/drivers/cpuidle/cpuidle-psci-domain.c
-> > @@ -52,7 +52,7 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
-> >         struct generic_pm_domain *pd;
-> >         struct psci_pd_provider *pd_provider;
-> >         struct dev_power_governor *pd_gov;
-> > -       int ret = -ENOMEM, state_count = 0;
-> > +       int ret = -ENOMEM;
-> >
-> >         pd = dt_idle_pd_alloc(np, psci_dt_parse_state_node);
-> >         if (!pd)
-> > @@ -71,7 +71,7 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
-> >                 pd->flags |= GENPD_FLAG_ALWAYS_ON;
-> >
-> >         /* Use governor for CPU PM domains if it has some states to manage. */
-> > -       pd_gov = state_count > 0 ? &pm_domain_cpu_gov : NULL;
-> > +       pd_gov = pd->states ? &pm_domain_cpu_gov : NULL;
-> >
-> >         ret = pm_genpd_init(pd, pd_gov, false);
-> >         if (ret)
-> > --
-> > 2.25.1
-> >
+-- 
+Thanks,
+~Nick Desaulniers
 
 _______________________________________________
 linux-riscv mailing list
