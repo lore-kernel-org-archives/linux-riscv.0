@@ -4,133 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA69EC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 11:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D40C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 14:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LoY7A4s6SCluy0Efw1Afg5W6G+HX+7kf89iVMucbedU=; b=TsudZ6YJb7FENI
-	GWSxPMNFVjqrwAb9QwYrNOqSaNHCtqHSEvA6G/Ghk+DCB7NEu+4Co227tYKIMk1TBWcN0HNvLamnU
-	n469sTahTgo9k/tuf8CXTOHpPVyfVePSlJkwGsWriN8s2lVfgHITy5cFiUz3IAvZUQl4vt3CUHqs5
-	QIZSGCtFvqNHejPaUhpKqcPwDr+tesfZwnJFOi8KT0sawzCWYYV3hKIZ4sy3AuYtZwWxd6vnlFqI1
-	Z72PyqXm3QUV0Nc880LRjuPc6YuUIbFQ/CLDaiDTdeUMc0kKLrdAJXG6aB029TA/xpOe4d3fkWoge
-	zG3M96AZa4xJNTz+FR5A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kccg2OU8om133b+TUIZ+en7IXYAU4Tl2arN0B78B8GU=; b=qxN3LqpvOmryma
+	AE0ZCwpeXJ5F34zxEKlfuozYbVUActKvDCH0XjdTSpEIjkifHvgK9M4SQ+tcJs92vUj1AOCRHRxnj
+	VLr8XseL9cE8j5JaBMoi5u9pSb6kgko13VJNjuKAt4YLMCGvk9OrMoO772BFAvnjmIakkEXXfwfdU
+	hv4SettFhR0WdOa/Cs5sSD7U/2LkBDycNU+a285JGKkmhQedK407tIYfZtWefI1uscQj+t5SaQwT3
+	ICH2Ot9RQRwSbrKHwGqK8P3EQGgdhvLRtsz1YU8GPgtP66qga4g8envh7quu6ef/gInz4SErKLL6N
+	EEf7kZ1kzxHDR0WQDt4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nrHU4-001Pgo-9Z; Wed, 18 May 2022 11:04:52 +0000
-Received: from mail-os0jpn01on20711.outbound.protection.outlook.com
- ([2a01:111:f403:700c::711]
- helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1nrKqC-002ZHx-4j; Wed, 18 May 2022 14:39:56 +0000
+Received: from xavier.telenet-ops.be ([2a02:1800:120:4::f00:14])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nrHTz-001PfS-0J
- for linux-riscv@lists.infradead.org; Wed, 18 May 2022 11:04:50 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=izU8IUb8RmRdlu0kL+Xq0WL1RELk/9qmQ5IjM4jdU+PxXxK8kVbGVkaKLpws7+i3PZ9R7fjGsryOYVLi6BvIa4CEs0RaT7duN2lsoLjji8W9JVfaJiKZWt3/4+E+D8081fjICuptD7GILpzxWKuKSMUBlK7fuNUHtVCZXMV7FgIB5RPAbYUzjBF1HsUfAB/8QYi0qLzkAIl7Mzd6tZ2kgXKjmnYseAcV0Enw2ZCIVna3gHUEgKtrETd7DlkKzPjsd1fAQLJxOIxI3nCbx1PM6fAx9QTGUKAtXoss0vvIAf4yFE2yRBZStkZVBg6nkzPYsV3ojEUMtQvIHNbkQSeFnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LEaHsqfqObyBkblmt9uCLYqzE4u1hAboEcNfbSZIZCs=;
- b=hJee2v8xIMkcoqd1RdrtSckwwj4KryYYNTuOLa/YHCoCmMRokM84dQNxVUxbLVtb2r6aOKyfUO0DklonK6BfJeHifyqIiQF3KDQJKfXOtJCEkZ/gD2aw01s6daUmhVpqJD/en1LWG7FaYFObgTbAG4Hj/nS0Q/Wek9Apjg5JsjT3MoPu8THbJoI3zX+ZLzXHjDVFGpBA+KEs2NMbeFxdP+o9yflKUSRPAmzPqp6YXEfVn3Mj8yadVtxO3cjDb5rh3XQ/1l/WCc7iqkV2JdNRaq3EbPqg5J8KUpDEsCwb+Y20EMQRzTpzfTcfDMDYNnY9T1voQuEKLb9MpKsCila3kQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=zenithal.me; dmarc=pass action=none header.from=zenithal.me;
- dkim=pass header.d=zenithal.me; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zenithal.me;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LEaHsqfqObyBkblmt9uCLYqzE4u1hAboEcNfbSZIZCs=;
- b=eeqK5q0mPbokWtCX4MDgr0eVs6xH+Y2t49TOj5Q+3d7kob4YGhISXDbPIiq5EyfKX/RIRKs3uUDE0t+hzzTikZsgbvvPIHD0uGRkkKqjcAUiIYsZ755uYKZkqX8qQvA/wTQ3sxnLF1bKeabp5Q4kyv+rOgf09w8WBDRO1ZqCnLY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=zenithal.me;
-Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:c0::6) by
- OSZP286MB0696.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:f7::7) with
- Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.5250.17; Wed, 18 May 2022 11:04:35 +0000
-Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- ([fe80::bd99:5c83:e2dc:a8f7]) by TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- ([fe80::bd99:5c83:e2dc:a8f7%7]) with mapi id 15.20.5273.015; Wed, 18 May 2022
- 11:04:35 +0000
-Date: Wed, 18 May 2022 19:04:28 +0800
-From: Zenithal <i@zenithal.me>
-To: Conor.Dooley@microchip.com
-Cc: palmer@rivosinc.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- heiko@sntech.de, atishp@rivosinc.com, anup@brainfault.org,
- ebiederm@xmission.com, keescook@chromium.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-api@vger.kernel.org, mtk.manpages@gmail.com,
- linux-man@vger.kernel.org, jiatai2021@iscas.ac.cn
-Subject: Re: [PATCH -next v2 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing
- from DT
-Message-ID: <YoTSvFe56tLy3M+u@Sun>
-References: <YoS6qRhxGuwHmK7q@Sun> <YoS7bT1B/+JrEn05@Sun>
- <3e3891ad-2d31-99a0-bb65-1e6643ff6b96@microchip.com>
-Content-Disposition: inline
-In-Reply-To: <3e3891ad-2d31-99a0-bb65-1e6643ff6b96@microchip.com>
-X-Operating-System: Linux Sun 5.15.26 
-X-Mailer: Mutt 2.2.1 (2022-02-19)
-X-ClientProxiedBy: BYAPR02CA0032.namprd02.prod.outlook.com
- (2603:10b6:a02:ee::45) To TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:c0::6)
+ id 1nrKq9-002ZGv-4j
+ for linux-riscv@lists.infradead.org; Wed, 18 May 2022 14:39:54 +0000
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed30:1425:89ca:2e9e:5fc1])
+ by xavier.telenet-ops.be with bizsmtp
+ id YEfl2700H10zdRX01EflEG; Wed, 18 May 2022 16:39:46 +0200
+Received: from rox.of.borg ([192.168.97.57])
+ by ramsan.of.borg with esmtps (TLS1.3) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1nrKq1-000qvo-7f; Wed, 18 May 2022 16:39:45 +0200
+Received: from geert by rox.of.borg with local (Exim 4.93)
+ (envelope-from <geert@linux-m68k.org>)
+ id 1nrKq0-00BtH0-NK; Wed, 18 May 2022 16:39:44 +0200
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Hoan Tran <hoan@os.amperecomputing.com>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>,
+ Damien Le Moal <damien.lemoal@wdc.com>, Marc Zyngier <maz@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] gpio: dwapb: Make the irqchip immutable
+Date: Wed, 18 May 2022 16:39:42 +0200
+Message-Id: <e6380b316db23ee03a9adbf0a7d1ad83538f9961.1652884676.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 3057cf4d-1eaf-43fe-5b1e-08da38be315d
-X-MS-TrafficTypeDiagnostic: OSZP286MB0696:EE_
-X-Microsoft-Antispam-PRVS: <OSZP286MB069676F96C9A9E834DA0CC8CBCD19@OSZP286MB0696.JPNP286.PROD.OUTLOOK.COM>
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: piOdhhpUrAqP8TFomMlZ2gPW1OZ6NLQvfJpP9tSjf7cCT6lz66fdqScx3LhqWpY6OemQTJH+aWPvy4JnZbr4smIVs9zBtaFfvRUjCRtquGU0uoFASCk8JtvjOjRNRl7G3Fj0pLxxPvzhi1GKIkOsD9RAOV/NgBM9e9Q9awnl+81F6+cJR1RCNzNqyIYAOwnQIQ+DitxfBafRe1aPfgf13IhQnigVzvU4grSX8lua7EJbjFKeDjEIBCdO2WSt3FmHev1xAqpvafW57/fkNcaArwECkgVeA+9N6zCSmSPlieEmHVyndMD7UdteXWRYQUlSw6HULxF4aU+LRA2/2nbXPyBzrtmprsBO7rnsLQecBVajh9mjoiOdUTD+Wq1CCqMtYaUQDmRejuiwRA0IF+rpqmN1qGBHRz/hEBR+FKrlqRt7ZfguVf2gNyK/Ta9DlLjg0pbBO+aj9ZRxBheLo8siNRdhsIFDbNO4F/R8Wgw4oNozcWAzsJRwdI9wRZAygNuEoO96lzTpnzauiC193TWLD7ZdJHNvsIFw+kxae8hB8BVacG0rCSj3vL/yPrEnU3Fgbmg37fPW317HOEIghaaA7jykQzjGj6o4GCrlfDl9IDGzcaTFPf4+Dqc5B7CCxfuk7SN8Kd+JyKeLi/dUFvUjRSWVQ9t1f3LfPxDxgtX25gM/KGajmtUQOZLJZKe+eERNKTZqsmmULmxPtRaKjczXYQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM; PTR:; CAT:NONE;
- SFS:(13230001)(7916004)(346002)(39830400003)(136003)(396003)(376002)(366004)(66556008)(6486002)(5660300002)(508600001)(6506007)(9686003)(52116002)(53546011)(6512007)(7416002)(8936002)(6666004)(8676002)(2906002)(83380400001)(33716001)(86362001)(6916009)(4326008)(66476007)(786003)(316002)(41300700001)(41320700001)(186003)(38100700002)(66946007)(49092004)(67856001);
- DIR:OUT; SFP:1102; 
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MqsGa+pjCsXq6IlaqZZg/MCQr56q+M4+A0cpGaKeK4LBRjAF5TQLwAF0QaFZ?=
- =?us-ascii?Q?TAOCBFvb13GyP/otpylUXOgqJ+BnVcWtcx5cmgRMkIwd8M0ywTDTfZaZKi9O?=
- =?us-ascii?Q?q1LQUykokF+h0jPJWtcxL6u04FhGRcKEUqHLGGRuTQsuEg2oDWrW4evbo21R?=
- =?us-ascii?Q?HaMtBHvMF9aOyVqzStYqeWG7LWtJCP5iTQ+ae7vsCzhK3UWi837NUB40wv5Q?=
- =?us-ascii?Q?cVHzfRzzjcxDzKl/rFMZ9y2IoziWtP2UXPHesEWTHtV9K7ps4oy6bGrRlb27?=
- =?us-ascii?Q?NyhIxvcM0+zPakUCR6LeUu8Pu9RoQhmrb1Mp4+nIavXAaI8friugWVGqldTZ?=
- =?us-ascii?Q?FE/1yYtBCx/Xx8Pr7VJ1RzWzgG/TqKvLlkx8NUKoE4/prfFD526qLVxJbknk?=
- =?us-ascii?Q?qw3al43wKfbBkYrLq+VvE9rs3UtWIA5CaoeBwB7oh448FJKZt1fImiojYjzn?=
- =?us-ascii?Q?qKU4Q3BKqxjBO0oUPIl6mAG8zPXkINtRf/RR8V8hMvJ3oc0qNsQtI0S1tEdi?=
- =?us-ascii?Q?4n7Zwn54ISXPrWyXXKWXX1Bz0D9ZSuDszb+p/UK+ci8vd8WmVeWWEGFxqqAu?=
- =?us-ascii?Q?9AD1a+3psK+mYIcSXcRHPgH6b8C8fbLJYVfvpM64VswWPzZ3Gm+gDek34jvO?=
- =?us-ascii?Q?02zo+RnybaUD13iMgYZKwkzCcCPCazJQRSx1ocMQYUrNI8gHI/ALTxMGH/6Y?=
- =?us-ascii?Q?vyn55d5NM3KJgMLpFRmX043zmwiZK/BSZRtKItDtEIdmIJsaLJBJ1tBbSzEY?=
- =?us-ascii?Q?ZKtEpNs7G+o/OSAg7e19JP2a7peJ5uxEEi2TNSmNCMGoAtH5p1WJLPCXr2pV?=
- =?us-ascii?Q?QHJbH2wH4fwhY5mPdUkU4hgU1V7m3VQvERXKQc7ErhJd8+Cxiq4yYcds+12Z?=
- =?us-ascii?Q?SLT2mLu6NsBpq15IqhdYLggUplexvcVf80B972KCgEbFa/btSApyy90JHEmM?=
- =?us-ascii?Q?eqmKjDcwK7FDLzs7Pqi6uvWELMMXhpxIrj4ZHrXOPG9mASSivb0MquBd2N1a?=
- =?us-ascii?Q?CPeYwEYSgu1dke7R//KT1pgEHqvvW8Wp1JDLAVAq4NM408yxFzteOw52PPTB?=
- =?us-ascii?Q?/YJeBpn5GANErDF+XN+1CqCf4rqbLTEzH4Us+vax6SqXj8/+JvmW7Owme6gm?=
- =?us-ascii?Q?idRbxUIpFoXueK5LlHJydJsbLqLqk8IPajElft4etoevdOf2Lfjx8FrXkGh8?=
- =?us-ascii?Q?BV3IxQq6/n1PmxW3EKSJLmb2hbsBoLn2xCszqX8UCjlF9WxiCxhHwd2kH1GU?=
- =?us-ascii?Q?1ODKtKMw4td17JbCodSuYLh+0Ce0PcPejv8W8yMoLk5p0Ivb0lYsNjbLbeIK?=
- =?us-ascii?Q?2pCquEWQJ/nV3xE0FDDcD4ahScjkIzgbViGNr3vq5cj5YG0CZEjsJDhY+Hrj?=
- =?us-ascii?Q?L7tH2h0fcHbuE6KlflW8XLM0qGfprx52Onq0+4GyXXKCq3zQ7RnaSapelHwd?=
- =?us-ascii?Q?E7V9ZJ5jRjzow6FRwnZrPs8MTvxKkxzDO/YtEJ1maUwOXgNoKecc3T5BpI0Z?=
- =?us-ascii?Q?pEn6l2cXYacQzyEFLZ+FG3Aizk8rzu+EDxHXc6vvERZYsb21Mkq2auA3RYhx?=
- =?us-ascii?Q?ZZV/MZGJ0pxEwYVsKg0Wq7cBoT4gShyE7ub6z0qzshjZNCEWUu2/LDoPPS75?=
- =?us-ascii?Q?OPWqVzQMKC4eUXzVF2lChMndNnklT6E46OXjSUYJb9/2bmyfUyN3mu06UrOy?=
- =?us-ascii?Q?AysC1d9JBLzamZ08b8JG7wHWqIfPcFhhoZ2jm+pvVP43pDJBeQP+caNAnR8M?=
- =?us-ascii?Q?u2ZvOklFXg=3D=3D?=
-X-OriginatorOrg: zenithal.me
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3057cf4d-1eaf-43fe-5b1e-08da38be315d
-X-MS-Exchange-CrossTenant-AuthSource: TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 May 2022 11:04:35.1208 (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 436d481c-43b1-4418-8d7f-84c1e4887cf0
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Q8snQcHzQVOXuuUTGOIia6WS1SJVLzRQ6x6jMweHB3Fc6v+SrfD9ltBIXUHFjCfH
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSZP286MB0696
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220518_040447_070635_4DED1E75 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20220518_073953_360759_A815F3D2 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,47 +68,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 18, 2022 at 09:50:18AM +0000, Conor.Dooley@microchip.com wrote:
-> On 18/05/2022 10:25, Hongren (Zenithal) Zheng wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> > 
-> > This commit parses Zb/Zk related string from DT and
-> > output them in cpuinfo
-> 
-> Similarly here, the typical "this patch" comment.
+Commit 6c846d026d49 ("gpio: Don't fiddle with irqchips marked as
+immutable") added a warning to indicate if the gpiolib is altering the
+internals of irqchips.  Following this change the following warning is
+now observed for the dwapb driver:
 
-Will fix in the next version.
+    gpio gpiochip0: (50200000.gpio): not an immutable chip, please consider fixing it!
 
-> 
-> > 
-> > One thing worth noting is that if DT provides zk,
-> > all zbkb, zbkc, zbkx and zkn, zkr, zkt would be enabled.
-> > 
-> > Note that zk is a valid extension name and the current
-> > DT binding spec allows this.
-> > 
-> > This commit also changes the logical id of
-> 
-> "also" makes it sound like this a separate change?
-> If so, split it into another patch.
+Fix this by making the irqchip in the dwapb driver immutable.
 
-No, adding Zba naturally changes the logical id.
-I think it would be strange the first patch appends Zba
-then the second patch moves Zba to the beginning of the list
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+Against linux-next.
+Boot-tested on SiPEED MAiXBiT (Canaan K210).
+---
+ drivers/gpio/gpio-dwapb.c | 32 ++++++++++++++++++++------------
+ 1 file changed, 20 insertions(+), 12 deletions(-)
 
-> 
-> > existing multi-letter extensions and adds a statement
-> > that instead of logical id compatibility, the order
-> > is needed.
-> > 
-> > There currently lacks a mechanism to merge them when
-> > producing cpuinfo. Namely if you provide a riscv,isa
-> > "rv64imafdc_zk_zks", the cpuinfo output would be
-> > "rv64imafdc_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_zksed
-> > _zksh_zkt"
-> > 
-> > Tested-by: Jiatai He <jiatai2021@iscas.ac.cn>
-> > Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
+diff --git a/drivers/gpio/gpio-dwapb.c b/drivers/gpio/gpio-dwapb.c
+index 7130195da48d75dd..29b9395548151992 100644
+--- a/drivers/gpio/gpio-dwapb.c
++++ b/drivers/gpio/gpio-dwapb.c
+@@ -95,7 +95,6 @@ struct dwapb_context {
+ #endif
+ 
+ struct dwapb_gpio_port_irqchip {
+-	struct irq_chip		irqchip;
+ 	unsigned int		nr_irqs;
+ 	unsigned int		irq[DWAPB_MAX_GPIOS];
+ };
+@@ -259,6 +258,8 @@ static void dwapb_irq_mask(struct irq_data *d)
+ 	val = dwapb_read(gpio, GPIO_INTMASK) | BIT(irqd_to_hwirq(d));
+ 	dwapb_write(gpio, GPIO_INTMASK, val);
+ 	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
++
++	gpiochip_disable_irq(gc, d->hwirq);
+ }
+ 
+ static void dwapb_irq_unmask(struct irq_data *d)
+@@ -268,6 +269,8 @@ static void dwapb_irq_unmask(struct irq_data *d)
+ 	unsigned long flags;
+ 	u32 val;
+ 
++	gpiochip_enable_irq(gc, d->hwirq);
++
+ 	raw_spin_lock_irqsave(&gc->bgpio_lock, flags);
+ 	val = dwapb_read(gpio, GPIO_INTMASK) & ~BIT(irqd_to_hwirq(d));
+ 	dwapb_write(gpio, GPIO_INTMASK, val);
+@@ -364,8 +367,23 @@ static int dwapb_irq_set_wake(struct irq_data *d, unsigned int enable)
+ 
+ 	return 0;
+ }
++#else
++#define dwapb_irq_set_wake	NULL
+ #endif
+ 
++static const struct irq_chip dwapb_irq_chip = {
++	.name		= DWAPB_DRIVER_NAME,
++	.irq_ack	= dwapb_irq_ack,
++	.irq_mask	= dwapb_irq_mask,
++	.irq_unmask	= dwapb_irq_unmask,
++	.irq_set_type	= dwapb_irq_set_type,
++	.irq_enable	= dwapb_irq_enable,
++	.irq_disable	= dwapb_irq_disable,
++	.irq_set_wake	= dwapb_irq_set_wake,
++	.flags		= IRQCHIP_IMMUTABLE,
++	GPIOCHIP_IRQ_RESOURCE_HELPERS,
++};
++
+ static int dwapb_gpio_set_debounce(struct gpio_chip *gc,
+ 				   unsigned offset, unsigned debounce)
+ {
+@@ -439,16 +457,6 @@ static void dwapb_configure_irqs(struct dwapb_gpio *gpio,
+ 	girq->default_type = IRQ_TYPE_NONE;
+ 
+ 	port->pirq = pirq;
+-	pirq->irqchip.name = DWAPB_DRIVER_NAME;
+-	pirq->irqchip.irq_ack = dwapb_irq_ack;
+-	pirq->irqchip.irq_mask = dwapb_irq_mask;
+-	pirq->irqchip.irq_unmask = dwapb_irq_unmask;
+-	pirq->irqchip.irq_set_type = dwapb_irq_set_type;
+-	pirq->irqchip.irq_enable = dwapb_irq_enable;
+-	pirq->irqchip.irq_disable = dwapb_irq_disable;
+-#ifdef CONFIG_PM_SLEEP
+-	pirq->irqchip.irq_set_wake = dwapb_irq_set_wake;
+-#endif
+ 
+ 	/*
+ 	 * Intel ACPI-based platforms mostly have the DesignWare APB GPIO
+@@ -475,7 +483,7 @@ static void dwapb_configure_irqs(struct dwapb_gpio *gpio,
+ 		girq->parent_handler = dwapb_irq_handler;
+ 	}
+ 
+-	girq->chip = &pirq->irqchip;
++	gpio_irq_chip_set_chip(girq, &dwapb_irq_chip);
+ 
+ 	return;
+ 
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
