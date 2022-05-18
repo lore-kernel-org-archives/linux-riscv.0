@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B6FBC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 08:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD3CFC433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 18 May 2022 08:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/JqIbvx5WDkhnlGlCmsDC6qArAY5Hgh6TeLd3SExbwE=; b=lV7NDht4K96clU
-	GsV7AWAKqljmlH/a9Lu928Bz3gbbh8Y4pdnXs4Q7QlU+1J9jVFf3KZ9EdK98/9lnAd00qH8ld2qBJ
-	PBe3qSbOGoKKnXaQS6wN8bs0AGE3WcZxVHUof2O+vNk7vJtefh9ap3mUkFXa5gEHyPODp/lj+sF+F
-	rXiGXLAXvPt4Ut2zHzS4UwPNmokGHbKZrVCKYGaDV5PwJnSewTkS1TTPCt+Bfj8d4bWIrojBHC1rR
-	/OYNyg8zxt83FQBNnbnXdB2Vin4nC7wJ5E/QMrvbjmPS8TuImOTVwITjNqE5Px+rJ8CxMejAPsJsf
-	ioFazi/fDjlnCywQR0Og==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1/bxZfyoNBmel79ofzgYmgmqxTjvZZnLeyTiFPawruQ=; b=xUd9QBgspZ+5FG
+	RS1g3ko4DRPz2iv2lTSxaCjYkcm9bQufR2N52CrRxEJxqJbHTRGnMOOFH8NnvDsXS8Qp2g2+PwSge
+	p6OEQOZP45xaV7eZIussww5hur4/WNe5McHRg25pm9qQALo1E6cTXSWEhGu4JhG1zic3EbLfGacyn
+	FtSLeSssaOPIPbg7aASzuoXLdOiGCvqS1eDi+acusUtFvmzY2LcYmhVTAvfwuEjGTvwi8vBo/cRST
+	iNChMd0owovPRd2BqUcGmMXDEKssVIAx5TAuMrdIeYJ+KKJFUsZumv9yYhHbthXCePLmfDOYHMwgm
+	BhujjGXbbmAIuNC4m7kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nrEt5-000YFV-Gq; Wed, 18 May 2022 08:18:31 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1nrEx3-000Zie-UE; Wed, 18 May 2022 08:22:37 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nrEt2-000YCC-4z
- for linux-riscv@lists.infradead.org; Wed, 18 May 2022 08:18:29 +0000
-Received: by mail-pf1-x429.google.com with SMTP id w200so1452362pfc.10
- for <linux-riscv@lists.infradead.org>; Wed, 18 May 2022 01:18:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sifive.com; s=google;
- h=from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=f22cXTNsoYn514XVAs+A0nZ4R63LnXxUaMnO5yshFsc=;
- b=mUJJaZznPXm2bEg7PPxlgx7o3QntT81XPFfYXi4PPvdVoRy4k1G9xOeSgyJt4jpWfg
- QE+A17kzFEKij01JyspqP1UXEAZaYitG0T4NmR7aoptr1Y3Ayr37p24GgnDWxynwDg2U
- bxOuwGcq90qqgJv8MdBu/3h123882KI1Kn4EHIBP2A9eu9LKGhXMIqc7W8rLmuuWQllt
- FESfWEd84TzBbbdEpYJcpcQL6ar4rpy+DlqZRBXS3kTiXWzW68YMR54dCwAeFO1wioca
- eIrnaqwuz3PPYImQlcs+d0J/C9PWbrxA9Jjy3LfC46XuO4BhqjJ1Gb8nalaWbrLhKbqw
- OMmQ==
+ id 1nrEwz-000ZZK-W6
+ for linux-riscv@lists.infradead.org; Wed, 18 May 2022 08:22:36 +0000
+Received: by mail-wr1-x429.google.com with SMTP id t6so1563487wra.4
+ for <linux-riscv@lists.infradead.org>; Wed, 18 May 2022 01:22:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vrull.eu; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=trjJ+b0UjHlSF876BjNjmr4z+E9qBj2MQAPe6nMnBlA=;
+ b=kFQL87UQWcFbmG99QsHcYpdeBr7/o0aCWLZs4cACELBQusFJkwnRf0pnFO4BDWplkx
+ cDH2SaMQtqvmmKd7YarcDr6MKTgLipa+MYrk5MqwCbBnMNf0NtADKSO1xlrn93fWfEL/
+ kOPiVL45nY/gbVwf2E1xkzd1+wEqe/kxQhllGmASlFvU84YmE2Hylbv0Gk16JInDXOvT
+ cqqGAdCBMYABt4E8pwn6a5vPq5uFMzhvZn8SBBEMtLTWXJxLINkJVYQgvss+bOHe0FgK
+ AWYyC7JcIRMSt2qMLbJGKE/3FiNuDammjR3pelAzq11lv/7jtKbhXzmbP7fWxM5jPlte
+ zRbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
- :content-transfer-encoding;
- bh=f22cXTNsoYn514XVAs+A0nZ4R63LnXxUaMnO5yshFsc=;
- b=YRRyLv42wpY2HO2HgrjLduiDDZc53rqSm2UXXbXSjtL1q9Po85rPBOsUMLgldm56B8
- DQATXmpMypufRHq1J+wnKv2CIP/XIP/PzIAJyKl9yC5iaymeqECjI53vc+oyfSpDf8Ft
- xIvB1kLePSpjP14iUqiYjPLOHYGFDsdznwnS/IQwJmKBr8CZMXXUXAmWEFTRjdy+Jp/V
- EcgA32d6UxUJuzSp2KyvHk/LhBWAgzP7whQyH6tTvUrjlldSlfqFDivJNoznRehorFQR
- z6DJkTtf+Fls9DnbV75dpqWHzO8Bp9qZObtnFNc1I/kox9RxOPfqzrD6+/Ot26JMN+Ps
- 1Klw==
-X-Gm-Message-State: AOAM531Npg9WwBCjjMA4QmmydDf23IEEyk0gzGFObvO2Zd6l2YaJHP/7
- 29Zi/Xba34zj9j9vLr9SizLEMQ==
-X-Google-Smtp-Source: ABdhPJzx8V6y2Rr4Fth9lL0g63c1SH5CDRzTfNW+60mdSK5B8TxPN0VIhHLmLBbA2PUNJIH5856MJg==
-X-Received: by 2002:a63:5b13:0:b0:3c2:163c:b9cb with SMTP id
- p19-20020a635b13000000b003c2163cb9cbmr22699800pgb.145.1652861904658; 
- Wed, 18 May 2022 01:18:24 -0700 (PDT)
-Received: from hsinchu01.internal.sifive.com
- (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
- by smtp.gmail.com with ESMTPSA id
- y23-20020a1709027c9700b001619cebbad4sm989560pll.148.2022.05.18.01.18.22
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 18 May 2022 01:18:24 -0700 (PDT)
-From: Po-Kai Chi <po-kai.chi@sifive.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Po-Kai Chi <po-kai.chi@sifive.com>
-Subject: [PATCH] riscv: Invalid instruction cache after copy the xol area
-Date: Wed, 18 May 2022 16:17:53 +0800
-Message-Id: <20220518081753.29589-1-po-kai.chi@sifive.com>
-X-Mailer: git-send-email 2.36.1
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=trjJ+b0UjHlSF876BjNjmr4z+E9qBj2MQAPe6nMnBlA=;
+ b=DhVgsVbsWPfMjbRJ5Z5ni9IkliwATv/oUJd1/qBAQMO42NVHyLsErPCGzXRWe+paYC
+ DT/U8JTa0mCaXmWtqq918N6+CqriNT3OJdgKz/GTW52pTatFThvgFF/XorqTWY9+6GH4
+ ZqpleREzicRhRqL7loOesAdCgDFnFrCLazkWlt4LWeglxY6YQe0PaJ7zVuIqxUJNdssk
+ 92E+aqmq1mXzX/GsSVMQxe6gjnZlRApU0LB9P8pChk5V/DpbAIJPHOCoB5+xWvuecvht
+ I/mbc14XeWTWCZeky1n066hwI9cJtkXbsL/4cwA3GDnO/fimtavh4iI6U5pixVggO76j
+ Y+4w==
+X-Gm-Message-State: AOAM532fVxj3npBW7vbIbwGHK9xKaGFRjQvSPyzCpxdVco901nccbe2Z
+ iM4PseN/q62i2dZZjCz418w9m2ZEwfCPAuT7QzjIeQ==
+X-Google-Smtp-Source: ABdhPJyR3TK3AZ6vFSIVdWlbdx57iSv9BfywlkDpHw7WENtz/yeCErgNkkD7SzI8rPZAtra5UA7HzAA1/Ep30orloL4=
+X-Received: by 2002:a5d:618f:0:b0:20c:ffa0:95a8 with SMTP id
+ j15-20020a5d618f000000b0020cffa095a8mr15420395wru.306.1652862148610; Wed, 18
+ May 2022 01:22:28 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220511214132.2281431-1-heiko@sntech.de>
+ <20220511214132.2281431-2-heiko@sntech.de>
+ <20220518002529.GA1928329-robh@kernel.org>
+In-Reply-To: <20220518002529.GA1928329-robh@kernel.org>
+From: Philipp Tomsich <philipp.tomsich@vrull.eu>
+Date: Wed, 18 May 2022 10:22:17 +0200
+Message-ID: <CAAeLtUBLpDHeJHfPtaUb_OLZb_6cUQa1Z_F+06pkdJMSHtWrfQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/3] dt-bindings: riscv: document cbom-block-size
+To: Rob Herring <robh@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ wefu@redhat.com, guoren@kernel.org, atishp@atishpatra.org, 
+ anup@brainfault.org, mick@ics.forth.gr, samuel@sholland.org, 
+ cmuellner@linux.com, krzk+dt@kernel.org, devicetree@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220518_011828_296643_F8D13C19 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20220518_012234_127506_AAB41088 
+X-CRM114-Status: GOOD (  21.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,43 +88,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We need to invalid the relevant instruction cache after
-copying the xol area, to ensure the changes takes effect.
++David Kruckemyer (who is chairing the CMO task-group within RVI).
 
-Signed-off-by: Po-Kai Chi <po-kai.chi@sifive.com>
----
- arch/riscv/kernel/probes/uprobes.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+On Wed, 18 May 2022 at 02:25, Rob Herring <robh@kernel.org> wrote:
+>
+> On Wed, May 11, 2022 at 11:41:30PM +0200, Heiko Stuebner wrote:
+> > The Zicbom operates on a block-size defined for the cpu-core,
+> > which does not necessarily match other cache-sizes used.
+> >
+> > So add the necessary property for the system to know the core's
+> > block-size.
+> >
+> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> > ---
+> >  Documentation/devicetree/bindings/riscv/cpus.yaml | 7 +++++++
+> >  1 file changed, 7 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > index d632ac76532e..b179bfd155a3 100644
+> > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > @@ -63,6 +63,13 @@ properties:
+> >        - riscv,sv48
+> >        - riscv,none
+> >
+> > +  riscv,cbom-block-size:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+>
+> Any value 0-2^32 is valid?
+>
+> > +    description:
+> > +      Blocksize in bytes for the Zicbom cache operations. The block
+> > +      size is a property of the core itself and does not necessarily
+> > +      match other software defined cache sizes.
+>
+> What about hardware defined cache sizes? I'm scratching my head as to
+> what a 'software defined cache size' is.
 
-diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
-index 7a057b5f0adc..9d52beeac73c 100644
---- a/arch/riscv/kernel/probes/uprobes.c
-+++ b/arch/riscv/kernel/probes/uprobes.c
-@@ -165,6 +165,7 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
- 	/* Initialize the slot */
- 	void *kaddr = kmap_atomic(page);
- 	void *dst = kaddr + (vaddr & ~PAGE_MASK);
-+	unsigned long addr = (unsigned long)dst;
- 
- 	memcpy(dst, src, len);
- 
-@@ -177,10 +178,9 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
- 	kunmap_atomic(kaddr);
- 
- 	/*
--	 * We probably need flush_icache_user_page() but it needs vma.
--	 * This should work on most of architectures by default. If
--	 * architecture needs to do something different it can define
--	 * its own version of the function.
-+	 * Flush both I/D cache to ensure instruction modification
-+	 * takes effect.
- 	 */
- 	flush_dcache_page(page);
-+	flush_icache_range(addr, addr + len);
- }
--- 
-2.36.1
+This seems to be a misnomer, as the specification doesn't use the term
+and rather talks about the "size of a cache block for [operation
+name]".
 
+There are currently two such 'operation sizes' discoverable by software:
+- size of the cache block for management and prefetch instructions
+- size of the cache block for zero instructions
+
+For whatever it's worth, cache operations in RISC-V attempt to
+disassociate the underlying hardware cache geometry from software.
+See https://github.com/riscv/riscv-CMOs/blob/master/specifications/cmobase-v1.0.1.pdf
+for the CMO specification, and the discoverable parameters are listed
+in section 2.7.
+
+Philipp.
+
+> > +
+> >    riscv,isa:
+> >      description:
+> >        Identifies the specific RISC-V instruction set architecture
+> > --
+> > 2.35.1
+> >
+> >
 
 _______________________________________________
 linux-riscv mailing list
