@@ -4,93 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E25A7C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 May 2022 10:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3687AC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 May 2022 13:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hhU/p7D/1ab+yxSHe+9ZanfjarN+HnG1GnSxAiGgiDs=; b=xCEwjkhP+2kPV8
-	VWqUb85qHfBiiZkMTfl6MZRuc3CVz4nTy2g68hPTYusE7IxzewIXcQBM8l/YYz8UixslwysbaqcAe
-	H8G9DOZAxMnbGPNUihdTWQGLd5sXqYCfXSzGIEGPQ/IX+PnVasdQbtN+QMiWrSJDMm0NIoZip1eTK
-	JVtvZX29MO3xU3ZEIWnZ8Xa8PDkZ3iEFgRw5+RdFnVuoXC0eIg1A1cGlEeMi3TElrX3ujfcH9TSeQ
-	PG+R/jw4oNcuEOmcP0wt05ixMI5WtC75TnmVyEjsc2ZkmJAPvThuKuAYSNgIArrNUljlhUlmYoKFa
-	bDmNnvBbSpLeZTMWIhKQ==;
+	List-Owner; bh=qjq1eNLd2XKc+qyahPBi9rQXmiqmxHaGOSfJkea/NtQ=; b=gcJwEXlJ5co0BF
+	eFj9Dzmkp5weYf6spiD55LqwKt4uoise7rwL23uZhUQGFIKtGciTRfO6ogQs1Tovyk6oVErZ3lTdv
+	Txq7CtERtF8KpW6vaPwCUZ5VJcLEWij0dbombHri2U54pUd5PgsDjPS+5bo+lk7wJcYNZ4xF7DzS6
+	u7iLgyiT9yD3Yr2iwC09xBd5nqHdJwD5QLX7hbLvyZeFPNim7uprHNxlUXeavoVzrk/umYsNi/7UK
+	b+uwwLGM2OLRxCk8WZU6ZP5JCJc1pB+65CrptV0O4aNxRuKdu3lBVm8JdohMCqIM4b0YD3RWDAtEp
+	q7X8RMPAE1vziMMUI6cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nrdqj-006N5C-GO; Thu, 19 May 2022 10:57:45 +0000
-Received: from bhuna.collabora.co.uk ([46.235.227.227])
+	id 1nrfp8-006sFh-0v; Thu, 19 May 2022 13:04:14 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nrdqg-006N4a-2z
- for linux-riscv@lists.infradead.org; Thu, 19 May 2022 10:57:43 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1])
- (Authenticated sender: dmitry.osipenko) with ESMTPSA id A064E1F41C26
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
- s=mail; t=1652957857;
- bh=n5xuyUTKwTtfK1E3KUXlguxQHbXpNAqOc2gndpqI8jA=;
- h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
- b=JodT7xtJhuDdpRliWmuR69V68cdLgMXYC8d7buT+z/skOa4D3K2ioz+upZrBg2HUI
- fFJ9Rn8C3zYLSF4itEkiZf4lAf9mhOFGsXHiH+NvNHs2flmyQC/4D/NcGC8PSQsOSO
- GcqoxRa4TTV0C4aYYrl2y+kEE4aiAR0BuXE3s+rTbSRmruSUiKG/62QN94HtkxPd8h
- 5hZsoL+SJmGw8nEPAF5+YZtOZrPZ6NRg8hcTQlgW4L/qyI+I5dRn80ayHZZC1Hf8GO
- mkG9ultCG+PShiWcqnTz48Dvqc3PWYvBoJFQUeF+LqJAZWbjIhdXyvsG+uqjGWPers
- YX5xODM5B4tmA==
-Message-ID: <43133a4d-8bad-93ba-c376-21d30d039b15@collabora.com>
-Date: Thu, 19 May 2022 13:57:31 +0300
+ id 1nrfmL-006qXo-0U
+ for linux-riscv@lists.infradead.org; Thu, 19 May 2022 13:01:23 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id y32so8987030lfa.6
+ for <linux-riscv@lists.infradead.org>; Thu, 19 May 2022 06:01:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=gave4xKcqHaRWgWmo3tUVerd7RvnPPKk9OMCUATRApE=;
+ b=WIiOL9ncTVgucapluhtRwCXqu6zlMC7IDp2go/yp0SiH20cVYUiE9cqkW54xoE6kRf
+ 6W4zspy/SuiNoDb4fZaBhs729Keb9gZxovTS70JP+p17bmYUK4RN12flYyC2hqgWPg0S
+ +A8teBWcQ0VEMgnVxf/woHyLAsmwIji/ewoP/5aQ+SCv79oDlZ39OTv4y8Texjiq5ozC
+ HB7v+UBqgAW3kFVIf5gavgPbtqkmfhuShHCACJYDMtEa0zTfgfmBIABh6KYiKvPX4On8
+ ABStwUQX1/FNYriiKb1PFl6hFTaSOohJ94zw1mpunKQjwdd04pdLlGgFU5OmciF0rBGt
+ JEJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=gave4xKcqHaRWgWmo3tUVerd7RvnPPKk9OMCUATRApE=;
+ b=X/L5lrq9jLAewYejJ5tRfhXc+9Unqzf4Wq0eMieE0wxyT9fwLvePy9RG3xYwvCt6kT
+ eTolIjARgwF//8O7aiJYsuvsbnIU82vUwH+wsWniuXUuPwmzZnoEzdFn52xDS4uu7C1g
+ DVKgksN/Xqe8LOt81HehrV//vaebws/yOjze+zHeIrs/EvvZIdieferzor4O2eEwZzEA
+ DsQCAV960kayvLS6VHC/LH2r5H7WywbzWPeDkWu7Nf395ZkKCNqTgTDZwIUPJ92VWsYb
+ Xu1OnfQtiryXMj+IhEPXE+6Od7M0FZpclx314yk/L0bYzUzU6KoCXo/0U50LuDM8EF/W
+ LfPQ==
+X-Gm-Message-State: AOAM530EXbePqrXEHCQoNZi7vm9i+CnFJ7TTZxLKd09RyRj8xxCFeR6O
+ 8YdYJyKuHzyZAcztm/h/W7bvWZxcJRtkDCy+1pw2Aw==
+X-Google-Smtp-Source: ABdhPJyHkVwQjEUaawYpeTNZ9ptmLK/NzpeawngI0dtewKhU9y7Fzy3LJtpQj/ugmJxuTBDqYwQX0s+w7ai7V1u1Fgg=
+X-Received: by 2002:a19:3852:0:b0:474:2459:26f4 with SMTP id
+ d18-20020a193852000000b00474245926f4mr3304564lfj.233.1652965276049; Thu, 19
+ May 2022 06:01:16 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.0
-Subject: Re: [PATCH v8 00/27] Introduce power-off+restart call chain API
-Content-Language: en-US
+References: <20220514152032.758738-1-ulf.hansson@linaro.org>
+ <CAAhSdy3m3FzbkL-On5kPtrZgyO4x=6onr6mXi_=te5B=m_n8GQ@mail.gmail.com>
+ <CAJZ5v0i+RR2nK8gew9tbnO_VVU3YUx2JgdRTBW07EPrB3UK87g@mail.gmail.com>
+In-Reply-To: <CAJZ5v0i+RR2nK8gew9tbnO_VVU3YUx2JgdRTBW07EPrB3UK87g@mail.gmail.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 19 May 2022 15:00:39 +0200
+Message-ID: <CAPDyKFrcWBL=7enQ3FJO7pFqv465-Nb3UWZm3faGYe5kG+Mjaw@mail.gmail.com>
+Subject: Re: [PATCH 1/2] cpuidle: psci: Fix regression leading to no genpd
+ governor
 To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Russell King
- <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>, Greg Ungerer
- <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Sebastian Reichel <sre@kernel.org>, Linus Walleij
- <linus.walleij@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Greentime Hu <green.hu@gmail.com>, Vincent Chen <deanbo422@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
- Benjamin Herrenschmidt <benh@kernel.crashing.org>,
- Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- the arch/x86 maintainers <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Juergen Gross
- <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
- Len Brown <lenb@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Pavel Machek <pavel@ucw.cz>,
- Lee Jones <lee.jones@linaro.org>, Andrew Morton <akpm@linux-foundation.org>,
- Guenter Roeck <linux@roeck-us.net>,
+Cc: Anup Patel <anup@brainfault.org>, "Rafael J . Wysocki" <rjw@rjwysocki.net>,
+ "open list:THERMAL" <linux-pm@vger.kernel.org>,
+ Sudeep Holla <sudeep.holla@arm.com>, 
+ Lorenzo Pieralisi <Lorenzo.Pieralisi@arm.com>,
+ Maulik Shah <quic_mkshah@quicinc.com>, 
  Daniel Lezcano <daniel.lezcano@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org,
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- Linux-sh list <linux-sh@vger.kernel.org>, xen-devel@lists.xenproject.org,
- ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
- Linux PM <linux-pm@vger.kernel.org>,
- linux-tegra <linux-tegra@vger.kernel.org>
-References: <20220509233235.995021-1-dmitry.osipenko@collabora.com>
- <CAJZ5v0jhWs-8ChHddebTZcaH6kA05sLEMsXM9Op7kHWAQDxeYA@mail.gmail.com>
-From: Dmitry Osipenko <dmitry.osipenko@collabora.com>
-In-Reply-To: <CAJZ5v0jhWs-8ChHddebTZcaH6kA05sLEMsXM9Op7kHWAQDxeYA@mail.gmail.com>
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Atish Patra <atishp@rivosinc.com>, 
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220519_035742_302975_DEFD33B4 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20220519_060121_067771_7597CDA5 
+X-CRM114-Status: GOOD (  22.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,35 +95,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/18/22 17:46, Rafael J. Wysocki wrote:
-> On Tue, May 10, 2022 at 1:33 AM Dmitry Osipenko
-> <dmitry.osipenko@collabora.com> wrote:
-...
->> Introduce new API that provides call chains support for all restart and
->> power-off modes. The new API is designed with simplicity and extensibility
->> in mind.
-...
-> The v8 looks much better than the previous versions to me.
-> 
-> I actually don't really have any comments on it except for the minor
-> remark regarding patch [1/27] sent separately.
-> 
-> Please just send an update of that one patch and I will queue up the
-> series for 5.19.
-> 
-> However, I'm going to send a pull request with it in the second half
-> of the merge window, after the majority of the other changes in the
-> subsystems touched by it have been integrated.
+On Wed, 18 May 2022 at 20:50, Rafael J. Wysocki <rafael@kernel.org> wrote:
+>
+> On Sat, May 14, 2022 at 6:49 PM Anup Patel <anup@brainfault.org> wrote:
+> >
+> > On Sat, May 14, 2022 at 8:50 PM Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> > >
+> > > While factoring out the PM domain related code from PSCI domain driver into
+> > > a set of library functions, a regression when initializing the genpds got
+> > > introduced. More precisely, we fail to assign a genpd governor, so let's
+> > > fix this.
+> > >
+> > > Fixes: 9d976d6721df ("cpuidle: Factor-out power domain related code from PSCI domain driver")
+> > > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> >
+> > Looks good to me.
+> >
+> > Reviewed-by: Anup Patel <anup@brainfault.org>
+> >
+>
+> Ulf, do you want me to take this lot or is it going to be handled elsewhere?
 
-Thanks, Rafael. I sent out the updated [1/27] patch to you.
+I appreciate it if you can pick both this and the second patch.
 
-For the reference, the updated patch can be found here as well:
+Kind regards
+Uffe
 
-https://lore.kernel.org/all/20220519105015.1195955-1-dmitry.osipenko@collabora.com/T/#u
-
--- 
-Best regards,
-Dmitry
+>
+> > > ---
+> > >  drivers/cpuidle/cpuidle-psci-domain.c | 4 ++--
+> > >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/drivers/cpuidle/cpuidle-psci-domain.c b/drivers/cpuidle/cpuidle-psci-domain.c
+> > > index 755bbdfc5b82..3db4fca1172b 100644
+> > > --- a/drivers/cpuidle/cpuidle-psci-domain.c
+> > > +++ b/drivers/cpuidle/cpuidle-psci-domain.c
+> > > @@ -52,7 +52,7 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
+> > >         struct generic_pm_domain *pd;
+> > >         struct psci_pd_provider *pd_provider;
+> > >         struct dev_power_governor *pd_gov;
+> > > -       int ret = -ENOMEM, state_count = 0;
+> > > +       int ret = -ENOMEM;
+> > >
+> > >         pd = dt_idle_pd_alloc(np, psci_dt_parse_state_node);
+> > >         if (!pd)
+> > > @@ -71,7 +71,7 @@ static int psci_pd_init(struct device_node *np, bool use_osi)
+> > >                 pd->flags |= GENPD_FLAG_ALWAYS_ON;
+> > >
+> > >         /* Use governor for CPU PM domains if it has some states to manage. */
+> > > -       pd_gov = state_count > 0 ? &pm_domain_cpu_gov : NULL;
+> > > +       pd_gov = pd->states ? &pm_domain_cpu_gov : NULL;
+> > >
+> > >         ret = pm_genpd_init(pd, pd_gov, false);
+> > >         if (ret)
+> > > --
+> > > 2.25.1
+> > >
 
 _______________________________________________
 linux-riscv mailing list
