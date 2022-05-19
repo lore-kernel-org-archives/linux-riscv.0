@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBC67C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 May 2022 13:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40B4C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 May 2022 15:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2sfnXNEqEUd7QynRHB4gNe0ucji+Wcop6CXyKEAuaYs=; b=39m7658KYthADT
-	+bueQswQgQ0jA2wvloKS/YVbXzrimdQd8wPDdx04kQ1eNh2GKfT/TSwZKCfDerkc8S5UlSVp+hDZp
-	ZtAHgRxMO+AXgjkGSaz0RGKVrlhUgwYS9dP53+MEhC42gZxQ3/WUZ8POYFzpBnjY90PI1eoBLJ6dF
-	2gOGM56HndjsaBu2J+D360D29oleWl1U41PGtmpLDf/rjPZfX35XzJnGqXHv84M8/aJj6xE4IsfoD
-	nTQsBEq1KRAfhnRxueudF9Ij6lX9Otc3owbm/53llgMpABILv+1S/OXiSDE240G/8FcTuXdm6IvKK
-	DZ0lO/CQxokeyhsy9+lg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Gq6mQz3KhChuk8U2it1P/sZ9LFvsPkVLdJmeTgOP0ok=; b=WUX3m38E0/zenb
+	VtYg6RczvdngoCzzLnvfDQfdOCh2lxN76rB05lo0mW0QRQvgUU2ycryUfItWFV27xVHacLofhhDBl
+	FA0ajLK+ZzXaoP1QXJf6SgywJKSJHtwqF7sEfJsCGLuJwssAWXeXXW8dnsXZyyKatpJG/zYMwM6/J
+	Ixt+e+mT+eC1vZpVgcTJhaOQebRjGullegdz69U6C/cf/vUDVy3XqpKYcxw9H1Wrr2hGohf0mCOPf
+	OqPRy2vN5Od7W81DAc7UEL8nIsnqmm6DYNYdMy159Es1cZOweAGBxnEao7aopIRxotZknuX2JcpOG
+	ga6mxZG8WIKBEtS+jRFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nrg4j-006ziy-4C; Thu, 19 May 2022 13:20:21 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1nrhfG-007gW4-IV; Thu, 19 May 2022 15:02:10 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nrg1d-006y0y-Jw
- for linux-riscv@lists.infradead.org; Thu, 19 May 2022 13:17:11 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id i11so8975651ybq.9
- for <linux-riscv@lists.infradead.org>; Thu, 19 May 2022 06:17:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linaro.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=3sUY19GyIG12NZLSdAkjxx301GK+rduuDLAdw32x6M4=;
- b=K7PUUlvSIZwD7tSfFGGgz2BGsQsPghltwxCtZVaDs3tOPU0gwjnHP+E+50K4ou7MXs
- WwtxalC/RYiop7fAAFCcpppSo8VUnenJUxeA4UXuWo5vmNalmFzfufVFaL9WercZMYmI
- bbylwdFU9hk9cejG8jkwFMspPUSTHHpJuFEoRMcXP+MzQ+80mxW9NI+8VNjb5/3SaqI/
- 2zdr7ceYpeM0ABpR5hfvDDyqfhPx7RO7FXilF7HwCaroxTV7tbQxrMXLUk83iKVDyvGm
- E/U01edrPY8sHxm1XYwhPGf4IFK/F+C3RINdNVLWdLaZ40Rd/XTUWKx/PgaaqS+cLr6C
- ukkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=3sUY19GyIG12NZLSdAkjxx301GK+rduuDLAdw32x6M4=;
- b=nTfYXp1ZB+2TaMokkr8LNmNcfCU6cufuQVL0/yrB88ywEV1iYpj2Anqylu/Rqaqml3
- wjMdJ5Ql7RctT/nyBpq3IcTU+OI6W9MQ5Tl7ZHsvUw9XUbKivPVHJj6IltCHU/gWXA/7
- q7+ChrrIkL+Q2wrrjHnbzYFWXWij2NINAnMv9dQJxBg0Mifbih5EsP/hEDyZhYBoFCOT
- tpehXtKzxszXY58u0L3bGF3vic4eWRGIwXa0I4O5dVJ0pt+jU/IHr45Hk03QonN7fzR+
- tvjSpoB84R5s+M90eK5wkR5rTkaSdpy3EYSXIAlPrPwQgUxnDxkuqD/jqVF9QbBs3kbn
- p3tw==
-X-Gm-Message-State: AOAM531442vMdr8WmsZYfKw/G/BsW87/JZOnDvC4J5w7t8mYQjqUGrXI
- j+KynWGvvINpEBomwAY0yaMklt6YKT+mMkPtkgxiBJN5kf4=
-X-Google-Smtp-Source: ABdhPJzisHzH95Hrh5acSvOJw3P+Lcc8zZsq8YBW6sPvP9iJzJjmv806G156YRLRSxDx/2NX8NJLkXVg1hJoFcLXnbo=
-X-Received: by 2002:a25:2c82:0:b0:64d:62a1:850b with SMTP id
- s124-20020a252c82000000b0064d62a1850bmr4519321ybs.291.1652966226763; Thu, 19
- May 2022 06:17:06 -0700 (PDT)
+ id 1nrgeF-007BZE-0Q
+ for linux-riscv@lists.infradead.org; Thu, 19 May 2022 13:57:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+ t=1652968623; x=1684504623;
+ h=from:to:cc:subject:date:message-id:mime-version:
+ content-transfer-encoding;
+ bh=qHQfaI2qEG6es+WFBkybiU4w71hm7VMtmExmawIPkjc=;
+ b=T82A5pXnZJo48rteCTgY8Ypj1obnChUfooyXO+CYXkOjZEmSajItG+ji
+ 1zC8Z5Gw1FKCXP7WHcteMGYvqMdGfQV7lTKNxK/g+/AVR5/k+0s9bgXCF
+ Ra7mN3AHgT8wWUAQuySACDOQ088KrfAq9pHUDNCBPxOBrEwXOcXSmWRZv
+ ADnrq+33zKVRS70m7WlXlh+ZAj2rEe8ppdwELCyZBamKXjHqoZU4BLeps
+ utzAqgPYEEa6DYpAkOycdZKkL2y7EovpdOb928rQ1w9BLFCu9kFiGXdn1
+ D1xsCNpO6pQgeXJqxA85sio67GDQ9yRwfGtPp54cjMkzXHNIAdtCMtL73 w==;
+X-IronPort-AV: E=Sophos;i="5.91,237,1647327600"; d="scan'208";a="164801009"
+Received: from smtpout.microchip.com (HELO email.microchip.com)
+ ([198.175.253.82])
+ by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256;
+ 19 May 2022 06:56:58 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Thu, 19 May 2022 06:56:57 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via
+ Frontend Transport; Thu, 19 May 2022 06:56:55 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <a.zummo@towertech.it>, <alexandre.belloni@bootlin.com>
+CC: <daire.mcnamara@microchip.com>, <lewis.hanly@microchip.com>,
+ <conor.dooley@microchip.com>, <linux-kernel@vger.kernel.org>,
+ <linux-rtc@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v4 0/2] rtc: microchip: Add driver for PolarFire SoC
+Date: Thu, 19 May 2022 14:55:21 +0100
+Message-ID: <20220519135523.594347-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-References: <5eb66be34356afd5eb0ea9027329e0939d03d3a0.1652884852.git.geert+renesas@glider.be>
-In-Reply-To: <5eb66be34356afd5eb0ea9027329e0939d03d3a0.1652884852.git.geert+renesas@glider.be>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Thu, 19 May 2022 15:16:55 +0200
-Message-ID: <CACRpkdbW7iSPGkWjV3hWOPv=rJ9VL1Ct2if34nVVhhOB+WQLog@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: starfive: Make the irqchip immutable
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Marc Zyngier <maz@kernel.org>,
- linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220519_061709_724382_C015479D 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20220519_065703_127079_7FE08A10 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,27 +78,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 18, 2022 at 4:41 PM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
+Hey all,
+This is technically a v4 of [0], although a fair bit of time has
+passed since then. In the meantime I upstreamed the dt-binding, which
+was in the v1, and this patch depends on the fixes to the dt-binding
+and device tree etc which landed in v5.18-rc5.
 
-> Commit 6c846d026d49 ("gpio: Don't fiddle with irqchips marked as
-> immutable") added a warning to indicate if the gpiolib is altering the
-> internals of irqchips.  Following this change the following warning is
-> now observed for the starfive driver:
->
->     gpio gpiochip0: (11910000.pinctrl): not an immutable chip, please consider fixing it!
->
-> Fix this by making the irqchip in the starfive driver immutable.
->
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> Against linux-next.
-> Boot-tested on BeagleV Starlight Beta.
+The driver is quite substantially rewritten from the v1, as you wanted
+it to be switched to "binary" rather than calendar mode - so hopefully I
+have satisfied your concerns with the original driver. Specifically you
+had an significant issue with the counter being reset on startup & that
+is no longer the case.
 
-Patch applied!
+Thanks,
+Conor.
 
-Yours,
-Linus Walleij
+Changes since v3:
+- invert read order of datetime registers so that they are properly
+  aligned. reads of the upper register are aligned to the last read
+  of the lower register
+- move wakeup_irq out of mpfs_rtc_dev & into probe
+- removed range_min since it is not set & implicity zero anyway
+- rewrote the remove function to not call mpfs_rtc_alarm_irq_enable(,0)
+
+Changes from v2:
+- move prescaler out of mpfs_rtc_dev & into probe
+
+Changes from v1:
+- remove duplicate and unused defines
+- remove oneline mpfs_rtc_set_prescaler function
+- dont unconditionally turn off the rtc in the init function
+- dont reset the rtc when init is run.
+- dont disable the alarm when we boot
+- use binary, not calendar mode
+- delete mpfs_rtc_init & set prescale in probe
+- use dev_pm_set_wake_irq rather than writing suspend/resume functions
+- delete calendar mode only register defines
+- since using binary mode, set range min to zero
+- set range max to max alarm value (is this acceptable?)
+- added a MAINTAINERS entry: when v1 was submitted there was nothing to
+  add to, but there is now.
+
+[0] https://lore.kernel.org/linux-rtc/20210512111133.1650740-1-daire.mcnamara@microchip.com/
+
+Conor Dooley (2):
+  rtc: Add driver for Microchip PolarFire SoC
+  MAINTAINERS: add PolarFire SoC's RTC
+
+ MAINTAINERS            |   1 +
+ drivers/rtc/Kconfig    |  10 ++
+ drivers/rtc/Makefile   |   1 +
+ drivers/rtc/rtc-mpfs.c | 326 +++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 338 insertions(+)
+ create mode 100644 drivers/rtc/rtc-mpfs.c
+
+
+base-commit: c5eb0a61238dd6faf37f58c9ce61c9980aaffd7a
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
