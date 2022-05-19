@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B105DC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 19 May 2022 09:39:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B430BC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 19 May 2022 09:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4/M++y0U6UngzTOuA0vxf/fIqGNWUXWNA/GUP+W5Ebs=; b=QW4Ht3UTiKp4s8
-	TLdGR0rM779PjhHT31CCs04vxOsQu+blolvchmiuczNT9PQuGUGE0Fxut4rqU1Z2bIHEdH0h4BWn4
-	orD7FAlIfwrG58uiuaclvquTdwIffMGOQQajVJfdunZW/M3NpjLTHvvx4kpZemYQOib1QcJHrdN8Y
-	KJeblwGbe6Tn8IQRyYzTzBEu6m4zVjMIwthjt5Tg9UFBtDQwOMa/Jg5lROXU3oAvazweACQngqVgy
-	1Tk6PeteoJpLZOBLyhd0S/iStwNRPyPy7sB02V/egpt0QIP7pALjq9ZhHbaxKXFztMwLJqSQJ0RjA
-	ymgRnXkYGu/es9SnJG2w==;
+	List-Owner; bh=6izVUkfgTfdBlZ9yAg5m2VIpCpgU7KCvd7Sfui9kT0k=; b=N3Gp0u6MrY9mgO
+	vhR0ZJwOlzq6ceZeG/8vO/mgSvMDyuUi5TDIVz8h+6yTa3qeqflElpYAK+eRE4RgSfQn++v0yDums
+	xSsYd2JZorl+lQp2k4ogj7TfPnsehuxYwaUC+7AxsZhCtPnXjyzOWzCBw1BjhfzFkR2JBSx4qcpz4
+	7EUY6Qs8RWdHT+78sG7q2SteQ4uPycamlHrqdit+5S5VQnh8IGjMOZWuBGULv4HlEfwoHueNwm8gg
+	Jm9PmsPPrLAXJMJz8ZS2g5lK8tQ3hq0ZUZzHIrNH8YGJaiH4efaZnn42EOcgF9ySemLzYovyAxpUR
+	FKJSYiqnbcIaHDZBAGwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nrcct-0069JW-DJ; Thu, 19 May 2022 09:39:23 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1nrcrs-006CKR-1w; Thu, 19 May 2022 09:54:52 +0000
+Received: from mga17.intel.com ([192.55.52.151])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nrccq-0069Ie-5y
- for linux-riscv@lists.infradead.org; Thu, 19 May 2022 09:39:21 +0000
-Received: by mail-pf1-x429.google.com with SMTP id p8so4665264pfh.8
- for <linux-riscv@lists.infradead.org>; Thu, 19 May 2022 02:39:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=mLcbwj32rdj40iW44+duGhfUCpi8Xywy8Dql/7GVxog=;
- b=HRetMmQnRH96uhorno98Hawv3lvxCCBh8FpbHGB10ofuBOLNOJBcvp1mxldyvtB+zg
- XydyL+DF1kRbyuT9fya2ym6SeIzMUNJ4Pp/TzbGGJIGxDjTXe3yuE6NgmqLXgNzbALzc
- 54hHYss0sACylfqtcs/plm6/83VKJlt/QhqV6fkcidO4ee6Wnh5tWOkKXIGvy97y2tyn
- 5MNxraQBmI8/q4qY+OgE2cf+lhkytVzJetmoFta57CNmu6GGcpoAlsy7XpkbElBeusH3
- 5R8ZfEQVgHgwSU2kX8YQkrUJinddGpFgUMKw8pCbKSlBRYjBmCy9HZtfK6WqPylJABSc
- JWnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=mLcbwj32rdj40iW44+duGhfUCpi8Xywy8Dql/7GVxog=;
- b=2yX5FnU53Q32q5msltil22iir94ywgID+tu+qv6e4bFR/wL7cf6ecdBR6wCJb18cBL
- TRc93BB+FuAmsnf2xJCMeiBUWHzCZA3bBrt5uRfrcGET5klA91sIe1GXDANV9tTqedNg
- Alfglpp6l54mIFedFtDbpqgrmzfdD2POqx0WBELU+oMqIyOXu82xhVP+6easHfi5Js3Z
- /mtxVCLOxrx7D+OWi6GdKT/bSJGYAcet6wFmCgYYP5uaOGVb7Cat0E/9qe97qujZ6wkQ
- zjkp2UZjy8jWq5NlMuZmjaokFbzjIetwmW3jFYvF/yyih+9ZnwaS2Pv338m+L+h928Nq
- Crxw==
-X-Gm-Message-State: AOAM532sAwqfL3kGImM4p3kYU4HuAgxpxaAi/XOUa4GVn5Ucl0+oVqfw
- W7x3iqT1B1Q8JhCXuYVTUy9uYg==
-X-Google-Smtp-Source: ABdhPJxQu6DtfFjo6+chXKKIZiJGwOJDreDTn7NfBzt4Qr6PeHY8zCMvhS/f3BXs6KmcoJ8grOR6xA==
-X-Received: by 2002:a05:6a00:1ad1:b0:50d:f07a:3eb8 with SMTP id
- f17-20020a056a001ad100b0050df07a3eb8mr3785680pfv.25.1652953157089; 
- Thu, 19 May 2022 02:39:17 -0700 (PDT)
-Received: from sunil-laptop ([49.206.10.235]) by smtp.gmail.com with ESMTPSA id
- er14-20020a17090af6ce00b001cd4989fecesm5176371pjb.26.2022.05.19.02.39.12
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 19 May 2022 02:39:16 -0700 (PDT)
-Date: Thu, 19 May 2022 15:09:09 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>,
- Jessica Clarke <jrtc27@jrtc27.com>, Abner Chang <abner.chang@hpe.com>,
- linux-efi <linux-efi@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@rivosinc.com>, Sunil V L <sunil.vl@gmail.com>
-Subject: Re: [PATCH V5 1/1] riscv/efi_stub: Add support for
- RISCV_EFI_BOOT_PROTOCOL
-Message-ID: <20220519093909.GA20599@sunil-laptop>
-References: <20220519051512.136724-1-sunilvl@ventanamicro.com>
- <20220519051512.136724-2-sunilvl@ventanamicro.com>
- <CAMj1kXHPXqXndUK408W9kB9VrOy_zXfAaXFiLhzXBs_FVYnXmQ@mail.gmail.com>
+ id 1nrcrp-006CJx-Bu
+ for linux-riscv@lists.infradead.org; Thu, 19 May 2022 09:54:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+ d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+ t=1652954089; x=1684490089;
+ h=date:from:to:cc:subject:message-id:references:
+ mime-version:in-reply-to;
+ bh=ianvgrjB2LA6T5h0+CpKIBJrfBMf6ztwJ6Wy3WIhev4=;
+ b=g4RiXR/9ch/rlV7p3XKCCI+NB5w1W0IBhBN6h9FuhoC4X0eRPMCJxcoH
+ qH8enfWpZiVZBYKZBNf8YbWrbBJ5Bh6LwxCCeNInY+TjnYeC46j7h34T4
+ rxjGhdeQ4+M42pVGPRZFotXO3xoqPWV75ZKP92qNV98yRXkg719pImyVz
+ kLAtsM0K+k7j59i/8r2wx1T+aWoca296TqSQcgGPyhP+/PyGJTMPG7x4p
+ 9vobAyLcmw9W9syQbfnJ17XlzbryfhnY5MDTDwuart+6E5Ri5cN2IYnL1
+ YKiGtPFywYG9M4u9cQ8CR4kyvTWkV6ZIBW/htSaZSg6mB0q6SJEeVh1c7 w==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10351"; a="252641000"
+X-IronPort-AV: E=Sophos;i="5.91,237,1647327600"; d="scan'208";a="252641000"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+ by fmsmga107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384;
+ 19 May 2022 02:54:47 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.91,237,1647327600"; d="scan'208";a="524012201"
+Received: from lkp-server02.sh.intel.com (HELO 242b25809ac7) ([10.239.97.151])
+ by orsmga003.jf.intel.com with ESMTP; 19 May 2022 02:54:44 -0700
+Received: from kbuild by 242b25809ac7 with local (Exim 4.95)
+ (envelope-from <lkp@intel.com>) id 1nrcrj-0003Nh-Fx;
+ Thu, 19 May 2022 09:54:43 +0000
+Date: Thu, 19 May 2022 17:53:56 +0800
+From: kernel test robot <lkp@intel.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Damien Le Moal <damien.lemoal@wdc.com>, Marc Zyngier <maz@kernel.org>
+Cc: kbuild-all@lists.01.org, linux-gpio@vger.kernel.org,
+ linux-riscv@lists.infradead.org,
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: Re: [PATCH] gpio: sifive: Make the irqchip immutable
+Message-ID: <202205191755.tvTer2iD-lkp@intel.com>
+References: <73c75a67d1c87b049d633057c0e765e708ee02a2.1652884788.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXHPXqXndUK408W9kB9VrOy_zXfAaXFiLhzXBs_FVYnXmQ@mail.gmail.com>
+In-Reply-To: <73c75a67d1c87b049d633057c0e765e708ee02a2.1652884788.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220519_023920_274420_673E142F 
-X-CRM114-Status: GOOD (  27.94  )
+X-CRM114-CacheID: sfid-20220519_025449_457274_91972F7F 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,126 +84,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 19, 2022 at 10:24:44AM +0200, Ard Biesheuvel wrote:
-> On Thu, 19 May 2022 at 07:15, Sunil V L <sunilvl@ventanamicro.com> wrote:
-> >
-> > This patch adds the support for getting the boot hart ID in
-> > Linux EFI stub using RISCV_EFI_BOOT_PROTOCOL. This protocol
-> > is preferred method over existing DT based solution since it
-> > works irrespective of DT or ACPI.
-> >
-> > The specification of the protocol is hosted at:
-> > https://github.com/riscv-non-isa/riscv-uefi
-> >
-> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> 
-> Queued in efi/next, thanks all.
-> 
-> Sunil: I made some minor tweaks for coding style, whitespace etc when
-> applying, please double check that I did not make any mistakes.
-> Thanks.
+Hi Geert,
 
-Yes, it looks good, Ard. Many thanks!
+I love your patch! Perhaps something to improve:
 
-Regards
-Sunil
-> 
-> 
-> > ---
-> >  drivers/firmware/efi/libstub/efistub.h    |  7 +++++
-> >  drivers/firmware/efi/libstub/riscv-stub.c | 31 ++++++++++++++++++-----
-> >  include/linux/efi.h                       |  1 +
-> >  3 files changed, 33 insertions(+), 6 deletions(-)
-> >
-> > diff --git a/drivers/firmware/efi/libstub/efistub.h b/drivers/firmware/efi/libstub/efistub.h
-> > index edb77b0621ea..87aa66e8ef43 100644
-> > --- a/drivers/firmware/efi/libstub/efistub.h
-> > +++ b/drivers/firmware/efi/libstub/efistub.h
-> > @@ -720,6 +720,13 @@ union efi_tcg2_protocol {
-> >         } mixed_mode;
-> >  };
-> >
-> > +struct riscv_efi_boot_protocol {
-> > +       u64 revision;
-> > +
-> > +       efi_status_t (__efiapi * get_boot_hartid)(struct riscv_efi_boot_protocol *this,
-> > +                                                 unsigned long *boot_hartid);
-> > +};
-> > +
-> >  typedef union efi_load_file_protocol efi_load_file_protocol_t;
-> >  typedef union efi_load_file_protocol efi_load_file2_protocol_t;
-> >
-> > diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
-> > index 9c460843442f..10c59295f379 100644
-> > --- a/drivers/firmware/efi/libstub/riscv-stub.c
-> > +++ b/drivers/firmware/efi/libstub/riscv-stub.c
-> > @@ -21,9 +21,9 @@
-> >  #define MIN_KIMG_ALIGN         SZ_4M
-> >  #endif
-> >
-> > -typedef void __noreturn (*jump_kernel_func)(unsigned int, unsigned long);
-> > +typedef void __noreturn (*jump_kernel_func)(unsigned long, unsigned long);
-> >
-> > -static u32 hartid;
-> > +static unsigned long hartid;
-> >
-> >  static int get_boot_hartid_from_fdt(void)
-> >  {
-> > @@ -47,14 +47,33 @@ static int get_boot_hartid_from_fdt(void)
-> >         return 0;
-> >  }
-> >
-> > +static efi_status_t get_boot_hartid_from_efi(void)
-> > +{
-> > +       efi_guid_t boot_protocol_guid = RISCV_EFI_BOOT_PROTOCOL_GUID;
-> > +       efi_status_t status;
-> > +       struct riscv_efi_boot_protocol *boot_protocol;
-> > +
-> > +       status = efi_bs_call(locate_protocol, &boot_protocol_guid, NULL,
-> > +                            (void **)&boot_protocol);
-> > +       if (status == EFI_SUCCESS) {
-> > +               status = efi_call_proto(boot_protocol,
-> > +                                       get_boot_hartid, &hartid);
-> > +       }
-> > +       return status;
-> > +}
-> > +
-> >  efi_status_t check_platform_features(void)
-> >  {
-> >         int ret;
-> > +       efi_status_t status;
-> >
-> > -       ret = get_boot_hartid_from_fdt();
-> > -       if (ret) {
-> > -               efi_err("/chosen/boot-hartid missing or invalid!\n");
-> > -               return EFI_UNSUPPORTED;
-> > +       status = get_boot_hartid_from_efi();
-> > +       if (status != EFI_SUCCESS) {
-> > +               ret = get_boot_hartid_from_fdt();
-> > +               if (ret) {
-> > +                       efi_err("Failed to get boot hartid!\n");
-> > +                       return EFI_UNSUPPORTED;
-> > +               }
-> >         }
-> >         return EFI_SUCCESS;
-> >  }
-> > diff --git a/include/linux/efi.h b/include/linux/efi.h
-> > index ccd4d3f91c98..9822c730207c 100644
-> > --- a/include/linux/efi.h
-> > +++ b/include/linux/efi.h
-> > @@ -380,6 +380,7 @@ void efi_native_runtime_setup(void);
-> >  #define EFI_CONSOLE_OUT_DEVICE_GUID            EFI_GUID(0xd3b36f2c, 0xd551, 0x11d4,  0x9a, 0x46, 0x00, 0x90, 0x27, 0x3f, 0xc1, 0x4d)
-> >  #define APPLE_PROPERTIES_PROTOCOL_GUID         EFI_GUID(0x91bd12fe, 0xf6c3, 0x44fb,  0xa5, 0xb7, 0x51, 0x22, 0xab, 0x30, 0x3a, 0xe0)
-> >  #define EFI_TCG2_PROTOCOL_GUID                 EFI_GUID(0x607f766c, 0x7455, 0x42be,  0x93, 0x0b, 0xe4, 0xd7, 0x6d, 0xb2, 0x72, 0x0f)
-> > +#define RISCV_EFI_BOOT_PROTOCOL_GUID           EFI_GUID(0xccd15fec, 0x6f73, 0x4eec,  0x83, 0x95, 0x3e, 0x69, 0xe4, 0xb9, 0x40, 0xbf)
-> >  #define EFI_LOAD_FILE_PROTOCOL_GUID            EFI_GUID(0x56ec3091, 0x954c, 0x11d2,  0x8e, 0x3f, 0x00, 0xa0, 0xc9, 0x69, 0x72, 0x3b)
-> >  #define EFI_LOAD_FILE2_PROTOCOL_GUID           EFI_GUID(0x4006c0c1, 0xfcb3, 0x403e,  0x99, 0x6d, 0x4a, 0x6c, 0x87, 0x24, 0xe0, 0x6d)
-> >  #define EFI_RT_PROPERTIES_TABLE_GUID           EFI_GUID(0xeb66918a, 0x7eef, 0x402a,  0x84, 0x2e, 0x93, 0x1d, 0x21, 0xc3, 0x8a, 0xe9)
-> > --
-> > 2.25.1
-> >
+[auto build test WARNING on linus/master]
+[also build test WARNING on linusw-gpio/for-next v5.18-rc7]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Geert-Uytterhoeven/gpio-sifive-Make-the-irqchip-immutable/20220518-224530
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 210e04ff768142b96452030c4c2627512b30ad95
+config: x86_64-allyesconfig (https://download.01.org/0day-ci/archive/20220519/202205191755.tvTer2iD-lkp@intel.com/config)
+compiler: gcc-11 (Debian 11.2.0-20) 11.2.0
+reproduce (this is a W=1 build):
+        # https://github.com/intel-lab-lkp/linux/commit/3db66356e9f7309998a9172feeb84d8b226ad539
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Geert-Uytterhoeven/gpio-sifive-Make-the-irqchip-immutable/20220518-224530
+        git checkout 3db66356e9f7309998a9172feeb84d8b226ad539
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        make W=1 O=build_dir ARCH=x86_64 SHELL=/bin/bash drivers/gpio/
+
+If you fix the issue, kindly add following tag as appropriate
+Reported-by: kernel test robot <lkp@intel.com>
+
+All warnings (new ones prefixed by >>):
+
+   drivers/gpio/gpio-sifive.c:151:27: error: 'IRQCHIP_IMMUTABLE' undeclared here (not in a function); did you mean 'IS_IMMUTABLE'?
+     151 |         .flags          = IRQCHIP_IMMUTABLE,
+         |                           ^~~~~~~~~~~~~~~~~
+         |                           IS_IMMUTABLE
+   drivers/gpio/gpio-sifive.c:152:9: error: 'GPIOCHIP_IRQ_RESOURCE_HELPERS' undeclared here (not in a function)
+     152 |         GPIOCHIP_IRQ_RESOURCE_HELPERS,
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/gpio/gpio-sifive.c:152:9: warning: excess elements in struct initializer
+   drivers/gpio/gpio-sifive.c:152:9: note: (near initialization for 'sifive_gpio_irqchip')
+   drivers/gpio/gpio-sifive.c: In function 'sifive_gpio_probe':
+   drivers/gpio/gpio-sifive.c:249:9: error: implicit declaration of function 'gpio_irq_chip_set_chip' [-Werror=implicit-function-declaration]
+     249 |         gpio_irq_chip_set_chip(girq, &sifive_gpio_irqchip);
+         |         ^~~~~~~~~~~~~~~~~~~~~~
+   cc1: some warnings being treated as errors
+
+
+vim +152 drivers/gpio/gpio-sifive.c
+
+   141	
+   142	static const struct irq_chip sifive_gpio_irqchip = {
+   143		.name		= "sifive-gpio",
+   144		.irq_set_type	= sifive_gpio_irq_set_type,
+   145		.irq_mask	= irq_chip_mask_parent,
+   146		.irq_unmask	= irq_chip_unmask_parent,
+   147		.irq_enable	= sifive_gpio_irq_enable,
+   148		.irq_disable	= sifive_gpio_irq_disable,
+   149		.irq_eoi	= sifive_gpio_irq_eoi,
+   150		.irq_set_affinity = sifive_gpio_irq_set_affinity,
+   151		.flags		= IRQCHIP_IMMUTABLE,
+ > 152		GPIOCHIP_IRQ_RESOURCE_HELPERS,
+   153	};
+   154	
+
+-- 
+0-DAY CI Kernel Test Service
+https://01.org/lkp
 
 _______________________________________________
 linux-riscv mailing list
