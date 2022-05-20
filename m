@@ -4,71 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B2B1C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 14:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12CB0C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 14:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q+gV6cQCiE13UVwlxMxVJ+Tk9EWr1cze6OsiKpzsg4o=; b=2ST4I17CmzJ7Yi
-	dSqM2wB25J1+/rhcX9IyutLlW15CPpScfqJ2zc9KFSL4mXUytJWp5AB68NFN4GiaJ0IS+1tapnZ7A
-	vFcQyYgsaBIJR0GOOIh4+uU7Ki6IenrSHzpZ51HHpTAqoD+JFwM+abA+xffcpKp1Kiw1eBCPTnvHM
-	dDrDntRKbrSM45I3zTopRsOpY308ms3Cqq+RdKDzRbieBJcC5/j3tOn1mNpINgr1Uj2/wLFqwrr5h
-	g+iCvvyvRJLg8ov9ztCzkv8sVk1S8ms4BwIs8HzLzgrKyBpU11X6+2h8wpDy3fccTKimwSnmRb6UX
-	yRWcGK5KPEW2vJNWvBmw==;
+	List-Owner; bh=Jq5eEsStWOnrkYTBM+OPISEhFjtWhid2HATMdO5YwM8=; b=chFKrCYRjc3nFg
+	AUBSrq6v8PUlXE+BUobUlfgE4wWeA42EAK+yOpEZpGNuVHGsTL8yGhzkgus7Qq4lAxdWQOcsCGb/Y
+	XcvQcVGZGR1Qj4h7BZgBN9BmL88zDDWArqoV9nVSjuGakGfl/9+bO3St6YdAA07PoAtWtAb7bYdVa
+	UtgSiY88OdKTPpcDqKiVWCv8p0x/9h0IC9m107q1u9jQw211bdB2uZzg7WWuutIZLVKc7dVRPf+uW
+	SoP/0fiRd/zDQAXgeLZf3djHzydjlKV2D/8bqFlm0EHwduTRS8Q72fKIhwGW0UJ4JOvooq117k3DV
+	CDN5ip5PpriTeZSbvb5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ns3Tv-00CsnJ-3C; Fri, 20 May 2022 14:19:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1ns3k4-00Cwk9-6i; Fri, 20 May 2022 14:36:36 +0000
+Received: from mail-oa1-f50.google.com ([209.85.160.50])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ns3Tq-00Cskw-GA
- for linux-riscv@lists.infradead.org; Fri, 20 May 2022 14:19:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1653056386;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=cyh9GNwkSeiWX8VVWJet6cmrStrv1Y1BhHYKMAKCy08=;
- b=V8d/MMBZWVbw8xfym9SnWoCH2ZGFp9yJtMtkGVq2cuORLDLL26lgrDiwiXw/tHXwdePi7t
- DcB5KEhgEk45F45uwaKnmpTy93n/Rz2Uayzph+1pgNgloQXJalkqNG261Fk69eHV9boEtM
- uYtrZUScP9KMjd/XJ6aPgnCR7wfWT1o=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-118-bDEdnVE2OyO_DX39ZddBzA-1; Fri, 20 May 2022 10:19:44 -0400
-X-MC-Unique: bDEdnVE2OyO_DX39ZddBzA-1
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.rdu2.redhat.com
- [10.11.54.4])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
- (No client certificate requested)
- by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 88B92185A7A4;
- Fri, 20 May 2022 14:19:43 +0000 (UTC)
-Received: from virtlab701.virt.lab.eng.bos.redhat.com
- (virtlab701.virt.lab.eng.bos.redhat.com [10.19.152.228])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 2E1A82026D6A;
- Fri, 20 May 2022 14:19:43 +0000 (UTC)
-From: Paolo Bonzini <pbonzini@redhat.com>
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Alistair Francis <Alistair.Francis@wdc.com>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] MAINTAINERS: Update KVM RISC-V entry to cover selftests
- support
-Date: Fri, 20 May 2022 10:19:43 -0400
-Message-Id: <20220520141943.3330909-1-pbonzini@redhat.com>
-In-Reply-To: <20220509060634.134068-1-anup@brainfault.org>
-References: 
+ id 1ns3jt-00Cwi2-0z; Fri, 20 May 2022 14:36:26 +0000
+Received: by mail-oa1-f50.google.com with SMTP id
+ 586e51a60fabf-f1d5464c48so10511502fac.6; 
+ Fri, 20 May 2022 07:36:23 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+ :mime-version:content-disposition:in-reply-to;
+ bh=iyg09MXx3MxUDrIc80FSkTauSbtXFvQYu5GaFcUD4A8=;
+ b=doYWivt85T94a8AuIMERpouI2l7IXGWmU7eeX4atOtMx96lEr/V3lX7OjBbDe8QCVR
+ RxAEiRUTckydNWpYPlqJAVZhOwAj75Ka7WdWPI+2652MmZUbBPeBbVjjo9tV2iY+x6rg
+ aMbg+RZX5m/Hdt6Nn6SYngVHI8D9bD4/qqeLS5UGOWUdMwkKQbeIlAfiMYjwmoZJ4X82
+ CqlZvCltZ1F98E1pfg4OJP/M7G4pcpIv0ElizZyB5We4F0MbDThoYClPBEbG2XOQEJK8
+ jf8UcvNMUZ39BggWs9XbvGARv9FoGLQycCS0Mc/nL+ICQTDUxYcFWdiTwmDB22aNikE+
+ E5ZQ==
+X-Gm-Message-State: AOAM533+4iBn2S9cBbbnnnjOWf/tBbRqVT9Qg644NKuC3Q/afNaM/Ds/
+ AOrB6Klyj9DooglGwvS9aA==
+X-Google-Smtp-Source: ABdhPJyMUFH7t+iQryu0gI+MIfzU/pVaixAR4w3tzpu5naOonR9QLmz8Q4jg4oru81EwcHVye5wwIA==
+X-Received: by 2002:a05:6870:d60d:b0:f1:ddfc:2f26 with SMTP id
+ a13-20020a056870d60d00b000f1ddfc2f26mr6255111oaq.296.1653057382154; 
+ Fri, 20 May 2022 07:36:22 -0700 (PDT)
+Received: from robh.at.kernel.org (66-90-144-107.dyn.grandenetworks.net.
+ [66.90.144.107]) by smtp.gmail.com with ESMTPSA id
+ p13-20020a0568301d4d00b0060603221236sm975958oth.6.2022.05.20.07.36.21
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Fri, 20 May 2022 07:36:21 -0700 (PDT)
+Received: (nullmailer pid 3813862 invoked by uid 1000);
+ Fri, 20 May 2022 14:36:20 -0000
+Date: Fri, 20 May 2022 09:36:20 -0500
+From: Rob Herring <robh@kernel.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Atish Patra <atishp@atishpatra.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Atish Patra <atishp@rivosinc.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Morten Rasmussen <morten.rasmussen@arm.com>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, Qing Wang <wangqing@vivo.com>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v2 8/8] arch_topology: Add support to build llc_sibling
+ on DT platforms
+Message-ID: <20220520143620.GA3788938-robh@kernel.org>
+References: <20220518093325.2070336-1-sudeep.holla@arm.com>
+ <20220518093325.2070336-9-sudeep.holla@arm.com>
+ <CAL_JsqKig8U4hQEtHW8ct1Pd0a29ZtoTp1HuWQv389yb+SuW_A@mail.gmail.com>
+ <20220520125959.wlxz53cfqldljxjy@bogus>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.4
+Content-Disposition: inline
+In-Reply-To: <20220520125959.wlxz53cfqldljxjy@bogus>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220520_071950_654518_8E2C4C9B 
-X-CRM114-Status: UNSURE (   5.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220520_073625_109676_C917D3FF 
+X-CRM114-Status: GOOD (  31.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,11 +91,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Queued, thanks.
+On Fri, May 20, 2022 at 01:59:59PM +0100, Sudeep Holla wrote:
+> On Thu, May 19, 2022 at 01:10:51PM -0500, Rob Herring wrote:
+> > On Wed, May 18, 2022 at 4:34 AM Sudeep Holla <sudeep.holla@arm.com> wrote:
+> > >
+> > > ACPI PPTT provides cache identifiers and especially the last level cache
+> > > identifier is used in obtaining last level cache siblings amongst CPUs.
+> > >
+> > > While we have the cpu map representing all the CPUs sharing last level
+> > > cache in the cacheinfo driver, it is populated quite late in the boot
+> > > while the information is needed to build scheduler domains quite early.
+> >
+> > Late is because it's a device_initcall() rather than late in the cpu
+> > hotplug state machine, right?
+> 
+> Right. The expectation is to run in on each online CPU in CPU hotplug state
+> machine for some architectures. We may not need that on arm64 especially
+> since we get all info from DT or ACPI, but e.g. x86 uses cpuid which needs
+> to be executed on that CPU.
 
-Paolo
+That's a separate issue. I'm not suggesting changing that part (that 
+would just be an optimization).
 
+> > The late aspect is for sysfs presumably,but I think we could decouple that.
+> 
+> OK, not sure when this sched_domain info is actually needed. It think it
+> could be decoupled if we can wait until all the cpus are online.
 
+No need to wait for all cpus to be online. I think you keep doing 
+it as part of cpu hotplug. The device_initcall() is used because you 
+cannot have struct device or sysfs calls before the driver core is 
+initialized. If we run the cacheinfo code earlier (I think the arch code 
+will have to call it) just like the topology code and skip the sysfs 
+parts, then you can use it.
+
+> > Do all the firmware cache parsing early and then populate the sysfs parts
+> > later.
+> 
+> Yes that may work on DT/ACPI based systems, as I said x86 relies on cpuid.
+
+I'd assume using cpuid works at any time?
+
+> > It's not a unique problem as the DT unflattening and init code has to
+> > do the same thing. I'd assume the hotplug and cpu sysfs devices have
+> > to deal with the same thing.
+> >
+> 
+> OK, I will take a look at how to do that.
+> 
+> --
+> Regards,
+> Sudeep
 
 _______________________________________________
 linux-riscv mailing list
