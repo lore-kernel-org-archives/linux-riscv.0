@@ -4,53 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F1EC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 14:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BCC0C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 15:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nEK82crdneKCPgnL5MMBFA+UVZ/2iuLF+c059xRswdI=; b=Z0SBHRO0Bl0x9V
-	XvH/IVCtnfGrmxlCWSyfXPSd0VfXeKJnjPqZXFZl3vKwnRPUi+t6ug666ugeQ9JbkoEBa38Lx2urN
-	Uc3EBsbCPhl/IHxZp6MYSVazipdHaN+jUFZ9flBskNtuVvVmRzDT8HZT1rO9W6nWR4/l9jl+prxnt
-	T4olKFupR1HsVg5TMkVRA9vMy1ZxELCgtfLZUsIll37DpPQ0FoOocqMNNqzfOoZgrAJ+4oypU1hDf
-	HB0yBf+DwQYp2NRLbQfkRxkC2Jkwp2wl/CMm0atehpjy8tWbZiWnfT7mRudl3k/rJGAVqk6O+chlS
-	M+jT7MD1ui/L05X7eERw==;
+	List-Owner; bh=ZFgtgQCshuDppRzRb7lSf41U9yATrGkDJc6VTkAuyF4=; b=lBEKZapN/GGBHs
+	u5Z49WAWxacjiJm9uvzPvFEWV3xBXbY2FSn9ZeuBLcZDyqrEHFB8k1kfOyotLSn/g6WUEcIRtgvVK
+	jlHbjsaE2WTfmggQFtV6CPNF95nOysjc8mT5KOf+3KEmh0E/qsztAz7kP7TAQrCFcgKm5sanEABiI
+	laqsUXx8D8mrisAL7M/235e48t41ovP/II4vLhjlat1krlub3RAj6WrJM1HFgPpEITlYJj4t7RI5p
+	P+UKHTHfu13OCN8zRpazg6ROeupQ4CLscsIH57nffAiBSvW+pC7EJeUwIpWxaghkkDY8KmbmaBVI4
+	lCjgyWW/Uoo5NIoEQ7JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ns441-00D13o-JZ; Fri, 20 May 2022 14:57:13 +0000
+	id 1ns4Dj-00D4XY-G6; Fri, 20 May 2022 15:07:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ns43d-00D0t8-2c; Fri, 20 May 2022 14:56:50 +0000
+ id 1ns4DX-00D4Tt-AB; Fri, 20 May 2022 15:07:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0AB51477;
- Fri, 20 May 2022 07:56:47 -0700 (PDT)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A884F1477;
+ Fri, 20 May 2022 08:07:01 -0700 (PDT)
 Received: from bogus (unknown [10.57.66.157])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 989AE3F73D;
- Fri, 20 May 2022 07:56:45 -0700 (PDT)
-Date: Fri, 20 May 2022 15:56:39 +0100
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A4E6E3F73D;
+ Fri, 20 May 2022 08:06:59 -0700 (PDT)
+Date: Fri, 20 May 2022 16:06:52 +0100
 From: Sudeep Holla <sudeep.holla@arm.com>
-To: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Cc: Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org,
+To: Rob Herring <robh@kernel.org>
+Cc: Atish Patra <atishp@atishpatra.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
  Atish Patra <atishp@rivosinc.com>, Sudeep Holla <sudeep.holla@arm.com>,
  Vincent Guittot <vincent.guittot@linaro.org>,
  Morten Rasmussen <morten.rasmussen@arm.com>,
- Qing Wang <wangqing@vivo.com>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, Qing Wang <wangqing@vivo.com>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
 Subject: Re: [PATCH v2 8/8] arch_topology: Add support to build llc_sibling
  on DT platforms
-Message-ID: <20220520145639.xb33e2z5otdu264y@bogus>
+Message-ID: <20220520150652.n6cfl7qpzbjrjh2f@bogus>
 References: <20220518093325.2070336-1-sudeep.holla@arm.com>
  <20220518093325.2070336-9-sudeep.holla@arm.com>
- <087176fc-1018-b107-06cc-055d7926b500@arm.com>
+ <CAL_JsqKig8U4hQEtHW8ct1Pd0a29ZtoTp1HuWQv389yb+SuW_A@mail.gmail.com>
+ <20220520125959.wlxz53cfqldljxjy@bogus>
+ <20220520143620.GA3788938-robh@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <087176fc-1018-b107-06cc-055d7926b500@arm.com>
+In-Reply-To: <20220520143620.GA3788938-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220520_075649_244109_9F92617A 
-X-CRM114-Status: GOOD (  19.52  )
+X-CRM114-CacheID: sfid-20220520_080703_436691_CBC265DF 
+X-CRM114-Status: GOOD (  31.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,39 +71,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 20, 2022 at 02:33:46PM +0200, Dietmar Eggemann wrote:
-> On 18/05/2022 11:33, Sudeep Holla wrote:
-> > ACPI PPTT provides cache identifiers and especially the last level cache
-> > identifier is used in obtaining last level cache siblings amongst CPUs.
+On Fri, May 20, 2022 at 09:36:20AM -0500, Rob Herring wrote:
+> On Fri, May 20, 2022 at 01:59:59PM +0100, Sudeep Holla wrote:
+> > On Thu, May 19, 2022 at 01:10:51PM -0500, Rob Herring wrote:
+> > > On Wed, May 18, 2022 at 4:34 AM Sudeep Holla <sudeep.holla@arm.com> wrote:
+> > > >
+> > > > ACPI PPTT provides cache identifiers and especially the last level cache
+> > > > identifier is used in obtaining last level cache siblings amongst CPUs.
+> > > >
+> > > > While we have the cpu map representing all the CPUs sharing last level
+> > > > cache in the cacheinfo driver, it is populated quite late in the boot
+> > > > while the information is needed to build scheduler domains quite early.
+> > >
+> > > Late is because it's a device_initcall() rather than late in the cpu
+> > > hotplug state machine, right?
 > > 
-> > While we have the cpu map representing all the CPUs sharing last level
-> > cache in the cacheinfo driver, it is populated quite late in the boot
-> > while the information is needed to build scheduler domains quite early.
+> > Right. The expectation is to run in on each online CPU in CPU hotplug state
+> > machine for some architectures. We may not need that on arm64 especially
+> > since we get all info from DT or ACPI, but e.g. x86 uses cpuid which needs
+> > to be executed on that CPU.
+> 
+> That's a separate issue. I'm not suggesting changing that part (that 
+> would just be an optimization).
+> 
+> > > The late aspect is for sysfs presumably,but I think we could decouple that.
 > > 
-> > On DT platforms we can use the pointer to the last level cache as the
-> > firmware identifier for the last level cache and build the cpumap sharing
-> > the last level cache based on the same.
+> > OK, not sure when this sched_domain info is actually needed. It think it
+> > could be decoupled if we can wait until all the cpus are online.
 > 
-> [...]
-> 
-> > diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
-> > index 58cbe18d825c..d8a36b0e27c9 100644
-> > --- a/include/linux/arch_topology.h
-> > +++ b/include/linux/arch_topology.h
-> > @@ -69,6 +69,7 @@ struct cpu_topology {
-> >  	int cluster_id;
-> >  	int package_id;
-> >  	int llc_id;
-> > +	void *llc_fw_node;
-> 
-> Would be nicer if you could set llc_id directly to avoid all this
-> addition sync `llc_id and llc_fw_node` code. ACPI PPTT has this
-> ACPI_PTR_DIFF() macro which IMHO lets it create distinct ids.
-> 
+> No need to wait for all cpus to be online. I think you keep doing 
+> it as part of cpu hotplug. The device_initcall() is used because you 
+> cannot have struct device or sysfs calls before the driver core is 
+> initialized. If we run the cacheinfo code earlier (I think the arch code 
+> will have to call it) just like the topology code and skip the sysfs 
+> parts, then you can use it.
+>
 
-Indeed, I initially thought so, but they are 64 bit pointers and choosing
-one reference is difficult to take some sort of diff while in ACPI it is in
-a static table and we could use the reference to the top of the table.
+Yes I was thinking something on similar lines, though I didn't think of
+pushing code to arch. Let me check, must be possible.
+
+> > > Do all the firmware cache parsing early and then populate the sysfs parts
+> > > later.
+> > 
+> > Yes that may work on DT/ACPI based systems, as I said x86 relies on cpuid.
+> 
+> I'd assume using cpuid works at any time?
+>
+
+I think so, I can't recall the details since I looked at that about 5 years
+ago. I have to check again anyways to explore early initialisation.
 
 -- 
 Regards,
