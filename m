@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB1D0C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 15:46:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F74DC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 17:11:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
-	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gG1QM11ZCufhCnqCMrj/DmDrE4/7DcFXlP/bY7SlM+I=; b=L07NlYHe5oRkgI
-	R3Zh2zX24JMOaZgK1LtjuGoheDmnQupd01PkKBWD4WIsAgyUkeXLqQoPxa6GcPtUBGyUf3NYlt8Ps
-	j4vjlUwUJxt1Le3eBopYUOkG65+DG6c0ZWSvFQKv8r9M0/bPkGDoNZ9t8p4Yv9tBa7fT6NVfa0oXj
-	slOdFMB2bO8utkdFV6RPePy0dwBukcFz+4EuI6mIv5IhZ6lYQo73lrHA2FVMkQa2srXxSX30EpiTq
-	Rh04Wx05374i3Zoh/rei4qzGgDI8whSxv6wEaUHjccVP8HZT4pfg3i/yyobCh0fIOsUL5IO+N4U8n
-	UrGt3mX85ScJb9ZLyJVw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=Raa7rpaa4cxEKw1c+fJT7+o/HAceBT96X5kohS6SQDI=; b=LecjbBhh7yyz4eyjnWAEjb3x1D
+	g9QrhRy+DJf27LHuDOE/GDAZhT0DR7NuRF1LfW5n5p7KZVc8UgUMdw1b+hZ40S0UpZLMHddy88Ifh
+	/59m72kr+cOf+vW8wLaBeRi2ZbvypMeN5CfN8wLVPHIPou2nym+iED7QWa/TYyaKiJ379iounXa8n
+	UmcvaF5u/qzpO1ZMYe2BDhCaeR83SS51RFipiHnTtHT/VZ1i113QPxLRu6C1xbxZb9Om1jCaaoqBo
+	cCUKepClHRW/TXOfeGdyTivMePDbo8VwCSalVhDOqgdl4KpAfznJ7boeX8nSUmdcKn6vgzr3EhqYv
+	ng4ChQmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ns4pI-00DK9I-7O; Fri, 20 May 2022 15:46:04 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1ns69K-00Dr5f-4c; Fri, 20 May 2022 17:10:50 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ns4oj-00DJkU-7L
- for linux-riscv@lists.infradead.org; Fri, 20 May 2022 15:45:31 +0000
-Received: by mail-pl1-x635.google.com with SMTP id 10so4253266plj.0
- for <linux-riscv@lists.infradead.org>; Fri, 20 May 2022 08:45:28 -0700 (PDT)
+ id 1ns69G-00Dr4R-Nl
+ for linux-riscv@lists.infradead.org; Fri, 20 May 2022 17:10:48 +0000
+Received: by mail-pg1-x533.google.com with SMTP id q76so8240355pgq.10
+ for <linux-riscv@lists.infradead.org>; Fri, 20 May 2022 10:10:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
- h=subject:date:message-id:in-reply-to:references:mime-version
- :content-transfer-encoding:cc:from:to;
- bh=U/MW6rSbN5zBgusIBhKQzePh9cnp8uaNotWlLIHTUsY=;
- b=JQyzbPvORX1IKsTlWc0qkUHSKntueefkGU8dfB3thfUfkSYRjG91vooo6vChrw9Bf7
- 9Z5XY/rjVuwzsrlkQA5pcgEYx+QnJKtt5nmCn9DhLAdeLEqucw8pOG8J12o96ngdNp5g
- itgIArPjfmV3PmE0JpQd4a+cAR95KxK2BRwn0m7OypbO/75j+MGw0tQDgXO551FebRyN
- 04wS/DqNscTUoNHtWgoitV/Yu0wzpeaqdS7LdRbwE65wXveDL69cHyxRiC2N2xewmWjM
- UTbLdEVcVlOT/o6zIiNUwcdDEW8akpNDod5tvoD9ZEXINE7/RJScDiChs8rEREGK9MC4
- rYKg==
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=Ap45GKttvVsGHFS/wF1zP7BioIstLCNnThX5z8X39SU=;
+ b=AmOqY9EMw1Vy/sTkKIDmT5u+NbEkfEECcVzTCYfHt1+EsYNs1KDAfsDDSb97sGDqGW
+ UEZbQZugt8DSxdMawFK1dsJ7c2zocR1Bc2wIizJ8rwkCelDZn/Fl2dqtKZGSnaTZ5LkS
+ xizF4lU1YqhV+n9Wr4wFn7r/IjaGbZ3TV4WO7qDkaVa/+fmoUnWRys/0pE22Ut6ueDdV
+ atGJ6pHtzveANT05O4WNemXHNihuISkxdSczPsU6ltS8YSGBxqrv2HQ8sKUlLm9zTfbn
+ KV3oLxQmEJU2Rw+FIAxXVe1SOdjZA2k9B/mPZOJFK98JYmZ+LQu/Ud/hufkS4hXXaRL6
+ +dwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:date:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding:cc:from:to;
- bh=U/MW6rSbN5zBgusIBhKQzePh9cnp8uaNotWlLIHTUsY=;
- b=0b2Y3K2NqOsPPk0hS7ymR667c5Llok1XY/Y3iLnCBSr3YT5PABd69EMnLqeLJ4ibL/
- WulpzqBAv2zx5jeAKN7CgRtWMqMTobRTyOqI8PyuqIl1sQFSjDwsdKieSK4XHsI6xsJT
- K8ghptRqelE+qq64jeAkHmafFF/jXhkzLZ23ecTRSo2+MXKbjHrRxTQIpFoQ7LgqQ/tT
- YVH/F5zqeLWXacxmBcyVbAVzQ+XxvYLdzQWRgzHq23SOzze6GwCdLwe+KhlJ+tb+TN6p
- EjLJimAyVOHiPLO9lIHkF10khurDb3lZsSNycmbyWNUh9k0vpJ7xXQph0wVQC6FBsBku
- DjHA==
-X-Gm-Message-State: AOAM533v38w6haBZVUPvNEpbuXdTphWpCXpc2s6kr0jpgybhs3nt1aO3
- TUEy7yIH6vRvU16iUslGQrbjGg==
-X-Google-Smtp-Source: ABdhPJxcVY/NCwkycro4XerYgWAVjh079yzImy34/DKN8DSXqYHS1KYB9wqnCW7AFPycA9lFB2mEsg==
-X-Received: by 2002:a17:902:7788:b0:15e:ec55:2cfd with SMTP id
- o8-20020a170902778800b0015eec552cfdmr10405450pll.113.1653061527803; 
- Fri, 20 May 2022 08:45:27 -0700 (PDT)
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=Ap45GKttvVsGHFS/wF1zP7BioIstLCNnThX5z8X39SU=;
+ b=xUyK/w9OMg3xKQWDPeAsSGqaZG1R3lFZTfEOIE66UqOAMOBmsP540cbZjmit7EIj16
+ Pd+0MQMLRq5VfMnBy0BUaf+wvRcNwXYa+0edPrVJdNj2i765KifY+KJjlE9uZcqz5h4m
+ nm4bFm/t0K3fYL7yT1kjU8i5L0YxgfhgdSCg2ioVzfwLrvJiVQaSGlzYO0J2wR5pjmdl
+ Ejpe0hBtV3/F7TSKPJnnZPi9Va9OoZFFu1qLRtSgcAa/wYxqZHoiJ9YJLwUEylh4hUGi
+ 8jXpXRJUxYTnFCJ34miu3yDUIniKripD4gKPsuMBG12W4CZDOOBqGfN49HjC3Urf7Stt
+ D6Mw==
+X-Gm-Message-State: AOAM532vsVjCz/yfj1BpmcW6wUOsEkVZ2jdShtAiwzVDZq52LXprT8qf
+ rAhN5iCu61meaqQzCOqVxsHs+A==
+X-Google-Smtp-Source: ABdhPJzxaDauczGNGH0lmX+q48ilhwnu+PuxmQKFEk3pa9D7WxYcc+R7B4WChKOzpwvaMrZYjX97Cw==
+X-Received: by 2002:a05:6a00:2444:b0:4fd:db81:cbdd with SMTP id
+ d4-20020a056a00244400b004fddb81cbddmr11220235pfj.32.1653066643652; 
+ Fri, 20 May 2022 10:10:43 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
  [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
- p11-20020a17090a4f0b00b001df78f27c10sm2091006pjh.42.2022.05.20.08.45.27
+ g25-20020a639f19000000b003f5eb31fc4bsm15092pge.11.2022.05.20.10.10.42
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 20 May 2022 08:45:27 -0700 (PDT)
-Subject: [PATCH v1 4/5] RISC-V: purgatory: Use XLEN-length loads to support
- rv32
-Date: Fri, 20 May 2022 08:44:30 -0700
-Message-Id: <20220520154430.18593-5-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220520154430.18593-1-palmer@rivosinc.com>
-References: <20220520154430.18593-1-palmer@rivosinc.com>
-MIME-Version: 1.0
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- aou@eecs.berkeley.edu, robh+dt@kernel.org, frowand.list@gmail.com,
- zohar@linux.ibm.com, 
- dmitry.kasatkin@gmail.com, jmorris@namei.org, serge@hallyn.com,
- liaochang1@huawei.com, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, 
- linux-integrity@vger.kernel.org, linux-security-module@vger.kernel.org,
- linux@rivosinc.com, Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: lizhengyu3@huawei.com
+ Fri, 20 May 2022 10:10:42 -0700 (PDT)
+Date: Fri, 20 May 2022 10:10:42 -0700 (PDT)
+X-Google-Original-Date: Fri, 20 May 2022 09:28:20 PDT (-0700)
+Subject: Re: [PATCH v1 0/4] riscv: mm: add Svnapot support
+In-Reply-To: <20220411141536.2461073-1-panqinglin2020@iscas.ac.cn>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, jeff@riscv.org, xuyinan@ict.ac.cn,
+ panqinglin2020@iscas.ac.cn
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: panqinglin2020@iscas.ac.cn
+Message-ID: <mhng-5b55d692-8996-4ae1-9a83-a28b09c108f6@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220520_084529_312826_99BB105B 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220520_101047_035200_0ADE824F 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,55 +85,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@rivosinc.com>
+On Mon, 11 Apr 2022 07:15:32 PDT (-0700), panqinglin2020@iscas.ac.cn wrote:
+> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+>
+> Svnapot is a RISC-V extension for marking contiguous 4K pages as a non-4K
+> page. This patch set is for using Svnapot in Linux Kernel's boot process
+> and hugetlb fs.
+>
+> Since Svnapot is just stable recently, and there seems no official way to
+> determine if the CPU supports Svnapot at runtime. This patchset adds a Kconfig
+> item for using Svnapot in "Platform type"->"Svnapot support". Its default value
+> is off, and people can set it on when their CPU supports Svnapot.
+>
+> Qemu support for Svnapot has been accepted but still not merged into master.
+> So the qemu which we use to test this patchset is current in this repo (it
+> contains qemu Svnapot patchset):
+> https://github.com/plctlab/plct-qemu/tree/plct-virtmem-dev
+>
+> Tested on:
+>   - qemu rv64 with "Svnapot support" off.
+>   - plct-qemu rv64 with "Svnapot support" on.
+>
+>
+> Qinglin Pan (4):
+>   mm: modify pte format for Svnapot
+>   mm: support Svnapot in physical page linear-mapping
+>   mm: support Svnapot in hugetlb page
+>   mm: support Svnapot in huge vmap
+>
+>  arch/riscv/Kconfig                    |  10 +-
+>  arch/riscv/include/asm/hugetlb.h      |  31 +++-
+>  arch/riscv/include/asm/page.h         |   2 +-
+>  arch/riscv/include/asm/pgtable-bits.h |  31 ++++
+>  arch/riscv/include/asm/pgtable.h      |  68 ++++++++
+>  arch/riscv/include/asm/vmalloc.h      |  20 +++
+>  arch/riscv/mm/hugetlbpage.c           | 236 +++++++++++++++++++++++++-
+>  arch/riscv/mm/init.c                  |  29 +++-
+>  8 files changed, 416 insertions(+), 11 deletions(-)
 
-This uses an explicit "ld" to load up target address, which dosn't work
-on rv32.  Convert it to a REG_L macro, like everywhere else.
+Sorry for being slow here, I got pretty buried this round.
 
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
- arch/riscv/purgatory/entry.S | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+This generally looks OK, but we definately need dynamic detection.  It 
+should be super easy to do that with the new framework, as we essentialy 
+just need to check for Svnapot on allocation.
 
-diff --git a/arch/riscv/purgatory/entry.S b/arch/riscv/purgatory/entry.S
-index 0194f4554130..71c50fef051c 100644
---- a/arch/riscv/purgatory/entry.S
-+++ b/arch/riscv/purgatory/entry.S
-@@ -8,6 +8,8 @@
-  *
-  */
- 
-+#include <asm/asm.h>
-+
- .macro	size, sym:req
- 	.size \sym, . - \sym
- .endm
-@@ -26,7 +28,7 @@ purgatory_start:
- 	/* Start new image. */
- 	mv	a0, s0
- 	mv	a1, s1
--	ld	a2, riscv_kernel_entry
-+	REG_L	a2, riscv_kernel_entry
- 	jr	a2
- 
- size purgatory_start
-@@ -41,7 +43,7 @@ size purgatory_start
- 
- .globl riscv_kernel_entry
- riscv_kernel_entry:
--	.quad	0
-+	REG_ASM	0
- size riscv_kernel_entry
- 
- .end
--- 
-2.34.1
-
+Aside from that, just a minor comment: it feels like Svnapot is simple 
+enough that we should be able to fit it into the generic mapping code.  
+No big deal if it doesn't work and I haven't tried to do so, but I think 
+it's worth a shot.
 
 _______________________________________________
 linux-riscv mailing list
