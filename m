@@ -4,74 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7958BC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 22:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94772C433FE
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 23:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nae2S8xG97g+fwArGVPnI0LleWq/n6F+jKp3mYpDRCU=; b=xNErcI7ms5ciEv
-	j2GUlH4gnkhU/RiOGQ3PZB4uk+bKvLjQF2BihbswXdsoGVYkbacWQWSkPCiqj9jOQmh3SpZOwAnuY
-	uT9kfQxGt2tUIpz7og1zGRwwbmWjb3tCLc0z2k4UYCTA51n8wif+EzO9y4gogVDlyOhp5zPTY++47
-	Walq96xrMpoPdOYAtCYbgF2mW+WB2p+HHtZqQSW30jYJeNNnL/bIVXt4Em+lq9j0bLS6/scN+R7aW
-	F8DituEeGIR+iZ9eScCD9ROhhZliuGXjC5+6W5EjLv+1FZpuFZxR4I+Ca0NnBZLQkD0K1jc+4b6jf
-	kK2P9TkTN8k8YvVswzFQ==;
+	List-Owner; bh=62KhT+/ZWfRQDKLsh7wuB4oLFBZEnp1LD9DArRoEVyY=; b=YE1OC9pjAX64FJ
+	2fDk6B/RJEqtr2hNfw1xkv4Az/F9yP9purQ9PWYC+m+elWg6k/Ui1NSHZSLCRSGDBe6CX4io3D6vX
+	xbdZ7J+1aMZZmSA7+rjjWjTxMQK8sU2hcj/xGIVAUgrhnVzZMDtqCVAck4LbklhCreUOcUp7UaR0H
+	x9Q/uGi9hsTh8A8AQ2d4WX465WY/LQYLF5NuqLavBRJhYe8gdqnpcDi0NnJ9IGzeXdXDAsBTlOkP9
+	4krE7fvXUZgdURO15yo1Zq31SPRieXqWCHINtE9S8O4Hum1Vdb6yoJjJD+dvrA5VzZQM2ltKC9XCx
+	xSxRtajUSSTbyA/W2aaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nsBKc-00Eonv-Qg; Fri, 20 May 2022 22:42:50 +0000
-Received: from mail-oa1-f45.google.com ([209.85.160.45])
+	id 1nsCF0-00EwEo-Dx; Fri, 20 May 2022 23:41:06 +0000
+Received: from esa5.hgst.iphmx.com ([216.71.153.144])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nsBKa-00EonB-Hg
- for linux-riscv@lists.infradead.org; Fri, 20 May 2022 22:42:49 +0000
-Received: by mail-oa1-f45.google.com with SMTP id
- 586e51a60fabf-d39f741ba0so11823798fac.13
- for <linux-riscv@lists.infradead.org>; Fri, 20 May 2022 15:42:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=azdu1pWAgwViwv7ELQ/aqUGNmN2fRBBuvMjhaKlYBAM=;
- b=C7GeaNLIlJ7kn163niaj0FfE9uW+xqZD5E0Bwu+k1JE5hX68ILhpGlbk/GC72BWIuj
- auPKmKcnUNRVo18OztODN3GklPzZ3QRKCx+/Got66RWkd48sPg1RJ4yCQzyhm8TZQTxF
- k/emNAoXs08/BX1Sxc4WHmAzlW978DuOhFugxj0F0vIIz8Pdbd71CB/f4eKF4j5D2yWd
- 09t1l/3pjOS716Gl768iwxAJUmAfGEjW2YyKzFXY1NAXPgNA++S12xy/zGIKxGeCtmvC
- 8rgNI8bGxWH2jJVPlXp0pUaGOUIumjhduAHn/3O7CX4pwqweT8w5wvA0u/8isuBw/CTz
- QWew==
-X-Gm-Message-State: AOAM533OkH+yawtSuUIIuXax74y5+BXa7AAaX2F/OBFRiJ1dWWy1ny3h
- rfN5sv77i6xAdmaVvMmFEA==
-X-Google-Smtp-Source: ABdhPJyfg2alBejsld9ZUdZbsybzuds4RCSyXYGj21XRzYKGKqSXGreA1gnu4Og7xPrbNxKE4KO6aQ==
-X-Received: by 2002:a05:6870:610f:b0:f1:9314:8005 with SMTP id
- s15-20020a056870610f00b000f193148005mr7504540oae.77.1653086567460; 
- Fri, 20 May 2022 15:42:47 -0700 (PDT)
-Received: from robh.at.kernel.org (66-90-144-107.dyn.grandenetworks.net.
- [66.90.144.107]) by smtp.gmail.com with ESMTPSA id
- j15-20020a9d7f0f000000b006060322124esm1437488otq.30.2022.05.20.15.42.46
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 20 May 2022 15:42:46 -0700 (PDT)
-Received: (nullmailer pid 388541 invoked by uid 1000);
- Fri, 20 May 2022 22:42:45 -0000
-Date: Fri, 20 May 2022 17:42:45 -0500
-From: Rob Herring <robh@kernel.org>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: lizhengyu3@huawei.com, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu,
- frowand.list@gmail.com, zohar@linux.ibm.com, dmitry.kasatkin@gmail.com,
- jmorris@namei.org, serge@hallyn.com, liaochang1@huawei.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-integrity@vger.kernel.org,
- linux-security-module@vger.kernel.org, linux@rivosinc.com
-Subject: Re: [PATCH v1 1/5] drivers: of: kexec ima: Support 32-bit platforms
-Message-ID: <20220520224245.GA385188-robh@kernel.org>
-References: <20220520154430.18593-1-palmer@rivosinc.com>
- <20220520154430.18593-2-palmer@rivosinc.com>
+ id 1nsCEw-00EwE0-AT
+ for linux-riscv@lists.infradead.org; Fri, 20 May 2022 23:41:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+ d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+ t=1653090061; x=1684626061;
+ h=message-id:date:mime-version:subject:to:cc:references:
+ from:in-reply-to:content-transfer-encoding;
+ bh=Nt1uwXYF46z/v40XD4nqkQwRmMJ/b7kCvc76K9BQryE=;
+ b=LtusnLO5rhrt/iff14PrObiYMhAXXx8BWhkw3HW6jSxA5e4wYnrinX5M
+ JJ6DKRgrN1JFYQCmsxQQVGMZus2QUc8VrYmghuQBZHmIVD9Q3ebODNqeV
+ 9d2j961aAn0Ny8h7/+qTNbbu9yElT9Qp8TDruVlEs5VjvVmDaNEpxYhXE
+ KndY0mQansYt9W1p4FMnXKx6LST8uI3y2UbETrpJSuJKHcWuFO+YrG8qO
+ /tV3eE5THurM1hEjJogs9lKn/m2TWeBoZmjzKPgCNE826CzJAJYtcIls3
+ cUtN6f1XKjvpV6NL81gEH0OSLJOdy/oodwnr9AEbZZCcHqZomjf2PzCn5 Q==;
+X-IronPort-AV: E=Sophos;i="5.91,240,1647273600"; d="scan'208";a="200966808"
+Received: from h199-255-45-14.hgst.com (HELO uls-op-cesaep01.wdc.com)
+ ([199.255.45.14])
+ by ob1.hgst.iphmx.com with ESMTP; 21 May 2022 07:40:58 +0800
+IronPort-SDR: ibHEDy79BnzK8zBlTRx6h7fR8aOHIf1KKcZpCsq/ARwJpDTwXLfq6j8tD8rDzL6GQi9HPXkjuS
+ 8tWC++TuvBSlwxVsHq7kjdOkK5J3laqq2reQ8MhWpqZ5L/zs7G37frEaxZi129L5kWaScBzDcv
+ UNM7ixR1+S+lugJJuYLayh8N8HAgvr4JaNZOqqWl9afkjeBVu0sK7AVvWRRQs84DitnRyskIED
+ Vz/8mnw3pzwnY9ACzgt8mEJAbA9SyW4/hL4DX0OE4hdIhTOmLYS5U8jxjrBkQZP5QCCskUVbjh
+ BvjC1rH6tWCKP4KXRj96oQCb
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+ by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
+ 20 May 2022 16:06:21 -0700
+IronPort-SDR: cQ91cQJGwrGD29dU+kAOm9/Cu7PRtRIGJqnZfUZFMq0R7+Z4w8Fm5XzXaIdPTwIGXa8pIMjXn4
+ 8NSCDxLvkFyi2tRZ74fyP+3K9qp0VxY6EUvig/x7Rd+h7J9exO/g8lgZG5iYT8D+PbVy0l/CN7
+ 5yMAuecH1VE1vGxKh3vjLMCJxSnsO0tZqLhTSpFnOoH4rApyV6x5MKBHN7SDg/1lsWiBXiVbBp
+ u5szBk2HM/Eul8Fw1GM1mzTWnoovj9HocYbKcrt+DdmJt/mvHqK0A/vrfk9Fbl+EDVwhBmS82U
+ lus=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+ by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
+ 20 May 2022 16:41:00 -0700
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4L4jsR255Tz1SVnx
+ for <linux-riscv@lists.infradead.org>; Fri, 20 May 2022 16:40:59 -0700 (PDT)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+ reason="pass (just generated, assumed good)"
+ header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+ opensource.wdc.com; h=content-transfer-encoding:content-type
+ :in-reply-to:organization:from:references:to:content-language
+ :subject:user-agent:mime-version:date:message-id; s=dkim; t=
+ 1653090058; x=1655682059; bh=Nt1uwXYF46z/v40XD4nqkQwRmMJ/b7kCvc7
+ 6K9BQryE=; b=jFj9Vb7mjvbkGd+qO7do6l7OhOv6bwhQ+InRCPDR0v3t9RB1AlY
+ koAhowfvZWUbAYMsOs3lKo2MkqQyG6niLlHOHb26hqhGuDOkS1qGC0RoayGgfWvb
+ v4T6X6dNnJFnvnu34/yaxXZ5eE/zzgq15RtzMFKwu9TGWlXUfxeTSeqHqKmHx10M
+ OkNQ765CsWvZ7a0RELD8l6CcWxoAq3UNupu559py1FthOxCBeregq2kTURA0NwKV
+ r1cI0qYffbs9dFkVc1tZlk1EOsinEVyJ5KpCn6jQ860/dpldubC2snEl4cew8++A
+ MAVCkxMlp7iw/AbHFlqOtVt0D1oVK9d9LvQ==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+ by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
+ port 10026)
+ with ESMTP id Ok9oHBYG82C4 for <linux-riscv@lists.infradead.org>;
+ Fri, 20 May 2022 16:40:58 -0700 (PDT)
+Received: from [10.225.163.51] (unknown [10.225.163.51])
+ by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4L4jsN72n1z1Rvlc;
+ Fri, 20 May 2022 16:40:56 -0700 (PDT)
+Message-ID: <93d0095e-eced-0310-6ca4-a559db79d1d5@opensource.wdc.com>
+Date: Sat, 21 May 2022 08:40:55 +0900
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220520154430.18593-2-palmer@rivosinc.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.0
+Subject: Re: [PATCH v2] gpio: dwapb: Make the irqchip immutable
+Content-Language: en-US
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+ Hoan Tran <hoan@os.amperecomputing.com>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, Damien Le Moal <damien.lemoal@wdc.com>,
+ Marc Zyngier <maz@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <01f7a990654697ca7ec8b2d0025f41403462c8d9.1653042121.git.geert+renesas@glider.be>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <01f7a990654697ca7ec8b2d0025f41403462c8d9.1653042121.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220520_154248_637975_250774E4 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20220520_164102_422635_2ACFF728 
+X-CRM114-Status: GOOD (  25.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,21 +121,138 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 20, 2022 at 08:44:27AM -0700, Palmer Dabbelt wrote:
-> From: Palmer Dabbelt <palmer@rivosinc.com>
+On 5/20/22 19:23, Geert Uytterhoeven wrote:
+> Commit 6c846d026d49 ("gpio: Don't fiddle with irqchips marked as
+> immutable") added a warning to indicate if the gpiolib is altering the
+> internals of irqchips.  Following this change the following warning is
+> now observed for the dwapb driver:
 > 
-> RISC-V recently added kexec_file() support, which uses enables kexec
-> IMA.  We're the first 32-bit platform to support this, so we found a
-> build bug.
+>     gpio gpiochip0: (50200000.gpio): not an immutable chip, please consider fixing it!
 > 
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Fix this by making the irqchip in the dwapb driver immutable.
+> 
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 > ---
->  drivers/of/kexec.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> Against gpio/for-next.
+> Boot-tested on SiPEED MAiXBiT (Canaan K210).
 
-Assuming you don't want me to apply it:
+FYI, fully fixed userspace is available here:
 
-Acked-by: Rob Herring <robh@kernel.org>
+git@github.com:damien-lemoal/buildroot.git
+branch: k210-v16
+
+Need some patch commit message cleanup and I will post that to buildroot list.
+
+> 
+> v2:
+>   - Factor out hwirq using preferred helper.
+> ---
+>  drivers/gpio/gpio-dwapb.c | 38 ++++++++++++++++++++++++--------------
+>  1 file changed, 24 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/gpio/gpio-dwapb.c b/drivers/gpio/gpio-dwapb.c
+> index 7130195da48d75dd..04afe728e18748df 100644
+> --- a/drivers/gpio/gpio-dwapb.c
+> +++ b/drivers/gpio/gpio-dwapb.c
+> @@ -95,7 +95,6 @@ struct dwapb_context {
+>  #endif
+>  
+>  struct dwapb_gpio_port_irqchip {
+> -	struct irq_chip		irqchip;
+>  	unsigned int		nr_irqs;
+>  	unsigned int		irq[DWAPB_MAX_GPIOS];
+>  };
+> @@ -252,24 +251,30 @@ static void dwapb_irq_mask(struct irq_data *d)
+>  {
+>  	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+>  	struct dwapb_gpio *gpio = to_dwapb_gpio(gc);
+> +	irq_hw_number_t hwirq = irqd_to_hwirq(d);
+>  	unsigned long flags;
+>  	u32 val;
+>  
+>  	raw_spin_lock_irqsave(&gc->bgpio_lock, flags);
+> -	val = dwapb_read(gpio, GPIO_INTMASK) | BIT(irqd_to_hwirq(d));
+> +	val = dwapb_read(gpio, GPIO_INTMASK) | BIT(hwirq);
+>  	dwapb_write(gpio, GPIO_INTMASK, val);
+>  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
+> +
+> +	gpiochip_disable_irq(gc, hwirq);
+>  }
+>  
+>  static void dwapb_irq_unmask(struct irq_data *d)
+>  {
+>  	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
+>  	struct dwapb_gpio *gpio = to_dwapb_gpio(gc);
+> +	irq_hw_number_t hwirq = irqd_to_hwirq(d);
+>  	unsigned long flags;
+>  	u32 val;
+>  
+> +	gpiochip_enable_irq(gc, hwirq);
+> +
+>  	raw_spin_lock_irqsave(&gc->bgpio_lock, flags);
+> -	val = dwapb_read(gpio, GPIO_INTMASK) & ~BIT(irqd_to_hwirq(d));
+> +	val = dwapb_read(gpio, GPIO_INTMASK) & ~BIT(hwirq);
+>  	dwapb_write(gpio, GPIO_INTMASK, val);
+>  	raw_spin_unlock_irqrestore(&gc->bgpio_lock, flags);
+>  }
+> @@ -364,8 +369,23 @@ static int dwapb_irq_set_wake(struct irq_data *d, unsigned int enable)
+>  
+>  	return 0;
+>  }
+> +#else
+> +#define dwapb_irq_set_wake	NULL
+>  #endif
+>  
+> +static const struct irq_chip dwapb_irq_chip = {
+> +	.name		= DWAPB_DRIVER_NAME,
+> +	.irq_ack	= dwapb_irq_ack,
+> +	.irq_mask	= dwapb_irq_mask,
+> +	.irq_unmask	= dwapb_irq_unmask,
+> +	.irq_set_type	= dwapb_irq_set_type,
+> +	.irq_enable	= dwapb_irq_enable,
+> +	.irq_disable	= dwapb_irq_disable,
+> +	.irq_set_wake	= dwapb_irq_set_wake,
+> +	.flags		= IRQCHIP_IMMUTABLE,
+> +	GPIOCHIP_IRQ_RESOURCE_HELPERS,
+> +};
+> +
+>  static int dwapb_gpio_set_debounce(struct gpio_chip *gc,
+>  				   unsigned offset, unsigned debounce)
+>  {
+> @@ -439,16 +459,6 @@ static void dwapb_configure_irqs(struct dwapb_gpio *gpio,
+>  	girq->default_type = IRQ_TYPE_NONE;
+>  
+>  	port->pirq = pirq;
+> -	pirq->irqchip.name = DWAPB_DRIVER_NAME;
+> -	pirq->irqchip.irq_ack = dwapb_irq_ack;
+> -	pirq->irqchip.irq_mask = dwapb_irq_mask;
+> -	pirq->irqchip.irq_unmask = dwapb_irq_unmask;
+> -	pirq->irqchip.irq_set_type = dwapb_irq_set_type;
+> -	pirq->irqchip.irq_enable = dwapb_irq_enable;
+> -	pirq->irqchip.irq_disable = dwapb_irq_disable;
+> -#ifdef CONFIG_PM_SLEEP
+> -	pirq->irqchip.irq_set_wake = dwapb_irq_set_wake;
+> -#endif
+>  
+>  	/*
+>  	 * Intel ACPI-based platforms mostly have the DesignWare APB GPIO
+> @@ -475,7 +485,7 @@ static void dwapb_configure_irqs(struct dwapb_gpio *gpio,
+>  		girq->parent_handler = dwapb_irq_handler;
+>  	}
+>  
+> -	girq->chip = &pirq->irqchip;
+> +	gpio_irq_chip_set_chip(girq, &dwapb_irq_chip);
+>  
+>  	return;
+>  
+
+Looks OK to me.
+
+Reviewed-by: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+
+-- 
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
