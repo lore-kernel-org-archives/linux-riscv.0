@@ -4,91 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F5DC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 04:43:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 347E7C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 04:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aya/U7z6pS6jxWBTG/KgXRRawXbsIj95oF2G3lewpDk=; b=at0NSP5VU//oFd
-	RLX8EZMtPXje2x+g6GxkHXHN5BYwyhydZdbP49WgL07RENKtjHPGtq+gIpamdoSRFSiiTTpZePe+K
-	OVYimpLG4Cv/bD+aLoAbWr2JXGKblSEO8FmhrgVd5e6/JFza2T0vautWuTP1IXxtIh2bXjRkDhf/L
-	XmKbskr5cdRbkQwEadVxFKJoXJiVP2y8IReKEqAGSA+e5cuwXih2jebKgx3aUiWbT+kkpEV0qn2+Y
-	90EZVH68szjBDJNi0pcDbRwiA4sq6k2AEV4uhh6cprXiqLFQVewU1rInwZN+q+GgBtR5j6Ua48HEd
-	LTXiKicxLzc4/K4OVSMA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NOeGBXkt3ljFQ9hN1rHCDlZcfTDzk537QAmiU9FaKwM=; b=2GzcDsQoW0E7j3
+	kXh6OWHE+xRy1eWIWI5OOkO5+92IfR7BlvRvWIlAlGf0LYY9iiLFwhXh6ZCqz4v6e5YubcAFfL9Sb
+	LH1Qa4KyrASByd4rib0G8/B8V1kw2GRBSzwys4Sj6vK/R8JTOT+jiZRmjSBe6UP/o24QR27llKnBD
+	zb96CJphOxKq4bQMX5EEfTB34jVyi8Blo3TRcE2mtvJMUwNd4lGa3uKRlTcsGZDvQvQNz64uHh+zL
+	wpsKxbxDwZXbP0d/QPYV2tDZ9r+8Axdycn09SRomddMJGYvioTRvBw+6y0Y/5je8+4tcBHg5qFkDB
+	Aw/kCBA89zWtdScRdJ3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nruUL-00ATyL-Lx; Fri, 20 May 2022 04:43:45 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1nruWT-00AUNh-GO; Fri, 20 May 2022 04:45:57 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nruUJ-00ATwg-6R
- for linux-riscv@lists.infradead.org; Fri, 20 May 2022 04:43:45 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id gg20so7035756pjb.1
- for <linux-riscv@lists.infradead.org>; Thu, 19 May 2022 21:43:41 -0700 (PDT)
+ id 1nruWP-00AUM9-Sk
+ for linux-riscv@lists.infradead.org; Fri, 20 May 2022 04:45:55 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id u27so9029383wru.8
+ for <linux-riscv@lists.infradead.org>; Thu, 19 May 2022 21:45:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=ventanamicro.com; s=google;
- h=date:from:to:cc:subject:message-id:references:mime-version
- :content-disposition:in-reply-to;
- bh=+tw51RCYcGj1foniXotGyrQteUlHw6mmELp0RHwCfbM=;
- b=QGegZ0Aye9ox2p2Qn/4S0srcNwplKH5EmehYsQWLax4ZKn/TePnw6ptFMtriZ5MGTt
- cRCrO2y0aujrYXFY6/zWO5ViduZDoc9QcN6HKspYEvsTai5SD7qyKUltZKxbY/qoGBkl
- DOB+ZVPpBmD2evL7YAMOj9wq+d0x5ytZGIFJseNer5UESLx0t4HzpeJLA37EBLMVWSob
- 4JSCQnrW/Km/0NpPOSrwWGMci8ytdcrPSeeOhU2GZQM018GtctGGc/TJ0vkZ/xKIqw81
- cKrxe6dVofe4/SGdwTuxuLWBT8rRMcL22Ql5eZSSn1YllodXIhQDoGTaqfRTiBP4DiIh
- hMeQ==
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+ h=mime-version:from:date:message-id:subject:to:cc;
+ bh=plxhMmUf+EvrQhTteZUdGqmGsuCJiqfW555AYN0K1E0=;
+ b=rHGeIWEiwBE+lSiR4XwwNpQnDwaCBZYNHDs8N6RWS/7S5MICOMEcgkGeRFHDCI6lxL
+ 44V/nfAUvhDw1LX3+6DWiWH9cGED7wKMjQIfN1bn3XnTRL65I5d3M6ekdZYwdZycu8ex
+ c2FxE8futNYQbMqcJv57mK7n0xOyviklalXZN44ICgvtc0rQRcYHhV1nV4u3RuPd5m6f
+ bnEV4AqGSpOucEwLBVI2QVlWzelZKCzWi3rkl+YTmlumPQ3IRpvrtkaq3DeSlllxPgWh
+ Fn+YDaR7KEUpEtOV0HcsxgMcEo+7aoGYt1yZe/SR8XxUT2mNhzehF2db/feGmSJ7FBW+
+ IxEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=+tw51RCYcGj1foniXotGyrQteUlHw6mmELp0RHwCfbM=;
- b=O4/t1V7pFoMsGJ5VW4JUvZuHq5IwaECNH3JenbHKeuJRG5Cql+qLp7T2SBmIPI1EZe
- U34gmURjXYvHJXCXFiZGYnelOeJsfW76n0NdMG2WWCbYXrc6wykqAl32xPRF2ZZxeAS6
- 0PDBbxSZ7CBspNHr/8nug7mOLGx1VH09ssI0VgMRyCPBgp14scIoAmftmIkEVKlUC5Ae
- zLo3yWqa0iZ9BNt3CnA593zkpx+ZgdhnI6PzBXMQypPDkmtzGHRKB/NyobByFGyR0ZTp
- ZwRONJNb78W8zsvtvljtjCg9myCHXqB3GFmilgVMsf//Z5n7vGs8n1oyIVhZuS4cUX3e
- lCjg==
-X-Gm-Message-State: AOAM532oVnYJZf/Y5ew2SMvFdEbha1ClQDO1gzNRgFYSZjOl26ij398e
- llJhTsDWBzm3sHg7j991ME9hmQ==
-X-Google-Smtp-Source: ABdhPJzoOXpK/+v9gIuGmqCLtuPcdAPIyNdQCAfB3sonYpZrLmhj1w0h9srj29FMKj1LZM5iQzxKZw==
-X-Received: by 2002:a17:902:d2c3:b0:161:ab47:8afe with SMTP id
- n3-20020a170902d2c300b00161ab478afemr7676365plc.8.1653021821057; 
- Thu, 19 May 2022 21:43:41 -0700 (PDT)
-Received: from sunil-laptop ([49.206.9.238]) by smtp.gmail.com with ESMTPSA id
- r5-20020a63e505000000b003c63ae859d3sm4412015pgh.83.2022.05.19.21.43.36
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Thu, 19 May 2022 21:43:40 -0700 (PDT)
-Date: Fri, 20 May 2022 10:13:32 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>,
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>,
- Jessica Clarke <jrtc27@jrtc27.com>, Abner Chang <abner.chang@hpe.com>,
- linux-efi <linux-efi@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@rivosinc.com>
-Subject: Re: [PATCH V4 1/1] riscv/efi_stub: Add support for
- RISCV_EFI_BOOT_PROTOCOL
-Message-ID: <20220520044332.GA4509@sunil-laptop>
-References: <20220518095646.47548-1-sunilvl@ventanamicro.com>
- <20220518095646.47548-2-sunilvl@ventanamicro.com>
- <CAMj1kXF2N+0zRCNg0Aq9Y8Y35FUaQ1V+swzY__y86sayKW7PPA@mail.gmail.com>
- <04ed20b1-e312-dfc2-c314-02750c076681@canonical.com>
- <CAMj1kXEX0DWprb7cv_js1=M1J1hSXLBa=cOOjVo3tTVyGT0siQ@mail.gmail.com>
- <CAOnJCULUoedeARe0J=aduAVD35uHMe0MN9Pc_LDkavWZ-VtOkg@mail.gmail.com>
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+ bh=plxhMmUf+EvrQhTteZUdGqmGsuCJiqfW555AYN0K1E0=;
+ b=hzFio0Wj6C941NFAORChsNRuzE1+ySlKAmi10Vboq3BL5V4mHe6xSL79/naWE2PY9k
+ 4ZCT/z+FIPpeKr6YP9u1NyDW1ENPCb37sBOEXL/uZVWa2HaJSc6jHRQNCYw+yHZs1fJq
+ ynJbJS01g2fR8/YzOC400X9+ekGE5G00k3wKnDWVw3f7csrHrfQGrGl+L7RjzHzL6zsm
+ 6lPxbSO5hZWqWTymMt0Rn4sUlrRdHl6A00zXKtc87zWKslK3EpPhJ0QVYFWn3ccv29H3
+ 0NW6DmQZFTs6n8CalE06m518x2KTnli5cjaEqOWZAqGxdzAQ7hydarVdmeZIn9DfW9mw
+ NTPw==
+X-Gm-Message-State: AOAM531MuxLqoskITKFquYZb7Sbjzkf2S3Byrrb9E+j3aFLN7PSKQPug
+ lhiK2qXTbjCAkEQQ0Z4VMtBGJS7qnLK8xS7/jYG1AQ==
+X-Google-Smtp-Source: ABdhPJzy+GKWYDBgcDFKUOV5Waak21QZOZ8G+R+J87v2HPAdDTSuBDirrSw9Atr+eB+n9M5ag7h6sd+pwLb20DNuOm8=
+X-Received: by 2002:a5d:6c6b:0:b0:1ea:77ea:dde8 with SMTP id
+ r11-20020a5d6c6b000000b001ea77eadde8mr6655051wrz.690.1653021948566; Thu, 19
+ May 2022 21:45:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAOnJCULUoedeARe0J=aduAVD35uHMe0MN9Pc_LDkavWZ-VtOkg@mail.gmail.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 20 May 2022 10:15:36 +0530
+Message-ID: <CAAhSdy0V3RziZOXe2UMfpAxmTYn1XpJJTQe5q2FdrmU_3zH+sQ@mail.gmail.com>
+Subject: KVM/riscv changes for 5.19
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
+ KVM General <kvm@vger.kernel.org>, 
+ "open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)"
+ <kvm-riscv@lists.infradead.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220519_214343_282786_33FDDE17 
-X-CRM114-Status: GOOD (  42.65  )
+X-CRM114-CacheID: sfid-20220519_214554_219365_9E699D0E 
+X-CRM114-Status: UNSURE (   9.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,130 +84,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 19, 2022 at 11:07:28AM -0700, Atish Patra wrote:
-> On Thu, May 19, 2022 at 1:14 AM Ard Biesheuvel <ardb@kernel.org> wrote:
-> >
-> > On Thu, 19 May 2022 at 08:17, Heinrich Schuchardt
-> > <heinrich.schuchardt@canonical.com> wrote:
-> > >
-> > >
-> > >
-> > > On 5/18/22 23:03, Ard Biesheuvel wrote:
-> > > > On Wed, 18 May 2022 at 11:57, Sunil V L <sunilvl@ventanamicro.com> wrote:
-> > > >>
-> > > >> This patch adds the support for getting the boot hart ID in
-> > > >> Linux EFI stub using RISCV_EFI_BOOT_PROTOCOL. This protocol
-> > > >> is preferred method over existing DT based solution since it
-> > > >> works irrespective of DT or ACPI.
-> > > >>
-> > > >> The specification of the protocol is hosted at:
-> > > >> https://github.com/riscv-non-isa/riscv-uefi
-> > > >>
-> > > >> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > > >> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > > >> Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> > > >> ---
-> > > >>   drivers/firmware/efi/libstub/efistub.h    |  7 ++++++
-> > > >>   drivers/firmware/efi/libstub/riscv-stub.c | 29 +++++++++++++++++++----
-> > > >>   include/linux/efi.h                       |  1 +
-> > > >>   3 files changed, 32 insertions(+), 5 deletions(-)
-> > > >>
-> > > >> diff --git a/drivers/firmware/efi/libstub/efistub.h b/drivers/firmware/efi/libstub/efistub.h
-> > > >> index edb77b0621ea..aced62a0907e 100644
-> > > >> --- a/drivers/firmware/efi/libstub/efistub.h
-> > > >> +++ b/drivers/firmware/efi/libstub/efistub.h
-> > > >> @@ -720,6 +720,13 @@ union efi_tcg2_protocol {
-> > > >>          } mixed_mode;
-> > > >>   };
-> > > >>
-> > > >> +struct riscv_efi_boot_protocol {
-> > > >> +       u64 revision;
-> > > >> +
-> > > >> +       efi_status_t (__efiapi * get_boot_hartid)(struct riscv_efi_boot_protocol *this,
-> > > >> +                                                 size_t *boot_hartid);
-> > > >
-> > > > size_t is not a EFI type, and your spec uses UINTN here, which is
-> > > > equivalent to 'unsigned long'. However, jump_kernel_func() takes a
-> > > > unsigned int for the hartid. Please clean this up.
-> > >
-> > > unsigned long and size_t have the same number of bits. This seems to be
-> > > a question of taste where we should follow the maintainer.
-> > >
-> >
-> > We use unsigned long wherever the UEFI spec uses UINTN. This is not a
-> > matter of taste, really.
-> >
-> > > jump_kernel_func() assuming boot hart ID to be an unsigned int is not in
-> > > line with the RISC-V ISA which allows to use all xlen bits.
-> > >
-> > > >
-> > > >
-> > > >> +};
-> > > >> +
-> > > >>   typedef union efi_load_file_protocol efi_load_file_protocol_t;
-> > > >>   typedef union efi_load_file_protocol efi_load_file2_protocol_t;
-> > > >>
-> > > >> diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
-> > > >> index 9c460843442f..012504f6f9a4 100644
-> > > >> --- a/drivers/firmware/efi/libstub/riscv-stub.c
-> > > >> +++ b/drivers/firmware/efi/libstub/riscv-stub.c
-> > > >> @@ -23,7 +23,7 @@
-> > > >>
-> > > >>   typedef void __noreturn (*jump_kernel_func)(unsigned int, unsigned long);
-> > > >>
-> > > >> -static u32 hartid;
-> > > >> +static size_t hartid;
-> > > >>
-> > > >
-> > > > and here
-> > > >
-> > > >>   static int get_boot_hartid_from_fdt(void)
-> > > >>   {
-> > > >> @@ -47,14 +47,33 @@ static int get_boot_hartid_from_fdt(void)
-> > > >>          return 0;
-> > > >>   }
-> > > >>
-> > > >> +static efi_status_t get_boot_hartid_from_efi(void)
-> > > >> +{
-> > > >> +       efi_guid_t boot_protocol_guid = RISCV_EFI_BOOT_PROTOCOL_GUID;
-> > > >> +       efi_status_t status;
-> > > >> +       struct riscv_efi_boot_protocol *boot_protocol;
-> > > >> +
-> > > >> +       status = efi_bs_call(locate_protocol, &boot_protocol_guid, NULL,
-> > > >> +                            (void **)&boot_protocol);
-> > > >> +       if (status == EFI_SUCCESS) {
-> > > >> +               status = efi_call_proto(boot_protocol,
-> > > >> +                                       get_boot_hartid, &hartid);
-> > >
-> > > A lot of the kernel code seems to be unfit to handle hart IDs exceeding
-> > > INT_MAX (e.g. sbi_cpu_is_stopped()). Until this is fixed we have to
-> > > treat hartid > INT_MAX as an error.
-> > >
-> >
-> > This is an issue in the core kernel code, not in the EFI stub. As you
-> > pointed out, the ISA implies UINTN / unsigned long here, and if the
-> > startup code cannot deal with that, it can be fixed separately.
-> 
-> It was kept as unsigned int because hartid > INT_MAX is very unlikely to happen.
-> But I agree that we should just follow the spec(allowing XLEN bits for
-> hartid) and
-> change "unsigned int" to "unsigned long" wherever hartid is concerned.
-> 
-> As the hartid is changed to unsigned long, get_boot_hartid_from_fdt
-> should be fixed as well.
-> Currently, it is using fdt32_to_cpu.
+Hi Paolo,
 
-I am working on a separate patch series to modify these instances. Will send
-soon for your feedback.
+We have following KVM RISC-V changes for 5.19:
+1) Added Sv57x4 support for G-stage page table
+2) Added range based local HFENCE functions
+3) Added remote HFENCE functions based on VCPU requests
+4) Added ISA extension registers in ONE_REG interface
+5) Updated KVM RISC-V maintainers entry to cover selftests support
 
-Thanks
-Sunil
-> 
-> 
-> 
-> --
-> Regards,
-> Atish
+I don't expect any other KVM RISC-V changes for 5.19.
+
+Please pull.
+
+Regards,
+Anup
+
+The following changes since commit 42226c989789d8da4af1de0c31070c96726d990c:
+
+  Linux 5.18-rc7 (2022-05-15 18:08:58 -0700)
+
+are available in the Git repository at:
+
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-5.19-1
+
+for you to fetch changes up to fed9b26b2501ea0ce41ae3a788bcc498440589c6:
+
+  MAINTAINERS: Update KVM RISC-V entry to cover selftests support
+(2022-05-20 09:09:23 +0530)
+
+----------------------------------------------------------------
+KVM/riscv changes for 5.19
+
+- Added Sv57x4 support for G-stage page table
+- Added range based local HFENCE functions
+- Added remote HFENCE functions based on VCPU requests
+- Added ISA extension registers in ONE_REG interface
+- Updated KVM RISC-V maintainers entry to cover selftests support
+
+----------------------------------------------------------------
+Anup Patel (9):
+      KVM: selftests: riscv: Improve unexpected guest trap handling
+      RISC-V: KVM: Use G-stage name for hypervisor page table
+      RISC-V: KVM: Add Sv57x4 mode support for G-stage
+      RISC-V: KVM: Treat SBI HFENCE calls as NOPs
+      RISC-V: KVM: Introduce range based local HFENCE functions
+      RISC-V: KVM: Reduce KVM_MAX_VCPUS value
+      RISC-V: KVM: Add remote HFENCE functions based on VCPU requests
+      RISC-V: KVM: Cleanup stale TLB entries when host CPU changes
+      MAINTAINERS: Update KVM RISC-V entry to cover selftests support
+
+Atish Patra (1):
+      RISC-V: KVM: Introduce ISA extension register
+
+Jiapeng Chong (1):
+      KVM: selftests: riscv: Remove unneeded semicolon
+
+ MAINTAINERS                                        |   2 +
+ arch/riscv/include/asm/csr.h                       |   1 +
+ arch/riscv/include/asm/kvm_host.h                  | 124 +++++-
+ arch/riscv/include/uapi/asm/kvm.h                  |  20 +
+ arch/riscv/kvm/main.c                              |  11 +-
+ arch/riscv/kvm/mmu.c                               | 264 ++++++------
+ arch/riscv/kvm/tlb.S                               |  74 ----
+ arch/riscv/kvm/tlb.c                               | 461 +++++++++++++++++++++
+ arch/riscv/kvm/vcpu.c                              | 144 ++++++-
+ arch/riscv/kvm/vcpu_exit.c                         |   6 +-
+ arch/riscv/kvm/vcpu_sbi_replace.c                  |  40 +-
+ arch/riscv/kvm/vcpu_sbi_v01.c                      |  35 +-
+ arch/riscv/kvm/vm.c                                |   8 +-
+ arch/riscv/kvm/vmid.c                              |  30 +-
+ .../selftests/kvm/include/riscv/processor.h        |   8 +-
+ tools/testing/selftests/kvm/lib/riscv/processor.c  |  11 +-
+ tools/testing/selftests/kvm/lib/riscv/ucall.c      |  31 +-
+ 17 files changed, 965 insertions(+), 305 deletions(-)
+ delete mode 100644 arch/riscv/kvm/tlb.S
+ create mode 100644 arch/riscv/kvm/tlb.c
 
 _______________________________________________
 linux-riscv mailing list
