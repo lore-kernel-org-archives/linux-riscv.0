@@ -4,77 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12CB0C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 14:36:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8F1EC433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 14:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jq5eEsStWOnrkYTBM+OPISEhFjtWhid2HATMdO5YwM8=; b=chFKrCYRjc3nFg
-	AUBSrq6v8PUlXE+BUobUlfgE4wWeA42EAK+yOpEZpGNuVHGsTL8yGhzkgus7Qq4lAxdWQOcsCGb/Y
-	XcvQcVGZGR1Qj4h7BZgBN9BmL88zDDWArqoV9nVSjuGakGfl/9+bO3St6YdAA07PoAtWtAb7bYdVa
-	UtgSiY88OdKTPpcDqKiVWCv8p0x/9h0IC9m107q1u9jQw211bdB2uZzg7WWuutIZLVKc7dVRPf+uW
-	SoP/0fiRd/zDQAXgeLZf3djHzydjlKV2D/8bqFlm0EHwduTRS8Q72fKIhwGW0UJ4JOvooq117k3DV
-	CDN5ip5PpriTeZSbvb5Q==;
+	List-Owner; bh=nEK82crdneKCPgnL5MMBFA+UVZ/2iuLF+c059xRswdI=; b=Z0SBHRO0Bl0x9V
+	XvH/IVCtnfGrmxlCWSyfXPSd0VfXeKJnjPqZXFZl3vKwnRPUi+t6ug666ugeQ9JbkoEBa38Lx2urN
+	Uc3EBsbCPhl/IHxZp6MYSVazipdHaN+jUFZ9flBskNtuVvVmRzDT8HZT1rO9W6nWR4/l9jl+prxnt
+	T4olKFupR1HsVg5TMkVRA9vMy1ZxELCgtfLZUsIll37DpPQ0FoOocqMNNqzfOoZgrAJ+4oypU1hDf
+	HB0yBf+DwQYp2NRLbQfkRxkC2Jkwp2wl/CMm0atehpjy8tWbZiWnfT7mRudl3k/rJGAVqk6O+chlS
+	M+jT7MD1ui/L05X7eERw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ns3k4-00Cwk9-6i; Fri, 20 May 2022 14:36:36 +0000
-Received: from mail-oa1-f50.google.com ([209.85.160.50])
- by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ns3jt-00Cwi2-0z; Fri, 20 May 2022 14:36:26 +0000
-Received: by mail-oa1-f50.google.com with SMTP id
- 586e51a60fabf-f1d5464c48so10511502fac.6; 
- Fri, 20 May 2022 07:36:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:references
- :mime-version:content-disposition:in-reply-to;
- bh=iyg09MXx3MxUDrIc80FSkTauSbtXFvQYu5GaFcUD4A8=;
- b=doYWivt85T94a8AuIMERpouI2l7IXGWmU7eeX4atOtMx96lEr/V3lX7OjBbDe8QCVR
- RxAEiRUTckydNWpYPlqJAVZhOwAj75Ka7WdWPI+2652MmZUbBPeBbVjjo9tV2iY+x6rg
- aMbg+RZX5m/Hdt6Nn6SYngVHI8D9bD4/qqeLS5UGOWUdMwkKQbeIlAfiMYjwmoZJ4X82
- CqlZvCltZ1F98E1pfg4OJP/M7G4pcpIv0ElizZyB5We4F0MbDThoYClPBEbG2XOQEJK8
- jf8UcvNMUZ39BggWs9XbvGARv9FoGLQycCS0Mc/nL+ICQTDUxYcFWdiTwmDB22aNikE+
- E5ZQ==
-X-Gm-Message-State: AOAM533+4iBn2S9cBbbnnnjOWf/tBbRqVT9Qg644NKuC3Q/afNaM/Ds/
- AOrB6Klyj9DooglGwvS9aA==
-X-Google-Smtp-Source: ABdhPJyMUFH7t+iQryu0gI+MIfzU/pVaixAR4w3tzpu5naOonR9QLmz8Q4jg4oru81EwcHVye5wwIA==
-X-Received: by 2002:a05:6870:d60d:b0:f1:ddfc:2f26 with SMTP id
- a13-20020a056870d60d00b000f1ddfc2f26mr6255111oaq.296.1653057382154; 
- Fri, 20 May 2022 07:36:22 -0700 (PDT)
-Received: from robh.at.kernel.org (66-90-144-107.dyn.grandenetworks.net.
- [66.90.144.107]) by smtp.gmail.com with ESMTPSA id
- p13-20020a0568301d4d00b0060603221236sm975958oth.6.2022.05.20.07.36.21
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 20 May 2022 07:36:21 -0700 (PDT)
-Received: (nullmailer pid 3813862 invoked by uid 1000);
- Fri, 20 May 2022 14:36:20 -0000
-Date: Fri, 20 May 2022 09:36:20 -0500
-From: Rob Herring <robh@kernel.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Atish Patra <atishp@atishpatra.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Atish Patra <atishp@rivosinc.com>,
+	id 1ns441-00D13o-JZ; Fri, 20 May 2022 14:57:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+ by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1ns43d-00D0t8-2c; Fri, 20 May 2022 14:56:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0AB51477;
+ Fri, 20 May 2022 07:56:47 -0700 (PDT)
+Received: from bogus (unknown [10.57.66.157])
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 989AE3F73D;
+ Fri, 20 May 2022 07:56:45 -0700 (PDT)
+Date: Fri, 20 May 2022 15:56:39 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Dietmar Eggemann <dietmar.eggemann@arm.com>
+Cc: Atish Patra <atishp@atishpatra.org>, linux-kernel@vger.kernel.org,
+ Atish Patra <atishp@rivosinc.com>, Sudeep Holla <sudeep.holla@arm.com>,
  Vincent Guittot <vincent.guittot@linaro.org>,
  Morten Rasmussen <morten.rasmussen@arm.com>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>, Qing Wang <wangqing@vivo.com>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
+ Qing Wang <wangqing@vivo.com>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>
 Subject: Re: [PATCH v2 8/8] arch_topology: Add support to build llc_sibling
  on DT platforms
-Message-ID: <20220520143620.GA3788938-robh@kernel.org>
+Message-ID: <20220520145639.xb33e2z5otdu264y@bogus>
 References: <20220518093325.2070336-1-sudeep.holla@arm.com>
  <20220518093325.2070336-9-sudeep.holla@arm.com>
- <CAL_JsqKig8U4hQEtHW8ct1Pd0a29ZtoTp1HuWQv389yb+SuW_A@mail.gmail.com>
- <20220520125959.wlxz53cfqldljxjy@bogus>
+ <087176fc-1018-b107-06cc-055d7926b500@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220520125959.wlxz53cfqldljxjy@bogus>
+In-Reply-To: <087176fc-1018-b107-06cc-055d7926b500@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220520_073625_109676_C917D3FF 
-X-CRM114-Status: GOOD (  31.18  )
+X-CRM114-CacheID: sfid-20220520_075649_244109_9F92617A 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,57 +67,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 20, 2022 at 01:59:59PM +0100, Sudeep Holla wrote:
-> On Thu, May 19, 2022 at 01:10:51PM -0500, Rob Herring wrote:
-> > On Wed, May 18, 2022 at 4:34 AM Sudeep Holla <sudeep.holla@arm.com> wrote:
-> > >
-> > > ACPI PPTT provides cache identifiers and especially the last level cache
-> > > identifier is used in obtaining last level cache siblings amongst CPUs.
-> > >
-> > > While we have the cpu map representing all the CPUs sharing last level
-> > > cache in the cacheinfo driver, it is populated quite late in the boot
-> > > while the information is needed to build scheduler domains quite early.
-> >
-> > Late is because it's a device_initcall() rather than late in the cpu
-> > hotplug state machine, right?
+On Fri, May 20, 2022 at 02:33:46PM +0200, Dietmar Eggemann wrote:
+> On 18/05/2022 11:33, Sudeep Holla wrote:
+> > ACPI PPTT provides cache identifiers and especially the last level cache
+> > identifier is used in obtaining last level cache siblings amongst CPUs.
+> > 
+> > While we have the cpu map representing all the CPUs sharing last level
+> > cache in the cacheinfo driver, it is populated quite late in the boot
+> > while the information is needed to build scheduler domains quite early.
+> > 
+> > On DT platforms we can use the pointer to the last level cache as the
+> > firmware identifier for the last level cache and build the cpumap sharing
+> > the last level cache based on the same.
 > 
-> Right. The expectation is to run in on each online CPU in CPU hotplug state
-> machine for some architectures. We may not need that on arm64 especially
-> since we get all info from DT or ACPI, but e.g. x86 uses cpuid which needs
-> to be executed on that CPU.
-
-That's a separate issue. I'm not suggesting changing that part (that 
-would just be an optimization).
-
-> > The late aspect is for sysfs presumably,but I think we could decouple that.
+> [...]
 > 
-> OK, not sure when this sched_domain info is actually needed. It think it
-> could be decoupled if we can wait until all the cpus are online.
-
-No need to wait for all cpus to be online. I think you keep doing 
-it as part of cpu hotplug. The device_initcall() is used because you 
-cannot have struct device or sysfs calls before the driver core is 
-initialized. If we run the cacheinfo code earlier (I think the arch code 
-will have to call it) just like the topology code and skip the sysfs 
-parts, then you can use it.
-
-> > Do all the firmware cache parsing early and then populate the sysfs parts
-> > later.
+> > diff --git a/include/linux/arch_topology.h b/include/linux/arch_topology.h
+> > index 58cbe18d825c..d8a36b0e27c9 100644
+> > --- a/include/linux/arch_topology.h
+> > +++ b/include/linux/arch_topology.h
+> > @@ -69,6 +69,7 @@ struct cpu_topology {
+> >  	int cluster_id;
+> >  	int package_id;
+> >  	int llc_id;
+> > +	void *llc_fw_node;
 > 
-> Yes that may work on DT/ACPI based systems, as I said x86 relies on cpuid.
-
-I'd assume using cpuid works at any time?
-
-> > It's not a unique problem as the DT unflattening and init code has to
-> > do the same thing. I'd assume the hotplug and cpu sysfs devices have
-> > to deal with the same thing.
-> >
+> Would be nicer if you could set llc_id directly to avoid all this
+> addition sync `llc_id and llc_fw_node` code. ACPI PPTT has this
+> ACPI_PTR_DIFF() macro which IMHO lets it create distinct ids.
 > 
-> OK, I will take a look at how to do that.
-> 
-> --
-> Regards,
-> Sudeep
+
+Indeed, I initially thought so, but they are 64 bit pointers and choosing
+one reference is difficult to take some sort of diff while in ACPI it is in
+a static table and we could use the reference to the top of the table.
+
+-- 
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
