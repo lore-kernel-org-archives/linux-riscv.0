@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88EBDC433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 21 May 2022 11:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF63C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 May 2022 14:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Il+rzZU8rP0V/zn/jVnc3SuWiuO0CTEzZ5/WalLDyjs=; b=zRDj30CvBbY7v0dWy997Xrcd3W
-	TfGb2/XESqt0gkyNuGogZ2spFB0f1AzZzOZj2zgN2Bue+i73l+fmUNuo2WtxXHd0ooojV0xJ8a0i/
-	dF2JS/Ry1jlTaLVdRREryoXWqb8n/dZn2EOMmE2MPDSnUqZ751xUbqx3Jr+61dAWsGUixK2bheE7q
-	bogoIUZrEUQwKc9LByuGVNrMPeCXs6t9fq85AZc8v11mUkYtNgK70q6RZG7cGlxF3kLJugtnlCh3R
-	pX1kARCiGqBKgtDO30LvJ45AVFmf2HGs+rlKyA0PaBekDwqj+0bVSrlB6XB0EOYCzHowbedpMVe89
-	6wDVJcCw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=izAhrXDkYyanDvGelJB5LupWgYGRa6j4042GSmhSIPI=; b=RoYxnk8aRSgL3D
+	k06Nw6LJSz8yeazx7fw/+ioSwIpgDLC9U/xXkV7MpBa3NGugnpAGiBaT+u5jtR8t2NullM1rNKdHg
+	oU8ZhYxPyPIszIY6j8JoQ9vjCuuxjYkdn/fGxQ3/9sNsVI4O9Cr/iDaaamFhz5uSxKRwxqf73FkOh
+	TImOjYWhoPKFmeahDswiLZUJhyjFNFX25QEz15XKKsg7kD6OFPJMgmSihmBT33THhlbI9vTITCn4h
+	lZFtptLV1ZwfppoYK2TZkUAcR2HufbQh/mj3cPDLgpV0C9Az7DOef8cY/1n0AxP0VEMPQnZzeiDDM
+	44tioXWFZgYfnCKYJKog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nsNI2-00GNny-T7; Sat, 21 May 2022 11:28:58 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1nsQKS-00Gneb-SR; Sat, 21 May 2022 14:43:40 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nsNI0-00GNn3-8q
- for linux-riscv@lists.infradead.org; Sat, 21 May 2022 11:28:57 +0000
+ id 1nsQKQ-00Gndj-78
+ for linux-riscv@lists.infradead.org; Sat, 21 May 2022 14:43:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by ams.source.kernel.org (Postfix) with ESMTPS id 9EB34B8284A;
- Sat, 21 May 2022 11:28:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D549BC385A5;
- Sat, 21 May 2022 11:28:51 +0000 (UTC)
+ by ams.source.kernel.org (Postfix) with ESMTPS id D1935B80683;
+ Sat, 21 May 2022 14:43:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6C66C385A5;
+ Sat, 21 May 2022 14:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1653132532;
- bh=irdHG4XDhujs78rGcOOT8dP4dOtrCFTYOdf9CAfk39w=;
- h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
- b=sgOZAHYxmYyEB7Uo+QAfXe2IdQ7Mk4lnm8Aj6IoqXaqRqOUlM7rqnO81DQr4r+zyW
- NzK6j5Z4bcp+i/0krDKekWYmFp8DM4gsOP/GByRecd1RYU/NPu6ELtunFV4pynLXzs
- cpPXzct4JGtPkgJ9tpTrLUz7TBhkY9U0dLEYS7HdX1zhlRRgzOEsE8RT22uUCu1O2A
- xgeZdPYApXG9n/s5IcBA+cP6V5Lpt2BLVC4Z6e9AuQyJib47iEOhqGPFl4P1sQNNSS
- IINt1sR1M0KkKJrXP1g9dlagRr5DrOny7C6riyIxhFnNAPvhhJYrmwFDq3A6ai5Snp
- cU0kCXW6PeOHQ==
-Date: Sat, 21 May 2022 13:28:48 +0200
-From: Wolfram Sang <wsa@kernel.org>
-To: Conor.Dooley@microchip.com
-Cc: linux-i2c@vger.kernel.org, ben.dooks@codethink.co.uk,
- Daire.McNamara@microchip.com, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3] i2c: add support for microchip fpga i2c controllers
-Message-ID: <YojM8KiGJneGh16D@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa@kernel.org>, Conor.Dooley@microchip.com,
- linux-i2c@vger.kernel.org, ben.dooks@codethink.co.uk,
- Daire.McNamara@microchip.com, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20220516073331.3508505-1-conor.dooley@microchip.com>
- <Yoi1bV95l7+thgS5@shikoro>
- <dbf6073c-0814-ec25-cec5-cb3cf9c931d8@microchip.com>
+ s=k20201202; t=1653144214;
+ bh=kp04KzMieJ18XnexXdu5LUhR570BkXGpoAN8ftuQXLE=;
+ h=From:To:Cc:Subject:Date:From;
+ b=hxUufeXed/8BibFRMvPVuPNVWZhCW0hg/ec2BAnCRLe8rg/v+CydDZ3sNuJwTNMe8
+ TrW1+88mkRmWmjFCnkzddmXjx5XJxp6xI1rYIfu1VkzJ6KAP5zYjK6vbH/bS1MHgKL
+ uQ++qTMc8bIQ9O1mssvGQPMpLP9fJ0opWXJ9eWxutBE2wYs3SPA5CUKoIKTGW1B3b9
+ aryukQDd1malgAT7jOC5fFvcz+lktKplPzTSGLgXgDwYT6h3m5RS34vmvl5+fsHloV
+ msJojy5klTTRAz6C7BPR9NifW5tfkKh1Qzj/niVVWlHNGmGqDSGa/N8pc2xNM75ixo
+ vdRPd67ynivRw==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+ Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com
+Subject: [PATCH v4 0/2] use static key to optimize pgtable_l4_enabled
+Date: Sat, 21 May 2022 22:34:54 +0800
+Message-Id: <20220521143456.2759-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-In-Reply-To: <dbf6073c-0814-ec25-cec5-cb3cf9c931d8@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220521_042856_501244_AD7677E5 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20220521_074338_475935_C472F2D4 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,74 +73,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7793359038806326019=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The pgtable_l4|[l5]_enabled check sits at hot code path, performance
+is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
+boot, so static key can be used to solve the performance issue[1].
 
---===============7793359038806326019==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="afvwLyDuav/fPEU/"
-Content-Disposition: inline
+An unified way static key was introduced in [2], but it only targets
+riscv isa extension. We dunno whether SV48 and SV57 will be considered
+as isa extension, so the unified solution isn't used for
+pgtable_l4[l5]_enabled now.
 
+patch1 fixes a NULL pointer deference if static key is used a bit earlier.
+patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
 
---afvwLyDuav/fPEU/
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
+[2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
 
+Since v3:
+ - fix W=1 call to undeclared function 'static_branch_likely' error
 
-> > > +	ret =3D devm_request_irq(&pdev->dev, irq, mchp_corei2c_isr, IRQF_SH=
-ARED,
-> > > +			       pdev->name, idev);
-> >=20
-> > Really SHARED?
->=20
-> Yeah, this driver supports both the hard peripherals & soft FPGA cores.
-> The hard peripherals do not have shared IRQs, but we don't really have
-> any control over what way the interrupts are wired for the soft cores.
-> Worth adding a comment to explain the reason for it being shared?
+Since v2:
+ - move the W=1 warning fix to a separate patch
+ - move the unified way to use static key to a new patch series.
 
-Yes. Such information never hurst, I'd say.
-
-Thanks, have a nice weekend,
-
-   Wolfram
+Since v1:
+ - Add a W=1 warning fix
+ - Fix W=1 error
+ - Based on v5.18-rcN, since SV57 support is added, so convert
+   pgtable_l5_enabled as well.
 
 
---afvwLyDuav/fPEU/
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
+Jisheng Zhang (2):
+  riscv: move sbi_init() earlier before jump_label_init()
+  riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
 
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmKIzO0ACgkQFA3kzBSg
-KbaIyg//ZJ9OqPwDGI8q+886yLcIadgterwgro/F5vVGHPWu3Bh4v2KRijTQGoq1
-7dHVT3oy8UM+4BIRtn43zNq43g6ZmZykrOrnkcCrDrZinU+XLgd8d0O/DwnaVnlX
-eppOrkrgO7x/eTSUZxngbi0t3MyGbFxHeM7seOVZ3wxIEA3UZ2Dr39U9ZQh8enRB
-w9aZ7rJ8VrYx0wMDoHcoO3Gn6aHguRxN4y5xnRIeYjiPek9OuQNBA3DES7x+CXq1
-ZHiU3pQW1CW3+kPyJf/sY57YhMXTEOPQrloYISzWiBuETQJdAGFP2PBmduEKlO6h
-Nw5V/mJK9DUU9aUsqLW3+7Sw/QPVKL6Xkf11WUX5NzFv8BBYpIK2m68hjY1ZVYKx
-Gcelmi/Z8skWHCGhIiDwjXN2YSaxnCoTTer983CHBjqAL0M8oPURTv9NkjzOqCxx
-Pn3h/wfWjdmOa3z7DaquKFSH54lmzuZwJEx3F1Q+GFKdgbPYLVI26za2ahGFkSMj
-ptW7ZWtKsTXBaLnMRRteaEZTqHfbpuy4vxGhhK1fAqMsIwhsLBxmgTBmDrxDoGRr
-zJmHAEzWtEssWAEnqvBLPGndkA/g5HkXW6fo9HuFxVnBlBa0GrbfGEBXki/cqpVX
-XwBY9PL+xaDMlmRNrvn4iI6JPPyAkTQd+Vc6gBfyjXMFLbqX/jU=
-=4rJa
------END PGP SIGNATURE-----
+ arch/riscv/include/asm/pgalloc.h    | 16 ++++----
+ arch/riscv/include/asm/pgtable-32.h |  3 ++
+ arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
+ arch/riscv/include/asm/pgtable.h    |  5 +--
+ arch/riscv/kernel/cpu.c             |  4 +-
+ arch/riscv/kernel/setup.c           |  2 +-
+ arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
+ arch/riscv/mm/kasan_init.c          | 16 ++++----
+ 8 files changed, 104 insertions(+), 66 deletions(-)
 
---afvwLyDuav/fPEU/--
+-- 
+2.34.1
 
-
---===============7793359038806326019==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7793359038806326019==--
-
