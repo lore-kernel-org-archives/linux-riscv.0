@@ -4,105 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08F2C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 20 May 2022 23:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2008CC433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 21 May 2022 09:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pFpcjqiEWDcQ50AniBjYNKhSt71ntvjMpJ9FnlXDfxc=; b=Zcsd0ub4eVPnpu
-	kZbKfQB83rAOB/v5gTCWsf7vA0PMNIU+4TSvdwfgxwmPlXorHQwEAPfaCpZ1x1/hg8N5eJLA8LL3L
-	V91LnCaCDqM38RHvF4j47znqYMZuO8PjFsSZR4GU3RyVA17RhRMSoy44+rkzxpY7sHnxW6IZQwfP5
-	LS1J6/WdfdEM+gAGvr0+rm4Nwx3JemJiLBYc3iqz8lYK4oifyYjMdJwXPgL2D2gMA/ywOcOA8TU9K
-	DP3iyOFchu7PJpi5ucApyqckkUM0YbCFKnITcOBriLSIZVk9CBrtoPhE9/aske5UQvhXMuwzXMVvh
-	OpHaRgQAZiBOWHJritQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1iwcTjEVOAZDH3mnQBhAyNMqUSAE8yIWDD8lkz3IWgw=; b=FyfiJbysoO5R9/JhIupVua+0Zq
+	Duq6YsxMaO4WqTx9+ek0okI+tpjFOO2WQvjH8fUVbjeY1moIRQ/mSPeIEPbvwKGPJZJEg/w4SVafh
+	GbXudWnXUxbtviw/n9NRb+Jwm3KvyHazwF+zqkDbXHLtr1x4UrBqgBvAAtdWJ/sLZbTC0XTPcuukZ
+	5iQh+4CJNWqfRTX5Bfe47B/PGOlKZVzyftCiWiUzwLRI5GlliF9gUNo/dMmOR9kFfN2IVgRX5o9Ei
+	bO+W+mfElQ3koW5e5+ESihYsoXO1sAoRMtgVblJy/eqmlMFJ0UhzVKzcLJ7nBjVNZMaEHgeImM7wb
+	kAUSWe6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nsCGE-00EwPt-4t; Fri, 20 May 2022 23:42:22 +0000
-Received: from esa3.hgst.iphmx.com ([216.71.153.141])
+	id 1nsLix-00G5wz-Al; Sat, 21 May 2022 09:48:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nsCGB-00EwP6-42
- for linux-riscv@lists.infradead.org; Fri, 20 May 2022 23:42:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
- d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
- t=1653090137; x=1684626137;
- h=message-id:date:mime-version:subject:to:cc:references:
- from:in-reply-to:content-transfer-encoding;
- bh=cbxuNpr/zCC3fo3EPXew8NY8Z0HqAPgONnWiV+/hf/c=;
- b=B5EWxpCnEF8DlmOAvy36DvFuzE0KpfRW73zXWOj2+m1mk352LDSu/6Ak
- 4SWXYfwZ3DVbl4NUeXS138FkOvezdP5LtahxhNL7PhPRHaMIupdOOTDyC
- I2QInRkQlDFoeCilh6DvateTwr75X1qPtDFSAVM8TstHrQkmXO4LEHNus
- YLM1JEoabz3toxeQ8jlDPaQId/KH+V5P++pr03B5cP2S8zZGyAHCW8yPU
- neMEAPfrkLRw3rfbXZwa3+5CQvdWppY2PEnqKK+WOI19gmFtdcKVo7+jy
- NI1QkK3+UrrU0KwD0zLq1d0Qeu7HBmE4D4ZIiNWHPNrcDJzXbgrbSJi8F g==;
-X-IronPort-AV: E=Sophos;i="5.91,240,1647273600"; d="scan'208";a="205825611"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com)
- ([199.255.45.15])
- by ob1.hgst.iphmx.com with ESMTP; 21 May 2022 07:42:15 +0800
-IronPort-SDR: bjb5yB78fFc6oZku7jvxS1p7GCXARnPpZrcpzlnJBlaEKsham1+IWcIRVfaE5DrmHl2rakERBC
- 8Q+YJpIWzIOclPRS/ZlaZ9SSpKCe8HUfcF25t5dnpNOiE9AAh0Peejw6Y7SUOZAMHuL7CWze6C
- qG2VafwJ4kWnqKH+drl4EiFV6WUpN68pZonU330d8jpVMOM7G47cJ8WoxQq8JvSYulNCS46B8x
- oT9iu0LYDCQXjEoIKZLy5MdypDJ3MDFAvF4WKNavw1LTEsb+W+zAni6kSOOCgThEVB9WONX556
- lMRm/o89IusHxBOt/AKQ0Tyb
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
- by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
- 20 May 2022 16:05:00 -0700
-IronPort-SDR: c4FnhomoPsKRS13FMm0tTX6N1k2IsE7oBgrOeLIP7f4bBV8GM2lbyTFxHsSsynTMNFTY6O+DDc
- WbiV54P14BjBFZABuCL5qJmsiNwe8SzL5/oc5NFRr8i1Ib03oLFYBU4DM+UIaZz38sr2W03Hud
- c3oJQjsSrdgt2jVjRBxzCHTd2Llmpaz4u3iTI1bVtUagQNLn2KVk9sbeUjlGxk/3c/67b6P9V0
- fbtncPLpLs7iMRuWlu3cPfJNEI9/s2DKR2+F+M9Rt1YsEzkdHWQf7raM2P4SVQhTblLdeufmC+
- L+k=
-WDCIronportException: Internal
-Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
- by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256;
- 20 May 2022 16:42:17 -0700
-Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4L4jtw2SGrz1SHwl
- for <linux-riscv@lists.infradead.org>; Fri, 20 May 2022 16:42:16 -0700 (PDT)
-Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
- reason="pass (just generated, assumed good)"
- header.d=opensource.wdc.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
- opensource.wdc.com; h=content-transfer-encoding:content-type
- :in-reply-to:organization:from:references:to:content-language
- :subject:user-agent:mime-version:date:message-id; s=dkim; t=
- 1653090135; x=1655682136; bh=cbxuNpr/zCC3fo3EPXew8NY8Z0HqAPgONnW
- iV+/hf/c=; b=hhU532P0mw79hDtuG/IXya1FxRnUWF3nulx+yr48s+IZCMrZpbe
- mAHA5aMH8CfCcja+OpNPK2zikLvf33jRnFrmQ9zL+dkR7N3v8q7ift1GuhIp0pn5
- BsBZce1jLuLMqIp/38pso6xa3oQj/BGZPv1HGlXw1freyFBm2QNaftMowLznUEPU
- H98dXiyt6Ne12DsH6nbTcgXUqt32c+DTuveN8NmT5af77Y/QppjZgx5Vd9zG2h+c
- WWLxIqEOgCfDSPUUQHAWu/cLqnI2LNMsdeVxt11Kx3W9lVi6uHb8nGoEH8DrPEKs
- YPSHHpDaOxlX0Z6JcvBm3z8h5C3yODLZUrg==
-X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
-Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
- by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new,
- port 10026)
- with ESMTP id TOJ-GxGg7zZF for <linux-riscv@lists.infradead.org>;
- Fri, 20 May 2022 16:42:15 -0700 (PDT)
-Received: from [10.225.163.51] (unknown [10.225.163.51])
- by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4L4jtt3qJFz1Rvlc;
- Fri, 20 May 2022 16:42:14 -0700 (PDT)
-Message-ID: <8e516ec1-fb85-7878-3c68-61798de9fa6a@opensource.wdc.com>
-Date: Sat, 21 May 2022 08:42:13 +0900
+ id 1nsLiu-00G5wZ-Sn
+ for linux-riscv@lists.infradead.org; Sat, 21 May 2022 09:48:38 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by dfw.source.kernel.org (Postfix) with ESMTPS id 7E9F361173;
+ Sat, 21 May 2022 09:48:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCAECC385A5;
+ Sat, 21 May 2022 09:48:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1653126514;
+ bh=srchwg0AIXyDnKVXefcoYDLalQsQhd+DPUVJTRX4wEU=;
+ h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+ b=kHYmbDAmXUqXDuLIplZTm219yE+xlDgmPXfjNN6o+nC+dQ5ecBRldxLyMhaUcXmpa
+ +ZIz1I5jhPS+Ce1cVsZ3f5Th7R8vV0/3qUdqoHvEpRGASbb9W02xte9hn1KtX8iMJz
+ YbdK0LD0BQQlb3lACKQduxAnMHl1WoM7BZ2F6aUt4r59+OMLUfoXF7Tx1cMpU1JCNo
+ nDfmK2pDB6pPsUY3cB1jisZIcWzKkVQE7UpmhC/W3ZoEB3SuxuomHPGmWaYct2E/cp
+ 73ESzm5XFdkCLrKiBLgs/7l9CA0f3Qn86CYWHsVN+SFJFRcMqLv81RFmeFpM57Gh7b
+ 73v7XifcPTrAQ==
+Date: Sat, 21 May 2022 11:48:29 +0200
+From: Wolfram Sang <wsa@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-i2c@vger.kernel.org, ben.dooks@codethink.co.uk,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ daire.mcnamara@microchip.com
+Subject: Re: [PATCH v3] i2c: add support for microchip fpga i2c controllers
+Message-ID: <Yoi1bV95l7+thgS5@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa@kernel.org>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ linux-i2c@vger.kernel.org, ben.dooks@codethink.co.uk,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ daire.mcnamara@microchip.com
+References: <20220516073331.3508505-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.0
-Subject: Re: [PATCH v2] gpio: sifive: Make the irqchip immutable
-Content-Language: en-US
-To: Geert Uytterhoeven <geert+renesas@glider.be>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
- <brgl@bgdev.pl>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Marc Zyngier <maz@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <26519be2a2fdd4c6741658144e3a8d78cf4d000b.1653042202.git.geert+renesas@glider.be>
-From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Organization: Western Digital Research
-In-Reply-To: <26519be2a2fdd4c6741658144e3a8d78cf4d000b.1653042202.git.geert+renesas@glider.be>
+In-Reply-To: <20220516073331.3508505-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220520_164219_214473_60A946C5 
-X-CRM114-Status: GOOD (  24.14  )
+X-CRM114-CacheID: sfid-20220521_024837_052258_AF3D278B 
+X-CRM114-Status: GOOD (  33.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,100 +72,379 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5252463423989920687=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/20/22 19:24, Geert Uytterhoeven wrote:
-> Commit 6c846d026d49 ("gpio: Don't fiddle with irqchips marked as
-> immutable") added a warning to indicate if the gpiolib is altering the
-> internals of irqchips.  Following this change the following warning is
-> now observed for the sifive driver:
-> 
->     gpio gpiochip1: (38001000.gpio-controller): not an immutable chip, please consider fixing it!
-> 
-> Fix this by making the irqchip in the sifive driver immutable.
-> 
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> Against gpio/for-next.
-> Boot-tested on SiPEED MAiXBiT (Canaan K210).
-> 
-> v2:
->   - Factor out hwirq using preferred helper.
-> ---
->  drivers/gpio/gpio-sifive.c | 14 ++++++++++----
->  1 file changed, 10 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/gpio/gpio-sifive.c b/drivers/gpio/gpio-sifive.c
-> index 03b8c4de2e91e3c4..238f3210970cfa0e 100644
-> --- a/drivers/gpio/gpio-sifive.c
-> +++ b/drivers/gpio/gpio-sifive.c
-> @@ -75,10 +75,12 @@ static void sifive_gpio_irq_enable(struct irq_data *d)
->  {
->  	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
->  	struct sifive_gpio *chip = gpiochip_get_data(gc);
-> -	int offset = irqd_to_hwirq(d) % SIFIVE_GPIO_MAX;
-> +	irq_hw_number_t hwirq = irqd_to_hwirq(d);
-> +	int offset = hwirq % SIFIVE_GPIO_MAX;
->  	u32 bit = BIT(offset);
->  	unsigned long flags;
->  
-> +	gpiochip_enable_irq(gc, hwirq);
->  	irq_chip_enable_parent(d);
->  
->  	/* Switch to input */
-> @@ -101,11 +103,13 @@ static void sifive_gpio_irq_disable(struct irq_data *d)
->  {
->  	struct gpio_chip *gc = irq_data_get_irq_chip_data(d);
->  	struct sifive_gpio *chip = gpiochip_get_data(gc);
-> -	int offset = irqd_to_hwirq(d) % SIFIVE_GPIO_MAX;
-> +	irq_hw_number_t hwirq = irqd_to_hwirq(d);
-> +	int offset = hwirq % SIFIVE_GPIO_MAX;
->  
->  	assign_bit(offset, &chip->irq_state, 0);
->  	sifive_gpio_set_ie(chip, offset);
->  	irq_chip_disable_parent(d);
-> +	gpiochip_disable_irq(gc, hwirq);
->  }
->  
->  static void sifive_gpio_irq_eoi(struct irq_data *d)
-> @@ -137,7 +141,7 @@ static int sifive_gpio_irq_set_affinity(struct irq_data *data,
->  	return -EINVAL;
->  }
->  
-> -static struct irq_chip sifive_gpio_irqchip = {
-> +static const struct irq_chip sifive_gpio_irqchip = {
->  	.name		= "sifive-gpio",
->  	.irq_set_type	= sifive_gpio_irq_set_type,
->  	.irq_mask	= irq_chip_mask_parent,
-> @@ -146,6 +150,8 @@ static struct irq_chip sifive_gpio_irqchip = {
->  	.irq_disable	= sifive_gpio_irq_disable,
->  	.irq_eoi	= sifive_gpio_irq_eoi,
->  	.irq_set_affinity = sifive_gpio_irq_set_affinity,
-> +	.flags		= IRQCHIP_IMMUTABLE,
-> +	GPIOCHIP_IRQ_RESOURCE_HELPERS,
->  };
->  
->  static int sifive_gpio_child_to_parent_hwirq(struct gpio_chip *gc,
-> @@ -242,7 +248,7 @@ static int sifive_gpio_probe(struct platform_device *pdev)
->  	chip->gc.parent = dev;
->  	chip->gc.owner = THIS_MODULE;
->  	girq = &chip->gc.irq;
-> -	girq->chip = &sifive_gpio_irqchip;
-> +	gpio_irq_chip_set_chip(girq, &sifive_gpio_irqchip);
->  	girq->fwnode = of_node_to_fwnode(node);
->  	girq->parent_domain = parent;
->  	girq->child_to_parent_hwirq = sifive_gpio_child_to_parent_hwirq;
 
-Reviewed-by: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+--===============5252463423989920687==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4/1BQIBLBjjxvj+u"
+Content-Disposition: inline
 
--- 
-Damien Le Moal
-Western Digital Research
+
+--4/1BQIBLBjjxvj+u
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Hi Conor,
+
+driver looks mostly good, but some comments:
+
+> +/*
+> + * mchp_corei2c_dev - I2C device context
+> + * @base: pointer to register struct
+> + * @msg: pointer to current message
+> + * @msg_len: number of bytes transferred in msg
+> + * @msg_err: error code for completed message
+> + * @msg_complete: xfer completion object
+> + * @dev: device reference
+> + * @adapter: core i2c abstraction
+> + * @i2c_clk: clock reference for i2c input clock
+> + * @bus_clk_rate: current i2c bus clock rate
+> + * @buf: ptr to msg buffer for easier use.
+> + * @isr_status: cached copy of local ISR status.
+> + * @lock: spinlock for IRQ synchronization.
+> + */
+
+This seems outdated, e.g. msg is not in the struct but addr is missing.
+Also, proper kdoc header is missing?
+
+> +struct mchp_corei2c_dev {
+> +	void __iomem *base;
+> +	size_t msg_len;
+
+Maybe u16 to match the original type from struct i2c_msg?
+
+> +	int msg_err;
+> +	struct completion msg_complete;
+> +	struct device *dev;
+> +	struct i2c_adapter adapter;
+> +	struct clk *i2c_clk;
+> +	spinlock_t lock; /* IRQ synchronization */
+> +	u32 bus_clk_rate;
+> +	u32 msg_read;
+
+This is initialized but never used?
+
+> +	u32 isr_status;
+> +	u8 *buf;
+> +	u8 addr;
+> +};
+> +
+
+...
+
+> +static int mchp_corei2c_init(struct mchp_corei2c_dev *idev)
+> +{
+> +	u32 clk_rate = clk_get_rate(idev->i2c_clk);
+> +	u32 divisor = clk_rate / idev->bus_clk_rate;
+
+I don't see a protection against division by zero?
+
+> +	int ret;
+> +
+> +	ret = mchp_corei2c_set_divisor(divisor, idev);
+> +	if (ret)
+> +		return ret;
+> +
+> +	mchp_corei2c_reset(idev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void mchp_corei2c_transfer(struct mchp_corei2c_dev *idev, u32 data)
+> +{
+> +	if (idev->msg_len > 0)
+> +		writeb(data, idev->base + CORE_I2C_DATA);
+> +}
+
+Minor: this is very finegrained and only called once. I'd put it into
+the calling function.
+
+...
+
+> +static irqreturn_t mchp_corei2c_handle_isr(struct mchp_corei2c_dev *idev)
+> +{
+> +	u32 status = idev->isr_status;
+> +	u8 ctrl;
+> +
+> +	if (!idev->buf)
+> +		return IRQ_NONE;
+> +
+> +	switch (status) {
+> +	case STATUS_M_START_SENT:
+> +	case STATUS_M_REPEATED_START_SENT:
+> +		ctrl = readb(idev->base + CORE_I2C_CTRL);
+> +		ctrl &= ~CTRL_STA;
+> +		writeb(idev->addr, idev->base + CORE_I2C_DATA);
+> +		writeb(ctrl, idev->base + CORE_I2C_CTRL);
+> +		if (idev->msg_len <= 0)
+
+msg_len is unsigned, can't be < 0?
+
+> +			goto finished;
+> +		break;
+> +	case STATUS_M_ARB_LOST:
+> +		idev->msg_err = -EAGAIN;
+> +		goto finished;
+> +	case STATUS_M_SLAW_ACK:
+> +	case STATUS_M_TX_DATA_ACK:
+> +		if (idev->msg_len > 0)
+> +			mchp_corei2c_fill_tx(idev);
+> +		else
+> +			goto last_byte;
+
+IMO this is a bit too much of goto here. Can't we have a flag for
+last_byte and handle it at the end of the handler?
+
+> +		break;
+> +	case STATUS_M_TX_DATA_NACK:
+> +	case STATUS_M_SLAR_NACK:
+> +	case STATUS_M_SLAW_NACK:
+> +		idev->msg_err = -ENXIO;
+> +		goto last_byte;
+> +	case STATUS_M_SLAR_ACK:
+> +		ctrl = readb(idev->base + CORE_I2C_CTRL);
+> +		if (idev->msg_len == 1u) {
+> +			ctrl &= ~CTRL_AA;
+> +			writeb(ctrl, idev->base + CORE_I2C_CTRL);
+> +		} else {
+> +			ctrl |= CTRL_AA;
+> +			writeb(ctrl, idev->base + CORE_I2C_CTRL);
+> +		}
+> +		if (idev->msg_len < 1u)
+> +			goto last_byte;
+> +		break;
+> +	case STATUS_M_RX_DATA_ACKED:
+> +		mchp_corei2c_empty_rx(idev);
+> +		break;
+> +	case STATUS_M_RX_DATA_NACKED:
+> +		mchp_corei2c_empty_rx(idev);
+> +		if (idev->msg_len == 0)
+> +			goto last_byte;
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	return IRQ_HANDLED;
+> +
+> +last_byte:
+> +	/* On the last byte to be transmitted, send STOP */
+> +	mchp_corei2c_stop(idev);
+> +finished:
+> +	complete(&idev->msg_complete);
+> +	return IRQ_HANDLED;
+> +}
+
+...
+
+> +
+> +static int mchp_corei2c_xfer_msg(struct mchp_corei2c_dev *idev,
+> +				 struct i2c_msg *msg)
+> +{
+> +	u8 ctrl;
+> +	unsigned long time_left;
+> +
+> +	if (msg->len == 0)
+> +		return -EINVAL;
+
+If your hardware cannot do zero length messages, you need to set up an
+i2c_adapter_quirk struct with I2C_AQ_NO_ZERO_LEN.
+
+> +
+> +	idev->addr = i2c_8bit_addr_from_msg(msg);
+> +	idev->msg_len = msg->len;
+> +	idev->buf = msg->buf;
+> +	idev->msg_err = 0;
+> +	idev->msg_read = (msg->flags & I2C_M_RD);
+> +
+> +	reinit_completion(&idev->msg_complete);
+> +
+> +	mchp_corei2c_core_enable(idev);
+> +
+> +	ctrl = readb(idev->base + CORE_I2C_CTRL);
+> +	ctrl |= CTRL_STA;
+> +	writeb(ctrl, idev->base + CORE_I2C_CTRL);
+> +
+> +	time_left = wait_for_completion_timeout(&idev->msg_complete,
+> +						MICROCHIP_I2C_TIMEOUT);
+
+You should use adapter.timeout here, so it can be changed from
+userspace.
+
+> +	if (!time_left)
+> +		return -ETIMEDOUT;
+> +
+> +	return idev->msg_err;
+> +}
+> +
+> +static int mchp_corei2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
+> +			     int num)
+> +{
+> +	struct mchp_corei2c_dev *idev = i2c_get_adapdata(adap);
+> +	int i, ret;
+> +
+> +	for (i = 0; i < num; i++) {
+> +		ret = mchp_corei2c_xfer_msg(idev, msgs++);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+> +	return num;
+> +}
+> +
+> +static u32 mchp_corei2c_func(struct i2c_adapter *adap)
+> +{
+> +	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL;
+> +}
+
+If you can't handle zero length messages, you need to mask
+I2C_FUNC_SMBUS_QUICK out.
+
+> +
+> +static const struct i2c_algorithm mchp_corei2c_algo = {
+> +	.master_xfer = mchp_corei2c_xfer,
+> +	.functionality = mchp_corei2c_func,
+> +};
+> +
+> +static int mchp_corei2c_probe(struct platform_device *pdev)
+> +{
+> +	struct mchp_corei2c_dev *idev = NULL;
+
+Unneeded initialization.
+
+> +	struct resource *res;
+> +	int irq, ret;
+> +	u32 val;
+> +
+> +	idev = devm_kzalloc(&pdev->dev, sizeof(*idev), GFP_KERNEL);
+> +	if (!idev)
+> +		return -ENOMEM;
+> +
+> +	idev->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
+> +	if (IS_ERR(idev->base))
+> +		return PTR_ERR(idev->base);
+> +
+> +	irq = platform_get_irq(pdev, 0);
+> +	if (irq < 0)
+> +		return dev_err_probe(&pdev->dev, irq,
+> +				     "missing interrupt resource\n");
+> +
+> +	idev->i2c_clk = devm_clk_get(&pdev->dev, NULL);
+> +	if (IS_ERR(idev->i2c_clk))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(idev->i2c_clk),
+> +				     "missing clock\n");
+> +
+> +	idev->dev = &pdev->dev;
+> +	init_completion(&idev->msg_complete);
+> +	spin_lock_init(&idev->lock);
+> +
+> +	val = device_property_read_u32(idev->dev, "clock-frequency",
+> +				       &idev->bus_clk_rate);
+
+This functions returns an int. So, 'ret' please which is also more
+readable.
+
+> +	if (val) {
+
+I think the missing check against 'division by zero' should go here.
+
+> +		dev_info(&pdev->dev, "default to 100kHz\n");
+> +		idev->bus_clk_rate = 100000;
+> +	}
+> +
+> +	if (idev->bus_clk_rate > 400000)
+> +		return dev_err_probe(&pdev->dev, -EINVAL,
+> +				     "clock-frequency too high: %d\n",
+> +				     idev->bus_clk_rate);
+> +
+> +	ret = devm_request_irq(&pdev->dev, irq, mchp_corei2c_isr, IRQF_SHARED,
+> +			       pdev->name, idev);
+
+Really SHARED?
+
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "failed to claim irq %d\n", irq);
+> +
+> +	ret = clk_prepare_enable(idev->i2c_clk);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "failed to enable clock\n");
+> +
+> +	ret = mchp_corei2c_init(idev);
+> +	if (ret) {
+> +		clk_disable_unprepare(idev->i2c_clk);
+> +		return dev_err_probe(&pdev->dev, ret, "failed to program clock divider\n");
+> +	}
+> +
+> +	i2c_set_adapdata(&idev->adapter, idev);
+> +	snprintf(idev->adapter.name, sizeof(idev->adapter.name),
+> +		 "Microchip I2C hw bus");
+
+Most people add something like the base address here to distinguish
+multiple instances.
+
+> +	idev->adapter.owner = THIS_MODULE;
+> +	idev->adapter.algo = &mchp_corei2c_algo;
+> +	idev->adapter.dev.parent = &pdev->dev;
+> +	idev->adapter.dev.of_node = pdev->dev.of_node;
+> +
+> +	platform_set_drvdata(pdev, idev);
+> +
+> +	ret = i2c_add_adapter(&idev->adapter);
+> +	if (ret) {
+> +		clk_disable_unprepare(idev->i2c_clk);
+> +		return ret;
+> +	}
+> +
+> +	dev_info(&pdev->dev, "Microchip I2C Probe Complete\n");
+> +
+> +	return 0;
+> +}
+
+Rest looks good, Thank you for the submission.
+
+All the best,
+
+   Wolfram
+
+
+--4/1BQIBLBjjxvj+u
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmKItWoACgkQFA3kzBSg
+KbZO8xAAtYMhV/kN9jcoPj0n0ikzTYPqhObXRqnQmf0BXVn1sIpBI19MgNkfE9Xz
+vrRLFWI6eD72TZ8ZA2OuHP8HuBt63QqRIc7jBestGrRfR+TApZUaC+PvLS38pj/O
+iahcaXwcw7QIpvshr5O6k3sJXqBdQGjcMQS5Jxr2gmEj5UrE56YEOwGCrMtwjuws
+SBzExhStfgV/2GDqdY/erGgCPrmQ3KRI0noDXKqzTaWpHfBOWZBkQFHJvuVDuBFc
+4UM+rSo/kN4wJWd5um5UGDBG768T+0quVpnhYtlafKTI5iGkGlmtxQQKPCvd3D/V
+Rx9rib3a+Lwh0tLRsNerldRn/Cy/n5vHR+MNngoFraLL6aGwTEkFmi85GuWBIdlf
+TccFOzLKBfgzh6rViOJ/enhrUWGwHYh9rM03PbVwmhogSasVNI+WbJTMff3N6zkJ
+VyI0nm9Q3hHeXtGx05kfFhvZ+YuBcklOa8c3ZTqdHiyEIc5upnNJGtds0OD0uTU4
++GKCob7a2EieMXSesKEIvEKcAPfFmJ6lJ8ygM2FraeQplQxKNN1wO42JXZiaRkvI
+BmUGdI7gtfzycw1PaUaiJX1ZXOb0WfN//jlzEnuxO2j0dPlo6DP8h8PNwe6os71I
+B81J0kEI2rX+O/g3tVCrv8Ls0+xywjswsvL8FaTzmWsUJMjSYcg=
+=tYE4
+-----END PGP SIGNATURE-----
+
+--4/1BQIBLBjjxvj+u--
+
+
+--===============5252463423989920687==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5252463423989920687==--
+
