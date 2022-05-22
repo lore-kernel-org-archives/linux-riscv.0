@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1815C433F5
-	for <linux-riscv@archiver.kernel.org>; Sun, 22 May 2022 07:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD429C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 22 May 2022 08:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XaAGfQWC7k+WioJAVM3PCVijWSld8RLTJgWk/G3lRh4=; b=Ohu/mF+3F1P5wD
-	vN7bOgXqe+/dCaiSBwSkNxOGzchmVHCzp3dkmwWYGVbyHE0DYEuC7xFneR2iiOcuGs4KwS+qD1yBU
-	S4bSWPdJCnAqYwbOfq/lE4QIfVa2UqkTgEPLaMrVlClTWwAg57Wt+AyYZZSmWBDgESWAXpsvMvtE3
-	CAinVXvtMGiRFwJtdypYP9uCxFDplmOuLLLM6LgHDchUeW3jNmObQMSOitjNHyXycF+8mKgxMukK0
-	OiN76T5ieu76orS4uCSzHbkzw742DZu+lTPJUgAfukyiV1fKDwdGm4wp98LQT5Bk5xvn9TGuudZIt
-	tUP/SsejWXUlEPzeravg==;
+	List-Owner; bh=UqNkDOSYQp2EJ+cEEzb/7vwJMfVe0cy7F2ryTh7BhIs=; b=WVTfgxUSq8w2H3
+	xPcEIiZCufkqKHj++NTQrGBzjW30Tz5wcW3fmLOgsuZhDKHisuIDYPPbaxNrIiPCiDtb2iaAJRj+x
+	A8RP07AVPUKxQRrdMw3QF5+jB5FpKH+Xnu0/ICnq9U4mFTBrJyioRfN4vKEbnVH/+MJeJgKnOxLLu
+	BonQeLg+5nAXSsFNiv+yVrbRqH4YwsImgE31IF4nsPc7blcUy9rjgndkrVgGo3yY4TuSCsuR8wyIx
+	eG+o4HW/2ck4tRmSs90+o1Hqq+DP8k56lrx82jSATBnBPQbojZISSlq0iLg/6dDNGTvanJczN3CQU
+	jlQk2D9I31+c0NUHNH1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nsg5g-000nse-FY; Sun, 22 May 2022 07:33:28 +0000
-Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
+	id 1nsgXK-000qSN-6m; Sun, 22 May 2022 08:02:02 +0000
+Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nsg5c-000nri-Ry
- for linux-riscv@lists.infradead.org; Sun, 22 May 2022 07:33:26 +0000
-Received: by mail-yw1-x1131.google.com with SMTP id
- 00721157ae682-2fedd26615cso120843087b3.7
- for <linux-riscv@lists.infradead.org>; Sun, 22 May 2022 00:33:23 -0700 (PDT)
+ id 1nsgXH-000qRA-Eb
+ for linux-riscv@lists.infradead.org; Sun, 22 May 2022 08:02:01 +0000
+Received: by mail-yb1-xb2e.google.com with SMTP id x2so20188024ybi.8
+ for <linux-riscv@lists.infradead.org>; Sun, 22 May 2022 01:01:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=atishpatra.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=pesXPNx/Q+LkyGC2G6a4mEcdtswlqCibLEjGfoAcaaM=;
- b=l3n22jSViyQmkbqULtIU4toqqsIvYxj0DLnbM8qlKeL6z1o6AccdaQxqVdVjpYIoPb
- efyRW+UCEO6INY+5411QwiXx9DMSPB3pZoIe9jRh21F0KplJmkH25JBRfGIqQxZdbIVO
- mzln7BBnH/6RScZN044BXG9xa47vYazntURco=
+ :cc; bh=iTR4F6Zdd5GmGSK+3VogNeE1cHs24uCXuHYRDacHFH0=;
+ b=MBJcy6x7M7Ay+fMd3UCpbOdofujh5V0wLWk1jvv1/hY7Oa7ImjQ8OgaAtQePnZ/aLq
+ U/EAPeSLh3jD4fmffjn2cDZZXRrNIaLJk3YuZbQpPT/o9BzjUzvSc6MVy3ZSz/ZjOl1E
+ pG2ZoltJ4iKhV+27FTcEy3PdUAAnSoPfHIWXw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=pesXPNx/Q+LkyGC2G6a4mEcdtswlqCibLEjGfoAcaaM=;
- b=f0W8dDOieJESiah40qcRhggf47OndV+NFvlTFQW9jiA4benBE2l1osNxXsI/xmn1Z7
- W1djlOinQ1F4GZN9EnvdSrJFTh8QIj3Tyz9Sb9NZ4ESt0n0sp5WhTOXhW2IF4TqUD+HA
- iX0Xcb7dkcNefeAAfWhb7gOaISOf4YFWQpL1x1uIggAF28Da5jJeTPYN64My4hK1exmL
- BOzc+dycf0buhSlHSvQdh6UTrULRyrhVF5n4fKG8v1/O8DKrL+8RORk8xesIvNQFs2fI
- +KUZ8BZfKT4wJjLaXzkgg9aOK4sV0zdp7nDpdNl/mhw8cgSLB6Bdw2fg1kbCZvprzqnw
- jh7A==
-X-Gm-Message-State: AOAM531F5vbzf6GL0XvLgYjxichEbQoCrqcXVQY0CBJ3PAr9n2m26HLC
- /GAxsvQVnIZWBM8umxdAIATzJvDamG1yHItPyOw2NmB5ecOb
-X-Google-Smtp-Source: ABdhPJwY0E/JZfP4w+tD03WSMJ6az9j2LZ2XB9LZ01T8gUgkeoRVtV0LCPF4jvGjdMy/bYam1s6yGNYwM9HYX0zN0Bk=
-X-Received: by 2002:a0d:e88c:0:b0:2fe:da96:1b77 with SMTP id
- r134-20020a0de88c000000b002feda961b77mr17730906ywe.262.1653204802756; Sun, 22
- May 2022 00:33:22 -0700 (PDT)
+ bh=iTR4F6Zdd5GmGSK+3VogNeE1cHs24uCXuHYRDacHFH0=;
+ b=PxJQZB7QUkqGiC/5NzTA7XZWr1gE0348Lh+rYxfxKWC2wXMuj0YBxkYBCEbr0kfdjQ
+ RHs8tjQCjk3DAC5pSKnx0nR/kwLvKnJOr6dFmmDXN6KWuNxQBS/HI/gTCX0UYQk/Mjdw
+ so04hvzUFMmomv0DGVZrUIIjo6EwpgItyCnKC6ySeeyEJLL3LwG4J2nDiDIoxcKAxeuj
+ Ch5PUmn965zwIg9+dGgwymKP6HG9IfoeZY6Ls8CiEH+UHY7DZZR/K4iEJsL0F78JeIUQ
+ rJsrbAl76UMVgyLyYTFa/UBftRqJr45ADdGSJTKxqJZ4SUjxtl0KFYzmXoEwEXhPFf3h
+ wSZQ==
+X-Gm-Message-State: AOAM530keUq5cdCl76qq2xWoo0VY5D4VfWgPh6DLSH2ybnBDrYWGduaQ
+ UHudhM2MUpu+l46fphCICKud76VGqg3BmJpdXNt5
+X-Google-Smtp-Source: ABdhPJytDIb72jnNAMvfjSVmqzrgWgR7LpO0kXNlntJZ5fXhvFnznaUNWXyONquMGqObNerCg+NKW/O3se66hI+ZDgQ=
+X-Received: by 2002:a25:941:0:b0:64d:da87:62ff with SMTP id
+ u1-20020a250941000000b0064dda8762ffmr16707944ybm.459.1653206518170; Sun, 22
+ May 2022 01:01:58 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220517184453.3558-1-jszhang@kernel.org>
- <20220517184453.3558-2-jszhang@kernel.org>
-In-Reply-To: <20220517184453.3558-2-jszhang@kernel.org>
+References: <20220521143456.2759-1-jszhang@kernel.org>
+ <20220521143456.2759-2-jszhang@kernel.org>
+In-Reply-To: <20220521143456.2759-2-jszhang@kernel.org>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Sun, 22 May 2022 00:33:12 -0700
-Message-ID: <CAOnJCU+aRoLRUjbum3o8N8J63vW+Y2974TjBueE__7PQAeJCQw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] riscv: introduce unified static key mechanism for ISA
- extensions
-To: Jisheng Zhang <jszhang@kernel.org>
+Date: Sun, 22 May 2022 01:01:47 -0700
+Message-ID: <CAOnJCU+peNAHCWGvNhHV30h0t9oM5f3f_5=AtbHae=S8SrDAVA@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] riscv: move sbi_init() earlier before
+ jump_label_init()
+To: Jisheng Zhang <jszhang@kernel.org>,
+ Alexandre Ghiti <alexandre.ghiti@canonical.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+ Alexander Potapenko <glider@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, 
+ Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ Anup Patel <anup@brainfault.org>, Atish Patra <atishp@rivosinc.com>, 
  linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+ kasan-dev@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220522_003325_164285_A1E9BB92 
-X-CRM114-Status: GOOD (  28.96  )
+X-CRM114-CacheID: sfid-20220522_010159_508458_43B9429C 
+X-CRM114-Status: GOOD (  21.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,134 +92,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 17, 2022 at 11:53 AM Jisheng Zhang <jszhang@kernel.org> wrote:
+On Sat, May 21, 2022 at 7:44 AM Jisheng Zhang <jszhang@kernel.org> wrote:
 >
-> Currently, riscv has several extensions which may not be supported on
-> all riscv platforms, for example, FPU and so on. To support unified
-> kernel Image style, we need to check whether the feature is supported
-
-/s/suportted/supported
-
-
-> or not. If the check sits at hot code path, then performance will be
-> impacted a lot. static key can be used to solve the issue. In the past
-> FPU support has been converted to use static key mechanism. I believe
-> we will have similar cases in the future.
+> We call jump_label_init() in setup_arch() is to use static key
+> mechanism earlier, but riscv jump label relies on the sbi functions,
+> If we enable static key before sbi_init(), the code path looks like:
+>   static_branch_enable()
+>     ..
+>       arch_jump_label_transform()
+>         patch_text_nosync()
+>           flush_icache_range()
+>             flush_icache_all()
+>               sbi_remote_fence_i() for CONFIG_RISCV_SBI case
+>                 __sbi_rfence()
 >
-> this patch tries to add an unified mechanism to use static keys for
-> some ISA extensions by implementing an array of default-false static keys
-> and enabling them when detected.
+
+@Alexandre Ghiti : Is this the root cause of the panic you were seeing ?
+
+IIRC, you mentioned in your last email that you don't see the issue
+anymore. May be you avoided the issue because alternatives usage
+was moved but root case remains as it is ?
+
+> Since sbi isn't initialized, so NULL deference! Here is a typical
+> panic log:
+>
+> [    0.000000] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+> [    0.000000] Oops [#1]
+> [    0.000000] Modules linked in:
+> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.18.0-rc7+ #79
+> [    0.000000] Hardware name: riscv-virtio,qemu (DT)
+> [    0.000000] epc : 0x0
+> [    0.000000]  ra : sbi_remote_fence_i+0x1e/0x26
+> [    0.000000] epc : 0000000000000000 ra : ffffffff80005826 sp : ffffffff80c03d50
+> [    0.000000]  gp : ffffffff80ca6178 tp : ffffffff80c0ad80 t0 : 6200000000000000
+> [    0.000000]  t1 : 0000000000000000 t2 : 62203a6b746e6972 s0 : ffffffff80c03d60
+> [    0.000000]  s1 : ffffffff80001af6 a0 : 0000000000000000 a1 : 0000000000000000
+> [    0.000000]  a2 : 0000000000000000 a3 : 0000000000000000 a4 : 0000000000000000
+> [    0.000000]  a5 : 0000000000000000 a6 : 0000000000000000 a7 : 0000000000080200
+> [    0.000000]  s2 : ffffffff808b3e48 s3 : ffffffff808bf698 s4 : ffffffff80cb2818
+> [    0.000000]  s5 : 0000000000000001 s6 : ffffffff80c9c345 s7 : ffffffff80895aa0
+> [    0.000000]  s8 : 0000000000000001 s9 : 000000000000007f s10: 0000000000000000
+> [    0.000000]  s11: 0000000000000000 t3 : ffffffff80824d08 t4 : 0000000000000022
+> [    0.000000]  t5 : 000000000000003d t6 : 0000000000000000
+> [    0.000000] status: 0000000000000100 badaddr: 0000000000000000 cause: 000000000000000c
+> [    0.000000] ---[ end trace 0000000000000000 ]---
+> [    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+> [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+>
+> Fix this issue by moving sbi_init() earlier before jump_label_init()
 >
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  arch/riscv/include/asm/hwcap.h | 40 ++++++++++++++++++++++++++++++++++
->  arch/riscv/kernel/cpufeature.c |  7 ++++++
->  2 files changed, 47 insertions(+)
+>  arch/riscv/kernel/setup.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> index 0734e42f74f2..b0433d2b880d 100644
-> --- a/arch/riscv/include/asm/hwcap.h
-> +++ b/arch/riscv/include/asm/hwcap.h
-> @@ -12,6 +12,7 @@
->  #include <uapi/asm/hwcap.h>
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 834eb652a7b9..d150cedeb7e0 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -268,6 +268,7 @@ void __init setup_arch(char **cmdline_p)
+>         *cmdline_p = boot_command_line;
 >
->  #ifndef __ASSEMBLY__
-> +#include <linux/jump_label.h>
->  /*
->   * This yields a mask that user programs can use to figure out what
->   * instruction set this cpu supports.
-> @@ -55,6 +56,16 @@ enum riscv_isa_ext_id {
->         RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
->  };
+>         early_ioremap_setup();
+> +       sbi_init();
+>         jump_label_init();
+>         parse_early_param();
 >
-> +/*
-> + * This enum represents the logical ID for each RISC-V ISA extension static
-> + * keys. We can use static key to optimize code path if some ISA extensions
-> + * are available.
-> + */
-> +enum riscv_isa_ext_key {
-> +       RISCV_ISA_EXT_KEY_FPU,          /* For 'F' and 'D' */
-> +       RISCV_ISA_EXT_KEY_MAX,
-> +};
-> +
->  struct riscv_isa_ext_data {
->         /* Name of the extension displayed to userspace via /proc/cpuinfo */
->         char uprop[RISCV_ISA_EXT_NAME_LEN_MAX];
-> @@ -62,6 +73,35 @@ struct riscv_isa_ext_data {
->         unsigned int isa_ext_id;
->  };
+> @@ -284,7 +285,6 @@ void __init setup_arch(char **cmdline_p)
+>         misc_mem_init();
 >
-> +extern struct static_key_false riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_MAX];
-> +
-> +static __always_inline int riscv_isa_ext2key(int num)
-> +{
-> +       switch (num) {
-> +       case RISCV_ISA_EXT_f:
-> +               return RISCV_ISA_EXT_KEY_FPU;
-> +       case RISCV_ISA_EXT_d:
-> +               return RISCV_ISA_EXT_KEY_FPU;
-> +       default:
-> +               return -EINVAL;
-> +       }
-> +}
-> +
-> +/*
-> + * @num must be a compile-time constant.
-> + */
-> +static __always_inline bool riscv_isa_have_key_extension(int num)
-> +{
-> +       if (RISCV_ISA_EXT_ID_MAX <= num)
-> +               return false;
-> +
-> +       num = riscv_isa_ext2key(num);
- > +       if (RISCV_ISA_EXT_KEY_MAX <= num || num < 0)
-> +               return false;
-> +
-
-Why do you need the additional check in the hot path ?
-riscv_isa_ext_keys array can be directly accessed at the caller
-instead of calling this function.
-
-> +       return static_branch_likely(&riscv_isa_ext_keys[num]);
-> +}
-> +
-
-
-
->  unsigned long riscv_isa_extension_base(const unsigned long *isa_bitmap);
+>         init_resources();
+> -       sbi_init();
 >
->  #define riscv_isa_extension_mask(ext) BIT_MASK(RISCV_ISA_EXT_##ext)
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 1b2d42d7f589..89f886b35357 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -24,6 +24,8 @@ static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
->  #ifdef CONFIG_FPU
->  __ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
->  #endif
-> +__ro_after_init DEFINE_STATIC_KEY_ARRAY_FALSE(riscv_isa_ext_keys, RISCV_ISA_EXT_KEY_MAX);
-> +EXPORT_SYMBOL(riscv_isa_ext_keys);
->
->  /**
->   * riscv_isa_extension_base() - Get base extension word
-> @@ -232,6 +234,11 @@ void __init riscv_fill_hwcap(void)
->                         print_str[j++] = (char)('a' + i);
->         pr_info("riscv: ELF capabilities %s\n", print_str);
->
-> +       for_each_set_bit(i, riscv_isa, RISCV_ISA_EXT_MAX) {
-> +               j = riscv_isa_ext2key(i);
-> +               if (j >= 0)
-> +                       static_branch_enable(&riscv_isa_ext_keys[j]);
-> +       }
->  #ifdef CONFIG_FPU
->         if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
->                 static_branch_enable(&cpu_hwcap_fpu);
+>  #ifdef CONFIG_KASAN
+>         kasan_init();
 > --
 > 2.34.1
 >
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 
---
+
+-- 
 Regards,
 Atish
 
