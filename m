@@ -4,111 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29CBC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 18:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14536C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 18:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+bndZ9UxUcQoLNw1mc73LbZHfq+e/pCsYq4EfFvLMNk=; b=FyEABulXo8dIak
-	vWbGq1S1AiF0L4fguXtx0/J/cjhn6cBiW88SZQixEWHFFLoOqQWo9qg+Vf2KX800Dk/taHbLVoQjv
-	Xuva6xjt8tuWL9MUTEQCZb0j/vYnyGMmVCuJAM1goH+ts/DxnfTuQg1SbgPqSL54Db6O1wgiw4/At
-	3Dtvd5YUOX07OcCjC2g3vita/e8dVUByPetYzfByobvOOBuCXZuzDFxafAYbcsGN+wWZItr/3a2Gm
-	7C76MMih/xDgV9EJH23Rw0z31mZ76GL6CWCVa8amKXH/zuQqTCM2KeCPuD4vIp1465NMu0vseu4wk
-	9o2GCFs9hlZwUBXaymzQ==;
+	List-Owner; bh=gxTbhaWbRlOgdMcmZpZkrmvcj57zjdN2tscF/6K6cxI=; b=SFb+Ir6B7C9SJu
+	1Br/g6h2StUI2wvhyeAebrjKOTMdXndPW+alARsHCJuj2Zcv35ozvUbUs26uUj/FwAddEXiQP1fqw
+	/KHt/9qQ5g/xkP1E1MvRLm7hP7Zqyd038c4bEHRmEHMIJ2yKCZaf+TbhsSmVANJhcxTCIPjEP7JVD
+	fXTIIE0CeFkpw074TjZbVby9ZP9JvSaVF1FwrSiwvsNhxZpceikkiORd9Xhtft3ffPbKPpXewcVDn
+	646bFN+Mz4BPy75eS89fp5XvEw7A4E8GWSMVI5WzFfthqT0vu3VUMN9JWokut3ykB4LFJKShp+EBv
+	EKPOaI0P3/TANl86QQ2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntCMn-005TI9-Vt; Mon, 23 May 2022 18:01:18 +0000
-Received: from mail-qv1-f43.google.com ([209.85.219.43])
+	id 1ntD3R-005ZpC-2N; Mon, 23 May 2022 18:45:21 +0000
+Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ntCMk-005THJ-Jc
- for linux-riscv@lists.infradead.org; Mon, 23 May 2022 18:01:16 +0000
-Received: by mail-qv1-f43.google.com with SMTP id e20so12638833qvr.6
- for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 11:01:13 -0700 (PDT)
+ id 1ntD3H-005Zm1-A9
+ for linux-riscv@lists.infradead.org; Mon, 23 May 2022 18:45:12 +0000
+Received: by mail-lj1-x234.google.com with SMTP id g16so18275410lja.3
+ for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 11:45:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=oOWZUBJqNcdlgAF3ozzceIWa1QLe3KoX8JwY9UNGHd4=;
+ b=UstXh4WwiSYrL1ybcoTWRmyZsv9hEjc6PjZMBIKnBZP0zhT7iTun1KvXZ8H17U8qSH
+ iz+7+bLHxdtL7wvkFkMIpdZu3lQ51hwOwKdx/wG4KzaJXykJmazsGwA7t4UGAtTePw/B
+ mK+BUuXVrIeuhZNDEKPHGY+iv6YBe6R27v/utPWafsuvsLf2TmGu2ewgAfZSdKBowv4l
+ LoP4BWbhRDtTjeIcpB3tIiVwfN42D2mxokpmBrGJMTT5Dd6TNpI3j9kQxH/bd3ESREMT
+ XevvqDcVtKuqvXq0zcj3Z/G0wAyCfCELfimVoPf+6+u9hcQLdRX4KGz8yIs0FLopHIeq
+ RhLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=N4rBBcobCQCpRnDX0N4E6NWTW64w3K1pdJQpMj8qNhc=;
- b=wW/kvvSZxgy1l0ZNdYMJxGFXsXELD0cZrKEnYDFMXdAtDI3a35MitCq54rzMtQWe3O
- MA7068CeStMes2znmWE98dHWyjuf6uN1sw1vSWFVLfdlDRDOOzOhjbU8vHkY3Y0Ef4vt
- vWerAi0hVddjmgWra7r/1dxtagDcKliztsZA+zcibjZinnSgYWGSLFKTYqPvSs1KebfO
- eSel6ZBYULGbUWCOc+Uk281fUEUOY39G/nCpYZaV5enUvOV9STtWXBdpYTFbS8Nwl23h
- fg16BqpCK+2kgRF+4EkWxYNNWIwWSlxSHiYHu7V+DLjGoDoyoTi0L7hYuh5zijIGD4Zo
- t45A==
-X-Gm-Message-State: AOAM532LeSfeLDZaiHyY+HOKlJoB4Ut/isZGHGKOCnRNWpcNOqzTVZwe
- MmJgJzitJk0jq3EeXJ3i5cCAQB6NxUzLfIBlnd4=
-X-Google-Smtp-Source: ABdhPJwjDcISiNocH2Wa45/8v4HqKDpjGdSC5/ABKygk4UgcIcxwkftcv3pcaAJwl4igKHkbrI9+lA==
-X-Received: by 2002:a05:6214:3005:b0:462:21ca:58b1 with SMTP id
- ke5-20020a056214300500b0046221ca58b1mr8643731qvb.47.1653328871857; 
- Mon, 23 May 2022 11:01:11 -0700 (PDT)
-Received: from mail-yb1-f169.google.com (mail-yb1-f169.google.com.
- [209.85.219.169]) by smtp.gmail.com with ESMTPSA id
- a13-20020ac84d8d000000b002f940249151sm99422qtw.73.2022.05.23.11.01.11
- for <linux-riscv@lists.infradead.org>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 23 May 2022 11:01:11 -0700 (PDT)
-Received: by mail-yb1-f169.google.com with SMTP id z7so5544742ybf.7
- for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 11:01:11 -0700 (PDT)
-X-Received: by 2002:a81:ad11:0:b0:2fe:fb00:a759 with SMTP id
- l17-20020a81ad11000000b002fefb00a759mr24887559ywh.283.1653328860919; Mon, 23
- May 2022 11:01:00 -0700 (PDT)
+ bh=oOWZUBJqNcdlgAF3ozzceIWa1QLe3KoX8JwY9UNGHd4=;
+ b=OBV2xxuaERXmHH/oEhR43TC5RrDXqZQSBNxpM3hvqFXAeu407TUI8EcHzud4NtWsVh
+ t2VVKP9FtqSQq7Uf53Xqw/8MnwSjiEs+ARQLRWVEcUYqhx3GsQgffQ1UtbmYG15vWYML
+ TRmYQOyzT1dtO7wz5oshpWrPdS1IATQLv8fg7f5mFcDQh/B9ce+jucmjVWHjKQKH65fl
+ ggUooQ5iKxlyduyUW+SZK1PwdqcuBdvGq+z+2XJ9H6xWB+pMY/HzudfKW7qF5pUzFeaL
+ CMO+rQcJBsQOW25v9eE/4K0a2MJWixxQwcltY5HmqfJup8D8muK3BKNpSnXY1VjPND6c
+ 8Vaw==
+X-Gm-Message-State: AOAM533PoJaQ8pk82fSuuARwLPlZoMJFK8j0KDeGQ3GMGT456+cRLhvy
+ Dmc8wGPLFS42zwKf/RdKK3DYxPIrupJIVSwWTr9/jQ==
+X-Google-Smtp-Source: ABdhPJyqr3CCsMipzHURp2FsSWTJB3upstez3xIYqCFafcp/ENDyuWVgPX2GXxQPyyXKkJMEh1xX8mg+wI61pNqucdI=
+X-Received: by 2002:a2e:98cd:0:b0:253:df46:323e with SMTP id
+ s13-20020a2e98cd000000b00253df46323emr9603557ljj.295.1653331503220; Mon, 23
+ May 2022 11:45:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220509233235.995021-1-dmitry.osipenko@collabora.com>
- <CAJZ5v0jhWs-8ChHddebTZcaH6kA05sLEMsXM9Op7kHWAQDxeYA@mail.gmail.com>
-In-Reply-To: <CAJZ5v0jhWs-8ChHddebTZcaH6kA05sLEMsXM9Op7kHWAQDxeYA@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 23 May 2022 20:00:49 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVbWpgubaA0V_tau3O=czAb3RQV9AwJsoQ+LWjf-wjMkA@mail.gmail.com>
-Message-ID: <CAMuHMdVbWpgubaA0V_tau3O=czAb3RQV9AwJsoQ+LWjf-wjMkA@mail.gmail.com>
-Subject: Re: [PATCH v8 00/27] Introduce power-off+restart call chain API
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Dmitry Osipenko <dmitry.osipenko@collabora.com>, 
- Thierry Reding <thierry.reding@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, 
+References: <20220523020209.11810-1-ojeda@kernel.org>
+ <20220523020209.11810-22-ojeda@kernel.org>
+In-Reply-To: <20220523020209.11810-22-ojeda@kernel.org>
+From: Nick Desaulniers <ndesaulniers@google.com>
+Date: Mon, 23 May 2022 11:44:51 -0700
+Message-ID: <CAKwvOdkTjxNEmCTnuH5f41WB50ef6ErBM2Kp2zJ-t9q_5U8rBA@mail.gmail.com>
+Subject: Re: [PATCH v7 21/25] Kbuild: add Rust support
+To: Miguel Ojeda <ojeda@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, rust-for-linux@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Jarkko Sakkinen <jarkko@kernel.org>, 
+ Alex Gaynor <alex.gaynor@gmail.com>, Finn Behrens <me@kloenk.de>, 
+ Adam Bratschi-Kaye <ark.email@gmail.com>,
+ Wedson Almeida Filho <wedsonaf@google.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Sven Van Asbroeck <thesven73@gmail.com>,
+ Gary Guo <gary@garyguo.net>, 
+ Boris-Chengbiao Zhou <bobo1239@web.de>, Boqun Feng <boqun.feng@gmail.com>,
+ Douglas Su <d0u9.su@outlook.com>, 
+ Dariusz Sosnowski <dsosnowski@dsosnowski.pl>,
+ Antonio Terceiro <antonio.terceiro@linaro.org>, 
+ Daniel Xu <dxu@dxuuu.xyz>, Miguel Cano <macanroj@gmail.com>,
+ David Gow <davidgow@google.com>, 
+ Masahiro Yamada <masahiroy@kernel.org>, Michal Marek <michal.lkml@markovi.net>,
  Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
- Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Sebastian Reichel <sre@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Greentime Hu <green.hu@gmail.com>, 
- Vincent Chen <deanbo422@gmail.com>, 
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Will Deacon <will@kernel.org>,
  Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
  Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "the arch/x86 maintainers" <x86@kernel.org>, 
- "H. Peter Anvin" <hpa@zytor.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
- Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
- Len Brown <lenb@kernel.org>, 
- Santosh Shilimkar <ssantosh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Pavel Machek <pavel@ucw.cz>, 
- Lee Jones <lee.jones@linaro.org>, Andrew Morton <akpm@linux-foundation.org>, 
- Guenter Roeck <linux@roeck-us.net>, Daniel Lezcano <daniel.lezcano@linaro.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, 
- =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>, 
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-csky@vger.kernel.org, 
- "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- linux-m68k <linux-m68k@lists.linux-m68k.org>, 
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Parisc List <linux-parisc@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux-sh list <linux-sh@vger.kernel.org>, xen-devel@lists.xenproject.org, 
- ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
- Linux PM <linux-pm@vger.kernel.org>, 
- linux-tegra <linux-tegra@vger.kernel.org>
+ Richard Weinberger <richard@nod.at>,
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, linux-kbuild@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+ linux-riscv@lists.infradead.org, linux-um@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220523_110114_686597_019234BD 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20220523_114511_379708_95250F23 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,41 +109,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Rafael,
+> +choice
+> +       prompt "Optimization level"
+> +       default RUST_OPT_LEVEL_SIMILAR_AS_CHOSEN_FOR_C
+> +       depends on RUST
+> +       help
+> +         Controls rustc's `-Copt-level` codegen option.
+> +
+> +         This flag controls the optimization level.
+> +
+> +         If unsure, say "Similar as chosen for C".
+> +
+> +config RUST_OPT_LEVEL_SIMILAR_AS_CHOSEN_FOR_C
+> +       bool "Similar as chosen for C"
+> +       help
+> +         This choice will pick a similar optimization level as chosen in
+> +         the "Compiler optimization level" for C:
+> +
+> +             -O2 is currently mapped to -Copt-level=2
+> +             -O3 is currently mapped to -Copt-level=3
+> +             -Os is currently mapped to -Copt-level=s
+> +
+> +         The mapping may change over time to follow the intended semantics
+> +         of the choice for C as sensibly as possible.
+> +
+> +         This is the default.
+> +
+> +config RUST_OPT_LEVEL_0
+> +       bool "No optimizations (-Copt-level=0)"
+> +       help
+> +         Not recommended for most purposes. It may come in handy for debugging
+> +         suspected optimizer bugs, unexpected undefined behavior, etc.
+> +
+> +         Note that this level will *not* enable debug assertions nor overflow
+> +         checks on its own (like it happens when interacting with rustc
+> +         directly). Use the corresponding configuration options to control
+> +         that instead, orthogonally.
+> +
+> +         Note this level may cause excessive stack usage, which can lead to stack
+> +         overflow and subsequent crashes.
+> +
+> +config RUST_OPT_LEVEL_1
+> +       bool "Basic optimizations (-Copt-level=1)"
+> +       help
+> +         Useful for debugging without getting too lost, but without
+> +         the overhead and boilerplate of no optimizations at all.
+> +
+> +         Note this level may cause excessive stack usage, which can lead to stack
+> +         overflow and subsequent crashes.
+> +
+> +config RUST_OPT_LEVEL_2
+> +       bool "Some optimizations (-Copt-level=2)"
+> +       help
+> +         The sensible choice in most cases.
+> +
+> +config RUST_OPT_LEVEL_3
+> +       bool "All optimizations (-Copt-level=3)"
+> +       help
+> +         Yet more performance (hopefully).
+> +
+> +config RUST_OPT_LEVEL_S
+> +       bool "Optimize for size (-Copt-level=s)"
+> +       help
+> +         Smaller kernel, ideally without too much performance loss.
+> +
+> +config RUST_OPT_LEVEL_Z
+> +       bool "Optimize for size, no loop vectorization (-Copt-level=z)"
+> +       help
+> +         Like the previous level, but also turn off loop vectorization.
 
-On Wed, May 18, 2022 at 4:46 PM Rafael J. Wysocki <rafael@kernel.org> wrote:
-> On Tue, May 10, 2022 at 1:33 AM Dmitry Osipenko
-> <dmitry.osipenko@collabora.com> wrote:
-
-> >   m68k: Switch to new sys-off handler API
-
-Sorry, I didn't realize this was going to interact with the new m68k
-virtual machine support, which is included in the m68k pull request
-for v5.19.
-
-> However, I'm going to send a pull request with it in the second half
-> of the merge window, after the majority of the other changes in the
-> subsystems touched by it have been integrated.
-
-And presumably you will have to merge in v5.19-rc1, too?
-
-I've sent a fix.  It should appear at
-https://lore.kernel.org/r/20220523175520.949681-1-geert@linux-m68k.org
-soon.
-
-Can you please include that in your PR?
-Thanks!
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+I'm super not into having the rust optimization level differ from the
+C optimization level.  This is just someone having too much fun
+wrapping every compiler flag in a kbuild option.  Either folks wan't
+smaller size or more optimizations. Allowing for RUST_OPT_LEVEL_S and
+CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE or RUST_OPT_LEVEL_3 and
+CONFIG_CC_OPTIMIZE_FOR_SIZE is just wacky nonsense that's going to
+make randconfig bug reports more confusing to tease out.
+-- 
+Thanks,
+~Nick Desaulniers
 
 _______________________________________________
 linux-riscv mailing list
