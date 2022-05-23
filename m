@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A863C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 18:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA57C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 19:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2Yp2TNDd0h8DHZ0h2bLTQRtkWLVJ+gHOjcZawIJl3rA=; b=eaXy4EdmJ7xwvO
-	MExiQWf/EhcFwpWzEca1oAdzjTLDRqtuLiVg68Lg+xkNv1c3LmApApt1RDNQdKs5YXblwZ7NDhruC
-	4ZVHiP1NOPE82AGlclpneGGon9sPNqUrzKIvdhaLSVZ5yY9YTyi5c0agfHN6Sqm70sIdyLaxPEw15
-	6RLfy6k3nSansS/zxIqqYJ2e1CP9o8BYn/0srX2Uq/qp97tc2VAk6abWoGNSYtYwxL751Ig/BeDws
-	7TrFkl8+Ba3NMr9GxfAFID9N8ohPgP4MTHX9j3hUA9Z7hkg7bMSGLgiGF7GeJeY4DmDKgpEOdEHe/
-	7VLJcyOXnWfoOvwEsu1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=BDu0n7WjMtlWWshEiKQtvc+idNpBFwE2d8PjPMAyFuQ=; b=d5MCb8TBpBytTV7jhCa2+LT0Oa
+	wO1emBRTkGpB2YYub+cDM7hYHnlo7Xx1NtU6fg6igxH8FDbGren9OUeA4GqRO2BrVeCCj19PTudD3
+	Ak6xsjpXeDNjwvFf1juIDj97g9TlPUv8msqTvJSBlMzQpWEsPGSo9WGToG88pnezBEvYi6t9qYMv9
+	THbXkY51ZYEzwMxVwBCeWVJIkiVwqiT00D5cR0kHGMhliBZrXNisLUuv9E725hNlE18oUS1nkuSR/
+	/ZLHIIyVsP77jCzgHKhptDWWYUZzBx4sGz5qBW0g+sa9ybW/q2sbM3iZKh3iFsI0NHZDHZR+a+Wxx
+	tzQu3W4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntDET-005cIj-6G; Mon, 23 May 2022 18:56:45 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1ntE6d-005kgz-R8; Mon, 23 May 2022 19:52:43 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ntDEQ-005cGP-Dw
- for linux-riscv@lists.infradead.org; Mon, 23 May 2022 18:56:43 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id rs12so19009317ejb.13
- for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 11:56:40 -0700 (PDT)
+ id 1ntE6b-005keU-2f
+ for linux-riscv@lists.infradead.org; Mon, 23 May 2022 19:52:42 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id gg20so14962622pjb.1
+ for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 12:52:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=bgdev-pl.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=8tifE5bLnfHULjuXzdKXlmgh+yYdYzL6ft6zuAUxHcg=;
- b=BbaCu16gsjt26dSAL88WDw2c2uoZsyZk863ptFfWyzXJ5b5CFHDeaY9s26kf41Lq8O
- EhF5L3KPdXX9aFAP1GmTWwwuEmWXLiRH87BY7Ip1+fqM+7ATMOl9nJD2O1CJYhQRgqWk
- OlE9JbosTY98LFAk3zexxQ/Xo0d6513GLb0MUVV8KCAev0jjJg9jD78MEfK4+Mmbo0B7
- TBXMJBYJDxBzV8DAoGhA3V2NSoxBCtdWGshSDpreFTEGqwDvkFsHAGTSC9NhUdc69BLi
- G/PfJruUboOrZ2uZotTPjyRNj8E2EwoZZtDuW3jvxUIpN60NXuKHTf50xc6XRlR8C3Om
- Dyeg==
+ d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=vJ/7h+gtdAcH6lg5046ozHJXlKfDaJ+7rqIOW4j5rFs=;
+ b=lTQCZCv5SjCSpZkO1elU8OQ5aWFQCrQkHtVcF9TDFzMsnqBFg7KzqJyiNaKPcKbRJj
+ i90imZ0Whn93Tu8MftddRbbWIGE4Z51y2k7ektQtHftyO4NCDzN8TCKYp6v4huEfqPiP
+ 9EULlaFtpqTC5St9isyzpphnuuSOM7iPCBf+hZQdU/kF892Rd5g3H41PsxboienPw/+L
+ eQH9HkzV9iG5aCuHhZYSTJreYTOaKCjlfaxF3j2t6Pi5o2S41dP4XVx8pIyTds/M1Hzn
+ Sth5UH14P0IyZENuN5FAyQcocPp/wYtTbxP4sf5o+PgAQBR3okXLoeYO/K8CMJlOpwKV
+ ONDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=8tifE5bLnfHULjuXzdKXlmgh+yYdYzL6ft6zuAUxHcg=;
- b=CKMXYRkb2/MxpJBAJFXE5B7xf66jVTRb94jCO73mM0mbzHZ5P9187xvOXeLPZy31Mu
- aOB/oT6jqoDNAm58puOUqKhiI+bYhKKlUgfy3DS3UPggi+fonqJ8rBNFjoSWslIpPLUa
- ZN9V9NRk7KMKGMksBcHiR67b0a1POnG0x3FMcRQmh088CaR1ielQg2QuBJZSt/lb8QPD
- Wh2PuOMKg8R9Px9MJ70cdjHG6KLIR+6VvLJLsJT2BYYFp7kDaVodnbsi1zqqymngZWYi
- m00HzYM7q3NeXr38/NDFa93ERRT7ckGMgGCfE3hxd0z3xXiIsYjdN4jE7H4fdoqp02HX
- oHfQ==
-X-Gm-Message-State: AOAM531JVaNZbBSC3NG6mutRzyKTK/4repvXxSvkSF0gMBanBeFYMsF6
- lQcAqtSYvYWyx562OZ0Fi5hHIMkI2dB8400Q9pfbog==
-X-Google-Smtp-Source: ABdhPJwEKQpKbBK2FLsmHHKUY1mYHfr68FuqP8Z2vt9DwnDi5qqzNZIfQfCdriAzhT3uxbP6JRx5flatG3DhTad3ChM=
-X-Received: by 2002:a17:907:c28:b0:6f4:2a80:f355 with SMTP id
- ga40-20020a1709070c2800b006f42a80f355mr20485108ejc.101.1653332199212; Mon, 23
- May 2022 11:56:39 -0700 (PDT)
-MIME-Version: 1.0
-References: <01f7a990654697ca7ec8b2d0025f41403462c8d9.1653042121.git.geert+renesas@glider.be>
- <CAMRc=Mdf_PHyC3doO4KfzeTJz+WT2VZE6pxADOxz3_Sy9jPGqA@mail.gmail.com>
- <CAMuHMdXe2v8Tamyz6-xhFfoc7X-x9iDk8Rey-PBsdEe9+2-Bgw@mail.gmail.com>
-In-Reply-To: <CAMuHMdXe2v8Tamyz6-xhFfoc7X-x9iDk8Rey-PBsdEe9+2-Bgw@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Mon, 23 May 2022 20:56:28 +0200
-Message-ID: <CAMRc=MfVahrfyaJUwbJZP8XeQYFz9jas5ASaqp3iXCo3NW4bxA@mail.gmail.com>
-Subject: Re: [PATCH v2] gpio: dwapb: Make the irqchip immutable
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Hoan Tran <hoan@os.amperecomputing.com>,
- Serge Semin <fancer.lancer@gmail.com>, 
- Linus Walleij <linus.walleij@linaro.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, Marc Zyngier <maz@kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=vJ/7h+gtdAcH6lg5046ozHJXlKfDaJ+7rqIOW4j5rFs=;
+ b=e6VKUXUj1cv/s7B4mLJokfFXiVYgNFMi8TJGTVlnyHpjZerHdRRnoROXwTnvVVXHL+
+ pXZfnQ4aXjAYAjrCzsbJ+rLYflt4H+a4tIRzXfwi+yOJU1bIjqFxrlk8y0h/wwV9b+3r
+ ZC02XS5XllZHQhBJLgC/886v1SSwMSvZDy9parrj7pR5ioRC5Ch4DSebAjQA46S/tJzp
+ x6ez3un1CiNZf+Sl6bCFzxWNJaCVIL9nRetOhupDSclN7baAVFiu4oj9h6qE6DCVlSHE
+ qXk6wht1ryyaL1RtRVzTGrzWQZ0xt3jO3yYJiLnuMIN3YaOso8VeZqBe77EcrVCmi0fX
+ fnow==
+X-Gm-Message-State: AOAM53244TfHwD3uqxqCgBxAkmsu774QDdjXUrQLP3XQ379Vh4FnQbBf
+ KUB5wHrjx+U2vPvz7sU40K4Y/A==
+X-Google-Smtp-Source: ABdhPJze5JLlUhh4DOxqmNYacegzQnT4dWAyORP1w+YfXIZRr1SHeDENWbQ94DWlMydgQBSrwKF7xw==
+X-Received: by 2002:a17:903:25c5:b0:162:e9f:4e6d with SMTP id
+ jc5-20020a17090325c500b001620e9f4e6dmr11457165plb.60.1653335556517; 
+ Mon, 23 May 2022 12:52:36 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
+ i12-20020a65484c000000b003fa5855ad66sm2314836pgs.64.2022.05.23.12.52.34
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 23 May 2022 12:52:35 -0700 (PDT)
+Date: Mon, 23 May 2022 12:52:35 -0700 (PDT)
+X-Google-Original-Date: Mon, 23 May 2022 12:52:31 PDT (-0700)
+Subject: Re: [PATCH v4 1/1] MAINTAINERS: add polarfire rng,
+ pci and clock drivers
+In-Reply-To: <875112a6-7328-a40d-bc78-bff4e7d14aa0@microchip.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Daire.McNamara@microchip.com, 
+ Lewis.Hanly@microchip.com, Cyril.Jean@microchip.com
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Conor.Dooley@microchip.com, Arnd Bergmann <arnd@arndb.de>
+Message-ID: <mhng-9bccd0ce-6754-49d4-bf6d-5a83b2226b5d@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220523_115642_699976_FA134EBB 
-X-CRM114-Status: GOOD (  18.93  )
+X-CRM114-CacheID: sfid-20220523_125241_153992_80C8B3D6 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +87,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 23, 2022 at 9:25 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Bartosz,
->
-> On Sun, May 22, 2022 at 10:13 PM Bartosz Golaszewski <brgl@bgdev.pl> wrote:
-> > On Fri, May 20, 2022 at 12:23 PM Geert Uytterhoeven
-> > <geert+renesas@glider.be> wrote:
-> > > Commit 6c846d026d49 ("gpio: Don't fiddle with irqchips marked as
-> > > immutable") added a warning to indicate if the gpiolib is altering the
-> > > internals of irqchips.  Following this change the following warning is
-> > > now observed for the dwapb driver:
-> > >
-> > >     gpio gpiochip0: (50200000.gpio): not an immutable chip, please consider fixing it!
-> > >
-> > > Fix this by making the irqchip in the dwapb driver immutable.
-> > >
-> > > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> > > ---
-> > > Against gpio/for-next.
-> > > Boot-tested on SiPEED MAiXBiT (Canaan K210).
-> > >
-> > > v2:
-> > >   - Factor out hwirq using preferred helper.
->
-> > I'll pick those patches up for the next cycle to let them spend some
-> > time in next.
->
-> "next cycle" = later PR for v5.19, I hope?
-> If the new warning will make it into v5.19-rc1 (commit 6c846d026d490b23
-> is in gpio/for-next), I think you should collect all fixes and make
-> sure they end up in v5.19, too.
->
+On Mon, 23 May 2022 04:42:53 PDT (-0700), Conor.Dooley@microchip.com wrote:
+> On 05/05/2022 11:55, Conor Dooley wrote:
+>> Hardware random, PCI and clock drivers for the PolarFire SoC have been
+>> upstreamed but are not covered by the MAINTAINERS entry, so add them.
+>> Daire is the author of the clock & PCI drivers, so add him as a
+>> maintainer in place of Lewis.
+>> 
+>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Hey Palmer,
+> I know youre busy etc but just a reminder :)
 
-Ah you're right, sorry, yeah I will pick those up now.
+Sorry, I didn't realize this was aimed at the RISC-V tree.  I'm fine 
+taking it, but it seems like these should have gone in along with the 
+drivers.
 
-Bart
+Arnd: maybe this is really an SOC tree sort of thing?  No big deal 
+either way on my end, just let me know.
+
+> Thanks,
+> Conor.
+> 
+>> ---
+>>   MAINTAINERS | 5 ++++-
+>>   1 file changed, 4 insertions(+), 1 deletion(-)
+>> 
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index fd768d43e048..d7602658b0a5 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -16939,12 +16939,15 @@ N:	riscv
+>>   K:	riscv
+>>   
+>>   RISC-V/MICROCHIP POLARFIRE SOC SUPPORT
+>> -M:	Lewis Hanly <lewis.hanly@microchip.com>
+>>   M:	Conor Dooley <conor.dooley@microchip.com>
+>> +M:	Daire McNamara <daire.mcnamara@microchip.com>
+>>   L:	linux-riscv@lists.infradead.org
+>>   S:	Supported
+>>   F:	arch/riscv/boot/dts/microchip/
+>> +F:	drivers/char/hw_random/mpfs-rng.c
+>> +F:	drivers/clk/microchip/clk-mpfs.c
+>>   F:	drivers/mailbox/mailbox-mpfs.c
+>> +F:	drivers/pci/controller/pcie-microchip-host.c
+>>   F:	drivers/soc/microchip/
+>>   F:	include/soc/microchip/mpfs.h
+>>   
+> 
 
 _______________________________________________
 linux-riscv mailing list
