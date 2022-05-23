@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A25C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 14:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268C2C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 14:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HTBgTsWOIzpczLfDzOy0y9mlu+HR6y+P+3TS7cXJZ8w=; b=yguaiyxbXwCbz+
-	T9Eh2fAN9YtbYrjDZPodBDB4vGWdIytR7HIXYLVVuXO3YdZGwlQPFwV/4RhOlr8S5LCC5gW0qYhSJ
-	wBSabKB3QPPh82dwzyEV3g4Ed6TxvUwxkeDJ/zb380MaVkYw98NVGfNcDO+98E1Q/YLx7yQDOQPYr
-	76CtRM+r6fNGYe8THrrDOBcWgfCsPhDO1p3UV5i4Lvw3WwyhW33+ttGAxEaifq4Chd0O9aGS9SOi7
-	Dz85AJrUwvrK40A/6GiWfzrOurZchYc/HO7Z3ABPZpGweC6+wwXfwS0BiZ7cck0HTmiL4wTLovwgl
-	1VapRrU30ky42xGGP+Tg==;
+	List-Owner; bh=FIea/e0Gu5ysgbM0lza1MwLM3hy1nQONvtOxpkf/7bs=; b=ukZdjP2S8EvcH1
+	XcJ+eKGpxKdGuLcJaeu++G7Ejq73cnXqKxHqXEhxR8e8tLW0Knek5XM3rjdLD8ql2zqI2T/lbnFWR
+	1Uz/DDX/X9FefdMrMb87EMoE5V1iHh/9cD91fpUVjmxSreerIB5uA+qhgLE6nmy49iOrjWZKwY0rI
+	XI1n/9qkICW+gTMIalBkurqzHZc4RnIjsxhc5HGEP+TBSkkBY3KipUD8G6Y2XeHb/zaxOLkV3RISx
+	TYtmLUCZrZh3WhYOWMRnizO/efzp8PNAurhf8LNjx3ryZSUmSFj2TT+aGg3JLX9ptnhf7p6frmdqH
+	j6JWXz3aw7/bZpQ2OI+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nt8ew-004d1S-Om; Mon, 23 May 2022 14:03:46 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1nt9Fm-004lRo-KF; Mon, 23 May 2022 14:41:50 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nt8el-004cvG-WB
- for linux-riscv@lists.infradead.org; Mon, 23 May 2022 14:03:44 +0000
-Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
- [209.85.218.71])
- (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 17B783F210
- for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 14:03:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
- s=20210705; t=1653314604;
- bh=aOj42UXk0Ccs38iFr56+sEgB8yBY01wKBE08wxks5M0=;
- h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
- To:Cc:Content-Type;
- b=C8av4UvTRBZPTWqw9OTH5Z9CnFW3Nq4/WGeCsRZ8Mh0gUOIvHshzDKdDReg5ZrvAn
- J/0xPuBRdVIO85dm+RDFWEBT0krNYEbDWKC5aRb/cLgKWD6FL6P+e4IhprjsxxL/YA
- DS3xygHSYItipDsxd+Hudu9wi5A1A2x75DbpmtrkPdOb+FKKLwrl15oLsxj1JJiiFJ
- HGA8/PXC+SForiFQ+tuu22wWOZUTLxQYG0LdnRP/xqtkBORZ8/3R3UK01mNGyLxpYl
- 12LqwCdkiZAIMsv1qUGvfcBl8Mzelnxxklbr0iDcHFII3eDpi8dXjdXrRUdevl58dF
- KBeBGCxU9G5Tg==
-Received: by mail-ej1-f71.google.com with SMTP id
- gs6-20020a170906f18600b006fe7a9ffacbso6026693ejb.3
- for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 07:03:24 -0700 (PDT)
+ id 1nt9Fj-004lQq-NY
+ for linux-riscv@lists.infradead.org; Mon, 23 May 2022 14:41:49 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id b124so13787299ybg.12
+ for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 07:41:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=atishpatra.org; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=BW04Z/gvjhs+P0ULzNLfp7O87Y9+RbJCN4YeRs8+SKY=;
+ b=Soew57xnpel8YQd6sx781+vJHHd45Egx09p1KxaLo9hydn+G/B6Ok28cIxvAcIQKD/
+ 1wl3bJ16TuctScAkxIiEr0SItslhTXK2cptNI8aWG7eps/8Ki4/mh7Hxeeg7YZ3oGF6A
+ /ZllW2ex8dBGPYn4/Os+85gZ4AHiTtkgC3HGc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=aOj42UXk0Ccs38iFr56+sEgB8yBY01wKBE08wxks5M0=;
- b=EmFUR/hW1HQaCfAGFTcCt49ncrz5Uj7C6zfNxXEFegUluS84y1yAg0BR7MyTRLz319
- kuZiMHwX6buBwevTztFbgGpweMT3ooyajtUpHEzVNJywF4af1Orzsm+Buik07BtpXx3R
- HbbdcVX71QyBgWhYf+5EmvlpEmC2Jvu0m2qbSsFaewEy+7/bV4dT53hrSFM6aNT+W1/W
- MIxtG+hl3bHwyBf+4DlexhcQ3rqzH/qOk3H6qzyQifdJ0JmPICxwqolTlEnw11tQlhYq
- Td+g7BLrUvJJOlUDotYdYhEGbxgbDAT1aDabAZ7W8OC48qPnh/yI8L3mEqHfldAzfbpq
- utzQ==
-X-Gm-Message-State: AOAM533ipgQoI2E1vQaLL0yFgRi4F7RSGCXL++i+RpDB+dXoZ4vL91xi
- hGJ9j9vTQJbxnZ0vzCPv/Zb7eu0ClijUTo+noZoqCqB6pLPNXHXuWbtrkDb4Ai0Ej/rpMg3OGrk
- TJscInCjzlIVjJKw/RUF2E2YoHJkdXTbIs+qmjEBfci1L+l051BS7PUVYXm3OvA==
-X-Received: by 2002:a17:907:1c92:b0:6fa:51d2:4005 with SMTP id
- nb18-20020a1709071c9200b006fa51d24005mr19963053ejc.307.1653314602938; 
- Mon, 23 May 2022 07:03:22 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJwMUulBF+KUWazrL3APRAArBepILptP1NGvpb+ZHVwY9pwmFhOGMhnKWNYfpURzv+5M15VeBDVoqJWSq72IkZc=
-X-Received: by 2002:a17:907:1c92:b0:6fa:51d2:4005 with SMTP id
- nb18-20020a1709071c9200b006fa51d24005mr19963013ejc.307.1653314602632; Mon, 23
- May 2022 07:03:22 -0700 (PDT)
+ bh=BW04Z/gvjhs+P0ULzNLfp7O87Y9+RbJCN4YeRs8+SKY=;
+ b=RspFKl0IFGbbr36ysG9Rdz2tg9W+K/wP3bCLEkadt9mN0L1V07NiAr/9eWTccUzl9A
+ YJrbCy/qAtMvcB9QW6DtRUpTQQnB9qeY5efy9X185rDK21jWgAdFKL7zMI3Z7NJSOMdQ
+ lRKejRPFaUuVFH5ajZc/zJ6/Gc2Nqf/aaUkU0LBBh7Qzum4sj5v3wrV3cEyPNXb2QmME
+ SEjWu1Wk/C5VmV+x50vGqcA/ygC41Iz1ib3jVryEntQv+uRE6o7rflxBJ6ROXcXXzU7j
+ nDm34L0nTiSCF4EOrgbeyG18Ahi0bnpCqYpiQPxTcYMISya+aI7jA0JxrN+afTcr+GS5
+ 0bNw==
+X-Gm-Message-State: AOAM531/JlPp/UWzk3f3Ep2p/TWHLXIGvSIkapnUs25pLjnUdFYAfpfW
+ h3fRzbRLT9pUDhpWm8RkX/O6FLrKAAhl640Jw6hR
+X-Google-Smtp-Source: ABdhPJx9n8niQElJxbz6DJ61kucg+5EyeHTacZxxEMowuLTsGrUEdcGplrZrbAMZ1qlMPazwasGdO0i7lkLSij8v6Ig=
+X-Received: by 2002:a25:aa30:0:b0:64d:ebad:538d with SMTP id
+ s45-20020a25aa30000000b0064debad538dmr23509454ybi.603.1653316905947; Mon, 23
+ May 2022 07:41:45 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220511192921.2223629-1-heiko@sntech.de>
- <20220511192921.2223629-9-heiko@sntech.de>
-In-Reply-To: <20220511192921.2223629-9-heiko@sntech.de>
-From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Date: Mon, 23 May 2022 16:03:10 +0200
-Message-ID: <CA+zEjCuckDpweE9YEep26ZcX3xqh8QszXNq8BY-hPpQkQnRdjQ@mail.gmail.com>
-Subject: Re: [PATCH 08/12] riscv: Fix accessing pfn bits in PTEs for non-32bit
- variants
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- wefu@redhat.com, liush@allwinnertech.com, guoren@kernel.org, 
- atishp@atishpatra.org, anup@brainfault.org, drew@beagleboard.org, hch@lst.de, 
- arnd@arndb.de, wens@csie.org, maxime@cerno.tech, gfavor@ventanamicro.com, 
- andrea.mondelli@huawei.com, behrensj@mit.edu, xinhaoqu@huawei.com, 
- mick@ics.forth.gr, allen.baum@esperantotech.com, jscheid@ventanamicro.com, 
- rtrauben@gmail.com, samuel@sholland.org, cmuellner@linux.com, 
- philipp.tomsich@vrull.eu
+References: <20220522153543.2656-1-jszhang@kernel.org>
+ <20220522153543.2656-3-jszhang@kernel.org>
+In-Reply-To: <20220522153543.2656-3-jszhang@kernel.org>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 23 May 2022 07:41:35 -0700
+Message-ID: <CAOnJCU+2MgHaEOFK9_0Unb1GjnLP-Ge-B-C_Ndwj8aF2NxfpeA@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] riscv: switch has_fpu() to the unified static key
+ mechanism
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, 
+ "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220523_070336_392805_1FED3F0F 
-X-CRM114-Status: GOOD (  29.76  )
+X-CRM114-CacheID: sfid-20220523_074147_997486_1F30648F 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,183 +85,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
-
-On Wed, May 11, 2022 at 9:31 PM Heiko Stuebner <heiko@sntech.de> wrote:
+On Sun, May 22, 2022 at 8:44 AM Jisheng Zhang <jszhang@kernel.org> wrote:
 >
-> On rv32 the PFN part of PTEs is defined to use bits [xlen-1:10]
-> while on rv64 it is defined to use bits [53:10], leaving [63:54]
-> as reserved.
+> This is to use the unified static key mechanism instead of putting
+> static key related here and there.
 >
-> With upcoming optional extensions like svpbmt these previously
-> reserved bits will get used so simply right-shifting the PTE
-> to get the PFN won't be enough.
->
-> So introduce a _PAGE_PFN_MASK constant to mask the correct bits
-> for both rv32 and rv64 before shifting.
->
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> Reviewed-by: Philipp Tomsich <philipp.tomsich@vrull.eu>
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
 > ---
->  arch/riscv/include/asm/pgtable-32.h   |  8 ++++++++
->  arch/riscv/include/asm/pgtable-64.h   | 14 +++++++++++---
->  arch/riscv/include/asm/pgtable-bits.h |  6 ------
->  arch/riscv/include/asm/pgtable.h      |  8 +++++---
->  4 files changed, 24 insertions(+), 12 deletions(-)
+>  arch/riscv/include/asm/switch_to.h | 4 ++--
+>  arch/riscv/kernel/cpufeature.c     | 7 -------
+>  2 files changed, 2 insertions(+), 9 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-> index 5b2e79e5bfa5..e266a4fe7f43 100644
-> --- a/arch/riscv/include/asm/pgtable-32.h
-> +++ b/arch/riscv/include/asm/pgtable-32.h
-> @@ -7,6 +7,7 @@
->  #define _ASM_RISCV_PGTABLE_32_H
+> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
+> index 0a3f4f95c555..11463489fec6 100644
+> --- a/arch/riscv/include/asm/switch_to.h
+> +++ b/arch/riscv/include/asm/switch_to.h
+> @@ -8,6 +8,7 @@
 >
->  #include <asm-generic/pgtable-nopmd.h>
-> +#include <linux/bits.h>
->  #include <linux/const.h>
->
->  /* Size of region mapped by a page global directory */
-> @@ -16,4 +17,11 @@
->
->  #define MAX_POSSIBLE_PHYSMEM_BITS 34
->
-> +/*
-> + * rv32 PTE format:
-> + * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> + *       PFN      reserved for SW   D   A   G   U   X   W   R   V
-> + */
-> +#define _PAGE_PFN_MASK  GENMASK(31, 10)
-> +
->  #endif /* _ASM_RISCV_PGTABLE_32_H */
-> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> index 7e246e9f8d70..15f3ad5aee4f 100644
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -6,6 +6,7 @@
->  #ifndef _ASM_RISCV_PGTABLE_64_H
->  #define _ASM_RISCV_PGTABLE_64_H
->
-> +#include <linux/bits.h>
->  #include <linux/const.h>
->
->  extern bool pgtable_l4_enabled;
-> @@ -65,6 +66,13 @@ typedef struct {
->
->  #define PTRS_PER_PMD    (PAGE_SIZE / sizeof(pmd_t))
->
-> +/*
-> + * rv64 PTE format:
-> + * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> + *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
-> + */
-> +#define _PAGE_PFN_MASK  GENMASK(53, 10)
-> +
->  static inline int pud_present(pud_t pud)
->  {
->         return (pud_val(pud) & _PAGE_PRESENT);
-> @@ -108,12 +116,12 @@ static inline unsigned long _pud_pfn(pud_t pud)
->
->  static inline pmd_t *pud_pgtable(pud_t pud)
->  {
-> -       return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
-> +       return (pmd_t *)pfn_to_virt(__page_val_to_pfn(pud_val(pud)));
+>  #include <linux/jump_label.h>
+>  #include <linux/sched/task_stack.h>
+> +#include <asm/hwcap.h>
+>  #include <asm/processor.h>
+>  #include <asm/ptrace.h>
+>  #include <asm/csr.h>
+> @@ -56,10 +57,9 @@ static inline void __switch_to_aux(struct task_struct *prev,
+>         fstate_restore(next, task_pt_regs(next));
 >  }
 >
->  static inline struct page *pud_page(pud_t pud)
+> -extern struct static_key_false cpu_hwcap_fpu;
+>  static __always_inline bool has_fpu(void)
 >  {
-> -       return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
-> +       return pfn_to_page(__page_val_to_pfn(pud_val(pud)));
+> -       return static_branch_likely(&cpu_hwcap_fpu);
+> +       return static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_FPU]);
 >  }
->
->  #define mm_p4d_folded  mm_p4d_folded
-> @@ -143,7 +151,7 @@ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
->
->  static inline unsigned long _pmd_pfn(pmd_t pmd)
->  {
-> -       return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
-> +       return __page_val_to_pfn(pmd_val(pmd));
->  }
->
->  #define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
-> diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-> index a6b0c89824c2..e571fa954afc 100644
-> --- a/arch/riscv/include/asm/pgtable-bits.h
-> +++ b/arch/riscv/include/asm/pgtable-bits.h
-> @@ -6,12 +6,6 @@
->  #ifndef _ASM_RISCV_PGTABLE_BITS_H
->  #define _ASM_RISCV_PGTABLE_BITS_H
->
-> -/*
-> - * PTE format:
-> - * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> - *       PFN      reserved for SW   D   A   G   U   X   W   R   V
-> - */
-> -
->  #define _PAGE_ACCESSED_OFFSET 6
->
->  #define _PAGE_PRESENT   (1 << 0)
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 046b44225623..faba543e2b08 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -108,6 +108,8 @@
->  #include <asm/tlbflush.h>
->  #include <linux/mm_types.h>
->
-> +#define __page_val_to_pfn(_val)  (((_val) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT)
-> +
->  #ifdef CONFIG_64BIT
->  #include <asm/pgtable-64.h>
 >  #else
-> @@ -261,12 +263,12 @@ static inline unsigned long _pgd_pfn(pgd_t pgd)
+>  static __always_inline bool has_fpu(void) { return false; }
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 89f886b35357..0235391be84b 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -21,9 +21,6 @@ unsigned long elf_hwcap __read_mostly;
+>  /* Host ISA bitmap */
+>  static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
 >
->  static inline struct page *pmd_page(pmd_t pmd)
->  {
-> -       return pfn_to_page(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-> +       return pfn_to_page(__page_val_to_pfn(pmd_val(pmd)));
+> -#ifdef CONFIG_FPU
+> -__ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
+> -#endif
+>  __ro_after_init DEFINE_STATIC_KEY_ARRAY_FALSE(riscv_isa_ext_keys, RISCV_ISA_EXT_KEY_MAX);
+>  EXPORT_SYMBOL(riscv_isa_ext_keys);
+>
+> @@ -239,8 +236,4 @@ void __init riscv_fill_hwcap(void)
+>                 if (j >= 0)
+>                         static_branch_enable(&riscv_isa_ext_keys[j]);
+>         }
+> -#ifdef CONFIG_FPU
+> -       if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
+> -               static_branch_enable(&cpu_hwcap_fpu);
+> -#endif
 >  }
->
->  static inline unsigned long pmd_page_vaddr(pmd_t pmd)
->  {
-> -       return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
-> +       return (unsigned long)pfn_to_virt(__page_val_to_pfn(pmd_val(pmd)));
->  }
->
->  static inline pte_t pmd_pte(pmd_t pmd)
-> @@ -282,7 +284,7 @@ static inline pte_t pud_pte(pud_t pud)
->  /* Yields the page frame number (PFN) of a page table entry */
->  static inline unsigned long pte_pfn(pte_t pte)
->  {
-> -       return (pte_val(pte) >> _PAGE_PFN_SHIFT);
-> +       return __page_val_to_pfn(pte_val(pte));
->  }
->
->  #define pte_page(x)     pfn_to_page(pte_pfn(x))
 > --
-> 2.35.1
+> 2.34.1
 >
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-I had this weird bug and it took some time to figure out that _pgd_pfn
-is missing the "& _PAGE_PFN_MASK" here.
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 
-And then I grepped _PAGE_PFN_SHIFT and saw that _pud_pfn, p4d_pgtable,
-__pmd_to_phys and stage2_pte_page_vaddr are also missing this mask. I
-agree that we need something similar to your helper __page_val_to_pfn
-(even if __page prefix is a bit weird to me) but I think we should go
-further: forbid the use of _PAGE_PFN_SHIFT and contain this in a
-single function that should be used to access the pfn minus the upper
-bits, that would avoid future oversights.
-
-I can come up with something if needs be, up to you!
-
-Thanks,
-
-Alex
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
