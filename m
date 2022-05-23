@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E400C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 14:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819EDC433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 15:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8tenYQcfsIQJ7os2pEBGcP0AG14qn5vKhIle3LHNLRg=; b=P94L8r7712GW9e
-	Mydmib3Oc4GqzQa0EymYhkyJiw6rDPPvcYWu6Y99DJ5ewJ82A+KcQKm5IPKoCoe0En7jMNA6GLzcb
-	YOKt9bs8j2ELTAG+Q2ozQ38gvXtKZt5wRJv5Ybbcor01weK+309I3mql066JTH1cza2GGS4kAApd6
-	/oBM2oZhPJYv3cFIu30zknnwgwjNHtKFDJ1iN9yhKDioOOKYIy6bL+eeR+WidU3TIVB4T63ZYg7zh
-	CfCIr7Clb1niFcs3zhdDuYFSlfsgcT3SBRVJ02+AGLp9Qk1p1KBKPnyw8hhLd3DUCLZU5WF3P/pYs
-	elWSVqGDjXiEoHLgLvTw==;
+	List-Owner; bh=h30S7Dt0bBwMmZYK41X+BumZNc/o/G1Jr/q+iVrBTsU=; b=BX/cebeHhGLYup
+	GPFyY76PtpgtpOaX31tuoYVv5xbtb1CHlHdE4N7CzQuW8TDfqi8TnCwpYPwUo1YemNaLouDUO/2lq
+	VDmvgdWLf0w1Qg4sXPco58c5DIpCTn3c2PnzxCUOHoNBLmEUDW4YCcFK/oPQeIlVKGsCZQ4FmECai
+	gRQaFWv7yXNSin4LvyO+mu4YXn0TybXwNu+MWC3VbgtD5+YRzu6nxhq2cbUcL38kAZZyt42k9EBsk
+	bfLWvbwdH/HagG17q1wAc4eUPD2Ox1aM2sA+7SswLG6dmS7ZiOEp+cErAHfIFyhKm8zNfdkr9GtOI
+	CBdvbntkjcRxCE7XKIlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nt9GN-004lY5-R4; Mon, 23 May 2022 14:42:27 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1nt9fT-004r8K-2E; Mon, 23 May 2022 15:08:23 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nt9GF-004lW9-7Y
- for linux-riscv@lists.infradead.org; Mon, 23 May 2022 14:42:20 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id i187so23554289ybg.6
- for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 07:42:16 -0700 (PDT)
+ id 1nt9f8-004r24-Fg
+ for linux-riscv@lists.infradead.org; Mon, 23 May 2022 15:08:04 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id h14so21821052wrc.6
+ for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 08:08:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=atishpatra.org; s=google;
+ d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=n4mxW9+NVwxMICOw3jO9PrjfCAz9jdp3jsvfj227EPg=;
- b=EF0GWx8UNYIYNstiWdAmmkdSzkdJYO99EBTTmNPqf1cB1FdvlufPxll84nE5B5/zkz
- bT3Bo38zrmJLcsYVkqfwEwSTOG8x+vi535RCGyzCXP+B8sLqVxi9RU+EdXfPzXhncodb
- K13fFKDMMgegVRT60+A69ITgSsQ8Wy8FkzviA=
+ :cc; bh=Ys4XdVscv5VNlcHHCYpLwgVZ+X8P1XO1ISLGENGjWOQ=;
+ b=BjX2AvhJL3a02i3+eGBxYQWW6FMsRR6Yrw5epDlnSmm4uVdIfmQG/bBKQ5CXnKJehC
+ gtN1AFqiK55TTf7VuHoIvbUZl3DuWzeGARd+XPNlKkTp4JPYZlb6SRbke/i8x3o0uHHU
+ +2EXNbvx2pVc1LY/DNgXEFgUMDFGP3IqFiOKR82Q0bimMXPKgTkPBFqWW27RGtupMw00
+ mZs6wkMjwJc+2Xs5uLu1CMxKi3ocrm5uTL4olmG7jKmysExazGkgyfYQv/Fd70CQhiyf
+ /NrIXUtXCURW8JEtBCkUAC2dxCuo2XnWQaVXRQflZPuYCtUSqXaSlHrUaE77P6Zi/U3t
+ Kkkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=n4mxW9+NVwxMICOw3jO9PrjfCAz9jdp3jsvfj227EPg=;
- b=KzXLHGVaW4yNXFUq1mOiYE2QDrndTgid17e4q4AzuNL2iNyHNPEhMK89DeKZ5S1Vqa
- rW7emYbDmtelnaW38j3jbANol3vYc87FYOpbNGsz7C7FltS87UquyyMZTIcYZn7y5x50
- fc4yUrXFrXrupS0xMHwrxHPm35Pj2eNkMkfe/SvyMHr2HUsAo2ibKOKlqL0InPJs/cal
- gFHTKc+GYD1HRWcqYRH/r7fI1fNDlv896LH6Lx8nMwRjD2WCtAavF+nd1pcuTyT+NXFk
- /5UxFfIc7NvB/VgHILjfstsnkFcAiIOe0Jv28NgVRzH3XIWXChULxc9U7LwvY4NC/Sqv
- 0f7A==
-X-Gm-Message-State: AOAM532Ok8T3B2I2HnjwvJLvQR0HQm44OGLyhv3LmUDJQy2dMNjaQtUg
- Sb2sso92gqHsJCZO/p3m3MkF3dPKBQ/FxaAjaVjk
-X-Google-Smtp-Source: ABdhPJzPyzEnfurzkCwkKWDtQQF4jnYD50VKSEntRgx7xMi7Pjar3xLLr31w71++FsTvo2uChRIhtO6raAx2YYhcoEQ=
-X-Received: by 2002:a25:be82:0:b0:64a:20f1:94fc with SMTP id
- i2-20020a25be82000000b0064a20f194fcmr20826851ybk.538.1653316936001; Mon, 23
- May 2022 07:42:16 -0700 (PDT)
+ bh=Ys4XdVscv5VNlcHHCYpLwgVZ+X8P1XO1ISLGENGjWOQ=;
+ b=U/1Szoy+rw0K0GZ23VPHzcgLLOeSZrx2rNque/9GyYtV/CtHJPszP4VFVRkdgDjYFY
+ YPU9fGjoDbKvWamJbTnrsNaooKRtpxASSOzI2KMNHb3sGrSgLI8d1GObUtMPTIqOBTHp
+ /+NFFR2o/HUV/4tBozOJGgE//HmdMpwq6lOQs3Huogmrq5cYX12l5NNU5d3MKDSP/pHK
+ VqYRBU6eMqgI09qp1escO44SYs6iLp5fbovcYaeuuO3fYZvmaJNPQMkGF+XKwJk/iCxe
+ qjUCtgQVKcPBGMoGDYkm7KJqb2WAUltCKXrjU63GTzoAXwI/vIVlrt/wMmWg7Iu8CrEm
+ MOyA==
+X-Gm-Message-State: AOAM533yHmXVe1mP41/mO2t8w1TVOxv2k1dEtpJKRA8+yOmHFpFK3Fpv
+ 005uzmBIzhZmC2Ufex7e5wvZ7N5yicnhN99iQLCv4Q==
+X-Google-Smtp-Source: ABdhPJwKTbFlVMufZx9p5Z+x6LafUNHGnWotQYTTznqHO3KKhRIyZY9h5NSg25siQNu+a6YhKz9oUQE0cz4QQh+rVlo=
+X-Received: by 2002:a5d:6c6b:0:b0:1ea:77ea:dde8 with SMTP id
+ r11-20020a5d6c6b000000b001ea77eadde8mr19522626wrz.690.1653318479248; Mon, 23
+ May 2022 08:07:59 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220522153543.2656-1-jszhang@kernel.org>
  <20220522153543.2656-2-jszhang@kernel.org>
 In-Reply-To: <20220522153543.2656-2-jszhang@kernel.org>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 23 May 2022 07:42:04 -0700
-Message-ID: <CAOnJCUJUBZ=G+nhoz06aNjSLsWQDcePnCSJiS4z4wg-ncY5cRw@mail.gmail.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 23 May 2022 20:37:47 +0530
+Message-ID: <CAAhSdy0Z7fqfNd7PGPmbRum=Yiu8ziRbjefF3NHeqihSKSS8SQ@mail.gmail.com>
 Subject: Re: [PATCH v2 1/2] riscv: introduce unified static key mechanism for
  ISA extensions
 To: Jisheng Zhang <jszhang@kernel.org>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+ Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, 
  linux-riscv <linux-riscv@lists.infradead.org>, 
  "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220523_074219_308938_A57DFF3A 
+X-CRM114-CacheID: sfid-20220523_080802_799898_E2F32D5E 
 X-CRM114-Status: GOOD (  28.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,7 +88,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 22, 2022 at 8:44 AM Jisheng Zhang <jszhang@kernel.org> wrote:
+On Sun, May 22, 2022 at 9:14 PM Jisheng Zhang <jszhang@kernel.org> wrote:
 >
 > Currently, riscv has several extensions which may not be supported on
 > all riscv platforms, for example, FPU and so on. To support unified
@@ -100,6 +103,14 @@ On Sun, May 22, 2022 at 8:44 AM Jisheng Zhang <jszhang@kernel.org> wrote:
 > and enabling them when detected.
 >
 > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+
+Looks good to me.
+
+Reviewed-by: Anup Patel <anup@brainfault.org>
+
+Regards,
+Anup
+
 > ---
 >  arch/riscv/include/asm/hwcap.h | 25 +++++++++++++++++++++++++
 >  arch/riscv/kernel/cpufeature.c |  7 +++++++
@@ -183,12 +194,6 @@ On Sun, May 22, 2022 at 8:44 AM Jisheng Zhang <jszhang@kernel.org> wrote:
 > --
 > 2.34.1
 >
-
-
-Reviewed-by: Atish Patra <atishp@rivosinc.com>
--- 
-Regards,
-Atish
 
 _______________________________________________
 linux-riscv mailing list
