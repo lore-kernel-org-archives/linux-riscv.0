@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1E25C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 15:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17CA2C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 15:19:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vx3Wna3ecQy9Qmj/A7WcQ2nicmM/gbK42UaDkvG8mQg=; b=0O/KSEAAtkod1V
-	jIgnyxoTi+tEwBvauxtdcSOsY0puzXNGEJp4gbvV7Psyd1qgbCS6tYdwVgjgyNqRW5v0NQ5s8Dgxz
-	pyQWL5HMwDz74vbSy3zQuQIKeCjO9HBJ1Ofr1JXDU2599V7O8w+grwl7YXoWm3cZAO83l6eaqpfez
-	33KsHlGjiw4ossodUy281JB2NU3vaiguSiyk4uvgtaeoGRUQsEYuZCIYKZpUB1i7mDHzjVPcmrZdy
-	NWlxXGq6lqqPJ+y2l1+53f3htmfwy69n9FyBmEmIhXZm/iE4w4OqK9coUwO6R+IneR4n3TunzDmpP
-	4nZY56GuUKdk8aBsksXg==;
+	List-Owner; bh=zk3sfednc+OWtKPl+tPKaOiD72zqXE3g8qdtjVwd+zA=; b=1P2rKgTXcK7jcL
+	ZIb4YN7Uds8KvPOLr6S4G4dNcdIPg4YZr7MK8cpVEQbqajYxGbXveu8idNYjOtZovRXaXwk9DnIbs
+	W4+cjkXOdx0+6zuDM24z+PpB9Mi0RNQtsUEezmLJCXeD96AgIg4lLDzOovmcq0zLxw4SEZGjpRM1n
+	+PCT2dxt45g70sho+lqN+YtYYi7Y/vcsD+Ir/LQK1LlK2wBVNVtHNpOT26F+4Kk9AkL3hyC6rMdMV
+	F9oLpk+V7zkFmjZh1t278aSTjMrY7GVlmm2dQRCx3hlu9aQd9Y/fqa0ytSPyUwZbnTeQ9T/HCYErK
+	xTo2OKqLilZ653tWYx8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nt9fg-004rEr-Ev; Mon, 23 May 2022 15:08:36 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1nt9q6-004thC-FC; Mon, 23 May 2022 15:19:22 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nt9fd-004r24-96
- for linux-riscv@lists.infradead.org; Mon, 23 May 2022 15:08:34 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id h14so21821052wrc.6
- for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 08:08:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=ItmOvQlJYrSM4iWYsCl26IX50qJOEZAdJld7IVn+tno=;
- b=LsRuUDeOP1ovU54Dh18ebFB16BExOoHwxIDcfdVVL4ZqEZ7P0dV/akxSzJQw6+0ysJ
- xICyWob4dPqfM1q/NWHMH9dsdjh2CpYDFJgjnKBDjLtDP5M+lhfLt2NJp+xxyhu5QWaO
- tdalyOStVL89wsfoE9JMIW3jTf4IQaPurgIH1M92jeIRBolhvDSCBYPRiOf2b0qvtpp2
- lzJ4AMiNEjSWfe76/LxKcXViUjCgcKoZuTrm3yLLGT9JAysy42C/xz04UrnnRxMqTlTD
- 6Z2He18cfJq1KfIVt8I3Y7xrbKp3LpIohcFdtBUiyTSYIvJJ3VQQ7XFtP5ASnmX169bj
- RW5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=ItmOvQlJYrSM4iWYsCl26IX50qJOEZAdJld7IVn+tno=;
- b=oFabJUgj7IENQeYaCjmhEjlqLWRtZYO6pNSyXBnybmOfQLKQrpr2edPXw80qpyx4WY
- ep/kTgeOwMh65gG0BB4Txmrl6DHoeb7KvZHb9828nUI2RdBZq2EwvwJ8rtR9hY9RoF5a
- ExybbL7EeTDs8n/rzAe+vz/aVyJV9zGbH14CNuFnKzxolIyyq1seb4MfyhY/vGL5Ei4u
- JtdpcD/0HJ3e+UBP97Nak1cjiKmtF8XxjodY5usAp1SPPPFzXJ0DUAhRkhhujYaFqeqz
- 9RUmYkdYavCq3S+SPzZMDj/gL+YODgX+UlbFH+887ZLy1rQTRiRHkcuPPTKvSXX4u0x5
- MecA==
-X-Gm-Message-State: AOAM530sDhcH8UM8EoCo4uyHzrXT1yRH/b6JWZixzqDOscZ3Lj605V9q
- 0LB4lGMRBeKY+9t4anPGRDzDeAXCtsmK8AfosPSESA==
-X-Google-Smtp-Source: ABdhPJx1e94Ti+/mNHRd3xRYlgW0W6+8SRz7GMAuSCGBs5ejjusMofOeZunmCSg3wni9uefjakk2/CCrLVm8hNTcLlc=
-X-Received: by 2002:a05:6000:1f18:b0:20f:e61b:520e with SMTP id
- bv24-20020a0560001f1800b0020fe61b520emr2900622wrb.214.1653318512593; Mon, 23
- May 2022 08:08:32 -0700 (PDT)
+ id 1nt9ps-004teb-Qz; Mon, 23 May 2022 15:19:12 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by sin.source.kernel.org (Postfix) with ESMTPS id 2BA64CE13C7;
+ Mon, 23 May 2022 15:19:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A1D0C34118;
+ Mon, 23 May 2022 15:19:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1653319144;
+ bh=4fHAe4j+ojBMcjH5GhxAYVhFuKYrezHCFPgRSz6rx+w=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=i9oyXJLfyAFAPe8qWXJl7MAvnMXZcCcjmuACUabG9bdEnboEwJq2vTsc2PZsoP9wQ
+ wAYzS6o2zLlGbtGZTIf1b5BzN6tqR559SEa6+fH4IqOGCL8aY5v5UiMnLcQiJvScd8
+ 8oDgjWbWvNHK6U0x4TtPQ5FPqtLwnrptY8q3I0uxMhgScUmIZWIXFOVUj5ZJsT/x87
+ C70+RGdRWyQGDDWkc6Lan9HUKhIlG7ixnK95isN/Yy+McxnQq+8+XqiOuYkgyTIkHV
+ Z6uNCJfP4QaVVPwTDlWMj+NvFXuq0K/8wB4Hyc5nPiiFqzMXuVjpAgWSkcmHSuT2zF
+ MYlIRpAZ1RoZQ==
+Received: by mail-vs1-f51.google.com with SMTP id m2so15365412vsr.8;
+ Mon, 23 May 2022 08:19:04 -0700 (PDT)
+X-Gm-Message-State: AOAM5317jrjw5lP1YhoOoG3O1gaCco+bvyNSSMWUsJoCKA2MZzrwq4K+
+ kqDS6MMdFGzyMuZW5/Z2OazMSF76Rp24uEjXxXA=
+X-Google-Smtp-Source: ABdhPJz3x4FnU1xJIN5HGyrJz5hbsOQdssNQxOwdNEDN3TkyrDbRot8YxmpskB5AUverVzBjaEAbLsuwnBkdE/XlkDc=
+X-Received: by 2002:a05:6102:390b:b0:32d:5fc3:bd2c with SMTP id
+ e11-20020a056102390b00b0032d5fc3bd2cmr8220616vsu.51.1653319143526; Mon, 23
+ May 2022 08:19:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220522153543.2656-1-jszhang@kernel.org>
- <20220522153543.2656-3-jszhang@kernel.org>
-In-Reply-To: <20220522153543.2656-3-jszhang@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 23 May 2022 20:38:20 +0530
-Message-ID: <CAAhSdy0nTPbEa21-xttic2CfsMBa6BBEfa+y2MgT46aCPjQTsQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] riscv: switch has_fpu() to the unified static key
- mechanism
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+References: <20220322144003.2357128-1-guoren@kernel.org>
+ <20220322144003.2357128-21-guoren@kernel.org>
+ <20220523054550.GA1511899@roeck-us.net>
+In-Reply-To: <20220523054550.GA1511899@roeck-us.net>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 23 May 2022 23:18:52 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTSCcYif4DEpvrJ6d02no3CU_viyE+OkhhjCV3VsGmcT5Q@mail.gmail.com>
+Message-ID: <CAJF2gTSCcYif4DEpvrJ6d02no3CU_viyE+OkhhjCV3VsGmcT5Q@mail.gmail.com>
+Subject: Re: [PATCH V9 20/20] riscv: compat: Add COMPAT Kbuild skeletal support
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Christoph Hellwig <hch@lst.de>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ linux-s390 <linux-s390@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Parisc List <linux-parisc@vger.kernel.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "the arch/x86 maintainers" <x86@kernel.org>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220523_080833_385489_9CE873BD 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20220523_081910_348337_71719324 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,75 +93,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 22, 2022 at 9:14 PM Jisheng Zhang <jszhang@kernel.org> wrote:
+I tested Palmer's branch, it's okay:
+8810d7feee5a (HEAD -> for-next, palmer/for-next) riscv: Don't output a
+bogus mmu-type on a no MMU kernel
+
+I also tested linux-next, it's okay:
+
+rv64_rootfs:
+# uname -a
+Linux buildroot 5.18.0-next-20220523 #7 SMP Mon May 23 11:15:17 EDT
+2022 riscv64 GNU/Linux
+#
+#
+#
+# ls /lib
+ld-uClibc-1.0.39.so  libatomic.so.1       libgcc_s.so
+ld-uClibc.so.0       libatomic.so.1.2.0   libgcc_s.so.1
+ld-uClibc.so.1       libc.so.0            libuClibc-1.0.39.so
+libatomic.so         libc.so.1            modules
+
+rv32_rootfs:
+buildroot login: root
+# uname -a
+Linux buildroot 5.18.0-next-20220523 #7 SMP Mon May 23 11:15:17 EDT
+2022 riscv64 GNU/Linux
+# ls /lib
+ld-linux-riscv32-ilp32d.so.1  libm.so.6
+libanl.so.1                   libnss_dns.so.2
+libatomic.so                  libnss_files.so.2
+libatomic.so.1                libpthread.so.0
+libatomic.so.1.2.0            libresolv.so.2
+libc.so.6                     librt.so.1
+libcrypt.so.1                 libthread_db.so.1
+libdl.so.2                    libutil.so.1
+libgcc_s.so                   modules
+libgcc_s.so.1
+
+Here is my qemu version:
+commit 19f13a92cef8405052e0f73d5289f9e15474dad3 (HEAD ->
+riscv-to-apply.next, alistair/riscv-to-apply.next)
+Author: Tsukasa OI <research_trasio@irq.a4lg.com>
+Date:   Sun May 15 11:56:11 2022 +0900
+
+    target/riscv: Move/refactor ISA extension checks
+
+    We should separate "check" and "configure" steps as possible.
+    This commit separates both steps except vector/Zfinx-related checks.
+
+    Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
+    Reviewed-by: Alistair Francis <alistair.francis@wdc.com>
+    Message-Id:
+<c3145fa37a529484cf3047c8cb9841e9effad4b0.1652583332.git.research_trasio@irq.a4lg.com>
+    Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
+
+On Mon, May 23, 2022 at 1:45 PM Guenter Roeck <linux@roeck-us.net> wrote:
 >
-> This is to use the unified static key mechanism instead of putting
-> static key related here and there.
+> On Tue, Mar 22, 2022 at 10:40:03PM +0800, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > Adds initial skeletal COMPAT Kbuild (Running 32bit U-mode on
+> > 64bit S-mode) support.
+> >  - Setup kconfig & dummy functions for compiling.
+> >  - Implement compat_start_thread by the way.
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+> > Tested-by: Heiko Stuebner <heiko@sntech.de>
+> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
 >
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-
-Looks good to me.
-
-Reviewed-by: Anup Patel <anup@brainfault.org>
-
-Regards,
-Anup
-
+> With this patch in linux-next, all my riscv64 emulations crash.
+>
+> [   11.600082] Run /sbin/init as init process
+> [   11.628561] init[1]: unhandled signal 11 code 0x1 at 0x0000000000000000 in libc.so[ffffff8ad39000+a4000]
+> [   11.629398] CPU: 0 PID: 1 Comm: init Not tainted 5.18.0-rc7-next-20220520 #1
+> [   11.629462] Hardware name: riscv-virtio,qemu (DT)
+> [   11.629546] epc : 00ffffff8ada1100 ra : 00ffffff8ada13c8 sp : 00ffffffc58199f0
+> [   11.629586]  gp : 00ffffff8ad39000 tp : 00ffffff8ade0998 t0 : ffffffffffffffff
+> [   11.629598]  t1 : 00ffffffc5819fd0 t2 : 0000000000000000 s0 : 00ffffff8ade0cc0
+> [   11.629610]  s1 : 00ffffff8ade0cc0 a0 : 0000000000000000 a1 : 00ffffffc5819a00
+> [   11.629622]  a2 : 0000000000000001 a3 : 000000000000001e a4 : 00ffffffc5819b00
+> [   11.629634]  a5 : 00ffffffc5819b00 a6 : 0000000000000000 a7 : 0000000000000000
+> [   11.629645]  s2 : 00ffffff8ade0ac8 s3 : 00ffffff8ade0ec8 s4 : 00ffffff8ade0728
+> [   11.629656]  s5 : 00ffffff8ade0a90 s6 : 0000000000000000 s7 : 00ffffffc5819e40
+> [   11.629667]  s8 : 00ffffff8ade0ca0 s9 : 00ffffff8addba50 s10: 0000000000000000
+> [   11.629678]  s11: 0000000000000000 t3 : 0000000000000002 t4 : 0000000000000001
+> [   11.629688]  t5 : 0000000000020000 t6 : ffffffffffffffff
+> [   11.629699] status: 0000000000004020 badaddr: 0000000000000000 cause: 000000000000000d
+> [   11.633421] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+> [   11.633664] CPU: 0 PID: 1 Comm: init Not tainted 5.18.0-rc7-next-20220520 #1
+> [   11.633784] Hardware name: riscv-virtio,qemu (DT)
+> [   11.633881] Call Trace:
+> [   11.633960] [<ffffffff80005e72>] dump_backtrace+0x1c/0x24
+> [   11.634162] [<ffffffff809aa9ec>] show_stack+0x2c/0x38
+> [   11.634274] [<ffffffff809b8482>] dump_stack_lvl+0x60/0x8e
+> [   11.634386] [<ffffffff809b84c4>] dump_stack+0x14/0x1c
+> [   11.634491] [<ffffffff809aaca0>] panic+0x116/0x2e2
+> [   11.634596] [<ffffffff80015540>] do_exit+0x7ce/0x7d4
+> [   11.634707] [<ffffffff80015666>] do_group_exit+0x24/0x7c
+> [   11.634817] [<ffffffff80022294>] get_signal+0x7ee/0x830
+> [   11.634924] [<ffffffff800051c0>] do_notify_resume+0x6c/0x41c
+> [   11.635037] [<ffffffff80003ad4>] ret_from_exception+0x0/0x10
+>
+> Guenter
+>
 > ---
->  arch/riscv/include/asm/switch_to.h | 4 ++--
->  arch/riscv/kernel/cpufeature.c     | 7 -------
->  2 files changed, 2 insertions(+), 9 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/switch_to.h b/arch/riscv/include/asm/switch_to.h
-> index 0a3f4f95c555..11463489fec6 100644
-> --- a/arch/riscv/include/asm/switch_to.h
-> +++ b/arch/riscv/include/asm/switch_to.h
-> @@ -8,6 +8,7 @@
->
->  #include <linux/jump_label.h>
->  #include <linux/sched/task_stack.h>
-> +#include <asm/hwcap.h>
->  #include <asm/processor.h>
->  #include <asm/ptrace.h>
->  #include <asm/csr.h>
-> @@ -56,10 +57,9 @@ static inline void __switch_to_aux(struct task_struct *prev,
->         fstate_restore(next, task_pt_regs(next));
->  }
->
-> -extern struct static_key_false cpu_hwcap_fpu;
->  static __always_inline bool has_fpu(void)
->  {
-> -       return static_branch_likely(&cpu_hwcap_fpu);
-> +       return static_branch_likely(&riscv_isa_ext_keys[RISCV_ISA_EXT_KEY_FPU]);
->  }
->  #else
->  static __always_inline bool has_fpu(void) { return false; }
-> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> index 89f886b35357..0235391be84b 100644
-> --- a/arch/riscv/kernel/cpufeature.c
-> +++ b/arch/riscv/kernel/cpufeature.c
-> @@ -21,9 +21,6 @@ unsigned long elf_hwcap __read_mostly;
->  /* Host ISA bitmap */
->  static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
->
-> -#ifdef CONFIG_FPU
-> -__ro_after_init DEFINE_STATIC_KEY_FALSE(cpu_hwcap_fpu);
-> -#endif
->  __ro_after_init DEFINE_STATIC_KEY_ARRAY_FALSE(riscv_isa_ext_keys, RISCV_ISA_EXT_KEY_MAX);
->  EXPORT_SYMBOL(riscv_isa_ext_keys);
->
-> @@ -239,8 +236,4 @@ void __init riscv_fill_hwcap(void)
->                 if (j >= 0)
->                         static_branch_enable(&riscv_isa_ext_keys[j]);
->         }
-> -#ifdef CONFIG_FPU
-> -       if (elf_hwcap & (COMPAT_HWCAP_ISA_F | COMPAT_HWCAP_ISA_D))
-> -               static_branch_enable(&cpu_hwcap_fpu);
-> -#endif
->  }
-> --
-> 2.34.1
->
+> # bad: [18ecd30af1a8402c162cca1bd58771c0e5be7815] Add linux-next specific files for 20220520
+> # good: [42226c989789d8da4af1de0c31070c96726d990c] Linux 5.18-rc7
+> git bisect start 'HEAD' 'v5.18-rc7'
+> # bad: [f9b63740b666dd9887eb0282d21b5f65bb0cadd0] Merge branch 'master' of git://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
+> git bisect bad f9b63740b666dd9887eb0282d21b5f65bb0cadd0
+> # bad: [7db97132097c5973ff77466d0ee681650af653de] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/cel/linux
+> git bisect bad 7db97132097c5973ff77466d0ee681650af653de
+> # good: [2b7d17d4b7c1ff40f58b0d32be40fc0bb6c582fb] soc: document merges
+> git bisect good 2b7d17d4b7c1ff40f58b0d32be40fc0bb6c582fb
+> # good: [69c9668f853fdd409bb8abbb37d615785510b29a] Merge branch 'clk-next' of git://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git
+> git bisect good 69c9668f853fdd409bb8abbb37d615785510b29a
+> # bad: [1577f290aa0d4c5b29c03c46ef52e4952a21bfbb] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/s390/linux.git
+> git bisect bad 1577f290aa0d4c5b29c03c46ef52e4952a21bfbb
+> # good: [34f0971f8ca73d7e5502b4cf299788a9402120f7] powerpc/powernv/flash: Check OPAL flash calls exist before using
+> git bisect good 34f0971f8ca73d7e5502b4cf299788a9402120f7
+> # good: [0349d7dfc70a26b3facd8ca97de34980d4b60954] Merge branch 'mips-next' of git://git.kernel.org/pub/scm/linux/kernel/git/mips/linux.git
+> git bisect good 0349d7dfc70a26b3facd8ca97de34980d4b60954
+> # bad: [20bfb54d3b121699674c17a854c5ebc7a8f97d81] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+> git bisect bad 20bfb54d3b121699674c17a854c5ebc7a8f97d81
+> # bad: [9be8459298eadb39b9fe9974b890239e9c123107] riscv: compat: Add COMPAT Kbuild skeletal support
+> git bisect bad 9be8459298eadb39b9fe9974b890239e9c123107
+> # good: [01abdfeac81b5f56062d0a78f2cdc805db937a75] riscv: compat: Support TASK_SIZE for compat mode
+> git bisect good 01abdfeac81b5f56062d0a78f2cdc805db937a75
+> # good: [f4b395e6f1a588ed6c9a30474e58cf6b27b65783] riscv: compat: Add hw capability check for elf
+> git bisect good f4b395e6f1a588ed6c9a30474e58cf6b27b65783
+> # good: [3092eb45637573c5e435fbf5eaf9516316e5f9c6] riscv: compat: vdso: Add setup additional pages implementation
+> git bisect good 3092eb45637573c5e435fbf5eaf9516316e5f9c6
+> # good: [4608c159594fb40a5101357d4f614fdde9ce1fdb] riscv: compat: ptrace: Add compat_arch_ptrace implement
+> git bisect good 4608c159594fb40a5101357d4f614fdde9ce1fdb
+> # first bad commit: [9be8459298eadb39b9fe9974b890239e9c123107] riscv: compat: Add COMPAT Kbuild skeletal support
+
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
