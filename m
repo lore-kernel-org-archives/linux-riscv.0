@@ -4,87 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DE14C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 08:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A186C433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 09:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YBZty1keyAzSG1mykKz2FqvyYD6jF0De6pdb/DF6RoI=; b=xn6rXUfirTATsR
-	AZ2xGf5t7VSqGOnilSzD3BPBmopWFF4OgqYFGaO6+mySNICjyjk5QyXgirjd55TchMQuGKCOnhMUd
-	XYVszcZaGE0bADBbaz8EilwdhDZBmhEkSsPwwYIqAGOAYNRnfLPJy6EWWd9VqLN7YyQ7EN8Co8S0V
-	9HUreavZ8G41yoM4OZnQN7ayZymkIeGGJwWU/eo3QzR0l7ZbxERY0xY/Il5uu0gTnroGB5b2hfGkI
-	IJUGNLAXLgi7qD0+/g6HtfQoyhdEe32XHAh0ZYiTblaLrFQhtZHudcZDROCjzGx94vfya9otyCtoD
-	7WfDTv3wPSp+rOmWcX0Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LkfsurD55L3z4d5OTlAKXBD27lbkZLWlXAP5YlUl4jg=; b=h+OUR0mi2WLxIV
+	+vO6OnvN7VS5k0BKxEpfYGY0ABEGygCkBikt5umtLPA1cQo/5ZBmZw3S+FSxcRUrz/6l1LqslJEP8
+	88Y2AQmI1KORIPRtLLAHR4vo7aIvMgB7LlxJESTole8P0+QVwg+2aFEymtCSk1t6DHUyGcyOKOFai
+	uH2aQInvYnSFuzmZtg1w+qgWzv/0VYCecHwfcAYYv5in4icHc0JPQMtCGLsRbtX7whVNIPKgsPIKy
+	taagbrByweGVAlSywcJcsmENhvuw4vTloHGJysU8UkoEXazCBbVHC8DrQgru68hGKIktNOWpIvNMo
+	CSy6j4XgYanoo1NCCIhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nt3gu-002Xgd-VO; Mon, 23 May 2022 08:45:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1nt43n-002icG-C7; Mon, 23 May 2022 09:09:07 +0000
+Received: from mail.tireplot.pl ([46.183.184.141])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nt33U-002H3a-39
- for linux-riscv@bombadil.infradead.org; Mon, 23 May 2022 08:04:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
- Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
- Content-Transfer-Encoding:Content-ID:Content-Description;
- bh=OpzbHgH536qvvso8nHRdp83iD1CHXw2nkTEr7wls1Q0=; b=XbOS2/hIJL65n6DAxwOwBa/Yx6
- 7hHii8IWjRXtBzpz8CD6aXK6DmgSLe4PRfWZMQ5UFqzJ71iCfki5zlwmfTudi+wXbsPTNQD3/+yQx
- azhoOrzTI9OdqXaUfLjYScOGI3UheFAFe7NhtayopHyNJqDH/B0/13NMNd1G5FWCWVMp8CRXWn9ZY
- QvmKvbypmUcsoxPmKz/NlJq90zGPYsNDWZGBDhI63MuO+rpJ1fTMl+rId2bwL+U79e2ZiLfwFemi/
- kTgucf6bUCNOdJEREYhtTkswRg8wes+CO6iVWjhDdUdCpHie/BbkTYHGkMv9IsP1ocRoIB3wpxm/Y
- xixRdU1A==;
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
- by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nsrzG-000cCS-Nc
- for linux-riscv@lists.infradead.org; Sun, 22 May 2022 20:15:42 +0000
-Received: by mail-ej1-x636.google.com with SMTP id f9so24917934ejc.0
- for <linux-riscv@lists.infradead.org>; Sun, 22 May 2022 13:15:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=bgdev-pl.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=OpzbHgH536qvvso8nHRdp83iD1CHXw2nkTEr7wls1Q0=;
- b=6nGbt3awrMH1pvnqrHq1mc3E5sd2FK6KeJ/MlsdnrBXjODFn0wt+SA7+RQSAQp+WA3
- r8s8xHLgnmB5ghMBS7/6tEYcS5FEPfQD8VqxMQF0DT7/obAYsVUhXiI/GcMwZ6T20GZi
- LNb11KDw3RUakcFtmz5EEjh+q6LxaXxgtrwP8r9THvlrABBF+VM8sypIhiD7hshE5n6Y
- GL/mrX/+vbB4cmANUE5Ll8f7n8xqSeDBo9kjbktGZimj102mH2uXxFUuxHyp41alJsXf
- +t6oaLNU6xgXJF2e3JSzju0N1JHwRkOBzeLU5G1iv3eABFTGFAT3Xw4YXkS4WNSStGuV
- ugLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=OpzbHgH536qvvso8nHRdp83iD1CHXw2nkTEr7wls1Q0=;
- b=OzS1x1NAMB/0HcjTuaD1Kalw2HH0AImX+wH2MmXkwcaL3lsBldWp9vY34AUgIEBZyF
- dGYaxNHwzN0LYToVbh1AA34O+h+ulgMbkeRXYZQlrQtwbX0+OSJKdNvHpyR17rtclJ93
- yrBJbZnyWl4THZ8RiUZ+mPrgG6jNqS5a2/lztSNvvSllyv5sAYIr1FHkZxijtq1p5igr
- hjlbHUf4Xvm9JzVIUabtAL0mHZPtfcUuaNBntENPFM6oowxQ5MSG1WlXNE4S+1c+K1rJ
- jKgYRgNedOOC0/XEiBNdJlubGAov4VOadnHyV7uw+DXpgtNt613miFKKZIh7blSk9Rn1
- qehw==
-X-Gm-Message-State: AOAM531eSeaTFwGfLlNIbR9RzOrBUMYER9gOCypwLQW9CjQzytABFLkR
- 4e/kttqFbOaBFF8HJATG/iaPT/TMXC4VcFIgZPGXiw==
-X-Google-Smtp-Source: ABdhPJxYuVG1TaflrhFCdv4pTHDcixd6ZXCps1dkNigoWccxm378qOu6FSEC8rD33asST84y8ugHUZ1ip+fPOWHHT+A=
-X-Received: by 2002:a17:907:c28:b0:6f4:2a80:f355 with SMTP id
- ga40-20020a1709070c2800b006f42a80f355mr16517780ejc.101.1653250416319; Sun, 22
- May 2022 13:13:36 -0700 (PDT)
+ id 1nt3FL-002Mck-Op
+ for linux-riscv@lists.infradead.org; Mon, 23 May 2022 08:17:01 +0000
+Received: by mail.tireplot.pl (Postfix, from userid 1001)
+ id D8DDB476F6; Mon, 23 May 2022 10:10:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=tireplot.pl; s=mail;
+ t=1653293452; bh=Rfzvu4C+yJ1wyuJ4V+t/udh6cgYEQVnY6S5ltO4wdNg=;
+ h=Date:From:To:Subject:From;
+ b=xyDWsVEZXg7S1qZd5FORa9NtXC88+v745khDOlzrFklCbxcPuY2aEbWBz+5Brj82x
+ 8DkLDHO/ATizCo6qFOpsfvMAtE/G3m+rh1vqtpeqAhUYjPt21rJbK+Gg4R/F/Mr4vS
+ dJABdIrBmlFYs+BSqRFy+A0Sij2D4IvyHDrx/jDeUlMMioO/K1r/LHCpom37kwopP6
+ q8o3QH6bw4mDbP7wPGBnOxaeeK6JZbXc8iadYhoHHpOg6tGp/QECbDfBobuQvVqyn/
+ d4MrSJvl/ZVcCF1b3ybGLsFROvybeIkgx1U+Ud6alSfRLeEXldX+t4xV9eYQvYEO4G
+ Bls1i96jG2/HQ==
+Received: by mail.tireplot.pl for <linux-riscv@lists.infradead.org>;
+ Mon, 23 May 2022 08:10:24 GMT
+Message-ID: <20220523084501-0.1.2k.fz92.0.ekdrq721hy@tireplot.pl>
+Date: Mon, 23 May 2022 08:10:24 GMT
+From: =?UTF-8?Q?"Arkadiusz_Soko=C5=82owski"?=
+ <arkadiusz.sokolowski@tireplot.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: Koszty instalacji fotowoltaicznej
+X-Mailer: mail.tireplot.pl
 MIME-Version: 1.0
-References: <01f7a990654697ca7ec8b2d0025f41403462c8d9.1653042121.git.geert+renesas@glider.be>
-In-Reply-To: <01f7a990654697ca7ec8b2d0025f41403462c8d9.1653042121.git.geert+renesas@glider.be>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Sun, 22 May 2022 22:13:25 +0200
-Message-ID: <CAMRc=Mdf_PHyC3doO4KfzeTJz+WT2VZE6pxADOxz3_Sy9jPGqA@mail.gmail.com>
-Subject: Re: [PATCH v2] gpio: dwapb: Make the irqchip immutable
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Hoan Tran <hoan@os.amperecomputing.com>,
- Serge Semin <fancer.lancer@gmail.com>, 
- Linus Walleij <linus.walleij@linaro.org>,
- Damien Le Moal <damien.lemoal@wdc.com>, Marc Zyngier <maz@kernel.org>,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
- linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220522_211540_908038_4759B272 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20220523_011700_020548_C29092BF 
+X-CRM114-Status: UNSURE (   0.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,40 +61,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 20, 2022 at 12:23 PM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
->
-> Commit 6c846d026d49 ("gpio: Don't fiddle with irqchips marked as
-> immutable") added a warning to indicate if the gpiolib is altering the
-> internals of irqchips.  Following this change the following warning is
-> now observed for the dwapb driver:
->
->     gpio gpiochip0: (50200000.gpio): not an immutable chip, please consider fixing it!
->
-> Fix this by making the irqchip in the dwapb driver immutable.
->
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> Against gpio/for-next.
-> Boot-tested on SiPEED MAiXBiT (Canaan K210).
->
-> v2:
->   - Factor out hwirq using preferred helper.
-> ---
-
-Hi Geert!
-
-I'll pick those patches up for the next cycle to let them spend some
-time in next.
-
-Bart
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKc3R3b3J6eWxpxZtteSBzcGVjamFsbsSFIG9mZXJ0xJkgZGxhIGZpcm0s
+IG5hIGtvbXBsZWtzb3fEhSBvYnPFgnVnxJkgaW53ZXN0eWNqaSB3IGZvdG93b2x0YWlrxJkuICAK
+ClNwZWNqYWxpenVqZW15IHNpxJkgdyB6YWtyZXNpZSBkb2JvcnUsIG1vbnRhxbx1IGkgc2Vyd2lz
+aWUgaW5zdGFsYWNqaSBmb3Rvd29sdGFpY3pueWNoLCBkeXNwb251amVteSBuYWpub3dvY3plxZtu
+aWVqc3p5bWkgcm96d2nEhXphbmlhLCBrdMOzcmUgemFwZXduacSFIFBhxYRzdHd1IG9jemVraXdh
+bmUgcmV6dWx0YXR5LgoKTW/FvGVteSBwcnp5Z290b3dhxIcgZGxhIFBhxYRzdHdhIHdzdMSZcG7E
+hSBrYWxrdWxhY2rEmSBpIHByemVhbmFsaXpvd2HEhyBlZmVrdHkgbW/FvGxpd2UgZG8gb3NpxIVn
+bmnEmWNpYS4KCkN6eSBzxIUgUGHFhHN0d28gb3R3YXJjaSBuYSB3c3TEmXBuxIUgcm96bW93xJkg
+dyB0eW0gdGVtYWNpZT8KClBvemRyYXdpYW0KQXJrYWRpdXN6IFNva2/Fgm93c2tpCgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
