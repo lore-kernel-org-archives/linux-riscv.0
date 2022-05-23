@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFDE7C43219
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 13:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A25C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 14:03:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lCaPtaq1cnkOCiQXutisRV5JWgrk7yy2sSaVtu5eo4Y=; b=ByKTwaGRrk/TZ4
-	gm8IdqkZmxOgTrQ7vECt7k/1n6/OHUREVfFq9HVTLBKU/OGZvKzJwPAm0s0/lYxORr/LRIaxV9vhq
-	Z1ix0ZpghytAmVU9aoNOJhekWkFYY+IQuJOnQHgD1Elb+u98wzzzmuCd3IJi8+tGof22GCCwL8Ltz
-	7pv7gb90WldYaEpLpB5T7Al0wuwalq4iNft9Ux6GbXd6PfTovtq6HeOJDEJxuVOGXWf6l7dZXHEck
-	ywWQy9H+wGOa04jdjkHv99aL3/eeU4Zy0s8QPOhI7eoYTiWSi/X0jpGF9zcK3SsSkO5yPslMEHmPU
-	5VmnU05oGohTscklMP1Q==;
+	List-Owner; bh=HTBgTsWOIzpczLfDzOy0y9mlu+HR6y+P+3TS7cXJZ8w=; b=yguaiyxbXwCbz+
+	T9Eh2fAN9YtbYrjDZPodBDB4vGWdIytR7HIXYLVVuXO3YdZGwlQPFwV/4RhOlr8S5LCC5gW0qYhSJ
+	wBSabKB3QPPh82dwzyEV3g4Ed6TxvUwxkeDJ/zb380MaVkYw98NVGfNcDO+98E1Q/YLx7yQDOQPYr
+	76CtRM+r6fNGYe8THrrDOBcWgfCsPhDO1p3UV5i4Lvw3WwyhW33+ttGAxEaifq4Chd0O9aGS9SOi7
+	Dz85AJrUwvrK40A/6GiWfzrOurZchYc/HO7Z3ABPZpGweC6+wwXfwS0BiZ7cck0HTmiL4wTLovwgl
+	1VapRrU30ky42xGGP+Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nt8aC-004bFA-5B; Mon, 23 May 2022 13:58:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nt8ew-004d1S-Om; Mon, 23 May 2022 14:03:46 +0000
+Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1nt8Zl-004b2M-0j; Mon, 23 May 2022 13:58:26 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ id 1nt8el-004cvG-WB
+ for linux-riscv@lists.infradead.org; Mon, 23 May 2022 14:03:44 +0000
+Received: from mail-ej1-f71.google.com (mail-ej1-f71.google.com
+ [209.85.218.71])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
  (No client certificate requested)
- by dfw.source.kernel.org (Postfix) with ESMTPS id 89F446114C;
- Mon, 23 May 2022 13:58:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54A97C385AA;
- Mon, 23 May 2022 13:58:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1653314303;
- bh=bMQ76dp2HmQ3uXRMykYlpLogfkiug4VqJggIc37zUrM=;
- h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
- b=Rhu8OE2IygT78Kmgi0veHK3UCRU45Wa1lKf0qRn0eRRSfxWy/znDUceR1oMSY55by
- b/Qjp4WqXMjPxggvmrJcC0RWd7ISbVc4buSL335hPdmnd2FbWEy07P0apQgYY7H11+
- NFlr8OEtHhW7GJ19ciDaIYgTWsKV1vSBJJWX4qSZ5rMgEPypBdhRc5bD8iHWcFmgwf
- if4LTn3sIyl73Q+1hgTvOuYTzaXOBuU1ZdpC5irzwKSc81r7BU7d44Qfg04P23t3Wj
- xjPCV1EQ8qgX5fLkrsY98A1lDRWt1NrDy4qNgFPCtMrf6R9Y+4BKiSHtAS13/wW86d
- X2gY2kmU5w6bQ==
-Message-ID: <8e440c28-d4b9-2fc6-0294-f77544264d5c@kernel.org>
-Date: Mon, 23 May 2022 08:58:16 -0500
+ by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 17B783F210
+ for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 14:03:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+ s=20210705; t=1653314604;
+ bh=aOj42UXk0Ccs38iFr56+sEgB8yBY01wKBE08wxks5M0=;
+ h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+ To:Cc:Content-Type;
+ b=C8av4UvTRBZPTWqw9OTH5Z9CnFW3Nq4/WGeCsRZ8Mh0gUOIvHshzDKdDReg5ZrvAn
+ J/0xPuBRdVIO85dm+RDFWEBT0krNYEbDWKC5aRb/cLgKWD6FL6P+e4IhprjsxxL/YA
+ DS3xygHSYItipDsxd+Hudu9wi5A1A2x75DbpmtrkPdOb+FKKLwrl15oLsxj1JJiiFJ
+ HGA8/PXC+SForiFQ+tuu22wWOZUTLxQYG0LdnRP/xqtkBORZ8/3R3UK01mNGyLxpYl
+ 12LqwCdkiZAIMsv1qUGvfcBl8Mzelnxxklbr0iDcHFII3eDpi8dXjdXrRUdevl58dF
+ KBeBGCxU9G5Tg==
+Received: by mail-ej1-f71.google.com with SMTP id
+ gs6-20020a170906f18600b006fe7a9ffacbso6026693ejb.3
+ for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 07:03:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=aOj42UXk0Ccs38iFr56+sEgB8yBY01wKBE08wxks5M0=;
+ b=EmFUR/hW1HQaCfAGFTcCt49ncrz5Uj7C6zfNxXEFegUluS84y1yAg0BR7MyTRLz319
+ kuZiMHwX6buBwevTztFbgGpweMT3ooyajtUpHEzVNJywF4af1Orzsm+Buik07BtpXx3R
+ HbbdcVX71QyBgWhYf+5EmvlpEmC2Jvu0m2qbSsFaewEy+7/bV4dT53hrSFM6aNT+W1/W
+ MIxtG+hl3bHwyBf+4DlexhcQ3rqzH/qOk3H6qzyQifdJ0JmPICxwqolTlEnw11tQlhYq
+ Td+g7BLrUvJJOlUDotYdYhEGbxgbDAT1aDabAZ7W8OC48qPnh/yI8L3mEqHfldAzfbpq
+ utzQ==
+X-Gm-Message-State: AOAM533ipgQoI2E1vQaLL0yFgRi4F7RSGCXL++i+RpDB+dXoZ4vL91xi
+ hGJ9j9vTQJbxnZ0vzCPv/Zb7eu0ClijUTo+noZoqCqB6pLPNXHXuWbtrkDb4Ai0Ej/rpMg3OGrk
+ TJscInCjzlIVjJKw/RUF2E2YoHJkdXTbIs+qmjEBfci1L+l051BS7PUVYXm3OvA==
+X-Received: by 2002:a17:907:1c92:b0:6fa:51d2:4005 with SMTP id
+ nb18-20020a1709071c9200b006fa51d24005mr19963053ejc.307.1653314602938; 
+ Mon, 23 May 2022 07:03:22 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJwMUulBF+KUWazrL3APRAArBepILptP1NGvpb+ZHVwY9pwmFhOGMhnKWNYfpURzv+5M15VeBDVoqJWSq72IkZc=
+X-Received: by 2002:a17:907:1c92:b0:6fa:51d2:4005 with SMTP id
+ nb18-20020a1709071c9200b006fa51d24005mr19963013ejc.307.1653314602632; Mon, 23
+ May 2022 07:03:22 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.1
-Subject: Re: [PATCH v4 06/11] nios2: use fallback for random_get_entropy()
- instead of zero
-Content-Language: en-US
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>, linux-kernel@vger.kernel.org,
- linux-crypto@vger.kernel.org, tglx@linutronix.de, arnd@arndb.de
-Cc: Theodore Ts'o <tytso@mit.edu>,
- Dominik Brodowski <linux@dominikbrodowski.net>,
- Russell King <linux@armlinux.org.uk>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- "David S . Miller" <davem@davemloft.net>, Richard Weinberger
- <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H . Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>,
- Max Filippov <jcmvbkbc@gmail.com>, John Stultz <john.stultz@linaro.org>,
- Stephen Boyd <sboyd@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
- linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, x86@kernel.org, linux-xtensa@linux-xtensa.org
-References: <20220413115411.21489-1-Jason@zx2c4.com>
- <20220413115411.21489-7-Jason@zx2c4.com>
-From: Dinh Nguyen <dinguyen@kernel.org>
-In-Reply-To: <20220413115411.21489-7-Jason@zx2c4.com>
+References: <20220511192921.2223629-1-heiko@sntech.de>
+ <20220511192921.2223629-9-heiko@sntech.de>
+In-Reply-To: <20220511192921.2223629-9-heiko@sntech.de>
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Date: Mon, 23 May 2022 16:03:10 +0200
+Message-ID: <CA+zEjCuckDpweE9YEep26ZcX3xqh8QszXNq8BY-hPpQkQnRdjQ@mail.gmail.com>
+Subject: Re: [PATCH 08/12] riscv: Fix accessing pfn bits in PTEs for non-32bit
+ variants
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ wefu@redhat.com, liush@allwinnertech.com, guoren@kernel.org, 
+ atishp@atishpatra.org, anup@brainfault.org, drew@beagleboard.org, hch@lst.de, 
+ arnd@arndb.de, wens@csie.org, maxime@cerno.tech, gfavor@ventanamicro.com, 
+ andrea.mondelli@huawei.com, behrensj@mit.edu, xinhaoqu@huawei.com, 
+ mick@ics.forth.gr, allen.baum@esperantotech.com, jscheid@ventanamicro.com, 
+ rtrauben@gmail.com, samuel@sholland.org, cmuellner@linux.com, 
+ philipp.tomsich@vrull.eu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220523_065825_212241_DEDE3523 
-X-CRM114-Status: GOOD (  19.31  )
+X-CRM114-CacheID: sfid-20220523_070336_392805_1FED3F0F 
+X-CRM114-Status: GOOD (  29.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,44 +100,188 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Heiko,
 
-
-On 4/13/22 06:54, Jason A. Donenfeld wrote:
-> In the event that random_get_entropy() can't access a cycle counter or
-> similar, falling back to returning 0 is really not the best we can do.
-> Instead, at least calling random_get_entropy_fallback() would be
-> preferable, because that always needs to return _something_, even
-> falling back to jiffies eventually. It's not as though
-> random_get_entropy_fallback() is super high precision or guaranteed to
-> be entropic, but basically anything that's not zero all the time is
-> better than returning zero all the time.
-> 
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Dinh Nguyen <dinguyen@kernel.org>
-> Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+On Wed, May 11, 2022 at 9:31 PM Heiko Stuebner <heiko@sntech.de> wrote:
+>
+> On rv32 the PFN part of PTEs is defined to use bits [xlen-1:10]
+> while on rv64 it is defined to use bits [53:10], leaving [63:54]
+> as reserved.
+>
+> With upcoming optional extensions like svpbmt these previously
+> reserved bits will get used so simply right-shifting the PTE
+> to get the PFN won't be enough.
+>
+> So introduce a _PAGE_PFN_MASK constant to mask the correct bits
+> for both rv32 and rv64 before shifting.
+>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> Reviewed-by: Philipp Tomsich <philipp.tomsich@vrull.eu>
 > ---
->   arch/nios2/include/asm/timex.h | 2 ++
->   1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/nios2/include/asm/timex.h b/arch/nios2/include/asm/timex.h
-> index a769f871b28d..d9a3f426cdda 100644
-> --- a/arch/nios2/include/asm/timex.h
-> +++ b/arch/nios2/include/asm/timex.h
-> @@ -9,4 +9,6 @@ typedef unsigned long cycles_t;
->   
->   extern cycles_t get_cycles(void);
->   
-> +#define random_get_entropy() (((unsigned long)get_cycles()) ?: random_get_entropy_fallback())
+>  arch/riscv/include/asm/pgtable-32.h   |  8 ++++++++
+>  arch/riscv/include/asm/pgtable-64.h   | 14 +++++++++++---
+>  arch/riscv/include/asm/pgtable-bits.h |  6 ------
+>  arch/riscv/include/asm/pgtable.h      |  8 +++++---
+>  4 files changed, 24 insertions(+), 12 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+> index 5b2e79e5bfa5..e266a4fe7f43 100644
+> --- a/arch/riscv/include/asm/pgtable-32.h
+> +++ b/arch/riscv/include/asm/pgtable-32.h
+> @@ -7,6 +7,7 @@
+>  #define _ASM_RISCV_PGTABLE_32_H
+>
+>  #include <asm-generic/pgtable-nopmd.h>
+> +#include <linux/bits.h>
+>  #include <linux/const.h>
+>
+>  /* Size of region mapped by a page global directory */
+> @@ -16,4 +17,11 @@
+>
+>  #define MAX_POSSIBLE_PHYSMEM_BITS 34
+>
+> +/*
+> + * rv32 PTE format:
+> + * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+> + *       PFN      reserved for SW   D   A   G   U   X   W   R   V
+> + */
+> +#define _PAGE_PFN_MASK  GENMASK(31, 10)
 > +
->   #endif
+>  #endif /* _ASM_RISCV_PGTABLE_32_H */
+> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> index 7e246e9f8d70..15f3ad5aee4f 100644
+> --- a/arch/riscv/include/asm/pgtable-64.h
+> +++ b/arch/riscv/include/asm/pgtable-64.h
+> @@ -6,6 +6,7 @@
+>  #ifndef _ASM_RISCV_PGTABLE_64_H
+>  #define _ASM_RISCV_PGTABLE_64_H
+>
+> +#include <linux/bits.h>
+>  #include <linux/const.h>
+>
+>  extern bool pgtable_l4_enabled;
+> @@ -65,6 +66,13 @@ typedef struct {
+>
+>  #define PTRS_PER_PMD    (PAGE_SIZE / sizeof(pmd_t))
+>
+> +/*
+> + * rv64 PTE format:
+> + * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+> + *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
+> + */
+> +#define _PAGE_PFN_MASK  GENMASK(53, 10)
+> +
+>  static inline int pud_present(pud_t pud)
+>  {
+>         return (pud_val(pud) & _PAGE_PRESENT);
+> @@ -108,12 +116,12 @@ static inline unsigned long _pud_pfn(pud_t pud)
+>
+>  static inline pmd_t *pud_pgtable(pud_t pud)
+>  {
+> -       return (pmd_t *)pfn_to_virt(pud_val(pud) >> _PAGE_PFN_SHIFT);
+> +       return (pmd_t *)pfn_to_virt(__page_val_to_pfn(pud_val(pud)));
+>  }
+>
+>  static inline struct page *pud_page(pud_t pud)
+>  {
+> -       return pfn_to_page(pud_val(pud) >> _PAGE_PFN_SHIFT);
+> +       return pfn_to_page(__page_val_to_pfn(pud_val(pud)));
+>  }
+>
+>  #define mm_p4d_folded  mm_p4d_folded
+> @@ -143,7 +151,7 @@ static inline pmd_t pfn_pmd(unsigned long pfn, pgprot_t prot)
+>
+>  static inline unsigned long _pmd_pfn(pmd_t pmd)
+>  {
+> -       return pmd_val(pmd) >> _PAGE_PFN_SHIFT;
+> +       return __page_val_to_pfn(pmd_val(pmd));
+>  }
+>
+>  #define mk_pmd(page, prot)    pfn_pmd(page_to_pfn(page), prot)
+> diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+> index a6b0c89824c2..e571fa954afc 100644
+> --- a/arch/riscv/include/asm/pgtable-bits.h
+> +++ b/arch/riscv/include/asm/pgtable-bits.h
+> @@ -6,12 +6,6 @@
+>  #ifndef _ASM_RISCV_PGTABLE_BITS_H
+>  #define _ASM_RISCV_PGTABLE_BITS_H
+>
+> -/*
+> - * PTE format:
+> - * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+> - *       PFN      reserved for SW   D   A   G   U   X   W   R   V
+> - */
+> -
+>  #define _PAGE_ACCESSED_OFFSET 6
+>
+>  #define _PAGE_PRESENT   (1 << 0)
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 046b44225623..faba543e2b08 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -108,6 +108,8 @@
+>  #include <asm/tlbflush.h>
+>  #include <linux/mm_types.h>
+>
+> +#define __page_val_to_pfn(_val)  (((_val) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT)
+> +
+>  #ifdef CONFIG_64BIT
+>  #include <asm/pgtable-64.h>
+>  #else
+> @@ -261,12 +263,12 @@ static inline unsigned long _pgd_pfn(pgd_t pgd)
+>
+>  static inline struct page *pmd_page(pmd_t pmd)
+>  {
+> -       return pfn_to_page(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
+> +       return pfn_to_page(__page_val_to_pfn(pmd_val(pmd)));
+>  }
+>
+>  static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+>  {
+> -       return (unsigned long)pfn_to_virt(pmd_val(pmd) >> _PAGE_PFN_SHIFT);
+> +       return (unsigned long)pfn_to_virt(__page_val_to_pfn(pmd_val(pmd)));
+>  }
+>
+>  static inline pte_t pmd_pte(pmd_t pmd)
+> @@ -282,7 +284,7 @@ static inline pte_t pud_pte(pud_t pud)
+>  /* Yields the page frame number (PFN) of a page table entry */
+>  static inline unsigned long pte_pfn(pte_t pte)
+>  {
+> -       return (pte_val(pte) >> _PAGE_PFN_SHIFT);
+> +       return __page_val_to_pfn(pte_val(pte));
+>  }
+>
+>  #define pte_page(x)     pfn_to_page(pte_pfn(x))
+> --
+> 2.35.1
+>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-Acked-by: Dinh Nguyen <dinguyen@kernel.org>
+I had this weird bug and it took some time to figure out that _pgd_pfn
+is missing the "& _PAGE_PFN_MASK" here.
+
+And then I grepped _PAGE_PFN_SHIFT and saw that _pud_pfn, p4d_pgtable,
+__pmd_to_phys and stage2_pte_page_vaddr are also missing this mask. I
+agree that we need something similar to your helper __page_val_to_pfn
+(even if __page prefix is a bit weird to me) but I think we should go
+further: forbid the use of _PAGE_PFN_SHIFT and contain this in a
+single function that should be used to access the pfn minus the upper
+bits, that would avoid future oversights.
+
+I can come up with something if needs be, up to you!
+
+Thanks,
+
+Alex
 
 _______________________________________________
 linux-riscv mailing list
