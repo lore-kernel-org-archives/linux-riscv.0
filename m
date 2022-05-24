@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0780AC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 May 2022 11:24:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39863C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 May 2022 11:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OE+cNC8IeTiiOcNIZzUCz4faRKZjbR74jRjzcbHDJ6M=; b=hSCY6FSIP8VE3t
-	wID3ZFUXRrJgC4AaZeSuKMk9Q6x1gnblIatHphQmCtbiMajHcwqz/I1A0eCqdxPPY2HdbaF6z23Qu
-	fKFqx89E2w/X/NGx1mZfq+gC5Ptga9PDxIVK6I+vkUWUlZPAQHDNWiyMxIIMH6ZPc5tEMnD51OvwJ
-	qHtH7ylllcaP5GHv9vgwZm5di+rOZcT1mYIDvWfBXhnYBQFAI5wCpfxM1qxDMtuQ37d16M1nhHR9L
-	h0uDPAHdPit3h13FfqxfJzedIdvnvyBdjHvCYfNuMV6dLzfjCsxVM2FryhCt/FQ2cGnAe0rlBwMb9
-	xvKTSfJhTwGYX5cdyzqA==;
+	List-Owner; bh=s6z2PlXpe4tbugiiIzMwWaisAAXqsrq8A5zq3ZtQSzI=; b=LaYqlanCUEDESo
+	wun/T7vPKv2JbEQk9RZd+IwiIokwKvpbTlzbGcopTAUXA+voc5Q8s6gaUZdOGjPIZUvWm1rTcQc+X
+	ZDyWwxQ2mP5PsTdDGi/9wwY+cTOYaRiJNNBY6QUZgh3/6/UZT8POjSnJFtL1USB5jZ9Y0HOs/zwLr
+	JoJinlHDVOgqYTRlKlLhSsEv0s9ovaLVdGEbgS55oO2HUpU4j64vlzkQFWFFJm2+YFu9XbD9VNOKT
+	CW/AM4oEhGBybLwaimaxWXe2INa1JTh+tcN6PmFm9PRT0b219pkFsUwq+wYWxPTpC9S/DbidDXmbA
+	hJ8GC7ZvifkqGzDulk1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntSeR-007nOv-V8; Tue, 24 May 2022 11:24:35 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1ntSfV-007npQ-Bo; Tue, 24 May 2022 11:25:41 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ntSeO-007nLC-Bz
- for linux-riscv@lists.infradead.org; Tue, 24 May 2022 11:24:33 +0000
-Received: by mail-wm1-x336.google.com with SMTP id
- c9-20020a7bc009000000b0039750ec5774so1182120wmb.5
- for <linux-riscv@lists.infradead.org>; Tue, 24 May 2022 04:24:29 -0700 (PDT)
+ id 1ntSfS-007nnA-F1
+ for linux-riscv@lists.infradead.org; Tue, 24 May 2022 11:25:39 +0000
+Received: by mail-wr1-x429.google.com with SMTP id u27so24425906wru.8
+ for <linux-riscv@lists.infradead.org>; Tue, 24 May 2022 04:25:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=brainfault-org.20210112.gappssmtp.com; s=20210112;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=yfCYl4aV74lIhtPwwS5Hj7a7JLAdHT5HtAXAEPKuxxw=;
- b=SkEJCBhdLlFzmsU79CLKeBLhUBGc21SllCmNz5BJw0D+GbWUAg3Zor9zFl//oWG9OQ
- 1KqWUyp7inB2ZpNmoLokYAd8tGeJKSoR6AekxiFG2LEQatcPdWNKdIJWK29PLSmaZsB5
- JxL1fWSOpTzkKylyxE3ZuvMWFMEstvhrZYDbUuNk/rZ5Zx4zngCqCIbqcQ6YH/vuBi20
- VIks0/oZF9dqUp065iC0043Ymy+cQlQwBdgRz00WN4dOlxYm0cxnVAM5rVfDclmsh21e
- 3fWOrYqDrjvFiqnovynEsyG8xRnUrUKu6yIGDITpsgMjPaUn6Cg+Ts3d7vsLJrCJ2tZH
- tHfg==
+ :cc; bh=IrQKUMgGfJCg4Qp/wyG56UieXV8r90cWTrXiOz7LDck=;
+ b=Gy4q7CN99HFyXAicqG9X11IlQ+svRqwnN8b26/bIiFUYInmpSeZdUBS3liSbUIVsla
+ wWqnBTLpRQPJXp79wdo0TnrKGBjeXoH4SAS6hOlROajnfLUnMxqS9d1aBvJMrZpmBlmU
+ 3w5uSFppAXGa1yK8Vd3H9oCbvZcA3UMQD1EBvSxo0HYq1UPQ92+AbDrlGLPE8klvrRTs
+ D0PRsfDlXTkRrjxnorF72umS/EPsYzL5y1oK0SJLDG+nwR3peuR7Rzkpfm12leFAYxpX
+ clNf3Yy0i28wX0quPqA3glr021cdnZGGrEnVORu8zgPSuMm/hbUSHkuiQJqq1MJNgfSh
+ 1N/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=yfCYl4aV74lIhtPwwS5Hj7a7JLAdHT5HtAXAEPKuxxw=;
- b=rpoKN2Gyw4jmrlLQQJMmkydohtmWIPypi4p57i0MsFTlILG+5zPZy/0E2efnSB+D78
- DPMcqTqojnku4L+ujG02raAblwYBqx65A5YNQTPVg4I5Wnow56vK5gORaRSELNQ3TFqy
- W2MMoNFFyP5VjIynCTohTHjsLHTFk+q8PzEUQ7k6IGTGVNf589QZmTxWxqQxSJr1Lwlx
- xWa8tts6uyLXo8V0jtdf6RAKwEljQiFn3c+YEZGifdURrLlf4SbcLt3fUj0Sn1+LBurV
- xJ6WyVRZ+jpzbtEjc6635UXHr6EQzY1zV69s39ev3h/4rrTaW+QkG4gN2Kir0sNTSBB7
- sR9g==
-X-Gm-Message-State: AOAM530QoZao5l1rfClDluKo4dm0GMJA2VKuXpC1JpgZWxSkHTG95K3u
- 6DNIPHOpIACvHaZgDUCCr6SUW1Q5OPaSHeaGirJIYg==
-X-Google-Smtp-Source: ABdhPJw17mFO2a4bDkcxbKfi5pHfVkge6/luoUZPssTZkTO6b1Ep89/x1yZbqkfqlaxo1Z8MUx6f2F8ncymnnSC1FM0=
-X-Received: by 2002:a05:600c:5112:b0:397:53f5:e15b with SMTP id
- o18-20020a05600c511200b0039753f5e15bmr3292625wms.93.1653391468187; Tue, 24
- May 2022 04:24:28 -0700 (PDT)
+ bh=IrQKUMgGfJCg4Qp/wyG56UieXV8r90cWTrXiOz7LDck=;
+ b=ly4nm7klvSKcop2jRQ3mkK6oohG4vtJoTi8+s7avtdXtaVAqWtN6m4wunkcbjJQ2wy
+ lKekb8A3WHXAM7xtjjoUgg73h+7p2Kb7yEKzW/8eNtmdsDZURNt+kTFMgJMM6IsL+mWV
+ CouHN1IZRteHMI+7Fl/3cU9e0AOY2KYI0zRWGKGQaeX9VUnkoaSvvadvHjqEVqnTkyzt
+ wQiRSzr88D3GSp7prmRzIRMZPKLxNdXCD+IUsqfvqbOI5ZUP0TyIoxXyyLzdx7AOUSan
+ EdNEOeVaTFiuU2/o70qNq71q6+o1xmQp57EK1PRSKeus08GolIu8ZtwYWoMlppwsENh3
+ 1v+A==
+X-Gm-Message-State: AOAM5328Uhwsd7nRpSwRYG546N6h0llzCGNTtUCibYP0s50xObeMyA8l
+ sETTHIfYC4GPOL2EvC0JkSRysemNypqgccLwXAyDuQ==
+X-Google-Smtp-Source: ABdhPJxSztbMN+n2TmP0z6nr9DurWwl3+BCxash8ct2jbn4OvYv+CLh96rMCl3y/TYL6GZCHByl5uXayneQiJM2qHqo=
+X-Received: by 2002:a05:6000:1f18:b0:20f:e61b:520e with SMTP id
+ bv24-20020a0560001f1800b0020fe61b520emr6372906wrb.214.1653391534839; Tue, 24
+ May 2022 04:25:34 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220426185245.281182-1-atishp@rivosinc.com>
- <20220426185245.281182-2-atishp@rivosinc.com>
-In-Reply-To: <20220426185245.281182-2-atishp@rivosinc.com>
+ <20220426185245.281182-3-atishp@rivosinc.com>
+In-Reply-To: <20220426185245.281182-3-atishp@rivosinc.com>
 From: Anup Patel <anup@brainfault.org>
-Date: Tue, 24 May 2022 16:54:16 +0530
-Message-ID: <CAAhSdy2Xco9wZrQ8tFfFNkNxkOcDksvi3EySdVNFtKGxVyceYQ@mail.gmail.com>
-Subject: Re: [PATCH v3 1/4] RISC-V: Add SSTC extension CSR details
+Date: Tue, 24 May 2022 16:55:23 +0530
+Message-ID: <CAAhSdy1utVaeMBUYKRQeEPtXxD5gXAs3WCacoXYm9fmHx5yyVA@mail.gmail.com>
+Subject: Re: [PATCH v3 2/4] RISC-V: Enable sstc extension parsing from DT
 To: Atish Patra <atishp@rivosinc.com>
 Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  Atish Patra <atishp@atishpatra.org>, 
@@ -76,8 +75,8 @@ Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
  Palmer Dabbelt <palmer@dabbelt.com>, 
  Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220524_042432_432649_ACDCC75A 
-X-CRM114-Status: GOOD (  13.74  )
+X-CRM114-CacheID: sfid-20220524_042538_530886_A02001D8 
+X-CRM114-Status: GOOD (  15.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,8 +95,10 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Wed, Apr 27, 2022 at 12:23 AM Atish Patra <atishp@rivosinc.com> wrote:
 >
-> This patch just introduces the required CSR fields related to the
-> SSTC extension.
+> The ISA extension framework now allows parsing any multi-letter
+> ISA extension.
+>
+> Enable that for sstc extension.
 >
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 
@@ -109,52 +110,47 @@ Regards,
 Anup
 
 > ---
->  arch/riscv/include/asm/csr.h | 11 +++++++++++
->  1 file changed, 11 insertions(+)
+>  arch/riscv/include/asm/hwcap.h | 1 +
+>  arch/riscv/kernel/cpu.c        | 1 +
+>  arch/riscv/kernel/cpufeature.c | 1 +
+>  3 files changed, 3 insertions(+)
 >
-> diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-> index e935f27b10fd..10f4e1c36908 100644
-> --- a/arch/riscv/include/asm/csr.h
-> +++ b/arch/riscv/include/asm/csr.h
-> @@ -227,6 +227,9 @@
->  #define CSR_SIP                        0x144
->  #define CSR_SATP               0x180
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 0734e42f74f2..25915eb60d61 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -52,6 +52,7 @@ extern unsigned long elf_hwcap;
+>   */
+>  enum riscv_isa_ext_id {
+>         RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+> +       RISCV_ISA_EXT_SSTC,
+>         RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+>  };
 >
-> +#define CSR_STIMECMP           0x14D
-> +#define CSR_STIMECMPH          0x15D
-> +
->  #define CSR_VSSTATUS           0x200
->  #define CSR_VSIE               0x204
->  #define CSR_VSTVEC             0x205
-> @@ -236,6 +239,8 @@
->  #define CSR_VSTVAL             0x243
->  #define CSR_VSIP               0x244
->  #define CSR_VSATP              0x280
-> +#define CSR_VSTIMECMP          0x24D
-> +#define CSR_VSTIMECMPH         0x25D
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index ccb617791e56..ca0e4c0db17e 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -88,6 +88,7 @@ int riscv_of_parent_hartid(struct device_node *node)
+>   */
+>  static struct riscv_isa_ext_data isa_ext_arr[] = {
+>         __RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> +       __RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+>         __RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+>  };
 >
->  #define CSR_HSTATUS            0x600
->  #define CSR_HEDELEG            0x602
-> @@ -251,6 +256,8 @@
->  #define CSR_HTINST             0x64a
->  #define CSR_HGATP              0x680
->  #define CSR_HGEIP              0xe12
-> +#define CSR_HENVCFG            0x60A
-> +#define CSR_HENVCFGH           0x61A
->
->  #define CSR_MSTATUS            0x300
->  #define CSR_MISA               0x301
-> @@ -312,6 +319,10 @@
->  #define IE_TIE         (_AC(0x1, UL) << RV_IRQ_TIMER)
->  #define IE_EIE         (_AC(0x1, UL) << RV_IRQ_EXT)
->
-> +/* ENVCFG related bits */
-> +#define HENVCFG_STCE   63
-> +#define HENVCFGH_STCE  31
-> +
->  #ifndef __ASSEMBLY__
->
->  #define csr_swap(csr, val)                                     \
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 1b2d42d7f589..a214537c22f1 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -192,6 +192,7 @@ void __init riscv_fill_hwcap(void)
+>                                 set_bit(*ext - 'a', this_isa);
+>                         } else {
+>                                 SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+> +                               SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
+>                         }
+>  #undef SET_ISA_EXT_MAP
+>                 }
 > --
 > 2.25.1
 >
