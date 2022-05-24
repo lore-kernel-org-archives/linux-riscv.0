@@ -4,58 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B874C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 May 2022 17:23:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61A2DC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 May 2022 17:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wSET1pZSLjFV9mQAPeXVfb3hTOVcR7CZbGBYSXrQWAM=; b=GWEXnc/+7PwT1Q
-	ixUzywr5DYdxozlYHtXy0Xb7jpB9jzN3psCF+NI8+0bHmKamAc30pyDjuIAq1W5mMNOalEr/vsB3V
-	KIxmQSWkmzbpCafJ9yL8MCPQQREOuTR+Xj5DaNN6hcFcjaWnuv4t9FjUsX5hyMS8CLXuuuu0MQ8WV
-	iQ+wTTrCZBVOVadJVpkBTNO8eUhv+ic9RapWP9M5OHZtUO4QODl6N2mKNeLJecWCbF4xFpA8uVKl5
-	2VfPFqKs9mI7yAlUXOtxUBqt4Xc+GDKvAuEp5KSvYVAW8FVIaySaHWXbrX5Q0y+ns3CHhhY3P5V7A
-	YGFKvNecrU45sVEEb7HA==;
+	List-Owner; bh=/qeIUI8umNi7DVeujcfp5NCCLTQJSmiPbsx9Ad/FT7o=; b=bhI37os53vC0Ow
+	2QOj+fxMkf03VF7FBqzLkA1MOKmNPLL6pQyYfXV/DUFXjwkojCLa3n39THh8GkAjWVLhEwkPrskir
+	b853kaQMBYghMLtAH2akV/2+1rpTpTtakIJG1tPoOkl4cvVAtohSd1C/+f8AD971gnHAfe5CgC4yj
+	RpWSTdEz1JtUZsSRSgb0LYnH9pj/phworhNzz8+z4rRIa0wpUmVDlsp/+IPEktZwfvHGEz404MTah
+	/2R5h4sxRU0+OKO+BWLisjT+FAf8h/JxXWxhSYCcV65WJLOcGJIJi0KodqlXqOpxWv4Z/CT+DPQwG
+	sKBdhgw4P4wV4NZZXLuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntYFE-008kpS-DJ; Tue, 24 May 2022 17:22:56 +0000
-Received: from relmlor2.renesas.com ([210.160.252.172]
- helo=relmlie6.idc.renesas.com)
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ntYFB-008knx-2i
- for linux-riscv@lists.infradead.org; Tue, 24 May 2022 17:22:54 +0000
-X-IronPort-AV: E=Sophos;i="5.91,248,1647270000"; d="scan'208";a="122108004"
-Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
- by relmlie6.idc.renesas.com with ESMTP; 25 May 2022 02:22:50 +0900
-Received: from localhost.localdomain (unknown [10.226.36.204])
- by relmlir5.idc.renesas.com (Postfix) with ESMTP id 35404400A8AA;
- Wed, 25 May 2022 02:22:44 +0900 (JST)
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Sagar Kadam <sagar.kadam@sifive.com>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- Prabhakar <prabhakar.csengg@gmail.com>,
- Phil Edworthy <phil.edworthy@renesas.com>,
- Biju Das <biju.das.jz@bp.renesas.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH RFC 2/2] irqchip/sifive-plic: Add support for Renesas RZ/Five
- SoC
-Date: Tue, 24 May 2022 18:22:14 +0100
-Message-Id: <20220524172214.5104-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220524172214.5104-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20220524172214.5104-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	id 1ntYYo-008nSV-ED; Tue, 24 May 2022 17:43:10 +0000
+Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1ntYYc-008nQF-Jb; Tue, 24 May 2022 17:43:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by sin.source.kernel.org (Postfix) with ESMTPS id 499E8CE1C11;
+ Tue, 24 May 2022 17:42:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A573BC34119;
+ Tue, 24 May 2022 17:42:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+ s=k20201202; t=1653414172;
+ bh=a0KoIi2fPbqzomWEDT9YQcs+q1CHLUgOEBXJTkEH8cM=;
+ h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+ b=kALxv/PPnk26Z8ikDdzTIoB+GhIHS8jEjEXNhCjRDLbNXkynkPcznBmc/uK3riyYt
+ SKfj7AX9eZtsUUAm0JnOK+gOlPnZezUMcpPqhPwLw57KblT7C5yaNcC8agFWtIqFGP
+ WnPtJ/2Vq12ut9C77+JkvEicEWDA6od6YRwNKQS4KIwC+Z0ke27WgzUyqbpBMW7e+H
+ tsbKQdVLsYB640o2HRPBWrwB1RIg+YPxg8dkcwKfJo1ay7Id3+7RB372d4ximZvGsp
+ 12EA8rmBoMZaw9YrincHxHxfLyutGAnNVPFZfytBqA0Tufv/YFNx59E/5QMgNLBpup
+ cnXC3XobHfI+A==
+Received: by mail-vk1-f181.google.com with SMTP id u188so3114368vku.3;
+ Tue, 24 May 2022 10:42:52 -0700 (PDT)
+X-Gm-Message-State: AOAM5322OLtE/3fAfPCBL1TCt7B6IpEAU0WRBzm44c6lb30dBBDuQYal
+ dxShiqYZQDzFx+KGeb5mHmaHxlavmukGJjUUs/0=
+X-Google-Smtp-Source: ABdhPJzUixZLxc95ai4vd5dsN4NddOqbm1nObrjQCW5vPZJ2Mwf6I969jFM+TAJw6R9iVmVEV3oBthbJ8krjcpjTY3c=
+X-Received: by 2002:a1f:1f55:0:b0:357:a8d7:b76c with SMTP id
+ f82-20020a1f1f55000000b00357a8d7b76cmr4075181vkf.35.1653414171489; Tue, 24
+ May 2022 10:42:51 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220322144003.2357128-1-guoren@kernel.org>
+ <20220322144003.2357128-21-guoren@kernel.org>
+ <20220523054550.GA1511899@roeck-us.net>
+In-Reply-To: <20220523054550.GA1511899@roeck-us.net>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 25 May 2022 01:42:40 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQ5RS8wGfSDPoB4JLtPBoM=ainuz_EJ9Tweq0mqPM=ALA@mail.gmail.com>
+Message-ID: <CAJF2gTQ5RS8wGfSDPoB4JLtPBoM=ainuz_EJ9Tweq0mqPM=ALA@mail.gmail.com>
+Subject: Re: [PATCH V9 20/20] riscv: compat: Add COMPAT Kbuild skeletal support
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Christoph Hellwig <hch@lst.de>,
+ linux-arch <linux-arch@vger.kernel.org>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
+ linux-s390 <linux-s390@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, 
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+ Parisc List <linux-parisc@vger.kernel.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+ "the arch/x86 maintainers" <x86@kernel.org>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220524_102253_276786_04DA5F12 
-X-CRM114-Status: GOOD (  24.87  )
+X-CRM114-CacheID: sfid-20220524_104259_015630_328FC51D 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,192 +88,109 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
-NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
-case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
-edge until the previous completion message has been received and
-NCEPLIC100 doesn't support pending interrupt counter, hence losing the
-interrupts if not acknowledged in time.
+On Mon, May 23, 2022 at 1:45 PM Guenter Roeck <linux@roeck-us.net> wrote:
+>
+> On Tue, Mar 22, 2022 at 10:40:03PM +0800, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > Adds initial skeletal COMPAT Kbuild (Running 32bit U-mode on
+> > 64bit S-mode) support.
+> >  - Setup kconfig & dummy functions for compiling.
+> >  - Implement compat_start_thread by the way.
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+> > Tested-by: Heiko Stuebner <heiko@sntech.de>
+> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
+>
+> With this patch in linux-next, all my riscv64 emulations crash.
+>
+> [   11.600082] Run /sbin/init as init process
+> [   11.628561] init[1]: unhandled signal 11 code 0x1 at 0x0000000000000000 in libc.so[ffffff8ad39000+a4000]
+> [   11.629398] CPU: 0 PID: 1 Comm: init Not tainted 5.18.0-rc7-next-20220520 #1
+> [   11.629462] Hardware name: riscv-virtio,qemu (DT)
+> [   11.629546] epc : 00ffffff8ada1100 ra : 00ffffff8ada13c8 sp : 00ffffffc58199f0
+> [   11.629586]  gp : 00ffffff8ad39000 tp : 00ffffff8ade0998 t0 : ffffffffffffffff
+> [   11.629598]  t1 : 00ffffffc5819fd0 t2 : 0000000000000000 s0 : 00ffffff8ade0cc0
+> [   11.629610]  s1 : 00ffffff8ade0cc0 a0 : 0000000000000000 a1 : 00ffffffc5819a00
+> [   11.629622]  a2 : 0000000000000001 a3 : 000000000000001e a4 : 00ffffffc5819b00
+> [   11.629634]  a5 : 00ffffffc5819b00 a6 : 0000000000000000 a7 : 0000000000000000
+> [   11.629645]  s2 : 00ffffff8ade0ac8 s3 : 00ffffff8ade0ec8 s4 : 00ffffff8ade0728
+> [   11.629656]  s5 : 00ffffff8ade0a90 s6 : 0000000000000000 s7 : 00ffffffc5819e40
+> [   11.629667]  s8 : 00ffffff8ade0ca0 s9 : 00ffffff8addba50 s10: 0000000000000000
+> [   11.629678]  s11: 0000000000000000 t3 : 0000000000000002 t4 : 0000000000000001
+> [   11.629688]  t5 : 0000000000020000 t6 : ffffffffffffffff
+> [   11.629699] status: 0000000000004020 badaddr: 0000000000000000 cause: 000000000000000d
+> [   11.633421] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
+> [   11.633664] CPU: 0 PID: 1 Comm: init Not tainted 5.18.0-rc7-next-20220520 #1
+> [   11.633784] Hardware name: riscv-virtio,qemu (DT)
+> [   11.633881] Call Trace:
+> [   11.633960] [<ffffffff80005e72>] dump_backtrace+0x1c/0x24
+> [   11.634162] [<ffffffff809aa9ec>] show_stack+0x2c/0x38
+> [   11.634274] [<ffffffff809b8482>] dump_stack_lvl+0x60/0x8e
+> [   11.634386] [<ffffffff809b84c4>] dump_stack+0x14/0x1c
+> [   11.634491] [<ffffffff809aaca0>] panic+0x116/0x2e2
+> [   11.634596] [<ffffffff80015540>] do_exit+0x7ce/0x7d4
+> [   11.634707] [<ffffffff80015666>] do_group_exit+0x24/0x7c
+> [   11.634817] [<ffffffff80022294>] get_signal+0x7ee/0x830
+> [   11.634924] [<ffffffff800051c0>] do_notify_resume+0x6c/0x41c
+> [   11.635037] [<ffffffff80003ad4>] ret_from_exception+0x0/0x10
+The problem is come from "__dls3's vdso decode part in musl's
+ldso/dynlink.c". The ehdr->e_phnum & ehdr->e_phentsize are wrong.
 
-So the workaround for edge-triggered interrupts to be handled correctly
-and without losing is that it needs to be acknowledged first and then
-handler must be run so that we don't miss on the next edge-triggered
-interrupt.
+I think the root cause is from musl's implementation with the wrong
+elf parser. I would fix that soon.
 
-This patch adds a new compatible string for Renesas RZ/Five SoC and adds
-support to change interrupt flow based on the interrupt type. It also
-implements irq_ack and irq_set_type callbacks.
+If you CONFIG_COMPAT=n, the bug would be bypassed.
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
----
- drivers/irqchip/Kconfig           |  1 +
- drivers/irqchip/irq-sifive-plic.c | 71 ++++++++++++++++++++++++++++++-
- 2 files changed, 70 insertions(+), 2 deletions(-)
+>
+> Guenter
+>
+> ---
+> # bad: [18ecd30af1a8402c162cca1bd58771c0e5be7815] Add linux-next specific files for 20220520
+> # good: [42226c989789d8da4af1de0c31070c96726d990c] Linux 5.18-rc7
+> git bisect start 'HEAD' 'v5.18-rc7'
+> # bad: [f9b63740b666dd9887eb0282d21b5f65bb0cadd0] Merge branch 'master' of git://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
+> git bisect bad f9b63740b666dd9887eb0282d21b5f65bb0cadd0
+> # bad: [7db97132097c5973ff77466d0ee681650af653de] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/cel/linux
+> git bisect bad 7db97132097c5973ff77466d0ee681650af653de
+> # good: [2b7d17d4b7c1ff40f58b0d32be40fc0bb6c582fb] soc: document merges
+> git bisect good 2b7d17d4b7c1ff40f58b0d32be40fc0bb6c582fb
+> # good: [69c9668f853fdd409bb8abbb37d615785510b29a] Merge branch 'clk-next' of git://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git
+> git bisect good 69c9668f853fdd409bb8abbb37d615785510b29a
+> # bad: [1577f290aa0d4c5b29c03c46ef52e4952a21bfbb] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/s390/linux.git
+> git bisect bad 1577f290aa0d4c5b29c03c46ef52e4952a21bfbb
+> # good: [34f0971f8ca73d7e5502b4cf299788a9402120f7] powerpc/powernv/flash: Check OPAL flash calls exist before using
+> git bisect good 34f0971f8ca73d7e5502b4cf299788a9402120f7
+> # good: [0349d7dfc70a26b3facd8ca97de34980d4b60954] Merge branch 'mips-next' of git://git.kernel.org/pub/scm/linux/kernel/git/mips/linux.git
+> git bisect good 0349d7dfc70a26b3facd8ca97de34980d4b60954
+> # bad: [20bfb54d3b121699674c17a854c5ebc7a8f97d81] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
+> git bisect bad 20bfb54d3b121699674c17a854c5ebc7a8f97d81
+> # bad: [9be8459298eadb39b9fe9974b890239e9c123107] riscv: compat: Add COMPAT Kbuild skeletal support
+> git bisect bad 9be8459298eadb39b9fe9974b890239e9c123107
+> # good: [01abdfeac81b5f56062d0a78f2cdc805db937a75] riscv: compat: Support TASK_SIZE for compat mode
+> git bisect good 01abdfeac81b5f56062d0a78f2cdc805db937a75
+> # good: [f4b395e6f1a588ed6c9a30474e58cf6b27b65783] riscv: compat: Add hw capability check for elf
+> git bisect good f4b395e6f1a588ed6c9a30474e58cf6b27b65783
+> # good: [3092eb45637573c5e435fbf5eaf9516316e5f9c6] riscv: compat: vdso: Add setup additional pages implementation
+> git bisect good 3092eb45637573c5e435fbf5eaf9516316e5f9c6
+> # good: [4608c159594fb40a5101357d4f614fdde9ce1fdb] riscv: compat: ptrace: Add compat_arch_ptrace implement
+> git bisect good 4608c159594fb40a5101357d4f614fdde9ce1fdb
+> # first bad commit: [9be8459298eadb39b9fe9974b890239e9c123107] riscv: compat: Add COMPAT Kbuild skeletal support
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index f3d071422f3b..aea0e4e7e547 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -537,6 +537,7 @@ config SIFIVE_PLIC
- 	bool "SiFive Platform-Level Interrupt Controller"
- 	depends on RISCV
- 	select IRQ_DOMAIN_HIERARCHY
-+	select IRQ_FASTEOI_HIERARCHY_HANDLERS
- 	help
- 	   This enables support for the PLIC chip found in SiFive (and
- 	   potentially other) RISC-V systems.  The PLIC controls devices
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index bb87e4c3b88e..abffce48e69c 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -60,10 +60,13 @@
- #define	PLIC_DISABLE_THRESHOLD		0x7
- #define	PLIC_ENABLE_THRESHOLD		0
- 
-+#define RENESAS_R9A07G043_PLIC		1
-+
- struct plic_priv {
- 	struct cpumask lmask;
- 	struct irq_domain *irqdomain;
- 	void __iomem *regs;
-+	u8 of_data;
- };
- 
- struct plic_handler {
-@@ -163,10 +166,31 @@ static int plic_set_affinity(struct irq_data *d,
- }
- #endif
- 
-+static void plic_irq_ack(struct irq_data *d)
-+{
-+	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-+
-+	if (irqd_irq_masked(d)) {
-+		plic_irq_unmask(d);
-+		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-+		plic_irq_mask(d);
-+	} else {
-+		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-+	}
-+}
-+
- static void plic_irq_eoi(struct irq_data *d)
- {
- 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
- 
-+	/*
-+	 * For Renesas R9A07G043 SoC if the interrupt type is EDGE
-+	 * we have already acknowledged it in ack callback.
-+	 */
-+	if (handler->priv->of_data == RENESAS_R9A07G043_PLIC &&
-+	    !irqd_is_level_type(d))
-+		return;
-+
- 	if (irqd_irq_masked(d)) {
- 		plic_irq_unmask(d);
- 		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-@@ -176,11 +200,37 @@ static void plic_irq_eoi(struct irq_data *d)
- 	}
- }
- 
-+static int plic_irq_set_type(struct irq_data *d, unsigned int type)
-+{
-+	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-+
-+	if (handler->priv->of_data != RENESAS_R9A07G043_PLIC)
-+		return 0;
-+
-+	switch (type) {
-+	case IRQ_TYPE_LEVEL_HIGH:
-+		irq_set_handler_locked(d, handle_fasteoi_irq);
-+		break;
-+
-+	case IRQ_TYPE_EDGE_RISING:
-+		irq_set_handler_locked(d, handle_fasteoi_ack_irq);
-+		break;
-+
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
- static struct irq_chip plic_chip = {
- 	.name		= "SiFive PLIC",
- 	.irq_mask	= plic_irq_mask,
- 	.irq_unmask	= plic_irq_unmask,
-+	.irq_ack	= plic_irq_ack,
- 	.irq_eoi	= plic_irq_eoi,
-+	.irq_set_type	= plic_irq_set_type,
-+
- #ifdef CONFIG_SMP
- 	.irq_set_affinity = plic_set_affinity,
- #endif
-@@ -198,6 +248,19 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
- 	return 0;
- }
- 
-+static int plic_irq_domain_translate(struct irq_domain *d,
-+				     struct irq_fwspec *fwspec,
-+				     unsigned long *hwirq,
-+				     unsigned int *type)
-+{
-+	struct plic_priv *priv = d->host_data;
-+
-+	if (priv->of_data == RENESAS_R9A07G043_PLIC)
-+		return irq_domain_translate_twocell(d, fwspec, hwirq, type);
-+
-+	return irq_domain_translate_onecell(d, fwspec, hwirq, type);
-+}
-+
- static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 				 unsigned int nr_irqs, void *arg)
- {
-@@ -206,7 +269,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 	unsigned int type;
- 	struct irq_fwspec *fwspec = arg;
- 
--	ret = irq_domain_translate_onecell(domain, fwspec, &hwirq, &type);
-+	ret = plic_irq_domain_translate(domain, fwspec, &hwirq, &type);
- 	if (ret)
- 		return ret;
- 
-@@ -220,7 +283,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- }
- 
- static const struct irq_domain_ops plic_irqdomain_ops = {
--	.translate	= irq_domain_translate_onecell,
-+	.translate	= plic_irq_domain_translate,
- 	.alloc		= plic_irq_domain_alloc,
- 	.free		= irq_domain_free_irqs_top,
- };
-@@ -293,6 +356,9 @@ static int __init plic_init(struct device_node *node,
- 	if (!priv)
- 		return -ENOMEM;
- 
-+	if (of_device_is_compatible(node, "renesas-r9a07g043-plic"))
-+		priv->of_data = RENESAS_R9A07G043_PLIC;
-+
- 	priv->regs = of_iomap(node, 0);
- 	if (WARN_ON(!priv->regs)) {
- 		error = -EIO;
-@@ -411,5 +477,6 @@ static int __init plic_init(struct device_node *node,
- }
- 
- IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
-+IRQCHIP_DECLARE(renesas_r9a07g043_plic, "renesas-r9a07g043-plic", plic_init);
- IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
- IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init); /* for firmware driver */
+
+
 -- 
-2.25.1
+Best Regards
+ Guo Ren
 
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
