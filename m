@@ -4,51 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8ECC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 May 2022 01:51:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9EEFC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 May 2022 04:17:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w2vrjO5I6nL1z60ZX52Qz3jwfnRneyYs882NZ+lLUKw=; b=Xunv63iTHLMML5kmv5PWNv03yh
-	xXGfQHhki9bKwQXLHIE5lHp2u/ogx+R4MT+CUUgnUk1LD+R8eAvr8mqcu+OWpNBShn5AhFfcMxXs6
-	1/lqFUzd/sgkjtdnfHHqYqHjnrQ+65Y6i3z6XgqK7eS3y4/mGGpomXktbAKtV00oWBUIXk77jdR85
-	TXo9NDksI3QtraLsB+QrAciVNmQ0sMfILSThShnm6vRpeEuSKFAfSAG1BFHcFSofmJF2ESMuduxKk
-	rlO217kV0sRFTMB4W8CzlZlVUNQYIc4hjeZUSdoDPCMsUuKS2oo5kUOEkiX18T71KnLvwYBFP+Ydt
-	LJR433YA==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=jGOOOr/2HNVcCu5XkdyNl7d9Jfso3T3dClZuYNX4x6s=; b=E1DB4QV7iuZzo3/AaR4Nq3XKnv
+	sI8m35LCyUPcTVb9Q1FqHYLy/PC6i9ogqhLkr9NVHviqHcW2G1C8tb4EALcW1fTFIDFfddl8hsddd
+	x8Gf5HLrO2kjjj2k8Tr7Jad7RsMy87+foqSy+xdiY27cPytUr2lV+bXBdO6jaMtvcoFPXBoPGziVb
+	gsUmZ8X1UKI860oR3c0VfocyxdttDjKYYydK+dwrFOwK5ba/jGlhZDvNfarxeXOZ1yKDIGJof99lA
+	thkIhMiok8yBO+hOZ1xVa3xNqa4FknkRKYXHj4NX0IKNQDv5qg55bw81Y87YU1diawXWlxpV2bjEC
+	F9L3TtuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntJhJ-006WP8-0D; Tue, 24 May 2022 01:50:57 +0000
-Received: from out30-42.freemail.mail.aliyun.com ([115.124.30.42])
+	id 1ntLyy-006l5w-Of; Tue, 24 May 2022 04:17:20 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ntJhF-006WOO-C7
- for linux-riscv@lists.infradead.org; Tue, 24 May 2022 01:50:56 +0000
-X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R171e4; CH=green; DM=||false|;
- DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04400;
- MF=xianting.tian@linux.alibaba.com; NM=1; PH=DS; RN=12; SR=0;
- TI=SMTPD_---0VEFh5GV_1653357042; 
-Received: from B-LB6YLVDL-0141.local(mailfrom:xianting.tian@linux.alibaba.com
- fp:SMTPD_---0VEFh5GV_1653357042) by smtp.aliyun-inc.com(127.0.0.1);
- Tue, 24 May 2022 09:50:44 +0800
-Subject: Re: [PATCH] RISC-V: Add fast call path of crash_kexec()
-To: paul.walmsley@sifive.com, aou@eecs.berkeley.edu, palmer@dabbelt.com,
- wangkefeng.wang@huawei.com, vitaly.wool@konsulko.com,
- rmk+kernel@armlinux.org.uk, ebiederm@xmission.com, tongtiangen@huawei.co
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- guoren@kernel.org, mick@ics.forth.gr
-References: <20220515131407.946832-1-xianting.tian@linux.alibaba.com>
-From: Xianting Tian <xianting.tian@linux.alibaba.com>
-Message-ID: <788c0f2a-1562-b4ca-a1ca-0289032b1f8a@linux.alibaba.com>
-Date: Tue, 24 May 2022 09:50:42 +0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
- Gecko/20100101 Thunderbird/78.10.1
-MIME-Version: 1.0
-In-Reply-To: <20220515131407.946832-1-xianting.tian@linux.alibaba.com>
+ id 1ntLyn-006l2r-5x
+ for linux-riscv@lists.infradead.org; Tue, 24 May 2022 04:17:11 +0000
+Received: by mail-pf1-x430.google.com with SMTP id i24so15408431pfa.7
+ for <linux-riscv@lists.infradead.org>; Mon, 23 May 2022 21:17:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+ h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+ :content-transfer-encoding;
+ bh=+NmJn0lHqElV2/Dj0LN2ZC/eRnUWisD3/+Ger37WlOU=;
+ b=JNr9jrbkbaByoQXNrUrgNFu4+sPgplII8SOLsoWL+5aDCcjKZSSzeQ5zWIE5gUsm8z
+ n8IOeXWWFbqKQ+vEuv7uoo8n9aaN9SRzeTj9YszbLSI9xIRClVdWTq07JSb9cs2yMN26
+ HzHLyehJOqKpKBus9RZAdsBw6EyLnvcWthPrSIXHx1bqg+SAihkGRk1lC3xkzq6jt9gx
+ nGrOEffXZwYBJ0w1zlgnEBtIw32198FblTYp2AN5tnSiSbdq5ZO34qH4YX1XZBHgkep5
+ LzN72o5+9Ph/fQIAyV96/pDf/H+yve4jbPG+kaW1+wxtIerpFcdeObOfcAmIYrabrT7R
+ SCPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+ :mime-version:content-transfer-encoding;
+ bh=+NmJn0lHqElV2/Dj0LN2ZC/eRnUWisD3/+Ger37WlOU=;
+ b=JGd8k6KNljASy9wiI3w6Nn8rW30bqQ0ppSHQZU5iMtPhOFaMNmhfHVF/WH3iJcTmny
+ 4Eoi+DDYZEOFZhOCzL9Vknv7/RYIOy1SXKuvVR7v6ZMKISas7WP0I4HFvpXkO0TrpgNu
+ r8ZTxMJkVz9akocP1ly00reGvXfCU84pGZhEOpDGJhr1gcCaPtZ5mZF+NhGs+WL0+8TT
+ OGFCiOMc23rUT6JdhplfQb0GPCV/WyHYK8R7yTQSpFsH+lYB/PdhjaVwCsn0cGY17EHT
+ TZvos2DB4bTXS8xJbSlGACT1PorMnlifXQBv07c3ATGCu6K1iNceH05qe28kscVzR89G
+ uU3w==
+X-Gm-Message-State: AOAM531rOi0QnUNiGiExivXu8woFvbmrqkcEc6lVPY2+AGmqGjU0X06W
+ c0tt5l/fr0MBgzZFTejE9EUO6w==
+X-Google-Smtp-Source: ABdhPJxC87IP+R59YBWk1R2oLuR5oGcvv3rzYdzbTZNRdNoci/Pd3lThAYCwDsl3Xs/2yUby2TzPaw==
+X-Received: by 2002:a63:91c3:0:b0:3f9:caa5:fa56 with SMTP id
+ l186-20020a6391c3000000b003f9caa5fa56mr14844974pge.418.1653365823995; 
+ Mon, 23 May 2022 21:17:03 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net.
+ [76.210.143.223]) by smtp.gmail.com with ESMTPSA id
+ n26-20020aa7985a000000b00518142f8c37sm8349053pfq.171.2022.05.23.21.17.02
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 23 May 2022 21:17:03 -0700 (PDT)
+Date: Mon, 23 May 2022 21:17:03 -0700 (PDT)
+X-Google-Original-Date: Mon, 23 May 2022 21:17:00 PDT (-0700)
+Subject: Re: [PATCH -next v7 6/6] riscv/mm: Enable
+ ARCH_SUPPORTS_PAGE_TABLE_CHECK
+In-Reply-To: <20220507110114.4128854-7-tongtiangen@huawei.com>
+CC: tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, 
+ x86@kernel.org, hpa@zytor.com, pasha.tatashin@soleen.com,
+ anshuman.khandual@arm.com, 
+ akpm@linux-foundation.org, catalin.marinas@arm.com,
+ Will Deacon <will@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ tongtiangen@huawei.com, wangkefeng.wang@huawei.com, guohanjun@huawei.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: tongtiangen@huawei.com
+Message-ID: <mhng-7c6392da-5321-4fc6-b0af-c6b41b300a6a@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220523_185053_625466_18B0CC94 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20220523_211709_493647_F7603CE5 
+X-CRM114-Status: GOOD (  24.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,57 +93,264 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="gbk"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-anVzdCBhIGZyaWVuZGx5IHBpbmcKCtTaIDIwMjIvNS8xNSDPws7nOToxNCwgWGlhbnRpbmcgVGlh
-biDQtLXAOgo+IEN1cnJlbnRseSwgYWxtb3N0IGFsbCBhcmNocyAoeDg2LCBhcm02NCwgbWlwcy4u
-Likgc3VwcG9ydCBmYXN0IGNhbGwKPiBvZiBjcmFzaF9rZXhlYygpIHdoZW4gInJlZ3MgJiYga2V4
-ZWNfc2hvdWxkX2NyYXNoKCkiIGlzIHRydWUuIEJ1dAo+IFJJU0MtViBub3QsIGl0IGNhbiBvbmx5
-IGVudGVyIGNyYXNoIHN5c3RlbSB2aWEgcGFuaWMoKS4gSG93ZXZlciBwYW5pYygpCj4gZG9lc24n
-dCBwYXNzIHRoZSByZWdzIG9mIHRoZSByZWFsIGFjY2lkZW50IHNjZW5lIHRvIGNyYXNoX2tleGVj
-KCksCj4gaXQgY2F1c2VkIHdlIGNhbid0IGdldCBhY2N1cmF0ZSBiYWNrdHJhY2UgdmlhIGdkYiwK
-PiAJJCByaXNjdjY0LWxpbnV4LWdudS1nZGIgdm1saW51eCB2bWNvcmUKPiAJUmVhZGluZyBzeW1i
-b2xzIGZyb20gdm1saW51eC4uLgo+IAlbTmV3IExXUCA5NV0KPiAJIzAgIGNvbnNvbGVfdW5sb2Nr
-ICgpIGF0IGtlcm5lbC9wcmludGsvcHJpbnRrLmM6MjU1Nwo+IAkyNTU3ICAgICAgICAgICAgICAg
-ICAgICBpZiAoZG9fY29uZF9yZXNjaGVkKQo+IAkoZ2RiKSBidAo+IAkjMCAgY29uc29sZV91bmxv
-Y2sgKCkgYXQga2VybmVsL3ByaW50ay9wcmludGsuYzoyNTU3Cj4gCSMxICAweDAwMDAwMDAwMDAw
-MDAwMDAgaW4gPz8gKCkKPgo+IFdpdGggdGhlIHBhdGNoIHdlIGNhbiBnZXQgdGhlIGFjY3VyYXRl
-IGJhY2t0cmFjZSwKPiAJJCByaXNjdjY0LWxpbnV4LWdudS1nZGIgdm1saW51eCB2bWNvcmUKPiAJ
-UmVhZGluZyBzeW1ib2xzIGZyb20gdm1saW51eC4uLgo+IAlbTmV3IExXUCA5NV0KPiAJIzAgIDB4
-ZmZmZmZmZTAwMDYzYTRlMCBpbiB0ZXN0X3RocmVhZCAoZGF0YT08b3B0aW1pemVkIG91dD4pIGF0
-IGRyaXZlcnMvdmlydGlvL3ZpcnRpb19tbWlvLmM6ODA2Cj4gCTgwNiAgICAgICAgICAgICAqKGlu
-dCAqKXAgPSAweGRlYWQ7Cj4gCShnZGIpCj4gCShnZGIpIGJ0Cj4gCSMwICAweGZmZmZmZmUwMDA2
-M2E0ZTAgaW4gdGVzdF90aHJlYWQgKGRhdGE9PG9wdGltaXplZCBvdXQ+KSBhdCBkcml2ZXJzL3Zp
-cnRpby92aXJ0aW9fbW1pby5jOjgwNgo+IAkjMSAgMHgwMDAwMDAwMDAwMDAwMDAwIGluID8/ICgp
-Cj4KPiBUZXN0IGNvZGUgdG8gcHJvZHVjZSBOVUxMIGFkZHJlc3MgZGVyZWZlcmVuY2UsCj4gCStl
-eHRlcm4gaW50IHBhbmljX29uX29vcHM7Cj4gCStzdGF0aWMgc3RydWN0IHRhc2tfc3RydWN0ICpr
-Owo+IAkrc3RhdGljIGludCB0ZXN0X3RocmVhZCh2b2lkICpkYXRhKSB7Cj4gCSsKPiAJKyAgICAg
-ICB2b2lkICpwID0gTlVMTDsKPiAJKwo+IAkrICAgICAgIHdoaWxlICghcGFuaWNfb25fb29wcykK
-PiAJKyAgICAgICAgICAgICAgIG1zbGVlcCgyMDAwKTsKPiAJKwo+IAkrICAgICAgICooaW50ICop
-cCA9IDB4ZGVhZDsKPiAJKwo+IAkrICAgICAgIHJldHVybiAwOwo+IAkrfQo+IAkrCj4gCSBzdGF0
-aWMgaW50IF9faW5pdCB2aXJ0aW9fbW1pb19pbml0KHZvaWQpCj4gCSB7Cj4gCSsgICAgICAgayA9
-IGt0aHJlYWRfcnVuKHRlc3RfdGhyZWFkLCBOVUxMLCAidGVzdF90aHJlYWQiKTsKPiAJKyAgICAg
-ICBpZiAoSVNfRVJSKGspKQo+IAkrICAgICAgICAgICAgICAgcHJfZXJyKCJDb3VsZG4ndCBjcmVh
-dGUgdGVzdCBrdGhyZWFkXG4iKTsKPiAJKwo+IAkgICAgICAgIHJldHVybiBwbGF0Zm9ybV9kcml2
-ZXJfcmVnaXN0ZXIoJnZpcnRpb19tbWlvX2RyaXZlcik7Cj4gCSB9Cj4KPiBTaWduZWQtb2ZmLWJ5
-OiBYaWFudGluZyBUaWFuIDx4aWFudGluZy50aWFuQGxpbnV4LmFsaWJhYmEuY29tPgo+IC0tLQo+
-ICAgYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyB8IDQgKysrKwo+ICAgMSBmaWxlIGNoYW5nZWQs
-IDQgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBz
-LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jCj4gaW5kZXggZmU5MmUxMTllNmEzLi5lNjY2
-ZWJmYTJhNjQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwo+ICsrKyBi
-L2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMKPiBAQCAtMTYsNiArMTYsNyBAQAo+ICAgI2luY2x1
-ZGUgPGxpbnV4L21tLmg+Cj4gICAjaW5jbHVkZSA8bGludXgvbW9kdWxlLmg+Cj4gICAjaW5jbHVk
-ZSA8bGludXgvaXJxLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9rZXhlYy5oPgo+ICAgCj4gICAjaW5j
-bHVkZSA8YXNtL2FzbS1wcm90b3R5cGVzLmg+Cj4gICAjaW5jbHVkZSA8YXNtL2J1Zy5oPgo+IEBA
-IC00NCw2ICs0NSw5IEBAIHZvaWQgZGllKHN0cnVjdCBwdF9yZWdzICpyZWdzLCBjb25zdCBjaGFy
-ICpzdHIpCj4gICAKPiAgIAlyZXQgPSBub3RpZnlfZGllKERJRV9PT1BTLCBzdHIsIHJlZ3MsIDAs
-IHJlZ3MtPmNhdXNlLCBTSUdTRUdWKTsKPiAgIAo+ICsJaWYgKHJlZ3MgJiYga2V4ZWNfc2hvdWxk
-X2NyYXNoKGN1cnJlbnQpKQo+ICsJCWNyYXNoX2tleGVjKHJlZ3MpOwo+ICsKPiAgIAlidXN0X3Nw
-aW5sb2NrcygwKTsKPiAgIAlhZGRfdGFpbnQoVEFJTlRfRElFLCBMT0NLREVQX05PV19VTlJFTElB
-QkxFKTsKPiAgIAlzcGluX3VubG9ja19pcnEoJmRpZV9sb2NrKTsKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sat, 07 May 2022 04:01:14 PDT (-0700), tongtiangen@huawei.com wrote:
+> As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table check")
+> , enable ARCH_SUPPORTS_PAGE_TABLE_CHECK on riscv.
+>
+> Add additional page table check stubs for page table helpers, these stubs
+> can be used to check the existing page table entries.
+>
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+
+This doesn't build on rv32 (or presumably any other 32-bit arch) 
+something like this should do it
+
+    diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+    index 2b18e4410c4d..ea658ed6a1b1 100644
+    --- a/arch/riscv/include/asm/pgtable.h
+    +++ b/arch/riscv/include/asm/pgtable.h
+    @@ -690,11 +690,13 @@ static inline bool pmd_user_accessible_page(pmd_t pmd)
+     	return pmd_leaf(pmd) && pmd_user(pmd);
+     }
+    
+    +#ifdef CONFIG_64BIT
+     static inline bool pud_user_accessible_page(pud_t pud)
+     {
+     	return pud_leaf(pud) && pud_user(pud);
+     }
+    -#endif
+    +#endif /* CONFIG_64BIT */
+    +#endif /* CONFIG_PAGE_TABLE_CHECK */
+    
+     #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+     static inline int pmd_trans_huge(pmd_t pmd)
+    diff --git a/mm/page_table_check.c b/mm/page_table_check.c
+    index 3692bea2ea2c..ac9bddfa1398 100644
+    --- a/mm/page_table_check.c
+    +++ b/mm/page_table_check.c
+    @@ -165,6 +165,7 @@ void __page_table_check_pmd_clear(struct mm_struct *mm, unsigned long addr,
+     }
+     EXPORT_SYMBOL(__page_table_check_pmd_clear);
+    
+    +#if CONFIG_PGTABLE_LEVELS > 3
+     void __page_table_check_pud_clear(struct mm_struct *mm, unsigned long addr,
+     				  pud_t pud)
+     {
+    @@ -177,6 +178,7 @@ void __page_table_check_pud_clear(struct mm_struct *mm, unsigned long addr,
+     	}
+     }
+     EXPORT_SYMBOL(__page_table_check_pud_clear);
+    +#endif
+    
+     void __page_table_check_pte_set(struct mm_struct *mm, unsigned long addr,
+     				pte_t *ptep, pte_t pte)
+    @@ -208,6 +210,7 @@ void __page_table_check_pmd_set(struct mm_struct *mm, unsigned long addr,
+     }
+     EXPORT_SYMBOL(__page_table_check_pmd_set);
+    
+    +#if CONFIG_PGTABLE_LEVELS > 3
+     void __page_table_check_pud_set(struct mm_struct *mm, unsigned long addr,
+     				pud_t *pudp, pud_t pud)
+     {
+    @@ -222,6 +225,7 @@ void __page_table_check_pud_set(struct mm_struct *mm, unsigned long addr,
+     	}
+     }
+     EXPORT_SYMBOL(__page_table_check_pud_set);
+    +#endif
+    
+     void __page_table_check_pte_clear_range(struct mm_struct *mm,
+     					unsigned long addr,
+
+with those changes this passes my tests, so
+
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+Feel free to take this along with the rest of them if that's easier, the 
+RISC-V bits are pretty light-weight.  Also happy to do some sort of 
+shared tag once the other issues get sorted out.
+
+Thanks!
+
+> ---
+>  arch/riscv/Kconfig               |  1 +
+>  arch/riscv/include/asm/pgtable.h | 71 +++++++++++++++++++++++++++++---
+>  2 files changed, 66 insertions(+), 6 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 715390feb6ea..bb9fde09eea5 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -38,6 +38,7 @@ config RISCV
+>  	select ARCH_SUPPORTS_ATOMIC_RMW
+>  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
+>  	select ARCH_SUPPORTS_HUGETLBFS if MMU
+> +	select ARCH_SUPPORTS_PAGE_TABLE_CHECK
+>  	select ARCH_USE_MEMTEST
+>  	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+>  	select ARCH_WANT_FRAME_POINTERS
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 046b44225623..62e733c85836 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -114,6 +114,8 @@
+>  #include <asm/pgtable-32.h>
+>  #endif /* CONFIG_64BIT */
+>
+> +#include <linux/page_table_check.h>
+> +
+>  #ifdef CONFIG_XIP_KERNEL
+>  #define XIP_FIXUP(addr) ({							\
+>  	uintptr_t __a = (uintptr_t)(addr);					\
+> @@ -315,6 +317,11 @@ static inline int pte_exec(pte_t pte)
+>  	return pte_val(pte) & _PAGE_EXEC;
+>  }
+>
+> +static inline int pte_user(pte_t pte)
+> +{
+> +	return pte_val(pte) & _PAGE_USER;
+> +}
+> +
+>  static inline int pte_huge(pte_t pte)
+>  {
+>  	return pte_present(pte) && (pte_val(pte) & _PAGE_LEAF);
+> @@ -446,7 +453,7 @@ static inline void set_pte(pte_t *ptep, pte_t pteval)
+>
+>  void flush_icache_pte(pte_t pte);
+>
+> -static inline void set_pte_at(struct mm_struct *mm,
+> +static inline void __set_pte_at(struct mm_struct *mm,
+>  	unsigned long addr, pte_t *ptep, pte_t pteval)
+>  {
+>  	if (pte_present(pteval) && pte_exec(pteval))
+> @@ -455,10 +462,17 @@ static inline void set_pte_at(struct mm_struct *mm,
+>  	set_pte(ptep, pteval);
+>  }
+>
+> +static inline void set_pte_at(struct mm_struct *mm,
+> +	unsigned long addr, pte_t *ptep, pte_t pteval)
+> +{
+> +	page_table_check_pte_set(mm, addr, ptep, pteval);
+> +	__set_pte_at(mm, addr, ptep, pteval);
+> +}
+> +
+>  static inline void pte_clear(struct mm_struct *mm,
+>  	unsigned long addr, pte_t *ptep)
+>  {
+> -	set_pte_at(mm, addr, ptep, __pte(0));
+> +	__set_pte_at(mm, addr, ptep, __pte(0));
+>  }
+>
+>  #define __HAVE_ARCH_PTEP_SET_ACCESS_FLAGS
+> @@ -479,7 +493,11 @@ static inline int ptep_set_access_flags(struct vm_area_struct *vma,
+>  static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
+>  				       unsigned long address, pte_t *ptep)
+>  {
+> -	return __pte(atomic_long_xchg((atomic_long_t *)ptep, 0));
+> +	pte_t pte = __pte(atomic_long_xchg((atomic_long_t *)ptep, 0));
+> +
+> +	page_table_check_pte_clear(mm, address, pte);
+> +
+> +	return pte;
+>  }
+>
+>  #define __HAVE_ARCH_PTEP_TEST_AND_CLEAR_YOUNG
+> @@ -546,6 +564,13 @@ static inline unsigned long pmd_pfn(pmd_t pmd)
+>  	return ((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT);
+>  }
+>
+> +#define __pud_to_phys(pud)  (pud_val(pud) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
+> +
+> +static inline unsigned long pud_pfn(pud_t pud)
+> +{
+> +	return ((__pud_to_phys(pud) & PUD_MASK) >> PAGE_SHIFT);
+> +}
+> +
+>  static inline pmd_t pmd_modify(pmd_t pmd, pgprot_t newprot)
+>  {
+>  	return pte_pmd(pte_modify(pmd_pte(pmd), newprot));
+> @@ -567,6 +592,11 @@ static inline int pmd_young(pmd_t pmd)
+>  	return pte_young(pmd_pte(pmd));
+>  }
+>
+> +static inline int pmd_user(pmd_t pmd)
+> +{
+> +	return pte_user(pmd_pte(pmd));
+> +}
+> +
+>  static inline pmd_t pmd_mkold(pmd_t pmd)
+>  {
+>  	return pte_pmd(pte_mkold(pmd_pte(pmd)));
+> @@ -600,15 +630,39 @@ static inline pmd_t pmd_mkdirty(pmd_t pmd)
+>  static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+>  				pmd_t *pmdp, pmd_t pmd)
+>  {
+> -	return set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
+> +	page_table_check_pmd_set(mm, addr, pmdp, pmd);
+> +	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd));
+> +}
+> +
+> +static inline int pud_user(pud_t pud)
+> +{
+> +	return pte_user(pud_pte(pud));
+>  }
+>
+>  static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+>  				pud_t *pudp, pud_t pud)
+>  {
+> -	return set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
+> +	page_table_check_pud_set(mm, addr, pudp, pud);
+> +	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud));
+> +}
+> +
+> +#ifdef CONFIG_PAGE_TABLE_CHECK
+> +static inline bool pte_user_accessible_page(pte_t pte)
+> +{
+> +	return pte_present(pte) && pte_user(pte);
+> +}
+> +
+> +static inline bool pmd_user_accessible_page(pmd_t pmd)
+> +{
+> +	return pmd_leaf(pmd) && pmd_user(pmd);
+>  }
+>
+> +static inline bool pud_user_accessible_page(pud_t pud)
+> +{
+> +	return pud_leaf(pud) && pud_user(pud);
+> +}
+> +#endif
+> +
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>  static inline int pmd_trans_huge(pmd_t pmd)
+>  {
+> @@ -634,7 +688,11 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
+>  static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+>  					unsigned long address, pmd_t *pmdp)
+>  {
+> -	return pte_pmd(ptep_get_and_clear(mm, address, (pte_t *)pmdp));
+> +	pmd_t pmd = __pmd(atomic_long_xchg((atomic_long_t *)pmdp, 0));
+> +
+> +	page_table_check_pmd_clear(mm, address, pmd);
+> +
+> +	return pmd;
+>  }
+>
+>  #define __HAVE_ARCH_PMDP_SET_WRPROTECT
+> @@ -648,6 +706,7 @@ static inline void pmdp_set_wrprotect(struct mm_struct *mm,
+>  static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
+>  				unsigned long address, pmd_t *pmdp, pmd_t pmd)
+>  {
+> +	page_table_check_pmd_set(vma->vm_mm, address, pmdp, pmd);
+>  	return __pmd(atomic_long_xchg((atomic_long_t *)pmdp, pmd_val(pmd)));
+>  }
+>  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
