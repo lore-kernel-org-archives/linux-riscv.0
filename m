@@ -4,56 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1D9CC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 23 May 2022 23:07:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8ECC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 May 2022 01:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nahbvnvlPxSOCnJI9w37nH4MH5wAQp30CWRmWgQ+q4c=; b=vZhn/1MOobuzF4
-	eoFTUx95lqxRdJGyLJPGI7D19i/hO7khgjpz7KxoZH+mS9Vk6Y1OAotGGz/ivOkjmAP9o3rIzEXZP
-	hOiuMjdaFlHDxJtreFufeM/qw9oV2L9MtyUdx1a/b3GSMB/pNwJbZSgb3Sr1HyYETZG/eFI0fRxg0
-	qUwdE2doluw4BhEIknP7oTl6H1E+ab8o5W07D7wkE8/V3+tg6foKuGf19vhgV+fkNL//zSU00zDA4
-	I8DCuhjDoEqCAlfwaMqKeXG5bHSVxyf4p/UScjAYTACmiZqO3Kvpvgzj1ToaVUbMg1H7Tt+EofnSE
-	8BZXZ8e/lA0mI8XmeEtA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w2vrjO5I6nL1z60ZX52Qz3jwfnRneyYs882NZ+lLUKw=; b=Xunv63iTHLMML5kmv5PWNv03yh
+	xXGfQHhki9bKwQXLHIE5lHp2u/ogx+R4MT+CUUgnUk1LD+R8eAvr8mqcu+OWpNBShn5AhFfcMxXs6
+	1/lqFUzd/sgkjtdnfHHqYqHjnrQ+65Y6i3z6XgqK7eS3y4/mGGpomXktbAKtV00oWBUIXk77jdR85
+	TXo9NDksI3QtraLsB+QrAciVNmQ0sMfILSThShnm6vRpeEuSKFAfSAG1BFHcFSofmJF2ESMuduxKk
+	rlO217kV0sRFTMB4W8CzlZlVUNQYIc4hjeZUSdoDPCMsUuKS2oo5kUOEkiX18T71KnLvwYBFP+Ydt
+	LJR433YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntH91-0062Y9-Pv; Mon, 23 May 2022 23:07:23 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1ntJhJ-006WP8-0D; Tue, 24 May 2022 01:50:57 +0000
+Received: from out30-42.freemail.mail.aliyun.com ([115.124.30.42])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ntH8y-0062XS-CC; Mon, 23 May 2022 23:07:22 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88]
- helo=diego.localnet)
- by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
- (Exim 4.92) (envelope-from <heiko@sntech.de>)
- id 1ntGid-0004sM-8A; Tue, 24 May 2022 00:40:07 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Guo Ren <guoren@kernel.org>, Guenter Roeck <linux@roeck-us.net>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Christoph Hellwig <hch@lst.de>, linux-arch <linux-arch@vger.kernel.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org,
- linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
- Parisc List <linux-parisc@vger.kernel.org>,
- "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- the arch/x86 maintainers <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V9 20/20] riscv: compat: Add COMPAT Kbuild skeletal support
-Date: Tue, 24 May 2022 00:40:06 +0200
-Message-ID: <44686961.fMDQidcC6G@diego>
-In-Reply-To: <0ecdb673-b9a8-40af-7dee-2ba7fe739e5f@roeck-us.net>
-References: <20220322144003.2357128-1-guoren@kernel.org>
- <CAJF2gTSCcYif4DEpvrJ6d02no3CU_viyE+OkhhjCV3VsGmcT5Q@mail.gmail.com>
- <0ecdb673-b9a8-40af-7dee-2ba7fe739e5f@roeck-us.net>
+ id 1ntJhF-006WOO-C7
+ for linux-riscv@lists.infradead.org; Tue, 24 May 2022 01:50:56 +0000
+X-Alimail-AntiSpam: AC=PASS; BC=-1|-1; BR=01201311R171e4; CH=green; DM=||false|;
+ DS=||; FP=0|-1|-1|-1|0|-1|-1|-1; HT=e01e04400;
+ MF=xianting.tian@linux.alibaba.com; NM=1; PH=DS; RN=12; SR=0;
+ TI=SMTPD_---0VEFh5GV_1653357042; 
+Received: from B-LB6YLVDL-0141.local(mailfrom:xianting.tian@linux.alibaba.com
+ fp:SMTPD_---0VEFh5GV_1653357042) by smtp.aliyun-inc.com(127.0.0.1);
+ Tue, 24 May 2022 09:50:44 +0800
+Subject: Re: [PATCH] RISC-V: Add fast call path of crash_kexec()
+To: paul.walmsley@sifive.com, aou@eecs.berkeley.edu, palmer@dabbelt.com,
+ wangkefeng.wang@huawei.com, vitaly.wool@konsulko.com,
+ rmk+kernel@armlinux.org.uk, ebiederm@xmission.com, tongtiangen@huawei.co
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ guoren@kernel.org, mick@ics.forth.gr
+References: <20220515131407.946832-1-xianting.tian@linux.alibaba.com>
+From: Xianting Tian <xianting.tian@linux.alibaba.com>
+Message-ID: <788c0f2a-1562-b4ca-a1ca-0289032b1f8a@linux.alibaba.com>
+Date: Tue, 24 May 2022 09:50:42 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.10.1
 MIME-Version: 1.0
+In-Reply-To: <20220515131407.946832-1-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220523_160720_592937_C1574F18 
-X-CRM114-Status: GOOD (  29.08  )
+X-CRM114-CacheID: sfid-20220523_185053_625466_18B0CC94 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,185 +60,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="gbk"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guenter,
-
-Am Montag, 23. Mai 2022, 18:18:47 CEST schrieb Guenter Roeck:
-> On 5/23/22 08:18, Guo Ren wrote:
-> > I tested Palmer's branch, it's okay:
-> > 8810d7feee5a (HEAD -> for-next, palmer/for-next) riscv: Don't output a
-> > bogus mmu-type on a no MMU kernel
-> > 
-> > I also tested linux-next, it's okay:
-> > 
-> > rv64_rootfs:
-> > # uname -a
-> > Linux buildroot 5.18.0-next-20220523 #7 SMP Mon May 23 11:15:17 EDT
-> > 2022 riscv64 GNU/Linux
-> > #
-> 
-> That is is ok with one setup doesn't mean it is ok with
-> all setups. It is not ok with my root file system (from
-> https://github.com/groeck/linux-build-test/tree/master/rootfs/riscv64),
-> with qemu v6.2.
-
-That is very true that it shouldn't fail on any existing (qemu-)platform,
-but as I remember also testing Guo's series on both riscv32 and riscv64
-qemu platforms in the past, I guess it would be really helpful to get more
-information about the failing platform you're experiencing so that we can
-find the source of the issue.
-
-As it looks like you both tested the same kernel source, I guess the only
-differences could be in the qemu-version, kernel config and rootfs.
-Is your rootfs something you can share or that can be rebuilt easily?
-
-
-Heiko
-
-> > #
-> > #
-> > # ls /lib
-> > ld-uClibc-1.0.39.so  libatomic.so.1       libgcc_s.so
-> > ld-uClibc.so.0       libatomic.so.1.2.0   libgcc_s.so.1
-> > ld-uClibc.so.1       libc.so.0            libuClibc-1.0.39.so
-> > libatomic.so         libc.so.1            modules
-> > 
-> 
-> My root file system uses musl.
-> 
-> Guenter
-> 
-> > rv32_rootfs:
-> > buildroot login: root
-> > # uname -a
-> > Linux buildroot 5.18.0-next-20220523 #7 SMP Mon May 23 11:15:17 EDT
-> > 2022 riscv64 GNU/Linux
-> > # ls /lib
-> > ld-linux-riscv32-ilp32d.so.1  libm.so.6
-> > libanl.so.1                   libnss_dns.so.2
-> > libatomic.so                  libnss_files.so.2
-> > libatomic.so.1                libpthread.so.0
-> > libatomic.so.1.2.0            libresolv.so.2
-> > libc.so.6                     librt.so.1
-> > libcrypt.so.1                 libthread_db.so.1
-> > libdl.so.2                    libutil.so.1
-> > libgcc_s.so                   modules
-> > libgcc_s.so.1
-> > 
-> > Here is my qemu version:
-> > commit 19f13a92cef8405052e0f73d5289f9e15474dad3 (HEAD ->
-> > riscv-to-apply.next, alistair/riscv-to-apply.next)
-> > Author: Tsukasa OI <research_trasio@irq.a4lg.com>
-> > Date:   Sun May 15 11:56:11 2022 +0900
-> > 
-> >      target/riscv: Move/refactor ISA extension checks
-> > 
-> >      We should separate "check" and "configure" steps as possible.
-> >      This commit separates both steps except vector/Zfinx-related checks.
-> > 
-> >      Signed-off-by: Tsukasa OI <research_trasio@irq.a4lg.com>
-> >      Reviewed-by: Alistair Francis <alistair.francis@wdc.com>
-> >      Message-Id:
-> > <c3145fa37a529484cf3047c8cb9841e9effad4b0.1652583332.git.research_trasio@irq.a4lg.com>
-> >      Signed-off-by: Alistair Francis <alistair.francis@wdc.com>
-> > 
-> > On Mon, May 23, 2022 at 1:45 PM Guenter Roeck <linux@roeck-us.net> wrote:
-> >>
-> >> On Tue, Mar 22, 2022 at 10:40:03PM +0800, guoren@kernel.org wrote:
-> >>> From: Guo Ren <guoren@linux.alibaba.com>
-> >>>
-> >>> Adds initial skeletal COMPAT Kbuild (Running 32bit U-mode on
-> >>> 64bit S-mode) support.
-> >>>   - Setup kconfig & dummy functions for compiling.
-> >>>   - Implement compat_start_thread by the way.
-> >>>
-> >>> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> >>> Signed-off-by: Guo Ren <guoren@kernel.org>
-> >>> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-> >>> Tested-by: Heiko Stuebner <heiko@sntech.de>
-> >>> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> >>
-> >> With this patch in linux-next, all my riscv64 emulations crash.
-> >>
-> >> [   11.600082] Run /sbin/init as init process
-> >> [   11.628561] init[1]: unhandled signal 11 code 0x1 at 0x0000000000000000 in libc.so[ffffff8ad39000+a4000]
-> >> [   11.629398] CPU: 0 PID: 1 Comm: init Not tainted 5.18.0-rc7-next-20220520 #1
-> >> [   11.629462] Hardware name: riscv-virtio,qemu (DT)
-> >> [   11.629546] epc : 00ffffff8ada1100 ra : 00ffffff8ada13c8 sp : 00ffffffc58199f0
-> >> [   11.629586]  gp : 00ffffff8ad39000 tp : 00ffffff8ade0998 t0 : ffffffffffffffff
-> >> [   11.629598]  t1 : 00ffffffc5819fd0 t2 : 0000000000000000 s0 : 00ffffff8ade0cc0
-> >> [   11.629610]  s1 : 00ffffff8ade0cc0 a0 : 0000000000000000 a1 : 00ffffffc5819a00
-> >> [   11.629622]  a2 : 0000000000000001 a3 : 000000000000001e a4 : 00ffffffc5819b00
-> >> [   11.629634]  a5 : 00ffffffc5819b00 a6 : 0000000000000000 a7 : 0000000000000000
-> >> [   11.629645]  s2 : 00ffffff8ade0ac8 s3 : 00ffffff8ade0ec8 s4 : 00ffffff8ade0728
-> >> [   11.629656]  s5 : 00ffffff8ade0a90 s6 : 0000000000000000 s7 : 00ffffffc5819e40
-> >> [   11.629667]  s8 : 00ffffff8ade0ca0 s9 : 00ffffff8addba50 s10: 0000000000000000
-> >> [   11.629678]  s11: 0000000000000000 t3 : 0000000000000002 t4 : 0000000000000001
-> >> [   11.629688]  t5 : 0000000000020000 t6 : ffffffffffffffff
-> >> [   11.629699] status: 0000000000004020 badaddr: 0000000000000000 cause: 000000000000000d
-> >> [   11.633421] Kernel panic - not syncing: Attempted to kill init! exitcode=0x0000000b
-> >> [   11.633664] CPU: 0 PID: 1 Comm: init Not tainted 5.18.0-rc7-next-20220520 #1
-> >> [   11.633784] Hardware name: riscv-virtio,qemu (DT)
-> >> [   11.633881] Call Trace:
-> >> [   11.633960] [<ffffffff80005e72>] dump_backtrace+0x1c/0x24
-> >> [   11.634162] [<ffffffff809aa9ec>] show_stack+0x2c/0x38
-> >> [   11.634274] [<ffffffff809b8482>] dump_stack_lvl+0x60/0x8e
-> >> [   11.634386] [<ffffffff809b84c4>] dump_stack+0x14/0x1c
-> >> [   11.634491] [<ffffffff809aaca0>] panic+0x116/0x2e2
-> >> [   11.634596] [<ffffffff80015540>] do_exit+0x7ce/0x7d4
-> >> [   11.634707] [<ffffffff80015666>] do_group_exit+0x24/0x7c
-> >> [   11.634817] [<ffffffff80022294>] get_signal+0x7ee/0x830
-> >> [   11.634924] [<ffffffff800051c0>] do_notify_resume+0x6c/0x41c
-> >> [   11.635037] [<ffffffff80003ad4>] ret_from_exception+0x0/0x10
-> >>
-> >> Guenter
-> >>
-> >> ---
-> >> # bad: [18ecd30af1a8402c162cca1bd58771c0e5be7815] Add linux-next specific files for 20220520
-> >> # good: [42226c989789d8da4af1de0c31070c96726d990c] Linux 5.18-rc7
-> >> git bisect start 'HEAD' 'v5.18-rc7'
-> >> # bad: [f9b63740b666dd9887eb0282d21b5f65bb0cadd0] Merge branch 'master' of git://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
-> >> git bisect bad f9b63740b666dd9887eb0282d21b5f65bb0cadd0
-> >> # bad: [7db97132097c5973ff77466d0ee681650af653de] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/cel/linux
-> >> git bisect bad 7db97132097c5973ff77466d0ee681650af653de
-> >> # good: [2b7d17d4b7c1ff40f58b0d32be40fc0bb6c582fb] soc: document merges
-> >> git bisect good 2b7d17d4b7c1ff40f58b0d32be40fc0bb6c582fb
-> >> # good: [69c9668f853fdd409bb8abbb37d615785510b29a] Merge branch 'clk-next' of git://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git
-> >> git bisect good 69c9668f853fdd409bb8abbb37d615785510b29a
-> >> # bad: [1577f290aa0d4c5b29c03c46ef52e4952a21bfbb] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/s390/linux.git
-> >> git bisect bad 1577f290aa0d4c5b29c03c46ef52e4952a21bfbb
-> >> # good: [34f0971f8ca73d7e5502b4cf299788a9402120f7] powerpc/powernv/flash: Check OPAL flash calls exist before using
-> >> git bisect good 34f0971f8ca73d7e5502b4cf299788a9402120f7
-> >> # good: [0349d7dfc70a26b3facd8ca97de34980d4b60954] Merge branch 'mips-next' of git://git.kernel.org/pub/scm/linux/kernel/git/mips/linux.git
-> >> git bisect good 0349d7dfc70a26b3facd8ca97de34980d4b60954
-> >> # bad: [20bfb54d3b121699674c17a854c5ebc7a8f97d81] Merge branch 'for-next' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git
-> >> git bisect bad 20bfb54d3b121699674c17a854c5ebc7a8f97d81
-> >> # bad: [9be8459298eadb39b9fe9974b890239e9c123107] riscv: compat: Add COMPAT Kbuild skeletal support
-> >> git bisect bad 9be8459298eadb39b9fe9974b890239e9c123107
-> >> # good: [01abdfeac81b5f56062d0a78f2cdc805db937a75] riscv: compat: Support TASK_SIZE for compat mode
-> >> git bisect good 01abdfeac81b5f56062d0a78f2cdc805db937a75
-> >> # good: [f4b395e6f1a588ed6c9a30474e58cf6b27b65783] riscv: compat: Add hw capability check for elf
-> >> git bisect good f4b395e6f1a588ed6c9a30474e58cf6b27b65783
-> >> # good: [3092eb45637573c5e435fbf5eaf9516316e5f9c6] riscv: compat: vdso: Add setup additional pages implementation
-> >> git bisect good 3092eb45637573c5e435fbf5eaf9516316e5f9c6
-> >> # good: [4608c159594fb40a5101357d4f614fdde9ce1fdb] riscv: compat: ptrace: Add compat_arch_ptrace implement
-> >> git bisect good 4608c159594fb40a5101357d4f614fdde9ce1fdb
-> >> # first bad commit: [9be8459298eadb39b9fe9974b890239e9c123107] riscv: compat: Add COMPAT Kbuild skeletal support
-> > 
-> > 
-> > 
-> 
-> 
-
-
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+anVzdCBhIGZyaWVuZGx5IHBpbmcKCtTaIDIwMjIvNS8xNSDPws7nOToxNCwgWGlhbnRpbmcgVGlh
+biDQtLXAOgo+IEN1cnJlbnRseSwgYWxtb3N0IGFsbCBhcmNocyAoeDg2LCBhcm02NCwgbWlwcy4u
+Likgc3VwcG9ydCBmYXN0IGNhbGwKPiBvZiBjcmFzaF9rZXhlYygpIHdoZW4gInJlZ3MgJiYga2V4
+ZWNfc2hvdWxkX2NyYXNoKCkiIGlzIHRydWUuIEJ1dAo+IFJJU0MtViBub3QsIGl0IGNhbiBvbmx5
+IGVudGVyIGNyYXNoIHN5c3RlbSB2aWEgcGFuaWMoKS4gSG93ZXZlciBwYW5pYygpCj4gZG9lc24n
+dCBwYXNzIHRoZSByZWdzIG9mIHRoZSByZWFsIGFjY2lkZW50IHNjZW5lIHRvIGNyYXNoX2tleGVj
+KCksCj4gaXQgY2F1c2VkIHdlIGNhbid0IGdldCBhY2N1cmF0ZSBiYWNrdHJhY2UgdmlhIGdkYiwK
+PiAJJCByaXNjdjY0LWxpbnV4LWdudS1nZGIgdm1saW51eCB2bWNvcmUKPiAJUmVhZGluZyBzeW1i
+b2xzIGZyb20gdm1saW51eC4uLgo+IAlbTmV3IExXUCA5NV0KPiAJIzAgIGNvbnNvbGVfdW5sb2Nr
+ICgpIGF0IGtlcm5lbC9wcmludGsvcHJpbnRrLmM6MjU1Nwo+IAkyNTU3ICAgICAgICAgICAgICAg
+ICAgICBpZiAoZG9fY29uZF9yZXNjaGVkKQo+IAkoZ2RiKSBidAo+IAkjMCAgY29uc29sZV91bmxv
+Y2sgKCkgYXQga2VybmVsL3ByaW50ay9wcmludGsuYzoyNTU3Cj4gCSMxICAweDAwMDAwMDAwMDAw
+MDAwMDAgaW4gPz8gKCkKPgo+IFdpdGggdGhlIHBhdGNoIHdlIGNhbiBnZXQgdGhlIGFjY3VyYXRl
+IGJhY2t0cmFjZSwKPiAJJCByaXNjdjY0LWxpbnV4LWdudS1nZGIgdm1saW51eCB2bWNvcmUKPiAJ
+UmVhZGluZyBzeW1ib2xzIGZyb20gdm1saW51eC4uLgo+IAlbTmV3IExXUCA5NV0KPiAJIzAgIDB4
+ZmZmZmZmZTAwMDYzYTRlMCBpbiB0ZXN0X3RocmVhZCAoZGF0YT08b3B0aW1pemVkIG91dD4pIGF0
+IGRyaXZlcnMvdmlydGlvL3ZpcnRpb19tbWlvLmM6ODA2Cj4gCTgwNiAgICAgICAgICAgICAqKGlu
+dCAqKXAgPSAweGRlYWQ7Cj4gCShnZGIpCj4gCShnZGIpIGJ0Cj4gCSMwICAweGZmZmZmZmUwMDA2
+M2E0ZTAgaW4gdGVzdF90aHJlYWQgKGRhdGE9PG9wdGltaXplZCBvdXQ+KSBhdCBkcml2ZXJzL3Zp
+cnRpby92aXJ0aW9fbW1pby5jOjgwNgo+IAkjMSAgMHgwMDAwMDAwMDAwMDAwMDAwIGluID8/ICgp
+Cj4KPiBUZXN0IGNvZGUgdG8gcHJvZHVjZSBOVUxMIGFkZHJlc3MgZGVyZWZlcmVuY2UsCj4gCStl
+eHRlcm4gaW50IHBhbmljX29uX29vcHM7Cj4gCStzdGF0aWMgc3RydWN0IHRhc2tfc3RydWN0ICpr
+Owo+IAkrc3RhdGljIGludCB0ZXN0X3RocmVhZCh2b2lkICpkYXRhKSB7Cj4gCSsKPiAJKyAgICAg
+ICB2b2lkICpwID0gTlVMTDsKPiAJKwo+IAkrICAgICAgIHdoaWxlICghcGFuaWNfb25fb29wcykK
+PiAJKyAgICAgICAgICAgICAgIG1zbGVlcCgyMDAwKTsKPiAJKwo+IAkrICAgICAgICooaW50ICop
+cCA9IDB4ZGVhZDsKPiAJKwo+IAkrICAgICAgIHJldHVybiAwOwo+IAkrfQo+IAkrCj4gCSBzdGF0
+aWMgaW50IF9faW5pdCB2aXJ0aW9fbW1pb19pbml0KHZvaWQpCj4gCSB7Cj4gCSsgICAgICAgayA9
+IGt0aHJlYWRfcnVuKHRlc3RfdGhyZWFkLCBOVUxMLCAidGVzdF90aHJlYWQiKTsKPiAJKyAgICAg
+ICBpZiAoSVNfRVJSKGspKQo+IAkrICAgICAgICAgICAgICAgcHJfZXJyKCJDb3VsZG4ndCBjcmVh
+dGUgdGVzdCBrdGhyZWFkXG4iKTsKPiAJKwo+IAkgICAgICAgIHJldHVybiBwbGF0Zm9ybV9kcml2
+ZXJfcmVnaXN0ZXIoJnZpcnRpb19tbWlvX2RyaXZlcik7Cj4gCSB9Cj4KPiBTaWduZWQtb2ZmLWJ5
+OiBYaWFudGluZyBUaWFuIDx4aWFudGluZy50aWFuQGxpbnV4LmFsaWJhYmEuY29tPgo+IC0tLQo+
+ICAgYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyB8IDQgKysrKwo+ICAgMSBmaWxlIGNoYW5nZWQs
+IDQgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBz
+LmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwcy5jCj4gaW5kZXggZmU5MmUxMTllNmEzLi5lNjY2
+ZWJmYTJhNjQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYwo+ICsrKyBi
+L2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzLmMKPiBAQCAtMTYsNiArMTYsNyBAQAo+ICAgI2luY2x1
+ZGUgPGxpbnV4L21tLmg+Cj4gICAjaW5jbHVkZSA8bGludXgvbW9kdWxlLmg+Cj4gICAjaW5jbHVk
+ZSA8bGludXgvaXJxLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9rZXhlYy5oPgo+ICAgCj4gICAjaW5j
+bHVkZSA8YXNtL2FzbS1wcm90b3R5cGVzLmg+Cj4gICAjaW5jbHVkZSA8YXNtL2J1Zy5oPgo+IEBA
+IC00NCw2ICs0NSw5IEBAIHZvaWQgZGllKHN0cnVjdCBwdF9yZWdzICpyZWdzLCBjb25zdCBjaGFy
+ICpzdHIpCj4gICAKPiAgIAlyZXQgPSBub3RpZnlfZGllKERJRV9PT1BTLCBzdHIsIHJlZ3MsIDAs
+IHJlZ3MtPmNhdXNlLCBTSUdTRUdWKTsKPiAgIAo+ICsJaWYgKHJlZ3MgJiYga2V4ZWNfc2hvdWxk
+X2NyYXNoKGN1cnJlbnQpKQo+ICsJCWNyYXNoX2tleGVjKHJlZ3MpOwo+ICsKPiAgIAlidXN0X3Nw
+aW5sb2NrcygwKTsKPiAgIAlhZGRfdGFpbnQoVEFJTlRfRElFLCBMT0NLREVQX05PV19VTlJFTElB
+QkxFKTsKPiAgIAlzcGluX3VubG9ja19pcnEoJmRpZV9sb2NrKTsKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
