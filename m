@@ -4,75 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA7CC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 24 May 2022 12:08:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2BD8C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 24 May 2022 13:15:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gcb2YWcEjEXn5cKpW70Vk86Z+LFtMlW0je15Mqwg+7E=; b=tSkFKc5MAjZgTV
-	dTMM/YSHfnCg7nDEHsOjtIUX7o1itGLWg1MviXrlqGTMhnXS1CZH3e5zbJ9dspavnRzSmq3KX9A0E
-	HtYEq+C58iaaeW6ZMpvI7KTOG/TVFR5RssSsu0b0WfRT5/T79+2il4dLJC2kFMPbp2ySfI0qK7hkf
-	BwN5wcdqJ/V6onKzw1hvNYJQKBCMAs/ZqKN6vBLkTdoy5WuviSS0m1Q1/ka27b9vRsPwXqJHG1gLi
-	wjFjoi1kKHN7e7sPfHBz7vQV5eu9YIFyfDd3B2bxSRQvU1Dafuw/jer0/Km1RQO5STAOj7AaMOI0A
-	H5PtvqFbK42g/C5kkSBg==;
+	List-Owner; bh=I5yeJrcRg3Av2R+7slPrpuBc0OONpSJ+t312AlIV5MI=; b=zXFNu3ynOGvcSj
+	7DEVVyfL3SmlgowhE/rKQcvFzA4Jjdz/wIDEq2rIjYFl6wDV5KCprUwBsHGN4+bLNP/ZM/5rjFKLN
+	CqmvGjILa4tSQnaSA5Zl56GNQyumzrO99dPjzcWGuQj8xmUBA2HlS5sogK2577KEOo+TbqV6HTVEp
+	FrddSACW7dyDwi8Rkzdstry96oZc5Hpo8kRPySsqgfalQ37fsA9ADd32K8BSswcRrU76x5yMFnTSx
+	2WiqQzcmJXgghY2ap6P1R4V5jLVlyTKCrrcW8qzLm/uh9NFbVaZiLzEe0HdRkAvVnPkiDAMRCBZ3R
+	Y52LUJgcwwOmY4erY4Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntTLB-007vPr-5W; Tue, 24 May 2022 12:08:45 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1ntUNh-0084ei-8h; Tue, 24 May 2022 13:15:25 +0000
+Received: from mail-vs1-f45.google.com ([209.85.217.45])
  by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ntTL8-007vOW-Lw
- for linux-riscv@lists.infradead.org; Tue, 24 May 2022 12:08:44 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id
- r6-20020a1c2b06000000b00396fee5ebc9so1266265wmr.1
- for <linux-riscv@lists.infradead.org>; Tue, 24 May 2022 05:08:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=brainfault-org.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=B1kHWNn2FlYrScuJpDzEvYfxEoq+6pgVlJajpmZJO8Q=;
- b=MitxO5noWfkkjrDtLTJi13ymJxmHezjD+E5DuEVPaVncx1oma+enD3jH1aVLkhwzkJ
- WdhemjXMo9QnDd93aMDo5dczJ+gAgCXTKvK9tITNSJlL3EXbOBNrPilYk9cilRodPtN2
- exoqg6Mte3n0BWMUbvjN3CpXMDiyJeu+0LwBs3jA3AWr0iTJ9quRBpYLVwp3Qy3MVfE5
- 891W6liT9KNXxCx/9BOVZ+sS9plpdPcOGqglhZKvUIVP4vir7ldZ/lnawF9GayTEebzX
- Fv1tgUQE3asHoYQ2lcPQK7Xs76PjxyOSreGfpXpZGeFLNpmt2PE8l432dCQSkWRSelLV
- ppnQ==
+ id 1ntUNa-0084ct-Ns
+ for linux-riscv@lists.infradead.org; Tue, 24 May 2022 13:15:23 +0000
+Received: by mail-vs1-f45.google.com with SMTP id c62so18145111vsc.10
+ for <linux-riscv@lists.infradead.org>; Tue, 24 May 2022 06:15:16 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=B1kHWNn2FlYrScuJpDzEvYfxEoq+6pgVlJajpmZJO8Q=;
- b=Tlo3nHjIdMtG6EuiqHBmt/AQAg+mMpXeyiaLDYQ7RKXWX1Pq/5QGDoDpNnnl1OrIwU
- KTZgq1cKu8q2H/2y60jgreppOyWPGoWNeFOf9qA5eiRy9qhbk0KCsMA2+R1/kSmxQ4CG
- BS5CnwPryY3lW9+5wJodJh2KVHVKHZ1j9lerxAGadPW6PQV//aGv4mSHbEfN5GRKUOd9
- XGIad9Ye/eNb39IyDL77xueqAyomqZPNblBN//jzgA6IYOf7RxJ+CnvguuBw86jOPirq
- aYYtXTo3KPoCG+x9s66lhwcpFUKzCCuPofeWN2fHT5yuda9BOdU0j0xk0Lr9MJB8ov9D
- Jq7A==
-X-Gm-Message-State: AOAM5328N1tDwa3qmu7px0o0VNxIrfb7RFW2Etc6AuqQgTVo47kat99F
- LW58/6QVVKAtC8uDX7oIlEeV8yiM00HV2kQotNxZ/w==
-X-Google-Smtp-Source: ABdhPJzCjSjJu5FZr9HKDJXj80WuWPTLIslId0a/UEE5mngDqDBNme5tGWlgfcoenQV71EZpI9dNoJlf1rYo3x49IaQ=
-X-Received: by 2002:a05:600c:1d28:b0:397:65ab:4b3e with SMTP id
- l40-20020a05600c1d2800b0039765ab4b3emr38103wms.137.1653394119857; Tue, 24 May
- 2022 05:08:39 -0700 (PDT)
+ bh=S/pNo5ypsj8sjqbjG1l1gWrym6AVA3NFtAtotZSuvpI=;
+ b=2RBYaBb0yPdOemC2pA6elBhfi33MTViImXVS4q0u7ssc7MPo8NRAvKWQx38Wxdd0hI
+ RWAkDcjJoqTlb5Y3/R2bo3dq7/hPhrnTabZC/lsDagDcamj8jEB92prawx9sZjnxFdMM
+ Hc7SoAK0CjUC0KN09qfcyfOCPLwCVy/JUonCNcVdPqWbkvsJyTOUn+4H5VCMd80AzhFR
+ DbPahrm3A6zClvlj5/afqtrEh/miDA319olRzMXaT5X/4wkfNasRgjE39Rk7mgVGO9d8
+ NW3WEeklC+CwL3L+LP5oQ/y3vvvzGGOz988q3xP6IY9aYK6ObaSX+tZ209agwnfjkz7K
+ egWA==
+X-Gm-Message-State: AOAM533wgNKlZJWA0Lsqfk/MSApzUI0C3u9l8Q5lVgCUwPzppeNbc+U3
+ lvFIQsPAxg0pEzzOb73uLUreK9X+fxfPz/I9ghM=
+X-Google-Smtp-Source: ABdhPJzOK1Vf19wjgYXNyxFGj9AgWzBklDct0+MOuqOKO3RhaCJCzf0q2Rl/o3jcs1VONK4QZ+supQ==
+X-Received: by 2002:a67:d215:0:b0:335:f166:6527 with SMTP id
+ y21-20020a67d215000000b00335f1666527mr9565527vsi.53.1653398115534; 
+ Tue, 24 May 2022 06:15:15 -0700 (PDT)
+Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com.
+ [209.85.222.42]) by smtp.gmail.com with ESMTPSA id
+ c185-20020a671cc2000000b003358307b9a6sm1252064vsc.27.2022.05.24.06.15.14
+ for <linux-riscv@lists.infradead.org>
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+ Tue, 24 May 2022 06:15:15 -0700 (PDT)
+Received: by mail-ua1-f42.google.com with SMTP id j20so6253466uan.6
+ for <linux-riscv@lists.infradead.org>; Tue, 24 May 2022 06:15:14 -0700 (PDT)
+X-Received: by 2002:a25:e7ce:0:b0:64d:6028:96b9 with SMTP id
+ e197-20020a25e7ce000000b0064d602896b9mr25151338ybh.365.1653398104009; Tue, 24
+ May 2022 06:15:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220420112408.155561-1-apatel@ventanamicro.com>
-In-Reply-To: <20220420112408.155561-1-apatel@ventanamicro.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 24 May 2022 17:38:28 +0530
-Message-ID: <CAAhSdy15v3-_2bbJuCVm5zp1nNHHLjtypAESOoPkcChjgFsssw@mail.gmail.com>
-Subject: Re: [PATCH v3] RISC-V: Increase range and default value of NR_CPUS
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>, 
- Atish Patra <atishp@atishpatra.org>,
- Alistair Francis <Alistair.Francis@wdc.com>, 
- Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, 
- linux-riscv <linux-riscv@lists.infradead.org>, 
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Anup Patel <apatel@ventanamicro.com>
+References: <20220509233235.995021-1-dmitry.osipenko@collabora.com>
+ <20220509233235.995021-8-dmitry.osipenko@collabora.com>
+In-Reply-To: <20220509233235.995021-8-dmitry.osipenko@collabora.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 24 May 2022 15:14:52 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVGjeFe=Z_1Kr9ZaNZ7HUVH1usvubEB31WUQf0fg8E1kA@mail.gmail.com>
+Message-ID: <CAMuHMdVGjeFe=Z_1Kr9ZaNZ7HUVH1usvubEB31WUQf0fg8E1kA@mail.gmail.com>
+Subject: Re: [PATCH v8 07/27] kernel/reboot: Add kernel_can_power_off()
+To: Dmitry Osipenko <dmitry.osipenko@collabora.com>
+Cc: Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, 
+ Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+ Greg Ungerer <gerg@linux-m68k.org>, Joshua Thompson <funaho@jurai.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Sebastian Reichel <sre@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Greentime Hu <green.hu@gmail.com>, 
+ Vincent Chen <deanbo422@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+ Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+ Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "the arch/x86 maintainers" <x86@kernel.org>, 
+ "H. Peter Anvin" <hpa@zytor.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+ Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Pavel Machek <pavel@ucw.cz>, 
+ Lee Jones <lee.jones@linaro.org>, Andrew Morton <akpm@linux-foundation.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>, 
+ =?UTF-8?B?TWljaGHFgiBNaXJvc8WCYXc=?= <mirq-linux@rere.qmqm.pl>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-csky@vger.kernel.org, 
+ "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
+ linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+ "open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+ Parisc List <linux-parisc@vger.kernel.org>, 
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux-sh list <linux-sh@vger.kernel.org>, xen-devel@lists.xenproject.org, 
+ ACPI Devel Maling List <linux-acpi@vger.kernel.org>,
+ Linux PM list <linux-pm@vger.kernel.org>, 
+ linux-tegra <linux-tegra@vger.kernel.org>, 
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220524_050842_758833_90517028 
-X-CRM114-Status: GOOD (  19.98  )
+X-CRM114-CacheID: sfid-20220524_061518_834696_899D561F 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,62 +125,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+Hi Dmitry,
 
-On Wed, Apr 20, 2022 at 4:54 PM Anup Patel <apatel@ventanamicro.com> wrote:
+On Tue, May 10, 2022 at 1:33 AM Dmitry Osipenko
+<dmitry.osipenko@collabora.com> wrote:
+> Add kernel_can_power_off() helper that replaces open-coded checks of
+> the global pm_power_off variable. This is a necessary step towards
+> supporting chained power-off handlers.
 >
-> Currently, the range and default value of NR_CPUS is too restrictive
-> for high-end RISC-V systems with large number of HARTs. The latest
-> QEMU virt machine supports upto 512 CPUs so the current NR_CPUS is
-> restrictive for QEMU as well. Other major architectures (such as
-> ARM64, x86_64, MIPS, etc) have a much higher range and default
-> value of NR_CPUS.
->
-> This patch increases NR_CPUS range to 2-512 and default value to
-> XLEN (i.e. 32 for RV32 and 64 for RV64).
->
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Signed-off-by: Dmitry Osipenko <dmitry.osipenko@collabora.com>
 
-Can this PATCH be considered for 5.19 ?
+Thanks for your patch, which is now commit 0e2110d2e910e44c
+("kernel/reboot: Add kernel_can_power_off()") in pm/linux-next.
 
-Thanks,
-Anup
+This causes the "poweroff" command (Debian nfsroot) to no longer
+cleanly halt the system on arm32 systems, but fail with a panic
+instead:
 
-> ---
-> Changes since v2:
->  - Rebased on Linux-5.18-rc3
->  - Use a different range when SBI v0.1 is enabled
-> Changes since v1:
->  - Updated NR_CPUS range to 2-512 which reflects maximum number of
->    CPUs supported by QEMU virt machine.
-> ---
->  arch/riscv/Kconfig | 9 ++++++---
->  1 file changed, 6 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 00fd9c548f26..1823f281069f 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -275,10 +275,13 @@ config SMP
->           If you don't know what to do here, say N.
->
->  config NR_CPUS
-> -       int "Maximum number of CPUs (2-32)"
-> -       range 2 32
-> +       int "Maximum number of CPUs (2-512)"
->         depends on SMP
-> -       default "8"
-> +       range 2 512 if !SBI_V01
-> +       range 2 32 if SBI_V01 && 32BIT
-> +       range 2 64 if SBI_V01 && 64BIT
-> +       default "32" if 32BIT
-> +       default "64" if 64BIT
->
->  config HOTPLUG_CPU
->         bool "Support for hot-pluggable CPUs"
-> --
-> 2.25.1
->
+-reboot: System halted
++reboot: Power down
++Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000000
++CPU: 0 PID: 1 Comm: systemd-shutdow Not tainted
+5.18.0-rc7-shmobile-00007-g0e2110d2e910 #1274
++Hardware name: Generic R-Car Gen2 (Flattened Device Tree)
++ unwind_backtrace from show_stack+0x10/0x14
++ show_stack from dump_stack_lvl+0x40/0x4c
++ dump_stack_lvl from panic+0xf4/0x330
++ panic from do_exit+0x1c8/0x8e4
++ do_exit from __do_sys_reboot+0x174/0x1fc
++ __do_sys_reboot from ret_fast_syscall+0x0/0x54
++Exception stack(0xf0815fa8 to 0xf0815ff0)
++5fa0:                   004e6954 00000000 fee1dead 28121969 4321fedc f0d94600
++5fc0: 004e6954 00000000 00000000 00000058 befa0c78 00000000 befa0c10 004e56f8
++5fe0: 00000058 befa0b6c b6ec8d45 b6e4a746
++---[ end Kernel panic - not syncing: Attempted to kill init!
+exitcode=0x00000000 ]---
+
+On arm64, "poweroff" causes a clean "reboot: Power down" before/after.
+
+On both arm32 and arm64, the same handlers are registered:
+  - SYS_OFF_MODE_POWER_OFF_PREPARE: legacy_pm_power_off_prepare
+  - SYS_OFF_MODE_POWER_OFF: legacy_pm_power_off
+
+On both arm32 and arm64, legacy_pm_power_off_prepare() is called.
+On both arm32 and arm64, legacy_pm_power_off() does not seem to
+be called.
+
+On arm32, both pm_power_off_prepare and pm_power_off are NULL.
+On arm64, pm_power_off_prepare is NULL, and
+pm_power_off is psci_sys_poweroff.
+
+Do you have a clue?
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
