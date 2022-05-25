@@ -4,67 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A5DC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 08:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 916E7C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 09:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t0z7gcDRneGWgyBBpj0XY+kTbFGAHOks/CwPnEw+Lcc=; b=pa/uMpQ5dh292X
-	E8ocKZtjhAQqRjzmPo4LvHNbaSU+Yxy83fubUWaVfcfvHuYOuGPuJAdGRKrB/VBn3i0l3vjU4rquh
-	1n3T04UOIK+36giU2an6yXtqrg6r+uZ2zC9OwXuvqUlYuIsZ+fdMZ2sa1hcxbIHI+Wgv3fsnTUxB9
-	kUwfQNpNxnCMExFvo83ktaoh+lNjz+xi+13LVQ1YCnxGWrryulQWsw8xIV79fdxodW4tIY7cezIcy
-	/BYvWtRMTecmYUw5xxSndhPR+ESkvvCh9f+aUhCuWWybe+LFUHSVPcNAkk/oBrMPJGj0uLa8h4z7j
-	r0qrrJSvm9/h6rZy+1UA==;
+	List-Owner; bh=oisSl+T9tzB0wA6fHgbXSGOkZ0BRHusht+qig5n2bdQ=; b=O0+r/yltUd46sp
+	GZ0yh3nK2vPlgXFhdbVU9wRAxP/sWpKqkW0JIy+Nk4wBrcSPIBqtHynYQirOg8ZDuvFHu5YoDJbou
+	XxaCLvPzN6Boyj/N7cBqRaBYEDewVGWrRr7rTm4pY4aQBIH/u9plHBZHqoueg8aPaOcG5dxVX6oDY
+	voBxOIEV995TjCM8GQ+seh7LxfQjnJUSkQzU4zKoKeX5icSOivWeMzq+HRl8pr51aI8bH78RHpcNw
+	WfUm1fGkc8RG/W+pfpRU7gvtzYtqRsDpicURiY4Wwy/lBwhoRwhSpb53EgNGz7CFbQ7eZS2vx3cCY
+	pES7ms65+AqrOnLunIVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntmJA-00ANib-S4; Wed, 25 May 2022 08:23:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
- by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ntmAd-00AIc2-Cs; Wed, 25 May 2022 08:15:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95F1E23A;
- Wed, 25 May 2022 01:15:06 -0700 (PDT)
-Received: from usa.arm.com (e103737-lin.cambridge.arm.com [10.1.197.49])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 82BBD3F73D;
- Wed, 25 May 2022 01:15:04 -0700 (PDT)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: linux-kernel@vger.kernel.org
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Atish Patra <atishp@atishpatra.org>,
- Atish Patra <atishp@rivosinc.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Morten Rasmussen <morten.rasmussen@arm.com>,
- Dietmar Eggemann <dietmar.eggemann@arm.com>, Qing Wang <wangqing@vivo.com>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH v3 16/16] arch_topology: Add support for parsing sockets in
- /cpu-map
-Date: Wed, 25 May 2022 09:14:16 +0100
-Message-Id: <20220525081416.3306043-17-sudeep.holla@arm.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220525081416.3306043-16-sudeep.holla@arm.com>
-References: <20220525081416.3306043-1-sudeep.holla@arm.com>
- <20220525081416.3306043-2-sudeep.holla@arm.com>
- <20220525081416.3306043-3-sudeep.holla@arm.com>
- <20220525081416.3306043-4-sudeep.holla@arm.com>
- <20220525081416.3306043-5-sudeep.holla@arm.com>
- <20220525081416.3306043-6-sudeep.holla@arm.com>
- <20220525081416.3306043-7-sudeep.holla@arm.com>
- <20220525081416.3306043-8-sudeep.holla@arm.com>
- <20220525081416.3306043-9-sudeep.holla@arm.com>
- <20220525081416.3306043-10-sudeep.holla@arm.com>
- <20220525081416.3306043-11-sudeep.holla@arm.com>
- <20220525081416.3306043-12-sudeep.holla@arm.com>
- <20220525081416.3306043-13-sudeep.holla@arm.com>
- <20220525081416.3306043-14-sudeep.holla@arm.com>
- <20220525081416.3306043-15-sudeep.holla@arm.com>
- <20220525081416.3306043-16-sudeep.holla@arm.com>
+	id 1ntmtK-00AVcw-Nv; Wed, 25 May 2022 09:01:18 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
+ by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+ id 1ntmtH-00AVbL-NC
+ for linux-riscv@lists.infradead.org; Wed, 25 May 2022 09:01:17 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id o80so35189365ybg.1
+ for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 02:01:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=Ng9vmXyRhXj4QrWMiydiTC2faW35Q1++d5V/xgecxmQ=;
+ b=PFkRPQn3kfsCRcrb1KcMf6/C0L6KFBUP68UImSssNuWQs2ApfAbbH3vXNkot1xdz23
+ LqC7TUa1swTcKCEaP/vhBe5CECBi3gue8+ccNVaPmwNIWdvSD7mUW5UxIUZo6jOOB1b4
+ WNVh5JKCJrYwJULdJsECDMNCVqEyH4nJybF6r02yTPtmu5qIXYAgkmN1wACXkaQH1xjt
+ 9qOR7zWujP4uoZVa1i23Ir7aow3d34ilxFsinl/joxal9Zu6EQAl9GYGBCzPghsuwc/4
+ 8R92QiIbk3DN8NzhVyGCL4d04mjbxTZEbFX+wsJ7sa4Yd0GII6nb9VG4xdwt/xLJzhYG
+ Mg8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=Ng9vmXyRhXj4QrWMiydiTC2faW35Q1++d5V/xgecxmQ=;
+ b=JYr4jKa/bwSz3NnvtsKR7kEUOVg33o185gXzAaT9XdqAVqXqoigre7gHumFGFJWcSi
+ 6iU/7cd7rGzmIFXiU0StV40jUThnZPRN9y+8qUh3GcfibfNifjXEEs83tAFXuPzFOD6/
+ LQC532WM4va2lIlolGqXlmNis5Vt6O8+ufykZ71SxaKdNMEqfBcCUy1fnVjQN+YQrxiX
+ eGqcgaEG9stUUWuHRPtHwJYzunjdVARlUSbdgstTIBwcjK15/++u1602fO5xSqqhvHpU
+ wlKzMVwJ4TGF4cT4JQecMnbF+fjk1LK5ILuu4PqIPGzalx31FcoSz+aKfzYA0zmQYEhU
+ mQSw==
+X-Gm-Message-State: AOAM533A4q+f5FA9homKerwsJt9D0N/S5XnYxruG4XXaazR8BFsvx5WC
+ uwo6FF8s0jkZ+VzRF8xddkBkcwg5lijwBqi/658=
+X-Google-Smtp-Source: ABdhPJxKpV63L+V/62qDba7rT3D1hrve3O2Qa69s+0UkTTVmwAHqOFMTteNULGyp9qVmeGsRer+V8ktz7oy/rPiR5kk=
+X-Received: by 2002:a25:4bc4:0:b0:655:b2db:484 with SMTP id
+ y187-20020a254bc4000000b00655b2db0484mr1210811yba.431.1653469272766; Wed, 25
+ May 2022 02:01:12 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220524172214.5104-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20220524172214.5104-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <CAMuHMdX0pqr8pmbX8OfUyTeEwiFGSG5uyP4nLG1LPy7_zzLPbQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdX0pqr8pmbX8OfUyTeEwiFGSG5uyP4nLG1LPy7_zzLPbQ@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Wed, 25 May 2022 10:00:46 +0100
+Message-ID: <CA+V-a8ubrkDU2B=mJopzFrjhv1nVn5EXZmaprta0oj4p3J_N5Q@mail.gmail.com>
+Subject: Re: [PATCH RFC 2/2] irqchip/sifive-plic: Add support for Renesas
+ RZ/Five SoC
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+ Phil Edworthy <phil.edworthy@renesas.com>,
+ Biju Das <biju.das.jz@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220525_011507_574876_2CAEFB9F 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20220525_020115_799966_11DD2543 
+X-CRM114-Status: GOOD (  58.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,98 +96,220 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Finally let us add support for socket nodes in /cpu-map in the device
-tree. Since this may not be present in all the old platforms and even
-most of the existing platforms, we need to assume absence of the socket
-node indicates that it is a single socket system and handle appropriately.
+Hi Geert,
 
-Also it is likely that most single socket systems skip to as the node
-since it is optional.
+Thank you for the review.
 
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
----
- drivers/base/arch_topology.c | 37 +++++++++++++++++++++++++++++++-----
- 1 file changed, 32 insertions(+), 5 deletions(-)
+On Wed, May 25, 2022 at 9:01 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Prabhakar,
+>
+> On Tue, May 24, 2022 at 7:22 PM Lad Prabhakar
+> <prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
+> > The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
+> > NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
+> > case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
+> > edge until the previous completion message has been received and
+> > NCEPLIC100 doesn't support pending interrupt counter, hence losing the
+> > interrupts if not acknowledged in time.
+> >
+> > So the workaround for edge-triggered interrupts to be handled correctly
+> > and without losing is that it needs to be acknowledged first and then
+> > handler must be run so that we don't miss on the next edge-triggered
+> > interrupt.
+> >
+> > This patch adds a new compatible string for Renesas RZ/Five SoC and adds
+> > support to change interrupt flow based on the interrupt type. It also
+> > implements irq_ack and irq_set_type callbacks.
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Thanks for your patch!
+>
+> > --- a/drivers/irqchip/irq-sifive-plic.c
+> > +++ b/drivers/irqchip/irq-sifive-plic.c
+> > @@ -60,10 +60,13 @@
+> >  #define        PLIC_DISABLE_THRESHOLD          0x7
+> >  #define        PLIC_ENABLE_THRESHOLD           0
+> >
+> > +#define RENESAS_R9A07G043_PLIC         1
+> > +
+> >  struct plic_priv {
+> >         struct cpumask lmask;
+> >         struct irq_domain *irqdomain;
+> >         void __iomem *regs;
+> > +       u8 of_data;
+>
+> Usually it's cleaner to use feature bits instead of enum types.
+>
+Agreed.
 
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 5f4f148a7769..676e0ed333b1 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -540,8 +540,8 @@ static int __init parse_core(struct device_node *core, int package_id,
- 	return 0;
- }
- 
--static int __init
--parse_cluster(struct device_node *cluster, int cluster_id, int depth)
-+static int __init parse_cluster(struct device_node *cluster, int package_id,
-+				int cluster_id, int depth)
- {
- 	char name[20];
- 	bool leaf = true;
-@@ -561,7 +561,7 @@ parse_cluster(struct device_node *cluster, int cluster_id, int depth)
- 		c = of_get_child_by_name(cluster, name);
- 		if (c) {
- 			leaf = false;
--			ret = parse_cluster(c, i, depth + 1);
-+			ret = parse_cluster(c, package_id, i, depth + 1);
- 			of_node_put(c);
- 			if (ret != 0)
- 				return ret;
-@@ -585,7 +585,8 @@ parse_cluster(struct device_node *cluster, int cluster_id, int depth)
- 			}
- 
- 			if (leaf) {
--				ret = parse_core(c, 0, cluster_id, core_id++);
-+				ret = parse_core(c, package_id, cluster_id,
-+						 core_id++);
- 			} else {
- 				pr_err("%pOF: Non-leaf cluster with core %s\n",
- 				       cluster, name);
-@@ -605,6 +606,32 @@ parse_cluster(struct device_node *cluster, int cluster_id, int depth)
- 	return 0;
- }
- 
-+static int __init parse_socket(struct device_node *socket)
-+{
-+	char name[20];
-+	struct device_node *c;
-+	bool has_socket = false;
-+	int package_id = 0, ret;
-+
-+	do {
-+		snprintf(name, sizeof(name), "socket%d", package_id);
-+		c = of_get_child_by_name(socket, name);
-+		if (c) {
-+			has_socket = true;
-+			ret = parse_cluster(c, package_id, -1, 0);
-+			of_node_put(c);
-+			if (ret != 0)
-+				return ret;
-+		}
-+		package_id++;
-+	} while (c);
-+
-+	if (!has_socket)
-+		ret = parse_cluster(socket, 0, -1, 0);
-+
-+	return ret;
-+}
-+
- static int __init parse_dt_topology(void)
- {
- 	struct device_node *cn, *map;
-@@ -624,7 +651,7 @@ static int __init parse_dt_topology(void)
- 	if (!map)
- 		goto out;
- 
--	ret = parse_cluster(map, -1, 0);
-+	ret = parse_socket(map);
- 	if (ret != 0)
- 		goto out_map;
- 
--- 
-2.36.1
+> >  };
+> >
+> >  struct plic_handler {
+> > @@ -163,10 +166,31 @@ static int plic_set_affinity(struct irq_data *d,
+> >  }
+> >  #endif
+> >
+> > +static void plic_irq_ack(struct irq_data *d)
+> > +{
+> > +       struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> > +
+>
+> No check for RZ/Five or irq type?
+That is because we set the handle_fasteoi_ack_irq() only in case of
+RZ/Five and it is already checked in set_type() callback.
 
+> .irq_ack() seems to be called for level interrupts, too
+> (from handle_level_irq() through mask_ack_irq()).
+>
+Right but we are using handle_fasteoi_irq() for level interrupt which
+doesn't call mask_ack_irq(). And I have confirmed by adding a print in
+ack callback  and just enabling the serial (which has level
+interrupts).
+
+> > +       if (irqd_irq_masked(d)) {
+> > +               plic_irq_unmask(d);
+> > +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> > +               plic_irq_mask(d);
+> > +       } else {
+> > +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> > +       }
+> > +}
+>
+> The above is identical to the old plic_irq_eoi()...
+>
+Indeed..
+
+> > +
+> >  static void plic_irq_eoi(struct irq_data *d)
+> >  {
+> >         struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> >
+> > +       /*
+> > +        * For Renesas R9A07G043 SoC if the interrupt type is EDGE
+> > +        * we have already acknowledged it in ack callback.
+> > +        */
+> > +       if (handler->priv->of_data == RENESAS_R9A07G043_PLIC &&
+> > +           !irqd_is_level_type(d))
+> > +               return;
+> > +
+>
+> ... so you can just call into plic_irq_ack() here?
+>
+... yes it can be done.
+
+> >         if (irqd_irq_masked(d)) {
+> >                 plic_irq_unmask(d);
+> >                 writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> > @@ -176,11 +200,37 @@ static void plic_irq_eoi(struct irq_data *d)
+> >         }
+> >  }
+> >
+> > +static int plic_irq_set_type(struct irq_data *d, unsigned int type)
+> > +{
+> > +       struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> > +
+> > +       if (handler->priv->of_data != RENESAS_R9A07G043_PLIC)
+> > +               return 0;
+> > +
+> > +       switch (type) {
+> > +       case IRQ_TYPE_LEVEL_HIGH:
+> > +               irq_set_handler_locked(d, handle_fasteoi_irq);
+> > +               break;
+> > +
+> > +       case IRQ_TYPE_EDGE_RISING:
+> > +               irq_set_handler_locked(d, handle_fasteoi_ack_irq);
+> > +               break;
+> > +
+> > +       default:
+> > +               return -EINVAL;
+> > +       }
+> > +
+> > +       return 0;
+> > +}
+> > +
+> >  static struct irq_chip plic_chip = {
+>
+> I think this can be const.
+>
+Yes, I will update it.
+
+> >         .name           = "SiFive PLIC",
+> >         .irq_mask       = plic_irq_mask,
+> >         .irq_unmask     = plic_irq_unmask,
+> > +       .irq_ack        = plic_irq_ack,
+>
+> This causes extra processing on non-affected PLICs.
+> Perhaps use a separate irq_chip instance?
+>
+I don't think so as the handle_fasteoi_ack_irq() is installed only in
+case of RZ/Five, so irq_ack() will not be called for non-affected
+PLIC's. Please correct me if I am wrong.
+
+> >         .irq_eoi        = plic_irq_eoi,
+> > +       .irq_set_type   = plic_irq_set_type,
+> > +
+> >  #ifdef CONFIG_SMP
+> >         .irq_set_affinity = plic_set_affinity,
+> >  #endif
+> > @@ -198,6 +248,19 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+> >         return 0;
+> >  }
+> >
+> > +static int plic_irq_domain_translate(struct irq_domain *d,
+> > +                                    struct irq_fwspec *fwspec,
+> > +                                    unsigned long *hwirq,
+> > +                                    unsigned int *type)
+> > +{
+> > +       struct plic_priv *priv = d->host_data;
+> > +
+> > +       if (priv->of_data == RENESAS_R9A07G043_PLIC)
+> > +               return irq_domain_translate_twocell(d, fwspec, hwirq, type);
+> > +
+> > +       return irq_domain_translate_onecell(d, fwspec, hwirq, type);
+>
+> This one clearly shows the discerning feature: onecell or twocell...
+>
+> > +}
+> > +
+> >  static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+> >                                  unsigned int nr_irqs, void *arg)
+> >  {
+>
+> > @@ -293,6 +356,9 @@ static int __init plic_init(struct device_node *node,
+> >         if (!priv)
+> >                 return -ENOMEM;
+> >
+> > +       if (of_device_is_compatible(node, "renesas-r9a07g043-plic"))
+> > +               priv->of_data = RENESAS_R9A07G043_PLIC;
+> > +
+>
+> So perhaps instead just look at #interrupt-cells, and use the onecell
+> or twocell irq_chip/irq_domain_ops based on that?
+>
+But we do call plic_irq_domain_translate() in the alloc callback and
+don't have a node pointer in there to check the interrupt cell count.
+Or maybe we can store the interrupt cell count in priv and use it
+accordingly above?
+
+Cheers,
+Prabhakar
+
+> >         priv->regs = of_iomap(node, 0);
+> >         if (WARN_ON(!priv->regs)) {
+> >                 error = -EIO;
+>
+> Gr{oetje,eeting}s,
+>
+>                         Geert
+>
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+>
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
