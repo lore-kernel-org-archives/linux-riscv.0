@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09542C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 21:45:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68D14C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 21:51:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=AFfeERVztJpu8xMQNHlcqFfI5vt5kdEy7IE/yndI1Sc=; b=Q7bgdZwl2XoV+iVtvoprp6TZ/s
-	wshiJy494HVosWVAtSBNoRee5lDCccBKd+SdggKB5vzzcDQnemQUA/gtZUJgDC4MB/sBYW+lTSWCj
-	yO/ylpLeBBTq9pQ/yIZ+HCU2HG+Li4a5jrvFXiP0vdnaUOyxcCeUrFF7LrpyGk2nPbmi14nr78g9C
-	PtQW03WDL/DUjB+4oBMLTRPiGsAezclfLlJc66uvGyddR51ifyGuUMJLL/6x/b1/oSHdeveTNx/ey
-	zLUJXivGXxSyXPU6z/XC8JpB9LLd7TabcFIKxRAZi9NQRgtJ3khomYjfBetK4NuWGrVo+VKGjIHlo
-	Eho7PvsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hXZhFDNt2CNL6tk755/AaEQE8mAlfQmeVrBH2DNiyyk=; b=0h8KI0kXvYWk+C
+	R1NpegENqDJ9gLhJ7ZD5xA51s6KKai081YJnCFzJJPegjHyYMWNdZRzN0qCLTkTs7vq+MnktvGA4R
+	HzP61VnecAP+Xr8956d9njMdnZrRunoYk52GeNcJ+5i1xlMcvQdsDEm0oBVwX2SutGMLVu5pftVjc
+	RrVC/2Gtq4ZLrREVtnDT2v9nEmaI5hAxqQYGLec9eZOLWNcmwqJ3HHMQGBycq1Sk8tGVd42mjIAf+
+	RYu6xVr+QxbXqZl9vq/ikxsmJCMwFQ793MQLHAP3MLTlW/hRmf22DvSpRNm9/ds81SnMB8I2m+Pao
+	hB7lvJm0QSKiq+XjCN2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntyp1-00Cm88-9g; Wed, 25 May 2022 21:45:39 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1ntyuP-00CmtQ-7c; Wed, 25 May 2022 21:51:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntyoz-00Cm6x-43
-	for linux-riscv@lists.infradead.org; Wed, 25 May 2022 21:45:38 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id x2-20020a17090a1f8200b001e07a64c461so2758659pja.4
-        for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 14:45:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=IN7B1Qc2wQvKxwG75W2PmFzu/kAYmOIH2ON1vtcnH3I=;
-        b=nCMUhgnyQce2lMMZ3bdjYejIOHX3m22pUeVsgAvPSzBFX2WkZCLfTQ4vhyMTfDsUDM
-         R+KW8HaSM9ENcBMw96xmd1GpUK3M2bkg/SvBdp7OaoVK+5OdP9Dpwkb+TKfcVPiZp74w
-         vy0fRsftC/z4ZllL09J4wQc7cI9rvXoCh3gcyVzzyjTMEKQM+45cwGpGaDcYbJ/o70HE
-         KTUpLEVrpMb7/8UqoRF3rdb37oLgr9njTTupgFpPnldBr+56BFxsDmQ5Xkis+RWo9zgh
-         hoe2WvU1C+NoExPdzzlV/yxXS3YQ9T0jZmy1rk5vgoQHR3sy72UYi1Mx8kzNHrhWhPbA
-         FuUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=IN7B1Qc2wQvKxwG75W2PmFzu/kAYmOIH2ON1vtcnH3I=;
-        b=6+izjHK8tAbsZIE839jBcqbhCeOIyV0j0C1I8c1FrzAukJxwiIdqJ7hoWuzAPcQUfk
-         YjgIgK03627FiHiSB3kXoFY+n0suWYwPKPYe+vWPdvZu6wsJj3DsCkHtnh+Auc3g5tx8
-         M3yUcvtcAX4iEddEsYioCcY5Y02kytcrQkSpxzYY3BbX24oXOB7tgtG4WslpmM3HkKT5
-         iOg5zEkowDufbJnvBP78qPnCtX7czI2TiVHZ+o2+y1LuB3KI21MqvwS71b8gtclGeVL0
-         v1R1xxdngog1LLQDQC61weaGXBQb5iTpEOOUpYtoef7Ul52oj2oqCt3czvNEZyKxJoKx
-         /tGQ==
-X-Gm-Message-State: AOAM532ykxxJ4snzWIVIxPNBbi57iuW62tdXSaXXbWXk4/ddKBAPdDYr
-	eE0cd2bkipcnSSL0oSGjVYYsA0bCWNQpCg==
-X-Google-Smtp-Source: ABdhPJydPIEdq20LuZGkb+rUGUKaOiDkAhLz7ObNc/JyBOQIBagoJ7vjQ+qDXCfTWr7cnXmk76fFNQ==
-X-Received: by 2002:a17:902:f551:b0:162:de7f:76b6 with SMTP id h17-20020a170902f55100b00162de7f76b6mr7544542plf.77.1653515135300;
-        Wed, 25 May 2022 14:45:35 -0700 (PDT)
-Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id 19-20020a170902e9d300b0015e8d4eb263sm10050965plk.173.2022.05.25.14.45.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 May 2022 14:45:33 -0700 (PDT)
-Date: Wed, 25 May 2022 14:45:33 -0700 (PDT)
-X-Google-Original-Date: Wed, 25 May 2022 14:45:30 PDT (-0700)
-Subject: Re: [PATCH v2 3/4] RISC-V: Split out the XIP fixups into their own file
-In-Reply-To: <CAJF2gTTC4V_vSFFranTB6PZrHK08J8KygjfACxfQ91POpRtY-Q@mail.gmail.com>
-CC: linux-riscv@lists.infradead.org, rdunlap@infradead.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, anup@brainfault.org, vincent.chen@sifive.com,
-  Atish Patra <atishp@rivosinc.com>, alexandre.ghiti@canonical.com, jszhang@kernel.org, vitaly.wool@konsulko.com,
-  gatecat@ds0.me, wangkefeng.wang@huawei.com, mick@ics.forth.gr, panqinglin2020@iscas.ac.cn,
-  rppt@kernel.org, linux-kernel@vger.kernel.org, linux@rivosinc.com
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: guoren@kernel.org
-Message-ID: <mhng-46c58a80-5b65-4a22-91fa-884bb5df49bc@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1ntyuD-00CmoR-36; Wed, 25 May 2022 21:51:03 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id EA7F761AB6;
+	Wed, 25 May 2022 21:50:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C68EFC385B8;
+	Wed, 25 May 2022 21:50:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1653515457;
+	bh=RJBqCEbCNY0ooTTHUDW8T5ccFZ9a+R65ZzhmVt+2S44=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=R8xzes5UjWb8BqqxzRNWgPf7cEHyaAbeSDj+v3F0k3sq8Asguyz6Vmo/uMlX6uzmY
+	 8HryaeniW2c258rIiLOGG2MjKsnv6NbBuzhNNsrGT4ET41NSmI5sqMNPKOc8It7ZVv
+	 QGSPkTQx3i5p9WrHix2LggCVXiwA2BU9p5l/o92c=
+Date: Wed, 25 May 2022 14:50:56 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: kernel test robot <lkp@intel.com>
+Cc: virtualization@lists.linux-foundation.org, netdev@vger.kernel.org,
+ linux-staging@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-rdma@vger.kernel.org, linux-pci@vger.kernel.org,
+ linux-parport@lists.infradead.org, linux-omap@vger.kernel.org,
+ linux-mm@kvack.org, linux-fbdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, bpf@vger.kernel.org,
+ amd-gfx@lists.freedesktop.org, alsa-devel@alsa-project.org
+Subject: Re: [linux-next:master] BUILD REGRESSION
+ 8cb8311e95e3bb58bd84d6350365f14a718faa6d
+Message-Id: <20220525145056.953631743a4c494aabf000dc@linux-foundation.org>
+In-Reply-To: <628ea118.wJYf60YnZco0hs9o%lkp@intel.com>
+References: <628ea118.wJYf60YnZco0hs9o%lkp@intel.com>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-redhat-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220525_144537_187830_79DFC3B8 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20220525_145101_196339_34A24352 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,146 +70,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Apr 2022 23:45:23 PDT (-0700), guoren@kernel.org wrote:
-> On Thu, Apr 21, 2022 at 2:48 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->>
->> From: Palmer Dabbelt <palmer@rivosinc.com>
->>
->> This was broken by the original refactoring (as the XIP definitions
->> depend on <asm/pgtable.h>) and then more broken by the merge (as I
->> accidentally took the old version).  This fixes both breakages, while
->> also pulling this out of <asm/asm.h> to avoid polluting most assembly
->> files with the XIP fixups.
->>
->> Fixes: bee7fbc38579 ("RISC-V CPU Idle Support")
->> Fixes: 63b13e64a829 ("RISC-V: Add arch functions for non-retentive suspend entry/exit")
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> ---
->>  arch/riscv/include/asm/asm.h       | 26 ------------------------
->>  arch/riscv/include/asm/xip_fixup.h | 32 ++++++++++++++++++++++++++++++
->>  arch/riscv/kernel/head.S           |  1 +
->>  arch/riscv/kernel/suspend_entry.S  |  1 +
->>  4 files changed, 34 insertions(+), 26 deletions(-)
->>  create mode 100644 arch/riscv/include/asm/xip_fixup.h
->>
->> diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
->> index 8c2549b16ac0..618d7c5af1a2 100644
->> --- a/arch/riscv/include/asm/asm.h
->> +++ b/arch/riscv/include/asm/asm.h
->> @@ -67,30 +67,4 @@
->>  #error "Unexpected __SIZEOF_SHORT__"
->>  #endif
->>
->> -#ifdef __ASSEMBLY__
->> -
->> -/* Common assembly source macros */
->> -
->> -#ifdef CONFIG_XIP_KERNEL
->> -.macro XIP_FIXUP_OFFSET reg
->> -       REG_L t0, _xip_fixup
->> -       add \reg, \reg, t0
->> -.endm
->> -.macro XIP_FIXUP_FLASH_OFFSET reg
->> -       la t1, __data_loc
->> -       REG_L t1, _xip_phys_offset
->> -       sub \reg, \reg, t1
->> -       add \reg, \reg, t0
->> -.endm
->> -_xip_fixup: .dword CONFIG_PHYS_RAM_BASE - CONFIG_XIP_PHYS_ADDR - XIP_OFFSET
->> -_xip_phys_offset: .dword CONFIG_XIP_PHYS_ADDR + XIP_OFFSET
->> -#else
->> -.macro XIP_FIXUP_OFFSET reg
->> -.endm
->> -.macro XIP_FIXUP_FLASH_OFFSET reg
->> -.endm
->> -#endif /* CONFIG_XIP_KERNEL */
->> -
->> -#endif /* __ASSEMBLY__ */
->> -
->>  #endif /* _ASM_RISCV_ASM_H */
->> diff --git a/arch/riscv/include/asm/xip_fixup.h b/arch/riscv/include/asm/xip_fixup.h
->> new file mode 100644
->> index 000000000000..0d0754305324
->> --- /dev/null
->> +++ b/arch/riscv/include/asm/xip_fixup.h
->> @@ -0,0 +1,32 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only */
->> +/*
->> + * XIP fixup macros, only useful in assembly.
->> + */
->> +#ifndef _ASM_RISCV_XIP_FIXUP_H
->> +#define _ASM_RISCV_XIP_FIXUP_H
->> +
->> +#include <linux/pgtable.h>
->> +
->> +#ifdef CONFIG_XIP_KERNEL
->> +.macro XIP_FIXUP_OFFSET reg
->> +        REG_L t0, _xip_fixup
->> +        add \reg, \reg, t0
->> +.endm
->> +.macro XIP_FIXUP_FLASH_OFFSET reg
->> +        la t1, __data_loc
->> +        li t0, XIP_OFFSET_MASK
->> +        and t1, t1, t0
->> +        li t1, XIP_OFFSET
-> I still prefer the style:
-> REG_L t1, _xip_phys_offset
+On Thu, 26 May 2022 05:35:20 +0800 kernel test robot <lkp@intel.com> wrote:
+
+> tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> branch HEAD: 8cb8311e95e3bb58bd84d6350365f14a718faa6d  Add linux-next specific files for 20220525
+> 
+> Error/Warning reports:
+> 
 > ...
-> _xip_phys_offset: .dword CONFIG_XIP_PHYS_ADDR + XIP_OFFSET
 >
-> Because it's more clear and has the same style as your _xip_fixup.
+> Unverified Error/Warning (likely false positive, please contact us if interested):
 
-Thanks, not quite shure how I pulled the old version over.  I've fixed 
-this one up.
+Could be so.
 
-> Others:
-> Reviewed-by: Guo Ren <guoren@kernel.org>
+> mm/shmem.c:1948 shmem_getpage_gfp() warn: should '(((1) << 12) / 512) << folio_order(folio)' be a 64 bit type?
+
+I've been seeing this one for a while.  And from this report I can't
+figure out what tool emitted it.  Clang?
+
 >
->> +        sub t0, t0, t1
->> +        sub \reg, \reg, t0
->> +.endm
-> -.endm
->> +
->> +_xip_fixup: .dword CONFIG_PHYS_RAM_BASE - CONFIG_XIP_PHYS_ADDR - XIP_OFFSET
->> +#else
->> +.macro XIP_FIXUP_OFFSET reg
->> +.endm
->> +.macro XIP_FIXUP_FLASH_OFFSET reg
->> +.endm
->> +#endif /* CONFIG_XIP_KERNEL */
->> +
->> +#endif
->> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
->> index 893b8bb69391..822c33aa7f45 100644
->> --- a/arch/riscv/kernel/head.S
->> +++ b/arch/riscv/kernel/head.S
->> @@ -14,6 +14,7 @@
->>  #include <asm/hwcap.h>
->>  #include <asm/image.h>
->> +#include <asm/xip_fixup.h>
->>  #include "efi-header.S"
->>
->>  __HEAD
->> diff --git a/arch/riscv/kernel/suspend_entry.S b/arch/riscv/kernel/suspend_entry.S
->> index 4b07b809a2b8..aafcca58c19d 100644
->> --- a/arch/riscv/kernel/suspend_entry.S
->> +++ b/arch/riscv/kernel/suspend_entry.S
->> @@ -8,6 +8,7 @@
->>  #include <asm/asm.h>
->>  #include <asm/asm-offsets.h>
->>  #include <asm/csr.h>
->> +#include <asm/xip_fixup.h>
->>
->>         .text
->>         .altmacro
->> --
->> 2.34.1
->>
+> ...
+>
+> |-- i386-randconfig-m021
+> |   `-- mm-shmem.c-shmem_getpage_gfp()-warn:should-((()-)-)-folio_order(folio)-be-a-bit-type
+
+If you're going to use randconfig then shouldn't you make the config
+available?  Or maybe quote the KCONFIG_SEED - presumably there's a way
+for others to regenerate.
+
+Anyway, the warning seems wrong to me.
+
+
+#define PAGE_SIZE               (_AC(1,UL) << PAGE_SHIFT)
+
+#define BLOCKS_PER_PAGE  (PAGE_SIZE/512)
+
+	inode->i_blocks += BLOCKS_PER_PAGE << folio_order(folio);
+
+so the RHS here should have unsigned long type.  Being able to generate
+the cpp output would be helpful.  That requires the .config.
+
 
 _______________________________________________
 linux-riscv mailing list
