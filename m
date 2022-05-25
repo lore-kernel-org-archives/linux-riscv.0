@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F2BC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 22:56:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC8BC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 23:12:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vcD4dU5Xo7B/Pa0tfNXMdt3XNsP6R6azWSO6oGTdJYs=; b=EL6vlwpYbmv2ON
-	PrOtojr7jaTGztVKwQmRhEM6PVIz0OLXjq8WcMA7V+YepUWCYgm49aZLZIOSkhG4F/JoUcnH7INAv
-	oy7SqEh7kxHnpcMFNIBHKDNysvMse8bu6oUkv66S++vb9NW3Chbb7rYIrMiBB+mL+IRVDFpkzLRGq
-	kzEqCSgBYQwImcyRJSqsvnYmVmfQH4GgeZjcSsOhsax5YS1f6Eg6GwN2sSfOXMa5h/ZMR5eB6ClVm
-	xQ3lLhbtvPw+jugYY0NsUaAmDJO61c8QaALIJkaLacc3RKR+0KxRn8tTI0Um2zZJp7loT73+DnzS/
-	/2mBAIgFqHxSkHVEbDeQ==;
+	List-Owner; bh=/CYy6DRsNJjFV0IgBLbrkMxNcWjtkiDHVDHAo6y9pEI=; b=n4viLD+A8fj72x
+	RHKjkTgXlpD4j4nO5Oif7ip18iZpHvMasSZTmndg7axQZmXbyE2b9q6ZuwllbNfi+XLds0e770C1H
+	zLBmHuiOxLz1H5cBNZQNPaYHM1EkXdQI8KAb//sIoCWhCkeityeHyxo1xM/3Wxn1JySkm+LQF/tVD
+	g6CduH0jGt8MN8nod/5EY6veSt96IxqeEjvHqOVnCl840zoPIAtYkaP6etTmpjAoH3HVf+I8ckrU6
+	rYy1aggfJmxKSYZ6kPO+SSRpB7x2yTBRRXHnr/GRz8KJq65rCgH2+lBhV2nHfIWwYaA3zF3TE8idr
+	PyhDkDLK0I/iG+XbU0IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntzvK-00CvV4-4a; Wed, 25 May 2022 22:56:14 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1nu0AW-00CwMg-8u; Wed, 25 May 2022 23:11:56 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntzvH-00CvTi-Ny
-	for linux-riscv@lists.infradead.org; Wed, 25 May 2022 22:56:13 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id k186so313597oia.2
-        for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 15:56:10 -0700 (PDT)
+	id 1nu0AT-00CwLo-Ko
+	for linux-riscv@lists.infradead.org; Wed, 25 May 2022 23:11:55 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-3003cb4e064so57670037b3.3
+        for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 16:11:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=sender:message-id:date:mime-version:user-agent:subject
-         :content-language:to:cc:references:from:in-reply-to
-         :content-transfer-encoding;
-        bh=DbhXocVdJI108NLqeONWoZkfXcTtzL64FrHc9jEvSMY=;
-        b=h7epTynqVLwlSXxaAhGIjxm24IKossrcYupb3DHhPMA/GpRdJolUTuELfnJuXY+lJO
-         N7R+5/1pvc3LarzWT0gViUaDDMGGhSY6aP6y0OEHm5Ii7dSWk4G/HawIxMNilpECX9VI
-         B4TL3tpmGKQnCc7UioiYqYV6tEVDBN6LKsUkkHRsq+ifHaKiLRADIhbmPhhDahfxI3lm
-         ufoXZOxzOdjS27T4qzfPll/Mk/bOgZvBCnPfr83vKV4Qn3WeWt3FyzyL2DcAtD7I297b
-         QxoqqhpbotMcYNzg1lWtyoukKFKInSg/SAlaPk54whSvzty2CxgrGeDG+tIr6VKP1PTo
-         NF/A==
+        d=atishpatra.org; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=3mm1aY/BdEGgm5C/qzynm8Cyr6ViPrOaHpTh3MCfMy4=;
+        b=RyvnfDJs0Rseco3iLXTZ+iPwdihRyFfVKRrDTwspg4Qc3DIVeyzY+dHix2zI4nSgHn
+         D8VGUZY6SG3XLMpJMLvsRxqaow/KD3Q905Gxx2t9oItcjYyMWz554n7MBnDqjhXq8zB0
+         EAbgqyX8qFiN6NI545xyN0PB9sgEr5xtDCb08=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:sender:message-id:date:mime-version:user-agent
-         :subject:content-language:to:cc:references:from:in-reply-to
-         :content-transfer-encoding;
-        bh=DbhXocVdJI108NLqeONWoZkfXcTtzL64FrHc9jEvSMY=;
-        b=d7ms6QnvCzR5NfdiurwBz9fHXqiN0MjJuh/2DVpPCJ2SwHK8yJXPsfoLBabyUZRh81
-         OkLHfjGuxSz9b1NkXCZ7rMHQC5wSFW534Dvcmi1yRnyovf1iVTAuW8nKd7RIPKTwtJcQ
-         kDKsDiCcRcTH/y0uEDjQPoO42qW25Nl8jyp+XwyLlZmsUWIU2V/8SgVE7PIIyQdCOk0l
-         gRCsPV5bVsdv5DYkyf+ud+5PjFhhFIZn6zpciQWscnlGJRihSWxoiOxk/BbM8rqi6OP0
-         SHDwik8ZQsUMWapPderNDfe6KOAVYAzabI4/gWlbvT6Mre5d4kHzs3JIwK3ZnArdLImX
-         gbjA==
-X-Gm-Message-State: AOAM530egOLFnepT1G46PODsLvYmk32D07B617f6RHiruvSbC9Gobx7N
-	T7oNuy3ZDMmFTEMGGB8oXn8=
-X-Google-Smtp-Source: ABdhPJyBxdz/4uWxT28qO5q67jZnYyhrQB81/44lp3PL6QjvdW6IfSt8sgcLAUT3/by8eikrUG+LgQ==
-X-Received: by 2002:a05:6808:f0b:b0:328:bad3:2d92 with SMTP id m11-20020a0568080f0b00b00328bad32d92mr6515862oiw.277.1653519369605;
-        Wed, 25 May 2022 15:56:09 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:329c:23ff:fee3:9d7c? ([2600:1700:e321:62f0:329c:23ff:fee3:9d7c])
-        by smtp.gmail.com with ESMTPSA id gn9-20020a056870d98900b000f27976b9d9sm32202oab.6.2022.05.25.15.56.08
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 May 2022 15:56:08 -0700 (PDT)
-Message-ID: <48ef770c-75bf-6c37-66fe-9719164bc6e0@roeck-us.net>
-Date: Wed, 25 May 2022 15:56:07 -0700
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=3mm1aY/BdEGgm5C/qzynm8Cyr6ViPrOaHpTh3MCfMy4=;
+        b=7zJywov1lnRIykvyxE+124n6LfGMhqeKahQkvUF0dvF76DHbBE/fJZYl5yTRAX02lC
+         TmZXB+VrTOdfrj+UjCjK777s1u/tbEqEHcceiDrdAfb78AbmZUSC9DnwxmNWhoyB1M7j
+         deiPekJzwf6O7ovJeCGgiqzx1mCgabEmBU3AoFJFvH7kcaH9tCdj/R7o4HokDeAdBzuX
+         ncukFi17GXPd/Kdqad36JfPRY2cb0AgHHDFI8qlJStg4J6otLEBVxvT+hjUkg0oN8fsB
+         Yc/tI7xAmvHrocwlxRp8ecX2GIGUIRIwzY8hSSO0nQ7XqpzfykFWsmCWaEwUws6jaQrQ
+         KDCw==
+X-Gm-Message-State: AOAM531AgXzHbqqSLbxz/TJTmNJmIrm8RAcHnevUmvhpGY9EIuJn9Nir
+	nlz2vKSlBTazPYNQ9pIbKy/iz7P6My1/VP7LQ+e0
+X-Google-Smtp-Source: ABdhPJx3ULvZXcVEBtgdS0E5XoYo/4N3FYTfZ2i5Gw2cvII72BCF9nS2480KdMribBkprxpRJSb7p87PCzEiQIU3yFI=
+X-Received: by 2002:a0d:e88c:0:b0:2fe:da96:1b77 with SMTP id
+ r134-20020a0de88c000000b002feda961b77mr35598083ywe.262.1653520311153; Wed, 25
+ May 2022 16:11:51 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.1
-Subject: Re: [PATCH] riscv: compat: Using seperated vdso_maps for
- compat_vdso_info
-Content-Language: en-US
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: guoren@kernel.org, Arnd Bergmann <arnd@arndb.de>, heiko@sntech.de,
- linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, guoren@linux.alibaba.com
-References: <mhng-b37ccc06-67ad-4fd8-bcdb-0e5c9e5a4750@palmer-ri-x1c9>
-From: Guenter Roeck <linux@roeck-us.net>
-In-Reply-To: <mhng-b37ccc06-67ad-4fd8-bcdb-0e5c9e5a4750@palmer-ri-x1c9>
+References: <20220525151106.2176147-1-sunilvl@ventanamicro.com>
+ <20220525151106.2176147-6-sunilvl@ventanamicro.com> <CAMj1kXFhEBv7MVCKZuXdx9=hZx3qWbkATdLDwXAe_Zn9Xyx=dg@mail.gmail.com>
+ <1e90b15b-8c73-0de8-2885-1292923b7575@canonical.com>
+In-Reply-To: <1e90b15b-8c73-0de8-2885-1292923b7575@canonical.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Wed, 25 May 2022 16:11:40 -0700
+Message-ID: <CAOnJCU+r6KgR7bd2dx5QLmmVLjJX8GhETHb6rG65wq0e_m6FVA@mail.gmail.com>
+Subject: Re: [PATCH 5/5] riscv/efi_stub: Support for 64bit boot-hartid
+To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Marc Zyngier <maz@kernel.org>, Atish Patra <atishp@rivosinc.com>, 
+	Anup Patel <apatel@ventanamicro.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-efi <linux-efi@vger.kernel.org>, 
+	Sunil V L <sunil.vl@gmail.com>, Sunil V L <sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220525_155611_823205_C5377FCD 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20220525_161153_902096_D4D8F18F 
+X-CRM114-Status: GOOD (  30.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,72 +83,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNS8yNS8yMiAxNDozNCwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4gT24gV2VkLCAyNSBNYXkg
-MjAyMiAxNDoxNTowMyBQRFQgKC0wNzAwKSwgbGludXhAcm9lY2stdXMubmV0IHdyb3RlOgo+PiBP
-biA1LzI1LzIyIDA5OjA0LCBndW9yZW5Aa2VybmVsLm9yZyB3cm90ZToKPj4+IEZyb206IEd1byBS
-ZW4gPGd1b3JlbkBsaW51eC5hbGliYWJhLmNvbT4KPj4+Cj4+PiBUaGlzIGlzIGEgZml4dXAgZm9y
-IHZkc28gaW1wbGVtZW50YXRpb24gd2hpY2ggY2F1c2VkIG11c2wgdG8KPj4+IGZhaWwuCj4+Pgo+
-Pj4gW8KgwqAgMTEuNjAwMDgyXSBSdW4gL3NiaW4vaW5pdCBhcyBpbml0IHByb2Nlc3MKPj4+IFvC
-oMKgIDExLjYyODU2MV0gaW5pdFsxXTogdW5oYW5kbGVkIHNpZ25hbCAxMSBjb2RlIDB4MSBhdAo+
-Pj4gMHgwMDAwMDAwMDAwMDAwMDAwIGluIGxpYmMuc29bZmZmZmZmOGFkMzkwMDArYTQwMDBdCj4+
-PiBbwqDCoCAxMS42MjkzOThdIENQVTogMCBQSUQ6IDEgQ29tbTogaW5pdCBOb3QgdGFpbnRlZAo+
-Pj4gNS4xOC4wLXJjNy1uZXh0LTIwMjIwNTIwICMxCj4+PiBbwqDCoCAxMS42Mjk0NjJdIEhhcmR3
-YXJlIG5hbWU6IHJpc2N2LXZpcnRpbyxxZW11IChEVCkKPj4+IFvCoMKgIDExLjYyOTU0Nl0gZXBj
-IDogMDBmZmZmZmY4YWRhMTEwMCByYSA6IDAwZmZmZmZmOGFkYTEzYzggc3AgOgo+Pj4gMDBmZmZm
-ZmZjNTgxOTlmMAo+Pj4gW8KgwqAgMTEuNjI5NTg2XcKgIGdwIDogMDBmZmZmZmY4YWQzOTAwMCB0
-cCA6IDAwZmZmZmZmOGFkZTA5OTggdDAgOgo+Pj4gZmZmZmZmZmZmZmZmZmZmZgo+Pj4gW8KgwqAg
-MTEuNjI5NTk4XcKgIHQxIDogMDBmZmZmZmZjNTgxOWZkMCB0MiA6IDAwMDAwMDAwMDAwMDAwMDAg
-czAgOgo+Pj4gMDBmZmZmZmY4YWRlMGNjMAo+Pj4gW8KgwqAgMTEuNjI5NjEwXcKgIHMxIDogMDBm
-ZmZmZmY4YWRlMGNjMCBhMCA6IDAwMDAwMDAwMDAwMDAwMDAgYTEgOgo+Pj4gMDBmZmZmZmZjNTgx
-OWEwMAo+Pj4gW8KgwqAgMTEuNjI5NjIyXcKgIGEyIDogMDAwMDAwMDAwMDAwMDAwMSBhMyA6IDAw
-MDAwMDAwMDAwMDAwMWUgYTQgOgo+Pj4gMDBmZmZmZmZjNTgxOWIwMAo+Pj4gW8KgwqAgMTEuNjI5
-NjM0XcKgIGE1IDogMDBmZmZmZmZjNTgxOWIwMCBhNiA6IDAwMDAwMDAwMDAwMDAwMDAgYTcgOgo+
-Pj4gMDAwMDAwMDAwMDAwMDAwMAo+Pj4gW8KgwqAgMTEuNjI5NjQ1XcKgIHMyIDogMDBmZmZmZmY4
-YWRlMGFjOCBzMyA6IDAwZmZmZmZmOGFkZTBlYzggczQgOgo+Pj4gMDBmZmZmZmY4YWRlMDcyOAo+
-Pj4gW8KgwqAgMTEuNjI5NjU2XcKgIHM1IDogMDBmZmZmZmY4YWRlMGE5MCBzNiA6IDAwMDAwMDAw
-MDAwMDAwMDAgczcgOgo+Pj4gMDBmZmZmZmZjNTgxOWU0MAo+Pj4gW8KgwqAgMTEuNjI5NjY3XcKg
-IHM4IDogMDBmZmZmZmY4YWRlMGNhMCBzOSA6IDAwZmZmZmZmOGFkZGJhNTAgczEwOgo+Pj4gMDAw
-MDAwMDAwMDAwMDAwMAo+Pj4gW8KgwqAgMTEuNjI5Njc4XcKgIHMxMTogMDAwMDAwMDAwMDAwMDAw
-MCB0MyA6IDAwMDAwMDAwMDAwMDAwMDIgdDQgOgo+Pj4gMDAwMDAwMDAwMDAwMDAwMQo+Pj4gW8Kg
-wqAgMTEuNjI5Njg4XcKgIHQ1IDogMDAwMDAwMDAwMDAyMDAwMCB0NiA6IGZmZmZmZmZmZmZmZmZm
-ZmYKPj4+IFvCoMKgIDExLjYyOTY5OV0gc3RhdHVzOiAwMDAwMDAwMDAwMDA0MDIwIGJhZGFkZHI6
-IDAwMDAwMDAwMDAwMDAwMDAKPj4+IGNhdXNlOiAwMDAwMDAwMDAwMDAwMDBkCj4+Pgo+Pj4gVGhl
-IGxhc3QgX192ZHNvX2luaXQoJmNvbXBhdF92ZHNvX2luZm8pIHJlcGxhY2VzIHRoZSBkYXRhIGlu
-IG5vcm1hbAo+Pj4gdmRzb19pbmZvLiBUaGlzIGlzIGFuIG9idmlvdXMgYnVnLgo+Pj4KPj4+IFJl
-cG9ydGVkLWJ5OiBHdWVudGVyIFJvZWNrIDxsaW51eEByb2Vjay11cy5uZXQ+Cj4+PiBTaWduZWQt
-b2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4+PiBTaWduZWQtb2Zm
-LWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4KPj4+IENjOiBQYWxtZXIgRGFiYmVsdCA8
-cGFsbWVyQGRhYmJlbHQuY29tPgo+Pj4gQ2M6IEhlaWtvIFN0w7xibmVyIDxoZWlrb0BzbnRlY2gu
-ZGU+Cj4+Cj4+IFRlc3RlZC1ieTogR3VlbnRlciBSb2VjayA8bGludXhAcm9lY2stdXMubmV0Pgo+
-IAo+IFNvcnJ5IEknbSBhIGJpdCBidXJpZWQgcmlnaHQgbm93LCB0aGlzIGlzIGZpeGluZyB0aGUg
-aXNzdWUgeW91IHBvaW50ZWQgb3V0IGVhcmxpZXI/Cj4gClllcy4KClRoYW5rcywKR3VlbnRlcgoK
-Pj4KPj4+IC0tLQo+Pj4gwqAgYXJjaC9yaXNjdi9rZXJuZWwvdmRzby5jIHwgMTUgKysrKysrKysr
-KysrKy0tCj4+PiDCoCAxIGZpbGUgY2hhbmdlZCwgMTMgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlv
-bnMoLSkKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby5jIGIvYXJj
-aC9yaXNjdi9rZXJuZWwvdmRzby5jCj4+PiBpbmRleCA1MGZlNGM4Nzc2MDMuLjY5YjA1YjZjMTgx
-YiAxMDA2NDQKPj4+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28uYwo+Pj4gKysrIGIvYXJj
-aC9yaXNjdi9rZXJuZWwvdmRzby5jCj4+PiBAQCAtMjA2LDEyICsyMDYsMjMgQEAgc3RhdGljIHN0
-cnVjdCBfX3Zkc29faW5mbyB2ZHNvX2luZm8gX19yb19hZnRlcl9pbml0ID0gewo+Pj4gwqAgfTsK
-Pj4+Cj4+PiDCoCAjaWZkZWYgQ09ORklHX0NPTVBBVAo+Pj4gK3N0YXRpYyBzdHJ1Y3Qgdm1fc3Bl
-Y2lhbF9tYXBwaW5nIHJ2X2NvbXBhdF92ZHNvX21hcHNbXSBfX3JvX2FmdGVyX2luaXQgPSB7Cj4+
-PiArwqDCoMKgIFtSVl9WRFNPX01BUF9WVkFSXSA9IHsKPj4+ICvCoMKgwqDCoMKgwqDCoCAubmFt
-ZcKgwqAgPSAiW3Z2YXJdIiwKPj4+ICvCoMKgwqDCoMKgwqDCoCAuZmF1bHQgPSB2dmFyX2ZhdWx0
-LAo+Pj4gK8KgwqDCoCB9LAo+Pj4gK8KgwqDCoCBbUlZfVkRTT19NQVBfVkRTT10gPSB7Cj4+PiAr
-wqDCoMKgwqDCoMKgwqAgLm5hbWXCoMKgID0gIlt2ZHNvXSIsCj4+PiArwqDCoMKgwqDCoMKgwqAg
-Lm1yZW1hcCA9IHZkc29fbXJlbWFwLAo+Pj4gK8KgwqDCoCB9LAo+Pj4gK307Cj4+PiArCj4+PiDC
-oCBzdGF0aWMgc3RydWN0IF9fdmRzb19pbmZvIGNvbXBhdF92ZHNvX2luZm8gX19yb19hZnRlcl9p
-bml0ID0gewo+Pj4gwqDCoMKgwqDCoCAubmFtZSA9ICJjb21wYXRfdmRzbyIsCj4+PiDCoMKgwqDC
-oMKgIC52ZHNvX2NvZGVfc3RhcnQgPSBjb21wYXRfdmRzb19zdGFydCwKPj4+IMKgwqDCoMKgwqAg
-LnZkc29fY29kZV9lbmQgPSBjb21wYXRfdmRzb19lbmQsCj4+PiAtwqDCoMKgIC5kbSA9ICZydl92
-ZHNvX21hcHNbUlZfVkRTT19NQVBfVlZBUl0sCj4+PiAtwqDCoMKgIC5jbSA9ICZydl92ZHNvX21h
-cHNbUlZfVkRTT19NQVBfVkRTT10sCj4+PiArwqDCoMKgIC5kbSA9ICZydl9jb21wYXRfdmRzb19t
-YXBzW1JWX1ZEU09fTUFQX1ZWQVJdLAo+Pj4gK8KgwqDCoCAuY20gPSAmcnZfY29tcGF0X3Zkc29f
-bWFwc1tSVl9WRFNPX01BUF9WRFNPXSwKPj4+IMKgIH07Cj4+PiDCoCAjZW5kaWYKPj4+CgoKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Wed, May 25, 2022 at 9:09 AM Heinrich Schuchardt
+<heinrich.schuchardt@canonical.com> wrote:
+>
+> On 5/25/22 17:48, Ard Biesheuvel wrote:
+> > On Wed, 25 May 2022 at 17:11, Sunil V L <sunilvl@ventanamicro.com> wrote:
+> >>
+> >> The boot-hartid can be a 64bit value on RV64 platforms. Currently,
+> >> the "boot-hartid" in DT is assumed to be 32bit only. This patch
+> >> detects the size of the "boot-hartid" and uses 32bit or 64bit
+> >> FDT reads appropriately.
+> >>
+> >> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> >> ---
+> >>   drivers/firmware/efi/libstub/riscv-stub.c | 12 +++++++++---
+> >>   1 file changed, 9 insertions(+), 3 deletions(-)
+> >>
+> >> diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
+> >> index 9e85e58d1f27..d748533f1329 100644
+> >> --- a/drivers/firmware/efi/libstub/riscv-stub.c
+> >> +++ b/drivers/firmware/efi/libstub/riscv-stub.c
+> >> @@ -29,7 +29,7 @@ static int get_boot_hartid_from_fdt(void)
+> >>   {
+> >>          const void *fdt;
+> >>          int chosen_node, len;
+> >> -       const fdt32_t *prop;
+> >> +       const void *prop;
+> >>
+> >>          fdt = get_efi_config_table(DEVICE_TREE_GUID);
+> >>          if (!fdt)
+> >> @@ -40,10 +40,16 @@ static int get_boot_hartid_from_fdt(void)
+> >>                  return -EINVAL;
+> >>
+> >>          prop = fdt_getprop((void *)fdt, chosen_node, "boot-hartid", &len);
+> >> -       if (!prop || len != sizeof(u32))
+> >> +       if (!prop)
+> >> +               return -EINVAL;
+> >> +
+> >> +       if (len == sizeof(u32))
+> >> +               hartid = (unsigned long) fdt32_to_cpu(*(fdt32_t *)prop);
+> >> +       else if (len == sizeof(u64))
+> >> +               hartid = (unsigned long) fdt64_to_cpu(*(fdt64_t *)prop);
+> >
+> > Does RISC-V care about alignment? A 64-bit quantity is not guaranteed
+> > to appear 64-bit aligned in the DT, and the cast violates C alignment
+> > rules, so this should probably used get_unaligned_be64() or something
+> > like that.
+>
+> When running in S-mode the SBI handles unaligned access but this has a
+> performance penalty.
+>
+> We could use fdt64_to_cpu(__get_unaligned_t(fdt64_t, prop)) here.
+>
+
+It is better to avoid unaligned access in the kernel. There are some
+plans to disable
+misaligned load/store emulation in the firmware if user space requests
+it via prctl.
+
+We need another SBI extension to do that. The idea is to keep it
+enabled by default in the firmware but
+userspace should have an option to disable it via prctl. If we make
+sure that the kernel doesn't invoke any
+unaligned access, this feature can be implemented easily.
+
+> Best regards
+>
+> Heinrich
+>
+> >
+> >
+> >> +       else
+> >>                  return -EINVAL;
+> >>
+> >> -       hartid = fdt32_to_cpu(*prop);
+> >>          return 0;
+> >>   }
+> >>
+> >> --
+> >> 2.25.1
+> >>
+>
+
+
+-- 
+Regards,
+Atish
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
