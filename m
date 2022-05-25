@@ -4,74 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D170C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 16:09:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1350C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 16:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N8BqlTJhFPnHv6oVVS25Odt6GrWReJHzf8QaEhbw/sA=; b=tEnjTVyf1jjYzb
-	NgD0dJzUwbji/rjoJgalwnFkbbsITFpxso6hy322lLh1IASeonSYs+72AX2ELoHOSdTLOiucdjprR
-	RNImjgVAQHKxfXynzMQBVhDeiQKMGdui2WrDwHS+3IaBiw2H9hdy5r7jI1NYlnUbIQypRv0j0eyev
-	o+XXL1bEymrnj1LyEwfcqwL2GMN4kzUZtt/hHHszNj2x3bkYQ1CXiCLIgwenxv66pVJrfCrzJU3t2
-	kGnnDfjvV/EyRI3E3LhVJlsM7d6+ur0WT2VuoqP20ryYxUIYoIkzV0r473IToRuYPcAtWTeTAl/f8
-	FvJltN8ScOsXEcQD8AoA==;
+	List-Owner; bh=4OIn61hDsD7mN16Hr5eua482+lFtJY2zQkAEHhIXNAI=; b=G1RqGWTOLG7gov
+	fNweLCk4sd959s8GUJJjdVxgd6F2DKGPOvcGokxshTt4qYw7BzXboG6N4XxQBTRVH9NKvpOJB7M4i
+	+KvHb/qnccAV9nEm1olZa6ERmcZMLfqMoyXfB7wqj1f9V4DdyxfPB5yUI3f0TmDRsxr4oq/NrzpLL
+	hoh1bFjWNzI+KsUsvybieTuTdGiPNEZT1Xyb/QL+yIZ+oXStQIIr1EibiNFhhSz51sHsfHpy1dr1B
+	eWZs70wuCFr7jGwkKXzP3OI+tCCujCdKXtjTm15GyTksr/RGTKHI9u7d6+yl+/eRt+eTljBYoHShL
+	HWgPfZBR7nRShy4S1aEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nttZD-00Bm4e-Bh; Wed, 25 May 2022 16:08:59 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1nttZS-00Bm9H-B5; Wed, 25 May 2022 16:09:14 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nttZ2-00Bm2W-I2; Wed, 25 May 2022 16:08:50 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	id 1nttZO-00Bm7e-Un
+	for linux-riscv@lists.infradead.org; Wed, 25 May 2022 16:09:12 +0000
+Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com [209.85.218.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 50D08CE1FB0;
-	Wed, 25 May 2022 16:08:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC283C34114;
-	Wed, 25 May 2022 16:08:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1653494917;
-	bh=yKZpZ7SIZeLHb0X8nC5bqkpDaZyHuZo++7kw37oIcGQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=goVP0r/5GwDlgxrUTVvx6jhaOtTm7pWUyfqhP1hgj2iDGXU4Tiq8pzDnwCvAkgpG4
-	 L1r86pR2gPdL9aCADSayVXaRv86iKfwqr3WFbWOZxdLnDhv1govZgITWE7RtDWiB5+
-	 LSjycCUndGv9y0jhBd0U8lb2tsEZKd0fEkC2wJsMf/1yO50v0Dzuq7GoqJ/s9pQejc
-	 wNgI7SjceSjeavb7oG9cfRxObqafmjEdCwDyFAraqlxbB1zYcaDbq+IRyVfomMK/KY
-	 bNjIBroLqZ8u1NSoR6dO+y5X61zbeNatpUa3EJ8SCurI9i1y8SKf6MZABNuUT5W2GC
-	 6go17gsxUHsuQ==
-Received: by mail-vk1-f173.google.com with SMTP id x11so9602699vkn.11;
-        Wed, 25 May 2022 09:08:37 -0700 (PDT)
-X-Gm-Message-State: AOAM533W1/iWG7CPrHR3i+q5RW5lsat2kVXuOMtYO8AF1lulPd/upK7m
-	zdOBJcfOTxX7rTgYnaoDVaShGQkm3o6cunbPLL0=
-X-Google-Smtp-Source: ABdhPJw1WHHqxuzdMTtb2eEqwRRFtvXa8jU3vxrvtrww8g1vIS4KjJWMDyxFq63Hm2BXr071eyutBaZ38+UIdXynb6U=
-X-Received: by 2002:a1f:2106:0:b0:357:a8c9:a8d6 with SMTP id
- h6-20020a1f2106000000b00357a8c9a8d6mr5907118vkh.2.1653494913806; Wed, 25 May
- 2022 09:08:33 -0700 (PDT)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 6337B3F1F2
+	for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 16:09:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1653494948;
+	bh=d8wzs0GJmElvjOENQNOKSUNkK9vo5WqYmuRjW9+dNXI=;
+	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type;
+	b=fmgQ8PXmDIYcMgWN1p/JT1Fqqqv8Kzpmi6YHDFc7xl0U/gBce8lmC3IrwIHN/IDNu
+	 kPWABV90kSjIYqs3r18jJeEeK1g+q6pGrirq2A1JG+hVm0q5pR0Crl2ZqndfqvfjJ2
+	 GGx42+LFv/vfWbPYJdbmjjoTfqQH18E4uvODWy59fAXFra8LiUTZ7FTbaAc16tuW/L
+	 Ijmnj2Qt2DAvVi6ux3dtFtRibpe7Ut5wx+vcf44wyHhuVvh/irbHyQHxdNMZctHU1V
+	 mGgnz18lpyTiggIviv8VcWd85JNWTpmrNI3TLu5oCgZ/C09Z9P9xGkYn/7WHxZFuk1
+	 0vCMmLgXlEUrA==
+Received: by mail-ej1-f72.google.com with SMTP id b17-20020a170906491100b006feec47b64bso4733464ejq.5
+        for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 09:09:08 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+         :content-language:to:cc:references:from:in-reply-to
+         :content-transfer-encoding;
+        bh=d8wzs0GJmElvjOENQNOKSUNkK9vo5WqYmuRjW9+dNXI=;
+        b=29XSiJz6iE7sr8a7Xnk41NzbCmSwYywpJcz8xA+cOWGP/LJ1f2TqrbzQUM8RbeJ4GZ
+         EM0WXJuK06yuBQanMCTUuu4FE0dqqDnFq5mls/sdw2Ihh9KkOjWwLwAbhSHn8MHSmoAs
+         Ha0gPnhWG6CipewwALT3zOxnHpdYD7vwt02CaluOONFbmhYjvJ3XNXC+hbHxS6Vep7M8
+         tdEXLfeD8pjaGFlGAR6t5lmjplgQfwcJiexcalBkSIzMHAw7jiNr0TfXJEbfU307sP1v
+         t3f9FRAS4m/6x0MGDb9am5EK3WhM0d2j2CXz0m1wwgAirR5SluaG+RYzQjj+RPBCjoKF
+         lqQw==
+X-Gm-Message-State: AOAM533twSpiygkH+QPBYWakPliLIWVYKAoy6R74EsiiVzHsZTVhptN7
+	TuqQQP0BmmV6z17LJNPOdR+Rm9wb5KoN0BTDpTFNpklBWzxXtGJ7wpWU1CPizRO/xlrrjsNtSPJ
+	mnOsgGTOzaN97wpLFsZmY2+frAEtO8fDvRA2Rl924K/GkdA==
+X-Received: by 2002:a05:6402:1914:b0:42b:73ae:e082 with SMTP id e20-20020a056402191400b0042b73aee082mr14382682edz.31.1653494948045;
+        Wed, 25 May 2022 09:09:08 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxpqXsCgcavHTP6/CfZQf4opU8VPdadSWqUfI+xqHjR9H80zRw2o39oJtqvERVspav9HAZUAA==
+X-Received: by 2002:a05:6402:1914:b0:42b:73ae:e082 with SMTP id e20-20020a056402191400b0042b73aee082mr14382654edz.31.1653494947825;
+        Wed, 25 May 2022 09:09:07 -0700 (PDT)
+Received: from [192.168.123.67] (ip-062-143-094-109.um16.pools.vodafone-ip.de. [62.143.94.109])
+        by smtp.gmail.com with ESMTPSA id vw13-20020a170907058d00b006feec47dae7sm2963066ejb.149.2022.05.25.09.09.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 May 2022 09:09:06 -0700 (PDT)
+Message-ID: <1e90b15b-8c73-0de8-2885-1292923b7575@canonical.com>
+Date: Wed, 25 May 2022 18:09:05 +0200
 MIME-Version: 1.0
-References: <20220322144003.2357128-1-guoren@kernel.org> <20220524220646.GA3990738@roeck-us.net>
- <6435704.4vTCxPXJkl@diego> <3418219.V25eIC5XRa@diego>
-In-Reply-To: <3418219.V25eIC5XRa@diego>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 26 May 2022 00:08:22 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTkpHLZf-+VXZE_gCn=5ZJ5FS3jOxKLVoMyL4i=baPd7Q@mail.gmail.com>
-Message-ID: <CAJF2gTTkpHLZf-+VXZE_gCn=5ZJ5FS3jOxKLVoMyL4i=baPd7Q@mail.gmail.com>
-Subject: Re: [PATCH V9 20/20] riscv: compat: Add COMPAT Kbuild skeletal support
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Guenter Roeck <linux@roeck-us.net>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Christoph Hellwig <hch@lst.de>, linux-arch <linux-arch@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-csky@vger.kernel.org, 
-	linux-s390 <linux-s390@vger.kernel.org>, sparclinux <sparclinux@vger.kernel.org>, 
-	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, Parisc List <linux-parisc@vger.kernel.org>, 
-	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	"the arch/x86 maintainers" <x86@kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.0
+Subject: Re: [PATCH 5/5] riscv/efi_stub: Support for 64bit boot-hartid
+Content-Language: en-US
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-efi <linux-efi@vger.kernel.org>, Sunil V L <sunil.vl@gmail.com>,
+ Sunil V L <sunilvl@ventanamicro.com>
+References: <20220525151106.2176147-1-sunilvl@ventanamicro.com>
+ <20220525151106.2176147-6-sunilvl@ventanamicro.com>
+ <CAMj1kXFhEBv7MVCKZuXdx9=hZx3qWbkATdLDwXAe_Zn9Xyx=dg@mail.gmail.com>
+From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+In-Reply-To: <CAMj1kXFhEBv7MVCKZuXdx9=hZx3qWbkATdLDwXAe_Zn9Xyx=dg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220525_090848_982613_D902EFD0 
-X-CRM114-Status: GOOD (  29.89  )
+X-CRM114-CacheID: sfid-20220525_090911_312500_18C26C92 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,50 +104,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGh4IEhlaWtvICYgR3VlbnRlciwKCk9uIFdlZCwgTWF5IDI1LCAyMDIyIGF0IDc6MTAgUE0gSGVp
-a28gU3TDvGJuZXIgPGhlaWtvQHNudGVjaC5kZT4gd3JvdGU6Cj4KPiBBbSBNaXR0d29jaCwgMjUu
-IE1haSAyMDIyLCAxMjo1NzozMCBDRVNUIHNjaHJpZWIgSGVpa28gU3TDvGJuZXI6Cj4gPiBBbSBN
-aXR0d29jaCwgMjUuIE1haSAyMDIyLCAwMDowNjo0NiBDRVNUIHNjaHJpZWIgR3VlbnRlciBSb2Vj
-azoKPiA+ID4gT24gV2VkLCBNYXkgMjUsIDIwMjIgYXQgMDE6NDY6MzhBTSArMDgwMCwgR3VvIFJl
-biB3cm90ZToKPiA+ID4gWyAuLi4gXQo+ID4gPgo+ID4gPiA+ID4gVGhlIHByb2JsZW0gaXMgY29t
-ZSBmcm9tICJfX2RsczMncyB2ZHNvIGRlY29kZSBwYXJ0IGluIG11c2wncwo+ID4gPiA+ID4gbGRz
-by9keW5saW5rLmMiLiBUaGUgZWhkci0+ZV9waG51bSAmIGVoZHItPmVfcGhlbnRzaXplIGFyZSB3
-cm9uZy4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBJIHRoaW5rIHRoZSByb290IGNhdXNlIGlzIGZyb20g
-bXVzbCdzIGltcGxlbWVudGF0aW9uIHdpdGggdGhlIHdyb25nCj4gPiA+ID4gPiBlbGYgcGFyc2Vy
-LiBJIHdvdWxkIGZpeCB0aGF0IHNvb24uCj4gPiA+ID4gTm90IGVsZiBwYXJzZXIsIGl0J3MgImF1
-eCB2ZWN0b3IganVzdCBwYXN0IGVudmlyb25bXSIuIEkgdGhpbmsgSSBjb3VsZAo+ID4gPiA+IHNv
-bHZlIHRoaXMsIGJ1dCBhbnlvbmUgd2hvIGNvdWxkIGhlbHAgZGlnIGluIGlzIHdlbGNvbWUuCj4g
-PiA+ID4KPiA+ID4KPiA+ID4gSSBhbSBub3Qgc3VyZSBJIHVuZGVyc3RhbmQgd2hhdCB5b3UgYXJl
-IHNheWluZyBoZXJlLiBQb2ludCBpcyB0aGF0IG15Cj4gPiA+IHJvb3QgZmlsZSBzeXN0ZW0sIGdl
-bmVyYXRlZCB3aXRoIG11c2wgYSB5ZWFyIG9yIHNvIGFnbywgY3Jhc2hlcyB3aXRoCj4gPiA+IHlv
-dXIgcGF0Y2ggc2V0IGFwcGxpZWQuIFRoYXQgaXMgYSByZWdyZXNzaW9uLCBldmVuIGlmIHRoZXJl
-IGlzIGEgYnVnCj4gPiA+IGluIG11c2wuClRoeCBmb3IgdGhlIHJlcG9ydCwgaXQncyBhIHZhbHVh
-YmxlIHJlZ3Jlc3Npb24gZm9yIHJpc2N2LWNvbXBhdC4KCj4gPgo+ID4gQWxzbyBhcyBJIHNhaWQg
-aW4gdGhlIG90aGVyIHBhcnQgb2YgdGhlIHRocmVhZCwgdGhlIHJvb3RmcyBzZWVtcyBpbm5vY2Vu
-dCwKPiA+IGFzIG15IGNvbXBsZXRlbHktc3RhbmRhcmQgRGViaWFuIHJpc2N2NjQgcm9vdGZzIGlz
-IGFsc28gYWZmZWN0ZWQuCj4gPgo+ID4gVGhlIG1lcmdlZCB2ZXJzaW9uIHNlZW1zIHRvIGJlIHYx
-MiBbMF0gLSBub3Qgc3VyZSBob3cgd2UgdGhpcyBkaXNjdXNzaW9uCj4gPiBlbmRlZCB1cCBpbiB2
-OSwgYnV0IEkganVzdCB0ZXN0ZWQgdGhpcyByZXZpc2lvbiBpbiB0d28gdmFyaWFudHM6Cj4gPgo+
-ID4gLSB2NS4xNyArIHRoaXMgdjkgLT4gd29ya3MgbmljZWx5Cj4KPiBJIHRha2UgdGhhdCBiYWNr
-IC4uLiBub3cgZ29pbmcgYmFjayB0byB0aGF0IGJ1aWxkIEkgc29tZWhvdyBhbHNvIHJ1biBpbnRv
-Cj4gdGhhdCBpc3N1ZSBoZXJlIC4uLiB3aWxsIGludmVzdGlnYXRlIG1vcmUuClllYWgsIGl0J3Mg
-bXkgZmF1bHQuIEkndmUgZml4ZWQgdXAgaXQsIHBsZWFzZSBoYXZlIGEgdHJ5OgoKaHR0cHM6Ly9s
-b3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjA1MjUxNjA0MDQuMjkzMDk4NC0xLWd1b3Jl
-bkBrZXJuZWwub3JnL1QvI3UKCj4KPgo+ID4gLSB2NS4xOC1yYzYgKyB0aGlzIHY5IChyZWJhc2Vk
-IG9udG8gaXQpIC0+IGJyZWFrcyB0aGUgYm9vdAo+ID4gICBUaGUgb25seSByZWJhc2UtY29uZmxp
-Y3Qgd2FzIHdpdGggdGhlIGludHJvZHVjdGlvbiBvZiByZXN0YXJ0YWJsZQo+ID4gICBzZXF1ZW5j
-ZXMgYW5kIHJlbW92YWwgb2YgdGhlIHRyYWNlaG9vayBpbmNsdWRlLCBidXQgdHVybmluZyBDT05G
-SUdfUlNFUQo+ID4gICBvZmYgZG9lc24ndCBzZWVtIHRvIGFmZmVjdCB0aGUgYnJlYWthZ2UuCj4g
-Pgo+ID4gU28gaXQgbG9va3MgbGlrZSBzb21ldGhpbmcgY2hhbmdlZCBiZXR3ZWVuIDUuMTcgYW5k
-IDUuMTggdGhhdCBjYXVzZXMgdGhlIGlzc3VlLgo+ID4KPiA+Cj4gPiBIZWlrbwo+ID4KPiA+Cj4g
-PiBbMF0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjIwNDA1MDcxMzE0LjMyMjU4MzIt
-MS1ndW9yZW5Aa2VybmVsLm9yZy8KPiA+Cj4KPgo+Cj4KCgotLSAKQmVzdCBSZWdhcmRzCiBHdW8g
-UmVuCgpNTDogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtY3NreS8KCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 5/25/22 17:48, Ard Biesheuvel wrote:
+> On Wed, 25 May 2022 at 17:11, Sunil V L <sunilvl@ventanamicro.com> wrote:
+>>
+>> The boot-hartid can be a 64bit value on RV64 platforms. Currently,
+>> the "boot-hartid" in DT is assumed to be 32bit only. This patch
+>> detects the size of the "boot-hartid" and uses 32bit or 64bit
+>> FDT reads appropriately.
+>>
+>> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+>> ---
+>>   drivers/firmware/efi/libstub/riscv-stub.c | 12 +++++++++---
+>>   1 file changed, 9 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
+>> index 9e85e58d1f27..d748533f1329 100644
+>> --- a/drivers/firmware/efi/libstub/riscv-stub.c
+>> +++ b/drivers/firmware/efi/libstub/riscv-stub.c
+>> @@ -29,7 +29,7 @@ static int get_boot_hartid_from_fdt(void)
+>>   {
+>>          const void *fdt;
+>>          int chosen_node, len;
+>> -       const fdt32_t *prop;
+>> +       const void *prop;
+>>
+>>          fdt = get_efi_config_table(DEVICE_TREE_GUID);
+>>          if (!fdt)
+>> @@ -40,10 +40,16 @@ static int get_boot_hartid_from_fdt(void)
+>>                  return -EINVAL;
+>>
+>>          prop = fdt_getprop((void *)fdt, chosen_node, "boot-hartid", &len);
+>> -       if (!prop || len != sizeof(u32))
+>> +       if (!prop)
+>> +               return -EINVAL;
+>> +
+>> +       if (len == sizeof(u32))
+>> +               hartid = (unsigned long) fdt32_to_cpu(*(fdt32_t *)prop);
+>> +       else if (len == sizeof(u64))
+>> +               hartid = (unsigned long) fdt64_to_cpu(*(fdt64_t *)prop);
+> 
+> Does RISC-V care about alignment? A 64-bit quantity is not guaranteed
+> to appear 64-bit aligned in the DT, and the cast violates C alignment
+> rules, so this should probably used get_unaligned_be64() or something
+> like that.
+
+When running in S-mode the SBI handles unaligned access but this has a 
+performance penalty.
+
+We could use fdt64_to_cpu(__get_unaligned_t(fdt64_t, prop)) here.
+
+Best regards
+
+Heinrich
+
+> 
+> 
+>> +       else
+>>                  return -EINVAL;
+>>
+>> -       hartid = fdt32_to_cpu(*prop);
+>>          return 0;
+>>   }
+>>
+>> --
+>> 2.25.1
+>>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
