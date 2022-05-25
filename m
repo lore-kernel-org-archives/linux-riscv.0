@@ -4,95 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1350C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 16:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 563D9C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 19:47:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4OIn61hDsD7mN16Hr5eua482+lFtJY2zQkAEHhIXNAI=; b=G1RqGWTOLG7gov
-	fNweLCk4sd959s8GUJJjdVxgd6F2DKGPOvcGokxshTt4qYw7BzXboG6N4XxQBTRVH9NKvpOJB7M4i
-	+KvHb/qnccAV9nEm1olZa6ERmcZMLfqMoyXfB7wqj1f9V4DdyxfPB5yUI3f0TmDRsxr4oq/NrzpLL
-	hoh1bFjWNzI+KsUsvybieTuTdGiPNEZT1Xyb/QL+yIZ+oXStQIIr1EibiNFhhSz51sHsfHpy1dr1B
-	eWZs70wuCFr7jGwkKXzP3OI+tCCujCdKXtjTm15GyTksr/RGTKHI9u7d6+yl+/eRt+eTljBYoHShL
-	HWgPfZBR7nRShy4S1aEQ==;
+	List-Owner; bh=5w6yQ6yzoMGPzgzMZvi9uZcqMw1Ki2N2Qvwz6xCQ9kI=; b=dfHAOaFPOXOIde
+	yJ6VYEu9S6qU+yuEJLVsuw93UL1qD/vGk7SOZRjJHyj8yE9XBz7SnQhw2xz7Dbw5+Y3K5uZ2tqxF1
+	mEcaSMftTh3HQXwF9Dmo7lflVQD1tqnyD443IXzyAmYy5xTMVwLTDgDC3g/siYJbdja5eYBzIflFc
+	cjSORH2lq6JBf78OURY/CcLSaWxqngXnLcGtAWUK+BgVlHRw21vJbWIfS7cti63eH3vaYIUTkeI4E
+	9pV+KP7ieZQCzj7KdWw3xvHgti8tBEs6SlfPoq6KZIktRsYb/c0jFIh2j1HKePvgTNlOmGK3+5FLn
+	Zt3EBKz+KhS6ewDuX6Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nttZS-00Bm9H-B5; Wed, 25 May 2022 16:09:14 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1ntwy2-00CUTU-MA; Wed, 25 May 2022 19:46:50 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nttZO-00Bm7e-Un
-	for linux-riscv@lists.infradead.org; Wed, 25 May 2022 16:09:12 +0000
-Received: from mail-ej1-f72.google.com (mail-ej1-f72.google.com [209.85.218.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 6337B3F1F2
-	for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 16:09:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1653494948;
-	bh=d8wzs0GJmElvjOENQNOKSUNkK9vo5WqYmuRjW9+dNXI=;
-	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type;
-	b=fmgQ8PXmDIYcMgWN1p/JT1Fqqqv8Kzpmi6YHDFc7xl0U/gBce8lmC3IrwIHN/IDNu
-	 kPWABV90kSjIYqs3r18jJeEeK1g+q6pGrirq2A1JG+hVm0q5pR0Crl2ZqndfqvfjJ2
-	 GGx42+LFv/vfWbPYJdbmjjoTfqQH18E4uvODWy59fAXFra8LiUTZ7FTbaAc16tuW/L
-	 Ijmnj2Qt2DAvVi6ux3dtFtRibpe7Ut5wx+vcf44wyHhuVvh/irbHyQHxdNMZctHU1V
-	 mGgnz18lpyTiggIviv8VcWd85JNWTpmrNI3TLu5oCgZ/C09Z9P9xGkYn/7WHxZFuk1
-	 0vCMmLgXlEUrA==
-Received: by mail-ej1-f72.google.com with SMTP id b17-20020a170906491100b006feec47b64bso4733464ejq.5
-        for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 09:09:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-         :content-language:to:cc:references:from:in-reply-to
-         :content-transfer-encoding;
-        bh=d8wzs0GJmElvjOENQNOKSUNkK9vo5WqYmuRjW9+dNXI=;
-        b=29XSiJz6iE7sr8a7Xnk41NzbCmSwYywpJcz8xA+cOWGP/LJ1f2TqrbzQUM8RbeJ4GZ
-         EM0WXJuK06yuBQanMCTUuu4FE0dqqDnFq5mls/sdw2Ihh9KkOjWwLwAbhSHn8MHSmoAs
-         Ha0gPnhWG6CipewwALT3zOxnHpdYD7vwt02CaluOONFbmhYjvJ3XNXC+hbHxS6Vep7M8
-         tdEXLfeD8pjaGFlGAR6t5lmjplgQfwcJiexcalBkSIzMHAw7jiNr0TfXJEbfU307sP1v
-         t3f9FRAS4m/6x0MGDb9am5EK3WhM0d2j2CXz0m1wwgAirR5SluaG+RYzQjj+RPBCjoKF
-         lqQw==
-X-Gm-Message-State: AOAM533twSpiygkH+QPBYWakPliLIWVYKAoy6R74EsiiVzHsZTVhptN7
-	TuqQQP0BmmV6z17LJNPOdR+Rm9wb5KoN0BTDpTFNpklBWzxXtGJ7wpWU1CPizRO/xlrrjsNtSPJ
-	mnOsgGTOzaN97wpLFsZmY2+frAEtO8fDvRA2Rl924K/GkdA==
-X-Received: by 2002:a05:6402:1914:b0:42b:73ae:e082 with SMTP id e20-20020a056402191400b0042b73aee082mr14382682edz.31.1653494948045;
-        Wed, 25 May 2022 09:09:08 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJxpqXsCgcavHTP6/CfZQf4opU8VPdadSWqUfI+xqHjR9H80zRw2o39oJtqvERVspav9HAZUAA==
-X-Received: by 2002:a05:6402:1914:b0:42b:73ae:e082 with SMTP id e20-20020a056402191400b0042b73aee082mr14382654edz.31.1653494947825;
-        Wed, 25 May 2022 09:09:07 -0700 (PDT)
-Received: from [192.168.123.67] (ip-062-143-094-109.um16.pools.vodafone-ip.de. [62.143.94.109])
-        by smtp.gmail.com with ESMTPSA id vw13-20020a170907058d00b006feec47dae7sm2963066ejb.149.2022.05.25.09.09.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 May 2022 09:09:06 -0700 (PDT)
-Message-ID: <1e90b15b-8c73-0de8-2885-1292923b7575@canonical.com>
-Date: Wed, 25 May 2022 18:09:05 +0200
+	id 1ntwo0-00CPwd-E7
+	for linux-riscv@lists.infradead.org; Wed, 25 May 2022 19:36:32 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <heiko@sntech.de>)
+	id 1ntwnq-0007ot-Ka; Wed, 25 May 2022 21:36:18 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: palmer@rivosinc.com, arnd@arndb.de, linux@roeck-us.net, palmer@dabbelt.com, guoren@kernel.org
+Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>, Guo Ren <guoren@kernel.org>
+Subject: Re: [PATCH] riscv: compat: Using seperated vdso_maps for compat_vdso_info
+Date: Wed, 25 May 2022 21:36:16 +0200
+Message-ID: <2757790.88bMQJbFj6@diego>
+In-Reply-To: <20220525160404.2930984-1-guoren@kernel.org>
+References: <20220525160404.2930984-1-guoren@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.0
-Subject: Re: [PATCH 5/5] riscv/efi_stub: Support for 64bit boot-hartid
-Content-Language: en-US
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Atish Patra <atishp@rivosinc.com>, Anup Patel <apatel@ventanamicro.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- linux-efi <linux-efi@vger.kernel.org>, Sunil V L <sunil.vl@gmail.com>,
- Sunil V L <sunilvl@ventanamicro.com>
-References: <20220525151106.2176147-1-sunilvl@ventanamicro.com>
- <20220525151106.2176147-6-sunilvl@ventanamicro.com>
- <CAMj1kXFhEBv7MVCKZuXdx9=hZx3qWbkATdLDwXAe_Zn9Xyx=dg@mail.gmail.com>
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <CAMj1kXFhEBv7MVCKZuXdx9=hZx3qWbkATdLDwXAe_Zn9Xyx=dg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220525_090911_312500_18C26C92 
-X-CRM114-Status: GOOD (  20.99  )
+X-CRM114-CacheID: sfid-20220525_123628_517810_59D71784 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,76 +53,157 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/25/22 17:48, Ard Biesheuvel wrote:
-> On Wed, 25 May 2022 at 17:11, Sunil V L <sunilvl@ventanamicro.com> wrote:
->>
->> The boot-hartid can be a 64bit value on RV64 platforms. Currently,
->> the "boot-hartid" in DT is assumed to be 32bit only. This patch
->> detects the size of the "boot-hartid" and uses 32bit or 64bit
->> FDT reads appropriately.
->>
->> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
->> ---
->>   drivers/firmware/efi/libstub/riscv-stub.c | 12 +++++++++---
->>   1 file changed, 9 insertions(+), 3 deletions(-)
->>
->> diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
->> index 9e85e58d1f27..d748533f1329 100644
->> --- a/drivers/firmware/efi/libstub/riscv-stub.c
->> +++ b/drivers/firmware/efi/libstub/riscv-stub.c
->> @@ -29,7 +29,7 @@ static int get_boot_hartid_from_fdt(void)
->>   {
->>          const void *fdt;
->>          int chosen_node, len;
->> -       const fdt32_t *prop;
->> +       const void *prop;
->>
->>          fdt = get_efi_config_table(DEVICE_TREE_GUID);
->>          if (!fdt)
->> @@ -40,10 +40,16 @@ static int get_boot_hartid_from_fdt(void)
->>                  return -EINVAL;
->>
->>          prop = fdt_getprop((void *)fdt, chosen_node, "boot-hartid", &len);
->> -       if (!prop || len != sizeof(u32))
->> +       if (!prop)
->> +               return -EINVAL;
->> +
->> +       if (len == sizeof(u32))
->> +               hartid = (unsigned long) fdt32_to_cpu(*(fdt32_t *)prop);
->> +       else if (len == sizeof(u64))
->> +               hartid = (unsigned long) fdt64_to_cpu(*(fdt64_t *)prop);
-> 
-> Does RISC-V care about alignment? A 64-bit quantity is not guaranteed
-> to appear 64-bit aligned in the DT, and the cast violates C alignment
-> rules, so this should probably used get_unaligned_be64() or something
-> like that.
+Am Mittwoch, 25. Mai 2022, 18:04:04 CEST schrieb guoren@kernel.org:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> =
 
-When running in S-mode the SBI handles unaligned access but this has a 
-performance penalty.
+> This is a fixup for vdso implementation which caused musl to
+> fail.
+> =
 
-We could use fdt64_to_cpu(__get_unaligned_t(fdt64_t, prop)) here.
+> [   11.600082] Run /sbin/init as init process
+> [   11.628561] init[1]: unhandled signal 11 code 0x1 at
+> 0x0000000000000000 in libc.so[ffffff8ad39000+a4000]
+> [   11.629398] CPU: 0 PID: 1 Comm: init Not tainted
+> 5.18.0-rc7-next-20220520 #1
+> [   11.629462] Hardware name: riscv-virtio,qemu (DT)
+> [   11.629546] epc : 00ffffff8ada1100 ra : 00ffffff8ada13c8 sp :
+> 00ffffffc58199f0
+> [   11.629586]  gp : 00ffffff8ad39000 tp : 00ffffff8ade0998 t0 :
+> ffffffffffffffff
+> [   11.629598]  t1 : 00ffffffc5819fd0 t2 : 0000000000000000 s0 :
+> 00ffffff8ade0cc0
+> [   11.629610]  s1 : 00ffffff8ade0cc0 a0 : 0000000000000000 a1 :
+> 00ffffffc5819a00
+> [   11.629622]  a2 : 0000000000000001 a3 : 000000000000001e a4 :
+> 00ffffffc5819b00
+> [   11.629634]  a5 : 00ffffffc5819b00 a6 : 0000000000000000 a7 :
+> 0000000000000000
+> [   11.629645]  s2 : 00ffffff8ade0ac8 s3 : 00ffffff8ade0ec8 s4 :
+> 00ffffff8ade0728
+> [   11.629656]  s5 : 00ffffff8ade0a90 s6 : 0000000000000000 s7 :
+> 00ffffffc5819e40
+> [   11.629667]  s8 : 00ffffff8ade0ca0 s9 : 00ffffff8addba50 s10:
+> 0000000000000000
+> [   11.629678]  s11: 0000000000000000 t3 : 0000000000000002 t4 :
+> 0000000000000001
+> [   11.629688]  t5 : 0000000000020000 t6 : ffffffffffffffff
+> [   11.629699] status: 0000000000004020 badaddr: 0000000000000000
+> cause: 000000000000000d
+> =
 
-Best regards
+> The last __vdso_init(&compat_vdso_info) replaces the data in normal
+> vdso_info. This is an obvious bug.
+> =
 
-Heinrich
+> Reported-by: Guenter Roeck <linux@roeck-us.net>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Heiko St=FCbner <heiko@sntech.de>
 
-> 
-> 
->> +       else
->>                  return -EINVAL;
->>
->> -       hartid = fdt32_to_cpu(*prop);
->>          return 0;
->>   }
->>
->> --
->> 2.25.1
->>
+on palmer's for-next branch and a Debian riscv64 rootfs:
+
+- WITHOUT this patch I end up with:
+[    3.142030] Unable to handle kernel paging request at virtual address ff=
+60007265776f78
+[    3.144398] Oops [#1]
+[    3.144882] Modules linked in:
+[    3.145620] CPU: 1 PID: 1 Comm: init Not tainted 5.18.0-rc1-00049-g8810d=
+7feee5a #225
+[    3.146698] Hardware name: riscv-virtio,qemu (DT)
+[    3.147441] epc : special_mapping_fault+0x4c/0x8e
+[    3.148352]  ra : __do_fault+0x28/0x11c
+[    3.149005] epc : ffffffff8011ce3e ra : ffffffff80113216 sp : ff20000000=
+60bd20
+[    3.149851]  gp : ffffffff810de540 tp : ff600000012a8000 t0 : ffffffff80=
+008af0
+[    3.150651]  t1 : ffffffff80c001e0 t2 : ffffffff80c00260 s0 : ff20000000=
+60bd30
+[    3.151434]  s1 : ff2000000060bd78 a0 : ff600000013165f0 a1 : ff60000001=
+dbc450
+[    3.152734]  a2 : ff2000000060bd78 a3 : 00fffffffffff000 a4 : ff6000003f=
+0337c8
+[    3.153821]  a5 : ff60007265776f70 a6 : 0000000000000000 a7 : 0000000000=
+000007
+[    3.154709]  s2 : ff60000001dbc450 s3 : ff60000001dbc450 s4 : ffffffff81=
+0ddd69
+[    3.155557]  s5 : ff60000001dbc450 s6 : 0000000000000254 s7 : 0000000000=
+00000c
+[    3.156369]  s8 : 000000000000000f s9 : 000000000000000d s10: ff60000001=
+cf8080
+[    3.157242]  s11: 000000000000000d t3 : 00ffffff8232d000 t4 : 000000006f=
+fffdff
+[    3.158094]  t5 : 000000006ffffe35 t6 : 000000000000000a
+[    3.158742] status: 0000000200000120 badaddr: ff60007265776f78 cause: 00=
+0000000000000d
+[    3.160000] [<ffffffff80113216>] __do_fault+0x28/0x11c
+[    3.160881] [<ffffffff80116f3e>] __handle_mm_fault+0x6ec/0x9c8
+[    3.161619] [<ffffffff8011729c>] handle_mm_fault+0x82/0x136
+[    3.162308] [<ffffffff80008c10>] do_page_fault+0x120/0x31c
+[    3.163006] [<ffffffff800032dc>] ret_from_exception+0x0/0xc
+[    3.164607] ---[ end trace 0000000000000000 ]---
+-> a different error
+
+
+- WITH this patch applied on top, the error above goes away and the
+  qemu-system can boot normally.
+
+So, while my error is different and I don't think there is any musl in
+my rootfs, this patch definitly fixes the issue for me, so
+
+Tested-by: Heiko Stuebner <heiko@sntech.de>
+
+
+> ---
+>  arch/riscv/kernel/vdso.c | 15 +++++++++++++--
+>  1 file changed, 13 insertions(+), 2 deletions(-)
+> =
+
+> diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
+> index 50fe4c877603..69b05b6c181b 100644
+> --- a/arch/riscv/kernel/vdso.c
+> +++ b/arch/riscv/kernel/vdso.c
+> @@ -206,12 +206,23 @@ static struct __vdso_info vdso_info __ro_after_init=
+ =3D {
+>  };
+>  =
+
+>  #ifdef CONFIG_COMPAT
+> +static struct vm_special_mapping rv_compat_vdso_maps[] __ro_after_init =
+=3D {
+> +	[RV_VDSO_MAP_VVAR] =3D {
+> +		.name   =3D "[vvar]",
+> +		.fault =3D vvar_fault,
+> +	},
+> +	[RV_VDSO_MAP_VDSO] =3D {
+> +		.name   =3D "[vdso]",
+> +		.mremap =3D vdso_mremap,
+> +	},
+> +};
+> +
+>  static struct __vdso_info compat_vdso_info __ro_after_init =3D {
+>  	.name =3D "compat_vdso",
+>  	.vdso_code_start =3D compat_vdso_start,
+>  	.vdso_code_end =3D compat_vdso_end,
+> -	.dm =3D &rv_vdso_maps[RV_VDSO_MAP_VVAR],
+> -	.cm =3D &rv_vdso_maps[RV_VDSO_MAP_VDSO],
+> +	.dm =3D &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
+> +	.cm =3D &rv_compat_vdso_maps[RV_VDSO_MAP_VDSO],
+>  };
+>  #endif
+>  =
+
+> =
+
+
+
+
 
 
 _______________________________________________
