@@ -4,64 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA8BC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 12:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17D37C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 12:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Al5AcqmGP0IrwOr05Wep+g7hB1ZnWiV1wgmXc8OJ6TI=; b=Dv8ITAx/2dUF2M
-	W+iW7S3XScFRpKR8mNVB5S9oNnsIB87CuOV/lFwfctUxO3y9tPsOruui/IutF250NY5oQh4FuwO+N
-	UDelo8F5l7JVv9hMzSnDPDSN2YTFpigfUEbegCv7LUumpaF96BqyQEPIMsWjy8Lzr6W4bB4CYHV4e
-	3lOy/FRMamfAMZ4S0sgUDCaKUbdo0dWJQP9jHYgmqe4GjcInwBPjEnE3rsUt4m703HYi2DnycpJB0
-	vwOTzIFxBUcuzhv09hyfSpoCGkocfvVD2shGT57/Tf1LtKhvL/w2wdxfQDe9f7/lVIiNIZOdscEMV
-	aInHNu6dCW5U7rL/g8vA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xgug96ERjr97J1f8I+/MGx42G/9MCyDBrxQfiB+CIWQ=; b=OrLRSIz6YL91Xb
+	dLNz4noy+LkHFqYWeUyb2gaOYIMD6fIhcRhmRFA+WCpz+AR9bPAlVLJI11Kp0i7MZvr7N4z/9uXSq
+	qUqhc9/J+l+uXNPQ2Z3P0+jKg5fXk6sNG2WjYHgSic3eqOTw3QeRioCgswsL2akvmFbqSq5EVI0+4
+	dmqMbgTEux/1amgG9i0XnG41NwxjyNzPg+qmguCTGYmEuHLFAugubMDc01RXMgpcYLOHa1AoJ0LP4
+	smUy4GZpfgnnGma/ckhgFQtcYvOuaHThyvi+gxq1CsTGBiKk8zZbqjJtuZJvzXhlrFigcUdroQSzd
+	YjzjtQ4ryT+rC73qFVIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntphf-00B23W-9J; Wed, 25 May 2022 12:01:27 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1ntqNG-00B8ED-LT; Wed, 25 May 2022 12:44:26 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntphZ-00B21c-Kd
-	for linux-riscv@lists.infradead.org; Wed, 25 May 2022 12:01:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1653480081; x=1685016081;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=cPGggKlsnvKxQM6RtTmfo+QA8NfzeHkeVC0iqk2sUw0=;
-  b=ucK6+PKrj4N9q8XFPb8SvaXkcbDDROtXPp9IG9/QNOivsoS5bTDDZ/GR
-   E8b60PgXF4bPxdkc/qNJM4DJYVImcqK7MyVAZPYHawKqiRBaKSSKMVLMJ
-   MCrZQbiNJvPKKIC4oJISIOVOa61GD5LY6W+1uNcOAkcqHAx6kLFXp9/Ro
-   BiKqIi2+VqaeW2eql0aWLAY4cLuCkAG9V7+g72IcM0926dpTcKzhTICgE
-   HCEGdEOXaghef9+mdRKDEVb5Ych2oEJkFfUAAgUeQ6oRAs1gH6//dn/rG
-   tkXYZsbF+Yg+iQnx8+5a/Ydq3vuTfVhyZXIErczC3Fpv9XudF+vq2tPG6
-   w==;
-X-IronPort-AV: E=Sophos;i="5.91,250,1647327600"; 
-   d="scan'208";a="165619063"
-Received: from smtpout.microchip.com (HELO email.microchip.com) ([198.175.253.82])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 25 May 2022 05:01:17 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Wed, 25 May 2022 05:01:17 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
- Transport; Wed, 25 May 2022 05:01:15 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <wsa@kernel.org>, <linux-i2c@vger.kernel.org>
-CC: <ben.dooks@codethink.co.uk>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <daire.mcnamara@microchip.com>,
-	<conor.dooley@microchip.com>
-Subject: [PATCH v4] i2c: add support for microchip fpga i2c controllers
-Date: Wed, 25 May 2022 12:59:30 +0100
-Message-ID: <20220525115929.369419-1-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.36.1
+	id 1ntqNC-00B8Ay-CY
+	for linux-riscv@lists.infradead.org; Wed, 25 May 2022 12:44:25 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id b200so8203334qkc.7
+        for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 05:44:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cmpxchg-org.20210112.gappssmtp.com; s=20210112;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to;
+        bh=w0F6iR9EKs/zIprBUHWYk0xdfCPICb6b6FOC3ooI/Qg=;
+        b=LMEKNyEIRYPV5QWJlwplZCx+Yze+80z3MALcLFPz5jKdddgbR28N/X6bo9Jvgd00MP
+         WWkcUcb1+z91voFM8WjtduJpm5pvevvusNqH0PzjaxsPqwHpEmvLG6H17fO8d+8uqQ/c
+         xW/rbo+trH8MjL1X/foXOCmesnHHx99Tmug43Nb91EXZFTR7KAdlglnJRYtL1NUTbXz5
+         2CGVavB8u5eJ5bdNx8JVu0TNi6KB2NiCnWSVtKfIEdRU3i4wp/Kah2nDHcLAJXmplYfJ
+         xzofRGg4rofGSre9mJv/qm1XS4Pms5gIR+r4L8hjS8Owdd3qkT56i/sicOD/din7w+oO
+         VJFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to;
+        bh=w0F6iR9EKs/zIprBUHWYk0xdfCPICb6b6FOC3ooI/Qg=;
+        b=T7TfAj2nuCWoRFZZw/QV3gqQPXhoO/4ACMu0Ppcqe5YRFPyorLLM21AIynPXyfswXq
+         OdW/9opp/1xKZogR5jxXiBR5+iAJFAyLGNwJRYntOTK8a1GDWd7rsxA4i/3RmSNhszDH
+         11U9IxF/c/UsifPSSP+/fu/ZTv357Sac842JOd+qlesymF4JXrZ05Wfwy1AJ92ZZa196
+         ZXdN3RZ7fR1tcokDNRLEEzuV36850L6ZvNpkCMs1lOJ3r92ALV652dVn08abXzpa1XJn
+         hxFQajWCjRAWwv8AGVPDQzs47qw+FdxHUwExlM4GkWlD04IfVJVK3dPCQhr15sOdmiW3
+         wACg==
+X-Gm-Message-State: AOAM530vF8zcCIpRDcAk+PGEMUOuEFyr6Y1hDEmqXHi6ENlcj/pOqDl0
+	2Yhc7OZ7TGikkcD2iaTdTd2Tsw==
+X-Google-Smtp-Source: ABdhPJx/POKWSCbmzd2neCxXDwISwEb1wGzjcuEavupLeI/smDQTCNVGAU9PwpCoNv+A6qxiW2wj4Q==
+X-Received: by 2002:a05:620a:4047:b0:6a0:5dae:ad67 with SMTP id i7-20020a05620a404700b006a05daead67mr19946570qko.530.1653482659851;
+        Wed, 25 May 2022 05:44:19 -0700 (PDT)
+Received: from localhost ([2620:10d:c091:480::1:741f])
+        by smtp.gmail.com with ESMTPSA id g25-20020ac870d9000000b002f9433ed963sm1207797qtp.64.2022.05.25.05.44.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 May 2022 05:44:19 -0700 (PDT)
+Date: Wed, 25 May 2022 08:44:18 -0400
+From: Johannes Weiner <hannes@cmpxchg.org>
+To: Peter Xu <peterx@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	Richard Henderson <rth@twiddle.net>,
+	David Hildenbrand <david@redhat.com>,
+	Matt Turner <mattst88@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Michal Simek <monstr@monstr.eu>,
+	Russell King <linux@armlinux.org.uk>,
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+	linux-riscv@lists.infradead.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Jonas Bonn <jonas@southpole.se>, Will Deacon <will@kernel.org>,
+	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	openrisc@lists.librecores.org, linux-s390@vger.kernel.org,
+	Ingo Molnar <mingo@redhat.com>, linux-m68k@lists.linux-m68k.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Chris Zankel <chris@zankel.net>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Alistair Popple <apopple@nvidia.com>, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, Vlastimil Babka <vbabka@suse.cz>,
+	Thomas Gleixner <tglx@linutronix.de>, sparclinux@vger.kernel.org,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Stafford Horne <shorne@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Paul Mackerras <paulus@samba.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	linux-xtensa@linux-xtensa.org, Nicholas Piggin <npiggin@gmail.com>,
+	linux-sh@vger.kernel.org, Vasily Gorbik <gor@linux.ibm.com>,
+	Borislav Petkov <bp@alien8.de>, linux-mips@vger.kernel.org,
+	Max Filippov <jcmvbkbc@gmail.com>, Helge Deller <deller@gmx.de>,
+	Vineet Gupta <vgupta@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-um@lists.infradead.org, linux-alpha@vger.kernel.org,
+	Johannes Berg <johannes@sipsolutions.net>,
+	linux-ia64@vger.kernel.org,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Dinh Nguyen <dinguyen@kernel.org>, Guo Ren <guoren@kernel.org>,
+	linux-snps-arc@lists.infradead.org, Hugh Dickins <hughd@google.com>,
+	Rich Felker <dalias@libc.org>, Andy Lutomirski <luto@kernel.org>,
+	Richard Weinberger <richard@nod.at>, linuxppc-dev@lists.ozlabs.org,
+	Brian Cain <bcain@quicinc.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	linux-parisc@vger.kernel.org,
+	"David S . Miller" <davem@davemloft.net>
+Subject: Re: [PATCH v3] mm: Avoid unnecessary page fault retires on shared
+ memory types
+Message-ID: <Yo4kojxZfjNiZI7/@cmpxchg.org>
+References: <20220524234531.1949-1-peterx@redhat.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220524234531.1949-1-peterx@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220525_050121_781711_91870422 
-X-CRM114-Status: GOOD (  29.52  )
+X-CRM114-CacheID: sfid-20220525_054422_455418_35B82E6A 
+X-CRM114-Status: GOOD (  29.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,575 +139,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Microchip CoreI2C i2c controller support. This driver supports the
-"hard" i2c controller on the Microchip PolarFire SoC & the basic feature
-set for "soft" i2c controller implemtations in the FPGA fabric.
+On Tue, May 24, 2022 at 07:45:31PM -0400, Peter Xu wrote:
+> I observed that for each of the shared file-backed page faults, we're very
+> likely to retry one more time for the 1st write fault upon no page.  It's
+> because we'll need to release the mmap lock for dirty rate limit purpose
+> with balance_dirty_pages_ratelimited() (in fault_dirty_shared_page()).
+> 
+> Then after that throttling we return VM_FAULT_RETRY.
+> 
+> We did that probably because VM_FAULT_RETRY is the only way we can return
+> to the fault handler at that time telling it we've released the mmap lock.
+> 
+> However that's not ideal because it's very likely the fault does not need
+> to be retried at all since the pgtable was well installed before the
+> throttling, so the next continuous fault (including taking mmap read lock,
+> walk the pgtable, etc.) could be in most cases unnecessary.
+> 
+> It's not only slowing down page faults for shared file-backed, but also add
+> more mmap lock contention which is in most cases not needed at all.
+> 
+> To observe this, one could try to write to some shmem page and look at
+> "pgfault" value in /proc/vmstat, then we should expect 2 counts for each
+> shmem write simply because we retried, and vm event "pgfault" will capture
+> that.
+> 
+> To make it more efficient, add a new VM_FAULT_COMPLETED return code just to
+> show that we've completed the whole fault and released the lock.  It's also
+> a hint that we should very possibly not need another fault immediately on
+> this page because we've just completed it.
+> 
+> This patch provides a ~12% perf boost on my aarch64 test VM with a simple
+> program sequentially dirtying 400MB shmem file being mmap()ed and these are
+> the time it needs:
+> 
+>   Before: 650.980 ms (+-1.94%)
+>   After:  569.396 ms (+-1.38%)
+> 
+> I believe it could help more than that.
+> 
+> We need some special care on GUP and the s390 pgfault handler (for gmap
+> code before returning from pgfault), the rest changes in the page fault
+> handlers should be relatively straightforward.
+> 
+> Another thing to mention is that mm_account_fault() does take this new
+> fault as a generic fault to be accounted, unlike VM_FAULT_RETRY.
+> 
+> I explicitly didn't touch hmm_vma_fault() and break_ksm() because they do
+> not handle VM_FAULT_RETRY even with existing code, so I'm literally keeping
+> them as-is.
+> 
+> Signed-off-by: Peter Xu <peterx@redhat.com>
 
-Co-developed-by: Daire McNamara <daire.mcnamara@microchip.com>
-Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-Changes from v3:
-- update variables in struct doc comment & reordered them in the struct
-- move mchp_corei2c_transfer in its caller
-- change msg_len to a u16
-- remove unused variable msg_read
-- use adapater.timeout for completion
-- dropped gotos in irq handler, replaced both with flags.
-- remove block on zero length messages
-  (the hardware can do them, was a carryover from the baremetal driver)
-- probe:
-  - drop unneeded initialisation
-  - use ret not val
-  - explain shared irq
-  - disallow 0 bus_clock_rate
-  - include base in device name
-  - dropped the duplicate "microchip" in the registered print
-    (its in driver.name)
-
-Changes from v2:
-- Fixed whitespace in defines that I removed accidentally
-
-Changes from v1:
-- Use byte write and read functions
-- Return IRQ_NONE and don't warn if not this drivers interrupt
-- Add a clk_disable_unprepare to avoid leaking a clock in the probe
----
- drivers/i2c/busses/Kconfig              |  11 +
- drivers/i2c/busses/Makefile             |   1 +
- drivers/i2c/busses/i2c-microchip-core.c | 486 ++++++++++++++++++++++++
- 3 files changed, 498 insertions(+)
- create mode 100644 drivers/i2c/busses/i2c-microchip-core.c
-
-diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-index a1bae59208e3..3d4d8e0e9de7 100644
---- a/drivers/i2c/busses/Kconfig
-+++ b/drivers/i2c/busses/Kconfig
-@@ -781,6 +781,17 @@ config I2C_MESON
- 	  If you say yes to this option, support will be included for the
- 	  I2C interface on the Amlogic Meson family of SoCs.
- 
-+config I2C_MICROCHIP_CORE
-+	tristate "Microchip FPGA I2C controller"
-+	depends on SOC_MICROCHIP_POLARFIRE || COMPILE_TEST
-+	depends on OF
-+	help
-+	  If you say yes to this option, support will be included for the
-+	  I2C interface on Microchip FPGAs.
-+
-+	  This driver can also be built as a module. If so, the module will be
-+	  called i2c-microchip-core.
-+
- config I2C_MPC
- 	tristate "MPC107/824x/85xx/512x/52xx/83xx/86xx"
- 	depends on PPC
-diff --git a/drivers/i2c/busses/Makefile b/drivers/i2c/busses/Makefile
-index 479f60e4ee3d..75869b189e43 100644
---- a/drivers/i2c/busses/Makefile
-+++ b/drivers/i2c/busses/Makefile
-@@ -78,6 +78,7 @@ obj-$(CONFIG_I2C_JZ4780)	+= i2c-jz4780.o
- obj-$(CONFIG_I2C_KEMPLD)	+= i2c-kempld.o
- obj-$(CONFIG_I2C_LPC2K)		+= i2c-lpc2k.o
- obj-$(CONFIG_I2C_MESON)		+= i2c-meson.o
-+obj-$(CONFIG_I2C_MICROCHIP_CORE)	+= i2c-microchip-core.o
- obj-$(CONFIG_I2C_MPC)		+= i2c-mpc.o
- obj-$(CONFIG_I2C_MT65XX)	+= i2c-mt65xx.o
- obj-$(CONFIG_I2C_MT7621)	+= i2c-mt7621.o
-diff --git a/drivers/i2c/busses/i2c-microchip-core.c b/drivers/i2c/busses/i2c-microchip-core.c
-new file mode 100644
-index 000000000000..6da8e9735c83
---- /dev/null
-+++ b/drivers/i2c/busses/i2c-microchip-core.c
-@@ -0,0 +1,486 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Microchip CoreI2C I2C controller driver
-+ *
-+ * Copyright (c) 2018 - 2022 Microchip Corporation. All rights reserved.
-+ *
-+ * Author: Daire McNamara <daire.mcnamara@microchip.com>
-+ * Author: Conor Dooley <conor.dooley@microchip.com>
-+ */
-+#include <linux/clk.h>
-+#include <linux/clkdev.h>
-+#include <linux/err.h>
-+#include <linux/i2c.h>
-+#include <linux/iopoll.h>
-+#include <linux/interrupt.h>
-+#include <linux/module.h>
-+#include <linux/io.h>
-+#include <linux/kernel.h>
-+#include <linux/platform_device.h>
-+
-+#define MICROCHIP_I2C_TIMEOUT (msecs_to_jiffies(1000))
-+
-+#define CORE_I2C_CTRL	(0x00)
-+#define  CTRL_CR0	BIT(0)
-+#define  CTRL_CR1	BIT(1)
-+#define  CTRL_AA	BIT(2)
-+#define  CTRL_SI	BIT(3)
-+#define  CTRL_STO	BIT(4)
-+#define  CTRL_STA	BIT(5)
-+#define  CTRL_ENS1	BIT(6)
-+#define  CTRL_CR2	BIT(7)
-+
-+#define STATUS_BUS_ERROR			(0x00)
-+#define STATUS_M_START_SENT			(0x08)
-+#define STATUS_M_REPEATED_START_SENT		(0x10)
-+#define STATUS_M_SLAW_ACK			(0x18)
-+#define STATUS_M_SLAW_NACK			(0x20)
-+#define STATUS_M_TX_DATA_ACK			(0x28)
-+#define STATUS_M_TX_DATA_NACK			(0x30)
-+#define STATUS_M_ARB_LOST			(0x38)
-+#define STATUS_M_SLAR_ACK			(0x40)
-+#define STATUS_M_SLAR_NACK			(0x48)
-+#define STATUS_M_RX_DATA_ACKED			(0x50)
-+#define STATUS_M_RX_DATA_NACKED			(0x58)
-+#define STATUS_S_SLAW_ACKED			(0x60)
-+#define STATUS_S_ARB_LOST_SLAW_ACKED		(0x68)
-+#define STATUS_S_GENERAL_CALL_ACKED		(0x70)
-+#define STATUS_S_ARB_LOST_GENERAL_CALL_ACKED	(0x78)
-+#define STATUS_S_RX_DATA_ACKED			(0x80)
-+#define STATUS_S_RX_DATA_NACKED			(0x88)
-+#define STATUS_S_GENERAL_CALL_RX_DATA_ACKED	(0x90)
-+#define STATUS_S_GENERAL_CALL_RX_DATA_NACKED	(0x98)
-+#define STATUS_S_RX_STOP			(0xA0)
-+#define STATUS_S_SLAR_ACKED			(0xA8)
-+#define STATUS_S_ARB_LOST_SLAR_ACKED		(0xB0)
-+#define STATUS_S_TX_DATA_ACK			(0xB8)
-+#define STATUS_S_TX_DATA_NACK			(0xC0)
-+#define STATUS_LAST_DATA_ACK			(0xC8)
-+#define STATUS_M_SMB_MASTER_RESET		(0xD0)
-+#define STATUS_S_SCL_LOW_TIMEOUT		(0xD8) /* 25 ms */
-+#define STATUS_NO_STATE_INFO			(0xF8)
-+
-+#define CORE_I2C_STATUS		(0x04)
-+#define CORE_I2C_DATA		(0x08)
-+#define WRITE_BIT		(0x0)
-+#define READ_BIT		(0x1)
-+#define SLAVE_ADDR_SHIFT	(1)
-+#define CORE_I2C_SLAVE0_ADDR	(0x0c)
-+#define GENERAL_CALL_BIT	(0x0)
-+#define CORE_I2C_SMBUS		(0x10)
-+#define SMBALERT_INT_ENB	(0x0)
-+#define SMBSUS_INT_ENB		(0x1)
-+#define SMBUS_ENB		(0x2)
-+#define SMBALERT_NI_STATUS	(0x3)
-+#define SMBALERT_NO_CTRL	(0x4)
-+#define SMBSUS_NI_STATUS	(0x5)
-+#define SMBSUS_NO_CTRL		(0x6)
-+#define SMBUS_RESET		(0x7)
-+#define CORE_I2C_FREQ		(0x14)
-+#define CORE_I2C_GLITCHREG	(0x18)
-+#define CORE_I2C_SLAVE1_ADDR	(0x1c)
-+
-+#define PCLK_DIV_960	(CTRL_CR2)
-+#define PCLK_DIV_256	(0)
-+#define PCLK_DIV_224	(CTRL_CR0)
-+#define PCLK_DIV_192	(CTRL_CR1)
-+#define PCLK_DIV_160	(CTRL_CR0 | CTRL_CR1)
-+#define PCLK_DIV_120	(CTRL_CR0 | CTRL_CR2)
-+#define PCLK_DIV_60	(CTRL_CR1 | CTRL_CR2)
-+#define BCLK_DIV_8	(CTRL_CR0 | CTRL_CR1 | CTRL_CR2)
-+#define CLK_MASK	(CTRL_CR0 | CTRL_CR1 | CTRL_CR2)
-+
-+/**
-+ * struct mchp_corei2c_dev - Microchip CoreI2C device private data
-+ *
-+ * @base:		pointer to register struct
-+ * @dev:		device reference
-+ * @i2c_clk:		clock reference for i2c input clock
-+ * @buf:		pointer to msg buffer for easier use
-+ * @msg_complete:	xfer completion object
-+ * @adapter:		core i2c abstraction
-+ * @lock:		spinlock for IRQ synchronization
-+ * @msg_err:		error code for completed message
-+ * @bus_clk_rate:	current i2c bus clock rate
-+ * @isr_status:		cached copy of local ISR status
-+ * @msg_len:		number of bytes transferred in msg
-+ * @addr:		address of the current slave
-+ */
-+struct mchp_corei2c_dev {
-+	void __iomem *base;
-+	struct device *dev;
-+	struct clk *i2c_clk;
-+	u8 *buf;
-+	struct completion msg_complete;
-+	struct i2c_adapter adapter;
-+	spinlock_t lock; /* IRQ synchronization */
-+	int msg_err;
-+	u32 bus_clk_rate;
-+	u32 isr_status;
-+	u16 msg_len;
-+	u8 addr;
-+};
-+
-+static void mchp_corei2c_core_disable(struct mchp_corei2c_dev *idev)
-+{
-+	u8 ctrl = readb(idev->base + CORE_I2C_CTRL);
-+
-+	ctrl &= ~CTRL_ENS1;
-+	writeb(ctrl, idev->base + CORE_I2C_CTRL);
-+}
-+
-+static void mchp_corei2c_core_enable(struct mchp_corei2c_dev *idev)
-+{
-+	u8 ctrl = readb(idev->base + CORE_I2C_CTRL);
-+
-+	ctrl |= CTRL_ENS1;
-+	writeb(ctrl, idev->base + CORE_I2C_CTRL);
-+}
-+
-+static void mchp_corei2c_reset(struct mchp_corei2c_dev *idev)
-+{
-+	mchp_corei2c_core_disable(idev);
-+	mchp_corei2c_core_enable(idev);
-+}
-+
-+static inline void mchp_corei2c_stop(struct mchp_corei2c_dev *idev)
-+{
-+	u8 ctrl = readb(idev->base + CORE_I2C_CTRL);
-+
-+	ctrl |= CTRL_STO;
-+	writeb(ctrl, idev->base + CORE_I2C_CTRL);
-+}
-+
-+static inline int mchp_corei2c_set_divisor(u32 rate,
-+					   struct mchp_corei2c_dev *idev)
-+{
-+	u8 clkval, ctrl;
-+
-+	if (rate >= 960)
-+		clkval = PCLK_DIV_960;
-+	else if (rate >= 256)
-+		clkval = PCLK_DIV_256;
-+	else if (rate >= 224)
-+		clkval = PCLK_DIV_224;
-+	else if (rate >= 192)
-+		clkval = PCLK_DIV_192;
-+	else if (rate >= 160)
-+		clkval = PCLK_DIV_160;
-+	else if (rate >= 120)
-+		clkval = PCLK_DIV_120;
-+	else if (rate >= 60)
-+		clkval = PCLK_DIV_60;
-+	else if (rate >= 8)
-+		clkval = BCLK_DIV_8;
-+	else
-+		return -EINVAL;
-+
-+	ctrl = readb(idev->base + CORE_I2C_CTRL);
-+	ctrl &= ~CLK_MASK;
-+	ctrl |= clkval;
-+	writeb(ctrl, idev->base + CORE_I2C_CTRL);
-+
-+	ctrl = readb(idev->base + CORE_I2C_CTRL);
-+	if ((ctrl & CLK_MASK) != clkval)
-+		return -EIO;
-+
-+	return 0;
-+}
-+
-+static int mchp_corei2c_init(struct mchp_corei2c_dev *idev)
-+{
-+	u32 clk_rate = clk_get_rate(idev->i2c_clk);
-+	u32 divisor = clk_rate / idev->bus_clk_rate;
-+	int ret;
-+
-+	ret = mchp_corei2c_set_divisor(divisor, idev);
-+	if (ret)
-+		return ret;
-+
-+	mchp_corei2c_reset(idev);
-+
-+	return 0;
-+}
-+
-+static void mchp_corei2c_empty_rx(struct mchp_corei2c_dev *idev)
-+{
-+	u8 ctrl;
-+
-+	if (idev->msg_len > 0) {
-+		*idev->buf++ = readb(idev->base + CORE_I2C_DATA);
-+		idev->msg_len--;
-+	}
-+
-+	if (idev->msg_len == 0) {
-+		ctrl = readb(idev->base + CORE_I2C_CTRL);
-+		ctrl &= ~CTRL_AA;
-+		writeb(ctrl, idev->base + CORE_I2C_CTRL);
-+	}
-+}
-+
-+static int mchp_corei2c_fill_tx(struct mchp_corei2c_dev *idev)
-+{
-+	if (idev->msg_len > 0)
-+		writeb(*idev->buf++, idev->base + CORE_I2C_DATA);
-+	idev->msg_len--;
-+
-+	return 0;
-+}
-+
-+static irqreturn_t mchp_corei2c_handle_isr(struct mchp_corei2c_dev *idev)
-+{
-+	u32 status = idev->isr_status;
-+	u8 ctrl;
-+	bool last_byte = false, finished = false;
-+
-+	if (!idev->buf)
-+		return IRQ_NONE;
-+
-+	switch (status) {
-+	case STATUS_M_START_SENT:
-+	case STATUS_M_REPEATED_START_SENT:
-+		ctrl = readb(idev->base + CORE_I2C_CTRL);
-+		ctrl &= ~CTRL_STA;
-+		writeb(idev->addr, idev->base + CORE_I2C_DATA);
-+		writeb(ctrl, idev->base + CORE_I2C_CTRL);
-+		if (idev->msg_len <= 0)
-+			finished = true;
-+		break;
-+	case STATUS_M_ARB_LOST:
-+		idev->msg_err = -EAGAIN;
-+		finished = true;
-+		break;
-+	case STATUS_M_SLAW_ACK:
-+	case STATUS_M_TX_DATA_ACK:
-+		if (idev->msg_len > 0)
-+			mchp_corei2c_fill_tx(idev);
-+		else
-+			last_byte = true;
-+		break;
-+	case STATUS_M_TX_DATA_NACK:
-+	case STATUS_M_SLAR_NACK:
-+	case STATUS_M_SLAW_NACK:
-+		idev->msg_err = -ENXIO;
-+		last_byte = true;
-+		break;
-+	case STATUS_M_SLAR_ACK:
-+		ctrl = readb(idev->base + CORE_I2C_CTRL);
-+		if (idev->msg_len == 1u) {
-+			ctrl &= ~CTRL_AA;
-+			writeb(ctrl, idev->base + CORE_I2C_CTRL);
-+		} else {
-+			ctrl |= CTRL_AA;
-+			writeb(ctrl, idev->base + CORE_I2C_CTRL);
-+		}
-+		if (idev->msg_len < 1u)
-+			last_byte = true;
-+		break;
-+	case STATUS_M_RX_DATA_ACKED:
-+		mchp_corei2c_empty_rx(idev);
-+		break;
-+	case STATUS_M_RX_DATA_NACKED:
-+		mchp_corei2c_empty_rx(idev);
-+		if (idev->msg_len == 0)
-+			last_byte = true;
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	/* On the last byte to be transmitted, send STOP */
-+	if (last_byte)
-+		mchp_corei2c_stop(idev);
-+
-+	if (last_byte || finished)
-+		complete(&idev->msg_complete);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static irqreturn_t mchp_corei2c_isr(int irq, void *_dev)
-+{
-+	struct mchp_corei2c_dev *idev = _dev;
-+	irqreturn_t ret = IRQ_NONE;
-+	u8 ctrl;
-+
-+	ctrl = readb(idev->base + CORE_I2C_CTRL);
-+	if (ctrl & CTRL_SI) {
-+		idev->isr_status = readb(idev->base + CORE_I2C_STATUS);
-+		ret = mchp_corei2c_handle_isr(idev);
-+	}
-+
-+	ctrl = readb(idev->base + CORE_I2C_CTRL);
-+	ctrl &= ~CTRL_SI;
-+	writeb(ctrl, idev->base + CORE_I2C_CTRL);
-+
-+	return ret;
-+}
-+
-+static int mchp_corei2c_xfer_msg(struct mchp_corei2c_dev *idev,
-+				 struct i2c_msg *msg)
-+{
-+	u8 ctrl;
-+	unsigned long time_left;
-+
-+	idev->addr = i2c_8bit_addr_from_msg(msg);
-+	idev->msg_len = msg->len;
-+	idev->buf = msg->buf;
-+	idev->msg_err = 0;
-+
-+	reinit_completion(&idev->msg_complete);
-+
-+	mchp_corei2c_core_enable(idev);
-+
-+	ctrl = readb(idev->base + CORE_I2C_CTRL);
-+	ctrl |= CTRL_STA;
-+	writeb(ctrl, idev->base + CORE_I2C_CTRL);
-+
-+	time_left = wait_for_completion_timeout(&idev->msg_complete,
-+						idev->adapter.timeout);
-+	if (!time_left)
-+		return -ETIMEDOUT;
-+
-+	return idev->msg_err;
-+}
-+
-+static int mchp_corei2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
-+			     int num)
-+{
-+	struct mchp_corei2c_dev *idev = i2c_get_adapdata(adap);
-+	int i, ret;
-+
-+	for (i = 0; i < num; i++) {
-+		ret = mchp_corei2c_xfer_msg(idev, msgs++);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	return num;
-+}
-+
-+static u32 mchp_corei2c_func(struct i2c_adapter *adap)
-+{
-+	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL;
-+}
-+
-+static const struct i2c_algorithm mchp_corei2c_algo = {
-+	.master_xfer = mchp_corei2c_xfer,
-+	.functionality = mchp_corei2c_func,
-+};
-+
-+static int mchp_corei2c_probe(struct platform_device *pdev)
-+{
-+	struct mchp_corei2c_dev *idev;
-+	struct resource *res;
-+	int irq, ret;
-+
-+	idev = devm_kzalloc(&pdev->dev, sizeof(*idev), GFP_KERNEL);
-+	if (!idev)
-+		return -ENOMEM;
-+
-+	idev->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(idev->base))
-+		return PTR_ERR(idev->base);
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return dev_err_probe(&pdev->dev, irq,
-+				     "missing interrupt resource\n");
-+
-+	idev->i2c_clk = devm_clk_get(&pdev->dev, NULL);
-+	if (IS_ERR(idev->i2c_clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(idev->i2c_clk),
-+				     "missing clock\n");
-+
-+	idev->dev = &pdev->dev;
-+	init_completion(&idev->msg_complete);
-+	spin_lock_init(&idev->lock);
-+
-+	ret = device_property_read_u32(idev->dev, "clock-frequency",
-+				       &idev->bus_clk_rate);
-+	if (ret || !idev->bus_clk_rate) {
-+		dev_info(&pdev->dev, "default to 100kHz\n");
-+		idev->bus_clk_rate = 100000;
-+	}
-+
-+	if (idev->bus_clk_rate > 400000)
-+		return dev_err_probe(&pdev->dev, -EINVAL,
-+				     "clock-frequency too high: %d\n",
-+				     idev->bus_clk_rate);
-+
-+	/*
-+	 * This driver supports both the hard peripherals & soft FPGA cores.
-+	 * The hard peripherals do not have shared IRQs, but we don't have
-+	 * control over what way the interrupts are wired for the soft cores.
-+	 */
-+	ret = devm_request_irq(&pdev->dev, irq, mchp_corei2c_isr, IRQF_SHARED,
-+			       pdev->name, idev);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "failed to claim irq %d\n", irq);
-+
-+	ret = clk_prepare_enable(idev->i2c_clk);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "failed to enable clock\n");
-+
-+	ret = mchp_corei2c_init(idev);
-+	if (ret) {
-+		clk_disable_unprepare(idev->i2c_clk);
-+		return dev_err_probe(&pdev->dev, ret, "failed to program clock divider\n");
-+	}
-+
-+	i2c_set_adapdata(&idev->adapter, idev);
-+	snprintf(idev->adapter.name, sizeof(idev->adapter.name),
-+		 "Microchip I2C hw bus at %08lx", (unsigned long)res->start);
-+	idev->adapter.owner = THIS_MODULE;
-+	idev->adapter.algo = &mchp_corei2c_algo;
-+	idev->adapter.dev.parent = &pdev->dev;
-+	idev->adapter.dev.of_node = pdev->dev.of_node;
-+	idev->adapter.timeout = MICROCHIP_I2C_TIMEOUT;
-+
-+	platform_set_drvdata(pdev, idev);
-+
-+	ret = i2c_add_adapter(&idev->adapter);
-+	if (ret) {
-+		clk_disable_unprepare(idev->i2c_clk);
-+		return ret;
-+	}
-+
-+	dev_info(&pdev->dev, "registered CoreI2C bus driver\n");
-+
-+	return 0;
-+}
-+
-+static int mchp_corei2c_remove(struct platform_device *pdev)
-+{
-+	struct mchp_corei2c_dev *idev = platform_get_drvdata(pdev);
-+
-+	clk_disable_unprepare(idev->i2c_clk);
-+	i2c_del_adapter(&idev->adapter);
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id mchp_corei2c_of_match[] = {
-+	{ .compatible = "microchip,mpfs-i2c" },
-+	{ .compatible = "microchip,corei2c-rtl-v7" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, mchp_corei2c_of_match);
-+
-+static struct platform_driver mchp_corei2c_driver = {
-+	.probe = mchp_corei2c_probe,
-+	.remove = mchp_corei2c_remove,
-+	.driver = {
-+		.name = "microchip-corei2c",
-+		.of_match_table = mchp_corei2c_of_match,
-+	},
-+};
-+
-+module_platform_driver(mchp_corei2c_driver);
-+
-+MODULE_DESCRIPTION("Microchip CoreI2C bus driver");
-+MODULE_AUTHOR("Daire McNamara <daire.mcnamara@microchip.com>");
-+MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.36.1
-
+Acked-by: Johannes Weiner <hannes@cmpxchg.org>
 
 _______________________________________________
 linux-riscv mailing list
