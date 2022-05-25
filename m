@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D00FC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 08:17:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96D2C433FE
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 08:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YTWCI/DzozuN4NLqlu4uQmPgzGzXHlQ4ZkUFGIaJvaM=; b=R1UeXvSgN8hjtP
-	yPNVDK2mJxNRKGkoQR0rVJhIp7mGcU1SiBMi1mF1TrVhIeonWUa00SRnxvJIBbFs/3BdEWJAgTiHu
-	9FTxLWsDYIh3udGRUqKEIahX2iegotjjp01GKbVg4J3t7iEqDEgt8k02K92LRIAMF+qdDWEhzlEpu
-	ZHFcvSXRO9mgfzIWxSweo4fziVnOS1g0e7iDH5TzE8GRrpBRZh+/14c0r8V1ktq6PdAnEtxPCVGlo
-	jrJRONZUuLZWkVW1U11F+P0WiRBqOxGy3fnXaT23VRebDlne8AxFJLPRzbY9jiQybOcM+Vl3isT4Y
-	+jHQ/YuOVMZ7jS1cnmoQ==;
+	List-Owner; bh=F60GqoTJpSLMoQSLCcuA+3ZLtlZXV84PKOGRuK9K0EQ=; b=pofn2n4at1kqo4
+	7g+K6h2dc9jSiaOzE9xYECL3BQcnhzuNr4uZFyhDK6aRTH7ICs0wHrjCensNkGoQnX+stwRLWKfc5
+	iXZca8CZJfiuOrS9ZuUejJaOHD+DfLQkoK1m8Wkdk1UuqxtzFRj2TJfnquFBHqWri80Ibg6bCwWlO
+	f+SuWRPuqvZv2wYOhj/0aUOHrISoPr3PIJHspKg+qYhGGyrO2AfWEoepudiaTJXi5EEAunDOzddVF
+	F/VXSD3w2IC5R83LymHYU1TYk43R9oIZPnSVMsbpFDroXmGr0Pr425tfHF3Ck3K8Ka9peUyP4jwyW
+	1YhSU5tl8CsF4SQMZvtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntmDA-00AK4k-8g; Wed, 25 May 2022 08:17:44 +0000
+	id 1ntmDa-00AKME-I6; Wed, 25 May 2022 08:18:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
  by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
- id 1ntmAK-00AIS6-7K; Wed, 25 May 2022 08:14:49 +0000
+ id 1ntmAL-00AIT4-U0; Wed, 25 May 2022 08:14:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
- by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DD3D1FB;
- Wed, 25 May 2022 01:14:47 -0700 (PDT)
+ by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56AE123A;
+ Wed, 25 May 2022 01:14:49 -0700 (PDT)
 Received: from usa.arm.com (e103737-lin.cambridge.arm.com [10.1.197.49])
- by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 450083F73D;
- Wed, 25 May 2022 01:14:45 -0700 (PDT)
+ by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7C2DC3F73D;
+ Wed, 25 May 2022 01:14:47 -0700 (PDT)
 From: Sudeep Holla <sudeep.holla@arm.com>
 To: linux-kernel@vger.kernel.org
 Cc: Sudeep Holla <sudeep.holla@arm.com>, Atish Patra <atishp@atishpatra.org>,
@@ -39,12 +39,12 @@ Cc: Sudeep Holla <sudeep.holla@arm.com>, Atish Patra <atishp@atishpatra.org>,
  Dietmar Eggemann <dietmar.eggemann@arm.com>, Qing Wang <wangqing@vivo.com>,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
  Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH v3 07/16] arch_topology: Use the last level cache information
- from the cacheinfo
-Date: Wed, 25 May 2022 09:14:07 +0100
-Message-Id: <20220525081416.3306043-8-sudeep.holla@arm.com>
+Subject: [PATCH v3 08/16] arm64: topology: Remove redundant setting of llc_id
+ in CPU topology
+Date: Wed, 25 May 2022 09:14:08 +0100
+Message-Id: <20220525081416.3306043-9-sudeep.holla@arm.com>
 X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220525081416.3306043-7-sudeep.holla@arm.com>
+In-Reply-To: <20220525081416.3306043-8-sudeep.holla@arm.com>
 References: <20220525081416.3306043-1-sudeep.holla@arm.com>
  <20220525081416.3306043-2-sudeep.holla@arm.com>
  <20220525081416.3306043-3-sudeep.holla@arm.com>
@@ -52,10 +52,12 @@ References: <20220525081416.3306043-1-sudeep.holla@arm.com>
  <20220525081416.3306043-5-sudeep.holla@arm.com>
  <20220525081416.3306043-6-sudeep.holla@arm.com>
  <20220525081416.3306043-7-sudeep.holla@arm.com>
+ <20220525081416.3306043-8-sudeep.holla@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220525_011448_352653_25479B83 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20220525_011450_163055_F32E97F9 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,42 +74,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The cacheinfo is now initialised early along with the CPU topology
-initialisation. Instead of relying on the LLC ID information parsed
-separately only with ACPI PPTT elsewhere, migrate to use the similar
-information from the cacheinfo.
+Since the cacheinfo LLC information is used directly in arch_topology,
+there is no need to parse and fetch the LLC ID information only for
+ACPI systems.
 
-This is generic for both DT and ACPI systems. The ACPI LLC ID information
-parsed separately can now be removed from arch specific code.
+Just drop the redundant parsing and setting of llc_id in CPU topology
+from ACPI PPTT.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- drivers/base/arch_topology.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ arch/arm64/kernel/topology.c | 14 --------------
+ 1 file changed, 14 deletions(-)
 
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 765723448b10..4c486e4e6f2f 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -663,7 +663,8 @@ const struct cpumask *cpu_coregroup_mask(int cpu)
- 		/* not numa in package, lets use the package siblings */
- 		core_mask = &cpu_topology[cpu].core_sibling;
- 	}
--	if (cpu_topology[cpu].llc_id != -1) {
-+
-+	if (last_level_cache_is_valid(cpu)) {
- 		if (cpumask_subset(&cpu_topology[cpu].llc_sibling, core_mask))
- 			core_mask = &cpu_topology[cpu].llc_sibling;
- 	}
-@@ -694,7 +695,7 @@ void update_siblings_masks(unsigned int cpuid)
- 	for_each_online_cpu(cpu) {
- 		cpu_topo = &cpu_topology[cpu];
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index 9ab78ad826e2..869ffc4d4484 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -89,8 +89,6 @@ int __init parse_acpi_topology(void)
+ 		return 0;
  
--		if (cpu_topo->llc_id != -1 && cpuid_topo->llc_id == cpu_topo->llc_id) {
-+		if (last_level_cache_is_shared(cpu, cpuid)) {
- 			cpumask_set_cpu(cpu, &cpuid_topo->llc_sibling);
- 			cpumask_set_cpu(cpuid, &cpu_topo->llc_sibling);
- 		}
+ 	for_each_possible_cpu(cpu) {
+-		int i, cache_id;
+-
+ 		topology_id = find_acpi_cpu_topology(cpu, 0);
+ 		if (topology_id < 0)
+ 			return topology_id;
+@@ -107,18 +105,6 @@ int __init parse_acpi_topology(void)
+ 		cpu_topology[cpu].cluster_id = topology_id;
+ 		topology_id = find_acpi_cpu_topology_package(cpu);
+ 		cpu_topology[cpu].package_id = topology_id;
+-
+-		i = acpi_find_last_cache_level(cpu);
+-
+-		if (i > 0) {
+-			/*
+-			 * this is the only part of cpu_topology that has
+-			 * a direct relationship with the cache topology
+-			 */
+-			cache_id = find_acpi_cpu_cache_topology(cpu, i);
+-			if (cache_id > 0)
+-				cpu_topology[cpu].llc_id = cache_id;
+-		}
+ 	}
+ 
+ 	return 0;
 -- 
 2.36.1
 
