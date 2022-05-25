@@ -4,109 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B55ECC433F5
-	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 11:10:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 016C4C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed, 25 May 2022 11:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CY7qtAv1oTJczHETHbhC9CMEk0chrOG8tzOjmljXr8k=; b=CF3ZPBvrJgOtga
-	OJ1tzv6x8iMNYo/XmcpO2r1Ff1TTv4jQGlrQxoILcrgzXfEMefepvVuFAmxfq1SW9ANl1jm0y2+dY
-	ojPngvJW2k02MWe6Vs4ibgLdc0eta1E+Lno503vtUTlu1ZEn7JuQJOfeG1wc6pKzRhwjXxLG4+h4B
-	VJePtqBSg/DraNdmvhMTb0JZUhoMI8o7zQdmKaujNp50MrTvP9ZSr207b2q/QYG09c79Z+UbaJ/ac
-	WnbP87amnrsJcHP52XlPs/X1RfNMAx1rH56jf+GrQmHCkFBNQeuyLsV7cc7Wa+lU0Sl22uBQeUcyH
-	+mLdkik26RhofNzY2QWg==;
+	List-Owner; bh=+1xMZNd18oqenhyxxFbR72c1b7vxNKPVwETxcW80v2E=; b=YmrP1uvT0w6xAC
+	DOFzNvC0bJVDW0WVKi10S5163ewdjla0eL/mEZC2DSvmkr8H1p2kFNjTU7gYu2EvqVzWpY5Fn2KwH
+	jJfO9LY3+hSdybId3kZ3xPtfvie6kaIoYCYEeoYyuKxH3YwexRonOKGhtfaFywbem4S4L8uFaxDr7
+	gFTjT3u6EO8Oj26edTd0PDVHXOMl7Ucnbw0Xqhmw1VJTXEua/iIIfOz1qA4TysGlCsRC1XyciMuev
+	pfYIjNYt0hynwXFpDoP4AkOhRhmZr+gKqQG6stE2ZVGwvjvb7OTUeosT7fyXxF1JmoDr53V7wO3yO
+	fVSF5RjAZl8a1q0XOgYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntouX-00Aoni-GI; Wed, 25 May 2022 11:10:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1ntpTh-00AzUk-ST; Wed, 25 May 2022 11:47:01 +0000
+Received: from mail-qk1-f170.google.com ([209.85.222.170])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntouU-00AonC-PO; Wed, 25 May 2022 11:10:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=TTSfncRF4bwVxkeR+S4pHa2NuE5vU7NkHqU52imXoeo=; b=AZ7NLjulpP1WzqY4jAw9CJ6mzn
-	eNxn6mITLdAkzreesFIusYyJANkaOvbZVslHzJxDDqo/jW9prJ6mSOYajnNAsWgSTZTPCGe4Y+H+t
-	Q7b5K2i3OxODvn+feDcYZuuvagMcqlznlm2xJ6e8wPUzB4c/WkijGr50Z8D32ZlBmwWuMwGQbue1E
-	mrsCyjPGVmj7xf/0/rnV0zIseeyVAHCeyTCYTi0ZFmZwkk1CWC0IMPFglArv51u64lwHpRP8/QuNm
-	TypGtB34O3uGaPoduTA8k7e4jOZswva+y2onGqiOIb4Z5GAtPEnJDGpyLSzDy3ZlKvUO8MvNVaZm2
-	4u9mbK6A==;
-Received: from j217100.upc-j.chello.nl ([24.132.217.100] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1ntouF-001b5f-PS; Wed, 25 May 2022 11:10:25 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 5B9C13002AF;
-	Wed, 25 May 2022 13:10:17 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 374CD207688E7; Wed, 25 May 2022 13:10:17 +0200 (CEST)
-Date: Wed, 25 May 2022 13:10:17 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Peter Xu <peterx@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	Richard Henderson <rth@twiddle.net>,
-	David Hildenbrand <david@redhat.com>,
-	Matt Turner <mattst88@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	Michal Simek <monstr@monstr.eu>,
-	Russell King <linux@armlinux.org.uk>,
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	linux-riscv@lists.infradead.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Jonas Bonn <jonas@southpole.se>, Will Deacon <will@kernel.org>,
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	openrisc@lists.librecores.org, linux-s390@vger.kernel.org,
-	Ingo Molnar <mingo@redhat.com>, linux-m68k@lists.linux-m68k.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Heiko Carstens <hca@linux.ibm.com>, Chris Zankel <chris@zankel.net>,
-	Alistair Popple <apopple@nvidia.com>, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, Vlastimil Babka <vbabka@suse.cz>,
-	Thomas Gleixner <tglx@linutronix.de>, sparclinux@vger.kernel.org,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Stafford Horne <shorne@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Paul Mackerras <paulus@samba.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	linux-xtensa@linux-xtensa.org, Nicholas Piggin <npiggin@gmail.com>,
-	linux-sh@vger.kernel.org, Vasily Gorbik <gor@linux.ibm.com>,
-	Borislav Petkov <bp@alien8.de>, linux-mips@vger.kernel.org,
-	Max Filippov <jcmvbkbc@gmail.com>, Helge Deller <deller@gmx.de>,
-	Vineet Gupta <vgupta@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-um@lists.infradead.org, linux-alpha@vger.kernel.org,
-	Johannes Berg <johannes@sipsolutions.net>,
-	linux-ia64@vger.kernel.org,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Dinh Nguyen <dinguyen@kernel.org>, Guo Ren <guoren@kernel.org>,
-	linux-snps-arc@lists.infradead.org, Hugh Dickins <hughd@google.com>,
-	Rich Felker <dalias@libc.org>, Andy Lutomirski <luto@kernel.org>,
-	Richard Weinberger <richard@nod.at>, linuxppc-dev@lists.ozlabs.org,
-	Brian Cain <bcain@quicinc.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	linux-parisc@vger.kernel.org,
-	"David S . Miller" <davem@davemloft.net>
-Subject: Re: [PATCH v3] mm: Avoid unnecessary page fault retires on shared
- memory types
-Message-ID: <Yo4OmaNW5YUrGE0S@hirez.programming.kicks-ass.net>
-References: <20220524234531.1949-1-peterx@redhat.com>
+	id 1ntpTe-00AzUI-EQ
+	for linux-riscv@lists.infradead.org; Wed, 25 May 2022 11:47:00 +0000
+Received: by mail-qk1-f170.google.com with SMTP id i68so15828020qke.11
+        for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 04:46:57 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=WZEhsrnmH5bWQhJRb1s8S6ZF7bqzQ8zLRH/dG9jf2XA=;
+        b=3a9rNrPQcwyqSw0UG/b3uApypwh+88X4kOo0zqlU6+vQa6AIR9HnJIL55gHaPhLCuN
+         /2lViQp2U7qjbKB+JcyC9jaJgv0OiLYq7MdYcAVYvdwfE5+YRJM1XLbxgOfecFAEs7TY
+         kzGpsLth8h6RWQC7At6uVTdx5jOGct0Jo9T3zOMuaxuHhlOe/hKefi3zAmWOcBjlCc5P
+         FgR+Ek54FQcpN3D637H9kGRwvjycHYB9tJZBFgXobBAPDGCGb9CQxRPqIebH7SUk/aup
+         XS/VCIb1Z6wxI7jbylL0fPqwf/5ELrrgpDPwTM0FRgCeKd0gLd1GPM8onlqFK/hzqwoX
+         VLSg==
+X-Gm-Message-State: AOAM531aNn8bEFEKVPBnXPm4gfhUN4BMJtG9jGRpCj/zktqo7+WkatTP
+	f1RgwS/vhDU63KcI95bOfxtSYp+5qfikRA==
+X-Google-Smtp-Source: ABdhPJz8rcDm0MGe747cW1rhMAbJtXffVYgEcplwCHjV1QjiL1B3i4ZvegzQcWJtHUsGN4pZMaUMdg==
+X-Received: by 2002:a37:6685:0:b0:6a3:686f:699a with SMTP id a127-20020a376685000000b006a3686f699amr12717191qkc.390.1653479216111;
+        Wed, 25 May 2022 04:46:56 -0700 (PDT)
+Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com. [209.85.128.176])
+        by smtp.gmail.com with ESMTPSA id i67-20020a375446000000b0069fc13ce217sm1148250qkb.72.2022.05.25.04.46.53
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 May 2022 04:46:54 -0700 (PDT)
+Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-2ff90e0937aso136942267b3.4
+        for <linux-riscv@lists.infradead.org>; Wed, 25 May 2022 04:46:53 -0700 (PDT)
+X-Received: by 2002:a81:234b:0:b0:2f8:4082:bbd3 with SMTP id
+ j72-20020a81234b000000b002f84082bbd3mr32969304ywj.47.1653479213622; Wed, 25
+ May 2022 04:46:53 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220524234531.1949-1-peterx@redhat.com>
+References: <20220524172214.5104-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20220524172214.5104-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <CAMuHMdX0pqr8pmbX8OfUyTeEwiFGSG5uyP4nLG1LPy7_zzLPbQ@mail.gmail.com>
+ <CA+V-a8ubrkDU2B=mJopzFrjhv1nVn5EXZmaprta0oj4p3J_N5Q@mail.gmail.com>
+ <CAMuHMdVncBnD25RLLqL2qDFwboPSVvo5faJvamDxPH_wq9r22Q@mail.gmail.com> <CA+V-a8tHfyqJx9YBFX3hJBEKuCbDpminz_4uSLK=MHV7W8-hJg@mail.gmail.com>
+In-Reply-To: <CA+V-a8tHfyqJx9YBFX3hJBEKuCbDpminz_4uSLK=MHV7W8-hJg@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 25 May 2022 13:46:41 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWizSaABqAnwQi-Sa3ceiZV2CnAhiio4aCx_Bd7NvN1NQ@mail.gmail.com>
+Message-ID: <CAMuHMdWizSaABqAnwQi-Sa3ceiZV2CnAhiio4aCx_Bd7NvN1NQ@mail.gmail.com>
+Subject: Re: [PATCH RFC 2/2] irqchip/sifive-plic: Add support for Renesas
+ RZ/Five SoC
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+	Phil Edworthy <phil.edworthy@renesas.com>, Biju Das <biju.das.jz@bp.renesas.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20220525_044658_525572_1B23BD08 
+X-CRM114-Status: GOOD (  44.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,58 +95,86 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 24, 2022 at 07:45:31PM -0400, Peter Xu wrote:
-> I observed that for each of the shared file-backed page faults, we're very
-> likely to retry one more time for the 1st write fault upon no page.  It's
-> because we'll need to release the mmap lock for dirty rate limit purpose
-> with balance_dirty_pages_ratelimited() (in fault_dirty_shared_page()).
-> 
-> Then after that throttling we return VM_FAULT_RETRY.
-> 
-> We did that probably because VM_FAULT_RETRY is the only way we can return
-> to the fault handler at that time telling it we've released the mmap lock.
-> 
-> However that's not ideal because it's very likely the fault does not need
-> to be retried at all since the pgtable was well installed before the
-> throttling, so the next continuous fault (including taking mmap read lock,
-> walk the pgtable, etc.) could be in most cases unnecessary.
-> 
-> It's not only slowing down page faults for shared file-backed, but also add
-> more mmap lock contention which is in most cases not needed at all.
-> 
-> To observe this, one could try to write to some shmem page and look at
-> "pgfault" value in /proc/vmstat, then we should expect 2 counts for each
-> shmem write simply because we retried, and vm event "pgfault" will capture
-> that.
-> 
-> To make it more efficient, add a new VM_FAULT_COMPLETED return code just to
-> show that we've completed the whole fault and released the lock.  It's also
-> a hint that we should very possibly not need another fault immediately on
-> this page because we've just completed it.
-> 
-> This patch provides a ~12% perf boost on my aarch64 test VM with a simple
-> program sequentially dirtying 400MB shmem file being mmap()ed and these are
-> the time it needs:
-> 
->   Before: 650.980 ms (+-1.94%)
->   After:  569.396 ms (+-1.38%)
-> 
-> I believe it could help more than that.
-> 
-> We need some special care on GUP and the s390 pgfault handler (for gmap
-> code before returning from pgfault), the rest changes in the page fault
-> handlers should be relatively straightforward.
-> 
-> Another thing to mention is that mm_account_fault() does take this new
-> fault as a generic fault to be accounted, unlike VM_FAULT_RETRY.
-> 
-> I explicitly didn't touch hmm_vma_fault() and break_ksm() because they do
-> not handle VM_FAULT_RETRY even with existing code, so I'm literally keeping
-> them as-is.
-> 
-> Signed-off-by: Peter Xu <peterx@redhat.com>
+Hi Prabhakar,
 
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+On Wed, May 25, 2022 at 11:43 AM Lad, Prabhakar
+<prabhakar.csengg@gmail.com> wrote:
+> On Wed, May 25, 2022 at 10:35 AM Geert Uytterhoeven
+> <geert@linux-m68k.org> wrote:
+> > On Wed, May 25, 2022 at 11:01 AM Lad, Prabhakar
+> > <prabhakar.csengg@gmail.com> wrote:
+> > > On Wed, May 25, 2022 at 9:01 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > > > On Tue, May 24, 2022 at 7:22 PM Lad Prabhakar
+> > > > <prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
+> > > > > The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
+> > > > > NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
+> > > > > case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
+> > > > > edge until the previous completion message has been received and
+> > > > > NCEPLIC100 doesn't support pending interrupt counter, hence losing the
+> > > > > interrupts if not acknowledged in time.
+> > > > >
+> > > > > So the workaround for edge-triggered interrupts to be handled correctly
+> > > > > and without losing is that it needs to be acknowledged first and then
+> > > > > handler must be run so that we don't miss on the next edge-triggered
+> > > > > interrupt.
+> > > > >
+> > > > > This patch adds a new compatible string for Renesas RZ/Five SoC and adds
+> > > > > support to change interrupt flow based on the interrupt type. It also
+> > > > > implements irq_ack and irq_set_type callbacks.
+> > > > >
+> > > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > >
+> > > > Thanks for your patch!
+> > > >
+> > > > > --- a/drivers/irqchip/irq-sifive-plic.c
+> > > > > +++ b/drivers/irqchip/irq-sifive-plic.c
+> >
+> > > > > @@ -163,10 +166,31 @@ static int plic_set_affinity(struct irq_data *d,
+> > > > >  }
+> > > > >  #endif
+> > > > >
+> > > > > +static void plic_irq_ack(struct irq_data *d)
+> > > > > +{
+> > > > > +       struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> > > > > +
+> > > >
+> > > > No check for RZ/Five or irq type?
+> > > That is because we set the handle_fasteoi_ack_irq() only in case of
+> > > RZ/Five and it is already checked in set_type() callback.
+> > >
+> > > > .irq_ack() seems to be called for level interrupts, too
+> > > > (from handle_level_irq() through mask_ack_irq()).
+> > > >
+> > > Right but we are using handle_fasteoi_irq() for level interrupt which
+> > > doesn't call mask_ack_irq(). And I have confirmed by adding a print in
+> > > ack callback  and just enabling the serial (which has level
+> > > interrupts).
+> >
+> > But handle_fasteoi_irq() is configured only on RZ/Five below?
+> > Which handler is used on non-RZ/Five?
+> >
+> For non RZ/Five, handle_fasteoi_irq() [0] is used for both edge/level
+> interrupts.
+>
+> [0] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/drivers/irqchip/irq-sifive-plic.c?h=next-20220525#n195
+
+Thanks, that was the missing piece!
+
+Due to the new "select IRQ_FASTEOI_HIERARCHY_HANDLERS", I thought
+your new call to handle_fasteoi_irq() had to be the first one in this
+file...  But that config symbol protects handle_fasteoi_ack_irq(),
+not handle_fasteoi_irq().
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
