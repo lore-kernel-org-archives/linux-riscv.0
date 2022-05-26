@@ -4,82 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E20F6C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 08:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DDEC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 08:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BcutSFeI5xCG8HJcSxl7bi5nL9L5xXPowEb/g7RhnjM=; b=RSqVq7Cjx+M7Ud
-	5Faq1jKoLZ1tk3O+1PU5MqYyAjcTrKHa25hlXAzt3RyGVWkfnsAhSf9JCZqt9vVo3unZrccJG7OU1
-	4gC6nDNE0FluvV++zejuP0FVEzbKPu8PWKA5vTJnXXymBCodg0ouNON39KLjEtZx7D/MunsMjJQLO
-	Rej06PKcR/Aq/Q2RrrDbUTpboJophka6u48XZ5vZpVBMfVoyIYl7JCX/sToX2FsIPnj3mvtYYVcdm
-	RDq5I3SntmtBGFwD3Hc8tEtWZwj54lp+tqzWQE77BBosjAXD8gCDj/FD4EYc3hNxUKhc+/PL09WgK
-	x28KOX5b2cZomxN9ITDQ==;
+	List-Owner; bh=KhsjcxpuTaQosBPbGuJDgVDiwhZTqgpbuO3nyHTtHUc=; b=0w83l9mpNDVYbX
+	G5ZBAW7xcFc4hd28RGBiNsjpnxak22NkiU3eYWEmjvosnTXxwBQdzeJfzKfzyDSUYVYNp3lZjxpGa
+	9TO7zFBF0F1bjGUBYRxygkDqYNT+9TSpHP8xes8qc9mvjs86mkvflCZPWlIvTcrFeiPLkSGCl4L42
+	XfD0b3g2o/RK+OogDCmWwcv1IUiI/5X5PmEdu1hf3DqiFh6pm5TRmaAfjBnRYhZ9pXZfHUvbnFHEy
+	UGfaTzMpgxZhEKvayWeRA7u/oAk5CZDppz4wBlrJgd0Td1toJdpHMOZgAEcSDEUMaOhmdzIXLXoNT
+	9Sg6w4i7rh7a0x2hnOGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nu8aj-00Dyeh-0C; Thu, 26 May 2022 08:11:33 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1nu8jW-00E1oX-3f; Thu, 26 May 2022 08:20:38 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nu8ae-00DycV-JK
-	for linux-riscv@lists.infradead.org; Thu, 26 May 2022 08:11:30 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-3003cb4e064so7584227b3.3
-        for <linux-riscv@lists.infradead.org>; Thu, 26 May 2022 01:11:27 -0700 (PDT)
+	id 1nu8j1-00E1Uu-Uh; Thu, 26 May 2022 08:20:14 +0000
+Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 24Q6TOod006666;
+	Thu, 26 May 2022 08:19:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=date : from : to : cc
+ : subject : message-id : references : content-type : in-reply-to :
+ mime-version; s=corp-2021-07-09;
+ bh=Zy0xGULddVRIgYZC8n1rrvovk7JzQwZZCbXUC988X2Y=;
+ b=ETVsnX/AEpp+vOuqRaouJK9/mETdeqQUhIN2lQL/OfaAvz/p3VtgUo+SKg5tY4IIR/uR
+ 1n8My3jw1u4DjWCmHvyZ4DsnhWY2niy2Vj+kN8tgk3EHZAvxl5hjNFdoTiJt7bm2Afss
+ MSX+JJdiTUp50/0vDXOoiWGrcTG93AGmgnbNbvZNcPM/JEi/Ie/VTzCaAboVNGQb2SmJ
+ clD18oJafzDqO994S3sQDfTVE0QztCmKd+QNAVqbEn6LkdHLjsY5zZul/hT8rAOCAi+r
+ 2BliUCmSQ2GH7nbIhNC6b7ixlXSDlY3Ki7OaLX0iiCZxVqTNd1CqhGRhcGpEsmqUrJS6 7Q== 
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 3g93tc480r-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 26 May 2022 08:19:56 +0000
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.16.1.2/8.16.1.2) with SMTP id 24Q89xh4015636;
+	Thu, 26 May 2022 08:19:56 GMT
+Received: from nam10-dm6-obe.outbound.protection.outlook.com (mail-dm6nam10lp2100.outbound.protection.outlook.com [104.47.58.100])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com with ESMTP id 3g93x0jped-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 26 May 2022 08:19:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=eOg22U3Sa0Ka9CL8IdH2WDmMqJiT8WcYGvdI5zxKFQReM/YwF7iwGD4KRjLKGdNCqwzORaTxthhGutRJTjTAR/ZAF/n6IhjrAO3UKn27tsY+vytiEcdq/4AgIv1xMjIlauES3JQqmFN+d6W2hga10VtT/dLbC9fovp5TEvuaIOgLE+mG9MpLdbPCNeSClBRpP/xuKAWqjCBEs8C7xJ5uGSiUmOTmDYcrVEqlzgCmcestcO4/4+BZtKEMPXiRSdELzHzlfBOfcqFJOnKr8hxvKjY4bvDA8Gxm8noIRrzEULpAw8bxUPfBzqjLbZYls2cbmOldgy/lrCju5eBnDJ/KzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Zy0xGULddVRIgYZC8n1rrvovk7JzQwZZCbXUC988X2Y=;
+ b=cwgQktqxW2KZDSTu5MlRJJ86NB5taTt6SouFLTMfp6mLHoD0KSY9DUPqVwHlux8H4FHRpJKRSfHWOUTyWIZxrIaIV5dVOuELlIfiLly85sKpTVD0gL/F+tpJkSwkeui7XesSwEpd9xJPuuaIS7TkH3hJ0KGoHYdrS9f/8us0LNnVUOCokDIfYubIPB0nGV/unLigby5D0WvXnK1nmFq2fxQ0I4AGBHPZ8rKZYqSBezDruEaqZ4acyfY+vlUCQD0phnGWjaYHCTrll3TB9duQwzmnNROO3g1VtOFWeZrCCaSuruP538JRQFP3X0dvsJEp8Lxp3Om8fd5vp/VBMtD3bw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=sT3GYIdUUQSNPmdWz8uq9qvx3kbQYZ8o49KqW4VxGGM=;
-        b=opEsQf9x1rbvGjJYh9lbI8E36x+lr1m7oW3F4MAHcLpo2JgtQ9eZzzVhkUlDZlDk1m
-         GlgvW4wS30rcMoU5ZyydHkOBfsgjXifuw4FDcJlSgf94PLSLvQ5NudXzZSE9T/cly2sl
-         tR8SJXihsGJ+vEAX3qTNWBMW6d3djvwHNLhRg=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=sT3GYIdUUQSNPmdWz8uq9qvx3kbQYZ8o49KqW4VxGGM=;
-        b=DuXczwGWpp/KNiE1zxJ8pSKY++t07IrbVhMpxhKMQJGRle4dJ4KqUXZ7rup6WZswJA
-         F2BuNTnKSYyq38soatz2IDysvo4LbeE6Rg7WF44CNQpALu1Qv5oLKJGr3rdzApiXmUSU
-         /iKi651g/oMR/GDlQtjXV9SyzLBuVktRYZTnxj6oMUFvci27/9IuJ/UlMngU9zxQ9Xs1
-         K8wE6rtZSifHP3mXdRCNe0fQXjpCx23NSS2afwUOwHrZkIY4KU6psMbUwaBwNfCxRXlM
-         NH+vzM5K2uhHOMrEixvrdPwPEm/OOUMI8pznpY1VJ1r6xeYV9EO4u6+o1pa23WBvQi8o
-         d11A==
-X-Gm-Message-State: AOAM531uSpz7AWhrtuTO8OwgaOWDnCgicv5HCxnOA8TiPnMMP/9bLAVr
-	Z5cnT1yxxo8KJn6/P+hD52FD/br6oII5xXDc/jYL
-X-Google-Smtp-Source: ABdhPJxXwFOCaaYQsSGz2VUIWD50pPbtdEj2/kMwXZEAh/F9fIeiGdeU6beOFwhauF2+weG/8ViKYH4InsGC9HImsiY=
-X-Received: by 2002:a81:fc7:0:b0:301:9fd7:27e4 with SMTP id
- 190-20020a810fc7000000b003019fd727e4mr3387760ywp.341.1653552686698; Thu, 26
- May 2022 01:11:26 -0700 (PDT)
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Zy0xGULddVRIgYZC8n1rrvovk7JzQwZZCbXUC988X2Y=;
+ b=vp9NENJaz/x+9isDEPGfdeArNKAp857AoK4SlfaxIJFZpduOycVtFwE62JqOKheHOAsYEiUp96U6ro5LVhcfbxdRtG58qgVfidraozivgAF6RLwa7ycHtNBjMYKLhSqc7HOSPEVxI0wf2GfFkUDJ/TgsB0rpcMjSUX8wMBnJFOk=
+Received: from MWHPR1001MB2365.namprd10.prod.outlook.com
+ (2603:10b6:301:2d::28) by BN8PR10MB3715.namprd10.prod.outlook.com
+ (2603:10b6:408:bd::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5273.17; Thu, 26 May
+ 2022 08:19:53 +0000
+Received: from MWHPR1001MB2365.namprd10.prod.outlook.com
+ ([fe80::86f:81ba:9951:5a7e]) by MWHPR1001MB2365.namprd10.prod.outlook.com
+ ([fe80::86f:81ba:9951:5a7e%2]) with mapi id 15.20.5273.023; Thu, 26 May 2022
+ 08:19:53 +0000
+Date: Thu, 26 May 2022 11:19:28 +0300
+From: Dan Carpenter <dan.carpenter@oracle.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: kernel test robot <lkp@intel.com>,
+        virtualization@lists.linux-foundation.org, netdev@vger.kernel.org,
+        linux-staging@lists.linux.dev, linux-riscv@lists.infradead.org,
+        linux-rdma@vger.kernel.org, linux-pci@vger.kernel.org,
+        linux-parport@lists.infradead.org, linux-omap@vger.kernel.org,
+        linux-mm@kvack.org, linux-fbdev@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, bpf@vger.kernel.org,
+        amd-gfx@lists.freedesktop.org, alsa-devel@alsa-project.org
+Subject: Re: [linux-next:master] BUILD REGRESSION
+ 8cb8311e95e3bb58bd84d6350365f14a718faa6d
+Message-ID: <20220526081928.GB2146@kadam>
+References: <628ea118.wJYf60YnZco0hs9o%lkp@intel.com>
+ <20220525145056.953631743a4c494aabf000dc@linux-foundation.org>
+Content-Disposition: inline
+In-Reply-To: <20220525145056.953631743a4c494aabf000dc@linux-foundation.org>
+User-Agent: Mutt/1.9.4 (2018-02-28)
+X-ClientProxiedBy: JNAP275CA0055.ZAFP275.PROD.OUTLOOK.COM (2603:1086:0:4f::11)
+ To MWHPR1001MB2365.namprd10.prod.outlook.com (2603:10b6:301:2d::28)
 MIME-Version: 1.0
-References: <00000000000038779505d5d8b372@google.com> <CANp29Y7WjwXwgxPrNq0XXjXPu+wGFqTreh9gry=O6aE7+cKpLQ@mail.gmail.com>
- <CA+zEjCvu76yW7zfM+qJUe+t5y23oPdzR4KDV1mOdqH8bB4GmTw@mail.gmail.com>
- <CACT4Y+arufrRgwmN66wUU+_FGxMy-sTkjMQnRN8U2H2tQuhB7A@mail.gmail.com>
- <a0769218-c84a-a1d3-71e7-aefd40bf54fe@ghiti.fr> <CANp29Y4WMhsE_-VWvNbwq18+qvb1Qc-ES80h_j_G-N_hcAnRAw@mail.gmail.com>
- <CANp29Y4ujmz901aE9oiBDx9dYWHti4-Jw=6Ewtotm6ck6MN9FQ@mail.gmail.com>
- <CACT4Y+ZvStiHLYBOcPDoAJnk8hquXwm9BgjQTv=APwh7AvgEUQ@mail.gmail.com>
- <CANp29Y56Or0V1AG7rzBfV_ZTph2Crg4JKKHiuw1kcGFFxeWqiQ@mail.gmail.com>
- <CANp29Y5+MuhKAzVxzEDb_k9voXmKWrUFx8k4wnW5=2+5enVFVA@mail.gmail.com>
- <CA+zEjCtvaT0YsxxUgnEGM+V4b5sWuCAs3=3J+Xocf580uT3t1g@mail.gmail.com>
- <CA+zEjCs1FEUTcM+pgV+_MZnixSO5c2hexZFxGxuCQWc2ZMQiRg@mail.gmail.com>
- <CANp29Y4rDSjrfTOxcQqwh+Qm+ocR0v6Oxr7EkFxScf+24M1tNA@mail.gmail.com>
- <CA+zEjCtB0rTuNAJkrM2q3JQL7D-9fAXBo0Ud0w__gy9CAfo_Ag@mail.gmail.com>
- <CACT4Y+Z=3MWEhVUH3mAH150XpOmhdjsGPOHoP1nvBcBwU_sphQ@mail.gmail.com> <5e702296-9ce0-f1e6-dae8-cc719bc040b9@ghiti.fr>
-In-Reply-To: <5e702296-9ce0-f1e6-dae8-cc719bc040b9@ghiti.fr>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 26 May 2022 01:11:15 -0700
-Message-ID: <CAOnJCULgP_-D3cY2m39k9N912Q55FS7X9JcrRVoUt0GC92tx7w@mail.gmail.com>
-Subject: Re: [syzbot] riscv/fixes boot error: can't ssh into the instance
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Dmitry Vyukov <dvyukov@google.com>, Alexandre Ghiti <alexandre.ghiti@canonical.com>, 
-	Aleksandr Nogikh <nogikh@google.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	kasan-dev <kasan-dev@googlegroups.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	syzbot <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com>, 
-	LKML <linux-kernel@vger.kernel.org>, syzkaller-bugs@googlegroups.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 3cf96367-7ac2-4c43-d2db-08da3ef08279
+X-MS-TrafficTypeDiagnostic: BN8PR10MB3715:EE_
+X-Microsoft-Antispam-PRVS: 	<BN8PR10MB3715BBD9ACC09563B73F4E238ED99@BN8PR10MB3715.namprd10.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	PB2ELZKg3ACxJLl2VTtsEh+7AVokZSWYmqigbXtSz795s4HRKN9NleNO9/K1Gg8CfKMVSQECY5N3tFpvJA0y2py6al3ZsGO5azRk0lOFfG4cWkyf0nCNm0UhlEh8+nm6ah/ocdCFHZiSohTYewNllOvHAS0OHbDlrsY7lTpeSUFzdsP/gPDiD+eikJgTYQ1lENWdOLwgSbxydW4tz/nEaSacKQYpTM5z2QgGEXCNBTcIQJSA2NpDskuMO41K5G5UG4ODpYqdJT3nHZuPNNC/DXy89nGm32ZnNFuGdwMB/sWxZwMpu+K2bEZ+JDgg1cqaxzNa3VNHK2klCymPKMYXN0Dc8+4w5XPMYobuG/Uvh1IkibKZ9a+TCFFRgC7+fwK1jH6E0rguVgHJ0YjbpdcYb72gp0eFGguZdZzQj94NWQ3mI6TAyLYHH9ajKHsS39r1Zi4TSzVgvSSP9E2lkYJZPGp2hJjwGqwHNLafJFFiBWKX8ThKXNEFPBPW0vZJa89BcJcINhVC5HIIZ3O7GaZ4cMqV6Wg3QaI4+zVz+Do/fsR8L3Sbof+gNa6BgBUqBWxX83fYisLyWEOfxcyNQgxWeho7OeEjXydT5bfsoc0FYvQWeRhmXhEimpjM9jGL/k/ZaFgSPHqgzgRUXVqveVcDikOrfSz5839REdWHx5YxsjKb6ZDinlT5jvDQY4aZHXSd/eEi2qQDjnteQjznvM/hSfwFXjSXX0E7RVKbYVpJCoP4nJJzECYPGAI87JZsEixn4BwnjatkPYCPi9bwpPACgwZ+JyjupEssztMpalmM+Bk=
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MWHPR1001MB2365.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230001)(7916004)(366004)(316002)(8676002)(7416002)(8936002)(44832011)(4326008)(5660300002)(6916009)(6512007)(9686003)(6666004)(6506007)(26005)(508600001)(6486002)(966005)(33656002)(52116002)(66946007)(66556008)(66476007)(2906002)(33716001)(38350700002)(86362001)(1076003)(186003)(38100700002)(83380400001);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?+4zbNWam2D0bM/zgUlESN3vhRr+RuDpppDvipKEYxlq+/+5WLyq1NbVkLeDW?=
+ =?us-ascii?Q?/5xdzVpgaZTxkeTSK/jed15uikvGdZti4e/bjWBIHzVRZrY3AFrbgr6ZF/2A?=
+ =?us-ascii?Q?qLwt/IRWaBSXptp2+gkpryXi+VaVwuYlvp6EnQwyzTK5itTAjvzxpXLLlMcp?=
+ =?us-ascii?Q?G5kU6AIFnVFCQjWJYsBuVM0zEtu7SkRRMSRMDZeOXwzA0pMiJFJq0pgNFriB?=
+ =?us-ascii?Q?2oCu5CH/AUq29Ex96g4jBPnNAt6bNJ3hAIjrv9jaKA6hA/y7lZV1ktsX3Wte?=
+ =?us-ascii?Q?6fsVPdx4iDfSdLvMp8OoVYk2VWj6EkAdCE8/5HPqxARKWxVP5q0zyqc4WFW0?=
+ =?us-ascii?Q?wJayDwQ60dV9zGyXFzDSV8sYRLSlT65y8us1C9vhg9XANZaxtS92R9elEpnZ?=
+ =?us-ascii?Q?9NVWIA0Jo4mHsNntT9rJHyz0uck1akEI4UaTuEdvpOVY8CWfFIllutagTqhf?=
+ =?us-ascii?Q?wN14yWCBwUk19pX2CRTzs4EQSqJokjQ62WmVFW0qDz3EpH++ASQvHA0qZTMx?=
+ =?us-ascii?Q?6jNxBblD+6QBSEIYsCVjnCM7hjbXC7qKApZ2ULMd0HkZJdlga8xrJNkhToGh?=
+ =?us-ascii?Q?7dyRgsDjyk75IzcHnyE761PHJKtXkht22JIapQiQa2jSnKSF7ciKqbK/Y/LK?=
+ =?us-ascii?Q?8QppC+Q5bMpKQOrhVxZSJ5NA5NNqqnOvxY6stvwqqJAkRgDG3HJYOmzwaCxg?=
+ =?us-ascii?Q?lVXZdq2wYXzo3xOrCeoUB/JhimW05fevkXx/rdK1e+7agWoAPJLMt6Ekb4/A?=
+ =?us-ascii?Q?6bTkogQcoC0aAkN5KjxwSJZGA3wtqAhR8UIAu+hTp+maj+ODjgXIeLzOBHZ6?=
+ =?us-ascii?Q?y4+gPf6+lxxIjCsB55xsQLh/B5N5ovPYcUAxomfHYdPKbzue5x8jKIXiEb38?=
+ =?us-ascii?Q?mdMf8mC/QFxLoQI0rvaUs9Sn4z+vUiYY6ieCB7s/qT5XLsXavDIqMe/CZWUx?=
+ =?us-ascii?Q?lnlXW9RfZyHEJ6DQmtJJzR7tFQx74qhCZuX3sKs9Kz6h6M21cIcosv3EubnE?=
+ =?us-ascii?Q?HIwZwyHMQrbVKXR7K3pi2ON9Ju+88Ffgjec5QANLX3hUmFYGbe28WGlcq9j+?=
+ =?us-ascii?Q?sKS8rDXUFb6tGH3axtECcJHxeOt5wuAOqVc+yKlxpyoGE+7UyMdph+CFbAKW?=
+ =?us-ascii?Q?i2pMHDlVJXjObBcrQ5A40mKOlKUczQWD0BZZGhGTKQyftGS2wX/4oKGX+grT?=
+ =?us-ascii?Q?Ke9qqtWOZxVmLZAsWY6GezEXMy4MoLn33zjDzBSrWr0roJxImoda5/oVmjFO?=
+ =?us-ascii?Q?m5LDfGW83FC4en3k28R7BPvJ6BfGt7guxnomfqUCsTaNmtN58zZ6fHCld0CN?=
+ =?us-ascii?Q?SQiQIOHDQNqz+dInhER2/0Pl7PoszLOev2xY/YJjvICeNlnUKHkPp99LKsOc?=
+ =?us-ascii?Q?PcvLx5LMBHf9ibxvwYqKrzOJphMNG5mYp01S4LFV3FRDS+Co826IduITrXvJ?=
+ =?us-ascii?Q?S52D79+bD3vl/4ztCbmQ1ugevZPCgttZvtZb3r6JNekk61gVyd6ilpOrhm6q?=
+ =?us-ascii?Q?Px/vnlkuNXQ24cL9mkIRZIWdzRffttpAg/ZS5VVj1EhhKKalIMsmVUV1zryX?=
+ =?us-ascii?Q?6jna3ld65pLQ7U1SXR/CiEQEeyFXhxkV6yrVvaePxW74eH3i2SCiD1jne8VX?=
+ =?us-ascii?Q?qmPV8LiLBkpo57/y0lk1F7o2+700F7SsJGkNLdQnfvymbJ8k0nivUnuuh8zr?=
+ =?us-ascii?Q?mEziZXqV0EvxWHMMGogolzXmYKUiSWeIUezVq6TXRX7xuZvwTA54Xtp6RqT/?=
+ =?us-ascii?Q?zqU2YjzjLSUA4XkOBDEBDwbCX3i8gXg=3D?=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3cf96367-7ac2-4c43-d2db-08da3ef08279
+X-MS-Exchange-CrossTenant-AuthSource: MWHPR1001MB2365.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 May 2022 08:19:53.5472
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lZjCSWnS7E0CEnPSZZADVOZcSG39DtcU73MbtXbgjimWt98cSLIACYRuLaJrN/3v+lc+3vs8ztSeq2jaDARp6QJdhPOUsRD+ssQ94TwvLic=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN8PR10MB3715
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.486,18.0.874
+ definitions=2022-05-26_02:2022-05-25,2022-05-26 signatures=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 spamscore=0 malwarescore=0
+ mlxlogscore=999 bulkscore=0 suspectscore=0 adultscore=0 mlxscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2204290000
+ definitions=main-2205260041
+X-Proofpoint-ORIG-GUID: 4n9fsYReWhPcGGMgi3Ucw58Ums7lKscl
+X-Proofpoint-GUID: 4n9fsYReWhPcGGMgi3Ucw58Ums7lKscl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220526_011128_683441_51221AB5 
-X-CRM114-Status: GOOD (  51.21  )
+X-CRM114-CacheID: sfid-20220526_012008_189405_3B3E97A5 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,278 +172,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 16, 2022 at 5:06 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
->
->
-> On 5/12/22 13:48, Dmitry Vyukov wrote:
-> > On Fri, 18 Feb 2022 at 14:45, Alexandre Ghiti
-> > <alexandre.ghiti@canonical.com> wrote:
-> >> Hi Aleksandr,
-> >>
-> >> On Thu, Feb 17, 2022 at 6:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> >>> Hi Alex,
-> >>>
-> >>> On Thu, Feb 17, 2022 at 5:53 PM Alexandre Ghiti
-> >>> <alexandre.ghiti@canonical.com> wrote:
-> >>>> Aleksandr,
-> >>>>
-> >>>> On Wed, Feb 16, 2022 at 5:58 PM Alexandre Ghiti
-> >>>> <alexandre.ghiti@canonical.com> wrote:
-> >>>>> First, thank you for working on this.
-> >>>>>
-> >>>>> On Wed, Feb 16, 2022 at 5:17 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> >>>>>> If I use just defconfig + DEBUG_VIRTUAL, without any KASAN, it begins
-> >>>>>> to boot, but overwhelms me with tons of `virt_to_phys used for
-> >>>>>> non-linear address:` errors.
-> >>>>>>
-> >>>>>> Like that
-> >>>>>>
-> >>>>>> [    2.701271] virt_to_phys used for non-linear address:
-> >>>>>> 00000000b59e31b6 (0xffffffff806c2000)
-> >>>>>> [    2.701727] WARNING: CPU: 0 PID: 1 at arch/riscv/mm/physaddr.c:16
-> >>>>>> __virt_to_phys+0x7e/0x86
-> >>>>>> [    2.702207] Modules linked in:
-> >>>>>> [    2.702393] CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W
-> >>>>>>    5.17.0-rc1 #1
-> >>>>>> [    2.702806] Hardware name: riscv-virtio,qemu (DT)
-> >>>>>> [    2.703051] epc : __virt_to_phys+0x7e/0x86
-> >>>>>> [    2.703298]  ra : __virt_to_phys+0x7e/0x86
-> >>>>>> [    2.703547] epc : ffffffff80008448 ra : ffffffff80008448 sp :
-> >>>>>> ffff8f800021bde0
-> >>>>>> [    2.703977]  gp : ffffffff80ed9b30 tp : ffffaf8001230000 t0 :
-> >>>>>> ffffffff80eea56f
-> >>>>>> [    2.704704]  t1 : ffffffff80eea560 t2 : 0000000000000000 s0 :
-> >>>>>> ffff8f800021be00
-> >>>>>> [    2.705153]  s1 : ffffffff806c2000 a0 : 000000000000004f a1 :
-> >>>>>> ffffffff80e723d8
-> >>>>>> [    2.705555]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 :
-> >>>>>> 0000000000000000
-> >>>>>> [    2.706027]  a5 : 0000000000000000 a6 : 0000000000000005 a7 :
-> >>>>>> ffffffffffffffff
-> >>>>>> [    2.706474]  s2 : ffffffff80b80b08 s3 : 00000000000000c2 s4 :
-> >>>>>> ffffffff806c2000
-> >>>>>> [    2.706891]  s5 : ffffffff80edba10 s6 : ffffffff80edb960 s7 :
-> >>>>>> 0000000000000001
-> >>>>>> [    2.707290]  s8 : 00000000000000ff s9 : ffffffff80b80b40 s10:
-> >>>>>> 00000000000000cc
-> >>>>>> [    2.707689]  s11: ffffaf807e1fcf00 t3 : 0000000000000076 t4 :
-> >>>>>> ffffffffffffffff
-> >>>>>> [    2.708092]  t5 : 00000000000001f2 t6 : ffff8f800021bb48
-> >>>>>> [    2.708433] status: 0000000000000120 badaddr: 0000000000000000
-> >>>>>> cause: 0000000000000003
-> >>>>>> [    2.708919] [<ffffffff8011416a>] free_reserved_area+0x72/0x19a
-> >>>>>> [    2.709296] [<ffffffff80003a5a>] free_initmem+0x6c/0x7c
-> >>>>>> [    2.709648] [<ffffffff805f60c8>] kernel_init+0x3a/0x10a
-> >>>>>> [    2.709993] [<ffffffff80002fda>] ret_from_exception+0x0/0xc
-> >>>>>> [    2.710310] ---[ end trace 0000000000000000 ]---
-> >>>>>>
-> >>>>> I was able to reproduce this: the first one regarding init_zero_pfn is
-> >>>>> legit but not wrong, I have to check when it was introduced and how to
-> >>>>> fix this.
-> >>>>> Regarding the huge batch that follows, at first sight, I would say
-> >>>>> this is linked to my sv48 patchset but that does not seem important as
-> >>>>> the address is a kernel mapping address so the use of virt_to_phys is
-> >>>>> right.
-> >>>>>
-> >>>>>> On Wed, Feb 16, 2022 at 5:09 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> >>>>>>> On Wed, Feb 16, 2022 at 12:56 PM Dmitry Vyukov <dvyukov@google.com> wrote:
-> >>>>>>>> On Wed, 16 Feb 2022 at 12:47, Aleksandr Nogikh <nogikh@google.com> wrote:
-> >>>>>>>>> On Wed, Feb 16, 2022 at 11:37 AM Aleksandr Nogikh <nogikh@google.com> wrote:
-> >>>>>>>>>> Hi Alex,
-> >>>>>>>>>>
-> >>>>>>>>>> On Wed, Feb 16, 2022 at 5:14 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
-> >>>>>>>>>>> Hi Dmitry,
-> >>>>>>>>>>>
-> >>>>>>>>>>> On 2/15/22 18:12, Dmitry Vyukov wrote:
-> >>>>>>>>>>>> On Wed, 2 Feb 2022 at 14:18, Alexandre Ghiti
-> >>>>>>>>>>>> <alexandre.ghiti@canonical.com> wrote:
-> >>>>>>>>>>>>> Hi Aleksandr,
-> >>>>>>>>>>>>>
-> >>>>>>>>>>>>> On Wed, Feb 2, 2022 at 12:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> >>>>>>>>>>>>>> Hello,
-> >>>>>>>>>>>>>>
-> >>>>>>>>>>>>>> syzbot has already not been able to fuzz its RISC-V instance for 97
-> >>>>>>>>>>>>> That's a longtime, I'll take a look more regularly.
-> >>>>>>>>>>>>>
-> >>>>>>>>>>>>>> days now because the compiled kernel cannot boot. I bisected the issue
-> >>>>>>>>>>>>>> to the following commit:
-> >>>>>>>>>>>>>>
-> >>>>>>>>>>>>>> commit 54c5639d8f507ebefa814f574cb6f763033a72a5
-> >>>>>>>>>>>>>> Author: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-> >>>>>>>>>>>>>> Date:   Fri Oct 29 06:59:27 2021 +0200
-> >>>>>>>>>>>>>>
-> >>>>>>>>>>>>>>       riscv: Fix asan-stack clang build
-> >>>>>>>>>>>>>>
-> >>>>>>>>>>>>>> Apparently, the problem appears on GCC-built RISC-V kernels with KASAN
-> >>>>>>>>>>>>>> enabled. In the previous message syzbot mentions
-> >>>>>>>>>>>>>> "riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU
-> >>>>>>>>>>>>>> Binutils for Debian) 2.35.2", but the issue also reproduces finely on
-> >>>>>>>>>>>>>> a newer GCC compiler: "riscv64-linux-gnu-gcc (Debian 11.2.0-10)
-> >>>>>>>>>>>>>> 11.2.0, GNU ld (GNU Binutils for Debian) 2.37".
-> >>>>>>>>>>>>>> For convenience, I also duplicate the .config file from the bot's
-> >>>>>>>>>>>>>> message: https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
-> >>>>>>>>>>>>>>
-> >>>>>>>>>>>>>> Can someone with KASAN and RISC-V expertise please take a look?
-> >>>>>>>>>>>>> I'll take a look at that today.
-> >>>>>>>>>>>>>
-> >>>>>>>>>>>>> Thanks for reporting the issue,
-> >>>>>>>>>>> I took a quick look, not enough to fix it but I know the issue comes
-> >>>>>>>>>>> from the inline instrumentation, I have no problem with the outline
-> >>>>>>>>>>> instrumentation. I need to find some cycles to work on this, my goal is
-> >>>>>>>>>>> to fix this for 5.17.
-> >>>>>>>>>> Thanks for the update!
-> >>>>>>>>>>
-> >>>>>>>>>> Can you please share the .config with which you tested the outline
-> >>>>>>>>>> instrumentation?
-> >>>>>>>>>> I updated the syzbot config to use KASAN_OUTLINE instead of KASAN_INLINE,
-> >>>>>>>>>> but it still does not boot :(
-> >>>>>>>>>>
-> >>>>>>>>>> Here's what I used:
-> >>>>>>>>>> https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
-> >>>>>>>>> Update: it doesn't boot with that big config, but boots if I generate
-> >>>>>>>>> a simple one with KASAN_OUTLINE:
-> >>>>>>>>>
-> >>>>>>>>> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> >>>>>>>>> ./scripts/config -e KASAN -e KASAN_OUTLINE
-> >>>>>>>>> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> >>>>>>>>>
-> >>>>>>>>> And it indeed doesn't work if I use KASAN_INLINE.
-> >>>>>>>> It may be an issue with code size. Full syzbot config + KASAN + KCOV
-> >>>>>>>> produce hugely massive .text. It may be hitting some limitation in the
-> >>>>>>>> bootloader/kernel bootstrap code.
-> >>>>> I took a quick glance and it traps on a KASAN address that is not
-> >>>>> mapped, either because it is too soon or because the mapping failed
-> >>>>> somehow.
-> >>>>>
-> >>>>> I'll definitely dive into that tomorrow, sorry for being slow here and
-> >>>>> thanks again for all your work, that helps a lot.
-> >>>>>
-> >>>>> Thanks,
-> >>>>>
-> >>>>> Alex
-> >>>>>
-> >>>>>>> I bisected the difference between the config we use on syzbot and the
-> >>>>>>> simple one that was generated like I described above.
-> >>>>>>> Turns out that it's the DEBUG_VIRTUAL config that makes the difference.
-> >>>>>>>
-> >>>>>>> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> >>>>>>> ./scripts/config -e KASAN -e KASAN_OUTLINE -e DEBUG_VIRTUAL
-> >>>>>>> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> >>>>>>>
-> >>>>>>> And the resulting kernel does not boot.
-> >>>>>>> My env: the `riscv/fixes` branch, commit
-> >>>>>>> 6df2a016c0c8a3d0933ef33dd192ea6606b115e3, qemu 6.2.0.
-> >>>> I fixed a few things today: KASAN + SPARSE_VMEMMAP, DEBUG_VIRTUAL and
-> >>>> maybe KASAN  + KCOV.
-> >>>>
-> >>>> With those small fixes, I was able to boot your large dotconfig with
-> >>>> KASAN_OUTLINE, the inline version still fails, this is my next target
-> >>>> :)
-> >>>> I'll push that tomorrow!
-> >>> Awesome, thank you very much!
-> >>> Looking forward to finally seeing the instance run :)
-> >> I sent a patchset which should fix your config with *outline* instrumentation.
-> > Was this fix merged? The riscv instance still does not boot:
-> > https://syzkaller.appspot.com/bug?id=5f2ff52ad42cba9f222202219baebd4e63e35127
->
->
-> Yes it has been in Linus tree since 5.18-rc1. I'll take a look at that
-> this week.
->
-
-Are you seeing this error or a different one ? I used the
-syzkaller_defconfig from the patch below on v5.18.
-
-https://lore.kernel.org/all/20220419174952.699-1-palmer@rivosinc.com/
-
-[   15.076116][    T1] Mandatory Access Control activated.
-[   15.158241][    T1] AppArmor: AppArmor Filesystem Enabled
-[   16.150870][    T1] NET: Registered PF_INET protocol family
-[   16.166167][    T1] IP idents hash table entries: 32768 (order: 6,
-262144 bytes, linear)
-[   16.188727][    T1] Unable to handle kernel paging request at
-virtual address ffebfffeffff2000
-[   16.192727][    T1] Oops [#1]
-[   16.193479][    T1] Modules linked in:
-[   16.194687][    T1] CPU: 3 PID: 1 Comm: swapper/0 Not tainted
-5.18.0-00001-g37ac279268bf-dirty #9
-[   16.196486][    T1] Hardware name: riscv-virtio,qemu (DT)
-[   16.197836][    T1] epc : kasan_check_range+0x9e/0x14e
-[   16.199104][    T1]  ra : memset+0x1e/0x4c
-[   16.200091][    T1] epc : ffffffff804787e0 ra : ffffffff80478f30 sp
-: ff600000073ffb70
-[   16.201420][    T1]  gp : ffffffff85879e80 tp : ff600000073f0000 t0
-: 7300000000000000
-[   16.202762][    T1]  t1 : ffebfffeffff21ff t2 : 73746e6564692050 s0
-: ff600000073ffba0
-[   16.204047][    T1]  s1 : 0000000000001000 a0 : ffebfffeffff2200 a1
-: 0000000000001000
-[   16.205312][    T1]  a2 : 0000000000000001 a3 : ffffffff803a4f32 a4
-: ff5ffffffff90000
-[   16.206592][    T1]  a5 : ffebfffeffff2000 a6 : 0000004000000000 a7
-: ff5ffffffff90fff
-[   16.207865][    T1]  s2 : ff5ffffffff90000 s3 : 0000000000000000 s4
-: ffffffff8467ea90
-[   16.209134][    T1]  s5 : 0000000000000000 s6 : ff5ffffffff90000 s7
-: 0000000000000000
-[   16.210394][    T1]  s8 : 0000000000001000 s9 : ffffffff8587ca40
-s10: 0000000000000004
-[   16.211952][    T1]  s11: ffffffff858a03a0 t3 : 0000000000000000 t4
-: 0000000000000040
-[   16.213469][    T1]  t5 : ffebfffeffff2200 t6 : ff600000073ff738
-[   16.214853][    T1] status: 0000000200000120 badaddr:
-ffebfffeffff2000 cause: 000000000000000d
-[   16.216910][    T1] Call Trace:
-[   16.217816][    T1] [<ffffffff803a4f32>] pcpu_alloc+0x844/0x1254
-[   16.219110][    T1] [<ffffffff803a59a0>] __alloc_percpu+0x28/0x34
-[   16.220244][    T1] [<ffffffff8328824a>] ip_rt_init+0x17e/0x382
-[   16.221606][    T1] [<ffffffff8328861c>] ip_init+0x18/0x30
-[   16.222719][    T1] [<ffffffff8328a0ee>] inet_init+0x2a6/0x550
-[   16.223863][    T1] [<ffffffff80003204>] do_one_initcall+0x130/0x7dc
-[   16.225002][    T1] [<ffffffff83201fbc>] kernel_init_freeable+0x510/0x5b4
-[   16.226273][    T1] [<ffffffff8319842a>] kernel_init+0x28/0x21c
-[   16.227337][    T1] [<ffffffff80005818>] ret_from_exception+0x0/0x10
-[   16.229910][    T1] ---[ end trace 0000000000000000 ]---
-[   16.231880][    T1] Kernel panic - not syncing: Fatal exception
-
-
-> Thanks,
->
-> Alex
->
->
+On Wed, May 25, 2022 at 02:50:56PM -0700, Andrew Morton wrote:
+> On Thu, 26 May 2022 05:35:20 +0800 kernel test robot <lkp@intel.com> wrote:
+> 
+> > tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+> > branch HEAD: 8cb8311e95e3bb58bd84d6350365f14a718faa6d  Add linux-next specific files for 20220525
+> > 
+> > Error/Warning reports:
+> > 
+> > ...
 > >
-> >> However, as you'll see in the cover letter, I have an issue with
-> >> another KASAN config and if you can take a look at the stacktrace and
-> >> see if that rings a bell, that would be great.
-> >>
-> >> Don't hesitate next time to ping me when the riscv syzbot instance fails :)
-> >>
-> >> Alex
-> >>
-> >>
-> >>> --
-> >>> Best Regards,
-> >>> Aleksandr
-> >>>
-> >>>> Thanks again,
-> >>>>
-> >>>> Alex
-> >> --
-> >> You received this message because you are subscribed to the Google Groups "kasan-dev" group.
-> >> To unsubscribe from this group and stop receiving emails from it, send an email to kasan-dev+unsubscribe@googlegroups.com.
-> >> To view this discussion on the web visit https://groups.google.com/d/msgid/kasan-dev/CA%2BzEjCtB0rTuNAJkrM2q3JQL7D-9fAXBo0Ud0w__gy9CAfo_Ag%40mail.gmail.com.
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> > Unverified Error/Warning (likely false positive, please contact us if interested):
+> 
+> Could be so.
+> 
+> > mm/shmem.c:1948 shmem_getpage_gfp() warn: should '(((1) << 12) / 512) << folio_order(folio)' be a 64 bit type?
+> 
+> I've been seeing this one for a while.  And from this report I can't
+> figure out what tool emitted it.  Clang?
 
+This is a Smatch warning.
 
+I normally look over Smatch warnings before forwarding kbuild-bot emails
+but this email is a grab bag of static checker warnings from different
+tools.
 
--- 
-Regards,
-Atish
+This warning has a high rate of false positives so I'm going to disable
+it by default.
+
+> 
+> >
+> > ...
+> >
+> > |-- i386-randconfig-m021
+> > |   `-- mm-shmem.c-shmem_getpage_gfp()-warn:should-((()-)-)-folio_order(folio)-be-a-bit-type
+> 
+> If you're going to use randconfig then shouldn't you make the config
+> available?  Or maybe quote the KCONFIG_SEED - presumably there's a way
+> for others to regenerate.
+> 
+> Anyway, the warning seems wrong to me.
+> 
+> 
+> #define PAGE_SIZE               (_AC(1,UL) << PAGE_SHIFT)
+> 
+> #define BLOCKS_PER_PAGE  (PAGE_SIZE/512)
+> 
+> 	inode->i_blocks += BLOCKS_PER_PAGE << folio_order(folio);
+> 
+> so the RHS here should have unsigned long type.  Being able to generate
+> the cpp output would be helpful.  That requires the .config.
+
+The heuristic is that "inode->i_blocks" is a u64 but this .config must
+be for a 32bit CPU.
+
+I'm just going to turn off all these warnings until I can figure out a
+better heuristic.
+
+regards,
+dan carpenter
+
 
 _______________________________________________
 linux-riscv mailing list
