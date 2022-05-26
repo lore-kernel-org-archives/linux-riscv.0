@@ -4,44 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15656C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 21:08:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD88C433FE
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 22:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2uj+81JzFOWywJwlWtYbrBKCUiPkk4MkRVMgFDMBjo4=; b=AFacJVu6mPcPFs
-	GYBalRO1jR6SGbRSsYNg3sXqjeTnYQtX4m3FRGKd1fBEI07EKWK9ocN+BvBtIy3W4mMFt3DZqF9Jr
-	YPmZUUJuX6LHzcmv0LrNEhABGZZyAkzLQCHh176OOpBz5ZH35N/tusQom+eKwz6ccuUn9/zsXXqmv
-	JpUf67/b7Gxu64kZk5Bz5SbfVeOs9QPp/Z48UOv+auJRLLGXoNjQJqC/l/nEujR0j/zs9YrNN7Dd+
-	3eb8YlRRO70LR6K2OGQIYZldTpVhwk7roQHhS0meImS8/j7GoYvM716Yn5gbAlQ0gG2SDB4TGetlH
-	mykN8DAYBJbill7wRQUA==;
+	List-Owner; bh=IdFJaFXHLBdXvTIzJ0xs0FqSHXacHcdptnKUZ0qeX7c=; b=iFcnAJq9oSnB3p
+	8Xd9OVEkvQvtb8IjZQnicoitLqGcnQiVsi/lNOA6OwjYAEyr0BrLoZKEC1JfWaJS7MaBdL4cNdRJ1
+	25H+WX2ouoJ5C4D4R80DucEhhbD4wXUKPmqo46E27E3BBhC2IjaujNBv9ARjL8qpdb+8kXyVkUQmc
+	ijHlq9+zXFF0bJTVuMg5CiXVD7WxADmzCH1MnSsqHtPil51UidxHz+zwJ27nFAmLx24VI8JCELIdH
+	6LYzMoGuhNgquFhC6he3JgwMTFBNG71IlbgMxnhZXwXB5R5mhFvbkQEeZvDNsuooJH25aa1naNkMh
+	DORhkFbb3tiltKhpDGsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuKim-00FydV-QR; Thu, 26 May 2022 21:08:40 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nuMNJ-00GAfk-3X; Thu, 26 May 2022 22:54:37 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuKYv-00Fui6-Iy
-	for linux-riscv@lists.infradead.org; Thu, 26 May 2022 20:58:31 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <heiko@sntech.de>)
-	id 1nuKYt-0006bZ-PZ; Thu, 26 May 2022 22:58:27 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: palmer@dabbelt.com, paul.walmsley@sifive.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, wefu@redhat.com, guoren@kernel.org, mick@ics.forth.gr, samuel@sholland.org, cmuellner@linux.com, philipp.tomsich@vrull.eu, hch@lst.de
-Subject: Re: [PATCH 0/4] riscv: some svpbmt fixes
-Date: Thu, 26 May 2022 22:58:27 +0200
-Message-ID: <3505332.hdfAi7Kttb@diego>
-In-Reply-To: <20220518170254.3178923-1-heiko@sntech.de>
-References: <20220518170254.3178923-1-heiko@sntech.de>
+	id 1nuMNH-00GAel-11
+	for linux-riscv@lists.infradead.org; Thu, 26 May 2022 22:54:36 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-3003cb4e064so30731497b3.3
+        for <linux-riscv@lists.infradead.org>; Thu, 26 May 2022 15:54:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=w9bg+crCjcsCCT/8h3P6Is3peQSYKpx7Yjut2+MuLpo=;
+        b=J9BFbfwXM92YHYo1pMX9ukbHtBF65rYzCKp1SEODqtfOWVCqvC1kpJ6Gx+6e25KsXx
+         7dXCLexRSucYejUcHQzOHbDQkvIK0DDJ1C4R9pGPO9oJyX8xhIz0VeZLSF84V61l4zzO
+         gI/sGQb0hwqh6SzlSHeraOUVufItGmBY08l/A=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=w9bg+crCjcsCCT/8h3P6Is3peQSYKpx7Yjut2+MuLpo=;
+        b=usRs253RGFKNcPuZ/JCRbKY8EQlkmP+P98kAI+IpyYfvNyIzZyBLI35v5XmBkBbRbB
+         Nyh8eb7Ytzus5dYirXIvorp6gxsqIO+2df8d/ZGkOefQAGKoW8HXpIBAK+nS2rVMk3hx
+         upz5Sui6Yqys757rqF/lITfiA7AcFVJFSBbTs12lyrSoRkjJH0M2goNn2utbzHkn3pZC
+         LcQFahVTKGCMdN2hlQmbSspZ9KEeLg67Br+zN+Ld9L+2n/cpcBCmxYMyaVfoPtcoRI4y
+         554Osmk2kvdhyOuCEiJ6XPnkppnFffKTVMfyi6axDu+rUT1dN8Xj9sRDzra/to9USy9Q
+         Pg4g==
+X-Gm-Message-State: AOAM533iaDfpNvESXLWVlmJvKeQgEY2K+Mw/fyUDA0uLJPRpYpnCp+fk
+	delsFjfTTnc9p8Jo1Ih7Z7YOhi8E9tNouByZ4SPG
+X-Google-Smtp-Source: ABdhPJzygxe4mJbRicGsvX2RuWGHFEoIpEz1ZlS3KbXSJc+1j/7lums2g1CvEJbfk0hVJxaHTik5jNooh1w7+04S4Jg=
+X-Received: by 2002:a81:238e:0:b0:300:642f:fdb2 with SMTP id
+ j136-20020a81238e000000b00300642ffdb2mr8594216ywj.373.1653605673706; Thu, 26
+ May 2022 15:54:33 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220526101131.2340729-1-sunilvl@ventanamicro.com> <20220526101131.2340729-2-sunilvl@ventanamicro.com>
+In-Reply-To: <20220526101131.2340729-2-sunilvl@ventanamicro.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 26 May 2022 15:54:22 -0700
+Message-ID: <CAOnJCUJNScpqEY=j6CYFyqea-+GR9J6wLFH6TFG1wvhHwOMtbQ@mail.gmail.com>
+Subject: Re: [PATCH V2 1/5] riscv: cpu_ops_sbi: Support for 64bit hartid
+To: Sunil V L <sunilvl@ventanamicro.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ard Biesheuvel <ardb@kernel.org>, Marc Zyngier <maz@kernel.org>, 
+	Atish Patra <atishp@rivosinc.com>, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Anup Patel <apatel@ventanamicro.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, linux-efi <linux-efi@vger.kernel.org>, 
+	Sunil V L <sunil.vl@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220526_135829_719586_5252496C 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20220526_155435_341940_BEE14699 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,37 +87,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 18. Mai 2022, 19:02:50 CEST schrieb Heiko Stuebner:
-> Some additionals comments and notes from autobuilders received
-> after the series got applied, warranted some changes.
-> 
-> So this is a small collection of cleanups for the svpbmt v10 series.
+On Thu, May 26, 2022 at 3:11 AM Sunil V L <sunilvl@ventanamicro.com> wrote:
+>
+> The hartid can be a 64bit value on RV64 platforms. This patch modifies
+> the hartid variable type to unsigned long so that it can hold 64bit
+> value on RV64 platforms.
+>
+> Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> ---
+>  arch/riscv/kernel/cpu_ops_sbi.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/cpu_ops_sbi.c b/arch/riscv/kernel/cpu_ops_sbi.c
+> index 4f5a6f84e2a4..efa0f0816634 100644
+> --- a/arch/riscv/kernel/cpu_ops_sbi.c
+> +++ b/arch/riscv/kernel/cpu_ops_sbi.c
+> @@ -65,7 +65,7 @@ static int sbi_hsm_hart_get_status(unsigned long hartid)
+>  static int sbi_cpu_start(unsigned int cpuid, struct task_struct *tidle)
+>  {
+>         unsigned long boot_addr = __pa_symbol(secondary_start_sbi);
+> -       int hartid = cpuid_to_hartid_map(cpuid);
+> +       unsigned long hartid = cpuid_to_hartid_map(cpuid);
+>         unsigned long hsm_data;
+>         struct sbi_hart_boot_data *bdata = &per_cpu(boot_data, cpuid);
+>
+> @@ -107,7 +107,7 @@ static void sbi_cpu_stop(void)
+>  static int sbi_cpu_is_stopped(unsigned int cpuid)
+>  {
+>         int rc;
+> -       int hartid = cpuid_to_hartid_map(cpuid);
+> +       unsigned long hartid = cpuid_to_hartid_map(cpuid);
+>
+>         rc = sbi_hsm_hart_get_status(hartid);
+>
+> --
+> 2.25.1
+>
 
-I've just sent a v2 of this which added another patch onto the series.
 
-See https://lore.kernel.org/r/20220526205646.258337-1-heiko@sntech.de
-
-
-Heiko
-
-> Heiko Stuebner (4):
->   riscv: drop cpufeature_apply_feature tracking variable
->   riscv: Improve description for RISCV_ISA_SVPBMT Kconfig symbol
->   riscv: make patch-function pointer more generic in
->     cpu_manufacturer_info struct
->   riscv: fix dependency for t-head errata
-> 
->  arch/riscv/Kconfig              |  9 +++++++--
->  arch/riscv/Kconfig.erratas      |  1 +
->  arch/riscv/kernel/alternative.c | 18 +++++++++---------
->  arch/riscv/kernel/cpufeature.c  |  5 +----
->  4 files changed, 18 insertions(+), 15 deletions(-)
-> 
-> 
-
-
-
-
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
