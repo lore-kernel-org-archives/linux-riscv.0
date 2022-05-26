@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D29C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 10:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE87FC433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 13:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eesFSu2LDKDzdTK16KcEp0RV9L9rHHM3xuVDhhqyR18=; b=e8oboKrdanBTic
-	o+xt2AD5vu6jYB36bcihy5GdfqilOh4v6wyDJFqRsyQjdyRhmc82jdXb6NhK+xHLyqf+X6v9+AE3/
-	GMxU5pgYzN48e8NjCoyw93vkHMC0ojBv63s35ZtdG8ZzgRYhG+bCdjlOZCiEVMfcpEjooIiFauVmY
-	F3385ragovY2roUh3mYvAoMVHw/8BBe3EkeI1Yzxa9i3LGnmzuDEpmFEmWO5kQ//bsO8XRgcCZQyi
-	ZFBYar45/fU1v05AaREurPYvaqLB0B1l+BfcqTvcFY3KZfmrBwcQHlFHl/ygOSWrVqHSvk6CBkyG8
-	XIRK032HxZaT5H5JjW1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aSpDWTDAq7BKIys0p6wUjBfxe8ki2/uvg4HufL6ijCs=; b=TDK65HaxPD6tmwKyzQrIVYh5zR
+	Tn7FUFJ/KcBVJN0/uWI8co4HQpQfAhKp2ZX27dYe+YznYngsuQ5OusXYvb+vr209cJzJuz3HwKU6P
+	ti324hq+zDsjO14DfubIM91seeoT8T2H4wG7sqxmJJIebEUXWq5mIHHzX+3o7m/iWZicS5kIRe7fd
+	LvM4UftDrng+OuJKjLA8/AkfDN9lYjGSSBpkMOGfCb9QEt7xcAFU8es6MNwjY9b2HYlt5g5yLpQuf
+	29DUwOCa8ldELT1deYnpOWFDRKYiWkKENn199PW3Gj1bmat0XxB4yVetis/+WdhaHwmTJndZ8ZfZ/
+	X/hYr6tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuAXB-00EN7z-JT; Thu, 26 May 2022 10:16:01 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1nuDLP-00F0MV-4R; Thu, 26 May 2022 13:16:03 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuAX8-00EN76-Su
-	for linux-riscv@lists.infradead.org; Thu, 26 May 2022 10:16:00 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id q18so1051749pln.12
-        for <linux-riscv@lists.infradead.org>; Thu, 26 May 2022 03:15:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to;
-        bh=1Y3eU/w+btAOyZHyBXYt+hk25vT05aSPhsIXUT8uHW4=;
-        b=Udx8BVbAkgZSSSzXzgFgYJbCewYfcdOpz6T7ErV8QIvhsSQ1EYf2KvPy+lFegyPAd6
-         FNfgWZhnOnlMHk2m9HFCEFzXJki/V52WDF3S5Ej5XqwJW8C9zIrPtcnYRbKyb88ktsc/
-         VInB3efk12Vodx/9EWhqliUp3tlsWYWH1w42wcQDNp/8sG94vsl36u37aCByBYr0KRxW
-         VOiHpIMGgA3dkn9vk4WXcH2j6s/oWaZkmrAShqRvTidBenAQm7KWdnKZsq6LhmvnoUIu
-         F+UROkgF/b9j5swVr91EFcCRyN5zd3IHryE+QselPPfxwj7u9K1hoNJsK8Q/x0aGDMZZ
-         iPAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to;
-        bh=1Y3eU/w+btAOyZHyBXYt+hk25vT05aSPhsIXUT8uHW4=;
-        b=pNqij4mYQzm5bi8kqm/JbXgG1sTEUwgh2ppcADxDZF8H1YgizNP8ZfwGdZAXw8pdhH
-         rGpGJSMLmIDmv4K+OhbYYVLc3YDKqpf1mRBgiNPu+0g6NFZkeZYSNTtQyEjAEe7V1JZb
-         nqlNTrLCytyjLq8SVZOcMpe+iMQJ+IkHCTJT9Q9INqprsN9UPPyjBO2w1sLkqOSXW3n6
-         Cvj7lTmJeXsT2dviDSP1wGIWGYb3F9QQZMZNgmZ3ca8mX4h3KLztUZYK5kJWFkrwVPCI
-         Yywb/gQmMIqlVMLf/nurg1T5tc48Ac1C30laIjgxEM/IYEjqpobjPGme/nrkFb94VfX6
-         ijOA==
-X-Gm-Message-State: AOAM531/dh6gQq0Qvh2/jwSIU1z2ZuNI07JwMItcDdK9NQkFCCn19voV
-	oJfThcEN85DV7vBR9Xu/lNMiUSosLY6TsoXa
-X-Google-Smtp-Source: ABdhPJxJz34W7UwGbIHBo7cdYQHAxdsuQZtFizYaWq04IKjBgju6JFGWyLfVxAGBflzW20SnrJlKWQ==
-X-Received: by 2002:a17:903:2305:b0:163:64c7:f9ff with SMTP id d5-20020a170903230500b0016364c7f9ffmr5879166plh.46.1653560157179;
-        Thu, 26 May 2022 03:15:57 -0700 (PDT)
-Received: from sunil-laptop ([49.206.9.238])
-        by smtp.gmail.com with ESMTPSA id ji13-20020a170903324d00b0016240bbe893sm1092596plb.302.2022.05.26.03.15.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 May 2022 03:15:56 -0700 (PDT)
-Date: Thu, 26 May 2022 15:45:50 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org, Sunil V L <sunil.vl@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Anup Patel <apatel@ventanamicro.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Atish Patra <atishp@rivosinc.com>
-Subject: Re: [PATCH 2/5] riscv: cpu_ops_spinwait: Support for 64bit hartid
-Message-ID: <20220526101550.GB19431@sunil-laptop>
-References: <20220525151106.2176147-1-sunilvl@ventanamicro.com>
- <20220525151106.2176147-3-sunilvl@ventanamicro.com>
- <a7910ff4-0bce-befa-f961-a82a8a1025a1@canonical.com>
+	id 1nuDLI-00F0KG-Nn
+	for linux-riscv@lists.infradead.org; Thu, 26 May 2022 13:16:01 +0000
+Received: from dggpemm500024.china.huawei.com (unknown [172.30.72.56])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4L87gT0cwkzgYD2;
+	Thu, 26 May 2022 21:14:13 +0800 (CST)
+Received: from dggpemm500019.china.huawei.com (7.185.36.180) by
+ dggpemm500024.china.huawei.com (7.185.36.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Thu, 26 May 2022 21:15:45 +0800
+Received: from [10.67.109.184] (10.67.109.184) by
+ dggpemm500019.china.huawei.com (7.185.36.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Thu, 26 May 2022 21:15:44 +0800
+Subject: Re: [PATCH bpf-next v2 2/2] riscv, bpf: Support riscv jit to provide
+ bpf_line_info
+To: Luke Nelson <luke.r.nels@gmail.com>
+CC: bpf <bpf@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
+	Networking <netdev@vger.kernel.org>, open list
+	<linux-kernel@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, "Daniel
+ Borkmann" <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Xi Wang
+	<xi.wang@gmail.com>, Martin KaFai Lau <kafai@fb.com>, Song Liu
+	<songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, John Fastabend
+	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>
+References: <20220429014240.3434866-1-pulehui@huawei.com>
+ <20220429014240.3434866-3-pulehui@huawei.com>
+ <CAB-e3NRn9VgdWfakom6Cbx-3btakEzvpNVmiQw7k-h_-EtOMng@mail.gmail.com>
+From: Pu Lehui <pulehui@huawei.com>
+Message-ID: <522e1e15-47ee-e972-8177-579a3e44f638@huawei.com>
+Date: Thu, 26 May 2022 21:15:44 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <a7910ff4-0bce-befa-f961-a82a8a1025a1@canonical.com>
+In-Reply-To: <CAB-e3NRn9VgdWfakom6Cbx-3btakEzvpNVmiQw7k-h_-EtOMng@mail.gmail.com>
+Content-Language: en-US
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ dggpemm500019.china.huawei.com (7.185.36.180)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220526_031558_970544_5ED03808 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20220526_061557_248679_D9F23F38 
+X-CRM114-Status: GOOD (  37.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,57 +78,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 25, 2022 at 05:27:51PM +0200, Heinrich Schuchardt wrote:
-> On 5/25/22 17:11, Sunil V L wrote:
-> > The hartid can be a 64bit value on RV64 platforms. This patch modifies
-> > the hartid variable type to unsigned long so that it can hold 64bit
-> > value on RV64 platforms.
-> > 
-> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > ---
-> >   arch/riscv/kernel/cpu_ops_spinwait.c | 2 +-
-> >   1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/riscv/kernel/cpu_ops_spinwait.c b/arch/riscv/kernel/cpu_ops_spinwait.c
-> > index 346847f6c41c..51ac07514a62 100644
-> > --- a/arch/riscv/kernel/cpu_ops_spinwait.c
-> > +++ b/arch/riscv/kernel/cpu_ops_spinwait.c
-> > @@ -18,7 +18,7 @@ void *__cpu_spinwait_task_pointer[NR_CPUS] __section(".data");
-> >   static void cpu_update_secondary_bootdata(unsigned int cpuid,
-> >   				   struct task_struct *tidle)
-> >   {
-> > -	int hartid = cpuid_to_hartid_map(cpuid);
-> > +	unsigned long hartid = cpuid_to_hartid_map(cpuid);
-> >   	/*
-> >   	 * The hartid must be less than NR_CPUS to avoid out-of-bound access
-> 
-> This line follows:
-> 
-> if (hartid == INVALID_HARTID || hartid >= NR_CPUS)
-> 
-> INVALID_HARTID is defined as ULONG_MAX. Please, mention that you are fixing
-> a bug:
-> 
-> Fixes: c78f94f35cf648 ("RISC-V: Use __cpu_up_stack/task_pointer only for
-> spinwait method")
-> 
-> NR_CPUS alias CONFIG_NR_CPUS is an int. You should convert it to unsigned
-> before comparing it to hartid to avoid build warnings.
+Hi Luke,
 
-Thank you for the feedback. Have modified the patch and commit message
-as per your suggestion in V2 version. Please check.
+On 2022/5/7 5:44, Luke Nelson wrote:
+> Thanks for the patch! I have a couple of notes written down below.
+> 
+>> +               ctx->prologue_offset = ctx->ninsns;
+>> ...
+>> +               prologue_len = ctx->epilogue_offset - ctx->prologue_offset;
+>> +               for (i = 0; i < prog->len; i++)
+>> +                       ctx->offset[i] = ninsns_rvoff(prologue_len + ctx->offset[i]);
+> 
+> The logic looks correct to me; my only nit is that the name
+> prologue_offset might be a bit confusing. The prologue is always at
+> the beginning of the final JITed program, it just happens to be that
+> the prologue is emitted "out of order" on the initial/internal passes
+> that compute offsets.
+> 
+> What prologue_offset really measures in your code is the length of the
+> body of the JITed program. What do you think about renaming
+> prologue_offset to something like body_len? Then the line to compute
+> prologue_len becomes:
+> 
+>          prologue_len = ctx->epilogue_offset - ctx->body_len;
+> 
+> This version makes more sense to me why it's correct. Curious what you think.
+>
 
-Thanks
-Sunil
+Sorry for getting back to you so late. Thanks so much for your review. 
+It seems that ctx->body_len makes more sence, I will rename it.
+
 > 
-> Best regards
+>> +               bpf_prog_fill_jited_linfo(prog, ctx->offset);
 > 
-> Heinrich
+> Here's a quote from the comment that documents
+> bpf_prog_fill_jited_linfo in kernel/bpf/core.c:
+> 
+> /* The jit engine is responsible to provide an array
+>   * for insn_off to the jited_off mapping (insn_to_jit_off).
+> ...
+>   * jited_off is the byte off to the last byte of the jited insn.
+> 
+> This comment says that ctx->offset (passed to this function as
+> insn_to_jit_off) should map each instruction to the offset of the last
+> byte of the JITed instructions, but as I understand it your patch sets
+> ctx->offset[i] to be the offset _one past_ the last byte of the JITed
+> instructions (i.e., the first byte of the next instruction). I'm not
+> sure if this is a bug in your code, in this comment, or in my
+> understanding :)
+> 
+> As a concrete example, suppose the BPF instruction at index 0 compiles
+> to 2 (non-compressed) RISC-V instructions, or 8 bytes. Then
+> ctx->offset[0] will be 2 after the initial JIT passes, and your code
+> would update ctx->offset[0] to be 4*prologue_len + 8. This offset
+> corresponds to the first byte of insns[1], not the last byte of
+> insn[0], which would be 4*prologue_len + 7.
+> 
+> My guess would be that the comment is out of date and your code is
+> doing the correct thing, since it seems in line with what other JITs
+> are doing. If that's the case, maybe we can consider updating that
+> comment at some point. I'm curious if the tests you ran would break if
+> you changed your code to match what the comment says (i.e.,
+> subtracting 1 byte from each element in ctx->offset before passing to
+> bpf_prog_fill_jited_linfo).
+> 
+
+IIUC,ctx->offset(passed to bpf_prog_fill_jited_linfo as insn_to_jit_off)
+should be the first byte of the next instruction, or the byte off to the 
+end of the current instruction.
+
+Here's the code as below
+bpf_prog_fill_jited_linfo in kernel/bpf/core.c:
+
+	jited_linfo[i] = prog->bpf_func +
+		insn_to_jit_off[linfo[i].insn_off - insn_start - 1];
+
+we can see here that "linfo[i].insn_off - insn_start - 1" refers to the 
+previous instruction, and the corresponding insn_to_jit_off refers to 
+the first byte of the current instruction.
+
+It seems the following quote might make more sense
+bpf_prog_fill_jited_linfo in kernel/bpf/core.c:
+* jited_off is the byte off to the "end" of the jited insn.
+
+> 
+>> ./test_progs -a btf
+>> #19 btf:OK
+>> Summary: 1/215 PASSED, 0 SKIPPED, 0 FAILED
+> 
+> Last, did you have a chance to run any of the other tests with your
+> change (e.g., test_verifier, test_bpf.ko, other tests in test_progs)?
+> I don't expect this change to break any tests, but may as well run
+> them if it's easy enough just to be sure.
+> 
+
+Yeah, "test_verifier", "test_bpf.ko" and "test_progs -a btf" all test 
+pass, as well as "test_progs" with no new failure ceses. I will attach 
+the test result in v3.
+
+Thanks,
+Lehui
+
+> 
+> Thanks!
+> - Luke
+> .
 > 
 
 _______________________________________________
