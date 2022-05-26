@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3140C433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 14:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA27C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 14:31:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HFnu5C1tnEbIQzTwpURxNgcdhYVFn2S3nrxR6FHDI0s=; b=Wg6nyIawhAXm7J
-	z7j7X2Co2SDaUSsxor2Frwg6zdhPOdj6uh9jF6SW8sEP/XLDLwglCYdGgOglZe+dkWJzW/hJOUJ4I
-	G23IKkKCeQV2C6x4RHYhqM9dz1blVEay5JSIZn3PDqtAUK99lV4cs4JDUK8M9BZsFN6DWsN1oV/QQ
-	5MyjrCL/dppni70iVmZMn2UdWUDw6TEZJxsdy8XxvYCoiwGTfifuVE1ChmEHSdBgYtPnz3JqrHW3U
-	UZZIoDYvJjUpq38fJXlRC5n1LkYu28Cb0g/bkFL72c4IAiBLk/Oqg96tp/2zl1/HSpkx03AbhwE5T
-	byOX1OeUVB5cca9HNZSQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+nE8ta0opIUGvkMkix59BXpNEAUbY6tzgs9NMayRMBU=; b=0tNckPUu5ceuq2
+	HfOrLz6iGSAFpycFMGE+KXL3FKWucn+7j9mKzyYWUM6IR2xpXrtM1+ar/dN2FYBB4ZxQ160dGqpi2
+	fLc7l4O2+Rku8070YKrYyq0tjidEXvbcsjJPVFheRBHCimevf81P11M8FVKl39G9OU+dlCS8i8Nyc
+	XdnkpgcXL0SwJoAEmQxzEFTUBFLXfcFfnQBrmNkQzaOAX2TCDe1JXDZ0OkpwOABoDxZxtUaY3N1IR
+	c/WYJkUj4OZnbA0sSgKbxYXdOKzgGpo8scaCA3/SmgrOnzVjFPLDNZDWlsl4jmfx8oCxq05PexSwA
+	8CztznBpRvj8RO9x8LHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuETk-00F7gh-6k; Thu, 26 May 2022 14:28:44 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1nuEWI-00F8GS-7O; Thu, 26 May 2022 14:31:22 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuETi-00F7gT-7W; Thu, 26 May 2022 14:28:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=k7apNoi1g1YhGHKMlKvo5ejDwWGQrfqPL3Ty5xTWm5Q=; b=jt2D3c7xgVZUKhGsBafhmm2sFE
-	7iHXpIRdAmkRqKCTrByt8vvIu4Y3EGktUCpnmPTFxq5LEtvIgLU7neTQ7C/IsI99LeEY7HaXKuYy7
-	5ZrEicxpMCl0i/enkPZwHxhNQ3wSCLz0PWMpopuxkJst9ua3Mey2ATEpeisJ/smtNzknhVcxsQdkT
-	dSKtJhfNJpH19fcWEk13NeBfTP6RD6LPE68nShdvuaPUklK12w19DAh/i1OVAzpUZ0A5rCLZKasUp
-	WeWqziAdu0JgzoPn8WlmbMtIWF1JBvKksSw7KZdNfdrklRu0O6zxydJrgJF+gvKG7sfmTWPCyIS6G
-	yc+jDrmg==;
-Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuETR-001JAt-Fo; Thu, 26 May 2022 14:28:25 +0000
-Date: Thu, 26 May 2022 15:28:25 +0100
-From: Matthew Wilcox <willy@infradead.org>
-To: Dan Carpenter <dan.carpenter@oracle.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	kernel test robot <lkp@intel.com>,
-	virtualization@lists.linux-foundation.org, netdev@vger.kernel.org,
-	linux-staging@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-rdma@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-parport@lists.infradead.org, linux-omap@vger.kernel.org,
-	linux-mm@kvack.org, linux-fbdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, bpf@vger.kernel.org,
-	amd-gfx@lists.freedesktop.org, alsa-devel@alsa-project.org
-Subject: Re: [linux-next:master] BUILD REGRESSION
- 8cb8311e95e3bb58bd84d6350365f14a718faa6d
-Message-ID: <Yo+OiR6abzVksVTM@casper.infradead.org>
-References: <628ea118.wJYf60YnZco0hs9o%lkp@intel.com>
- <20220525145056.953631743a4c494aabf000dc@linux-foundation.org>
- <F0E25DFF-8256-48FF-8B88-C0E3730A3E5E@jrtc27.com>
- <20220525152006.e87d3fa50aca58fdc1b43b6a@linux-foundation.org>
- <Yo7U8kglHlcvQ0Ri@casper.infradead.org>
- <20220526084832.GC2146@kadam>
+	id 1nuEWE-00F8F5-9U
+	for linux-riscv@lists.infradead.org; Thu, 26 May 2022 14:31:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1653575478; x=1685111478;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Ed2yd8aNhL4cQz8uqrkE0QxcuOYwBtlwGyXKgcop6bw=;
+  b=xKawfrcL6rMMYx4AX3pK1EA73KNvpXT8IX+paw4MgLTMqfZNG9QqO2AP
+   YxT76GQC6OP03yxmHsZL5wIjaPG2ut3RRtE6xDgKTNFk1V/y/4wOeUUb0
+   4EfCQNl2YdeqAbNTwpESQ1Dq0bmMUMePyKXPaASEObi62VtDbkeMuG0Zm
+   BByWVkvSD3iHweFTKklc5rW8p6YUXSwtYVmd14YWtkn1i5jukvvssEs5m
+   t+eBzTpJamxPQI2WwDOwR73yKjtLL+JnXabZOfWLONiKRrJQhEfqrEoGI
+   J6FOd1xxOKeFTTtF4GV8rsZ+LZnb2AckEGqu05shuFQI6ybcmIVHbSrt3
+   g==;
+X-IronPort-AV: E=Sophos;i="5.91,252,1647327600"; 
+   d="scan'208";a="160739016"
+Received: from smtpout.microchip.com (HELO email.microchip.com) ([198.175.253.82])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 May 2022 07:31:12 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Thu, 26 May 2022 07:31:12 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
+ Transport; Thu, 26 May 2022 07:31:09 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley
+	<conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>,
+	Cyril Jean <Cyril.Jean@microchip.com>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Rob
+ Herring" <robh@kernel.org>
+Subject: [PATCH] riscv: dts: microchip: remove spi-max-frequency property
+Date: Thu, 26 May 2022 15:29:07 +0100
+Message-ID: <20220526142906.2285607-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220526084832.GC2146@kadam>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20220526_073118_434939_03DE1B8E 
+X-CRM114-Status: UNSURE (   7.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,26 +83,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 26, 2022 at 11:48:32AM +0300, Dan Carpenter wrote:
-> On Thu, May 26, 2022 at 02:16:34AM +0100, Matthew Wilcox wrote:
-> > Bizarre this started showing up now.  The recent patch was:
-> > 
-> > -       info->alloced += compound_nr(page);
-> > -       inode->i_blocks += BLOCKS_PER_PAGE << compound_order(page);
-> > +       info->alloced += folio_nr_pages(folio);
-> > +       inode->i_blocks += BLOCKS_PER_PAGE << folio_order(folio);
-> > 
-> > so it could tell that compound_order() was small, but folio_order()
-> > might be large?
-> 
-> The old code also generates a warning on my test system.  Smatch thinks
-> both compound_order() and folio_order() are 0-255.  I guess because of
-> the "unsigned char compound_order;" in the struct page.
+spi-max-frequency property is supposed to be a per SPI peripheral device
+property, not a SPI controller property, so drop it.
 
-It'd be nice if we could annotate that as "contains a value between
-1 and BITS_PER_LONG - PAGE_SHIFT".  Then be able to optionally enable
-a checker that ensures that's true on loads/stores.  Maybe we need a
-language that isn't C :-P  Ada can do this ... I don't think Rust can.
+Reported-by: Rob Herring <robh@kernel.org>
+Link: https://lore.kernel.org/lkml/20220526014141.2872567-1-robh@kernel.org/
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index c5c9d1360de0..40b11b530bca 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -274,7 +274,6 @@ spi0: spi@20108000 {
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <54>;
+ 			clocks = <&clkcfg CLK_SPI0>;
+-			spi-max-frequency = <25000000>;
+ 			status = "disabled";
+ 		};
+ 
+@@ -286,7 +285,6 @@ spi1: spi@20109000 {
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <55>;
+ 			clocks = <&clkcfg CLK_SPI1>;
+-			spi-max-frequency = <25000000>;
+ 			status = "disabled";
+ 		};
+ 
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
