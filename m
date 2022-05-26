@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8243C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 10:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D29C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 10:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qlm704m71MYzkHmFIIx4mnfz0c4rWgMGTfsOE9Zjm5U=; b=G/8PUodhjrF1Xl
-	fIb0xXRNHeut4npV5Vgs2Wxb/iBxThQKNhbkKG0dnc0YD11Hk61Z8TyxvTezPWfyUEq3VkzaoqW9q
-	WIHXAmTBLyYMxY2A/eGsS5jEQVbeJgEfZua6Ct62JIflB8VLmHEArsg2wz5cTxZZWKvltNJe5WZmu
-	aziq9Jef1bDcJ4Tcbz8y6rfUg1r9TCkwz8dtZ6LWjjVJwRX+n/OV5NnmroNtz3V+Q+pBAPtp1ft9y
-	wGQAAwAzKRyh32yVBQSFlPIVRRoNlS6qCZNRL2XTxa5zo/mmPdKzNeqbVWUhKjKTJGjA/1QzNCk9u
-	ROLWzo4zqFBNQriiDT7g==;
+	List-Owner; bh=eesFSu2LDKDzdTK16KcEp0RV9L9rHHM3xuVDhhqyR18=; b=e8oboKrdanBTic
+	o+xt2AD5vu6jYB36bcihy5GdfqilOh4v6wyDJFqRsyQjdyRhmc82jdXb6NhK+xHLyqf+X6v9+AE3/
+	GMxU5pgYzN48e8NjCoyw93vkHMC0ojBv63s35ZtdG8ZzgRYhG+bCdjlOZCiEVMfcpEjooIiFauVmY
+	F3385ragovY2roUh3mYvAoMVHw/8BBe3EkeI1Yzxa9i3LGnmzuDEpmFEmWO5kQ//bsO8XRgcCZQyi
+	ZFBYar45/fU1v05AaREurPYvaqLB0B1l+BfcqTvcFY3KZfmrBwcQHlFHl/ygOSWrVqHSvk6CBkyG8
+	XIRK032HxZaT5H5JjW1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuAVJ-00EMe3-RS; Thu, 26 May 2022 10:14:05 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1nuAXB-00EN7z-JT; Thu, 26 May 2022 10:16:01 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuAVH-00EMbW-KZ
-	for linux-riscv@lists.infradead.org; Thu, 26 May 2022 10:14:05 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id s14so1059643plk.8
-        for <linux-riscv@lists.infradead.org>; Thu, 26 May 2022 03:14:01 -0700 (PDT)
+	id 1nuAX8-00EN76-Su
+	for linux-riscv@lists.infradead.org; Thu, 26 May 2022 10:16:00 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id q18so1051749pln.12
+        for <linux-riscv@lists.infradead.org>; Thu, 26 May 2022 03:15:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=date:from:to:cc:subject:message-id:references:mime-version
          :content-disposition:in-reply-to;
-        bh=cJRzOpKgtwU4rrRmVY0G9vrNWq/M/GyTzVQS/4EO73M=;
-        b=kw6tfDLlv/2wMtAl9/ySnsycGYMBVDM1PY4gGAFJmWDGBshKOu60vIaSpy3kRN4FMw
-         Gdbw158BJWeB3Y6NIV8/WgaWu33kw5ZNXeeUmOLcpArVjyNXTp05Gz90KEH9XYCmkE/Q
-         WLNuPNhkkVc3GhXhEElA0IrVKUpp8k1p3YMFQiOeN8sxjQnviRu8VjHp5Kq2yq0hhJmN
-         2cwLt1kXhmgncnkwK4FSTbA0e6qwloIzM/tgmpHntFJIznFE/35Ii1v/h2dkSKIqPSaY
-         VchGopo3XRBEaT4yg2au7r9Fi0hXPJG/63suLBlwPf4KWkHyneyFsZwLw1jqorBGW5MO
-         gVxg==
+        bh=1Y3eU/w+btAOyZHyBXYt+hk25vT05aSPhsIXUT8uHW4=;
+        b=Udx8BVbAkgZSSSzXzgFgYJbCewYfcdOpz6T7ErV8QIvhsSQ1EYf2KvPy+lFegyPAd6
+         FNfgWZhnOnlMHk2m9HFCEFzXJki/V52WDF3S5Ej5XqwJW8C9zIrPtcnYRbKyb88ktsc/
+         VInB3efk12Vodx/9EWhqliUp3tlsWYWH1w42wcQDNp/8sG94vsl36u37aCByBYr0KRxW
+         VOiHpIMGgA3dkn9vk4WXcH2j6s/oWaZkmrAShqRvTidBenAQm7KWdnKZsq6LhmvnoUIu
+         F+UROkgF/b9j5swVr91EFcCRyN5zd3IHryE+QselPPfxwj7u9K1hoNJsK8Q/x0aGDMZZ
+         iPAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:from:to:cc:subject:message-id:references
          :mime-version:content-disposition:in-reply-to;
-        bh=cJRzOpKgtwU4rrRmVY0G9vrNWq/M/GyTzVQS/4EO73M=;
-        b=ALNfIicAuij5KeybrcU++zH0iulVjXc0hXYRKAaUl/HQXdeJdS6B/Oe6DTQanjrl9D
-         z5VSpg2sP9O/oXo9FYcUTk2Cm0bm3bh25d1PzkWAgyEn0WrAYK1xpNaTZw6uNglT2QGB
-         nGpCnY8XA9trCWxppKN2Kt+qUe764Wuz5F5i8BNaDQr0qCxbajJMfzljSn/3woFcCQJG
-         FDTGLnJ2a/ZEMdzttDTCj7esEhe/BRcAZAsp885lpuq4Lek8PU3XgonNeesQibLj2WSF
-         yKYJkoNuld/pPaajrXw9Z0ysZGmmJ36wNZKubHEF9vp1vXfhcuf7CXOgByAHPM4Nl/Rm
-         mvQA==
-X-Gm-Message-State: AOAM531sKo3N1ui3eZTXtlRr4JEZ4YsOBBbrWhkqBZb22oxteghxLWeo
-	GxaGPsZYx/CZ2DhNE4AC5S02rQ==
-X-Google-Smtp-Source: ABdhPJzZkEDR9mScCjsy8EHki8r7EX5qcp+SQ0l9TAfWxkM5LohggkZQCS3MIz6l/wdl311kgxq9Ww==
-X-Received: by 2002:a17:90a:55cc:b0:1e0:c4a7:4a59 with SMTP id o12-20020a17090a55cc00b001e0c4a74a59mr1835936pjm.127.1653560040601;
-        Thu, 26 May 2022 03:14:00 -0700 (PDT)
+        bh=1Y3eU/w+btAOyZHyBXYt+hk25vT05aSPhsIXUT8uHW4=;
+        b=pNqij4mYQzm5bi8kqm/JbXgG1sTEUwgh2ppcADxDZF8H1YgizNP8ZfwGdZAXw8pdhH
+         rGpGJSMLmIDmv4K+OhbYYVLc3YDKqpf1mRBgiNPu+0g6NFZkeZYSNTtQyEjAEe7V1JZb
+         nqlNTrLCytyjLq8SVZOcMpe+iMQJ+IkHCTJT9Q9INqprsN9UPPyjBO2w1sLkqOSXW3n6
+         Cvj7lTmJeXsT2dviDSP1wGIWGYb3F9QQZMZNgmZ3ca8mX4h3KLztUZYK5kJWFkrwVPCI
+         Yywb/gQmMIqlVMLf/nurg1T5tc48Ac1C30laIjgxEM/IYEjqpobjPGme/nrkFb94VfX6
+         ijOA==
+X-Gm-Message-State: AOAM531/dh6gQq0Qvh2/jwSIU1z2ZuNI07JwMItcDdK9NQkFCCn19voV
+	oJfThcEN85DV7vBR9Xu/lNMiUSosLY6TsoXa
+X-Google-Smtp-Source: ABdhPJxJz34W7UwGbIHBo7cdYQHAxdsuQZtFizYaWq04IKjBgju6JFGWyLfVxAGBflzW20SnrJlKWQ==
+X-Received: by 2002:a17:903:2305:b0:163:64c7:f9ff with SMTP id d5-20020a170903230500b0016364c7f9ffmr5879166plh.46.1653560157179;
+        Thu, 26 May 2022 03:15:57 -0700 (PDT)
 Received: from sunil-laptop ([49.206.9.238])
-        by smtp.gmail.com with ESMTPSA id ce17-20020a17090aff1100b001e09a4afd69sm1090043pjb.7.2022.05.26.03.13.56
+        by smtp.gmail.com with ESMTPSA id ji13-20020a170903324d00b0016240bbe893sm1092596plb.302.2022.05.26.03.15.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 May 2022 03:14:00 -0700 (PDT)
-Date: Thu, 26 May 2022 15:43:54 +0530
+        Thu, 26 May 2022 03:15:56 -0700 (PDT)
+Date: Thu, 26 May 2022 15:45:50 +0530
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>,
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-efi@vger.kernel.org, Sunil V L <sunil.vl@gmail.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
-	Atish Patra <atishp@rivosinc.com>,
 	Anup Patel <apatel@ventanamicro.com>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	linux-efi <linux-efi@vger.kernel.org>,
-	Sunil V L <sunil.vl@gmail.com>
-Subject: Re: [PATCH 5/5] riscv/efi_stub: Support for 64bit boot-hartid
-Message-ID: <20220526101354.GA19431@sunil-laptop>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Albert Ou <aou@eecs.berkeley.edu>, Ard Biesheuvel <ardb@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Atish Patra <atishp@rivosinc.com>
+Subject: Re: [PATCH 2/5] riscv: cpu_ops_spinwait: Support for 64bit hartid
+Message-ID: <20220526101550.GB19431@sunil-laptop>
 References: <20220525151106.2176147-1-sunilvl@ventanamicro.com>
- <20220525151106.2176147-6-sunilvl@ventanamicro.com>
- <CAMj1kXFhEBv7MVCKZuXdx9=hZx3qWbkATdLDwXAe_Zn9Xyx=dg@mail.gmail.com>
- <1e90b15b-8c73-0de8-2885-1292923b7575@canonical.com>
+ <20220525151106.2176147-3-sunilvl@ventanamicro.com>
+ <a7910ff4-0bce-befa-f961-a82a8a1025a1@canonical.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <1e90b15b-8c73-0de8-2885-1292923b7575@canonical.com>
+In-Reply-To: <a7910ff4-0bce-befa-f961-a82a8a1025a1@canonical.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220526_031403_691397_5FEBCBBD 
-X-CRM114-Status: GOOD (  26.89  )
+X-CRM114-CacheID: sfid-20220526_031558_970544_5ED03808 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,79 +97,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 25, 2022 at 06:09:05PM +0200, Heinrich Schuchardt wrote:
-> On 5/25/22 17:48, Ard Biesheuvel wrote:
-> > On Wed, 25 May 2022 at 17:11, Sunil V L <sunilvl@ventanamicro.com> wrote:
-> > > 
-> > > The boot-hartid can be a 64bit value on RV64 platforms. Currently,
-> > > the "boot-hartid" in DT is assumed to be 32bit only. This patch
-> > > detects the size of the "boot-hartid" and uses 32bit or 64bit
-> > > FDT reads appropriately.
-> > > 
-> > > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
-> > > ---
-> > >   drivers/firmware/efi/libstub/riscv-stub.c | 12 +++++++++---
-> > >   1 file changed, 9 insertions(+), 3 deletions(-)
-> > > 
-> > > diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
-> > > index 9e85e58d1f27..d748533f1329 100644
-> > > --- a/drivers/firmware/efi/libstub/riscv-stub.c
-> > > +++ b/drivers/firmware/efi/libstub/riscv-stub.c
-> > > @@ -29,7 +29,7 @@ static int get_boot_hartid_from_fdt(void)
-> > >   {
-> > >          const void *fdt;
-> > >          int chosen_node, len;
-> > > -       const fdt32_t *prop;
-> > > +       const void *prop;
-> > > 
-> > >          fdt = get_efi_config_table(DEVICE_TREE_GUID);
-> > >          if (!fdt)
-> > > @@ -40,10 +40,16 @@ static int get_boot_hartid_from_fdt(void)
-> > >                  return -EINVAL;
-> > > 
-> > >          prop = fdt_getprop((void *)fdt, chosen_node, "boot-hartid", &len);
-> > > -       if (!prop || len != sizeof(u32))
-> > > +       if (!prop)
-> > > +               return -EINVAL;
-> > > +
-> > > +       if (len == sizeof(u32))
-> > > +               hartid = (unsigned long) fdt32_to_cpu(*(fdt32_t *)prop);
-> > > +       else if (len == sizeof(u64))
-> > > +               hartid = (unsigned long) fdt64_to_cpu(*(fdt64_t *)prop);
+On Wed, May 25, 2022 at 05:27:51PM +0200, Heinrich Schuchardt wrote:
+> On 5/25/22 17:11, Sunil V L wrote:
+> > The hartid can be a 64bit value on RV64 platforms. This patch modifies
+> > the hartid variable type to unsigned long so that it can hold 64bit
+> > value on RV64 platforms.
 > > 
-> > Does RISC-V care about alignment? A 64-bit quantity is not guaranteed
-> > to appear 64-bit aligned in the DT, and the cast violates C alignment
-> > rules, so this should probably used get_unaligned_be64() or something
-> > like that.
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > ---
+> >   arch/riscv/kernel/cpu_ops_spinwait.c | 2 +-
+> >   1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/riscv/kernel/cpu_ops_spinwait.c b/arch/riscv/kernel/cpu_ops_spinwait.c
+> > index 346847f6c41c..51ac07514a62 100644
+> > --- a/arch/riscv/kernel/cpu_ops_spinwait.c
+> > +++ b/arch/riscv/kernel/cpu_ops_spinwait.c
+> > @@ -18,7 +18,7 @@ void *__cpu_spinwait_task_pointer[NR_CPUS] __section(".data");
+> >   static void cpu_update_secondary_bootdata(unsigned int cpuid,
+> >   				   struct task_struct *tidle)
+> >   {
+> > -	int hartid = cpuid_to_hartid_map(cpuid);
+> > +	unsigned long hartid = cpuid_to_hartid_map(cpuid);
+> >   	/*
+> >   	 * The hartid must be less than NR_CPUS to avoid out-of-bound access
 > 
-> When running in S-mode the SBI handles unaligned access but this has a
-> performance penalty.
+> This line follows:
 > 
-> We could use fdt64_to_cpu(__get_unaligned_t(fdt64_t, prop)) here.
+> if (hartid == INVALID_HARTID || hartid >= NR_CPUS)
+> 
+> INVALID_HARTID is defined as ULONG_MAX. Please, mention that you are fixing
+> a bug:
+> 
+> Fixes: c78f94f35cf648 ("RISC-V: Use __cpu_up_stack/task_pointer only for
+> spinwait method")
+> 
+> NR_CPUS alias CONFIG_NR_CPUS is an int. You should convert it to unsigned
+> before comparing it to hartid to avoid build warnings.
 
-Thank you very much for the feedback. Have updated as per your
-suggestion and sent V2.
+Thank you for the feedback. Have modified the patch and commit message
+as per your suggestion in V2 version. Please check.
 
 Thanks
 Sunil
-
 > 
 > Best regards
 > 
 > Heinrich
-> 
-> > 
-> > 
-> > > +       else
-> > >                  return -EINVAL;
-> > > 
-> > > -       hartid = fdt32_to_cpu(*prop);
-> > >          return 0;
-> > >   }
-> > > 
-> > > --
-> > > 2.25.1
-> > > 
 > 
 
 _______________________________________________
