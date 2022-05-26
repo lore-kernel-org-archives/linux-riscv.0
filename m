@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E6AC433F5
-	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 14:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3140C433F5
+	for <linux-riscv@archiver.kernel.org>; Thu, 26 May 2022 14:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tcCNYQK9oFpuazRZdOy+zOfLkfYDzjrMXh+NrZge18A=; b=IYCBWjUAsIIB5Z
-	ke6+7r6qjsIhjuKlpcZIHxHlIj4pTtR3RRxUDZCrj1/Z7iXUBpmcEyhoLkxqRwIy3BS6J9lztmeB3
-	Q2BMDHTFJasYiADgcH7kw5A07BjF1y5vvYcldL1ifi4Z1gQkshfDPRRIQIbK1/Wjl7ICTxBmA/5dS
-	MhZYUoddF3bLXEqCEBmPdKCzHYoKJ0/OGr4H2qH1LKgD/SkwkHC4QFnurpEOkjeqqsKHNX9znocq+
-	Om7gIcpKgDm50BDGgaUPbBw+qzJfrVO1tvAMVVs+SMJP2YI/oaDqznZHy08uUSbe5iJqMMNWbNN17
-	9Ziqn2enpnDiLR3FZlbA==;
+	List-Owner; bh=HFnu5C1tnEbIQzTwpURxNgcdhYVFn2S3nrxR6FHDI0s=; b=Wg6nyIawhAXm7J
+	z7j7X2Co2SDaUSsxor2Frwg6zdhPOdj6uh9jF6SW8sEP/XLDLwglCYdGgOglZe+dkWJzW/hJOUJ4I
+	G23IKkKCeQV2C6x4RHYhqM9dz1blVEay5JSIZn3PDqtAUK99lV4cs4JDUK8M9BZsFN6DWsN1oV/QQ
+	5MyjrCL/dppni70iVmZMn2UdWUDw6TEZJxsdy8XxvYCoiwGTfifuVE1ChmEHSdBgYtPnz3JqrHW3U
+	UZZIoDYvJjUpq38fJXlRC5n1LkYu28Cb0g/bkFL72c4IAiBLk/Oqg96tp/2zl1/HSpkx03AbhwE5T
+	byOX1OeUVB5cca9HNZSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuE7f-00F5pv-OI; Thu, 26 May 2022 14:05:55 +0000
-Received: from mout.kundenserver.de ([212.227.126.187])
+	id 1nuETk-00F7gh-6k; Thu, 26 May 2022 14:28:44 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuE7d-00F5ot-AJ
-	for linux-riscv@lists.infradead.org; Thu, 26 May 2022 14:05:54 +0000
-Received: from mail-yb1-f176.google.com ([209.85.219.176]) by
- mrelayeu.kundenserver.de (mreue012 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1MdwRi-1nJFTX1hKA-00b6uA for <linux-riscv@lists.infradead.org>; Thu, 26 May
- 2022 16:05:49 +0200
-Received: by mail-yb1-f176.google.com with SMTP id i11so3036022ybq.9
-        for <linux-riscv@lists.infradead.org>; Thu, 26 May 2022 07:05:48 -0700 (PDT)
-X-Gm-Message-State: AOAM533t8NFtc5FmBSHJF4eMokOzF/ZSfamHiyGIMLY22kuXjhz5oCpM
-	UGp6XOQeyzfmZYOVxwAe1/zKMd0LjTtuKIkqd1o=
-X-Google-Smtp-Source: ABdhPJyW6T0HxS8nRfGN2cj5Oi1n80F2UiMCqhaJN6XDQc/NZEUlfe2VDIsdY5cT/6NAmJsBfTfBFsZDS2WvmRY6bXM=
-X-Received: by 2002:a25:bd8b:0:b0:657:8392:55c3 with SMTP id
- f11-20020a25bd8b000000b00657839255c3mr1620326ybh.452.1653573947731; Thu, 26
- May 2022 07:05:47 -0700 (PDT)
+	id 1nuETi-00F7gT-7W; Thu, 26 May 2022 14:28:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=k7apNoi1g1YhGHKMlKvo5ejDwWGQrfqPL3Ty5xTWm5Q=; b=jt2D3c7xgVZUKhGsBafhmm2sFE
+	7iHXpIRdAmkRqKCTrByt8vvIu4Y3EGktUCpnmPTFxq5LEtvIgLU7neTQ7C/IsI99LeEY7HaXKuYy7
+	5ZrEicxpMCl0i/enkPZwHxhNQ3wSCLz0PWMpopuxkJst9ua3Mey2ATEpeisJ/smtNzknhVcxsQdkT
+	dSKtJhfNJpH19fcWEk13NeBfTP6RD6LPE68nShdvuaPUklK12w19DAh/i1OVAzpUZ0A5rCLZKasUp
+	WeWqziAdu0JgzoPn8WlmbMtIWF1JBvKksSw7KZdNfdrklRu0O6zxydJrgJF+gvKG7sfmTWPCyIS6G
+	yc+jDrmg==;
+Received: from willy by casper.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nuETR-001JAt-Fo; Thu, 26 May 2022 14:28:25 +0000
+Date: Thu, 26 May 2022 15:28:25 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Dan Carpenter <dan.carpenter@oracle.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Jessica Clarke <jrtc27@jrtc27.com>,
+	kernel test robot <lkp@intel.com>,
+	virtualization@lists.linux-foundation.org, netdev@vger.kernel.org,
+	linux-staging@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-rdma@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-parport@lists.infradead.org, linux-omap@vger.kernel.org,
+	linux-mm@kvack.org, linux-fbdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, bpf@vger.kernel.org,
+	amd-gfx@lists.freedesktop.org, alsa-devel@alsa-project.org
+Subject: Re: [linux-next:master] BUILD REGRESSION
+ 8cb8311e95e3bb58bd84d6350365f14a718faa6d
+Message-ID: <Yo+OiR6abzVksVTM@casper.infradead.org>
+References: <628ea118.wJYf60YnZco0hs9o%lkp@intel.com>
+ <20220525145056.953631743a4c494aabf000dc@linux-foundation.org>
+ <F0E25DFF-8256-48FF-8B88-C0E3730A3E5E@jrtc27.com>
+ <20220525152006.e87d3fa50aca58fdc1b43b6a@linux-foundation.org>
+ <Yo7U8kglHlcvQ0Ri@casper.infradead.org>
+ <20220526084832.GC2146@kadam>
 MIME-Version: 1.0
-References: <20220307140804.1400-1-jszhang@kernel.org> <CAK8P3a33aPwi0hBAyFREqM-BKVJwin=O9cOR4NzWPtr1j2pLiA@mail.gmail.com>
- <YoCMJhH9EP4+01pB@xhacker> <CAK8P3a0dNbwyJm3Zq-H6MQDrEcTA+wu01VvSHtFVyBT2NtMRCQ@mail.gmail.com>
-In-Reply-To: <CAK8P3a0dNbwyJm3Zq-H6MQDrEcTA+wu01VvSHtFVyBT2NtMRCQ@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Thu, 26 May 2022 16:05:30 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a1ezympZ0EDJPV9ipLWxqcNKm5QC-O44uA0oRhbFvMnqQ@mail.gmail.com>
-Message-ID: <CAK8P3a1ezympZ0EDJPV9ipLWxqcNKm5QC-O44uA0oRhbFvMnqQ@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: add irq stack support
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-X-Provags-ID: V03:K1:KgPY4oiJeYE55B5BCBf714J025xro4bnQVQNIe+UCZzXlFlQNOx
- GjqGyGROT1fyszZWTZB+5AGp6mUkmLzRqmjx6q5sAT8Ftz0Xci5cQAGRvVbbZiIP35nX9db
- GLWQjF63saZsmkpaWBeoi5tXDws7ocKomN7aJQD5egYQyQu1esi+a74yfzVSvU7NCJ21VW5
- H5axeCUZ79qhQZ98GfLBQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:XOUJNVvbnpg=:2gcKitzzihMofQ94NAOteh
- +ipHJjwJibz4lCdHbnx4Ct5cAqIzJBfAmpcH5MFRtMvXUrILPDg8vMqS6a1v75iCh8quYmzAB
- iLhhVsmfSJL/EItzfO69Sbf6DOvtJpTlM1fJaPbCIGGOcKsVNk/apVUApsgv2OD5H3VikHaEN
- ImdbSLsQKksYfvOdsfOQS7mmXOM7li38mMcJG2hMHACT6g182gyFSYByYeehLSUM0Y0L9s2jM
- xX3JEWaTnebj3lgu93WQVHfqCC8AvgZaksPsq6zSgx288her628bSQsTpwnt5ClRRSCZH5ln0
- SZb45ohBuqxeuXwifXq9b27e0JPjG21LZmnB0Z3KRXp3sCwMiIcnV+XDXTYBe9vKRBCjjMzLx
- 6azpY1YyrChWhZXuKcWdQhdHna897WtAEQBeHzCOvIKygKUp0OlFNeyUR8wiPCrkY7F1Tl9Nq
- admc4WL0VPdK7exDC0f0Oo6dHrW3LVnBaDVsOEntJTTXeqNHgyZSJlQkH4yTdO4N1/g+u+Suh
- +MHYuCDzJJMNidXaSd8tXjEuIQqdTT5gjLoidj4mRs07fmWFJXFeTAuKLOVFz+neea+wDASpT
- DwUFyD0+AwcdQkAoHd2XC0MkPqMLhRMDl6FxU3FPEVY+Mbn59BsJuQJ29jZxjHJaDuNC6VuTv
- KdFPWEg0mDmTekHkitEtg8wT8l0wG8uV8U4AuXYfVYgBynBYDe7T20CBhcHcOiHqgR+ufGL9J
- /xAFhsa8BfZeJpyd2p0XnwmFJJtxhFZaJW312/b7NbnR+UqX5Xi3sTi60vv1zYrKFDxeIQkmp
- 6AEZRRJr5TT6OHZDSBmeija0fe/vqkFTipiYEnI7iJeTgGsL5YnXs88zxO0DkkOjn5Arl+6J3
- Cicjlv+ukYkA2v1mhW/w==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220526_070553_688424_E31A9F95 
-X-CRM114-Status: GOOD (  19.79  )
+Content-Disposition: inline
+In-Reply-To: <20220526084832.GC2146@kadam>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +78,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 23, 2022 at 10:16 AM Arnd Bergmann <arnd@arndb.de> wrote:
-> > > > +       for_each_possible_cpu(cpu) {
-> > > > +#ifdef CONFIG_VMAP_STACK
-> > > > +               void *s = __vmalloc_node(IRQ_STACK_SIZE, THREAD_ALIGN,
-> > > > +                                        THREADINFO_GFP, cpu_to_node(cpu),
-> > > > +                                        __builtin_return_address(0));
-> > > > +#else
-> > > > +               void *s = (void *)__get_free_pages(GFP_KERNEL, get_order(IRQ_STACK_SIZE));
-> > > > +#endif
-> > >
-> > > On a related topic: is there a reason to still keep the non-VMAP_STACK
-> >
-> > irq stack is 16KB on RV64 now, vmalloc doesn't gurantee physical
-> > continuous pages, I want to keep the stack physical continuous
-> > characteristic for !VMAP_STACK case.
->
-> I don't understand. What is the benefit of having a physically continuous
-> stack? If this is required for something, you could still get that with a VMAP
-> stack by using alloc_pages() to allocate the stack and them using vmap() to
-> put it into the vmalloc range with appropriate guard pages.
->
-> I think we really want to avoid the case of missing guard pages around
-> the stack, and eliminate the part where the stack is in the linear map.
+On Thu, May 26, 2022 at 11:48:32AM +0300, Dan Carpenter wrote:
+> On Thu, May 26, 2022 at 02:16:34AM +0100, Matthew Wilcox wrote:
+> > Bizarre this started showing up now.  The recent patch was:
+> > 
+> > -       info->alloced += compound_nr(page);
+> > -       inode->i_blocks += BLOCKS_PER_PAGE << compound_order(page);
+> > +       info->alloced += folio_nr_pages(folio);
+> > +       inode->i_blocks += BLOCKS_PER_PAGE << folio_order(folio);
+> > 
+> > so it could tell that compound_order() was small, but folio_order()
+> > might be large?
+> 
+> The old code also generates a warning on my test system.  Smatch thinks
+> both compound_order() and folio_order() are 0-255.  I guess because of
+> the "unsigned char compound_order;" in the struct page.
 
-I was actually confused here and mixed up a few things: I thought this
-was about whether to use vmap stacks unconditionally, and this is in
-fact not even an architecture specific decision, it's a global option as you
-are probably aware.
-
-Since one can still turn off VMAP_STACK for normal thread stacks,
-it doesn't make much of a difference whether one can do the same for
-IRQ stacks. Please just ignore what I said above. I see you already
-sent a modified v3, and I think either way is fine, feel free to revert back
-to this method if it makes life easier.
-
-       Arnd
+It'd be nice if we could annotate that as "contains a value between
+1 and BITS_PER_LONG - PAGE_SHIFT".  Then be able to optionally enable
+a checker that ensures that's true on loads/stores.  Maybe we need a
+language that isn't C :-P  Ada can do this ... I don't think Rust can.
 
 _______________________________________________
 linux-riscv mailing list
