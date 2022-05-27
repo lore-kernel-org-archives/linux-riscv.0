@@ -4,77 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F973C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 11:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F52C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 12:25:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X1nJf8Q6MIWi47BG2MecBdVaUD6lGriypxrFi8TRNaE=; b=TpaHnONf7P2FwX
-	aMXFdLup16WJYwgv/nGT/sVG54JZGSzpzdG9xR9tdV6BWUsXHPShrriOkJW0tj6s+hZj5VWUudjhH
-	goBHkNT4hA+lMKyxqkXcN1fHtrCcGZp5YQ/3RQiMlLLk7dpMuFNyZdgYUjOOCqcG671PV+KwbX9ju
-	463p3yu/Wf0hVfiAScE70ne9Z8e9rq76JNHHfDM8B+XxzsaUdn5VVFd2inSPwYvke0ayYTjBgXfNO
-	VMGH0Xljb6djAThq+aygAvKeIXHBtgJf4x8OjtiZIEm9iyTneZ8xT9kLyJfa+eZ77D9OJHNxwuLK4
-	mANJMrL4yLZfcbDiyidg==;
+	List-Owner; bh=QsHjDsOEjaVs4/QFYjWMRqYjCuAIx/EJiepWOxCjdvY=; b=1Tl0c7F1uWqDdN
+	Wu5zbXUwwba3HVru17goIwFDM4YjA7ZMuaVnpNAAFTeYmKdtx6bYIlPLuWWdUp4AWQI5EZDH/BHJs
+	KrIPiJsNhRKZcUWXPyWUDcUJeJwSSBJssF+yC4mMfysW3nKwMywbW5CKnECNsXhtEvhGs5VwnxOFF
+	y19/ARql0qMjpKnVYq/Pl8TlB78t7vvJd5X9eVJbo//RdY8SAJJAUU8ON6cK/7sqNNafOJYt7eHT8
+	jeGKAJ6z1wegIaqiLGNi3QHxWi5ZlFvF05OK+N4x7yWwrpIfXxWfmuCYisYdZdFroW0CcIbHISzX/
+	ieB0XVcfK5+xABjP1+Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuXnH-00HSKD-ST; Fri, 27 May 2022 11:06:11 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1nuZ1q-0000mw-Fd; Fri, 27 May 2022 12:25:18 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuXnD-00HSIx-Q2
-	for linux-riscv@lists.infradead.org; Fri, 27 May 2022 11:06:09 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-300beab2b76so43051337b3.13
-        for <linux-riscv@lists.infradead.org>; Fri, 27 May 2022 04:06:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=fRa2P5R5JHyAbD0921v5jTq/ooDfcVGFwaV7OE0Et6o=;
-        b=kJGGUDKLTlcgvdzeSf1+D3/jxr9Asp7eEdqVnybm5O84SY6IwYmKlOjsAjZ7ecrVva
-         uzAwaXxoJrGr7WCKwmJznP4IpRi68uaZB7JY4qkjUBn6PQz8V7M3MN1/59a9CwWJI4vp
-         BGojBTyC/1v4vfuvjyNAMMfRHb+zNLDVxKTaD3vXgUfj2aW5+Ry/6YW+eAuQQh+JvACH
-         NCsxOXsfQDzr5oSRfOtnHw3Vp6hrHpRP0hNAVxG6GzpyE/RGp8emjDPFXbGUcoTRvgpH
-         9TolshWpMSHkvnjcrK90CYS0cHHfJgXKSsdg/YuhGS0XtGq6l89G+sxadk9kuxexmfg7
-         kTQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=fRa2P5R5JHyAbD0921v5jTq/ooDfcVGFwaV7OE0Et6o=;
-        b=xzfdR+K/bU3Ogb1JdHykpl+/1zJQJ24uwEhZ3PYaJtSHEvywvLvyyH+kYekO11CCNY
-         WBvCHP2bXvxXhsBx7AOzj8qLCHCp0pOFcbTikmG9pqrOmRwSNI2peOT+AVFvqqasatpp
-         bEfKV/DRGkbj0m3iYFju0PDYnL5BjNwzVc8wQgjctsXh3MXpoMY+HLtYpavp4kFZso3S
-         7cxLAZMT5crfCUMy7lHCeIE0i/lnLVlivo0rne7GkyrAGjU1GTfA9pkj+oVT+BDf1f4d
-         hzJqgDcD/MCTQDYEtB4ROYRWwwsyj4Wcgnl/p7yvZQ7B261fv2jLls3zW+H5i8cQXMmC
-         1GfA==
-X-Gm-Message-State: AOAM533xF9L6nKwu+R4AW6tRHoiFQf5k/gyKE0Z57uEmB75M/lXQ6lKX
-	xvZ2aXIgpoDTPBw45GO0sm6SMAY2o4bZGtm3u0A=
-X-Google-Smtp-Source: ABdhPJxUmotqC0TlXzdswm1/HGKqKMcvrFQ6HTKOQiniXSSy8vS9J3TvvqymhS0jNEyh4j721BFcwJ4bO0u8WRmY+6U=
-X-Received: by 2002:a81:6c14:0:b0:306:14a:9f7c with SMTP id
- h20-20020a816c14000000b00306014a9f7cmr2089658ywc.16.1653649565012; Fri, 27
- May 2022 04:06:05 -0700 (PDT)
+	id 1nuZ1m-0000m1-PU; Fri, 27 May 2022 12:25:16 +0000
+Received: from pps.filterd (m0098404.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 24RATwTb021454;
+	Fri, 27 May 2022 12:23:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
+ subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=pp1; bh=RVk/+c6nPK5D2qeDI0zLbVO1lqN1tQYD0TzNeMii76M=;
+ b=CdGIqDdzBXd3h2dRHpL1DShFdmTRQ/K3BNoowjsJ7U4uRWdEUL24qUkp9B9CCe4qwI1x
+ ueMHE+3+v1uC7fMJZdhALNq0R69QTPr2X7t7hmmcYdqjvUF+dOgF+KjoQRzbmFzsymwU
+ 4TRs+Fcb59XpwhBMszKHjkfxh5jERETh0DSQF2mQOARMUdDnfiEcL/AxzL9Ab0Nz2WHK
+ SDNr7raIw4jjkxtIKRrkZp9dwvFLuLsudS4hJ9Ynj7wBxCmCSFMaztPXonoUGxJ1hjXA
+ 3uotVOEbohqQcj6NjHHndqMeFT50tNx88feHmMQrikGztx2louDZC2dPTlWt2pNYYxwq Kg== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3gavxnsywe-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 27 May 2022 12:23:53 +0000
+Received: from m0098404.ppops.net (m0098404.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 24RBpM9d025770;
+	Fri, 27 May 2022 12:23:52 GMT
+Received: from ppma01fra.de.ibm.com (46.49.7a9f.ip4.static.sl-reverse.com [159.122.73.70])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3gavxnsyvm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 27 May 2022 12:23:52 +0000
+Received: from pps.filterd (ppma01fra.de.ibm.com [127.0.0.1])
+	by ppma01fra.de.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 24RCLTLO021408;
+	Fri, 27 May 2022 12:23:49 GMT
+Received: from b06cxnps4074.portsmouth.uk.ibm.com (d06relay11.portsmouth.uk.ibm.com [9.149.109.196])
+	by ppma01fra.de.ibm.com with ESMTP id 3g9ucga110-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 27 May 2022 12:23:49 +0000
+Received: from d06av26.portsmouth.uk.ibm.com (d06av26.portsmouth.uk.ibm.com [9.149.105.62])
+	by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 24RCNkSu32899416
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 27 May 2022 12:23:46 GMT
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 225BAAE04D;
+	Fri, 27 May 2022 12:23:46 +0000 (GMT)
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A0D99AE045;
+	Fri, 27 May 2022 12:23:43 +0000 (GMT)
+Received: from osiris (unknown [9.145.57.114])
+	by d06av26.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+	Fri, 27 May 2022 12:23:43 +0000 (GMT)
+Date: Fri, 27 May 2022 14:23:42 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Peter Xu <peterx@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+        Richard Henderson <rth@twiddle.net>,
+        David Hildenbrand <david@redhat.com>, Matt Turner <mattst88@gmail.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, Michal Simek <monstr@monstr.eu>,
+        Russell King <linux@armlinux.org.uk>,
+        Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+        linux-riscv@lists.infradead.org,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Jonas Bonn <jonas@southpole.se>, Will Deacon <will@kernel.org>,
+        "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+        "H . Peter Anvin" <hpa@zytor.com>,
+        Andrea Arcangeli <aarcange@redhat.com>, openrisc@lists.librecores.org,
+        linux-s390@vger.kernel.org, Ingo Molnar <mingo@redhat.com>,
+        linux-m68k@lists.linux-m68k.org, Palmer Dabbelt <palmer@dabbelt.com>,
+        Chris Zankel <chris@zankel.net>, Peter Zijlstra <peterz@infradead.org>,
+        Alistair Popple <apopple@nvidia.com>, linux-csky@vger.kernel.org,
+        linux-hexagon@vger.kernel.org, Vlastimil Babka <vbabka@suse.cz>,
+        Thomas Gleixner <tglx@linutronix.de>, sparclinux@vger.kernel.org,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Stafford Horne <shorne@gmail.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, x86@kernel.org,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        Paul Mackerras <paulus@samba.org>,
+        linux-arm-kernel@lists.infradead.org,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+        linux-xtensa@linux-xtensa.org, Nicholas Piggin <npiggin@gmail.com>,
+        linux-sh@vger.kernel.org, Vasily Gorbik <gor@linux.ibm.com>,
+        Borislav Petkov <bp@alien8.de>, linux-mips@vger.kernel.org,
+        Max Filippov <jcmvbkbc@gmail.com>, Helge Deller <deller@gmx.de>,
+        Vineet Gupta <vgupta@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Johannes Weiner <hannes@cmpxchg.org>,
+        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        linux-um@lists.infradead.org, linux-alpha@vger.kernel.org,
+        Johannes Berg <johannes@sipsolutions.net>, linux-ia64@vger.kernel.org,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Dinh Nguyen <dinguyen@kernel.org>, Guo Ren <guoren@kernel.org>,
+        linux-snps-arc@lists.infradead.org, Hugh Dickins <hughd@google.com>,
+        Rich Felker <dalias@libc.org>, Andy Lutomirski <luto@kernel.org>,
+        Richard Weinberger <richard@nod.at>, linuxppc-dev@lists.ozlabs.org,
+        Brian Cain <bcain@quicinc.com>,
+        Yoshinori Sato <ysato@users.sourceforge.jp>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+        linux-parisc@vger.kernel.org, "David S . Miller" <davem@davemloft.net>,
+        Janosch Frank <frankja@linux.ibm.com>
+Subject: Re: [PATCH v3] mm: Avoid unnecessary page fault retires on shared
+ memory types
+Message-ID: <YpDCzvLER9AYJJc8@osiris>
+References: <20220524234531.1949-1-peterx@redhat.com>
 MIME-Version: 1.0
-References: <20220524172214.5104-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20220524172214.5104-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-In-Reply-To: <20220524172214.5104-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 27 May 2022 12:05:38 +0100
-Message-ID: <CA+V-a8vfzsB55YdFmtx3eim617b=WCYJu+Tm3SO9c1QCB3i0Lw@mail.gmail.com>
-Subject: Re: [PATCH RFC 2/2] irqchip/sifive-plic: Add support for Renesas
- RZ/Five SoC
-To: Marc Zyngier <maz@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	Phil Edworthy <phil.edworthy@renesas.com>, Biju Das <biju.das.jz@bp.renesas.com>
+Content-Disposition: inline
+In-Reply-To: <20220524234531.1949-1-peterx@redhat.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: B856HEmp0-oPmnQmmWvfQf-2fQL_698C
+X-Proofpoint-GUID: YnY8uuN2fOATVDxq6iTcIl1znLlGk8-q
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.874,Hydra:6.0.486,FMLib:17.11.64.514
+ definitions=2022-05-27_03,2022-05-27_01,2022-02-23_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
+ suspectscore=0 bulkscore=0 phishscore=0 priorityscore=1501 malwarescore=0
+ lowpriorityscore=0 mlxscore=0 clxscore=1011 mlxlogscore=999 spamscore=0
+ adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2204290000 definitions=main-2205270057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220527_040607_913512_C16205A3 
-X-CRM114-Status: GOOD (  41.98  )
+X-CRM114-CacheID: sfid-20220527_052514_911225_DE148ADB 
+X-CRM114-Status: GOOD (  41.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,247 +155,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Tue, May 24, 2022 at 07:45:31PM -0400, Peter Xu wrote:
+> I observed that for each of the shared file-backed page faults, we're very
+> likely to retry one more time for the 1st write fault upon no page.  It's
+> because we'll need to release the mmap lock for dirty rate limit purpose
+> with balance_dirty_pages_ratelimited() (in fault_dirty_shared_page()).
+> 
+> Then after that throttling we return VM_FAULT_RETRY.
+> 
+> We did that probably because VM_FAULT_RETRY is the only way we can return
+> to the fault handler at that time telling it we've released the mmap lock.
+> 
+> However that's not ideal because it's very likely the fault does not need
+> to be retried at all since the pgtable was well installed before the
+> throttling, so the next continuous fault (including taking mmap read lock,
+> walk the pgtable, etc.) could be in most cases unnecessary.
+> 
+> It's not only slowing down page faults for shared file-backed, but also add
+> more mmap lock contention which is in most cases not needed at all.
+> 
+> To observe this, one could try to write to some shmem page and look at
+> "pgfault" value in /proc/vmstat, then we should expect 2 counts for each
+> shmem write simply because we retried, and vm event "pgfault" will capture
+> that.
+> 
+> To make it more efficient, add a new VM_FAULT_COMPLETED return code just to
+> show that we've completed the whole fault and released the lock.  It's also
+> a hint that we should very possibly not need another fault immediately on
+> this page because we've just completed it.
+> 
+> This patch provides a ~12% perf boost on my aarch64 test VM with a simple
+> program sequentially dirtying 400MB shmem file being mmap()ed and these are
+> the time it needs:
+> 
+>   Before: 650.980 ms (+-1.94%)
+>   After:  569.396 ms (+-1.38%)
+> 
+> I believe it could help more than that.
+> 
+> We need some special care on GUP and the s390 pgfault handler (for gmap
+> code before returning from pgfault), the rest changes in the page fault
+> handlers should be relatively straightforward.
+> 
+> Another thing to mention is that mm_account_fault() does take this new
+> fault as a generic fault to be accounted, unlike VM_FAULT_RETRY.
+> 
+> I explicitly didn't touch hmm_vma_fault() and break_ksm() because they do
+> not handle VM_FAULT_RETRY even with existing code, so I'm literally keeping
+> them as-is.
+> 
+> Signed-off-by: Peter Xu <peterx@redhat.com>
+...
+> diff --git a/arch/s390/mm/fault.c b/arch/s390/mm/fault.c
+> index e173b6187ad5..9503a7cfaf03 100644
+> --- a/arch/s390/mm/fault.c
+> +++ b/arch/s390/mm/fault.c
+> @@ -339,6 +339,7 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
+>  	unsigned long address;
+>  	unsigned int flags;
+>  	vm_fault_t fault;
+> +	bool need_unlock = true;
+>  	bool is_write;
+>  
+>  	tsk = current;
+> @@ -433,6 +434,13 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
+>  			goto out_up;
+>  		goto out;
+>  	}
+> +
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED) {
+> +		need_unlock = false;
+> +		goto out_gmap;
+> +	}
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR))
+>  		goto out_up;
+>  
+> @@ -452,6 +460,7 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
+>  		mmap_read_lock(mm);
+>  		goto retry;
+>  	}
+> +out_gmap:
+>  	if (IS_ENABLED(CONFIG_PGSTE) && gmap) {
+>  		address =  __gmap_link(gmap, current->thread.gmap_addr,
+>  				       address);
+> @@ -466,7 +475,8 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
+>  	}
+>  	fault = 0;
+>  out_up:
+> -	mmap_read_unlock(mm);
+> +	if (need_unlock)
+> +		mmap_read_unlock(mm);
+>  out:
 
-On Tue, May 24, 2022 at 6:22 PM Lad Prabhakar
-<prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
->
-> The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
-> NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
-> case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
-> edge until the previous completion message has been received and
-> NCEPLIC100 doesn't support pending interrupt counter, hence losing the
-> interrupts if not acknowledged in time.
->
-> So the workaround for edge-triggered interrupts to be handled correctly
-> and without losing is that it needs to be acknowledged first and then
-> handler must be run so that we don't miss on the next edge-triggered
-> interrupt.
->
-> This patch adds a new compatible string for Renesas RZ/Five SoC and adds
-> support to change interrupt flow based on the interrupt type. It also
-> implements irq_ack and irq_set_type callbacks.
->
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
->  drivers/irqchip/Kconfig           |  1 +
->  drivers/irqchip/irq-sifive-plic.c | 71 ++++++++++++++++++++++++++++++-
->  2 files changed, 70 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-> index f3d071422f3b..aea0e4e7e547 100644
-> --- a/drivers/irqchip/Kconfig
-> +++ b/drivers/irqchip/Kconfig
-> @@ -537,6 +537,7 @@ config SIFIVE_PLIC
->         bool "SiFive Platform-Level Interrupt Controller"
->         depends on RISCV
->         select IRQ_DOMAIN_HIERARCHY
-> +       select IRQ_FASTEOI_HIERARCHY_HANDLERS
->         help
->            This enables support for the PLIC chip found in SiFive (and
->            potentially other) RISC-V systems.  The PLIC controls devices
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index bb87e4c3b88e..abffce48e69c 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -60,10 +60,13 @@
->  #define        PLIC_DISABLE_THRESHOLD          0x7
->  #define        PLIC_ENABLE_THRESHOLD           0
->
-> +#define RENESAS_R9A07G043_PLIC         1
-> +
->  struct plic_priv {
->         struct cpumask lmask;
->         struct irq_domain *irqdomain;
->         void __iomem *regs;
-> +       u8 of_data;
->  };
->
->  struct plic_handler {
-> @@ -163,10 +166,31 @@ static int plic_set_affinity(struct irq_data *d,
->  }
->  #endif
->
-> +static void plic_irq_ack(struct irq_data *d)
-> +{
-> +       struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-> +
-> +       if (irqd_irq_masked(d)) {
-> +               plic_irq_unmask(d);
-> +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-> +               plic_irq_mask(d);
-> +       } else {
-> +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-> +       }
-> +}
-> +
-I sometimes still see an interrupt miss!
-
-As per [0], we first need to claim the interrupt by reading the claim
-register which needs to be done in the ack callback (which should be
-doable) for edge interrupts, but the problem arises in the chained
-handler callback where it does claim the interrupt by reading the
-claim register.
-
-static void plic_handle_irq(struct irq_desc *desc)
-{
-    struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-    struct irq_chip *chip = irq_desc_get_chip(desc);
-    void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
-    irq_hw_number_t hwirq;
-
-    WARN_ON_ONCE(!handler->present);
-
-    chained_irq_enter(chip, desc);
-
-    while ((hwirq = readl(claim))) {
-        int err = generic_handle_domain_irq(handler->priv->irqdomain,
-                            hwirq);
-        if (unlikely(err))
-            pr_warn_ratelimited("can't find mapping for hwirq %lu\n",
-                    hwirq);
-    }
-
-    chained_irq_exit(chip, desc);
-}
-
-I was thinking I would get around by getting the irqdata in
-plic_handle_irq() callback using the irq_desc (struct irq_data *d =
-&desc->irq_data;) and check the d->hwirq but this will be always 9.
-
-        plic: interrupt-controller@12c00000 {
-            compatible = "renesas-r9a07g043-plic";
-            #interrupt-cells = <2>;
-            #address-cells = <0>;
-            riscv,ndev = <543>;
-            interrupt-controller;
-            reg = <0x0 0x12c00000 0 0x400000>;
-            clocks = <&cpg CPG_MOD R9A07G043_NCEPLIC_ACLK>;
-            clock-names = "plic100ss";
-            power-domains = <&cpg>;
-            resets = <&cpg R9A07G043_NCEPLIC_ARESETN>;
-            interrupts-extended = <&cpu0_intc 11 &cpu0_intc 9>;
-        };
-
-Any pointers on how this could be done sanely.
-
-[0] https://github.com/riscv/riscv-plic-spec/blob/master/images/PLICInterruptFlow.jpg
-
-Cheers,
-Prabhakar
-
-
->  static void plic_irq_eoi(struct irq_data *d)
->  {
->         struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
->
-> +       /*
-> +        * For Renesas R9A07G043 SoC if the interrupt type is EDGE
-> +        * we have already acknowledged it in ack callback.
-> +        */
-> +       if (handler->priv->of_data == RENESAS_R9A07G043_PLIC &&
-> +           !irqd_is_level_type(d))
-> +               return;
-> +
->         if (irqd_irq_masked(d)) {
->                 plic_irq_unmask(d);
->                 writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-> @@ -176,11 +200,37 @@ static void plic_irq_eoi(struct irq_data *d)
->         }
->  }
->
-> +static int plic_irq_set_type(struct irq_data *d, unsigned int type)
-> +{
-> +       struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-> +
-> +       if (handler->priv->of_data != RENESAS_R9A07G043_PLIC)
-> +               return 0;
-> +
-> +       switch (type) {
-> +       case IRQ_TYPE_LEVEL_HIGH:
-> +               irq_set_handler_locked(d, handle_fasteoi_irq);
-> +               break;
-> +
-> +       case IRQ_TYPE_EDGE_RISING:
-> +               irq_set_handler_locked(d, handle_fasteoi_ack_irq);
-> +               break;
-> +
-> +       default:
-> +               return -EINVAL;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
->  static struct irq_chip plic_chip = {
->         .name           = "SiFive PLIC",
->         .irq_mask       = plic_irq_mask,
->         .irq_unmask     = plic_irq_unmask,
-> +       .irq_ack        = plic_irq_ack,
->         .irq_eoi        = plic_irq_eoi,
-> +       .irq_set_type   = plic_irq_set_type,
-> +
->  #ifdef CONFIG_SMP
->         .irq_set_affinity = plic_set_affinity,
->  #endif
-> @@ -198,6 +248,19 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
->         return 0;
->  }
->
-> +static int plic_irq_domain_translate(struct irq_domain *d,
-> +                                    struct irq_fwspec *fwspec,
-> +                                    unsigned long *hwirq,
-> +                                    unsigned int *type)
-> +{
-> +       struct plic_priv *priv = d->host_data;
-> +
-> +       if (priv->of_data == RENESAS_R9A07G043_PLIC)
-> +               return irq_domain_translate_twocell(d, fwspec, hwirq, type);
-> +
-> +       return irq_domain_translate_onecell(d, fwspec, hwirq, type);
-> +}
-> +
->  static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
->                                  unsigned int nr_irqs, void *arg)
->  {
-> @@ -206,7 +269,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
->         unsigned int type;
->         struct irq_fwspec *fwspec = arg;
->
-> -       ret = irq_domain_translate_onecell(domain, fwspec, &hwirq, &type);
-> +       ret = plic_irq_domain_translate(domain, fwspec, &hwirq, &type);
->         if (ret)
->                 return ret;
->
-> @@ -220,7 +283,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
->  }
->
->  static const struct irq_domain_ops plic_irqdomain_ops = {
-> -       .translate      = irq_domain_translate_onecell,
-> +       .translate      = plic_irq_domain_translate,
->         .alloc          = plic_irq_domain_alloc,
->         .free           = irq_domain_free_irqs_top,
->  };
-> @@ -293,6 +356,9 @@ static int __init plic_init(struct device_node *node,
->         if (!priv)
->                 return -ENOMEM;
->
-> +       if (of_device_is_compatible(node, "renesas-r9a07g043-plic"))
-> +               priv->of_data = RENESAS_R9A07G043_PLIC;
-> +
->         priv->regs = of_iomap(node, 0);
->         if (WARN_ON(!priv->regs)) {
->                 error = -EIO;
-> @@ -411,5 +477,6 @@ static int __init plic_init(struct device_node *node,
->  }
->
->  IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
-> +IRQCHIP_DECLARE(renesas_r9a07g043_plic, "renesas-r9a07g043-plic", plic_init);
->  IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
->  IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init); /* for firmware driver */
-> --
-> 2.25.1
->
+This seems to be incorrect. __gmap_link() requires the mmap_lock to be
+held. Christian, Janosch, or David, could you please check?
 
 _______________________________________________
 linux-riscv mailing list
