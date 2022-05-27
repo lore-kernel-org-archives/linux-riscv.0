@@ -4,81 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76CAC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 04:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C1E6C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 04:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UbZkp7nBtqiz9RtL5UCfAoGSTTYu0pjsRs2/pif7iTw=; b=pmRA/Anw2xqHXJ
-	+Lja6TlD067+gB6K3k0i+g8rL8cVjEmX67cRWXIbJihwc98FqszhChtEkaG9/rzD8W9+emsqOhd16
-	CgNHWyHUDRiUtLxPqPK9ppNUdU2VaBtlTwxdCh/91eT3HDZoeA1+1egOgEceear4H4bjqRWHz2Oij
-	GXt0TQwg80OQp8S1NjezKxXbwzqroNXEtbw3AA626QHd5EKT+R9beQJeoM+r3O0J6ak9dEV0RC8CL
-	1iHtwvAIBb0zuhouq9rZ3Ias00m9k53vApMixgDjR64BLf3S48HwV2LKv+7INP/EX/vcy8d8xID2n
-	/1GQ5FX6X3pTu+hRIKPA==;
+	List-Owner; bh=/suZDn3RcvFPTNxu6AuEv3PAXaJ9s50cIOn0Nl0JEzc=; b=B/T9s+DPHkzHDn
+	PA8+YvjQbS3+4PQ1B5F2oTCReDUKl1i1yQPya6ATKQ4ODnBNS/y1T+DO2YIU+6zMm9QAYkwgJRVJ0
+	/8OHTbgqB/ewls5+rg8ywOSuDNE/Wh8+V12bg1ncOKUIzdBfKpuaY54EAJqiL0K6deaetTU5nUYtX
+	hWjp+L5232JckKeiyLk8s6D2FnlKL8TX9Wf5+NsTz0vZFe7G8CE109gCgWwQ7CGZX7VdRvElQQlNj
+	2yzPwdiGFc92XUOq8/GGJmEcyfc9V2A3OqUcqLrY35zcZYKxqqnYXH3wpEUmgk/4c0ubeTi9Wmou+
+	I08YwJWleHbavDKj5Y+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuRbv-00Ga1m-2b; Fri, 27 May 2022 04:30:03 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1nuRcx-00GaTr-Td; Fri, 27 May 2022 04:31:07 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuRbp-00GZyo-75
-	for linux-riscv@lists.infradead.org; Fri, 27 May 2022 04:29:59 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id gz24so3580102pjb.2
-        for <linux-riscv@lists.infradead.org>; Thu, 26 May 2022 21:29:56 -0700 (PDT)
+	id 1nuRcu-00GaSL-77
+	for linux-riscv@lists.infradead.org; Fri, 27 May 2022 04:31:06 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id t28so2972355pga.6
+        for <linux-riscv@lists.infradead.org>; Thu, 26 May 2022 21:31:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=PGyMM2fCHEPDPTo3f1L77jTuUtX2Qs605Nd7DQvcVL8=;
-        b=WCviYB4oHNo8OjkmxySSNqpahg6CH5EJo9BSJ+0C+BhRXfwBmN6euX916TU/AVOphx
-         VuX5pvkUSSXrGdAY2IE/A7gBl5HC2DPcK0Dj+1OTC4+lwqu7lC5LtTRZS06LnsmNSh1h
-         D+8ti+044oZ76Ux5Wno9EmMGIRiomm8RkTsJEsEpy05Hs7qXQwFduK1cXfKw84JSYrPF
-         KgZlx4rD+ccL0vT52cPYzFpT03pY4B+hzXUwRPyHtWnObOutgG2PQteNFv/ovSWkg3ck
-         b/KTWrmSwy1cjYIxB/eF/VaLt33N3VKxXTWVzb2PKLP8VRaMY20T65wtpN/vh/VxwmZP
-         kPUw==
+        d=ventanamicro.com; s=google;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to;
+        bh=XYes1esmPya3DIZza2UVxgQVJXUPok6oc9i7IGAxizo=;
+        b=NuHdmoauIFfael2DzypDrUaB29wpEPtKw/ROCTuk/nnj5UBKhJ4xlHbTG51Wn4lhzq
+         RZP5hgmj3F5dj0OYbu1IpUHppLPsWWZe7dpeH3XakLGvS3v5kgiZrzPBQ7dpsoR4r0q8
+         2ANi0n6PAKb5ftlK3lRUy0uj2s3kgfNw4vf7RB0J12x2QUVZGeMEXS6yB8t9Bm5Jd9OB
+         w9tHjv/gl/VaNC9uNtmFcRjLFc6AOHOHdB04ByBPKRQsS+LeJVwGfwIO9Q1R0ZeaVaZR
+         0SXFnbw4jqvBbxWBldphQdW9z5GpaKQgAueS0w+UdmuS13hawnNS0TqYf2YUvloLucWm
+         obXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=PGyMM2fCHEPDPTo3f1L77jTuUtX2Qs605Nd7DQvcVL8=;
-        b=wFXTJ0XmgufUzSqm+OhCuQlwb5jogWo8ufcs86kJa15PzerFVaDX8vTIbn2INrVskn
-         BLXphvyLKifBB0Eeln2rIp1cGdcRBN2IAx+AMYY6+Dlvj8tUqbaKt3ls1eNPLRKQzBzd
-         MpewTR5llFG7t2BRCDq3wMT9oHQjaD2hC6NR0/reQdaUYBQr8Jpn4K2BWKVuRgLlX5GL
-         3eN8Xj1a/SOzCasVfXuMajHJPI1zslsPTolHtj/WAV1EQGns4l9at8nafIzaTyjqd+iF
-         gSlUaSJziUpA7uiMYoQRTbI9Zu5JTql2+BJeRoYrA/AWOk22odoYDuGSS1dSV08T+FMF
-         eBPQ==
-X-Gm-Message-State: AOAM532+XYRJgkt2ySCWovrzDGDKPtbKruRzCQugEud+sH2jZ2zzcV/N
-	gAUlnXjBbPJ+ECvuyWFHkpLxyQ==
-X-Google-Smtp-Source: ABdhPJzFPD8cs7ZuK6APWQK76iXRZUSFt5yFJ8vtFEx0+aPBg86flIe0KEDvQCWD7WqeremAYzT7fQ==
-X-Received: by 2002:a17:902:c2d0:b0:15a:2344:f8a4 with SMTP id c16-20020a170902c2d000b0015a2344f8a4mr40912686pla.28.1653625795766;
-        Thu, 26 May 2022 21:29:55 -0700 (PDT)
-Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id y63-20020a638a42000000b003fadfd7be5asm2352307pgd.18.2022.05.26.21.29.54
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to;
+        bh=XYes1esmPya3DIZza2UVxgQVJXUPok6oc9i7IGAxizo=;
+        b=5qsDB/2oxLkrQ+LrkvdfT8iW511S0JpUHz4Oi/r8+F9yHF0ADRI21uN25Dw38HZiyA
+         L/TvZxnYsKz8V60zlQi12/WDPhI1trtgrWrcYOB4tEmnB6wfBDtcJtODbI4FoVzU5dhG
+         vzjcHttUtGtlhvKQfWubGWjgr0y9c+AIYQilU0yTc5M88qcr12HaiOW0rH2drcq+KT2e
+         xmQJhm4+xLpKDigH3uD0p8cD8ubF4HDU5+fLiYMGYCg37ZpHu5biiycuOlnq6rHlRavV
+         32/VZNtLcAEJMEC/JgspRJMqVpM7otYN6plPjzq/2UshrQrZOiyyUOqsLejBeVzTJfdm
+         YCbw==
+X-Gm-Message-State: AOAM530g0PWCvtPbQX4dXXoDqeq3+mj7vzxPDtMG7CEorJ04lqhw5XEl
+	wEg/vplKxhJn9MrLk8V3p2NTlQ==
+X-Google-Smtp-Source: ABdhPJwhizjW/dU14hRf3XegG/dTVMUKoHEBKrF3ct6aOAhptm7KfdgWndSaEoBJPsBSZ9Qe+jYOlw==
+X-Received: by 2002:a63:4666:0:b0:3fa:287f:b714 with SMTP id v38-20020a634666000000b003fa287fb714mr21732464pgk.398.1653625862015;
+        Thu, 26 May 2022 21:31:02 -0700 (PDT)
+Received: from sunil-laptop ([49.206.9.238])
+        by smtp.gmail.com with ESMTPSA id u11-20020a170902bf4b00b0016392bd5060sm402240pls.142.2022.05.26.21.30.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 May 2022 21:29:55 -0700 (PDT)
-From: Atish Patra <atishp@rivosinc.com>
-To: linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>,
-	Anup Patel <anup@brainfault.org>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	linux-riscv@lists.infradead.org,
+        Thu, 26 May 2022 21:31:01 -0700 (PDT)
+Date: Fri, 27 May 2022 10:00:55 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh+dt@kernel.org>
-Subject: [PATCH v4 4/4] RISC-V: KVM: Support sstc extension
-Date: Thu, 26 May 2022 21:29:37 -0700
-Message-Id: <20220527042937.1124009-5-atishp@rivosinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220527042937.1124009-1-atishp@rivosinc.com>
-References: <20220527042937.1124009-1-atishp@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ard Biesheuvel <ardb@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
+	linux-efi <linux-efi@vger.kernel.org>,
+	Sunil V L <sunil.vl@gmail.com>
+Subject: Re: [PATCH V2 4/5] riscv: cpu: Support for 64bit hartid
+Message-ID: <20220527043055.GA6225@sunil-laptop>
+References: <20220526101131.2340729-1-sunilvl@ventanamicro.com>
+ <20220526101131.2340729-5-sunilvl@ventanamicro.com>
+ <CAOnJCU+eutRHEEgXi8od+xY+0AyWj117MDwjY-hFVO3ZDjf1bg@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAOnJCU+eutRHEEgXi8od+xY+0AyWj117MDwjY-hFVO3ZDjf1bg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220526_212957_362215_EE8A9E52 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20220526_213104_315838_64F0639D 
+X-CRM114-Status: GOOD (  34.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,313 +101,274 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sstc extension allows the guest to program the vstimecmp CSR directly
-instead of making an SBI call to the hypervisor to program the next
-event. The timer interrupt is also directly injected to the guest by
-the hardware in this case. To maintain backward compatibility, the
-hypervisors also update the vstimecmp in an SBI set_time call if
-the hardware supports it. Thus, the older kernels in guest also
-take advantage of the sstc extension.
+On Thu, May 26, 2022 at 04:10:51PM -0700, Atish Patra wrote:
+> On Thu, May 26, 2022 at 3:12 AM Sunil V L <sunilvl@ventanamicro.com> wrote:
+> >
+> > Adds support for 64bit hartid in riscv_of_processor_hartid()
+> 
+> The commit text is a bit misleading as you are adding support for XLEN
+> hartid. For RV32, it is still 32bit.
+> This applies to the entire series.
 
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/include/asm/kvm_vcpu_timer.h |   8 +-
- arch/riscv/include/uapi/asm/kvm.h       |   1 +
- arch/riscv/kvm/main.c                   |  12 +-
- arch/riscv/kvm/vcpu.c                   |   5 +-
- arch/riscv/kvm/vcpu_timer.c             | 144 +++++++++++++++++++++++-
- 5 files changed, 161 insertions(+), 9 deletions(-)
+Thanks Atish. I somehow missed mentioning RV64 in this patch. Will
+update and send.
 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_timer.h b/arch/riscv/include/asm/kvm_vcpu_timer.h
-index 375281eb49e0..a24a265f3ccb 100644
---- a/arch/riscv/include/asm/kvm_vcpu_timer.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_timer.h
-@@ -28,6 +28,11 @@ struct kvm_vcpu_timer {
- 	u64 next_cycles;
- 	/* Underlying hrtimer instance */
- 	struct hrtimer hrt;
-+
-+	/* Flag to check if sstc is enabled or not */
-+	bool sstc_enabled;
-+	/* A function pointer to switch between stimecmp or hrtimer at runtime */
-+	int (*timer_next_event)(struct kvm_vcpu *vcpu, u64 ncycles);
- };
- 
- int kvm_riscv_vcpu_timer_next_event(struct kvm_vcpu *vcpu, u64 ncycles);
-@@ -39,6 +44,7 @@ int kvm_riscv_vcpu_timer_init(struct kvm_vcpu *vcpu);
- int kvm_riscv_vcpu_timer_deinit(struct kvm_vcpu *vcpu);
- int kvm_riscv_vcpu_timer_reset(struct kvm_vcpu *vcpu);
- void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu);
-+void kvm_riscv_vcpu_timer_save(struct kvm_vcpu *vcpu);
- int kvm_riscv_guest_timer_init(struct kvm *kvm);
--
-+bool kvm_riscv_vcpu_timer_pending(struct kvm_vcpu *vcpu);
- #endif
-diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-index 92bd469e2ba6..d2f02ba1947a 100644
---- a/arch/riscv/include/uapi/asm/kvm.h
-+++ b/arch/riscv/include/uapi/asm/kvm.h
-@@ -96,6 +96,7 @@ enum KVM_RISCV_ISA_EXT_ID {
- 	KVM_RISCV_ISA_EXT_H,
- 	KVM_RISCV_ISA_EXT_I,
- 	KVM_RISCV_ISA_EXT_M,
-+	KVM_RISCV_ISA_EXT_SSTC,
- 	KVM_RISCV_ISA_EXT_MAX,
- };
- 
-diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-index 2e5ca43c8c49..83c4db7fc35f 100644
---- a/arch/riscv/kvm/main.c
-+++ b/arch/riscv/kvm/main.c
-@@ -32,7 +32,7 @@ int kvm_arch_hardware_setup(void *opaque)
- 
- int kvm_arch_hardware_enable(void)
- {
--	unsigned long hideleg, hedeleg;
-+	unsigned long hideleg, hedeleg, henvcfg;
- 
- 	hedeleg = 0;
- 	hedeleg |= (1UL << EXC_INST_MISALIGNED);
-@@ -51,6 +51,16 @@ int kvm_arch_hardware_enable(void)
- 
- 	csr_write(CSR_HCOUNTEREN, -1UL);
- 
-+	if (riscv_isa_extension_available(NULL, SSTC)) {
-+#ifdef CONFIG_64BIT
-+		henvcfg = csr_read(CSR_HENVCFG);
-+		csr_write(CSR_HENVCFG, henvcfg | 1UL<<HENVCFG_STCE);
-+#else
-+		henvcfg = csr_read(CSR_HENVCFGH);
-+		csr_write(CSR_HENVCFGH, henvcfg | 1UL<<HENVCFGH_STCE);
-+#endif
-+	}
-+
- 	csr_write(CSR_HVIP, 0);
- 
- 	return 0;
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 47ad837adeb1..b9c349edb13c 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -143,7 +143,7 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
- 
- int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
- {
--	return kvm_riscv_vcpu_has_interrupts(vcpu, 1UL << IRQ_VS_TIMER);
-+	return kvm_riscv_vcpu_timer_pending(vcpu);
- }
- 
- void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu)
-@@ -374,6 +374,7 @@ static unsigned long kvm_isa_ext_arr[] = {
- 	RISCV_ISA_EXT_h,
- 	RISCV_ISA_EXT_i,
- 	RISCV_ISA_EXT_m,
-+	RISCV_ISA_EXT_SSTC,
- };
- 
- static int kvm_riscv_vcpu_get_reg_isa_ext(struct kvm_vcpu *vcpu,
-@@ -754,6 +755,8 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 				     vcpu->arch.isa);
- 	kvm_riscv_vcpu_host_fp_restore(&vcpu->arch.host_context);
- 
-+	kvm_riscv_vcpu_timer_save(vcpu);
-+
- 	csr->vsstatus = csr_read(CSR_VSSTATUS);
- 	csr->vsie = csr_read(CSR_VSIE);
- 	csr->vstvec = csr_read(CSR_VSTVEC);
-diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
-index 5c4c37ff2d48..6c7a1a81eafd 100644
---- a/arch/riscv/kvm/vcpu_timer.c
-+++ b/arch/riscv/kvm/vcpu_timer.c
-@@ -69,7 +69,18 @@ static int kvm_riscv_vcpu_timer_cancel(struct kvm_vcpu_timer *t)
- 	return 0;
- }
- 
--int kvm_riscv_vcpu_timer_next_event(struct kvm_vcpu *vcpu, u64 ncycles)
-+static int kvm_riscv_vcpu_update_vstimecmp(struct kvm_vcpu *vcpu, u64 ncycles)
-+{
-+#if defined(CONFIG_32BIT)
-+		csr_write(CSR_VSTIMECMP, ncycles & 0xFFFFFFFF);
-+		csr_write(CSR_VSTIMECMPH, ncycles >> 32);
-+#else
-+		csr_write(CSR_VSTIMECMP, ncycles);
-+#endif
-+		return 0;
-+}
-+
-+static int kvm_riscv_vcpu_update_hrtimer(struct kvm_vcpu *vcpu, u64 ncycles)
- {
- 	struct kvm_vcpu_timer *t = &vcpu->arch.timer;
- 	struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
-@@ -88,6 +99,65 @@ int kvm_riscv_vcpu_timer_next_event(struct kvm_vcpu *vcpu, u64 ncycles)
- 	return 0;
- }
- 
-+int kvm_riscv_vcpu_timer_next_event(struct kvm_vcpu *vcpu, u64 ncycles)
-+{
-+	struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-+
-+	return t->timer_next_event(vcpu, ncycles);
-+}
-+
-+static enum hrtimer_restart kvm_riscv_vcpu_vstimer_expired(struct hrtimer *h)
-+{
-+	u64 delta_ns;
-+	struct kvm_vcpu_timer *t = container_of(h, struct kvm_vcpu_timer, hrt);
-+	struct kvm_vcpu *vcpu = container_of(t, struct kvm_vcpu, arch.timer);
-+	struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
-+
-+	if (kvm_riscv_current_cycles(gt) < t->next_cycles) {
-+		delta_ns = kvm_riscv_delta_cycles2ns(t->next_cycles, gt, t);
-+		hrtimer_forward_now(&t->hrt, ktime_set(0, delta_ns));
-+		return HRTIMER_RESTART;
-+	}
-+
-+	t->next_set = false;
-+	kvm_vcpu_kick(vcpu);
-+
-+	return HRTIMER_NORESTART;
-+}
-+
-+bool kvm_riscv_vcpu_timer_pending(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-+	struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
-+
-+	if (!kvm_riscv_delta_cycles2ns(t->next_cycles, gt, t) ||
-+	    kvm_riscv_vcpu_has_interrupts(vcpu, 1UL << IRQ_VS_TIMER))
-+		return true;
-+	else
-+		return false;
-+}
-+
-+static void kvm_riscv_vcpu_timer_blocking(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-+	struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
-+	u64 delta_ns;
-+
-+	if (!t->init_done)
-+		return;
-+
-+	delta_ns = kvm_riscv_delta_cycles2ns(t->next_cycles, gt, t);
-+	if (delta_ns) {
-+		hrtimer_start(&t->hrt, ktime_set(0, delta_ns), HRTIMER_MODE_REL);
-+		t->next_set = true;
-+	}
-+}
-+
-+static void kvm_riscv_vcpu_timer_unblocking(struct kvm_vcpu *vcpu)
-+{
-+	kvm_riscv_vcpu_timer_cancel(&vcpu->arch.timer);
-+}
-+
- int kvm_riscv_vcpu_get_reg_timer(struct kvm_vcpu *vcpu,
- 				 const struct kvm_one_reg *reg)
- {
-@@ -180,10 +250,20 @@ int kvm_riscv_vcpu_timer_init(struct kvm_vcpu *vcpu)
- 		return -EINVAL;
- 
- 	hrtimer_init(&t->hrt, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
--	t->hrt.function = kvm_riscv_vcpu_hrtimer_expired;
- 	t->init_done = true;
- 	t->next_set = false;
- 
-+	/* Enable sstc for every vcpu if available in hardware */
-+	if (riscv_isa_extension_available(NULL, SSTC)) {
-+		t->sstc_enabled = true;
-+		t->hrt.function = kvm_riscv_vcpu_vstimer_expired;
-+		t->timer_next_event = kvm_riscv_vcpu_update_vstimecmp;
-+	} else {
-+		t->sstc_enabled = false;
-+		t->hrt.function = kvm_riscv_vcpu_hrtimer_expired;
-+		t->timer_next_event = kvm_riscv_vcpu_update_hrtimer;
-+	}
-+
- 	return 0;
- }
- 
-@@ -199,21 +279,73 @@ int kvm_riscv_vcpu_timer_deinit(struct kvm_vcpu *vcpu)
- 
- int kvm_riscv_vcpu_timer_reset(struct kvm_vcpu *vcpu)
- {
-+	struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-+
-+	t->next_cycles = -1ULL;
- 	return kvm_riscv_vcpu_timer_cancel(&vcpu->arch.timer);
- }
- 
--void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu)
-+static void kvm_riscv_vcpu_update_timedelta(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
- 
--#ifdef CONFIG_64BIT
--	csr_write(CSR_HTIMEDELTA, gt->time_delta);
--#else
-+#if defined(CONFIG_32BIT)
- 	csr_write(CSR_HTIMEDELTA, (u32)(gt->time_delta));
- 	csr_write(CSR_HTIMEDELTAH, (u32)(gt->time_delta >> 32));
-+#else
-+	csr_write(CSR_HTIMEDELTA, gt->time_delta);
- #endif
- }
- 
-+void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vcpu_csr *csr;
-+	struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-+
-+	kvm_riscv_vcpu_update_timedelta(vcpu);
-+
-+	if (!t->sstc_enabled)
-+		return;
-+
-+	csr = &vcpu->arch.guest_csr;
-+#if defined(CONFIG_32BIT)
-+	csr_write(CSR_VSTIMECMP, (u32)t->next_cycles);
-+	csr_write(CSR_VSTIMECMPH, (u32)(t->next_cycles >> 32));
-+#else
-+	csr_write(CSR_VSTIMECMP, t->next_cycles);
-+#endif
-+
-+	/* timer should be enabled for the remaining operations */
-+	if (unlikely(!t->init_done))
-+		return;
-+
-+	kvm_riscv_vcpu_timer_unblocking(vcpu);
-+}
-+
-+void kvm_riscv_vcpu_timer_save(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_vcpu_csr *csr;
-+	struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-+
-+	if (!t->sstc_enabled)
-+		return;
-+
-+	csr = &vcpu->arch.guest_csr;
-+	t = &vcpu->arch.timer;
-+#if defined(CONFIG_32BIT)
-+	t->next_cycles = csr_read(CSR_VSTIMECMP);
-+	t->next_cycles |= (u64)csr_read(CSR_VSTIMECMPH) << 32;
-+#else
-+	t->next_cycles = csr_read(CSR_VSTIMECMP);
-+#endif
-+	/* timer should be enabled for the remaining operations */
-+	if (unlikely(!t->init_done))
-+		return;
-+
-+	if (kvm_vcpu_is_blocking(vcpu))
-+		kvm_riscv_vcpu_timer_blocking(vcpu);
-+}
-+
- int kvm_riscv_guest_timer_init(struct kvm *kvm)
- {
- 	struct kvm_guest_timer *gt = &kvm->arch.timer;
--- 
-2.25.1
-
+Thanks
+Sunil
+> 
+> >   - Separate return value and status code.
+> >   - Make hartid variable type as unsigned long.
+> >   - Update the callers.
+> >
+> > Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+> > ---
+> >  arch/riscv/include/asm/processor.h |  4 ++--
+> >  arch/riscv/kernel/cpu.c            | 26 +++++++++++++++-----------
+> >  arch/riscv/kernel/cpufeature.c     |  6 ++++--
+> >  arch/riscv/kernel/smpboot.c        |  9 +++++----
+> >  drivers/clocksource/timer-riscv.c  | 15 ++++++++-------
+> >  drivers/irqchip/irq-riscv-intc.c   |  7 ++++---
+> >  drivers/irqchip/irq-sifive-plic.c  |  7 ++++---
+> >  7 files changed, 42 insertions(+), 32 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> > index 0749924d9e55..99fae9398506 100644
+> > --- a/arch/riscv/include/asm/processor.h
+> > +++ b/arch/riscv/include/asm/processor.h
+> > @@ -75,8 +75,8 @@ static inline void wait_for_interrupt(void)
+> >  }
+> >
+> >  struct device_node;
+> > -int riscv_of_processor_hartid(struct device_node *node);
+> > -int riscv_of_parent_hartid(struct device_node *node);
+> > +int riscv_of_processor_hartid(struct device_node *node, unsigned long *hartid);
+> > +int riscv_of_parent_hartid(struct device_node *node, unsigned long *hartid);
+> >
+> >  extern void riscv_fill_hwcap(void);
+> >  extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
+> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> > index ccb617791e56..477a33b34c95 100644
+> > --- a/arch/riscv/kernel/cpu.c
+> > +++ b/arch/riscv/kernel/cpu.c
+> > @@ -14,37 +14,36 @@
+> >   * Returns the hart ID of the given device tree node, or -ENODEV if the node
+> >   * isn't an enabled and valid RISC-V hart node.
+> >   */
+> > -int riscv_of_processor_hartid(struct device_node *node)
+> > +int riscv_of_processor_hartid(struct device_node *node, unsigned long *hart)
+> >  {
+> >         const char *isa;
+> > -       u32 hart;
+> >
+> >         if (!of_device_is_compatible(node, "riscv")) {
+> >                 pr_warn("Found incompatible CPU\n");
+> >                 return -ENODEV;
+> >         }
+> >
+> > -       hart = of_get_cpu_hwid(node, 0);
+> > -       if (hart == ~0U) {
+> > +       *hart = (unsigned long) of_get_cpu_hwid(node, 0);
+> > +       if (*hart == ~0UL) {
+> >                 pr_warn("Found CPU without hart ID\n");
+> >                 return -ENODEV;
+> >         }
+> >
+> >         if (!of_device_is_available(node)) {
+> > -               pr_info("CPU with hartid=%d is not available\n", hart);
+> > +               pr_info("CPU with hartid=%lu is not available\n", *hart);
+> >                 return -ENODEV;
+> >         }
+> >
+> >         if (of_property_read_string(node, "riscv,isa", &isa)) {
+> > -               pr_warn("CPU with hartid=%d has no \"riscv,isa\" property\n", hart);
+> > +               pr_warn("CPU with hartid=%lu has no \"riscv,isa\" property\n", *hart);
+> >                 return -ENODEV;
+> >         }
+> >         if (isa[0] != 'r' || isa[1] != 'v') {
+> > -               pr_warn("CPU with hartid=%d has an invalid ISA of \"%s\"\n", hart, isa);
+> > +               pr_warn("CPU with hartid=%lu has an invalid ISA of \"%s\"\n", *hart, isa);
+> >                 return -ENODEV;
+> >         }
+> >
+> > -       return hart;
+> > +       return 0;
+> >  }
+> >
+> >  /*
+> > @@ -53,11 +52,16 @@ int riscv_of_processor_hartid(struct device_node *node)
+> >   * To achieve this, we walk up the DT tree until we find an active
+> >   * RISC-V core (HART) node and extract the cpuid from it.
+> >   */
+> > -int riscv_of_parent_hartid(struct device_node *node)
+> > +int riscv_of_parent_hartid(struct device_node *node, unsigned long *hartid)
+> >  {
+> > +       int rc;
+> > +
+> >         for (; node; node = node->parent) {
+> > -               if (of_device_is_compatible(node, "riscv"))
+> > -                       return riscv_of_processor_hartid(node);
+> > +               if (of_device_is_compatible(node, "riscv")) {
+> > +                       rc = riscv_of_processor_hartid(node, hartid);
+> > +                       if (!rc)
+> > +                               return 0;
+> > +               }
+> >         }
+> >
+> >         return -1;
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index 1b2d42d7f589..49c05bd9352d 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -67,8 +67,9 @@ void __init riscv_fill_hwcap(void)
+> >         struct device_node *node;
+> >         const char *isa;
+> >         char print_str[NUM_ALPHA_EXTS + 1];
+> > -       int i, j;
+> > +       int i, j, rc;
+> >         static unsigned long isa2hwcap[256] = {0};
+> > +       unsigned long hartid;
+> >
+> >         isa2hwcap['i'] = isa2hwcap['I'] = COMPAT_HWCAP_ISA_I;
+> >         isa2hwcap['m'] = isa2hwcap['M'] = COMPAT_HWCAP_ISA_M;
+> > @@ -86,7 +87,8 @@ void __init riscv_fill_hwcap(void)
+> >                 DECLARE_BITMAP(this_isa, RISCV_ISA_EXT_MAX);
+> >                 const char *temp;
+> >
+> > -               if (riscv_of_processor_hartid(node) < 0)
+> > +               rc = riscv_of_processor_hartid(node, &hartid);
+> > +               if (rc < 0)
+> >                         continue;
+> >
+> >                 if (of_property_read_string(node, "riscv,isa", &isa)) {
+> > diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+> > index 622f226454d5..4336610a19ee 100644
+> > --- a/arch/riscv/kernel/smpboot.c
+> > +++ b/arch/riscv/kernel/smpboot.c
+> > @@ -76,15 +76,16 @@ void __init smp_prepare_cpus(unsigned int max_cpus)
+> >  void __init setup_smp(void)
+> >  {
+> >         struct device_node *dn;
+> > -       int hart;
+> > +       unsigned long hart;
+> >         bool found_boot_cpu = false;
+> >         int cpuid = 1;
+> > +       int rc;
+> >
+> >         cpu_set_ops(0);
+> >
+> >         for_each_of_cpu_node(dn) {
+> > -               hart = riscv_of_processor_hartid(dn);
+> > -               if (hart < 0)
+> > +               rc = riscv_of_processor_hartid(dn, &hart);
+> > +               if (rc < 0)
+> >                         continue;
+> >
+> >                 if (hart == cpuid_to_hartid_map(0)) {
+> > @@ -94,7 +95,7 @@ void __init setup_smp(void)
+> >                         continue;
+> >                 }
+> >                 if (cpuid >= NR_CPUS) {
+> > -                       pr_warn("Invalid cpuid [%d] for hartid [%d]\n",
+> > +                       pr_warn("Invalid cpuid [%d] for hartid [%lu]\n",
+> >                                 cpuid, hart);
+> >                         continue;
+> >                 }
+> > diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+> > index 1767f8bf2013..55142c27f0bc 100644
+> > --- a/drivers/clocksource/timer-riscv.c
+> > +++ b/drivers/clocksource/timer-riscv.c
+> > @@ -101,20 +101,21 @@ static irqreturn_t riscv_timer_interrupt(int irq, void *dev_id)
+> >
+> >  static int __init riscv_timer_init_dt(struct device_node *n)
+> >  {
+> > -       int cpuid, hartid, error;
+> > +       int cpuid, error;
+> > +       unsigned long hartid;
+> >         struct device_node *child;
+> >         struct irq_domain *domain;
+> >
+> > -       hartid = riscv_of_processor_hartid(n);
+> > -       if (hartid < 0) {
+> > -               pr_warn("Not valid hartid for node [%pOF] error = [%d]\n",
+> > +       error = riscv_of_processor_hartid(n, &hartid);
+> > +       if (error < 0) {
+> > +               pr_warn("Not valid hartid for node [%pOF] error = [%lu]\n",
+> >                         n, hartid);
+> > -               return hartid;
+> > +               return error;
+> >         }
+> >
+> >         cpuid = riscv_hartid_to_cpuid(hartid);
+> >         if (cpuid < 0) {
+> > -               pr_warn("Invalid cpuid for hartid [%d]\n", hartid);
+> > +               pr_warn("Invalid cpuid for hartid [%lu]\n", hartid);
+> >                 return cpuid;
+> >         }
+> >
+> > @@ -140,7 +141,7 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+> >                 return -ENODEV;
+> >         }
+> >
+> > -       pr_info("%s: Registering clocksource cpuid [%d] hartid [%d]\n",
+> > +       pr_info("%s: Registering clocksource cpuid [%d] hartid [%lu]\n",
+> >                __func__, cpuid, hartid);
+> >         error = clocksource_register_hz(&riscv_clocksource, riscv_timebase);
+> >         if (error) {
+> > diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+> > index b65bd8878d4f..499e5f81b3fe 100644
+> > --- a/drivers/irqchip/irq-riscv-intc.c
+> > +++ b/drivers/irqchip/irq-riscv-intc.c
+> > @@ -95,10 +95,11 @@ static const struct irq_domain_ops riscv_intc_domain_ops = {
+> >  static int __init riscv_intc_init(struct device_node *node,
+> >                                   struct device_node *parent)
+> >  {
+> > -       int rc, hartid;
+> > +       int rc;
+> > +       unsigned long hartid;
+> >
+> > -       hartid = riscv_of_parent_hartid(node);
+> > -       if (hartid < 0) {
+> > +       rc = riscv_of_parent_hartid(node, &hartid);
+> > +       if (rc < 0) {
+> >                 pr_warn("unable to find hart id for %pOF\n", node);
+> >                 return 0;
+> >         }
+> > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> > index bb87e4c3b88e..4710d9741f36 100644
+> > --- a/drivers/irqchip/irq-sifive-plic.c
+> > +++ b/drivers/irqchip/irq-sifive-plic.c
+> > @@ -317,7 +317,8 @@ static int __init plic_init(struct device_node *node,
+> >         for (i = 0; i < nr_contexts; i++) {
+> >                 struct of_phandle_args parent;
+> >                 irq_hw_number_t hwirq;
+> > -               int cpu, hartid;
+> > +               int cpu;
+> > +               unsigned long hartid;
+> >
+> >                 if (of_irq_parse_one(node, i, &parent)) {
+> >                         pr_err("failed to parse parent for context %d.\n", i);
+> > @@ -341,8 +342,8 @@ static int __init plic_init(struct device_node *node,
+> >                         continue;
+> >                 }
+> >
+> > -               hartid = riscv_of_parent_hartid(parent.np);
+> > -               if (hartid < 0) {
+> > +               error = riscv_of_parent_hartid(parent.np, &hartid);
+> > +               if (error < 0) {
+> >                         pr_warn("failed to parse hart ID for context %d.\n", i);
+> >                         continue;
+> >                 }
+> > --
+> > 2.25.1
+> >
+> 
+> Otherwise, it looks good.
+> 
+> Reviewed-by: Atish Patra <atishp@rivosinc.com>
+> 
+> -- 
+> Regards,
+> Atish
 
 _______________________________________________
 linux-riscv mailing list
