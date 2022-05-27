@@ -4,105 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28360C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 05:39:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17283C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 07:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FzOvO84t2uBPDXVoWs8mOFioY5X+Qxp2GFBnkGMupiw=; b=AvKdWEXJACjzyY
-	bpSuxbLC5ZFeyQJG6jo7Zpw2VbkN8fd6cBGpkZD5MuwgAiBieJWFFH4/eBYWVY5L581cbM7Gz2fAc
-	odcDqIm1Oz3lZc3eytcJhje9tzvub9gOVAtE9P6tVCDTuiQNUMn2+L16jqn36MupSyC2JX5zU5aRw
-	0NZgLtClQvWT5SLWF2qJzd6SKBRH83zei9aqLghPM7UxG9pVVub9d++CDT/7BvYIRP8KUUULTtiMn
-	GKcYLnB5LZi4tS+UfUAFf2j9Gt0VPw43LbONSah2GiJ9uS+XBuX1tLmlE5od9ROR4ozZmcSzmd7NC
-	ioq2Fau5foSM528YfwXw==;
+	List-Owner; bh=ITDTdHsb66Xy9DQ4/3/0D4y9XgB0A+K1CXmgOVY9mO4=; b=J2HATsJpcrJ6GI
+	nVm6pEeqCUmcB9U3fYhya1H6ZKtU3VQgJroMZ4CasvDWzweRyF53zHza4mupS48G4a1CVTqLXH1lF
+	U3g+hyQhO6cUgfzeSw/iSo/zCRgPbuaJLC88LQ+XV/MaFr12KCxt1G9qcmUYBuUwsQ27pbqjnDKK3
+	mVLErlew3q6CDe4y1TfGD+SSLlVCubJ9ybOwxSjEAySlsYWeL8eB97heexMILTY0i1FRmzYfXnLxE
+	7aOjlH1Hj5vjxeSJ+rR9N2ejax4UeMf5dTJ8VCPgvrJ83i6O+0K5Gt6AyFB74wizFwEgin8pS6jWF
+	ThJKFv/MdPN4tdiqo7bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuShF-00Ggdq-7x; Fri, 27 May 2022 05:39:37 +0000
-Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
+	id 1nuUDs-00Gqiy-O2; Fri, 27 May 2022 07:17:24 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuShB-00Ggc3-HW; Fri, 27 May 2022 05:39:34 +0000
-Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-e93bbb54f9so4641959fac.12;
-        Thu, 26 May 2022 22:39:28 -0700 (PDT)
+	id 1nuUDp-00GqiK-Iv
+	for linux-riscv@lists.infradead.org; Fri, 27 May 2022 07:17:23 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id v9so4022154lja.12
+        for <linux-riscv@lists.infradead.org>; Fri, 27 May 2022 00:17:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
+        d=google.com; s=20210112;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc;
-        bh=2j31mgyTy2/RMpvPafIuRR/7M5aCsOn5pH1JxQKELh0=;
-        b=WLF0ZKcKkqyL/2e9Vrm4jJIU7Iq70SjWVWeR4mG+diJpadGhfuylwbDWHZVjDdFbuq
-         Hxc+zHrNjRLjtRhI1yhC+nolDKLNrwOV2/oaWTaoh4VCK67BB0z5yPlcOmnthCOgtmez
-         8jkwQgYPNLUuG0ZEbUiSy7uVEpWFtrO5L4UM+4mbtXpWMiQIVZp0eLdp45xYgN9Jmvmc
-         aulsD6JeO/TIOhvHj+bALfaW9BR7tPWEUeyaMI8bJbO4wOxVeH/I0lrHRJ+FP9F521BK
-         /lEKp/SRZycKZGHLE0LZwkZV2trusLGaniTNIWTP9EnU7l+Xe/n5XI3K1uCmL30r4C8o
-         Jgxw==
+        bh=voFWQv6a5xlzqv/Wy2pnyZxPR7t3qCANmzRDMt69eQM=;
+        b=VJFVWclZ5ITOpPOYbwMUO5kyarbs1I7ptUJJHIGlx/puuiygOFJJ8es9rJ+TJgMR5L
+         jDdNe0AfsbECd5JaYrwzIhRX4/gG3xMji5FEaidC0JmVSJgKmNe3vpFjLBzUoICEGzV6
+         bwWOp5uXMrakRmn8u7uLmpWDUBi+aRCp/4pxDrpVlgRf1RYmEndAIApjBxYPzjAWiwk7
+         LcGc4rLWixzNBsO/wJ+EUI3yRGYg67+CiyBa/IpvNNAO1xadLv0O2LxFta5cX7jVV1uS
+         IdBXuzNq5fDxUfLb4iw+t88YThg8zeNrzDtWvxr+C98yiHRglOoEwGclOHdWzHPhAYDZ
+         yg2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=2j31mgyTy2/RMpvPafIuRR/7M5aCsOn5pH1JxQKELh0=;
-        b=5+GTRXBtILi0YFXlqI6TTU3YMivfm/cuJG45D5MZhUzs2lW9If6Wc8IVTYyRPPauSt
-         EPJ+Ec07eQuU68sFkurE8QQsbwjewtA5fWRwzGoYbMN9uKrYd/yatYZPO7sXMrUQ4k+E
-         EILpZMVv3+RCfqPhH/EwRhNL3Cn+dHxB13F5sDFPd/27dHjXXbJtYKEkFPYfPAatwd8U
-         MbI2o2m+c+rSmlBsw/5ItpehHM5DHKRImt1AMK+FkKWOxow+LTVvTjTsxszSM+yJ1igL
-         JPej/Vav9b0EPKfygQPZ9Xyq1wG3UQklUm4a6HrlmDgpeoF8b4vSwYMLUop962kAPG8x
-         29sQ==
-X-Gm-Message-State: AOAM532KhjAhVwkWRXcNDUQAO+iGdyGL6TQFXSyRhirALtKcygaIEIC3
-	toMSlr/mIiLBchc10oonpfUZ39oMiZzCREPkX90=
-X-Google-Smtp-Source: ABdhPJy8+6PjRSs5xseRfaJdStvLUZHZV5vQKgs4hS+3gJJgloJJ42WfwmBmCJpVr7XfQyeK+DIvF8/HIUAjs0cVwxU=
-X-Received: by 2002:a05:6870:5ba6:b0:f1:5840:f38e with SMTP id
- em38-20020a0568705ba600b000f15840f38emr3323758oab.210.1653629967367; Thu, 26
- May 2022 22:39:27 -0700 (PDT)
+        bh=voFWQv6a5xlzqv/Wy2pnyZxPR7t3qCANmzRDMt69eQM=;
+        b=Mjt4tymH8DCYalOntlLo7r93U8K+V7scTr+MZc6XkN1OAOagiZqjpbW70VFqVnVuJL
+         APDIQ+oQ/TOLR9naAOj1B99V2hctwlcvX2WNej8tp16hX2y2NoolhMRynZV/US9IiJjp
+         XVKT/ZtgLKskdN4Qs/NdKd3wzemnKtobaxOM/WNwonyw8sJIzpFMWI+XCCk4J7WawFIz
+         gSHj4dmdFieLEjGXqS4i29Fz7jZsRCkeoRqYhCBzpmjIwQcg7g/WQuEpro8L2Q+z3sGm
+         P5XwSTMFV5pTRQG4pCFCcRud7vEI5JRrOTYjmyMpVC1mJ/zxs3naYTVBtatTixa2DQNz
+         MzSw==
+X-Gm-Message-State: AOAM533XRgJkFj3j1FO2XOFSTw37+cvcOQ+i29h0wpZ2lLDe6Is56S/6
+	QI6GsYneXzrumtI8IiiEjKQY+WayftNjvXjF+o0nzg==
+X-Google-Smtp-Source: ABdhPJyd+CtbDb+tXi4xPX36hPJykAHSZOV6FMGlmXIe0sAKI+lJa7BGTYcNgavJ1lLMfXFViSMRvpWVNv8c9vivLt4=
+X-Received: by 2002:a05:651c:19aa:b0:253:fc5c:5e20 with SMTP id
+ bx42-20020a05651c19aa00b00253fc5c5e20mr9854059ljb.465.1653635836046; Fri, 27
+ May 2022 00:17:16 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220524234531.1949-1-peterx@redhat.com>
-In-Reply-To: <20220524234531.1949-1-peterx@redhat.com>
-From: Max Filippov <jcmvbkbc@gmail.com>
-Date: Thu, 26 May 2022 22:39:15 -0700
-Message-ID: <CAMo8BfJWzUnwPyWKsBsW2-x7t=Go5Mwb643kXm5BfpVDAeaeWA@mail.gmail.com>
-Subject: Re: [PATCH v3] mm: Avoid unnecessary page fault retires on shared
- memory types
-To: Peter Xu <peterx@redhat.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, 
-	Linux Memory Management List <linux-mm@kvack.org>, Richard Henderson <rth@twiddle.net>, 
-	David Hildenbrand <david@redhat.com>, Matt Turner <mattst88@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Michal Simek <monstr@monstr.eu>, Russell King <linux@armlinux.org.uk>, 
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Jonas Bonn <jonas@southpole.se>, Will Deacon <will@kernel.org>, 
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, "H . Peter Anvin" <hpa@zytor.com>, 
-	Andrea Arcangeli <aarcange@redhat.com>, openrisc@lists.librecores.org, 
-	linux-s390 <linux-s390@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	"open list:M68K ARCHITECTURE" <linux-m68k@lists.linux-m68k.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Heiko Carstens <hca@linux.ibm.com>, Chris Zankel <chris@zankel.net>, 
-	Peter Zijlstra <peterz@infradead.org>, Alistair Popple <apopple@nvidia.com>, linux-csky@vger.kernel.org, 
-	"open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>, Vlastimil Babka <vbabka@suse.cz>, 
-	Thomas Gleixner <tglx@linutronix.de>, 
-	"open list:SPARC + UltraSPAR..." <sparclinux@vger.kernel.org>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Stafford Horne <shorne@gmail.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, "maintainer:X86 ARCHITECTURE..." <x86@kernel.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Paul Mackerras <paulus@samba.org>, 
-	linux-arm-kernel@lists.infradead.org, Sven Schnelle <svens@linux.ibm.com>, 
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	"open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>, Nicholas Piggin <npiggin@gmail.com>, 
-	"open list:SUPERH" <linux-sh@vger.kernel.org>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Borislav Petkov <bp@alien8.de>, linux-mips@vger.kernel.org, Helge Deller <deller@gmx.de>, 
-	Vineet Gupta <vgupta@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Johannes Weiner <hannes@cmpxchg.org>, 
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-um@lists.infradead.org, 
-	"open list:ALPHA PORT" <linux-alpha@vger.kernel.org>, Johannes Berg <johannes@sipsolutions.net>, 
-	"open list:IA64 (Itanium) PL..." <linux-ia64@vger.kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	Dinh Nguyen <dinguyen@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	linux-snps-arc@lists.infradead.org, Hugh Dickins <hughd@google.com>, 
-	Rich Felker <dalias@libc.org>, Andy Lutomirski <luto@kernel.org>, Richard Weinberger <richard@nod.at>, 
-	linuxppc-dev@lists.ozlabs.org, Brian Cain <bcain@quicinc.com>, 
-	Yoshinori Sato <ysato@users.sourceforge.jp>, Andrew Morton <akpm@linux-foundation.org>, 
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
-	"open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>, "David S . Miller" <davem@davemloft.net>
+References: <00000000000038779505d5d8b372@google.com> <CANp29Y7WjwXwgxPrNq0XXjXPu+wGFqTreh9gry=O6aE7+cKpLQ@mail.gmail.com>
+ <CA+zEjCvu76yW7zfM+qJUe+t5y23oPdzR4KDV1mOdqH8bB4GmTw@mail.gmail.com>
+ <CACT4Y+arufrRgwmN66wUU+_FGxMy-sTkjMQnRN8U2H2tQuhB7A@mail.gmail.com>
+ <a0769218-c84a-a1d3-71e7-aefd40bf54fe@ghiti.fr> <CANp29Y4WMhsE_-VWvNbwq18+qvb1Qc-ES80h_j_G-N_hcAnRAw@mail.gmail.com>
+ <CANp29Y4ujmz901aE9oiBDx9dYWHti4-Jw=6Ewtotm6ck6MN9FQ@mail.gmail.com>
+ <CACT4Y+ZvStiHLYBOcPDoAJnk8hquXwm9BgjQTv=APwh7AvgEUQ@mail.gmail.com>
+ <CANp29Y56Or0V1AG7rzBfV_ZTph2Crg4JKKHiuw1kcGFFxeWqiQ@mail.gmail.com>
+ <CANp29Y5+MuhKAzVxzEDb_k9voXmKWrUFx8k4wnW5=2+5enVFVA@mail.gmail.com>
+ <CA+zEjCtvaT0YsxxUgnEGM+V4b5sWuCAs3=3J+Xocf580uT3t1g@mail.gmail.com>
+ <CA+zEjCs1FEUTcM+pgV+_MZnixSO5c2hexZFxGxuCQWc2ZMQiRg@mail.gmail.com>
+ <CANp29Y4rDSjrfTOxcQqwh+Qm+ocR0v6Oxr7EkFxScf+24M1tNA@mail.gmail.com>
+ <CA+zEjCtB0rTuNAJkrM2q3JQL7D-9fAXBo0Ud0w__gy9CAfo_Ag@mail.gmail.com>
+ <CACT4Y+Z=3MWEhVUH3mAH150XpOmhdjsGPOHoP1nvBcBwU_sphQ@mail.gmail.com>
+ <5e702296-9ce0-f1e6-dae8-cc719bc040b9@ghiti.fr> <CAOnJCULgP_-D3cY2m39k9N912Q55FS7X9JcrRVoUt0GC92tx7w@mail.gmail.com>
+ <CAOnJCUKBWx+wEKaq8WOPC1j7jgn38iWcrTh4gO+FzfF-mhPkQg@mail.gmail.com>
+In-Reply-To: <CAOnJCUKBWx+wEKaq8WOPC1j7jgn38iWcrTh4gO+FzfF-mhPkQg@mail.gmail.com>
+From: Dmitry Vyukov <dvyukov@google.com>
+Date: Fri, 27 May 2022 09:17:04 +0200
+Message-ID: <CACT4Y+aM8C6s-wcyWgoda-xfYvD=4YBKLnVavj49tPLYZBpLHg@mail.gmail.com>
+Subject: Re: [syzbot] riscv/fixes boot error: can't ssh into the instance
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Alexandre Ghiti <alexandre.ghiti@canonical.com>, 
+	Aleksandr Nogikh <nogikh@google.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	kasan-dev <kasan-dev@googlegroups.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	syzbot <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com>, 
+	LKML <linux-kernel@vger.kernel.org>, syzkaller-bugs@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220526_223933_645914_DB5E03B7 
-X-CRM114-Status: GOOD (  29.81  )
+X-CRM114-CacheID: sfid-20220527_001721_676583_A1696150 
+X-CRM114-Status: GOOD (  50.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,70 +101,270 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 24, 2022 at 4:45 PM Peter Xu <peterx@redhat.com> wrote:
+,On Thu, 26 May 2022 at 11:02, Atish Patra <atishp@atishpatra.org> wrote:
+> > On Mon, May 16, 2022 at 5:06 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
+> > >
+> > >
+> > > On 5/12/22 13:48, Dmitry Vyukov wrote:
+> > > > On Fri, 18 Feb 2022 at 14:45, Alexandre Ghiti
+> > > > <alexandre.ghiti@canonical.com> wrote:
+> > > >> Hi Aleksandr,
+> > > >>
+> > > >> On Thu, Feb 17, 2022 at 6:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
+> > > >>> Hi Alex,
+> > > >>>
+> > > >>> On Thu, Feb 17, 2022 at 5:53 PM Alexandre Ghiti
+> > > >>> <alexandre.ghiti@canonical.com> wrote:
+> > > >>>> Aleksandr,
+> > > >>>>
+> > > >>>> On Wed, Feb 16, 2022 at 5:58 PM Alexandre Ghiti
+> > > >>>> <alexandre.ghiti@canonical.com> wrote:
+> > > >>>>> First, thank you for working on this.
+> > > >>>>>
+> > > >>>>> On Wed, Feb 16, 2022 at 5:17 PM Aleksandr Nogikh <nogikh@google.com> wrote:
+> > > >>>>>> If I use just defconfig + DEBUG_VIRTUAL, without any KASAN, it begins
+> > > >>>>>> to boot, but overwhelms me with tons of `virt_to_phys used for
+> > > >>>>>> non-linear address:` errors.
+> > > >>>>>>
+> > > >>>>>> Like that
+> > > >>>>>>
+> > > >>>>>> [    2.701271] virt_to_phys used for non-linear address:
+> > > >>>>>> 00000000b59e31b6 (0xffffffff806c2000)
+> > > >>>>>> [    2.701727] WARNING: CPU: 0 PID: 1 at arch/riscv/mm/physaddr.c:16
+> > > >>>>>> __virt_to_phys+0x7e/0x86
+> > > >>>>>> [    2.702207] Modules linked in:
+> > > >>>>>> [    2.702393] CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W
+> > > >>>>>>    5.17.0-rc1 #1
+> > > >>>>>> [    2.702806] Hardware name: riscv-virtio,qemu (DT)
+> > > >>>>>> [    2.703051] epc : __virt_to_phys+0x7e/0x86
+> > > >>>>>> [    2.703298]  ra : __virt_to_phys+0x7e/0x86
+> > > >>>>>> [    2.703547] epc : ffffffff80008448 ra : ffffffff80008448 sp :
+> > > >>>>>> ffff8f800021bde0
+> > > >>>>>> [    2.703977]  gp : ffffffff80ed9b30 tp : ffffaf8001230000 t0 :
+> > > >>>>>> ffffffff80eea56f
+> > > >>>>>> [    2.704704]  t1 : ffffffff80eea560 t2 : 0000000000000000 s0 :
+> > > >>>>>> ffff8f800021be00
+> > > >>>>>> [    2.705153]  s1 : ffffffff806c2000 a0 : 000000000000004f a1 :
+> > > >>>>>> ffffffff80e723d8
+> > > >>>>>> [    2.705555]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 :
+> > > >>>>>> 0000000000000000
+> > > >>>>>> [    2.706027]  a5 : 0000000000000000 a6 : 0000000000000005 a7 :
+> > > >>>>>> ffffffffffffffff
+> > > >>>>>> [    2.706474]  s2 : ffffffff80b80b08 s3 : 00000000000000c2 s4 :
+> > > >>>>>> ffffffff806c2000
+> > > >>>>>> [    2.706891]  s5 : ffffffff80edba10 s6 : ffffffff80edb960 s7 :
+> > > >>>>>> 0000000000000001
+> > > >>>>>> [    2.707290]  s8 : 00000000000000ff s9 : ffffffff80b80b40 s10:
+> > > >>>>>> 00000000000000cc
+> > > >>>>>> [    2.707689]  s11: ffffaf807e1fcf00 t3 : 0000000000000076 t4 :
+> > > >>>>>> ffffffffffffffff
+> > > >>>>>> [    2.708092]  t5 : 00000000000001f2 t6 : ffff8f800021bb48
+> > > >>>>>> [    2.708433] status: 0000000000000120 badaddr: 0000000000000000
+> > > >>>>>> cause: 0000000000000003
+> > > >>>>>> [    2.708919] [<ffffffff8011416a>] free_reserved_area+0x72/0x19a
+> > > >>>>>> [    2.709296] [<ffffffff80003a5a>] free_initmem+0x6c/0x7c
+> > > >>>>>> [    2.709648] [<ffffffff805f60c8>] kernel_init+0x3a/0x10a
+> > > >>>>>> [    2.709993] [<ffffffff80002fda>] ret_from_exception+0x0/0xc
+> > > >>>>>> [    2.710310] ---[ end trace 0000000000000000 ]---
+> > > >>>>>>
+> > > >>>>> I was able to reproduce this: the first one regarding init_zero_pfn is
+> > > >>>>> legit but not wrong, I have to check when it was introduced and how to
+> > > >>>>> fix this.
+> > > >>>>> Regarding the huge batch that follows, at first sight, I would say
+> > > >>>>> this is linked to my sv48 patchset but that does not seem important as
+> > > >>>>> the address is a kernel mapping address so the use of virt_to_phys is
+> > > >>>>> right.
+> > > >>>>>
+> > > >>>>>> On Wed, Feb 16, 2022 at 5:09 PM Aleksandr Nogikh <nogikh@google.com> wrote:
+> > > >>>>>>> On Wed, Feb 16, 2022 at 12:56 PM Dmitry Vyukov <dvyukov@google.com> wrote:
+> > > >>>>>>>> On Wed, 16 Feb 2022 at 12:47, Aleksandr Nogikh <nogikh@google.com> wrote:
+> > > >>>>>>>>> On Wed, Feb 16, 2022 at 11:37 AM Aleksandr Nogikh <nogikh@google.com> wrote:
+> > > >>>>>>>>>> Hi Alex,
+> > > >>>>>>>>>>
+> > > >>>>>>>>>> On Wed, Feb 16, 2022 at 5:14 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
+> > > >>>>>>>>>>> Hi Dmitry,
+> > > >>>>>>>>>>>
+> > > >>>>>>>>>>> On 2/15/22 18:12, Dmitry Vyukov wrote:
+> > > >>>>>>>>>>>> On Wed, 2 Feb 2022 at 14:18, Alexandre Ghiti
+> > > >>>>>>>>>>>> <alexandre.ghiti@canonical.com> wrote:
+> > > >>>>>>>>>>>>> Hi Aleksandr,
+> > > >>>>>>>>>>>>>
+> > > >>>>>>>>>>>>> On Wed, Feb 2, 2022 at 12:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
+> > > >>>>>>>>>>>>>> Hello,
+> > > >>>>>>>>>>>>>>
+> > > >>>>>>>>>>>>>> syzbot has already not been able to fuzz its RISC-V instance for 97
+> > > >>>>>>>>>>>>> That's a longtime, I'll take a look more regularly.
+> > > >>>>>>>>>>>>>
+> > > >>>>>>>>>>>>>> days now because the compiled kernel cannot boot. I bisected the issue
+> > > >>>>>>>>>>>>>> to the following commit:
+> > > >>>>>>>>>>>>>>
+> > > >>>>>>>>>>>>>> commit 54c5639d8f507ebefa814f574cb6f763033a72a5
+> > > >>>>>>>>>>>>>> Author: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+> > > >>>>>>>>>>>>>> Date:   Fri Oct 29 06:59:27 2021 +0200
+> > > >>>>>>>>>>>>>>
+> > > >>>>>>>>>>>>>>       riscv: Fix asan-stack clang build
+> > > >>>>>>>>>>>>>>
+> > > >>>>>>>>>>>>>> Apparently, the problem appears on GCC-built RISC-V kernels with KASAN
+> > > >>>>>>>>>>>>>> enabled. In the previous message syzbot mentions
+> > > >>>>>>>>>>>>>> "riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU
+> > > >>>>>>>>>>>>>> Binutils for Debian) 2.35.2", but the issue also reproduces finely on
+> > > >>>>>>>>>>>>>> a newer GCC compiler: "riscv64-linux-gnu-gcc (Debian 11.2.0-10)
+> > > >>>>>>>>>>>>>> 11.2.0, GNU ld (GNU Binutils for Debian) 2.37".
+> > > >>>>>>>>>>>>>> For convenience, I also duplicate the .config file from the bot's
+> > > >>>>>>>>>>>>>> message: https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
+> > > >>>>>>>>>>>>>>
+> > > >>>>>>>>>>>>>> Can someone with KASAN and RISC-V expertise please take a look?
+> > > >>>>>>>>>>>>> I'll take a look at that today.
+> > > >>>>>>>>>>>>>
+> > > >>>>>>>>>>>>> Thanks for reporting the issue,
+> > > >>>>>>>>>>> I took a quick look, not enough to fix it but I know the issue comes
+> > > >>>>>>>>>>> from the inline instrumentation, I have no problem with the outline
+> > > >>>>>>>>>>> instrumentation. I need to find some cycles to work on this, my goal is
+> > > >>>>>>>>>>> to fix this for 5.17.
+> > > >>>>>>>>>> Thanks for the update!
+> > > >>>>>>>>>>
+> > > >>>>>>>>>> Can you please share the .config with which you tested the outline
+> > > >>>>>>>>>> instrumentation?
+> > > >>>>>>>>>> I updated the syzbot config to use KASAN_OUTLINE instead of KASAN_INLINE,
+> > > >>>>>>>>>> but it still does not boot :(
+> > > >>>>>>>>>>
+> > > >>>>>>>>>> Here's what I used:
+> > > >>>>>>>>>> https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
+> > > >>>>>>>>> Update: it doesn't boot with that big config, but boots if I generate
+> > > >>>>>>>>> a simple one with KASAN_OUTLINE:
+> > > >>>>>>>>>
+> > > >>>>>>>>> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+> > > >>>>>>>>> ./scripts/config -e KASAN -e KASAN_OUTLINE
+> > > >>>>>>>>> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+> > > >>>>>>>>>
+> > > >>>>>>>>> And it indeed doesn't work if I use KASAN_INLINE.
+> > > >>>>>>>> It may be an issue with code size. Full syzbot config + KASAN + KCOV
+> > > >>>>>>>> produce hugely massive .text. It may be hitting some limitation in the
+> > > >>>>>>>> bootloader/kernel bootstrap code.
+> > > >>>>> I took a quick glance and it traps on a KASAN address that is not
+> > > >>>>> mapped, either because it is too soon or because the mapping failed
+> > > >>>>> somehow.
+> > > >>>>>
+> > > >>>>> I'll definitely dive into that tomorrow, sorry for being slow here and
+> > > >>>>> thanks again for all your work, that helps a lot.
+> > > >>>>>
+> > > >>>>> Thanks,
+> > > >>>>>
+> > > >>>>> Alex
+> > > >>>>>
+> > > >>>>>>> I bisected the difference between the config we use on syzbot and the
+> > > >>>>>>> simple one that was generated like I described above.
+> > > >>>>>>> Turns out that it's the DEBUG_VIRTUAL config that makes the difference.
+> > > >>>>>>>
+> > > >>>>>>> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+> > > >>>>>>> ./scripts/config -e KASAN -e KASAN_OUTLINE -e DEBUG_VIRTUAL
+> > > >>>>>>> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+> > > >>>>>>>
+> > > >>>>>>> And the resulting kernel does not boot.
+> > > >>>>>>> My env: the `riscv/fixes` branch, commit
+> > > >>>>>>> 6df2a016c0c8a3d0933ef33dd192ea6606b115e3, qemu 6.2.0.
+> > > >>>> I fixed a few things today: KASAN + SPARSE_VMEMMAP, DEBUG_VIRTUAL and
+> > > >>>> maybe KASAN  + KCOV.
+> > > >>>>
+> > > >>>> With those small fixes, I was able to boot your large dotconfig with
+> > > >>>> KASAN_OUTLINE, the inline version still fails, this is my next target
+> > > >>>> :)
+> > > >>>> I'll push that tomorrow!
+> > > >>> Awesome, thank you very much!
+> > > >>> Looking forward to finally seeing the instance run :)
+> > > >> I sent a patchset which should fix your config with *outline* instrumentation.
+> > > > Was this fix merged? The riscv instance still does not boot:
+> > > > https://syzkaller.appspot.com/bug?id=5f2ff52ad42cba9f222202219baebd4e63e35127
+> > >
+> > >
+> > > Yes it has been in Linus tree since 5.18-rc1. I'll take a look at that
+> > > this week.
+> > >
+> >
+> > Are you seeing this error or a different one ? I used the
+> > syzkaller_defconfig from the patch below on v5.18.
+> >
+> > https://lore.kernel.org/all/20220419174952.699-1-palmer@rivosinc.com/
+> >
+> > [   15.076116][    T1] Mandatory Access Control activated.
+> > [   15.158241][    T1] AppArmor: AppArmor Filesystem Enabled
+> > [   16.150870][    T1] NET: Registered PF_INET protocol family
+> > [   16.166167][    T1] IP idents hash table entries: 32768 (order: 6,
+> > 262144 bytes, linear)
+> > [   16.188727][    T1] Unable to handle kernel paging request at
+> > virtual address ffebfffeffff2000
+> > [   16.192727][    T1] Oops [#1]
+> > [   16.193479][    T1] Modules linked in:
+> > [   16.194687][    T1] CPU: 3 PID: 1 Comm: swapper/0 Not tainted
+> > 5.18.0-00001-g37ac279268bf-dirty #9
+> > [   16.196486][    T1] Hardware name: riscv-virtio,qemu (DT)
+> > [   16.197836][    T1] epc : kasan_check_range+0x9e/0x14e
+> > [   16.199104][    T1]  ra : memset+0x1e/0x4c
+> > [   16.200091][    T1] epc : ffffffff804787e0 ra : ffffffff80478f30 sp
+> > : ff600000073ffb70
+> > [   16.201420][    T1]  gp : ffffffff85879e80 tp : ff600000073f0000 t0
+> > : 7300000000000000
+> > [   16.202762][    T1]  t1 : ffebfffeffff21ff t2 : 73746e6564692050 s0
+> > : ff600000073ffba0
+> > [   16.204047][    T1]  s1 : 0000000000001000 a0 : ffebfffeffff2200 a1
+> > : 0000000000001000
+> > [   16.205312][    T1]  a2 : 0000000000000001 a3 : ffffffff803a4f32 a4
+> > : ff5ffffffff90000
+> > [   16.206592][    T1]  a5 : ffebfffeffff2000 a6 : 0000004000000000 a7
+> > : ff5ffffffff90fff
+> > [   16.207865][    T1]  s2 : ff5ffffffff90000 s3 : 0000000000000000 s4
+> > : ffffffff8467ea90
+> > [   16.209134][    T1]  s5 : 0000000000000000 s6 : ff5ffffffff90000 s7
+> > : 0000000000000000
+> > [   16.210394][    T1]  s8 : 0000000000001000 s9 : ffffffff8587ca40
+> > s10: 0000000000000004
+> > [   16.211952][    T1]  s11: ffffffff858a03a0 t3 : 0000000000000000 t4
+> > : 0000000000000040
+> > [   16.213469][    T1]  t5 : ffebfffeffff2200 t6 : ff600000073ff738
+> > [   16.214853][    T1] status: 0000000200000120 badaddr:
+> > ffebfffeffff2000 cause: 000000000000000d
+> > [   16.216910][    T1] Call Trace:
+> > [   16.217816][    T1] [<ffffffff803a4f32>] pcpu_alloc+0x844/0x1254
+> > [   16.219110][    T1] [<ffffffff803a59a0>] __alloc_percpu+0x28/0x34
+> > [   16.220244][    T1] [<ffffffff8328824a>] ip_rt_init+0x17e/0x382
+> > [   16.221606][    T1] [<ffffffff8328861c>] ip_init+0x18/0x30
+> > [   16.222719][    T1] [<ffffffff8328a0ee>] inet_init+0x2a6/0x550
+> > [   16.223863][    T1] [<ffffffff80003204>] do_one_initcall+0x130/0x7dc
+> > [   16.225002][    T1] [<ffffffff83201fbc>] kernel_init_freeable+0x510/0x5b4
+> > [   16.226273][    T1] [<ffffffff8319842a>] kernel_init+0x28/0x21c
+> > [   16.227337][    T1] [<ffffffff80005818>] ret_from_exception+0x0/0x10
+> > [   16.229910][    T1] ---[ end trace 0000000000000000 ]---
+> > [   16.231880][    T1] Kernel panic - not syncing: Fatal exception
+> >
+> >
 >
-> I observed that for each of the shared file-backed page faults, we're very
-> likely to retry one more time for the 1st write fault upon no page.  It's
-> because we'll need to release the mmap lock for dirty rate limit purpose
-> with balance_dirty_pages_ratelimited() (in fault_dirty_shared_page()).
+> Enabling CONFIG_KASAN_VMALLOC=y solves the issue and I am able to boot
+> to the userspace.
+> I have tried enabling/disabling CONFIG_VMAP_STACK as well. Both works fine.
 >
-> Then after that throttling we return VM_FAULT_RETRY.
+> Looking at the ARM64 Kconfig, KASAN_VMALLOC is enabled if KASAN is enabled.
+> This diff seems to work for me.
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 00fd9c548f26..cbf0fe227c77 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -122,6 +122,7 @@ config RISCV
+>         select TRACE_IRQFLAGS_SUPPORT
+>         select UACCESS_MEMCPY if !MMU
+>         select ZONE_DMA32 if 64BIT
+> +       select KASAN_VMALLOC if KASAN
 >
-> We did that probably because VM_FAULT_RETRY is the only way we can return
-> to the fault handler at that time telling it we've released the mmap lock.
->
-> However that's not ideal because it's very likely the fault does not need
-> to be retried at all since the pgtable was well installed before the
-> throttling, so the next continuous fault (including taking mmap read lock,
-> walk the pgtable, etc.) could be in most cases unnecessary.
->
-> It's not only slowing down page faults for shared file-backed, but also add
-> more mmap lock contention which is in most cases not needed at all.
->
-> To observe this, one could try to write to some shmem page and look at
-> "pgfault" value in /proc/vmstat, then we should expect 2 counts for each
-> shmem write simply because we retried, and vm event "pgfault" will capture
-> that.
->
-> To make it more efficient, add a new VM_FAULT_COMPLETED return code just to
-> show that we've completed the whole fault and released the lock.  It's also
-> a hint that we should very possibly not need another fault immediately on
-> this page because we've just completed it.
->
-> This patch provides a ~12% perf boost on my aarch64 test VM with a simple
-> program sequentially dirtying 400MB shmem file being mmap()ed and these are
-> the time it needs:
->
->   Before: 650.980 ms (+-1.94%)
->   After:  569.396 ms (+-1.38%)
->
-> I believe it could help more than that.
->
-> We need some special care on GUP and the s390 pgfault handler (for gmap
-> code before returning from pgfault), the rest changes in the page fault
-> handlers should be relatively straightforward.
->
-> Another thing to mention is that mm_account_fault() does take this new
-> fault as a generic fault to be accounted, unlike VM_FAULT_RETRY.
->
-> I explicitly didn't touch hmm_vma_fault() and break_ksm() because they do
-> not handle VM_FAULT_RETRY even with existing code, so I'm literally keeping
-> them as-is.
->
-> Signed-off-by: Peter Xu <peterx@redhat.com>
-> ---
->
-> v3:
-> - Rebase to akpm/mm-unstable
-> - Copy arch maintainers
-> ---
+> I am not a kasan expert so I am not sure if this is the correct fix or
+> just hides the real issue. pcpu_alloc seems to use vmalloc though.
 
-For xtensa:
-Acked-by: Max Filippov <jcmvbkbc@gmail.com>
+Hi Atish,
 
--- 
-Thanks.
--- Max
+Enabling KASAN_VMALLOC in syzbot config actually makes it boot for me!
+It's probably good to enforce it and/or give better diagnostics and/or
+fix KASAN w/o KASAN_VMALLOC, but I've sent a fix up for syzbot config
+for now:
+https://github.com/google/syzkaller/pull/3167
+Thanks for looking into it.
 
 _______________________________________________
 linux-riscv mailing list
