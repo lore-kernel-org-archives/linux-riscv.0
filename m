@@ -4,86 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCB6DC433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 05:18:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28360C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 05:39:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c+Z+NDvMTMMvXz23w1W+2IqGZSdqk4nRwciGse4mv7E=; b=GnxC77GhO5q72R
-	+rYuhtSP1OG1Neg7fbogaG3SRKTR0ipikHRDwjVwhtXEd+9FFv1ceCNGCyHw+dx4K8pcTxMv92DMr
-	W5FaqMZ61AtTzEhS9WdFwM0vID5myZ8viHgjaWsB9vEr5ukFvcUVHFFTGqT0/KoixswXu2OjTuZlg
-	KZPH25mcLgDh8bzsq5xbrABk+sAK1YxMQz1F7XCIEBGB6bmnLv+BPvlbTuDFaa8dyr4ezb0bx79mO
-	s/tNMsDRaCHQIrG7DwB4bWC0oYklFlltEtDvwd+T4XhMyG91QUnwcg7KnR4twKBhoJnFwgrIVEEc3
-	FCgmIj34n1Bhi2jSF2Mg==;
+	List-Owner; bh=FzOvO84t2uBPDXVoWs8mOFioY5X+Qxp2GFBnkGMupiw=; b=AvKdWEXJACjzyY
+	bpSuxbLC5ZFeyQJG6jo7Zpw2VbkN8fd6cBGpkZD5MuwgAiBieJWFFH4/eBYWVY5L581cbM7Gz2fAc
+	odcDqIm1Oz3lZc3eytcJhje9tzvub9gOVAtE9P6tVCDTuiQNUMn2+L16jqn36MupSyC2JX5zU5aRw
+	0NZgLtClQvWT5SLWF2qJzd6SKBRH83zei9aqLghPM7UxG9pVVub9d++CDT/7BvYIRP8KUUULTtiMn
+	GKcYLnB5LZi4tS+UfUAFf2j9Gt0VPw43LbONSah2GiJ9uS+XBuX1tLmlE5od9ROR4ozZmcSzmd7NC
+	ioq2Fau5foSM528YfwXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuSMb-00GfAR-AN; Fri, 27 May 2022 05:18:17 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1nuShF-00Ggdq-7x; Fri, 27 May 2022 05:39:37 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuSMY-00Gf7L-Fl
-	for linux-riscv@lists.infradead.org; Fri, 27 May 2022 05:18:15 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id t28so3039655pga.6
-        for <linux-riscv@lists.infradead.org>; Thu, 26 May 2022 22:18:11 -0700 (PDT)
+	id 1nuShB-00Ggc3-HW; Fri, 27 May 2022 05:39:34 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-e93bbb54f9so4641959fac.12;
+        Thu, 26 May 2022 22:39:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=P7OLahpm+kkKBEARj4VmqHAWwKE6JWuCb2y1kO4JlMo=;
-        b=jbbgWDbwDxjGdcveN5opTsfLAmWPWwGxc3+eVGbfsHWg/8rWmYs56+UOro+RogMEZM
-         N62nMVWsUj4S1x1EO9/sOj+RyfnNolADop36vf0W9gI0grwBEj+LHvnS7NObdOChj1fr
-         pdp0MAqHt69N2PVB+On0qE0fzZJgaFk0jSAklcoSCwUR6pMoJ4N8ch2kmRJgzYicZ9g8
-         nlLrckWV6F2Xf89IfGJjZxykmYvwWKkF7yBDRhpy2/xXY+McSVN22CDwjx0K6bd6/K27
-         2TheHSPfI3Q1v5eelfmdXtqX1eqTBKySsvAWD35PX8QXMUzn0ASyQRVsfnxQdZU0In0w
-         pjLA==
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=2j31mgyTy2/RMpvPafIuRR/7M5aCsOn5pH1JxQKELh0=;
+        b=WLF0ZKcKkqyL/2e9Vrm4jJIU7Iq70SjWVWeR4mG+diJpadGhfuylwbDWHZVjDdFbuq
+         Hxc+zHrNjRLjtRhI1yhC+nolDKLNrwOV2/oaWTaoh4VCK67BB0z5yPlcOmnthCOgtmez
+         8jkwQgYPNLUuG0ZEbUiSy7uVEpWFtrO5L4UM+4mbtXpWMiQIVZp0eLdp45xYgN9Jmvmc
+         aulsD6JeO/TIOhvHj+bALfaW9BR7tPWEUeyaMI8bJbO4wOxVeH/I0lrHRJ+FP9F521BK
+         /lEKp/SRZycKZGHLE0LZwkZV2trusLGaniTNIWTP9EnU7l+Xe/n5XI3K1uCmL30r4C8o
+         Jgxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=P7OLahpm+kkKBEARj4VmqHAWwKE6JWuCb2y1kO4JlMo=;
-        b=DBhnbVFUVINj8xwuT9lmOz9bN8m7zqfKpxgM7c2vz2pWXkUm167apUqpoB/h1Ywxze
-         YBR8dxNk0Ni5t3RLfc0Al/Zl7hUnY6kK+3bLEHkkBK4kdJNra1k0EJQoTwaSmlo4eA3o
-         LXTnr6VSPxP9C1hiftTtTEcgMTm8gPKST5EK/iqkiI+s6aXKpElUG8LupOynzZLyszbc
-         0NiynIbFZUzSdQDmG1hziComxelg226AZfvoncvWJz859QJHTv8qHbqRwBnpk/IyK9dU
-         LV2TTVU0VS14sY0keBTT7ufVhtp/n3JJDaxQNYyPsRYZJk4/e4NdbYbK0oOPZWeFY+Gk
-         SAZw==
-X-Gm-Message-State: AOAM532PQpPt9yVpAKggHYSnFvBn1YvTHvPcORmDuPFCxlJZRzIv6Unk
-	tLywgVEgMwDBvtpGTl55V1I7Bw==
-X-Google-Smtp-Source: ABdhPJyin/6mDo3jQxnY50FxpZpQL5woePXQ7wxcjU98TpEqhBp6YId9yZPThIcHY/RpYh8wXD0ktw==
-X-Received: by 2002:a05:6a00:88f:b0:510:7a49:b72f with SMTP id q15-20020a056a00088f00b005107a49b72fmr41896359pfj.21.1653628691482;
-        Thu, 26 May 2022 22:18:11 -0700 (PDT)
-Received: from kerodipc.Dlink ([49.206.9.238])
-        by smtp.gmail.com with ESMTPSA id j34-20020a634a62000000b003c14af5063fsm2459003pgl.87.2022.05.26.22.18.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 May 2022 22:18:11 -0700 (PDT)
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
-	Anup Patel <apatel@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	Sunil V L <sunil.vl@gmail.com>,
-	Sunil V L <sunilvl@ventanamicro.com>
-Subject: [PATCH V3 5/5] riscv/efi_stub: Add 64bit boot-hartid support on RV64
-Date: Fri, 27 May 2022 10:47:43 +0530
-Message-Id: <20220527051743.2829940-6-sunilvl@ventanamicro.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220527051743.2829940-1-sunilvl@ventanamicro.com>
-References: <20220527051743.2829940-1-sunilvl@ventanamicro.com>
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=2j31mgyTy2/RMpvPafIuRR/7M5aCsOn5pH1JxQKELh0=;
+        b=5+GTRXBtILi0YFXlqI6TTU3YMivfm/cuJG45D5MZhUzs2lW9If6Wc8IVTYyRPPauSt
+         EPJ+Ec07eQuU68sFkurE8QQsbwjewtA5fWRwzGoYbMN9uKrYd/yatYZPO7sXMrUQ4k+E
+         EILpZMVv3+RCfqPhH/EwRhNL3Cn+dHxB13F5sDFPd/27dHjXXbJtYKEkFPYfPAatwd8U
+         MbI2o2m+c+rSmlBsw/5ItpehHM5DHKRImt1AMK+FkKWOxow+LTVvTjTsxszSM+yJ1igL
+         JPej/Vav9b0EPKfygQPZ9Xyq1wG3UQklUm4a6HrlmDgpeoF8b4vSwYMLUop962kAPG8x
+         29sQ==
+X-Gm-Message-State: AOAM532KhjAhVwkWRXcNDUQAO+iGdyGL6TQFXSyRhirALtKcygaIEIC3
+	toMSlr/mIiLBchc10oonpfUZ39oMiZzCREPkX90=
+X-Google-Smtp-Source: ABdhPJy8+6PjRSs5xseRfaJdStvLUZHZV5vQKgs4hS+3gJJgloJJ42WfwmBmCJpVr7XfQyeK+DIvF8/HIUAjs0cVwxU=
+X-Received: by 2002:a05:6870:5ba6:b0:f1:5840:f38e with SMTP id
+ em38-20020a0568705ba600b000f15840f38emr3323758oab.210.1653629967367; Thu, 26
+ May 2022 22:39:27 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220524234531.1949-1-peterx@redhat.com>
+In-Reply-To: <20220524234531.1949-1-peterx@redhat.com>
+From: Max Filippov <jcmvbkbc@gmail.com>
+Date: Thu, 26 May 2022 22:39:15 -0700
+Message-ID: <CAMo8BfJWzUnwPyWKsBsW2-x7t=Go5Mwb643kXm5BfpVDAeaeWA@mail.gmail.com>
+Subject: Re: [PATCH v3] mm: Avoid unnecessary page fault retires on shared
+ memory types
+To: Peter Xu <peterx@redhat.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, 
+	Linux Memory Management List <linux-mm@kvack.org>, Richard Henderson <rth@twiddle.net>, 
+	David Hildenbrand <david@redhat.com>, Matt Turner <mattst88@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Michal Simek <monstr@monstr.eu>, Russell King <linux@armlinux.org.uk>, 
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Jonas Bonn <jonas@southpole.se>, Will Deacon <will@kernel.org>, 
+	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, "H . Peter Anvin" <hpa@zytor.com>, 
+	Andrea Arcangeli <aarcange@redhat.com>, openrisc@lists.librecores.org, 
+	linux-s390 <linux-s390@vger.kernel.org>, Ingo Molnar <mingo@redhat.com>, 
+	"open list:M68K ARCHITECTURE" <linux-m68k@lists.linux-m68k.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Heiko Carstens <hca@linux.ibm.com>, Chris Zankel <chris@zankel.net>, 
+	Peter Zijlstra <peterz@infradead.org>, Alistair Popple <apopple@nvidia.com>, linux-csky@vger.kernel.org, 
+	"open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>, Vlastimil Babka <vbabka@suse.cz>, 
+	Thomas Gleixner <tglx@linutronix.de>, 
+	"open list:SPARC + UltraSPAR..." <sparclinux@vger.kernel.org>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Stafford Horne <shorne@gmail.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, "maintainer:X86 ARCHITECTURE..." <x86@kernel.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Paul Mackerras <paulus@samba.org>, 
+	linux-arm-kernel@lists.infradead.org, Sven Schnelle <svens@linux.ibm.com>, 
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+	"open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>, Nicholas Piggin <npiggin@gmail.com>, 
+	"open list:SUPERH" <linux-sh@vger.kernel.org>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Borislav Petkov <bp@alien8.de>, linux-mips@vger.kernel.org, Helge Deller <deller@gmx.de>, 
+	Vineet Gupta <vgupta@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	linux-um@lists.infradead.org, 
+	"open list:ALPHA PORT" <linux-alpha@vger.kernel.org>, Johannes Berg <johannes@sipsolutions.net>, 
+	"open list:IA64 (Itanium) PL..." <linux-ia64@vger.kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	linux-snps-arc@lists.infradead.org, Hugh Dickins <hughd@google.com>, 
+	Rich Felker <dalias@libc.org>, Andy Lutomirski <luto@kernel.org>, Richard Weinberger <richard@nod.at>, 
+	linuxppc-dev@lists.ozlabs.org, Brian Cain <bcain@quicinc.com>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Andrew Morton <akpm@linux-foundation.org>, 
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, 
+	"open list:PARISC ARCHITECTURE" <linux-parisc@vger.kernel.org>, "David S . Miller" <davem@davemloft.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220526_221814_574301_8A5C5FAF 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20220526_223933_645914_DB5E03B7 
+X-CRM114-Status: GOOD (  29.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,60 +119,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The boot-hartid can be a 64bit value on RV64 platforms but
-the "boot-hartid" in DT is assumed to be 32bit only.
+On Tue, May 24, 2022 at 4:45 PM Peter Xu <peterx@redhat.com> wrote:
+>
+> I observed that for each of the shared file-backed page faults, we're very
+> likely to retry one more time for the 1st write fault upon no page.  It's
+> because we'll need to release the mmap lock for dirty rate limit purpose
+> with balance_dirty_pages_ratelimited() (in fault_dirty_shared_page()).
+>
+> Then after that throttling we return VM_FAULT_RETRY.
+>
+> We did that probably because VM_FAULT_RETRY is the only way we can return
+> to the fault handler at that time telling it we've released the mmap lock.
+>
+> However that's not ideal because it's very likely the fault does not need
+> to be retried at all since the pgtable was well installed before the
+> throttling, so the next continuous fault (including taking mmap read lock,
+> walk the pgtable, etc.) could be in most cases unnecessary.
+>
+> It's not only slowing down page faults for shared file-backed, but also add
+> more mmap lock contention which is in most cases not needed at all.
+>
+> To observe this, one could try to write to some shmem page and look at
+> "pgfault" value in /proc/vmstat, then we should expect 2 counts for each
+> shmem write simply because we retried, and vm event "pgfault" will capture
+> that.
+>
+> To make it more efficient, add a new VM_FAULT_COMPLETED return code just to
+> show that we've completed the whole fault and released the lock.  It's also
+> a hint that we should very possibly not need another fault immediately on
+> this page because we've just completed it.
+>
+> This patch provides a ~12% perf boost on my aarch64 test VM with a simple
+> program sequentially dirtying 400MB shmem file being mmap()ed and these are
+> the time it needs:
+>
+>   Before: 650.980 ms (+-1.94%)
+>   After:  569.396 ms (+-1.38%)
+>
+> I believe it could help more than that.
+>
+> We need some special care on GUP and the s390 pgfault handler (for gmap
+> code before returning from pgfault), the rest changes in the page fault
+> handlers should be relatively straightforward.
+>
+> Another thing to mention is that mm_account_fault() does take this new
+> fault as a generic fault to be accounted, unlike VM_FAULT_RETRY.
+>
+> I explicitly didn't touch hmm_vma_fault() and break_ksm() because they do
+> not handle VM_FAULT_RETRY even with existing code, so I'm literally keeping
+> them as-is.
+>
+> Signed-off-by: Peter Xu <peterx@redhat.com>
+> ---
+>
+> v3:
+> - Rebase to akpm/mm-unstable
+> - Copy arch maintainers
+> ---
 
-Detect the size of the "boot-hartid" in DT and use 32bit or 64bit
-read appropriately.
+For xtensa:
+Acked-by: Max Filippov <jcmvbkbc@gmail.com>
 
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
----
- drivers/firmware/efi/libstub/riscv-stub.c | 13 ++++++++++---
- 1 file changed, 10 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/firmware/efi/libstub/riscv-stub.c b/drivers/firmware/efi/libstub/riscv-stub.c
-index 9e85e58d1f27..b450ebf95977 100644
---- a/drivers/firmware/efi/libstub/riscv-stub.c
-+++ b/drivers/firmware/efi/libstub/riscv-stub.c
-@@ -8,6 +8,7 @@
- 
- #include <asm/efi.h>
- #include <asm/sections.h>
-+#include <asm/unaligned.h>
- 
- #include "efistub.h"
- 
-@@ -29,7 +30,7 @@ static int get_boot_hartid_from_fdt(void)
- {
- 	const void *fdt;
- 	int chosen_node, len;
--	const fdt32_t *prop;
-+	const void *prop;
- 
- 	fdt = get_efi_config_table(DEVICE_TREE_GUID);
- 	if (!fdt)
-@@ -40,10 +41,16 @@ static int get_boot_hartid_from_fdt(void)
- 		return -EINVAL;
- 
- 	prop = fdt_getprop((void *)fdt, chosen_node, "boot-hartid", &len);
--	if (!prop || len != sizeof(u32))
-+	if (!prop)
-+		return -EINVAL;
-+
-+	if (len == sizeof(u32))
-+		hartid = (unsigned long) fdt32_to_cpu(*(fdt32_t *)prop);
-+	else if (len == sizeof(u64))
-+		hartid = (unsigned long) fdt64_to_cpu(__get_unaligned_t(fdt64_t, prop));
-+	else
- 		return -EINVAL;
- 
--	hartid = fdt32_to_cpu(*prop);
- 	return 0;
- }
- 
 -- 
-2.25.1
-
+Thanks.
+-- Max
 
 _______________________________________________
 linux-riscv mailing list
