@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17283C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 07:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38823C433F5
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 07:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ITDTdHsb66Xy9DQ4/3/0D4y9XgB0A+K1CXmgOVY9mO4=; b=J2HATsJpcrJ6GI
-	nVm6pEeqCUmcB9U3fYhya1H6ZKtU3VQgJroMZ4CasvDWzweRyF53zHza4mupS48G4a1CVTqLXH1lF
-	U3g+hyQhO6cUgfzeSw/iSo/zCRgPbuaJLC88LQ+XV/MaFr12KCxt1G9qcmUYBuUwsQ27pbqjnDKK3
-	mVLErlew3q6CDe4y1TfGD+SSLlVCubJ9ybOwxSjEAySlsYWeL8eB97heexMILTY0i1FRmzYfXnLxE
-	7aOjlH1Hj5vjxeSJ+rR9N2ejax4UeMf5dTJ8VCPgvrJ83i6O+0K5Gt6AyFB74wizFwEgin8pS6jWF
-	ThJKFv/MdPN4tdiqo7bw==;
+	List-Owner; bh=k3eBImjqzfvZlZ9AHx7LbT3B2Hkkv9dgZui2IgzCF0M=; b=CLClIglLIFbVnO
+	VYeo93jMvvRUiGH32Fplom6HLrK/4ICUsQuj1epLppiee0IeVLFObvmpmEgoJd6HCSs+eXlwCfeax
+	+QCNcRAVE7VH8CvpgPvah/gq8lA7HmFTFTDdaGz2gv7vDpF+MJd4CiOBmfJGeorDU9zmzBIHVyR13
+	Tp7qB1xymjaBfM9HMqK3/5ygaXpnozgiVRDYdsxGCV4pn9788wX9rIShKJqb4zANSXFgpEFXWh+kn
+	ty+RHK41F+tWXGuYld/MCjWJeAYbO1auW91NklLjXyrxSK0yiyZwqkNCnWR4nFd2YwU6R+6KXU7Lc
+	IVPnxyIVwm7vAAeWFt5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuUDs-00Gqiy-O2; Fri, 27 May 2022 07:17:24 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1nuUTt-00Gs5o-0J; Fri, 27 May 2022 07:33:57 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuUDp-00GqiK-Iv
-	for linux-riscv@lists.infradead.org; Fri, 27 May 2022 07:17:23 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id v9so4022154lja.12
-        for <linux-riscv@lists.infradead.org>; Fri, 27 May 2022 00:17:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=voFWQv6a5xlzqv/Wy2pnyZxPR7t3qCANmzRDMt69eQM=;
-        b=VJFVWclZ5ITOpPOYbwMUO5kyarbs1I7ptUJJHIGlx/puuiygOFJJ8es9rJ+TJgMR5L
-         jDdNe0AfsbECd5JaYrwzIhRX4/gG3xMji5FEaidC0JmVSJgKmNe3vpFjLBzUoICEGzV6
-         bwWOp5uXMrakRmn8u7uLmpWDUBi+aRCp/4pxDrpVlgRf1RYmEndAIApjBxYPzjAWiwk7
-         LcGc4rLWixzNBsO/wJ+EUI3yRGYg67+CiyBa/IpvNNAO1xadLv0O2LxFta5cX7jVV1uS
-         IdBXuzNq5fDxUfLb4iw+t88YThg8zeNrzDtWvxr+C98yiHRglOoEwGclOHdWzHPhAYDZ
-         yg2Q==
+	id 1nuUTo-00Gs4z-UT
+	for linux-riscv@lists.infradead.org; Fri, 27 May 2022 07:33:55 +0000
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com [209.85.208.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id C93A23F4BF
+	for <linux-riscv@lists.infradead.org>; Fri, 27 May 2022 07:33:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1653636821;
+	bh=1gt57rBQUC/dMg2ypIptzesOq/kaLx2s804Le0JNYS4=;
+	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=Fc18zn8/Oi+tEbB55nStzPxhoV9uZcQKU+AwjkRCx8wwD2nPYhsHNoPxDq+lhOn79
+	 jfwbRpCKKuLubkF6X2JfpDhoW7cjxcVtTScXXT89PAomK9EXLZkScR42CBdRe3Vqj2
+	 PHXY5q2y/Jnr73vHrQPDrcV/DGcrFRPssD8dxIG4ZzhCgpiVdgw8jwFKGXr6Ut3Ha5
+	 zDzWZdlVYwsnWvyVHaHQwkAozlWYxBL8fvZGsa5ZdNyZHraMy7aqdM/92567f4yT6O
+	 CvqpPrQr1+4lNM86hia9LMDXoo2OPTIX7365fvf1PKM6gf/bRaFz7zi5/o9bsX0fo5
+	 WBeFiiKbZm8mg==
+Received: by mail-ed1-f70.google.com with SMTP id w16-20020a056402071000b0042bdc5be9b4so2532323edx.21
+        for <linux-riscv@lists.infradead.org>; Fri, 27 May 2022 00:33:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=voFWQv6a5xlzqv/Wy2pnyZxPR7t3qCANmzRDMt69eQM=;
-        b=Mjt4tymH8DCYalOntlLo7r93U8K+V7scTr+MZc6XkN1OAOagiZqjpbW70VFqVnVuJL
-         APDIQ+oQ/TOLR9naAOj1B99V2hctwlcvX2WNej8tp16hX2y2NoolhMRynZV/US9IiJjp
-         XVKT/ZtgLKskdN4Qs/NdKd3wzemnKtobaxOM/WNwonyw8sJIzpFMWI+XCCk4J7WawFIz
-         gSHj4dmdFieLEjGXqS4i29Fz7jZsRCkeoRqYhCBzpmjIwQcg7g/WQuEpro8L2Q+z3sGm
-         P5XwSTMFV5pTRQG4pCFCcRud7vEI5JRrOTYjmyMpVC1mJ/zxs3naYTVBtatTixa2DQNz
-         MzSw==
-X-Gm-Message-State: AOAM533XRgJkFj3j1FO2XOFSTw37+cvcOQ+i29h0wpZ2lLDe6Is56S/6
-	QI6GsYneXzrumtI8IiiEjKQY+WayftNjvXjF+o0nzg==
-X-Google-Smtp-Source: ABdhPJyd+CtbDb+tXi4xPX36hPJykAHSZOV6FMGlmXIe0sAKI+lJa7BGTYcNgavJ1lLMfXFViSMRvpWVNv8c9vivLt4=
-X-Received: by 2002:a05:651c:19aa:b0:253:fc5c:5e20 with SMTP id
- bx42-20020a05651c19aa00b00253fc5c5e20mr9854059ljb.465.1653635836046; Fri, 27
- May 2022 00:17:16 -0700 (PDT)
+        bh=1gt57rBQUC/dMg2ypIptzesOq/kaLx2s804Le0JNYS4=;
+        b=1Ebm/X28Cew0PGrpqMm+a5t7QLmbvxCxVCc/NbEe8LTFll16nRekipIb7uFAADyxv3
+         b+pTc+tMzeYio2GVoB48JeS+vFxDQUiCpv775UCVv4i2yymCL6Lc5YHzxVPtqB4M8bLD
+         K5jmJpFOk3jT+RXDxCIGP6EbmTU+S3RST0UQ5y59okFw5NH7LZ/Y9/1W62p4uS7xgLZP
+         6rJrHwBVkxisI9qPPYVwBInIOvNgapafQoZpT66V16eZQvWMXDon67ieiac0a0hMCNCS
+         LdDmChesb4yy7o26uzPDpR2nW62Y0xUfXJv1jsJopKEpyGgreXydIcNkN5N/PmmkIxqN
+         mKfg==
+X-Gm-Message-State: AOAM533wuw/QdRXPksltgQQgJjCXk4lKohJso+BDUpj4BrK3BV//Fs9U
+	5Sd1NOCDQp+slsRTuhPlfk56aFIW3ZC6IE6qE59Qhgjnv4p4woJq5cfd/8dtTlff7bIj1aV5Evn
+	HKGDLxx9wb8ByvRWdoUnxN0NonMRhDNJe7ONMxvjRDb1bHgrv8bTHz0PclXzJmg==
+X-Received: by 2002:a17:907:7745:b0:6f3:674a:339 with SMTP id kx5-20020a170907774500b006f3674a0339mr37163390ejc.207.1653636820535;
+        Fri, 27 May 2022 00:33:40 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJzDwVpv2iyuuCP5r7r93/MASEJrtT1au+quYHp7qJwuRfrxnUJGngHkW5RiZJlrirks+KYXXzQ1lZye+xV1rNE=
+X-Received: by 2002:a17:907:7745:b0:6f3:674a:339 with SMTP id
+ kx5-20020a170907774500b006f3674a0339mr37163376ejc.207.1653636820274; Fri, 27
+ May 2022 00:33:40 -0700 (PDT)
 MIME-Version: 1.0
 References: <00000000000038779505d5d8b372@google.com> <CANp29Y7WjwXwgxPrNq0XXjXPu+wGFqTreh9gry=O6aE7+cKpLQ@mail.gmail.com>
  <CA+zEjCvu76yW7zfM+qJUe+t5y23oPdzR4KDV1mOdqH8bB4GmTw@mail.gmail.com>
@@ -72,19 +81,19 @@ References: <00000000000038779505d5d8b372@google.com> <CANp29Y7WjwXwgxPrNq0XXjXP
  <5e702296-9ce0-f1e6-dae8-cc719bc040b9@ghiti.fr> <CAOnJCULgP_-D3cY2m39k9N912Q55FS7X9JcrRVoUt0GC92tx7w@mail.gmail.com>
  <CAOnJCUKBWx+wEKaq8WOPC1j7jgn38iWcrTh4gO+FzfF-mhPkQg@mail.gmail.com>
 In-Reply-To: <CAOnJCUKBWx+wEKaq8WOPC1j7jgn38iWcrTh4gO+FzfF-mhPkQg@mail.gmail.com>
-From: Dmitry Vyukov <dvyukov@google.com>
-Date: Fri, 27 May 2022 09:17:04 +0200
-Message-ID: <CACT4Y+aM8C6s-wcyWgoda-xfYvD=4YBKLnVavj49tPLYZBpLHg@mail.gmail.com>
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Date: Fri, 27 May 2022 09:33:29 +0200
+Message-ID: <CA+zEjCuK7NitU_tdjBo+qmhkN_qmH=NCryffb466E7ebVq0GDw@mail.gmail.com>
 Subject: Re: [syzbot] riscv/fixes boot error: can't ssh into the instance
 To: Atish Patra <atishp@atishpatra.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Alexandre Ghiti <alexandre.ghiti@canonical.com>, 
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Dmitry Vyukov <dvyukov@google.com>, 
 	Aleksandr Nogikh <nogikh@google.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
 	kasan-dev <kasan-dev@googlegroups.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	syzbot <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com>, 
 	LKML <linux-kernel@vger.kernel.org>, syzkaller-bugs@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220527_001721_676583_A1696150 
-X-CRM114-Status: GOOD (  50.33  )
+X-CRM114-CacheID: sfid-20220527_003353_439619_940D344F 
+X-CRM114-Status: GOOD (  51.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,7 +110,12 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-,On Thu, 26 May 2022 at 11:02, Atish Patra <atishp@atishpatra.org> wrote:
+Hi Atish,
+
+On Thu, May 26, 2022 at 11:02 AM Atish Patra <atishp@atishpatra.org> wrote:
+>
+> On Thu, May 26, 2022 at 1:11 AM Atish Patra <atishp@atishpatra.org> wrote:
+> >
 > > On Mon, May 16, 2022 at 5:06 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
 > > >
 > > >
@@ -357,14 +371,58 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 > I am not a kasan expert so I am not sure if this is the correct fix or
 > just hides the real issue. pcpu_alloc seems to use vmalloc though.
 
-Hi Atish,
+When this type of thing happens, generally this is because of an error
+in the kasan page table, I'll take a look this time, sorry I did not
+do this before.
 
-Enabling KASAN_VMALLOC in syzbot config actually makes it boot for me!
-It's probably good to enforce it and/or give better diagnostics and/or
-fix KASAN w/o KASAN_VMALLOC, but I've sent a fix up for syzbot config
-for now:
-https://github.com/google/syzkaller/pull/3167
-Thanks for looking into it.
+Thanks for finding this,
+
+Alex
+
+>
+> > > Thanks,
+> > >
+> > > Alex
+> > >
+> > >
+> > > >
+> > > >> However, as you'll see in the cover letter, I have an issue with
+> > > >> another KASAN config and if you can take a look at the stacktrace and
+> > > >> see if that rings a bell, that would be great.
+> > > >>
+> > > >> Don't hesitate next time to ping me when the riscv syzbot instance fails :)
+> > > >>
+> > > >> Alex
+> > > >>
+> > > >>
+> > > >>> --
+> > > >>> Best Regards,
+> > > >>> Aleksandr
+> > > >>>
+> > > >>>> Thanks again,
+> > > >>>>
+> > > >>>> Alex
+> > > >> --
+> > > >> You received this message because you are subscribed to the Google Groups "kasan-dev" group.
+> > > >> To unsubscribe from this group and stop receiving emails from it, send an email to kasan-dev+unsubscribe@googlegroups.com.
+> > > >> To view this discussion on the web visit https://groups.google.com/d/msgid/kasan-dev/CA%2BzEjCtB0rTuNAJkrM2q3JQL7D-9fAXBo0Ud0w__gy9CAfo_Ag%40mail.gmail.com.
+> > >
+> > > _______________________________________________
+> > > linux-riscv mailing list
+> > > linux-riscv@lists.infradead.org
+> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> >
+> >
+> >
+> > --
+> > Regards,
+> > Atish
+>
+>
+>
+> --
+> Regards,
+> Atish
 
 _______________________________________________
 linux-riscv mailing list
