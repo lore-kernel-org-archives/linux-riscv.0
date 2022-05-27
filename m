@@ -4,96 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38823C433F5
-	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 07:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE43CC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 27 May 2022 08:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-reply-to:
+	Date:Subject:Cc:To:From:References:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k3eBImjqzfvZlZ9AHx7LbT3B2Hkkv9dgZui2IgzCF0M=; b=CLClIglLIFbVnO
-	VYeo93jMvvRUiGH32Fplom6HLrK/4ICUsQuj1epLppiee0IeVLFObvmpmEgoJd6HCSs+eXlwCfeax
-	+QCNcRAVE7VH8CvpgPvah/gq8lA7HmFTFTDdaGz2gv7vDpF+MJd4CiOBmfJGeorDU9zmzBIHVyR13
-	Tp7qB1xymjaBfM9HMqK3/5ygaXpnozgiVRDYdsxGCV4pn9788wX9rIShKJqb4zANSXFgpEFXWh+kn
-	ty+RHK41F+tWXGuYld/MCjWJeAYbO1auW91NklLjXyrxSK0yiyZwqkNCnWR4nFd2YwU6R+6KXU7Lc
-	IVPnxyIVwm7vAAeWFt5Q==;
+	List-Owner; bh=M82oHSmo9P+PrQ5KVzP/KYeMxlTXFHlorP6JlWw3tQc=; b=2ZGIUnbMzay+TC
+	Coo4U/aS0JgWwIezg79+0N0XyApH8Ex8FYyGwmGQ3u9JH1gtX/bh+hc2MQBdsR9Ewwt+7XjKUlXJ4
+	Bz3s+iVL+xScapb+yBLO9gmg7W8h3kutjbctKAUuQg8z31ozysuo5EKUOwq8UEjVouuglGEBwJ9Gs
+	zea2MCkIarWwZGnSgH/yZEgoMdj8+mLJjTYkDRehBqRVb+VJarIuxMmRPhuhxVk/EWtGAoCTvoHgN
+	ekZr4DUzkQdw23LH0ZRnmZUIcGvCjYBs/8uJHR1+raPf90p5vBt1yVGsSDc03eNQ+e5B7d8oFvLM4
+	9nHdzFGxX97ZLrGqOnUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuUTt-00Gs5o-0J; Fri, 27 May 2022 07:33:57 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1nuVTT-00H2MW-K0; Fri, 27 May 2022 08:37:35 +0000
+Received: from mail-dm6nam10on2060a.outbound.protection.outlook.com ([2a01:111:f400:7e88::60a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nuUTo-00Gs4z-UT
-	for linux-riscv@lists.infradead.org; Fri, 27 May 2022 07:33:55 +0000
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com [209.85.208.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id C93A23F4BF
-	for <linux-riscv@lists.infradead.org>; Fri, 27 May 2022 07:33:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1653636821;
-	bh=1gt57rBQUC/dMg2ypIptzesOq/kaLx2s804Le0JNYS4=;
-	h=MIME-Version:References:In-Reply-To:From:Date:Message-ID:Subject:
-	 To:Cc:Content-Type;
-	b=Fc18zn8/Oi+tEbB55nStzPxhoV9uZcQKU+AwjkRCx8wwD2nPYhsHNoPxDq+lhOn79
-	 jfwbRpCKKuLubkF6X2JfpDhoW7cjxcVtTScXXT89PAomK9EXLZkScR42CBdRe3Vqj2
-	 PHXY5q2y/Jnr73vHrQPDrcV/DGcrFRPssD8dxIG4ZzhCgpiVdgw8jwFKGXr6Ut3Ha5
-	 zDzWZdlVYwsnWvyVHaHQwkAozlWYxBL8fvZGsa5ZdNyZHraMy7aqdM/92567f4yT6O
-	 CvqpPrQr1+4lNM86hia9LMDXoo2OPTIX7365fvf1PKM6gf/bRaFz7zi5/o9bsX0fo5
-	 WBeFiiKbZm8mg==
-Received: by mail-ed1-f70.google.com with SMTP id w16-20020a056402071000b0042bdc5be9b4so2532323edx.21
-        for <linux-riscv@lists.infradead.org>; Fri, 27 May 2022 00:33:41 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=1gt57rBQUC/dMg2ypIptzesOq/kaLx2s804Le0JNYS4=;
-        b=1Ebm/X28Cew0PGrpqMm+a5t7QLmbvxCxVCc/NbEe8LTFll16nRekipIb7uFAADyxv3
-         b+pTc+tMzeYio2GVoB48JeS+vFxDQUiCpv775UCVv4i2yymCL6Lc5YHzxVPtqB4M8bLD
-         K5jmJpFOk3jT+RXDxCIGP6EbmTU+S3RST0UQ5y59okFw5NH7LZ/Y9/1W62p4uS7xgLZP
-         6rJrHwBVkxisI9qPPYVwBInIOvNgapafQoZpT66V16eZQvWMXDon67ieiac0a0hMCNCS
-         LdDmChesb4yy7o26uzPDpR2nW62Y0xUfXJv1jsJopKEpyGgreXydIcNkN5N/PmmkIxqN
-         mKfg==
-X-Gm-Message-State: AOAM533wuw/QdRXPksltgQQgJjCXk4lKohJso+BDUpj4BrK3BV//Fs9U
-	5Sd1NOCDQp+slsRTuhPlfk56aFIW3ZC6IE6qE59Qhgjnv4p4woJq5cfd/8dtTlff7bIj1aV5Evn
-	HKGDLxx9wb8ByvRWdoUnxN0NonMRhDNJe7ONMxvjRDb1bHgrv8bTHz0PclXzJmg==
-X-Received: by 2002:a17:907:7745:b0:6f3:674a:339 with SMTP id kx5-20020a170907774500b006f3674a0339mr37163390ejc.207.1653636820535;
-        Fri, 27 May 2022 00:33:40 -0700 (PDT)
-X-Google-Smtp-Source: ABdhPJzDwVpv2iyuuCP5r7r93/MASEJrtT1au+quYHp7qJwuRfrxnUJGngHkW5RiZJlrirks+KYXXzQ1lZye+xV1rNE=
-X-Received: by 2002:a17:907:7745:b0:6f3:674a:339 with SMTP id
- kx5-20020a170907774500b006f3674a0339mr37163376ejc.207.1653636820274; Fri, 27
- May 2022 00:33:40 -0700 (PDT)
+	id 1nuVTN-00H2KW-Hh; Fri, 27 May 2022 08:37:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=BLilRM0R90JrugQ84auxbnUMpaNoK9Bk8XpVIDY4LubTPEu7OBTlPp0fFtD68FFxtuedYs9jLycmUlN0j/MHs+xI74rHbnM7AeDjM4BIS/SSvnCK7SL1Q1kJrv3C58Q/pxXrTQVo9/26d9SRjRKF2anPsX23NviGdeLd1n6Wy6K2pgYQ8hhU2E47RmBKzUVXLpGqFgO/HdmOGrTK+bQDTidG6nk28fBQEyUuzfGDrBnoCwdBsv8Vfscj5rxsGDAaE4bVkubtSIEd2MmIz5LeHlWJ7C4KTYa/8WXgDZBrWZdKdcko8dVQLvAcipcNHPW2v7JJRXf0Ti/ASZVBK8XGMQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ge2Ge1Dw8QnsksEhX+SdUNc+bNc9k2HwnZ4IBhpexBo=;
+ b=VaPRGypYyXMVMs5b7S5E0Pj+72mySzLqG6iF15tFBCjlWtYjWZEraLzAG1tfksonD2Y9ZjAKAP4ovXxV/xkZJOMmUv94Xk5cS8jxKLHrilpJPPNTBf4frD8Qi9x4z1sNktv6c9oNxMQN8H7f2anQeQh/kvIdEXjcjJHTz6lLG3bKP2U5Ck0gWdMsrxeg8CUdJLLl9qfm3ofTLV9R72en8RFoL6FM7GaceAN0l7QnUb1eAUHB+4bEZZSAyEWnWJqA0CfrOql+x6yzKEcBqsk1NQ36vVNYann7zXuBlVWKmoLDXm44yEIOGLyFW/hYm+umHY0nvJKbG449A1PkuuLOww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ge2Ge1Dw8QnsksEhX+SdUNc+bNc9k2HwnZ4IBhpexBo=;
+ b=l8Jb9mFxsR3Kc9ujvFG0LuOPhyYn5nlXpCjBg5A7x8vEFsOU9d7pWrJ9BFjXJhcs4hrYxh/qHhTMxPz9HYyAw0tQ2dANtgTjTUVpSiaMysmwMprlmSNIVIHbOraABazS182a9s+K4/qigSJvv3tdmiklbjRVSCQnAgeZZcEVk8XY0HEFZ22nVYSPPxHcOCnj67mt9oQ4ZRqvGAgYrifu8t/fxTWqrnFk3cM63kNi/7bxZ5+xR768+tdp1aG9bdg03X5Yk0a6RvEOL+3TqMNU6zyNc/r/nYbHZQ60ccRpfrc9mdDHw7T/20kX5QZIlN5UNfYPN6tDaOWE5hOVvg1nng==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BYAPR12MB3176.namprd12.prod.outlook.com (2603:10b6:a03:134::26)
+ by CY5PR12MB6455.namprd12.prod.outlook.com (2603:10b6:930:35::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5293.13; Fri, 27 May
+ 2022 08:23:02 +0000
+Received: from BYAPR12MB3176.namprd12.prod.outlook.com
+ ([fe80::59cf:d090:5d26:6e7b]) by BYAPR12MB3176.namprd12.prod.outlook.com
+ ([fe80::59cf:d090:5d26:6e7b%5]) with mapi id 15.20.5293.013; Fri, 27 May 2022
+ 08:23:02 +0000
+References: <20220524234531.1949-1-peterx@redhat.com>
+User-agent: mu4e 1.6.9; emacs 27.1
+From: Alistair Popple <apopple@nvidia.com>
+To: Peter Xu <peterx@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, Richard Henderson
+ <rth@twiddle.net>, David Hildenbrand <david@redhat.com>, Matt Turner
+ <mattst88@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, Michal Simek
+ <monstr@monstr.eu>, Russell King <linux@armlinux.org.uk>, Ivan Kokshaysky
+ <ink@jurassic.park.msu.ru>, linux-riscv@lists.infradead.org, Alexander
+ Gordeev <agordeev@linux.ibm.com>, Dave Hansen
+ <dave.hansen@linux.intel.com>, Jonas Bonn <jonas@southpole.se>, Will
+ Deacon <will@kernel.org>, "James E . J . Bottomley"
+ <James.Bottomley@HansenPartnership.com>, "H . Peter Anvin"
+ <hpa@zytor.com>, Andrea Arcangeli <aarcange@redhat.com>,
+ openrisc@lists.librecores.org, linux-s390@vger.kernel.org, Ingo Molnar
+ <mingo@redhat.com>, linux-m68k@lists.linux-m68k.org, Palmer Dabbelt
+ <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, Chris Zankel
+ <chris@zankel.net>, Peter Zijlstra <peterz@infradead.org>,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, Vlastimil Babka
+ <vbabka@suse.cz>, Thomas Gleixner <tglx@linutronix.de>,
+ sparclinux@vger.kernel.org, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Stafford Horne <shorne@gmail.com>, Michael
+ Ellerman <mpe@ellerman.id.au>, x86@kernel.org, Thomas Bogendoerfer
+ <tsbogend@alpha.franken.de>, Paul Mackerras <paulus@samba.org>,
+ linux-arm-kernel@lists.infradead.org, Sven Schnelle <svens@linux.ibm.com>,
+ Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+ linux-xtensa@linux-xtensa.org, Nicholas Piggin <npiggin@gmail.com>,
+ linux-sh@vger.kernel.org, Vasily Gorbik <gor@linux.ibm.com>, Borislav
+ Petkov <bp@alien8.de>, linux-mips@vger.kernel.org, Max Filippov
+ <jcmvbkbc@gmail.com>, Helge Deller <deller@gmx.de>, Vineet Gupta
+ <vgupta@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Johannes Weiner <hannes@cmpxchg.org>, Anton
+ Ivanov <anton.ivanov@cambridgegreys.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, linux-um@lists.infradead.org,
+ linux-alpha@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>,
+ linux-ia64@vger.kernel.org, Geert Uytterhoeven <geert@linux-m68k.org>,
+ Dinh Nguyen <dinguyen@kernel.org>, Guo Ren <guoren@kernel.org>,
+ linux-snps-arc@lists.infradead.org, Hugh Dickins <hughd@google.com>, Rich
+ Felker <dalias@libc.org>, Andy Lutomirski <luto@kernel.org>, Richard
+ Weinberger <richard@nod.at>, linuxppc-dev@lists.ozlabs.org, Brian Cain
+ <bcain@quicinc.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, Andrew
+ Morton <akpm@linux-foundation.org>, Stefan Kristiansson
+ <stefan.kristiansson@saunalahti.fi>, linux-parisc@vger.kernel.org, "David
+ S . Miller" <davem@davemloft.net>
+Subject: Re: [PATCH v3] mm: Avoid unnecessary page fault retires on shared
+ memory types
+Date: Fri, 27 May 2022 18:21:37 +1000
+In-reply-to: <20220524234531.1949-1-peterx@redhat.com>
+Message-ID: <87pmjz9yfy.fsf@nvdebian.thelocal>
+X-ClientProxiedBy: SY6PR01CA0027.ausprd01.prod.outlook.com
+ (2603:10c6:10:eb::14) To BYAPR12MB3176.namprd12.prod.outlook.com
+ (2603:10b6:a03:134::26)
 MIME-Version: 1.0
-References: <00000000000038779505d5d8b372@google.com> <CANp29Y7WjwXwgxPrNq0XXjXPu+wGFqTreh9gry=O6aE7+cKpLQ@mail.gmail.com>
- <CA+zEjCvu76yW7zfM+qJUe+t5y23oPdzR4KDV1mOdqH8bB4GmTw@mail.gmail.com>
- <CACT4Y+arufrRgwmN66wUU+_FGxMy-sTkjMQnRN8U2H2tQuhB7A@mail.gmail.com>
- <a0769218-c84a-a1d3-71e7-aefd40bf54fe@ghiti.fr> <CANp29Y4WMhsE_-VWvNbwq18+qvb1Qc-ES80h_j_G-N_hcAnRAw@mail.gmail.com>
- <CANp29Y4ujmz901aE9oiBDx9dYWHti4-Jw=6Ewtotm6ck6MN9FQ@mail.gmail.com>
- <CACT4Y+ZvStiHLYBOcPDoAJnk8hquXwm9BgjQTv=APwh7AvgEUQ@mail.gmail.com>
- <CANp29Y56Or0V1AG7rzBfV_ZTph2Crg4JKKHiuw1kcGFFxeWqiQ@mail.gmail.com>
- <CANp29Y5+MuhKAzVxzEDb_k9voXmKWrUFx8k4wnW5=2+5enVFVA@mail.gmail.com>
- <CA+zEjCtvaT0YsxxUgnEGM+V4b5sWuCAs3=3J+Xocf580uT3t1g@mail.gmail.com>
- <CA+zEjCs1FEUTcM+pgV+_MZnixSO5c2hexZFxGxuCQWc2ZMQiRg@mail.gmail.com>
- <CANp29Y4rDSjrfTOxcQqwh+Qm+ocR0v6Oxr7EkFxScf+24M1tNA@mail.gmail.com>
- <CA+zEjCtB0rTuNAJkrM2q3JQL7D-9fAXBo0Ud0w__gy9CAfo_Ag@mail.gmail.com>
- <CACT4Y+Z=3MWEhVUH3mAH150XpOmhdjsGPOHoP1nvBcBwU_sphQ@mail.gmail.com>
- <5e702296-9ce0-f1e6-dae8-cc719bc040b9@ghiti.fr> <CAOnJCULgP_-D3cY2m39k9N912Q55FS7X9JcrRVoUt0GC92tx7w@mail.gmail.com>
- <CAOnJCUKBWx+wEKaq8WOPC1j7jgn38iWcrTh4gO+FzfF-mhPkQg@mail.gmail.com>
-In-Reply-To: <CAOnJCUKBWx+wEKaq8WOPC1j7jgn38iWcrTh4gO+FzfF-mhPkQg@mail.gmail.com>
-From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Date: Fri, 27 May 2022 09:33:29 +0200
-Message-ID: <CA+zEjCuK7NitU_tdjBo+qmhkN_qmH=NCryffb466E7ebVq0GDw@mail.gmail.com>
-Subject: Re: [syzbot] riscv/fixes boot error: can't ssh into the instance
-To: Atish Patra <atishp@atishpatra.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, Dmitry Vyukov <dvyukov@google.com>, 
-	Aleksandr Nogikh <nogikh@google.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	kasan-dev <kasan-dev@googlegroups.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	syzbot <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com>, 
-	LKML <linux-kernel@vger.kernel.org>, syzkaller-bugs@googlegroups.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 8144ea32-55a8-4338-aee2-08da3fba1dd0
+X-MS-TrafficTypeDiagnostic: CY5PR12MB6455:EE_
+X-Microsoft-Antispam-PRVS: 	<CY5PR12MB64553261448A45E4B9AFEC81DFD89@CY5PR12MB6455.namprd12.prod.outlook.com>
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	Kj8bER77f9MfJ7wFOf1nvXTihsoUeIjY9Cg6TU3S3b7MqbjtEozcxTFW44gn/2X97AkdzkQ9DP7kldgn8Cmb7tlUG/kdso8FLwJxiqoaoix4CkW3lYHTinbl7mqLVJhy94EEAPqiIbP3ELhwJFDvESGl7S8aeJs/8rYXU6NN4jbVlpXAv/52MSYcZGDFmjhNgMrrRb13BsUsvXiwovKsg82H9dMaRua3afS6e8/4BkxsCMtKRX+rrUGIX9uac6CFe96usXrWXZjT9vpQdm5DHNE8atoLKiwHP2aSYMWPacd2tDo4CfIEeF+7+LadAsVnJdWD3rUNReHcu7UDEyC9ljphJsILc1/6NOPtaTKEL1KI5tPVZ5Xg34VskiJMs6yVWdK1XEQ4tS02f7vyQWwmlaHbD5t7UoYYdR4RXYFSdzEIg+HjcjEFSzWTUOVjjHebjv1aBlCn76KOxXlwwAyqJ8tT2MOzrDLG55O05CtSJj31193EA9MgDk9tBlQ3i55INKcfxpv/Lxs9Ysc62tLu7uT5Kvom8TWn90tCveOjm94kUdcASTDeWB8PC8SeHNthB6vE/CRBXEW9bguhwtwc14hx07ngwZVeA+gp/ios+Vp1K0Nl5U1r6K+zlQq7Ox50nCrn1TWfgslJSBrlT8sMLg==
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR12MB3176.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230001)(4636009)(366004)(6486002)(186003)(26005)(6512007)(9686003)(6506007)(316002)(508600001)(6666004)(54906003)(8936002)(2906002)(4326008)(86362001)(66476007)(66556008)(66946007)(6916009)(5660300002)(30864003)(7416002)(7366002)(7406005)(38100700002)(83380400001)(8676002);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?Egn9Wkx74BIZHqY/XDodUFckr6eFUG9bbPHni9EKWgGPSJHJNSmGPR0F3fuA?=
+ =?us-ascii?Q?4wc6KfDU7GIGlWizYFMMXfnoZCoEdlxjSZfwk2gtVOVLyqiH0z8gaN8dscS3?=
+ =?us-ascii?Q?8K9ZKD9oxzbp5P4rJzRi9DrMYnk9k7pZrKXtpIRfkQUZatO996FWF5aluZuS?=
+ =?us-ascii?Q?J2olYl8fUgTJ9kIgRq9fNE52vW3eliYgCrgGUH+2ok3FoLiga96p1PZH3+JE?=
+ =?us-ascii?Q?6AOJ8Nx/VpY4WWWRwbQFS44tX5/hIgVx/pJJ6O3kUYsINN+pdnp6hYdAzh4b?=
+ =?us-ascii?Q?q4T/D7KyntTYR3+1qn3edJSAwH/RtrsOh5BXMcu69GgMwQM1B4cQfzoH+EWP?=
+ =?us-ascii?Q?gNcs0mukX04pNnNskX2b6KSMLmoxljJySFwOY15+MFx4baxBqpFK26GlHCUw?=
+ =?us-ascii?Q?Ocgx17VIXNzZLjLJTMRA4wFejXsc9Ghx6Z+9KV1IHflW1lCTGaF8T4sUOyUm?=
+ =?us-ascii?Q?V/w02wnsIzaKXAy0SnRdQ+zkTuqpGHgXSiCJpvTxjCxOyBL0XOUaaV3TAT6+?=
+ =?us-ascii?Q?XpVWaHvvs/06/ibwooHrL4tvnJ4fhZ7Jf5Ueet7Tg+9oM97ESrYYYgKGm1Nx?=
+ =?us-ascii?Q?MWJmtV3KQFvRmmiznQZmkZUmwMT5tYcxBjq7amv+6caJ+7cqqvgoAHPaA9ha?=
+ =?us-ascii?Q?L/Z27IfJ1EjrKymHF1JJXQBrIzDbAq597CKlxvDSahSLTx6PX75K3fhmR2Al?=
+ =?us-ascii?Q?tY/G6GvkzBX25bGIcRXh3jgj04GiNtuxWUX9pKqOYKTf3GXP+XPIQ1N24a1n?=
+ =?us-ascii?Q?tkqymGbnrjXUlfvgFgN5T8P7eki08cbrMO2TpGrF1V5LW9+Rd6Tl5PE4WYKf?=
+ =?us-ascii?Q?TnjiL9/41044cedZG9Z+5CZzubXG1wtIpGMLV0oGAGgRDBrUZqTLGeHJ6QQr?=
+ =?us-ascii?Q?rkKN/2DDs4YDuwRFRKOnjQE2k31ieN2WuSyxe5We9khr1q/lPRaY/9KdWAYP?=
+ =?us-ascii?Q?i+MTR+z+nUNCgbvQP88YawASx/ZuVTl1EtGFwUPpfi9giZelYK44i7lJNv+2?=
+ =?us-ascii?Q?3sU8x84JLHB8CtyKodV1OlMuv1/IPy42eQUZrIX9E22h3xVhhXdbpjYOcjO6?=
+ =?us-ascii?Q?nQqFS3Z/ANW0Qw0FpbdufBEfHQl41bZUHYFOrzTwQJSA4nvM9Pv9a+/bTjQz?=
+ =?us-ascii?Q?n8J4vswVnF6SfRqVT5DafsXraJ3BJCb4Mlb2+cYonZXWHRjDL8qe4a+ZIJeO?=
+ =?us-ascii?Q?4i93Bk+FKtcD89X4lWPZRboAgiS4VRiV92ycN5P5QCFZF1AFig/N3p6p4u3j?=
+ =?us-ascii?Q?q89AluZ6MBmYUoZGBHqI3z8HMtKTR6d4zxajbP+F5M5igW1OwDnJ5k0bHpxl?=
+ =?us-ascii?Q?ppqXfikR8mqR906CTb9pdtk+WtoyrplbWjijfbxsSV18keOxYVyuLvUZ49oo?=
+ =?us-ascii?Q?3RQy+KrR1N7qp7xsSO38vetGwuHnEs9gG2funO/uPmTAnIn8fYWuh2JAWXbF?=
+ =?us-ascii?Q?RBSDi+uQ5PU9bm0kSvj1GGaZHIkzuUbL1iax0tvZFMRZ2XXfJocLtnCLx7Oz?=
+ =?us-ascii?Q?mK3yzLyqA08BKBMe/aUFf8bnAVl3uakX3rDjbMjG+xT/CyKV9MVfy9crVHKO?=
+ =?us-ascii?Q?5bNJCPmckf3BgmK+nhk09x7j4DDa80EbEHwxU3Z2BpVqPdwL0R9zZIzTdDcA?=
+ =?us-ascii?Q?+Dtg2jQSgxDHetz9ZIza/ZvbmbUtWBQmedj4dsZ2xXEx80GrthJHtkCmyNGE?=
+ =?us-ascii?Q?WFpwrKB9olCVFbCoQETCOGt1NtrW0+3orkR48gO5tfkK7QryqpMvDkT2MMrf?=
+ =?us-ascii?Q?NKghv5bSgQ=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8144ea32-55a8-4338-aee2-08da3fba1dd0
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR12MB3176.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 27 May 2022 08:23:02.6153
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wxkO0kvHQzM27g99vaqFtwZDoywGJ0kZ/c66VgL9K5cNKTIkyk4X8h5pYQDwyq0FG8231QNboMVHXZ6XB3miNg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6455
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220527_003353_439619_940D344F 
-X-CRM114-Status: GOOD (  51.27  )
+X-CRM114-CacheID: sfid-20220527_013729_680066_E551061B 
+X-CRM114-Status: GOOD (  34.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,319 +173,586 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
 
-On Thu, May 26, 2022 at 11:02 AM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Thu, May 26, 2022 at 1:11 AM Atish Patra <atishp@atishpatra.org> wrote:
-> >
-> > On Mon, May 16, 2022 at 5:06 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
-> > >
-> > >
-> > > On 5/12/22 13:48, Dmitry Vyukov wrote:
-> > > > On Fri, 18 Feb 2022 at 14:45, Alexandre Ghiti
-> > > > <alexandre.ghiti@canonical.com> wrote:
-> > > >> Hi Aleksandr,
-> > > >>
-> > > >> On Thu, Feb 17, 2022 at 6:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> > > >>> Hi Alex,
-> > > >>>
-> > > >>> On Thu, Feb 17, 2022 at 5:53 PM Alexandre Ghiti
-> > > >>> <alexandre.ghiti@canonical.com> wrote:
-> > > >>>> Aleksandr,
-> > > >>>>
-> > > >>>> On Wed, Feb 16, 2022 at 5:58 PM Alexandre Ghiti
-> > > >>>> <alexandre.ghiti@canonical.com> wrote:
-> > > >>>>> First, thank you for working on this.
-> > > >>>>>
-> > > >>>>> On Wed, Feb 16, 2022 at 5:17 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> > > >>>>>> If I use just defconfig + DEBUG_VIRTUAL, without any KASAN, it begins
-> > > >>>>>> to boot, but overwhelms me with tons of `virt_to_phys used for
-> > > >>>>>> non-linear address:` errors.
-> > > >>>>>>
-> > > >>>>>> Like that
-> > > >>>>>>
-> > > >>>>>> [    2.701271] virt_to_phys used for non-linear address:
-> > > >>>>>> 00000000b59e31b6 (0xffffffff806c2000)
-> > > >>>>>> [    2.701727] WARNING: CPU: 0 PID: 1 at arch/riscv/mm/physaddr.c:16
-> > > >>>>>> __virt_to_phys+0x7e/0x86
-> > > >>>>>> [    2.702207] Modules linked in:
-> > > >>>>>> [    2.702393] CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W
-> > > >>>>>>    5.17.0-rc1 #1
-> > > >>>>>> [    2.702806] Hardware name: riscv-virtio,qemu (DT)
-> > > >>>>>> [    2.703051] epc : __virt_to_phys+0x7e/0x86
-> > > >>>>>> [    2.703298]  ra : __virt_to_phys+0x7e/0x86
-> > > >>>>>> [    2.703547] epc : ffffffff80008448 ra : ffffffff80008448 sp :
-> > > >>>>>> ffff8f800021bde0
-> > > >>>>>> [    2.703977]  gp : ffffffff80ed9b30 tp : ffffaf8001230000 t0 :
-> > > >>>>>> ffffffff80eea56f
-> > > >>>>>> [    2.704704]  t1 : ffffffff80eea560 t2 : 0000000000000000 s0 :
-> > > >>>>>> ffff8f800021be00
-> > > >>>>>> [    2.705153]  s1 : ffffffff806c2000 a0 : 000000000000004f a1 :
-> > > >>>>>> ffffffff80e723d8
-> > > >>>>>> [    2.705555]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 :
-> > > >>>>>> 0000000000000000
-> > > >>>>>> [    2.706027]  a5 : 0000000000000000 a6 : 0000000000000005 a7 :
-> > > >>>>>> ffffffffffffffff
-> > > >>>>>> [    2.706474]  s2 : ffffffff80b80b08 s3 : 00000000000000c2 s4 :
-> > > >>>>>> ffffffff806c2000
-> > > >>>>>> [    2.706891]  s5 : ffffffff80edba10 s6 : ffffffff80edb960 s7 :
-> > > >>>>>> 0000000000000001
-> > > >>>>>> [    2.707290]  s8 : 00000000000000ff s9 : ffffffff80b80b40 s10:
-> > > >>>>>> 00000000000000cc
-> > > >>>>>> [    2.707689]  s11: ffffaf807e1fcf00 t3 : 0000000000000076 t4 :
-> > > >>>>>> ffffffffffffffff
-> > > >>>>>> [    2.708092]  t5 : 00000000000001f2 t6 : ffff8f800021bb48
-> > > >>>>>> [    2.708433] status: 0000000000000120 badaddr: 0000000000000000
-> > > >>>>>> cause: 0000000000000003
-> > > >>>>>> [    2.708919] [<ffffffff8011416a>] free_reserved_area+0x72/0x19a
-> > > >>>>>> [    2.709296] [<ffffffff80003a5a>] free_initmem+0x6c/0x7c
-> > > >>>>>> [    2.709648] [<ffffffff805f60c8>] kernel_init+0x3a/0x10a
-> > > >>>>>> [    2.709993] [<ffffffff80002fda>] ret_from_exception+0x0/0xc
-> > > >>>>>> [    2.710310] ---[ end trace 0000000000000000 ]---
-> > > >>>>>>
-> > > >>>>> I was able to reproduce this: the first one regarding init_zero_pfn is
-> > > >>>>> legit but not wrong, I have to check when it was introduced and how to
-> > > >>>>> fix this.
-> > > >>>>> Regarding the huge batch that follows, at first sight, I would say
-> > > >>>>> this is linked to my sv48 patchset but that does not seem important as
-> > > >>>>> the address is a kernel mapping address so the use of virt_to_phys is
-> > > >>>>> right.
-> > > >>>>>
-> > > >>>>>> On Wed, Feb 16, 2022 at 5:09 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> > > >>>>>>> On Wed, Feb 16, 2022 at 12:56 PM Dmitry Vyukov <dvyukov@google.com> wrote:
-> > > >>>>>>>> On Wed, 16 Feb 2022 at 12:47, Aleksandr Nogikh <nogikh@google.com> wrote:
-> > > >>>>>>>>> On Wed, Feb 16, 2022 at 11:37 AM Aleksandr Nogikh <nogikh@google.com> wrote:
-> > > >>>>>>>>>> Hi Alex,
-> > > >>>>>>>>>>
-> > > >>>>>>>>>> On Wed, Feb 16, 2022 at 5:14 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
-> > > >>>>>>>>>>> Hi Dmitry,
-> > > >>>>>>>>>>>
-> > > >>>>>>>>>>> On 2/15/22 18:12, Dmitry Vyukov wrote:
-> > > >>>>>>>>>>>> On Wed, 2 Feb 2022 at 14:18, Alexandre Ghiti
-> > > >>>>>>>>>>>> <alexandre.ghiti@canonical.com> wrote:
-> > > >>>>>>>>>>>>> Hi Aleksandr,
-> > > >>>>>>>>>>>>>
-> > > >>>>>>>>>>>>> On Wed, Feb 2, 2022 at 12:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
-> > > >>>>>>>>>>>>>> Hello,
-> > > >>>>>>>>>>>>>>
-> > > >>>>>>>>>>>>>> syzbot has already not been able to fuzz its RISC-V instance for 97
-> > > >>>>>>>>>>>>> That's a longtime, I'll take a look more regularly.
-> > > >>>>>>>>>>>>>
-> > > >>>>>>>>>>>>>> days now because the compiled kernel cannot boot. I bisected the issue
-> > > >>>>>>>>>>>>>> to the following commit:
-> > > >>>>>>>>>>>>>>
-> > > >>>>>>>>>>>>>> commit 54c5639d8f507ebefa814f574cb6f763033a72a5
-> > > >>>>>>>>>>>>>> Author: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-> > > >>>>>>>>>>>>>> Date:   Fri Oct 29 06:59:27 2021 +0200
-> > > >>>>>>>>>>>>>>
-> > > >>>>>>>>>>>>>>       riscv: Fix asan-stack clang build
-> > > >>>>>>>>>>>>>>
-> > > >>>>>>>>>>>>>> Apparently, the problem appears on GCC-built RISC-V kernels with KASAN
-> > > >>>>>>>>>>>>>> enabled. In the previous message syzbot mentions
-> > > >>>>>>>>>>>>>> "riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU
-> > > >>>>>>>>>>>>>> Binutils for Debian) 2.35.2", but the issue also reproduces finely on
-> > > >>>>>>>>>>>>>> a newer GCC compiler: "riscv64-linux-gnu-gcc (Debian 11.2.0-10)
-> > > >>>>>>>>>>>>>> 11.2.0, GNU ld (GNU Binutils for Debian) 2.37".
-> > > >>>>>>>>>>>>>> For convenience, I also duplicate the .config file from the bot's
-> > > >>>>>>>>>>>>>> message: https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
-> > > >>>>>>>>>>>>>>
-> > > >>>>>>>>>>>>>> Can someone with KASAN and RISC-V expertise please take a look?
-> > > >>>>>>>>>>>>> I'll take a look at that today.
-> > > >>>>>>>>>>>>>
-> > > >>>>>>>>>>>>> Thanks for reporting the issue,
-> > > >>>>>>>>>>> I took a quick look, not enough to fix it but I know the issue comes
-> > > >>>>>>>>>>> from the inline instrumentation, I have no problem with the outline
-> > > >>>>>>>>>>> instrumentation. I need to find some cycles to work on this, my goal is
-> > > >>>>>>>>>>> to fix this for 5.17.
-> > > >>>>>>>>>> Thanks for the update!
-> > > >>>>>>>>>>
-> > > >>>>>>>>>> Can you please share the .config with which you tested the outline
-> > > >>>>>>>>>> instrumentation?
-> > > >>>>>>>>>> I updated the syzbot config to use KASAN_OUTLINE instead of KASAN_INLINE,
-> > > >>>>>>>>>> but it still does not boot :(
-> > > >>>>>>>>>>
-> > > >>>>>>>>>> Here's what I used:
-> > > >>>>>>>>>> https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
-> > > >>>>>>>>> Update: it doesn't boot with that big config, but boots if I generate
-> > > >>>>>>>>> a simple one with KASAN_OUTLINE:
-> > > >>>>>>>>>
-> > > >>>>>>>>> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> > > >>>>>>>>> ./scripts/config -e KASAN -e KASAN_OUTLINE
-> > > >>>>>>>>> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> > > >>>>>>>>>
-> > > >>>>>>>>> And it indeed doesn't work if I use KASAN_INLINE.
-> > > >>>>>>>> It may be an issue with code size. Full syzbot config + KASAN + KCOV
-> > > >>>>>>>> produce hugely massive .text. It may be hitting some limitation in the
-> > > >>>>>>>> bootloader/kernel bootstrap code.
-> > > >>>>> I took a quick glance and it traps on a KASAN address that is not
-> > > >>>>> mapped, either because it is too soon or because the mapping failed
-> > > >>>>> somehow.
-> > > >>>>>
-> > > >>>>> I'll definitely dive into that tomorrow, sorry for being slow here and
-> > > >>>>> thanks again for all your work, that helps a lot.
-> > > >>>>>
-> > > >>>>> Thanks,
-> > > >>>>>
-> > > >>>>> Alex
-> > > >>>>>
-> > > >>>>>>> I bisected the difference between the config we use on syzbot and the
-> > > >>>>>>> simple one that was generated like I described above.
-> > > >>>>>>> Turns out that it's the DEBUG_VIRTUAL config that makes the difference.
-> > > >>>>>>>
-> > > >>>>>>> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> > > >>>>>>> ./scripts/config -e KASAN -e KASAN_OUTLINE -e DEBUG_VIRTUAL
-> > > >>>>>>> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
-> > > >>>>>>>
-> > > >>>>>>> And the resulting kernel does not boot.
-> > > >>>>>>> My env: the `riscv/fixes` branch, commit
-> > > >>>>>>> 6df2a016c0c8a3d0933ef33dd192ea6606b115e3, qemu 6.2.0.
-> > > >>>> I fixed a few things today: KASAN + SPARSE_VMEMMAP, DEBUG_VIRTUAL and
-> > > >>>> maybe KASAN  + KCOV.
-> > > >>>>
-> > > >>>> With those small fixes, I was able to boot your large dotconfig with
-> > > >>>> KASAN_OUTLINE, the inline version still fails, this is my next target
-> > > >>>> :)
-> > > >>>> I'll push that tomorrow!
-> > > >>> Awesome, thank you very much!
-> > > >>> Looking forward to finally seeing the instance run :)
-> > > >> I sent a patchset which should fix your config with *outline* instrumentation.
-> > > > Was this fix merged? The riscv instance still does not boot:
-> > > > https://syzkaller.appspot.com/bug?id=5f2ff52ad42cba9f222202219baebd4e63e35127
-> > >
-> > >
-> > > Yes it has been in Linus tree since 5.18-rc1. I'll take a look at that
-> > > this week.
-> > >
-> >
-> > Are you seeing this error or a different one ? I used the
-> > syzkaller_defconfig from the patch below on v5.18.
-> >
-> > https://lore.kernel.org/all/20220419174952.699-1-palmer@rivosinc.com/
-> >
-> > [   15.076116][    T1] Mandatory Access Control activated.
-> > [   15.158241][    T1] AppArmor: AppArmor Filesystem Enabled
-> > [   16.150870][    T1] NET: Registered PF_INET protocol family
-> > [   16.166167][    T1] IP idents hash table entries: 32768 (order: 6,
-> > 262144 bytes, linear)
-> > [   16.188727][    T1] Unable to handle kernel paging request at
-> > virtual address ffebfffeffff2000
-> > [   16.192727][    T1] Oops [#1]
-> > [   16.193479][    T1] Modules linked in:
-> > [   16.194687][    T1] CPU: 3 PID: 1 Comm: swapper/0 Not tainted
-> > 5.18.0-00001-g37ac279268bf-dirty #9
-> > [   16.196486][    T1] Hardware name: riscv-virtio,qemu (DT)
-> > [   16.197836][    T1] epc : kasan_check_range+0x9e/0x14e
-> > [   16.199104][    T1]  ra : memset+0x1e/0x4c
-> > [   16.200091][    T1] epc : ffffffff804787e0 ra : ffffffff80478f30 sp
-> > : ff600000073ffb70
-> > [   16.201420][    T1]  gp : ffffffff85879e80 tp : ff600000073f0000 t0
-> > : 7300000000000000
-> > [   16.202762][    T1]  t1 : ffebfffeffff21ff t2 : 73746e6564692050 s0
-> > : ff600000073ffba0
-> > [   16.204047][    T1]  s1 : 0000000000001000 a0 : ffebfffeffff2200 a1
-> > : 0000000000001000
-> > [   16.205312][    T1]  a2 : 0000000000000001 a3 : ffffffff803a4f32 a4
-> > : ff5ffffffff90000
-> > [   16.206592][    T1]  a5 : ffebfffeffff2000 a6 : 0000004000000000 a7
-> > : ff5ffffffff90fff
-> > [   16.207865][    T1]  s2 : ff5ffffffff90000 s3 : 0000000000000000 s4
-> > : ffffffff8467ea90
-> > [   16.209134][    T1]  s5 : 0000000000000000 s6 : ff5ffffffff90000 s7
-> > : 0000000000000000
-> > [   16.210394][    T1]  s8 : 0000000000001000 s9 : ffffffff8587ca40
-> > s10: 0000000000000004
-> > [   16.211952][    T1]  s11: ffffffff858a03a0 t3 : 0000000000000000 t4
-> > : 0000000000000040
-> > [   16.213469][    T1]  t5 : ffebfffeffff2200 t6 : ff600000073ff738
-> > [   16.214853][    T1] status: 0000000200000120 badaddr:
-> > ffebfffeffff2000 cause: 000000000000000d
-> > [   16.216910][    T1] Call Trace:
-> > [   16.217816][    T1] [<ffffffff803a4f32>] pcpu_alloc+0x844/0x1254
-> > [   16.219110][    T1] [<ffffffff803a59a0>] __alloc_percpu+0x28/0x34
-> > [   16.220244][    T1] [<ffffffff8328824a>] ip_rt_init+0x17e/0x382
-> > [   16.221606][    T1] [<ffffffff8328861c>] ip_init+0x18/0x30
-> > [   16.222719][    T1] [<ffffffff8328a0ee>] inet_init+0x2a6/0x550
-> > [   16.223863][    T1] [<ffffffff80003204>] do_one_initcall+0x130/0x7dc
-> > [   16.225002][    T1] [<ffffffff83201fbc>] kernel_init_freeable+0x510/0x5b4
-> > [   16.226273][    T1] [<ffffffff8319842a>] kernel_init+0x28/0x21c
-> > [   16.227337][    T1] [<ffffffff80005818>] ret_from_exception+0x0/0x10
-> > [   16.229910][    T1] ---[ end trace 0000000000000000 ]---
-> > [   16.231880][    T1] Kernel panic - not syncing: Fatal exception
-> >
-> >
->
-> Enabling CONFIG_KASAN_VMALLOC=y solves the issue and I am able to boot
-> to the userspace.
-> I have tried enabling/disabling CONFIG_VMAP_STACK as well. Both works fine.
->
-> Looking at the ARM64 Kconfig, KASAN_VMALLOC is enabled if KASAN is enabled.
-> This diff seems to work for me.
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 00fd9c548f26..cbf0fe227c77 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -122,6 +122,7 @@ config RISCV
->         select TRACE_IRQFLAGS_SUPPORT
->         select UACCESS_MEMCPY if !MMU
->         select ZONE_DMA32 if 64BIT
-> +       select KASAN_VMALLOC if KASAN
->
-> I am not a kasan expert so I am not sure if this is the correct fix or
-> just hides the real issue. pcpu_alloc seems to use vmalloc though.
+Peter Xu <peterx@redhat.com> writes:
 
-When this type of thing happens, generally this is because of an error
-in the kasan page table, I'll take a look this time, sorry I did not
-do this before.
+> I observed that for each of the shared file-backed page faults, we're very
+> likely to retry one more time for the 1st write fault upon no page.  It's
+> because we'll need to release the mmap lock for dirty rate limit purpose
+> with balance_dirty_pages_ratelimited() (in fault_dirty_shared_page()).
+>
+> Then after that throttling we return VM_FAULT_RETRY.
+>
+> We did that probably because VM_FAULT_RETRY is the only way we can return
+> to the fault handler at that time telling it we've released the mmap lock.
+>
+> However that's not ideal because it's very likely the fault does not need
+> to be retried at all since the pgtable was well installed before the
+> throttling, so the next continuous fault (including taking mmap read lock,
+> walk the pgtable, etc.) could be in most cases unnecessary.
+>
+> It's not only slowing down page faults for shared file-backed, but also add
+> more mmap lock contention which is in most cases not needed at all.
+>
+> To observe this, one could try to write to some shmem page and look at
+> "pgfault" value in /proc/vmstat, then we should expect 2 counts for each
+> shmem write simply because we retried, and vm event "pgfault" will capture
+> that.
+>
+> To make it more efficient, add a new VM_FAULT_COMPLETED return code just to
+> show that we've completed the whole fault and released the lock.  It's also
+> a hint that we should very possibly not need another fault immediately on
+> this page because we've just completed it.
+>
+> This patch provides a ~12% perf boost on my aarch64 test VM with a simple
+> program sequentially dirtying 400MB shmem file being mmap()ed and these are
+> the time it needs:
+>
+>   Before: 650.980 ms (+-1.94%)
+>   After:  569.396 ms (+-1.38%)
+>
+> I believe it could help more than that.
+>
+> We need some special care on GUP and the s390 pgfault handler (for gmap
+> code before returning from pgfault), the rest changes in the page fault
+> handlers should be relatively straightforward.
+>
+> Another thing to mention is that mm_account_fault() does take this new
+> fault as a generic fault to be accounted, unlike VM_FAULT_RETRY.
+>
+> I explicitly didn't touch hmm_vma_fault() and break_ksm() because they do
+> not handle VM_FAULT_RETRY even with existing code, so I'm literally keeping
+> them as-is.
 
-Thanks for finding this,
+I looked at the change generally and in particular for hmm_vma_fault()
+and didn't see any issues there so feel free to add:
 
-Alex
+Reviewed-by: Alistair Popple <apopple@nvidia.com>
 
+> Signed-off-by: Peter Xu <peterx@redhat.com>
+> ---
 >
-> > > Thanks,
-> > >
-> > > Alex
-> > >
-> > >
-> > > >
-> > > >> However, as you'll see in the cover letter, I have an issue with
-> > > >> another KASAN config and if you can take a look at the stacktrace and
-> > > >> see if that rings a bell, that would be great.
-> > > >>
-> > > >> Don't hesitate next time to ping me when the riscv syzbot instance fails :)
-> > > >>
-> > > >> Alex
-> > > >>
-> > > >>
-> > > >>> --
-> > > >>> Best Regards,
-> > > >>> Aleksandr
-> > > >>>
-> > > >>>> Thanks again,
-> > > >>>>
-> > > >>>> Alex
-> > > >> --
-> > > >> You received this message because you are subscribed to the Google Groups "kasan-dev" group.
-> > > >> To unsubscribe from this group and stop receiving emails from it, send an email to kasan-dev+unsubscribe@googlegroups.com.
-> > > >> To view this discussion on the web visit https://groups.google.com/d/msgid/kasan-dev/CA%2BzEjCtB0rTuNAJkrM2q3JQL7D-9fAXBo0Ud0w__gy9CAfo_Ag%40mail.gmail.com.
-> > >
-> > > _______________________________________________
-> > > linux-riscv mailing list
-> > > linux-riscv@lists.infradead.org
-> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
-> >
-> >
-> >
-> > --
-> > Regards,
-> > Atish
+> v3:
+> - Rebase to akpm/mm-unstable
+> - Copy arch maintainers
+> ---
+>  arch/alpha/mm/fault.c         |  4 ++++
+>  arch/arc/mm/fault.c           |  4 ++++
+>  arch/arm/mm/fault.c           |  4 ++++
+>  arch/arm64/mm/fault.c         |  4 ++++
+>  arch/csky/mm/fault.c          |  4 ++++
+>  arch/hexagon/mm/vm_fault.c    |  4 ++++
+>  arch/ia64/mm/fault.c          |  4 ++++
+>  arch/m68k/mm/fault.c          |  4 ++++
+>  arch/microblaze/mm/fault.c    |  4 ++++
+>  arch/mips/mm/fault.c          |  4 ++++
+>  arch/nios2/mm/fault.c         |  4 ++++
+>  arch/openrisc/mm/fault.c      |  4 ++++
+>  arch/parisc/mm/fault.c        |  4 ++++
+>  arch/powerpc/mm/copro_fault.c |  5 +++++
+>  arch/powerpc/mm/fault.c       |  5 +++++
+>  arch/riscv/mm/fault.c         |  4 ++++
+>  arch/s390/mm/fault.c          | 12 +++++++++++-
+>  arch/sh/mm/fault.c            |  4 ++++
+>  arch/sparc/mm/fault_32.c      |  4 ++++
+>  arch/sparc/mm/fault_64.c      |  5 +++++
+>  arch/um/kernel/trap.c         |  4 ++++
+>  arch/x86/mm/fault.c           |  4 ++++
+>  arch/xtensa/mm/fault.c        |  4 ++++
+>  include/linux/mm_types.h      |  2 ++
+>  mm/gup.c                      | 34 +++++++++++++++++++++++++++++++++-
+>  mm/memory.c                   |  2 +-
+>  26 files changed, 138 insertions(+), 3 deletions(-)
 >
+> diff --git a/arch/alpha/mm/fault.c b/arch/alpha/mm/fault.c
+> index ec20c1004abf..ef427a6bdd1a 100644
+> --- a/arch/alpha/mm/fault.c
+> +++ b/arch/alpha/mm/fault.c
+> @@ -155,6 +155,10 @@ do_page_fault(unsigned long address, unsigned long mmcsr,
+>  	if (fault_signal_pending(fault, regs))
+>  		return;
 >
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_OOM)
+>  			goto out_of_memory;
+> diff --git a/arch/arc/mm/fault.c b/arch/arc/mm/fault.c
+> index dad27e4d69ff..5ca59a482632 100644
+> --- a/arch/arc/mm/fault.c
+> +++ b/arch/arc/mm/fault.c
+> @@ -146,6 +146,10 @@ void do_page_fault(unsigned long address, struct pt_regs *regs)
+>  		return;
+>  	}
 >
-> --
-> Regards,
-> Atish
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	/*
+>  	 * Fault retry nuances, mmap_lock already relinquished by core mm
+>  	 */
+> diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+> index a062e07516dd..46cccd6bf705 100644
+> --- a/arch/arm/mm/fault.c
+> +++ b/arch/arm/mm/fault.c
+> @@ -322,6 +322,10 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+>  		return 0;
+>  	}
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return 0;
+> +
+>  	if (!(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_RETRY) {
+>  			flags |= FAULT_FLAG_TRIED;
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 77341b160aca..e401d416bbd6 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -607,6 +607,10 @@ static int __kprobes do_page_fault(unsigned long far, unsigned int esr,
+>  		return 0;
+>  	}
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return 0;
+> +
+>  	if (fault & VM_FAULT_RETRY) {
+>  		mm_flags |= FAULT_FLAG_TRIED;
+>  		goto retry;
+> diff --git a/arch/csky/mm/fault.c b/arch/csky/mm/fault.c
+> index 7215a46b6b8e..e15f736cca4b 100644
+> --- a/arch/csky/mm/fault.c
+> +++ b/arch/csky/mm/fault.c
+> @@ -285,6 +285,10 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+>  		return;
+>  	}
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely((fault & VM_FAULT_RETRY) && (flags & FAULT_FLAG_ALLOW_RETRY))) {
+>  		flags |= FAULT_FLAG_TRIED;
+>
+> diff --git a/arch/hexagon/mm/vm_fault.c b/arch/hexagon/mm/vm_fault.c
+> index 4fac4b9eb316..f73c7cbfe326 100644
+> --- a/arch/hexagon/mm/vm_fault.c
+> +++ b/arch/hexagon/mm/vm_fault.c
+> @@ -96,6 +96,10 @@ void do_page_fault(unsigned long address, long cause, struct pt_regs *regs)
+>  	if (fault_signal_pending(fault, regs))
+>  		return;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	/* The most common case -- we are done. */
+>  	if (likely(!(fault & VM_FAULT_ERROR))) {
+>  		if (fault & VM_FAULT_RETRY) {
+> diff --git a/arch/ia64/mm/fault.c b/arch/ia64/mm/fault.c
+> index 07379d1a227f..ef78c2d66cdd 100644
+> --- a/arch/ia64/mm/fault.c
+> +++ b/arch/ia64/mm/fault.c
+> @@ -139,6 +139,10 @@ ia64_do_page_fault (unsigned long address, unsigned long isr, struct pt_regs *re
+>  	if (fault_signal_pending(fault, regs))
+>  		return;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		/*
+>  		 * We ran out of memory, or some other thing happened
+> diff --git a/arch/m68k/mm/fault.c b/arch/m68k/mm/fault.c
+> index 71aa9f6315dc..4d2837eb3e2a 100644
+> --- a/arch/m68k/mm/fault.c
+> +++ b/arch/m68k/mm/fault.c
+> @@ -141,6 +141,10 @@ int do_page_fault(struct pt_regs *regs, unsigned long address,
+>  	if (fault_signal_pending(fault, regs))
+>  		return 0;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return 0;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_OOM)
+>  			goto out_of_memory;
+> diff --git a/arch/microblaze/mm/fault.c b/arch/microblaze/mm/fault.c
+> index a9626e6a68af..5c40c3ebe52f 100644
+> --- a/arch/microblaze/mm/fault.c
+> +++ b/arch/microblaze/mm/fault.c
+> @@ -222,6 +222,10 @@ void do_page_fault(struct pt_regs *regs, unsigned long address,
+>  	if (fault_signal_pending(fault, regs))
+>  		return;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_OOM)
+>  			goto out_of_memory;
+> diff --git a/arch/mips/mm/fault.c b/arch/mips/mm/fault.c
+> index 44f98100e84e..6f72bac39bf2 100644
+> --- a/arch/mips/mm/fault.c
+> +++ b/arch/mips/mm/fault.c
+> @@ -162,6 +162,10 @@ static void __kprobes __do_page_fault(struct pt_regs *regs, unsigned long write,
+>  		return;
+>  	}
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_OOM)
+>  			goto out_of_memory;
+> diff --git a/arch/nios2/mm/fault.c b/arch/nios2/mm/fault.c
+> index a32f14cd72f2..edaca0a6c1c1 100644
+> --- a/arch/nios2/mm/fault.c
+> +++ b/arch/nios2/mm/fault.c
+> @@ -139,6 +139,10 @@ asmlinkage void do_page_fault(struct pt_regs *regs, unsigned long cause,
+>  	if (fault_signal_pending(fault, regs))
+>  		return;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_OOM)
+>  			goto out_of_memory;
+> diff --git a/arch/openrisc/mm/fault.c b/arch/openrisc/mm/fault.c
+> index 80bb66ad42f6..c18f7abd64df 100644
+> --- a/arch/openrisc/mm/fault.c
+> +++ b/arch/openrisc/mm/fault.c
+> @@ -167,6 +167,10 @@ asmlinkage void do_page_fault(struct pt_regs *regs, unsigned long address,
+>  	if (fault_signal_pending(fault, regs))
+>  		return;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_OOM)
+>  			goto out_of_memory;
+> diff --git a/arch/parisc/mm/fault.c b/arch/parisc/mm/fault.c
+> index f114e102aaf2..fe57175a7792 100644
+> --- a/arch/parisc/mm/fault.c
+> +++ b/arch/parisc/mm/fault.c
+> @@ -309,6 +309,10 @@ void do_page_fault(struct pt_regs *regs, unsigned long code,
+>  	if (fault_signal_pending(fault, regs))
+>  		return;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		/*
+>  		 * We hit a shared mapping outside of the file, or some
+> diff --git a/arch/powerpc/mm/copro_fault.c b/arch/powerpc/mm/copro_fault.c
+> index c1cb21a00884..7c507fb48182 100644
+> --- a/arch/powerpc/mm/copro_fault.c
+> +++ b/arch/powerpc/mm/copro_fault.c
+> @@ -65,6 +65,11 @@ int copro_handle_mm_fault(struct mm_struct *mm, unsigned long ea,
+>
+>  	ret = 0;
+>  	*flt = handle_mm_fault(vma, ea, is_write ? FAULT_FLAG_WRITE : 0, NULL);
+> +
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (*flt & VM_FAULT_COMPLETED)
+> +		return 0;
+> +
+>  	if (unlikely(*flt & VM_FAULT_ERROR)) {
+>  		if (*flt & VM_FAULT_OOM) {
+>  			ret = -ENOMEM;
+> diff --git a/arch/powerpc/mm/fault.c b/arch/powerpc/mm/fault.c
+> index d53fed4eccbd..014005428687 100644
+> --- a/arch/powerpc/mm/fault.c
+> +++ b/arch/powerpc/mm/fault.c
+> @@ -511,6 +511,10 @@ static int ___do_page_fault(struct pt_regs *regs, unsigned long address,
+>  	if (fault_signal_pending(fault, regs))
+>  		return user_mode(regs) ? 0 : SIGBUS;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		goto out;
+> +
+>  	/*
+>  	 * Handle the retry right now, the mmap_lock has been released in that
+>  	 * case.
+> @@ -525,6 +529,7 @@ static int ___do_page_fault(struct pt_regs *regs, unsigned long address,
+>  	if (unlikely(fault & VM_FAULT_ERROR))
+>  		return mm_fault_error(regs, address, fault);
+>
+> +out:
+>  	/*
+>  	 * Major/minor page fault accounting.
+>  	 */
+> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+> index 4e9efbe46d5f..d6a87f4137ca 100644
+> --- a/arch/riscv/mm/fault.c
+> +++ b/arch/riscv/mm/fault.c
+> @@ -330,6 +330,10 @@ asmlinkage void do_page_fault(struct pt_regs *regs)
+>  	if (fault_signal_pending(fault, regs))
+>  		return;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely(fault & VM_FAULT_RETRY)) {
+>  		flags |= FAULT_FLAG_TRIED;
+>
+> diff --git a/arch/s390/mm/fault.c b/arch/s390/mm/fault.c
+> index e173b6187ad5..9503a7cfaf03 100644
+> --- a/arch/s390/mm/fault.c
+> +++ b/arch/s390/mm/fault.c
+> @@ -339,6 +339,7 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
+>  	unsigned long address;
+>  	unsigned int flags;
+>  	vm_fault_t fault;
+> +	bool need_unlock = true;
+>  	bool is_write;
+>
+>  	tsk = current;
+> @@ -433,6 +434,13 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
+>  			goto out_up;
+>  		goto out;
+>  	}
+> +
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED) {
+> +		need_unlock = false;
+> +		goto out_gmap;
+> +	}
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR))
+>  		goto out_up;
+>
+> @@ -452,6 +460,7 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
+>  		mmap_read_lock(mm);
+>  		goto retry;
+>  	}
+> +out_gmap:
+>  	if (IS_ENABLED(CONFIG_PGSTE) && gmap) {
+>  		address =  __gmap_link(gmap, current->thread.gmap_addr,
+>  				       address);
+> @@ -466,7 +475,8 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
+>  	}
+>  	fault = 0;
+>  out_up:
+> -	mmap_read_unlock(mm);
+> +	if (need_unlock)
+> +		mmap_read_unlock(mm);
+>  out:
+>  	return fault;
+>  }
+> diff --git a/arch/sh/mm/fault.c b/arch/sh/mm/fault.c
+> index e175667b1363..acd2f5e50bfc 100644
+> --- a/arch/sh/mm/fault.c
+> +++ b/arch/sh/mm/fault.c
+> @@ -485,6 +485,10 @@ asmlinkage void __kprobes do_page_fault(struct pt_regs *regs,
+>  		if (mm_fault_error(regs, error_code, address, fault))
+>  			return;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (fault & VM_FAULT_RETRY) {
+>  		flags |= FAULT_FLAG_TRIED;
+>
+> diff --git a/arch/sparc/mm/fault_32.c b/arch/sparc/mm/fault_32.c
+> index ad569d9bd124..91259f291c54 100644
+> --- a/arch/sparc/mm/fault_32.c
+> +++ b/arch/sparc/mm/fault_32.c
+> @@ -190,6 +190,10 @@ asmlinkage void do_sparc_fault(struct pt_regs *regs, int text_fault, int write,
+>  	if (fault_signal_pending(fault, regs))
+>  		return;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_OOM)
+>  			goto out_of_memory;
+> diff --git a/arch/sparc/mm/fault_64.c b/arch/sparc/mm/fault_64.c
+> index 253e07043298..4acc12eafbf5 100644
+> --- a/arch/sparc/mm/fault_64.c
+> +++ b/arch/sparc/mm/fault_64.c
+> @@ -427,6 +427,10 @@ asmlinkage void __kprobes do_sparc64_fault(struct pt_regs *regs)
+>  	if (fault_signal_pending(fault, regs))
+>  		goto exit_exception;
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		goto lock_released;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_OOM)
+>  			goto out_of_memory;
+> @@ -449,6 +453,7 @@ asmlinkage void __kprobes do_sparc64_fault(struct pt_regs *regs)
+>  	}
+>  	mmap_read_unlock(mm);
+>
+> +lock_released:
+>  	mm_rss = get_mm_rss(mm);
+>  #if defined(CONFIG_TRANSPARENT_HUGEPAGE)
+>  	mm_rss -= (mm->context.thp_pte_count * (HPAGE_SIZE / PAGE_SIZE));
+> diff --git a/arch/um/kernel/trap.c b/arch/um/kernel/trap.c
+> index d1d5d0be0308..d3ce21c4ca32 100644
+> --- a/arch/um/kernel/trap.c
+> +++ b/arch/um/kernel/trap.c
+> @@ -76,6 +76,10 @@ int handle_page_fault(unsigned long address, unsigned long ip,
+>  		if ((fault & VM_FAULT_RETRY) && fatal_signal_pending(current))
+>  			goto out_nosemaphore;
+>
+> +		/* The fault is fully completed (including releasing mmap lock) */
+> +		if (fault & VM_FAULT_COMPLETED)
+> +			return 0;
+> +
+>  		if (unlikely(fault & VM_FAULT_ERROR)) {
+>  			if (fault & VM_FAULT_OOM) {
+>  				goto out_of_memory;
+> diff --git a/arch/x86/mm/fault.c b/arch/x86/mm/fault.c
+> index d0074c6ed31a..12ed70b432d6 100644
+> --- a/arch/x86/mm/fault.c
+> +++ b/arch/x86/mm/fault.c
+> @@ -1408,6 +1408,10 @@ void do_user_addr_fault(struct pt_regs *regs,
+>  		return;
+>  	}
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	/*
+>  	 * If we need to retry the mmap_lock has already been released,
+>  	 * and if there is a fatal signal pending there is no guarantee
+> diff --git a/arch/xtensa/mm/fault.c b/arch/xtensa/mm/fault.c
+> index 06d0973a0d74..5f64305ba8d7 100644
+> --- a/arch/xtensa/mm/fault.c
+> +++ b/arch/xtensa/mm/fault.c
+> @@ -118,6 +118,10 @@ void do_page_fault(struct pt_regs *regs)
+>  		return;
+>  	}
+>
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return;
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_OOM)
+>  			goto out_of_memory;
+> diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+> index c09b7f0555b8..decc275db3c9 100644
+> --- a/include/linux/mm_types.h
+> +++ b/include/linux/mm_types.h
+> @@ -729,6 +729,7 @@ typedef __bitwise unsigned int vm_fault_t;
+>   * @VM_FAULT_NEEDDSYNC:		->fault did not modify page tables and needs
+>   *				fsync() to complete (for synchronous page faults
+>   *				in DAX)
+> + * @VM_FAULT_COMPLETED:		->fault completed, meanwhile mmap lock released
+>   * @VM_FAULT_HINDEX_MASK:	mask HINDEX value
+>   *
+>   */
+> @@ -746,6 +747,7 @@ enum vm_fault_reason {
+>  	VM_FAULT_FALLBACK       = (__force vm_fault_t)0x000800,
+>  	VM_FAULT_DONE_COW       = (__force vm_fault_t)0x001000,
+>  	VM_FAULT_NEEDDSYNC      = (__force vm_fault_t)0x002000,
+> +	VM_FAULT_COMPLETED      = (__force vm_fault_t)0x004000,
+>  	VM_FAULT_HINDEX_MASK    = (__force vm_fault_t)0x0f0000,
+>  };
+>
+> diff --git a/mm/gup.c b/mm/gup.c
+> index 2e07cff3b31b..3347b083d70b 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -951,6 +951,25 @@ static int faultin_page(struct vm_area_struct *vma,
+>  	}
+>
+>  	ret = handle_mm_fault(vma, address, fault_flags, NULL);
+> +
+> +	if (ret & VM_FAULT_COMPLETED) {
+> +		/*
+> +		 * With FAULT_FLAG_RETRY_NOWAIT we'll never release the
+> +		 * mmap lock in the page fault handler. Sanity check this.
+> +		 */
+> +		WARN_ON_ONCE(fault_flags & FAULT_FLAG_RETRY_NOWAIT);
+> +		if (locked)
+> +			*locked = 0;
+> +		/*
+> +		 * We should do the same as VM_FAULT_RETRY, but let's not
+> +		 * return -EBUSY since that's not reflecting the reality on
+> +		 * what has happened - we've just fully completed a page
+> +		 * fault, with the mmap lock released.  Use -EAGAIN to show
+> +		 * that we want to take the mmap lock _again_.
+> +		 */
+> +		return -EAGAIN;
+> +	}
+> +
+>  	if (ret & VM_FAULT_ERROR) {
+>  		int err = vm_fault_to_errno(ret, *flags);
+>
+> @@ -1177,6 +1196,7 @@ static long __get_user_pages(struct mm_struct *mm,
+>  			case 0:
+>  				goto retry;
+>  			case -EBUSY:
+> +			case -EAGAIN:
+>  				ret = 0;
+>  				fallthrough;
+>  			case -EFAULT:
+> @@ -1303,6 +1323,18 @@ int fixup_user_fault(struct mm_struct *mm,
+>  		return -EINTR;
+>
+>  	ret = handle_mm_fault(vma, address, fault_flags, NULL);
+> +
+> +	if (ret & VM_FAULT_COMPLETED) {
+> +		/*
+> +		 * NOTE: it's a pity that we need to retake the lock here
+> +		 * to pair with the unlock() in the callers. Ideally we
+> +		 * could tell the callers so they do not need to unlock.
+> +		 */
+> +		mmap_read_lock(mm);
+> +		*unlocked = true;
+> +		return 0;
+> +	}
+> +
+>  	if (ret & VM_FAULT_ERROR) {
+>  		int err = vm_fault_to_errno(ret, 0);
+>
+> @@ -1368,7 +1400,7 @@ static __always_inline long __get_user_pages_locked(struct mm_struct *mm,
+>  			/* VM_FAULT_RETRY couldn't trigger, bypass */
+>  			return ret;
+>
+> -		/* VM_FAULT_RETRY cannot return errors */
+> +		/* VM_FAULT_RETRY or VM_FAULT_COMPLETED cannot return errors */
+>  		if (!*locked) {
+>  			BUG_ON(ret < 0);
+>  			BUG_ON(ret >= nr_pages);
+> diff --git a/mm/memory.c b/mm/memory.c
+> index 54d106e0c999..a8be2d7a8718 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -3020,7 +3020,7 @@ static vm_fault_t fault_dirty_shared_page(struct vm_fault *vmf)
+>  		balance_dirty_pages_ratelimited(mapping);
+>  		if (fpin) {
+>  			fput(fpin);
+> -			return VM_FAULT_RETRY;
+> +			return VM_FAULT_COMPLETED;
+>  		}
+>  	}
 
 _______________________________________________
 linux-riscv mailing list
