@@ -4,56 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B59C433F5
-	for <linux-riscv@archiver.kernel.org>; Sat, 28 May 2022 08:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2974EC433F5
+	for <linux-riscv@archiver.kernel.org>; Sat, 28 May 2022 08:13:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C+oH+AW6sJSoMTghG6hVzSOdVcN1apEcfMqEDEz7GL8=; b=IcxCVcdwt5KUpq
-	33mTRSQiS7AtVEpgaAW1Mh4Rpd+nl9KTRvdcR84BeZLYXIYFToPxWSz05A85vr/1g98J29X7qQhqo
-	qrU6m3BBtE4iBt2PdVXAHtkvtuYL+qF/r5uLPxhKL1Mf/KqdcD8uuQ5ka1VkPKMTFfYn8oQD3QfoK
-	zGZKs0nGljgHL2ddA+T7hJJ38rUdSgvjHDK/na+kutAhfE9maYtS6h9SxG3Iu9E1Q9Rkc16TxrRbT
-	uGwuBsDtzni9FeyQvefdfU4bTXkJrR6k0VfAB5jWmpVvee63KNoEzUAahCULOJV6dUkn7/yueNnke
-	dA80bbZyN0kesZ/LdpwA==;
+	List-Owner; bh=rBG7alA/kG+MKYpamz1LnT5uayQSROt0VKxOnqYqcb0=; b=oXzVw0LN+zTG6k
+	zTxcG1AFL0ckVk5ksIxUHwgx6vJSaxnv8o9QkETk+K9R3HkDfrvAvavYInqsSSr0pVstVYlDAaeED
+	KkZgJZ6bWsxsHk1fBblrSJZiOd0bP8IoxpMZ9pfDojLf0WNUx2FX9+t/iI8STqgzJJdI2NghVk39H
+	H2GsXUKXG5virRix6pXo0oGHteyJmQjohgYAQeXykUM8X0Y7R1fm2NAVTuTMmdJijHMImdTR/FLOU
+	Siq61KX+f/DO+pRXI+84G0ukWzG6LNVI4X9wbDae4gmuBt5+aif3ZOYMxV53ugVVoljM4+bgZ0LWN
+	QTpmXqn5thVLq7K6x9gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nurWQ-001ipr-6C; Sat, 28 May 2022 08:10:06 +0000
-Received: from relay12.mail.gandi.net ([2001:4b98:dc4:8::232])
+	id 1nurZj-001j9T-AH; Sat, 28 May 2022 08:13:31 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nurWL-001ip4-Cm
-	for linux-riscv@lists.infradead.org; Sat, 28 May 2022 08:10:03 +0000
+	id 1nurZf-001j8L-D5
+	for linux-riscv@lists.infradead.org; Sat, 28 May 2022 08:13:30 +0000
 Received: (Authenticated sender: alex@ghiti.fr)
-	by mail.gandi.net (Postfix) with ESMTPSA id 05DFE200004;
-	Sat, 28 May 2022 08:09:52 +0000 (UTC)
-Message-ID: <f2bcc414-aa96-cfcb-4df8-fe66cf47068f@ghiti.fr>
-Date: Sat, 28 May 2022 10:09:52 +0200
+	by mail.gandi.net (Postfix) with ESMTPSA id 1A76160006;
+	Sat, 28 May 2022 08:13:18 +0000 (UTC)
+Message-ID: <9684825e-036b-5d1d-acbf-91677e8f8f92@ghiti.fr>
+Date: Sat, 28 May 2022 10:13:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.8.0
-Subject: Re: [syzbot] riscv/fixes test error: lost connection to test machine
+Subject: Re: [syzbot] riscv/fixes boot error: can't ssh into the instance
 Content-Language: en-US
-To: Dmitry Vyukov <dvyukov@google.com>,
+To: Atish Patra <atishp@atishpatra.org>,
  Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Cc: syzkaller-bugs <syzkaller-bugs@googlegroups.com>,
- syzbot <syzbot+2c5da6a0a16a0c4f34aa@syzkaller.appspotmail.com>,
- Albert Ou <aou@eecs.berkeley.edu>, LKML <linux-kernel@vger.kernel.org>,
+Cc: Dmitry Vyukov <dvyukov@google.com>, Aleksandr Nogikh <nogikh@google.com>,
  linux-riscv <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>
-References: <000000000000d0437b05dffdd1de@google.com>
- <CACT4Y+Y8DOKJtwhRsyNT7G26C3Fx_oeibpXn43Ks0RtYYdZG3g@mail.gmail.com>
- <36f4745f-0e47-4f49-8f4e-ff7544f163d8n@googlegroups.com>
- <CACT4Y+Zy7wLdeRCa+ZH-swo9ut=U6pEk4rP461QE1m-gT6s-uQ@mail.gmail.com>
- <a55430c3-a0bc-4af6-b7e2-20f2e0d091b2n@googlegroups.com>
- <CACT4Y+ar18tcxx0tOthV0JBrmWsLXtXAjXVFX4sac5k1UGJ7Lw@mail.gmail.com>
- <CACT4Y+ZAazG7UjKE1ZHq72bh4Ve1r3_Hw+zcONYoO1J959sukw@mail.gmail.com>
+ kasan-dev <kasan-dev@googlegroups.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ syzbot <syzbot+330a558d94b58f7601be@syzkaller.appspotmail.com>,
+ LKML <linux-kernel@vger.kernel.org>, syzkaller-bugs@googlegroups.com
+References: <00000000000038779505d5d8b372@google.com>
+ <CANp29Y4ujmz901aE9oiBDx9dYWHti4-Jw=6Ewtotm6ck6MN9FQ@mail.gmail.com>
+ <CACT4Y+ZvStiHLYBOcPDoAJnk8hquXwm9BgjQTv=APwh7AvgEUQ@mail.gmail.com>
+ <CANp29Y56Or0V1AG7rzBfV_ZTph2Crg4JKKHiuw1kcGFFxeWqiQ@mail.gmail.com>
+ <CANp29Y5+MuhKAzVxzEDb_k9voXmKWrUFx8k4wnW5=2+5enVFVA@mail.gmail.com>
+ <CA+zEjCtvaT0YsxxUgnEGM+V4b5sWuCAs3=3J+Xocf580uT3t1g@mail.gmail.com>
+ <CA+zEjCs1FEUTcM+pgV+_MZnixSO5c2hexZFxGxuCQWc2ZMQiRg@mail.gmail.com>
+ <CANp29Y4rDSjrfTOxcQqwh+Qm+ocR0v6Oxr7EkFxScf+24M1tNA@mail.gmail.com>
+ <CA+zEjCtB0rTuNAJkrM2q3JQL7D-9fAXBo0Ud0w__gy9CAfo_Ag@mail.gmail.com>
+ <CACT4Y+Z=3MWEhVUH3mAH150XpOmhdjsGPOHoP1nvBcBwU_sphQ@mail.gmail.com>
+ <5e702296-9ce0-f1e6-dae8-cc719bc040b9@ghiti.fr>
+ <CAOnJCULgP_-D3cY2m39k9N912Q55FS7X9JcrRVoUt0GC92tx7w@mail.gmail.com>
+ <CAOnJCUKBWx+wEKaq8WOPC1j7jgn38iWcrTh4gO+FzfF-mhPkQg@mail.gmail.com>
+ <CA+zEjCuK7NitU_tdjBo+qmhkN_qmH=NCryffb466E7ebVq0GDw@mail.gmail.com>
+ <CAOnJCUL5=y2QEdJbkR6NtrrwDjw7KALnw2JEqMmXPnKTqEavDQ@mail.gmail.com>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CACT4Y+ZAazG7UjKE1ZHq72bh4Ve1r3_Hw+zcONYoO1J959sukw@mail.gmail.com>
+In-Reply-To: <CAOnJCUL5=y2QEdJbkR6NtrrwDjw7KALnw2JEqMmXPnKTqEavDQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220528_011001_790652_EB7EA661 
-X-CRM114-Status: GOOD (  19.40  )
+X-CRM114-CacheID: sfid-20220528_011327_808286_B04CB686 
+X-CRM114-Status: GOOD (  35.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,100 +73,330 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNS8yNy8yMiAxOToxMiwgRG1pdHJ5IFZ5dWtvdiB3cm90ZToKPiBPbiBGcmksIDI3IE1heSAy
-MDIyIGF0IDE5OjA0LCBEbWl0cnkgVnl1a292IDxkdnl1a292QGdvb2dsZS5jb20+IHdyb3RlOgo+
-PiBPbiBGcmksIDI3IE1heSAyMDIyIGF0IDE2OjAxLCBBbGV4YW5kcmUgR2hpdGkKPj4gPGFsZXhh
-bmRyZS5naGl0aUBjYW5vbmljYWwuY29tPiB3cm90ZToKPj4+IE9uIEZyaWRheSwgTWF5IDI3LCAy
-MDIyIGF0IDM6NTU6MjQgUE0gVVRDKzIgRG1pdHJ5IFZ5dWtvdiB3cm90ZToKPj4+PiBPbiBGcmks
-IDI3IE1heSAyMDIyIGF0IDE1OjUwLCBBbGV4YW5kcmUgR2hpdGkKPj4+PiA8YWxleGFuZC4uLkBj
-YW5vbmljYWwuY29tPiB3cm90ZToKPj4+Pj4gT24gRnJpZGF5LCBNYXkgMjcsIDIwMjIgYXQgMzow
-MjowMSBQTSBVVEMrMiBEbWl0cnkgVnl1a292IHdyb3RlOgo+Pj4+Pj4gT24gRnJpLCAyNyBNYXkg
-MjAyMiBhdCAxNDo1NSwgc3l6Ym90Cj4+Pj4+PiA8c3l6Ym90KzJjNWRhNi4uLkBzeXprYWxsZXIu
-YXBwc3BvdG1haWwuY29tPiB3cm90ZToKPj4+Pj4+PiBIZWxsbywKPj4+Pj4+Pgo+Pj4+Pj4+IHN5
-emJvdCBmb3VuZCB0aGUgZm9sbG93aW5nIGlzc3VlIG9uOgo+Pj4+Pj4+Cj4+Pj4+Pj4gSEVBRCBj
-b21taXQ6IGM5MzJlZGVhZjZkNiByaXNjdjogZHRzOiBtaWNyb2NoaXA6IGZpeCBncGlvMSByZWcg
-cHJvcGVydHkuLgo+Pj4+Pj4+IGdpdCB0cmVlOiBnaXQ6Ly9naXQua2VybmVsLm9yZy9wdWIvc2Nt
-L2xpbnV4L2tlcm5lbC9naXQvcmlzY3YvbGludXguZ2l0IGZpeGVzCj4+Pj4+Pj4gY29uc29sZSBv
-dXRwdXQ6IGh0dHBzOi8vc3l6a2FsbGVyLmFwcHNwb3QuY29tL3gvbG9nLnR4dD94PTE0MThhZGQ1
-ZjAwMDAwCj4+Pj4+Pj4ga2VybmVsIGNvbmZpZzogaHR0cHM6Ly9zeXprYWxsZXIuYXBwc3BvdC5j
-b20veC8uY29uZmlnP3g9YWE2YjU3MDJiZGYxNGExNwo+Pj4+Pj4+IGRhc2hib2FyZCBsaW5rOiBo
-dHRwczovL3N5emthbGxlci5hcHBzcG90LmNvbS9idWc/ZXh0aWQ9MmM1ZGE2YTBhMTZhMGM0ZjM0
-YWEKPj4+Pj4+PiBjb21waWxlcjogcmlzY3Y2NC1saW51eC1nbnUtZ2NjIChEZWJpYW4gMTAuMi4x
-LTYpIDEwLjIuMSAyMDIxMDExMCwgR05VIGxkIChHTlUgQmludXRpbHMgZm9yIERlYmlhbikgMi4z
-NS4yCj4+Pj4+Pj4gdXNlcnNwYWNlIGFyY2g6IHJpc2N2NjQKPj4+Pj4+Pgo+Pj4+Pj4+IElNUE9S
-VEFOVDogaWYgeW91IGZpeCB0aGUgaXNzdWUsIHBsZWFzZSBhZGQgdGhlIGZvbGxvd2luZyB0YWcg
-dG8gdGhlIGNvbW1pdDoKPj4+Pj4+PiBSZXBvcnRlZC1ieTogc3l6Ym90KzJjNWRhNi4uLkBzeXpr
-YWxsZXIuYXBwc3BvdG1haWwuY29tCj4+Pj4+PiBUaGUgQ09ORklHX0tBU0FOX1ZNQUxMT0MgYWxs
-b3dzIHJpc2N2IGtlcm5lbCB0byBib290LCBidXQgbm93IEdvCj4+Pj4+PiBwcm9jZXNzZXMgc3Rh
-cnRlZCBjcmFzaGluZyB3aXRoOgo+Pj4+Pj4KPj4+Pj4+IDE5NzAvMDEvMDEgMDA6MDY6NTUgZnV6
-emVyIHN0YXJ0ZWQKPj4+Pj4+IHJ1bnRpbWU6IGxmc3RhY2sucHVzaCBpbnZhbGlkIHBhY2tpbmc6
-IG5vZGU9MHhmZmZmZmY1OTA4YTk0MCBjbnQ9MHgxCj4+Pj4+PiBwYWNrZWQ9MHhmZmZmNTkwOGE5
-NDAwMDAxIC0+IG5vZGU9MHhmZmZmNTkwOGE5NDAKPj4+Pj4+IGZhdGFsIGVycm9yOiBsZnN0YWNr
-LnB1c2gKPj4+Pj4+IHJ1bnRpbWUgc3RhY2s6Cj4+Pj4+PiBydW50aW1lLnRocm93KHsweDMwODg0
-YywgMHhjfSkKPj4+Pj4+IC91c3IvbG9jYWwvZ28vc3JjL3J1bnRpbWUvcGFuaWMuZ286MTE5OCAr
-MHg2MAo+Pj4+Pj4gcnVudGltZS4oKmxmc3RhY2spLnB1c2goMHhkYjM4NTAsIDB4ZmZmZmZmNTkw
-OGE5NDApCj4+Pj4+PiAvdXNyL2xvY2FsL2dvL3NyYy9ydW50aW1lL2xmc3RhY2suZ286MzAgKzB4
-MWE4Cj4+Pj4+Pgo+Pj4+Pj4gR28gcnVudGltZSB0cmllcyB0byBzaG92ZSBzb21lIGRhdGEgaW50
-byB0aGUgdXBwZXIgMTYgYml0cyBvZiBwb2ludGVycwo+Pj4+Pj4gYXNzdW1pbmcgdGhleSBhcmUg
-dW51c2VkLgo+Pj4+Pj4gSG93ZXZlciwgdGhlIG9yaWdpbmFsIHBvaW50ZXIgbm9kZT0weGZmZmZm
-ZjU5MDhhOTQwIHN1Z2dlc3QgcmlzY3Ygbm93Cj4+Pj4+PiBoYXMgNTYtYml0IHVzZXJzLXNwYWNl
-IGFkZHJlc3Mgc3BhY2U/Cj4+Pj4+Cj4+Pj4+IFllcywgc3Y1NyB3YXMgbWVyZ2VkIHJlY2VudGx5
-Lgo+Pj4+Pgo+Pj4+Pj4gRG9jdW1lbnRhdGlvbi9yaXNjdi92bS1sYXlvdXQucnN0IGNsYWltcyA0
-OC1iaXQgcG9pbnRlcnM6Cj4+Pj4+PiAiCj4+Pj4+PiBUaGUgUklTQy1WIHByaXZpbGVnZWQgYXJj
-aGl0ZWN0dXJlIGRvY3VtZW50IHN0YXRlcyB0aGF0IHRoZSA2NGJpdCBhZGRyZXNzZXMKPj4+Pj4+
-ICJtdXN0IGhhdmUgYml0cyA2M+KAkzQ4IGFsbCBlcXVhbCB0byBiaXQgNDcsIG9yIGVsc2UgYSBw
-YWdlLWZhdWx0IGV4Y2VwdGlvbiB3aWxsCj4+Pj4+PiBvY2N1ci4iOgo+Pj4+Pgo+Pj4+PiBUaGFu
-a3MgZm9yIHBvaW50aW5nIHRoYXQsIEkgZXh0cmFjdGVkIHRoYXQgZnJvbSB0aGUgc3BlY2lmaWNh
-dGlvbiBiZWZvcmUgc3Y1NyB3YXMgc3BlY2lmaWVkLCBJJ2xsIGZpeCB0aGF0Lgo+Pj4+Pgo+Pj4+
-PiBUaGUgY3VycmVudCBrZXJuZWwgY29kZSB3aWxsIHVzZSBzdjU3IGFzIGl0IGlzIHN1cHBvcnRl
-ZCBhbmQgYWR2ZXJ0aXNlZCBieSBxZW11LCBhbmQgdG8gbXkga25vd2xlZGdlLCB5b3UgY2FuJ3Qg
-ZG93bmdyYWRlIHRvIHN2NDggdW5sZXNzIGJ5IHJlLWNvbXBpbGluZyBxZW11IHVzaW5nIHRoZSBm
-b2xsb3dpbmc6Cj4+Pj4+Cj4+Pj4+IGRpZmYgLS1naXQgYS90YXJnZXQvcmlzY3YvY3NyLmMgYi90
-YXJnZXQvcmlzY3YvY3NyLmMKPj4+Pj4gaW5kZXggNmRiZTliNTQxZi4uYTY0YjUwZWQ3NSAxMDA2
-NDQKPj4+Pj4gLS0tIGEvdGFyZ2V0L3Jpc2N2L2Nzci5jCj4+Pj4+ICsrKyBiL3RhcmdldC9yaXNj
-di9jc3IuYwo+Pj4+PiBAQCAtNjM3LDcgKzYzNyw3IEBAIHN0YXRpYyBjb25zdCBjaGFyIHZhbGlk
-X3ZtXzFfMTBfNjRbMTZdID0gewo+Pj4+PiBbVk1fMV8xMF9NQkFSRV0gPSAxLAo+Pj4+PiBbVk1f
-MV8xMF9TVjM5XSA9IDEsCj4+Pj4+IFtWTV8xXzEwX1NWNDhdID0gMSwKPj4+Pj4gLSBbVk1fMV8x
-MF9TVjU3XSA9IDEKPj4+Pj4gKyBbVk1fMV8xMF9TVjU3XSA9IDAKPj4+Pj4gfTsKPj4+Pj4KPj4+
-Pj4gLyogTWFjaGluZSBJbmZvcm1hdGlvbiBSZWdpc3RlcnMgKi8KPj4+Pj4KPj4+Pj4+IC4uLgo+
-Pj4+Pj4gMDAwMDAwMDAwMDAwMDAwMCB8IDAgfCAwMDAwMDAzZmZmZmZmZmZmIHwgMjU2IEdCIHwK
-Pj4+Pj4+IHVzZXItc3BhY2UgdmlydHVhbCBtZW1vcnksIGRpZmZlcmVudCBwZXIgbW0KPj4+Pj4+
-ICIKPj4+PiBUaGVyZSBpcyBubyBrZXJuZWwgY29uZmlnIHRvIGZvcmNlIFNWNDgvMzksIHJpZ2h0
-Pwo+Pj4KPj4+IE5vLCB3ZSByZWx5IG9uIHdoYXQgdGhlIGhhcmR3YXJlIGFkdmVydGlzZXMsIGlm
-IGl0IHN1cHBvcnRzIHN2NTcsIHdlJ2xsIGdvIGZvciBzdjU3LCBpZiBub3QsIHdlJ2xsIHRyeSBz
-djQ4Li4uZXRjLiBJIGhhZCBzb21lIHBhdGNoZXMgdG8gZm9yY2UgdGhlIGRvd25ncmFkZSBieSB1
-c2luZyB0aGUgZGV2aWNlIHRyZWUgYnV0IHRoZXkgbmV2ZXIgZ290IG1lcmdlZCB0aG91Z2guCj4+
-ICtvcmlnaW5hbCBDQyBsaXN0Cj4+Cj4+IEZUUiBzZW50IEdvIHJ1bnRpbWUgY2hhbmdlIHRvIHN1
-cHBvcnQgU1Y1NzoKPj4gaHR0cHM6Ly9nby1yZXZpZXcuZ29vZ2xlc291cmNlLmNvbS9jL2dvLysv
-NDA5MDU1Cj4KPgo+IElzIENPTkZJR19DTURMSU5FIGJyb2tlbiBvbiByaXNjdj8KPiBJIGFtIHJ1
-bm5pbmcgd2l0aDoKPgo+IENPTkZJR19DTURMSU5FPSJlYXJseXByaW50az1zZXJpYWwgbmV0Lmlm
-bmFtZXM9MAo+IHN5c2N0bC5rZXJuZWwuaHVuZ190YXNrX2FsbF9jcHVfYmFja3RyYWNlPTEgaW1h
-X3BvbGljeT10Y2IKPiBuZi1jb25udHJhY2stZnRwLnBvcnRzPTIwMDAwIG5mLWNvbm50cmFjay10
-ZnRwLnBvcnRzPTIwMDAwCj4gbmYtY29ubnRyYWNrLXNpcC5wb3J0cz0yMDAwMCBuZi1jb25udHJh
-Y2staXJjLnBvcnRzPTIwMDAwCj4gbmYtY29ubnRyYWNrLXNhbmUucG9ydHM9MjAwMDAgYmluZGVy
-LmRlYnVnX21hc2s9MAo+IHJjdXBkYXRlLnJjdV9leHBlZGl0ZWQ9MSBub19oYXNoX3BvaW50ZXJz
-IHBhZ2Vfb3duZXI9b24KPiBzeXNjdGwudm0ubnJfaHVnZXBhZ2VzPTQgc3lzY3RsLnZtLm5yX292
-ZXJjb21taXRfaHVnZXBhZ2VzPTQKPiBzZWNyZXRtZW0uZW5hYmxlPTEgc3lzY3RsLm1heF9yY3Vf
-c3RhbGxfdG9fcGFuaWM9MQo+IG1zci5hbGxvd193cml0ZXM9b2ZmIGR1bW15X2hjZC5udW09MiBz
-bXAuY3NkX2xvY2tfdGltZW91dD0zMDAwMDAKPiB3YXRjaGRvZ190aHJlc2g9MTY1IHdvcmtxdWV1
-ZS53YXRjaGRvZ190aHJlc2g9NDIwCj4gc3lzY3RsLm5ldC5jb3JlLm5ldGRldl91bnJlZ2lzdGVy
-X3RpbWVvdXRfc2Vjcz00MjAgcGFuaWNfb25fd2Fybj0xIgoKClRoaXMgY29tbWFuZCBsaW5lIGlz
-IDYwOC1jaGFyYWN0ZXIgbG9uZywgYnV0IHdlIGFyZSBzdGlsbCBzdHVjayB3aXRoIHRoZSAKZGVm
-YXVsdCBDT01NQU5EX0xJTkVfU0laRSB0byA1MTIsIEkgaW1hZ2luZSB0aGF0IGl0IGlzIHRoZSBw
-cm9ibGVtLiBJIApoYWQgcHJvcG9zZWQgYSBwYXRjaCBsYXN0IHllYXIgdG8gYnVtcCB0aGF0IHRv
-IDEwMjQsIGJ1dCBpdCBuZXZlciBnb3QgCm1lcmdlZCAKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
-bGttbC9DQUVuLUxUcVRYQ0VDPWJYVHZHeW84U05MMEpNV1JLdGlTd1FCN1I9UGM0dWh4WlVydUFA
-bWFpbC5nbWFpbC5jb20vVC8jbTRiNDUwMTlkYzBmNTU3M2YyYTUwYzFmNjAwN2M1MTA5ZmEzNWVm
-ZmYKCgo+Cj4gQnV0IGdldHRpbmcgQlVHcyB3aXRoIHRoZSBkZWZhdWx0IHRpbWVvdXQ6Cj4gd2F0
-Y2hkb2c6IEJVRzogc29mdCBsb2NrdXAgLSBDUFUjMCBzdHVjayBmb3IgMjNzISBba3dvcmtlci8w
-OjQ6MjAzOV0KPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+On 5/28/22 00:50, Atish Patra wrote:
+> On Fri, May 27, 2022 at 12:33 AM Alexandre Ghiti
+> <alexandre.ghiti@canonical.com> wrote:
+>> Hi Atish,
+>>
+>> On Thu, May 26, 2022 at 11:02 AM Atish Patra <atishp@atishpatra.org> wrote:
+>>> On Thu, May 26, 2022 at 1:11 AM Atish Patra <atishp@atishpatra.org> wrote:
+>>>> On Mon, May 16, 2022 at 5:06 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
+>>>>>
+>>>>> On 5/12/22 13:48, Dmitry Vyukov wrote:
+>>>>>> On Fri, 18 Feb 2022 at 14:45, Alexandre Ghiti
+>>>>>> <alexandre.ghiti@canonical.com> wrote:
+>>>>>>> Hi Aleksandr,
+>>>>>>>
+>>>>>>> On Thu, Feb 17, 2022 at 6:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
+>>>>>>>> Hi Alex,
+>>>>>>>>
+>>>>>>>> On Thu, Feb 17, 2022 at 5:53 PM Alexandre Ghiti
+>>>>>>>> <alexandre.ghiti@canonical.com> wrote:
+>>>>>>>>> Aleksandr,
+>>>>>>>>>
+>>>>>>>>> On Wed, Feb 16, 2022 at 5:58 PM Alexandre Ghiti
+>>>>>>>>> <alexandre.ghiti@canonical.com> wrote:
+>>>>>>>>>> First, thank you for working on this.
+>>>>>>>>>>
+>>>>>>>>>> On Wed, Feb 16, 2022 at 5:17 PM Aleksandr Nogikh <nogikh@google.com> wrote:
+>>>>>>>>>>> If I use just defconfig + DEBUG_VIRTUAL, without any KASAN, it begins
+>>>>>>>>>>> to boot, but overwhelms me with tons of `virt_to_phys used for
+>>>>>>>>>>> non-linear address:` errors.
+>>>>>>>>>>>
+>>>>>>>>>>> Like that
+>>>>>>>>>>>
+>>>>>>>>>>> [    2.701271] virt_to_phys used for non-linear address:
+>>>>>>>>>>> 00000000b59e31b6 (0xffffffff806c2000)
+>>>>>>>>>>> [    2.701727] WARNING: CPU: 0 PID: 1 at arch/riscv/mm/physaddr.c:16
+>>>>>>>>>>> __virt_to_phys+0x7e/0x86
+>>>>>>>>>>> [    2.702207] Modules linked in:
+>>>>>>>>>>> [    2.702393] CPU: 0 PID: 1 Comm: swapper/0 Tainted: G        W
+>>>>>>>>>>>     5.17.0-rc1 #1
+>>>>>>>>>>> [    2.702806] Hardware name: riscv-virtio,qemu (DT)
+>>>>>>>>>>> [    2.703051] epc : __virt_to_phys+0x7e/0x86
+>>>>>>>>>>> [    2.703298]  ra : __virt_to_phys+0x7e/0x86
+>>>>>>>>>>> [    2.703547] epc : ffffffff80008448 ra : ffffffff80008448 sp :
+>>>>>>>>>>> ffff8f800021bde0
+>>>>>>>>>>> [    2.703977]  gp : ffffffff80ed9b30 tp : ffffaf8001230000 t0 :
+>>>>>>>>>>> ffffffff80eea56f
+>>>>>>>>>>> [    2.704704]  t1 : ffffffff80eea560 t2 : 0000000000000000 s0 :
+>>>>>>>>>>> ffff8f800021be00
+>>>>>>>>>>> [    2.705153]  s1 : ffffffff806c2000 a0 : 000000000000004f a1 :
+>>>>>>>>>>> ffffffff80e723d8
+>>>>>>>>>>> [    2.705555]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 :
+>>>>>>>>>>> 0000000000000000
+>>>>>>>>>>> [    2.706027]  a5 : 0000000000000000 a6 : 0000000000000005 a7 :
+>>>>>>>>>>> ffffffffffffffff
+>>>>>>>>>>> [    2.706474]  s2 : ffffffff80b80b08 s3 : 00000000000000c2 s4 :
+>>>>>>>>>>> ffffffff806c2000
+>>>>>>>>>>> [    2.706891]  s5 : ffffffff80edba10 s6 : ffffffff80edb960 s7 :
+>>>>>>>>>>> 0000000000000001
+>>>>>>>>>>> [    2.707290]  s8 : 00000000000000ff s9 : ffffffff80b80b40 s10:
+>>>>>>>>>>> 00000000000000cc
+>>>>>>>>>>> [    2.707689]  s11: ffffaf807e1fcf00 t3 : 0000000000000076 t4 :
+>>>>>>>>>>> ffffffffffffffff
+>>>>>>>>>>> [    2.708092]  t5 : 00000000000001f2 t6 : ffff8f800021bb48
+>>>>>>>>>>> [    2.708433] status: 0000000000000120 badaddr: 0000000000000000
+>>>>>>>>>>> cause: 0000000000000003
+>>>>>>>>>>> [    2.708919] [<ffffffff8011416a>] free_reserved_area+0x72/0x19a
+>>>>>>>>>>> [    2.709296] [<ffffffff80003a5a>] free_initmem+0x6c/0x7c
+>>>>>>>>>>> [    2.709648] [<ffffffff805f60c8>] kernel_init+0x3a/0x10a
+>>>>>>>>>>> [    2.709993] [<ffffffff80002fda>] ret_from_exception+0x0/0xc
+>>>>>>>>>>> [    2.710310] ---[ end trace 0000000000000000 ]---
+>>>>>>>>>>>
+>>>>>>>>>> I was able to reproduce this: the first one regarding init_zero_pfn is
+>>>>>>>>>> legit but not wrong, I have to check when it was introduced and how to
+>>>>>>>>>> fix this.
+>>>>>>>>>> Regarding the huge batch that follows, at first sight, I would say
+>>>>>>>>>> this is linked to my sv48 patchset but that does not seem important as
+>>>>>>>>>> the address is a kernel mapping address so the use of virt_to_phys is
+>>>>>>>>>> right.
+>>>>>>>>>>
+>>>>>>>>>>> On Wed, Feb 16, 2022 at 5:09 PM Aleksandr Nogikh <nogikh@google.com> wrote:
+>>>>>>>>>>>> On Wed, Feb 16, 2022 at 12:56 PM Dmitry Vyukov <dvyukov@google.com> wrote:
+>>>>>>>>>>>>> On Wed, 16 Feb 2022 at 12:47, Aleksandr Nogikh <nogikh@google.com> wrote:
+>>>>>>>>>>>>>> On Wed, Feb 16, 2022 at 11:37 AM Aleksandr Nogikh <nogikh@google.com> wrote:
+>>>>>>>>>>>>>>> Hi Alex,
+>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>> On Wed, Feb 16, 2022 at 5:14 AM Alexandre Ghiti <alex@ghiti.fr> wrote:
+>>>>>>>>>>>>>>>> Hi Dmitry,
+>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>> On 2/15/22 18:12, Dmitry Vyukov wrote:
+>>>>>>>>>>>>>>>>> On Wed, 2 Feb 2022 at 14:18, Alexandre Ghiti
+>>>>>>>>>>>>>>>>> <alexandre.ghiti@canonical.com> wrote:
+>>>>>>>>>>>>>>>>>> Hi Aleksandr,
+>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>> On Wed, Feb 2, 2022 at 12:08 PM Aleksandr Nogikh <nogikh@google.com> wrote:
+>>>>>>>>>>>>>>>>>>> Hello,
+>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>> syzbot has already not been able to fuzz its RISC-V instance for 97
+>>>>>>>>>>>>>>>>>> That's a longtime, I'll take a look more regularly.
+>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>> days now because the compiled kernel cannot boot. I bisected the issue
+>>>>>>>>>>>>>>>>>>> to the following commit:
+>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>> commit 54c5639d8f507ebefa814f574cb6f763033a72a5
+>>>>>>>>>>>>>>>>>>> Author: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+>>>>>>>>>>>>>>>>>>> Date:   Fri Oct 29 06:59:27 2021 +0200
+>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>        riscv: Fix asan-stack clang build
+>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>> Apparently, the problem appears on GCC-built RISC-V kernels with KASAN
+>>>>>>>>>>>>>>>>>>> enabled. In the previous message syzbot mentions
+>>>>>>>>>>>>>>>>>>> "riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU
+>>>>>>>>>>>>>>>>>>> Binutils for Debian) 2.35.2", but the issue also reproduces finely on
+>>>>>>>>>>>>>>>>>>> a newer GCC compiler: "riscv64-linux-gnu-gcc (Debian 11.2.0-10)
+>>>>>>>>>>>>>>>>>>> 11.2.0, GNU ld (GNU Binutils for Debian) 2.37".
+>>>>>>>>>>>>>>>>>>> For convenience, I also duplicate the .config file from the bot's
+>>>>>>>>>>>>>>>>>>> message: https://syzkaller.appspot.com/x/.config?x=522544a2e0ef2a7d
+>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>> Can someone with KASAN and RISC-V expertise please take a look?
+>>>>>>>>>>>>>>>>>> I'll take a look at that today.
+>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>> Thanks for reporting the issue,
+>>>>>>>>>>>>>>>> I took a quick look, not enough to fix it but I know the issue comes
+>>>>>>>>>>>>>>>> from the inline instrumentation, I have no problem with the outline
+>>>>>>>>>>>>>>>> instrumentation. I need to find some cycles to work on this, my goal is
+>>>>>>>>>>>>>>>> to fix this for 5.17.
+>>>>>>>>>>>>>>> Thanks for the update!
+>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>> Can you please share the .config with which you tested the outline
+>>>>>>>>>>>>>>> instrumentation?
+>>>>>>>>>>>>>>> I updated the syzbot config to use KASAN_OUTLINE instead of KASAN_INLINE,
+>>>>>>>>>>>>>>> but it still does not boot :(
+>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>> Here's what I used:
+>>>>>>>>>>>>>>> https://gist.github.com/a-nogikh/279c85c2d24f47efcc3e865c08844138
+>>>>>>>>>>>>>> Update: it doesn't boot with that big config, but boots if I generate
+>>>>>>>>>>>>>> a simple one with KASAN_OUTLINE:
+>>>>>>>>>>>>>>
+>>>>>>>>>>>>>> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+>>>>>>>>>>>>>> ./scripts/config -e KASAN -e KASAN_OUTLINE
+>>>>>>>>>>>>>> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+>>>>>>>>>>>>>>
+>>>>>>>>>>>>>> And it indeed doesn't work if I use KASAN_INLINE.
+>>>>>>>>>>>>> It may be an issue with code size. Full syzbot config + KASAN + KCOV
+>>>>>>>>>>>>> produce hugely massive .text. It may be hitting some limitation in the
+>>>>>>>>>>>>> bootloader/kernel bootstrap code.
+>>>>>>>>>> I took a quick glance and it traps on a KASAN address that is not
+>>>>>>>>>> mapped, either because it is too soon or because the mapping failed
+>>>>>>>>>> somehow.
+>>>>>>>>>>
+>>>>>>>>>> I'll definitely dive into that tomorrow, sorry for being slow here and
+>>>>>>>>>> thanks again for all your work, that helps a lot.
+>>>>>>>>>>
+>>>>>>>>>> Thanks,
+>>>>>>>>>>
+>>>>>>>>>> Alex
+>>>>>>>>>>
+>>>>>>>>>>>> I bisected the difference between the config we use on syzbot and the
+>>>>>>>>>>>> simple one that was generated like I described above.
+>>>>>>>>>>>> Turns out that it's the DEBUG_VIRTUAL config that makes the difference.
+>>>>>>>>>>>>
+>>>>>>>>>>>> make defconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+>>>>>>>>>>>> ./scripts/config -e KASAN -e KASAN_OUTLINE -e DEBUG_VIRTUAL
+>>>>>>>>>>>> make olddefconfig ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu-
+>>>>>>>>>>>>
+>>>>>>>>>>>> And the resulting kernel does not boot.
+>>>>>>>>>>>> My env: the `riscv/fixes` branch, commit
+>>>>>>>>>>>> 6df2a016c0c8a3d0933ef33dd192ea6606b115e3, qemu 6.2.0.
+>>>>>>>>> I fixed a few things today: KASAN + SPARSE_VMEMMAP, DEBUG_VIRTUAL and
+>>>>>>>>> maybe KASAN  + KCOV.
+>>>>>>>>>
+>>>>>>>>> With those small fixes, I was able to boot your large dotconfig with
+>>>>>>>>> KASAN_OUTLINE, the inline version still fails, this is my next target
+>>>>>>>>> :)
+>>>>>>>>> I'll push that tomorrow!
+>>>>>>>> Awesome, thank you very much!
+>>>>>>>> Looking forward to finally seeing the instance run :)
+>>>>>>> I sent a patchset which should fix your config with *outline* instrumentation.
+>>>>>> Was this fix merged? The riscv instance still does not boot:
+>>>>>> https://syzkaller.appspot.com/bug?id=5f2ff52ad42cba9f222202219baebd4e63e35127
+>>>>>
+>>>>> Yes it has been in Linus tree since 5.18-rc1. I'll take a look at that
+>>>>> this week.
+>>>>>
+>>>> Are you seeing this error or a different one ? I used the
+>>>> syzkaller_defconfig from the patch below on v5.18.
+>>>>
+>>>> https://lore.kernel.org/all/20220419174952.699-1-palmer@rivosinc.com/
+>>>>
+>>>> [   15.076116][    T1] Mandatory Access Control activated.
+>>>> [   15.158241][    T1] AppArmor: AppArmor Filesystem Enabled
+>>>> [   16.150870][    T1] NET: Registered PF_INET protocol family
+>>>> [   16.166167][    T1] IP idents hash table entries: 32768 (order: 6,
+>>>> 262144 bytes, linear)
+>>>> [   16.188727][    T1] Unable to handle kernel paging request at
+>>>> virtual address ffebfffeffff2000
+>>>> [   16.192727][    T1] Oops [#1]
+>>>> [   16.193479][    T1] Modules linked in:
+>>>> [   16.194687][    T1] CPU: 3 PID: 1 Comm: swapper/0 Not tainted
+>>>> 5.18.0-00001-g37ac279268bf-dirty #9
+>>>> [   16.196486][    T1] Hardware name: riscv-virtio,qemu (DT)
+>>>> [   16.197836][    T1] epc : kasan_check_range+0x9e/0x14e
+>>>> [   16.199104][    T1]  ra : memset+0x1e/0x4c
+>>>> [   16.200091][    T1] epc : ffffffff804787e0 ra : ffffffff80478f30 sp
+>>>> : ff600000073ffb70
+>>>> [   16.201420][    T1]  gp : ffffffff85879e80 tp : ff600000073f0000 t0
+>>>> : 7300000000000000
+>>>> [   16.202762][    T1]  t1 : ffebfffeffff21ff t2 : 73746e6564692050 s0
+>>>> : ff600000073ffba0
+>>>> [   16.204047][    T1]  s1 : 0000000000001000 a0 : ffebfffeffff2200 a1
+>>>> : 0000000000001000
+>>>> [   16.205312][    T1]  a2 : 0000000000000001 a3 : ffffffff803a4f32 a4
+>>>> : ff5ffffffff90000
+>>>> [   16.206592][    T1]  a5 : ffebfffeffff2000 a6 : 0000004000000000 a7
+>>>> : ff5ffffffff90fff
+>>>> [   16.207865][    T1]  s2 : ff5ffffffff90000 s3 : 0000000000000000 s4
+>>>> : ffffffff8467ea90
+>>>> [   16.209134][    T1]  s5 : 0000000000000000 s6 : ff5ffffffff90000 s7
+>>>> : 0000000000000000
+>>>> [   16.210394][    T1]  s8 : 0000000000001000 s9 : ffffffff8587ca40
+>>>> s10: 0000000000000004
+>>>> [   16.211952][    T1]  s11: ffffffff858a03a0 t3 : 0000000000000000 t4
+>>>> : 0000000000000040
+>>>> [   16.213469][    T1]  t5 : ffebfffeffff2200 t6 : ff600000073ff738
+>>>> [   16.214853][    T1] status: 0000000200000120 badaddr:
+>>>> ffebfffeffff2000 cause: 000000000000000d
+>>>> [   16.216910][    T1] Call Trace:
+>>>> [   16.217816][    T1] [<ffffffff803a4f32>] pcpu_alloc+0x844/0x1254
+>>>> [   16.219110][    T1] [<ffffffff803a59a0>] __alloc_percpu+0x28/0x34
+>>>> [   16.220244][    T1] [<ffffffff8328824a>] ip_rt_init+0x17e/0x382
+>>>> [   16.221606][    T1] [<ffffffff8328861c>] ip_init+0x18/0x30
+>>>> [   16.222719][    T1] [<ffffffff8328a0ee>] inet_init+0x2a6/0x550
+>>>> [   16.223863][    T1] [<ffffffff80003204>] do_one_initcall+0x130/0x7dc
+>>>> [   16.225002][    T1] [<ffffffff83201fbc>] kernel_init_freeable+0x510/0x5b4
+>>>> [   16.226273][    T1] [<ffffffff8319842a>] kernel_init+0x28/0x21c
+>>>> [   16.227337][    T1] [<ffffffff80005818>] ret_from_exception+0x0/0x10
+>>>> [   16.229910][    T1] ---[ end trace 0000000000000000 ]---
+>>>> [   16.231880][    T1] Kernel panic - not syncing: Fatal exception
+>>>>
+>>>>
+>>> Enabling CONFIG_KASAN_VMALLOC=y solves the issue and I am able to boot
+>>> to the userspace.
+>>> I have tried enabling/disabling CONFIG_VMAP_STACK as well. Both works fine.
+>>>
+>>> Looking at the ARM64 Kconfig, KASAN_VMALLOC is enabled if KASAN is enabled.
+>>> This diff seems to work for me.
+>>> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+>>> index 00fd9c548f26..cbf0fe227c77 100644
+>>> --- a/arch/riscv/Kconfig
+>>> +++ b/arch/riscv/Kconfig
+>>> @@ -122,6 +122,7 @@ config RISCV
+>>>          select TRACE_IRQFLAGS_SUPPORT
+>>>          select UACCESS_MEMCPY if !MMU
+>>>          select ZONE_DMA32 if 64BIT
+>>> +       select KASAN_VMALLOC if KASAN
+>>>
+>>> I am not a kasan expert so I am not sure if this is the correct fix or
+>>> just hides the real issue. pcpu_alloc seems to use vmalloc though.
+>> When this type of thing happens, generally this is because of an error
+>> in the kasan page table, I'll take a look this time, sorry I did not
+>> do this before.
+>>
+> No worries. But the above diff is applicable anyways. Correct ?
+
+
+Yes, we can use that until I fix the underlying issue.
+
+
+>
+>> Thanks for finding this,
+>>
+>> Alex
+>>
+>>>>> Thanks,
+>>>>>
+>>>>> Alex
+>>>>>
+>>>>>
+>>>>>>> However, as you'll see in the cover letter, I have an issue with
+>>>>>>> another KASAN config and if you can take a look at the stacktrace and
+>>>>>>> see if that rings a bell, that would be great.
+>>>>>>>
+>>>>>>> Don't hesitate next time to ping me when the riscv syzbot instance fails :)
+>>>>>>>
+>>>>>>> Alex
+>>>>>>>
+>>>>>>>
+>>>>>>>> --
+>>>>>>>> Best Regards,
+>>>>>>>> Aleksandr
+>>>>>>>>
+>>>>>>>>> Thanks again,
+>>>>>>>>>
+>>>>>>>>> Alex
+>>>>>>> --
+>>>>>>> You received this message because you are subscribed to the Google Groups "kasan-dev" group.
+>>>>>>> To unsubscribe from this group and stop receiving emails from it, send an email to kasan-dev+unsubscribe@googlegroups.com.
+>>>>>>> To view this discussion on the web visit https://groups.google.com/d/msgid/kasan-dev/CA%2BzEjCtB0rTuNAJkrM2q3JQL7D-9fAXBo0Ud0w__gy9CAfo_Ag%40mail.gmail.com.
+>>>>> _______________________________________________
+>>>>> linux-riscv mailing list
+>>>>> linux-riscv@lists.infradead.org
+>>>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>>>>
+>>>>
+>>>> --
+>>>> Regards,
+>>>> Atish
+>>>
+>>>
+>>> --
+>>> Regards,
+>>> Atish
+>
+>
+> --
+> Regards,
+> Atish
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
