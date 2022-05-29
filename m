@@ -4,50 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9226AC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 29 May 2022 15:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAEDC433F5
+	for <linux-riscv@archiver.kernel.org>; Sun, 29 May 2022 15:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0airgKURBSE32xrHzUptMbmD33dN8hN9lVI4X5iJMuY=; b=PuasidRtBtP6qk
-	jKpj730GDZ+qlra1GsFWFWyZ60NX7Q+SZci0S2iohhv4O8MU83KMHZntgvYPHEsItnnalKO7EZwn2
-	lnz+aMw4D2omCyDHySgw6HSyNlif6jQa5kW8Fdm5/+7hRR+9ZpF5mSxfsDKxvIIZqkCNx/n3OfxrR
-	NCBX0GUEpJ7ySeGRUOv9Kw6FH1BHwNfiuFRAvLkB8co9tyupjubgyqQ/mSxNUeEaJs5meaivGShK3
-	ROUGRos0YpH8EY8+R23Rht9RM/vVVsUsbBwLkmyOCNohap+Op+/UHgxsU4uU9RjbPSqqychjJ8Srb
-	exDZKrbpuJ94DAljFeyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1uFwqSJbVimbsE5K3hdARiMyDytpcS3aIEHZBwnnxwM=; b=AYzfh7CqNKC8f9
+	mpAgtIsAyb9dogGgA6m4DlJT5MXOTtqHLqWP8oGYoovnjXUPPrQyBORLybdHr/SweJMApM4e6nYb/
+	2Ak20gEyECAQL67ho6WVTAI6vaC/gUws/p6EQcFuiVaJ856XGfGM6UNCVlCKqmJucSj9cGL2lC56U
+	uUusao5fsyvn/nWo+HDiHD7XCBbc2MmZDxLb2bq3e1Dqrqc/bk0iMQeDZpFzmIxzLXfR6JAUBOxbD
+	XQriB/aLq5/ZzqNWT1W9SLGgymQ9DWaZpgJnNJilNd8Lv4w4YVisVJ3IVa9SYytYxKorQ1OnY0t0R
+	ojIm3UqbvrvVh4k3ZFSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvKk6-0049ga-Kd; Sun, 29 May 2022 15:22:10 +0000
+	id 1nvKlj-004A5A-OB; Sun, 29 May 2022 15:23:51 +0000
 Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvKk4-0049ec-9z
-	for linux-riscv@lists.infradead.org; Sun, 29 May 2022 15:22:09 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net ([86.15.83.122] helo=rainbowdash)
+	id 1nvKlh-004A4W-Q2
+	for linux-riscv@lists.infradead.org; Sun, 29 May 2022 15:23:51 +0000
+Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net ([86.15.83.122] helo=[192.168.0.17])
 	by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
-	id 1nvKjx-0004xX-Um; Sun, 29 May 2022 16:22:01 +0100
-Received: from ben by rainbowdash with local (Exim 4.95)
-	(envelope-from <ben@rainbowdash>)
-	id 1nvKjw-002Ydq-Qz;
-	Sun, 29 May 2022 16:22:00 +0100
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-To: linux-kernel@lists.codethink.co.uk,
-	linux-riscv@lists.infradead.org
-Cc: palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	linux-kernel@vger.kernel.org,
-	Ben Dooks <ben.dooks@codethink.co.uk>,
-	Bin Meng <bmeng.cn@gmail.com>
-Subject: [PATCH] [PATCH v2] riscv: add as-options for modules with assembly compontents
-Date: Sun, 29 May 2022 16:22:00 +0100
-Message-Id: <20220529152200.609809-1-ben.dooks@codethink.co.uk>
-X-Mailer: git-send-email 2.35.1
+	id 1nvKle-00050E-HE; Sun, 29 May 2022 16:23:46 +0100
+Message-ID: <1a624c79-c4c5-ab7c-f438-134822abfa14@codethink.co.uk>
+Date: Sun, 29 May 2022 16:23:45 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.0
+Subject: Re: [PATCH] riscv: add correct as-options for assembly in modules
+Content-Language: en-GB
+To: linux-kernel@lists.codethink.co.uk, linux-riscv@lists.infradead.org
+Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
+ Bin Meng <bmeng.cn@gmail.com>
+References: <20220529151920.609642-1-ben.dooks@codethink.co.uk>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <20220529151920.609642-1-ben.dooks@codethink.co.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220529_082208_397633_A2F774C5 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20220529_082349_889527_93EFD0EA 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,52 +56,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When trying to load modules built for RISC-V which include assembly files
-the kernel loader errors with "unexpected relocation type 'R_RISCV_ALIGN'"
-due to R_RISCV_ALIGN relocations being generated by the assembler.
+On 29/05/2022 16:19, Ben Dooks wrote:
+> When trying to load modules built for riscv which include assembly
+> the kernel loader errors with "unexpected relocation type 'R_RISCV_ALIGN'"
+> due to R_RISCV_ALIGN relocations being generated by the assembler.
+> 
+> In commit 7a8e7da42250138 ("RISC-V: Fixes to module loading") the
+> CFLAGS have -mno-relax added. This however does not get applied to
+> KBUILD_AFLAGS_MODULE so when a module builds a .S file, the -mno-relax
+> is not passed and the above error is seen. Fix it by adding the flags
+> '-Wa,-mno-relax' to KBUILD_AFLAGS_MODULE.
+> 
+> This may have been fixed in gcc, in:
+>   https://github.com/gcc-mirror/gcc/commit/3b0a7d624e64eeb81e4d5e8c62c46d86ef521857
+> 
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+Apologies, this was the wrong branch. Will resen
 
-The R_RISCV_ALIGN relocations can be removed at the expense of code space
-by adding -mno-relax to gcc and as.  In commit 7a8e7da42250138
-("RISC-V: Fixes to module loading") -mno-relax is added to the build
-variable KBUILD_CFLAGS_MODULE. See [1] for more info.
-
-The issue is that when kbuild builds a .S file, it invokes gcc with
-the -mno-relax flag, but this is not being passed through to the
-assembler. Adding -Wa,-mno-relax to KBUILD_AFLAGS_MODULE ensures that
-the assembler is invoked correctly. This may have now been fixed in
-gcc[2] and this addition should not stop newer gcc and as from working.
-
-[1] https://github.com/riscv/riscv-elf-psabi-doc/issues/183
-[2] https://github.com/gcc-mirror/gcc/commit/3b0a7d624e64eeb81e4d5e8c62c46d86ef521857
-
-Notes:
-
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
----
- arch/riscv/Makefile | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 1f5c03082976..fca40511a8c6 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -60,6 +60,7 @@ ifeq ($(CONFIG_PERF_EVENTS),y)
- endif
- 
- KBUILD_CFLAGS_MODULE += $(call cc-option,-mno-relax)
-+KBUILD_AFLAGS_MODULE += $(call as-option,-Wa$(comma)-mno-relax)
- 
- # GCC versions that support the "-mstrict-align" option default to allowing
- # unaligned accesses.  While unaligned accesses are explicitly allowed in the
 -- 
-2.35.1
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
 
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
