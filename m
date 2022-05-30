@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C248C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 01:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD9EC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 02:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ff1GTAG3fIbhzU/FdBmQ6WDu122cGWlu7Ey+jlgkn9E=; b=Ld/O51PfRX95r8
-	JYjgsAH7zv6klCbZShThOAhwvTHcUEebo89LfjLP5mvCuhS4KZhEFLiUK16fXbroOTfcTH6TBMbK1
-	H6Qokx7bRRFwpRg1pKX3wjshZ8qXuf+NLC98ec4Vr8NL2NhlR3YhFJs1IeqC0Xj0dtS5hMGhx7I7g
-	o8+UvK1KgK7GfpnWzKeIOU/NDCwAxNNpvmVd6AHJ3pXig0DhtGvuTqg0IzpdFWkCSGVQ5GKG1SvSU
-	bc1J70l1oW1bQ21iLhtkMP+Fw1V5RpYYU2PEh9ywJ1ViV+ig53hQjwHeNbKcwkp08DXlxVjvSM3he
-	EuRUVg73wfLRlh1P3Pyg==;
+	List-Owner; bh=ToeQb5hqOJxQtjJWlA6/NqWqHzBtYHv4VurlLJFb1+E=; b=L03s4U1Uu6PhXe
+	5dKDfWg/krCwKvAZjGDJRzBK3Br22T/KgB0+dxXm+lHEm3xoE22NNSRXZNP+0bZntqVixepYsfdjO
+	Inph/0fljmjsXCFpi0t36f8fUABqcWJofJ7dtPeOXXuFhlDkRonz6wSXsM4duSnXIXjRJKuS8z80F
+	N2RMbcY9qXq2Q0VH8nf86VuqLJ8RA573jTivoFFRgY0HK8VjEeI5rban1GiUHM1SWAUibJufGjJCa
+	roW48JU0FQl/IXsc3uE90Sxosl7HrPvDO6fASHGJ4uWt5XdXRQMSUwLuIqcmMoSgvZKNHRogBP1If
+	aSAXlCHRmYxI8zjNmTlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvURf-0055Iy-Iz; Mon, 30 May 2022 01:43:47 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1nvVRx-005CI1-6t; Mon, 30 May 2022 02:48:09 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvURa-0055GU-7O; Mon, 30 May 2022 01:43:44 +0000
-Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.56])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4LBJ7K4K7JzjX0y;
-	Mon, 30 May 2022 09:42:21 +0800 (CST)
-Received: from [10.67.110.108] (10.67.110.108) by
- kwepemi500012.china.huawei.com (7.221.188.12) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 30 May 2022 09:43:27 +0800
-Message-ID: <59e8faec-05fd-805d-7de0-4b0508f8467f@huawei.com>
-Date: Mon, 30 May 2022 09:43:26 +0800
+	id 1nvVRu-005CHP-Ko
+	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 02:48:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 69E67B80B32
+	for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 02:48:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28085C385A9
+	for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 02:48:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1653878883;
+	bh=YoRGxfq1Yea8HRZlBDQS2oqp73Xku6gJh6IZaXEOUT8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=IBYxtq5gyzzz6NoUQdgfTtSYIgZ3KWqAdLPQMAaWnPLuJ/YDqgxsQLwBbN6PzFQ4/
+	 ynoZELeNvrjeF0rsNXYNDgK/Kw39SRFuXzc+saHjBG0+T7m+50D+YCtWB9onXw/yxW
+	 eM24Jm2i0VjJc2nV5fEWZRAtu1IzaFyKQPmUfaOtCzt9TQC7Q8p7HY4ZoUrrlUtJsv
+	 smdsNxszWiJHC3wgku0JpcwM4w8Y8I3Z9AuAZMd9dLLevOrdKaKnrHQlQvEMqBhEKo
+	 bCHa4Dn2mSL61TjjKpIOSiw6fws/SGfe2AcstVkd0NnYqleGUnH6XKCmLZIFuyBK5K
+	 Q4qqk8qcSKuxA==
+Received: by mail-vs1-f41.google.com with SMTP id u21so9254881vsk.3
+        for <linux-riscv@lists.infradead.org>; Sun, 29 May 2022 19:48:03 -0700 (PDT)
+X-Gm-Message-State: AOAM533Xai1A8DhAf7DRDkVxPy3MraqGkoylZv0c9ICe6LvRS9L6ZgDt
+	RMWB5J9knaEJM+SsaYmddub2JFxhv5kx1nk7II0=
+X-Google-Smtp-Source: ABdhPJzvEfegwzjtbzbneiuCB+i9dHMhbVAfv1BIeisWjXZ/dtthImdOsnOoQKcAkgNwBZcem3RsjgMXsyI5j2ahuf0=
+X-Received: by 2002:a05:6102:151c:b0:337:d985:1764 with SMTP id
+ f28-20020a056102151c00b00337d9851764mr10556500vsv.51.1653878882062; Sun, 29
+ May 2022 19:48:02 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.4.0
-Subject: Re: [PATCH v2] kexec_file: Drop weak attribute from
- arch_kexec_apply_relocations[_add]
-To: =?UTF-8?Q?Uwe_Kleine-K=c3=b6nig?= <u.kleine-koenig@pengutronix.de>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>
-CC: "Naveen N. Rao" <naveen.n.rao@linux.vnet.ibm.com>, Li Zhengyu
-	<lizhengyu3@huawei.com>, Palmer Dabbelt <palmer@rivosinc.com>, Stephen
- Rothwell <sfr@canb.auug.org.au>, "kexec@lists.infradead.org"
-	<kexec@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Eric Biederman <ebiederm@xmission.com>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>, Andrew Morton
-	<akpm@linux-foundation.org>, "linuxppc-dev@lists.ozlabs.org"
-	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>
-References: <20220519091237.676736-1-naveen.n.rao@linux.vnet.ibm.com>
- <20220529065637.xgapqjp2342flbuj@pengutronix.de>
- <264786d9-7756-19e0-2742-8b8d17f5ace5@csgroup.eu>
- <20220529140655.bnd4fgggccrorj4t@pengutronix.de>
-From: "liaochang (A)" <liaochang1@huawei.com>
-In-Reply-To: <20220529140655.bnd4fgggccrorj4t@pengutronix.de>
-X-Originating-IP: [10.67.110.108]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemi500012.china.huawei.com (7.221.188.12)
-X-CFilter-Loop: Reflected
+References: <20220518013428.1338983-1-xianting.tian@linux.alibaba.com>
+In-Reply-To: <20220518013428.1338983-1-xianting.tian@linux.alibaba.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 30 May 2022 10:47:51 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRZCchLk9apNQagNmsNb3Pv+WfPTisrsWDDrQyVncUYeA@mail.gmail.com>
+Message-ID: <CAJF2gTRZCchLk9apNQagNmsNb3Pv+WfPTisrsWDDrQyVncUYeA@mail.gmail.com>
+Subject: Re: [PATCH v3] RISC-V: Mark IORESOURCE_EXCLUSIVE for reserved mem
+ instead of IORESOURCE_BUSY
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Nick Kossifidis <mick@ics.forth.gr>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Kefeng Wang <wangkefeng.wang@huawei.com>, 
+	Mike Rapoport <rppt@kernel.org>, David Hildenbrand <david@redhat.com>, wangborong@cdjrlc.com, 
+	twd2 <twd2.me@gmail.com>, seanjc@google.com, Alex Ghiti <alex@ghiti.fr>, 
+	petr.pavlu@suse.com, Atish Patra <atishp@rivosinc.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, jianghuaming.jhm@alibaba-inc.com, 
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Xianting Tian <xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220529_184342_653573_2599A9CF 
-X-CRM114-Status: GOOD (  19.43  )
+X-CRM114-CacheID: sfid-20220529_194807_015734_AA0E2500 
+X-CRM114-Status: GOOD (  25.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,73 +84,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgrlnKggMjAyMi81LzI5IDIyOjA2LCBVd2UgS2xlaW5lLUvDtm5pZyDlhpnpgZM6Cj4gSGVsbG8s
-Cj4gCj4gT24gU3VuLCBNYXkgMjksIDIwMjIgYXQgMDk6NDY6NDdBTSArMDAwMCwgQ2hyaXN0b3Bo
-ZSBMZXJveSB3cm90ZToKPj4gTGUgMjkvMDUvMjAyMiDDoCAwODo1NiwgVXdlIEtsZWluZS1Lw7Zu
-aWcgYSDDqWNyaXTCoDoKPj4+IEhlbGxvLAo+Pj4KPj4+IG9uIGN1cnJlbnQgbGludXgtbmV4dCBB
-UkNIPXJpc2N2IGFsbG1vZGNvbmZpZyBicmVha3Mgd2l0aDoKPj4+Cj4+PiAgICBDQyAgICAgIGFy
-Y2gvcmlzY3Yva2VybmVsL2VsZl9rZXhlYy5vCj4+PiBhcmNoL3Jpc2N2L2tlcm5lbC9lbGZfa2V4
-ZWMuYzozNDU6NTogZXJyb3I6IHJlZGVmaW5pdGlvbiBvZiDigJhhcmNoX2tleGVjX2FwcGx5X3Jl
-bG9jYXRpb25zX2FkZOKAmQo+Pj4gICAgMzQ1IHwgaW50IGFyY2hfa2V4ZWNfYXBwbHlfcmVsb2Nh
-dGlvbnNfYWRkKHN0cnVjdCBwdXJnYXRvcnlfaW5mbyAqcGksCj4+PiAgICAgICAgfCAgICAgXn5+
-fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4KPj4+IEluIGZpbGUgaW5jbHVkZWQgZnJvbSBh
-cmNoL3Jpc2N2L2tlcm5lbC9lbGZfa2V4ZWMuYzoxNjoKPj4+IGluY2x1ZGUvbGludXgva2V4ZWMu
-aDoyMzY6MTogbm90ZTogcHJldmlvdXMgZGVmaW5pdGlvbiBvZiDigJhhcmNoX2tleGVjX2FwcGx5
-X3JlbG9jYXRpb25zX2FkZOKAmSB3aXRoIHR5cGUg4oCYaW50KHN0cnVjdCBwdXJnYXRvcnlfaW5m
-byAqLCBFbGY2NF9TaGRyICosIGNvbnN0IEVsZjY0X1NoZHIgKiwgY29uc3QgRWxmNjRfU2hkciAq
-KeKAmSB7YWthIOKAmGludChzdHJ1Y3QgcHVyZ2F0b3J5X2luZm8gKiwgc3RydWN0IGVsZjY0X3No
-ZHIgKiwgY29uc3Qgc3RydWN0IGVsZjY0X3NoZHIgKiwgY29uc3Qgc3RydWN0IGVsZjY0X3NoZHIg
-KinigJl9Cj4+PiAgICAyMzYgfCBhcmNoX2tleGVjX2FwcGx5X3JlbG9jYXRpb25zX2FkZChzdHJ1
-Y3QgcHVyZ2F0b3J5X2luZm8gKnBpLCBFbGZfU2hkciAqc2VjdGlvbiwKPj4+ICAgICAgICB8IF5+
-fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+Cj4+Pgo+Pj4gKEkgdGhpbmspIGJlY2F1c2Ug
-dGhlcmUgaXMgYSBjb25mbGljdCBiZXR3ZWVuIHRoZSB0d28gY29tbWl0czoKPj4+Cj4+PiAyMzNj
-MWU2YzMxOWMga2V4ZWNfZmlsZTogZHJvcCB3ZWFrIGF0dHJpYnV0ZSBmcm9tIGFyY2hfa2V4ZWNf
-YXBwbHlfcmVsb2NhdGlvbnNbX2FkZF0KPj4+IDgzOGIzZTI4NDg4ZiBSSVNDLVY6IExvYWQgcHVy
-Z2F0b3J5IGluIGtleGVjX2ZpbGUKPj4+Cj4+PiBBbmQgc28gbmV4dCBpcyBicm9rZW4gc3RhcnRp
-bmcgZnJvbQo+Pj4gMTY0YTkwMzdiMWQzM2YyOGJhMjc2NzFjMTZlYzFjMjNkNGExMWFjZiB3aGlj
-aCBtZXJnZXMgdGhlIHJpc2N2IHRyZWUuCj4+Pgo+Pgo+PiBJbiBhcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL2tleGVjLmgsIGRvIHRoZSBzYW1lIGFzIHMzOTAgZGlkIGluIGNvbW1pdCAKPj4gMjMzYzFl
-NmMzMTljOgo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9zMzkwL2luY2x1ZGUvYXNtL2tleGVjLmgg
-Yi9hcmNoL3MzOTAvaW5jbHVkZS9hc20va2V4ZWMuaAo+PiBpbmRleCA3ZjNjOWFjMzRiZDguLjU0
-MGRkNDY5YjA4OCAxMDA2NDQKPj4gLS0tIGEvYXJjaC9zMzkwL2luY2x1ZGUvYXNtL2tleGVjLmgK
-Pj4gKysrIGIvYXJjaC9zMzkwL2luY2x1ZGUvYXNtL2tleGVjLmgKPj4gQEAgLTgzLDQgKzgzLDEy
-IEBAIHN0cnVjdCBraW1hZ2VfYXJjaCB7Cj4+ICAgZXh0ZXJuIGNvbnN0IHN0cnVjdCBrZXhlY19m
-aWxlX29wcyBzMzkwX2tleGVjX2ltYWdlX29wczsKPj4gICBleHRlcm4gY29uc3Qgc3RydWN0IGtl
-eGVjX2ZpbGVfb3BzIHMzOTBfa2V4ZWNfZWxmX29wczsKPj4KPj4gKyNpZmRlZiBDT05GSUdfS0VY
-RUNfRklMRQo+PiArc3RydWN0IHB1cmdhdG9yeV9pbmZvOwo+PiAraW50IGFyY2hfa2V4ZWNfYXBw
-bHlfcmVsb2NhdGlvbnNfYWRkKHN0cnVjdCBwdXJnYXRvcnlfaW5mbyAqcGksCj4+ICsJCQkJICAg
-ICBFbGZfU2hkciAqc2VjdGlvbiwKPj4gKwkJCQkgICAgIGNvbnN0IEVsZl9TaGRyICpyZWxzZWMs
-Cj4+ICsJCQkJICAgICBjb25zdCBFbGZfU2hkciAqc3ltdGFiKTsKPj4gKyNkZWZpbmUgYXJjaF9r
-ZXhlY19hcHBseV9yZWxvY2F0aW9uc19hZGQgYXJjaF9rZXhlY19hcHBseV9yZWxvY2F0aW9uc19h
-ZGQKPj4gKyNlbmRpZgo+PiAgICNlbmRpZiAvKl9TMzkwX0tFWEVDX0ggKi8KPiAKPiBJIGNhbiBj
-b25maXJtIHRoYXQgZG9pbmcKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9rZXhlYy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rZXhlYy5oCj4gaW5kZXggMjA2MjE3
-YjIzMzAxLi5lZWUyNjBlOGFiMzAgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9rZXhlYy5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rZXhlYy5oCj4gQEAgLTU1
-LDYgKzU1LDEzIEBAIGV4dGVybiByaXNjdl9rZXhlY19tZXRob2QgcmlzY3Zfa2V4ZWNfbm9yZWxv
-Y2F0ZTsKPiAgCj4gICNpZmRlZiBDT05GSUdfS0VYRUNfRklMRQo+ICBleHRlcm4gY29uc3Qgc3Ry
-dWN0IGtleGVjX2ZpbGVfb3BzIGVsZl9rZXhlY19vcHM7Cj4gKwo+ICtzdHJ1Y3QgcHVyZ2F0b3J5
-X2luZm87Cj4gK2ludCBhcmNoX2tleGVjX2FwcGx5X3JlbG9jYXRpb25zX2FkZChzdHJ1Y3QgcHVy
-Z2F0b3J5X2luZm8gKnBpLAo+ICsJCQkJICAgICBFbGZfU2hkciAqc2VjdGlvbiwKPiArCQkJCSAg
-ICAgY29uc3QgRWxmX1NoZHIgKnJlbHNlYywKPiArCQkJCSAgICAgY29uc3QgRWxmX1NoZHIgKnN5
-bXRhYik7Cj4gKyNkZWZpbmUgYXJjaF9rZXhlY19hcHBseV9yZWxvY2F0aW9uc19hZGQgYXJjaF9r
-ZXhlY19hcHBseV9yZWxvY2F0aW9uc19hZGQKPiAgI2VuZGlmCj4gIAo+ICAjZW5kaWYKCkxHVE0s
-IHlvdSBjb3VsZCBzZW5kIGEgZml4dXAgcGF0Y2ggdG8gcmlzY3YsIHRoYW5rcy4KCj4gCj4gb24g
-dG9wIG9mIDgzOGIzZTI4NDg4ZiByZXN1bHRzIGluIGEgY29tcGlsYWJsZSB0cmVlLiBBbmQgd2hl
-biBtZXJnaW5nCj4gMjMzYzFlNmMzMTljIGludG8gdGhpcywgaXQgaXMgc3RpbGwgYnVpbGRpbmcu
-Cj4gCj4gSSdtIG5vdCBlbm91Z2ggaW50byBrZXhlYyAoYW5kIHJpc2N2KSB0byBqdWRnZSBpZiB0
-aGlzIGlzIHNlbnNpYmxlLCBvcgo+IGNyZWF0ZSBhIHVzZWZ1bCBjb21taXQgbG9nIGJ1dCB0aGUg
-b2J2aW91cyB3YXkgZm9yd2FyZCBpcyB0byBhcHBseSB0aGUKPiBhYm92ZSBwYXRjaCB0byB0aGUg
-cmlzY3YgdHJlZSBiZWZvcmUgaXQgaGl0cyBMaW51cycgdHJlZS4KPiAKPiBCZXN0IHJlZ2FyZHMK
-PiBVd2UKPiAKPiAKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2CgotLSAKQlIsCkxpYW8sIENoYW5nCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Palmer,
+
+Please have a look at this patch which is a critical fixup. Our
+current riscv implementation has broken the reserved memory.
+
+On Wed, May 18, 2022 at 9:34 AM Xianting Tian
+<xianting.tian@linux.alibaba.com> wrote:
+>
+> Commit 00ab027a3b82 ("RISC-V: Add kernel image sections to the resource tree")
+> marked IORESOURCE_BUSY for reserved memory, which caused resource map
+> failed in subsequent operations of related driver, so remove the
+> IORESOURCE_BUSY flag. In order to prohibit userland mapping reserved
+> memory, mark IORESOURCE_EXCLUSIVE for it.
+>
+> The code to reproduce the issue,
+> dts:
+>         mem0: memory@a0000000 {
+>                 reg = <0x0 0xa0000000 0 0x1000000>;
+>                 no-map;
+>         };
+>
+>         &test {
+>                 status = "okay";
+>                 memory-region = <&mem0>;
+>         };
+>
+> code:
+>         np = of_parse_phandle(pdev->dev.of_node, "memory-region", 0);
+>         ret = of_address_to_resource(np, 0, &r);
+>         base = devm_ioremap_resource(&pdev->dev, &r);
+>         // base = -EBUSY
+>
+> Fixes: 00ab027a3b82 ("RISC-V: Add kernel image sections to the resource tree")
+> Reported-by: Huaming Jiang <jianghuaming.jhm@alibaba-inc.com>
+> Reviewed-by: Guo Ren <guoren@kernel.org>
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> Tested-by: Heiko Stuebner <heiko@sntech.de>
+> Co-developed-by: Nick Kossifidis <mick@ics.forth.gr>
+> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+> ---
+> Changes from v2:
+> - Fix typo in commit message: casued -> caused
+> - Remove Reviewed-by of Nick Kossifidis, who didn't give Reviewed-by actually
+> - Add Co-developed-by of Nick
+>
+> Changes from v1:
+> - Mark reserved memory as IORESOURCE_EXCLUSIVE, suggested by Nick
+> ---
+>  arch/riscv/kernel/setup.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 834eb652a7b9..e0a00739bd13 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -189,7 +189,7 @@ static void __init init_resources(void)
+>                 res = &mem_res[res_idx--];
+>
+>                 res->name = "Reserved";
+> -               res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
+> +               res->flags = IORESOURCE_MEM | IORESOURCE_EXCLUSIVE;
+>                 res->start = __pfn_to_phys(memblock_region_reserved_base_pfn(region));
+>                 res->end = __pfn_to_phys(memblock_region_reserved_end_pfn(region)) - 1;
+>
+> @@ -214,7 +214,7 @@ static void __init init_resources(void)
+>
+>                 if (unlikely(memblock_is_nomap(region))) {
+>                         res->name = "Reserved";
+> -                       res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
+> +                       res->flags = IORESOURCE_MEM | IORESOURCE_EXCLUSIVE;
+>                 } else {
+>                         res->name = "System RAM";
+>                         res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
+> --
+> 2.17.1
+>
+
+
+-- 
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
