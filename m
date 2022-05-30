@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB94C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 18:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA27C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 19:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Hi4vpR0j+OHayiUESJQkp2rsBzg4VL2E8ToOKEqydXU=; b=Ujrqdn9MKLleCbQXnIQ0eUWj30
-	VyVXPsSCBhpTn2y9x0HKEN7C12oJacvaD06bIQU2nnXqub9YAN6tOoZZFjgV9jrMwu3LtSt5dKUsm
-	rBv0n1u/gL5x/ACyvh+zaEhm326yCfeir2p99qzidE9uXNq7kz9HYRyUmy1JOLtzsKKhKKDlSjsdy
-	M6sC/0vgAegOl4nSoJ0T6CP2r8KO4GF7lD0o6pBGA7EyqXL3wfAoyL4ftepcegiMo7syM4JRj7ptn
-	v0VkPPSkbDtLw2ks+tmWThQ1Xxj5hITzeM4PIg8Lm89D0LhJ+VvKr2aUZZf1e4e7QhmxDING2CM4A
-	cEaB26uw==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5bbDvamNm0nQsTqtISjydca0XrUK4QJB9cZqwg/eWy8=; b=O88ALB+1FnknyVI0H4cQl2CiG0
+	Chdzp+Rfyh4D3mxVE64u8AQJRfnucPxK7R2bQD8CnAvdSqs5ZlvVRQVEf+zzBq5h1WjsGpVBzhSc4
+	d09Y4sPY3yuVCzpC1L5M8lk/2mR4lz4y6fRf7tv7sPZZ9jpQYCWPP3AlG559mpEcvWaC5pQtBJACW
+	QCrZ6YJQc/vBYQKwNOgqlx8QexGNlXSbcev3FgsHmq5pIl6aBaSoVS1yyRlJi2qdhwgGeLisKHXxN
+	ULgi3/NVywP3UKBMJzr3Ol3WggCDASNSoq21UQwswj3/iN+PA2ZywdKPk54kzqnRBHOvxvifiw9Iw
+	ED0bC6bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvkaq-007xQU-Qy; Mon, 30 May 2022 18:58:20 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1nvlHa-0084xa-Q9; Mon, 30 May 2022 19:42:30 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvkan-007xPB-Ln
-	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 18:58:19 +0000
-Received: by mail-pf1-x431.google.com with SMTP id j6so11196408pfe.13
-        for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 11:58:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=FFd5J9hlrCh2QSfJ0U9Wq/vsfh13pMH0ZkFo1eZIXtA=;
-        b=G2A0nuMRKJztXPtT1GUrPx85rUqGPGHpsq6URvVAWa2fAqIkqlfU4RngPrGYBoa1Ni
-         M6NJlw8gvJTBgkCc39LSTpamjbz9roIDkZlQnC9RO7k8Rc/xTX31a3GgYujadTBpfIga
-         JQwSMuZ1HKoUjn6bSrBPFJvBaAnJAoYYH3EqEdZ9ex71cFuQ884I0tNEZG45hvUsKFSe
-         SdW5ZEoZd6rbSNFsE45uC0UD8kqMIeKOTMqVLl/EmGGsbxPQhZqogmDjAeWQ19R+ngDM
-         5BxwPho/sCen5YkWBuTX+8h/WXJiDTTq1gmrRwjtIax6oHnLs3pgInlqG/tnWA3am8JP
-         E8ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=FFd5J9hlrCh2QSfJ0U9Wq/vsfh13pMH0ZkFo1eZIXtA=;
-        b=gHZ1YeW8NHE6qK3LBx+Z26mWUU15MvAhtM0wbARiNWTWHbMP3NYy+EXBGY/dfq1BaY
-         ojFEjJBem5AJfoZG16/q43ots+OiBDdRrvbyIZnAfcmyVPw5KR0LZxJ226F0aAAzX/ow
-         EQxzMXi5CsURxhsUwOUrQOl8+0r2MsUc5xWrWVuXq2zMn/vU7Apvuee/pEf4BgtqnMGA
-         rNr8idwr4hZo5jYxh8FpwVUv+/n1J4J+GK4TD6qBKmtds4s/wFYEUD6PQvhzaFH1g5Al
-         t4sDLIvwYvu5dINklwoSxNWb+Gp+2N+YzzrK6nUHNETuPzi3SD6nDDDb6ENFQGInX2Pp
-         VEzQ==
-X-Gm-Message-State: AOAM532eFa11mJuzRRU+sEmhezklOuyKIKUZ019+M8IpUnNIHxU0zMBD
-	ijyKYNN5ectdGG5j2zuZ4SxGwvuytFecGA==
-X-Google-Smtp-Source: ABdhPJxxJ8lgOI/t/BS91nMmuF/AA3XEFbCsJdbzVlMXQCjM93kfvxRGwUywbXar5ejrleDbO2A5Hg==
-X-Received: by 2002:a63:2026:0:b0:3fa:cefb:e408 with SMTP id g38-20020a632026000000b003facefbe408mr25103264pgg.57.1653937096823;
-        Mon, 30 May 2022 11:58:16 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id n16-20020aa79050000000b00518c6887217sm9107889pfo.58.2022.05.30.11.58.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 30 May 2022 11:58:16 -0700 (PDT)
-Date: Mon, 30 May 2022 11:58:16 -0700 (PDT)
-X-Google-Original-Date: Mon, 30 May 2022 11:58:13 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: Prepare dropping week attribute from arch_kexec_apply_relocations[_add]
-In-Reply-To: <20220530074202.pydmbbgvbtaugw5j@pengutronix.de>
-CC: lizhengyu3@huawei.com, alex@ghiti.fr, aou@eecs.berkeley.edu,
-  Bjorn Topel <bjorn.topel@gmail.com>, guoren@linux.alibaba.com, jszhang@kernel.org, kexec@lists.infradead.org,
-  linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, mick@ics.forth.gr,
-  Paul Walmsley <paul.walmsley@sifive.com>, penberg@kernel.org, sunnanyong@huawei.com, wangkefeng.wang@huawei.com,
-  christophe.leroy@csgroup.eu, liaochang1@huawei.com, Stephen Rothwell <sfr@canb.auug.org.au>,
-  akpm@linux-foundation.org, ebiederm@xmission.com, kernel@pengutronix.de, naveen.n.rao@linux.vnet.ibm.com,
-  linuxppc-dev@lists.ozlabs.org, lizhengyu3@huawei.com
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: u.kleine-koenig@pengutronix.de
-Message-ID: <mhng-5872aea0-6f64-4685-8f8d-fdeb42e4c972@palmer-mbp2014>
-Mime-Version: 1.0 (MHng)
+	id 1nvlHX-0084wP-SI
+	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 19:42:29 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1nvlGn-0004LO-Ul; Mon, 30 May 2022 21:41:41 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1nvlGh-005Vep-Cd; Mon, 30 May 2022 21:41:34 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1nvlGf-00D9uL-Eh; Mon, 30 May 2022 21:41:33 +0200
+Date: Mon, 30 May 2022 21:41:33 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: wangkefeng.wang@huawei.com, guoren@linux.alibaba.com,
+	sunnanyong@huawei.com, jszhang@kernel.org, mick@ics.forth.gr,
+	linux-riscv@lists.infradead.org,
+	Stephen Rothwell <sfr@canb.auug.org.au>, alex@ghiti.fr,
+	christophe.leroy@csgroup.eu, naveen.n.rao@linux.vnet.ibm.com,
+	lizhengyu3@huawei.com, aou@eecs.berkeley.edu, liaochang1@huawei.com,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Bjorn Topel <bjorn.topel@gmail.com>, kexec@lists.infradead.org,
+	linux-kernel@vger.kernel.org, penberg@kernel.org,
+	ebiederm@xmission.com, kernel@pengutronix.de,
+	akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH] RISC-V: Prepare dropping week attribute from
+ arch_kexec_apply_relocations[_add]
+Message-ID: <20220530194133.udwdjsb2l33hsiil@pengutronix.de>
+References: <20220530074202.pydmbbgvbtaugw5j@pengutronix.de>
+ <mhng-5872aea0-6f64-4685-8f8d-fdeb42e4c972@palmer-mbp2014>
+MIME-Version: 1.0
+In-Reply-To: <mhng-5872aea0-6f64-4685-8f8d-fdeb42e4c972@palmer-mbp2014>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220530_115817_756696_DFCCD498 
-X-CRM114-Status: GOOD (  30.74  )
+X-CRM114-CacheID: sfid-20220530_124227_959401_94ECEFDE 
+X-CRM114-Status: GOOD (  35.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,67 +76,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============6173982137951823995=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAzMCBNYXkgMjAyMiAwMDo0MjowMiBQRFQgKC0wNzAwKSwgdS5rbGVpbmUta29lbmln
-QHBlbmd1dHJvbml4LmRlIHdyb3RlOgo+IFdpdGhvdXQgdGhpcyBjaGFuZ2UgYXJjaC9yaXNjdi9r
-ZXJuZWwvZWxmX2tleGVjLmMgZmFpbHMgdG8gY29tcGlsZSBvbmNlCj4gY29tbWl0IDIzM2MxZTZj
-MzE5YyAoImtleGVjX2ZpbGU6IGRyb3Agd2VhayBhdHRyaWJ1dGUgZnJvbQo+IGFyY2hfa2V4ZWNf
-YXBwbHlfcmVsb2NhdGlvbnNbX2FkZF0iKSBpcyBhbHNvIGNvbnRhaW5lZCBpbiB0aGUgdHJlZS4K
-PiBUaGlzIGN1cnJlbnRseSBoYXBwZW5zIGluIG5leHQtMjAyMjA1MjcuCj4KPiBQcmVwYXJlIHRo
-ZSBSSVNDLVYgc2ltaWxhciB0byB0aGUgczM5MCBhZGFwdGlvbiBkb25lIGluIDIzM2MxZTZjMzE5
-Yy4KPiBUaGlzIGlzIHNhZmUgdG8gZG8gb24gdG9wIG9mIHRoZSByaXNjdiBjaGFuZ2UgZXZlbiB3
-aXRob3V0IHRoZSBjaGFuZ2UgdG8KPiBhcmNoX2tleGVjX2FwcGx5X3JlbG9jYXRpb25zLgo+Cj4g
-Rml4ZXM6IDgzOGIzZTI4NDg4ZiAoIlJJU0MtVjogTG9hZCBwdXJnYXRvcnkgaW4ga2V4ZWNfZmls
-ZSIpCj4gTG9va3MtZ29vZC10bzogbGlhb2NoYW5nIChBKSA8bGlhb2NoYW5nMUBodWF3ZWkuY29t
-Pgo+IFNpZ25lZC1vZmYtYnk6IFV3ZSBLbGVpbmUtS8O2bmlnIDx1LmtsZWluZS1rb2VuaWdAcGVu
-Z3V0cm9uaXguZGU+Cj4gLS0tCj4KPiBPbiBNb24sIE1heSAzMCwgMjAyMiBhdCAwOTo0MzoyNkFN
-ICswODAwLCBsaWFvY2hhbmcgKEEpIHdyb3RlOgo+PiA+IEkgY2FuIGNvbmZpcm0gdGhhdCBkb2lu
-Zwo+PiA+IAo+PiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgg
-Yi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPj4gPiBpbmRleCAyMDYyMTdiMjMzMDEu
-LmVlZTI2MGU4YWIzMCAxMDA2NDQKPj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tl
-eGVjLmgKPj4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPj4gPiBAQCAt
-NTUsNiArNTUsMTMgQEAgZXh0ZXJuIHJpc2N2X2tleGVjX21ldGhvZCByaXNjdl9rZXhlY19ub3Jl
-bG9jYXRlOwo+PiA+ICAKPj4gPiAgI2lmZGVmIENPTkZJR19LRVhFQ19GSUxFCj4+ID4gIGV4dGVy
-biBjb25zdCBzdHJ1Y3Qga2V4ZWNfZmlsZV9vcHMgZWxmX2tleGVjX29wczsKPj4gPiArCj4+ID4g
-K3N0cnVjdCBwdXJnYXRvcnlfaW5mbzsKPj4gPiAraW50IGFyY2hfa2V4ZWNfYXBwbHlfcmVsb2Nh
-dGlvbnNfYWRkKHN0cnVjdCBwdXJnYXRvcnlfaW5mbyAqcGksCj4+ID4gKwkJCQkgICAgIEVsZl9T
-aGRyICpzZWN0aW9uLAo+PiA+ICsJCQkJICAgICBjb25zdCBFbGZfU2hkciAqcmVsc2VjLAo+PiA+
-ICsJCQkJICAgICBjb25zdCBFbGZfU2hkciAqc3ltdGFiKTsKPj4gPiArI2RlZmluZSBhcmNoX2tl
-eGVjX2FwcGx5X3JlbG9jYXRpb25zX2FkZCBhcmNoX2tleGVjX2FwcGx5X3JlbG9jYXRpb25zX2Fk
-ZAo+PiA+ICAjZW5kaWYKPj4gPiAgCj4+ID4gICNlbmRpZgo+PiAKPj4gTEdUTSwgeW91IGNvdWxk
-IHNlbmQgYSBmaXh1cCBwYXRjaCB0byByaXNjdiwgdGhhbmtzLgo+PiAKPj4gPiAKPj4gPiBvbiB0
-b3Agb2YgODM4YjNlMjg0ODhmIHJlc3VsdHMgaW4gYSBjb21waWxhYmxlIHRyZWUuIEFuZCB3aGVu
-IG1lcmdpbmcKPj4gPiAyMzNjMWU2YzMxOWMgaW50byB0aGlzLCBpdCBpcyBzdGlsbCBidWlsZGlu
-Zy4KPj4gPiAKPj4gPiBJJ20gbm90IGVub3VnaCBpbnRvIGtleGVjIChhbmQgcmlzY3YpIHRvIGp1
-ZGdlIGlmIHRoaXMgaXMgc2Vuc2libGUsIG9yCj4+ID4gY3JlYXRlIGEgdXNlZnVsIGNvbW1pdCBs
-b2cgYnV0IHRoZSBvYnZpb3VzIHdheSBmb3J3YXJkIGlzIHRvIGFwcGx5IHRoZQo+PiA+IGFib3Zl
-IHBhdGNoIHRvIHRoZSByaXNjdiB0cmVlIGJlZm9yZSBpdCBoaXRzIExpbnVzJyB0cmVlLgo+Cj4g
-T2ssIGhlcmUgY29tZXMgYSBwYXRjaCB3aXRoIGEgZ2VuZXJpYyBjb21taXQgbG9nLiAKPgo+IEBy
-aXNjdiBwZW9wbGU6IElmIHlvdSBwcmVmZXIsIHNxdWFzaCBpdCBpbnRvIDgzOGIzZTI4NDg4Zi4K
-ClNvcnJ5LCBqdXN0IHNhdyB0aGlzIGFmdGVyIEkgc2VudCBteSB2ZXJzaW9uIG9mIHRoZSBmaXgu
-ICBUaGV5J3JlIHRoZSAKc2FtZSwgYnV0IGRvIHlvdSBtaW5kIHNlbmRpbmcgYSBmdWxsLW9uIHBh
-dGNoIHNvIEkgY2FuIG1lcmdlIGl0PwoKPgo+IEJlc3QgcmVnYXJkcwo+IFV3ZQo+Cj4gIGFyY2gv
-cmlzY3YvaW5jbHVkZS9hc20va2V4ZWMuaCB8IDcgKysrKysrKwo+ICAxIGZpbGUgY2hhbmdlZCwg
-NyBpbnNlcnRpb25zKCspCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9r
-ZXhlYy5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rZXhlYy5oCj4gaW5kZXggMjA2MjE3YjIz
-MzAxLi5lZWUyNjBlOGFiMzAgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9r
-ZXhlYy5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rZXhlYy5oCj4gQEAgLTU1LDYg
-KzU1LDEzIEBAIGV4dGVybiByaXNjdl9rZXhlY19tZXRob2QgcmlzY3Zfa2V4ZWNfbm9yZWxvY2F0
-ZTsKPiAgCj4gICNpZmRlZiBDT05GSUdfS0VYRUNfRklMRQo+ICBleHRlcm4gY29uc3Qgc3RydWN0
-IGtleGVjX2ZpbGVfb3BzIGVsZl9rZXhlY19vcHM7Cj4gKwo+ICtzdHJ1Y3QgcHVyZ2F0b3J5X2lu
-Zm87Cj4gK2ludCBhcmNoX2tleGVjX2FwcGx5X3JlbG9jYXRpb25zX2FkZChzdHJ1Y3QgcHVyZ2F0
-b3J5X2luZm8gKnBpLAo+ICsJCQkJICAgICBFbGZfU2hkciAqc2VjdGlvbiwKPiArCQkJCSAgICAg
-Y29uc3QgRWxmX1NoZHIgKnJlbHNlYywKPiArCQkJCSAgICAgY29uc3QgRWxmX1NoZHIgKnN5bXRh
-Yik7Cj4gKyNkZWZpbmUgYXJjaF9rZXhlY19hcHBseV9yZWxvY2F0aW9uc19hZGQgYXJjaF9rZXhl
-Y19hcHBseV9yZWxvY2F0aW9uc19hZGQKPiAgI2VuZGlmCj4gIAo+ICAjZW5kaWYKPgo+IGJhc2Ut
-Y29tbWl0OiA4MzhiM2UyODQ4OGY3MDJlMmI1NDc3YjM5M2YwMDliMjYzOWQyYjFhCj4gLS0gCj4g
-Mi4zNi4xCj4KPiAtLSAKPiBQZW5ndXRyb25peCBlLksuICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgfCBVd2UgS2xlaW5lLUvDtm5pZyAgICAgICAgICAgIHwKPiBJbmR1c3RyaWFsIExpbnV4IFNv
-bHV0aW9ucyAgICAgICAgICAgICAgICAgfCBodHRwczovL3d3dy5wZW5ndXRyb25peC5kZS8gfAoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============6173982137951823995==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="krrdaxdkw2concro"
+Content-Disposition: inline
+
+
+--krrdaxdkw2concro
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+On Mon, May 30, 2022 at 11:58:16AM -0700, Palmer Dabbelt wrote:
+> On Mon, 30 May 2022 00:42:02 PDT (-0700), u.kleine-koenig@pengutronix.de =
+wrote:
+> > Without this change arch/riscv/kernel/elf_kexec.c fails to compile once
+> > commit 233c1e6c319c ("kexec_file: drop weak attribute from
+> > arch_kexec_apply_relocations[_add]") is also contained in the tree.
+> > This currently happens in next-20220527.
+> >=20
+> > Prepare the RISC-V similar to the s390 adaption done in 233c1e6c319c.
+> > This is safe to do on top of the riscv change even without the change to
+> > arch_kexec_apply_relocations.
+> >=20
+> > Fixes: 838b3e28488f ("RISC-V: Load purgatory in kexec_file")
+> > Looks-good-to: liaochang (A) <liaochang1@huawei.com>
+> > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+> > ---
+> >=20
+> > On Mon, May 30, 2022 at 09:43:26AM +0800, liaochang (A) wrote:
+> > > > I can confirm that doing
+> > > > > diff --git a/arch/riscv/include/asm/kexec.h
+> > > b/arch/riscv/include/asm/kexec.h
+> > > > index 206217b23301..eee260e8ab30 100644
+> > > > --- a/arch/riscv/include/asm/kexec.h
+> > > > +++ b/arch/riscv/include/asm/kexec.h
+> > > > @@ -55,6 +55,13 @@ extern riscv_kexec_method riscv_kexec_norelocate;
+> > > >  >  #ifdef CONFIG_KEXEC_FILE
+> > > >  extern const struct kexec_file_ops elf_kexec_ops;
+> > > > +
+> > > > +struct purgatory_info;
+> > > > +int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
+> > > > +				     Elf_Shdr *section,
+> > > > +				     const Elf_Shdr *relsec,
+> > > > +				     const Elf_Shdr *symtab);
+> > > > +#define arch_kexec_apply_relocations_add arch_kexec_apply_relocati=
+ons_add
+> > > >  #endif
+> > > >  >  #endif
+> > >=20
+> > > LGTM, you could send a fixup patch to riscv, thanks.
+> > >=20
+> > > > > on top of 838b3e28488f results in a compilable tree. And when
+> > > merging
+> > > > 233c1e6c319c into this, it is still building.
+> > > > > I'm not enough into kexec (and riscv) to judge if this is
+> > > sensible, or
+> > > > create a useful commit log but the obvious way forward is to apply =
+the
+> > > > above patch to the riscv tree before it hits Linus' tree.
+> >=20
+> > Ok, here comes a patch with a generic commit log.
+> >=20
+> > @riscv people: If you prefer, squash it into 838b3e28488f.
+>=20
+> Sorry, just saw this after I sent my version of the fix.  They're the sam=
+e,
+> but do you mind sending a full-on patch so I can merge it?
+
+Sorry, I don't understand your request. I found
+https://lore.kernel.org/linux-riscv/20220530180408.16239-1-palmer@rivosinc.=
+com/
+
+but I don't know what a full-on patch is and what stops you merging my
+patch.=20
+
+Is it that it's in reply to a patch series and b4 fails to fetch the
+right patch and you ask to send it in a new thread?
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--krrdaxdkw2concro
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmKVHeoACgkQwfwUeK3K
+7AmIjAf/cIdZXzTm8ALuTDgUrKH3cNzpFjQ944mYn/qfLoGkdCnQlYzghw570rDo
+0QKgHNkqRQQ7lgaXGnex5HizEMdc+++QESut+gBcrV92K33EZU3XSXUp+75SE+Jz
+DjRnmCm4xkh/9zZysNW0OXLnjd4AtGMlbzXYFKsKKxtaGgd7+f06D3cTzoVOfLbL
+i0DPa56ftXEmEYl6WpqIg1gb9gQMQx7E9vsscEgoOX6u9AlinTk/cxkDA6lhMNEj
+03qeCXcYyUQtszhTYw3jo8cLqM1KGLVU3i9Blj0mAIQ8DVaXUd3hWx3AFqjeA55K
+bErpEBzedIdALZNq1g3XX9JHLEMP7Q==
+=qw7s
+-----END PGP SIGNATURE-----
+
+--krrdaxdkw2concro--
+
+
+--===============6173982137951823995==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6173982137951823995==--
+
