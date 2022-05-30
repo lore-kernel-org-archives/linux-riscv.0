@@ -4,146 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0AA2C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 09:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD92DC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 09:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ng6QDHiym8ko3LZgo1Eo2j/En/Lp09aJGcAb2nd2wNc=; b=DoHbX1AKv3PzHh
-	Z5IwooVtDypB4z9tSLcmmT9e7v7ut4WUCs2F39jmqZXwwVlAJ9xnoFu0T3Tcr2IsF9d2zxFeejBZU
-	bmxvA+lkuFiYZF2+VhGrf+JnKGcfefFWaT8lX1vc5mdqzSQwUagEDfWozmqGN+tJ5Ob+IBIP4xdNi
-	ou78zxkR6+edVvy0H/VgC1iuGd5t7ZTaQdJYwkzjVDLOvaBNza+Qd+sWLvsFA5sHs3ADlUfuCloT1
-	tZCeAFzhHjC8n/atfVq+LPiGkqEgw83NvVbTOOqCg6WQpgryDITKX0U+Cuwmbrgqn6RMOVPW7VIdX
-	MSpQyboIV4DnA22f0sfA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wDApcbDX23RcvOGIFq13VS9zkdPfn3M1bVaiwui/QRo=; b=QikuADGgjv4FIX
+	z3dzNVs1VCmL40HjieHRu3NZaE60MKjMKgObgwTp2BUN1ReMgJ9B+JRzoHtTpp+iY9Fj+6EAswknf
+	RPF2TxgbSxEYiqTAGNBu/Q9KKG59jyPTpb1SMtXx6QBixAaktlr3zuyfkflcf4/1SHvd7MW9Nurvb
+	/zX1WO5gs+IgCNOccJveBX4dp6icGwxHU5HuA9/xBdL77XJgiIBg1YCtT390YzSHdg3JcSkPJ0kGw
+	mfR5+RHhQ1N4RqIUWDpejJfr57MxjRQ/Fj+DVZu2QmtaMFFbI4InTd16zzgAW1NZ4cvIv17tK4FGd
+	gZH4Kau0PZI4/bHOAA3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvbod-0068jM-7b; Mon, 30 May 2022 09:35:59 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1nvbzf-006AqE-2t; Mon, 30 May 2022 09:47:23 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvboZ-0068hn-EE; Mon, 30 May 2022 09:35:56 +0000
-Received: from pps.filterd (m0098410.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 24U7eIp4014435;
-	Mon, 30 May 2022 09:35:23 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : date :
- mime-version : subject : to : cc : references : from : in-reply-to :
- content-type : content-transfer-encoding; s=pp1;
- bh=ZYzW3+GXOL8I0AfUdLsg5MVY8XGCNIfi5dgvNuU6uaU=;
- b=aJRxENPLxPxtJPLPMpZbZB6ZMNv3yb0g75x/iaJw7LwXznLfzcFFd+VhsSYa4DDin1Og
- h3EtEuduOMNJdyWcPGf8Bp6j8HIvSzuOxy/3v6U/k2EZA3ai81b28DfbzQAvyLegWbh1
- 6JeeHGepvOgSmc7L30MoUcRt75rv2HhxbCLI6q4veiPA68Sc+ilz6QI6uDVuislGDiwl
- YeuRHaNHYRJKefnUIzx1TjXR7BhIi0QNPJjTPVc/RjJeQKBVl5otsnG/aMJgufq14x+Q
- SfzDBggiNkH6uIogm1bEat+ek9Ln35Wju1AiyyoOtoSpZv9Lk89aLEZ/3hCHMI9fbtzG Eg== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3gc21gt23u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 May 2022 09:35:22 +0000
-Received: from m0098410.ppops.net (m0098410.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 24U8YFtI001535;
-	Mon, 30 May 2022 09:35:21 GMT
-Received: from ppma01fra.de.ibm.com (46.49.7a9f.ip4.static.sl-reverse.com [159.122.73.70])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3gc21gt22j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 May 2022 09:35:21 +0000
-Received: from pps.filterd (ppma01fra.de.ibm.com [127.0.0.1])
-	by ppma01fra.de.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 24U9ZEW5005489;
-	Mon, 30 May 2022 09:35:18 GMT
-Received: from b06avi18626390.portsmouth.uk.ibm.com (b06avi18626390.portsmouth.uk.ibm.com [9.149.26.192])
-	by ppma01fra.de.ibm.com with ESMTP id 3gbcakhu93-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 May 2022 09:35:18 +0000
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (b06wcsmtp001.portsmouth.uk.ibm.com [9.149.105.160])
-	by b06avi18626390.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 24U9KsWE50921746
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 30 May 2022 09:20:54 GMT
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7A464A4054;
-	Mon, 30 May 2022 09:35:14 +0000 (GMT)
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 55577A405B;
-	Mon, 30 May 2022 09:35:11 +0000 (GMT)
-Received: from [9.171.2.176] (unknown [9.171.2.176])
-	by b06wcsmtp001.portsmouth.uk.ibm.com (Postfix) with ESMTP;
-	Mon, 30 May 2022 09:35:11 +0000 (GMT)
-Message-ID: <33fd4731-9765-d78b-bdc3-f8243c98e81f@linux.ibm.com>
-Date: Mon, 30 May 2022 11:35:10 +0200
+	id 1nvbzY-006Am5-OI
+	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 09:47:19 +0000
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com [209.85.221.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id AC6B13FBF4
+	for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 09:47:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1653904027;
+	bh=0UZymv9RVAChspHI58gTmQkqQr5ViPWxsQqyFUaGwGI=;
+	h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
+	b=BQynBlSIrLEmYQRf+w2HXFMDTvf97rwyOncqlhH1ugNqF9+QZk+anHNnipANfsbA2
+	 R7F2tEkTgJyT7wKz50y8fDXRGcSyFZY7dP8zZjkelZcDXGLIofQmHAoT7aznr0J/N7
+	 +1Y3oHVlC/zyrNd+M8Tsgl2ULJD5c9LUyg3RpcQwrNQw8NeCxvnEQZFBCIxQNqXgMk
+	 ct8in+v1Ip8YVeldJ5xd72J+30fn/NOS9NBObnaLznL9b7HXPjTM5VWqSqAKimsTzz
+	 jquSd7jb2oVBcQVkLYrnKCuVwZDsSRQTG7avBXvXEM1si/tOJ4ZSUSZYiHWb9rjZrJ
+	 GLNWya8RFamww==
+Received: by mail-wr1-f70.google.com with SMTP id bt14-20020a056000080e00b002100d89c219so1500909wrb.2
+        for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 02:47:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=0UZymv9RVAChspHI58gTmQkqQr5ViPWxsQqyFUaGwGI=;
+        b=Pl4GlEt0/Qlo90cbXLIpeE7zTn/lF5asJOJAYLuiX2A56im3u6zUCEeVwvq3dV9SBB
+         U2NAgSBHqKiwvb6F5tzxXACQWI4lZSkuIJO9op54zBY0FrFBSkD+VlYQvFlyCeROc1BG
+         2+V7AqP9Zy7HMBV4K98xcvJXGGTgG0R7kZJhh67F4K3Ep8iY1B88c7smipy6ISLJbE9l
+         gT0xfX9Wf136nEiShVChGEP5LL0m1USM3m90K+Qp+MmouTBWKfeTrJIyOrs0G/wou4AI
+         ycJdLhJPrwrDHlkiUya6wYjSlhkO5NXGu8d6SWmtI8eReRxLWsnrJeej8qRWBUHVt4qD
+         on8Q==
+X-Gm-Message-State: AOAM532KbCCa4e7D7VRp+6HJJB3uYGBwVn7qYprSeANka9g3XNeMzQkF
+	jslJrNE0xzDjGsv+0D4RJ3PAdy3VRD9k32U6zFtR1fvet5PIa+VwVbNpX4tLDGA0JSc/2e3qKGr
+	Z8JyyNrEO4Bxwr0z+t3Rq7FoDWO5AD+Whpsr/EmNrTOKceg==
+X-Received: by 2002:a05:600c:501f:b0:397:74e2:caa1 with SMTP id n31-20020a05600c501f00b0039774e2caa1mr18326897wmr.89.1653904023960;
+        Mon, 30 May 2022 02:47:03 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxcIRFrZmFoHMctcwJfjIoXZM+fuLzFmiVCBZ3hBYIMDRUovPi+iGVmBjDvXX5Wh2a1poEgFA==
+X-Received: by 2002:a05:600c:501f:b0:397:74e2:caa1 with SMTP id n31-20020a05600c501f00b0039774e2caa1mr18326883wmr.89.1653904023811;
+        Mon, 30 May 2022 02:47:03 -0700 (PDT)
+Received: from alex.home (lfbn-gre-1-146-29.w90-112.abo.wanadoo.fr. [90.112.113.29])
+        by smtp.gmail.com with ESMTPSA id f12-20020a05600c154c00b003942a244f30sm13897640wmg.9.2022.05.30.02.47.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 May 2022 02:47:03 -0700 (PDT)
+From: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+To: =?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Subject: [PATCH -for-next] riscv: Fix missing PAGE_PFN_MASK
+Date: Mon, 30 May 2022 11:47:01 +0200
+Message-Id: <20220530094701.2891404-1-alexandre.ghiti@canonical.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH v4] mm: Avoid unnecessary page fault retires on shared
- memory types
-Content-Language: en-US
-To: Heiko Carstens <hca@linux.ibm.com>, Peter Xu <peterx@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-        Will Deacon <will@kernel.org>, Matt Turner <mattst88@gmail.com>,
-        linux-s390@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
-        Brian Cain <bcain@quicinc.com>, Borislav Petkov <bp@alien8.de>,
-        linux-alpha@vger.kernel.org, Alistair Popple <apopple@nvidia.com>,
-        Jonas Bonn <jonas@southpole.se>, linux-arm-kernel@lists.infradead.org,
-        linux-ia64@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
-        Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-        linux-snps-arc@lists.infradead.org, Vineet Gupta <vgupta@kernel.org>,
-        Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@suse.cz>,
-        Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-        Rich Felker <dalias@libc.org>, sparclinux@vger.kernel.org,
-        Russell King <linux@armlinux.org.uk>,
-        David Hildenbrand <david@redhat.com>,
-        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
-        linux-xtensa@linux-xtensa.org, linux-sh@vger.kernel.org,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        linux-m68k@lists.linux-m68k.org, linuxppc-dev@lists.ozlabs.org,
-        Richard Henderson <rth@twiddle.net>, Guo Ren <guoren@kernel.org>,
-        linux-parisc@vger.kernel.org, Andrea Arcangeli <aarcange@redhat.com>,
-        Helge Deller <deller@gmx.de>, Al Viro <viro@zeniv.linux.org.uk>,
-        Albert Ou <aou@eecs.berkeley.edu>, linux-um@lists.infradead.org,
-        "H . Peter Anvin" <hpa@zytor.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-        openrisc@lists.librecores.org,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        linux-hexagon@vger.kernel.org, Andy Lutomirski <luto@kernel.org>,
-        Stafford Horne <shorne@gmail.com>, linux-csky@vger.kernel.org,
-        Thomas Gleixner <tglx@linutronix.de>, linux-mips@vger.kernel.org,
-        Paul Mackerras <paulus@samba.org>,
-        Alexander Gordeev
- <agordeev@linux.ibm.com>,
-        Dinh Nguyen <dinguyen@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        "David S . Miller"
- <davem@davemloft.net>,
-        Johannes Weiner <hannes@cmpxchg.org>, Hugh Dickins <hughd@google.com>,
-        Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-        linux-riscv@lists.infradead.org, Max Filippov <jcmvbkbc@gmail.com>,
-        Catalin Marinas
- <catalin.marinas@arm.com>,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        Johannes Berg <johannes@sipsolutions.net>,
-        Chris Zankel <chris@zankel.net>, Michal Simek <monstr@monstr.eu>,
-        x86@kernel.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Richard Weinberger <richard@nod.at>, Ingo Molnar <mingo@kernel.org>
-References: <20220527193936.30678-1-peterx@redhat.com>
- <YpPYkzbrQmy4FjrI@osiris>
-From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <YpPYkzbrQmy4FjrI@osiris>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 17H2zOn_Mc5hu2MUIDRxY-AXp5vXE9mJ
-X-Proofpoint-ORIG-GUID: M8apowNso6iR-DwO9jx-r0DSHd-NwVxB
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.874,Hydra:6.0.486,FMLib:17.11.64.514
- definitions=2022-05-30_03,2022-05-27_01,2022-02-23_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- suspectscore=0 adultscore=0 mlxscore=0 bulkscore=0 malwarescore=0
- spamscore=0 clxscore=1011 mlxlogscore=980 lowpriorityscore=0 phishscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2204290000 definitions=main-2205300050
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220530_023555_515899_3D6973E3 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20220530_024716_991578_9120A5D4 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,43 +97,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+There are a bunch of functions that use the PFN from a page table entry
+that end up with the svpbmt upper-bits because they are missing the newly
+introduced PAGE_PFN_MASK which leads to wrong addresses conversions and
+then crash: fix this by adding this mask.
 
+Fixes: 100631b48ded ("riscv: Fix accessing pfn bits in PTEs for non-32bit variants")
+Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+---
+ arch/riscv/include/asm/pgtable-64.h | 4 ++--
+ arch/riscv/include/asm/pgtable.h    | 4 ++--
+ arch/riscv/kvm/mmu.c                | 2 +-
+ 3 files changed, 5 insertions(+), 5 deletions(-)
 
-Am 29.05.22 um 22:33 schrieb Heiko Carstens:
-[...]
-> 
-> Guess the patch below on top of your patch is what we want.
-> Just for clarification: if gmap is not NULL then the process is a kvm
-> process. So, depending on the workload, this optimization makes sense.
-> 
-> diff --git a/arch/s390/mm/fault.c b/arch/s390/mm/fault.c
-> index 4608cc962ecf..e1d40ca341b7 100644
-> --- a/arch/s390/mm/fault.c
-> +++ b/arch/s390/mm/fault.c
-> @@ -436,12 +436,11 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
->   
->   	/* The fault is fully completed (including releasing mmap lock) */
->   	if (fault & VM_FAULT_COMPLETED) {
-> -		/*
-> -		 * Gmap will need the mmap lock again, so retake it.  TODO:
-> -		 * only conditionally take the lock when CONFIG_PGSTE set.
-> -		 */
-> -		mmap_read_lock(mm);
-> -		goto out_gmap;
-> +		if (gmap) {
-> +			mmap_read_lock(mm);
-> +			goto out_gmap;
-> +		}
-> +		goto out;
-
-Yes, that makes sense. With that
-
-Acked-by: Christian Borntraeger <borntraeger@linux.ibm.com>
+diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+index 6d59e4695200..0e57bf1e25e9 100644
+--- a/arch/riscv/include/asm/pgtable-64.h
++++ b/arch/riscv/include/asm/pgtable-64.h
+@@ -153,7 +153,7 @@ static inline pud_t pfn_pud(unsigned long pfn, pgprot_t prot)
+ 
+ static inline unsigned long _pud_pfn(pud_t pud)
+ {
+-	return pud_val(pud) >> _PAGE_PFN_SHIFT;
++	return (pud_val(pud) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT;
+ }
+ 
+ static inline pmd_t *pud_pgtable(pud_t pud)
+@@ -240,7 +240,7 @@ static inline void p4d_clear(p4d_t *p4d)
+ static inline pud_t *p4d_pgtable(p4d_t p4d)
+ {
+ 	if (pgtable_l4_enabled)
+-		return (pud_t *)pfn_to_virt(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
++		return (pud_t *)pfn_to_virt((p4d_val(p4d) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
+ 
+ 	return (pud_t *)pud_pgtable((pud_t) { p4d_val(p4d) });
+ }
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index e2658a25f06d..43064025f4b0 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -255,7 +255,7 @@ static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
+ 
+ static inline unsigned long _pgd_pfn(pgd_t pgd)
+ {
+-	return pgd_val(pgd) >> _PAGE_PFN_SHIFT;
++	return (pgd_val(pgd) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT;
+ }
+ 
+ static inline struct page *pmd_page(pmd_t pmd)
+@@ -568,7 +568,7 @@ static inline pmd_t pmd_mkinvalid(pmd_t pmd)
+ 	return __pmd(pmd_val(pmd) & ~(_PAGE_PRESENT|_PAGE_PROT_NONE));
+ }
+ 
+-#define __pmd_to_phys(pmd)  (pmd_val(pmd) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
++#define __pmd_to_phys(pmd)  ((pmd_val(pmd) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
+ 
+ static inline unsigned long pmd_pfn(pmd_t pmd)
+ {
+diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+index f80a34fbf102..db03c5a29d4c 100644
+--- a/arch/riscv/kvm/mmu.c
++++ b/arch/riscv/kvm/mmu.c
+@@ -55,7 +55,7 @@ static inline unsigned long stage2_pte_index(gpa_t addr, u32 level)
+ 
+ static inline unsigned long stage2_pte_page_vaddr(pte_t pte)
+ {
+-	return (unsigned long)pfn_to_virt(pte_val(pte) >> _PAGE_PFN_SHIFT);
++	return (unsigned long)pfn_to_virt((pte_val(pte) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
+ }
+ 
+ static int stage2_page_size_to_level(unsigned long page_size, u32 *out_level)
+-- 
+2.34.1
 
 
 _______________________________________________
