@@ -4,47 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D77C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 07:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37551C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 07:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+LAVcP134ugpU1n0Re5QnrzX4zrscIz20S27K6NyKC4=; b=JWYoPm+RgA3UIS
-	iwIHBEzfL8QJNiiUsKBB6g+19brof3aFUoW29r97exxkzXD6P/vitugEpA5KRG5dPeDYc1ylyDqHL
-	ug/KU6NPA5V3So7v8AslKRBekptvfc3OjWeDfNyZw1mKho9nEquoHMMNxPHaixsPqdkXNotvfOyDV
-	cXZ8yExQ5qCaC5MvhHdNJZDDPAMeyPi8WoNOoF/5fjFchAzvUu+IMD7RStozdSwPsFKT0k5FZiDWC
-	OvpVOIbBDnVaB2n0T7hBdroNSrYqt0tAoid/NkwLpBsPvJOurV69hSBtvgY1mFXraAJxQGL0JWEUE
-	xf0SS2vnAMtoajJGckrA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XIlOP5cfO1m64VDVRosx8U+kKkGa+dwlHky514Mt+Go=; b=pBnhaD1EWFp1qzIlU0Eejx9Vj8
+	bHIx9wXZ429hmNvH7Uwgi6bSlW+AASBjqhaCFH2SlmOJRJoAIN4npvziv+ozcsHf6NU/DAaNaDV0c
+	XZB9Qvh4EdUt7xMKEvIxH5bdhy+6tSHUgNjFrDdvJ+wBDjNk69iCBtVzxa1/aeZvdpAxNZ8tl7ORo
+	IIxR+BZpk+qhW1H6OsBbcPsk/vbCpDHocvQKPjB4Mj+868g0VdZ2/m6iooWecK8Z2MGExAO2wVIcJ
+	VcGPqMDRrkXVrOR+ClLt2l+xxRzc0+LJSKIQTNNudofXiLuKeEby7MdZTQSLja57bKWsfuhcj6S8u
+	Y8nlOwDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvZV0-005eWW-B5; Mon, 30 May 2022 07:07:34 +0000
-Received: from jabberwock.ucw.cz ([46.255.230.98])
+	id 1nva2o-005j15-E5; Mon, 30 May 2022 07:42:30 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvZUw-005eU5-Ht
-	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 07:07:32 +0000
-Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
-	id 40A7F1C0BAB; Mon, 30 May 2022 09:07:29 +0200 (CEST)
-Date: Mon, 30 May 2022 09:07:28 +0200
-From: Pavel Machek <pavel@ucw.cz>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: a.zummo@towertech.it, alexandre.belloni@bootlin.com,
-	daire.mcnamara@microchip.com, lewis.hanly@microchip.com,
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/2] rtc: Add driver for Microchip PolarFire SoC
-Message-ID: <20220530070728.GH1363@bug>
-References: <20220516082838.3717982-1-conor.dooley@microchip.com>
- <20220516082838.3717982-2-conor.dooley@microchip.com>
+	id 1nva2k-005iyN-Og
+	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 07:42:29 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1nva2d-0006ni-4F; Mon, 30 May 2022 09:42:19 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1nva2W-005PS2-BU; Mon, 30 May 2022 09:42:10 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1nva2T-00D2mA-SD; Mon, 30 May 2022 09:42:09 +0200
+Date: Mon, 30 May 2022 09:42:02 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Li Zhengyu <lizhengyu3@huawei.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, bjorn.topel@gmail.com,
+	guoren@linux.alibaba.com, jszhang@kernel.org,
+	kexec@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, mick@ics.forth.gr,
+	paul.walmsley@sifive.com, penberg@kernel.org, sunnanyong@huawei.com,
+	wangkefeng.wang@huawei.com,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"liaochang (A)" <liaochang1@huawei.com>,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Eric Biederman <ebiederm@xmission.com>, kernel@pengutronix.de,
+	"Naveen N. Rao" <naveen.n.rao@linux.vnet.ibm.com>,
+	linuxppc-dev@lists.ozlabs.org, Li Zhengyu <lizhengyu3@huawei.com>
+Subject: [PATCH] RISC-V: Prepare dropping week attribute from
+ arch_kexec_apply_relocations[_add]
+Message-ID: <20220530074202.pydmbbgvbtaugw5j@pengutronix.de>
+References: <20220519091237.676736-1-naveen.n.rao@linux.vnet.ibm.com>
+ <20220529065637.xgapqjp2342flbuj@pengutronix.de>
+ <264786d9-7756-19e0-2742-8b8d17f5ace5@csgroup.eu>
+ <20220529140655.bnd4fgggccrorj4t@pengutronix.de>
+ <59e8faec-05fd-805d-7de0-4b0508f8467f@huawei.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220516082838.3717982-2-conor.dooley@microchip.com>
-User-Agent: Mutt/1.5.23 (2014-03-12)
+In-Reply-To: <59e8faec-05fd-805d-7de0-4b0508f8467f@huawei.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220530_000730_835331_FD413D62 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20220530_004226_858398_0CB7999C 
+X-CRM114-Status: GOOD (  27.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,63 +83,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4445577122374066150=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi!
 
-> Add support for the built-in RTC on Microchip PolarFire SoC
+--===============4445577122374066150==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="izltdsmj2dkmzuym"
+Content-Disposition: inline
 
-> +#define CONTROL_UPLOAD_BIT	BIT(5)
-> +#define CONTROL_DOWNLOAD_BIT	BIT(6)
-> +#define CONTROL_DOWNLOAD_BIT	BIT(6)
-> +#define CONTROL_WAKEUP_CLR_BIT	BIT(8)
 
-Dup?
+--izltdsmj2dkmzuym
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> +static void mpfs_rtc_start(struct mpfs_rtc_dev *rtcdev)
-> +{
-> +	u32 ctrl;
-> +
-> +	ctrl = readl(rtcdev->base + CONTROL_REG);
-> +	ctrl &= ~(CONTROL_STOP_BIT | CONTROL_START_BIT);
-> +	ctrl |= CONTROL_START_BIT;
-> +	writel(ctrl, rtcdev->base + CONTROL_REG);
-> +}
+Without this change arch/riscv/kernel/elf_kexec.c fails to compile once
+commit 233c1e6c319c ("kexec_file: drop weak attribute from
+arch_kexec_apply_relocations[_add]") is also contained in the tree.
+This currently happens in next-20220527.
 
-You don't need to clear bit just to set it.
+Prepare the RISC-V similar to the s390 adaption done in 233c1e6c319c.
+This is safe to do on top of the riscv change even without the change to
+arch_kexec_apply_relocations.
 
-> +	do {
-> +		prog = readl(rtcdev->base + CONTROL_REG);
-> +		prog &= CONTROL_UPLOAD_BIT;
-> +	} while (prog);
+Fixes: 838b3e28488f ("RISC-V: Load purgatory in kexec_file")
+Looks-good-to: liaochang (A) <liaochang1@huawei.com>
+Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+---
 
-Limit to XY iterations?
+On Mon, May 30, 2022 at 09:43:26AM +0800, liaochang (A) wrote:
+> > I can confirm that doing
+> >=20
+> > diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/ke=
+xec.h
+> > index 206217b23301..eee260e8ab30 100644
+> > --- a/arch/riscv/include/asm/kexec.h
+> > +++ b/arch/riscv/include/asm/kexec.h
+> > @@ -55,6 +55,13 @@ extern riscv_kexec_method riscv_kexec_norelocate;
+> > =20
+> >  #ifdef CONFIG_KEXEC_FILE
+> >  extern const struct kexec_file_ops elf_kexec_ops;
+> > +
+> > +struct purgatory_info;
+> > +int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
+> > +				     Elf_Shdr *section,
+> > +				     const Elf_Shdr *relsec,
+> > +				     const Elf_Shdr *symtab);
+> > +#define arch_kexec_apply_relocations_add arch_kexec_apply_relocations_=
+add
+> >  #endif
+> > =20
+> >  #endif
+>=20
+> LGTM, you could send a fixup patch to riscv, thanks.
+>=20
+> >=20
+> > on top of 838b3e28488f results in a compilable tree. And when merging
+> > 233c1e6c319c into this, it is still building.
+> >=20
+> > I'm not enough into kexec (and riscv) to judge if this is sensible, or
+> > create a useful commit log but the obvious way forward is to apply the
+> > above patch to the riscv tree before it hits Linus' tree.
 
-> +
-> +static int mpfs_rtc_readalarm(struct device *dev, struct rtc_wkalrm *alrm)
-> +{
-> +	u32 mode = readl(rtcdev->base + MODE_REG);
-> +	u64 time;
-> +
-> +	mode = readl(rtcdev->base + MODE_REG);
+Ok, here comes a patch with a generic commit log.=20
 
-Dup?
+@riscv people: If you prefer, squash it into 838b3e28488f.
 
-> + if (mode & MODE_WAKE_EN) + alrm->enabled = true; + else + alrm->enabled = false; + 
+Best regards
+Uwe
 
-enabled = ()?
+ arch/riscv/include/asm/kexec.h | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Best regards,
-										Pavel
+diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
+index 206217b23301..eee260e8ab30 100644
+--- a/arch/riscv/include/asm/kexec.h
++++ b/arch/riscv/include/asm/kexec.h
+@@ -55,6 +55,13 @@ extern riscv_kexec_method riscv_kexec_norelocate;
+=20
+ #ifdef CONFIG_KEXEC_FILE
+ extern const struct kexec_file_ops elf_kexec_ops;
++
++struct purgatory_info;
++int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
++				     Elf_Shdr *section,
++				     const Elf_Shdr *relsec,
++				     const Elf_Shdr *symtab);
++#define arch_kexec_apply_relocations_add arch_kexec_apply_relocations_add
+ #endif
+=20
+ #endif
 
--- 
-(english) http://www.livejournal.com/~pavelmachek
-(cesky, pictures) http://atrey.karlin.mff.cuni.cz/~pavel/picture/horses/blog.html
+base-commit: 838b3e28488f702e2b5477b393f009b2639d2b1a
+--=20
+2.36.1
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--izltdsmj2dkmzuym
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmKUdUEACgkQwfwUeK3K
+7AnmPQf+IN+rB4o/lVwe+g3nQDfd/LaYheXdhsHmaXF/6uNO5ya9wxPbn66pESxt
+l1koX5LbpqE0geRqIuHtWqxOxsRfhTp7TYNB0KRBuMKPMikGZ8zsd2halcf8DVzc
+TYf7Iz1T49mUZCAOnzUozlX6DLLFWP1CrelQWBePufBtYUzqdFjNRXmoxMuRSUQP
+rJnOFN8EWAokXC8ZCtmqHr/rGZka6+BVpxN7QGPBv2uxrRfEUfh7+JGw72f8BImg
+KzYA7hXaR42x+gv+ilqDTe4h7MNy/6tmUzqToba0hIeG4WNCIhzqG+mBp4iBO3n2
+yEwq9TSpGdW4uIr0YDQx9mp6hz4jwA==
+=CgD8
+-----END PGP SIGNATURE-----
+
+--izltdsmj2dkmzuym--
+
+
+--===============4445577122374066150==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4445577122374066150==--
+
