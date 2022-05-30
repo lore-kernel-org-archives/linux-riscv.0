@@ -4,144 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C67C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 17:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16986C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 18:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OfJPZdsVXleFioHErRhtyaVxFcFw03IAmuOnzekF9kM=; b=URgwiihNo4zINq
-	GSjHKdU0qnsEyqhhBtd3uRsJ/5hyvrGRi7R3FO4NWMTcFBDqqQNO2S+kHA0CfgL2VarPzmN+WBZ5g
-	zlsQRupnp9FoGLs5WACZBBbWt01f+VtXMu2Xygn9XnyA6P3TPcEEoUIiqbo7H1FSLcb6nLbCVgm9z
-	3Euhxpl0XM309obuZtnJxLz7Kf3N/qsJtbhJ5y8bF5I/nSefWH4VB/ecWck1CWYko66QsCW0HNbtN
-	Pv6+2SbNbYKAERHu+GKKCl39ZP9ORfjqprVj5uuUOwlm7eyQvEN0S94Srmh//Ld2zB5S2SpHFTyKO
-	uIYIGMd6N60p5hvY7AvQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=al01KnRv3seteAP1tFvvNEcCyUJpFZa2CK6KjU5GPQY=; b=KWGbBaeID62Y/6
+	zgn4dRMFSRGPnPuw9DmnGdli/HPbYT4kfKPofkjBqwAxjxECQIBmxedDs2TsH/oJplTmIDmvwoFYt
+	qavgN5xtdeVOgzEFbMVnLpfFK72iQmtc8lcC/7A43zsa4HszBnuIG6okUSyCwpU7BaR8OKT/yyAJM
+	PAJqlsDry2Yz5Cfzzrx5EHoFkM/Md/uzbwI3RR1jYLZ/ieDDDqCFPR0IHwHBwJXTjfUmlLw2lSdF7
+	OkyHBbP2XysjxgiW3J6ZCa/85zpmgCAsiYpOmtUV95MMqQkkpAAh9Snlz+QRAu5qR1KcI4VmU24O3
+	apsOXiwf2YL2pBSRASqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvioD-007gFy-Dw; Mon, 30 May 2022 17:04:01 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5] helo=mx0a-001b2d01.pphosted.com)
+	id 1nvjkp-007mZD-Sm; Mon, 30 May 2022 18:04:35 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvio9-007gEG-Ea; Mon, 30 May 2022 17:03:59 +0000
-Received: from pps.filterd (m0098416.ppops.net [127.0.0.1])
-	by mx0b-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 24UFlBCJ006896;
-	Mon, 30 May 2022 17:03:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
- subject : message-id : references : mime-version : content-type :
- in-reply-to; s=pp1; bh=nuAd2Iic3Df8wQVQfUDAHr9blMnTlV35ZZhowW5zRHM=;
- b=GwoxnpVHH+XSUsQX4Uo1bo8cdnbuzO0NJnzuyE90Jasb+aOQ71mVN8kYNbpcdUCKt9gZ
- 5/2tRl0m5i0yJ0QvpW5ewhK5WrTrZDG3u1FvMAGm/mp6Uhg2yCEioInqh158ShVbgQZd
- VOv6o2bJzN7/DpdevufU/c6bjaulj3jTXyZkX+N1v9KthdoxZL1VEwGdXUYdM0uPqRBG
- PH1Mc3zn+iFNHwQX2MgC9zkNQZ5S1v3/u9cv0MoSSUerYaf0eezVaPl4xU8E4/tUMsEF
- or8tsa1h/KQuioEysfZ4L5FhMQ5/D9Nb/sP/1EISoxs5arGd7XvXiAOqZeEBT/RamGym vg== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3gd0tt94te-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 May 2022 17:03:42 +0000
-Received: from m0098416.ppops.net (m0098416.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 24UH0Sno010210;
-	Mon, 30 May 2022 17:03:41 GMT
-Received: from ppma06ams.nl.ibm.com (66.31.33a9.ip4.static.sl-reverse.com [169.51.49.102])
-	by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3gd0tt94st-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 May 2022 17:03:40 +0000
-Received: from pps.filterd (ppma06ams.nl.ibm.com [127.0.0.1])
-	by ppma06ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 24UH30XB023868;
-	Mon, 30 May 2022 17:03:38 GMT
-Received: from b06avi18626390.portsmouth.uk.ibm.com (b06avi18626390.portsmouth.uk.ibm.com [9.149.26.192])
-	by ppma06ams.nl.ibm.com with ESMTP id 3gbbynk0ju-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 30 May 2022 17:03:38 +0000
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (b06wcsmtp001.portsmouth.uk.ibm.com [9.149.105.160])
-	by b06avi18626390.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 24UGnEMM55837084
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 30 May 2022 16:49:14 GMT
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E56C9A4054;
-	Mon, 30 May 2022 17:03:34 +0000 (GMT)
-Received: from b06wcsmtp001.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 75192A405C;
-	Mon, 30 May 2022 17:03:32 +0000 (GMT)
-Received: from osiris (unknown [9.145.46.13])
-	by b06wcsmtp001.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
-	Mon, 30 May 2022 17:03:32 +0000 (GMT)
-Date: Mon, 30 May 2022 19:03:31 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Peter Xu <peterx@redhat.com>
-Cc: Christian Borntraeger <borntraeger@linux.ibm.com>,
-        linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-        Will Deacon <will@kernel.org>, Matt Turner <mattst88@gmail.com>,
-        linux-s390@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
-        Brian Cain <bcain@quicinc.com>, Borislav Petkov <bp@alien8.de>,
-        linux-alpha@vger.kernel.org, Alistair Popple <apopple@nvidia.com>,
-        Jonas Bonn <jonas@southpole.se>, linux-arm-kernel@lists.infradead.org,
-        linux-ia64@vger.kernel.org, Michael Ellerman <mpe@ellerman.id.au>,
-        Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-        linux-snps-arc@lists.infradead.org, Vineet Gupta <vgupta@kernel.org>,
-        Vasily Gorbik <gor@linux.ibm.com>, Vlastimil Babka <vbabka@suse.cz>,
-        Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-        Rich Felker <dalias@libc.org>, sparclinux@vger.kernel.org,
-        Russell King <linux@armlinux.org.uk>,
-        David Hildenbrand <david@redhat.com>,
-        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
-        linux-xtensa@linux-xtensa.org, linux-sh@vger.kernel.org,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        linux-m68k@lists.linux-m68k.org, linuxppc-dev@lists.ozlabs.org,
-        Richard Henderson <rth@twiddle.net>, Guo Ren <guoren@kernel.org>,
-        linux-parisc@vger.kernel.org, Andrea Arcangeli <aarcange@redhat.com>,
-        Helge Deller <deller@gmx.de>, Al Viro <viro@zeniv.linux.org.uk>,
-        Albert Ou <aou@eecs.berkeley.edu>, linux-um@lists.infradead.org,
-        "H . Peter Anvin" <hpa@zytor.com>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-        openrisc@lists.librecores.org,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        linux-hexagon@vger.kernel.org, Andy Lutomirski <luto@kernel.org>,
-        Stafford Horne <shorne@gmail.com>, linux-csky@vger.kernel.org,
-        Thomas Gleixner <tglx@linutronix.de>, linux-mips@vger.kernel.org,
-        Paul Mackerras <paulus@samba.org>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Dinh Nguyen <dinguyen@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-        "David S . Miller" <davem@davemloft.net>,
-        Johannes Weiner <hannes@cmpxchg.org>, Hugh Dickins <hughd@google.com>,
-        Ingo Molnar <mingo@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
-        linux-riscv@lists.infradead.org, Max Filippov <jcmvbkbc@gmail.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Geert Uytterhoeven <geert@linux-m68k.org>,
-        Johannes Berg <johannes@sipsolutions.net>,
-        Chris Zankel <chris@zankel.net>, Michal Simek <monstr@monstr.eu>,
-        x86@kernel.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        Richard Weinberger <richard@nod.at>, Ingo Molnar <mingo@kernel.org>
-Subject: Re: [PATCH v4] mm: Avoid unnecessary page fault retires on shared
- memory types
-Message-ID: <YpT443jVZtM6p9OD@osiris>
-References: <20220527193936.30678-1-peterx@redhat.com>
- <YpPYkzbrQmy4FjrI@osiris>
- <33fd4731-9765-d78b-bdc3-f8243c98e81f@linux.ibm.com>
- <YpToVpjXmdFqGOpY@xz-m1.local>
- <YpTqNKMTt8PoA41n@xz-m1.local>
+	id 1nvjki-007mUd-P2
+	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 18:04:30 +0000
+Received: by mail-pg1-x533.google.com with SMTP id j21so10688586pga.13
+        for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 11:04:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=subject:date:message-id:mime-version:content-transfer-encoding:cc
+         :from:to;
+        bh=HFuPbXxjbDk6S3pYsynOoFPl0MlzupKqiFwmJbQaR88=;
+        b=hn/QBWOmZi1nZrEVeP7eOIa0WkT1nTVa8veNl4RgYj8dktckHhrt8sNA37kkioEcpW
+         4T+nok2Ho+Tspb3CfZOaZ91SKGenUB6PjdlGyFDNV9epvg2C0OiTQZtg1QOK79XXBh2/
+         EFni2XliZqiKtmOq7KuyXuvaJcLh7bCUEuJv/cbBfoB1uOGsdm/Qjs1btbbzyEB5+nKE
+         P4tT14DHDUMnkjVuK2VoIOGB03bMXojqeZDdFfThpjLydBn6CRBDm+YNRHwKYl/d61S/
+         sWq2Wz8L2voHKrQfLXXJbxmj52nQ95PY/r9kQlJoKRQAuLxkfSjTA64vqi8ubdoZwQYl
+         /zVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:subject:date:message-id:mime-version
+         :content-transfer-encoding:cc:from:to;
+        bh=HFuPbXxjbDk6S3pYsynOoFPl0MlzupKqiFwmJbQaR88=;
+        b=MPiWx8EYN3d/+/WJc4uDV9oBcxzygJ3RgSBHWUj5wr9ERKb5kZYxzJRMhR71tAV5ea
+         mptsZBY0nkNKRCHGE1Og5dISi8LW3Q39Q5Tz1PmXKNd9QldkbtKqec9q1TaFuQ8LVw4H
+         NF2uAg6NZt6QQwiwufsSwslGzZGbiN7tC2b0J1uQOlCBqRxpWsuZirRA7OmqeB2duu9U
+         BgCaU2/YFP5RxZ6vni90M31I1papvRPngK0DgdLvYtZNVnOdV3qghKI1plAn2+PGm2TJ
+         DKwDy/TU/qpGI0/y5jhNIq14YL7Qgccg62Uct1C2E5cyqQeZWrJ+p+hwDMwAQxWN50oe
+         Flmw==
+X-Gm-Message-State: AOAM532YoA1U210zr6WxEcja834i4bSDez44M4gWrqWsNfhLTcSXFr4D
+	fypdGICu4c5+DkM8T933HI1BEZOp+NPJXQ==
+X-Google-Smtp-Source: ABdhPJyVFjZt9jfEZzVHyghtZhTE43eVNIWHZEINssYkIQDJzbZuEkqY7Ax00a6v4Ica5eJ1KQC5+Q==
+X-Received: by 2002:a63:6806:0:b0:3fc:3b43:52d5 with SMTP id d6-20020a636806000000b003fc3b4352d5mr2159706pgc.319.1653933865262;
+        Mon, 30 May 2022 11:04:25 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id m8-20020aa79008000000b0050dc76281d3sm9332540pfo.173.2022.05.30.11.04.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 May 2022 11:04:25 -0700 (PDT)
+Subject: [PATCH] RISC-V: kexec: Define arch_kexec_apply_relocations_add
+Date: Mon, 30 May 2022 11:04:09 -0700
+Message-Id: <20220530180408.16239-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YpTqNKMTt8PoA41n@xz-m1.local>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: kj3ykjw07xL7ladYmzasaLdz4r7OyUPU
-X-Proofpoint-GUID: UnBEcQZR6mYYZGFfUgye1q-aXjSM4e8h
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.874,Hydra:6.0.517,FMLib:17.11.64.514
- definitions=2022-05-30_07,2022-05-30_03,2022-02-23_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- adultscore=0 bulkscore=0 spamscore=0 clxscore=1015 mlxlogscore=999
- mlxscore=0 phishscore=0 malwarescore=0 impostorscore=0 priorityscore=1501
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2204290000 definitions=main-2205300090
+Cc: Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220530_100357_637439_71EDA314 
-X-CRM114-Status: GOOD (  28.08  )
+X-CRM114-CacheID: sfid-20220530_110429_082300_5C84DA34 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,40 +86,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 30, 2022 at 12:00:52PM -0400, Peter Xu wrote:
-> On Mon, May 30, 2022 at 11:52:54AM -0400, Peter Xu wrote:
-> > On Mon, May 30, 2022 at 11:35:10AM +0200, Christian Borntraeger wrote:
-> > > > diff --git a/arch/s390/mm/fault.c b/arch/s390/mm/fault.c
-> > > > index 4608cc962ecf..e1d40ca341b7 100644
-> > > > --- a/arch/s390/mm/fault.c
-> > > > +++ b/arch/s390/mm/fault.c
-> > > > @@ -436,12 +436,11 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
-> > > >   	/* The fault is fully completed (including releasing mmap lock) */
-> > > >   	if (fault & VM_FAULT_COMPLETED) {
-> > > > -		/*
-> > > > -		 * Gmap will need the mmap lock again, so retake it.  TODO:
-> > > > -		 * only conditionally take the lock when CONFIG_PGSTE set.
-> > > > -		 */
-> > > > -		mmap_read_lock(mm);
-> > > > -		goto out_gmap;
-> > > > +		if (gmap) {
-> > > > +			mmap_read_lock(mm);
-> > > > +			goto out_gmap;
-> > > > +		}
-			fault = 0;  <----
-> > > > +		goto out;
-> 
-> Hmm, right after I replied I found "goto out" could be problematic, since
-> all s390 callers of do_exception() will assume it an error condition (side
-> note: "goto out_gmap" contains one step to clear "fault" to 0).  I'll
-> replace this with "return 0" instead if it looks good to both of you.
-> 
-> I'll wait for a confirmation before reposting.  Thanks,
+3e35142ef99f ("kexec_file: drop weak attribute from
+arch_kexec_apply_relocations[_add]") converts
+arch_kexec_apply_relocations_add() from weak to ifdef, which landed
+while 838b3e28488f ("RISC-V: Load purgatory in kexec_file") was in a
+different tree.  This converts the RISC-V port over to an ifdef
+override.
 
-Right, that was stupid. Thanks for double checking!
+Fixes: 838b3e28488f ("RISC-V: Load purgatory in kexec_file")
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+---
+ arch/riscv/include/asm/kexec.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-However could you please add "fault = 0" just in front of the goto out
-like above? I'd like to avoid having returns and gotos mixed.
+diff --git a/arch/riscv/include/asm/kexec.h b/arch/riscv/include/asm/kexec.h
+index 206217b23301..a38769d50a80 100644
+--- a/arch/riscv/include/asm/kexec.h
++++ b/arch/riscv/include/asm/kexec.h
+@@ -55,6 +55,14 @@ extern riscv_kexec_method riscv_kexec_norelocate;
+ 
+ #ifdef CONFIG_KEXEC_FILE
+ extern const struct kexec_file_ops elf_kexec_ops;
++
++struct purgatory_info;
++int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
++				     Elf_Shdr *section,
++				     const Elf_Shdr *relsec,
++				     const Elf_Shdr *symtab);
++#define arch_kexec_apply_relocations_add arch_kexec_apply_relocations_add
+ #endif
+ 
++
+ #endif
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
