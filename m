@@ -4,64 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D8AC433FE
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 21:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF725C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 22:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0zpXVRayfX6BgkQSQIAXS5RHEQ0Qz0+j7sYsjFEahfI=; b=HhVmhnOgY9S4h0ieNVu56WbaTD
-	bWDKM6SqIV3Ru3NvpWsROzpeLhfWTjdmm7ObpqqDTcTz/DegiBbEyK7RR7dLvwOZWJbY5hveC1jMk
-	6X0AIilWlVYOrZAB72DbWXJjbldIkiZam6sDdkNJOEmiwq0CRE8OldrHKSj3EPW91LMeG5sO8PLvQ
-	qq8uzSTJHOyAQBk6vnq/8C5Bqw2IEiHKqwb5Q53OT8XUiSx8XC9nBax8KwYjUCdQ+7MHxmwrdEcWt
-	MoCxDj4AitBKhsX05ST9ch8rnYi6F8ufQKYX8nDriQYpdBhCPKYOacZEp2UHRsCbiEyY46iYXmj/V
-	RfHsKaOg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eedAN89QL9anzFA7qUHm5VkiTgS12juZN8FZhUgkOlU=; b=o7m99R4g/lkCKM
+	Z8mZDDZ7nAmKL9pw1WnUvEHmrIpgJ1NbMa8CSTe95sMygV6B9UIVg4sOajvTNldiIR6zXxWSTOJCx
+	tK1KM3d/zfhN6RrgToFVAGP9mf3Sb4qaZnMi+DhahMXTjP3NZ5SVmhypApjk94jRDx2eiJHBGa6yw
+	cv/ZQIOzKll9LHPqLBPAjef3v7H+NJF8eA+IUtDutQV7aIHgoGWcky4Yd1dUTGmucNVupusrEqNtS
+	pi/IST0JPdRaPrh02zvebkM5dp5uYUtanb1e7ecR7A4JzrXunV4bFl9zCB71bWOmuLZ1NHn9+tMZo
+	ygJLLQbfoXZeErVV2OhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvmXk-008JzR-Up; Mon, 30 May 2022 21:03:16 +0000
-Received: from www62.your-server.de ([213.133.104.62])
+	id 1nvnrF-008W0W-UQ; Mon, 30 May 2022 22:27:29 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvmXi-008JwL-4P
-	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 21:03:15 +0000
-Received: from sslproxy02.your-server.de ([78.47.166.47])
-	by www62.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
-	(Exim 4.92.3)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1nvmXW-000Be0-Qm; Mon, 30 May 2022 23:03:02 +0200
-Received: from [85.1.206.226] (helo=linux-2.home)
-	by sslproxy02.your-server.de with esmtpsa (TLSv1.3:TLS_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <daniel@iogearbox.net>)
-	id 1nvmXW-0009iv-CB; Mon, 30 May 2022 23:03:02 +0200
-Subject: Re: [PATCH bpf-next v3 4/6] libbpf: Unify memory address casting
- operation style
-To: Pu Lehui <pulehui@huawei.com>, bpf@vger.kernel.org,
- linux-riscv@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
- Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
- Yonghong Song <yhs@fb.com>, John Fastabend <john.fastabend@gmail.com>,
- KP Singh <kpsingh@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-References: <20220530092815.1112406-1-pulehui@huawei.com>
- <20220530092815.1112406-5-pulehui@huawei.com>
-From: Daniel Borkmann <daniel@iogearbox.net>
-Message-ID: <a31efed5-a436-49c9-4126-902303df9766@iogearbox.net>
-Date: Mon, 30 May 2022 23:03:01 +0200
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
- Thunderbird/60.7.2
+	id 1nvnrB-008Vyp-HF; Mon, 30 May 2022 22:27:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=X1hcG5cF1NoC5nq4+hCb0hCmo39XmqfIWCQv7rPcgiY=; b=eWO5aV77vvkJjiIBqgvW710GQg
+	vUFpMDqMEiL6x6ehzs6twDngkNGKUCWf6p0gPNkVCdkYzUw4LohwjCkbeTx8br66JQ7mVPtlFLMAi
+	xQcE5BjaQXarYfxDsH9yBV6dUpkSOMYJDs3BtWTQ4SSfUqnhd6to3hN2nDYg0iCK1Krd9LT4iFvjg
+	Ik0agmYKrpsdks9sCll0o0GWDMKu4hL9tSGpQYAEFCRiExWDQVcXArLgj2GXuayL4xHkmOik3D3ZQ
+	9qVxLOOoUoADGIZLeIqMaBNrZhrWx0nOuXrU8ztpJxaIADUreCyUV7juN+/yevGYx+EE3X+fJsrQS
+	sKNCXHqw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60894)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1nvnqW-0004Nv-OC; Mon, 30 May 2022 23:26:44 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1nvnpx-0001lw-PQ; Mon, 30 May 2022 23:26:09 +0100
+Date: Mon, 30 May 2022 23:26:09 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Peter Xu <peterx@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	Ingo Molnar <mingo@redhat.com>, Vasily Gorbik <gor@linux.ibm.com>,
+	linuxppc-dev@lists.ozlabs.org, Stafford Horne <shorne@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Brian Cain <bcain@quicinc.com>, x86@kernel.org,
+	linux-parisc@vger.kernel.org, Richard Henderson <rth@twiddle.net>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Richard Weinberger <richard@nod.at>, linux-hexagon@vger.kernel.org,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	linux-ia64@vger.kernel.org, Borislav Petkov <bp@alien8.de>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Alistair Popple <apopple@nvidia.com>,
+	Jonas Bonn <jonas@southpole.se>, sparclinux@vger.kernel.org,
+	linux-csky@vger.kernel.org, Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Vlastimil Babka <vbabka@suse.cz>, linux-um@lists.infradead.org,
+	Michal Simek <monstr@monstr.eu>, Matt Turner <mattst88@gmail.com>,
+	linux-m68k@lists.linux-m68k.org, Paul Mackerras <paulus@samba.org>,
+	linux-xtensa@linux-xtensa.org,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	David Hildenbrand <david@redhat.com>, openrisc@lists.librecores.org,
+	linux-arm-kernel@lists.infradead.org,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+	Chris Zankel <chris@zankel.net>, Hugh Dickins <hughd@google.com>,
+	Vineet Gupta <vgupta@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Rich Felker <dalias@libc.org>, "H . Peter Anvin" <hpa@zytor.com>,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Max Filippov <jcmvbkbc@gmail.com>, Guo Ren <guoren@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-snps-arc@lists.infradead.org, linux-alpha@vger.kernel.org,
+	linux-mips@vger.kernel.org, Helge Deller <deller@gmx.de>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Ingo Molnar <mingo@kernel.org>
+Subject: Re: [PATCH v5] mm: Avoid unnecessary page fault retires on shared
+ memory types
+Message-ID: <YpVEgWHzzH3ZtVzA@shell.armlinux.org.uk>
+References: <20220530183450.42886-1-peterx@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <20220530092815.1112406-5-pulehui@huawei.com>
-Content-Language: en-US
-X-Authenticated-Sender: daniel@iogearbox.net
-X-Virus-Scanned: Clear (ClamAV 0.103.6/26557/Mon May 30 10:05:44 2022)
+Content-Disposition: inline
+In-Reply-To: <20220530183450.42886-1-peterx@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220530_140314_237263_932F43CA 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20220530_152725_746947_E6749A39 
+X-CRM114-Status: GOOD (  34.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,41 +121,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/30/22 11:28 AM, Pu Lehui wrote:
-> The members of bpf_prog_info, which are line_info, jited_line_info,
-> jited_ksyms and jited_func_lens, store u64 address pointed to the
-> corresponding memory regions. Memory addresses are conceptually
-> unsigned, (unsigned long) casting makes more sense, so let's make
-> a change for conceptual uniformity.
+On Mon, May 30, 2022 at 02:34:50PM -0400, Peter Xu wrote:
+> I observed that for each of the shared file-backed page faults, we're very
+> likely to retry one more time for the 1st write fault upon no page.  It's
+> because we'll need to release the mmap lock for dirty rate limit purpose
+> with balance_dirty_pages_ratelimited() (in fault_dirty_shared_page()).
 > 
-> Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> ---
->   tools/lib/bpf/bpf_prog_linfo.c | 9 +++++----
->   1 file changed, 5 insertions(+), 4 deletions(-)
+> Then after that throttling we return VM_FAULT_RETRY.
 > 
-> diff --git a/tools/lib/bpf/bpf_prog_linfo.c b/tools/lib/bpf/bpf_prog_linfo.c
-> index 5c503096ef43..7beb060d0671 100644
-> --- a/tools/lib/bpf/bpf_prog_linfo.c
-> +++ b/tools/lib/bpf/bpf_prog_linfo.c
-> @@ -127,7 +127,8 @@ struct bpf_prog_linfo *bpf_prog_linfo__new(const struct bpf_prog_info *info)
->   	prog_linfo->raw_linfo = malloc(data_sz);
->   	if (!prog_linfo->raw_linfo)
->   		goto err_free;
-> -	memcpy(prog_linfo->raw_linfo, (void *)(long)info->line_info, data_sz);
-> +	memcpy(prog_linfo->raw_linfo, (void *)(unsigned long)info->line_info,
-> +	       data_sz);
+> We did that probably because VM_FAULT_RETRY is the only way we can return
+> to the fault handler at that time telling it we've released the mmap lock.
+> 
+> However that's not ideal because it's very likely the fault does not need
+> to be retried at all since the pgtable was well installed before the
+> throttling, so the next continuous fault (including taking mmap read lock,
+> walk the pgtable, etc.) could be in most cases unnecessary.
+> 
+> It's not only slowing down page faults for shared file-backed, but also add
+> more mmap lock contention which is in most cases not needed at all.
+> 
+> To observe this, one could try to write to some shmem page and look at
+> "pgfault" value in /proc/vmstat, then we should expect 2 counts for each
+> shmem write simply because we retried, and vm event "pgfault" will capture
+> that.
+> 
+> To make it more efficient, add a new VM_FAULT_COMPLETED return code just to
+> show that we've completed the whole fault and released the lock.  It's also
+> a hint that we should very possibly not need another fault immediately on
+> this page because we've just completed it.
+> 
+> This patch provides a ~12% perf boost on my aarch64 test VM with a simple
+> program sequentially dirtying 400MB shmem file being mmap()ed and these are
+> the time it needs:
+> 
+>   Before: 650.980 ms (+-1.94%)
+>   After:  569.396 ms (+-1.38%)
+> 
+> I believe it could help more than that.
+> 
+> We need some special care on GUP and the s390 pgfault handler (for gmap
+> code before returning from pgfault), the rest changes in the page fault
+> handlers should be relatively straightforward.
+> 
+> Another thing to mention is that mm_account_fault() does take this new
+> fault as a generic fault to be accounted, unlike VM_FAULT_RETRY.
+> 
+> I explicitly didn't touch hmm_vma_fault() and break_ksm() because they do
+> not handle VM_FAULT_RETRY even with existing code, so I'm literally keeping
+> them as-is.
+> 
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> Acked-by: Johannes Weiner <hannes@cmpxchg.org>
+> Acked-by: Vineet Gupta <vgupta@kernel.org>
+> Acked-by: Guo Ren <guoren@kernel.org>
+> Acked-by: Max Filippov <jcmvbkbc@gmail.com>
+> Acked-by: Christian Borntraeger <borntraeger@linux.ibm.com>
+> Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+> Reviewed-by: Alistair Popple <apopple@nvidia.com>
+> Reviewed-by: Ingo Molnar <mingo@kernel.org>
+> Signed-off-by: Peter Xu <peterx@redhat.com>
 
-Took in patch 1-3, lgtm, thanks! My question around the cleanups in patch 4-6 ...
-there are various other such cases e.g. in libbpf, perhaps makes sense to clean all
-of them up at once and not just the 4 locations in here.
+For:
 
-Thanks,
-Daniel
+> diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+> index a062e07516dd..46cccd6bf705 100644
+> --- a/arch/arm/mm/fault.c
+> +++ b/arch/arm/mm/fault.c
+> @@ -322,6 +322,10 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+>  		return 0;
+>  	}
+>  
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return 0;
+> +
+>  	if (!(fault & VM_FAULT_ERROR)) {
+>  		if (fault & VM_FAULT_RETRY) {
+>  			flags |= FAULT_FLAG_TRIED;
+
+Acked-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+Thanks!
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
