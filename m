@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD18C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 08:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F8D2C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 08:59:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1xjB2GDz/WSAXFZCGmF3siL/vaWX1gEztlcbHYtBFBQ=; b=KvlrQ+Sewq6Km/
-	b91jFLgtYuUhuGbqoPKGCyx3f8uD1HqieVTlTMULCWZkBxg60H7WLTcMjmTVAzWRsWZWJjVBkffy7
-	SFQRbmJZQCX+ed38O/yDtJ2My6RxkL1i+JtcnpOZvmCSjS6s/fRyTt7KS9OZUMcsDky0c3p6dTpxb
-	uSwNTIlQfW93U2O0IC4i6CS+GaaEIrNDOcX0Pkv9xb3OjO7S4XX/AKtsNPHAXUAtXcgmVFedCYstp
-	68BavSGpq6hCcJfBdsBQqpM321MhzmK8CK/bPt0jFw5TvEhW/OkkT0FxN5Qvk4D3DTutEefHTlyRP
-	AHYlqqycbHwK8cMBWT/A==;
+	List-Owner; bh=Ts4ksZypSGlakiigCycboLzfS/v8yK7Adz4id2Fg2ts=; b=lpAQX+6KTf1ghS
+	/qHvjYdhTYZj8AYSwR0n3mxCtRTk67DxuiK7iHD+/NzYPJFyYzR6V667G1Rim+atNivy7ucyuoLfa
+	EdQQIRzUxz17lyv+IvV8eTgpVjyQQSMpNSjavyb4Par2kHsjAo9/y2UI2ptUsf/ywTb/2JaYs7MXo
+	vXBl6joWzofvFfZF6u4lGp91uNSyseoQqKN4rqcZwkspwWTpfWb8hftc0JFVomDI2ugHId9+FcxnK
+	nRKucFn/wRbs/CBhfNJDo0NUMttXg8NKQbu8SzC4bK1J5oBXoAkjKhs3dKPMyrS2XLmLWlHAhcrr+
+	ca0f08hAQqepdlFvUsvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvbEh-0062GD-JB; Mon, 30 May 2022 08:58:51 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1nvbEk-0062Hs-26; Mon, 30 May 2022 08:58:54 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvbEX-00625e-BS
+	id 1nvbEW-00625O-1a
 	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 08:58:43 +0000
-Received: from dggpemm500020.china.huawei.com (unknown [172.30.72.57])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4LBTml5GHxz1JCTL;
-	Mon, 30 May 2022 16:56:55 +0800 (CST)
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.55])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4LBTpQ5jKTzDqZF;
+	Mon, 30 May 2022 16:58:22 +0800 (CST)
 Received: from dggpemm500019.china.huawei.com (7.185.36.180) by
- dggpemm500020.china.huawei.com (7.185.36.49) with Microsoft SMTP Server
+ dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 30 May 2022 16:58:32 +0800
+ 15.1.2375.24; Mon, 30 May 2022 16:58:31 +0800
 Received: from k04.huawei.com (10.67.174.115) by
  dggpemm500019.china.huawei.com (7.185.36.180) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 30 May 2022 16:58:32 +0800
+ 15.1.2375.24; Mon, 30 May 2022 16:58:31 +0800
 From: Pu Lehui <pulehui@huawei.com>
 To: <bpf@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
@@ -48,9 +48,9 @@ CC: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
 	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
 	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Pu Lehui
 	<pulehui@huawei.com>
-Subject: [PATCH bpf-next v3 5/6] selftests/bpf: Unify memory address casting operation style
-Date: Mon, 30 May 2022 17:28:14 +0800
-Message-ID: <20220530092815.1112406-6-pulehui@huawei.com>
+Subject: [PATCH bpf-next v3 2/6] riscv, bpf: Support riscv jit to provide bpf_line_info
+Date: Mon, 30 May 2022 17:28:11 +0800
+Message-ID: <20220530092815.1112406-3-pulehui@huawei.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220530092815.1112406-1-pulehui@huawei.com>
 References: <20220530092815.1112406-1-pulehui@huawei.com>
@@ -60,9 +60,8 @@ X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  dggpemm500019.china.huawei.com (7.185.36.180)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220530_015841_565151_E5550F91 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220530_015840_448620_0A01001D 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +78,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The members of bpf_prog_info, which are line_info and jited_line_info
-store u64 address pointed to the corresponding memory regions. Memory
-addresses are conceptually unsigned, (unsigned long) casting makes
-more sense, so let's make a change for conceptual uniformity.
+Add support for riscv jit to provide bpf_line_info. We need to
+consider the prologue offset in ctx->offset, but unlike x86 and
+arm64, ctx->offset of riscv does not provide an extra slot for
+the prologue, so here we just calculate the len of prologue and
+add it to ctx->offset at the end. Both RV64 and RV32 have been
+tested.
 
 Signed-off-by: Pu Lehui <pulehui@huawei.com>
 ---
- tools/testing/selftests/bpf/prog_tests/btf.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/riscv/net/bpf_jit.h      | 1 +
+ arch/riscv/net/bpf_jit_core.c | 8 +++++++-
+ 2 files changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/btf.c b/tools/testing/selftests/bpf/prog_tests/btf.c
-index ba5bde53d418..e6612f2bd0cf 100644
---- a/tools/testing/selftests/bpf/prog_tests/btf.c
-+++ b/tools/testing/selftests/bpf/prog_tests/btf.c
-@@ -6550,8 +6550,8 @@ static int test_get_linfo(const struct prog_info_raw_test *test,
- 		  info.nr_jited_line_info, jited_cnt,
- 		  info.line_info_rec_size, rec_size,
- 		  info.jited_line_info_rec_size, jited_rec_size,
--		  (void *)(long)info.line_info,
--		  (void *)(long)info.jited_line_info)) {
-+		  (void *)(unsigned long)info.line_info,
-+		  (void *)(unsigned long)info.jited_line_info)) {
- 		err = -1;
- 		goto done;
- 	}
+diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+index 2a3715bf29fe..d926e0f7ef57 100644
+--- a/arch/riscv/net/bpf_jit.h
++++ b/arch/riscv/net/bpf_jit.h
+@@ -69,6 +69,7 @@ struct rv_jit_context {
+ 	struct bpf_prog *prog;
+ 	u16 *insns;		/* RV insns */
+ 	int ninsns;
++	int body_len;
+ 	int epilogue_offset;
+ 	int *offset;		/* BPF to RV */
+ 	int nexentries;
+diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
+index be743d700aa7..737baf8715da 100644
+--- a/arch/riscv/net/bpf_jit_core.c
++++ b/arch/riscv/net/bpf_jit_core.c
+@@ -44,7 +44,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 	unsigned int prog_size = 0, extable_size = 0;
+ 	bool tmp_blinded = false, extra_pass = false;
+ 	struct bpf_prog *tmp, *orig_prog = prog;
+-	int pass = 0, prev_ninsns = 0, i;
++	int pass = 0, prev_ninsns = 0, prologue_len, i;
+ 	struct rv_jit_data *jit_data;
+ 	struct rv_jit_context *ctx;
+ 
+@@ -95,6 +95,7 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 			prog = orig_prog;
+ 			goto out_offset;
+ 		}
++		ctx->body_len = ctx->ninsns;
+ 		bpf_jit_build_prologue(ctx);
+ 		ctx->epilogue_offset = ctx->ninsns;
+ 		bpf_jit_build_epilogue(ctx);
+@@ -161,6 +162,11 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
+ 
+ 	if (!prog->is_func || extra_pass) {
+ 		bpf_jit_binary_lock_ro(jit_data->header);
++		prologue_len = ctx->epilogue_offset - ctx->body_len;
++		for (i = 0; i < prog->len; i++)
++			ctx->offset[i] = ninsns_rvoff(prologue_len +
++						      ctx->offset[i]);
++		bpf_prog_fill_jited_linfo(prog, ctx->offset);
+ out_offset:
+ 		kfree(ctx->offset);
+ 		kfree(jit_data);
 -- 
 2.25.1
 
