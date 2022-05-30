@@ -4,73 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F2CC433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 13:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7ACC433FE
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 13:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dgpOLG4C18FRNeHLhrAtbbA1LiOpfPK6OYOt8Qgy+8M=; b=Bfec7YCldaGhLI
-	tjCUJYyTt01HlfpZc22OwEupqeoHCqNBaWbivq494GGsueB0bm+eA11z0ays4muNNHzPOzGPu+bip
-	O8Yu3zK218/pZfY4pfzk9ycGvOkGBzFNLecZVLJe8zy5abvXb/ZoijjzGuaukLp666abNlek3aOtJ
-	KvkaRN/EprVMMfhmMHYzL+tjj4ejWkUe12pHwkYag+jJvptaU9sz5JbUQleVxrLDtVLl90GEE69Lt
-	cVIVIVCzEg0lehVG8gTsXQVQE0vq7kOamzzceuw+4hhDh2xOCWUDQ827ypzeXJqBh7NRNNg3UHAYG
-	W6jRK6pV+Iuudtxv+mgw==;
+	List-Owner; bh=XXTwOxv/n0NolP43p4OwZEf1QXtjTagOhM3vsXTV4bo=; b=BbeXEbGlpRvtLT
+	EacQbgaf7JauyFQLkMLHCwPdnMO1pBOE74v/Jd5A8vRxvn8OB0qXo+9srnrurNZn+mibanIVPkW1D
+	tXZ4m+S9EIoqvKj+L3PLvnW/XOFdgmtSqHBwWsPiwgV+ff2ouFLYIdDBUYti8Ct6+PJw/8idEOeEr
+	HH9PsXIrLZyIAUrJik6jbk3obpGW4ixgxfWUNnREaYtouNRRwbhiMtYnvlO79OHZtXJaNXAWxDOIw
+	wxmZ9IcspdbO1WJ5DVgesMESAxoj1HQyRFkXKITlgZGI8lFVQh4cOVc42f1lJUjpj71Zmx/w6pKiL
+	DcKOq1zsh5KycmnXnOdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvfSH-006htP-RH; Mon, 30 May 2022 13:29:10 +0000
-Received: from mail-qt1-f179.google.com ([209.85.160.179])
+	id 1nvfbH-006n3U-Ng; Mon, 30 May 2022 13:38:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvfRN-006h7X-78
-	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 13:28:16 +0000
-Received: by mail-qt1-f179.google.com with SMTP id ew15so697077qtb.2
-        for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 06:27:52 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=IyIq4MJDoOSuGHbW7bd8iNZEOuT5QrF+0/APsVCRE6c=;
-        b=FKp1gQe7UcYTyX5dYF7mgRVqTCY/jo9DRxwksMs3IZX1CJN5ZfLnuEp2DDgZXXNmjP
-         qP6yJhJhyjdL6uBnMYg86wyRhnGbw3HrpisFKeM3/q0r+F4DDsWhzUVQ419N15BahHDl
-         mWkRQx7wT9VYuZVHz9P7RiishXYNx0gGnrSPmjDfXst1c/aWMc8aen+Ts92/BZ9rRkKI
-         WxDqikJg7LirD7NAKIIdSSdjQRikek1StZItQvUq4qBmo0PRhhDxgIlY1BZ45FgttMdq
-         PMP/FCJHWzc7VIYaZQeVK3ZO30SI0RH4GQaSxo38q4UeNvdV2QFd+pkYKJ+Pk2YghOgx
-         YGaw==
-X-Gm-Message-State: AOAM532IWoS7AIdE94+Dq/yFByc4mpkNloM0/C21wvVZxqYgYR2KcZ5N
-	IbjX2Z7SwEXxKgYaj0cO171tGWUkziIUFw==
-X-Google-Smtp-Source: ABdhPJx8azGpYZWsDwOMIW3UFS0C44mLooH8ggV0aCNQjWWgjtmnogOHec+B235ZgX243l0B80DRqw==
-X-Received: by 2002:a05:622a:40c:b0:2f4:aa26:4e9e with SMTP id n12-20020a05622a040c00b002f4aa264e9emr42711260qtx.302.1653917271928;
-        Mon, 30 May 2022 06:27:51 -0700 (PDT)
-Received: from mail-yb1-f169.google.com (mail-yb1-f169.google.com. [209.85.219.169])
-        by smtp.gmail.com with ESMTPSA id i191-20020a379fc8000000b006a370031c3esm7653641qke.106.2022.05.30.06.27.48
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 30 May 2022 06:27:50 -0700 (PDT)
-Received: by mail-yb1-f169.google.com with SMTP id p13so7481909ybm.1
-        for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 06:27:48 -0700 (PDT)
-X-Received: by 2002:a05:6902:905:b0:64a:2089:f487 with SMTP id
- bu5-20020a056902090500b0064a2089f487mr54381340ybb.202.1653917268188; Mon, 30
- May 2022 06:27:48 -0700 (PDT)
+	id 1nvfVB-006jfC-TB; Mon, 30 May 2022 13:32:11 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B4F0960F74;
+	Mon, 30 May 2022 13:32:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83CBBC385B8;
+	Mon, 30 May 2022 13:31:55 +0000 (UTC)
+Date: Mon, 30 May 2022 14:31:52 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Peter Xu <peterx@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	Will Deacon <will@kernel.org>, Matt Turner <mattst88@gmail.com>,
+	linux-s390@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Brian Cain <bcain@quicinc.com>, Borislav Petkov <bp@alien8.de>,
+	linux-alpha@vger.kernel.org, Alistair Popple <apopple@nvidia.com>,
+	Jonas Bonn <jonas@southpole.se>,
+	linux-arm-kernel@lists.infradead.org, linux-ia64@vger.kernel.org,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	linux-snps-arc@lists.infradead.org,
+	Vineet Gupta <vgupta@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+	Rich Felker <dalias@libc.org>, sparclinux@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>,
+	David Hildenbrand <david@redhat.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+	linux-xtensa@linux-xtensa.org, linux-sh@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-m68k@lists.linux-m68k.org, linuxppc-dev@lists.ozlabs.org,
+	Richard Henderson <rth@twiddle.net>, Guo Ren <guoren@kernel.org>,
+	linux-parisc@vger.kernel.org,
+	Andrea Arcangeli <aarcange@redhat.com>,
+	Helge Deller <deller@gmx.de>, Al Viro <viro@zeniv.linux.org.uk>,
+	Albert Ou <aou@eecs.berkeley.edu>, linux-um@lists.infradead.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	openrisc@lists.librecores.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-hexagon@vger.kernel.org, Andy Lutomirski <luto@kernel.org>,
+	Stafford Horne <shorne@gmail.com>, linux-csky@vger.kernel.org,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>, linux-mips@vger.kernel.org,
+	Paul Mackerras <paulus@samba.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Hugh Dickins <hughd@google.com>, Ingo Molnar <mingo@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	linux-riscv@lists.infradead.org, Max Filippov <jcmvbkbc@gmail.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Chris Zankel <chris@zankel.net>, Michal Simek <monstr@monstr.eu>,
+	x86@kernel.org, Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Richard Weinberger <richard@nod.at>, Ingo Molnar <mingo@kernel.org>
+Subject: Re: [PATCH v4] mm: Avoid unnecessary page fault retires on shared
+ memory types
+Message-ID: <YpTHSNQxzQxwJ4vQ@arm.com>
+References: <20220527193936.30678-1-peterx@redhat.com>
 MIME-Version: 1.0
-References: <20220516082838.3717982-1-conor.dooley@microchip.com>
- <20220516082838.3717982-2-conor.dooley@microchip.com> <20220530070728.GH1363@bug>
-In-Reply-To: <20220530070728.GH1363@bug>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 30 May 2022 15:27:35 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVHbOYe4PAGUfTTRfUW9X0xbbM9wc=V-AKq3FxW3uB7JQ@mail.gmail.com>
-Message-ID: <CAMuHMdVHbOYe4PAGUfTTRfUW9X0xbbM9wc=V-AKq3FxW3uB7JQ@mail.gmail.com>
-Subject: Re: [PATCH v3 1/2] rtc: Add driver for Microchip PolarFire SoC
-To: Pavel Machek <pavel@ucw.cz>
-Cc: Conor Dooley <conor.dooley@microchip.com>, Alessandro Zummo <a.zummo@towertech.it>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, daire.mcnamara@microchip.com, 
-	Lewis Hanly <lewis.hanly@microchip.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-rtc@vger.kernel.org, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+Content-Disposition: inline
+In-Reply-To: <20220527193936.30678-1-peterx@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220530_062813_298802_55750508 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20220530_063210_072958_2A09FD9D 
+X-CRM114-Status: GOOD (  15.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +114,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 30, 2022 at 9:13 AM Pavel Machek <pavel@ucw.cz> wrote:
- > Add support for the built-in RTC on Microchip PolarFire SoC
+On Fri, May 27, 2022 at 03:39:36PM -0400, Peter Xu wrote:
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index 77341b160aca..e401d416bbd6 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -607,6 +607,10 @@ static int __kprobes do_page_fault(unsigned long far, unsigned int esr,
+>  		return 0;
+>  	}
+>  
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED)
+> +		return 0;
+> +
+>  	if (fault & VM_FAULT_RETRY) {
+>  		mm_flags |= FAULT_FLAG_TRIED;
+>  		goto retry;
 
-> > +     do {
-> > +             prog = readl(rtcdev->base + CONTROL_REG);
-> > +             prog &= CONTROL_UPLOAD_BIT;
-> > +     } while (prog);
->
-> Limit to XY iterations?
+For arm64:
 
-Perhaps read_poll_timeout()?
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
 _______________________________________________
 linux-riscv mailing list
