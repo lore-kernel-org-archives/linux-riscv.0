@@ -4,75 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD9EC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 02:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D77C433F5
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 07:07:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ToeQb5hqOJxQtjJWlA6/NqWqHzBtYHv4VurlLJFb1+E=; b=L03s4U1Uu6PhXe
-	5dKDfWg/krCwKvAZjGDJRzBK3Br22T/KgB0+dxXm+lHEm3xoE22NNSRXZNP+0bZntqVixepYsfdjO
-	Inph/0fljmjsXCFpi0t36f8fUABqcWJofJ7dtPeOXXuFhlDkRonz6wSXsM4duSnXIXjRJKuS8z80F
-	N2RMbcY9qXq2Q0VH8nf86VuqLJ8RA573jTivoFFRgY0HK8VjEeI5rban1GiUHM1SWAUibJufGjJCa
-	roW48JU0FQl/IXsc3uE90Sxosl7HrPvDO6fASHGJ4uWt5XdXRQMSUwLuIqcmMoSgvZKNHRogBP1If
-	aSAXlCHRmYxI8zjNmTlg==;
+	List-Owner; bh=+LAVcP134ugpU1n0Re5QnrzX4zrscIz20S27K6NyKC4=; b=JWYoPm+RgA3UIS
+	iwIHBEzfL8QJNiiUsKBB6g+19brof3aFUoW29r97exxkzXD6P/vitugEpA5KRG5dPeDYc1ylyDqHL
+	ug/KU6NPA5V3So7v8AslKRBekptvfc3OjWeDfNyZw1mKho9nEquoHMMNxPHaixsPqdkXNotvfOyDV
+	cXZ8yExQ5qCaC5MvhHdNJZDDPAMeyPi8WoNOoF/5fjFchAzvUu+IMD7RStozdSwPsFKT0k5FZiDWC
+	OvpVOIbBDnVaB2n0T7hBdroNSrYqt0tAoid/NkwLpBsPvJOurV69hSBtvgY1mFXraAJxQGL0JWEUE
+	xf0SS2vnAMtoajJGckrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvVRx-005CI1-6t; Mon, 30 May 2022 02:48:09 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1nvZV0-005eWW-B5; Mon, 30 May 2022 07:07:34 +0000
+Received: from jabberwock.ucw.cz ([46.255.230.98])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvVRu-005CHP-Ko
-	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 02:48:08 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 69E67B80B32
-	for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 02:48:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28085C385A9
-	for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 02:48:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1653878883;
-	bh=YoRGxfq1Yea8HRZlBDQS2oqp73Xku6gJh6IZaXEOUT8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IBYxtq5gyzzz6NoUQdgfTtSYIgZ3KWqAdLPQMAaWnPLuJ/YDqgxsQLwBbN6PzFQ4/
-	 ynoZELeNvrjeF0rsNXYNDgK/Kw39SRFuXzc+saHjBG0+T7m+50D+YCtWB9onXw/yxW
-	 eM24Jm2i0VjJc2nV5fEWZRAtu1IzaFyKQPmUfaOtCzt9TQC7Q8p7HY4ZoUrrlUtJsv
-	 smdsNxszWiJHC3wgku0JpcwM4w8Y8I3Z9AuAZMd9dLLevOrdKaKnrHQlQvEMqBhEKo
-	 bCHa4Dn2mSL61TjjKpIOSiw6fws/SGfe2AcstVkd0NnYqleGUnH6XKCmLZIFuyBK5K
-	 Q4qqk8qcSKuxA==
-Received: by mail-vs1-f41.google.com with SMTP id u21so9254881vsk.3
-        for <linux-riscv@lists.infradead.org>; Sun, 29 May 2022 19:48:03 -0700 (PDT)
-X-Gm-Message-State: AOAM533Xai1A8DhAf7DRDkVxPy3MraqGkoylZv0c9ICe6LvRS9L6ZgDt
-	RMWB5J9knaEJM+SsaYmddub2JFxhv5kx1nk7II0=
-X-Google-Smtp-Source: ABdhPJzvEfegwzjtbzbneiuCB+i9dHMhbVAfv1BIeisWjXZ/dtthImdOsnOoQKcAkgNwBZcem3RsjgMXsyI5j2ahuf0=
-X-Received: by 2002:a05:6102:151c:b0:337:d985:1764 with SMTP id
- f28-20020a056102151c00b00337d9851764mr10556500vsv.51.1653878882062; Sun, 29
- May 2022 19:48:02 -0700 (PDT)
+	id 1nvZUw-005eU5-Ht
+	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 07:07:32 +0000
+Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
+	id 40A7F1C0BAB; Mon, 30 May 2022 09:07:29 +0200 (CEST)
+Date: Mon, 30 May 2022 09:07:28 +0200
+From: Pavel Machek <pavel@ucw.cz>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: a.zummo@towertech.it, alexandre.belloni@bootlin.com,
+	daire.mcnamara@microchip.com, lewis.hanly@microchip.com,
+	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 1/2] rtc: Add driver for Microchip PolarFire SoC
+Message-ID: <20220530070728.GH1363@bug>
+References: <20220516082838.3717982-1-conor.dooley@microchip.com>
+ <20220516082838.3717982-2-conor.dooley@microchip.com>
 MIME-Version: 1.0
-References: <20220518013428.1338983-1-xianting.tian@linux.alibaba.com>
-In-Reply-To: <20220518013428.1338983-1-xianting.tian@linux.alibaba.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 30 May 2022 10:47:51 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRZCchLk9apNQagNmsNb3Pv+WfPTisrsWDDrQyVncUYeA@mail.gmail.com>
-Message-ID: <CAJF2gTRZCchLk9apNQagNmsNb3Pv+WfPTisrsWDDrQyVncUYeA@mail.gmail.com>
-Subject: Re: [PATCH v3] RISC-V: Mark IORESOURCE_EXCLUSIVE for reserved mem
- instead of IORESOURCE_BUSY
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Nick Kossifidis <mick@ics.forth.gr>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Kefeng Wang <wangkefeng.wang@huawei.com>, 
-	Mike Rapoport <rppt@kernel.org>, David Hildenbrand <david@redhat.com>, wangborong@cdjrlc.com, 
-	twd2 <twd2.me@gmail.com>, seanjc@google.com, Alex Ghiti <alex@ghiti.fr>, 
-	petr.pavlu@suse.com, Atish Patra <atishp@rivosinc.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, jianghuaming.jhm@alibaba-inc.com, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Xianting Tian <xianting.tian@linux.alibaba.com>
+Content-Disposition: inline
+In-Reply-To: <20220516082838.3717982-2-conor.dooley@microchip.com>
+User-Agent: Mutt/1.5.23 (2014-03-12)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220529_194807_015734_AA0E2500 
-X-CRM114-Status: GOOD (  25.43  )
+X-CRM114-CacheID: sfid-20220530_000730_835331_FD413D62 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,89 +61,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+Hi!
 
-Please have a look at this patch which is a critical fixup. Our
-current riscv implementation has broken the reserved memory.
+> Add support for the built-in RTC on Microchip PolarFire SoC
 
-On Wed, May 18, 2022 at 9:34 AM Xianting Tian
-<xianting.tian@linux.alibaba.com> wrote:
->
-> Commit 00ab027a3b82 ("RISC-V: Add kernel image sections to the resource tree")
-> marked IORESOURCE_BUSY for reserved memory, which caused resource map
-> failed in subsequent operations of related driver, so remove the
-> IORESOURCE_BUSY flag. In order to prohibit userland mapping reserved
-> memory, mark IORESOURCE_EXCLUSIVE for it.
->
-> The code to reproduce the issue,
-> dts:
->         mem0: memory@a0000000 {
->                 reg = <0x0 0xa0000000 0 0x1000000>;
->                 no-map;
->         };
->
->         &test {
->                 status = "okay";
->                 memory-region = <&mem0>;
->         };
->
-> code:
->         np = of_parse_phandle(pdev->dev.of_node, "memory-region", 0);
->         ret = of_address_to_resource(np, 0, &r);
->         base = devm_ioremap_resource(&pdev->dev, &r);
->         // base = -EBUSY
->
-> Fixes: 00ab027a3b82 ("RISC-V: Add kernel image sections to the resource tree")
-> Reported-by: Huaming Jiang <jianghuaming.jhm@alibaba-inc.com>
-> Reviewed-by: Guo Ren <guoren@kernel.org>
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> Tested-by: Heiko Stuebner <heiko@sntech.de>
-> Co-developed-by: Nick Kossifidis <mick@ics.forth.gr>
-> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
-> ---
-> Changes from v2:
-> - Fix typo in commit message: casued -> caused
-> - Remove Reviewed-by of Nick Kossifidis, who didn't give Reviewed-by actually
-> - Add Co-developed-by of Nick
->
-> Changes from v1:
-> - Mark reserved memory as IORESOURCE_EXCLUSIVE, suggested by Nick
-> ---
->  arch/riscv/kernel/setup.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 834eb652a7b9..e0a00739bd13 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -189,7 +189,7 @@ static void __init init_resources(void)
->                 res = &mem_res[res_idx--];
->
->                 res->name = "Reserved";
-> -               res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
-> +               res->flags = IORESOURCE_MEM | IORESOURCE_EXCLUSIVE;
->                 res->start = __pfn_to_phys(memblock_region_reserved_base_pfn(region));
->                 res->end = __pfn_to_phys(memblock_region_reserved_end_pfn(region)) - 1;
->
-> @@ -214,7 +214,7 @@ static void __init init_resources(void)
->
->                 if (unlikely(memblock_is_nomap(region))) {
->                         res->name = "Reserved";
-> -                       res->flags = IORESOURCE_MEM | IORESOURCE_BUSY;
-> +                       res->flags = IORESOURCE_MEM | IORESOURCE_EXCLUSIVE;
->                 } else {
->                         res->name = "System RAM";
->                         res->flags = IORESOURCE_SYSTEM_RAM | IORESOURCE_BUSY;
-> --
-> 2.17.1
->
+> +#define CONTROL_UPLOAD_BIT	BIT(5)
+> +#define CONTROL_DOWNLOAD_BIT	BIT(6)
+> +#define CONTROL_DOWNLOAD_BIT	BIT(6)
+> +#define CONTROL_WAKEUP_CLR_BIT	BIT(8)
 
+Dup?
+
+> +static void mpfs_rtc_start(struct mpfs_rtc_dev *rtcdev)
+> +{
+> +	u32 ctrl;
+> +
+> +	ctrl = readl(rtcdev->base + CONTROL_REG);
+> +	ctrl &= ~(CONTROL_STOP_BIT | CONTROL_START_BIT);
+> +	ctrl |= CONTROL_START_BIT;
+> +	writel(ctrl, rtcdev->base + CONTROL_REG);
+> +}
+
+You don't need to clear bit just to set it.
+
+> +	do {
+> +		prog = readl(rtcdev->base + CONTROL_REG);
+> +		prog &= CONTROL_UPLOAD_BIT;
+> +	} while (prog);
+
+Limit to XY iterations?
+
+> +
+> +static int mpfs_rtc_readalarm(struct device *dev, struct rtc_wkalrm *alrm)
+> +{
+> +	u32 mode = readl(rtcdev->base + MODE_REG);
+> +	u64 time;
+> +
+> +	mode = readl(rtcdev->base + MODE_REG);
+
+Dup?
+
+> + if (mode & MODE_WAKE_EN) + alrm->enabled = true; + else + alrm->enabled = false; + 
+
+enabled = ()?
+
+Best regards,
+										Pavel
 
 -- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+(english) http://www.livejournal.com/~pavelmachek
+(cesky, pictures) http://atrey.karlin.mff.cuni.cz/~pavel/picture/horses/blog.html
 
 _______________________________________________
 linux-riscv mailing list
