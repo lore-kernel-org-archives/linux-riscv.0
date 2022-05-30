@@ -4,112 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF725C433F5
-	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 22:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD6EC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 30 May 2022 23:11:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eedAN89QL9anzFA7qUHm5VkiTgS12juZN8FZhUgkOlU=; b=o7m99R4g/lkCKM
-	Z8mZDDZ7nAmKL9pw1WnUvEHmrIpgJ1NbMa8CSTe95sMygV6B9UIVg4sOajvTNldiIR6zXxWSTOJCx
-	tK1KM3d/zfhN6RrgToFVAGP9mf3Sb4qaZnMi+DhahMXTjP3NZ5SVmhypApjk94jRDx2eiJHBGa6yw
-	cv/ZQIOzKll9LHPqLBPAjef3v7H+NJF8eA+IUtDutQV7aIHgoGWcky4Yd1dUTGmucNVupusrEqNtS
-	pi/IST0JPdRaPrh02zvebkM5dp5uYUtanb1e7ecR7A4JzrXunV4bFl9zCB71bWOmuLZ1NHn9+tMZo
-	ygJLLQbfoXZeErVV2OhA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=pWz/h7UWD7r9zJQZeRikw0k9u8um+nfGK7VcfNjNut8=; b=Nk0Dgry3RRT6K9tMXByoT1k3CP
+	YOj29T5txOAfKh9EzKHcS03fSSFXmN13MI7Upr5f0SPkO+CXjm/KB4ueuV+MlCnHIXalTqAdKMWCu
+	XlLGOQnzQcMQR2YA/VpkWqmqW7iaIpFMnn47Dwdyi3zU6//tsN5AGl21gQKrahEE+jCYm4sCIEoYr
+	I27Kj39vJWj7gelp41/wifk0YVLga2VhOO2ixbcAuGiTLfvY245Wv53+R6VYMR/cFP0jGP3M1vy+d
+	+EY8tMZowFxZLU8/Mm62gEgpprvUBX9kV9e4ABtKsih5OakIZcNes/wz/C4R2TkZAcg6/b00U1wcW
+	ZyHVc4Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvnrF-008W0W-UQ; Mon, 30 May 2022 22:27:29 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1nvoXs-008ZsE-3w; Mon, 30 May 2022 23:11:32 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvnrB-008Vyp-HF; Mon, 30 May 2022 22:27:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=X1hcG5cF1NoC5nq4+hCb0hCmo39XmqfIWCQv7rPcgiY=; b=eWO5aV77vvkJjiIBqgvW710GQg
-	vUFpMDqMEiL6x6ehzs6twDngkNGKUCWf6p0gPNkVCdkYzUw4LohwjCkbeTx8br66JQ7mVPtlFLMAi
-	xQcE5BjaQXarYfxDsH9yBV6dUpkSOMYJDs3BtWTQ4SSfUqnhd6to3hN2nDYg0iCK1Krd9LT4iFvjg
-	Ik0agmYKrpsdks9sCll0o0GWDMKu4hL9tSGpQYAEFCRiExWDQVcXArLgj2GXuayL4xHkmOik3D3ZQ
-	9qVxLOOoUoADGIZLeIqMaBNrZhrWx0nOuXrU8ztpJxaIADUreCyUV7juN+/yevGYx+EE3X+fJsrQS
-	sKNCXHqw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60894)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1nvnqW-0004Nv-OC; Mon, 30 May 2022 23:26:44 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1nvnpx-0001lw-PQ; Mon, 30 May 2022 23:26:09 +0100
-Date: Mon, 30 May 2022 23:26:09 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Peter Xu <peterx@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	Ingo Molnar <mingo@redhat.com>, Vasily Gorbik <gor@linux.ibm.com>,
-	linuxppc-dev@lists.ozlabs.org, Stafford Horne <shorne@gmail.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Brian Cain <bcain@quicinc.com>, x86@kernel.org,
-	linux-parisc@vger.kernel.org, Richard Henderson <rth@twiddle.net>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Richard Weinberger <richard@nod.at>, linux-hexagon@vger.kernel.org,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	linux-ia64@vger.kernel.org, Borislav Petkov <bp@alien8.de>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Andrea Arcangeli <aarcange@redhat.com>,
-	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Al Viro <viro@zeniv.linux.org.uk>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Alistair Popple <apopple@nvidia.com>,
-	Jonas Bonn <jonas@southpole.se>, sparclinux@vger.kernel.org,
-	linux-csky@vger.kernel.org, Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Vlastimil Babka <vbabka@suse.cz>, linux-um@lists.infradead.org,
-	Michal Simek <monstr@monstr.eu>, Matt Turner <mattst88@gmail.com>,
-	linux-m68k@lists.linux-m68k.org, Paul Mackerras <paulus@samba.org>,
-	linux-xtensa@linux-xtensa.org,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	David Hildenbrand <david@redhat.com>, openrisc@lists.librecores.org,
-	linux-arm-kernel@lists.infradead.org,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
-	Chris Zankel <chris@zankel.net>, Hugh Dickins <hughd@google.com>,
-	Vineet Gupta <vgupta@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Rich Felker <dalias@libc.org>, "H . Peter Anvin" <hpa@zytor.com>,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Heiko Carstens <hca@linux.ibm.com>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Max Filippov <jcmvbkbc@gmail.com>, Guo Ren <guoren@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-snps-arc@lists.infradead.org, linux-alpha@vger.kernel.org,
-	linux-mips@vger.kernel.org, Helge Deller <deller@gmx.de>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Ingo Molnar <mingo@kernel.org>
-Subject: Re: [PATCH v5] mm: Avoid unnecessary page fault retires on shared
- memory types
-Message-ID: <YpVEgWHzzH3ZtVzA@shell.armlinux.org.uk>
-References: <20220530183450.42886-1-peterx@redhat.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220530183450.42886-1-peterx@redhat.com>
+	id 1nvoXp-008Zr3-A9
+	for linux-riscv@lists.infradead.org; Mon, 30 May 2022 23:11:31 +0000
+Received: by mail-pf1-x434.google.com with SMTP id bo5so11650408pfb.4
+        for <linux-riscv@lists.infradead.org>; Mon, 30 May 2022 16:11:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+         :content-transfer-encoding;
+        bh=XccysWYb9npF6/LhDMMloDpt6bBM9wjai1M7rMuSIWA=;
+        b=rEab6xQwEY+eak1x8ft2kjj07SA4kneFvxf9adlurZbtSov84bRMpGloFeGQOBjiJE
+         OQ2qrUSAwSfpyJM2Fcl4HvAPv3VSoYYPvdnUj2w6JucpE9uPQ0mnkx71/OhVqYg2+CWg
+         BBQ/lbXI6x43ekWTRCgZ/Dm9K31i4HWACdKAO2U24CgCYtqI5zT0cLGqr9Ia8zvNX5Pp
+         +rFWp27IhTGXJMo46x6MaK4PZXfQ2VWP1+42/N4/90uwBRCpvCKB4ArBfcdGDt08Vcxx
+         q1AC3Q/Ldch9FHiiWGDvfctYxhGuvdatyIXFs2ah/NxknnESi/6v7I4Rby1xMSc8iLxh
+         ULIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+         :mime-version:content-transfer-encoding;
+        bh=XccysWYb9npF6/LhDMMloDpt6bBM9wjai1M7rMuSIWA=;
+        b=GqKSMHagZk66w2MT7Z1O9ryOvtbJIXYMVXcR2YSwZjhoEb8v8I6gNm8A6l6wMu9VCO
+         7xXdfXklBh90HDeN4pEZECJXgXbzQvirqGcdnd6m4TgboyDFI+WinOc6adwO0wVgJgvu
+         IEKBzmnzdKCQcw5ciUXVIbA1sVCkMbgyzcZWjJG4SarDJogTU9l+P8GmwRLevz2AhGC4
+         +peKFgxzxMnx3FkNCtamW3fhtL+DP+f3GX/pSkjpzu3xfK8m3gNjb5JE/sI9QwJTJ7mA
+         hxPH7QEjp5/NvwIOqgF4yJinU/JjAD6KNp2cUC1OSUJTiZClDjwr5Pafor7uKLvS6HdA
+         rtlg==
+X-Gm-Message-State: AOAM532ARMHImtPwH5q0gHzaTBNWYDcODcUPax71aKvymNzJ00EVlS46
+	lmRB+GHCHcs+R3VZeoD979ooqw==
+X-Google-Smtp-Source: ABdhPJywJkfeRl2r1A5LD7jIeXFcAGYOXC/vSUBBTpRc2bJNyDatde0HYxiGJjkDLh3XNObv/FtM4g==
+X-Received: by 2002:a05:6a00:248c:b0:519:27f7:28a8 with SMTP id c12-20020a056a00248c00b0051927f728a8mr20376570pfv.32.1653952288194;
+        Mon, 30 May 2022 16:11:28 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id z125-20020a626583000000b00518119900e9sm9372102pfb.53.2022.05.30.16.11.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 30 May 2022 16:11:27 -0700 (PDT)
+Date: Mon, 30 May 2022 16:11:27 -0700 (PDT)
+X-Google-Original-Date: Mon, 30 May 2022 16:11:25 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Prepare dropping week attribute from arch_kexec_apply_relocations[_add]
+In-Reply-To: <20220530194133.udwdjsb2l33hsiil@pengutronix.de>
+CC: wangkefeng.wang@huawei.com, guoren@linux.alibaba.com, sunnanyong@huawei.com,
+  jszhang@kernel.org, mick@ics.forth.gr, linux-riscv@lists.infradead.org,
+  Stephen Rothwell <sfr@canb.auug.org.au>, alex@ghiti.fr, christophe.leroy@csgroup.eu, naveen.n.rao@linux.vnet.ibm.com,
+  lizhengyu3@huawei.com, aou@eecs.berkeley.edu, liaochang1@huawei.com,
+  Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Topel <bjorn.topel@gmail.com>, kexec@lists.infradead.org,
+  linux-kernel@vger.kernel.org, penberg@kernel.org, ebiederm@xmission.com, kernel@pengutronix.de,
+  akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: u.kleine-koenig@pengutronix.de
+Message-ID: <mhng-99e09fbd-fa71-40fc-92da-ff4af0d209a5@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220530_152725_746947_E6749A39 
-X-CRM114-Status: GOOD (  34.91  )
+X-CRM114-CacheID: sfid-20220530_161129_457428_4D848564 
+X-CRM114-Status: GOOD (  38.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,100 +87,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 30, 2022 at 02:34:50PM -0400, Peter Xu wrote:
-> I observed that for each of the shared file-backed page faults, we're very
-> likely to retry one more time for the 1st write fault upon no page.  It's
-> because we'll need to release the mmap lock for dirty rate limit purpose
-> with balance_dirty_pages_ratelimited() (in fault_dirty_shared_page()).
-> 
-> Then after that throttling we return VM_FAULT_RETRY.
-> 
-> We did that probably because VM_FAULT_RETRY is the only way we can return
-> to the fault handler at that time telling it we've released the mmap lock.
-> 
-> However that's not ideal because it's very likely the fault does not need
-> to be retried at all since the pgtable was well installed before the
-> throttling, so the next continuous fault (including taking mmap read lock,
-> walk the pgtable, etc.) could be in most cases unnecessary.
-> 
-> It's not only slowing down page faults for shared file-backed, but also add
-> more mmap lock contention which is in most cases not needed at all.
-> 
-> To observe this, one could try to write to some shmem page and look at
-> "pgfault" value in /proc/vmstat, then we should expect 2 counts for each
-> shmem write simply because we retried, and vm event "pgfault" will capture
-> that.
-> 
-> To make it more efficient, add a new VM_FAULT_COMPLETED return code just to
-> show that we've completed the whole fault and released the lock.  It's also
-> a hint that we should very possibly not need another fault immediately on
-> this page because we've just completed it.
-> 
-> This patch provides a ~12% perf boost on my aarch64 test VM with a simple
-> program sequentially dirtying 400MB shmem file being mmap()ed and these are
-> the time it needs:
-> 
->   Before: 650.980 ms (+-1.94%)
->   After:  569.396 ms (+-1.38%)
-> 
-> I believe it could help more than that.
-> 
-> We need some special care on GUP and the s390 pgfault handler (for gmap
-> code before returning from pgfault), the rest changes in the page fault
-> handlers should be relatively straightforward.
-> 
-> Another thing to mention is that mm_account_fault() does take this new
-> fault as a generic fault to be accounted, unlike VM_FAULT_RETRY.
-> 
-> I explicitly didn't touch hmm_vma_fault() and break_ksm() because they do
-> not handle VM_FAULT_RETRY even with existing code, so I'm literally keeping
-> them as-is.
-> 
-> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Acked-by: Johannes Weiner <hannes@cmpxchg.org>
-> Acked-by: Vineet Gupta <vgupta@kernel.org>
-> Acked-by: Guo Ren <guoren@kernel.org>
-> Acked-by: Max Filippov <jcmvbkbc@gmail.com>
-> Acked-by: Christian Borntraeger <borntraeger@linux.ibm.com>
-> Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
-> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
-> Reviewed-by: Alistair Popple <apopple@nvidia.com>
-> Reviewed-by: Ingo Molnar <mingo@kernel.org>
-> Signed-off-by: Peter Xu <peterx@redhat.com>
-
-For:
-
-> diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-> index a062e07516dd..46cccd6bf705 100644
-> --- a/arch/arm/mm/fault.c
-> +++ b/arch/arm/mm/fault.c
-> @@ -322,6 +322,10 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
->  		return 0;
->  	}
->  
-> +	/* The fault is fully completed (including releasing mmap lock) */
-> +	if (fault & VM_FAULT_COMPLETED)
-> +		return 0;
-> +
->  	if (!(fault & VM_FAULT_ERROR)) {
->  		if (fault & VM_FAULT_RETRY) {
->  			flags |= FAULT_FLAG_TRIED;
-
-Acked-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-
-Thanks!
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAzMCBNYXkgMjAyMiAxMjo0MTozMyBQRFQgKC0wNzAwKSwgdS5rbGVpbmUta29lbmln
+QHBlbmd1dHJvbml4LmRlIHdyb3RlOgo+IEhlbGxvLAo+Cj4gT24gTW9uLCBNYXkgMzAsIDIwMjIg
+YXQgMTE6NTg6MTZBTSAtMDcwMCwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4+IE9uIE1vbiwgMzAg
+TWF5IDIwMjIgMDA6NDI6MDIgUERUICgtMDcwMCksIHUua2xlaW5lLWtvZW5pZ0BwZW5ndXRyb25p
+eC5kZSB3cm90ZToKPj4gPiBXaXRob3V0IHRoaXMgY2hhbmdlIGFyY2gvcmlzY3Yva2VybmVsL2Vs
+Zl9rZXhlYy5jIGZhaWxzIHRvIGNvbXBpbGUgb25jZQo+PiA+IGNvbW1pdCAyMzNjMWU2YzMxOWMg
+KCJrZXhlY19maWxlOiBkcm9wIHdlYWsgYXR0cmlidXRlIGZyb20KPj4gPiBhcmNoX2tleGVjX2Fw
+cGx5X3JlbG9jYXRpb25zW19hZGRdIikgaXMgYWxzbyBjb250YWluZWQgaW4gdGhlIHRyZWUuCj4+
+ID4gVGhpcyBjdXJyZW50bHkgaGFwcGVucyBpbiBuZXh0LTIwMjIwNTI3Lgo+PiA+IAo+PiA+IFBy
+ZXBhcmUgdGhlIFJJU0MtViBzaW1pbGFyIHRvIHRoZSBzMzkwIGFkYXB0aW9uIGRvbmUgaW4gMjMz
+YzFlNmMzMTljLgo+PiA+IFRoaXMgaXMgc2FmZSB0byBkbyBvbiB0b3Agb2YgdGhlIHJpc2N2IGNo
+YW5nZSBldmVuIHdpdGhvdXQgdGhlIGNoYW5nZSB0bwo+PiA+IGFyY2hfa2V4ZWNfYXBwbHlfcmVs
+b2NhdGlvbnMuCj4+ID4gCj4+ID4gRml4ZXM6IDgzOGIzZTI4NDg4ZiAoIlJJU0MtVjogTG9hZCBw
+dXJnYXRvcnkgaW4ga2V4ZWNfZmlsZSIpCj4+ID4gTG9va3MtZ29vZC10bzogbGlhb2NoYW5nIChB
+KSA8bGlhb2NoYW5nMUBodWF3ZWkuY29tPgo+PiA+IFNpZ25lZC1vZmYtYnk6IFV3ZSBLbGVpbmUt
+S8O2bmlnIDx1LmtsZWluZS1rb2VuaWdAcGVuZ3V0cm9uaXguZGU+Cj4+ID4gLS0tCj4+ID4gCj4+
+ID4gT24gTW9uLCBNYXkgMzAsIDIwMjIgYXQgMDk6NDM6MjZBTSArMDgwMCwgbGlhb2NoYW5nIChB
+KSB3cm90ZToKPj4gPiA+ID4gSSBjYW4gY29uZmlybSB0aGF0IGRvaW5nCj4+ID4gPiA+ID4gZGlm
+ZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va2V4ZWMuaAo+PiA+ID4gYi9hcmNoL3Jp
+c2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPj4gPiA+ID4gaW5kZXggMjA2MjE3YjIzMzAxLi5lZWUy
+NjBlOGFiMzAgMTAwNjQ0Cj4+ID4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va2V4
+ZWMuaAo+PiA+ID4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPj4gPiA+
+ID4gQEAgLTU1LDYgKzU1LDEzIEBAIGV4dGVybiByaXNjdl9rZXhlY19tZXRob2QgcmlzY3Zfa2V4
+ZWNfbm9yZWxvY2F0ZTsKPj4gPiA+ID4gID4gICNpZmRlZiBDT05GSUdfS0VYRUNfRklMRQo+PiA+
+ID4gPiAgZXh0ZXJuIGNvbnN0IHN0cnVjdCBrZXhlY19maWxlX29wcyBlbGZfa2V4ZWNfb3BzOwo+
+PiA+ID4gPiArCj4+ID4gPiA+ICtzdHJ1Y3QgcHVyZ2F0b3J5X2luZm87Cj4+ID4gPiA+ICtpbnQg
+YXJjaF9rZXhlY19hcHBseV9yZWxvY2F0aW9uc19hZGQoc3RydWN0IHB1cmdhdG9yeV9pbmZvICpw
+aSwKPj4gPiA+ID4gKwkJCQkgICAgIEVsZl9TaGRyICpzZWN0aW9uLAo+PiA+ID4gPiArCQkJCSAg
+ICAgY29uc3QgRWxmX1NoZHIgKnJlbHNlYywKPj4gPiA+ID4gKwkJCQkgICAgIGNvbnN0IEVsZl9T
+aGRyICpzeW10YWIpOwo+PiA+ID4gPiArI2RlZmluZSBhcmNoX2tleGVjX2FwcGx5X3JlbG9jYXRp
+b25zX2FkZCBhcmNoX2tleGVjX2FwcGx5X3JlbG9jYXRpb25zX2FkZAo+PiA+ID4gPiAgI2VuZGlm
+Cj4+ID4gPiA+ICA+ICAjZW5kaWYKPj4gPiA+IAo+PiA+ID4gTEdUTSwgeW91IGNvdWxkIHNlbmQg
+YSBmaXh1cCBwYXRjaCB0byByaXNjdiwgdGhhbmtzLgo+PiA+ID4gCj4+ID4gPiA+ID4gb24gdG9w
+IG9mIDgzOGIzZTI4NDg4ZiByZXN1bHRzIGluIGEgY29tcGlsYWJsZSB0cmVlLiBBbmQgd2hlbgo+
+PiA+ID4gbWVyZ2luZwo+PiA+ID4gPiAyMzNjMWU2YzMxOWMgaW50byB0aGlzLCBpdCBpcyBzdGls
+bCBidWlsZGluZy4KPj4gPiA+ID4gPiBJJ20gbm90IGVub3VnaCBpbnRvIGtleGVjIChhbmQgcmlz
+Y3YpIHRvIGp1ZGdlIGlmIHRoaXMgaXMKPj4gPiA+IHNlbnNpYmxlLCBvcgo+PiA+ID4gPiBjcmVh
+dGUgYSB1c2VmdWwgY29tbWl0IGxvZyBidXQgdGhlIG9idmlvdXMgd2F5IGZvcndhcmQgaXMgdG8g
+YXBwbHkgdGhlCj4+ID4gPiA+IGFib3ZlIHBhdGNoIHRvIHRoZSByaXNjdiB0cmVlIGJlZm9yZSBp
+dCBoaXRzIExpbnVzJyB0cmVlLgo+PiA+IAo+PiA+IE9rLCBoZXJlIGNvbWVzIGEgcGF0Y2ggd2l0
+aCBhIGdlbmVyaWMgY29tbWl0IGxvZy4KPj4gPiAKPj4gPiBAcmlzY3YgcGVvcGxlOiBJZiB5b3Ug
+cHJlZmVyLCBzcXVhc2ggaXQgaW50byA4MzhiM2UyODQ4OGYuCj4+IAo+PiBTb3JyeSwganVzdCBz
+YXcgdGhpcyBhZnRlciBJIHNlbnQgbXkgdmVyc2lvbiBvZiB0aGUgZml4LiAgVGhleSdyZSB0aGUg
+c2FtZSwKPj4gYnV0IGRvIHlvdSBtaW5kIHNlbmRpbmcgYSBmdWxsLW9uIHBhdGNoIHNvIEkgY2Fu
+IG1lcmdlIGl0Pwo+Cj4gU29ycnksIEkgZG9uJ3QgdW5kZXJzdGFuZCB5b3VyIHJlcXVlc3QuIEkg
+Zm91bmQKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMDUzMDE4MDQw
+OC4xNjIzOS0xLXBhbG1lckByaXZvc2luYy5jb20vCj4KPiBidXQgSSBkb24ndCBrbm93IHdoYXQg
+YSBmdWxsLW9uIHBhdGNoIGlzIGFuZCB3aGF0IHN0b3BzIHlvdSBtZXJnaW5nIG15Cj4gcGF0Y2gu
+IAo+Cj4gSXMgaXQgdGhhdCBpdCdzIGluIHJlcGx5IHRvIGEgcGF0Y2ggc2VyaWVzIGFuZCBiNCBm
+YWlscyB0byBmZXRjaCB0aGUKPiByaWdodCBwYXRjaCBhbmQgeW91IGFzayB0byBzZW5kIGl0IGlu
+IGEgbmV3IHRocmVhZD8KCllhLCB3aXRoIHRoZSByZXBseSBiaXRzIGluIHRoZXJlIG15IG1haWwg
+bWVyZ2UgKHdoaWNoIHVuZm9ydHVuYXRlbHkgCmlzbid0IGI0LCBJIGhhdmVuJ3QgZ290dGVuIGFy
+b3VuZCB0byBjb252ZXJ0aW5nIHlldCkgZ290IHRyaXBwZWQgdXAuICAKSXQncyBraW5kIG9mIGVh
+c3kgdG8gZm9yIG1lIHRvIHNjcmV3IHNvbWV0aGluZyB1cCB0cnlpbmcgdG8gcHVsbCBiaXRzIApv
+dXQgb2YgcmVwbGllcyBhbmQgc3VjaCwgYnV0IEkgdGhpbmsgdGhpcyBvbmUgd2FzIHByZXR0eSBz
+aW1wbGUgKGxvb2tzIApsaWtlIG1heWJlIHNvbWUgUEdQIG9yIE1JTUUgdGhpbmcgd2FzIHRoZSBp
+c3N1ZSkuCgpJIGp1c3QgcHV0IAo8aHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4
+L2tlcm5lbC9naXQvcGFsbWVyL2xpbnV4LmdpdC9jb21taXQvP2g9Zm9yLW5leHQmaWQ9NzY5OWY3
+YWFjZjNlYmZlZTUxYzY3MGI2Zjc5NmIyNzk3ZjBmNzQ4Nz4gCm9uIG15IHN0YWdpbmcgYnJhbmNo
+LCBpdCBsb29rcyBPSyB0byBtZSBidXQgTE1LIGlmIHRoZXJlJ3MgYSBwcm9ibGVtLgoKVGhhbmtz
+IQoKPgo+IEJlc3QgcmVnYXJkcwo+IFV3ZQo+Cj4gLS0gCj4gUGVuZ3V0cm9uaXggZS5LLiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHwgVXdlIEtsZWluZS1Lw7ZuaWcgICAgICAgICAgICB8Cj4g
+SW5kdXN0cmlhbCBMaW51eCBTb2x1dGlvbnMgICAgICAgICAgICAgICAgIHwgaHR0cHM6Ly93d3cu
+cGVuZ3V0cm9uaXguZGUvIHwKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
+YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
+dXgtcmlzY3YK
