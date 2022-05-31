@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1117DC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 16:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CECEC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 17:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nf0RW9DwJN3bzObfnj+MkE+YtM05da+3PprQou/tklE=; b=THZZGrfYCaK67d
-	BAQwhp/O92i5+IzMqCDDo/+t+znL1cUDfrFBsTWsXqBuEOotzo37PVfmWZ2Tu5kNsxP6+yHI2mi5w
-	DEd47FZEykZblHftWke2qCTZruma6lI8+YZZ5kCvDi+V2yrt8n1OwH/CXzIlb67vFaYwzcX2k7IZP
-	RpqmWHg5xPsmHgmX4CRavaMk8MqtUB7tEp9j3vt/zBnhQ+pQbie13G9mqkaDaUMxo33uAOvbEiTxh
-	YEAziNTCi0qYcqxUAlYJFhq+DLk2kvXI5MidkSy0nrGDj8ZuZhywzZPFY5TCp9A2AJKyeFsb+ngFi
-	JkiyTilK+PmMglNpTDsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=50WzYWmKFMAFuHByXkaB2pYc7mMJeVmhRXKhH4DCfqA=; b=GqQ
+	aBVxB2VpnjPLyyTSgu5v3FJ146dEXP73iOAua4BXq2+f+/N6FL9C6WM49kYARxrRymiRH0FZpl2Zx
+	vUJk8qnUgOHQ0Cuy/Ve75VC0TJ7ZBx2O35l4dTNlxXfrl11ae0mTj2gloZSJNdK4PfomD79KVw2Yp
+	RMd9xj485L6Xqm5kgMf+MR747UWvDEWKZKBfMaYb2z4b9jGbESlw9mEg5FMwiSlo5Ewg31fZ1kK38
+	aNdcbsLaNpWg4eR/5hRX5w9icgd65O/IcqVqhRVatJU67jKiM/tVJSRJXCOpYobtmli3JGi8XPRKg
+	ZsuZTRHoxlMqoN91yn3cL7Jx/3p/h7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nw4NO-00BiIJ-Nr; Tue, 31 May 2022 16:05:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nw5Qg-00Bzmd-TS; Tue, 31 May 2022 17:13:14 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nw4NC-00BiE9-1G; Tue, 31 May 2022 16:05:35 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3FDC5613E2;
-	Tue, 31 May 2022 16:05:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1F72C385A9;
-	Tue, 31 May 2022 16:05:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654013132;
-	bh=b9RnbKQcXJrnB1KXhWSO/DdOr7SD54f5RYTo/RuTyvc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Cvz/dwv0V3OHEJhBZprOfvrwyj/3KtDnbbJKdW+0IZW/rpaLqv9e91ijC878ztnPK
-	 OEPc1YFzeDiQGH1T4N42tvQQ6cMlvncWnOHbQtW3SXhpF+j5GKJvGAeMQ1iXOLZ67w
-	 eNYdfDt1yeyMIQ//4ORm3bR2TMVvglqCv6predvJZOSfe42VOhSI85RAFetSKd8a6r
-	 /KMEFNG4PWT2k25Npqwaw7EtHmOMMc+N+09xZKugDbkA9NiRSUESO/6g36xYRiv8DD
-	 +Al7EMq3zw1dv0h9WVShe/xwJuLbg6Sa483lwPJ7MjanmNnj2BNjzHR82RW6Lh+E8B
-	 8MMx0MKg9roUw==
-Date: Tue, 31 May 2022 17:05:24 +0100
-From: Will Deacon <will@kernel.org>
-To: Anders Roxell <anders.roxell@linaro.org>
-Cc: Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Tong Tiangen <tongtiangen@huawei.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	LKML <linux-kernel@vger.kernel.org>, linux-mm <linux-mm@kvack.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-riscv@lists.infradead.org,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Guohanjun <guohanjun@huawei.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH -next v7 5/6] arm64/mm: Enable
- ARCH_SUPPORTS_PAGE_TABLE_CHECK
-Message-ID: <20220531160524.GC25502@willie-the-truck>
-References: <20220507110114.4128854-1-tongtiangen@huawei.com>
- <20220507110114.4128854-6-tongtiangen@huawei.com>
- <20220517135435.GA553@mutt>
- <CA+CK2bAnfxTo-Osvo9=0t=RkC4rTR+mgg2JSypsu3wm6BZFT=A@mail.gmail.com>
- <CADYN=9JtrZSAmN8J8KbG_PRVGKPhJ3JkP+nq2bqrpFqEa=Avjg@mail.gmail.com>
- <CADYN=9JZ_b2OfM8o7Uwf7Oxb_SjgX_dpaqb_=doy1wJ3bM+mvQ@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CADYN=9JZ_b2OfM8o7Uwf7Oxb_SjgX_dpaqb_=doy1wJ3bM+mvQ@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+	id 1nw5Qc-00BziZ-Pf
+	for linux-riscv@lists.infradead.org; Tue, 31 May 2022 17:13:13 +0000
+Received: by mail-pl1-x631.google.com with SMTP id w3so13384039plp.13
+        for <linux-riscv@lists.infradead.org>; Tue, 31 May 2022 10:13:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=date:subject:cc:from:to:message-id;
+        bh=hCG9E6PlaWTrYDTG2pJFHHWUOtCqOQpKj9TBeAvpTLc=;
+        b=7D3rufycsASVpNtBpZXlluVqusoQV2HsoxTvXNuoR4EVDPT6F78dg9VPAujwjJxebU
+         r4bSfNYAHOnLn7AlivCn/ADocXggnbdC9q+tPskX/wpJPwIrI/WOSwziytXEidER6667
+         1JMkDCjfcZvoJIydrZN5c8NbZT2bbTbKkzlL5zVczO5ZW+2j6l6OL3mo8YzrmaHqPoCI
+         umRmqXVmmptXtgJfnh6OqXe6jsCzchwzlguGS4LOb7aCo1Qxwq9ywrCUYiZeZ18rj7Ob
+         VodcMWHKVLUNYBbKohOKhlH4LO6WafWIqJewsGHpa92QrjUh/GtAz9amENDebw0aoyUp
+         DyFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:subject:cc:from:to:message-id;
+        bh=hCG9E6PlaWTrYDTG2pJFHHWUOtCqOQpKj9TBeAvpTLc=;
+        b=R4tb3nmdOFDsl66/JPqTuPbsdn0kw14nYbWGDv7hZSs0xZkRDUz6iCnaHjsd1gQs6l
+         IVUNTcK8uwfKRENfRqqOIHGIFfbOh7sVIHi85ot3r0NnL49FQzQATgwIZC0exd3dsYGg
+         S6T3W7dIjNOPSAH/oQ/L0BrwOwyZJDlFDmUTaZ/qQbW7Sq1ROvNsqfPbAe1JwhgGxMWK
+         GQdhxvmdOeV2c/DPF+2fqqe9Yve+5bz+nAxgiSlQIcPhbLxLDsDvYEHYQSsM6nNfWtLB
+         qM2VGq7tZybS0UOPrIhPPW0zK1ZPQ/+fLbOxtoRtyOqrdiFDw0V+ehzrceKw7VaAexbx
+         pBVQ==
+X-Gm-Message-State: AOAM531+e0hYluNjoIW7R69uXD7VOyM5KTNm+U0+qAvE19ybYhScAIxr
+	Xa5Fv4LISPTwv6P7kk68tpBZWI/aThgG1A==
+X-Google-Smtp-Source: ABdhPJx/JoumSW/KZfhD0aKh+Ax/wSpupMcL3xtrrVnsAwuSaZn9mRwSSnqpBF1UTi8y2TkXn+aWEQ==
+X-Received: by 2002:a17:90b:1b08:b0:1df:f11a:7d51 with SMTP id nu8-20020a17090b1b0800b001dff11a7d51mr30112438pjb.190.1654017187496;
+        Tue, 31 May 2022 10:13:07 -0700 (PDT)
+Received: from localhost ([12.3.194.138])
+        by smtp.gmail.com with ESMTPSA id oj17-20020a17090b4d9100b001e2608203d4sm2391167pjb.5.2022.05.31.10.13.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 31 May 2022 10:13:06 -0700 (PDT)
+Date: Tue, 31 May 2022 10:13:06 -0700 (PDT)
+X-Google-Original-Date: Tue, 31 May 2022 10:13:02 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 5.19 Merge Window, Part 1
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-3cfe92b5-a83a-4642-9b9e-8416ae717fd6@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220531_090534_201084_B242BAD4 
-X-CRM114-Status: GOOD (  24.12  )
+X-CRM114-CacheID: sfid-20220531_101311_088678_492AA330 
+X-CRM114-Status: GOOD (  26.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,99 +77,398 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============3190268044520468970=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 28, 2022 at 06:41:55PM +0200, Anders Roxell wrote:
-> On Tue, 17 May 2022 at 16:33, Anders Roxell <anders.roxell@linaro.org> wrote:
-> >
-> > On Tue, 17 May 2022 at 16:02, Pasha Tatashin <pasha.tatashin@soleen.com> wrote:
-> > >
-> > > On Tue, May 17, 2022 at 9:54 AM Anders Roxell <anders.roxell@linaro.org> wrote:
-> > > >
-> > > > On 2022-05-07 11:01, Tong Tiangen wrote:
-> > > > > From: Kefeng Wang <wangkefeng.wang@huawei.com>
-> > > > >
-> > > > > As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table check")
-> > > > > , enable ARCH_SUPPORTS_PAGE_TABLE_CHECK on arm64.
-> > > > >
-> > > > > Add additional page table check stubs for page table helpers, these stubs
-> > > > > can be used to check the existing page table entries.
-> > > > >
-> > > > > Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
-> > > > > Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
-> > > > > Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-> > > >
-> > > > When building and booting an arm64 allmodconfig kernel on the next tree, branch next-20220516,
-> > > > see the following kernel oops when booting in QEMU [1]:
-> > > >
-> > > > T35] ------------[ cut here ]------------
-> > > > [  578.695796][   T35] kernel BUG at mm/page_table_check.c:82!
+--===============3190268044520468970==
+Content-Type: text/plain
 
-That seems to be:
+The following changes since commit 9282d0996936c5fbf877c0d096a3feb456c878ad:
 
-	BUG_ON(atomic_dec_return(&ptc->file_map_count) < 0);
+  csky: Move to generic ticket-spinlock (2022-05-11 11:50:15 -0700)
 
-> > > > [  578.697292][   T35] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
-> > > > [  578.704318][   T35] Modules linked in:
-> > > > [  578.705907][   T35] CPU: 0 PID: 35 Comm: khugepaged Tainted: G                T 5.18.0-rc6-next-20220513 #1 893498a5d8159d9fb26e12492a93c07e83dd4b7f
-> > > > [  578.711170][   T35] Hardware name: linux,dummy-virt (DT)
-> > > > [  578.713315][   T35] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> > > > [  578.716398][   T35] pc : page_table_check_clear.constprop.0+0x1f4/0x280
-> > > > [  578.719107][   T35] lr : page_table_check_clear.constprop.0+0x1cc/0x280
-> > > > [  578.721781][   T35] sp : ffff80000f3778b0
-> > > > [  578.723446][   T35] x29: ffff80000f3778b0 x28: ffff80000b891218 x27: ffff000012dd55f0
-> > > > [  578.726667][   T35] x26: 0000000000000008 x25: ffff80000c38cd80 x24: 0000000000000000
-> > > > [  578.729870][   T35] x23: ffff80000c38c9c0 x22: 0000000000000000 x21: 0000000000000200
-> > > > [  578.733079][   T35] x20: ffff000007bae000 x19: ffff000007bae008 x18: 0000000000000000
-> > > > [  578.736299][   T35] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-> > > > [  578.739505][   T35] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-> > > > [  578.742735][   T35] x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
-> > > > [  578.745925][   T35] x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
-> > > > [  578.749145][   T35] x5 : 0000000000000000 x4 : 0000000000000000 x3 : ffff000007bae00c
-> > > > [  578.752348][   T35] x2 : 0000000000000000 x1 : 0000000000000001 x0 : 00000000ffffffff
-> > > > [  578.755556][   T35] Call trace:
-> > > > [  578.756877][   T35]  page_table_check_clear.constprop.0+0x1f4/0x280
-> > > > [  578.759446][   T35]  __page_table_check_pmd_clear+0xc4/0x140
-> > > > [  578.761757][   T35]  pmdp_collapse_flush+0xa4/0x1c0
-> > > > [  578.763771][   T35]  collapse_huge_page+0x4e4/0xb00
-> > > > [  578.765778][   T35]  khugepaged_scan_pmd+0xc18/0xd00
-> > > > [  578.767840][   T35]  khugepaged_scan_mm_slot+0x580/0x780
-> > > > [  578.770018][   T35]  khugepaged+0x2dc/0x400
-> > > > [  578.771786][   T35]  kthread+0x164/0x180
-> > > > [  578.773430][   T35]  ret_from_fork+0x10/0x20
-> > > > [  578.775253][   T35] Code: 52800021 91001263 14000388 36f80040 (d4210000)
-> > > > [  578.777990][   T35] ---[ end trace 0000000000000000 ]---
-> > > > [  578.778021][   T35] Kernel panic - not syncing: Oops - BUG: Fatal exception
-> > > > [  578.782934][   T35] Kernel Offset: disabled
-> > > > [  578.784642][   T35] CPU features: 0x000,00100010,00001086
-> > > > [  578.786848][   T35] Memory Limit: none
-> > > > [  578.788433][   T35] ---[ end Kernel panic - not syncing: Oops - BUG: Fatal exception ]---
-> 
-> Now I see this oops on the mainline kernel too when I'm building and booting an
-> arm64 allmodconfig kernel, sha
-> 9d004b2f4fea ("Merge tag 'cxl-for-5.19' of
-> git://git.kernel.org/pub/scm/linux/kernel/git/cxl/cxl").
-> 
-> building and booting an arm64 allmodconfig kernel.
-> 
-> When I revert 42b2547137f5 ("arm64/mm: enable
-> ARCH_SUPPORTS_PAGE_TABLE_CHECK") I'm able to boot.
-> The kernel boots fine.
+are available in the Git repository at:
 
-I don't think disabling the check is the right thing to do, and I'm not
-really seeing anything arm64-specific from the information here either. It's
-more likely that one of the many other options (or combination of options)
-enabled in allmodconfig is causing the problem. Are you able to reproduce on
-x86?
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-mw0
 
-Anshuman -- any ideas?
+for you to fetch changes up to 7699f7aacf3ebfee51c670b6f796b2797f0f7487:
 
-Will
+  RISC-V: Prepare dropping week attribute from arch_kexec_apply_relocations[_add] (2022-05-30 16:04:37 -0700)
+
+----------------------------------------------------------------
+RISC-V Patches for the 5.19 Merge Window, Part 1
+
+* Support for the Svpbmt extension, which allows memory attributes to be
+  encoded in pages.
+* Support for the Allwinner D1's implementation of page-based memory
+  attributes.
+* Support for running rv32 binaries on rv64 systems, via the compat
+  subsystem.
+* Support for kexec_file().
+* Support for the new generic ticket-based spinlocks, which allows us to
+  also move to qrwlock.  These should have already gone in through the
+  asm-geneic tree as well.
+* A handful of cleanups and fixes, include some larger ones around
+  atomics and XIP.
+
+----------------------------------------------------------------
+The spinlock stuff that already went in isn't called out in the shortlog, IIUC
+that's a feature.  It might have slightly messed up git-request-pull, though,
+as I'd consider the base here really 5.18-rc1.
+
+I have a single manual resolution in the fe510 device tree, just the result of
+some conflicting fixes.  It's not showing up in my merge, but a bunch of other
+automatic resolutions are which is a bit worrisome on my end -- I don't usually
+touch other trees, but we had a handful of big cross-tree things this time.
+Sorry in advance if I've screwed something up, here's what I'm seeing:
+
+    diff --cc arch/arm64/Kconfig
+    index ff674808681a,a4968845e67f..1652a9800ebe
+    --- a/arch/arm64/Kconfig
+    +++ b/arch/arm64/Kconfig
+    @@@ -2120,8 -2155,12 +2155,8 @@@ config DM
+      	  However, even with this option, the resultant kernel should
+      	  continue to boot on existing non-UEFI platforms.
+    
+    - endmenu
+    + endmenu # "Boot options"
+    
+     -config SYSVIPC_COMPAT
+     -	def_bool y
+     -	depends on COMPAT && SYSVIPC
+     -
+      menu "Power management options"
+    
+      source "kernel/power/Kconfig"
+    diff --cc arch/x86/include/asm/compat.h
+    index e74a107de0d0,20fd0acd7d80..b1221da477b7
+    --- a/arch/x86/include/asm/compat.h
+    +++ b/arch/x86/include/asm/compat.h
+    @@@ -15,27 -15,20 +15,26 @@@
+      #define compat_mode_t	compat_mode_t
+      typedef u16		compat_mode_t;
+    
+     +#define __compat_uid_t	__compat_uid_t
+     +typedef u16		__compat_uid_t;
+     +typedef u16		__compat_gid_t;
+     +
+     +#define compat_dev_t	compat_dev_t
+     +typedef u16		compat_dev_t;
+     +
+     +#define compat_ipc_pid_t compat_ipc_pid_t
+     +typedef u16		 compat_ipc_pid_t;
+     +
+     +#define compat_statfs	compat_statfs
+     +
+      #include <asm-generic/compat.h>
+    
+     -#define COMPAT_USER_HZ		100
+      #define COMPAT_UTS_MACHINE	"i686\0\0"
+    
+     -typedef u16		__compat_uid_t;
+     -typedef u16		__compat_gid_t;
+     -typedef u16		compat_dev_t;
+      typedef u16		compat_nlink_t;
+     -typedef u16		compat_ipc_pid_t;
+     -typedef __kernel_fsid_t	compat_fsid_t;
+    
+      struct compat_stat {
+    - 	compat_dev_t	st_dev;
+    - 	u16		__pad1;
+    + 	u32		st_dev;
+      	compat_ino_t	st_ino;
+      	compat_mode_t	st_mode;
+      	compat_nlink_t	st_nlink;
+    diff --cc include/linux/kexec.h
+    index ebb1bffbf068,fcd5035209f1..ce6536f1d269
+    --- a/include/linux/kexec.h
+    +++ b/include/linux/kexec.h
+    @@@ -227,8 -219,46 +219,46 @@@ struct crash_mem
+      extern int crash_exclude_mem_range(struct crash_mem *mem,
+      				   unsigned long long mstart,
+      				   unsigned long long mend);
+     -extern int crash_prepare_elf64_headers(struct crash_mem *mem, int kernel_map,
+     +extern int crash_prepare_elf64_headers(struct crash_mem *mem, int need_kernel_map,
+      				       void **addr, unsigned long *sz);
+    +
+    + #ifndef arch_kexec_apply_relocations_add
+    + /*
+    +  * arch_kexec_apply_relocations_add - apply relocations of type RELA
+    +  * @pi:		Purgatory to be relocated.
+    +  * @section:	Section relocations applying to.
+    +  * @relsec:	Section containing RELAs.
+    +  * @symtab:	Corresponding symtab.
+    +  *
+    +  * Return: 0 on success, negative errno on error.
+    +  */
+    + static inline int
+    + arch_kexec_apply_relocations_add(struct purgatory_info *pi, Elf_Shdr *section,
+    + 				 const Elf_Shdr *relsec, const Elf_Shdr *symtab)
+    + {
+    + 	pr_err("RELA relocation unsupported.\n");
+    + 	return -ENOEXEC;
+    + }
+    + #endif
+    +
+    + #ifndef arch_kexec_apply_relocations
+    + /*
+    +  * arch_kexec_apply_relocations - apply relocations of type REL
+    +  * @pi:		Purgatory to be relocated.
+    +  * @section:	Section relocations applying to.
+    +  * @relsec:	Section containing RELs.
+    +  * @symtab:	Corresponding symtab.
+    +  *
+    +  * Return: 0 on success, negative errno on error.
+    +  */
+    + static inline int
+    + arch_kexec_apply_relocations(struct purgatory_info *pi, Elf_Shdr *section,
+    + 			     const Elf_Shdr *relsec, const Elf_Shdr *symtab)
+    + {
+    + 	pr_err("REL relocation unsupported.\n");
+    + 	return -ENOEXEC;
+    + }
+    + #endif
+      #endif /* CONFIG_KEXEC_FILE */
+    
+      #ifdef CONFIG_KEXEC_ELF
+
+The arm64 stuff is from a refactoring so it seems pretty safe, and the kexec
+stuff looks like a straight-forward merge conflict that was autoresolved
+correctly.  The x86 merge looks a bit scarier, but IIUC the autoresolver is
+doing the right thing: 932aba1e1690 ("stat: fix inconsistency between struct
+stat and struct compat_stat") changed compat_stat without changing
+compat_dev_t, we're still matching that behavior.
+
+I'll definately have a part 2 (or a respin), I'm farther behind that I usually
+am this round.
+
+----------------------------------------------------------------
+Christoph Hellwig (3):
+      uapi: simplify __ARCH_FLOCK{,64}_PAD a little
+      uapi: always define F_GETLK64/F_SETLK64/F_SETLKW64 in fcntl.h
+      compat: consolidate the compat_flock{,64} definition
+
+Chuanhua Han (1):
+      riscv: mm: Remove the copy operation of pmd
+
+Guo Ren (21):
+      arch: Add SYSVIPC_COMPAT for all architectures
+      fs: stat: compat: Add __ARCH_WANT_COMPAT_STAT
+      asm-generic: compat: Cleanup duplicate definitions
+      syscalls: compat: Fix the missing part for __SYSCALL_COMPAT
+      riscv: Fixup difference with defconfig
+      riscv: compat: Add basic compat data type implementation
+      riscv: compat: Support TASK_SIZE for compat mode
+      riscv: compat: syscall: Add compat_sys_call_table implementation
+      riscv: compat: syscall: Add entry.S implementation
+      riscv: compat: process: Add UXL_32 support in start_thread
+      riscv: compat: Add elf.h implementation
+      riscv: compat: Add hw capability check for elf
+      riscv: compat: vdso: Add COMPAT_VDSO base code implementation
+      riscv: compat: vdso: Add setup additional pages implementation
+      riscv: compat: signal: Add rt_frame implementation
+      riscv: compat: ptrace: Add compat_arch_ptrace implement
+      riscv: compat: Add COMPAT Kbuild skeletal support
+      riscv: atomic: Cleanup unnecessary definition
+      riscv: atomic: Optimize dec_if_positive functions
+      riscv: atomic: Add custom conditional atomic operation implementation
+      riscv: compat: Using seperated vdso_maps for compat_vdso_info
+
+Heiko Stuebner (12):
+      riscv: integrate alternatives better into the main architecture
+      riscv: allow different stages with alternatives
+      riscv: implement module alternatives
+      riscv: implement ALTERNATIVE_2 macro
+      riscv: extend concatenated alternatives-lines to the same length
+      riscv: prevent compressed instructions in alternatives
+      riscv: move boot alternatives to after fill_hwcap
+      riscv: Fix accessing pfn bits in PTEs for non-32bit variants
+      riscv: add RISC-V Svpbmt extension support
+      riscv: remove FIXMAP_PAGE_IO and fall back to its default value
+      riscv: don't use global static vars to store alternative data
+      riscv: add memory-type errata for T-Head
+
+Li Zhengyu (3):
+      RISC-V: Support for kexec_file on panic
+      RISC-V: Add purgatory
+      RISC-V: Load purgatory in kexec_file
+
+Liao Chang (3):
+      kexec_file: Fix kexec_file.c build error for riscv platform
+      RISC-V: use memcpy for kexec_file mode
+      RISC-V: Add kexec_file support
+
+Niklas Cassel (1):
+      riscv: Don't output a bogus mmu-type on a no MMU kernel
+
+Palmer Dabbelt (9):
+      riscv: support for Svpbmt and D1 memory types
+      RISC-V: Add support for rv32 userspace via COMPAT
+      riscv: kexec: add kexec_file_load() support
+      Merge tag 'generic-ticket-spinlocks-v6' into for-next
+      RISC-V: Avoid empty create_*_mapping definitions
+      RISC-V: ignore xipImage
+      RISC-V: Split out the XIP fixups into their own file
+      RISC-V: Fix the XIP build
+      RISC-V: Various XIP fixes
+
+Uwe Kleine-König (1):
+      RISC-V: Prepare dropping week attribute from arch_kexec_apply_relocations[_add]
+
+Zong Li (2):
+      riscv: dts: Add dma-channels property and modify compatible
+      riscv: dts: rename the node name of dma
+
+ arch/arm64/Kconfig                                 |   4 -
+ arch/arm64/include/asm/compat.h                    |  93 +----
+ arch/arm64/include/asm/unistd.h                    |   1 +
+ arch/mips/Kconfig                                  |   5 -
+ arch/mips/include/asm/compat.h                     |  41 +-
+ arch/mips/include/asm/unistd.h                     |   2 +
+ arch/mips/include/uapi/asm/fcntl.h                 |  30 +-
+ arch/parisc/Kconfig                                |   4 -
+ arch/parisc/include/asm/compat.h                   |  45 +--
+ arch/parisc/include/asm/unistd.h                   |   1 +
+ arch/powerpc/Kconfig                               |   5 -
+ arch/powerpc/include/asm/compat.h                  |  50 +--
+ arch/powerpc/include/asm/unistd.h                  |   1 +
+ arch/riscv/Kbuild                                  |   2 +
+ arch/riscv/Kconfig                                 |  67 +++
+ arch/riscv/Kconfig.erratas                         |  34 +-
+ arch/riscv/Kconfig.socs                            |   1 -
+ arch/riscv/Makefile                                |  11 +-
+ arch/riscv/boot/.gitignore                         |   1 +
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi         |   5 +-
+ arch/riscv/errata/Makefile                         |   2 +-
+ arch/riscv/errata/alternative.c                    |  75 ----
+ arch/riscv/errata/sifive/errata.c                  |  20 +-
+ arch/riscv/errata/thead/Makefile                   |  11 +
+ arch/riscv/errata/thead/errata.c                   |  82 ++++
+ arch/riscv/include/asm/alternative-macros.h        | 129 ++++--
+ arch/riscv/include/asm/alternative.h               |  25 +-
+ arch/riscv/include/asm/asm.h                       |  26 --
+ arch/riscv/include/asm/atomic.h                    | 102 ++++-
+ arch/riscv/include/asm/cmpxchg.h                   |  12 -
+ arch/riscv/include/asm/compat.h                    | 129 ++++++
+ arch/riscv/include/asm/csr.h                       |   7 +
+ arch/riscv/include/asm/elf.h                       |  50 ++-
+ arch/riscv/include/asm/errata_list.h               |  59 +++
+ arch/riscv/include/asm/fixmap.h                    |   2 -
+ arch/riscv/include/asm/hwcap.h                     |   1 +
+ arch/riscv/include/asm/kexec.h                     |  11 +
+ arch/riscv/include/asm/mmu.h                       |   1 +
+ arch/riscv/include/asm/pgtable-32.h                |  17 +
+ arch/riscv/include/asm/pgtable-64.h                |  79 +++-
+ arch/riscv/include/asm/pgtable-bits.h              |  10 -
+ arch/riscv/include/asm/pgtable.h                   |  68 +++-
+ arch/riscv/include/asm/processor.h                 |   6 +-
+ arch/riscv/include/asm/signal32.h                  |  18 +
+ arch/riscv/include/asm/syscall.h                   |   1 +
+ arch/riscv/include/asm/thread_info.h               |   1 +
+ arch/riscv/include/asm/unistd.h                    |  11 +
+ arch/riscv/include/asm/vdso.h                      |   9 +
+ arch/riscv/include/asm/vendorid_list.h             |   1 +
+ arch/riscv/include/asm/xip_fixup.h                 |  31 ++
+ arch/riscv/include/uapi/asm/unistd.h               |   2 +-
+ arch/riscv/kernel/Makefile                         |  19 +
+ arch/riscv/kernel/alternative.c                    | 118 ++++++
+ arch/riscv/kernel/compat_signal.c                  | 243 +++++++++++
+ arch/riscv/kernel/compat_syscall_table.c           |  19 +
+ arch/riscv/kernel/compat_vdso/.gitignore           |   2 +
+ arch/riscv/kernel/compat_vdso/Makefile             |  78 ++++
+ arch/riscv/kernel/compat_vdso/compat_vdso.S        |   8 +
+ arch/riscv/kernel/compat_vdso/compat_vdso.lds.S    |   3 +
+ arch/riscv/kernel/compat_vdso/flush_icache.S       |   3 +
+ .../kernel/compat_vdso/gen_compat_vdso_offsets.sh  |   5 +
+ arch/riscv/kernel/compat_vdso/getcpu.S             |   3 +
+ arch/riscv/kernel/compat_vdso/note.S               |   3 +
+ arch/riscv/kernel/compat_vdso/rt_sigreturn.S       |   3 +
+ arch/riscv/kernel/cpu.c                            |   5 +
+ arch/riscv/kernel/cpufeature.c                     |  80 +++-
+ arch/riscv/kernel/elf_kexec.c                      | 448 +++++++++++++++++++++
+ arch/riscv/kernel/entry.S                          |  18 +-
+ arch/riscv/kernel/head.S                           |   1 +
+ arch/riscv/kernel/machine_kexec.c                  |   4 +-
+ arch/riscv/kernel/machine_kexec_file.c             |  14 +
+ arch/riscv/kernel/module.c                         |  29 ++
+ arch/riscv/kernel/process.c                        |  37 ++
+ arch/riscv/kernel/ptrace.c                         |  87 +++-
+ arch/riscv/kernel/setup.c                          |   2 +
+ arch/riscv/kernel/signal.c                         |   7 +-
+ arch/riscv/kernel/smpboot.c                        |   4 -
+ arch/riscv/kernel/suspend_entry.S                  |   1 +
+ arch/riscv/kernel/sys_riscv.c                      |   6 +-
+ arch/riscv/kernel/traps.c                          |   2 +-
+ arch/riscv/kernel/vdso.c                           | 114 ++++--
+ arch/riscv/kernel/vdso/vdso.S                      |   6 +-
+ arch/riscv/mm/fault.c                              |  10 +-
+ arch/riscv/mm/init.c                               |   9 +-
+ arch/riscv/purgatory/.gitignore                    |   4 +
+ arch/riscv/purgatory/Makefile                      |  95 +++++
+ arch/riscv/purgatory/entry.S                       |  47 +++
+ arch/riscv/purgatory/purgatory.c                   |  45 +++
+ arch/s390/Kconfig                                  |   3 -
+ arch/s390/include/asm/compat.h                     |  99 +----
+ arch/s390/include/asm/unistd.h                     |   1 +
+ arch/sparc/Kconfig                                 |   5 -
+ arch/sparc/include/asm/compat.h                    |  61 +--
+ arch/sparc/include/asm/unistd.h                    |   1 +
+ arch/x86/Kconfig                                   |   4 -
+ arch/x86/include/asm/compat.h                      | 104 +----
+ arch/x86/include/asm/unistd.h                      |   1 +
+ fs/open.c                                          |  24 ++
+ fs/read_write.c                                    |  16 +
+ fs/stat.c                                          |   2 +-
+ fs/sync.c                                          |   9 +
+ include/asm-generic/compat.h                       | 113 ++++++
+ include/linux/compat.h                             |  68 ++++
+ include/linux/kexec.h                              |   2 +-
+ include/uapi/asm-generic/fcntl.h                   |  23 +-
+ include/uapi/asm-generic/unistd.h                  |   4 +-
+ init/Kconfig                                       |   4 +
+ kernel/kexec_file.c                                |   4 +-
+ mm/fadvise.c                                       |  11 +
+ mm/readahead.c                                     |   7 +
+ tools/include/uapi/asm-generic/fcntl.h             |  21 +-
+ tools/include/uapi/asm-generic/unistd.h            |   4 +-
+ 112 files changed, 2786 insertions(+), 788 deletions(-)
+ delete mode 100644 arch/riscv/errata/alternative.c
+ create mode 100644 arch/riscv/errata/thead/Makefile
+ create mode 100644 arch/riscv/errata/thead/errata.c
+ create mode 100644 arch/riscv/include/asm/compat.h
+ create mode 100644 arch/riscv/include/asm/signal32.h
+ create mode 100644 arch/riscv/include/asm/xip_fixup.h
+ create mode 100644 arch/riscv/kernel/alternative.c
+ create mode 100644 arch/riscv/kernel/compat_signal.c
+ create mode 100644 arch/riscv/kernel/compat_syscall_table.c
+ create mode 100644 arch/riscv/kernel/compat_vdso/.gitignore
+ create mode 100644 arch/riscv/kernel/compat_vdso/Makefile
+ create mode 100644 arch/riscv/kernel/compat_vdso/compat_vdso.S
+ create mode 100644 arch/riscv/kernel/compat_vdso/compat_vdso.lds.S
+ create mode 100644 arch/riscv/kernel/compat_vdso/flush_icache.S
+ create mode 100755 arch/riscv/kernel/compat_vdso/gen_compat_vdso_offsets.sh
+ create mode 100644 arch/riscv/kernel/compat_vdso/getcpu.S
+ create mode 100644 arch/riscv/kernel/compat_vdso/note.S
+ create mode 100644 arch/riscv/kernel/compat_vdso/rt_sigreturn.S
+ create mode 100644 arch/riscv/kernel/elf_kexec.c
+ create mode 100644 arch/riscv/kernel/machine_kexec_file.c
+ create mode 100644 arch/riscv/purgatory/.gitignore
+ create mode 100644 arch/riscv/purgatory/Makefile
+ create mode 100644 arch/riscv/purgatory/entry.S
+ create mode 100644 arch/riscv/purgatory/purgatory.c
+
+
+--===============3190268044520468970==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3190268044520468970==--
