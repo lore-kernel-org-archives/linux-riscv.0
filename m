@@ -4,53 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45865C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 05:18:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED7FC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 05:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Jr41CbKWrSh/YsqnLeH5JDijTCaMK59hzFMbu0gPMOA=; b=cvIfMPd6QfLqZy
-	FPIEhZdY4VRMTEF2vuZsrZc88mVzmcV1LV7tRN25dwmuc1HEf68HaAYH47wYzhDfN0hI+Zjp4M1M1
-	USg2FZdrC9/vjCL/A+m78PTHuSF3fEKkuw3qvQGxlKTBsM8S4PXP7gyw2divCbd93EOtXI3wR71f7
-	nij75IxVJhnOI2j2aZuKkdiMdNBDrnCJPKBLJanifb4R6syRdHl1HDcasOqPNc8ZhGiSH8Fg7jVhD
-	LQAmDQkePndNPs+2jXL9bIDOJ27Ku4Orw8ZaoMbL45nttBNZRGndldFKs4AahEPq3B+z2R6/bOTrX
-	eG6bosuXHd3Cziwl+OTA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ASWWAH/x6/ETRbwO7Hhn6j+HGe4SEM+teC9WK0RhPs8=; b=W9u81RSXcZcbQRr/BbplexHZDa
+	7KameJbKHhzJG07teEaLaOilTZRh3vbmrpBoOs0mlXAD7ldC5cCpXqxrK9uPFUApED61KY/ZP+Ulx
+	xBvY8rDEs0dhkN/aPl1vpANJ5vnwTbji0w9gIkBPO0Jhxkw4AS/pE4bsNNh6gQ1GAaG6aGi/SRIRu
+	bMgzvDN5bKK8+H/H/79embCv2uVBAcWRRQPiYGYpTzgVrx0JlmEf7SB2J4dZoAvOew3lAph2yuv7O
+	ZXO6yFi2MxFxosuQtbN1B4Xd3izoPRuUBJ2foFQFWXowvsbmWpmTzKJIifnoy7HUdZz5Kk+DNOVhg
+	EDLwCHRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvuHA-009Kyt-JM; Tue, 31 May 2022 05:18:40 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1nvuu4-009SMK-JS; Tue, 31 May 2022 05:58:52 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvuH8-009KyW-Hu; Tue, 31 May 2022 05:18:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=AISHTQNOXWXhXBPrTXP8HMK36y6k19YKlAeaBaaAUYI=; b=gKD6MQBHVag/ja57KdP9OCrXJt
-	JMr7iBjlXGr4ttu0zNTfWZgN3HtOCq8sgYWNQ8Pz5E3CQ46W6vyej4yDaJZjWduO8+JQyplcSOq34
-	HuKNg6I0owcO8yBvsgAqj+9mSRkvsbHhQwCM/+mKPsmJ4L1M7yTcVEnchuGQ3p8WQbcdZj5yEjRZb
-	uOV4Su6uSerjagYgp9h5qvy3Ggwpz6f27yR+pm8VKAq423eE+60yLieZfse4O88VN7KgV/DyJDVVQ
-	+8ADRPvEuRDE6gKffhoZ/JlfK6CUw+Ctr3i2nxQgwYT2bWOztsO0F7f7kJ6EmfoRnZDtEp2ydyuEm
-	t2IGHP2g==;
-Received: from [2601:1c0:6280:3f0::aa0b] (helo=casper.infradead.org)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvuH4-0054Vg-GT; Tue, 31 May 2022 05:18:34 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>,
+	id 1nvuu1-009SJH-2F
+	for linux-riscv@lists.infradead.org; Tue, 31 May 2022 05:58:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1nvutV-0000d1-Mm; Tue, 31 May 2022 07:58:17 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1nvutO-005aW1-EE; Tue, 31 May 2022 07:58:09 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1nvutL-00DF4g-Ha; Tue, 31 May 2022 07:58:07 +0200
+Date: Tue, 31 May 2022 07:58:03 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: wangkefeng.wang@huawei.com, guoren@linux.alibaba.com,
+	sunnanyong@huawei.com, jszhang@kernel.org, mick@ics.forth.gr,
+	linux-riscv@lists.infradead.org,
+	Stephen Rothwell <sfr@canb.auug.org.au>, alex@ghiti.fr,
+	christophe.leroy@csgroup.eu, naveen.n.rao@linux.vnet.ibm.com,
+	lizhengyu3@huawei.com, aou@eecs.berkeley.edu, liaochang1@huawei.com,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH -next] riscv: errata: T-HEAD depends on !XIP_KERNEL
-Date: Mon, 30 May 2022 22:18:26 -0700
-Message-Id: <20220531051826.9317-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.35.3
+	Bjorn Topel <bjorn.topel@gmail.com>, kexec@lists.infradead.org,
+	linux-kernel@vger.kernel.org, penberg@kernel.org,
+	ebiederm@xmission.com, kernel@pengutronix.de,
+	akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
+Subject: Re: [PATCH] RISC-V: Prepare dropping week attribute from
+ arch_kexec_apply_relocations[_add]
+Message-ID: <20220531055803.prq5fj6lajzqiiiu@pengutronix.de>
+References: <20220530194133.udwdjsb2l33hsiil@pengutronix.de>
+ <mhng-99e09fbd-fa71-40fc-92da-ff4af0d209a5@palmer-mbp2014>
 MIME-Version: 1.0
+In-Reply-To: <mhng-99e09fbd-fa71-40fc-92da-ff4af0d209a5@palmer-mbp2014>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20220530_225849_187411_482686C6 
+X-CRM114-Status: GOOD (  42.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,42 +76,143 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4092295381858224090=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fix kconfig dependency warning:
 
-WARNING: unmet direct dependencies detected for RISCV_ALTERNATIVE
-  Depends on [n]: !XIP_KERNEL [=y]
-  Selected by [y]:
-  - ERRATA_THEAD [=y]
+--===============4092295381858224090==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yslkboxts2p5evg7"
+Content-Disposition: inline
 
-Fixes: a35707c3d850 ("riscv: add memory-type errata for T-Head")
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-Cc: Heiko Stuebner <heiko@sntech.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
----
- arch/riscv/Kconfig.erratas |    1 +
- 1 file changed, 1 insertion(+)
 
---- a/arch/riscv/Kconfig.erratas
-+++ b/arch/riscv/Kconfig.erratas
-@@ -35,6 +35,7 @@ config ERRATA_SIFIVE_CIP_1200
- 
- config ERRATA_THEAD
- 	bool "T-HEAD errata"
-+	depends on !XIP_KERNEL
- 	select RISCV_ALTERNATIVE
- 	help
- 	  All T-HEAD errata Kconfig depend on this Kconfig. Disabling
+--yslkboxts2p5evg7
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Mon, May 30, 2022 at 04:11:27PM -0700, Palmer Dabbelt wrote:
+> On Mon, 30 May 2022 12:41:33 PDT (-0700), u.kleine-koenig@pengutronix.de =
+wrote:
+> > Hello,
+> >=20
+> > On Mon, May 30, 2022 at 11:58:16AM -0700, Palmer Dabbelt wrote:
+> > > On Mon, 30 May 2022 00:42:02 PDT (-0700), u.kleine-koenig@pengutronix=
+=2Ede wrote:
+> > > > Without this change arch/riscv/kernel/elf_kexec.c fails to compile =
+once
+> > > > commit 233c1e6c319c ("kexec_file: drop weak attribute from
+> > > > arch_kexec_apply_relocations[_add]") is also contained in the tree.
+> > > > This currently happens in next-20220527.
+> > > > > Prepare the RISC-V similar to the s390 adaption done in
+> > > 233c1e6c319c.
+> > > > This is safe to do on top of the riscv change even without the chan=
+ge to
+> > > > arch_kexec_apply_relocations.
+> > > > > Fixes: 838b3e28488f ("RISC-V: Load purgatory in kexec_file")
+> > > > Looks-good-to: liaochang (A) <liaochang1@huawei.com>
+> > > > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
+> > > > ---
+> > > > > On Mon, May 30, 2022 at 09:43:26AM +0800, liaochang (A) wrote:
+> > > > > > I can confirm that doing
+> > > > > > > diff --git a/arch/riscv/include/asm/kexec.h
+> > > > > b/arch/riscv/include/asm/kexec.h
+> > > > > > index 206217b23301..eee260e8ab30 100644
+> > > > > > --- a/arch/riscv/include/asm/kexec.h
+> > > > > > +++ b/arch/riscv/include/asm/kexec.h
+> > > > > > @@ -55,6 +55,13 @@ extern riscv_kexec_method riscv_kexec_norelo=
+cate;
+> > > > > >  >  #ifdef CONFIG_KEXEC_FILE
+> > > > > >  extern const struct kexec_file_ops elf_kexec_ops;
+> > > > > > +
+> > > > > > +struct purgatory_info;
+> > > > > > +int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
+> > > > > > +				     Elf_Shdr *section,
+> > > > > > +				     const Elf_Shdr *relsec,
+> > > > > > +				     const Elf_Shdr *symtab);
+> > > > > > +#define arch_kexec_apply_relocations_add arch_kexec_apply_relo=
+cations_add
+> > > > > >  #endif
+> > > > > >  >  #endif
+> > > > > > > LGTM, you could send a fixup patch to riscv, thanks.
+> > > > > > > > > on top of 838b3e28488f results in a compilable tree. And
+> > > when
+> > > > > merging
+> > > > > > 233c1e6c319c into this, it is still building.
+> > > > > > > I'm not enough into kexec (and riscv) to judge if this is
+> > > > > sensible, or
+> > > > > > create a useful commit log but the obvious way forward is to ap=
+ply the
+> > > > > > above patch to the riscv tree before it hits Linus' tree.
+> > > > > Ok, here comes a patch with a generic commit log.
+> > > > > @riscv people: If you prefer, squash it into 838b3e28488f.
+> > >=20
+> > > Sorry, just saw this after I sent my version of the fix.  They're the=
+ same,
+> > > but do you mind sending a full-on patch so I can merge it?
+> >=20
+> > Sorry, I don't understand your request. I found
+> > https://lore.kernel.org/linux-riscv/20220530180408.16239-1-palmer@rivos=
+inc.com/
+> >=20
+> > but I don't know what a full-on patch is and what stops you merging my
+> > patch.
+> >=20
+> > Is it that it's in reply to a patch series and b4 fails to fetch the
+> > right patch and you ask to send it in a new thread?
+>=20
+> Ya, with the reply bits in there my mail merge (which unfortunately isn't
+> b4, I haven't gotten around to converting yet) got tripped up.  It's kind=
+ of
+> easy to for me to screw something up trying to pull bits out of replies a=
+nd
+> such, but I think this one was pretty simple (looks like maybe some PGP or
+> MIME thing was the issue).
+>=20
+> I just put <https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.=
+git/commit/?h=3Dfor-next&id=3D7699f7aacf3ebfee51c670b6f796b2797f0f7487>
+> on my staging branch, it looks OK to me but LMK if there's a problem.
+
+there is indeed a problem, but caused by me: If you are ready to rewrite
+it, please do s/week/weak/ in the subject line. Otherwise looks good to
+me.
+
+Best regards and thanks,
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--yslkboxts2p5evg7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmKVrmgACgkQwfwUeK3K
+7Almtgf/cMTh8gUXGvy16o7kg3cs7a7GFj0o1WI4oidOclFTc/fWRvKtowa8AzI/
+6zEA161snauy6f6RwV4kPudFteGkKV7AuNL93UYf5cLx1yEel9XMhht0KJU+HEPw
+2eaZboB92XdTrvCfnxSanTst4F33A+LK6bD6Yz+B1QZF5gCHB7GqAoTNYTK8EguB
+oHEUMlx6qCWHeC1qBGj8ldLK4kvZqL8eC3yKHezMZVa94PJJsE6KbAKBQGB3D1KN
+GfSkmkRa3fENCxe+2/WOrhLU6qhEFJqwPfEwz7V5xmQgmzlml6xdM5oxccN6E3EC
+o3yYJzG+N0fIbD3b1gHR61LRNFn5rg==
+=23PP
+-----END PGP SIGNATURE-----
+
+--yslkboxts2p5evg7--
+
+
+--===============4092295381858224090==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4092295381858224090==--
+
