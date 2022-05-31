@@ -4,115 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC38C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 07:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C88C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 08:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yi0uPSa+Ccv3qEsDnkGdBPtW7aP2I1pRI5/oJQkQVDM=; b=ehu6/8fJcAarsd
-	EAzDySEimmeG0qGr/9g5maomFh4UD+2Urww1L79j2sgrHrHucAVHOhP+1D1Mt+vtwxTVQBgVoPank
-	vNZpyOUDehsUgtr5Nk5be/Olqr4HrkN+6G09qU59vbVFVB208p3nnIhAsLVa9Gh8/5V0yqIwkvrNb
-	5pDh3W5cP/gk3RU5SoV6OwX6DosMxpifcuBHaaT45D20h00QGcTwMCC5vy7h3rTzI2uW9Z0THX/WA
-	kFRb4PLpFNNIysOesYyrhymJUOz+WWn7ecfK96ipNd5UP9WtHfY7hipF76+ZWEU4Qjxk0lP8vcRqY
-	REYAi3r/3y+X6w7g3eIw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=vJpad1Ws9FzZ+519RnE2ii45eeDrMTi6fWGgcjdDZGE=; b=uO8L8JRZ6cDgId
+	58tNuKmEykZw3P88Jzgpz2zdLDrpebK9GLwIHAuRkpgFz4bRrSjFRxizUTvfU6m4f52E1fGe7eUXX
+	nnuPk6xp18HgfW95NkkBePBUGKAnfnKIxF5Lgw7wIXKE8Q7Wfw1K0oE6+aJa0hHhDAwUc0uww70Er
+	HPkuNGuIqlYSoLDo0dCuSd2Ic7KEnDGb40n1+EsyH40qQX1esBFrDriWGttFaKATj/LtcHNku0xOe
+	5WJ6teKCkvS2d03rW0EcEsmV3MnAIscq9333IW+HbB8FNKXQpfOVocnkv8saTy9fYJg5Zi+rLAQ1A
+	re795lYnIMDjRb+O8RXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvwkb-009kg3-0k; Tue, 31 May 2022 07:57:13 +0000
-Received: from mail-bn8nam12olkn20821.outbound.protection.outlook.com ([2a01:111:f400:fe5b::821] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1nvwne-009lKo-9X; Tue, 31 May 2022 08:00:22 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5] helo=mx0a-001b2d01.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvwkY-009kdw-Tg
-	for linux-riscv@lists.infradead.org; Tue, 31 May 2022 07:57:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=YZYdpzgyKqxc+9rpiJdOjiUHTbG9n6iC9HTqNAz6ErLuTBVrLnIl+jrNqkqeUJHbk+7HtdfZ8HlEYEFAdTgnSg3PCYBn6+NCqAPlj8m4baMMFx3aNy35sln60XegUOm9MJvdIoDRih9bVnOWO/nv5X74uJtlDgR5qEpyFS+BzdtV3+hTYqeGfQvr+ZXH26z9x1/h2tnKqjOsa4RNgO86vLxBqf3MujqZfsg4GpjmsfOpgSHuiGGuyPm69rAdq8u4toYj65LpTRkfpUBhSZDW0gUdc45VBiHyXY7MgVCwL6anFsFe/+ymUvgfCcN4/1g+eUpg4I9pMTYUyaKnpjlyRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iKaFEgxIhOAW5j8NHqPAFXWYZbL6Pjek2Ki8JAtpMPY=;
- b=CEUg1H9uUnPY33hPbqPbOXZ474lf6SYJpyLO7Ft9cXlbg8TLPBkMd8bxqZn/VpNJNbmf9JpSwtZHZPTX5N6nn+07XNjfVNdeoBBfuJLsqu5i01c5k9kSFSYJ1+Xk2Gmybb1vqSXG3vsEG5Ck1Y5JoinmeiVLvIRG/OlPur/qnSpfEdZlgrJNzYtDGxSW1jlWLm3qaUmjgS7kqOmApdEhv0WhpPk9RNu/PMUByb7AhpZtlgFDsNeVTGHd+KaY9/bj15H0yHtk1OzGRfQVex0SQ29HkZrJHA4JwXBTdXZkyEqZycwf/2vbZS4hoJ3y0oM55DdKnNJciq5SfjZSsS1NaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iKaFEgxIhOAW5j8NHqPAFXWYZbL6Pjek2Ki8JAtpMPY=;
- b=CjvGCifCKKSNorAzajMyIumX9V1+rq7JVOomDG5pE3gTVnsz7tw+dP+jQjcpEGfbz6K1L9q6+9fHnLqyGQJ4emodvetU7qMvczJo8YaNyguWoWN3cbxUuxc1ZOIfIiXp4jpQXnTgn+6pdC/Qk2no0iOvjOee2/n8dsHOcjcEYT9MVBm6XDC2B51ywQbXyvcPWWZnvgGvvd6O5YAcll511Yag/zhnGBZagHd8w93vRg/SxLnF4/El+Wlb2qBVnjGEEvR4MdIXctbKG113T+ZKyFmLqhPxSn6RHYit+Xz4RExmeaho4MJKpPecbHjL2QiIoN3wFtffZzqZKy5ey0ATqA==
-Received: from PH7PR14MB5594.namprd14.prod.outlook.com (2603:10b6:510:1f6::17)
- by DM6PR14MB3371.namprd14.prod.outlook.com (2603:10b6:5:1ec::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5293.13; Tue, 31 May
- 2022 07:57:03 +0000
-Received: from PH7PR14MB5594.namprd14.prod.outlook.com
- ([fe80::ad4e:5917:88d1:c56f]) by PH7PR14MB5594.namprd14.prod.outlook.com
- ([fe80::ad4e:5917:88d1:c56f%8]) with mapi id 15.20.5293.019; Tue, 31 May 2022
- 07:57:03 +0000
-From: Celeste Liu <coelacanthus@outlook.com>
-To: linux-riscv@lists.infradead.org
-Cc: Celeste Liu <coelacanthus@outlook.com>,
-	xctan <xc-tan@outlook.com>,
-	dram <dramforever@live.com>,
-	Ruizhe Pan <c141028@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: [PATCH] riscv: mmap with PROT_WRITE but no PROT_READ is invalid
-Date: Tue, 31 May 2022 15:56:52 +0800
-Message-ID:  <PH7PR14MB559464DBDD310E755F5B21E8CEDC9@PH7PR14MB5594.namprd14.prod.outlook.com>
-X-Mailer: git-send-email 2.36.1
-X-TMN: [1mmzZWrTBc62k2PDNjYiKkFtdHiLFjOJefUvq4XxbO3dETadF6prTkcja2c++/Ze]
-X-ClientProxiedBy: TYCP286CA0024.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:263::14) To PH7PR14MB5594.namprd14.prod.outlook.com
- (2603:10b6:510:1f6::17)
-X-Microsoft-Original-Message-ID:  <20220531075652.105213-1-coelacanthus@outlook.com>
+	id 1nvwna-009lHx-Td; Tue, 31 May 2022 08:00:20 +0000
+Received: from pps.filterd (m0098414.ppops.net [127.0.0.1])
+	by mx0b-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 24V7pnxE010470;
+	Tue, 31 May 2022 07:59:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : to : cc :
+ subject : message-id : references : mime-version : content-type :
+ in-reply-to; s=pp1; bh=fCDCNg9Fl0rDsWI5cVbkr7yPCpu4aY2vi3Um9DXKuyo=;
+ b=TwuPNcBR4U1XYDHdlIDZYKqcL5KJT69oeeTAf0vy5m7ooDBj90SBRisXK63xMXHvK8l0
+ Ov/cquTEsxXxBim+UukTU2rsQcn6NprZ4HWRN68SlwYgZXcr9qZgM89RGc6MwoI/bqEL
+ o6GOS/aiaC9dqiy4ahWeqSt5T6xN5hmciCI34Qmd0QVrEU1vbyvV2QBCOIg+JzaMgATb
+ 8jaFh0BsNFxNOHSjg3UgeRvf/2N2Wujv9geXH5fdOj7Ye52btvKTOJPDKvku8NHfDMem
+ dO2O0Q0YLPZWYG0qyBQJvfeeNv5XIulDxvgh2q56ULI3MONZBMZ+0s0xvmHu5XqW+/Ip CA== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3gdf0hr3k5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 31 May 2022 07:59:47 +0000
+Received: from m0098414.ppops.net (m0098414.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 24V7qjhT012512;
+	Tue, 31 May 2022 07:59:46 GMT
+Received: from ppma06ams.nl.ibm.com (66.31.33a9.ip4.static.sl-reverse.com [169.51.49.102])
+	by mx0b-001b2d01.pphosted.com (PPS) with ESMTPS id 3gdf0hr3jn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 31 May 2022 07:59:46 +0000
+Received: from pps.filterd (ppma06ams.nl.ibm.com [127.0.0.1])
+	by ppma06ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 24V7rKjg027282;
+	Tue, 31 May 2022 07:59:44 GMT
+Received: from b06cxnps4075.portsmouth.uk.ibm.com (d06relay12.portsmouth.uk.ibm.com [9.149.109.197])
+	by ppma06ams.nl.ibm.com with ESMTP id 3gbbynkrfp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 31 May 2022 07:59:44 +0000
+Received: from d06av24.portsmouth.uk.ibm.com (d06av24.portsmouth.uk.ibm.com [9.149.105.60])
+	by b06cxnps4075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 24V7xfmo55443962
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 31 May 2022 07:59:41 GMT
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2FAF642041;
+	Tue, 31 May 2022 07:59:41 +0000 (GMT)
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B44A34203F;
+	Tue, 31 May 2022 07:59:38 +0000 (GMT)
+Received: from osiris (unknown [9.145.72.89])
+	by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTPS;
+	Tue, 31 May 2022 07:59:38 +0000 (GMT)
+Date: Tue, 31 May 2022 09:59:37 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Peter Xu <peterx@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+        Ingo Molnar <mingo@redhat.com>, Vasily Gorbik <gor@linux.ibm.com>,
+        linuxppc-dev@lists.ozlabs.org, Stafford Horne <shorne@gmail.com>,
+        "David S . Miller" <davem@davemloft.net>,
+        Johannes Berg <johannes@sipsolutions.net>,
+        Brian Cain <bcain@quicinc.com>, x86@kernel.org,
+        linux-parisc@vger.kernel.org, Richard Henderson <rth@twiddle.net>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Richard Weinberger <richard@nod.at>, linux-hexagon@vger.kernel.org,
+        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+        Thomas Gleixner <tglx@linutronix.de>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Albert Ou <aou@eecs.berkeley.edu>,
+        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>, linux-ia64@vger.kernel.org,
+        Borislav Petkov <bp@alien8.de>, Russell King <linux@armlinux.org.uk>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Andrea Arcangeli <aarcange@redhat.com>,
+        "James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+        Al Viro <viro@zeniv.linux.org.uk>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Alistair Popple <apopple@nvidia.com>, Jonas Bonn <jonas@southpole.se>,
+        sparclinux@vger.kernel.org, linux-csky@vger.kernel.org,
+        Will Deacon <will@kernel.org>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Vlastimil Babka <vbabka@suse.cz>, linux-um@lists.infradead.org,
+        Michal Simek <monstr@monstr.eu>, Matt Turner <mattst88@gmail.com>,
+        linux-m68k@lists.linux-m68k.org, Paul Mackerras <paulus@samba.org>,
+        linux-xtensa@linux-xtensa.org,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        David Hildenbrand <david@redhat.com>, openrisc@lists.librecores.org,
+        linux-arm-kernel@lists.infradead.org,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+        Chris Zankel <chris@zankel.net>, Hugh Dickins <hughd@google.com>,
+        Vineet Gupta <vgupta@kernel.org>, Dinh Nguyen <dinguyen@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Rich Felker <dalias@libc.org>, "H . Peter Anvin" <hpa@zytor.com>,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        linux-riscv@lists.infradead.org, Johannes Weiner <hannes@cmpxchg.org>,
+        Andy Lutomirski <luto@kernel.org>, Max Filippov <jcmvbkbc@gmail.com>,
+        Guo Ren <guoren@kernel.org>,
+        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+        linux-snps-arc@lists.infradead.org, linux-alpha@vger.kernel.org,
+        linux-mips@vger.kernel.org, Helge Deller <deller@gmx.de>,
+        Yoshinori Sato <ysato@users.sourceforge.jp>,
+        Ingo Molnar <mingo@kernel.org>
+Subject: Re: [PATCH v5] mm: Avoid unnecessary page fault retires on shared
+ memory types
+Message-ID: <YpXK6VO8y6ZQlimG@osiris>
+References: <20220530183450.42886-1-peterx@redhat.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 1e300321-c24d-40ef-7c3e-08da42db261b
-X-MS-Exchange-SLBlob-MailProps: 	6H6McBavlAgslkIVMrANCHevtAMKWYtiHiUBusml0JOZhYr4P1HKHIWPO51JOvs2MFGIk4bkd9E1B+rz7c3+5izj0lY/XXmGeDidpYQ+6VQgVosB9mccktGI9g0H3D89T0aHcOhvAvncFnMF3gGKVYhHcfjGlyjWJVGr022Lut9uaUYZcEoTsdO6yYUMJV6TPHBvEq0Oq/GSYtrztzq2uk1UcCQlInefF05ad1wXsh6AT7urQSqaJNqwK5ODt2BMdc31U0RTHLTnqjwYfbeBUBEl9oa9VIOH4/OPRDoj3wNH+YOfBM/+/k+0bS1HxXqiZHdUI/dzwvyfcbWJ4BaPhVI1A+I0N6us1geU3NmZ3j1iNtoF2AfnS0nUNZq9ff3JPz5qLYZ06Zyye66Nt7IHoupFlgh9vzMjkEYRavy0BjF5Eic/6JCTYNWIJMBaY7zD/qLTicSf48FPMbEgrsPP0zbHbDUPneVQ77xKWwvQlxaVl5qT+ibGWL6HkgjB7UUd8/zbluhqUmgmb4klx83IzUlgWola9+rhB03edXqCeAKLGpExEi/mvzawIogJKy9Mk7y5S2WTfsFkd0jbflLOioYY+UXS85RAh242ZonCN53bODWHwJfzxVS0N59XGPKXyq5i9QMsp4tfu1/XHdslUsRqZ8gi6UeVFW27WEK6Gx+7Avcz4Wo61XzftyJabD23d3WRMytxHz2dZLbLmCHjvl1Gvs0p4P//+dpuvrkK1AXOwiNAzeq78+c3huBtuDn4M06s94BklsA=
-X-MS-TrafficTypeDiagnostic: DM6PR14MB3371:EE_
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	7n4mwtJCIoPheIkb8tROGsoX5oiGiqAb8YObD4cDxnWtJ1uWT7Lk+lcSCHJV2qSE/YnCQ/Plgya7sXY7FvcFt0yzDZ4/Hq490VwIAMlnkM/5GXLLiKRhYNHGigwkYqgyo8BRz++qIoQ41M6RffY6wj03TKaPNUTti72K2GJ05qJEb+yhCoh4LHa+B43SGmxaD1C8vDxxTQ53jqkQYtG1JXxQOOS9SMqlE1OAHBxFouWPyCcO08elfy8za/HTsGque45heS2LqOpJSn8ZlpTrfBsMmhstP1dApFz4WYUvx1PdJPMibKmGRAZEqoi20ylDSjzLPvXuZXTKnarW072nG2nskah6khvesAA+f7FAq+oPeR1Tn4XBuK2lp0+RcGx2DG1AZpkXcqx3y2XesGWASKrVBmPBcjvyo86qcRutpCZHghx0CQ8YrXa4pw0BzoUa3SSXTWLMDP+IBWX7Hxfl9kyTGtfcZqKL9QOQnOYCsySOnk9rBWmBOL2frNkMa5kIh2xDaPllC/6ogSTrkZVZ1V2Ga0zDpwhWccTY/wixMkVtFp6zmTRSW2hlKDeYnyRPEhig0VNLrxLhGK4CbzOS4Q==
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?qosLkmHeUimxzKZhNzgIWnO6UehEQctUjVlglY1FKjPMkvYRS43b0rRKDxOm?=
- =?us-ascii?Q?kVILA9mn1FsyKm6qt4VYpSYovaKBrZwNXc52rOOcOCLou2ySd1Z45GtYYz1Q?=
- =?us-ascii?Q?VZA2RWqRy3G0CaBuzWRWc45uGybhIV1377DFTGwte1Me2nWmo1/OytLu+Uaz?=
- =?us-ascii?Q?MDaGiVlA5LcnUUSVx2l1CYwtBCT+mGqcrlpMrIn1pVayNdblY0hloQGfbFum?=
- =?us-ascii?Q?2vsNzs6AUrU31rI/GrUSeIGCnIOdnavUO3YJId1O/XAoPiysyTlsIvOX2Xgs?=
- =?us-ascii?Q?IkNc3AbAof2+qdYaIoYQWzUvFHnw202+2q8sCQ9uu7Km1J9OrY5stqsaNbGe?=
- =?us-ascii?Q?vYhZ08dTvOsaQoJAFVWTkJaC2ve4Mok/zbB/ShDmrwDNrXcCsgMBM3Sq9h22?=
- =?us-ascii?Q?7Jonh6uxszU8UmGdxL7NCioLMTqIxQ9qoGm5t+cQA2LrhS4Um5IgoPBnnPEH?=
- =?us-ascii?Q?A6ztqLwR+yDwgb4TXSxrGL+3jToOrvo0ZnetkjRRDdoXfuQEWHkE51P6DY/T?=
- =?us-ascii?Q?LCdZHb//svuqn870UBtPQfMSvk7q2LE+VhAaof/+xWPhfxGJzVEv7nPjxrOM?=
- =?us-ascii?Q?OG8bJdeSJG5vbwfDihgKJLGXndz+45yBrl07IuiV6SbOCy0KfL8GufYrI0hD?=
- =?us-ascii?Q?u8ZDd/WAYKe81Tlfg68qLRDbwRMHivJl9RwMHkAkAt/kJ2WHCBQYtWcUXx8K?=
- =?us-ascii?Q?HUbu3Z9gjN4QGW1eGZo5O3YEDmZZPP1nJALfiWYXk7n16ASvB0mdXu/WlviK?=
- =?us-ascii?Q?KmHaXP4MCpR3K4gUG0K0kl28Q6cEY2StEIherAYTJGMp/gErzTt8g63awiOX?=
- =?us-ascii?Q?Qhc1LfkWOH62DBkC+AuyLbHxI4bR1kcubBLrLMAN4bA5RUY+Pgs9L9L9nAna?=
- =?us-ascii?Q?hsTGguw33TdP6aZAISUVZXC8SJuwKGZK7HMnbVBa2oaUmeL63V/gUHZgZmC6?=
- =?us-ascii?Q?vCrdaEyuEHQL188V5auUxYowc0CoUjirMZKSrD/OEOy34pqsCi7dYAvYZ8fl?=
- =?us-ascii?Q?N7EGWH1eENs9o95vEcbs9q0HZAMJWU9NdUqOYwb5Txb/3f9luPg4T8Qr8Doy?=
- =?us-ascii?Q?cz+uKPPFE9eYe1PC+70NZbpMcL0WtTwS+KAkfgfHIvGmQUclEsIGg3CvrLmH?=
- =?us-ascii?Q?XL3LgpV4/62rkWYPBVE4tUl5leYH8wor4o3SldXdK/N5nMKlhF1ubKrfIh6e?=
- =?us-ascii?Q?athMJL/2mHSx/42NRTkvBBk7sg+qMuqtUSU9U6ETyc8GT+41uFkZdffLWYaM?=
- =?us-ascii?Q?8MasN1NZp528fyKJuHtmm8S4mqTQOOkiCdhqhPRJlTCXFLvRl5DlNXN7dno2?=
- =?us-ascii?Q?5r1QQBFVQHivapn56FfRzWLJkzV66IZKARr39UrLUqZCWWgzsDZNgdVjeB9V?=
- =?us-ascii?Q?R7ovtXU69ZZlGUe7+5GbZq52c24n3VAoozLUQ9EYB4zMdh+9n39o+W1bBKvX?=
- =?us-ascii?Q?B+wDKF/Qx2guIjUAI403NbSKFw4A3kNdCfgi8ltjauBNqQx0lBiQX8ktX9QM?=
- =?us-ascii?Q?p0FYIJkxvNkOMvhqp0k85DnLE23y6LW13Qzz?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1e300321-c24d-40ef-7c3e-08da42db261b
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR14MB5594.namprd14.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 May 2022 07:57:03.2671
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 	00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR14MB3371
+Content-Disposition: inline
+In-Reply-To: <20220530183450.42886-1-peterx@redhat.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: RLhB66egEP1T9U1MkMA8rdmyk-WXjxeE
+X-Proofpoint-ORIG-GUID: ToZrP-uDPxbUpDXuMZf7xPxYmVzsS7TL
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.874,Hydra:6.0.517,FMLib:17.11.64.514
+ definitions=2022-05-31_02,2022-05-30_03,2022-02-23_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 bulkscore=0
+ phishscore=0 mlxscore=0 mlxlogscore=999 priorityscore=1501 clxscore=1015
+ impostorscore=0 adultscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2204290000
+ definitions=main-2205310038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220531_005711_009331_A47B39A7 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220531_010019_110114_AA3D2C7F 
+X-CRM114-Status: GOOD (  44.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,43 +158,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As mentioned in Table 4.5 in RISC-V spec Volume 2 Section 4.3, write
-but not read is "Reserved for future use.". For now, they are not valid.
-In the current code, -wx is marked as invalid, but -w- is not marked
-as invalid.
-This patch refines that judgment.
+On Mon, May 30, 2022 at 02:34:50PM -0400, Peter Xu wrote:
+> I observed that for each of the shared file-backed page faults, we're very
+> likely to retry one more time for the 1st write fault upon no page.  It's
+> because we'll need to release the mmap lock for dirty rate limit purpose
+> with balance_dirty_pages_ratelimited() (in fault_dirty_shared_page()).
+> 
+> Then after that throttling we return VM_FAULT_RETRY.
+> 
+> We did that probably because VM_FAULT_RETRY is the only way we can return
+> to the fault handler at that time telling it we've released the mmap lock.
+> 
+> However that's not ideal because it's very likely the fault does not need
+> to be retried at all since the pgtable was well installed before the
+> throttling, so the next continuous fault (including taking mmap read lock,
+> walk the pgtable, etc.) could be in most cases unnecessary.
+> 
+> It's not only slowing down page faults for shared file-backed, but also add
+> more mmap lock contention which is in most cases not needed at all.
+> 
+> To observe this, one could try to write to some shmem page and look at
+> "pgfault" value in /proc/vmstat, then we should expect 2 counts for each
+> shmem write simply because we retried, and vm event "pgfault" will capture
+> that.
+> 
+> To make it more efficient, add a new VM_FAULT_COMPLETED return code just to
+> show that we've completed the whole fault and released the lock.  It's also
+> a hint that we should very possibly not need another fault immediately on
+> this page because we've just completed it.
+> 
+> This patch provides a ~12% perf boost on my aarch64 test VM with a simple
+> program sequentially dirtying 400MB shmem file being mmap()ed and these are
+> the time it needs:
+> 
+>   Before: 650.980 ms (+-1.94%)
+>   After:  569.396 ms (+-1.38%)
+> 
+> I believe it could help more than that.
+> 
+> We need some special care on GUP and the s390 pgfault handler (for gmap
+> code before returning from pgfault), the rest changes in the page fault
+> handlers should be relatively straightforward.
+> 
+> Another thing to mention is that mm_account_fault() does take this new
+> fault as a generic fault to be accounted, unlike VM_FAULT_RETRY.
+> 
+> I explicitly didn't touch hmm_vma_fault() and break_ksm() because they do
+> not handle VM_FAULT_RETRY even with existing code, so I'm literally keeping
+> them as-is.
+> 
+> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> Acked-by: Johannes Weiner <hannes@cmpxchg.org>
+> Acked-by: Vineet Gupta <vgupta@kernel.org>
+> Acked-by: Guo Ren <guoren@kernel.org>
+> Acked-by: Max Filippov <jcmvbkbc@gmail.com>
+> Acked-by: Christian Borntraeger <borntraeger@linux.ibm.com>
+> Acked-by: Michael Ellerman <mpe@ellerman.id.au> (powerpc)
+> Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+> Reviewed-by: Alistair Popple <apopple@nvidia.com>
+> Reviewed-by: Ingo Molnar <mingo@kernel.org>
+> Signed-off-by: Peter Xu <peterx@redhat.com>
+> ---
+...
+>  arch/s390/mm/fault.c          | 12 ++++++++++++
+> diff --git a/arch/s390/mm/fault.c b/arch/s390/mm/fault.c
+> index e173b6187ad5..973dcd05c293 100644
+> --- a/arch/s390/mm/fault.c
+> +++ b/arch/s390/mm/fault.c
+> @@ -433,6 +433,17 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
+>  			goto out_up;
+>  		goto out;
+>  	}
+> +
+> +	/* The fault is fully completed (including releasing mmap lock) */
+> +	if (fault & VM_FAULT_COMPLETED) {
+> +		if (gmap) {
+> +			mmap_read_lock(mm);
+> +			goto out_gmap;
+> +		}
+> +		fault = 0;
+> +		goto out;
+> +	}
+> +
+>  	if (unlikely(fault & VM_FAULT_ERROR))
+>  		goto out_up;
+>  
+> @@ -452,6 +463,7 @@ static inline vm_fault_t do_exception(struct pt_regs *regs, int access)
+>  		mmap_read_lock(mm);
+>  		goto retry;
+>  	}
+> +out_gmap:
+>  	if (IS_ENABLED(CONFIG_PGSTE) && gmap) {
+>  		address =  __gmap_link(gmap, current->thread.gmap_addr,
+>  				       address);
 
-Reported-by: xctan <xc-tan@outlook.com>
-Co-developed-by: dram <dramforever@live.com>
-Signed-off-by: dram <dramforever@live.com>
-Co-developed-by: Ruizhe Pan <c141028@gmail.com>
-Signed-off-by: Ruizhe Pan <c141028@gmail.com>
-Signed-off-by: Celeste Liu <coelacanthus@outlook.com>
-Cc: linux-riscv@lists.infradead.org
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
----
- arch/riscv/kernel/sys_riscv.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index 12f8a7fce78b..8a7880b9c433 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -18,9 +18,8 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
- 	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
- 		return -EINVAL;
- 
--	if ((prot & PROT_WRITE) && (prot & PROT_EXEC))
--		if (unlikely(!(prot & PROT_READ)))
--			return -EINVAL;
-+	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
-+		return -EINVAL;
- 
- 	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
- 			       offset >> (PAGE_SHIFT - page_shift_offset));
--- 
-2.36.1
-
+FWIW:
+Acked-by: Heiko Carstens <hca@linux.ibm.com>
 
 _______________________________________________
 linux-riscv mailing list
