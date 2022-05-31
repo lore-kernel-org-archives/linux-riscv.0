@@ -4,67 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED7FC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 05:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC38C433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 07:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ASWWAH/x6/ETRbwO7Hhn6j+HGe4SEM+teC9WK0RhPs8=; b=W9u81RSXcZcbQRr/BbplexHZDa
-	7KameJbKHhzJG07teEaLaOilTZRh3vbmrpBoOs0mlXAD7ldC5cCpXqxrK9uPFUApED61KY/ZP+Ulx
-	xBvY8rDEs0dhkN/aPl1vpANJ5vnwTbji0w9gIkBPO0Jhxkw4AS/pE4bsNNh6gQ1GAaG6aGi/SRIRu
-	bMgzvDN5bKK8+H/H/79embCv2uVBAcWRRQPiYGYpTzgVrx0JlmEf7SB2J4dZoAvOew3lAph2yuv7O
-	ZXO6yFi2MxFxosuQtbN1B4Xd3izoPRuUBJ2foFQFWXowvsbmWpmTzKJIifnoy7HUdZz5Kk+DNOVhg
-	EDLwCHRQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yi0uPSa+Ccv3qEsDnkGdBPtW7aP2I1pRI5/oJQkQVDM=; b=ehu6/8fJcAarsd
+	EAzDySEimmeG0qGr/9g5maomFh4UD+2Urww1L79j2sgrHrHucAVHOhP+1D1Mt+vtwxTVQBgVoPank
+	vNZpyOUDehsUgtr5Nk5be/Olqr4HrkN+6G09qU59vbVFVB208p3nnIhAsLVa9Gh8/5V0yqIwkvrNb
+	5pDh3W5cP/gk3RU5SoV6OwX6DosMxpifcuBHaaT45D20h00QGcTwMCC5vy7h3rTzI2uW9Z0THX/WA
+	kFRb4PLpFNNIysOesYyrhymJUOz+WWn7ecfK96ipNd5UP9WtHfY7hipF76+ZWEU4Qjxk0lP8vcRqY
+	REYAi3r/3y+X6w7g3eIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvuu4-009SMK-JS; Tue, 31 May 2022 05:58:52 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1nvwkb-009kg3-0k; Tue, 31 May 2022 07:57:13 +0000
+Received: from mail-bn8nam12olkn20821.outbound.protection.outlook.com ([2a01:111:f400:fe5b::821] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nvuu1-009SJH-2F
-	for linux-riscv@lists.infradead.org; Tue, 31 May 2022 05:58:51 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1nvutV-0000d1-Mm; Tue, 31 May 2022 07:58:17 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1nvutO-005aW1-EE; Tue, 31 May 2022 07:58:09 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1nvutL-00DF4g-Ha; Tue, 31 May 2022 07:58:07 +0200
-Date: Tue, 31 May 2022 07:58:03 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: wangkefeng.wang@huawei.com, guoren@linux.alibaba.com,
-	sunnanyong@huawei.com, jszhang@kernel.org, mick@ics.forth.gr,
-	linux-riscv@lists.infradead.org,
-	Stephen Rothwell <sfr@canb.auug.org.au>, alex@ghiti.fr,
-	christophe.leroy@csgroup.eu, naveen.n.rao@linux.vnet.ibm.com,
-	lizhengyu3@huawei.com, aou@eecs.berkeley.edu, liaochang1@huawei.com,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Bjorn Topel <bjorn.topel@gmail.com>, kexec@lists.infradead.org,
-	linux-kernel@vger.kernel.org, penberg@kernel.org,
-	ebiederm@xmission.com, kernel@pengutronix.de,
-	akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH] RISC-V: Prepare dropping week attribute from
- arch_kexec_apply_relocations[_add]
-Message-ID: <20220531055803.prq5fj6lajzqiiiu@pengutronix.de>
-References: <20220530194133.udwdjsb2l33hsiil@pengutronix.de>
- <mhng-99e09fbd-fa71-40fc-92da-ff4af0d209a5@palmer-mbp2014>
+	id 1nvwkY-009kdw-Tg
+	for linux-riscv@lists.infradead.org; Tue, 31 May 2022 07:57:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=YZYdpzgyKqxc+9rpiJdOjiUHTbG9n6iC9HTqNAz6ErLuTBVrLnIl+jrNqkqeUJHbk+7HtdfZ8HlEYEFAdTgnSg3PCYBn6+NCqAPlj8m4baMMFx3aNy35sln60XegUOm9MJvdIoDRih9bVnOWO/nv5X74uJtlDgR5qEpyFS+BzdtV3+hTYqeGfQvr+ZXH26z9x1/h2tnKqjOsa4RNgO86vLxBqf3MujqZfsg4GpjmsfOpgSHuiGGuyPm69rAdq8u4toYj65LpTRkfpUBhSZDW0gUdc45VBiHyXY7MgVCwL6anFsFe/+ymUvgfCcN4/1g+eUpg4I9pMTYUyaKnpjlyRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iKaFEgxIhOAW5j8NHqPAFXWYZbL6Pjek2Ki8JAtpMPY=;
+ b=CEUg1H9uUnPY33hPbqPbOXZ474lf6SYJpyLO7Ft9cXlbg8TLPBkMd8bxqZn/VpNJNbmf9JpSwtZHZPTX5N6nn+07XNjfVNdeoBBfuJLsqu5i01c5k9kSFSYJ1+Xk2Gmybb1vqSXG3vsEG5Ck1Y5JoinmeiVLvIRG/OlPur/qnSpfEdZlgrJNzYtDGxSW1jlWLm3qaUmjgS7kqOmApdEhv0WhpPk9RNu/PMUByb7AhpZtlgFDsNeVTGHd+KaY9/bj15H0yHtk1OzGRfQVex0SQ29HkZrJHA4JwXBTdXZkyEqZycwf/2vbZS4hoJ3y0oM55DdKnNJciq5SfjZSsS1NaA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iKaFEgxIhOAW5j8NHqPAFXWYZbL6Pjek2Ki8JAtpMPY=;
+ b=CjvGCifCKKSNorAzajMyIumX9V1+rq7JVOomDG5pE3gTVnsz7tw+dP+jQjcpEGfbz6K1L9q6+9fHnLqyGQJ4emodvetU7qMvczJo8YaNyguWoWN3cbxUuxc1ZOIfIiXp4jpQXnTgn+6pdC/Qk2no0iOvjOee2/n8dsHOcjcEYT9MVBm6XDC2B51ywQbXyvcPWWZnvgGvvd6O5YAcll511Yag/zhnGBZagHd8w93vRg/SxLnF4/El+Wlb2qBVnjGEEvR4MdIXctbKG113T+ZKyFmLqhPxSn6RHYit+Xz4RExmeaho4MJKpPecbHjL2QiIoN3wFtffZzqZKy5ey0ATqA==
+Received: from PH7PR14MB5594.namprd14.prod.outlook.com (2603:10b6:510:1f6::17)
+ by DM6PR14MB3371.namprd14.prod.outlook.com (2603:10b6:5:1ec::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5293.13; Tue, 31 May
+ 2022 07:57:03 +0000
+Received: from PH7PR14MB5594.namprd14.prod.outlook.com
+ ([fe80::ad4e:5917:88d1:c56f]) by PH7PR14MB5594.namprd14.prod.outlook.com
+ ([fe80::ad4e:5917:88d1:c56f%8]) with mapi id 15.20.5293.019; Tue, 31 May 2022
+ 07:57:03 +0000
+From: Celeste Liu <coelacanthus@outlook.com>
+To: linux-riscv@lists.infradead.org
+Cc: Celeste Liu <coelacanthus@outlook.com>,
+	xctan <xc-tan@outlook.com>,
+	dram <dramforever@live.com>,
+	Ruizhe Pan <c141028@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Subject: [PATCH] riscv: mmap with PROT_WRITE but no PROT_READ is invalid
+Date: Tue, 31 May 2022 15:56:52 +0800
+Message-ID:  <PH7PR14MB559464DBDD310E755F5B21E8CEDC9@PH7PR14MB5594.namprd14.prod.outlook.com>
+X-Mailer: git-send-email 2.36.1
+X-TMN: [1mmzZWrTBc62k2PDNjYiKkFtdHiLFjOJefUvq4XxbO3dETadF6prTkcja2c++/Ze]
+X-ClientProxiedBy: TYCP286CA0024.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:263::14) To PH7PR14MB5594.namprd14.prod.outlook.com
+ (2603:10b6:510:1f6::17)
+X-Microsoft-Original-Message-ID:  <20220531075652.105213-1-coelacanthus@outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <mhng-99e09fbd-fa71-40fc-92da-ff4af0d209a5@palmer-mbp2014>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 1e300321-c24d-40ef-7c3e-08da42db261b
+X-MS-Exchange-SLBlob-MailProps: 	6H6McBavlAgslkIVMrANCHevtAMKWYtiHiUBusml0JOZhYr4P1HKHIWPO51JOvs2MFGIk4bkd9E1B+rz7c3+5izj0lY/XXmGeDidpYQ+6VQgVosB9mccktGI9g0H3D89T0aHcOhvAvncFnMF3gGKVYhHcfjGlyjWJVGr022Lut9uaUYZcEoTsdO6yYUMJV6TPHBvEq0Oq/GSYtrztzq2uk1UcCQlInefF05ad1wXsh6AT7urQSqaJNqwK5ODt2BMdc31U0RTHLTnqjwYfbeBUBEl9oa9VIOH4/OPRDoj3wNH+YOfBM/+/k+0bS1HxXqiZHdUI/dzwvyfcbWJ4BaPhVI1A+I0N6us1geU3NmZ3j1iNtoF2AfnS0nUNZq9ff3JPz5qLYZ06Zyye66Nt7IHoupFlgh9vzMjkEYRavy0BjF5Eic/6JCTYNWIJMBaY7zD/qLTicSf48FPMbEgrsPP0zbHbDUPneVQ77xKWwvQlxaVl5qT+ibGWL6HkgjB7UUd8/zbluhqUmgmb4klx83IzUlgWola9+rhB03edXqCeAKLGpExEi/mvzawIogJKy9Mk7y5S2WTfsFkd0jbflLOioYY+UXS85RAh242ZonCN53bODWHwJfzxVS0N59XGPKXyq5i9QMsp4tfu1/XHdslUsRqZ8gi6UeVFW27WEK6Gx+7Avcz4Wo61XzftyJabD23d3WRMytxHz2dZLbLmCHjvl1Gvs0p4P//+dpuvrkK1AXOwiNAzeq78+c3huBtuDn4M06s94BklsA=
+X-MS-TrafficTypeDiagnostic: DM6PR14MB3371:EE_
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	7n4mwtJCIoPheIkb8tROGsoX5oiGiqAb8YObD4cDxnWtJ1uWT7Lk+lcSCHJV2qSE/YnCQ/Plgya7sXY7FvcFt0yzDZ4/Hq490VwIAMlnkM/5GXLLiKRhYNHGigwkYqgyo8BRz++qIoQ41M6RffY6wj03TKaPNUTti72K2GJ05qJEb+yhCoh4LHa+B43SGmxaD1C8vDxxTQ53jqkQYtG1JXxQOOS9SMqlE1OAHBxFouWPyCcO08elfy8za/HTsGque45heS2LqOpJSn8ZlpTrfBsMmhstP1dApFz4WYUvx1PdJPMibKmGRAZEqoi20ylDSjzLPvXuZXTKnarW072nG2nskah6khvesAA+f7FAq+oPeR1Tn4XBuK2lp0+RcGx2DG1AZpkXcqx3y2XesGWASKrVBmPBcjvyo86qcRutpCZHghx0CQ8YrXa4pw0BzoUa3SSXTWLMDP+IBWX7Hxfl9kyTGtfcZqKL9QOQnOYCsySOnk9rBWmBOL2frNkMa5kIh2xDaPllC/6ogSTrkZVZ1V2Ga0zDpwhWccTY/wixMkVtFp6zmTRSW2hlKDeYnyRPEhig0VNLrxLhGK4CbzOS4Q==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?qosLkmHeUimxzKZhNzgIWnO6UehEQctUjVlglY1FKjPMkvYRS43b0rRKDxOm?=
+ =?us-ascii?Q?kVILA9mn1FsyKm6qt4VYpSYovaKBrZwNXc52rOOcOCLou2ySd1Z45GtYYz1Q?=
+ =?us-ascii?Q?VZA2RWqRy3G0CaBuzWRWc45uGybhIV1377DFTGwte1Me2nWmo1/OytLu+Uaz?=
+ =?us-ascii?Q?MDaGiVlA5LcnUUSVx2l1CYwtBCT+mGqcrlpMrIn1pVayNdblY0hloQGfbFum?=
+ =?us-ascii?Q?2vsNzs6AUrU31rI/GrUSeIGCnIOdnavUO3YJId1O/XAoPiysyTlsIvOX2Xgs?=
+ =?us-ascii?Q?IkNc3AbAof2+qdYaIoYQWzUvFHnw202+2q8sCQ9uu7Km1J9OrY5stqsaNbGe?=
+ =?us-ascii?Q?vYhZ08dTvOsaQoJAFVWTkJaC2ve4Mok/zbB/ShDmrwDNrXcCsgMBM3Sq9h22?=
+ =?us-ascii?Q?7Jonh6uxszU8UmGdxL7NCioLMTqIxQ9qoGm5t+cQA2LrhS4Um5IgoPBnnPEH?=
+ =?us-ascii?Q?A6ztqLwR+yDwgb4TXSxrGL+3jToOrvo0ZnetkjRRDdoXfuQEWHkE51P6DY/T?=
+ =?us-ascii?Q?LCdZHb//svuqn870UBtPQfMSvk7q2LE+VhAaof/+xWPhfxGJzVEv7nPjxrOM?=
+ =?us-ascii?Q?OG8bJdeSJG5vbwfDihgKJLGXndz+45yBrl07IuiV6SbOCy0KfL8GufYrI0hD?=
+ =?us-ascii?Q?u8ZDd/WAYKe81Tlfg68qLRDbwRMHivJl9RwMHkAkAt/kJ2WHCBQYtWcUXx8K?=
+ =?us-ascii?Q?HUbu3Z9gjN4QGW1eGZo5O3YEDmZZPP1nJALfiWYXk7n16ASvB0mdXu/WlviK?=
+ =?us-ascii?Q?KmHaXP4MCpR3K4gUG0K0kl28Q6cEY2StEIherAYTJGMp/gErzTt8g63awiOX?=
+ =?us-ascii?Q?Qhc1LfkWOH62DBkC+AuyLbHxI4bR1kcubBLrLMAN4bA5RUY+Pgs9L9L9nAna?=
+ =?us-ascii?Q?hsTGguw33TdP6aZAISUVZXC8SJuwKGZK7HMnbVBa2oaUmeL63V/gUHZgZmC6?=
+ =?us-ascii?Q?vCrdaEyuEHQL188V5auUxYowc0CoUjirMZKSrD/OEOy34pqsCi7dYAvYZ8fl?=
+ =?us-ascii?Q?N7EGWH1eENs9o95vEcbs9q0HZAMJWU9NdUqOYwb5Txb/3f9luPg4T8Qr8Doy?=
+ =?us-ascii?Q?cz+uKPPFE9eYe1PC+70NZbpMcL0WtTwS+KAkfgfHIvGmQUclEsIGg3CvrLmH?=
+ =?us-ascii?Q?XL3LgpV4/62rkWYPBVE4tUl5leYH8wor4o3SldXdK/N5nMKlhF1ubKrfIh6e?=
+ =?us-ascii?Q?athMJL/2mHSx/42NRTkvBBk7sg+qMuqtUSU9U6ETyc8GT+41uFkZdffLWYaM?=
+ =?us-ascii?Q?8MasN1NZp528fyKJuHtmm8S4mqTQOOkiCdhqhPRJlTCXFLvRl5DlNXN7dno2?=
+ =?us-ascii?Q?5r1QQBFVQHivapn56FfRzWLJkzV66IZKARr39UrLUqZCWWgzsDZNgdVjeB9V?=
+ =?us-ascii?Q?R7ovtXU69ZZlGUe7+5GbZq52c24n3VAoozLUQ9EYB4zMdh+9n39o+W1bBKvX?=
+ =?us-ascii?Q?B+wDKF/Qx2guIjUAI403NbSKFw4A3kNdCfgi8ltjauBNqQx0lBiQX8ktX9QM?=
+ =?us-ascii?Q?p0FYIJkxvNkOMvhqp0k85DnLE23y6LW13Qzz?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1e300321-c24d-40ef-7c3e-08da42db261b
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR14MB5594.namprd14.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 May 2022 07:57:03.2671
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR14MB3371
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220530_225849_187411_482686C6 
-X-CRM114-Status: GOOD (  42.44  )
+X-CRM114-CacheID: sfid-20220531_005711_009331_A47B39A7 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,143 +124,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4092295381858224090=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+As mentioned in Table 4.5 in RISC-V spec Volume 2 Section 4.3, write
+but not read is "Reserved for future use.". For now, they are not valid.
+In the current code, -wx is marked as invalid, but -w- is not marked
+as invalid.
+This patch refines that judgment.
 
---===============4092295381858224090==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="yslkboxts2p5evg7"
-Content-Disposition: inline
+Reported-by: xctan <xc-tan@outlook.com>
+Co-developed-by: dram <dramforever@live.com>
+Signed-off-by: dram <dramforever@live.com>
+Co-developed-by: Ruizhe Pan <c141028@gmail.com>
+Signed-off-by: Ruizhe Pan <c141028@gmail.com>
+Signed-off-by: Celeste Liu <coelacanthus@outlook.com>
+Cc: linux-riscv@lists.infradead.org
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+---
+ arch/riscv/kernel/sys_riscv.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 12f8a7fce78b..8a7880b9c433 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -18,9 +18,8 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+ 	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
+ 		return -EINVAL;
+ 
+-	if ((prot & PROT_WRITE) && (prot & PROT_EXEC))
+-		if (unlikely(!(prot & PROT_READ)))
+-			return -EINVAL;
++	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
++		return -EINVAL;
+ 
+ 	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
+ 			       offset >> (PAGE_SHIFT - page_shift_offset));
+-- 
+2.36.1
 
---yslkboxts2p5evg7
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Mon, May 30, 2022 at 04:11:27PM -0700, Palmer Dabbelt wrote:
-> On Mon, 30 May 2022 12:41:33 PDT (-0700), u.kleine-koenig@pengutronix.de =
-wrote:
-> > Hello,
-> >=20
-> > On Mon, May 30, 2022 at 11:58:16AM -0700, Palmer Dabbelt wrote:
-> > > On Mon, 30 May 2022 00:42:02 PDT (-0700), u.kleine-koenig@pengutronix=
-=2Ede wrote:
-> > > > Without this change arch/riscv/kernel/elf_kexec.c fails to compile =
-once
-> > > > commit 233c1e6c319c ("kexec_file: drop weak attribute from
-> > > > arch_kexec_apply_relocations[_add]") is also contained in the tree.
-> > > > This currently happens in next-20220527.
-> > > > > Prepare the RISC-V similar to the s390 adaption done in
-> > > 233c1e6c319c.
-> > > > This is safe to do on top of the riscv change even without the chan=
-ge to
-> > > > arch_kexec_apply_relocations.
-> > > > > Fixes: 838b3e28488f ("RISC-V: Load purgatory in kexec_file")
-> > > > Looks-good-to: liaochang (A) <liaochang1@huawei.com>
-> > > > Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@pengutronix.de>
-> > > > ---
-> > > > > On Mon, May 30, 2022 at 09:43:26AM +0800, liaochang (A) wrote:
-> > > > > > I can confirm that doing
-> > > > > > > diff --git a/arch/riscv/include/asm/kexec.h
-> > > > > b/arch/riscv/include/asm/kexec.h
-> > > > > > index 206217b23301..eee260e8ab30 100644
-> > > > > > --- a/arch/riscv/include/asm/kexec.h
-> > > > > > +++ b/arch/riscv/include/asm/kexec.h
-> > > > > > @@ -55,6 +55,13 @@ extern riscv_kexec_method riscv_kexec_norelo=
-cate;
-> > > > > >  >  #ifdef CONFIG_KEXEC_FILE
-> > > > > >  extern const struct kexec_file_ops elf_kexec_ops;
-> > > > > > +
-> > > > > > +struct purgatory_info;
-> > > > > > +int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
-> > > > > > +				     Elf_Shdr *section,
-> > > > > > +				     const Elf_Shdr *relsec,
-> > > > > > +				     const Elf_Shdr *symtab);
-> > > > > > +#define arch_kexec_apply_relocations_add arch_kexec_apply_relo=
-cations_add
-> > > > > >  #endif
-> > > > > >  >  #endif
-> > > > > > > LGTM, you could send a fixup patch to riscv, thanks.
-> > > > > > > > > on top of 838b3e28488f results in a compilable tree. And
-> > > when
-> > > > > merging
-> > > > > > 233c1e6c319c into this, it is still building.
-> > > > > > > I'm not enough into kexec (and riscv) to judge if this is
-> > > > > sensible, or
-> > > > > > create a useful commit log but the obvious way forward is to ap=
-ply the
-> > > > > > above patch to the riscv tree before it hits Linus' tree.
-> > > > > Ok, here comes a patch with a generic commit log.
-> > > > > @riscv people: If you prefer, squash it into 838b3e28488f.
-> > >=20
-> > > Sorry, just saw this after I sent my version of the fix.  They're the=
- same,
-> > > but do you mind sending a full-on patch so I can merge it?
-> >=20
-> > Sorry, I don't understand your request. I found
-> > https://lore.kernel.org/linux-riscv/20220530180408.16239-1-palmer@rivos=
-inc.com/
-> >=20
-> > but I don't know what a full-on patch is and what stops you merging my
-> > patch.
-> >=20
-> > Is it that it's in reply to a patch series and b4 fails to fetch the
-> > right patch and you ask to send it in a new thread?
->=20
-> Ya, with the reply bits in there my mail merge (which unfortunately isn't
-> b4, I haven't gotten around to converting yet) got tripped up.  It's kind=
- of
-> easy to for me to screw something up trying to pull bits out of replies a=
-nd
-> such, but I think this one was pretty simple (looks like maybe some PGP or
-> MIME thing was the issue).
->=20
-> I just put <https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.=
-git/commit/?h=3Dfor-next&id=3D7699f7aacf3ebfee51c670b6f796b2797f0f7487>
-> on my staging branch, it looks OK to me but LMK if there's a problem.
-
-there is indeed a problem, but caused by me: If you are ready to rewrite
-it, please do s/week/weak/ in the subject line. Otherwise looks good to
-me.
-
-Best regards and thanks,
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---yslkboxts2p5evg7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmKVrmgACgkQwfwUeK3K
-7Almtgf/cMTh8gUXGvy16o7kg3cs7a7GFj0o1WI4oidOclFTc/fWRvKtowa8AzI/
-6zEA161snauy6f6RwV4kPudFteGkKV7AuNL93UYf5cLx1yEel9XMhht0KJU+HEPw
-2eaZboB92XdTrvCfnxSanTst4F33A+LK6bD6Yz+B1QZF5gCHB7GqAoTNYTK8EguB
-oHEUMlx6qCWHeC1qBGj8ldLK4kvZqL8eC3yKHezMZVa94PJJsE6KbAKBQGB3D1KN
-GfSkmkRa3fENCxe+2/WOrhLU6qhEFJqwPfEwz7V5xmQgmzlml6xdM5oxccN6E3EC
-o3yYJzG+N0fIbD3b1gHR61LRNFn5rg==
-=23PP
------END PGP SIGNATURE-----
-
---yslkboxts2p5evg7--
-
-
---===============4092295381858224090==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4092295381858224090==--
-
