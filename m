@@ -4,78 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEFF2C433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 15:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1117DC433F5
+	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 16:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=D722F6eOsSOanvrfDBAF+tkKzVpS2HWSq7XjHEpNMHQ=; b=cOtwzBZINJm4m96HRWguXZtBht
-	tGy7F+BKu1Sz76/gT0tJU3D76NgxZgRFPIprIjPIr5hFEv9AtAD3hrEIu54rjfL0PyeyLd+WWBYSu
-	iMxg8HUrDBIp7h9YX+C2SDKkAOHucPxfsdp3s/s5JrQQhiz0Lt94tH4gpoiE5qypn81q0iece+yLw
-	NAQ9OrSR5nOpI9K4DHj77JbQYJimSV1Ze0GkUfldlV2Cd1oDJZbhwz9W0Qc+9/seRAB8tiJPxRAWE
-	yWgfBzLCCX4a7IaWd6dpF8Z235oO2NxotLdBSZZ/RAFmoueqtRdbeqhY2Ec12X3ez08LbaAQnlr3n
-	Yds0W7hg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Nf0RW9DwJN3bzObfnj+MkE+YtM05da+3PprQou/tklE=; b=THZZGrfYCaK67d
+	BAQwhp/O92i5+IzMqCDDo/+t+znL1cUDfrFBsTWsXqBuEOotzo37PVfmWZ2Tu5kNsxP6+yHI2mi5w
+	DEd47FZEykZblHftWke2qCTZruma6lI8+YZZ5kCvDi+V2yrt8n1OwH/CXzIlb67vFaYwzcX2k7IZP
+	RpqmWHg5xPsmHgmX4CRavaMk8MqtUB7tEp9j3vt/zBnhQ+pQbie13G9mqkaDaUMxo33uAOvbEiTxh
+	YEAziNTCi0qYcqxUAlYJFhq+DLk2kvXI5MidkSy0nrGDj8ZuZhywzZPFY5TCp9A2AJKyeFsb+ngFi
+	JkiyTilK+PmMglNpTDsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nw43r-00Bcid-LQ; Tue, 31 May 2022 15:45:35 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1nw4NO-00BiIJ-Nr; Tue, 31 May 2022 16:05:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nw43k-00BcgQ-3p
-	for linux-riscv@lists.infradead.org; Tue, 31 May 2022 15:45:30 +0000
-Received: by mail-pl1-x632.google.com with SMTP id s12so793526plp.0
-        for <linux-riscv@lists.infradead.org>; Tue, 31 May 2022 08:45:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=+jxnpPySjns9WZXtYAeSufhkP2YRQS3HOSHZmGEDZ04=;
-        b=5wcFHM/I1reVsJZKJ07bukcm1kBKagjnExNBI/xeoY/NTq2btN/4etr2hsEdw+VjFY
-         njuEiKUEWBstz3Z6YWlCe0XhV8VUAn9rD3Z1Hc+vOQAGnsh6wv2MBchoWxLBXBJaE/qi
-         aoo3RjfTDGBFAV2vbqK7AD515kHowYwxWU4UyOebqqWZLaY6QrpHLZDdfv3yDGcQM6Bx
-         PP+VFt+dNd18lElH2Jv5oPozlWChl9bhqYU8fzaWwTGKDZY4eH3g+ZTGER3U9hER6/LM
-         GEIV0308TxjluKDt9+lZ2/En5R+cg8sZ1Gt4rrv5PeoY2axRbQSl1I1+CuVO4Ik3RvRF
-         AFJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=+jxnpPySjns9WZXtYAeSufhkP2YRQS3HOSHZmGEDZ04=;
-        b=32UYRyZ0TEcHJis1UBkYcBFujkVJ5DHGwUn8NnLKNXERhZKhP+IBAGFs6za8b3etto
-         w2SyeDRJmuEjbWNEko2UnKgtanWt2PmXxEEepqCCiNdG1VsZUC1vmM3zr/PEt587aRdp
-         e64MI8EUGU7gcmHCKIRymgVdbXGmgQA2HoCn82XZD5+WgE6ySuJEThQg4+3kCPsw9aXa
-         LjPcU52w4DWFYjs0uSA7T6GVrAVK3d3R+gl4R1iSaIFWLoydbr9o/6OJlNDpR8r3bwf7
-         zDp2fQcsU5DpMltG6yd3UGU003+2GjVBuR0uyuVvUcdJ02Ms05ekSLN0l6qhEWMYv0iE
-         sxDw==
-X-Gm-Message-State: AOAM5327r6ThasucRfOp+2yntA2577qIfmf3LZGmAbA7fVKq/2Ki52YF
-	Pi4aWSBUaUu4j1K5aSyxPo42FQ==
-X-Google-Smtp-Source: ABdhPJxpSEaugMAP2DG8fBB1Cjqi+Yfmbfthf/yUFY5TNAY8Ag43tjDRozyvkZZkXSXKmeZdbvfFyw==
-X-Received: by 2002:a17:90b:4d90:b0:1e3:3025:66fe with SMTP id oj16-20020a17090b4d9000b001e3302566femr5672640pjb.145.1654011925129;
-        Tue, 31 May 2022 08:45:25 -0700 (PDT)
-Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id q16-20020a170902eb9000b0015ea95948ebsm5318319plg.134.2022.05.31.08.45.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 May 2022 08:45:24 -0700 (PDT)
-Date: Tue, 31 May 2022 08:45:24 -0700 (PDT)
-X-Google-Original-Date: Tue, 31 May 2022 08:45:23 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: Prepare dropping week attribute from arch_kexec_apply_relocations[_add]
-In-Reply-To: <20220531055803.prq5fj6lajzqiiiu@pengutronix.de>
-CC: wangkefeng.wang@huawei.com, guoren@linux.alibaba.com, sunnanyong@huawei.com,
-  jszhang@kernel.org, mick@ics.forth.gr, linux-riscv@lists.infradead.org,
-  Stephen Rothwell <sfr@canb.auug.org.au>, alex@ghiti.fr, christophe.leroy@csgroup.eu, naveen.n.rao@linux.vnet.ibm.com,
-  lizhengyu3@huawei.com, aou@eecs.berkeley.edu, liaochang1@huawei.com,
-  Paul Walmsley <paul.walmsley@sifive.com>, Bjorn Topel <bjorn.topel@gmail.com>, kexec@lists.infradead.org,
-  linux-kernel@vger.kernel.org, penberg@kernel.org, ebiederm@xmission.com, kernel@pengutronix.de,
-  akpm@linux-foundation.org, linuxppc-dev@lists.ozlabs.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: u.kleine-koenig@pengutronix.de
-Message-ID: <mhng-29ba2a72-3ea8-4b27-8436-acde7976914f@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1nw4NC-00BiE9-1G; Tue, 31 May 2022 16:05:35 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3FDC5613E2;
+	Tue, 31 May 2022 16:05:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1F72C385A9;
+	Tue, 31 May 2022 16:05:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1654013132;
+	bh=b9RnbKQcXJrnB1KXhWSO/DdOr7SD54f5RYTo/RuTyvc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Cvz/dwv0V3OHEJhBZprOfvrwyj/3KtDnbbJKdW+0IZW/rpaLqv9e91ijC878ztnPK
+	 OEPc1YFzeDiQGH1T4N42tvQQ6cMlvncWnOHbQtW3SXhpF+j5GKJvGAeMQ1iXOLZ67w
+	 eNYdfDt1yeyMIQ//4ORm3bR2TMVvglqCv6predvJZOSfe42VOhSI85RAFetSKd8a6r
+	 /KMEFNG4PWT2k25Npqwaw7EtHmOMMc+N+09xZKugDbkA9NiRSUESO/6g36xYRiv8DD
+	 +Al7EMq3zw1dv0h9WVShe/xwJuLbg6Sa483lwPJ7MjanmNnj2BNjzHR82RW6Lh+E8B
+	 8MMx0MKg9roUw==
+Date: Tue, 31 May 2022 17:05:24 +0100
+From: Will Deacon <will@kernel.org>
+To: Anders Roxell <anders.roxell@linaro.org>
+Cc: Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Tong Tiangen <tongtiangen@huawei.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"maintainer:X86 ARCHITECTURE (32-BIT AND 64-BIT)" <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	LKML <linux-kernel@vger.kernel.org>, linux-mm <linux-mm@kvack.org>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	linux-riscv@lists.infradead.org,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	Guohanjun <guohanjun@huawei.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH -next v7 5/6] arm64/mm: Enable
+ ARCH_SUPPORTS_PAGE_TABLE_CHECK
+Message-ID: <20220531160524.GC25502@willie-the-truck>
+References: <20220507110114.4128854-1-tongtiangen@huawei.com>
+ <20220507110114.4128854-6-tongtiangen@huawei.com>
+ <20220517135435.GA553@mutt>
+ <CA+CK2bAnfxTo-Osvo9=0t=RkC4rTR+mgg2JSypsu3wm6BZFT=A@mail.gmail.com>
+ <CADYN=9JtrZSAmN8J8KbG_PRVGKPhJ3JkP+nq2bqrpFqEa=Avjg@mail.gmail.com>
+ <CADYN=9JZ_b2OfM8o7Uwf7Oxb_SjgX_dpaqb_=doy1wJ3bM+mvQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CADYN=9JZ_b2OfM8o7Uwf7Oxb_SjgX_dpaqb_=doy1wJ3bM+mvQ@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220531_084528_406451_4EF98137 
-X-CRM114-Status: GOOD (  44.41  )
+X-CRM114-CacheID: sfid-20220531_090534_201084_B242BAD4 
+X-CRM114-Status: GOOD (  24.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,88 +90,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAzMCBNYXkgMjAyMiAyMjo1ODowMyBQRFQgKC0wNzAwKSwgdS5rbGVpbmUta29lbmln
-QHBlbmd1dHJvbml4LmRlIHdyb3RlOgo+IE9uIE1vbiwgTWF5IDMwLCAyMDIyIGF0IDA0OjExOjI3
-UE0gLTA3MDAsIFBhbG1lciBEYWJiZWx0IHdyb3RlOgo+PiBPbiBNb24sIDMwIE1heSAyMDIyIDEy
-OjQxOjMzIFBEVCAoLTA3MDApLCB1LmtsZWluZS1rb2VuaWdAcGVuZ3V0cm9uaXguZGUgd3JvdGU6
-Cj4+ID4gSGVsbG8sCj4+ID4gCj4+ID4gT24gTW9uLCBNYXkgMzAsIDIwMjIgYXQgMTE6NTg6MTZB
-TSAtMDcwMCwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4+ID4gPiBPbiBNb24sIDMwIE1heSAyMDIy
-IDAwOjQyOjAyIFBEVCAoLTA3MDApLCB1LmtsZWluZS1rb2VuaWdAcGVuZ3V0cm9uaXguZGUgd3Jv
-dGU6Cj4+ID4gPiA+IFdpdGhvdXQgdGhpcyBjaGFuZ2UgYXJjaC9yaXNjdi9rZXJuZWwvZWxmX2tl
-eGVjLmMgZmFpbHMgdG8gY29tcGlsZSBvbmNlCj4+ID4gPiA+IGNvbW1pdCAyMzNjMWU2YzMxOWMg
-KCJrZXhlY19maWxlOiBkcm9wIHdlYWsgYXR0cmlidXRlIGZyb20KPj4gPiA+ID4gYXJjaF9rZXhl
-Y19hcHBseV9yZWxvY2F0aW9uc1tfYWRkXSIpIGlzIGFsc28gY29udGFpbmVkIGluIHRoZSB0cmVl
-Lgo+PiA+ID4gPiBUaGlzIGN1cnJlbnRseSBoYXBwZW5zIGluIG5leHQtMjAyMjA1MjcuCj4+ID4g
-PiA+ID4gUHJlcGFyZSB0aGUgUklTQy1WIHNpbWlsYXIgdG8gdGhlIHMzOTAgYWRhcHRpb24gZG9u
-ZSBpbgo+PiA+ID4gMjMzYzFlNmMzMTljLgo+PiA+ID4gPiBUaGlzIGlzIHNhZmUgdG8gZG8gb24g
-dG9wIG9mIHRoZSByaXNjdiBjaGFuZ2UgZXZlbiB3aXRob3V0IHRoZSBjaGFuZ2UgdG8KPj4gPiA+
-ID4gYXJjaF9rZXhlY19hcHBseV9yZWxvY2F0aW9ucy4KPj4gPiA+ID4gPiBGaXhlczogODM4YjNl
-Mjg0ODhmICgiUklTQy1WOiBMb2FkIHB1cmdhdG9yeSBpbiBrZXhlY19maWxlIikKPj4gPiA+ID4g
-TG9va3MtZ29vZC10bzogbGlhb2NoYW5nIChBKSA8bGlhb2NoYW5nMUBodWF3ZWkuY29tPgo+PiA+
-ID4gPiBTaWduZWQtb2ZmLWJ5OiBVd2UgS2xlaW5lLUvDtm5pZyA8dS5rbGVpbmUta29lbmlnQHBl
-bmd1dHJvbml4LmRlPgo+PiA+ID4gPiAtLS0KPj4gPiA+ID4gPiBPbiBNb24sIE1heSAzMCwgMjAy
-MiBhdCAwOTo0MzoyNkFNICswODAwLCBsaWFvY2hhbmcgKEEpIHdyb3RlOgo+PiA+ID4gPiA+ID4g
-SSBjYW4gY29uZmlybSB0aGF0IGRvaW5nCj4+ID4gPiA+ID4gPiA+IGRpZmYgLS1naXQgYS9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPj4gPiA+ID4gPiBiL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20va2V4ZWMuaAo+PiA+ID4gPiA+ID4gaW5kZXggMjA2MjE3YjIzMzAxLi5lZWUyNjBlOGFi
-MzAgMTAwNjQ0Cj4+ID4gPiA+ID4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVj
-LmgKPj4gPiA+ID4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va2V4ZWMuaAo+PiA+
-ID4gPiA+ID4gQEAgLTU1LDYgKzU1LDEzIEBAIGV4dGVybiByaXNjdl9rZXhlY19tZXRob2Qgcmlz
-Y3Zfa2V4ZWNfbm9yZWxvY2F0ZTsKPj4gPiA+ID4gPiA+ICA+ICAjaWZkZWYgQ09ORklHX0tFWEVD
-X0ZJTEUKPj4gPiA+ID4gPiA+ICBleHRlcm4gY29uc3Qgc3RydWN0IGtleGVjX2ZpbGVfb3BzIGVs
-Zl9rZXhlY19vcHM7Cj4+ID4gPiA+ID4gPiArCj4+ID4gPiA+ID4gPiArc3RydWN0IHB1cmdhdG9y
-eV9pbmZvOwo+PiA+ID4gPiA+ID4gK2ludCBhcmNoX2tleGVjX2FwcGx5X3JlbG9jYXRpb25zX2Fk
-ZChzdHJ1Y3QgcHVyZ2F0b3J5X2luZm8gKnBpLAo+PiA+ID4gPiA+ID4gKwkJCQkgICAgIEVsZl9T
-aGRyICpzZWN0aW9uLAo+PiA+ID4gPiA+ID4gKwkJCQkgICAgIGNvbnN0IEVsZl9TaGRyICpyZWxz
-ZWMsCj4+ID4gPiA+ID4gPiArCQkJCSAgICAgY29uc3QgRWxmX1NoZHIgKnN5bXRhYik7Cj4+ID4g
-PiA+ID4gPiArI2RlZmluZSBhcmNoX2tleGVjX2FwcGx5X3JlbG9jYXRpb25zX2FkZCBhcmNoX2tl
-eGVjX2FwcGx5X3JlbG9jYXRpb25zX2FkZAo+PiA+ID4gPiA+ID4gICNlbmRpZgo+PiA+ID4gPiA+
-ID4gID4gICNlbmRpZgo+PiA+ID4gPiA+ID4gPiBMR1RNLCB5b3UgY291bGQgc2VuZCBhIGZpeHVw
-IHBhdGNoIHRvIHJpc2N2LCB0aGFua3MuCj4+ID4gPiA+ID4gPiA+ID4gPiBvbiB0b3Agb2YgODM4
-YjNlMjg0ODhmIHJlc3VsdHMgaW4gYSBjb21waWxhYmxlIHRyZWUuIEFuZAo+PiA+ID4gd2hlbgo+
-PiA+ID4gPiA+IG1lcmdpbmcKPj4gPiA+ID4gPiA+IDIzM2MxZTZjMzE5YyBpbnRvIHRoaXMsIGl0
-IGlzIHN0aWxsIGJ1aWxkaW5nLgo+PiA+ID4gPiA+ID4gPiBJJ20gbm90IGVub3VnaCBpbnRvIGtl
-eGVjIChhbmQgcmlzY3YpIHRvIGp1ZGdlIGlmIHRoaXMgaXMKPj4gPiA+ID4gPiBzZW5zaWJsZSwg
-b3IKPj4gPiA+ID4gPiA+IGNyZWF0ZSBhIHVzZWZ1bCBjb21taXQgbG9nIGJ1dCB0aGUgb2J2aW91
-cyB3YXkgZm9yd2FyZCBpcyB0byBhcHBseSB0aGUKPj4gPiA+ID4gPiA+IGFib3ZlIHBhdGNoIHRv
-IHRoZSByaXNjdiB0cmVlIGJlZm9yZSBpdCBoaXRzIExpbnVzJyB0cmVlLgo+PiA+ID4gPiA+IE9r
-LCBoZXJlIGNvbWVzIGEgcGF0Y2ggd2l0aCBhIGdlbmVyaWMgY29tbWl0IGxvZy4KPj4gPiA+ID4g
-PiBAcmlzY3YgcGVvcGxlOiBJZiB5b3UgcHJlZmVyLCBzcXVhc2ggaXQgaW50byA4MzhiM2UyODQ4
-OGYuCj4+ID4gPiAKPj4gPiA+IFNvcnJ5LCBqdXN0IHNhdyB0aGlzIGFmdGVyIEkgc2VudCBteSB2
-ZXJzaW9uIG9mIHRoZSBmaXguICBUaGV5J3JlIHRoZSBzYW1lLAo+PiA+ID4gYnV0IGRvIHlvdSBt
-aW5kIHNlbmRpbmcgYSBmdWxsLW9uIHBhdGNoIHNvIEkgY2FuIG1lcmdlIGl0Pwo+PiA+IAo+PiA+
-IFNvcnJ5LCBJIGRvbid0IHVuZGVyc3RhbmQgeW91ciByZXF1ZXN0LiBJIGZvdW5kCj4+ID4gaHR0
-cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjA1MzAxODA0MDguMTYyMzktMS1w
-YWxtZXJAcml2b3NpbmMuY29tLwo+PiA+IAo+PiA+IGJ1dCBJIGRvbid0IGtub3cgd2hhdCBhIGZ1
-bGwtb24gcGF0Y2ggaXMgYW5kIHdoYXQgc3RvcHMgeW91IG1lcmdpbmcgbXkKPj4gPiBwYXRjaC4K
-Pj4gPiAKPj4gPiBJcyBpdCB0aGF0IGl0J3MgaW4gcmVwbHkgdG8gYSBwYXRjaCBzZXJpZXMgYW5k
-IGI0IGZhaWxzIHRvIGZldGNoIHRoZQo+PiA+IHJpZ2h0IHBhdGNoIGFuZCB5b3UgYXNrIHRvIHNl
-bmQgaXQgaW4gYSBuZXcgdGhyZWFkPwo+PiAKPj4gWWEsIHdpdGggdGhlIHJlcGx5IGJpdHMgaW4g
-dGhlcmUgbXkgbWFpbCBtZXJnZSAod2hpY2ggdW5mb3J0dW5hdGVseSBpc24ndAo+PiBiNCwgSSBo
-YXZlbid0IGdvdHRlbiBhcm91bmQgdG8gY29udmVydGluZyB5ZXQpIGdvdCB0cmlwcGVkIHVwLiAg
-SXQncyBraW5kIG9mCj4+IGVhc3kgdG8gZm9yIG1lIHRvIHNjcmV3IHNvbWV0aGluZyB1cCB0cnlp
-bmcgdG8gcHVsbCBiaXRzIG91dCBvZiByZXBsaWVzIGFuZAo+PiBzdWNoLCBidXQgSSB0aGluayB0
-aGlzIG9uZSB3YXMgcHJldHR5IHNpbXBsZSAobG9va3MgbGlrZSBtYXliZSBzb21lIFBHUCBvcgo+
-PiBNSU1FIHRoaW5nIHdhcyB0aGUgaXNzdWUpLgo+PiAKPj4gSSBqdXN0IHB1dCA8aHR0cHM6Ly9n
-aXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvcGFsbWVyL2xpbnV4LmdpdC9j
-b21taXQvP2g9Zm9yLW5leHQmaWQ9NzY5OWY3YWFjZjNlYmZlZTUxYzY3MGI2Zjc5NmIyNzk3ZjBm
-NzQ4Nz4KPj4gb24gbXkgc3RhZ2luZyBicmFuY2gsIGl0IGxvb2tzIE9LIHRvIG1lIGJ1dCBMTUsg
-aWYgdGhlcmUncyBhIHByb2JsZW0uCj4KPiB0aGVyZSBpcyBpbmRlZWQgYSBwcm9ibGVtLCBidXQg
-Y2F1c2VkIGJ5IG1lOiBJZiB5b3UgYXJlIHJlYWR5IHRvIHJld3JpdGUKPiBpdCwgcGxlYXNlIGRv
-IHMvd2Vlay93ZWFrLyBpbiB0aGUgc3ViamVjdCBsaW5lLiBPdGhlcndpc2UgbG9va3MgZ29vZCB0
-bwo+IG1lLgoKQWgsIHNvcnJ5LCBJIG1pc3NlZCB0aGF0IHRvby4gIEkgd2FzIGhvcGluZyB0byBz
-ZW5kIGEgUFIgdGhpcyBtb3JuaW5nLCAKSSdkIHVzdWFsbHkganVzdCByZXdyaXRlIGFuZCBkZWxh
-eSB0aGlzIG9uZSBidXQgZ2l2ZW4gaXQncyBuZWNlc3NhcnkgdG8gCm1ha2UgdGhlIHBvc3QtbWVy
-Z2UgYnVpbGQgd29yayBJJ20gZ29pbmcgdG8ganVzdCBzZW5kIGl0IHVwIHdpdGggdGhlIApzcGVs
-bGluZyBlcnJvci4KCj4KPiBCZXN0IHJlZ2FyZHMgYW5kIHRoYW5rcywKPiBVd2UKPgo+IC0tIAo+
-IFBlbmd1dHJvbml4IGUuSy4gICAgICAgICAgICAgICAgICAgICAgICAgICB8IFV3ZSBLbGVpbmUt
-S8O2bmlnICAgICAgICAgICAgfAo+IEluZHVzdHJpYWwgTGludXggU29sdXRpb25zICAgICAgICAg
-ICAgICAgICB8IGh0dHBzOi8vd3d3LnBlbmd1dHJvbml4LmRlLyB8CgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sat, May 28, 2022 at 06:41:55PM +0200, Anders Roxell wrote:
+> On Tue, 17 May 2022 at 16:33, Anders Roxell <anders.roxell@linaro.org> wrote:
+> >
+> > On Tue, 17 May 2022 at 16:02, Pasha Tatashin <pasha.tatashin@soleen.com> wrote:
+> > >
+> > > On Tue, May 17, 2022 at 9:54 AM Anders Roxell <anders.roxell@linaro.org> wrote:
+> > > >
+> > > > On 2022-05-07 11:01, Tong Tiangen wrote:
+> > > > > From: Kefeng Wang <wangkefeng.wang@huawei.com>
+> > > > >
+> > > > > As commit d283d422c6c4 ("x86: mm: add x86_64 support for page table check")
+> > > > > , enable ARCH_SUPPORTS_PAGE_TABLE_CHECK on arm64.
+> > > > >
+> > > > > Add additional page table check stubs for page table helpers, these stubs
+> > > > > can be used to check the existing page table entries.
+> > > > >
+> > > > > Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> > > > > Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> > > > > Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+> > > >
+> > > > When building and booting an arm64 allmodconfig kernel on the next tree, branch next-20220516,
+> > > > see the following kernel oops when booting in QEMU [1]:
+> > > >
+> > > > T35] ------------[ cut here ]------------
+> > > > [  578.695796][   T35] kernel BUG at mm/page_table_check.c:82!
+
+That seems to be:
+
+	BUG_ON(atomic_dec_return(&ptc->file_map_count) < 0);
+
+> > > > [  578.697292][   T35] Internal error: Oops - BUG: 0 [#1] PREEMPT SMP
+> > > > [  578.704318][   T35] Modules linked in:
+> > > > [  578.705907][   T35] CPU: 0 PID: 35 Comm: khugepaged Tainted: G                T 5.18.0-rc6-next-20220513 #1 893498a5d8159d9fb26e12492a93c07e83dd4b7f
+> > > > [  578.711170][   T35] Hardware name: linux,dummy-virt (DT)
+> > > > [  578.713315][   T35] pstate: 60400005 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > > > [  578.716398][   T35] pc : page_table_check_clear.constprop.0+0x1f4/0x280
+> > > > [  578.719107][   T35] lr : page_table_check_clear.constprop.0+0x1cc/0x280
+> > > > [  578.721781][   T35] sp : ffff80000f3778b0
+> > > > [  578.723446][   T35] x29: ffff80000f3778b0 x28: ffff80000b891218 x27: ffff000012dd55f0
+> > > > [  578.726667][   T35] x26: 0000000000000008 x25: ffff80000c38cd80 x24: 0000000000000000
+> > > > [  578.729870][   T35] x23: ffff80000c38c9c0 x22: 0000000000000000 x21: 0000000000000200
+> > > > [  578.733079][   T35] x20: ffff000007bae000 x19: ffff000007bae008 x18: 0000000000000000
+> > > > [  578.736299][   T35] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> > > > [  578.739505][   T35] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+> > > > [  578.742735][   T35] x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
+> > > > [  578.745925][   T35] x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
+> > > > [  578.749145][   T35] x5 : 0000000000000000 x4 : 0000000000000000 x3 : ffff000007bae00c
+> > > > [  578.752348][   T35] x2 : 0000000000000000 x1 : 0000000000000001 x0 : 00000000ffffffff
+> > > > [  578.755556][   T35] Call trace:
+> > > > [  578.756877][   T35]  page_table_check_clear.constprop.0+0x1f4/0x280
+> > > > [  578.759446][   T35]  __page_table_check_pmd_clear+0xc4/0x140
+> > > > [  578.761757][   T35]  pmdp_collapse_flush+0xa4/0x1c0
+> > > > [  578.763771][   T35]  collapse_huge_page+0x4e4/0xb00
+> > > > [  578.765778][   T35]  khugepaged_scan_pmd+0xc18/0xd00
+> > > > [  578.767840][   T35]  khugepaged_scan_mm_slot+0x580/0x780
+> > > > [  578.770018][   T35]  khugepaged+0x2dc/0x400
+> > > > [  578.771786][   T35]  kthread+0x164/0x180
+> > > > [  578.773430][   T35]  ret_from_fork+0x10/0x20
+> > > > [  578.775253][   T35] Code: 52800021 91001263 14000388 36f80040 (d4210000)
+> > > > [  578.777990][   T35] ---[ end trace 0000000000000000 ]---
+> > > > [  578.778021][   T35] Kernel panic - not syncing: Oops - BUG: Fatal exception
+> > > > [  578.782934][   T35] Kernel Offset: disabled
+> > > > [  578.784642][   T35] CPU features: 0x000,00100010,00001086
+> > > > [  578.786848][   T35] Memory Limit: none
+> > > > [  578.788433][   T35] ---[ end Kernel panic - not syncing: Oops - BUG: Fatal exception ]---
+> 
+> Now I see this oops on the mainline kernel too when I'm building and booting an
+> arm64 allmodconfig kernel, sha
+> 9d004b2f4fea ("Merge tag 'cxl-for-5.19' of
+> git://git.kernel.org/pub/scm/linux/kernel/git/cxl/cxl").
+> 
+> building and booting an arm64 allmodconfig kernel.
+> 
+> When I revert 42b2547137f5 ("arm64/mm: enable
+> ARCH_SUPPORTS_PAGE_TABLE_CHECK") I'm able to boot.
+> The kernel boots fine.
+
+I don't think disabling the check is the right thing to do, and I'm not
+really seeing anything arm64-specific from the information here either. It's
+more likely that one of the many other options (or combination of options)
+enabled in allmodconfig is causing the problem. Are you able to reproduce on
+x86?
+
+Anshuman -- any ideas?
+
+Will
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
