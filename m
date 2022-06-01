@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41339C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jun 2022 12:46:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD299CCA477
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jun 2022 16:24:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PG5OMzvAiZo94dqGupMqgVFzoJH3WdwKyrwdiDxAuV0=; b=JoZ3jz1/IEiFNh
-	1WEcCv3deTuAbHY4Rxr+4ZEAMaolc9IeSaBf0B8dbC478ktXPJFWDtLhLX1aJKbyFagH/rF93bfof
-	M8flc7s7j4EOXs+FiCHczyD0KV2Kxvfoou6rMlr2LqsweQAo07JBxzNmNrBtRJPyI1C+Ut83jqSVh
-	xnkDYnSrR98VuvNuiDSUgcymeaVmEjKYxlLz6a1GD4i3G6nszSXdrgBCfzrnJbIpksah4MIAuZJzk
-	9s/z73rkeerXzc4CDCVOCQloqq7KUQ6yXcgS08ef0nchDS7mlL2KapToUk1dvrPZAYV/L2VaYGC83
-	Aaq7Ul5RbJuG7jx0gOhA==;
+	List-Owner; bh=+Z3fKzxhXaZH8oMa2Zf5OdcOx9pNHWi5gBiL01/85MU=; b=iYJKE8OnP5ymqe
+	w/w/oje93Gt8XScX0Im9dkzeXBX8U0NjvM7Az3DeuLtSEPbEGPRIcclxz4vArgZRBQfBqkYkC9J06
+	9OilV7AAUcXoi+xtIQfHsumnMr8G+Bp+OE58tf9W/5AjI5J6ypnav1KagCufaMVybXGM3BwF/wyaO
+	eElyxjSDdE0PAAfRng2mdQt4On57DfIeQWwkLVSKMdd6oFskmD4EvPSy6ZNKVPqZE3wdODbRytypD
+	1ez7v9SFgqcm9oDWdFp8NTRh4L/s9VGlf4auG09elnINwezgQ9uf+5kfTdByrUqlINNfvqIAnTBlG
+	IgTYQPoBf8pvn4GKZjpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwNjf-00G5Q9-5K; Wed, 01 Jun 2022 12:46:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwNjU-00G5Me-CB; Wed, 01 Jun 2022 12:45:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B3F9ED1;
-	Wed,  1 Jun 2022 05:45:51 -0700 (PDT)
-Received: from bogus (unknown [10.57.9.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D5863F73D;
-	Wed,  1 Jun 2022 05:45:48 -0700 (PDT)
-Date: Wed, 1 Jun 2022 13:45:01 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Gavin Shan <gshan@redhat.com>
-Cc: linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>,
-	Atish Patra <atishp@rivosinc.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Morten Rasmussen <morten.rasmussen@arm.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Qing Wang <wangqing@vivo.com>, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>
-Subject: Re: [PATCH v3 02/16] cacheinfo: Add helper to access any cache index
- for a given CPU
-Message-ID: <20220601124501.v4ylb4oqs4uq2oxj@bogus>
-References: <20220525081416.3306043-1-sudeep.holla@arm.com>
- <20220525081416.3306043-2-sudeep.holla@arm.com>
- <20220525081416.3306043-3-sudeep.holla@arm.com>
- <9a70f2b2-e45c-b125-1c14-d5a06097be58@redhat.com>
+	id 1nwR91-00H5yO-10; Wed, 01 Jun 2022 16:24:27 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nwR7F-00H55W-Cd; Wed, 01 Jun 2022 16:22:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=tTMeQSlVN/jki7gY30nXBiHUEabl86oFmR3MDB8WTos=; b=kyiJeT+HyMH3qWkHr4M/GNDhVQ
+	he0vs1nHlDJumZTaCqAhyI7XGiLhP5COE+01Z7IJa+HwSy366FQWqStsxj1JqUM1nOswZsj7WWVeI
+	4udEx97HSIXoUBnAgUA5MwNAseseUtVRx+w2cAKqZa+5neeh9UoFA37oFcXJs1Wo4h9wKKPB9KJo1
+	t/Fdq7UooJyG1DN1qOm11lM0GpIH1WuWScjUsUQD6R24cKP2YYp0H/jsz0B1tliYLhv2pX0u2dcpG
+	bB5mNALQC3eacnn7udZ6FPO5djIC58FGvpGACjmtP0Qe6JVqooWssI7hS0A8MX+pqK2iEoAbhqdoi
+	VUq+pJaA==;
+Received: from [2601:1c0:6280:3f0::aa0b]
+	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nwQtS-003pQZ-7K; Wed, 01 Jun 2022 16:08:23 +0000
+Message-ID: <b9c831a3-44ab-0374-34f8-8bd8bc311e5c@infradead.org>
+Date: Wed, 1 Jun 2022 09:08:16 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <9a70f2b2-e45c-b125-1c14-d5a06097be58@redhat.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220601_054552_546784_176E0332 
-X-CRM114-Status: GOOD (  26.03  )
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [PATCH] RISCV: kexec: Fix build error without CONFIG_MODULES
+Content-Language: en-US
+To: Li Zhengyu <lizhengyu3@huawei.com>, palmer@rivosinc.com
+Cc: paul.walmsley@sifive.com, aou@eecs.berkeley.edu, liaochang1@huawei.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ ebiederm@xmission.com, kexec@lists.infradead.org, linux-next@vger.kernel.org
+References: <20220601063924.13037-1-lizhengyu3@huawei.com>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20220601063924.13037-1-lizhengyu3@huawei.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,98 +67,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 01, 2022 at 10:44:20AM +0800, Gavin Shan wrote:
-> Hi Sudeep,
+Hi--
+
+On 5/31/22 23:39, Li Zhengyu wrote:
+> When CONFIG_MODULES is not set/enabled:
 > 
-> On 5/25/22 4:14 PM, Sudeep Holla wrote:
-> > The cacheinfo for a given CPU at a given index is used at quite a few
-> > places by fetching the base point for index 0 using the helper
-> > per_cpu_cacheinfo(cpu) and offseting it by the required index.
-> > 
-> > Instead, add another helper to fetch the required pointer directly and
-> > use it to simplify and improve readability.
-> > 
-> > Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> > ---
-> >   drivers/base/cacheinfo.c | 14 +++++++-------
-> >   1 file changed, 7 insertions(+), 7 deletions(-)
-> > 
+> ../arch/riscv/kernel/elf_kexec.c:353:9: error: unknown type name 'Elf_Rela'; did you mean 'Elf64_Rela'?
+>   353 |         Elf_Rela *relas;
+>       |         ^~~~~~~~
+>       |         Elf64_Rela
 > 
-> s/offseting/offsetting
-> 
-> It looks good to me with below nits fixed:
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
-> 
-> > diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-> > index b0bde272e2ae..c4547d8ac6f3 100644
-> > --- a/drivers/base/cacheinfo.c
-> > +++ b/drivers/base/cacheinfo.c
-> > @@ -25,6 +25,8 @@ static DEFINE_PER_CPU(struct cpu_cacheinfo, ci_cpu_cacheinfo);
-> >   #define ci_cacheinfo(cpu)	(&per_cpu(ci_cpu_cacheinfo, cpu))
-> >   #define cache_leaves(cpu)	(ci_cacheinfo(cpu)->num_leaves)
-> >   #define per_cpu_cacheinfo(cpu)	(ci_cacheinfo(cpu)->info_list)
-> > +#define per_cpu_cacheinfo_idx(cpu, idx)		\
-> > +				(per_cpu_cacheinfo(cpu) + (idx))
-> >   struct cpu_cacheinfo *get_cpu_cacheinfo(unsigned int cpu)
-> >   {
-> > @@ -172,7 +174,7 @@ static int cache_setup_of_node(unsigned int cpu)
-> >   	}
-> >   	while (index < cache_leaves(cpu)) {
-> > -		this_leaf = this_cpu_ci->info_list + index;
-> > +		this_leaf = per_cpu_cacheinfo_idx(cpu, index);
-> >   		if (this_leaf->level != 1)
-> >   			np = of_find_next_cache_node(np);
-> >   		else
-> > @@ -231,7 +233,7 @@ static int cache_shared_cpu_map_setup(unsigned int cpu)
-> >   	for (index = 0; index < cache_leaves(cpu); index++) {
-> >   		unsigned int i;
-> > -		this_leaf = this_cpu_ci->info_list + index;
-> > +		this_leaf = per_cpu_cacheinfo_idx(cpu, index);
-> >   		/* skip if shared_cpu_map is already populated */
-> >   		if (!cpumask_empty(&this_leaf->shared_cpu_map))
-> >   			continue;
-> > @@ -242,7 +244,7 @@ static int cache_shared_cpu_map_setup(unsigned int cpu)
-> >   			if (i == cpu || !sib_cpu_ci->info_list)
-> >   				continue;/* skip if itself or no cacheinfo */
-> > -			sib_leaf = sib_cpu_ci->info_list + index;
-> > +			sib_leaf = per_cpu_cacheinfo_idx(i, index);
-> >   			if (cache_leaves_are_shared(this_leaf, sib_leaf)) {
-> >   				cpumask_set_cpu(cpu, &sib_leaf->shared_cpu_map);
-> >   				cpumask_set_cpu(i, &this_leaf->shared_cpu_map);
-> > @@ -258,12 +260,11 @@ static int cache_shared_cpu_map_setup(unsigned int cpu)
-> >   static void cache_shared_cpu_map_remove(unsigned int cpu)
-> >   {
-> > -	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
-> >   	struct cacheinfo *this_leaf, *sib_leaf;
-> >   	unsigned int sibling, index;
-> >   	for (index = 0; index < cache_leaves(cpu); index++) {
-> > -		this_leaf = this_cpu_ci->info_list + index;
-> > +		this_leaf = per_cpu_cacheinfo_idx(cpu, index);
-> >   		for_each_cpu(sibling, &this_leaf->shared_cpu_map) {
-> >   			struct cpu_cacheinfo *sib_cpu_ci;
-> > 
-> 
-> In cache_shared_cpu_map_remove(), the newly introduced macro
-> can be applied when the sibling CPU's cache info is fetched.
-> 
->     sib_leaf = sib_cpu_ci->info_list + index;
-> 
->     to
-> 
->     sib_leaf = per_cpu_cacheinfo_idx(sibling, index);
+> Replace Elf_Rela by Elf64_Rela to avoid relying on CONFIG_MODULES.
 > 
 
-Right, I clearly missed to identify this. Thanks again for the review, all
-other comments are now fixed locally and pushed @[1], will post them as part
-of next version.
+BTW, does this mean that RISC-V kexec is only available on 64BIT
+and not on 32BIT?
 
---
-Regards,
-Sudeep
+thanks.
 
-[1] https://git.kernel.org/sudeep.holla/h/arch_topology
+> Signed-off-by: Li Zhengyu <lizhengyu3@huawei.com>
+> ---
+>  arch/riscv/kernel/elf_kexec.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
+> index 9cb85095fd45..0cb94992c15b 100644
+> --- a/arch/riscv/kernel/elf_kexec.c
+> +++ b/arch/riscv/kernel/elf_kexec.c
+> @@ -349,7 +349,7 @@ int arch_kexec_apply_relocations_add(struct purgatory_info *pi,
+>  {
+>  	const char *strtab, *name, *shstrtab;
+>  	const Elf_Shdr *sechdrs;
+> -	Elf_Rela *relas;
+> +	Elf64_Rela *relas;
+>  	int i, r_type;
+>  
+>  	/* String & section header string table */
+
+-- 
+~Randy
 
 _______________________________________________
 linux-riscv mailing list
