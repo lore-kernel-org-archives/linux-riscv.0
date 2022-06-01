@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7FE0C433F5
-	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jun 2022 03:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E85C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jun 2022 03:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
 	Message-ID:From:References:Cc:To:Subject:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qkqIEsNmf3B0VAwZRD11CzgW96GY2ULXiVdKN9nQcB0=; b=McJFOTE6Y7KbcX
-	8uk+QGLUZvcMPyYBal4wO7Lt2szIPhyk+b52vEZh3v63RMGJAwbpa5G0qKvqT3AF6pG1toLjdFg7+
-	X4V9RshBKitiszykZ8//sqB0Jk+AhjVoEVyDK8OhDrrAoWmRvH+mla0mkFJSy1ccH2ZxYu2zAhgRY
-	0Ar91IYidPtv/7xti1gguGY7fnbyFbhq/6LHhsJjPtY5KKAVAgVJBJU6pZzWz50HcBOB74x82wn0j
-	MMdj/uJOVjDfLEysEmLMqlyTHhEvWv+YB0dUFDv8bn2gIutu/jnn3+zdqsxaIGGqHRvRgShzB/tgu
-	QCupy1y5CVdcZ9Y4hh2g==;
+	List-Owner; bh=/Rh57hPuGnqcdctO8NBN8hiYmN+ZyHgQXZSJP0npKPs=; b=spGfLaqnBj+zci
+	MnCnVCOpXBeXbTTyQRzwHvhbtlnT6znLLZoD95YLKI5Jc6L9zW7LnnrnYcqqpA4J8QKK2hlFh75Vy
+	xwN588NyOHuvh7DJW+eCpq+tLuCeD4mBMjubK7c1X2HRdFtynI5KNXa/XwCLCVQ0ejjJqltZKFkC3
+	fZE/Ku66euTQGu3HL3keo6Hm2p9dZakhTzs5XtFyh+jYxsH/FJXv8h6yl9J2eUR75SXyYQqEIo+t0
+	xZoiF+0JE+5W2+Ly/vkbYaV2NSMF0G0b87sMCFeUNsh88YZgU0kKNxv9Xc8008FIkoJ9cQLKifYoM
+	iPpsb9rDcHaxi3O1q7Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwF3p-00DeUF-7f; Wed, 01 Jun 2022 03:30:17 +0000
+	id 1nwF5g-00Dez3-PI; Wed, 01 Jun 2022 03:32:12 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwF3e-00DeSs-68
-	for linux-riscv@lists.infradead.org; Wed, 01 Jun 2022 03:30:07 +0000
+	id 1nwF5e-00Dey0-ON
+	for linux-riscv@lists.infradead.org; Wed, 01 Jun 2022 03:32:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1654054202;
+	s=mimecast20190719; t=1654054329;
 	h=from:from:reply-to:reply-to:subject:subject:date:date:
 	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
 	 content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=g/QwG2vgWhruUHVSTvB1NROdcFoX8UsFct3vWYpMtXc=;
-	b=DJV3dzdFZYVAIVEC83Q8hMuliYi/NpGLGSoi1+W2BXQiXOd70/bnWS8PFR0Ag5LEB+7E9i
-	UYPKD//G4WTMoGCncZy+d1kEbLCTpf/X9hZowDzsHTTBx3LBLpVEoQB5maQs/H/v+hacnh
-	mlH/MwEu4nA81gB400Vz/HO9OEJBnBY=
+	bh=kFnZIZTCkehypn5WjpiRH1ndutxaCmXxpws7LN8oRps=;
+	b=a9SJeosiQC3Iq5/5H5htHNajjpDIeTpLyavNVVTyCi3PrGt+bkTJxYAr/fJNbtBFiOK9xK
+	5aT9E3iy/PFFrGruPvMW202pqcOJ/yWgu+7GRIb9Itof1etqDWmeMRF3UEEI4+Ep35jLAz
+	uC2hxtVNC5LpN1gRM8VqkMEdV4TNkco=
 Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
  [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-252-_0wYGXsEMgO2MBWxFVFRVw-1; Tue, 31 May 2022 23:29:57 -0400
-X-MC-Unique: _0wYGXsEMgO2MBWxFVFRVw-1
-Received: from smtp.corp.redhat.com (int-mx06.intmail.prod.int.rdu2.redhat.com [10.11.54.6])
+ us-mta-94-OCLPGme_PkSjycFeBZ5Y3w-1; Tue, 31 May 2022 23:32:00 -0400
+X-MC-Unique: OCLPGme_PkSjycFeBZ5Y3w-1
+Received: from smtp.corp.redhat.com (int-mx02.intmail.prod.int.rdu2.redhat.com [10.11.54.2])
 	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7A55C101A54E;
-	Wed,  1 Jun 2022 03:29:56 +0000 (UTC)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A3D5880029D;
+	Wed,  1 Jun 2022 03:31:59 +0000 (UTC)
 Received: from [10.72.12.91] (ovpn-12-91.pek2.redhat.com [10.72.12.91])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 680822166B26;
-	Wed,  1 Jun 2022 03:29:50 +0000 (UTC)
-Subject: Re: [PATCH v3 06/16] arch_topology: Add support to parse and detect
- cache attributes
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 202C940E80E1;
+	Wed,  1 Jun 2022 03:31:53 +0000 (UTC)
+Subject: Re: [PATCH v3 07/16] arch_topology: Use the last level cache
+ information from the cacheinfo
 To: Sudeep Holla <sudeep.holla@arm.com>, linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>,
  Vincent Guittot <vincent.guittot@linaro.org>,
@@ -65,18 +65,19 @@ References: <20220525081416.3306043-1-sudeep.holla@arm.com>
  <20220525081416.3306043-5-sudeep.holla@arm.com>
  <20220525081416.3306043-6-sudeep.holla@arm.com>
  <20220525081416.3306043-7-sudeep.holla@arm.com>
+ <20220525081416.3306043-8-sudeep.holla@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-Message-ID: <ccfcf360-fc61-7e6d-5814-1fb98a836f8f@redhat.com>
-Date: Wed, 1 Jun 2022 11:29:46 +0800
+Message-ID: <7e77071b-ba1f-20f4-91b8-aa0b95e92967@redhat.com>
+Date: Wed, 1 Jun 2022 11:31:50 +0800
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
  Thunderbird/68.2.0
 MIME-Version: 1.0
-In-Reply-To: <20220525081416.3306043-7-sudeep.holla@arm.com>
+In-Reply-To: <20220525081416.3306043-8-sudeep.holla@arm.com>
 Content-Language: en-US
-X-Scanned-By: MIMEDefang 2.78 on 10.11.54.6
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220531_203006_377550_00E27435 
-X-CRM114-Status: GOOD (  25.01  )
+X-CRM114-CacheID: sfid-20220531_203210_914043_C9D4B78D 
+X-CRM114-Status: GOOD (  22.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,81 +95,47 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
-
 On 5/25/22 4:14 PM, Sudeep Holla wrote:
-> Currently ACPI populates just the minimum information about the last
-> level cache from PPTT in order to feed the same to build sched_domains.
-> Similar support for DT platforms is not present.
+> The cacheinfo is now initialised early along with the CPU topology
+> initialisation. Instead of relying on the LLC ID information parsed
+> separately only with ACPI PPTT elsewhere, migrate to use the similar
+> information from the cacheinfo.
 > 
-> In order to enable the same, the entire cache hierarchy information can
-> be built as part of CPU topoplogy parsing both on ACPI and DT platforms.
-> 
-> Note that this change builds the cacheinfo early even on ACPI systems, but
-> the current mechanism of building llc_sibling mask remains unchanged.
+> This is generic for both DT and ACPI systems. The ACPI LLC ID information
+> parsed separately can now be removed from arch specific code.
 > 
 > Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 > ---
->   drivers/base/arch_topology.c | 23 ++++++++++++++++-------
->   1 file changed, 16 insertions(+), 7 deletions(-)
+>   drivers/base/arch_topology.c | 5 +++--
+>   1 file changed, 3 insertions(+), 2 deletions(-)
 > 
-
-With below nits fixed:
 
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index f73b836047cf..765723448b10 100644
+> index 765723448b10..4c486e4e6f2f 100644
 > --- a/drivers/base/arch_topology.c
 > +++ b/drivers/base/arch_topology.c
-> @@ -7,6 +7,7 @@
->    */
->   
->   #include <linux/acpi.h>
-> +#include <linux/cacheinfo.h>
->   #include <linux/cpu.h>
->   #include <linux/cpufreq.h>
->   #include <linux/device.h>
-> @@ -775,15 +776,23 @@ __weak int __init parse_acpi_topology(void)
->   #if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
->   void __init init_cpu_topology(void)
->   {
-> +	int ret, cpu;
+> @@ -663,7 +663,8 @@ const struct cpumask *cpu_coregroup_mask(int cpu)
+>   		/* not numa in package, lets use the package siblings */
+>   		core_mask = &cpu_topology[cpu].core_sibling;
+>   	}
+> -	if (cpu_topology[cpu].llc_id != -1) {
 > +
->   	reset_cpu_topology();
-> +	ret = parse_acpi_topology();
-> +	if (!ret)
-> +		ret = of_have_populated_dt() && parse_dt_topology();
+> +	if (last_level_cache_is_valid(cpu)) {
+>   		if (cpumask_subset(&cpu_topology[cpu].llc_sibling, core_mask))
+>   			core_mask = &cpu_topology[cpu].llc_sibling;
+>   	}
+> @@ -694,7 +695,7 @@ void update_siblings_masks(unsigned int cpuid)
+>   	for_each_online_cpu(cpu) {
+>   		cpu_topo = &cpu_topology[cpu];
 >   
-> -	/*
-> -	 * Discard anything that was parsed if we hit an error so we
-> -	 * don't use partial information.
-> -	 */
-> -	if (parse_acpi_topology())
-> -		reset_cpu_topology();
-> -	else if (of_have_populated_dt() && parse_dt_topology())
-> +	if(ret) {
-> +		/*
-> +		 * Discard anything that was parsed if we hit an error so we
-> +		 * don't use partial information.
-> +		 */
->   		reset_cpu_topology();
-> +		return;
-> +	}
-> +
-> +	for_each_possible_cpu(cpu)
-> +		detect_cache_attributes(cpu);
->   }
->   #endif
+> -		if (cpu_topo->llc_id != -1 && cpuid_topo->llc_id == cpu_topo->llc_id) {
+> +		if (last_level_cache_is_shared(cpu, cpuid)) {
+>   			cpumask_set_cpu(cpu, &cpuid_topo->llc_sibling);
+>   			cpumask_set_cpu(cpuid, &cpu_topo->llc_sibling);
+>   		}
 > 
-
-# ./scripts/checkpatch.pl --codespell patch/check/0006*
-ERROR: space required before the open parenthesis '('
-#55: FILE: drivers/base/arch_topology.c:786:
-+	if(ret) {
-
-Thanks,
-Gavin
 
 
 _______________________________________________
