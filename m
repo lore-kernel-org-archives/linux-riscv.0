@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3E1BC433F5
-	for <linux-riscv@archiver.kernel.org>; Tue, 31 May 2022 23:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DCE0C433F5
+	for <linux-riscv@archiver.kernel.org>; Wed,  1 Jun 2022 02:45:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=OpqBKdHt0lPwcaT0wThHnTWDWdxeBf6Md7YQH7kPnsY=; b=p44akILWDK1EPDtssTN3pPowlQ
-	5hZNjev2BdvNUhqpRBzmxBTgCxlg5xg2c58+m6OCoEsJxUOo2NJ/tjciHF+1HUgQxi8T9aXG+9gZZ
-	dWEmVoYjyDtQlqV0Y67YcQN+hecnXWLNYTqtHCzI3WUtKugyXDlo5OXRcJM0OZNRWW6WpzN/YQQ+6
-	KDGzDTMWClY/RXNQJqTGwRRJUKrjVvPqGuoKIEz0nwC6IZhB4kpVB8LEsNCX/XZg7bLaTCSvxBz5y
-	KQd6bUg9SC955hZGU2lxNHMPIp9r2oyp4JG90NL4L4BpiOXsUipfrYXNhpGkJtmb0KLAB8+iu9K/2
-	1KV7bIbg==;
+	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4/VBbx7uLgmuXBwROEUGmqvxCFfT4b8LR9q1BR9raGA=; b=T0vAbaKZ0qjDSj
+	PFwvwDR+3ecMy7Iu8TyQFXhqwMNyxA+iAiWGHkPz905SwYCxkO9zIXZrr4x9MnQrDYy1MXGu48IjM
+	CLhPP85Hlan5HlMZ0W3saB0n0rkCDh2wvnsUKfJJswdfO0IMzx/6sPC5amJPg6LY2eSw3sqBZP6QT
+	8woth7+74eZE8znVBzWvI5zFdMm9MDtzmZUR+dYYEf/zrL7Sge80KgQvKN2qLHeTJ1t5blojK+HFs
+	JwTMLQbBEUFXXfhvr5eOlfdweTZRXu1UWSXYts0NNMwDAPksvj5VkLSIfndVF65Uifk7eQV3geqhI
+	SA0t7iIS6CXbuXQkrCZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwBCX-00CzV7-EI; Tue, 31 May 2022 23:23:01 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1nwEMI-00DTz5-LB; Wed, 01 Jun 2022 02:45:18 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwBCU-00CzTn-JA
-	for linux-riscv@lists.infradead.org; Tue, 31 May 2022 23:23:00 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id l20-20020a17090a409400b001dd2a9d555bso379200pjg.0
-        for <linux-riscv@lists.infradead.org>; Tue, 31 May 2022 16:22:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=FKa/exg80q3Okni/CqHYIJ750Grih4tzVzwD5wDdMrk=;
-        b=2jk4pcLua88t2dFrSqdSOuzeQo4JdMC8qT0jX+1K/Y2Hzl4X5eLNpSH18ruVc8z9IB
-         mmhTM6Ef0Qm8P5mW/fJTWwvOhi52djawAZ4l3SmHR2zhvP6W/N8FuIzoutR+P4CdGCtS
-         nWdRMMfoLy4nosxsd3Tr73cWuHnmsJ/oUloRNZnkIOpeoAr0CSl3m4o8CZqqfE/32jxV
-         8yl5fweKk4s+qFBVUkrz4X7EVgRZBhueE4qpzm9PQMlRtLscQEuj6Vx0SsPBG9R8G36V
-         RPr8LbAFjSGYZSRa1LQmO/HZy3G6Ge3bcPkm12VE0wrLVlNo+ohQEIueMLe0d1MLsQky
-         pGgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=FKa/exg80q3Okni/CqHYIJ750Grih4tzVzwD5wDdMrk=;
-        b=2u+YaZHc7s0TarPFQvmX5ln/U/UdqeCd9LQ+Gk1a8lIMeQ4giM8gXgUdJbJCVKM9oC
-         E8W8I388QSIQUOSF348Ix73G67bZemW0r2thvioWd2uO97+HUJzE9y3GzvdytdGVnnRO
-         fRB5bIX5Kz9cao9zrIFNDQh5RBnkjQ8EiOT36tX6Po8pY7C/uADgNmOPov5OtaM7kB2V
-         ORBkm9mSatJCuEzgjDBVipVWrn8ZWEqUUizBcJmOwoh3Aoa9u37b7ekTpuEl8i3h+6zG
-         GDIqwZ0+PV6S4spQ86cqpj247PKfsFq7kXTUrpFweCVe8Z2t7Brmh6ZgG5FMBCBMYv/1
-         coUQ==
-X-Gm-Message-State: AOAM531JvUosxba4QevFF0Q9ZvACZMINcwczYi9W33sO4o9j3+SM/X5B
-	tF1nUOSMA/1lkNPlOwuQuk6lGdMA9Ed/4A==
-X-Google-Smtp-Source: ABdhPJwrGZs7IUC2JzbLIn3lRMOLiBR0ER03E5PHcGqnVKAOPXe5sDdBTFXcvWVVpAurdfHRc7Y/2w==
-X-Received: by 2002:a17:90a:5c84:b0:1dc:9b42:f2cf with SMTP id r4-20020a17090a5c8400b001dc9b42f2cfmr30970168pji.123.1654039374887;
-        Tue, 31 May 2022 16:22:54 -0700 (PDT)
-Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id iz18-20020a170902ef9200b0016363b15acasm87280plb.112.2022.05.31.16.22.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 31 May 2022 16:22:54 -0700 (PDT)
-Date: Tue, 31 May 2022 16:22:54 -0700 (PDT)
-X-Google-Original-Date: Tue, 31 May 2022 16:22:51 PDT (-0700)
-Subject: Re: [GIT PULL] RISC-V Patches for the 5.19 Merge Window, Part 1
-In-Reply-To: <CAHk-=whMTEAuBRAS7aonfVM9wgupOok4HO6gX9X0FBzE3Uv2sA@mail.gmail.com>
-CC: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>, Arnd Bergmann <arnd@arndb.de>
-Message-ID: <mhng-c2485265-8142-4d5e-9b9f-2b63d1e01647@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1nwEMF-00DTxw-TG
+	for linux-riscv@lists.infradead.org; Wed, 01 Jun 2022 02:45:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1654051513;
+	h=from:from:reply-to:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=AEUTBuWVkrETXE9QRFuZ4bP6hQm8hLmCEidMv+jxERM=;
+	b=C0heZlbOv7FKAQlxZ21Vk/bCMblQ4xC5lTqv5f+3iilzBWUPGm3XviftxBEL3e7M9UMPFp
+	N99FAGkG1cc7DCTdIiWpu/Xg9LwQUdapoGDwh1iacdt0Jehx0+bmUlNGXgKFg3FJLYmI8p
+	f/3GiyRWKFYJ+sqnrsiJJAwfI1wPRBg=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-646-yHCAUUJzO--fSDe1x9l4pQ-1; Tue, 31 May 2022 22:44:31 -0400
+X-MC-Unique: yHCAUUJzO--fSDe1x9l4pQ-1
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.rdu2.redhat.com [10.11.54.5])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 1A9D9833976;
+	Wed,  1 Jun 2022 02:44:31 +0000 (UTC)
+Received: from [10.72.12.91] (ovpn-12-91.pek2.redhat.com [10.72.12.91])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 701128288A;
+	Wed,  1 Jun 2022 02:44:23 +0000 (UTC)
+Subject: Re: [PATCH v3 02/16] cacheinfo: Add helper to access any cache index
+ for a given CPU
+To: Sudeep Holla <sudeep.holla@arm.com>, linux-kernel@vger.kernel.org
+Cc: Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Morten Rasmussen <morten.rasmussen@arm.com>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, Qing Wang <wangqing@vivo.com>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Rob Herring <robh+dt@kernel.org>
+References: <20220525081416.3306043-1-sudeep.holla@arm.com>
+ <20220525081416.3306043-2-sudeep.holla@arm.com>
+ <20220525081416.3306043-3-sudeep.holla@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+Message-ID: <9a70f2b2-e45c-b125-1c14-d5a06097be58@redhat.com>
+Date: Wed, 1 Jun 2022 10:44:20 +0800
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.2.0
+MIME-Version: 1.0
+In-Reply-To: <20220525081416.3306043-3-sudeep.holla@arm.com>
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 2.79 on 10.11.54.5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220531_162258_896770_FEF463BA 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20220531_194516_069556_B5C397EA 
+X-CRM114-Status: GOOD (  26.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,51 +84,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Gavin Shan <gshan@redhat.com>
 Content-Transfer-Encoding: 7bit
 Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+Arnd, who probably saw this already...
+Hi Sudeep,
 
-On Tue, 31 May 2022 14:52:16 PDT (-0700), Linus Torvalds wrote:
-> On Tue, May 31, 2022 at 10:13 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->>
->> I have a single manual resolution in the fe510 device tree, just the result of
->> some conflicting fixes.  It's not showing up in my merge, but a bunch of other
->> automatic resolutions are which is a bit worrisome on my end -- I don't usually
->> touch other trees, but we had a handful of big cross-tree things this time.
->
-> Gaah. I'd have normally preferred for things like this to go through
-> Arnd, but it looks like he at least ack'ed these things..
+On 5/25/22 4:14 PM, Sudeep Holla wrote:
+> The cacheinfo for a given CPU at a given index is used at quite a few
+> places by fetching the base point for index 0 using the helper
+> per_cpu_cacheinfo(cpu) and offseting it by the required index.
+> 
+> Instead, add another helper to fetch the required pointer directly and
+> use it to simplify and improve readability.
+> 
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
+>   drivers/base/cacheinfo.c | 14 +++++++-------
+>   1 file changed, 7 insertions(+), 7 deletions(-)
+> 
 
-Ya, makes sense -- I don't really like touching other peoples' trees, 
-it's a headache for everyone.  There is a bit of overhead involved in 
-doing one of the multi-tree merges, though, so I'm never quite sure 
-where to draw the line.  We did one for the spinlocks where it was 
-pretty clear that was the way to go, as it was used by a handful of 
-trees and didn't take that long to get the RISC-V bits cleaned up.
+s/offseting/offsetting
 
-The compat stuff was a mess for a cycle or two, though, and RISC-V was 
-the only user of the new bits.  I always feel bad trying to dump messes 
-on other folks, so I figured it was easier to just fix it myself and by 
-the time that happened it looked like everyone else had stopped paying 
-attention.  I poked it a few times both before and after putting into my 
-for-next, but with the Acks I just took it.
+It looks good to me with below nits fixed:
 
-After seeing those conflicts I kind of wanted to push for it to get 
-merged a different way.  Had it not been both before some other 
-stuff and a persistent headache I probably would have just sent the PR 
-before that merge and asked folks again, but I guess I just wanted to 
-finally have this one done.
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-Though now that I say that, merging something because it was a headache 
-is probably the wrong message to send folks... ;)
 
-> I've obviously pulled it, as you can see from the pr-tracker-bot reply
-> that already went out.
+> diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
+> index b0bde272e2ae..c4547d8ac6f3 100644
+> --- a/drivers/base/cacheinfo.c
+> +++ b/drivers/base/cacheinfo.c
+> @@ -25,6 +25,8 @@ static DEFINE_PER_CPU(struct cpu_cacheinfo, ci_cpu_cacheinfo);
+>   #define ci_cacheinfo(cpu)	(&per_cpu(ci_cpu_cacheinfo, cpu))
+>   #define cache_leaves(cpu)	(ci_cacheinfo(cpu)->num_leaves)
+>   #define per_cpu_cacheinfo(cpu)	(ci_cacheinfo(cpu)->info_list)
+> +#define per_cpu_cacheinfo_idx(cpu, idx)		\
+> +				(per_cpu_cacheinfo(cpu) + (idx))
+>   
+>   struct cpu_cacheinfo *get_cpu_cacheinfo(unsigned int cpu)
+>   {
+> @@ -172,7 +174,7 @@ static int cache_setup_of_node(unsigned int cpu)
+>   	}
+>   
+>   	while (index < cache_leaves(cpu)) {
+> -		this_leaf = this_cpu_ci->info_list + index;
+> +		this_leaf = per_cpu_cacheinfo_idx(cpu, index);
+>   		if (this_leaf->level != 1)
+>   			np = of_find_next_cache_node(np);
+>   		else
+> @@ -231,7 +233,7 @@ static int cache_shared_cpu_map_setup(unsigned int cpu)
+>   	for (index = 0; index < cache_leaves(cpu); index++) {
+>   		unsigned int i;
+>   
+> -		this_leaf = this_cpu_ci->info_list + index;
+> +		this_leaf = per_cpu_cacheinfo_idx(cpu, index);
+>   		/* skip if shared_cpu_map is already populated */
+>   		if (!cpumask_empty(&this_leaf->shared_cpu_map))
+>   			continue;
+> @@ -242,7 +244,7 @@ static int cache_shared_cpu_map_setup(unsigned int cpu)
+>   
+>   			if (i == cpu || !sib_cpu_ci->info_list)
+>   				continue;/* skip if itself or no cacheinfo */
+> -			sib_leaf = sib_cpu_ci->info_list + index;
+> +			sib_leaf = per_cpu_cacheinfo_idx(i, index);
+>   			if (cache_leaves_are_shared(this_leaf, sib_leaf)) {
+>   				cpumask_set_cpu(cpu, &sib_leaf->shared_cpu_map);
+>   				cpumask_set_cpu(i, &this_leaf->shared_cpu_map);
+> @@ -258,12 +260,11 @@ static int cache_shared_cpu_map_setup(unsigned int cpu)
+>   
+>   static void cache_shared_cpu_map_remove(unsigned int cpu)
+>   {
+> -	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+>   	struct cacheinfo *this_leaf, *sib_leaf;
+>   	unsigned int sibling, index;
+>   
+>   	for (index = 0; index < cache_leaves(cpu); index++) {
+> -		this_leaf = this_cpu_ci->info_list + index;
+> +		this_leaf = per_cpu_cacheinfo_idx(cpu, index);
+>   		for_each_cpu(sibling, &this_leaf->shared_cpu_map) {
+>   			struct cpu_cacheinfo *sib_cpu_ci;
+> 
 
-Thanks, I'll try not to make a mess next time.
+In cache_shared_cpu_map_remove(), the newly introduced macro
+can be applied when the sibling CPU's cache info is fetched.
+
+     sib_leaf = sib_cpu_ci->info_list + index;
+
+     to
+
+     sib_leaf = per_cpu_cacheinfo_idx(sibling, index);
+
+   
+> @@ -609,7 +610,6 @@ static int cache_add_dev(unsigned int cpu)
+>   	int rc;
+>   	struct device *ci_dev, *parent;
+>   	struct cacheinfo *this_leaf;
+> -	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
+>   	const struct attribute_group **cache_groups;
+>   
+>   	rc = cpu_cache_sysfs_init(cpu);
+> @@ -618,7 +618,7 @@ static int cache_add_dev(unsigned int cpu)
+>   
+>   	parent = per_cpu_cache_dev(cpu);
+>   	for (i = 0; i < cache_leaves(cpu); i++) {
+> -		this_leaf = this_cpu_ci->info_list + i;
+> +		this_leaf = per_cpu_cacheinfo_idx(cpu, i);
+>   		if (this_leaf->disable_sysfs)
+>   			continue;
+>   		if (this_leaf->type == CACHE_TYPE_NOCACHE)
+> 
+
+Thanks,
+Gavin
+
 
 _______________________________________________
 linux-riscv mailing list
