@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04255C43334
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 02:08:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA92DC43334
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 03:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=KL8H2X0ICvivvNE0qzaj64oCR0x3jMdmBcFn7nfoSLw=; b=umgP4P62XxKIljvVFNjpjqFZ8W
-	ynbcRL733zgV/iQ0TyLPkoAtS6cuXUEDqG5cL+vTI5HLEO0+GTnsgEOP2c6O5BNj2w6cq9XpnK0N4
-	eXmCwBNBDqL/vsh4t3r04Pfo857scmbRhqq+O9kVYC8q629+kk89t5rsM8Z6+u6BuNHLGUoPagMT2
-	/jmu4SoQHnlrxYAf3HjKWENXsPrNa1X3gOiORxxFUQ7+ewvm9/xJWTjvxb8tZW5NmtRCfWQtcRpLV
-	yW1R3k7pQZOB57LijhZq2vSk9QDLf4LdJa2BvTBAEyCwirSJz2MJ/iFT08ksqrM1LEZp/GxcjCLb7
-	5qBnBCsA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:
+	In-Reply-To:Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=PslADaDEkYPWXKEQ4PHHwRypLdUOmnzKnZ48+QwAMYk=; b=C2GYlysFx8KdYn
+	hcv6VQyiLHIrwz+ewjXNusc1gtp/cIT136arD0QOzfvy0nMfZZmgTiYPnqpABoxA7a3HssqDAwGMM
+	4uq7dDRzIVZRdlN6ByCoPOWLSPmDyhBUTQZBjebtDsJaP8lIzgZEBE/Qm4RcFIlGJQMGnM7PCK9A2
+	Gi9WCZzP5sHlbkdpAgW/NLEu1qSbRFUQcEo6mVHg1jP3NsyXpbjk1xNX+6Cib8gTJ06Bntd+NVSum
+	WRz+IlRZjGkO2NGsCXeyMDsSa68+FbJQTju/bjcWNqXta/6W1YPYOL+CjIoMXWa3o32l1IfTDcPT/
+	xphCK5F1Xwosy2VFVPhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwaGO-0015HV-NL; Thu, 02 Jun 2022 02:08:40 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1nwbVB-001F5c-7R; Thu, 02 Jun 2022 03:28:01 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwaGM-0015GJ-M5
-	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 02:08:40 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id u2so3533472pfc.2
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Jun 2022 19:08:37 -0700 (PDT)
+	id 1nwbV7-001F53-DV
+	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 03:27:59 +0000
+Received: by mail-pl1-x634.google.com with SMTP id w3so3415310plp.13
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Jun 2022 20:27:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=xYNTX2mpCMe8a0CcUXMvFebxOL0u5asl+aYsJ5XYMjw=;
-        b=cfhjd+GFR3CD1LDDxAUy4k5bHPl45dgK9L/vFFk6dWbmx/2IC9t23TxgwOX8opDZRM
-         q8PIsJmZe3IzZlTUIRJmdNQjMwjQ3gIuIV6REDqvDFlT7pcN28g2yQNraBLTXnwXjwnD
-         OpDiVQec+JceZfIOIsKZPuETylI6T/gGahTY1z9K3QFzFxR3E8DI7zIi8DiFU2BhPYzu
-         n4S/nURC3V6Kmfalq9dV6/Bfp6b6AdypUUOSZ8fJGXDVThTLGLlALsQLa7jKgw6An6O8
-         jQ9qj4UyEVKijpALfnEctLkGitft0iaWZXJIo3FgGvL1ZIUoufO7zb6RpUC0kTmgN52g
-         PlXw==
+        h=date:subject:in-reply-to:cc:from:to:message-id;
+        bh=rnA3YE+pv8nNqtZ8f73F4bpfaP5ih+dKJDHetvSZNy4=;
+        b=rdXjcC9sYNcjE0vyUHyP/+5WkX5RXDVVWw1cGVppt2JORKzG5E0S1NQQI+wyUKVrML
+         b8I88p8JeJCJKmNLMzUY5ZncOjT6SB4aRnzu1sHinebFDHbl7u7Ywu+EIsmfyfrOiJJk
+         RjUyHhjrE9jeYVvKpTzssO+/R6uIc+4MKsNhHC+i55ygkSbpnqolwYdiP2Us2K8OzRqC
+         /cj1VWBDT0EfP1SfJbh8/DYjYu8dyLfyxD3Uat0keTuFANYSntpTlF1Tx5uDsTfrYYCe
+         UoaGk80WbGYL5EQsZvn4hbXvDMIhwyipyqa/dTC67zAlC14WrrjhNJO7fV48fOV1A2Ci
+         BHuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=xYNTX2mpCMe8a0CcUXMvFebxOL0u5asl+aYsJ5XYMjw=;
-        b=wP/fqj4TTy3QKbhA0wvh/lxT4oaZocr12FDj7vcd66XtPn4qPuEhn+yV4iOlzcO/jJ
-         ENsr+RHXWrCjPM5jwdsGN41XDT6wZwpshnhkHccs6hshsclBN/i4ieTVy1FOdfNw9r/S
-         SWjAlHZEYToV9vb9J4aXbbO2IEMA22QazA0NqAMRibOqeRKR2foROM8MEZ1eYy4Gwix4
-         FLBVIyBfhFkch9N7z/nb+RRPPPDM0EEEg9M32lE9AMRt7j0QAIYR3USfMiVfrReQUezW
-         A9l6ARNh/xoW7eefXMsdDWOWBanP7ay0G/T7UExbuHJ3DpVHofb69WAy8rjhqmzs+ff2
-         /hrg==
-X-Gm-Message-State: AOAM530PttOziXlBF1BbszT97nEJrQxO/+pa3Gon3QjwuNZ5yY8zoZpT
-	ZU8bgkeMO1tJeEO5dmy1uarpGi2KWNic0w==
-X-Google-Smtp-Source: ABdhPJwM6jMU+4HQhS5HV0eRbtnoUKzXjjqPmMTyZ9hNeBb7jNsAtYwRg5OlZ99Zx1IQ9DKrdMFlDQ==
-X-Received: by 2002:a05:6a00:1a44:b0:510:a043:3b09 with SMTP id h4-20020a056a001a4400b00510a0433b09mr69073282pfv.62.1654135716389;
-        Wed, 01 Jun 2022 19:08:36 -0700 (PDT)
+        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id;
+        bh=rnA3YE+pv8nNqtZ8f73F4bpfaP5ih+dKJDHetvSZNy4=;
+        b=I98eYluNWM41Xnq1MhwhYdDqr9z/3e83JSHEnjfwfPAnBfJ2gId/qFwzx4v4phlKmW
+         4OiAnSZVTMG9H7OEdTG9KphqJQGCOgr2z18PKiknAuVxmbyFw4J/d0NUiNW0KUv699MM
+         s0ERHEXm58t7TTz+frPXMHdY8GdWolVrXAu70ArlF8zcqhGImk1xk7olbkTvhdYsLavD
+         wv1hW6IMfIFC2MYk92dkn6VhteNpODU5vESTgu1Y70hZVFacWO3YohjSU5Mo+qfI8QUk
+         I0+FLVDoxF+CVcmMCrHnakYv9TEMZCC2VndlbRr16JYD9SBx7+lf4gdHH7flGZKjlJ2J
+         IMzA==
+X-Gm-Message-State: AOAM532czwJaM9mlIX17JvGzTpSU7NAHE0y8Hw0bDHgPQYDoldPLJmXr
+	w4scOk7mNL7N5+4+Xce3zRg8lFJIsObXFw==
+X-Google-Smtp-Source: ABdhPJwLYv0nG0E1buUnJDrTuwHq/SMc18FdJWr025oYW7WTf18cX52/GBs2cYpG0n2dWHbfIYqrlA==
+X-Received: by 2002:a17:902:830a:b0:161:b926:2c3d with SMTP id bd10-20020a170902830a00b00161b9262c3dmr2686050plb.103.1654140475836;
+        Wed, 01 Jun 2022 20:27:55 -0700 (PDT)
 Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id p8-20020a1709027ec800b0016641a37e71sm156846plb.225.2022.06.01.19.08.35
+        by smtp.gmail.com with ESMTPSA id k8-20020a170902d58800b001641244d051sm2212231plh.257.2022.06.01.20.27.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jun 2022 19:08:36 -0700 (PDT)
-Date: Wed, 01 Jun 2022 19:08:36 -0700 (PDT)
-X-Google-Original-Date: Wed, 01 Jun 2022 19:08:34 PDT (-0700)
-Subject: Re: [PATCH v1] RISC-V: Only default to spinwait on SBI-0.1 and M-mode
-In-Reply-To: <20220421170354.10555-1-palmer@rivosinc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  atishp@atishpatra.org, anup@brainfault.org, Will Deacon <will@kernel.org>, mark.rutland@arm.com,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-  linux@rivosinc.com
+        Wed, 01 Jun 2022 20:27:55 -0700 (PDT)
+Date: Wed, 01 Jun 2022 20:27:55 -0700 (PDT)
+X-Google-Original-Date: Wed, 01 Jun 2022 20:20:14 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: Allow the used to downgrade to sv48 when HW supports sv57
+In-Reply-To: <CAMuHMdVE9mpRStjo3+jy9k=6A7Fur1xPW6hMtx1Nbr=3NURZTQ@mail.gmail.com>
+CC: apatel@ventanamicro.com, alexandre.ghiti@canonical.com,
+  linux-riscv@lists.infradead.org, robh+dt@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
-Message-ID: <mhng-5203a5dd-c960-4c13-827d-9512d4c1374b@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+To: geert@linux-m68k.org
+Message-ID: <mhng-fcec78d4-f1d2-4ce5-838e-cf7657ff8c98@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220601_190838_763048_B7141350 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20220601_202757_687681_21B41458 
+X-CRM114-Status: GOOD (  44.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,60 +79,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 Apr 2022 10:03:55 PDT (-0700), Palmer Dabbelt wrote:
-> From: Palmer Dabbelt <palmer@rivosinc.com>
+On Mon, 25 Apr 2022 07:30:52 PDT (-0700), geert@linux-m68k.org wrote:
+> Hi Anup,
 >
-> The spinwait boot method has been superseeded by the SBI HSM extension
-> for some time now, but it still enabled by default.  This causes some
-> issues on large hart count systems, which will hang if a physical hart
-> exists that is larger than NR_CPUS.
->
-> Users on modern SBI implemenation don't need spinwait, and while it's
-> probably possible to deal with some of the spinwait issues let's just
-> restrict the default to systems that are likely to actually use it.
->
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
-> This seems to be the source of many of my new hangs when trying to test
-> the NR_CPUS=512 support.  It's not really related, just fallout from
-> testing different setups.
-> ---
->  arch/riscv/Kconfig | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 00fd9c548f26..dd5e975abe37 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -359,7 +359,7 @@ config RISCV_SBI_V01
->  config RISCV_BOOT_SPINWAIT
->  	bool "Spinwait booting method"
->  	depends on SMP
-> -	default y
-> +	default y if RISCV_SBI_V01 || RISCV_M_MODE
->  	help
->  	  This enables support for booting Linux via spinwait method. In the
->  	  spinwait method, all cores randomly jump to Linux. One of the cores
-> @@ -370,6 +370,12 @@ config RISCV_BOOT_SPINWAIT
->  	  rely on ordered booting via SBI HSM extension which gets chosen
->  	  dynamically at runtime if the firmware supports it.
->
-> +	  Since spinwait is incompatible with sparse hart IDs, it requires
-> +	  NR_CPUS be large enough to contain the physical hart ID of the first
-> +	  hart to enter Linux.
-> +
-> +	  If unsure what to do here, say N.
-> +
->  config KEXEC
->  	bool "Kexec system call"
->  	select KEXEC_CORE
+> On Mon, Apr 25, 2022 at 4:14 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>> On Mon, Apr 25, 2022 at 7:06 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>> > On Mon, Apr 25, 2022 at 3:14 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>> > > On Mon, Apr 25, 2022 at 6:12 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>> > > > On Fri, Apr 22, 2022 at 11:42 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+>> > > > > Similar to the previous patch, this allows a dt-selected downgrade to
+>> > > > > sv48 on systems that support sv57 in case users don't need the extra VA
+>> > > > > bits and want to save memory or improve performance.
+>> > > > >
+>> > > > > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> > > > > ---
+>> > > > > This is on top of the patches from Alex's set that I dropped.
+>> > > >
+>> > > > You mean "[PATCH v3 13/13] riscv: Allow user to downgrade to sv39
+>> > > > when hw supports sv48 if !KASAN"?
+>> > > > 20211206104657.433304-14-alexandre.ghiti@canonical.com
+>> > > >
+>> > > > For both: "DT describes hardware, not software policy"?
 
-This is on for-next, with some typos fixed.
+Ya, sorry I missed that -- luckily neither of these actually boot, so 
+there wasn't much of a rush...
+
+>> > >
+>> > > It is possible that HW is designed to support both Sv48 and Sv39 but
+>> > > there is some errata due to which Sv48 does not work correctly ?
+>> >
+>> > In that case, I assume the software has to disable Sv48 on its own?
+>> > Fixed hardware should use a different compatible value, so software
+>> > will know when the issue is fixed, and the feature can be used.
+>> > How else is DTB backwards-compatibility supposed to work?
+>>
+>> Usually, HW vendors will use different names for incrementally
+>> improving implementations so they will tend to create separate
+>> dts/dtsi files for newer implementations with some sharing via
+>> common dtsi files.
+>
+> Even for a minor update of the SoC to fix some errata, where newer
+> boards just contain a newer revision of the silicon?
+>
+>> > > We should allow users to downgrade the MMU mode, due to
+>> > > their own reasons. In fact, users can also disable an extension
+>> > > by not showing it in the DT ISA string.
+>> >
+>> > That sounds like a software policy, too.
+>> > What is wrong with a kernel command line option?
+>>
+>> The MMU modes are detected very early and even before the kernel
+>> command-line is parsed.
+>
+> That can be fixed.
+>
+>> > If you want it in your DTB, you can add it to chosen/bootargs.
+>>
+>> If HW vendor describe complete details in DT and disables few
+>> things in chosen/bootargs then it means there is some issue with
+>> those things disabled via chosen/bootargs.
+>>
+>> A HW vendor might never want to advertise broken extensions in
+>> their implementation so the ISA string and various HART features
+>> in DT will be set based on working functionality on real hardware.
+>
+> That may be true in a perfect world.
+> Depending on the level of brokenness, the issue may not be detected
+> before devices are released into the world.  So you're better prepared
+> for such cases.
+
+IMO there's really two use cases here, and they've got different ways 
+they should be triggered:
+
+* Users who have systems with larger VA spaces, but know they aren't 
+  going to actually use that much VA and don't want to pay for.  That 
+  seems like a kernel command-line option is the best bet, as it's a 
+  user configuration option and command-line is a pretty standard way to 
+  do that.  Certainly forcing a DT modification would be odd.
+* Users who have systems that attempted to have larger VA spaces, but 
+  are actually broken.  That's just an errata and we already have errata 
+  mechanisms, so let's just stick with those.
+
+There is a bit of an elephant in the room here WRT our errata mechanism 
+where we're relying on vendors to be sufficiently well behaved that they 
+leave something we can detect at runtime to select those errata, but I'm 
+not really sure there's any way around that.  We'll just have to add 
+complexity there over time as HW vendors find new and exciting ways to 
+break things.  Wouldn't be surprised if some scheme ends up passing info 
+via DT at some point, but given that we're already relying on SBI to get 
+m{vendor,imp,arch}id maybe there's another way to do it.
+
+IIRC someone sent by an errata of this flavor already, so that's 
+probably the right place to start.  That one we should be able to do 
+without breaking medlow support, which is kind of nice.  A command-line 
+option also seems reasonable, but I don't think it's a super pressing 
+matter for now so I don't intend on working on it (though happy to take 
+patches if someone else wants to).
+
+Regardless of exactly where we go here, sounds like this isn't the right 
+answer so I'm not going to take it (or the removal of medlow, at least 
+until something needs that).
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
