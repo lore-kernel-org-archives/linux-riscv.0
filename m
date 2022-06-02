@@ -4,73 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9284EC43334
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 05:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C70CCA479
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 05:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=SmGGKg2pZvOJ7QbBQZVd0qtqhSDABUFNzjDe4sVu2/o=; b=CXhICOXsxrw1r24YE1LzvBRPgM
-	PyD+Owfbal5ZswbKFBuFyoFipGJhY2/evdfHjh5Qk16UfFgrZJ8C7mQ26JmsuAvLzoMrluWD3u28b
-	Z7AxnW0Ogwd1FW1GPsBGzQ5kuiiVIpDwF7PaHPyiFKbTc3KSbgjdn2RIMf6XBj413/b6K+uTuX7af
-	I64+6bUCfbCf5MiAaeDUBGV0jqmIvcyoUj5/EFj7P6xuVOxRCAu5sEqBys9x4ZY0pP+zxUwHBXEGJ
-	w3afUE1MihT6vfio8baFjIU60nG1eRkb6eTWPr20iox7K9/cRWm/ISC3nOaKgFZ1cc2OKv6tia0YH
-	8NM39daA==;
+	bh=j/1cln2Tvk8MR1byxtmFVDrcURnxeWOOyoE31E2oSmI=; b=sEooU7auhtu+sLOWgR5QEi1sLd
+	QZqfhkFxB4MaZeGoB/VmHHsNG7HX+l7FQj0GaeMyyyzA9hFf9shrdfdnpQp3WQzf8Ra/PUEwxZ7SN
+	IEJWx6fn7zfCQt1vI0QP0lls68xcQnyM6tT/smCxGgcjp8Q+oLUVPO8JGx2iJ9UltB3EXs6YBcOW7
+	P/f/sfWinLEy0cNvAUomveQD26aTsmdAqX4BcuHYd4nvA/1y3VXvFYPldpq9ad8Tyo6EKp5C77MvA
+	Tn/kIJd0NkrqmvyTLQ0xVa7HOeA7FOun8zrI/EVs7vFeJp0oG15lCut1e+KYrMlp2aKn6p3rFSmke
+	p+GHqY0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwdpr-001Znl-J1; Thu, 02 Jun 2022 05:57:31 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1nwdqY-001aBu-MD; Thu, 02 Jun 2022 05:58:14 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwdpn-001Zkl-O7
-	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 05:57:29 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id q123so3878136pgq.6
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Jun 2022 22:57:25 -0700 (PDT)
+	id 1nwdqV-001a9e-Kd
+	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 05:58:12 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id c2so3685700plh.2
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Jun 2022 22:58:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
          :content-transfer-encoding;
-        bh=eCxEx+lGKntTG7Fb8tQyhburmQhM2/HBYS9YgGU41Xc=;
-        b=edIKWMrX1gHLqKaFFQg3AuQnb/ENAgn6yaiyBB5RU1h8WL7s78CjgBV8+TMSixJl+v
-         XJqxry4JLFf0bQ8lAPAcuO9GuwjT7Baa39Wnu/CqWFDHiymb0Q4gk5phbYwIzshjlq61
-         w9wxqtjJXJ/WDtrGeHQJ9TFn0rGeqayHbNLfvBHBDoftA//VRHcI2G/4m5xFAkguwZGA
-         RejZ0N3djpuQH5KcDr8bcTtigJO+6T9y66N1RMJfhqlDIBJQ+LQPfhnFjUSS19gSKsdH
-         G2F/FSq+boEJH0ukdCyM9I/BtYHkIoX0/HG/xWdJENzvptRByHTHILfNPfrbBbm2bNMK
-         bVug==
+        bh=wPBDv8Xucc9F0KVOT9xu9iIByq/KGBHHhKQJwLqoVzg=;
+        b=7QtUdqwtlxbxKjdEeEOqac39coDUMufeS3DRibw4LOSr5kIRLNnFCJEloUjDmkQEGf
+         gQKGkV+trBHjvPm594tJbQM/K1aT2M+Ay1xigvc4ialetNXUgNauPjoxBpJyVu9zSrD/
+         akF9IyP8z1fLNWfc5onE9XZLGF8/jRLd92kqvP8uBpsnTf8dtyXxQMiP8os9dcKgDeDg
+         F3DKSsd4r+Jx5okQUnsR2D8wxpYnbap+W473Dr5YU1F7e9IZafHS5vNaxGe1gd3Boa6S
+         AVhm87U4bBwma9fNSGMuTNJVgmsanr9LOSMcqoblhu+oHCWWjavQoqIQmK7nIqoufjHf
+         d/gQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
          :mime-version:content-transfer-encoding;
-        bh=eCxEx+lGKntTG7Fb8tQyhburmQhM2/HBYS9YgGU41Xc=;
-        b=txxhWIb4k9j2C9i127GkMMmYmtHCOgc0wj6vUm/XwNxSwmIg90V71UqhUSi2ITiD8H
-         CebKJ2uVuBFC2I6+WgjgNgPXNd6wZvQu3WwbhqW7QJFkETaqxswC8r7qhdMNJxsAfMwx
-         nWBrtiUEGwoWTOWE8NIgE1NsxVU4G1PrCiUioyieXaJAdk5LxeVQRYLuKQpUyxdZTL4F
-         0gEhfw/lEMt8YNTS36SKHPekPXaQD6oH5m6S5Xt3Ql+Om4eoUHlGzhxydppEhSBbfkjA
-         +SDtNToSZlKLnBufSbsHFYvD/892XYjNWj/lT3X+R2edYS3xOF76B+4Dq5eIpMZwTiJn
-         dt7Q==
-X-Gm-Message-State: AOAM532FnRTmxAO+qF8pyrMIxDvBun93H1gy///w2uF/Olf/39qGctQ2
-	TsT52wtvcFN9+ZTA15rrQOH0MA==
-X-Google-Smtp-Source: ABdhPJwTM+tBIHInbx5RKvyF5S2E6WESh5R2YOu2NgwnGGh45y+xb7slw3W2Zxikj/QtLGmUateXog==
-X-Received: by 2002:a63:e603:0:b0:3fb:c191:9b65 with SMTP id g3-20020a63e603000000b003fbc1919b65mr2808347pgh.12.1654149444846;
-        Wed, 01 Jun 2022 22:57:24 -0700 (PDT)
+        bh=wPBDv8Xucc9F0KVOT9xu9iIByq/KGBHHhKQJwLqoVzg=;
+        b=MC9Z0D7Na/U14afhUEKYFUCKJfQasEQcav1opYH60ToFuFplx3CA4lyxZB9coWa5Mt
+         b4FhcQDxWvLnDhwKGyjQsrofVXBE5InKV/voDJmLCSQqFWQy/5lCkNEsDHtMTazkIrnr
+         VaR0qxQSQKzXBKPMaNmuowOnWD2QTYImIdVvWaHLMVHN1oqFO7y2fKnTcdFHWL/qYFBF
+         5ZsXb/+awwxM502uahf63xnHSNwn00kVl079nkAeRloVuMAG2BzVyYw9LPvVjIIl2GVL
+         sKbFr6GK9I724WME2wRY9C7eAm7g0WqKfijlYK4h5gQb5W7EqqMJ3TBDz1EoL7Q8yl5h
+         v+5Q==
+X-Gm-Message-State: AOAM533YOxl0W4WzQos03XcNdrF5X+kV+wFM3WvhepRZyiHNpsXhEnJ8
+	wz+TmkTC6o4c/XhHdM2nL6yCdFvrAGq5XA==
+X-Google-Smtp-Source: ABdhPJwZewGk6VykwRej+NNAIC7c5baAbdYBoLRnT9XM+o4+CPHY2Sk+7sPmGe8CcP047xSNHfmDvw==
+X-Received: by 2002:a17:902:d5cb:b0:161:6a34:37ac with SMTP id g11-20020a170902d5cb00b001616a3437acmr3170973plh.83.1654149488679;
+        Wed, 01 Jun 2022 22:58:08 -0700 (PDT)
 Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id f82-20020a623855000000b005184031963bsm2517317pfa.85.2022.06.01.22.57.24
+        by smtp.gmail.com with ESMTPSA id h69-20020a628348000000b0050dc7628138sm2621272pfe.18.2022.06.01.22.58.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jun 2022 22:57:24 -0700 (PDT)
-Date: Wed, 01 Jun 2022 22:57:24 -0700 (PDT)
-X-Google-Original-Date: Wed, 01 Jun 2022 22:14:14 PDT (-0700)
-Subject: Re: [PATCH] riscv: move errata/ and kvm/ builds to arch/riscv/Kbuild
-In-Reply-To: <20220511184408.2751850-1-masahiroy@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, masahiroy@kernel.org
+        Wed, 01 Jun 2022 22:58:08 -0700 (PDT)
+Date: Wed, 01 Jun 2022 22:58:08 -0700 (PDT)
+X-Google-Original-Date: Wed, 01 Jun 2022 22:58:06 PDT (-0700)
+Subject: Re: [PATCH v2  0/3] Miscellaneous fixes for PMU driver
+In-Reply-To: <20220513015522.910856-1-atishp@rivosinc.com>
+CC: linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>,
+  atishp@atishpatra.org, anup@brainfault.org, jszhang@kernel.org, linux-riscv@lists.infradead.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, robh+dt@kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: masahiroy@kernel.org
-Message-ID: <mhng-4c843db6-5d0a-4b89-a724-9d141b08f1c1@palmer-ri-x1c9>
+To: Atish Patra <atishp@rivosinc.com>, Will Deacon <will@kernel.org>,
+  mark.rutland@arm.com
+Message-ID: <mhng-ba83da39-dadf-4d6e-99be-a1b5fdf9b62c@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220601_225727_830192_AF8425BE 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20220601_225811_713058_FFB51AA1 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,49 +89,34 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 11 May 2022 11:44:08 PDT (-0700), masahiroy@kernel.org wrote:
-> Commit 909548d6c578 ("riscv: add arch/riscv/Kbuild") intended that
-> subdirectories in arch/riscv/ would be added in arch/riscv/Kbuild.
+On Thu, 12 May 2022 18:55:19 PDT (-0700), Atish Patra wrote:
+> This series fixes issues PMU driver code.
+> PATCH 1 & 3 are fixes for rv32 while PATCH 2 fixes a redundant
+> user page update issue during counter start.
 >
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-> ---
+> Changes from v1->v2:
+> 1. Add proper compile time rv32 checks.
 >
->  arch/riscv/Kbuild   | 2 ++
->  arch/riscv/Makefile | 3 ---
->  2 files changed, 2 insertions(+), 3 deletions(-)
+> Atish Patra (3):
+> RISC-V: Fix counter restart during overflow for RV32
+> RISC-V: Update user page mapping only once during start
+> RISC-V: Fix SBI PMU calls for RV32
 >
-> diff --git a/arch/riscv/Kbuild b/arch/riscv/Kbuild
-> index fb3397223d52..525ef2482253 100644
-> --- a/arch/riscv/Kbuild
-> +++ b/arch/riscv/Kbuild
-> @@ -2,6 +2,8 @@
->
->  obj-y += kernel/ mm/ net/
->  obj-$(CONFIG_BUILTIN_DTB) += boot/dts/
-> +obj-$(CONFIG_RISCV_ERRATA_ALTERNATIVE) += errata/
-> +obj-$(CONFIG_KVM) += kvm/
->
->  # for cleaning
->  subdir- += boot
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 7d81102cffd4..fd9fda67c038 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -103,9 +103,6 @@ endif
->
->  head-y := arch/riscv/kernel/head.o
->
-> -core-$(CONFIG_RISCV_ERRATA_ALTERNATIVE) += arch/riscv/errata/
-> -core-$(CONFIG_KVM) += arch/riscv/kvm/
-> -
->  libs-y += arch/riscv/lib/
->  libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
+> drivers/perf/riscv_pmu.c     |  1 -
+> drivers/perf/riscv_pmu_sbi.c | 16 ++++++++++++++++
+> 2 files changed, 16 insertions(+), 1 deletion(-)
 
-Thanks, this is on for-next.  There was a conflict with the 
-CONFIG_RISCV_ERRATA_ALTERNATIVE removal that I had to fix up, looks 
-pretty easy but LMK if anything went wrong.
++Will and Mark.
 
-Thanks!
+Will recently took some stuff for drivers/perf/riscv_* into his 
+for-next/perf tree (which I didn't even know about until then, oops), 
+but the previous stuff I took through the RISC-V tree.  Always happy to 
+get stuff out of my tree, just LMK what you want me to do here.
+
+I did some minor cleanups to the commit text and put them over at 
+palmer/riscv-pmu_fixes, it's all passing my tests.  These generally look 
+fine to me and they're all stable backports, so no big rush on the merge 
+window (which I still have stuff for).
 
 _______________________________________________
 linux-riscv mailing list
