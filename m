@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C214EC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 03:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1899ECCA47A
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 03:53:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=kERsfCWrfh0eFFvMV4Mk9oEnQfEC5678LNSZjkTEgpk=; b=n4g9ZFkpbh+ABKle289Ti8htdA
-	NQYlgRcRKRsvOhjcQAGzeOABoBOy8oAupbd8zShFHJpK5Kf6SuVofT/yLL23balSNKTY9HKd2mhP2
-	XTa5+o4KRrBP9FZX0fTZGeD7Wq/i/GJsUuzrJ0NikF0BarTGeDvXTeHLruFtpLFc/mFyXuy8d5q4W
-	0bMZYAdc3vQ5/sCmlfCpM9xxBbNL9Ji5rSRTe/s1QvSc1ECBszlXNJynK2LSMbx4z7l/Z4vXI+Y3y
-	rPj7RtU0VJNDXXHHkjtjdhS9+WMj+90AALTJeavMSt7+YuGhYjK2FiIeCJ9PdRI6I+r21KbbUL9Fz
-	ppr/4RAw==;
+	bh=qOJWj9f+t1mDgJ2CSW/wzpMTnavHkFBMRYLg0eY8AVc=; b=cKgcGlvPYANTlgEzxjTueZKBGe
+	3uHGb3f8Tg4A2bW1iWq1RBNWx3wA8HQZKTwzwaoeju6PCQ6OpDdGyW5Ze976hcREJoA+3Gn32j+Rz
+	TwdqEdnCcvaoVZs/GSdxr3sv2lAqSAihSr7ohqa/PiPk4tRn5TlyxqaCRUZsLmQ8u2bO3tZlsN1R/
+	8yBVTl8IIwwEw5LSCfGhepgEJMiK13/tR/tXT1aVe93GkqbT0vTY3gKdETjXtazm5ESogWEpIlBRV
+	UNpWiSe3GIGjh0ho4qPPdf06skk7ZClO/mFx+7iwMm51jJPLinWygCNDSkRCOb9go7Au5R/Dcmr/P
+	LWpoPXjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwbtI-001HkH-9o; Thu, 02 Jun 2022 03:52:56 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1nwbtJ-001Hl3-Sy; Thu, 02 Jun 2022 03:52:57 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwbtF-001Hes-6x
-	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 03:52:54 +0000
-Received: by mail-pf1-x434.google.com with SMTP id w21so3727460pfc.0
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Jun 2022 20:52:43 -0700 (PDT)
+	id 1nwbtF-001Hdq-Nh
+	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 03:52:55 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id s68so3665981pgs.10
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Jun 2022 20:52:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
          :content-transfer-encoding;
-        bh=wUCm0YHDvCYDpmRLDnHBVbbCEPwJyFjXA8+1aHpeL+o=;
-        b=zaQZpztukhJ1+lyofqGSIosNGZoFy6UaoiAmMwlnG7TUbBZYMI6JDC5A0D2Fjy65FO
-         3wjpd7Kw7u4d3jdJYyCEszI1pWkmUKH8v0Q1Ov9X0P18sGtQp+hzLkkdaoPHXI0JoV1a
-         cLJYvsDknMNt0aghuHjOJ7xw9KH3/4z+/IOArThv8R7eoqB42ZVKdfgVCvOonegYUTC2
-         l3T1YsQPVkHqYXuh3E+qQ7gqBVzIt1XyRe5Nc7hiqQ4u6JczpRjD0WbOvCJOghQVRtI7
-         VF+0E6/oYPX71Le2c/GPYKy1MpAiFtqKQsP0YGqZoJ+92onCoBMm/dIrq+uskO6PsVIL
-         v1Cg==
+        bh=9BXiqY0Nj4Qb0AGk+OZU+gzffA0Ovn22KIfjbp+GvSA=;
+        b=AxDIymCN3bLHZmx6tvL1KH2IoCyEXRQ4HdEz2zHuysCO6CYo8D2cHL5TRQgo2YcwF/
+         WXqNAknFzdxPBgP7t4Y/cyo7ttklj1eF9kdjKVDRvScDCBED/muk67Ddm8WQIazVEEi9
+         8jCHSSGsNIqmPd05mWtpzTfJ+1vR1E5U+W+KSe1iUy5RjQ8f2Zw3QX7OFVht6BkCYk+Q
+         M9p65F3d58EoV/Xdp4r/dB3dZZEdLgJhPluLjNFwI8QjrcakwANH1fnUQjAOymqPnXM9
+         wDDfOFx4c5M5/1K3lutdBMj5RVCQO+Ng3TazFBBYvrf8TuNQrZ6rX+BIGLNxMcGX4Xkz
+         j1fg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
          :mime-version:content-transfer-encoding;
-        bh=wUCm0YHDvCYDpmRLDnHBVbbCEPwJyFjXA8+1aHpeL+o=;
-        b=ggRfY/SbFJMJefJBfSHf47pg5jp6BcS5q/AdAjKdMNr2lmEct6ONJK7dUjpvdho0is
-         rNB61XE9DHx9JsMrpTqywI4S6EPZ+rxpSnOZze/XWnr6HgWlHDG+zfcMC3WZKOamFD6d
-         U2UvRHTuFOWHYHtQRHaU/oTlPEWwc0lLRVK/mQGTTw9T0xnhmvPD3bxqj3X21Mk8DunH
-         eEMCEts++cP9b0O87zrEJSKOHXipDchhMj03K6pidbviZt0dHK+Aw3EEiP2JPrv9oozk
-         kH2lDhoxJmhfg+B0UwCiC5zYcQw0eLcaIvdUbu1GJj2dcJtq0mdsgJcyPAge4KWbHKo6
-         CG9A==
-X-Gm-Message-State: AOAM533EtdEjJ85pSWxMUlsy4oNbzYbFCErb7ywdMd1Z217gUwiqLnEI
-	OUjCBaWHZUeMLsNSg6+pznHtFA==
-X-Google-Smtp-Source: ABdhPJzZ4RLRiI6C1EZH9ZYpBtQQeVUud0yToyB/5r+3PaPsNavxv+x8yaDmDLNZjYowgWVR6pw3bg==
-X-Received: by 2002:a05:6a00:2287:b0:518:85ee:9992 with SMTP id f7-20020a056a00228700b0051885ee9992mr2854759pfe.62.1654141963093;
-        Wed, 01 Jun 2022 20:52:43 -0700 (PDT)
+        bh=9BXiqY0Nj4Qb0AGk+OZU+gzffA0Ovn22KIfjbp+GvSA=;
+        b=hUkReqCovB7Pi7OSdLCIWiBN9dr08puIrwUyOaT4SEhVCPM/NNL4Z2fRsT2nBRcY3n
+         Cb+Z40sQJ3VUvO0964BV9DxNGt0084uVwi4+DyuqpdXIih0pDdfG/aI41+HXNKJZc6f5
+         nabo/t2r3I+MvRTfr9TCtyifRdjTtIPzL27gc+Cbt9IN6rl3QUfmSsZv6RRLOBXVt2/D
+         ZZEjNSFNLlSb/qH+Q5tTffdSt+kP8nPnSXtrxnmYS5nSF+uoPFiGbB5k16iCzbVsj04c
+         UdC6+B9LvI8lQ3t0i7ue3Wq+LH0ecMXL+RO/fi8ynfUQ57Rmf/0sFE2uE3nuUFawhQYB
+         8lIQ==
+X-Gm-Message-State: AOAM530jhlrrdBJFjdPRgySFBjC4T36bWVpSLhwpwb2McxfR/4ZZ9PO+
+	q7GkH+0bDEy8ppJ+73M3zRqXLqn62npVfQ==
+X-Google-Smtp-Source: ABdhPJyBcoO5bc7s101SKAiYOj5Pize2k4RuOzVIAkcCa0OmvXdqyAi1eKrc3RgYzjTiKvVVkCTW1g==
+X-Received: by 2002:a05:6a00:2187:b0:50c:ef4d:ef3b with SMTP id h7-20020a056a00218700b0050cef4def3bmr2803986pfi.83.1654141961580;
+        Wed, 01 Jun 2022 20:52:41 -0700 (PDT)
 Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id g6-20020a170902c38600b0015e9d4a5d27sm2309986plg.23.2022.06.01.20.52.42
+        by smtp.gmail.com with ESMTPSA id z12-20020a17090a8b8c00b001df666ebddesm4589047pjn.6.2022.06.01.20.52.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jun 2022 20:52:42 -0700 (PDT)
-Date: Wed, 01 Jun 2022 20:52:42 -0700 (PDT)
-X-Google-Original-Date: Wed, 01 Jun 2022 20:52:35 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: cpu.c: remove nonexistent ext from cpuinfo
-In-Reply-To: <YoSw8lNHJqRDy6lg@Sun>
-CC: Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: i@zenithal.me, i@zenithal.me, Kito Cheng <kito.cheng@gmail.com>,
-  Nelson Chu <nelson.chu@sifive.com>
-Message-ID: <mhng-7b349805-02ff-47b3-b9b5-31dcbd2bb256@palmer-ri-x1c9>
+        Wed, 01 Jun 2022 20:52:40 -0700 (PDT)
+Date: Wed, 01 Jun 2022 20:52:40 -0700 (PDT)
+X-Google-Original-Date: Wed, 01 Jun 2022 20:46:17 PDT (-0700)
+Subject: Re: [RFC PATCH v2 0/2] Risc-V Svinval support
+In-Reply-To: <20220424090216.21887-1-mchitale@ventanamicro.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  mchitale@ventanamicro.com, atishp@atishpatra.org, anup@brainfault.org, linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: mchitale@ventanamicro.com
+Message-ID: <mhng-872c15d0-15ea-499f-8c83-f011ad460cb4@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220601_205253_292898_75123618 
-X-CRM114-Status: GOOD (  26.39  )
+X-CRM114-CacheID: sfid-20220601_205253_791380_7047FD1C 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,72 +87,37 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 18 May 2022 01:40:18 PDT (-0700), i@zenithal.me wrote:
-> On Tue, Apr 26, 2022 at 06:08:01AM +0800, Hongren (Zenithal) Zheng wrote:
->> There are no single-letter B/K/J extentions,
->> as they are never ratified. For P, it is still in
->> progress and not ratified.
->>
->> The ordering constraint of these placerholders is now removed
->> from the spec. By commit ("Delete more nonexistent
->> extensions from the naming constraints") of riscv/riscv-isa-manual
+On Sun, 24 Apr 2022 02:02:14 PDT (-0700), mchitale@ventanamicro.com wrote:
 >
-> Hi, is there any further update on this patch?
+> This patch adds support for the Svinval extension as defined in the
+> Risc V Privileged specification. This patchset depends on:
+>
+> https://patchwork.kernel.org/project/linux-riscv/list/?series=632984
 
-IIRC there was some debate as to whether that change constituted an 
-incompatible change to the spec, but I guess it's stuck around for long 
-enough that maybe we should count on it being canon now?  I added Kito 
-and Nelson, there's a GNU toolchain call tomorrow morning so hopefully 
-we can remember to talk about it...
+IIRC Marc still has some unresolved feedback on that one, for the IRQ 
+bits?
 
 >
->>
->> Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
->> ---
->>  arch/riscv/kernel/cpu.c | 4 +---
->>  1 file changed, 1 insertion(+), 3 deletions(-)
->>
->> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
->> index ccb617791e56..53a061ab0743 100644
->> --- a/arch/riscv/kernel/cpu.c
->> +++ b/arch/riscv/kernel/cpu.c
->> @@ -113,10 +113,8 @@ static void print_isa_ext(struct seq_file *f)
->>  /*
->>   * These are the only valid base (single letter) ISA extensions as per the spec.
->>   * It also specifies the canonical order in which it appears in the spec.
->> - * Some of the extension may just be a place holder for now (B, K, P, J).
->> - * This should be updated once corresponding extensions are ratified.
->>   */
->> -static const char base_riscv_exts[13] = "imafdqcbkjpvh";
->> +static const char base_riscv_exts[9] = "imafdqcvh";
+> The feature was tested with qemu from latest master branch with
+> following additional patch:
+> https://lists.nongnu.org/archive/html/qemu-riscv/2022-03/msg00142.html
 >
-> The base_riscv_exts "imafdqcvh" is exactly the spec now, as
-> https://github.com/riscv/riscv-isa-manual/commit/db7a4a0dad0e99d1ec1fc67b582624fc0aeae98e
-> (Add single-letter "H" extension to the table)
-> has shown
-
-Oddly enough I stumbled upon that one this morning, it's another one of 
-these like the HPM stuff: we used to say "there's no letter describing 
-the hypervisor behavior, so it's part of the base" (see the commentary 
-on the binutils patch), but now that there's a letter I'm assuming we 
-should split that out?
-
-Not clear if the RISC-V folks want H to be ignored by software like 
-those other recent changes, and if so it's also not clear that's a good 
-idea.
-
-Anyway, sorry this is taking a while but I think it's going to be too 
-late for this merge window -- kind of silly for such a small patch, but 
-it's got interface implications and it's all a bit of a hot topic right 
-now.
-
+> Changes in V2:
 >
->>
->>  static void print_isa(struct seq_file *f, const char *isa)
->>  {
->> --
->> 2.35.1
->>
+> - Rebased on 5.18-rc3
+> - update riscv_fill_hwcap to probe Svinval extension
+>
+> Mayuresh Chitale (2):
+>   riscv: enum for svinval extension
+>   riscv: mm: use svinval instructions instead of sfence.vma
+>
+>  arch/riscv/include/asm/hwcap.h    |   1 +
+>  arch/riscv/include/asm/tlbflush.h |  12 ++++
+>  arch/riscv/kernel/cpu.c           |   1 +
+>  arch/riscv/kernel/cpufeature.c    |   1 +
+>  arch/riscv/kernel/setup.c         |   1 +
+>  arch/riscv/mm/tlbflush.c          | 116 ++++++++++++++++++++++++++++--
+>  6 files changed, 126 insertions(+), 6 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
