@@ -4,65 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91ECDC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 05:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6214C43334
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 05:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y2v6UQbhs8Rexc/lNYLYwlPnGNPtVKL/xvwnyopfLCA=; b=2IAldYbg03cQhM
-	abL72uRjeHG9Xe/2KdP0CrIhiOF6Z+EiLBplinZH+j6nrPE8k8jlArCfIoJ2rAXQjCtV/Pqc8KZX5
-	iDRqQ/WgIk8nQJi0RqJSH3HqinURFkyyNhlqhQzFHh2ln9NrsX7bNNdXK75XTw5cmsfIt3X6oJCTC
-	qrkHOCy7/cd5rIf0IaxZGURzWbWWSc2zjvc+oVt7ZqS5Hu4dCd1i7nqOb77v5rvsNZJr7DzcreV43
-	qcg6weNs0Un5JexcfaGu/PrKGWlNcaERkv2908TPCcHz3geZJQ9d262+DpcCFxCMUZqA+sSw9u0yK
-	KBpYCnDrD9Gzx+prTGUg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=P6hAdE28H5v32wbbD6ojKOiQnfG13bi8bkZl/mjHuHY=; b=FxKCfkhtYJtqewW+kUsJfAyC9k
+	k69aRworFxO05v+UGdk/jnB06sSjNBmdEiRSCir3AwwNViY5U22pUQSaZD9PWmzqx70LrxIIBX69J
+	rM3Y84Ce0iUn+XRN6Hq05+tAgofBaqT9Tl0vluCKeHQ7CWzAyrGIpm0yu6xHH9LwNNOjUY4qMw1sQ
+	gfjUjH5huLhJ4V+dct9ljaxmPsd9jDMAsJaUR61JWpFnD250/adnX7zQMWRh3VierpL8HYVM4Cdpf
+	fysAc/fLh+74/IBuG+6Stjl7/6AQbJMewnLpFzJRELAfwKcwSbxYWNwu2HofR7Ksclx6tttfA2J+2
+	/i3r4SBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwdfD-001XAw-04; Thu, 02 Jun 2022 05:46:31 +0000
-Received: from ex01.ufhost.com ([61.152.239.75])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwdf8-001Wy3-4R
-	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 05:46:29 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by ex01.ufhost.com (Postfix) with ESMTP id 0348024DBC0;
-	Thu,  2 Jun 2022 13:43:43 +0800 (CST)
-Received: from EXMBX164.cuchost.com (172.16.7.74) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.32; Thu, 2 Jun
- 2022 13:43:43 +0800
-Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX164.cuchost.com
- (172.16.6.74) with Microsoft SMTP Server (TLS) id 15.0.1497.32; Thu, 2 Jun
- 2022 13:43:42 +0800
-Received: from EXMBX161.cuchost.com ([fe80::5c09:58ab:29b:a780]) by
- EXMBX161.cuchost.com ([fe80::5c09:58ab:29b:a780%15]) with mapi id
- 15.00.1497.033; Thu, 2 Jun 2022 13:43:42 +0800
-From: Leyfoon Tan <leyfoon.tan@starfivetech.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-CC: "alexandre.ghiti@canonical.com" <alexandre.ghiti@canonical.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: arch/riscv: SV48 patch series questions
-Thread-Topic: arch/riscv: SV48 patch series questions
-Thread-Index: AdhxrOkRGR9CQf46QWqljv+TL2tt2AEQwdsAABSqKCA=
-Date: Thu, 2 Jun 2022 05:43:42 +0000
-Message-ID: <e99af0ab0a264aadb77d949c4b73fd57@EXMBX161.cuchost.com>
-References: <83813d991f96428c95c6d681c16ae852@EXMBX161.cuchost.com>
- <mhng-055df44c-3feb-41ae-b8c0-ae3a6489dee1@palmer-ri-x1c9>
-In-Reply-To: <mhng-055df44c-3feb-41ae-b8c0-ae3a6489dee1@palmer-ri-x1c9>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.188.176.82]
-x-yovoleruleagent: yovoleflag
-MIME-Version: 1.0
+	id 1nwdpn-001Zlw-7W; Thu, 02 Jun 2022 05:57:27 +0000
+Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nwdpk-001ZjF-NU
+	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 05:57:26 +0000
+Received: by mail-pf1-x434.google.com with SMTP id y189so3857628pfy.10
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Jun 2022 22:57:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+         :content-transfer-encoding;
+        bh=VFWeG644WShe6PAr0++BRYn8vwLeuQyjnw1rk2Dl1AE=;
+        b=hfczKw6u5Btpk32HLuwq4DKU+M8kfeFqX2j1vX6AHZuFsGTQrJsSE3UQXD3fD29WfL
+         zBCATyY9a9SY9g9FfcojlOgJ8stUsONu8AVgKIzmOHPYOvUEuQaiqM4Ae98E1rV8ny8P
+         P5Xf3WWpF0HrHEYDfcZz6OhypzAg9gfb696QsA7jdXmcJHOcc84GM8rTZTT2+/mzKtFv
+         oNVgfNo+xaf1EBMuu0rabG+N3k+OijR5bbzJYRHY5DpZluS/lTVGCyyGYgkHnVxLABod
+         Y0ynwuZ60piT+R1oD+sVtz8qimgMLwCusYHA0ffT3TFHWiZCmsjU94Zq8DpXeUy5YoW2
+         DNnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+         :mime-version:content-transfer-encoding;
+        bh=VFWeG644WShe6PAr0++BRYn8vwLeuQyjnw1rk2Dl1AE=;
+        b=EoNmfSjg2Hz9JMVRj8hPVjtQo0238Ns0Ey+/59KB6mwxHADL32GlCYqgM8PdzQIaGV
+         qt+0KyUanQi1rEZeyTRNdjnftFv3KJJHvjY+4JLUo8cWr+6OnqPHZ6mmQB103QsdgloJ
+         0SwiHElwlmHzolC4HSfUA/uMPjenFN7IyE3zQvlRQn06vIb43qYBqTs+nMDOROFahllO
+         iEgKwSpmu43zyQAWfcRgwF7gJrj+3DbmJmiO02vKWu1N1t/8VG2U50ze/EB+YAMKadPt
+         ly6VcujH/GyTGze/5rxw7W3GqxRv/O8blIe1jWXZtqkmUVHwoS+zwT/ZBrybPTF3EM9M
+         DCpA==
+X-Gm-Message-State: AOAM5304QzNJuMdgDT/Ns8OIqva+Umi6FIC/oWNTn19pcCvQA3rEh9kY
+	2npZaawkabhuulOqBCjBUJ72Yg==
+X-Google-Smtp-Source: ABdhPJz/kyWYFoe1u7JVPf4ygsdjVGUNEco+49t39KDhgK0h2ZMyf+r/hpu+i4F1V0IeR/2iqD34Ug==
+X-Received: by 2002:a63:28c:0:b0:3c1:6f72:7288 with SMTP id 134-20020a63028c000000b003c16f727288mr2775117pgc.564.1654149441686;
+        Wed, 01 Jun 2022 22:57:21 -0700 (PDT)
+Received: from localhost ([12.3.194.138])
+        by smtp.gmail.com with ESMTPSA id gq20-20020a17090b105400b001e26da0d28csm2343380pjb.32.2022.06.01.22.57.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jun 2022 22:57:21 -0700 (PDT)
+Date: Wed, 01 Jun 2022 22:57:21 -0700 (PDT)
+X-Google-Original-Date: Wed, 01 Jun 2022 21:50:23 PDT (-0700)
+Subject: Re: [PATCH] riscv: Wire up memfd_secret in UAPI header
+In-Reply-To: <20220505084611.tut66faep5r37r6c@distanz.ch>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, rppt@kernel.org,
+  Arnd Bergmann <arnd@arndb.de>, linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: tklauser@distanz.ch, tklauser@distanz.ch
+Message-ID: <mhng-671a8d6b-c318-431b-b209-c6bde465a420@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220601_224626_842728_91612990 
-X-CRM114-Status: GOOD (  24.89  )
+X-CRM114-CacheID: sfid-20220601_225724_799569_25959C3A 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,64 +82,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 05 May 2022 01:46:11 PDT (-0700), tklauser@distanz.ch wrote:
+> On 2022-05-05 at 10:18:15 +0200, Tobias Klauser <tklauser@distanz.ch> wrote:
+>> Move the __ARCH_WANT_MEMFD_SECRET define added in commit 7bb7f2ac24a0
+>> ("arch, mm: wire up memfd_secret system call where relevant") to
+>> <uapi/asm/unistd.h> so __NR_memfd_secret is defined when including
+>> <unistd.h> in userspace.
+>>
+>> This allows the memds_secret selftest to pass on riscv.
+>                   ^- this should say memfd_secret
+>
+> I can fix it up in a v2 if needed.
 
+No big deal, I don't mind squashing stuff like that.  This is on 
+for-next (no fixes, I'm still on 5.19).  I added
 
-> -----Original Message-----
-> From: Palmer Dabbelt <palmer@dabbelt.com>
-> Sent: Thursday, 2 June, 2022 11:44 AM
-> To: Leyfoon Tan <leyfoon.tan@starfivetech.com>
-> Cc: alexandre.ghiti@canonical.com; linux-riscv@lists.infradead.org; linux-
-> kernel@vger.kernel.org
-> Subject: Re: arch/riscv: SV48 patch series questions
-> 
-> On Fri, 27 May 2022 02:37:34 PDT (-0700), leyfoon.tan@starfivetech.com
-> wrote:
-> > Hi Palmer
-> >
-> > Alex's "Introduce sv48 support without relocatable kernel" patch series in
-> [1] was partially merged to Linux v5.17. But there are 4 patches are not
-> merged (Patch-10 to 13).
-> >
-> > May I know what is the plan for these patches? Will them merged to next
-> v5.19 merging window? Or do you expect any changes for these patches or
-> Alex needs resend with rebase to latest kernel version?
-> 
-> I just saw this as I was digging up Alex's old email to reply to, all but #13 are
-> now on for-next.
-> 
-> > Note, we would like to use the Patch-13 in this series.
-> 
-> Is your use case a CPU errata?  If so I think we should just go ahead and add
-> that errata via the existing errata mechanism.  If you've got some other use
-> case, do you mind elaborating?  From that other thread it sounds like a
-> command-line argument is the way to go for folks who want to turn this off
-> more dynamically, but happy to hear if you've got something different in
-> mind.
-It is not CPU errata. 
-RISC-V cpu can have sv39, sv48 or even sv57. If it is a heterogenous system, cpu cores in the system might have different sv. Eg: one cpu can be sv39 and another core is sv48.
-In this case, auto detection is not work. So, Patch-13 can help in this use case.
+Fixes: 7bb7f2ac24a0 ("arch, mm: wire up memfd_secret system call where relevant")
+Cc: stable@vger.kernel.org
 
-> 
-> > Patches not merged:
-> > [v3,10/13] riscv: Improve virtual kernel memory layout dump [v3,11/13]
-> > Documentation: riscv: Add sv48 description to VM layout [v3,12/13]
-> > riscv: Initialize thread pointer before calling C functions [v3,13/13]
-> > riscv: Allow user to downgrade to sv39 when hw supports sv48 if !KASAN
-> >
-> > [1]:
-> > https://patchwork.kernel.org/project/linux-riscv/cover/20211206104657.
-> > 433304-1-alexandre.ghiti@canonical.com/
-> >
+but LMK if you think that's wrong for some reason.
 
-Thanks.
+Thanks!
 
-Regards
-Ley Foon
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
