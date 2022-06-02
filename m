@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 930BBC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 04:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58DFFC43334
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 04:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=yucanKFrFlMu8xQZnt0jhB6zVtkuEtXsTrsW7I8+VjE=; b=PiWQwKmRzmjfEvOxnpKkRhZXSq
-	LNcCGoWQ4OFnPaz5wqTTdY69cIMtIGD9ErJ0gwYhDDPHBRhzgWgdPL/dCAa/nO3bB3AcY4I0XHBhE
-	sqYVnYtmt3lflDkwpUixG6qN3KpNrHjt+55IKddLL6EfHAJ7mz8PgDdGerr0Aj7Ph90yUSugsR5De
-	gtNqrISX3T4P555TFiy13Fhap78Dx5xwoz2+H08q7i2Q2aF5jtjmhyM1w8V4KTETM9QI/FYVNu4IS
-	DrpD0+xw8YP3ybED7V873dZ6wmMETg5yT3gpGBkfG7km4VsGnxHF820XTHpTVFPl8n+JtPnwe8ies
-	wTF5/lUQ==;
+	bh=+2107+pmPH9GCcTwWlKAchA3NbCL9XycEN4tXpburns=; b=vJNEsKI6AZCuvZLSMXM4Zr1PTC
+	E2gciimwlEQPsM2eUE4EUg5l7is5b2muem4OW0mMiX/4PvcP/ftlL20DAXzTBh4/CXCLbnN3FQf62
+	qIpVn9iJiU0IQlF0psVzoQitLmUTXJQe4htZZ4yECZGYry5++M4ibqWe6a4aVaTAYDGr5eiOR1VEt
+	No/Dj3xiFqNTjHJ+8+zUCpMFUIeVZ/8qx1eUQapsnUpjPgAGvy3+D5nAL34tNx+4YZQ55/D05MQ22
+	nYYu2WaJ0Ipxeff1uJqGuCEC9kKS8AW/iwYORW6s+T/N0IvElXJNJPtBZ8EltG0UNYujCVtQtLGWe
+	aswCH5Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwcQ2-001M2Z-3M; Thu, 02 Jun 2022 04:26:46 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1nwcQk-001MCx-Ew; Thu, 02 Jun 2022 04:27:30 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwcPz-001M1N-Vq
-	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 04:26:45 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id n18so3535504plg.5
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Jun 2022 21:26:41 -0700 (PDT)
+	id 1nwcQh-001MBZ-L5
+	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 04:27:29 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id o6-20020a17090a0a0600b001e2c6566046so8272603pjo.0
+        for <linux-riscv@lists.infradead.org>; Wed, 01 Jun 2022 21:27:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
          :content-transfer-encoding;
-        bh=07OKdl+NR+lEY+BPv6L1IZEtN57lA0Mz6uUlDluxQyE=;
-        b=Qrmeo5c948/IdijZouKusOBj8+3ApTb48cCYu5OOEdxGq7X+xEraJzHzO9puKeByBf
-         P13j9MpgJWHCXk9eZQ/Diw53LN4YtWN5svBN4a9aApyyPK6fDxbGdSzss6G4Sehyr+59
-         BUw/GFmNdhx3Kzr6rUp8kzFfFiNcvOfmhKJ8c9TgACi0J8q944ZjJd18oJiAzOctnRcA
-         b61rR7COJEsB/u2FtIwsne+MVvw/eetYgYmIfsCLlR9rlHHKDF59TtMqmXa2bV/338Yg
-         9xKys9CoZ+t+obTEHMx4ZaG8nWD5Qd6+iSnehoCUS+7x7BQqN3RlGJZaqCs0yR7ZFVMz
-         wA9g==
+        bh=rJJAkVFbshCZ1KNb+eunOqGmqPeRoBTVub1Qbj3oFRY=;
+        b=AvJtMzIzvj6uPnVlGWOWinJJZQjRMrC1R04t5mpQEHEroRwkP89gXqYYXM/ymVIM3W
+         TgDcR5j9AQ73BFB9G6uZPMOsYzVvpczZ8naGRZpo3WGqZ2rPYzZDy7yGh9E6NiyK/+cM
+         z1KlVEjleb2f8CQ4PBcqcBvURiGSKHBYzhQ9WxZEjUib5B7P5ELYID1aDKgdjmZeJyfa
+         SNPqyaF693vlFtmyJnpKVzlWi5wFGGvO+/D05xNPVwxO08MJYIGOKmL5wfKjRWfdICLd
+         ZDSpvkEtRIwP8+BpgsjUH5bNYKfLkXQPYrDfN7ihCJatDHpfOOeTVCP88OKlnjuU0AJi
+         ZHCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
          :mime-version:content-transfer-encoding;
-        bh=07OKdl+NR+lEY+BPv6L1IZEtN57lA0Mz6uUlDluxQyE=;
-        b=OtBERVp5HbQBs3GRdfLmPUQcel0I0cxGUPmLATc/EWpV4dxk6H5B7C7wa5NIBwg0co
-         MSXH2zba8ID/yDdnmYxH8b2YMMlIYBn4xEOvcY+KSSJbl3WfWlf5PKs+GXkK6+SYwLaN
-         hwllAYFoJHNH3CEEIIbza5mcN5mGNBchWKn9EtqCHR7rW0CyYNfrbIHIu/X7GlD0GcEs
-         HwbhvyBqGVREID9/mouDWhwIA3+J/MPkuJsGpiI02U4TTLqTbogwB39QgVLthJuqXAib
-         0A3+29IGAJXsjS4Ij37t5DosygUX+3cohmdfP7izArhv69r03GJfJ1YMCqAdQB1ZIk4d
-         bChg==
-X-Gm-Message-State: AOAM533WKuFdfmP/nV79HSbr8NNY9z9YmzbUDADQI/KUaBh4COQimBqx
-	hTIyzt/Ctyws3F4CwZYLKQL09Q==
-X-Google-Smtp-Source: ABdhPJxJZEw2/wu1mLFm7uXm2h9zayuqLLNGNyNu5dUcwkEWMsKxztPJejEVkOOycK4a8cW19zPQeA==
-X-Received: by 2002:a17:90a:aa8c:b0:1df:359a:1452 with SMTP id l12-20020a17090aaa8c00b001df359a1452mr3057296pjq.75.1654144000765;
-        Wed, 01 Jun 2022 21:26:40 -0700 (PDT)
+        bh=rJJAkVFbshCZ1KNb+eunOqGmqPeRoBTVub1Qbj3oFRY=;
+        b=ePD8Ya0qSb9EFQ5Ehh7+lek+j/4CyhiqGzoU5QNhwCJNWjIVmtXe5RVzp4l8uORSs3
+         +EtlVQ+t39T3EhtF3i7Sx+yPJvbbX+DNMSNfksJDgtiOD/dghoFtoi4tKlAOawSx44vc
+         0sd/jESnq8uYk7ydx/zebxctaZS74KfBvmse7/sdovNKNlc0QBT6Kflvd6x6EucZ6LJ1
+         icto0jzlWttukBkVvl2qDSvXwMKlt/FFb5R2WJwEhelHoqOHVt+TK6NEYCfck3CVa6SK
+         LOj5xj/+Kk934kEVXtvt5PmrMqUHMJ3XSbFNwQvIdl+5pCN0uMnGi4HIiaNc8e1n0KF2
+         FG+w==
+X-Gm-Message-State: AOAM532fVNpBQzW3xKSybS5huG8no/mxjmVIOUT3guW9k6QAZL3teOU1
+	Q1qbfQ7kcRKpo//ElC7sJs6BrXhDWdYfCA==
+X-Google-Smtp-Source: ABdhPJwGRUOHYEmHxnwbfy/AQp5vw7pQiRwUUU6ulDrtcILusjlXBXLw76bOO79j7bI/QIgSPXfipQ==
+X-Received: by 2002:a17:90a:e7c6:b0:1e0:9cf7:d042 with SMTP id kb6-20020a17090ae7c600b001e09cf7d042mr3092718pjb.234.1654144044475;
+        Wed, 01 Jun 2022 21:27:24 -0700 (PDT)
 Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id 137-20020a63018f000000b003fbfd5e4ddcsm2218899pgb.75.2022.06.01.21.26.39
+        by smtp.gmail.com with ESMTPSA id z14-20020a17090a170e00b001df239bab14sm2212622pjd.46.2022.06.01.21.27.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jun 2022 21:26:40 -0700 (PDT)
-Date: Wed, 01 Jun 2022 21:26:40 -0700 (PDT)
-X-Google-Original-Date: Wed, 01 Jun 2022 21:26:06 PDT (-0700)
-Subject: (RISC-V KVM) Re: [PATCH] RISC-V: fix typos in comments
-In-Reply-To: <20220430191122.8667-6-Julia.Lawall@inria.fr>
-CC: kernel-janitors@vger.kernel.org, atishp@atishpatra.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+        Wed, 01 Jun 2022 21:27:23 -0700 (PDT)
+Date: Wed, 01 Jun 2022 21:27:23 -0700 (PDT)
+X-Google-Original-Date: Wed, 01 Jun 2022 21:27:12 PDT (-0700)
+Subject: Re: [PATCH] riscv: Fix irq_work when SMP is disabled
+In-Reply-To: <11970543.O9o76ZdvQC@phil>
+CC: linux-riscv@lists.infradead.org, samuel@sholland.org, aou@eecs.berkeley.edu,
+  greentime.hu@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org,
+  samuel@sholland.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Julia.Lawall@inria.fr, anup@brainfault.org
-Message-ID: <mhng-523319d8-fda9-4737-9c43-d54bcfd7a7f2@palmer-ri-x1c9>
+To: samuel@sholland.org, heiko@sntech.de
+Message-ID: <mhng-75fe722b-942d-4184-89d3-1ac2ca7ba9c6@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220601_212644_051979_E4C5F8BF 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20220601_212727_728915_640EC70D 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,38 +88,67 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 30 Apr 2022 12:11:20 PDT (-0700), Julia.Lawall@inria.fr wrote:
-> Various spelling mistakes in comments.
-> Detected with the help of Coccinelle.
+On Tue, 03 May 2022 16:16:26 PDT (-0700), heiko@sntech.de wrote:
+> Am Samstag, 30. April 2022, 05:00:23 CEST schrieb Samuel Holland:
+>> irq_work is triggered via an IPI, but the IPI infrastructure is not
+>> included in uniprocessor kernels. As a result, irq_work never runs.
+>> Fall back to the tick-based irq_work implementation on uniprocessor
+>> configurations.
+>>
+>> Fixes: 298447928bb1 ("riscv: Support irq_work via self IPIs")
+>> Signed-off-by: Samuel Holland <samuel@sholland.org>
 >
-> Signed-off-by: Julia Lawall <Julia.Lawall@inria.fr>
+> That uniprocessor part seems a tiny bit neglected - as I saw previously
+> with alternatives not getting applied as well, so
+
+Ya, it definately is -- and not just me missing this fix, I'd also 
+dropped the CONFIG_SMP=n test from my list by accident.  Luckily it 
+still boots in QEMU, so at least it's not as brokn as it could be.
+
 >
-> ---
->  arch/riscv/kvm/vmid.c |    2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 >
-> diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
-> index 2fa4f7b1813d..4a2178c60b5d 100644
-> --- a/arch/riscv/kvm/vmid.c
-> +++ b/arch/riscv/kvm/vmid.c
-> @@ -92,7 +92,7 @@ void kvm_riscv_stage2_vmid_update(struct kvm_vcpu *vcpu)
->  		 * We ran out of VMIDs so we increment vmid_version and
->  		 * start assigning VMIDs from 1.
->  		 *
-> -		 * This also means existing VMIDs assignement to all Guest
-> +		 * This also means existing VMIDs assignment to all Guest
->  		 * instances is invalid and we have force VMID re-assignement
->  		 * for all Guest instances. The Guest instances that were not
->  		 * running will automatically pick-up new VMIDs because will
+> Though somehow I find the arm32 style a tad nicer by defining
+> an is_smp() function [0] that holds the necessary checks.
+>
+> But I guess that is a style preference.
 
-Anup: I'm guessing you didn't see this because it didn't have KVM in the 
-subject?
+IIUC that's slightly different: this is a compile-time issue related to 
+the IPI framework not coming up at all, not a runtime "are we on a 
+uniprocessor" issue.
 
-Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+I put this on for-next (no fixes right now, I'm still collecting 5.19 
+merge window material).
 
-if that helps any, I don't see in anywhere but not sure if I'm just 
-missing it.
+Thanks!
+
+>
+>
+> Heiko
+>
+>
+> [0] https://elixir.bootlin.com/linux/latest/source/arch/arm/include/asm/smp_plat.h#L18
+>> ---
+>> This was found while bringing up cpufreq on D1. Switching cpufreq
+>> governors was hanging on irq_work_sync().
+>>
+>>  arch/riscv/include/asm/irq_work.h | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/arch/riscv/include/asm/irq_work.h b/arch/riscv/include/asm/irq_work.h
+>> index d6c277992f76..b53891964ae0 100644
+>> --- a/arch/riscv/include/asm/irq_work.h
+>> +++ b/arch/riscv/include/asm/irq_work.h
+>> @@ -4,7 +4,7 @@
+>>
+>>  static inline bool arch_irq_work_has_interrupt(void)
+>>  {
+>> -	return true;
+>> +	return IS_ENABLED(CONFIG_SMP);
+>>  }
+>>  extern void arch_irq_work_raise(void);
+>>  #endif /* _ASM_RISCV_IRQ_WORK_H */
+>>
 
 _______________________________________________
 linux-riscv mailing list
