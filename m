@@ -4,64 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 900DEC43334
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 16:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B063CC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 16:24:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=80AhlWnelETbhtUfvqZlXTjDs6y27nB5CTqvuHNOFbA=; b=EeY5iMykGDCOWV
-	GHrywvukT9xLFepUdbUh7i9ldOKKoiThMbWiFAttz0fa3RUdX0gyfDVtQ5dmNp/CPiBeCutCVMdrl
-	yAGRAaQ/AGdw/0pDtleQXTZQA3PfwagaIQPHRIt9WqMfwxTDscJTutpeP5a6geSZ3wpbY3CFTXdFz
-	laZfLNR0Uc4n1rh+cwSdElcak7EtuQW8o2OdYRorPWXmRtCPOlGwmOHjTxk6A1yfLSiRV3XTPJSgE
-	cycMLHJJkzti5+zAhpN9hsqJ4F5/n/nNzH+eAQpxo71B/FOjRru8+EB8LQMK+zcPmjInlUF/92T61
-	Orw+kmKGKL0TtpAi5CYw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=F0CFASwcKpp+GDGKCkdOsHlOWGN2s7jD8Za40SLyULY=; b=m4etogZ7P8+UjA
+	rdeII+KnPmwu1bQjFXNAbNHrPUwMWzOgII31iQ3LQsjIQVjSycxv6tXzC8zWwqTXotapwKtRnF1FZ
+	4+6fIUUIHBkWrSireAAIK9o2U1aqyGW8QrTuwGzdp8PxvoywgF66OziBb58phXAfQ/cfqfn8RPYYE
+	Ph8VD4E4nLqz6MUW0IEuXOfhpCIl57jrgD2TC73tsWO7JHyZGYPiBQEEGbrx4fjoHMMYulEpiXFRE
+	kvv9sfsz/hsHUAl5XrvQcPGvqu7DYfHkU4TbeO4oAztbCbWqzsY1JOaigmJ9WIG7IxVrAHg02UJO5
+	XM6/F29zAz+GeOG781jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwnIK-003j3t-C4; Thu, 02 Jun 2022 16:03:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nwncW-003lrY-2U; Thu, 02 Jun 2022 16:24:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwnIH-003j3U-3s
-	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 16:03:30 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 618AD6148C;
-	Thu,  2 Jun 2022 16:03:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90C3BC385A5;
-	Thu,  2 Jun 2022 16:03:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654185807;
-	bh=Vc3eAUMjMU8tORu4+YbRV1KqF0w9KECltFREEa/MG7Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=SOUJ9Sa4h8L9vwt8poGEI/YG0hUBQYbHQH2BFCt3a9mlgtpGlou3/7BPBbi09EDqT
-	 vIYjtoyqtH7ByGmYUCrMNvVooTmBpfHIM83teW0F91R8GDRf2CvJa89VO2WOPSSd+f
-	 bHsvEzkx1/v4Dlwbm+rSVHnE+FNZw8bnGE4lw8E5mY2p/Ep9d4nULcyLlP2JAVuvBi
-	 9u8gFJNfA2pToiDTkw4/Z/WMRTvkcgiarq5+k53xMnBj1s1WqUsoJAIQlfw8b/yD4E
-	 y2ASSS90imr5/ca0qsIq0nS5Rm8GZMojxvpj9o9SnSptqpfHyz+k/++HZryuEii+tL
-	 qr1PhPsy4tRPw==
-Date: Thu, 2 Jun 2022 11:03:25 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Conor.Dooley@microchip.com, Greg KH <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>, mturquette@baylibre.com,
-	sboyd@kernel.org, linux-clk@vger.kernel.org,
-	lorenzo.pieralisi@arm.com, robh@kernel.org, kw@linux.com,
-	linux-pci@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
-	aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Daire.McNamara@microchip.com,
-	Lewis.Hanly@microchip.com, Cyril.Jean@microchip.com
-Subject: Re: [PATCH v4 1/1] MAINTAINERS: add polarfire rng, pci and clock
- drivers
-Message-ID: <20220602160325.GA20054@bhelgaas>
+	id 1nwncV-003lrO-7g
+	for linux-riscv@bombadil.infradead.org; Thu, 02 Jun 2022 16:24:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
+	Reply-To:Cc:Content-ID:Content-Description;
+	bh=ULsaBdzIjNY9UlBzRBFJHpbCyKR8X0rIBrR1eB+c08A=; b=G6WU1GUIS0iwi/bybRPUvGMkH8
+	g5GmOalwZYTCL+uEuOPOL9Ux89HvrMgvXjEABpyhgivSYhw2lmEqEd5fgmT4jIzeJy1y9OTySFgqH
+	JqkRLzW4neHF3cgs7JU6gqJ3qbJnJ0lNq6AT1HRkfZdt/+hVFyOWz7M1NlhyVNVpwJt6U+NEW29p4
+	9CMUlbrXpWW7ZUlbyDy2I4FeRH9xhs0Z9CxbuvD+ZsDbKRJY0J36SeQ5xYfaVSHOtjf1juPwo1qm7
+	n+jgwxOlHf9PE/dBVocOILMAQ8dE3mmmr5QG+6XEhh0kua1y2A1OU0lBI3G/zvbTaE2ukgLP8ASgf
+	yTvVv60g==;
+Received: from [2601:1c0:6280:3f0::aa0b]
+	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nwncQ-0049hG-9P; Thu, 02 Jun 2022 16:24:18 +0000
+Message-ID: <cc1a2594-3596-a8e6-077d-183e69e3f4e7@infradead.org>
+Date: Thu, 2 Jun 2022 09:24:12 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-5c57560e-a00b-4fd8-95ee-5e2fc0dcd34c@palmer-ri-x1c9>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220602_090329_273176_753E1AB8 
-X-CRM114-Status: GOOD (  27.99  )
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [RFC PATCH] riscv: Add Zawrs support for spinlocks
+Content-Language: en-US
+To: Christoph Muellner <christoph.muellner@vrull.eu>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Christoph Muellner <christoph.muellner@vrull.io>,
+ Heiko Stuebner <heiko@sntech.de>, Philipp Tomsich
+ <philipp.tomsich@vrull.eu>, Aaron Durbin <adurbin@rivosinc.com>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20220602141032.169907-1-christoph.muellner@vrull.io>
+From: Randy Dunlap <rdunlap@infradead.org>
+In-Reply-To: <20220602141032.169907-1-christoph.muellner@vrull.io>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,91 +66,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 01, 2022 at 06:55:40PM -0700, Palmer Dabbelt wrote:
-> On Mon, 23 May 2022 13:00:01 PDT (-0700), Conor.Dooley@microchip.com wrot=
-e:
-> > On 23/05/2022 20:52, Palmer Dabbelt wrote:
-> >> EXTERNAL EMAIL: Do not click links or open attachments unless you know=
- the content is safe
-> >> =
+Hi--
 
-> >> On Mon, 23 May 2022 04:42:53 PDT (-0700), Conor.Dooley@microchip.com w=
-rote:
-> >>> On 05/05/2022 11:55, Conor Dooley wrote:
-> >>>> Hardware random, PCI and clock drivers for the PolarFire SoC have be=
-en
-> >>>> upstreamed but are not covered by the MAINTAINERS entry, so add them.
-> >>>> Daire is the author of the clock & PCI drivers, so add him as a
-> >>>> maintainer in place of Lewis.
-> >>>>
-> >>>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> >>>
-> >>> Hey Palmer,
-> >>> I know youre busy etc but just a reminder :)
-> >> =
+On 6/2/22 07:10, Christoph Muellner wrote:
+> The current RISC-V code uses the generic ticket lock implementation,
+> that calls the macros smp_cond_load_relaxed() and smp_cond_load_acquire().
+> Currently, RISC-V uses the generic implementation of these macros.
+> This patch introduces a RISC-V specific implementation, of these
+> macros, that peels off the first loop iteration and modifies the waiting
+> loop such, that it is possible to use the WRS instruction of the Zawrs
+> ISA extension to stall the CPU.
+> 
+> The resulting implementation of smp_cond_load_*() will only work for
+> 32-bit or 64-bit types for RV64 and 32-bit types for RV32.
+> This is caused by the restrictions of the LR instruction (RISC-V only
+> has LR.W and LR.D). Compiler assertions guard this new restriction.
+> 
+> This patch uses the existing RISC-V ISA extension framework
+> to detect the presents of Zawrs at run-time.
+> If available a NOP instruction will be replaced by WRS.
+> A similar patch could add support for the PAUSE instruction of
+> the Zihintpause ISA extension.
+> 
+> The whole mechanism is gated by Kconfig setting, which defaults to Y.
+> 
+> The Zawrs specification can be found here:
+> https://github.com/riscv/riscv-zawrs/blob/main/zawrs.adoc
+> 
+> Note, that the Zawrs extension is not frozen or ratified yet.
+> Therefore this patch is an RFC and not intended to get merged.
+> 
+> Signed-off-by: Christoph Muellner <christoph.muellner@vrull.io>
+> ---
+>  arch/riscv/Kconfig                   | 10 +++
+>  arch/riscv/include/asm/barrier.h     | 97 ++++++++++++++++++++++++++++
+>  arch/riscv/include/asm/errata_list.h | 12 +++-
+>  arch/riscv/include/asm/hwcap.h       |  3 +-
+>  arch/riscv/kernel/cpu.c              |  1 +
+>  arch/riscv/kernel/cpufeature.c       | 13 ++++
+>  6 files changed, 133 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 905e550e0fd3..054872317d4a 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -358,6 +358,16 @@ config RISCV_ISA_C
+>  
+>  	   If you don't know what to do here, say Y.
+>  
+> +config RISCV_ISA_ZAWRS
+> +	bool "Zawrs extension support"
+> +	select RISCV_ALTERNATIVE
+> +	default y
+> +	help
+> +	   Adds support to dynamically detect the presence of the Zawrs extension
+> +	   (wait for reservation set) and enable its usage.
+> +
+> +	   If you don't know what to do here, say Y.
+> +
 
-> >> Sorry, I didn't realize this was aimed at the RISC-V tree.=A0 I'm fine
-> >> taking it, but it seems like these should have gone in along with the
-> >> drivers.
-> > =
+With this patch, it is possible to enable XIP_KERNEL and
+RISCV_ISA_ZAWRS at the same time.  That causes a kconfig warning:
 
-> > Yeah, sorry. In hindsight it should've but that ship has sailed. I sent
-> > the rng bundled this way b/c I didn't want to end up a conflict.
-> > Obv. there's not a rush so I can always split it back out if needs be.
-> =
+WARNING: unmet direct dependencies detected for RISCV_ALTERNATIVE
+  Depends on [n]: !XIP_KERNEL [=y]
+  Selected by [y]:
+  - RISCV_ISA_ZAWRS [=y]
+  - RISCV_ISA_SVPBMT [=y] && 64BIT [=y] && MMU [=y]
 
-> I'm adding a bunch of subsystem maintainers just to check again.  I =
+because RISCV_ALTERNATIVE depends on !XIP_KERNEL:
 
-> don't have any problem with it, just not really a RISC-V thing and don't =
+config RISCV_ALTERNATIVE
+	bool
+	depends on !XIP_KERNEL
 
-> wan to make a mess.  I've stashed it over at palmer/pcsoc-maintainers =
 
-> for now.
+>  config RISCV_ISA_SVPBMT
+>  	bool "SVPBMT extension support"
+>  	depends on 64BIT && MMU
 
-Fine with me, if you want it:
 
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
-
-> >> Arnd: maybe this is really an SOC tree sort of thing?=A0 No big deal
-> >> either way on my end, just let me know.
-> >> =
-
-> >>> Thanks,
-> >>> Conor.
-> >>>
-> >>>> ---
-> >>>> =A0 MAINTAINERS | 5 ++++-
-> >>>> =A0 1 file changed, 4 insertions(+), 1 deletion(-)
-> >>>>
-> >>>> diff --git a/MAINTAINERS b/MAINTAINERS
-> >>>> index fd768d43e048..d7602658b0a5 100644
-> >>>> --- a/MAINTAINERS
-> >>>> +++ b/MAINTAINERS
-> >>>> @@ -16939,12 +16939,15 @@ N: riscv
-> >>>> =A0 K: riscv
-> >>>>
-> >>>> =A0 RISC-V/MICROCHIP POLARFIRE SOC SUPPORT
-> >>>> -M:=A0 Lewis Hanly <lewis.hanly@microchip.com>
-> >>>> =A0 M: Conor Dooley <conor.dooley@microchip.com>
-> >>>> +M:=A0 Daire McNamara <daire.mcnamara@microchip.com>
-> >>>> =A0 L: linux-riscv@lists.infradead.org
-> >>>> =A0 S: Supported
-> >>>> =A0 F: arch/riscv/boot/dts/microchip/
-> >>>> +F:=A0 drivers/char/hw_random/mpfs-rng.c
-> >>>> +F:=A0 drivers/clk/microchip/clk-mpfs.c
-> >>>> =A0 F: drivers/mailbox/mailbox-mpfs.c
-> >>>> +F:=A0 drivers/pci/controller/pcie-microchip-host.c
-> >>>> =A0 F: drivers/soc/microchip/
-> >>>> =A0 F: include/soc/microchip/mpfs.h
-> >>>>
-> >>>
-> > =
-
+-- 
+~Randy
 
 _______________________________________________
 linux-riscv mailing list
