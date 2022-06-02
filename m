@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B063CC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 16:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0351FC43334
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 16:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F0CFASwcKpp+GDGKCkdOsHlOWGN2s7jD8Za40SLyULY=; b=m4etogZ7P8+UjA
-	rdeII+KnPmwu1bQjFXNAbNHrPUwMWzOgII31iQ3LQsjIQVjSycxv6tXzC8zWwqTXotapwKtRnF1FZ
-	4+6fIUUIHBkWrSireAAIK9o2U1aqyGW8QrTuwGzdp8PxvoywgF66OziBb58phXAfQ/cfqfn8RPYYE
-	Ph8VD4E4nLqz6MUW0IEuXOfhpCIl57jrgD2TC73tsWO7JHyZGYPiBQEEGbrx4fjoHMMYulEpiXFRE
-	kvv9sfsz/hsHUAl5XrvQcPGvqu7DYfHkU4TbeO4oAztbCbWqzsY1JOaigmJ9WIG7IxVrAHg02UJO5
-	XM6/F29zAz+GeOG781jg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=Wmp/obW7WBS9dKeYiMQDxYBP6DvmojIijWGEyI1M7sg=; b=sEz4vkGiKkXuaf
+	Qej44JTTEv4++fPhirecVKh+Nt6H2oN659BUQsTmsXVLxNatu2uiWzQhQNXlmVfERGq1UhmJPbsGt
+	CFEoaT3qlOio2l4+RPfDIctODzDsBt2DnRDys+DGDuysrkNFsaub4RBNJsrjhoetvCB/fEPOcUmoY
+	q4kGTZslJWgdlqw1T3DqWAwrqnMIzfjZQqpNssztOEQ7ng8bHb3aWbaNhZwhEkArL76huCXz/6bEM
+	6Ggu5pn9r4egkHNLZNHNdTEgI03KQumSceWzHX+tPtCUlt6R+P7MSil0wpPjXYceOhUjio6ODh8EA
+	cydRPR72da7+gH6RClYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwncW-003lrY-2U; Thu, 02 Jun 2022 16:24:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1nwnjq-003mfY-SH; Thu, 02 Jun 2022 16:31:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwncV-003lrO-7g
-	for linux-riscv@bombadil.infradead.org; Thu, 02 Jun 2022 16:24:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
-	Reply-To:Cc:Content-ID:Content-Description;
-	bh=ULsaBdzIjNY9UlBzRBFJHpbCyKR8X0rIBrR1eB+c08A=; b=G6WU1GUIS0iwi/bybRPUvGMkH8
-	g5GmOalwZYTCL+uEuOPOL9Ux89HvrMgvXjEABpyhgivSYhw2lmEqEd5fgmT4jIzeJy1y9OTySFgqH
-	JqkRLzW4neHF3cgs7JU6gqJ3qbJnJ0lNq6AT1HRkfZdt/+hVFyOWz7M1NlhyVNVpwJt6U+NEW29p4
-	9CMUlbrXpWW7ZUlbyDy2I4FeRH9xhs0Z9CxbuvD+ZsDbKRJY0J36SeQ5xYfaVSHOtjf1juPwo1qm7
-	n+jgwxOlHf9PE/dBVocOILMAQ8dE3mmmr5QG+6XEhh0kua1y2A1OU0lBI3G/zvbTaE2ukgLP8ASgf
-	yTvVv60g==;
-Received: from [2601:1c0:6280:3f0::aa0b]
-	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwncQ-0049hG-9P; Thu, 02 Jun 2022 16:24:18 +0000
-Message-ID: <cc1a2594-3596-a8e6-077d-183e69e3f4e7@infradead.org>
-Date: Thu, 2 Jun 2022 09:24:12 -0700
+	id 1nwnjo-003mer-2o
+	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 16:31:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 875FE6158E;
+	Thu,  2 Jun 2022 16:31:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A19E4C385A5;
+	Thu,  2 Jun 2022 16:31:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1654187515;
+	bh=o1/UE/2FwTyImP8FROwobph4vczO7LLicB4FbxHXr7A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=UIKsVABSlpXDB38aEPeRquKYp3dPPsOF/LCpsU11H05idiT3aYRnCWYsJ9R2kXDYQ
+	 GIGb5zSnPtzMFEzZh67z/LoxnFkh2c6O3zp6OKHdQTo9lesDvCLaS4GsPalSO16ydv
+	 7o02kQ8JYdNsVzJFx8/Rrh9akGcttUELkYanUqXV2e6jRfjeFQKTV112XBc8sB7055
+	 ZeWBU8QVHDmS9mtJpQrD5yKc+qlyPHxfgYq6mjrVWLg5fSX4KOp/4QK6gcC9b6qt29
+	 LhQ4quilGSjD4w8nh5IoOA9Djd79noUc9lNoUf1QypERewVzw0PBeix7p6rc6oYDmg
+	 +mDBbvJKjsO8g==
+Date: Thu, 2 Jun 2022 11:31:52 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Conor.Dooley@microchip.com
+Cc: palmer@rivosinc.com, gregkh@linuxfoundation.org, arnd@arndb.de,
+	akpm@linux-foundation.org, sboyd@kernel.org,
+	linux-pci@vger.kernel.org, mturquette@baylibre.com,
+	paul.walmsley@sifive.com, kw@linux.com, linux-clk@vger.kernel.org,
+	aou@eecs.berkeley.edu, lorenzo.pieralisi@arm.com,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Daire.McNamara@microchip.com, Lewis.Hanly@microchip.com,
+	Cyril.Jean@microchip.com, robh@kernel.org
+Subject: Re: [PATCH v4 1/1] MAINTAINERS: add polarfire rng, pci and clock
+ drivers
+Message-ID: <20220602163152.GA22276@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-Subject: Re: [RFC PATCH] riscv: Add Zawrs support for spinlocks
-Content-Language: en-US
-To: Christoph Muellner <christoph.muellner@vrull.eu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Christoph Muellner <christoph.muellner@vrull.io>,
- Heiko Stuebner <heiko@sntech.de>, Philipp Tomsich
- <philipp.tomsich@vrull.eu>, Aaron Durbin <adurbin@rivosinc.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20220602141032.169907-1-christoph.muellner@vrull.io>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20220602141032.169907-1-christoph.muellner@vrull.io>
+Content-Disposition: inline
+In-Reply-To: <fffa1761-9636-f6bc-fff3-54b6a60f5c8d@microchip.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20220602_093156_199829_07253E78 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,88 +78,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi--
+On Thu, Jun 02, 2022 at 04:39:08AM +0000, Conor.Dooley@microchip.com wrote:
+> On 02/06/2022 02:55, Palmer Dabbelt wrote:
 
-On 6/2/22 07:10, Christoph Muellner wrote:
-> The current RISC-V code uses the generic ticket lock implementation,
-> that calls the macros smp_cond_load_relaxed() and smp_cond_load_acquire().
-> Currently, RISC-V uses the generic implementation of these macros.
-> This patch introduces a RISC-V specific implementation, of these
-> macros, that peels off the first loop iteration and modifies the waiting
-> loop such, that it is possible to use the WRS instruction of the Zawrs
-> ISA extension to stall the CPU.
+> > I'm adding a bunch of subsystem maintainers just to check again.  I
+> > don't have any problem with it, just not really a RISC-V thing and don't
+> > wan to make a mess.  I've stashed it over at palmer/pcsoc-maintainers
+> > for now.
+> > 
+> > Sorry if I'm being overly pedantic about this one...
 > 
-> The resulting implementation of smp_cond_load_*() will only work for
-> 32-bit or 64-bit types for RV64 and 32-bit types for RV32.
-> This is caused by the restrictions of the LR instruction (RISC-V only
-> has LR.W and LR.D). Compiler assertions guard this new restriction.
-> 
-> This patch uses the existing RISC-V ISA extension framework
-> to detect the presents of Zawrs at run-time.
-> If available a NOP instruction will be replaced by WRS.
-> A similar patch could add support for the PAUSE instruction of
-> the Zihintpause ISA extension.
-> 
-> The whole mechanism is gated by Kconfig setting, which defaults to Y.
-> 
-> The Zawrs specification can be found here:
-> https://github.com/riscv/riscv-zawrs/blob/main/zawrs.adoc
-> 
-> Note, that the Zawrs extension is not frozen or ratified yet.
-> Therefore this patch is an RFC and not intended to get merged.
-> 
-> Signed-off-by: Christoph Muellner <christoph.muellner@vrull.io>
-> ---
->  arch/riscv/Kconfig                   | 10 +++
->  arch/riscv/include/asm/barrier.h     | 97 ++++++++++++++++++++++++++++
->  arch/riscv/include/asm/errata_list.h | 12 +++-
->  arch/riscv/include/asm/hwcap.h       |  3 +-
->  arch/riscv/kernel/cpu.c              |  1 +
->  arch/riscv/kernel/cpufeature.c       | 13 ++++
->  6 files changed, 133 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 905e550e0fd3..054872317d4a 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -358,6 +358,16 @@ config RISCV_ISA_C
->  
->  	   If you don't know what to do here, say Y.
->  
-> +config RISCV_ISA_ZAWRS
-> +	bool "Zawrs extension support"
-> +	select RISCV_ALTERNATIVE
-> +	default y
-> +	help
-> +	   Adds support to dynamically detect the presence of the Zawrs extension
-> +	   (wait for reservation set) and enable its usage.
-> +
-> +	   If you don't know what to do here, say Y.
-> +
+> I don't mind. Maybe this should go via Andrew next cycle or w/e?
+> There's obviously no hurry etc
 
-With this patch, it is possible to enable XIP_KERNEL and
-RISCV_ISA_ZAWRS at the same time.  That causes a kconfig warning:
+My turn to be overly pedantic :)  IMHO there's no benefit in delaying
+MAINTAINERS updates.  There's zero risk, and delaying only means
+people will miss out on bug reports and other things they should learn
+about.
 
-WARNING: unmet direct dependencies detected for RISCV_ALTERNATIVE
-  Depends on [n]: !XIP_KERNEL [=y]
-  Selected by [y]:
-  - RISCV_ISA_ZAWRS [=y]
-  - RISCV_ISA_SVPBMT [=y] && 64BIT [=y] && MMU [=y]
-
-because RISCV_ALTERNATIVE depends on !XIP_KERNEL:
-
-config RISCV_ALTERNATIVE
-	bool
-	depends on !XIP_KERNEL
-
-
->  config RISCV_ISA_SVPBMT
->  	bool "SVPBMT extension support"
->  	depends on 64BIT && MMU
-
-
--- 
-~Randy
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
