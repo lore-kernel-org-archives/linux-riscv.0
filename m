@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3071C43334
-	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 05:25:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91ECDC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  2 Jun 2022 05:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=SybgHKTd5MYxEVBavKSdfbqCOJMclj8aJFfLNyQ02vU=; b=AD6tdxoj4K1OAm4p+/RP6guWQa
-	E7BmjINlUtFZmpvR695TuELw+C98KXt3Sb6iFSVE9pPAF6U/ryKysqrJpdsygnSkQpnVgaX6KC5dh
-	xSNK7+XBp/V8snBxvhGoEgiXIkWb7RzTg6VaJ1ve9w57GVi+ZNt0bqEnff9wQg/s9mbB+xpjaXhwI
-	gkRENOPadvJabxAIMmeVdAhKlBiVFxRHZklUfqnw7j3R+dm0dPd1h4ig13tVPjvsZNq9BTn1lo2b+
-	88rAAxP1+rKHB7K5mKhf3leFlRvHdExzA3xoR+Ycbevx9X1uDej7HiOqO68wE7OEzBQiiTx8sk6B0
-	2WfVK/xA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=y2v6UQbhs8Rexc/lNYLYwlPnGNPtVKL/xvwnyopfLCA=; b=2IAldYbg03cQhM
+	abL72uRjeHG9Xe/2KdP0CrIhiOF6Z+EiLBplinZH+j6nrPE8k8jlArCfIoJ2rAXQjCtV/Pqc8KZX5
+	iDRqQ/WgIk8nQJi0RqJSH3HqinURFkyyNhlqhQzFHh2ln9NrsX7bNNdXK75XTw5cmsfIt3X6oJCTC
+	qrkHOCy7/cd5rIf0IaxZGURzWbWWSc2zjvc+oVt7ZqS5Hu4dCd1i7nqOb77v5rvsNZJr7DzcreV43
+	qcg6weNs0Un5JexcfaGu/PrKGWlNcaERkv2908TPCcHz3geZJQ9d262+DpcCFxCMUZqA+sSw9u0yK
+	KBpYCnDrD9Gzx+prTGUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwdKm-001RGj-QZ; Thu, 02 Jun 2022 05:25:24 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwdKj-001RDl-Cz
-	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 05:25:23 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id l7-20020a17090aaa8700b001dd1a5b9965so3939472pjq.2
-        for <linux-riscv@lists.infradead.org>; Wed, 01 Jun 2022 22:25:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=nelGoRK+fUlDKeet8T6l+sbmUXeRjWjPVssTQWUr0Ig=;
-        b=vy3yfyw9SSoKqKUSG57P5OxTHOUY0U58Reiri26Ry2fbin3EOFn9+OMZRlJPFsxqdS
-         YR7e4cJWsWrfEYJk0S28SJdXVJWDQ7D0rSroeuZf8t5mc8lR1vmpReLG4xpqV9GOzxRt
-         wuvlSQlvWOimcQL03fXEcHpkFkR995r446bETmFN47vO6yPUXm2bALrmR0JrNLafZghM
-         uM7meFZsKE13WCTsTDPB/nRSUJP244sgpBfuXabsLjbEm6bKapJt32prrTCM9sOObgCL
-         NHaSBr38dhMAXqsqY85ED+a9L+UfsJgVbCpkErO7DgXoBjKxliNsA8J7F1zUfyxPezBb
-         4cNg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=nelGoRK+fUlDKeet8T6l+sbmUXeRjWjPVssTQWUr0Ig=;
-        b=oeo8FBByXsct1I0DC3drh6u2byoK28sf4JeCkYqzmV3YaGfwfEFmJ7lFInG4D19m1b
-         lSOJGieRZWatsijP1GxJUqs7g88AzzeRMz4upO8BZqfnV8rIdf0FgpXip/iezW6BXeot
-         cZUjMXp/8ALWS1SplCMRyytCr7zS5FhSeAiA3JRetJPkBK3ZacT9PlFiG2d/U8tSu2UM
-         CG1bN8guXZVYzyguVCEi5eXfIwMs5hI7X7rfJ4DAKwYQCb3esLE5dYBtRWjkOh6h4Rjx
-         JcbCvQNZlz9A4O5y6Qxx9rXM4kgK7YexzhLPCvkaMMAav4mdmkjT9Ppz+fCisR7dkPiP
-         qJ9g==
-X-Gm-Message-State: AOAM530YL5LPsBD9EbL9mgohNUoJ4l48r4jPxrgUVPtZfz+5rQcU/fUL
-	Afte/BmDeBOJJoorQ1XXvcZYZg==
-X-Google-Smtp-Source: ABdhPJzMXV9QJAtuK5pym+rv06ZhuwstBd4WZB8JJPd7lfWyo0CdXpHHu3SEHpum9mdsVWX+p+JXbg==
-X-Received: by 2002:a17:902:ea0b:b0:164:81f:682f with SMTP id s11-20020a170902ea0b00b00164081f682fmr3115061plg.39.1654147516250;
-        Wed, 01 Jun 2022 22:25:16 -0700 (PDT)
-Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id z15-20020a170903018f00b00163b66d90b2sm2518364plg.126.2022.06.01.22.25.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jun 2022 22:25:15 -0700 (PDT)
-Date: Wed, 01 Jun 2022 22:25:15 -0700 (PDT)
-X-Google-Original-Date: Wed, 01 Jun 2022 22:25:06 PDT (-0700)
-Subject: Re: [PATCH v2] arch/riscv: add Zihintpause support
-In-Reply-To: <20220524211954.1936117-1-daolu@rivosinc.com>
-CC: linux-kernel@vger.kernel.org, daolu@rivosinc.com, heiko@sntech.de,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, atishp@atishpatra.org, anup@brainfault.org,
-  rdunlap@infradead.org, robh@kernel.org, alexandre.ghiti@canonical.com, panqinglin2020@iscas.ac.cn,
-  research_trasio@irq.a4lg.com, jszhang@kernel.org,
-  linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE)
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: daolu@rivosinc.com
-Message-ID: <mhng-62ce3647-fc60-42ce-bff0-9436c7e15028@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1nwdfD-001XAw-04; Thu, 02 Jun 2022 05:46:31 +0000
+Received: from ex01.ufhost.com ([61.152.239.75])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nwdf8-001Wy3-4R
+	for linux-riscv@lists.infradead.org; Thu, 02 Jun 2022 05:46:29 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by ex01.ufhost.com (Postfix) with ESMTP id 0348024DBC0;
+	Thu,  2 Jun 2022 13:43:43 +0800 (CST)
+Received: from EXMBX164.cuchost.com (172.16.7.74) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.32; Thu, 2 Jun
+ 2022 13:43:43 +0800
+Received: from EXMBX161.cuchost.com (172.16.6.71) by EXMBX164.cuchost.com
+ (172.16.6.74) with Microsoft SMTP Server (TLS) id 15.0.1497.32; Thu, 2 Jun
+ 2022 13:43:42 +0800
+Received: from EXMBX161.cuchost.com ([fe80::5c09:58ab:29b:a780]) by
+ EXMBX161.cuchost.com ([fe80::5c09:58ab:29b:a780%15]) with mapi id
+ 15.00.1497.033; Thu, 2 Jun 2022 13:43:42 +0800
+From: Leyfoon Tan <leyfoon.tan@starfivetech.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+CC: "alexandre.ghiti@canonical.com" <alexandre.ghiti@canonical.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: arch/riscv: SV48 patch series questions
+Thread-Topic: arch/riscv: SV48 patch series questions
+Thread-Index: AdhxrOkRGR9CQf46QWqljv+TL2tt2AEQwdsAABSqKCA=
+Date: Thu, 2 Jun 2022 05:43:42 +0000
+Message-ID: <e99af0ab0a264aadb77d949c4b73fd57@EXMBX161.cuchost.com>
+References: <83813d991f96428c95c6d681c16ae852@EXMBX161.cuchost.com>
+ <mhng-055df44c-3feb-41ae-b8c0-ae3a6489dee1@palmer-ri-x1c9>
+In-Reply-To: <mhng-055df44c-3feb-41ae-b8c0-ae3a6489dee1@palmer-ri-x1c9>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.188.176.82]
+x-yovoleruleagent: yovoleflag
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220601_222521_702959_2716B517 
-X-CRM114-Status: GOOD (  25.32  )
+X-CRM114-CacheID: sfid-20220601_224626_842728_91612990 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,88 +74,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyNCBNYXkgMjAyMiAxNDoxOTo1MCBQRFQgKC0wNzAwKSwgZGFvbHVAcml2b3NpbmMu
-Y29tIHdyb3RlOgo+IEltcGxlbWVudCBzdXBwb3J0IGZvciB0aGUgWmlIaW50UGF1c2UgZXh0ZW5z
-aW9uLgo+Cj4gVGhlIFBBVVNFIGluc3RydWN0aW9uIGlzIGEgSElOVCB0aGF0IGluZGljYXRlcyB0
-aGUgY3VycmVudCBoYXJ04oCZcyByYXRlIG9mCj4gaW5zdHJ1Y3Rpb24gcmV0aXJlbWVudCBzaG91
-bGQgYmUgdGVtcG9yYXJpbHkgcmVkdWNlZCBvciBwYXVzZWQuCj4KPiBSZXZpZXdlZC1ieTogSGVp
-a28gU3R1ZWJuZXIgPGhlaWtvQHNudGVjaC5kZT4KPiBUZXN0ZWQtYnk6IEhlaWtvIFN0dWVibmVy
-IDxoZWlrb0BzbnRlY2guZGU+Cj4gU2lnbmVkLW9mZi1ieTogRGFvIEx1IDxkYW9sdUByaXZvc2lu
-Yy5jb20+Cj4gLS0tCj4KPiB2MSAtPiB2MjoKPiAgUmVtb3ZlIHRoZSB1c2FnZSBvZiBzdGF0aWMg
-YnJhbmNoLCB1c2UgUEFVU0UgaWYgdG9vbGNoYWluIHN1cHBvcnRzIGl0CgpTb3JyeSBmb3IgdGhl
-IGJhY2sgYW5kIGZvcnRoIGhlcmUsIGJ1dCBJTU8gd2UgZG8gd2FudCB0byBwcm9iZSBmb3IgdGhp
-cyAKYXQgcnVudGltZTogc3VyZSB0aGVyZSdzIG5vIGlzc3VlIGV4ZWN1dGluZyB0aGUgcGF1c2Ug
-KGFzaWRlIGZyb20gdGhhdCAKUEMgc2lsbGluZXNzLCBidXQgd2UndmUgYWxsIGFncmVlZCB0byBp
-Z25vcmUgdGhhdCkgYnV0IHdlIHN0aWxsIG5lZWQgdG8gCmV4ZWN1dGUgdGhlIGRpdiBvbiBwbGF0
-Zm9ybXMgdGhhdCBwcmVkYXRlIFppaGludHBhdXNlIG90aGVyd2lzZSB3ZSAKcmVncmVzcyBvbiBj
-cHVfcmVsYXgoKSB0aGVyZS4gIElJVUMgdGhlcmUncyBzdGlsbCBubyBoYXJkd2FyZSB3aXRoIApa
-aWhpbnRwYXVzZSwgc28gcmVncmVzc2luZyBvbiByZWFsIGhhcmR3YXJlIGluIGZhdm9yIG9mIGFu
-IHVuaW1wbGVtZW50ZWQgCmV4dGVuc2lvbiBpcyB0aGUgd3Jvbmcgd2F5IHRvIGdvLgoKU2hvdWxk
-IGJlIHByZXR0eSBlYXN5IHRvIGRvIHRoaXMgd2l0aCB0aGUgYWx0ZXJuYXRpdmVzIG1lY2hhbmlz
-bS4KCj4KPiAgYXJjaC9yaXNjdi9NYWtlZmlsZSAgICAgICAgICAgICAgICAgICAgIHwgNCArKysr
-Cj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCAgICAgICAgICB8IDEgKwo+ICBhcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vcHJvY2Vzc29yLmggfCA4ICsrKysrKystCj4gIGFyY2gv
-cmlzY3Yva2VybmVsL2NwdS5jICAgICAgICAgICAgICAgICB8IDEgKwo+ICBhcmNoL3Jpc2N2L2tl
-cm5lbC9jcHVmZWF0dXJlLmMgICAgICAgICAgfCAyICsrCj4gIDUgZmlsZXMgY2hhbmdlZCwgMTUg
-aW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-TWFrZWZpbGUgYi9hcmNoL3Jpc2N2L01ha2VmaWxlCj4gaW5kZXggN2Q4MTEwMmNmZmQ0Li45MDBh
-OGZkYTFhMmQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9NYWtlZmlsZQo+ICsrKyBiL2FyY2gv
-cmlzY3YvTWFrZWZpbGUKPiBAQCAtNTYsNiArNTYsMTAgQEAgcmlzY3YtbWFyY2gtJChDT05GSUdf
-UklTQ1ZfSVNBX0MpCTo9ICQocmlzY3YtbWFyY2gteSljCj4gIHRvb2xjaGFpbi1uZWVkLXppY3Ny
-LXppZmVuY2VpIDo9ICQoY2FsbCBjYy1vcHRpb24teW4sIC1tYXJjaD0kKHJpc2N2LW1hcmNoLXkp
-X3ppY3NyX3ppZmVuY2VpKQo+ICByaXNjdi1tYXJjaC0kKHRvb2xjaGFpbi1uZWVkLXppY3NyLXpp
-ZmVuY2VpKSA6PSAkKHJpc2N2LW1hcmNoLXkpX3ppY3NyX3ppZmVuY2VpCj4KPiArIyBDaGVjayBp
-ZiB0aGUgdG9vbGNoYWluIHN1cHBvcnRzIFppaGludHBhdXNlIGV4dGVuc2lvbgo+ICt0b29sY2hh
-aW4tc3VwcG9ydHMtemloaW50cGF1c2UgOj0gJChjYWxsIGNjLW9wdGlvbi15biwgLW1hcmNoPSQo
-cmlzY3YtbWFyY2gteSlfemloaW50cGF1c2UpCj4gK3Jpc2N2LW1hcmNoLSQodG9vbGNoYWluLXN1
-cHBvcnRzLXppaGludHBhdXNlKSA6PSAkKHJpc2N2LW1hcmNoLXkpX3ppaGludHBhdXNlCj4gKwo+
-ICBLQlVJTERfQ0ZMQUdTICs9IC1tYXJjaD0kKHN1YnN0IGZkLCwkKHJpc2N2LW1hcmNoLXkpKQo+
-ICBLQlVJTERfQUZMQUdTICs9IC1tYXJjaD0kKHJpc2N2LW1hcmNoLXkpCj4KPiBkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9od2NhcC5oCj4gaW5kZXggMDczNGU0MmY3NGYyLi5jYWE5ZWU1NDU5YjQgMTAwNjQ0Cj4gLS0t
-IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9od2NhcC5oCj4gQEAgLTUyLDYgKzUyLDcgQEAgZXh0ZXJuIHVuc2lnbmVkIGxvbmcg
-ZWxmX2h3Y2FwOwo+ICAgKi8KPiAgZW51bSByaXNjdl9pc2FfZXh0X2lkIHsKPiAgCVJJU0NWX0lT
-QV9FWFRfU1NDT0ZQTUYgPSBSSVNDVl9JU0FfRVhUX0JBU0UsCj4gKwlSSVNDVl9JU0FfRVhUX1pJ
-SElOVFBBVVNFLAo+ICAJUklTQ1ZfSVNBX0VYVF9JRF9NQVggPSBSSVNDVl9JU0FfRVhUX01BWCwK
-PiAgfTsKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vcHJvY2Vz
-c29yLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vcHJvY2Vzc29yLmgKPiBpbmRleCAx
-MzQzODhjYmFhYTEuLjRkZTkxMWEyNTA1MSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL3Zkc28vcHJvY2Vzc29yLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zk
-c28vcHJvY2Vzc29yLmgKPiBAQCAtOCw3ICs4LDEzIEBACj4KPiAgc3RhdGljIGlubGluZSB2b2lk
-IGNwdV9yZWxheCh2b2lkKQo+ICB7Cj4gLSNpZmRlZiBfX3Jpc2N2X211bGRpdgo+ICsjaWZkZWYg
-X19yaXNjdl96aWhpbnRwYXVzZQo+ICsJLyoKPiArCSAqIFJlZHVjZSBpbnN0cnVjdGlvbiByZXRp
-cmVtZW50Lgo+ICsJICogVGhpcyBhc3N1bWVzIHRoZSBQQyBjaGFuZ2VzLgo+ICsJICovCj4gKwlf
-X2FzbV9fIF9fdm9sYXRpbGVfXyAoInBhdXNlIik7Cj4gKyNlbGlmIF9fcmlzY3ZfbXVsZGl2Cj4g
-IAlpbnQgZHVtbXk7Cj4gIAkvKiBJbiBsaWV1IG9mIGEgaGFsdCBpbnN0cnVjdGlvbiwgaW5kdWNl
-IGEgbG9uZy1sYXRlbmN5IHN0YWxsLiAqLwo+ICAJX19hc21fXyBfX3ZvbGF0aWxlX18gKCJkaXYg
-JTAsICUwLCB6ZXJvIiA6ICI9ciIgKGR1bW15KSk7Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-a2VybmVsL2NwdS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1LmMKPiBpbmRleCBjY2I2MTc3OTFl
-NTYuLjg5ZTU2M2U5YzRjYyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHUuYwo+
-ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdS5jCj4gQEAgLTg4LDYgKzg4LDcgQEAgaW50IHJp
-c2N2X29mX3BhcmVudF9oYXJ0aWQoc3RydWN0IGRldmljZV9ub2RlICpub2RlKQo+ICAgKi8KPiAg
-c3RhdGljIHN0cnVjdCByaXNjdl9pc2FfZXh0X2RhdGEgaXNhX2V4dF9hcnJbXSA9IHsKPiAgCV9f
-UklTQ1ZfSVNBX0VYVF9EQVRBKHNzY29mcG1mLCBSSVNDVl9JU0FfRVhUX1NTQ09GUE1GKSwKPiAr
-CV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHppaGludHBhdXNlLCBSSVNDVl9JU0FfRVhUX1pJSElOVFBB
-VVNFKSwKPiAgCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKCIiLCBSSVNDVl9JU0FfRVhUX01BWCksCj4g
-IH07Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jIGIvYXJj
-aC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4gaW5kZXggMWIyZDQyZDdmNTg5Li4zN2ZmMDY2
-ODJhZTYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4gKysr
-IGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5jCj4gQEAgLTI1LDYgKzI1LDcgQEAgc3Rh
-dGljIERFQ0xBUkVfQklUTUFQKHJpc2N2X2lzYSwgUklTQ1ZfSVNBX0VYVF9NQVgpIF9fcmVhZF9t
-b3N0bHk7Cj4gIF9fcm9fYWZ0ZXJfaW5pdCBERUZJTkVfU1RBVElDX0tFWV9GQUxTRShjcHVfaHdj
-YXBfZnB1KTsKPiAgI2VuZGlmCj4KPiArCj4gIC8qKgo+ICAgKiByaXNjdl9pc2FfZXh0ZW5zaW9u
-X2Jhc2UoKSAtIEdldCBiYXNlIGV4dGVuc2lvbiB3b3JkCj4gICAqCj4gQEAgLTE5Miw2ICsxOTMs
-NyBAQCB2b2lkIF9faW5pdCByaXNjdl9maWxsX2h3Y2FwKHZvaWQpCj4gIAkJCQlzZXRfYml0KCpl
-eHQgLSAnYScsIHRoaXNfaXNhKTsKPiAgCQkJfSBlbHNlIHsKPiAgCQkJCVNFVF9JU0FfRVhUX01B
-UCgic3Njb2ZwbWYiLCBSSVNDVl9JU0FfRVhUX1NTQ09GUE1GKTsKPiArCQkJCVNFVF9JU0FfRVhU
-X01BUCgiemloaW50cGF1c2UiLCBSSVNDVl9JU0FfRVhUX1pJSElOVFBBVVNFKTsKPiAgCQkJfQo+
-ICAjdW5kZWYgU0VUX0lTQV9FWFRfTUFQCj4gIAkJfQoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+
+> -----Original Message-----
+> From: Palmer Dabbelt <palmer@dabbelt.com>
+> Sent: Thursday, 2 June, 2022 11:44 AM
+> To: Leyfoon Tan <leyfoon.tan@starfivetech.com>
+> Cc: alexandre.ghiti@canonical.com; linux-riscv@lists.infradead.org; linux-
+> kernel@vger.kernel.org
+> Subject: Re: arch/riscv: SV48 patch series questions
+> 
+> On Fri, 27 May 2022 02:37:34 PDT (-0700), leyfoon.tan@starfivetech.com
+> wrote:
+> > Hi Palmer
+> >
+> > Alex's "Introduce sv48 support without relocatable kernel" patch series in
+> [1] was partially merged to Linux v5.17. But there are 4 patches are not
+> merged (Patch-10 to 13).
+> >
+> > May I know what is the plan for these patches? Will them merged to next
+> v5.19 merging window? Or do you expect any changes for these patches or
+> Alex needs resend with rebase to latest kernel version?
+> 
+> I just saw this as I was digging up Alex's old email to reply to, all but #13 are
+> now on for-next.
+> 
+> > Note, we would like to use the Patch-13 in this series.
+> 
+> Is your use case a CPU errata?  If so I think we should just go ahead and add
+> that errata via the existing errata mechanism.  If you've got some other use
+> case, do you mind elaborating?  From that other thread it sounds like a
+> command-line argument is the way to go for folks who want to turn this off
+> more dynamically, but happy to hear if you've got something different in
+> mind.
+It is not CPU errata. 
+RISC-V cpu can have sv39, sv48 or even sv57. If it is a heterogenous system, cpu cores in the system might have different sv. Eg: one cpu can be sv39 and another core is sv48.
+In this case, auto detection is not work. So, Patch-13 can help in this use case.
+
+> 
+> > Patches not merged:
+> > [v3,10/13] riscv: Improve virtual kernel memory layout dump [v3,11/13]
+> > Documentation: riscv: Add sv48 description to VM layout [v3,12/13]
+> > riscv: Initialize thread pointer before calling C functions [v3,13/13]
+> > riscv: Allow user to downgrade to sv39 when hw supports sv48 if !KASAN
+> >
+> > [1]:
+> > https://patchwork.kernel.org/project/linux-riscv/cover/20211206104657.
+> > 433304-1-alexandre.ghiti@canonical.com/
+> >
+
+Thanks.
+
+Regards
+Ley Foon
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
