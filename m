@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD7DAC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 16:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F1A0C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 17:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9QY3bS5685D0GEXxpGfCGZQHqYWIXOV0mWNUceEEg/k=; b=GPvUdcPDpSprSW
-	fIRMF7dVqjN/LOxV51BC+OSiFgkfoXtO6kzvJJTuNt7kLvefHCiyXY+BP3wWflleurCV6/mdGvjs5
-	kt5Tx99SAF2Qj3o2E9GBZ/dFn/ss4DoD8k49a0DT4mJ4kneT2AyfLal4w0bY0Ej8atEkDqIjJ2+v9
-	+tj6EKkip9f/mgR0vYgegwdCCQ+pTJHV73fJ35IdkbpeuYka1HJ4XIx40/gCGTi0WmI/yWLudPKIx
-	gbXvbS7ybPyttc8IDrrTm2SXfWx9bYlje/KPBeAwnu2BCZdFSbBTsMte33NWdcBOTaTcJJfJXNvo6
-	yj0Be+zY9OxILowGaDVA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rxsSaBzmaRjLgQXTox7kTZfd3orI/mMfag/QvUD/W68=; b=Xs64Q8KARBmA3e
+	K4FDotsByQvphN+5wBp7mBTMt3GgZdmbGZtFMznCEHaSF0wDPI3lgDLCQgGBBhPzpS5mI3dAFl+5b
+	Uuxbgf/1MCNy7Y6UqJfVzmn9GvFYizpl6Quhn67MX59Sao8Rn4Fln2u4Zc1FobUk4NMt0/ugKtmWQ
+	Y2W1LFx0v3xQaPFsyRf7CsjQS+aNLRCFBYsEL0TlaWolaE264QiCd5gsUtTeWzo/kl3ePCVmW7A8E
+	FJbsh928yprJoPMG2UPcWSt0C2TmxpkUIzWHhtfVxZ/3DhsNA5g7SrH+2sJF3xvwmIbj5I5LknakV
+	wcZnylHF21zCCBehB5Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nxAFI-008Aip-3e; Fri, 03 Jun 2022 16:33:56 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1nxAld-008G4b-TX; Fri, 03 Jun 2022 17:07:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nxAFE-008AhY-AI
-	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 16:33:54 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id b11so5937980qvv.4
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Jun 2022 09:33:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:cc:from:to:message-id;
-        bh=jmS9+muNRBp2jnRn4fOY2N20O9KfoqE+IiDXN9dcqrM=;
-        b=UHz9NCtym8NegjyXl7gyK9SuR5nldXoPINn+bRik9fh0SLL8K7UIwOH6LBLp5myTpk
-         wnTskz3ocPTRLxh6cr5Ez6O074AUwgNuQHlGM4IxmHw1EJkYPidUpxcJ7EFN73SBb0m7
-         KI9SNvVlphbGJehjOnZq6i3fjGEEarEg2d8jhkRURC50UC82WfxWay63Kw7hx0RVHGfk
-         2hMMV8I4mFIzT0QLHoTV6nRLh1GwCj95qpv7QZw4PcyPGKA6mJuVLx0qQmr+aJJJ6NEQ
-         D60xd395cd2tQEE3INfQPRxFeZNh9AolJykywXzh4qcvhsbegc4UUZhic9rn15QbyI4g
-         Aajw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:cc:from:to:message-id;
-        bh=jmS9+muNRBp2jnRn4fOY2N20O9KfoqE+IiDXN9dcqrM=;
-        b=vua67d0XPZZXl2RV4Q3cZ7yuhbRqKmEFIzqACrXr4EuRvoVSxy4f9EE5khE937FLaa
-         ivocVxAXeBu/a6yWyZT1zFwiP9Wm5ru6+vyNP3zO1awDPi2VMN+RNf1N5f70fFoG5a9X
-         EfkE2wKDx5c/mDPl5ctUF8ERjxuiYWsRkutzk9vIZvMdOxV++JSYUnR3oqVx1N8NZPQB
-         WZoyWonmtp7ok/IRjlYgSrK/4n1f4unhJ0sV8XcjaaJ4hAsIK6fHCUWfjmXvUQY8/uyS
-         V+IxY/r8GxglJHgepqUeMW/JQBdQue7eBo+36x/ArVbDofXGrP/INE8cscoVemFUTbg9
-         1wNw==
-X-Gm-Message-State: AOAM532FbpTjKcobkKt5m4LfD1n3mpUPqIMzFfpDblmjp/T3wLdOWnV3
-	5EB54DSQ0sQgaRrX+79pHFPGMOnhX4njTg==
-X-Google-Smtp-Source: ABdhPJxZoE4jsbVPqtWPd5lko6Oa2FLNbG7wszeizLjMbpm+bug1FMywcdicUra99nZiJ1WeMZZDIw==
-X-Received: by 2002:ad4:46ae:0:b0:467:db1b:f38b with SMTP id br14-20020ad446ae000000b00467db1bf38bmr4091953qvb.57.1654274027125;
-        Fri, 03 Jun 2022 09:33:47 -0700 (PDT)
-Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id h9-20020ac85e09000000b002f93c5444e3sm5481315qtx.52.2022.06.03.09.33.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jun 2022 09:33:46 -0700 (PDT)
-Date: Fri, 03 Jun 2022 09:33:46 -0700 (PDT)
-X-Google-Original-Date: Fri, 03 Jun 2022 09:33:44 PDT (-0700)
-Subject: [GIT PULL] RISC-V Patches for the 5.19 Merge Window, Part 2
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-98b420ef-9b28-4e40-971e-7275b8f7c6e8@palmer-ri-x1c9>
+	id 1nxAla-008G3O-BB
+	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 17:07:20 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 05357617B5;
+	Fri,  3 Jun 2022 17:07:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6639FC385B8;
+	Fri,  3 Jun 2022 17:07:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1654276036;
+	bh=N1Vq92CQyZ+uHfKV8gnGwkdg61gd1r+JO9l8jWBGnFw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GDv3wl6qXo8+Ob55BO72qL4Q1tkqrOHKWx063N3ShlraBm3E84wk+zWyZbZ286mDA
+	 eiLpbsZ0rCHMr+8XidklhkOLpYKFiNOUhqnwYAlUAPUrFq2hpxFLGd+fAijdZsD8s+
+	 l7wDKMr6kbpVcTfCLme8Mx08ho9VW4ogy8sMgFli1PGsyvz7LSp810CzpZ53GvIKnV
+	 iRaABgjY7bi0nF1W5iJfyoqgLzb+VCK5u0t+2CM2o1MEY+4ZtbRiZ9KXolwN+kD2/T
+	 NXb8v2ZC3sTLkzAiIdtPePNM2XBEBSYvLOXQzVc1jNszA7dk0sly/y3UrsuY/QcgbC
+	 PgAsPCXpeGw9Q==
+Date: Sat, 4 Jun 2022 00:58:39 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3] riscv: add irq stack support
+Message-ID: <Ypo9v/IMaEFxlICO@xhacker>
+References: <20220515050336.1023-1-jszhang@kernel.org>
+ <mhng-9935842d-867d-4fc0-a3bd-e3ee86225798@palmer-ri-x1c9>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-9935842d-867d-4fc0-a3bd-e3ee86225798@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220603_093352_615077_B1A97BCF 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20220603_100718_505062_019B7474 
+X-CRM114-Status: GOOD (  39.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,102 +68,191 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-merged tag 'riscv-for-linus-5.19-mw0'
-The following changes since commit 35b51afd23c98e2f055ac563aca36173a12588b9:
+On Thu, Jun 02, 2022 at 02:44:46PM -0700, Palmer Dabbelt wrote:
+> On Sat, 14 May 2022 22:03:36 PDT (-0700), jszhang@kernel.org wrote:
+> > Currently, IRQs are still handled on the kernel stack of the current
+> > task on riscv platforms. If the task has a deep call stack at the time
+> > of interrupt, and handling the interrupt also requires a deep stack,
+> > it's possible to see stack overflow.
+> > 
+> > Before this patch, the stack_max_size of a v5.17-rc1 kernel running on
+> > a lichee RV board gave:
+> > ~ # cat /sys/kernel/debug/tracing/stack_max_size
+> > 3736
+> > 
+> > After this patch,
+> > ~ # cat /sys/kernel/debug/tracing/stack_max_size
+> > 3176
+> > 
+> > We reduce the max kernel stack usage by 560 bytes!
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > ---
+> > since v2:
+> >  - rebase on v5.18-rcN
+> >  - update commit msg, I.E remove the "it's possible to reduce the
+> > THREAD_SIZE to 8KB for RV64 platforms..."
+> > 
+> > since v1:
+> >  - add __ro_after_init to the irq_stack[] array.
+> > 
+> >  arch/riscv/include/asm/thread_info.h |  1 +
+> >  arch/riscv/kernel/asm-offsets.c      |  2 ++
+> >  arch/riscv/kernel/entry.S            | 33 +++++++++++++++++++++++++---
+> >  arch/riscv/kernel/irq.c              | 16 ++++++++++++++
+> >  4 files changed, 49 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
+> > index 74d888c8d631..98ea73721a0b 100644
+> > --- a/arch/riscv/include/asm/thread_info.h
+> > +++ b/arch/riscv/include/asm/thread_info.h
+> > @@ -25,6 +25,7 @@
+> >  #endif
+> >  #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
+> > 
+> > +#define IRQ_STACK_SIZE		THREAD_SIZE
+> >  /*
+> >   * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
+> >   * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
+> > diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> > index df9444397908..9e32748af0e8 100644
+> > --- a/arch/riscv/kernel/asm-offsets.c
+> > +++ b/arch/riscv/kernel/asm-offsets.c
+> > @@ -37,6 +37,8 @@ void asm_offsets(void)
+> >  	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+> >  	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
+> >  	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
+> > +	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
+> > +	OFFSET(TASK_STACK, task_struct, stack);
+> > 
+> >  	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
+> >  	OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
+> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> > index c8b9ce274b9a..e91cae183ef4 100644
+> > --- a/arch/riscv/kernel/entry.S
+> > +++ b/arch/riscv/kernel/entry.S
+> > @@ -126,12 +126,39 @@ skip_context_tracking:
+> >  	 */
+> >  	bge s4, zero, 1f
+> > 
+> > -	la ra, ret_from_exception
+> > +	/* preserve the sp */
+> > +	move s0, sp
+> > 
+> > -	/* Handle interrupts */
+> >  	move a0, sp /* pt_regs */
+> > +
+> > +	/*
+> > +	 * Compare sp with the base of the task stack.
+> > +	 * If the top ~(THREAD_SIZE - 1) bits match, we are on a task stack,
+> > +	 * and should switch to the irq stack.
+> > +	 */
+> > +	REG_L t0, TASK_STACK(tp)
+> 
+> This fails to build on some configurations, as TASK_STACK doesn't fit within
 
-  Merge tag 'riscv-for-linus-5.19-mw0' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (2022-05-31 14:10:54 -0700)
+Hi Palmer,
 
-are available in the Git repository at:
+Thanks for the catching. IIUC, you may enable GCC_PLUGIN_RANDSTRUCT.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-mw2
+> the load immediate.  IIRC we added a macro for this at some point (to select
+> the short/long addressing sequence), but there's a trivial fix
 
-for you to fetch changes up to 61114e734ccb804bc12561ab4020745e02c468c2:
+I searched the kernel source tree, didn't find the macro.
 
-  riscv: Move alternative length validation into subsection (2022-06-02 15:55:22 -0700)
+> 
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 99bc411d12f4..095fef82e910 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -136,7 +136,9 @@ skip_context_tracking:
+> 	 * If the top ~(THREAD_SIZE - 1) bits match, we are on a task stack,
+> 	 * and should switch to the irq stack.
+> 	 */
+> -	REG_L t0, TASK_STACK(tp)
+> +	li t0, TASK_STACK
+> +	add t0, t0, tp
+> +	REG_L t0, 0(t0)
+> 	xor t0, t0, s0
+> 	li t1, ~(THREAD_SIZE - 1)
+> 	and t0, t0, t1
+> 
+> Unfortunatly even with that fix this still blows up early in boot on some of
+> my test configs.  Looks like pretty much anything with kasan is failing.
+> Nothing is jumping out at me and it's pretty late so I won't have time to
+> debug it myself, sorry.
 
-----------------------------------------------------------------
-RISC-V Patches for the 5.19 Merge Window, Part 2
+Could you please share your .config with me? I tried some combinations of
+KASAN, KASAN_VMALLOC VMAP_STACK and but didn't reproduce the failure.
 
-This is mostly some DT updates, but also a handful of cleanups and some
-fixes.  The most user-visible of those are:
-
-* A device tree for the Sundance Polarberry, along with a handful of
-  fixes and clenups to the PolarFire SOC device trees and bindings.
-* The memfd_secret syscall number is now visible to userspace,
-* Some improvements to the vm layout dump, which really should have
-  followed shortly after the sv48 patches but I missed.
-
-----------------------------------------------------------------
-Alexandre Ghiti (3):
-      Documentation: riscv: Add sv48 description to VM layout
-      riscv: Initialize thread pointer before calling C functions
-      riscv: Improve virtual kernel memory layout dump
-
-Conor Dooley (10):
-      riscv: dts: microchip: remove icicle memory clocks
-      riscv: dts: microchip: move sysctrlr out of soc bus
-      riscv: dts: microchip: remove soc vendor from filenames
-      dt-bindings: riscv: microchip: document icicle reference design
-      riscv: dts: microchip: make the fabric dtsi board specific
-      dt-bindings: vendor-prefixes: add Sundance DSP
-      dt-bindings: riscv: microchip: add polarberry compatible string
-      riscv: dts: microchip: add the sundance polarberry
-      riscv: microchip: icicle: readability fixes
-      riscv: dts: icicle: sort nodes alphabetically
-
-Jisheng Zhang (1):
-      riscv: mm: init: make pt_ops_set_[early|late|fixmap] static
-
-Masahiro Yamada (1):
-      riscv: move errata/ and kvm/ builds to arch/riscv/Kbuild
-
-Nathan Chancellor (1):
-      riscv: Move alternative length validation into subsection
-
-Palmer Dabbelt (2):
-      RISC-V: PolarFire SoC Device Tree Updates
-      RISC-V: Only default to spinwait on SBI-0.1 and M-mode
-
-Samuel Holland (1):
-      riscv: Fix irq_work when SMP is disabled
-
-Tobias Klauser (1):
-      riscv: Wire up memfd_secret in UAPI header
-
-Xianting Tian (1):
-      RISC-V: Mark IORESOURCE_EXCLUSIVE for reserved mem instead of IORESOURCE_BUSY
-
- .../devicetree/bindings/riscv/microchip.yaml       |   2 +
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- Documentation/riscv/vm-layout.rst                  |  36 +++++++
- arch/riscv/Kbuild                                  |   2 +
- arch/riscv/Kconfig                                 |   8 +-
- arch/riscv/Makefile                                |   3 -
- arch/riscv/boot/dts/microchip/Makefile             |   3 +-
- ...pfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} |   2 +
- ...hip-mpfs-icicle-kit.dts => mpfs-icicle-kit.dts} | 105 +++++++++++----------
- .../boot/dts/microchip/mpfs-polarberry-fabric.dtsi |  16 ++++
- arch/riscv/boot/dts/microchip/mpfs-polarberry.dts  |  99 +++++++++++++++++++
- .../microchip/{microchip-mpfs.dtsi => mpfs.dtsi}   |  11 +--
- arch/riscv/include/asm/alternative-macros.h        |   4 +-
- arch/riscv/include/asm/irq_work.h                  |   2 +-
- arch/riscv/include/asm/unistd.h                    |   1 -
- arch/riscv/include/uapi/asm/unistd.h               |   1 +
- arch/riscv/kernel/head.S                           |   1 +
- arch/riscv/kernel/setup.c                          |   4 +-
- arch/riscv/mm/init.c                               |  72 ++++++++++----
- 19 files changed, 287 insertions(+), 87 deletions(-)
- rename arch/riscv/boot/dts/microchip/{microchip-mpfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} (91%)
- rename arch/riscv/boot/dts/microchip/{microchip-mpfs-icicle-kit.dts => mpfs-icicle-kit.dts} (95%)
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
- rename arch/riscv/boot/dts/microchip/{microchip-mpfs.dtsi => mpfs.dtsi} (98%)
+Thanks in advance
+> 
+> > +	xor t0, t0, s0
+> > +	li t1, ~(THREAD_SIZE - 1)
+> > +	and t0, t0, t1
+> > +	bnez t0, 2f
+> > +
+> > +	la t1, irq_stack
+> > +	REG_L t2, TASK_TI_CPU(tp)
+> > +	slli t2, t2, RISCV_LGPTR
+> > +	add t1, t1, t2
+> > +	REG_L t2, 0(t1)
+> > +	li t1, IRQ_STACK_SIZE
+> > +	/* switch to the irq stack */
+> > +	add sp, t2, t1
+> > +
+> > +2:
+> > +	/* Handle interrupts */
+> >  	la a1, generic_handle_arch_irq
+> > -	jr a1
+> > +	jalr a1
+> > +
+> > +	/* Restore sp */
+> > +	move sp, s0
+> > +	j ret_from_exception
+> >  1:
+> >  	/*
+> >  	 * Exceptions run with interrupts enabled or disabled depending on the
+> > diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+> > index 7207fa08d78f..f20cbfd42e82 100644
+> > --- a/arch/riscv/kernel/irq.c
+> > +++ b/arch/riscv/kernel/irq.c
+> > @@ -10,6 +10,8 @@
+> >  #include <linux/seq_file.h>
+> >  #include <asm/smp.h>
+> > 
+> > +void *irq_stack[NR_CPUS] __ro_after_init;
+> > +
+> >  int arch_show_interrupts(struct seq_file *p, int prec)
+> >  {
+> >  	show_ipi_stats(p, prec);
+> > @@ -18,7 +20,21 @@ int arch_show_interrupts(struct seq_file *p, int prec)
+> > 
+> >  void __init init_IRQ(void)
+> >  {
+> > +	int cpu;
+> > +
+> >  	irqchip_init();
+> >  	if (!handle_arch_irq)
+> >  		panic("No interrupt controller found.");
+> > +
+> > +	for_each_possible_cpu(cpu) {
+> > +#ifdef CONFIG_VMAP_STACK
+> > +		void *s = __vmalloc_node(IRQ_STACK_SIZE, THREAD_ALIGN,
+> > +					 THREADINFO_GFP, cpu_to_node(cpu),
+> > +					 __builtin_return_address(0));
+> > +#else
+> > +		void *s = (void *)__get_free_pages(GFP_KERNEL, get_order(IRQ_STACK_SIZE));
+> > +#endif
+> > +
+> > +		irq_stack[cpu] = s;
+> > +	}
+> >  }
 
 _______________________________________________
 linux-riscv mailing list
