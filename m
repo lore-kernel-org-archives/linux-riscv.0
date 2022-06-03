@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA88C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 21:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D2DDC43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 21:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=FU0nwbIcUTeXhsGDTbznnYPhP3vqprnA824maZcRT8w=; b=XznmQG4vyOMhOCRG0iihrxa5Ui
-	LEFQ3aSYJd60IIbkAS3q/OcnUfTqqzTo4b5QV5Ds1EnzegRjQoVMTwi9+RRyBqwk2uYOLBppJb9Ip
-	m/2kWiq7pY8QQpmkA9l46pNgjGvM5OD3XGqD6KCbRC3b49EoRg5JjAM/NUqv80OlPP/hSee/e1luS
-	Ts4ZYAT9yu8lNAZKUrVH+rpa9vcp4GeEBhiVSNt6U1Vu2IWWcPkZyO7o96tuyp4ilelzM3yEJKf1b
-	ppw7sg2xBmb7lrgjyjoH+OM6qGuTfi4aVqM0ovt3c1rtFaUsXc8J5P6hAsfNgOePzKFYa8zAztY0e
-	3itTShTQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=RP0UIQ9VfFXbdITCBCtMfIA3dqAjjv7giw5nsLBgniE=; b=rHObYey1KCvOeC
+	UZkU9o8RYSkrmHhHzw6ZoDiiC83CuwE6Qx8AizgJDrhBBG42y/21aOsluGBgTtaFHy003EQnsadOh
+	3+yrSuYtIKjwPGMwGIfC6QSAqWeN+CRPynYlAXUDFi7GBSO/XFjUhHS2GWfEHBkZ7CS0/30Lf0HTL
+	wDeF8tKjh760tBGiQp6G+/b9n184bR1Nq80IGvZoy18mt/rZRj+vrotCJHmblI6muqI5B9NZzmohB
+	rZvn3s/7fQpwTskxRLwO57jSSSByc/aSSwny7+p9Z2W980A0NgOCjJN0SFBvr1sIubKPDPw/g9SON
+	5TCjTfJYW60mmKRuCKVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nxEiV-008oBl-HN; Fri, 03 Jun 2022 21:20:23 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1nxFAU-0092AP-G7; Fri, 03 Jun 2022 21:49:18 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nxEiR-008o6g-Nu
-	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 21:20:21 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 137so8143107pgb.5
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Jun 2022 14:20:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=aSL7ZHMXz3P5XlI8cikK9k/wBwL3m4ZnnGzl4LDbF5w=;
-        b=yNAzb0ajq75+NUTWQ6F/Imkp+LkAOvWyjvIEZ9Ah9mLyIFvXVmZByYLwWgzXGPugJH
-         MZUuBsPksKXivdKiY3wf5wMtR12nIaXA6IVFdxR7/USFhYToEqM8KTUL5jdj/vHXeGh1
-         olb4yI9AOqG/8V8wmwUW2Z91bj9n5R+WM0//+OmgWylvnq0NhEYoGaqWJTLkAmL0QNAr
-         60jA9p5eud68gO4TkVyG1Ac1+bCKirNYFckPPkX5eCbAhOZoOiMj2Vx3YgEZfVI03H/s
-         agkeGuWvGhFYWY5Qbj+wNfabulM2TXDfn6iB7RnlIACHBFT6laOahv13Vh2nn13Z53gQ
-         ZLBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=aSL7ZHMXz3P5XlI8cikK9k/wBwL3m4ZnnGzl4LDbF5w=;
-        b=Jeft/6MBBsV0U868GtYf409GgzTWolAzA0WIfvmIeZej+gumkUqFsa+G3s9PEuOxY6
-         cmBUIxf0zH0UN0Z+vis7WErSVBR0B5ktDoCMCODCsViLEnAX1sFokipwTYTm6T2WJoua
-         IxwvWjfrjQVwdovlrg10xT+WOwqoY/VnV3VksIImDBc4glY/LvFzswMyRvnpuuXtb31q
-         9qHF7hzuuxh/LzsEgAcAxJdwgOvLOtynmktqUdEt+ym2AhMmeTI8AfJ7pZlRL7tEKexK
-         Eto8JRe63kKOCw2MKlPqXW/rgHVcAMZuTTF+y+pVGepX/Wy5eGTDk0lCmn6kwQ62zF2x
-         9/fA==
-X-Gm-Message-State: AOAM531vL73/Niai1Px5bTku5d/xe8YPzOo08bknasd8Y6DlYRQvYSX6
-	YLeyk69a+fsss85pQQRjJuXskg==
-X-Google-Smtp-Source: ABdhPJy74UdT1UAYK7NS4BOTDuipUyhVJ4Wcq5kgiiy/hpj0AmjWPiOSYCycussqXvJh6aPittlOqQ==
-X-Received: by 2002:a63:b57:0:b0:3fb:a948:6d96 with SMTP id a23-20020a630b57000000b003fba9486d96mr10378007pgl.596.1654291216494;
-        Fri, 03 Jun 2022 14:20:16 -0700 (PDT)
-Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id t10-20020a17090a950a00b001e28e80a8d6sm5604411pjo.38.2022.06.03.14.20.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jun 2022 14:20:15 -0700 (PDT)
-Date: Fri, 03 Jun 2022 14:20:15 -0700 (PDT)
-X-Google-Original-Date: Fri, 03 Jun 2022 14:20:14 PDT (-0700)
-Subject: Re: (RISC-V KVM) Re: [PATCH] RISC-V: fix typos in comments
-In-Reply-To: <CAAhSdy3+imWabbArUAg0Bki3qvD1PGVB-L-xY5CvNa_YBu80aA@mail.gmail.com>
-CC: Julia.Lawall@inria.fr, kernel-janitors@vger.kernel.org, atishp@atishpatra.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: anup@brainfault.org
-Message-ID: <mhng-90fa273a-b4b0-4078-887b-5e4f58986006@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1nxFAR-00929m-TX
+	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 21:49:17 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 5D23BB824CE;
+	Fri,  3 Jun 2022 21:49:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 23F95C3411D;
+	Fri,  3 Jun 2022 21:49:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1654292953;
+	bh=ZeyhBQ31QZRSci05XFyBhW+xT730DNmSlDu7BE/0PA4=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=g7ZCvK3hzEg20ambGum+TdJr/4joIc3FfQQgiQuVsiRUHYYqT2eJjb2zBtoEDZlKq
+	 4P+LfNJFZ5qtdHtqQux23OSyRtj7h6rfuVKT+gIsio/9aHJjJwBMK0D+26Wb2Uq9rs
+	 g3FCTL9nxs7QfNo9EbG5c3/uW8vxReF4wcdTCzFh+ti4Mc0KDZQnd034NfhUXW2v19
+	 XuNHq06hsO501KdLYbPlS7GgvrLCLhWAfFX5fys2IY93otwAqz2eYzSmHyrC7YKvUb
+	 Fg4Jv/TVl+tM3c9vShCVUXvD2UZmUlhHO5VQVZQf8gmOCH6/vX+GQu4kq6KlmaJv/n
+	 rptVfKQ+kze3A==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 097C5F0394E;
+	Fri,  3 Jun 2022 21:49:13 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Patches for the 5.19 Merge Window, Part 2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-98b420ef-9b28-4e40-971e-7275b8f7c6e8@palmer-ri-x1c9>
+References: <mhng-98b420ef-9b28-4e40-971e-7275b8f7c6e8@palmer-ri-x1c9>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-98b420ef-9b28-4e40-971e-7275b8f7c6e8@palmer-ri-x1c9>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-mw2
+X-PR-Tracked-Commit-Id: 61114e734ccb804bc12561ab4020745e02c468c2
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: f66e797b407bc03a438d1f05057dc7918bab473f
+Message-Id: <165429295300.7657.14563990376660686418.pr-tracker-bot@kernel.org>
+Date: Fri, 03 Jun 2022 21:49:13 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220603_142019_817210_236DB90C 
-X-CRM114-Status: GOOD (  23.01  )
+X-CRM114-CacheID: sfid-20220603_144916_136350_BF9CB30B 
+X-CRM114-Status: UNSURE (   4.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,52 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 02 Jun 2022 21:33:00 PDT (-0700), anup@brainfault.org wrote:
-> On Thu, Jun 2, 2022 at 9:56 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>
->> On Sat, 30 Apr 2022 12:11:20 PDT (-0700), Julia.Lawall@inria.fr wrote:
->> > Various spelling mistakes in comments.
->> > Detected with the help of Coccinelle.
->> >
->> > Signed-off-by: Julia Lawall <Julia.Lawall@inria.fr>
->> >
->> > ---
->> >  arch/riscv/kvm/vmid.c |    2 +-
->> >  1 file changed, 1 insertion(+), 1 deletion(-)
->> >
->> > diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
->> > index 2fa4f7b1813d..4a2178c60b5d 100644
->> > --- a/arch/riscv/kvm/vmid.c
->> > +++ b/arch/riscv/kvm/vmid.c
->> > @@ -92,7 +92,7 @@ void kvm_riscv_stage2_vmid_update(struct kvm_vcpu *vcpu)
->> >                * We ran out of VMIDs so we increment vmid_version and
->> >                * start assigning VMIDs from 1.
->> >                *
->> > -              * This also means existing VMIDs assignement to all Guest
->> > +              * This also means existing VMIDs assignment to all Guest
->> >                * instances is invalid and we have force VMID re-assignement
->> >                * for all Guest instances. The Guest instances that were not
->> >                * running will automatically pick-up new VMIDs because will
->>
->> Anup: I'm guessing you didn't see this because it didn't have KVM in the
->> subject?
->>
->> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
->> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
->>
->> if that helps any, I don't see in anywhere but not sure if I'm just
->> missing it.
->
-> Thanks Palmer, I had already planned to pick this as a RC fix for 5.19
-> but I forgot to reply here.
+The pull request you sent on Fri, 03 Jun 2022 09:33:46 -0700 (PDT):
 
-OK, no worries.  I was't going to do anything with it as it's 
-arch/riscv/kvm, so no rush on my end.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-mw2
+
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/f66e797b407bc03a438d1f05057dc7918bab473f
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
