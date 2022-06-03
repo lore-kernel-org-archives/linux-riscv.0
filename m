@@ -4,67 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5466C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 12:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D805C43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 15:00:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bvxhruP/jXgEijqKsWLm8yS8tUXbIatbSc/OyFC9k/A=; b=FrL9hh5BPBl1Ds
-	gp/s81Bc3HJRaaCkeZiT0ZJ/SHqfhd4bxx+onAp5kYUQLlnd/VOYkJrZ7bQLlKN/C+fRXteW8UD+f
-	UxUHmRfdSDqwM74BjjXoO0h2FKRb14gY+8yBUiD4VHruPA7idiTau1zevdvZvjzhnCbgx51Xvonhn
-	6qup7Z+QxGgBToRAKLf4kmZ7g1Cs8aGivVYuuFoc1PI6fGTlr/Z8Y8e5szfKTljQwcu4e6zHWpYKJ
-	t81F3NbufXLdWmMzw8NFWK2o/+O8cCiOvwcouDCyklghbBB3VSkymgUzZ6SiLvfG5glKRSRjbsyVa
-	VdvdonKvt7aLiQdD8nkQ==;
+	List-Owner; bh=sZsRjQQHNr+F1+BBPK2v2vS+0/bZUn+Nwl31owYyMjk=; b=V5tOl3URbbE+xm
+	T1TIITq08vLg2jChNC8I6wwd7p3+6eu+6tPLiv/+R0KVOhZav32cN79gRFU90jjxjO57LBnVslcKu
+	n7MzYtmNJT7/yDu9wIvXD0GCk2WhkTJtk05D3BhAv06XJ42urevj6uSho5UZ/ZJrqAqgbSOeMdN2Z
+	/VISvHgsBNxBkHTegormnfUNcc01gx/dkvUJja6zslB6lgT7Rb/fWkui9rVmspZ6Q412yjknsAvwS
+	i9Rp9NxZpr19pwznf2++xxHamLz6oGZ4CQyCOD32TsNeB2/IjxmMPINY2s8SJc1t3AF0oErEF94/k
+	yfwDQC9KijHOYjmBZlwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nx6Rk-007RPN-L9; Fri, 03 Jun 2022 12:30:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nx6RX-007RGA-JN; Fri, 03 Jun 2022 12:30:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B4041063;
-	Fri,  3 Jun 2022 05:30:14 -0700 (PDT)
-Received: from [192.168.178.6] (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F4DE3F73D;
-	Fri,  3 Jun 2022 05:30:12 -0700 (PDT)
-Message-ID: <947470ba-35fc-3c72-d01b-c0a7337216a2@arm.com>
-Date: Fri, 3 Jun 2022 14:30:04 +0200
+	id 1nx8ly-007uy6-T3; Fri, 03 Jun 2022 14:59:34 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nx8lv-007uvX-Uj; Fri, 03 Jun 2022 14:59:33 +0000
+Received: from p508fd41b.dip0.t-ipconnect.de ([80.143.212.27] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <heiko@sntech.de>)
+	id 1nx8li-00068q-A8; Fri, 03 Jun 2022 16:59:18 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
+Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>, Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Subject: Re: [PATCH -for-next] riscv: Fix missing PAGE_PFN_MASK
+Date: Fri, 03 Jun 2022 16:59:17 +0200
+Message-ID: <6852601.cEBGB3zze1@phil>
+In-Reply-To: <20220530094701.2891404-1-alexandre.ghiti@canonical.com>
+References: <20220530094701.2891404-1-alexandre.ghiti@canonical.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.1
-Subject: Re: [PATCH v3 15/16] arch_topology: Set cluster identifier in each
- core/thread from /cpu-map
-Content-Language: en-US
-To: Sudeep Holla <sudeep.holla@arm.com>, linux-kernel@vger.kernel.org
-Cc: Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>,
- Vincent Guittot <vincent.guittot@linaro.org>,
- Morten Rasmussen <morten.rasmussen@arm.com>, Qing Wang <wangqing@vivo.com>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Rob Herring <robh+dt@kernel.org>
-References: <20220525081416.3306043-1-sudeep.holla@arm.com>
- <20220525081416.3306043-2-sudeep.holla@arm.com>
- <20220525081416.3306043-3-sudeep.holla@arm.com>
- <20220525081416.3306043-4-sudeep.holla@arm.com>
- <20220525081416.3306043-5-sudeep.holla@arm.com>
- <20220525081416.3306043-6-sudeep.holla@arm.com>
- <20220525081416.3306043-7-sudeep.holla@arm.com>
- <20220525081416.3306043-8-sudeep.holla@arm.com>
- <20220525081416.3306043-9-sudeep.holla@arm.com>
- <20220525081416.3306043-10-sudeep.holla@arm.com>
- <20220525081416.3306043-11-sudeep.holla@arm.com>
- <20220525081416.3306043-12-sudeep.holla@arm.com>
- <20220525081416.3306043-13-sudeep.holla@arm.com>
- <20220525081416.3306043-14-sudeep.holla@arm.com>
- <20220525081416.3306043-15-sudeep.holla@arm.com>
- <20220525081416.3306043-16-sudeep.holla@arm.com>
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-In-Reply-To: <20220525081416.3306043-16-sudeep.holla@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220603_053019_811649_8D4B77FC 
-X-CRM114-Status: GOOD (  24.51  )
+X-CRM114-CacheID: sfid-20220603_075932_039142_5DBFE312 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,117 +57,114 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25/05/2022 10:14, Sudeep Holla wrote:
-> Let us set the cluster identifier as parsed from the device tree
-> cluster nodes within /cpu-map.
+Hi,
+
+Am Montag, 30. Mai 2022, 11:47:01 CEST schrieb Alexandre Ghiti:
+> There are a bunch of functions that use the PFN from a page table entry
+> that end up with the svpbmt upper-bits because they are missing the newly
+> introduced PAGE_PFN_MASK which leads to wrong addresses conversions and
+> then crash: fix this by adding this mask.
 > 
-> We don't support nesting of clusters yet as there are no real hardware
-> to support clusters of clusters.
-> 
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> Fixes: 100631b48ded ("riscv: Fix accessing pfn bits in PTEs for non-32bit variants")
+> Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+
+agree with the approach but some things below:
+
 > ---
->  drivers/base/arch_topology.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
+>  arch/riscv/include/asm/pgtable-64.h | 4 ++--
+>  arch/riscv/include/asm/pgtable.h    | 4 ++--
+>  arch/riscv/kvm/mmu.c                | 2 +-
+>  3 files changed, 5 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index b8f0d72908c8..5f4f148a7769 100644
-> --- a/drivers/base/arch_topology.c
-> +++ b/drivers/base/arch_topology.c
-> @@ -492,7 +492,7 @@ static int __init get_cpu_for_node(struct device_node *node)
+> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> index 6d59e4695200..0e57bf1e25e9 100644
+> --- a/arch/riscv/include/asm/pgtable-64.h
+> +++ b/arch/riscv/include/asm/pgtable-64.h
+> @@ -153,7 +153,7 @@ static inline pud_t pfn_pud(unsigned long pfn, pgprot_t prot)
+>  
+>  static inline unsigned long _pud_pfn(pud_t pud)
+>  {
+> -	return pud_val(pud) >> _PAGE_PFN_SHIFT;
+> +	return (pud_val(pud) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT;
+
+we already have defined a helper:
+	#define __page_val_to_pfn(_val)  (((_val) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT)
+
+so maybe just use
+
+	return __page_val_to_pfn(pud_val(pud));
+
 >  }
 >  
->  static int __init parse_core(struct device_node *core, int package_id,
-> -			     int core_id)
-> +			     int cluster_id, int core_id)
+>  static inline pmd_t *pud_pgtable(pud_t pud)
+> @@ -240,7 +240,7 @@ static inline void p4d_clear(p4d_t *p4d)
+>  static inline pud_t *p4d_pgtable(p4d_t p4d)
 >  {
->  	char name[20];
->  	bool leaf = true;
-> @@ -508,6 +508,7 @@ static int __init parse_core(struct device_node *core, int package_id,
->  			cpu = get_cpu_for_node(t);
->  			if (cpu >= 0) {
->  				cpu_topology[cpu].package_id = package_id;
-> +				cpu_topology[cpu].cluster_id = cluster_id;
->  				cpu_topology[cpu].core_id = core_id;
->  				cpu_topology[cpu].thread_id = i;
->  			} else if (cpu != -ENODEV) {
-> @@ -529,6 +530,7 @@ static int __init parse_core(struct device_node *core, int package_id,
->  		}
+>  	if (pgtable_l4_enabled)
+> -		return (pud_t *)pfn_to_virt(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
+> +		return (pud_t *)pfn_to_virt((p4d_val(p4d) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
+
+	return (pud_t *)pfn_to_virt(__page_val_to_pfn(p4d_val(p4d)));
+
 >  
->  		cpu_topology[cpu].package_id = package_id;
-> +		cpu_topology[cpu].cluster_id = cluster_id;
+>  	return (pud_t *)pud_pgtable((pud_t) { p4d_val(p4d) });
+>  }
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index e2658a25f06d..43064025f4b0 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -255,7 +255,7 @@ static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
+>  
+>  static inline unsigned long _pgd_pfn(pgd_t pgd)
+>  {
+> -	return pgd_val(pgd) >> _PAGE_PFN_SHIFT;
+> +	return (pgd_val(pgd) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT;
 
-I'm still not convinced that this is the right thing to do. Let's take
-the juno board as an example here. And I guess our assumption should be
-that we want to make CONFIG_SCHED_CLUSTER a default option, like
-CONFIG_SCHED_MC is. Simply to avoid a unmanageable zoo of config-option
-combinations.
+	return __page_val_to_pfn(pgd_val(pgd));
 
-(1) Scheduler Domains (SDs) w/o CONFIG_SCHED_CLUSTER:
+>  }
+>  
+>  static inline struct page *pmd_page(pmd_t pmd)
+> @@ -568,7 +568,7 @@ static inline pmd_t pmd_mkinvalid(pmd_t pmd)
+>  	return __pmd(pmd_val(pmd) & ~(_PAGE_PRESENT|_PAGE_PROT_NONE));
+>  }
+>  
+> -#define __pmd_to_phys(pmd)  (pmd_val(pmd) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
+> +#define __pmd_to_phys(pmd)  ((pmd_val(pmd) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
 
-MC  <-- !!!
-DIE
+	#define __pmd_to_phys(pmd)  (__page_val_to_pfn(pmd_val(pmd)) << PAGE_SHIFT)
 
-(2) SDs w/ CONFIG_SCHED_CLUSTER:
+>  
+>  static inline unsigned long pmd_pfn(pmd_t pmd)
+>  {
+> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+> index f80a34fbf102..db03c5a29d4c 100644
+> --- a/arch/riscv/kvm/mmu.c
+> +++ b/arch/riscv/kvm/mmu.c
+> @@ -55,7 +55,7 @@ static inline unsigned long stage2_pte_index(gpa_t addr, u32 level)
+>  
+>  static inline unsigned long stage2_pte_page_vaddr(pte_t pte)
 
-CLS <-- !!!
-DIE
+This got renamed to gstage_pte_page_vaddr()
+in commit 26708234eb12 ("RISC-V: KVM: Use G-stage name for hypervisor page table")
 
-In (2) MC gets degenerated in sd_parent_degenerate() since CLS and MC
-cpumasks are equal and MC does not have any additional flags compared to
-CLS.
-I'm not convinced that we can change the degeneration rules without
-destroying other scenarios of the scheduler so that here MC stays and
-CLS gets removed instead.
+>  {
+> -	return (unsigned long)pfn_to_virt(pte_val(pte) >> _PAGE_PFN_SHIFT);
+> +	return (unsigned long)pfn_to_virt((pte_val(pte) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
 
-Even though MC and CLS are doing the same right now from the perspective
-of the scheduler, we should also see MC and not CLS under (2). CLS only
-makes sense longer term if the scheduler also makes use of it (next to
-MC) in the wakeup-path for instance. Especially when this happens, a
-platform should always construct the same scheduler domain hierarchy, no
-matter which CONFIG_SCHED_XXX options are enabled.
+return (unsigned long)pfn_to_virt(__page_val_to_pfn(pte_val(pte)));
 
 
-You can see this in update_siblings_masks()
+Heiko
 
-    if (last_level_cache_is_shared)
-        set llc_sibling
+>  }
+>  
+>  static int stage2_page_size_to_level(unsigned long page_size, u32 *out_level)
+> 
 
-    if (cpuid_topo->package_id != cpu_topo->package_id)
-        continue
 
-    set core_sibling
 
-  If llc cache and socket boundaries are congruent, llc_sibling and
-  core_sibling are the same.
 
-    if (cpuid_topo->cluster_id != cpu_topo->cluster_id)
-        continue
-
-    set cluster_sibling
-
-  Now we potentially set clusters. Since socket=0 is by default and we
-  use the existing juno.dts, the cluster nodes end up being congruent to
-  the llc cache cpumasks as well.
-
-The problem is that we code `llc cache` and `DT cluster nodes` as the
-same thing in juno.dts. `Cluster0/1` are congruent with the llc
-information, although they should be actually `socket0/1` right now. But
-we can't set-up a cpu-map with a `socketX` containing `coreY` directly.
-And then we use llc_sibling and cluster_sibling in two different SD
-cpumask functions (cpu_coregroup_mask() and cpu_clustergroup_mask()).
-
-Remember, CONFIG_SCHED_CLUSTER was introduced in ACPI/PPTT as a cpumask
-which is a subset of the cpumasks of CONFIG_SCHED_MC.
-
----
-
-IMHO we probably could just introduce your changes w/o setting `cpu-map
-cluster nodes` in DT for now. We would just have to make sure that for
-all `*.dts` affected, the `llc cache` info can take over the old role of
-the `cluster nodes`. In this case e.g. Juno ends up with MC, DIE no
-matter if CONFIG_SCHED_CLUSTER is set or not.
-
-[...]
 
 _______________________________________________
 linux-riscv mailing list
