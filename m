@@ -4,57 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D52BC43334
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 04:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FA99C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 04:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ba6f+p8oVmKx7mvdoJBY7/1ZhnX5ZVpqPntgm3JyZrY=; b=RRmSoBoSOYaqWN
-	rCZcMoZJLPGMXKgTpVMAGULCvfvx8WKEnZHo1zInnvuq1keHsoOkTJMSikq2J6+VN7+N8LM616Rdn
-	lSnRQ0/p1F17V0RdSVoDpFhzLtxxANcfGdVFNUQOIEO/negyBdiQ4jSCFnZ8gBoTM+qGKWzcB/VNl
-	kRbSl4XM444ZIhCMkMQSK1XYHVSsa5SkIaOHoNi+bMC7tCv1wnS57h6+yN5mq5kBGSjzP9q8ki8q/
-	7ZnQkLCzn+mxAueOhTCJMj9MWtECpximY3ljDGe/UpOeJHhab9ffchRu1/o5Fer9W/nc9oX+VsVS8
-	DZ+q6+H5iFO1Ugyu1gSw==;
+	List-Owner; bh=oWnAu9qf74Q7hBIYY6JsVz15iEARzEb/XbCzVCJFwm4=; b=ScxoN7/sTgSozT
+	BzguQ0eU5SMxE3jKf5V1uAmPrH0yyHIzBYVaGUaB4CbHt2FJAcd5X9Ye9ojOpo4lwjtwn/9uLghvc
+	eZZdx1ng4r7jim9QMnhS7E46jSmQqSb1rijCmgSdXDlXsTvB4EMqbKm5iPaeobB5a/NkToZN+1wBf
+	J4jAxY11RJqQ3bgZPtWxGLsA+Orkir7biFxxUfJ0v5FPyFXWfdvd4M0hO8T57iaCcMRXPKsKPtaHa
+	QjXVF/hKMQ+HJD6CLWPcR7QcLET8OAXqvhkMFVrxnLslEfi8xAC5IhEk0hdHdL7mrs5MNMApb07Hf
+	oJQjPJ7c/GtJyAocTdkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwycZ-005k1a-CJ; Fri, 03 Jun 2022 04:09:11 +0000
-Received: from szxga03-in.huawei.com ([45.249.212.189])
+	id 1nwyzt-005o1w-Fj; Fri, 03 Jun 2022 04:33:17 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nwycV-005k0j-4U
-	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 04:09:09 +0000
-Received: from kwepemi500013.china.huawei.com (unknown [172.30.72.56])
-	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4LDqBR6ZxPzKmHw;
-	Fri,  3 Jun 2022 12:08:47 +0800 (CST)
-Received: from M910t (10.110.54.157) by kwepemi500013.china.huawei.com
- (7.221.188.120) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Fri, 3 Jun
- 2022 12:08:59 +0800
-Date: Fri, 3 Jun 2022 12:08:52 +0800
-From: Changbin Du <changbin.du@huawei.com>
-To: Nathan Chancellor <nathan@kernel.org>
-CC: Changbin Du <changbin.du@huawei.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, <changbin.du@gmail.com>, Nick Desaulniers
-	<ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, Hui Wang
-	<hw.huiwang@huawei.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>
-Subject: Re: riscv: alternatives: move length validation inside the subsection
-Message-ID: <20220603040852.uduno354yrdyexs3@M910t>
-References: <20220602112734.it2bzlqaismotjof@M910t>
- <YpjMdVjLzoIoSGz9@dev-arch.thelio-3990X>
+	id 1nwyzr-005o0h-0f
+	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 04:33:16 +0000
+Received: by mail-wr1-x431.google.com with SMTP id i10so107254wrb.10
+        for <linux-riscv@lists.infradead.org>; Thu, 02 Jun 2022 21:33:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=vD4OLfKIFfGtPa5y0jFVwdykOdv+Mnr0Uixx1FpZoy0=;
+        b=yU/SgzSBAt1nzCv+gtsQNekuiPdjc7en8Za9CNTL+CXMx+z1HaYPZjPlIpqzf5rIlg
+         cao9VPP6LfSHgTMgw3UZopSsoOgZQnYAPvnLEPez95+7+vUHCdbZLwoaMqIOfvZN/CNO
+         W9qHVGZPGJGLpXImyr0XPjtFB0u0MBd5lBU8/3Trugv5obA4YQxLackcJW8QS5vTrSXs
+         24EGlZZmaokB5XPj5tviqqAaOjogoR9AJTfM1FQQ0ewV9gkCw9ysoTgVq9ZOCkLH8DAa
+         iGu6a1c0Rbe7onMz5grzmI1C9A5OZaPs5vdn1H84YoLg/yRQNJVUilWrbIj/mDa0vpZB
+         0k0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=vD4OLfKIFfGtPa5y0jFVwdykOdv+Mnr0Uixx1FpZoy0=;
+        b=0rGnSI24olHXMVtp19zVXSBPv0307Zu9zV7hF9Kf9D1HpZz+FFOi5VAwgK6UHYyp1o
+         1OgHybUOQ6eT8k6bwdCMwm4KewGbaF/eJLo9Fq7jfBGO+00dpYENGz0eLuvpSBp06kVo
+         ONvN9iZ1eS+44+s32fUN/FVlllg8DwOIQzhAOyn+5R2Gd7edrabxzccXlY5p7g/RM+xw
+         XnxE+Txor/QQ2S8F3mOqTUIk1LdnL2SF5ry1OxWNJj5T2pZX1aB5Ylfoto0KlvZ+66ng
+         YhavKAuvnnCKaHUpZ2hQK4O5atCkBOzw9GaVNJSFD7G3mj5QnKr1/6nFu9K00VGFSs5q
+         c8pA==
+X-Gm-Message-State: AOAM530JVICMAJxatKTklbudjMlLU5d8B5AuRkhvOt73C6uOMAfcT2GM
+	KRblCheD4apufkfM6TBJDRbsUh3ImnH5pgQeN92Chg==
+X-Google-Smtp-Source: ABdhPJwt7W+KX4MtCMg6NzWsDLRyzubaw5RShkTBjOfLyk3i7t5J1gsnfZjgOrEkIxeXfFUcKMzwahlSWGkcgBksuGc=
+X-Received: by 2002:a05:6000:1f18:b0:20f:e61b:520e with SMTP id
+ bv24-20020a0560001f1800b0020fe61b520emr6348325wrb.214.1654230792135; Thu, 02
+ Jun 2022 21:33:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YpjMdVjLzoIoSGz9@dev-arch.thelio-3990X>
-X-Originating-IP: [10.110.54.157]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemi500013.china.huawei.com (7.221.188.120)
-X-CFilter-Loop: Reflected
+References: <20220430191122.8667-6-Julia.Lawall@inria.fr> <mhng-523319d8-fda9-4737-9c43-d54bcfd7a7f2@palmer-ri-x1c9>
+In-Reply-To: <mhng-523319d8-fda9-4737-9c43-d54bcfd7a7f2@palmer-ri-x1c9>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 3 Jun 2022 10:03:00 +0530
+Message-ID: <CAAhSdy3+imWabbArUAg0Bki3qvD1PGVB-L-xY5CvNa_YBu80aA@mail.gmail.com>
+Subject: Re: (RISC-V KVM) Re: [PATCH] RISC-V: fix typos in comments
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Julia Lawall <Julia.Lawall@inria.fr>, kernel-janitors@vger.kernel.org, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, KVM General <kvm@vger.kernel.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220602_210907_565201_082C59B3 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20220602_213315_270556_8BB4B3DE 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,51 +88,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 02, 2022 at 07:43:01AM -0700, Nathan Chancellor wrote:
-> On Thu, Jun 02, 2022 at 07:27:34PM +0800, Changbin Du wrote:
-> > Apply the same fix from commit 966a0acce2fc ("arm64/alternatives: move
-> > length validation inside the subsection") to riscv.  Due to the one-pass
-> > design of LLVM's integrated assembler, it can not compute the length of
-> > instructions if the .org directive is outside of the subsection that these
-> > instructions are in.
-> > 
-> > Here is the build error reported by llvm:
-> > 
-> > In file included from ./arch/riscv/include/asm/pgtable.h:108:
-> > ./arch/riscv/include/asm/tlbflush.h:23:2: error: expected assembly-time absolute expression
-> >         ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
-> >         ^
-> > ./arch/riscv/include/asm/errata_list.h:41:5: note: expanded from macro 'ALT_FLUSH_TLB_PAGE'
-> > asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,        \
-> >     ^
-> > ./arch/riscv/include/asm/alternative-macros.h:187:2: note: expanded from macro 'ALTERNATIVE'
-> >         _ALTERNATIVE_CFG(old_content, new_content, vendor_id, errata_id, CONFIG_k)
-> >         ^
-> > ./arch/riscv/include/asm/alternative-macros.h:113:2: note: expanded from macro '_ALTERNATIVE_CFG'
-> >         __ALTERNATIVE_CFG(old_c, new_c, vendor_id, errata_id, IS_ENABLED(CONFIG_k))
-> >         ^
-> > ./arch/riscv/include/asm/alternative-macros.h:110:2: note: expanded from macro '__ALTERNATIVE_CFG'
-> >         ALT_NEW_CONTENT(vendor_id, errata_id, enable, new_c)
-> >         ^
-> > ./arch/riscv/include/asm/alternative-macros.h:98:3: note: expanded from macro 'ALT_NEW_CONTENT'
-> >         ".org   . - (887b - 886b) + (889b - 888b)\n"                    \
-> >          ^
-> > <inline asm>:25:6: note: instantiated into assembly here
-> > .org    . - (887b - 886b) + (889b - 888b)
-> >         ^
-> > 
-> > Signed-off-by: Changbin Du <changbin.du@gmail.com>
-> 
-> Thanks for the patch! I already sent an equivalent change two weeks ago
-> as https://lore.kernel.org/20220516214520.3252074-1-nathan@kernel.org/,
-> which I think is slightly better because it handles the __ASSEMBLY__
-> version of the macro as well.
-> 
-Agreed. Thank you, and please ignore this one.
+On Thu, Jun 2, 2022 at 9:56 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Sat, 30 Apr 2022 12:11:20 PDT (-0700), Julia.Lawall@inria.fr wrote:
+> > Various spelling mistakes in comments.
+> > Detected with the help of Coccinelle.
+> >
+> > Signed-off-by: Julia Lawall <Julia.Lawall@inria.fr>
+> >
+> > ---
+> >  arch/riscv/kvm/vmid.c |    2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
+> > index 2fa4f7b1813d..4a2178c60b5d 100644
+> > --- a/arch/riscv/kvm/vmid.c
+> > +++ b/arch/riscv/kvm/vmid.c
+> > @@ -92,7 +92,7 @@ void kvm_riscv_stage2_vmid_update(struct kvm_vcpu *vcpu)
+> >                * We ran out of VMIDs so we increment vmid_version and
+> >                * start assigning VMIDs from 1.
+> >                *
+> > -              * This also means existing VMIDs assignement to all Guest
+> > +              * This also means existing VMIDs assignment to all Guest
+> >                * instances is invalid and we have force VMID re-assignement
+> >                * for all Guest instances. The Guest instances that were not
+> >                * running will automatically pick-up new VMIDs because will
+>
+> Anup: I'm guessing you didn't see this because it didn't have KVM in the
+> subject?
+>
+> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+>
+> if that helps any, I don't see in anywhere but not sure if I'm just
+> missing it.
 
-> Cheers,
-> Nathan
-> 
+Thanks Palmer, I had already planned to pick this as a RC fix for 5.19
+but I forgot to reply here.
+
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
