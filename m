@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F1A0C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 17:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28ED4C43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 21:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rxsSaBzmaRjLgQXTox7kTZfd3orI/mMfag/QvUD/W68=; b=Xs64Q8KARBmA3e
-	K4FDotsByQvphN+5wBp7mBTMt3GgZdmbGZtFMznCEHaSF0wDPI3lgDLCQgGBBhPzpS5mI3dAFl+5b
-	Uuxbgf/1MCNy7Y6UqJfVzmn9GvFYizpl6Quhn67MX59Sao8Rn4Fln2u4Zc1FobUk4NMt0/ugKtmWQ
-	Y2W1LFx0v3xQaPFsyRf7CsjQS+aNLRCFBYsEL0TlaWolaE264QiCd5gsUtTeWzo/kl3ePCVmW7A8E
-	FJbsh928yprJoPMG2UPcWSt0C2TmxpkUIzWHhtfVxZ/3DhsNA5g7SrH+2sJF3xvwmIbj5I5LknakV
-	wcZnylHF21zCCBehB5Ww==;
+	List-Owner; bh=BNIGx3R6iZDh7DNDHEjHAtFj7PBWfSTzqH//6f2ja74=; b=WQ96Bw+OZHOeCu
+	bBY2QcHCAwsSiK7al4saj5kb6Xqdkzdx/Ztv7/LRd3DsUWTM+ttI6MsxVQ+297qWzGzxTRhhACdf6
+	1naFV+/h1U2l2Bb9JSL73SySKmjAVXlLYkxVUydWy+41eQkbmBswSvJWExxwk0uastLV0jghHyTdC
+	l0PcQpI48UQDFvyU6L5yW/SaJ+zdObuSq/PXj+Frcc4sSWXIs2sK9/OmX0v9QrUYXkl+uKIRKEe3E
+	D5ws0RsYKHkl2pNeIF2pNAej//vNyaSshaOL80px3nmhZF0tQX48++/OwoL55FiiErq6ntjawEPUo
+	mFnxJe8a3qWiK0acbWsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nxAld-008G4b-TX; Fri, 03 Jun 2022 17:07:21 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nxES3-008fbO-Qc; Fri, 03 Jun 2022 21:03:23 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nxAla-008G3O-BB
-	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 17:07:20 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 05357617B5;
-	Fri,  3 Jun 2022 17:07:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6639FC385B8;
-	Fri,  3 Jun 2022 17:07:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654276036;
-	bh=N1Vq92CQyZ+uHfKV8gnGwkdg61gd1r+JO9l8jWBGnFw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GDv3wl6qXo8+Ob55BO72qL4Q1tkqrOHKWx063N3ShlraBm3E84wk+zWyZbZ286mDA
-	 eiLpbsZ0rCHMr+8XidklhkOLpYKFiNOUhqnwYAlUAPUrFq2hpxFLGd+fAijdZsD8s+
-	 l7wDKMr6kbpVcTfCLme8Mx08ho9VW4ogy8sMgFli1PGsyvz7LSp810CzpZ53GvIKnV
-	 iRaABgjY7bi0nF1W5iJfyoqgLzb+VCK5u0t+2CM2o1MEY+4ZtbRiZ9KXolwN+kD2/T
-	 NXb8v2ZC3sTLkzAiIdtPePNM2XBEBSYvLOXQzVc1jNszA7dk0sly/y3UrsuY/QcgbC
-	 PgAsPCXpeGw9Q==
-Date: Sat, 4 Jun 2022 00:58:39 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] riscv: add irq stack support
-Message-ID: <Ypo9v/IMaEFxlICO@xhacker>
-References: <20220515050336.1023-1-jszhang@kernel.org>
- <mhng-9935842d-867d-4fc0-a3bd-e3ee86225798@palmer-ri-x1c9>
+	id 1nxES0-008fZz-Ln
+	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 21:03:22 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id g12so9675602lja.3
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Jun 2022 14:03:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=opFA97GGrUrFUT9SvfZGm6iux5I1umYstFz0GJmvO1s=;
+        b=jOMm80if0JHj8ErxTGfdh03GdgfvdFKd6Rm1alGSNt5XLLhAvf+YxjFXlBjrOPM+IH
+         Bqw7cj6W6JWPuTAHSqT8gS9wHeRaefNGImH/RqKb2oufhCm81PGpOqFMpqe2tNbHIm0J
+         7zlfwHc8fYGAs/0Ckmg+fGFHk05ZmM4j08cerriR96KFSyR04OgiYMva6Mp2mHLqLMfS
+         j//3vwk/QUFUaP7pn0C3CHL9FMbRoL8KozrVyh9d60Dj1+/BpipN+SD6BOoCXt85vwql
+         i+uKT08GonypnGrT7ceT0R5CYHMyfes2Oxln2HFd5Ag3DlumcUWfuaI4Jc1agK7EbgdW
+         4tSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=opFA97GGrUrFUT9SvfZGm6iux5I1umYstFz0GJmvO1s=;
+        b=ohHvwSKkwhtVotJ6eg02zRM8wif34pN3FkbXzUX/8OKTUdvUCuwEHjvf33y9YaJE/M
+         jvFTNvAus0o/CZzOzcljyGaSPLexK+xLmhzxjc3oThnumHcgmFRpg+8oBjCIVwHk1Dj7
+         q1EFVkLkV8xDXsTwwJllFRfPthVm/d6Oer0dqugFk2Ah8EhNblcUmC0Ht1/ijsyQAdS2
+         WFpRPydEAI2Gx48nyiuKrHKpd7HijC3eR9I5rGL5cnz9aI+As/q2x9tOQX46adf5a1bI
+         3furdWdcWrn6wGqIZc3zuT/w6C+0DjivsHfpnzNWOHYGOCcNaRja5PRGlykdS2+QML/Z
+         US7Q==
+X-Gm-Message-State: AOAM533DMecxt2QZOb3f1R+MXVmCs6JX6dTYlYsooH+j7PaZk1F1W/qP
+	2TAfF1rJOJOeu95UVQZ9vsobEtc4xwbqse2Onrw=
+X-Google-Smtp-Source: ABdhPJzmpEZzWq0TOpHSFyPqm8mLnO15YE4hqSuCFi23XZFXNjH9RoA689fYNyTFgdEhQVBfT9Zar6dctkoGXtjQjo8=
+X-Received: by 2002:a2e:1f12:0:b0:255:67ae:b655 with SMTP id
+ f18-20020a2e1f12000000b0025567aeb655mr10080273ljf.303.1654290197923; Fri, 03
+ Jun 2022 14:03:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <mhng-9935842d-867d-4fc0-a3bd-e3ee86225798@palmer-ri-x1c9>
+References: <20220530092815.1112406-1-pulehui@huawei.com> <20220530092815.1112406-5-pulehui@huawei.com>
+ <a31efed5-a436-49c9-4126-902303df9766@iogearbox.net>
+In-Reply-To: <a31efed5-a436-49c9-4126-902303df9766@iogearbox.net>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Fri, 3 Jun 2022 14:03:06 -0700
+Message-ID: <CAEf4BzacrRNDDYFR_4GH40+wxff=hCiyxymig6N+NVrM537AAA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 4/6] libbpf: Unify memory address casting
+ operation style
+To: Daniel Borkmann <daniel@iogearbox.net>
+Cc: Pu Lehui <pulehui@huawei.com>, bpf <bpf@vger.kernel.org>, 
+	linux-riscv@lists.infradead.org, Networking <netdev@vger.kernel.org>, 
+	open list <linux-kernel@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrii Nakryiko <andrii@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
+	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
+	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
+	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220603_100718_505062_019B7474 
-X-CRM114-Status: GOOD (  39.77  )
+X-CRM114-CacheID: sfid-20220603_140320_757243_19BC6D1B 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,186 +93,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 02, 2022 at 02:44:46PM -0700, Palmer Dabbelt wrote:
-> On Sat, 14 May 2022 22:03:36 PDT (-0700), jszhang@kernel.org wrote:
-> > Currently, IRQs are still handled on the kernel stack of the current
-> > task on riscv platforms. If the task has a deep call stack at the time
-> > of interrupt, and handling the interrupt also requires a deep stack,
-> > it's possible to see stack overflow.
-> > 
-> > Before this patch, the stack_max_size of a v5.17-rc1 kernel running on
-> > a lichee RV board gave:
-> > ~ # cat /sys/kernel/debug/tracing/stack_max_size
-> > 3736
-> > 
-> > After this patch,
-> > ~ # cat /sys/kernel/debug/tracing/stack_max_size
-> > 3176
-> > 
-> > We reduce the max kernel stack usage by 560 bytes!
-> > 
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+On Mon, May 30, 2022 at 2:03 PM Daniel Borkmann <daniel@iogearbox.net> wrote:
+>
+> On 5/30/22 11:28 AM, Pu Lehui wrote:
+> > The members of bpf_prog_info, which are line_info, jited_line_info,
+> > jited_ksyms and jited_func_lens, store u64 address pointed to the
+> > corresponding memory regions. Memory addresses are conceptually
+> > unsigned, (unsigned long) casting makes more sense, so let's make
+> > a change for conceptual uniformity.
+> >
+> > Signed-off-by: Pu Lehui <pulehui@huawei.com>
 > > ---
-> > since v2:
-> >  - rebase on v5.18-rcN
-> >  - update commit msg, I.E remove the "it's possible to reduce the
-> > THREAD_SIZE to 8KB for RV64 platforms..."
-> > 
-> > since v1:
-> >  - add __ro_after_init to the irq_stack[] array.
-> > 
-> >  arch/riscv/include/asm/thread_info.h |  1 +
-> >  arch/riscv/kernel/asm-offsets.c      |  2 ++
-> >  arch/riscv/kernel/entry.S            | 33 +++++++++++++++++++++++++---
-> >  arch/riscv/kernel/irq.c              | 16 ++++++++++++++
-> >  4 files changed, 49 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-> > index 74d888c8d631..98ea73721a0b 100644
-> > --- a/arch/riscv/include/asm/thread_info.h
-> > +++ b/arch/riscv/include/asm/thread_info.h
-> > @@ -25,6 +25,7 @@
-> >  #endif
-> >  #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
-> > 
-> > +#define IRQ_STACK_SIZE		THREAD_SIZE
-> >  /*
-> >   * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
-> >   * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
-> > diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> > index df9444397908..9e32748af0e8 100644
-> > --- a/arch/riscv/kernel/asm-offsets.c
-> > +++ b/arch/riscv/kernel/asm-offsets.c
-> > @@ -37,6 +37,8 @@ void asm_offsets(void)
-> >  	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
-> >  	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
-> >  	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
-> > +	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
-> > +	OFFSET(TASK_STACK, task_struct, stack);
-> > 
-> >  	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
-> >  	OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
-> > diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> > index c8b9ce274b9a..e91cae183ef4 100644
-> > --- a/arch/riscv/kernel/entry.S
-> > +++ b/arch/riscv/kernel/entry.S
-> > @@ -126,12 +126,39 @@ skip_context_tracking:
-> >  	 */
-> >  	bge s4, zero, 1f
-> > 
-> > -	la ra, ret_from_exception
-> > +	/* preserve the sp */
-> > +	move s0, sp
-> > 
-> > -	/* Handle interrupts */
-> >  	move a0, sp /* pt_regs */
-> > +
-> > +	/*
-> > +	 * Compare sp with the base of the task stack.
-> > +	 * If the top ~(THREAD_SIZE - 1) bits match, we are on a task stack,
-> > +	 * and should switch to the irq stack.
-> > +	 */
-> > +	REG_L t0, TASK_STACK(tp)
-> 
-> This fails to build on some configurations, as TASK_STACK doesn't fit within
+> >   tools/lib/bpf/bpf_prog_linfo.c | 9 +++++----
+> >   1 file changed, 5 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/tools/lib/bpf/bpf_prog_linfo.c b/tools/lib/bpf/bpf_prog_linfo.c
+> > index 5c503096ef43..7beb060d0671 100644
+> > --- a/tools/lib/bpf/bpf_prog_linfo.c
+> > +++ b/tools/lib/bpf/bpf_prog_linfo.c
+> > @@ -127,7 +127,8 @@ struct bpf_prog_linfo *bpf_prog_linfo__new(const struct bpf_prog_info *info)
+> >       prog_linfo->raw_linfo = malloc(data_sz);
+> >       if (!prog_linfo->raw_linfo)
+> >               goto err_free;
+> > -     memcpy(prog_linfo->raw_linfo, (void *)(long)info->line_info, data_sz);
+> > +     memcpy(prog_linfo->raw_linfo, (void *)(unsigned long)info->line_info,
+> > +            data_sz);
+>
+> Took in patch 1-3, lgtm, thanks! My question around the cleanups in patch 4-6 ...
+> there are various other such cases e.g. in libbpf, perhaps makes sense to clean all
+> of them up at once and not just the 4 locations in here.
 
-Hi Palmer,
+if (void *)(long) pattern is wrong, then I guess the best replacement
+should be (void *)(uintptr_t) ?
 
-Thanks for the catching. IIUC, you may enable GCC_PLUGIN_RANDSTRUCT.
-
-> the load immediate.  IIRC we added a macro for this at some point (to select
-> the short/long addressing sequence), but there's a trivial fix
-
-I searched the kernel source tree, didn't find the macro.
-
-> 
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 99bc411d12f4..095fef82e910 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -136,7 +136,9 @@ skip_context_tracking:
-> 	 * If the top ~(THREAD_SIZE - 1) bits match, we are on a task stack,
-> 	 * and should switch to the irq stack.
-> 	 */
-> -	REG_L t0, TASK_STACK(tp)
-> +	li t0, TASK_STACK
-> +	add t0, t0, tp
-> +	REG_L t0, 0(t0)
-> 	xor t0, t0, s0
-> 	li t1, ~(THREAD_SIZE - 1)
-> 	and t0, t0, t1
-> 
-> Unfortunatly even with that fix this still blows up early in boot on some of
-> my test configs.  Looks like pretty much anything with kasan is failing.
-> Nothing is jumping out at me and it's pretty late so I won't have time to
-> debug it myself, sorry.
-
-Could you please share your .config with me? I tried some combinations of
-KASAN, KASAN_VMALLOC VMAP_STACK and but didn't reproduce the failure.
-
-Thanks in advance
-> 
-> > +	xor t0, t0, s0
-> > +	li t1, ~(THREAD_SIZE - 1)
-> > +	and t0, t0, t1
-> > +	bnez t0, 2f
-> > +
-> > +	la t1, irq_stack
-> > +	REG_L t2, TASK_TI_CPU(tp)
-> > +	slli t2, t2, RISCV_LGPTR
-> > +	add t1, t1, t2
-> > +	REG_L t2, 0(t1)
-> > +	li t1, IRQ_STACK_SIZE
-> > +	/* switch to the irq stack */
-> > +	add sp, t2, t1
-> > +
-> > +2:
-> > +	/* Handle interrupts */
-> >  	la a1, generic_handle_arch_irq
-> > -	jr a1
-> > +	jalr a1
-> > +
-> > +	/* Restore sp */
-> > +	move sp, s0
-> > +	j ret_from_exception
-> >  1:
-> >  	/*
-> >  	 * Exceptions run with interrupts enabled or disabled depending on the
-> > diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-> > index 7207fa08d78f..f20cbfd42e82 100644
-> > --- a/arch/riscv/kernel/irq.c
-> > +++ b/arch/riscv/kernel/irq.c
-> > @@ -10,6 +10,8 @@
-> >  #include <linux/seq_file.h>
-> >  #include <asm/smp.h>
-> > 
-> > +void *irq_stack[NR_CPUS] __ro_after_init;
-> > +
-> >  int arch_show_interrupts(struct seq_file *p, int prec)
-> >  {
-> >  	show_ipi_stats(p, prec);
-> > @@ -18,7 +20,21 @@ int arch_show_interrupts(struct seq_file *p, int prec)
-> > 
-> >  void __init init_IRQ(void)
-> >  {
-> > +	int cpu;
-> > +
-> >  	irqchip_init();
-> >  	if (!handle_arch_irq)
-> >  		panic("No interrupt controller found.");
-> > +
-> > +	for_each_possible_cpu(cpu) {
-> > +#ifdef CONFIG_VMAP_STACK
-> > +		void *s = __vmalloc_node(IRQ_STACK_SIZE, THREAD_ALIGN,
-> > +					 THREADINFO_GFP, cpu_to_node(cpu),
-> > +					 __builtin_return_address(0));
-> > +#else
-> > +		void *s = (void *)__get_free_pages(GFP_KERNEL, get_order(IRQ_STACK_SIZE));
-> > +#endif
-> > +
-> > +		irq_stack[cpu] = s;
-> > +	}
-> >  }
+>
+> Thanks,
+> Daniel
 
 _______________________________________________
 linux-riscv mailing list
