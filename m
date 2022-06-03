@@ -4,43 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D805C43334
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 15:00:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD7DAC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 16:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sZsRjQQHNr+F1+BBPK2v2vS+0/bZUn+Nwl31owYyMjk=; b=V5tOl3URbbE+xm
-	T1TIITq08vLg2jChNC8I6wwd7p3+6eu+6tPLiv/+R0KVOhZav32cN79gRFU90jjxjO57LBnVslcKu
-	n7MzYtmNJT7/yDu9wIvXD0GCk2WhkTJtk05D3BhAv06XJ42urevj6uSho5UZ/ZJrqAqgbSOeMdN2Z
-	/VISvHgsBNxBkHTegormnfUNcc01gx/dkvUJja6zslB6lgT7Rb/fWkui9rVmspZ6Q412yjknsAvwS
-	i9Rp9NxZpr19pwznf2++xxHamLz6oGZ4CQyCOD32TsNeB2/IjxmMPINY2s8SJc1t3AF0oErEF94/k
-	yfwDQC9KijHOYjmBZlwA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9QY3bS5685D0GEXxpGfCGZQHqYWIXOV0mWNUceEEg/k=; b=GPvUdcPDpSprSW
+	fIRMF7dVqjN/LOxV51BC+OSiFgkfoXtO6kzvJJTuNt7kLvefHCiyXY+BP3wWflleurCV6/mdGvjs5
+	kt5Tx99SAF2Qj3o2E9GBZ/dFn/ss4DoD8k49a0DT4mJ4kneT2AyfLal4w0bY0Ej8atEkDqIjJ2+v9
+	+tj6EKkip9f/mgR0vYgegwdCCQ+pTJHV73fJ35IdkbpeuYka1HJ4XIx40/gCGTi0WmI/yWLudPKIx
+	gbXvbS7ybPyttc8IDrrTm2SXfWx9bYlje/KPBeAwnu2BCZdFSbBTsMte33NWdcBOTaTcJJfJXNvo6
+	yj0Be+zY9OxILowGaDVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nx8ly-007uy6-T3; Fri, 03 Jun 2022 14:59:34 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nxAFI-008Aip-3e; Fri, 03 Jun 2022 16:33:56 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nx8lv-007uvX-Uj; Fri, 03 Jun 2022 14:59:33 +0000
-Received: from p508fd41b.dip0.t-ipconnect.de ([80.143.212.27] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <heiko@sntech.de>)
-	id 1nx8li-00068q-A8; Fri, 03 Jun 2022 16:59:18 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Cc: Alexandre Ghiti <alexandre.ghiti@canonical.com>, Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Subject: Re: [PATCH -for-next] riscv: Fix missing PAGE_PFN_MASK
-Date: Fri, 03 Jun 2022 16:59:17 +0200
-Message-ID: <6852601.cEBGB3zze1@phil>
-In-Reply-To: <20220530094701.2891404-1-alexandre.ghiti@canonical.com>
-References: <20220530094701.2891404-1-alexandre.ghiti@canonical.com>
-MIME-Version: 1.0
+	id 1nxAFE-008AhY-AI
+	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 16:33:54 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id b11so5937980qvv.4
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Jun 2022 09:33:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=date:subject:cc:from:to:message-id;
+        bh=jmS9+muNRBp2jnRn4fOY2N20O9KfoqE+IiDXN9dcqrM=;
+        b=UHz9NCtym8NegjyXl7gyK9SuR5nldXoPINn+bRik9fh0SLL8K7UIwOH6LBLp5myTpk
+         wnTskz3ocPTRLxh6cr5Ez6O074AUwgNuQHlGM4IxmHw1EJkYPidUpxcJ7EFN73SBb0m7
+         KI9SNvVlphbGJehjOnZq6i3fjGEEarEg2d8jhkRURC50UC82WfxWay63Kw7hx0RVHGfk
+         2hMMV8I4mFIzT0QLHoTV6nRLh1GwCj95qpv7QZw4PcyPGKA6mJuVLx0qQmr+aJJJ6NEQ
+         D60xd395cd2tQEE3INfQPRxFeZNh9AolJykywXzh4qcvhsbegc4UUZhic9rn15QbyI4g
+         Aajw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:subject:cc:from:to:message-id;
+        bh=jmS9+muNRBp2jnRn4fOY2N20O9KfoqE+IiDXN9dcqrM=;
+        b=vua67d0XPZZXl2RV4Q3cZ7yuhbRqKmEFIzqACrXr4EuRvoVSxy4f9EE5khE937FLaa
+         ivocVxAXeBu/a6yWyZT1zFwiP9Wm5ru6+vyNP3zO1awDPi2VMN+RNf1N5f70fFoG5a9X
+         EfkE2wKDx5c/mDPl5ctUF8ERjxuiYWsRkutzk9vIZvMdOxV++JSYUnR3oqVx1N8NZPQB
+         WZoyWonmtp7ok/IRjlYgSrK/4n1f4unhJ0sV8XcjaaJ4hAsIK6fHCUWfjmXvUQY8/uyS
+         V+IxY/r8GxglJHgepqUeMW/JQBdQue7eBo+36x/ArVbDofXGrP/INE8cscoVemFUTbg9
+         1wNw==
+X-Gm-Message-State: AOAM532FbpTjKcobkKt5m4LfD1n3mpUPqIMzFfpDblmjp/T3wLdOWnV3
+	5EB54DSQ0sQgaRrX+79pHFPGMOnhX4njTg==
+X-Google-Smtp-Source: ABdhPJxZoE4jsbVPqtWPd5lko6Oa2FLNbG7wszeizLjMbpm+bug1FMywcdicUra99nZiJ1WeMZZDIw==
+X-Received: by 2002:ad4:46ae:0:b0:467:db1b:f38b with SMTP id br14-20020ad446ae000000b00467db1bf38bmr4091953qvb.57.1654274027125;
+        Fri, 03 Jun 2022 09:33:47 -0700 (PDT)
+Received: from localhost ([12.3.194.138])
+        by smtp.gmail.com with ESMTPSA id h9-20020ac85e09000000b002f93c5444e3sm5481315qtx.52.2022.06.03.09.33.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jun 2022 09:33:46 -0700 (PDT)
+Date: Fri, 03 Jun 2022 09:33:46 -0700 (PDT)
+X-Google-Original-Date: Fri, 03 Jun 2022 09:33:44 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 5.19 Merge Window, Part 2
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-98b420ef-9b28-4e40-971e-7275b8f7c6e8@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220603_075932_039142_5DBFE312 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20220603_093352_615077_B1A97BCF 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -52,119 +77,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+merged tag 'riscv-for-linus-5.19-mw0'
+The following changes since commit 35b51afd23c98e2f055ac563aca36173a12588b9:
 
-Am Montag, 30. Mai 2022, 11:47:01 CEST schrieb Alexandre Ghiti:
-> There are a bunch of functions that use the PFN from a page table entry
-> that end up with the svpbmt upper-bits because they are missing the newly
-> introduced PAGE_PFN_MASK which leads to wrong addresses conversions and
-> then crash: fix this by adding this mask.
-> 
-> Fixes: 100631b48ded ("riscv: Fix accessing pfn bits in PTEs for non-32bit variants")
-> Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
+  Merge tag 'riscv-for-linus-5.19-mw0' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (2022-05-31 14:10:54 -0700)
 
-agree with the approach but some things below:
+are available in the Git repository at:
 
-> ---
->  arch/riscv/include/asm/pgtable-64.h | 4 ++--
->  arch/riscv/include/asm/pgtable.h    | 4 ++--
->  arch/riscv/kvm/mmu.c                | 2 +-
->  3 files changed, 5 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> index 6d59e4695200..0e57bf1e25e9 100644
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -153,7 +153,7 @@ static inline pud_t pfn_pud(unsigned long pfn, pgprot_t prot)
->  
->  static inline unsigned long _pud_pfn(pud_t pud)
->  {
-> -	return pud_val(pud) >> _PAGE_PFN_SHIFT;
-> +	return (pud_val(pud) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT;
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-mw2
 
-we already have defined a helper:
-	#define __page_val_to_pfn(_val)  (((_val) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT)
+for you to fetch changes up to 61114e734ccb804bc12561ab4020745e02c468c2:
 
-so maybe just use
+  riscv: Move alternative length validation into subsection (2022-06-02 15:55:22 -0700)
 
-	return __page_val_to_pfn(pud_val(pud));
+----------------------------------------------------------------
+RISC-V Patches for the 5.19 Merge Window, Part 2
 
->  }
->  
->  static inline pmd_t *pud_pgtable(pud_t pud)
-> @@ -240,7 +240,7 @@ static inline void p4d_clear(p4d_t *p4d)
->  static inline pud_t *p4d_pgtable(p4d_t p4d)
->  {
->  	if (pgtable_l4_enabled)
-> -		return (pud_t *)pfn_to_virt(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
-> +		return (pud_t *)pfn_to_virt((p4d_val(p4d) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
+This is mostly some DT updates, but also a handful of cleanups and some
+fixes.  The most user-visible of those are:
 
-	return (pud_t *)pfn_to_virt(__page_val_to_pfn(p4d_val(p4d)));
+* A device tree for the Sundance Polarberry, along with a handful of
+  fixes and clenups to the PolarFire SOC device trees and bindings.
+* The memfd_secret syscall number is now visible to userspace,
+* Some improvements to the vm layout dump, which really should have
+  followed shortly after the sv48 patches but I missed.
 
->  
->  	return (pud_t *)pud_pgtable((pud_t) { p4d_val(p4d) });
->  }
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index e2658a25f06d..43064025f4b0 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -255,7 +255,7 @@ static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
->  
->  static inline unsigned long _pgd_pfn(pgd_t pgd)
->  {
-> -	return pgd_val(pgd) >> _PAGE_PFN_SHIFT;
-> +	return (pgd_val(pgd) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT;
+----------------------------------------------------------------
+Alexandre Ghiti (3):
+      Documentation: riscv: Add sv48 description to VM layout
+      riscv: Initialize thread pointer before calling C functions
+      riscv: Improve virtual kernel memory layout dump
 
-	return __page_val_to_pfn(pgd_val(pgd));
+Conor Dooley (10):
+      riscv: dts: microchip: remove icicle memory clocks
+      riscv: dts: microchip: move sysctrlr out of soc bus
+      riscv: dts: microchip: remove soc vendor from filenames
+      dt-bindings: riscv: microchip: document icicle reference design
+      riscv: dts: microchip: make the fabric dtsi board specific
+      dt-bindings: vendor-prefixes: add Sundance DSP
+      dt-bindings: riscv: microchip: add polarberry compatible string
+      riscv: dts: microchip: add the sundance polarberry
+      riscv: microchip: icicle: readability fixes
+      riscv: dts: icicle: sort nodes alphabetically
 
->  }
->  
->  static inline struct page *pmd_page(pmd_t pmd)
-> @@ -568,7 +568,7 @@ static inline pmd_t pmd_mkinvalid(pmd_t pmd)
->  	return __pmd(pmd_val(pmd) & ~(_PAGE_PRESENT|_PAGE_PROT_NONE));
->  }
->  
-> -#define __pmd_to_phys(pmd)  (pmd_val(pmd) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
-> +#define __pmd_to_phys(pmd)  ((pmd_val(pmd) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
+Jisheng Zhang (1):
+      riscv: mm: init: make pt_ops_set_[early|late|fixmap] static
 
-	#define __pmd_to_phys(pmd)  (__page_val_to_pfn(pmd_val(pmd)) << PAGE_SHIFT)
+Masahiro Yamada (1):
+      riscv: move errata/ and kvm/ builds to arch/riscv/Kbuild
 
->  
->  static inline unsigned long pmd_pfn(pmd_t pmd)
->  {
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index f80a34fbf102..db03c5a29d4c 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -55,7 +55,7 @@ static inline unsigned long stage2_pte_index(gpa_t addr, u32 level)
->  
->  static inline unsigned long stage2_pte_page_vaddr(pte_t pte)
+Nathan Chancellor (1):
+      riscv: Move alternative length validation into subsection
 
-This got renamed to gstage_pte_page_vaddr()
-in commit 26708234eb12 ("RISC-V: KVM: Use G-stage name for hypervisor page table")
+Palmer Dabbelt (2):
+      RISC-V: PolarFire SoC Device Tree Updates
+      RISC-V: Only default to spinwait on SBI-0.1 and M-mode
 
->  {
-> -	return (unsigned long)pfn_to_virt(pte_val(pte) >> _PAGE_PFN_SHIFT);
-> +	return (unsigned long)pfn_to_virt((pte_val(pte) & _PAGE_PFN_MASK) >> _PAGE_PFN_SHIFT);
+Samuel Holland (1):
+      riscv: Fix irq_work when SMP is disabled
 
-return (unsigned long)pfn_to_virt(__page_val_to_pfn(pte_val(pte)));
+Tobias Klauser (1):
+      riscv: Wire up memfd_secret in UAPI header
 
+Xianting Tian (1):
+      RISC-V: Mark IORESOURCE_EXCLUSIVE for reserved mem instead of IORESOURCE_BUSY
 
-Heiko
-
->  }
->  
->  static int stage2_page_size_to_level(unsigned long page_size, u32 *out_level)
-> 
-
-
-
-
+ .../devicetree/bindings/riscv/microchip.yaml       |   2 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ Documentation/riscv/vm-layout.rst                  |  36 +++++++
+ arch/riscv/Kbuild                                  |   2 +
+ arch/riscv/Kconfig                                 |   8 +-
+ arch/riscv/Makefile                                |   3 -
+ arch/riscv/boot/dts/microchip/Makefile             |   3 +-
+ ...pfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} |   2 +
+ ...hip-mpfs-icicle-kit.dts => mpfs-icicle-kit.dts} | 105 +++++++++++----------
+ .../boot/dts/microchip/mpfs-polarberry-fabric.dtsi |  16 ++++
+ arch/riscv/boot/dts/microchip/mpfs-polarberry.dts  |  99 +++++++++++++++++++
+ .../microchip/{microchip-mpfs.dtsi => mpfs.dtsi}   |  11 +--
+ arch/riscv/include/asm/alternative-macros.h        |   4 +-
+ arch/riscv/include/asm/irq_work.h                  |   2 +-
+ arch/riscv/include/asm/unistd.h                    |   1 -
+ arch/riscv/include/uapi/asm/unistd.h               |   1 +
+ arch/riscv/kernel/head.S                           |   1 +
+ arch/riscv/kernel/setup.c                          |   4 +-
+ arch/riscv/mm/init.c                               |  72 ++++++++++----
+ 19 files changed, 287 insertions(+), 87 deletions(-)
+ rename arch/riscv/boot/dts/microchip/{microchip-mpfs-fabric.dtsi => mpfs-icicle-kit-fabric.dtsi} (91%)
+ rename arch/riscv/boot/dts/microchip/{microchip-mpfs-icicle-kit.dts => mpfs-icicle-kit.dts} (95%)
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
+ rename arch/riscv/boot/dts/microchip/{microchip-mpfs.dtsi => mpfs.dtsi} (98%)
 
 _______________________________________________
 linux-riscv mailing list
