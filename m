@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B191C43334
-	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 21:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA88C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  3 Jun 2022 21:20:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mzZFvnIjeapqGfvmvkhNtg6pPX2YMCmZ+2NynHxVcCU=; b=RYWYyKYVYjcKTW
-	yGG1PJ54P5YcD27uVwH6//Tj2Hi8XqDxKSyKXB54sZo5+ZI13gpkOAW1AaewhS5CJovWKjDDohpQi
-	zPrLESEu7Jngc2KVD2yN7xf6mTeEXCLl6HSe2kd1ZAuYyBoQYJ5jlISEtP1hPwtXXZPyxlrskXUOk
-	NO1ou2YlxQLsHy3S6+T/leDUCvPSJfkvRfdYafBGe6aiNJ4x6GHn31AprbZD/s75tosrihZoQIUsY
-	7kyz3TEPD9BnDu44cFt06culwycAMD2qr2517gywm0qberhik01GrktRdIQ/13GrZ6G3ptKoIVAA0
-	nWVmZFdWosHXCP/DkkJA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=FU0nwbIcUTeXhsGDTbznnYPhP3vqprnA824maZcRT8w=; b=XznmQG4vyOMhOCRG0iihrxa5Ui
+	LEFQ3aSYJd60IIbkAS3q/OcnUfTqqzTo4b5QV5Ds1EnzegRjQoVMTwi9+RRyBqwk2uYOLBppJb9Ip
+	m/2kWiq7pY8QQpmkA9l46pNgjGvM5OD3XGqD6KCbRC3b49EoRg5JjAM/NUqv80OlPP/hSee/e1luS
+	Ts4ZYAT9yu8lNAZKUrVH+rpa9vcp4GeEBhiVSNt6U1Vu2IWWcPkZyO7o96tuyp4ilelzM3yEJKf1b
+	ppw7sg2xBmb7lrgjyjoH+OM6qGuTfi4aVqM0ovt3c1rtFaUsXc8J5P6hAsfNgOePzKFYa8zAztY0e
+	3itTShTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nxEU3-008gFH-4d; Fri, 03 Jun 2022 21:05:27 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1nxEiV-008oBl-HN; Fri, 03 Jun 2022 21:20:23 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nxEU1-008gDL-9Q
-	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 21:05:26 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id h23so14446492lfe.4
-        for <linux-riscv@lists.infradead.org>; Fri, 03 Jun 2022 14:05:22 -0700 (PDT)
+	id 1nxEiR-008o6g-Nu
+	for linux-riscv@lists.infradead.org; Fri, 03 Jun 2022 21:20:21 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 137so8143107pgb.5
+        for <linux-riscv@lists.infradead.org>; Fri, 03 Jun 2022 14:20:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=rdCC350CRfTnlMVl9hZPunLr7i2db8KX60dDtm/jhb4=;
-        b=dtlC/kgJuVZ3CpEdyshW/IR+2qIgLu09prKB5QevJec1hXcL9NpbvvzgNZ71mOaAiZ
-         PftpokKOYCrGeork8uYNkaZozFeRadECDkdIa16Jn4C/UQtALgI6m446ReodOYVPs+Kk
-         Kejoro6Tj3+9RBJ/zDzt6A1+Co7sMDJnAiH3pOJ5YsamY4dDsQYB5nte2cBU8u0S7/GB
-         u4AYa+ZGfS/5XzGXrNdKIn0k1wBWzELkZRwu2sJ+63YdiywR+SyoxwBfilufmJboPU+o
-         caid2AT5hUUlS8YLSUyMINY4lZO28FEotMfq4nVHXqBuFNUVmpLr3MWsHN55PMWHTMAV
-         /M7A==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+         :content-transfer-encoding;
+        bh=aSL7ZHMXz3P5XlI8cikK9k/wBwL3m4ZnnGzl4LDbF5w=;
+        b=yNAzb0ajq75+NUTWQ6F/Imkp+LkAOvWyjvIEZ9Ah9mLyIFvXVmZByYLwWgzXGPugJH
+         MZUuBsPksKXivdKiY3wf5wMtR12nIaXA6IVFdxR7/USFhYToEqM8KTUL5jdj/vHXeGh1
+         olb4yI9AOqG/8V8wmwUW2Z91bj9n5R+WM0//+OmgWylvnq0NhEYoGaqWJTLkAmL0QNAr
+         60jA9p5eud68gO4TkVyG1Ac1+bCKirNYFckPPkX5eCbAhOZoOiMj2Vx3YgEZfVI03H/s
+         agkeGuWvGhFYWY5Qbj+wNfabulM2TXDfn6iB7RnlIACHBFT6laOahv13Vh2nn13Z53gQ
+         ZLBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=rdCC350CRfTnlMVl9hZPunLr7i2db8KX60dDtm/jhb4=;
-        b=PZVKEr1LpL3ce6uinLbwnKEfU9FVZDxalpYJ/TkpawC7RhS+m48o+H9kBHPfQacsYV
-         kxoQ6TBPcLldbJp8YeND9TiLSU+ejiDMO1fTjaR94ZkSspmNJzBhWPjd+ptgBgiXIK/5
-         42SMWhQBp8q0horUH1EtoVrAOm2/pY+8+7/45S9EVRvMMJgMD2f3FUD/v/D7S7ljf0kH
-         ILAYG4ucBzcZTBa8YecP/gZMbe/08EYROtRenGFCQlDJcmuzxMuZoLN2BfpCp6/J8wqj
-         +3z2CVxLB+QWGH1aXCLNNDlzmasEXa0zXNuE7qlTir18GN3nC/F3Y5rBcQ8e0Xfxbp7K
-         1ufg==
-X-Gm-Message-State: AOAM5304AIuiaEg4ZqsHwCf6qNHU/wMvvw1UE6fCV+O9Sub+yg5Hw71t
-	rbdkVx2L5gm7OJO1jUl9/luEHQPumZkxatUy6v8=
-X-Google-Smtp-Source: ABdhPJxQRsoWD2DZFdgj6bMc6YwCRCjL0tBk07f4Tytq4xquHn/ejDy48a4Wxbt7fLch3VWacC+ZwogYEJcokg0BPXo=
-X-Received: by 2002:a05:6512:2625:b0:478:5a51:7fe3 with SMTP id
- bt37-20020a056512262500b004785a517fe3mr7697698lfb.158.1654290320714; Fri, 03
- Jun 2022 14:05:20 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220530092815.1112406-1-pulehui@huawei.com> <20220530092815.1112406-7-pulehui@huawei.com>
-In-Reply-To: <20220530092815.1112406-7-pulehui@huawei.com>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Fri, 3 Jun 2022 14:05:09 -0700
-Message-ID: <CAEf4Bza4RT=KFhr9ev29967dyT0eF_+6ZRqK35beUvnA_NbcqQ@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 6/6] selftests/bpf: Remove the casting about
- jited_ksyms and jited_linfo
-To: Pu Lehui <pulehui@huawei.com>
-Cc: bpf <bpf@vger.kernel.org>, linux-riscv@lists.infradead.org, 
-	Networking <netdev@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, 
-	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, 
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, 
-	John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
+        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+         :mime-version:content-transfer-encoding;
+        bh=aSL7ZHMXz3P5XlI8cikK9k/wBwL3m4ZnnGzl4LDbF5w=;
+        b=Jeft/6MBBsV0U868GtYf409GgzTWolAzA0WIfvmIeZej+gumkUqFsa+G3s9PEuOxY6
+         cmBUIxf0zH0UN0Z+vis7WErSVBR0B5ktDoCMCODCsViLEnAX1sFokipwTYTm6T2WJoua
+         IxwvWjfrjQVwdovlrg10xT+WOwqoY/VnV3VksIImDBc4glY/LvFzswMyRvnpuuXtb31q
+         9qHF7hzuuxh/LzsEgAcAxJdwgOvLOtynmktqUdEt+ym2AhMmeTI8AfJ7pZlRL7tEKexK
+         Eto8JRe63kKOCw2MKlPqXW/rgHVcAMZuTTF+y+pVGepX/Wy5eGTDk0lCmn6kwQ62zF2x
+         9/fA==
+X-Gm-Message-State: AOAM531vL73/Niai1Px5bTku5d/xe8YPzOo08bknasd8Y6DlYRQvYSX6
+	YLeyk69a+fsss85pQQRjJuXskg==
+X-Google-Smtp-Source: ABdhPJy74UdT1UAYK7NS4BOTDuipUyhVJ4Wcq5kgiiy/hpj0AmjWPiOSYCycussqXvJh6aPittlOqQ==
+X-Received: by 2002:a63:b57:0:b0:3fb:a948:6d96 with SMTP id a23-20020a630b57000000b003fba9486d96mr10378007pgl.596.1654291216494;
+        Fri, 03 Jun 2022 14:20:16 -0700 (PDT)
+Received: from localhost ([12.3.194.138])
+        by smtp.gmail.com with ESMTPSA id t10-20020a17090a950a00b001e28e80a8d6sm5604411pjo.38.2022.06.03.14.20.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jun 2022 14:20:15 -0700 (PDT)
+Date: Fri, 03 Jun 2022 14:20:15 -0700 (PDT)
+X-Google-Original-Date: Fri, 03 Jun 2022 14:20:14 PDT (-0700)
+Subject: Re: (RISC-V KVM) Re: [PATCH] RISC-V: fix typos in comments
+In-Reply-To: <CAAhSdy3+imWabbArUAg0Bki3qvD1PGVB-L-xY5CvNa_YBu80aA@mail.gmail.com>
+CC: Julia.Lawall@inria.fr, kernel-janitors@vger.kernel.org, atishp@atishpatra.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: anup@brainfault.org
+Message-ID: <mhng-90fa273a-b4b0-4078-887b-5e4f58986006@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220603_140525_371386_FBF24516 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20220603_142019_817210_236DB90C 
+X-CRM114-Status: GOOD (  23.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,68 +83,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 30, 2022 at 1:58 AM Pu Lehui <pulehui@huawei.com> wrote:
+On Thu, 02 Jun 2022 21:33:00 PDT (-0700), anup@brainfault.org wrote:
+> On Thu, Jun 2, 2022 at 9:56 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>>
+>> On Sat, 30 Apr 2022 12:11:20 PDT (-0700), Julia.Lawall@inria.fr wrote:
+>> > Various spelling mistakes in comments.
+>> > Detected with the help of Coccinelle.
+>> >
+>> > Signed-off-by: Julia Lawall <Julia.Lawall@inria.fr>
+>> >
+>> > ---
+>> >  arch/riscv/kvm/vmid.c |    2 +-
+>> >  1 file changed, 1 insertion(+), 1 deletion(-)
+>> >
+>> > diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
+>> > index 2fa4f7b1813d..4a2178c60b5d 100644
+>> > --- a/arch/riscv/kvm/vmid.c
+>> > +++ b/arch/riscv/kvm/vmid.c
+>> > @@ -92,7 +92,7 @@ void kvm_riscv_stage2_vmid_update(struct kvm_vcpu *vcpu)
+>> >                * We ran out of VMIDs so we increment vmid_version and
+>> >                * start assigning VMIDs from 1.
+>> >                *
+>> > -              * This also means existing VMIDs assignement to all Guest
+>> > +              * This also means existing VMIDs assignment to all Guest
+>> >                * instances is invalid and we have force VMID re-assignement
+>> >                * for all Guest instances. The Guest instances that were not
+>> >                * running will automatically pick-up new VMIDs because will
+>>
+>> Anup: I'm guessing you didn't see this because it didn't have KVM in the
+>> subject?
+>>
+>> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+>>
+>> if that helps any, I don't see in anywhere but not sure if I'm just
+>> missing it.
 >
-> We have unified data extension operation of jited_ksyms and jited_linfo
-> into zero extension, so there's no need to cast u64 memory address to
-> long data type.
->
-> Signed-off-by: Pu Lehui <pulehui@huawei.com>
-> ---
->  tools/testing/selftests/bpf/prog_tests/btf.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
->
-> diff --git a/tools/testing/selftests/bpf/prog_tests/btf.c b/tools/testing/selftests/bpf/prog_tests/btf.c
-> index e6612f2bd0cf..65bdc4aa0a63 100644
-> --- a/tools/testing/selftests/bpf/prog_tests/btf.c
-> +++ b/tools/testing/selftests/bpf/prog_tests/btf.c
-> @@ -6599,8 +6599,8 @@ static int test_get_linfo(const struct prog_info_raw_test *test,
->         }
->
->         if (CHECK(jited_linfo[0] != jited_ksyms[0],
-> -                 "jited_linfo[0]:%lx != jited_ksyms[0]:%lx",
-> -                 (long)(jited_linfo[0]), (long)(jited_ksyms[0]))) {
-> +                 "jited_linfo[0]:%llx != jited_ksyms[0]:%llx",
-> +                 jited_linfo[0], jited_ksyms[0])) {
+> Thanks Palmer, I had already planned to pick this as a RC fix for 5.19
+> but I forgot to reply here.
 
-__u64 is not always printed with %lld, on some platforms it is
-actually %ld, so to avoid compiler warnings we just cast them to long
-long or unsigned long long (and then %lld or %llu is fine). So please
-update this part here and below.
-
->                 err = -1;
->                 goto done;
->         }
-> @@ -6618,16 +6618,16 @@ static int test_get_linfo(const struct prog_info_raw_test *test,
->                 }
->
->                 if (CHECK(jited_linfo[i] <= jited_linfo[i - 1],
-> -                         "jited_linfo[%u]:%lx <= jited_linfo[%u]:%lx",
-> -                         i, (long)jited_linfo[i],
-> -                         i - 1, (long)(jited_linfo[i - 1]))) {
-> +                         "jited_linfo[%u]:%llx <= jited_linfo[%u]:%llx",
-> +                         i, jited_linfo[i],
-> +                         i - 1, jited_linfo[i - 1])) {
->                         err = -1;
->                         goto done;
->                 }
->
->                 if (CHECK(jited_linfo[i] - cur_func_ksyms > cur_func_len,
-> -                         "jited_linfo[%u]:%lx - %lx > %u",
-> -                         i, (long)jited_linfo[i], (long)cur_func_ksyms,
-> +                         "jited_linfo[%u]:%llx - %llx > %u",
-> +                         i, jited_linfo[i], cur_func_ksyms,
->                           cur_func_len)) {
->                         err = -1;
->                         goto done;
-> --
-> 2.25.1
->
+OK, no worries.  I was't going to do anything with it as it's 
+arch/riscv/kvm, so no rush on my end.
 
 _______________________________________________
 linux-riscv mailing list
