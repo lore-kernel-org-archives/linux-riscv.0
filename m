@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8141C43334
-	for <linux-riscv@archiver.kernel.org>; Sun,  5 Jun 2022 13:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D12C43334
+	for <linux-riscv@archiver.kernel.org>; Sun,  5 Jun 2022 13:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qhJXbG1eMASwNt8PFzpBpx80PybYM9gSyh26UWl3Ok4=; b=0tBDb+gJFVeRoo
-	GYcWSU00dAaG6bQ+vCdQmJf79AJSDB8tfyEGTHSS8VO/mzAIRrpwWYg1JHf+IMzvnZJUNrN9BrlA7
-	PResnwxqvDcLZ0HGmDr1n/UjS71Fp1nAfu5jmeK5u0NIpTV2MXQvbPJOuRO3zxSIiPIC52kQ185cS
-	V3hd0pOhae3kchvq5oHmbSgICY5mbVvZ6/Hs4wQNJw0fFn/LW38nLRcM1QNOus1nqS8HrUb511AH+
-	tp9kgC6o9qGtMNgrwtpZBtX1eDp1wP4CaIRtJwTZ37WN6Q+0L8cwq37lfvxcl2MgdZcLhcXns3S1D
-	q1LhYNePmzLyPkT7p7oA==;
+	List-Owner; bh=vWav9aTX/AhWWEMR5C/zfNOmU7qe2g9y1AqbLAictW0=; b=iBXvmHIDB73cSf
+	X3PEB5YOSwkynX1SkY3HzkVl5QBYBLp9tCaAbQex5prWDPFXa8/HDIlWH3m4T+GGV0+3X/98+ZQAN
+	GHJO9Mr7/BiLpdWojKZ8BpdionO4cx/3az3u0DYoQ/epAY8hlhMhjToQn4tLesohE8IunP5J9m7VN
+	XDCDpLMH7qsBgOKlCKsUm65MJhvWgS08pMusXYq9ZrtYxGT8WB9vf0158PjTu0Q9f9QSfuVJyZaLw
+	2cAOuBJDLcsApsYimiFVh31q2Zt2GAZb8hVMNkN04i3aav4d66sKgcYsxnxLQgG1K5eJUTxOSxSeE
+	VwXhl3oCxn2HlNPbmkHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nxqNi-00EYMj-Aa; Sun, 05 Jun 2022 13:33:26 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1nxqNl-00EYPM-Vv; Sun, 05 Jun 2022 13:33:30 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nxqNd-00EYIL-03
-	for linux-riscv@lists.infradead.org; Sun, 05 Jun 2022 13:33:22 +0000
-Received: by mail-wm1-x335.google.com with SMTP id l2-20020a05600c1d0200b0039c35ef94c4so4471227wms.4
-        for <linux-riscv@lists.infradead.org>; Sun, 05 Jun 2022 06:33:20 -0700 (PDT)
+	id 1nxqNe-00EYJr-SS
+	for linux-riscv@lists.infradead.org; Sun, 05 Jun 2022 13:33:24 +0000
+Received: by mail-wm1-x332.google.com with SMTP id n185so6342919wmn.4
+        for <linux-riscv@lists.infradead.org>; Sun, 05 Jun 2022 06:33:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding;
-        bh=fxHo2G/MFjOMreF495XhNz2LYNZUg8qT/+RBpI9PUtU=;
-        b=GyflWBfDey8F7h0aXmePopOxBzCwMdrBZ/rms2VWXDiLEAKingS6VFUymMjDnTB9eH
-         lcf2hErSL3bZguOFLwFMqQtt4ZClHUReRvpI0APoAYwE4Qo9xjhtmMntAJmyVQ2ewEds
-         F7J1Jh3Od2Rb1uKnbyr0ET9dEc5LUc2jkYSa/1y03QTjVTNValhQqWMEKUxpE4J1zamc
-         piBKUA32qYzp5OCQT97iQj+icCEIuUA49n+C8pN2TB5wvjhI7bukPPcdjO94in0lUdaY
-         z/jzeg1XMh6GnLlEnpLrM5UNiEjhpqHWnKi5zZpjx2e4Y2US8g3hoxoOz5P0ShFrU5JV
-         Y+ow==
+        bh=Mkd6aXMnIDerQLoHrLWEjvYyGr3xupK+E9ATz84tnuI=;
+        b=bl8GOPL/9Anc8bPUu5kO48+tI7Y4tEopw6WUpip5A2dIGh4+3aRt3lXY6dwxGUPfYq
+         A85sZXax9VvKJ2EQXrR5PlrIa0KsLMDvcy/mz9qEdfd+BmbG25/QnoIB9sZmm40B+B4n
+         1YPl6h5ocUoGZSOPLgCeMIctRYnP5Hc+4W/XhCkRghlvw20ny4WKudQTxVKKimVFmrmd
+         UK71jcEk6sEQAt/v41CfLGm2yUNAHj2MJq/maynD7W0Q20Jzd2xtuJQ/Ne/P2PWEcWrt
+         VczdkTgTYJ6vt/Sf8SXiE/qglL9oHLPoWDG/T45cwdSr8bgOj9G0EHASeO5yecZ5b6Fd
+         cYEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=fxHo2G/MFjOMreF495XhNz2LYNZUg8qT/+RBpI9PUtU=;
-        b=E4jSV8VGwjF1/bL71u8/uLheF7YrnvJfDPvPpnuz0AR8v/hjraZDIyk2OJJv8gUUVD
-         DnMnaLnc8jVW5cHiYorbCXI/2H1R+N8reTJbfz7QctEy2vTquPJuaH/fbRLYdmx09bnh
-         yWmBiFMlJpZ74oHgcnxGQfB6zA8wdpaygzpr/jyperlJ9otypvCO34+LzG2cUpBfJGxu
-         sQn4xpGhCVe1i+PW7fpTrFIqKaSDIIIRYKMNQ43kRx3KSk7Z43GlrPExgS3+q976FPRh
-         cZ3UPj0ql/d6HGZmQpJNBTfG65SRzK9CpSpkdwf9deaUhPHNJ5+3+Uq13TpNxU6bDqRW
-         kYgA==
-X-Gm-Message-State: AOAM532UGUQPwgZq1jyVSs8A/2zH7mntQSKw59w41WfG6qQruakpL8p2
-	zjW/djCTJL37V81oyIfgOE1PzbLvLvDPS9tJ
-X-Google-Smtp-Source: ABdhPJyEHIjQiJuKOu1YPJQ7jg0tsDoGPCGhSJazHb2r3q+Ax+V2lnyXRbTFBdqUkBxVN8dXg+h9Hg==
-X-Received: by 2002:a7b:cd83:0:b0:39c:46d2:6ebb with SMTP id y3-20020a7bcd83000000b0039c46d26ebbmr7211195wmj.187.1654435999213;
-        Sun, 05 Jun 2022 06:33:19 -0700 (PDT)
+        bh=Mkd6aXMnIDerQLoHrLWEjvYyGr3xupK+E9ATz84tnuI=;
+        b=bmbT/jEtdDNXs2sC5+YANXddREOF36fZWDTMI0XbzZR0YV2zi4gCPXUx+C9FMwyjzL
+         0Rp3+RwzWtFw/bYP0Z0+HHt//5xYzWHzLLe7rcPXVoPjFEgWPEvgtpnUuxJyw84W9luT
+         6neWn1a9bQR+UFp8Z0ND7IddyoUXybVu+RjWcmwmwyd5tcn2deYwbqdBhM3rRz8lTai0
+         iLh47wDA6m7J7sx4XtaTcT3jQBTLxaIjfiDrdPOxk0NFzGp1RGfCxuqGvu5F7a2toBuF
+         EQTDBxtb3qPs6QkwPDFIRki0fqSNTH/ztmBaLIY/RFNjA26h/Lxb+5Md7Oei21KdJSmK
+         gTUA==
+X-Gm-Message-State: AOAM531K1Eftz7mwtmHZE+CeATS3I6/6ys0ZNyjDvvO4RhE6pZDeo/zN
+	DXxXcFVs1BwIE+PTgPn9xdABgw==
+X-Google-Smtp-Source: ABdhPJzmtD/Gqhq7VtIjO7czq3hs4rt6LGJN9waxCjTI4IbAjjLaG5Fwrvpsj4ytTsG1+gypnWX5rQ==
+X-Received: by 2002:a05:600c:4e91:b0:397:8870:a3e9 with SMTP id f17-20020a05600c4e9100b003978870a3e9mr44366442wmq.141.1654436001738;
+        Sun, 05 Jun 2022 06:33:21 -0700 (PDT)
 Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id n187-20020a1c27c4000000b0039c151298b7sm18217076wmn.10.2022.06.05.06.33.18
+        by smtp.gmail.com with ESMTPSA id n187-20020a1c27c4000000b0039c151298b7sm18217076wmn.10.2022.06.05.06.33.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 05 Jun 2022 06:33:18 -0700 (PDT)
+        Sun, 05 Jun 2022 06:33:21 -0700 (PDT)
 From: mail@conchuod.ie
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -76,16 +76,17 @@ Cc: Conor Dooley <conor.dooley@microchip.com>,
 	linux-mmc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Atul Khare <atulkhare@rivosinc.com>
-Subject: [PATCH v1 3/6] MAINTAINERS: convert ocores i2c dt-binding to yaml
-Date: Sun,  5 Jun 2022 14:32:58 +0100
-Message-Id: <20220605133300.376161-4-mail@conchuod.ie>
+Subject: [PATCH v1 5/6] MAINTAINERS: convert da9063 to yaml
+Date: Sun,  5 Jun 2022 14:33:00 +0100
+Message-Id: <20220605133300.376161-6-mail@conchuod.ie>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220605133300.376161-1-mail@conchuod.ie>
 References: <20220605133300.376161-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220605_063321_079671_2710C9FD 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20220605_063322_961858_74784700 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,27 +105,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-As the ocores i2c dt-binding has been converted to yaml, update the
-maintainers entry.
+As the da9063 dt-binding has been converted to yaml, update the
+maintainers entry for it.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- MAINTAINERS | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ MAINTAINERS | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index f1b4b77daa5f..f799cf34ea52 100644
+index f799cf34ea52..8e51bc154584 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -14826,7 +14826,7 @@ M:	Peter Korsgaard <peter@korsgaard.com>
- M:	Andrew Lunn <andrew@lunn.ch>
- L:	linux-i2c@vger.kernel.org
- S:	Maintained
--F:	Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-+F:	Documentation/devicetree/bindings/i2c/i2c-ocores.yaml
- F:	Documentation/i2c/busses/i2c-ocores.rst
- F:	drivers/i2c/busses/i2c-ocores.c
- F:	include/linux/platform_data/i2c-ocores.h
+@@ -5805,6 +5805,7 @@ W:	http://www.dialog-semiconductor.com/products
+ F:	Documentation/devicetree/bindings/input/da90??-onkey.txt
+ F:	Documentation/devicetree/bindings/input/dlg,da72??.txt
+ F:	Documentation/devicetree/bindings/mfd/da90*.txt
++F:	Documentation/devicetree/bindings/mfd/da90*.yaml
+ F:	Documentation/devicetree/bindings/regulator/dlg,da9*.yaml
+ F:	Documentation/devicetree/bindings/regulator/da92*.txt
+ F:	Documentation/devicetree/bindings/regulator/slg51000.txt
 -- 
 2.36.1
 
