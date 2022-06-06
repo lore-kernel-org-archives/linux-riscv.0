@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946D5C43334
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jun 2022 15:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C945BC43334
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jun 2022 16:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wGHN6p02wAZNxSNDgZbecjO3h6sy4cbe5Ouq402VFL0=; b=SkkAS+RtnC3BLe
-	NcIV5NlKEOLQA517JvjKJ19dawegRV4Z3Ihz4GsXWbEM5fh1cpxPTTCpY6K7qfVTA3VbRVhEbRBem
-	uaHXM/8rXwAeSjidrftBQbXWGKlClf6el7+vabGjJVyf32PEABNsXtW1jjE7vqEmQXFlorIFgIEQ/
-	6nzg7M0v+54Z+9O9dUSuDFF9s1A58ZfZjU2Adc9KUYzUJeT0ZLzK+OugiFDLn9v8qgvrrst8AypCH
-	jKj3JJ2tGRYERaVUh5yPB5ZIsSDVBMddB5wPGl/GsL7OeX2/iicIexPyIfv38LibAuTiG9rcxJ1no
-	fF4PKVzgcBi6mnBtQhDQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NoGnCyRHfzq2G+KQ9FAqZo07LReTSmWtypG7xZUCh10=; b=j4js8+mkSI3+vB
+	yiEaJlylgSC09w1ItSNfLr/UqO53+bbI4f0o2dU0NMo/v833t9AEhVTWBQmPq95NqAVzJ+ViPM1kE
+	B7DNZqz6tjx+DmiR/qKodF7lmT6pBk8RnthhifkyRI2eLnuw/LfTrMh8icdxAoUGTmXa7e8TDzX7k
+	Oknan8hjcjTYxyxuTqtQnTUkl8Ktncw2JSBlWREJzM2Kkvml7rZZMRHySDhqJc1si8NNGsUEYSwhS
+	913/KaXfLGOSZdM1SEDtFOLMGLHy6iiDbA4eiWFeJyo7vU3m+UV/rARJ+lgxM2RHdDDder7y87SNi
+	IKXyYsTkP6puqop+Z3PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyErL-001tmg-SU; Mon, 06 Jun 2022 15:41:39 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nyFcS-002315-JQ; Mon, 06 Jun 2022 16:30:20 +0000
+Received: from ewsoutbound.kpnmail.nl ([195.121.94.183])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyErI-001tlB-Fx
-	for linux-riscv@lists.infradead.org; Mon, 06 Jun 2022 15:41:38 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 013A961586;
-	Mon,  6 Jun 2022 15:41:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 544A0C34115;
-	Mon,  6 Jun 2022 15:41:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654530095;
-	bh=LMoX1OcQiR7IDT2C7EN5//xbFskMPn+ON5V9Ke6Ivno=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HlIzFg/OhGuQWx1ZqLx5fiR58C9tYsF1IXPSKIhLLspkIGEC8F5dqwX+lQsHVxQLs
-	 JKibXvQ1cRBbkwhzLPw5HdqeoJgmb/y/f2zlu4PdtVmKBAqB4ymTrQh6VoV+1vW++Z
-	 l84KI5xxpYUuxEqwKLOBeINckzdfyOKnEfXzuZjaglXT0A+ZXLEnI8AolAiRIyItiW
-	 uTDtuDmGzu3LXjlbsqfHVMyhJRKafIx47YiM+uusvwwhZmDAtL6Hnag8BMpgZ+3gdc
-	 X30q500cZGcu+yr0fIdd9te+pu/fCh0kiwb9FpheosVA3c199oPwEzaBtJgWGyi0Lq
-	 ExwbvEtJgLIqQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <maz@kernel.org>)
-	id 1nyErE-00FwW9-TN; Mon, 06 Jun 2022 16:41:33 +0100
-Date: Mon, 06 Jun 2022 16:41:32 +0100
-Message-ID: <87r1414x5f.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
+	id 1nyFbx-0022jZ-1l
+	for linux-riscv@lists.infradead.org; Mon, 06 Jun 2022 16:29:51 +0000
+X-KPN-MessageId: 54269503-e5b5-11ec-8ee3-005056992ed3
+Received: from smtp.kpnmail.nl (unknown [10.31.155.7])
+	by ewsoutbound.so.kpn.org (Halon) with ESMTPS
+	id 54269503-e5b5-11ec-8ee3-005056992ed3;
+	Mon, 06 Jun 2022 18:25:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=kpnmail.nl; s=kpnmail01;
+	h=mime-version:message-id:date:subject:to:from;
+	bh=t63OwfhftQBAyL+fD30q+bT1pNxqFcyfuKg2Jivjc+Q=;
+	b=NnR5/jMNJy7fKwGLzBDJb+7vKGxpMv6unVQu+wRU6nzH03mDnN54TZX2zuFBwYfIgIZy9JVAnU86A
+	 cNYoWSn+98xKLKM1s8yf0m/qTohHXKno0oZDU6xpzQ61gPoH84pLhrQkZlwYZpNV8H1UYiYN3FoLw/
+	 FZe6Qpa3GMUp/iGw=
+X-KPN-MID: 33|aL9PUIB7qkWLTPrS0P64JdvWC3henaHPZmFqEnNfYTMTLrlXAfey2k1eZRTcV/G
+ JqPqfuq/HDP8UfyOKzoEunHjtNzJusZNnGI/gT7ZsFaE=
+X-KPN-VerifiedSender: No
+X-CMASSUN: 33|A8jqBSxURq+ObuYB9ir+OR6sDf0y1Pyq+KNCzoUeVKU7xfk/lnYhgxDZOP/oTZ8
+ NuID5OAQyQIEWmMoElTqImQ==
+X-Originating-IP: 80.61.163.207
+Received: from copland.sibelius.xs4all.nl (80-61-163-207.fixed.kpn.net [80.61.163.207])
+	by smtp.xs4all.nl (Halon) with ESMTPSA
+	id ddb736f1-e5b5-11ec-961a-005056998788;
+	Mon, 06 Jun 2022 18:29:41 +0200 (CEST)
+From: Mark Kettenis <kettenis@openbsd.org>
+To: kernel@esmil.dk,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Sagar Kadam <sagar.kadam@sifive.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
-	Phil Edworthy <phil.edworthy@renesas.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>
-Subject: Re: [PATCH RFC 2/2] irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
-In-Reply-To: <CA+V-a8vfzsB55YdFmtx3eim617b=WCYJu+Tm3SO9c1QCB3i0Lw@mail.gmail.com>
-References: <20220524172214.5104-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-	<20220524172214.5104-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-	<CA+V-a8vfzsB55YdFmtx3eim617b=WCYJu+Tm3SO9c1QCB3i0Lw@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: prabhakar.csengg@gmail.com, geert+renesas@glider.be, prabhakar.mahadev-lad.rj@bp.renesas.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, sagar.kadam@sifive.com, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, phil.edworthy@renesas.com, biju.das.jz@bp.renesas.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Mark Kettenis <kettenis@openbsd.org>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] riscv: dts: startfive: currect number of external interrupts
+Date: Mon,  6 Jun 2022 18:29:23 +0200
+Message-Id: <20220606162924.71418-1-kettenis@openbsd.org>
+X-Mailer: git-send-email 2.36.0
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220606_084136_680224_54FE0473 
-X-CRM114-Status: GOOD (  44.15  )
+X-CRM114-CacheID: sfid-20220606_092949_563145_1A23F2B2 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,139 +82,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 27 May 2022 12:05:38 +0100,
-"Lad, Prabhakar" <prabhakar.csengg@gmail.com> wrote:
-> 
-> Hi,
-> 
-> On Tue, May 24, 2022 at 6:22 PM Lad Prabhakar
-> <prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
-> >
-> > The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
-> > NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
-> > case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
-> > edge until the previous completion message has been received and
-> > NCEPLIC100 doesn't support pending interrupt counter, hence losing the
-> > interrupts if not acknowledged in time.
-> >
-> > So the workaround for edge-triggered interrupts to be handled correctly
-> > and without losing is that it needs to be acknowledged first and then
-> > handler must be run so that we don't miss on the next edge-triggered
-> > interrupt.
-> >
-> > This patch adds a new compatible string for Renesas RZ/Five SoC and adds
-> > support to change interrupt flow based on the interrupt type. It also
-> > implements irq_ack and irq_set_type callbacks.
-> >
-> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > ---
-> >  drivers/irqchip/Kconfig           |  1 +
-> >  drivers/irqchip/irq-sifive-plic.c | 71 ++++++++++++++++++++++++++++++-
-> >  2 files changed, 70 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-> > index f3d071422f3b..aea0e4e7e547 100644
-> > --- a/drivers/irqchip/Kconfig
-> > +++ b/drivers/irqchip/Kconfig
-> > @@ -537,6 +537,7 @@ config SIFIVE_PLIC
-> >         bool "SiFive Platform-Level Interrupt Controller"
-> >         depends on RISCV
-> >         select IRQ_DOMAIN_HIERARCHY
-> > +       select IRQ_FASTEOI_HIERARCHY_HANDLERS
-> >         help
-> >            This enables support for the PLIC chip found in SiFive (and
-> >            potentially other) RISC-V systems.  The PLIC controls devices
-> > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> > index bb87e4c3b88e..abffce48e69c 100644
-> > --- a/drivers/irqchip/irq-sifive-plic.c
-> > +++ b/drivers/irqchip/irq-sifive-plic.c
-> > @@ -60,10 +60,13 @@
-> >  #define        PLIC_DISABLE_THRESHOLD          0x7
-> >  #define        PLIC_ENABLE_THRESHOLD           0
-> >
-> > +#define RENESAS_R9A07G043_PLIC         1
-> > +
-> >  struct plic_priv {
-> >         struct cpumask lmask;
-> >         struct irq_domain *irqdomain;
-> >         void __iomem *regs;
-> > +       u8 of_data;
-> >  };
-> >
-> >  struct plic_handler {
-> > @@ -163,10 +166,31 @@ static int plic_set_affinity(struct irq_data *d,
-> >  }
-> >  #endif
-> >
-> > +static void plic_irq_ack(struct irq_data *d)
-> > +{
-> > +       struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-> > +
-> > +       if (irqd_irq_masked(d)) {
-> > +               plic_irq_unmask(d);
-> > +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-> > +               plic_irq_mask(d);
-> > +       } else {
-> > +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-> > +       }
-> > +}
-> > +
-> I sometimes still see an interrupt miss!
-> 
-> As per [0], we first need to claim the interrupt by reading the claim
-> register which needs to be done in the ack callback (which should be
-> doable) for edge interrupts, but the problem arises in the chained
-> handler callback where it does claim the interrupt by reading the
-> claim register.
-> 
-> static void plic_handle_irq(struct irq_desc *desc)
-> {
->     struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
->     struct irq_chip *chip = irq_desc_get_chip(desc);
->     void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
->     irq_hw_number_t hwirq;
-> 
->     WARN_ON_ONCE(!handler->present);
-> 
->     chained_irq_enter(chip, desc);
-> 
->     while ((hwirq = readl(claim))) {
->         int err = generic_handle_domain_irq(handler->priv->irqdomain,
->                             hwirq);
->         if (unlikely(err))
->             pr_warn_ratelimited("can't find mapping for hwirq %lu\n",
->                     hwirq);
->     }
-> 
->     chained_irq_exit(chip, desc);
-> }
-> 
-> I was thinking I would get around by getting the irqdata in
-> plic_handle_irq() callback using the irq_desc (struct irq_data *d =
-> &desc->irq_data;) and check the d->hwirq but this will be always 9.
-> 
->         plic: interrupt-controller@12c00000 {
->             compatible = "renesas-r9a07g043-plic";
->             #interrupt-cells = <2>;
->             #address-cells = <0>;
->             riscv,ndev = <543>;
->             interrupt-controller;
->             reg = <0x0 0x12c00000 0 0x400000>;
->             clocks = <&cpg CPG_MOD R9A07G043_NCEPLIC_ACLK>;
->             clock-names = "plic100ss";
->             power-domains = <&cpg>;
->             resets = <&cpg R9A07G043_NCEPLIC_ARESETN>;
->             interrupts-extended = <&cpu0_intc 11 &cpu0_intc 9>;
->         };
-> 
-> Any pointers on how this could be done sanely.
+The PLIC integrated on the Vic_U7_Core integrated on the StarFive
+JH7100 SoC actually supports 133 external interrupts.  127 of these
+are exposed to the outside world; the remainder are used by other
+devices that are part of the core-complex such as the L2 cache
+controller.  But all 133 interrupts are external interrupts as far
+as the PLIC is concerned.  Fixing the property that specifies the
+number of external interrupts allows the driver to manage these
+additional interrupts, whch is important since the interrupts for
+the L2 cache controller are enabled by default.
 
-Why doesn't the chained interrupt also get the ack-aware irq_chip?
+Signed-off-by: Mark Kettenis <kettenis@openbsd.org>
+---
+ arch/riscv/boot/dts/starfive/jh7100.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-	M.
-
+diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+index 69f22f9aad9d..f48e232a72a7 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
++++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
+@@ -118,7 +118,7 @@ plic: interrupt-controller@c000000 {
+ 			interrupt-controller;
+ 			#address-cells = <0>;
+ 			#interrupt-cells = <1>;
+-			riscv,ndev = <127>;
++			riscv,ndev = <133>;
+ 		};
+ 
+ 		clkgen: clock-controller@11800000 {
 -- 
-Without deviation from the norm, progress is not possible.
+2.36.0
+
 
 _______________________________________________
 linux-riscv mailing list
