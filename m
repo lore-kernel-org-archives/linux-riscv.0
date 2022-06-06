@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0FBC43334
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jun 2022 15:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 946D5C43334
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jun 2022 15:41:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z26KYYZNY07Ykr7aw7O/0hLfXoDWNQ++th/QM9lgzCg=; b=MVaUNOMxRuxbAC
-	jH8FX71b8yrJtjLRG2p8lQLO+LHK6IPsFS3JMyKxHRG7aR+ig5JePt3ipBEKfCAtQMwn7YIvFqymx
-	t2/DGNC8nsXbtwW58R5Sq3kjMtWk1Nt3VqZxj8c74reYej7UnXgoBEYla64mqKaVkHJItqY22ucPB
-	z7vU+8KR27BEEmNGU43qA2U20Xuucek3r9Y4zRP3lX45cMPesDDJafkAzRCo/MiHxX8B1AtsGu3E/
-	HuunnT02GHqucpDjI+gl6k6N8Yvmu7ojYu/VyHad7E2sDFssXLE881kbYlupwmPrK7G8ATuSYDSlD
-	wdRFpGap795B5uiT7QTw==;
+	List-Owner; bh=wGHN6p02wAZNxSNDgZbecjO3h6sy4cbe5Ouq402VFL0=; b=SkkAS+RtnC3BLe
+	NcIV5NlKEOLQA517JvjKJ19dawegRV4Z3Ihz4GsXWbEM5fh1cpxPTTCpY6K7qfVTA3VbRVhEbRBem
+	uaHXM/8rXwAeSjidrftBQbXWGKlClf6el7+vabGjJVyf32PEABNsXtW1jjE7vqEmQXFlorIFgIEQ/
+	6nzg7M0v+54Z+9O9dUSuDFF9s1A58ZfZjU2Adc9KUYzUJeT0ZLzK+OugiFDLn9v8qgvrrst8AypCH
+	jKj3JJ2tGRYERaVUh5yPB5ZIsSDVBMddB5wPGl/GsL7OeX2/iicIexPyIfv38LibAuTiG9rcxJ1no
+	fF4PKVzgcBi6mnBtQhDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyEgG-001pDL-8X; Mon, 06 Jun 2022 15:30:12 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1nyErL-001tmg-SU; Mon, 06 Jun 2022 15:41:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyEcT-001nDY-A3
-	for linux-riscv@lists.infradead.org; Mon, 06 Jun 2022 15:26:19 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id u3so20355789wrg.3
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Jun 2022 08:26:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=z2mKX+kU+0IXP/mFpleoQum6Bqhsq7l65uSh5/bTW4g=;
-        b=HMwGyp6CzEvlRC14FS57rwtanxig4GLA0FRKh8Ap4Kl+5s5sAb7edQyqJx/6zxLgRl
-         Ny1LZC+rCwH8uQsmSyoQ3zaSrJaoLCzV2pCnJ6htCk/SyrRL2RW+9oaO9wAE091+lhte
-         VbdkoDYOgTzaeDP8W32qHJorSUSW22c6eS1fvuxUinvAJPezQO6/id98yPoeIrq3jZhM
-         dgvvJQBpDsfl5OGNogPTcDByqCTGADB54X0LVtftiotrgVK0F4j2MbH8GOCwZienUlDm
-         aAaAC8PlzTvymW3kNrRwXFqIMNZ1D45n7/zIonpOec/LbgD+0R+4irBKn+sw/+v21pdZ
-         ohOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=z2mKX+kU+0IXP/mFpleoQum6Bqhsq7l65uSh5/bTW4g=;
-        b=AptYt+5Gpe0C1YH4f7J9iJPRHqT5Qb3irRNHKUQLLDmhl3A63A1CjfZR/BIDjm/4sR
-         lYyNEgjnEU4H3SJqxj8crpbG5p1vJGeOebHmzw0vZ3F18PXNGS/6G3ictgxJLlw2q3BL
-         +ZN4B+RM5zyUXIs4N0aPmzfkj1Ri1VlJEJ7GrsXSSv1PINiejwbsAmVx5POdyblLZUJX
-         wgtYLRg7Wxm5LPC93kuTbvK6z1fE7QHLMfagUeLMh2CXRmwGapmo6CCABN94X6UWO5o4
-         R4sBUfR/3AYwIHks1+DnGD2Ax9pSAMJNhZyQDfpfyRKvvlchXDXhGSL8VlOoqZXP6N23
-         os7w==
-X-Gm-Message-State: AOAM533OugHrQNiqQ31IT4kernxxO7c6deVQptpdeKnS6cFP870A256H
-	2oyvd+fEDFsF2E5rQzDLpPyIOA==
-X-Google-Smtp-Source: ABdhPJwxneQK3qa97OwL1W+PfqxqssVm1NE2jPe1s3DSYbSYAVD7FYprnFkal9IGgv+FhvsBTVndUw==
-X-Received: by 2002:a5d:458e:0:b0:216:9e07:ceb1 with SMTP id p14-20020a5d458e000000b002169e07ceb1mr11170467wrq.21.1654529173436;
-        Mon, 06 Jun 2022 08:26:13 -0700 (PDT)
-Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id h1-20020adffd41000000b002103aebe8absm15623944wrs.93.2022.06.06.08.26.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jun 2022 08:26:12 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: Rob Herring <robh+dt@kernel.org>,
+	id 1nyErI-001tlB-Fx
+	for linux-riscv@lists.infradead.org; Mon, 06 Jun 2022 15:41:38 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 013A961586;
+	Mon,  6 Jun 2022 15:41:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 544A0C34115;
+	Mon,  6 Jun 2022 15:41:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1654530095;
+	bh=LMoX1OcQiR7IDT2C7EN5//xbFskMPn+ON5V9Ke6Ivno=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HlIzFg/OhGuQWx1ZqLx5fiR58C9tYsF1IXPSKIhLLspkIGEC8F5dqwX+lQsHVxQLs
+	 JKibXvQ1cRBbkwhzLPw5HdqeoJgmb/y/f2zlu4PdtVmKBAqB4ymTrQh6VoV+1vW++Z
+	 l84KI5xxpYUuxEqwKLOBeINckzdfyOKnEfXzuZjaglXT0A+ZXLEnI8AolAiRIyItiW
+	 uTDtuDmGzu3LXjlbsqfHVMyhJRKafIx47YiM+uusvwwhZmDAtL6Hnag8BMpgZ+3gdc
+	 X30q500cZGcu+yr0fIdd9te+pu/fCh0kiwb9FpheosVA3c199oPwEzaBtJgWGyi0Lq
+	 ExwbvEtJgLIqQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <maz@kernel.org>)
+	id 1nyErE-00FwW9-TN; Mon, 06 Jun 2022 16:41:33 +0100
+Date: Mon, 06 Jun 2022 16:41:32 +0100
+Message-ID: <87r1414x5f.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Lee Jones <lee.jones@linaro.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Steve Twiss <stwiss.opensource@diasemi.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Atul Khare <atulkhare@rivosinc.com>
-Subject: [PATCH v2 3/4] dt-bindings: mfd: convert da9063 to yaml
-Date: Mon,  6 Jun 2022 16:25:57 +0100
-Message-Id: <20220606152557.438771-4-mail@conchuod.ie>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220606152557.438771-1-mail@conchuod.ie>
-References: <20220606152557.438771-1-mail@conchuod.ie>
-MIME-Version: 1.0
+	Sagar Kadam <sagar.kadam@sifive.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+	Phil Edworthy <phil.edworthy@renesas.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>
+Subject: Re: [PATCH RFC 2/2] irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
+In-Reply-To: <CA+V-a8vfzsB55YdFmtx3eim617b=WCYJu+Tm3SO9c1QCB3i0Lw@mail.gmail.com>
+References: <20220524172214.5104-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	<20220524172214.5104-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	<CA+V-a8vfzsB55YdFmtx3eim617b=WCYJu+Tm3SO9c1QCB3i0Lw@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: prabhakar.csengg@gmail.com, geert+renesas@glider.be, prabhakar.mahadev-lad.rj@bp.renesas.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, sagar.kadam@sifive.com, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, phil.edworthy@renesas.com, biju.das.jz@bp.renesas.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220606_082617_446775_199B6C0B 
-X-CRM114-Status: GOOD (  25.52  )
+X-CRM114-CacheID: sfid-20220606_084136_680224_54FE0473 
+X-CRM114-Status: GOOD (  44.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,306 +97,139 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Fri, 27 May 2022 12:05:38 +0100,
+"Lad, Prabhakar" <prabhakar.csengg@gmail.com> wrote:
+> 
+> Hi,
+> 
+> On Tue, May 24, 2022 at 6:22 PM Lad Prabhakar
+> <prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
+> >
+> > The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
+> > NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
+> > case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
+> > edge until the previous completion message has been received and
+> > NCEPLIC100 doesn't support pending interrupt counter, hence losing the
+> > interrupts if not acknowledged in time.
+> >
+> > So the workaround for edge-triggered interrupts to be handled correctly
+> > and without losing is that it needs to be acknowledged first and then
+> > handler must be run so that we don't miss on the next edge-triggered
+> > interrupt.
+> >
+> > This patch adds a new compatible string for Renesas RZ/Five SoC and adds
+> > support to change interrupt flow based on the interrupt type. It also
+> > implements irq_ack and irq_set_type callbacks.
+> >
+> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > ---
+> >  drivers/irqchip/Kconfig           |  1 +
+> >  drivers/irqchip/irq-sifive-plic.c | 71 ++++++++++++++++++++++++++++++-
+> >  2 files changed, 70 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+> > index f3d071422f3b..aea0e4e7e547 100644
+> > --- a/drivers/irqchip/Kconfig
+> > +++ b/drivers/irqchip/Kconfig
+> > @@ -537,6 +537,7 @@ config SIFIVE_PLIC
+> >         bool "SiFive Platform-Level Interrupt Controller"
+> >         depends on RISCV
+> >         select IRQ_DOMAIN_HIERARCHY
+> > +       select IRQ_FASTEOI_HIERARCHY_HANDLERS
+> >         help
+> >            This enables support for the PLIC chip found in SiFive (and
+> >            potentially other) RISC-V systems.  The PLIC controls devices
+> > diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> > index bb87e4c3b88e..abffce48e69c 100644
+> > --- a/drivers/irqchip/irq-sifive-plic.c
+> > +++ b/drivers/irqchip/irq-sifive-plic.c
+> > @@ -60,10 +60,13 @@
+> >  #define        PLIC_DISABLE_THRESHOLD          0x7
+> >  #define        PLIC_ENABLE_THRESHOLD           0
+> >
+> > +#define RENESAS_R9A07G043_PLIC         1
+> > +
+> >  struct plic_priv {
+> >         struct cpumask lmask;
+> >         struct irq_domain *irqdomain;
+> >         void __iomem *regs;
+> > +       u8 of_data;
+> >  };
+> >
+> >  struct plic_handler {
+> > @@ -163,10 +166,31 @@ static int plic_set_affinity(struct irq_data *d,
+> >  }
+> >  #endif
+> >
+> > +static void plic_irq_ack(struct irq_data *d)
+> > +{
+> > +       struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> > +
+> > +       if (irqd_irq_masked(d)) {
+> > +               plic_irq_unmask(d);
+> > +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> > +               plic_irq_mask(d);
+> > +       } else {
+> > +               writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+> > +       }
+> > +}
+> > +
+> I sometimes still see an interrupt miss!
+> 
+> As per [0], we first need to claim the interrupt by reading the claim
+> register which needs to be done in the ack callback (which should be
+> doable) for edge interrupts, but the problem arises in the chained
+> handler callback where it does claim the interrupt by reading the
+> claim register.
+> 
+> static void plic_handle_irq(struct irq_desc *desc)
+> {
+>     struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+>     struct irq_chip *chip = irq_desc_get_chip(desc);
+>     void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
+>     irq_hw_number_t hwirq;
+> 
+>     WARN_ON_ONCE(!handler->present);
+> 
+>     chained_irq_enter(chip, desc);
+> 
+>     while ((hwirq = readl(claim))) {
+>         int err = generic_handle_domain_irq(handler->priv->irqdomain,
+>                             hwirq);
+>         if (unlikely(err))
+>             pr_warn_ratelimited("can't find mapping for hwirq %lu\n",
+>                     hwirq);
+>     }
+> 
+>     chained_irq_exit(chip, desc);
+> }
+> 
+> I was thinking I would get around by getting the irqdata in
+> plic_handle_irq() callback using the irq_desc (struct irq_data *d =
+> &desc->irq_data;) and check the d->hwirq but this will be always 9.
+> 
+>         plic: interrupt-controller@12c00000 {
+>             compatible = "renesas-r9a07g043-plic";
+>             #interrupt-cells = <2>;
+>             #address-cells = <0>;
+>             riscv,ndev = <543>;
+>             interrupt-controller;
+>             reg = <0x0 0x12c00000 0 0x400000>;
+>             clocks = <&cpg CPG_MOD R9A07G043_NCEPLIC_ACLK>;
+>             clock-names = "plic100ss";
+>             power-domains = <&cpg>;
+>             resets = <&cpg R9A07G043_NCEPLIC_ARESETN>;
+>             interrupts-extended = <&cpu0_intc 11 &cpu0_intc 9>;
+>         };
+> 
+> Any pointers on how this could be done sanely.
 
-Convert the dt binding for the da9063/da9063l to yaml.
+Why doesn't the chained interrupt also get the ack-aware irq_chip?
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../devicetree/bindings/mfd/da9063.txt        | 114 ---------------
- .../devicetree/bindings/mfd/dlg,da9063.yaml   | 132 ++++++++++++++++++
- .../devicetree/bindings/trivial-devices.yaml  |   2 -
- MAINTAINERS                                   |   1 +
- 4 files changed, 133 insertions(+), 116 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/mfd/da9063.txt
- create mode 100644 Documentation/devicetree/bindings/mfd/dlg,da9063.yaml
+	M.
 
-diff --git a/Documentation/devicetree/bindings/mfd/da9063.txt b/Documentation/devicetree/bindings/mfd/da9063.txt
-deleted file mode 100644
-index aa8b800cc4ad..000000000000
---- a/Documentation/devicetree/bindings/mfd/da9063.txt
-+++ /dev/null
-@@ -1,114 +0,0 @@
--* Dialog DA9063/DA9063L Power Management Integrated Circuit (PMIC)
--
--DA9063 consists of a large and varied group of sub-devices (I2C Only):
--
--Device                   Supply Names    Description
--------                   ------------    -----------
--da9063-regulator        :               : LDOs & BUCKs
--da9063-onkey            :               : On Key
--da9063-rtc              :               : Real-Time Clock (DA9063 only)
--da9063-watchdog         :               : Watchdog
--
--======
--
--Required properties:
--
--- compatible : Should be "dlg,da9063" or "dlg,da9063l"
--- reg : Specifies the I2C slave address (this defaults to 0x58 but it can be
--  modified to match the chip's OTP settings).
--- interrupts : IRQ line information.
--- interrupt-controller
--
--Sub-nodes:
--
--- regulators : This node defines the settings for the LDOs and BUCKs.
--  The DA9063(L) regulators are bound using their names listed below:
--
--    bcore1    : BUCK CORE1
--    bcore2    : BUCK CORE2
--    bpro      : BUCK PRO
--    bmem      : BUCK MEM
--    bio       : BUCK IO
--    bperi     : BUCK PERI
--    ldo1      : LDO_1	(DA9063 only)
--    ldo2      : LDO_2	(DA9063 only)
--    ldo3      : LDO_3
--    ldo4      : LDO_4	(DA9063 only)
--    ldo5      : LDO_5	(DA9063 only)
--    ldo6      : LDO_6	(DA9063 only)
--    ldo7      : LDO_7
--    ldo8      : LDO_8
--    ldo9      : LDO_9
--    ldo10     : LDO_10	(DA9063 only)
--    ldo11     : LDO_11
--
--  The component follows the standard regulator framework and the bindings
--  details of individual regulator device can be found in:
--  Documentation/devicetree/bindings/regulator/regulator.txt
--
--- rtc : This node defines settings for the Real-Time Clock associated with
--  the DA9063 only. The RTC is not present in DA9063L. There are currently
--  no entries in this binding, however compatible = "dlg,da9063-rtc" should
--  be added if a node is created.
--
--- onkey : This node defines the OnKey settings for controlling the key
--  functionality of the device. The node should contain the compatible property
--  with the value "dlg,da9063-onkey".
--
--  Optional onkey properties:
--
--  - dlg,disable-key-power : Disable power-down using a long key-press. If this
--    entry exists the OnKey driver will remove support for the KEY_POWER key
--    press. If this entry does not exist then by default the key-press
--    triggered power down is enabled and the OnKey will support both KEY_POWER
--    and KEY_SLEEP.
--
--- watchdog : This node defines settings for the Watchdog timer associated
--  with the DA9063 and DA9063L. The node should contain the compatible property
--  with the value "dlg,da9063-watchdog".
--
--  Optional watchdog properties:
--  - dlg,use-sw-pm: Add this property to disable the watchdog during suspend.
--  Only use this option if you can't use the watchdog automatic suspend
--  function during a suspend (see register CONTROL_B).
--
--Example:
--
--	pmic0: da9063@58 {
--		compatible = "dlg,da9063"
--		reg = <0x58>;
--		interrupt-parent = <&gpio6>;
--		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
--		interrupt-controller;
--
--		rtc {
--			compatible = "dlg,da9063-rtc";
--		};
--
--		wdt {
--			compatible = "dlg,da9063-watchdog";
--		};
--
--		onkey {
--			compatible = "dlg,da9063-onkey";
--			dlg,disable-key-power;
--		};
--
--		regulators {
--			DA9063_BCORE1: bcore1 {
--				regulator-name = "BCORE1";
--				regulator-min-microvolt = <300000>;
--				regulator-max-microvolt = <1570000>;
--				regulator-min-microamp = <500000>;
--				regulator-max-microamp = <2000000>;
--				regulator-boot-on;
--			};
--			DA9063_LDO11: ldo11 {
--				regulator-name = "LDO_11";
--				regulator-min-microvolt = <900000>;
--				regulator-max-microvolt = <3600000>;
--				regulator-boot-on;
--			};
--		};
--	};
--
-diff --git a/Documentation/devicetree/bindings/mfd/dlg,da9063.yaml b/Documentation/devicetree/bindings/mfd/dlg,da9063.yaml
-new file mode 100644
-index 000000000000..d71933460e90
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/dlg,da9063.yaml
-@@ -0,0 +1,132 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/dlg,da9063.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Dialog DA9063/DA9063L Power Management Integrated Circuit (PMIC)
-+
-+maintainers:
-+  - Steve Twiss <stwiss.opensource@diasemi.com>
-+
-+description: |
-+  For device-tree bindings of other sub-modules refer to the binding documents
-+  under the respective sub-system directories.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - dlg,da9063
-+      - dlg,da9063l
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-controller: true
-+
-+  "#interrupt-cells":
-+    const: 2
-+
-+  dlg,use-sw-pm:
-+    type: boolean
-+    description:
-+      Disable the watchdog during suspend.
-+      Only use this option if you can't use the watchdog automatic suspend
-+      function during a suspend (see register CONTROL_B).
-+
-+  watchdog:
-+    type: object
-+    $ref: /schemas/watchdog/watchdog.yaml#
-+    unevaluatedProperties: false
-+    properties:
-+      compatible:
-+        const: dlg,da9063-watchdog
-+
-+  rtc:
-+    type: object
-+    $ref: /schemas/rtc/rtc.yaml#
-+    unevaluatedProperties: false
-+    properties:
-+      compatible:
-+        const: dlg,da9063-rtc
-+
-+  onkey:
-+    type: object
-+    $ref: /schemas/input/input.yaml#
-+    unevaluatedProperties: false
-+    properties:
-+      compatible:
-+        const: dlg,da9063-onkey
-+
-+      dlg,disable-key-power:
-+        type: boolean
-+        description: |
-+          Disable power-down using a long key-press.
-+          If this entry does not exist then by default the key-press triggered
-+          power down is enabled and the OnKey will support both KEY_POWER and
-+          KEY_SLEEP.
-+
-+  regulators:
-+    type: object
-+    patternProperties:
-+      "^(ldo[1-11]|bcore[1-2]|bpro|bmem|bio|bperi)$":
-+        $ref: /schemas/regulator/regulator.yaml
-+        unevaluatedProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - interrupt-controller
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    i2c {
-+      #address-cells = <1>;
-+      #size-cells = <0>;
-+      pmic@58 {
-+        compatible = "dlg,da9063";
-+        reg = <0x58>;
-+        #interrupt-cells = <2>;
-+        interrupt-parent = <&gpio6>;
-+        interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
-+        interrupt-controller;
-+
-+        rtc {
-+          compatible = "dlg,da9063-rtc";
-+        };
-+
-+        watchdog {
-+          compatible = "dlg,da9063-watchdog";
-+        };
-+
-+        onkey {
-+          compatible = "dlg,da9063-onkey";
-+          dlg,disable-key-power;
-+        };
-+
-+        regulators {
-+          regulator-bcore1 {
-+            regulator-name = "BCORE1";
-+            regulator-min-microvolt = <300000>;
-+            regulator-max-microvolt = <1570000>;
-+            regulator-min-microamp = <500000>;
-+            regulator-max-microamp = <2000000>;
-+            regulator-boot-on;
-+          };
-+          regulator-ldo11 {
-+            regulator-name = "LDO_11";
-+            regulator-min-microvolt = <900000>;
-+            regulator-max-microvolt = <3600000>;
-+            regulator-boot-on;
-+          };
-+        };
-+      };
-+    };
-+...
-diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
-index 6aafa71806a3..00acb9078cc0 100644
---- a/Documentation/devicetree/bindings/trivial-devices.yaml
-+++ b/Documentation/devicetree/bindings/trivial-devices.yaml
-@@ -93,8 +93,6 @@ properties:
-           - dh,dhcom-board
-             # DA9053: flexible system level PMIC with multicore support
-           - dlg,da9053
--            # DA9063: system PMIC for quad-core application processors
--          - dlg,da9063
-             # DMARD05: 3-axis I2C Accelerometer
-           - domintech,dmard05
-             # DMARD06: 3-axis I2C Accelerometer
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cfaf02fc9191..777b453593ad 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -5831,6 +5831,7 @@ W:	http://www.dialog-semiconductor.com/products
- F:	Documentation/devicetree/bindings/input/da90??-onkey.txt
- F:	Documentation/devicetree/bindings/input/dlg,da72??.txt
- F:	Documentation/devicetree/bindings/mfd/da90*.txt
-+F:	Documentation/devicetree/bindings/mfd/da90*.yaml
- F:	Documentation/devicetree/bindings/regulator/dlg,da9*.yaml
- F:	Documentation/devicetree/bindings/regulator/da92*.txt
- F:	Documentation/devicetree/bindings/regulator/slg51000.txt
 -- 
-2.36.1
-
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
