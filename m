@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BB31C43334
-	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jun 2022 19:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7066C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  6 Jun 2022 19:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7aW2WnwtdQP0Pw6osHCYJJpqlYSi4TApy4iEB3saoKE=; b=ty496VGds1pIfc
-	KO+b0cc/FQVyBEL/k2xFcC9e0aXsTnvk5KwvXl8AlCzmsMEtw2z63y3b17uIjqfenDyDppsA8OlXE
-	4HYF6Jt47VJzAssvIOGkLQTa4TGISZKHj9Ktf3A3vFepzN7PVK0qhAQjtgBcwmpCxdk/T/Oo/bVes
-	TIa1sME3agbERVOHcLicSSiQsJl9uBxYiTVzy4hGG/Gai0BFAuXjR+8Lzj6s1QDVehgyR8xd+y9ca
-	8l8KSoovp2hODFRd39KVqlFVjfn6AbgJGaOTOrlS37h6FDgHCb+CbCr43dL4dswUxDNa3k5m9MmRN
-	XbDExOHtu3U6Vg/kg++A==;
+	List-Owner; bh=67WGiLp2ZuCfF0kmXs1tGdwrJJ0aCq8Aq430TIUl1nU=; b=QEu8OVa4rhtVrB
+	KRh+623JmlZ3mgGmjG5bkM1WDWySZW5FOomQBlPofXyqVW2xkLn+icQJO4E7UVjN6HCjVcLUWjQCP
+	pykuxU+YZiRJeCeJpSuB0NqdtlBgUrnjLV8Sc867vhxkBy5ydnRzVkSUnXq1fsDaJ8HvkpjUpUoIS
+	SG6OjkZ0zS1ltMI+3mkI1qMQTJktJIoxBrK2DFHjb1asu55nLVVcZuCB9YQ4p1SozIIvNlYOvWByH
+	+Srzj4zj680bMZfBA8D4F2Aczc+FRoSIdo2yO4tZHtyrrlMVOA0GyRYGtc5gMqDmsHgeing1wp/bN
+	P0ROqEvA7ZwpJFdLjNMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyITP-002Tig-SQ; Mon, 06 Jun 2022 19:33:11 +0000
-Received: from mail-il1-f178.google.com ([209.85.166.178])
+	id 1nyIV3-002U3d-Ms; Mon, 06 Jun 2022 19:34:53 +0000
+Received: from mail-il1-f180.google.com ([209.85.166.180])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyITM-002Th3-IT
-	for linux-riscv@lists.infradead.org; Mon, 06 Jun 2022 19:33:10 +0000
-Received: by mail-il1-f178.google.com with SMTP id u2so11726833iln.2
-        for <linux-riscv@lists.infradead.org>; Mon, 06 Jun 2022 12:33:06 -0700 (PDT)
+	id 1nyIV1-002U2P-6r
+	for linux-riscv@lists.infradead.org; Mon, 06 Jun 2022 19:34:52 +0000
+Received: by mail-il1-f180.google.com with SMTP id b17so8344008ilh.6
+        for <linux-riscv@lists.infradead.org>; Mon, 06 Jun 2022 12:34:48 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:from:to:cc:subject:message-id:references
          :mime-version:content-disposition:in-reply-to;
-        bh=tNX+fE5QMsC9Ks4TM/TrqMoy1piEYYRXSKM00brwA4A=;
-        b=8AT6RjeZPQ/jOA4WfIE6LBgTHOGsSSjmBtfUrG6/xC9BPuA26rjIkVWpOx1ViEzUv8
-         vyZfYM6UPotzDQFuj0Ls8lV5f0CDX/0wwJtiOguC9xoX+cjCDKnfSQfazQmxuz83RBOs
-         3fVT/L1+XvqD3mZRDcG1JZJZuUNFJtqDEolDgcXZBLilKWy2hwmjDmMXPVZONMIA1Klm
-         zCGHLFsKS7U8GZWqzN1tTiO3823GnQw+dlv15eRslycUXLlWdi7TiMm9y66lmf4HW0vK
-         toat6XFEes6X64R6Ad2JyX4DRW1gdXwNHOhHC077mwWOV0yNZWO9OdLiFAWiMtXV6pOH
-         uOBw==
-X-Gm-Message-State: AOAM532YuEdZ09OSH5QV2TQO6f28V1siMikdAmudfLcB4axrNHurjwaK
-	4XhNDehjU4Yv4QqDedxgSQ==
-X-Google-Smtp-Source: ABdhPJz2HY7kGWq5THpXteEuhoYM4oFuFpHDe3x9h/zZZDyGDLS+35sEVRPBUr0/3gI2PdpHWAZGig==
-X-Received: by 2002:a05:6e02:158b:b0:2cf:e058:8ecc with SMTP id m11-20020a056e02158b00b002cfe0588eccmr14792795ilu.30.1654543985645;
-        Mon, 06 Jun 2022 12:33:05 -0700 (PDT)
+        bh=gROz1pydceBcvf/fob5H6PUvxkDsoxGNEYfF2zFZELs=;
+        b=cQsjRaNGhAyUEkoTYzML6NAZvmHzAt2iDZUvR9GTYR65tWgh2MdCYPFJZg7uG6Jcg0
+         Z8KWeJTz8CMgZu8Z4gd8jBQqBPU033WJVmhMeMnydnKxIMilCje9WpSYsvFCUtGhBykN
+         xN+HsJ6cjX5Czozw0+5mohF7ujmlXzc50c5Xn+UnMEuUq8OvMChSiLb/zAWcVfxzKwsx
+         Iyf0ZeKCSvL+TvR0LhfZ1x8fphfyCVqrxeu1QpP7JWjAT4NSFXLqIFuyDLjIZ8FJs4jt
+         LejaVy8h0EtUd5dHgiGVvGJCTzfFc36mX7yO604hmc5hl0lL/hbCZsLSpoRuSjCLgbUX
+         Ku4Q==
+X-Gm-Message-State: AOAM533noYVt6dNWMrT4h8Dng6/CXH/yf2W8Cizwy+tswAsM8ZIlUavD
+	5NGpecxvHZuTi3fSLXsROA==
+X-Google-Smtp-Source: ABdhPJyFcdHL9AJCLAhvOLjzsauecezyuHA5y8TsCzVkpu3aHcrvsi73MbDnrJ19ZLcgDNWVt3/Ggw==
+X-Received: by 2002:a05:6e02:198e:b0:2d3:f382:bbc1 with SMTP id g14-20020a056e02198e00b002d3f382bbc1mr12215886ilf.129.1654544088069;
+        Mon, 06 Jun 2022 12:34:48 -0700 (PDT)
 Received: from robh.at.kernel.org ([64.188.179.251])
-        by smtp.gmail.com with ESMTPSA id v9-20020a056602058900b00669384fcf88sm3457792iox.1.2022.06.06.12.33.03
+        by smtp.gmail.com with ESMTPSA id x14-20020a026f0e000000b0032dd4094580sm5875484jab.49.2022.06.06.12.34.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jun 2022 12:33:05 -0700 (PDT)
-Received: (nullmailer pid 1127227 invoked by uid 1000);
-	Mon, 06 Jun 2022 19:33:03 -0000
-Date: Mon, 6 Jun 2022 14:33:03 -0500
+        Mon, 06 Jun 2022 12:34:47 -0700 (PDT)
+Received: (nullmailer pid 1129683 invoked by uid 1000);
+	Mon, 06 Jun 2022 19:34:44 -0000
+Date: Mon, 6 Jun 2022 14:34:44 -0500
 From: Rob Herring <robh@kernel.org>
 To: Conor Dooley <mail@conchuod.ie>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Andrew Lunn <andrew@lunn.ch>, Support Opensource <support.opensource@diasemi.com>, Lee Jones <lee.jones@linaro.org>, Ulf Hansson <ulf.hansson@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Steve Twiss <stwiss.opensource@diasemi.com>, Conor Dooley <conor.dooley@microchip.com>, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org, Atul Khare <atulkhare@rivosinc.com>
-Subject: Re: [PATCH v2 2/4] dt-bindings: i2c: convert ocores binding to yaml
-Message-ID: <20220606193303.GA1124108-robh@kernel.org>
+Cc: linux-mmc@vger.kernel.org, Atul Khare <atulkhare@rivosinc.com>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, devicetree@vger.kernel.org, Rob Herring <robh+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org, Lee Jones <lee.jones@linaro.org>, Steve Twiss <stwiss.opensource@diasemi.com>, Conor Dooley <conor.dooley@microchip.com>, Support Opensource <support.opensource@diasemi.com>, linux-riscv@lists.infradead.org, Andrew Lunn <andrew@lunn.ch>, Palmer Dabbelt <palmer@dabbelt.com>, Ulf Hansson <ulf.hansson@linaro.org>, linux-i2c@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] dt-bindings: mfd: convert da9063 to yaml
+Message-ID: <20220606193444.GA1129604-robh@kernel.org>
 References: <20220606152557.438771-1-mail@conchuod.ie>
- <20220606152557.438771-3-mail@conchuod.ie>
+ <20220606152557.438771-4-mail@conchuod.ie>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220606152557.438771-3-mail@conchuod.ie>
+In-Reply-To: <20220606152557.438771-4-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220606_123308_675638_FD1A2146 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20220606_123451_289955_177E1E67 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,156 +79,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 06, 2022 at 04:25:56PM +0100, Conor Dooley wrote:
+On Mon, 06 Jun 2022 16:25:57 +0100, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Convert the open cores i2c controller binding from text to yaml.
+> Convert the dt binding for the da9063/da9063l to yaml.
 > 
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  .../devicetree/bindings/i2c/i2c-ocores.txt    |  78 -----------
->  .../bindings/i2c/opencores,i2c-ocores.yaml    | 123 ++++++++++++++++++
->  MAINTAINERS                                   |   2 +-
->  3 files changed, 124 insertions(+), 79 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/i2c/i2c-ocores.txt
->  create mode 100644 Documentation/devicetree/bindings/i2c/opencores,i2c-ocores.yaml
+>  .../devicetree/bindings/mfd/da9063.txt        | 114 ---------------
+>  .../devicetree/bindings/mfd/dlg,da9063.yaml   | 132 ++++++++++++++++++
+>  .../devicetree/bindings/trivial-devices.yaml  |   2 -
+>  MAINTAINERS                                   |   1 +
+>  4 files changed, 133 insertions(+), 116 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/mfd/da9063.txt
+>  create mode 100644 Documentation/devicetree/bindings/mfd/dlg,da9063.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt b/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> deleted file mode 100644
-> index a37c9455b244..000000000000
-> --- a/Documentation/devicetree/bindings/i2c/i2c-ocores.txt
-> +++ /dev/null
-> @@ -1,78 +0,0 @@
-> -Device tree configuration for i2c-ocores
-> -
-> -Required properties:
-> -- compatible      : "opencores,i2c-ocores"
-> -                    "aeroflexgaisler,i2cmst"
-> -                    "sifive,fu540-c000-i2c", "sifive,i2c0"
-> -                    For Opencore based I2C IP block reimplemented in
-> -                    FU540-C000 SoC.
-> -                    "sifive,fu740-c000-i2c", "sifive,i2c0"
-> -                    For Opencore based I2C IP block reimplemented in
-> -                    FU740-C000 SoC.
-> -                    Please refer to sifive-blocks-ip-versioning.txt for
-> -                    additional details.
-> -- reg             : bus address start and address range size of device
-> -- clocks          : handle to the controller clock; see the note below.
-> -                    Mutually exclusive with opencores,ip-clock-frequency
-> -- opencores,ip-clock-frequency: frequency of the controller clock in Hz;
-> -                    see the note below. Mutually exclusive with clocks
-> -- #address-cells  : should be <1>
-> -- #size-cells     : should be <0>
-> -
-> -Optional properties:
-> -- interrupts      : interrupt number.
-> -- clock-frequency : frequency of bus clock in Hz; see the note below.
-> -                    Defaults to 100 KHz when the property is not specified
-> -- reg-shift       : device register offsets are shifted by this value
-> -- reg-io-width    : io register width in bytes (1, 2 or 4)
-> -- regstep         : deprecated, use reg-shift above
-> -
-> -Note
-> -clock-frequency property is meant to control the bus frequency for i2c bus
-> -drivers, but it was incorrectly used to specify i2c controller input clock
-> -frequency. So the following rules are set to fix this situation:
-> -- if clock-frequency is present and neither opencores,ip-clock-frequency nor
-> -  clocks are, then clock-frequency specifies i2c controller clock frequency.
-> -  This is to keep backwards compatibility with setups using old DTB. i2c bus
-> -  frequency is fixed at 100 KHz.
-> -- if clocks is present it specifies i2c controller clock. clock-frequency
-> -  property specifies i2c bus frequency.
-> -- if opencores,ip-clock-frequency is present it specifies i2c controller
-> -  clock frequency. clock-frequency property specifies i2c bus frequency.
-> -
-> -Examples:
-> -
-> -	i2c0: ocores@a0000000 {
-> -		#address-cells = <1>;
-> -		#size-cells = <0>;
-> -		compatible = "opencores,i2c-ocores";
-> -		reg = <0xa0000000 0x8>;
-> -		interrupts = <10>;
-> -		opencores,ip-clock-frequency = <20000000>;
-> -
-> -		reg-shift = <0>;	/* 8 bit registers */
-> -		reg-io-width = <1>;	/* 8 bit read/write */
-> -
-> -		dummy@60 {
-> -			compatible = "dummy";
-> -			reg = <0x60>;
-> -		};
-> -	};
-> -or
-> -	i2c0: ocores@a0000000 {
-> -		#address-cells = <1>;
-> -		#size-cells = <0>;
-> -		compatible = "opencores,i2c-ocores";
-> -		reg = <0xa0000000 0x8>;
-> -		interrupts = <10>;
-> -		clocks = <&osc>;
-> -		clock-frequency = <400000>; /* i2c bus frequency 400 KHz */
-> -
-> -		reg-shift = <0>;	/* 8 bit registers */
-> -		reg-io-width = <1>;	/* 8 bit read/write */
-> -
-> -		dummy@60 {
-> -			compatible = "dummy";
-> -			reg = <0x60>;
-> -		};
-> -	};
-> diff --git a/Documentation/devicetree/bindings/i2c/opencores,i2c-ocores.yaml b/Documentation/devicetree/bindings/i2c/opencores,i2c-ocores.yaml
-> new file mode 100644
-> index 000000000000..7074f019d94f
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/i2c/opencores,i2c-ocores.yaml
-> @@ -0,0 +1,123 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/i2c/opencores,i2c-ocores.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: OpenCores I2C controller
-> +
-> +maintainers:
-> +  - Peter Korsgaard <peter@korsgaard.com>
-> +  - Andrew Lunn <andrew@lunn.ch>
-> +
-> +allOf:
-> +  - $ref: /schemas/i2c/i2c-controller.yaml#
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - sifive,fu740-c000-i2c # Opencore based IP block FU740-C000 SoC
-> +              - sifive,fu540-c000-i2c # Opencore based IP block FU540-C000 SoC
-> +          - const: sifive,i2c0
-> +      - enum:
-> +          - opencores,i2c-ocores
-> +          - aeroflexgaisler,i2cmst
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-
-> +  "#address-cells":
-> +    const: 1
-> +
-> +  "#size-cells":
-> +    const: 0
-
-These 2 are covered by i2c-controller.yaml. Drop.
-
-With that,
 
 Reviewed-by: Rob Herring <robh@kernel.org>
 
