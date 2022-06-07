@@ -4,79 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE1C6C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 14:50:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC17AC43334
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 15:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ONtnoBOdG5z1jH6zo6LwuQ/4LgnaXUre4e6DEHFKCj4=; b=SeES6Bk2FNM9/m
-	TZ9YA78kdLhLc1oWaRWVjFU9W+cMZWBpMyzgADse6FWtIRGAYSGGEyEXbH2DCnTTyfcb+7vqiusOG
-	mWn7VSuvDnDajazE8JH5AaUTzk8gpJ8jPayCWBr5YPj8k/Ep/ShvwBP1MGJFkaRVmBjZxGLo05XcH
-	x54/C/elLn2FH4BbhLoknwVXb+jeZFhytKSXhUnvsCmwOm740pZLXFqKkeBzbXMEClEAB/j83DXaR
-	wHQkiXWbV+5KllwPGb5t4olVLCGl7aycSUbAouNtQk9DE/WclI4tachJVxXL4+hRbVqL2etNmcJpD
-	EVE4xtiY7IURjTzPTCAA==;
+	List-Owner; bh=u5lQVBYuCGlnAbkEbLZlJUTHaX++4qRXt20ktvraX7o=; b=mHUq3zxW8jMDuC
+	Ax0ERweypuGD+t5huiT0MxPyqHKEwd5njLZq8c/bQcUAxKIwX4YezmU88LRTPauIDRhkZ+Ru4pxwv
+	GDROAT002sLDGOoJIR43uwT8h1lyiLkQWCtIF1Q4Jca6XxsnRGUl0fyEKUI3XfUy8AhWFtdpgptZn
+	n8vHZ2So5rrvkD8pfyHeiXUQokAdSCA2wbNk/N9Fjeo/WPmqeky7hCka3FXc6VQ4Kn5qcWZGxt5Lp
+	FIn7OL1VmbpwwK0fsPX6XH3Z8URh7R9W8Fgz6dongohxd7g6I7AP3ih8xD86oxqYkheY2YLfAtGb0
+	7wi2x9viBTYrtI7IZ2VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyaWx-008AWP-DH; Tue, 07 Jun 2022 14:50:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nyaz7-008FoL-RE; Tue, 07 Jun 2022 15:19:09 +0000
+Received: from imap3.hz.codethink.co.uk ([176.9.8.87])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyaWk-008ARv-98; Tue, 07 Jun 2022 14:49:51 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D17E8615B4;
-	Tue,  7 Jun 2022 14:49:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D86CC385A5;
-	Tue,  7 Jun 2022 14:49:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654613389;
-	bh=21Q6z4C7gLAJxDrMjpR35TaWJleKEVSnTcJc1XoghQY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=WYB46EnJQ8KmDZFu6jSEUXfmMoEna05up4CJncyNZI8uwIsHCdYLTKRC0+amkX8Oj
-	 MulYqkmJUA5xdzBLnlJ21Knk2rVOc1evBYmVmwsz4nrwG0eEcpPi7TeRtjNt61KxNH
-	 ccUjQNum/v+Ub+BowdrQm3vPx9vFs8vP3DY+hXLw6mwabo8XB7Rxm9sNnN0iS1uWFt
-	 MCOberJ0KBzQM0XYyIpd9+CCCedeK4LgO49Mt/bgctMQbCdSeaqZNeB83IrXJR28LR
-	 KWDkX7QpyE+RWe5J/rqQ+SXWifk/MNU4VEaxvRBiJnHsZjTRfkssXiFrUar+JjE+ED
-	 LRsfm30v4ZsqQ==
-Received: by mail-ot1-f50.google.com with SMTP id l9-20020a056830268900b006054381dd35so13069044otu.4;
-        Tue, 07 Jun 2022 07:49:49 -0700 (PDT)
-X-Gm-Message-State: AOAM5332RkNptgeXILzjkwEwSLebOVFqlEyYj6rlEYBhW8XNtaZTobcu
-	hL5HYlO+qo2mVsi6MRCGoV6jIAK+qy37PorHQYs=
-X-Google-Smtp-Source: ABdhPJzju8BnufR6dAUwCuaVy7emdCBqao+Rd1rppQ3NzXkq8vagt8De7zdNBr5XdK5Y5+FNyl+7NFE6w3IjeLs4C7w=
-X-Received: by 2002:a9d:76d5:0:b0:60b:1882:78bd with SMTP id
- p21-20020a9d76d5000000b0060b188278bdmr12748793otl.71.1654613377932; Tue, 07
- Jun 2022 07:49:37 -0700 (PDT)
+	id 1nyaz4-008Fmw-FO
+	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 15:19:08 +0000
+Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net ([86.15.83.122] helo=[192.168.0.17])
+	by imap3.hz.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+	id 1nyayp-0006Gv-Gz; Tue, 07 Jun 2022 16:18:51 +0100
+Message-ID: <f4c2ad78-0b9e-c5da-e0a4-69f836e87b11@codethink.co.uk>
+Date: Tue, 7 Jun 2022 16:18:50 +0100
 MIME-Version: 1.0
-References: <20220607093805.1354256-1-mawupeng1@huawei.com>
- <20220607093805.1354256-6-mawupeng1@huawei.com> <99900b31-2605-2c85-a1b7-9ef2666b58da@redhat.com>
-In-Reply-To: <99900b31-2605-2c85-a1b7-9ef2666b58da@redhat.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 7 Jun 2022 16:49:24 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXGkzjq3koW_sgO4uzrdtwqSqzsJfT5ABYyvodf+ggXT2w@mail.gmail.com>
-Message-ID: <CAMj1kXGkzjq3koW_sgO4uzrdtwqSqzsJfT5ABYyvodf+ggXT2w@mail.gmail.com>
-Subject: Re: [PATCH v3 5/6] mm: Add mirror flag back on initrd memory
-To: David Hildenbrand <david@redhat.com>
-Cc: Wupeng Ma <mawupeng1@huawei.com>, corbet@lwn.net, will@kernel.org, 
-	catalin.marinas@arm.com, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
-	dvhart@infradead.org, andy@infradead.org, rppt@kernel.org, 
-	akpm@linux-foundation.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, paulmck@kernel.org, keescook@chromium.org, 
-	songmuchun@bytedance.com, rdunlap@infradead.org, 
-	damien.lemoal@opensource.wdc.com, swboyd@chromium.org, wei.liu@kernel.org, 
-	robin.murphy@arm.com, anshuman.khandual@arm.com, thunder.leizhen@huawei.com, 
-	wangkefeng.wang@huawei.com, gpiccoli@igalia.com, chenhuacai@kernel.org, 
-	geert@linux-m68k.org, chenzhou10@huawei.com, vijayb@linux.microsoft.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
-	platform-driver-x86@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.0
+Subject: Re: [PATCH 1/3] usb: musb: Add support for PolarFire SoC's musb
+ controller
+Content-Language: en-GB
+To: Conor Dooley <conor.dooley@microchip.com>, Bin Liu <b-liu@ti.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Daire McNamara <daire.mcnamara@microchip.com>,
+ Valentina Fernandez <valentina.fernandezalanis@microchip.com>,
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20220607132204.746180-1-conor.dooley@microchip.com>
+ <20220607132204.746180-2-conor.dooley@microchip.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <20220607132204.746180-2-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_074950_409652_1163665C 
-X-CRM114-Status: GOOD (  30.54  )
+X-CRM114-CacheID: sfid-20220607_081906_725618_26718DC0 
+X-CRM114-Status: GOOD (  34.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,72 +61,369 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 7 Jun 2022 at 14:22, David Hildenbrand <david@redhat.com> wrote:
->
-> On 07.06.22 11:38, Wupeng Ma wrote:
-> > From: Ma Wupeng <mawupeng1@huawei.com>
-> >
-> > Initrd memory will be removed and then added in arm64_memblock_init() and this
-> > will cause it to lose all of its memblock flags. The lost of MEMBLOCK_MIRROR
-> > flag will lead to error log printed by find_zone_movable_pfns_for_nodes if
-> > the lower 4G range has some non-mirrored memory.
-> >
-> > In order to solve this problem, the lost MEMBLOCK_MIRROR flag will be
-> > reinstalled if the origin memblock has this flag.
-> >
-> > Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
-> > ---
-> >  arch/arm64/mm/init.c     |  9 +++++++++
-> >  include/linux/memblock.h |  1 +
-> >  mm/memblock.c            | 20 ++++++++++++++++++++
-> >  3 files changed, 30 insertions(+)
-> >
-> > diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-> > index 339ee84e5a61..11641f924d08 100644
-> > --- a/arch/arm64/mm/init.c
-> > +++ b/arch/arm64/mm/init.c
-> > @@ -350,9 +350,18 @@ void __init arm64_memblock_init(void)
-> >                       "initrd not fully accessible via the linear mapping -- please check your bootloader ...\n")) {
-> >                       phys_initrd_size = 0;
-> >               } else {
-> > +                     int flags, ret;
-> > +
-> > +                     ret = memblock_get_flags(base, &flags);
-> > +                     if (ret)
-> > +                             flags = 0;
-> > +
-> >                       memblock_remove(base, size); /* clear MEMBLOCK_ flags */
-> >                       memblock_add(base, size);
-> >                       memblock_reserve(base, size);
->
-> Can you explain why we're removing+re-adding here exactly? Is it just to
-> clear flags as the comment indicates?
->
+On 07/06/2022 14:22, Conor Dooley wrote:
+> Add support for Microchips's PolarFire SoC's musb controller in host,
+> peripheral and otg mode.
+> 
+> Tested-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>   drivers/usb/musb/Kconfig  |  13 +-
+>   drivers/usb/musb/Makefile |   1 +
+>   drivers/usb/musb/mpfs.c   | 285 ++++++++++++++++++++++++++++++++++++++
+>   3 files changed, 298 insertions(+), 1 deletion(-)
+>   create mode 100644 drivers/usb/musb/mpfs.c
+> 
+> diff --git a/drivers/usb/musb/Kconfig b/drivers/usb/musb/Kconfig
+> index 4d61df6a9b5c..f906dfd360d3 100644
+> --- a/drivers/usb/musb/Kconfig
+> +++ b/drivers/usb/musb/Kconfig
+> @@ -123,6 +123,17 @@ config USB_MUSB_MEDIATEK
+>   	select GENERIC_PHY
+>   	select USB_ROLE_SWITCH
+>   
+> +config USB_MUSB_POLARFIRE_SOC
+> +	tristate "Microchip PolarFire SoC platforms"
+> +	depends on SOC_MICROCHIP_POLARFIRE || COMPILE_TEST
+> +	depends on NOP_USB_XCEIV
+> +	select USB_MUSB_DUAL_ROLE
+> +	help
+> +	  Say Y here to enable support for USB on Microchip's PolarFire SoC.
+> +
+> +	  This support is also available as a module.  If so, the module
+> +	  will be called mpfs.
+> +
+>   comment "MUSB DMA mode"
+>   
+>   config MUSB_PIO_ONLY
+> @@ -146,7 +157,7 @@ config USB_UX500_DMA
+>   
+>   config USB_INVENTRA_DMA
+>   	bool 'Inventra'
+> -	depends on USB_MUSB_OMAP2PLUS || USB_MUSB_MEDIATEK || USB_MUSB_JZ4740
+> +	depends on USB_MUSB_OMAP2PLUS || USB_MUSB_MEDIATEK || USB_MUSB_JZ4740 || USB_MUSB_POLARFIRE_SOC
+>   	help
+>   	  Enable DMA transfers using Mentor's engine.
+>   
+> diff --git a/drivers/usb/musb/Makefile b/drivers/usb/musb/Makefile
+> index 932247360a9f..51dd54a8de49 100644
+> --- a/drivers/usb/musb/Makefile
+> +++ b/drivers/usb/musb/Makefile
+> @@ -25,6 +25,7 @@ obj-$(CONFIG_USB_MUSB_UX500)			+= ux500.o
+>   obj-$(CONFIG_USB_MUSB_JZ4740)			+= jz4740.o
+>   obj-$(CONFIG_USB_MUSB_SUNXI)			+= sunxi.o
+>   obj-$(CONFIG_USB_MUSB_MEDIATEK)      		+= mediatek.o
+> +obj-$(CONFIG_USB_MUSB_POLARFIRE_SOC)		+= mpfs.o
+>   
+>   # the kconfig must guarantee that only one of the
+>   # possible I/O schemes will be enabled at a time ...
+> diff --git a/drivers/usb/musb/mpfs.c b/drivers/usb/musb/mpfs.c
+> new file mode 100644
+> index 000000000000..2b3dda335783
+> --- /dev/null
+> +++ b/drivers/usb/musb/mpfs.c
+> @@ -0,0 +1,285 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * PolarFire SoC (MPFS) MUSB Glue Layer
+> + *
+> + * Copyright (c) 2020-2022 Microchip Corporation. All rights reserved.
+> + * Based on {omap2430,tusb6010,ux500}.c
+> + *
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/dma-mapping.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/usb/usb_phy_generic.h>
+> +#include "musb_core.h"
+> +#include "musb_dma.h"
+> +
+> +#define MPFS_MUSB_MAX_EP_NUM	8
+> +#define MPFS_MUSB_RAM_BITS	12
+> +
+> +struct mpfs_glue {
+> +	struct device *dev;
+> +	struct platform_device *musb;
+> +	struct platform_device *phy;
+> +	struct clk *clk;
+> +};
+> +
+> +static struct musb_fifo_cfg mpfs_musb_mode_cfg[] = {
+> +	{ .hw_ep_num = 1, .style = FIFO_TX, .maxpacket = 512, },
+> +	{ .hw_ep_num = 1, .style = FIFO_RX, .maxpacket = 512, },
+> +	{ .hw_ep_num = 2, .style = FIFO_TX, .maxpacket = 512, },
+> +	{ .hw_ep_num = 2, .style = FIFO_RX, .maxpacket = 512, },
+> +	{ .hw_ep_num = 3, .style = FIFO_TX, .maxpacket = 512, },
+> +	{ .hw_ep_num = 3, .style = FIFO_RX, .maxpacket = 512, },
+> +	{ .hw_ep_num = 4, .style = FIFO_TX, .maxpacket = 1024, },
+> +	{ .hw_ep_num = 4, .style = FIFO_RX, .maxpacket = 4096, },
+> +};
+> +
+> +static const struct musb_hdrc_config mpfs_musb_hdrc_config = {
+> +	.fifo_cfg = mpfs_musb_mode_cfg,
+> +	.fifo_cfg_size = ARRAY_SIZE(mpfs_musb_mode_cfg),
+> +	.multipoint = true,
+> +	.dyn_fifo = true,
+> +	.num_eps = MPFS_MUSB_MAX_EP_NUM,
+> +	.ram_bits = MPFS_MUSB_RAM_BITS,
+> +};
+> +
+> +static irqreturn_t mpfs_musb_interrupt(int irq, void *__hci)
+> +{
+> +	unsigned long flags;
+> +	irqreturn_t ret = IRQ_NONE;
+> +	struct musb *musb = __hci;
+> +
+> +	spin_lock_irqsave(&musb->lock, flags);
+> +
+> +	musb->int_usb = musb_readb(musb->mregs, MUSB_INTRUSB);
+> +	musb->int_tx = musb_readw(musb->mregs, MUSB_INTRTX);
+> +	musb->int_rx = musb_readw(musb->mregs, MUSB_INTRRX);
+> +
+> +	if (musb->int_usb || musb->int_tx || musb->int_rx) {
+> +		musb_writeb(musb->mregs, MUSB_INTRUSB, musb->int_usb);
+> +		musb_writew(musb->mregs, MUSB_INTRTX, musb->int_tx);
+> +		musb_writew(musb->mregs, MUSB_INTRRX, musb->int_rx);
+> +		ret = musb_interrupt(musb);
+> +	}
+> +
+> +	spin_unlock_irqrestore(&musb->lock, flags);
+> +
+> +	return ret;
+> +}
+> +
+> +static void mpfs_musb_set_vbus(struct musb *musb, int is_on)
+> +{
+> +	u8 devctl;
+> +
+> +	/*
+> +	 * HDRC controls CPEN, but beware current surges during device
+> +	 * connect.  They can trigger transient overcurrent conditions
+> +	 * that must be ignored.
+> +	 */
+> +	devctl = musb_readb(musb->mregs, MUSB_DEVCTL);
+> +
+> +	if (is_on) {
+> +		musb->is_active = 1;
+> +		musb->xceiv->otg->default_a = 1;
+> +		musb->xceiv->otg->state = OTG_STATE_A_WAIT_VRISE;
+> +		devctl |= MUSB_DEVCTL_SESSION;
+> +		MUSB_HST_MODE(musb);
+> +	} else {
+> +		musb->is_active = 0;
+> +
+> +		/*
+> +		 * NOTE:  skipping A_WAIT_VFALL -> A_IDLE and
+> +		 * jumping right to B_IDLE...
+> +		 */
+> +		musb->xceiv->otg->default_a = 0;
+> +		musb->xceiv->otg->state = OTG_STATE_B_IDLE;
+> +		devctl &= ~MUSB_DEVCTL_SESSION;
+> +
+> +		MUSB_DEV_MODE(musb);
+> +	}
+> +
+> +	musb_writeb(musb->mregs, MUSB_DEVCTL, devctl);
+> +
+> +	dev_dbg(musb->controller, "VBUS %s, devctl %02x\n",
+> +		usb_otg_state_string(musb->xceiv->otg->state),
+> +		musb_readb(musb->mregs, MUSB_DEVCTL));
+> +}
+> +
+> +static int mpfs_musb_init(struct musb *musb)
+> +{
+> +	struct device *dev = musb->controller;
+> +
+> +	musb->xceiv = devm_usb_get_phy(dev, USB_PHY_TYPE_USB2);
+> +	if (IS_ERR(musb->xceiv)) {
+> +		dev_err(dev, "HS UDC: no transceiver configured\n");
+> +		return PTR_ERR(musb->xceiv);
+> +	}
+> +
+> +	musb->dyn_fifo = true;
+> +	musb->isr = mpfs_musb_interrupt;
+> +
+> +	musb_platform_set_vbus(musb, 1);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct musb_platform_ops mpfs_ops = {
+> +	.quirks		= MUSB_DMA_INVENTRA,
+> +	.init		= mpfs_musb_init,
+> +	.fifo_mode	= 2,
+> +#ifdef CONFIG_USB_INVENTRA_DMA
+> +	.dma_init	= musbhs_dma_controller_create,
+> +	.dma_exit	= musbhs_dma_controller_destroy,
+> +#endif
+> +	.set_vbus	= mpfs_musb_set_vbus
+> +};
+> +
+> +static int mpfs_probe(struct platform_device *pdev)
+> +{
+> +	struct musb_hdrc_platform_data *pdata = dev_get_platdata(&pdev->dev);
+> +	struct mpfs_glue *glue;
+> +	struct platform_device *musb_pdev;
+> +	struct device *dev = &pdev->dev;
+> +	struct resource musb_resources[3];
+> +	struct clk *clk;
+> +	int ret;
+> +
+> +	glue = devm_kzalloc(dev, sizeof(*glue), GFP_KERNEL);
+> +	if (!glue)
+> +		return -ENOMEM;
+> +
+> +	musb_pdev = platform_device_alloc("musb-hdrc", PLATFORM_DEVID_AUTO);
+> +	if (!musb_pdev) {
+> +		dev_err(dev, "failed to allocate musb device\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	clk = devm_clk_get(&pdev->dev, NULL);
+> +	if (IS_ERR(clk)) {
+> +		dev_err(&pdev->dev, "failed to get clock\n");
+> +		ret = PTR_ERR(clk);
+> +		goto err_phy_release;
+> +	}
+> +
+> +	ret = clk_prepare_enable(clk);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "failed to enable clock\n");
+> +		goto err_phy_release;
+> +	}
+> +
+> +	musb_pdev->dev.parent = dev;
+> +	musb_pdev->dev.coherent_dma_mask = DMA_BIT_MASK(39);
+> +	musb_pdev->dev.dma_mask = &musb_pdev->dev.coherent_dma_mask;
+> +	device_set_of_node_from_dev(&musb_pdev->dev, dev);
+> +
+> +	glue->dev = dev;
+> +	glue->musb = musb_pdev;
+> +	glue->clk = clk;
+> +
+> +	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
+> +	if (!pdata)
+> +		goto err_clk_disable;
+> +
+> +	pdata->config = &mpfs_musb_hdrc_config;
+> +	pdata->platform_ops = &mpfs_ops;
+> +
+> +	pdata->mode = usb_get_dr_mode(dev);
+> +	if (pdata->mode == USB_DR_MODE_UNKNOWN) {
+> +		dev_info(dev, "No dr_mode property found, defaulting to otg\n");
+> +		pdata->mode = USB_DR_MODE_OTG;
+> +	}
+> +
+> +	glue->phy = usb_phy_generic_register();
+> +	if (IS_ERR(glue->phy)) {
+> +		dev_err(dev, "failed to register usb-phy %ld\n",
+> +			PTR_ERR(glue->phy));
+> +		goto err_clk_disable;
+> +	}
+> +
+> +	platform_set_drvdata(pdev, glue);
+> +
+> +	memset(musb_resources, 0x00,
+> +	       sizeof(*musb_resources) * ARRAY_SIZE(musb_resources));
+> +
+> +	musb_resources[0].name  = pdev->resource[0].name;
+> +	musb_resources[0].start = pdev->resource[0].start;
+> +	musb_resources[0].end   = pdev->resource[0].end;
+> +	musb_resources[0].flags = pdev->resource[0].flags;
+> +
+> +	musb_resources[1].name  = pdev->resource[1].name;
+> +	musb_resources[1].start = pdev->resource[1].start;
+> +	musb_resources[1].end   = pdev->resource[1].end;
+> +	musb_resources[1].flags = pdev->resource[1].flags;
+> +
+> +	musb_resources[2].name  = pdev->resource[2].name;
+> +	musb_resources[2].start = pdev->resource[2].start;
+> +	musb_resources[2].end   = pdev->resource[2].end;
+> +	musb_resources[2].flags = pdev->resource[2].flags;
 
-This should only happen if the placement of the initrd conflicts with
-a mem= command line parameter or it is not covered by memblock for
-some other reason.
+I wonder if you could memcpy or just use compiler assignment for
+these?
 
-IOW, this should never happen, and if re-memblock_add'ing this memory
-unconditionally is causing problems, we should fix that instead of
-working around it.
+> +
+> +	ret = platform_device_add_resources(musb_pdev, musb_resources,
+> +					    ARRAY_SIZE(musb_resources));
+> +	if (ret) {
+> +		dev_err(dev, "failed to add resources\n");
+> +		goto err_clk_disable;
+> +	}
+> +
+> +	ret = platform_device_add_data(musb_pdev, pdata, sizeof(*pdata));
+> +	if (ret) {
+> +		dev_err(dev, "failed to add platform_data\n");
+> +		goto err_clk_disable;
+> +	}
+> +
+> +	ret = platform_device_add(musb_pdev);
+> +	if (ret) {
+> +		dev_err(dev, "failed to register musb device\n");
+> +		goto err_clk_disable;
+> +	}
+> +
+> +	dev_info(&pdev->dev, "Registered MPFS MUSB driver\n");
+> +	return 0;
+> +
+> +err_clk_disable:
+> +	clk_disable_unprepare(clk);
+> +
+> +err_phy_release:
+> +	usb_phy_generic_unregister(glue->phy);
+> +	platform_device_put(musb_pdev);
+> +	return ret;
+> +}
+> +
+> +static int mpfs_remove(struct platform_device *pdev)
+> +{
+> +	struct mpfs_glue *glue = platform_get_drvdata(pdev);
+> +
+> +	platform_device_unregister(glue->musb);
+> +	usb_phy_generic_unregister(pdev);
+> +
+> +	return 0;
+> +}
+> +
+> +#ifdef CONFIG_OF
+> +static const struct of_device_id mpfs_id_table[] = {
+> +	{ .compatible = "microchip,mpfs-musb" },
+> +	{ }
+> +};
+> +MODULE_DEVICE_TABLE(of, mpfs_id_table);
+> +#endif
+> +
+> +static struct platform_driver mpfs_musb_driver = {
+> +	.probe = mpfs_probe,
+> +	.remove = mpfs_remove,
+> +	.driver = {
+> +		.name = "mpfs-musb",
+> +		.of_match_table = of_match_ptr(mpfs_id_table)
+> +	},
+> +};
+> +
+> +module_platform_driver(mpfs_musb_driver);
+> +
+> +MODULE_DESCRIPTION("PolarFire SoC MUSB Glue Layer");
+> +MODULE_LICENSE("GPL");
 
-> If it's really just about clearing flags, I wonder if we rather want to
-> have an interface that does exactly that, and hides the way this is
-> actually implemented (obtain flags, remove, re-add ...), internally.
->
-> But most probably there is more magic in the code and clearing flags
-> isn't all it ends up doing.
->
 
-I don't remember exactly why we needed to clear the flags, but I think
-it had to do with some corner case we hit when the initrd was
-partially covered.
+-- 
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
