@@ -4,60 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE0FC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 20:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AB75C43334
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 20:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=frsWrkQlD/kaOM6ILPdpBZAi0BrJpzXKAlqKkO95N+U=; b=Ki6KCQXvVgx7piQ019WShjfZDH
-	UCfdsbDepqNIGZa4MRYCG2hH/jVZmaGK1zmM8N5UTy+E3QvPvXbuVwjvkAj3Y4CxY+fTsrPSb70Qy
-	3d+BRZsl5n12RpdvbIVo8Bpdzaneeeuwe+mVIGyvxNnZQ4oFDmONYHKgIjwP4PF2103SMR7cjejKv
-	/LiZTfQpcWOO43lQtIZBapFWInk6eTKKaQLIHOiqGxd8YVTnlBJ/avcBrepSdJ92TawAH9Jegzs1+
-	bhxOGafwLyFsvqFEq0HNGHQ+5/aoWL60TN87MMxiogMt6wgxO5OUOEL0LGz1wEUEAwj6YTxHXcc15
-	NnkbWO1w==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eBCd9MeZG23hk+8Dht5SFbtFF2AeDyWh8s021foE+7w=; b=E6yQEHav8y2xiPB8vyjmhvqCWk
+	LayvQ4MHSvwHhe3nrJs0PXKfbCuWzx6c1ztLWF71bW58hRZoREvo++k6L/1EU59nIikJfOWb27HQS
+	Bs6O1QGPKjN5gSmkNpZXdvgs93yDqwzid2DXGGFMx7vN/XB015Xex5g1+y0AZO7MtgsvMqtvEPb38
+	dlYv6tUjvkOhRa9czwKUVmJZP070i/MHVsCQRL9lNf62+uYoUArCkTVPK+5ykMTqYid1YkvOvCgYh
+	avArCCQE+vU0rZP3HglMQsKEvTIt668s+TDYFzhrR/38njoOCn4Q3wMy6Vf5Q2ogG2CeXv+ZpxEAR
+	RH4zq/gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyfVG-009Amb-EP; Tue, 07 Jun 2022 20:08:38 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1nyg6o-009cA3-Bm; Tue, 07 Jun 2022 20:47:26 +0000
+Received: from gproxy4-pub.mail.unifiedlayer.com ([69.89.23.142])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyfVB-009AdQ-9A
-	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 20:08:36 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1nyfUe-00024K-VX; Tue, 07 Jun 2022 22:08:01 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1nyfUf-0073Ae-5A; Tue, 07 Jun 2022 22:07:59 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1nyfUc-00EpcZ-RR; Tue, 07 Jun 2022 22:07:58 +0200
-Date: Tue, 7 Jun 2022 22:07:55 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Lee Jones <lee.jones@linaro.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <20220607200755.tgsrwe4ten5inw27@pengutronix.de>
-References: <20220607084551.2735922-1-conor.dooley@microchip.com>
- <20220607084551.2735922-2-conor.dooley@microchip.com>
+	id 1nyg6j-009bqf-5z
+	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 20:47:22 +0000
+Received: from cmgw11.mail.unifiedlayer.com (unknown [10.0.90.126])
+	by progateway6.mail.pro1.eigbox.com (Postfix) with ESMTP id 3A32F10041232
+	for <linux-riscv@lists.infradead.org>; Tue,  7 Jun 2022 20:46:55 +0000 (UTC)
+Received: from box5620.bluehost.com ([162.241.219.59])
+	by cmsmtp with ESMTP
+	id yg6InfKjAegIbyg6JnuiGX; Tue, 07 Jun 2022 20:46:55 +0000
+X-Authority-Reason: nr=8
+X-Authority-Analysis: v=2.4 cv=cY8XElPM c=1 sm=1 tr=0 ts=629fb93f
+ a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
+ a=dLZJa+xiwSxG16/P+YVxDGlgEgI=:19 a=IkcTkHD0fZMA:10:nop_charset_1
+ a=JPEYwPQDsx4A:10:nop_rcvd_month_year
+ a=-Ou01B_BuAIA:10:endurance_base64_authed_username_1 a=VwQbUJbxAAAA:8
+ a=FDXPpHPgRJWCp2rMUuoA:9 a=QEXdDO2ut3YA:10:nop_charset_2
+ a=AjGcO6oz07-iQ99wixmX:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:
+	Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=yPiHGqKsGbhSH2O3uOVjEGQO1t3l3ZCczdGfr/fjGfY=; b=esuVSpsGq0mTBzUDjf/iWJo/Gl
+	ck6jcfSL37XcusiPq+rtpfPUlhouLtrc8tedChFRFDZbj7i1jSEYwPl3fEnfjVRfo/ckeOGN6BOcH
+	FJMnMurxB6ggzOgRKjj1ObhYg2HSBYA0zrv/Zdiwy3/pqKBEM3L8MMC7IYynRTGDtdwRzhPA1wh7i
+	z6FFu9luLCVWYJew2tO9eOAJHjNUXNOenrSD1743E6wpXLOTBkQJVtOxsqXkuXUVDF8c6ccimWZ3F
+	qjM3ffsanIQCfVSPTH+uaC0mzNieXrSQWU1+rzMuA1rTb51Lwa9PiFvkS4ju+zcivHssAOcB6oBI5
+	y+0adxjA==;
+Received: from c-73-162-232-9.hsd1.ca.comcast.net ([73.162.232.9]:54014 helo=[10.0.1.48])
+	by box5620.bluehost.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <re@w6rz.net>)
+	id 1nyg6I-001GrC-GR;
+	Tue, 07 Jun 2022 14:46:54 -0600
+Subject: Re: [GIT PULL] RISC-V Patches for the 5.19 Merge Window, Part 1
+To: Palmer Dabbelt <palmer@rivosinc.com>, heiko@sntech.de
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <mhng-3cfe92b5-a83a-4642-9b9e-8416ae717fd6@palmer-ri-x1c9>
+From: Ron Economos <re@w6rz.net>
+Message-ID: <d7c8ee82-ce85-5d55-2865-4b610c9d3b9d@w6rz.net>
+Date: Tue, 7 Jun 2022 13:46:52 -0700
+User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
 MIME-Version: 1.0
-In-Reply-To: <20220607084551.2735922-2-conor.dooley@microchip.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+In-Reply-To: <mhng-3cfe92b5-a83a-4642-9b9e-8416ae717fd6@palmer-ri-x1c9>
+Content-Language: en-US
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - box5620.bluehost.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - w6rz.net
+X-BWhitelist: no
+X-Source-IP: 73.162.232.9
+X-Source-L: No
+X-Exim-ID: 1nyg6I-001GrC-GR
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: c-73-162-232-9.hsd1.ca.comcast.net ([10.0.1.48]) [73.162.232.9]:54014
+X-Source-Auth: re@w6rz.net
+X-Email-Count: 3
+X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
+X-Local-Domain: yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_130833_687940_E5BB5CCD 
-X-CRM114-Status: GOOD (  45.83  )
+X-CRM114-CacheID: sfid-20220607_134721_387770_9FF158AE 
+X-CRM114-Status: GOOD (  11.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,520 +100,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3453175162984652816=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============3453175162984652816==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="j5yzesthqmglzibd"
-Content-Disposition: inline
-
-
---j5yzesthqmglzibd
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-On Tue, Jun 07, 2022 at 09:45:51AM +0100, Conor Dooley wrote:
-> Add a driver that supports the Microchip FPGA "soft" PWM IP core.
->=20
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  drivers/pwm/Kconfig              |  10 ++
->  drivers/pwm/Makefile             |   1 +
->  drivers/pwm/pwm-microchip-core.c | 289 +++++++++++++++++++++++++++++++
->  3 files changed, 300 insertions(+)
->  create mode 100644 drivers/pwm/pwm-microchip-core.c
->=20
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 21e3b05a5153..a651848e444b 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -383,6 +383,16 @@ config PWM_MEDIATEK
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called pwm-mediatek.
-> =20
-> +config PWM_MICROCHIP_CORE
-> +	tristate "Microchip corePWM PWM support"
-> +	depends on SOC_MICROCHIP_POLARFIRE || COMPILE_TEST
-> +	depends on HAS_IOMEM && OF
-> +	help
-> +	  PWM driver for Microchip FPGA soft IP core.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-microchip-core.
-> +
->  config PWM_MXS
->  	tristate "Freescale MXS PWM support"
->  	depends on ARCH_MXS || COMPILE_TEST
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index 708840b7fba8..d29754c20f91 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -33,6 +33,7 @@ obj-$(CONFIG_PWM_LPSS_PCI)	+=3D pwm-lpss-pci.o
->  obj-$(CONFIG_PWM_LPSS_PLATFORM)	+=3D pwm-lpss-platform.o
->  obj-$(CONFIG_PWM_MESON)		+=3D pwm-meson.o
->  obj-$(CONFIG_PWM_MEDIATEK)	+=3D pwm-mediatek.o
-> +obj-$(CONFIG_PWM_MICROCHIP_CORE)	+=3D pwm-microchip-core.o
->  obj-$(CONFIG_PWM_MTK_DISP)	+=3D pwm-mtk-disp.o
->  obj-$(CONFIG_PWM_MXS)		+=3D pwm-mxs.o
->  obj-$(CONFIG_PWM_NTXEC)		+=3D pwm-ntxec.o
-> diff --git a/drivers/pwm/pwm-microchip-core.c b/drivers/pwm/pwm-microchip=
--core.c
-> new file mode 100644
-> index 000000000000..2cc1de163bcc
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-microchip-core.c
-> @@ -0,0 +1,289 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * corePWM driver for Microchip FPGAs
-> + *
-> + * Copyright (c) 2021-2022 Microchip Corporation. All rights reserved.
-> + * Author: Conor Dooley <conor.dooley@microchip.com>
-> + *
-
-Is there a public datasheet for that hardware? If yes, please add a link
-here.
-
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +#include <linux/math.h>
-> +
-> +#define PREG_TO_VAL(PREG) ((PREG) + 1)
-> +
-> +#define PRESCALE_REG	0x00u
-> +#define PERIOD_REG	0x04u
-> +#define PWM_EN_LOW_REG	0x08u
-> +#define PWM_EN_HIGH_REG	0x0Cu
-> +#define SYNC_UPD_REG	0xE4u
-> +#define POSEDGE_OFFSET	0x10u
-> +#define NEGEDGE_OFFSET	0x14u
-> +#define CHANNEL_OFFSET	0x08u
-
-Can you please prefix these register symbols with a driver prefix?
-Unique register names are good for tools like ctags and then it's
-obvious to the reader, that the defines are driver specific.
-
-> +struct mchp_core_pwm_registers {
-> +	u8 posedge;
-> +	u8 negedge;
-> +	u8 period_steps;
-> +	u8 prescale;
-
-these are the four registers for each channel, right? Can you add a
-short overview how these registers define the resulting output wave.
-
-> +};
-> +
-> +struct mchp_core_pwm_chip {
-> +	struct pwm_chip chip;
-> +	struct clk *clk;
-> +	void __iomem *base;
-> +	struct mchp_core_pwm_registers *regs;
-> +};
-> +
-> +static inline struct mchp_core_pwm_chip *to_mchp_core_pwm(struct pwm_chi=
-p *chip)
-> +{
-> +	return container_of(chip, struct mchp_core_pwm_chip, chip);
-> +}
-> +
-> +static void mchp_core_pwm_enable(struct pwm_chip *chip, struct pwm_devic=
-e *pwm,
-> +				 bool enable)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u8 channel_enable, reg_offset, shift;
-> +
-> +	/*
-> +	 * There are two adjacent 8 bit control regs, the lower reg controls
-> +	 * 0-7 and the upper reg 8-15. Check if the pwm is in the upper reg
-> +	 * and if so, offset by the bus width.
-> +	 */
-> +	reg_offset =3D PWM_EN_LOW_REG + (pwm->hwpwm >> 3) * sizeof(u32);
-> +	shift =3D pwm->hwpwm > 7 ? pwm->hwpwm - 8 : pwm->hwpwm;
-> +
-> +	channel_enable =3D readb_relaxed(mchp_core_pwm->base + reg_offset);
-> +	channel_enable &=3D ~(1 << shift);
-> +	channel_enable |=3D (enable << shift);
-> +
-> +	writel_relaxed(channel_enable, mchp_core_pwm->base + reg_offset);
-> +}
-> +
-> +static void mchp_core_pwm_calculate_duty(struct pwm_chip *chip,
-> +					 const struct pwm_state *desired_state,
-> +					 struct mchp_core_pwm_registers *regs)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u64 clk_period =3D NSEC_PER_SEC;
-> +	u64 duty_steps;
-> +
-> +	/* Calculate the clk period and then the duty cycle edges */
-> +	do_div(clk_period, clk_get_rate(mchp_core_pwm->clk));
-> +
-> +	duty_steps =3D desired_state->duty_cycle * PREG_TO_VAL(regs->period_ste=
-ps);
-> +	do_div(duty_steps, (clk_period * PREG_TO_VAL(regs->period_steps)));
-
-Don't divide by a result of a division.
-
-> +	if (desired_state->polarity =3D=3D PWM_POLARITY_INVERSED) {
-> +		regs->negedge =3D 0u;
-> +		regs->posedge =3D duty_steps;
-> +	} else {
-> +		regs->posedge =3D 0u;
-> +		regs->negedge =3D duty_steps;
-> +	}
-> +}
-> +
-> +static void mchp_core_pwm_apply_duty(const u8 channel,
-> +				     struct mchp_core_pwm_chip *pwm_chip,
-> +				     struct mchp_core_pwm_registers *regs)
-> +{
-> +	void __iomem *channel_base =3D pwm_chip->base + channel * CHANNEL_OFFSE=
-T;
-> +
-> +	writel_relaxed(regs->posedge, channel_base + POSEDGE_OFFSET);
-> +	writel_relaxed(regs->negedge, channel_base + NEGEDGE_OFFSET);
-> +}
-> +
-> +static void mchp_core_pwm_apply_period(struct mchp_core_pwm_chip *pwm_ch=
-ip,
-> +				       struct mchp_core_pwm_registers *regs)
-> +{
-> +	writel_relaxed(regs->prescale, pwm_chip->base + PRESCALE_REG);
-> +	writel_relaxed(regs->period_steps, pwm_chip->base + PERIOD_REG);
-> +}
-> +
-> +static int mchp_core_pwm_calculate_base(struct pwm_chip *chip,
-> +					const struct pwm_state *desired_state,
-> +					u8 *period_steps_r, u8 *prescale_r)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u64 tmp =3D desired_state->period;
-> +
-> +	/* Calculate the period cycles and prescale value */
-> +	tmp *=3D clk_get_rate(mchp_core_pwm->clk);
-> +	do_div(tmp, NSEC_PER_SEC);
-> +
-> +	if (tmp > 65535) {
-
-If a too long period is requested, please configure the biggest possible
-period.
-
-> +		dev_err(chip->dev,
-> +			"requested prescale exceeds the maximum possible\n");
-
-No error message in .apply() please.
-
-> +		return -EINVAL;
-> +	} else if (tmp <=3D 256) {
-> +		*prescale_r =3D 0;
-> +		*period_steps_r =3D tmp - 1;
-> +	} else {
-> +		*prescale_r =3D fls(tmp) - 8;
-> +		*period_steps_r =3D (tmp >> *prescale_r) - 1;
-> +	}
-
-*prescale_r =3D fls(tmp >> 8);
-*period_steps_r =3D (tmp >> *prescale_r) - 1;
-
-can be used in both branches with the same result.
-
-> +
-> +	return 0;
-> +}
-> +
-> +static int mchp_core_pwm_apply(struct pwm_chip *chip, struct pwm_device =
-*pwm,
-> +			       const struct pwm_state *desired_state)
-
-please s/desired_state/state/ for consistency with other drivers.
-
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	struct pwm_state current_state;
-> +	u8 period_steps_r, prescale_r;
-> +	int ret;
-> +	u8 channel =3D pwm->hwpwm;
-> +
-> +	pwm_get_state(pwm, &current_state);
-
-Please don't call pwm API functions in a PWM driver. Simply use
-pwm->state for the previously applied state.
-
-> +	if (desired_state->enabled) {
-> +		if (current_state.enabled &&
-> +		    current_state.period =3D=3D desired_state->period &&
-> +		    current_state.polarity =3D=3D desired_state->polarity) {
-
-If everything is as before, why are you doing something at all?
-
-> +			mchp_core_pwm_calculate_duty(chip, desired_state, mchp_core_pwm->regs=
-);
-> +			mchp_core_pwm_apply_duty(channel, mchp_core_pwm, mchp_core_pwm->regs);
-> +		} else {
-> +			ret =3D mchp_core_pwm_calculate_base(chip, desired_state, &period_ste=
-ps_r,
-> +							   &prescale_r);
-> +			if (ret) {
-> +				dev_err(chip->dev, "failed to calculate base\n");
-
-mchp_core_pwm_calculate_base might already emit an error message. Apply
-shouldn't emit an error message at all.
-
-> +				return ret;
-> +			}
-> +
-> +			mchp_core_pwm->regs->period_steps =3D period_steps_r;
-> +			mchp_core_pwm->regs->prescale =3D prescale_r;
-> +
-> +			mchp_core_pwm_calculate_duty(chip, desired_state, mchp_core_pwm->regs=
-);
-> +			mchp_core_pwm_apply_duty(channel, mchp_core_pwm, mchp_core_pwm->regs);
-> +			mchp_core_pwm_apply_period(mchp_core_pwm, mchp_core_pwm->regs);
-
-Is there a race where e.g. the output is defined by the previous period
-and the new duty_cycle?
-
-> +		}
-> +
-> +		if (mchp_core_pwm->regs->posedge =3D=3D mchp_core_pwm->regs->negedge)
-> +			mchp_core_pwm_enable(chip, pwm, false);
-> +		else
-> +			mchp_core_pwm_enable(chip, pwm, true);
-
-Here is a race: If the PWM is running and it configured to be disabled
-with a different duty_cycle/period the duty_cycle/period might be
-(shortly) visible on the output with is undesirable.
-
-> +	} else if (!desired_state->enabled) {
-
-This can be simplified to just "} else {"
-
-> +		mchp_core_pwm_enable(chip, pwm, false);
-> +	}
-> +
-> +	return 0;
-
-I think this can be considerably simplified by unrolling the helper
-functions.
-
-> +}
-> +
-> +static void mchp_core_pwm_get_state(struct pwm_chip *chip, struct pwm_de=
-vice *pwm,
-> +				    struct pwm_state *state)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	void __iomem *channel_base =3D mchp_core_pwm->base + pwm->hwpwm * CHANN=
-EL_OFFSET;
-> +	u64 clk_period =3D NSEC_PER_SEC;
-> +	u8 prescale, period_steps, duty_steps;
-> +	u8 posedge, negedge;
-> +	u16 channel_enabled;
-> +
-> +	channel_enabled =3D (((u16)readb_relaxed(mchp_core_pwm->base + PWM_EN_H=
-IGH_REG) << 8) |
-> +		readb_relaxed(mchp_core_pwm->base + PWM_EN_LOW_REG));
-> +
-> +	posedge =3D readb_relaxed(channel_base + POSEDGE_OFFSET);
-> +	negedge =3D readb_relaxed(channel_base + NEGEDGE_OFFSET);
-> +
-> +	duty_steps =3D abs((s8)posedge - (s8)negedge);
-> +	state->polarity =3D negedge < posedge ? PWM_POLARITY_INVERSED : PWM_POL=
-ARITY_NORMAL;
-> +
-> +	prescale =3D readb_relaxed(mchp_core_pwm->base + PRESCALE_REG);
-> +	period_steps =3D readb_relaxed(mchp_core_pwm->base + PERIOD_REG);
-> +
-> +	do_div(clk_period, clk_get_rate(mchp_core_pwm->clk));
-> +	state->duty_cycle =3D PREG_TO_VAL(prescale) * clk_period * duty_steps;
-
-Dividing early results in rounding errors.
-
-> +	state->period =3D PREG_TO_VAL(prescale) * clk_period * PREG_TO_VAL(peri=
-od_steps);
-> +
-> +	if (channel_enabled & 1 << pwm->hwpwm)
-> +		state->enabled =3D true;
-> +	else
-> +		state->enabled =3D false;
-> +}
-
-Have you tested your driver with PWM_DEBUG enabled? The rounding is
-wrong here. (The supposed rounding behaviour is that .apply rounds down
-and to make .apply(.getstate()) a noop, .get_state() must round up.
-
-If you do something like:
-
-        echo 0 > duty_cycle
-
-        for i in $(seq 10000 -1 1); do
-                echo $i > period
-        done
-
-        for i in $(seq 1 10000); do
-                echo $i > period
-        done
-
-        for i in $(seq 10000 -1 1); do
-                echo $i > duty_cycle
-        done
-
-        for i in $(seq 1 10000); do
-                echo $i > duty_cycle
-        done
-
-with PWM_DEBUG enabled, you should catch most rounding errors. (Maybe
-adapt the boundaries according to your driver's capabilities.)
-
-> +static const struct pwm_ops mchp_core_pwm_ops =3D {
-> +	.apply =3D mchp_core_pwm_apply,
-> +	.get_state =3D mchp_core_pwm_get_state,
-> +	.owner =3D THIS_MODULE,
-> +};
-> +
-> +static const struct of_device_id mchp_core_of_match[] =3D {
-> +	{
-> +		.compatible =3D "microchip,corepwm-rtl-v4",
-> +	},
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, mchp_core_of_match);
-> +
-> +static int mchp_core_pwm_probe(struct platform_device *pdev)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_pwm;
-> +	struct resource *regs;
-> +	int ret;
-> +
-> +	mchp_pwm =3D devm_kzalloc(&pdev->dev, sizeof(*mchp_pwm), GFP_KERNEL);
-> +	if (!mchp_pwm)
-> +		return -ENOMEM;
-> +
-> +	mchp_pwm->regs =3D devm_kzalloc(&pdev->dev, sizeof(*regs), GFP_KERNEL);
-> +	if (!mchp_pwm->regs)
-> +		return -ENOMEM;
-
-If you make regs not a pointer but embed the structure directly in
-struct mchp_core_pwm_chip, you only need a single allocation. Having
-said that I wonder if you need to store this in driver data at all.
-
-> +	mchp_pwm->base =3D devm_platform_get_and_ioremap_resource(pdev, 0, &reg=
-s);
-> +	if (IS_ERR(mchp_pwm->base))
-> +		return PTR_ERR(mchp_pwm->base);
-> +
-> +	mchp_pwm->clk =3D devm_clk_get(&pdev->dev, NULL);
-> +	if (IS_ERR(mchp_pwm->clk))
-> +		return PTR_ERR(mchp_pwm->clk);
-> +
-> +	ret =3D clk_prepare(mchp_pwm->clk);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "failed to prepare PWM clock\n");
-> +
-> +	mchp_pwm->chip.dev =3D &pdev->dev;
-> +	mchp_pwm->chip.ops =3D &mchp_core_pwm_ops;
-> +	mchp_pwm->chip.of_xlate =3D of_pwm_xlate_with_flags;
-> +	mchp_pwm->chip.of_pwm_n_cells =3D 3;
-> +	mchp_pwm->chip.base =3D -1;
-
-Please drop the assignment to base.
-
-> +	mchp_pwm->chip.npwm =3D 16;
-> +
-> +	ret =3D pwmchip_add(&mchp_pwm->chip);
-> +	if (ret < 0)
-
-clk_unprepare missing here.
-
-> +		return dev_err_probe(&pdev->dev, ret, "failed to add PWM chip\n");
-> +
-> +	writel_relaxed(0u, mchp_pwm->base + PWM_EN_LOW_REG);
-> +	writel_relaxed(0u, mchp_pwm->base + PWM_EN_HIGH_REG);
-
-What is the effect here? Don't modify the hardware after pwmchip_add().
-When that function returns a consumer might already have configured the
-hardware.
-
-> +	platform_set_drvdata(pdev, mchp_pwm);
-
-This is unused, please drop.
-
-> +	dev_info(&pdev->dev, "Successfully registered Microchip corePWM\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static int mchp_core_pwm_remove(struct platform_device *pdev)
-> +{
-> +	return 0;
-> +}
-
-Here you're missing to undo pwmchip_add and clk_prepare.
-
-> +static struct platform_driver mchp_core_pwm_driver =3D {
-> +	.driver =3D {
-> +		.name =3D "mchp-core-pwm",
-> +		.of_match_table =3D mchp_core_of_match,
-> +	},
-> +	.probe =3D mchp_core_pwm_probe,
-> +	.remove =3D mchp_core_pwm_remove,
-> +};
-> +module_platform_driver(mchp_core_pwm_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-> +MODULE_DESCRIPTION("corePWM driver for Microchip FPGAs");
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---j5yzesthqmglzibd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmKfsBgACgkQwfwUeK3K
-7AnKwQf+PqMXxxqh32Clm2cxrlycu/TV8jq2zhtWAqjgY9PAH4Hts7nH7DwRyoai
-pzQ3sCRFHWAX6KZ0YpX/h0AS5yEFXsTg0SjoXrTSULFmGuiT8FVla23yG8LGNm5y
-OfbGGmY4KsfDJiXkmMy0rNpuuddIKQfIcyXoNfNGWZSAHKEGo0FqwaOkV/OyVIoD
-Sh+sEEgIHsIg3KKQ7DOAmU98mvWYufrFke4zL05EBUXyt74Szy6p1CbFOv5KQlCC
-mybpGjRwyUS79RsNyTIcxvVhwwkst3rY+baWxLsmovlsbHYIcml8dyl003VItbjh
-+ckSyqf9bybAC2rcj1v6dJdeSAYCEg==
-=2UJm
------END PGP SIGNATURE-----
-
---j5yzesthqmglzibd--
-
-
---===============3453175162984652816==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3453175162984652816==--
-
+T24gNS8zMS8yMiAxMDoxMyBBTSwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4gVGhlIGZvbGxvd2lu
+ZyBjaGFuZ2VzIHNpbmNlIGNvbW1pdCA5MjgyZDA5OTY5MzZjNWZiZjg3N2MwZDA5NmEzZmViNDU2
+Yzg3OGFkOgo+Cj4gICAgY3NreTogTW92ZSB0byBnZW5lcmljIHRpY2tldC1zcGlubG9jayAoMjAy
+Mi0wNS0xMSAxMTo1MDoxNSAtMDcwMCkKPgo+IGFyZSBhdmFpbGFibGUgaW4gdGhlIEdpdCByZXBv
+c2l0b3J5IGF0Ogo+Cj4gICAgZ2l0Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJu
+ZWwvZ2l0L3Jpc2N2L2xpbnV4LmdpdCB0YWdzL3Jpc2N2LWZvci1saW51cy01LjE5LW13MAo+Cj4g
+Zm9yIHlvdSB0byBmZXRjaCBjaGFuZ2VzIHVwIHRvIDc2OTlmN2FhY2YzZWJmZWU1MWM2NzBiNmY3
+OTZiMjc5N2YwZjc0ODc6Cj4KPiAgICBSSVNDLVY6IFByZXBhcmUgZHJvcHBpbmcgd2VlayBhdHRy
+aWJ1dGUgZnJvbSBhcmNoX2tleGVjX2FwcGx5X3JlbG9jYXRpb25zW19hZGRdICgyMDIyLTA1LTMw
+IDE2OjA0OjM3IC0wNzAwKQo+Cj4gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+IFJJU0MtViBQYXRjaGVzIGZvciB0aGUgNS4x
+OSBNZXJnZSBXaW5kb3csIFBhcnQgMQo+Cj4gKiBTdXBwb3J0IGZvciB0aGUgU3ZwYm10IGV4dGVu
+c2lvbiwgd2hpY2ggYWxsb3dzIG1lbW9yeSBhdHRyaWJ1dGVzIHRvIGJlCj4gICAgZW5jb2RlZCBp
+biBwYWdlcy4KPgo+Cj4gSGVpa28gU3R1ZWJuZXIgKDEyKToKPiAgICAgICAgcmlzY3Y6IGludGVn
+cmF0ZSBhbHRlcm5hdGl2ZXMgYmV0dGVyIGludG8gdGhlIG1haW4gYXJjaGl0ZWN0dXJlCj4gICAg
+ICAgIHJpc2N2OiBhbGxvdyBkaWZmZXJlbnQgc3RhZ2VzIHdpdGggYWx0ZXJuYXRpdmVzCj4gICAg
+ICAgIHJpc2N2OiBpbXBsZW1lbnQgbW9kdWxlIGFsdGVybmF0aXZlcwo+ICAgICAgICByaXNjdjog
+aW1wbGVtZW50IEFMVEVSTkFUSVZFXzIgbWFjcm8KPiAgICAgICAgcmlzY3Y6IGV4dGVuZCBjb25j
+YXRlbmF0ZWQgYWx0ZXJuYXRpdmVzLWxpbmVzIHRvIHRoZSBzYW1lIGxlbmd0aAo+ICAgICAgICBy
+aXNjdjogcHJldmVudCBjb21wcmVzc2VkIGluc3RydWN0aW9ucyBpbiBhbHRlcm5hdGl2ZXMKPiAg
+ICAgICAgcmlzY3Y6IG1vdmUgYm9vdCBhbHRlcm5hdGl2ZXMgdG8gYWZ0ZXIgZmlsbF9od2NhcAo+
+ICAgICAgICByaXNjdjogRml4IGFjY2Vzc2luZyBwZm4gYml0cyBpbiBQVEVzIGZvciBub24tMzJi
+aXQgdmFyaWFudHMKPiAgICAgICAgcmlzY3Y6IGFkZCBSSVNDLVYgU3ZwYm10IGV4dGVuc2lvbiBz
+dXBwb3J0Cj4gICAgICAgIHJpc2N2OiByZW1vdmUgRklYTUFQX1BBR0VfSU8gYW5kIGZhbGwgYmFj
+ayB0byBpdHMgZGVmYXVsdCB2YWx1ZQo+ICAgICAgICByaXNjdjogZG9uJ3QgdXNlIGdsb2JhbCBz
+dGF0aWMgdmFycyB0byBzdG9yZSBhbHRlcm5hdGl2ZSBkYXRhCj4gICAgICAgIHJpc2N2OiBhZGQg
+bWVtb3J5LXR5cGUgZXJyYXRhIGZvciBULUhlYWQKPgpBbiBpc3N1ZSB3YXMgZm91bmQgb24gdGhl
+IEhpRml2ZSBVbm1hdGNoZWQgd2l0aCB0aGUgNS4xOS1yYzEga2VybmVsLiBUaGUgCmZvbGxvd2lu
+ZyB3YXJuaW5nIG9jY3VycyBkdXJpbmcgYm9vdDoKCnJpc2N2NjQga2VybmVsOiAKLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQpy
+aXNjdjY0IGtlcm5lbDogV0FSTklORzogTWlzc2luZyB0aGUgZm9sbG93aW5nIGVycmF0YSBtYXkg
+Y2F1c2UgCnBvdGVudGlhbCBpc3N1ZXMKcmlzY3Y2NCBrZXJuZWw6wqDCoMKgwqDCoMKgwqDCoCBT
+aUZpdmUgRXJyYXRhWzBdOmNpcC00NTMKcmlzY3Y2NCBrZXJuZWw6wqDCoMKgwqDCoMKgwqDCoCBT
+aUZpdmUgRXJyYXRhWzFdOmNpcC0xMjAwCnJpc2N2NjQga2VybmVsOiBQbGVhc2UgZW5hYmxlIHRo
+ZSBjb3JyZXNwb25kaW5nIEtjb25maWcgdG8gYXBwbHkgdGhlbQpyaXNjdjY0IGtlcm5lbDogCi0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0KCkkndmUgbWFudWFsbHkgYmlzZWN0ZWQgdGhlIHByb2JsZW0gdG8gdGhpcyBjb21taXQ6
+CgpodHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC90b3J2YWxk
+cy9saW51eC5naXQvY29tbWl0Lz9pZD1mZjY4OWZkMjFjYjEzMDk4MzA1YmFlM2Y4ZDBjMDA2NWRm
+MmUyZmMxCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
