@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F6CC43334
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 08:28:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16BD8C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 08:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0+3saPs1Edj8Wu7TH0uYG81YdrVvCZbeK3RdXQ+pNWI=; b=thjX12G+q/OeO+avWgvEOKkw7B
-	d0YM4uA7JZjCGfwnfGfjF3ZPffjjd8cVtE/v1J7p70sPvNsJJcE4ESvcEOwc3NkVAnQey3MsgCrGv
-	fcJ5QpbzZVdhipY+sfNx682cSIui3oTxqIj7UJtUmzWKf3r4qaP+M/AOXa4LkrvzyHpAPU0kH+UtB
-	YhJJtozwCgmQ1df/ulN0y/cUP9mAQaLsGc6RnG+3sCG4ZiuWMqZAxdhNbsRnA/toUyIYLnhlJ4HON
-	LLYBNI5gKnprQKQgD4jThKKbCz/lCzyJwB7ge696wG8x5eAf406YJdSGw32ZN8fUZounCEwbn1Wd/
-	eEeNzYvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XTcVViJ+f873EZR6AFjTalThVebEAclv0v6aZwapRKc=; b=gElT4RxmmU8MGm
+	XMapbhD3zj38lM0mTivHg7b/vUfqF46z7M7S2vACTklKBSUC/OxzTDGibSj03CBRGPKxcCxielks8
+	5x+Il844/yWMDDQqoXm3hpVG3Kow10P2RFmNMZ4kmuvf/egIfqjCwnIUympdByPGZWPablCIkZJ0P
+	SW8ZTV2lLTfLXv01ITSvifVIlCmCyANXSUYVbI29fS1Kdy5yuGV7mV54uc86lKOQ+3J+PbIFOoeyQ
+	JktFm7DC26BqjJQ1FxUVYFU0fD6RNbQAF7wIOzA6qdgRs2BTG+AkmJQ4wZGV1MNdDzs+AkWBfPxTB
+	cPQosI2Ig0INL84WA5fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyUZv-005oIZ-9f; Tue, 07 Jun 2022 08:28:43 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1nyUsA-005tVh-CG; Tue, 07 Jun 2022 08:47:34 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyUZs-005oHe-C5
-	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 08:28:41 +0000
-Received: from gallifrey.ext.pengutronix.de ([2001:67c:670:201:5054:ff:fe8d:eefb] helo=bjornoya.blackshift.org)
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1nyUZj-0005qp-9D; Tue, 07 Jun 2022 10:28:31 +0200
-Received: from pengutronix.de (unknown [IPv6:2a01:4f8:1c1c:29e9:22:41ff:fe00:1400])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id C42C68D888;
-	Tue,  7 Jun 2022 08:28:27 +0000 (UTC)
-Date: Tue, 7 Jun 2022 10:28:27 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Conor.Dooley@microchip.com
-Cc: wg@grandegger.com, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
-	Daire.McNamara@microchip.com, linux-can@vger.kernel.org,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH net-next 0/2] Document PolarFire SoC can controller
-Message-ID: <20220607082827.iuonhektfbuqtuqo@pengutronix.de>
-References: <20220607065459.2035746-1-conor.dooley@microchip.com>
- <20220607071519.6m6swnl55na3vgwm@pengutronix.de>
- <51e8e297-0171-0c3f-ba86-e61add04830e@microchip.com>
+	id 1nyUs7-005tTP-3S
+	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 08:47:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1654591652; x=1686127652;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=3CoKXSna6CTgje4u/qjkWGKm+Bb40J2h4l6CX9UJM+0=;
+  b=caIfxRHv3WriaXidgdXu8uJExQ+zcv4R4G3AVW+TVMhiI5WIfL2bEgfk
+   mdC9ZenTFPC5dnq0+VFvVszi1nDgRtUnKfbzmEPoYoGhfSZZVqVJ08dfM
+   LBgsR5pNZefZ3+F9gN5IbDe3LqcUHOcBy2MGBUSUt/EWgpkw5GpP3NABw
+   4VNhX1hWjTirj5kHpokYGBfIaYxkOTPFsjXHQQlvSrd4QnbdX8T2W6WpD
+   v7n0pJhs0zrn//sasbIKsqXmveD6pSwODHxKHYtAjHjBxexVhL5vHf/Ly
+   /CHUsUKLIFqxIWgLxqTxzJyteNWz6h6zW2zV2Y7f6nsd8weVNpNOE8BIX
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.91,283,1647327600"; 
+   d="scan'208";a="167052009"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Jun 2022 01:47:31 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Tue, 7 Jun 2022 01:47:29 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
+ Transport; Tue, 7 Jun 2022 01:47:27 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Thierry Reding <thierry.reding@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, "Lee
+ Jones" <lee.jones@linaro.org>
+CC: Daire McNamara <daire.mcnamara@microchip.com>,
+	<linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH 0/2] Add support for Microchip's pwm fpga core
+Date: Tue, 7 Jun 2022 09:45:50 +0100
+Message-ID: <20220607084551.2735922-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-In-Reply-To: <51e8e297-0171-0c3f-ba86-e61add04830e@microchip.com>
-X-SA-Exim-Connect-IP: 2001:67c:670:201:5054:ff:fe8d:eefb
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_012840_454033_CAEC039E 
-X-CRM114-Status: GOOD (  18.46  )
+X-CRM114-CacheID: sfid-20220607_014731_243734_86831CAE 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,96 +76,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4313451469391100876=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hey all,
+Small series here, adding a driver for the "soft" pwm IP core
+for microchip FPGAs. The binding for them was already added
+in 5.18.
+Thanks,
+Conor.
 
---===============4313451469391100876==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ajso5cyytlmmpn5k"
-Content-Disposition: inline
+Conor Dooley (2):
+  pwm: add microchip soft ip corePWM driver
+  MAINTAINERS: add pwm to PolarFire SoC entry
 
+ MAINTAINERS                      |   1 +
+ drivers/pwm/Kconfig              |  10 ++
+ drivers/pwm/Makefile             |   1 +
+ drivers/pwm/pwm-microchip-core.c | 289 +++++++++++++++++++++++++++++++
+ 4 files changed, 301 insertions(+)
+ create mode 100644 drivers/pwm/pwm-microchip-core.c
 
---ajso5cyytlmmpn5k
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+-- 
+2.36.1
 
-On 07.06.2022 07:52:30, Conor.Dooley@microchip.com wrote:
-> On 07/06/2022 08:15, Marc Kleine-Budde wrote:
-> > On 07.06.2022 07:54:58, Conor Dooley wrote:
-> >> When adding the dts for PolarFire SoC, the can controllers were
-> >                                             ^^^
-> >> omitted, so here they are...
-> >=20
-> > Nitpick:
-> > Consider writing "CAN" in capital letters to avoid confusion for the not
-> > informed reader.
->=20
-> Yeah, sure. I'll try to get over my fear of capital letters ;)
-
-:)
-
-> > Is the documentation for the CAN controller openly available? Is there a
-> > driver somewhere?
->=20
-> There is a driver /but/ for now only a UIO one so I didn't send it.
-
-Brrrrr...
-
-> There's an online doc & if the horrible link doesn't drop you there
-> directly, its section 6.12.3:
-> https://onlinedocs.microchip.com/pr/GUID-0E320577-28E6-4365-9BB8-9E1416A0=
-A6E4-en-US-3/index.html?GUID-A362DC3C-83B7-4441-BECB-B19F9AD48B66
->=20
-> And a PDF direct download here, see section 4.12.3 (page 72):
-> https://www.microsemi.com/document-portal/doc_download/1245725-polarfire-=
-soc-fpga-mss-technical-reference-manual
-
-Thanks. The documentation is quite sparse, is there a more detailed one?
-The register map cannot be downloaded directly anymore. For reference:
-
-http://web.archive.org/web/20220403030214/https://www.microsemi.com/documen=
-t-portal/doc_download/1244581-polarfire-soc-register-map
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde           |
-Embedded Linux                   | https://www.pengutronix.de  |
-Vertretung West/Dortmund         | Phone: +49-231-2826-924     |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-5555 |
-
---ajso5cyytlmmpn5k
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEBsvAIBsPu6mG7thcrX5LkNig010FAmKfDCgACgkQrX5LkNig
-010ixggAri8+zJpGE06Rm9LwkSy5IXbnAuXl+05ecMHijzwTZoXuxRjLi7FLgUt8
-RMmHB1ehanHgnud3Ux9EMH2GIbigcx6EwV5iEcShe8ltxXfHATt7HI/L1x8dtS/Z
-e6ic76cZ24PHhR/EAn5+uN9O17sTaoj+nCx13pVdLOe1iHUqZQf3RaVbABSibySZ
-wt1j6nOt7Au4o2hJCHXO3uQ72fiNDQQAdKIFRRqvsDvMVukw+nrt1vL8Fw87AKXU
-xfswszw4E2QowEV8gQeSduJwoYBlzCiya0hQJjTrlWPpxlLpYIN0VsNX+oliI0BN
-bXRB2pUhMmd1nv1wnSnZOzNcCS91/A==
-=PF1R
------END PGP SIGNATURE-----
-
---ajso5cyytlmmpn5k--
-
-
---===============4313451469391100876==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4313451469391100876==--
-
