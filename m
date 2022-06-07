@@ -4,66 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 928A1C43334
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 07:41:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023A5C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 07:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ViKOe/ZQZtWzujMb/82EqC8SsvnKPjYNNYdygL7uXvU=; b=CW76sYCH6mwrSR
-	LOsKZRrBLfDt9F7S6w78Hs24MLPWGVOGTaMxqyUd8A+qN9ngCXry7/H9Xwfm6YrrRHlSubTsRGvUW
-	wzAkXbO/1Zs4cF5V+BUseybO7ulT2R9W1sMYynWb6bf7eJu59ESf8H0j5KDL/HQXbrjFJGtraOjjZ
-	RSN1xAjtMbJnFiuExrYF1A0hNa56UtpPRErkuJO7ssXRmoyrnjFUwm6IQTHKEK69PE/Xh8LVnDKqj
-	g/Oo2pMQ2BYX6hOSxY1saxRygq+geY4y5RUIFBc7CHKcH2ov5ap8LSLCPItrR9JePXy4d4w5mGCPp
-	pufmYGXsgbgpieYpXYLg==;
+	List-Owner; bh=1Wxv7rCohBA27maHmrxhQpZmLf4Br2CMjlA5C7d6nLg=; b=vQcYNkvkr8IkWD
+	Sb4UCSbbWJCnmWoysJuuyQNgYpNdGo+1YAFw2cNySzFZfF8yA/a91WlfRY8DzyF6we4/lRX7bL2jn
+	U/E+rSmJsEC67EHl0llDgmiM/wPQqTpjv6fjOuVu0WU/i1nRoezTotvBDzRTu09o/a0sR0NFT7DNv
+	NAjgrFYwNG8npDECzvSA4qfEq0TTTQzS9RmcYooqDPsUo7OZTfwr3Ru5739eSgIA8OBO4zArIAPrh
+	ExXjYsDC2ePC+KhtcZsrj9a2D0e4C14OTqPJ0tm9f1+2bhLAmISp0nytQR8bTmFBaVDCF78yTvpJ1
+	ZJTKsGY9DyQuE2UlE3sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyTqE-005Wov-Lu; Tue, 07 Jun 2022 07:41:30 +0000
+	id 1nyU47-005dKj-4u; Tue, 07 Jun 2022 07:55:51 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyTpR-005WNl-4J
-	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 07:40:45 +0000
+	id 1nyU11-005bl6-E1
+	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 07:52:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1654587641; x=1686123641;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=t01Q373aC/fOkytkIRu4axBkhJnImgzP+7a036VrlaU=;
-  b=EiG4BaVASNkE06Mvc6NNM7eiPA1GvdsXNs4WYo5V6JOwuBm9FJWvLOqD
-   GsOap5L247i1FJAUD3/8BH92iJfTy3bzJP0cLzT7VqDWxvNgckEW1hWQF
-   VAuIiKXu6wbiogYgzNpPgDEH9qRjReaf069QrzKRR9DxUdXZyfGJS7S5S
-   pMj2ZkmMP/E1Bm9CyL02zFek4VeL85A/hDFTlardq3GnBmwzHb60QPIcj
-   CLQ7JN/4DHLX6hIGWNAt6TmQhGUQLsVChBOj8VyoVn9RInwZPY6BKXrHc
-   OoJx8+kv8Gp9sV3ec7INJ1gy7DqQkfWYnWE6HUc6F4ZI5Dk2XQ2mk1Rqi
-   w==;
+  t=1654588359; x=1686124359;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=D9WNYxhzSeICbl/66g6y2KWGS/aGlNpAz0i15OmerkY=;
+  b=JNSzFXue9Rwjj+cyl0+xPh1ByUqbd4OQzJ8COyWbKLaYw9ZtJ/ZjRd8g
+   jOnYJOhvVRqWM6sF0N9Ni0U90tPruDeOCERH4pyjBV9OzGEtgmzKfEROk
+   mkH9kHmHwecCCfAA+fV/UpP413Skmn8y1lSB0Eg0IoAicansTcMvEwfn2
+   LDiJuz5RqPTz+/KH21detI+md+pqbbXRRaAqe6xjunD4K46jU9vEiKN6a
+   9H+WeqcBNDn/0VGxe1gkXKMT9MWBJbVdDI7PlsaMLsdFQ1VjDTZCXzVhA
+   MhuE9wRlPqkEb5HJzT+xurBN7ixIiUCjGZg1fABr0THVd/pkJwGrsydPR
+   Q==;
 X-IronPort-AV: E=Sophos;i="5.91,283,1647327600"; 
-   d="scan'208";a="98876891"
+   d="scan'208";a="162183282"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Jun 2022 00:40:37 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Jun 2022 00:52:38 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Tue, 7 Jun 2022 00:40:36 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
- Transport; Tue, 7 Jun 2022 00:40:34 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Mark Brown <broonie@kernel.org>
-CC: Daire McNamara <daire.mcnamara@microchip.com>,
-	<linux-kernel@vger.kernel.org>, <linux-spi@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH 1/2] spi: add support for microchip fpga spi controllers
-Date: Tue, 7 Jun 2022 08:38:33 +0100
-Message-ID: <20220607073833.2331539-2-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220607073833.2331539-1-conor.dooley@microchip.com>
-References: <20220607073833.2331539-1-conor.dooley@microchip.com>
+ 15.1.2375.17; Tue, 7 Jun 2022 00:52:37 -0700
+Received: from NAM10-BN7-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
+ Transport; Tue, 7 Jun 2022 00:52:37 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=i53t2CpEQqUFE+n1GRG9gozLeCchJLvOUVxmKdIo1F9et2pFcuDmKJ1SDb+7W7AiIfd5hIXXdv81jK7bIL5/IFo72DWTEbPwKng5CwNn9wL1/d3CiiSiElKc0E5qoyuh5f2ys9/Hdoy9biw2tSII9UEt3uDuhZGGv8/xEbWo7DkVJ81a1JuxUe+gyDQngjdbp9MOpf41NXGh/EzVD/ohqylCSD37DrxZACBvxd88sOO24urNYE84ziNltI2qTbYbOisDFQM1SZXEcRc1bt5z1ZkPXsfukBzIR+h4VsIAN1NGnpa33RJj2Uuag7w0qtE7L3QYqobBR67YDsuY0BZJSw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=D9WNYxhzSeICbl/66g6y2KWGS/aGlNpAz0i15OmerkY=;
+ b=NTRUk/BGDJVvC2F+y+lDnQT4CKQDT99gR+XQenxy2LY8IKESi1L19hnzNRfs9E5ZkxTJlS8GOYVhe0/RelwU33nQIe6XbvKfIlEUnjZspQCcb7zNECDFsQz58lQllsTcmj8XtnnOv/RkNUbRN2a9fuTqSr1d9vibrod/UAM+emTfgHX5RLmhbgKRXwqflndhcHlWyhni/WG0sJQBGP1jCzwrysEgQ9WyrYYsl+dtNeiH8uSVzxSwV56OP8NJZzV+AUEkzXvqfNI1uyiD+I7WK5sP6LDZzEzRQV6cAI4bsmslfTcIdqQnyK/JHuSe8VN5BW3sCoHNsdfkSANhcODimg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=D9WNYxhzSeICbl/66g6y2KWGS/aGlNpAz0i15OmerkY=;
+ b=Ueg0+cNipiii5jBv+AYLqAaXMQeGsux1nyoYS+NPC7awkHhJVQggAhnQpsgGi5m6rOdM33zqkQ+oD/HWd5lsImfsOcSXV2c9SuDftDjlKeSurtT3XsKdmqenLyJCfInkb51Gg82zOzWudCo/FK8DrIr8u43Bk2XAfS5oOjjBl7I=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by CO1PR11MB4881.namprd11.prod.outlook.com (2603:10b6:303:91::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5314.12; Tue, 7 Jun
+ 2022 07:52:31 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::699b:5c23:de4f:2bfa]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::699b:5c23:de4f:2bfa%4]) with mapi id 15.20.5314.019; Tue, 7 Jun 2022
+ 07:52:30 +0000
+From: <Conor.Dooley@microchip.com>
+To: <mkl@pengutronix.de>, <Conor.Dooley@microchip.com>
+CC: <wg@grandegger.com>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <palmer@dabbelt.com>,
+	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
+	<Daire.McNamara@microchip.com>, <linux-can@vger.kernel.org>,
+	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH net-next 0/2] Document PolarFire SoC can controller
+Thread-Topic: [PATCH net-next 0/2] Document PolarFire SoC can controller
+Thread-Index: AQHYejvb6k0j61Qol0aP+WnBuEsVo61DiDiAgAAJ94A=
+Date: Tue, 7 Jun 2022 07:52:30 +0000
+Message-ID: <51e8e297-0171-0c3f-ba86-e61add04830e@microchip.com>
+References: <20220607065459.2035746-1-conor.dooley@microchip.com>
+ <20220607071519.6m6swnl55na3vgwm@pengutronix.de>
+In-Reply-To: <20220607071519.6m6swnl55na3vgwm@pengutronix.de>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.1
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: b5feab8d-cf1a-4cbb-1693-08da485aacc3
+x-ms-traffictypediagnostic: CO1PR11MB4881:EE_
+x-microsoft-antispam-prvs: <CO1PR11MB4881AD5A280B9891A67FC93098A59@CO1PR11MB4881.namprd11.prod.outlook.com>
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: rCQtRGOTYZO8X7CW/hnpLLbRllnlN99HdneKAqnaBDsg5E9I0tv80c3rXms/YiQEg9HSbSJNAFVqo8Fqp0ryhq38f2SRx7182blU2prjfelmiWgcah9EGB5NeKzdt9/2y5jmg0NPg8nINqbZ9YJObFdelQOSw4isy4C7AvTBEd8Y0TB3Lr86dJpeunYzKVXQUmAqVfh4WktY1nYwRjdRgZgJuNrzKPxJfjoE0BF199HMcYzgaS7Fk7a93v/tRMtuyNbCmrukuXUe4x36bEjbFUB/GTh2fA/F4OMCalC960HVeMM9aiHqC+WMf/nrHyBIniqqWjqdSxdIV3i1D4Hyn9YbKdCiGDNiJwsZh7jVENwgTjCdiFcihrgHx0gsWBBRaXRV2bE5miHQ1XRMOKZbZGDbOtWxInmC+2LXsGl0z/LjBRw+yoBsr65VbLaImnUQIsGvqHM8j6tsb5Wwn7D13p0R2Bf6eRbNDvjXFUpQzXj38EsV/TvJvM4mmSgYY4erHIuuG7ziwI+rlLgCULLwmmyhmNNo/bTa0rNi6GpDWZvlryRxRPRlQfFm7rjvNi5XlCbsQvo9yJDECn8PyJ33heN7hueMegBuGG0XnAvpdHAzpu83Q+RnYVEVsS4nvWuzf8DwcZbvuDOrZl/gSl9x4Qz+rPttN5OFGC06cmvhtniKb0tIR5XjPWock8PtAUtkIt49imprqOk6Pm2HPgQnPSkvz5cVwjLOljYGyCDDr1df4B4Z8m/fYqsXLnU7ELpvh7qyITDiaexC1i55qQ1+nl+jFrMT62xrv/9CRLXoK06PgMn80bzBWptJiYWr//Mvr8QeM2nyJTXE49Ov+P6YQkAFfsRpM+YPpPgoeckV9XcDd7671fgwQjc2QDSOHY1cZh2nq1/jYdYJY9P93iHGcA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230001)(366004)(64756008)(966005)(4326008)(7416002)(36756003)(316002)(8676002)(122000001)(66446008)(6506007)(38070700005)(4744005)(2906002)(5660300002)(31696002)(8936002)(76116006)(110136005)(66946007)(66476007)(66556008)(91956017)(6512007)(86362001)(26005)(6486002)(186003)(508600001)(38100700002)(53546011)(2616005)(54906003)(83380400001)(31686004)(71200400001)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bHFlNUVsaU1hanFVWEJsNjNvOVhaWU9WcVF3V1ZMNyt3bkxWV1VTZzlHSjdj?=
+ =?utf-8?B?R2RFNU1QQTUyTUMwOXBqYkxueC9QaUpsb3ZNd3VoYmYyUmJUeEdkWVA5UExF?=
+ =?utf-8?B?N1hMaEJteWszalZvTUxxcys1OXl2UjBYYnBrc2pQcmxpRnBwSmRRNFlLN0p6?=
+ =?utf-8?B?L25yRE1ORXZEd29NOTFNMmFLZ3VXb09sWThRVGw5ZTZ0VStXQ0hVcHR3MFl6?=
+ =?utf-8?B?L3ZuTHFDVG93Q2I1VUx1TjJ1K0syQ0NIbUJOQUUvRHk1bGZ1elBHM1d6TG96?=
+ =?utf-8?B?cnEzNDR3NXNIbjZzbEVxTnBrdU1zOXdDOUM3VE9CSllzb2EySzlaTjlYNVFj?=
+ =?utf-8?B?UW1PUGtOV3J0ajcya0w0c1NaTlpxZXRrNUpOeGtVeTlhQzNMdC9UUVJjM1FY?=
+ =?utf-8?B?a2tyS1cwdTJDN1VpbERYZWp3R2hqTnhIczVoN3o5MEdLbm5wTXlvUi9xVzZN?=
+ =?utf-8?B?NHNKeTUrS0M1RTAxZjd2dEJoY2NhQ1B6TGZxb1J6U1l5MTZudmRISmdvelFo?=
+ =?utf-8?B?b3RZY1VHTEZFeUtzVEd6MjZQT2ZRbFpwaUxhWVF4dC9CMVpvOWU1ZnFqR0Jv?=
+ =?utf-8?B?ano1SU01K3VDYmRoTjViUUhRV1dvOFZ5SzZac3BVNWd6L3FSUmlVM0ZTTnR5?=
+ =?utf-8?B?RnNEK2ZWV0lxUlEvWm4xcHhxQm80TUUxUndsdkRVZVh6dkk2VHl4aWt3aGdx?=
+ =?utf-8?B?YVpqc3hZVWloUDM1dnNIekF5Z2ZkVXp6S3JXL0svOG5sSWhzL0J3SXNzTU9j?=
+ =?utf-8?B?bkRVQm41UVozU3hWbnBiVmVFUVliZVJiT25rZnE4aFZQc0p6TmN1NkxYRVFX?=
+ =?utf-8?B?TERUdGFyK0hwQjh1R29qeXZKcnN3MEU1dGZRR2hnQnJTdkZEYXRZY2lWWFYz?=
+ =?utf-8?B?VnJ2N3Mwa3ZKMWw5aUprWkEyd29DYStmazJPRk1jMjFUVnB2TmV3WndmaVhu?=
+ =?utf-8?B?RWl2RzNESjlxdkNXbXNocHhPVHoxT2RJRzRvbmJqQ0xIQ29wT1lQN2JadS9I?=
+ =?utf-8?B?RzNLR2hQQ0JhTHVJMXBOY0dtUHpVNTNiM0wrUGVyWnQxN2xEa1FWalBTQnQ2?=
+ =?utf-8?B?ZzJSY3kvUktOaU5HamIrMjJaS3lBekJLb21uSjMvNzJKc3Y2YnEzWVgrbjYv?=
+ =?utf-8?B?S1dsOUpubHpiOEJHQTZmSWFmY2dhVnFoNUFyUFNrTUFCdGpRemZEL3k1V0wy?=
+ =?utf-8?B?YkZjU3N5YXZrQkdjN2hhN0dtMXE0N21iTC9rbVlLaG1mUGhFTjBrcmZUMEd6?=
+ =?utf-8?B?NkFEQzNRVksrc2tETlZuVDJiZ0NSLy9RWS8xU21oUnI5TjQzc0RlSEU1RWk3?=
+ =?utf-8?B?b25QUTNqL3Ixd01oSHpORWRLZnNQblIrYzRsTFZsbVdKcVU4V1RDTk56Tkkx?=
+ =?utf-8?B?WFFQRGF6eXVlZDErYnJBeVZldFVSa0thNmRtNldXT0dKZm9PckNlcFRUUFZD?=
+ =?utf-8?B?dkNPM2wvK3BJMk1RWTNoOTk0Vi9FQk5yYnNuSTE3SGdkN2FjZXJrZG5JbVBn?=
+ =?utf-8?B?Ukc0NldiQVVJZWdzSmk5Nmc0d2hUNDVKYzVreUVtRjduOE1xakNSS1JLTXIz?=
+ =?utf-8?B?TE5JenJoMHZBVk85U1c5Z2VUdDZDaFFhUVl4dzhOcUtiL2hqS1cwWUY2QXQ1?=
+ =?utf-8?B?MzZ6VysrNFUvL1JJNkpJcHF4bGpuTXJxU3FQVEFsbERaNE9kY3RHT2FEUzVY?=
+ =?utf-8?B?RDk2OHQyRHF1QzUxTDNoSE5UNEwrOFhwUm1naWNjQ2tyeGZXMDQwRGM3U1ZU?=
+ =?utf-8?B?V3FwaHFnclI2Vm1pM3FpdGp4cklCak5CVmJxbUxPemlYSTZseTR4Wm1YdDVR?=
+ =?utf-8?B?NmRLaGFNY0ZtckJoZ0FMOFl1TlFBSkllbEIrUHQ4TFhqOHFUTE1hNXR6eFAz?=
+ =?utf-8?B?RTJaYWNuajdLVzFxY015a3I4QVRScFAvUTNTNjl4NC85STJPWndjM1NqWTE4?=
+ =?utf-8?B?SmZCWVFVQkVNbXBFU2ZzV3ZmZEdSeEg0bk9yNEhwd2tOT3NtSEVGdTFJVEVx?=
+ =?utf-8?B?NGs3Y2VGZkZ5QnpIU1pDK2dhaXUvaGl4Tkl4L3ZpZWg5NTZkcm40SFlUNkhY?=
+ =?utf-8?B?Mm1HaXc0RVFlLzBHV2FwbWplY3M1YWE1MGJYalNQMjlKZ01FQXcyWmVLWGNo?=
+ =?utf-8?B?TGQzbldoZkZoMnhPeDFZQTgwbk5HL0V6UTNrUWx4MGRhM0hrK2FKbnIxVzVY?=
+ =?utf-8?B?Y0JJZEVBQWYyVE5SaXFETzRmQS9MT0dqTG5RTmdWODAyODZrNjQzRVpraExP?=
+ =?utf-8?B?eXFjZ0VIVlZIQWFvTnArQkhSaldZNTZyNXlTczIyUkQ5eGtaNnVrWUxuZFhl?=
+ =?utf-8?B?b2o3VnBUeGlYYXJWSDQxWjRTRkl4WHhUSk44NzJtOVh5dnQ4UFdNdz09?=
+Content-ID: <4D1C5E0D01F60147BCC1FE4D4A981465@namprd11.prod.outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b5feab8d-cf1a-4cbb-1693-08da485aacc3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Jun 2022 07:52:30.8757
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: h76C3qtOQHCSta1Kk20oot515AoaMZDNEFc/QNRYMx2fV+HeF7vHtttr3sl4pNoH9oqGrq8+Smk9tw6TXz47iPwCvZcWZ89JjUSmqb8lcSk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR11MB4881
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_004041_391924_AAE8B843 
-X-CRM114-Status: GOOD (  26.69  )
+X-CRM114-CacheID: sfid-20220607_005239_602057_4B9612C2 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,693 +181,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a driver for Microchip FPGA SPI controllers, specifically
-supporting the "hard" controllers on PolarFire SoC.
+On 07/06/2022 08:15, Marc Kleine-Budde wrote:
+> On 07.06.2022 07:54:58, Conor Dooley wrote:
+>> When adding the dts for PolarFire SoC, the can controllers were
+>                                               ^^^
+>> omitted, so here they are...
+> 
+> Nitpick:
+> Consider writing "CAN" in capital letters to avoid confusion for the not
+> informed reader.
 
-Co-developed-by: Daire McNamara <daire.mcnamara@microchip.com>
-Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/spi/Kconfig              |   9 +
- drivers/spi/Makefile             |   1 +
- drivers/spi/spi-microchip-core.c | 632 +++++++++++++++++++++++++++++++
- 3 files changed, 642 insertions(+)
- create mode 100644 drivers/spi/spi-microchip-core.c
+Yeah, sure. I'll try to get over my fear of capital letters ;)
 
-diff --git a/drivers/spi/Kconfig b/drivers/spi/Kconfig
-index d2815eb361c0..b142e3499bc9 100644
---- a/drivers/spi/Kconfig
-+++ b/drivers/spi/Kconfig
-@@ -565,6 +565,15 @@ config SPI_MESON_SPIFC
- 	  This enables master mode support for the SPIFC (SPI flash
- 	  controller) available in Amlogic Meson SoCs.
- 
-+config SPI_MICROCHIP_CORE
-+	tristate "Microchip FPGA SPI controllers"
-+	depends on SPI_MASTER
-+	help
-+	  This enables the SPI driver for Microchip FPGA SPI controllers.
-+	  Say Y or M here if you want to use the "hard" controllers on
-+	  PolarFire SoC.
-+	  If built as a module, it will be called spi-microchip-core.
-+
- config SPI_MT65XX
- 	tristate "MediaTek SPI controller"
- 	depends on ARCH_MEDIATEK || COMPILE_TEST
-diff --git a/drivers/spi/Makefile b/drivers/spi/Makefile
-index 3aa28ed3f761..b1e559ff17a9 100644
---- a/drivers/spi/Makefile
-+++ b/drivers/spi/Makefile
-@@ -70,6 +70,7 @@ obj-$(CONFIG_SPI_LM70_LLP)		+= spi-lm70llp.o
- obj-$(CONFIG_SPI_LP8841_RTC)		+= spi-lp8841-rtc.o
- obj-$(CONFIG_SPI_MESON_SPICC)		+= spi-meson-spicc.o
- obj-$(CONFIG_SPI_MESON_SPIFC)		+= spi-meson-spifc.o
-+obj-$(CONFIG_SPI_MICROCHIP_CORE)	+= spi-microchip-core.o
- obj-$(CONFIG_SPI_MPC512x_PSC)		+= spi-mpc512x-psc.o
- obj-$(CONFIG_SPI_MPC52xx_PSC)		+= spi-mpc52xx-psc.o
- obj-$(CONFIG_SPI_MPC52xx)		+= spi-mpc52xx.o
-diff --git a/drivers/spi/spi-microchip-core.c b/drivers/spi/spi-microchip-core.c
-new file mode 100644
-index 000000000000..5b2aee30fa04
---- /dev/null
-+++ b/drivers/spi/spi-microchip-core.c
-@@ -0,0 +1,632 @@
-+// SPDX-License-Identifier: (GPL-2.0)
-+/*
-+ * Microchip CoreSPI SPI controller driver
-+ *
-+ * Copyright (c) 2018-2022 Microchip Technology Inc. and its subsidiaries
-+ *
-+ * Author: Daire McNamara <daire.mcnamara@microchip.com>
-+ * Author: Conor Dooley <conor.dooley@microchip.com>
-+ *
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/err.h>
-+#include <linux/init.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/spi/spi.h>
-+
-+#define MAX_LEN				(0xffff)
-+#define MAX_CS				(8)
-+#define DEFAULT_FRAMESIZE		(8)
-+#define FIFO_DEPTH			(32)
-+#define CLK_GEN_MODE1_MAX		(255)
-+#define CLK_GEN_MODE0_MAX		(15)
-+#define CLK_GEN_MIN			(0)
-+#define MODE_X_MASK_SHIFT		(24)
-+
-+#define CONTROL_ENABLE			BIT(0)
-+#define CONTROL_MASTER			BIT(1)
-+#define CONTROL_RX_DATA_INT		BIT(4)
-+#define CONTROL_TX_DATA_INT		BIT(5)
-+#define CONTROL_RX_OVER_INT		BIT(6)
-+#define CONTROL_TX_UNDER_INT		BIT(7)
-+#define CONTROL_SPO			BIT(24)
-+#define CONTROL_SPH			BIT(25)
-+#define CONTROL_SPS			BIT(26)
-+#define CONTROL_FRAMEURUN		BIT(27)
-+#define CONTROL_CLKMODE			BIT(28)
-+#define CONTROL_BIGFIFO			BIT(29)
-+#define CONTROL_OENOFF			BIT(30)
-+#define CONTROL_RESET			BIT(31)
-+
-+#define CONTROL_MODE_MASK		GENMASK(3, 2)
-+#define  MOTOROLA_MODE			(0)
-+#define CONTROL_FRAMECNT_MASK		GENMASK(23, 8)
-+#define CONTROL_FRAMECNT_SHIFT		(8)
-+
-+#define STATUS_ACTIVE			BIT(14)
-+#define STATUS_SSEL			BIT(13)
-+#define STATUS_FRAMESTART		BIT(12)
-+#define STATUS_TXFIFO_EMPTY_NEXT_READ	BIT(11)
-+#define STATUS_TXFIFO_EMPTY		BIT(10)
-+#define STATUS_TXFIFO_FULL_NEXT_WRITE	BIT(9)
-+#define STATUS_TXFIFO_FULL		BIT(8)
-+#define STATUS_RXFIFO_EMPTY_NEXT_READ	BIT(7)
-+#define STATUS_RXFIFO_EMPTY		BIT(6)
-+#define STATUS_RXFIFO_FULL_NEXT_WRITE	BIT(5)
-+#define STATUS_RXFIFO_FULL		BIT(4)
-+#define STATUS_TX_UNDERRUN		BIT(3)
-+#define STATUS_RX_OVERFLOW		BIT(2)
-+#define STATUS_RXDAT_RXED		BIT(1)
-+#define STATUS_TXDAT_SENT		BIT(0)
-+
-+#define INT_TXDONE			BIT(0)
-+#define INT_RXRDY			BIT(1)
-+#define INT_RX_CHANNEL_OVERFLOW		BIT(2)
-+#define INT_TX_CHANNEL_UNDERRUN		BIT(3)
-+
-+#define INT_ENABLE_MASK (CONTROL_RX_DATA_INT | CONTROL_TX_DATA_INT | \
-+			 CONTROL_RX_OVER_INT | CONTROL_TX_UNDER_INT)
-+
-+#define REG_CONTROL		(0x00)
-+#define REG_FRAME_SIZE		(0x04)
-+#define REG_STATUS		(0x08)
-+#define REG_INT_CLEAR		(0x0c)
-+#define REG_RX_DATA		(0x10)
-+#define REG_TX_DATA		(0x14)
-+#define REG_CLK_GEN		(0x18)
-+#define REG_SLAVE_SELECT	(0x1c)
-+#define  SSEL_MASK		GENMASK(7, 0)
-+#define  SSEL_DIRECT		BIT(8)
-+#define  SSELOUT_SHIFT		9
-+#define  SSELOUT		BIT(SSELOUT_SHIFT)
-+#define REG_MIS			(0x20)
-+#define REG_RIS			(0x24)
-+#define REG_CONTROL2		(0x28)
-+#define REG_COMMAND		(0x2c)
-+#define REG_PKTSIZE		(0x30)
-+#define REG_CMD_SIZE		(0x34)
-+#define REG_HWSTATUS		(0x38)
-+#define REG_STAT8		(0x3c)
-+#define REG_CTRL2		(0x48)
-+#define REG_FRAMESUP		(0x50)
-+
-+struct mchp_corespi {
-+	void __iomem *regs;
-+	struct clk *clk;
-+	const u8 *tx_buf;
-+	u8 *rx_buf;
-+	u32 clk_gen; /* divider for spi output clock generated by the controller */
-+	u32 clk_mode;
-+	int irq;
-+	int tx_len;
-+	int rx_len;
-+	int pending;
-+};
-+
-+static inline u32 mchp_corespi_read(struct mchp_corespi *spi, unsigned int reg)
-+{
-+	return readl(spi->regs + reg);
-+}
-+
-+static inline void mchp_corespi_write(struct mchp_corespi *spi, unsigned int reg, u32 val)
-+{
-+	writel(val, spi->regs + reg);
-+}
-+
-+static inline void mchp_corespi_enable(struct mchp_corespi *spi)
-+{
-+	u32 control = mchp_corespi_read(spi, REG_CONTROL);
-+
-+	control |= CONTROL_ENABLE;
-+
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+}
-+
-+static inline void mchp_corespi_disable(struct mchp_corespi *spi)
-+{
-+	u32 control = mchp_corespi_read(spi, REG_CONTROL);
-+
-+	control &= ~CONTROL_ENABLE;
-+
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+}
-+
-+static inline void mchp_corespi_read_fifo(struct mchp_corespi *spi)
-+{
-+	u8 data;
-+	int fifo_max, i = 0;
-+
-+	fifo_max = min(spi->rx_len, FIFO_DEPTH);
-+
-+	while ((i < fifo_max) && !(mchp_corespi_read(spi, REG_STATUS) & STATUS_RXFIFO_EMPTY)) {
-+		data = mchp_corespi_read(spi, REG_RX_DATA);
-+
-+		if (spi->rx_buf)
-+			*spi->rx_buf++ = data;
-+		i++;
-+	}
-+	spi->rx_len -= i;
-+	spi->pending -= i;
-+}
-+
-+static void mchp_corespi_enable_ints(struct mchp_corespi *spi)
-+{
-+	u32 control, mask = INT_ENABLE_MASK;
-+
-+	mchp_corespi_disable(spi);
-+
-+	control = mchp_corespi_read(spi, REG_CONTROL);
-+
-+	control |= mask;
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+
-+	control |= CONTROL_ENABLE;
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+}
-+
-+static void mchp_corespi_disable_ints(struct mchp_corespi *spi)
-+{
-+	u32 control, mask = INT_ENABLE_MASK;
-+
-+	mchp_corespi_disable(spi);
-+
-+	control = mchp_corespi_read(spi, REG_CONTROL);
-+	control &= ~mask;
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+
-+	control |= CONTROL_ENABLE;
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+}
-+
-+static inline void mchp_corespi_set_xfer_size(struct mchp_corespi *spi, int len)
-+{
-+	u32 control;
-+	u16 lenpart;
-+
-+	/*
-+	 * Disable the SPI controller. Writes to transfer length have
-+	 * no effect when the controller is enabled.
-+	 */
-+	mchp_corespi_disable(spi);
-+
-+	/*
-+	 * The lower 16 bits of the frame count are stored in the control reg
-+	 * for legacy reasons, but the upper 16 written to a different register:
-+	 * FRAMESUP. While both the upper and lower bits can be *READ* from the
-+	 * FRAMESUP register, writing to the lower 16 bits is a NOP
-+	 */
-+	lenpart = len & 0xffff;
-+
-+	control = mchp_corespi_read(spi, REG_CONTROL);
-+	control &= ~CONTROL_FRAMECNT_MASK;
-+	control |= lenpart << CONTROL_FRAMECNT_SHIFT;
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+
-+	lenpart = len & 0xffff0000;
-+	mchp_corespi_write(spi, REG_FRAMESUP, lenpart);
-+
-+	control |= CONTROL_ENABLE;
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+}
-+
-+static inline void mchp_corespi_write_fifo(struct mchp_corespi *spi)
-+{
-+	u8 byte;
-+	int fifo_max, i = 0;
-+
-+	fifo_max = min(spi->tx_len, FIFO_DEPTH);
-+	mchp_corespi_set_xfer_size(spi, fifo_max);
-+
-+	while ((i < fifo_max) && !(mchp_corespi_read(spi, REG_STATUS) & STATUS_TXFIFO_FULL)) {
-+		byte = spi->tx_buf ? *spi->tx_buf++ : 0xaa;
-+		mchp_corespi_write(spi, REG_TX_DATA, byte);
-+		i++;
-+	}
-+
-+	spi->tx_len -= i;
-+	spi->pending += i;
-+}
-+
-+static inline void mchp_corespi_set_framesize(struct mchp_corespi *spi, int bt)
-+{
-+	u32 control;
-+
-+	/*
-+	 * Disable the SPI controller. Writes to the frame size have
-+	 * no effect when the controller is enabled.
-+	 */
-+	mchp_corespi_disable(spi);
-+
-+	mchp_corespi_write(spi, REG_FRAME_SIZE, bt);
-+
-+	control = mchp_corespi_read(spi, REG_CONTROL);
-+	control |= CONTROL_ENABLE;
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+}
-+
-+static void mchp_corespi_set_cs(struct spi_device *spi, bool disable)
-+{
-+	u32 reg;
-+	struct mchp_corespi *corespi = spi_master_get_devdata(spi->master);
-+
-+	reg = mchp_corespi_read(corespi, REG_SLAVE_SELECT);
-+	reg &= ~BIT(spi->chip_select);
-+	reg |= !disable << spi->chip_select;
-+
-+	mchp_corespi_write(corespi, REG_SLAVE_SELECT, reg);
-+}
-+
-+static int mchp_corespi_setup(struct spi_device *spi)
-+{
-+	struct mchp_corespi *corespi = spi_master_get_devdata(spi->master);
-+	u32 reg;
-+
-+	/*
-+	 * Active high slaves need to be specifically set to their inactive
-+	 * states during probe by adding them to the "control group" & thus
-+	 * driving their select line low.
-+	 */
-+	if (spi->mode & SPI_CS_HIGH) {
-+		reg = mchp_corespi_read(corespi, REG_SLAVE_SELECT);
-+		reg |= BIT(spi->chip_select);
-+		mchp_corespi_write(corespi, REG_SLAVE_SELECT, reg);
-+	}
-+	return 0;
-+}
-+
-+static void mchp_corespi_init(struct spi_master *master, struct mchp_corespi *spi)
-+{
-+	unsigned long clk_hz;
-+	u32 control = mchp_corespi_read(spi, REG_CONTROL);
-+
-+	control |= CONTROL_MASTER;
-+
-+	control &= ~CONTROL_MODE_MASK;
-+	control |= MOTOROLA_MODE;
-+
-+	mchp_corespi_set_framesize(spi, DEFAULT_FRAMESIZE);
-+
-+	/* max. possible spi clock rate is the apb clock rate */
-+	clk_hz = clk_get_rate(spi->clk);
-+	master->max_speed_hz = clk_hz;
-+
-+	/*
-+	 * The controller must be configured so that it doesn't remove Chip
-+	 * Select until the entire message has been transferred, even if at
-+	 * some points TX FIFO becomes empty.
-+	 *
-+	 * BIGFIFO mode is also enabled, which sets the fifo depth to 32 frames
-+	 * for the 8 bit transfers that this driver uses.
-+	 */
-+	control = mchp_corespi_read(spi, REG_CONTROL);
-+	control |= CONTROL_SPS | CONTROL_BIGFIFO;
-+
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+
-+	mchp_corespi_enable_ints(spi);
-+
-+	/*
-+	 * It is required to enable direct mode, otherwise control over the chip
-+	 * select is relinquished to the hardware. SSELOUT is enabled too so we
-+	 * can deal with active high slaves.
-+	 */
-+	mchp_corespi_write(spi, REG_SLAVE_SELECT, SSELOUT | SSEL_DIRECT);
-+
-+	control = mchp_corespi_read(spi, REG_CONTROL);
-+
-+	control &= ~CONTROL_RESET;
-+	control |= CONTROL_ENABLE;
-+
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+}
-+
-+static inline void mchp_corespi_set_clk_gen(struct mchp_corespi *spi)
-+{
-+	u32 control;
-+
-+	mchp_corespi_disable(spi);
-+
-+	control = mchp_corespi_read(spi, REG_CONTROL);
-+	if (spi->clk_mode)
-+		control |= CONTROL_CLKMODE;
-+	else
-+		control &= ~CONTROL_CLKMODE;
-+
-+	mchp_corespi_write(spi, REG_CLK_GEN, spi->clk_gen);
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+	mchp_corespi_write(spi, REG_CONTROL, control | CONTROL_ENABLE);
-+}
-+
-+static inline void mchp_corespi_set_mode(struct mchp_corespi *spi, unsigned int mode)
-+{
-+	u32 control, mode_val;
-+
-+	switch (mode & SPI_MODE_X_MASK) {
-+	case SPI_MODE_0:
-+		mode_val = 0;
-+		break;
-+	case SPI_MODE_1:
-+		mode_val = CONTROL_SPH;
-+		break;
-+	case SPI_MODE_2:
-+		mode_val = CONTROL_SPO;
-+		break;
-+	case SPI_MODE_3:
-+		mode_val = CONTROL_SPH | CONTROL_SPO;
-+		break;
-+	}
-+
-+	/*
-+	 * Disable the SPI controller. Writes to the frame size have
-+	 * no effect when the controller is enabled.
-+	 */
-+	mchp_corespi_disable(spi);
-+
-+	control = mchp_corespi_read(spi, REG_CONTROL);
-+	control &= ~(SPI_MODE_X_MASK << MODE_X_MASK_SHIFT);
-+	control |= mode_val;
-+
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+
-+	control |= CONTROL_ENABLE;
-+	mchp_corespi_write(spi, REG_CONTROL, control);
-+}
-+
-+static irqreturn_t mchp_corespi_interrupt(int irq, void *dev_id)
-+{
-+	struct spi_master *master = dev_id;
-+	struct mchp_corespi *spi = spi_master_get_devdata(master);
-+	u32 intfield = mchp_corespi_read(spi, REG_MIS) & 0xf;
-+	bool finalise = false;
-+
-+	/* Interrupt line may be shared and not for us at all */
-+	if (intfield == 0)
-+		return IRQ_NONE;
-+
-+	if (intfield & INT_TXDONE) {
-+		mchp_corespi_write(spi, REG_INT_CLEAR, INT_TXDONE);
-+
-+		if (spi->rx_len)
-+			mchp_corespi_read_fifo(spi);
-+
-+		if (spi->tx_len)
-+			mchp_corespi_write_fifo(spi);
-+
-+		if (!spi->rx_len)
-+			finalise = true;
-+	}
-+
-+	if (intfield & INT_RXRDY)
-+		mchp_corespi_write(spi, REG_INT_CLEAR, INT_RXRDY);
-+
-+	if (intfield & INT_RX_CHANNEL_OVERFLOW) {
-+		mchp_corespi_write(spi, REG_INT_CLEAR, INT_RX_CHANNEL_OVERFLOW);
-+		finalise = true;
-+		dev_err(&master->dev,
-+			"%s: RX OVERFLOW: rxlen: %d, txlen: %d\n", __func__,
-+			spi->rx_len, spi->tx_len);
-+	}
-+
-+	if (intfield & INT_TX_CHANNEL_UNDERRUN) {
-+		mchp_corespi_write(spi, REG_INT_CLEAR, INT_TX_CHANNEL_UNDERRUN);
-+		finalise = true;
-+		dev_err(&master->dev,
-+			"%s: TX UNDERFLOW: rxlen: %d, txlen: %d\n", __func__,
-+			spi->rx_len, spi->tx_len);
-+	}
-+
-+	if (finalise)
-+		spi_finalize_current_transfer(master);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static int mchp_corespi_calculate_clkgen(struct mchp_corespi *spi,
-+					 unsigned long target_hz)
-+{
-+	unsigned long clk_hz, spi_hz, clk_gen;
-+
-+	clk_hz = clk_get_rate(spi->clk);
-+	spi_hz = min(target_hz, clk_hz);
-+
-+	/*
-+	 * There are two possible clock modes for the controller generated
-+	 * clock's division ratio:
-+	 * CLK_MODE = 0: 1 / (2^(CLK_GEN + 1)) where CLK_GEN = 0 to 15.
-+	 * CLK_MODE = 1: 1 / (2 * CLK_GEN + 1) where CLK_GEN = 0 to 255.
-+	 * First try mode 1, fall back to 0 and if we have tried both modes and
-+	 * we /still/ can't get a good setting, we then throw the toys out of
-+	 * the pram and give up
-+	 * clk_gen is the register name for the clock divider on MPFS.
-+	 */
-+	clk_gen = DIV_ROUND_UP(clk_hz, 2 * spi_hz) - 1;
-+	if (clk_gen > CLK_GEN_MODE1_MAX || clk_gen <= CLK_GEN_MIN) {
-+		clk_gen = DIV_ROUND_UP(clk_hz, spi_hz);
-+		clk_gen = fls(clk_gen) - 1;
-+
-+		if (clk_gen > CLK_GEN_MODE0_MAX)
-+			return -EINVAL;
-+
-+		spi->clk_mode = 0;
-+	} else {
-+		spi->clk_mode = 1;
-+	}
-+
-+	spi->clk_gen = clk_gen;
-+	return 0;
-+}
-+
-+static int mchp_corespi_transfer_one(struct spi_master *master,
-+				     struct spi_device *spi_dev,
-+				     struct spi_transfer *xfer)
-+{
-+	struct mchp_corespi *spi = spi_master_get_devdata(master);
-+	int ret;
-+
-+	ret = mchp_corespi_calculate_clkgen(spi, (unsigned long)xfer->speed_hz);
-+	if (ret) {
-+		dev_err(&master->dev, "failed to set clk_gen for target %u Hz\n", xfer->speed_hz);
-+		return ret;
-+	}
-+
-+	mchp_corespi_set_clk_gen(spi);
-+
-+	spi->tx_buf = xfer->tx_buf;
-+	spi->rx_buf = xfer->rx_buf;
-+	spi->tx_len = xfer->len;
-+	spi->rx_len = xfer->len;
-+	spi->pending = 0;
-+
-+	mchp_corespi_set_xfer_size(spi, (spi->tx_len > FIFO_DEPTH)
-+				   ? FIFO_DEPTH : spi->tx_len);
-+
-+	if (spi->tx_len)
-+		mchp_corespi_write_fifo(spi);
-+	return 1;
-+}
-+
-+static int mchp_corespi_prepare_message(struct spi_master *master,
-+					struct spi_message *msg)
-+{
-+	struct spi_device *spi_dev = msg->spi;
-+	struct mchp_corespi *spi = spi_master_get_devdata(master);
-+
-+	mchp_corespi_set_framesize(spi, DEFAULT_FRAMESIZE);
-+	mchp_corespi_set_mode(spi, spi_dev->mode);
-+
-+	return 0;
-+}
-+
-+static int mchp_corespi_probe(struct platform_device *pdev)
-+{
-+	struct spi_master *master;
-+	struct mchp_corespi *spi;
-+	struct resource *res;
-+	u32 num_cs;
-+	int ret = 0;
-+
-+	master = spi_alloc_master(&pdev->dev, sizeof(*spi));
-+	if (!master)
-+		return dev_err_probe(&pdev->dev, -ENOMEM,
-+				     "unable to allocate master for SPI controller\n");
-+
-+	platform_set_drvdata(pdev, master);
-+
-+	if (of_property_read_u32(pdev->dev.of_node, "num-cs", &num_cs))
-+		num_cs = MAX_CS;
-+
-+	master->num_chipselect = num_cs;
-+	master->mode_bits = SPI_CPOL | SPI_CPHA | SPI_CS_HIGH;
-+	master->setup = mchp_corespi_setup;
-+	master->bits_per_word_mask = SPI_BPW_MASK(8);
-+	master->transfer_one = mchp_corespi_transfer_one;
-+	master->prepare_message = mchp_corespi_prepare_message;
-+	master->set_cs = mchp_corespi_set_cs;
-+	master->dev.of_node = pdev->dev.of_node;
-+
-+	spi = spi_master_get_devdata(master);
-+
-+	spi->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+	if (IS_ERR(spi->regs)) {
-+		ret = PTR_ERR(spi->regs);
-+		goto error_release_master;
-+	}
-+
-+	spi->irq = platform_get_irq(pdev, 0);
-+	if (spi->irq <= 0) {
-+		dev_err(&pdev->dev, "invalid IRQ %d for SPI controller\n", spi->irq);
-+		ret = spi->irq;
-+		goto error_release_master;
-+	}
-+
-+	ret = devm_request_irq(&pdev->dev, spi->irq, mchp_corespi_interrupt,
-+			       IRQF_SHARED, dev_name(&pdev->dev), master);
-+	if (ret) {
-+		dev_err(&pdev->dev, "could not request irq: %d\n", ret);
-+		goto error_release_master;
-+	}
-+
-+	spi->clk = devm_clk_get(&pdev->dev, NULL);
-+	if (!spi->clk || IS_ERR(spi->clk)) {
-+		ret = PTR_ERR(spi->clk);
-+		dev_err(&pdev->dev, "could not get clk: %d\n", ret);
-+		goto error_release_master;
-+	}
-+
-+	ret = clk_prepare_enable(spi->clk);
-+	if (ret) {
-+		dev_err(&pdev->dev, "failed to enable clock\n");
-+		goto error_release_master;
-+	}
-+
-+	mchp_corespi_init(master, spi);
-+
-+	ret = devm_spi_register_master(&pdev->dev, master);
-+	if (ret) {
-+		dev_err(&pdev->dev,
-+			"unable to register master for SPI controller\n");
-+		goto error_release_hardware;
-+	}
-+
-+	dev_info(&pdev->dev, "Registered SPI controller %d\n", master->bus_num);
-+
-+	return 0;
-+
-+error_release_hardware:
-+	mchp_corespi_disable(spi);
-+	clk_prepare_enable(spi->clk);
-+error_release_master:
-+	spi_master_put(master);
-+
-+	return ret;
-+}
-+
-+static int mchp_corespi_remove(struct platform_device *pdev)
-+{
-+	struct spi_master *master  = platform_get_drvdata(pdev);
-+	struct mchp_corespi *spi = spi_master_get_devdata(master);
-+
-+	mchp_corespi_disable_ints(spi);
-+	spi_unregister_master(master);
-+	spi_master_put(master);
-+	clk_disable_unprepare(spi->clk);
-+	mchp_corespi_disable(spi);
-+
-+	return 0;
-+}
-+
-+#define MICROCHIP_SPI_PM_OPS (NULL)
-+
-+/*
-+ * Platform driver data structure
-+ */
-+
-+#if defined(CONFIG_OF)
-+static const struct of_device_id mchp_corespi_dt_ids[] = {
-+	{ .compatible = "microchip,mpfs-spi" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, mchp_corespi_dt_ids);
-+#endif
-+
-+static struct platform_driver mchp_corespi_driver = {
-+	.probe = mchp_corespi_probe,
-+	.driver = {
-+		.name = "microchip-corespi",
-+		.pm = MICROCHIP_SPI_PM_OPS,
-+		.of_match_table = of_match_ptr(mchp_corespi_dt_ids),
-+		.owner = THIS_MODULE,
-+	},
-+	.remove = mchp_corespi_remove,
-+};
-+module_platform_driver(mchp_corespi_driver);
-+MODULE_DESCRIPTION("Microchip coreSPI SPI controller driver");
-+MODULE_AUTHOR("Daire McNamara <daire.mcnamara@microchip.com>");
-+MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-+MODULE_LICENSE("GPL");
--- 
-2.36.1
+> 
+> Is the documentation for the CAN controller openly available? Is there a
+> driver somewhere?
 
+There is a driver /but/ for now only a UIO one so I didn't send it.
+There's an online doc & if the horrible link doesn't drop you there
+directly, its section 6.12.3:
+https://onlinedocs.microchip.com/pr/GUID-0E320577-28E6-4365-9BB8-9E1416A0A6E4-en-US-3/index.html?GUID-A362DC3C-83B7-4441-BECB-B19F9AD48B66
 
+And a PDF direct download here, see section 4.12.3 (page 72):
+https://www.microsemi.com/document-portal/doc_download/1245725-polarfire-soc-fpga-mss-technical-reference-manual
+
+Thanks,
+Conor.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
