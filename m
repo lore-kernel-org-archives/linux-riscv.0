@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06008C43334
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 17:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556D4C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 17:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qZTuXgc5rOjmbxD6mycqTB8PPz9j6PG3MrUqIyvXUfU=; b=wFB+IolxY5KcED
-	elX+LurZAFUYV6fmep/r/HQ4eo01PzAtZo3pRvTVvWY+YJlQl3xUHGrx1dc6qSTJy4XN/BR08UWr9
-	s4ZwXRsPuOGl+nZCxGMcXCy4D5BZIAULSIv8Vu6Y6rrUaZYvBIR4jLO3rTZmeRBdmmbunvh4/1R8N
-	ARgDhbOIK9gIgR1V97bWpwrw8wu/nFtysdAgf2xWYUlWCRSsuNPI8ij1oZ8OMhMAFnn4054KB6dVK
-	eS25nvXw9sA25ZpUmxCop9Z61RNSdAQ7Ett1D8KObGgdGNqRNr8LZyT2WHecow7wqdWnGNFO8uyh2
-	7NnwL3FYAkWy+UB+8EwQ==;
+	List-Owner; bh=qZTuXgc5rOjmbxD6mycqTB8PPz9j6PG3MrUqIyvXUfU=; b=4srlFUxa7LFFnZ
+	Y4D/j6f00A/1yXvvb5GfoggbhyQl26kbJsjD3//zjUM+1d2YcboZJai7QFGDHKiGKjiofiBo2y8pc
+	ksVBoa2Vcqi4G5HvHGsrunYMK3GIIzdHD7i9qG/oHzuwi5pyaS6MNkpG5XU5B7tEPJwFYQ63Bh8nX
+	22xqxUZWLePiJa37KbNrA6KmDUjd9WJq02XVhP0gKqmKjGxlSjWslYg3nY1qL90xDBAcJeGLxH43Z
+	ej9MYCQZPZfq5srPDUMgT3Qs8hlDXO+msOelW2/eU8kuAOPkC3nrReqII8b+K2ISdJMKgArcX1TRS
+	nM3mMAkAUb/bxZhhwxoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nydLV-008h9o-FH; Tue, 07 Jun 2022 17:50:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nydOt-008iBp-M8; Tue, 07 Jun 2022 17:53:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nydLS-008h9V-Ej
-	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 17:50:24 +0000
+	id 1nydOo-008i7o-EV
+	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 17:53:54 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 215CE6146F;
-	Tue,  7 Jun 2022 17:50:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52343C385A5;
-	Tue,  7 Jun 2022 17:50:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8205C617A7;
+	Tue,  7 Jun 2022 17:53:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D84A9C3411C;
+	Tue,  7 Jun 2022 17:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654624220;
+	s=k20201202; t=1654624428;
 	bh=qEFM6Y/m49ew+bIdAWMk/6fCX+AMxgaGnAGMbhM9BJo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DDLp3mA5PHpCNylA7iIEx5tvTA9DH5zqE3argyk2e9a0pa06YWvKo9fMygulPDIZD
-	 P8qbix8YgIyYe5n98FnTtb9EzgGBUr/dC/u9PNtguZtrp0XMQ7eFpXN+lNlS5mH/IE
-	 2VXsakL9tsE9ddKVKwfoiGhs097OustBLxNCatOzN32FNJJsxCdjNlmOYJuIZT5+bd
-	 ncqfzd5DrUNSmVMO14YKUgHg9KCA0P5rr4mgFkfsqZTt16Cxr5/tHwWZI6xHucgezt
-	 Tb52wakzk6ALcCXGAinFnXF4rFTFmP1g7WdrxPdR88KA0a0UNX1nrC0KXwvfW2pljn
-	 7qf/VrvCFm75w==
+	b=sY4X4Rx3FARbkxB+GtDa3Lmq/u6ssi+gmKjttnQIpfcUXudDGhCxKXbhVoZP+v+I4
+	 JOrn7TbLl3c3qCWqGvziPIXIdqL4wOriMJWd6doae4EAwwbclCm8XDcFFrmICXqqG4
+	 bcg2Y0MivN/ALljdoR//DPGJA2Fs+N5B8SxN48NGaqxLfBWhtwOFoilBwyNSv54kU/
+	 sQraKy7PO6uRukQtyAx2QbExj2+iDdDOR8gAA6y30GTxUyostabhdl3Op9HRiaNhCM
+	 +R25aGax9vAFZE/vXbfQwZsI0UUnvdTzgOybzXZvUKW2gXp2mWTnNU/VsZNF2lNVij
+	 BR6GNYzC4F4ww==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -53,17 +53,17 @@ Cc: Changbin Du <changbin.du@gmail.com>,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.18 18/68] sysrq: do not omit current cpu when showing backtrace of all active CPUs
-Date: Tue,  7 Jun 2022 13:47:44 -0400
-Message-Id: <20220607174846.477972-18-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.17 17/60] sysrq: do not omit current cpu when showing backtrace of all active CPUs
+Date: Tue,  7 Jun 2022 13:52:14 -0400
+Message-Id: <20220607175259.478835-17-sashal@kernel.org>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220607174846.477972-1-sashal@kernel.org>
-References: <20220607174846.477972-1-sashal@kernel.org>
+In-Reply-To: <20220607175259.478835-1-sashal@kernel.org>
+References: <20220607175259.478835-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_105022_609378_0CF15415 
+X-CRM114-CacheID: sfid-20220607_105350_595770_32D91D32 
 X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
