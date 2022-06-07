@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF62CCA47E
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 17:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06008C43334
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 17:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G5NvQaGdn3JcHBScWJl1tiQ1HMvMtAiGXbmI/xGTSSU=; b=vgAFWmKCdOG3CP
-	7ihr/ZNfUtwCae2YEmNuv5EOsHAHKMtrJ7Rg6RJIv+/LUrs83KnG85vVld1S2ddaQnys9HRmek8gR
-	MWYDiq2m4yFLFIUTRQ51l47gwXstWKruaTHpP5i6+/MvGaxC+tb/AvjGL9FZbxG6GHAcujXOHMKpA
-	pzEAKxWDO/2H4P0l+9pV8BL1dm/yAiaoycuQUIvexBPtOrj3XHDpcDcXOD62Il96dmkjq1KDO6/Bh
-	wr88hBGgbVdrTsA3BusII6Ik3dFBaP29mc/FZgzRjX1QqzRL5sY3bPGEqv3+/TE8HFkJEyWTGxujs
-	21zfY8NF4q5mU7kjYwPg==;
+	List-Owner; bh=qZTuXgc5rOjmbxD6mycqTB8PPz9j6PG3MrUqIyvXUfU=; b=wFB+IolxY5KcED
+	elX+LurZAFUYV6fmep/r/HQ4eo01PzAtZo3pRvTVvWY+YJlQl3xUHGrx1dc6qSTJy4XN/BR08UWr9
+	s4ZwXRsPuOGl+nZCxGMcXCy4D5BZIAULSIv8Vu6Y6rrUaZYvBIR4jLO3rTZmeRBdmmbunvh4/1R8N
+	ARgDhbOIK9gIgR1V97bWpwrw8wu/nFtysdAgf2xWYUlWCRSsuNPI8ij1oZ8OMhMAFnn4054KB6dVK
+	eS25nvXw9sA25ZpUmxCop9Z61RNSdAQ7Ett1D8KObGgdGNqRNr8LZyT2WHecow7wqdWnGNFO8uyh2
+	7NnwL3FYAkWy+UB+8EwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyd5F-008eA0-PC; Tue, 07 Jun 2022 17:33:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nydLV-008h9o-FH; Tue, 07 Jun 2022 17:50:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyd5D-008e97-6W
-	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 17:33:36 +0000
+	id 1nydLS-008h9V-Ej
+	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 17:50:24 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C825A61521;
-	Tue,  7 Jun 2022 17:33:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2948BC385A5;
-	Tue,  7 Jun 2022 17:33:32 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 215CE6146F;
+	Tue,  7 Jun 2022 17:50:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 52343C385A5;
+	Tue,  7 Jun 2022 17:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654623214;
-	bh=Lk4+xjJRHwdFc/LovKppznE7yFQsbzVIbVHDMQnayTs=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=l4aDlf+uVpJEHdQOfzIMYm09KQjrAuAw2erK07aLAfug5ApRDy1XlakPrXXiRYdjx
-	 H16vDx4r+ESt+hngYJXiiLR+NzX5bjXB+UX50eIiQHeC1sQOeRnW2ql7bkXl2FhIFY
-	 zvqjlWqXvCxzwZUuRJ47iIY8Sl6vBWGvDk87EojOv2ovl5aTPm4MAW5/Qof+2ZHvIF
-	 sQ1u65bcdOaqbZkxoIVS+cTTL3OofM4gnByabptzabArXTJKGrA6Wv1ovXhL0cBfn4
-	 TEbO/RAHe4ZpSpMwoI+6bGvSgkXl30yo3ZJb4OBym2lEY88l++N09PII2NnRNC9/7N
-	 J8WhjYZ+EDjYg==
-From: Mark Brown <broonie@kernel.org>
-To: conor.dooley@microchip.com
-Cc: linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org, daire.mcnamara@microchip.com
-In-Reply-To: <20220607073833.2331539-1-conor.dooley@microchip.com>
-References: <20220607073833.2331539-1-conor.dooley@microchip.com>
-Subject: Re: [PATCH 0/2] Add support for PolarFire SoC's spi controllers
-Message-Id: <165462321288.3040195.2196860226827286633.b4-ty@kernel.org>
-Date: Tue, 07 Jun 2022 18:33:32 +0100
+	s=k20201202; t=1654624220;
+	bh=qEFM6Y/m49ew+bIdAWMk/6fCX+AMxgaGnAGMbhM9BJo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=DDLp3mA5PHpCNylA7iIEx5tvTA9DH5zqE3argyk2e9a0pa06YWvKo9fMygulPDIZD
+	 P8qbix8YgIyYe5n98FnTtb9EzgGBUr/dC/u9PNtguZtrp0XMQ7eFpXN+lNlS5mH/IE
+	 2VXsakL9tsE9ddKVKwfoiGhs097OustBLxNCatOzN32FNJJsxCdjNlmOYJuIZT5+bd
+	 ncqfzd5DrUNSmVMO14YKUgHg9KCA0P5rr4mgFkfsqZTt16Cxr5/tHwWZI6xHucgezt
+	 Tb52wakzk6ALcCXGAinFnXF4rFTFmP1g7WdrxPdR88KA0a0UNX1nrC0KXwvfW2pljn
+	 7qf/VrvCFm75w==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Changbin Du <changbin.du@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>,
+	jirislaby@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.18 18/68] sysrq: do not omit current cpu when showing backtrace of all active CPUs
+Date: Tue,  7 Jun 2022 13:47:44 -0400
+Message-Id: <20220607174846.477972-18-sashal@kernel.org>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220607174846.477972-1-sashal@kernel.org>
+References: <20220607174846.477972-1-sashal@kernel.org>
 MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_103335_312919_38A64C55 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20220607_105022_609378_0CF15415 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,47 +81,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 7 Jun 2022 08:38:32 +0100, Conor Dooley wrote:
-> Hey Mark,
-> 
-> As it says on the tin, here's a patch adding support for the spi
-> controllers on PolarFire SoC. The binding for them was already
-> added in 5.18.
-> 
-> Thanks,
-> Conor.
-> 
-> [...]
+From: Changbin Du <changbin.du@gmail.com>
 
-Applied to
+[ Upstream commit 5390e7f46b9d5546d45a83e6463bc656678b1d0e ]
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+The backtrace of current CPU also should be printed as it is active. This
+change add stack trace for current CPU and print a hint for idle CPU for
+the generic workqueue based printing. (x86 already does this)
 
-Thanks!
+Now it looks like below:
+[  279.401567] sysrq: Show backtrace of all active CPUs
+[  279.407234] sysrq: CPU5:
+[  279.407505] Call Trace:
+[  279.408789] [<ffffffff8000606c>] dump_backtrace+0x2c/0x3a
+[  279.411698] [<ffffffff800060ac>] show_stack+0x32/0x3e
+[  279.411809] [<ffffffff80542258>] sysrq_handle_showallcpus+0x4c/0xc6
+[  279.411929] [<ffffffff80542f16>] __handle_sysrq+0x106/0x26c
+[  279.412034] [<ffffffff805436a8>] write_sysrq_trigger+0x64/0x74
+[  279.412139] [<ffffffff8029cd48>] proc_reg_write+0x8e/0xe2
+[  279.412252] [<ffffffff8021a8f8>] vfs_write+0x90/0x2be
+[  279.412362] [<ffffffff8021acd2>] ksys_write+0xa6/0xce
+[  279.412467] [<ffffffff8021ad24>] sys_write+0x2a/0x38
+[  279.412689] [<ffffffff80003ff8>] ret_from_syscall+0x0/0x2
+[  279.417173] sysrq: CPU6: backtrace skipped as idling
+[  279.417185] sysrq: CPU4: backtrace skipped as idling
+[  279.417187] sysrq: CPU0: backtrace skipped as idling
+[  279.417181] sysrq: CPU7: backtrace skipped as idling
+[  279.417190] sysrq: CPU1: backtrace skipped as idling
+[  279.417193] sysrq: CPU3: backtrace skipped as idling
+[  279.417219] sysrq: CPU2:
+[  279.419179] Call Trace:
+[  279.419440] [<ffffffff8000606c>] dump_backtrace+0x2c/0x3a
+[  279.419782] [<ffffffff800060ac>] show_stack+0x32/0x3e
+[  279.420015] [<ffffffff80542b30>] showacpu+0x5c/0x96
+[  279.420317] [<ffffffff800ba71c>] flush_smp_call_function_queue+0xd6/0x218
+[  279.420569] [<ffffffff800bb438>] generic_smp_call_function_single_interrupt+0x14/0x1c
+[  279.420798] [<ffffffff800079ae>] handle_IPI+0xaa/0x13a
+[  279.421024] [<ffffffff804dcb92>] riscv_intc_irq+0x56/0x70
+[  279.421274] [<ffffffff80a05b70>] generic_handle_arch_irq+0x6a/0xfa
+[  279.421518] [<ffffffff80004006>] ret_from_exception+0x0/0x10
+[  279.421750] [<ffffffff80096492>] rcu_idle_enter+0x16/0x1e
 
-[1/2] spi: add support for microchip fpga spi controllers
-      commit: 9ac8d17694b66d54b13e9718b25c14ca36dbebbd
-[2/2] MAINTAINERS: add spi to PolarFire SoC entry
-      commit: f303c6b26cede1aa137dc3e10eee78a80cde9999
+Signed-off-by: Changbin Du <changbin.du@gmail.com>
+Link: https://lore.kernel.org/r/20220117154300.2808-1-changbin.du@gmail.com
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/tty/sysrq.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+diff --git a/drivers/tty/sysrq.c b/drivers/tty/sysrq.c
+index bbfd004449b5..34cfdda4aff5 100644
+--- a/drivers/tty/sysrq.c
++++ b/drivers/tty/sysrq.c
+@@ -232,8 +232,10 @@ static void showacpu(void *dummy)
+ 	unsigned long flags;
+ 
+ 	/* Idle CPUs have no interesting backtrace. */
+-	if (idle_cpu(smp_processor_id()))
++	if (idle_cpu(smp_processor_id())) {
++		pr_info("CPU%d: backtrace skipped as idling\n", smp_processor_id());
+ 		return;
++	}
+ 
+ 	raw_spin_lock_irqsave(&show_lock, flags);
+ 	pr_info("CPU%d:\n", smp_processor_id());
+@@ -260,10 +262,13 @@ static void sysrq_handle_showallcpus(int key)
+ 
+ 		if (in_hardirq())
+ 			regs = get_irq_regs();
+-		if (regs) {
+-			pr_info("CPU%d:\n", smp_processor_id());
++
++		pr_info("CPU%d:\n", smp_processor_id());
++		if (regs)
+ 			show_regs(regs);
+-		}
++		else
++			show_stack(NULL, NULL, KERN_INFO);
++
+ 		schedule_work(&sysrq_showallcpus);
+ 	}
+ }
+-- 
+2.35.1
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
 
 _______________________________________________
 linux-riscv mailing list
