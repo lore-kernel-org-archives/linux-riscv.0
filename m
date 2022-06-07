@@ -4,51 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E6CC43334
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 08:09:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F6CC43334
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 08:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1p6OrwNUQXsaRhw+p/3Ir6E/5HcVsQbbExcuf8Q+jik=; b=K5wPP1a5T1SYey
-	OFWAWCTKi1b0apa1vWIRUDQsHUVJF6w+jcwC4+CGDmkbKlabbcDDxntwAB6kPsV7UkloNvaPv5pbD
-	5s6tHe8QecaLR7hvvudO4Q7S6kiaL+epX9ILSCOhKKQLWNKgfmzhDfshLZHsaQvZRUtxhQDlC+YQA
-	krCCW3z7LQaCJWXRhNlXasjteAHCq1Ge4okA2UCHvTghrol18BgoEnEwFI3Fw1TstULIyHOSMt9wp
-	KB8zSRi1ZsW8N3dwXewVa7wFca3QrrG3nz338LaYysbF7IaRrdIWquV2srOOfo7+R5Op+SAp/4syA
-	54GWskv3altNSlp6XE8w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0+3saPs1Edj8Wu7TH0uYG81YdrVvCZbeK3RdXQ+pNWI=; b=thjX12G+q/OeO+avWgvEOKkw7B
+	d0YM4uA7JZjCGfwnfGfjF3ZPffjjd8cVtE/v1J7p70sPvNsJJcE4ESvcEOwc3NkVAnQey3MsgCrGv
+	fcJ5QpbzZVdhipY+sfNx682cSIui3oTxqIj7UJtUmzWKf3r4qaP+M/AOXa4LkrvzyHpAPU0kH+UtB
+	YhJJtozwCgmQ1df/ulN0y/cUP9mAQaLsGc6RnG+3sCG4ZiuWMqZAxdhNbsRnA/toUyIYLnhlJ4HON
+	LLYBNI5gKnprQKQgD4jThKKbCz/lCzyJwB7ge696wG8x5eAf406YJdSGw32ZN8fUZounCEwbn1Wd/
+	eEeNzYvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyUGu-005inx-7f; Tue, 07 Jun 2022 08:09:04 +0000
-Received: from mail.forindustry.pl ([37.187.225.170])
+	id 1nyUZv-005oIZ-9f; Tue, 07 Jun 2022 08:28:43 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyUGq-005ikL-Lk
-	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 08:09:02 +0000
-Received: by mail.forindustry.pl (Postfix, from userid 1002)
-	id 61A2DA4166; Tue,  7 Jun 2022 08:06:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=forindustry.pl;
-	s=mail; t=1654589171;
-	bh=Vw5jk5D1DE7WK/GNf/MxRQNyAyPYcC0rMJLibxKTj58=;
-	h=Date:From:To:Subject:From;
-	b=bZxoTtEYAlriD9aYnJHwiDucH9Ied0OpeN/8+sf0dhmo0soidvdLmzeXmHrmi0uhN
-	 6vmFX5r0/7RQi5sA4PyEQLilFAo8J6UIn5WNmNP3vp5TaBxHvIKOz8ZcxU9D0Swq1f
-	 mODwqoXC6zL/Hul+uyWrhl0ZZj3dt4ybFmH1swlyxJn0ejdJdLPTccDQzyfgaH+eAd
-	 qFXy9rAbrVrqNNISxVjkVf4yseh2iU4QqFGItEdB5/gofGoH8omroEAMMoBLYEdsSy
-	 GAJK3dILEC/Bc3H03vISkxb0+kOVmhvUqTpwaHNgkc3O6WpFOfHZpqh1bU0DVYJ139
-	 gp8PMS3v9/YcQ==
-Received: by mail.forindustry.pl for <linux-riscv@lists.infradead.org>; Tue,  7 Jun 2022 08:05:52 GMT
-Message-ID: <20220607064500-0.1.3o.od44.0.lvqf560b89@forindustry.pl>
-Date: Tue,  7 Jun 2022 08:05:52 GMT
-From: =?UTF-8?Q?"Arkadiusz_Soko=C5=82owski"?= <arkadiusz.sokolowski@forindustry.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: Koszty instalacji fotowoltaicznej
-X-Mailer: mail.forindustry.pl
+	id 1nyUZs-005oHe-C5
+	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 08:28:41 +0000
+Received: from gallifrey.ext.pengutronix.de ([2001:67c:670:201:5054:ff:fe8d:eefb] helo=bjornoya.blackshift.org)
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1nyUZj-0005qp-9D; Tue, 07 Jun 2022 10:28:31 +0200
+Received: from pengutronix.de (unknown [IPv6:2a01:4f8:1c1c:29e9:22:41ff:fe00:1400])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id C42C68D888;
+	Tue,  7 Jun 2022 08:28:27 +0000 (UTC)
+Date: Tue, 7 Jun 2022 10:28:27 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Conor.Dooley@microchip.com
+Cc: wg@grandegger.com, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+	Daire.McNamara@microchip.com, linux-can@vger.kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH net-next 0/2] Document PolarFire SoC can controller
+Message-ID: <20220607082827.iuonhektfbuqtuqo@pengutronix.de>
+References: <20220607065459.2035746-1-conor.dooley@microchip.com>
+ <20220607071519.6m6swnl55na3vgwm@pengutronix.de>
+ <51e8e297-0171-0c3f-ba86-e61add04830e@microchip.com>
 MIME-Version: 1.0
+In-Reply-To: <51e8e297-0171-0c3f-ba86-e61add04830e@microchip.com>
+X-SA-Exim-Connect-IP: 2001:67c:670:201:5054:ff:fe8d:eefb
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_010900_903339_DE903420 
-X-CRM114-Status: UNSURE (   0.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220607_012840_454033_CAEC039E 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,20 +72,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============4313451469391100876=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHppZcWEIGRvYnJ5LAoKc3R3b3J6eWxpxZtteSBzcGVjamFsbsSFIG9mZXJ0xJkgZGxhIGZpcm0s
-IG5hIGtvbXBsZWtzb3fEhSBvYnPFgnVnxJkgaW53ZXN0eWNqaSB3IGZvdG93b2x0YWlrxJkuCgpT
-cGVjamFsaXp1amVteSBzacSZIHcgemFrcmVzaWUgZG9ib3J1LCBtb250YcW8dSBpIHNlcndpc2ll
-IGluc3RhbGFjamkgZm90b3dvbHRhaWN6bnljaCwgZHlzcG9udWplbXkgbmFqbm93b2N6ZcWbbmll
-anN6eW1pIHJvendpxIV6YW5pYSwga3TDs3JlIHphcGV3bmnEhSBQYcWEc3R3dSBvY3pla2l3YW5l
-IHJlenVsdGF0eS4KCk1vxbxlbXkgcHJ6eWdvdG93YcSHIGRsYSBQYcWEc3R3YSB3c3TEmXBuxIUg
-a2Fsa3VsYWNqxJkgaSBwcnplYW5hbGl6b3dhxIcgZWZla3R5IG1vxbxsaXdlIGRvIG9zacSFZ25p
-xJljaWEuCgpDenkgc8SFIFBhxYRzdHdvIG90d2FyY2kgbmEgd3N0xJlwbsSFIHJvem1vd8SZIHcg
-dHltIHRlbWFjaWU/CgpQb3pkcmF3aWFtLApBcmthZGl1c3ogU29rb8WCb3dza2kKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============4313451469391100876==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ajso5cyytlmmpn5k"
+Content-Disposition: inline
+
+
+--ajso5cyytlmmpn5k
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On 07.06.2022 07:52:30, Conor.Dooley@microchip.com wrote:
+> On 07/06/2022 08:15, Marc Kleine-Budde wrote:
+> > On 07.06.2022 07:54:58, Conor Dooley wrote:
+> >> When adding the dts for PolarFire SoC, the can controllers were
+> >                                             ^^^
+> >> omitted, so here they are...
+> >=20
+> > Nitpick:
+> > Consider writing "CAN" in capital letters to avoid confusion for the not
+> > informed reader.
+>=20
+> Yeah, sure. I'll try to get over my fear of capital letters ;)
+
+:)
+
+> > Is the documentation for the CAN controller openly available? Is there a
+> > driver somewhere?
+>=20
+> There is a driver /but/ for now only a UIO one so I didn't send it.
+
+Brrrrr...
+
+> There's an online doc & if the horrible link doesn't drop you there
+> directly, its section 6.12.3:
+> https://onlinedocs.microchip.com/pr/GUID-0E320577-28E6-4365-9BB8-9E1416A0=
+A6E4-en-US-3/index.html?GUID-A362DC3C-83B7-4441-BECB-B19F9AD48B66
+>=20
+> And a PDF direct download here, see section 4.12.3 (page 72):
+> https://www.microsemi.com/document-portal/doc_download/1245725-polarfire-=
+soc-fpga-mss-technical-reference-manual
+
+Thanks. The documentation is quite sparse, is there a more detailed one?
+The register map cannot be downloaded directly anymore. For reference:
+
+http://web.archive.org/web/20220403030214/https://www.microsemi.com/documen=
+t-portal/doc_download/1244581-polarfire-soc-register-map
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde           |
+Embedded Linux                   | https://www.pengutronix.de  |
+Vertretung West/Dortmund         | Phone: +49-231-2826-924     |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-5555 |
+
+--ajso5cyytlmmpn5k
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEBsvAIBsPu6mG7thcrX5LkNig010FAmKfDCgACgkQrX5LkNig
+010ixggAri8+zJpGE06Rm9LwkSy5IXbnAuXl+05ecMHijzwTZoXuxRjLi7FLgUt8
+RMmHB1ehanHgnud3Ux9EMH2GIbigcx6EwV5iEcShe8ltxXfHATt7HI/L1x8dtS/Z
+e6ic76cZ24PHhR/EAn5+uN9O17sTaoj+nCx13pVdLOe1iHUqZQf3RaVbABSibySZ
+wt1j6nOt7Au4o2hJCHXO3uQ72fiNDQQAdKIFRRqvsDvMVukw+nrt1vL8Fw87AKXU
+xfswszw4E2QowEV8gQeSduJwoYBlzCiya0hQJjTrlWPpxlLpYIN0VsNX+oliI0BN
+bXRB2pUhMmd1nv1wnSnZOzNcCS91/A==
+=PF1R
+-----END PGP SIGNATURE-----
+
+--ajso5cyytlmmpn5k--
+
+
+--===============4313451469391100876==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4313451469391100876==--
+
