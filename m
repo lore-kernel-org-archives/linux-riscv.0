@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D18C9C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 17:57:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2038FC43334
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 17:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DxHHHk92SXQIWUsmaaCo9diPofCZ8g2/Na6h5+MU1DI=; b=H13dgQDBt6Tbgf
-	iPcA6OkNR+X+vVLEBzfPbiCtdEVNIOT+T2iPlmIFNjkooMH1I06f5OT7zhf6MKzWJfjIpTxvjVpej
-	PI9ne+H08GSRcYCA4jK9B7xRUYISaCDv0TyPbxIj36iTNC+2JSxkKJhjRhZbcINt77UHeSry0owYR
-	ilPgiav7TimnyqzWV0HRFPt5UdeLFxaw2XPYz0KbOHL6NOhLoJAGJ/AY/ZX4rOLc9J2ECrTzzUbMy
-	4UINTa90vYktNT1twfD11DtRUosioA1EmFcGgjfhWqpcrymIzCLN7hWEmCO9LzDIhBop2EcRCGKOZ
-	hFKlVqol79u2as72OfFQ==;
+	List-Owner; bh=YqElpeJ/t+2MjIBuAaVGKVHuELbZk+ZCRItEIQdiG28=; b=XRE0E/KsVbxia0
+	GjXCLOBUahYjoEHIOh/S/sqUmHNDS3xobBoXkFZ/s+v+9McE9+OmNbT6w0NefiuDvY1383/q9FqFB
+	OU4GvZdA4AmZJOyqQoUAzdMhH3TL2EiiTV0EZSlPojlfuhqCeiez9nflJnRjUWb2DE44JqTBW18W2
+	bMnAKsI5XJH4zKwznLFR6ZkMTCOCcxdZ6X2RLRvpyDosfB0DC7SYxExXSQT2rx8Wl+bKEjuLKm+Mx
+	a0pCeW+5iUlXtTsa1H7FwiKwhJF2O0zL3iUqcgwTgHQaD1wVvlMzHcAZ4JdHux/G4VBWMDi50NnsW
+	GaZKXuAHBS4gc2fOtsIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nydRo-008k2C-Bh; Tue, 07 Jun 2022 17:56:56 +0000
+	id 1nydUC-008lGt-BC; Tue, 07 Jun 2022 17:59:24 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nydRl-008jzr-FA
-	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 17:56:55 +0000
+	id 1nydU9-008lFm-Lu
+	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 17:59:23 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 081CF617A6;
-	Tue,  7 Jun 2022 17:56:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35046C3411F;
-	Tue,  7 Jun 2022 17:56:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3B4B4617A7;
+	Tue,  7 Jun 2022 17:59:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F014AC36B03;
+	Tue,  7 Jun 2022 17:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654624612;
-	bh=FgqMBOq8e9O8lSu4ZhdMaLrDjbWyv3KnilifVjuSL5M=;
+	s=k20201202; t=1654624761;
+	bh=3B2X66Nmpe6wB09aSth1g6OhRMxH2VcusbbHSLbMnlI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=U7pmM+X0RP5nmr6Y0zeCsiv6F4tTlWchfyO7cSV8rgb5VYvOqfIMH5gozwoAGnhha
-	 k6giUzCqpIaiCBYzY1fK4+Apffu/upHIlpu5mh6yCJ33EQBdEF8obkP1veqPfRgLQO
-	 clye/Tus5tu2wItBM/PjYeOC6YMydam3dfqzCUzz1J56eJlpy48o3dxqincnifCDB5
-	 T1VAsgZKEIQw5h+1513QPQdNl4e9gtsNJMMOvx3onNUsNskKhLE8kxEQI3b5iySR+a
-	 EP7bKzX0EsPDd93d2C0Xht4/Uf8pb2c9KR5Q6XpcSyKyBugdv+IrAe++tmPen3VT3q
-	 bXqGtzdFBdrdQ==
+	b=QpyAqRpvKALSp0rsmb1GK7OHldfQY9aFbP2KH4DdTXo3Cw8mERk54g/ZBdX/U6OdT
+	 eyvqjOQh0MuPwlaOZJXWphi+CDI05XJsClb95xz9knZ5AwcVlENmxadER8ojHQ1293
+	 /+KNee8jfW6z64NRhmxchRS4dv1Lzm91zUMmia/Axx/fzvnkCic5O/98bZJIciCWhr
+	 lZVt4IgnnQDbBCQgHKdYsSYnmfDACUXccL/2qVv0GCdApTXJi1zJX/LAjQaStsxFGV
+	 m19LKrFWRzXxL9EwA0yPWFk1A6gEzAQXnXwUcYkEm/Zl1UJla0X0wzjJ1VFLD3Gfxq
+	 j35Je9PCJiShw==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -53,17 +53,17 @@ Cc: Changbin Du <changbin.du@gmail.com>,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.15 17/51] sysrq: do not omit current cpu when showing backtrace of all active CPUs
-Date: Tue,  7 Jun 2022 13:55:16 -0400
-Message-Id: <20220607175552.479948-17-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.10 13/38] sysrq: do not omit current cpu when showing backtrace of all active CPUs
+Date: Tue,  7 Jun 2022 13:58:08 -0400
+Message-Id: <20220607175835.480735-13-sashal@kernel.org>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220607175552.479948-1-sashal@kernel.org>
-References: <20220607175552.479948-1-sashal@kernel.org>
+In-Reply-To: <20220607175835.480735-1-sashal@kernel.org>
+References: <20220607175835.480735-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_105653_624680_B8C89588 
+X-CRM114-CacheID: sfid-20220607_105921_853873_DC7A174E 
 X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,10 +131,10 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 9 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/tty/sysrq.c b/drivers/tty/sysrq.c
-index c911196ac893..6b445ece8339 100644
+index 959f9e121cc6..7ca209d4e088 100644
 --- a/drivers/tty/sysrq.c
 +++ b/drivers/tty/sysrq.c
-@@ -232,8 +232,10 @@ static void showacpu(void *dummy)
+@@ -231,8 +231,10 @@ static void showacpu(void *dummy)
  	unsigned long flags;
  
  	/* Idle CPUs have no interesting backtrace. */
@@ -146,9 +146,9 @@ index c911196ac893..6b445ece8339 100644
  
  	raw_spin_lock_irqsave(&show_lock, flags);
  	pr_info("CPU%d:\n", smp_processor_id());
-@@ -260,10 +262,13 @@ static void sysrq_handle_showallcpus(int key)
+@@ -259,10 +261,13 @@ static void sysrq_handle_showallcpus(int key)
  
- 		if (in_hardirq())
+ 		if (in_irq())
  			regs = get_irq_regs();
 -		if (regs) {
 -			pr_info("CPU%d:\n", smp_processor_id());
