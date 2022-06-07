@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DF49C43334
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 09:31:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 606A9C43334
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 09:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=19CDj+rxYm4mObZ6kptPDV0fcWk1TbTOnAHaHNjV0+8=; b=HqyUcgR5EXsA6v
-	uqmFn+ER2YIXEmEoEYERJYz1TtlPHKCBXJcp1U2Zd18JH7wW2eL7BgKNbB6SK9PiAhI4tupKt9Tba
-	C7NRZWXsfqPrnLfOssKftPiS1d5b4GrwEvnEn71jbfEryPAWnvlLEi439VxjzYyuGX5D6srBIq4/1
-	6EXxDI6OEsnl4JSm6PET8hwteMltGVG3OwzO4fYAEpoVjs+NqS/VtZsjmFKckREmzRSuCo9LrxbCT
-	Jd4z5kgJD437D6Y+VOgXDPVknkfERg+49sY8iQJq18AqRuANHGtJkEXwy7f/bKv+s1HSVTtT6LDr6
-	On+NQBS3gQ6KeuzTTdWw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NIHq028hIkjqiP1/GYbZJF5zzJBTsjAIXSgtyojGL8U=; b=4eU9Y0tp3FPdfm
+	oMbhCwZ6AFX4j8Ez8Y+SxhWT+6reMEIbDb/HyvogmY1nPnQPaFhGIUViQxiRpNhzq1IVLP0sJk1Y4
+	BIBEslSkaJy8B7QtlQM3C8uVkzqJ2pqM8GYX+6lMPJ2dYAfKt9a0kacFVXyJ5BnX7HsoktWEFE3p3
+	qtWQD2QuTFejWNS2ZyEZvRVjA8azh0zM/FcklUG7OI0qZhmQ8IgltQdODoPII2tMNeYZxGaYiOgks
+	1GFNwa45DSlqvzfYXWaQRmEezYdfFasnB4L6/MwX0p03h30EKZNHGOviiItBNVeJqsc8ZVSD4q6/J
+	tH50zgq49s3MbAf/FhAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyVYg-006F5u-F2; Tue, 07 Jun 2022 09:31:30 +0000
+	id 1nyVYm-006F9W-Ow; Tue, 07 Jun 2022 09:31:36 +0000
 Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyVKV-0068VK-81; Tue, 07 Jun 2022 09:16:58 +0000
-Received: from dggpemm500022.china.huawei.com (unknown [172.30.72.53])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4LHPmK6j59zRp5Z;
-	Tue,  7 Jun 2022 17:13:37 +0800 (CST)
+	id 1nyVKU-0068SW-BI; Tue, 07 Jun 2022 09:16:57 +0000
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.53])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4LHPmC185MzRp5T;
+	Tue,  7 Jun 2022 17:13:31 +0800 (CST)
 Received: from dggpemm500014.china.huawei.com (7.185.36.153) by
- dggpemm500022.china.huawei.com (7.185.36.162) with Microsoft SMTP Server
+ dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Tue, 7 Jun 2022 17:16:49 +0800
+ 15.1.2375.24; Tue, 7 Jun 2022 17:16:42 +0800
 Received: from localhost.localdomain (10.175.112.125) by
  dggpemm500014.china.huawei.com (7.185.36.153) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Tue, 7 Jun 2022 17:16:47 +0800
+ 15.1.2375.24; Tue, 7 Jun 2022 17:16:40 +0800
 From: Wupeng Ma <mawupeng1@huawei.com>
 To: <corbet@lwn.net>, <will@kernel.org>, <ardb@kernel.org>,
 	<catalin.marinas@arm.com>
@@ -54,20 +54,18 @@ CC: <tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-efi@vger.kernel.org>,
 	<platform-driver-x86@vger.kernel.org>, <linux-mm@kvack.org>,
 	<linux-riscv@lists.infradead.org>
-Subject: [PATCH v3 4/6] mm: Demote warning message in vmemmap_verify() to debug level
-Date: Tue, 7 Jun 2022 17:38:03 +0800
-Message-ID: <20220607093805.1354256-5-mawupeng1@huawei.com>
+Subject: [PATCH v3 0/6] introduce mirrored memory support for arm64
+Date: Tue, 7 Jun 2022 17:37:59 +0800
+Message-ID: <20220607093805.1354256-1-mawupeng1@huawei.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220607093805.1354256-1-mawupeng1@huawei.com>
-References: <20220607093805.1354256-1-mawupeng1@huawei.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.175.112.125]
 X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
  dggpemm500014.china.huawei.com (7.185.36.153)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_021651_536043_AAE87045 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20220607_021651_256555_9DB51B3C 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +84,80 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Ma Wupeng <mawupeng1@huawei.com>
 
-For a system only have limited mirrored memory or some numa node without
-mirrored memory, the per node vmemmap page_structs prefer to allocate
-memory from mirrored region, which will lead to vmemmap_verify() in
-vmemmap_populate_basepages() report lots of warning message.
+Commit b05b9f5f9dcf ("x86, mirror: x86 enabling - find mirrored memory ranges")
+introduced mirrored memory support for x86. This support rely on UEFI to
+report mirrored memory address ranges.  See UEFI 2.5 spec pages 157-158:
 
-This patch demote the "potential offnode page_structs" warning messages
-to debug level to avoid a very long print during bootup.
+  http://www.uefi.org/sites/default/files/resources/UEFI%202_5.pdf
 
-Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
----
- mm/sparse-vmemmap.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Memory mirroring is a technique used to separate memory into two separate
+channels, usually on a memory device, like a server. In memory mirroring,
+one channel is copied to another to create redundancy. This method makes
+input/output (I/O) registers and memory appear with more than one address
+range because the same physical byte is accessible at more than one
+address. Using memory mirroring, higher memory reliability and a higher
+level of memory consolidation are possible.
 
-diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
-index f4fa61dbbee3..78debdb89eb1 100644
---- a/mm/sparse-vmemmap.c
-+++ b/mm/sparse-vmemmap.c
-@@ -528,7 +528,7 @@ void __meminit vmemmap_verify(pte_t *pte, int node,
- 	int actual_node = early_pfn_to_nid(pfn);
- 
- 	if (node_distance(actual_node, node) > LOCAL_DISTANCE)
--		pr_warn("[%lx-%lx] potential offnode page_structs\n",
-+		pr_debug("[%lx-%lx] potential offnode page_structs\n",
- 			start, end - 1);
- }
- 
+These EFI memory regions have various attributes, and the "mirrored"
+attribute is one of them. The physical memory region whose descriptors
+in EFI memory map has EFI_MEMORY_MORE_RELIABLE attribute (bit: 16) are
+mirrored. The address range mirroring feature of the kernel arranges such
+mirrored regions into normal zones and other regions into movable zones.
+
+Arm64 can support this too. So mirrored memory support is added to support
+arm64.
+
+The main purpose of this patch set is to introduce mirrored support for
+arm64 and we have already fixed the problems we had which is shown in
+patch #5 to patch #8 and try to bring total isolation in patch #9 which
+will disable mirror feature if kernelcore is not specified.
+
+In order to test this support in arm64:
+- patch this patch set
+- add kernelcore=mirror in kernel parameter
+- start you kernel
+
+Patch #1-#2 introduce mirrored memory support form arm64.
+Patch #3-#5 fix some bugs for arm64 if memory reliable is enabled.
+Patch #6 disable mirror feature if kernelcore is not specified.
+
+Thanks to Ard Biesheuvel's hard work [1], now kernel will perfer mirrored
+memory if kaslr is enabled.
+
+[1] https://lore.kernel.org/linux-arm-kernel/CAMj1kXEPVEzMgOM4+Yj6PxHA-jFuDOAUdDJSiSxy_XaP4P7LSw@mail.gmail.com/T/
+
+Changelog since v2:
+- remove efi_fake_mem support
+- remove Commit ("remove some redundant code in ia64 efi_init") since
+  efi_print_memmap() is not public
+- add mirror flag back on initrd memory
+
+Changelog since v1:
+- update changelog in cover letter
+- use PHYS_PFN in patch #7
+
+Ma Wupeng (6):
+  efi: Make efi_find_mirror() public
+  arm64/mirror: arm64 enabling - find mirrored memory ranges
+  mm: Ratelimited mirrored memory related warning messages
+  mm: Demote warning message in vmemmap_verify() to debug level
+  mm: Add mirror flag back on initrd memory
+  efi: Disable mirror feature if kernelcore is not specified
+
+ .../admin-guide/kernel-parameters.txt         |  2 +-
+ arch/arm64/kernel/setup.c                     |  1 +
+ arch/arm64/mm/init.c                          |  9 +++++++
+ arch/x86/include/asm/efi.h                    |  4 ---
+ arch/x86/platform/efi/efi.c                   | 23 ----------------
+ drivers/firmware/efi/efi.c                    | 26 +++++++++++++++++++
+ include/linux/efi.h                           |  3 +++
+ include/linux/memblock.h                      |  1 +
+ include/linux/mm.h                            |  2 ++
+ mm/memblock.c                                 | 24 +++++++++++++++--
+ mm/page_alloc.c                               |  2 +-
+ mm/sparse-vmemmap.c                           |  2 +-
+ 12 files changed, 67 insertions(+), 32 deletions(-)
+
 -- 
 2.25.1
 
