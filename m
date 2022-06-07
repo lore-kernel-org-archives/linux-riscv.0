@@ -4,163 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17ED1C43334
-	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 17:54:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D18C9C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  7 Jun 2022 17:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x4Bnoby4AR39s4qFuYEJ9IwzUGBF8aEj5N3WbMfEmYY=; b=ItPDm6GE0uku8H
-	wh1AbJY6jg8DTtWBFtjp+wO1792aEFgS8NPUtu999b/pHNqvr0t4k+gugNeeZqqgz8HS09E6J4Asq
-	0jWrrm46xRmdHHJyJADmWRkDU+dxGD/kOLn8NYpzWXvF2q4WzOcs2DZUqvvRs3tiwxo72MCqRmbqU
-	SRTGJ5pmUzcBiZvRn+EpcuCSpB4A6Sb6ZDmOPKtF9hIOIGpUKJ5sl6SAFMCGivdRRZYnIT5X9orlL
-	Fm18iSvHU0mEYWvxdNcVU74Q3YXJSgWt+CMC3HFK3iRM5d3mQINNnek8pgfW3oPIa7K3WTWG9HTU4
-	1fwOFet7UeRUO/Dv4LOg==;
+	List-Owner; bh=DxHHHk92SXQIWUsmaaCo9diPofCZ8g2/Na6h5+MU1DI=; b=H13dgQDBt6Tbgf
+	iPcA6OkNR+X+vVLEBzfPbiCtdEVNIOT+T2iPlmIFNjkooMH1I06f5OT7zhf6MKzWJfjIpTxvjVpej
+	PI9ne+H08GSRcYCA4jK9B7xRUYISaCDv0TyPbxIj36iTNC+2JSxkKJhjRhZbcINt77UHeSry0owYR
+	ilPgiav7TimnyqzWV0HRFPt5UdeLFxaw2XPYz0KbOHL6NOhLoJAGJ/AY/ZX4rOLc9J2ECrTzzUbMy
+	4UINTa90vYktNT1twfD11DtRUosioA1EmFcGgjfhWqpcrymIzCLN7hWEmCO9LzDIhBop2EcRCGKOZ
+	hFKlVqol79u2as72OfFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nydPT-008icc-Cy; Tue, 07 Jun 2022 17:54:31 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1nydRo-008k2C-Bh; Tue, 07 Jun 2022 17:56:56 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nydPP-008iZw-Q3
-	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 17:54:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1654624467; x=1686160467;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=2Jbx5k2EsS7zU15W8WJ1onmRwj96CrYYSklZv9nFIIA=;
-  b=gGSE20be//RX23jO5bJZ9L72qImIG8X8isPl+AQFsP7Cn9oqVsnxVS0U
-   piGU15wLjqAQgmQOzrXMTENyHIOwgzGP2qCrohGwKxP5cIjn4FRQ1R026
-   LZRI42udZ1Hg8NOYa1fUg6qYhCAHSMG3F2t7al9Aq4LonKD1airlAT6qq
-   H67pa3fIcSOL90KJK86+0KG3z21NvqpjbXNzx/77HQKsc+wZBcZn/wJDp
-   pwdZQENH/0R3naCJT+lnHatIht0Iy8Ebv63tE6/Alj8mfRiQXXhEV+MAq
-   s6F+HDWggyYx1xMj1mbfVEc7wWlUob+GFlDqPuV4qoiGTtusWdlQVrEQC
-   A==;
-X-IronPort-AV: E=Sophos;i="5.91,284,1647327600"; 
-   d="scan'208";a="167470726"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Jun 2022 10:54:26 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Tue, 7 Jun 2022 10:54:19 -0700
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17 via Frontend Transport; Tue, 7 Jun 2022 10:54:19 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=JiWXUpbmJhsHDiOeSl69cxNNuJdH8J6mNLJIqrnrnf2/HDAkuQdw4V6CsDvl7l/jdatm59qJmdU7SEkEiMoDDZkIjGX/j6awLRWLeb0nvUq64qxsTlL01qlOaIDoNpHziRl27kbAlTvg1E34weR2KaabOeibs/bQL6+oiruqhMDl5cqFpQ1QrQwMyEZcIpCLIQVHOfOCQnk4+ZuB7fkE0A6QwKnRJ67ybW1o0qaXdEkN72RrlS/UNOoAmHnVlVUW6jdDVujqcxQOaCScT/QksDo+S2nXouy5vMrHrW+z9/tnm/TTcYpZkLAEoJ0o2QqEHxB53y9Bj4US1ET8b2Ib7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2Jbx5k2EsS7zU15W8WJ1onmRwj96CrYYSklZv9nFIIA=;
- b=Om6sAwkiYmk8E59/NYVGERiVKfYGxUaG9Q+aFT6qBfkVSsenT2hsODZCJXKQeOhmPtNVJoFMFycVL+XwfSAhNOMk3qaxDARMIFwZDAqF2hRD2HA3gWiFFhJgQGMjM7exyR1WsYTEXV03RyoKhqqrsWWwR92+Y+9rO2vwnNEfn9LGnhJfzJK641fR2yIrYGBnkIpH43IxhdQgXPOv4pjKod47S016zK6vNHX6bPlf+GHrZaGyfJIJNhKewne/VRR/SO6/GhE1Dqe9KEFNqgmhGgLgaYzJKHVwKsoOHTmQDUGPzt+Qr5+itDJjoL3fTwoZSKyqcgZGu7f01EbssbTk+g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2Jbx5k2EsS7zU15W8WJ1onmRwj96CrYYSklZv9nFIIA=;
- b=DhM92Exyx7wbN+d6SJiw94UUqRbVNg9xQjo+FCzY/paliPphaGupL7GWZzEjlmw+55KOP/BVLL6/E1kdFVsTIzolbRiEE2wYzdn1EobjEn1YKd1ohvfWK4roqkdd3ITM98sMad7oVUejC1DQOgQbHsEWM3swsjIIBjzrqp6IvBk=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by SA2PR11MB4890.namprd11.prod.outlook.com (2603:10b6:806:117::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5314.13; Tue, 7 Jun
- 2022 17:54:17 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::699b:5c23:de4f:2bfa]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::699b:5c23:de4f:2bfa%4]) with mapi id 15.20.5314.019; Tue, 7 Jun 2022
- 17:54:17 +0000
-From: <Conor.Dooley@microchip.com>
-To: <thierry.reding@gmail.com>, <u.kleine-koenig@pengutronix.de>,
-	<lee.jones@linaro.org>
-CC: <Daire.McNamara@microchip.com>, <linux-kernel@vger.kernel.org>,
-	<linux-pwm@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 0/2] Add support for Microchip's pwm fpga core
-Thread-Topic: [PATCH 0/2] Add support for Microchip's pwm fpga core
-Thread-Index: AQHYektC4gKRNSPydkWjg6j3RDqGCa1EOp4A
-Date: Tue, 7 Jun 2022 17:54:17 +0000
-Message-ID: <e97c9ba7-25ef-3591-cf68-4d442dfad840@microchip.com>
-References: <20220607084551.2735922-1-conor.dooley@microchip.com>
-In-Reply-To: <20220607084551.2735922-1-conor.dooley@microchip.com>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: f2add481-6ca7-4ef9-4c43-08da48aebe03
-x-ms-traffictypediagnostic: SA2PR11MB4890:EE_
-x-microsoft-antispam-prvs: <SA2PR11MB48906235B7CC74A0472630B398A59@SA2PR11MB4890.namprd11.prod.outlook.com>
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: rnw0TPLWEQK5nQbmRLW8CBgQPvu6FHKWXngD9A9A6x0qJ0m8t+MRJqBxpeBG/9c8jiKtwr2Dejf77vYPxApdJK/tbBDGKXhJn/0jHnyCws0+mxjymNMFeFBrrOM9xtZSEs3KDlLQ7Ert58z0mh3WT+GQtwoflBWosn7j37NP0pN+/xfcBcTA9rC3ExgYhtyuSy0jCCLVZTtR6H4D6CA7AAC4Chg69elR9fkoV27/xgf5EvWrpSf2J7SowHXh8kA7OjM99cF9qcXp0G2ZdylASNLFJSQN5IJkBuPe1le8Ajt4R/OqNXBBveqNbJiLdvwDUxMjMdcMQQZe04eVPGsu7PVKnn8rBcShCX/gkW9O2Pi5IHrpofX6xtQoWW76tpxzy7q4H5GpXMjWEIn1i3gVfp2iurTy/cp+99RVj0iSK9Hiy/I0Ty9n6sjSd1p987ewbPx6ufivf53mxFjUQX91UyzLQ0BNnZifJJJPiXNoyg6YxiJ+XIpevsfR9mcsY2SUhFttlDPNTb1IJ1HrrlT+19S6+v67GzQfmgV/qxT6Z1Kk1tmbFkErXtJ+Z0xyviGm0aTwVM3Js/gbZLAmHteZpXISp8naAGfIvz3NF9szheLjatdv45D/dnpgZh4eNdldiORZ9drLhkvXiKACdpXLBBIUnuyRATef6zu2ExquqT0O8FD8W7fOZGKBwHEJ/lNpoRAjb7JFfCMY1QoYXkwxoA2VCLpva3NiWIDUT05WY/6xsDfDiGPSZj2tcyuuXlP4vj9fdNvy0b7gKfdbEq+BGA==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230001)(366004)(86362001)(38100700002)(91956017)(5660300002)(31686004)(4326008)(8676002)(76116006)(66946007)(66476007)(66446008)(66556008)(64756008)(4744005)(122000001)(6506007)(6486002)(26005)(110136005)(316002)(38070700005)(8936002)(53546011)(186003)(2906002)(508600001)(71200400001)(2616005)(36756003)(31696002)(6512007)(54906003)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TEI2TlhIN2hLTHZIR3J5aEhxYXBDQW9vd1p6eTBCUUNKTWdQL3I4MStiUFNm?=
- =?utf-8?B?NW5zUUtnVlFLT2FPZmM3SXpLdzJtQnRaZjRabUcrMlNHa3JscW9iRkRFN0c1?=
- =?utf-8?B?VjlhaEpwNEhoeW1PS1Y3aXkwTGdybFpiVTdDSm5MTUI2bmJkKzAzeC9VU1pu?=
- =?utf-8?B?anRML08xS01ieE0vZjBqTEhxOGU2SUhiOUxlRE9nZzBJcEhnZGV0NEJPVjZu?=
- =?utf-8?B?amlBZi9oakU5akxOaFJudFU0dDR1T1VCTStuQWt5SVA0MXZpbERvM2RMNlox?=
- =?utf-8?B?SUJLL3FIcEtxVE9SWFlTRC93UlhJSmpCdUtJS0dhYjV5cjFQQmhmZDNOT3Fi?=
- =?utf-8?B?d2l3bzZNOHNOZXB6MU1KVWI3MTNCR1JYbSs2TzZpU2hZZTE4ZFRXaTNPNUpR?=
- =?utf-8?B?cDJmbVRyNjZ0Mm1wOFlaWnhIckJ0VVpzMlRCOW9RNThqeHlNWTR3WWUyZytu?=
- =?utf-8?B?bisxQUlBWVdqSnJKU252RFBpODZ4c2Nsc3NJK1Zld1NoYTJBWUVhVHJvUjYx?=
- =?utf-8?B?bXZVR2JrOXBPdDJ3c2c4RjJOUXRjbm83K25URk5ZOU01ZDQ5dmYxQXJrVU5C?=
- =?utf-8?B?cElnZloxTkN0SmZjVG1vZDd4d21FT1RuOFo1OVM2UVNNOG9FVTNwcldLY285?=
- =?utf-8?B?T3dFdFNmRUUrR3htYUJtUjZzekljcmpUWCtld3ZlU2tzYW90TlZuU0xUN1pk?=
- =?utf-8?B?V1EydzdZUG1EcVJ6NHF1cERkUmo5VWIxem5uUUZadkVscWVqbmNZUzhOdmxz?=
- =?utf-8?B?eVJKK1VmeEJESFJmTUhrTzVLRHBzd1FBYkcwcjd2TjlFR3VDbDlsK0U2bndu?=
- =?utf-8?B?MUhFZ0o2aGo0c1k5akFSVVlDbXVPbGNoNTVyR2NGejR3cEcwa1h6VWZLd3Zy?=
- =?utf-8?B?Vzc3R3YwQzZUMHE4endrQXZ5Y0NXM1lhS0F1dFRxSnhYQllBVTRxeUhYeGN4?=
- =?utf-8?B?NUYxQlZpY0Qxb3FFQ1U3N3pYclBYRUliWDRSK0Q3cTJWc1pjRDMvY1NnWVl3?=
- =?utf-8?B?VDN5SEtqNnBOZkxuTTlPSVZITTBpQlJINklSaG1jdjlSSzNzT2tRTkg5dE5l?=
- =?utf-8?B?eW43M1I0NitzRklFZ2V4MVNWRjUrdEwwSFhtNkMwYjlXOU93RVdjWjRFaEts?=
- =?utf-8?B?SlI1VWZLZ00vblBDRC82THhLRmFlampWU1FHWVBXZWIvRUZ2bVFIQXJXelcv?=
- =?utf-8?B?N01LcFI4aktVZnNKSnRBQWdIbFdDZUdZNXBBVVpkMldvL3FZUkQxanljeXlV?=
- =?utf-8?B?VFYydVBOYmxURGxqOXdiVzdyWllzNEFxUTVycFVJL0N0K1dVMFdUN29HOHU1?=
- =?utf-8?B?cERCdEgreWZBd3l4R2dnWXY3UGcvc2k4SWxJOGF1N0FzVS9SdGJOOUU0KzNq?=
- =?utf-8?B?Vndla1drYkdFMFlFb3l5VUVYV3FxcnJrQWQ1MHV0R0dwZWNQNGNYUzZnTGda?=
- =?utf-8?B?dTlidDVaKy8vaVlqY2NVZEo1UWFnSG1xRkltMlF6L3l4TkdpTE9BMWFYZWVU?=
- =?utf-8?B?em9QTVNSeWh1empRMDZwT1ZPc2x0cG9QRnpUWHd5K0p4L1c4Y2xLV2NCNmlK?=
- =?utf-8?B?cUc4MFdRTmhVa2ZpL1BZNkpDdnpyN0tJcm9pdGw1TW9oZ1d0SjhrSWowNkFk?=
- =?utf-8?B?MUVNZjh1bncwcE9xTXBnMW9pb21aanZoWWp5VnBlaFQrQ2JGNnVPbDRFQ2FS?=
- =?utf-8?B?aGVuQkhHbGR5OUsvWHVZN3VBaTBiZVZzSnlFcG9HZTNxY3N0TjFRVURmQy8x?=
- =?utf-8?B?eXRCYnNKME1zdzNHRmQ5YTBEZUp5Wk1RcExlNWhEblNlSHg5M3hNYWhUWWxV?=
- =?utf-8?B?K09pRmEyd05zWEYyekY0TEcwaWdBSU1NM3ZKbEtIUEg5ZHU0T0dQWXRXSW0w?=
- =?utf-8?B?emRXbkFacXBFd3Y0RXBYb3dERmNUZTZnOEZLMU5QZ1ViY1k1b3R3MDJsZUtD?=
- =?utf-8?B?eWVUZVUzUlFzZGo0c1c2YVVDR29mZVQwaEJJRjZXZHlmRk5LaXQzVktKSnBB?=
- =?utf-8?B?TFFRQVlOQ1Z0RHo4a0NyU0xobDZ4dGZkdmNjOVFGZXFiZURtYUwvTDFHeENB?=
- =?utf-8?B?VmgwVS82ci8wUTZVTnlCTlFySXpOaFhMeElHK0pTWXpTUDFtRHZHWS9DZ2VK?=
- =?utf-8?B?aXlCZkx4VThOU0RKOEgwMUVaZWtXZ1hlRTVuVkNFV0JLU2tYakgxMXdKMlFv?=
- =?utf-8?B?QzJ3aVUzeWRUL0NUN1A5V3VDQkV5dEZNWHNUMWtBNllvVW43WGJqdGtwNWFQ?=
- =?utf-8?B?SVRkRHQ5cmU5YUQxSDdlUHkrVmp4MTZrV1Jabk1rZ3BQTG90c0JnQ0h6OEtU?=
- =?utf-8?B?NzV3WHhaaGMydHRFRWM5Z3Nrc2FSZk5CZUZZWnYvdEduZXYvS0hxQ0Jndmo2?=
- =?utf-8?Q?KaARcekpIAoA+PYU=3D?=
-Content-ID: <FF181A82ED8A6F4B92F01CF21BB66439@namprd11.prod.outlook.com>
+	id 1nydRl-008jzr-FA
+	for linux-riscv@lists.infradead.org; Tue, 07 Jun 2022 17:56:55 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 081CF617A6;
+	Tue,  7 Jun 2022 17:56:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35046C3411F;
+	Tue,  7 Jun 2022 17:56:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1654624612;
+	bh=FgqMBOq8e9O8lSu4ZhdMaLrDjbWyv3KnilifVjuSL5M=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=U7pmM+X0RP5nmr6Y0zeCsiv6F4tTlWchfyO7cSV8rgb5VYvOqfIMH5gozwoAGnhha
+	 k6giUzCqpIaiCBYzY1fK4+Apffu/upHIlpu5mh6yCJ33EQBdEF8obkP1veqPfRgLQO
+	 clye/Tus5tu2wItBM/PjYeOC6YMydam3dfqzCUzz1J56eJlpy48o3dxqincnifCDB5
+	 T1VAsgZKEIQw5h+1513QPQdNl4e9gtsNJMMOvx3onNUsNskKhLE8kxEQI3b5iySR+a
+	 EP7bKzX0EsPDd93d2C0Xht4/Uf8pb2c9KR5Q6XpcSyKyBugdv+IrAe++tmPen3VT3q
+	 bXqGtzdFBdrdQ==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Changbin Du <changbin.du@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>,
+	jirislaby@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.15 17/51] sysrq: do not omit current cpu when showing backtrace of all active CPUs
+Date: Tue,  7 Jun 2022 13:55:16 -0400
+Message-Id: <20220607175552.479948-17-sashal@kernel.org>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220607175552.479948-1-sashal@kernel.org>
+References: <20220607175552.479948-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f2add481-6ca7-4ef9-4c43-08da48aebe03
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Jun 2022 17:54:17.5586
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: ZPKyH/qxz/IPhHfDWbJ6Ks0514LWGczrh7C5g5VPiVgG1TqIadcJkUE4PUk2jVqB35oo3YDy1mRH0Pqp1BDN7ZijAtzug5iRai0EsHor5rg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR11MB4890
+X-stable: review
+X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_105427_942756_2C1DAC31 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20220607_105653_624680_B8C89588 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,34 +81,91 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 07/06/2022 09:45, Conor Dooley wrote:
-> Hey all,
-> Small series here, adding a driver for the "soft" pwm IP core
-> for microchip FPGAs. The binding for them was already added
-> in 5.18.
-> Thanks,
-> Conor.
+From: Changbin Du <changbin.du@gmail.com>
 
-I realised that I forgot to mention this is one of
-three patchsets I have sent this cycle that touches
-this MAINTAINERS entry. The others are to the USB and
-SPI trees. The SPI one is already applied.
-I will include this in the covers for future revisions
-Thanks,
-Conor
+[ Upstream commit 5390e7f46b9d5546d45a83e6463bc656678b1d0e ]
 
-> 
-> Conor Dooley (2):
->   pwm: add microchip soft ip corePWM driver
->   MAINTAINERS: add pwm to PolarFire SoC entry
-> 
->  MAINTAINERS                      |   1 +
->  drivers/pwm/Kconfig              |  10 ++
->  drivers/pwm/Makefile             |   1 +
->  drivers/pwm/pwm-microchip-core.c | 289 +++++++++++++++++++++++++++++++
->  4 files changed, 301 insertions(+)
->  create mode 100644 drivers/pwm/pwm-microchip-core.c
-> 
+The backtrace of current CPU also should be printed as it is active. This
+change add stack trace for current CPU and print a hint for idle CPU for
+the generic workqueue based printing. (x86 already does this)
+
+Now it looks like below:
+[  279.401567] sysrq: Show backtrace of all active CPUs
+[  279.407234] sysrq: CPU5:
+[  279.407505] Call Trace:
+[  279.408789] [<ffffffff8000606c>] dump_backtrace+0x2c/0x3a
+[  279.411698] [<ffffffff800060ac>] show_stack+0x32/0x3e
+[  279.411809] [<ffffffff80542258>] sysrq_handle_showallcpus+0x4c/0xc6
+[  279.411929] [<ffffffff80542f16>] __handle_sysrq+0x106/0x26c
+[  279.412034] [<ffffffff805436a8>] write_sysrq_trigger+0x64/0x74
+[  279.412139] [<ffffffff8029cd48>] proc_reg_write+0x8e/0xe2
+[  279.412252] [<ffffffff8021a8f8>] vfs_write+0x90/0x2be
+[  279.412362] [<ffffffff8021acd2>] ksys_write+0xa6/0xce
+[  279.412467] [<ffffffff8021ad24>] sys_write+0x2a/0x38
+[  279.412689] [<ffffffff80003ff8>] ret_from_syscall+0x0/0x2
+[  279.417173] sysrq: CPU6: backtrace skipped as idling
+[  279.417185] sysrq: CPU4: backtrace skipped as idling
+[  279.417187] sysrq: CPU0: backtrace skipped as idling
+[  279.417181] sysrq: CPU7: backtrace skipped as idling
+[  279.417190] sysrq: CPU1: backtrace skipped as idling
+[  279.417193] sysrq: CPU3: backtrace skipped as idling
+[  279.417219] sysrq: CPU2:
+[  279.419179] Call Trace:
+[  279.419440] [<ffffffff8000606c>] dump_backtrace+0x2c/0x3a
+[  279.419782] [<ffffffff800060ac>] show_stack+0x32/0x3e
+[  279.420015] [<ffffffff80542b30>] showacpu+0x5c/0x96
+[  279.420317] [<ffffffff800ba71c>] flush_smp_call_function_queue+0xd6/0x218
+[  279.420569] [<ffffffff800bb438>] generic_smp_call_function_single_interrupt+0x14/0x1c
+[  279.420798] [<ffffffff800079ae>] handle_IPI+0xaa/0x13a
+[  279.421024] [<ffffffff804dcb92>] riscv_intc_irq+0x56/0x70
+[  279.421274] [<ffffffff80a05b70>] generic_handle_arch_irq+0x6a/0xfa
+[  279.421518] [<ffffffff80004006>] ret_from_exception+0x0/0x10
+[  279.421750] [<ffffffff80096492>] rcu_idle_enter+0x16/0x1e
+
+Signed-off-by: Changbin Du <changbin.du@gmail.com>
+Link: https://lore.kernel.org/r/20220117154300.2808-1-changbin.du@gmail.com
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/tty/sysrq.c | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/tty/sysrq.c b/drivers/tty/sysrq.c
+index c911196ac893..6b445ece8339 100644
+--- a/drivers/tty/sysrq.c
++++ b/drivers/tty/sysrq.c
+@@ -232,8 +232,10 @@ static void showacpu(void *dummy)
+ 	unsigned long flags;
+ 
+ 	/* Idle CPUs have no interesting backtrace. */
+-	if (idle_cpu(smp_processor_id()))
++	if (idle_cpu(smp_processor_id())) {
++		pr_info("CPU%d: backtrace skipped as idling\n", smp_processor_id());
+ 		return;
++	}
+ 
+ 	raw_spin_lock_irqsave(&show_lock, flags);
+ 	pr_info("CPU%d:\n", smp_processor_id());
+@@ -260,10 +262,13 @@ static void sysrq_handle_showallcpus(int key)
+ 
+ 		if (in_hardirq())
+ 			regs = get_irq_regs();
+-		if (regs) {
+-			pr_info("CPU%d:\n", smp_processor_id());
++
++		pr_info("CPU%d:\n", smp_processor_id());
++		if (regs)
+ 			show_regs(regs);
+-		}
++		else
++			show_stack(NULL, NULL, KERN_INFO);
++
+ 		schedule_work(&sysrq_showallcpus);
+ 	}
+ }
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
