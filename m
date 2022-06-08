@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C24EC43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48808C43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=yAYvbrLZt82YJ08kNfUHHlI9g8uZD05twvpwfIASZQI=; b=XvcnvyM8NKZVQw
-	ecl/L3jqGLtrSCo2ezKNqJnfSpSbIzK5x/mWjnmyuutTd0S3X/aJp2iJuy0BNJa/jxvJ/4K3wsC46
-	uihtOSiFruhLUzhBm6IkLVxHJT6Xgnyl763ydpnPfCvYtgHnvdql8HnL77K9c2k4ijdz1WGLui7s1
-	LyYWtXey2Q+QnBRs026Nrfll6uuKO6pNFo8K2aJW3XQ0BN3WyFeXN+g5yGhC+mRGFWkd7/IwbPGuo
-	eQeoAZU0DPc0EB7z/P2umLXIPCM2RkThCOLSWuwmrxlH/gXKse0oQzVqgnvKwPoQjiPwk1bfAGgB6
-	fBipr/Un5fxXLOcBZ/ow==;
+	List-Owner; bh=BAZ4fjt6Xa4+YaxgaIe+71TUXcuSOF3w/dFoEbnpgOM=; b=fysOmZZ2V4FLoX
+	gqfuRGBHUJqVjN77b20KBIH1knVnkwSM3skl6cD4ElpkXlqz+cAaBIG/9sYDF7abFVSjkps+nLR7Y
+	R+z+PB+9KjgvTRp8QG4MpFCRIUsXHBfVJ4v824OWPtekLVJrynV01Z78VW5KWbkumTmZUaUymbyV1
+	38kDJstpStQHQCBFXitDbv1MyMrGp3bLYovX3IqUyTiqPJoN8iyij7e71tjHGc4tFI6w4WbRKJsgp
+	xY+USzzVp3Y0DLmbwkCjOk1xLpq4uBRK0X//aY4JMz7yEC77vSsk8fMFzUoj6WtDN5x2DEsXgWBo9
+	vusigLDjnE10NzHtgkVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyyQC-00EGAC-Px; Wed, 08 Jun 2022 16:20:40 +0000
+	id 1nyyQH-00EGFD-Mp; Wed, 08 Jun 2022 16:20:45 +0000
 Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywxD-00DkAu-OO; Wed, 08 Jun 2022 14:46:39 +0000
+	id 1nywxD-00DkAm-O7; Wed, 08 Jun 2022 14:46:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=rveYe0whW8HL+t/HGSaazkf4IJzq2XAc7vdeRKjh+gA=; b=nT18fRjmtv8PtOHNlSRz7z7OA3
-	ocSKQvQMk90e4BYQ8FG72UOd1vXBcUYk3m24zX9nucFet4rZzw6IRnvpGNzErQ7vF6gmeSoA/I3hv
-	UbyXINmvnZz3foLi4MgiuIC4OlBuTtckcjJAePYfIiJ2CqwvUU5HtHdW4N26hlwOmjLBkcG7LqG8Q
-	BoJE3LoXRlBBcMZ7RvdkoEP2AdgziBJ305TMSdp+BvfA1B2vsf69NthlS94vm+wkGw/Vop/LGC4Dq
-	IFK+3BYDKT97pJkb9/zTHujIgColQowacfqug2BBLzHPsqX11KJsuZ63kgKCy3HEu4aklD3cuhGeV
-	CF8D6kbg==;
+	bh=fn1U7MEbZz2QK5hbMetRGs1LaJ4dLQ5TDl+y9fGIqjs=; b=AHoLDlFIJpM2yJSN34mWYuYDyZ
+	RrXBAbCHcbiLETtqHyostv6hzGyHst5r7VORCZGrERmGvvRqMr2NwXjLQsK1TYGzVvVJBLCgsCf3j
+	LieJtCZHAdjEyntbLFkbTU93xwC08IjFigevejKo+3rMPJ833Xxh7xrrmgzcKasuf6t3frm6PkmxU
+	vZovY0XqO2YqPGD7SFjfk9rslAidePmYi7ReTaMHUlcVRH/amspREeDyWUmyOeqnEP6bQYjeAjWHS
+	JBInW3LvF6tscP+ZjodqILQopYhhA13ptDRMV4kNqtb9FKzkYAPZG/ay8CNlYM5sVD+3xA6vTTC0E
+	vR1dCMqg==;
 Received: from dhcp-077-249-017-003.chello.nl ([77.249.17.3] helo=noisy.programming.kicks-ass.net)
 	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywx3-0066CL-0a; Wed, 08 Jun 2022 14:46:30 +0000
+	id 1nywwz-0066Bi-PV; Wed, 08 Jun 2022 14:46:26 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id A082F302E9A;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 03046302E46;
 	Wed,  8 Jun 2022 16:46:23 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 90A2620C10ED8; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
-Message-ID: <20220608144517.313931267@infradead.org>
+	id 75C7720C10EAF; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
+Message-ID: <20220608144516.871305980@infradead.org>
 User-Agent: quilt/0.66
-Date: Wed, 08 Jun 2022 16:27:45 +0200
+Date: Wed, 08 Jun 2022 16:27:38 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: rth@twiddle.net,
@@ -182,7 +182,7 @@ Cc: rth@twiddle.net,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
  rcu@vger.kernel.org
-Subject: [PATCH 22/36] arm,smp: Remove trace_.*_rcuidle() usage
+Subject: [PATCH 15/36] cpuidle,cpu_pm: Remove RCU fiddling from cpu_pm_{enter,exit}()
 References: <20220608142723.103523089@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Wed, 08 Jun 2022 09:19:55 -0700
@@ -202,51 +202,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-None of these functions should ever be ran with RCU disabled anymore.
-
-Specifically, do_handle_IPI() is only called from handle_IPI() which
-explicitly does irq_enter()/irq_exit() which ensures RCU is watching.
-
-The problem with smp_cross_call() was, per commit 7c64cc0531fa ("arm: Use
-_rcuidle for smp_cross_call() tracepoints"), that
-cpuidle_enter_state_coupled() already had RCU disabled, but that's
-long been fixed by commit 1098582a0f6c ("sched,idle,rcu: Push rcu_idle
-deeper into the idle path").
+All callers should still have RCU enabled.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 ---
- arch/arm/kernel/smp.c |    6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ kernel/cpu_pm.c |    9 ---------
+ 1 file changed, 9 deletions(-)
 
---- a/arch/arm/kernel/smp.c
-+++ b/arch/arm/kernel/smp.c
-@@ -639,7 +639,7 @@ static void do_handle_IPI(int ipinr)
- 	unsigned int cpu = smp_processor_id();
- 
- 	if ((unsigned)ipinr < NR_IPI)
--		trace_ipi_entry_rcuidle(ipi_types[ipinr]);
-+		trace_ipi_entry(ipi_types[ipinr]);
- 
- 	switch (ipinr) {
- 	case IPI_WAKEUP:
-@@ -686,7 +686,7 @@ static void do_handle_IPI(int ipinr)
- 	}
- 
- 	if ((unsigned)ipinr < NR_IPI)
--		trace_ipi_exit_rcuidle(ipi_types[ipinr]);
-+		trace_ipi_exit(ipi_types[ipinr]);
- }
- 
- /* Legacy version, should go away once all irqchips have been converted */
-@@ -709,7 +709,7 @@ static irqreturn_t ipi_handler(int irq,
- 
- static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
+--- a/kernel/cpu_pm.c
++++ b/kernel/cpu_pm.c
+@@ -30,16 +30,9 @@ static int cpu_pm_notify(enum cpu_pm_eve
  {
--	trace_ipi_raise_rcuidle(target, ipi_types[ipinr]);
-+	trace_ipi_raise(target, ipi_types[ipinr]);
- 	__ipi_send_mask(ipi_desc[ipinr], target);
- }
+ 	int ret;
  
+-	/*
+-	 * This introduces a RCU read critical section, which could be
+-	 * disfunctional in cpu idle. Copy RCU_NONIDLE code to let RCU know
+-	 * this.
+-	 */
+-	rcu_irq_enter_irqson();
+ 	rcu_read_lock();
+ 	ret = raw_notifier_call_chain(&cpu_pm_notifier.chain, event, NULL);
+ 	rcu_read_unlock();
+-	rcu_irq_exit_irqson();
+ 
+ 	return notifier_to_errno(ret);
+ }
+@@ -49,11 +42,9 @@ static int cpu_pm_notify_robust(enum cpu
+ 	unsigned long flags;
+ 	int ret;
+ 
+-	rcu_irq_enter_irqson();
+ 	raw_spin_lock_irqsave(&cpu_pm_notifier.lock, flags);
+ 	ret = raw_notifier_call_chain_robust(&cpu_pm_notifier.chain, event_up, event_down, NULL);
+ 	raw_spin_unlock_irqrestore(&cpu_pm_notifier.lock, flags);
+-	rcu_irq_exit_irqson();
+ 
+ 	return notifier_to_errno(ret);
+ }
 
 
 
