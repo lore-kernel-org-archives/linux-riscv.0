@@ -4,114 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 211EEC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 18:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7F1C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 19:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZBAyFRptZu4gWzQWWW1VbBM9Pyx5smF1kE1j/E4eegc=; b=XWY+h/zRReyXZV
-	94Dec5F9ArYxEQxaY7h1bmZY7XipaPpR20wcr5APOXb/KTKEGXq7LztUOnZZ7mQiv5gJJAf34TywG
-	b0D+zJmCr5ZHbzg+4zlcytukom4eyQ01KmzkDKSBvrp58q2zR1sNrXM1+eE3BzGFyXVNv7jzx99iG
-	Fm5iAS6XIqBSXoHMltxuuw8b73sKnHNmeT87hG2I4Ay/tVfAyG0xSLsDJpK8rOKTOylqdPodZ/Eyr
-	G3wIUK9pkroB/UmHZ795qcNyBX6vkLaIHxV/Hz0vtvUBUKEQ96GTPV2s3MdOEILnjVCKm7QVvP8pl
-	s8wh/VKnqiH5P0bBzqZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0VLRc4KH7IdoNHuTZYxgQLaAvT1cISH4MI7urt53W1s=; b=wxJbLz1bVGSJqqfmk6jdksqZKZ
+	U+wYIsIXFFhD/96nHSgkTgIU8cnlAgxD6jWlizqzrERznG/JZv1WbwVYj6xCxwJSXetHst37PjLMX
+	G611MOCTHoawPvLmPizQG+lp7UlV+NcE6PwDRUo2S5331EHKKACPwDRfdqfXdxJ28p+U3JMVPor8A
+	m9TlQtN8han8l19E6F1/VMamv6AVsnpeJz/k/lpQIg3cBMBSFaamKvKRGadR9f9QwqeQfiWdzTwhc
+	tPlEt31OKvcAnBUEtDN3QtYF9m7374Lu0R4rGfyKc0xCAhYGOPNYh5xEtSG8YtUsqvyxuM8fZCRgN
+	yaBjOFXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nz0Iz-00EfPl-Cp; Wed, 08 Jun 2022 18:21:21 +0000
+	id 1nz1hR-00EpNY-BY; Wed, 08 Jun 2022 19:50:41 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nz0Iv-00EfNL-00; Wed, 08 Jun 2022 18:21:18 +0000
+	id 1nz1hO-00EpNC-IC
+	for linux-riscv@lists.infradead.org; Wed, 08 Jun 2022 19:50:39 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 5AAEA61BF7;
-	Wed,  8 Jun 2022 18:21:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FD48C341CF;
-	Wed,  8 Jun 2022 18:21:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6A48C61932;
+	Wed,  8 Jun 2022 19:50:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16874C34116;
+	Wed,  8 Jun 2022 19:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654712475;
-	bh=tnKw98gSFfcp7IeTy3/rsQTZtNfF844s9r6khIEQFqc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=irtsjIpRsHz95M7/Br69jkU/el6Euka6pz8QbkiyfxAGuuX/C14ulDJ5rxSFQdTQ7
-	 wZmQnG+5kZ1N4zDACMrhVdh8N1lIAQcTyjhQEx/UZAyriQAWTfWq2iXIz8TlzKHkRZ
-	 n2pYPB98p0EkCVoZ5eaO9iB+TrowElP2u+A71qJOmZWpHP2PUqJ7hp0POqVpmhuU53
-	 Lh8rcUMQKhpMpfRyOYxIWnNXxRQTCXBtL5cAGt6juZqp3GqLiQVgaZ+Tx6KP9eyqQA
-	 jmFM0+2W+9KKQB2OgG1tubg70tpLYx98T96K4bUlCS+6hsnhS0mgNGYeYhLS9J69TN
-	 MTrYJfs+yokrQ==
-Received: by mail-yb1-f175.google.com with SMTP id s39so10326793ybi.0;
-        Wed, 08 Jun 2022 11:21:15 -0700 (PDT)
-X-Gm-Message-State: AOAM532X8pkwg1xavSOtIp7O7nNEtmbiAcSu4uc7NFisl7QJEJD+xbTC
-	WtCH09OspWC+Gw0zwTTSWstDLzoAwT7clM2/T1I=
-X-Google-Smtp-Source: ABdhPJzq98NOqo/VCRPluNkAkEsBsSfWL/uWjG/p7ZIu0au9GHRqptIRFE98zq1/+bCu49t4PTpXeJwRmf8/7KNbQ00=
-X-Received: by 2002:a0d:eb4d:0:b0:30c:9849:27a1 with SMTP id
- u74-20020a0deb4d000000b0030c984927a1mr37988780ywe.472.1654712463961; Wed, 08
- Jun 2022 11:21:03 -0700 (PDT)
+	s=k20201202; t=1654717836;
+	bh=bF7wIbQ0JKZK1Dl2Z0CIz11yfYpJD9D+7HRVTxZAbWs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bh+goBv7wPMYOS0PQsQp4EW9SlBe13kElbxrtbP3GWfG2tQNtP+aaN+OGdQmhqtth
+	 Zx6QsJ1UA1ewyPLK+S++Bj5Pm0IHjf719rjbGWqHvifHpgl2rk1nG+TBqxZfcfLZIE
+	 ABr5FxChiIV8a3tqhF2tpLPkAAsQyffhukmjlaFcFz0pB+W6IsoRkgQNKrIORJP8vY
+	 gJxVZ6/Df8k0nGPS13FDH0jYOedXmrYVfthlPSSE3fIEYdczOSG3Za/hvHe9pAJoh0
+	 BcnKC0kXrwmClAlsGUtZJrIvyFpjz325xGvZPvxt0Il5CN317mWv9Ve1EvZ8pUU63h
+	 3n64VWBNpo8sg==
+Date: Wed, 8 Jun 2022 21:50:31 +0200
+From: Wolfram Sang <wsa@kernel.org>
+To: Conor Dooley <mail@conchuod.ie>
+Cc: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Lee Jones <lee.jones@linaro.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Steve Twiss <stwiss.opensource@diasemi.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Atul Khare <atulkhare@rivosinc.com>, Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v3 2/4] dt-bindings: i2c: convert ocores binding to yaml
+Message-ID: <YqD9hxVO8nDy6kEl@kunai>
+Mail-Followup-To: Wolfram Sang <wsa@kernel.org>,
+	Conor Dooley <mail@conchuod.ie>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Lee Jones <lee.jones@linaro.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Steve Twiss <stwiss.opensource@diasemi.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Atul Khare <atulkhare@rivosinc.com>, Rob Herring <robh@kernel.org>
+References: <20220606201343.514391-1-mail@conchuod.ie>
+ <20220606201343.514391-3-mail@conchuod.ie>
 MIME-Version: 1.0
-References: <20220608000014.3054333-1-jarkko@profian.com> <CAJF2gTQgCn2CyZ4+VBqEEBT2b4+1KxoEXxrd+Ritk=58+U8EFA@mail.gmail.com>
- <YqAy0qjI4Lktk/uJ@iki.fi> <20220608232115.ccd4399f4a1d133e9b65c2a9@kernel.org>
- <CAPhsuW6iUieQvA6KqzSLgtxmjkVSWCuVwNA338DATb_myHxo7w@mail.gmail.com>
-In-Reply-To: <CAPhsuW6iUieQvA6KqzSLgtxmjkVSWCuVwNA338DATb_myHxo7w@mail.gmail.com>
-From: Song Liu <song@kernel.org>
-Date: Wed, 8 Jun 2022 11:20:53 -0700
-X-Gmail-Original-Message-ID: <CAPhsuW6BzUtqnjvaGJScXRpghs0_V_phpdyd4_oAKhvmkX-GFw@mail.gmail.com>
-Message-ID: <CAPhsuW6BzUtqnjvaGJScXRpghs0_V_phpdyd4_oAKhvmkX-GFw@mail.gmail.com>
-Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
-To: Masami Hiramatsu <mhiramat@kernel.org>
-Cc: Jarkko Sakkinen <jarkko@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Jarkko Sakkinen <jarkko@profian.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Nathaniel McCallum <nathaniel@profian.com>, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "the arch/x86 maintainers" <x86@kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, 
-	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>, Luis Chamberlain <mcgrof@kernel.org>, 
-	Steven Rostedt <rostedt@goodmis.org>, Kees Cook <keescook@chromium.org>, 
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	"Eric W. Biederman" <ebiederm@xmission.com>, Marco Elver <elver@google.com>, 
-	Dan Li <ashimida@linux.alibaba.com>, Sami Tolvanen <samitolvanen@google.com>, 
-	Ard Biesheuvel <ardb@kernel.org>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
-	Nick Desaulniers <ndesaulniers@google.com>, Linus Walleij <linus.walleij@linaro.org>, 
-	Chen Zhongjin <chenzhongjin@huawei.com>, Nicolas Pitre <nico@fluxnic.net>, 
-	Mark Brown <broonie@kernel.org>, Luis Machado <luis.machado@linaro.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Joey Gouly <joey.gouly@arm.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Andrey Konovalov <andreyknvl@gmail.com>, Kefeng Wang <wangkefeng.wang@huawei.com>, 
-	Atsushi Nemoto <anemo@mba.ocn.ne.jp>, Guenter Roeck <linux@roeck-us.net>, 
-	Dave Anglin <dave.anglin@bell.net>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Alexei Starovoitov <ast@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, Daniel Axtens <dja@axtens.net>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, Jordan Niethe <jniethe5@gmail.com>, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Changbin Du <changbin.du@intel.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Liao Chang <liaochang1@huawei.com>, Philipp Tomsich <philipp.tomsich@vrull.eu>, 
-	Wu Caize <zepan@sipeed.com>, Emil Renner Berthing <kernel@esmil.dk>, 
-	Alexander Egorenkov <egorenar@linux.ibm.com>, Thomas Richter <tmricht@linux.ibm.com>, 
-	Tobias Huschle <huschle@linux.ibm.com>, Ilya Leoshkevich <iii@linux.ibm.com>, 
-	Tom Lendacky <thomas.lendacky@amd.com>, Daniel Bristot de Oliveira <bristot@redhat.com>, 
-	Michael Roth <michael.roth@amd.com>, 
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, 
-	Javier Martinez Canillas <javierm@redhat.com>, Miroslav Benes <mbenes@suse.cz>, 
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
-	Tiezhu Yang <yangtiezhu@loongson.cn>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Aaron Tomlin <atomlin@redhat.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, Parisc List <linux-parisc@vger.kernel.org>, 
-	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>, 
-	sparclinux <sparclinux@vger.kernel.org>, linux-modules@vger.kernel.org
+In-Reply-To: <20220606201343.514391-3-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220608_112117_138314_09E1F4FA 
-X-CRM114-Status: GOOD (  37.96  )
+X-CRM114-CacheID: sfid-20220608_125038_717702_847A0431 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,85 +96,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============3280655184237369267=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 8, 2022 at 9:12 AM Song Liu <song@kernel.org> wrote:
->
-> On Wed, Jun 8, 2022 at 7:21 AM Masami Hiramatsu <mhiramat@kernel.org> wrote:
-> >
-> > Hi Jarkko,
-> >
-> > On Wed, 8 Jun 2022 08:25:38 +0300
-> > Jarkko Sakkinen <jarkko@kernel.org> wrote:
-> >
-> > > On Wed, Jun 08, 2022 at 10:35:42AM +0800, Guo Ren wrote:
-> > > > .
-> > > >
-> > > > On Wed, Jun 8, 2022 at 8:02 AM Jarkko Sakkinen <jarkko@profian.com> wrote:
-> > > > >
-> > > > > Tracing with kprobes while running a monolithic kernel is currently
-> > > > > impossible because CONFIG_KPROBES is dependent of CONFIG_MODULES.  This
-> > > > > dependency is a result of kprobes code using the module allocator for the
-> > > > > trampoline code.
-> > > > >
-> > > > > Detaching kprobes from modules helps to squeeze down the user space,
-> > > > > e.g. when developing new core kernel features, while still having all
-> > > > > the nice tracing capabilities.
-> > > > >
-> > > > > For kernel/ and arch/*, move module_alloc() and module_memfree() to
-> > > > > module_alloc.c, and compile as part of vmlinux when either CONFIG_MODULES
-> > > > > or CONFIG_KPROBES is enabled.  In addition, flag kernel module specific
-> > > > > code with CONFIG_MODULES.
-> > > > >
-> > > > > As the result, kprobes can be used with a monolithic kernel.
-> > > > It's strange when MODULES is n, but vmlinux still obtains module_alloc.
-> > > >
-> > > > Maybe we need a kprobe_alloc, right?
-> > >
-> > > Perhaps not the best name but at least it documents the fact that
-> > > they use the same allocator.
-> > >
-> > > Few years ago I carved up something "half-way there" for kprobes,
-> > > and I used the name text_alloc() [*].
-> > >
-> > > [*] https://lore.kernel.org/all/20200724050553.1724168-1-jarkko.sakkinen@linux.intel.com/
-> >
-> > Yeah, I remember that. Thank you for updating your patch!
-> > I think the idea (split module_alloc() from CONFIG_MODULE) is good to me.
-> > If module support maintainers think this name is not good, you may be
-> > able to rename it as text_alloc() and make the module_alloc() as a
-> > wrapper of it.
->
-> IIUC, most users of module_alloc() use it to allocate memory for text, except
-> that module code uses it for both text and data. Therefore, I guess calling it
-> text_alloc() is not 100% accurate until we change the module code (to use
-> a different API to allocate memory for data).
 
-Git history showed me
+--===============3280655184237369267==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hGhNHd7MU3cinCJK"
+Content-Disposition: inline
 
-7a0e27b2a0ce mm: remove vmalloc_exec
 
-I guess we are somehow going back in time...
+--hGhNHd7MU3cinCJK
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Song
+On Mon, Jun 06, 2022 at 09:13:42PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>=20
+> Convert the open cores i2c controller binding from text to yaml.
+>=20
+> Reviewed-by: Rob Herring <robh@kernel.org>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
->
-> Thanks,
-> Song
->
-> >
-> > Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-> > for kprobe side.
-> >
-> > Thank you,
-> >
-> > --
-> > Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Applied to for-next, thanks!
+
+
+--hGhNHd7MU3cinCJK
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmKg/YcACgkQFA3kzBSg
+KbYwqA/+J5zwS0FWLakgzC0GDLrb6NPSPg8enDq5wa1Mjp2m3KUZZ5kvfJNDyHRj
+p9qAYOhyRKQcGWnvsWj4dYi3m2O9720V0VE/Jeld5J4TyviZZ/ZqKTCcyJXrQCo4
+3GoZ+1FLM+/Ch6DBGvD1D3FkBpGE9S3zD8B6Ig7wqIo61cvJAUYTgCS3Su8X+iwB
+FRRBL7capPTXZqRtsI95WzxKmu1mUvLpmqYihYe5j2zeAb2MfIdRjJbhBc2/oIEC
+TOF6onGV4dH0Iu+z1jeos72qhFq+3t14mLbY2fFiXrpXGR/sPf9hKRrCFnAK/8F6
+dhCTDyfYbpN3GGifuLwihxA2e/dNXGky7Xq2Fyy3mGcED3UY7DT6mlGHflcQfFqG
+H/+XBLeLmSV9ltqmdiRcM9G2aYrZ27zlxs44hOtu+59ToCL8T4JU/qJCs0n0lO+7
+FD2+YvQd0Riqsoz95gZYgHiULh39huSsK5drBe8LLBvZGbSf0bbBxKxbaZyAsx3c
+BUexRAOzTlMvs4wQbi95+qLPZNuUXfOchyl4QYuGKiikOx9pIrin1zXjdPPDIeX7
+4DBrOpgWM2p5YupnUWN5ujffzr3TpP+SfNHlrlzy0LfzsBL4ENlWS33Jc9CURXFw
+7wtbm2S0/kTe2inRUQdWCPB6hLdTY53FnYDvetZ/orHb1y272ik=
+=OKG+
+-----END PGP SIGNATURE-----
+
+--hGhNHd7MU3cinCJK--
+
+
+--===============3280655184237369267==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3280655184237369267==--
+
