@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 097B3C43334
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70527C433EF
 	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=+XMi8RskQskoEXpiCzvN+z/zhVQjkUORhy/rhsIPzSk=; b=1XYA1ZGuBv4are
-	m5/j7N4BntDM8hknKzeNB9pbT49R29D8rXdrLb6V+IlXvw2+NmpRJ3axFaWzkJMvAAkM2BUeQc0qF
-	GTOILaDpMId37lV6C5vidUjULGUihrmZ0JOCdcFyXqlp1rgNalBzwh2qgepsp9DQJdYQLg0fZGCty
-	bIjc3oeGomnjq1Hprg807bnBhlJvyoHXIivoBhQIfbSMn3EYGS2ny5z9Fz/P/c76mFp0+kFd7FeHd
-	TRpCZzVGcIYvAPpAegIDjtjMNfgvts2Zte2ZSyxAzMVmiS6IsrWO6W397Rh9GXBBsIHiaBg3F8icX
-	QEKFXslMVFiEexKjT1zA==;
+	List-Owner; bh=S91EXVwG+oCWpY3SQB9CFtpHMWnEHIiGlytIMPwd2Xc=; b=mYnB9MLmzFBjNy
+	W0lssGqSEwx0r8/bjeuW26XTq5kFHf0LLOFxnxfzxwqgPBIDLjhsh3q3MsQIlRPK4ivdGJa3tOWIt
+	dveYCWS6vpsc+wDdMgbkzZ5qmU0iQ2pq2ubdf4ztXtCz1pfdjsYFK5uADXA3/4csPTiSKsBYR+jaU
+	AHM0EZm+/i8irDTeRppSK8CHAWyck7xsjX4mREwJ67a7FCOIoaWBPzGRmOWIwXQEKPhEYuKay788o
+	hXdFOP066xC5wKtpnh7/fLvu3j9xpErSaRY7j6JM2Uqkhwdwu4zDoxTWXrltCqGKSxNSXMobtlBtI
+	6PPfERkkrFO/yW6/OTgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyyPW-00EFgD-FE; Wed, 08 Jun 2022 16:19:58 +0000
+	id 1nyyPd-00EFiP-1V; Wed, 08 Jun 2022 16:20:05 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywx9-00Dk6u-9J; Wed, 08 Jun 2022 14:46:35 +0000
+	id 1nywx9-00Dk6x-9V; Wed, 08 Jun 2022 14:46:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=1usWiRWR4uttba39otUsN6OqB3IXu4/S2NHARc2LOVI=; b=FwGsX6HqAEWrIDIwqSsLl+2rn+
-	jxtc/+7Q73QoS/5n4U2sAOL0VlfaYMGCWkilbboinFeB59SIcUo3UpH4a5CtYGWmPThbsscblAnH4
-	PSS71rXa70D7UmJtRK8HWOujM8sLBbHEPGPYqLVKvfZP62p3cW80pTaY4XSX5yfYbfkdrHxiUG5Wz
-	T0edzqMYifaS2QyjulPfkPqxRE0jrOsPGKKpMpJYlly7Zipb93HlY74okg/8Mb1f3Kbt7PF9GRF4I
-	xfQiX+7/KU3X93vRF1S+bG52Qv3PZIAkNXLJYuCETihI1/nFsTHWt4NnKd/O4/6se7YsYY89QZ1rA
-	qO/mDSKA==;
+	bh=4bele9ejzKzNd9pnJzXay06BR+7LKyo/8SDE7WF3xHo=; b=tPPYeAWPLLomHQyMVLJ5rPzsHQ
+	RWGF7M0Mce61MT+ddmgb9LEMNk1WL5mudqg073VXtHlq00DAzt78HxCsBAEtKRxkcXavO/85/VZxk
+	St2GqSY9qsP+Xr58sUTFba5HKXMa5app75CuJy9Gj6wZChoH6jBqlb60S6+uDOQ/9uA1CHpCagvMO
+	PjB4e4NnxbHKE12LCbxTxFaNyJdX+xa1TwHy0IYtSD8fTskaneE8elW12I3edyD9ShjEHISc8iDZ4
+	GRPIMTpQEWgfRfkgST/ySyn1wwEnoM5Cgrw7tfhziDkregbr3JBwLs34aQW7JRzuCY0Omo+qRiaQF
+	AQ82XnZw==;
 Received: from dhcp-077-249-017-003.chello.nl ([77.249.17.3] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywx3-00ChYK-L3; Wed, 08 Jun 2022 14:46:29 +0000
+	id 1nywwz-00ChWm-Uq; Wed, 08 Jun 2022 14:46:26 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id A3BDD302EE7;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 48773302E6B;
 	Wed,  8 Jun 2022 16:46:23 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 981A220C10EDC; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
-Message-ID: <20220608144517.444659212@infradead.org>
+	id 812DB20C10ECA; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
+Message-ID: <20220608144517.061583457@infradead.org>
 User-Agent: quilt/0.66
-Date: Wed, 08 Jun 2022 16:27:47 +0200
+Date: Wed, 08 Jun 2022 16:27:41 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: rth@twiddle.net,
@@ -182,7 +182,7 @@ Cc: rth@twiddle.net,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
  rcu@vger.kernel.org
-Subject: [PATCH 24/36] printk: Remove trace_.*_rcuidle() usage
+Subject: [PATCH 18/36] cpuidle: Annotate poll_idle()
 References: <20220608142723.103523089@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Wed, 08 Jun 2022 09:19:54 -0700
@@ -202,27 +202,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The problem, per commit fc98c3c8c9dc ("printk: use rcuidle console
-tracepoint"), was printk usage from the cpuidle path where RCU was
-already disabled.
-
-Per the patches earlier in this series, this is no longer the case.
+The __cpuidle functions will become a noinstr class, as such they need
+explicit annotations.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 ---
- kernel/printk/printk.c |    2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/cpuidle/poll_state.c |    6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
---- a/kernel/printk/printk.c
-+++ b/kernel/printk/printk.c
-@@ -2238,7 +2238,7 @@ static u16 printk_sprint(char *text, u16
- 		}
- 	}
+--- a/drivers/cpuidle/poll_state.c
++++ b/drivers/cpuidle/poll_state.c
+@@ -13,7 +13,10 @@
+ static int __cpuidle poll_idle(struct cpuidle_device *dev,
+ 			       struct cpuidle_driver *drv, int index)
+ {
+-	u64 time_start = local_clock();
++	u64 time_start;
++
++	instrumentation_begin();
++	time_start = local_clock();
  
--	trace_console_rcuidle(text, text_len);
-+	trace_console(text, text_len);
+ 	dev->poll_time_limit = false;
  
- 	return text_len;
+@@ -39,6 +42,7 @@ static int __cpuidle poll_idle(struct cp
+ 	raw_local_irq_disable();
+ 
+ 	current_clr_polling();
++	instrumentation_end();
+ 
+ 	return index;
  }
 
 
