@@ -4,118 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAFA3C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 22:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5345C43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 22:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aveKzjt4isaxpWjdKstUEwCNZT3mmTB/1/wuiiCOJck=; b=LnxJQjjihTMRFr
-	l+OEXJ3+Gi4oj2+swRIIms6ZLY2fenVVaA1Ocy9GRsw1JWHdXFSw6bi1TpFxn5RyLavN78mOiOQ/w
-	vQqOK2NUVnz9gzuaFQ4lgA/Bqlp6In0jE1ZdtEj/6dTGzqFEdNX4+17bAWKfYlss2gFNDqRAYkrJY
-	lECVPkNTlYsTXLdIdiVBJfgcFIDsIdbGJ3buc2OO32XgwtoaqdmX5FSFMp8z3G2LK+cgND300oLB4
-	N9QjQC0+Ip4XVCnO68tElRRcT2Ft7p0ItyXL0TCAsRAagwYPOYca7F+A15XAxuuCtNCZEtzM9PSe7
-	mkCG4kP1iE+n9WFaGwhA==;
+	List-Owner; bh=+Y9KA1paRrT8203NOenfWX37ABVHqvOSOM8mLIYuNQs=; b=lWX3/vRN0lZF1T
+	kyXEtsfdjBGfg75xgXwQT3mhpFfz9JIGP9Ca/hdgOf5GVA5aviYM7AF23pqiEt/Pvi2uZ9QztjSlt
+	pZmwiE4ytDV1QzhoLA5j6nDDooAtKNIr6IBffJ++Vh5ZPoV8E8j72vv6yS/BXazBiNpWNyKIo0Q64
+	Xtdy9fmCO56U6nMZSlu2tz7Q2Gxh2iRobHP9wV43o3hzaGwl8+dnsXYj7g1fN2lUwFIzfAMoM/BGG
+	81JuleG9+ln4nbDe3etqtgiCxnKymwvilR+5htl55h4YaTqmMO22/zUowdoG3llZ0rMIM5mArELhP
+	BzEUe5oFzyaJhjeiYXhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nz3lX-00F6LI-CB; Wed, 08 Jun 2022 22:03:03 +0000
-Received: from mail-yb1-f171.google.com ([209.85.219.171])
+	id 1nz492-00F9Hb-SY; Wed, 08 Jun 2022 22:27:20 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nz0BG-00EeFF-92; Wed, 08 Jun 2022 18:13:24 +0000
-Received: by mail-yb1-f171.google.com with SMTP id a30so19111012ybj.3;
-        Wed, 08 Jun 2022 11:13:19 -0700 (PDT)
+	id 1nz48z-00F9HG-K4
+	for linux-riscv@lists.infradead.org; Wed, 08 Jun 2022 22:27:18 +0000
+Received: by mail-qk1-x729.google.com with SMTP id d23so1721182qke.0
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Jun 2022 15:27:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=jH4c12+CVRrTyhBbIEeVtZFXG81rflTZGiVkHkiLLNo=;
+        b=79GOQq0/+RRLbqGewSFK851+7PhvVY6uIRw83i4C4/WmB5SQlsbXr91fSZ4M1Aq4zo
+         jYEfd9tQql48uWWjKyGf4SSHjZ2kgu3BiGZkLvs50XK+WBCYiR6x2aSw3qcKvV/JjYux
+         lNTMO8K+kxoTr+sxFdXVylNC73MD/mvw/XXFjNzdx2z2QpjyA7fvL70Dguby53f0zKXf
+         6se2d5PW2hVwFTo4wFVBLKkZf+NeW+iCZTxggUfBrlXWPst6eAk6UiP+9jzYb7f/+cY7
+         0jEGy99UQm+Y0vFZQLG2lvPk+3BXvIUufzJzMTeSmgp18wBsqe9dRjxkSNUp6VSQNB5+
+         3raQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=ZQePx5uIM1fUidMEiJVM5nuB6ZzPVeEu38qEpc1UrpE=;
-        b=tg22o8Q/s+6stDEGR8EH0wckuEs22loupRsSsi+4UrJnJG8SpiAcYzGFmxUDsffltA
-         r3wLIVe/kdv1LNcAIOyIrfK21ZUKTdJ+Jz5YqrFn4vTWnTqTEV5nJQgm4ruQYSQgAJtF
-         VKYBkm1WV7+Sv5CYdLY2ieB8qv+LWY5KPK1GBv9xTBMolloUtlJh+oz/dNl3738BRZJM
-         Ba2zfBJh6M+vPpiAYkSAbSOuVKkhjwcijitMsosCq+Nn0lF+1CSQMfq+xFjqncmqdmCt
-         +dgTqem0qnK+nW5IZq+8k133+JdEXWD7PXdYB/IcjCw5AMGYf0CzEMtKuWbAEfDa7kZ1
-         OB+w==
-X-Gm-Message-State: AOAM532iGM6MSC+Mb5ORdQIyrQ5YoSoUnXzzpMgrOMvgcAfmuQdA9zla
-	lBWmwjTauPFgEiwcH8UjI9iZbNyWe6zeIfpNzss=
-X-Google-Smtp-Source: ABdhPJyd1CrHem+vVK3IGyX/t5xH0MretwaFF4fsfRB0Td7tNKI/Gb3F1VH58WOF1ULS3yEBVcV2AFovGma6uhuJi5U=
-X-Received: by 2002:a5b:4a:0:b0:663:7c5b:a5ba with SMTP id e10-20020a5b004a000000b006637c5ba5bamr17352131ybp.81.1654711998678;
- Wed, 08 Jun 2022 11:13:18 -0700 (PDT)
+        bh=jH4c12+CVRrTyhBbIEeVtZFXG81rflTZGiVkHkiLLNo=;
+        b=MbrRZ3FlE+t41E5j23lM8redQKLAQ0b8rPlU9Vel+5sj3fpVsfjLQAihdY4baRpPSq
+         Sd0Bw4qgtWPSpAXIxo/QcPUbXoxHLm4t+U5r7CQ5uub3mEwFvpzP5MjrU73pTlGQSNXm
+         zIc4Sfy2VZ0pnvEI2PNapW+EYWy9AaepOqmG3cLOcBlx5EB+5Qix0P40hy0O3rQFkT1s
+         +rekSgCAstdivumb/JIjv89WM3ab9PKkgzcpfOoXzDTtp0tM4eJp8NNwxl1DFplGrSyx
+         Y/yYJBsnyUq7Czc0DBbGl0u7BN/xXTNGI9/JOfSkOvgsqx2hjiWRkxLAEkml0ret94jH
+         4DrA==
+X-Gm-Message-State: AOAM530wRM34diBn7+oNyR5UsnZq8l15T8jW4X/2gRMMnSc5l0v5D8ec
+	33fA3SOz5AhfBwWrdF/FEukw73gsrQfHNMZuG6pJxg==
+X-Google-Smtp-Source: ABdhPJwnmP1wXXzF9NYXnVqUZJwhOa7wXTGFQNqRavcPOps9dctULuEYturAac2aYv7sw0Yyw1hdiyadaWlF3TTaF0o=
+X-Received: by 2002:a05:620a:1911:b0:6a6:e8e9:70cd with SMTP id
+ bj17-20020a05620a191100b006a6e8e970cdmr6644053qkb.627.1654727234308; Wed, 08
+ Jun 2022 15:27:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220608142723.103523089@infradead.org> <20220608144516.047149313@infradead.org>
-In-Reply-To: <20220608144516.047149313@infradead.org>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Wed, 8 Jun 2022 20:13:07 +0200
-Message-ID: <CAJZ5v0g=jcRkMhVoNkZzSaM0viK0C7WN6T5C1_3VQ5GGGQkSzQ@mail.gmail.com>
-Subject: Re: [PATCH 02/36] x86/idle: Replace x86_idle with a static_call
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com, 
-	vgupta@kernel.org, Russell King - ARM Linux <linux@armlinux.org.uk>, ulli.kroll@googlemail.com, 
-	Linus Walleij <linus.walleij@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Sascha Hauer <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, dl-linux-imx <linux-imx@nxp.com>, Tony Lindgren <tony@atomide.com>, 
-	Kevin Hilman <khilman@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, bcain@quicinc.com, 
-	Huacai Chen <chenhuacai@kernel.org>, kernel@xen0n.name, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, sammy@sammy.net, Michal Simek <monstr@monstr.eu>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, dinguyen@kernel.org, jonas@southpole.se, 
-	stefan.kristiansson@saunalahti.fi, Stafford Horne <shorne@gmail.com>, 
-	James Bottomley <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
-	Rich Felker <dalias@libc.org>, David Miller <davem@davemloft.net>, 
-	Richard Weinberger <richard@nod.at>, anton.ivanov@cambridgegreys.com, 
-	Johannes Berg <johannes@sipsolutions.net>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "the arch/x86 maintainers" <x86@kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, acme@kernel.org, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, jolsa@kernel.org, namhyung@kernel.org, 
-	Juergen Gross <jgross@suse.com>, srivatsa@csail.mit.edu, amakhalov@vmware.com, 
-	pv-drivers@vmware.com, Boris Ostrovsky <boris.ostrovsky@oracle.com>, chris@zankel.net, 
-	jcmvbkbc@gmail.com, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Pavel Machek <pavel@ucw.cz>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, lpieralisi@kernel.org, 
-	Sudeep Holla <sudeep.holla@arm.com>, Andy Gross <agross@kernel.org>, 
-	Bjorn Andersson <bjorn.andersson@linaro.org>, Anup Patel <anup@brainfault.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jon Hunter <jonathanh@nvidia.com>, 
-	Jacob Pan <jacob.jun.pan@linux.intel.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Yury Norov <yury.norov@gmail.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steven Rostedt <rostedt@goodmis.org>, 
-	Petr Mladek <pmladek@suse.com>, senozhatsky@chromium.org, 
-	John Ogness <john.ogness@linutronix.de>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Frederic Weisbecker <frederic@kernel.org>, quic_neeraju@quicinc.com, 
-	Josh Triplett <josh@joshtriplett.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Lai Jiangshan <jiangshanlai@gmail.com>, Joel Fernandes <joel@joelfernandes.org>, 
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Benjamin Segall <bsegall@google.com>, 
-	Mel Gorman <mgorman@suse.de>, Daniel Bristot de Oliveira <bristot@redhat.com>, vschneid@redhat.com, 
-	jpoimboe@kernel.org, linux-alpha@vger.kernel.org, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-snps-arc@lists.infradead.org, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux OMAP Mailing List <linux-omap@vger.kernel.org>, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, 
-	linux-m68k <linux-m68k@lists.linux-m68k.org>, 
-	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, openrisc@lists.librecores.org, 
-	Parisc List <linux-parisc@vger.kernel.org>, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390@vger.kernel.org, 
-	Linux-sh list <linux-sh@vger.kernel.org>, sparclinux@vger.kernel.org, 
-	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	virtualization@lists.linux-foundation.org, xen-devel@lists.xenproject.org, 
-	linux-xtensa@linux-xtensa.org, 
-	ACPI Devel Maling List <linux-acpi@vger.kernel.org>, Linux PM <linux-pm@vger.kernel.org>, 
-	linux-clk <linux-clk@vger.kernel.org>, linux-arm-msm <linux-arm-msm@vger.kernel.org>, 
-	linux-tegra <linux-tegra@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>, 
-	rcu@vger.kernel.org
+References: <20220605133300.376161-1-mail@conchuod.ie>
+In-Reply-To: <20220605133300.376161-1-mail@conchuod.ie>
+From: Atul Khare <atulkhare@rivosinc.com>
+Date: Wed, 8 Jun 2022 15:27:03 -0700
+Message-ID: <CABMhjYq0GSEfg4T+cTqBwRdykC-rbQNEqnAZ1qM5fYbjUah5Mg@mail.gmail.com>
+Subject: Re: [PATCH v1 0/6] clear riscv dtbs_check errors
+To: mail@conchuod.ie
+Cc: Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Andrew Lunn <andrew@lunn.ch>, 
+	Support Opensource <support.opensource@diasemi.com>, Lee Jones <lee.jones@linaro.org>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Steve Twiss <stwiss.opensource@diasemi.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220608_111322_374926_435BA7CB 
-X-CRM114-Status: GOOD (  25.62  )
-X-Mailman-Approved-At: Wed, 08 Jun 2022 15:02:58 -0700
+X-CRM114-CacheID: sfid-20220608_152717_701951_5E2FDBA0 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,123 +91,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 8, 2022 at 4:47 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> Typical boot time setup; no need to suffer an indirect call for that.
->
-> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
+Conor,
 
-Reviewed-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+Thanks for the feedback. I will rebase and send out a v2 series
+shortly (it appears that the 1024 hart context patch is redundant as
+well).
 
-> ---
->  arch/x86/kernel/process.c |   50 +++++++++++++++++++++++++---------------------
->  1 file changed, 28 insertions(+), 22 deletions(-)
+On Sun, Jun 5, 2022 at 6:33 AM <mail@conchuod.ie> wrote:
 >
-> --- a/arch/x86/kernel/process.c
-> +++ b/arch/x86/kernel/process.c
-> @@ -24,6 +24,7 @@
->  #include <linux/cpuidle.h>
->  #include <linux/acpi.h>
->  #include <linux/elf-randomize.h>
-> +#include <linux/static_call.h>
->  #include <trace/events/power.h>
->  #include <linux/hw_breakpoint.h>
->  #include <asm/cpu.h>
-> @@ -692,7 +693,23 @@ void __switch_to_xtra(struct task_struct
->  unsigned long boot_option_idle_override = IDLE_NO_OVERRIDE;
->  EXPORT_SYMBOL(boot_option_idle_override);
+> From: Conor Dooley <conor.dooley@microchip.com>
 >
-> -static void (*x86_idle)(void);
-> +/*
-> + * We use this if we don't have any better idle routine..
-> + */
-> +void __cpuidle default_idle(void)
-> +{
-> +       raw_safe_halt();
-> +}
-> +#if defined(CONFIG_APM_MODULE) || defined(CONFIG_HALTPOLL_CPUIDLE_MODULE)
-> +EXPORT_SYMBOL(default_idle);
-> +#endif
-> +
-> +DEFINE_STATIC_CALL_NULL(x86_idle, default_idle);
-> +
-> +static bool x86_idle_set(void)
-> +{
-> +       return !!static_call_query(x86_idle);
-> +}
+> Hey,
+> Couple conversions from txt to yaml here with the intent of fixing the
+> the dtbs_check warnings for riscv. Atul Khare already sent patches for
+> the gpio-line-names & cache-sets (which went awol) and will clear the
+> remaining two errors.
 >
->  #ifndef CONFIG_SMP
->  static inline void play_dead(void)
-> @@ -715,28 +732,17 @@ void arch_cpu_idle_dead(void)
->  /*
->   * Called from the generic idle code.
->   */
-> -void arch_cpu_idle(void)
-> -{
-> -       x86_idle();
-> -}
-> -
-> -/*
-> - * We use this if we don't have any better idle routine..
-> - */
-> -void __cpuidle default_idle(void)
-> +void __cpuidle arch_cpu_idle(void)
->  {
-> -       raw_safe_halt();
-> +       static_call(x86_idle)();
->  }
-> -#if defined(CONFIG_APM_MODULE) || defined(CONFIG_HALTPOLL_CPUIDLE_MODULE)
-> -EXPORT_SYMBOL(default_idle);
-> -#endif
+> Rob/Krzysztof:
+> Have I correctly expressed the mutually exclusive properties?
+> I had a look around, but wasn't able to find an obvious binding to ape.
 >
->  #ifdef CONFIG_XEN
->  bool xen_set_default_idle(void)
->  {
-> -       bool ret = !!x86_idle;
-> +       bool ret = x86_idle_set();
+> Wasn't sure if a txt -> yaml conversion's MAINTAINERS update was meant
+> to be in the same patch or not, so feel free to squash.
+> Thanks,
+> Conor.
 >
-> -       x86_idle = default_idle;
-> +       static_call_update(x86_idle, default_idle);
+> Conor Dooley (6):
+>   dt-bindings: mmc: convert mmc-spi-slot to yaml
+>   dt-bindings: i2c: convert ocores binding to yaml
+>   MAINTAINERS: convert ocores i2c dt-binding to yaml
+>   dt-bindings: mfd: convert da9063 to yaml
+>   MAINTAINERS: convert da9063 to yaml
+>   riscv: dts: sifive: "fix" pmic watchdog node name
 >
->         return ret;
->  }
-> @@ -859,20 +865,20 @@ void select_idle_routine(const struct cp
->         if (boot_option_idle_override == IDLE_POLL && smp_num_siblings > 1)
->                 pr_warn_once("WARNING: polling idle and HT enabled, performance may degrade\n");
->  #endif
-> -       if (x86_idle || boot_option_idle_override == IDLE_POLL)
-> +       if (x86_idle_set() || boot_option_idle_override == IDLE_POLL)
->                 return;
+>  .../devicetree/bindings/i2c/i2c-ocores.txt    |  78 -----------
+>  .../devicetree/bindings/i2c/i2c-ocores.yaml   | 132 ++++++++++++++++++
+>  .../devicetree/bindings/mfd/da9063.txt        | 111 ---------------
+>  .../devicetree/bindings/mfd/da9063.yaml       | 123 ++++++++++++++++
+>  .../devicetree/bindings/mmc/mmc-spi-slot.txt  |  29 ----
+>  .../devicetree/bindings/mmc/mmc-spi-slot.yaml |  76 ++++++++++
+>  .../devicetree/bindings/trivial-devices.yaml  |   2 -
+>  MAINTAINERS                                   |   3 +-
+>  .../boot/dts/sifive/hifive-unmatched-a00.dts  |   2 +-
+>  9 files changed, 334 insertions(+), 222 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/i2c/i2c-ocores.txt
+>  create mode 100644 Documentation/devicetree/bindings/i2c/i2c-ocores.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/mfd/da9063.txt
+>  create mode 100644 Documentation/devicetree/bindings/mfd/da9063.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/mmc/mmc-spi-slot.txt
+>  create mode 100644 Documentation/devicetree/bindings/mmc/mmc-spi-slot.yaml
 >
->         if (boot_cpu_has_bug(X86_BUG_AMD_E400)) {
->                 pr_info("using AMD E400 aware idle routine\n");
-> -               x86_idle = amd_e400_idle;
-> +               static_call_update(x86_idle, amd_e400_idle);
->         } else if (prefer_mwait_c1_over_halt(c)) {
->                 pr_info("using mwait in idle threads\n");
-> -               x86_idle = mwait_idle;
-> +               static_call_update(x86_idle, mwait_idle);
->         } else if (cpu_feature_enabled(X86_FEATURE_TDX_GUEST)) {
->                 pr_info("using TDX aware idle routine\n");
-> -               x86_idle = tdx_safe_halt;
-> +               static_call_update(x86_idle, tdx_safe_halt);
->         } else
-> -               x86_idle = default_idle;
-> +               static_call_update(x86_idle, default_idle);
->  }
->
->  void amd_e400_c1e_apic_setup(void)
-> @@ -925,7 +931,7 @@ static int __init idle_setup(char *str)
->                  * To continue to load the CPU idle driver, don't touch
->                  * the boot_option_idle_override.
->                  */
-> -               x86_idle = default_idle;
-> +               static_call_update(x86_idle, default_idle);
->                 boot_option_idle_override = IDLE_HALT;
->         } else if (!strcmp(str, "nomwait")) {
->                 /*
->
+> --
+> 2.36.1
 >
 
 _______________________________________________
