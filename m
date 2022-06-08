@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C191CCCA47B
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 10:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B89FC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 10:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+bUpdoUTwEAaqrWEtDtZMrpT6Py9iyecqJC8hdh0Cw0=; b=cNQR6phSBlfjpi
-	HK2e7+aedD8kD9OYmvRhGtENs2ygu0+D/8P9hUvFvXCLO9cf2fGVCy2E4uGvKeEyWCFv2U+hYkSgA
-	OZoA+ehAdpK6LqL6A/gyCVsRRlDFN0EcmOVDElRbwVUTE8aTLB4ctT2gcY3LdhwyrVhWuCVy8SnkG
-	oVFHR1e4SjmXahvxke3Cyb6qv9nvIdJz0Jaua8pxL4tQmB+RhsZ/gI5YbY6QzjGh7qAgJxTzqsz1a
-	mxXhi+oBIFan5npbyFkLXxTLI3iAxXRh5MhsNqtOhadeTBuzH1CErqriudWOgl104P7s23YXKSCN3
-	MLqWo4Vda8O48UEyVYSw==;
+	List-Owner; bh=Pghigyblac/HcuCmvvUl4V7mEwJE9osSNKCb8nOLNQs=; b=ZVwMCAg2lSHQIY
+	A9TwvYe8snV+6U9p5MCmibAi0ksm7vwjBW6h7caxGQk1U3HO3Bef+wWFT7fVoOofzD2lhxb6Rkr5r
+	hX4PzL6nT1MmX+qbvNaVLLTBsp9ERjkt1B2Tk5TyvzIxHGp+sj7pRBOurSuUg3HyXvYioWSFG5a2X
+	M8QIpNqA+uC6o2fnqGBLX6MuUqMYRMJWseWjZgSH3NwBxetVD2y0piL++iMkwtEzQQndNMnWg2S9Z
+	yx40GZvHB3kA8KWvZDjvlnfJWwGgIFBh+puhD4pEzu5FqMOWPwT4yXh9eaoYJlSv4fA5eOaiZCPye
+	OaeM4tNM1XGRuoj9+j6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nysyQ-00Clvy-HF; Wed, 08 Jun 2022 10:31:38 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1nytCa-00CpHf-79; Wed, 08 Jun 2022 10:46:16 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nysuq-00CkF9-QT
-	for linux-riscv@lists.infradead.org; Wed, 08 Jun 2022 10:27:58 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id B1A09B80DA1;
-	Wed,  8 Jun 2022 10:27:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77D39C34116;
-	Wed,  8 Jun 2022 10:27:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654684071;
-	bh=lS1qiuHW0eqGC4UvSS41hSkG8X/ge0lN3jktBcbYpeQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=uIzDWzysJK3RpgucV/+5VsGzXWxaO6fP5yGSEYPvIXJmwtFHICwP48/4/V0OOTRWs
-	 6sUs9zuTTWBK5+s5+3/qI2qGZO8sSOOa89OCEuAWV2/5Pnt7YCsr5sjuZnVkQ2PO4i
-	 e4CfjWU7p05jkRgdaNKSSNjnelPKCFy9gCLGu1/fGmdgRVoZIbhUIgW1xfHk1mh7LJ
-	 5FHKBjNtVBqhEXyUofAD6rnv0kLRf3qc8VSaOpfZE9cqrsrx1DpwPg72MUApltdLBs
-	 kHrRRFplY42lOdHA1gMj1No+GJviikzawkmpP2TvrCYYoaS8D+OqzTDtzeWAwazsKp
-	 DxThBFjep7hzQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <maz@kernel.org>)
-	id 1nysui-00GZgf-22; Wed, 08 Jun 2022 11:27:49 +0100
-Date: Wed, 08 Jun 2022 11:27:47 +0100
-Message-ID: <87leu74fh8.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Sagar Kadam <sagar.kadam@sifive.com>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
-	Phil Edworthy <phil.edworthy@renesas.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>
-Subject: Re: [PATCH RFC 2/2] irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
-In-Reply-To: <CA+V-a8sRW7oUmwOmzBx8cpk+n=cRofh3vT1cmroH_ESHN+Z3YA@mail.gmail.com>
-References: <20220524172214.5104-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-	<20220524172214.5104-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-	<CA+V-a8vfzsB55YdFmtx3eim617b=WCYJu+Tm3SO9c1QCB3i0Lw@mail.gmail.com>
-	<87r1414x5f.wl-maz@kernel.org>
-	<CA+V-a8sRW7oUmwOmzBx8cpk+n=cRofh3vT1cmroH_ESHN+Z3YA@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: prabhakar.csengg@gmail.com, geert+renesas@glider.be, prabhakar.mahadev-lad.rj@bp.renesas.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, sagar.kadam@sifive.com, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, phil.edworthy@renesas.com, biju.das.jz@bp.renesas.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1nytCW-00CpFa-SI
+	for linux-riscv@lists.infradead.org; Wed, 08 Jun 2022 10:46:14 +0000
+Received: from fraeml712-chm.china.huawei.com (unknown [172.18.147.206])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4LJ3hH55gqz67jfG;
+	Wed,  8 Jun 2022 18:42:23 +0800 (CST)
+Received: from lhreml724-chm.china.huawei.com (10.201.108.75) by
+ fraeml712-chm.china.huawei.com (10.206.15.61) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Wed, 8 Jun 2022 12:45:56 +0200
+Received: from [10.47.90.54] (10.47.90.54) by lhreml724-chm.china.huawei.com
+ (10.201.108.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Wed, 8 Jun
+ 2022 11:45:55 +0100
+Message-ID: <9e981523-6032-fd24-08f9-0ef771cd1c2e@huawei.com>
+Date: Wed, 8 Jun 2022 11:45:53 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.6.1
+Subject: Re: [PATCH v3 3/4] RISC-V: Added generic pmu-events mapfile
+To: Nikita Shubin <nikita.shubin@maquefel.me>
+CC: Genevieve Chan <genevieve.chan@starfivetech.com>,
+	=?UTF-8?B?Sm/Do28gTcOhcmlvIERvbWluZ29z?= <joao.mario@tecnico.ulisboa.pt>,
+	Nikita Shubin <n.shubin@yadro.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, "Namhyung
+ Kim" <namhyung@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, open list
+	<linux-kernel@vger.kernel.org>, "open list:PERFORMANCE EVENTS SUBSYSTEM"
+	<linux-perf-users@vger.kernel.org>, "open list:RISC-V ARCHITECTURE"
+	<linux-riscv@lists.infradead.org>
+References: <20220607131648.29439-1-nikita.shubin@maquefel.me>
+ <20220607131648.29439-4-nikita.shubin@maquefel.me>
+From: John Garry <john.garry@huawei.com>
+In-Reply-To: <20220607131648.29439-4-nikita.shubin@maquefel.me>
+X-Originating-IP: [10.47.90.54]
+X-ClientProxiedBy: lhreml744-chm.china.huawei.com (10.201.108.194) To
+ lhreml724-chm.china.huawei.com (10.201.108.75)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220608_032757_235738_D61619B4 
-X-CRM114-Status: GOOD (  28.38  )
+X-CRM114-CacheID: sfid-20220608_034613_232164_84382716 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,92 +76,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 07 Jun 2022 13:41:16 +0100,
-"Lad, Prabhakar" <prabhakar.csengg@gmail.com> wrote:
-> 
-> Hi Marc,
-> 
-> On Mon, Jun 6, 2022 at 4:41 PM Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Fri, 27 May 2022 12:05:38 +0100,
-> > "Lad, Prabhakar" <prabhakar.csengg@gmail.com> wrote:
-> > >
-> > > I sometimes still see an interrupt miss!
-> > >
-> > > As per [0], we first need to claim the interrupt by reading the claim
-> > > register which needs to be done in the ack callback (which should be
-> > > doable) for edge interrupts, but the problem arises in the chained
-> > > handler callback where it does claim the interrupt by reading the
-> > > claim register.
-> > >
-> > > static void plic_handle_irq(struct irq_desc *desc)
-> > > {
-> > >     struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-> > >     struct irq_chip *chip = irq_desc_get_chip(desc);
-> > >     void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
-> > >     irq_hw_number_t hwirq;
-> > >
-> > >     WARN_ON_ONCE(!handler->present);
-> > >
-> > >     chained_irq_enter(chip, desc);
-> > >
-> > >     while ((hwirq = readl(claim))) {
-> > >         int err = generic_handle_domain_irq(handler->priv->irqdomain,
-> > >                             hwirq);
-> > >         if (unlikely(err))
-> > >             pr_warn_ratelimited("can't find mapping for hwirq %lu\n",
-> > >                     hwirq);
-> > >     }
-> > >
-> > >     chained_irq_exit(chip, desc);
-> > > }
-> > >
-> > > I was thinking I would get around by getting the irqdata in
-> > > plic_handle_irq() callback using the irq_desc (struct irq_data *d =
-> > > &desc->irq_data;) and check the d->hwirq but this will be always 9.
-> > >
-> > >         plic: interrupt-controller@12c00000 {
-> > >             compatible = "renesas-r9a07g043-plic";
-> > >             #interrupt-cells = <2>;
-> > >             #address-cells = <0>;
-> > >             riscv,ndev = <543>;
-> > >             interrupt-controller;
-> > >             reg = <0x0 0x12c00000 0 0x400000>;
-> > >             clocks = <&cpg CPG_MOD R9A07G043_NCEPLIC_ACLK>;
-> > >             clock-names = "plic100ss";
-> > >             power-domains = <&cpg>;
-> > >             resets = <&cpg R9A07G043_NCEPLIC_ARESETN>;
-> > >             interrupts-extended = <&cpu0_intc 11 &cpu0_intc 9>;
-> > >         };
-> > >
-> > > Any pointers on how this could be done sanely.
-> >
-> > Why doesn't the chained interrupt also get the ack-aware irq_chip?
-> >
-> Sorry for being naive, could you please elaborate on this.
-
-There are two main reasons why the above code fails: these interrupts
-are not using either
-
-- the irqchip you think they are using (which one then?),
-
-- the interrupt flow they should be using.
-
-Dumping /sys/kernel/debug/irq/irqs/$IRQ should give you a clue.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMDcvMDYvMjAyMiAxNDoxNiwgTmlraXRhIFNodWJpbiB3cm90ZToKPiBGcm9tOiBKb8OjbyBN
+w6FyaW8gRG9taW5nb3MgPGpvYW8ubWFyaW9AdGVjbmljby51bGlzYm9hLnB0Pgo+IAo+IFRoZSBw
+bXUtZXZlbnRzIG5vdyBzdXBwb3J0cyBjdXN0b20gZXZlbnRzIGZvciBSSVNDLVYsIHBsdXMgdGhl
+IGN5Y2xlLAo+IHRpbWUgYW5kIGluc3RyZXQgZXZlbnRzIHdlcmUgZGVmaW5lZC4KPiAKPiBTaWdu
+ZWQtb2ZmLWJ5OiBKb8OjbyBNw6FyaW8gRG9taW5nb3MgPGpvYW8ubWFyaW9AdGVjbmljby51bGlz
+Ym9hLnB0Pgo+IFRlc3RlZC1ieTogTmlraXRhIFNodWJpbiA8bi5zaHViaW5AeWFkcm8uY29tPgo+
+IC0tLQo+ICAgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvbWFwZmlsZS5jc3YgIHwg
+MTQgKysrKysrKysrKysrKwo+ICAgLi4uL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9yaXNjdi1nZW5l
+cmljLmpzb24gIHwgMjAgKysrKysrKysrKysrKysrKysrKwo+ICAgMiBmaWxlcyBjaGFuZ2VkLCAz
+NCBpbnNlcnRpb25zKCspCj4gICBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9wbXUtZXZl
+bnRzL2FyY2gvcmlzY3YvbWFwZmlsZS5jc3YKPiAgIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9w
+ZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9yaXNjdi1nZW5lcmljLmpzb24KPiAKPiBkaWZmIC0t
+Z2l0IGEvdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvbWFwZmlsZS5jc3YgYi90b29s
+cy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9tYXBmaWxlLmNzdgo+IG5ldyBmaWxlIG1vZGUg
+MTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi40ZjJhYTE5OWQ5Y2IKPiAtLS0gL2Rldi9udWxs
+Cj4gKysrIGIvdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvbWFwZmlsZS5jc3YKPiBA
+QCAtMCwwICsxLDE0IEBACj4gKyMgRm9ybWF0Ogo+ICsjCU1JRFIsVmVyc2lvbixKU09OL2ZpbGUv
+cGF0aG5hbWUsVHlwZQo+ICsjCj4gKyMgd2hlcmUKPiArIwlNSURSCVByb2Nlc3NvciB2ZXJzaW9u
+CgpBUk0sIG5vPwoKPiArIwkJVmFyaWFudFsyMzoyMF0gYW5kIFJldmlzaW9uIFszOjBdIHNob3Vs
+ZCBiZSB6ZXJvLgo+ICsjCVZlcnNpb24gY291bGQgYmUgdXNlZCB0byB0cmFjayB2ZXJzaW9uIG9m
+IEpTT04gZmlsZQo+ICsjCQlidXQgY3VycmVudGx5IHVudXNlZC4KPiArIwlKU09OL2ZpbGUvcGF0
+aG5hbWUgaXMgdGhlIHBhdGggdG8gSlNPTiBmaWxlLCByZWxhdGl2ZQo+ICsjCQl0byB0b29scy9w
+ZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi8uCj4gKyMJVHlwZSBpcyBjb3JlLCB1bmNvcmUgZXRj
+Cj4gKyMKPiArIwo+ICsjRmFtaWx5LW1vZGVsLFZlcnNpb24sRmlsZW5hbWUsRXZlbnRUeXBlCj4g
+ZGlmZiAtLWdpdCBhL3Rvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3Jpc2N2LWdlbmVy
+aWMuanNvbiBiL3Rvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3Jpc2N2LWdlbmVyaWMu
+anNvbgo+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4gaW5kZXggMDAwMDAwMDAwMDAwLi4wMTNlNTBl
+ZmFkOTkKPiAtLS0gL2Rldi9udWxsCj4gKysrIGIvdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gv
+cmlzY3YvcmlzY3YtZ2VuZXJpYy5qc29uCgp3aGVyZSBvciBob3cgYXJlIHRoZXNlIHJlZmVyZW5j
+ZWQ/Cgo+IEBAIC0wLDAgKzEsMjAgQEAKPiArWwo+ICsgIHsKPiArICAgICJQdWJsaWNEZXNjcmlw
+dGlvbiI6ICJDUFUgQ3ljbGVzIiwKPiArICAgICJFdmVudENvZGUiOiAiMHgwMCIsCj4gKyAgICAi
+RXZlbnROYW1lIjogInJpc2N2X2N5Y2xlcyIsCj4gKyAgICAiQnJpZWZEZXNjcmlwdGlvbiI6ICJD
+UFUgY3ljbGVzIFJJU0MtViBnZW5lcmljIGNvdW50ZXIiCj4gKyAgfSwKPiArICB7Cj4gKyAgICAi
+UHVibGljRGVzY3JpcHRpb24iOiAiQ1BVIFRpbWUiLAo+ICsgICAgICAiRXZlbnRDb2RlIjogIjB4
+MDEiLAo+ICsgICAgICAiRXZlbnROYW1lIjogInJpc2N2X3RpbWUiLAo+ICsgICAgICAiQnJpZWZE
+ZXNjcmlwdGlvbiI6ICJDUFUgdGltZSBSSVNDLVYgZ2VuZXJpYyBjb3VudGVyIgo+ICsgIH0sCj4g
+KyAgewo+ICsgICAgIlB1YmxpY0Rlc2NyaXB0aW9uIjogIkNQVSBJbnN0cnVjdGlvbnMiLAo+ICsg
+ICAgICAiRXZlbnRDb2RlIjogIjB4MDIiLAo+ICsgICAgICAiRXZlbnROYW1lIjogInJpc2N2X2lu
+c3RyZXQiLAo+ICsgICAgICAiQnJpZWZEZXNjcmlwdGlvbiI6ICJDUFUgcmV0aXJlZCBpbnN0cnVj
+dGlvbnMgUklTQy1WIGdlbmVyaWMgY291bnRlciIKPiArICB9Cj4gK10KPiBcIE5vIG5ld2xpbmUg
+YXQgZW5kIG9mIGZpbGUKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
