@@ -4,120 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E9EC43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:21:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA8FEC43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vX4jouxKazFIPcS+2+E1NTuU7Jc0DWy9530wetmsEHg=; b=wJwCTILM9qZFiG
-	C+fPMXZ9mca4V1EqOQfmeJcYk+dLESTtqGnljQ4yAziHi+LVBtHCe+K0jiI1wc1/S/CoH3IQ3S0pB
-	OO+thsbMkzqhpTiwNPjHrgqJO7aiw/7JS/N6+mXLPnKF0VYHrX5H0daaLvb5Uax/8OvJtpkYjq/cu
-	nt2n9U4Q4vkpfsKv4Soxxu6o8zrwnJbZAnmOtPCWrP4zOw5oTrKCS02BDhv/ONXRdI0WW78aiqGoK
-	o9gdbM990v/o/TgIx6hlbIwOwa5WgwtFSV6rC1RQv6TvK7tH2WULH96YwIoajK/yeQBd7FAg5bFm4
-	9KjtADvE5ud8T2ryk0nQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0MReCJRaXGlXav8t68+rPAZ+WRrLe0ZwMYXCFs9zyxE=; b=djRaB0H6PxWDpD
+	0KSQu8inpe9g2yKO8WXlk01z4dUmphd3qULIqHnRfyygL3ktKuUEbT8LKHl7WyijTT3OaxblalZXf
+	Nznpats+7TETRICuw5i+mzXoKx2nxfBT243vXLQv3PBVOPKX6NRgtcWIulSX+YzV7tLH3Cha/Uo+R
+	tgCq6yImvazF38ZcpUaaEvV9lMUusAGJUGMB2AN4WTVlOTtENk1drJPYnfebyUZsCOgvcs+6tGWi9
+	iNYlnIHzbi8/f1SY5A2L1BfR3Anidos21xo9PH3fMC+i6FXNDladb9hDEcxLuUDSuAOWm0nIGWVBD
+	Sl7ITJ2c9gOUwRn5ssJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyyRC-00EH6i-9O; Wed, 08 Jun 2022 16:21:42 +0000
-Received: from mail-yb1-f182.google.com ([209.85.219.182])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyyEm-00EDMm-KZ; Wed, 08 Jun 2022 16:08:54 +0000
-Received: by mail-yb1-f182.google.com with SMTP id i39so9271038ybj.9;
-        Wed, 08 Jun 2022 09:08:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=kprufSUtg2c0Z0Z7k//OQq4qpvnNTKXHCWDLteZACkI=;
-        b=t2rvv39Xi8qWCobHy/jZHxl5vPQVSGb6N8OsTCfNTBY/kHxbpANNbaVlMrEnSYO81Q
-         9ZjnNUOP6Q+4H66MUHdN5M53urgjHhdmk2BrPXWT0zCUUj6xIBhql/F7IxSVxx7aTuGe
-         QtCmoC0xVoIJ4BZM+GRM4ZqKojcGYpN2H4qM1ILailbBT+olKqlYHHyBTgfaBcOcVF/1
-         bK6cQv9qNcfM1CDUeVBG7mjBhdRzScyfiu50lWgMd+K417HrpKnHLeP4Y9OIOvMfkBjx
-         jnlErTSfMozO+qUJP0H6mFCtYw0KN3+fM8Ex3YGj0eAzqFNgKyQDxGiOnjeH1+jAzY9A
-         8N7g==
-X-Gm-Message-State: AOAM530+c2Ls7QrC1MYMT+ORmn4aYBnpW45auACMqxVXcbJTN8EM+fXD
-	gaZnUKDeBHL5XKWgJWza/LGo2JXPCKHF68AMuJk=
-X-Google-Smtp-Source: ABdhPJyG4ZT1DjeY4ERw/W2efwDb4GS4TUltgXoK23+ZW/CgpHQ75Z+ngY7GcqUaxeuwjXh809zcJPBimQ/BOSJe/30=
-X-Received: by 2002:a25:d98b:0:b0:65c:9dc9:7a8f with SMTP id
- q133-20020a25d98b000000b0065c9dc97a8fmr34529681ybg.622.1654704528580; Wed, 08
- Jun 2022 09:08:48 -0700 (PDT)
+	id 1nyyUj-00EI98-CT; Wed, 08 Jun 2022 16:25:21 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nyyUX-00EI4w-Qe; Wed, 08 Jun 2022 16:25:11 +0000
+Received: from pwmachine.home (154.pool92-186-13.dynamic.orange.es [92.186.13.154])
+	by linux.microsoft.com (Postfix) with ESMTPSA id CF4D620BE61B;
+	Wed,  8 Jun 2022 09:25:01 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com CF4D620BE61B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1654705506;
+	bh=ew5GzO4FE+U+0SWUgqG4Xavp3v72gNEOJF0LnOkp+rw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Fd3VFGu9AwImhcqGxwixF/Ih8YO5xFjwkPRdgo/nzbzT+c7gxHGAWKvdcoG68zMBf
+	 R8LQMhgA/iStrvVoqt+B3eafaBIS4wMAhU23QY++PkFhMBGge194PNWzfgRjaXQKgZ
+	 SqfNtFkJ8k9ZfBwctAkBG/1sB6uqewzgB3RIi1yM=
+From: Francis Laniel <flaniel@linux.microsoft.com>
+To: linux-trace-devel@vger.kernel.org
+Cc: James Morse <james.morse@arm.com>,
+	Daniel Kiss <daniel.kiss@arm.com>,
+	Francis Laniel <flaniel@linux.microsoft.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Mark Brown <broonie@kernel.org>,
+	Peter Collingbourne <pcc@google.com>,
+	Kees Cook <keescook@chromium.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 0/1] Remove forget_syscall() from start_thread_common()
+Date: Wed,  8 Jun 2022 17:24:45 +0100
+Message-Id: <20220608162447.666494-1-flaniel@linux.microsoft.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20220608142723.103523089@infradead.org> <20220608144516.172460444@infradead.org>
- <CAJZ5v0gW-zD8Mgghy70f3rFz0QoozCwZ9idyrqtFgA6SWHK5XQ@mail.gmail.com> <YqDEwMDSL1YXdHFH@hirez.programming.kicks-ass.net>
-In-Reply-To: <YqDEwMDSL1YXdHFH@hirez.programming.kicks-ass.net>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Wed, 8 Jun 2022 18:08:37 +0200
-Message-ID: <CAJZ5v0hFfhxjp5cVNz+JSWcWx5ga1cDccmsqKAVgxp-JWs9upg@mail.gmail.com>
-Subject: Re: [PATCH 04/36] cpuidle,intel_idle: Fix CPUIDLE_FLAG_IRQ_ENABLE
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, rth@twiddle.net, ink@jurassic.park.msu.ru, 
-	mattst88@gmail.com, vgupta@kernel.org, 
-	Russell King - ARM Linux <linux@armlinux.org.uk>, ulli.kroll@googlemail.com, 
-	Linus Walleij <linus.walleij@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Sascha Hauer <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, dl-linux-imx <linux-imx@nxp.com>, Tony Lindgren <tony@atomide.com>, 
-	Kevin Hilman <khilman@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, bcain@quicinc.com, 
-	Huacai Chen <chenhuacai@kernel.org>, kernel@xen0n.name, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, sammy@sammy.net, Michal Simek <monstr@monstr.eu>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, dinguyen@kernel.org, jonas@southpole.se, 
-	stefan.kristiansson@saunalahti.fi, Stafford Horne <shorne@gmail.com>, 
-	James Bottomley <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
-	Rich Felker <dalias@libc.org>, David Miller <davem@davemloft.net>, 
-	Richard Weinberger <richard@nod.at>, anton.ivanov@cambridgegreys.com, 
-	Johannes Berg <johannes@sipsolutions.net>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "the arch/x86 maintainers" <x86@kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, acme@kernel.org, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, jolsa@kernel.org, namhyung@kernel.org, 
-	Juergen Gross <jgross@suse.com>, srivatsa@csail.mit.edu, amakhalov@vmware.com, 
-	pv-drivers@vmware.com, Boris Ostrovsky <boris.ostrovsky@oracle.com>, chris@zankel.net, 
-	jcmvbkbc@gmail.com, Len Brown <lenb@kernel.org>, Pavel Machek <pavel@ucw.cz>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, lpieralisi@kernel.org, 
-	Sudeep Holla <sudeep.holla@arm.com>, Andy Gross <agross@kernel.org>, 
-	Bjorn Andersson <bjorn.andersson@linaro.org>, Anup Patel <anup@brainfault.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jon Hunter <jonathanh@nvidia.com>, 
-	Jacob Pan <jacob.jun.pan@linux.intel.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Yury Norov <yury.norov@gmail.com>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steven Rostedt <rostedt@goodmis.org>, 
-	Petr Mladek <pmladek@suse.com>, senozhatsky@chromium.org, 
-	John Ogness <john.ogness@linutronix.de>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Frederic Weisbecker <frederic@kernel.org>, quic_neeraju@quicinc.com, 
-	Josh Triplett <josh@joshtriplett.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Lai Jiangshan <jiangshanlai@gmail.com>, Joel Fernandes <joel@joelfernandes.org>, 
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Benjamin Segall <bsegall@google.com>, 
-	Mel Gorman <mgorman@suse.de>, Daniel Bristot de Oliveira <bristot@redhat.com>, vschneid@redhat.com, 
-	jpoimboe@kernel.org, linux-alpha@vger.kernel.org, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-snps-arc@lists.infradead.org, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux OMAP Mailing List <linux-omap@vger.kernel.org>, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, 
-	linux-m68k <linux-m68k@lists.linux-m68k.org>, 
-	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, openrisc@lists.librecores.org, 
-	Parisc List <linux-parisc@vger.kernel.org>, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390@vger.kernel.org, 
-	Linux-sh list <linux-sh@vger.kernel.org>, sparclinux@vger.kernel.org, 
-	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	virtualization@lists.linux-foundation.org, xen-devel@lists.xenproject.org, 
-	linux-xtensa@linux-xtensa.org, 
-	ACPI Devel Maling List <linux-acpi@vger.kernel.org>, Linux PM <linux-pm@vger.kernel.org>, 
-	linux-clk <linux-clk@vger.kernel.org>, linux-arm-msm <linux-arm-msm@vger.kernel.org>, 
-	linux-tegra <linux-tegra@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>, 
-	rcu@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220608_090852_739902_1F971A50 
-X-CRM114-Status: GOOD (  21.50  )
-X-Mailman-Approved-At: Wed, 08 Jun 2022 09:20:15 -0700
+X-CRM114-CacheID: sfid-20220608_092509_980222_6E843626 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,32 +77,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 8, 2022 at 5:48 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> On Wed, Jun 08, 2022 at 05:01:05PM +0200, Rafael J. Wysocki wrote:
-> > On Wed, Jun 8, 2022 at 4:47 PM Peter Zijlstra <peterz@infradead.org> wrote:
-> > >
-> > > Commit c227233ad64c ("intel_idle: enable interrupts before C1 on
-> > > Xeons") wrecked intel_idle in two ways:
-> > >
-> > >  - must not have tracing in idle functions
-> > >  - must return with IRQs disabled
-> > >
-> > > Additionally, it added a branch for no good reason.
-> > >
-> > > Fixes: c227233ad64c ("intel_idle: enable interrupts before C1 on Xeons")
-> > > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> >
-> > Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> >
-> > And do I think correctly that this can be applied without the rest of
-> > the series?
->
-> Yeah, I don't think this relies on any of the preceding patches. If you
-> want to route this through the pm/fixes tree that's fine.
+Hi.
 
-OK, thanks, applied (and I moved the intel_idle() kerneldoc so it is
-next to the function to avoid the docs build warning).
+
+First, I hope you are fine and the same for your relatives.
+
+With this contribution, I enabled using syscalls:sys_exit_execve and
+syscalls:sys_exit_execveat as tracepoints on arm64.
+Indeed, before this contribution, the above tracepoint would not print their
+information as syscall number was set to -1 by calling forget_syscall().
+
+I tested it by compiling a kernel for arm64 and running it within a VM:
+# Perf was compiled with linux kernel source.
+root@vm-arm64:~# perf record -ag -e 'syscalls:sys_exit_execve' -e 'syscalls:sys_enter_execve' &
+[1] 263
+root@vm-arm64:~# ls
+perf.data  share
+root@vm-arm64:~# fg
+perf record -ag -e 'syscalls:sys_exit_execve' -e 'syscalls:sys_enter_execve'
+^C[ perf record: Woken up 1 times to write data ]
+[ perf record: Captured and wrote 0.061 MB perf.data (2 samples) ]
+root@vm-arm64:~# perf script
+bash   264 [000]    66.220187: syscalls:sys_enter_execve: filename: 0xaaab05d9d
+...
+# Below line does not appear without this patch.
+ls   264 [000]    66.226848:  syscalls:sys_exit_execve: 0x0
+...
+
+Forgetting the syscall number before starting a new thread was confirmed to be
+a bug [1].
+Particularly, the following architectures do not forget the syscall number
+before starting a new thread:
+* arm (32 bits) EABI: start_thread() sets r7 to previous r7 for ELF FDPIC  and
+to 0 for other binfmts [2].
+* arm (32 bits) OABI: syscall number is set to -1 if
+ptrace_report_syscall_entry() failed [3].
+* mips: start_thread() does not modify current_thread_info->syscall which is
+taken directly from v0 [4, 5].
+* riscv: start_thread() does not modify a7 [6].
+* x86_64: start_thread_common() does not touch orig_ax which seems to contain
+the syscall number [7].
+
+If you see any way to improve this contribution, feel free to share!
+
+Change since:
+v1:
+ * Remove call to forget_syscall() and store previous syscall number in
+ regs->syscallno unconditionnaly.
+
+Francis Laniel (1):
+  arm64: Do not forget syscall when starting a new thread.
+
+ arch/arm64/include/asm/processor.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+
+Best regards and thank you in advance.
+---
+[1] https://lore.kernel.org/linux-arm-kernel/YoT1iLPEbteRTQGZ@arm.com/
+[2] https://elixir.bootlin.com/linux/v5.18-rc6/source/arch/arm/include/asm/
+processor.h#L52
+[3] https://elixir.bootlin.com/linux/v5.18-rc6/source/arch/arm/kernel/
+ptrace.c#L847
+[4] https://elixir.bootlin.com/linux/v5.18-rc6/source/arch/mips/kernel/
+process.c#L52
+[5] https://elixir.bootlin.com/linux/v5.18-rc6/source/arch/mips/kernel/
+scall64-n64.S#L85
+[6] https://elixir.bootlin.com/linux/v5.18-rc6/source/arch/riscv/kernel/
+process.c#L87
+[7] https://elixir.bootlin.com/linux/v5.18-rc6/source/arch/x86/kernel/
+process_64.c#L505
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
