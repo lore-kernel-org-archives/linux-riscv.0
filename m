@@ -4,115 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EE9C43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 14:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27C0C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 14:41:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xEBL3JQhqxyum10WlU++gNNBtft2ctMio/zorO2hkUU=; b=JrO0Y+7Mw37UZF
-	mFfC7lowoeXlr5cBkWkBgcFQa225IHTaf5etELQREqUaNXUi9ZFmqNXd7P83N/WqyY+6BI22bfc7B
-	giZivKuMNWQYpBj+kuUvp7AYYgEifPhDX8FrBrawugguRCTyrw2mQOi28fAUgugfULx6sdnPVLIj6
-	4Bw15S+NcZNigaYIhUXUCP9boKNHq4RJ2SluuaMlJss7HlD066mIbZvrji1pOV2zsM4iggbCUa3XH
-	0wAx9elANl97S2VyzVwpb3OWdS+BOAf7Eqz3EgE3xHnKaCDZ+AAaepslgpkSGOrf/55KQRPjnur9/
-	89kSBF2h3VVbc+EYnGVQ==;
+	List-Owner; bh=nPFM8xynkGxgXlIWvAFBkIRSMqWGJX82B95x8ZlRLVA=; b=OMHxe0sNsBDrG2
+	zml1HyKs/J4ZT8xjVuCqPab9P/8HMim1nXgnEWSbsgbfotxIsSXMyopFXKj9VMCKUP39ScOajN5B2
+	QGH2KLHXS1Je9uL5V7k9uZpR5N9deHn+ZCeWIzXLEFfheGSsp6k+AlF0h+cSjTnNSaU5EldT7X9OC
+	1XSHeKQ48OIb305UWtdmo7VAdYeOJB4B+v/AUsUnkROoaxlvaILPLVjRZ2pSzX/k+XqvnWJYiMBSo
+	XZeaOQjI18reuGq4vp1hfxfWCdXnO/H2tq3Ln+X7oXU5IWdAiqoFiYTxyqn5pmFOfe0EZo1sD8Bds
+	YomFxDr+0MqlPwu4zB3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywZ7-00Dg5e-AB; Wed, 08 Jun 2022 14:21:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1nywsH-00DifZ-DS; Wed, 08 Jun 2022 14:41:33 +0000
+Received: from forward500j.mail.yandex.net ([5.45.198.250])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywZ2-00Dg2t-S3; Wed, 08 Jun 2022 14:21:42 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id CF57461B1C;
-	Wed,  8 Jun 2022 14:21:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33A51C34116;
-	Wed,  8 Jun 2022 14:21:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654698097;
-	bh=1qpAEjSAq5djkkmLyIM6rUzEBFpBwb5S8o8YQ4yPKWA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=f+5uNDkmztVja1h70Kf8HEKtlvbSFHPe7GufnVlMvMkA7EPZj1hNREAoLZkLn4yMZ
-	 6bQ50bNMEBhe4ElBm12ffDV3hbaNZWOfcPkkH6bD1GJ7qTD49z3ahsgnNBTvpURWx5
-	 rrvu5QDBi4lRbKEy6EZew4PC7oAb8cDKq8Fbm+3bojZb/vbBuJ9tfwqhpbvZdjxTl3
-	 y+uNV/KGl545f2ZW+p6SVfNeUdQ8cwc6SLEJ01DZ+ERUPHKg87AJa/IPMGV7vQAvac
-	 xZpWEpxQFIZUDnAYuJHwAFDjwTFYVd/DGOvZKjhTQTx1jhQ+TBRkABL3RxqqFRF6Ed
-	 MNrXttwyxlWig==
-Date: Wed, 8 Jun 2022 23:21:15 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Guo Ren <guoren@kernel.org>, Jarkko Sakkinen <jarkko@profian.com>, Linux
- Kernel Mailing List <linux-kernel@vger.kernel.org>, Nathaniel McCallum
- <nathaniel@profian.com>, Russell King <linux@armlinux.org.uk>, Catalin
- Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley"
- <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>,
- Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt
- <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>,
- Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
- <agordeev@linux.ibm.com>, Christian Borntraeger
- <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
- "David S. Miller" <davem@davemloft.net>, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
- <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, the arch/x86
- maintainers <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>,
- "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Anil S Keshavamurthy
- <anil.s.keshavamurthy@intel.com>, Masami Hiramatsu <mhiramat@kernel.org>,
- Luis Chamberlain <mcgrof@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
- Kees Cook <keescook@chromium.org>, "Peter Zijlstra (Intel)"
- <peterz@infradead.org>, Nathan Chancellor <nathan@kernel.org>, Josh
- Poimboeuf <jpoimboe@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- "Eric W. Biederman" <ebiederm@xmission.com>, Marco Elver
- <elver@google.com>, Dan Li <ashimida@linux.alibaba.com>, Sami Tolvanen
- <samitolvanen@google.com>, Song Liu <song@kernel.org>, Ard Biesheuvel
- <ardb@kernel.org>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Nick Desaulniers <ndesaulniers@google.com>, Linus Walleij
- <linus.walleij@linaro.org>, Chen Zhongjin <chenzhongjin@huawei.com>,
- Nicolas Pitre <nico@fluxnic.net>, Mark Brown <broonie@kernel.org>, Luis
- Machado <luis.machado@linaro.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Joey Gouly <joey.gouly@arm.com>, Masahiro Yamada
- <masahiroy@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Andrey
- Konovalov <andreyknvl@gmail.com>, Kefeng Wang <wangkefeng.wang@huawei.com>,
- Atsushi Nemoto <anemo@mba.ocn.ne.jp>, Guenter Roeck <linux@roeck-us.net>,
- Dave Anglin <dave.anglin@bell.net>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Alexei Starovoitov <ast@kernel.org>,
- Nicholas Piggin <npiggin@gmail.com>, Daniel Axtens <dja@axtens.net>,
- "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, Jordan Niethe
- <jniethe5@gmail.com>, Anup Patel <anup@brainfault.org>, Atish Patra
- <atishp@atishpatra.org>, Changbin Du <changbin.du@intel.com>, Heiko
- Stuebner <heiko@sntech.de>, Liao Chang <liaochang1@huawei.com>, Philipp
- Tomsich <philipp.tomsich@vrull.eu>, Wu Caize <zepan@sipeed.com>, Emil
- Renner Berthing <kernel@esmil.dk>, Alexander Egorenkov
- <egorenar@linux.ibm.com>, Thomas Richter <tmricht@linux.ibm.com>, Tobias
- Huschle <huschle@linux.ibm.com>, Ilya Leoshkevich <iii@linux.ibm.com>, Tom
- Lendacky <thomas.lendacky@amd.com>, Daniel Bristot de Oliveira
- <bristot@redhat.com>, Michael Roth <michael.roth@amd.com>,
- "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Javier Martinez
- Canillas <javierm@redhat.com>, Miroslav Benes <mbenes@suse.cz>,
- =?UTF-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>, Tiezhu Yang
- <yangtiezhu@loongson.cn>, Dmitry Torokhov <dmitry.torokhov@gmail.com>,
- Aaron Tomlin <atomlin@redhat.com>, Linux ARM
- <linux-arm-kernel@lists.infradead.org>, "open list:BROADCOM NVRAM DRIVER"
- <linux-mips@vger.kernel.org>, Parisc List <linux-parisc@vger.kernel.org>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, linux-riscv
- <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>,
- sparclinux <sparclinux@vger.kernel.org>, linux-modules@vger.kernel.org
-Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
-Message-Id: <20220608232115.ccd4399f4a1d133e9b65c2a9@kernel.org>
-In-Reply-To: <YqAy0qjI4Lktk/uJ@iki.fi>
-References: <20220608000014.3054333-1-jarkko@profian.com>
-	<CAJF2gTQgCn2CyZ4+VBqEEBT2b4+1KxoEXxrd+Ritk=58+U8EFA@mail.gmail.com>
-	<YqAy0qjI4Lktk/uJ@iki.fi>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
+	id 1nywsD-00Diaw-0I
+	for linux-riscv@lists.infradead.org; Wed, 08 Jun 2022 14:41:32 +0000
+Received: from myt5-ca6a6e6c0c8f.qloud-c.yandex.net (myt5-ca6a6e6c0c8f.qloud-c.yandex.net [IPv6:2a02:6b8:c12:3b1a:0:640:ca6a:6e6c])
+	by forward500j.mail.yandex.net (Yandex) with ESMTP id E12756CB67AF;
+	Wed,  8 Jun 2022 17:41:14 +0300 (MSK)
+Received: from myt6-016ca1315a73.qloud-c.yandex.net (myt6-016ca1315a73.qloud-c.yandex.net [2a02:6b8:c12:4e0e:0:640:16c:a131])
+	by myt5-ca6a6e6c0c8f.qloud-c.yandex.net (mxback/Yandex) with ESMTP id jHhEC4bm6W-fBg4bMNT;
+	Wed, 08 Jun 2022 17:41:14 +0300
+X-Yandex-Fwd: 2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail; t=1654699274;
+	bh=kbcWG7z8hVYH/9ji+sJIvTclsAnw9XhdMRAxX2veCeY=;
+	h=In-Reply-To:Subject:Cc:To:From:References:Date:Message-ID;
+	b=d+FYZIQfI623WY4DWp0DvX/qyw9CAjhvrgGyXVEBveQVm2xFf/8wfbjM0Ve6JjP5c
+	 I+W0AufQYClhW2qe6tNXClkucR4AUecvdGN+aEsB1dIg0PBObMWJn3Aemclkq7/nKU
+	 +sRET8c3nyVnamnYBb9Gi8jp/vrWG+ausqsvvH8Y=
+Authentication-Results: myt5-ca6a6e6c0c8f.qloud-c.yandex.net; dkim=pass header.i=@maquefel.me
+Received: by myt6-016ca1315a73.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA id biE6ZnHqZS-fAMuNMp1;
+	Wed, 08 Jun 2022 17:41:10 +0300
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(Client certificate not present)
+Date: Wed, 8 Jun 2022 17:41:07 +0300
+From: Nikita Shubin <nikita.shubin@maquefel.me>
+To: John Garry <john.garry@huawei.com>
+Cc: Genevieve Chan <genevieve.chan@starfivetech.com>, =?UTF-8?B?Sm/Do28g?=
+ =?UTF-8?B?TcOhcmlv?= Domingos <joao.mario@tecnico.ulisboa.pt>, Nikita
+ Shubin <n.shubin@yadro.com>, Peter Zijlstra <peterz@infradead.org>, Ingo
+ Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Mark
+ Rutland <mark.rutland@arm.com>, Alexander Shishkin
+ <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>,
+ "Namhyung Kim" <namhyung@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, Albert
+ Ou <aou@eecs.berkeley.edu>, <linux-kernel@vger.kernel.org>,
+ <linux-perf-users@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+ Atish Patra <atishp@atishpatra.org>
+Subject: Re: [PATCH v3 3/4] RISC-V: Added generic pmu-events mapfile
+Message-ID: <20220608174107.7b94e545@redslave.neermore.group>
+In-Reply-To: <9e981523-6032-fd24-08f9-0ef771cd1c2e@huawei.com>
+References: <20220607131648.29439-1-nikita.shubin@maquefel.me>
+	<20220607131648.29439-4-nikita.shubin@maquefel.me>
+	<9e981523-6032-fd24-08f9-0ef771cd1c2e@huawei.com>
+X-Mailer: Claws Mail 3.17.7 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220608_072141_061378_5C7B9F6F 
-X-CRM114-Status: GOOD (  28.88  )
+X-CRM114-CacheID: sfid-20220608_074129_432608_0D48A07D 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,63 +79,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jarkko,
-
-On Wed, 8 Jun 2022 08:25:38 +0300
-Jarkko Sakkinen <jarkko@kernel.org> wrote:
-
-> On Wed, Jun 08, 2022 at 10:35:42AM +0800, Guo Ren wrote:
-> > .
-> > 
-> > On Wed, Jun 8, 2022 at 8:02 AM Jarkko Sakkinen <jarkko@profian.com> wrote:
-> > >
-> > > Tracing with kprobes while running a monolithic kernel is currently
-> > > impossible because CONFIG_KPROBES is dependent of CONFIG_MODULES.  This
-> > > dependency is a result of kprobes code using the module allocator for the
-> > > trampoline code.
-> > >
-> > > Detaching kprobes from modules helps to squeeze down the user space,
-> > > e.g. when developing new core kernel features, while still having all
-> > > the nice tracing capabilities.
-> > >
-> > > For kernel/ and arch/*, move module_alloc() and module_memfree() to
-> > > module_alloc.c, and compile as part of vmlinux when either CONFIG_MODULES
-> > > or CONFIG_KPROBES is enabled.  In addition, flag kernel module specific
-> > > code with CONFIG_MODULES.
-> > >
-> > > As the result, kprobes can be used with a monolithic kernel.
-> > It's strange when MODULES is n, but vmlinux still obtains module_alloc.
-> > 
-> > Maybe we need a kprobe_alloc, right?
-> 
-> Perhaps not the best name but at least it documents the fact that
-> they use the same allocator.
-> 
-> Few years ago I carved up something "half-way there" for kprobes,
-> and I used the name text_alloc() [*].
-> 
-> [*] https://lore.kernel.org/all/20200724050553.1724168-1-jarkko.sakkinen@linux.intel.com/ 
-
-Yeah, I remember that. Thank you for updating your patch!
-I think the idea (split module_alloc() from CONFIG_MODULE) is good to me.
-If module support maintainers think this name is not good, you may be
-able to rename it as text_alloc() and make the module_alloc() as a
-wrapper of it.
-
-Acked-by: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-for kprobe side.
-
-Thank you,
-
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG8sIEpvaG4uCgpPbiBXZWQsIDggSnVuIDIwMjIgMTE6NDU6NTMgKzAxMDAKSm9obiBHYXJy
+eSA8am9obi5nYXJyeUBodWF3ZWkuY29tPiB3cm90ZToKCj4gT24gMDcvMDYvMjAyMiAxNDoxNiwg
+TmlraXRhIFNodWJpbiB3cm90ZToKPiA+IEZyb206IEpvw6NvIE3DoXJpbyBEb21pbmdvcyA8am9h
+by5tYXJpb0B0ZWNuaWNvLnVsaXNib2EucHQ+Cj4gPiAKPiA+IFRoZSBwbXUtZXZlbnRzIG5vdyBz
+dXBwb3J0cyBjdXN0b20gZXZlbnRzIGZvciBSSVNDLVYsIHBsdXMgdGhlCj4gPiBjeWNsZSwgdGlt
+ZSBhbmQgaW5zdHJldCBldmVudHMgd2VyZSBkZWZpbmVkLgo+ID4gCj4gPiBTaWduZWQtb2ZmLWJ5
+OiBKb8OjbyBNw6FyaW8gRG9taW5nb3MgPGpvYW8ubWFyaW9AdGVjbmljby51bGlzYm9hLnB0Pgo+
+ID4gVGVzdGVkLWJ5OiBOaWtpdGEgU2h1YmluIDxuLnNodWJpbkB5YWRyby5jb20+Cj4gPiAtLS0K
+PiA+ICAgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvbWFwZmlsZS5jc3YgIHwgMTQg
+KysrKysrKysrKysrKwo+ID4gICAuLi4vcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3Jpc2N2LWdlbmVy
+aWMuanNvbiAgfCAyMAo+ID4gKysrKysrKysrKysrKysrKysrKyAyIGZpbGVzIGNoYW5nZWQsIDM0
+IGluc2VydGlvbnMoKykKPiA+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvcG11LWV2
+ZW50cy9hcmNoL3Jpc2N2L21hcGZpbGUuY3N2Cj4gPiAgIGNyZWF0ZSBtb2RlIDEwMDY0NAo+ID4g
+dG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvcmlzY3YtZ2VuZXJpYy5qc29uCj4gPiAK
+PiA+IGRpZmYgLS1naXQgYS90b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9tYXBmaWxl
+LmNzdgo+ID4gYi90b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9tYXBmaWxlLmNzdiBu
+ZXcgZmlsZSBtb2RlIDEwMDY0NAo+ID4gaW5kZXggMDAwMDAwMDAwMDAwLi40ZjJhYTE5OWQ5Y2IK
+PiA+IC0tLSAvZGV2L251bGwKPiA+ICsrKyBiL3Rvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jp
+c2N2L21hcGZpbGUuY3N2Cj4gPiBAQCAtMCwwICsxLDE0IEBACj4gPiArIyBGb3JtYXQ6Cj4gPiAr
+IwlNSURSLFZlcnNpb24sSlNPTi9maWxlL3BhdGhuYW1lLFR5cGUKPiA+ICsjCj4gPiArIyB3aGVy
+ZQo+ID4gKyMJTUlEUglQcm9jZXNzb3IgdmVyc2lvbiAgCj4gCj4gQVJNLCBubz8KCkkndmUgbWVz
+c2VkIHdpdGggLS1jYy1jbWQgYmFkbHkgYW5kIGRpZG4ndCBpbmNsdWRlIGV2ZXJ5IG9uZSBpbiBj
+b3ZlcgpsZXR0ZXIsIHNvcnJ5IGZvciB0aGF0LCBhdHRhY2hpbmcgbGluayB0byBjb3ZlciBsZXR0
+ZXI6CgpodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyMjA2MDcxMzE2NDguMjk0MzktMS1u
+aWtpdGEuc2h1YmluQG1hcXVlZmVsLm1lLwoKVGhleSBhcmUgQVJNIGluc3BpcmVkIGluZGVlZC4K
+Cgo+IAo+ID4gKyMJCVZhcmlhbnRbMjM6MjBdIGFuZCBSZXZpc2lvbiBbMzowXSBzaG91bGQgYmUg
+emVyby4KPiA+ICsjCVZlcnNpb24gY291bGQgYmUgdXNlZCB0byB0cmFjayB2ZXJzaW9uIG9mIEpT
+T04gZmlsZQo+ID4gKyMJCWJ1dCBjdXJyZW50bHkgdW51c2VkLgo+ID4gKyMJSlNPTi9maWxlL3Bh
+dGhuYW1lIGlzIHRoZSBwYXRoIHRvIEpTT04gZmlsZSwgcmVsYXRpdmUKPiA+ICsjCQl0byB0b29s
+cy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi8uCj4gPiArIwlUeXBlIGlzIGNvcmUsIHVuY29y
+ZSBldGMKPiA+ICsjCj4gPiArIwo+ID4gKyNGYW1pbHktbW9kZWwsVmVyc2lvbixGaWxlbmFtZSxF
+dmVudFR5cGUKPiA+IGRpZmYgLS1naXQgYS90b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNj
+di9yaXNjdi1nZW5lcmljLmpzb24KPiA+IGIvdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlz
+Y3YvcmlzY3YtZ2VuZXJpYy5qc29uIG5ldyBmaWxlIG1vZGUKPiA+IDEwMDY0NCBpbmRleCAwMDAw
+MDAwMDAwMDAuLjAxM2U1MGVmYWQ5OQo+ID4gLS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvdG9vbHMv
+cGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvcmlzY3YtZ2VuZXJpYy5qc29uICAKPiAKPiB3aGVy
+ZSBvciBob3cgYXJlIHRoZXNlIHJlZmVyZW5jZWQ/CgpDdXJyZW50bHkgdGhleSBhcmUgbm90IHJl
+ZmVyZW5jZWQgaW4gdGhpcyB2ZXJzaW9uIG9mIHNlcmllcyBhdCBhbGwsCnRoZWlyIHB1cnBvc2Ug
+aXMgdG8gYmUgdXNlZCBsaWtlICJBcmNoU3RkRXZlbnQiLgoKVGhyb3VnaCBhbnkgUklTQ1YgaW1w
+bGVtZW50YXRpb24gc2hvdWxkIGhhdmUgYXQgbGVhc3QgdGhlc2UgMyBldmVudHMuCgpZb3VycywK
+TmlraXRhIFNodWJpbi4KCj4gCj4gPiBAQCAtMCwwICsxLDIwIEBACj4gPiArWwo+ID4gKyAgewo+
+ID4gKyAgICAiUHVibGljRGVzY3JpcHRpb24iOiAiQ1BVIEN5Y2xlcyIsCj4gPiArICAgICJFdmVu
+dENvZGUiOiAiMHgwMCIsCj4gPiArICAgICJFdmVudE5hbWUiOiAicmlzY3ZfY3ljbGVzIiwKPiA+
+ICsgICAgIkJyaWVmRGVzY3JpcHRpb24iOiAiQ1BVIGN5Y2xlcyBSSVNDLVYgZ2VuZXJpYyBjb3Vu
+dGVyIgo+ID4gKyAgfSwKPiA+ICsgIHsKPiA+ICsgICAgIlB1YmxpY0Rlc2NyaXB0aW9uIjogIkNQ
+VSBUaW1lIiwKPiA+ICsgICAgICAiRXZlbnRDb2RlIjogIjB4MDEiLAo+ID4gKyAgICAgICJFdmVu
+dE5hbWUiOiAicmlzY3ZfdGltZSIsCj4gPiArICAgICAgIkJyaWVmRGVzY3JpcHRpb24iOiAiQ1BV
+IHRpbWUgUklTQy1WIGdlbmVyaWMgY291bnRlciIKPiA+ICsgIH0sCj4gPiArICB7Cj4gPiArICAg
+ICJQdWJsaWNEZXNjcmlwdGlvbiI6ICJDUFUgSW5zdHJ1Y3Rpb25zIiwKPiA+ICsgICAgICAiRXZl
+bnRDb2RlIjogIjB4MDIiLAo+ID4gKyAgICAgICJFdmVudE5hbWUiOiAicmlzY3ZfaW5zdHJldCIs
+Cj4gPiArICAgICAgIkJyaWVmRGVzY3JpcHRpb24iOiAiQ1BVIHJldGlyZWQgaW5zdHJ1Y3Rpb25z
+IFJJU0MtViBnZW5lcmljCj4gPiBjb3VudGVyIgo+ID4gKyAgfQo+ID4gK10KPiA+IFwgTm8gbmV3
+bGluZSBhdCBlbmQgb2YgZmlsZSAgCj4gCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
