@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E64C43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ADBAC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=SPchB83tiTNYgpKpDMFbWorYwcaOeloX/JDbHUrWkLA=; b=dX7qeHmazKwjgM
-	sjnq3odchVHphQ+YWapP87lsXH9IqWoEFax3EWzdZCUZqJZX1fr+KksXjXt1fgeCLLg6d+K1tyntT
-	SR3w6zsUfAGIQxR+O6TQzPv7uCO/3BKT/DBKI3DEO2YFPvuscUE/GdEl91WhUW2NK+9MqkQOpZSaE
-	O0WuqjknbcYZX7/ZiIKfrifmrW8mYtvTnQCq5zjh/aKbCeb8mxU2Y4D2TN6BbmYgsdzoYpLYJlwZS
-	7EGCqMv4DR3CSwAFmgggssmOpw0Wghb6HnUEeBYCr5+Yx0U7xzIhyYm/+161spebUX+5Fu5pEXBrf
-	/JH5jGSWVtiDk47AjS+w==;
+	List-Owner; bh=FrPJsQGUhdOOOan5PFMO+2BV70TKey7M1rbDLt2R2Io=; b=WLgZ7e4u7oIxBm
+	Oi/ICRDmBSdSpmWZcsEb5+5G/MCN33T5CUiktKTV7gQpqy+ObadamKoxDdphVyQZmdDdIyeCf5/cy
+	MX3HKjvSV8gxDJpDTI5kS3Bck6xOj42gD4UOsjSt2W+Xznwbjw61egcoBvi1KaUEvPxisFoluTJR3
+	HUVHGSAvreAemkxbsw0xJSbwm+g9LZkjVdvyBw//FQNXY1nq0IulNrLiU/NXQ7ciZ8BxegpC9Ja2A
+	9bGRFdXQJph6tAXDrfvctSPQSJzav4LWY7YEONFi22pMjlevEtLionTrLslf41atR0SPXplvNXLkK
+	rNQOfbwaYGu/aYm7FeTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyyPa-00EFhh-VE; Wed, 08 Jun 2022 16:20:02 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1nyyPY-00EFgi-7T; Wed, 08 Jun 2022 16:20:00 +0000
+Received: from casper.infradead.org ([90.155.50.34])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywx9-00Dk71-9P; Wed, 08 Jun 2022 14:46:35 +0000
+	id 1nywxA-00Dk7P-5U; Wed, 08 Jun 2022 14:46:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=Gj+eSw46X5SDCGNw8cDv0ubviLBcGEVy5VW0lj+ATKg=; b=PcbQR+3su0P/C8pc1s793bBA2j
-	ktQ235pkDlbAkwOAsWLsW7DM1mrfh1vhIzRbfNYR5F+8ain6CH9jgWYuoxYcl9uL+ocL0b+8XEOXt
-	24PIItx96i9m0jKeLIwsBN7wi+qRRuwgHbXmsn9vkkOSl/hQ6c9MO4xk/n4kODjnZxuF/ldFEvFng
-	RKNgnZ2b45WmOjCX7CJ/vNjd9ZJz2ATMfgbLbqDohT3ILrAVWpvPd1p1QwjA2MxqCCmR1M8FMqgQ/
-	/DAneELoezzt6eDUpdwXCRtAQhyWretA4G2ZWAYAHTi4PqTwawLXUc26HjQgfO3qwapWqCjS2Q5FP
-	3sSC5Q9g==;
+	bh=RgIlqtYjjJdUiI+7wCmxTrS6x1kOK6pzGpl8Q80bmr4=; b=G36djvM6W5RR7vlHVG43A6Iudr
+	2F5NZ1PvnNXbTO0zpliXNxkDUVY5zkHKbOaq03CD5t8mleRv7RSL0O0tO1HwRwQ/MOKZWZwXP94dO
+	OyHTPEvggi7hUK+yhhVFLFdvi4GdvU2f2SC8Nsjn5PVc/OK6YfCwGyHnvXicXlc0Bl51oWzBO7qjr
+	s4lmtFzyLrwIq1biy5jzW2hDxT+rMaooNCcN/ALUDKJ5MfHYSkr4rDMi0HCIPUt8IpmdPh8QLzULX
+	1Pzez9sPHZCsctScaUazcc/wB8wvvc2KcGz1r+hnNxtZlyWfJIlX0d7HYAF/GjFQCHJgoGLPVpXS4
+	rz4KAG3w==;
 Received: from dhcp-077-249-017-003.chello.nl ([77.249.17.3] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywx6-00ChZl-GY; Wed, 08 Jun 2022 14:46:32 +0000
+	id 1nywx2-00ChXM-Tb; Wed, 08 Jun 2022 14:46:29 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id D4501302F3F;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id A06A8302E95;
 	Wed,  8 Jun 2022 16:46:23 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id BC41C20C119B1; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
-Message-ID: <20220608144517.948600553@infradead.org>
+	id 9441920C10EDA; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
+Message-ID: <20220608144517.380962958@infradead.org>
 User-Agent: quilt/0.66
-Date: Wed, 08 Jun 2022 16:27:55 +0200
+Date: Wed, 08 Jun 2022 16:27:46 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: rth@twiddle.net,
@@ -182,7 +182,7 @@ Cc: rth@twiddle.net,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
  rcu@vger.kernel.org
-Subject: [PATCH 32/36] ftrace: WARN on rcuidle
+Subject: [PATCH 23/36] arm64,smp: Remove trace_.*_rcuidle() usage
 References: <20220608142723.103523089@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Wed, 08 Jun 2022 09:19:54 -0700
@@ -202,60 +202,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CONFIG_GENERIC_ENTRY disallows any and all tracing when RCU isn't
-enabled.
-
-XXX if s390 (the only other GENERIC_ENTRY user as of this writing)
-isn't comfortable with this, we could switch to
-HAVE_NOINSTR_VALIDATION which is x86_64 only atm.
+Ever since commit d3afc7f12987 ("arm64: Allow IPIs to be handled as
+normal interrupts") this function is called in regular IRQ context.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 ---
- include/linux/tracepoint.h |   13 ++++++++++++-
- kernel/trace/trace.c       |    3 +++
- 2 files changed, 15 insertions(+), 1 deletion(-)
+ arch/arm64/kernel/smp.c |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
---- a/include/linux/tracepoint.h
-+++ b/include/linux/tracepoint.h
-@@ -178,6 +178,16 @@ static inline struct tracepoint *tracepo
- #endif /* CONFIG_HAVE_STATIC_CALL */
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -865,7 +865,7 @@ static void do_handle_IPI(int ipinr)
+ 	unsigned int cpu = smp_processor_id();
  
- /*
-+ * CONFIG_GENERIC_ENTRY archs are expected to have sanitized entry and idle
-+ * code that disallow any/all tracing/instrumentation when RCU isn't watching.
-+ */
-+#ifdef CONFIG_GENERIC_ENTRY
-+#define RCUIDLE_COND(rcuidle)	(rcuidle)
-+#else
-+#define RCUIDLE_COND(rcuidle)	(rcuidle && in_nmi())
-+#endif
-+
-+/*
-  * it_func[0] is never NULL because there is at least one element in the array
-  * when the array itself is non NULL.
-  */
-@@ -189,7 +199,8 @@ static inline struct tracepoint *tracepo
- 			return;						\
- 									\
- 		/* srcu can't be used from NMI */			\
--		WARN_ON_ONCE(rcuidle && in_nmi());			\
-+		if (WARN_ON_ONCE(RCUIDLE_COND(rcuidle)))		\
-+			return;						\
- 									\
- 		/* keep srcu and sched-rcu usage consistent */		\
- 		preempt_disable_notrace();				\
---- a/kernel/trace/trace.c
-+++ b/kernel/trace/trace.c
-@@ -3104,6 +3104,9 @@ void __trace_stack(struct trace_array *t
- 		return;
+ 	if ((unsigned)ipinr < NR_IPI)
+-		trace_ipi_entry_rcuidle(ipi_types[ipinr]);
++		trace_ipi_entry(ipi_types[ipinr]);
+ 
+ 	switch (ipinr) {
+ 	case IPI_RESCHEDULE:
+@@ -914,7 +914,7 @@ static void do_handle_IPI(int ipinr)
  	}
  
-+	if (WARN_ON_ONCE(IS_ENABLED(CONFIG_GENERIC_ENTRY)))
-+		return;
-+
- 	/*
- 	 * When an NMI triggers, RCU is enabled via rcu_nmi_enter(),
- 	 * but if the above rcu_is_watching() failed, then the NMI
+ 	if ((unsigned)ipinr < NR_IPI)
+-		trace_ipi_exit_rcuidle(ipi_types[ipinr]);
++		trace_ipi_exit(ipi_types[ipinr]);
+ }
+ 
+ static irqreturn_t ipi_handler(int irq, void *data)
 
 
 
