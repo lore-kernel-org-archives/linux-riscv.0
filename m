@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41055C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC7EC43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:20:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=pHDkBfncjZIcBhLqVhBHIZmxFtp6L4FnQ956DPq1ejc=; b=U6rgtJZ/d6rLvd
-	p9BNqOJaclIJEn9JKb6sWUP2TKZkhP++UyEgX8yjX2gj9eLqaBTqnLaRmaOJQJSM6F1hyYBfc8Qsy
-	8pxs/OFi6R8RfZtL3p826ukOHWQnyWNOvwwqauMEmI+VL0UJsNtwcnFoGGfwa00dLuqskWu8QrhMw
-	lvID1RwLvUeSrcndYIw4drGQ53zoLvxRw1oYXWbHwZew48jG2YVIg/Xw1jRElwzTfL5cKwl3X20AR
-	kO561LPmKuk9+YzZ/zkGewKtmInWhF+U3AnRDHwy90sQsLFXQ9UP0oCaWXheT7d7f6heaneIgOl8i
-	pkV6fhKXALsYwyAwACjA==;
+	List-Owner; bh=NPV52tXc0EiLiANeJn9V9l8xedsO644Sf7M0rxSSaN4=; b=WTLpJTB8pdsNoE
+	sNQ1PwnHkhe66MhnoZdnR8TkjSRU8iHsNxEcZYABuiDeIyCRTKTaymHK4cfMRmoeiwBW/csVS4MQP
+	+LMN2Yl82nqVXouWoGX4LnE/EtB/HNXq8uWLBg1NXUK4DPq9A2n1OjB6/BqRNP6mawbMgyP13zYVT
+	8B27aR/sRyxoOPyqqpTNzzNhplJ6f33F220Z/TeJu857tIN+KtiI0U7z5TkKixlMV3nOuIuHb0GEu
+	PtA3yyB/EDU81DuGTK3QaAeEWlA0Dk/htnpos4Fr9MiQFBNGiyf0o5xiFjRRuZvVFx+ZltR4cpFE2
+	6uDCEpou9KYRFLLgu7nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyyPn-00EFms-0H; Wed, 08 Jun 2022 16:20:15 +0000
+	id 1nyyPp-00EFoR-AO; Wed, 08 Jun 2022 16:20:17 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywx9-00Dk6s-9R; Wed, 08 Jun 2022 14:46:35 +0000
+	id 1nywx9-00Dk6z-9Y; Wed, 08 Jun 2022 14:46:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=+nBTmu8be4dn87X4h4i4v5hXqWi/FDQJ2e0V2G49JnI=; b=c0sBpB4EJtpUlMJmM1BtzQg1jI
-	4PcdDgJzYOowDoMnmKAFYhNbpvRYzsV7kRFyLJf62+ZuPqPEFAxeBvm38jC9EIzinrmdPRpzRnIth
-	ZjcGrFN3FC2OLDiPw1MQ9GiO/ueu64sxGeUIVMfNNGZ1I6IAzUSGlYS50yZYH/qpVkumUW9sz9ylw
-	NiQ4O2XB8H8Hk/RXSmU/7i/042dpY1RsaqJxDbzJ3hgd+h+vW2daHvNujHxeLDb2O3c/EAvt6fmpH
-	/CT3Hd5fJEQuF8uryywQG23Lx98/8viggcr1njgwvu2L7IHYIVv/w/rdZa7aTRE+XIf9ro7DYS6a3
-	okJs1Mxg==;
+	bh=cRgbn3QvpupGZaeUDgwKs7FEGzBWq3dUbK0A/YX8NGM=; b=PSLeO/yNb1FdwotZ74TIoxbYsI
+	soiM9zNMO7t19/qdX6p+jhtYuw+jlgRDVggbwYw5y93wJ9B0AEFFNitZiOLiLqvrO6WYzTd3Ks6/N
+	j6ONiLqH02pSUgCxo2FohIp7YpPnZGRJFJTWnKXkMEaG1p9PIY+g1hJZEWjA2DvWqfDzZ864CPgsH
+	JZUmgyUVfTzWlN2taLJ537IYJBncAgv7L7CMo71dRetIsfM+fYr9nFmmPfnAie7VS2DskPrxSiIFO
+	ifFfahGR54R38dhYOg0BWoewZIQRuCcVUmaPuAuM9Fgo4uTkuRaQcDupqqv1VST4cbPCmhIiOv9NB
+	7YdXlpfg==;
 Received: from dhcp-077-249-017-003.chello.nl ([77.249.17.3] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywx3-00ChYC-JV; Wed, 08 Jun 2022 14:46:29 +0000
+	id 1nywwy-00ChW2-V1; Wed, 08 Jun 2022 14:46:25 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id A3BE9302EEA;
-	Wed,  8 Jun 2022 16:46:23 +0200 (CEST)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 9A5BD302D93;
+	Wed,  8 Jun 2022 16:46:22 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 9DB8020C10EDE; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
-Message-ID: <20220608144517.507286638@infradead.org>
+	id 4EAD120C0F9B6; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
+Message-ID: <20220608144516.297980240@infradead.org>
 User-Agent: quilt/0.66
-Date: Wed, 08 Jun 2022 16:27:48 +0200
+Date: Wed, 08 Jun 2022 16:27:29 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: rth@twiddle.net,
@@ -182,7 +182,7 @@ Cc: rth@twiddle.net,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
  rcu@vger.kernel.org
-Subject: [PATCH 25/36] time/tick-broadcast: Remove RCU_NONIDLE usage
+Subject: [PATCH 06/36] cpuidle,riscv: Push RCU-idle into driver
 References: <20220608142723.103523089@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Wed, 08 Jun 2022 09:19:54 -0700
@@ -202,53 +202,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-No callers left that have already disabled RCU.
+Doing RCU-idle outside the driver, only to then temporarily enable it
+again, at least twice, before going idle is daft.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 ---
- kernel/time/tick-broadcast-hrtimer.c |   29 ++++++++++++-----------------
- 1 file changed, 12 insertions(+), 17 deletions(-)
+ drivers/cpuidle/cpuidle-riscv-sbi.c |    9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
---- a/kernel/time/tick-broadcast-hrtimer.c
-+++ b/kernel/time/tick-broadcast-hrtimer.c
-@@ -56,25 +56,20 @@ static int bc_set_next(ktime_t expires,
- 	 * hrtimer callback function is currently running, then
- 	 * hrtimer_start() cannot move it and the timer stays on the CPU on
- 	 * which it is assigned at the moment.
-+	 */
-+	hrtimer_start(&bctimer, expires, HRTIMER_MODE_ABS_PINNED_HARD);
-+	/*
-+	 * The core tick broadcast mode expects bc->bound_on to be set
-+	 * correctly to prevent a CPU which has the broadcast hrtimer
-+	 * armed from going deep idle.
- 	 *
--	 * As this can be called from idle code, the hrtimer_start()
--	 * invocation has to be wrapped with RCU_NONIDLE() as
--	 * hrtimer_start() can call into tracing.
-+	 * As tick_broadcast_lock is held, nothing can change the cpu
-+	 * base which was just established in hrtimer_start() above. So
-+	 * the below access is safe even without holding the hrtimer
-+	 * base lock.
- 	 */
--	RCU_NONIDLE( {
--		hrtimer_start(&bctimer, expires, HRTIMER_MODE_ABS_PINNED_HARD);
--		/*
--		 * The core tick broadcast mode expects bc->bound_on to be set
--		 * correctly to prevent a CPU which has the broadcast hrtimer
--		 * armed from going deep idle.
--		 *
--		 * As tick_broadcast_lock is held, nothing can change the cpu
--		 * base which was just established in hrtimer_start() above. So
--		 * the below access is safe even without holding the hrtimer
--		 * base lock.
--		 */
--		bc->bound_on = bctimer.base->cpu_base->cpu;
--	} );
-+	bc->bound_on = bctimer.base->cpu_base->cpu;
-+
- 	return 0;
- }
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -116,12 +116,12 @@ static int __sbi_enter_domain_idle_state
+ 		return -1;
  
+ 	/* Do runtime PM to manage a hierarchical CPU toplogy. */
+-	rcu_irq_enter_irqson();
+ 	if (s2idle)
+ 		dev_pm_genpd_suspend(pd_dev);
+ 	else
+ 		pm_runtime_put_sync_suspend(pd_dev);
+-	rcu_irq_exit_irqson();
++
++	rcu_idle_enter();
+ 
+ 	if (sbi_is_domain_state_available())
+ 		state = sbi_get_domain_state();
+@@ -130,12 +130,12 @@ static int __sbi_enter_domain_idle_state
+ 
+ 	ret = sbi_suspend(state) ? -1 : idx;
+ 
+-	rcu_irq_enter_irqson();
++	rcu_idle_exit();
++
+ 	if (s2idle)
+ 		dev_pm_genpd_resume(pd_dev);
+ 	else
+ 		pm_runtime_get_sync(pd_dev);
+-	rcu_irq_exit_irqson();
+ 
+ 	cpu_pm_exit();
+ 
+@@ -246,6 +246,7 @@ static int sbi_dt_cpu_init_topology(stru
+ 	 * of a shared state for the domain, assumes the domain states are all
+ 	 * deeper states.
+ 	 */
++	drv->states[state_count - 1].flags |= CPUIDLE_FLAG_RCU_IDLE;
+ 	drv->states[state_count - 1].enter = sbi_enter_domain_idle_state;
+ 	drv->states[state_count - 1].enter_s2idle =
+ 					sbi_enter_s2idle_domain_idle_state;
 
 
 
