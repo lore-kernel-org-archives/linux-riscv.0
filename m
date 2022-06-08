@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4115C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE14C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZUM5MwGPmFtktP9pcOVDA6dyytuoZS7Jo5zO83+J80I=; b=Cx2JOQ0UF1HhTn
-	nc40/G9ymPLdTr45VIew2eOTeoYQWVE/IwK8bmCrlu7Ed7Fb8baYlFzXnzic09ndqhDf0Jk0BKJC3
-	KPX/vEXYfTCjBsMgNHC0YxtC7eAayeZSob4nJqKm80G2OVISER7sHEsiVZ8tzaLUnPOBMnWst9YlJ
-	ShXYrTYcUFh/TWoldF27lkimFW4amcjwG4hpt6c6HheJIa1OkcjkCOEXwR7jOp6pRKzp4N0teGvk4
-	3GO2nz6jkYkvXN8wvDeT+wdFWMXDyFGBrxLKKeRk3Z8EmRXQI0EFrWeE/dRWcVqaV9lhNKhXP14VB
-	3AH5+AcLwMcKcE3So++Q==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=HX2YIQcMiC+qv10fuUsoyw63Uiu4zvewuDHWxHLvNNQ=; b=k2+KX6MPtY94oP
+	cSY2OsA2vpwoSlfCKHupsjsrWeUsNl/Dui8eIEHXLGKr4CwkTYX7ruCuOYtC+lRtEJDROJdTuLdA5
+	wbjUWZH4OzXauIGdyHxSOAbLpZS12jWsXnsAYiWdlieNhwmv4QK8X6qPpBGLHh/T5JisGwpWuQwWb
+	sQsJPfZ7YoqEsXtr1MfT1p0D2iVkgn6qqeCvTegSj0kq9nhSCuI019CNEQRmId+0NW9zWo7DI7rEJ
+	Wu/ZeYxxdK69Sq2uMH4xXV/AUW40bxNlwNyI0v2DNVRVXM+Ze9TeNuGTWAyaHVtMuZ3pvbvD/yvA8
+	4xW3b+omNE0QJYkNSGxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyyQy-00EGsd-6y; Wed, 08 Jun 2022 16:21:28 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1nyyR0-00EGun-BF; Wed, 08 Jun 2022 16:21:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyxEt-00DtBr-5W; Wed, 08 Jun 2022 15:04:55 +0000
+	id 1nyxGI-00DuKH-Pg; Wed, 08 Jun 2022 15:06:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Subject:Cc:To:From:Date:Message-ID:
-	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=p3ITF8gI2GW93+lJzbbS6NFG2q6U7tMgsXybvfaCekw=; b=IZXaFH74aF36MwDA0OcR+zpVbA
-	fK18DkOhaaN9C1eG5s1+L4J5X2rdyrZWtHWtryVrvRYiz9kbVuWHWIVzgsfJfxFZ8UgI4eMrcfFM5
-	ly+cYznO6PhU6shFXLnvDd0b/G1PXNb75sy24LC6bprnB0FmxiDeLgilEva9+AdZsD25bPgSLsRpe
-	GUlfX77jG3iIxErkRylfvAiLV5VrXlgN4oApJfGBzUS+eVMlY/iFt5TC7UePOXm4aRWTFo8vVwc5V
-	N9prIiiaKfHEwyVF5x1V2xztOpfeiRRaQZej2V9pcRWXnMPtP3IswDsfj7t5zg4WvO1/IMs6PKgfh
-	Vu2f1Ucw==;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To;
+	bh=nZ3sIP+AfjwnKNI5o4cLuwY0yE/41XdF+GjWsz9OuTg=; b=rY0rNdiivLzvGTKxHIjKArJtGv
+	JQMkawTJj8SQEqtEJ3xPCf08PRNkIpqEuLBTMQig+GuhSmxqEeLxY3bBYBSL1InjLeSRd7FuiBfFT
+	ff8s0zfY7cn4ya1+C/p5LG6pommI01eYjXpKZ5a0O8ke3WwQmE3MEvmTU5SP1xjU/1b8dlkt8zdBB
+	dfl1YfdLv5JzxR/V9IHBzV1JRXdilUsvPgqYGue8e4FFC4bu+f9F4ROYoUtE/n02AU4fyepgF1L3B
+	VBo784ESh/4eySw45ErTG5Vm1/QFi4Ovz8KTGnWPg9jP5ZuBq92Wq48RzyoKTm6W2zDIfJ6TRHldf
+	0pxIbpdQ==;
 Received: from dhcp-077-249-017-003.chello.nl ([77.249.17.3] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywww-00ChVo-B5; Wed, 08 Jun 2022 14:46:22 +0000
+	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nywx6-0066DZ-9s; Wed, 08 Jun 2022 14:46:33 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 58CC930008D;
-	Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id D3AE2302F39;
+	Wed,  8 Jun 2022 16:46:23 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 3237720C0F991; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
-Message-ID: <20220608142723.103523089@infradead.org>
+	id B05F720C119A8; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
+Message-ID: <20220608144517.759631860@infradead.org>
 User-Agent: quilt/0.66
-Date: Wed, 08 Jun 2022 16:27:23 +0200
+Date: Wed, 08 Jun 2022 16:27:52 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: rth@twiddle.net,
@@ -182,7 +182,9 @@ Cc: rth@twiddle.net,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
  rcu@vger.kernel.org
-Subject: [PATCH 00/36] cpuidle,rcu: Cleanup the mess
+Subject: [PATCH 29/36] cpuidle,xenpv: Make more PARAVIRT_XXL noinstr clean
+References: <20220608142723.103523089@infradead.org>
+MIME-Version: 1.0
 X-Mailman-Approved-At: Wed, 08 Jun 2022 09:19:55 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -195,148 +197,145 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi All! (omg so many)
+vmlinux.o: warning: objtool: acpi_idle_enter_s2idle+0xde: call to wbinvd() leaves .noinstr.text section
+vmlinux.o: warning: objtool: default_idle+0x4: call to arch_safe_halt() leaves .noinstr.text section
+vmlinux.o: warning: objtool: xen_safe_halt+0xa: call to HYPERVISOR_sched_op.constprop.0() leaves .noinstr.text section
 
-These here few patches mostly clear out the utter mess that is cpuidle vs rcuidle.
-
-At the end of the ride there's only 2 real RCU_NONIDLE() users left
-
-  arch/arm64/kernel/suspend.c:            RCU_NONIDLE(__cpu_suspend_exit());
-  drivers/perf/arm_pmu.c:                 RCU_NONIDLE(armpmu_start(event, PERF_EF_RELOAD));
-  kernel/cfi.c:   RCU_NONIDLE({
-
-(the CFI one is likely dead in the kCFI rewrite) and there's only a hand full
-of trace_.*_rcuidle() left:
-
-  kernel/trace/trace_preemptirq.c:                        trace_irq_enable_rcuidle(CALLER_ADDR0, CALLER_ADDR1);
-  kernel/trace/trace_preemptirq.c:                        trace_irq_disable_rcuidle(CALLER_ADDR0, CALLER_ADDR1);
-  kernel/trace/trace_preemptirq.c:                        trace_irq_enable_rcuidle(CALLER_ADDR0, caller_addr);
-  kernel/trace/trace_preemptirq.c:                        trace_irq_disable_rcuidle(CALLER_ADDR0, caller_addr);
-  kernel/trace/trace_preemptirq.c:                trace_preempt_enable_rcuidle(a0, a1);
-  kernel/trace/trace_preemptirq.c:                trace_preempt_disable_rcuidle(a0, a1);
-
-All of them are in 'deprecated' code that is unused for GENERIC_ENTRY.
-
-I've touched a _lot_ of code that I can't test and likely broken some of it :/
-In particular, the whole ARM cpuidle stuff was quite involved with OMAP being
-the absolute 'winner'.
-
-I'm hoping Mark can help me sort the remaining ARM64 bits as he moves that to
-GENERIC_ENTRY. I've also got a note that says ARM64 can probably do a WFE based
-idle state and employ TIF_POLLING_NRFLAG to avoid some IPIs.
-
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 ---
- arch/alpha/kernel/process.c          |    1 
- arch/alpha/kernel/vmlinux.lds.S      |    1 
- arch/arc/kernel/process.c            |    3 +
- arch/arc/kernel/vmlinux.lds.S        |    1 
- arch/arm/include/asm/vmlinux.lds.h   |    1 
- arch/arm/kernel/process.c            |    1 
- arch/arm/kernel/smp.c                |    6 +--
- arch/arm/mach-gemini/board-dt.c      |    3 +
- arch/arm/mach-imx/cpuidle-imx6q.c    |    4 +-
- arch/arm/mach-imx/cpuidle-imx6sx.c   |    5 ++
- arch/arm/mach-omap2/cpuidle34xx.c    |   16 ++++++++
- arch/arm/mach-omap2/cpuidle44xx.c    |   29 +++++++++------
- arch/arm/mach-omap2/pm.h             |    2 -
- arch/arm/mach-omap2/pm34xx.c         |   14 +++++--
- arch/arm/mach-omap2/powerdomain.c    |   10 ++---
- arch/arm64/kernel/idle.c             |    1 
- arch/arm64/kernel/smp.c              |    4 +-
- arch/arm64/kernel/vmlinux.lds.S      |    1 
- arch/csky/kernel/process.c           |    1 
- arch/csky/kernel/smp.c               |    2 -
- arch/csky/kernel/vmlinux.lds.S       |    1 
- arch/hexagon/kernel/process.c        |    1 
- arch/hexagon/kernel/vmlinux.lds.S    |    1 
- arch/ia64/kernel/process.c           |    1 
- arch/ia64/kernel/vmlinux.lds.S       |    1 
- arch/loongarch/kernel/vmlinux.lds.S  |    1 
- arch/m68k/kernel/vmlinux-nommu.lds   |    1 
- arch/m68k/kernel/vmlinux-std.lds     |    1 
- arch/m68k/kernel/vmlinux-sun3.lds    |    1 
- arch/microblaze/kernel/process.c     |    1 
- arch/microblaze/kernel/vmlinux.lds.S |    1 
- arch/mips/kernel/idle.c              |    8 +---
- arch/mips/kernel/vmlinux.lds.S       |    1 
- arch/nios2/kernel/process.c          |    1 
- arch/nios2/kernel/vmlinux.lds.S      |    1 
- arch/openrisc/kernel/process.c       |    1 
- arch/openrisc/kernel/vmlinux.lds.S   |    1 
- arch/parisc/kernel/process.c         |    2 -
- arch/parisc/kernel/vmlinux.lds.S     |    1 
- arch/powerpc/kernel/idle.c           |    5 +-
- arch/powerpc/kernel/vmlinux.lds.S    |    1 
- arch/riscv/kernel/process.c          |    1 
- arch/riscv/kernel/vmlinux-xip.lds.S  |    1 
- arch/riscv/kernel/vmlinux.lds.S      |    1 
- arch/s390/kernel/idle.c              |    1 
- arch/s390/kernel/vmlinux.lds.S       |    1 
- arch/sh/kernel/idle.c                |    1 
- arch/sh/kernel/vmlinux.lds.S         |    1 
- arch/sparc/kernel/leon_pmc.c         |    4 ++
- arch/sparc/kernel/process_32.c       |    1 
- arch/sparc/kernel/process_64.c       |    3 +
- arch/sparc/kernel/vmlinux.lds.S      |    1 
- arch/um/kernel/dyn.lds.S             |    1 
- arch/um/kernel/process.c             |    1 
- arch/um/kernel/uml.lds.S             |    1 
- arch/x86/coco/tdx/tdcall.S           |   15 +-------
- arch/x86/coco/tdx/tdx.c              |   25 +++----------
- arch/x86/events/amd/brs.c            |   13 ++-----
- arch/x86/include/asm/irqflags.h      |   11 ++---
- arch/x86/include/asm/mwait.h         |   14 +++----
- arch/x86/include/asm/nospec-branch.h |    2 -
- arch/x86/include/asm/paravirt.h      |    6 ++-
- arch/x86/include/asm/perf_event.h    |    2 -
- arch/x86/include/asm/shared/io.h     |    4 +-
- arch/x86/include/asm/shared/tdx.h    |    1 
- arch/x86/include/asm/special_insns.h |    6 +--
- arch/x86/include/asm/xen/hypercall.h |    2 -
- arch/x86/kernel/paravirt.c           |   14 ++++++-
- arch/x86/kernel/process.c            |   65 +++++++++++++++++------------------
- arch/x86/kernel/vmlinux.lds.S        |    1 
- arch/x86/xen/enlighten_pv.c          |    2 -
- arch/x86/xen/irq.c                   |    2 -
- arch/xtensa/kernel/process.c         |    1 
- arch/xtensa/kernel/vmlinux.lds.S     |    1 
- drivers/acpi/processor_idle.c        |   46 ++++++++++++++----------
- drivers/base/power/runtime.c         |   24 ++++++------
- drivers/clk/clk.c                    |    8 ++--
- drivers/cpuidle/cpuidle-arm.c        |    1 
- drivers/cpuidle/cpuidle-big_little.c |    8 +++-
- drivers/cpuidle/cpuidle-mvebu-v7.c   |    7 +++
- drivers/cpuidle/cpuidle-psci.c       |   10 +++--
- drivers/cpuidle/cpuidle-qcom-spm.c   |    1 
- drivers/cpuidle/cpuidle-riscv-sbi.c  |   10 +++--
- drivers/cpuidle/cpuidle-tegra.c      |   21 ++++++++---
- drivers/cpuidle/cpuidle.c            |   21 +++++------
- drivers/cpuidle/dt_idle_states.c     |    2 -
- drivers/cpuidle/poll_state.c         |   10 ++++-
- drivers/idle/intel_idle.c            |   29 ++++++++++++---
- include/asm-generic/vmlinux.lds.h    |    9 +---
- include/linux/compiler_types.h       |    8 +++-
- include/linux/cpu.h                  |    3 -
- include/linux/cpuidle.h              |   33 +++++++++++++++++
- include/linux/cpumask.h              |    4 +-
- include/linux/sched/idle.h           |   40 ++++++++++++++++-----
- include/linux/thread_info.h          |   18 +++++++++
- include/linux/tracepoint.h           |   13 ++++++-
- kernel/cpu_pm.c                      |    9 ----
- kernel/printk/printk.c               |    2 -
- kernel/rcu/tree.c                    |    9 +---
- kernel/sched/idle.c                  |   47 +++++++------------------
- kernel/time/tick-broadcast-hrtimer.c |   29 ++++++---------
- kernel/time/tick-broadcast.c         |    6 ++-
- kernel/trace/trace.c                 |    3 +
- tools/objtool/check.c                |   15 +++++++-
- 104 files changed, 449 insertions(+), 342 deletions(-)
+ arch/x86/include/asm/paravirt.h      |    6 ++++--
+ arch/x86/include/asm/special_insns.h |    4 ++--
+ arch/x86/include/asm/xen/hypercall.h |    2 +-
+ arch/x86/kernel/paravirt.c           |   14 ++++++++++++--
+ arch/x86/xen/enlighten_pv.c          |    2 +-
+ arch/x86/xen/irq.c                   |    2 +-
+ 6 files changed, 21 insertions(+), 9 deletions(-)
+
+--- a/arch/x86/include/asm/paravirt.h
++++ b/arch/x86/include/asm/paravirt.h
+@@ -168,7 +168,7 @@ static inline void __write_cr4(unsigned
+ 	PVOP_VCALL1(cpu.write_cr4, x);
+ }
+ 
+-static inline void arch_safe_halt(void)
++static __always_inline void arch_safe_halt(void)
+ {
+ 	PVOP_VCALL0(irq.safe_halt);
+ }
+@@ -178,7 +178,9 @@ static inline void halt(void)
+ 	PVOP_VCALL0(irq.halt);
+ }
+ 
+-static inline void wbinvd(void)
++extern noinstr void pv_native_wbinvd(void);
++
++static __always_inline void wbinvd(void)
+ {
+ 	PVOP_ALT_VCALL0(cpu.wbinvd, "wbinvd", ALT_NOT(X86_FEATURE_XENPV));
+ }
+--- a/arch/x86/include/asm/special_insns.h
++++ b/arch/x86/include/asm/special_insns.h
+@@ -115,7 +115,7 @@ static inline void wrpkru(u32 pkru)
+ }
+ #endif
+ 
+-static inline void native_wbinvd(void)
++static __always_inline void native_wbinvd(void)
+ {
+ 	asm volatile("wbinvd": : :"memory");
+ }
+@@ -179,7 +179,7 @@ static inline void __write_cr4(unsigned
+ 	native_write_cr4(x);
+ }
+ 
+-static inline void wbinvd(void)
++static __always_inline void wbinvd(void)
+ {
+ 	native_wbinvd();
+ }
+--- a/arch/x86/include/asm/xen/hypercall.h
++++ b/arch/x86/include/asm/xen/hypercall.h
+@@ -382,7 +382,7 @@ MULTI_stack_switch(struct multicall_entr
+ }
+ #endif
+ 
+-static inline int
++static __always_inline int
+ HYPERVISOR_sched_op(int cmd, void *arg)
+ {
+ 	return _hypercall2(int, sched_op, cmd, arg);
+--- a/arch/x86/kernel/paravirt.c
++++ b/arch/x86/kernel/paravirt.c
+@@ -233,6 +233,11 @@ static noinstr void pv_native_set_debugr
+ 	native_set_debugreg(regno, val);
+ }
+ 
++noinstr void pv_native_wbinvd(void)
++{
++	native_wbinvd();
++}
++
+ static noinstr void pv_native_irq_enable(void)
+ {
+ 	native_irq_enable();
+@@ -242,6 +247,11 @@ static noinstr void pv_native_irq_disabl
+ {
+ 	native_irq_disable();
+ }
++
++static noinstr void pv_native_safe_halt(void)
++{
++	native_safe_halt();
++}
+ #endif
+ 
+ enum paravirt_lazy_mode paravirt_get_lazy_mode(void)
+@@ -273,7 +283,7 @@ struct paravirt_patch_template pv_ops =
+ 	.cpu.read_cr0		= native_read_cr0,
+ 	.cpu.write_cr0		= native_write_cr0,
+ 	.cpu.write_cr4		= native_write_cr4,
+-	.cpu.wbinvd		= native_wbinvd,
++	.cpu.wbinvd		= pv_native_wbinvd,
+ 	.cpu.read_msr		= native_read_msr,
+ 	.cpu.write_msr		= native_write_msr,
+ 	.cpu.read_msr_safe	= native_read_msr_safe,
+@@ -307,7 +317,7 @@ struct paravirt_patch_template pv_ops =
+ 	.irq.save_fl		= __PV_IS_CALLEE_SAVE(native_save_fl),
+ 	.irq.irq_disable	= __PV_IS_CALLEE_SAVE(pv_native_irq_disable),
+ 	.irq.irq_enable		= __PV_IS_CALLEE_SAVE(pv_native_irq_enable),
+-	.irq.safe_halt		= native_safe_halt,
++	.irq.safe_halt		= pv_native_safe_halt,
+ 	.irq.halt		= native_halt,
+ #endif /* CONFIG_PARAVIRT_XXL */
+ 
+--- a/arch/x86/xen/enlighten_pv.c
++++ b/arch/x86/xen/enlighten_pv.c
+@@ -1019,7 +1019,7 @@ static const typeof(pv_ops) xen_cpu_ops
+ 
+ 		.write_cr4 = xen_write_cr4,
+ 
+-		.wbinvd = native_wbinvd,
++		.wbinvd = pv_native_wbinvd,
+ 
+ 		.read_msr = xen_read_msr,
+ 		.write_msr = xen_write_msr,
+--- a/arch/x86/xen/irq.c
++++ b/arch/x86/xen/irq.c
+@@ -24,7 +24,7 @@ noinstr void xen_force_evtchn_callback(v
+ 	(void)HYPERVISOR_xen_version(0, NULL);
+ }
+ 
+-static void xen_safe_halt(void)
++static noinstr void xen_safe_halt(void)
+ {
+ 	/* Blocking includes an implicit local_irq_enable(). */
+ 	if (HYPERVISOR_sched_op(SCHEDOP_block, NULL) != 0)
+
 
 
 _______________________________________________
