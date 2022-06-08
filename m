@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC3FC43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450DFC43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=wN0MBLNn0d+H0fR6IGbuw4m+xZb5QFotPC71liRMjbs=; b=O9/KneXL47iU7M
-	Jp6A5MihXJS2x/F0NUmUw6mNstNDWCsXE/H5R842mluQa1UgLeGO2/yxtid6o/YxX9i707wo2Wk6l
-	VdVln6MOyt66GxflpmKdxYXfugCI1M8/eSgTsg4yLF/pCDPGnrJdQ57kClyQzie4lNXhEKW5y5gJG
-	l7qy3i3GSMgFAes12PkDs1ADjtz8SBMKq1pBMPfhO4ih5dJysY6sYsRgMZGM/n/cs/t9mIwYyA3L8
-	jG1fpSF+QkkFH7EErSFklIVSW9g+BZhVfyD0Q8o0n/rscgN4fX2IIp7fUNqiRJkOl8CWpU9s0l8+m
-	/BHVtveR9O3eMPd7VcMg==;
+	List-Owner; bh=9idJgPRawgemKTMGGW2ucygCgzWQ+smCM5M6Gx4EGMw=; b=Oo8jTUz8s+pjUF
+	LqDR1Rsw8oZuXpPZaneOXPVfZ0k4ZXZz3X0DmSknB9vU2Lc1nSHOKF/D8dZlMlfuwgqvoUplebD4h
+	UwBZsJ+mZrqUQ77jNRBpR88eqNMLdZm0E6Oy6myd39JJnG3/VX9cqaaCY4zXfPDH17p8gffbHfpIF
+	FkCd+eGlj/iKBRREQjohTyWLQ03BtoCIbd8IP22HPUe8n6heWs/X96L9i/K5Nv1dp4zydz1BzzF7q
+	YTCor056xtNibBBlxlmh3G8uAs9g3GlMgd9cQQI4Wbi+XvyQDy/N2t3k2UnmZihcar2PJP00i0BIn
+	PWlVPxEfAxvaORuGRU/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyyQT-00EGQe-R5; Wed, 08 Jun 2022 16:20:57 +0000
+	id 1nyyQX-00EGTr-4M; Wed, 08 Jun 2022 16:21:01 +0000
 Received: from desiato.infradead.org ([90.155.92.199])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywxD-00DkAl-Oc; Wed, 08 Jun 2022 14:46:39 +0000
+	id 1nywxD-00DkAt-OT; Wed, 08 Jun 2022 14:46:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=OtI5HbrqLesCtm4u4WFjeviiqkcvkrIAtN470m5UDAY=; b=YxAxQQTnVMjXt5F5qT80bkgPh5
-	ixluP6Zz3hO7fx8vJIQrj4C5TqUSGKakaJJsFYPkJyX/quow9i3Q1RHxs4fPIHvQqAI4ItoUKSg9H
-	Q96BC3qMYMoqP4qCHwfqrdYRb4hE4ZTb5URJUGq6ct2gnpSWNNz0/tb6QgN8X/3EG+8+Hn8P0Jpfj
-	s1Mx2wUY/shYiCwGx373RWVVV8k86WJZX6RUBzcpDy2OG/HxZoSIcohcw28STfEH3IheSXP1uOHaG
-	ZHJWiPNFWu4NLZ6eL7MRQvDj+sp0KsDvF/li+47ulaB6B0czYcAARGWueTqt7adXuGkZdkHCdgM5d
-	rhVbSspQ==;
+	bh=o5HILV8lXWZVR34kQkfXu7ELtM3PHvDf12JWqGFz8as=; b=FdF0WwTfqAD0qSj5IztZ4sLhvT
+	k5gLeMLjDAi8AiG+FPGxmqabFeIQHQCNOTIfhG/cpcbGLZPNynYxoEOkV1KR6W1cM26gk09NcMOho
+	OTH5ruv6nF9XsgSF9ERM0tY+ijfUIOhLwICgBWU3v/b6jxNumek114l8uiB/Ho+YCAnkYFEEtHFA1
+	yJwPilsqg79N5SwaSL+a8z3EFTRK0XJDDbWj1Ixr9OQeIT2Fab/9sy2Cr+siozN3wTiG232WtGG/1
+	MiOLZNXIY/fnByd71PGk1LDgy98zbKguCtDMF+RXQCVcyn0bJrc/NWlQckEgt24lFU5RTP60t+1Fw
+	I4HHiDAQ==;
 Received: from dhcp-077-249-017-003.chello.nl ([77.249.17.3] helo=noisy.programming.kicks-ass.net)
 	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywx5-0066DR-V8; Wed, 08 Jun 2022 14:46:32 +0000
+	id 1nywx3-0066CV-M7; Wed, 08 Jun 2022 14:46:30 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id D41E1302F3B;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id C2880302F13;
 	Wed,  8 Jun 2022 16:46:23 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id B77DB20C119AE; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
-Message-ID: <20220608144517.885263942@infradead.org>
+	id A2E5D20C119A0; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
+Message-ID: <20220608144517.570101266@infradead.org>
 User-Agent: quilt/0.66
-Date: Wed, 08 Jun 2022 16:27:54 +0200
+Date: Wed, 08 Jun 2022 16:27:49 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: rth@twiddle.net,
@@ -182,7 +182,7 @@ Cc: rth@twiddle.net,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
  rcu@vger.kernel.org
-Subject: [PATCH 31/36] cpuidle,acpi: Make noinstr clean
+Subject: [PATCH 26/36] cpuidle,sched: Remove annotations from TIF_{POLLING_NRFLAG,NEED_RESCHED}
 References: <20220608142723.103523089@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Wed, 08 Jun 2022 09:19:55 -0700
@@ -202,60 +202,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-vmlinux.o: warning: objtool: io_idle+0xc: call to __inb.isra.0() leaves .noinstr.text section
-vmlinux.o: warning: objtool: acpi_idle_enter+0xfe: call to num_online_cpus() leaves .noinstr.text section
-vmlinux.o: warning: objtool: acpi_idle_enter+0x115: call to acpi_idle_fallback_to_c1.isra.0() leaves .noinstr.text section
+vmlinux.o: warning: objtool: mwait_idle+0x5: call to current_set_polling_and_test() leaves .noinstr.text section
+vmlinux.o: warning: objtool: acpi_processor_ffh_cstate_enter+0xc5: call to current_set_polling_and_test() leaves .noinstr.text section
+vmlinux.o: warning: objtool: cpu_idle_poll.isra.0+0x73: call to test_ti_thread_flag() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle+0xbc: call to current_set_polling_and_test() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_irq+0xea: call to current_set_polling_and_test() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_s2idle+0xb4: call to current_set_polling_and_test() leaves .noinstr.text section
+
+vmlinux.o: warning: objtool: intel_idle+0xa6: call to current_clr_polling() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_irq+0xbf: call to current_clr_polling() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_s2idle+0xa1: call to current_clr_polling() leaves .noinstr.text section
+
+vmlinux.o: warning: objtool: mwait_idle+0xe: call to __current_set_polling() leaves .noinstr.text section
+vmlinux.o: warning: objtool: acpi_processor_ffh_cstate_enter+0xc5: call to __current_set_polling() leaves .noinstr.text section
+vmlinux.o: warning: objtool: cpu_idle_poll.isra.0+0x73: call to test_ti_thread_flag() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle+0xbc: call to __current_set_polling() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_irq+0xea: call to __current_set_polling() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_s2idle+0xb4: call to __current_set_polling() leaves .noinstr.text section
+
+vmlinux.o: warning: objtool: cpu_idle_poll.isra.0+0x73: call to test_ti_thread_flag() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_s2idle+0x73: call to test_ti_thread_flag.constprop.0() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle_irq+0x91: call to test_ti_thread_flag.constprop.0() leaves .noinstr.text section
+vmlinux.o: warning: objtool: intel_idle+0x78: call to test_ti_thread_flag.constprop.0() leaves .noinstr.text section
+vmlinux.o: warning: objtool: acpi_safe_halt+0xf: call to test_ti_thread_flag.constprop.0() leaves .noinstr.text section
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 ---
- arch/x86/include/asm/shared/io.h |    4 ++--
- drivers/acpi/processor_idle.c    |    2 +-
- include/linux/cpumask.h          |    4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ include/linux/sched/idle.h  |   40 ++++++++++++++++++++++++++++++----------
+ include/linux/thread_info.h |   18 +++++++++++++++++-
+ 2 files changed, 47 insertions(+), 11 deletions(-)
 
---- a/arch/x86/include/asm/shared/io.h
-+++ b/arch/x86/include/asm/shared/io.h
-@@ -5,13 +5,13 @@
- #include <linux/types.h>
- 
- #define BUILDIO(bwl, bw, type)						\
--static inline void __out##bwl(type value, u16 port)			\
-+static __always_inline void __out##bwl(type value, u16 port)		\
- {									\
- 	asm volatile("out" #bwl " %" #bw "0, %w1"			\
- 		     : : "a"(value), "Nd"(port));			\
- }									\
- 									\
--static inline type __in##bwl(u16 port)					\
-+static __always_inline type __in##bwl(u16 port)				\
- {									\
- 	type value;							\
- 	asm volatile("in" #bwl " %w1, %" #bw "0"			\
---- a/drivers/acpi/processor_idle.c
-+++ b/drivers/acpi/processor_idle.c
-@@ -593,7 +593,7 @@ static int acpi_idle_play_dead(struct cp
- 	return 0;
- }
- 
--static bool acpi_idle_fallback_to_c1(struct acpi_processor *pr)
-+static __always_inline bool acpi_idle_fallback_to_c1(struct acpi_processor *pr)
- {
- 	return IS_ENABLED(CONFIG_HOTPLUG_CPU) && !pr->flags.has_cst &&
- 		!(acpi_gbl_FADT.flags & ACPI_FADT_C2_MP_SUPPORTED);
---- a/include/linux/cpumask.h
-+++ b/include/linux/cpumask.h
-@@ -908,9 +908,9 @@ static inline const struct cpumask *get_
-  * concurrent CPU hotplug operations unless invoked from a cpuhp_lock held
-  * region.
+--- a/include/linux/sched/idle.h
++++ b/include/linux/sched/idle.h
+@@ -23,12 +23,37 @@ static inline void wake_up_if_idle(int c
   */
--static inline unsigned int num_online_cpus(void)
-+static __always_inline unsigned int num_online_cpus(void)
+ #ifdef TIF_POLLING_NRFLAG
+ 
+-static inline void __current_set_polling(void)
++#ifdef _ASM_GENERIC_BITOPS_INSTRUMENTED_ATOMIC_H
++
++static __always_inline void __current_set_polling(void)
  {
--	return atomic_read(&__num_online_cpus);
-+	return arch_atomic_read(&__num_online_cpus);
+-	set_thread_flag(TIF_POLLING_NRFLAG);
++	arch_set_bit(TIF_POLLING_NRFLAG,
++		     (unsigned long *)(&current_thread_info()->flags));
  }
- #define num_possible_cpus()	cpumask_weight(cpu_possible_mask)
- #define num_present_cpus()	cpumask_weight(cpu_present_mask)
+ 
+-static inline bool __must_check current_set_polling_and_test(void)
++static __always_inline void __current_clr_polling(void)
++{
++	arch_clear_bit(TIF_POLLING_NRFLAG,
++		       (unsigned long *)(&current_thread_info()->flags));
++}
++
++#else
++
++static __always_inline void __current_set_polling(void)
++{
++	set_bit(TIF_POLLING_NRFLAG,
++		(unsigned long *)(&current_thread_info()->flags));
++}
++
++static __always_inline void __current_clr_polling(void)
++{
++	clear_bit(TIF_POLLING_NRFLAG,
++		  (unsigned long *)(&current_thread_info()->flags));
++}
++
++#endif /* _ASM_GENERIC_BITOPS_INSTRUMENTED_ATOMIC_H */
++
++static __always_inline bool __must_check current_set_polling_and_test(void)
+ {
+ 	__current_set_polling();
+ 
+@@ -41,12 +66,7 @@ static inline bool __must_check current_
+ 	return unlikely(tif_need_resched());
+ }
+ 
+-static inline void __current_clr_polling(void)
+-{
+-	clear_thread_flag(TIF_POLLING_NRFLAG);
+-}
+-
+-static inline bool __must_check current_clr_polling_and_test(void)
++static __always_inline bool __must_check current_clr_polling_and_test(void)
+ {
+ 	__current_clr_polling();
+ 
+@@ -73,7 +93,7 @@ static inline bool __must_check current_
+ }
+ #endif
+ 
+-static inline void current_clr_polling(void)
++static __always_inline void current_clr_polling(void)
+ {
+ 	__current_clr_polling();
+ 
+--- a/include/linux/thread_info.h
++++ b/include/linux/thread_info.h
+@@ -177,7 +177,23 @@ static __always_inline unsigned long rea
+ 	clear_ti_thread_flag(task_thread_info(t), TIF_##fl)
+ #endif /* !CONFIG_GENERIC_ENTRY */
+ 
+-#define tif_need_resched() test_thread_flag(TIF_NEED_RESCHED)
++#ifdef _ASM_GENERIC_BITOPS_INSTRUMENTED_NON_ATOMIC_H
++
++static __always_inline bool tif_need_resched(void)
++{
++	return arch_test_bit(TIF_NEED_RESCHED,
++			     (unsigned long *)(&current_thread_info()->flags));
++}
++
++#else
++
++static __always_inline bool tif_need_resched(void)
++{
++	return test_bit(TIF_NEED_RESCHED,
++			(unsigned long *)(&current_thread_info()->flags));
++}
++
++#endif /* _ASM_GENERIC_BITOPS_INSTRUMENTED_NON_ATOMIC_H */
+ 
+ #ifndef CONFIG_HAVE_ARCH_WITHIN_STACK_FRAMES
+ static inline int arch_within_stack_frames(const void * const stack,
 
 
 
