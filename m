@@ -4,74 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E763CCA47B
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 04:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6E1C43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 05:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X782LqfjgeTO4Vndz7CfBd/JrgLPQz1o6AQ6JUQqDBo=; b=YfIdrCsTPFHs3D
-	DGLWETQJdFGyz7LyIVRQFVRD5QmvvHcER3xkqubcy2wjbNcrG81a0Ja89zWS8zneaC/K156n6GSla
-	Uvf/AJxxTxW+0GktLjDQQl2FEtsLWI+kGustEnT17ZWZxSEY06TLF3UoZUh1qYiepjfBqaX3BCcA8
-	JFMEnJtL3wR/zG0YSHj8+sxs1J4aSjuWVzt+vB+WLaxNDdrL0M6JzlP9xalNESQvJtaFgnFjV1xGM
-	D33pfeJqD+aWkeyXYV24lfr2KRdo1L5VL9PDCQj7PZhNhnghDGAFwA6l9AH02HA8H7sshDBYedZDk
-	YcdjyIz4YADwcSbsDlMw==;
+	List-Owner; bh=yxBkQQZEZm8T40BZpD/uQJaoszzyYzNponr91jPRwe8=; b=iO1NABoGURAD9s
+	kmV/VqmRGPodtwOZxZ8KEmctw1Wp5hjlQAUIP4V63y0c5miX9rDto17cu4rB317YD9A5r102OhBWj
+	y2KZ1LsTmN5Zeau8roLRAQ47KzPla1OTlK5fLSsX82OXjXYO1nsdshblPNjFTKAoZvAtn1IExcUnv
+	7oaMiUOMJ70QfCHexecmBAz0rvWRwIYvnQ4KrS4mdiL0uOrM3bas0nqwq7SZuoPN55jbV+HTKMNM0
+	ifTQbtDNE/8tWivBSfk4QVEF/tV5Fsj5TqpW9KG94c+8ie8bvedfyUO5+jTLd3GeeIkI9IeV3F9ap
+	UvDSZ1Tos9SzTb19+1Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nynG2-00B2CE-6Y; Wed, 08 Jun 2022 04:25:26 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1nyoEH-00B8OQ-OC; Wed, 08 Jun 2022 05:27:41 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nynFz-00B2B9-Ia
-	for linux-riscv@lists.infradead.org; Wed, 08 Jun 2022 04:25:25 +0000
-Received: by mail-wm1-x331.google.com with SMTP id m39-20020a05600c3b2700b0039c511ebbacso3688909wms.3
-        for <linux-riscv@lists.infradead.org>; Tue, 07 Jun 2022 21:25:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=dIB9Zoi6oSsV28Eb5tHcA3tLyAqAFY8VH40TtTHLgNU=;
-        b=LOFTU1tYU5/Z1f5XGipGNjbflsQWOwUgwu5h05VFcytZtP6op926WHFJR1SVt38ubI
-         AB/A4U9bs9IbmGfiD6URbfkNTLnb2KDBmrK4vZfn/PgyMissRkPgpPxv1/1o0eRg8W87
-         pa/JX6Z1LLCNJFWBO4ShyFK+OUJ2ls/8hW1eRI32wlViSokKJybJZkCXb3AfHmDgFOJN
-         EjeX8IpEvE23MxI7GBvzLNmXyrST6KbVrs6Kg2pQ4Q4THJorFLIzgr/smOKfwZ7XWpO+
-         +ul/IUFaVxun47PvYKcUxLOMOWTOoVHpnE3MgGZufyZG2wwCIY4NGDf+PEmNST5GXdk4
-         W/mA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=dIB9Zoi6oSsV28Eb5tHcA3tLyAqAFY8VH40TtTHLgNU=;
-        b=MS2mVqu65kql0DWtQtll1un70mZ5LA8vb/zMoDj5kkvOp7E8oScDVXOP7HMf6cFbis
-         ue7e840B2zXlJ9bSjIN/N+jS8cpN97C30KMELCaz19lTUIOkrz4zM+XKtt7SzPKEvgdt
-         mFTy0UzZM1qrrIFMrWJjWZFisJvf4Vh05dPAdwC7qOlHvSYtua/9JLqvC9blq6IzH331
-         QxCNTffYBnitsAQ15LnJZwHI+toR14yT3+QmTGY0tui1HESz3loAC//ahX21W9VD3gpH
-         37YUlcxlL5JGN+06Sj8Vy52ffqkyWuPLo3Kdi0XSkqEIKCsb2nVlweaVhgE+sMIfjQbi
-         FQ8Q==
-X-Gm-Message-State: AOAM532IRV8NXSvqvKbu7LVplKq5egDL6yx+MxYTI/5/EmmQgyurYhBU
-	TL7wEY1XogC36HNmZ+uFxv7PtMoHDREsZgCl55u4mg==
-X-Google-Smtp-Source: ABdhPJxq7M69jQtimnYFsucGxQbS4qbMg3gTWP97of3HmIV//mhzGdHJ2pfrWPDz3n3UVRArNL1vVl/iFRZblKmK8YI=
-X-Received: by 2002:a05:600c:5112:b0:397:53f5:e15b with SMTP id
- o18-20020a05600c511200b0039753f5e15bmr32914425wms.93.1654662320293; Tue, 07
- Jun 2022 21:25:20 -0700 (PDT)
+	id 1nyoED-00B8Mp-V6; Wed, 08 Jun 2022 05:27:39 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 685BBB8259D;
+	Wed,  8 Jun 2022 05:27:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF184C34116;
+	Wed,  8 Jun 2022 05:27:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1654666055;
+	bh=MlRI3FslLxCpadUQCkxKP9EyE+xCG5VhPqp7eO/RKxw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bTmq5cb3aiOFARjJfOSrWvmBbg4IqDeMYLAQcEwT3SvNyrlnsEdo+bJds7+Exmdp1
+	 79OrZgnbP09WSyuTFdvTyLah6ugaMZ0kez+KabcbeZ8t+RmwASwCkX7odNddl6yr6R
+	 MpgZoZU5zCgBI4H6UxtnJnfjlqCDb50dNLRMK7iirwicyyRs17a4fFjr1M+htOawKO
+	 MHyg7HHPVKiM4wuNrSNYHTep0JDdxmzQJitkoMH17qYMBcYHwsm4aubrdp6Yy11mck
+	 fYzRn/OXDH5gklZfaHxdLnwzgwLdwqoLF7wfqldmpcxcfnkI+cdpcFrefdlWXanfjB
+	 hgTz8Dxc3vbcw==
+Date: Wed, 8 Jun 2022 08:25:38 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: Guo Ren <guoren@kernel.org>
+Cc: Jarkko Sakkinen <jarkko@profian.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Nathaniel McCallum <nathaniel@profian.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Paul Mackerras <paulus@samba.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	the arch/x86 maintainers <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Kees Cook <keescook@chromium.org>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Eric W. Biederman" <ebiederm@xmission.com>,
+	Marco Elver <elver@google.com>, Dan Li <ashimida@linux.alibaba.com>,
+	Sami Tolvanen <samitolvanen@google.com>, Song Liu <song@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Chen Zhongjin <chenzhongjin@huawei.com>,
+	Nicolas Pitre <nico@fluxnic.net>, Mark Brown <broonie@kernel.org>,
+	Luis Machado <luis.machado@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	Atsushi Nemoto <anemo@mba.ocn.ne.jp>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Dave Anglin <dave.anglin@bell.net>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>, Daniel Axtens <dja@axtens.net>,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+	Jordan Niethe <jniethe5@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Changbin Du <changbin.du@intel.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Liao Chang <liaochang1@huawei.com>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Wu Caize <zepan@sipeed.com>, Emil Renner Berthing <kernel@esmil.dk>,
+	Alexander Egorenkov <egorenar@linux.ibm.com>,
+	Thomas Richter <tmricht@linux.ibm.com>,
+	Tobias Huschle <huschle@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Michael Roth <michael.roth@amd.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Miroslav Benes <mbenes@suse.cz>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Aaron Tomlin <atomlin@redhat.com>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+	Parisc List <linux-parisc@vger.kernel.org>,
+	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	linux-s390 <linux-s390@vger.kernel.org>,
+	sparclinux <sparclinux@vger.kernel.org>,
+	linux-modules@vger.kernel.org
+Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
+Message-ID: <YqAy0qjI4Lktk/uJ@iki.fi>
+References: <20220608000014.3054333-1-jarkko@profian.com>
+ <CAJF2gTQgCn2CyZ4+VBqEEBT2b4+1KxoEXxrd+Ritk=58+U8EFA@mail.gmail.com>
 MIME-Version: 1.0
-References: <20220608000251.55271-1-heinrich.schuchardt@canonical.com>
-In-Reply-To: <20220608000251.55271-1-heinrich.schuchardt@canonical.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 8 Jun 2022 09:54:21 +0530
-Message-ID: <CAAhSdy2Brfc-Pz3wmZxwocQr1g5TpWWWVVhmeCYbEj5t=3NcKA@mail.gmail.com>
-Subject: Re: [PATCH 1/1] riscv: enable Docker requirements in defconfig
-To: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <apatel@ventanamicro.com>, 
-	Atish Patra <atishp@rivosinc.com>, Guo Ren <guoren@kernel.org>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>, Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+Content-Disposition: inline
+In-Reply-To: <CAJF2gTQgCn2CyZ4+VBqEEBT2b4+1KxoEXxrd+Ritk=58+U8EFA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220607_212523_848572_3209CBC8 
-X-CRM114-Status: GOOD (  17.96  )
+X-CRM114-CacheID: sfid-20220607_222738_319624_CC3E8824 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,170 +158,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 8, 2022 at 5:33 AM Heinrich Schuchardt
-<heinrich.schuchardt@canonical.com> wrote:
->
-> The defconfig kernel should be able to run Docker.
->
-> Enable the missing settings according to [1].
-> make savedefconfig eliminates CONFIG_STACKTRACE
-> which is enabled by default.
->
-> Many of the settings are also needed to run a defconfig kernel
-> on default distro installations or to run snaps.
->
-> [1] https://github.com/moby/moby/blob/master/contrib/check-config.sh
->
-> Signed-off-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+On Wed, Jun 08, 2022 at 10:35:42AM +0800, Guo Ren wrote:
+> .
+> 
+> On Wed, Jun 8, 2022 at 8:02 AM Jarkko Sakkinen <jarkko@profian.com> wrote:
+> >
+> > Tracing with kprobes while running a monolithic kernel is currently
+> > impossible because CONFIG_KPROBES is dependent of CONFIG_MODULES.  This
+> > dependency is a result of kprobes code using the module allocator for the
+> > trampoline code.
+> >
+> > Detaching kprobes from modules helps to squeeze down the user space,
+> > e.g. when developing new core kernel features, while still having all
+> > the nice tracing capabilities.
+> >
+> > For kernel/ and arch/*, move module_alloc() and module_memfree() to
+> > module_alloc.c, and compile as part of vmlinux when either CONFIG_MODULES
+> > or CONFIG_KPROBES is enabled.  In addition, flag kernel module specific
+> > code with CONFIG_MODULES.
+> >
+> > As the result, kprobes can be used with a monolithic kernel.
+> It's strange when MODULES is n, but vmlinux still obtains module_alloc.
+> 
+> Maybe we need a kprobe_alloc, right?
 
-Looks good to me.
+Perhaps not the best name but at least it documents the fact that
+they use the same allocator.
 
-Reviewed-by: Anup Patel <anup@brainfault.org>
+Few years ago I carved up something "half-way there" for kprobes,
+and I used the name text_alloc() [*].
 
-Regards,
-Anup
+[*] https://lore.kernel.org/all/20200724050553.1724168-1-jarkko.sakkinen@linux.intel.com/ 
 
-> ---
-> Cf. [PATCH] arm64: Enable docker support in defconfig
-> https://lore.kernel.org/lkml/20220606140103.32779-1-vincenzo.frascino@arm.com/
-> ---
->  arch/riscv/configs/defconfig | 65 +++++++++++++++++++++++++++++++++++-
->  1 file changed, 64 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index 0cc17db8aaba..d4fffcd3cc05 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -6,8 +6,18 @@ CONFIG_BPF_SYSCALL=y
->  CONFIG_IKCONFIG=y
->  CONFIG_IKCONFIG_PROC=y
->  CONFIG_CGROUPS=y
-> +CONFIG_MEMCG=y
-> +CONFIG_BLK_CGROUP=y
->  CONFIG_CGROUP_SCHED=y
->  CONFIG_CFS_BANDWIDTH=y
-> +CONFIG_RT_GROUP_SCHED=y
-> +CONFIG_CGROUP_PIDS=y
-> +CONFIG_CGROUP_FREEZER=y
-> +CONFIG_CGROUP_HUGETLB=y
-> +CONFIG_CPUSETS=y
-> +CONFIG_CGROUP_DEVICE=y
-> +CONFIG_CGROUP_CPUACCT=y
-> +CONFIG_CGROUP_PERF=y
->  CONFIG_CGROUP_BPF=y
->  CONFIG_NAMESPACES=y
->  CONFIG_USER_NS=y
-> @@ -28,9 +38,11 @@ CONFIG_KVM=m
->  CONFIG_JUMP_LABEL=y
->  CONFIG_MODULES=y
->  CONFIG_MODULE_UNLOAD=y
-> +CONFIG_BLK_DEV_THROTTLING=y
->  CONFIG_NET=y
->  CONFIG_PACKET=y
->  CONFIG_UNIX=y
-> +CONFIG_XFRM_USER=m
->  CONFIG_INET=y
->  CONFIG_IP_MULTICAST=y
->  CONFIG_IP_ADVANCED_ROUTER=y
-> @@ -38,7 +50,43 @@ CONFIG_IP_PNP=y
->  CONFIG_IP_PNP_DHCP=y
->  CONFIG_IP_PNP_BOOTP=y
->  CONFIG_IP_PNP_RARP=y
-> +CONFIG_INET_ESP=m
-> +CONFIG_NETFILTER=y
-> +CONFIG_BRIDGE_NETFILTER=m
-> +CONFIG_NF_CONNTRACK=m
-> +CONFIG_NF_CONNTRACK_FTP=m
-> +CONFIG_NF_CONNTRACK_TFTP=m
-> +CONFIG_NETFILTER_XT_MARK=m
-> +CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=m
-> +CONFIG_NETFILTER_XT_MATCH_CONNTRACK=m
-> +CONFIG_NETFILTER_XT_MATCH_IPVS=m
-> +CONFIG_IP_VS=m
-> +CONFIG_IP_VS_PROTO_TCP=y
-> +CONFIG_IP_VS_PROTO_UDP=y
-> +CONFIG_IP_VS_RR=m
-> +CONFIG_IP_VS_NFCT=y
-> +CONFIG_NF_LOG_ARP=m
-> +CONFIG_NF_LOG_IPV4=m
-> +CONFIG_IP_NF_IPTABLES=m
-> +CONFIG_IP_NF_FILTER=m
-> +CONFIG_IP_NF_TARGET_REJECT=m
-> +CONFIG_IP_NF_NAT=m
-> +CONFIG_IP_NF_TARGET_MASQUERADE=m
-> +CONFIG_IP_NF_TARGET_REDIRECT=m
-> +CONFIG_IP_NF_MANGLE=m
-> +CONFIG_NF_LOG_IPV6=m
-> +CONFIG_IP6_NF_IPTABLES=m
-> +CONFIG_IP6_NF_MATCH_IPV6HEADER=m
-> +CONFIG_IP6_NF_FILTER=m
-> +CONFIG_IP6_NF_TARGET_REJECT=m
-> +CONFIG_IP6_NF_MANGLE=m
-> +CONFIG_BRIDGE=m
-> +CONFIG_BRIDGE_VLAN_FILTERING=y
-> +CONFIG_VLAN_8021Q=m
-> +CONFIG_NET_SCHED=y
-> +CONFIG_NET_CLS_CGROUP=m
->  CONFIG_NETLINK_DIAG=y
-> +CONFIG_CGROUP_NET_PRIO=y
->  CONFIG_NET_9P=y
->  CONFIG_NET_9P_VIRTIO=y
->  CONFIG_PCI=y
-> @@ -57,7 +105,15 @@ CONFIG_SCSI_VIRTIO=y
->  CONFIG_ATA=y
->  CONFIG_SATA_AHCI=y
->  CONFIG_SATA_AHCI_PLATFORM=y
-> +CONFIG_MD=y
-> +CONFIG_BLK_DEV_DM=m
-> +CONFIG_DM_THIN_PROVISIONING=m
->  CONFIG_NETDEVICES=y
-> +CONFIG_DUMMY=m
-> +CONFIG_MACVLAN=m
-> +CONFIG_IPVLAN=m
-> +CONFIG_VXLAN=m
-> +CONFIG_VETH=m
->  CONFIG_VIRTIO_NET=y
->  CONFIG_MACB=y
->  CONFIG_E1000E=y
-> @@ -105,7 +161,11 @@ CONFIG_RPMSG_CTRL=y
->  CONFIG_RPMSG_VIRTIO=y
->  CONFIG_EXT4_FS=y
->  CONFIG_EXT4_FS_POSIX_ACL=y
-> +CONFIG_EXT4_FS_SECURITY=y
-> +CONFIG_BTRFS_FS=m
-> +CONFIG_BTRFS_FS_POSIX_ACL=y
->  CONFIG_AUTOFS4_FS=y
-> +CONFIG_OVERLAY_FS=m
->  CONFIG_MSDOS_FS=y
->  CONFIG_VFAT_FS=y
->  CONFIG_TMPFS=y
-> @@ -119,6 +179,10 @@ CONFIG_ROOT_NFS=y
->  CONFIG_9P_FS=y
->  CONFIG_NLS_CODEPAGE_437=y
->  CONFIG_NLS_ISO8859_1=m
-> +CONFIG_SECURITY=y
-> +CONFIG_SECURITY_SELINUX=y
-> +CONFIG_SECURITY_APPARMOR=y
-> +CONFIG_DEFAULT_SECURITY_DAC=y
->  CONFIG_CRYPTO_USER_API_HASH=y
->  CONFIG_CRYPTO_DEV_VIRTIO=y
->  CONFIG_PRINTK_TIME=y
-> @@ -137,7 +201,6 @@ CONFIG_DEBUG_SPINLOCK=y
->  CONFIG_DEBUG_MUTEXES=y
->  CONFIG_DEBUG_RWSEMS=y
->  CONFIG_DEBUG_ATOMIC_SLEEP=y
-> -CONFIG_STACKTRACE=y
->  CONFIG_DEBUG_LIST=y
->  CONFIG_DEBUG_PLIST=y
->  CONFIG_DEBUG_SG=y
-> --
-> 2.36.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+BR, Jarkko
 
 _______________________________________________
 linux-riscv mailing list
