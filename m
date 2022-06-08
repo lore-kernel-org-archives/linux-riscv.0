@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43144C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41055C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 16:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=+HyBamvpY2A4VLBa0UsT0B+OuLJhV1Yydz0ZHJ+i288=; b=QttoNPeJ5iceRw
-	NQXUtl6IDS7LRO4SXUx4vwo4eB15YTwdw34pOawCIcJdzMnoDUL4H78mUi9Mz3fCNCcQV0eWV92M+
-	YuBywTCGgsCc4ApXBBg8Jfy6912mV1J0KmcKQ7r1BS5jqiAl77t8eO+zUQ9sr5Xy7zMifKXPm7deY
-	ebsOPt/YvfY/RQfA6yUXI+eNKW9y3upbvSXhidBLILZ5mqy0tQXQBn4eqsvHs64OfxqGVK1fNia+v
-	2qhcPmnEnKlSSIEwBH0XDuC0IqOGVVU6moks0IwskJfxcSrXT0gdWlbIt8h0p2dJP2op/XKe9vZ3M
-	npSamve7btszYxUHqv5w==;
+	List-Owner; bh=pHDkBfncjZIcBhLqVhBHIZmxFtp6L4FnQ956DPq1ejc=; b=U6rgtJZ/d6rLvd
+	p9BNqOJaclIJEn9JKb6sWUP2TKZkhP++UyEgX8yjX2gj9eLqaBTqnLaRmaOJQJSM6F1hyYBfc8Qsy
+	8pxs/OFi6R8RfZtL3p826ukOHWQnyWNOvwwqauMEmI+VL0UJsNtwcnFoGGfwa00dLuqskWu8QrhMw
+	lvID1RwLvUeSrcndYIw4drGQ53zoLvxRw1oYXWbHwZew48jG2YVIg/Xw1jRElwzTfL5cKwl3X20AR
+	kO561LPmKuk9+YzZ/zkGewKtmInWhF+U3AnRDHwy90sQsLFXQ9UP0oCaWXheT7d7f6heaneIgOl8i
+	pkV6fhKXALsYwyAwACjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nyyPj-00EFl6-JB; Wed, 08 Jun 2022 16:20:11 +0000
+	id 1nyyPn-00EFms-0H; Wed, 08 Jun 2022 16:20:15 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywx9-00Dk6w-9J; Wed, 08 Jun 2022 14:46:35 +0000
+	id 1nywx9-00Dk6s-9R; Wed, 08 Jun 2022 14:46:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=vvLwebALuO06Z1aX8J6kQrwqaL5iBz0X7E8LlI1b2uQ=; b=Q7F83ia8UIiOgZBYPdseLSfVcX
-	fd1A47vBrZfxmsAiR/xl9gW4bE0gTf/YoXWA7i0L4s6hdeyInRbvJxphp2ct7rHMcAjOpumtTOXla
-	kCHhvSeqbknKSzusfMS0cPVUddgycIDiAi/gMB72y87uoWeS9XNyFVoldQqHiGPSZ7TOmt0RkBrr8
-	OZtMT+qFPLvTi4Atjpzwddq/pxu/gm+1vIS+xOsRB6WuFkQSrB/cB1hqLpGCTzp5XjujYYrJI8egq
-	m1+E81UoNtWrbGhPnOm/e0s2DOPOjD3cR82rcmdV4yqY9TPecmPva7MxHVXdeWic0XTm2Kurl0SV6
-	/dgVoRTQ==;
+	bh=+nBTmu8be4dn87X4h4i4v5hXqWi/FDQJ2e0V2G49JnI=; b=c0sBpB4EJtpUlMJmM1BtzQg1jI
+	4PcdDgJzYOowDoMnmKAFYhNbpvRYzsV7kRFyLJf62+ZuPqPEFAxeBvm38jC9EIzinrmdPRpzRnIth
+	ZjcGrFN3FC2OLDiPw1MQ9GiO/ueu64sxGeUIVMfNNGZ1I6IAzUSGlYS50yZYH/qpVkumUW9sz9ylw
+	NiQ4O2XB8H8Hk/RXSmU/7i/042dpY1RsaqJxDbzJ3hgd+h+vW2daHvNujHxeLDb2O3c/EAvt6fmpH
+	/CT3Hd5fJEQuF8uryywQG23Lx98/8viggcr1njgwvu2L7IHYIVv/w/rdZa7aTRE+XIf9ro7DYS6a3
+	okJs1Mxg==;
 Received: from dhcp-077-249-017-003.chello.nl ([77.249.17.3] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nywwz-00ChWI-8u; Wed, 08 Jun 2022 14:46:25 +0000
+	id 1nywx3-00ChYC-JV; Wed, 08 Jun 2022 14:46:29 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id B3E87302DCE;
-	Wed,  8 Jun 2022 16:46:22 +0200 (CEST)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id A3BE9302EEA;
+	Wed,  8 Jun 2022 16:46:23 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 5E0D320C0FC99; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
-Message-ID: <20220608144516.489126887@infradead.org>
+	id 9DB8020C10EDE; Wed,  8 Jun 2022 16:46:18 +0200 (CEST)
+Message-ID: <20220608144517.507286638@infradead.org>
 User-Agent: quilt/0.66
-Date: Wed, 08 Jun 2022 16:27:32 +0200
+Date: Wed, 08 Jun 2022 16:27:48 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: rth@twiddle.net,
@@ -182,7 +182,7 @@ Cc: rth@twiddle.net,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
  rcu@vger.kernel.org
-Subject: [PATCH 09/36] cpuidle,imx6: Push RCU-idle into driver
+Subject: [PATCH 25/36] time/tick-broadcast: Remove RCU_NONIDLE usage
 References: <20220608142723.103523089@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Wed, 08 Jun 2022 09:19:54 -0700
@@ -202,36 +202,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Doing RCU-idle outside the driver, only to then temporarily enable it
-again, at least twice, before going idle is daft.
+No callers left that have already disabled RCU.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 ---
- arch/arm/mach-imx/cpuidle-imx6sx.c |    5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ kernel/time/tick-broadcast-hrtimer.c |   29 ++++++++++++-----------------
+ 1 file changed, 12 insertions(+), 17 deletions(-)
 
---- a/arch/arm/mach-imx/cpuidle-imx6sx.c
-+++ b/arch/arm/mach-imx/cpuidle-imx6sx.c
-@@ -47,7 +47,9 @@ static int imx6sx_enter_wait(struct cpui
- 		cpu_pm_enter();
- 		cpu_cluster_pm_enter();
+--- a/kernel/time/tick-broadcast-hrtimer.c
++++ b/kernel/time/tick-broadcast-hrtimer.c
+@@ -56,25 +56,20 @@ static int bc_set_next(ktime_t expires,
+ 	 * hrtimer callback function is currently running, then
+ 	 * hrtimer_start() cannot move it and the timer stays on the CPU on
+ 	 * which it is assigned at the moment.
++	 */
++	hrtimer_start(&bctimer, expires, HRTIMER_MODE_ABS_PINNED_HARD);
++	/*
++	 * The core tick broadcast mode expects bc->bound_on to be set
++	 * correctly to prevent a CPU which has the broadcast hrtimer
++	 * armed from going deep idle.
+ 	 *
+-	 * As this can be called from idle code, the hrtimer_start()
+-	 * invocation has to be wrapped with RCU_NONIDLE() as
+-	 * hrtimer_start() can call into tracing.
++	 * As tick_broadcast_lock is held, nothing can change the cpu
++	 * base which was just established in hrtimer_start() above. So
++	 * the below access is safe even without holding the hrtimer
++	 * base lock.
+ 	 */
+-	RCU_NONIDLE( {
+-		hrtimer_start(&bctimer, expires, HRTIMER_MODE_ABS_PINNED_HARD);
+-		/*
+-		 * The core tick broadcast mode expects bc->bound_on to be set
+-		 * correctly to prevent a CPU which has the broadcast hrtimer
+-		 * armed from going deep idle.
+-		 *
+-		 * As tick_broadcast_lock is held, nothing can change the cpu
+-		 * base which was just established in hrtimer_start() above. So
+-		 * the below access is safe even without holding the hrtimer
+-		 * base lock.
+-		 */
+-		bc->bound_on = bctimer.base->cpu_base->cpu;
+-	} );
++	bc->bound_on = bctimer.base->cpu_base->cpu;
++
+ 	return 0;
+ }
  
-+		rcu_idle_enter();
- 		cpu_suspend(0, imx6sx_idle_finish);
-+		rcu_idle_exit();
- 
- 		cpu_cluster_pm_exit();
- 		cpu_pm_exit();
-@@ -87,7 +89,8 @@ static struct cpuidle_driver imx6sx_cpui
- 			 */
- 			.exit_latency = 300,
- 			.target_residency = 500,
--			.flags = CPUIDLE_FLAG_TIMER_STOP,
-+			.flags = CPUIDLE_FLAG_TIMER_STOP |
-+				 CPUIDLE_FLAG_RCU_IDLE,
- 			.enter = imx6sx_enter_wait,
- 			.name = "LOW-POWER-IDLE",
- 			.desc = "ARM power off",
 
 
 
