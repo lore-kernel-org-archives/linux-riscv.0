@@ -4,82 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A742C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 10:27:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C191CCCA47B
+	for <linux-riscv@archiver.kernel.org>; Wed,  8 Jun 2022 10:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qiP8f3uWOoufSDrt8EWQbfJNZm9QVrHhNIr/Mjw4crU=; b=gUwi3HB2S6WoLR
-	pvTClYxDdJr04WXwgct9TmBQkhVdT2wVQO4+o4Sjg2FlwnSSUx4ceiRgajVP+ovaV+FQDeLrTNBF5
-	flbg/Xnlt01k1iWTfjQyiYEtvt1DWRjW7b8iSrlSAY9QRyEIIoYXVx+egMO3nzTRRgS/sFs0o8AaC
-	MwwtTcMJUHwr2YEA9Aidxlfudw7ktfnZ4y/lQRtBIMdoS15StC5046SysQQbaFTOJbsy4wACRmdcJ
-	friGLWM0XJxCq955eIO11HAm9/eZsBPhu7CJ/UJ9Tu2C8kFapCS6LhHeiQcN9EPzEPYf0Ek5i82oZ
-	fHeim8mu+JFPlqsm4zqw==;
+	List-Owner; bh=+bUpdoUTwEAaqrWEtDtZMrpT6Py9iyecqJC8hdh0Cw0=; b=cNQR6phSBlfjpi
+	HK2e7+aedD8kD9OYmvRhGtENs2ygu0+D/8P9hUvFvXCLO9cf2fGVCy2E4uGvKeEyWCFv2U+hYkSgA
+	OZoA+ehAdpK6LqL6A/gyCVsRRlDFN0EcmOVDElRbwVUTE8aTLB4ctT2gcY3LdhwyrVhWuCVy8SnkG
+	oVFHR1e4SjmXahvxke3Cyb6qv9nvIdJz0Jaua8pxL4tQmB+RhsZ/gI5YbY6QzjGh7qAgJxTzqsz1a
+	mxXhi+oBIFan5npbyFkLXxTLI3iAxXRh5MhsNqtOhadeTBuzH1CErqriudWOgl104P7s23YXKSCN3
+	MLqWo4Vda8O48UEyVYSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nysuf-00CkCK-CK; Wed, 08 Jun 2022 10:27:45 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1nysyQ-00Clvy-HF; Wed, 08 Jun 2022 10:31:38 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nysgB-00CeC0-Fz; Wed, 08 Jun 2022 10:12:54 +0000
+	id 1nysuq-00CkF9-QT
+	for linux-riscv@lists.infradead.org; Wed, 08 Jun 2022 10:27:58 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 0F8FACE2763;
-	Wed,  8 Jun 2022 10:12:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B515C3411D;
-	Wed,  8 Jun 2022 10:12:43 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id B1A09B80DA1;
+	Wed,  8 Jun 2022 10:27:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77D39C34116;
+	Wed,  8 Jun 2022 10:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654683163;
-	bh=l+YAwT5Lngsb4fdcNuzv2q5gFCd5jD6EiSqwsTDfTGk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=EjqgUZWHuAr0cwQKq8GtDFb6lKZ/g888xVBC0+lVlrM6b1hx7E3v4HVOf1sJw56nO
-	 /hosftyGtNVmb8t5IMKs/nGkBvofsEAORCmkBVgvLiirD3bMKLmKYToqfHwmqqB+8J
-	 vuFVSRq1M0Go4KdQYRLImQ1fydkBjXBegwl6Bm+Gh/u/oAiKLgHLTZSbm7G84D6Gla
-	 zdgHtC9qAD+sZmdtlatx4clQixV1XA5ifJOmEKkcsI9YbQzOwUrmbbCp5su1BKxgIh
-	 AHMBq2BGOhj+FXOotSE810D7b31ptQh7jyjXGJLFST2Ysd+KgI5W8OIjQeqYY3gp/s
-	 2fI9Saw39y14w==
-Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-fb6b4da1dfso8615422fac.4;
-        Wed, 08 Jun 2022 03:12:43 -0700 (PDT)
-X-Gm-Message-State: AOAM532YFDqct6GOIW4SmDzhTg+3zBAPgBFLC1h4BGAvnhvEp5ue0zyS
-	XlZEv5zG5aerC/KjFq9gm5cOsOtSqGL2ng/MWHk=
-X-Google-Smtp-Source: ABdhPJzxYxZTceIJqNDwmpmSozg43OnDPkArkQbDWCLe95GIqxVyAqbW6DGZeHBqAB2kTy8qg+6sAkBoES1ptkis2Mo=
-X-Received: by 2002:a05:6808:f88:b0:32b:d10f:cc6b with SMTP id
- o8-20020a0568080f8800b0032bd10fcc6bmr1993451oiw.228.1654683151841; Wed, 08
- Jun 2022 03:12:31 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220607093805.1354256-1-mawupeng1@huawei.com>
- <20220607093805.1354256-6-mawupeng1@huawei.com> <99900b31-2605-2c85-a1b7-9ef2666b58da@redhat.com>
- <CAMj1kXGkzjq3koW_sgO4uzrdtwqSqzsJfT5ABYyvodf+ggXT2w@mail.gmail.com>
- <29900b05-ec44-76a2-645a-22a13399d7fd@huawei.com> <YqBzwgTgWEAx8J/C@kernel.org>
- <cd0e727d-8ad6-2d74-55f5-498394aae297@redhat.com>
-In-Reply-To: <cd0e727d-8ad6-2d74-55f5-498394aae297@redhat.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Wed, 8 Jun 2022 12:12:18 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXEKKcnPE5crMYbuFpDJBqmgjFwna84MzAZkfp-mM3B7vA@mail.gmail.com>
-Message-ID: <CAMj1kXEKKcnPE5crMYbuFpDJBqmgjFwna84MzAZkfp-mM3B7vA@mail.gmail.com>
-Subject: Re: [PATCH v3 5/6] mm: Add mirror flag back on initrd memory
-To: David Hildenbrand <david@redhat.com>
-Cc: Mike Rapoport <rppt@kernel.org>, mawupeng <mawupeng1@huawei.com>, corbet@lwn.net, 
-	will@kernel.org, catalin.marinas@arm.com, tglx@linutronix.de, 
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, 
-	hpa@zytor.com, dvhart@infradead.org, andy@infradead.org, 
-	akpm@linux-foundation.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, paulmck@kernel.org, keescook@chromium.org, 
-	songmuchun@bytedance.com, rdunlap@infradead.org, 
-	damien.lemoal@opensource.wdc.com, swboyd@chromium.org, wei.liu@kernel.org, 
-	robin.murphy@arm.com, anshuman.khandual@arm.com, thunder.leizhen@huawei.com, 
-	wangkefeng.wang@huawei.com, gpiccoli@igalia.com, chenhuacai@kernel.org, 
-	geert@linux-m68k.org, chenzhou10@huawei.com, vijayb@linux.microsoft.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
-	platform-driver-x86@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org
+	s=k20201202; t=1654684071;
+	bh=lS1qiuHW0eqGC4UvSS41hSkG8X/ge0lN3jktBcbYpeQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=uIzDWzysJK3RpgucV/+5VsGzXWxaO6fP5yGSEYPvIXJmwtFHICwP48/4/V0OOTRWs
+	 6sUs9zuTTWBK5+s5+3/qI2qGZO8sSOOa89OCEuAWV2/5Pnt7YCsr5sjuZnVkQ2PO4i
+	 e4CfjWU7p05jkRgdaNKSSNjnelPKCFy9gCLGu1/fGmdgRVoZIbhUIgW1xfHk1mh7LJ
+	 5FHKBjNtVBqhEXyUofAD6rnv0kLRf3qc8VSaOpfZE9cqrsrx1DpwPg72MUApltdLBs
+	 kHrRRFplY42lOdHA1gMj1No+GJviikzawkmpP2TvrCYYoaS8D+OqzTDtzeWAwazsKp
+	 DxThBFjep7hzQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <maz@kernel.org>)
+	id 1nysui-00GZgf-22; Wed, 08 Jun 2022 11:27:49 +0100
+Date: Wed, 08 Jun 2022 11:27:47 +0100
+Message-ID: <87leu74fh8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Sagar Kadam <sagar.kadam@sifive.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+	Phil Edworthy <phil.edworthy@renesas.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>
+Subject: Re: [PATCH RFC 2/2] irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
+In-Reply-To: <CA+V-a8sRW7oUmwOmzBx8cpk+n=cRofh3vT1cmroH_ESHN+Z3YA@mail.gmail.com>
+References: <20220524172214.5104-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	<20220524172214.5104-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	<CA+V-a8vfzsB55YdFmtx3eim617b=WCYJu+Tm3SO9c1QCB3i0Lw@mail.gmail.com>
+	<87r1414x5f.wl-maz@kernel.org>
+	<CA+V-a8sRW7oUmwOmzBx8cpk+n=cRofh3vT1cmroH_ESHN+Z3YA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: prabhakar.csengg@gmail.com, geert+renesas@glider.be, prabhakar.mahadev-lad.rj@bp.renesas.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, paul.walmsley@sifive.com, sagar.kadam@sifive.com, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, phil.edworthy@renesas.com, biju.das.jz@bp.renesas.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220608_031247_961589_12EAFE5B 
-X-CRM114-Status: GOOD (  46.78  )
+X-CRM114-CacheID: sfid-20220608_032757_235738_D61619B4 
+X-CRM114-Status: GOOD (  28.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,108 +94,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCA4IEp1biAyMDIyIGF0IDEyOjA4LCBEYXZpZCBIaWxkZW5icmFuZCA8ZGF2aWRAcmVk
-aGF0LmNvbT4gd3JvdGU6Cj4KPiBPbiAwOC4wNi4yMiAxMjowMiwgTWlrZSBSYXBvcG9ydCB3cm90
-ZToKPiA+IE9uIFdlZCwgSnVuIDA4LCAyMDIyIGF0IDAzOjI3OjA5UE0gKzA4MDAsIG1hd3VwZW5n
-IHdyb3RlOgo+ID4+Cj4gPj4g5ZyoIDIwMjIvNi83IDIyOjQ5LCBBcmQgQmllc2hldXZlbCDlhpnp
-gZM6Cj4gPj4+IE9uIFR1ZSwgNyBKdW4gMjAyMiBhdCAxNDoyMiwgRGF2aWQgSGlsZGVuYnJhbmQg
-PGRhdmlkQHJlZGhhdC5jb20+IHdyb3RlOgo+ID4+Pj4KPiA+Pj4+IE9uIDA3LjA2LjIyIDExOjM4
-LCBXdXBlbmcgTWEgd3JvdGU6Cj4gPj4+Pj4gRnJvbTogTWEgV3VwZW5nIDxtYXd1cGVuZzFAaHVh
-d2VpLmNvbT4KPiA+Pj4+Pgo+ID4+Pj4+IEluaXRyZCBtZW1vcnkgd2lsbCBiZSByZW1vdmVkIGFu
-ZCB0aGVuIGFkZGVkIGluIGFybTY0X21lbWJsb2NrX2luaXQoKSBhbmQgdGhpcwo+ID4+Pj4+IHdp
-bGwgY2F1c2UgaXQgdG8gbG9zZSBhbGwgb2YgaXRzIG1lbWJsb2NrIGZsYWdzLiBUaGUgbG9zdCBv
-ZiBNRU1CTE9DS19NSVJST1IKPiA+Pj4+PiBmbGFnIHdpbGwgbGVhZCB0byBlcnJvciBsb2cgcHJp
-bnRlZCBieSBmaW5kX3pvbmVfbW92YWJsZV9wZm5zX2Zvcl9ub2RlcyBpZgo+ID4+Pj4+IHRoZSBs
-b3dlciA0RyByYW5nZSBoYXMgc29tZSBub24tbWlycm9yZWQgbWVtb3J5Lgo+ID4+Pj4+Cj4gPj4+
-Pj4gSW4gb3JkZXIgdG8gc29sdmUgdGhpcyBwcm9ibGVtLCB0aGUgbG9zdCBNRU1CTE9DS19NSVJS
-T1IgZmxhZyB3aWxsIGJlCj4gPj4+Pj4gcmVpbnN0YWxsZWQgaWYgdGhlIG9yaWdpbiBtZW1ibG9j
-ayBoYXMgdGhpcyBmbGFnLgo+ID4+Pj4+Cj4gPj4+Pj4gU2lnbmVkLW9mZi1ieTogTWEgV3VwZW5n
-IDxtYXd1cGVuZzFAaHVhd2VpLmNvbT4KPiA+Pj4+PiAtLS0KPiA+Pj4+PiAgIGFyY2gvYXJtNjQv
-bW0vaW5pdC5jICAgICB8ICA5ICsrKysrKysrKwo+ID4+Pj4+ICAgaW5jbHVkZS9saW51eC9tZW1i
-bG9jay5oIHwgIDEgKwo+ID4+Pj4+ICAgbW0vbWVtYmxvY2suYyAgICAgICAgICAgIHwgMjAgKysr
-KysrKysrKysrKysrKysrKysKPiA+Pj4+PiAgIDMgZmlsZXMgY2hhbmdlZCwgMzAgaW5zZXJ0aW9u
-cygrKQo+ID4+Pj4+Cj4gPj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvbW0vaW5pdC5jIGIv
-YXJjaC9hcm02NC9tbS9pbml0LmMKPiA+Pj4+PiBpbmRleCAzMzllZTg0ZTVhNjEuLjExNjQxZjky
-NGQwOCAxMDA2NDQKPiA+Pj4+PiAtLS0gYS9hcmNoL2FybTY0L21tL2luaXQuYwo+ID4+Pj4+ICsr
-KyBiL2FyY2gvYXJtNjQvbW0vaW5pdC5jCj4gPj4+Pj4gQEAgLTM1MCw5ICszNTAsMTggQEAgdm9p
-ZCBfX2luaXQgYXJtNjRfbWVtYmxvY2tfaW5pdCh2b2lkKQo+ID4+Pj4+ICAgICAgICAgICAgICAg
-ICAgICAgICAgImluaXRyZCBub3QgZnVsbHkgYWNjZXNzaWJsZSB2aWEgdGhlIGxpbmVhciBtYXBw
-aW5nIC0tIHBsZWFzZSBjaGVjayB5b3VyIGJvb3Rsb2FkZXIgLi4uXG4iKSkgewo+ID4+Pj4+ICAg
-ICAgICAgICAgICAgICAgICAgICAgcGh5c19pbml0cmRfc2l6ZSA9IDA7Cj4gPj4+Pj4gICAgICAg
-ICAgICAgICAgfSBlbHNlIHsKPiA+Pj4+PiArICAgICAgICAgICAgICAgICAgICAgaW50IGZsYWdz
-LCByZXQ7Cj4gPj4+Pj4gKwo+ID4+Pj4+ICsgICAgICAgICAgICAgICAgICAgICByZXQgPSBtZW1i
-bG9ja19nZXRfZmxhZ3MoYmFzZSwgJmZsYWdzKTsKPiA+Pj4+PiArICAgICAgICAgICAgICAgICAg
-ICAgaWYgKHJldCkKPiA+Pj4+PiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmbGFncyA9
-IDA7Cj4gPj4+Pj4gKwo+ID4+Pj4+ICAgICAgICAgICAgICAgICAgICAgICAgbWVtYmxvY2tfcmVt
-b3ZlKGJhc2UsIHNpemUpOyAvKiBjbGVhciBNRU1CTE9DS18gZmxhZ3MgKi8KPiA+Pj4+PiAgICAg
-ICAgICAgICAgICAgICAgICAgIG1lbWJsb2NrX2FkZChiYXNlLCBzaXplKTsKPiA+Pj4+PiAgICAg
-ICAgICAgICAgICAgICAgICAgIG1lbWJsb2NrX3Jlc2VydmUoYmFzZSwgc2l6ZSk7Cj4gPj4+Pgo+
-ID4+Pj4gQ2FuIHlvdSBleHBsYWluIHdoeSB3ZSdyZSByZW1vdmluZytyZS1hZGRpbmcgaGVyZSBl
-eGFjdGx5PyBJcyBpdCBqdXN0IHRvCj4gPj4+PiBjbGVhciBmbGFncyBhcyB0aGUgY29tbWVudCBp
-bmRpY2F0ZXM/Cj4gPj4+Pgo+ID4+Pgo+ID4+PiBUaGlzIHNob3VsZCBvbmx5IGhhcHBlbiBpZiB0
-aGUgcGxhY2VtZW50IG9mIHRoZSBpbml0cmQgY29uZmxpY3RzIHdpdGgKPiA+Pj4gYSBtZW09IGNv
-bW1hbmQgbGluZSBwYXJhbWV0ZXIgb3IgaXQgaXMgbm90IGNvdmVyZWQgYnkgbWVtYmxvY2sgZm9y
-Cj4gPj4+IHNvbWUgb3RoZXIgcmVhc29uLgo+ID4+Pgo+ID4+PiBJT1csIHRoaXMgc2hvdWxkIG5l
-dmVyIGhhcHBlbiwgYW5kIGlmIHJlLW1lbWJsb2NrX2FkZCdpbmcgdGhpcyBtZW1vcnkKPiA+Pj4g
-dW5jb25kaXRpb25hbGx5IGlzIGNhdXNpbmcgcHJvYmxlbXMsIHdlIHNob3VsZCBmaXggdGhhdCBp
-bnN0ZWFkIG9mCj4gPj4+IHdvcmtpbmcgYXJvdW5kIGl0Lgo+ID4+Cj4gPj4gVGhpcyB3aWxsIGhh
-cHBlbiBpZiB3ZSB1c2UgaW5pdHJkbWVtPTNHLDEwME0gdG8gcmVzZXJ2ZSBpbml0cmQgbWVtb3J5
-IGJlbG93Cj4gPj4gdGhlIDRHIGxpbWl0IHRvIHRlc3QgdGhpcyBzY2VuYXJpbyhqdXN0IGZvciB0
-ZXN0aW5nLCBJIGhhdmUgdHJvdWJsZSB0byBib290Cj4gPj4gcWVtdSB3aXRoIGluaXRyZCBlbmFi
-bGVkIGFuZCBtZW1vcnkgYmVsb3cgNEcgYXJlIGFsbCBtaXJyb3IgbWVtb3J5KS4KPiA+Pgo+ID4+
-IFJlLW1lbWJsb2NrX2FkZCdpbmcgdGhpcyBtZW1vcnkgdW5jb25kaXRpb25hbGx5IHNlZW1zIGZp
-bmUgYnV0IGNsZWFyIGFsbAo+ID4+IGZsYWdzKGVzcGVjaWFsbHkgTUVNQkxPQ0tfTUlSUk9SKSBt
-YXkgbGVhZCB0byBzb21lIGVycm9yIGxvZy4KPiA+Pgo+ID4+Pgo+ID4+Pj4gSWYgaXQncyByZWFs
-bHkganVzdCBhYm91dCBjbGVhcmluZyBmbGFncywgSSB3b25kZXIgaWYgd2UgcmF0aGVyIHdhbnQg
-dG8KPiA+Pj4+IGhhdmUgYW4gaW50ZXJmYWNlIHRoYXQgZG9lcyBleGFjdGx5IHRoYXQsIGFuZCBo
-aWRlcyB0aGUgd2F5IHRoaXMgaXMKPiA+Pj4+IGFjdHVhbGx5IGltcGxlbWVudGVkIChvYnRhaW4g
-ZmxhZ3MsIHJlbW92ZSwgcmUtYWRkIC4uLiksIGludGVybmFsbHkuCj4gPj4+Pgo+ID4+Pj4gQnV0
-IG1vc3QgcHJvYmFibHkgdGhlcmUgaXMgbW9yZSBtYWdpYyBpbiB0aGUgY29kZSBhbmQgY2xlYXJp
-bmcgZmxhZ3MKPiA+Pj4+IGlzbid0IGFsbCBpdCBlbmRzIHVwIGRvaW5nLgo+ID4+Pj4KPiA+Pj4K
-PiA+Pj4gSSBkb24ndCByZW1lbWJlciBleGFjdGx5IHdoeSB3ZSBuZWVkZWQgdG8gY2xlYXIgdGhl
-IGZsYWdzLCBidXQgSSB0aGluawo+ID4+PiBpdCBoYWQgdG8gZG8gd2l0aCBzb21lIGNvcm5lciBj
-YXNlIHdlIGhpdCB3aGVuIHRoZSBpbml0cmQgd2FzCj4gPj4+IHBhcnRpYWxseSBjb3ZlcmVkLgo+
-ID4+IElmICJtZW09IiBpcyBzZXQgaW4gY29tbWFuZCBsaW5lLCBtZW1ibG9ja19tZW1fbGltaXRf
-cmVtb3ZlX21hcCgpIHdpbGwKPiA+PiByZW1vdmUgYWxsIG1lbW9yeSBibG9jayB3aXRob3V0IE1F
-TUJMT0NLX05PTUFQLiBNYXliZSB0aGlzIHdpbGwgYnJpbmcgdGhlCj4gPj4gbWVtb3J5IGJhY2sg
-aWYgdGhpcyBpbml0cmQgbWVtIGhhcyB0aGUgTUVNQkxPQ0tfTk9NQVAgZmxhZz8KPiA+Pgo+ID4+
-IFRoZSByZmMgdmVyc2lvbiBbMV0gaW50cm9kdWNlIGFuZCB1c2UgbWVtYmxvY2tfY2xlYXJfbm9t
-YXAoKSB0byBjbGVhciB0aGUKPiA+PiBNRU1CTE9DS19OT01BUCBvZiB0aGlzIGluaXRyZCBtZW1i
-bG9jay4KPiA+PiBTbyBtYXliZSB0aGUgdXNhZ2Ugb2YgbWVtYmxvY2tfcmVtb3ZlKCkgaXMganVz
-dCB0byBhdm9pZCBpbnRyb2R1Y2luZyBuZXcKPiA+PiBmdW5jdGlvbihtZW1ibG9ja19jbGVhcl9u
-b21hcCk/Cj4gPj4KPiA+PiBTaW5jZSBjb21taXQgNGM1NDZiOGEzNDY5ICgibWVtYmxvY2s6IGFk
-ZCBtZW1ibG9ja19jbGVhcl9ub21hcCgpIikgYWxyZWFkeQo+ID4+IGludHJvZHVjZWQgbWVtYmxv
-Y2tfY2xlYXJfbm9tYXAoKS4gQ2FuIHdlIHVzZSB0aGlzIHRvIHJlbW92ZSBmbGFnIE1FTUJMT0NL
-X05PTUFQCj4gPj4gdG8gc29sdmUgdGhpcyBwcm9ibGVtIHJhdGhlciB0aGFuIGJyaW5nIGZsYWcg
-TUVNQkxPQ0tfTUlSUk9SIGJhY2s/Cj4gPgo+ID4gQUZBSUNULCB0aGVyZSBhcmUgdHdvIGNvcm5l
-ciBjYXNlcyB0aGF0IHJlLWFkZGluZyBpbml0cmQgbWVtb3J5IGNvdmVyczoKPiA+ICogaW5pdHJk
-IG1lbW9yeSBpcyBub3QgYSBwYXJ0IG9mIHRoZSBtZW1vcnkgcmVwb3J0ZWQgdG8gbWVtYmxvY2ss
-IGVpdGhlcgo+ID4gYmVjYXVzZSBvZiBmaXJtd2FyZSB3ZWlyZG5lc3Mgb3IgYmVjYXVzZSBpdCB3
-YXMgY3V0IG91dCB3aXRoIG1lbT0KPiA+ICogaW5pdHJkIG1lbW9yeSBvdmVybGFwcyBhIE5PTUFQ
-IHJlZ2lvbgo+ID4KPiA+IFNvIHRvIG1ha2Ugc3VyZSBpbml0cmQgbWVtb3J5IGlzIG1hcHBlZCBw
-cm9wZXJseSBhbmQgcmV0YWlucwo+ID4gTUVNQkxPQ0tfTUlSUk9SIEkgdGhpbmsgdGhlIGJlc3Qg
-d2UgY2FuIGRvIGlzCj4gPgo+ID4gICAgICAgbWVtYmxvY2tfYWRkKCk7Cj4gPiAgICAgICBtZW1i
-bG9ja19jbGVhcl9ub21hcCgpOwo+ID4gICAgICAgbWVtYmxvY2tfcmVzZXJ2ZSgpOwo+Cj4gV291
-bGQgc2ltcGx5IGRldGVjdCtyZWplY3RpbmcgdG8gYm9vdCBvbiBzdWNoIHNldHVwcyBiZSBhbiBv
-cHRpb24/IFRoZQo+IHJlcGxpZXMgc28gZmFyIGluZGljYXRlIHRvIG1lIHRoYXQgdGhpcyBpcyBy
-YXRoZXIgYSBjb3JuZXIgY2FzZSB0aGFuIGEKPiByZWFzb25hYmxlIHVzZSBjYXNlLgo+CgpUaGUg
-c2FkIHJlYWxpdHkgaXMgdGhhdCBtZW09IGlzIGtub3duIHRvIGJlIHVzZWQgaW4gcHJvZHVjdGlv
-biBmb3IKbGltaXRpbmcgdGhlIGFtb3VudCBvZiBtZW1vcnkgdGhhdCB0aGUga2VybmVsIHRha2Vz
-IGNvbnRyb2wgb2YsIGluCm9yZGVyIHRvIGFsbG93IHRoZSByZW1haW5kZXIgdG8gYmUgdXNlZCBp
-biBwbGF0Zm9ybSBzcGVjaWZpYyB3YXlzLgoKT2YgY291cnNlLCB0aGVyZSBhcmUgbXVjaCBiZXR0
-ZXIgd2F5cyB0byBhY2hpZXZlIHRoYXQsIGJ1dCBnaXZlbiB0aGF0CndlIGN1cnJlbnRseSBzdXBw
-b3J0IGl0LCBJIGRvbid0IHRoaW5rIHdlIGNhbiBlYXNpbHkgYmFjayB0aGF0IG91dC4KCkkgZG8g
-dGhpbmsgdGhhdCB0aGVyZSBpcyBubyBuZWVkIHRvIGdvIG91dCBvZiBvdXIgd2F5IHRvIG1ha2Ug
-dGhpcwpjYXNlIHdvcmsgc2VhbWxlc3NseSB3aXRoIG1pcnJvcmVkIG1lbW9yeSwgdGhvdWdoLiBT
-byBJJ2QgcHJlZmVyIHRvCm1ha2UgdGhlIHJlbW92ZStyZS1hZGQgY29uZGl0aW9uYWwgb24gdGhl
-cmUgYWN0dWFsbHkgYmVpbmcgYSBuZWVkIHRvCmRvIHNvLiBUaGF0IHdheSwgd2UgZG9uJ3QgYnJl
-YWsgdGhlIG9sZCB1c2UgY2FzZSBvciBtaXJyb3JlZCBtZW1vcnksCmFuZCB3aGF0ZXZlciBoYXBw
-ZW5zIHdoZW4gdGhlIHR3byBhcmUgY29tYmluZWQgaXMgRE9OVENBUkUuCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, 07 Jun 2022 13:41:16 +0100,
+"Lad, Prabhakar" <prabhakar.csengg@gmail.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Mon, Jun 6, 2022 at 4:41 PM Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Fri, 27 May 2022 12:05:38 +0100,
+> > "Lad, Prabhakar" <prabhakar.csengg@gmail.com> wrote:
+> > >
+> > > I sometimes still see an interrupt miss!
+> > >
+> > > As per [0], we first need to claim the interrupt by reading the claim
+> > > register which needs to be done in the ack callback (which should be
+> > > doable) for edge interrupts, but the problem arises in the chained
+> > > handler callback where it does claim the interrupt by reading the
+> > > claim register.
+> > >
+> > > static void plic_handle_irq(struct irq_desc *desc)
+> > > {
+> > >     struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> > >     struct irq_chip *chip = irq_desc_get_chip(desc);
+> > >     void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
+> > >     irq_hw_number_t hwirq;
+> > >
+> > >     WARN_ON_ONCE(!handler->present);
+> > >
+> > >     chained_irq_enter(chip, desc);
+> > >
+> > >     while ((hwirq = readl(claim))) {
+> > >         int err = generic_handle_domain_irq(handler->priv->irqdomain,
+> > >                             hwirq);
+> > >         if (unlikely(err))
+> > >             pr_warn_ratelimited("can't find mapping for hwirq %lu\n",
+> > >                     hwirq);
+> > >     }
+> > >
+> > >     chained_irq_exit(chip, desc);
+> > > }
+> > >
+> > > I was thinking I would get around by getting the irqdata in
+> > > plic_handle_irq() callback using the irq_desc (struct irq_data *d =
+> > > &desc->irq_data;) and check the d->hwirq but this will be always 9.
+> > >
+> > >         plic: interrupt-controller@12c00000 {
+> > >             compatible = "renesas-r9a07g043-plic";
+> > >             #interrupt-cells = <2>;
+> > >             #address-cells = <0>;
+> > >             riscv,ndev = <543>;
+> > >             interrupt-controller;
+> > >             reg = <0x0 0x12c00000 0 0x400000>;
+> > >             clocks = <&cpg CPG_MOD R9A07G043_NCEPLIC_ACLK>;
+> > >             clock-names = "plic100ss";
+> > >             power-domains = <&cpg>;
+> > >             resets = <&cpg R9A07G043_NCEPLIC_ARESETN>;
+> > >             interrupts-extended = <&cpu0_intc 11 &cpu0_intc 9>;
+> > >         };
+> > >
+> > > Any pointers on how this could be done sanely.
+> >
+> > Why doesn't the chained interrupt also get the ack-aware irq_chip?
+> >
+> Sorry for being naive, could you please elaborate on this.
+
+There are two main reasons why the above code fails: these interrupts
+are not using either
+
+- the irqchip you think they are using (which one then?),
+
+- the interrupt flow they should be using.
+
+Dumping /sys/kernel/debug/irq/irqs/$IRQ should give you a clue.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
