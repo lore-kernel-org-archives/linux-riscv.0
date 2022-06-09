@@ -4,117 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F513C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 13:45:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF91C43334
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 13:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mayGndx+AQAygZSzDlQ3rhJOvZTPSAlECicOG3uhIQ0=; b=35eonsuV4RZc2E
-	EwoKihB0A9v08DHR1nxP55JrxMf0WIM/tAu05AeW4BqHBhlMsDgdpP9oQxni4qzrUphxxSCIYcX4R
-	uJD/8finrHaCD5MVU6mXtyTzXSQLL+vcgI5b0JroTqlwUAO95mRnilPK2j2Cwq2oRtK596isSi8sq
-	+pZc4TAP0KqYIooe/3h1529vGhiB1j4xinl3Wu85/7Nh+Wfm8Il97h1XBWcfP06US9ajFfxMdJUz/
-	iuJxXHlYlRBgpeWUbE1voyyEAyCQ3wYO32NhokxxJDHwXDlFkH9WujigyIHOitU4mM2VHJHe5kFI+
-	PIG9h7KawqyfxD6j/loA==;
+	List-Owner; bh=nbWkH7FO5acE7kqh8NqK3H9pePX7sbPn9ak0IC0B8/A=; b=i4/SNXIKzdn6mO
+	CG+D9etluvCpm6fiTSKwi0SPvQvLQE4kH4100WTyex6fMDStMuHxMjh+Zci//mlPETaIOoCemrZ+j
+	TPmOhLI+eNRdsgbMx+//OaZA13CYQ+r7bWuOSmRP69bMDeXtZ+49508MGUWahnZpkDJtAI3lszR29
+	lpL6HtojL64/4144ODDBzCuzQXK1Y8/V7QmbeAw5BjnqWx2ZNPgJmfMZv3GypLfkKcO+3tWMvnePl
+	O+0XwFKZ3d38P5ZzmfVNHenv7S1ZDPJaag39/EsfA4FzTbZKwX2/EjCb6cUdkdeWL/K26DzkjY1+l
+	ZNq3quNG3ENWgiHEpS/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzITA-002FjN-Ut; Thu, 09 Jun 2022 13:45:05 +0000
-Received: from mcgrof by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzISr-002FYc-3e; Thu, 09 Jun 2022 13:44:45 +0000
-Date: Thu, 9 Jun 2022 06:44:45 -0700
-From: Luis Chamberlain <mcgrof@kernel.org>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	"Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
-	Christoph Hellwig <hch@infradead.org>
-Cc: Jarkko Sakkinen <jarkko@profian.com>, linux-kernel@vger.kernel.org,
-	Nathaniel McCallum <nathaniel@profian.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Paul Mackerras <paulus@samba.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Kees Cook <keescook@chromium.org>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Eric W. Biederman" <ebiederm@xmission.com>,
-	Marco Elver <elver@google.com>, Dan Li <ashimida@linux.alibaba.com>,
-	Sami Tolvanen <samitolvanen@google.com>, Song Liu <song@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Chen Zhongjin <chenzhongjin@huawei.com>,
-	Nicolas Pitre <nico@fluxnic.net>, Mark Brown <broonie@kernel.org>,
-	Luis Machado <luis.machado@linaro.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Atsushi Nemoto <anemo@mba.ocn.ne.jp>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Dave Anglin <dave.anglin@bell.net>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>, Daniel Axtens <dja@axtens.net>,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
-	Jordan Niethe <jniethe5@gmail.com>, Guo Ren <guoren@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Changbin Du <changbin.du@intel.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Liao Chang <liaochang1@huawei.com>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	Wu Caize <zepan@sipeed.com>, Emil Renner Berthing <kernel@esmil.dk>,
-	Alexander Egorenkov <egorenar@linux.ibm.com>,
-	Thomas Richter <tmricht@linux.ibm.com>,
-	Tobias Huschle <huschle@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Daniel Bristot de Oliveira <bristot@redhat.com>,
-	Michael Roth <michael.roth@amd.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Miroslav Benes <mbenes@suse.cz>,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Aaron Tomlin <atomlin@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-modules@vger.kernel.org
-Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
-Message-ID: <YqH5TfN9w35kHFLU@bombadil.infradead.org>
-References: <20220608000014.3054333-1-jarkko@profian.com>
- <YqGlmpbx8HTrWmpF@shell.armlinux.org.uk>
+	id 1nzITM-002Fq5-Pb; Thu, 09 Jun 2022 13:45:16 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nzITJ-002FmP-TE; Thu, 09 Jun 2022 13:45:15 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id b8so14594965edj.11;
+        Thu, 09 Jun 2022 06:45:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=sender:message-id:date:mime-version:user-agent:subject
+         :content-language:to:cc:references:from:in-reply-to
+         :content-transfer-encoding;
+        bh=ed6/oIZCLllEojis+iQsosuh/kXkv+SP578fE3DPXKc=;
+        b=oimkxnZsl+L678UoQNfGSY5vTDcO4GHYZr4f1zTfDw7pVZ5liF8VzGqIaI9GCBvZTO
+         3CTuWlLirXeBgEdpymjMjv1bQ7UchExgUVS9iIweAKNTDeliTvryCXvARLPZzEiqDxro
+         Od5R72VRP/73S4QlrvpRFqZ0vTXE3uMI1UNsC7cWHcc87PFZKvDCDThfX1e5QnaLlEjK
+         fa5fb6ApVwyMFS69ceOd8h8LnOII4uOzudBpCjV1Js0H3ZgqZGtkPibOJZU8H2SdEqg2
+         5BC7nfMXOZubAn7ORlzGQflYVA81d9UVBb8CAKDS67YZnuxx5IAVl9K1T0gde6S8vtZz
+         6I5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:sender:message-id:date:mime-version:user-agent
+         :subject:content-language:to:cc:references:from:in-reply-to
+         :content-transfer-encoding;
+        bh=ed6/oIZCLllEojis+iQsosuh/kXkv+SP578fE3DPXKc=;
+        b=ToO0WRZyHJZL2dK5/SBfwLq29Z2bo0ufYv09k8onkZDhntmm2TOzl6ZLDy/Xux9wPT
+         Kk6FOZDEJtA4lo0UfXKb2YziqUWhV1stOCKqwa3xf8fZ0K/OS04Fm9lZfrRAc0Mn0TIl
+         m5KWe5VMsv5t4rSa8cGNCysifQCf8l/fflHjSXdzrgeIu+EROvQ/XV/7F+yC5kFRjZTH
+         cwDu2KNBiTXrWHCYzB686tPkVSvnSR4UF01wqkSoLcx2XrNixFaNPKj+gdauo7Hph7Lg
+         /Ors0JuZLtbS2Ka11URRWYOL7htbCdDYIw4QSeWtRiEsiMxT+SNOFtC5TbyYoAq93EAK
+         ekVw==
+X-Gm-Message-State: AOAM532e6kTmi0l31Fnl800mXKDfak4q+GoMjkXqBklRspinww2OH/5k
+	N8+vJZ+vt8/Y8qetr/VWqsTCNm36ACM=
+X-Google-Smtp-Source: ABdhPJx9ekJg5XWvJL71onmwGgY7rgp9FgDEi17noWoYgoWaYImu1aqMVr7t8uZjEolISiOGV+ntDQ==
+X-Received: by 2002:a05:6402:518d:b0:431:5487:9606 with SMTP id q13-20020a056402518d00b0043154879606mr25879763edd.177.1654782309488;
+        Thu, 09 Jun 2022 06:45:09 -0700 (PDT)
+Received: from ?IPV6:2001:b07:6468:f312:9af8:e5f5:7516:fa89? ([2001:b07:6468:f312:9af8:e5f5:7516:fa89])
+        by smtp.googlemail.com with ESMTPSA id t26-20020a17090605da00b006fe7d269db8sm10618584ejt.104.2022.06.09.06.45.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Jun 2022 06:45:08 -0700 (PDT)
+Message-ID: <480dec7c-ccc1-c226-928d-eb16c2a09eaa@redhat.com>
+Date: Thu, 9 Jun 2022 15:45:05 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YqGlmpbx8HTrWmpF@shell.armlinux.org.uk>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.0
+Subject: Re: [GIT PULL] KVM/riscv fixes for 5.19, take #1
+Content-Language: en-US
+To: Anup Patel <anup@brainfault.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>,
+ KVM General <kvm@vger.kernel.org>,
+ "open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)"
+ <kvm-riscv@lists.infradead.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+References: <CAAhSdy3BY551VEP5D-_vj7nzhb9O_k69v99jMdjQ+OxWZpxzpA@mail.gmail.com>
+From: Paolo Bonzini <pbonzini@redhat.com>
+In-Reply-To: <CAAhSdy3BY551VEP5D-_vj7nzhb9O_k69v99jMdjQ+OxWZpxzpA@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20220609_064514_016653_3B9E0AB1 
+X-CRM114-Status: UNSURE (   5.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,53 +90,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 09, 2022 at 08:47:38AM +0100, Russell King (Oracle) wrote:
-> On Wed, Jun 08, 2022 at 02:59:27AM +0300, Jarkko Sakkinen wrote:
-> > diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
-> > index 553866751e1a..d2bb954cd54f 100644
-> > --- a/arch/arm/kernel/Makefile
-> > +++ b/arch/arm/kernel/Makefile
-> > @@ -44,6 +44,11 @@ obj-$(CONFIG_CPU_IDLE)		+= cpuidle.o
-> >  obj-$(CONFIG_ISA_DMA_API)	+= dma.o
-> >  obj-$(CONFIG_FIQ)		+= fiq.o fiqasm.o
-> >  obj-$(CONFIG_MODULES)		+= armksyms.o module.o
-> > +ifeq ($(CONFIG_MODULES),y)
-> > +obj-y				+= module_alloc.o
-> > +else
-> > +obj-$(CONFIG_KPROBES)		+= module_alloc.o
-> > +endif
-> 
-> Doesn't:
-> 
-> obj-$(CONFIG_MODULES)		+= module_alloc.o
-> obj-$(CONFIG_KPROBES)		+= module_alloc.o
+On 6/9/22 07:20, Anup Patel wrote:
+> 1) Typo fix in arch/riscv/kvm/vmid.c
+> 2) Remove broken reference pattern from MAINTAINERS entry
 
-That just begs for a new kconfig symbol for the object, and for
-the object then to be built with it.
+Pulled, thanks.
 
-The archs which override the default can use ARCH_HAS_VM_ALLOC_EXEC.
-Please note that the respective free is important as well and its
-not clear if we need an another define for the free. Someone has
-to do that work. We want to ensure to noexec the code on free and
-this can vary on each arch.
-
-> work just as well? The kbuild modules.rst documentation says:
-> 
->         The order of files in $(obj-y) is significant.  Duplicates in
->         the lists are allowed: the first instance will be linked into
->         built-in.a and succeeding instances will be ignored.
-> 
-> so you should be fine... or the documentation is wrong!
-
-Agreed, but this is just sloppy, better to use a new kconfig symbol
-to represent what is actually being required.
-
-  Luis
+Paolo
 
 _______________________________________________
 linux-riscv mailing list
