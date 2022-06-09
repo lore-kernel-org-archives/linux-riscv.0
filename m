@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8068FC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 04:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCE0C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 05:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Up7m/wAbTDsvdZQ1jVdjREHe+nTMYrxNJakpL4Gx6O0=; b=b5En3DVWejQPa2
-	RoSQ7OqL6UR0ki6t5/yLu2gtH25qg04P4OfggGF1eCgTtCfiW0Y/ilzpobDNr/mqxpfPOXk/yux1A
-	KwuRkHn2gp4N1IKMs+hIQvADp4bW+19Ram0pmId5t1D48wmMYXWkUW4Ukzxo7KZhCn0XB6WuT5Q2I
-	CtR+ikI8ZMA7YpC4/r5Gy074gK9q3QnINuEInqnWOXRcWLgAr+7YkqOHb9m7TJKjoJrAw3HuJxReK
-	PVFwYu/gkaguaflpKtwTxwQ4Q6hsGvRUvyPrbmv53ZZ7fImRL7oZbgoPcGkrTQ4KseNYig8Olzz/E
-	vUmObt7gn46XSMBs1ERQ==;
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=15oFOoeZ/dG6KQW9jE8b1A4asW68EhrEC6fROG7tOro=; b=RrrMqMtbLQtwnh
+	sdYBZwMZvMsycBNiKgMNnmiapmwyLqQiBA7/zXfuFWAbopvMFVMfu5NUDVueYd1+ACY/b+l6Y9zBq
+	pxiQaSSRlGU79FlBrx3G6e88i0tvykPkprFleeDt1Lhn9n/0Z3tf/6lgCg4EUB0nytJok4tANkdG8
+	sSdnAWPkivC4/opCeO63vmAccDPeid+MbKTXlfR2orJIU/qlRMdW8DBo6oKKERAL9XWTFKHVcFM7G
+	11J8AYF2qyAuu/6cGgh+ysIRTEwXLhaK+E0T4yOhzNvpjQ30EX+yQwGAkxfQRscjIri2qMxNqDlNR
+	F7K/Qmp/L+pM1sOLNDYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nz9UL-00GAB0-8t; Thu, 09 Jun 2022 04:09:41 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1nzAbd-00GoyM-Ee; Thu, 09 Jun 2022 05:21:17 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nz9UI-00G9oo-CG
-	for linux-riscv@lists.infradead.org; Thu, 09 Jun 2022 04:09:39 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id q15so22618917wrc.11
-        for <linux-riscv@lists.infradead.org>; Wed, 08 Jun 2022 21:09:29 -0700 (PDT)
+	id 1nzAba-00Goww-0I
+	for linux-riscv@lists.infradead.org; Thu, 09 Jun 2022 05:21:15 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id u8so26468535wrm.13
+        for <linux-riscv@lists.infradead.org>; Wed, 08 Jun 2022 22:21:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=qr3m2Yddcj/9rkP9P1MqPdJ/Rr6E/RCde4JzQwq0ygk=;
-        b=jjA7kaTwlPG+8lAJw8aS2qYkTELSRhTtioIkasP3Ua7Ncb8/Um8F1OEZyiGbMI6SeO
-         ETd1KmKAR6a+w/PaNJyt8tzy4HP7ptThXmSP4ZLLdG/HPw9N535qzDqZ/aaVsB6mpgs4
-         ekokUA+HBIacx6iBplvxFX5b4YM3ZxJ9X0ffgyTEb8LkEJlwYpfaYJOrYnc5ZaefX82u
-         xXximfYvyQtlDROih7T+K0lvuvtzvkPaB9YyinAkRhhjbudH7UkKve6UtSpzaLWj3IEH
-         PgmYE6GWpSDDrFh2H+0Anhh0sjG9TVGHn0ycyusXPfTXgQT5l5+hSgm3wUfg3mh0tas3
-         xbXQ==
+        h=mime-version:from:date:message-id:subject:to:cc;
+        bh=3JvmTDsGJDO8gLLj4AkIUZGP939Dw1HwCVtV4Fo1fIc=;
+        b=gvpL1tx8KEFZNPWGZCgk5FC/3L2U7PZMRwO9ausTf+jLLYmZwWAdvdIUejsm+2wTBx
+         QauAaV9t6tSX2IayxvQU1LJIFVbnfta0gAOd8aFNxgJ87G1xNV21ncl5wcmbr/7y1myv
+         CWAa/X8nB6ygdk/1nQ6m0x7FL6bBxjojSoPyq1pbIJHFYPkmI7WLjvHB/8vwgb2jMScc
+         Mzp24FW8/IFCzNRRbOLSohAT0Dha4ewb7uI7TlUlQKzfZ+aZg5NbGzj4rCdlPTDS+7wp
+         Glhm71qxTVSQH3Va5gVbKt7j5JpZ3PPzhPrVSLFv2cUXlWTBANcgObx5ZPRa1P01Gpop
+         0hMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=qr3m2Yddcj/9rkP9P1MqPdJ/Rr6E/RCde4JzQwq0ygk=;
-        b=krHVdRkpM+egmmitNq2gkzzYNbSKPZbe3hXcDJJBnIjhj/A7Z8ZU0ISeyiSXco6KY4
-         TAEOelMaPoIMHJJs7585jytLDmhESOU/v660l0ANpVSzEiyNukTI0jxe5DP6Zsb/P1G1
-         jt5X9gCo0ATYO4uFvkb+jXc22BrTG10z1vwtTyhW++cesXAnpVumFaGReI/Hrp5SGamR
-         DoJmwbbnELR5Hrz5bAYt233n4kCaK4jeB3Jy8oSLJLop/zabW1iky8QkckUiGwQbSYJA
-         hyPi1q+eYImOJhrAjhIYIFYNcB9ahexJJzgRlLe+D8pcMNl4T8saTq8Bqh7If/CRDRq7
-         dMGw==
-X-Gm-Message-State: AOAM531wOPp3UJNFwmovwMJHk5q2GXvWdOuUw6rAfdnN52SMGyGJMcG9
-	zz5sq7QgMuHKCBb+bYwaAbScMIBsiBf0YyCB0ZA0yg==
-X-Google-Smtp-Source: ABdhPJzATZGYNXOEfNeC1xjFpQoXzH0chk3Mdxdc6eyXuvY61inSv66u7opI40j6F9/vdCRh2cJ/4vUkZLFYNZGRkY8=
-X-Received: by 2002:a5d:6c6b:0:b0:1ea:77ea:dde8 with SMTP id
- r11-20020a5d6c6b000000b001ea77eadde8mr36664559wrz.690.1654747767939; Wed, 08
- Jun 2022 21:09:27 -0700 (PDT)
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+        bh=3JvmTDsGJDO8gLLj4AkIUZGP939Dw1HwCVtV4Fo1fIc=;
+        b=tjEOGGN9A5KcOtbs0jx2Stip+VywKLAy8wnG10SRUxR4LXcDADnOiVjk1AuZtFMjCn
+         9eOvkuCBH9TsS9mwK1kHKPzaysqxdkMoE9FIjmwt02aZisSxHjbNSQoLEXhmcaW5laL1
+         hCaIwrUEybrKzu/ez68q2eh+uPyTh23wzysvVuceUEoDMeAen7YtlBx485XdYS7O63BM
+         /BNBWkGKODg3lqygwVHiTZkFhgvZ42Lr9QopcF2jd/kC1cWjSy/3pl6O/GMZieaMPbyR
+         BZtHWT5+Q2MRRXwSgvTboJCt4PQKrHHHpt1/i82oADRKerKjPSiES8KI+WxYjaRt7Mry
+         odhQ==
+X-Gm-Message-State: AOAM533FUhxuVXyI1zcWH53QVhumnLwYwGQKbFC/WVO3kzIUn8M53MmM
+	xaT4U4NRQy9vwQmpgE8dgIVLfDBunrM2jkJglUKtyg==
+X-Google-Smtp-Source: ABdhPJwwgl51ub88+ijPWwcfkn2THzzdQExCqu39kwCgVQUo9/VGLBkfRIBDJKUNmtB+lj/v62O5FE3nmVeTvZ5tt68=
+X-Received: by 2002:adf:e30f:0:b0:210:346e:d5da with SMTP id
+ b15-20020adfe30f000000b00210346ed5damr35611235wrj.313.1654752070224; Wed, 08
+ Jun 2022 22:21:10 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220430191122.8667-6-Julia.Lawall@inria.fr>
-In-Reply-To: <20220430191122.8667-6-Julia.Lawall@inria.fr>
 From: Anup Patel <anup@brainfault.org>
-Date: Thu, 9 Jun 2022 09:39:15 +0530
-Message-ID: <CAAhSdy1kEPYJQdK+f-6Dkb92ScV9fG2m0J2rJSeWjfNFUtjVwA@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: fix typos in comments
-To: Julia Lawall <Julia.Lawall@inria.fr>
-Cc: kernel-janitors@vger.kernel.org, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, KVM General <kvm@vger.kernel.org>, 
+Date: Thu, 9 Jun 2022 10:50:55 +0530
+Message-ID: <CAAhSdy3BY551VEP5D-_vj7nzhb9O_k69v99jMdjQ+OxWZpxzpA@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv fixes for 5.19, take #1
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
+	KVM General <kvm@vger.kernel.org>, 
 	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220608_210938_449190_2C05FE66 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20220608_222114_085031_404667F5 
+X-CRM114-Status: UNSURE (   6.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,37 +83,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 1, 2022 at 12:41 AM Julia Lawall <Julia.Lawall@inria.fr> wrote:
->
-> Various spelling mistakes in comments.
-> Detected with the help of Coccinelle.
->
-> Signed-off-by: Julia Lawall <Julia.Lawall@inria.fr>
+Hi Paolo,
 
-I have included this patch for 5.19-rc fixes
+Two minor fixes were missed in 5.19 merge window which include:
+1) Typo fix in arch/riscv/kvm/vmid.c
+2) Remove broken reference pattern from MAINTAINERS entry
 
-Thanks,
+Please pull.
+
+Regards,
 Anup
 
->
-> ---
->  arch/riscv/kvm/vmid.c |    2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
-> index 2fa4f7b1813d..4a2178c60b5d 100644
-> --- a/arch/riscv/kvm/vmid.c
-> +++ b/arch/riscv/kvm/vmid.c
-> @@ -92,7 +92,7 @@ void kvm_riscv_stage2_vmid_update(struct kvm_vcpu *vcpu)
->                  * We ran out of VMIDs so we increment vmid_version and
->                  * start assigning VMIDs from 1.
->                  *
-> -                * This also means existing VMIDs assignement to all Guest
-> +                * This also means existing VMIDs assignment to all Guest
->                  * instances is invalid and we have force VMID re-assignement
->                  * for all Guest instances. The Guest instances that were not
->                  * running will automatically pick-up new VMIDs because will
->
+The following changes since commit f2906aa863381afb0015a9eb7fefad885d4e5a56:
+
+  Linux 5.19-rc1 (2022-06-05 17:18:54 -0700)
+
+are available in the Git repository at:
+
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-5.19-1
+
+for you to fetch changes up to 1a12b25274b9e54b0d2d59e21620f8cf13b268cb:
+
+  MAINTAINERS: Limit KVM RISC-V entry to existing selftests
+(2022-06-09 09:18:22 +0530)
+
+----------------------------------------------------------------
+KVM/riscv fixes for 5.19, take #1
+
+- Typo fix in arch/riscv/kvm/vmid.c
+
+- Remove broken reference pattern from MAINTAINERS entry
+
+----------------------------------------------------------------
+Julia Lawall (1):
+      RISC-V: KVM: fix typos in comments
+
+Lukas Bulwahn (1):
+      MAINTAINERS: Limit KVM RISC-V entry to existing selftests
+
+ MAINTAINERS           | 1 -
+ arch/riscv/kvm/vmid.c | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
