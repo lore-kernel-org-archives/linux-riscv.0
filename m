@@ -4,81 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07754CCA473
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 07:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B484BC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 07:52:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UQ5feKB23wpdSUXoMruX/swLhvtZOslpYzRK18chhYc=; b=OpFxh0+XprauCp
-	6fx2YMzIjTYmKv2r4iH97G9NpHoQBMfGzWbOQuQRaORjIjTSBN6o+rMQe9cDT23WMdafNjN6sNKeY
-	98NinnISn96/Rjz9NDaUaEyV0FcmRQiizWrjBHOzjgRj4JyiSRqN3Nby8NKtAjzG5Tj5VzcYaVICL
-	Gbg61hOhMcjhRaTEakBjNyNl92XW+SWMiWBpZaYHv6CPUxXxmm6xrVXc+kvr2ifzrpbbDAZa22mZS
-	M5dudG+XcP4q2GgXM3/lcd+7Ik0aAbi958AIwop3PpuIeT4/49E1HF5J2ZtV2JdQ3zp3WyvrDc1sx
-	Iul9ti7fJQTT/DcaULFQ==;
+	List-Owner; bh=UXksgNThmy/HRPM0YAKmxnRql8SIyQIcLeTIQTKxBQE=; b=P4Pm/MMN7cVMbQ
+	U2GweQ9xVmEcgVEplh85nIlsCMYoI04YW6sbnRTMbBZp2ZZSBzL2s5cukDGSNNKQ6r9z0aGchNi2v
+	ARt3XkHwosngoZeoMAd1QgtKKnbw43A3PLyUOQ7tGOW42aRwLvsI6woOr253zqTmsx/jj7A5K+8J1
+	wNvUnby7FvfSW6Was/Zlkkq+VGmdnMnB+6cS9X02TloWvQEsi+AtyPe6vOocmaF/iEP5egl5IR4cu
+	RCpj1tgJTU5D7qgxjMSC/wd2KdZbhHan/UGKVEDaVSEDEhtGy5unBhdAUl8R/06VF1FrK1bMtZWfM
+	8F43zsKXgLZiXC866S2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzCUl-00HLVl-8E; Thu, 09 Jun 2022 07:22:19 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1nzCxq-00HalO-UZ; Thu, 09 Jun 2022 07:52:23 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzCUQ-00HLGH-ST
-	for linux-riscv@lists.infradead.org; Thu, 09 Jun 2022 07:22:02 +0000
-Received: by mail-pl1-x631.google.com with SMTP id i15so2828810plr.1
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Jun 2022 00:21:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=flMLH60JN0xJtM2DRltXxdqwFWqCi+d4R4wY1pFKPBM=;
-        b=b8NXq6ddr8cTRyuUm1xzLVeE43JpeOmq70u/+XvSSLdgzeFDJdrdO9XY4J9bo/OpND
-         cu1Lm+o0jcvj50RvdKvd8ONPg1nLTOcgF5zpZEAyUOrYoc+BCO0+k+KNpR67srBd+rzG
-         A8CA5d6r0QZyweplvbm1C/6rwSeNMmwyBQNV63E2NkOY25zG12RSgyw/OUcMxWEH0PT2
-         G56UY3cXY7oSQ00gVDwpngU0rfj/nB7MZNS72aqiyEi5WXxmMcfYDvAeauNGtD/BCS/m
-         PLek8XBrDGKCXpgMJd5UM6veudtwF8Sp9p8u8YortSMME4CDm4nTm9Po5SR9090CWsEb
-         9W9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=flMLH60JN0xJtM2DRltXxdqwFWqCi+d4R4wY1pFKPBM=;
-        b=6bA/6F+LjrSWkS5tYilzkNeGJpbqGhNFffuvHZxLSrNC+g8BKWWZZX/+3hAsXrTinX
-         0Faj6lAQVduwXhxW7DBaHk3xK9u1e6/3CPQHX6UoULLbde47pIOECdfn/3NoJvqLClET
-         c/igSaVNZVcMDATIDArSou3ewGZNLdS/RR+5bW9Yj6jEq8hOw8AxDZYK9G922Yd76VJ8
-         bqJqk7YtJM5vlML1YsRgK60tpYbaGKqcS7AfpHprjc/Qu07XU3RQoyyi23/brT9vtVob
-         R65+uEbTgP7NxjdhaRnS67Onl7iRLp2ZN/Dhl6Y6C/VUySh2Ox/FJ1Bc8jhCAfVswXft
-         IMAg==
-X-Gm-Message-State: AOAM5301uRfMzCiWn6SUEiC99amyYtvRu5yEo/MPBqpa2/677Dxx3wyw
-	ZolNM8m98eiykwycBbNlCAgkpQ==
-X-Google-Smtp-Source: ABdhPJz35W+R+LDULUe2kGMO1R1/d2hE7i4OpB37D7T61Y/oqqd9+jiHT3NGqXELxvAgaLDjP18Ukw==
-X-Received: by 2002:a17:90b:4d05:b0:1e2:bf91:8af2 with SMTP id mw5-20020a17090b4d0500b001e2bf918af2mr2047211pjb.210.1654759315019;
-        Thu, 09 Jun 2022 00:21:55 -0700 (PDT)
-Received: from archlinux.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id r2-20020a056a00216200b0051bd9981cacsm12952572pff.123.2022.06.09.00.21.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jun 2022 00:21:54 -0700 (PDT)
-From: Andy Chiu <andy.chiu@sifive.com>
-To: aou@eecs.berkeley.edu,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	rostedt@goodmis.org,
-	mingo@redhat.com,
-	linux-riscv@lists.infradead.org
-Cc: greentime.hu@sifive.com,
-	andy.chiu@sifive.com,
-	zong.li@sifive.com
-Subject: [PATCH riscv/for-next 4/4] riscv: ftrace: do not use stop_machine to update code
-Date: Thu,  9 Jun 2022 15:18:33 +0800
-Message-Id: <20220609071833.1051941-5-andy.chiu@sifive.com>
-X-Mailer: git-send-email 2.36.0
-In-Reply-To: <20220609071833.1051941-1-andy.chiu@sifive.com>
-References: <20220609071833.1051941-1-andy.chiu@sifive.com>
+	id 1nzCxm-00Hagl-J3; Thu, 09 Jun 2022 07:52:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=3xoIRA2BBvzVO0XOc/JU1zTILnsefWyOV49Y7IJ3FLY=; b=AGRuyJpQp9QMikHh/33qL0JsHV
+	U+WVKRpKqJjJvGyaFDokMlWsSCM9no5evqxr8XfHexEuz39eb12W7RP7lrous4XASMRUkOLz5VouH
+	wLOvqEp2LZsitkUiAmo4QZ4OqBM+FawBjbkxe3L4iSs+u4EoDbAZTWfm7hCu0mzKN+/zIyvki4As7
+	StixFRJyaOTciQhpHuJ8zWO31vomCg9cRzQQEama2CztMyJ+0N8odAUMXxupDZVXJ2vDzPMCIz1fo
+	q5Sz7FLf2dgFeqPVWUX5WWIQ+PRyBjxQp0aakORxRQrSWetvEE8P/oPwTCIquE+kqksSrLBnCbWei
+	uIwhbQZg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:32800)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1nzCtn-0005fb-B8; Thu, 09 Jun 2022 08:48:11 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1nzCtG-0002ae-KM; Thu, 09 Jun 2022 08:47:38 +0100
+Date: Thu, 9 Jun 2022 08:47:38 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jarkko Sakkinen <jarkko@profian.com>
+Cc: linux-kernel@vger.kernel.org,
+	Nathaniel McCallum <nathaniel@profian.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Paul Mackerras <paulus@samba.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Kees Cook <keescook@chromium.org>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Eric W. Biederman" <ebiederm@xmission.com>,
+	Marco Elver <elver@google.com>, Dan Li <ashimida@linux.alibaba.com>,
+	Sami Tolvanen <samitolvanen@google.com>, Song Liu <song@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Chen Zhongjin <chenzhongjin@huawei.com>,
+	Nicolas Pitre <nico@fluxnic.net>, Mark Brown <broonie@kernel.org>,
+	Luis Machado <luis.machado@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	Atsushi Nemoto <anemo@mba.ocn.ne.jp>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Dave Anglin <dave.anglin@bell.net>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>, Daniel Axtens <dja@axtens.net>,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+	Jordan Niethe <jniethe5@gmail.com>, Guo Ren <guoren@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Changbin Du <changbin.du@intel.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Liao Chang <liaochang1@huawei.com>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Wu Caize <zepan@sipeed.com>, Emil Renner Berthing <kernel@esmil.dk>,
+	Alexander Egorenkov <egorenar@linux.ibm.com>,
+	Thomas Richter <tmricht@linux.ibm.com>,
+	Tobias Huschle <huschle@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Michael Roth <michael.roth@amd.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Miroslav Benes <mbenes@suse.cz>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Aaron Tomlin <atomlin@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-modules@vger.kernel.org
+Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
+Message-ID: <YqGlmpbx8HTrWmpF@shell.armlinux.org.uk>
+References: <20220608000014.3054333-1-jarkko@profian.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220608000014.3054333-1-jarkko@profian.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220609_002158_955877_5C8AA591 
-X-CRM114-Status: UNSURE (   7.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220609_005218_675934_0BC885B7 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +153,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now it is safe to remove dependency from stop_machine() to patch code in
-ftrace.
+On Wed, Jun 08, 2022 at 02:59:27AM +0300, Jarkko Sakkinen wrote:
+> diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
+> index 553866751e1a..d2bb954cd54f 100644
+> --- a/arch/arm/kernel/Makefile
+> +++ b/arch/arm/kernel/Makefile
+> @@ -44,6 +44,11 @@ obj-$(CONFIG_CPU_IDLE)		+= cpuidle.o
+>  obj-$(CONFIG_ISA_DMA_API)	+= dma.o
+>  obj-$(CONFIG_FIQ)		+= fiq.o fiqasm.o
+>  obj-$(CONFIG_MODULES)		+= armksyms.o module.o
+> +ifeq ($(CONFIG_MODULES),y)
+> +obj-y				+= module_alloc.o
+> +else
+> +obj-$(CONFIG_KPROBES)		+= module_alloc.o
+> +endif
 
-Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
-Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
-Reviewed-by: Zong Li <zong.li@sifive.com>
-Acked-by: Steven Rostedt (Google) <rostedt@goodmis.org>
----
- arch/riscv/kernel/ftrace.c | 5 +++++
- 1 file changed, 5 insertions(+)
+Doesn't:
 
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index a6eb1b1ac093..a00326b41795 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -12,6 +12,11 @@
- #include <asm/patch.h>
- 
- #ifdef CONFIG_DYNAMIC_FTRACE
-+void arch_ftrace_update_code(int command)
-+{
-+	ftrace_modify_all_code(command);
-+}
-+
- void ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
- {
- 	mutex_lock(&text_mutex);
+obj-$(CONFIG_MODULES)		+= module_alloc.o
+obj-$(CONFIG_KPROBES)		+= module_alloc.o
+
+work just as well? The kbuild modules.rst documentation says:
+
+        The order of files in $(obj-y) is significant.  Duplicates in
+        the lists are allowed: the first instance will be linked into
+        built-in.a and succeeding instances will be ignored.
+
+so you should be fine... or the documentation is wrong!
+
 -- 
-2.36.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
