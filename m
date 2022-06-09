@@ -4,130 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E097BC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 03:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8681C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 04:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pwuP2PfyQlhtxmFyJ24icpBQ+8uTU9c1U4Qdxa01qmg=; b=hVaJ51UpG9MGVw
-	VmkWktwzwfU7MTGWBfGQgeZ60gtx5ofc5u7/6rRf61X/aYoYzow1qZuqiCWdnxvgoB+qDGngEW3yo
-	3dDsfU1ZDc+QxKwx/wyXqrGV++gZFoaki+v3Y2db98EOTbyZVxqdanRQ2ksIskTADB5M7kSy2tPlc
-	t7k8ezhkUYJ8irPsZj0eVobZI+nloSF7M/J0sz50Mpg7BLk0JHF18XTNmYNy1ikpo7tt2+Avfm1XL
-	v2L30HfHiqcu4EWpaTP7/u1JEXZqqcnl4tdlE9FTy0o1VymqNZeVoJH3glEEIQTnV+Yj40ckk0+B2
-	ctswI7GT3xi4mlNrbjww==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Date:Message-ID:In-Reply-To:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sI5sZR42in1pK8/Ufdk2r4WSCIffqklMJAZit9d7Pn0=; b=WMzNUqbXZA/w2e63aYXG4gt/Mm
+	hKJcjpcJckF49nGlyQepwLO6Qp19vbeNFUdOKf1phyR6NUOaBAINjiS7Pp8nbIPiP81dv8kBv701O
+	Na9awHSVkjMeJ4cEYbMbZlJfX/uFQSfgPlB+EkvhdG1EzvlUSqSmRt6qAAaTcPdvCb0zsF07niSPY
+	7Fhqs4h8C5zG026kjssRRr9agu3zSgRBmeuBBL9qYPF8YoZ3pOCJAfHaDCVNA183T6du0sK/w2S6I
+	zduy+MSCgDS8vLlRjBb2KUeR2hmybcxKGnhZlWvhpunBIW6jlLiXMlCo9DW0b5FcY6bfUXmr1I5z6
+	vS7nDsuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nz9AP-00FxR3-G9; Thu, 09 Jun 2022 03:49:05 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1nz9Qh-00G6Fh-Hl; Thu, 09 Jun 2022 04:05:55 +0000
+Received: from gproxy1-pub.mail.unifiedlayer.com ([69.89.25.95])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nz9AL-00FxPH-5D; Thu, 09 Jun 2022 03:49:03 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id EFD956732D; Thu,  9 Jun 2022 05:48:52 +0200 (CEST)
-Date: Thu, 9 Jun 2022 05:48:52 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: Luis Chamberlain <mcgrof@kernel.org>
-Cc: Song Liu <song@kernel.org>, Christoph Hellwig <hch@lst.de>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Jarkko Sakkinen <jarkko@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Jarkko Sakkinen <jarkko@profian.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Nathaniel McCallum <nathaniel@profian.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Paul Mackerras <paulus@samba.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	the arch/x86 maintainers <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Kees Cook <keescook@chromium.org>,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Eric W. Biederman" <ebiederm@xmission.com>,
-	Marco Elver <elver@google.com>, Dan Li <ashimida@linux.alibaba.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Chen Zhongjin <chenzhongjin@huawei.com>,
-	Nicolas Pitre <nico@fluxnic.net>, Mark Brown <broonie@kernel.org>,
-	Luis Machado <luis.machado@linaro.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>,
-	Atsushi Nemoto <anemo@mba.ocn.ne.jp>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Dave Anglin <dave.anglin@bell.net>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>, Daniel Axtens <dja@axtens.net>,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
-	Jordan Niethe <jniethe5@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Changbin Du <changbin.du@intel.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Liao Chang <liaochang1@huawei.com>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	Wu Caize <zepan@sipeed.com>, Emil Renner Berthing <kernel@esmil.dk>,
-	Alexander Egorenkov <egorenar@linux.ibm.com>,
-	Thomas Richter <tmricht@linux.ibm.com>,
-	Tobias Huschle <huschle@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Daniel Bristot de Oliveira <bristot@redhat.com>,
-	Michael Roth <michael.roth@amd.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Javier Martinez Canillas <javierm@redhat.com>,
-	Miroslav Benes <mbenes@suse.cz>,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Aaron Tomlin <atomlin@redhat.com>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
-	Parisc List <linux-parisc@vger.kernel.org>,
-	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	linux-s390 <linux-s390@vger.kernel.org>,
-	sparclinux <sparclinux@vger.kernel.org>,
-	linux-modules@vger.kernel.org
-Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
-Message-ID: <20220609034852.GA30873@lst.de>
-References: <20220608000014.3054333-1-jarkko@profian.com> <CAJF2gTQgCn2CyZ4+VBqEEBT2b4+1KxoEXxrd+Ritk=58+U8EFA@mail.gmail.com> <YqAy0qjI4Lktk/uJ@iki.fi> <20220608232115.ccd4399f4a1d133e9b65c2a9@kernel.org> <CAPhsuW6iUieQvA6KqzSLgtxmjkVSWCuVwNA338DATb_myHxo7w@mail.gmail.com> <CAPhsuW6BzUtqnjvaGJScXRpghs0_V_phpdyd4_oAKhvmkX-GFw@mail.gmail.com> <YqEF6+YKqCHsWZJW@bombadil.infradead.org>
+	id 1nz9Qd-00G5zV-P5
+	for linux-riscv@lists.infradead.org; Thu, 09 Jun 2022 04:05:53 +0000
+Received: from cmgw14.mail.unifiedlayer.com (unknown [10.0.90.129])
+	by progateway3.mail.pro1.eigbox.com (Postfix) with ESMTP id 909001004816C
+	for <linux-riscv@lists.infradead.org>; Thu,  9 Jun 2022 04:05:36 +0000 (UTC)
+Received: from box5620.bluehost.com ([162.241.219.59])
+	by cmsmtp with ESMTP
+	id z9QNnnWWOVu7Hz9QOnslLp; Thu, 09 Jun 2022 04:05:36 +0000
+X-Authority-Reason: nr=8
+X-Authority-Analysis: v=2.4 cv=c4hu/Txl c=1 sm=1 tr=0 ts=62a17190
+ a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
+ a=dLZJa+xiwSxG16/P+YVxDGlgEgI=:19 a=IkcTkHD0fZMA:10:nop_charset_1
+ a=JPEYwPQDsx4A:10:nop_rcvd_month_year
+ a=-Ou01B_BuAIA:10:endurance_base64_authed_username_1 a=HaFmDPmJAAAA:8
+ a=dShPbfN-9lO91TPQ_oYA:9 a=QEXdDO2ut3YA:10:nop_charset_2
+ a=nmWuMzfKamIsx3l42hEX:22
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
+	s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Date:
+	Message-ID:In-Reply-To:From:References:Cc:To:Subject:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=7oizPfCnCXpicOi1usfiu5FQzBJH1HzcGmli5C//IHw=; b=fm7Mb8fB8AB3YDHvxBl8kVN9B9
+	EaTH4l4MRp8+3OWu1iD9AuxKbTMuXtV/Grudf4+OXZK0XFIl+PNJyazCVSYzUlQdn4ZjYCG76s2qI
+	JozYlEs+lTrBeMhVMDGN67ctKQR3keHjg7fonAdL3uDPe4xqiwJuJDKTwUlrEaYtZmtZ0OKZ+sHGe
+	mQWIwBJ6I5DooQzUnXFvk4BrBvBei0tk0k9qtJv8to1I4ekjiUMGrd1rVwRD7zpLT4LRXmYGII16+
+	CkWw2AGSOhkGfuV4dehQPMgwCtZfOMZ6YZVjTi1/v98c6A4FeixNO8PQurQv1JtXz8gWUJxwFcK4+
+	/gbwwcpA==;
+Received: from c-73-162-232-9.hsd1.ca.comcast.net ([73.162.232.9]:54594 helo=[10.0.1.48])
+	by box5620.bluehost.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <re@w6rz.net>)
+	id 1nz9QN-003KxI-H5;
+	Wed, 08 Jun 2022 22:05:35 -0600
+Subject: Re: [PATCH] riscv: don't warn for sifive erratas in modules
+To: Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
+ paul.walmsley@sifive.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com,
+ philipp.tomsich@vrull.eu, hch@lst.de
+References: <20220608120849.1695191-1-heiko@sntech.de>
+From: Ron Economos <re@w6rz.net>
+In-Reply-To: <20220608120849.1695191-1-heiko@sntech.de>
+Message-ID: <21e02dbd-75b0-e5c6-29d8-fc853c72aa01@w6rz.net>
+Date: Wed, 8 Jun 2022 21:05:33 -0700
+User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:78.0) Gecko/20100101
+ Thunderbird/78.14.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YqEF6+YKqCHsWZJW@bombadil.infradead.org>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+Content-Language: en-US
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - box5620.bluehost.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - w6rz.net
+X-BWhitelist: no
+X-Source-IP: 73.162.232.9
+X-Source-L: No
+X-Exim-ID: 1nz9QN-003KxI-H5
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-Source-Sender: c-73-162-232-9.hsd1.ca.comcast.net ([10.0.1.48]) [73.162.232.9]:54594
+X-Source-Auth: re@w6rz.net
+X-Email-Count: 4
+X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
+X-Local-Domain: yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220608_204901_539362_8E4B3FDC 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20220608_210551_937873_C14B97D6 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,24 +103,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 08, 2022 at 01:26:19PM -0700, Luis Chamberlain wrote:
-> No, that was removed because it has only one user.
+On 6/8/22 5:08 AM, Heiko Stuebner wrote:
+> The SiFive errata code contains code checking applicable erratas
+> vs. actually applied erratas to suggest missing erratas to the
+> user when their Kconfig options are not enabled.
+>
+> In the main kernel image one can be quite sure that all available
+> erratas appear at least once, so that check will succeed.
+> On the other hand modules can very well not use any errata-relevant
+> code, so the newly added module-alternative support may also patch
+> the module code, but not touch SiFive-specific erratas at all.
+>
+> So to restore the original behaviour don't warn when patching
+> modules. This will keep the warning if necessary for the main kernel
+> image but prevent spurious warnings for modules.
+>
+> Of course having such a vendor-specific warning may not be needed at
+> all, as CONFIG_ERRATA_SIFIVE is selected by CONFIG_SOC_SIFIVE and the
+> individual erratas are default-y so disabling them requires
+> deliberate action anyway. But for now just restore the old behaviour.
+>
+> Fixes: a8e910168bba ("riscv: implement module alternatives")
+> Reported-by: Ron Economos <re@w6rz.net>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>   arch/riscv/errata/sifive/errata.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
+> index 672f02b21ce0..1031038423e7 100644
+> --- a/arch/riscv/errata/sifive/errata.c
+> +++ b/arch/riscv/errata/sifive/errata.c
+> @@ -111,6 +111,7 @@ void __init_or_module sifive_errata_patch_func(struct alt_entry *begin,
+>   			cpu_apply_errata |= tmp;
+>   		}
+>   	}
+> -	if (cpu_apply_errata != cpu_req_errata)
+> +	if (stage != RISCV_ALTERNATIVES_MODULE &&
+> +	    cpu_apply_errata != cpu_req_errata)
+>   		warn_miss_errata(cpu_req_errata - cpu_apply_errata);
+>   }
 
-That is only part of the story.  The other part is that the overall
-kernel simply does not have any business allocating exutable memory.
-Executable memory is a very special concept for modules or module-like
-code like kprobes, and should not be exposed as a general concept.
+Tested on HiFive Unmatched. Works good and the spurious warning is 
+suppressed.
 
-Especially as executable memory really should not also be writable
-for security reasons.  In other words, we should actually never
-allocate executable memory, every.  We might seal memory and then
-mark it executable after having written to it, which is how modules
-and kprobes are implemented on all modern Linux ports anyway.
+Tested-by: Ron Economos <re@w6rz.net>
+
 
 _______________________________________________
 linux-riscv mailing list
