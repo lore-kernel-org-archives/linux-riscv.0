@@ -4,44 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 436DFC43334
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 09:59:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F415AC43334
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 10:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q6BWXD/a4pJOdcba3XD1JdLQPJxcHefKSmmqGcXCbg8=; b=RkrFzhEyvZv9yh
-	KEMxqrQ4NnrDlc4W5SfaQ2RyFA9q3LTWi1KrhCGfpnr4IYcRkfM4E6LKQsdWd+iCxq6PDmTInGdrp
-	aQkiPzTXfI8LDVmGhIAdAHu+sbqGkUgENko+Eu4jH55sy26XV86PaJMUygLv3GQXob+5B2ztQdtJe
-	rmPbW0qPQ9Iu5NAYMd1dtVnRtr4j61NS3yaT1pWUPOlayrifI+aHINUR9MK+qVjVnmmvnjUcUv+tP
-	/wM2CjFZWBDbYrtAx1EHlIpjKbbbJcvUVxD+SJNnkqoC6Xjyb1ifx137SJbz/2XpJCy1NUooouL63
-	nO5HJAqPQuwhJYgNcUAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fL9jd5cjwsNVRIMHMFA8KWFcOYNjE6SgbV444HIrZgk=; b=uuvJyx4T9AuQ34Jmi86aWIPKc2
+	JyCYyYGRy5u4Q6SnaUc1nFtL2pfs1kQLUyBJW5V7AYHrK/f+iBrj9xFerBY/3npqWK17CI/m+sq46
+	jSI79/sxsqYVrvXjycw35t5GnzPaYwvwVLqu7W+CTjglqYLaNbdC3ShRo9Kg1VIO3aysiByqu0vwk
+	iUTa7sXdZKbbCjCfTXUmcC37iu2Xq1KlpzObukIlbiVoYcSvj+MY71GncUN3C4sAcZIgMf/6Pw47u
+	TEpH4Z19XiIoUEuq5hlLyq5cRJ6CR7Zh+UICJ/c1ioyykzdVtt+IGYkR3SxPINA4qlZoO6WqG28L3
+	Qbhvk/6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzEwI-000pJz-MH; Thu, 09 Jun 2022 09:58:54 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nzFp0-0019ho-S5; Thu, 09 Jun 2022 10:55:26 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzEwG-000pIg-5G
-	for linux-riscv@lists.infradead.org; Thu, 09 Jun 2022 09:58:53 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1nzEw8-0004ug-HR; Thu, 09 Jun 2022 11:58:44 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Guo Ren <guoren@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv <linux-riscv@lists.infradead.org>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Wei Fu <wefu@redhat.com>, Christoph Muellner <cmuellner@linux.com>, Philipp Tomsich <philipp.tomsich@vrull.eu>, Christoph Hellwig <hch@lst.de>, Ron Economos <re@w6rz.net>
-Subject: Re: [PATCH] riscv: don't warn for sifive erratas in modules
-Date: Thu, 09 Jun 2022 11:58:40 +0200
-Message-ID: <7523610.lvqk35OSZv@diego>
-In-Reply-To: <CAJF2gTT_xihu58V43bQ0X-WS0STCT5RNjiEHdwPBaoXmrnX2OA@mail.gmail.com>
-References: <20220608120849.1695191-1-heiko@sntech.de> <CAJF2gTT_xihu58V43bQ0X-WS0STCT5RNjiEHdwPBaoXmrnX2OA@mail.gmail.com>
+	id 1nzFox-0019gc-Kk
+	for linux-riscv@lists.infradead.org; Thu, 09 Jun 2022 10:55:24 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D860461CFF;
+	Thu,  9 Jun 2022 10:55:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE994C3411F;
+	Thu,  9 Jun 2022 10:55:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1654772122;
+	bh=fFvXj5SRoTp6Hhi5ZcyQ5FroE/o0H8XmIrhJK4iz2Ho=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pluRCe16VSHhiKwQqtHn/heSRjUJgv4phLQst9mzI3o5ksVNMtTXeElw1YZXgOaSO
+	 oeQCNorZCg/CIJrivCpOc9Pfck+Ki3RfzaaJAehf9VVjkL7VoXs6QDDdkh11PNzUGa
+	 +CQTjrwRAKgKG5AM7ci1iIWCanvmC32Kkm1NU6JxMW0C6H9aYkntKHoDR6uTLIau3R
+	 bDLlTxHkGftnC9JWhUKyNBVaSFX6/imoNzF7C3/N/Vt0y6kSFuCRCWbd+M+63IptAV
+	 HGxekt2l3LlK4UQXNRWbfNH7O9HUhUxEm9GEfgnvl8kCD/5lxDMyeFAPu7hTjI4vGj
+	 DvqecRiM/KU/g==
+Date: Thu, 9 Jun 2022 11:55:17 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Yang Li <yang.lee@linux.alibaba.com>
+Cc: conor.dooley@microchip.com, lewis.hanly@microchip.com,
+	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Abaci Robot <abaci@linux.alibaba.com>
+Subject: Re: [PATCH -next 1/2] spi: Remove unnecessary print function
+ dev_err()
+Message-ID: <YqHRlaqy/UD0vDKU@sirena.org.uk>
+References: <20220609055533.95866-1-yang.lee@linux.alibaba.com>
+ <20220609055533.95866-2-yang.lee@linux.alibaba.com>
 MIME-Version: 1.0
+In-Reply-To: <20220609055533.95866-2-yang.lee@linux.alibaba.com>
+X-Cookie: Space is limited.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220609_025852_267933_AD0B6F49 
-X-CRM114-Status: GOOD (  31.07  )
+X-CRM114-CacheID: sfid-20220609_035523_794662_66C92A1F 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,91 +71,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1093428155600417611=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guo,
 
-Am Donnerstag, 9. Juni 2022, 03:39:24 CEST schrieb Guo Ren:
-> On Wed, Jun 8, 2022 at 8:09 PM Heiko Stuebner <heiko@sntech.de> wrote:
-> >
-> > The SiFive errata code contains code checking applicable erratas
-> > vs. actually applied erratas to suggest missing erratas to the
-> > user when their Kconfig options are not enabled.
-> >
-> > In the main kernel image one can be quite sure that all available
-> > erratas appear at least once, so that check will succeed.
-> > On the other hand modules can very well not use any errata-relevant
-> > code, so the newly added module-alternative support may also patch
-> > the module code, but not touch SiFive-specific erratas at all.
-> >
-> > So to restore the original behaviour don't warn when patching
-> > modules. This will keep the warning if necessary for the main kernel
-> > image but prevent spurious warnings for modules.
-> >
-> > Of course having such a vendor-specific warning may not be needed at
-> > all, as CONFIG_ERRATA_SIFIVE is selected by CONFIG_SOC_SIFIVE and the
-> > individual erratas are default-y so disabling them requires
-> > deliberate action anyway. But for now just restore the old behaviour.
-> >
-> > Fixes: a8e910168bba ("riscv: implement module alternatives")
-> > Reported-by: Ron Economos <re@w6rz.net>
-> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> > ---
-> >  arch/riscv/errata/sifive/errata.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/riscv/errata/sifive/errata.c b/arch/riscv/errata/sifive/errata.c
-> > index 672f02b21ce0..1031038423e7 100644
-> > --- a/arch/riscv/errata/sifive/errata.c
-> > +++ b/arch/riscv/errata/sifive/errata.c
-> > @@ -111,6 +111,7 @@ void __init_or_module sifive_errata_patch_func(struct alt_entry *begin,
-> >                         cpu_apply_errata |= tmp;
-> >                 }
-> >         }
-> > -       if (cpu_apply_errata != cpu_req_errata)
-> > +       if (stage != RISCV_ALTERNATIVES_MODULE &&
-> > +           cpu_apply_errata != cpu_req_errata)
-> if (cpu_apply_errata &= ~cpu_req_errata)
-
-Hmm, I don't see what that changes?
+--===============1093428155600417611==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="0bXiklFNAPTpnN3I"
+Content-Disposition: inline
 
 
-> Shall we still guarantee the module's must be a subset of the main kernel.'s?
+--0bXiklFNAPTpnN3I
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-The warning generated there is mainly to warn about some Kconfig options
-not being enabled and in individual modules even no errata usage may be
-required.
+On Thu, Jun 09, 2022 at 01:55:33PM +0800, Yang Li wrote:
+> The function platform_get_irq() never returns 0, and the print function
+> dev_err() is redundant because platform_get_irq() already prints an error.
 
+Are you sure it never returns 0?  Note that 0 is a valid IRQ number on
+some architectures.
 
-The intent for the patch is to restore how things behaved before
-module-alternatives were introduced, so I don't really want to
-introduce functional changes ;-) .
+--0bXiklFNAPTpnN3I
+Content-Type: application/pgp-signature; name="signature.asc"
 
-But also in the future we could debate if that warning is helpful at all,
-as the erratas are enabled automatically by CONFIG_SOC_SIFIVE and
-thus disabling individual erratas requires someone to turn them off
-manually in their .config .
+-----BEGIN PGP SIGNATURE-----
 
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmKh0ZQACgkQJNaLcl1U
+h9DOywf8CpYl578fRtjDaeqN5f0T9EqOZQtgYzfzILNoXGC066ucH53ffM+mJrOE
+eEy3bPlm/63pb7NUyNfc3wqEK8lIXR00D7VmCw7xBcfvDKsoskfXiN8ipLE3cDS4
+0wMY94olcidpbXmrZgghFqSy+J5+cy9Fqis1tw6qygnFnXyUpoFULOJFdujP7Pi8
+VU3cunpin9zsBXJkGbJfgcSQBW9TwZnve7+Zi/aJ0wk+Xm49lO0easreafN2IRa4
+0dw1Xfm4x2kIADe9tNbms7TqjbNfG55pnHWseFT2y6yOiz6MKGDDlJMoGehUV56J
+SFjy59OdlizDGuu1EtBePOPim4CKPQ==
+=bqmh
+-----END PGP SIGNATURE-----
 
-Heiko
-
-> >                 warn_miss_errata(cpu_req_errata - cpu_apply_errata);
-> >  }
-> > --
-> > 2.35.1
-> >
-> 
-> 
-> 
-
-
+--0bXiklFNAPTpnN3I--
 
 
+--===============1093428155600417611==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1093428155600417611==--
+
