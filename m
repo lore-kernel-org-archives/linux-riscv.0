@@ -4,62 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F415AC43334
-	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 10:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CBAC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  9 Jun 2022 12:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fL9jd5cjwsNVRIMHMFA8KWFcOYNjE6SgbV444HIrZgk=; b=uuvJyx4T9AuQ34Jmi86aWIPKc2
-	JyCYyYGRy5u4Q6SnaUc1nFtL2pfs1kQLUyBJW5V7AYHrK/f+iBrj9xFerBY/3npqWK17CI/m+sq46
-	jSI79/sxsqYVrvXjycw35t5GnzPaYwvwVLqu7W+CTjglqYLaNbdC3ShRo9Kg1VIO3aysiByqu0vwk
-	iUTa7sXdZKbbCjCfTXUmcC37iu2Xq1KlpzObukIlbiVoYcSvj+MY71GncUN3C4sAcZIgMf/6Pw47u
-	TEpH4Z19XiIoUEuq5hlLyq5cRJ6CR7Zh+UICJ/c1ioyykzdVtt+IGYkR3SxPINA4qlZoO6WqG28L3
-	Qbhvk/6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fcFUX/ceyqn3j+FMki5o6L3wkSLaSj1FSkAEd96Vdog=; b=RCRSi1C/RPZk0O
+	PCyiYPGIpvsplxmKtvtMLvYkhaeqk6CmXbve9XOKCiZb6QV5g9QMbL6l+R3wLPSAzofq9Fwi9GJXD
+	y0vzwPqt1Q3IvmUBthwHAsUATwEUvwADn08VyPTSpu1eMaUSIAPLOem8vauJ2iKm/ogx0Ao4Gc7cX
+	0dGtBEtWlaCSktXcO/JSEZaZtPLB0TlSWQ6+mtWIp6Wi2rcH9cdqrg88wCKVgstMHGyCpEYA/2qpH
+	K2nkvJQOmfXHwIxR2aVNaWq/Ivb6AadvszoxJIOJlLH7ET1PJ8NtM+9z4HweIB4YqdbMzyOZ3hYma
+	Ei+t0k3kCx9c1kYYJbOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzFp0-0019ho-S5; Thu, 09 Jun 2022 10:55:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nzGxp-001b5d-Qh; Thu, 09 Jun 2022 12:08:38 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzFox-0019gc-Kk
-	for linux-riscv@lists.infradead.org; Thu, 09 Jun 2022 10:55:24 +0000
+	id 1nzGfs-001Tnm-8X; Thu, 09 Jun 2022 11:50:05 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id D860461CFF;
-	Thu,  9 Jun 2022 10:55:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE994C3411F;
-	Thu,  9 Jun 2022 10:55:20 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id E6E51B82D37;
+	Thu,  9 Jun 2022 11:50:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D5E1C3411B;
+	Thu,  9 Jun 2022 11:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654772122;
-	bh=fFvXj5SRoTp6Hhi5ZcyQ5FroE/o0H8XmIrhJK4iz2Ho=;
+	s=k20201202; t=1654775401;
+	bh=md2cOKY0UjufG4JRi8yS8d/Uy6RwmNPC5w/ptfzbrDI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pluRCe16VSHhiKwQqtHn/heSRjUJgv4phLQst9mzI3o5ksVNMtTXeElw1YZXgOaSO
-	 oeQCNorZCg/CIJrivCpOc9Pfck+Ki3RfzaaJAehf9VVjkL7VoXs6QDDdkh11PNzUGa
-	 +CQTjrwRAKgKG5AM7ci1iIWCanvmC32Kkm1NU6JxMW0C6H9aYkntKHoDR6uTLIau3R
-	 bDLlTxHkGftnC9JWhUKyNBVaSFX6/imoNzF7C3/N/Vt0y6kSFuCRCWbd+M+63IptAV
-	 HGxekt2l3LlK4UQXNRWbfNH7O9HUhUxEm9GEfgnvl8kCD/5lxDMyeFAPu7hTjI4vGj
-	 DvqecRiM/KU/g==
-Date: Thu, 9 Jun 2022 11:55:17 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Yang Li <yang.lee@linux.alibaba.com>
-Cc: conor.dooley@microchip.com, lewis.hanly@microchip.com,
-	linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Abaci Robot <abaci@linux.alibaba.com>
-Subject: Re: [PATCH -next 1/2] spi: Remove unnecessary print function
- dev_err()
-Message-ID: <YqHRlaqy/UD0vDKU@sirena.org.uk>
-References: <20220609055533.95866-1-yang.lee@linux.alibaba.com>
- <20220609055533.95866-2-yang.lee@linux.alibaba.com>
+	b=De+o670BbtOyb/W8kZuv1eJLacQIdlvshH76kO751dnHlBG9ViMAkMis6KRuoxNYC
+	 hxi4KpllFRC2A0BKuuUS3IOoSUxaWz/0JTTZN/YOVl6lxfWRRcQPHAv0eFx/y/Hmal
+	 Z6f3y/fxWtBMoM+h9oOVQhTuSN5K1yVlv6GRYsf777Mo7ELPHew9LGyg//lHrCj/2f
+	 xUWagCs+J6qo5XlYXX06rKdTz4CtfSjmblhEeV9HNPeWsBSGzXmVkKXW1Ms5tvZns/
+	 wVEBoygFpSksMVX+0JkbCCn6ldys+Sb/YT7pT6GCNe8xiVizupbn0QdKTx0wuIzLjM
+	 8nlBqin4Cd+LQ==
+Date: Thu, 9 Jun 2022 14:48:02 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Jarkko Sakkinen <jarkko@profian.com>, linux-kernel@vger.kernel.org,
+	Nathaniel McCallum <nathaniel@profian.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Paul Mackerras <paulus@samba.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Kees Cook <keescook@chromium.org>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Eric W. Biederman" <ebiederm@xmission.com>,
+	Marco Elver <elver@google.com>, Dan Li <ashimida@linux.alibaba.com>,
+	Sami Tolvanen <samitolvanen@google.com>, Song Liu <song@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Chen Zhongjin <chenzhongjin@huawei.com>,
+	Nicolas Pitre <nico@fluxnic.net>, Mark Brown <broonie@kernel.org>,
+	Luis Machado <luis.machado@linaro.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	Atsushi Nemoto <anemo@mba.ocn.ne.jp>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Dave Anglin <dave.anglin@bell.net>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>, Daniel Axtens <dja@axtens.net>,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+	Jordan Niethe <jniethe5@gmail.com>, Guo Ren <guoren@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Changbin Du <changbin.du@intel.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Liao Chang <liaochang1@huawei.com>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Wu Caize <zepan@sipeed.com>, Emil Renner Berthing <kernel@esmil.dk>,
+	Alexander Egorenkov <egorenar@linux.ibm.com>,
+	Thomas Richter <tmricht@linux.ibm.com>,
+	Tobias Huschle <huschle@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Michael Roth <michael.roth@amd.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Miroslav Benes <mbenes@suse.cz>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Aaron Tomlin <atomlin@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-modules@vger.kernel.org
+Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
+Message-ID: <YqHd8mwRVWg0u+Ci@iki.fi>
+References: <20220608000014.3054333-1-jarkko@profian.com>
+ <YqGlmpbx8HTrWmpF@shell.armlinux.org.uk>
 MIME-Version: 1.0
-In-Reply-To: <20220609055533.95866-2-yang.lee@linux.alibaba.com>
-X-Cookie: Space is limited.
+Content-Disposition: inline
+In-Reply-To: <YqGlmpbx8HTrWmpF@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220609_035523_794662_66C92A1F 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220609_045004_629992_15406A3A 
+X-CRM114-Status: GOOD (  19.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,56 +145,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1093428155600417611=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jun 09, 2022 at 08:47:38AM +0100, Russell King (Oracle) wrote:
+> On Wed, Jun 08, 2022 at 02:59:27AM +0300, Jarkko Sakkinen wrote:
+> > diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
+> > index 553866751e1a..d2bb954cd54f 100644
+> > --- a/arch/arm/kernel/Makefile
+> > +++ b/arch/arm/kernel/Makefile
+> > @@ -44,6 +44,11 @@ obj-$(CONFIG_CPU_IDLE)		+= cpuidle.o
+> >  obj-$(CONFIG_ISA_DMA_API)	+= dma.o
+> >  obj-$(CONFIG_FIQ)		+= fiq.o fiqasm.o
+> >  obj-$(CONFIG_MODULES)		+= armksyms.o module.o
+> > +ifeq ($(CONFIG_MODULES),y)
+> > +obj-y				+= module_alloc.o
+> > +else
+> > +obj-$(CONFIG_KPROBES)		+= module_alloc.o
+> > +endif
+> 
+> Doesn't:
+> 
+> obj-$(CONFIG_MODULES)		+= module_alloc.o
+> obj-$(CONFIG_KPROBES)		+= module_alloc.o
+> 
+> work just as well? The kbuild modules.rst documentation says:
+> 
+>         The order of files in $(obj-y) is significant.  Duplicates in
+>         the lists are allowed: the first instance will be linked into
+>         built-in.a and succeeding instances will be ignored.
+> 
+> so you should be fine... or the documentation is wrong!
 
---===============1093428155600417611==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="0bXiklFNAPTpnN3I"
-Content-Disposition: inline
+OK, I did not know this. Thanks for the tip!
 
-
---0bXiklFNAPTpnN3I
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-On Thu, Jun 09, 2022 at 01:55:33PM +0800, Yang Li wrote:
-> The function platform_get_irq() never returns 0, and the print function
-> dev_err() is redundant because platform_get_irq() already prints an error.
-
-Are you sure it never returns 0?  Note that 0 is a valid IRQ number on
-some architectures.
-
---0bXiklFNAPTpnN3I
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmKh0ZQACgkQJNaLcl1U
-h9DOywf8CpYl578fRtjDaeqN5f0T9EqOZQtgYzfzILNoXGC066ucH53ffM+mJrOE
-eEy3bPlm/63pb7NUyNfc3wqEK8lIXR00D7VmCw7xBcfvDKsoskfXiN8ipLE3cDS4
-0wMY94olcidpbXmrZgghFqSy+J5+cy9Fqis1tw6qygnFnXyUpoFULOJFdujP7Pi8
-VU3cunpin9zsBXJkGbJfgcSQBW9TwZnve7+Zi/aJ0wk+Xm49lO0easreafN2IRa4
-0dw1Xfm4x2kIADe9tNbms7TqjbNfG55pnHWseFT2y6yOiz6MKGDDlJMoGehUV56J
-SFjy59OdlizDGuu1EtBePOPim4CKPQ==
-=bqmh
------END PGP SIGNATURE-----
-
---0bXiklFNAPTpnN3I--
-
-
---===============1093428155600417611==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+BR, Jarkko
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1093428155600417611==--
-
