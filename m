@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD652C43334
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F084DCCA47B
 	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 07:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=GsobyLfELQzAYFgkAzGWERXTFtRs+/M5ragCk04hLgU=; b=mLZAoRYTeRPWCM
-	2EBKL3Tw8kh43HwTICrPy/TuKzaHjXDOEXPkQ+ngz6ui1SSfaUuHmExdkTU10i4YN16btsD3A3nPZ
-	0Wx8PPA5rYqiYqk4GPLFB3ye+JsCCnpAzeybnCnW33EciZaDpAxvx4LiNzsp0zlBEsdq9XLUJJxir
-	MZ5zY3Wrkfbz+/b6KuQ3xIHIpPmAhpOaKy0PXjLRurt5ICkjEAkrwR7OeHt7/mqvhyhAjdvpaImlK
-	FSHcV72o5xAXYdb8VRTcrb7zuPbFBr6CjZlmLYxYIkTYEqVh8HotOsIDaRi7Up49YYe1GykCc1UwD
-	ZfNaDiHrml5OkfUH4uJg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ajHRlkeaxv0CpDkO7c+EyJAdQszh17OBr2xz0wtD8N4=; b=yY0BDyUEjnaGpL
+	pNCds8AFr33Zg330E1Uyij8dgBQYYjyoUZ5mVYLhfsBXWne+xcWUmo60eZkJMRFLyxCHx/nwhnLq2
+	Ft++Vcc2QqESePcL1uuAqOYaK5skUdFVPC6XJICzZ4FMdW28+Q0Kns8HiVc23t9O+9PayqHmuhYoK
+	J1ZIHhRkMa3sOSxOfoCG5p2yUZWdTT/niZillnOPG/gERm/ECwD8zhyPzpuvCS8jUTB08Zj0THbmf
+	Tr05oXmvi/GxjRyu1STAYTkwwa/vc8LFqb3rYRDDDxi7aoH4Is+83ZF8jBTx2hbmd6e1Vhb5dfO2i
+	ZqPFy0sles34PIOcHjFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzZNS-006YKK-8f; Fri, 10 Jun 2022 07:48:18 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1nzZNV-006YLW-P2; Fri, 10 Jun 2022 07:48:21 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzZNQ-006YJV-4K
-	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 07:48:17 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id j7so23370529pjn.4
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jun 2022 00:48:13 -0700 (PDT)
+	id 1nzZNT-006YJz-0Y
+	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 07:48:20 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id l7-20020a17090aaa8700b001dd1a5b9965so1428203pjq.2
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jun 2022 00:48:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=sifive.com; s=google;
-        h=from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=Ri9yPZe+t7UbMEFaU4OG0A4/vjYvLt9KG3tOXTl2Knw=;
-        b=AxuJJpIZvDDdQAcCIZOe9JBBN78j+7RQpIKz9sDv6nsruezNmnTog2aRo4esz7Itke
-         LvZ/4aLSa4+7OtMeytrpEofyyC8DcG2iF8VmcLeEbCNYJg6AKmUOlC0QBuialO4dysfF
-         +1XONlAYf1xbgPxVriX7TPfPZJRARMNQRmV+zGtcHngR7+5Gj3M4/ovi7X+3QczPC2aZ
-         2kWsnsmNiBSlmoljiR4oiLprp73uImwKxPxfwE8nxrlkuA2sMJf9o8a8IW3n5TdCeohd
-         /RlTa9/lisWyGaKdn7yFE74aEodSwdfs4SQgdv1Wph/b4vCRki4G34kKZEvwLPvDQ9AC
-         2+TQ==
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=iwNedQtGOZXHXrHclp0knXCOxOkJDdvfjVXBpc4Ke9U=;
+        b=hHvfCnoUqcNw9dd11VWopU7ksI+F8D23d4JnaKSbox5rgaZkmf2VLMPCHqGARu8NNa
+         gkPmi16g1BpC5FYyqRX9uMYMxgBZXNVaWYaKagHQt5oz4YhEFQWV9K6LYxLOn6uRHrCP
+         t3nmi4VUckKKnfAHYuvqz+TehSlBLUTNP3hRa92w9QV5YgG4Uoa/9dpSKhNlNm8XDr87
+         icJUK+94cWYSIRC1TtengKcmhKayBMgoBN7g7qQXDe72gnMI6Q2c2hdKvN70WbDjEZ9p
+         aRAioCdmdQNm3cNP6alX6Mt5r+dJRjI1pOL+zZ47SxgrPIFzc6K3hjYzrnIK8GtKbqIR
+         SkwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=Ri9yPZe+t7UbMEFaU4OG0A4/vjYvLt9KG3tOXTl2Knw=;
-        b=GcAvTFDag/grjkhxMRCEeEOM3NmSAmPqEDUXnenzGsCPWaNgzmvNXPzINAR7o4eqWH
-         GduzHxhZ7hiX1Ms4hq7g5uNDA+GUzWCvoBGUhopxwYVHYT338gR1Q3ZhH9qutzExLby0
-         DWCGvdTTYtdjENXNGePGo57FeKqaeA45Rk2QC3K2IvHif3mDpgTbzbVS0R8N6k2taIIU
-         eoNspc6P/G6YZcmrbWeP/awbj0dJP+vRtJXD8GGattzUUaZjx7dIcvB1QwbRF3xYqf7r
-         6Lt06bRwJ4jY+rKn3wUZhTgYLHakz8LJfYHM8YGihJMC2o0MsgJG6zMy7sburjxT2eYc
-         fLKg==
-X-Gm-Message-State: AOAM533mZyRV6hQ2bGfMKk37NGglxY48tZ+M/tk56sqVR5ZVJZnqORaZ
-	NbTcjaRzYLBAhTWUs4IFc3d3Sw==
-X-Google-Smtp-Source: ABdhPJyy1nrV9a+tBwcx2FWnnDsTGWnzuGr9KJ4zlcsxM83a9PcfBuxb7wnpudWaFGaud7qWQw1sVQ==
-X-Received: by 2002:a17:90b:17c7:b0:1e8:5136:c32a with SMTP id me7-20020a17090b17c700b001e85136c32amr7556304pjb.43.1654847292748;
-        Fri, 10 Jun 2022 00:48:12 -0700 (PDT)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:content-transfer-encoding;
+        bh=iwNedQtGOZXHXrHclp0knXCOxOkJDdvfjVXBpc4Ke9U=;
+        b=IzIpB3l+sYcEz+ReLJt+NfrjTeMTOgQRI0Q1dMRBZniyeUWGqVZiijIfJv2LcRIvqB
+         DSulaP7BAx/cR6Ij3uVy0Ms3OQLAwL2IMg6mE4LFd3xxsGG3Z1NP/6a0Bna5ZzZ+YU8m
+         V6fJsvNDMivvg3oMyBwpnk77RwEZzImJ642sLFSypwnAe8SecN+NWR5g4H0SqkSc2mYL
+         8blgqHcggBPluPcMKqKz8aAOEntWzW2p9YkoxZgfEbAQlrfQZWYyJ3VEPVysULkuWPDQ
+         kodqRTw/M+d76RVB4/pGnuHtcoRu6kku1c2IqdcdsneOtPQV8Y1yVhkRaGSEsJSyRtHc
+         iwuQ==
+X-Gm-Message-State: AOAM533OouWMzrMWgnjceuXEHTQykpShagJ3g7S7fi46Ljy3q7ygyhLv
+	VYW2fxPaCb/MUH6rFCYy/XmTmQ==
+X-Google-Smtp-Source: ABdhPJwJWAfaspiqoR+Yu/SQptPCml+Zlui2mwQ9BihL1m/z6FGRlh8JFZn9PaBqRFOeWBrle3fHaw==
+X-Received: by 2002:a17:902:ea0b:b0:164:595:affa with SMTP id s11-20020a170902ea0b00b001640595affamr42313653plg.22.1654847295344;
+        Fri, 10 Jun 2022 00:48:15 -0700 (PDT)
 Received: from archlinux.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id r72-20020a632b4b000000b003c14af5060fsm15902394pgr.39.2022.06.10.00.48.10
+        by smtp.gmail.com with ESMTPSA id r72-20020a632b4b000000b003c14af5060fsm15902394pgr.39.2022.06.10.00.48.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Jun 2022 00:48:12 -0700 (PDT)
+        Fri, 10 Jun 2022 00:48:14 -0700 (PDT)
 From: Andy Chiu <andy.chiu@sifive.com>
 To: broonie@kernel.org,
 	palmer@dabbelt.com,
 	paul.walmsley@sifive.com,
 	linux-spi@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Cc: Andy Chiu <andy.chiu@sifive.com>
-Subject: [PATCH next 0/1] Add simple PM operations to sifive-spi
-Date: Fri, 10 Jun 2022 15:44:58 +0800
-Message-Id: <20220610074459.3261383-1-andy.chiu@sifive.com>
+Cc: Andy Chiu <andy.chiu@sifive.com>,
+	Greentime Hu <greentime.hu@sifive.com>
+Subject: [PATCH next 1/1] spi: sifive: add PM callbacks to support suspend/resume
+Date: Fri, 10 Jun 2022 15:44:59 +0800
+Message-Id: <20220610074459.3261383-2-andy.chiu@sifive.com>
 X-Mailer: git-send-email 2.36.0
+In-Reply-To: <20220610074459.3261383-1-andy.chiu@sifive.com>
+References: <20220610074459.3261383-1-andy.chiu@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220610_004816_225051_D4240EE0 
-X-CRM114-Status: UNSURE (   6.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220610_004819_090032_6DF4E3A9 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,17 +92,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The patch has been tested on Unmatched using pm_test. The Unmatched board
-uses SD over SPI and it was tested by initiating S2RAM cycles for all
-devices while reading/writing files at the same time. We found no dropped
-connection to the card or corrupted filesystem during test cycles.
-
-Andy Chiu (1):
-  spi: sifive: add PM callbacks to support suspend/resume
-
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
+---
  drivers/spi/spi-sifive.c | 39 +++++++++++++++++++++++++++++++++++++++
  1 file changed, 39 insertions(+)
 
+diff --git a/drivers/spi/spi-sifive.c b/drivers/spi/spi-sifive.c
+index f7c1e20432e0..e29e85cee88a 100644
+--- a/drivers/spi/spi-sifive.c
++++ b/drivers/spi/spi-sifive.c
+@@ -427,6 +427,44 @@ static int sifive_spi_remove(struct platform_device *pdev)
+ 	return 0;
+ }
+ 
++static int sifive_spi_suspend(struct device *dev)
++{
++	struct spi_master *master = dev_get_drvdata(dev);
++	struct sifive_spi *spi = spi_master_get_devdata(master);
++	int ret;
++
++	ret = spi_master_suspend(master);
++	if (ret)
++		return ret;
++
++	/* Disable all the interrupts just in case */
++	sifive_spi_write(spi, SIFIVE_SPI_REG_IE, 0);
++
++	clk_disable_unprepare(spi->clk);
++
++	return ret;
++}
++
++static int sifive_spi_resume(struct device *dev)
++{
++	struct spi_master *master = dev_get_drvdata(dev);
++	struct sifive_spi *spi = spi_master_get_devdata(master);
++	int ret;
++
++	ret = clk_prepare_enable(spi->clk);
++	if (ret)
++		return ret;
++	ret = spi_master_resume(master);
++	if (ret)
++		clk_disable_unprepare(spi->clk);
++
++	return ret;
++}
++
++static DEFINE_SIMPLE_DEV_PM_OPS(sifive_spi_pm_ops,
++				sifive_spi_suspend, sifive_spi_resume);
++
++
+ static const struct of_device_id sifive_spi_of_match[] = {
+ 	{ .compatible = "sifive,spi0", },
+ 	{}
+@@ -438,6 +476,7 @@ static struct platform_driver sifive_spi_driver = {
+ 	.remove = sifive_spi_remove,
+ 	.driver = {
+ 		.name = SIFIVE_SPI_DRIVER_NAME,
++		.pm = &sifive_spi_pm_ops,
+ 		.of_match_table = sifive_spi_of_match,
+ 	},
+ };
 -- 
 2.36.0
 
