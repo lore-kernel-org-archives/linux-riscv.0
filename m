@@ -4,115 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED814CCA47B
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 15:33:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62BDC43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 15:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:To:From:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b/z7pt2TQ0suDNBK3WcSuGQYWCbMMi2zpKvkZlgVnbY=; b=K4lBa7OJi8YUsY
-	+jgjEz0taPK/dBez2lLmo9g2cl8lxtBU6yk0OtViPo79OJ5OBKrkfQQKm7zyWT6gG/byYoO1siv88
-	7QrQn8hLnzttrHGtVjWpWCiojrcSN4q41DScxXppxLJOdNCELxNlP9mDL/N8Li9VlVmKqrSr10FFC
-	ND7hr3RsLRA5KMjdPImIZ8DKcwRoG/wjmF+CBgb5yXKCcufRjzfpnUhR3VFaClQyxgRyPWzCtUW5M
-	hfgqJ31VovOV89yRY3u2DVy7A2QtAZtxHh5PIjJMI9NZGXnKDYXOJ+WkTXoU03lceLy5itGNygmC1
-	hkIgm8GRkAIA/GerRBjw==;
+	List-Owner; bh=dQ5htzH8OLFw4FbEMAlX3yPc0BbMFLBqS57eAamqZmA=; b=LjUMsER2DaMIyj
+	WBwGL0zZ3km1x+dOO2KtcHhYDHG/Qkjmhq+j8q/zzzCQetzRvRIv2ou546mtSpNC44aD/g4Nvssz6
+	H1YVkLS7Lfc8kPqcIG4RNg0GclD3jbC+eP+W3B6jNpfBDjeLbcTs7FTJECwV5gugt5OaWi4263dkL
+	o9z7cywZFGaZTpWM3p1KfaXYBZ4ceM46K9xM0k/g/J+MFgCAW3k3HN/7UnIOuZiyhoptnpV8jkPma
+	stivu0By40GAACqXWKAWL3aEl8rTcfSL+LCSZxVob52FhjOaaKq2JbsSCt1o1VSqPC78clAC2Ohli
+	EL5XstngW31B0y/PQOaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzgdW-008mcR-El; Fri, 10 Jun 2022 15:33:22 +0000
-Received: from smtp-out1.suse.de ([195.135.220.28])
+	id 1nzh2a-008rEv-IE; Fri, 10 Jun 2022 15:59:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzHny-001xkj-S0; Thu, 09 Jun 2022 13:02:32 +0000
-Received: from relay2.suse.de (relay2.suse.de [149.44.160.134])
-	by smtp-out1.suse.de (Postfix) with ESMTP id A55BE21F03;
-	Thu,  9 Jun 2022 13:02:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
-	t=1654779746; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WNgY7GyrprNl76LhtyM4yyAr1//LVOR4uCT8xLqGCE8=;
-	b=ojtY10eQLedQ1p8W7bkgtPGLkS2AZjpFLq6Jm7M5r6QmnKTONMm4DEE4c/QdWiGdnShevp
-	eIN6ALkkVVj/WhUF02Ld8MHz00y8tRrFQ0iNR/EUdLO4UR9+Vq8VAuuJcSid16nMNGAGa3
-	XvOmhnJPAVDKUKq8/PtY3J2tLln4dQU=
-Received: from suse.cz (unknown [10.100.208.146])
+	id 1nzh2R-008rCC-4f
+	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 15:59:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by relay2.suse.de (Postfix) with ESMTPS id 6EA862C141;
-	Thu,  9 Jun 2022 13:02:21 +0000 (UTC)
-Date: Thu, 9 Jun 2022 15:02:20 +0200
-From: Petr Mladek <pmladek@suse.com>
-To: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, ink@jurassic.park.msu.ru,
-	mattst88@gmail.com, vgupta@kernel.org, linux@armlinux.org.uk,
-	ulli.kroll@googlemail.com, linus.walleij@linaro.org,
-	shawnguo@kernel.org, Sascha Hauer <s.hauer@pengutronix.de>,
-	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
-	tony@atomide.com, khilman@kernel.org, catalin.marinas@arm.com,
-	will@kernel.org, guoren@kernel.org, bcain@quicinc.com,
-	chenhuacai@kernel.org, kernel@xen0n.name, geert@linux-m68k.org,
-	sammy@sammy.net, monstr@monstr.eu, tsbogend@alpha.franken.de,
-	dinguyen@kernel.org, jonas@southpole.se,
-	stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
-	James.Bottomley@hansenpartnership.com, deller@gmx.de,
-	mpe@ellerman.id.au, benh@kernel.crashing.org, paulus@samba.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com,
-	ysato@users.sourceforge.jp, dalias@libc.org, davem@davemloft.net,
-	richard@nod.at, anton.ivanov@cambridgegreys.com,
-	johannes@sipsolutions.net, tglx@linutronix.de, mingo@redhat.com,
-	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-	hpa@zytor.com, acme@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	namhyung@kernel.org, jgross@suse.com, srivatsa@csail.mit.edu,
-	amakhalov@vmware.com, pv-drivers@vmware.com,
-	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
-	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
-	gregkh@linuxfoundation.org, mturquette@baylibre.com,
-	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
-	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org,
-	anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
-	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>,
-	yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
-	linux@rasmusvillemoes.dk, rostedt@goodmis.org,
-	john.ogness@linutronix.de, paulmck@kernel.org, frederic@kernel.org,
-	quic_neeraju@quicinc.com, josh@joshtriplett.org,
-	mathieu.desnoyers@efficios.com, jiangshanlai@gmail.com,
-	joel@joelfernandes.org, juri.lelli@redhat.com,
-	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
-	bsegall@google.com, mgorman@suse.de, bristot@redhat.com,
-	vschneid@redhat.com, jpoimboe@kernel.org,
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org,
-	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
-	rcu@vger.kernel.org
-Subject: Re: [PATCH 24/36] printk: Remove trace_.*_rcuidle() usage
-Message-ID: <YqHvXFdIJfvUDI6e@alley>
-References: <20220608142723.103523089@infradead.org>
- <20220608144517.444659212@infradead.org>
- <YqG6URbihTNCk9YR@alley>
- <YqHFHB6qqv5wiR8t@worktop.programming.kicks-ass.net>
- <CA+_sPaoJGrXhNPCs2dKf2J7u07y1xYrRFZBUtkKwzK9GqcHSuQ@mail.gmail.com>
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 7C02862001;
+	Fri, 10 Jun 2022 15:59:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3EDAC34114;
+	Fri, 10 Jun 2022 15:59:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1654876745;
+	bh=weHwEH66EfvWXGzmQ2x8i+st3SEIh5/RpAWf9mVLZQ0=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=sMbDWHBiiz3Ej/nBekjJ9tueu0XtORdZTiDD95KoABp3TZeDZxcze7Wy0a4Efl45R
+	 Qnv36yQF3jODmIHIvCVqYnMO+MSKj1NA0Bp7hOCTYXpdsTrX/eHwcUk94rhkTWBdtu
+	 Hd0VDON3pbTBpX3jeUt1XPzLpFbeLK4bhPJIRXf0Kpj5qLwZCgoyagpiSuo+MPoyR8
+	 HwjENOLAPs79bxe01RyFZKl5U4PUFuet6h5ZIupSXh/FaPbocKhZrp6cSbzzylxZtf
+	 MIpnAiDkbkDM01MbM99mHpuOiNW9u83Zh5mdzlTW/l8eR+ZNjAdB5SUZxulpj0kKHh
+	 9Jmf/G+0+LKpg==
+From: Mark Brown <broonie@kernel.org>
+To: linux-spi@vger.kernel.org, andy.chiu@sifive.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, palmer@dabbelt.com
+In-Reply-To: <20220610074459.3261383-1-andy.chiu@sifive.com>
+References: <20220610074459.3261383-1-andy.chiu@sifive.com>
+Subject: Re: [PATCH next 0/1] Add simple PM operations to sifive-spi
+Message-Id: <165487674459.1756526.5750583671148030437.b4-ty@kernel.org>
+Date: Fri, 10 Jun 2022 16:59:04 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CA+_sPaoJGrXhNPCs2dKf2J7u07y1xYrRFZBUtkKwzK9GqcHSuQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220609_060231_077754_7F7B413A 
-X-CRM114-Status: GOOD (  12.14  )
-X-Mailman-Approved-At: Fri, 10 Jun 2022 08:33:13 -0700
+X-CRM114-CacheID: sfid-20220610_085907_257338_13E50F2A 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,30 +69,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu 2022-06-09 20:30:58, Sergey Senozhatsky wrote:
-> My emails are getting rejected... Let me try web-interface
-
-Bad day for mail sending. I have problems as well ;-)
-
-> Kudos to Petr for the questions and thanks to PeterZ for the answers.
+On Fri, 10 Jun 2022 15:44:58 +0800, Andy Chiu wrote:
+> The patch has been tested on Unmatched using pm_test. The Unmatched board
+> uses SD over SPI and it was tested by initiating S2RAM cycles for all
+> devices while reading/writing files at the same time. We found no dropped
+> connection to the card or corrupted filesystem during test cycles.
 > 
-> On Thu, Jun 9, 2022 at 7:02 PM Peter Zijlstra <peterz@infradead.org> wrote:
-> > This is the tracepoint used to spool all of printk into ftrace, I
-> > suspect there's users, but I haven't used it myself.
+> Andy Chiu (1):
+>   spi: sifive: add PM callbacks to support suspend/resume
 > 
-> I'm somewhat curious whether we can actually remove that trace event.
+> [...]
 
-Good question.
+Applied to
 
-Well, I think that it might be useful. It allows to see trace and
-printk messages together.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-It was ugly when it was in the console code. The new location
-in vprintk_store() allows to have it even "correctly" sorted
-(timestamp) against other tracing messages.
+Thanks!
 
-Best Regards,
-Petr
+[1/1] spi: sifive: add PM callbacks to support suspend/resume
+      commit: a1f0161eadbd7941c09b5f4c6a210c390d2b86d6
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 _______________________________________________
 linux-riscv mailing list
