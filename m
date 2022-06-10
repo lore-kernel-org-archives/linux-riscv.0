@@ -4,82 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0847C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 05:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6732C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 05:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SIu1qMgMxq5q6kGTzSVKYIC/i4NYStPMSUPL9u7E5bA=; b=n49TWdaNo49lm/
-	TOI7yxCwfqls93f8+DbHHrvwHum8NK1yvBP7jYJz3cc3LLP38Rcno8tgvCZblX2SDq5DdwaB9IMPb
-	67TtVNpmIc97WU/GOhB/d3LB/2nWpQQx449gNMa1LUVg0v8AVVUPTJTAmJqkQ+eAiq3DWsi6/vsrK
-	u+YU0NVVYzq4siwzsMWKhaTsdRt4anLbYk97T7jSFvBUGNPBM6JFdgnkJB4+AFeJlZdsvCms/aDFD
-	GftmA6O6FV0sDhoMGqDPcZHb4lmXWWP3GRCDdMXym956qM+yP7qGA7EUof/5N+RRDJ/CU+NxETROg
-	qaH8Ud+Hhw7a7GgH6+QA==;
+	List-Owner; bh=+9R2xqXYaoMrcr5eWIuVHIDJVBcQAcFrhkMXZOFgI3I=; b=HWD8cHHFcIlxNQ
+	BsUbAczLdaDZFpIHpWtsQX+ipPWlKWc1kVs/GfrzLic/FcgSKVF2+dFdyLqvVnxsb3ZyeATlt0tsW
+	M5j1dfB97qf7zH6x3wh5KjbJn8x0P8eG4Oe3HIXX6eze2mOR9xA5EJ/KFbcHoPn3RtGPC+cNCj38y
+	0NoaL5Zwwa494UdQ2lTVg3ySlGx6GbBQGpk1KcDsTfjSrqCMzPajGZWIX8KGWMeKR96uZPT4DvhI4
+	mep0LCII2KPf9xAznt9F7W48GSU9WSNPPtmhhwu3uEveHL50qZMqAnSL8Piy2qanBlrijcLIjfshI
+	Yb8ttNUXSMYM1Ar1nZpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzWr0-005uB3-Fz; Fri, 10 Jun 2022 05:06:38 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1nzXd9-0064AJ-8x; Fri, 10 Jun 2022 05:56:23 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzWqu-005u5s-Bw
-	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 05:06:36 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id g186so14887117pgc.1
-        for <linux-riscv@lists.infradead.org>; Thu, 09 Jun 2022 22:06:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=BGqSDVdbwLoyYO+91JMk/3I37SisERQCFoAmSz2y1tc=;
-        b=VDfbWBX8Sp+B3EU09NkvoeShUGyr2tZquYTxGKkYGqIfvKFdMSDLbMtuuNgYdftHDI
-         lMgn26EKp4VlkeARUNExZmlArX5vpqE6w6r7Gq6FRsI+35tAOXg2UeduTwUPgpPO7FXy
-         t/C8tLUfqvpUUapgBQxCjl1wdgU4blj6dKhGlyVd1S7pUe5y+DSMenhrl/MxSsQdQ+BQ
-         5MlXDBiqWsH5DNyiFyT1VGQfHSRaNZLSomwOT54Pdm5HCJ4aBC71/K7Cq5Qc2CUBxdK4
-         q6Ysp7sSGI2jcMhUECsoldD7lToFAAhfJQiAKtv/VsM06jBG3cW142ubnjsiJZmj1bcU
-         /B5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=BGqSDVdbwLoyYO+91JMk/3I37SisERQCFoAmSz2y1tc=;
-        b=PbWW0EUcKkqSLfOaAT0SyFacHT6C5U5jB9KS1QAmhd15Za/ToNHh9+cmMaM8GzIJja
-         0DfbM4KmRYTAF4wpDhesY54ucYz2XF+nQFhyohvm/QbT7FDqvNEjAHIBcK1W9CrJPr5f
-         rCsMAPcT/vuf3vaKcYECfdYpFykBgvtED/HK5BGpuJrbz8C8rXPWzUzr/BQyZpsO/cPB
-         399NS2fGSHFDYlg4JlxzNsmW9hgCX1mqfpSRK2YdBV2ZR+7Z7HsOQbyCQiMKuDk2vufU
-         2c9MsWM/woD0nIfvrX2kyBkZz4Q+zct3ywl1adxoA5Wdtk0WRHk9M09QVFo9Pb9fk5N+
-         dz2w==
-X-Gm-Message-State: AOAM533P7CNhg4FV3K+aCRhCElJ/R02lcqP6ldYn1Wsa0leb+9PU4rzJ
-	Hz3gUKMhLnF+sZtOVTk/qLEGnw==
-X-Google-Smtp-Source: ABdhPJydFcCIEYEl4Bzt4C/PbFmv/dshAMk55x57jLsm9xeSN6/AwIxxJ+B4Cdzx90FKfe1Bp6kZrA==
-X-Received: by 2002:a63:c63:0:b0:3fe:e14b:b5a0 with SMTP id 35-20020a630c63000000b003fee14bb5a0mr7454303pgm.428.1654837590880;
-        Thu, 09 Jun 2022 22:06:30 -0700 (PDT)
-Received: from anup-ubuntu64-vm.. ([106.200.250.139])
-        by smtp.gmail.com with ESMTPSA id u7-20020a056a00158700b00519cfca8e30sm12429424pfk.209.2022.06.09.22.06.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Jun 2022 22:06:30 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Alistair Francis <Alistair.Francis@wdc.com>,
-	Anup Patel <anup@brainfault.org>,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 3/3] RISC-V: KVM: Add extensible CSR emulation framework
-Date: Fri, 10 Jun 2022 10:35:55 +0530
-Message-Id: <20220610050555.288251-4-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220610050555.288251-1-apatel@ventanamicro.com>
-References: <20220610050555.288251-1-apatel@ventanamicro.com>
+	id 1nzXd5-006480-IP
+	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 05:56:21 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 6394D67373; Fri, 10 Jun 2022 07:56:08 +0200 (CEST)
+Date: Fri, 10 Jun 2022 07:56:08 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com,
+	philipp.tomsich@vrull.eu, hch@lst.de, samuel@sholland.org,
+	atishp@atishpatra.org, anup@brainfault.org, mick@ics.forth.gr,
+	robh+dt@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org,
+	drew@beagleboard.org, Atish Patra <atish.patra@wdc.com>
+Subject: Re: [PATCH 2/3] riscv: Implement Zicbom-based cache management
+ operations
+Message-ID: <20220610055608.GA24221@lst.de>
+References: <20220610004308.1903626-1-heiko@sntech.de> <20220610004308.1903626-3-heiko@sntech.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220610004308.1903626-3-heiko@sntech.de>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220609_220632_444605_6B92AFF4 
-X-CRM114-Status: GOOD (  25.14  )
+X-CRM114-CacheID: sfid-20220609_225619_928970_469FC5F6 
+X-CRM114-Status: GOOD (  19.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,327 +64,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We add an extensible CSR emulation framework which is based upon the
-existing system instruction emulation. This will be useful to upcoming
-AIA, PMU, Nested and other virtualization features.
+On Fri, Jun 10, 2022 at 02:43:07AM +0200, Heiko Stuebner wrote:
+> +config RISCV_ISA_ZICBOM
+> +	bool "Zicbom extension support for non-coherent dma operation"
+> +	select ARCH_HAS_DMA_PREP_COHERENT
+> +	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+> +	select ARCH_HAS_SYNC_DMA_FOR_CPU
+> +	select ARCH_HAS_SETUP_DMA_OPS
+> +	select DMA_DIRECT_REMAP
+> +	select RISCV_ALTERNATIVE
+> +	default y
+> +	help
+> +	   Adds support to dynamically detect the presence of the ZICBOM extension
 
-The CSR emulation framework also has provision to emulate CSR in user
-space but this will be used only in very specific cases such as AIA
-IMSIC CSR emulation in user space or vendor specific CSR emulation
-in user space.
+Overly long line here.
 
-By default, all CSRs not handled by KVM RISC-V will be redirected back
-to Guest VCPU as illegal instruction trap.
+> +	   (Cache Block Management Operations) and enable its usage.
+> +
+> +	   If you don't know what to do here, say Y.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- arch/riscv/include/asm/kvm_host.h      |   5 +
- arch/riscv/include/asm/kvm_vcpu_insn.h |   6 +
- arch/riscv/kvm/vcpu.c                  |  11 ++
- arch/riscv/kvm/vcpu_insn.c             | 169 +++++++++++++++++++++++++
- include/uapi/linux/kvm.h               |   8 ++
- 5 files changed, 199 insertions(+)
+But more importantly I think the whole text here is not very helpful.
+What users care about is non-coherent DMA support.  What extension is
+used for that is rather secondary.  Also please capitalize DMA.
 
-diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-index 03103b86dd86..a54744d7e1ba 100644
---- a/arch/riscv/include/asm/kvm_host.h
-+++ b/arch/riscv/include/asm/kvm_host.h
-@@ -64,6 +64,8 @@ struct kvm_vcpu_stat {
- 	u64 wfi_exit_stat;
- 	u64 mmio_exit_user;
- 	u64 mmio_exit_kernel;
-+	u64 csr_exit_user;
-+	u64 csr_exit_kernel;
- 	u64 exits;
- };
- 
-@@ -209,6 +211,9 @@ struct kvm_vcpu_arch {
- 	/* MMIO instruction details */
- 	struct kvm_mmio_decode mmio_decode;
- 
-+	/* CSR instruction details */
-+	struct kvm_csr_decode csr_decode;
-+
- 	/* SBI context */
- 	struct kvm_sbi_context sbi_context;
- 
-diff --git a/arch/riscv/include/asm/kvm_vcpu_insn.h b/arch/riscv/include/asm/kvm_vcpu_insn.h
-index 3351eb61a251..350011c83581 100644
---- a/arch/riscv/include/asm/kvm_vcpu_insn.h
-+++ b/arch/riscv/include/asm/kvm_vcpu_insn.h
-@@ -18,6 +18,11 @@ struct kvm_mmio_decode {
- 	int return_handled;
- };
- 
-+struct kvm_csr_decode {
-+	unsigned long insn;
-+	int return_handled;
-+};
-+
- /* Return values used by function emulating a particular instruction */
- enum kvm_insn_return {
- 	KVM_INSN_EXIT_TO_USER_SPACE = 0,
-@@ -28,6 +33,7 @@ enum kvm_insn_return {
- };
- 
- void kvm_riscv_vcpu_wfi(struct kvm_vcpu *vcpu);
-+int kvm_riscv_vcpu_csr_return(struct kvm_vcpu *vcpu, struct kvm_run *run);
- int kvm_riscv_vcpu_virtual_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
- 				struct kvm_cpu_trap *trap);
- 
-diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-index 7f4ad5e4373a..cf9616da68f6 100644
---- a/arch/riscv/kvm/vcpu.c
-+++ b/arch/riscv/kvm/vcpu.c
-@@ -26,6 +26,8 @@ const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
- 	STATS_DESC_COUNTER(VCPU, wfi_exit_stat),
- 	STATS_DESC_COUNTER(VCPU, mmio_exit_user),
- 	STATS_DESC_COUNTER(VCPU, mmio_exit_kernel),
-+	STATS_DESC_COUNTER(VCPU, csr_exit_user),
-+	STATS_DESC_COUNTER(VCPU, csr_exit_kernel),
- 	STATS_DESC_COUNTER(VCPU, exits)
- };
- 
-@@ -869,6 +871,15 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
- 		}
- 	}
- 
-+	/* Process CSR value returned from user-space */
-+	if (run->exit_reason == KVM_EXIT_RISCV_CSR) {
-+		ret = kvm_riscv_vcpu_csr_return(vcpu, vcpu->run);
-+		if (ret) {
-+			kvm_vcpu_srcu_read_unlock(vcpu);
-+			return ret;
-+		}
-+	}
-+
- 	if (run->immediate_exit) {
- 		kvm_vcpu_srcu_read_unlock(vcpu);
- 		return -EINTR;
-diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
-index 75ca62a7fba5..c9542ba98431 100644
---- a/arch/riscv/kvm/vcpu_insn.c
-+++ b/arch/riscv/kvm/vcpu_insn.c
-@@ -14,6 +14,19 @@
- #define INSN_MASK_WFI		0xffffffff
- #define INSN_MATCH_WFI		0x10500073
- 
-+#define INSN_MATCH_CSRRW	0x1073
-+#define INSN_MASK_CSRRW		0x707f
-+#define INSN_MATCH_CSRRS	0x2073
-+#define INSN_MASK_CSRRS		0x707f
-+#define INSN_MATCH_CSRRC	0x3073
-+#define INSN_MASK_CSRRC		0x707f
-+#define INSN_MATCH_CSRRWI	0x5073
-+#define INSN_MASK_CSRRWI	0x707f
-+#define INSN_MATCH_CSRRSI	0x6073
-+#define INSN_MASK_CSRRSI	0x707f
-+#define INSN_MATCH_CSRRCI	0x7073
-+#define INSN_MASK_CSRRCI	0x707f
-+
- #define INSN_MATCH_LB		0x3
- #define INSN_MASK_LB		0x707f
- #define INSN_MATCH_LH		0x1003
-@@ -71,6 +84,7 @@
- #define SH_RS1			15
- #define SH_RS2			20
- #define SH_RS2C			2
-+#define MASK_RX			0x1f
- 
- #define RV_X(x, s, n)		(((x) >> (s)) & ((1 << (n)) - 1))
- #define RVC_LW_IMM(x)		((RV_X(x, 6, 1) << 2) | \
-@@ -189,7 +203,162 @@ static int wfi_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
- 	return KVM_INSN_CONTINUE_NEXT_SEPC;
- }
- 
-+struct csr_func {
-+	unsigned int base;
-+	unsigned int count;
-+	/*
-+	 * Possible return values are as same as "func" callback in
-+	 * "struct insn_func".
-+	 */
-+	int (*func)(struct kvm_vcpu *vcpu, unsigned int csr_num,
-+		    unsigned long *val, unsigned long new_val,
-+		    unsigned long wr_mask);
-+};
-+
-+static const struct csr_func csr_funcs[] = { };
-+
-+/**
-+ * kvm_riscv_vcpu_csr_return -- Handle CSR read/write after user space
-+ *				emulation or in-kernel emulation
-+ *
-+ * @vcpu: The VCPU pointer
-+ * @run:  The VCPU run struct containing the CSR data
-+ *
-+ * Returns > 0 upon failure and 0 upon success
-+ */
-+int kvm_riscv_vcpu_csr_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
-+{
-+	ulong insn;
-+
-+	if (vcpu->arch.csr_decode.return_handled)
-+		return 0;
-+	vcpu->arch.csr_decode.return_handled = 1;
-+
-+	/* Update destination register for CSR reads */
-+	insn = vcpu->arch.csr_decode.insn;
-+	if ((insn >> SH_RD) & MASK_RX)
-+		SET_RD(insn, &vcpu->arch.guest_context,
-+		       run->riscv_csr.ret_value);
-+
-+	/* Move to next instruction */
-+	vcpu->arch.guest_context.sepc += INSN_LEN(insn);
-+
-+	return 0;
-+}
-+
-+static int csr_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
-+{
-+	int i, rc = KVM_INSN_ILLEGAL_TRAP;
-+	unsigned int csr_num = insn >> SH_RS2;
-+	unsigned int rs1_num = (insn >> SH_RS1) & MASK_RX;
-+	ulong rs1_val = GET_RS1(insn, &vcpu->arch.guest_context);
-+	const struct csr_func *tcfn, *cfn = NULL;
-+	ulong val = 0, wr_mask = 0, new_val = 0;
-+
-+	/* Decode the CSR instruction */
-+	switch (GET_RM(insn)) {
-+	case 1:
-+		wr_mask = -1UL;
-+		new_val = rs1_val;
-+		break;
-+	case 2:
-+		wr_mask = rs1_val;
-+		new_val = -1UL;
-+		break;
-+	case 3:
-+		wr_mask = rs1_val;
-+		new_val = 0;
-+		break;
-+	case 5:
-+		wr_mask = -1UL;
-+		new_val = rs1_num;
-+		break;
-+	case 6:
-+		wr_mask = rs1_num;
-+		new_val = -1UL;
-+		break;
-+	case 7:
-+		wr_mask = rs1_num;
-+		new_val = 0;
-+		break;
-+	default:
-+		return rc;
-+	};
-+
-+	/* Save instruction decode info */
-+	vcpu->arch.csr_decode.insn = insn;
-+	vcpu->arch.csr_decode.return_handled = 0;
-+
-+	/* Update CSR details in kvm_run struct */
-+	run->riscv_csr.csr_num = csr_num;
-+	run->riscv_csr.new_value = new_val;
-+	run->riscv_csr.write_mask = wr_mask;
-+	run->riscv_csr.ret_value = 0;
-+
-+	/* Find in-kernel CSR function */
-+	for (i = 0; i < ARRAY_SIZE(csr_funcs); i++) {
-+		tcfn = &csr_funcs[i];
-+		if ((tcfn->base <= csr_num) &&
-+		    (csr_num < (tcfn->base + tcfn->count))) {
-+			cfn = tcfn;
-+			break;
-+		}
-+	}
-+
-+	/* First try in-kernel CSR emulation */
-+	if (cfn && cfn->func) {
-+		rc = cfn->func(vcpu, csr_num, &val, new_val, wr_mask);
-+		if (rc > KVM_INSN_EXIT_TO_USER_SPACE) {
-+			if (rc == KVM_INSN_CONTINUE_NEXT_SEPC) {
-+				run->riscv_csr.ret_value = val;
-+				vcpu->stat.csr_exit_kernel++;
-+				kvm_riscv_vcpu_csr_return(vcpu, run);
-+				rc = KVM_INSN_CONTINUE_SAME_SEPC;
-+			}
-+			return rc;
-+		}
-+	}
-+
-+	/* Exit to user-space for CSR emulation */
-+	if (rc <= KVM_INSN_EXIT_TO_USER_SPACE) {
-+		vcpu->stat.csr_exit_user++;
-+		run->exit_reason = KVM_EXIT_RISCV_CSR;
-+	}
-+
-+	return rc;
-+}
-+
- static const struct insn_func system_opcode_funcs[] = {
-+	{
-+		.mask  = INSN_MASK_CSRRW,
-+		.match = INSN_MATCH_CSRRW,
-+		.func  = csr_insn,
-+	},
-+	{
-+		.mask  = INSN_MASK_CSRRS,
-+		.match = INSN_MATCH_CSRRS,
-+		.func  = csr_insn,
-+	},
-+	{
-+		.mask  = INSN_MASK_CSRRC,
-+		.match = INSN_MATCH_CSRRC,
-+		.func  = csr_insn,
-+	},
-+	{
-+		.mask  = INSN_MASK_CSRRWI,
-+		.match = INSN_MATCH_CSRRWI,
-+		.func  = csr_insn,
-+	},
-+	{
-+		.mask  = INSN_MASK_CSRRSI,
-+		.match = INSN_MATCH_CSRRSI,
-+		.func  = csr_insn,
-+	},
-+	{
-+		.mask  = INSN_MASK_CSRRCI,
-+		.match = INSN_MATCH_CSRRCI,
-+		.func  = csr_insn,
-+	},
- 	{
- 		.mask  = INSN_MASK_WFI,
- 		.match = INSN_MATCH_WFI,
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 5088bd9f1922..c48fd3d1c45b 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -270,6 +270,7 @@ struct kvm_xen_exit {
- #define KVM_EXIT_X86_BUS_LOCK     33
- #define KVM_EXIT_XEN              34
- #define KVM_EXIT_RISCV_SBI        35
-+#define KVM_EXIT_RISCV_CSR        36
- 
- /* For KVM_EXIT_INTERNAL_ERROR */
- /* Emulate instruction failed. */
-@@ -496,6 +497,13 @@ struct kvm_run {
- 			unsigned long args[6];
- 			unsigned long ret[2];
- 		} riscv_sbi;
-+		/* KVM_EXIT_RISCV_CSR */
-+		struct {
-+			unsigned long csr_num;
-+			unsigned long new_value;
-+			unsigned long write_mask;
-+			unsigned long ret_value;
-+		} riscv_csr;
- 		/* Fix the size of the union. */
- 		char padding[256];
- 	};
--- 
-2.34.1
+> +void arch_sync_dma_for_device(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
+> +{
+> +	switch (dir) {
+> +	case DMA_TO_DEVICE:
+> +		ALT_CMO_OP(CLEAN, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> +		break;
+> +	case DMA_FROM_DEVICE:
+> +		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> +		break;
+> +	case DMA_BIDIRECTIONAL:
+> +		ALT_CMO_OP(FLUSH, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> +		break;
+> +	default:
+> +		break;
+> +	}
 
+Pleae avoid all these crazy long lines.  and use a logical variable
+for the virtual address.  And why do you pass that virtual address
+as an unsigned long to ALT_CMO_OP?  You're going to make your life
+much easier if you simply always pass a pointer.
+
+Last but not last, does in RISC-V clean mean writeback and flush mean
+writeback plus invalidate?  If so the code is correct, but the choice
+of names in the RISC-V spec is extremely unfortunate.
+
+> +void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
+> +{
+> +	switch (dir) {
+> +	case DMA_TO_DEVICE:
+> +		break;
+> +	case DMA_FROM_DEVICE:
+> +	case DMA_BIDIRECTIONAL:
+> +		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +}
+
+Same comment here and in few other places.
+
+> +
+> +void arch_dma_prep_coherent(struct page *page, size_t size)
+> +{
+> +	void *flush_addr = page_address(page);
+> +
+> +	memset(flush_addr, 0, size);
+> +	ALT_CMO_OP(FLUSH, (unsigned long)flush_addr, size, riscv_cbom_block_size);
+> +}
+
+arch_dma_prep_coherent should never zero the memory, that is left
+for the upper layers.`
+
+> +void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> +		const struct iommu_ops *iommu, bool coherent)
+> +{
+> +	/* If a specific device is dma-coherent, set it here */
+
+This comment isn't all that useful.
+
+> +	dev->dma_coherent = coherent;
+> +}
+
+But more importantly, this assums that once this code is built all
+devices are non-coherent by default.  I.e. with this patch applied
+and the config option enabled we'll now suddenly start doing cache
+management operations or setups that didn't do it before.
 
 _______________________________________________
 linux-riscv mailing list
