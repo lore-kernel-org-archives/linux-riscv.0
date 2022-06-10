@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB3C0C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 00:43:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F3BC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 01:05:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0m+4mefEAQI/46YzjpBcPMRP3TL72DwEsRjDg6vC1d4=; b=0rcDrhjeuC1Qj0
-	1wZB1RNX7Y1CWM7OI97gPbV+iQqac0LGd7bgEy+pZ7iQQfL3Nc6eRqPpUZ8c2K6dIkrMKUBf5rcCM
-	A+OyXW/k1DBr3rAwMdoDKGMC6yGAfXyYqv1qRQY9oBy/tFwN8VtLKBFrQeXKrqKiiM1SsHDCvxtzw
-	wwE0QRcHjLeksRTpsjOUI4DRARLs+36RpnTkggSd4IvHeo45ErBR8cm9jqkc8BIEG0VNGbWFvGCrl
-	pgLuLfseEAXw3NQkmfLfCI109Ab6x9gkPxuJN0LARy1DCNcIF50eo18IuYhSXnmw5MHkZElGx5GFc
-	avhJSbxKLu2MVxB7MKag==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=uNHyPbJKS8/Ei4sS6e4ijPcOeJG+GQyM4lBeo51SfSs=; b=pIc9W55WIs4lsf
+	zafCXycuj9e1zydT7C9uqcgYTPzAV/Lbw+BSOh8rGHc7rauaVr0oGTDhkGfjmNl3eXrFi4LCCrX+k
+	uKHvwKlLKEucZmjoQOXwKx7ND4fOz0gi1nmKxOwt618Q/mEy5DJx1B8nuRJbXoaYeiTPDmfWQtk9K
+	PPOF90PdTDya8K/IxueLLZ9bX4qboHZCwgqT2Lhm+sDxvdm/5vTDoRgNlDMeLj1WDqvZ0Yx7FgzkS
+	jiZYsbn+md9XDqpaBqLc6Y630H0wY01K7xW9TCGrxILzvOYEeTZ9Cme06d7HmqLobN358lxd2AZrw
+	R0UZ5GQAV7IJsrbbL5dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzSkG-004rMJ-Lr; Fri, 10 Jun 2022 00:43:24 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1nzT5J-004ycW-BX; Fri, 10 Jun 2022 01:05:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzSkC-004rGe-1a
-	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 00:43:21 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1nzSk6-0001oS-NK; Fri, 10 Jun 2022 02:43:14 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: palmer@dabbelt.com,
-	paul.walmsley@sifive.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	wefu@redhat.com,
-	guoren@kernel.org,
-	cmuellner@linux.com,
-	philipp.tomsich@vrull.eu,
-	hch@lst.de,
-	samuel@sholland.org,
-	atishp@atishpatra.org,
-	anup@brainfault.org,
-	mick@ics.forth.gr,
-	robh+dt@kernel.org,
-	krzk+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	drew@beagleboard.org,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v3 0/3] riscv: implement Zicbom-based CMO instructions + the t-head variant
-Date: Fri, 10 Jun 2022 02:43:05 +0200
-Message-Id: <20220610004308.1903626-1-heiko@sntech.de>
-X-Mailer: git-send-email 2.35.1
+	id 1nzT5G-004yZc-CC
+	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 01:05:08 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id E42746167B
+	for <linux-riscv@lists.infradead.org>; Fri, 10 Jun 2022 01:05:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDC87C341C0
+	for <linux-riscv@lists.infradead.org>; Fri, 10 Jun 2022 01:05:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1654823103;
+	bh=/JC6vRMK2ZMUmpDTejrqQFKw3KBDFhYrGRZvxyI3Gnc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Hl6g5cuDd5GW2SWS7IJlWE/4OxwP82iGTAgNEKahvpfDguRObw6Zi+lH4HAGzDIVA
+	 VsZEwc406nlehGbxXOVjPZP1Nk24B2gjo5GgKiLruSlwoBcVkTsEiV0aOox0dqIz2Q
+	 1TZgKqt3C8OFBYCs7ddqyxjyRrbJwYz3azwsv2oWPvkCQvOi2PkKrJPPADWtBKbuce
+	 iUpvk6pjzc0JoGSbsPlbE8XxCseAgCFCOo9DmVeCYb//DDcOXckRVtgzV67R7LHc3m
+	 Cs/GIeuBAUpGTupgWu3Sk+aMPBDr/ehTUDEXRh+iZw6zUUjbOwaSAVuLn0pPOlGSFy
+	 cm0I4vMQQDjVg==
+Received: by mail-vk1-f169.google.com with SMTP id 140so2468638vky.10
+        for <linux-riscv@lists.infradead.org>; Thu, 09 Jun 2022 18:05:03 -0700 (PDT)
+X-Gm-Message-State: AOAM533G+DpNotJ8vVuCKIa87UW1TTc7V2mI0N50w9tewdoptJvKapMS
+	BqfNeXayiXQjQGzNKt+fbXmSX1RT5rBe497et/M=
+X-Google-Smtp-Source: ABdhPJzu6lV9dlwNZCZNDB6Y3nGPVvQw9XuVm1a5UwCEqrbJuwP69IoQknN4yGrF/guPUdzhyz0XjabRgd278Q/YBqM=
+X-Received: by 2002:ac5:c1c9:0:b0:35c:bd7c:2deb with SMTP id
+ g9-20020ac5c1c9000000b0035cbd7c2debmr17712241vkk.2.1654823102633; Thu, 09 Jun
+ 2022 18:05:02 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220610004308.1903626-1-heiko@sntech.de> <20220610004308.1903626-4-heiko@sntech.de>
+In-Reply-To: <20220610004308.1903626-4-heiko@sntech.de>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 10 Jun 2022 09:04:51 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQGwa_-sN0gm_Kt01b_4j12AYustAGVKmrSsfpSDYfL_Q@mail.gmail.com>
+Message-ID: <CAJF2gTQGwa_-sN0gm_Kt01b_4j12AYustAGVKmrSsfpSDYfL_Q@mail.gmail.com>
+Subject: Re: [PATCH 3/3] riscv: implement cache-management errata for T-Head SoCs
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Wei Fu <wefu@redhat.com>, 
+	Christoph Muellner <cmuellner@linux.com>, Philipp Tomsich <philipp.tomsich@vrull.eu>, 
+	Christoph Hellwig <hch@lst.de>, Samuel Holland <samuel@sholland.org>, Atish Patra <atishp@atishpatra.org>, 
+	Anup Patel <anup@brainfault.org>, Nick Kossifidis <mick@ics.forth.gr>, 
+	Rob Herring <robh+dt@kernel.org>, krzk+dt@kernel.org, 
+	devicetree <devicetree@vger.kernel.org>, Drew Fustini <drew@beagleboard.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220609_174320_133764_AB44DB74 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20220609_180506_536367_15D09E89 
+X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,75 +86,159 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series is based on the alternatives changes done in my svpbmt series
-and thus also depends on Atish's isa-extension parsing series.
+Reviewed-by: Guo Ren <guoren@kernel.org>
 
-It implements using the cache-management instructions from the  Zicbom-
-extension to handle cache flush, etc actions on platforms needing them.
+On Fri, Jun 10, 2022 at 8:43 AM Heiko Stuebner <heiko@sntech.de> wrote:
+>
+> The T-Head C906 and C910 implement a scheme for handling
+> cache operations different from the generic Zicbom extension.
+>
+> Add an errata for it next to the generic dma coherency ops.
+>
+> Tested-by: Samuel Holland <samuel@sholland.org>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  arch/riscv/Kconfig.erratas           | 10 ++++++
+>  arch/riscv/errata/thead/errata.c     | 15 +++++++++
+>  arch/riscv/include/asm/errata_list.h | 48 +++++++++++++++++++++++++---
+>  3 files changed, 68 insertions(+), 5 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
+> index 457ac72c9b36..4a390035abc7 100644
+> --- a/arch/riscv/Kconfig.erratas
+> +++ b/arch/riscv/Kconfig.erratas
+> @@ -55,4 +55,14 @@ config ERRATA_THEAD_PBMT
+>
+>           If you don't know what to do here, say "Y".
+>
+> +config ERRATA_THEAD_CMO
+> +       bool "Apply T-Head cache management errata"
+> +       depends on ERRATA_THEAD && RISCV_ISA_ZICBOM
+> +       default y
+> +       help
+> +         This will apply the cache management errata to handle the
+> +         non-standard handling on non-coherent operations on T-Head SoCs.
+> +
+> +         If you don't know what to do here, say "Y".
+> +
+>  endmenu
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index b37b6fedd53b..a3b3612d19df 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -27,6 +27,18 @@ static bool errata_probe_pbmt(unsigned int stage,
+>         return false;
+>  }
+>
+> +static bool errata_probe_cmo(unsigned int stage,
+> +                            unsigned long arch_id, unsigned long impid)
+> +{
+> +       if (arch_id != 0 || impid != 0)
+> +               return false;
+> +
+> +       if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> +               return false;
+> +
+> +       return true;
+> +}
+> +
+>  static u32 thead_errata_probe(unsigned int stage,
+>                               unsigned long archid, unsigned long impid)
+>  {
+> @@ -35,6 +47,9 @@ static u32 thead_errata_probe(unsigned int stage,
+>         if (errata_probe_pbmt(stage, archid, impid))
+>                 cpu_req_errata |= (1U << ERRATA_THEAD_PBMT);
+>
+> +       if (errata_probe_cmo(stage, archid, impid))
+> +                cpu_req_errata |= (1U << ERRATA_THEAD_CMO);
+> +
+>         return cpu_req_errata;
+>  }
+>
+> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> index 2e80a75b5241..a48605d55c3c 100644
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -16,7 +16,8 @@
+>
+>  #ifdef CONFIG_ERRATA_THEAD
+>  #define        ERRATA_THEAD_PBMT 0
+> -#define        ERRATA_THEAD_NUMBER 1
+> +#define        ERRATA_THEAD_CMO 1
+> +#define        ERRATA_THEAD_NUMBER 2
+>  #endif
+>
+>  #define        CPUFEATURE_SVPBMT 0
+> @@ -105,17 +106,54 @@ asm volatile(ALTERNATIVE(                                         \
+>  #define CBO_CLEAN_A0   ".long 0x25200F"
+>  #define CBO_FLUSH_A0   ".long 0x05200F"
+>
+> +/*
+> + * dcache.ipa rs1 (invalidate, physical address)
+> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *   0000001    01010      rs1       000      00000  0001011
+> + * dache.iva rs1 (invalida, virtual address)
+> + *   0000001    00110      rs1       000      00000  0001011
+> + *
+> + * dcache.cpa rs1 (clean, physical address)
+> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *   0000001    01001      rs1       000      00000  0001011
+> + * dcache.cva rs1 (clean, virtual address)
+> + *   0000001    00100      rs1       000      00000  0001011
+> + *
+> + * dcache.cipa rs1 (clean then invalidate, physical address)
+> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *   0000001    01011      rs1       000      00000  0001011
+> + * dcache.civa rs1 (... virtual address)
+> + *   0000001    00111      rs1       000      00000  0001011
+> + *
+> + * sync.s (make sure all cache operations finished)
+> + * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *   0000000    11001     00000      000      00000  0001011
+> + */
+> +#define THEAD_INVAL_A0 ".long 0x0265000b"
+> +#define THEAD_CLEAN_A0 ".long 0x0245000b"
+> +#define THEAD_FLUSH_A0 ".long 0x0275000b"
+> +#define THEAD_SYNC_S   ".long 0x0190000b"
+> +
+>  #define ALT_CMO_OP(_op, _start, _size, _cachesize)                     \
+> -asm volatile(ALTERNATIVE(                                              \
+> -       __nops(5),                                                      \
+> +asm volatile(ALTERNATIVE_2(                                            \
+> +       __nops(6),                                                      \
+>         "mv a0, %1\n\t"                                                 \
+>         "j 2f\n\t"                                                      \
+>         "3:\n\t"                                                        \
+>         CBO_##_op##_A0 "\n\t"                                           \
+>         "add a0, a0, %0\n\t"                                            \
+>         "2:\n\t"                                                        \
+> -       "bltu a0, %2, 3b\n\t", 0,                                       \
+> -               CPUFEATURE_CMO, CONFIG_RISCV_ISA_ZICBOM)                \
+> +       "bltu a0, %2, 3b\n\t"                                           \
+> +       "nop", 0, CPUFEATURE_CMO, CONFIG_RISCV_ISA_ZICBOM,              \
+> +       "mv a0, %1\n\t"                                                 \
+> +       "j 2f\n\t"                                                      \
+> +       "3:\n\t"                                                        \
+> +       THEAD_##_op##_A0 "\n\t"                                         \
+> +       "add a0, a0, %0\n\t"                                            \
+> +       "2:\n\t"                                                        \
+> +       "bltu a0, %2, 3b\n\t"                                           \
+> +       THEAD_SYNC_S, THEAD_VENDOR_ID,                                  \
+> +                       ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)      \
+>         : : "r"(_cachesize),                                            \
+>             "r"(ALIGN((_start), (_cachesize))),                         \
+>             "r"(ALIGN((_start) + (_size), (_cachesize)))                \
+> --
+> 2.35.1
+>
 
-SoCs using cpu cores from T-Head like the Allwinne D1 implement a
-different set of cache instructions. But while they are different,
-instructions they provide the same functionality, so a variant can
-easly hook into the existing alternatives mechanism on those.
-
-
-An ongoing discussion is about the currently used pre-coded
-instructions. Palmer's current thinking is that we should wait
-until the relevant instructions have landed in binutils.
-
-On the other hand this would result in massive waiting times
-for all new instructions in the future as well, as it isn't only
-the time till a binutils patch is accepted but also then the
-wait for the next release and _after_ that the wait until these
-new releases are available in regular distributions.
-
-So ideally it would be nice to find some sort of compromise
-in the middle somewhere.
-
-
-The series sits on top of my svpbmt fixup series, which
-for example includes the conversion away from function pointers
-for the check-functions. And also uses my nops-series.
-
-
-changes in v3:
-- rebase onto 5.19-rc1 + svpbmt-fixup-series
-- adapt wording for block-size binding
-- include asm/cacheflush.h into dma-noncoherent to fix the
-  no-prototype error clang seems to generate
-- use __nops macro for readability
-- add some received tags
-- add a0 to the clobber list
-
-changes in v2:
-- cbom-block-size is hardware-specific and comes from firmware
-- update Kconfig name to use the ISA extension name
-- select the ALTERNATIVES symbol when enabled
-- shorten the line lengths of the errata-assembly
-
-Heiko Stuebner (3):
-  dt-bindings: riscv: document cbom-block-size
-  riscv: Implement Zicbom-based cache management operations
-  riscv: implement cache-management errata for T-Head SoCs
-
- .../devicetree/bindings/riscv/cpus.yaml       |  5 +
- arch/riscv/Kconfig                            | 15 +++
- arch/riscv/Kconfig.erratas                    | 10 ++
- arch/riscv/errata/thead/errata.c              | 15 +++
- arch/riscv/include/asm/cacheflush.h           |  6 ++
- arch/riscv/include/asm/errata_list.h          | 76 ++++++++++++++-
- arch/riscv/include/asm/hwcap.h                |  1 +
- arch/riscv/kernel/cpu.c                       |  1 +
- arch/riscv/kernel/cpufeature.c                | 18 ++++
- arch/riscv/kernel/setup.c                     |  2 +
- arch/riscv/mm/Makefile                        |  1 +
- arch/riscv/mm/dma-noncoherent.c               | 93 +++++++++++++++++++
- 12 files changed, 241 insertions(+), 2 deletions(-)
- create mode 100644 arch/riscv/mm/dma-noncoherent.c
 
 -- 
-2.35.1
+Best Regards
+ Guo Ren
 
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
