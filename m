@@ -4,58 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 230A9C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 12:05:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBD3C43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 12:15:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FkiWxu6sugftI5PNbFrp2ZjOqm3RNnXOG4m/5mHr4f8=; b=0wANqbwnBbDmO9WHoSBISuiWAR
-	ubOFcwpdBFyF3srA7MwhAQED+HQFCF91hgjg40QW6Xxseve095bIzle7PbcKgz7I76iGfrujjZwDL
-	VfU8hSueVMRfdQJ1qZw2dLelJvNkTHDZYwLtPF0J9alyzny8hr7/GBlFhMApUWw83gCH0nrkkw2eL
-	yA9PWmsNej7yjm3WX/+oQsHg6xBCk7jEp+F8/De+OkIH9vXjqUJX7Dr59f+p6iezJ55QrzWCz1nV5
-	7acb4WA9L0eNNYcemDo9RAoShlO1angGASzLkwVe9wOyzyqcq/+6RTq0JmqT30X863jD24+qSbPEb
-	OPMrzw6g==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OU8dYO+JFqxOQfI5QuxZ/rqGlgHky3pMWZH2vBSisho=; b=gFi/EW9c/3c1Ea
+	0wE7kmcJ6YNxJgsRu1G6yzlG+zbOOhOIEnl5hTnTw5VubiOufrlKxMkbld+qU1JkAt3DackniolQh
+	PF5wn6mYMWmK8+YCI1N+sc46ZXG2z04z+asU1ff3wIuBasbdlaqhcc6FuPCkxrBChCKX2ANna6V/1
+	gTEh+XrAB+CzNU52WFOIzZx73qDfe1Zmw23yZx2lywRKtUzlIkCks9mjTdQdmOnlECCGFB9y9C2up
+	+uzgrleQgQHyfkL5feqTvM3yhxmCOBfF2LdzwPv6mMFEpS20le9BMd0EDF/JnMJnvW5Fy7O6Ke1jF
+	fCizrF4ouNr8wuZ3RFWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzdO6-0084nW-5n; Fri, 10 Jun 2022 12:05:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nzdY9-0088Fb-L0; Fri, 10 Jun 2022 12:15:37 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzdO4-0084lT-56
-	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 12:05:13 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A4AD6620DD;
-	Fri, 10 Jun 2022 12:05:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D79C4C34114;
-	Fri, 10 Jun 2022 12:05:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654862711;
-	bh=JQIUQi3FYPOM/5+V1s4u6ksZweZ8UJi2AXqWfYnQVQQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bqn4z2ZER6HNZyzpomIs29vPaD+hSOq+n76XJIxOHwa1y8Tn8MzUN3GdG2GsXQ3VG
-	 MphFVuXs6vlFa0AdRc04+1OEPu2ROpRx8WTaE4Vu6N8/7izXK0uDB/cPx+zB0b2hyb
-	 c+0TH6REpq8RlA3iBhvffls/M9mTswM84x2IA8B2bhLb430wcHInJs4aY9fr7rzc82
-	 PYZO2vdTNTxVDwhZfYcadwizbqyt6UPNnlI2kXr3xeRtLOuscB5iDDTOL8dDQjXKRB
-	 yk9ZsONSt91eXxNL92IWFsYb877oQBSOhM7OCSiXQob+wAHcjfdgwuvBwBVtbP2C9p
-	 Em39HKqL0QNbQ==
-Date: Fri, 10 Jun 2022 13:05:06 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, linux-spi@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH next 0/1] Add simple PM operations to sifive-spi
-Message-ID: <YqMzcn9/otXYDdin@sirena.org.uk>
-References: <20220610074459.3261383-1-andy.chiu@sifive.com>
+	id 1nzdXy-0088BS-CM; Fri, 10 Jun 2022 12:15:28 +0000
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.53])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4LKKcR3XT9zgYbl;
+	Fri, 10 Jun 2022 20:13:27 +0800 (CST)
+Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
+ dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Fri, 10 Jun 2022 20:15:19 +0800
+Received: from [10.174.177.243] (10.174.177.243) by
+ dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Fri, 10 Jun 2022 20:15:17 +0800
+Message-ID: <70bd99eb-a05d-adb0-5cb8-84dcc66b674e@huawei.com>
+Date: Fri, 10 Jun 2022 20:15:17 +0800
 MIME-Version: 1.0
-In-Reply-To: <20220610074459.3261383-1-andy.chiu@sifive.com>
-X-Cookie: Teachers have class.
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [PATCH v3 6/6] efi: Disable mirror feature if kernelcore is not
+ specified
+Content-Language: en-US
+To: Ard Biesheuvel <ardb@kernel.org>, Wupeng Ma <mawupeng1@huawei.com>
+CC: Jonathan Corbet <corbet@lwn.net>, Will Deacon <will@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
+	"Ingo Molnar" <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, "H. Peter Anvin"
+	<hpa@zytor.com>, Darren Hart <dvhart@infradead.org>, Andy Shevchenko
+	<andy@infradead.org>, Mike Rapoport <rppt@kernel.org>, Andrew Morton
+	<akpm@linux-foundation.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	"Paul E. McKenney" <paulmck@kernel.org>, Kees Cook <keescook@chromium.org>,
+	<songmuchun@bytedance.com>, Randy Dunlap <rdunlap@infradead.org>,
+	<damien.lemoal@opensource.wdc.com>, Stephen Boyd <swboyd@chromium.org>,
+	<wei.liu@kernel.org>, <robin.murphy@arm.com>, <david@redhat.com>,
+	<anshuman.khandual@arm.com>, <thunder.leizhen@huawei.com>,
+	<gpiccoli@igalia.com>, <chenhuacai@kernel.org>, Geert Uytterhoeven
+	<geert@linux-m68k.org>, <chenzhou10@huawei.com>,
+	<vijayb@linux.microsoft.com>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-efi@vger.kernel.org>, <platform-driver-x86@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>
+References: <20220607093805.1354256-1-mawupeng1@huawei.com>
+ <20220607093805.1354256-7-mawupeng1@huawei.com>
+ <CAMj1kXGMHn_jsMe2WxWZ-s_QV==1tc5k=xpbNXuDbGp0qF534w@mail.gmail.com>
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+In-Reply-To: <CAMj1kXGMHn_jsMe2WxWZ-s_QV==1tc5k=xpbNXuDbGp0qF534w@mail.gmail.com>
+X-Originating-IP: [10.174.177.243]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ dggpemm500001.china.huawei.com (7.185.36.107)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220610_050512_267062_DCDF33F5 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20220610_051526_801046_D1A64BA7 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,62 +86,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0080062913231867665=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============0080062913231867665==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3vaPCi6nLk0w+oct"
-Content-Disposition: inline
-
-
---3vaPCi6nLk0w+oct
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Jun 10, 2022 at 03:44:58PM +0800, Andy Chiu wrote:
-> The patch has been tested on Unmatched using pm_test. The Unmatched board
-> uses SD over SPI and it was tested by initiating S2RAM cycles for all
-> devices while reading/writing files at the same time. We found no dropped
-> connection to the card or corrupted filesystem during test cycles.
-
-Please don't send cover letters for single patches, if there is anything
-that needs saying put it in the changelog of the patch or after the ---
-if it's administrative stuff.  This reduces mail volume and ensures that=20
-any important information is recorded in the changelog rather than being
-lost.=20
-
---3vaPCi6nLk0w+oct
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmKjM3EACgkQJNaLcl1U
-h9CwlAgAhv4owb1PAnbvVwhUGI8V47GKerrok6xW4Q+WaWi8eq+WWOz0XH7sBPaA
-p6+ZbSgfN9eAh+hHS1H6pMZLB3Gmt4Fwk/f+3heUhZvOjVrG+KSWU5kjbqHRqd/v
-JOU3B5o1I30lCRrlzh54pWh8+9KC72P7CMFvezTa7LYIEakda2WKrt14zIbRdmkV
-Rj7IKzJFvj2jNqseaWZA4Y2F9/yu/7ov1OKO0J6G1FiOS0PprkzRzEQP+eIcD/vi
-JRGsx55Xi62O+Q0Vz1V8n+/WQp4J2i861X+nXM8tE0fes+vnI608ZEjIMjN/+H2S
-mFk5imuzfVWWdnGpNLWz0JMlTnoIGQ==
-=wmFq
------END PGP SIGNATURE-----
-
---3vaPCi6nLk0w+oct--
-
-
---===============0080062913231867665==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0080062913231867665==--
-
+Ck9uIDIwMjIvNi8xMCAxOToyMCwgQXJkIEJpZXNoZXV2ZWwgd3JvdGU6Cj4gT24gVHVlLCA3IEp1
+biAyMDIyIGF0IDExOjE2LCBXdXBlbmcgTWEgPG1hd3VwZW5nMUBodWF3ZWkuY29tPiB3cm90ZToK
+Pj4gRnJvbTogTWEgV3VwZW5nIDxtYXd1cGVuZzFAaHVhd2VpLmNvbT4KPj4KPj4gSWYgc3lzdGVt
+IGhhdmUgc29tZSBtaXJyb3JlZCBtZW1vcnkgYW5kIG1pcnJvcmVkIGZlYXR1cmUgaXMgbm90IHNw
+ZWNpZmllZAo+PiBpbiBib290IHBhcmFtZXRlciwgdGhlIGJhc2ljIG1pcnJvcmVkIGZlYXR1cmUg
+d2lsbCBiZSBlbmFibGVkIGFuZCB0aGlzIHdpbGwKPj4gbGVhZCB0byB0aGUgZm9sbG93aW5nIHNp
+dHVhdGlvbnM6Cj4+Cj4+IC0gbWVtYmxvY2sgbWVtb3J5IGFsbG9jYXRpb24gcHJlZmVycyBtaXJy
+b3JlZCByZWdpb24uIFRoaXMgbWF5IGhhdmUgc29tZQo+PiAgICB1bmV4cGVjdGVkIGluZmx1ZW5j
+ZSBvbiBudW1hIGFmZmluaXR5Lgo+Pgo+PiAtIGNvbnRpZ3VvdXMgbWVtb3J5IHdpbGwgYmUgc3Bs
+aXQgaW50byBzZXZlcmFsIHBhcnRzIGlmIHBhcnRzIG9mIHRoZW0KPj4gICAgaXMgbWlycm9yZWQg
+bWVtb3J5IHZpYSBtZW1ibG9ja19tYXJrX21pcnJvcigpLgo+Pgo+PiBUbyBmaXggdGhpcywgdmFy
+aWFibGUgbWlycm9yZWRfa2VybmVsY29yZSB3aWxsIGJlIGNoZWNrZWQgYmVmb3JlIGNhbGxpbmcK
+Pj4gZWZpX2ZpbmRfbWlycm9yKCkgd2hpY2ggd2lsbCBlbmFibGUgYmFzaWMgbWlycm9yZWQgZmVh
+dHVyZSBhbmQgdGhpcwo+PiB2YXJpYWJsZSBpcyB0cnVlIGlmIGtlcm5lbGNvcmU9bWlycm9yIGlz
+IGFkZGVkIGluIHRoZSBrZXJuZWwgcGFyYW1ldGVycy4KPj4KPj4gU2lnbmVkLW9mZi1ieTogTWEg
+V3VwZW5nIDxtYXd1cGVuZzFAaHVhd2VpLmNvbT4KPiBUaGlzIHNlZW1zIGxpa2UgdGhlIHdyb25n
+IHBsYWNlIHRvIGRvIHRoaXMuIElmIG1pcnJvcmVkIG1lbW9yeSBpcwo+IGlycmVsZXZhbnQgdG8g
+bWVtYmxvY2ssIGl0IHNob3VsZCBpZ25vcmUgdGhlIGF0dHJpYnV0ZS4gU28gSSB0aGluawo+IHRo
+aXMgY2hlY2sgYmVsb25ncyBpbiBtbS9tZW1ibG9jay5jIGluc3RlYWQuCgpTb3VuZCBnb29kLMKg
+IGxldCdzIGFkZCBjaGVjayBpbnRvIG1lbWJsb2NrX21hcmtfbWlycm9yKCkgYW5kIHJldGFpbgoK
+dGhlIGVmaSBtZW1vcnkgbWlycm9yIGluZm9ybWF0aW9uIHByaW50aW5nLgoKPgo+Cj4+IC0tLQo+
+PiAgIGRyaXZlcnMvZmlybXdhcmUvZWZpL2VmaS5jIHwgMyArKysKPj4gICBpbmNsdWRlL2xpbnV4
+L21tLmggICAgICAgICB8IDIgKysKPj4gICBtbS9wYWdlX2FsbG9jLmMgICAgICAgICAgICB8IDIg
+Ky0KPj4gICAzIGZpbGVzIGNoYW5nZWQsIDYgaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+
+Pgo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9maXJtd2FyZS9lZmkvZWZpLmMgYi9kcml2ZXJzL2Zp
+cm13YXJlL2VmaS9lZmkuYwo+PiBpbmRleCA3OWMyMzJlMDdkZTcuLjhhNWVkY2IwZGQ4MiAxMDA2
+NDQKPj4gLS0tIGEvZHJpdmVycy9maXJtd2FyZS9lZmkvZWZpLmMKPj4gKysrIGIvZHJpdmVycy9m
+aXJtd2FyZS9lZmkvZWZpLmMKPj4gQEAgLTQ1NCw2ICs0NTQsOSBAQCB2b2lkIF9faW5pdCBlZmlf
+ZmluZF9taXJyb3Iodm9pZCkKPj4gICAgICAgICAgaWYgKCFlZmlfZW5hYmxlZChFRklfTUVNTUFQ
+KSkKPj4gICAgICAgICAgICAgICAgICByZXR1cm47Cj4+Cj4+ICsgICAgICAgaWYgKCFtaXJyb3Jl
+ZF9rZXJuZWxjb3JlKQo+PiArICAgICAgICAgICAgICAgcmV0dXJuOwo+PiArCj4+ICAgICAgICAg
+IGZvcl9lYWNoX2VmaV9tZW1vcnlfZGVzYyhtZCkgewo+PiAgICAgICAgICAgICAgICAgIHVuc2ln
+bmVkIGxvbmcgbG9uZyBzdGFydCA9IG1kLT5waHlzX2FkZHI7Cj4+ICAgICAgICAgICAgICAgICAg
+dW5zaWduZWQgbG9uZyBsb25nIHNpemUgPSBtZC0+bnVtX3BhZ2VzIDw8IEVGSV9QQUdFX1NISUZU
+Owo+PiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9tbS5oIGIvaW5jbHVkZS9saW51eC9tbS5o
+Cj4+IGluZGV4IGJjOGYzMjZiZTBjZS4uNzQxYWM3ZDAyMmMzIDEwMDY0NAo+PiAtLS0gYS9pbmNs
+dWRlL2xpbnV4L21tLmgKPj4gKysrIGIvaW5jbHVkZS9saW51eC9tbS5oCj4+IEBAIC0yNTQwLDYg
+KzI1NDAsOCBAQCBleHRlcm4gdm9pZCBnZXRfcGZuX3JhbmdlX2Zvcl9uaWQodW5zaWduZWQgaW50
+IG5pZCwKPj4gICAgICAgICAgICAgICAgICAgICAgICAgIHVuc2lnbmVkIGxvbmcgKnN0YXJ0X3Bm
+biwgdW5zaWduZWQgbG9uZyAqZW5kX3Bmbik7Cj4+ICAgZXh0ZXJuIHVuc2lnbmVkIGxvbmcgZmlu
+ZF9taW5fcGZuX3dpdGhfYWN0aXZlX3JlZ2lvbnModm9pZCk7Cj4+Cj4+ICtleHRlcm4gYm9vbCBt
+aXJyb3JlZF9rZXJuZWxjb3JlOwo+PiArCj4+ICAgI2lmbmRlZiBDT05GSUdfTlVNQQo+PiAgIHN0
+YXRpYyBpbmxpbmUgaW50IGVhcmx5X3Bmbl90b19uaWQodW5zaWduZWQgbG9uZyBwZm4pCj4+ICAg
+ewo+PiBkaWZmIC0tZ2l0IGEvbW0vcGFnZV9hbGxvYy5jIGIvbW0vcGFnZV9hbGxvYy5jCj4+IGlu
+ZGV4IGUwMDhhM2RmMDQ4NS4uY2Y2ZjcwYWJhNzg3IDEwMDY0NAo+PiAtLS0gYS9tbS9wYWdlX2Fs
+bG9jLmMKPj4gKysrIGIvbW0vcGFnZV9hbGxvYy5jCj4+IEBAIC0zNTYsNyArMzU2LDcgQEAgc3Rh
+dGljIHVuc2lnbmVkIGxvbmcgcmVxdWlyZWRfa2VybmVsY29yZV9wZXJjZW50IF9faW5pdGRhdGE7
+Cj4+ICAgc3RhdGljIHVuc2lnbmVkIGxvbmcgcmVxdWlyZWRfbW92YWJsZWNvcmUgX19pbml0ZGF0
+YTsKPj4gICBzdGF0aWMgdW5zaWduZWQgbG9uZyByZXF1aXJlZF9tb3ZhYmxlY29yZV9wZXJjZW50
+IF9faW5pdGRhdGE7Cj4+ICAgc3RhdGljIHVuc2lnbmVkIGxvbmcgem9uZV9tb3ZhYmxlX3BmbltN
+QVhfTlVNTk9ERVNdIF9faW5pdGRhdGE7Cj4+IC1zdGF0aWMgYm9vbCBtaXJyb3JlZF9rZXJuZWxj
+b3JlIF9fbWVtaW5pdGRhdGE7Cj4+ICtib29sIG1pcnJvcmVkX2tlcm5lbGNvcmUgX19tZW1pbml0
+ZGF0YTsKPj4KPj4gICAvKiBtb3ZhYmxlX3pvbmUgaXMgdGhlICJyZWFsIiB6b25lIHBhZ2VzIGlu
+IFpPTkVfTU9WQUJMRSBhcmUgdGFrZW4gZnJvbSAqLwo+PiAgIGludCBtb3ZhYmxlX3pvbmU7Cj4+
+IC0tCj4+IDIuMjUuMQo+Pgo+IC4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
