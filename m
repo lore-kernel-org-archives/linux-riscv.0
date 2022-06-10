@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71305CCA473
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 00:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F05CCA47B
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 00:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EN0yCO7KAu1zoowul5A9ZvxC4VOW0T2eN12GAKIqbOM=; b=p4ey89AVEcmSXS
-	d2VlIzEwPzP8XD5hTCI4jD2FXtQUEiit2Ix1oCcEGhfdd5RM9ed87ZbX+y8yNzgLEwwtfs8i6JhUF
-	S3iZ85uHuVNFNjyGhDEFtJW/av7AUoph5IrrooLfr0EhS8Y9vO0ahAp7RAsHHSIgCME0wPjRDU5pn
-	LO6RnFEL3w7JN2Tfup4Ghe88jYo2QTsYm6VO/T2LQN92myayFtIZ5IUyLqr1D7RHQmPWpwF2RkIF1
-	h5ZbZEX4lDQhygdcgG2PqRL+J7szNrpbDz1wLbzdzy6InuZ8WMv+2GTfsFqWBD2gUZLSkf4BKePrZ
-	AuHIQcnrmlvVAxwHxQ6A==;
+	List-Owner; bh=ytDiGCTR37x77lGWlvsc78H45H/C+wX3MZhuNP5O54c=; b=2/x7fBEONmWUrt
+	ThQl6pwx8bI2e7EC4HL2D7SuDgaX4eUtEQFOGUPoGsqxh/5olXcaLeJhv+vksDwVAfKGqNC3gjQlK
+	xz7JSI2uJVRzQWnFe5fi0PoHQru8mEm2NdDhlJL9OAHWn6aUD9tK7m8Iogfk6NDSBxcFCaqTAsQds
+	kUph+pPghMLHRUQA6jd7s86qvFPmmEpmOaAw4VryZEwUNGjaPuc8+pAP15ZucQqcsjKrw9nGO1BMe
+	aJhEEbscchGisPbURCx1lp0WzHG1grb+D7Kqe1OotQrDuxcqU56KrIWxLHHmHOHz8qya+yyc0JqKu
+	2dSaqgeozk3LdRRLb1AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzSkI-004rMs-2U; Fri, 10 Jun 2022 00:43:26 +0000
+	id 1nzSkJ-004rO5-He; Fri, 10 Jun 2022 00:43:27 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzSkC-004rGd-1b
-	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 00:43:22 +0000
+	id 1nzSkC-004rGb-1a
+	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 00:43:23 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1nzSk8-0001oS-Ka; Fri, 10 Jun 2022 02:43:16 +0200
+	id 1nzSk7-0001oS-R0; Fri, 10 Jun 2022 02:43:15 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com,
 	paul.walmsley@sifive.com
@@ -48,17 +48,18 @@ Cc: linux-riscv@lists.infradead.org,
 	krzk+dt@kernel.org,
 	devicetree@vger.kernel.org,
 	drew@beagleboard.org,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH 3/3] riscv: implement cache-management errata for T-Head SoCs
-Date: Fri, 10 Jun 2022 02:43:08 +0200
-Message-Id: <20220610004308.1903626-4-heiko@sntech.de>
+	Heiko Stuebner <heiko@sntech.de>,
+	Atish Patra <atish.patra@wdc.com>
+Subject: [PATCH 2/3] riscv: Implement Zicbom-based cache management operations
+Date: Fri, 10 Jun 2022 02:43:07 +0200
+Message-Id: <20220610004308.1903626-3-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220610004308.1903626-1-heiko@sntech.de>
 References: <20220610004308.1903626-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220609_174320_173305_8CEC0E8E 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20220609_174320_295425_999E42D9 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,145 +76,331 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The T-Head C906 and C910 implement a scheme for handling
-cache operations different from the generic Zicbom extension.
+The Zicbom ISA-extension was ratified in november 2021
+and introduces instructions for dcache invalidate, clean
+and flush operations.
 
-Add an errata for it next to the generic dma coherency ops.
+Implement cache management operations based on them.
 
-Tested-by: Samuel Holland <samuel@sholland.org>
-Reviewed-by: Anup Patel <anup@brainfault.org>
+Of course not all cores will support this, so implement an
+alternative-based mechanism that replaces empty instructions
+with ones done around Zicbom instructions.
+
+We're using prebuild instructions for the Zicbom instructions
+for now, to not require a bleeding-edge compiler (gcc-12)
+for these somewhat simple instructions.
+
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Atish Patra <atish.patra@wdc.com>
+Cc: Guo Ren <guoren@kernel.org>
 ---
- arch/riscv/Kconfig.erratas           | 10 ++++++
- arch/riscv/errata/thead/errata.c     | 15 +++++++++
- arch/riscv/include/asm/errata_list.h | 48 +++++++++++++++++++++++++---
- 3 files changed, 68 insertions(+), 5 deletions(-)
+ arch/riscv/Kconfig                   | 15 +++++
+ arch/riscv/include/asm/cacheflush.h  |  6 ++
+ arch/riscv/include/asm/errata_list.h | 36 ++++++++++-
+ arch/riscv/include/asm/hwcap.h       |  1 +
+ arch/riscv/kernel/cpu.c              |  1 +
+ arch/riscv/kernel/cpufeature.c       | 18 ++++++
+ arch/riscv/kernel/setup.c            |  2 +
+ arch/riscv/mm/Makefile               |  1 +
+ arch/riscv/mm/dma-noncoherent.c      | 93 ++++++++++++++++++++++++++++
+ 9 files changed, 172 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/mm/dma-noncoherent.c
 
-diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-index 457ac72c9b36..4a390035abc7 100644
---- a/arch/riscv/Kconfig.erratas
-+++ b/arch/riscv/Kconfig.erratas
-@@ -55,4 +55,14 @@ config ERRATA_THEAD_PBMT
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 32ffef9f6e5b..384d0c15f2b6 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -376,6 +376,21 @@ config RISCV_ISA_SVPBMT
  
- 	  If you don't know what to do here, say "Y".
+ 	   If you don't know what to do here, say Y.
  
-+config ERRATA_THEAD_CMO
-+	bool "Apply T-Head cache management errata"
-+	depends on ERRATA_THEAD && RISCV_ISA_ZICBOM
++config RISCV_ISA_ZICBOM
++	bool "Zicbom extension support for non-coherent dma operation"
++	select ARCH_HAS_DMA_PREP_COHERENT
++	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
++	select ARCH_HAS_SYNC_DMA_FOR_CPU
++	select ARCH_HAS_SETUP_DMA_OPS
++	select DMA_DIRECT_REMAP
++	select RISCV_ALTERNATIVE
 +	default y
 +	help
-+	  This will apply the cache management errata to handle the
-+	  non-standard handling on non-coherent operations on T-Head SoCs.
++	   Adds support to dynamically detect the presence of the ZICBOM extension
++	   (Cache Block Management Operations) and enable its usage.
 +
-+	  If you don't know what to do here, say "Y".
++	   If you don't know what to do here, say Y.
 +
- endmenu
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-index b37b6fedd53b..a3b3612d19df 100644
---- a/arch/riscv/errata/thead/errata.c
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -27,6 +27,18 @@ static bool errata_probe_pbmt(unsigned int stage,
- 	return false;
- }
+ config FPU
+ 	bool "FPU support"
+ 	default y
+diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+index 23ff70350992..eb12d014b158 100644
+--- a/arch/riscv/include/asm/cacheflush.h
++++ b/arch/riscv/include/asm/cacheflush.h
+@@ -42,6 +42,12 @@ void flush_icache_mm(struct mm_struct *mm, bool local);
  
-+static bool errata_probe_cmo(unsigned int stage,
-+			     unsigned long arch_id, unsigned long impid)
-+{
-+	if (arch_id != 0 || impid != 0)
-+		return false;
-+
-+	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-+		return false;
-+
-+	return true;
-+}
-+
- static u32 thead_errata_probe(unsigned int stage,
- 			      unsigned long archid, unsigned long impid)
- {
-@@ -35,6 +47,9 @@ static u32 thead_errata_probe(unsigned int stage,
- 	if (errata_probe_pbmt(stage, archid, impid))
- 		cpu_req_errata |= (1U << ERRATA_THEAD_PBMT);
+ #endif /* CONFIG_SMP */
  
-+	if (errata_probe_cmo(stage, archid, impid))
-+		 cpu_req_errata |= (1U << ERRATA_THEAD_CMO);
++#ifdef CONFIG_RISCV_ISA_ZICBOM
++void riscv_init_cbom_blocksize(void);
++#else
++static inline void riscv_init_cbom_blocksize(void) { }
++#endif
 +
- 	return cpu_req_errata;
- }
- 
+ /*
+  * Bits in sys_riscv_flush_icache()'s flags argument.
+  */
 diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 2e80a75b5241..a48605d55c3c 100644
+index 398e351e7002..2e80a75b5241 100644
 --- a/arch/riscv/include/asm/errata_list.h
 +++ b/arch/riscv/include/asm/errata_list.h
-@@ -16,7 +16,8 @@
- 
- #ifdef CONFIG_ERRATA_THEAD
- #define	ERRATA_THEAD_PBMT 0
--#define	ERRATA_THEAD_NUMBER 1
-+#define	ERRATA_THEAD_CMO 1
-+#define	ERRATA_THEAD_NUMBER 2
+@@ -20,7 +20,8 @@
  #endif
  
  #define	CPUFEATURE_SVPBMT 0
-@@ -105,17 +106,54 @@ asm volatile(ALTERNATIVE(						\
- #define CBO_CLEAN_A0	".long 0x25200F"
- #define CBO_FLUSH_A0	".long 0x05200F"
+-#define	CPUFEATURE_NUMBER 1
++#define	CPUFEATURE_CMO 1
++#define	CPUFEATURE_NUMBER 2
+ 
+ #ifdef __ASSEMBLY__
+ 
+@@ -87,6 +88,39 @@ asm volatile(ALTERNATIVE(						\
+ #define ALT_THEAD_PMA(_val)
+ #endif
  
 +/*
-+ * dcache.ipa rs1 (invalidate, physical address)
-+ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-+ *   0000001    01010      rs1       000      00000  0001011
-+ * dache.iva rs1 (invalida, virtual address)
-+ *   0000001    00110      rs1       000      00000  0001011
++ * cbo.clean rs1
++ * | 31 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
++ *    0...01     rs1       010      00000  0001111
 + *
-+ * dcache.cpa rs1 (clean, physical address)
-+ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-+ *   0000001    01001      rs1       000      00000  0001011
-+ * dcache.cva rs1 (clean, virtual address)
-+ *   0000001    00100      rs1       000      00000  0001011
++ * cbo.flush rs1
++ * | 31 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
++ *    0...10     rs1       010      00000  0001111
 + *
-+ * dcache.cipa rs1 (clean then invalidate, physical address)
-+ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-+ *   0000001    01011      rs1       000      00000  0001011
-+ * dcache.civa rs1 (... virtual address)
-+ *   0000001    00111      rs1       000      00000  0001011
-+ *
-+ * sync.s (make sure all cache operations finished)
-+ * | 31 - 25 | 24 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
-+ *   0000000    11001     00000      000      00000  0001011
++ * cbo.inval rs1
++ * | 31 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
++ *    0...00     rs1       010      00000  0001111
 + */
-+#define THEAD_INVAL_A0	".long 0x0265000b"
-+#define THEAD_CLEAN_A0	".long 0x0245000b"
-+#define THEAD_FLUSH_A0	".long 0x0275000b"
-+#define THEAD_SYNC_S	".long 0x0190000b"
++#define CBO_INVAL_A0	".long 0x15200F"
++#define CBO_CLEAN_A0	".long 0x25200F"
++#define CBO_FLUSH_A0	".long 0x05200F"
 +
- #define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
--asm volatile(ALTERNATIVE(						\
--	__nops(5),							\
-+asm volatile(ALTERNATIVE_2(						\
-+	__nops(6),							\
- 	"mv a0, %1\n\t"							\
- 	"j 2f\n\t"							\
- 	"3:\n\t"							\
- 	CBO_##_op##_A0 "\n\t"						\
- 	"add a0, a0, %0\n\t"						\
- 	"2:\n\t"							\
--	"bltu a0, %2, 3b\n\t", 0,					\
--		CPUFEATURE_CMO, CONFIG_RISCV_ISA_ZICBOM)		\
-+	"bltu a0, %2, 3b\n\t"						\
-+	"nop", 0, CPUFEATURE_CMO, CONFIG_RISCV_ISA_ZICBOM,		\
++#define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
++asm volatile(ALTERNATIVE(						\
++	__nops(5),							\
 +	"mv a0, %1\n\t"							\
 +	"j 2f\n\t"							\
 +	"3:\n\t"							\
-+	THEAD_##_op##_A0 "\n\t"						\
++	CBO_##_op##_A0 "\n\t"						\
 +	"add a0, a0, %0\n\t"						\
 +	"2:\n\t"							\
-+	"bltu a0, %2, 3b\n\t"						\
-+	THEAD_SYNC_S, THEAD_VENDOR_ID,					\
-+			ERRATA_THEAD_CMO, CONFIG_ERRATA_THEAD_CMO)	\
- 	: : "r"(_cachesize),						\
- 	    "r"(ALIGN((_start), (_cachesize))),				\
- 	    "r"(ALIGN((_start) + (_size), (_cachesize)))		\
++	"bltu a0, %2, 3b\n\t", 0,					\
++		CPUFEATURE_CMO, CONFIG_RISCV_ISA_ZICBOM)		\
++	: : "r"(_cachesize),						\
++	    "r"(ALIGN((_start), (_cachesize))),				\
++	    "r"(ALIGN((_start) + (_size), (_cachesize)))		\
++	: "a0")
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 4e2486881840..6044e402003d 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -53,6 +53,7 @@ extern unsigned long elf_hwcap;
+ enum riscv_isa_ext_id {
+ 	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+ 	RISCV_ISA_EXT_SVPBMT,
++	RISCV_ISA_EXT_ZICBOM,
+ 	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+ };
+ 
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index fba9e9f46a8c..0365557f7122 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -89,6 +89,7 @@ int riscv_of_parent_hartid(struct device_node *node)
+ static struct riscv_isa_ext_data isa_ext_arr[] = {
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+ 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
++	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+ 	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+ };
+ 
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index 6a40cb8134bd..e956f4d763ec 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -199,6 +199,7 @@ void __init riscv_fill_hwcap(void)
+ 			} else {
+ 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+ 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
++				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+ 			}
+ #undef SET_ISA_EXT_MAP
+ 		}
+@@ -259,6 +260,20 @@ static bool __init_or_module cpufeature_probe_svpbmt(unsigned int stage)
+ 	return false;
+ }
+ 
++static bool __init_or_module cpufeature_probe_cmo(unsigned int stage)
++{
++#ifdef CONFIG_RISCV_ISA_ZICBOM
++	switch (stage) {
++	case RISCV_ALTERNATIVES_EARLY_BOOT:
++		return false;
++	default:
++		return riscv_isa_extension_available(NULL, ZICBOM);
++	}
++#endif
++
++	return false;
++}
++
+ /*
+  * Probe presence of individual extensions.
+  *
+@@ -273,6 +288,9 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
+ 	if (cpufeature_probe_svpbmt(stage))
+ 		cpu_req_feature |= (1U << CPUFEATURE_SVPBMT);
+ 
++	if (cpufeature_probe_cmo(stage))
++		cpu_req_feature |= (1U << CPUFEATURE_CMO);
++
+ 	return cpu_req_feature;
+ }
+ 
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index f0f36a4a0e9b..95ef6e2bf45c 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -22,6 +22,7 @@
+ #include <linux/crash_dump.h>
+ 
+ #include <asm/alternative.h>
++#include <asm/cacheflush.h>
+ #include <asm/cpu_ops.h>
+ #include <asm/early_ioremap.h>
+ #include <asm/pgtable.h>
+@@ -296,6 +297,7 @@ void __init setup_arch(char **cmdline_p)
+ #endif
+ 
+ 	riscv_fill_hwcap();
++	riscv_init_cbom_blocksize();
+ 	apply_boot_alternatives();
+ }
+ 
+diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+index ac7a25298a04..548f2f3c00e9 100644
+--- a/arch/riscv/mm/Makefile
++++ b/arch/riscv/mm/Makefile
+@@ -30,3 +30,4 @@ endif
+ endif
+ 
+ obj-$(CONFIG_DEBUG_VIRTUAL) += physaddr.o
++obj-$(CONFIG_RISCV_ISA_ZICBOM) += dma-noncoherent.o
+diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+new file mode 100644
+index 000000000000..f77f4c529835
+--- /dev/null
++++ b/arch/riscv/mm/dma-noncoherent.c
+@@ -0,0 +1,93 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * RISC-V specific functions to support DMA for non-coherent devices
++ *
++ * Copyright (c) 2021 Western Digital Corporation or its affiliates.
++ */
++
++#include <linux/dma-direct.h>
++#include <linux/dma-map-ops.h>
++#include <linux/init.h>
++#include <linux/io.h>
++#include <linux/libfdt.h>
++#include <linux/mm.h>
++#include <linux/of.h>
++#include <linux/of_device.h>
++#include <asm/cacheflush.h>
++
++static unsigned int riscv_cbom_block_size = L1_CACHE_BYTES;
++
++void arch_sync_dma_for_device(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
++{
++	switch (dir) {
++	case DMA_TO_DEVICE:
++		ALT_CMO_OP(CLEAN, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
++		break;
++	case DMA_FROM_DEVICE:
++		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
++		break;
++	case DMA_BIDIRECTIONAL:
++		ALT_CMO_OP(FLUSH, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
++		break;
++	default:
++		break;
++	}
++}
++
++void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
++{
++	switch (dir) {
++	case DMA_TO_DEVICE:
++		break;
++	case DMA_FROM_DEVICE:
++	case DMA_BIDIRECTIONAL:
++		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
++		break;
++	default:
++		break;
++	}
++}
++
++void arch_dma_prep_coherent(struct page *page, size_t size)
++{
++	void *flush_addr = page_address(page);
++
++	memset(flush_addr, 0, size);
++	ALT_CMO_OP(FLUSH, (unsigned long)flush_addr, size, riscv_cbom_block_size);
++}
++
++void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
++		const struct iommu_ops *iommu, bool coherent)
++{
++	/* If a specific device is dma-coherent, set it here */
++	dev->dma_coherent = coherent;
++}
++
++void riscv_init_cbom_blocksize(void)
++{
++	struct device_node *node;
++	int ret;
++	u32 val;
++
++	for_each_of_cpu_node(node) {
++		int hartid = riscv_of_processor_hartid(node);
++		int cbom_hartid;
++
++		if (hartid < 0)
++			continue;
++
++		/* set block-size for cbom extension if available */
++		ret = of_property_read_u32(node, "riscv,cbom-block-size", &val);
++		if (ret)
++			continue;
++
++		if (!riscv_cbom_block_size) {
++			riscv_cbom_block_size = val;
++			cbom_hartid = hartid;
++		} else {
++			if (riscv_cbom_block_size != val)
++				pr_warn("cbom-block-size mismatched between harts %d and %d\n",
++					cbom_hartid, hartid);
++		}
++	}
++}
 -- 
 2.35.1
 
