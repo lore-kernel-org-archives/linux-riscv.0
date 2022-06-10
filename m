@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34930C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 10:25:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBF6C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 10:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lsvM6g2mMxWffLT03pJDb3lME4IXuA2NJqrpAZKLibU=; b=NZb/dmISsmARRV
-	I9UkMfOAZISUYokltqwyJ4o3YST9Q+oQOWrzeUmdfbygFnySitXKATcTRWnBo9Sq8ytSbiXETiZtc
-	Rjx17vqy9+SlDpBgCGxv9u5ygqQKu38UZJx1hPrdh3TE29JBjfRBcypWWEV5/Z/ewYdvw7wpfnX+H
-	T0797eLtBa3MXSdVrAbxcMxF7QHRtqlVPrkA0vqPfxBJCsvyqHm3kD7s7fRmR1GjGz/Zyoen3rrgo
-	7yM80XdwVixbecY6PEoE1+jC9vsl5cPaxEDJSv7wbubl84kJW6GdBEhKtEtTY+TY6C3p+RZYv4bQG
-	dzvlrdt+HoP46WLjNs4g==;
+	List-Owner; bh=mE4D74AAnra/GYdT1zHyU+Xk7mUrj3u0s9iebmsmEEQ=; b=kO4B4NiEGy7j1c
+	PnulhZ0aAflX6rh6mzLFKKFukvyKkhnge1OCEgVu+JXw9L/d1SjTwr4XEpdUcnWidXs5L3gzQswip
+	hN83m3aZuaPIg290RIzilF7GbFepH8LEwMY82UnJJAaRqEYlVNnIhV2/NXkWVKlEXldjGYt2c4y75
+	JPDx85mGasbQ2/U8xG2x9iSB1XatR60FrSwgempv3p+hsRPYBvtO3+vBtKk2KSpeTYjWJEnUjqyKi
+	4BkIgOipKIUfmwecV7C0szCLssfFJVSmnpVh5Jz4rkWKenjTp0zFqT7yEQwAXECIhWxgd+E3ah4oG
+	5rQxrB2jrs8o+GE6ba7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzbp0-007al6-Ny; Fri, 10 Jun 2022 10:24:54 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzboo-007ahf-80; Fri, 10 Jun 2022 10:24:44 +0000
-Received: from dggpemm500021.china.huawei.com (unknown [172.30.72.54])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4LKH9j4GNGzjXTF;
-	Fri, 10 Jun 2022 18:23:37 +0800 (CST)
-Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
- dggpemm500021.china.huawei.com (7.185.36.109) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Fri, 10 Jun 2022 18:24:37 +0800
-Received: from [10.174.177.243] (10.174.177.243) by
- dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Fri, 10 Jun 2022 18:24:35 +0800
-Message-ID: <174f988c-ea14-9f10-40e1-7bdddcef5d35@huawei.com>
-Date: Fri, 10 Jun 2022 18:24:35 +0800
+	id 1nzbsI-007bGY-MT; Fri, 10 Jun 2022 10:28:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1nzbs4-007bE1-UU; Fri, 10 Jun 2022 10:28:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D2B6E12FC;
+	Fri, 10 Jun 2022 03:27:58 -0700 (PDT)
+Received: from bogus (e103737-lin.cambridge.arm.com [10.1.197.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B5DFF3F766;
+	Fri, 10 Jun 2022 03:27:56 -0700 (PDT)
+Date: Fri, 10 Jun 2022 11:27:53 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Morten Rasmussen <morten.rasmussen@arm.com>,
+	Qing Wang <wangqing@vivo.com>, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>
+Subject: Re: [PATCH v3 15/16] arch_topology: Set cluster identifier in each
+ core/thread from /cpu-map
+Message-ID: <20220610102753.virkx47uyfsojol6@bogus>
+References: <20220525081416.3306043-10-sudeep.holla@arm.com>
+ <20220525081416.3306043-11-sudeep.holla@arm.com>
+ <20220525081416.3306043-12-sudeep.holla@arm.com>
+ <20220525081416.3306043-13-sudeep.holla@arm.com>
+ <20220525081416.3306043-14-sudeep.holla@arm.com>
+ <20220525081416.3306043-15-sudeep.holla@arm.com>
+ <20220525081416.3306043-16-sudeep.holla@arm.com>
+ <947470ba-35fc-3c72-d01b-c0a7337216a2@arm.com>
+ <20220606102159.dduxmvq4m2fm6gks@bogus>
+ <CAKfTPtB8iPzEXipsJqNtd9-aJMKx-FAaiGMzOg58HgRQuo39iA@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-Subject: Re: [PATCH v3 2/6] arm64/mirror: arm64 enabling - find mirrored
- memory ranges
-Content-Language: en-US
-To: Ard Biesheuvel <ardb@kernel.org>
-CC: Wupeng Ma <mawupeng1@huawei.com>, Jonathan Corbet <corbet@lwn.net>, "Will
- Deacon" <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, "Thomas
- Gleixner" <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, "Borislav
- Petkov" <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, X86 ML
-	<x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Darren Hart
-	<dvhart@infradead.org>, Andy Shevchenko <andy@infradead.org>, Mike Rapoport
-	<rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, "Paul E. McKenney" <paulmck@kernel.org>, Kees Cook
-	<keescook@chromium.org>, <songmuchun@bytedance.com>, Randy Dunlap
-	<rdunlap@infradead.org>, <damien.lemoal@opensource.wdc.com>, Stephen Boyd
-	<swboyd@chromium.org>, Wei Liu <wei.liu@kernel.org>, Robin Murphy
-	<robin.murphy@arm.com>, David Hildenbrand <david@redhat.com>, "Anshuman
- Khandual" <anshuman.khandual@arm.com>, Zhen Lei <thunder.leizhen@huawei.com>,
-	<gpiccoli@igalia.com>, Huacai Chen <chenhuacai@kernel.org>, "Geert
- Uytterhoeven" <geert@linux-m68k.org>, <vijayb@linux.microsoft.com>, "Linux
- Doc Mailing List" <linux-doc@vger.kernel.org>, Linux Kernel Mailing List
-	<linux-kernel@vger.kernel.org>, Linux ARM
-	<linux-arm-kernel@lists.infradead.org>, linux-efi
-	<linux-efi@vger.kernel.org>, <platform-driver-x86@vger.kernel.org>, "Linux
- Memory Management List" <linux-mm@kvack.org>, linux-riscv
-	<linux-riscv@lists.infradead.org>
-References: <20220607093805.1354256-1-mawupeng1@huawei.com>
- <20220607093805.1354256-3-mawupeng1@huawei.com>
- <bfa0b919-fbc1-056c-4ed9-e940edfb6125@huawei.com>
- <CAMj1kXGku3Y5d6Z+AAFkEauMWFY6LYpQAybqkXiQdRCMpS5tbw@mail.gmail.com>
-From: Kefeng Wang <wangkefeng.wang@huawei.com>
-In-Reply-To: <CAMj1kXGku3Y5d6Z+AAFkEauMWFY6LYpQAybqkXiQdRCMpS5tbw@mail.gmail.com>
-X-Originating-IP: [10.174.177.243]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- dggpemm500001.china.huawei.com (7.185.36.107)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <CAKfTPtB8iPzEXipsJqNtd9-aJMKx-FAaiGMzOg58HgRQuo39iA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220610_032442_674508_9C91BD63 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20220610_032806_770315_BACCC9BE 
+X-CRM114-Status: GOOD (  27.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,87 +70,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, Jun 10, 2022 at 12:08:44PM +0200, Vincent Guittot wrote:
+> On Mon, 6 Jun 2022 at 12:22, Sudeep Holla <sudeep.holla@arm.com> wrote:
+> >
 
-On 2022/6/10 17:34, Ard Biesheuvel wrote:
-> On Fri, 10 Jun 2022 at 11:27, Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
->>
->> On 2022/6/7 17:38, Wupeng Ma wrote:
->>> From: Ma Wupeng <mawupeng1@huawei.com>
->>>
->>> Commit b05b9f5f9dcf ("x86, mirror: x86 enabling - find mirrored memory ranges")
->>> introduced mirrored memory support for x86 and this could be used on arm64.
->>>
->>> Since we only support this feature on arm64, efi_find_mirror() won't be placed
->>> into efi_init(), which is used by riscv/arm/arm64, it is added in setup_arch()
->>> to scan the memory map and mark mirrored memory in memblock.
->> Move into efi_init() looks better, it won't bring negative effects on
->> arm/riscv.
->>
->> but let's maintainer to make a decision.
->>
->> Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
->>
-> I don't disagree with that in principle, but x86 calls the efi fake
-> memmap stuff between efi_init() and efi_find_mirror(), and I already
-> indicated that I don't want to enable fake memmap on !X86.
+[...]
 
-I mean move into efi_init() in drivers/firmware/efi/efi-init.c which 
-only used
-
-in arm32/arm64/riscv.
-
+> > Why ? Are you suggesting that we shouldn't present the hardware cluster
+> > to the topology because of the above reason ? If so, sorry that is not a
+> > valid reason. We could add login to return NULL or appropriate value
+> > needed in cpu_clustergroup_mask id it matches MC level mask if we can't
+> > deal that in generic scheduler code. But the topology code can't be
+> > compromised for that reason as it is user visible.
+> 
+> I tend to agree with Dietmar. The legacy use of cluster node in DT
+> refers to the dynamiQ or legacy b.L cluster which is also aligned to
+> the LLC and the MC scheduling level. The new cluster level that has
+> been introduced recently does not target this level but some
+> intermediate levels either inside like for the kupeng920 or the v9
+> complex or outside like for the ampere altra. So I would say that
+> there is one cluster node level in DT that refers to the same MC/LLC
+> level and only an additional child/parent cluster node should be used
+> to fill the clustergroup_mask.
 >
-> But I do think there is some room for improvement here: we could move
-> things like efi_mokvar_table_init() and efi_esrt_init() into
-> efi_init() as well, and make efi_fake_memmap() do nothing on !X86 so
-> we can move it into efi_init() too.
 
-x86 has own efi_init() in arch/x86/platform/efi/efi.c, it seams that all 
-the above
+Again I completely disagree. Let us look at the problems separately.
+The hardware topology that some of the tools like lscpu and lstopo expects
+what the hardware looks like and not the scheduler's view of the hardware.
+So the topology masks that gets exposed to the user-space needs fixing
+even today. I have reports from various tooling people about the same.
+E.g. Juno getting exposed as dual socket system is utter non-sense.
 
-function could move into x86's own efi_init(), not sure, but we could do 
-it later
+Yes scheduler uses most of the topology masks as is but that is not a must.
+There are these *group_mask functions that can implement what scheduler
+needs to be fed.
 
-if it possible.
+I am not sure why the 2 issues are getting mixed up and that is the main
+reason why I jumped into this to make sure the topology masks are
+not tampered based on the way it needs to be used for scheduler.
 
+Both ACPI and DT on a platform must present exact same hardware topology
+to the user-space, there is no space for argument there.
+
+> IIUC, we don't describe the dynamiQ level in ACPI which  uses cache
+> topology instead to define cpu_coregroup_mask whereas DT described the
+> dynamiQ instead of using cache topology. If you use cache topology
+> now, then you should skip the dynamiQ
 >
->>> Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
->>> ---
->>>    Documentation/admin-guide/kernel-parameters.txt | 2 +-
->>>    arch/arm64/kernel/setup.c                       | 1 +
->>>    2 files changed, 2 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
->>> index 8090130b544b..e3537646b6f7 100644
->>> --- a/Documentation/admin-guide/kernel-parameters.txt
->>> +++ b/Documentation/admin-guide/kernel-parameters.txt
->>> @@ -2301,7 +2301,7 @@
->>>
->>>        keepinitrd      [HW,ARM]
->>>
->>> -     kernelcore=     [KNL,X86,IA-64,PPC]
->>> +     kernelcore=     [KNL,X86,IA-64,PPC,ARM64]
->>>                        Format: nn[KMGTPE] | nn% | "mirror"
->>>                        This parameter specifies the amount of memory usable by
->>>                        the kernel for non-movable allocations.  The requested
->>> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
->>> index cf3a759f10d4..6e9acd7ecf0f 100644
->>> --- a/arch/arm64/kernel/setup.c
->>> +++ b/arch/arm64/kernel/setup.c
->>> @@ -328,6 +328,7 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
->>>
->>>        xen_early_init();
->>>        efi_init();
->>> +     efi_find_mirror();
->>>
->>>        if (!efi_enabled(EFI_BOOT) && ((u64)_text % MIN_KIMG_ALIGN) != 0)
->>>             pr_warn(FW_BUG "Kernel image misaligned at boot, please fix your bootloader!");
-> .
+
+Yes, unless someone can work out a binding to represent that and convince
+DT maintainers ;).
+
+> Finally, even if CLS and MC have the same scheduling behavior for now,
+> they might ends up with different scheduling properties which would
+> mean that replacing MC level by CLS one for current SoC would become
+> wrong
+>
+
+Again as I mentioned to Dietmar, that is something we can and must deal with
+in those *group_mask and not expect topology mask to be altered to meet
+CLS/MC or whatever sched domains needs. Sorry, that is my strong opinion
+as the topology is already user-space visible and (tooling) people are
+complaining that DT systems are broken and doesn't match ACPI systems.
+
+So unless someone gives me non-scheduler and topology specific reasons
+to change that, sorry but my opinion on this matter is not going to change ;).
+
+You will get this view of topology, find a way to manage with all those
+*group_mask functions. By the way it is already handled for ACPI systems,
+so if you are not happy with that, then that needs fixing as this change
+set just aligns the behaviour on similar ACPI system. So the Juno example
+is incorrect for the reason that the behaviour of scheduler there is different
+with DT and ACPI.
+
+--
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
