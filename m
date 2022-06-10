@@ -4,50 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6732C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 05:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD652C43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 10 Jun 2022 07:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+9R2xqXYaoMrcr5eWIuVHIDJVBcQAcFrhkMXZOFgI3I=; b=HWD8cHHFcIlxNQ
-	BsUbAczLdaDZFpIHpWtsQX+ipPWlKWc1kVs/GfrzLic/FcgSKVF2+dFdyLqvVnxsb3ZyeATlt0tsW
-	M5j1dfB97qf7zH6x3wh5KjbJn8x0P8eG4Oe3HIXX6eze2mOR9xA5EJ/KFbcHoPn3RtGPC+cNCj38y
-	0NoaL5Zwwa494UdQ2lTVg3ySlGx6GbBQGpk1KcDsTfjSrqCMzPajGZWIX8KGWMeKR96uZPT4DvhI4
-	mep0LCII2KPf9xAznt9F7W48GSU9WSNPPtmhhwu3uEveHL50qZMqAnSL8Piy2qanBlrijcLIjfshI
-	Yb8ttNUXSMYM1Ar1nZpg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GsobyLfELQzAYFgkAzGWERXTFtRs+/M5ragCk04hLgU=; b=mLZAoRYTeRPWCM
+	2EBKL3Tw8kh43HwTICrPy/TuKzaHjXDOEXPkQ+ngz6ui1SSfaUuHmExdkTU10i4YN16btsD3A3nPZ
+	0Wx8PPA5rYqiYqk4GPLFB3ye+JsCCnpAzeybnCnW33EciZaDpAxvx4LiNzsp0zlBEsdq9XLUJJxir
+	MZ5zY3Wrkfbz+/b6KuQ3xIHIpPmAhpOaKy0PXjLRurt5ICkjEAkrwR7OeHt7/mqvhyhAjdvpaImlK
+	FSHcV72o5xAXYdb8VRTcrb7zuPbFBr6CjZlmLYxYIkTYEqVh8HotOsIDaRi7Up49YYe1GykCc1UwD
+	ZfNaDiHrml5OkfUH4uJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzXd9-0064AJ-8x; Fri, 10 Jun 2022 05:56:23 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1nzZNS-006YKK-8f; Fri, 10 Jun 2022 07:48:18 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzXd5-006480-IP
-	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 05:56:21 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 6394D67373; Fri, 10 Jun 2022 07:56:08 +0200 (CEST)
-Date: Fri, 10 Jun 2022 07:56:08 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com,
-	philipp.tomsich@vrull.eu, hch@lst.de, samuel@sholland.org,
-	atishp@atishpatra.org, anup@brainfault.org, mick@ics.forth.gr,
-	robh+dt@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org,
-	drew@beagleboard.org, Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH 2/3] riscv: Implement Zicbom-based cache management
- operations
-Message-ID: <20220610055608.GA24221@lst.de>
-References: <20220610004308.1903626-1-heiko@sntech.de> <20220610004308.1903626-3-heiko@sntech.de>
+	id 1nzZNQ-006YJV-4K
+	for linux-riscv@lists.infradead.org; Fri, 10 Jun 2022 07:48:17 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id j7so23370529pjn.4
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jun 2022 00:48:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=Ri9yPZe+t7UbMEFaU4OG0A4/vjYvLt9KG3tOXTl2Knw=;
+        b=AxuJJpIZvDDdQAcCIZOe9JBBN78j+7RQpIKz9sDv6nsruezNmnTog2aRo4esz7Itke
+         LvZ/4aLSa4+7OtMeytrpEofyyC8DcG2iF8VmcLeEbCNYJg6AKmUOlC0QBuialO4dysfF
+         +1XONlAYf1xbgPxVriX7TPfPZJRARMNQRmV+zGtcHngR7+5Gj3M4/ovi7X+3QczPC2aZ
+         2kWsnsmNiBSlmoljiR4oiLprp73uImwKxPxfwE8nxrlkuA2sMJf9o8a8IW3n5TdCeohd
+         /RlTa9/lisWyGaKdn7yFE74aEodSwdfs4SQgdv1Wph/b4vCRki4G34kKZEvwLPvDQ9AC
+         2+TQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=Ri9yPZe+t7UbMEFaU4OG0A4/vjYvLt9KG3tOXTl2Knw=;
+        b=GcAvTFDag/grjkhxMRCEeEOM3NmSAmPqEDUXnenzGsCPWaNgzmvNXPzINAR7o4eqWH
+         GduzHxhZ7hiX1Ms4hq7g5uNDA+GUzWCvoBGUhopxwYVHYT338gR1Q3ZhH9qutzExLby0
+         DWCGvdTTYtdjENXNGePGo57FeKqaeA45Rk2QC3K2IvHif3mDpgTbzbVS0R8N6k2taIIU
+         eoNspc6P/G6YZcmrbWeP/awbj0dJP+vRtJXD8GGattzUUaZjx7dIcvB1QwbRF3xYqf7r
+         6Lt06bRwJ4jY+rKn3wUZhTgYLHakz8LJfYHM8YGihJMC2o0MsgJG6zMy7sburjxT2eYc
+         fLKg==
+X-Gm-Message-State: AOAM533mZyRV6hQ2bGfMKk37NGglxY48tZ+M/tk56sqVR5ZVJZnqORaZ
+	NbTcjaRzYLBAhTWUs4IFc3d3Sw==
+X-Google-Smtp-Source: ABdhPJyy1nrV9a+tBwcx2FWnnDsTGWnzuGr9KJ4zlcsxM83a9PcfBuxb7wnpudWaFGaud7qWQw1sVQ==
+X-Received: by 2002:a17:90b:17c7:b0:1e8:5136:c32a with SMTP id me7-20020a17090b17c700b001e85136c32amr7556304pjb.43.1654847292748;
+        Fri, 10 Jun 2022 00:48:12 -0700 (PDT)
+Received: from archlinux.internal.sifive.com (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
+        by smtp.gmail.com with ESMTPSA id r72-20020a632b4b000000b003c14af5060fsm15902394pgr.39.2022.06.10.00.48.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Jun 2022 00:48:12 -0700 (PDT)
+From: Andy Chiu <andy.chiu@sifive.com>
+To: broonie@kernel.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	linux-spi@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Cc: Andy Chiu <andy.chiu@sifive.com>
+Subject: [PATCH next 0/1] Add simple PM operations to sifive-spi
+Date: Fri, 10 Jun 2022 15:44:58 +0800
+Message-Id: <20220610074459.3261383-1-andy.chiu@sifive.com>
+X-Mailer: git-send-email 2.36.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220610004308.1903626-3-heiko@sntech.de>
-User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220609_225619_928970_469FC5F6 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20220610_004816_225051_D4240EE0 
+X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,96 +90,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 10, 2022 at 02:43:07AM +0200, Heiko Stuebner wrote:
-> +config RISCV_ISA_ZICBOM
-> +	bool "Zicbom extension support for non-coherent dma operation"
-> +	select ARCH_HAS_DMA_PREP_COHERENT
-> +	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
-> +	select ARCH_HAS_SYNC_DMA_FOR_CPU
-> +	select ARCH_HAS_SETUP_DMA_OPS
-> +	select DMA_DIRECT_REMAP
-> +	select RISCV_ALTERNATIVE
-> +	default y
-> +	help
-> +	   Adds support to dynamically detect the presence of the ZICBOM extension
+The patch has been tested on Unmatched using pm_test. The Unmatched board
+uses SD over SPI and it was tested by initiating S2RAM cycles for all
+devices while reading/writing files at the same time. We found no dropped
+connection to the card or corrupted filesystem during test cycles.
 
-Overly long line here.
+Andy Chiu (1):
+  spi: sifive: add PM callbacks to support suspend/resume
 
-> +	   (Cache Block Management Operations) and enable its usage.
-> +
-> +	   If you don't know what to do here, say Y.
+ drivers/spi/spi-sifive.c | 39 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 39 insertions(+)
 
-But more importantly I think the whole text here is not very helpful.
-What users care about is non-coherent DMA support.  What extension is
-used for that is rather secondary.  Also please capitalize DMA.
+-- 
+2.36.0
 
-> +void arch_sync_dma_for_device(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
-> +{
-> +	switch (dir) {
-> +	case DMA_TO_DEVICE:
-> +		ALT_CMO_OP(CLEAN, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
-> +		break;
-> +	case DMA_FROM_DEVICE:
-> +		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
-> +		break;
-> +	case DMA_BIDIRECTIONAL:
-> +		ALT_CMO_OP(FLUSH, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
-> +		break;
-> +	default:
-> +		break;
-> +	}
-
-Pleae avoid all these crazy long lines.  and use a logical variable
-for the virtual address.  And why do you pass that virtual address
-as an unsigned long to ALT_CMO_OP?  You're going to make your life
-much easier if you simply always pass a pointer.
-
-Last but not last, does in RISC-V clean mean writeback and flush mean
-writeback plus invalidate?  If so the code is correct, but the choice
-of names in the RISC-V spec is extremely unfortunate.
-
-> +void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
-> +{
-> +	switch (dir) {
-> +	case DMA_TO_DEVICE:
-> +		break;
-> +	case DMA_FROM_DEVICE:
-> +	case DMA_BIDIRECTIONAL:
-> +		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
-> +		break;
-> +	default:
-> +		break;
-> +	}
-> +}
-
-Same comment here and in few other places.
-
-> +
-> +void arch_dma_prep_coherent(struct page *page, size_t size)
-> +{
-> +	void *flush_addr = page_address(page);
-> +
-> +	memset(flush_addr, 0, size);
-> +	ALT_CMO_OP(FLUSH, (unsigned long)flush_addr, size, riscv_cbom_block_size);
-> +}
-
-arch_dma_prep_coherent should never zero the memory, that is left
-for the upper layers.`
-
-> +void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
-> +		const struct iommu_ops *iommu, bool coherent)
-> +{
-> +	/* If a specific device is dma-coherent, set it here */
-
-This comment isn't all that useful.
-
-> +	dev->dma_coherent = coherent;
-> +}
-
-But more importantly, this assums that once this code is built all
-devices are non-coherent by default.  I.e. with this patch applied
-and the config option enabled we'll now suddenly start doing cache
-management operations or setups that didn't do it before.
 
 _______________________________________________
 linux-riscv mailing list
