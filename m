@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA1EC43334
-	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jun 2022 04:57:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08542C43334
+	for <linux-riscv@archiver.kernel.org>; Sat, 11 Jun 2022 05:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iMEjUmIyVH8tIPn++KuNLuVEnw5hqZfghrYpIQ+4fHc=; b=MYdpXD7NgDdzia
-	GadiQ83l2P55sNVqDQFJ5NJkHEbGo3jL2BgtwqK9NGMy5Y6KEUguFEnfFf0xv8CVjefnrsBnRnVcF
-	eDiOiwrVUKPEs1Jl8yFc+/xELKlQCM+fm1Qw3/WS5GaR3nCiQRGMkZQ3Nkqif3I8MFEVLcNl09JHJ
-	kvNGV29fQR1VhuuKOHKdrdI7u8HJZbVE5INtEN2u57FPx+9lmYoz249sJ0SSly6Pv8c7WqlqUviB+
-	UDw0mFby4A4sdKItJ2py+R5GBmtvq1PxVpyzX02cQu4wtGGBsg4kOK+FwpTq/mvXa0WAqb98qIlRP
-	bFceWlOS/siDtXlVPEOw==;
+	List-Owner; bh=hGJeMUKyEmaETDb2z21hpIhmkR8TFM/A5eslNW7C3eI=; b=UA3AOVz43tQRVE
+	vxzJy4FU+lCcdgdIf4c4FMqyCABZb5h2v4dbLR28kn2XaHZZZdcCtd41iRKBj32nEAwsokBE2Z3l7
+	vDw3PwYF36Us8iLvts41I/aRWogNuDaiPFs5tJt2CNoAiup4zEKJ9L9BRdO8+MWzlgWWf1zt23x68
+	/8l0VPX83x4G4PR1DlW0zbQ2+K5RYH7phMEPhJFN07LEJkNOgHfjaHBDcUYfaZcxnNqW415wulLAO
+	vTtkhmik1a8JhTagym/Vh8YmBnz7fiB7rcrWMvYPYhTH0ntWepugqXaP1dC5PXJ5WmeKR/8fg6p3I
+	EHqeN702j5A9XX/9mFHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nztB0-00BSOL-NR; Sat, 11 Jun 2022 04:56:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1nztSU-00BV8F-5P; Sat, 11 Jun 2022 05:14:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nztAy-00BSMb-BY
-	for linux-riscv@lists.infradead.org; Sat, 11 Jun 2022 04:56:46 +0000
+	id 1nztSQ-00BV7I-Ti
+	for linux-riscv@lists.infradead.org; Sat, 11 Jun 2022 05:14:48 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1EB4960BBD
-	for <linux-riscv@lists.infradead.org>; Sat, 11 Jun 2022 04:56:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AEE8C385A5
-	for <linux-riscv@lists.infradead.org>; Sat, 11 Jun 2022 04:56:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 862FE60BC5
+	for <linux-riscv@lists.infradead.org>; Sat, 11 Jun 2022 05:14:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69C20C3411E
+	for <linux-riscv@lists.infradead.org>; Sat, 11 Jun 2022 05:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1654923394;
-	bh=4k6vNzhX6ub0gdf5kgjJ0KYeErBFgTgo9HAWmbzPeIE=;
+	s=k20201202; t=1654924485;
+	bh=bw0gYDa9Sw2ivc5NmLT4AkVPW9upi7VoxFhegFNh9ww=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=NBfgeIC6K09xnDWsiB4PToBRmf4z1YbjhKzJWLePFfhtIGmpl0ghWseTv57avaZDn
-	 idOuZetQhN6jk+rxi4lulstmc2tR+ohJTwNy8Q7TW1uNhBKGduiVlh4bUgJtlGlaTy
-	 IZtkdQ3nbL9tRdXSCLmlTPosbVdL1pWHKDvBZgZWsGtGeJVRuwrnn7s9d/t0NTkKml
-	 u1+y6HCflg4FCVy6XA4K763KDaqFxhVcqC8GHn5Ne56JcSaT/NYFeHYG5TukapDHGF
-	 fKcA7jmjCIRWfumtajY18uhvqBbNrkBkC0hJ9oQ6UYqYzqURR37dqOqb/t5qpuh7yV
-	 VETICaxhGkDMw==
-Received: by mail-vs1-f47.google.com with SMTP id r12so1071504vsg.8
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jun 2022 21:56:34 -0700 (PDT)
-X-Gm-Message-State: AOAM533pJXU1L0SIn50glL2AHFFPDZEWBhaMv9/Om/njzPGUfIIYTKIm
-	7g7nyYJLT1uxvO3dSPR0At6gz9cGmVSPv0EXRq4=
-X-Google-Smtp-Source: ABdhPJwrVCPIs2USR/kHUvluFIYzbGFIoy+zLN3lIZqIicH7QZldaDzrWUZNiE3y5d0KM6mi4V+ffA8GiCUy1/pMvUc=
-X-Received: by 2002:a05:6102:22c2:b0:34b:9163:c6ab with SMTP id
- a2-20020a05610222c200b0034b9163c6abmr19135846vsh.8.1654923393395; Fri, 10 Jun
- 2022 21:56:33 -0700 (PDT)
+	b=InL/7IhaYoo/li7cDVqaFqOdirAlXxfsUpQwpmT/+uvfGX3flLTIVzXOcZLGd6Tdl
+	 PZnlSa5KKK58GToYsRFPi5PEHVDbYXO8vj/CCEJhLgsO+ualwT6AaOYyGXmJjxYeZQ
+	 ZrTm7xMfwNT7D7utNEUnimEUJ19cjIJ8pjHXexFQl4NDWhFNyK4MvGhnORfc9zus+3
+	 h/jsFP1YbIERF+znCVpP4gLZW44Cekznhgv5H9o35IfHPmaS6g4rAQfjLUqcWee1Jt
+	 qspHmZzwpP4aju/eXVlWPQ5w6SpU//qCAWbUAyFKFnD2Zl8gyAhfKe40mRwfRBjYBP
+	 9yXh/Hwerp2CQ==
+Received: by mail-vs1-f54.google.com with SMTP id x9so1074890vsg.13
+        for <linux-riscv@lists.infradead.org>; Fri, 10 Jun 2022 22:14:45 -0700 (PDT)
+X-Gm-Message-State: AOAM530Nve0FWydjEYrZ+nPEw4wovUHdiYgpBBOThU6qVu8V89kc+HUd
+	hzxuXSTncoSO9XQT20T+3vm4yrz8hxzlSmTOBAE=
+X-Google-Smtp-Source: ABdhPJyBVffwDuetHif13oQqAeRfqGgHObBwodUJOy7zrElBDaNS4h0Zpw0s2eEzP4nb0K/PX2pkCoWe4R5gjZXlp9w=
+X-Received: by 2002:a05:6102:5493:b0:34b:b583:f557 with SMTP id
+ bk19-20020a056102549300b0034bb583f557mr14541985vsb.2.1654924484330; Fri, 10
+ Jun 2022 22:14:44 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220611023122.211621-1-falcon@tinylab.org>
 In-Reply-To: <20220611023122.211621-1-falcon@tinylab.org>
 From: Guo Ren <guoren@kernel.org>
-Date: Sat, 11 Jun 2022 12:56:22 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQqESOHUBkqLz5W72-2BGXLS35F4ufutKi4J25wNnxRvw@mail.gmail.com>
-Message-ID: <CAJF2gTQqESOHUBkqLz5W72-2BGXLS35F4ufutKi4J25wNnxRvw@mail.gmail.com>
+Date: Sat, 11 Jun 2022 13:14:33 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTJApuPatenUVgEWWsGOkiwGNQ72nMjFmDQj5PRdpNtwQ@mail.gmail.com>
+Message-ID: <CAJF2gTTJApuPatenUVgEWWsGOkiwGNQ72nMjFmDQj5PRdpNtwQ@mail.gmail.com>
 Subject: Re: [RFC] riscv: restore the irq save/restore logic for nosync code patching
 To: Wu Zhangjin <falcon@tinylab.org>
 Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
@@ -64,8 +64,8 @@ Cc: linux-riscv <linux-riscv@lists.infradead.org>,
 	Peter Zijlstra <peterz@infradead.org>, Zong Li <zong.li@sifive.com>, 
 	Steven Rostedt <rostedt@goodmis.org>, Andy Chiu <andy.chiu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220610_215644_516661_6F677FF3 
-X-CRM114-Status: GOOD (  27.01  )
+X-CRM114-CacheID: sfid-20220610_221447_061888_9E86988C 
+X-CRM114-Status: GOOD (  27.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,6 +82,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Sorry, I misunderstood your patch, here is the new review feedback.
+
 On Sat, Jun 11, 2022 at 10:31 AM Wu Zhangjin <falcon@tinylab.org> wrote:
 >
 > The commit '0ff7c3b331276f584bde3ae9a16bacd8fa3d01e6' removed the
@@ -90,11 +92,22 @@ On Sat, Jun 11, 2022 at 10:31 AM Wu Zhangjin <falcon@tinylab.org> wrote:
 > But the patching interface: patch_text_nosync() has new users like
 > Jump Label, which doesn't use stop_machine(), here restores the irq
 > save/restore logic for such users, just as the other architectures do.
+Let's give protection out of patch_text_nosync.
+
+        mutex_lock(&text_mutex);
+        patch_text_nosync(addr, &insn, sizeof(insn));
+        mutex_unlock(&text_mutex);
+
+Why mutex isn't enough for patch_text?
+
 >
 > Move lockdep assert to the required path too, the current stop_machine()
 > based ftrace implementation should use the new added patch_text_noirq()
 > without this lockdep assert, it has its own mutex, but not named as
 > text_mutex.
+Do you mean we should use irq_save&restore instead of text_mutex?
+
+
 >
 > As the latest maillist shows, a new ftrace support without
 > stop_machine() is in review, which requires the nosync version with this
@@ -169,9 +182,6 @@ On Sat, Jun 11, 2022 at 10:31 AM Wu Zhangjin <falcon@tinylab.org> wrote:
 > -                   patch_text_nosync(patch->addr, &patch->insn,
 > +                   patch_text_noirq(patch->addr, &patch->insn,
 >                                             GET_INSN_LENGTH(patch->insn));
-patch_text_cb is only called in stop_machine_cpuslocked, no need
-disable irq for its callback
-
 >                 atomic_inc(&patch->cpu_count);
 >         } else {
 > --
