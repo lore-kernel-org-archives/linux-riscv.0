@@ -4,43 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A5BC43334
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jun 2022 04:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7546C43334
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jun 2022 12:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iEZ5KuU7rD9d3PLpAAOH5915aqI3WHApPCOm6f4C13U=; b=jq96JQhzxIWi59
-	qWATcpgM2WRePMaOQfehLS/eAtn5PDw/y7AYGaB2X2vHKCjt5vWmSfFEbIVza6l6ifEgxJ1q8WfoF
-	DB1Z1H3CQDUa7Vf4zJBFPeVoESTgQ/0KXFQ4CyGnoUuka8u0GBfRdKdsXw+YKCX+htgVqc1gb2dRn
-	NGNdo1r1nI23I2xSdC8Yd+SzzX5x9ULkNTL/UY0Xbra/l2dI6zn1Qb45glZ7vFlkU9ecd56flyUfX
-	gjrzm1IajF3DZ8JsEpLz5YhEFImhF8MbBe/u+RVYQlTzb3cvduJcVh+qX1fILOn7rQEX1qq6ciX+p
-	tXXA5MA2+YoXBLeCv9ZA==;
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0TckBDaTkjrkkxcOySId2lXgZojE9cleOrxu0irREBI=; b=GuXbueA47ARpaH
+	ans3MQA2Y9uEAomJbilwNpp84nz23BtVM0bz24j/UaHvlWZcHe/oUK+3lsFAWZY+Xjh+g56A2bQaF
+	eLB90v/Se9VT5MOr5GCd2fqUkEtL3NRYu0XrudmyIM2r7x/o7sjmnEsUHg7rBaTV11r8mUhC9Y3aJ
+	YhMdMBwM8lmpjkzX6mGMdSauzFNE6AmLa6OzGFiJ2YVHbwj6Ag/30NJuiecHgaegbmfeswC1ZRKhJ
+	8JLAEaTwpSR5F1fK60HmEpHSwwPPPpQmD+fa4QCFUh9+pnwiu0nAZAArraUf8bLG2sVNTS4+7UiI+
+	rskmQE3gxwjxvo2bcq3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0FJc-00FWT9-L6; Sun, 12 Jun 2022 04:35:08 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1o0MYD-00GSd5-Mv; Sun, 12 Jun 2022 12:18:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0FJa-00FWSi-6A
-	for linux-riscv@lists.infradead.org; Sun, 12 Jun 2022 04:35:07 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: linux-riscv@lists.infradead.org
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-kernel@vger.kernel.org,
-	Yixun Lan <dlan@gentoo.org>
-Subject: [PATCH] RISC-V: enable CONFIG_ARCH_KEEP_MEMBLOCK
-Date: Sun, 12 Jun 2022 12:34:33 +0800
-Message-Id: <20220612043433.10469-1-dlan@gentoo.org>
-X-Mailer: git-send-email 2.35.1
-MIME-Version: 1.0
+	id 1o0MY7-00GSan-1Z; Sun, 12 Jun 2022 12:18:38 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D0E1560DF6;
+	Sun, 12 Jun 2022 12:18:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83C2CC34115;
+	Sun, 12 Jun 2022 12:18:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1655036305;
+	bh=WgqWCXOvSOyYM9CA6unsEF9x7497RtdMdOYMhEwuXNA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=hJVwSxcZhwtzLwx3w1QhqIA1+qrWZ1YGyKj5qHKKPQ++Yqa816Xz6ppZ1R/IDxtM8
+	 0mGodfwO2v8xthNHRtUQ7dsU9T6KZrnnSnwkX2Km4qoMD4VxgmypasgeO574/wxfWh
+	 iPI0tb5tr49puQN4NIA3CqGVLyVln/zbm8lBPZ8hG8qBmrK2oCj41WK75ev21hQO/v
+	 iwYspOZKGjKe7g7QShHcxe1rR10SCFSjyNkmdYBtuEMKE90L7FAENwgzstDNcN3N7s
+	 6bz8ns5CJW9GDL1c/9Wzb9AS47ccvnKE6Mk6uAYpYzfOmoKzOnrDABFX7VAQu5vWRi
+	 lMYiDZBwwPCeQ==
+Date: Sun, 12 Jun 2022 21:18:02 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Jarkko Sakkinen <jarkko@kernel.org>, Song Liu <song@kernel.org>, Masami
+ Hiramatsu <mhiramat@kernel.org>, Guo Ren <guoren@kernel.org>, Jarkko
+ Sakkinen <jarkko@profian.com>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Nathaniel McCallum <nathaniel@profian.com>,
+ Russell King <linux@armlinux.org.uk>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley"
+ <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>,
+ Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt
+ <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+ "David S. Miller" <davem@davemloft.net>, Thomas Gleixner
+ <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+ <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "the arch/x86 maintainers" <x86@kernel.org>, "H. Peter Anvin"
+ <hpa@zytor.com>, "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>, Anil S
+ Keshavamurthy <anil.s.keshavamurthy@intel.com>, Luis Chamberlain
+ <mcgrof@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Kees Cook
+ <keescook@chromium.org>, "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+ Nathan Chancellor <nathan@kernel.org>, Josh Poimboeuf
+ <jpoimboe@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ "Eric W. Biederman" <ebiederm@xmission.com>, Marco Elver
+ <elver@google.com>, Dan Li <ashimida@linux.alibaba.com>, Sami Tolvanen
+ <samitolvanen@google.com>, "Russell King (Oracle)"
+ <rmk+kernel@armlinux.org.uk>, Nick Desaulniers <ndesaulniers@google.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Chen Zhongjin
+ <chenzhongjin@huawei.com>, Nicolas Pitre <nico@fluxnic.net>, Mark Brown
+ <broonie@kernel.org>, Luis Machado <luis.machado@linaro.org>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, Joey Gouly <joey.gouly@arm.com>,
+ Masahiro Yamada <masahiroy@kernel.org>, Andrew Morton
+ <akpm@linux-foundation.org>, Andrey Konovalov <andreyknvl@gmail.com>,
+ Kefeng Wang <wangkefeng.wang@huawei.com>, Atsushi Nemoto
+ <anemo@mba.ocn.ne.jp>, Guenter Roeck <linux@roeck-us.net>, Dave Anglin
+ <dave.anglin@bell.net>, Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Alexei Starovoitov <ast@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Daniel Axtens <dja@axtens.net>, "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>, Jordan Niethe <jniethe5@gmail.com>, Anup
+ Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, Changbin
+ Du <changbin.du@intel.com>, Heiko Stuebner <heiko@sntech.de>, Liao Chang
+ <liaochang1@huawei.com>, Philipp Tomsich <philipp.tomsich@vrull.eu>, Wu
+ Caize <zepan@sipeed.com>, Emil Renner Berthing <kernel@esmil.dk>, Alexander
+ Egorenkov <egorenar@linux.ibm.com>, Thomas Richter <tmricht@linux.ibm.com>,
+ Tobias Huschle <huschle@linux.ibm.com>, Ilya Leoshkevich
+ <iii@linux.ibm.com>, Tom Lendacky <thomas.lendacky@amd.com>, Daniel Bristot
+ de Oliveira <bristot@redhat.com>, Michael Roth <michael.roth@amd.com>,
+ "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Javier Martinez
+ Canillas <javierm@redhat.com>, Miroslav Benes <mbenes@suse.cz>,
+ =?UTF-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>, Tiezhu Yang
+ <yangtiezhu@loongson.cn>, Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Aaron Tomlin <atomlin@redhat.com>, Linux ARM
+ <linux-arm-kernel@lists.infradead.org>, "open list:BROADCOM NVRAM DRIVER"
+ <linux-mips@vger.kernel.org>, Parisc List <linux-parisc@vger.kernel.org>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, linux-riscv
+ <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>,
+ sparclinux <sparclinux@vger.kernel.org>, linux-modules@vger.kernel.org
+Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
+Message-Id: <20220612211802.30a16623e8b0a55122b02386@kernel.org>
+In-Reply-To: <CAMj1kXGGyO-DL9hjKYKR2sp87s4KExiQybES8pp4JgqJcHkfLA@mail.gmail.com>
+References: <20220608000014.3054333-1-jarkko@profian.com>
+	<CAJF2gTQgCn2CyZ4+VBqEEBT2b4+1KxoEXxrd+Ritk=58+U8EFA@mail.gmail.com>
+	<YqAy0qjI4Lktk/uJ@iki.fi>
+	<20220608232115.ccd4399f4a1d133e9b65c2a9@kernel.org>
+	<CAPhsuW6iUieQvA6KqzSLgtxmjkVSWCuVwNA338DATb_myHxo7w@mail.gmail.com>
+	<YqHx1d+MwRLLzGQe@iki.fi>
+	<CAMj1kXGGyO-DL9hjKYKR2sp87s4KExiQybES8pp4JgqJcHkfLA@mail.gmail.com>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220611_213506_295019_CBBB818B 
-X-CRM114-Status: UNSURE (   6.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220612_051835_260084_61A81A44 
+X-CRM114-Status: GOOD (  43.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,62 +134,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Preserve the memblock info while CONFIG_DEBUG_FS is enabled.
-So later, the information can be showed at:
-  /sys/kernel/debug/memblock/{memory,reserved}
+On Thu, 9 Jun 2022 15:23:16 +0200
+Ard Biesheuvel <ardb@kernel.org> wrote:
 
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> On Thu, 9 Jun 2022 at 15:14, Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> >
+> > On Wed, Jun 08, 2022 at 09:12:34AM -0700, Song Liu wrote:
+> > > On Wed, Jun 8, 2022 at 7:21 AM Masami Hiramatsu <mhiramat@kernel.org> wrote:
+> > > >
+> > > > Hi Jarkko,
+> > > >
+> > > > On Wed, 8 Jun 2022 08:25:38 +0300
+> > > > Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> > > >
+> > > > > On Wed, Jun 08, 2022 at 10:35:42AM +0800, Guo Ren wrote:
+> > > > > > .
+> > > > > >
+> > > > > > On Wed, Jun 8, 2022 at 8:02 AM Jarkko Sakkinen <jarkko@profian.com> wrote:
+> > > > > > >
+> > > > > > > Tracing with kprobes while running a monolithic kernel is currently
+> > > > > > > impossible because CONFIG_KPROBES is dependent of CONFIG_MODULES.  This
+> > > > > > > dependency is a result of kprobes code using the module allocator for the
+> > > > > > > trampoline code.
+> > > > > > >
+> > > > > > > Detaching kprobes from modules helps to squeeze down the user space,
+> > > > > > > e.g. when developing new core kernel features, while still having all
+> > > > > > > the nice tracing capabilities.
+> > > > > > >
+> > > > > > > For kernel/ and arch/*, move module_alloc() and module_memfree() to
+> > > > > > > module_alloc.c, and compile as part of vmlinux when either CONFIG_MODULES
+> > > > > > > or CONFIG_KPROBES is enabled.  In addition, flag kernel module specific
+> > > > > > > code with CONFIG_MODULES.
+> > > > > > >
+> > > > > > > As the result, kprobes can be used with a monolithic kernel.
+> > > > > > It's strange when MODULES is n, but vmlinux still obtains module_alloc.
+> > > > > >
+> > > > > > Maybe we need a kprobe_alloc, right?
+> > > > >
+> > > > > Perhaps not the best name but at least it documents the fact that
+> > > > > they use the same allocator.
+> > > > >
+> > > > > Few years ago I carved up something "half-way there" for kprobes,
+> > > > > and I used the name text_alloc() [*].
+> > > > >
+> > > > > [*] https://lore.kernel.org/all/20200724050553.1724168-1-jarkko.sakkinen@linux.intel.com/
+> > > >
+> > > > Yeah, I remember that. Thank you for updating your patch!
+> > > > I think the idea (split module_alloc() from CONFIG_MODULE) is good to me.
+> > > > If module support maintainers think this name is not good, you may be
+> > > > able to rename it as text_alloc() and make the module_alloc() as a
+> > > > wrapper of it.
+> > >
+> > > IIUC, most users of module_alloc() use it to allocate memory for text, except
+> > > that module code uses it for both text and data. Therefore, I guess calling it
+> > > text_alloc() is not 100% accurate until we change the module code (to use
+> > > a different API to allocate memory for data).
+> >
+> > After reading the feedback, I'd stay on using module_alloc() because
+> > it has arch-specific quirks baked in. Easier to deal with them in one
+> > place.
+> >
+> 
+> In that case, please ensure that you enable this only on architectures
+> where it is needed. arm64 implements alloc_insn_page() without relying
+> on module_alloc() so I would not expect to see any changes there.
 
----
-Check mm/memblock.c:2120 for the code logic:
-   #if defined(CONFIG_DEBUG_FS) && defined(CONFIG_ARCH_KEEP_MEMBLOCK)
+Hmm, what about adding CONFIG_ARCH_HAVE_ALLOC_INSN_PAGE and check it?
+If it is defined, kprobes will not define the __weak function, but
+if not, it will use module_alloc()?
 
-I've tested on unmatched board, with this patch applied
-for example, we can see the memblock reserved info as:
+Thank you,
 
- # cat /sys/kernel/debug/memblock/reserved
-   0: 0x0000000080000000..0x000000008007ffff
-   1: 0x0000000080200000..0x00000000823fffff
-   2: 0x0000000088000000..0x000000008800307f
-   3: 0x00000000ec000000..0x00000000ffffffff
-   4: 0x000000046d600000..0x000000047edfffff
-   5: 0x000000047ee2d000..0x000000047eeecfff
-   6: 0x000000047eeed440..0x000000047eeed947
-   7: 0x000000047eeed980..0x000000047eeede1f
-   8: 0x000000047eeede40..0x000000047eeedfc7
-   9: 0x000000047eeee000..0x000000047ef59fff
-  10: 0x000000047ef5c000..0x000000047efdd05f
-  11: 0x000000047efdd080..0x000000047efdd29f
-  12: 0x000000047efdd2c0..0x000000047efdd3df
-  13: 0x000000047efdd400..0x000000047efdd41f
-  14: 0x000000047efdd440..0x000000047efdd44f
-  15: 0x000000047efdd480..0x000000047efdd487
-  16: 0x000000047efdd4c0..0x000000047efdd525
-  17: 0x000000047efdd540..0x000000047efdd5a5
-  18: 0x000000047efdd5c0..0x000000047ffdfa47
-  19: 0x000000047ffdfa78..0x000000047ffdfaa8
-  20: 0x000000047ffdfab0..0x000000047ffdfade
-  21: 0x000000047ffdfae0..0x000000047ffdfb0e
-  22: 0x000000047ffdfb10..0x000000047ffeeffb
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c22f58155948..e457c5855222 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -32,6 +32,7 @@ config RISCV
- 	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
-+	select ARCH_KEEP_MEMBLOCK
- 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
- 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
- 	select ARCH_STACKWALK
 -- 
-2.35.1
-
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
