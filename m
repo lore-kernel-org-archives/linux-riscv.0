@@ -4,125 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D3CC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jun 2022 18:21:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A786C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jun 2022 18:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=znrmAIzsdQKl0ImsYEY97Wy9a0aBFmyDqJ/6RUGVw9Q=; b=PeOzOxOSRYy1u1
-	yjCy5uc/3fDvjBUIhuaxGtOlPiVDYraAd97ST1cKcfiYZ61UrWu1bhtAxJbMcA/1z1VJkJOB2/eTn
-	3PvbpkyvnvCZwcKsmNdu/o6zJh4vbgqLjZikW/4BbchqrYCghkmJ1dGdE+Q37EHiT2QfbyjKEps0g
-	JXGy1OmowSIpuj8RWtgecq+eUiM1YFIP+psfgi1QhdKCQJbu9e+lpCIt+t+Zc0/nW27Ufeuvz4zDL
-	cSo4A9n/Pk7G/pp8X4xR8LUv3/9nBHgpTQUGO9l0p61z5Kprtd8Z4eAu2iMFbQ6UBXSm4jF3OItb6
-	akhkEdtpJsvHbHixGyEA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=n4O3kzAwocXIKZ/kmqZZDIp0JT/qp2ObnHwyVrw7gH0=; b=VhieOUQa9YdoWl
+	fSezBdYH55dOu58v/2ogil4xt0tPVaJLw7CZwcqTeDm1SKsLuo0ACzUtPDn2DSP0pVvzUU9IX+kmt
+	kM/OI1DNwJIx6zu5930DZLUY5BgrDuMej/0qNLXfvqN2chru3jOZR9zHIiNch+i50cF6fS3VGcK29
+	+HWwY4jcs7skXm7g0Gf7qm5iCwwJFL1gH9jXvFAVw9iQy9/HaCkDkmOmUqBF4RwguQ8Q8a5n/aZE0
+	+zmn2thYjjZS0/4FBQDgbdl9PYHptSk6ROu2rOOWm1KhdEFCe4BPYGPyv36tjmcnk64IZO6uPiXCL
+	u9sBMy/xLtxXgwRz963w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0SD9-00HKx7-I3; Sun, 12 Jun 2022 18:21:19 +0000
-Received: from mail-tycjpn01on20724.outbound.protection.outlook.com ([2a01:111:f403:7010::724] helo=JPN01-TYC-obe.outbound.protection.outlook.com)
+	id 1o0SZg-00HP1h-2e; Sun, 12 Jun 2022 18:44:36 +0000
+Received: from mail-os0jpn01on20722.outbound.protection.outlook.com ([2a01:111:f403:700c::722] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0SD6-00HKwG-86
-	for linux-riscv@lists.infradead.org; Sun, 12 Jun 2022 18:21:17 +0000
+	id 1o0SZc-00HP0k-M9
+	for linux-riscv@lists.infradead.org; Sun, 12 Jun 2022 18:44:34 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=OCmvIN6eSIsjiQCzOIo6KtSBusEMLLzL7+DTVg2vauVBlG6r4cdRTxGgPXYrQ6qOPF3pb8gNDPOCaoAha0ZN8ScUXLlwu5U8bbSUboeT5MWPzJEt8psx04SATq3d3MJsZ+Il2RXdaDWux4nb79EOFofi0ZTEt+WGJD9uagU0+h34LkTFVxJXKzxrvorq3/dv9R1QedpVVFQgoziji6Fu7lmnmJAmrsWVliwOhLRd0Oae2Iwj05v1CT912jHQbzJuWxhIUkRwBiJ+hSw59IOQ1nB0NVgVqexwe6AmKSGhlMco8168MpsiEsp+MysiTzGDJiAWJWlu6PrFXvk5leMWaA==
+ b=f7rJV68LeMBCOX4oy4MvVj77f97f8GMGzkVYX6D6uzg6538XV0X/TWalzXbJfv4w6PUke4RrykHB2dYK1q8OJ0xrg67F/Zb8pHhGc/hxinyY/OjZzPslkXXpRBgAO492EGK/FEXvIKuLzG5bxGdThqDxUTuvJODcR76OGybFbwV/KCOhQyYnMbuP/TsvFe3a0wypopIbF/p8yCYWBiSAOgIC2QatJXpTycv/2f7eyF+S9MTZnsHgMzcP32DGXQyI11IZ1UHuy+F9qlQjhzSfwtbZgiLSbfIGmd9IZjilIxIkY0ilAb3PW9jbmdQMkz8t6kyvIBcLj/3suOCcMXtYkw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+E75zd4cORogddjglPcXpX9Ngq8HGQkNzEOjLfD5Wyc=;
- b=I2tiPQ/vmrJ1+bsRFwu80SGMWNNP88prTEMiZWbmyOV6MnmjFgogOWAsHTDQQOazNpiG7e2lp7PRgh1V3/1pJvTKskEt+YDy8JftxK8kGDFkaAk4G1JoU+HFMc1DsQpc0P/QFhcEWo6QnJWPKCuuJYcnTNKVfUkPCBMyrk2FnS28iDNf6l/Pz9viOHlL7y4xQp9Jk0pc5e6nu1wShHgibyNuh5Nndh0+xdXHEbC7C67AHkhD8B2d5XNkh3EgXlFb3j1DvFpG5xFE9ijentmT0cin5TCGZ0TYj38ZOX4YYmi9zNbCU6gm+gFmXMdLiu9XmddtdAZoBbI5q0cOeWCQBA==
+ bh=jP1otuVAhfpdsT9FK7khumgrA5N/W7n1VI2gtNJq5BY=;
+ b=QAD1QwOM5JhjkEOn8CzPaL87fb9O/Wmsd4FFUcGt9MGjEwoGvJ338ZGWa8/uIYs/0SIl4IHZ4qhYWaPESkPsYNM/US/rqN2Q0mIKuaEjbz663B700ShqJ93xOfkdH2tNLWqMRBeV95AiWoUT2a0X0kZ8w8jkyO0huAzKskgl0jYneLCHseDK2JrNngwPjmatBVKcQpavhLqcK71ZTAO2U5+6BrHXY2xm1SU5eBoNJRLd8CwaEtHD3/vBmC1fkDx5P0CbX4WKnFAa8BSrjORKTooJtNBt7jJlu4V520smDPMEqKs+YV+uI6zmhc1kHt3Njpe7ylG4E/KOrwyPP7XgDQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=zenithal.me; dmarc=pass action=none header.from=zenithal.me;
  dkim=pass header.d=zenithal.me; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zenithal.me;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+E75zd4cORogddjglPcXpX9Ngq8HGQkNzEOjLfD5Wyc=;
- b=Qnv4HxGded6Fyv5/DBNcl4TePZEjiMyPMqAF1w+kVSbIwN/AyGCw/HFltCt8GgNG1APZscgT8kmapNs0K3/TRUqMRXh7kAKbxvlITA2sE6z9fNmVAB8IzRYYv+UbNN1MmPpeN+jnkAXt8EA4ayMmwPHYMrked3hu13zHJykiXH0=
+ bh=jP1otuVAhfpdsT9FK7khumgrA5N/W7n1VI2gtNJq5BY=;
+ b=eO16Rm5WnSulfBq4WEM+swmrUPbe5fzghC0w/GMilG9REcJH8udk9mreilsrVWDFLMb6S4OikzRo/xzQCVk+1e9Ar8OU6sPhX/5KX8gBiMjpbsUxpbviSOFLCc3iuLqJMEDV0yFji6n2sMnU4Azg5nB5/14TB0iFlsYC/Vy/UeU=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=zenithal.me;
 Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:c0::6) by
- TYBP286MB0189.JPNP286.PROD.OUTLOOK.COM (2603:1096:404:802b::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5332.13; Sun, 12 Jun
- 2022 18:21:04 +0000
+ OSZP286MB1063.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:111::12) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5332.13; Sun, 12 Jun 2022 18:44:19 +0000
 Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
  ([fe80::a162:2f17:bb41:c95]) by TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
  ([fe80::a162:2f17:bb41:c95%9]) with mapi id 15.20.5332.020; Sun, 12 Jun 2022
- 18:21:04 +0000
-Date: Mon, 13 Jun 2022 02:20:57 +0800
-From: Hongren Zheng <i@zenithal.me>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Kito Cheng <kito.cheng@gmail.com>, Nelson Chu <nelson.chu@sifive.com>,
-	Atish Patra <atishp@rivosinc.com>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] RISC-V: cpu.c: remove nonexistent ext from cpuinfo
-Message-ID: <YqYuiVwarHnbggtf@Sun>
-References: <YoSw8lNHJqRDy6lg@Sun>
- <mhng-7b349805-02ff-47b3-b9b5-31dcbd2bb256@palmer-ri-x1c9>
+ 18:44:19 +0000
+Date: Mon, 13 Jun 2022 02:44:11 +0800
+From: "Hongren (Zenithal) Zheng" <i@zenithal.me>
+To: Palmer Dabbelt <palmer@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-api@vger.kernel.org, Michael Kerrisk <mtk.manpages@gmail.com>,
+	linux-man@vger.kernel.org, Jiatai He <jiatai2021@iscas.ac.cn>,
+	Heiko Stuebner <heiko@sntech.de>, Conor.Dooley@microchip.com
+Subject: [PATCH v3 0/3] RISC-V: Add Bitmanip/Scalar Crypto HWCAP
+Message-ID: <YqYz+xDsXr/tNaNu@Sun>
 Content-Disposition: inline
-In-Reply-To: <mhng-7b349805-02ff-47b3-b9b5-31dcbd2bb256@palmer-ri-x1c9>
 X-Operating-System: Linux Sun 5.15.26
 X-Mailer: Mutt 2.2.1 (2022-02-19)
-X-ClientProxiedBy: SJ0PR03CA0368.namprd03.prod.outlook.com
- (2603:10b6:a03:3a1::13) To TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
+X-ClientProxiedBy: BY5PR16CA0007.namprd16.prod.outlook.com
+ (2603:10b6:a03:1a0::20) To TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
  (2603:1096:400:c0::6)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: b38b36b2-de67-4064-4443-08da4ca04f74
-X-MS-TrafficTypeDiagnostic: TYBP286MB0189:EE_
-X-Microsoft-Antispam-PRVS: 	<TYBP286MB0189989308F9A364A2800769BCA89@TYBP286MB0189.JPNP286.PROD.OUTLOOK.COM>
+X-MS-Office365-Filtering-Correlation-Id: 84168702-0d6b-48e9-2600-08da4ca38ef3
+X-MS-TrafficTypeDiagnostic: OSZP286MB1063:EE_
+X-Microsoft-Antispam-PRVS: 	<OSZP286MB1063FD767E70D8608A964475BCA89@OSZP286MB1063.JPNP286.PROD.OUTLOOK.COM>
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	XupK7bdjhBcSGRsrjCJlVdY81t33wip8GpKUDbzmJkQZB5WMNsiNbt/4NgLYvN3DolPs9l4ZEoaQgH04hikit8NLMGJsnGnf1Z1zNvwFBFdIVfhChV6/qe/qYYVcx4DBEFzWii30se5H8PnMW7ZnD85dl1mkPqUA+8FL1wTJcYIpEbNPDBaSJIZdQZnXJe5aaJW9sPTctGBDaBeWVdzIKY5lwENBGh9aRPByc8raV6+1iduf1dJ+lvBODM124XUWk0hlKrF7POOD4VMCEEMJ9HBhT43eCgZ6ONjIUNur96XX3VroFpndsAb/xeQiL9jwwFXLcXAgwCP93rl22MvjbpqUbRgRJ85NwFDSL/JTQ2oml3KUxjCP6rAR1zgAMhPagCeAOxQRfXa6Qm8A4T2ZJxpj+krZttMtcRdz8t4iWK/x4sv4/Z9jStJDvHgxUsLdzDcT0crsqQjnHR4jdDUunBjtyS75larAqGDAoxIouWsqcaQjalMmVgHuDvzAKliEGmPzCBSFcLfr0ol+iBtL9C4uo0/+NX123McqiujT2Of+I7CtAcY3m22OlSGH4o7QMDWBx4P/NLnrY0rUUIlkBAzk9xfjNkH6uX+2I1kPDj41toBU33RCotBz16Wy0PEaWdfcfus05+pFqg7Guszqb+dTD7p79CQP0nHX0WOE3pSv/CGXw47x6Y60un50HF7s9tW6d5isKugPDWmPKhr7SptsID2C7UERAba83txtYXPg8CtU75BmRBQ7xLaC5UKl3LMkWcrfBmiqoMIl2a4d3w==
-X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230016)(7916004)(39830400003)(346002)(396003)(136003)(366004)(41300700001)(2906002)(6666004)(8936002)(9686003)(6512007)(5660300002)(966005)(6486002)(508600001)(41320700001)(52116002)(6506007)(66476007)(786003)(316002)(6916009)(54906003)(33716001)(38100700002)(8676002)(4326008)(86362001)(186003)(66556008)(83380400001)(66946007)(49092004);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam-Message-Info: 	EigIxfDKDq4hAZmEUkz8QWBh3zrj95Dez02u6p6IgwG0Gz/5AehzJa+08QFKUZflK9Uq1OgCq1TC8hdRDfh8dlQwyDOljIcTc27yg5Ff7FhDOeQgZAg6oSB/99tuxGBR6bs4ql25kIHqHCtY23/c3quvQLthsokae7AUPOg4obfd+CiR9/VkJclp37rovz9LkziDLMf6dO9dAyU5kt61he9Of4J67iyEPkAMicxL6NOhXHaCpN+lXxfxtFMxhlpTVkwgq37L+kQ80DwCMOhQw3XkIvAyqDZcOHW93KWr2mP2W7tuyKkTGJp5y6jT5oVJKQOTpllA9OuFySrcVhSn/9qSYqGNfaS1qI3elxwP1K4SRrXNzDUS7bK406hCIIbBBdg31vy62V7eqaQzEA9nvam1TprDnMGNv1S96NkRIhWc4uHsEHFxUUH1Sht/RaqwaUxXSX5hE3jidrNpJXuVbo0bUoMT2zDrHvEWDwyYtRv7c9hmWD4IsSpS6kUUMor36AXOYftSlzL2t8FI6uloyTJYlbDWHd0KxyDm2FOTM2wavOu1/xlQfRFfFSe0fiMm9XC1VEj86EdL916JQ+i7zkt26YEVDs9bJKZoCJkEWoyLkdAhKq3CPTeZnC5JwjQb3bYPwUh9B0JYFyXKfpHYnEJ2IxU83fc2K5lJ4G2NS4oBROAZdzUdG/AsXLDL4jjM2dH6ZGTjHgugLk+vL7dWRvLMwp296PG9XH6McyFtR9lcghMbn6yetT40HuDOHs96u8llsA0WSqyquCBy5xbe9w==
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230016)(7916004)(136003)(39830400003)(366004)(346002)(396003)(41300700001)(41320700001)(6506007)(52116002)(9686003)(6512007)(6666004)(786003)(316002)(110136005)(54906003)(66946007)(66556008)(66476007)(33716001)(6486002)(966005)(86362001)(508600001)(38100700002)(186003)(83380400001)(8676002)(4326008)(2906002)(7416002)(5660300002)(8936002)(49092004);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?kYn40gKDa5h3VTF9DnPBaDVZCWdoIjcPo9Uc5v+Mcie5e3uaAxsz3fzRrNsI?=
- =?us-ascii?Q?igZSnCmB0dng+CJ3qpZWTyB12twGOpvDtAQCHSfrk4lu5Hl7Vzy5QS9jlQng?=
- =?us-ascii?Q?kvamMEZyuQCl1nGQLngKc/KdjiDsKWh8Jb87GMav3oIR9ETroaf+zbfn8pMy?=
- =?us-ascii?Q?l2SR6miwGI9cKCy+HlPZFMXixHfGRKbUIbq5O1nKBR3Lv35A3T5ZyryDJT9K?=
- =?us-ascii?Q?DCNqMcycTNYa+tq80Kc5SWfum0QrWgezUuwlx70C6spD6Gl4nqOrSbfgV9J7?=
- =?us-ascii?Q?tYvS/4lVzVGZnT2CHEagVjLRNkH5cc/mjdMAqoRmMIUcroyCxHE3B5FEF2Pf?=
- =?us-ascii?Q?rzlgkT3sX5QxDrChxHE3C4aqaJBIQkpPSExzn6uueYejwJDEDQHi3Yr/QK9d?=
- =?us-ascii?Q?0DXhdD8EBynbQ+6pXvC1/NdzPOdb8BTKQuArHg+JN3/OxAhJrVALfKSWiu0n?=
- =?us-ascii?Q?D1hrJNA7kOGPNwYXGkXU+UrPd1A90GWhZkwyqaljna5G5vqjPLX6sBgbNFjF?=
- =?us-ascii?Q?6ljzJU265sudKAdf0AgBEgAoHbgba7wVddci57l3ZoxBUGmWJaTHSx/ZLUVy?=
- =?us-ascii?Q?1RvboTkGbU8HQ48P3QSU+midbMWou4N99Y2nekW4Vl79gyc6bOuGBE93fm8m?=
- =?us-ascii?Q?2VbqXPRBl9mm+UmYxayD0rnKb1dNXC5CZp7SDqoP6HQN6vyA7xmfx30t6QFV?=
- =?us-ascii?Q?YvjmxR4fnl2WpuP5w6BDfY6LyFYhDPdCc9hSIQzGoxnXlkaxJN+0g6a8+9Xr?=
- =?us-ascii?Q?ieT/y6+mk8MSTLl15MRWNvBNK9Dku2V2777avW02+k8A5HnYjYRMxoVAIYLy?=
- =?us-ascii?Q?xj/Fva/ox0Y6LmZ7A2LmJbwm5YGPfXVug3TErJZ2BLth4ZfgdBabH5aFinCn?=
- =?us-ascii?Q?metMr7YXUcaHhUZR/zxBno6o6ZiwDIGcYpy7j5o7SEoaOXcx36otxGhA12RX?=
- =?us-ascii?Q?atV1nvw32AVjQxQmsrwy1IB+ZQaGrz8XoxXDEmqLHFSRhQGtRtSxW/Jx+fXg?=
- =?us-ascii?Q?26YxYu+l15j2d/ltiPSjHVt1yiRtAW4RNobpR40GnzVNcEQIPnKw3oFe5vWX?=
- =?us-ascii?Q?uRJ34HiO+W9rdb176WrIyv++MMbEQ8TUhPpcTHDsvPUjYCipms5G7DrMeBRM?=
- =?us-ascii?Q?U1gJUdRrtlPg70Kz94dF3DBvdDOT94xs859MShREfqZLfs5Ijz0khLHoBI94?=
- =?us-ascii?Q?zFRyhhW9ENGIdZI+VcMwbd90Y9OLSgRHznN185GvfckJfRXWFTb0YPsLd3Ij?=
- =?us-ascii?Q?SHyvPQcFbt+nlOfCvz+EDKlqnnyw1zI4b5JsGCVwUJ4T2uz4bpwTqaSXjZb9?=
- =?us-ascii?Q?MVElxt2nT+aG3f2R7O65004HPPzrDe6SHVcaqNlU6WhOmx9ROzVfpvJNPk87?=
- =?us-ascii?Q?apKgJXKV9I/PJpKxWwO4tkAzezZqU3IZRtsOKDxInsqVgJtRkftiVHCjjRrp?=
- =?us-ascii?Q?pBCmgu2by6FYa4Zq/0z/IGKvjHXr0eBs/HLG6NmX3DNg02v69BrMNluINiCj?=
- =?us-ascii?Q?IBuXTF0FltOO/x+/pGG5xjdPAtPDZpUZl5AOrJyCdWuj5AmLI8L/2/nyE+MV?=
- =?us-ascii?Q?TgXxU9LzrncKX0bEDp9HJRpOhWcCCRetuyk5eNAH1kKDVpf0QM9MF/CJRtP3?=
- =?us-ascii?Q?UaCq6Ypf675svu/23ZlNcsDyj4/UFZUYjgAU91+RpSahRJDDe0PscGuJF+sP?=
- =?us-ascii?Q?OX2NQHASaTwG/fQkmET0cHDFMSeddMkFwhdOiiJZNqMlIbzyaNK8Ue/891CU?=
- =?us-ascii?Q?rypLkSu7PA=3D=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?6Yvm7kLugR5bnDvggZqEwmEaTHERQMzqLWx7o1/LSaGi5fOnDxRX7F6PhUCK?=
+ =?us-ascii?Q?GoT1zcMJy/f4nNb+678cuzvI6fRdYRCxQnXpJ5QCQkOM4GmLdDcDERS/F8kl?=
+ =?us-ascii?Q?0lquP6P70GyajDajK9v9FUgDcgGnONCXpIIxr3WIErFo2pygxay4bcku2j59?=
+ =?us-ascii?Q?Gw2gDcyfn/oEX2aCd5wnG6de4TeGLkRhwzmKjPOrXuxCo4NHgNgcBwPdQVM0?=
+ =?us-ascii?Q?HTcidv+i+amQXwyXW04iLJwC24Oa7kLhBRk7yZdRcTXvsLzVtjQ5PsR5Vwcn?=
+ =?us-ascii?Q?BAxJB84Lz2iMAWQJFCGvecWFCN8cWxGsk0rBSF53UuQ45Ge1hKMqJdv+CxLz?=
+ =?us-ascii?Q?5+ZKaGxVlAp1zQkyuuHVlIgRARDM3NSe4ON77Q63jjSsT+KD/hwQnZOWxQ/K?=
+ =?us-ascii?Q?cbHPVijTsVGVzrTf59CM6A2aNUJ8LBso6R2YZjf6eiZ5YfQlnBSD7HSez7bQ?=
+ =?us-ascii?Q?0Q03wp6aBSz0ZvBNbYw2AcTGgoTbRvZVCnJ5jjPiT9WGDbtmaLYXh7O75wTx?=
+ =?us-ascii?Q?s35DAGEFxpKios38eynAKpey6X+Y7/JtVZzudiK3cqETG1X/5VnTcqVCrIwX?=
+ =?us-ascii?Q?xZsXzI/hzYf4kBWVFuC2TvvKEd4/goD/2Dr4tLRC58+5A8wNjh9BTaczdXfp?=
+ =?us-ascii?Q?z5D5wL1dGDzICdcDth+AKzxxyKNhjlg4RjiIbGD0aaFh07GLWQKtEj38LEWC?=
+ =?us-ascii?Q?f/9SlW9dcYAUNmzA92XQkXFn1dhgBcSiQE9ile7ZFI5aX5aMUC7GdnkUE+1E?=
+ =?us-ascii?Q?+dbWFDipc50ssysitWdr3paSbuyRvmthdgfQzz/gFHZKbV4atv1leySYzyZT?=
+ =?us-ascii?Q?o/rdX1+T2yjEfZzhaO1nT54N9JJl37PGtgiRQEEtE2R+xeZKp+XFBZFxSx2J?=
+ =?us-ascii?Q?6LY1XJGNBA5J+dK9zYTOGfPXAk2JmZgTSqQCdvq7bbktVgXexRrgjMJDQ6Oh?=
+ =?us-ascii?Q?RF2lmj+tKwr64QC0CBtgRb3/g2WI+2HCq1sXcYa0VqqgBln84ice4taRnMjs?=
+ =?us-ascii?Q?QtH/xdTqVpTvy8CAvuHyKFq2tGe5ghDMuR+krKgdxZjV1d7q5nojAoieTot4?=
+ =?us-ascii?Q?UXhYN97xFG4M9ddXTasMkBfdN/vODldQRgvJvQDW6NYfHUT2iLbRDtUVFb7T?=
+ =?us-ascii?Q?fpvMhUQTBvWWFh3cFQzldQPL4+ed0IRMAb2nj6JDYqKtdlqOhbaTxkb2Rzio?=
+ =?us-ascii?Q?8q1zOtiu7b7CD0j2vS9OsWvc8OlKnQb6J5WyJHPYCXen8WqUzwT2UqmP1IeE?=
+ =?us-ascii?Q?pwiRV5IZID2lUZJJbdYHcKgPHVO5mMLKBMZ6rjkDbYvDWXKPjCJn8T4Po09n?=
+ =?us-ascii?Q?ZPuFE4z6okYp/EFMVAEpltbCf5n7T71RpzbOWC8HY18qneXs69I81XZnF6ew?=
+ =?us-ascii?Q?82QjVU2DENJrzuCV47uJyVN8iiT5Wx4iTvckE0hUMhKNxMMMT+wEWMPazX2s?=
+ =?us-ascii?Q?j9RgfXSEBJRgzrjjB4ZrBG4CjTuVUXgBE5Uvmq98q4Sfgnh38HHRukNx/txU?=
+ =?us-ascii?Q?asxoyGw8QMrjCGDJWrUDoYNO8dfi34IOc2fhIvWTX8nbA7q37vNF5n2HqbVD?=
+ =?us-ascii?Q?TnXjS3gfZ71rpVCoq+9ykyc83SOaSj8uSvSYzxQdtkJ/V2CWyJQcIoiE7AyF?=
+ =?us-ascii?Q?j2UezLjJqinb9Bjen/MraKsMT9j1MoN5pktZWueFOKv9Wp4T+mcrGp0J13sL?=
+ =?us-ascii?Q?MURgaE1ZL6PMn4Ya+AVw39wKbVnm7AZXy9GH/XHHKpwHis0eBvjGIHEi3052?=
+ =?us-ascii?Q?dsFunsCemQ=3D=3D?=
 X-OriginatorOrg: zenithal.me
-X-MS-Exchange-CrossTenant-Network-Message-Id: b38b36b2-de67-4064-4443-08da4ca04f74
+X-MS-Exchange-CrossTenant-Network-Message-Id: 84168702-0d6b-48e9-2600-08da4ca38ef3
 X-MS-Exchange-CrossTenant-AuthSource: TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2022 18:21:03.8938
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2022 18:44:18.9420
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 436d481c-43b1-4418-8d7f-84c1e4887cf0
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PY8LTWzjw1ZX6dtLaZMB5+95IBjo+6fsQV/fLIkCqLoQHxafsnCQ2bZSEf6W5uyo
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYBP286MB0189
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3dc5uBQPcVb7I4ufMjXqESN1S2jxgaQtCiFRSVs37XbhYhh2VIHdc38CQkfuxRCf
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSZP286MB1063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220612_112116_334935_8E3A3140 
-X-CRM114-Status: GOOD (  38.45  )
+X-CRM114-CacheID: sfid-20220612_114432_758585_F461510F 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,77 +141,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 01, 2022 at 08:52:42PM -0700, Palmer Dabbelt wrote:
-> On Wed, 18 May 2022 01:40:18 PDT (-0700), i@zenithal.me wrote:
-> > On Tue, Apr 26, 2022 at 06:08:01AM +0800, Hongren (Zenithal) Zheng wrote:
-> > > There are no single-letter B/K/J extentions,
-> > > as they are never ratified. For P, it is still in
-> > > progress and not ratified.
-> > > 
-> > > The ordering constraint of these placerholders is now removed
-> > > from the spec. By commit ("Delete more nonexistent
-> > > extensions from the naming constraints") of riscv/riscv-isa-manual
-> > 
-> > Hi, is there any further update on this patch?
-> 
-> IIRC there was some debate as to whether that change constituted an
-> incompatible change to the spec, but I guess it's stuck around for long
-> enough that maybe we should count on it being canon now?  I added Kito and
-> Nelson, there's a GNU toolchain call tomorrow morning so hopefully we can
-> remember to talk about it...
+This patchset proposes a currently viable and forward
+compatible way to expose the bitmanip/scalar crypto
+capability of the platform to the userspace.
 
-Hi, I'm curious about the output of the meeting, any update on this?
+Currently viable refers to the property that hardware
+platforms can easily modify the riscv,isa field in DT to
+tell the kernel it has the capability. Note that QEMU
+has already done so in its device tree.
 
-> 
-> > 
-> > > 
-> > > Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
-> > > ---
-> > >  arch/riscv/kernel/cpu.c | 4 +---
-> > >  1 file changed, 1 insertion(+), 3 deletions(-)
-> > > 
-> > > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > > index ccb617791e56..53a061ab0743 100644
-> > > --- a/arch/riscv/kernel/cpu.c
-> > > +++ b/arch/riscv/kernel/cpu.c
-> > > @@ -113,10 +113,8 @@ static void print_isa_ext(struct seq_file *f)
-> > >  /*
-> > >   * These are the only valid base (single letter) ISA extensions as per the spec.
-> > >   * It also specifies the canonical order in which it appears in the spec.
-> > > - * Some of the extension may just be a place holder for now (B, K, P, J).
-> > > - * This should be updated once corresponding extensions are ratified.
-> > >   */
-> > > -static const char base_riscv_exts[13] = "imafdqcbkjpvh";
-> > > +static const char base_riscv_exts[9] = "imafdqcvh";
-> > 
-> > The base_riscv_exts "imafdqcvh" is exactly the spec now, as
-> > https://github.com/riscv/riscv-isa-manual/commit/db7a4a0dad0e99d1ec1fc67b582624fc0aeae98e
-> > (Add single-letter "H" extension to the table)
-> > has shown
-> 
-> Oddly enough I stumbled upon that one this morning, it's another one of
-> these like the HPM stuff: we used to say "there's no letter describing the
-> hypervisor behavior, so it's part of the base" (see the commentary on the
-> binutils patch), but now that there's a letter I'm assuming we should split
-> that out?
+Forward compatible refers to the property that userspace
+can still detect the capability of the environment by
+using HWCAP regardless of how the mechanism changes
+below kernel in the future. I do know that it has not
+been settled how to discover a capability, but I think
+kernel has to offer some API after all, and HWCAP
+is the preferred way among other mechanisms for now.
 
-I'm afraid I could not help here because I'm not familiar with this area.
+A note here is that the draft riscv-platform spec
+considers DT as mandatory discovery mechanism for embedded platform
+For other discovery mechanism like ACPI/SMBIOS, similar
+code path can be added but the HWCAP interface could
+remain unchanged
 
-> 
-> Not clear if the RISC-V folks want H to be ignored by software like those
-> other recent changes, and if so it's also not clear that's a good idea.
-> 
-> Anyway, sorry this is taking a while but I think it's going to be too late
-> for this merge window -- kind of silly for such a small patch, but it's got
-> interface implications and it's all a bit of a hot topic right now.
-> 
-> > 
-> > > 
-> > >  static void print_isa(struct seq_file *f, const char *isa)
-> > >  {
-> > > --
-> > > 2.35.1
-> > > 
+More discussion on userspace discovering
+can be found on my PR to openssl
+https://github.com/openssl/openssl/pull/18197
+
+---
+v2:
+  * Fixed checkpatch problem found by Heiko Stuebner
+  * rebased on riscv/for-next as that branch has merged
+    the support of Svpbmt extension
+  * Changed the order of logical ids in riscv_isa_ext_id
+    to the order specified in riscv-isa-manual
+  * added note on riscv-platform-spec
+
+v3:
+  * rebased on master as riscv/for-next has been merged
+  * fix commit message as suggested by Conor Dooley
+
+Hongren (Zenithal) Zheng (3):
+  RISC-V: add Bitmanip/Scalar Crypto parsing from DT
+  RISC-V: uapi: add HWCAP for Bitmanip/Scalar Crypto
+  RISC-V: HWCAP: parse Bitmanip/Scalar Crypto HWCAP from DT
+
+ arch/riscv/include/asm/elf.h        |  2 +
+ arch/riscv/include/asm/hwcap.h      | 22 +++++++-
+ arch/riscv/include/uapi/asm/hwcap.h | 22 ++++++++
+ arch/riscv/kernel/cpu.c             | 14 +++++
+ arch/riscv/kernel/cpufeature.c      | 81 +++++++++++++++++++++++++----
+ 5 files changed, 129 insertions(+), 12 deletions(-)
+
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
