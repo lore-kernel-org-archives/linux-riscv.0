@@ -4,98 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D057C43334
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jun 2022 19:18:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3533BC43334
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jun 2022 19:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=2r9/Z/DAihSnGGpiggDBmYzgSs4rUePICLxNnaT4Kvw=; b=hWwqK2We0cHB/dg45iO+/KU8v0
-	7xKcbbjZVN3P/iywEClE/0W8o2QOHPlwnXQHn6q2+Tfc/zGKDtD6HgugWkLdVwXAxAQA50trkfYU9
-	45RdwU79b0Rk9mkdbYqscKJEFGgXyUzsXhLsWRq8EAinRd8ReBJpCg/I7gsvAyeOfZlkxqPJyQWYY
-	MfXr8wb18ROFZAE9gPGQFaavVue9NiyZL9Mjrsq6JLk8PUe7toUUmMRAvuSPTHwjyaZgsy2QN67Gt
-	oiBCh8mHLsbH8EVAOjtVO1Zw2abO247pRGuDxhtWaOCn/GMNYrYMdx6pn+owQnalC5e0ctlmkMRkg
-	Za9aAHXA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9pG7X6xQD5CJN3DH/+z1y3raiM4EeVjKM8SZXZIYbtM=; b=xchQxDcIiCSePy
+	N5T4srgKagF6p4XcnF/tbfGpbPqQ+O+hQJ/Cze56215imUMz25BeDrnjUDzM/tNOTQQEx99zRABqF
+	hBYwETTmba8jBR92S9BE0ulIHDLJc5rJhn976Sx9iFZ7cCEvolDoJiFGen1wmGh+UGKlUXFVkidnx
+	ar4VyQErfBR+MJD99jQdH1HollRof5InZ10J+ZUli5QKYMTDC8fIXrq681p2OomZgmKfjzrEtHtXa
+	ua7dwslhIgpVwkcp2yFCiSYneUqfBndvboYlE6yxjG/rrQ8bPeZN8kZA37lfgvAj9R1TMYZH/xcHk
+	UYgE2KTM2jUbkp5zOpow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0T6V-00HUfa-62; Sun, 12 Jun 2022 19:18:31 +0000
-Received: from wout2-smtp.messagingengine.com ([64.147.123.25])
+	id 1o0Tim-00Haeo-DQ; Sun, 12 Jun 2022 19:58:04 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0T6S-00HUfA-TY
-	for linux-riscv@lists.infradead.org; Sun, 12 Jun 2022 19:18:30 +0000
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
-	by mailout.west.internal (Postfix) with ESMTP id D12443200583;
-	Sun, 12 Jun 2022 15:18:26 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute2.internal (MEProxy); Sun, 12 Jun 2022 15:18:28 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm3; t=1655061506; x=
-	1655147906; bh=ivdZwOckeXvfhXGcxh8uIbI66ARKA3UmExKTTTKcUVQ=; b=r
-	aOMHZgqyNF5/AiyfBn+rIUDSoRMdtRmjbccukjywoEuKKI6TUfhWV5gCELygiMKd
-	I1EU4acQMZrHjtkVL9ZfHza04Ru6fPq2qezc1A1KUSjWoiZwKGsCp5Pv9c5U2/0w
-	Nk4T/+gWdgmNdDqmIUuZlu4qlgcpYdjnSteF2IRh9vgR28cPmYj2VzcW0QqnETlF
-	OEZYwIJ3O+LbKQXwv8cL6Se5qO7RG3FcyAeNefwxhXSXTSxAqnrYXO/D89dZR+Zh
-	TUYqhTsXSCaz8kUX+gk7wLd0n1OwyS7nnuYlDe1UgeoFO5xsBIXkc8++DkS6aaEf
-	xTm3O9JeC/yJSL07TEz5A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1655061506; x=
-	1655147906; bh=ivdZwOckeXvfhXGcxh8uIbI66ARKA3UmExKTTTKcUVQ=; b=O
-	dhwNJhGanfy8JeqNuWZ4eSBG437vai7vVN6QviGTRsiQeKgGbwz49YqXPkzFeIjB
-	lza5EkdZVR0JW+zntUBUS5nL1cj8f1DEbnnh+wOwSN11UKx7U3PC2oqpq+vvF4N0
-	Gfh9BZMr5hjCM9H01kg8sxdobEqYTIptK765L/IjEUNpUkDArbXWQ75wGadu/al1
-	J0fSLxHADbVSasA87bJeoUE3LdT4FlR6T/OmbVhIfnQj3XCyO0fPwbfdDQVKYzQV
-	NbJVQc+qTiSkWb9auRozu0nEsRAGBUuqNli7DcU5H+u0wJVthOXvtfAsbrS3DeOj
-	t4Afk0sSPAPTKb/AtQt4g==
-X-ME-Sender: <xms:ATymYlzxFmf0uaN2InajGdBujfQlih6cjSK3nNVppmaxA-I9MCXcsg>
-    <xme:ATymYlSIYxKyObtvBUP0UgrY_a8YcrDQo6Dk_t4U0UZRpBjEfvMeuBdWX8qQQImpU
-    yK3HM1Le34ovm2OYg>
-X-ME-Received: <xmr:ATymYvXbrL21uaXAiWgpYmivq9epTczXFyRnZZNf2prjDGwYHwkrBP6ucDTdRLJhYD77vap-LM2ZSNqZWAjpj2efrwGwE7zo9SbjsLSQn48KUmS5n6u4CwGbYw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudduhedgudefudcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefuvfevfhfhkffffgggjggtgfesthejredttdefjeenucfhrhhomhepufgr
-    mhhuvghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqne
-    cuggftrfgrthhtvghrnhepffdtveekvdegkeeuueetgfetffeileevudekuefhheelvdfh
-    iedtheduhfduhefhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
-    hfrhhomhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:ATymYngx95DczDWiY7iNpCCcGo8OZnq8Fb4DK54FhVx8Au7ej_0kdQ>
-    <xmx:ATymYnCklbbZ7WBhGYsGwU7pD4nZJbFpxGnoeOhDZLggZUbXPAFNRQ>
-    <xmx:ATymYgJAmmeoCVQRvoCtxowOc76yJVi8raVZb5sY3YWk1n2_m3K6EQ>
-    <xmx:AjymYpQ9Yo4Qsa7RZf_EWaH19LuO23mAer4jPFaVQLXqL7rOiZQPGA>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 12 Jun 2022 15:18:25 -0400 (EDT)
-Subject: Re: [PATCH 3/3] riscv: implement cache-management errata for T-Head
- SoCs
-To: Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
- paul.walmsley@sifive.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com,
- philipp.tomsich@vrull.eu, hch@lst.de, atishp@atishpatra.org,
- anup@brainfault.org, mick@ics.forth.gr, robh+dt@kernel.org,
- krzk+dt@kernel.org, devicetree@vger.kernel.org, drew@beagleboard.org
-References: <20220610004308.1903626-1-heiko@sntech.de>
- <20220610004308.1903626-4-heiko@sntech.de>
-From: Samuel Holland <samuel@sholland.org>
-Message-ID: <2039a18c-5f4f-f33e-eed6-c89f4561af25@sholland.org>
-Date: Sun, 12 Jun 2022 14:18:24 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	id 1o0Tij-00Hae6-KD
+	for linux-riscv@lists.infradead.org; Sun, 12 Jun 2022 19:58:03 +0000
+Received: by mail-wm1-x330.google.com with SMTP id r123-20020a1c2b81000000b0039c1439c33cso2044810wmr.5
+        for <linux-riscv@lists.infradead.org>; Sun, 12 Jun 2022 12:58:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=conchuod.ie; s=google;
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=HPK8k4gKJZ+wQWjBYJ1REf4HNNl/uXfLF+28+th4jm8=;
+        b=WxS4e3m70DLW1yjIUhnUbrBdeC8hHUVcYuxLS5HhyBfAJgqwPHyGo62VUl1t4TWG78
+         qa0Spt0qrqCK77WFgGnytj+CrUY0uFwa1t0rjiMFRo1x0VIWcrz7L6fh3uxeHawYDRaQ
+         pz56WqD45VRi3cPSZrS693lfJbwHCAaxUAGBuEf61Lb+Je8HLEgo1gMymquk8eSzGsbC
+         ovS/fUm/RDwASKiWAK3qRBaoSq6y3Af0NNm6qTUhNOsHKGDJTORGKjmxWeEVt1bG7fWO
+         fB7pIC2mJ2H9ISdqp0viUSfC8Ib0W+ACLclo+DLNepwN6QZgw5ybyCWA1mx1QYljyb9+
+         VkMg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:content-transfer-encoding;
+        bh=HPK8k4gKJZ+wQWjBYJ1REf4HNNl/uXfLF+28+th4jm8=;
+        b=mxA/1HyXiMa3Rd478Ljz2DbeiPYpPCtGM1MfMJz4EbfdquK22WZqaWqpOPAat6MZ74
+         AtLapgu1lm59wwmOiT24/daPC8YHIeXkZpvPwTmF7FAc8yKE1uVrWIfTIUvbHGlhM8Gb
+         D8wFzsJ5ohmn03+Z+FtmkCAyv+eyhPGFRxWc6fpn9/aqNu30yCM+rpD9nJx0zgtoPqyp
+         +GdPP0z5CHMxX010GpZfBOS5mw9/LP1sjzX/gtkeGls529egGWuw8UH0AT7Kc5r1y7WR
+         n8r6I3Pz1NbgW4dFN/ZHzFGuI8MpKS/O49+UJU6uFOe0B+6sOOFl8jBS7hnlgLbe4nIV
+         7XmQ==
+X-Gm-Message-State: AOAM531Io03PFB30VfdBC2SESXNeR/Gu1YxIpUu8EE2NxfCNasz0tk9u
+	uLCn6rrswZpcKpvm2CxSQ1YOdA==
+X-Google-Smtp-Source: ABdhPJxVD+6uveEwgGG0ZXNpTkwYft114nVu3ghAlq26nsiNc/IJ06GFHoNEAPTGysm8ECJzB0DhxA==
+X-Received: by 2002:a05:600c:3d07:b0:39c:80a8:db07 with SMTP id bh7-20020a05600c3d0700b0039c80a8db07mr10727828wmb.168.1655063879180;
+        Sun, 12 Jun 2022 12:57:59 -0700 (PDT)
+Received: from henark71.. ([51.37.234.167])
+        by smtp.gmail.com with ESMTPSA id r16-20020a056000015000b0021108003596sm6402404wrx.10.2022.06.12.12.57.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Jun 2022 12:57:58 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: krzk+dt@kernel.org,
+	conor.dooley@microchip.com,
+	palmer@dabbelt.com,
+	robh+dt@kernel.org
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	paul.walmsley@sifive.com,
+	zong.li@sifive.com,
+	palmer@rivosinc.com,
+	daire.mcnamara@microchip.com,
+	aou@eecs.berkeley.edu
+Subject: Re: [PATCH] riscv: dts: microchip: re-add pdma to mpfs device tree
+Date: Sun, 12 Jun 2022 20:57:35 +0100
+Message-Id: <165506374015.3753145.322560637772164805.b4-ty@microchip.com>
+X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220603083825.1910300-1-conor.dooley@microchip.com>
+References: <20220603083825.1910300-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <20220610004308.1903626-4-heiko@sntech.de>
-Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220612_121829_033157_28A7B6A4 
-X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-CacheID: sfid-20220612_125801_719052_C8C7032B 
+X-CRM114-Status: UNSURE (   6.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,22 +97,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/9/22 7:43 PM, Heiko Stuebner wrote:
-> The T-Head C906 and C910 implement a scheme for handling
-> cache operations different from the generic Zicbom extension.
+From: Conor Dooley <conor.dooley@microchip.com>
+
+On Fri, 3 Jun 2022 09:38:26 +0100, Conor Dooley wrote:
+> PolarFire SoC /does/ have a SiFive pdma, despite what I suggested as a
+> conflict resolution to Zong. Somehow the entry fell through the cracks
+> between versions of my dt patches, so re-add it with Zong's updated
+> compatible & dma-channels property.
 > 
-> Add an errata for it next to the generic dma coherency ops.
 > 
-> Tested-by: Samuel Holland <samuel@sholland.org>
 
-v3 breaks Ethernet on D1, because the packet tx buffers are not aligned to the
-cache block size. See my comments on patch 2. With the changes suggested there,
-all functionality is again working.
+Applied to dt-fixes, thanks!
 
-Please drop this tag until I have a chance to test the next version.
+[1/1] riscv: dts: microchip: re-add pdma to mpfs device tree
+      https://git.kernel.org/conor/c/5e757deddd91
 
-Regards,
-Samuel
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
