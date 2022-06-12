@@ -4,129 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C29FCC43334
-	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jun 2022 19:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22C5FC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 12 Jun 2022 19:15:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h/54ZpwUFQ0D4edi46gsQoLhEXj1UWcpYNWG70eUahA=; b=v6SQ1HgmNpKlnD
-	OaGEccY1tYd13G9mVexuTQFHec5X8cZtcpaf3Zf9yZyD7N4NcRokvPLMafZMb3w+iNcnvi91/O19P
-	3np9XHfDEjVPopd8KzPT2VsigCGM9JbFvxn93leR1+98a0nssQ0XPyGdzMbarMMnrbCJYJcnE+934
-	o3LdeASjBbSz0gigpZsALaVRWCvyU/8h4Z9foMzQuCtH6dw2ZWEZAQstmoea4zmTbD2y1foYMihOJ
-	dQmcaTHV5gf2NKZImyrhAIlbIUdeMwzvSGk7sYDykM+EYxpo5vaB6ffH96hj43LNOSCKG9tNudUDL
-	jbN7bSspZSnk9LV2KEDQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=7hWEBAYOYuGrrhMp1qQ7pSW2G7qePqY8H6Y2ZdxECLU=; b=la+fi+woral9FU7h0gWUfxQpC7
+	dRFfz5fS8gztp8lt89iLJYm7OSSbMmun0GAhCrcRU3XbDADKa3PtP9p+BQAPRJysbAWKPJTFeuRAV
+	YHXu21jAoo5vTpJrPTE475emKThE8aWBGTRATh50Jsb3JZi+EXN870cFdM2mR/2glqGqzzslJkv2n
+	NffDYNP6Fra73tbJTZpxhSI9wnhPqxMd5NdXo29YIOKuXYb2mjRNHZeSTeXZg6Wtso7amRiErz2jp
+	5GsN39jXT1u3HWNGc70L1oi8Wi2yQOKFYxx1QAorAD0aLDxFkA3bwIS01vmFNuEGerfhO1lCoFs7P
+	Q+YUIbeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0Sps-00HT4v-36; Sun, 12 Jun 2022 19:01:20 +0000
-Received: from mail-os0jpn01on20702.outbound.protection.outlook.com ([2a01:111:f403:700c::702] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1o0T3J-00HUHJ-TF; Sun, 12 Jun 2022 19:15:13 +0000
+Received: from wout2-smtp.messagingengine.com ([64.147.123.25])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0Spp-00HT3u-4c
-	for linux-riscv@lists.infradead.org; Sun, 12 Jun 2022 19:01:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=J+De3cEIfsDR03NDNbO+gweDvQKrjzBiwXo+OdXK2qGLo44Av0HoJ27Uq6nTjY38n7ZvWlFEUa/4vmSSbQ3ZhwxVXsuraKlJp4NuDk2h2b8Bn4x3uQnZ7TG9sIC2Uu5zljtTj03wN1lCOSXnGGY+nxFqnnrv2Dm0RwD0v5w7UCXKqdSGEZTo9TNoSq+fi6U30VA5zFAs9zFk0yVGFnMjjyk7fAUM87PAhzPKY54v7yR00/Z7tSfE8LJQ7cEtgjaVEtGhR7cbTruP5xr/V3qNTUp/3uBYtc1AnDO0l2yZ9gtUaZbdml4yF/yeLQwyZuQT89RWjh2qxsu8SSEYKqBv2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=brpvWS+N7MgNh3jBCMf3aKScDepuut7lnRI1cHbwcGE=;
- b=dH6p+7iDBfJkynyMZd+6m2Ec0iwImKYRSau0R/aNBr6M520vVa2w11llWS67m/EAsxY4POxK8PR50Ti3CBgK+sa5dltrtodt9h9bFGeQY0QQE+TIAtTq5ILoze1W9EPum/tUcbRRJk3ukms3ob47I65n0EXPTn0COJ8ro/Z27wxPcB0jYxmJeP3/9NrPOBPkpwPoLyF6LktAkNggod4yqMB6HLTA7dPKPMYHKrf63XqUqeUX+Izc1rb2nfUbr86dlP+KX9CdPBWnfG0QZFYYg/SqeVnBfeD6Ww0fGyztG4nGofcIAeV8ilD48rM0mDnGWBoJ/GL/wNI5Dm4zG2tj3Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=zenithal.me; dmarc=pass action=none header.from=zenithal.me;
- dkim=pass header.d=zenithal.me; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zenithal.me;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=brpvWS+N7MgNh3jBCMf3aKScDepuut7lnRI1cHbwcGE=;
- b=JK1/KI3nYQ4Sbwm36jZRmBU1pDBbqgHZZbGFiooKho/JJ5h5N8JJEGWff9czs+c09MQbu2S+ZfBN7chzskLI5tmcN0wSKReVCIuTVYMH3LFBImx9bDPhKRlfMTpvm0dDtNBNTfSFntFlBmjIcv/i/PSrVJ6LojNJO6hTCiEnKak=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=zenithal.me;
-Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM (2603:1096:400:c0::6) by
- OSZP286MB1063.JPNP286.PROD.OUTLOOK.COM (2603:1096:604:111::12) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.5332.13; Sun, 12 Jun 2022 18:46:08 +0000
-Received: from TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- ([fe80::a162:2f17:bb41:c95]) by TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- ([fe80::a162:2f17:bb41:c95%9]) with mapi id 15.20.5332.020; Sun, 12 Jun 2022
- 18:46:08 +0000
-Date: Mon, 13 Jun 2022 02:46:01 +0800
-From: "Hongren (Zenithal) Zheng" <i@zenithal.me>
-To: Palmer Dabbelt <palmer@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Atish Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Kees Cook <keescook@chromium.org>, linux-mm@kvack.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-api@vger.kernel.org, Michael Kerrisk <mtk.manpages@gmail.com>,
-	linux-man@vger.kernel.org, Jiatai He <jiatai2021@iscas.ac.cn>,
-	Heiko Stuebner <heiko@sntech.de>, Conor.Dooley@microchip.com
-Subject: [PATCH v3 1/3] RISC-V: add Bitmanip/Scalar Crypto parsing from DT
-Message-ID: <YqY0aSngjI0Hc5d4@Sun>
-References: <YqYz+xDsXr/tNaNu@Sun>
-Content-Disposition: inline
-In-Reply-To: <YqYz+xDsXr/tNaNu@Sun>
-X-Operating-System: Linux Sun 5.15.26
-X-Mailer: Mutt 2.2.1 (2022-02-19)
-X-ClientProxiedBy: SJ0PR03CA0158.namprd03.prod.outlook.com
- (2603:10b6:a03:338::13) To TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
- (2603:1096:400:c0::6)
+	id 1o0T3G-00HUFM-33
+	for linux-riscv@lists.infradead.org; Sun, 12 Jun 2022 19:15:12 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailout.west.internal (Postfix) with ESMTP id 328733200940;
+	Sun, 12 Jun 2022 15:15:04 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute5.internal (MEProxy); Sun, 12 Jun 2022 15:15:05 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm3; t=1655061303; x=
+	1655147703; bh=2AHhgZ9rbq8aZb7LASmmVs+asEkr/6vObTPDYWnvkGg=; b=X
+	mCK8PiTixLdiYCEqz5izT8mlk2Da2tQS3+OJqNr0DAbKPTE8+7iw6FuYaxs4Ek9O
+	m3TvJ5aqGRpHR0vH0F3dzoShvZzg3YUU/uWMkVxrpqwnbh7tKFle6RkuLJh00+Ju
+	78tjPjkxDiF3U48CJcpIDdWv9EHhUx/NN7l7OHLc/4WWAQc8z2gL6YDHnD5G8f+A
+	BA8HsyMluVg2cXDzUjlEpzqqJBp4uTEPXrCxw+yZdBiWFj4ztP5Yu55iRhDjeumF
+	pOKrjJKT8GnINKvf+UNJK0KMs2KYjfxFs2Czodsq0KEQVBUuXyVrTWht1dbF6Bju
+	Qk1y1tN468XR3G6Ce5DhA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1655061303; x=
+	1655147703; bh=2AHhgZ9rbq8aZb7LASmmVs+asEkr/6vObTPDYWnvkGg=; b=w
+	ZfTWlKnlDtZgp+0qI03ZRL+WrqosbPeXAE2DkLd4w4MleA2b9TunzD9WLG7/THfX
+	3sR4Ce+slcIqo89XDIewm4hxzm4Gf0sB5YUnrtqotHEDCo8UDnVfZCr4iDeGGusn
+	9zs+DSdIu8sL4kfmK+p/PRUOOp0ZmspYk97uoJKjU3dsQmxIfsTNI7anNV6TBWwg
+	RBiWru40/uWSr3jZa/roFVNemgzFG0FcOVa2ZaRtVLLkc6W0B3KpjGPBn6UW0F0V
+	1t/8I1TqOWAk7GftC1/1IVgim28xBnvkKhF7EdiqLqZzmCCQI5Opf8rvHa4hVCAz
+	qWo6rsjxI0stqhvRsccog==
+X-ME-Sender: <xms:NjumYtQycmvf82WcX7bjKTHfPa1oO3cB4-vLhf7TcOPRYHtDMiUPHw>
+    <xme:NjumYmw4sFQK29EEBwqH5oKg3EExslksX_PhiYr_1gPKMRgHcvnMXUAmIYElo9obb
+    kJmNKPKeB59TIcgFA>
+X-ME-Received: <xmr:NjumYi1mqQRurO5_JYzifSbw9OAX0UeE3bzxCmm456sLkcxQxu_IRvqqCOmY3_XG2D0IJOrXUeh7BHQBtvbNeGjjKmvmDMOKTD1SPnkRsZ4UuPTRl8tTuzFR5A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudduhedgudefudcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefuvfevfhfhkffffgggjggtgfesthejredttdefjeenucfhrhhomhepufgr
+    mhhuvghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqne
+    cuggftrfgrthhtvghrnhepffdtveekvdegkeeuueetgfetffeileevudekuefhheelvdfh
+    iedtheduhfduhefhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
+    hfrhhomhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:NjumYlBbTKp0H76U7dmWnY_9xtNJRPoau2VQ5Vfg-I0QZsSGOzJeLA>
+    <xmx:NjumYmiFkOZZMQXUBc-b1eGTAEzo5ocFjpNJqV8c728PnABh_DJhIA>
+    <xmx:NjumYprZKrB7hEqxWuMBCBUcQ4suwiRoKHiSdpdjgurnBodplAzo5Q>
+    <xmx:NzumYtRHfS8RpZIh1vSojHqxxq8cA_eYPqMKhxrOG9ZFtfXFk-So_A>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 12 Jun 2022 15:15:01 -0400 (EDT)
+Subject: Re: [PATCH 2/3] riscv: Implement Zicbom-based cache management
+ operations
+To: Heiko Stuebner <heiko@sntech.de>, palmer@dabbelt.com,
+ paul.walmsley@sifive.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com,
+ philipp.tomsich@vrull.eu, hch@lst.de, atishp@atishpatra.org,
+ anup@brainfault.org, mick@ics.forth.gr, robh+dt@kernel.org,
+ krzk+dt@kernel.org, devicetree@vger.kernel.org, drew@beagleboard.org,
+ Atish Patra <atish.patra@wdc.com>
+References: <20220610004308.1903626-1-heiko@sntech.de>
+ <20220610004308.1903626-3-heiko@sntech.de>
+From: Samuel Holland <samuel@sholland.org>
+Message-ID: <342e3c12-ebb0-badf-7d4c-c444a2b842b2@sholland.org>
+Date: Sun, 12 Jun 2022 14:15:00 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 91bf3cb4-e7c4-49ff-5047-08da4ca3cfe9
-X-MS-TrafficTypeDiagnostic: OSZP286MB1063:EE_
-X-Microsoft-Antispam-PRVS: 	<OSZP286MB10630638B077C8FA911288B6BCA89@OSZP286MB1063.JPNP286.PROD.OUTLOOK.COM>
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	NYDujBw8XQWEobSojBOybYV8ihRIA7FDV+bCx+WCXPxzVMkEKnuD1sCjeJiZWfmw97tqkor8xAUP818K4P0eY/5XIDvgzHhNuEgvdi9leVUqPqf0r1gu1H62MFdQZRBBmzt7SeoyeMs7N/Z0oAw0kme6VAr8GRht/MNn41s0LbAkYvq7wQX3aF7NEXSmjz74GUUhDWNkNMU+bS55+RYcyh8tpwIJJXFxWmsUhXlPKfxrFEKJtSkPEoqWAAKmjLE8B0bLZQ2RIlHmQ5VodGJMnKerOf1Vb/lqd2C7OKp8C4VzBpMdCP13n+501zjsEGqDOTXAd5xhPz00/99+gIFRjofbTwakh0f1C8RZgD7ogKQgkMUDrWycgTRMAOX7M90Su6cRNjD/3gjmYJAkbvoTZK+Eq9ArWiaD36KT8K2PdnfzkLuUE/B2YjX0Sx2HFMR3sqp1H3dJbSxuDr1Y9IBkcRdNiRYdAofGo0HTBrlRxsGgvCi6OOxEEXekL9gfp/g7B6qiyKWlfF5xBYtwxQPfpTGfcm/HPr2AWG6reTNlTIiS9yUCzhkY/OkMCMdGPwyZY2Gnzx5mMgXVxD6iOcXeL3rP7I2EKy83y1iJ4F2PQHTYzZWkOt6seDMngGeNANnSp13r/oCRtSlh2PgyxbwSv5AeIzAxtBanwkEqmaTFICgpAmwuJN8RArJFCxq7v33GpS33s/xIGvKTx8I1/ldTfw==
-X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230016)(7916004)(136003)(39830400003)(366004)(346002)(396003)(41300700001)(41320700001)(6506007)(52116002)(9686003)(6512007)(6666004)(786003)(316002)(110136005)(54906003)(66946007)(66556008)(66476007)(33716001)(6486002)(86362001)(508600001)(38100700002)(186003)(83380400001)(8676002)(4326008)(2906002)(7416002)(5660300002)(8936002)(49092004);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?f0dpepDlFfOr7Dx2WxPi+nK57SlypF53yNyUyQM3K6KXn8opXvLPQxIHrgRQ?=
- =?us-ascii?Q?ho1MKbA1UiVDyzQJQcMxtqqc9a09ovc4Mhtjaf7UxbYGXnx5rFoKXZYPkXnB?=
- =?us-ascii?Q?mZ5aHTMMo9ASVtBVAwEzG33yW9j+zWrmOnlxCqWlku+TO2nkEM087nm/0I6v?=
- =?us-ascii?Q?ytSM1Prqki+JqyT2uG4vzAaWbmtcSInt1z4BaYBwcydnd4kebsm9uR6lefaV?=
- =?us-ascii?Q?8RIAVbmCOwDnhF/Km+GiCni1SAb/MtAQhxfH29El/x5qpJacSsz/DEn1Q2zt?=
- =?us-ascii?Q?Ph1XdhYVYOtStJw3Z004MMVa6IAe4DL5vqlSMTaWhNGUpnxTBrJpVJfgOuNF?=
- =?us-ascii?Q?IgMrwbP4y54oknmQ2lBCIrRxxsQSURAzSNuKpyIpgsjgonbT1mYf/B7+VlmC?=
- =?us-ascii?Q?KwMO5tj2B0I+rPzjpRTF0sDUOAqGrRosBdPkHp/4pLQJK3eUmmHm4THzmukj?=
- =?us-ascii?Q?X9ZRyFIj+YFORoU146bgoD3a5PhcxqQg43UnJq+/EIR0jTor34O7uRdHvao2?=
- =?us-ascii?Q?1NA0+pt2GVawcFwunAZkNfkGOC8/isgjsxcDv2lHd3WNxUHqeII/2O4qVEkU?=
- =?us-ascii?Q?9u9kfpiYjxzFd1GJvgQ0yOYQ0NeS98449EleYYV920ykBqPE5kUtCWQw6l4r?=
- =?us-ascii?Q?n2CyA/tF32I6+qlA/5EiuGf5GvyRrvoIl0MevV9gy7cC/H2UIGG4xIo0lNzy?=
- =?us-ascii?Q?TmGAxx7zgvJlgsZN1Xy1eLqkapL93xCgk+quci6ERlH56okH3OTDbiSF8oIb?=
- =?us-ascii?Q?Q+GHeDb+DymzYh6tKHWqPkdkpZwoLZfITaUlLAIiC0S7t+wN9RX7UMQukAmz?=
- =?us-ascii?Q?FPyNFSLJ0uM6+GTwfzh5+JI2nHZdDEHA5ja/qFHZRe8Y3hDRI8l8xlFiJjet?=
- =?us-ascii?Q?EksqxKg79BiPUdtU5f2SYpZ/w+NGbY2/3fzcoEKeYWRhcd6yoempJy7/qAg2?=
- =?us-ascii?Q?whR1807FreGpxKnR3aP/g2MuSDGamC0VIfAzSn0vi9qktSkMIdpGvwzmyHwN?=
- =?us-ascii?Q?g/Bk6loUbF6JYHvn3J/1iKRUPvOwQxqghFspjri4ekkH2gq9zspiSBPOYOV/?=
- =?us-ascii?Q?O2HntB0jvpWdJvsVy/NRsIWGeKOAUIQ8c0VT9xUMpTTkdIo2NN6S2dyZLN9s?=
- =?us-ascii?Q?SVSprZbz7mTTgIOel22Pjb9VcNSeqJNTFKvpSMGMOfyd8EpluubgOFDfP1Z8?=
- =?us-ascii?Q?tK9D7B+81UJHr2zlwA/YLAb8FEEbqH7b8y/evRnHbHB1xBmhndEDDw66I6DT?=
- =?us-ascii?Q?e3Tle//HYROpfJ636WjyKDnhJc+p1zWGOVNsa5/NUZbuPPWNhdkNbUtLlBak?=
- =?us-ascii?Q?p8h0+jeyG2kyOiTzBfA+bCZ2h8vy6PcrBQ5blDwTOTncfye1Jjp4sYGqdRT9?=
- =?us-ascii?Q?y06cYIDvpIVvChuCY7v83435a99TQ2KOTvtXpg87E8RjcP6GaOOmBgBSSrh9?=
- =?us-ascii?Q?f+GDqo29hDNJVVe9mqwKFVFWrh97eqPPvMAJzVZIXji93egBGCxCfOxPFmPj?=
- =?us-ascii?Q?vFDm4q1GJDeNEUbpbm0GvXJOcCvVR8coyQQJ+PD+AdtNXfH+ImT1dXcp2+8O?=
- =?us-ascii?Q?9/s1f4YOWSwlZiGQAirHI2QUJ/OLpMzUEiuSooTauWQswuWucKcKNDbCwD2v?=
- =?us-ascii?Q?0unQkyCR5fbvyuqDD6tv7Ih9zcs/UZK3XGwlrzfNLW6BDZF65W9O2xDkaQVX?=
- =?us-ascii?Q?G5W4Vll4UlcvyruW+xmUJbdMX+l84Go2znOhYdInms5F7H3d1kzj7DJaExs8?=
- =?us-ascii?Q?GQk+Gvb8Cw=3D=3D?=
-X-OriginatorOrg: zenithal.me
-X-MS-Exchange-CrossTenant-Network-Message-Id: 91bf3cb4-e7c4-49ff-5047-08da4ca3cfe9
-X-MS-Exchange-CrossTenant-AuthSource: TYCP286MB1393.JPNP286.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2022 18:46:07.8681
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 436d481c-43b1-4418-8d7f-84c1e4887cf0
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XtWgEDIh4FsCz/dVw/DW7mID4ik0XysF3WhqgeGYW4KXUcMd6rzsjA2RAgCVvZwy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSZP286MB1063
+In-Reply-To: <20220610004308.1903626-3-heiko@sntech.de>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220612_120117_253049_EBB07182 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20220612_121510_621038_65795051 
+X-CRM114-Status: GOOD (  39.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,138 +113,379 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch parses Zb/Zk related string from DT and
-output them in cpuinfo
+On 6/9/22 7:43 PM, Heiko Stuebner wrote:
+> The Zicbom ISA-extension was ratified in november 2021
+> and introduces instructions for dcache invalidate, clean
+> and flush operations.
+> 
+> Implement cache management operations based on them.
+> 
+> Of course not all cores will support this, so implement an
+> alternative-based mechanism that replaces empty instructions
+> with ones done around Zicbom instructions.
+> 
+> We're using prebuild instructions for the Zicbom instructions
+> for now, to not require a bleeding-edge compiler (gcc-12)
+> for these somewhat simple instructions.
+> 
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Reviewed-by: Guo Ren <guoren@kernel.org>
+> Cc: Christoph Hellwig <hch@lst.de>
+> Cc: Atish Patra <atish.patra@wdc.com>
+> Cc: Guo Ren <guoren@kernel.org>
+> ---
+>  arch/riscv/Kconfig                   | 15 +++++
+>  arch/riscv/include/asm/cacheflush.h  |  6 ++
+>  arch/riscv/include/asm/errata_list.h | 36 ++++++++++-
+>  arch/riscv/include/asm/hwcap.h       |  1 +
+>  arch/riscv/kernel/cpu.c              |  1 +
+>  arch/riscv/kernel/cpufeature.c       | 18 ++++++
+>  arch/riscv/kernel/setup.c            |  2 +
+>  arch/riscv/mm/Makefile               |  1 +
+>  arch/riscv/mm/dma-noncoherent.c      | 93 ++++++++++++++++++++++++++++
+>  9 files changed, 172 insertions(+), 1 deletion(-)
+>  create mode 100644 arch/riscv/mm/dma-noncoherent.c
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 32ffef9f6e5b..384d0c15f2b6 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -376,6 +376,21 @@ config RISCV_ISA_SVPBMT
+>  
+>  	   If you don't know what to do here, say Y.
+>  
+> +config RISCV_ISA_ZICBOM
+> +	bool "Zicbom extension support for non-coherent dma operation"
+> +	select ARCH_HAS_DMA_PREP_COHERENT
+> +	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+> +	select ARCH_HAS_SYNC_DMA_FOR_CPU
+> +	select ARCH_HAS_SETUP_DMA_OPS
 
-One thing worth noting is that if DT provides zk,
-all zbkb, zbkc, zbkx and zkn, zkr, zkt would be enabled.
+ARCH_HAS_SETUP_DMA_OPS needs to be separate from the non-coherent DMA option,
+because iommu_setup_dma_ops() will need to be called from arch_setup_dma_ops()
+even on a fully-coherent system. (But this change is not strictly necessary for
+this series.)
 
-Note that zk is a valid extension name and the current
-DT binding spec allows this.
+> +	select DMA_DIRECT_REMAP
+> +	select RISCV_ALTERNATIVE
+> +	default y
+> +	help
+> +	   Adds support to dynamically detect the presence of the ZICBOM extension
+> +	   (Cache Block Management Operations) and enable its usage.
+> +
+> +	   If you don't know what to do here, say Y.
+> +
+>  config FPU
+>  	bool "FPU support"
+>  	default y
+> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+> index 23ff70350992..eb12d014b158 100644
+> --- a/arch/riscv/include/asm/cacheflush.h
+> +++ b/arch/riscv/include/asm/cacheflush.h
+> @@ -42,6 +42,12 @@ void flush_icache_mm(struct mm_struct *mm, bool local);
+>  
+>  #endif /* CONFIG_SMP */
+>  
+> +#ifdef CONFIG_RISCV_ISA_ZICBOM
+> +void riscv_init_cbom_blocksize(void);
+> +#else
+> +static inline void riscv_init_cbom_blocksize(void) { }
+> +#endif
+> +
+>  /*
+>   * Bits in sys_riscv_flush_icache()'s flags argument.
+>   */
+> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> index 398e351e7002..2e80a75b5241 100644
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -20,7 +20,8 @@
+>  #endif
+>  
+>  #define	CPUFEATURE_SVPBMT 0
+> -#define	CPUFEATURE_NUMBER 1
+> +#define	CPUFEATURE_CMO 1
 
-This patch also changes the logical id of
-existing multi-letter extensions and adds a statement
-that instead of logical id compatibility, the order
-is needed.
+This seems like it should be CPUFEATURE_ZICBOM for consistency.
 
-There currently lacks a mechanism to merge them when
-producing cpuinfo. Namely if you provide a riscv,isa
-"rv64imafdc_zk_zks", the cpuinfo output would be
-"rv64imafdc_zbkb_zbkc_zbkx_zknd_zkne_zknh_zkr_zksed
-_zksh_zkt"
+> +#define	CPUFEATURE_NUMBER 2
+>  
+>  #ifdef __ASSEMBLY__
+>  
+> @@ -87,6 +88,39 @@ asm volatile(ALTERNATIVE(						\
+>  #define ALT_THEAD_PMA(_val)
+>  #endif
+>  
+> +/*
+> + * cbo.clean rs1
+> + * | 31 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *    0...01     rs1       010      00000  0001111
+> + *
+> + * cbo.flush rs1
+> + * | 31 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *    0...10     rs1       010      00000  0001111
+> + *
+> + * cbo.inval rs1
+> + * | 31 - 20 | 19 - 15 | 14 - 12 | 11 - 7 | 6 - 0 |
+> + *    0...00     rs1       010      00000  0001111
+> + */
+> +#define CBO_INVAL_A0	".long 0x15200F"
+> +#define CBO_CLEAN_A0	".long 0x25200F"
+> +#define CBO_FLUSH_A0	".long 0x05200F"
+> +
+> +#define ALT_CMO_OP(_op, _start, _size, _cachesize)			\
+> +asm volatile(ALTERNATIVE(						\
+> +	__nops(5),							\
+> +	"mv a0, %1\n\t"							\
+> +	"j 2f\n\t"							\
+> +	"3:\n\t"							\
+> +	CBO_##_op##_A0 "\n\t"						\
+> +	"add a0, a0, %0\n\t"						\
+> +	"2:\n\t"							\
+> +	"bltu a0, %2, 3b\n\t", 0,					\
+> +		CPUFEATURE_CMO, CONFIG_RISCV_ISA_ZICBOM)		\
+> +	: : "r"(_cachesize),						\
+> +	    "r"(ALIGN((_start), (_cachesize))),				\
+> +	    "r"(ALIGN((_start) + (_size), (_cachesize)))		\
 
-Tested-by: Jiatai He <jiatai2021@iscas.ac.cn>
-Signed-off-by: Hongren (Zenithal) Zheng <i@zenithal.me>
----
- arch/riscv/include/asm/hwcap.h | 20 +++++++++++++++++++-
- arch/riscv/kernel/cpu.c        | 14 ++++++++++++++
- arch/riscv/kernel/cpufeature.c | 33 +++++++++++++++++++++++++++++++++
- 3 files changed, 66 insertions(+), 1 deletion(-)
+Here, the starting address needs to be truncated, not aligned upward. Otherwise,
+the first partial cache line will be missed. And since the starting address is
+known to be a multiple of the cache line size, the ending address does not need
+to be rounded up either:
 
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 4e2486881840..02c454a12683 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -49,9 +49,27 @@ extern unsigned long elf_hwcap;
-  * RISCV_ISA_EXT_MAX. 0-25 range is reserved for single letter
-  * extensions while all the multi-letter extensions should define the next
-  * available logical extension id.
-+ *
-+ * The order of them should be maintained according to the riscv-isa-manual.
-+ * As this is an internal API, changing the id of one extension does
-+ * not affect compatibility.
-  */
- enum riscv_isa_ext_id {
--	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-+	RISCV_ISA_EXT_ZBA = RISCV_ISA_EXT_BASE,
-+	RISCV_ISA_EXT_ZBB,
-+	RISCV_ISA_EXT_ZBC,
-+	RISCV_ISA_EXT_ZBKB,
-+	RISCV_ISA_EXT_ZBKC,
-+	RISCV_ISA_EXT_ZBKX,
-+	RISCV_ISA_EXT_ZBS,
-+	RISCV_ISA_EXT_ZKND,
-+	RISCV_ISA_EXT_ZKNE,
-+	RISCV_ISA_EXT_ZKNH,
-+	RISCV_ISA_EXT_ZKR,
-+	RISCV_ISA_EXT_ZKSED,
-+	RISCV_ISA_EXT_ZKSH,
-+	RISCV_ISA_EXT_ZKT,
-+	RISCV_ISA_EXT_SSCOFPMF,
- 	RISCV_ISA_EXT_SVPBMT,
- 	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
- };
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index fba9e9f46a8c..d9ff9bff3d45 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -87,6 +87,20 @@ int riscv_of_parent_hartid(struct device_node *node)
-  *    extensions by an underscore.
-  */
- static struct riscv_isa_ext_data isa_ext_arr[] = {
-+	__RISCV_ISA_EXT_DATA(zba, RISCV_ISA_EXT_ZBA),
-+	__RISCV_ISA_EXT_DATA(zbb, RISCV_ISA_EXT_ZBB),
-+	__RISCV_ISA_EXT_DATA(zbc, RISCV_ISA_EXT_ZBC),
-+	__RISCV_ISA_EXT_DATA(zbkb, RISCV_ISA_EXT_ZBKB),
-+	__RISCV_ISA_EXT_DATA(zbkc, RISCV_ISA_EXT_ZBKC),
-+	__RISCV_ISA_EXT_DATA(zbkx, RISCV_ISA_EXT_ZBKX),
-+	__RISCV_ISA_EXT_DATA(zbs, RISCV_ISA_EXT_ZBS),
-+	__RISCV_ISA_EXT_DATA(zknd, RISCV_ISA_EXT_ZKND),
-+	__RISCV_ISA_EXT_DATA(zkne, RISCV_ISA_EXT_ZKNE),
-+	__RISCV_ISA_EXT_DATA(zknh, RISCV_ISA_EXT_ZKNH),
-+	__RISCV_ISA_EXT_DATA(zkr, RISCV_ISA_EXT_ZKR),
-+	__RISCV_ISA_EXT_DATA(zksed, RISCV_ISA_EXT_ZKSED),
-+	__RISCV_ISA_EXT_DATA(zksh, RISCV_ISA_EXT_ZKSH),
-+	__RISCV_ISA_EXT_DATA(zkt, RISCV_ISA_EXT_ZKT),
- 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
- 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
- 	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index a6f62a6d1edd..0c2638365ec2 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -199,6 +199,39 @@ void __init riscv_fill_hwcap(void)
- 			} else {
- 				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
- 				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
-+				SET_ISA_EXT_MAP("zba", RISCV_ISA_EXT_ZBA);
-+				SET_ISA_EXT_MAP("zbb", RISCV_ISA_EXT_ZBB);
-+				SET_ISA_EXT_MAP("zbc", RISCV_ISA_EXT_ZBC);
-+				SET_ISA_EXT_MAP("zbs", RISCV_ISA_EXT_ZBS);
-+				SET_ISA_EXT_MAP("zbkb", RISCV_ISA_EXT_ZBKB);
-+				SET_ISA_EXT_MAP("zbkc", RISCV_ISA_EXT_ZBKC);
-+				SET_ISA_EXT_MAP("zbks", RISCV_ISA_EXT_ZBKX);
-+				SET_ISA_EXT_MAP("zknd", RISCV_ISA_EXT_ZKND);
-+				SET_ISA_EXT_MAP("zkne", RISCV_ISA_EXT_ZKNE);
-+				SET_ISA_EXT_MAP("zknh", RISCV_ISA_EXT_ZKNH);
-+				SET_ISA_EXT_MAP("zksed", RISCV_ISA_EXT_ZKSED);
-+				SET_ISA_EXT_MAP("zksh", RISCV_ISA_EXT_ZKSH);
-+				SET_ISA_EXT_MAP("zkr", RISCV_ISA_EXT_ZKR);
-+				SET_ISA_EXT_MAP("zkt", RISCV_ISA_EXT_ZKT);
-+				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKB);
-+				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKC);
-+				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZBKX);
-+				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKND);
-+				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKNE);
-+				SET_ISA_EXT_MAP("zkn", RISCV_ISA_EXT_ZKNH);
-+				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKB);
-+				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKC);
-+				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZBKX);
-+				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZKSED);
-+				SET_ISA_EXT_MAP("zks", RISCV_ISA_EXT_ZKSH);
-+				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKB);
-+				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKC);
-+				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZBKX);
-+				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKND);
-+				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKNE);
-+				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKNH);
-+				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKR);
-+				SET_ISA_EXT_MAP("zk", RISCV_ISA_EXT_ZKT);
- 			}
- #undef SET_ISA_EXT_MAP
- 		}
--- 
-2.35.1
+-           "r"(ALIGN((_start), (_cachesize))),          \
+-           "r"(ALIGN((_start) + (_size), (_cachesize))) \
++           "r"((_start) & ~((_cachesize) - 1UL)),       \
++           "r"((_start) + (_size))                      \
+
+Then to prevent causing any collateral damage, you need to make sure slab
+allocations can not share a cache block:
+
+--- a/arch/riscv/include/asm/cache.h
++++ b/arch/riscv/include/asm/cache.h
+@@ -11,6 +11,8 @@
+
+ #define L1_CACHE_BYTES         (1 << L1_CACHE_SHIFT)
+
++#define ARCH_DMA_MINALIGN      L1_CACHE_BYTES
++
+ /*
+  * RISC-V requires the stack pointer to be 16-byte aligned, so ensure that
+  * the flat loader aligns it accordingly.
+
+> +	: "a0")
+> +
+>  #endif /* __ASSEMBLY__ */
+>  
+>  #endif
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index 4e2486881840..6044e402003d 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -53,6 +53,7 @@ extern unsigned long elf_hwcap;
+>  enum riscv_isa_ext_id {
+>  	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+>  	RISCV_ISA_EXT_SVPBMT,
+> +	RISCV_ISA_EXT_ZICBOM,
+>  	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+>  };
+>  
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index fba9e9f46a8c..0365557f7122 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -89,6 +89,7 @@ int riscv_of_parent_hartid(struct device_node *node)
+>  static struct riscv_isa_ext_data isa_ext_arr[] = {
+>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+>  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+> +	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
+>  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+>  };
+>  
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 6a40cb8134bd..e956f4d763ec 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -199,6 +199,7 @@ void __init riscv_fill_hwcap(void)
+>  			} else {
+>  				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+>  				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+> +				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
+>  			}
+>  #undef SET_ISA_EXT_MAP
+>  		}
+> @@ -259,6 +260,20 @@ static bool __init_or_module cpufeature_probe_svpbmt(unsigned int stage)
+>  	return false;
+>  }
+>  
+> +static bool __init_or_module cpufeature_probe_cmo(unsigned int stage)
+> +{
+> +#ifdef CONFIG_RISCV_ISA_ZICBOM
+> +	switch (stage) {
+> +	case RISCV_ALTERNATIVES_EARLY_BOOT:
+> +		return false;
+> +	default:
+> +		return riscv_isa_extension_available(NULL, ZICBOM);
+> +	}
+> +#endif
+> +
+> +	return false;
+> +}
+> +
+>  /*
+>   * Probe presence of individual extensions.
+>   *
+> @@ -273,6 +288,9 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
+>  	if (cpufeature_probe_svpbmt(stage))
+>  		cpu_req_feature |= (1U << CPUFEATURE_SVPBMT);
+>  
+> +	if (cpufeature_probe_cmo(stage))
+> +		cpu_req_feature |= (1U << CPUFEATURE_CMO);
+> +
+>  	return cpu_req_feature;
+>  }
+>  
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index f0f36a4a0e9b..95ef6e2bf45c 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -22,6 +22,7 @@
+>  #include <linux/crash_dump.h>
+>  
+>  #include <asm/alternative.h>
+> +#include <asm/cacheflush.h>
+>  #include <asm/cpu_ops.h>
+>  #include <asm/early_ioremap.h>
+>  #include <asm/pgtable.h>
+> @@ -296,6 +297,7 @@ void __init setup_arch(char **cmdline_p)
+>  #endif
+>  
+>  	riscv_fill_hwcap();
+> +	riscv_init_cbom_blocksize();
+>  	apply_boot_alternatives();
+>  }
+>  
+> diff --git a/arch/riscv/mm/Makefile b/arch/riscv/mm/Makefile
+> index ac7a25298a04..548f2f3c00e9 100644
+> --- a/arch/riscv/mm/Makefile
+> +++ b/arch/riscv/mm/Makefile
+> @@ -30,3 +30,4 @@ endif
+>  endif
+>  
+>  obj-$(CONFIG_DEBUG_VIRTUAL) += physaddr.o
+> +obj-$(CONFIG_RISCV_ISA_ZICBOM) += dma-noncoherent.o
+> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+> new file mode 100644
+> index 000000000000..f77f4c529835
+> --- /dev/null
+> +++ b/arch/riscv/mm/dma-noncoherent.c
+> @@ -0,0 +1,93 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * RISC-V specific functions to support DMA for non-coherent devices
+> + *
+> + * Copyright (c) 2021 Western Digital Corporation or its affiliates.
+> + */
+> +
+> +#include <linux/dma-direct.h>
+> +#include <linux/dma-map-ops.h>
+> +#include <linux/init.h>
+> +#include <linux/io.h>
+> +#include <linux/libfdt.h>
+> +#include <linux/mm.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <asm/cacheflush.h>
+> +
+> +static unsigned int riscv_cbom_block_size = L1_CACHE_BYTES;
+> +
+> +void arch_sync_dma_for_device(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
+> +{
+> +	switch (dir) {
+> +	case DMA_TO_DEVICE:
+> +		ALT_CMO_OP(CLEAN, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> +		break;
+> +	case DMA_FROM_DEVICE:
+> +		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> +		break;
+
+arch_sync_dma_for_device(DMA_FROM_DEVICE) is a no-op from the CPU's perspective.
+Invalidating the CPU's cache goes in arch_sync_dma_for_cpu(DMA_FROM_DEVICE).
+
+> +	case DMA_BIDIRECTIONAL:
+> +		ALT_CMO_OP(FLUSH, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +}
+> +
+> +void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
+> +{
+> +	switch (dir) {
+> +	case DMA_TO_DEVICE:
+> +		break;
+> +	case DMA_FROM_DEVICE:
+> +	case DMA_BIDIRECTIONAL:
+> +		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+
+For arch_sync_dma_for_cpu(DMA_BIDIRECTIONAL), we expect the CPU to have written
+to the buffer, so this should flush, not invalidate.
+
+Regards,
+Samuel
+
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +}
+> +
+> +void arch_dma_prep_coherent(struct page *page, size_t size)
+> +{
+> +	void *flush_addr = page_address(page);
+> +
+> +	memset(flush_addr, 0, size);
+> +	ALT_CMO_OP(FLUSH, (unsigned long)flush_addr, size, riscv_cbom_block_size);
+> +}
+> +
+> +void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> +		const struct iommu_ops *iommu, bool coherent)
+> +{
+> +	/* If a specific device is dma-coherent, set it here */
+> +	dev->dma_coherent = coherent;
+> +}
+> +
+> +void riscv_init_cbom_blocksize(void)
+> +{
+> +	struct device_node *node;
+> +	int ret;
+> +	u32 val;
+> +
+> +	for_each_of_cpu_node(node) {
+> +		int hartid = riscv_of_processor_hartid(node);
+> +		int cbom_hartid;
+> +
+> +		if (hartid < 0)
+> +			continue;
+> +
+> +		/* set block-size for cbom extension if available */
+> +		ret = of_property_read_u32(node, "riscv,cbom-block-size", &val);
+> +		if (ret)
+> +			continue;
+> +
+> +		if (!riscv_cbom_block_size) {
+> +			riscv_cbom_block_size = val;
+> +			cbom_hartid = hartid;
+> +		} else {
+> +			if (riscv_cbom_block_size != val)
+> +				pr_warn("cbom-block-size mismatched between harts %d and %d\n",
+> +					cbom_hartid, hartid);
+> +		}
+> +	}
+> +}
+> 
 
 
 _______________________________________________
