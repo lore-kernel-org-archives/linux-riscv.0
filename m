@@ -4,121 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EAFC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 21:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B62F4C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 00:18:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NqD+kAqbkz/j5FF0HmbT0MwAso71Pj7xNW/onzLg/w8=; b=3/YIrZgTa4iMsV
-	KFk80C3eNRcHTiF31IW0hsXbUhRGArURZIjx8ufx4kct8TS/LMHkzCBoj9bAKlxMWFkFUYYYjEaS2
-	jwiWOhiu01OeIJ1Vk3Dqsl24osmuLYmKHe+uk0Sut6Pxp2FqFEv8Pn1FjfM5Vwt0IzRLWAuXcuZ/f
-	P8/OMnSKUALBZnr3clSMdMGkj5N2eE7J8+fmwHFsjM781X7NbPuIaF3ty4w11hkPgEKfuRyxpPksd
-	QrsfSCUz4A5O++XzITskai4Xw3c088EYpKTCwVQCW6cdEbaN1449PQRczJ3ZyKCnFNqm+qCqOITEu
-	ghEiQbkqkE1Bf8t6x8Gw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=m+jhZd9b30uxN7aUCVtd/hPCHzLyIU8wfXv0HnnsYAQ=; b=j7yRYgtREni0u3
+	5cjhehiEF4y3ZQN6muGpklS3MrCjo93fvfTZ7EXCWD/j+QyPxawU8X2illfbO6sYhkaqbxAR+cyfG
+	Cb8+6IozHkn2Csb9x1dOBVMc0iIUN2ZZl2MNfkLLATDD0CXtwLFosEHtoV36P99YwnbMiDW96u4BK
+	yncezjnfHzE08+GmRgVFqIE09TN9hYei+cAwy4MRZbM2JYzWf/a8P2rw6envCwO0132BBQVxr7GB1
+	CsS99KzX87NlO1HmE0JaNmcxHAHVMIELMW7ej3I1y7hUwI4brajjGjOTflbDlSV74gYtLsyCrpZJr
+	6Xi9AxE5WjzeQ6mkeNEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0rFW-005sST-73; Mon, 13 Jun 2022 21:05:26 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1o0uG9-006QX6-4L; Tue, 14 Jun 2022 00:18:17 +0000
+Received: from mga11.intel.com ([192.55.52.93])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0fOr-002GEQ-0S; Mon, 13 Jun 2022 08:26:18 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id m32-20020a05600c3b2000b0039756bb41f2so2621373wms.3;
-        Mon, 13 Jun 2022 01:26:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=3JSggHLDbkXyuZCKaU+uQ7H5KVpBjE3ZWWl/F0t3JyI=;
-        b=hln/7KIUboOODQa9/Iv7zWAXFI8kFLhiLL+AWnA7ZL0itAJaB93eguKFQupB8Lv94a
-         mnMuLqlfVsMy6aSBFmNweaacWKXWw7aT6TScazfBGhspJqqH/PMOPWdnnnaxNLaf842d
-         D+3NPCattkXMe8VyippSy6AVlz1Q90Igxi/lQII1yr2hkIK0YZRpsj0TKs2Px7tXlVgY
-         915w6r1r+N9IHNGMPf7O4C6rOlcjLzR4xSEqc3Zfq8tMbY0ayFsU19Cug+0HkT25Saig
-         zkxTdXbzsbpEfsV6HhW0WtRME3JJZVdyKx57BtFZ0WE2gh0TSNH76QSkgUTVIoEuHNxT
-         f/gA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=3JSggHLDbkXyuZCKaU+uQ7H5KVpBjE3ZWWl/F0t3JyI=;
-        b=py2ZGcRgnb16PpjO7y3m9gfGNksayo3RpOFSWtj5VvbgPA+6QxgbFf/wkGThEdO5sX
-         v8LmOIzpMS7TnrXhI+kut7Gq8jVwWAo4RQNpvPLw9gj5hoVzaufake+Yk2eCCu0HBhEb
-         K7eHZwfSh7Uk+ZrB2IbYSFKoRyc8MgFSjqQ+tkcAGYLnGXVY3MlsYqJRt2/uM2AdcCKf
-         O8djC+tk51N7OEcDa5StQeMwptEwtJtv4QbjLrjn5MF6VGw8iT4qSi+uImXIDTffoP5w
-         8BUOI5pGW0XGGu7O5gkaf6iq4p30lZiliD1DEIwnx09ayfoGViZ/xbIltSJsy4c31qGm
-         S9Hg==
-X-Gm-Message-State: AOAM532C+aOXoKk5h9yx2BO01O4yHCCH/hmcAfVQPoodjUY8wj8wTDyx
-	E4nQWzmw983Q6ZgnUvG+smPk0YTScihErFYr+Bs=
-X-Google-Smtp-Source: ABdhPJxgJ3qlsWHXb4q5Q9LeHOXh1hQWbFNdZBk/6atfvyd1YyWRPGtuhT6/ZUDmb0vG1CLuyzfEgHlG2xi/itwptM8=
-X-Received: by 2002:a05:600c:1c9a:b0:39c:7db4:90c3 with SMTP id
- k26-20020a05600c1c9a00b0039c7db490c3mr13053942wms.161.1655108772491; Mon, 13
- Jun 2022 01:26:12 -0700 (PDT)
+	id 1o0Q8i-00H3KC-RV; Sun, 12 Jun 2022 16:08:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1655050116; x=1686586116;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=hz5PhftjnQ+VKN73iQs/unZiiFFho2wt5hrRHGCWT64=;
+  b=entvL28pVh8FW67M9LCcAAJwOorsI2u9XUxBmLlTLoo0hFDVVro7nhLA
+   +kfTBAE7M9gryXaHpavfzvIr7CTPN2JINLyaEmDIHw7I8RlgnVur9pOTP
+   bXx4nYMFQanm+/BsU6LNz1RC4x8o9RyPs+IjPD6BnX5/oa2wxyiF9G26c
+   XghQdRDormL4JPsPNZMHm13JA8xC9H/tDdvKFLyuPCA/TqURK1HRCI7ly
+   zqn1gTFjzeGqHPl1zIr4J0OD7DuwG2D+Zqm79fBQ4XEFuK4rgtL+QHt2E
+   OaCTq0KIumXD5laKzvlzuRKeZd/IcgvILN1BI6I0laCScOb8BXGiWtoBM
+   A==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10376"; a="275598380"
+X-IronPort-AV: E=Sophos;i="5.91,294,1647327600"; 
+   d="scan'208";a="275598380"
+Received: from fmsmga002.fm.intel.com ([10.253.24.26])
+  by fmsmga102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Jun 2022 09:08:35 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.91,294,1647327600"; 
+   d="scan'208";a="685594416"
+Received: from liuzhao-optiplex-7080.sh.intel.com (HELO localhost) ([10.239.160.132])
+  by fmsmga002.fm.intel.com with ESMTP; 12 Jun 2022 09:08:33 -0700
+Date: Mon, 13 Jun 2022 00:12:20 +0800
+From: Zhao Liu <zhao1.liu@linux.intel.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Zhao Liu <zhao1.liu@linux.intel.com>,
+	Zhenyu Wang <zhenyuw@linux.intel.com>
+Subject: Re: [PATCH 3/3] RISC-V: KVM: Add extensible CSR emulation framework
+Message-ID: <20220612161220.GA53120@liuzhao-OptiPlex-7080>
 MIME-Version: 1.0
-References: <20220608142723.103523089@infradead.org> <20220608144517.251109029@infradead.org>
-In-Reply-To: <20220608144517.251109029@infradead.org>
-From: Lai Jiangshan <jiangshanlai@gmail.com>
-Date: Mon, 13 Jun 2022 16:26:01 +0800
-Message-ID: <CAJhGHyCnu_BsKf5STMMJKMWm0NVZ8qXT8Qh=BhhCjSSgwchL3Q@mail.gmail.com>
-Subject: Re: [PATCH 21/36] x86/tdx: Remove TDX_HCALL_ISSUE_STI
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Richard Henderson <rth@twiddle.net>, ink@jurassic.park.msu.ru, mattst88@gmail.com, 
-	vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com, 
-	linus.walleij@linaro.org, shawnguo@kernel.org, 
-	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-imx@nxp.com, tony@atomide.com, khilman@kernel.org, 
-	catalin.marinas@arm.com, Will Deacon <will@kernel.org>, guoren@kernel.org, 
-	bcain@quicinc.com, Huacai Chen <chenhuacai@kernel.org>, kernel@xen0n.name, 
-	geert@linux-m68k.org, sammy@sammy.net, monstr@monstr.eu, 
-	tsbogend@alpha.franken.de, dinguyen@kernel.org, jonas@southpole.se, 
-	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
-	James.Bottomley@hansenpartnership.com, deller@gmx.de, 
-	Michael Ellerman <mpe@ellerman.id.au>, benh@kernel.crashing.org, paulus@samba.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, hca@linux.ibm.com, gor@linux.ibm.com, 
-	agordeev@linux.ibm.com, borntraeger@linux.ibm.com, svens@linux.ibm.com, 
-	ysato@users.sourceforge.jp, dalias@libc.org, davem@davemloft.net, 
-	Richard Weinberger <richard@nod.at>, anton.ivanov@cambridgegreys.com, 
-	Johannes Berg <johannes@sipsolutions.net>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, acme <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, jolsa@kernel.org, 
-	Namhyung Kim <namhyung@kernel.org>, Juergen Gross <jgross@suse.com>, srivatsa@csail.mit.edu, 
-	amakhalov@vmware.com, VMware Inc <pv-drivers@vmware.com>, 
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>, chris@zankel.net, jcmvbkbc@gmail.com, 
-	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz, gregkh@linuxfoundation.org, 
-	mturquette@baylibre.com, sboyd@kernel.org, daniel.lezcano@linaro.org, 
-	lpieralisi@kernel.org, sudeep.holla@arm.com, agross@kernel.org, 
-	bjorn.andersson@linaro.org, Anup Patel <anup@brainfault.org>, thierry.reding@gmail.com, 
-	jonathanh@nvidia.com, jacob.jun.pan@linux.intel.com, 
-	Arnd Bergmann <arnd@arndb.de>, yury.norov@gmail.com, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, linux@rasmusvillemoes.dk, 
-	rostedt@goodmis.org, pmladek@suse.com, senozhatsky@chromium.org, 
-	john.ogness@linutronix.de, paulmck@kernel.org, frederic@kernel.org, 
-	quic_neeraju@quicinc.com, josh@joshtriplett.org, 
-	mathieu.desnoyers@efficios.com, joel@joelfernandes.org, juri.lelli@redhat.com, 
-	vincent.guittot@linaro.org, dietmar.eggemann@arm.com, bsegall@google.com, 
-	mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org, 
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-omap@vger.kernel.org, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, virtualization@lists.linux-foundation.org, 
-	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org, 
-	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org, rcu@vger.kernel.org, 
-	Isaku Yamahata <isaku.yamahata@gmail.com>, kirill.shutemov@linux.intel.com
+Content-Disposition: inline
+X-Bad-Reply: 'Re:' in Subject but no References or In-Reply-To headers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220613_012617_095696_1539E60F 
-X-CRM114-Status: GOOD (  12.98  )
-X-Mailman-Approved-At: Mon, 13 Jun 2022 14:05:24 -0700
+X-CRM114-CacheID: sfid-20220612_090836_953390_28E1FD87 
+X-CRM114-Status: GOOD (  42.77  )
+X-Mailman-Approved-At: Mon, 13 Jun 2022 17:18:13 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,37 +78,375 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 8, 2022 at 10:48 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> Now that arch_cpu_idle() is expected to return with IRQs disabled,
-> avoid the useless STI/CLI dance.
->
-> Per the specs this is supposed to work, but nobody has yet relied up
-> this behaviour so broken implementations are possible.
+kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
+Zhao Liu <zhao1.liu@linux.intel.com>, Zhenyu Wang
+<zhenyuw@linux.intel.com>
+Bcc: 
+Subject: Re: [PATCH 3/3] RISC-V: KVM: Add extensible CSR emulation framework
+Reply-To: 
+In-Reply-To: <20220610050555.288251-4-apatel@ventanamicro.com>
 
-I'm totally newbie here.
+On Fri, Jun 10, 2022 at 10:35:55AM +0530, Anup Patel wrote:
+> Date: Fri, 10 Jun 2022 10:35:55 +0530
+> From: Anup Patel <apatel@ventanamicro.com>
+> Subject: [PATCH 3/3] RISC-V: KVM: Add extensible CSR emulation framework
+> X-Mailer: git-send-email 2.34.1
+> 
+> We add an extensible CSR emulation framework which is based upon the
+> existing system instruction emulation. This will be useful to upcoming
+> AIA, PMU, Nested and other virtualization features.
+> 
+> The CSR emulation framework also has provision to emulate CSR in user
+> space but this will be used only in very specific cases such as AIA
+> IMSIC CSR emulation in user space or vendor specific CSR emulation
+> in user space.
+> 
+> By default, all CSRs not handled by KVM RISC-V will be redirected back
+> to Guest VCPU as illegal instruction trap.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/include/asm/kvm_host.h      |   5 +
+>  arch/riscv/include/asm/kvm_vcpu_insn.h |   6 +
+>  arch/riscv/kvm/vcpu.c                  |  11 ++
+>  arch/riscv/kvm/vcpu_insn.c             | 169 +++++++++++++++++++++++++
+>  include/uapi/linux/kvm.h               |   8 ++
+>  5 files changed, 199 insertions(+)
+> 
+> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+> index 03103b86dd86..a54744d7e1ba 100644
+> --- a/arch/riscv/include/asm/kvm_host.h
+> +++ b/arch/riscv/include/asm/kvm_host.h
+> @@ -64,6 +64,8 @@ struct kvm_vcpu_stat {
+>  	u64 wfi_exit_stat;
+>  	u64 mmio_exit_user;
+>  	u64 mmio_exit_kernel;
+> +	u64 csr_exit_user;
+> +	u64 csr_exit_kernel;
+>  	u64 exits;
+>  };
+>  
+> @@ -209,6 +211,9 @@ struct kvm_vcpu_arch {
+>  	/* MMIO instruction details */
+>  	struct kvm_mmio_decode mmio_decode;
+>  
+> +	/* CSR instruction details */
+> +	struct kvm_csr_decode csr_decode;
+> +
+>  	/* SBI context */
+>  	struct kvm_sbi_context sbi_context;
+>  
+> diff --git a/arch/riscv/include/asm/kvm_vcpu_insn.h b/arch/riscv/include/asm/kvm_vcpu_insn.h
+> index 3351eb61a251..350011c83581 100644
+> --- a/arch/riscv/include/asm/kvm_vcpu_insn.h
+> +++ b/arch/riscv/include/asm/kvm_vcpu_insn.h
+> @@ -18,6 +18,11 @@ struct kvm_mmio_decode {
+>  	int return_handled;
+>  };
+>  
+> +struct kvm_csr_decode {
+> +	unsigned long insn;
+> +	int return_handled;
+> +};
+> +
+>  /* Return values used by function emulating a particular instruction */
+>  enum kvm_insn_return {
+>  	KVM_INSN_EXIT_TO_USER_SPACE = 0,
+> @@ -28,6 +33,7 @@ enum kvm_insn_return {
+>  };
+>  
+>  void kvm_riscv_vcpu_wfi(struct kvm_vcpu *vcpu);
+> +int kvm_riscv_vcpu_csr_return(struct kvm_vcpu *vcpu, struct kvm_run *run);
+>  int kvm_riscv_vcpu_virtual_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
+>  				struct kvm_cpu_trap *trap);
+>  
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index 7f4ad5e4373a..cf9616da68f6 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -26,6 +26,8 @@ const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
+>  	STATS_DESC_COUNTER(VCPU, wfi_exit_stat),
+>  	STATS_DESC_COUNTER(VCPU, mmio_exit_user),
+>  	STATS_DESC_COUNTER(VCPU, mmio_exit_kernel),
+> +	STATS_DESC_COUNTER(VCPU, csr_exit_user),
+> +	STATS_DESC_COUNTER(VCPU, csr_exit_kernel),
+>  	STATS_DESC_COUNTER(VCPU, exits)
+>  };
+>  
+> @@ -869,6 +871,15 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>  		}
+>  	}
+>  
+> +	/* Process CSR value returned from user-space */
+> +	if (run->exit_reason == KVM_EXIT_RISCV_CSR) {
+> +		ret = kvm_riscv_vcpu_csr_return(vcpu, vcpu->run);
+> +		if (ret) {
+> +			kvm_vcpu_srcu_read_unlock(vcpu);
+> +			return ret;
+> +		}
+> +	}
+> +
 
-The point of safe_halt() is that STI must be used and be used
-directly before HLT to enable IRQ during the halting and stop
-the halting if there is any IRQ.
 
-In TDX case, STI must be used directly before the hypercall.
-Otherwise, no IRQ can come and the vcpu would be stalled forever.
+Hi Anup, what about a `switch` to handle exit_reason?
+        switch(run->exit_reason) {
+                case KVM_EXIT_MMIO:
+                        ret = kvm_riscv_vcpu_mmio_return(vcpu, vcpu->run);
+                        break;
+                case KVM_EXIT_RISCV_SBI:
+                        ret = kvm_riscv_vcpu_sbi_return(vcpu, vcpu->run);
+                        break;
+                case KVM_EXIT_RISCV_CSR:
+                        ret = kvm_riscv_vcpu_csr_return(vcpu, vcpu->run);
+                        break;
+                case default:
+                        break;
+        }
+        if (ret) {
+                kvm_vcpu_srcu_read_unlock(vcpu);
+                return ret;
+        }
 
-Although the hypercall has an "irq_disabled" argument.
-But the hypervisor doesn't (and can't) touch the IRQ flags no matter
-what the "irq_disabled" argument is.  The IRQ is not enabled during
-the halting if the IRQ is disabled before the hypercall even if
-irq_disabled=false.
+>  	if (run->immediate_exit) {
+>  		kvm_vcpu_srcu_read_unlock(vcpu);
+>  		return -EINTR;
+> diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+> index 75ca62a7fba5..c9542ba98431 100644
+> --- a/arch/riscv/kvm/vcpu_insn.c
+> +++ b/arch/riscv/kvm/vcpu_insn.c
+> @@ -14,6 +14,19 @@
+>  #define INSN_MASK_WFI		0xffffffff
+>  #define INSN_MATCH_WFI		0x10500073
+>  
+> +#define INSN_MATCH_CSRRW	0x1073
+> +#define INSN_MASK_CSRRW		0x707f
+> +#define INSN_MATCH_CSRRS	0x2073
+> +#define INSN_MASK_CSRRS		0x707f
+> +#define INSN_MATCH_CSRRC	0x3073
+> +#define INSN_MASK_CSRRC		0x707f
+> +#define INSN_MATCH_CSRRWI	0x5073
+> +#define INSN_MASK_CSRRWI	0x707f
+> +#define INSN_MATCH_CSRRSI	0x6073
+> +#define INSN_MASK_CSRRSI	0x707f
+> +#define INSN_MATCH_CSRRCI	0x7073
+> +#define INSN_MASK_CSRRCI	0x707f
+> +
+>  #define INSN_MATCH_LB		0x3
+>  #define INSN_MASK_LB		0x707f
+>  #define INSN_MATCH_LH		0x1003
+> @@ -71,6 +84,7 @@
+>  #define SH_RS1			15
+>  #define SH_RS2			20
+>  #define SH_RS2C			2
+> +#define MASK_RX			0x1f
+>  
+>  #define RV_X(x, s, n)		(((x) >> (s)) & ((1 << (n)) - 1))
+>  #define RVC_LW_IMM(x)		((RV_X(x, 6, 1) << 2) | \
+> @@ -189,7 +203,162 @@ static int wfi_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+>  	return KVM_INSN_CONTINUE_NEXT_SEPC;
+>  }
+>  
+> +struct csr_func {
+> +	unsigned int base;
+> +	unsigned int count;
+> +	/*
+> +	 * Possible return values are as same as "func" callback in
+> +	 * "struct insn_func".
+> +	 */
+> +	int (*func)(struct kvm_vcpu *vcpu, unsigned int csr_num,
+> +		    unsigned long *val, unsigned long new_val,
+> +		    unsigned long wr_mask);
+> +};
+> +
+> +static const struct csr_func csr_funcs[] = { };
+> +
+> +/**
+> + * kvm_riscv_vcpu_csr_return -- Handle CSR read/write after user space
+> + *				emulation or in-kernel emulation
+> + *
+> + * @vcpu: The VCPU pointer
+> + * @run:  The VCPU run struct containing the CSR data
+> + *
+> + * Returns > 0 upon failure and 0 upon success
+> + */
+> +int kvm_riscv_vcpu_csr_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
+> +{
+> +	ulong insn;
+> +
+> +	if (vcpu->arch.csr_decode.return_handled)
+> +		return 0;
+> +	vcpu->arch.csr_decode.return_handled = 1;
+> +
+> +	/* Update destination register for CSR reads */
+> +	insn = vcpu->arch.csr_decode.insn;
+> +	if ((insn >> SH_RD) & MASK_RX)
+> +		SET_RD(insn, &vcpu->arch.guest_context,
+> +		       run->riscv_csr.ret_value);
+> +
+> +	/* Move to next instruction */
+> +	vcpu->arch.guest_context.sepc += INSN_LEN(insn);
+> +
+> +	return 0;
+> +}
+> +
+> +static int csr_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+> +{
+> +	int i, rc = KVM_INSN_ILLEGAL_TRAP;
+> +	unsigned int csr_num = insn >> SH_RS2;
+> +	unsigned int rs1_num = (insn >> SH_RS1) & MASK_RX;
+> +	ulong rs1_val = GET_RS1(insn, &vcpu->arch.guest_context);
+> +	const struct csr_func *tcfn, *cfn = NULL;
+> +	ulong val = 0, wr_mask = 0, new_val = 0;
+> +
+> +	/* Decode the CSR instruction */
+> +	switch (GET_RM(insn)) {
+> +	case 1:
 
-The "irq_disabled" argument is used for workaround purposes:
-https://lore.kernel.org/kvm/c020ee0b90c424a7010e979c9b32a28e9c488a51.1651774251.git.isaku.yamahata@intel.com/
+It's better to define these rounding mode.
+What about this name: #define INSN_RM_RTZ 1.
 
-Hope my immature/incorrect reply elicits a real response from
-others.
+Thanks,
+Zhao
 
-Thanks
-Lai
+> +		wr_mask = -1UL;
+> +		new_val = rs1_val;
+> +		break;
+> +	case 2:
+> +		wr_mask = rs1_val;
+> +		new_val = -1UL;
+> +		break;
+> +	case 3:
+> +		wr_mask = rs1_val;
+> +		new_val = 0;
+> +		break;
+> +	case 5:
+> +		wr_mask = -1UL;
+> +		new_val = rs1_num;
+> +		break;
+> +	case 6:
+> +		wr_mask = rs1_num;
+> +		new_val = -1UL;
+> +		break;
+> +	case 7:
+> +		wr_mask = rs1_num;
+> +		new_val = 0;
+> +		break;
+> +	default:
+> +		return rc;
+> +	};
+> +
+> +	/* Save instruction decode info */
+> +	vcpu->arch.csr_decode.insn = insn;
+> +	vcpu->arch.csr_decode.return_handled = 0;
+> +
+> +	/* Update CSR details in kvm_run struct */
+> +	run->riscv_csr.csr_num = csr_num;
+> +	run->riscv_csr.new_value = new_val;
+> +	run->riscv_csr.write_mask = wr_mask;
+> +	run->riscv_csr.ret_value = 0;
+> +
+> +	/* Find in-kernel CSR function */
+> +	for (i = 0; i < ARRAY_SIZE(csr_funcs); i++) {
+> +		tcfn = &csr_funcs[i];
+> +		if ((tcfn->base <= csr_num) &&
+> +		    (csr_num < (tcfn->base + tcfn->count))) {
+> +			cfn = tcfn;
+> +			break;
+> +		}
+> +	}
+> +
+> +	/* First try in-kernel CSR emulation */
+> +	if (cfn && cfn->func) {
+> +		rc = cfn->func(vcpu, csr_num, &val, new_val, wr_mask);
+> +		if (rc > KVM_INSN_EXIT_TO_USER_SPACE) {
+> +			if (rc == KVM_INSN_CONTINUE_NEXT_SEPC) {
+> +				run->riscv_csr.ret_value = val;
+> +				vcpu->stat.csr_exit_kernel++;
+> +				kvm_riscv_vcpu_csr_return(vcpu, run);
+> +				rc = KVM_INSN_CONTINUE_SAME_SEPC;
+> +			}
+> +			return rc;
+> +		}
+> +	}
+> +
+> +	/* Exit to user-space for CSR emulation */
+> +	if (rc <= KVM_INSN_EXIT_TO_USER_SPACE) {
+> +		vcpu->stat.csr_exit_user++;
+> +		run->exit_reason = KVM_EXIT_RISCV_CSR;
+> +	}
+> +
+> +	return rc;
+> +}
+> +
+>  static const struct insn_func system_opcode_funcs[] = {
+> +	{
+> +		.mask  = INSN_MASK_CSRRW,
+> +		.match = INSN_MATCH_CSRRW,
+> +		.func  = csr_insn,
+> +	},
+> +	{
+> +		.mask  = INSN_MASK_CSRRS,
+> +		.match = INSN_MATCH_CSRRS,
+> +		.func  = csr_insn,
+> +	},
+> +	{
+> +		.mask  = INSN_MASK_CSRRC,
+> +		.match = INSN_MATCH_CSRRC,
+> +		.func  = csr_insn,
+> +	},
+> +	{
+> +		.mask  = INSN_MASK_CSRRWI,
+> +		.match = INSN_MATCH_CSRRWI,
+> +		.func  = csr_insn,
+> +	},
+> +	{
+> +		.mask  = INSN_MASK_CSRRSI,
+> +		.match = INSN_MATCH_CSRRSI,
+> +		.func  = csr_insn,
+> +	},
+> +	{
+> +		.mask  = INSN_MASK_CSRRCI,
+> +		.match = INSN_MATCH_CSRRCI,
+> +		.func  = csr_insn,
+> +	},
+>  	{
+>  		.mask  = INSN_MASK_WFI,
+>  		.match = INSN_MATCH_WFI,
+> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> index 5088bd9f1922..c48fd3d1c45b 100644
+> --- a/include/uapi/linux/kvm.h
+> +++ b/include/uapi/linux/kvm.h
+> @@ -270,6 +270,7 @@ struct kvm_xen_exit {
+>  #define KVM_EXIT_X86_BUS_LOCK     33
+>  #define KVM_EXIT_XEN              34
+>  #define KVM_EXIT_RISCV_SBI        35
+> +#define KVM_EXIT_RISCV_CSR        36
+>  
+>  /* For KVM_EXIT_INTERNAL_ERROR */
+>  /* Emulate instruction failed. */
+> @@ -496,6 +497,13 @@ struct kvm_run {
+>  			unsigned long args[6];
+>  			unsigned long ret[2];
+>  		} riscv_sbi;
+> +		/* KVM_EXIT_RISCV_CSR */
+> +		struct {
+> +			unsigned long csr_num;
+> +			unsigned long new_value;
+> +			unsigned long write_mask;
+> +			unsigned long ret_value;
+> +		} riscv_csr;
+>  		/* Fix the size of the union. */
+>  		char padding[256];
+>  	};
+> -- 
+> 2.34.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
