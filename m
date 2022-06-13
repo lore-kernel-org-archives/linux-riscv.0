@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC253C43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 00:18:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1918DC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 00:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JP7/adxBmMt0tFpaQXgR5Sjyqw6rPyPUxPceNNOpEYg=; b=Qr2N8yOcfeOmlU
-	tlZ8mwQMGIoixASom7Db2SOaaeCr1bKflBrwm914sOrOKW83zwMvpuf6Xyqjeay6cpugvlk44iVzq
-	VSXl9MfI9oBaGrccJLwsGC+Zj0JiJ2iLYEeDZTCuvfrWug1W7lN8ZsjNvfj3dAFJ8P4TK91Pbi93a
-	7jOtd0oOAPajIaF8hUGBr1+7AVfBN/IUc8yaMtFRnR2GsNBftcMLm3/KbuVYhYvkOWn9tT9l4nnGS
-	tvY9b5ymwf7ZQ4a5uMgXI/z92skyowQyFcpCk0Cc/bGSZfv71XPDrbDdaOx9KzqigVrMAYnF9Qkqz
-	lDYCitjuZeMecxgObKyA==;
+	List-Owner; bh=SLtlatwSa7lvckJQqCsd56YPvzXw1Y7H8MRuw8qq51U=; b=faexFeFPHVMOtF
+	eVE4A2b3iy8rceJYDJntdxakarjSqSfjyxKJycBElmy7uUwS91kum6CDPqf9rs1g1/ckfTNh2Epme
+	G/pnZQenD64sdeO51vpw8znnyUymBroNxsuCwSg2jUb8OTDstZTQkWrkZLJnQ0FR0cBLlz7H4VOtj
+	DD00/MqnyvEZlWStnnkl4aoeRjcVxz6nQjGzCVYow1Jix/HkhJy0Q/VNQvrEe6BA6ysvwxm0YIfaa
+	zfjSc1H1rArVD+J8lPI03t85Hutfv4JU5TDlmItRkNDOGX/lC+lkgiljPruGil8WjiiHBD7KiWr8X
+	+bkBSezloCCWb5P42ZsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0uGF-006QZS-KG; Tue, 14 Jun 2022 00:18:23 +0000
+	id 1o0uGD-006QYm-TB; Tue, 14 Jun 2022 00:18:21 +0000
 Received: from muru.com ([72.249.23.125])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0jGW-003XR9-Lz; Mon, 13 Jun 2022 12:33:57 +0000
+	id 1o0jFs-003XIH-GP; Mon, 13 Jun 2022 12:33:18 +0000
 Received: from localhost (localhost [127.0.0.1])
-	by muru.com (Postfix) with ESMTPS id 07F638191;
-	Mon, 13 Jun 2022 12:29:14 +0000 (UTC)
-Date: Mon, 13 Jun 2022 15:33:54 +0300
+	by muru.com (Postfix) with ESMTPS id B3AA88125;
+	Mon, 13 Jun 2022 12:28:30 +0000 (UTC)
+Date: Mon, 13 Jun 2022 15:33:10 +0300
 From: Tony Lindgren <tony@atomide.com>
 To: Peter Zijlstra <peterz@infradead.org>
 Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
@@ -85,16 +85,16 @@ Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
 	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
 	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
 	rcu@vger.kernel.org
-Subject: Re: [PATCH 12/36] cpuidle,omap2: Push RCU-idle into driver
-Message-ID: <YqcusjKzpN/d0qFf@atomide.com>
+Subject: Re: [PATCH 10/36] cpuidle,omap3: Push RCU-idle into driver
+Message-ID: <YqcuhiPVqktEpZxy@atomide.com>
 References: <20220608142723.103523089@infradead.org>
- <20220608144516.677524509@infradead.org>
+ <20220608144516.552202452@infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220608144516.677524509@infradead.org>
+In-Reply-To: <20220608144516.552202452@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220613_053356_796960_FD7DB792 
-X-CRM114-Status: UNSURE (   4.70  )
+X-CRM114-CacheID: sfid-20220613_053316_629191_BB0C7EF4 
+X-CRM114-Status: UNSURE (   4.66  )
 X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Mon, 13 Jun 2022 17:18:13 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
@@ -114,10 +114,8 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 * Peter Zijlstra <peterz@infradead.org> [220608 14:42]:
-> Doing RCU-idle outside the driver, only to then temporarily enable it
-> again, some *four* times, before going idle is daft.
-
-Maybe update the subject line with s/omap2/omap4/, other than that:
+> Doing RCU-idle outside the driver, only to then teporarily enable it
+> again before going idle is daft.
 
 Reviewed-by: Tony Lindgren <tony@atomide.com>
 Tested-by: Tony Lindgren <tony@atomide.com>
