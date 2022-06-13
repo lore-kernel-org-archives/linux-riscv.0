@@ -4,119 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E948CC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 07:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C783AC43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 08:01:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EajywYwESj7sFLujphxtBzwoqdEKa92lv91cBO2poSU=; b=mc4/DRYkLP2g0C
-	RQS/ISVW1HcQInVVByww046T+dDlq1DmIXbmn+nilxb0qwbW+jUq2tb/dCG7hP+FxPhxNIM1jITjF
-	Wif5NUcgaZ23dR0nFwSrVvT8PvylwmtmwlvPbnv/hhkX0klrakWMMwslTAqje+aW/p140bYxrwYN+
-	ZgWB5R2sUenG+NaFq+Pvxf6NSa9gk90oYxNn1bdScBik0x42S8b3liEksR7HI3zXytaMGGdCIyQX9
-	J1ZfaMM/64bLTmONRMUT/S8b4t6rq7pg4i5avbM92s9UcnrdFxjztvRhNuc0MH0ofm7AFaLiuXHqp
-	JPUQJIh5tltoPe4oS5+Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=F03xUFuAlz/bzxqCffb+syS+2i4BltHuPRvvMbo3avA=; b=ONp3pHHZLgr44/
+	ZmQXbtApaQnLHw214jCmTvW2q/M0p9xliF8yxwpXJ9O3U4NTmc4rIQ9GxSIDYfhH1Uw1Jh7vJxn2/
+	LUBfKAg1iwhJPTD4U2myDYytZQTYOoyA6nnvIhZm4cUneBP5tjE6JX6anXzfGmWvZ/bqR/dYp/puO
+	fJ+XWb9X5T284LV2rCzj2rhTDllHmEzNPoLn1loickDFwVF1jWutx/in9iB0ieJ+PTqGNR+YIe5z9
+	FBsXSngAUSbl6jS0ROPIUNv3km3GpMKvMlipsdkcTXWmCQimiEtyHVBwSB/q2G2fyk+xFUGE2lOn/
+	EnQzyuJOTyZVU4TfjdAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0eJy-001vhd-53; Mon, 13 Jun 2022 07:17:10 +0000
-Received: from mail-bn1nam07olkn2081e.outbound.protection.outlook.com ([2a01:111:f400:7eb2::81e] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1o0f0G-0026b6-M5; Mon, 13 Jun 2022 08:00:52 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0eJu-001vf8-Gc
-	for linux-riscv@lists.infradead.org; Mon, 13 Jun 2022 07:17:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=RY7cG9SD347hXcToCGCxyWBcAkL6AYJJOtKtCQ83x7Le4upjMBUxnHmz3RwYpGFB7KYScJBdK7/7tgLyusFhoRTb3CJ1vbBmmTtXZR26nnIM6m8rzlDZ1TIoQz1I/4nv4iXiu5PQW45J5YraInPwJ7mVYduzsRMnE+QwVC4F4cgv7cbL+JEXH3IJCVdHT+G1zlAyy9tEZTGE7hYRY+/T4VcgfrATo/V22YlVD0zSZUoj5ma20KfoPcps5aPfQBX2i8TxXOfekE8a0ov6FJG08VFkbnNgx8Lx7+/y+G1G2JPStArVJBeM7L0Max0XoYna/+8UlbpqS4AYR0J5WUnKsQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=F/7DaI+9Ht9GxO9JpXhMlBYIN0g2synHQI9P3OqNzeI=;
- b=Wmu+oXIOFY/sgdNSf//HOLikEakRG7JzdcU2u26105XacRY3ibBFRfwWQa+6yUl8vrZr9ms2dcnZHN9GYT8XcZmLxIrCPBftx98I4Qu0U7jWBEA6lJIeVo2KOeGpQoeUbfC5JiFaEkkuytLVfLxCS5mO127VhoHxswzcvfcXygP1gjYwO6UnKnNxCEVcnm97BB+nlIOJ931EpkDZResFt4sXe6MiObqKfBVt7MN3f1hNyDm31IVUZK5XYhMVYpyPI7+XjcpuAjwqQfhNoDx0owpje/9rddmn8Fui/O0QQVrOtJYhdXmuDlUHUVj+PyQ3XJMMlrEmoOYQZsq+EViFxw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=F/7DaI+9Ht9GxO9JpXhMlBYIN0g2synHQI9P3OqNzeI=;
- b=M29uPFlo7p7VloeiolveqGGOiuct0fABsbYPVMpSWRdzpb/W+2pFJ6qgzgUo+Er9d6ogXkifpuQeDyJ0YjKtZm2LxAhKirKif1pPVmnTrH6aYaQHgau+Alxsxjv5xcEnlFbI2kMmVki++fD0S448BM70BwxwgAgfXASc2vPEwYUaDc0S8vkFAoR1OaJLUZeIJZyOYUGVpxvPlvJ4FeGTsn3yL/sZ83odmzicUb4d+2XnAqiz2V4XaoSvRA/7c04Ux+g8qCxrM/HapPoDdyWQfUtsHkVPeS3H5OSvmReaj52GUmbS42TvE/9Nt4AL/YqdIiMCYSqV31V3IIYBi7R7iw==
-Received: from PH7PR14MB5594.namprd14.prod.outlook.com (2603:10b6:510:1f6::17)
- by BY5PR14MB4216.namprd14.prod.outlook.com (2603:10b6:a03:1f1::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5332.15; Mon, 13 Jun
- 2022 07:17:02 +0000
-Received: from PH7PR14MB5594.namprd14.prod.outlook.com
- ([fe80::ad4e:5917:88d1:c56f]) by PH7PR14MB5594.namprd14.prod.outlook.com
- ([fe80::ad4e:5917:88d1:c56f%7]) with mapi id 15.20.5332.014; Mon, 13 Jun 2022
- 07:17:02 +0000
-From: Celeste Liu <coelacanthus@outlook.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Celeste Liu <coelacanthus@outlook.com>,
-	Xiongchuan Tan <xc-tan@outlook.com>,
-	Wang Ruikang <dramforever@live.com>,
-	Ruizhe Pan <c141028@gmail.com>,
-	Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yash Shah <yash.shah@sifive.com>
-Subject: [PATCH v3] riscv: don't allow write but not read page mapping request in mmap
-Date: Mon, 13 Jun 2022 15:16:47 +0800
-Message-ID:  <PH7PR14MB55944401F3CECBF340F1DCB2CEAB9@PH7PR14MB5594.namprd14.prod.outlook.com>
-X-Mailer: git-send-email 2.36.1
-X-TMN: [3SVmB70UxyosvBczflPqGy79onvokkTkcQl6KO3MFn6qtbVNxlZT/YhohBDV8SCT]
-X-ClientProxiedBy: TYAPR04CA0010.apcprd04.prod.outlook.com
- (2603:1096:404:15::22) To PH7PR14MB5594.namprd14.prod.outlook.com
- (2603:10b6:510:1f6::17)
-X-Microsoft-Original-Message-ID:  <20220613071647.70641-1-coelacanthus@outlook.com>
+	id 1o0ezy-0026Oa-UR; Mon, 13 Jun 2022 08:00:37 +0000
+Received: from dggpemm500024.china.huawei.com (unknown [172.30.72.56])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4LM3rl0Nk2zDqqJ;
+	Mon, 13 Jun 2022 16:00:07 +0800 (CST)
+Received: from dggpemm500014.china.huawei.com (7.185.36.153) by
+ dggpemm500024.china.huawei.com (7.185.36.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Mon, 13 Jun 2022 16:00:27 +0800
+Received: from localhost.localdomain (10.175.112.125) by
+ dggpemm500014.china.huawei.com (7.185.36.153) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Mon, 13 Jun 2022 16:00:25 +0800
+From: Wupeng Ma <mawupeng1@huawei.com>
+To: <corbet@lwn.net>, <will@kernel.org>, <ardb@kernel.org>,
+	<catalin.marinas@arm.com>
+CC: <tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, <hpa@zytor.com>,
+	<dvhart@infradead.org>, <andy@infradead.org>, <rppt@kernel.org>,
+	<akpm@linux-foundation.org>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <paulmck@kernel.org>,
+	<keescook@chromium.org>, <songmuchun@bytedance.com>, <rdunlap@infradead.org>,
+	<damien.lemoal@opensource.wdc.com>, <swboyd@chromium.org>,
+	<wei.liu@kernel.org>, <robin.murphy@arm.com>, <david@redhat.com>,
+	<mawupeng1@huawei.com>, <anshuman.khandual@arm.com>,
+	<thunder.leizhen@huawei.com>, <wangkefeng.wang@huawei.com>,
+	<gpiccoli@igalia.com>, <chenhuacai@kernel.org>, <geert@linux-m68k.org>,
+	<vijayb@linux.microsoft.com>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-efi@vger.kernel.org>, <platform-driver-x86@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v4 1/6] efi: Make efi_find_mirror() public
+Date: Mon, 13 Jun 2022 16:21:42 +0800
+Message-ID: <20220613082147.183145-2-mawupeng1@huawei.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220613082147.183145-1-mawupeng1@huawei.com>
+References: <20220613082147.183145-1-mawupeng1@huawei.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id: 9d3e0db2-9c21-43a3-777e-08da4d0cb626
-X-MS-Exchange-SLBlob-MailProps: 	ajGO1BpsH8pa1ecrZJr5VBzeO1LMF7ZW+cJa9PjbdjjsNWj5/tCvL449Wn2JrtC5+nP8OOjk8JPqBbk/spy30FimV925du8jdq5modm7l/IcXPxsl+YHaXaKnA5KBSxf32H4uFwXwTf6An/3fLBxp8lgSfzJPQQgsuRuTWKm0XGGOZ9uocWj7q+uTI4IoDISONwuA9GlW0gYZjm4VNbf8CyvIhbDpm6sJlaxtLGwv90a5Dh8VaJ2+ieFSK4VbXCu5x+kM8lg0yBPj05iiCGvag64I6Bw6oor9bdCvf+/bayPJpck9DhJbrabsKpn9k233ILPL7JqdNbAdLCjoXpWQpXxviN9+VmNqAJWbvKwD9SeoIzH4ik8bGtBlDB2CbFwtmwX+XCHSsZJ7qs/odg5eBQrr3W7hTqaoC2SvoC5Jd5VbrstiS9cfeCqcwgwgOX/kx7ZaRsk5nvf65USv9eSqXsvA/HQbi4Q9KqECdFdazVXnCaJk/zxzZmhKNPYxlU+0TI+f/sqs9WLTX6EYDZ2kxFFRiaexW+yPCRAH2OQl8v9ObdJkUUHKp8HM4rdB8DvcLy+4iw5qZMH1GqhU+NutqPUBnIlp/6VX4QzCmcDLgaRmh4LcxIh9bBVMGKduFOE1WATcwvd6he66Sb+jLbtz2QbkYH0eYPTV1Mp3BKGFRLQVv1Z472h/+Kb8x7LnK2rWEq40YqAqnUVFjyLVvYA5MIZic9MkMGHBPSTo0EPH6LSsrhJK4/epCxyq7SEbZpqiburWpPlCLAmX95XeMzMsTU0WRJeVXBWUAosVM7FaSlB3t8++SMHE4lWLhc0sDKf02S7AV1WXm/2pbWXNaAshgTiixY7Kk2Ot6M6OxpEMf8=
-X-MS-TrafficTypeDiagnostic: BY5PR14MB4216:EE_
-X-Microsoft-Antispam: BCL:0;
-X-Microsoft-Antispam-Message-Info: 	Oz9sTQVphsNF+uDmvvyZZjS/w79GK0fWKIP+ddn8WNzvA42hmlCgG/Xh7d6ppBBrYc4rIB3bU3+P6XFZ+qlU5RGk6pnpkM3360RYOlGPkcw58VpefVGG2WlLVbQMpX2siZme4yLBdEX85CUjyqkYwbeBQISMrab6F+GCXzyJ6Lr/J5irsYPeBJBAvQDri1WCp59229Mc34QwCDmlIFvBjgEzNWzIT/5/yQzQBd8+QKxyCQC+l9EZBc2zy2Fshlp2FWcRRYs1/i4QkzPpeihRKP30QFYz7dGbrcQlZLTTYWl/xS9fcJLpmj3cBZ1N/1SmW/xJ8tqWGKA0WM2Qp6kdgw1pioDOhbu1x2p1tbbW/VdYxOzql9426n9jkQ478jXvAK4wC3zZY71ObRK8jDt+qBQdg3eq4fOTmcEJqM5h86dDiSQTX0/K+JhD/ScZjl8d9DTevzm4FQf1iSpk42WPacl0NmPLg1k1seFRs3m5OIBWSlGmguw7AnqZVypkg6vGeZ3bDmYt+/k/i/meRS64kaEbUNkKsH7xT0dfYnFffpve8jbVHpGvZd41JPXe7VKX6FeSphd1Avxj/SdDThRNIAwvP8eJ0AWhrl1FiWD1HRBwdqQHR8TIjTQIyiSuXvT3IE//bU5GoEB9nqoXWp6qPD9vgahmJdSFXwcadGPJLxg=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?HKe4cTi8Onrw4tfwjWck97/QYRcNCW0+K+Fwb2kVuscvIqCnMozpNrKc5kBp?=
- =?us-ascii?Q?S/MCqBi2Im+Kz0eYloQXXvb52dijakA0QSCCTjrPUuBdDDOuT9YwjeCrxiV8?=
- =?us-ascii?Q?ra4zrWT6tgcaupcpvWWUWf7dfbfMYb4D5U4MPk+5nWGD3fiN/i6lk+qE+uzW?=
- =?us-ascii?Q?08zhkonBwOaNVYiXLnjhxBRkjUNUJjG2LOW40DHr6HSETubF5j6kLgk1Y4IL?=
- =?us-ascii?Q?JbfVsOav3DxxlvI8CL4FAbFf/hz+uHzVTZihgIw0hhrnF2uA9XXG4sofUkpZ?=
- =?us-ascii?Q?pK2A/Z+jPoAoh97es285YfykM6ayCRPnBC6eGTY5WICDGKnjQvYr9+IR5TRA?=
- =?us-ascii?Q?RTToTrqjGA6zacnixQJcMcoQBwXdzXsO6ycLKus1q3wIT83mKQAgmqz4FW+p?=
- =?us-ascii?Q?ZjrWV8IR4dLJ2RvSLr9n7NjU8aKWOTlU7uN0PEhluaYay1BAFqXbBMfe6EIS?=
- =?us-ascii?Q?hzSCiX6qGLCwgJ9gvj2pHX3vyk2wGI4uXdlg1qJgLI9E8lnCx6SfaYFcVgIC?=
- =?us-ascii?Q?4MpdBONH1pxaZm3JPwq369pJvPssdL2lSJL7+xsfzH3ytVkJoTfrHDkDExmY?=
- =?us-ascii?Q?koEUg6Bs5RS8Z4OozfpPS1zfRYCe/wb1i3TimRLVRszX7f9O4GFIgV7/kXX4?=
- =?us-ascii?Q?S/YxaX44jx5SoDjafuR1QEKkaAFHODViPilC4x8X94nFv2hsl+36i5gbb+Rg?=
- =?us-ascii?Q?9eWz4ujf7pSfijULAGsehuBS0iIRCn+wU43KlWkL0x8NVMXyy/AoB1ahxukX?=
- =?us-ascii?Q?L2OZwSokTJwunNBxyUf5pRPlOGMzFBL53rXg9WrOPkILNn2wEGH07UNx259I?=
- =?us-ascii?Q?1U9FfH6xN3Kx5se6PZHmvWuVT9GotL3rYCbOoMDjJuGwvOjdWzw0sWG+G+hy?=
- =?us-ascii?Q?0/mFbN3awssHHIrF8HIhVnv95iVPdqtrB+wnDgwIY3ba4lEmLB4U2gALTgua?=
- =?us-ascii?Q?MxMVtz1aqW7GyDl+zmtgVsPrbA8vSMoaEfH5iCf/r4zTq+i6gqdv2gPoI3SL?=
- =?us-ascii?Q?Vj+5/n0BVJ9O14ZLt/LmqAXRtenmjrxpPQ7IpVIP/QpHA1maQv9Pjy4vvXJ0?=
- =?us-ascii?Q?T59alBSSPxB2CuJsXU3acy+v9kNZNWePwdpPZq8pj+ZKRoUS0HcczXsjjyc0?=
- =?us-ascii?Q?nN3/7aZYiiZ/H9BxIFt/Z8N+CK5d5sg61LXBJml6qBIAbspnb74Lz9u3YZEM?=
- =?us-ascii?Q?jJJdrBH3ghsIJ2WADk2ngqDWEmS0LE21lnbjkvr3myNztWfwyUEe6/kVdrFB?=
- =?us-ascii?Q?9U90IFmipV0kDeAqYlSecldWO04Je/8c8UKji1+VuXf4FCzGogWk/5Ll8CEC?=
- =?us-ascii?Q?haquL906G2c9qd4koVj1PKZxfuBROiOtayNw/1G90LEn4DNAPgT5YBnFS3vd?=
- =?us-ascii?Q?5gi2MF87LHBRFTNM40ra8oppKk3yW0DMHm1rRyqreJsUTxLhNkgckjwuMXXR?=
- =?us-ascii?Q?M7HRYvbwIj5E6faHNDTVO5Vxo9Sx9RCWQtNJxiG4OmRY23HEVh760gS+xHB0?=
- =?us-ascii?Q?z6pr1XqLvPv+gJZ8kUNomr7XgFj6FaoxZKws?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9d3e0db2-9c21-43a3-777e-08da4d0cb626
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR14MB5594.namprd14.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2022 07:17:02.0068
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 	00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR14MB4216
+X-Originating-IP: [10.175.112.125]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ dggpemm500014.china.huawei.com (7.185.36.153)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220613_001706_904459_0740D1F1 
-X-CRM114-Status: GOOD (  11.41  )
+X-CRM114-CacheID: sfid-20220613_010035_369959_22D271CF 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,68 +83,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When Xiongchuan Tan tries to run one of libaio's tests[1], it encounters a strange
-behavior: for the same PROT_WRITE only mapping, there was a discrepancy
-in whether it could be read before and after writing (readable before
-writing, unreadable after writing). After some investigation,
-I found that mmap allows write only mapping, an undefined behavior, on RISC-V.
+From: Ma Wupeng <mawupeng1@huawei.com>
 
-As mentioned in Table 4.5 in RISC-V spec Volume 2 Section 4.3 version
-"20211203 Privileged Architecture v1.12, Ratified"[2], the PTE permission
-bit combination of "write+!read" is "Reserved for future use.". Hence, don't
-allow such mapping request in mmap call. In the current code[3], write+exec
-only is marked as invalid, but write only is not marked as invalid.
+Commit b05b9f5f9dcf ("x86, mirror: x86 enabling - find mirrored memory
+ranges") introduce the efi_find_mirror function on x86. In order to reuse
+the API we make it public in preparation for arm64 to support mirrord
+memory.
 
-This patch refines that judgment.
-
-[1]: https://pagure.io/libaio/blob/1b18bfafc6a2f7b9fa2c6be77a95afed8b7be448/f/harness/cases/5.t
-[2]: https://github.com/riscv/riscv-isa-manual/releases/download/Priv-v1.12/riscv-privileged-20211203.pdf
-[3]: modified in commit e0d17c842c0f824fd4df9f4688709fc6907201e1
-     (https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e0d17c842c0f824fd4df9f4688709fc6907201e1)
-
-Reported-by: Xiongchuan Tan <xc-tan@outlook.com>
-Co-developed-by: Wang Ruikang <dramforever@live.com>
-Signed-off-by: Wang Ruikang <dramforever@live.com>
-Co-developed-by: Ruizhe Pan <c141028@gmail.com>
-Signed-off-by: Ruizhe Pan <c141028@gmail.com>
-Signed-off-by: Celeste Liu <coelacanthus@outlook.com>
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Cc: linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: Guo Ren <guoren@kernel.org>
-Cc: Yash Shah <yash.shah@sifive.com>
+Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
+Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 ---
-v2: This version adds a link to the referenced spec, and reference of the 
-previous related modification.
-v3: fix DCO signoff name and add comment for reason
+ arch/x86/include/asm/efi.h  |  4 ----
+ arch/x86/platform/efi/efi.c | 23 -----------------------
+ drivers/firmware/efi/efi.c  | 23 +++++++++++++++++++++++
+ include/linux/efi.h         |  3 +++
+ 4 files changed, 26 insertions(+), 27 deletions(-)
 
- arch/riscv/kernel/sys_riscv.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index 9c0194f176fc..e55281b497cf 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -18,9 +18,14 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
- 	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
- 		return -EINVAL;
+diff --git a/arch/x86/include/asm/efi.h b/arch/x86/include/asm/efi.h
+index 71943dce691e..eb90206eae80 100644
+--- a/arch/x86/include/asm/efi.h
++++ b/arch/x86/include/asm/efi.h
+@@ -383,7 +383,6 @@ static inline bool efi_is_64bit(void)
+ extern bool efi_reboot_required(void);
+ extern bool efi_is_table_address(unsigned long phys_addr);
  
--	if ((prot & PROT_WRITE) && (prot & PROT_EXEC))
--		if (unlikely(!(prot & PROT_READ)))
--			return -EINVAL;
-+	/*
-+	 * As mentioned in Table 4.5 in RISC-V spec Volume 2 Section 4.3 version
-+	 * "20211203 Privileged Architecture v1.12, Ratified", the PTE permission
-+	 * bit combination of "write+!read" is "Reserved for future use.". Hence, don't
-+	 * allow such mapping request in mmap call.
-+	 */
-+	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
-+		return -EINVAL;
+-extern void efi_find_mirror(void);
+ extern void efi_reserve_boot_services(void);
+ #else
+ static inline void parse_efi_setup(u64 phys_addr, u32 data_len) {}
+@@ -395,9 +394,6 @@ static inline  bool efi_is_table_address(unsigned long phys_addr)
+ {
+ 	return false;
+ }
+-static inline void efi_find_mirror(void)
+-{
+-}
+ static inline void efi_reserve_boot_services(void)
+ {
+ }
+diff --git a/arch/x86/platform/efi/efi.c b/arch/x86/platform/efi/efi.c
+index 1591d67e0bcd..6e598bd78eef 100644
+--- a/arch/x86/platform/efi/efi.c
++++ b/arch/x86/platform/efi/efi.c
+@@ -108,29 +108,6 @@ static int __init setup_add_efi_memmap(char *arg)
+ }
+ early_param("add_efi_memmap", setup_add_efi_memmap);
  
- 	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
- 			       offset >> (PAGE_SHIFT - page_shift_offset));
+-void __init efi_find_mirror(void)
+-{
+-	efi_memory_desc_t *md;
+-	u64 mirror_size = 0, total_size = 0;
+-
+-	if (!efi_enabled(EFI_MEMMAP))
+-		return;
+-
+-	for_each_efi_memory_desc(md) {
+-		unsigned long long start = md->phys_addr;
+-		unsigned long long size = md->num_pages << EFI_PAGE_SHIFT;
+-
+-		total_size += size;
+-		if (md->attribute & EFI_MEMORY_MORE_RELIABLE) {
+-			memblock_mark_mirror(start, size);
+-			mirror_size += size;
+-		}
+-	}
+-	if (mirror_size)
+-		pr_info("Memory: %lldM/%lldM mirrored memory\n",
+-			mirror_size>>20, total_size>>20);
+-}
+-
+ /*
+  * Tell the kernel about the EFI memory map.  This might include
+  * more than the max 128 entries that can fit in the passed in e820
+diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
+index 860534bcfdac..79c232e07de7 100644
+--- a/drivers/firmware/efi/efi.c
++++ b/drivers/firmware/efi/efi.c
+@@ -446,6 +446,29 @@ static int __init efisubsys_init(void)
+ 
+ subsys_initcall(efisubsys_init);
+ 
++void __init efi_find_mirror(void)
++{
++	efi_memory_desc_t *md;
++	u64 mirror_size = 0, total_size = 0;
++
++	if (!efi_enabled(EFI_MEMMAP))
++		return;
++
++	for_each_efi_memory_desc(md) {
++		unsigned long long start = md->phys_addr;
++		unsigned long long size = md->num_pages << EFI_PAGE_SHIFT;
++
++		total_size += size;
++		if (md->attribute & EFI_MEMORY_MORE_RELIABLE) {
++			memblock_mark_mirror(start, size);
++			mirror_size += size;
++		}
++	}
++	if (mirror_size)
++		pr_info("Memory: %lldM/%lldM mirrored memory\n",
++			mirror_size>>20, total_size>>20);
++}
++
+ /*
+  * Find the efi memory descriptor for a given physical address.  Given a
+  * physical address, determine if it exists within an EFI Memory Map entry,
+diff --git a/include/linux/efi.h b/include/linux/efi.h
+index 7d9b0bb47eb3..53f64c14a525 100644
+--- a/include/linux/efi.h
++++ b/include/linux/efi.h
+@@ -872,6 +872,7 @@ static inline bool efi_rt_services_supported(unsigned int mask)
+ {
+ 	return (efi.runtime_supported_mask & mask) == mask;
+ }
++extern void efi_find_mirror(void);
+ #else
+ static inline bool efi_enabled(int feature)
+ {
+@@ -889,6 +890,8 @@ static inline bool efi_rt_services_supported(unsigned int mask)
+ {
+ 	return false;
+ }
++
++static inline void efi_find_mirror(void) {}
+ #endif
+ 
+ extern int efi_status_to_err(efi_status_t status);
 -- 
-2.36.1
+2.25.1
 
 
 _______________________________________________
