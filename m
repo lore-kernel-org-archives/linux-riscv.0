@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8457AC43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 09:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9D21C43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 09:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NWe98ppVBj7A0G3A3+ZRZAZfJHO3HYf4MmxDRIUmSLM=; b=HUvukXV8Tyfx3O
-	cuYKOapBOjl0jCASlCIbMyoRL2iZi4maQTEoSpl6avIJ4Mm+O2wCT7SyCgUZ/c5LQexLfybqnfHX4
-	wFqbZOaW3o+DpvR3iV6TK1/7yTksbiXMtQwSYz/TyaIp1PLQhk9rKI19quYjLO0hQhQ5u11BwI6R2
-	S53GjiGfylZztJ8QqQPugShHo9FWcxOazcT41gNubA1j7BiTNIcvKdaLs41aDOmM+0w/HZHDXPy/B
-	iuTpsDKyY0TO1wV0+6K+i8TxF+a+N2gNGKsPVigrl6Hg5xG535LRS4s8166NNpoSfl6/FFFz9aLbg
-	SE9n3vCG8sZnMP8Pv4/Q==;
+	List-Owner; bh=LY3gG2VjDVqdImeHpksIXIkH3Z1j8eFEeVzQTQzM0wI=; b=Mhsha846r/KzIS
+	PAUJ20UA6v0DPBDtt31YzGGUwyJ+U+L8RQASyveQCEQ+N1uumoUpaq6Oy37LshHYRoTiPgU5r8lP+
+	1qN3H6BsXXVPfSdzornsPOwihZfZhnX0aSXXZ9q+8jh9LQrkMl7nmlYX+ur5Otidj0YWo2oBJkdAz
+	QfDb3MIrAggtPkwmWEdDcYFjMjwDV0XgzC836bTBu1vzJdtu/TxAyVIx/lJdziA1q0yQooKMgVvuJ
+	N5cULYheSTHc7kz0BPYJ22G5Io8F0RKTVmKRNSI1pyqPh44KzYAjIsc5hda0m1HKSq4RVdAlkvTSR
+	wL0RUziZvoWGROELK8WQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0gQF-002YU6-FL; Mon, 13 Jun 2022 09:31:47 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1o0ga2-002aoc-Jf; Mon, 13 Jun 2022 09:41:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0gQB-002YRR-MD
-	for linux-riscv@lists.infradead.org; Mon, 13 Jun 2022 09:31:45 +0000
-Received: by mail-wr1-x430.google.com with SMTP id q15so6303631wrc.11
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Jun 2022 02:31:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=/OqFsaupcKkbN5ZhwB7cTTOB/jJJt4KZYzQeTPC35+8=;
-        b=4FIRDPlyNK+WMh7PnfjoRzqlLl6R8KV6uBkS/FTTx0qa70c8hfiqGl6hXSnxRKX4g5
-         M2td+xg4QJnj+FOdx0QYC/F4PW/x9pGstgIMkvb/2FpiaMbxw1+rzbaZK2FrF+hW4NTb
-         y5F4eHtHLtCifjnZAfhL6VCr+RXXM8dV1h3FML7iQJ6vmkiZvvI8AzeSZtvGSCHUgG6o
-         kB5zQBUTJ4yylxGEnVe9GJ57fuyClEacPwME303K79FAzK29Zy4rPhFsD+hLjZkTT100
-         TIoN1irlZbmAyzA4JMLK2A2Vpv5bzPvU1cx9Gj+Cz6C3+CL/LFLV9pakLe+Ga74LTxDG
-         jAIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=/OqFsaupcKkbN5ZhwB7cTTOB/jJJt4KZYzQeTPC35+8=;
-        b=vNNiK25QvATToOqRWOps2wnmh1QCKhYN9rP5cqBLxd5m+td0XDioXA7BreK0IBJFIN
-         WYhMdSawSBnqME29Timgr497Bq0NXDR2rN0Qq0/EnQ2CRuhr0mulQtOFMsCqYv7J2qo5
-         y8rl3WEuRE5qi+5b7zRfqMLbp+aUOTSzE7wS8eUFJpiFl5WSwlGeDrKsrPoouIJSPxcf
-         0GGDKT20+5GVDDXMUUGzIilffaA23238/LXfi5N7chv2Cr7wsxu7OgQusKRn1mgawJzN
-         c8jMUzNwdpa9MHMifp9eI40E0wmbZMjITz42oCPkEIey8ur0TWFWLlF+wK88OSAciVnI
-         GLMg==
-X-Gm-Message-State: AOAM531LO1DKH83dLdQAdnqcE0/RsmeCpLYfGlzkEkcu1Gy5gIOsXrop
-	ivkPF4DxFP9iY1DOmj89QO66syYpvT15SVInBMWV+Q==
-X-Google-Smtp-Source: ABdhPJyJxuBV/uJZZhzzNbRjrZxQLROU+4Ucqqbti5noEvVDrdiFWuCWiOyFcxZFCb/sBhiP8wYqX4LQ++GrBZJzJPc=
-X-Received: by 2002:a05:6000:1f18:b0:20f:e61b:520e with SMTP id
- bv24-20020a0560001f1800b0020fe61b520emr56401364wrb.214.1655112699798; Mon, 13
- Jun 2022 02:31:39 -0700 (PDT)
+	id 1o0gZq-002ak4-Ey; Mon, 13 Jun 2022 09:41:43 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D0FA36137A;
+	Mon, 13 Jun 2022 09:41:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DE3AC3411C;
+	Mon, 13 Jun 2022 09:41:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1655113301;
+	bh=3puFac3kf4giRZYoO/LUKKimJuAXXCEnp+VaAFnVp0o=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=EI79bY9mlA9e+vYEx3uUUMNO6sq8+/PDdG2zOjbwdzhpBT5leidQSOyGozcRT3Ghb
+	 o5ssxRmDK/wronkeLdXsP/EtgKSNYhpVUDSKuo+aULIi8qsZpvwOQvf4MJXUvkqCRP
+	 2KwNLhRCBMaFJW2XwbGPwj7v0j7/aRmSzBjskTIl1fT+5riJV9/6hkIB2hDoidLE8h
+	 3tYi0lftDAzhGMOosxrgU8tJZer3KygMzLqjr8gJ5irMmV4lVlj9kDhRX2evUc0fXk
+	 LbGk1oFBMga+929A47QJVIYO6FMcnq0H8XwAGKBcYv4mpD8mSp69g9yTmqlumu7DG2
+	 oy3cQxwTwh6fw==
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-fe15832ce5so7683341fac.8;
+        Mon, 13 Jun 2022 02:41:41 -0700 (PDT)
+X-Gm-Message-State: AOAM533hocNedCIvmgYxZ7neIqyX20ITnkVQMww/J3vsTXVky8CgcI1j
+	EoLg48XFQH1vCCkTiZVaJ56R479oQcRdcRYeG/k=
+X-Google-Smtp-Source: ABdhPJzJUE5eQIFQw1wDEuVAU3BsFccZwzLeam8ZSG5GUbrm7+bJ19w2hvDgq/MdVlhPhpH4bgTqWjWDxk7foXjlYlM=
+X-Received: by 2002:a05:6871:5c8:b0:f3:3c1c:126f with SMTP id
+ v8-20020a05687105c800b000f33c1c126fmr7222252oan.126.1655113289866; Mon, 13
+ Jun 2022 02:41:29 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220613085307.260256-1-alexandre.ghiti@canonical.com>
-In-Reply-To: <20220613085307.260256-1-alexandre.ghiti@canonical.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 13 Jun 2022 15:01:28 +0530
-Message-ID: <CAAhSdy1gr_WvCJUMXMwtZUux9qBsW-b_LGFg4=tdnkv5b538sg@mail.gmail.com>
-Subject: Re: [PATCH -fixes v2] riscv: Fix missing PAGE_PFN_MASK
-To: Alexandre Ghiti <alexandre.ghiti@canonical.com>, Palmer Dabbelt <palmer@dabbelt.com>
-Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>
+References: <20220613082147.183145-1-mawupeng1@huawei.com> <20220613082147.183145-3-mawupeng1@huawei.com>
+In-Reply-To: <20220613082147.183145-3-mawupeng1@huawei.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 13 Jun 2022 11:41:17 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXEWRXKZdLz3C2MofKXgx6yadSOQru979brm3r_sgBdMgw@mail.gmail.com>
+Message-ID: <CAMj1kXEWRXKZdLz3C2MofKXgx6yadSOQru979brm3r_sgBdMgw@mail.gmail.com>
+Subject: Re: [PATCH v4 2/6] arm64/mirror: arm64 enabling - find mirrored
+ memory ranges
+To: Wupeng Ma <mawupeng1@huawei.com>
+Cc: corbet@lwn.net, will@kernel.org, catalin.marinas@arm.com, 
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+	dvhart@infradead.org, andy@infradead.org, rppt@kernel.org, 
+	akpm@linux-foundation.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, paulmck@kernel.org, keescook@chromium.org, 
+	songmuchun@bytedance.com, rdunlap@infradead.org, 
+	damien.lemoal@opensource.wdc.com, swboyd@chromium.org, wei.liu@kernel.org, 
+	robin.murphy@arm.com, david@redhat.com, anshuman.khandual@arm.com, 
+	thunder.leizhen@huawei.com, wangkefeng.wang@huawei.com, gpiccoli@igalia.com, 
+	chenhuacai@kernel.org, geert@linux-m68k.org, vijayb@linux.microsoft.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org, 
+	platform-driver-x86@vger.kernel.org, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220613_023144_006734_F0C00FC0 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20220613_024142_621477_6BA8E896 
+X-CRM114-Status: GOOD (  22.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,134 +93,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 13, 2022 at 2:23 PM Alexandre Ghiti
-<alexandre.ghiti@canonical.com> wrote:
+On Mon, 13 Jun 2022 at 10:00, Wupeng Ma <mawupeng1@huawei.com> wrote:
 >
-> There are a bunch of functions that use the PFN from a page table entry
-> that end up with the svpbmt upper-bits because they are missing the newly
-> introduced PAGE_PFN_MASK which leads to wrong addresses conversions and
-> then crash: fix this by adding this mask.
+> From: Ma Wupeng <mawupeng1@huawei.com>
 >
-> Fixes: 100631b48ded ("riscv: Fix accessing pfn bits in PTEs for non-32bit variants")
-> Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-
-Looks good to me.
-
-Reviewed-by: Anup Patel <anup@brainfault.org>
-
-@Palmer let me know if you want me to take this through the KVM repo.
-
-Regards,
-Anup
-
+> Commit b05b9f5f9dcf ("x86, mirror: x86 enabling - find mirrored memory ranges")
+> introduced mirrored memory support for x86 and this could be used on arm64.
+>
+> Since we only support this feature on arm64, efi_find_mirror() won't be placed
+> into efi_init(), which is used by riscv/arm/arm64, it is added in setup_arch()
+> to scan the memory map and mark mirrored memory in memblock.
+>
+> Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
+> Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 > ---
->  arch/riscv/include/asm/pgtable-64.h | 12 ++++++------
->  arch/riscv/include/asm/pgtable.h    |  6 +++---
->  arch/riscv/kvm/mmu.c                |  2 +-
->  3 files changed, 10 insertions(+), 10 deletions(-)
+>  Documentation/admin-guide/kernel-parameters.txt | 2 +-
+>  arch/arm64/kernel/setup.c                       | 1 +
+>  2 files changed, 2 insertions(+), 1 deletion(-)
 >
-> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> index 5c2aba5efbd0..dc42375c2357 100644
-> --- a/arch/riscv/include/asm/pgtable-64.h
-> +++ b/arch/riscv/include/asm/pgtable-64.h
-> @@ -175,7 +175,7 @@ static inline pud_t pfn_pud(unsigned long pfn, pgprot_t prot)
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index 8090130b544b..e3537646b6f7 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -2301,7 +2301,7 @@
 >
->  static inline unsigned long _pud_pfn(pud_t pud)
->  {
-> -       return pud_val(pud) >> _PAGE_PFN_SHIFT;
-> +       return __page_val_to_pfn(pud_val(pud));
->  }
+>         keepinitrd      [HW,ARM]
 >
->  static inline pmd_t *pud_pgtable(pud_t pud)
-> @@ -278,13 +278,13 @@ static inline p4d_t pfn_p4d(unsigned long pfn, pgprot_t prot)
+> -       kernelcore=     [KNL,X86,IA-64,PPC]
+> +       kernelcore=     [KNL,X86,IA-64,PPC,ARM64]
+>                         Format: nn[KMGTPE] | nn% | "mirror"
+>                         This parameter specifies the amount of memory usable by
+>                         the kernel for non-movable allocations.  The requested
+> diff --git a/arch/arm64/kernel/setup.c b/arch/arm64/kernel/setup.c
+> index cf3a759f10d4..6e9acd7ecf0f 100644
+> --- a/arch/arm64/kernel/setup.c
+> +++ b/arch/arm64/kernel/setup.c
+> @@ -328,6 +328,7 @@ void __init __no_sanitize_address setup_arch(char **cmdline_p)
 >
->  static inline unsigned long _p4d_pfn(p4d_t p4d)
->  {
-> -       return p4d_val(p4d) >> _PAGE_PFN_SHIFT;
-> +       return __page_val_to_pfn(p4d_val(p4d));
->  }
+>         xen_early_init();
+>         efi_init();
+> +       efi_find_mirror();
 >
->  static inline pud_t *p4d_pgtable(p4d_t p4d)
->  {
->         if (pgtable_l4_enabled)
-> -               return (pud_t *)pfn_to_virt(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
-> +               return (pud_t *)pfn_to_virt(__page_val_to_pfn(p4d_val(p4d)));
->
->         return (pud_t *)pud_pgtable((pud_t) { p4d_val(p4d) });
->  }
-> @@ -292,7 +292,7 @@ static inline pud_t *p4d_pgtable(p4d_t p4d)
->
->  static inline struct page *p4d_page(p4d_t p4d)
->  {
-> -       return pfn_to_page(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
-> +       return pfn_to_page(__page_val_to_pfn(p4d_val(p4d)));
->  }
->
->  #define pud_index(addr) (((addr) >> PUD_SHIFT) & (PTRS_PER_PUD - 1))
-> @@ -347,7 +347,7 @@ static inline void pgd_clear(pgd_t *pgd)
->  static inline p4d_t *pgd_pgtable(pgd_t pgd)
->  {
->         if (pgtable_l5_enabled)
-> -               return (p4d_t *)pfn_to_virt(pgd_val(pgd) >> _PAGE_PFN_SHIFT);
-> +               return (p4d_t *)pfn_to_virt(__page_val_to_pfn(pgd_val(pgd)));
->
->         return (p4d_t *)p4d_pgtable((p4d_t) { pgd_val(pgd) });
->  }
-> @@ -355,7 +355,7 @@ static inline p4d_t *pgd_pgtable(pgd_t pgd)
->
->  static inline struct page *pgd_page(pgd_t pgd)
->  {
-> -       return pfn_to_page(pgd_val(pgd) >> _PAGE_PFN_SHIFT);
-> +       return pfn_to_page(__page_val_to_pfn(pgd_val(pgd)));
->  }
->  #define pgd_page(pgd)  pgd_page(pgd)
->
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 1d1be9d9419c..5dbd6610729b 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -261,7 +261,7 @@ static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
->
->  static inline unsigned long _pgd_pfn(pgd_t pgd)
->  {
-> -       return pgd_val(pgd) >> _PAGE_PFN_SHIFT;
-> +       return __page_val_to_pfn(pgd_val(pgd));
->  }
->
->  static inline struct page *pmd_page(pmd_t pmd)
-> @@ -590,14 +590,14 @@ static inline pmd_t pmd_mkinvalid(pmd_t pmd)
->         return __pmd(pmd_val(pmd) & ~(_PAGE_PRESENT|_PAGE_PROT_NONE));
->  }
->
-> -#define __pmd_to_phys(pmd)  (pmd_val(pmd) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
-> +#define __pmd_to_phys(pmd)  (__page_val_to_pfn(pmd_val(pmd)) << PAGE_SHIFT)
->
->  static inline unsigned long pmd_pfn(pmd_t pmd)
->  {
->         return ((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT);
->  }
->
-> -#define __pud_to_phys(pud)  (pud_val(pud) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
-> +#define __pud_to_phys(pud)  (__page_val_to_pfn(pud_val(pud)) << PAGE_SHIFT)
->
->  static inline unsigned long pud_pfn(pud_t pud)
->  {
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index 1c00695ebee7..9826073fbc67 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -54,7 +54,7 @@ static inline unsigned long gstage_pte_index(gpa_t addr, u32 level)
->
->  static inline unsigned long gstage_pte_page_vaddr(pte_t pte)
->  {
-> -       return (unsigned long)pfn_to_virt(pte_val(pte) >> _PAGE_PFN_SHIFT);
-> +       return (unsigned long)pfn_to_virt(__page_val_to_pfn(pte_val(pte)));
->  }
->
->  static int gstage_page_size_to_level(unsigned long page_size, u32 *out_level)
-> --
-> 2.34.1
->
+>         if (!efi_enabled(EFI_BOOT) && ((u64)_text % MIN_KIMG_ALIGN) != 0)
+>              pr_warn(FW_BUG "Kernel image misaligned at boot, please fix your bootloader!");
+
+As suggested by Kefeng Wang, I think this call needs to be moved into
+efi_init() [the generic version]
+
+Please drop this hunk, and add this call to efi_init() in patch #1.
 
 _______________________________________________
 linux-riscv mailing list
