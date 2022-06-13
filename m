@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83B8AC43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 13:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6BDFC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 14:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0Cjke6ONvKveZNT032rJg3bcBuU1pXK0LOhF0loEAkg=; b=O1z6KF+7j08PvK
-	dneFdzfpkpszqorOVIaPIPrY6KTXZlJsRGDtNzmHdi/npqavdzEST2O4A0Ais7NI6Rfy65M3mgnL3
-	exWFtAWkwpIc0CburQpa0B1V5RLTidl2IatyRmNJZ/+lb8yjOQKZlvXnu8v2ychgR9MWqgoebdgCH
-	olCZ3r2kKh6nX2iGAuPBBYbXJ39I2EUgfaVCtXwQ0/DrqD5Rwd3aGGV9lFI4kRaXoTjp06dshtTvw
-	BbDTYZdX8doso0Pzixlyqzfj3Ka0W2AT8XV3OftNv9YGmzLOEuDvVKhk+k79DVwQIdcvfuHRa1IMT
-	8TwOoApI01SDraMeCGng==;
+	List-Owner; bh=srqf5V/en2GsedhNJVtTe2tU31sc66JBkpjD2mLwL78=; b=Ljb4L4NwOF2xbh
+	cJvd4u3nz3nHogt0rhMDsTcs8tmtbq8LxQyRGuc5RNKJ5zQ1RrPu3kkBiPEBLSMJgyL/jfUVg0zB+
+	NV/hCBSvcgf9aVyWnvxC/AlwO2ZOGorvRWXLzTpZgSsEAXdFaqJxT+e3OYUFxHsU+OJpS9Xldr1b0
+	seRJOV89T5jvprGrT4Zq8hvwbxTQRkrT4XUFdRnKLB547UfMYorSM+4YRZ4B/YiVpETwbbEJpVccB
+	/7SMZjPFoaLmlFoyiXJurGbK0bncf0ZnKUQjuOI5xiIuKhwt6ZVo86V1U9iHN9O5CmdNA4MB6Bat3
+	Jui9/Q6jK+OT2xfmx5dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0kaQ-0041fy-IW; Mon, 13 Jun 2022 13:58:34 +0000
+	id 1o0kh4-0044kR-Up; Mon, 13 Jun 2022 14:05:26 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0kaN-0041ec-Lt
-	for linux-riscv@lists.infradead.org; Mon, 13 Jun 2022 13:58:33 +0000
+	id 1o0kh0-0044iC-48
+	for linux-riscv@lists.infradead.org; Mon, 13 Jun 2022 14:05:25 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1o0kaB-0000lz-EM; Mon, 13 Jun 2022 15:58:19 +0200
+	id 1o0kgr-0000p1-1u; Mon, 13 Jun 2022 16:05:13 +0200
 From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: palmer@rivosinc.com, arnd@arndb.de, linux@roeck-us.net, palmer@dabbelt.com, guoren@kernel.org
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>, Eugene Syromiatnikov <esyr@redhat.com>, Christoph Hellwig <hch@lst.de>
-Subject: Re: [PATCH] uapi: Fixup strace compile error
-Date: Mon, 13 Jun 2022 15:58:18 +0200
-Message-ID: <5835624.lOV4Wx5bFT@diego>
-In-Reply-To: <20220613013051.1741434-1-guoren@kernel.org>
-References: <20220613013051.1741434-1-guoren@kernel.org>
+To: palmer@dabbelt.com, palmer@rivosinc.com, linux-riscv@lists.infradead.org
+Cc: Conor.Dooley@microchip.com, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, lee.jones@linaro.org, robh+dt@kernel.org, linux-mmc@vger.kernel.org, paul.walmsley@sifive.com, atulkhare@rivosinc.com, support.opensource@diasemi.com, andrew@lunn.ch, krzysztof.kozlowski@linaro.org, stwiss.opensource@diasemi.com, linux-riscv@lists.infradead.org, aou@eecs.berkeley.edu, ulf.hansson@linaro.org, krzysztof.kozlowski+dt@linaro.org, Conor.Dooley@microchip.com
+Subject: Re: [PATCH v3 4/4] riscv: dts: sifive: "fix" pmic watchdog node name
+Date: Mon, 13 Jun 2022 16:05:12 +0200
+Message-ID: <2247394.ElGaqSPkdT@diego>
+In-Reply-To: <ee29eefa-9206-b84a-e27c-4e4388865db0@microchip.com>
+References: <20220606201343.514391-1-mail@conchuod.ie> <20220606201343.514391-5-mail@conchuod.ie> <ee29eefa-9206-b84a-e27c-4e4388865db0@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220613_065831_760691_934BAAAB 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20220613_070522_218246_00DF5C68 
+X-CRM114-Status: GOOD (  18.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,84 +53,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QW0gTW9udGFnLCAxMy4gSnVuaSAyMDIyLCAwMzozMDo1MSBDRVNUIHNjaHJpZWIgZ3VvcmVuQGtl
-cm5lbC5vcmc6Cj4gRnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+IAo+
-IFRoZXJlIGlzIG5vIENPTkZJR182NEJJVCBpbiB1c2Vyc3BhY2UsIHdlIHNob3VsZG4ndCBsaW1p
-dCBpdCB3aXRoCj4gX19CSVRTX1BFUl9MT05HID09IDMyIHRvIGJyZWFrIHRoZSBjb21wYXRpYmls
-aXR5LiBKdXN0IGV4cG9ydCBGXyo2NAo+IGRlZmluaXRpb25zIHRvIHVzZXJzcGFjZSBwZXJtYW5l
-bnRseS4KPiAKPiBnY2MtMTEgLURIQVZFX0NPTkZJR19IICAgLUkuL2xpbnV4L3g4Nl82NCAtSS4u
-Ly4uLy4uL3NyYy9saW51eC94ODZfNjQKPiAtSS4vbGludXgvZ2VuZXJpYyAtSS4uLy4uLy4uL3Ny
-Yy9saW51eC9nZW5lcmljIC1JLiAtSS4uLy4uLy4uL3NyYwo+IC1ESU5fU1RSQUNFPTEgICAgICAt
-aXN5c3RlbSAvb3B0L2tlcm5lbC9pbmNsdWRlIC1XYWxsIC1XZXh0cmEKPiAtV25vLW1pc3Npbmct
-ZmllbGQtaW5pdGlhbGl6ZXJzIC1Xbm8tdW51c2VkLXBhcmFtZXRlciAtV2RhdGUtdGltZQo+IC1X
-Zm9ybWF0LXNlY3VyaXR5IC1XaW1wbGljaXQtZmFsbHRocm91Z2g9NSAtV2luaXQtc2VsZiAtV2xv
-Z2ljYWwtb3AKPiAtV21pc3NpbmctcHJvdG90eXBlcyAtV25lc3RlZC1leHRlcm5zIC1Xb2xkLXN0
-eWxlLWRlZmluaXRpb24KPiAtV3RyYW1wb2xpbmVzIC1XdW5kZWYgLVd3cml0ZS1zdHJpbmdzIC1X
-ZXJyb3IgICAtZyAtTzIgLWMgLW8KPiBsaWJzdHJhY2VfYS1mZXRjaF9icGZfZnByb2cubyBgdGVz
-dCAtZiAnZmV0Y2hfYnBmX2Zwcm9nLmMnIHx8IGVjaG8KPiAnLi4vLi4vLi4vc3JjLydgZmV0Y2hf
-YnBmX2Zwcm9nLmMKPiBJbiBmaWxlIGluY2x1ZGVkIGZyb20gLi4vLi4vLi4vc3JjL2RlZnMuaDo0
-MDQsCj4gICAgICAgICAgICAgICAgICBmcm9tIC4uLy4uLy4uL3NyYy9mY250bC5jOjEyOgo+IC4u
-Ly4uLy4uL3NyYy94bGF0L2ZjbnRsY21kcy5oOjU0Ojc6IGVycm9yOiDigJhGX0dFVExLNjTigJkg
-dW5kZWNsYXJlZCBoZXJlCj4gKG5vdCBpbiBhIGZ1bmN0aW9uKTsgZGlkIHlvdSBtZWFuIOKAmEZf
-R0VUTEvigJk/Cj4gICAgNTQgfCAgWExBVChGX0dFVExLNjQpLAo+ICAgICAgIHwgICAgICAgXn5+
-fn5+fn5+Cj4gLi4vLi4vLi4vc3JjL3hsYXQuaDo2NDo1NDogbm90ZTogaW4gZGVmaW5pdGlvbiBv
-ZiBtYWNybyDigJhYTEFU4oCZCj4gICAgNjQgfCAjIGRlZmluZSBYTEFUKHZhbCkgICAgICAgICAg
-ICAgICAgICAgICAgeyAodW5zaWduZWQpKHZhbCksICN2YWwKPiAgICAgICB9Cj4gICAgICAgfCAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5+fgo+
-IC4uLy4uLy4uL3NyYy94bGF0L2ZjbnRsY21kcy5oOjU3Ojc6IGVycm9yOiDigJhGX1NFVExLNjTi
-gJkgdW5kZWNsYXJlZCBoZXJlCj4gKG5vdCBpbiBhIGZ1bmN0aW9uKTsgZGlkIHlvdSBtZWFuIOKA
-mEZfU0VUTEvigJk/Cj4gICAgNTcgfCAgWExBVChGX1NFVExLNjQpLAo+ICAgICAgIHwgICAgICAg
-Xn5+fn5+fn5+Cj4gLi4vLi4vLi4vc3JjL3hsYXQuaDo2NDo1NDogbm90ZTogaW4gZGVmaW5pdGlv
-biBvZiBtYWNybyDigJhYTEFU4oCZCj4gICAgNjQgfCAjIGRlZmluZSBYTEFUKHZhbCkgICAgICAg
-ICAgICAgICAgICAgICAgeyAodW5zaWduZWQpKHZhbCksICN2YWwKPiAgICAgICB9Cj4gICAgICAg
-fCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5+
-fgo+IC4uLy4uLy4uL3NyYy94bGF0L2ZjbnRsY21kcy5oOjYwOjc6IGVycm9yOiDigJhGX1NFVExL
-VzY04oCZIHVuZGVjbGFyZWQgaGVyZQo+IChub3QgaW4gYSBmdW5jdGlvbik7IGRpZCB5b3UgbWVh
-biDigJhGX1NFVExLV+KAmT8KPiAgICA2MCB8ICBYTEFUKEZfU0VUTEtXNjQpLAo+ICAgICAgIHwg
-ICAgICAgXn5+fn5+fn5+fgo+IC4uLy4uLy4uL3NyYy94bGF0Lmg6NjQ6NTQ6IG5vdGU6IGluIGRl
-ZmluaXRpb24gb2YgbWFjcm8g4oCYWExBVOKAmQo+ICAgIDY0IHwgIyBkZWZpbmUgWExBVCh2YWwp
-ICAgICAgICAgICAgICAgICAgICAgIHsgKHVuc2lnbmVkKSh2YWwpLCAjdmFsCj4gICAgICAgfQo+
-ICAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBefn4KPiBtYWtlWzRdOiAqKiogW01ha2VmaWxlOjUwMTc6IGxpYnN0cmFjZV9hLWZjbnRs
-Lm9dIEVycm9yIDEKPiAKPiBjb21tZW50IGJ5IEV1Z2VuZToKPiBBY3R1YWxseSwgaXQncyBxdWl0
-ZSB0aGUgb3Bwb3NpdGU6ICJpZm5kZWYiIHVzYWdlIG1hZGUgaXQgdmFpbGFibGUgYXQgYWxsCj4g
-dGltZXMgdG8gdGhlIHVzZXJzcGFjZSwgYW5kIHRoaXMgY2hhbmdlIGhhcyBhY3R1YWxseSBicm9r
-ZW4gYnVpbGRpbmcgc3RyYWNlCj4gd2l0aCB0aGUgbGF0ZXN0IGtlcm5lbCBoZWFkZXJzWzFdWzJd
-LiAgVGhlcmUgY291bGQgYmUgc29tZSBkZWJhdGUgd2hldGhlcgo+IGhhdmluZyB0aGVzZSBGXyo2
-NCBkZWZpbml0aW9ucyBleHBvc2VkIHRvIHRoZSB1c2VyIHNwYWNlIDY0LWJpdAo+IGFwcGxpY2F0
-aW9ucywgYnV0IGl0IHNlZW1zIHRoYXQgd2VyZSBubyBoYXJtIChhcyB0aGV5IHdlcmUgZXhwb3Nl
-ZCBhbHJlYWR5Cj4gZm9yIHF1aXRlIHNvbWUgdGltZSksIGFuZCB0aGV5IGFyZSB1c2VmdWwgYXQg
-bGVhc3QgZm9yIHN0cmFjZSBmb3IgY29tcGF0Cj4gYXBwbGljYXRpb24gdHJhY2luZyBwdXJwb3Nl
-cy4KPiAKPiBGaXhlczogMzA2ZjdjYzFlOTA2MSAidWFwaTogYWx3YXlzIGRlZmluZSBGX0dFVExL
-NjQvRl9TRVRMSzY0L0ZfU0VUTEtXNjQgaW4gZmNudGwuaCIKPiBTaWduZWQtb2ZmLWJ5OiBHdW8g
-UmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gUmVwb3J0ZWQtYnk6IEV1Z2VuZSBTeXJv
-bWlhdG5pa292IDxlc3lyQHJlZGhhdC5jb20+Cj4gQ2M6IENocmlzdG9waCBIZWxsd2lnIDxoY2hA
-bHN0LmRlPgo+IENjOiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgo+IENjOiBIZWlrbyBT
-dHVlYm5lciA8aGVpa29Ac250ZWNoLmRlPgo+IENjOiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQHJp
-dm9zaW5jLmNvbT4KPiAtLS0KPiAgaW5jbHVkZS91YXBpL2FzbS1nZW5lcmljL2ZjbnRsLmggfCAy
-IC0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAyIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9p
-bmNsdWRlL3VhcGkvYXNtLWdlbmVyaWMvZmNudGwuaCBiL2luY2x1ZGUvdWFwaS9hc20tZ2VuZXJp
-Yy9mY250bC5oCj4gaW5kZXggZjEzZDM3YjYwNzc1Li5jZDZiZDY1ZWMyNWQgMTAwNjQ0Cj4gLS0t
-IGEvaW5jbHVkZS91YXBpL2FzbS1nZW5lcmljL2ZjbnRsLmgKPiArKysgYi9pbmNsdWRlL3VhcGkv
-YXNtLWdlbmVyaWMvZmNudGwuaAo+IEBAIC0xMTYsMTMgKzExNiwxMSBAQAo+ICAjZGVmaW5lIEZf
-R0VUU0lHCTExCS8qIGZvciBzb2NrZXRzLiAqLwo+ICAjZW5kaWYKPiAgCj4gLSNpZiBfX0JJVFNf
-UEVSX0xPTkcgPT0gMzIgfHwgZGVmaW5lZChfX0tFUk5FTF9fKQo+ICAjaWZuZGVmIEZfR0VUTEs2
-NAo+ICAjZGVmaW5lIEZfR0VUTEs2NAkxMgkvKiAgdXNpbmcgJ3N0cnVjdCBmbG9jazY0JyAqLwo+
-ICAjZGVmaW5lIEZfU0VUTEs2NAkxMwo+ICAjZGVmaW5lIEZfU0VUTEtXNjQJMTQKPiAgI2VuZGlm
-Cj4gLSNlbmRpZiAvKiBfX0JJVFNfUEVSX0xPTkcgPT0gMzIgfHwgZGVmaW5lZChfX0tFUk5FTF9f
-KSAqLwoKTG9va3MgbGlrZSBwcnZpb3VzbHkgdGhlcmUgd2VyZSBhIG51bWJlciBvZiB3YXlzIHRo
-ZXNlIGNvbnN0YW50cwp3ZXJlIGlmZGVmJ2QgLSBvciBub3QuIEEgbnVtYmVyIG9mIHBsYXRmb3Jt
-cyBhbHJlYWR5IGhhZCBubyBpZmRlZiBvZgphbnkgc29ydCBhcm91bmQgdGhlbSBiZWZvcmUsIHNv
-IHRoaXMgbG9va3MgbGlrZSB0aGUgc2FuZSB3YXkgdG8gZG8gaXQuCgpUaG91Z2ggaW4gdGhlIG9y
-aWdpbmFsIHBhdGNoIHRoZSBzcGVjaWFsLW1pcHMtdmFyaWFudCBhbHNvIGdhaW5lZCB0aGUKCSNp
-ZiBfX0JJVFNfUEVSX0xPTkcgPT0gMzIgLi4uCmNvbmRpdGlvbmFsIGluIGFyY2gvbWlwcy9pbmNs
-dWRlL3VhcGkvYXNtL2ZjbnRsLmggLgpTbywgaXMgaXQgYWxzbyBhZmZlY3RlZCBieSB0aGlzIGlz
-c3VlPwoKCkhlaWtvCgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+Am Montag, 13. Juni 2022, 15:33:49 CEST schrieb Conor.Dooley@microchip.com:
+> 
+> On 06/06/2022 21:13, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> > 
+> > After converting the pmic watchdog binding to yaml, dtbs_check complains
+> > that the node name doesn't match the binding. "Fix" it.
+> 
+> Hey Palmer,
+> The three dt-binding changes were accepted - do I need to poke SiFive to
+> ack the dts change or are you fine just taking it?
+
+I don't think a node-name has relevance to vendor decisions ;-) .
+
+Looking at bindings/watchdog/watchdog.yaml we clearly see that
+the node name is always watchdog or watchdog@foo, so this change
+is clearly correct.
+
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+
+> Thanks,
+> Conor.
+> 
+> > 
+> > Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > ---
+> >   arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 2 +-
+> >   1 file changed, 1 insertion(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> > index c4ed9efdff03..1f386b07a832 100644
+> > --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> > +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> > @@ -90,7 +90,7 @@ rtc {
+> >   			compatible = "dlg,da9063-rtc";
+> >   		};
+> >   
+> > -		wdt {
+> > +		watchdog {
+> >   			compatible = "dlg,da9063-watchdog";
+> >   		};
+> >   
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
