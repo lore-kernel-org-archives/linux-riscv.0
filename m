@@ -4,74 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0056BC43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 10:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 515A3C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 10:38:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6WDx6sZa2T+nJ6xcjO4jayfYISrpKX0lWwoN1UKj6yM=; b=QLOwowh1/yGg97
-	wxbRYCjKnBTrD/gA5hIXUpL1vptEzSJe7L6TxEFlcv/FX1atNdW6RVCTjuu8A2tSKP4Y1Qon9Ba3S
-	9/8iJPceJOqpewC1F+U78r6ECDBv5RcCbhaU+3wJg8XW3CGU+5mrq5Se9F5WQ6H70+2nA2mo/Dq4N
-	nbhDvQXNyNmRQ/J+eYYx67FEY/k2+XLGXlmXpjmWW96eihyCtFSeyw9KMSseqkiJksU/72Ir8tfIt
-	rU+FOy6Fog0zaVK1sPUtp4vL21gcuXfFl40h3xgamHkFN9fsIf0jBMM16p7gLiCjjp3tthkPnSwwE
-	hn0nYTBhJPTy83rwyO4g==;
+	List-Owner; bh=aBoO6ID5+exSK2ENYpbhJI8Gq2BrHeEEYsvZ0OeE4VQ=; b=lRJOxd7VHjVkbW
+	Khoz7lNXFyFPiQwWDYV+LW/brP/GVszPVNAi1Qh7PBO/UwoyAweUD2tOX9k6yvs5uROj04jz9GH4x
+	YdZoP6ncE8TsjJPDsVrQQPggpvLSZuAebkynIEeXnyaYVLYIHx2hD9TqnTl1tmA3ECkbr3hUr6sU2
+	WwAnvkwfSAhK8L5Id3aPeDjkaTzdmiAxGLFsN0CN64UTFMPO1sBpOiQGa5JZPNWoD3ouwoNnhZ7Rx
+	KO93KD3+Ys584T9jexHaCk5WEXwdPQT/LcV4g1HnDRASCVWul0Iq7G554zKnzRjWgXum1QBcAEK7i
+	kme8zq39be7xkbGNoR/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0grZ-002jOc-Lr; Mon, 13 Jun 2022 10:00:01 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1o0hSU-002w6a-I1; Mon, 13 Jun 2022 10:38:10 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0grW-002jMJ-Fc
-	for linux-riscv@lists.infradead.org; Mon, 13 Jun 2022 10:00:00 +0000
-Received: by mail-wr1-x432.google.com with SMTP id u8so6401040wrm.13
-        for <linux-riscv@lists.infradead.org>; Mon, 13 Jun 2022 02:59:57 -0700 (PDT)
+	id 1o0hSQ-002w4l-Vo
+	for linux-riscv@lists.infradead.org; Mon, 13 Jun 2022 10:38:09 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id o37-20020a05600c512500b0039c4ba4c64dso4322419wms.2
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Jun 2022 03:38:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=brainfault-org.20210112.gappssmtp.com; s=20210112;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc;
-        bh=UmfLVMrsn0WGwubEU9B512VvZRZn5oxu7wSDZVtbht0=;
-        b=LhZfBXrvzYqI3m+WOUh4DDqPjfPfwZPsqmNNJVMNh7XYs9heKwO/IPxsk57tFUWucd
-         Zv6BaDUdcvpVMuRseJV823A6bUqwBLM/ErvVhMli9qCYvcMv3EDVok6Hw5zR/Lk1A7f7
-         YDYDeqVLMVaT975XLHb3o0dDdbgbhPnfyk5U5SilxzCkVewvWxgU9ZYIV0tjRrFHEPqp
-         UaPGF5flFUtToEIyyo3cB7DP2DXyluPY7ZBscQ/IgI0Y1AdUjbs69JrN6nUxHnRrX0Ys
-         uJRq/GzfjN64AWitEhKqIRYtl3Wg2+qaFXED+ezHW03GsDZILI4lTcp8foIuTWyYnlg/
-         ZmtQ==
+        bh=26AqgsiLBQQlzuJUkVsAgW2IClgk95IZwjfcYpy3YGQ=;
+        b=xUvNvopOL3BPegwK5rrckxjvFW/tG0wNBvBRzLkiHpo0gXKszMPfgauMPiMMFg1iCJ
+         iPV+bu2FwXVer7dIOi+hP2HHzHa6mwBSDbDe8IVxQ4N84VTPO01XJOo8p/qniOD3RY6S
+         hxDDo2W7VdxXXMKFggBLzZomsS8Na6zupxsKa0Up1hzHHkc05AMrI2CgoR7QGQrqOGtS
+         DbGVsW2dsPzv++CZidxwuo1Vdp7hhNoxpAghrXkRd4hzWU8Qlcx8ppxzSYdmX+SZ8/XQ
+         YwZbMatxoHcXRSxBltcE6LYo+WKEUvZS75mZCr1zr/HZAQUnrauM0N72UevKunyS+yv0
+         V+eA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=UmfLVMrsn0WGwubEU9B512VvZRZn5oxu7wSDZVtbht0=;
-        b=3qEMvdu6cTwYSDM80g9Tak1YjIL259XeXUHO69y1i6mynMSKfxxZTZYW2OYtRdgVLd
-         KGbfy6QmhIZmzEi5TXALbON8aymbSlqeo20NqW8cMQxoj3a4ozOgz2zfUtifXW8jDJnX
-         oBp51vFS6m+vlbfYMEvnp6khRJ4laBly+VBqJRh0+wUr/C80BFCnBFQfVArIeLUilXyC
-         TVC9DCMmmgm1o3K1u6TGWmkCYidyZ1bB0ROvcL3Vew7gJEuac08ZyeqMYnl3u1jPq6wV
-         n7dObTkIG3NNTcfXgBKmAHazRpiTzZH9HqqyHIr4BWoj62CdoDu3ThavNlXPyjicccPi
-         5BWw==
-X-Gm-Message-State: AOAM532tVGCuTecCCLaxRFSA8AVdXN3OLYwSANkXu4b/uQ1UIwyn3KTx
-	K4feshUZLSFABUVMGHg3fuf21HfDsZN4XPVhkkGr9A==
-X-Google-Smtp-Source: ABdhPJzxNuCEvmYzaj5KbxDO78aB8w+JhFuCEdlruGFDryxRsTs1bXjV4eGZNPl3H7NY9NxC4va02GY5gR3R6YabY7U=
-X-Received: by 2002:a5d:6c6b:0:b0:1ea:77ea:dde8 with SMTP id
- r11-20020a5d6c6b000000b001ea77eadde8mr57053464wrz.690.1655114396705; Mon, 13
- Jun 2022 02:59:56 -0700 (PDT)
+        bh=26AqgsiLBQQlzuJUkVsAgW2IClgk95IZwjfcYpy3YGQ=;
+        b=s1Tk75Y4tr7LqyHls4/oGJucZLuczNKFmyAsYu/duRxKy+W25J8o4thrLKZrwlI4AH
+         gKy8B1IuP+VlLhiosEOp7mZ4yLXWbq2Z9LPZYPJ/8QR92LP6Gsz6L/h2LUzO83wZgKYw
+         qbZRyOEsnJQbKKtPTUZH0wqZ4DiUaBAawL3norrRv8yaAQqhPmqTt6iuUVhqCck4R1JJ
+         GgouysiyPfaljfokhJLpIroS6MLMzvBjY/eWgv4XI/hK5badKr85NcWYxZNJpAkR2/FN
+         qYMFqSsRlZ4Ju79ds/MMdLS2u8ycx9UOxD5vMljDAHTXDqVLWUfPtvriZeuKj1/8hjOQ
+         Pkaw==
+X-Gm-Message-State: AOAM531FRyosxlOZ8hFpBUxa2AVf72xd6XMF22046euz+DG1c8+YesjK
+	uuwmaJx3uKdOTefc6ags0vg9yxhdjXrqKzY4xE535A==
+X-Google-Smtp-Source: ABdhPJwMut2WB87/qBbxigJT+mlBYD8TjFdOf8Fx3eYGgh2M1j8q+kKBmc2i3hZ9Cc5lpjOHPkkpSB24WLkisXJRu68=
+X-Received: by 2002:a05:600c:5112:b0:397:53f5:e15b with SMTP id
+ o18-20020a05600c511200b0039753f5e15bmr14235147wms.93.1655116683603; Mon, 13
+ Jun 2022 03:38:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220610050555.288251-1-apatel@ventanamicro.com>
- <20220610050555.288251-3-apatel@ventanamicro.com> <20220612153113.GA52224@liuzhao-OptiPlex-7080>
-In-Reply-To: <20220612153113.GA52224@liuzhao-OptiPlex-7080>
+References: <20220612161220.GA53120@liuzhao-OptiPlex-7080>
+In-Reply-To: <20220612161220.GA53120@liuzhao-OptiPlex-7080>
 From: Anup Patel <anup@brainfault.org>
-Date: Mon, 13 Jun 2022 15:29:13 +0530
-Message-ID: <CAAhSdy2GXCujSkJgrWC==nTbeT7soY57K_DKP-vs57E=iN-YkQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] RISC-V: KVM: Add extensible system instruction
- emulation framework
-To: Liu Zhao <zhao1.liu@linux.intel.com>
+Date: Mon, 13 Jun 2022 16:07:20 +0530
+Message-ID: <CAAhSdy165881W=cJcBoay4Gsu2B5Vcnm=N6r1PguVqyYZQpR6g@mail.gmail.com>
+Subject: Re: [PATCH 3/3] RISC-V: KVM: Add extensible CSR emulation framework
+To: Zhao Liu <zhao1.liu@linux.intel.com>
 Cc: Anup Patel <apatel@ventanamicro.com>, KVM General <kvm@vger.kernel.org>, 
 	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
 	linux-riscv <linux-riscv@lists.infradead.org>, 
 	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Zhenyu Wang <zhenyuw@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220613_025958_613879_000F5541 
-X-CRM114-Status: GOOD (  30.41  )
+X-CRM114-CacheID: sfid-20220613_033807_069366_9ED56DC6 
+X-CRM114-Status: GOOD (  39.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,185 +86,390 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 12, 2022 at 8:57 PM Liu Zhao <zhao1.liu@linux.intel.com> wrote:
+On Sun, Jun 12, 2022 at 9:38 PM Zhao Liu <zhao1.liu@linux.intel.com> wrote:
 >
-> On Fri, Jun 10, 2022 at 10:35:54AM +0530, Anup Patel wrote:
-> > Date: Fri, 10 Jun 2022 10:35:54 +0530
+> kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+> linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>,
+> Zhao Liu <zhao1.liu@linux.intel.com>, Zhenyu Wang
+> <zhenyuw@linux.intel.com>
+> Bcc:
+> Subject: Re: [PATCH 3/3] RISC-V: KVM: Add extensible CSR emulation framework
+> Reply-To:
+> In-Reply-To: <20220610050555.288251-4-apatel@ventanamicro.com>
+>
+> On Fri, Jun 10, 2022 at 10:35:55AM +0530, Anup Patel wrote:
+> > Date: Fri, 10 Jun 2022 10:35:55 +0530
 > > From: Anup Patel <apatel@ventanamicro.com>
-> > Subject: [PATCH 2/3] RISC-V: KVM: Add extensible system instruction
-> >  emulation framework
+> > Subject: [PATCH 3/3] RISC-V: KVM: Add extensible CSR emulation framework
 > > X-Mailer: git-send-email 2.34.1
 > >
-> > We will be emulating more system instructions in near future with
-> > upcoming AIA, PMU, Nested and other virtualization features.
+> > We add an extensible CSR emulation framework which is based upon the
+> > existing system instruction emulation. This will be useful to upcoming
+> > AIA, PMU, Nested and other virtualization features.
 > >
-> > To accommodate above, we add an extensible system instruction emulation
-> > framework in vcpu_insn.c.
+> > The CSR emulation framework also has provision to emulate CSR in user
+> > space but this will be used only in very specific cases such as AIA
+> > IMSIC CSR emulation in user space or vendor specific CSR emulation
+> > in user space.
+> >
+> > By default, all CSRs not handled by KVM RISC-V will be redirected back
+> > to Guest VCPU as illegal instruction trap.
 > >
 > > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > > ---
-> >  arch/riscv/include/asm/kvm_vcpu_insn.h |  9 +++
-> >  arch/riscv/kvm/vcpu_insn.c             | 82 +++++++++++++++++++++++---
-> >  2 files changed, 82 insertions(+), 9 deletions(-)
+> >  arch/riscv/include/asm/kvm_host.h      |   5 +
+> >  arch/riscv/include/asm/kvm_vcpu_insn.h |   6 +
+> >  arch/riscv/kvm/vcpu.c                  |  11 ++
+> >  arch/riscv/kvm/vcpu_insn.c             | 169 +++++++++++++++++++++++++
+> >  include/uapi/linux/kvm.h               |   8 ++
+> >  5 files changed, 199 insertions(+)
+> >
+> > diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+> > index 03103b86dd86..a54744d7e1ba 100644
+> > --- a/arch/riscv/include/asm/kvm_host.h
+> > +++ b/arch/riscv/include/asm/kvm_host.h
+> > @@ -64,6 +64,8 @@ struct kvm_vcpu_stat {
+> >       u64 wfi_exit_stat;
+> >       u64 mmio_exit_user;
+> >       u64 mmio_exit_kernel;
+> > +     u64 csr_exit_user;
+> > +     u64 csr_exit_kernel;
+> >       u64 exits;
+> >  };
+> >
+> > @@ -209,6 +211,9 @@ struct kvm_vcpu_arch {
+> >       /* MMIO instruction details */
+> >       struct kvm_mmio_decode mmio_decode;
+> >
+> > +     /* CSR instruction details */
+> > +     struct kvm_csr_decode csr_decode;
+> > +
+> >       /* SBI context */
+> >       struct kvm_sbi_context sbi_context;
 > >
 > > diff --git a/arch/riscv/include/asm/kvm_vcpu_insn.h b/arch/riscv/include/asm/kvm_vcpu_insn.h
-> > index 4e3ba4e84d0f..3351eb61a251 100644
+> > index 3351eb61a251..350011c83581 100644
 > > --- a/arch/riscv/include/asm/kvm_vcpu_insn.h
 > > +++ b/arch/riscv/include/asm/kvm_vcpu_insn.h
-> > @@ -18,6 +18,15 @@ struct kvm_mmio_decode {
+> > @@ -18,6 +18,11 @@ struct kvm_mmio_decode {
 > >       int return_handled;
 > >  };
 > >
-> > +/* Return values used by function emulating a particular instruction */
-> > +enum kvm_insn_return {
-> > +     KVM_INSN_EXIT_TO_USER_SPACE = 0,
-> > +     KVM_INSN_CONTINUE_NEXT_SEPC,
-> > +     KVM_INSN_CONTINUE_SAME_SEPC,
-> > +     KVM_INSN_ILLEGAL_TRAP,
-> > +     KVM_INSN_VIRTUAL_TRAP
+> > +struct kvm_csr_decode {
+> > +     unsigned long insn;
+> > +     int return_handled;
 > > +};
 > > +
+> >  /* Return values used by function emulating a particular instruction */
+> >  enum kvm_insn_return {
+> >       KVM_INSN_EXIT_TO_USER_SPACE = 0,
+> > @@ -28,6 +33,7 @@ enum kvm_insn_return {
+> >  };
+> >
 > >  void kvm_riscv_vcpu_wfi(struct kvm_vcpu *vcpu);
+> > +int kvm_riscv_vcpu_csr_return(struct kvm_vcpu *vcpu, struct kvm_run *run);
 > >  int kvm_riscv_vcpu_virtual_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
 > >                               struct kvm_cpu_trap *trap);
-> > diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
-> > index be756879c2ee..75ca62a7fba5 100644
-> > --- a/arch/riscv/kvm/vcpu_insn.c
-> > +++ b/arch/riscv/kvm/vcpu_insn.c
-> > @@ -118,8 +118,24 @@
-> >                                (s32)(((insn) >> 7) & 0x1f))
-> >  #define MASK_FUNCT3          0x7000
 > >
-> > -static int truly_illegal_insn(struct kvm_vcpu *vcpu,
-> > -                           struct kvm_run *run,
-> > +struct insn_func {
-> > +     unsigned long mask;
-> > +     unsigned long match;
-> > +     /*
-> > +      * Possible return values are as follows:
-> > +      * 1) Returns < 0 for error case
-> > +      * 2) Returns 0 for exit to user-space
-> > +      * 3) Returns 1 to continue with next sepc
-> > +      * 4) Returns 2 to continue with same sepc
-> > +      * 5) Returns 3 to inject illegal instruction trap and continue
-> > +      * 6) Returns 4 to inject virtual instruction trap and continue
-> > +      *
-> > +      * Use enum kvm_insn_return for return values
-> > +      */
-> > +     int (*func)(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn);
-> > +};
-> > +
-> > +static int truly_illegal_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> >                             ulong insn)
-> >  {
-> >       struct kvm_cpu_trap utrap = { 0 };
-> > @@ -128,6 +144,24 @@ static int truly_illegal_insn(struct kvm_vcpu *vcpu,
-> >       utrap.sepc = vcpu->arch.guest_context.sepc;
-> >       utrap.scause = EXC_INST_ILLEGAL;
-> >       utrap.stval = insn;
-> > +     utrap.htval = 0;
-> > +     utrap.htinst = 0;
-> > +     kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
-> > +
-> > +     return 1;
-> > +}
-> > +
-> > +static int truly_virtual_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> > +                           ulong insn)
-> > +{
-> > +     struct kvm_cpu_trap utrap = { 0 };
-> > +
-> > +     /* Redirect trap to Guest VCPU */
-> > +     utrap.sepc = vcpu->arch.guest_context.sepc;
-> > +     utrap.scause = EXC_VIRTUAL_INST_FAULT;
-> > +     utrap.stval = insn;
-> > +     utrap.htval = 0;
-> > +     utrap.htinst = 0;
-> >       kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
+> > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> > index 7f4ad5e4373a..cf9616da68f6 100644
+> > --- a/arch/riscv/kvm/vcpu.c
+> > +++ b/arch/riscv/kvm/vcpu.c
+> > @@ -26,6 +26,8 @@ const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
+> >       STATS_DESC_COUNTER(VCPU, wfi_exit_stat),
+> >       STATS_DESC_COUNTER(VCPU, mmio_exit_user),
+> >       STATS_DESC_COUNTER(VCPU, mmio_exit_kernel),
+> > +     STATS_DESC_COUNTER(VCPU, csr_exit_user),
+> > +     STATS_DESC_COUNTER(VCPU, csr_exit_kernel),
+> >       STATS_DESC_COUNTER(VCPU, exits)
+> >  };
 > >
-> >       return 1;
-> > @@ -148,18 +182,48 @@ void kvm_riscv_vcpu_wfi(struct kvm_vcpu *vcpu)
+> > @@ -869,6 +871,15 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+> >               }
 > >       }
-> >  }
 > >
-> > -static int system_opcode_insn(struct kvm_vcpu *vcpu,
-> > -                           struct kvm_run *run,
-> > +static int wfi_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
-> > +{
-> > +     vcpu->stat.wfi_exit_stat++;
-> > +     kvm_riscv_vcpu_wfi(vcpu);
-> > +     return KVM_INSN_CONTINUE_NEXT_SEPC;
-> > +}
-> > +
-> > +static const struct insn_func system_opcode_funcs[] = {
-> > +     {
-> > +             .mask  = INSN_MASK_WFI,
-> > +             .match = INSN_MATCH_WFI,
-> > +             .func  = wfi_insn,
-> > +     },
-> > +};
-> > +
-> > +static int system_opcode_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> >                             ulong insn)
-> >  {
-> > -     if ((insn & INSN_MASK_WFI) == INSN_MATCH_WFI) {
-> > -             vcpu->stat.wfi_exit_stat++;
-> > -             kvm_riscv_vcpu_wfi(vcpu);
-> > +     int i, rc = KVM_INSN_ILLEGAL_TRAP;
-> > +     const struct insn_func *ifn;
-> > +
-> > +     for (i = 0; i < ARRAY_SIZE(system_opcode_funcs); i++) {
-> > +             ifn = &system_opcode_funcs[i];
-> > +             if ((insn & ifn->mask) == ifn->match) {
-> > +                     rc = ifn->func(vcpu, run, insn);
-> > +                     break;
+> > +     /* Process CSR value returned from user-space */
+> > +     if (run->exit_reason == KVM_EXIT_RISCV_CSR) {
+> > +             ret = kvm_riscv_vcpu_csr_return(vcpu, vcpu->run);
+> > +             if (ret) {
+> > +                     kvm_vcpu_srcu_read_unlock(vcpu);
+> > +                     return ret;
 > > +             }
 > > +     }
 > > +
-> > +     switch (rc) {
-> > +     case KVM_INSN_ILLEGAL_TRAP:
-> > +             return truly_illegal_insn(vcpu, run, insn);
-> > +     case KVM_INSN_VIRTUAL_TRAP:
-> > +             return truly_virtual_insn(vcpu, run, insn);
-> > +     case KVM_INSN_CONTINUE_NEXT_SEPC:
-> >               vcpu->arch.guest_context.sepc += INSN_LEN(insn);
-> > -             return 1;
-> > +             break;
 >
-> Hi Anup,
-> What about adding KVM_INSN_CONTINUE_SAME_SEPC and KVM_INSN_EXIT_TO_USER_SPACE
-> cases here and set rc to 1?
+>
+> Hi Anup, what about a `switch` to handle exit_reason?
+>         switch(run->exit_reason) {
+>                 case KVM_EXIT_MMIO:
+>                         ret = kvm_riscv_vcpu_mmio_return(vcpu, vcpu->run);
+>                         break;
+>                 case KVM_EXIT_RISCV_SBI:
+>                         ret = kvm_riscv_vcpu_sbi_return(vcpu, vcpu->run);
+>                         break;
+>                 case KVM_EXIT_RISCV_CSR:
+>                         ret = kvm_riscv_vcpu_csr_return(vcpu, vcpu->run);
+>                         break;
+>                 case default:
+>                         break;
+>         }
+>         if (ret) {
+>                 kvm_vcpu_srcu_read_unlock(vcpu);
+>                 return ret;
+>         }
 
-For KVM_INSN_CONTINUE_SAME_SEPC (and any rc >= 1) we should return 1
-whereas for KVM_INSN_EXIT_TO_USER_SPACE we should return 0.
+I agree with your suggestion. I will use switch-case in v2.
 
-> This is the explicit indication that both cases are handled.
+>
+> >       if (run->immediate_exit) {
+> >               kvm_vcpu_srcu_read_unlock(vcpu);
+> >               return -EINTR;
+> > diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+> > index 75ca62a7fba5..c9542ba98431 100644
+> > --- a/arch/riscv/kvm/vcpu_insn.c
+> > +++ b/arch/riscv/kvm/vcpu_insn.c
+> > @@ -14,6 +14,19 @@
+> >  #define INSN_MASK_WFI                0xffffffff
+> >  #define INSN_MATCH_WFI               0x10500073
+> >
+> > +#define INSN_MATCH_CSRRW     0x1073
+> > +#define INSN_MASK_CSRRW              0x707f
+> > +#define INSN_MATCH_CSRRS     0x2073
+> > +#define INSN_MASK_CSRRS              0x707f
+> > +#define INSN_MATCH_CSRRC     0x3073
+> > +#define INSN_MASK_CSRRC              0x707f
+> > +#define INSN_MATCH_CSRRWI    0x5073
+> > +#define INSN_MASK_CSRRWI     0x707f
+> > +#define INSN_MATCH_CSRRSI    0x6073
+> > +#define INSN_MASK_CSRRSI     0x707f
+> > +#define INSN_MATCH_CSRRCI    0x7073
+> > +#define INSN_MASK_CSRRCI     0x707f
+> > +
+> >  #define INSN_MATCH_LB                0x3
+> >  #define INSN_MASK_LB         0x707f
+> >  #define INSN_MATCH_LH                0x1003
+> > @@ -71,6 +84,7 @@
+> >  #define SH_RS1                       15
+> >  #define SH_RS2                       20
+> >  #define SH_RS2C                      2
+> > +#define MASK_RX                      0x1f
+> >
+> >  #define RV_X(x, s, n)                (((x) >> (s)) & ((1 << (n)) - 1))
+> >  #define RVC_LW_IMM(x)                ((RV_X(x, 6, 1) << 2) | \
+> > @@ -189,7 +203,162 @@ static int wfi_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+> >       return KVM_INSN_CONTINUE_NEXT_SEPC;
+> >  }
+> >
+> > +struct csr_func {
+> > +     unsigned int base;
+> > +     unsigned int count;
+> > +     /*
+> > +      * Possible return values are as same as "func" callback in
+> > +      * "struct insn_func".
+> > +      */
+> > +     int (*func)(struct kvm_vcpu *vcpu, unsigned int csr_num,
+> > +                 unsigned long *val, unsigned long new_val,
+> > +                 unsigned long wr_mask);
+> > +};
+> > +
+> > +static const struct csr_func csr_funcs[] = { };
+> > +
+> > +/**
+> > + * kvm_riscv_vcpu_csr_return -- Handle CSR read/write after user space
+> > + *                           emulation or in-kernel emulation
+> > + *
+> > + * @vcpu: The VCPU pointer
+> > + * @run:  The VCPU run struct containing the CSR data
+> > + *
+> > + * Returns > 0 upon failure and 0 upon success
+> > + */
+> > +int kvm_riscv_vcpu_csr_return(struct kvm_vcpu *vcpu, struct kvm_run *run)
+> > +{
+> > +     ulong insn;
+> > +
+> > +     if (vcpu->arch.csr_decode.return_handled)
+> > +             return 0;
+> > +     vcpu->arch.csr_decode.return_handled = 1;
+> > +
+> > +     /* Update destination register for CSR reads */
+> > +     insn = vcpu->arch.csr_decode.insn;
+> > +     if ((insn >> SH_RD) & MASK_RX)
+> > +             SET_RD(insn, &vcpu->arch.guest_context,
+> > +                    run->riscv_csr.ret_value);
+> > +
+> > +     /* Move to next instruction */
+> > +     vcpu->arch.guest_context.sepc += INSN_LEN(insn);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int csr_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+> > +{
+> > +     int i, rc = KVM_INSN_ILLEGAL_TRAP;
+> > +     unsigned int csr_num = insn >> SH_RS2;
+> > +     unsigned int rs1_num = (insn >> SH_RS1) & MASK_RX;
+> > +     ulong rs1_val = GET_RS1(insn, &vcpu->arch.guest_context);
+> > +     const struct csr_func *tcfn, *cfn = NULL;
+> > +     ulong val = 0, wr_mask = 0, new_val = 0;
+> > +
+> > +     /* Decode the CSR instruction */
+> > +     switch (GET_RM(insn)) {
+> > +     case 1:
+>
+> It's better to define these rounding mode.
+> What about this name: #define INSN_RM_RTZ 1.
 
-The KVM_INSN_EXIT_TO_USER_SPACE is always 0 whereas
-KVM_INSN_CONTINUE_SAME_SEPC is always 1 so the statement
-"return (rc <= 0) ? rc : 1;" handles both these cases.
+Actually, there is no "Rm" field in CSR instruction encoding. Instead,
+the BIT[14:12] of CSR instruction is "funct3" field. I will fix this in v2.
+
+Also, instead of adding new defines for "funct3" field of CSR instruction,
+we can simply use INSN_MATCH_xyz defines to avoid hard-coding.
 
 Regards,
 Anup
 
 >
-> > +     default:
+> Thanks,
+> Zhao
+>
+> > +             wr_mask = -1UL;
+> > +             new_val = rs1_val;
 > > +             break;
-> >       }
+> > +     case 2:
+> > +             wr_mask = rs1_val;
+> > +             new_val = -1UL;
+> > +             break;
+> > +     case 3:
+> > +             wr_mask = rs1_val;
+> > +             new_val = 0;
+> > +             break;
+> > +     case 5:
+> > +             wr_mask = -1UL;
+> > +             new_val = rs1_num;
+> > +             break;
+> > +     case 6:
+> > +             wr_mask = rs1_num;
+> > +             new_val = -1UL;
+> > +             break;
+> > +     case 7:
+> > +             wr_mask = rs1_num;
+> > +             new_val = 0;
+> > +             break;
+> > +     default:
+> > +             return rc;
+> > +     };
+> > +
+> > +     /* Save instruction decode info */
+> > +     vcpu->arch.csr_decode.insn = insn;
+> > +     vcpu->arch.csr_decode.return_handled = 0;
+> > +
+> > +     /* Update CSR details in kvm_run struct */
+> > +     run->riscv_csr.csr_num = csr_num;
+> > +     run->riscv_csr.new_value = new_val;
+> > +     run->riscv_csr.write_mask = wr_mask;
+> > +     run->riscv_csr.ret_value = 0;
+> > +
+> > +     /* Find in-kernel CSR function */
+> > +     for (i = 0; i < ARRAY_SIZE(csr_funcs); i++) {
+> > +             tcfn = &csr_funcs[i];
+> > +             if ((tcfn->base <= csr_num) &&
+> > +                 (csr_num < (tcfn->base + tcfn->count))) {
+> > +                     cfn = tcfn;
+> > +                     break;
+> > +             }
+> > +     }
+> > +
+> > +     /* First try in-kernel CSR emulation */
+> > +     if (cfn && cfn->func) {
+> > +             rc = cfn->func(vcpu, csr_num, &val, new_val, wr_mask);
+> > +             if (rc > KVM_INSN_EXIT_TO_USER_SPACE) {
+> > +                     if (rc == KVM_INSN_CONTINUE_NEXT_SEPC) {
+> > +                             run->riscv_csr.ret_value = val;
+> > +                             vcpu->stat.csr_exit_kernel++;
+> > +                             kvm_riscv_vcpu_csr_return(vcpu, run);
+> > +                             rc = KVM_INSN_CONTINUE_SAME_SEPC;
+> > +                     }
+> > +                     return rc;
+> > +             }
+> > +     }
+> > +
+> > +     /* Exit to user-space for CSR emulation */
+> > +     if (rc <= KVM_INSN_EXIT_TO_USER_SPACE) {
+> > +             vcpu->stat.csr_exit_user++;
+> > +             run->exit_reason = KVM_EXIT_RISCV_CSR;
+> > +     }
+> > +
+> > +     return rc;
+> > +}
+> > +
+> >  static const struct insn_func system_opcode_funcs[] = {
+> > +     {
+> > +             .mask  = INSN_MASK_CSRRW,
+> > +             .match = INSN_MATCH_CSRRW,
+> > +             .func  = csr_insn,
+> > +     },
+> > +     {
+> > +             .mask  = INSN_MASK_CSRRS,
+> > +             .match = INSN_MATCH_CSRRS,
+> > +             .func  = csr_insn,
+> > +     },
+> > +     {
+> > +             .mask  = INSN_MASK_CSRRC,
+> > +             .match = INSN_MATCH_CSRRC,
+> > +             .func  = csr_insn,
+> > +     },
+> > +     {
+> > +             .mask  = INSN_MASK_CSRRWI,
+> > +             .match = INSN_MATCH_CSRRWI,
+> > +             .func  = csr_insn,
+> > +     },
+> > +     {
+> > +             .mask  = INSN_MASK_CSRRSI,
+> > +             .match = INSN_MATCH_CSRRSI,
+> > +             .func  = csr_insn,
+> > +     },
+> > +     {
+> > +             .mask  = INSN_MASK_CSRRCI,
+> > +             .match = INSN_MATCH_CSRRCI,
+> > +             .func  = csr_insn,
+> > +     },
+> >       {
+> >               .mask  = INSN_MASK_WFI,
+> >               .match = INSN_MATCH_WFI,
+> > diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> > index 5088bd9f1922..c48fd3d1c45b 100644
+> > --- a/include/uapi/linux/kvm.h
+> > +++ b/include/uapi/linux/kvm.h
+> > @@ -270,6 +270,7 @@ struct kvm_xen_exit {
+> >  #define KVM_EXIT_X86_BUS_LOCK     33
+> >  #define KVM_EXIT_XEN              34
+> >  #define KVM_EXIT_RISCV_SBI        35
+> > +#define KVM_EXIT_RISCV_CSR        36
 > >
-> > -     return truly_illegal_insn(vcpu, run, insn);
-> > +     return (rc <= 0) ? rc : 1;
-> >  }
-> >
-> >  /**
+> >  /* For KVM_EXIT_INTERNAL_ERROR */
+> >  /* Emulate instruction failed. */
+> > @@ -496,6 +497,13 @@ struct kvm_run {
+> >                       unsigned long args[6];
+> >                       unsigned long ret[2];
+> >               } riscv_sbi;
+> > +             /* KVM_EXIT_RISCV_CSR */
+> > +             struct {
+> > +                     unsigned long csr_num;
+> > +                     unsigned long new_value;
+> > +                     unsigned long write_mask;
+> > +                     unsigned long ret_value;
+> > +             } riscv_csr;
+> >               /* Fix the size of the union. */
+> >               char padding[256];
+> >       };
 > > --
 > > 2.34.1
 > >
 > >
-> > --
-> > kvm-riscv mailing list
-> > kvm-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/kvm-riscv
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
