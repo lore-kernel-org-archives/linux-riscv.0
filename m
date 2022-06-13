@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C96AC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 09:45:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0056BC43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 10:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JN38pR/R+zNV9zBIFLpRjNXZQNh8DeZ80yZ+s5gpJWk=; b=Kpd16AJoB9Ucx0
-	MIYe2nY6CKdLH0+FsqTClxgt55yUobbMnVQlYXLCkehZdg1naPHqVrgrRmTDrbntYT+DdbSL3F9eb
-	nSnUAkTaq2rctPTqTY7rGhKYI4lwfMjYUk2V3DGk9m1gV+eKFrMBOxc4zEJ445qf+fPdwfUYGIxbg
-	N7WVKWG9IBhyBxnvT/SVU5tih1jrF8QJFz7rRT3IaIKUq/FmXkAS8Aw9+XXSTvv1KWfkn2HIE9WbV
-	KoVBqJ7rMh1edjJgQZPFqYNj1D6Hq35FEZgebEcTZJ0hn7szjNMqXttyIB51MWy0PS8RsHwt2MTgw
-	A2ymKZe+Z6LOgTTS7rZQ==;
+	List-Owner; bh=6WDx6sZa2T+nJ6xcjO4jayfYISrpKX0lWwoN1UKj6yM=; b=QLOwowh1/yGg97
+	wxbRYCjKnBTrD/gA5hIXUpL1vptEzSJe7L6TxEFlcv/FX1atNdW6RVCTjuu8A2tSKP4Y1Qon9Ba3S
+	9/8iJPceJOqpewC1F+U78r6ECDBv5RcCbhaU+3wJg8XW3CGU+5mrq5Se9F5WQ6H70+2nA2mo/Dq4N
+	nbhDvQXNyNmRQ/J+eYYx67FEY/k2+XLGXlmXpjmWW96eihyCtFSeyw9KMSseqkiJksU/72Ir8tfIt
+	rU+FOy6Fog0zaVK1sPUtp4vL21gcuXfFl40h3xgamHkFN9fsIf0jBMM16p7gLiCjjp3tthkPnSwwE
+	hn0nYTBhJPTy83rwyO4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0gdH-002cW8-6z; Mon, 13 Jun 2022 09:45:15 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1o0grZ-002jOc-Lr; Mon, 13 Jun 2022 10:00:01 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0gcl-002cFv-RO; Mon, 13 Jun 2022 09:44:47 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3ADDA61381;
-	Mon, 13 Jun 2022 09:44:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C2C1C3411C;
-	Mon, 13 Jun 2022 09:44:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1655113482;
-	bh=xt5DGwjhYrIt2t4/I7WxcJsztFBJP3gm0q1s4WQ34ZM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=O6YeFxlyL68gdYVZZNmot4hKDu0cvDrL3n970VtnwqC9I7SfliUL5fhLeFQ4/9bin
-	 T8zI4SrdeG92yvm7oD0YAcVoiXTFDHh28yErHqdUpfGE3l8jWy59lCt44xoXqiVYSC
-	 I1Z18vioGAzwJOeFhgQIglmEv8c7kXJ8qrYOAjH7LtWOk4F+xLDBKV1LrBX0QY69Xf
-	 oYM20nOCGNvfXlNxhrShdrqtSJhvfFSnhgSL1r67+lRBEpFwCMaWrgIT+2uZ2a/pO3
-	 0vNnT4K97SF5CYxpWY0TAy70/MiMaYUqQUWDiiuRybC1LkGsmhR5stXESG+KOtcBee
-	 qam3B2J8kCg/w==
-Received: by mail-oi1-f169.google.com with SMTP id q11so7071138oih.10;
-        Mon, 13 Jun 2022 02:44:42 -0700 (PDT)
-X-Gm-Message-State: AOAM531JoxBlytLpS9hsZJIXjkZhKM6jYZsnDNhjBQui6wF69mf6uP8/
-	lEA7WyZr6VmzW1g3gbWsfhTyV3K2DzmMeezXh9I=
-X-Google-Smtp-Source: ABdhPJxWL190gaOo8x+poLO9fIQXg4n82FrPAPLPqZ2Srb/3zr8FQ26NmuG4wz3v6gR8a+MZBf5hmYgVu3gibFw/syM=
-X-Received: by 2002:a05:6870:e98b:b0:fe:219a:2449 with SMTP id
- r11-20020a056870e98b00b000fe219a2449mr7281685oao.228.1655113471413; Mon, 13
- Jun 2022 02:44:31 -0700 (PDT)
+	id 1o0grW-002jMJ-Fc
+	for linux-riscv@lists.infradead.org; Mon, 13 Jun 2022 10:00:00 +0000
+Received: by mail-wr1-x432.google.com with SMTP id u8so6401040wrm.13
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Jun 2022 02:59:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=UmfLVMrsn0WGwubEU9B512VvZRZn5oxu7wSDZVtbht0=;
+        b=LhZfBXrvzYqI3m+WOUh4DDqPjfPfwZPsqmNNJVMNh7XYs9heKwO/IPxsk57tFUWucd
+         Zv6BaDUdcvpVMuRseJV823A6bUqwBLM/ErvVhMli9qCYvcMv3EDVok6Hw5zR/Lk1A7f7
+         YDYDeqVLMVaT975XLHb3o0dDdbgbhPnfyk5U5SilxzCkVewvWxgU9ZYIV0tjRrFHEPqp
+         UaPGF5flFUtToEIyyo3cB7DP2DXyluPY7ZBscQ/IgI0Y1AdUjbs69JrN6nUxHnRrX0Ys
+         uJRq/GzfjN64AWitEhKqIRYtl3Wg2+qaFXED+ezHW03GsDZILI4lTcp8foIuTWyYnlg/
+         ZmtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=UmfLVMrsn0WGwubEU9B512VvZRZn5oxu7wSDZVtbht0=;
+        b=3qEMvdu6cTwYSDM80g9Tak1YjIL259XeXUHO69y1i6mynMSKfxxZTZYW2OYtRdgVLd
+         KGbfy6QmhIZmzEi5TXALbON8aymbSlqeo20NqW8cMQxoj3a4ozOgz2zfUtifXW8jDJnX
+         oBp51vFS6m+vlbfYMEvnp6khRJ4laBly+VBqJRh0+wUr/C80BFCnBFQfVArIeLUilXyC
+         TVC9DCMmmgm1o3K1u6TGWmkCYidyZ1bB0ROvcL3Vew7gJEuac08ZyeqMYnl3u1jPq6wV
+         n7dObTkIG3NNTcfXgBKmAHazRpiTzZH9HqqyHIr4BWoj62CdoDu3ThavNlXPyjicccPi
+         5BWw==
+X-Gm-Message-State: AOAM532tVGCuTecCCLaxRFSA8AVdXN3OLYwSANkXu4b/uQ1UIwyn3KTx
+	K4feshUZLSFABUVMGHg3fuf21HfDsZN4XPVhkkGr9A==
+X-Google-Smtp-Source: ABdhPJzxNuCEvmYzaj5KbxDO78aB8w+JhFuCEdlruGFDryxRsTs1bXjV4eGZNPl3H7NY9NxC4va02GY5gR3R6YabY7U=
+X-Received: by 2002:a5d:6c6b:0:b0:1ea:77ea:dde8 with SMTP id
+ r11-20020a5d6c6b000000b001ea77eadde8mr57053464wrz.690.1655114396705; Mon, 13
+ Jun 2022 02:59:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220613082147.183145-1-mawupeng1@huawei.com> <20220613082147.183145-7-mawupeng1@huawei.com>
- <590a1211-d316-d51d-6577-eb9983126dd0@huawei.com>
-In-Reply-To: <590a1211-d316-d51d-6577-eb9983126dd0@huawei.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 13 Jun 2022 11:44:19 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFfmXMriLutNA1FyeNhNz=Zo2hHgO8FLkQ3_xT8kF6oeQ@mail.gmail.com>
-Message-ID: <CAMj1kXFfmXMriLutNA1FyeNhNz=Zo2hHgO8FLkQ3_xT8kF6oeQ@mail.gmail.com>
-Subject: Re: [PATCH v4 6/6] memblock: Disable mirror feature if kernelcore is
- not specified
-To: mawupeng <mawupeng1@huawei.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, Will Deacon <will@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Darren Hart <dvhart@infradead.org>, 
-	Andy Shevchenko <andy@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, paulmck@kernel.org, 
-	keescook@chromium.org, songmuchun@bytedance.com, rdunlap@infradead.org, 
-	damien.lemoal@opensource.wdc.com, swboyd@chromium.org, wei.liu@kernel.org, 
-	robin.murphy@arm.com, david@redhat.com, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Zhen Lei <thunder.leizhen@huawei.com>, 
-	wangkefeng.wang@huawei.com, gpiccoli@igalia.com, chenhuacai@kernel.org, 
-	geert@linux-m68k.org, vijayb@linux.microsoft.com, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-efi@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org
+References: <20220610050555.288251-1-apatel@ventanamicro.com>
+ <20220610050555.288251-3-apatel@ventanamicro.com> <20220612153113.GA52224@liuzhao-OptiPlex-7080>
+In-Reply-To: <20220612153113.GA52224@liuzhao-OptiPlex-7080>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 13 Jun 2022 15:29:13 +0530
+Message-ID: <CAAhSdy2GXCujSkJgrWC==nTbeT7soY57K_DKP-vs57E=iN-YkQ@mail.gmail.com>
+Subject: Re: [PATCH 2/3] RISC-V: KVM: Add extensible system instruction
+ emulation framework
+To: Liu Zhao <zhao1.liu@linux.intel.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, KVM General <kvm@vger.kernel.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Zhenyu Wang <zhenyuw@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220613_024444_081079_248C0994 
-X-CRM114-Status: GOOD (  33.37  )
+X-CRM114-CacheID: sfid-20220613_025958_613879_000F5541 
+X-CRM114-Status: GOOD (  30.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,85 +88,185 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Jun 2022 at 11:13, mawupeng <mawupeng1@huawei.com> wrote:
+On Sun, Jun 12, 2022 at 8:57 PM Liu Zhao <zhao1.liu@linux.intel.com> wrote:
 >
->
->
-> On 6/13/2022 4:21 PM, Wupeng Ma wrote:
-> > From: Ma Wupeng <mawupeng1@huawei.com>
+> On Fri, Jun 10, 2022 at 10:35:54AM +0530, Anup Patel wrote:
+> > Date: Fri, 10 Jun 2022 10:35:54 +0530
+> > From: Anup Patel <apatel@ventanamicro.com>
+> > Subject: [PATCH 2/3] RISC-V: KVM: Add extensible system instruction
+> >  emulation framework
+> > X-Mailer: git-send-email 2.34.1
 > >
-> > If system have some mirrored memory and mirrored feature is not specified
-> > in boot parameter, the basic mirrored feature will be enabled and this will
-> > lead to the following situations:
+> > We will be emulating more system instructions in near future with
+> > upcoming AIA, PMU, Nested and other virtualization features.
 > >
-> > - memblock memory allocation prefers mirrored region. This may have some
-> >   unexpected influence on numa affinity.
+> > To accommodate above, we add an extensible system instruction emulation
+> > framework in vcpu_insn.c.
 > >
-> > - contiguous memory will be split into several parts if parts of them
-> >   is mirrored memory via memblock_mark_mirror().
-> >
-> > To fix this, variable mirrored_kernelcore will be checked in
-> > memblock_mark_mirror(). Mark mirrored memory with flag MEMBLOCK_MIRROR iff
-> > kernelcore=mirror is added in the kernel parameters.
-> >
-> > Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > > ---
-> >  mm/internal.h   | 2 ++
-> >  mm/memblock.c   | 3 +++
-> >  mm/page_alloc.c | 2 +-
-> >  3 files changed, 6 insertions(+), 1 deletion(-)
+> >  arch/riscv/include/asm/kvm_vcpu_insn.h |  9 +++
+> >  arch/riscv/kvm/vcpu_insn.c             | 82 +++++++++++++++++++++++---
+> >  2 files changed, 82 insertions(+), 9 deletions(-)
 > >
-> > diff --git a/mm/internal.h b/mm/internal.h
-> > index c0f8fbe0445b..ddd2d6a46f1b 100644
-> > --- a/mm/internal.h
-> > +++ b/mm/internal.h
-> > @@ -861,4 +861,6 @@ struct folio *try_grab_folio(struct page *page, int refs, unsigned int flags);
+> > diff --git a/arch/riscv/include/asm/kvm_vcpu_insn.h b/arch/riscv/include/asm/kvm_vcpu_insn.h
+> > index 4e3ba4e84d0f..3351eb61a251 100644
+> > --- a/arch/riscv/include/asm/kvm_vcpu_insn.h
+> > +++ b/arch/riscv/include/asm/kvm_vcpu_insn.h
+> > @@ -18,6 +18,15 @@ struct kvm_mmio_decode {
+> >       int return_handled;
+> >  };
 > >
-> >  DECLARE_PER_CPU(struct per_cpu_nodestat, boot_nodestats);
-> >
-> > +extern bool mirrored_kernelcore;
+> > +/* Return values used by function emulating a particular instruction */
+> > +enum kvm_insn_return {
+> > +     KVM_INSN_EXIT_TO_USER_SPACE = 0,
+> > +     KVM_INSN_CONTINUE_NEXT_SEPC,
+> > +     KVM_INSN_CONTINUE_SAME_SEPC,
+> > +     KVM_INSN_ILLEGAL_TRAP,
+> > +     KVM_INSN_VIRTUAL_TRAP
+> > +};
 > > +
-> >  #endif       /* __MM_INTERNAL_H */
-> > diff --git a/mm/memblock.c b/mm/memblock.c
-> > index b1d2a0009733..a9f18b988b7f 100644
-> > --- a/mm/memblock.c
-> > +++ b/mm/memblock.c
-> > @@ -924,6 +924,9 @@ int __init_memblock memblock_clear_hotplug(phys_addr_t base, phys_addr_t size)
-> >   */
-> >  int __init_memblock memblock_mark_mirror(phys_addr_t base, phys_addr_t size)
+> >  void kvm_riscv_vcpu_wfi(struct kvm_vcpu *vcpu);
+> >  int kvm_riscv_vcpu_virtual_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> >                               struct kvm_cpu_trap *trap);
+> > diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+> > index be756879c2ee..75ca62a7fba5 100644
+> > --- a/arch/riscv/kvm/vcpu_insn.c
+> > +++ b/arch/riscv/kvm/vcpu_insn.c
+> > @@ -118,8 +118,24 @@
+> >                                (s32)(((insn) >> 7) & 0x1f))
+> >  #define MASK_FUNCT3          0x7000
+> >
+> > -static int truly_illegal_insn(struct kvm_vcpu *vcpu,
+> > -                           struct kvm_run *run,
+> > +struct insn_func {
+> > +     unsigned long mask;
+> > +     unsigned long match;
+> > +     /*
+> > +      * Possible return values are as follows:
+> > +      * 1) Returns < 0 for error case
+> > +      * 2) Returns 0 for exit to user-space
+> > +      * 3) Returns 1 to continue with next sepc
+> > +      * 4) Returns 2 to continue with same sepc
+> > +      * 5) Returns 3 to inject illegal instruction trap and continue
+> > +      * 6) Returns 4 to inject virtual instruction trap and continue
+> > +      *
+> > +      * Use enum kvm_insn_return for return values
+> > +      */
+> > +     int (*func)(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn);
+> > +};
+> > +
+> > +static int truly_illegal_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> >                             ulong insn)
 > >  {
-> > +     if (!mirrored_kernelcore)
-> > +             return 0;
+> >       struct kvm_cpu_trap utrap = { 0 };
+> > @@ -128,6 +144,24 @@ static int truly_illegal_insn(struct kvm_vcpu *vcpu,
+> >       utrap.sepc = vcpu->arch.guest_context.sepc;
+> >       utrap.scause = EXC_INST_ILLEGAL;
+> >       utrap.stval = insn;
+> > +     utrap.htval = 0;
+> > +     utrap.htinst = 0;
+> > +     kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
 > > +
-> >       system_has_some_mirror = true;
+> > +     return 1;
+> > +}
+> > +
+> > +static int truly_virtual_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> > +                           ulong insn)
+> > +{
+> > +     struct kvm_cpu_trap utrap = { 0 };
+> > +
+> > +     /* Redirect trap to Guest VCPU */
+> > +     utrap.sepc = vcpu->arch.guest_context.sepc;
+> > +     utrap.scause = EXC_VIRTUAL_INST_FAULT;
+> > +     utrap.stval = insn;
+> > +     utrap.htval = 0;
+> > +     utrap.htinst = 0;
+> >       kvm_riscv_vcpu_trap_redirect(vcpu, &utrap);
 > >
-> >       return memblock_setclr_flag(base, size, 1, MEMBLOCK_MIRROR);
-> > diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> > index e008a3df0485..9b030aeb4983 100644
-> > --- a/mm/page_alloc.c
-> > +++ b/mm/page_alloc.c
-> > @@ -356,7 +356,7 @@ static unsigned long required_kernelcore_percent __initdata;
-> >  static unsigned long required_movablecore __initdata;
-> >  static unsigned long required_movablecore_percent __initdata;
-> >  static unsigned long zone_movable_pfn[MAX_NUMNODES] __initdata;
-> > -static bool mirrored_kernelcore __meminitdata;
-> > +bool mirrored_kernelcore __initdata;
->
-> __initdata here is not suitable and will lead to compile warnings.
->
-> In my test, __initdata_memblock and ro_after_init are both fine, but I am not
-> sure which one to choose? Do you have any idea on this?
->
-
-__initdata_memblock is fine if it works.
-
-This looks to me like the right place to implement this policy, so
-
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-
+> >       return 1;
+> > @@ -148,18 +182,48 @@ void kvm_riscv_vcpu_wfi(struct kvm_vcpu *vcpu)
+> >       }
+> >  }
 > >
-> >  /* movable_zone is the "real" zone pages in ZONE_MOVABLE are taken from */
-> >  int movable_zone;
+> > -static int system_opcode_insn(struct kvm_vcpu *vcpu,
+> > -                           struct kvm_run *run,
+> > +static int wfi_insn(struct kvm_vcpu *vcpu, struct kvm_run *run, ulong insn)
+> > +{
+> > +     vcpu->stat.wfi_exit_stat++;
+> > +     kvm_riscv_vcpu_wfi(vcpu);
+> > +     return KVM_INSN_CONTINUE_NEXT_SEPC;
+> > +}
+> > +
+> > +static const struct insn_func system_opcode_funcs[] = {
+> > +     {
+> > +             .mask  = INSN_MASK_WFI,
+> > +             .match = INSN_MATCH_WFI,
+> > +             .func  = wfi_insn,
+> > +     },
+> > +};
+> > +
+> > +static int system_opcode_insn(struct kvm_vcpu *vcpu, struct kvm_run *run,
+> >                             ulong insn)
+> >  {
+> > -     if ((insn & INSN_MASK_WFI) == INSN_MATCH_WFI) {
+> > -             vcpu->stat.wfi_exit_stat++;
+> > -             kvm_riscv_vcpu_wfi(vcpu);
+> > +     int i, rc = KVM_INSN_ILLEGAL_TRAP;
+> > +     const struct insn_func *ifn;
+> > +
+> > +     for (i = 0; i < ARRAY_SIZE(system_opcode_funcs); i++) {
+> > +             ifn = &system_opcode_funcs[i];
+> > +             if ((insn & ifn->mask) == ifn->match) {
+> > +                     rc = ifn->func(vcpu, run, insn);
+> > +                     break;
+> > +             }
+> > +     }
+> > +
+> > +     switch (rc) {
+> > +     case KVM_INSN_ILLEGAL_TRAP:
+> > +             return truly_illegal_insn(vcpu, run, insn);
+> > +     case KVM_INSN_VIRTUAL_TRAP:
+> > +             return truly_virtual_insn(vcpu, run, insn);
+> > +     case KVM_INSN_CONTINUE_NEXT_SEPC:
+> >               vcpu->arch.guest_context.sepc += INSN_LEN(insn);
+> > -             return 1;
+> > +             break;
+>
+> Hi Anup,
+> What about adding KVM_INSN_CONTINUE_SAME_SEPC and KVM_INSN_EXIT_TO_USER_SPACE
+> cases here and set rc to 1?
+
+For KVM_INSN_CONTINUE_SAME_SEPC (and any rc >= 1) we should return 1
+whereas for KVM_INSN_EXIT_TO_USER_SPACE we should return 0.
+
+> This is the explicit indication that both cases are handled.
+
+The KVM_INSN_EXIT_TO_USER_SPACE is always 0 whereas
+KVM_INSN_CONTINUE_SAME_SEPC is always 1 so the statement
+"return (rc <= 0) ? rc : 1;" handles both these cases.
+
+Regards,
+Anup
+
+>
+> > +     default:
+> > +             break;
+> >       }
+> >
+> > -     return truly_illegal_insn(vcpu, run, insn);
+> > +     return (rc <= 0) ? rc : 1;
+> >  }
+> >
+> >  /**
+> > --
+> > 2.34.1
+> >
+> >
+> > --
+> > kvm-riscv mailing list
+> > kvm-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/kvm-riscv
 
 _______________________________________________
 linux-riscv mailing list
