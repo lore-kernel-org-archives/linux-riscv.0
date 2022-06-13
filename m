@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ACBACCA47B
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 08:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED6AC43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 08:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gB2dWnchGYJitAMxP5+BeG40nN+KXxiCnW7TkHjIZZI=; b=f29zmBWDu1Dipj
-	4DxG0NOh2J8NktzlgF6FkvBjZH1xBk1N0cZeaw02EfBP8PkpAskPhOHozKH62WUt1iwrHfzpOp1uk
-	zAmSih2oVNFtr8+5oxGjzbdytBUrACm4uwewZE9pHfTB0jJQfIa0uNTFpQXhs11LuMmWxVsQUcY2p
-	zj6fe3fNaUIzGO3xvSbKeuh+dsoWZnfgA/BIOUljYPGaG3Uu9lIc/v3q+YlZeMimtiDJIi2H3toE+
-	ZQAvQ7487kb3A08TEw2cm0kRNltT6lAKK2dRXYUnvq8fV+Po16LQwsKjygKNj3CWDNWYdvS5koWUs
-	DYszbdB/rPolWoXG+y8w==;
+	List-Owner; bh=e2jXxFmKsBQVDB5R3DN14GKAGjVtUcp5KDXRaXJvNw0=; b=K66Q09fcKSI4WX
+	FeuBWm+c9yjxEhniJDjVDJmXkM/POC+whj5xoy3FXZweXO6CZC7MQa/lPOOlJ3ZGMFqBoX9fj1YIp
+	v6NHRxw1FzHL0kghjR9Y2DYQ3MUbKJDVarWkK11QvhP75fBa+oUeQtaXi2CQyCz/KdUHoi5jOLZpu
+	4b/K3GkBR0Y7gLbS88fbGi8RO8yv7DJi+KIICi2nJNK9KCXJNkjaQHc3KhMPdZaBE84xdSsYs85AX
+	hS1ZsBr5PzDllMMS34hpqENNRpNH3/MMSzzHoaBpBLocwbFEEDVnY6gOYvKGGCp0rpcy9hXFN9p5h
+	dB9vRk3LnDXu8SdjbGVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0f15-00273C-KL; Mon, 13 Jun 2022 08:01:43 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1o0f1Q-0027Go-T5; Mon, 13 Jun 2022 08:02:04 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0ezz-0026P7-Im; Mon, 13 Jun 2022 08:00:39 +0000
-Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.56])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4LM3qY4rMyzjXbr;
-	Mon, 13 Jun 2022 15:59:05 +0800 (CST)
+	id 1o0f00-0026Og-A0; Mon, 13 Jun 2022 08:00:41 +0000
+Received: from dggpemm500022.china.huawei.com (unknown [172.30.72.54])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4LM3q01pKfzgYpM;
+	Mon, 13 Jun 2022 15:58:36 +0800 (CST)
 Received: from dggpemm500014.china.huawei.com (7.185.36.153) by
- dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
+ dggpemm500022.china.huawei.com (7.185.36.162) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 13 Jun 2022 16:00:33 +0800
+ 15.1.2375.24; Mon, 13 Jun 2022 16:00:31 +0800
 Received: from localhost.localdomain (10.175.112.125) by
  dggpemm500014.china.huawei.com (7.185.36.153) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 13 Jun 2022 16:00:31 +0800
+ 15.1.2375.24; Mon, 13 Jun 2022 16:00:30 +0800
 From: Wupeng Ma <mawupeng1@huawei.com>
 To: <corbet@lwn.net>, <will@kernel.org>, <ardb@kernel.org>,
 	<catalin.marinas@arm.com>
@@ -53,9 +53,9 @@ CC: <tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-efi@vger.kernel.org>, <platform-driver-x86@vger.kernel.org>,
 	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v4 5/6] mm: Only remove nomap flag for initrd
-Date: Mon, 13 Jun 2022 16:21:46 +0800
-Message-ID: <20220613082147.183145-6-mawupeng1@huawei.com>
+Subject: [PATCH v4 4/6] mm: Limit warning message in vmemmap_verify() to once
+Date: Mon, 13 Jun 2022 16:21:45 +0800
+Message-ID: <20220613082147.183145-5-mawupeng1@huawei.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220613082147.183145-1-mawupeng1@huawei.com>
 References: <20220613082147.183145-1-mawupeng1@huawei.com>
@@ -65,8 +65,8 @@ X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  dggpemm500014.china.huawei.com (7.185.36.153)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220613_010035_837000_67112697 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20220613_010036_556677_70144C09 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,37 +85,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Ma Wupeng <mawupeng1@huawei.com>
 
-Commit 177e15f0c144 ("arm64: add the initrd region to the linear mapping explicitly")
-remove all the flags of the memory used by initrd. This is fine since
-MEMBLOCK_MIRROR is not used in arm64.
+For a system only have limited mirrored memory or some numa node without
+mirrored memory, the per node vmemmap page_structs prefer to allocate
+memory from mirrored region, which will lead to vmemmap_verify() in
+vmemmap_populate_basepages() report lots of warning message.
 
-However with mirrored feature introduced to arm64, this will clear the mirrored
-flag used by initrd, which will lead to error log printed by
-find_zone_movable_pfns_for_nodes() if the lower 4G range has some non-mirrored
-memory.
-
-To solve this problem, only MEMBLOCK_NOMAP flag will be removed via
-memblock_clear_nomap().
+This patch change the frequency of "potential offnode page_structs" warning
+messages to only once to avoid a very long print during bootup.
 
 Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
 ---
- arch/arm64/mm/init.c | 2 +-
+ mm/sparse-vmemmap.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 339ee84e5a61..8456dbae9441 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -350,8 +350,8 @@ void __init arm64_memblock_init(void)
- 			"initrd not fully accessible via the linear mapping -- please check your bootloader ...\n")) {
- 			phys_initrd_size = 0;
- 		} else {
--			memblock_remove(base, size); /* clear MEMBLOCK_ flags */
- 			memblock_add(base, size);
-+			memblock_clear_nomap(base, size);
- 			memblock_reserve(base, size);
- 		}
- 	}
+diff --git a/mm/sparse-vmemmap.c b/mm/sparse-vmemmap.c
+index f4fa61dbbee3..f34c6889b0a6 100644
+--- a/mm/sparse-vmemmap.c
++++ b/mm/sparse-vmemmap.c
+@@ -528,7 +528,7 @@ void __meminit vmemmap_verify(pte_t *pte, int node,
+ 	int actual_node = early_pfn_to_nid(pfn);
+ 
+ 	if (node_distance(actual_node, node) > LOCAL_DISTANCE)
+-		pr_warn("[%lx-%lx] potential offnode page_structs\n",
++		pr_warn_once("[%lx-%lx] potential offnode page_structs\n",
+ 			start, end - 1);
+ }
+ 
 -- 
 2.25.1
 
