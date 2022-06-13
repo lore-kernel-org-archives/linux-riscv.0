@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4EC7C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 09:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8457AC43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 09:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SbNTaTBoqnL/RMSrcBTT/fidKmyU8EsTu7Q27ylRkos=; b=O19P/6tZSWA1zU
-	F1+/7TIej8NmBT8EhnGKlpVDcf5SfLz7St9cbtTaLiLsInUVNu5ebAJVXbdcWpSOd6Md0axQXZIpn
-	uWEWLQDn++OUAmr6g7TL6GUW/Ssgc6lQyb6Qou+1UcTFF5buJG92e2H9nTIHBgb+JOS4IfM+tym41
-	JoPvXnroOId80SuS8S8YfG1suIEajmCMzzNUr7pbRtnHJbRXwhX5G2aPNsGwFBRe01UccNejwPU+M
-	iS5+B3i2AA678XGuWvIPbk2toZ4CaATlXU3ME6OtvysKsbe5wg5uqroCELZmwyrfAZYIhSBrJ7Qze
-	u2JoDBrv80/5nA0B8dbA==;
+	List-Owner; bh=NWe98ppVBj7A0G3A3+ZRZAZfJHO3HYf4MmxDRIUmSLM=; b=HUvukXV8Tyfx3O
+	cuYKOapBOjl0jCASlCIbMyoRL2iZi4maQTEoSpl6avIJ4Mm+O2wCT7SyCgUZ/c5LQexLfybqnfHX4
+	wFqbZOaW3o+DpvR3iV6TK1/7yTksbiXMtQwSYz/TyaIp1PLQhk9rKI19quYjLO0hQhQ5u11BwI6R2
+	S53GjiGfylZztJ8QqQPugShHo9FWcxOazcT41gNubA1j7BiTNIcvKdaLs41aDOmM+0w/HZHDXPy/B
+	iuTpsDKyY0TO1wV0+6K+i8TxF+a+N2gNGKsPVigrl6Hg5xG535LRS4s8166NNpoSfl6/FFFz9aLbg
+	SE9n3vCG8sZnMP8Pv4/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0gFF-002VDa-Rp; Mon, 13 Jun 2022 09:20:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0gEx-002V5s-HB; Mon, 13 Jun 2022 09:20:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7023ED6E;
-	Mon, 13 Jun 2022 02:20:03 -0700 (PDT)
-Received: from [192.168.68.208] (unknown [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3808B3F66F;
-	Mon, 13 Jun 2022 02:20:01 -0700 (PDT)
-Message-ID: <af7d6f49-09c5-6e60-988c-51c3c7c04d96@arm.com>
-Date: Mon, 13 Jun 2022 11:19:36 +0200
+	id 1o0gQF-002YU6-FL; Mon, 13 Jun 2022 09:31:47 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o0gQB-002YRR-MD
+	for linux-riscv@lists.infradead.org; Mon, 13 Jun 2022 09:31:45 +0000
+Received: by mail-wr1-x430.google.com with SMTP id q15so6303631wrc.11
+        for <linux-riscv@lists.infradead.org>; Mon, 13 Jun 2022 02:31:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=/OqFsaupcKkbN5ZhwB7cTTOB/jJJt4KZYzQeTPC35+8=;
+        b=4FIRDPlyNK+WMh7PnfjoRzqlLl6R8KV6uBkS/FTTx0qa70c8hfiqGl6hXSnxRKX4g5
+         M2td+xg4QJnj+FOdx0QYC/F4PW/x9pGstgIMkvb/2FpiaMbxw1+rzbaZK2FrF+hW4NTb
+         y5F4eHtHLtCifjnZAfhL6VCr+RXXM8dV1h3FML7iQJ6vmkiZvvI8AzeSZtvGSCHUgG6o
+         kB5zQBUTJ4yylxGEnVe9GJ57fuyClEacPwME303K79FAzK29Zy4rPhFsD+hLjZkTT100
+         TIoN1irlZbmAyzA4JMLK2A2Vpv5bzPvU1cx9Gj+Cz6C3+CL/LFLV9pakLe+Ga74LTxDG
+         jAIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=/OqFsaupcKkbN5ZhwB7cTTOB/jJJt4KZYzQeTPC35+8=;
+        b=vNNiK25QvATToOqRWOps2wnmh1QCKhYN9rP5cqBLxd5m+td0XDioXA7BreK0IBJFIN
+         WYhMdSawSBnqME29Timgr497Bq0NXDR2rN0Qq0/EnQ2CRuhr0mulQtOFMsCqYv7J2qo5
+         y8rl3WEuRE5qi+5b7zRfqMLbp+aUOTSzE7wS8eUFJpiFl5WSwlGeDrKsrPoouIJSPxcf
+         0GGDKT20+5GVDDXMUUGzIilffaA23238/LXfi5N7chv2Cr7wsxu7OgQusKRn1mgawJzN
+         c8jMUzNwdpa9MHMifp9eI40E0wmbZMjITz42oCPkEIey8ur0TWFWLlF+wK88OSAciVnI
+         GLMg==
+X-Gm-Message-State: AOAM531LO1DKH83dLdQAdnqcE0/RsmeCpLYfGlzkEkcu1Gy5gIOsXrop
+	ivkPF4DxFP9iY1DOmj89QO66syYpvT15SVInBMWV+Q==
+X-Google-Smtp-Source: ABdhPJyJxuBV/uJZZhzzNbRjrZxQLROU+4Ucqqbti5noEvVDrdiFWuCWiOyFcxZFCb/sBhiP8wYqX4LQ++GrBZJzJPc=
+X-Received: by 2002:a05:6000:1f18:b0:20f:e61b:520e with SMTP id
+ bv24-20020a0560001f1800b0020fe61b520emr56401364wrb.214.1655112699798; Mon, 13
+ Jun 2022 02:31:39 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.1
-From: Dietmar Eggemann <dietmar.eggemann@arm.com>
-Subject: Re: [PATCH v3 15/16] arch_topology: Set cluster identifier in each
- core/thread from /cpu-map
-To: Sudeep Holla <sudeep.holla@arm.com>,
- Vincent Guittot <vincent.guittot@linaro.org>
-Cc: linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>,
- Atish Patra <atishp@rivosinc.com>,
- Morten Rasmussen <morten.rasmussen@arm.com>, Qing Wang <wangqing@vivo.com>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Rob Herring <robh+dt@kernel.org>
-References: <20220525081416.3306043-10-sudeep.holla@arm.com>
- <20220525081416.3306043-11-sudeep.holla@arm.com>
- <20220525081416.3306043-12-sudeep.holla@arm.com>
- <20220525081416.3306043-13-sudeep.holla@arm.com>
- <20220525081416.3306043-14-sudeep.holla@arm.com>
- <20220525081416.3306043-15-sudeep.holla@arm.com>
- <20220525081416.3306043-16-sudeep.holla@arm.com>
- <947470ba-35fc-3c72-d01b-c0a7337216a2@arm.com>
- <20220606102159.dduxmvq4m2fm6gks@bogus>
- <CAKfTPtB8iPzEXipsJqNtd9-aJMKx-FAaiGMzOg58HgRQuo39iA@mail.gmail.com>
- <20220610102753.virkx47uyfsojol6@bogus>
-Content-Language: en-US
-In-Reply-To: <20220610102753.virkx47uyfsojol6@bogus>
+References: <20220613085307.260256-1-alexandre.ghiti@canonical.com>
+In-Reply-To: <20220613085307.260256-1-alexandre.ghiti@canonical.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 13 Jun 2022 15:01:28 +0530
+Message-ID: <CAAhSdy1gr_WvCJUMXMwtZUux9qBsW-b_LGFg4=tdnkv5b538sg@mail.gmail.com>
+Subject: Re: [PATCH -fixes v2] riscv: Fix missing PAGE_PFN_MASK
+To: Alexandre Ghiti <alexandre.ghiti@canonical.com>, Palmer Dabbelt <palmer@dabbelt.com>
+Cc: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, KVM General <kvm@vger.kernel.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220613_022007_693799_4B919B63 
-X-CRM114-Status: GOOD (  33.17  )
+X-CRM114-CacheID: sfid-20220613_023144_006734_F0C00FC0 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,109 +88,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/06/2022 12:27, Sudeep Holla wrote:
-> On Fri, Jun 10, 2022 at 12:08:44PM +0200, Vincent Guittot wrote:
->> On Mon, 6 Jun 2022 at 12:22, Sudeep Holla <sudeep.holla@arm.com> wrote:
->>>
-> 
-> [...]
-> 
->>> Why ? Are you suggesting that we shouldn't present the hardware cluster
->>> to the topology because of the above reason ? If so, sorry that is not a
->>> valid reason. We could add login to return NULL or appropriate value
->>> needed in cpu_clustergroup_mask id it matches MC level mask if we can't
->>> deal that in generic scheduler code. But the topology code can't be
->>> compromised for that reason as it is user visible.
->>
->> I tend to agree with Dietmar. The legacy use of cluster node in DT
->> refers to the dynamiQ or legacy b.L cluster which is also aligned to
->> the LLC and the MC scheduling level. The new cluster level that has
->> been introduced recently does not target this level but some
->> intermediate levels either inside like for the kupeng920 or the v9
->> complex or outside like for the ampere altra. So I would say that
->> there is one cluster node level in DT that refers to the same MC/LLC
->> level and only an additional child/parent cluster node should be used
->> to fill the clustergroup_mask.
->>
-> 
-> Again I completely disagree. Let us look at the problems separately.
-> The hardware topology that some of the tools like lscpu and lstopo expects
-> what the hardware looks like and not the scheduler's view of the hardware.
-> So the topology masks that gets exposed to the user-space needs fixing
-> even today. I have reports from various tooling people about the same.
-> E.g. Juno getting exposed as dual socket system is utter non-sense.
-> 
-> Yes scheduler uses most of the topology masks as is but that is not a must.
-> There are these *group_mask functions that can implement what scheduler
-> needs to be fed.
-> 
-> I am not sure why the 2 issues are getting mixed up and that is the main
-> reason why I jumped into this to make sure the topology masks are
-> not tampered based on the way it needs to be used for scheduler.
+On Mon, Jun 13, 2022 at 2:23 PM Alexandre Ghiti
+<alexandre.ghiti@canonical.com> wrote:
+>
+> There are a bunch of functions that use the PFN from a page table entry
+> that end up with the svpbmt upper-bits because they are missing the newly
+> introduced PAGE_PFN_MASK which leads to wrong addresses conversions and
+> then crash: fix this by adding this mask.
+>
+> Fixes: 100631b48ded ("riscv: Fix accessing pfn bits in PTEs for non-32bit variants")
+> Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
 
-I'm all in favor of not mixing up those 2 issues. But I don't understand
-why you have to glue them together.
+Looks good to me.
 
-(1) DT systems broken in userspace (lstopo shows Juno with 2 Packages)
+Reviewed-by: Anup Patel <anup@brainfault.org>
 
-(2) Introduce CONFIG_SCHED_CLUSTER for DT systems
+@Palmer let me know if you want me to take this through the KVM repo.
 
+Regards,
+Anup
 
-(1) This can be solved with your patch-set w/o setting `(1. level)
-    cpu-map cluster nodes`. The `socket nodes` taking over the
-    functionality of the `cluster nodes` sorts out the `Juno is seen as
-    having 2 packages`.
-    This will make core_sibling not suitable for cpu_coregroup_mask()
-    anymore. But this is OK since llc from cacheinfo (i.e. llc_sibling)
-    takes over here.
-    There is no need to involve `cluster nodes` anymore.
-
-(2) This will only make sense for Armv9 L2 complexes if we connect `2.
-    level cpu-map cluster nodes` with cluster_id and cluster_sibling.
-    And only then clusters would mean the same thing in ACPI and DT.
-    I guess this was mentioned already a couple of times.
-
-> Both ACPI and DT on a platform must present exact same hardware topology
-> to the user-space, there is no space for argument there.
-> 
->> IIUC, we don't describe the dynamiQ level in ACPI which  uses cache
->> topology instead to define cpu_coregroup_mask whereas DT described the
->> dynamiQ instead of using cache topology. If you use cache topology
->> now, then you should skip the dynamiQ
->>
-> 
-> Yes, unless someone can work out a binding to represent that and convince
-> DT maintainers ;).
-> 
->> Finally, even if CLS and MC have the same scheduling behavior for now,
->> they might ends up with different scheduling properties which would
->> mean that replacing MC level by CLS one for current SoC would become
->> wrong
->>
-> 
-> Again as I mentioned to Dietmar, that is something we can and must deal with
-> in those *group_mask and not expect topology mask to be altered to meet
-> CLS/MC or whatever sched domains needs. Sorry, that is my strong opinion
-> as the topology is already user-space visible and (tooling) people are
-> complaining that DT systems are broken and doesn't match ACPI systems.
-> 
-> So unless someone gives me non-scheduler and topology specific reasons
-> to change that, sorry but my opinion on this matter is not going to change ;).
-
-`lstopo` is fine with a now correct /sys/.../topology/package_cpus (or
-core_siblings (old filename). It's not reading
-/sys/.../topology/cluster_cpus (yet) so why set it (wrongly) to 0x39 for
-CPU0 on Juno when it can stay 0x01?
-
-> You will get this view of topology, find a way to manage with all those
-> *group_mask functions. By the way it is already handled for ACPI systems,
-> so if you are not happy with that, then that needs fixing as this change
-> set just aligns the behaviour on similar ACPI system. So the Juno example
-> is incorrect for the reason that the behaviour of scheduler there is different
-> with DT and ACPI.
-
-[...]
-
+> ---
+>  arch/riscv/include/asm/pgtable-64.h | 12 ++++++------
+>  arch/riscv/include/asm/pgtable.h    |  6 +++---
+>  arch/riscv/kvm/mmu.c                |  2 +-
+>  3 files changed, 10 insertions(+), 10 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> index 5c2aba5efbd0..dc42375c2357 100644
+> --- a/arch/riscv/include/asm/pgtable-64.h
+> +++ b/arch/riscv/include/asm/pgtable-64.h
+> @@ -175,7 +175,7 @@ static inline pud_t pfn_pud(unsigned long pfn, pgprot_t prot)
+>
+>  static inline unsigned long _pud_pfn(pud_t pud)
+>  {
+> -       return pud_val(pud) >> _PAGE_PFN_SHIFT;
+> +       return __page_val_to_pfn(pud_val(pud));
+>  }
+>
+>  static inline pmd_t *pud_pgtable(pud_t pud)
+> @@ -278,13 +278,13 @@ static inline p4d_t pfn_p4d(unsigned long pfn, pgprot_t prot)
+>
+>  static inline unsigned long _p4d_pfn(p4d_t p4d)
+>  {
+> -       return p4d_val(p4d) >> _PAGE_PFN_SHIFT;
+> +       return __page_val_to_pfn(p4d_val(p4d));
+>  }
+>
+>  static inline pud_t *p4d_pgtable(p4d_t p4d)
+>  {
+>         if (pgtable_l4_enabled)
+> -               return (pud_t *)pfn_to_virt(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
+> +               return (pud_t *)pfn_to_virt(__page_val_to_pfn(p4d_val(p4d)));
+>
+>         return (pud_t *)pud_pgtable((pud_t) { p4d_val(p4d) });
+>  }
+> @@ -292,7 +292,7 @@ static inline pud_t *p4d_pgtable(p4d_t p4d)
+>
+>  static inline struct page *p4d_page(p4d_t p4d)
+>  {
+> -       return pfn_to_page(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
+> +       return pfn_to_page(__page_val_to_pfn(p4d_val(p4d)));
+>  }
+>
+>  #define pud_index(addr) (((addr) >> PUD_SHIFT) & (PTRS_PER_PUD - 1))
+> @@ -347,7 +347,7 @@ static inline void pgd_clear(pgd_t *pgd)
+>  static inline p4d_t *pgd_pgtable(pgd_t pgd)
+>  {
+>         if (pgtable_l5_enabled)
+> -               return (p4d_t *)pfn_to_virt(pgd_val(pgd) >> _PAGE_PFN_SHIFT);
+> +               return (p4d_t *)pfn_to_virt(__page_val_to_pfn(pgd_val(pgd)));
+>
+>         return (p4d_t *)p4d_pgtable((p4d_t) { pgd_val(pgd) });
+>  }
+> @@ -355,7 +355,7 @@ static inline p4d_t *pgd_pgtable(pgd_t pgd)
+>
+>  static inline struct page *pgd_page(pgd_t pgd)
+>  {
+> -       return pfn_to_page(pgd_val(pgd) >> _PAGE_PFN_SHIFT);
+> +       return pfn_to_page(__page_val_to_pfn(pgd_val(pgd)));
+>  }
+>  #define pgd_page(pgd)  pgd_page(pgd)
+>
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 1d1be9d9419c..5dbd6610729b 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -261,7 +261,7 @@ static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
+>
+>  static inline unsigned long _pgd_pfn(pgd_t pgd)
+>  {
+> -       return pgd_val(pgd) >> _PAGE_PFN_SHIFT;
+> +       return __page_val_to_pfn(pgd_val(pgd));
+>  }
+>
+>  static inline struct page *pmd_page(pmd_t pmd)
+> @@ -590,14 +590,14 @@ static inline pmd_t pmd_mkinvalid(pmd_t pmd)
+>         return __pmd(pmd_val(pmd) & ~(_PAGE_PRESENT|_PAGE_PROT_NONE));
+>  }
+>
+> -#define __pmd_to_phys(pmd)  (pmd_val(pmd) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
+> +#define __pmd_to_phys(pmd)  (__page_val_to_pfn(pmd_val(pmd)) << PAGE_SHIFT)
+>
+>  static inline unsigned long pmd_pfn(pmd_t pmd)
+>  {
+>         return ((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT);
+>  }
+>
+> -#define __pud_to_phys(pud)  (pud_val(pud) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
+> +#define __pud_to_phys(pud)  (__page_val_to_pfn(pud_val(pud)) << PAGE_SHIFT)
+>
+>  static inline unsigned long pud_pfn(pud_t pud)
+>  {
+> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
+> index 1c00695ebee7..9826073fbc67 100644
+> --- a/arch/riscv/kvm/mmu.c
+> +++ b/arch/riscv/kvm/mmu.c
+> @@ -54,7 +54,7 @@ static inline unsigned long gstage_pte_index(gpa_t addr, u32 level)
+>
+>  static inline unsigned long gstage_pte_page_vaddr(pte_t pte)
+>  {
+> -       return (unsigned long)pfn_to_virt(pte_val(pte) >> _PAGE_PFN_SHIFT);
+> +       return (unsigned long)pfn_to_virt(__page_val_to_pfn(pte_val(pte)));
+>  }
+>
+>  static int gstage_page_size_to_level(unsigned long page_size, u32 *out_level)
+> --
+> 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
