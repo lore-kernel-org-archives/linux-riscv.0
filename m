@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0340C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 09:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4EC7C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 13 Jun 2022 09:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:CC:To:Subject:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
 	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UjTnFxcOx9Qyxa/vko0PH2tQHRwPPf0FDymopgSFRJo=; b=wEGjNJvVk2PVkL
-	WAWB2jZyMUauN047NrcfF7j48TOhjp0mQiO0CbF9nSVTZI+1qOHB/QeCeqjCC2ejtcwYQzR4mFjlv
-	1/Uo+joMOKpzlUz1sWoYY74rtuBTQgVtYlhJd64GvNVSVI6vVgX5oAzvWZ2ub+CiBF2fDnOiLw4HV
-	JzKW21G0qIkAim06LyKZZYLBtvjaw448GrakTJZYu1d6uvu28er94P/et5T7Fv4BwK7O4VZ+D6Lj9
-	IY9SStET8WSf+S6E0SgLU0ZjJ+yz6n6MIfVKGoMwE28xGa8ghbR7yLifMSJUiDlkeYVgjXHEboWSc
-	V0Ib9qYL30iYD0e6bvGQ==;
+	List-Owner; bh=SbNTaTBoqnL/RMSrcBTT/fidKmyU8EsTu7Q27ylRkos=; b=O19P/6tZSWA1zU
+	F1+/7TIej8NmBT8EhnGKlpVDcf5SfLz7St9cbtTaLiLsInUVNu5ebAJVXbdcWpSOd6Md0axQXZIpn
+	uWEWLQDn++OUAmr6g7TL6GUW/Ssgc6lQyb6Qou+1UcTFF5buJG92e2H9nTIHBgb+JOS4IfM+tym41
+	JoPvXnroOId80SuS8S8YfG1suIEajmCMzzNUr7pbRtnHJbRXwhX5G2aPNsGwFBRe01UccNejwPU+M
+	iS5+B3i2AA678XGuWvIPbk2toZ4CaATlXU3ME6OtvysKsbe5wg5uqroCELZmwyrfAZYIhSBrJ7Qze
+	u2JoDBrv80/5nA0B8dbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0g9o-002SQb-Sd; Mon, 13 Jun 2022 09:14:48 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0g8h-002Rpc-0G; Mon, 13 Jun 2022 09:13:41 +0000
-Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.56])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4LM5Pk4sDyzRj0Y;
-	Mon, 13 Jun 2022 17:10:18 +0800 (CST)
-Received: from dggpemm500014.china.huawei.com (7.185.36.153) by
- dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 13 Jun 2022 17:13:04 +0800
-Received: from [10.174.178.120] (10.174.178.120) by
- dggpemm500014.china.huawei.com (7.185.36.153) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Mon, 13 Jun 2022 17:13:02 +0800
-Message-ID: <590a1211-d316-d51d-6577-eb9983126dd0@huawei.com>
-Date: Mon, 13 Jun 2022 17:13:02 +0800
+	id 1o0gFF-002VDa-Rp; Mon, 13 Jun 2022 09:20:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o0gEx-002V5s-HB; Mon, 13 Jun 2022 09:20:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7023ED6E;
+	Mon, 13 Jun 2022 02:20:03 -0700 (PDT)
+Received: from [192.168.68.208] (unknown [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3808B3F66F;
+	Mon, 13 Jun 2022 02:20:01 -0700 (PDT)
+Message-ID: <af7d6f49-09c5-6e60-988c-51c3c7c04d96@arm.com>
+Date: Mon, 13 Jun 2022 11:19:36 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.10.0
-From: mawupeng <mawupeng1@huawei.com>
-Subject: Re: [PATCH v4 6/6] memblock: Disable mirror feature if kernelcore is
- not specified
-To: <corbet@lwn.net>, <will@kernel.org>, <ardb@kernel.org>,
-	<catalin.marinas@arm.com>
-CC: <tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, <hpa@zytor.com>,
-	<dvhart@infradead.org>, <andy@infradead.org>, <rppt@kernel.org>,
-	<akpm@linux-foundation.org>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <paulmck@kernel.org>,
-	<keescook@chromium.org>, <songmuchun@bytedance.com>, <rdunlap@infradead.org>,
-	<damien.lemoal@opensource.wdc.com>, <swboyd@chromium.org>,
-	<wei.liu@kernel.org>, <robin.murphy@arm.com>, <david@redhat.com>,
-	<anshuman.khandual@arm.com>, <thunder.leizhen@huawei.com>,
-	<wangkefeng.wang@huawei.com>, <gpiccoli@igalia.com>, <chenhuacai@kernel.org>,
-	<geert@linux-m68k.org>, <vijayb@linux.microsoft.com>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-efi@vger.kernel.org>,
-	<platform-driver-x86@vger.kernel.org>, <linux-mm@kvack.org>,
-	<linux-riscv@lists.infradead.org>, <mawupeng1@huawei.com>
-References: <20220613082147.183145-1-mawupeng1@huawei.com>
- <20220613082147.183145-7-mawupeng1@huawei.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.1
+From: Dietmar Eggemann <dietmar.eggemann@arm.com>
+Subject: Re: [PATCH v3 15/16] arch_topology: Set cluster identifier in each
+ core/thread from /cpu-map
+To: Sudeep Holla <sudeep.holla@arm.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>
+Cc: linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>,
+ Atish Patra <atishp@rivosinc.com>,
+ Morten Rasmussen <morten.rasmussen@arm.com>, Qing Wang <wangqing@vivo.com>,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ Rob Herring <robh+dt@kernel.org>
+References: <20220525081416.3306043-10-sudeep.holla@arm.com>
+ <20220525081416.3306043-11-sudeep.holla@arm.com>
+ <20220525081416.3306043-12-sudeep.holla@arm.com>
+ <20220525081416.3306043-13-sudeep.holla@arm.com>
+ <20220525081416.3306043-14-sudeep.holla@arm.com>
+ <20220525081416.3306043-15-sudeep.holla@arm.com>
+ <20220525081416.3306043-16-sudeep.holla@arm.com>
+ <947470ba-35fc-3c72-d01b-c0a7337216a2@arm.com>
+ <20220606102159.dduxmvq4m2fm6gks@bogus>
+ <CAKfTPtB8iPzEXipsJqNtd9-aJMKx-FAaiGMzOg58HgRQuo39iA@mail.gmail.com>
+ <20220610102753.virkx47uyfsojol6@bogus>
 Content-Language: en-US
-In-Reply-To: <20220613082147.183145-7-mawupeng1@huawei.com>
-X-Originating-IP: [10.174.178.120]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemm500014.china.huawei.com (7.185.36.153)
-X-CFilter-Loop: Reflected
+In-Reply-To: <20220610102753.virkx47uyfsojol6@bogus>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220613_021339_426806_4AF42880 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20220613_022007_693799_4B919B63 
+X-CRM114-Status: GOOD (  33.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,76 +77,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 10/06/2022 12:27, Sudeep Holla wrote:
+> On Fri, Jun 10, 2022 at 12:08:44PM +0200, Vincent Guittot wrote:
+>> On Mon, 6 Jun 2022 at 12:22, Sudeep Holla <sudeep.holla@arm.com> wrote:
+>>>
+> 
+> [...]
+> 
+>>> Why ? Are you suggesting that we shouldn't present the hardware cluster
+>>> to the topology because of the above reason ? If so, sorry that is not a
+>>> valid reason. We could add login to return NULL or appropriate value
+>>> needed in cpu_clustergroup_mask id it matches MC level mask if we can't
+>>> deal that in generic scheduler code. But the topology code can't be
+>>> compromised for that reason as it is user visible.
+>>
+>> I tend to agree with Dietmar. The legacy use of cluster node in DT
+>> refers to the dynamiQ or legacy b.L cluster which is also aligned to
+>> the LLC and the MC scheduling level. The new cluster level that has
+>> been introduced recently does not target this level but some
+>> intermediate levels either inside like for the kupeng920 or the v9
+>> complex or outside like for the ampere altra. So I would say that
+>> there is one cluster node level in DT that refers to the same MC/LLC
+>> level and only an additional child/parent cluster node should be used
+>> to fill the clustergroup_mask.
+>>
+> 
+> Again I completely disagree. Let us look at the problems separately.
+> The hardware topology that some of the tools like lscpu and lstopo expects
+> what the hardware looks like and not the scheduler's view of the hardware.
+> So the topology masks that gets exposed to the user-space needs fixing
+> even today. I have reports from various tooling people about the same.
+> E.g. Juno getting exposed as dual socket system is utter non-sense.
+> 
+> Yes scheduler uses most of the topology masks as is but that is not a must.
+> There are these *group_mask functions that can implement what scheduler
+> needs to be fed.
+> 
+> I am not sure why the 2 issues are getting mixed up and that is the main
+> reason why I jumped into this to make sure the topology masks are
+> not tampered based on the way it needs to be used for scheduler.
+
+I'm all in favor of not mixing up those 2 issues. But I don't understand
+why you have to glue them together.
+
+(1) DT systems broken in userspace (lstopo shows Juno with 2 Packages)
+
+(2) Introduce CONFIG_SCHED_CLUSTER for DT systems
 
 
-On 6/13/2022 4:21 PM, Wupeng Ma wrote:
-> From: Ma Wupeng <mawupeng1@huawei.com>
-> 
-> If system have some mirrored memory and mirrored feature is not specified
-> in boot parameter, the basic mirrored feature will be enabled and this will
-> lead to the following situations:
-> 
-> - memblock memory allocation prefers mirrored region. This may have some
->   unexpected influence on numa affinity.
-> 
-> - contiguous memory will be split into several parts if parts of them
->   is mirrored memory via memblock_mark_mirror().
-> 
-> To fix this, variable mirrored_kernelcore will be checked in
-> memblock_mark_mirror(). Mark mirrored memory with flag MEMBLOCK_MIRROR iff
-> kernelcore=mirror is added in the kernel parameters.
-> 
-> Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
-> ---
->  mm/internal.h   | 2 ++
->  mm/memblock.c   | 3 +++
->  mm/page_alloc.c | 2 +-
->  3 files changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/mm/internal.h b/mm/internal.h
-> index c0f8fbe0445b..ddd2d6a46f1b 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -861,4 +861,6 @@ struct folio *try_grab_folio(struct page *page, int refs, unsigned int flags);
->  
->  DECLARE_PER_CPU(struct per_cpu_nodestat, boot_nodestats);
->  
-> +extern bool mirrored_kernelcore;
-> +
->  #endif	/* __MM_INTERNAL_H */
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index b1d2a0009733..a9f18b988b7f 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -924,6 +924,9 @@ int __init_memblock memblock_clear_hotplug(phys_addr_t base, phys_addr_t size)
->   */
->  int __init_memblock memblock_mark_mirror(phys_addr_t base, phys_addr_t size)
->  {
-> +	if (!mirrored_kernelcore)
-> +		return 0;
-> +
->  	system_has_some_mirror = true;
->  
->  	return memblock_setclr_flag(base, size, 1, MEMBLOCK_MIRROR);
-> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> index e008a3df0485..9b030aeb4983 100644
-> --- a/mm/page_alloc.c
-> +++ b/mm/page_alloc.c
-> @@ -356,7 +356,7 @@ static unsigned long required_kernelcore_percent __initdata;
->  static unsigned long required_movablecore __initdata;
->  static unsigned long required_movablecore_percent __initdata;
->  static unsigned long zone_movable_pfn[MAX_NUMNODES] __initdata;
-> -static bool mirrored_kernelcore __meminitdata;
-> +bool mirrored_kernelcore __initdata;
+(1) This can be solved with your patch-set w/o setting `(1. level)
+    cpu-map cluster nodes`. The `socket nodes` taking over the
+    functionality of the `cluster nodes` sorts out the `Juno is seen as
+    having 2 packages`.
+    This will make core_sibling not suitable for cpu_coregroup_mask()
+    anymore. But this is OK since llc from cacheinfo (i.e. llc_sibling)
+    takes over here.
+    There is no need to involve `cluster nodes` anymore.
 
-__initdata here is not suitable and will lead to compile warnings.
+(2) This will only make sense for Armv9 L2 complexes if we connect `2.
+    level cpu-map cluster nodes` with cluster_id and cluster_sibling.
+    And only then clusters would mean the same thing in ACPI and DT.
+    I guess this was mentioned already a couple of times.
 
-In my test, __initdata_memblock and ro_after_init are both fine, but I am not
-sure which one to choose? Do you have any idea on this?
+> Both ACPI and DT on a platform must present exact same hardware topology
+> to the user-space, there is no space for argument there.
+> 
+>> IIUC, we don't describe the dynamiQ level in ACPI which  uses cache
+>> topology instead to define cpu_coregroup_mask whereas DT described the
+>> dynamiQ instead of using cache topology. If you use cache topology
+>> now, then you should skip the dynamiQ
+>>
+> 
+> Yes, unless someone can work out a binding to represent that and convince
+> DT maintainers ;).
+> 
+>> Finally, even if CLS and MC have the same scheduling behavior for now,
+>> they might ends up with different scheduling properties which would
+>> mean that replacing MC level by CLS one for current SoC would become
+>> wrong
+>>
+> 
+> Again as I mentioned to Dietmar, that is something we can and must deal with
+> in those *group_mask and not expect topology mask to be altered to meet
+> CLS/MC or whatever sched domains needs. Sorry, that is my strong opinion
+> as the topology is already user-space visible and (tooling) people are
+> complaining that DT systems are broken and doesn't match ACPI systems.
+> 
+> So unless someone gives me non-scheduler and topology specific reasons
+> to change that, sorry but my opinion on this matter is not going to change ;).
 
->  
->  /* movable_zone is the "real" zone pages in ZONE_MOVABLE are taken from */
->  int movable_zone;
+`lstopo` is fine with a now correct /sys/.../topology/package_cpus (or
+core_siblings (old filename). It's not reading
+/sys/.../topology/cluster_cpus (yet) so why set it (wrongly) to 0x39 for
+CPU0 on Juno when it can stay 0x01?
+
+> You will get this view of topology, find a way to manage with all those
+> *group_mask functions. By the way it is already handled for ACPI systems,
+> so if you are not happy with that, then that needs fixing as this change
+> set just aligns the behaviour on similar ACPI system. So the Juno example
+> is incorrect for the reason that the behaviour of scheduler there is different
+> with DT and ACPI.
+
+[...]
+
 
 _______________________________________________
 linux-riscv mailing list
