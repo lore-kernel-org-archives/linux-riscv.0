@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ADF9C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 16:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D3FBC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 16:17:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+cTWFAoYP2jJWmLKt24re6TCTXl6O/ApenUWqA267kk=; b=ITWdQ7nzBnTGv8
-	vXNqKzeLp2zLFIHIApfWDjU2/RbIVoPTJHffOf05uWGTm63wJTOBVzQgjQ0gZC0OZi/gSYbCF8ISN
-	+lfFlEmW3SZoNQlxn1Ro2XhKbNfeNiWfOIeRTpybXWVLkfGS9dPZr85OpkRecrVIqcjNAEkfmok+Z
-	7s0MbL+fn0U/hOcuXseb4bu5uuxVzTz0pQoIhBWFJzt7aIG4ZlvXGHmdTWYGEMBaibS4NmgzDUBkv
-	asloB4VN3oyIc8moQWPmveEky/NmqzaYnxdaMGbtIxMmldxDs+FLSrfB/n1fKXOv+qFAJuXtFx6jM
-	QH/kNWYpQ9fN4FE4DnVQ==;
+	List-Owner; bh=xcpCIdvIl4jDJfOPyTd+3Pe5aTKihhJVeECjcsRpgrE=; b=E/7+/T4ArXFk0K
+	mvhTuHgM0Fq6CzRI2wKlP099+8TwMdKvUhydFYE+6xIksYJ55l2z4+luhHPr/dKJjhIgn0RKa+fhZ
+	ZCBlayNJSJBYtodQUVwA6nIJy7KoB2ZzWeK/XUxST98v6K9ZeM+NXB+4u/+rX/7BVda3CwKiLDHqd
+	ciky917mV3pPcYcajamLjBh3ymkfD8dUceIViwxqpr73Uiqo0cFMIkBHcqgwGrvYSb6pplbGzK2py
+	hoYDQm80G2I6d6ilojicpuj3N6kimLb23BgXSGfih9lvuERyGR8JkPqRwrTw0BgLPZDQGPbIJUGMq
+	FQkpWzmOI6aLmqsj6jKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o19ED-00AIcm-1H; Tue, 14 Jun 2022 16:17:17 +0000
+	id 1o19EB-00AIcS-Cg; Tue, 14 Jun 2022 16:17:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o19CL-00AIFx-TG; Tue, 14 Jun 2022 16:15:24 +0000
+	id 1o19Am-00AHiI-2p; Tue, 14 Jun 2022 16:13:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F0F61692;
-	Tue, 14 Jun 2022 09:15:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D6151684;
+	Tue, 14 Jun 2022 09:13:38 -0700 (PDT)
 Received: from FVFF77S0Q05N (unknown [10.57.41.154])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D37FC3F66F;
-	Tue, 14 Jun 2022 09:15:01 -0700 (PDT)
-Date: Tue, 14 Jun 2022 17:14:57 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4946B3F66F;
+	Tue, 14 Jun 2022 09:13:20 -0700 (PDT)
+Date: Tue, 14 Jun 2022 17:13:16 +0100
 From: Mark Rutland <mark.rutland@arm.com>
 To: Peter Zijlstra <peterz@infradead.org>
 Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
@@ -88,16 +88,17 @@ Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
 	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
 	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
 	rcu@vger.kernel.org
-Subject: Re: [PATCH 16/36] rcu: Fix rcu_idle_exit()
-Message-ID: <Yqi0AVZmI5GyVpNa@FVFF77S0Q05N>
+Subject: Re: [PATCH 15/36] cpuidle,cpu_pm: Remove RCU fiddling from
+ cpu_pm_{enter,exit}()
+Message-ID: <YqiznJL7qB9uSQ9c@FVFF77S0Q05N>
 References: <20220608142723.103523089@infradead.org>
- <20220608144516.935970247@infradead.org>
+ <20220608144516.871305980@infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220608144516.935970247@infradead.org>
+In-Reply-To: <20220608144516.871305980@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_091522_060427_63858E42 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20220614_091344_318787_D2F8161B 
+X-CRM114-Status: GOOD (  13.32  )
 X-Mailman-Approved-At: Tue, 14 Jun 2022 09:17:14 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,51 +116,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 08, 2022 at 04:27:39PM +0200, Peter Zijlstra wrote:
-> Current rcu_idle_exit() is terminally broken because it uses
-> local_irq_{save,restore}(), which are traced which uses RCU.
-> 
-> However, now that all the callers are sure to have IRQs disabled, we
-> can remove these calls.
+On Wed, Jun 08, 2022 at 04:27:38PM +0200, Peter Zijlstra wrote:
+> All callers should still have RCU enabled.
+
+IIUC with that true we should be able to drop the RCU_NONIDLE() from
+drivers/perf/arm_pmu.c, as we only needed that for an invocation via a pm
+notifier.
+
+I should be able to give that a spin on some hardware.
+
 > 
 > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Acked-by: Paul E. McKenney <paulmck@kernel.org>
+> ---
+>  kernel/cpu_pm.c |    9 ---------
+>  1 file changed, 9 deletions(-)
+> 
+> --- a/kernel/cpu_pm.c
+> +++ b/kernel/cpu_pm.c
+> @@ -30,16 +30,9 @@ static int cpu_pm_notify(enum cpu_pm_eve
+>  {
+>  	int ret;
+>  
+> -	/*
+> -	 * This introduces a RCU read critical section, which could be
+> -	 * disfunctional in cpu idle. Copy RCU_NONIDLE code to let RCU know
+> -	 * this.
+> -	 */
+> -	rcu_irq_enter_irqson();
+>  	rcu_read_lock();
+>  	ret = raw_notifier_call_chain(&cpu_pm_notifier.chain, event, NULL);
+>  	rcu_read_unlock();
+> -	rcu_irq_exit_irqson();
 
-Acked-by: Mark Rutland <mark.rutland@arm.com>
+To make this easier to debug, is it worth adding an assertion that RCU is
+watching here? e.g.
 
+	RCU_LOCKDEP_WARN(!rcu_is_watching(),
+			 "cpu_pm_notify() used illegally from EQS");
+
+>  
+>  	return notifier_to_errno(ret);
+>  }
+> @@ -49,11 +42,9 @@ static int cpu_pm_notify_robust(enum cpu
+>  	unsigned long flags;
+>  	int ret;
+>  
+> -	rcu_irq_enter_irqson();
+>  	raw_spin_lock_irqsave(&cpu_pm_notifier.lock, flags);
+>  	ret = raw_notifier_call_chain_robust(&cpu_pm_notifier.chain, event_up, event_down, NULL);
+>  	raw_spin_unlock_irqrestore(&cpu_pm_notifier.lock, flags);
+> -	rcu_irq_exit_irqson();
+
+
+... and likewise here?
+
+Thanks,
 Mark.
 
-> ---
->  kernel/rcu/tree.c |    9 +++------
->  1 file changed, 3 insertions(+), 6 deletions(-)
-> 
-> --- a/kernel/rcu/tree.c
-> +++ b/kernel/rcu/tree.c
-> @@ -659,7 +659,7 @@ static noinstr void rcu_eqs_enter(bool u
->   * If you add or remove a call to rcu_idle_enter(), be sure to test with
->   * CONFIG_RCU_EQS_DEBUG=y.
->   */
-> -void rcu_idle_enter(void)
-> +void noinstr rcu_idle_enter(void)
->  {
->  	lockdep_assert_irqs_disabled();
->  	rcu_eqs_enter(false);
-> @@ -896,13 +896,10 @@ static void noinstr rcu_eqs_exit(bool us
->   * If you add or remove a call to rcu_idle_exit(), be sure to test with
->   * CONFIG_RCU_EQS_DEBUG=y.
->   */
-> -void rcu_idle_exit(void)
-> +void noinstr rcu_idle_exit(void)
->  {
-> -	unsigned long flags;
-> -
-> -	local_irq_save(flags);
-> +	lockdep_assert_irqs_disabled();
->  	rcu_eqs_exit(false);
-> -	local_irq_restore(flags);
->  }
->  EXPORT_SYMBOL_GPL(rcu_idle_exit);
 >  
+>  	return notifier_to_errno(ret);
+>  }
 > 
 > 
 
