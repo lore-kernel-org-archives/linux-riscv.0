@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD2BEC43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 09:15:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5A12C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 09:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ztTwhrRu1VS+IhCPfhj/+4pB46trr6jnEN0gnXLLmdI=; b=lmFNNTaVS7IRwN
-	9T7qdym/P+4bVQ7Y+lMP+VxOlS7W3gD9Gn9I/woG88neKXW4zc//OfEUNYZApIL24FsGsRS/EHfFT
-	6RV2CRiOOeOzoZfplqgzGC9/xhfxFb6s0M3SPTlN8DcwbrkVqesZ78lHTt/ozUlfQWek/aLrSKlO/
-	F+wz+BHLM3yf96/kv4YYbVWhqErrd17rXE4v15k6R40dJPtTNpknqxpKTlp4trGV0vUbQmMsIT5K9
-	f9RvxsEiEzmx8bSqx8EKt+tM1M1ZBTudB+SyHn0KM/tjpBi7RAQIRYWFMXkU1swXZrCA5pDf6NiJ+
-	FRiYKOhcp9bnFpgNtNxQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=X9VE4waSSEigDorsZPVLRHtlWGirb6IORoL/lRubWc8=; b=2sXySc16CrMtr3
+	ypgorDQSKiscaERt3UKlNzp54G44+cAsVeVvfvCOSh7gC1ALnoYyRWELLLKHbIilBK56euATJ5UPi
+	b9V63EdX9FmEu0MQ0mvdKBUDP64galcnV14yUVKbKWv3CwsqyAobBNg/oE2JinPtSu69ubZPcmUe2
+	ATnv/aPx6YKpsemCd4CkamdKDqfmD0QL6SH4AyETnM7BhIsNVtvi1lpAoxKJ7hA8L3s6rpWEfN3eg
+	u72LOyXOMKI2r9btVhic9pe/HqrJpdYTp6VllcFsymFfDqrzGrPcKWS7nzQYWdBCgi/xq9rIf2EVZ
+	V74JtEKW99m/qE0wohBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o12dV-008cLF-JR; Tue, 14 Jun 2022 09:14:57 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1o12eL-008clr-3I; Tue, 14 Jun 2022 09:15:49 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o12Q7-008V0r-2v; Tue, 14 Jun 2022 09:01:09 +0000
-Received: from dggpemm500024.china.huawei.com (unknown [172.30.72.55])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4LMj4q5qWfzRhtq;
-	Tue, 14 Jun 2022 16:57:47 +0800 (CST)
+	id 1o12QG-008V4O-Va; Tue, 14 Jun 2022 09:01:19 +0000
+Received: from dggpemm500020.china.huawei.com (unknown [172.30.72.55])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4LMj6V5WpdzgZCJ;
+	Tue, 14 Jun 2022 16:59:14 +0800 (CST)
 Received: from dggpemm500014.china.huawei.com (7.185.36.153) by
- dggpemm500024.china.huawei.com (7.185.36.203) with Microsoft SMTP Server
+ dggpemm500020.china.huawei.com (7.185.36.49) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Tue, 14 Jun 2022 17:00:35 +0800
+ 15.1.2375.24; Tue, 14 Jun 2022 17:00:38 +0800
 Received: from localhost.localdomain (10.175.112.125) by
  dggpemm500014.china.huawei.com (7.185.36.153) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Tue, 14 Jun 2022 17:00:33 +0800
+ 15.1.2375.24; Tue, 14 Jun 2022 17:00:36 +0800
 From: Wupeng Ma <mawupeng1@huawei.com>
 To: <corbet@lwn.net>, <will@kernel.org>, <ardb@kernel.org>,
 	<catalin.marinas@arm.com>
@@ -52,19 +52,23 @@ CC: <tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
 	<vijayb@linux.microsoft.com>, <linux-doc@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-efi@vger.kernel.org>, <platform-driver-x86@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v5 0/5] introduce mirrored memory support for arm64
-Date: Tue, 14 Jun 2022 17:21:51 +0800
-Message-ID: <20220614092156.1972846-1-mawupeng1@huawei.com>
+	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>, Mike Rapoport
+	<rppt@linux.ibm.com>
+Subject: [PATCH v5 2/5] mm: Ratelimited mirrored memory related warning messages
+Date: Tue, 14 Jun 2022 17:21:53 +0800
+Message-ID: <20220614092156.1972846-3-mawupeng1@huawei.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220614092156.1972846-1-mawupeng1@huawei.com>
+References: <20220614092156.1972846-1-mawupeng1@huawei.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.175.112.125]
 X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  dggpemm500014.china.huawei.com (7.185.36.153)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_020107_578677_7D88D22D 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20220614_020117_261085_6B8C7FA9 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,86 +87,45 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Ma Wupeng <mawupeng1@huawei.com>
 
-Commit b05b9f5f9dcf ("x86, mirror: x86 enabling - find mirrored memory ranges")
-introduced mirrored memory support for x86. This support rely on UEFI to
-report mirrored memory address ranges.  See UEFI 2.5 spec pages 157-158:
+If system has mirrored memory, memblock will try to allocate mirrored
+memory firstly and fallback to non-mirrored memory when fails, but if with
+limited mirrored memory or some numa node without mirrored memory, lots of
+warning message about memblock allocation will occur.
 
-  http://www.uefi.org/sites/default/files/resources/UEFI%202_5.pdf
+This patch ratelimit the warning message to avoid a very long print during
+bootup.
 
-Memory mirroring is a technique used to separate memory into two separate
-channels, usually on a memory device, like a server. In memory mirroring,
-one channel is copied to another to create redundancy. This method makes
-input/output (I/O) registers and memory appear with more than one address
-range because the same physical byte is accessible at more than one
-address. Using memory mirroring, higher memory reliability and a higher
-level of memory consolidation are possible.
+Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
+Reviewed-by: David Hildenbrand <david@redhat.com>
+Acked-by: Mike Rapoport <rppt@linux.ibm.com>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+---
+ mm/memblock.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-These EFI memory regions have various attributes, and the "mirrored"
-attribute is one of them. The physical memory region whose descriptors
-in EFI memory map has EFI_MEMORY_MORE_RELIABLE attribute (bit: 16) are
-mirrored. The address range mirroring feature of the kernel arranges such
-mirrored regions into normal zones and other regions into movable zones.
-
-Arm64 can support this too. So mirrored memory support is added to support
-arm64.
-
-The main purpose of this patch set is to introduce mirrored support for
-arm64 and we have already fixed the problems we had which is shown in
-patch #5 to patch #8 and try to bring total isolation in patch #9 which
-will disable mirror feature if kernelcore is not specified.
-
-In order to test this support in arm64:
-- patch this patch set
-- add kernelcore=mirror in kernel parameter
-- start you kernel
-
-Patch #1 introduce mirrored memory support form arm64.
-Patch #2-#4 fix some bugs for arm64 if memory reliable is enabled.
-Patch #5 disable mirror feature if kernelcore is not specified.
-
-Thanks to Ard Biesheuvel's hard work [1], now kernel will perfer mirrored
-memory if kaslr is enabled.
-
-[1] https://lore.kernel.org/linux-arm-kernel/CAMj1kXEPVEzMgOM4+Yj6PxHA-jFuDOAUdDJSiSxy_XaP4P7LSw@mail.gmail.com/T/
-
-Changelog since v4:
-- merge the first two patches into one
-- change __initdata to __initdata_memblock in patch #5
-
-Changelog since v3:
-- limit warning message in vmemmap_verify via pr_warn_once()
-- only clear memblock_nomap flags rather than bring the mirrored flag back
-- disable mirrored feature in memblock_mark_mirror()
-
-Changelog since v2:
-- remove efi_fake_mem support
-- remove Commit ("remove some redundant code in ia64 efi_init") since
-  efi_print_memmap() is not public
-- add mirror flag back on initrd memory
-
-Changelog since v1:
-- update changelog in cover letter
-- use PHYS_PFN in patch #7
-
-Ma Wupeng (5):
-  efi: arm64: Introduce ability to find mirrored memory ranges
-  mm: Ratelimited mirrored memory related warning messages
-  mm: Limit warning message in vmemmap_verify() to once
-  arm64: mm: Only remove nomap flag for initrd
-  memblock: Disable mirror feature if kernelcore is not specified
-
- arch/arm64/mm/init.c            |  2 +-
- arch/x86/include/asm/efi.h      |  4 ----
- arch/x86/platform/efi/efi.c     | 23 -----------------------
- drivers/firmware/efi/efi-init.c |  1 +
- drivers/firmware/efi/efi.c      | 23 +++++++++++++++++++++++
- include/linux/efi.h             |  3 +++
- mm/internal.h                   |  2 ++
- mm/memblock.c                   |  7 +++++--
- mm/page_alloc.c                 |  2 +-
- mm/sparse-vmemmap.c             |  2 +-
- 10 files changed, 37 insertions(+), 32 deletions(-)
-
+diff --git a/mm/memblock.c b/mm/memblock.c
+index e4f03a6e8e56..b1d2a0009733 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -327,7 +327,7 @@ static phys_addr_t __init_memblock memblock_find_in_range(phys_addr_t start,
+ 					    NUMA_NO_NODE, flags);
+ 
+ 	if (!ret && (flags & MEMBLOCK_MIRROR)) {
+-		pr_warn("Could not allocate %pap bytes of mirrored memory\n",
++		pr_warn_ratelimited("Could not allocate %pap bytes of mirrored memory\n",
+ 			&size);
+ 		flags &= ~MEMBLOCK_MIRROR;
+ 		goto again;
+@@ -1384,7 +1384,7 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
+ 
+ 	if (flags & MEMBLOCK_MIRROR) {
+ 		flags &= ~MEMBLOCK_MIRROR;
+-		pr_warn("Could not allocate %pap bytes of mirrored memory\n",
++		pr_warn_ratelimited("Could not allocate %pap bytes of mirrored memory\n",
+ 			&size);
+ 		goto again;
+ 	}
 -- 
 2.25.1
 
