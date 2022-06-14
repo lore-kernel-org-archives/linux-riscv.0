@@ -4,44 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFA4C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 16:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE02C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 16:43:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4RsHSsMov04B+G+jRCPTnby8lK2qhpeP5Xlo4pCqyuQ=; b=ViFI9eeH9bd+4a
-	zl3Swj8wy/dm9EQd+zaXEKSivfTBiN27xxM+3qSSOIdBO2wS8aGSqQVt7Z9Rj0+rO+/XgOum9X1ps
-	jCn3r2ai7SDnLoc0ZclEaI2Qa/WJYsUC6/YniRaXP91MNPZoPiWbkMZxeiS1njuiHia6ENZIITvaD
-	VGOyGoT7d6rJnDEFcxOhH8eOXGle6upHdkvFClKYwhsajozjjvIka6/uSK7Qv+M792WC/RqanErzy
-	6V3WsmkcErW+Hk8OvKEqPTx8lzQfQDJ5XO219iPG3TljT79VqQzBHGYn6bUzJgSelzpWlN1sDIo2V
-	LKdcIk7QSL7IACRP1V9g==;
+	List-Owner; bh=xpmQ5VQ4txFOnMTtApzEJNTITXM5ATjPRipHXTaE3bM=; b=Xxzgtas77tDLOe
+	s+8UliYHbs9pTBScgkDB4eHdNMlbbFwvBQKKZKgbR/+ANncZoWfLebgwt/sz4GmpZmXNxi0ghy/gK
+	5HBmHeRFMiIx64heVrCf6LjV1ZNtvSKqjgqJoOk7bIgZDJa6/+OEJRugPTJfWuIUa9Kh/Om71GlHA
+	FhjuG06JZv3qlapq/l1bYkpryvRlOZmmiO2AYPvVTMEPBLkKZ0iUw5jdsxOCJytsOZFIMsBUMF7ri
+	oYV12+qV2pYlEJ4mQk2zF/PGKZKDb24MZTXz7hFYU//ZKq1cqUHaGE2T+gju0hxNpoW3riPQ42Q7H
+	3IS3kqEt+vI1NJoBNfMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o19Q1-00ALdo-Av; Tue, 14 Jun 2022 16:29:29 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o19Px-00ALbc-GK
-	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 16:29:27 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1o19Pt-000107-9V; Tue, 14 Jun 2022 18:29:21 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Christoph Muellner <christoph.muellner@vrull.eu>, Atish Patra <atishp@atishpatra.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Christoph Muellner <christoph.muellner@vrull.io>, Philipp Tomsich <philipp.tomsich@vrull.eu>, Aaron Durbin <adurbin@rivosinc.com>, linux-riscv <linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
-Subject: Re: [RFC PATCH] riscv: Add Zawrs support for spinlocks
-Date: Tue, 14 Jun 2022 18:29:20 +0200
-Message-ID: <1733696.VLH7GnMWUR@diego>
-In-Reply-To: <CAOnJCULLTSVYX90yenWVDAtsq8XiZyA5bfKC94M9vC6Mina+Tg@mail.gmail.com>
-References: <20220602141032.169907-1-christoph.muellner@vrull.io> <CAOnJCULLTSVYX90yenWVDAtsq8XiZyA5bfKC94M9vC6Mina+Tg@mail.gmail.com>
+	id 1o19de-00AP3R-UF; Tue, 14 Jun 2022 16:43:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o19JB-00AJks-Ez; Tue, 14 Jun 2022 16:22:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFB341692;
+	Tue, 14 Jun 2022 09:22:23 -0700 (PDT)
+Received: from FVFF77S0Q05N (unknown [10.57.41.154])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 113C43F66F;
+	Tue, 14 Jun 2022 09:22:05 -0700 (PDT)
+Date: Tue, 14 Jun 2022 17:22:02 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
+	vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com,
+	linus.walleij@linaro.org, shawnguo@kernel.org,
+	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
+	festevam@gmail.com, linux-imx@nxp.com, tony@atomide.com,
+	khilman@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+	guoren@kernel.org, bcain@quicinc.com, chenhuacai@kernel.org,
+	kernel@xen0n.name, geert@linux-m68k.org, sammy@sammy.net,
+	monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org,
+	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
+	shorne@gmail.com, James.Bottomley@HansenPartnership.com,
+	deller@gmx.de, mpe@ellerman.id.au, benh@kernel.crashing.org,
+	paulus@samba.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, hca@linux.ibm.com, gor@linux.ibm.com,
+	agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+	svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org,
+	davem@davemloft.net, richard@nod.at,
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	acme@kernel.org, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, namhyung@kernel.org, jgross@suse.com,
+	srivatsa@csail.mit.edu, amakhalov@vmware.com, pv-drivers@vmware.com,
+	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
+	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
+	gregkh@linuxfoundation.org, mturquette@baylibre.com,
+	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
+	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org,
+	anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
+	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>,
+	yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
+	linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com,
+	senozhatsky@chromium.org, john.ogness@linutronix.de,
+	paulmck@kernel.org, frederic@kernel.org, quic_neeraju@quicinc.com,
+	josh@joshtriplett.org, mathieu.desnoyers@efficios.com,
+	jiangshanlai@gmail.com, joel@joelfernandes.org,
+	juri.lelli@redhat.com, vincent.guittot@linaro.org,
+	dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de,
+	bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org,
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org,
+	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
+	rcu@vger.kernel.org
+Subject: Re: [PATCH 20/36] arch/idle: Change arch_cpu_idle() IRQ behaviour
+Message-ID: <Yqi1qra2k0HIft9W@FVFF77S0Q05N>
+References: <20220608142723.103523089@infradead.org>
+ <20220608144517.188449351@infradead.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220608144517.188449351@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_092925_875250_53D71E1D 
-X-CRM114-Status: GOOD (  49.34  )
+X-CRM114-CacheID: sfid-20220614_092225_647161_F0029F93 
+X-CRM114-Status: GOOD (  27.80  )
+X-Mailman-Approved-At: Tue, 14 Jun 2022 09:43:33 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,314 +115,431 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 14. Juni 2022, 17:34:48 CEST schrieb Atish Patra:
-> On Thu, Jun 2, 2022 at 7:11 AM Christoph Muellner
-> <christoph.muellner@vrull.eu> wrote:
-> >
-> > The current RISC-V code uses the generic ticket lock implementation,
-> > that calls the macros smp_cond_load_relaxed() and smp_cond_load_acquire().
-> > Currently, RISC-V uses the generic implementation of these macros.
-> > This patch introduces a RISC-V specific implementation, of these
-> > macros, that peels off the first loop iteration and modifies the waiting
-> > loop such, that it is possible to use the WRS instruction of the Zawrs
-> > ISA extension to stall the CPU.
-> >
-> > The resulting implementation of smp_cond_load_*() will only work for
-> > 32-bit or 64-bit types for RV64 and 32-bit types for RV32.
-> > This is caused by the restrictions of the LR instruction (RISC-V only
-> > has LR.W and LR.D). Compiler assertions guard this new restriction.
-> >
-> > This patch uses the existing RISC-V ISA extension framework
-> > to detect the presents of Zawrs at run-time.
-> > If available a NOP instruction will be replaced by WRS.
-> > A similar patch could add support for the PAUSE instruction of
-> > the Zihintpause ISA extension.
-> >
+On Wed, Jun 08, 2022 at 04:27:43PM +0200, Peter Zijlstra wrote:
+> Current arch_cpu_idle() is called with IRQs disabled, but will return
+> with IRQs enabled.
 > 
-> FYI..The initial Zihintpause support patch
-> https://www.spinics.net/lists/kernel/msg4380326.html
-
-Out of curiosity, is this functionally equivalent to WRS,
-So can you just replace WRS with Pause?
-
-If so, ALTERNATIVE_2 would make that pretty easy.
-
-Are there performance differences between them?
-
-Heiko
-
+> However, the very first thing the generic code does after calling
+> arch_cpu_idle() is raw_local_irq_disable(). This means that
+> architectures that can idle with IRQs disabled end up doing a
+> pointless 'enable-disable' dance.
 > 
-> > The whole mechanism is gated by Kconfig setting, which defaults to Y.
-> >
-> > The Zawrs specification can be found here:
-> > https://github.com/riscv/riscv-zawrs/blob/main/zawrs.adoc
-> >
-> > Note, that the Zawrs extension is not frozen or ratified yet.
-> > Therefore this patch is an RFC and not intended to get merged.
-> >
-> > Signed-off-by: Christoph Muellner <christoph.muellner@vrull.io>
-> > ---
-> >  arch/riscv/Kconfig                   | 10 +++
-> >  arch/riscv/include/asm/barrier.h     | 97 ++++++++++++++++++++++++++++
-> >  arch/riscv/include/asm/errata_list.h | 12 +++-
-> >  arch/riscv/include/asm/hwcap.h       |  3 +-
-> >  arch/riscv/kernel/cpu.c              |  1 +
-> >  arch/riscv/kernel/cpufeature.c       | 13 ++++
-> >  6 files changed, 133 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 905e550e0fd3..054872317d4a 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -358,6 +358,16 @@ config RISCV_ISA_C
-> >
-> >            If you don't know what to do here, say Y.
-> >
-> > +config RISCV_ISA_ZAWRS
-> > +       bool "Zawrs extension support"
-> > +       select RISCV_ALTERNATIVE
-> > +       default y
-> > +       help
-> > +          Adds support to dynamically detect the presence of the Zawrs extension
-> > +          (wait for reservation set) and enable its usage.
-> > +
-> > +          If you don't know what to do here, say Y.
-> > +
-> >  config RISCV_ISA_SVPBMT
-> >         bool "SVPBMT extension support"
-> >         depends on 64BIT && MMU
-> > diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
-> > index d0e24aaa2aa0..69b8f1f4b80c 100644
-> > --- a/arch/riscv/include/asm/barrier.h
-> > +++ b/arch/riscv/include/asm/barrier.h
-> > @@ -12,6 +12,8 @@
-> >
-> >  #ifndef __ASSEMBLY__
-> >
-> > +#include <asm/errata_list.h>
-> > +
-> >  #define nop()          __asm__ __volatile__ ("nop")
-> >
-> >  #define RISCV_FENCE(p, s) \
-> > @@ -42,6 +44,69 @@ do {                                                                 \
-> >         ___p1;                                                          \
-> >  })
-> >
-> > +#if __riscv_xlen == 64
-> > +
-> > +#define __riscv_lrsc_word(t)                                           \
-> > +       (sizeof(t) == sizeof(int) ||                                    \
-> > +        sizeof(t) == sizeof(long))
-> > +
-> > +#define __riscv_lr(ptr)                                                        \
-> > +       sizeof(*ptr) == sizeof(int) ? "lr.w" : "lr.d"
-> > +
-> > +#elif __riscv_xlen == 32
-> > +
-> > +#define __riscv_lrsc_word(ptr)                                         \
-> > +       (sizeof(*ptr) == sizeof(int))
-> > +
-> > +#define __riscv_lr(t) "lr.w"
-> > +
-> > +#else
-> > +#error "Unexpected __riscv_xlen"
-> > +#endif /* __riscv_xlen */
-> > +
-> > +#define compiletime_assert_atomic_lrsc_type(t)                         \
-> > +       compiletime_assert(__riscv_lrsc_word(t),                        \
-> > +               "Need type compatible with LR/SC instructions.")
-> > +
-> > +#define ___smp_load_reservedN(pfx, ptr)                                        \
-> > +({                                                                     \
-> > +       typeof(*ptr) ___p1;                                             \
-> > +       __asm__ __volatile__ ("lr." pfx "       %[p], %[c]\n"           \
-> > +                             : [p]"=&r" (___p1), [c]"+A"(*ptr));       \
-> > +       ___p1;                                                          \
-> > +})
-> > +
-> > +#define ___smp_load_reserved32(ptr)                                    \
-> > +       ___smp_load_reservedN("w", ptr)
-> > +
-> > +#define ___smp_load_reserved64(ptr)                                    \
-> > +       ___smp_load_reservedN("d", ptr)
-> > +
-> > +#define __smp_load_reserved_relaxed(ptr)                               \
-> > +({                                                                     \
-> > +       typeof(*ptr) ___p1;                                             \
-> > +       compiletime_assert_atomic_lrsc_type(*ptr);                      \
-> > +       if (sizeof(*ptr) == 32) {                                       \
-> > +               ___p1 = ___smp_load_reserved32(ptr);                    \
-> > +       } else {                                                        \
-> > +               ___p1 = ___smp_load_reserved64(ptr);                    \
-> > +       }                                                               \
-> > +       ___p1;                                                          \
-> > +})
-> > +
-> > +#define __smp_load_reserved_acquire(ptr)                               \
-> > +({                                                                     \
-> > +       typeof(*ptr) ___p1;                                             \
-> > +       compiletime_assert_atomic_lrsc_type(*ptr);                      \
-> > +       if (sizeof(*ptr) == 32) {                                       \
-> > +               ___p1 = ___smp_load_reserved32(ptr);                    \
-> > +       } else {                                                        \
-> > +               ___p1 = ___smp_load_reserved64(ptr);                    \
-> > +       }                                                               \
-> > +       RISCV_FENCE(r,rw);                                              \
-> > +       ___p1;                                                          \
-> > +})
-> > +
-> >  /*
-> >   * This is a very specific barrier: it's currently only used in two places in
-> >   * the kernel, both in the scheduler.  See include/linux/spinlock.h for the two
-> > @@ -69,6 +134,38 @@ do {                                                                        \
-> >   */
-> >  #define smp_mb__after_spinlock()       RISCV_FENCE(iorw,iorw)
-> >
-> > +#define smp_cond_load_relaxed(ptr, cond_expr)                          \
-> > +({                                                                     \
-> > +       typeof(ptr) __PTR = (ptr);                                      \
-> > +       __unqual_scalar_typeof(*ptr) VAL;                               \
-> > +       VAL = READ_ONCE(*__PTR);                                        \
-> > +       if (!cond_expr) {                                               \
-> > +               for (;;) {                                              \
-> > +                       VAL = __smp_load_reserved_relaxed(__PTR);       \
-> > +                       if (cond_expr)                                  \
-> > +                               break;                                  \
-> > +                       ALT_WRS();                                      \
-> > +               }                                                       \
-> > +       }                                                               \
-> > +       (typeof(*ptr))VAL;                                              \
-> > +})
-> > +
-> > +#define smp_cond_load_acquire(ptr, cond_expr)                          \
-> > +({                                                                     \
-> > +       typeof(ptr) __PTR = (ptr);                                      \
-> > +       __unqual_scalar_typeof(*ptr) VAL;                               \
-> > +       VAL = smp_load_acquire(__PTR);                                  \
-> > +       if (!cond_expr) {                                               \
-> > +               for (;;) {                                              \
-> > +                       VAL = __smp_load_reserved_acquire(__PTR);       \
-> > +                       if (cond_expr)                                  \
-> > +                               break;                                  \
-> > +                       ALT_WRS();                                      \
-> > +               }                                                       \
-> > +       }                                                               \
-> > +       (typeof(*ptr))VAL;                                              \
-> > +})
-> > +
-> >  #include <asm-generic/barrier.h>
-> >
-> >  #endif /* __ASSEMBLY__ */
-> > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-> > index 9e2888dbb5b1..b9aa0b346493 100644
-> > --- a/arch/riscv/include/asm/errata_list.h
-> > +++ b/arch/riscv/include/asm/errata_list.h
-> > @@ -19,8 +19,9 @@
-> >  #define        ERRATA_THEAD_NUMBER 1
-> >  #endif
-> >
-> > -#define        CPUFEATURE_SVPBMT 0
-> > -#define        CPUFEATURE_NUMBER 1
-> > +#define        CPUFEATURE_ZAWRS 0
-> > +#define        CPUFEATURE_SVPBMT 1
-> > +#define        CPUFEATURE_NUMBER 2
-> >
-> >  #ifdef __ASSEMBLY__
-> >
-> > @@ -42,6 +43,13 @@ asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,     \
-> >                 ERRATA_SIFIVE_CIP_1200, CONFIG_ERRATA_SIFIVE_CIP_1200)  \
-> >                 : : "r" (addr) : "memory")
-> >
-> > +#define ZAWRS_WRS      ".long 0x1000073"
-> > +#define ALT_WRS()                                                      \
-> > +asm volatile(ALTERNATIVE(                                              \
-> > +       "nop\n\t",                                                      \
-> > +       ZAWRS_WRS "\n\t",                                               \
-> > +       0, CPUFEATURE_ZAWRS, CONFIG_RISCV_ISA_ZAWRS))
-> > +
-> >  /*
-> >   * _val is marked as "will be overwritten", so need to set it to 0
-> >   * in the default case.
-> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-> > index 4e2486881840..c7dd8cc38bec 100644
-> > --- a/arch/riscv/include/asm/hwcap.h
-> > +++ b/arch/riscv/include/asm/hwcap.h
-> > @@ -51,7 +51,8 @@ extern unsigned long elf_hwcap;
-> >   * available logical extension id.
-> >   */
-> >  enum riscv_isa_ext_id {
-> > -       RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
-> > +       RISCV_ISA_EXT_ZAWRS = RISCV_ISA_EXT_BASE,
-> > +       RISCV_ISA_EXT_SSCOFPMF,
-> >         RISCV_ISA_EXT_SVPBMT,
-> >         RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
-> >  };
-> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > index fba9e9f46a8c..6c3a10ff5358 100644
-> > --- a/arch/riscv/kernel/cpu.c
-> > +++ b/arch/riscv/kernel/cpu.c
-> > @@ -87,6 +87,7 @@ int riscv_of_parent_hartid(struct device_node *node)
-> >   *    extensions by an underscore.
-> >   */
-> >  static struct riscv_isa_ext_data isa_ext_arr[] = {
-> > +       __RISCV_ISA_EXT_DATA(zawrs, RISCV_ISA_EXT_ZAWRS),
-> >         __RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
-> >         __RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> >         __RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
-> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-> > index dea3ea19deee..fc2c47a1784b 100644
-> > --- a/arch/riscv/kernel/cpufeature.c
-> > +++ b/arch/riscv/kernel/cpufeature.c
-> > @@ -199,6 +199,7 @@ void __init riscv_fill_hwcap(void)
-> >                         } else {
-> >                                 SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
-> >                                 SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
-> > +                               SET_ISA_EXT_MAP("zawrs", RISCV_ISA_EXT_ZAWRS);
-> >                         }
-> >  #undef SET_ISA_EXT_MAP
-> >                 }
-> > @@ -251,6 +252,14 @@ struct cpufeature_info {
-> >         bool (*check_func)(unsigned int stage);
-> >  };
-> >
-> > +static bool __init_or_module cpufeature_zawrs_check_func(unsigned int stage)
-> > +{
-> > +       if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-> > +               return false;
-> > +
-> > +       return riscv_isa_extension_available(NULL, ZAWRS);
-> > +}
-> > +
-> >  static bool __init_or_module cpufeature_svpbmt_check_func(unsigned int stage)
-> >  {
-> >  #ifdef CONFIG_RISCV_ISA_SVPBMT
-> > @@ -267,6 +276,10 @@ static bool __init_or_module cpufeature_svpbmt_check_func(unsigned int stage)
-> >
-> >  static const struct cpufeature_info __initdata_or_module
-> >  cpufeature_list[CPUFEATURE_NUMBER] = {
-> > +       {
-> > +               .name = "zawrs",
-> > +               .check_func = cpufeature_zawrs_check_func
-> > +       },
-> >         {
-> >                 .name = "svpbmt",
-> >                 .check_func = cpufeature_svpbmt_check_func
-> > --
-> > 2.35.3
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Therefore, push this IRQ disabling into the idle function, meaning
+> that those architectures can avoid the pointless IRQ state flipping.
+> 
+> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+
+Nice!
+
+  Acked-by: Mark Rutland <mark.rutland@arm.com> [arm64]
+
+Mark.
+
+> ---
+>  arch/alpha/kernel/process.c      |    1 -
+>  arch/arc/kernel/process.c        |    3 +++
+>  arch/arm/kernel/process.c        |    1 -
+>  arch/arm/mach-gemini/board-dt.c  |    3 ++-
+>  arch/arm64/kernel/idle.c         |    1 -
+>  arch/csky/kernel/process.c       |    1 -
+>  arch/csky/kernel/smp.c           |    2 +-
+>  arch/hexagon/kernel/process.c    |    1 -
+>  arch/ia64/kernel/process.c       |    1 +
+>  arch/microblaze/kernel/process.c |    1 -
+>  arch/mips/kernel/idle.c          |    8 +++-----
+>  arch/nios2/kernel/process.c      |    1 -
+>  arch/openrisc/kernel/process.c   |    1 +
+>  arch/parisc/kernel/process.c     |    2 --
+>  arch/powerpc/kernel/idle.c       |    5 ++---
+>  arch/riscv/kernel/process.c      |    1 -
+>  arch/s390/kernel/idle.c          |    1 -
+>  arch/sh/kernel/idle.c            |    1 +
+>  arch/sparc/kernel/leon_pmc.c     |    4 ++++
+>  arch/sparc/kernel/process_32.c   |    1 -
+>  arch/sparc/kernel/process_64.c   |    3 ++-
+>  arch/um/kernel/process.c         |    1 -
+>  arch/x86/coco/tdx/tdx.c          |    3 +++
+>  arch/x86/kernel/process.c        |   15 ++++-----------
+>  arch/xtensa/kernel/process.c     |    1 +
+>  kernel/sched/idle.c              |    2 --
+>  26 files changed, 28 insertions(+), 37 deletions(-)
+> 
+> --- a/arch/alpha/kernel/process.c
+> +++ b/arch/alpha/kernel/process.c
+> @@ -57,7 +57,6 @@ EXPORT_SYMBOL(pm_power_off);
+>  void arch_cpu_idle(void)
+>  {
+>  	wtint(0);
+> -	raw_local_irq_enable();
+>  }
+>  
+>  void arch_cpu_idle_dead(void)
+> --- a/arch/arc/kernel/process.c
+> +++ b/arch/arc/kernel/process.c
+> @@ -114,6 +114,8 @@ void arch_cpu_idle(void)
+>  		"sleep %0	\n"
+>  		:
+>  		:"I"(arg)); /* can't be "r" has to be embedded const */
+> +
+> +	raw_local_irq_disable();
+>  }
+>  
+>  #else	/* ARC700 */
+> @@ -122,6 +124,7 @@ void arch_cpu_idle(void)
+>  {
+>  	/* sleep, but enable both set E1/E2 (levels of interrupts) before committing */
+>  	__asm__ __volatile__("sleep 0x3	\n");
+> +	raw_local_irq_disable();
+>  }
+>  
+>  #endif
+> --- a/arch/arm/kernel/process.c
+> +++ b/arch/arm/kernel/process.c
+> @@ -78,7 +78,6 @@ void arch_cpu_idle(void)
+>  		arm_pm_idle();
+>  	else
+>  		cpu_do_idle();
+> -	raw_local_irq_enable();
+>  }
+>  
+>  void arch_cpu_idle_prepare(void)
+> --- a/arch/arm/mach-gemini/board-dt.c
+> +++ b/arch/arm/mach-gemini/board-dt.c
+> @@ -42,8 +42,9 @@ static void gemini_idle(void)
+>  	 */
+>  
+>  	/* FIXME: Enabling interrupts here is racy! */
+> -	local_irq_enable();
+> +	raw_local_irq_enable();
+>  	cpu_do_idle();
+> +	raw_local_irq_disable();
+>  }
+>  
+>  static void __init gemini_init_machine(void)
+> --- a/arch/arm64/kernel/idle.c
+> +++ b/arch/arm64/kernel/idle.c
+> @@ -42,5 +42,4 @@ void noinstr arch_cpu_idle(void)
+>  	 * tricks
+>  	 */
+>  	cpu_do_idle();
+> -	raw_local_irq_enable();
+>  }
+> --- a/arch/csky/kernel/process.c
+> +++ b/arch/csky/kernel/process.c
+> @@ -101,6 +101,5 @@ void arch_cpu_idle(void)
+>  #ifdef CONFIG_CPU_PM_STOP
+>  	asm volatile("stop\n");
+>  #endif
+> -	raw_local_irq_enable();
+>  }
+>  #endif
+> --- a/arch/csky/kernel/smp.c
+> +++ b/arch/csky/kernel/smp.c
+> @@ -314,7 +314,7 @@ void arch_cpu_idle_dead(void)
+>  	while (!secondary_stack)
+>  		arch_cpu_idle();
+>  
+> -	local_irq_disable();
+> +	raw_local_irq_disable();
+>  
+>  	asm volatile(
+>  		"mov	sp, %0\n"
+> --- a/arch/hexagon/kernel/process.c
+> +++ b/arch/hexagon/kernel/process.c
+> @@ -44,7 +44,6 @@ void arch_cpu_idle(void)
+>  {
+>  	__vmwait();
+>  	/*  interrupts wake us up, but irqs are still disabled */
+> -	raw_local_irq_enable();
+>  }
+>  
+>  /*
+> --- a/arch/ia64/kernel/process.c
+> +++ b/arch/ia64/kernel/process.c
+> @@ -241,6 +241,7 @@ void arch_cpu_idle(void)
+>  		(*mark_idle)(1);
+>  
+>  	raw_safe_halt();
+> +	raw_local_irq_disable();
+>  
+>  	if (mark_idle)
+>  		(*mark_idle)(0);
+> --- a/arch/microblaze/kernel/process.c
+> +++ b/arch/microblaze/kernel/process.c
+> @@ -138,5 +138,4 @@ int dump_fpu(struct pt_regs *regs, elf_f
+>  
+>  void arch_cpu_idle(void)
+>  {
+> -       raw_local_irq_enable();
+>  }
+> --- a/arch/mips/kernel/idle.c
+> +++ b/arch/mips/kernel/idle.c
+> @@ -33,13 +33,13 @@ static void __cpuidle r3081_wait(void)
+>  {
+>  	unsigned long cfg = read_c0_conf();
+>  	write_c0_conf(cfg | R30XX_CONF_HALT);
+> -	raw_local_irq_enable();
+>  }
+>  
+>  void __cpuidle r4k_wait(void)
+>  {
+>  	raw_local_irq_enable();
+>  	__r4k_wait();
+> +	raw_local_irq_disable();
+>  }
+>  
+>  /*
+> @@ -57,7 +57,6 @@ void __cpuidle r4k_wait_irqoff(void)
+>  		"	.set	arch=r4000	\n"
+>  		"	wait			\n"
+>  		"	.set	pop		\n");
+> -	raw_local_irq_enable();
+>  }
+>  
+>  /*
+> @@ -77,7 +76,6 @@ static void __cpuidle rm7k_wait_irqoff(v
+>  		"	wait						\n"
+>  		"	mtc0	$1, $12		# stalls until W stage	\n"
+>  		"	.set	pop					\n");
+> -	raw_local_irq_enable();
+>  }
+>  
+>  /*
+> @@ -103,6 +101,8 @@ static void __cpuidle au1k_wait(void)
+>  	"	nop				\n"
+>  	"	.set	pop			\n"
+>  	: : "r" (au1k_wait), "r" (c0status));
+> +
+> +	raw_local_irq_disable();
+>  }
+>  
+>  static int __initdata nowait;
+> @@ -245,8 +245,6 @@ void arch_cpu_idle(void)
+>  {
+>  	if (cpu_wait)
+>  		cpu_wait();
+> -	else
+> -		raw_local_irq_enable();
+>  }
+>  
+>  #ifdef CONFIG_CPU_IDLE
+> --- a/arch/nios2/kernel/process.c
+> +++ b/arch/nios2/kernel/process.c
+> @@ -33,7 +33,6 @@ EXPORT_SYMBOL(pm_power_off);
+>  
+>  void arch_cpu_idle(void)
+>  {
+> -	raw_local_irq_enable();
+>  }
+>  
+>  /*
+> --- a/arch/openrisc/kernel/process.c
+> +++ b/arch/openrisc/kernel/process.c
+> @@ -102,6 +102,7 @@ void arch_cpu_idle(void)
+>  	raw_local_irq_enable();
+>  	if (mfspr(SPR_UPR) & SPR_UPR_PMP)
+>  		mtspr(SPR_PMR, mfspr(SPR_PMR) | SPR_PMR_DME);
+> +	raw_local_irq_disable();
+>  }
+>  
+>  void (*pm_power_off)(void) = NULL;
+> --- a/arch/parisc/kernel/process.c
+> +++ b/arch/parisc/kernel/process.c
+> @@ -187,8 +187,6 @@ void arch_cpu_idle_dead(void)
+>  
+>  void __cpuidle arch_cpu_idle(void)
+>  {
+> -	raw_local_irq_enable();
+> -
+>  	/* nop on real hardware, qemu will idle sleep. */
+>  	asm volatile("or %%r10,%%r10,%%r10\n":::);
+>  }
+> --- a/arch/powerpc/kernel/idle.c
+> +++ b/arch/powerpc/kernel/idle.c
+> @@ -51,10 +51,9 @@ void arch_cpu_idle(void)
+>  		 * Some power_save functions return with
+>  		 * interrupts enabled, some don't.
+>  		 */
+> -		if (irqs_disabled())
+> -			raw_local_irq_enable();
+> +		if (!irqs_disabled())
+> +			raw_local_irq_disable();
+>  	} else {
+> -		raw_local_irq_enable();
+>  		/*
+>  		 * Go into low thread priority and possibly
+>  		 * low power mode.
+> --- a/arch/riscv/kernel/process.c
+> +++ b/arch/riscv/kernel/process.c
+> @@ -39,7 +39,6 @@ extern asmlinkage void ret_from_kernel_t
+>  void arch_cpu_idle(void)
+>  {
+>  	cpu_do_idle();
+> -	raw_local_irq_enable();
+>  }
+>  
+>  void __show_regs(struct pt_regs *regs)
+> --- a/arch/s390/kernel/idle.c
+> +++ b/arch/s390/kernel/idle.c
+> @@ -66,7 +66,6 @@ void arch_cpu_idle(void)
+>  	idle->idle_count++;
+>  	account_idle_time(cputime_to_nsecs(idle_time));
+>  	raw_write_seqcount_end(&idle->seqcount);
+> -	raw_local_irq_enable();
+>  }
+>  
+>  static ssize_t show_idle_count(struct device *dev,
+> --- a/arch/sh/kernel/idle.c
+> +++ b/arch/sh/kernel/idle.c
+> @@ -25,6 +25,7 @@ void default_idle(void)
+>  	raw_local_irq_enable();
+>  	/* Isn't this racy ? */
+>  	cpu_sleep();
+> +	raw_local_irq_disable();
+>  	clear_bl_bit();
+>  }
+>  
+> --- a/arch/sparc/kernel/leon_pmc.c
+> +++ b/arch/sparc/kernel/leon_pmc.c
+> @@ -57,6 +57,8 @@ static void pmc_leon_idle_fixup(void)
+>  		"lda	[%0] %1, %%g0\n"
+>  		:
+>  		: "r"(address), "i"(ASI_LEON_BYPASS));
+> +
+> +	raw_local_irq_disable();
+>  }
+>  
+>  /*
+> @@ -70,6 +72,8 @@ static void pmc_leon_idle(void)
+>  
+>  	/* For systems without power-down, this will be no-op */
+>  	__asm__ __volatile__ ("wr	%g0, %asr19\n\t");
+> +
+> +	raw_local_irq_disable();
+>  }
+>  
+>  /* Install LEON Power Down function */
+> --- a/arch/sparc/kernel/process_32.c
+> +++ b/arch/sparc/kernel/process_32.c
+> @@ -71,7 +71,6 @@ void arch_cpu_idle(void)
+>  {
+>  	if (sparc_idle)
+>  		(*sparc_idle)();
+> -	raw_local_irq_enable();
+>  }
+>  
+>  /* XXX cli/sti -> local_irq_xxx here, check this works once SMP is fixed. */
+> --- a/arch/sparc/kernel/process_64.c
+> +++ b/arch/sparc/kernel/process_64.c
+> @@ -59,7 +59,6 @@ void arch_cpu_idle(void)
+>  {
+>  	if (tlb_type != hypervisor) {
+>  		touch_nmi_watchdog();
+> -		raw_local_irq_enable();
+>  	} else {
+>  		unsigned long pstate;
+>  
+> @@ -90,6 +89,8 @@ void arch_cpu_idle(void)
+>  			"wrpr %0, %%g0, %%pstate"
+>  			: "=&r" (pstate)
+>  			: "i" (PSTATE_IE));
+> +
+> +		raw_local_irq_disable();
+>  	}
+>  }
+>  
+> --- a/arch/um/kernel/process.c
+> +++ b/arch/um/kernel/process.c
+> @@ -216,7 +216,6 @@ void arch_cpu_idle(void)
+>  {
+>  	cpu_tasks[current_thread_info()->cpu].pid = os_getpid();
+>  	um_idle_sleep();
+> -	raw_local_irq_enable();
+>  }
+>  
+>  int __cant_sleep(void) {
+> --- a/arch/x86/coco/tdx/tdx.c
+> +++ b/arch/x86/coco/tdx/tdx.c
+> @@ -178,6 +178,9 @@ void __cpuidle tdx_safe_halt(void)
+>  	 */
+>  	if (__halt(irq_disabled, do_sti))
+>  		WARN_ONCE(1, "HLT instruction emulation failed\n");
+> +
+> +	/* XXX I can't make sense of what @do_sti actually does */
+> +	raw_local_irq_disable();
+>  }
+>  
+>  static bool read_msr(struct pt_regs *regs)
+> --- a/arch/x86/kernel/process.c
+> +++ b/arch/x86/kernel/process.c
+> @@ -699,6 +699,7 @@ EXPORT_SYMBOL(boot_option_idle_override)
+>  void __cpuidle default_idle(void)
+>  {
+>  	raw_safe_halt();
+> +	raw_local_irq_disable();
+>  }
+>  #if defined(CONFIG_APM_MODULE) || defined(CONFIG_HALTPOLL_CPUIDLE_MODULE)
+>  EXPORT_SYMBOL(default_idle);
+> @@ -804,13 +805,7 @@ static void amd_e400_idle(void)
+>  
+>  	default_idle();
+>  
+> -	/*
+> -	 * The switch back from broadcast mode needs to be called with
+> -	 * interrupts disabled.
+> -	 */
+> -	raw_local_irq_disable();
+>  	tick_broadcast_exit();
+> -	raw_local_irq_enable();
+>  }
+>  
+>  /*
+> @@ -849,12 +844,10 @@ static __cpuidle void mwait_idle(void)
+>  		}
+>  
+>  		__monitor((void *)&current_thread_info()->flags, 0, 0);
+> -		if (!need_resched())
+> +		if (!need_resched()) {
+>  			__sti_mwait(0, 0);
+> -		else
+> -			raw_local_irq_enable();
+> -	} else {
+> -		raw_local_irq_enable();
+> +			raw_local_irq_disable();
+> +		}
+>  	}
+>  	__current_clr_polling();
+>  }
+> --- a/arch/xtensa/kernel/process.c
+> +++ b/arch/xtensa/kernel/process.c
+> @@ -183,6 +183,7 @@ void coprocessor_flush_release_all(struc
+>  void arch_cpu_idle(void)
+>  {
+>  	platform_idle();
+> +	raw_local_irq_disable();
+>  }
+>  
+>  /*
+> --- a/kernel/sched/idle.c
+> +++ b/kernel/sched/idle.c
+> @@ -79,7 +79,6 @@ void __weak arch_cpu_idle_dead(void) { }
+>  void __weak arch_cpu_idle(void)
+>  {
+>  	cpu_idle_force_poll = 1;
+> -	raw_local_irq_enable();
+>  }
+>  
+>  /**
+> @@ -96,7 +95,6 @@ void __cpuidle default_idle_call(void)
+>  
+>  		cpuidle_rcu_enter();
+>  		arch_cpu_idle();
+> -		raw_local_irq_disable();
+>  		cpuidle_rcu_exit();
+>  
+>  		start_critical_timings();
 > 
 > 
-> 
-> 
-
-
-
-
 
 _______________________________________________
 linux-riscv mailing list
