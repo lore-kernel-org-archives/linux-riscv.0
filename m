@@ -4,116 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF02C43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 00:18:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E7D8C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 07:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=che8XWdr4miSoUCkCqjFcfqDKC4sPEUjWpl2IsOjM40=; b=VO0jll5IXfAJhO
-	2PUY3xWB6wpVD4mCOraEjRsboZOzjLARShgkF+aPiK5yPKyYl13P6TYnUj1pdWXYF0N4Gl1IIzB8X
-	9uODT+Ie/mq/P94h63Xa1bugUfRB23dJW+iReZBlNgXzkR5Uf5iUviJyGWgDU0d+hbPkFsmNjAR+5
-	E7myclosn3s5V1J0+zxGdLpegMqaqT7Ks7qqM6MniYLNYC6h8uge6TQ5braICFOcpDyDRNredecSD
-	U9yhAJC0NniyZGddg993QDqcX5zkZ2rsd1gKevGI23VvbtnKw60RGFVpGJPsW8x/k8iRdqk9uEMVp
-	RCuksS7VzRZgotkyLRqA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yR+IAJvMum+mcrqqYHjYbV/MovKaSK7yS2o7WTA+r5g=; b=RMJnVcGsvgiwL0
+	NM+Q8+ljl78fHrdFOeu4tkE19wUSO4OLkbK+N0CAVj+uQTVablRtWMrqTwz/p0zJ7qiao4GnLd1Pq
+	w190735nVyS2rSLtGQqDMnyJnfuS0iKTxqjOTzM0uGWehqh4BtLWvx6DNUT21vLs4JTWg5UafExA1
+	Ql87vxOkbAH/zqv6fzCx+25n/0snz5ixBnDzCYJJfIWG0rjGyAPc4pLcVMORIJqTfMobaY+TOeicb
+	IPk8Nq5w/FjKOXGB2IY7KIN9KsCpHUaGMPMKpi7Ds65QhbI3MH8sW88syUFZrkAUshWUjxBjE805E
+	CRarHz4X7A9KnEHTflOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o0uG7-006QWx-Hn; Tue, 14 Jun 2022 00:18:15 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1o10XG-007RKp-Bl; Tue, 14 Jun 2022 07:00:22 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1nzqwA-00B1bM-Qz
-	for linux-riscv@lists.infradead.org; Sat, 11 Jun 2022 02:33:21 +0000
-Received: by mail-ed1-x536.google.com with SMTP id v19so1025921edd.4
-        for <linux-riscv@lists.infradead.org>; Fri, 10 Jun 2022 19:33:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=rgKkPquDB/3ylB22sdoq44O3nuMRqOGPmfYPJEM3DpI=;
-        b=JsXVqmPM/FghNi+FuyecZKJimRfQRZRaZMN7LbU4AElduixKN8TVkmhpZTWnrsGkbZ
-         5LwE/p8/n+cIXvQ1YTcLTi0yyURcD/DMLBUnB+eqSpwlWIAygkMHM4b3P17Zp5erCg7D
-         knTgcyr8j5ARmG7z3CGlckVUGoumxDAZyb+n8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=rgKkPquDB/3ylB22sdoq44O3nuMRqOGPmfYPJEM3DpI=;
-        b=FBpFRLlLLzOV2j4qFdlC93+MzU32HoM5IlnMxyLaU/6cMfjVKDufMbbgvVkGVp7ypR
-         N44FrrCLhBkpwRpB0i1GwtCeKcDWs5TkBsp/EOCSahIBc6N8Xz3EjyTEfa59tw/5NjVV
-         WahmOXJv91k8vPfzDDL+38eyjqYYWUYW1Exd/vgBINPKEKhMeYV23yNy59TRIDjWRQaC
-         UQ1/rth+ZXmbsV9QsNCMABBMyF4c7JkaVB3EqIAEpKg/YXBzrDulZvMDKOjI/Mu54DZd
-         v0gfa2jlZ3HdA9LzuXd2hfcKHNrW0m6Tzx89eyxlXa7DSmhsxEUZjOcyPV1ik3JhW4QN
-         t80w==
-X-Gm-Message-State: AOAM531MOYXl/t7oAFkkgrZ01XtDzXKH6QEXKKSslWg0Z6lQO91kHnoy
-	+inRz5BRKsFQUSLgtPafsETz7ywaFxQQJrakKEn5tw==
-X-Google-Smtp-Source: ABdhPJzFbgEeXrjhdaEFlL5CPKYiFgrRM2XGTpISMDDKOxh3YJg+nd70yb1Qcu1fnLsZwhWAweXqTRUn04uTYMjQVNU=
-X-Received: by 2002:aa7:c604:0:b0:42d:cffb:f4dc with SMTP id
- h4-20020aa7c604000000b0042dcffbf4dcmr55022482edq.270.1654914796079; Fri, 10
- Jun 2022 19:33:16 -0700 (PDT)
+	id 1o10XC-007RIm-Ux
+	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 07:00:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1655190018; x=1686726018;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=T4nzZezDWWWUTOy8OMeuQhCOxOSUCA20xYUUYSUJEJ4=;
+  b=lV+J5sAgdGFK+imtRYB4a52dZei3iRboHl312IWwNe+HIP+bYMOJfdJV
+   AQyazpXiUs7msT0k+s0EOMVgWJhhT++zCGU1Df/3i3z6eWAtcPRO3wBFg
+   aJ1fwZEy8tU5otIVHjGKm1uWwI6OLcjhqbURHZHkKtEeuM2AbY6EW+Lfr
+   82DsKLItaCFB1MiTdA1GP91imzu3pJEK6TNPUONlXbFx4PSSHQ6hfMUJq
+   CRsaIZlYRcNDu4KcHV+It3nZo9ldeIjG9wk8o1JC1P9bpASpIKW+nh1vp
+   N1236QiLPf9Kbi7CnKTOID0ibXkQX4siI9zf0OAIRfhJZbOxUkWEhHr5A
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.91,299,1647327600"; 
+   d="scan'208";a="99902883"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Jun 2022 00:00:12 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Tue, 14 Jun 2022 00:00:12 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
+ Transport; Tue, 14 Jun 2022 00:00:10 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Mark Brown <broonie@kernel.org>
+CC: Daire McNamara <daire.mcnamara@microchip.com>, Lewis Hanly
+	<lewis.hanly@microchip.com>, Conor Dooley <conor.dooley@microchip.com>,
+	<linux-riscv@lists.infradead.org>, <linux-spi@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Yang Li <yang.lee@linux.alibaba.com>
+Subject: [PATCH] spi: microchip-core: fix potentially incorrect return from probe
+Date: Tue, 14 Jun 2022 07:58:10 +0100
+Message-ID: <20220614065809.1969177-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-References: <20220608142723.103523089@infradead.org> <20220608144517.444659212@infradead.org>
- <YqG6URbihTNCk9YR@alley> <YqHFHB6qqv5wiR8t@worktop.programming.kicks-ass.net>
- <CA+_sPaoJGrXhNPCs2dKf2J7u07y1xYrRFZBUtkKwzK9GqcHSuQ@mail.gmail.com> <YqHvXFdIJfvUDI6e@alley>
-In-Reply-To: <YqHvXFdIJfvUDI6e@alley>
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-Date: Sat, 11 Jun 2022 11:33:05 +0900
-Message-ID: <CA+_sPaq1ez7jah0bibAdeA__Yp92K_VA7E-NZ9knoUmOW9itJg@mail.gmail.com>
-Subject: Re: [PATCH 24/36] printk: Remove trace_.*_rcuidle() usage
-To: Petr Mladek <pmladek@suse.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, ink@jurassic.park.msu.ru, mattst88@gmail.com, 
-	vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com, 
-	linus.walleij@linaro.org, shawnguo@kernel.org, 
-	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-imx@nxp.com, tony@atomide.com, khilman@kernel.org, 
-	catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org, 
-	bcain@quicinc.com, chenhuacai@kernel.org, kernel@xen0n.name, 
-	geert@linux-m68k.org, sammy@sammy.net, monstr@monstr.eu, 
-	tsbogend@alpha.franken.de, dinguyen@kernel.org, jonas@southpole.se, 
-	stefan.kristiansson@saunalahti.fi, shorne@gmail.com, 
-	James.Bottomley@hansenpartnership.com, deller@gmx.de, mpe@ellerman.id.au, 
-	benh@kernel.crashing.org, paulus@samba.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com, 
-	gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com, 
-	svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org, 
-	davem@davemloft.net, richard@nod.at, anton.ivanov@cambridgegreys.com, 
-	johannes@sipsolutions.net, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, acme@kernel.org, 
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
-	namhyung@kernel.org, jgross@suse.com, srivatsa@csail.mit.edu, 
-	amakhalov@vmware.com, pv-drivers@vmware.com, boris.ostrovsky@oracle.com, 
-	chris@zankel.net, jcmvbkbc@gmail.com, rafael@kernel.org, lenb@kernel.org, 
-	pavel@ucw.cz, gregkh@linuxfoundation.org, mturquette@baylibre.com, 
-	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org, 
-	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org, 
-	anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com, 
-	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>, yury.norov@gmail.com, 
-	andriy.shevchenko@linux.intel.com, linux@rasmusvillemoes.dk, 
-	rostedt@goodmis.org, john.ogness@linutronix.de, paulmck@kernel.org, 
-	frederic@kernel.org, quic_neeraju@quicinc.com, josh@joshtriplett.org, 
-	mathieu.desnoyers@efficios.com, jiangshanlai@gmail.com, 
-	joel@joelfernandes.org, juri.lelli@redhat.com, vincent.guittot@linaro.org, 
-	dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de, 
-	bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org, 
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-omap@vger.kernel.org, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, 
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
-	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, virtualization@lists.linux-foundation.org, 
-	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org, 
-	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org, rcu@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220610_193318_958118_8A6D5EFE 
-X-CRM114-Status: GOOD (  11.23  )
-X-Mailman-Approved-At: Mon, 13 Jun 2022 17:18:13 -0700
+X-CRM114-CacheID: sfid-20220614_000019_159864_2EC83D9E 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,34 +80,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 9, 2022 at 10:02 PM Petr Mladek <pmladek@suse.com> wrote:
->
-> On Thu 2022-06-09 20:30:58, Sergey Senozhatsky wrote:
-> > My emails are getting rejected... Let me try web-interface
->
-> Bad day for mail sending. I have problems as well ;-)
+If platform_get_irqi() returns 0, the error case will be triggered but
+probe() will return 0 rather than an error. Ape the other drivers using
+this pattern and return -ENXIO.
 
-For me the problem is still there and apparently it's an "too many
-recipients" error.
+Reported-by: Yang Li <yang.lee@linux.alibaba.com>
+Link: https://lore.kernel.org/linux-spi/20220609055533.95866-2-yang.lee@linux.alibaba.com/
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ drivers/spi/spi-microchip-core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> > I'm somewhat curious whether we can actually remove that trace event.
->
-> Good question.
->
-> Well, I think that it might be useful. It allows to see trace and
-> printk messages together.
+diff --git a/drivers/spi/spi-microchip-core.c b/drivers/spi/spi-microchip-core.c
+index 5b22a1395554..856a68fd8e9f 100644
+--- a/drivers/spi/spi-microchip-core.c
++++ b/drivers/spi/spi-microchip-core.c
+@@ -541,7 +541,7 @@ static int mchp_corespi_probe(struct platform_device *pdev)
+ 	spi->irq = platform_get_irq(pdev, 0);
+ 	if (spi->irq <= 0) {
+ 		dev_err(&pdev->dev, "invalid IRQ %d for SPI controller\n", spi->irq);
+-		ret = spi->irq;
++		ret = -ENXIO;
+ 		goto error_release_master;
+ 	}
+ 
+-- 
+2.36.1
 
-Fair enough. Seems that back in 2011 people were pretty happy with it
-https://lore.kernel.org/all/1322161388.5366.54.camel@jlt3.sipsolutions.net/T/#m7bf6416f469119372191f22a6ecf653c5f7331d2
-
-but... reportedly, one of the folks who Ack-ed it (*cough cough*
-PeterZ) has never used it.
-
-> It was ugly when it was in the console code. The new location
-> in vprintk_store() allows to have it even "correctly" sorted
-> (timestamp) against other tracing messages.
-
-That's true.
 
 _______________________________________________
 linux-riscv mailing list
