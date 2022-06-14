@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F340C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 12:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B432C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 12:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BkroF12tQp8BQPoPEnqA97pVZrZCNz+limdsyZO3o+8=; b=JQ9kQRmQWxc4pI
-	q0GtYg8StVXQ3OowC7sRTh7Q3iTFFqtCv0mP5N3JOSY5+qpKuHKG2vi90AiRjfTsNo63h2yBXCjhk
-	IbAh665NPoWkFxiCOuazPNozWlvpTcmx9iv9WLhovFa9YlZv1xBLfhtWuw0MBbsASgK0OqCiN6W76
-	15lXVfcIpk0Jf0UDTbcbZjjuldaV2qx2CwI3qLt5AVqNLrWPyAo5BajO+ZoFjo8vS8j2bZ0xW+pB5
-	URiVdvVtilHqBkbwsVckpMG4prcVYOyiE+htN3UsDDuPv/02I2elQRLeWAZSxdqjKBj3EDL/tmjh4
-	7xQQrRr/sj5j8YB0P2GA==;
+	List-Owner; bh=9XFIvgvUdRdt6SjZQ84UYqrB7wtTNP+lttLL8HPzzIY=; b=fg7uHko9GjwZ7G
+	DB4OKuP/N0urXPv0Ulwmp4fYNBHVEd/1VsN7hREGdr/Ycx3fHWdfrNwSFianRaNFRfBQj96Vc0MWs
+	ZBr84Gz7pACfuciePT7uyxn6HZr9QarLToMhLOMKWZQA8fqPZs2bhKndzhoS4RnOX2w3pxFZNZghh
+	14baXeTgFoYp3QMiWwk8GtpeVqyK45S80aghccW6HEuafk++O0NuK8gjjsKFhhXAcBxHDaJmiwyDk
+	6Q97tZUyemBytWqoSBb5oPwpXSiul/zO3I5sR8Xujwk8LBj4t6oJpaIfXtSA5oC1Cvi3ZofR9gvuM
+	2HWv1UdhpfnhUkpDdNJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o15fW-009WrN-TM; Tue, 14 Jun 2022 12:29:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1o15ie-009YUB-5J; Tue, 14 Jun 2022 12:32:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o15fP-009Wmy-7t; Tue, 14 Jun 2022 12:29:09 +0000
+	id 1o15iY-009YQZ-7x; Tue, 14 Jun 2022 12:32:24 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 89823614F3;
-	Tue, 14 Jun 2022 12:29:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD278C3411B;
-	Tue, 14 Jun 2022 12:29:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8CCDD61323;
+	Tue, 14 Jun 2022 12:32:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 006F7C3411E;
+	Tue, 14 Jun 2022 12:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1655209746;
-	bh=WwkV+wdhEGuk3aWMSKuKEvN2vXm13Pz6A3nxRaMWcYw=;
+	s=k20201202; t=1655209940;
+	bh=W2sdPNt5QO+c07eblDbvqWaVVydbhsc88fMjavxRvLc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GmZZTh5AcjCClrHWs3VzPNS3NDB/fZYoF2wqNVQLdlvmWn9h0BDbVxVX3F04Uo3T8
-	 eZyS1EnQ3QoAm3dhVIyUgjxTAre/c/32LTAFZXWs3tsKqr+GwjbmeRA9amxGaF8ufK
-	 6OSafRU0IFiFK/L7SRc97y7385zCc3ibb6HHdRQipLSGFivEgrJ4udUTBdFWQ3oQLH
-	 9AEopySQG40sZQUbz4wkez2DOEuhgPETohgRdoIUOq/KteuhQgDpSBf2ZK4CQUpA2z
-	 3jydwp78L52Rsmb7dhGJLTuOBiU1Ge15Q/P7JnSLdFb3CUPVyd/Jwyi38eAm6G9BT/
-	 bAYTFHxUI9fMQ==
-Date: Tue, 14 Jun 2022 15:26:59 +0300
+	b=me5b3HflgfNPbzThidZLk/NpjxYMr1MIV58YPR12wvSBdHzsLaMlV/NtSyN3Mvxzy
+	 q/GQ27TdyekMRI85J0EPo25NyzBYG/7DXsgJqqx53V0yZLugeCXbvHchBgy+aWmDgJ
+	 zq3bm685/JwRx2pfzDZjuQbP0P2UMWZgEu7IQTpQLmc55Rpow6KKCSosEaWb9Q2lt4
+	 VAevK8pEYMsSMSej4B6ggZ6VDFKyabVWyDrAE2n+hj2Y7uPJitwqbNTfs2uxIM/kJ1
+	 dI9UAk45zfY7wpqElhs1CMY3pn+itMY3aqhl+K0F9W8r6YJeEeRsD9vrexqZwsnBnl
+	 cllYjiYrXM3UA==
+Date: Tue, 14 Jun 2022 15:30:14 +0300
 From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Luis Chamberlain <mcgrof@kernel.org>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	"Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	Jarkko Sakkinen <jarkko@profian.com>, linux-kernel@vger.kernel.org,
+To: Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Song Liu <song@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Jarkko Sakkinen <jarkko@profian.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
 	Nathaniel McCallum <nathaniel@profian.com>,
+	Russell King <linux@armlinux.org.uk>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
@@ -67,11 +67,11 @@ Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
 	"David S. Miller" <davem@davemloft.net>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
 	"H. Peter Anvin" <hpa@zytor.com>,
 	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
 	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Kees Cook <keescook@chromium.org>,
 	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
@@ -80,8 +80,8 @@ Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
 	Mark Rutland <mark.rutland@arm.com>,
 	"Eric W. Biederman" <ebiederm@xmission.com>,
 	Marco Elver <elver@google.com>, Dan Li <ashimida@linux.alibaba.com>,
-	Sami Tolvanen <samitolvanen@google.com>, Song Liu <song@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
 	Nick Desaulniers <ndesaulniers@google.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Chen Zhongjin <chenzhongjin@huawei.com>,
@@ -127,16 +127,17 @@ Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
 	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
 	sparclinux@vger.kernel.org, linux-modules@vger.kernel.org
 Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
-Message-ID: <Yqh+k7Udth0IOBrd@iki.fi>
+Message-ID: <Yqh/Vp7d0/kqfJGc@iki.fi>
 References: <20220608000014.3054333-1-jarkko@profian.com>
- <YqGlmpbx8HTrWmpF@shell.armlinux.org.uk>
- <YqH5TfN9w35kHFLU@bombadil.infradead.org>
+ <CAMj1kXFsdEq6XZ6eOuf8Ks-F4qgneVxFeLYNN_S4JaPy8koEyw@mail.gmail.com>
+ <CAPhsuW7NZXepczZGyV2Ti4hNSupLBoKgA64K=zJN4uVBTxN37g@mail.gmail.com>
+ <20220612213041.b1ec5d1ec3426e90e669c495@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <YqH5TfN9w35kHFLU@bombadil.infradead.org>
+In-Reply-To: <20220612213041.b1ec5d1ec3426e90e669c495@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_052907_412667_E69B5F05 
-X-CRM114-Status: GOOD (  22.71  )
+X-CRM114-CacheID: sfid-20220614_053222_445951_655809AF 
+X-CRM114-Status: GOOD (  36.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,42 +154,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 09, 2022 at 06:44:45AM -0700, Luis Chamberlain wrote:
-> On Thu, Jun 09, 2022 at 08:47:38AM +0100, Russell King (Oracle) wrote:
-> > On Wed, Jun 08, 2022 at 02:59:27AM +0300, Jarkko Sakkinen wrote:
-> > > diff --git a/arch/arm/kernel/Makefile b/arch/arm/kernel/Makefile
-> > > index 553866751e1a..d2bb954cd54f 100644
-> > > --- a/arch/arm/kernel/Makefile
-> > > +++ b/arch/arm/kernel/Makefile
-> > > @@ -44,6 +44,11 @@ obj-$(CONFIG_CPU_IDLE)		+= cpuidle.o
-> > >  obj-$(CONFIG_ISA_DMA_API)	+= dma.o
-> > >  obj-$(CONFIG_FIQ)		+= fiq.o fiqasm.o
-> > >  obj-$(CONFIG_MODULES)		+= armksyms.o module.o
-> > > +ifeq ($(CONFIG_MODULES),y)
-> > > +obj-y				+= module_alloc.o
-> > > +else
-> > > +obj-$(CONFIG_KPROBES)		+= module_alloc.o
-> > > +endif
-> > 
-> > Doesn't:
-> > 
-> > obj-$(CONFIG_MODULES)		+= module_alloc.o
-> > obj-$(CONFIG_KPROBES)		+= module_alloc.o
+On Sun, Jun 12, 2022 at 09:30:41PM +0900, Masami Hiramatsu wrote:
+> On Wed, 8 Jun 2022 11:19:19 -0700
+> Song Liu <song@kernel.org> wrote:
 > 
-> That just begs for a new kconfig symbol for the object, and for
-> the object then to be built with it.
+> > On Wed, Jun 8, 2022 at 9:28 AM Ard Biesheuvel <ardb@kernel.org> wrote:
+> > >
+> > > Hello Jarkko,
+> > >
+> > > On Wed, 8 Jun 2022 at 02:02, Jarkko Sakkinen <jarkko@profian.com> wrote:
+> > > >
+> > > > Tracing with kprobes while running a monolithic kernel is currently
+> > > > impossible because CONFIG_KPROBES is dependent of CONFIG_MODULES.  This
+> > > > dependency is a result of kprobes code using the module allocator for the
+> > > > trampoline code.
+> > > >
+> > > > Detaching kprobes from modules helps to squeeze down the user space,
+> > > > e.g. when developing new core kernel features, while still having all
+> > > > the nice tracing capabilities.
+> > > >
+> > > > For kernel/ and arch/*, move module_alloc() and module_memfree() to
+> > > > module_alloc.c, and compile as part of vmlinux when either CONFIG_MODULES
+> > > > or CONFIG_KPROBES is enabled.  In addition, flag kernel module specific
+> > > > code with CONFIG_MODULES.
+> > > >
+> > > > As the result, kprobes can be used with a monolithic kernel.
+> > >
+> > > I think I may have mentioned this the previous time as well, but I
+> > > don't think this is the right approach.
+> > >
+> > > Kprobes uses alloc_insn_page() to allocate executable memory, but the
+> > > requirements for this memory are radically different compared to
+> > > loadable modules, which need to be within an arch-specific distance of
+> > > the core kernel, need KASAN backing etc etc.
+> > 
+> > I think the distance of core kernel requirement is the same for kprobe
+> > alloc_insn_page and modules, no?
 > 
-> The archs which override the default can use ARCH_HAS_VM_ALLOC_EXEC.
-> Please note that the respective free is important as well and its
-> not clear if we need an another define for the free. Someone has
-> to do that work. We want to ensure to noexec the code on free and
-> this can vary on each arch.
+> This strongly depends on how kprobes (software breakpoint and
+> single-step) is implemented on the arch. For example, x86 implements
+> the so-called "kprobe-booster" which jumps back from the single
+> stepping trampoline buffer. Then the buffer address must be within
+> the range where it can jump to the original address.
+> However, if the arch implements single-step as an instruction
+> emulation, it has no such limitation. As far as I know, arm64
+> will do emulation for the instructions which change PC register
+> and will do direct execution with another software breakpoint
+> for other instructions.
+> 
+> Why I'm using module_alloc() for a generic function, is that
+> can cover the limitation most widely.
+> Thus, if we have CONFIG_ARCH_HAVE_ALLOC_INSN_PAGE flag and
+> kprobes can check it instead of using __weak function, the
+> kprobes may not need to depend on module_alloc() in general.
 
-Let me check if I understand this (not 100% sure).
+OK, I guess this is what Luis meant. 
 
-So if arch define ARCH_HAS_VMALLOC_EXEC, then this would set
-config flag CONFIG_VMALLOC_EXEC, which would be used to include
-the compilation unit?
+I'll try to carve up something based on this.
 
 BR, Jarkko
 
