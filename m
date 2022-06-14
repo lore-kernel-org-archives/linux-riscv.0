@@ -4,73 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE582CCA47F
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 15:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ADF9C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 16:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mxndzJjS5eNmUMfe3i55hBMS9LZDrAP8FjRM1UXdV6E=; b=2isA9VQ3ra8VMq
-	AP8VUr6jrso5RwLHmHAdMFx22DUsfQ2OBB5rsWd6jX8kp6yiHjDFjYMG8+sS3Ad+cMcxp50THWlEb
-	u8TQBsQoEtCNwPUY5c/WgkYwbelz2bgMJ9iPVeUSqy3vZxmbex229MA/uw49gUTcBck9T29Smh4n0
-	8jhN09yT+es03BsIt1Vp9bLfGL6gKg5i9lPBRC3aaNm1C+BuO1VSPW7oSfvmSgjYpVikhwgzhPawT
-	CJchLJVMpSBP3GMbnV0OkfUvuBBkGPia5X/XICOprE/tHnx7KgbCWYUBPqW0ftlfiG8tykA5CUAAd
-	jr7DrHd1sbSgjXvrEz/Q==;
+	List-Owner; bh=+cTWFAoYP2jJWmLKt24re6TCTXl6O/ApenUWqA267kk=; b=ITWdQ7nzBnTGv8
+	vXNqKzeLp2zLFIHIApfWDjU2/RbIVoPTJHffOf05uWGTm63wJTOBVzQgjQ0gZC0OZi/gSYbCF8ISN
+	+lfFlEmW3SZoNQlxn1Ro2XhKbNfeNiWfOIeRTpybXWVLkfGS9dPZr85OpkRecrVIqcjNAEkfmok+Z
+	7s0MbL+fn0U/hOcuXseb4bu5uuxVzTz0pQoIhBWFJzt7aIG4ZlvXGHmdTWYGEMBaibS4NmgzDUBkv
+	asloB4VN3oyIc8moQWPmveEky/NmqzaYnxdaMGbtIxMmldxDs+FLSrfB/n1fKXOv+qFAJuXtFx6jM
+	QH/kNWYpQ9fN4FE4DnVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o18tO-00AF9m-6W; Tue, 14 Jun 2022 15:55:46 +0000
-Received: from mail.efficios.com ([167.114.26.124])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o18tG-00AF4E-5I
-	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 15:55:42 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by mail.efficios.com (Postfix) with ESMTP id CC4263C7CB1;
-	Tue, 14 Jun 2022 11:55:29 -0400 (EDT)
-Received: from mail.efficios.com ([127.0.0.1])
-	by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10032)
-	with ESMTP id itYXXXpvbikj; Tue, 14 Jun 2022 11:55:29 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
-	by mail.efficios.com (Postfix) with ESMTP id 723133C7CA9;
-	Tue, 14 Jun 2022 11:55:29 -0400 (EDT)
-DKIM-Filter: OpenDKIM Filter v2.10.3 mail.efficios.com 723133C7CA9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
-	s=default; t=1655222129;
-	bh=t5335dZt0Ctnir3GGVeElwVHByKBAKwMNFazlIbWBVk=;
-	h=From:To:Date:Message-Id:MIME-Version;
-	b=ZZnmYUgrX8qQBwriee8Q3kK0XkccqDUizHR39SZd03oqQ7PZCIx6guG9kBAGQ106o
-	 LUt32oJkl4gPIjMJslhzbrhP3Xql6pZxIv/2sxd8LB/tObMO/k+z2r6il54XToJw68
-	 Tt7EwyCMiJGq21OhZ93ZNdAN/yPPhb0U93N2UsPwteOocsvoMJThS+ztWoCpcyw0KZ
-	 ZAnEk4bl5c2MpBsA/Kj2FkC7iz9tHWPLRpS4kT3bSGCQE5o6OQycMCuri0oaELMRMh
-	 +9wNieJxzVZC2eU5mW3eKzznT0aJnlK4MRExjBAnx04/B65ZNI0Uf+6xW7IL32aH+J
-	 xIHp8XZwfTg+Q==
-X-Virus-Scanned: amavisd-new at efficios.com
-Received: from mail.efficios.com ([127.0.0.1])
-	by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id tSXQ_yREM2T4; Tue, 14 Jun 2022 11:55:29 -0400 (EDT)
-Received: from laptop-mjeanson.internal.efficios.com (192-222-180-24.qc.cable.ebox.net [192.222.180.24])
-	by mail.efficios.com (Postfix) with ESMTPSA id 473AF3C7BAF;
-	Tue, 14 Jun 2022 11:55:29 -0400 (EDT)
-From: Michael Jeanson <mjeanson@efficios.com>
-To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	"Paul E . McKenney" <paulmck@kernel.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Michael Jeanson <mjeanson@efficios.com>
-Subject: [PATCH 1/3] selftests/rseq: riscv: use rseq_get_abi() helper
-Date: Tue, 14 Jun 2022 11:48:28 -0400
-Message-Id: <20220614154830.1367382-2-mjeanson@efficios.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220614154830.1367382-1-mjeanson@efficios.com>
-References: <20220614154830.1367382-1-mjeanson@efficios.com>
+	id 1o19ED-00AIcm-1H; Tue, 14 Jun 2022 16:17:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o19CL-00AIFx-TG; Tue, 14 Jun 2022 16:15:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F0F61692;
+	Tue, 14 Jun 2022 09:15:19 -0700 (PDT)
+Received: from FVFF77S0Q05N (unknown [10.57.41.154])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D37FC3F66F;
+	Tue, 14 Jun 2022 09:15:01 -0700 (PDT)
+Date: Tue, 14 Jun 2022 17:14:57 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
+	vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com,
+	linus.walleij@linaro.org, shawnguo@kernel.org,
+	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
+	festevam@gmail.com, linux-imx@nxp.com, tony@atomide.com,
+	khilman@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+	guoren@kernel.org, bcain@quicinc.com, chenhuacai@kernel.org,
+	kernel@xen0n.name, geert@linux-m68k.org, sammy@sammy.net,
+	monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org,
+	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
+	shorne@gmail.com, James.Bottomley@HansenPartnership.com,
+	deller@gmx.de, mpe@ellerman.id.au, benh@kernel.crashing.org,
+	paulus@samba.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, hca@linux.ibm.com, gor@linux.ibm.com,
+	agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+	svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org,
+	davem@davemloft.net, richard@nod.at,
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	acme@kernel.org, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, namhyung@kernel.org, jgross@suse.com,
+	srivatsa@csail.mit.edu, amakhalov@vmware.com, pv-drivers@vmware.com,
+	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
+	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
+	gregkh@linuxfoundation.org, mturquette@baylibre.com,
+	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
+	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org,
+	anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
+	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>,
+	yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
+	linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com,
+	senozhatsky@chromium.org, john.ogness@linutronix.de,
+	paulmck@kernel.org, frederic@kernel.org, quic_neeraju@quicinc.com,
+	josh@joshtriplett.org, mathieu.desnoyers@efficios.com,
+	jiangshanlai@gmail.com, joel@joelfernandes.org,
+	juri.lelli@redhat.com, vincent.guittot@linaro.org,
+	dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de,
+	bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org,
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org,
+	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
+	rcu@vger.kernel.org
+Subject: Re: [PATCH 16/36] rcu: Fix rcu_idle_exit()
+Message-ID: <Yqi0AVZmI5GyVpNa@FVFF77S0Q05N>
+References: <20220608142723.103523089@infradead.org>
+ <20220608144516.935970247@infradead.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220608144516.935970247@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_085538_390872_D2777295 
-X-CRM114-Status: UNSURE (   4.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220614_091522_060427_63858E42 
+X-CRM114-Status: GOOD (  14.09  )
+X-Mailman-Approved-At: Tue, 14 Jun 2022 09:17:14 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,120 +115,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make the RISC-V rseq selftests compatible with glibc-2.35 by using the
-rseq_get_abi() helper.
+On Wed, Jun 08, 2022 at 04:27:39PM +0200, Peter Zijlstra wrote:
+> Current rcu_idle_exit() is terminally broken because it uses
+> local_irq_{save,restore}(), which are traced which uses RCU.
+> 
+> However, now that all the callers are sure to have IRQs disabled, we
+> can remove these calls.
+> 
+> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> Acked-by: Paul E. McKenney <paulmck@kernel.org>
 
-Signed-off-by: Michael Jeanson <mjeanson@efficios.com>
----
- tools/testing/selftests/rseq/rseq-riscv.h | 36 +++++++++++------------
- 1 file changed, 18 insertions(+), 18 deletions(-)
+Acked-by: Mark Rutland <mark.rutland@arm.com>
 
-diff --git a/tools/testing/selftests/rseq/rseq-riscv.h b/tools/testing/selftests/rseq/rseq-riscv.h
-index b86642f90d7f..6f8a605b75c0 100644
---- a/tools/testing/selftests/rseq/rseq-riscv.h
-+++ b/tools/testing/selftests/rseq/rseq-riscv.h
-@@ -194,8 +194,8 @@ int rseq_cmpeqv_storev(intptr_t *v, intptr_t expect, intptr_t newv, int cpu)
- 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
- 				  : /* gcc asm goto does not allow outputs */
- 				  : [cpu_id]		"r" (cpu),
--				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
--				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [current_cpu_id]	"m" (rseq_get_abi()->cpu_id),
-+				    [rseq_cs]		"m" (rseq_get_abi()->rseq_cs.arch.ptr),
- 				    [v]			"m" (*v),
- 				    [expect]		"r" (expect),
- 				    [newv]		"r" (newv)
-@@ -251,8 +251,8 @@ int rseq_cmpnev_storeoffp_load(intptr_t *v, intptr_t expectnot,
- 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
- 				  : /* gcc asm goto does not allow outputs */
- 				  : [cpu_id]		"r" (cpu),
--				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
--				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [current_cpu_id]	"m" (rseq_get_abi()->cpu_id),
-+				    [rseq_cs]		"m" (rseq_get_abi()->rseq_cs.arch.ptr),
- 				    [v]			"m" (*v),
- 				    [expectnot]		"r" (expectnot),
- 				    [load]		"m" (*load),
-@@ -301,8 +301,8 @@ int rseq_addv(intptr_t *v, intptr_t count, int cpu)
- 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
- 				  : /* gcc asm goto does not allow outputs */
- 				  : [cpu_id]		"r" (cpu),
--				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
--				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [current_cpu_id]	"m" (rseq_get_abi()->cpu_id),
-+				    [rseq_cs]		"m" (rseq_get_abi()->rseq_cs.arch.ptr),
- 				    [v]			"m" (*v),
- 				    [count]		"r" (count)
- 				    RSEQ_INJECT_INPUT
-@@ -352,8 +352,8 @@ int rseq_cmpeqv_trystorev_storev(intptr_t *v, intptr_t expect,
- 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
- 				  : /* gcc asm goto does not allow outputs */
- 				  : [cpu_id]		"r" (cpu),
--				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
--				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [current_cpu_id]	"m" (rseq_get_abi()->cpu_id),
-+				    [rseq_cs]		"m" (rseq_get_abi()->rseq_cs.arch.ptr),
- 				    [expect]		"r" (expect),
- 				    [v]			"m" (*v),
- 				    [newv]		"r" (newv),
-@@ -411,8 +411,8 @@ int rseq_cmpeqv_trystorev_storev_release(intptr_t *v, intptr_t expect,
- 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
- 				  : /* gcc asm goto does not allow outputs */
- 				  : [cpu_id]		"r" (cpu),
--				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
--				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [current_cpu_id]	"m" (rseq_get_abi()->cpu_id),
-+				    [rseq_cs]		"m" (rseq_get_abi()->rseq_cs.arch.ptr),
- 				    [expect]		"r" (expect),
- 				    [v]			"m" (*v),
- 				    [newv]		"r" (newv),
-@@ -472,8 +472,8 @@ int rseq_cmpeqv_cmpeqv_storev(intptr_t *v, intptr_t expect,
- 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
- 				  : /* gcc asm goto does not allow outputs */
- 				  : [cpu_id]		"r" (cpu),
--				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
--				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [current_cpu_id]	"m" (rseq_get_abi()->cpu_id),
-+				    [rseq_cs]		"m" (rseq_get_abi()->rseq_cs.arch.ptr),
- 				    [v]			"m" (*v),
- 				    [expect]		"r" (expect),
- 				    [v2]			"m" (*v2),
-@@ -532,8 +532,8 @@ int rseq_cmpeqv_trymemcpy_storev(intptr_t *v, intptr_t expect,
- 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
- 				  : /* gcc asm goto does not allow outputs */
- 				  : [cpu_id]		"r" (cpu),
--				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
--				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [current_cpu_id]	"m" (rseq_get_abi()->cpu_id),
-+				    [rseq_cs]		"m" (rseq_get_abi()->rseq_cs.arch.ptr),
- 				    [expect]		"r" (expect),
- 				    [v]			"m" (*v),
- 				    [newv]		"r" (newv),
-@@ -593,8 +593,8 @@ int rseq_cmpeqv_trymemcpy_storev_release(intptr_t *v, intptr_t expect,
- 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
- 				  : /* gcc asm goto does not allow outputs */
- 				  : [cpu_id]		"r" (cpu),
--				    [current_cpu_id]	"m" (__rseq_abi.cpu_id),
--				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [current_cpu_id]	"m" (rseq_get_abi()->cpu_id),
-+				    [rseq_cs]		"m" (rseq_get_abi()->rseq_cs.arch.ptr),
- 				    [expect]		"r" (expect),
- 				    [v]			"m" (*v),
- 				    [newv]		"r" (newv),
-@@ -651,8 +651,8 @@ int rseq_offset_deref_addv(intptr_t *ptr, off_t off, intptr_t inc, int cpu)
- 				  RSEQ_ASM_DEFINE_ABORT(4, abort)
- 				  : /* gcc asm goto does not allow outputs */
- 				  : [cpu_id]		"r" (cpu),
--				    [current_cpu_id]      "m" (__rseq_abi.cpu_id),
--				    [rseq_cs]		"m" (__rseq_abi.rseq_cs),
-+				    [current_cpu_id]      "m" (rseq_get_abi()->cpu_id),
-+				    [rseq_cs]		"m" (rseq_get_abi()->rseq_cs.arch.ptr),
- 				    [ptr]			"r" (ptr),
- 				    [off]			"er" (off),
- 				    [inc]			"er" (inc)
--- 
-2.34.1
+Mark.
 
+> ---
+>  kernel/rcu/tree.c |    9 +++------
+>  1 file changed, 3 insertions(+), 6 deletions(-)
+> 
+> --- a/kernel/rcu/tree.c
+> +++ b/kernel/rcu/tree.c
+> @@ -659,7 +659,7 @@ static noinstr void rcu_eqs_enter(bool u
+>   * If you add or remove a call to rcu_idle_enter(), be sure to test with
+>   * CONFIG_RCU_EQS_DEBUG=y.
+>   */
+> -void rcu_idle_enter(void)
+> +void noinstr rcu_idle_enter(void)
+>  {
+>  	lockdep_assert_irqs_disabled();
+>  	rcu_eqs_enter(false);
+> @@ -896,13 +896,10 @@ static void noinstr rcu_eqs_exit(bool us
+>   * If you add or remove a call to rcu_idle_exit(), be sure to test with
+>   * CONFIG_RCU_EQS_DEBUG=y.
+>   */
+> -void rcu_idle_exit(void)
+> +void noinstr rcu_idle_exit(void)
+>  {
+> -	unsigned long flags;
+> -
+> -	local_irq_save(flags);
+> +	lockdep_assert_irqs_disabled();
+>  	rcu_eqs_exit(false);
+> -	local_irq_restore(flags);
+>  }
+>  EXPORT_SYMBOL_GPL(rcu_idle_exit);
+>  
+> 
+> 
 
 _______________________________________________
 linux-riscv mailing list
