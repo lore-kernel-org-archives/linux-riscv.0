@@ -4,102 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4159FC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 17:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3169C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 17:49:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/ZVczY8FzfjKqKW1Cha3lGhod+89Yr/H0Ff+/su9sSQ=; b=C/P28LsKoqmN+I
-	D7vOm93ROTw1eBRl8e+IVBerjpSMsT+j76ueJJOUU+/zgiNcn28NnDRWOdMZHEAMUVkF8O9vITGwP
-	YWtqWizq+xaB3laxgR9pQgle1PJjHTHpBDjnPQzIDcsDAqtGMCX3dNACoQ9CGoIP+yuE+ROz9fQlq
-	off1AFU1+tT1RpJAEg9BFdMOGgRKtP2MA7xhVYvw4WuU3wuocDr5JQF9BIPbykUT25UTcKUW32zQM
-	rY2R4UyGbG9J4EEOWjtaOaeFVZage7V3giO8nTdxm8TjDyNkvlV0adkaIgdfc446E7aWzjW7U6F8y
-	byLBgn7ayRlv7Rj6w5QQ==;
+	List-Owner; bh=UononCYbk6FNT+4U8DBHMm4dcZ6GYiCpXKm8hpv3xv0=; b=EVsvhrd4sJVcJy
+	u3wUkRNO45S4rQGmWEI4uRjupJignB/FhiuXfEVR9y+AJYDWaatEMJTIuwEepP58AxKQopZwBDPXE
+	4HhUDrv8srsDJ2Q2WebjTclhu4PzpUpNRB5d3P4C+8gm2wWas0pt0sZJNTlpDPrD+d7KRSuyXTspn
+	eUaNZ1MnSVazeDjoxEp9Bglyf2jRkj7Y+yinQH3knnqSfn/mKkX4S4S/S3HAYcjgt5niYCSNRhHuP
+	YHChAtTHDnxG27M0lX2u6GABrd0jl/r/klv4mgEvmH4x9DhGg+EVm5c5aRLY1Lg2HANuJZ0vup6Uf
+	BFcSBWnWWEnH+mM1tmaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1Aa7-00AbbG-QT; Tue, 14 Jun 2022 17:43:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1APu-00AaFA-Vg; Tue, 14 Jun 2022 17:33:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB3DE175A;
-	Tue, 14 Jun 2022 10:33:22 -0700 (PDT)
-Received: from FVFF77S0Q05N (unknown [10.57.41.154])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C0913F66F;
-	Tue, 14 Jun 2022 10:33:04 -0700 (PDT)
-Date: Tue, 14 Jun 2022 18:33:00 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
-	vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com,
-	linus.walleij@linaro.org, shawnguo@kernel.org,
-	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
-	festevam@gmail.com, linux-imx@nxp.com, tony@atomide.com,
-	khilman@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	guoren@kernel.org, bcain@quicinc.com, chenhuacai@kernel.org,
-	kernel@xen0n.name, geert@linux-m68k.org, sammy@sammy.net,
-	monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org,
-	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
-	shorne@gmail.com, James.Bottomley@hansenpartnership.com,
-	deller@gmx.de, mpe@ellerman.id.au, benh@kernel.crashing.org,
-	paulus@samba.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, hca@linux.ibm.com, gor@linux.ibm.com,
-	agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
-	svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org,
-	davem@davemloft.net, richard@nod.at,
-	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	acme@kernel.org, alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org, namhyung@kernel.org, jgross@suse.com,
-	srivatsa@csail.mit.edu, amakhalov@vmware.com, pv-drivers@vmware.com,
-	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
-	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
-	gregkh@linuxfoundation.org, mturquette@baylibre.com,
-	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
-	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org,
-	anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
-	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>,
-	yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
-	linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com,
-	senozhatsky@chromium.org, john.ogness@linutronix.de,
-	paulmck@kernel.org, frederic@kernel.org, quic_neeraju@quicinc.com,
-	josh@joshtriplett.org, mathieu.desnoyers@efficios.com,
-	jiangshanlai@gmail.com, joel@joelfernandes.org,
-	juri.lelli@redhat.com, vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de,
-	bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org,
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org,
-	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
-	rcu@vger.kernel.org
-Subject: Re: [PATCH 00/36] cpuidle,rcu: Cleanup the mess
-Message-ID: <YqjGTFEWSJGGOjNA@FVFF77S0Q05N>
-References: <20220608142723.103523089@infradead.org>
- <YqhuwQjmZyOVSiLI@FVFF77S0Q05N>
- <Yqi+Nqz1J8wI5GcX@hirez.programming.kicks-ass.net>
+	id 1o1AfE-00Ackz-JT; Tue, 14 Jun 2022 17:49:16 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o1AfB-00Acjj-Si
+	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 17:49:15 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-31336535373so37841607b3.2
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jun 2022 10:49:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=b6GogiLvLlJyAw9fEai9KHL7CPWrIDSYkmrligLXeM0=;
+        b=B+GgFxGSs58Fp+QAQlXmzpKdMTZABypU787d0qHLoDzxlJqoJ1k4nsrK+GLVFQ+4yb
+         VOslI8mnRQ0TpcM6WUwdqCuagPSOtMOkoZw+N9XdOxR5RdGpaoCySoJRza5pOrlznLf8
+         Qf8S94NeqjsFaIMJTAYxJ8xwx83GP+BwppPgY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=b6GogiLvLlJyAw9fEai9KHL7CPWrIDSYkmrligLXeM0=;
+        b=TY8U5D3+4650gC4WR6Ly6nD9dtbauu7crcpj4/8po1cf996mxsf61DAj4IJY5PHhYm
+         vUvs1ut0V3o5xfeo6OwXENCDcIBN+rNBVKqFRbJ55Xu1CoBA+qRg+SsY1E2g7mkVnlEn
+         CPSMIMQ5iZWTqZZ2lDtqKZxwCQV+sRotj+fDsIJayKU1WxkrCkyK7iMQ5CQva1oBEWTz
+         ymbwG9I5IK291IzAW738oi9XbgQEYHbgfNllje6AKvvIrQP3qosMEa23O26lNwnfRuQ6
+         TsUd+mWZVhp1l0V3rEetNH9bREKlHOHEPiNpSum+EJdu8hSXDHrtQRYduKPnq50AxXtJ
+         1MQg==
+X-Gm-Message-State: AJIora8jMgrYXby7z5cBJHqdM18+vRWQSDZqFSlGDsmI/YiLNYVrPjzC
+	TX329Zk3Yusc3EPyIabbQvVDGvB8y51y0JsgfMd5
+X-Google-Smtp-Source: AGRyM1sDcCfjFf4ocWAHLB7HhdEhMNAAc6F+Hg5b93YIV7qtybRZKmiB4D49bQzzzntxupZcf8hBdRtdbAb6gItu9r0=
+X-Received: by 2002:a81:1c08:0:b0:30c:cb78:8ae2 with SMTP id
+ c8-20020a811c08000000b0030ccb788ae2mr7150978ywc.194.1655228951516; Tue, 14
+ Jun 2022 10:49:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Yqi+Nqz1J8wI5GcX@hirez.programming.kicks-ass.net>
+References: <20220527042937.1124009-1-atishp@rivosinc.com> <20220527042937.1124009-4-atishp@rivosinc.com>
+ <CAAhSdy3DXobZK-QSJ9tvG+hLEOD_dz4eqD7yO=Pna1ghhMghKQ@mail.gmail.com>
+In-Reply-To: <CAAhSdy3DXobZK-QSJ9tvG+hLEOD_dz4eqD7yO=Pna1ghhMghKQ@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 14 Jun 2022 10:49:00 -0700
+Message-ID: <CAOnJCUJgV8zBca+m8q2CrCLdkp3ycwVSn6bOUYyCodh1MUKVGA@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] RISC-V: Prefer sstc extension if available
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atishp@rivosinc.com>, 
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_103327_161718_165F8478 
-X-CRM114-Status: GOOD (  41.57  )
-X-Mailman-Approved-At: Tue, 14 Jun 2022 10:43:58 -0700
+X-CRM114-CacheID: sfid-20220614_104914_183480_FCD1E3AC 
+X-CRM114-Status: GOOD (  24.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,122 +85,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 14, 2022 at 06:58:30PM +0200, Peter Zijlstra wrote:
-> On Tue, Jun 14, 2022 at 12:19:29PM +0100, Mark Rutland wrote:
-> > On Wed, Jun 08, 2022 at 04:27:23PM +0200, Peter Zijlstra wrote:
-> > > Hi All! (omg so many)
-> > 
-> > Hi Peter,
-> > 
-> > Sorry for the delay; my plate has also been rather full recently. I'm beginning
-> > to page this in now.
-> 
-> No worries; we all have too much to do ;-)
-> 
-> > > These here few patches mostly clear out the utter mess that is cpuidle vs rcuidle.
-> > > 
-> > > At the end of the ride there's only 2 real RCU_NONIDLE() users left
-> > > 
-> > >   arch/arm64/kernel/suspend.c:            RCU_NONIDLE(__cpu_suspend_exit());
-> > >   drivers/perf/arm_pmu.c:                 RCU_NONIDLE(armpmu_start(event, PERF_EF_RELOAD));
-> > 
-> > The latter of these is necessary because apparently PM notifiers are called
-> > with RCU not watching. Is that still the case today (or at the end of this
-> > series)? If so, that feels like fertile land for more issues (yaey...). If not,
-> > we should be able to drop this.
-> 
-> That should be fixed; fingers crossed :-)
+On Thu, Jun 9, 2022 at 9:41 PM Anup Patel <anup@brainfault.org> wrote:
+>
+> On Fri, May 27, 2022 at 9:59 AM Atish Patra <atishp@rivosinc.com> wrote:
+> >
+> > RISC-V ISA has sstc extension which allows updating the next clock event
+> > via a CSR (stimecmp) instead of an SBI call. This should happen dynamically
+> > if sstc extension is available. Otherwise, it will fallback to SBI call
+> > to maintain backward compatibility.
+> >
+> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> > ---
+> >  drivers/clocksource/timer-riscv.c | 24 +++++++++++++++++++++++-
+> >  1 file changed, 23 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+> > index 1767f8bf2013..881d9335c92d 100644
+> > --- a/drivers/clocksource/timer-riscv.c
+> > +++ b/drivers/clocksource/timer-riscv.c
+> > @@ -7,6 +7,9 @@
+> >   * either be read from the "time" and "timeh" CSRs, and can use the SBI to
+> >   * setup events, or directly accessed using MMIO registers.
+> >   */
+> > +
+> > +#define pr_fmt(fmt) "timer: " fmt
+>
+> The "timer: " prefix is too generic. I suggest to use "riscv-timer: "
+> as a prefix.
+>
 
-Cool; I'll try to give that a spin when I'm sat next to some relevant hardware. :)
+Sured. Fixed in the next version.
 
-> > >   kernel/cfi.c:   RCU_NONIDLE({
-> > > 
-> > > (the CFI one is likely dead in the kCFI rewrite) and there's only a hand full
-> > > of trace_.*_rcuidle() left:
-> > > 
-> > >   kernel/trace/trace_preemptirq.c:                        trace_irq_enable_rcuidle(CALLER_ADDR0, CALLER_ADDR1);
-> > >   kernel/trace/trace_preemptirq.c:                        trace_irq_disable_rcuidle(CALLER_ADDR0, CALLER_ADDR1);
-> > >   kernel/trace/trace_preemptirq.c:                        trace_irq_enable_rcuidle(CALLER_ADDR0, caller_addr);
-> > >   kernel/trace/trace_preemptirq.c:                        trace_irq_disable_rcuidle(CALLER_ADDR0, caller_addr);
-> > >   kernel/trace/trace_preemptirq.c:                trace_preempt_enable_rcuidle(a0, a1);
-> > >   kernel/trace/trace_preemptirq.c:                trace_preempt_disable_rcuidle(a0, a1);
-> > > 
-> > > All of them are in 'deprecated' code that is unused for GENERIC_ENTRY.
-> > I think those are also unused on arm64 too?
-> > 
-> > If not, I can go attack that.
-> 
-> My grep spots:
-> 
-> arch/arm64/kernel/entry-common.c:               trace_hardirqs_on();
-> arch/arm64/include/asm/daifflags.h:     trace_hardirqs_off();
-> arch/arm64/include/asm/daifflags.h:             trace_hardirqs_off();
+> > +
+> >  #include <linux/clocksource.h>
+> >  #include <linux/clockchips.h>
+> >  #include <linux/cpu.h>
+> > @@ -23,11 +26,24 @@
+> >  #include <asm/sbi.h>
+> >  #include <asm/timex.h>
+> >
+> > +static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
+> > +
+> >  static int riscv_clock_next_event(unsigned long delta,
+> >                 struct clock_event_device *ce)
+> >  {
+> > +       u64 next_tval = get_cycles64() + delta;
+> > +
+> >         csr_set(CSR_IE, IE_TIE);
+> > -       sbi_set_timer(get_cycles64() + delta);
+> > +       if (static_branch_likely(&riscv_sstc_available)) {
+> > +#if defined(CONFIG_32BIT)
+> > +               csr_write(CSR_STIMECMP, next_tval & 0xFFFFFFFF);
+> > +               csr_write(CSR_STIMECMPH, next_tval >> 32);
+> > +#else
+> > +               csr_write(CSR_STIMECMP, next_tval);
+> > +#endif
+> > +       } else
+> > +               sbi_set_timer(next_tval);
+> > +
+> >         return 0;
+> >  }
+> >
+> > @@ -165,6 +181,12 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+> >         if (error)
+> >                 pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
+> >                        error);
+> > +
+> > +       if (riscv_isa_extension_available(NULL, SSTC)) {
+> > +               pr_info("Timer interrupt in S-mode is available via sstc extension\n");
+> > +               static_branch_enable(&riscv_sstc_available);
+> > +       }
+> > +
+> >         return error;
+> >  }
+> >
+> > --
+> > 2.25.1
+> >
+>
+> Apart from the minor comment above, this looks good to me.
+>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+>
+> Regards,
+> Anup
 
-Ah; I hadn't realised those used trace_.*_rcuidle() behind the scenes.
 
-That affects local_irq_{enable,disable,restore}() too (which is what the
-daifflags.h bits are emulating), and also the generic entry code's
-irqentry_exit().
 
-So it feels to me like we should be fixing those more generally? e.g. say that
-with a new STRICT_ENTRY[_RCU], we can only call trace_hardirqs_{on,off}() with
-RCU watching, and alter the definition of those?
-
-> The _on thing should be replaced with something like:
-> 
-> 	trace_hardirqs_on_prepare();
-> 	lockdep_hardirqs_on_prepare();
-> 	instrumentation_end();
-> 	rcu_irq_exit();
-> 	lockdep_hardirqs_on(CALLER_ADDR0);
-> 
-> (as I think you know, since you have some of that already). And
-> something similar for the _off thing, but with _off_finish().
-
-Sure; I knew that was necessary for the outermost parts of entry (and I think
-that's all handled), I just hadn't realised that trace_hardirqs_{on,off} did
-the rcuidle thing in the middle.
-
-It'd be nice to not have to open-code the whole sequence everywhere for the
-portions which run after entry and are instrumentable, so (as above) I reckon
-we want to make trace_hardirqs_{on,off}() not do the rcuidle part
-unnecessarily (which IIUC is an end-goal anyway)?
-
-> > > I've touched a _lot_ of code that I can't test and likely broken some of it :/
-> > > In particular, the whole ARM cpuidle stuff was quite involved with OMAP being
-> > > the absolute 'winner'.
-> > > 
-> > > I'm hoping Mark can help me sort the remaining ARM64 bits as he moves that to
-> > > GENERIC_ENTRY.
-> > 
-> > Moving to GENERIC_ENTRY as a whole is going to take a tonne of work
-> > (refactoring both arm64 and the generic portion to be more amenable to each
-> > other), but we can certainly move closer to that for the bits that matter here.
-> 
-> I know ... been there etc.. :-)
-> 
-> > Maybe we want a STRICT_ENTRY option to get rid of all the deprecated stuff that
-> > we can select regardless of GENERIC_ENTRY to make that easier.
-> 
-> Possible yeah.
-> 
-> > > I've also got a note that says ARM64 can probably do a WFE based
-> > > idle state and employ TIF_POLLING_NRFLAG to avoid some IPIs.
-> > 
-> > Possibly; I'm not sure how much of a win that'll be given that by default we'll
-> > have a ~10KHz WFE wakeup from the timer, but we could take a peek.
-> 
-> Ohh.. I didn't know it woke up *that* often. I just know Will made use
-> of it in things like smp_cond_load_relaxed() which would be somewhat
-> similar to a very shallow idle state that looks at the TIF word.
-
-We'll get some saving, I'm just not sure where that falls on the curve of idle
-states. FWIW the wakeup *can* be disabled (and it'd be nice to when we have
-WFxT instructions which take a timeout), it jsut happens to be on by default
-for reasons.
-
-Thanks,
-Mark.
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
