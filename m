@@ -4,60 +4,193 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C99C43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 12:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9660AC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 12:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XJIrHmMaJKJfe6B0glDgqIn/tfo8ImZBmrNQfsKqnrI=; b=l+4PJg8CUORkCnyN+rrToatI4I
-	Osljrf1ureOqZY7WMm89r93/P+456JPsfwwamGWydBDiwYwFzTtYPzqSFs45k2iKyAJSnskbbanWd
-	9l3rBHUR0NdjrQ5hScDzcq5dDznGn03/w0k7FEaJi3qYnzafZ2KiuoN7ivAJsTrCYyMl1K7FqeKgn
-	6jFJXqM5ZcfcEyRUUeium1Y9NB3U3xRUD5X/WzHCiJTNRk+PAE1iRZz8rQaU2ieTTRgwyLKhDwAPU
-	EcSj7T0SujoS8nE4NPimWJVQnkNEk470OLrvE7QOYeshXc+fDa++qrpqeW3kZOZSLeznvXrQpxIVv
-	xAitMEDw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5FY9YQ2PmxXIBu6a/VtY+cRwFU2PqEFoxjEG5LOnTV0=; b=LSiUFNww7bdy0D
+	9p072EHkoWxX1rWySpUPxhst1TC4G8NyI1PGy7193YPxG8aH68z8b16XjcrcwyRYiuShLlmKGARjx
+	6iJl895TMYNYB8FTeoVIwVv80AEPcdNXHs4L6xYwPcxoVf7zbsARPGURUIJnm7w6aZ1+3pZ+wsNAD
+	f3V+3wQGoJWtqJgUDxHRoLkHQ3r97CAucBiYhQdFN5MDwbEOh810GdqGGNDcr5V0t5/OUq1bnLmTj
+	ChuRxDf8UC6ClJFbZKKTIqrIJoHNgNvxn6AJdYS/ddw5R4bRPaWyyP9SHUESiLJQQe1a3EvlhCw7M
+	/rg+s+KeybN6s+5ecgHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o15mK-009a4d-Ln; Tue, 14 Jun 2022 12:36:16 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1o15mf-009aF9-Ts; Tue, 14 Jun 2022 12:36:38 +0000
+Received: from mail-pr2fra01on061e.outbound.protection.outlook.com ([2a01:111:f400:7e18::61e] helo=FRA01-PR2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o15mG-009a2C-Q3
-	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 12:36:14 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1o15kk-000059-HM; Tue, 14 Jun 2022 14:34:38 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1o15ki-000UYD-0u; Tue, 14 Jun 2022 14:34:37 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1o15ki-00GFFx-Ld; Tue, 14 Jun 2022 14:34:36 +0200
-Date: Tue, 14 Jun 2022 14:34:36 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Lee Jones <lee.jones@linaro.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] pwm: add microchip soft ip corePWM driver
-Message-ID: <20220614123436.ahimxsfkwmfdjqdw@pengutronix.de>
-References: <20220613111759.1550578-1-conor.dooley@microchip.com>
- <20220613111759.1550578-2-conor.dooley@microchip.com>
+	id 1o15mZ-009a9x-87; Tue, 14 Jun 2022 12:36:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=nbXRgxbiRbaQO7YWGr2FfGMYRbBYb/xdJf5rE7iRL6HQpGi+hRcszIuNAqKPpOnSlog9TP0iWYdMfoVZDpetDjKfLswBAfe+YodQ8XhePIgOfTmDyj6vm2rFX5pa2LDn1CQIT1aQxEDENOf2Ui9/Ot/q/jzHOIulFtj7G5erPcflgSQDJW5EaX19IVp5gw1/fGHr45Qognro5/g1bpAqYIAdxVEz/GkXMoJbIAU4RpXZlcJrZfnbHasmDxv5xG0SrZC4IMbnLOrW1lcRmvloSqTW2UCdN7fj2kHI5ISq7jjQFlw2uohGtLSEnnpPisvBT3zQ6x/U+4zsboMitXDdog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=nKTWigruVnf6d3NsCrGvQ+nnteqpEaqhjBu388bR5Ls=;
+ b=YiyB4pkUajnKHJBCb3fzYxBDhDpjWGebR2IHsDw/Odgt8K2MjPGcwvuEGET776w/dXJWAwOni8Y83uripl7QbOkBTrOQbW+Rj0K9aOPCdAtPVqr1XDldXClZqt5rTwyzvI/0XGaW9PY78mYjBRIXLT4hl8Us4QqGCE/TKvF3Zr2Xknz+7qdKbqL/c2H+N4TpaOllAt+wQO6L0oFmpXikNRTqgpvY1kHnm1KfFLA/hDhM3jYNTHeN1ncfN2IP4Ywm1aGeFvaL7CdWz4rnZ2JqGIdu2udCQUJbVrmev3wDEM6QgGWpYfniBBxUL3Lgn2GYd4RiR862PN4JFayN00dUbA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=csgroup.eu; dmarc=pass action=none header.from=csgroup.eu;
+ dkim=pass header.d=csgroup.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=csgroup.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=nKTWigruVnf6d3NsCrGvQ+nnteqpEaqhjBu388bR5Ls=;
+ b=AIWuZadn1ddIyGIcqpbl+8JzqKH4oB7BOPtHJEcH+ZFaxar5yYlvfND0f8Qh3IRCtjOfCT7XhrcwncFqOoGQL6OG7q/AtCLkJt5PQw5BKSUoR6CQn77dpBhOGgJ9CtmSQCSWY8dPgAeXxL0XnUPYUbMZm+VLkJiWrjJs9YWKEPrlJbqr4hmism9ZlVFhwvPrj3JoIgfmAASxfNU4nqR7LIXblCacaRQDWARl0h6waLuslcP9mhz7uaAeLfM3Gyc7d0Fk19wM3177djhEQllRDNHDE2SALaNIgA7NJoyTZZssvjjNa+7D+Hxu3ms8/cN7cEoEx2FVJWCTnwUWXKd92A==
+Received: from MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:31::15)
+ by MR1P264MB4212.FRAP264.PROD.OUTLOOK.COM (2603:10a6:501:42::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5332.12; Tue, 14 Jun
+ 2022 12:36:25 +0000
+Received: from MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
+ ([fe80::b15e:862f:adf7:5356]) by MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
+ ([fe80::b15e:862f:adf7:5356%6]) with mapi id 15.20.5332.022; Tue, 14 Jun 2022
+ 12:36:25 +0000
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+To: Jarkko Sakkinen <jarkko@kernel.org>, Luis Chamberlain <mcgrof@kernel.org>
+CC: "Russell King (Oracle)" <linux@armlinux.org.uk>, "Edgecombe, Rick P"
+	<rick.p.edgecombe@intel.com>, Christoph Hellwig <hch@infradead.org>, Jarkko
+ Sakkinen <jarkko@profian.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Nathaniel McCallum <nathaniel@profian.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, "James E.J. Bottomley"
+	<James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>,
+	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt
+	<benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
+	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian
+ Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>, Thomas Gleixner
+	<tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
+	<bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, "x86@kernel.org"
+	<x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, "Naveen N. Rao"
+	<naveen.n.rao@linux.ibm.com>, Anil S Keshavamurthy
+	<anil.s.keshavamurthy@intel.com>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>, Kees Cook <keescook@chromium.org>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>, Nathan Chancellor
+	<nathan@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, "Eric W. Biederman" <ebiederm@xmission.com>, Marco
+ Elver <elver@google.com>, Dan Li <ashimida@linux.alibaba.com>, Sami Tolvanen
+	<samitolvanen@google.com>, Song Liu <song@kernel.org>, Ard Biesheuvel
+	<ardb@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Linus Walleij
+	<linus.walleij@linaro.org>, Chen Zhongjin <chenzhongjin@huawei.com>, Nicolas
+ Pitre <nico@fluxnic.net>, Mark Brown <broonie@kernel.org>, Luis Machado
+	<luis.machado@linaro.org>, Geert Uytterhoeven <geert@linux-m68k.org>, Joey
+ Gouly <joey.gouly@arm.com>, Masahiro Yamada <masahiroy@kernel.org>, Andrew
+ Morton <akpm@linux-foundation.org>, Andrey Konovalov <andreyknvl@gmail.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>, Atsushi Nemoto
+	<anemo@mba.ocn.ne.jp>, Guenter Roeck <linux@roeck-us.net>, Dave Anglin
+	<dave.anglin@bell.net>, Alexei Starovoitov <ast@kernel.org>, Nicholas Piggin
+	<npiggin@gmail.com>, Daniel Axtens <dja@axtens.net>, Aneesh Kumar K.V
+	<aneesh.kumar@linux.ibm.com>, Jordan Niethe <jniethe5@gmail.com>, Guo Ren
+	<guoren@kernel.org>, Anup Patel <anup@brainfault.org>, Atish Patra
+	<atishp@atishpatra.org>, Changbin Du <changbin.du@intel.com>, Heiko Stuebner
+	<heiko@sntech.de>, Liao Chang <liaochang1@huawei.com>, Philipp Tomsich
+	<philipp.tomsich@vrull.eu>, Wu Caize <zepan@sipeed.com>, Emil Renner Berthing
+	<kernel@esmil.dk>, Alexander Egorenkov <egorenar@linux.ibm.com>, Thomas
+ Richter <tmricht@linux.ibm.com>, Tobias Huschle <huschle@linux.ibm.com>, Ilya
+ Leoshkevich <iii@linux.ibm.com>, Tom Lendacky <thomas.lendacky@amd.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>, Michael Roth
+	<michael.roth@amd.com>, "Kirill A. Shutemov"
+	<kirill.shutemov@linux.intel.com>, Javier Martinez Canillas
+	<javierm@redhat.com>, Miroslav Benes <mbenes@suse.cz>,
+	=?utf-8?B?QW5kcsOpIEFsbWVpZGE=?= <andrealmeid@igalia.com>, Tiezhu Yang
+	<yangtiezhu@loongson.cn>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, Aaron
+ Tomlin <atomlin@redhat.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mips@vger.kernel.org"
+	<linux-mips@vger.kernel.org>, "linux-parisc@vger.kernel.org"
+	<linux-parisc@vger.kernel.org>, "linuxppc-dev@lists.ozlabs.org"
+	<linuxppc-dev@lists.ozlabs.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "sparclinux@vger.kernel.org"
+	<sparclinux@vger.kernel.org>, "linux-modules@vger.kernel.org"
+	<linux-modules@vger.kernel.org>
+Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
+Thread-Topic: [PATCH] kprobes: Enable tracing for mololithic kernel images
+Thread-Index: AQHYessDwND8kPCFFkWhvh7Pg63gL61GtMsAgABjx4CAB8XtgIAAAqGA
+Date: Tue, 14 Jun 2022 12:36:25 +0000
+Message-ID: <144b7e90-5d75-7e2c-4e54-8a73f914dfdf@csgroup.eu>
+References: <20220608000014.3054333-1-jarkko@profian.com>
+ <YqGlmpbx8HTrWmpF@shell.armlinux.org.uk>
+ <YqH5TfN9w35kHFLU@bombadil.infradead.org> <Yqh+k7Udth0IOBrd@iki.fi>
+In-Reply-To: <Yqh+k7Udth0IOBrd@iki.fi>
+Accept-Language: fr-FR, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.10.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=csgroup.eu;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: f61864ec-4b29-4724-ef9f-08da4e027f04
+x-ms-traffictypediagnostic: MR1P264MB4212:EE_
+x-microsoft-antispam-prvs:  <MR1P264MB4212802F9CF6824CE5F79533EDAA9@MR1P264MB4212.FRAP264.PROD.OUTLOOK.COM>
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:  IfNTwoK07k+xiOGvfKSeSWG/l2D+b2zElLQ9WAP7iFYXq+hdRDeceAirr6pwxGWk0cW9r+a4P6q+wO9cIyk+TvjTSofUprWBQopK2AQVPWlL59CaHH5kH5AMiKEqbCFFtwhW+3KCccDof377fcYJvktj8K7S9+qcU4LrCGjn6G/uuxaHTCLU7/oNKY7cUkts1ACZYHzHHpyUFCpObx9ER8OYLFq2FL7IXEtNTmdxwI7VDT7Xl6YBg41pFzNnoLlLjz7zmkz9TG9cO/Ac3H/KsOFS1UFCTAP2vuv2YA71HIyjuo/CCD+RIomkHEquyvGmoKqgr5hhMGA+M1efl9tf4Gh/cjRHf4LwSGHjTU7EWfjWhpbWm4cte/OJHR+O5M5gcKLwe06kTXG2pqO70/NJKggv7qAPegVI562W9Qgb5tPY1lYAdgbG0dto3f3c2V6O9sQl8CI/RbggQiev6JRzVEItJPkoRgZD/VTkqJUVl46Jv3bVpqHliaTFBdHCjsyDeRodniEsmBnkUDU1pRTHS1cQEzpirsJvRc6DQIHYVPAyRweN0cKXRgSO+cKmrHeRxiMnSzw5uHrlfPya6ouyjJLegSF8yp+7kqdIlpnPDfR6XuCASgNcxm71L8WXYTbD0oapQbTLWeChC9FYn2DfuF6hWwifaQ3NPNfsVDi2wwIQuPG40malqg2hsp24tU0JeLHFmcfzifwqe9W0douQIryyZEXDsN2QFO6hoPOGHm+swJxsf3AgrJBiH/LvVgBCNPzqHZ/LPDuFrAM4TXHCPQ==
+x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230016)(4636009)(366004)(66946007)(66574015)(64756008)(91956017)(66556008)(76116006)(44832011)(8676002)(31686004)(4326008)(7406005)(7416002)(83380400001)(186003)(36756003)(6512007)(8936002)(7336002)(7366002)(5660300002)(66446008)(26005)(66476007)(31696002)(86362001)(71200400001)(316002)(38070700005)(38100700002)(6506007)(54906003)(110136005)(122000001)(2906002)(508600001)(6486002)(2616005)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:  =?utf-8?B?a3lzRWt5bDlDemQ0RjZmZ3Rwa3Q2bTB0bXJjOFVHZElCR1Q2amtNOVI3cklX?=
+ =?utf-8?B?ODZnLytzR09oWklIWm1ZTGtrY25lcldiVDhvK0MzUnBPblRsekxUVWtwL1o2?=
+ =?utf-8?B?TXo3b3BrV285V2hnYldXNElEVGthTG81aWZHcFkxTlNzNDhUUjNyS2NCNXhY?=
+ =?utf-8?B?SW9HbDM4VERLc0dCMXk4dnFnd0hoOHVKUVlCL0lpc2pWMFhISnB6MGZxQkkw?=
+ =?utf-8?B?V0Q1b3RUU3FuWThoS2JjTDlSdElaTDFudWVSOU1wbEJuT1EvT2xkNnhtbkMw?=
+ =?utf-8?B?ZloyZ0xnZ0RiYTJ0NHZ4ZFdBYks3c0JCQzdOREpuNFdIdkJ6WGZ2K1Rob1RL?=
+ =?utf-8?B?L05KQW5EUUpVZmcxSXJMNVp5bERHU0NuTnEwYmVTNHExZExZQnJQazB0d1lT?=
+ =?utf-8?B?TnVNNTcxMCt4K0psbGFnbzJBL0syVFIzWFVJZktBNmp1Ym1PeURDV3VsYXI0?=
+ =?utf-8?B?bDFwTnMwLytpOFpqMGNxSjl0eVhxN0xoYi9TcGExRE5sRjlPenQ0M3BiaXlY?=
+ =?utf-8?B?VXB4dkt2eWZpWFZEYllrTEgvVWoxdWpmQ1VCMVpIYjJNNkltVVQ4K0IvbWxy?=
+ =?utf-8?B?TnkwS3g3WVQzKzJrZXFCTlBIQXRkZFk1bk0wSENpUUJCaXFJVFZDZ3VVOVB4?=
+ =?utf-8?B?OEhqc01RNmx4ZG9qTEFLc2U1Tk5QZjh1TGpQekNDRXYxdTFoZE5pZEhzVlFY?=
+ =?utf-8?B?bDRzamNiRVVoMXJ1UGNWMEQySlZ6VncyWlJzMStoOGkydjJMdTFldEdqKzZ0?=
+ =?utf-8?B?UXEzWkMyOEZXaFUzUEQ4aDNXdmZWS0FQTmF0T25ZSVp1U2QrUlJmcmdSY1o1?=
+ =?utf-8?B?dzNGNjhVS2lpa2tEK01mTkx4YndQRGlhZEUvNlRpM2tvMmpIUHB6QTlyUndm?=
+ =?utf-8?B?WGJ1WnlpV0ZIMGxHZmhqcEFTNjdjckpabk1xTmhocVFWOVNWWUd2N0Q2ZmxI?=
+ =?utf-8?B?N2NNc1pOOG1qbHNvVU5abFpSbEJRUzlyYnhOVERXUFdJeHg0YVg3bXpLY2I3?=
+ =?utf-8?B?SUtEME1WYWd2SkFSZ0V1M1lxV2dNS2dDbWZ0TW9JbXZJYS9HRTNEYWRJb2gz?=
+ =?utf-8?B?dHF3NE1VKzdScldvekNjK3JlY2VVSUE4ZDNKc3FqNTArVDg0TjIvQ0s3R016?=
+ =?utf-8?B?NG5oUXJpRWFROUhzdURpN2I3UWwxNlYrMHZyUnBvR1h0blBJUi92bGRyRVVt?=
+ =?utf-8?B?NFdaZWJreE5oalBDbGc3NzQrbVFaOU5sQWZXWld0M1puTHNXbHFabnZoUU9n?=
+ =?utf-8?B?bjZrU3JnZlZyRVNtVDdVblVOUmNzVGZHaVhtSkhQK1NIOWZvZlRxeXg1WmtS?=
+ =?utf-8?B?azlma2ZmVkhRbGhaUDVrcDBTTzd4UE8rTTh3amd3WUlJd3NtRnYxakU1YUUr?=
+ =?utf-8?B?ejJvK3dQKzE1UmVRbkpwUGRxNzdoWGpZZ29xS1poNDJnWUx0aDVHcHFIbm5h?=
+ =?utf-8?B?a1JNeEpMc2traXJoY3lQbzdjcVppK2hnZXdhazRTaGFjQXdQVnJyMmdDamJN?=
+ =?utf-8?B?ZHUxc1NSUVQ4UXU4MFpVdzJROW1wYzJtZDYxa1VLZEZ4bUd3Rm5XN1Z4NnhG?=
+ =?utf-8?B?ejFrQzNXUDFoT1hWcmhRYkllbXJLVVRpU2tSdjhuYWd6cXhDQlNXT3lYR2di?=
+ =?utf-8?B?K3F3UXhBWDA5czUySHR3NHl4YUNyeFgrSkJ6Vm55UFhtazRGZGZGZmVOam4w?=
+ =?utf-8?B?UGh6TGhHSDRsdnN0cGgyUlJNNWw2UjNxa3ZQemVHZE4vQ1ZmYnJzMXdRcHBO?=
+ =?utf-8?B?Nys3M3poM3kvc3BZRVlud0dXTnhpYTdTRHZkRHZwU0FYY2o2KzVHYXVWU2Fr?=
+ =?utf-8?B?REIyRVFrMi8xdnRod2p3MXQ1U05yTW9GY1cybU1oNU5UNUo3VkljNGdaalFh?=
+ =?utf-8?B?dHdMZXZock91L3ZMK1dhYy84Vkw4U0FQSVZxcjNCMkhSMDFWM0prdjFoUkZI?=
+ =?utf-8?B?TUZwUCtKaDdndzUvUWxKVExZeGZ5VHV2VnRUN1lnTzlOWmRmNWI0YytUazlK?=
+ =?utf-8?B?NXR5RHNPdU5WZVRVbURXU2t5TnVnU3lsQWpJNVYvOWVvQk1PeGlYTlJLVEVH?=
+ =?utf-8?B?dlc3SkZ5VmEyQWJJeDZaZ2EyZVNTTVp6dzFNSXFDeUhUM0krOHUrZG9IQ2ZP?=
+ =?utf-8?B?R3U3QVpkZ0wrQjJMZ1ZFVVY4elhNbDY2RzdjeDJFWTFpVzEvT3hHckN3cUdt?=
+ =?utf-8?B?azBmYkVRTUNPOEtDRUVMTnRSdU5BU05hbmFFVUdCYnNVVmVHdXpFZnNucmFl?=
+ =?utf-8?B?Rk1rZFRWNWJRMElzWDU0WitnUWdtTFRXbVMvNWJUTFFEMW5SK3pWWVJaODla?=
+ =?utf-8?B?UmphRDg3QVlKUkdobDdGUEJMTFVScStEY1BIR000bkpjR0xwZGhRMzR5dW5t?=
+ =?utf-8?Q?Q5rXTD+FIoMlTb8K755DmF8mwmzpRvUVzmsGE?=
+Content-ID: <2F55359D1AB37641BA2B2303D8039BB6@FRAP264.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-In-Reply-To: <20220613111759.1550578-2-conor.dooley@microchip.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-OriginatorOrg: csgroup.eu
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MRZP264MB2988.FRAP264.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: f61864ec-4b29-4724-ef9f-08da4e027f04
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jun 2022 12:36:25.3965
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9914def7-b676-4fda-8815-5d49fb3b45c8
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: F7ZGrpuO84qfsnuIAzIHJgewBW+QYHKI+A7e4vP3gwrmnD72S1Fo6rmJynKfpH/CNqWRUpa+tz/zLhqkhu/dp1lJIjP3eGD+wptwKOkn47s=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MR1P264MB4212
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_053613_050254_E2FD3EF1 
-X-CRM114-Status: GOOD (  39.89  )
+X-CRM114-CacheID: sfid-20220614_053631_789640_643F6D6B 
+X-CRM114-Status: GOOD (  22.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,277 +202,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6959167817826078006=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============6959167817826078006==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gs7enp76v6o65krd"
-Content-Disposition: inline
-
-
---gs7enp76v6o65krd
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-On Mon, Jun 13, 2022 at 12:17:59PM +0100, Conor Dooley wrote:
-> Add a driver that supports the Microchip FPGA "soft" PWM IP core.
->=20
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  drivers/pwm/Kconfig              |  10 +
->  drivers/pwm/Makefile             |   1 +
->  drivers/pwm/pwm-microchip-core.c | 310 +++++++++++++++++++++++++++++++
->  3 files changed, 321 insertions(+)
->  create mode 100644 drivers/pwm/pwm-microchip-core.c
->=20
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 21e3b05a5153..a651848e444b 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -383,6 +383,16 @@ config PWM_MEDIATEK
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called pwm-mediatek.
-> =20
-> +config PWM_MICROCHIP_CORE
-> +	tristate "Microchip corePWM PWM support"
-> +	depends on SOC_MICROCHIP_POLARFIRE || COMPILE_TEST
-> +	depends on HAS_IOMEM && OF
-> +	help
-> +	  PWM driver for Microchip FPGA soft IP core.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-microchip-core.
-> +
->  config PWM_MXS
->  	tristate "Freescale MXS PWM support"
->  	depends on ARCH_MXS || COMPILE_TEST
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index 708840b7fba8..d29754c20f91 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -33,6 +33,7 @@ obj-$(CONFIG_PWM_LPSS_PCI)	+=3D pwm-lpss-pci.o
->  obj-$(CONFIG_PWM_LPSS_PLATFORM)	+=3D pwm-lpss-platform.o
->  obj-$(CONFIG_PWM_MESON)		+=3D pwm-meson.o
->  obj-$(CONFIG_PWM_MEDIATEK)	+=3D pwm-mediatek.o
-> +obj-$(CONFIG_PWM_MICROCHIP_CORE)	+=3D pwm-microchip-core.o
->  obj-$(CONFIG_PWM_MTK_DISP)	+=3D pwm-mtk-disp.o
->  obj-$(CONFIG_PWM_MXS)		+=3D pwm-mxs.o
->  obj-$(CONFIG_PWM_NTXEC)		+=3D pwm-ntxec.o
-> diff --git a/drivers/pwm/pwm-microchip-core.c b/drivers/pwm/pwm-microchip=
--core.c
-> new file mode 100644
-> index 000000000000..d2abc46deec4
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-microchip-core.c
-> @@ -0,0 +1,310 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * corePWM driver for Microchip "soft" FPGA IP cores.
-> + *
-> + * Copyright (c) 2021-2022 Microchip Corporation. All rights reserved.
-> + * Author: Conor Dooley <conor.dooley@microchip.com>
-> + * Documentation:
-> + * https://www.microsemi.com/document-portal/doc_download/1245275-corepw=
-m-hb
-> + *
-> + * Limitations:
-> + * - If the IP block is configured without "shadow registers", all regis=
-ter
-> + *   writes will take effect immediately, causing glitches on the output.
-> + *   If shadow registers *are* enabled, a write to the "SYNC_UPDATE" reg=
-ister
-> + *   notifies the core that it needs to update the registers defining the
-> + *   waveform from the contents of the "shadow registers".
-> + * - The IP block has no concept of a duty cycle, only rising/falling ed=
-ges of
-> + *   the waveform. Unfortunately, if the rising & falling edges register=
-s have
-> + *   the same value written to them the IP block will do whichever of a =
-rising
-> + *   or a falling edge is possible. I.E. a 50% waveform at twice the req=
-uested
-> + *   period. Therefore to get a 0% waveform, the output is set the max h=
-igh/low
-> + *   time depending on polarity.
-> + * - The PWM period is set for the whole IP block not per channel. The d=
-river
-> + *   will only change the period if no other PWM output is enabled.
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +#include <linux/math.h>
-> +
-> +#define PREG_TO_VAL(PREG) ((PREG) + 1)
-> +
-> +#define COREPWM_PRESCALE_REG	0x00u
-> +#define COREPWM_PERIOD_REG	0x04u
-> +#define COREPWM_EN_LOW_REG	0x08u
-> +#define COREPWM_EN_HIGH_REG	0x0Cu
-> +#define COREPWM_SYNC_UPD_REG	0xE4u
-> +#define COREPWM_POSEDGE_OFFSET	0x10u
-> +#define COREPWM_NEGEDGE_OFFSET	0x14u
-> +#define COREPWM_CHANNEL_OFFSET	0x08u
-> +
-> +struct mchp_core_pwm_chip {
-> +	struct pwm_chip chip;
-> +	struct clk *clk;
-> +	void __iomem *base;
-> +};
-> +
-> +static inline struct mchp_core_pwm_chip *to_mchp_core_pwm(struct pwm_chi=
-p *chip)
-> +{
-> +	return container_of(chip, struct mchp_core_pwm_chip, chip);
-> +}
-> +
-> +static void mchp_core_pwm_enable(struct pwm_chip *chip, struct pwm_devic=
-e *pwm, bool enable)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u8 channel_enable, reg_offset, shift;
-> +
-> +	/*
-> +	 * There are two adjacent 8 bit control regs, the lower reg controls
-> +	 * 0-7 and the upper reg 8-15. Check if the pwm is in the upper reg
-> +	 * and if so, offset by the bus width.
-> +	 */
-> +	reg_offset =3D COREPWM_EN_LOW_REG + (pwm->hwpwm >> 3) * sizeof(u32);
-> +	shift =3D pwm->hwpwm > 7 ? pwm->hwpwm - 8 : pwm->hwpwm;
-> +
-> +	channel_enable =3D readb_relaxed(mchp_core_pwm->base + reg_offset);
-> +	channel_enable &=3D ~(1 << shift);
-> +	channel_enable |=3D (enable << shift);
-> +
-> +	writel_relaxed(channel_enable, mchp_core_pwm->base + reg_offset);
-> +}
-> +
-> +static void mchp_core_pwm_apply_duty(struct pwm_chip *chip,  struct pwm_=
-device *pwm,
-> +				     const struct pwm_state *state)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	void __iomem *channel_base =3D mchp_core_pwm->base + pwm->hwpwm * COREP=
-WM_CHANNEL_OFFSET;
-> +	u64 duty_steps, period, tmp;
-> +	u8 prescale, period_steps, posedge, negedge;
-> +
-> +	prescale =3D PREG_TO_VAL(readb_relaxed(mchp_core_pwm->base + COREPWM_PR=
-ESCALE_REG));
-> +	period_steps =3D PREG_TO_VAL(readb_relaxed(mchp_core_pwm->base + COREPW=
-M_PERIOD_REG));
-> +	period =3D period_steps * prescale * NSEC_PER_SEC;
-> +	period =3D div64_u64(period, clk_get_rate(mchp_core_pwm->clk));
-> +
-> +	/*
-> +	 * Calculate the duty cycle in multiples of the prescaled period:
-> +	 * duty_steps =3D duty_in_ns / step_in_ns
-> +	 * step_in_ns =3D (prescale * NSEC_PER_SEC) / clk_rate
-> +	 * The code below is rearranged slightly to only divide once.
-> +	 *
-> +	 * Because the period is per channel, it is possible that the requested
-> +	 * duty cycle is longer than the period, in which case cap it to the
-> +	 * period.
-> +	 */
-> +	if (state->duty_cycle > period) {
-> +		duty_steps =3D period_steps;
-> +	} else {
-> +		duty_steps =3D state->duty_cycle * clk_get_rate(mchp_core_pwm->clk);
-> +		tmp =3D prescale * NSEC_PER_SEC;
-> +		duty_steps =3D div64_u64(duty_steps, tmp);
-> +	}
-> +
-> +	/*
-> +	 * Turn the output on unless posedge =3D=3D negedge, in which case the
-> +	 * duty is intended to be 0, but limitations of the IP block don't
-> +	 * allow a zero length duty cycle - so just set the max high/low time
-> +	 * respectively.
-> +	 */
-> +	if (state->polarity =3D=3D PWM_POLARITY_INVERSED) {
-> +		negedge =3D !duty_steps ? period_steps : 0u;
-> +		posedge =3D duty_steps;
-> +	} else {
-> +		posedge =3D !duty_steps ? period_steps : 0u;
-> +		negedge =3D duty_steps;
-> +	}
-> +
-> +	writel_relaxed(posedge, channel_base + COREPWM_POSEDGE_OFFSET);
-> +	writel_relaxed(negedge, channel_base + COREPWM_NEGEDGE_OFFSET);
-> +}
-> +
-> +static void mchp_core_pwm_apply_period(struct pwm_chip *chip, const stru=
-ct pwm_state *state)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u64 tmp =3D state->period;
-> +	u8 prescale, period_steps;
-> +
-> +	/*
-> +	 * Calculate the period cycles and prescale values.
-> +	 * The registers are each 8 bits wide & multiplied to compute the period
-> +	 * so the maximum period that can be generated is 0xFFFF times the peri=
-od
-> +	 * of the input clock.
-> +	 */
-> +	tmp *=3D clk_get_rate(mchp_core_pwm->clk);
-> +	do_div(tmp, NSEC_PER_SEC);
-> +
-> +	if (tmp > 0xFFFFu) {
-> +		prescale =3D 0xFFu;
-> +		period_steps =3D 0xFFu;
-> +	} else {
-> +		prescale =3D tmp >> 8;
-> +		period_steps =3D tmp / PREG_TO_VAL(prescale) - 1;
-
-Here is the 64bit division.
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---gs7enp76v6o65krd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmKogFkACgkQwfwUeK3K
-7AkIJgf/T69DInAPl8mPJHsehA8CjpDHNPdV+J+xoo7wQ6sZlHc7ixkpIoLgyTxA
-1+IjBmKpWY4vERoAHPHdG1lorTyHQ3iyj8YQn2LDOt04tJjm8PFEPrJ6cRXwvABP
-VZX0RtABTKM6Vz8c77cRnk26kmYOqNeLkHMs5PQb+IlvNdJQdMyYd2fpn3NItPkk
-ApBIL0t+3+x0EU1qyHnYGjKpDF4rwAKc6N7JJnzpzt77P3W9OGiFhKVAnsnPEAU5
-d67iL0y8/si3DpJe9Cf8fQzud2d6XOvdmE3ApnRiWpRdPKCN9N9EleoBvw7cqzky
-B68Inwo0uDIP5HoyB3cjJY5hpMNo9A==
-=moey
------END PGP SIGNATURE-----
-
---gs7enp76v6o65krd--
-
-
---===============6959167817826078006==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6959167817826078006==--
-
+DQoNCkxlIDE0LzA2LzIwMjIgw6AgMTQ6MjYsIEphcmtrbyBTYWtraW5lbiBhIMOpY3JpdMKgOg0K
+PiBPbiBUaHUsIEp1biAwOSwgMjAyMiBhdCAwNjo0NDo0NUFNIC0wNzAwLCBMdWlzIENoYW1iZXJs
+YWluIHdyb3RlOg0KPj4gT24gVGh1LCBKdW4gMDksIDIwMjIgYXQgMDg6NDc6MzhBTSArMDEwMCwg
+UnVzc2VsbCBLaW5nIChPcmFjbGUpIHdyb3RlOg0KPj4+IE9uIFdlZCwgSnVuIDA4LCAyMDIyIGF0
+IDAyOjU5OjI3QU0gKzAzMDAsIEphcmtrbyBTYWtraW5lbiB3cm90ZToNCj4+Pj4gZGlmZiAtLWdp
+dCBhL2FyY2gvYXJtL2tlcm5lbC9NYWtlZmlsZSBiL2FyY2gvYXJtL2tlcm5lbC9NYWtlZmlsZQ0K
+Pj4+PiBpbmRleCA1NTM4NjY3NTFlMWEuLmQyYmI5NTRjZDU0ZiAxMDA2NDQNCj4+Pj4gLS0tIGEv
+YXJjaC9hcm0va2VybmVsL01ha2VmaWxlDQo+Pj4+ICsrKyBiL2FyY2gvYXJtL2tlcm5lbC9NYWtl
+ZmlsZQ0KPj4+PiBAQCAtNDQsNiArNDQsMTEgQEAgb2JqLSQoQ09ORklHX0NQVV9JRExFKQkJKz0g
+Y3B1aWRsZS5vDQo+Pj4+ICAgb2JqLSQoQ09ORklHX0lTQV9ETUFfQVBJKQkrPSBkbWEubw0KPj4+
+PiAgIG9iai0kKENPTkZJR19GSVEpCQkrPSBmaXEubyBmaXFhc20ubw0KPj4+PiAgIG9iai0kKENP
+TkZJR19NT0RVTEVTKQkJKz0gYXJta3N5bXMubyBtb2R1bGUubw0KPj4+PiAraWZlcSAoJChDT05G
+SUdfTU9EVUxFUykseSkNCj4+Pj4gK29iai15CQkJCSs9IG1vZHVsZV9hbGxvYy5vDQo+Pj4+ICtl
+bHNlDQo+Pj4+ICtvYmotJChDT05GSUdfS1BST0JFUykJCSs9IG1vZHVsZV9hbGxvYy5vDQo+Pj4+
+ICtlbmRpZg0KPj4+DQo+Pj4gRG9lc24ndDoNCj4+Pg0KPj4+IG9iai0kKENPTkZJR19NT0RVTEVT
+KQkJKz0gbW9kdWxlX2FsbG9jLm8NCj4+PiBvYmotJChDT05GSUdfS1BST0JFUykJCSs9IG1vZHVs
+ZV9hbGxvYy5vDQo+Pg0KPj4gVGhhdCBqdXN0IGJlZ3MgZm9yIGEgbmV3IGtjb25maWcgc3ltYm9s
+IGZvciB0aGUgb2JqZWN0LCBhbmQgZm9yDQo+PiB0aGUgb2JqZWN0IHRoZW4gdG8gYmUgYnVpbHQg
+d2l0aCBpdC4NCj4+DQo+PiBUaGUgYXJjaHMgd2hpY2ggb3ZlcnJpZGUgdGhlIGRlZmF1bHQgY2Fu
+IHVzZSBBUkNIX0hBU19WTV9BTExPQ19FWEVDLg0KPj4gUGxlYXNlIG5vdGUgdGhhdCB0aGUgcmVz
+cGVjdGl2ZSBmcmVlIGlzIGltcG9ydGFudCBhcyB3ZWxsIGFuZCBpdHMNCj4+IG5vdCBjbGVhciBp
+ZiB3ZSBuZWVkIGFuIGFub3RoZXIgZGVmaW5lIGZvciB0aGUgZnJlZS4gU29tZW9uZSBoYXMNCj4+
+IHRvIGRvIHRoYXQgd29yay4gV2Ugd2FudCB0byBlbnN1cmUgdG8gbm9leGVjIHRoZSBjb2RlIG9u
+IGZyZWUgYW5kDQo+PiB0aGlzIGNhbiB2YXJ5IG9uIGVhY2ggYXJjaC4NCj4gDQo+IExldCBtZSBj
+aGVjayBpZiBJIHVuZGVyc3RhbmQgdGhpcyAobm90IDEwMCUgc3VyZSkuDQo+IA0KPiBTbyBpZiBh
+cmNoIGRlZmluZSBBUkNIX0hBU19WTUFMTE9DX0VYRUMsIHRoZW4gdGhpcyB3b3VsZCBzZXQNCj4g
+Y29uZmlnIGZsYWcgQ09ORklHX1ZNQUxMT0NfRVhFQywgd2hpY2ggd291bGQgYmUgdXNlZCB0byBp
+bmNsdWRlDQo+IHRoZSBjb21waWxhdGlvbiB1bml0Pw0KPiANCg0KSSBndWVzcyB5b3UgaGF2ZSB0
+d28gcG9zc2libGUgYXBwcm9hY2hlcy4NCg0KRWl0aGVyIGFyY2hpdGVjdHVyZXMgc2VsZWN0IENP
+TkZJR19BUkNIX0hBU19WTUFMTE9DX0VYRUMgYXQgYWxsIHRpbWUgYW5kIA0KdGhlbiB5b3UgYWRk
+IGEgQ09ORklHX1ZNQUxMT0NfRVhFQyB3aGljaCBkZXBlbmRzIG9uIA0KQ09ORklHX0FSQ0hfSEFT
+X1ZNQUxMT0NfRVhFQyBhbmQgQ09ORklHX01PRFVMRVMgb3IgQ09ORklHX0tQUk9CRVMsDQoNCk9y
+IGFyY2hpdGVjdHVyZXMgc2VsZWN0IENPTkZJR19BUkNIX0hBU19WTUFMTE9DX0VYRUMgb25seSB3
+aGVuIGVpdGhlciANCkNPTkZJR19NT0RVTEVTIG9yIENPTkZJR19LUFJPQkVTIGlzIHNlbGVjdGVk
+LCBpbiB0aGF0IGNhc2UgdGhlcmUgaXMgbm8gDQpuZWVkIGZvciBhIENPTkZJR19WTUFMTE9DX0VY
+RUMuDQoNCkNocmlzdG9waGUKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
