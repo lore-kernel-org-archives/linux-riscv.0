@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECED5C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 10:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34DFFC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 10:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yMdRFxhOA713MZlBPb0PpRsIcEp3EL9fs1uyl+xCqdA=; b=pnKpOZTG52QBm+
-	LRXAystc7dtDTHK8CmJwd8KV7ZpWZ2cBmLk4ZUVg82p866mg2/EAvZzRLEGeURhkNahrThHBpgy+t
-	pgQuj7vEX8hSvzGDFK/GM/+0NsqRrpDMc+hO/I4PBXFKKdOC4gssPKcRbBK6+z942YLx+ReFsXOyR
-	zmWvSi3RkrSshApRv3RmUCbZ8z4pQH6YpQxfBN8MrRBZ6TQmTYZRQHsTF/HVfQ63N8XNWuPb2FnmT
-	6BMNBAZeK3hiHxIk8WWRG/Eo00TN7S33VtVCOpdg0fqMPc9cPL/kqTNKmL3UIsxQ46gfkN1YpYuI8
-	KDes7dXacUpCX6esl+Qg==;
+	List-Owner; bh=sFR78Co3x0AY8mICRCChvgKB7t479w4QivUI5mZH+fk=; b=lL8GYsDDboJxnA
+	T44p6giETFHxoQuqoJxAj1kjjYvWwTuxNVWCbTaPwQ/eyu/KXWUdOTynPLqpIjOqYBRhsKhcXWEeG
+	80YTojLcd0RgcamLe6V/m3AVmiIuaPIwoV7QjOQQVIBvpfV8VXQafMkovC0m9goMwLvHx1yP87dI+
+	5e2Mg2K3LZICG/DQCWw/zDiE+YpU3NK+VekE6hRJWn2JKB18xX1Ihf5w3BFDAbJ6L0CJjql0jGbeK
+	/pctZhgN/eb9mVKu99FKN0qjYKr8NlE7cbCW/8e6qdxGoFF2SMnX5WB3fDpkhkEuNmv/LYsbhfhQe
+	MK2XkWVwGom5btg5ksXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o13fR-0090J2-4F; Tue, 14 Jun 2022 10:21:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1o13kr-00924r-6k; Tue, 14 Jun 2022 10:26:37 +0000
+Received: from mga02.intel.com ([134.134.136.20])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o13f5-009091-Bo
-	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 10:20:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1655202038;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=94Tijhs2krNsUh5sgMXTyng6F8TEy2CILJiweYDy2xE=;
-	b=B/h8W3Uc6mWISxM8yGuxyrQGQtGxxeHyN7LAunT62e3Sq2IP0qzFTfaNu+pZc/bWBsazPQ
-	Warwq1Vl0Gqno5yc5LcYwzTRIsJBQpol3WT5DfgKFaVlr2MIM5LcxDT71BiPM7X5iSU54s
-	WC99wv/jdDzGthsBu8lTjRC68/xjezI=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-575-oZmcGoKQNE-UgM_JJWpd_A-1; Tue, 14 Jun 2022 06:20:33 -0400
-X-MC-Unique: oZmcGoKQNE-UgM_JJWpd_A-1
-Received: from smtp.corp.redhat.com (int-mx08.intmail.prod.int.rdu2.redhat.com [10.11.54.8])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 50276811E76;
-	Tue, 14 Jun 2022 10:20:31 +0000 (UTC)
-Received: from localhost (ovpn-12-211.pek2.redhat.com [10.72.12.211])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id 3A42CC52D63;
-	Tue, 14 Jun 2022 10:20:29 +0000 (UTC)
-Date: Tue, 14 Jun 2022 18:20:25 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Wupeng Ma <mawupeng1@huawei.com>
-Cc: corbet@lwn.net, will@kernel.org, ardb@kernel.org,
-	catalin.marinas@arm.com, tglx@linutronix.de, mingo@redhat.com,
-	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-	hpa@zytor.com, dvhart@infradead.org, andy@infradead.org,
-	rppt@kernel.org, akpm@linux-foundation.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	paulmck@kernel.org, keescook@chromium.org, songmuchun@bytedance.com,
-	rdunlap@infradead.org, damien.lemoal@opensource.wdc.com,
-	swboyd@chromium.org, wei.liu@kernel.org, robin.murphy@arm.com,
-	david@redhat.com, anshuman.khandual@arm.com,
-	thunder.leizhen@huawei.com, wangkefeng.wang@huawei.com,
-	gpiccoli@igalia.com, chenhuacai@kernel.org, geert@linux-m68k.org,
-	vijayb@linux.microsoft.com, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-efi@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-	linux-mm@kvack.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 5/5] memblock: Disable mirror feature if kernelcore is
- not specified
-Message-ID: <Yqhg6abZDGZSpJ7+@MiWiFi-R3L-srv>
-References: <20220614092156.1972846-1-mawupeng1@huawei.com>
- <20220614092156.1972846-6-mawupeng1@huawei.com>
+	id 1o13kl-00922h-My
+	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 10:26:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1655202391; x=1686738391;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=gabRALrpmyiV0d99KWbOtQcy1nzIF5Zt6Bbv6kTukLI=;
+  b=m6TtyCaljeJo4UAenB5bDs9YH0212eorJa297rlmuvFLdG+wFioCe0Wr
+   nFNui41Cx5Wx97lB+h0/6a+ojRtIPTzwGTf+C5YgjpwSL6B+G9CO85lHe
+   Bb1/TZ3HNDlszu4HnwPMlwsCL6Zbj5cwBWnkVzsvVXvoZqPhBLRpQ8xka
+   dJ838d+udnwRPdDYjpUxilUEGsAOXyT8769XAAgCf3qFI+RZBeSzVhwHW
+   nsXJhvftA482/dR0Ofek7uZxHMnk507Nd55YMYRsNmfOC3t304FFREmwc
+   F3+Rtev7pxR01BKFiVgE0sPzcszinEF2cQcXF7YUITyfkeKrskSBU4psK
+   g==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10377"; a="267262544"
+X-IronPort-AV: E=Sophos;i="5.91,299,1647327600"; 
+   d="scan'208";a="267262544"
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+  by orsmga101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Jun 2022 03:26:28 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.91,299,1647327600"; 
+   d="scan'208";a="558280922"
+Received: from lkp-server01.sh.intel.com (HELO 60dabacc1df6) ([10.239.97.150])
+  by orsmga006.jf.intel.com with ESMTP; 14 Jun 2022 03:26:26 -0700
+Received: from kbuild by 60dabacc1df6 with local (Exim 4.95)
+	(envelope-from <lkp@intel.com>)
+	id 1o13kf-000Lmf-An;
+	Tue, 14 Jun 2022 10:26:25 +0000
+Date: Tue, 14 Jun 2022 18:25:25 +0800
+From: kernel test robot <lkp@intel.com>
+To: Conor Dooley <conor.dooley@microchip.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@pengutronix.de>,
+	Lee Jones <lee.jones@linaro.org>
+Cc: kbuild-all@lists.01.org, Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v2 1/2] pwm: add microchip soft ip corePWM driver
+Message-ID: <202206141813.qgogbMAN-lkp@intel.com>
+References: <20220613111759.1550578-2-conor.dooley@microchip.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220614092156.1972846-6-mawupeng1@huawei.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.8
+In-Reply-To: <20220613111759.1550578-2-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_032039_507749_1327F1D8 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20220614_032631_887282_C53B1F9E 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,87 +87,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06/14/22 at 05:21pm, Wupeng Ma wrote:
-> From: Ma Wupeng <mawupeng1@huawei.com>
-> 
-> If system have some mirrored memory and mirrored feature is not specified
-> in boot parameter, the basic mirrored feature will be enabled and this will
-> lead to the following situations:
-> 
-> - memblock memory allocation prefers mirrored region. This may have some
->   unexpected influence on numa affinity.
-> 
-> - contiguous memory will be split into several parts if parts of them
->   is mirrored memory via memblock_mark_mirror().
-> 
-> To fix this, variable mirrored_kernelcore will be checked in
-> memblock_mark_mirror(). Mark mirrored memory with flag MEMBLOCK_MIRROR iff
-> kernelcore=mirror is added in the kernel parameters.
-> 
-> Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
-> Acked-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  mm/internal.h   | 2 ++
->  mm/memblock.c   | 3 +++
->  mm/page_alloc.c | 2 +-
->  3 files changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/mm/internal.h b/mm/internal.h
-> index c0f8fbe0445b..ddd2d6a46f1b 100644
-> --- a/mm/internal.h
-> +++ b/mm/internal.h
-> @@ -861,4 +861,6 @@ struct folio *try_grab_folio(struct page *page, int refs, unsigned int flags);
->  
->  DECLARE_PER_CPU(struct per_cpu_nodestat, boot_nodestats);
->  
-> +extern bool mirrored_kernelcore;
-> +
->  #endif	/* __MM_INTERNAL_H */
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index b1d2a0009733..a9f18b988b7f 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -924,6 +924,9 @@ int __init_memblock memblock_clear_hotplug(phys_addr_t base, phys_addr_t size)
->   */
->  int __init_memblock memblock_mark_mirror(phys_addr_t base, phys_addr_t size)
->  {
-> +	if (!mirrored_kernelcore)
-> +		return 0;
+Hi Conor,
 
-memblock_mark_mirror() is just a wrapper, maybe we should check this in
-efi_find_mirror(). Otherwise, how do we explain the message printed out
-at below in boot log if we don't mark mirror memory at all?
+I love your patch! Yet something to improve:
 
-void __init efi_find_mirror(void)
-{
-......
-	if (mirror_size)
-                pr_info("Memory: %lldM/%lldM mirrored memory\n",
-                        mirror_size>>20, total_size>>20);
-}
+[auto build test ERROR on thierry-reding-pwm/for-next]
+[also build test ERROR on linus/master v5.19-rc2 next-20220614]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch]
 
-> +
->  	system_has_some_mirror = true;
->  
->  	return memblock_setclr_flag(base, size, 1, MEMBLOCK_MIRROR);
-> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
-> index e008a3df0485..10dc35ec7479 100644
-> --- a/mm/page_alloc.c
-> +++ b/mm/page_alloc.c
-> @@ -356,7 +356,7 @@ static unsigned long required_kernelcore_percent __initdata;
->  static unsigned long required_movablecore __initdata;
->  static unsigned long required_movablecore_percent __initdata;
->  static unsigned long zone_movable_pfn[MAX_NUMNODES] __initdata;
-> -static bool mirrored_kernelcore __meminitdata;
-> +bool mirrored_kernelcore __initdata_memblock;
->  
->  /* movable_zone is the "real" zone pages in ZONE_MOVABLE are taken from */
->  int movable_zone;
-> -- 
-> 2.25.1
-> 
-> 
+url:    https://github.com/intel-lab-lkp/linux/commits/Conor-Dooley/pwm-add-microchip-soft-ip-corePWM-driver/20220613-211851
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/thierry.reding/linux-pwm.git for-next
+config: xtensa-allyesconfig (https://download.01.org/0day-ci/archive/20220614/202206141813.qgogbMAN-lkp@intel.com/config)
+compiler: xtensa-linux-gcc (GCC) 11.3.0
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # https://github.com/intel-lab-lkp/linux/commit/4451a8420f9fd16ee9a0801fcf02f1ec04bb8ab0
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Conor-Dooley/pwm-add-microchip-soft-ip-corePWM-driver/20220613-211851
+        git checkout 4451a8420f9fd16ee9a0801fcf02f1ec04bb8ab0
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.3.0 make.cross W=1 O=build_dir ARCH=xtensa SHELL=/bin/bash
 
+If you fix the issue, kindly add following tag where applicable
+Reported-by: kernel test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+   `.exit.text' referenced in section `__jump_table' of fs/cifs/cifsfs.o: defined in discarded section `.exit.text' of fs/cifs/cifsfs.o
+   `.exit.text' referenced in section `__jump_table' of fs/cifs/cifsfs.o: defined in discarded section `.exit.text' of fs/cifs/cifsfs.o
+   `.exit.text' referenced in section `__jump_table' of fs/fuse/inode.o: defined in discarded section `.exit.text' of fs/fuse/inode.o
+   `.exit.text' referenced in section `__jump_table' of fs/fuse/inode.o: defined in discarded section `.exit.text' of fs/fuse/inode.o
+   `.exit.text' referenced in section `__jump_table' of fs/ceph/super.o: defined in discarded section `.exit.text' of fs/ceph/super.o
+   `.exit.text' referenced in section `__jump_table' of fs/ceph/super.o: defined in discarded section `.exit.text' of fs/ceph/super.o
+   xtensa-linux-ld: drivers/pwm/pwm-microchip-core.o: in function `mchp_core_pwm_enable.isra.0':
+>> pwm-microchip-core.c:(.text+0x380): undefined reference to `__udivdi3'
+   xtensa-linux-ld: drivers/pwm/pwm-microchip-core.o: in function `mchp_core_pwm_apply':
+   pwm-microchip-core.c:(.text+0x586): undefined reference to `__udivdi3'
+   `.exit.text' referenced in section `__jump_table' of drivers/rapidio/rio_cm.o: defined in discarded section `.exit.text' of drivers/rapidio/rio_cm.o
+   `.exit.text' referenced in section `__jump_table' of drivers/rapidio/rio_cm.o: defined in discarded section `.exit.text' of drivers/rapidio/rio_cm.o
+   `.exit.text' referenced in section `__jump_table' of drivers/rapidio/switches/idt_gen2.o: defined in discarded section `.exit.text' of drivers/rapidio/switches/idt_gen2.o
+   `.exit.text' referenced in section `__jump_table' of drivers/rapidio/switches/idt_gen2.o: defined in discarded section `.exit.text' of drivers/rapidio/switches/idt_gen2.o
+   `.exit.text' referenced in section `__jump_table' of drivers/rapidio/switches/idt_gen2.o: defined in discarded section `.exit.text' of drivers/rapidio/switches/idt_gen2.o
+   `.exit.text' referenced in section `__jump_table' of drivers/rapidio/switches/idt_gen2.o: defined in discarded section `.exit.text' of drivers/rapidio/switches/idt_gen2.o
+   `.exit.text' referenced in section `__jump_table' of drivers/rapidio/switches/idt_gen3.o: defined in discarded section `.exit.text' of drivers/rapidio/switches/idt_gen3.o
+   `.exit.text' referenced in section `__jump_table' of drivers/rapidio/switches/idt_gen3.o: defined in discarded section `.exit.text' of drivers/rapidio/switches/idt_gen3.o
+   `.exit.text' referenced in section `__jump_table' of drivers/rapidio/switches/idt_gen3.o: defined in discarded section `.exit.text' of drivers/rapidio/switches/idt_gen3.o
+   `.exit.text' referenced in section `__jump_table' of drivers/rapidio/switches/idt_gen3.o: defined in discarded section `.exit.text' of drivers/rapidio/switches/idt_gen3.o
+   `.exit.text' referenced in section `__jump_table' of drivers/video/fbdev/vt8623fb.o: defined in discarded section `.exit.text' of drivers/video/fbdev/vt8623fb.o
+   `.exit.text' referenced in section `__jump_table' of drivers/video/fbdev/vt8623fb.o: defined in discarded section `.exit.text' of drivers/video/fbdev/vt8623fb.o
+   `.exit.text' referenced in section `__jump_table' of drivers/video/fbdev/s3fb.o: defined in discarded section `.exit.text' of drivers/video/fbdev/s3fb.o
+   `.exit.text' referenced in section `__jump_table' of drivers/video/fbdev/s3fb.o: defined in discarded section `.exit.text' of drivers/video/fbdev/s3fb.o
+   `.exit.text' referenced in section `__jump_table' of drivers/video/fbdev/arkfb.o: defined in discarded section `.exit.text' of drivers/video/fbdev/arkfb.o
+   `.exit.text' referenced in section `__jump_table' of drivers/video/fbdev/arkfb.o: defined in discarded section `.exit.text' of drivers/video/fbdev/arkfb.o
+   `.exit.text' referenced in section `__jump_table' of drivers/misc/phantom.o: defined in discarded section `.exit.text' of drivers/misc/phantom.o
+   `.exit.text' referenced in section `__jump_table' of drivers/misc/phantom.o: defined in discarded section `.exit.text' of drivers/misc/phantom.o
+   `.exit.text' referenced in section `__jump_table' of drivers/misc/habanalabs/common/habanalabs_drv.o: defined in discarded section `.exit.text' of drivers/misc/habanalabs/common/habanalabs_drv.o
+   `.exit.text' referenced in section `__jump_table' of drivers/misc/habanalabs/common/habanalabs_drv.o: defined in discarded section `.exit.text' of drivers/misc/habanalabs/common/habanalabs_drv.o
+   `.exit.text' referenced in section `__jump_table' of drivers/scsi/fcoe/fcoe.o: defined in discarded section `.exit.text' of drivers/scsi/fcoe/fcoe.o
+   `.exit.text' referenced in section `__jump_table' of drivers/scsi/fcoe/fcoe.o: defined in discarded section `.exit.text' of drivers/scsi/fcoe/fcoe.o
+   `.exit.text' referenced in section `__jump_table' of drivers/scsi/cxgbi/libcxgbi.o: defined in discarded section `.exit.text' of drivers/scsi/cxgbi/libcxgbi.o
+   `.exit.text' referenced in section `__jump_table' of drivers/scsi/cxgbi/libcxgbi.o: defined in discarded section `.exit.text' of drivers/scsi/cxgbi/libcxgbi.o
+   `.exit.text' referenced in section `__jump_table' of drivers/target/target_core_configfs.o: defined in discarded section `.exit.text' of drivers/target/target_core_configfs.o
+   `.exit.text' referenced in section `__jump_table' of drivers/target/target_core_configfs.o: defined in discarded section `.exit.text' of drivers/target/target_core_configfs.o
+   `.exit.text' referenced in section `__jump_table' of drivers/mtd/maps/pcmciamtd.o: defined in discarded section `.exit.text' of drivers/mtd/maps/pcmciamtd.o
+   `.exit.text' referenced in section `__jump_table' of drivers/mtd/maps/pcmciamtd.o: defined in discarded section `.exit.text' of drivers/mtd/maps/pcmciamtd.o
+   `.exit.text' referenced in section `__jump_table' of drivers/net/wireless/zydas/zd1211rw/zd_usb.o: defined in discarded section `.exit.text' of drivers/net/wireless/zydas/zd1211rw/zd_usb.o
+   `.exit.text' referenced in section `__jump_table' of drivers/net/wireless/zydas/zd1211rw/zd_usb.o: defined in discarded section `.exit.text' of drivers/net/wireless/zydas/zd1211rw/zd_usb.o
+   `.exit.text' referenced in section `__jump_table' of drivers/net/wireless/ray_cs.o: defined in discarded section `.exit.text' of drivers/net/wireless/ray_cs.o
+   `.exit.text' referenced in section `__jump_table' of drivers/net/wireless/ray_cs.o: defined in discarded section `.exit.text' of drivers/net/wireless/ray_cs.o
+   `.exit.text' referenced in section `__jump_table' of drivers/net/wireless/mac80211_hwsim.o: defined in discarded section `.exit.text' of drivers/net/wireless/mac80211_hwsim.o
+   `.exit.text' referenced in section `__jump_table' of drivers/net/wireless/mac80211_hwsim.o: defined in discarded section `.exit.text' of drivers/net/wireless/mac80211_hwsim.o
+   `.exit.text' referenced in section `__jump_table' of drivers/usb/gadget/legacy/inode.o: defined in discarded section `.exit.text' of drivers/usb/gadget/legacy/inode.o
+   `.exit.text' referenced in section `__jump_table' of drivers/usb/gadget/legacy/inode.o: defined in discarded section `.exit.text' of drivers/usb/gadget/legacy/inode.o
+   `.exit.text' referenced in section `__jump_table' of drivers/usb/gadget/legacy/g_ffs.o: defined in discarded section `.exit.text' of drivers/usb/gadget/legacy/g_ffs.o
+   `.exit.text' referenced in section `__jump_table' of drivers/usb/gadget/legacy/g_ffs.o: defined in discarded section `.exit.text' of drivers/usb/gadget/legacy/g_ffs.o
+   `.exit.text' referenced in section `__jump_table' of drivers/media/common/siano/smscoreapi.o: defined in discarded section `.exit.text' of drivers/media/common/siano/smscoreapi.o
+   `.exit.text' referenced in section `__jump_table' of drivers/media/common/siano/smscoreapi.o: defined in discarded section `.exit.text' of drivers/media/common/siano/smscoreapi.o
+   `.exit.text' referenced in section `__jump_table' of drivers/vme/bridges/vme_fake.o: defined in discarded section `.exit.text' of drivers/vme/bridges/vme_fake.o
+   `.exit.text' referenced in section `__jump_table' of drivers/vme/bridges/vme_fake.o: defined in discarded section `.exit.text' of drivers/vme/bridges/vme_fake.o
+   `.exit.text' referenced in section `.data' of sound/soc/codecs/tlv320adc3xxx.o: defined in discarded section `.exit.text' of sound/soc/codecs/tlv320adc3xxx.o
+   `.exit.text' referenced in section `__jump_table' of net/netfilter/nf_conntrack_h323_main.o: defined in discarded section `.exit.text' of net/netfilter/nf_conntrack_h323_main.o
+   `.exit.text' referenced in section `__jump_table' of net/netfilter/nf_conntrack_h323_main.o: defined in discarded section `.exit.text' of net/netfilter/nf_conntrack_h323_main.o
+   `.exit.text' referenced in section `__jump_table' of net/netfilter/ipset/ip_set_core.o: defined in discarded section `.exit.text' of net/netfilter/ipset/ip_set_core.o
+   `.exit.text' referenced in section `__jump_table' of net/netfilter/ipset/ip_set_core.o: defined in discarded section `.exit.text' of net/netfilter/ipset/ip_set_core.o
+   `.exit.text' referenced in section `__jump_table' of net/ceph/ceph_common.o: defined in discarded section `.exit.text' of net/ceph/ceph_common.o
+   `.exit.text' referenced in section `__jump_table' of net/ceph/ceph_common.o: defined in discarded section `.exit.text' of net/ceph/ceph_common.o
+
+-- 
+0-DAY CI Kernel Test Service
+https://01.org/lkp
 
 _______________________________________________
 linux-riscv mailing list
