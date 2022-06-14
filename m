@@ -4,115 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36F6FC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 16:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AC3C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 17:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aDHkIHnU8+1Dexs3J5mWMgfrARE42+USqCqrwINYuNA=; b=ucpFS8Qjb7wgrO
-	QSBhAgSyw/tWJRnpkkGcb343fkp+rD3p8eQqwPOHNVZ8kUzMeddXgBylHaRTLPIxBeulggnkpFvlf
-	vrCr9ygXMWvlH236soi74X40e7oKybHxZV6qT11xDlKRTEHnInOc2MvmBlvAHrKsJRNsf9Qysnckf
-	0pNL83TahpfsXyASjR13bKnWd7cHnfNCvEKG58RhYAuhlaDNviQk4pBrg9e7JRYiZ9JrhcSsbsEpz
-	IhSJg0qJjsBj/+nZ/s9XEbQExzJ+q0LqEswfkIYvRhwwt01EmNrF4Ik8/9cm0Go/eQqHA/yfASgWz
-	ex36+tg1t12a/Xw50DOw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=0GxldpEk+hRKeptE+ooCcPEbOoL80lit5WCmXRXzwSM=; b=1HtbXSSIe6UdwjQ6kT7LG1Vxlo
+	MkBFXZpX67xpdyek6CcMLYT7ZdolGAsknrBhnZWlML6/+jr8UoQlx9f7YXqjAu77oePsj03jsBYaC
+	gxurMreYalIk0G3yCQ8jpgPeljGO5ME0YuD1Lj7HY0ZjGCpA5KiJ56EB4jTtAUZgdrDCByfSN0jIU
+	FWoCNJR0CnB4FHUFqMXNHDNI1IlddeX2DGIbzSRbq2c9uKgpDXzIyQU0vyNb+3Zzh6ha8VnvlQfb4
+	6rTXATyvlhGmGf4WeexfmmOgX7P0SBg0eU3Gb+rYpjhMz6UWwDHvBVEU5WVqrkzgkdDD/mr3vuDcu
+	/c4P0Uaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o19dm-00AP6h-Gd; Tue, 14 Jun 2022 16:43:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1o1ABx-00AY5G-NS; Tue, 14 Jun 2022 17:19:01 +0000
+Received: from mail.efficios.com ([167.114.26.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o19cg-00AOlb-4A; Tue, 14 Jun 2022 16:42:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=47+tWvYfTyzzIcAfKg2dikUAXvzTciJT7x9ArpBU0cQ=; b=WhjpnYz1DKB/ghxhQBYKZr1QWz
-	84Rt1GI0YXBpWpQ+Rpq7OdaNTLjSPvHCVKLFiVIOCLsRCFy4DqvtOiDgSLHRe8OVkGLFTex3SSmV8
-	GohZ4ojxrTeP3ET5b4IFii7FfH5UbRGPxexOa+//wX1ieayjZ2GRIBUTTRmWuqKFS+bMiVDFKRSHa
-	IV/MEvx0ElZNGt7kUqMr8NdHhRUFOmSCcqPcU9jSeSr7SVt4T0z3jKsQ6pCYU45ZyxeCj6DorIHXj
-	CZmBSb2KSbTYN4gQwzBcOOqwVgJL0yEm9Ud5o0YTPtfXZ0pRZucUs+sMUdTCsznw5yKZXiWmZw8aF
-	sEV0aFJg==;
-Received: from dhcp-077-249-017-003.chello.nl ([77.249.17.3] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o19cN-007uQt-Hy; Tue, 14 Jun 2022 16:42:16 +0000
-Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 2279B3002BE;
-	Tue, 14 Jun 2022 18:42:15 +0200 (CEST)
-Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 123E028B3F62D; Tue, 14 Jun 2022 18:42:15 +0200 (CEST)
-Date: Tue, 14 Jun 2022 18:42:14 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
-	vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com,
-	linus.walleij@linaro.org, shawnguo@kernel.org,
-	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
-	festevam@gmail.com, linux-imx@nxp.com, tony@atomide.com,
-	khilman@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	guoren@kernel.org, bcain@quicinc.com, chenhuacai@kernel.org,
-	kernel@xen0n.name, geert@linux-m68k.org, sammy@sammy.net,
-	monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org,
-	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
-	shorne@gmail.com, James.Bottomley@hansenpartnership.com,
-	deller@gmx.de, mpe@ellerman.id.au, benh@kernel.crashing.org,
-	paulus@samba.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, hca@linux.ibm.com, gor@linux.ibm.com,
-	agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
-	svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org,
-	davem@davemloft.net, richard@nod.at,
-	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	acme@kernel.org, alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org, namhyung@kernel.org, jgross@suse.com,
-	srivatsa@csail.mit.edu, amakhalov@vmware.com, pv-drivers@vmware.com,
-	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
-	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
-	gregkh@linuxfoundation.org, mturquette@baylibre.com,
-	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
-	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org,
-	anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
-	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>,
-	yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
-	linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com,
-	senozhatsky@chromium.org, john.ogness@linutronix.de,
-	paulmck@kernel.org, frederic@kernel.org, quic_neeraju@quicinc.com,
-	josh@joshtriplett.org, mathieu.desnoyers@efficios.com,
-	jiangshanlai@gmail.com, joel@joelfernandes.org,
-	juri.lelli@redhat.com, vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de,
-	bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org,
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org,
-	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
-	rcu@vger.kernel.org
-Subject: Re: [PATCH 15/36] cpuidle,cpu_pm: Remove RCU fiddling from
- cpu_pm_{enter,exit}()
-Message-ID: <Yqi6Zp+DTm22dLB9@hirez.programming.kicks-ass.net>
-References: <20220608142723.103523089@infradead.org>
- <20220608144516.871305980@infradead.org>
- <YqiznJL7qB9uSQ9c@FVFF77S0Q05N>
+	id 1o1ABu-00AY3p-FM
+	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 17:18:59 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by mail.efficios.com (Postfix) with ESMTP id 76508400C1F;
+	Tue, 14 Jun 2022 13:18:50 -0400 (EDT)
+Received: from mail.efficios.com ([127.0.0.1])
+	by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10032)
+	with ESMTP id AJVlPABmggB2; Tue, 14 Jun 2022 13:18:49 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+	by mail.efficios.com (Postfix) with ESMTP id BEC7F4005FA;
+	Tue, 14 Jun 2022 13:18:49 -0400 (EDT)
+DKIM-Filter: OpenDKIM Filter v2.10.3 mail.efficios.com BEC7F4005FA
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=efficios.com;
+	s=default; t=1655227129;
+	bh=TwOb5ojeSJ+VgbFyhjgDgfy81dWqmovTQ/a0GTTMmX8=;
+	h=Date:From:To:Message-ID:MIME-Version;
+	b=SYd0NkktM4WFSD/HKIZFJzuQqPgyp6swn41U8ZmuAdkAi3HkKXZUGFwXzoJlTDIm3
+	 Q3YsYfBfODusX/qdDNYDaojQ0ZcbqX2Iur6r8wS7fqWarbFTnYfeMQv+3Rrzr8rOjW
+	 7e3tIsw68aRkzWemjzO+Fh5v+lx0jg5D2SLWni+TamrtSnjTDPdGt7+YH0THFq80qU
+	 29gyOih1C1ohZk5x0YuYz0++9y4G0kZKlYx79N/6IHWdWTR4BRwfRVpumvy1fS2z3A
+	 7HQrSYAW4rXRhng/dhFR1uUnaKwZ1GjQ7JwbmV+v2uvOzxya6Zxl3FZ/bz9QzZeeWs
+	 XDXtSBDZ6ntQQ==
+X-Virus-Scanned: amavisd-new at efficios.com
+Received: from mail.efficios.com ([127.0.0.1])
+	by localhost (mail03.efficios.com [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id k2zvfGIivrK1; Tue, 14 Jun 2022 13:18:49 -0400 (EDT)
+Received: from mail03.efficios.com (mail03.efficios.com [167.114.26.124])
+	by mail.efficios.com (Postfix) with ESMTP id B0DAB40077A;
+	Tue, 14 Jun 2022 13:18:49 -0400 (EDT)
+Date: Tue, 14 Jun 2022 13:18:49 -0400 (EDT)
+From: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+To: Michael Jeanson <mjeanson@efficios.com>, 
+	Peter Zijlstra <peterz@infradead.org>
+Cc: "Paul E . McKenney" <paulmck@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
+Message-ID: <581392317.60476.1655227129623.JavaMail.zimbra@efficios.com>
+In-Reply-To: <20220614154830.1367382-1-mjeanson@efficios.com>
+References: <20220614154830.1367382-1-mjeanson@efficios.com>
+Subject: Re: [PATCH 0/3] selftests/rseq: fixes for RISC-V and Glibc 2.35
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YqiznJL7qB9uSQ9c@FVFF77S0Q05N>
-X-Mailman-Approved-At: Tue, 14 Jun 2022 09:43:33 -0700
+X-Originating-IP: [167.114.26.124]
+X-Mailer: Zimbra 8.8.15_GA_4272 (ZimbraWebClient - FF100 (Linux)/8.8.15_GA_4257)
+Thread-Topic: selftests/rseq: fixes for RISC-V and Glibc 2.35
+Thread-Index: tWfOWsblzTKx9asw8dZkMp8iDEA/BQ==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20220614_101858_625811_A09BAF11 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,48 +89,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 14, 2022 at 05:13:16PM +0100, Mark Rutland wrote:
-> On Wed, Jun 08, 2022 at 04:27:38PM +0200, Peter Zijlstra wrote:
-> > All callers should still have RCU enabled.
-> 
-> IIUC with that true we should be able to drop the RCU_NONIDLE() from
-> drivers/perf/arm_pmu.c, as we only needed that for an invocation via a pm
-> notifier.
-> 
-> I should be able to give that a spin on some hardware.
-> 
-> > 
-> > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> > ---
-> >  kernel/cpu_pm.c |    9 ---------
-> >  1 file changed, 9 deletions(-)
-> > 
-> > --- a/kernel/cpu_pm.c
-> > +++ b/kernel/cpu_pm.c
-> > @@ -30,16 +30,9 @@ static int cpu_pm_notify(enum cpu_pm_eve
-> >  {
-> >  	int ret;
-> >  
-> > -	/*
-> > -	 * This introduces a RCU read critical section, which could be
-> > -	 * disfunctional in cpu idle. Copy RCU_NONIDLE code to let RCU know
-> > -	 * this.
-> > -	 */
-> > -	rcu_irq_enter_irqson();
-> >  	rcu_read_lock();
-> >  	ret = raw_notifier_call_chain(&cpu_pm_notifier.chain, event, NULL);
-> >  	rcu_read_unlock();
-> > -	rcu_irq_exit_irqson();
-> 
-> To make this easier to debug, is it worth adding an assertion that RCU is
-> watching here? e.g.
-> 
-> 	RCU_LOCKDEP_WARN(!rcu_is_watching(),
-> 			 "cpu_pm_notify() used illegally from EQS");
-> 
+----- On Jun 14, 2022, at 11:48 AM, Michael Jeanson mjeanson@efficios.com wrote:
 
-My understanding is that rcu_read_lock() implies something along those
-lines when PROVE_RCU.
+> The patch series allows running the rseq selftests on a Glibc 2.35
+> system which has rseq support but no RSEQ_SIG defined for the RISC-V
+> architecture.
+> 
+> The patches were tested on both Glibc 2.33 and 2.35.
+
+For the whole series:
+
+Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+
+Peter, can you pick them up through your tree ?
+
+Thanks,
+
+Mathieu
+
+> 
+> Michael Jeanson (3):
+>  selftests/rseq: riscv: use rseq_get_abi() helper
+>  selftests/rseq: riscv: fix 'literal-suffix' warning
+>  selftests/rseq: check if libc rseq support is registered
+> 
+> tools/testing/selftests/rseq/rseq-riscv.h | 50 +++++++++++------------
+> tools/testing/selftests/rseq/rseq.c       |  3 +-
+> 2 files changed, 27 insertions(+), 26 deletions(-)
+> 
+> --
+> 2.34.1
+
+-- 
+Mathieu Desnoyers
+EfficiOS Inc.
+http://www.efficios.com
 
 _______________________________________________
 linux-riscv mailing list
