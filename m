@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C33EC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 16:27:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFA4C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 16:29:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1KnZnn6Am2ms/f5qZSJM2gIaTu1RDwgx47vDR9y3WDg=; b=k5Brq/7Xl36OjY
-	SnRC3Thqi3i3DNoKKEJ8QYzTf/kpucTJI4pQUFKzYSKpgiystr4FqEnOJx1vyetmkPUiGi9PHFb43
-	8LdNJ9RAF8jijVUNj6IY+2zbizpolWcGTlv8DL+0fju8A9M12LO7eBzylQ/6hAgD3LRxcn2ozx9xg
-	38ijOyYEWtQU5lUawcjdR9JXQrLrUqYT6gic3aEeTnUaCTVibBXvmbd46phAjUtx9WAcBwsK2ugAH
-	oJIk5ZnIev+dZOpNWx/Eic+1zsMb0FS+VUKFYiRdWXuKlbLk9vpoL8yQk3G4X9/w9hR46CrRRX2QB
-	IkdOel1yXIktA+kgsKiA==;
+	List-Owner; bh=4RsHSsMov04B+G+jRCPTnby8lK2qhpeP5Xlo4pCqyuQ=; b=ViFI9eeH9bd+4a
+	zl3Swj8wy/dm9EQd+zaXEKSivfTBiN27xxM+3qSSOIdBO2wS8aGSqQVt7Z9Rj0+rO+/XgOum9X1ps
+	jCn3r2ai7SDnLoc0ZclEaI2Qa/WJYsUC6/YniRaXP91MNPZoPiWbkMZxeiS1njuiHia6ENZIITvaD
+	VGOyGoT7d6rJnDEFcxOhH8eOXGle6upHdkvFClKYwhsajozjjvIka6/uSK7Qv+M792WC/RqanErzy
+	6V3WsmkcErW+Hk8OvKEqPTx8lzQfQDJ5XO219iPG3TljT79VqQzBHGYn6bUzJgSelzpWlN1sDIo2V
+	LKdcIk7QSL7IACRP1V9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o19Ns-00AKwx-HW; Tue, 14 Jun 2022 16:27:16 +0000
+	id 1o19Q1-00ALdo-Av; Tue, 14 Jun 2022 16:29:29 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o19Nq-00AKw7-DY
-	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 16:27:15 +0000
+	id 1o19Px-00ALbc-GK
+	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 16:29:27 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1o19NU-0000yX-7r; Tue, 14 Jun 2022 18:26:52 +0200
+	id 1o19Pt-000107-9V; Tue, 14 Jun 2022 18:29:21 +0200
 From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Cc: Dao Lu <daolu@rivosinc.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>, Randy Dunlap <rdunlap@infradead.org>, Rob Herring <robh@kernel.org>, Alexandre Ghiti <alexandre.ghiti@canonical.com>, Qinglin Pan <panqinglin2020@iscas.ac.cn>, Tsukasa OI <research_trasio@irq.a4lg.com>, Jisheng Zhang <jszhang@kernel.org>, "open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>, Dao Lu <daolu@rivosinc.com>
-Subject: Re: [PATCH v2] arch/riscv: add Zihintpause support
-Date: Tue, 14 Jun 2022 18:26:51 +0200
-Message-ID: <3113192.5fSG56mABF@diego>
-In-Reply-To: <20220524211954.1936117-1-daolu@rivosinc.com>
-References: <20220524211954.1936117-1-daolu@rivosinc.com>
+To: Christoph Muellner <christoph.muellner@vrull.eu>, Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Christoph Muellner <christoph.muellner@vrull.io>, Philipp Tomsich <philipp.tomsich@vrull.eu>, Aaron Durbin <adurbin@rivosinc.com>, linux-riscv <linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+Subject: Re: [RFC PATCH] riscv: Add Zawrs support for spinlocks
+Date: Tue, 14 Jun 2022 18:29:20 +0200
+Message-ID: <1733696.VLH7GnMWUR@diego>
+In-Reply-To: <CAOnJCULLTSVYX90yenWVDAtsq8XiZyA5bfKC94M9vC6Mina+Tg@mail.gmail.com>
+References: <20220602141032.169907-1-christoph.muellner@vrull.io> <CAOnJCULLTSVYX90yenWVDAtsq8XiZyA5bfKC94M9vC6Mina+Tg@mail.gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_092714_484811_2ADE2E1A 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20220614_092925_875250_53D71E1D 
+X-CRM114-Status: GOOD (  49.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,82 +53,321 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QW0gRGllbnN0YWcsIDI0LiBNYWkgMjAyMiwgMjM6MTk6NTAgQ0VTVCBzY2hyaWViIERhbyBMdToK
-PiBJbXBsZW1lbnQgc3VwcG9ydCBmb3IgdGhlIFppSGludFBhdXNlIGV4dGVuc2lvbi4KPiAKPiBU
-aGUgUEFVU0UgaW5zdHJ1Y3Rpb24gaXMgYSBISU5UIHRoYXQgaW5kaWNhdGVzIHRoZSBjdXJyZW50
-IGhhcnTigJlzIHJhdGUgb2YKPiBpbnN0cnVjdGlvbiByZXRpcmVtZW50IHNob3VsZCBiZSB0ZW1w
-b3JhcmlseSByZWR1Y2VkIG9yIHBhdXNlZC4KPiAKPiBSZXZpZXdlZC1ieTogSGVpa28gU3R1ZWJu
-ZXIgPGhlaWtvQHNudGVjaC5kZT4KPiBUZXN0ZWQtYnk6IEhlaWtvIFN0dWVibmVyIDxoZWlrb0Bz
-bnRlY2guZGU+Cj4gU2lnbmVkLW9mZi1ieTogRGFvIEx1IDxkYW9sdUByaXZvc2luYy5jb20+Cj4g
-LS0tCj4gCj4gdjEgLT4gdjI6Cj4gIFJlbW92ZSB0aGUgdXNhZ2Ugb2Ygc3RhdGljIGJyYW5jaCwg
-dXNlIFBBVVNFIGlmIHRvb2xjaGFpbiBzdXBwb3J0cyBpdAo+IAo+ICBhcmNoL3Jpc2N2L01ha2Vm
-aWxlICAgICAgICAgICAgICAgICAgICAgfCA0ICsrKysKPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9od2NhcC5oICAgICAgICAgIHwgMSArCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9w
-cm9jZXNzb3IuaCB8IDggKysrKysrKy0KPiAgYXJjaC9yaXNjdi9rZXJuZWwvY3B1LmMgICAgICAg
-ICAgICAgICAgIHwgMSArCj4gIGFyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyAgICAgICAg
-ICB8IDIgKysKPiAgNSBmaWxlcyBjaGFuZ2VkLCAxNSBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9u
-KC0pCj4gCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvTWFrZWZpbGUgYi9hcmNoL3Jpc2N2L01h
-a2VmaWxlCj4gaW5kZXggN2Q4MTEwMmNmZmQ0Li45MDBhOGZkYTFhMmQgMTAwNjQ0Cj4gLS0tIGEv
-YXJjaC9yaXNjdi9NYWtlZmlsZQo+ICsrKyBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKPiBAQCAtNTYs
-NiArNTYsMTAgQEAgcmlzY3YtbWFyY2gtJChDT05GSUdfUklTQ1ZfSVNBX0MpCTo9ICQocmlzY3Yt
-bWFyY2gteSljCj4gIHRvb2xjaGFpbi1uZWVkLXppY3NyLXppZmVuY2VpIDo9ICQoY2FsbCBjYy1v
-cHRpb24teW4sIC1tYXJjaD0kKHJpc2N2LW1hcmNoLXkpX3ppY3NyX3ppZmVuY2VpKQo+ICByaXNj
-di1tYXJjaC0kKHRvb2xjaGFpbi1uZWVkLXppY3NyLXppZmVuY2VpKSA6PSAkKHJpc2N2LW1hcmNo
-LXkpX3ppY3NyX3ppZmVuY2VpCj4gIAo+ICsjIENoZWNrIGlmIHRoZSB0b29sY2hhaW4gc3VwcG9y
-dHMgWmloaW50cGF1c2UgZXh0ZW5zaW9uCj4gK3Rvb2xjaGFpbi1zdXBwb3J0cy16aWhpbnRwYXVz
-ZSA6PSAkKGNhbGwgY2Mtb3B0aW9uLXluLCAtbWFyY2g9JChyaXNjdi1tYXJjaC15KV96aWhpbnRw
-YXVzZSkKPiArcmlzY3YtbWFyY2gtJCh0b29sY2hhaW4tc3VwcG9ydHMtemloaW50cGF1c2UpIDo9
-ICQocmlzY3YtbWFyY2gteSlfemloaW50cGF1c2UKPiArCj4gIEtCVUlMRF9DRkxBR1MgKz0gLW1h
-cmNoPSQoc3Vic3QgZmQsLCQocmlzY3YtbWFyY2gteSkpCj4gIEtCVUlMRF9BRkxBR1MgKz0gLW1h
-cmNoPSQocmlzY3YtbWFyY2gteSkKPiAgCj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vaHdjYXAuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+IGluZGV4IDA3
-MzRlNDJmNzRmMi4uY2FhOWVlNTQ1OWI0IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vaHdjYXAuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+IEBA
-IC01Miw2ICs1Miw3IEBAIGV4dGVybiB1bnNpZ25lZCBsb25nIGVsZl9od2NhcDsKPiAgICovCj4g
-IGVudW0gcmlzY3ZfaXNhX2V4dF9pZCB7Cj4gIAlSSVNDVl9JU0FfRVhUX1NTQ09GUE1GID0gUklT
-Q1ZfSVNBX0VYVF9CQVNFLAoKc3ZwYm10IGdvdCBtZXJnZWQgbWVhbndoaWxlLCBzbyB0aGlzIHBh
-dGNoIG5lZWRzIGEgcmViYXNlCm9udG8gNS4xOS1yYy4KCk9uZSBtb3JlIG5pdCBiZWxvdwoKPiAr
-CVJJU0NWX0lTQV9FWFRfWklISU5UUEFVU0UsCj4gIAlSSVNDVl9JU0FfRVhUX0lEX01BWCA9IFJJ
-U0NWX0lTQV9FWFRfTUFYLAo+ICB9Owo+ICAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS92ZHNvL3Byb2Nlc3Nvci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3By
-b2Nlc3Nvci5oCj4gaW5kZXggMTM0Mzg4Y2JhYWExLi40ZGU5MTFhMjUwNTEgMTAwNjQ0Cj4gLS0t
-IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nvci5oCj4gKysrIGIvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nvci5oCj4gQEAgLTgsNyArOCwxMyBAQAo+ICAK
-PiAgc3RhdGljIGlubGluZSB2b2lkIGNwdV9yZWxheCh2b2lkKQo+ICB7Cj4gLSNpZmRlZiBfX3Jp
-c2N2X211bGRpdgo+ICsjaWZkZWYgX19yaXNjdl96aWhpbnRwYXVzZQo+ICsJLyoKPiArCSAqIFJl
-ZHVjZSBpbnN0cnVjdGlvbiByZXRpcmVtZW50Lgo+ICsJICogVGhpcyBhc3N1bWVzIHRoZSBQQyBj
-aGFuZ2VzLgo+ICsJICovCj4gKwlfX2FzbV9fIF9fdm9sYXRpbGVfXyAoInBhdXNlIik7Cj4gKyNl
-bGlmIF9fcmlzY3ZfbXVsZGl2Cj4gIAlpbnQgZHVtbXk7Cj4gIAkvKiBJbiBsaWV1IG9mIGEgaGFs
-dCBpbnN0cnVjdGlvbiwgaW5kdWNlIGEgbG9uZy1sYXRlbmN5IHN0YWxsLiAqLwo+ICAJX19hc21f
-XyBfX3ZvbGF0aWxlX18gKCJkaXYgJTAsICUwLCB6ZXJvIiA6ICI9ciIgKGR1bW15KSk7Cj4gZGlm
-ZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvY3B1
-LmMKPiBpbmRleCBjY2I2MTc3OTFlNTYuLjg5ZTU2M2U5YzRjYyAxMDA2NDQKPiAtLS0gYS9hcmNo
-L3Jpc2N2L2tlcm5lbC9jcHUuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdS5jCj4gQEAg
-LTg4LDYgKzg4LDcgQEAgaW50IHJpc2N2X29mX3BhcmVudF9oYXJ0aWQoc3RydWN0IGRldmljZV9u
-b2RlICpub2RlKQo+ICAgKi8KPiAgc3RhdGljIHN0cnVjdCByaXNjdl9pc2FfZXh0X2RhdGEgaXNh
-X2V4dF9hcnJbXSA9IHsKPiAgCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHNzY29mcG1mLCBSSVNDVl9J
-U0FfRVhUX1NTQ09GUE1GKSwKPiArCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKHppaGludHBhdXNlLCBS
-SVNDVl9JU0FfRVhUX1pJSElOVFBBVVNFKSwKPiAgCV9fUklTQ1ZfSVNBX0VYVF9EQVRBKCIiLCBS
-SVNDVl9JU0FfRVhUX01BWCksCj4gIH07Cj4gIAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tl
-cm5lbC9jcHVmZWF0dXJlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiBpbmRl
-eCAxYjJkNDJkN2Y1ODkuLjM3ZmYwNjY4MmFlNiAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tl
-cm5lbC9jcHVmZWF0dXJlLmMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMK
-PiBAQCAtMjUsNiArMjUsNyBAQCBzdGF0aWMgREVDTEFSRV9CSVRNQVAocmlzY3ZfaXNhLCBSSVND
-Vl9JU0FfRVhUX01BWCkgX19yZWFkX21vc3RseTsKPiAgX19yb19hZnRlcl9pbml0IERFRklORV9T
-VEFUSUNfS0VZX0ZBTFNFKGNwdV9od2NhcF9mcHUpOwo+ICAjZW5kaWYKPiAgCj4gKwoKdGhpcyBp
-cyBhbiB1bnJlbGF0ZWQgY2hhbmdlIGFuZCBhbHNvIGlzIGFkZGluZyBhbiB1bm5lZWRlZCBleHRy
-YSBlbXB0eSBsaW5lLgoKCkhlaWtvCgo+ICAvKioKPiAgICogcmlzY3ZfaXNhX2V4dGVuc2lvbl9i
-YXNlKCkgLSBHZXQgYmFzZSBleHRlbnNpb24gd29yZAo+ICAgKgo+IEBAIC0xOTIsNiArMTkzLDcg
-QEAgdm9pZCBfX2luaXQgcmlzY3ZfZmlsbF9od2NhcCh2b2lkKQo+ICAJCQkJc2V0X2JpdCgqZXh0
-IC0gJ2EnLCB0aGlzX2lzYSk7Cj4gIAkJCX0gZWxzZSB7Cj4gIAkJCQlTRVRfSVNBX0VYVF9NQVAo
-InNzY29mcG1mIiwgUklTQ1ZfSVNBX0VYVF9TU0NPRlBNRik7Cj4gKwkJCQlTRVRfSVNBX0VYVF9N
-QVAoInppaGludHBhdXNlIiwgUklTQ1ZfSVNBX0VYVF9aSUhJTlRQQVVTRSk7Cj4gIAkJCX0KPiAg
-I3VuZGVmIFNFVF9JU0FfRVhUX01BUAo+ICAJCX0KPiAKCgoKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Am Dienstag, 14. Juni 2022, 17:34:48 CEST schrieb Atish Patra:
+> On Thu, Jun 2, 2022 at 7:11 AM Christoph Muellner
+> <christoph.muellner@vrull.eu> wrote:
+> >
+> > The current RISC-V code uses the generic ticket lock implementation,
+> > that calls the macros smp_cond_load_relaxed() and smp_cond_load_acquire().
+> > Currently, RISC-V uses the generic implementation of these macros.
+> > This patch introduces a RISC-V specific implementation, of these
+> > macros, that peels off the first loop iteration and modifies the waiting
+> > loop such, that it is possible to use the WRS instruction of the Zawrs
+> > ISA extension to stall the CPU.
+> >
+> > The resulting implementation of smp_cond_load_*() will only work for
+> > 32-bit or 64-bit types for RV64 and 32-bit types for RV32.
+> > This is caused by the restrictions of the LR instruction (RISC-V only
+> > has LR.W and LR.D). Compiler assertions guard this new restriction.
+> >
+> > This patch uses the existing RISC-V ISA extension framework
+> > to detect the presents of Zawrs at run-time.
+> > If available a NOP instruction will be replaced by WRS.
+> > A similar patch could add support for the PAUSE instruction of
+> > the Zihintpause ISA extension.
+> >
+> 
+> FYI..The initial Zihintpause support patch
+> https://www.spinics.net/lists/kernel/msg4380326.html
+
+Out of curiosity, is this functionally equivalent to WRS,
+So can you just replace WRS with Pause?
+
+If so, ALTERNATIVE_2 would make that pretty easy.
+
+Are there performance differences between them?
+
+Heiko
+
+> 
+> > The whole mechanism is gated by Kconfig setting, which defaults to Y.
+> >
+> > The Zawrs specification can be found here:
+> > https://github.com/riscv/riscv-zawrs/blob/main/zawrs.adoc
+> >
+> > Note, that the Zawrs extension is not frozen or ratified yet.
+> > Therefore this patch is an RFC and not intended to get merged.
+> >
+> > Signed-off-by: Christoph Muellner <christoph.muellner@vrull.io>
+> > ---
+> >  arch/riscv/Kconfig                   | 10 +++
+> >  arch/riscv/include/asm/barrier.h     | 97 ++++++++++++++++++++++++++++
+> >  arch/riscv/include/asm/errata_list.h | 12 +++-
+> >  arch/riscv/include/asm/hwcap.h       |  3 +-
+> >  arch/riscv/kernel/cpu.c              |  1 +
+> >  arch/riscv/kernel/cpufeature.c       | 13 ++++
+> >  6 files changed, 133 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index 905e550e0fd3..054872317d4a 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -358,6 +358,16 @@ config RISCV_ISA_C
+> >
+> >            If you don't know what to do here, say Y.
+> >
+> > +config RISCV_ISA_ZAWRS
+> > +       bool "Zawrs extension support"
+> > +       select RISCV_ALTERNATIVE
+> > +       default y
+> > +       help
+> > +          Adds support to dynamically detect the presence of the Zawrs extension
+> > +          (wait for reservation set) and enable its usage.
+> > +
+> > +          If you don't know what to do here, say Y.
+> > +
+> >  config RISCV_ISA_SVPBMT
+> >         bool "SVPBMT extension support"
+> >         depends on 64BIT && MMU
+> > diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
+> > index d0e24aaa2aa0..69b8f1f4b80c 100644
+> > --- a/arch/riscv/include/asm/barrier.h
+> > +++ b/arch/riscv/include/asm/barrier.h
+> > @@ -12,6 +12,8 @@
+> >
+> >  #ifndef __ASSEMBLY__
+> >
+> > +#include <asm/errata_list.h>
+> > +
+> >  #define nop()          __asm__ __volatile__ ("nop")
+> >
+> >  #define RISCV_FENCE(p, s) \
+> > @@ -42,6 +44,69 @@ do {                                                                 \
+> >         ___p1;                                                          \
+> >  })
+> >
+> > +#if __riscv_xlen == 64
+> > +
+> > +#define __riscv_lrsc_word(t)                                           \
+> > +       (sizeof(t) == sizeof(int) ||                                    \
+> > +        sizeof(t) == sizeof(long))
+> > +
+> > +#define __riscv_lr(ptr)                                                        \
+> > +       sizeof(*ptr) == sizeof(int) ? "lr.w" : "lr.d"
+> > +
+> > +#elif __riscv_xlen == 32
+> > +
+> > +#define __riscv_lrsc_word(ptr)                                         \
+> > +       (sizeof(*ptr) == sizeof(int))
+> > +
+> > +#define __riscv_lr(t) "lr.w"
+> > +
+> > +#else
+> > +#error "Unexpected __riscv_xlen"
+> > +#endif /* __riscv_xlen */
+> > +
+> > +#define compiletime_assert_atomic_lrsc_type(t)                         \
+> > +       compiletime_assert(__riscv_lrsc_word(t),                        \
+> > +               "Need type compatible with LR/SC instructions.")
+> > +
+> > +#define ___smp_load_reservedN(pfx, ptr)                                        \
+> > +({                                                                     \
+> > +       typeof(*ptr) ___p1;                                             \
+> > +       __asm__ __volatile__ ("lr." pfx "       %[p], %[c]\n"           \
+> > +                             : [p]"=&r" (___p1), [c]"+A"(*ptr));       \
+> > +       ___p1;                                                          \
+> > +})
+> > +
+> > +#define ___smp_load_reserved32(ptr)                                    \
+> > +       ___smp_load_reservedN("w", ptr)
+> > +
+> > +#define ___smp_load_reserved64(ptr)                                    \
+> > +       ___smp_load_reservedN("d", ptr)
+> > +
+> > +#define __smp_load_reserved_relaxed(ptr)                               \
+> > +({                                                                     \
+> > +       typeof(*ptr) ___p1;                                             \
+> > +       compiletime_assert_atomic_lrsc_type(*ptr);                      \
+> > +       if (sizeof(*ptr) == 32) {                                       \
+> > +               ___p1 = ___smp_load_reserved32(ptr);                    \
+> > +       } else {                                                        \
+> > +               ___p1 = ___smp_load_reserved64(ptr);                    \
+> > +       }                                                               \
+> > +       ___p1;                                                          \
+> > +})
+> > +
+> > +#define __smp_load_reserved_acquire(ptr)                               \
+> > +({                                                                     \
+> > +       typeof(*ptr) ___p1;                                             \
+> > +       compiletime_assert_atomic_lrsc_type(*ptr);                      \
+> > +       if (sizeof(*ptr) == 32) {                                       \
+> > +               ___p1 = ___smp_load_reserved32(ptr);                    \
+> > +       } else {                                                        \
+> > +               ___p1 = ___smp_load_reserved64(ptr);                    \
+> > +       }                                                               \
+> > +       RISCV_FENCE(r,rw);                                              \
+> > +       ___p1;                                                          \
+> > +})
+> > +
+> >  /*
+> >   * This is a very specific barrier: it's currently only used in two places in
+> >   * the kernel, both in the scheduler.  See include/linux/spinlock.h for the two
+> > @@ -69,6 +134,38 @@ do {                                                                        \
+> >   */
+> >  #define smp_mb__after_spinlock()       RISCV_FENCE(iorw,iorw)
+> >
+> > +#define smp_cond_load_relaxed(ptr, cond_expr)                          \
+> > +({                                                                     \
+> > +       typeof(ptr) __PTR = (ptr);                                      \
+> > +       __unqual_scalar_typeof(*ptr) VAL;                               \
+> > +       VAL = READ_ONCE(*__PTR);                                        \
+> > +       if (!cond_expr) {                                               \
+> > +               for (;;) {                                              \
+> > +                       VAL = __smp_load_reserved_relaxed(__PTR);       \
+> > +                       if (cond_expr)                                  \
+> > +                               break;                                  \
+> > +                       ALT_WRS();                                      \
+> > +               }                                                       \
+> > +       }                                                               \
+> > +       (typeof(*ptr))VAL;                                              \
+> > +})
+> > +
+> > +#define smp_cond_load_acquire(ptr, cond_expr)                          \
+> > +({                                                                     \
+> > +       typeof(ptr) __PTR = (ptr);                                      \
+> > +       __unqual_scalar_typeof(*ptr) VAL;                               \
+> > +       VAL = smp_load_acquire(__PTR);                                  \
+> > +       if (!cond_expr) {                                               \
+> > +               for (;;) {                                              \
+> > +                       VAL = __smp_load_reserved_acquire(__PTR);       \
+> > +                       if (cond_expr)                                  \
+> > +                               break;                                  \
+> > +                       ALT_WRS();                                      \
+> > +               }                                                       \
+> > +       }                                                               \
+> > +       (typeof(*ptr))VAL;                                              \
+> > +})
+> > +
+> >  #include <asm-generic/barrier.h>
+> >
+> >  #endif /* __ASSEMBLY__ */
+> > diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> > index 9e2888dbb5b1..b9aa0b346493 100644
+> > --- a/arch/riscv/include/asm/errata_list.h
+> > +++ b/arch/riscv/include/asm/errata_list.h
+> > @@ -19,8 +19,9 @@
+> >  #define        ERRATA_THEAD_NUMBER 1
+> >  #endif
+> >
+> > -#define        CPUFEATURE_SVPBMT 0
+> > -#define        CPUFEATURE_NUMBER 1
+> > +#define        CPUFEATURE_ZAWRS 0
+> > +#define        CPUFEATURE_SVPBMT 1
+> > +#define        CPUFEATURE_NUMBER 2
+> >
+> >  #ifdef __ASSEMBLY__
+> >
+> > @@ -42,6 +43,13 @@ asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,     \
+> >                 ERRATA_SIFIVE_CIP_1200, CONFIG_ERRATA_SIFIVE_CIP_1200)  \
+> >                 : : "r" (addr) : "memory")
+> >
+> > +#define ZAWRS_WRS      ".long 0x1000073"
+> > +#define ALT_WRS()                                                      \
+> > +asm volatile(ALTERNATIVE(                                              \
+> > +       "nop\n\t",                                                      \
+> > +       ZAWRS_WRS "\n\t",                                               \
+> > +       0, CPUFEATURE_ZAWRS, CONFIG_RISCV_ISA_ZAWRS))
+> > +
+> >  /*
+> >   * _val is marked as "will be overwritten", so need to set it to 0
+> >   * in the default case.
+> > diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> > index 4e2486881840..c7dd8cc38bec 100644
+> > --- a/arch/riscv/include/asm/hwcap.h
+> > +++ b/arch/riscv/include/asm/hwcap.h
+> > @@ -51,7 +51,8 @@ extern unsigned long elf_hwcap;
+> >   * available logical extension id.
+> >   */
+> >  enum riscv_isa_ext_id {
+> > -       RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+> > +       RISCV_ISA_EXT_ZAWRS = RISCV_ISA_EXT_BASE,
+> > +       RISCV_ISA_EXT_SSCOFPMF,
+> >         RISCV_ISA_EXT_SVPBMT,
+> >         RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+> >  };
+> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> > index fba9e9f46a8c..6c3a10ff5358 100644
+> > --- a/arch/riscv/kernel/cpu.c
+> > +++ b/arch/riscv/kernel/cpu.c
+> > @@ -87,6 +87,7 @@ int riscv_of_parent_hartid(struct device_node *node)
+> >   *    extensions by an underscore.
+> >   */
+> >  static struct riscv_isa_ext_data isa_ext_arr[] = {
+> > +       __RISCV_ISA_EXT_DATA(zawrs, RISCV_ISA_EXT_ZAWRS),
+> >         __RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+> >         __RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+> >         __RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+> > diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> > index dea3ea19deee..fc2c47a1784b 100644
+> > --- a/arch/riscv/kernel/cpufeature.c
+> > +++ b/arch/riscv/kernel/cpufeature.c
+> > @@ -199,6 +199,7 @@ void __init riscv_fill_hwcap(void)
+> >                         } else {
+> >                                 SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+> >                                 SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+> > +                               SET_ISA_EXT_MAP("zawrs", RISCV_ISA_EXT_ZAWRS);
+> >                         }
+> >  #undef SET_ISA_EXT_MAP
+> >                 }
+> > @@ -251,6 +252,14 @@ struct cpufeature_info {
+> >         bool (*check_func)(unsigned int stage);
+> >  };
+> >
+> > +static bool __init_or_module cpufeature_zawrs_check_func(unsigned int stage)
+> > +{
+> > +       if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> > +               return false;
+> > +
+> > +       return riscv_isa_extension_available(NULL, ZAWRS);
+> > +}
+> > +
+> >  static bool __init_or_module cpufeature_svpbmt_check_func(unsigned int stage)
+> >  {
+> >  #ifdef CONFIG_RISCV_ISA_SVPBMT
+> > @@ -267,6 +276,10 @@ static bool __init_or_module cpufeature_svpbmt_check_func(unsigned int stage)
+> >
+> >  static const struct cpufeature_info __initdata_or_module
+> >  cpufeature_list[CPUFEATURE_NUMBER] = {
+> > +       {
+> > +               .name = "zawrs",
+> > +               .check_func = cpufeature_zawrs_check_func
+> > +       },
+> >         {
+> >                 .name = "svpbmt",
+> >                 .check_func = cpufeature_svpbmt_check_func
+> > --
+> > 2.35.3
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
+> 
+> 
+> 
+
+
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
