@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3169C43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 17:49:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C37C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 17:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UononCYbk6FNT+4U8DBHMm4dcZ6GYiCpXKm8hpv3xv0=; b=EVsvhrd4sJVcJy
-	u3wUkRNO45S4rQGmWEI4uRjupJignB/FhiuXfEVR9y+AJYDWaatEMJTIuwEepP58AxKQopZwBDPXE
-	4HhUDrv8srsDJ2Q2WebjTclhu4PzpUpNRB5d3P4C+8gm2wWas0pt0sZJNTlpDPrD+d7KRSuyXTspn
-	eUaNZ1MnSVazeDjoxEp9Bglyf2jRkj7Y+yinQH3knnqSfn/mKkX4S4S/S3HAYcjgt5niYCSNRhHuP
-	YHChAtTHDnxG27M0lX2u6GABrd0jl/r/klv4mgEvmH4x9DhGg+EVm5c5aRLY1Lg2HANuJZ0vup6Uf
-	BFcSBWnWWEnH+mM1tmaw==;
+	List-Owner; bh=Tjz/bMRAHUEWxYYiic/Zfb2YHSQcDnIH+qC6jqWVozk=; b=mDjdhx4RBf6uzu
+	4CM21vQSDmRDbeRcvbBX11Yg+m6DcyNCVPJvM76IISzMlENzGVlcqr6ulLY+vQZT5EEO+pPVJJe9v
+	X2RweMf9sHHQhh2S0xX2IDyczuwuXVPSU+MQsgrGPYryZ48BiTVWggP01ThsJ17mi8z92MA/A6uUJ
+	r5ZY/ENsAspnTwGBKV7jwmJgDKq575jlop41SwhuZjWwpHh5OH4JjyvaJDm83i74UZxunWtvcypEG
+	fRGoLozhvaxAMKwKbACrNM/QgYb/f2SZr+/r+wAZEWOrbLBn1ZkCC9Ekvzug5LnPHs5XHK3++RB6Z
+	IHh+7oJZ+3dNrt53Xc2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1AfE-00Ackz-JT; Tue, 14 Jun 2022 17:49:16 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1o1ApK-00Aewp-Or; Tue, 14 Jun 2022 17:59:42 +0000
+Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1AfB-00Acjj-Si
-	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 17:49:15 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-31336535373so37841607b3.2
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jun 2022 10:49:12 -0700 (PDT)
+	id 1o1ApH-00AevS-GB
+	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 17:59:41 +0000
+Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-3137316bb69so37628227b3.10
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jun 2022 10:59:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
+        d=linaro.org; s=google;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc;
-        bh=b6GogiLvLlJyAw9fEai9KHL7CPWrIDSYkmrligLXeM0=;
-        b=B+GgFxGSs58Fp+QAQlXmzpKdMTZABypU787d0qHLoDzxlJqoJ1k4nsrK+GLVFQ+4yb
-         VOslI8mnRQ0TpcM6WUwdqCuagPSOtMOkoZw+N9XdOxR5RdGpaoCySoJRza5pOrlznLf8
-         Qf8S94NeqjsFaIMJTAYxJ8xwx83GP+BwppPgY=
+        bh=26g0MRBcct9YNTtppVTH2VrL+ERGht+b/7zwiSemUyA=;
+        b=J/nOyu12o+bRB6Fge5isqT7wonLs+xdaSOYk2ZzUXUfdYO+tT/NdTBYHgwhpGYQ2OZ
+         RPmye6epdqPtaw2Nbws6asqaYf+6aVxIqXDMZqxjNbzCQ3zwB1L5G/BhpEzxNla/VIO8
+         cDStVQFFwJb6UTJpX5S+LIugBTOAwh6cGWRiIgHiZi3tWxT7rMU+TWdd2QMU7ovh8PNx
+         gwaIT5F7fFUR2oLX1CsaFR9TrEfJFASZUCVW8i9DhsF3f8y+wbxkjn4QyC9i8LNrGM93
+         gQQlBK9AywuTU1ofkcSnNRSmzJuv/FDzyMjYLJrFjuFY9oaCAxFePfAUwZONNTzqOrtA
+         C31g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=b6GogiLvLlJyAw9fEai9KHL7CPWrIDSYkmrligLXeM0=;
-        b=TY8U5D3+4650gC4WR6Ly6nD9dtbauu7crcpj4/8po1cf996mxsf61DAj4IJY5PHhYm
-         vUvs1ut0V3o5xfeo6OwXENCDcIBN+rNBVKqFRbJ55Xu1CoBA+qRg+SsY1E2g7mkVnlEn
-         CPSMIMQ5iZWTqZZ2lDtqKZxwCQV+sRotj+fDsIJayKU1WxkrCkyK7iMQ5CQva1oBEWTz
-         ymbwG9I5IK291IzAW738oi9XbgQEYHbgfNllje6AKvvIrQP3qosMEa23O26lNwnfRuQ6
-         TsUd+mWZVhp1l0V3rEetNH9bREKlHOHEPiNpSum+EJdu8hSXDHrtQRYduKPnq50AxXtJ
-         1MQg==
-X-Gm-Message-State: AJIora8jMgrYXby7z5cBJHqdM18+vRWQSDZqFSlGDsmI/YiLNYVrPjzC
-	TX329Zk3Yusc3EPyIabbQvVDGvB8y51y0JsgfMd5
-X-Google-Smtp-Source: AGRyM1sDcCfjFf4ocWAHLB7HhdEhMNAAc6F+Hg5b93YIV7qtybRZKmiB4D49bQzzzntxupZcf8hBdRtdbAb6gItu9r0=
-X-Received: by 2002:a81:1c08:0:b0:30c:cb78:8ae2 with SMTP id
- c8-20020a811c08000000b0030ccb788ae2mr7150978ywc.194.1655228951516; Tue, 14
- Jun 2022 10:49:11 -0700 (PDT)
+        bh=26g0MRBcct9YNTtppVTH2VrL+ERGht+b/7zwiSemUyA=;
+        b=qVcdUt7Hv6X+0AarwBPhgNHlY7P/RzqCjsLkTZnF3qgkEcF4zC81hP88B3km0jYaUv
+         K60Akf86jlYtPpNnsQaDQ/Qz4xugP4WjPRPYmrHgvziS/2Mc9BQK+MQOQckzDyKJrkHS
+         RlkbrM+jxwW+9wMmKrSK2Nd+uv9QZvP4in+VljzptBd3I6pxmOBn6HkUeyPv732+vhpX
+         WaFRfT+oh1PsJvh3yuLiiCC5+PXYDv+6DM8GjKQLmx1a0sFdQjCu9oWEsKEdcCi36F/N
+         mulogXlsmyZ15SEWv5+X5HeKgPMX99BrFKOCwQCBbJRKTS46Q4XUnvKIW43VszsY+EF+
+         AuqA==
+X-Gm-Message-State: AJIora82L15M/mA2lj1j5l+RRmIexo/nqiWqMGowiaEJkrGnX9tX4/+4
+	z5bogg1HkBq0zXwr1jrEfqihUSI8WS3XiNdhCkjB4A==
+X-Google-Smtp-Source: AGRyM1uYZTCyS6ekVxMN4LE950ueaI6pIZQPKcwQF0t97ENb1ZzjK0WrhozZcmpCzb6Uo04yXOpLPQ3F6GVqXwU6Q74=
+X-Received: by 2002:a81:2f84:0:b0:314:2bfd:bf1f with SMTP id
+ v126-20020a812f84000000b003142bfdbf1fmr7094481ywv.320.1655229576055; Tue, 14
+ Jun 2022 10:59:36 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220527042937.1124009-1-atishp@rivosinc.com> <20220527042937.1124009-4-atishp@rivosinc.com>
- <CAAhSdy3DXobZK-QSJ9tvG+hLEOD_dz4eqD7yO=Pna1ghhMghKQ@mail.gmail.com>
-In-Reply-To: <CAAhSdy3DXobZK-QSJ9tvG+hLEOD_dz4eqD7yO=Pna1ghhMghKQ@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 14 Jun 2022 10:49:00 -0700
-Message-ID: <CAOnJCUJgV8zBca+m8q2CrCLdkp3ycwVSn6bOUYyCodh1MUKVGA@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] RISC-V: Prefer sstc extension if available
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atishp@rivosinc.com>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jisheng Zhang <jszhang@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+References: <20220525081416.3306043-10-sudeep.holla@arm.com>
+ <20220525081416.3306043-11-sudeep.holla@arm.com> <20220525081416.3306043-12-sudeep.holla@arm.com>
+ <20220525081416.3306043-13-sudeep.holla@arm.com> <20220525081416.3306043-14-sudeep.holla@arm.com>
+ <20220525081416.3306043-15-sudeep.holla@arm.com> <20220525081416.3306043-16-sudeep.holla@arm.com>
+ <947470ba-35fc-3c72-d01b-c0a7337216a2@arm.com> <20220606102159.dduxmvq4m2fm6gks@bogus>
+ <CAKfTPtB8iPzEXipsJqNtd9-aJMKx-FAaiGMzOg58HgRQuo39iA@mail.gmail.com> <20220610102753.virkx47uyfsojol6@bogus>
+In-Reply-To: <20220610102753.virkx47uyfsojol6@bogus>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Tue, 14 Jun 2022 19:59:23 +0200
+Message-ID: <CAKfTPtD==UMjbSGHvKxT_z=LyvsJt=UCHsqkbgVnagbn5Aqpcw@mail.gmail.com>
+Subject: Re: [PATCH v3 15/16] arch_topology: Set cluster identifier in each
+ core/thread from /cpu-map
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>, linux-kernel@vger.kernel.org, 
+	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
+	Morten Rasmussen <morten.rasmussen@arm.com>, Qing Wang <wangqing@vivo.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
 	Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_104914_183480_FCD1E3AC 
-X-CRM114-Status: GOOD (  24.71  )
+X-CRM114-CacheID: sfid-20220614_105939_585909_370CB379 
+X-CRM114-Status: GOOD (  40.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,96 +93,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 9, 2022 at 9:41 PM Anup Patel <anup@brainfault.org> wrote:
+On Fri, 10 Jun 2022 at 12:27, Sudeep Holla <sudeep.holla@arm.com> wrote:
 >
-> On Fri, May 27, 2022 at 9:59 AM Atish Patra <atishp@rivosinc.com> wrote:
-> >
-> > RISC-V ISA has sstc extension which allows updating the next clock event
-> > via a CSR (stimecmp) instead of an SBI call. This should happen dynamically
-> > if sstc extension is available. Otherwise, it will fallback to SBI call
-> > to maintain backward compatibility.
-> >
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  drivers/clocksource/timer-riscv.c | 24 +++++++++++++++++++++++-
-> >  1 file changed, 23 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> > index 1767f8bf2013..881d9335c92d 100644
-> > --- a/drivers/clocksource/timer-riscv.c
-> > +++ b/drivers/clocksource/timer-riscv.c
-> > @@ -7,6 +7,9 @@
-> >   * either be read from the "time" and "timeh" CSRs, and can use the SBI to
-> >   * setup events, or directly accessed using MMIO registers.
-> >   */
-> > +
-> > +#define pr_fmt(fmt) "timer: " fmt
+> On Fri, Jun 10, 2022 at 12:08:44PM +0200, Vincent Guittot wrote:
+> > On Mon, 6 Jun 2022 at 12:22, Sudeep Holla <sudeep.holla@arm.com> wrote:
+> > >
 >
-> The "timer: " prefix is too generic. I suggest to use "riscv-timer: "
-> as a prefix.
+> [...]
 >
+> > > Why ? Are you suggesting that we shouldn't present the hardware cluster
+> > > to the topology because of the above reason ? If so, sorry that is not a
+> > > valid reason. We could add login to return NULL or appropriate value
+> > > needed in cpu_clustergroup_mask id it matches MC level mask if we can't
+> > > deal that in generic scheduler code. But the topology code can't be
+> > > compromised for that reason as it is user visible.
+> >
+> > I tend to agree with Dietmar. The legacy use of cluster node in DT
+> > refers to the dynamiQ or legacy b.L cluster which is also aligned to
+> > the LLC and the MC scheduling level. The new cluster level that has
+> > been introduced recently does not target this level but some
+> > intermediate levels either inside like for the kupeng920 or the v9
+> > complex or outside like for the ampere altra. So I would say that
+> > there is one cluster node level in DT that refers to the same MC/LLC
+> > level and only an additional child/parent cluster node should be used
+> > to fill the clustergroup_mask.
+> >
+>
+> Again I completely disagree. Let us look at the problems separately.
+> The hardware topology that some of the tools like lscpu and lstopo expects
+> what the hardware looks like and not the scheduler's view of the hardware.
+> So the topology masks that gets exposed to the user-space needs fixing
+> even today. I have reports from various tooling people about the same.
+> E.g. Juno getting exposed as dual socket system is utter non-sense.
+>
+> Yes scheduler uses most of the topology masks as is but that is not a must.
+> There are these *group_mask functions that can implement what scheduler
+> needs to be fed.
+>
+> I am not sure why the 2 issues are getting mixed up and that is the main
+> reason why I jumped into this to make sure the topology masks are
+> not tampered based on the way it needs to be used for scheduler.
+>
+> Both ACPI and DT on a platform must present exact same hardware topology
+> to the user-space, there is no space for argument there.
 
-Sured. Fixed in the next version.
+But that's exactly my point there:
+ACPI doesn't show the dynamiQ level anywhere but only the llc which
+are the same and your patch makes the dynamiQ level visible for DT in
+addition to llc
 
-> > +
-> >  #include <linux/clocksource.h>
-> >  #include <linux/clockchips.h>
-> >  #include <linux/cpu.h>
-> > @@ -23,11 +26,24 @@
-> >  #include <asm/sbi.h>
-> >  #include <asm/timex.h>
-> >
-> > +static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
-> > +
-> >  static int riscv_clock_next_event(unsigned long delta,
-> >                 struct clock_event_device *ce)
-> >  {
-> > +       u64 next_tval = get_cycles64() + delta;
-> > +
-> >         csr_set(CSR_IE, IE_TIE);
-> > -       sbi_set_timer(get_cycles64() + delta);
-> > +       if (static_branch_likely(&riscv_sstc_available)) {
-> > +#if defined(CONFIG_32BIT)
-> > +               csr_write(CSR_STIMECMP, next_tval & 0xFFFFFFFF);
-> > +               csr_write(CSR_STIMECMPH, next_tval >> 32);
-> > +#else
-> > +               csr_write(CSR_STIMECMP, next_tval);
-> > +#endif
-> > +       } else
-> > +               sbi_set_timer(next_tval);
-> > +
-> >         return 0;
-> >  }
-> >
-> > @@ -165,6 +181,12 @@ static int __init riscv_timer_init_dt(struct device_node *n)
-> >         if (error)
-> >                 pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
-> >                        error);
-> > +
-> > +       if (riscv_isa_extension_available(NULL, SSTC)) {
-> > +               pr_info("Timer interrupt in S-mode is available via sstc extension\n");
-> > +               static_branch_enable(&riscv_sstc_available);
-> > +       }
-> > +
-> >         return error;
-> >  }
-> >
-> > --
-> > 2.25.1
+>
+> > IIUC, we don't describe the dynamiQ level in ACPI which  uses cache
+> > topology instead to define cpu_coregroup_mask whereas DT described the
+> > dynamiQ instead of using cache topology. If you use cache topology
+> > now, then you should skip the dynamiQ
 > >
 >
-> Apart from the minor comment above, this looks good to me.
+> Yes, unless someone can work out a binding to represent that and convince
+> DT maintainers ;).
 >
-> Reviewed-by: Anup Patel <anup@brainfault.org>
+> > Finally, even if CLS and MC have the same scheduling behavior for now,
+> > they might ends up with different scheduling properties which would
+> > mean that replacing MC level by CLS one for current SoC would become
+> > wrong
+> >
 >
+> Again as I mentioned to Dietmar, that is something we can and must deal with
+> in those *group_mask and not expect topology mask to be altered to meet
+> CLS/MC or whatever sched domains needs. Sorry, that is my strong opinion
+> as the topology is already user-space visible and (tooling) people are
+> complaining that DT systems are broken and doesn't match ACPI systems.
+
+again, your proposal doesn't help here because the DT will show a
+level that doesn't appears in ACPI
+
+>
+> So unless someone gives me non-scheduler and topology specific reasons
+> to change that, sorry but my opinion on this matter is not going to change ;).
+>
+> You will get this view of topology, find a way to manage with all those
+> *group_mask functions. By the way it is already handled for ACPI systems,
+
+AFAICT, no it's not, the cluster described in ACPI is not the dynamiQ
+level that you make now visible to DT
+
+> so if you are not happy with that, then that needs fixing as this change
+> set just aligns the behaviour on similar ACPI system. So the Juno example
+> is incorrect for the reason that the behaviour of scheduler there is different
+> with DT and ACPI.
+>
+> --
 > Regards,
-> Anup
-
-
-
--- 
-Regards,
-Atish
+> Sudeep
 
 _______________________________________________
 linux-riscv mailing list
