@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C37C43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 17:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED77C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 20:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Tjz/bMRAHUEWxYYiic/Zfb2YHSQcDnIH+qC6jqWVozk=; b=mDjdhx4RBf6uzu
-	4CM21vQSDmRDbeRcvbBX11Yg+m6DcyNCVPJvM76IISzMlENzGVlcqr6ulLY+vQZT5EEO+pPVJJe9v
-	X2RweMf9sHHQhh2S0xX2IDyczuwuXVPSU+MQsgrGPYryZ48BiTVWggP01ThsJ17mi8z92MA/A6uUJ
-	r5ZY/ENsAspnTwGBKV7jwmJgDKq575jlop41SwhuZjWwpHh5OH4JjyvaJDm83i74UZxunWtvcypEG
-	fRGoLozhvaxAMKwKbACrNM/QgYb/f2SZr+/r+wAZEWOrbLBn1ZkCC9Ekvzug5LnPHs5XHK3++RB6Z
-	IHh+7oJZ+3dNrt53Xc2g==;
+	List-Owner; bh=zWMdFovvcso3fIksw3atOQ8UpmUGtaw68aN/0p/251k=; b=o1rvL2DcsK8yqk
+	NPxPDmNCsIQk1ESskLx3QBxKpUpp6Ot6StGF4on0YFCO8fl1ZtXfuWf4t6faKQa0HcTjKw3SKKe8X
+	mSZoc44s+G9zqvEr8VDf0miueVc9J2g9YbmmdQomP6AUy+ebyhI9eFJb5LfZ2EpcsfMYqXZc5WscD
+	nXchuh4+TBJ91Xp/YH8at+BOcu7DVIiEipoVfY1UDoHERBoRwcv6YwSYx/07G5ydePH0XZDMLj/Ys
+	tU1OaUHBGnmv0L0tgmtSXGOZ5XIkahuTC3Qz7oi0E/B8KOC16Q7ZJ+hekNNYIojnJUiWJ5s6aiNhK
+	RR0j+38m6RYW7JIq2cDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1ApK-00Aewp-Or; Tue, 14 Jun 2022 17:59:42 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1o1D1O-00B6OW-W5; Tue, 14 Jun 2022 20:20:19 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1ApH-00AevS-GB
-	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 17:59:41 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-3137316bb69so37628227b3.10
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jun 2022 10:59:36 -0700 (PDT)
+	id 1o1D1M-00B6Nm-93
+	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 20:20:18 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id t32so16981170ybt.12
+        for <linux-riscv@lists.infradead.org>; Tue, 14 Jun 2022 13:20:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
+        d=atishpatra.org; s=google;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc;
-        bh=26g0MRBcct9YNTtppVTH2VrL+ERGht+b/7zwiSemUyA=;
-        b=J/nOyu12o+bRB6Fge5isqT7wonLs+xdaSOYk2ZzUXUfdYO+tT/NdTBYHgwhpGYQ2OZ
-         RPmye6epdqPtaw2Nbws6asqaYf+6aVxIqXDMZqxjNbzCQ3zwB1L5G/BhpEzxNla/VIO8
-         cDStVQFFwJb6UTJpX5S+LIugBTOAwh6cGWRiIgHiZi3tWxT7rMU+TWdd2QMU7ovh8PNx
-         gwaIT5F7fFUR2oLX1CsaFR9TrEfJFASZUCVW8i9DhsF3f8y+wbxkjn4QyC9i8LNrGM93
-         gQQlBK9AywuTU1ofkcSnNRSmzJuv/FDzyMjYLJrFjuFY9oaCAxFePfAUwZONNTzqOrtA
-         C31g==
+        bh=W3fZj/NWjDDDv+AZ8HKgB98ricBLfjxyJuqsjq8uYSg=;
+        b=kl0G0cbFopr/Yw+ysfaKHrSTaHYHQMeZSA9tgsHIRwddENxPl2Iwp3izOgKP9Or7ya
+         kut8hya66qLSAlT019ROGX7HApuQRFtXcKtIikEU2AkfFqq6wmc0GgquQ06RtZRFw07v
+         X/jvkpTTqwjU7ejqlTkjl2jFK9qAM6/ssABIA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=26g0MRBcct9YNTtppVTH2VrL+ERGht+b/7zwiSemUyA=;
-        b=qVcdUt7Hv6X+0AarwBPhgNHlY7P/RzqCjsLkTZnF3qgkEcF4zC81hP88B3km0jYaUv
-         K60Akf86jlYtPpNnsQaDQ/Qz4xugP4WjPRPYmrHgvziS/2Mc9BQK+MQOQckzDyKJrkHS
-         RlkbrM+jxwW+9wMmKrSK2Nd+uv9QZvP4in+VljzptBd3I6pxmOBn6HkUeyPv732+vhpX
-         WaFRfT+oh1PsJvh3yuLiiCC5+PXYDv+6DM8GjKQLmx1a0sFdQjCu9oWEsKEdcCi36F/N
-         mulogXlsmyZ15SEWv5+X5HeKgPMX99BrFKOCwQCBbJRKTS46Q4XUnvKIW43VszsY+EF+
-         AuqA==
-X-Gm-Message-State: AJIora82L15M/mA2lj1j5l+RRmIexo/nqiWqMGowiaEJkrGnX9tX4/+4
-	z5bogg1HkBq0zXwr1jrEfqihUSI8WS3XiNdhCkjB4A==
-X-Google-Smtp-Source: AGRyM1uYZTCyS6ekVxMN4LE950ueaI6pIZQPKcwQF0t97ENb1ZzjK0WrhozZcmpCzb6Uo04yXOpLPQ3F6GVqXwU6Q74=
-X-Received: by 2002:a81:2f84:0:b0:314:2bfd:bf1f with SMTP id
- v126-20020a812f84000000b003142bfdbf1fmr7094481ywv.320.1655229576055; Tue, 14
- Jun 2022 10:59:36 -0700 (PDT)
+        bh=W3fZj/NWjDDDv+AZ8HKgB98ricBLfjxyJuqsjq8uYSg=;
+        b=W8jGkt1XMZLUKbwojoCkFT56GuOWPJssmM8jQvbaEIY0VgiWMaJdbW+FFos2pSVTWb
+         FnAi6H17OI4MkYLq9fEBaerwqNPJUeNZV0Gyju+euk7xZ/AcMiDMZZ3+/pSg/Uhitft6
+         +tzYkHvtSIajMIx4nwCqOZk+cJLJ9mc9MHUT4Hk19cBjnmvZHGxYCwEiNCOrjFmB+NHm
+         yf4KcLBLnz6aHSONw5fTcrSZNK7NyS0M5fn8hbu0KRQkSFWkHBaWnmgj5HAbrreOZ3KF
+         68gcwzsjttmUpYfrNFke8Ye5sEd2XTaJ2bLrSRXLvjAuCHM0+HacvgHRra0RUbc1Tj/O
+         ErMg==
+X-Gm-Message-State: AJIora+iDMbJSLBdlY5hUtuh7SqFGJDzrHxMyiZSxn49b3TXdcno6WlQ
+	pjR/1cj6njTtrNAiBUDdi0TDh4K+yUkuZUqoKfX3
+X-Google-Smtp-Source: AGRyM1v3TfdqMJAe0D16h8xZW51sthHbhKKM4VFPMUVdjlyBpMZEFYzvZDViy0Yv7E7UXlT4WN7BzcIIEvZwbnkx2D8=
+X-Received: by 2002:a25:58f:0:b0:664:628a:374b with SMTP id
+ 137-20020a25058f000000b00664628a374bmr6735810ybf.329.1655238014203; Tue, 14
+ Jun 2022 13:20:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220525081416.3306043-10-sudeep.holla@arm.com>
- <20220525081416.3306043-11-sudeep.holla@arm.com> <20220525081416.3306043-12-sudeep.holla@arm.com>
- <20220525081416.3306043-13-sudeep.holla@arm.com> <20220525081416.3306043-14-sudeep.holla@arm.com>
- <20220525081416.3306043-15-sudeep.holla@arm.com> <20220525081416.3306043-16-sudeep.holla@arm.com>
- <947470ba-35fc-3c72-d01b-c0a7337216a2@arm.com> <20220606102159.dduxmvq4m2fm6gks@bogus>
- <CAKfTPtB8iPzEXipsJqNtd9-aJMKx-FAaiGMzOg58HgRQuo39iA@mail.gmail.com> <20220610102753.virkx47uyfsojol6@bogus>
-In-Reply-To: <20220610102753.virkx47uyfsojol6@bogus>
-From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Tue, 14 Jun 2022 19:59:23 +0200
-Message-ID: <CAKfTPtD==UMjbSGHvKxT_z=LyvsJt=UCHsqkbgVnagbn5Aqpcw@mail.gmail.com>
-Subject: Re: [PATCH v3 15/16] arch_topology: Set cluster identifier in each
- core/thread from /cpu-map
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>, linux-kernel@vger.kernel.org, 
-	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
-	Morten Rasmussen <morten.rasmussen@arm.com>, Qing Wang <wangqing@vivo.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+References: <20220527042937.1124009-1-atishp@rivosinc.com> <CAAhSdy3jpXO_a+ZWNCW_n28GQd9JGJdCsNruL7spC_aork6iqA@mail.gmail.com>
+In-Reply-To: <CAAhSdy3jpXO_a+ZWNCW_n28GQd9JGJdCsNruL7spC_aork6iqA@mail.gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 14 Jun 2022 13:20:03 -0700
+Message-ID: <CAOnJCUKY2hVygfPw0ZO-1j+L-zaoHk_HT=2FDsfoo6r6q77LNg@mail.gmail.com>
+Subject: Re: [PATCH v4 0/4] Add Sstc extension support
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atishp@rivosinc.com>, 
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Jisheng Zhang <jszhang@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_105939_585909_370CB379 
-X-CRM114-Status: GOOD (  40.01  )
+X-CRM114-CacheID: sfid-20220614_132016_645161_00FC2D9D 
+X-CRM114-Status: GOOD (  30.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,98 +84,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Jun 2022 at 12:27, Sudeep Holla <sudeep.holla@arm.com> wrote:
+On Thu, Jun 9, 2022 at 9:53 PM Anup Patel <anup@brainfault.org> wrote:
 >
-> On Fri, Jun 10, 2022 at 12:08:44PM +0200, Vincent Guittot wrote:
-> > On Mon, 6 Jun 2022 at 12:22, Sudeep Holla <sudeep.holla@arm.com> wrote:
-> > >
->
-> [...]
->
-> > > Why ? Are you suggesting that we shouldn't present the hardware cluster
-> > > to the topology because of the above reason ? If so, sorry that is not a
-> > > valid reason. We could add login to return NULL or appropriate value
-> > > needed in cpu_clustergroup_mask id it matches MC level mask if we can't
-> > > deal that in generic scheduler code. But the topology code can't be
-> > > compromised for that reason as it is user visible.
+> On Fri, May 27, 2022 at 9:59 AM Atish Patra <atishp@rivosinc.com> wrote:
 > >
-> > I tend to agree with Dietmar. The legacy use of cluster node in DT
-> > refers to the dynamiQ or legacy b.L cluster which is also aligned to
-> > the LLC and the MC scheduling level. The new cluster level that has
-> > been introduced recently does not target this level but some
-> > intermediate levels either inside like for the kupeng920 or the v9
-> > complex or outside like for the ampere altra. So I would say that
-> > there is one cluster node level in DT that refers to the same MC/LLC
-> > level and only an additional child/parent cluster node should be used
-> > to fill the clustergroup_mask.
+> > This series implements Sstc extension support which was ratified recently.
+> > Before the Sstc extension, an SBI call is necessary to generate timer
+> > interrupts as only M-mode have access to the timecompare registers. Thus,
+> > there is significant latency to generate timer interrupts at kernel.
+> > For virtualized enviornments, its even worse as the KVM handles the SBI call
+> > and uses a software timer to emulate the timecomapre register.
 > >
->
-> Again I completely disagree. Let us look at the problems separately.
-> The hardware topology that some of the tools like lscpu and lstopo expects
-> what the hardware looks like and not the scheduler's view of the hardware.
-> So the topology masks that gets exposed to the user-space needs fixing
-> even today. I have reports from various tooling people about the same.
-> E.g. Juno getting exposed as dual socket system is utter non-sense.
->
-> Yes scheduler uses most of the topology masks as is but that is not a must.
-> There are these *group_mask functions that can implement what scheduler
-> needs to be fed.
->
-> I am not sure why the 2 issues are getting mixed up and that is the main
-> reason why I jumped into this to make sure the topology masks are
-> not tampered based on the way it needs to be used for scheduler.
->
-> Both ACPI and DT on a platform must present exact same hardware topology
-> to the user-space, there is no space for argument there.
-
-But that's exactly my point there:
-ACPI doesn't show the dynamiQ level anywhere but only the llc which
-are the same and your patch makes the dynamiQ level visible for DT in
-addition to llc
-
->
-> > IIUC, we don't describe the dynamiQ level in ACPI which  uses cache
-> > topology instead to define cpu_coregroup_mask whereas DT described the
-> > dynamiQ instead of using cache topology. If you use cache topology
-> > now, then you should skip the dynamiQ
+> > Sstc extension solves both these problems by defining a stimecmp/vstimecmp
+> > at supervisor (host/guest) level. It allows kernel to program a timer and
+> > recieve interrupt without supervisor execution enviornment (M-mode/HS mode)
+> > intervention.
 > >
->
-> Yes, unless someone can work out a binding to represent that and convince
-> DT maintainers ;).
->
-> > Finally, even if CLS and MC have the same scheduling behavior for now,
-> > they might ends up with different scheduling properties which would
-> > mean that replacing MC level by CLS one for current SoC would become
-> > wrong
+> > KVM directly updates the vstimecmp as well if the guest kernel invokes the SBI
+> > call instead of updating stimecmp directly. This is required because KVM will
+> > enable sstc extension if the hardware supports it unless the VMM explicitly
+> > disables it for that guest. The hardware is expected to compare the
+> > vstimecmp at every cycle if sstc is enabled and any stale value in vstimecmp
+> > will lead to spurious timer interrupts. This also helps maintaining the
+> > backward compatibility with older kernels.
 > >
+> > Similary, the M-mode firmware(OpenSBI) uses stimecmp for older kernel
+> > without sstc support as STIP bit in mip is read only for hardware with sstc.
+> >
+> > The PATCH 1 & 2 enables the basic infrastructure around Sstc extension while
+> > PATCH 3 lets kernel use the Sstc extension if it is available in hardware.
+> > PATCH 4 implements the Sstc extension in KVM.
+> >
+> > This series has been tested on Qemu(RV32 & RV64) with additional patches in
+> > Qemu[2]. This series can also be found at [3].
+> >
+> > Changes from v3->v4:
+> > 1. Rebased on 5.18-rc6
+> > 2. Unified vstimemp & next_cycles.
+> > 3. Addressed comments in PATCH 3 & 4.
+> >
+> > Changes from v2->v3:
+> > 1. Dropped unrelated KVM fixes from this series.
+> > 2. Rebased on 5.18-rc3.
+> >
+> > Changes from v1->v2:
+> > 1. Separate the static key from kvm usage
+> > 2. Makde the sstc specific static key local to the driver/clocksource
+> > 3. Moved the vstimecmp update code to the vcpu_timer
+> > 4. Used function pointers instead of static key to invoke vstimecmp vs
+> >    hrtimer at the run time. This will help in future for migration of vms
+> >    from/to sstc enabled hardware to non-sstc enabled hardware.
+> > 5. Unified the vstimer & timer to 1 timer as only one of them will be used
+> >    at runtime.
+> >
+> > [1] https://drive.google.com/file/d/1m84Re2yK8m_vbW7TspvevCDR82MOBaSX/view
+> > [2] https://github.com/atishp04/qemu/tree/sstc_v3
+> > [3] https://github.com/atishp04/linux/tree/sstc_v4
+> >
+> > Atish Patra (4):
+> > RISC-V: Add SSTC extension CSR details
+> > RISC-V: Enable sstc extension parsing from DT
+> > RISC-V: Prefer sstc extension if available
+> > RISC-V: KVM: Support sstc extension
 >
-> Again as I mentioned to Dietmar, that is something we can and must deal with
-> in those *group_mask and not expect topology mask to be altered to meet
-> CLS/MC or whatever sched domains needs. Sorry, that is my strong opinion
-> as the topology is already user-space visible and (tooling) people are
-> complaining that DT systems are broken and doesn't match ACPI systems.
-
-again, your proposal doesn't help here because the DT will show a
-level that doesn't appears in ACPI
-
+> Please don't forget to CC kvm-riscv mailing list for KVM RISC-V patches.
 >
-> So unless someone gives me non-scheduler and topology specific reasons
-> to change that, sorry but my opinion on this matter is not going to change ;).
->
-> You will get this view of topology, find a way to manage with all those
-> *group_mask functions. By the way it is already handled for ACPI systems,
 
-AFAICT, no it's not, the cluster described in ACPI is not the dynamiQ
-level that you make now visible to DT
+Sorry. My scripts did not pick up kvm-riscv for some reason.
+Fixed it.
 
-> so if you are not happy with that, then that needs fixing as this change
-> set just aligns the behaviour on similar ACPI system. So the Juno example
-> is incorrect for the reason that the behaviour of scheduler there is different
-> with DT and ACPI.
+> We have a patchwork setup for KVM RISC-V will also miss a series if
+> patches are not CCed.
 >
-> --
 > Regards,
-> Sudeep
+> Anup
+>
+> >
+> > arch/riscv/include/asm/csr.h            |  11 ++
+> > arch/riscv/include/asm/hwcap.h          |   1 +
+> > arch/riscv/include/asm/kvm_vcpu_timer.h |   8 +-
+> > arch/riscv/include/uapi/asm/kvm.h       |   1 +
+> > arch/riscv/kernel/cpu.c                 |   1 +
+> > arch/riscv/kernel/cpufeature.c          |   1 +
+> > arch/riscv/kvm/main.c                   |  12 +-
+> > arch/riscv/kvm/vcpu.c                   |   5 +-
+> > arch/riscv/kvm/vcpu_timer.c             | 144 +++++++++++++++++++++++-
+> > drivers/clocksource/timer-riscv.c       |  24 +++-
+> > 10 files changed, 198 insertions(+), 10 deletions(-)
+> >
+> > --
+> > 2.25.1
+> >
+
+
+
+--
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
