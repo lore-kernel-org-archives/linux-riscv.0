@@ -4,100 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F6FEC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 10:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EABFCCA47A
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 10:56:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=s7hIpMMyIUY3WfYe7w1xKW0outoEnVVzTrczVVQHLRs=; b=toq29yfH3CUu4B
-	reIW3vAIXyMEyW6VQEL2DTZBYtESrkgBzHhDAXE3GAlDYQLM0KcG9YLU8pyQ9mRx7Wpegx1m86Ew0
-	MtxmzAyea5+ruR4ApOVCM2pbqMCpzE+l4TXYrCltCWq/0RkHgvuWcd69Pc8Y4Erl4F2+EplUrHyuS
-	52h14UJGkd8/kwzB0eh6Ecr23iZhi6WYtaHfakNGSoYlrdknLYkB8xMRsQXZrngurjgTsvJHgADqz
-	ABIQLZPcpRHLaFthG5rQzG9bfVxCW5KCKnRZAHNO4W6xtKjymDuhldniYpTrCvwaekq0+0LGfXTNL
-	CT2Px000nRU06pAYWReQ==;
+	List-Owner; bh=Jpy7PVUsg0R8YAe00SCbbTetmtlUx618CeufwWMf6+w=; b=TKIlTv6XUmlTv+
+	TqSGC43osg5ijv1Nnu2ymoxsPgdtGfjeLuicwwXmHpOJJJSzLbIdyGszCbWTuVtFed8rLwm40YOe9
+	JQPqh5iekwpwrkEkFxg3AMHUd/vRthaBN5noxbNiPR4KkRBwEL9eUrQa/gWvALOzFW2taEf6ynbaN
+	sVBJKNmJcDZzz/LiDdiBaWh+DYvd0sXDIbR7M4KLK1kFPaJkXGBrFurH54AI2rn8oqnMHakyaNNDJ
+	2J7vNYhlgHaCq67K3uceHw6xyIdfVU0eXJZW/SDIOhh6EMdCX3KB4kfEiER8n1SAlmcfg153ileEJ
+	9jR4ayGhCAWJYBr8pDJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o147s-0099Ud-4Q; Tue, 14 Jun 2022 10:50:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1o14Di-009BUT-VO; Tue, 14 Jun 2022 10:56:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o147o-0099Ru-Un
-	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 10:50:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1655203820;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IiQIaQMhxL76RBZHsmcLreZUSDHLka20T5mMLLN/xgk=;
-	b=KOSbu7vWo7KopZCHcFJyELO+l7cQBkQYusUFvu4F7KrmX+UebZyW7V4mNlacW4s9sb4w4B
-	Sk4JfWPrWTby0cQuWfN4tVr0yyXQcH2VNOHBhl1XmBGFyt6ZmwCxwW4ZpqXfkrjveiI4o6
-	z4nMf8nfeoyHpB1bcuguQuBK9Y+Qb6k=
-Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
- [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-352-DhirNWZtMFiMrb8YeOnp2g-1; Tue, 14 Jun 2022 06:50:15 -0400
-X-MC-Unique: DhirNWZtMFiMrb8YeOnp2g-1
-Received: from smtp.corp.redhat.com (int-mx10.intmail.prod.int.rdu2.redhat.com [10.11.54.10])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	id 1o14Df-009BTS-TJ; Tue, 14 Jun 2022 10:56:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 78950299E755;
-	Tue, 14 Jun 2022 10:50:14 +0000 (UTC)
-Received: from localhost (ovpn-12-211.pek2.redhat.com [10.72.12.211])
-	by smtp.corp.redhat.com (Postfix) with ESMTPS id BE2A5416164;
-	Tue, 14 Jun 2022 10:50:12 +0000 (UTC)
-Date: Tue, 14 Jun 2022 18:50:09 +0800
-From: Baoquan He <bhe@redhat.com>
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 8361F60C68;
+	Tue, 14 Jun 2022 10:56:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 684A4C3411B;
+	Tue, 14 Jun 2022 10:56:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1655204181;
+	bh=00Prm+cUcZ84XpftD1dN/FsJdtVgLrlVbBRu1vY0N5M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GJ95osrVTc29XfAfsEoUU7WX2toadBvY3p7QFX5tpiu1BguwysX9r9TxGtw8aYY9n
+	 7dlCDWef80SO6YKztD5/KX6n7Y63tLpHsHD4tZLe39NPNprDEuYJ4QV3OB37cZGvAj
+	 IaIu2GguR8oHWbINnEHCM3cx9QcpbJSvuqjzsrMfDYUfocAyaRNr0Pt1A51rT53dh9
+	 rDPotEBWirI+Y2P11VJvRfmmoENEdUlYds3MF8ovi7JJoImaYhf0YnPNPIDSD1X1Qu
+	 u+E1S/fX8sdfiEnKYnQt3gWGX8HCuLdUK3Dn9KpHAkPUmWIlOW27FtAzM7KU1xfWdH
+	 fGJYQOPmMLlqw==
+Date: Tue, 14 Jun 2022 13:54:18 +0300
+From: Jarkko Sakkinen <jarkko@kernel.org>
 To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Wupeng Ma <mawupeng1@huawei.com>, Jonathan Corbet <corbet@lwn.net>,
-	Will Deacon <will@kernel.org>,
+Cc: Song Liu <song@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Guo Ren <guoren@kernel.org>, Jarkko Sakkinen <jarkko@profian.com>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Nathaniel McCallum <nathaniel@profian.com>,
+	Russell King <linux@armlinux.org.uk>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Darren Hart <dvhart@infradead.org>,
-	Andy Shevchenko <andy@infradead.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
+	Will Deacon <will@kernel.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Paul Mackerras <paulus@samba.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
-	Kees Cook <keescook@chromium.org>, songmuchun@bytedance.com,
-	Randy Dunlap <rdunlap@infradead.org>,
-	damien.lemoal@opensource.wdc.com,
-	Stephen Boyd <swboyd@chromium.org>, Wei Liu <wei.liu@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	David Hildenbrand <david@redhat.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Zhen Lei <thunder.leizhen@huawei.com>,
-	Kefeng Wang <wangkefeng.wang@huawei.com>, gpiccoli@igalia.com,
-	Huacai Chen <chenhuacai@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	the arch/x86 maintainers <x86@kernel.org>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Kees Cook <keescook@chromium.org>,
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Eric W. Biederman" <ebiederm@xmission.com>,
+	Marco Elver <elver@google.com>, Dan Li <ashimida@linux.alibaba.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Chen Zhongjin <chenzhongjin@huawei.com>,
+	Nicolas Pitre <nico@fluxnic.net>, Mark Brown <broonie@kernel.org>,
+	Luis Machado <luis.machado@linaro.org>,
 	Geert Uytterhoeven <geert@linux-m68k.org>,
-	vijayb@linux.microsoft.com,
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Kefeng Wang <wangkefeng.wang@huawei.com>,
+	Atsushi Nemoto <anemo@mba.ocn.ne.jp>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Dave Anglin <dave.anglin@bell.net>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>, Daniel Axtens <dja@axtens.net>,
+	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+	Jordan Niethe <jniethe5@gmail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Changbin Du <changbin.du@intel.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Liao Chang <liaochang1@huawei.com>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Wu Caize <zepan@sipeed.com>, Emil Renner Berthing <kernel@esmil.dk>,
+	Alexander Egorenkov <egorenar@linux.ibm.com>,
+	Thomas Richter <tmricht@linux.ibm.com>,
+	Tobias Huschle <huschle@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Daniel Bristot de Oliveira <bristot@redhat.com>,
+	Michael Roth <michael.roth@amd.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Javier Martinez Canillas <javierm@redhat.com>,
+	Miroslav Benes <mbenes@suse.cz>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Aaron Tomlin <atomlin@redhat.com>,
 	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-efi <linux-efi@vger.kernel.org>,
-	platform-driver-x86@vger.kernel.org,
-	Linux Memory Management List <linux-mm@kvack.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v5 5/5] memblock: Disable mirror feature if kernelcore is
- not specified
-Message-ID: <Yqhn4Qs1bzPY9J4s@MiWiFi-R3L-srv>
-References: <20220614092156.1972846-1-mawupeng1@huawei.com>
- <20220614092156.1972846-6-mawupeng1@huawei.com>
- <Yqhg6abZDGZSpJ7+@MiWiFi-R3L-srv>
- <CAMj1kXGXvjrnY=Hzd4c3CYZsNT6OiqTcMmKT0tdnk=jFOiVpWA@mail.gmail.com>
+	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>,
+	Parisc List <linux-parisc@vger.kernel.org>,
+	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	linux-s390 <linux-s390@vger.kernel.org>,
+	sparclinux <sparclinux@vger.kernel.org>,
+	linux-modules@vger.kernel.org
+Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
+Message-ID: <Yqho2hu5q/n10D7g@iki.fi>
+References: <20220608000014.3054333-1-jarkko@profian.com>
+ <CAJF2gTQgCn2CyZ4+VBqEEBT2b4+1KxoEXxrd+Ritk=58+U8EFA@mail.gmail.com>
+ <YqAy0qjI4Lktk/uJ@iki.fi>
+ <20220608232115.ccd4399f4a1d133e9b65c2a9@kernel.org>
+ <CAPhsuW6iUieQvA6KqzSLgtxmjkVSWCuVwNA338DATb_myHxo7w@mail.gmail.com>
+ <YqHx1d+MwRLLzGQe@iki.fi>
+ <CAMj1kXGGyO-DL9hjKYKR2sp87s4KExiQybES8pp4JgqJcHkfLA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXGXvjrnY=Hzd4c3CYZsNT6OiqTcMmKT0tdnk=jFOiVpWA@mail.gmail.com>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.10
+In-Reply-To: <CAMj1kXGGyO-DL9hjKYKR2sp87s4KExiQybES8pp4JgqJcHkfLA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_035021_113210_AA5866ED 
-X-CRM114-Status: GOOD (  35.51  )
+X-CRM114-CacheID: sfid-20220614_035624_067142_AB70A9FB 
+X-CRM114-Status: GOOD (  41.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,81 +162,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06/14/22 at 12:27pm, Ard Biesheuvel wrote:
-> On Tue, 14 Jun 2022 at 12:20, Baoquan He <bhe@redhat.com> wrote:
+On Thu, Jun 09, 2022 at 03:23:16PM +0200, Ard Biesheuvel wrote:
+> On Thu, 9 Jun 2022 at 15:14, Jarkko Sakkinen <jarkko@kernel.org> wrote:
 > >
-> > On 06/14/22 at 05:21pm, Wupeng Ma wrote:
-> > > From: Ma Wupeng <mawupeng1@huawei.com>
+> > On Wed, Jun 08, 2022 at 09:12:34AM -0700, Song Liu wrote:
+> > > On Wed, Jun 8, 2022 at 7:21 AM Masami Hiramatsu <mhiramat@kernel.org> wrote:
+> > > >
+> > > > Hi Jarkko,
+> > > >
+> > > > On Wed, 8 Jun 2022 08:25:38 +0300
+> > > > Jarkko Sakkinen <jarkko@kernel.org> wrote:
+> > > >
+> > > > > On Wed, Jun 08, 2022 at 10:35:42AM +0800, Guo Ren wrote:
+> > > > > > .
+> > > > > >
+> > > > > > On Wed, Jun 8, 2022 at 8:02 AM Jarkko Sakkinen <jarkko@profian.com> wrote:
+> > > > > > >
+> > > > > > > Tracing with kprobes while running a monolithic kernel is currently
+> > > > > > > impossible because CONFIG_KPROBES is dependent of CONFIG_MODULES.  This
+> > > > > > > dependency is a result of kprobes code using the module allocator for the
+> > > > > > > trampoline code.
+> > > > > > >
+> > > > > > > Detaching kprobes from modules helps to squeeze down the user space,
+> > > > > > > e.g. when developing new core kernel features, while still having all
+> > > > > > > the nice tracing capabilities.
+> > > > > > >
+> > > > > > > For kernel/ and arch/*, move module_alloc() and module_memfree() to
+> > > > > > > module_alloc.c, and compile as part of vmlinux when either CONFIG_MODULES
+> > > > > > > or CONFIG_KPROBES is enabled.  In addition, flag kernel module specific
+> > > > > > > code with CONFIG_MODULES.
+> > > > > > >
+> > > > > > > As the result, kprobes can be used with a monolithic kernel.
+> > > > > > It's strange when MODULES is n, but vmlinux still obtains module_alloc.
+> > > > > >
+> > > > > > Maybe we need a kprobe_alloc, right?
+> > > > >
+> > > > > Perhaps not the best name but at least it documents the fact that
+> > > > > they use the same allocator.
+> > > > >
+> > > > > Few years ago I carved up something "half-way there" for kprobes,
+> > > > > and I used the name text_alloc() [*].
+> > > > >
+> > > > > [*] https://lore.kernel.org/all/20200724050553.1724168-1-jarkko.sakkinen@linux.intel.com/
+> > > >
+> > > > Yeah, I remember that. Thank you for updating your patch!
+> > > > I think the idea (split module_alloc() from CONFIG_MODULE) is good to me.
+> > > > If module support maintainers think this name is not good, you may be
+> > > > able to rename it as text_alloc() and make the module_alloc() as a
+> > > > wrapper of it.
 > > >
-> > > If system have some mirrored memory and mirrored feature is not specified
-> > > in boot parameter, the basic mirrored feature will be enabled and this will
-> > > lead to the following situations:
-> > >
-> > > - memblock memory allocation prefers mirrored region. This may have some
-> > >   unexpected influence on numa affinity.
-> > >
-> > > - contiguous memory will be split into several parts if parts of them
-> > >   is mirrored memory via memblock_mark_mirror().
-> > >
-> > > To fix this, variable mirrored_kernelcore will be checked in
-> > > memblock_mark_mirror(). Mark mirrored memory with flag MEMBLOCK_MIRROR iff
-> > > kernelcore=mirror is added in the kernel parameters.
-> > >
-> > > Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
-> > > Acked-by: Ard Biesheuvel <ardb@kernel.org>
-> > > ---
-> > >  mm/internal.h   | 2 ++
-> > >  mm/memblock.c   | 3 +++
-> > >  mm/page_alloc.c | 2 +-
-> > >  3 files changed, 6 insertions(+), 1 deletion(-)
-> > >
-> > > diff --git a/mm/internal.h b/mm/internal.h
-> > > index c0f8fbe0445b..ddd2d6a46f1b 100644
-> > > --- a/mm/internal.h
-> > > +++ b/mm/internal.h
-> > > @@ -861,4 +861,6 @@ struct folio *try_grab_folio(struct page *page, int refs, unsigned int flags);
-> > >
-> > >  DECLARE_PER_CPU(struct per_cpu_nodestat, boot_nodestats);
-> > >
-> > > +extern bool mirrored_kernelcore;
-> > > +
-> > >  #endif       /* __MM_INTERNAL_H */
-> > > diff --git a/mm/memblock.c b/mm/memblock.c
-> > > index b1d2a0009733..a9f18b988b7f 100644
-> > > --- a/mm/memblock.c
-> > > +++ b/mm/memblock.c
-> > > @@ -924,6 +924,9 @@ int __init_memblock memblock_clear_hotplug(phys_addr_t base, phys_addr_t size)
-> > >   */
-> > >  int __init_memblock memblock_mark_mirror(phys_addr_t base, phys_addr_t size)
-> > >  {
-> > > +     if (!mirrored_kernelcore)
-> > > +             return 0;
+> > > IIUC, most users of module_alloc() use it to allocate memory for text, except
+> > > that module code uses it for both text and data. Therefore, I guess calling it
+> > > text_alloc() is not 100% accurate until we change the module code (to use
+> > > a different API to allocate memory for data).
 > >
-> > memblock_mark_mirror() is just a wrapper, maybe we should check this in
-> > efi_find_mirror(). Otherwise, how do we explain the message printed out
-> > at below in boot log if we don't mark mirror memory at all?
-> >
-> > void __init efi_find_mirror(void)
-> > {
-> > ......
-> >         if (mirror_size)
-> >                 pr_info("Memory: %lldM/%lldM mirrored memory\n",
-> >                         mirror_size>>20, total_size>>20);
-> > }
+> > After reading the feedback, I'd stay on using module_alloc() because
+> > it has arch-specific quirks baked in. Easier to deal with them in one
+> > place.
 > >
 > 
-> EFI does not care about *how* mirrored memory is being used or not, it
-> just reports what the firmware provided. So EFI is not the appropriate
-> level to take kernelcore=mirror into account.
-> 
-> I already mentioned that memblock_mark_mirror() is also the wrong
-> place IMO, but Kefeng explained that doing it elsewhere is
-> problematic.
+> In that case, please ensure that you enable this only on architectures
+> where it is needed. arm64 implements alloc_insn_page() without relying
+> on module_alloc() so I would not expect to see any changes there.
 
-OK, seems we have no better choice other than these two. 
+Right, got it, thanks for remark.
 
-> 
-
+BR, Jarkko
 
 _______________________________________________
 linux-riscv mailing list
