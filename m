@@ -4,70 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED77C43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 20:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E25DC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 14 Jun 2022 22:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zWMdFovvcso3fIksw3atOQ8UpmUGtaw68aN/0p/251k=; b=o1rvL2DcsK8yqk
-	NPxPDmNCsIQk1ESskLx3QBxKpUpp6Ot6StGF4on0YFCO8fl1ZtXfuWf4t6faKQa0HcTjKw3SKKe8X
-	mSZoc44s+G9zqvEr8VDf0miueVc9J2g9YbmmdQomP6AUy+ebyhI9eFJb5LfZ2EpcsfMYqXZc5WscD
-	nXchuh4+TBJ91Xp/YH8at+BOcu7DVIiEipoVfY1UDoHERBoRwcv6YwSYx/07G5ydePH0XZDMLj/Ys
-	tU1OaUHBGnmv0L0tgmtSXGOZ5XIkahuTC3Qz7oi0E/B8KOC16Q7ZJ+hekNNYIojnJUiWJ5s6aiNhK
-	RR0j+38m6RYW7JIq2cDw==;
+	List-Owner; bh=oQAXUGmEVy4TsvX/g7X59ngR2mOiCTMzNYo33WkQ/z4=; b=to9CL7qnTiq/kq
+	umyjTP5e+ukWkOxXSXmb7NXgzHgsu3NmJcUUZdPzYoD+VhH1pPwKHecSoaA0Mc/GDpIg3nESfUxMY
+	g3WZcQj7lZsBd4j8J5W5Xw6FxONKNtW1pURZxY8g/pbmof9HGqkGgFNzfEjJ7lQIk5iMlOrmk29tm
+	JegN7qKz67SHWL2AguNm0ZdwkLnZjOvxmKVmmvQYBiJL73COq0HpcZCCLAZ8RIFiyT+1Uq0QAkq7x
+	CGLVkKB0tZft3H28Qhc/+hkPc/6UPvGsYqPcaB++4O2qO4MVgnRD/UoPu054TbxJ+noEW7Vvn0YKj
+	ZiaEMMTeqQI9NNa4Xv4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1D1O-00B6OW-W5; Tue, 14 Jun 2022 20:20:19 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
+	id 1o1ErR-00Baed-4D; Tue, 14 Jun 2022 22:18:09 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1D1M-00B6Nm-93
-	for linux-riscv@lists.infradead.org; Tue, 14 Jun 2022 20:20:18 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id t32so16981170ybt.12
-        for <linux-riscv@lists.infradead.org>; Tue, 14 Jun 2022 13:20:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=W3fZj/NWjDDDv+AZ8HKgB98ricBLfjxyJuqsjq8uYSg=;
-        b=kl0G0cbFopr/Yw+ysfaKHrSTaHYHQMeZSA9tgsHIRwddENxPl2Iwp3izOgKP9Or7ya
-         kut8hya66qLSAlT019ROGX7HApuQRFtXcKtIikEU2AkfFqq6wmc0GgquQ06RtZRFw07v
-         X/jvkpTTqwjU7ejqlTkjl2jFK9qAM6/ssABIA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=W3fZj/NWjDDDv+AZ8HKgB98ricBLfjxyJuqsjq8uYSg=;
-        b=W8jGkt1XMZLUKbwojoCkFT56GuOWPJssmM8jQvbaEIY0VgiWMaJdbW+FFos2pSVTWb
-         FnAi6H17OI4MkYLq9fEBaerwqNPJUeNZV0Gyju+euk7xZ/AcMiDMZZ3+/pSg/Uhitft6
-         +tzYkHvtSIajMIx4nwCqOZk+cJLJ9mc9MHUT4Hk19cBjnmvZHGxYCwEiNCOrjFmB+NHm
-         yf4KcLBLnz6aHSONw5fTcrSZNK7NyS0M5fn8hbu0KRQkSFWkHBaWnmgj5HAbrreOZ3KF
-         68gcwzsjttmUpYfrNFke8Ye5sEd2XTaJ2bLrSRXLvjAuCHM0+HacvgHRra0RUbc1Tj/O
-         ErMg==
-X-Gm-Message-State: AJIora+iDMbJSLBdlY5hUtuh7SqFGJDzrHxMyiZSxn49b3TXdcno6WlQ
-	pjR/1cj6njTtrNAiBUDdi0TDh4K+yUkuZUqoKfX3
-X-Google-Smtp-Source: AGRyM1v3TfdqMJAe0D16h8xZW51sthHbhKKM4VFPMUVdjlyBpMZEFYzvZDViy0Yv7E7UXlT4WN7BzcIIEvZwbnkx2D8=
-X-Received: by 2002:a25:58f:0:b0:664:628a:374b with SMTP id
- 137-20020a25058f000000b00664628a374bmr6735810ybf.329.1655238014203; Tue, 14
- Jun 2022 13:20:14 -0700 (PDT)
+	id 1o1Elr-00BZGq-6I; Tue, 14 Jun 2022 22:12:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ieYeEcrodnP9d8uMI6KazQ9YDccjAyjy/+PGF5Ov/Sc=; b=OliYmJSibamFQ0oRl2XkG2+oLG
+	eUVxb3PF2WQS3d9O+63gY5P/Th5g3W0k/p07zjSFtfSstgpe5sY3UKPuYKK8U3d61xav16z47xA5h
+	tkNVX1vBm9t+GM0XpJtkUArdAr+6C0D6QPwa3LyJL5W3wePUH4pa4u9UPo+aiZ0VxHDbCXoe4qfJ4
+	E8Y2M6s9A8SopwISJUuliIWAcL2CXospZ4jCBSi0ba1Zs/HL4wyLHhGRHBuILPFIW3paG1eAzYhHw
+	AXd8m8CPomKQfchnKb7uAGftq4wK1SsdTGzKQsjqacjeCk0RsPVRrEJUUy3okfnQk1gM5l81agP/h
+	arzWLEHQ==;
+Received: from dhcp-077-249-017-003.chello.nl ([77.249.17.3] helo=worktop.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o1Elc-000Y9d-O5; Tue, 14 Jun 2022 22:12:08 +0000
+Received: by worktop.programming.kicks-ass.net (Postfix, from userid 1000)
+	id ED8F2981518; Wed, 15 Jun 2022 00:12:06 +0200 (CEST)
+Date: Wed, 15 Jun 2022 00:12:06 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Tony Lindgren <tony@atomide.com>
+Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
+	vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com,
+	linus.walleij@linaro.org, shawnguo@kernel.org,
+	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
+	festevam@gmail.com, linux-imx@nxp.com, khilman@kernel.org,
+	catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org,
+	bcain@quicinc.com, chenhuacai@kernel.org, kernel@xen0n.name,
+	geert@linux-m68k.org, sammy@sammy.net, monstr@monstr.eu,
+	tsbogend@alpha.franken.de, dinguyen@kernel.org, jonas@southpole.se,
+	stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
+	James.Bottomley@hansenpartnership.com, deller@gmx.de,
+	mpe@ellerman.id.au, benh@kernel.crashing.org, paulus@samba.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+	borntraeger@linux.ibm.com, svens@linux.ibm.com,
+	ysato@users.sourceforge.jp, dalias@libc.org, davem@davemloft.net,
+	richard@nod.at, anton.ivanov@cambridgegreys.com,
+	johannes@sipsolutions.net, tglx@linutronix.de, mingo@redhat.com,
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+	hpa@zytor.com, acme@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	namhyung@kernel.org, jgross@suse.com, srivatsa@csail.mit.edu,
+	amakhalov@vmware.com, pv-drivers@vmware.com,
+	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
+	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
+	gregkh@linuxfoundation.org, mturquette@baylibre.com,
+	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
+	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org,
+	anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
+	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>,
+	yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
+	linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com,
+	senozhatsky@chromium.org, john.ogness@linutronix.de,
+	paulmck@kernel.org, frederic@kernel.org, quic_neeraju@quicinc.com,
+	josh@joshtriplett.org, mathieu.desnoyers@efficios.com,
+	jiangshanlai@gmail.com, joel@joelfernandes.org,
+	juri.lelli@redhat.com, vincent.guittot@linaro.org,
+	dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de,
+	bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org,
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org,
+	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
+	rcu@vger.kernel.org
+Subject: Re: [PATCH 34.5/36] cpuidle,omap4: Push RCU-idle into
+ omap4_enter_lowpower()
+Message-ID: <YqkHto+zgAPs4kQI@worktop.programming.kicks-ass.net>
+References: <20220608142723.103523089@infradead.org>
+ <20220608144518.073801916@infradead.org>
+ <Yqcv6crSNKuSWoTu@atomide.com>
 MIME-Version: 1.0
-References: <20220527042937.1124009-1-atishp@rivosinc.com> <CAAhSdy3jpXO_a+ZWNCW_n28GQd9JGJdCsNruL7spC_aork6iqA@mail.gmail.com>
-In-Reply-To: <CAAhSdy3jpXO_a+ZWNCW_n28GQd9JGJdCsNruL7spC_aork6iqA@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 14 Jun 2022 13:20:03 -0700
-Message-ID: <CAOnJCUKY2hVygfPw0ZO-1j+L-zaoHk_HT=2FDsfoo6r6q77LNg@mail.gmail.com>
-Subject: Re: [PATCH v4 0/4] Add Sstc extension support
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atishp@rivosinc.com>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Jisheng Zhang <jszhang@kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Rob Herring <robh+dt@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_132016_645161_00FC2D9D 
-X-CRM114-Status: GOOD (  30.68  )
+Content-Disposition: inline
+In-Reply-To: <Yqcv6crSNKuSWoTu@atomide.com>
+X-Mailman-Approved-At: Tue, 14 Jun 2022 15:18:08 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,103 +123,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 9, 2022 at 9:53 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Fri, May 27, 2022 at 9:59 AM Atish Patra <atishp@rivosinc.com> wrote:
-> >
-> > This series implements Sstc extension support which was ratified recently.
-> > Before the Sstc extension, an SBI call is necessary to generate timer
-> > interrupts as only M-mode have access to the timecompare registers. Thus,
-> > there is significant latency to generate timer interrupts at kernel.
-> > For virtualized enviornments, its even worse as the KVM handles the SBI call
-> > and uses a software timer to emulate the timecomapre register.
-> >
-> > Sstc extension solves both these problems by defining a stimecmp/vstimecmp
-> > at supervisor (host/guest) level. It allows kernel to program a timer and
-> > recieve interrupt without supervisor execution enviornment (M-mode/HS mode)
-> > intervention.
-> >
-> > KVM directly updates the vstimecmp as well if the guest kernel invokes the SBI
-> > call instead of updating stimecmp directly. This is required because KVM will
-> > enable sstc extension if the hardware supports it unless the VMM explicitly
-> > disables it for that guest. The hardware is expected to compare the
-> > vstimecmp at every cycle if sstc is enabled and any stale value in vstimecmp
-> > will lead to spurious timer interrupts. This also helps maintaining the
-> > backward compatibility with older kernels.
-> >
-> > Similary, the M-mode firmware(OpenSBI) uses stimecmp for older kernel
-> > without sstc support as STIP bit in mip is read only for hardware with sstc.
-> >
-> > The PATCH 1 & 2 enables the basic infrastructure around Sstc extension while
-> > PATCH 3 lets kernel use the Sstc extension if it is available in hardware.
-> > PATCH 4 implements the Sstc extension in KVM.
-> >
-> > This series has been tested on Qemu(RV32 & RV64) with additional patches in
-> > Qemu[2]. This series can also be found at [3].
-> >
-> > Changes from v3->v4:
-> > 1. Rebased on 5.18-rc6
-> > 2. Unified vstimemp & next_cycles.
-> > 3. Addressed comments in PATCH 3 & 4.
-> >
-> > Changes from v2->v3:
-> > 1. Dropped unrelated KVM fixes from this series.
-> > 2. Rebased on 5.18-rc3.
-> >
-> > Changes from v1->v2:
-> > 1. Separate the static key from kvm usage
-> > 2. Makde the sstc specific static key local to the driver/clocksource
-> > 3. Moved the vstimecmp update code to the vcpu_timer
-> > 4. Used function pointers instead of static key to invoke vstimecmp vs
-> >    hrtimer at the run time. This will help in future for migration of vms
-> >    from/to sstc enabled hardware to non-sstc enabled hardware.
-> > 5. Unified the vstimer & timer to 1 timer as only one of them will be used
-> >    at runtime.
-> >
-> > [1] https://drive.google.com/file/d/1m84Re2yK8m_vbW7TspvevCDR82MOBaSX/view
-> > [2] https://github.com/atishp04/qemu/tree/sstc_v3
-> > [3] https://github.com/atishp04/linux/tree/sstc_v4
-> >
-> > Atish Patra (4):
-> > RISC-V: Add SSTC extension CSR details
-> > RISC-V: Enable sstc extension parsing from DT
-> > RISC-V: Prefer sstc extension if available
-> > RISC-V: KVM: Support sstc extension
->
-> Please don't forget to CC kvm-riscv mailing list for KVM RISC-V patches.
->
+On Mon, Jun 13, 2022 at 03:39:05PM +0300, Tony Lindgren wrote:
+> OMAP4 uses full SoC suspend modes as idle states, as such it needs the
+> whole power-domain and clock-domain code from the idle path.
+> 
+> All that code is not suitable to run with RCU disabled, as such push
+> RCU-idle deeper still.
+> 
+> Signed-off-by: Tony Lindgren <tony@atomide.com>
+> ---
+> 
+> Peter here's one more for your series, looks like this is needed to avoid
+> warnings similar to what you did for omap3.
 
-Sorry. My scripts did not pick up kvm-riscv for some reason.
-Fixed it.
+Thanks Tony!
 
-> We have a patchwork setup for KVM RISC-V will also miss a series if
-> patches are not CCed.
->
-> Regards,
-> Anup
->
-> >
-> > arch/riscv/include/asm/csr.h            |  11 ++
-> > arch/riscv/include/asm/hwcap.h          |   1 +
-> > arch/riscv/include/asm/kvm_vcpu_timer.h |   8 +-
-> > arch/riscv/include/uapi/asm/kvm.h       |   1 +
-> > arch/riscv/kernel/cpu.c                 |   1 +
-> > arch/riscv/kernel/cpufeature.c          |   1 +
-> > arch/riscv/kvm/main.c                   |  12 +-
-> > arch/riscv/kvm/vcpu.c                   |   5 +-
-> > arch/riscv/kvm/vcpu_timer.c             | 144 +++++++++++++++++++++++-
-> > drivers/clocksource/timer-riscv.c       |  24 +++-
-> > 10 files changed, 198 insertions(+), 10 deletions(-)
-> >
-> > --
-> > 2.25.1
-> >
+I've had a brief look at omap2_pm_idle() and do I understand it right
+that something like the below patch would reduce it to a simple 'WFI'?
 
+What do I do with the rest of that code, because I don't think this
+thing has a cpuidle driver to take over, effectively turning it into
+dead code.
 
-
---
-Regards,
-Atish
+--- a/arch/arm/mach-omap2/pm24xx.c
++++ b/arch/arm/mach-omap2/pm24xx.c
+@@ -126,10 +126,20 @@ static int omap2_allow_mpu_retention(voi
+ 	return 1;
+ }
+ 
+-static void omap2_enter_mpu_retention(void)
++static void omap2_do_wfi(void)
+ {
+ 	const int zero = 0;
+ 
++	/* WFI */
++	asm("mcr p15, 0, %0, c7, c0, 4" : : "r" (zero) : "memory", "cc");
++}
++
++#if 0
++/*
++ * possible cpuidle implementation between WFI and full_retention above
++ */
++static void omap2_enter_mpu_retention(void)
++{
+ 	/* The peripherals seem not to be able to wake up the MPU when
+ 	 * it is in retention mode. */
+ 	if (omap2_allow_mpu_retention()) {
+@@ -146,8 +157,7 @@ static void omap2_enter_mpu_retention(vo
+ 		pwrdm_set_next_pwrst(mpu_pwrdm, PWRDM_POWER_ON);
+ 	}
+ 
+-	/* WFI */
+-	asm("mcr p15, 0, %0, c7, c0, 4" : : "r" (zero) : "memory", "cc");
++	omap2_do_wfi();
+ 
+ 	pwrdm_set_next_pwrst(mpu_pwrdm, PWRDM_POWER_ON);
+ }
+@@ -161,6 +171,7 @@ static int omap2_can_sleep(void)
+ 
+ 	return 1;
+ }
++#endif
+ 
+ static void omap2_pm_idle(void)
+ {
+@@ -169,6 +180,7 @@ static void omap2_pm_idle(void)
+ 	if (omap_irq_pending())
+ 		return;
+ 
++#if 0
+ 	error = cpu_cluster_pm_enter();
+ 	if (error || !omap2_can_sleep()) {
+ 		omap2_enter_mpu_retention();
+@@ -179,6 +191,9 @@ static void omap2_pm_idle(void)
+ 
+ out_cpu_cluster_pm:
+ 	cpu_cluster_pm_exit();
++#else
++	omap2_do_wfi();
++#endif
+ }
+ 
+ static void __init prcm_setup_regs(void)
 
 _______________________________________________
 linux-riscv mailing list
