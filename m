@@ -4,84 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE18C43334
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 10:05:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AADC43334
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 10:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J7eJnOACmL/bIiTbTtCawWKVPkh0lU236ulvRWjqABI=; b=HYMVqKTmuN0y/y
-	v4tE4cmMQ1OYRaSQ/D434VezvOPYRwIHVbeRpC0UVJ78EGN5w9868BEVPFgAD+DM+4HlHXSrk6dGM
-	8+xD4Bwl4iIEludVjutcrefeKnS81mRJ3hCJfyOi7M6KztzbCia9wE/bHHD/rozsxz1AGkxi0/FXA
-	U3oiEC7SZ6s2CF9BAmAitINRg2A46qydl/2agUVlrjvLXF6VHwtwNNHLT1SQ0NXyzybMkawPb1sDZ
-	PuR0nOI0vY1eR5bku0l+iKegNHoSsY8FDD9C/0k3F+95iIsM1ZEm3y6zr+UUMDsU/y8iuO9rCPUO1
-	FB9FxEBuHQqobI2nz39Q==;
+	List-Owner; bh=3cDWx8RIRbEyjmixFZXV7i8yoDWPaC/tehH9b5r9HHg=; b=3qBj/3nHfSfj7Q
+	o+SLdvtdiqp7Va72GmJDyGt58R4Ui0woLxqpOHk8VtJ8QC4kCCjjDf/X+RdJq+pMlihb+os1xkXia
+	xIdKPl6uDg8UwOe6LTz70ykKRQ8gdnewJCu9Cxi/akfi0gebamencbJWOrle9RYDw4VVaW0kDTIQM
+	jFW4sNofj9kxROyReayeuhduvOe5fs9LY5oH5yU5IzI0m2tzIKqvupdy39guaSaBDMx+LjDDM8Tcl
+	5O1KU4ZA3GQ4GBa+UYxE1aGXasR0Z1eTFEEfCM597Ol/6BZAOXm1ZLC4XvpEejc5pudV62yEEnbDc
+	kdmwMLcymEmgtYkw7kFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1PtU-00DfkU-3S; Wed, 15 Jun 2022 10:05:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1o1Q3M-00Dk0v-7V; Wed, 15 Jun 2022 10:15:12 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1Psk-00DfRO-Gr; Wed, 15 Jun 2022 10:04:16 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 1870560ADC;
-	Wed, 15 Jun 2022 10:04:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29E9CC341C6;
-	Wed, 15 Jun 2022 10:04:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1655287453;
-	bh=qMHUliC6OQhBo7q9WDQGe2cH8qdN+43JlMt46VgcPdI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Tyzse1Cd3fjLm/gl7wC+IqzAGy+1IriofM5pf4qKXRRr+RD7XMP6qeeCQczv87bOW
-	 lZPIqlVimG2aFN3LhJn2n9oH4HTkX3+GvyG0SWWgmmT8xQPBpLRT80gpZdFAlNle8H
-	 0O/u+rQnIii6/pajDxyLuKVErE0YfU+qgZWcitjONsgOd5TvvCqnxNlZxtrUwFuqH2
-	 nhFUDabN0Ird/c6wpMi9ZCw6hqP4C5crCW9iL7yXFbg9ADs12XsVMtqCPAErkkbbkg
-	 1ifFJoC3paloF+AckRbYJBKxrGGp/nOUMPTPZxYthiK0A4pVA/hJZHReLEMhVQtSvs
-	 9Mg1PK0on1RmQ==
-Received: by mail-oi1-f175.google.com with SMTP id q11so14803285oih.10;
-        Wed, 15 Jun 2022 03:04:13 -0700 (PDT)
-X-Gm-Message-State: AOAM5310gWKrBVH3HgC3nPO0fHGDGrAdrII4/onCChw7Rs0ctnsZHAsu
-	MZtBOg/Khif+wCdio3mLqqzFnlfyXPFVR+Y1dc8=
-X-Google-Smtp-Source: AGRyM1uoryGCjOCIvlwgWz7+peQb+MFbP9xnQEX5bRMY6ahyU4equv8ziGQaSK27jXjDURN9dcuDuanaZNr23KVfwtM=
-X-Received: by 2002:a05:6870:e98b:b0:fe:219a:2449 with SMTP id
- r11-20020a056870e98b00b000fe219a2449mr5078024oao.228.1655287441873; Wed, 15
- Jun 2022 03:04:01 -0700 (PDT)
+	id 1o1Q3K-00Djz7-S6
+	for linux-riscv@bombadil.infradead.org; Wed, 15 Jun 2022 10:15:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=efPkYx0LzlhjjUyT3vFU9yA2v1wLteeYMERKQZflVEo=; b=AP0O+2dynyHhSJtSjsHdfYol10
+	VWEThjUOrFFbAPdPZcWGdJ/dFqj3uu1wbiBSNBwHX3y5Dd9gjJdgVNa7TmipD2GDvTW/25CwA4zWD
+	V+/gFF5aF9zZy5SvG8FX6fuhlekCOTwZh/0nkTPhIncMkJhSwZ22L/2z0rUlqq4Xjxg3hc1o8GwT2
+	n0Kgs6ms/NkxczdnBnZ9PcHRKsYJOMg1dpnujZ97w62DqJn6PHG8THPo/FDLIE4X3U8PWctH6vWI2
+	Oy1kahEXjcIHzjbnu60rEwmzWyvB879tIpjyG9JXnrEXCcf9xd+wDEkHRumLDvcwOdmhEIRuY5SFA
+	h9NiPhfg==;
+Received: from dhcp-077-249-017-003.chello.nl ([77.249.17.3] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o1Q3H-000y4v-HI; Wed, 15 Jun 2022 10:15:07 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 2516530023F;
+	Wed, 15 Jun 2022 12:15:07 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id EFAC9201A4F6D; Wed, 15 Jun 2022 12:15:06 +0200 (CEST)
+Date: Wed, 15 Jun 2022 12:15:06 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+Cc: Michael Jeanson <mjeanson@efficios.com>,
+	"Paul E . McKenney" <paulmck@kernel.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	linux-riscv <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 0/3] selftests/rseq: fixes for RISC-V and Glibc 2.35
+Message-ID: <YqmxKvckF2P14nKu@hirez.programming.kicks-ass.net>
+References: <20220614154830.1367382-1-mjeanson@efficios.com>
+ <581392317.60476.1655227129623.JavaMail.zimbra@efficios.com>
 MIME-Version: 1.0
-References: <20220614092156.1972846-1-mawupeng1@huawei.com>
- <20220614092156.1972846-2-mawupeng1@huawei.com> <YqmuQIpkY7TJHAh6@arm.com>
-In-Reply-To: <YqmuQIpkY7TJHAh6@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Wed, 15 Jun 2022 12:03:50 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXG+UgWeAVyh8CD5S0M4n2SKFGcP0ayOn41bKmyoVb8QXQ@mail.gmail.com>
-Message-ID: <CAMj1kXG+UgWeAVyh8CD5S0M4n2SKFGcP0ayOn41bKmyoVb8QXQ@mail.gmail.com>
-Subject: Re: [PATCH v5 1/5] efi: arm64: Introduce ability to find mirrored
- memory ranges
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Wupeng Ma <mawupeng1@huawei.com>, Jonathan Corbet <corbet@lwn.net>, Will Deacon <will@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Darren Hart <dvhart@infradead.org>, 
-	Andy Shevchenko <andy@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Kees Cook <keescook@chromium.org>, songmuchun@bytedance.com, 
-	Randy Dunlap <rdunlap@infradead.org>, damien.lemoal@opensource.wdc.com, 
-	Stephen Boyd <swboyd@chromium.org>, Wei Liu <wei.liu@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, David Hildenbrand <david@redhat.com>, 
-	Anshuman Khandual <anshuman.khandual@arm.com>, Zhen Lei <thunder.leizhen@huawei.com>, 
-	Kefeng Wang <wangkefeng.wang@huawei.com>, gpiccoli@igalia.com, 
-	Huacai Chen <chenhuacai@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, vijayb@linux.microsoft.com, 
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	linux-efi <linux-efi@vger.kernel.org>, platform-driver-x86@vger.kernel.org, 
-	Linux Memory Management List <linux-mm@kvack.org>, linux-riscv <linux-riscv@lists.infradead.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220615_030414_658803_B202EAAA 
-X-CRM114-Status: GOOD (  23.09  )
+Content-Disposition: inline
+In-Reply-To: <581392317.60476.1655227129623.JavaMail.zimbra@efficios.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +77,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jun 2022 at 12:02, Catalin Marinas <catalin.marinas@arm.com> wrote:
->
-> On Tue, Jun 14, 2022 at 05:21:52PM +0800, Wupeng Ma wrote:
-> > From: Ma Wupeng <mawupeng1@huawei.com>
-> >
-> > Commit b05b9f5f9dcf ("x86, mirror: x86 enabling - find mirrored memory
-> > ranges") introduce the efi_find_mirror() function on x86. In order to reuse
-> > the API we make it public.
-> >
-> > Arm64 can support mirrored memory too, so function efi_find_mirror() is added to
-> > efi_init() to this support for arm64.
-> >
-> > Since efi_init() is shared by ARM, arm64 and riscv, this patch will bring
-> > mirror memory support for these architectures, but this support is only tested
-> > in arm64.
-> >
-> > Signed-off-by: Ma Wupeng <mawupeng1@huawei.com>
-> > ---
-> >  arch/x86/include/asm/efi.h      |  4 ----
-> >  arch/x86/platform/efi/efi.c     | 23 -----------------------
-> >  drivers/firmware/efi/efi-init.c |  1 +
-> >  drivers/firmware/efi/efi.c      | 23 +++++++++++++++++++++++
-> >  include/linux/efi.h             |  3 +++
->
-> The subject prefix says "efi: arm64: " but it looks like x86 diffstat
-> here. You may want to get an ack from the x86 maintainers.
->
+On Tue, Jun 14, 2022 at 01:18:49PM -0400, Mathieu Desnoyers wrote:
+> ----- On Jun 14, 2022, at 11:48 AM, Michael Jeanson mjeanson@efficios.com wrote:
+> 
+> > The patch series allows running the rseq selftests on a Glibc 2.35
+> > system which has rseq support but no RSEQ_SIG defined for the RISC-V
+> > architecture.
+> > 
+> > The patches were tested on both Glibc 2.33 and 2.35.
+> 
+> For the whole series:
+> 
+> Reviewed-by: Mathieu Desnoyers <mathieu.desnoyers@efficios.com>
+> 
+> Peter, can you pick them up through your tree ?
 
-This just moves efi code around, and this is going through the EFI
-tree, so that should be fine. I'll fix the subject in any case,
-though.
+Sure, thanks!
 
 _______________________________________________
 linux-riscv mailing list
