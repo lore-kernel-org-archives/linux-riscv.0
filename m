@@ -4,65 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED055C43334
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 14:22:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F97C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 16:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mvsxD9467ABm76TXb9CCh0V1Jagc/SBAob5EFPnKIgM=; b=xdWm0ueAKLAprW
-	WBuiL89KM7ragGndpMnmFVlvT0q6rznE4IFbL3hIUaZ14HFWLMRqRcz4yO7+Wja45f8GIiPd8HX+w
-	MFCrnH7Zcc4TdTiDln0hvlD/6o/0i5U4Zc42AIx8+9rmfz/TE3uYn7X7OLebU+XoJEaHJLqPe2zEr
-	rrMIcBVYwanXapxDVypQFVZ2IIMatvBees7LY0nH3DhrDi6rRVdMa5W144FU+HR2nxMREB34rbY1k
-	7fyIWr/WlnpNUEvfew6BYBRMR+1sJn4QGGc3NSxLeVG6MRE+Q8m8WeorsJQEV1d3MvgvzrEJ7TNN1
-	hOj5gMR5vsvH05VTH63A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SGgxKskuajrTuIL6EtV3mGWF11HVHsFBjZaZ+WEW7r8=; b=vpxqg4widRNwV/
+	x2iD2izbpTt3XKRG/+DRf6R4oW6f3QAHHwkAMV1YZORiyveHyG0L7YeWPBpZ7ncQcZFPvcERcPolD
+	jVxHLa0aGspRm8mhQTi+YO/Xu/5oE2GGRF+5Lv0BbC3WAEF0l1t25UCmxH4Hmx8Y6usjy0EUMQMI1
+	gyTDQLHPvuTGuW7y43JWGeoYEbU1XUAVaOV4cKYiLJ3gg7MrNJfKNgA/FSP24KFPLog0VIGm5wNY4
+	0WjnM3FHhPEBGF5+YauxksHeHtFXFy40yr7vCSHs6i7zAJOoacfHXCRB14RTx9MIksz1j6OZ1FyuX
+	KH4BlCQAnBWMrGunpvhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1Tuw-00EvYR-Cf; Wed, 15 Jun 2022 14:22:46 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1o1WK4-00FX0m-BC; Wed, 15 Jun 2022 16:56:52 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1Tut-00EvUw-3d
-	for linux-riscv@lists.infradead.org; Wed, 15 Jun 2022 14:22:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1655302962; x=1686838962;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=9qyp6+bi5a1Nfggtjv4LRguWeuVmJJ6PLYs6RLiuRn4=;
-  b=Wq9UX5w25KxvEB+CIAY/Hjm1Iq1IU2MsjVfR3ZvzPBtIrBOH6PYSICAY
-   ksdwc6/2XtH4gjLRq+BLKAFQZge2lhhd1fQxmD1Y43j5bZeBsEOkcBGFY
-   LHwpJWnbLhKVKMBf51Mv94jj5ShhXDF/uy84wvOVy4VJI1VZVVpT/s1Yb
-   FBYkohwkIMXgBlHO930D1f3V1q0YMK8izsEwBD+kFvSqNdSyev/6MP4q7
-   IfRSSRkr0wSKc97yMtTV9VrmFsBhILKUOLfyON2Uenn+ga6irUlIWgoB2
-   oe4Ezw1UjZyZhKoXw5/vyNdNdyrTKThYites6CZf1Q/K581hVLXml6BxF
-   A==;
-X-IronPort-AV: E=Sophos;i="5.91,302,1647327600"; 
-   d="scan'208";a="178078168"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Jun 2022 07:22:38 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Wed, 15 Jun 2022 07:22:37 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
- Transport; Wed, 15 Jun 2022 07:22:35 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Mark Brown <broonie@kernel.org>
-CC: Daire McNamara <daire.mcnamara@microchip.com>, Lewis Hanly
-	<lewis.hanly@microchip.com>, Conor Dooley <conor.dooley@microchip.com>,
-	<linux-riscv@lists.infradead.org>, <linux-spi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Dan Carpenter <dan.carpenter@oracle.com>
-Subject: [PATCH v2] spi: microchip-core: fix passing zero to PTR_ERR warning
-Date: Wed, 15 Jun 2022 15:20:29 +0100
-Message-ID: <20220615142028.2991915-1-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.36.1
+	id 1o1WK1-00FWyo-0j
+	for linux-riscv@lists.infradead.org; Wed, 15 Jun 2022 16:56:50 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1o1WJt-0008LU-1G; Wed, 15 Jun 2022 18:56:41 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Christoph Hellwig <hch@lst.de>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com, philipp.tomsich@vrull.eu, hch@lst.de, samuel@sholland.org, atishp@atishpatra.org, anup@brainfault.org, mick@ics.forth.gr, robh+dt@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org, drew@beagleboard.org, Atish Patra <atish.patra@wdc.com>
+Subject: Re: [PATCH 2/3] riscv: Implement Zicbom-based cache management operations
+Date: Wed, 15 Jun 2022 18:56:40 +0200
+Message-ID: <110361853.nniJfEyVGO@diego>
+In-Reply-To: <20220610055608.GA24221@lst.de>
+References: <20220610004308.1903626-1-heiko@sntech.de> <20220610004308.1903626-3-heiko@sntech.de> <20220610055608.GA24221@lst.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220615_072243_252514_2F295DFE 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20220615_095649_107231_3F8B7B18 
+X-CRM114-Status: GOOD (  35.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,50 +58,171 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It is possible that the error case for devm_clk_get() returns NULL,
-in which case zero will be passed to PTR_ERR() as shown by the Smatch
-static checker warning:
-drivers/spi/spi-microchip-core.c:557 mchp_corespi_probe()
-warn: passing zero to 'PTR_ERR'
+Hi Christoph,
 
-Remove the NULL check and carry on with a dummy clock in case of an
-error. To avoid a potential div zero, abort calculating clkgen if
-clk_get_rate(spi->clk) is zero.
+Am Freitag, 10. Juni 2022, 07:56:08 CEST schrieb Christoph Hellwig:
+> On Fri, Jun 10, 2022 at 02:43:07AM +0200, Heiko Stuebner wrote:
+> > +config RISCV_ISA_ZICBOM
+> > +	bool "Zicbom extension support for non-coherent dma operation"
+> > +	select ARCH_HAS_DMA_PREP_COHERENT
+> > +	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
+> > +	select ARCH_HAS_SYNC_DMA_FOR_CPU
+> > +	select ARCH_HAS_SETUP_DMA_OPS
+> > +	select DMA_DIRECT_REMAP
+> > +	select RISCV_ALTERNATIVE
+> > +	default y
+> > +	help
+> > +	   Adds support to dynamically detect the presence of the ZICBOM extension
+> 
+> Overly long line here.
 
-Fixes: 9ac8d17694b6 ("spi: add support for microchip fpga spi controllers")
-Reported-by: Dan Carpenter <dan.carpenter@oracle.com>
-Link: https://lore.kernel.org/linux-spi/20220615091633.GI2168@kadam/
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-v2: drop the NULL check entirely rather than returning -ENXIO if NULL
----
- drivers/spi/spi-microchip-core.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+fixed
 
-diff --git a/drivers/spi/spi-microchip-core.c b/drivers/spi/spi-microchip-core.c
-index 5b2aee30fa04..d866a831104c 100644
---- a/drivers/spi/spi-microchip-core.c
-+++ b/drivers/spi/spi-microchip-core.c
-@@ -433,6 +433,8 @@ static int mchp_corespi_calculate_clkgen(struct mchp_corespi *spi,
- 	unsigned long clk_hz, spi_hz, clk_gen;
- 
- 	clk_hz = clk_get_rate(spi->clk);
-+	if (!clk_hz)
-+		return -EINVAL;
- 	spi_hz = min(target_hz, clk_hz);
- 
- 	/*
-@@ -553,7 +555,7 @@ static int mchp_corespi_probe(struct platform_device *pdev)
- 	}
- 
- 	spi->clk = devm_clk_get(&pdev->dev, NULL);
--	if (!spi->clk || IS_ERR(spi->clk)) {
-+	if (IS_ERR(spi->clk)) {
- 		ret = PTR_ERR(spi->clk);
- 		dev_err(&pdev->dev, "could not get clk: %d\n", ret);
- 		goto error_release_master;
--- 
-2.36.1
+> 
+> > +	   (Cache Block Management Operations) and enable its usage.
+> > +
+> > +	   If you don't know what to do here, say Y.
+> 
+> But more importantly I think the whole text here is not very helpful.
+> What users care about is non-coherent DMA support.  What extension is
+> used for that is rather secondary.
+
+I guess it might make sense to split that in some way.
+I.e. Zicbom provides one implementation for handling non-coherence,
+the D1 uses different (but very similar) instructions while the SoC on the
+Beagle-V does something completely different.
+
+So I guess it could make sense to have a general DMA_NONCOHERENT option
+and which gets selected by the relevant users.
+
+This also fixes the issue that Zicbom needs a very new binutils
+but if beagle-v support happens that wouldn't need that.
+
+
+> Also please capitalize DMA.
+
+fixed
+
+> > +void arch_sync_dma_for_device(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
+> > +{
+> > +	switch (dir) {
+> > +	case DMA_TO_DEVICE:
+> > +		ALT_CMO_OP(CLEAN, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> > +		break;
+> > +	case DMA_FROM_DEVICE:
+> > +		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> > +		break;
+> > +	case DMA_BIDIRECTIONAL:
+> > +		ALT_CMO_OP(FLUSH, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> > +		break;
+> > +	default:
+> > +		break;
+> > +	}
+> 
+> Pleae avoid all these crazy long lines.  and use a logical variable
+> for the virtual address.  And why do you pass that virtual address
+> as an unsigned long to ALT_CMO_OP?  You're going to make your life
+> much easier if you simply always pass a pointer.
+
+fixed all of those.
+And of course you're right, not having the cast when calling ALT_CMO_OP
+makes things definitly a lot nicer looking.
+
+> Last but not last, does in RISC-V clean mean writeback and flush mean
+> writeback plus invalidate?  If so the code is correct, but the choice
+> of names in the RISC-V spec is extremely unfortunate.
+
+clean: 
+    makes data [...] visible to a set of non-coherent agents [...] by
+    performing a write transfer of a copy of a cache block [...]
+
+flush:
+    performs a clean followed by an invalidate
+
+So that's a yes to your question
+
+> > +void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
+> > +{
+> > +	switch (dir) {
+> > +	case DMA_TO_DEVICE:
+> > +		break;
+> > +	case DMA_FROM_DEVICE:
+> > +	case DMA_BIDIRECTIONAL:
+> > +		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
+> > +		break;
+> > +	default:
+> > +		break;
+> > +	}
+> > +}
+> 
+> Same comment here and in few other places.
+
+fixed
+
+> > +
+> > +void arch_dma_prep_coherent(struct page *page, size_t size)
+> > +{
+> > +	void *flush_addr = page_address(page);
+> > +
+> > +	memset(flush_addr, 0, size);
+> > +	ALT_CMO_OP(FLUSH, (unsigned long)flush_addr, size, riscv_cbom_block_size);
+> > +}
+> 
+> arch_dma_prep_coherent should never zero the memory, that is left
+> for the upper layers.`
+
+fixed
+
+> > +void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> > +		const struct iommu_ops *iommu, bool coherent)
+> > +{
+> > +	/* If a specific device is dma-coherent, set it here */
+> 
+> This comment isn't all that useful.
+
+ok, I've dropped it
+
+> > +	dev->dma_coherent = coherent;
+> > +}
+> 
+> But more importantly, this assums that once this code is built all
+> devices are non-coherent by default.  I.e. with this patch applied
+> and the config option enabled we'll now suddenly start doing cache
+> management operations or setups that didn't do it before.
+
+If I'm reading things correctly [0], the default for those functions
+is for those to be empty - but defined in the coherent case.
+
+When you look at the definition of ALT_CMO_OP
+
+#define ALT_CMO_OP(_op, _start, _size, _cachesize)                      \
+asm volatile(ALTERNATIVE_2(                                             \
+        __nops(6),                                                      \
+
+ you'll see that it's default variant is to do nothing and it doing any
+non-coherency voodoo is only patched in if the Zicbom extension
+(or T-Head errata) is detected at runtime.
+
+So in the coherent case (with the memset removed as you suggested),
+the arch_sync_dma_* and arch_dma_prep_coherent functions end up as
+something like
+
+void arch_dma_prep_coherent(struct page *page, size_t size)
+{
+        void *flush_addr = page_address(page);
+
+        nops(6);
+}
+
+which is very mich similar to the defaults [0] I guess, or am I
+overlooking something?
+
+Thanks for taking the time for that review
+Heiko
+
+
+[0] https://elixir.bootlin.com/linux/latest/source/include/linux/dma-map-ops.h#L293
+
 
 
 _______________________________________________
