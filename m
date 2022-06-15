@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 538E5C43334
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 22:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF74C43334
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 22:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EmQd/fwZ8vyo4Gei8dAqtXqCpglM2cFx1ZqJevMHWDo=; b=r/EYP0F0Mb97Co
-	u8VKij1U5+4NoMcqQdH10P8SDoBcP0A4q8wGzf7s16YMWtqQtTRkUn/3+rlYBpIpePLJUxuM8rOt7
-	k5993E2lxzWUaqvMFx3x9P7wOczyRBQUUnXKq64uwyf3tf+Bs17eS5Yqo26FDyyJ78TXPPGLBgtU0
-	j5Cf8O/NzwJ4Fn7AknJMdiIhLbHoaRy8aDiSOJRNHwBy0YAnFyDPZ8oUW5wQQK3JXaJxuiojCo0zc
-	d/itP9wWMnf91d/0qYHVuNJ/65Lschs2wKbMZphGel8vFqTQzxVTmjftWscxmGBDju41TmIOil3qq
-	a2O9Z3KRE07GPpK9ktvg==;
+	List-Owner; bh=NktDEq6dLDsJn11EpdWz5lK/bJ6I9UBXxfjTb/urYcg=; b=KtuezKQNp8Cri1
+	vERX+HfIuzTTKL9leP0EjKGrdQ2e5lz6cw/hslRr3V0C+BXBpzSPF9weGcZtxtHQC/rmFyLMeiWRh
+	mYyyv6xTyL6oXys06mFfc8rOQlGoqgJ2nItyLkrf2b3IHrsRE0WVHHClYWnf65g5VmDc7dbp10XhM
+	9mf+rRHCE90WYn4da+6c9YLGRqOWJWN9pYf6oTtvgaPt+SIkLIXTueBm4N5FxC/dgqgwDXInisyMW
+	jdELmWugIOFpCix1oNLEcCWDLHNZi1S4MloTw6dax0bTSmiR5/g8NLuYr9Qsr5SzdMKkC4/C2O9I7
+	mlyXR4CQ4l2AYNF8AH+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1bkj-00Gidv-86; Wed, 15 Jun 2022 22:44:45 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1o1blk-00Gixo-2i; Wed, 15 Jun 2022 22:45:48 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1bkX-00Gia4-5l
-	for linux-riscv@lists.infradead.org; Wed, 15 Jun 2022 22:44:35 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-31756c8143aso27165827b3.12
-        for <linux-riscv@lists.infradead.org>; Wed, 15 Jun 2022 15:44:30 -0700 (PDT)
+	id 1o1blh-00Givb-At
+	for linux-riscv@lists.infradead.org; Wed, 15 Jun 2022 22:45:47 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id p13so23045365ybm.1
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Jun 2022 15:45:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc;
-        bh=4tavlAUV9j8wy9Y5ZQvNo9SbXkg+xPmAoMXm4I/5xKc=;
-        b=aZNQ5xMgIiG+HULjGPsz/c4fuu1pIiVq25bbPs0kP7PT4TVBMUXWXxCb+XdLlboNiS
-         BY1QO9YbEkE1ucrqKunLlScMzaeQjou00OCPBM4w+t5MZQLjUIxAd7DQQBe7lKb1FOG+
-         c5NGYsihwrfO1Ad6GDXI18YoVHjQaZ+S2FCfah4pFm6qevntRpdMtuxzgJO8y299+li5
-         Gqz5VJ4/8kRzkg8gMQO32Vz1ItJbqloXo35C1YbgSSBn/9u/TCyYr1NOYhdJhHFkYht2
-         DpG6H7EHtm3JLFKAXgoVXB5PaPGNQANnNBqDYGif7OcNDRf0fXUlmM6+kwFRCJtliAI8
-         CZoA==
+        bh=X8+a2zZKIj/GtmJwqSU0W0MYPsjmVC81gP6O4UILy8o=;
+        b=XJnEYrchJw1Rq4K5WVjj7rOzvRPpNcNN1PQ9tSQfa2mwqPWQvqYrJmRQsqkT+SYSrJ
+         WjLbN9YHasQIXtLcYr/dbvtQg47a42VWIaLJCt9aQSC382uStfHdNaOWZydyAFUl2o2w
+         bcCrCZflksICSsl6dPkg1PD50oNnFImak6uzMlrTJ4y6jlIHlCs5wrterWRjk91Tg58V
+         fuFbX09HHdPLtB7idWYkSLDBa71Cd/2j4QgMhjeD/T4YGse+VrNlmKlC8qf/SDR8aPmu
+         yWQkauon+RqSgnzg7nNR250SpKVcd17669CfwbRI2kFMA1QwhfjjUO52p0xqiLV5GvE+
+         Qg5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=4tavlAUV9j8wy9Y5ZQvNo9SbXkg+xPmAoMXm4I/5xKc=;
-        b=L7KF1JVz0yOybP2qD0GkL2APi/JyicMb+Fzx0o9iGeYkQhxlo4Aj847As549Gd17yH
-         PCOu7GiVThCHcVwQrO+RKEZIGOT9QRpEpQsQoeMN0d+HeugOa9g6pQgZAakXdtj1PtyH
-         qp6i5AM41lID0WwsVIB/pweijX8DDgVW9MAo5I42B8HzmcYIMFAgYxcXDgI/xfdrQ6VH
-         cG5Z7KHI09wDG1OtCzpaoZxv5J0b6kjsvAxbfTa923O1a1+rCRBRoKxsXmm1k5VKIyhm
-         wfxt/kDRirn83pb4qEV8/VJQsvZ86/mBrG8AmHPDKLd3W1q3qV87eVcJZIO9p/YOVk/e
-         WuSQ==
-X-Gm-Message-State: AJIora/9O+XerZag1X+AU/8RzjDrVADDOYRdCyJw2LdI8mDW3+XnwNoX
-	C0E71L1r/2g5VoFsrbKKG8VE6cIr5wDUw70K6bwIvw==
-X-Google-Smtp-Source: AGRyM1stRFtj29Af2h8WR1JcITwxs/W78sA8TWkUE/45znWIrRL39l5SwaqbU8gHEq2Pk+V2tvNYYWtmYMer5uWOrHY=
-X-Received: by 2002:a81:8707:0:b0:314:1c64:eb4d with SMTP id
- x7-20020a818707000000b003141c64eb4dmr2323993ywf.86.1655333069287; Wed, 15 Jun
- 2022 15:44:29 -0700 (PDT)
+        bh=X8+a2zZKIj/GtmJwqSU0W0MYPsjmVC81gP6O4UILy8o=;
+        b=OtbXA6nf4EUaDoYenucB6rBEkR4mlvfnEiK3UpyeFH0cwLGYLhJDMJg8QNKsg/Kvnu
+         Cum2Y8CxDqbNyalPtkrc5fhF1sJd21bd7dKmBdWo9nVG955kQZqGP/QLLrm9J0hSs2co
+         s5dD03O++p96Z0oJN9ssyAdswiPVWQuFyk5ZIEK2gxuxSHLPqeNFq0tkAvPLyFjGvVFx
+         S1fwoOyCg7Zvo73WErB8c4x/Ab1uU+WUG6dckXAbqukYSqyc5o9SalfInxLh5yp7RaN8
+         UotCT1p1x+YJ1a3SLTST4vDZwXymEtaG7npdyUtgeD/gzbxdEwN4Ubzd2lTyIweJ2N4I
+         qPQg==
+X-Gm-Message-State: AJIora+hvyx/7HR8hADPNav1cDqHJcatb/Yvm7wfVKd2f0JN5QyIw7bW
+	zbncOGJAHJBldC5zXiLkDmcQDN8bnZMlnayUB6tY7PAGrOM2zg==
+X-Google-Smtp-Source: AGRyM1s8FY2JLJ8TIScIkSnOgk4Fe+EfkTNwdHsakv9y09Lu53/E22zOkARaMvgTwZauohkpcn6k3wuHT1ndZvFuLRA=
+X-Received: by 2002:a25:bed0:0:b0:664:b4af:5bc9 with SMTP id
+ k16-20020a25bed0000000b00664b4af5bc9mr2281060ybm.424.1655333141514; Wed, 15
+ Jun 2022 15:45:41 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220525081416.3306043-12-sudeep.holla@arm.com>
  <20220525081416.3306043-13-sudeep.holla@arm.com> <20220525081416.3306043-14-sudeep.holla@arm.com>
@@ -65,8 +65,8 @@ References: <20220525081416.3306043-12-sudeep.holla@arm.com>
  <20220615170033.q4og4pnmpwdg3l2g@bogus>
 In-Reply-To: <20220615170033.q4og4pnmpwdg3l2g@bogus>
 From: Vincent Guittot <vincent.guittot@linaro.org>
-Date: Thu, 16 Jun 2022 00:44:17 +0200
-Message-ID: <CAKfTPtCeox-qjaoXqOawaghZDwsKBF6FBPENFtsQSb2r6JPy2w@mail.gmail.com>
+Date: Thu, 16 Jun 2022 00:45:29 +0200
+Message-ID: <CAKfTPtA9jHpRzd=czTvLo9vYFoaDSg79WuW2K5utZ5q4xVvdMw@mail.gmail.com>
 Subject: Re: [PATCH v3 15/16] arch_topology: Set cluster identifier in each
  core/thread from /cpu-map
 To: Sudeep Holla <sudeep.holla@arm.com>
@@ -76,8 +76,8 @@ Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
 	Rob Herring <robh+dt@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220615_154433_308022_4CA4C222 
-X-CRM114-Status: GOOD (  58.98  )
+X-CRM114-CacheID: sfid-20220615_154545_449252_019C11D9 
+X-CRM114-Status: GOOD (  57.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,6 +102,10 @@ On Wed, 15 Jun 2022 at 19:01, Sudeep Holla <sudeep.holla@arm.com> wrote:
 > concerns, but deferring it until we agree on the hardware topology view
 > which is user visible and how that impacts sched domain topology can be
 > considered soon following that.
+
+On my side, what i'm really interested in, it's the hardware topology
+reported to the scheduler
+
 >
 > On Tue, Jun 14, 2022 at 07:59:23PM +0200, Vincent Guittot wrote:
 > > On Fri, 10 Jun 2022 at 12:27, Sudeep Holla <sudeep.holla@arm.com> wrote:
@@ -160,16 +164,6 @@ On Wed, 15 Jun 2022 at 19:01, Sudeep Holla <sudeep.holla@arm.com> wrote:
 > or example as what you are referring as dynamiQ. Also what you mean by
 > dynamiQ not shown on ACPI while shown with DT systems. If there is any
 > discrepancies, we need to fix.
-
-The cpu-map node in DT is following the dynamiQ or the legacy
-big.LITTLE topology. As an example  the hikey6220 has 2 clusters, the
-hikey960 has 2 clusters that reflect big.LITTLE and the sdm845 has one
-cluster that reflects the dynamiQ cluster.
-
-now my mistake is to have made the assumption that core_sibling is
-arch_topology was used to reflect the cores sharing cache but after
-looking more deeply in the code it seems to be a lucky coincidence
-
 >
 > Now, what I refer as discrepancy for example on Juno is below:
 > (value read from a subset of per cpu sysfs files)
