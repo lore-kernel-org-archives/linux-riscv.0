@@ -4,52 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 193F3C433EF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6FA7C43334
 	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 15:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dIslEMy1uFVTfLpcgBMBDC8UsEnZmIyoHAKXrZop2Ks=; b=iBtDmXZ6aXnZPw
-	lo0OSVFkjISj7nPVZXPcUZuxEdFcmUY01Wt4wP4cTmpW7YkykIzE2jc8uwbznfC9nqu5X8VLvMrwi
-	4DYvXQDh+0QP3E6SQYRpFxpvyIwjzKRRogNBvkdIvnw0MKjqULjEy1aTcUsz1vrBz1SlRDJwCtx+U
-	vSEWT0GQuSMoDlUbmkP+GhxYhKTxleEKdc5XOI8a+hqVeFxvoQYbxI3IUsqfZLGqKqZK5/Ynusvoh
-	H6wE1YPtLmmXHEPILAhD0BVc0HDS3O6HgDXI8ug4CgjfF4neFp37FmO200Jhf3z3JBFAPiIz58S1E
-	OitBZ+ABCJNDD+v93GNg==;
+	List-Owner; bh=GjTZnJszk2K5n6Mn7z7X9YmrXyJ4jKvd3R4ujGqKJUs=; b=fezJL+NsP1RMPT
+	tflfvx26z1pVNGeqv7vUmNgcAWvbfSCU6XhhRA/R0HMRnKMvRRxrzRfBX76QH3akID6204/6ov6Vf
+	+vJA+yfOS6i86U8bDU6APuAYwqqKp8iXAwzUevackOr3SRYceynv/c5Z2Bmh4WyThReeJnmSpufM2
+	BH1o+E1PvA60cwBCuqNrROhvEpe+0gc9ijnh3FW+2t2omapYmFP7NX9cykGeIhjmwhmeabQgrI4oK
+	8VNQuX0H97139wQXphTMeE0LU8tW/VivKRaqjFngoWyD/pJgO6HreG4/mdCrNjNg+wHmDBY6O0Jpx
+	VI/h+bZaynYV7WTPyoEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1r6S-0038l0-RS; Thu, 16 Jun 2022 15:08:12 +0000
-Received: from muru.com ([72.249.23.125])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1Lgu-00Cfln-I2; Wed, 15 Jun 2022 05:35:47 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by muru.com (Postfix) with ESMTPS id 6EE2B80AE;
-	Wed, 15 Jun 2022 05:30:54 +0000 (UTC)
-Date: Wed, 15 Jun 2022 08:35:38 +0300
-From: Tony Lindgren <tony@atomide.com>
+	id 1o1r6R-0038ks-7V; Thu, 16 Jun 2022 15:08:11 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o1H8q-00BwHc-WE; Wed, 15 Jun 2022 00:44:18 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 02329B81A43;
+	Wed, 15 Jun 2022 00:44:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F6D3C3411F;
+	Wed, 15 Jun 2022 00:44:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1655253852;
+	bh=rcjBHcwDa3Vvz9ae34yYid9fcwgrK1WVNSLCfZ/KP5E=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=fdhcRapfOZeMu89rXN1F9+PFgQBw1jq2TFCvdWilZKBPl7d60xoaf+Z1BoVI71oyo
+	 RqJwT7IyOmWKrdq1gGthk/wr5qRLVQoB8lFuH3bhpG8v28ehqFht7ixYYEHPsMm9AB
+	 B8Nl92yiOr67Th9tcRyEPi0fRLrSpOhoRzoC/T6UuHa5X12CLk5h++1bfLpyoCHqB+
+	 fvK77b4d+EdbOzzr1aIJ1u6gTHC44L8QS8SaSAp9SKbflwgVl3VgsZCvB9XatY8lhL
+	 9YwdPZU6iL7l0pnNRdqWmeOhCsfxrQ+i6D2NKXEGZhl5QpSSUjx5BoIk0tcHaLBiwv
+	 bedv5BuhTNO6Q==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 327DD5C0BCC; Tue, 14 Jun 2022 17:44:12 -0700 (PDT)
+Date: Tue, 14 Jun 2022 17:44:12 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
 To: Peter Zijlstra <peterz@infradead.org>
 Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
 	vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com,
 	linus.walleij@linaro.org, shawnguo@kernel.org,
 	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
-	festevam@gmail.com, linux-imx@nxp.com, khilman@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org,
-	bcain@quicinc.com, chenhuacai@kernel.org, kernel@xen0n.name,
-	geert@linux-m68k.org, sammy@sammy.net, monstr@monstr.eu,
-	tsbogend@alpha.franken.de, dinguyen@kernel.org, jonas@southpole.se,
-	stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
-	James.Bottomley@hansenpartnership.com, deller@gmx.de,
-	mpe@ellerman.id.au, benh@kernel.crashing.org, paulus@samba.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
-	borntraeger@linux.ibm.com, svens@linux.ibm.com,
-	ysato@users.sourceforge.jp, dalias@libc.org, davem@davemloft.net,
-	richard@nod.at, anton.ivanov@cambridgegreys.com,
-	johannes@sipsolutions.net, tglx@linutronix.de, mingo@redhat.com,
-	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
-	hpa@zytor.com, acme@kernel.org, mark.rutland@arm.com,
+	festevam@gmail.com, linux-imx@nxp.com, tony@atomide.com,
+	khilman@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+	guoren@kernel.org, bcain@quicinc.com, chenhuacai@kernel.org,
+	kernel@xen0n.name, geert@linux-m68k.org, sammy@sammy.net,
+	monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org,
+	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
+	shorne@gmail.com, James.Bottomley@HansenPartnership.com,
+	deller@gmx.de, mpe@ellerman.id.au, benh@kernel.crashing.org,
+	paulus@samba.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, hca@linux.ibm.com, gor@linux.ibm.com,
+	agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+	svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org,
+	davem@davemloft.net, richard@nod.at,
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	acme@kernel.org, mark.rutland@arm.com,
 	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
 	namhyung@kernel.org, jgross@suse.com, srivatsa@csail.mit.edu,
 	amakhalov@vmware.com, pv-drivers@vmware.com,
@@ -63,7 +80,7 @@ Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
 	yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
 	linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com,
 	senozhatsky@chromium.org, john.ogness@linutronix.de,
-	paulmck@kernel.org, frederic@kernel.org, quic_neeraju@quicinc.com,
+	frederic@kernel.org, quic_neeraju@quicinc.com,
 	josh@joshtriplett.org, mathieu.desnoyers@efficios.com,
 	jiangshanlai@gmail.com, joel@joelfernandes.org,
 	juri.lelli@redhat.com, vincent.guittot@linaro.org,
@@ -84,21 +101,17 @@ Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
 	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
 	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
 	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
-	rcu@vger.kernel.org, Peter Vasil <petervasil@gmail.com>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>
-Subject: Re: [PATCH 34.5/36] cpuidle,omap4: Push RCU-idle into
- omap4_enter_lowpower()
-Message-ID: <YqlvqhdlFsNvUBeG@atomide.com>
+	rcu@vger.kernel.org
+Subject: Re: [PATCH 16/36] rcu: Fix rcu_idle_exit()
+Message-ID: <20220615004412.GA5766@paulmck-ThinkPad-P17-Gen-1>
 References: <20220608142723.103523089@infradead.org>
- <20220608144518.073801916@infradead.org>
- <Yqcv6crSNKuSWoTu@atomide.com>
- <YqkHto+zgAPs4kQI@worktop.programming.kicks-ass.net>
+ <20220608144516.935970247@infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <YqkHto+zgAPs4kQI@worktop.programming.kicks-ass.net>
+In-Reply-To: <20220608144516.935970247@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_223544_682396_77DEF8C4 
-X-CRM114-Status: GOOD (  30.10  )
+X-CRM114-CacheID: sfid-20220614_174417_382508_CCA123B8 
+X-CRM114-Status: GOOD (  17.65  )
 X-Mailman-Approved-At: Thu, 16 Jun 2022 08:08:10 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,123 +124,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: paulmck@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Adding Aaro Koskinen and Peter Vasil for pm24xx for n800 and n810 related
-idle.
-
-* Peter Zijlstra <peterz@infradead.org> [220614 22:07]:
-> On Mon, Jun 13, 2022 at 03:39:05PM +0300, Tony Lindgren wrote:
-> > OMAP4 uses full SoC suspend modes as idle states, as such it needs the
-> > whole power-domain and clock-domain code from the idle path.
-> > 
-> > All that code is not suitable to run with RCU disabled, as such push
-> > RCU-idle deeper still.
-> > 
-> > Signed-off-by: Tony Lindgren <tony@atomide.com>
-> > ---
-> > 
-> > Peter here's one more for your series, looks like this is needed to avoid
-> > warnings similar to what you did for omap3.
+On Wed, Jun 08, 2022 at 04:27:39PM +0200, Peter Zijlstra wrote:
+> Current rcu_idle_exit() is terminally broken because it uses
+> local_irq_{save,restore}(), which are traced which uses RCU.
 > 
-> Thanks Tony!
+> However, now that all the callers are sure to have IRQs disabled, we
+> can remove these calls.
 > 
-> I've had a brief look at omap2_pm_idle() and do I understand it right
-> that something like the below patch would reduce it to a simple 'WFI'?
+> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> Acked-by: Paul E. McKenney <paulmck@kernel.org>
 
-Yes that should do for omap2_do_wfi().
+We have some fun conflicts between this series and Frederic's context-tracking
+series.  But it looks like these can be resolved by:
 
-> What do I do with the rest of that code, because I don't think this
-> thing has a cpuidle driver to take over, effectively turning it into
-> dead code.
+1.	A patch on top of Frederic's series that provides the old rcu_*()
+	names for the functions now prefixed with ct_*() such as
+	ct_idle_exit().
 
-As we are establishing a policy where deeper idle states must be
-handled by cpuidle, and for most part that has been the case for at least
-10 years, I'd just drop the unused functions with an explanation in the
-patch why we're doing it. Or the functions could be tagged with
-__maybe_unused if folks prefer that.
+2.	Another patch on top of Frederic's series that takes the
+	changes remaining from this patch, shown below.  Frederic's
+	series uses raw_local_irq_save() and raw_local_irq_restore(),
+	which can then be removed.
 
-In the pm24xx case we are not really causing a regression for users as
-there are still pending patches to make n800 and n810 truly usable with
-the mainline kernel. At least the PMIC and LCD related patches need some
-work [0]. The deeper idle states can be added back later using cpuidle
-as needed so we have a clear path.
+Or is there a better way to do this?
 
-Aaro & Peter V, do you have any better suggestions here as this will
-mostly affect you guys currently?
+							Thanx, Paul
 
-Regards,
+------------------------------------------------------------------------
 
-Tony
+commit f64cee8c159e9863a74594efe3d33fb513a6a7b5
+Author: Peter Zijlstra <peterz@infradead.org>
+Date:   Tue Jun 14 17:24:43 2022 -0700
 
-[0] https://lore.kernel.org/linux-omap/20211224214512.1583430-1-peter.vasil@gmail.com/
+    context_tracking: Interrupts always disabled for ct_idle_exit()
+    
+    Now that the idle-loop cleanups have ensured that rcu_idle_exit() is
+    always invoked with interrupts disabled, remove the interrupt disabling
+    in favor of a debug check.
+    
+    Signed-off-by: Peter Zijlstra <peterz@infradead.org>
+    Cc: Frederic Weisbecker <frederic@kernel.org>
+    Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
 
-
-> --- a/arch/arm/mach-omap2/pm24xx.c
-> +++ b/arch/arm/mach-omap2/pm24xx.c
-> @@ -126,10 +126,20 @@ static int omap2_allow_mpu_retention(voi
->  	return 1;
->  }
->  
-> -static void omap2_enter_mpu_retention(void)
-> +static void omap2_do_wfi(void)
->  {
->  	const int zero = 0;
->  
-> +	/* WFI */
-> +	asm("mcr p15, 0, %0, c7, c0, 4" : : "r" (zero) : "memory", "cc");
-> +}
-> +
-> +#if 0
-> +/*
-> + * possible cpuidle implementation between WFI and full_retention above
-> + */
-> +static void omap2_enter_mpu_retention(void)
-> +{
->  	/* The peripherals seem not to be able to wake up the MPU when
->  	 * it is in retention mode. */
->  	if (omap2_allow_mpu_retention()) {
-> @@ -146,8 +157,7 @@ static void omap2_enter_mpu_retention(vo
->  		pwrdm_set_next_pwrst(mpu_pwrdm, PWRDM_POWER_ON);
->  	}
->  
-> -	/* WFI */
-> -	asm("mcr p15, 0, %0, c7, c0, 4" : : "r" (zero) : "memory", "cc");
-> +	omap2_do_wfi();
->  
->  	pwrdm_set_next_pwrst(mpu_pwrdm, PWRDM_POWER_ON);
->  }
-> @@ -161,6 +171,7 @@ static int omap2_can_sleep(void)
->  
->  	return 1;
->  }
-> +#endif
->  
->  static void omap2_pm_idle(void)
->  {
-> @@ -169,6 +180,7 @@ static void omap2_pm_idle(void)
->  	if (omap_irq_pending())
->  		return;
->  
-> +#if 0
->  	error = cpu_cluster_pm_enter();
->  	if (error || !omap2_can_sleep()) {
->  		omap2_enter_mpu_retention();
-> @@ -179,6 +191,9 @@ static void omap2_pm_idle(void)
->  
->  out_cpu_cluster_pm:
->  	cpu_cluster_pm_exit();
-> +#else
-> +	omap2_do_wfi();
-> +#endif
->  }
->  
->  static void __init prcm_setup_regs(void)
+diff --git a/kernel/context_tracking.c b/kernel/context_tracking.c
+index 1da44803fd319..99310cf5b0254 100644
+--- a/kernel/context_tracking.c
++++ b/kernel/context_tracking.c
+@@ -332,11 +332,8 @@ EXPORT_SYMBOL_GPL(ct_idle_enter);
+  */
+ void noinstr ct_idle_exit(void)
+ {
+-	unsigned long flags;
+-
+-	raw_local_irq_save(flags);
++	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !raw_irqs_disabled());
+ 	ct_kernel_enter(false, RCU_DYNTICKS_IDX - CONTEXT_IDLE);
+-	raw_local_irq_restore(flags);
+ }
+ EXPORT_SYMBOL_GPL(ct_idle_exit);
+ 
 
 _______________________________________________
 linux-riscv mailing list
