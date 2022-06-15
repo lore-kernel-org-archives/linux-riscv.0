@@ -4,161 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA96CC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 21:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA72C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 21:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+W9qgB7VZ/XZTVOBpDpeM4z+GiszRk0ypS673KF6q+c=; b=TWVuBOvvPFaqJl
-	XX/k3+AfPVsc2aRQNkZqGnP/etl/eZeQjHje/ywfPCFF+CBDdoL4z1qajwX8o5utYR6caBzS6S6zn
-	tCTL7ApzOdFUa9/WOwYrox97O0YmmBREI8nzS/NavKCF/HQMHrcozYbatDBENyqAPbgAazRgtdbcS
-	sex2uSgyM5PJpBj0W9ziYShzaUiUW0Ay+jwqE3YxmI4rOmYT/wIXojep0tGfAR6PF5JI5SgsIDRDK
-	4TMEfD3DOyVtfmmEOSZ9lO5cmINzj1H559JxvjvQqOcUGzWwiIObHQbHihU0a0MTfswI8JklBMsQd
-	Ds27EPNgdXaCBcGZaa2g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=N0vCagtQlxC0hrZ2xoAZAcj0FbxDReR2omuvlBH/xdI=; b=gCGYCQUd4ZTVov
+	sFI5Cig6G1a3m8YDS4caD8Rgpyl0vFNpKciJ8Udf5uLZIk6m9/HC6Bkh9a1odfE8nlhkaECKNuVBq
+	zywdjq21O61zPN/PKXnCuy5d8ZBn7RqVyjUOQq2njdyoo8dypwACXe5jwU9LZqeXc4PKyI3LKMIeP
+	NRe7IA3+vGEYNgYbDGQxtRxVXMa33J7tppBna8VA/yjtTOsS3kdva4qoj+0xwyYvCyyoJFVKeyc1P
+	jBDmKgBphPFlLBKVeOnfITcFuvkGxAgJbJDubNMJpglythhBjwc3T2peJjIHCzZXv/vfJqUMcNltK
+	RYx5r33RgFAClZroc71g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1abt-00GSYu-OB; Wed, 15 Jun 2022 21:31:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1o1aj9-00GUGQ-Hy; Wed, 15 Jun 2022 21:39:03 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1abo-00GSW5-Ju; Wed, 15 Jun 2022 21:31:30 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 206FF617C0;
-	Wed, 15 Jun 2022 21:31:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA8F8C3411A;
-	Wed, 15 Jun 2022 21:31:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1655328687;
-	bh=h/A3iOsL+jSiXeun+GclseG7VDKI7T9E6iC83VBXQmc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jRcv7OdG8w6WZvKDmpHu4ZTNDPKNmUeNwkF/5kyOU3kogbTfbnziKBi4Jemy89mPK
-	 VB9ZLSW8Ef+8WhlhpERgKh3C4AwlLVT0YSGP+NZY7Y8aQQnRCCTfxkla/ct4P4xzOS
-	 m384ySKBIIAd638YYDqCOcxaXX3uj/4hJTyxkYvLHgkuIFRDDkI8+xZ2gKK6GJvocM
-	 p6WIsw8yQJAavGl0gEUO2R8b7panqmJ9rBrYblYA0mmSsjYt6gOUgcj3KHSNIx9Iq4
-	 CevdQYGBbuq+VVg9ZAfGZt1g9BYutIbzx1PyMaX9HpjQg/PQYxJc+gN2u0EeJbcuw0
-	 5w3ycwJy5spww==
-Date: Thu, 16 Jun 2022 00:29:18 +0300
-From: "jarkko@kernel.org" <jarkko@kernel.org>
-To: "hch@lst.de" <hch@lst.de>
-Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
-	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
-	"mcgrof@kernel.org" <mcgrof@kernel.org>,
-	"svens@linux.ibm.com" <svens@linux.ibm.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"jpoimboe@kernel.org" <jpoimboe@kernel.org>,
-	"paulus@samba.org" <paulus@samba.org>,
-	"zepan@sipeed.com" <zepan@sipeed.com>,
-	"iii@linux.ibm.com" <iii@linux.ibm.com>,
-	"deller@gmx.de" <deller@gmx.de>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"anemo@mba.ocn.ne.jp" <anemo@mba.ocn.ne.jp>,
-	"egorenar@linux.ibm.com" <egorenar@linux.ibm.com>,
-	"ast@kernel.org" <ast@kernel.org>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"mpe@ellerman.id.au" <mpe@ellerman.id.au>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"npiggin@gmail.com" <npiggin@gmail.com>,
-	"thomas.lendacky@amd.com" <thomas.lendacky@amd.com>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"luis.machado@linaro.org" <luis.machado@linaro.org>,
-	"ebiederm@xmission.com" <ebiederm@xmission.com>,
-	"mbenes@suse.cz" <mbenes@suse.cz>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"jniethe5@gmail.com" <jniethe5@gmail.com>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"andreyknvl@gmail.com" <andreyknvl@gmail.com>,
-	"dja@axtens.net" <dja@axtens.net>,
-	"liaochang1@huawei.com" <liaochang1@huawei.com>,
-	"linux-modules@vger.kernel.org" <linux-modules@vger.kernel.org>,
-	"huschle@linux.ibm.com" <huschle@linux.ibm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"James.Bottomley@hansenpartnership.com" <James.Bottomley@hansenpartnership.com>,
-	"song@kernel.org" <song@kernel.org>,
-	"guoren@kernel.org" <guoren@kernel.org>,
-	"nathan@kernel.org" <nathan@kernel.org>,
-	"dave.anglin@bell.net" <dave.anglin@bell.net>,
-	"rostedt@goodmis.org" <rostedt@goodmis.org>,
-	"atomlin@redhat.com" <atomlin@redhat.com>,
-	"bristot@redhat.com" <bristot@redhat.com>,
-	"naveen.n.rao@linux.ibm.com" <naveen.n.rao@linux.ibm.com>,
-	"anup@brainfault.org" <anup@brainfault.org>,
-	"javierm@redhat.com" <javierm@redhat.com>,
-	"linux@roeck-us.net" <linux@roeck-us.net>,
-	"linus.walleij@linaro.org" <linus.walleij@linaro.org>,
-	"philipp.tomsich@vrull.eu" <philipp.tomsich@vrull.eu>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"ndesaulniers@google.com" <ndesaulniers@google.com>,
-	"samitolvanen@google.com" <samitolvanen@google.com>,
-	"yangtiezhu@loongson.cn" <yangtiezhu@loongson.cn>,
-	"aneesh.kumar@linux.ibm.com" <aneesh.kumar@linux.ibm.com>,
-	"geert@linux-m68k.org" <geert@linux-m68k.org>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"heiko@sntech.de" <heiko@sntech.de>,
-	"nathaniel@profian.com" <nathaniel@profian.com>,
-	"michael.roth@amd.com" <michael.roth@amd.com>,
-	"rmk+kernel@armlinux.org.uk" <rmk+kernel@armlinux.org.uk>,
-	"Sakkinen, Jarkko" <jarkko@profian.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"wangkefeng.wang@huawei.com" <wangkefeng.wang@huawei.com>,
-	"tmricht@linux.ibm.com" <tmricht@linux.ibm.com>,
-	"hca@linux.ibm.com" <hca@linux.ibm.com>,
-	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
-	"gor@linux.ibm.com" <gor@linux.ibm.com>,
-	"atishp@atishpatra.org" <atishp@atishpatra.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"dmitry.torokhov@gmail.com" <dmitry.torokhov@gmail.com>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"kirill.shutemov@linux.intel.com" <kirill.shutemov@linux.intel.com>,
-	"sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
-	"nico@fluxnic.net" <nico@fluxnic.net>,
-	"masahiroy@kernel.org" <masahiroy@kernel.org>,
-	"agordeev@linux.ibm.com" <agordeev@linux.ibm.com>,
-	"kernel@esmil.dk" <kernel@esmil.dk>,
-	"ashimida@linux.alibaba.com" <ashimida@linux.alibaba.com>,
-	"elver@google.com" <elver@google.com>,
-	"keescook@chromium.org" <keescook@chromium.org>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"mhiramat@kernel.org" <mhiramat@kernel.org>,
-	"Keshavamurthy, Anil S" <anil.s.keshavamurthy@intel.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"chenzhongjin@huawei.com" <chenzhongjin@huawei.com>,
-	"andrealmeid@igalia.com" <andrealmeid@igalia.com>,
-	"changbin.du@intel.com" <changbin.du@intel.com>,
-	"benh@kernel.crashing.org" <benh@kernel.crashing.org>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>
-Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
-Message-ID: <YqpPLqW6/AWEQhGr@iki.fi>
-References: <YqAy0qjI4Lktk/uJ@iki.fi>
- <20220608232115.ccd4399f4a1d133e9b65c2a9@kernel.org>
- <CAPhsuW6iUieQvA6KqzSLgtxmjkVSWCuVwNA338DATb_myHxo7w@mail.gmail.com>
- <CAPhsuW6BzUtqnjvaGJScXRpghs0_V_phpdyd4_oAKhvmkX-GFw@mail.gmail.com>
- <YqEF6+YKqCHsWZJW@bombadil.infradead.org>
- <20220609034852.GA30873@lst.de>
- <YqH0iEgsi6+bwS3x@bombadil.infradead.org>
- <e7dedb9086193ca7682edc10fabc4195894e5146.camel@intel.com>
- <Yqh/5nn0AhdwaCm8@iki.fi>
- <20220615063707.GA22930@lst.de>
+	id 1o1aj6-00GUFQ-SC
+	for linux-riscv@lists.infradead.org; Wed, 15 Jun 2022 21:39:02 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id k12-20020a17090a404c00b001eaabc1fe5dso3402282pjg.1
+        for <linux-riscv@lists.infradead.org>; Wed, 15 Jun 2022 14:38:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=gC84s41Zaxxa1lPfDnoe4PzMOU98OViDZBtfZzfaxqE=;
+        b=hak3x7CQPOZ17oTZdiDXTakM0+LsHCGPgAKyehraVf4cuOt1nroXU1A3ocqe5bqgoq
+         pRTnUTa68gzzNmy9DT6XQmey0U5d1UgEWvxtjuA/oT4yvVwO1+cKscli/cnB+CBHGxVY
+         TnkTIw6VwwcS6Ui4ak7hreRoJwj0vBEwwXF5NYgGV9Kuuy8NeUVHrMRK7rMTyGJ8aZRD
+         /ZJbcvYTkf38YAOYAUcZU8Yl79oYJbmfjKogdOGadPfO+Tx4fViND3cTScC98H6yZh6m
+         WVjObg0be3Ij9xFgNxZgA4UncoAbJEXGy1LGLgg1acVjeNDVhxIao8m7XKVLxVsPbalw
+         PXmQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=gC84s41Zaxxa1lPfDnoe4PzMOU98OViDZBtfZzfaxqE=;
+        b=yNumDUg6tt1Wc2VJzmNHc6L3SjyGG6ak2ZpCEdwG/mc+fRHF4Q2mtcszwGpHMiZJQq
+         nsMVY+kB2e3RIBrrKiCb0jUwhVVyELgup9KVzLdRRn0/mDb/JrIZKYTmuukGOaDIZVaz
+         GktbP1Gj3IpLohNZmu35kpvvTqTWYDmEdhI3eBgRJnAY6sXWwOHAIcHvc48vJJtXYpKL
+         mi1KmgeXBB1fDaaLKql6J2lsDybjUrpb8OlSzaMdJXGrUuqQECeICRpNAiv11hovqNQ/
+         RUUDsiuPVE8S8HWnvcASKNRSGKwsJ9mAKXXAkcsgDDGKAQ17L+yua4z5lGkexZ3tsjVZ
+         MewQ==
+X-Gm-Message-State: AJIora8eDZ/RwBpmRAFkeONKMsiugAVmrkUSBXvt+Hnua+l4SHxoL3Wa
+	m+K4vywBg5dW8k9Hd4+J+ob2pQ==
+X-Google-Smtp-Source: AGRyM1vK4XSotEPkhRtgiK9nP+9n2opB+jjdjVDdP638l86ZVB2PevwkmqsA9lvLXKLEbH6TR0GS6w==
+X-Received: by 2002:a17:90b:1bc1:b0:1e6:9a00:5d63 with SMTP id oa1-20020a17090b1bc100b001e69a005d63mr12160399pjb.154.1655329139462;
+        Wed, 15 Jun 2022 14:38:59 -0700 (PDT)
+Received: from daolu.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id je11-20020a170903264b00b0016223016d79sm100757plb.90.2022.06.15.14.38.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 15 Jun 2022 14:38:58 -0700 (PDT)
+From: Dao Lu <daolu@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Dao Lu <daolu@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Guo Ren <guoren@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Kees Cook <keescook@chromium.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Tong Tiangen <tongtiangen@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Changbin Du <changbin.du@intel.com>,
+	Vincent Chen <vincent.chen@sifive.com>,
+	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
+	linux-efi@vger.kernel.org (open list:EXTENSIBLE FIRMWARE INTERFACE (EFI))
+Subject: [PATCH] arch/riscv: Add support for STACKLEAK gcc plugin
+Date: Wed, 15 Jun 2022 14:38:29 -0700
+Message-Id: <20220615213834.3116135-1-daolu@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220615063707.GA22930@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220615_143128_777646_B6686B61 
-X-CRM114-Status: GOOD (  24.27  )
+X-CRM114-CacheID: sfid-20220615_143900_982090_52BC5834 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,40 +99,129 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 15, 2022 at 08:37:07AM +0200, hch@lst.de wrote:
-> On Tue, Jun 14, 2022 at 03:32:38PM +0300, jarkko@kernel.org wrote:
-> > > Like say for a next step we moved prog pack out of bpf into core code,
-> > > gave it it's own copy of module_alloc(), and then made kprobes use it.
-> > > Then we would have something with improved W^X guard rails, and kprobes
-> > > would not depend on modules anymore. I think maybe it's a step in the
-> > > right direction, even if it's not perfect.
-> > 
-> > So you're saying that I should (as a first step) basically clone
-> > module_alloc() implementation for kprobes, and future for BPF 
-> > use, in order to get a clean starting point?
-> 
-> I don't think cloning the code helps anyone.  The fact that except
-> for the eBPF mess everyone uses module_alloc and the related
-> infrastructure is a feature and not a bug.  The interface should
-> become better than what we have right now, but there is few enough
-> users that this can be done in one go.
-> 
-> So assuming we really care deeply enough about fancy tracing without
-> modules (and I'm not sure we do, even if you don't use modules it
-> doesn't hurt to just build the modules code, I do that all the time
-> for my test machines), the general approach in your series is the
-> right one.
+This adds support for STACKLEAK gcc plugin to ricv by implementing
+stackleak_check_alloca, based heavily on the arm64 version, and adding
+the two helpers used by the stackleak common code:
+current_top_of_stack() and on_thread_stack(). This also adds the missing
+helper functions for riscv, on_stack() and on_task_stack().
+Additionally, this disables the plugin for EFI stub code for riscv.
 
-OK, thanks for the elaboration!
+Signed-off-by: Dao Lu <daolu@rivosinc.com>
+---
+ arch/riscv/Kconfig                    |  1 +
+ arch/riscv/include/asm/processor.h    | 18 ++++++++++++++++++
+ arch/riscv/include/asm/stacktrace.h   | 27 +++++++++++++++++++++++++++
+ arch/riscv/kernel/entry.S             |  3 +++
+ drivers/firmware/efi/libstub/Makefile |  2 +-
+ 5 files changed, 50 insertions(+), 1 deletion(-)
 
-However I bake it, I doubt that next version is going to be the final
-version, given all the angles. Therefore, I mostly Christophe's
-suggestions on compilation flags, and also split this into per-arch
-patches.
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index c22f58155948..22aa146acd25 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -80,6 +80,7 @@ config RISCV
+ 	select HAVE_ARCH_MMAP_RND_BITS if MMU
+ 	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+ 	select HAVE_ARCH_SECCOMP_FILTER
++	select HAVE_ARCH_STACKLEAK
+ 	select HAVE_ARCH_TRACEHOOK
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
+ 	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index 21c8072dce17..3a7505ab7f58 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -85,6 +85,24 @@ int riscv_of_parent_hartid(struct device_node *node);
+ extern void riscv_fill_hwcap(void);
+ extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
+ 
++/*
++ * For CONFIG_GCC_PLUGIN_STACKLEAK
++ *
++ * These need to be macros because otherwise we get stuck in a nightmare
++ * of header definitions for the use of task_stack_page.
++ */
++
++struct stack_info {
++	unsigned long low;
++	unsigned long high;
++};
++
++/*
++ * The top of the current task's task stack
++ */
++#define current_top_of_stack()	((unsigned long)current->stack + THREAD_SIZE)
++#define on_thread_stack()	(on_task_stack(current, current_stack_pointer, 1, NULL))
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _ASM_RISCV_PROCESSOR_H */
+diff --git a/arch/riscv/include/asm/stacktrace.h b/arch/riscv/include/asm/stacktrace.h
+index 3450c1912afd..afb66b677b6a 100644
+--- a/arch/riscv/include/asm/stacktrace.h
++++ b/arch/riscv/include/asm/stacktrace.h
+@@ -16,4 +16,31 @@ extern void notrace walk_stackframe(struct task_struct *task, struct pt_regs *re
+ extern void dump_backtrace(struct pt_regs *regs, struct task_struct *task,
+ 			   const char *loglvl);
+ 
++static inline bool on_stack(unsigned long sp, unsigned long size,
++			    unsigned long low, unsigned long high,
++			    struct stack_info *info)
++{
++	if (!low)
++		return false;
++
++	if (sp < low || sp + size < sp || sp + size > high)
++		return false;
++
++	if (info) {
++		info->low = low;
++		info->high = high;
++	}
++	return true;
++}
++
++static inline bool on_task_stack(const struct task_struct *tsk,
++				 unsigned long sp, unsigned long size,
++				 struct stack_info *info)
++{
++	unsigned long low = (unsigned long)task_stack_page(tsk);
++	unsigned long high = low + THREAD_SIZE;
++
++	return on_stack(sp, size, low, high, info);
++}
++
+ #endif /* _ASM_RISCV_STACKTRACE_H */
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 2e5b88ca11ce..65d441cb560f 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -264,6 +264,9 @@ ret_from_exception:
+ 	bnez s0, resume_kernel
+ 
+ resume_userspace:
++#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
++	call stackleak_erase
++#endif
+ 	/* Interrupts must be disabled here so flags are checked atomically */
+ 	REG_L s0, TASK_TI_FLAGS(tp) /* current_thread_info->flags */
+ 	andi s1, s0, _TIF_WORK_MASK
+diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+index d0537573501e..5e1fc4f82883 100644
+--- a/drivers/firmware/efi/libstub/Makefile
++++ b/drivers/firmware/efi/libstub/Makefile
+@@ -25,7 +25,7 @@ cflags-$(CONFIG_ARM)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+ 				   -fno-builtin -fpic \
+ 				   $(call cc-option,-mno-single-pic-base)
+ cflags-$(CONFIG_RISCV)		:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+-				   -fpic
++				   -fpic $(DISABLE_STACKLEAK_PLUGIN)
+ 
+ cflags-$(CONFIG_EFI_GENERIC_STUB) += -I$(srctree)/scripts/dtc/libfdt
+ 
+-- 
+2.25.1
 
-That should be at least to the right direction.
-
-BR, Jarkko
 
 _______________________________________________
 linux-riscv mailing list
