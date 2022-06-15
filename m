@@ -4,139 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B4D9C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 06:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8CA4C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 07:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6km3PFZ/bmORP6AscgXhExNgwjFF573w9RgD1laLr4Y=; b=nW4uJJa2qgQwwz
-	4LbLkv0L9MSB8Th8nYEsKapLsL9eUucNQJAnVH6A8dRrZMd8GXvOhQpSCexE/jvhv7LjIBx9C48Nf
-	F0ttmQOOdYXDsOen+IVCMVwGOOtWtMC7x5sM0GH9CBJtNi6FDxLni3hLqm+mF3zeBTwVjuoQM344X
-	VBX+bWpYCrh5c3XrBVFr9P1AlvrDte7ppIaAlIo0qoUi91/RimEAIyh827VAqnnQR9qDWqyDCYEnQ
-	AcU2SqZ8Q4dhkpaAABoh1FOTFdWhrLEjicz57UX4Tkfl2HUL5kcyqgTUstctnPYHSeZ+V4cwECLGO
-	pVYRUEHKR5uMx+qlKxjA==;
+	List-Owner; bh=t7MOvrF+MKJ//PwS4mBceJfwmwS8CuFy+S9B+k9HoYk=; b=yTigJ91EqqOvYf
+	xYR/TEQXs6A643c6gJfG7dYwwUw1yWcoFyxbGVpsXm2WcGRIPUmBqZdmO+MxwW6Pcme/xGhaVd3HH
+	Z/XRK2gxLgpJtwMBghS+Q9ZMMXI6n1hDGTB8aiRpR5o8seBNyL3Tgex3yw1pgqm7N1Sv7GTvt0iYC
+	psZHhCaMaZRXOvkK8dt5CzorI4ANHqsjwuDh+ZqTRd3jPx9aRm/63p33WmAIqEJXhtTk/H95b6sCo
+	o2WGE3pxdvWPy0L9k0QKOtsoqY8irlDQZT3EjCta4jHhifgArh8HhTFOhP1X2gegwKzXpDSf+Ro2r
+	UZO2Z7MYqtyqhi2Vr/cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1MeV-00Csgn-54; Wed, 15 Jun 2022 06:37:19 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1o1NrM-00D7XS-RL; Wed, 15 Jun 2022 07:54:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1MeR-00Csfe-MM; Wed, 15 Jun 2022 06:37:17 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id D469067373; Wed, 15 Jun 2022 08:37:07 +0200 (CEST)
-Date: Wed, 15 Jun 2022 08:37:07 +0200
-From: "hch@lst.de" <hch@lst.de>
-To: "jarkko@kernel.org" <jarkko@kernel.org>
-Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
-	"hch@lst.de" <hch@lst.de>,
-	"christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
-	"mcgrof@kernel.org" <mcgrof@kernel.org>,
-	"svens@linux.ibm.com" <svens@linux.ibm.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"jpoimboe@kernel.org" <jpoimboe@kernel.org>,
-	"paulus@samba.org" <paulus@samba.org>,
-	"zepan@sipeed.com" <zepan@sipeed.com>,
-	"iii@linux.ibm.com" <iii@linux.ibm.com>,
-	"deller@gmx.de" <deller@gmx.de>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"anemo@mba.ocn.ne.jp" <anemo@mba.ocn.ne.jp>,
-	"egorenar@linux.ibm.com" <egorenar@linux.ibm.com>,
-	"ast@kernel.org" <ast@kernel.org>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"mpe@ellerman.id.au" <mpe@ellerman.id.au>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
-	"npiggin@gmail.com" <npiggin@gmail.com>,
-	"thomas.lendacky@amd.com" <thomas.lendacky@amd.com>,
-	"bp@alien8.de" <bp@alien8.de>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"x86@kernel.org" <x86@kernel.org>,
-	"luis.machado@linaro.org" <luis.machado@linaro.org>,
-	"ebiederm@xmission.com" <ebiederm@xmission.com>,
-	"mbenes@suse.cz" <mbenes@suse.cz>,
-	"mingo@redhat.com" <mingo@redhat.com>,
-	"jniethe5@gmail.com" <jniethe5@gmail.com>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"andreyknvl@gmail.com" <andreyknvl@gmail.com>,
-	"dja@axtens.net" <dja@axtens.net>,
-	"liaochang1@huawei.com" <liaochang1@huawei.com>,
-	"linux-modules@vger.kernel.org" <linux-modules@vger.kernel.org>,
-	"huschle@linux.ibm.com" <huschle@linux.ibm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"James.Bottomley@hansenpartnership.com" <James.Bottomley@hansenpartnership.com>,
-	"song@kernel.org" <song@kernel.org>,
-	"guoren@kernel.org" <guoren@kernel.org>,
-	"nathan@kernel.org" <nathan@kernel.org>,
-	"dave.anglin@bell.net" <dave.anglin@bell.net>,
-	"rostedt@goodmis.org" <rostedt@goodmis.org>,
-	"atomlin@redhat.com" <atomlin@redhat.com>,
-	"bristot@redhat.com" <bristot@redhat.com>,
-	"naveen.n.rao@linux.ibm.com" <naveen.n.rao@linux.ibm.com>,
-	"anup@brainfault.org" <anup@brainfault.org>,
-	"javierm@redhat.com" <javierm@redhat.com>,
-	"linux@roeck-us.net" <linux@roeck-us.net>,
-	"linus.walleij@linaro.org" <linus.walleij@linaro.org>,
-	"philipp.tomsich@vrull.eu" <philipp.tomsich@vrull.eu>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"ndesaulniers@google.com" <ndesaulniers@google.com>,
-	"samitolvanen@google.com" <samitolvanen@google.com>,
-	"yangtiezhu@loongson.cn" <yangtiezhu@loongson.cn>,
-	"aneesh.kumar@linux.ibm.com" <aneesh.kumar@linux.ibm.com>,
-	"geert@linux-m68k.org" <geert@linux-m68k.org>,
-	"hpa@zytor.com" <hpa@zytor.com>,
-	"heiko@sntech.de" <heiko@sntech.de>,
-	"nathaniel@profian.com" <nathaniel@profian.com>,
-	"michael.roth@amd.com" <michael.roth@amd.com>,
-	"rmk+kernel@armlinux.org.uk" <rmk+kernel@armlinux.org.uk>,
-	"Sakkinen, Jarkko" <jarkko@profian.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
-	"wangkefeng.wang@huawei.com" <wangkefeng.wang@huawei.com>,
-	"tmricht@linux.ibm.com" <tmricht@linux.ibm.com>,
-	"hca@linux.ibm.com" <hca@linux.ibm.com>,
-	"linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
-	"gor@linux.ibm.com" <gor@linux.ibm.com>,
-	"atishp@atishpatra.org" <atishp@atishpatra.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"dmitry.torokhov@gmail.com" <dmitry.torokhov@gmail.com>,
-	"tglx@linutronix.de" <tglx@linutronix.de>,
-	"kirill.shutemov@linux.intel.com" <kirill.shutemov@linux.intel.com>,
-	"sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	"tsbogend@alpha.franken.de" <tsbogend@alpha.franken.de>,
-	"nico@fluxnic.net" <nico@fluxnic.net>,
-	"masahiroy@kernel.org" <masahiroy@kernel.org>,
-	"agordeev@linux.ibm.com" <agordeev@linux.ibm.com>,
-	"kernel@esmil.dk" <kernel@esmil.dk>,
-	"ashimida@linux.alibaba.com" <ashimida@linux.alibaba.com>,
-	"elver@google.com" <elver@google.com>,
-	"keescook@chromium.org" <keescook@chromium.org>,
-	"peterz@infradead.org" <peterz@infradead.org>,
-	"mhiramat@kernel.org" <mhiramat@kernel.org>,
-	"Keshavamurthy, Anil S" <anil.s.keshavamurthy@intel.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"chenzhongjin@huawei.com" <chenzhongjin@huawei.com>,
-	"andrealmeid@igalia.com" <andrealmeid@igalia.com>,
-	"changbin.du@intel.com" <changbin.du@intel.com>,
-	"benh@kernel.crashing.org" <benh@kernel.crashing.org>,
-	"linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>
-Subject: Re: [PATCH] kprobes: Enable tracing for mololithic kernel images
-Message-ID: <20220615063707.GA22930@lst.de>
-References: <CAJF2gTQgCn2CyZ4+VBqEEBT2b4+1KxoEXxrd+Ritk=58+U8EFA@mail.gmail.com> <YqAy0qjI4Lktk/uJ@iki.fi> <20220608232115.ccd4399f4a1d133e9b65c2a9@kernel.org> <CAPhsuW6iUieQvA6KqzSLgtxmjkVSWCuVwNA338DATb_myHxo7w@mail.gmail.com> <CAPhsuW6BzUtqnjvaGJScXRpghs0_V_phpdyd4_oAKhvmkX-GFw@mail.gmail.com> <YqEF6+YKqCHsWZJW@bombadil.infradead.org> <20220609034852.GA30873@lst.de> <YqH0iEgsi6+bwS3x@bombadil.infradead.org> <e7dedb9086193ca7682edc10fabc4195894e5146.camel@intel.com> <Yqh/5nn0AhdwaCm8@iki.fi>
+	id 1o1NrA-00D7SH-Fy; Wed, 15 Jun 2022 07:54:29 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0C7AA61917;
+	Wed, 15 Jun 2022 07:54:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84DCFC341C0;
+	Wed, 15 Jun 2022 07:54:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1655279666;
+	bh=VM9JsnNuaNSKfXw3/W5PC+ryw2B8xnjrM3+SbaLRwlY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HGl2tA+QFedQio6WLQwpcsHPnnA1J6C5L1sRmDLoeb3aoI8ASmSAQZPpx3dpnJQiI
+	 pDOcKbh0vMtfkMxkcx4TlTVvIJUrjr76Cw1solVGw/gRLRYWv3JlY6Lq9MmxVxT5j/
+	 bkbcToCwXmrl3xvOw9GSJTg2DmPekpNmHTRPDzapkdq/a3RdN3rabGuDhMuStcQS6x
+	 VwlN1I1cwKuDoqdyORjIwz6SNT2g6+KyOxR+MKurRsgXM+YaKexJa5CjJYGmPn3H1V
+	 DFahL1shyawETgdZ0mzky2SzjljSvbv90h7cW6JEneyZ1UqvKnIQa24J2Jm+ovL4uY
+	 0sx+LrZ32kNwg==
+Date: Wed, 15 Jun 2022 10:54:10 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Wupeng Ma <mawupeng1@huawei.com>
+Cc: corbet@lwn.net, will@kernel.org, ardb@kernel.org,
+	catalin.marinas@arm.com, tglx@linutronix.de, mingo@redhat.com,
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+	hpa@zytor.com, dvhart@infradead.org, andy@infradead.org,
+	akpm@linux-foundation.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, paulmck@kernel.org,
+	keescook@chromium.org, songmuchun@bytedance.com,
+	rdunlap@infradead.org, damien.lemoal@opensource.wdc.com,
+	swboyd@chromium.org, wei.liu@kernel.org, robin.murphy@arm.com,
+	david@redhat.com, anshuman.khandual@arm.com,
+	thunder.leizhen@huawei.com, wangkefeng.wang@huawei.com,
+	gpiccoli@igalia.com, chenhuacai@kernel.org, geert@linux-m68k.org,
+	vijayb@linux.microsoft.com, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-efi@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+	linux-mm@kvack.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 0/5] introduce mirrored memory support for arm64
+Message-ID: <YqmQIpQ8hzxYkMv2@kernel.org>
+References: <20220614092156.1972846-1-mawupeng1@huawei.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Yqh/5nn0AhdwaCm8@iki.fi>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+In-Reply-To: <20220614092156.1972846-1-mawupeng1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_233716_067118_FFA769BD 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20220615_005428_609425_4E4EDACF 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,28 +85,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 14, 2022 at 03:32:38PM +0300, jarkko@kernel.org wrote:
-> > Like say for a next step we moved prog pack out of bpf into core code,
-> > gave it it's own copy of module_alloc(), and then made kprobes use it.
-> > Then we would have something with improved W^X guard rails, and kprobes
-> > would not depend on modules anymore. I think maybe it's a step in the
-> > right direction, even if it's not perfect.
+On Tue, Jun 14, 2022 at 05:21:51PM +0800, Wupeng Ma wrote:
+> From: Ma Wupeng <mawupeng1@huawei.com>
 > 
-> So you're saying that I should (as a first step) basically clone
-> module_alloc() implementation for kprobes, and future for BPF 
-> use, in order to get a clean starting point?
+> Patch #1 introduce mirrored memory support form arm64.
+> Patch #2-#4 fix some bugs for arm64 if memory reliable is enabled.
+> Patch #5 disable mirror feature if kernelcore is not specified.
+> 
+> Thanks to Ard Biesheuvel's hard work [1], now kernel will perfer mirrored
+> memory if kaslr is enabled.
+> 
+> [1] https://lore.kernel.org/linux-arm-kernel/CAMj1kXEPVEzMgOM4+Yj6PxHA-jFuDOAUdDJSiSxy_XaP4P7LSw@mail.gmail.com/T/
+> 
+> 
+> Ma Wupeng (5):
+>   efi: arm64: Introduce ability to find mirrored memory ranges
+>   mm: Ratelimited mirrored memory related warning messages
+>   mm: Limit warning message in vmemmap_verify() to once
+>   arm64: mm: Only remove nomap flag for initrd
+>   memblock: Disable mirror feature if kernelcore is not specified
+> 
+>  arch/arm64/mm/init.c            |  2 +-
+>  arch/x86/include/asm/efi.h      |  4 ----
+>  arch/x86/platform/efi/efi.c     | 23 -----------------------
+>  drivers/firmware/efi/efi-init.c |  1 +
+>  drivers/firmware/efi/efi.c      | 23 +++++++++++++++++++++++
+>  include/linux/efi.h             |  3 +++
+>  mm/internal.h                   |  2 ++
+>  mm/memblock.c                   |  7 +++++--
+>  mm/page_alloc.c                 |  2 +-
+>  mm/sparse-vmemmap.c             |  2 +-
+>  10 files changed, 37 insertions(+), 32 deletions(-)
 
-I don't think cloning the code helps anyone.  The fact that except
-for the eBPF mess everyone uses module_alloc and the related
-infrastructure is a feature and not a bug.  The interface should
-become better than what we have right now, but there is few enough
-users that this can be done in one go.
+For the series: Acked-by: Mike Rapoport <rppt@linux.ibm.com>
 
-So assuming we really care deeply enough about fancy tracing without
-modules (and I'm not sure we do, even if you don't use modules it
-doesn't hurt to just build the modules code, I do that all the time
-for my test machines), the general approach in your series is the
-right one.
+> -- 
+> 2.25.1
+> 
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
