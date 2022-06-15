@@ -4,167 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A2ABC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 12:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED055C43334
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 14:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FKMdq5jG5N5pqzcALjekuFLN+bZUlMoWQ8VKeT/k7pw=; b=UuvhQH94GrSpFI
-	R0G/DVn4MB2DfUftEn1plGHlycdI9vgcjVT9jYTMJ3f1R3feGb7i+r++0t50YoyLPQ0MeholTaWqv
-	6s5zv6GDaGph9Bf1o7evn5X6fqoasBjsxrKxbCzMgPbhdWW+EoUAu2WrRBHF8oWYNhMGFutthvg2m
-	iDS790OfRx55Q9A0qd1izjZQnOQdBr7SqJdenALHsubFzL5RMgh/kY3VRTbqjprLw1uhZPQpoEfNx
-	dJJB0HxOrx0Xv14sH1KeH96Lbyzz/PkM4p/Trn+CzLxa0C0WBnEv6ssR2ULyAajfFJoRay6SvR7FK
-	41SBQ7xDjK1FdayoKv9Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mvsxD9467ABm76TXb9CCh0V1Jagc/SBAob5EFPnKIgM=; b=xdWm0ueAKLAprW
+	WBuiL89KM7ragGndpMnmFVlvT0q6rznE4IFbL3hIUaZ14HFWLMRqRcz4yO7+Wja45f8GIiPd8HX+w
+	MFCrnH7Zcc4TdTiDln0hvlD/6o/0i5U4Zc42AIx8+9rmfz/TE3uYn7X7OLebU+XoJEaHJLqPe2zEr
+	rrMIcBVYwanXapxDVypQFVZ2IIMatvBees7LY0nH3DhrDi6rRVdMa5W144FU+HR2nxMREB34rbY1k
+	7fyIWr/WlnpNUEvfew6BYBRMR+1sJn4QGGc3NSxLeVG6MRE+Q8m8WeorsJQEV1d3MvgvzrEJ7TNN1
+	hOj5gMR5vsvH05VTH63A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1SVU-00EYuH-2S; Wed, 15 Jun 2022 12:52:24 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1o1Tuw-00EvYR-Cf; Wed, 15 Jun 2022 14:22:46 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1SVR-00EYtH-8C
-	for linux-riscv@lists.infradead.org; Wed, 15 Jun 2022 12:52:22 +0000
+	id 1o1Tut-00EvUw-3d
+	for linux-riscv@lists.infradead.org; Wed, 15 Jun 2022 14:22:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1655297540; x=1686833540;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=SBBAEKF8ziXwY56WphsstN1O90f9a34hpkYQlZeoSe8=;
-  b=iKanBZJbmBYp580PJWPAcS24KB+xEOJJPrxrf/R4V+vqhTU95ucF69BB
-   WEa8cKavG/Ep1Zn1E1kDPIT5vg0R+C9pJfmaz2sKPkr/ptdTttYGiz2hP
-   2TxJHeL/laJNuSEi34xVdFYCn2vvt2Ud09OeGX+NVw05JOtIYxAAO4HJO
-   KbuMaTECFkSxIR+dZAWG46X9j8Rhot66dEwmOLpwLB1bIVRmCFdUvmNBG
-   u3ioOqyTi967G99a51/S7cG47E5O5rP1SK1COIWeWOflSoSAQJX9nHeyM
-   5a9KFdEQ8O/XKLqJGt99GE2RZdNsHg3uF3usRv0/mogunIsSHf8OBX1kc
-   Q==;
+  t=1655302962; x=1686838962;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=9qyp6+bi5a1Nfggtjv4LRguWeuVmJJ6PLYs6RLiuRn4=;
+  b=Wq9UX5w25KxvEB+CIAY/Hjm1Iq1IU2MsjVfR3ZvzPBtIrBOH6PYSICAY
+   ksdwc6/2XtH4gjLRq+BLKAFQZge2lhhd1fQxmD1Y43j5bZeBsEOkcBGFY
+   LHwpJWnbLhKVKMBf51Mv94jj5ShhXDF/uy84wvOVy4VJI1VZVVpT/s1Yb
+   FBYkohwkIMXgBlHO930D1f3V1q0YMK8izsEwBD+kFvSqNdSyev/6MP4q7
+   IfRSSRkr0wSKc97yMtTV9VrmFsBhILKUOLfyON2Uenn+ga6irUlIWgoB2
+   oe4Ezw1UjZyZhKoXw5/vyNdNdyrTKThYites6CZf1Q/K581hVLXml6BxF
+   A==;
 X-IronPort-AV: E=Sophos;i="5.91,302,1647327600"; 
-   d="scan'208";a="163467544"
+   d="scan'208";a="178078168"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Jun 2022 05:52:03 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Jun 2022 07:22:38 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Wed, 15 Jun 2022 05:52:03 -0700
-Received: from NAM02-DM3-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Wed, 15 Jun 2022 05:52:03 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=nuZ/4uKkPxvQw2ZMZYWi3ci/yfmQUxCcLCQ8x4ZLm1XFj+6uWWay8QxuqDbp3v2KxX+xC72aPrDO1T5P1LqrcmSp9GBDskeeAlK/MmC/CixQwE6QQw2zdNku5h5qeP9+IM2mmzOAIiN0n7tHlCk1xLvDDdDXLS1JDt7riz9BrCzep3bNHw8GOchurWUBXUgjruLWr1nYarSVdnr5b+Jchve8b8ZNmO+Hdz8/NWJatqLD7/HlOZn69aKkZbeptkfGsWRqS/Htq7NDjtSwPzpvLzuPj/4PfQD75BeocQiNgp9TeiZ/WYnEf7X/TzcA/eBQY7ftHOH2UompfTAhMTbQPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SBBAEKF8ziXwY56WphsstN1O90f9a34hpkYQlZeoSe8=;
- b=gVviPD6S1FVHeU+qed6pnhpBM9Nc1hnfL50I99rVlIZPj8pSDeobj3eYbe48B1GUE8X/rTrv5umdxyqwvncuArMJreLSlEW0/4vV9mJnXukCaeKbPsQTaNAsO36QQxPnUYguDsNJC6cw2jELv5B28xYTp9gMJdlnXfHiy5EyBQZb33uW792tj9GSsDC6DQsa7dI0TC7/g/0V//dcRgs5C5MMc/dPGO6dYYA+hjwGg0u+kL62+YmlZjnnaprqqoWCMXCC0yofs1rwo6aJ+FlNJTGba+1sH8AHKRg2J1slKd9OPpAcN1h97PcaMkzPv9LR91pirbaHIoylaeDAiDSuIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SBBAEKF8ziXwY56WphsstN1O90f9a34hpkYQlZeoSe8=;
- b=QUoy97n45hu/nBCIIGVnS2ECt1i2jXyE5VXR0BupqvoSsriowwI7A7lebnscvTcioKxTVy8euGM5bi0J4NYatTAAAXT7KRSCcrz//2xyz7h8fHB2rkOLGew8KSetCBcOa4XfO3SP10oBfnv3V+WmmEJwI+iHBzxQEkPsLkKJByc=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by DM5PR11MB1785.namprd11.prod.outlook.com (2603:10b6:3:10d::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5332.15; Wed, 15 Jun
- 2022 12:51:59 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::699b:5c23:de4f:2bfa]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::699b:5c23:de4f:2bfa%4]) with mapi id 15.20.5332.022; Wed, 15 Jun 2022
- 12:51:59 +0000
-From: <Conor.Dooley@microchip.com>
-To: <broonie@kernel.org>, <Conor.Dooley@microchip.com>
-CC: <Daire.McNamara@microchip.com>, <Lewis.Hanly@microchip.com>,
+ 15.1.2375.17; Wed, 15 Jun 2022 07:22:37 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
+ Transport; Wed, 15 Jun 2022 07:22:35 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Mark Brown <broonie@kernel.org>
+CC: Daire McNamara <daire.mcnamara@microchip.com>, Lewis Hanly
+	<lewis.hanly@microchip.com>, Conor Dooley <conor.dooley@microchip.com>,
 	<linux-riscv@lists.infradead.org>, <linux-spi@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <dan.carpenter@oracle.com>
-Subject: Re: [PATCH] spi: microchip-core: fix passing zero to PTR_ERR warning
-Thread-Topic: [PATCH] spi: microchip-core: fix passing zero to PTR_ERR warning
-Thread-Index: AQHYgKu0NnUyv6HMX02qK3OEv15VZq1QWBQAgAAEXYCAAAueAIAAAOiAgAACYgCAAABHAA==
-Date: Wed, 15 Jun 2022 12:51:58 +0000
-Message-ID: <39d7b387-905b-d1a9-85da-ce30501be8e0@microchip.com>
-References: <20220615113021.2493586-1-conor.dooley@microchip.com>
- <YqnFLCbvrTxNbG1+@sirena.org.uk>
- <7eda95bd-c7f5-767a-fe88-9f7109467cd8@microchip.com>
- <YqnSlIcAadwxt1Q5@sirena.org.uk>
- <630d60bc-1322-21a9-e4d1-3eb5af40f8a4@microchip.com>
- <YqnVVizga14qNxkt@sirena.org.uk>
-In-Reply-To: <YqnVVizga14qNxkt@sirena.org.uk>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 29861162-9096-47ad-e304-08da4ecdd5df
-x-ms-traffictypediagnostic: DM5PR11MB1785:EE_
-x-microsoft-antispam-prvs: <DM5PR11MB1785093D6326FA7AB1F35BAE98AD9@DM5PR11MB1785.namprd11.prod.outlook.com>
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: jV34YwcPcEZADSOUVU6XRc+LLfHnJlaq+uom3Bk6tuB1Sc2+XMfTsOls9CW9pXBqx84yORDL4SSYaVw1BtpaWLhaNKPprjkYDjtxkAa1ZJ2YFhp5o1asOwszfhKQWhEKZMQZxAfQitH0irQNIHTwW/e7brfV0mA9Xt7D+gE6WnHk+ZgDmwRCiTMImqd4aCce+ympcXtl9t65SeSDQ2BIkRPlMNurVwS+tLy6l+hCFu/fzESdfKREi+szOpVnlZbKvK2auDw17Rx7oeGKegCJMYIo+fjaHQqZH9VGYHFExpB5CW9nmtOPWYI0EOpi44VzmYGhmS2Ao9n6pKleqXYRrrZ9eHovXXRJvMF+5Yoze20DmC8NnKj7H2xdCqH0oyktZ1Ax3J30QSo0SqQRqIE9FEuDxMnKREFMV1ASZDFtuKFiOoGrxnCz9eidwtmWLibZcwh7sS5wXwldm/KXoyYGhNGFjrqnRFr12ImC4KPyqRa6A5y7irQ86/qn5ylBkWzInijjTKC32hLOTNQUs0w1ndIz1fJV/2c/i5Tas16jkxAgv9yZj04JqG0eeZLjK28/nwGUTj4bW6hFgk0n4e/+PBb7E0+fwrSWvBjs/0X7IiFBj242HWLkH3LlmZOCc65C2lvYSLWVqYFEGNxPpFOhMujw+zTnL7OTulckfI5Iwus2lq7LXqZNHEAI/GtvY7iTcS7tVXHhMXh+UB17GacQ5JY+Wzj5FFgtBUarLt0OH2sNy60P/3dTaUsv3IFdUxHgwese/KL4Wpqml6MuMk1qNw==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(64756008)(4326008)(91956017)(66476007)(8676002)(66946007)(31686004)(66556008)(38100700002)(316002)(2906002)(6486002)(86362001)(71200400001)(66446008)(83380400001)(31696002)(2616005)(76116006)(186003)(508600001)(8936002)(36756003)(4744005)(5660300002)(53546011)(110136005)(26005)(6512007)(6506007)(54906003)(122000001)(38070700005)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NnIvRjFpWDJ5bktlNzNNWXNYZ2xHM3Y0NkVJUzg0bU9pR2dYWk5QbHpjRGpE?=
- =?utf-8?B?YWFaZlI3OGw0aG9mb3c1NXVjemtqV3loOFFIWGRVYWszVU5kcWZMZEVoTSs1?=
- =?utf-8?B?ZlFmNGYxN3ZsL1BTSnFRWSsvMGtHWlptYzVGeVFXZUhIYWtKbzlOb0ZHcmZN?=
- =?utf-8?B?a1VFVlBwYS9NMVdhaElkYjFpNFNyc3FySG1Oa2hzcy9zQmFRbEFrMUhQZzZl?=
- =?utf-8?B?WnR1VkdKTy9lZ0pwL2ErbHc3QnJSSXhoQ3pQS3d3K1ErVnNlWnpGeTVoQzlY?=
- =?utf-8?B?VHF5eXlpbWpCdWd0MCs4RFdtU0ZiL3hFUGtoZFpTdXRURFFDNngwcHhhcDd1?=
- =?utf-8?B?OXNQdk05akpBOVVGaGREZUhZZ3cycWtOaUhaTm5EZ1hMbzhDZVF0bWd5L1Ez?=
- =?utf-8?B?bmxwdlhtajB5cVFDMGRvN3BJYVBETTNrVkNHOGZTTzNwa0RFZkFoelRrcUty?=
- =?utf-8?B?dWdFblF6SzhGeFF5b0QwOU5kTkRKMHRVNi9uaVB3dUg3MnVPZXVtZW9zRlJN?=
- =?utf-8?B?YUpYVjA4SEtwazVaQ3JvSmZ6cXhqQXBlcnYyUWpJblhUMy90WUhadXRiVjgr?=
- =?utf-8?B?V012ZGhCcmZPb3dyWGpuZXdPZ1FyTkI3VUNOOHNoTHFnY0ptdXpUSEordFha?=
- =?utf-8?B?QVcvTUYyK212LzFpZC9GeEhZdUc5VFFPb2w4SUV4NjFlTEE4OHBKOVRwamF3?=
- =?utf-8?B?REkxZGVVWnN2ckpmcjNkcnovcFpxK1pWSlBaZnZMQ0djK3FvUm5kRkRyb2lr?=
- =?utf-8?B?WGhiUVVKVzNqaDg3UmF0T25RTmk4ZWhuYm5GS0M2Q2k0OEpIUmpzU0x5M29X?=
- =?utf-8?B?MVJvUXhwUWh2bXdOWVdrUk0yYk1QOG1hTXlETVZDdVZHVG1SWkM4MFhaWUFC?=
- =?utf-8?B?ZW0xYk1OZC9hQjBBWk9FZGwzamFjUUVweW5Tc0N1WFcwMndKMmUzRFlBQm9I?=
- =?utf-8?B?N3JjNldkNHErUTBMR0JhWm1aZnZnMzIwbDJEeVhpSktTc3ZTNlUwUmRtMXk5?=
- =?utf-8?B?M3RaQWp4Z2xGdEp6M1kwb1V3a3F5SHVtU1JKekhDa1BTb2xTVURjYnQyTTVl?=
- =?utf-8?B?RnRuTzhWeHVXQXUwK2QvYXBxMm8yVnY5OFZhVHpPTXNVMnlkT3VIMGM2aEtB?=
- =?utf-8?B?ZlUvMkJjSyt0ZCtPNnlMR3AzdUl3M2RaeEhxc0RGVUpXT2x6YUlYNUZBRG54?=
- =?utf-8?B?UWFKQ2JmWlV5OTg1cTJrc3JWUzQ1ejNLN3JZcjkwUGZwcmQrMndNRlRTbzlh?=
- =?utf-8?B?YUI4UzNNUFE1N0kxM2h4V0dMd0VqTjNCU01CVDVpK1ZSSjNZOGdJclRpTExM?=
- =?utf-8?B?QWRUcExaVFNzNjJvaW9hKzhwQ1B4MTlqTWgzWlB6MWNVMEMrQ25lSThXQzNm?=
- =?utf-8?B?R1lwS2QzWDhTSUlnR2E4UU90N0FPQVJDM2pudGZ1cGcxTlJDSHR6c21YaXcx?=
- =?utf-8?B?R29YNzVuSUlsV0t1MlNwa3RielhnTGNudmpuUnR1RG1ZSXFmaUx2RXNkL0pC?=
- =?utf-8?B?K0pDYml0dURNQlRTQnA5ZGdxeVh1S05uZ3g3ZE1qdkVKVGZFL3BzYU9pU0tN?=
- =?utf-8?B?T21TeWdXME16eFRwN3c2VXlmL0FRd0FlOWU2YzFreENwQkpadXZUS2lyck5n?=
- =?utf-8?B?MzJtcStiR1c3T04xTXJ4ZHFpVEdsVkdORXROME13Qk80d1dXNlRRZnkzbnFC?=
- =?utf-8?B?U3R0dElDbm5wZkNPUG52M29JSlB5eTQyTldBUlhzblNWM3RUelVCSEJWbng2?=
- =?utf-8?B?ak52QzRFb0VPZmtDL1VJNHZ1SVNQQ0RRSDhCVzJzWCt5Sjd4Yk5QZVE2TnRw?=
- =?utf-8?B?OXgzd2F1bWtzN1I5TXZoa3l4V2JnRFRkRCt4cTVlVUpVTXcxbmxSdko2dGdO?=
- =?utf-8?B?S1AyVWZVdml6Zi8rLzRmOGFhSXVkYWhxMUlVM2ZPQ0FnREo3ajZocU14RUVY?=
- =?utf-8?B?MGt1TWFLVXpZYzZzaEF1K3FPLzBsVlBtUDd2UE1uL095N3R1RWxhakJwcSsx?=
- =?utf-8?B?MjZnS2JRU25HSXdHcjdvc0R5bGpobWFFaklUbFJDY1o0eTFDdmtSaDVMdktz?=
- =?utf-8?B?bDZaS2ZVaENaUDdacnh6SHVmeFZQdXpMRVJLbFZWdTVQb2t0ZDV2UTh3LzRa?=
- =?utf-8?B?S2FkaXY5UTRibER0WUVQNy9mdzdKVmZMeEpTSkl1WG56TENIcEtMYklwUmJq?=
- =?utf-8?B?cWk1Wk9jTHRaNlVkZG51eWl3dnJ3UXN1aVN1eHliQmU0T2g4UHhraGtSNHB5?=
- =?utf-8?B?M3VKcDJ1ZmxuSmNjdGNDSzFIa2tWVWhUWDhqZUJKbTA5RFVRZ01NWDEwbDB3?=
- =?utf-8?B?Ym5NNTVJbHFSTmoxS1l0RUY3aU52Mk0xalgxUE42Y3NsMHlSOGNEQT09?=
-Content-ID: <708F6F8AFB87584E9CFF2B3B706858B9@namprd11.prod.outlook.com>
+	<linux-kernel@vger.kernel.org>, Dan Carpenter <dan.carpenter@oracle.com>
+Subject: [PATCH v2] spi: microchip-core: fix passing zero to PTR_ERR warning
+Date: Wed, 15 Jun 2022 15:20:29 +0100
+Message-ID: <20220615142028.2991915-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 29861162-9096-47ad-e304-08da4ecdd5df
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Jun 2022 12:51:58.9515
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: BwX+evjcy4otWYQG6gaUSSwccilHZRi8Zvbz4EOHmzetjQbe+mLJY0deToU4R79tP7n5I6Wov9GMgdKdyE9mwpS3DkKgN4yxOzlk20DPU68=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR11MB1785
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220615_055221_400030_8C44C03F 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20220615_072243_252514_2F295DFE 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,28 +79,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 15/06/2022 13:49, Mark Brown wrote:
-> On Wed, Jun 15, 2022 at 12:42:27PM +0000, Conor.Dooley@microchip.com wrote:
->> On 15/06/2022 13:37, Mark Brown wrote:
-> 
->>>> But if spi->clk is NULL, this will return 0 from the probe
->>>> rather than returning an error?
->>>> If that's not what you meant, lmk
-> 
->>> Oh, hang on - what error conditions can clk_get() return 0 in?  The
->>> documentation doesn't mention any...
-> 
->> If !CONFIG_HAVE_CLK, (without which it won't boot on the coreplex)
->> but I don't think I can be sure that CONFIG_HAVE_CLK will /always/
->> be enabled for other uses of the FPGA.
-> 
-> That's not an error, that's returning NULL as a dummy clock.  The
-> expectation is that the driver will proceed as though it has a clock.
+It is possible that the error case for devm_clk_get() returns NULL,
+in which case zero will be passed to PTR_ERR() as shown by the Smatch
+static checker warning:
+drivers/spi/spi-microchip-core.c:557 mchp_corespi_probe()
+warn: passing zero to 'PTR_ERR'
 
-Ahh, cool. I guess I'll just drop the null check entirely so & guard
-against a div zero when I actually go to use the clock.
-Thanks!
-Conor
+Remove the NULL check and carry on with a dummy clock in case of an
+error. To avoid a potential div zero, abort calculating clkgen if
+clk_get_rate(spi->clk) is zero.
+
+Fixes: 9ac8d17694b6 ("spi: add support for microchip fpga spi controllers")
+Reported-by: Dan Carpenter <dan.carpenter@oracle.com>
+Link: https://lore.kernel.org/linux-spi/20220615091633.GI2168@kadam/
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+v2: drop the NULL check entirely rather than returning -ENXIO if NULL
+---
+ drivers/spi/spi-microchip-core.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/spi/spi-microchip-core.c b/drivers/spi/spi-microchip-core.c
+index 5b2aee30fa04..d866a831104c 100644
+--- a/drivers/spi/spi-microchip-core.c
++++ b/drivers/spi/spi-microchip-core.c
+@@ -433,6 +433,8 @@ static int mchp_corespi_calculate_clkgen(struct mchp_corespi *spi,
+ 	unsigned long clk_hz, spi_hz, clk_gen;
+ 
+ 	clk_hz = clk_get_rate(spi->clk);
++	if (!clk_hz)
++		return -EINVAL;
+ 	spi_hz = min(target_hz, clk_hz);
+ 
+ 	/*
+@@ -553,7 +555,7 @@ static int mchp_corespi_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	spi->clk = devm_clk_get(&pdev->dev, NULL);
+-	if (!spi->clk || IS_ERR(spi->clk)) {
++	if (IS_ERR(spi->clk)) {
+ 		ret = PTR_ERR(spi->clk);
+ 		dev_err(&pdev->dev, "could not get clk: %d\n", ret);
+ 		goto error_release_master;
+-- 
+2.36.1
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
