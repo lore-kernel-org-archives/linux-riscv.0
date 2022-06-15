@@ -4,44 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F97C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 16:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08848C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 17:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SGgxKskuajrTuIL6EtV3mGWF11HVHsFBjZaZ+WEW7r8=; b=vpxqg4widRNwV/
-	x2iD2izbpTt3XKRG/+DRf6R4oW6f3QAHHwkAMV1YZORiyveHyG0L7YeWPBpZ7ncQcZFPvcERcPolD
-	jVxHLa0aGspRm8mhQTi+YO/Xu/5oE2GGRF+5Lv0BbC3WAEF0l1t25UCmxH4Hmx8Y6usjy0EUMQMI1
-	gyTDQLHPvuTGuW7y43JWGeoYEbU1XUAVaOV4cKYiLJ3gg7MrNJfKNgA/FSP24KFPLog0VIGm5wNY4
-	0WjnM3FHhPEBGF5+YauxksHeHtFXFy40yr7vCSHs6i7zAJOoacfHXCRB14RTx9MIksz1j6OZ1FyuX
-	KH4BlCQAnBWMrGunpvhQ==;
+	List-Owner; bh=1pEYlsq0ns3lN7cIhF0AZwzXTBqXlevwqDALcmpR758=; b=bqosfb/sY1KZv3
+	6Oz309YQ2woFyp4rbruG41PYZQbpcSVBH7Uw0RYcW5l80hPTe9v5mltTpDPpObtlRaggxWiVx2mj7
+	exsqmwbtR38Sg8uW0lVlQxQ0ylTHNJ4BFTAMIcPQYjt3hgkJtFsiRRNjHN4KYMqRrXyPmlIrhIx1P
+	Unq042ED03AegF8INyx+4QYwuPMNLHz20nWJNXiVjpu7OvWYQPTuTkAAVIAqeQKmTiapxQLkgTovL
+	58ltw9sgVv7H3CXkJNlLgIL6GfQb4gMQIuwxXXeBuTbXfLjyQvPOmtwbtquWwpXMIfIfMnyehebG1
+	NYmucQjCwZrji6YDo81Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1WK4-00FX0m-BC; Wed, 15 Jun 2022 16:56:52 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1WK1-00FWyo-0j
-	for linux-riscv@lists.infradead.org; Wed, 15 Jun 2022 16:56:50 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1o1WJt-0008LU-1G; Wed, 15 Jun 2022 18:56:41 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Christoph Hellwig <hch@lst.de>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com, philipp.tomsich@vrull.eu, hch@lst.de, samuel@sholland.org, atishp@atishpatra.org, anup@brainfault.org, mick@ics.forth.gr, robh+dt@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org, drew@beagleboard.org, Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH 2/3] riscv: Implement Zicbom-based cache management operations
-Date: Wed, 15 Jun 2022 18:56:40 +0200
-Message-ID: <110361853.nniJfEyVGO@diego>
-In-Reply-To: <20220610055608.GA24221@lst.de>
-References: <20220610004308.1903626-1-heiko@sntech.de> <20220610004308.1903626-3-heiko@sntech.de> <20220610055608.GA24221@lst.de>
+	id 1o1WP2-00FYT2-Qg; Wed, 15 Jun 2022 17:02:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o1WOr-00FYQg-Dc; Wed, 15 Jun 2022 17:01:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3C80153B;
+	Wed, 15 Jun 2022 10:01:46 -0700 (PDT)
+Received: from bogus (unknown [10.57.11.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FC1D3F73B;
+	Wed, 15 Jun 2022 10:01:43 -0700 (PDT)
+Date: Wed, 15 Jun 2022 18:00:33 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Morten Rasmussen <morten.rasmussen@arm.com>,
+	Qing Wang <wangqing@vivo.com>, linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>
+Subject: Re: [PATCH v3 15/16] arch_topology: Set cluster identifier in each
+ core/thread from /cpu-map
+Message-ID: <20220615170033.q4og4pnmpwdg3l2g@bogus>
+References: <20220525081416.3306043-12-sudeep.holla@arm.com>
+ <20220525081416.3306043-13-sudeep.holla@arm.com>
+ <20220525081416.3306043-14-sudeep.holla@arm.com>
+ <20220525081416.3306043-15-sudeep.holla@arm.com>
+ <20220525081416.3306043-16-sudeep.holla@arm.com>
+ <947470ba-35fc-3c72-d01b-c0a7337216a2@arm.com>
+ <20220606102159.dduxmvq4m2fm6gks@bogus>
+ <CAKfTPtB8iPzEXipsJqNtd9-aJMKx-FAaiGMzOg58HgRQuo39iA@mail.gmail.com>
+ <20220610102753.virkx47uyfsojol6@bogus>
+ <CAKfTPtD==UMjbSGHvKxT_z=LyvsJt=UCHsqkbgVnagbn5Aqpcw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAKfTPtD==UMjbSGHvKxT_z=LyvsJt=UCHsqkbgVnagbn5Aqpcw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220615_095649_107231_3F8B7B18 
-X-CRM114-Status: GOOD (  35.11  )
+X-CRM114-CacheID: sfid-20220615_100149_600971_3F2FECE6 
+X-CRM114-Status: GOOD (  51.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,172 +75,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christoph,
+Please note until we agree on unified view for hardware topology, I will
+temporarily ignore any scheduler domain related issues/concerns as this
+thread/discussion is mixing up too much IMO. I am not ignoring sched_domain
+concerns, but deferring it until we agree on the hardware topology view
+which is user visible and how that impacts sched domain topology can be
+considered soon following that.
 
-Am Freitag, 10. Juni 2022, 07:56:08 CEST schrieb Christoph Hellwig:
-> On Fri, Jun 10, 2022 at 02:43:07AM +0200, Heiko Stuebner wrote:
-> > +config RISCV_ISA_ZICBOM
-> > +	bool "Zicbom extension support for non-coherent dma operation"
-> > +	select ARCH_HAS_DMA_PREP_COHERENT
-> > +	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
-> > +	select ARCH_HAS_SYNC_DMA_FOR_CPU
-> > +	select ARCH_HAS_SETUP_DMA_OPS
-> > +	select DMA_DIRECT_REMAP
-> > +	select RISCV_ALTERNATIVE
-> > +	default y
-> > +	help
-> > +	   Adds support to dynamically detect the presence of the ZICBOM extension
+On Tue, Jun 14, 2022 at 07:59:23PM +0200, Vincent Guittot wrote:
+> On Fri, 10 Jun 2022 at 12:27, Sudeep Holla <sudeep.holla@arm.com> wrote:
+> >
+> > On Fri, Jun 10, 2022 at 12:08:44PM +0200, Vincent Guittot wrote:
+> > > On Mon, 6 Jun 2022 at 12:22, Sudeep Holla <sudeep.holla@arm.com> wrote:
+> > > >
+> >
+> > [...]
+> >
+> > > > Why ? Are you suggesting that we shouldn't present the hardware cluster
+> > > > to the topology because of the above reason ? If so, sorry that is not a
+> > > > valid reason. We could add login to return NULL or appropriate value
+> > > > needed in cpu_clustergroup_mask id it matches MC level mask if we can't
+> > > > deal that in generic scheduler code. But the topology code can't be
+> > > > compromised for that reason as it is user visible.
+> > >
+> > > I tend to agree with Dietmar. The legacy use of cluster node in DT
+> > > refers to the dynamiQ or legacy b.L cluster which is also aligned to
+> > > the LLC and the MC scheduling level. The new cluster level that has
+> > > been introduced recently does not target this level but some
+> > > intermediate levels either inside like for the kupeng920 or the v9
+> > > complex or outside like for the ampere altra. So I would say that
+> > > there is one cluster node level in DT that refers to the same MC/LLC
+> > > level and only an additional child/parent cluster node should be used
+> > > to fill the clustergroup_mask.
+> > >
+> >
+> > Again I completely disagree. Let us look at the problems separately.
+> > The hardware topology that some of the tools like lscpu and lstopo expects
+> > what the hardware looks like and not the scheduler's view of the hardware.
+> > So the topology masks that gets exposed to the user-space needs fixing
+> > even today. I have reports from various tooling people about the same.
+> > E.g. Juno getting exposed as dual socket system is utter non-sense.
+> >
+> > Yes scheduler uses most of the topology masks as is but that is not a must.
+> > There are these *group_mask functions that can implement what scheduler
+> > needs to be fed.
+> >
+> > I am not sure why the 2 issues are getting mixed up and that is the main
+> > reason why I jumped into this to make sure the topology masks are
+> > not tampered based on the way it needs to be used for scheduler.
+> >
+> > Both ACPI and DT on a platform must present exact same hardware topology
+> > to the user-space, there is no space for argument there.
+>
+> But that's exactly my point there:
+> ACPI doesn't show the dynamiQ level anywhere but only the llc which
+> are the same and your patch makes the dynamiQ level visible for DT in
+> addition to llc
+>
+
+Sorry if I am missing something obvious here, but both ACPI and DT has no
+special representation for dynamiQ clusters and hence it is impossible to
+deduce the same from either DT or ACPI. Can you provide some details
+or example as what you are referring as dynamiQ. Also what you mean by
+dynamiQ not shown on ACPI while shown with DT systems. If there is any
+discrepancies, we need to fix.
+
+Now, what I refer as discrepancy for example on Juno is below:
+(value read from a subset of per cpu sysfs files)
+cpu                     0       1       2       3       4       5
+cluster_id              -1      -1      -1      -1      -1      -1
+physical_package_id     1       0       0       1       1       1
+cluster_cpus_list       0       1       2       3       4       5
+package_cpus_list       0,3-5   1-2     1-2     0,3-5   0,3-5   0,3-5
+
+The above one is for DT which is wrong in all the 4 entries above.
+The below one is on ACPI and after applying my series on Juno.
+
+cpu                     0       1       2       3       4       5
+cluster_id              1       0       0       1       1       1
+physical_package_id     0       0       0       0       0       0
+cluster_cpus_list       0,3-5   1-2     1-2     0,3-5   0,3-5   0,3-5
+package_cpus_list       0-5     0-5     0-5     0-5     0-5     0-5
+
+This matches the expectation from the various userspace tools like lscpu,
+lstopo,..etc.
+
+> >
+> > > IIUC, we don't describe the dynamiQ level in ACPI which  uses cache
+> > > topology instead to define cpu_coregroup_mask whereas DT described the
+> > > dynamiQ instead of using cache topology. If you use cache topology
+> > > now, then you should skip the dynamiQ
+> > >
+> >
+> > Yes, unless someone can work out a binding to represent that and convince
+> > DT maintainers ;).
+> >
+> > > Finally, even if CLS and MC have the same scheduling behavior for now,
+> > > they might ends up with different scheduling properties which would
+> > > mean that replacing MC level by CLS one for current SoC would become
+> > > wrong
+> > >
+> >
+> > Again as I mentioned to Dietmar, that is something we can and must deal with
+> > in those *group_mask and not expect topology mask to be altered to meet
+> > CLS/MC or whatever sched domains needs. Sorry, that is my strong opinion
+> > as the topology is already user-space visible and (tooling) people are
+> > complaining that DT systems are broken and doesn't match ACPI systems.
 > 
-> Overly long line here.
+> again, your proposal doesn't help here because the DT will show a
+> level that doesn't appears in ACPI
+>
 
-fixed
+Which level exactly ? It matches exactly for Juno, the sysfs files are
+exact match after my changes. Again don't mix the scheduler domains for
+arguments here.
 
+> >
+> > So unless someone gives me non-scheduler and topology specific reasons
+> > to change that, sorry but my opinion on this matter is not going to change ;).
+> >
+> > You will get this view of topology, find a way to manage with all those
+> > *group_mask functions. By the way it is already handled for ACPI systems,
 > 
-> > +	   (Cache Block Management Operations) and enable its usage.
-> > +
-> > +	   If you don't know what to do here, say Y.
-> 
-> But more importantly I think the whole text here is not very helpful.
-> What users care about is non-coherent DMA support.  What extension is
-> used for that is rather secondary.
+> AFAICT, no it's not, the cluster described in ACPI is not the dynamiQ
+> level that you make now visible to DT
 
-I guess it might make sense to split that in some way.
-I.e. Zicbom provides one implementation for handling non-coherence,
-the D1 uses different (but very similar) instructions while the SoC on the
-Beagle-V does something completely different.
+Again, no. There is no binding for dynamiQ level either in DT or ACPI and
+hence there is no way it can become visible on DT. So I have no idea why
+there is a thought process or assumption about existence of dynamiQ level
+in the DT. It doesn't exist. If that is wrong, can you point me to the
+bindings as well as existing device tree ? If you are referring to the
+phantom domains Dietmar mentioned in earlier threads, then they don't exist.
+It is made up and one need to get the bindings pushed before we can address
+such a system.
 
-So I guess it could make sense to have a general DMA_NONCOHERENT option
-and which gets selected by the relevant users.
-
-This also fixes the issue that Zicbom needs a very new binutils
-but if beagle-v support happens that wouldn't need that.
-
-
-> Also please capitalize DMA.
-
-fixed
-
-> > +void arch_sync_dma_for_device(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
-> > +{
-> > +	switch (dir) {
-> > +	case DMA_TO_DEVICE:
-> > +		ALT_CMO_OP(CLEAN, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
-> > +		break;
-> > +	case DMA_FROM_DEVICE:
-> > +		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
-> > +		break;
-> > +	case DMA_BIDIRECTIONAL:
-> > +		ALT_CMO_OP(FLUSH, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
-> > +		break;
-> > +	default:
-> > +		break;
-> > +	}
-> 
-> Pleae avoid all these crazy long lines.  and use a logical variable
-> for the virtual address.  And why do you pass that virtual address
-> as an unsigned long to ALT_CMO_OP?  You're going to make your life
-> much easier if you simply always pass a pointer.
-
-fixed all of those.
-And of course you're right, not having the cast when calling ALT_CMO_OP
-makes things definitly a lot nicer looking.
-
-> Last but not last, does in RISC-V clean mean writeback and flush mean
-> writeback plus invalidate?  If so the code is correct, but the choice
-> of names in the RISC-V spec is extremely unfortunate.
-
-clean: 
-    makes data [...] visible to a set of non-coherent agents [...] by
-    performing a write transfer of a copy of a cache block [...]
-
-flush:
-    performs a clean followed by an invalidate
-
-So that's a yes to your question
-
-> > +void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size, enum dma_data_direction dir)
-> > +{
-> > +	switch (dir) {
-> > +	case DMA_TO_DEVICE:
-> > +		break;
-> > +	case DMA_FROM_DEVICE:
-> > +	case DMA_BIDIRECTIONAL:
-> > +		ALT_CMO_OP(INVAL, (unsigned long)phys_to_virt(paddr), size, riscv_cbom_block_size);
-> > +		break;
-> > +	default:
-> > +		break;
-> > +	}
-> > +}
-> 
-> Same comment here and in few other places.
-
-fixed
-
-> > +
-> > +void arch_dma_prep_coherent(struct page *page, size_t size)
-> > +{
-> > +	void *flush_addr = page_address(page);
-> > +
-> > +	memset(flush_addr, 0, size);
-> > +	ALT_CMO_OP(FLUSH, (unsigned long)flush_addr, size, riscv_cbom_block_size);
-> > +}
-> 
-> arch_dma_prep_coherent should never zero the memory, that is left
-> for the upper layers.`
-
-fixed
-
-> > +void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
-> > +		const struct iommu_ops *iommu, bool coherent)
-> > +{
-> > +	/* If a specific device is dma-coherent, set it here */
-> 
-> This comment isn't all that useful.
-
-ok, I've dropped it
-
-> > +	dev->dma_coherent = coherent;
-> > +}
-> 
-> But more importantly, this assums that once this code is built all
-> devices are non-coherent by default.  I.e. with this patch applied
-> and the config option enabled we'll now suddenly start doing cache
-> management operations or setups that didn't do it before.
-
-If I'm reading things correctly [0], the default for those functions
-is for those to be empty - but defined in the coherent case.
-
-When you look at the definition of ALT_CMO_OP
-
-#define ALT_CMO_OP(_op, _start, _size, _cachesize)                      \
-asm volatile(ALTERNATIVE_2(                                             \
-        __nops(6),                                                      \
-
- you'll see that it's default variant is to do nothing and it doing any
-non-coherency voodoo is only patched in if the Zicbom extension
-(or T-Head errata) is detected at runtime.
-
-So in the coherent case (with the memset removed as you suggested),
-the arch_sync_dma_* and arch_dma_prep_coherent functions end up as
-something like
-
-void arch_dma_prep_coherent(struct page *page, size_t size)
-{
-        void *flush_addr = page_address(page);
-
-        nops(6);
-}
-
-which is very mich similar to the defaults [0] I guess, or am I
-overlooking something?
-
-Thanks for taking the time for that review
-Heiko
-
-
-[0] https://elixir.bootlin.com/linux/latest/source/include/linux/dma-map-ops.h#L293
-
-
+-- 
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
