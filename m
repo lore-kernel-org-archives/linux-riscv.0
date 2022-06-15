@@ -4,57 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E28C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 01:49:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A4BC43334
+	for <linux-riscv@archiver.kernel.org>; Wed, 15 Jun 2022 03:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=arOYQB3sqeN6TsigH2bDw8cwySmRf42ipVTABCSHkSk=; b=PSMb0l3pt9KZNZ
-	Ev+bdkghA2jDKijNbEJAq2xIJlbqpGQhHP9qu4V+k3BsZRBNfrdDDCXvRllS725ReOW7RF61NJays
-	hqVrJMY27Wy44AG0HqYVUh4OoTE6WsYWlt25iC2wFLWysKYFraglBJmny9Oid5A9AoZXCEpvOypJU
-	qUSbWPfV+x+eTMN8YiRHNLR+kwscf8WA/J9fZdYQQ2tIoB5udz4f/DxH1qbbhUg9HqieYGZKx7M1H
-	7ofdCoKDh7GjQTdaFuzZwk+ljJ+pBV1TxKa3ZJg5bpC1OUu2wMRwVU4Ju0itGCiKSRWf134wxm4PY
-	SNkPHDKcmMawWHdi2u7A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=miI7Tm8ap4z2wklYmunsyygtDjE3ZnBT4CeIBqnNzcQ=; b=hzL/SN0Hg17XHp
+	idD8kMkOt9IZEzS4nYbaLwz3akZ6FYP7PnrEMx8n0qRrph6+AGXl+eV32/8qOKcxH/MAEuYGZwUla
+	WDuhEeMDkPEH3KTDjSSOc7Y7jbjLc9kvNOIkr1E+dPHDBwDGR+EK5yDd59ENdEgQosgec9piXrxV/
+	Nn/vZRqV3C+cYQqx1UjZ/nOHFbVMcqdVb23fejJqphAJOeclgHeI6+tueq9a2u8f1th3p+4CROxYg
+	lheQk4ZTh1rM3FemuEzMphXOx3+bAYVCtpRbThcR9Aes7mIzKrMMvLFA41u2aoqa/Ed3mZ5fazxmy
+	O0rcKYZ8soNe6Qs++BoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1IA0-00C7VY-9S; Wed, 15 Jun 2022 01:49:32 +0000
+	id 1o1K4z-00CS4i-72; Wed, 15 Jun 2022 03:52:29 +0000
 Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1I9w-00C7TG-Hl
-	for linux-riscv@lists.infradead.org; Wed, 15 Jun 2022 01:49:30 +0000
-Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.54])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4LN7Th546Zz1K9xF;
-	Wed, 15 Jun 2022 09:47:20 +0800 (CST)
+	id 1o1K4l-00CRx1-NK; Wed, 15 Jun 2022 03:52:17 +0000
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.57])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4LNBCR1cT8z1KB1N;
+	Wed, 15 Jun 2022 11:50:11 +0800 (CST)
 Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
  dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Wed, 15 Jun 2022 09:49:17 +0800
-Received: from huawei.com (10.67.174.169) by dggpemm500001.china.huawei.com
- (7.185.36.107) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Wed, 15 Jun
- 2022 09:49:16 +0800
-From: Chen Lifu <chenlifu@huawei.com>
-To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<akira.tsukamoto@gmail.com>, <jszhang@kernel.org>,
-	<wangkefeng.wang@huawei.com>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <alankao@andestech.com>
-CC: <chenlifu@huawei.com>
-Subject: [PATCH -next] riscv: lib: uaccess: fix CSR_STATUS SR_SUM bit
-Date: Wed, 15 Jun 2022 09:47:14 +0800
-Message-ID: <20220615014714.1650349-1-chenlifu@huawei.com>
-X-Mailer: git-send-email 2.35.1
+ 15.1.2375.24; Wed, 15 Jun 2022 11:52:08 +0800
+Received: from [10.174.177.243] (10.174.177.243) by
+ dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Wed, 15 Jun 2022 11:52:00 +0800
+Message-ID: <5af7a1d9-31fa-74d1-b292-79dc3c658dbd@huawei.com>
+Date: Wed, 15 Jun 2022 11:52:00 +0800
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.169]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [PATCH v5 0/5] introduce mirrored memory support for arm64
+Content-Language: en-US
+To: Wupeng Ma <mawupeng1@huawei.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<ardb@kernel.org>, <catalin.marinas@arm.com>
+CC: <tglx@linutronix.de>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, <hpa@zytor.com>,
+	<dvhart@infradead.org>, <andy@infradead.org>, <rppt@kernel.org>,
+	<akpm@linux-foundation.org>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <paulmck@kernel.org>,
+	<keescook@chromium.org>, <songmuchun@bytedance.com>, <rdunlap@infradead.org>,
+	<damien.lemoal@opensource.wdc.com>, <swboyd@chromium.org>,
+	<wei.liu@kernel.org>, <robin.murphy@arm.com>, <david@redhat.com>,
+	<anshuman.khandual@arm.com>, <thunder.leizhen@huawei.com>,
+	<gpiccoli@igalia.com>, <chenhuacai@kernel.org>, <geert@linux-m68k.org>,
+	<vijayb@linux.microsoft.com>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-efi@vger.kernel.org>, <platform-driver-x86@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>
+References: <20220614092156.1972846-1-mawupeng1@huawei.com>
+From: Kefeng Wang <wangkefeng.wang@huawei.com>
+In-Reply-To: <20220614092156.1972846-1-mawupeng1@huawei.com>
+X-Originating-IP: [10.174.177.243]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  dggpemm500001.china.huawei.com (7.185.36.107)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_184928_785997_FD40896A 
-X-CRM114-Status: UNSURE (   8.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220614_205216_110504_2B3C41F1 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,58 +79,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since commit 5d8544e2d007 ("RISC-V: Generic library routines and assembly")
-and commit ebcbd75e3962 ("riscv: Fix the bug in memory access fixup code"),
-if __clear_user and __copy_user return from an fixup branch,
-CSR_STATUS SR_SUM bit will be set, it is a vulnerability, so that
-S-mode memory accesses to pages that are accessible by U-mode will success.
-Disable S-mode access to U-mode memory should clear SR_SUM bit.
 
-Fixes: 5d8544e2d007 ("RISC-V: Generic library routines and assembly")
-Fixes: ebcbd75e3962 ("riscv: Fix the bug in memory access fixup code")
+On 2022/6/14 17:21, Wupeng Ma wrote:
+> From: Ma Wupeng <mawupeng1@huawei.com>
+>
+> Commit b05b9f5f9dcf ("x86, mirror: x86 enabling - find mirrored memory ranges")
+> introduced mirrored memory support for x86. This support rely on UEFI to
+> report mirrored memory address ranges.  See UEFI 2.5 spec pages 157-158:
+>
+>    http://www.uefi.org/sites/default/files/resources/UEFI%202_5.pdf
+>
+> Memory mirroring is a technique used to separate memory into two separate
+> channels, usually on a memory device, like a server. In memory mirroring,
+> one channel is copied to another to create redundancy. This method makes
+> input/output (I/O) registers and memory appear with more than one address
+> range because the same physical byte is accessible at more than one
+> address. Using memory mirroring, higher memory reliability and a higher
+> level of memory consolidation are possible.
+>
+> These EFI memory regions have various attributes, and the "mirrored"
+> attribute is one of them. The physical memory region whose descriptors
+> in EFI memory map has EFI_MEMORY_MORE_RELIABLE attribute (bit: 16) are
+> mirrored. The address range mirroring feature of the kernel arranges such
+> mirrored regions into normal zones and other regions into movable zones.
+>
+> Arm64 can support this too. So mirrored memory support is added to support
+> arm64.
+>
+> The main purpose of this patch set is to introduce mirrored support for
+> arm64 and we have already fixed the problems we had which is shown in
+> patch #5 to patch #8 and try to bring total isolation in patch #9 which
+> will disable mirror feature if kernelcore is not specified.
+>
+> In order to test this support in arm64:
+> - patch this patch set
+> - add kernelcore=mirror in kernel parameter
+> - start you kernel
+>
+> Patch #1 introduce mirrored memory support form arm64.
+> Patch #2-#4 fix some bugs for arm64 if memory reliable is enabled.
+> Patch #5 disable mirror feature if kernelcore is not specified.
+>
+> Thanks to Ard Biesheuvel's hard work [1], now kernel will perfer mirrored
+> memory if kaslr is enabled.
+>
+> [1] https://lore.kernel.org/linux-arm-kernel/CAMj1kXEPVEzMgOM4+Yj6PxHA-jFuDOAUdDJSiSxy_XaP4P7LSw@mail.gmail.com/T/
 
-Signed-off-by: Chen Lifu <chenlifu@huawei.com>
----
- arch/riscv/lib/uaccess.S | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+For series,
 
-diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-index 8c475f4da308..ec486e5369d9 100644
---- a/arch/riscv/lib/uaccess.S
-+++ b/arch/riscv/lib/uaccess.S
-@@ -173,11 +173,11 @@ ENTRY(__asm_copy_from_user)
- 	ret
- 
- 	/* Exception fixup code */
- 10:
- 	/* Disable access to user memory */
--	csrs CSR_STATUS, t6
-+	csrc CSR_STATUS, t6
- 	mv a0, t5
- 	ret
- ENDPROC(__asm_copy_to_user)
- ENDPROC(__asm_copy_from_user)
- EXPORT_SYMBOL(__asm_copy_to_user)
-@@ -225,10 +225,10 @@ ENTRY(__clear_user)
- 	j 3b
- 
- 	/* Exception fixup code */
- 11:
- 	/* Disable access to user memory */
--	csrs CSR_STATUS, t6
-+	csrc CSR_STATUS, t6
- 	mv a0, a1
- 	ret
- ENDPROC(__clear_user)
- EXPORT_SYMBOL(__clear_user)
--- 
-2.35.1
+Reviewed-by: Kefeng Wang<wangkefeng.wang@huawei.com>
 
+>
+> Changelog since v4:
+> - merge the first two patches into one
+> - change __initdata to __initdata_memblock in patch #5
+>
+> Changelog since v3:
+> - limit warning message in vmemmap_verify via pr_warn_once()
+> - only clear memblock_nomap flags rather than bring the mirrored flag back
+> - disable mirrored feature in memblock_mark_mirror()
+>
+> Changelog since v2:
+> - remove efi_fake_mem support
+> - remove Commit ("remove some redundant code in ia64 efi_init") since
+>    efi_print_memmap() is not public
+> - add mirror flag back on initrd memory
+>
+> Changelog since v1:
+> - update changelog in cover letter
+> - use PHYS_PFN in patch #7
+>
+> Ma Wupeng (5):
+>    efi: arm64: Introduce ability to find mirrored memory ranges
+>    mm: Ratelimited mirrored memory related warning messages
+>    mm: Limit warning message in vmemmap_verify() to once
+>    arm64: mm: Only remove nomap flag for initrd
+>    memblock: Disable mirror feature if kernelcore is not specified
+>
+>   arch/arm64/mm/init.c            |  2 +-
+>   arch/x86/include/asm/efi.h      |  4 ----
+>   arch/x86/platform/efi/efi.c     | 23 -----------------------
+>   drivers/firmware/efi/efi-init.c |  1 +
+>   drivers/firmware/efi/efi.c      | 23 +++++++++++++++++++++++
+>   include/linux/efi.h             |  3 +++
+>   mm/internal.h                   |  2 ++
+>   mm/memblock.c                   |  7 +++++--
+>   mm/page_alloc.c                 |  2 +-
+>   mm/sparse-vmemmap.c             |  2 +-
+>   10 files changed, 37 insertions(+), 32 deletions(-)
+>
 
 _______________________________________________
 linux-riscv mailing list
