@@ -4,44 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45B3DC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 09:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957FBC43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 11:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wapzOXKZxFmgqh2AxFx4F4V914zKP5JuGtJnkQiVzqo=; b=WJDpz62LEB88go
-	QSefygOsv1M58PwSe1NJQBGp/PLIb6tYMdbL23hhmBylh60znT04uHfQRPfgMowZEV46AP2Naa5sJ
-	IHIcr0tuzRr9svrKd0obuicJsSblhPjppk/U8odod7+nBObCtcr/4palPXIya/QVecXxQNJZXQHbI
-	CZbBetcaFghTbk7/lV1h5tw8KpShxW4aFZlgj/4fJ7YDQFfgxVEAyceynKT3d3CBuMlfEWdSZVHzT
-	lQGnaWXKE7qY+z1ZeYFu+HJeO1bZKcVv6mMkzGbBf7X2lrgLhomF3j6s1IZRcAh3nAa2BQKr1wdHe
-	v2Yyo6RtLSbfFWpZ5dYw==;
+	List-Owner; bh=03SWQjrq7gdE915eN5GfRuPiLePrv/NtF21nzpgMx6g=; b=xII306GsPWdwKj
+	G888nYbEkwNwXFNjI+uX3L+y4UQussF22IY2j3LvMRKrYKFUmsIrn7WLgkB7vHwslRYl//QaY8qPf
+	NWBqRtAeVxO8BR7PsCHYGf7OWtes2SRLqhrRsxld1cfHFs6hHJn5V7WF0VqOUnfIJHGRS3MLdJm9w
+	BEWQu9W3mgUycTxhVoKtlWp+ean1wT4dM+SRb/WEI+/Tv0+Ojg6BYV7XSiya/ZgVSZs7ccrJxv/Hm
+	h1ynceKYZyoSrPM1n+QFidg0GFaTcju2eGqNxbdbtI+yl2GVAAulzeAYai565jV0ere0bjPtXfq0b
+	WWtN0xLzGFhG1Tn0LMbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1m5X-001k9s-W2; Thu, 16 Jun 2022 09:46:56 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1o1ntm-0028oM-IK; Thu, 16 Jun 2022 11:42:54 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1m5V-001k8R-9J
-	for linux-riscv@lists.infradead.org; Thu, 16 Jun 2022 09:46:54 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1o1m5O-0004rx-Ut; Thu, 16 Jun 2022 11:46:46 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Christoph Hellwig <hch@lst.de>, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com, philipp.tomsich@vrull.eu, samuel@sholland.org, atishp@atishpatra.org, anup@brainfault.org, mick@ics.forth.gr, robh+dt@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org, drew@beagleboard.org, Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH 2/3] riscv: Implement Zicbom-based cache management operations
-Date: Thu, 16 Jun 2022 11:46:45 +0200
-Message-ID: <1752040.TLkxdtWsSY@diego>
-In-Reply-To: <20220615174910.GA26607@lst.de>
-References: <20220610004308.1903626-1-heiko@sntech.de> <110361853.nniJfEyVGO@diego> <20220615174910.GA26607@lst.de>
+	id 1o1ntj-0028nH-OL
+	for linux-riscv@lists.infradead.org; Thu, 16 Jun 2022 11:42:53 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 66E76B823A5;
+	Thu, 16 Jun 2022 11:42:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8EACC34114;
+	Thu, 16 Jun 2022 11:42:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1655379769;
+	bh=Q132C26WTc5ClYHcIA2UoeqKRa/NHeLBCM471XhFPec=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=FnR2r1UJqwxQXcdxUb8MVwDT8BxaySA5P+5tE109aZ3c0iVyIKy3xPYFR2JvHsMtk
+	 hhrS/dXJ6YNKhFceFnEctzUY999h31ZXajyU/BpI4MH8kRpLWGxIE83PrwAs1ND0qd
+	 wiM0l7eNWTeJtmXs0zlSuR4l84D3T8d7vxq3KR/5GVJWRltPNvdYnRuzBXl+wgnf9m
+	 iRz5NgUvNT94PX6/vq+L9puZNGFwYG/wMfDugLjC2vrVShg3Gsol9Ulw91ocrV2agQ
+	 Y8WFx/c78wOTx7O04fGW5c3ApIU/leWXHDqz6HiqncAwzCAFm+98gxBuR+2FRh7OGU
+	 P6on9EHTqXcEw==
+From: Mark Brown <broonie@kernel.org>
+To: conor.dooley@microchip.com
+Cc: linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org, dan.carpenter@oracle.com, daire.mcnamara@microchip.com, lewis.hanly@microchip.com, linux-kernel@vger.kernel.org
+In-Reply-To: <20220615142028.2991915-1-conor.dooley@microchip.com>
+References: <20220615142028.2991915-1-conor.dooley@microchip.com>
+Subject: Re: [PATCH v2] spi: microchip-core: fix passing zero to PTR_ERR warning
+Message-Id: <165537976740.874420.15190272235131912340.b4-ty@kernel.org>
+Date: Thu, 16 Jun 2022 12:42:47 +0100
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220616_024653_361240_BE338365 
-X-CRM114-Status: GOOD (  19.73  )
+X-CRM114-CacheID: sfid-20220616_044251_980563_B6CBD2E4 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,66 +65,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, 15 Jun 2022 15:20:29 +0100, Conor Dooley wrote:
+> It is possible that the error case for devm_clk_get() returns NULL,
+> in which case zero will be passed to PTR_ERR() as shown by the Smatch
+> static checker warning:
+> drivers/spi/spi-microchip-core.c:557 mchp_corespi_probe()
+> warn: passing zero to 'PTR_ERR'
+> 
+> Remove the NULL check and carry on with a dummy clock in case of an
+> error. To avoid a potential div zero, abort calculating clkgen if
+> clk_get_rate(spi->clk) is zero.
+> 
+> [...]
 
-Am Mittwoch, 15. Juni 2022, 19:49:10 CEST schrieb Christoph Hellwig:
-> On Wed, Jun 15, 2022 at 06:56:40PM +0200, Heiko St=FCbner wrote:
-> > If I'm reading things correctly [0], the default for those functions
-> > is for those to be empty - but defined in the coherent case.
-> =
+Applied to
 
-> That's not the point.
-> =
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-> Zicbom is just an extension that allows the CPU to support managing
-> cache state.  Non-coherent DMA is just one of the use cases there
-> are others like persistent memory.  And when a CPU core supports
-> Zicbom it might or might not have any non-coherent periphals.  Or
-> even some coherent and some non-coherent ones, something that
-> is pretty common in arm/arm64 CPUs, where PCIe is usually cache
-> coherent, but some other cheap periphals might not be.
-> =
+Thanks!
 
-> That is why Linux ports require the plaform (usually through
-> DT or ACPI) to mark which devices are coherent and which ones
-> are not.
+[1/1] spi: microchip-core: fix passing zero to PTR_ERR warning
+      commit: 2081ad1467469b649fc9f9226b235977a7bf9402
 
-I "get" it now I think. I was somewhat struggling what you were aiming
-at, but that was something of not seeing "the forest for the trees" on
-my part. And of course you were right in recognizing that issue :-) .
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-Without CONFIG_ARCH_HAS_SYNC_DMA_FOR_DEVICE and friends
-dev_is_dma_coherent() will always return true otherwise the dma_coherent
-attribute. Hence the "coherent" value for every system not managing things
-will suddenly show as non-coherent where it showed as coherent before.
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-As we already have detection-points for non-coherent systems (zicbom
-detection, t-head errata detection) I guess just also switching some boolean
-might solve that, so that arch_setup_dma_ops() will set the dma_coherent
-attribute to true always except when some non-coherent system is detected.
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-
-void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
-                const struct iommu_ops *iommu, bool coherent)
-{
-        /* only track coherent attributes, if cache-management is available=
- */
-        if (enable_noncoherency)
-                dev->dma_coherent =3D coherent;
-        else
-                dev->dma_coherent =3D true;
-}
-
-
-Heiko
-
-
+Thanks,
+Mark
 
 _______________________________________________
 linux-riscv mailing list
