@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04346C43334
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC695CCA47A
 	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 22:05:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,66 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=cUiawCvX/fZE6b481/UHNJKFD+agyGVzwIwvkh8ee1U=; b=SY4XC4wPunypGfWu6do4dteUK+
-	2p0B7uI1YEgzFmCEbdxkNBTTeWL1arlfLtv+oMwfLMuwjrwjLANbmGhYTRzShpF8jkhCQniv2prJI
-	HwKr8u4SWg59oaBNIP7GO6nAgtZZdkXIV2W/bhE55WJPyEB8rrfN9dAq5w4l2OrHiouXSCV8g+W8d
-	cb817a2xRZp8JtSBag+kozarxabu+O/VstaxWrVj+NEk+kZVgqdsIfMprGPQZXKZ7/DpkedBRSuid
-	mcgS564VGVxtSD+IvXhaQep6FAIE8ZD9vzLWhaQYP3GkLdX9n6dkaohj+0JiYtrWp/9TgDKx1Q6IA
-	7FxSz/JQ==;
+	bh=we0Wh9q+AxxDzBBs0AdSV1PjfdO4CAbH0THA1oqwteY=; b=ytd4NhTIC3TEi1ftoZvfO1WzbV
+	fGV4+qCmQdBJvmwkZtiuNCES2ojTBbLPehDDGW8fSV2IlxIObcI6UhG6jnNU3QAYEjDsDcnEzq3Eg
+	R5ixxaqTTJKiT0SwV8OlMLNJAx7urThlaSR8UnfybNweVcSK9bn0pNzE3yv4YiTVMBERwq1Qs6xj5
+	dmmAWKYV5KN2dx5oLpbN4q5N8euqep47szm1tbgjOPzGKRy7Mv92h0Qg2RFDuMcuK8cHLlJlaz5lc
+	dBN8Eusjv1XNVTPTeqATS3zFr8h6nl57onU88uU3xynvrNsPJRhre3rRHB50yEdEx4LynH9WUB9u7
+	6HvVFVjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1xc0-004XSS-Aw; Thu, 16 Jun 2022 22:05:12 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1o1xc2-004XTR-0W; Thu, 16 Jun 2022 22:05:14 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1xbj-004XKh-RI
+	id 1o1xbj-004XLM-NO
 	for linux-riscv@lists.infradead.org; Thu, 16 Jun 2022 22:04:57 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 73-20020a17090a0fcf00b001eaee69f600so2630312pjz.1
-        for <linux-riscv@lists.infradead.org>; Thu, 16 Jun 2022 15:04:52 -0700 (PDT)
+Received: by mail-pl1-x635.google.com with SMTP id o6so2343034plg.2
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Jun 2022 15:04:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
          :content-transfer-encoding;
-        bh=l7bNYgy+kj8u/jxC0moNwUt1/A1dWzpe6enKDLs3CYw=;
-        b=vbp6VGbXIF+ANmagPv6oY9KhOIlXhEJ/vbaTYawbBSJUALwdTygMrXNi6hIbI2uVtA
-         WDsDi0e7k+bgkXHlj45ijFbhfBjcycXF6UY5ZYfJ+MWZ0wn3tkcFEABG0WRFtdpVTpDX
-         dGC0zHuucnNwJXo2U+7H90bxpNRp37Lp8v/wgZajKi09AnZ+nq6wN2ICLne/E6Qc4ASE
-         pz3iw3f4no4zX/fQLqTUVnjjtSDz7V7RuU90fOB9lkGOpQrVPY6R1GnVjSjudzsMpJqq
-         HTWXNrG2csc19lOCRuYMGtROF1jKTVT0wTQZTFK1pICfVcZrImaZdHtzr8mmIBtaKS8M
-         xP5g==
+        bh=zGBZJcSZ/U2W2OG+8NJC+fEKRwdCP8ZVUrkCa1GUjJM=;
+        b=e0Ru41M0uDOh0SC3RTUpcSh7Nlh3ZyNMHyhCVi3YyHT1OLrQ2v3HzYEEiZEOvuYB5I
+         ZbrKrdxNBGXS6dRyfKMA7k6a5KOG+WXZCfH2Zh08Lzp247mnrGd99VNENM+sDeAXfadB
+         TRDtkfo8Y+dLVRIWh1e4ywDVaKoos9VZDb7WXOyGSHPxKudONRkBvSDtVDmT2qGCUCkI
+         0Wx7XQXBruiKF5X+xfE+n1eEbujxOgHbUL9V2nsRVh1utDdSxu1KSFSCyNS8OuFns2P5
+         5KHne5Iy/XNGV9kETMpzEcPy8vjYCYZwJNjQvwJNNpB53Ri2bEdZI2brtRaxXvmP2wYd
+         bpNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
          :mime-version:content-transfer-encoding;
-        bh=l7bNYgy+kj8u/jxC0moNwUt1/A1dWzpe6enKDLs3CYw=;
-        b=pl7Pmdju44BkMxkpoiEioBNIkbEROcFJpsL0/R6x1zvAiEEyyodpr4bneaE3bldi+b
-         FImXpyNoVXjhzquQQlta49td8Q8bbPx0qel7P7Ih9OWY5WrEUk4eYqdvlrvtuaGgTkVE
-         dbB5OFJajCgfbvRxSOcTle398SaPJNvvTRGcvgVH0FeslKRkshtcU9fvT4gleVChBn+w
-         dO6tY7EsWv+7vaH2oOgJ2pWUOwomu6ThcfCDSGyfRB6RhVax1E+KFnx7kqJ4oFIFHj/9
-         Aloivb35ZtaPUUSd3r5shRXTJBzn5LHXd832rpNShxc3bwKgKMelBcFepC1/siosW6TV
-         Y4Rw==
-X-Gm-Message-State: AJIora+MNiuLyAJTmqY0O7kVjlvMouq+2f11exaukPB0ZC+Y+2oFNS57
-	uTIccJanrcwHJUp8b5NqzI5N7g==
-X-Google-Smtp-Source: AGRyM1u/yXpwyrUF4jgUMyqRVFRAoXSg7gMnc5yFVQgEn/9sJrmjQsFr4WOYlU3Q3XtOqdWvT2kljA==
-X-Received: by 2002:a17:902:9348:b0:167:8e92:272f with SMTP id g8-20020a170902934800b001678e92272fmr6779739plp.77.1655417091611;
-        Thu, 16 Jun 2022 15:04:51 -0700 (PDT)
+        bh=zGBZJcSZ/U2W2OG+8NJC+fEKRwdCP8ZVUrkCa1GUjJM=;
+        b=ANEuhV9VVL3VaZATKj7vPzt6FMvTVSxZYEYUvtFQdr5gsFTLa7Xsa5DknYnY2tYgeQ
+         jnqVLmFNIShvuk5qmOwwFQlz2+aNEvepQxHdk7nR3wkWtCuSSEMY8zFPSjiExv0KbgAO
+         hxaXniHle/jaAGBzHS3KwnFzqNBgbVmtyfKmPPaz1/fjF2NVxkjUhmGbG2Jbom29cH6F
+         NhYsdO99S1n4pQ5/PFpcigl4tgOa8p0d20S1hvzAfpnXjJw8YOTdMjFiwiFFHR0pPc1U
+         dy5U8E0VYz7MLqfkZf/Yl96xR77cb27YEpLDNF+XSBWRPKUu68DkI11z8h22UzcVl1gF
+         usQQ==
+X-Gm-Message-State: AJIora9ruqWq5PrOAwBTfU9zsdnLKtbSX9RtilmmcTQJKyFWWDeAAZ5V
+	VSwhQIz2b+BhSEYU8Kp3sR074VOZrQ1dcg==
+X-Google-Smtp-Source: AGRyM1sa3Yb7kZOPhKBtePqEmeLvk2njJ75iBb/jB32mvauypDbZYIcJPAXhqydTqgyhfaAqw9R2Aw==
+X-Received: by 2002:a17:902:d2ce:b0:167:7637:7025 with SMTP id n14-20020a170902d2ce00b0016776377025mr6278621plc.37.1655417093786;
+        Thu, 16 Jun 2022 15:04:53 -0700 (PDT)
 Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id r24-20020a638f58000000b00401a7b4f137sm2311093pgn.41.2022.06.16.15.04.49
+        by smtp.gmail.com with ESMTPSA id g12-20020a62f94c000000b0050dc762816asm2255514pfm.68.2022.06.16.15.04.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 16 Jun 2022 15:04:50 -0700 (PDT)
-Date: Thu, 16 Jun 2022 15:04:50 -0700 (PDT)
-X-Google-Original-Date: Thu, 16 Jun 2022 13:10:07 PDT (-0700)
-Subject: Re: [PATCH v2 0/2] introduce unified static key mechanism for ISA ext
-In-Reply-To: <20220522153543.2656-1-jszhang@kernel.org>
+        Thu, 16 Jun 2022 15:04:52 -0700 (PDT)
+Date: Thu, 16 Jun 2022 15:04:52 -0700 (PDT)
+X-Google-Original-Date: Thu, 16 Jun 2022 15:04:46 PDT (-0700)
+Subject: Re: [PATCH] riscv: Invalid instruction cache after copy the xol area
+In-Reply-To: <20220518081753.29589-1-po-kai.chi@sifive.com>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  atishp@atishpatra.org, anup@brainfault.org, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, po-kai.chi@sifive.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: jszhang@kernel.org
-Message-ID: <mhng-ea1ebe26-82ad-4a9d-b024-f6d79a0cb699@palmer-ri-x1c9>
+To: po-kai.chi@sifive.com
+Message-ID: <mhng-296c3110-5e5d-48a4-bd41-1d46bf7987cd@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220616_150455_997940_28656E47 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20220616_150456_035309_9854573F 
+X-CRM114-Status: GOOD (  26.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,30 +87,93 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 22 May 2022 08:35:41 PDT (-0700), jszhang@kernel.org wrote:
-> Currently, riscv has several extensions which may not be supported on all
-> riscv platforms, for example, FPU and so on. To support unified kernel
-> Image style, we need to check whether the feature is supported or not.
-> If the check sits at hot code path, the performance will be impacted a
-> lot. static key can be used to solve the issue. In the past, FPU
-> support has been converted to use static key mechanism. I believe we
-> will have similar cases in the future.
+On Wed, 18 May 2022 01:17:53 PDT (-0700), po-kai.chi@sifive.com wrote:
+> We need to invalid the relevant instruction cache after
+> copying the xol area, to ensure the changes takes effect.
 >
-> Since v1:
->   - fix typo, thank Atish
->   - remove riscv_isa_have_key_extension() instead use the isa ext keys
->     directly as pointed out by Atish.
+> Signed-off-by: Po-Kai Chi <po-kai.chi@sifive.com>
+> ---
+>  arch/riscv/kernel/probes/uprobes.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
 >
-> Jisheng Zhang (2):
->   riscv: introduce unified static key mechanism for ISA extensions
->   riscv: switch has_fpu() to the unified static key mechanism
+> diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
+> index 7a057b5f0adc..9d52beeac73c 100644
+> --- a/arch/riscv/kernel/probes/uprobes.c
+> +++ b/arch/riscv/kernel/probes/uprobes.c
+> @@ -165,6 +165,7 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
+>  	/* Initialize the slot */
+>  	void *kaddr = kmap_atomic(page);
+>  	void *dst = kaddr + (vaddr & ~PAGE_MASK);
+> +	unsigned long addr = (unsigned long)dst;
 >
->  arch/riscv/include/asm/hwcap.h     | 25 +++++++++++++++++++++++++
->  arch/riscv/include/asm/switch_to.h |  4 ++--
->  arch/riscv/kernel/cpufeature.c     | 14 +++++++-------
->  3 files changed, 34 insertions(+), 9 deletions(-)
+>  	memcpy(dst, src, len);
+>
+> @@ -177,10 +178,9 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
+>  	kunmap_atomic(kaddr);
+>
+>  	/*
+> -	 * We probably need flush_icache_user_page() but it needs vma.
+> -	 * This should work on most of architectures by default. If
+> -	 * architecture needs to do something different it can define
+> -	 * its own version of the function.
+> +	 * Flush both I/D cache to ensure instruction modification
+> +	 * takes effect.
+>  	 */
+>  	flush_dcache_page(page);
+> +	flush_icache_range(addr, addr + len);
+>  }
 
-Thanks, this is on for-next.
+This brings up a handful of issues:
+
+* This always inserts a 32-bit breakpoint, but that's not quite correct.  
+  This should really be checking the _next_ instruction as well to 
+  insert a 16-bit breakpoint if it's a 16-bit instruction as otherwise 
+  userspace might jump into the middle of the breakpoint.
+* These instructions can be concurrently executing, which relies on some 
+  instruction fetch ordering that's very lightly specified.  We don't 
+  rely on that elsewhere (see stop_machine() in kprobes), but we 
+  probably should.  It's probably worth adding something to probe the HW 
+  to make sure this is supported.
+* Adding the icache flush defeats a uprobes advantage in that we'll now 
+  be triggering remote execution (to do the remote fence.i).  One option 
+  could be to defer the fence and wait on it, but not sure if that's 
+  sane and it'd likely require a lot of 
+
+This also leaves a bit undefined WRT icache aliasing, at least in terms 
+of the API used.  IMO it'd be
+
+    diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
+    index 9d52beeac73c..c857346864fc 100644
+    --- a/arch/riscv/kernel/probes/uprobes.c
+    +++ b/arch/riscv/kernel/probes/uprobes.c
+    @@ -165,7 +165,6 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
+     	/* Initialize the slot */
+     	void *kaddr = kmap_atomic(page);
+     	void *dst = kaddr + (vaddr & ~PAGE_MASK);
+    -	unsigned long addr = (unsigned long)dst;
+    
+     	memcpy(dst, src, len);
+    
+    @@ -179,8 +178,10 @@ void arch_uprobe_copy_ixol(struct page *page, unsigned long vaddr,
+    
+     	/*
+     	 * Flush both I/D cache to ensure instruction modification
+    -	 * takes effect.
+    +	 * takes effect.  We don't need to flush the whole icache, but that's
+    +	 * all RISC-V defines so rather than worry about aliasing this just
+    +	 * flushes everything.
+     	 */
+     	flush_dcache_page(page);
+    -	flush_icache_range(addr, addr + len);
+    +	flush_icache_all();
+     }
+
+which will end up doing the same thing but avoids the ambiguity.  I went 
+ahead and put this at palmer/riscv-uprobe_fencei with that and some 
+other minor things fixed up, LMK if that looks OK and I'll take it on 
+fixes.
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
