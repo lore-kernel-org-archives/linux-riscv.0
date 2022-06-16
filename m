@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB0D0C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 04:49:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28AD7C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 04:55:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9dX4WBsLOgZdOF1GFWfjIyLZTwKP0ghY8wRQXVMvMWY=; b=WQYoSwpTdUMc0j
-	dBI66xQabMVD6yxBmEMgDTQDZgUFB0zKYvIXO9qN6wPTM46hy4volKRJs0dTQdzGLANqw48KObbOM
-	pikVpSeWlQtZciNCEyy9J/Hoqyc85jOyqzrtAHfNXdudEOwiDswvsN3hJe6gL64HSEq6NQovYAc08
-	xjJaFrfgLiE4KTuyQkKIgfyfFECw7NdskDcXVeXfGvrBEJxZUmjHiMXyi0EVW+VnedivX37zH/ZaD
-	4DfLjOxH+9Kv0dUN7VJLChdGmoCj/uAF1qYG6He8UkRY1BW1gakyQHVvJXZNdIUQ2wV1c2qWor7r9
-	gfC66SPQArqqmNdrI9gQ==;
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Ld9PyrfvnSEw9zi7QTNg1gUhaUwQs+rtzXiFxMb29RQ=; b=Jv6L4L5p6KBDTP
+	IkBIKB8ipr2qdgtwu3nr6a857Zc0tBENXJjo+yGAbwEoAzkzrmvCTVkE0epJVyIvwdo8MDq2VrXMW
+	OhH4OLHCGR7YKqvQpdC8lUdeTB/qTdz6wZsTrNlM+uNHLet5zJyyjRHsfGhhIvaLjQZ95buEU1nkC
+	fPBHvY/stt4xjVrAQ/yuB/OJs6Zkwds1WcIMXvBk9J60s8+Aw4iOQAkVQqLn1Pvgeez7koHPnrPFe
+	NGVEtiBBx7Qjoy8KjaQ1QJEqmAulwTaQxZx3lpT4/XXp4mv0TiTt6Ig33+iD9ynDSuf3hYs4K2nBK
+	vebLS9CP2DPo6KOF3bWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1hRo-000QH3-Hc; Thu, 16 Jun 2022 04:49:36 +0000
-Received: from mail-m963.mail.126.com ([123.126.96.3])
+	id 1o1hXH-000RWt-Ca; Thu, 16 Jun 2022 04:55:15 +0000
+Received: from m1524.mail.126.com ([220.181.15.24])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1hRl-000QF3-OB
-	for linux-riscv@lists.infradead.org; Thu, 16 Jun 2022 04:49:35 +0000
+	id 1o1hXD-000RQX-OV
+	for linux-riscv@lists.infradead.org; Thu, 16 Jun 2022 04:55:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=1pCJ5
-	nuqf9rZ6vZLpt9IaeTJgUV4nj1fGxyJJfDr68s=; b=QzCApHmgqspl/NhthqSmc
-	xNtqRp6k0Mnw0o3UnafJxG4PEEEoeoCC04wbN5QhN2LdXgQLj3NiGudk89a0cm+P
-	mJ6j/3PrWm/k+1r2nvb+FqIp3VpTS9lpgn8nWkDeIr5yyq/lnFed4XdCnQ93O0QS
-	Pm8Qzo2m8YDhuIRmp0oyIE=
-Received: from localhost.localdomain (unknown [124.16.139.61])
-	by smtp8 (Coremail) with SMTP id NORpCgBXWJVMtqpiiJrqFg--.28738S2;
-	Thu, 16 Jun 2022 12:49:18 +0800 (CST)
-From: Liang He <windhl@126.com>
-To: palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu
-Cc: windhl@126.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH v2] soc: sifive: (sifive_l2_cache) Add missing of_node_put()
-Date: Thu, 16 Jun 2022 12:49:15 +0800
-Message-Id: <20220616044915.3978097-1-windhl@126.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
-X-CM-TRANSID: NORpCgBXWJVMtqpiiJrqFg--.28738S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7ur4DAr47AryxJF1fCFW5Awb_yoW8ZFW3pr
-	WxXryavry8Gwn7Wr9xJ3Z8ZFyF9wn293y3KFyI9wn8ur17GrWqvr4SyFyUZF9xCrW09rsx
-	tr4jkF1DC3W8uFDanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0p_ucMdUUUUU=
+	s=s110527; h=Date:From:Subject:MIME-Version:Message-ID; bh=dshfT
+	7W6MY5sBDSYiWA99vNTQfl5M8jX0dK3LxKchtg=; b=kGaypZpwiRhQsvtsbLNua
+	gqglHQHDFf3c2zv5nv2hPsuXQKIt0OMw9jbY+77QFvhBqhyOK/Xupjaa4uG+JUoE
+	9bhn7IWxO3tKBmbFLf7JCc/KWftTz2xb22hKWYgZuA1ZOtJ9BaNmbydDc1mWOZqx
+	Kj2QJXL1rvaIDZ2Oc9F4uk=
+Received: from windhl$126.com ( [124.16.139.61] ) by ajax-webmail-wmsvr24
+ (Coremail) ; Thu, 16 Jun 2022 12:54:50 +0800 (CST)
 X-Originating-IP: [124.16.139.61]
-X-CM-SenderInfo: hzlqvxbo6rjloofrz/xtbBGgYiF1-HZTt0IAAAs7
+Date: Thu, 16 Jun 2022 12:54:50 +0800 (CST)
+From: "Liang He" <windhl@126.com>
+To: "kernel test robot" <lkp@intel.com>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
+	kbuild-all@lists.01.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re:Re: [PATCH] drivers: soc: sifive: Add missing of_node_put() in
+ sifive_l2_cache.c
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.13 build 20220113(9671e152)
+ Copyright (c) 2002-2022 www.mailtech.cn 126com
+In-Reply-To: <202206160559.fVKJx0ST-lkp@intel.com>
+References: <20220615122315.3965435-1-windhl@126.com>
+ <202206160559.fVKJx0ST-lkp@intel.com>
+MIME-Version: 1.0
+Message-ID: <3e6469ba.38b2.1816add33c5.Coremail.windhl@126.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: GMqowACXpiaat6piW_k2AA--.1844W
+X-CM-SenderInfo: hzlqvxbo6rjloofrz/1tbiuA4iF2JVj44gFgACsB
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220615_214934_172545_95762839 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20220615_215512_192243_97F19129 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,84 +73,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In sifive_l2_init(), of_find_matching_node() will return a node pointer
-with refcount incremented. We should use of_node_put() in each fail path
-or when it is not used anymore.
-
-Reported-by: kernel test robot <lkp@intel.com>
-
-Signed-off-by: Liang He <windhl@126.com>
----
- changelog: 
-
- v2: (1) fix bug, introduced by v1 patch, reporeted by kernel-test-robot
- v1: fix missing bug
-
- ps: Because of many local commit, when using --base for format-patch,
-     there are too many prerequest-patch-id. I wonder if it will lead to other 
-     problems. So now, I send this commit still without --base.
-
- drivers/soc/sifive/sifive_l2_cache.c | 24 +++++++++++++++++-------
- 1 file changed, 17 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/soc/sifive/sifive_l2_cache.c b/drivers/soc/sifive/sifive_l2_cache.c
-index 59640a1d0b28..e0e3d8b64c25 100644
---- a/drivers/soc/sifive/sifive_l2_cache.c
-+++ b/drivers/soc/sifive/sifive_l2_cache.c
-@@ -202,17 +202,22 @@ static int __init sifive_l2_init(void)
- 	if (!np)
- 		return -ENODEV;
- 
--	if (of_address_to_resource(np, 0, &res))
--		return -ENODEV;
-+	if (of_address_to_resource(np, 0, &res)) {
-+		ret = -ENODEV;
-+		goto out_put;
-+	}
- 
- 	l2_base = ioremap(res.start, resource_size(&res));
--	if (!l2_base)
--		return -ENOMEM;
-+	if (!l2_base) {
-+		ret = -ENOMEM;
-+		goto out_put;
-+	}
- 
- 	intr_num = of_property_count_u32_elems(np, "interrupts");
- 	if (!intr_num) {
- 		pr_err("L2CACHE: no interrupts property\n");
--		return -ENODEV;
-+		ret = -ENODEV;
-+		goto out_put;
- 	}
- 
- 	for (i = 0; i < intr_num; i++) {
-@@ -220,7 +225,8 @@ static int __init sifive_l2_init(void)
- 		rc = request_irq(g_irq[i], l2_int_handler, 0, "l2_ecc", NULL);
- 		if (rc) {
- 			pr_err("L2CACHE: Could not request IRQ %d\n", g_irq[i]);
--			return rc;
-+			ret = rc;
-+			goto out_put;
- 		}
- 	}
- 
-@@ -232,6 +238,10 @@ static int __init sifive_l2_init(void)
- #ifdef CONFIG_DEBUG_FS
- 	setup_sifive_debug();
- #endif
--	return 0;
-+	ret = 0;
-+
-+out_put:
-+	of_node_put(np);
-+	return ret;
- }
- device_initcall(sifive_l2_init);
--- 
-2.25.1
 
 
+
+
+At 2022-06-16 05:58:05, "kernel test robot" <lkp@intel.com> wrote:
+>Hi Liang,
+>
+>Thank you for the patch! Yet something to improve:
+>
+>[auto build test ERROR on linus/master]
+>[also build test ERROR on v5.19-rc2 next-20220615]
+>[If your patch is applied to the wrong git tree, kindly drop us a note.
+>And when submitting patch, we suggest to use '--base' as documented in
+>https://git-scm.com/docs/git-format-patch]
+>
+
+When I use --base, there are too many prerequests-patch-id caused by my local commits. 
+I don't know if it will cause other troubles. So I resent a new patch still without this '--base'.
+Is it Ok?
+
+Sorry, I forget to say in new patch that  is based on v5.19-rc2 mainline git repo.
+
+>url:    https://github.com/intel-lab-lkp/linux/commits/Liang-He/drivers-soc-sifive-Add-missing-of_node_put-in-sifive_l2_cache-c/20220615-202528
+>base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 018ab4fabddd94f1c96f3b59e180691b9e88d5d8
+>config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20220616/202206160559.fVKJx0ST-lkp@intel.com/config)
+>compiler: riscv64-linux-gcc (GCC) 11.3.0
+>reproduce (this is a W=1 build):
+>        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+>        chmod +x ~/bin/make.cross
+>        # https://github.com/intel-lab-lkp/linux/commit/49c4086768b5aff410a4a19ca740f8ae8e211844
+>        git remote add linux-review https://github.com/intel-lab-lkp/linux
+>        git fetch --no-tags linux-review Liang-He/drivers-soc-sifive-Add-missing-of_node_put-in-sifive_l2_cache-c/20220615-202528
+>        git checkout 49c4086768b5aff410a4a19ca740f8ae8e211844
+>        # save the config file
+>        mkdir build_dir && cp config build_dir/.config
+>        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.3.0 make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash drivers/soc/
+>
+>If you fix the issue, kindly add following tag where applicable
+>Reported-by: kernel test robot <lkp@intel.com>
+>
+
+Thanks for this report, now I make a new patch and add "Reported-by: kernel test robot <lkp@intel.com>"
+
+
+>All errors (new ones prefixed by >>):
+>
+>   drivers/soc/sifive/sifive_l2_cache.c: In function 'sifive_l2_init':
+>>> drivers/soc/sifive/sifive_l2_cache.c:224:17: error: expected ';' before 'goto'
+>     224 |                 goto out_put;
+>         |                 ^~~~
+>
+>
+
+Thanks for all your effort to improve the patch.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
