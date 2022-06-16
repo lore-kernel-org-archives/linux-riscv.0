@@ -4,56 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 957FBC43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 11:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0A2C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 11:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=03SWQjrq7gdE915eN5GfRuPiLePrv/NtF21nzpgMx6g=; b=xII306GsPWdwKj
-	G888nYbEkwNwXFNjI+uX3L+y4UQussF22IY2j3LvMRKrYKFUmsIrn7WLgkB7vHwslRYl//QaY8qPf
-	NWBqRtAeVxO8BR7PsCHYGf7OWtes2SRLqhrRsxld1cfHFs6hHJn5V7WF0VqOUnfIJHGRS3MLdJm9w
-	BEWQu9W3mgUycTxhVoKtlWp+ean1wT4dM+SRb/WEI+/Tv0+Ojg6BYV7XSiya/ZgVSZs7ccrJxv/Hm
-	h1ynceKYZyoSrPM1n+QFidg0GFaTcju2eGqNxbdbtI+yl2GVAAulzeAYai565jV0ere0bjPtXfq0b
-	WWtN0xLzGFhG1Tn0LMbA==;
+	List-Owner; bh=HlJb9PkOysEQqLB/fKK2SNlHGRhApZus2eMTUXNn6Aw=; b=V5WjfgSiiKvoi1
+	2y1z08+ILPjEIEJa/F8cup/9suZRnZHlAyCC9mdkfWIZxcvky1AhnLmEway/Zyh5N3lR2dwnct9/7
+	eo763bfWDJaDVDMeAOwpoukdgkdcRbVq6yeXbMX7L4DmpChHVL2WFlt/LnPbiQgdOmKKo81AA7zP0
+	PZ0T8vkuKdQqblqhv8BZ3qCOxRLq8A6w8GuTFNqV4G4sPo7VvRCdVLIm8txe0pstCER7NJDBkx4En
+	hlG9+c9M86N/qiybwDwRVPTzIbVTb7KXkjhCf1PG5UYNntwKdbGc0tbfGWeOpXL8D8Tfzg/SSEutr
+	6u19wwFjebfPlTmH4njQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1ntm-0028oM-IK; Thu, 16 Jun 2022 11:42:54 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1o1o4Q-002BhH-Vi; Thu, 16 Jun 2022 11:53:54 +0000
+Received: from verein.lst.de ([213.95.11.211])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1ntj-0028nH-OL
-	for linux-riscv@lists.infradead.org; Thu, 16 Jun 2022 11:42:53 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 66E76B823A5;
-	Thu, 16 Jun 2022 11:42:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8EACC34114;
-	Thu, 16 Jun 2022 11:42:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1655379769;
-	bh=Q132C26WTc5ClYHcIA2UoeqKRa/NHeLBCM471XhFPec=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=FnR2r1UJqwxQXcdxUb8MVwDT8BxaySA5P+5tE109aZ3c0iVyIKy3xPYFR2JvHsMtk
-	 hhrS/dXJ6YNKhFceFnEctzUY999h31ZXajyU/BpI4MH8kRpLWGxIE83PrwAs1ND0qd
-	 wiM0l7eNWTeJtmXs0zlSuR4l84D3T8d7vxq3KR/5GVJWRltPNvdYnRuzBXl+wgnf9m
-	 iRz5NgUvNT94PX6/vq+L9puZNGFwYG/wMfDugLjC2vrVShg3Gsol9Ulw91ocrV2agQ
-	 Y8WFx/c78wOTx7O04fGW5c3ApIU/leWXHDqz6HiqncAwzCAFm+98gxBuR+2FRh7OGU
-	 P6on9EHTqXcEw==
-From: Mark Brown <broonie@kernel.org>
-To: conor.dooley@microchip.com
-Cc: linux-riscv@lists.infradead.org, linux-spi@vger.kernel.org, dan.carpenter@oracle.com, daire.mcnamara@microchip.com, lewis.hanly@microchip.com, linux-kernel@vger.kernel.org
-In-Reply-To: <20220615142028.2991915-1-conor.dooley@microchip.com>
-References: <20220615142028.2991915-1-conor.dooley@microchip.com>
-Subject: Re: [PATCH v2] spi: microchip-core: fix passing zero to PTR_ERR warning
-Message-Id: <165537976740.874420.15190272235131912340.b4-ty@kernel.org>
-Date: Thu, 16 Jun 2022 12:42:47 +0100
+	id 1o1o4N-002Bd0-2f
+	for linux-riscv@lists.infradead.org; Thu, 16 Jun 2022 11:53:52 +0000
+Received: by verein.lst.de (Postfix, from userid 2407)
+	id 129BB67373; Thu, 16 Jun 2022 13:53:43 +0200 (CEST)
+Date: Thu, 16 Jun 2022 13:53:42 +0200
+From: Christoph Hellwig <hch@lst.de>
+To: Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+Cc: Christoph Hellwig <hch@lst.de>, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, wefu@redhat.com, guoren@kernel.org,
+	cmuellner@linux.com, philipp.tomsich@vrull.eu, samuel@sholland.org,
+	atishp@atishpatra.org, anup@brainfault.org, mick@ics.forth.gr,
+	robh+dt@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org,
+	drew@beagleboard.org, Atish Patra <atish.patra@wdc.com>
+Subject: Re: [PATCH 2/3] riscv: Implement Zicbom-based cache management
+ operations
+Message-ID: <20220616115342.GA11289@lst.de>
+References: <20220610004308.1903626-1-heiko@sntech.de> <110361853.nniJfEyVGO@diego> <20220615174910.GA26607@lst.de> <1752040.TLkxdtWsSY@diego>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <1752040.TLkxdtWsSY@diego>
+User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220616_044251_980563_B6CBD2E4 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20220616_045351_324777_54EA27F3 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,51 +59,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jun 2022 15:20:29 +0100, Conor Dooley wrote:
-> It is possible that the error case for devm_clk_get() returns NULL,
-> in which case zero will be passed to PTR_ERR() as shown by the Smatch
-> static checker warning:
-> drivers/spi/spi-microchip-core.c:557 mchp_corespi_probe()
-> warn: passing zero to 'PTR_ERR'
-> 
-> Remove the NULL check and carry on with a dummy clock in case of an
-> error. To avoid a potential div zero, abort calculating clkgen if
-> clk_get_rate(spi->clk) is zero.
-> 
-> [...]
+On Thu, Jun 16, 2022 at 11:46:45AM +0200, Heiko St=FCbner wrote:
+> Without CONFIG_ARCH_HAS_SYNC_DMA_FOR_DEVICE and friends
+> dev_is_dma_coherent() will always return true otherwise the dma_coherent
+> attribute. Hence the "coherent" value for every system not managing things
+> will suddenly show as non-coherent where it showed as coherent before.
 
-Applied to
+Yes.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+> As we already have detection-points for non-coherent systems (zicbom
+> detection, t-head errata detection)
 
-Thanks!
+No, we don't.  There are plenty of reasons to support Zicbom without
+every having any non-coherent DMA periphals.  Or just some non-coherent
+ones.  So that alone is not a good indicator at all.
 
-[1/1] spi: microchip-core: fix passing zero to PTR_ERR warning
-      commit: 2081ad1467469b649fc9f9226b235977a7bf9402
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+The proper interface for that in DT-based setups i of_dma_is_coherent(),
+which looks at the dma-coherent DT property.  And given that RISC-V
+started out as all coherent we need to follow the powerpc way
+(CONFIG_OF_DMA_DEFAULT_COHERENT) and default to coherent with an
+explcit propery for non-coherent devices, and not the arm/arm64 way
+where non-coherent is the default and coherent devices need the property.
 
 _______________________________________________
 linux-riscv mailing list
