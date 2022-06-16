@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28AD7C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 04:55:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33838C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 05:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ld9PyrfvnSEw9zi7QTNg1gUhaUwQs+rtzXiFxMb29RQ=; b=Jv6L4L5p6KBDTP
-	IkBIKB8ipr2qdgtwu3nr6a857Zc0tBENXJjo+yGAbwEoAzkzrmvCTVkE0epJVyIvwdo8MDq2VrXMW
-	OhH4OLHCGR7YKqvQpdC8lUdeTB/qTdz6wZsTrNlM+uNHLet5zJyyjRHsfGhhIvaLjQZ95buEU1nkC
-	fPBHvY/stt4xjVrAQ/yuB/OJs6Zkwds1WcIMXvBk9J60s8+Aw4iOQAkVQqLn1Pvgeez7koHPnrPFe
-	NGVEtiBBx7Qjoy8KjaQ1QJEqmAulwTaQxZx3lpT4/XXp4mv0TiTt6Ig33+iD9ynDSuf3hYs4K2nBK
-	vebLS9CP2DPo6KOF3bWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5YtG0jnC+A41dnMRtNHaUKl87AjkkM1xY3zRqeIXeeo=; b=Wz+imoMWdqBDdd+n6mYGK5B0D2
+	z6L9Z2EzXkfDVkXP/MAmPRfZfrOeuHhEeU8LHfzT76f6BZiZ2VsAqMGMPoCDuxDb9Z4UbiNr1EoBM
+	750xaYJCN56EbhdVxYdb7vzUF85qMS676d570K5FQYzP2yKxAPdeYQYsva+I4Wozxb5fC0QwMKRdz
+	qR/ixKG7UQ6dqTMXgmPL1QUKLbbpMKSs5jBQug3OLBWXFfbH6/qUripxSprbvIYAEKZYxma3APx10
+	xRb0f1+WV72gYB4HekmSMa9frfdrayX2NYlwApu537kS7nuF+nfjMUup3qIf+gideiPg8m4dyt+pR
+	fdgI7uMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1hXH-000RWt-Ca; Thu, 16 Jun 2022 04:55:15 +0000
-Received: from m1524.mail.126.com ([220.181.15.24])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1hXD-000RQX-OV
-	for linux-riscv@lists.infradead.org; Thu, 16 Jun 2022 04:55:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=Date:From:Subject:MIME-Version:Message-ID; bh=dshfT
-	7W6MY5sBDSYiWA99vNTQfl5M8jX0dK3LxKchtg=; b=kGaypZpwiRhQsvtsbLNua
-	gqglHQHDFf3c2zv5nv2hPsuXQKIt0OMw9jbY+77QFvhBqhyOK/Xupjaa4uG+JUoE
-	9bhn7IWxO3tKBmbFLf7JCc/KWftTz2xb22hKWYgZuA1ZOtJ9BaNmbydDc1mWOZqx
-	Kj2QJXL1rvaIDZ2Oc9F4uk=
-Received: from windhl$126.com ( [124.16.139.61] ) by ajax-webmail-wmsvr24
- (Coremail) ; Thu, 16 Jun 2022 12:54:50 +0800 (CST)
-X-Originating-IP: [124.16.139.61]
-Date: Thu, 16 Jun 2022 12:54:50 +0800 (CST)
-From: "Liang He" <windhl@126.com>
-To: "kernel test robot" <lkp@intel.com>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
-	kbuild-all@lists.01.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re:Re: [PATCH] drivers: soc: sifive: Add missing of_node_put() in
- sifive_l2_cache.c
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.13 build 20220113(9671e152)
- Copyright (c) 2002-2022 www.mailtech.cn 126com
-In-Reply-To: <202206160559.fVKJx0ST-lkp@intel.com>
-References: <20220615122315.3965435-1-windhl@126.com>
- <202206160559.fVKJx0ST-lkp@intel.com>
+	id 1o1hmy-000Un4-3D; Thu, 16 Jun 2022 05:11:28 +0000
+Received: from mga03.intel.com ([134.134.136.65])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o1hmm-000Uip-TQ; Thu, 16 Jun 2022 05:11:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1655356276; x=1686892276;
+  h=subject:to:cc:references:from:message-id:date:
+   mime-version:in-reply-to:content-transfer-encoding;
+  bh=NkEFYvNXfkRiyQzrKr5w73UFu/bNjvCsd8osZsw1FkQ=;
+  b=KTMRPbhC+xr+A1GVOYVT0bIhBVhq86Ny0leExhksefx80t1FhI3mpDW6
+   hdv7gcqXfx3C2C8m1KvM9ge9F2c1tkY4onq1qlyDRcVsgOcbLDzXt4ovu
+   bbAAIoBzWKYJZzkGH1NgQKuS+ePzCtwvqp3XFC347ni+aaQy/yTnISBfp
+   tDQ3dzZNGQ9QYwhxUlVNEf0cLBBVQbhp0F7xD7GDom6RvO6dCzT0RFkI0
+   KMCjG4HTAqRipmL3Cog0g7GQ/a43ijvUeIlclga8nPI285DQlwfOcC2Ko
+   OwKMFVDh+aDI3SYkQHgEwuiVQ6PMEf9LIXvCDHE+LbqUrgg83fvOngYlL
+   w==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10379"; a="280201011"
+X-IronPort-AV: E=Sophos;i="5.91,304,1647327600"; 
+   d="scan'208";a="280201011"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2022 22:11:10 -0700
+X-IronPort-AV: E=Sophos;i="5.91,304,1647327600"; 
+   d="scan'208";a="641365226"
+Received: from rongch2-mobl.ccr.corp.intel.com (HELO [10.249.174.230]) ([10.249.174.230])
+  by fmsmga008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Jun 2022 22:11:05 -0700
+Subject: Re: [linux-next:master] BUILD REGRESSION
+ 8cb8311e95e3bb58bd84d6350365f14a718faa6d
+To: Arnd Bergmann <arnd@arndb.de>, kernel test robot <lkp@intel.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ "open list:DRM DRIVER FOR QEMU'S CIRRUS DEVICE"
+ <virtualization@lists.linux-foundation.org>,
+ Networking <netdev@vger.kernel.org>, linux-staging@lists.linux.dev,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-rdma <linux-rdma@vger.kernel.org>,
+ linux-pci <linux-pci@vger.kernel.org>, linux-parport@lists.infradead.org,
+ linux-omap <linux-omap@vger.kernel.org>,
+ Linux Fbdev development list <linux-fbdev@vger.kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ kvm list <kvm@vger.kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>,
+ bpf <bpf@vger.kernel.org>, amd-gfx list <amd-gfx@lists.freedesktop.org>,
+ ALSA Development Mailing List <alsa-devel@alsa-project.org>,
+ Linux Memory Management List <linux-mm@kvack.org>
+References: <628ea118.wJYf60YnZco0hs9o%lkp@intel.com>
+ <CAK8P3a10aGYNr=nKZVzv+1n_DRibSCCkoCLuTDtmhZskBMWfyw@mail.gmail.com>
+From: "Chen, Rong A" <rong.a.chen@intel.com>
+Message-ID: <7a9f0c2d-f1e9-dd2f-6836-26d08bfa45a0@intel.com>
+Date: Thu, 16 Jun 2022 13:11:03 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Firefox/78.0 Thunderbird/78.12.0
 MIME-Version: 1.0
-Message-ID: <3e6469ba.38b2.1816add33c5.Coremail.windhl@126.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: GMqowACXpiaat6piW_k2AA--.1844W
-X-CM-SenderInfo: hzlqvxbo6rjloofrz/1tbiuA4iF2JVj44gFgACsB
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+In-Reply-To: <CAK8P3a10aGYNr=nKZVzv+1n_DRibSCCkoCLuTDtmhZskBMWfyw@mail.gmail.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220615_215512_192243_97F19129 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20220615_221117_025557_D61073DE 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,65 +87,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
 
+On 5/26/2022 4:32 PM, Arnd Bergmann wrote:
+> On Wed, May 25, 2022 at 11:35 PM kernel test robot <lkp@intel.com> wrote:
+>> .__mulsi3.o.cmd: No such file or directory
+>> Makefile:686: arch/h8300/Makefile: No such file or directory
+>> Makefile:765: arch/h8300/Makefile: No such file or directory
+>> arch/Kconfig:10: can't open file "arch/h8300/Kconfig"
+> 
+> Please stop building h8300  after the asm-generic tree is merged, the
+> architecture is getting removed.
+> 
+>          Arnd
+> 
 
+Hi Arnd,
 
-At 2022-06-16 05:58:05, "kernel test robot" <lkp@intel.com> wrote:
->Hi Liang,
->
->Thank you for the patch! Yet something to improve:
->
->[auto build test ERROR on linus/master]
->[also build test ERROR on v5.19-rc2 next-20220615]
->[If your patch is applied to the wrong git tree, kindly drop us a note.
->And when submitting patch, we suggest to use '--base' as documented in
->https://git-scm.com/docs/git-format-patch]
->
+Thanks for the advice, we have stopped building h8300 for new kernel.
 
-When I use --base, there are too many prerequests-patch-id caused by my local commits. 
-I don't know if it will cause other troubles. So I resent a new patch still without this '--base'.
-Is it Ok?
+Best Regards,
+Rong Chen
 
-Sorry, I forget to say in new patch that  is based on v5.19-rc2 mainline git repo.
-
->url:    https://github.com/intel-lab-lkp/linux/commits/Liang-He/drivers-soc-sifive-Add-missing-of_node_put-in-sifive_l2_cache-c/20220615-202528
->base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 018ab4fabddd94f1c96f3b59e180691b9e88d5d8
->config: riscv-allyesconfig (https://download.01.org/0day-ci/archive/20220616/202206160559.fVKJx0ST-lkp@intel.com/config)
->compiler: riscv64-linux-gcc (GCC) 11.3.0
->reproduce (this is a W=1 build):
->        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
->        chmod +x ~/bin/make.cross
->        # https://github.com/intel-lab-lkp/linux/commit/49c4086768b5aff410a4a19ca740f8ae8e211844
->        git remote add linux-review https://github.com/intel-lab-lkp/linux
->        git fetch --no-tags linux-review Liang-He/drivers-soc-sifive-Add-missing-of_node_put-in-sifive_l2_cache-c/20220615-202528
->        git checkout 49c4086768b5aff410a4a19ca740f8ae8e211844
->        # save the config file
->        mkdir build_dir && cp config build_dir/.config
->        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-11.3.0 make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash drivers/soc/
->
->If you fix the issue, kindly add following tag where applicable
->Reported-by: kernel test robot <lkp@intel.com>
->
-
-Thanks for this report, now I make a new patch and add "Reported-by: kernel test robot <lkp@intel.com>"
-
-
->All errors (new ones prefixed by >>):
->
->   drivers/soc/sifive/sifive_l2_cache.c: In function 'sifive_l2_init':
->>> drivers/soc/sifive/sifive_l2_cache.c:224:17: error: expected ';' before 'goto'
->     224 |                 goto out_put;
->         |                 ^~~~
->
->
-
-Thanks for all your effort to improve the patch.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
