@@ -4,69 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C680C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jun 2022 14:29:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BB9C43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 17 Jun 2022 15:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qDEz50DHP1YV58D/lBoX/77Lu22qNTUkO+SpXvM07AY=; b=fTvY2eZcbZ/CcC
-	EqmVNw+HY9+ujAAiydGS+i3iRHNtPe/6Q2Q6ii3hhzJww/LIB/B2xAATP4Aq8VvU/L4g0cxhWLrVZ
-	sadFEijSyn9d3MZWLyFGc4wPBwA5jzCQjBs4Q+h5NFkq5S1q23t6rG3Vzs5z76yg+/fMDrSyrmKC8
-	EzcQN0C1AbKYyN3VEr0iX29Jt/nH2Ru1+6b8edg/xiJNBg0ntgx0qbtJgTj/h9RJshdDRQmIKV4Rp
-	HmdYPyt67hW9MccB7HhML5jzRxWTYuuSsrVDZQhCpyTP9tBxfQl6qT+o4wF9AT87oZfps79dVX2f4
-	5vNMxLTtAUHuenHL0zqw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nRh3lbD5KW7zoFs3bC+Wbs1rrSnXAdjXTOT7weXRJHQ=; b=KrkP+5IfoftVKT
+	fZ/ezUbA53ZpcItOO+SJbaUrzHgmjDv9yqtkrwudqP/cY3B1HIdeKmqib6K7mR9sGzjbLyrxACN4L
+	/rUIRwCGiPOgDJpUn7PG4kg+tllIPX1txi5AVmDZfYQ6LbgKmFO2AavTZkLgw2zK/18jNi0ENRqUP
+	Sk7uJvuHzRdc4xnst6l8Z1NJu7TSRFGFOkZzXPD9MO/oaTQYQ3FGbu0W7cDXc5R2M7nShzMHdcHof
+	3veRoJCPYAW+pHXf/yzjp4IWOrfvPHauZOPawJY+7U6CfI/PPCgVCG2mWSqPIge/RYAfik+IOP9pq
+	L117RzeiZdFQqb+8iREA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o2Cxt-007zxC-Cp; Fri, 17 Jun 2022 14:28:49 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1o2Dux-00893s-Kf; Fri, 17 Jun 2022 15:29:51 +0000
+Received: from mga09.intel.com ([134.134.136.24])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o2Cxq-007zw6-3B
-	for linux-riscv@lists.infradead.org; Fri, 17 Jun 2022 14:28:47 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id mh16-20020a17090b4ad000b001e8313301f1so7318045pjb.1
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Jun 2022 07:28:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:cc:from:to:message-id;
-        bh=Tcqogqr7saSROb6VJsAgZfCbPF8TWLw9G8OGokI3FTg=;
-        b=E+4Jz3GGbPeUBX1+iOzQKk5b9D+kTxwstYr74i+tyWOs4q5olcWYlxQTD+bNKoXBRI
-         amXrbYO2XleVeyrFW123CtKxnGQUGn+D/QCzkZoVqoY4xii4i+D4YVF5ATiRYFn+nyMn
-         NJoeCFYUYL8z8BvPzsuLQSjRJUIRV9cQXjWkaFzla0uTQElu8y3uFgAoMKQQUsw7893K
-         bs2qE8ZJNQXl/dsRMdt3a8wIGoVYTPa+fLuQ0h/m093JHgjB1YLwEkndjCPqM6f3LYEK
-         IYPth2ugj1/I1fSbYZr7sZrtxN/RIaZiQx/1t3HQ56tKleur6cM/7pNP6SJ4/cUZC6y4
-         vjyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:cc:from:to:message-id;
-        bh=Tcqogqr7saSROb6VJsAgZfCbPF8TWLw9G8OGokI3FTg=;
-        b=A1x7NkoLtrDOdSQI8SkJghwpJWfORH+82FpERxrcYpUYLpbdcbCjKs7qctOPmB7DIW
-         nKsfm9F9dzYeAhhRbU4FQL8Y4LQQj5snj8kP3rTrC0x3hwnRi7537+K3NK/zNMzHmE3X
-         rOzO/z+f2suTVif3HLuFQ22QuwZq+m3u5S5UdbQYkLSg57GOJDGlyT0EFaTca75vvA7I
-         PMAXyTs+EDUEvRA40fjOWnGxcxtKQ3NrvUTL4ap4ubW4i/ZQ+xT/ZqYiaNUWTOsUhtBX
-         +E7a45rCK2Yc791QoZcLe4QCuNq+QRzZy1K7bv0AY91pZ9mMpvSOf4RV5SiRwED2guZU
-         mn4w==
-X-Gm-Message-State: AJIora8y7Tl/hMprUL3zyrXVZIGx1m1hwqiA3NTHkTPCDvjCFZw8yLP8
-	2vbLYBO72geByTDgPTLAx8EiolAK7M5ltw==
-X-Google-Smtp-Source: AGRyM1sQZnAyDmRJkonXd8bV0/gW4lFtzB5JN6E3PmH6DvPKId+IFv/dku2ioZg+/nr1ZDvNRhr14g==
-X-Received: by 2002:a17:903:32c4:b0:163:e765:5071 with SMTP id i4-20020a17090332c400b00163e7655071mr9695779plr.153.1655476122875;
-        Fri, 17 Jun 2022 07:28:42 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id ik4-20020a170902ab0400b001637704269fsm3606589plb.223.2022.06.17.07.28.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 17 Jun 2022 07:28:41 -0700 (PDT)
-Date: Fri, 17 Jun 2022 07:28:41 -0700 (PDT)
-X-Google-Original-Date: Fri, 17 Jun 2022 07:28:39 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 5.19-rc3
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-67f78725-bcd9-4c12-920d-2377a998b9f0@palmer-mbp2014>
+	id 1o1wx4-004QJs-Ug; Thu, 16 Jun 2022 21:22:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1655414574; x=1686950574;
+  h=date:from:to:cc:subject:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=eIVB2Wcg0d4KNkOlM5BOJs0iOIDhUm5jxxQVobMAAIM=;
+  b=BO4odpVxsFwd9mK3R1wMKxkty02aVQSLeG56c8Yf9u9qbSFZMhTgY9i8
+   pMut38rRq/l91hLklKq9lPznZuVpss98WtaIyVUIJMTfuQJ9A6ShJ5C8g
+   h+j94pPZycB4BwSPfLcSw8Ao5IAWqn9FI7nSo9IOKX/8IGQgdJDBeCEEJ
+   dJMkQ6F6Il2SYq77W3ggP32MtLGzus0iYoVESy6hGtz2Y0loOygyGo6uw
+   6Y5FPVGlwbfvjCbEljGfITBfgCHsrExf71qhwoGITHkBsTm5EEg5au1d2
+   J1wJzr7ATowlhyr216YbDFsJdkYJ5hfWbpeRiyQ8ZjHl0m5BQCIT5qjPJ
+   g==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10380"; a="280069487"
+X-IronPort-AV: E=Sophos;i="5.92,306,1650956400"; 
+   d="scan'208";a="280069487"
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2022 14:22:51 -0700
+X-IronPort-AV: E=Sophos;i="5.92,306,1650956400"; 
+   d="scan'208";a="560027674"
+Received: from jacob-builder.jf.intel.com (HELO jacob-builder) ([10.7.198.157])
+  by orsmga006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Jun 2022 14:22:51 -0700
+Date: Thu, 16 Jun 2022 14:26:56 -0700
+From: Jacob Pan <jacob.jun.pan@linux.intel.com>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com,
+ vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com,
+ linus.walleij@linaro.org, shawnguo@kernel.org, Sascha Hauer
+ <s.hauer@pengutronix.de>, kernel@pengutronix.de, festevam@gmail.com,
+ linux-imx@nxp.com, tony@atomide.com, khilman@kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org,
+ bcain@quicinc.com, chenhuacai@kernel.org, kernel@xen0n.name,
+ geert@linux-m68k.org, sammy@sammy.net, monstr@monstr.eu,
+ tsbogend@alpha.franken.de, dinguyen@kernel.org, jonas@southpole.se,
+ stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
+ James.Bottomley@hansenpartnership.com, deller@gmx.de, mpe@ellerman.id.au,
+ benh@kernel.crashing.org, paulus@samba.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com,
+ gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+ svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org,
+ davem@davemloft.net, richard@nod.at, anton.ivanov@cambridgegreys.com,
+ johannes@sipsolutions.net, tglx@linutronix.de, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+ acme@kernel.org, mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+ jolsa@kernel.org, namhyung@kernel.org, jgross@suse.com,
+ srivatsa@csail.mit.edu, amakhalov@vmware.com, pv-drivers@vmware.com,
+ boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
+ rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
+ gregkh@linuxfoundation.org, mturquette@baylibre.com, sboyd@kernel.org,
+ daniel.lezcano@linaro.org, lpieralisi@kernel.org, sudeep.holla@arm.com,
+ agross@kernel.org, bjorn.andersson@linaro.org, anup@brainfault.org,
+ thierry.reding@gmail.com, jonathanh@nvidia.com, Arnd Bergmann
+ <arnd@arndb.de>, yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
+ linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com,
+ senozhatsky@chromium.org, john.ogness@linutronix.de, paulmck@kernel.org,
+ frederic@kernel.org, quic_neeraju@quicinc.com, josh@joshtriplett.org,
+ mathieu.desnoyers@efficios.com, jiangshanlai@gmail.com,
+ joel@joelfernandes.org, juri.lelli@redhat.com, vincent.guittot@linaro.org,
+ dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de,
+ bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org,
+ linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-omap@vger.kernel.org, linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+ linux-perf-users@vger.kernel.org,
+ virtualization@lists.linux-foundation.org, xen-devel@lists.xenproject.org,
+ linux-xtensa@linux-xtensa.org, linux-acpi@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org,
+ linux-arch@vger.kernel.org, rcu@vger.kernel.org,
+ jacob.jun.pan@linux.intel.com
+Subject: Re: [PATCH 04/36] cpuidle,intel_idle: Fix CPUIDLE_FLAG_IRQ_ENABLE
+Message-ID: <20220616142656.4b1acc4a@jacob-builder>
+In-Reply-To: <Yqb45vclY2KVL0wZ@hirez.programming.kicks-ass.net>
+References: <20220608142723.103523089@infradead.org>
+	<20220608144516.172460444@infradead.org>
+	<20220609164921.5e61711d@jacob-builder>
+	<Yqb45vclY2KVL0wZ@hirez.programming.kicks-ass.net>
+Organization: OTC
+X-Mailer: Claws Mail 3.17.5 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220617_072846_373522_B4A0C645 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220616_142255_113472_64EABAB1 
+X-CRM114-Status: GOOD (  20.04  )
+X-Mailman-Approved-At: Fri, 17 Jun 2022 08:29:50 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +125,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit f2906aa863381afb0015a9eb7fefad885d4e5a56:
+Hi Peter,
 
-  Linux 5.19-rc1 (2022-06-05 17:18:54 -0700)
+On Mon, 13 Jun 2022 10:44:22 +0200, Peter Zijlstra <peterz@infradead.org>
+wrote:
 
-are available in the Git repository at:
+> On Thu, Jun 09, 2022 at 04:49:21PM -0700, Jacob Pan wrote:
+> > Hi Peter,
+> > 
+> > On Wed, 08 Jun 2022 16:27:27 +0200, Peter Zijlstra
+> > <peterz@infradead.org> wrote:
+> >   
+> > > Commit c227233ad64c ("intel_idle: enable interrupts before C1 on
+> > > Xeons") wrecked intel_idle in two ways:
+> > > 
+> > >  - must not have tracing in idle functions
+> > >  - must return with IRQs disabled
+> > > 
+> > > Additionally, it added a branch for no good reason.
+> > > 
+> > > Fixes: c227233ad64c ("intel_idle: enable interrupts before C1 on
+> > > Xeons") Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> > > ---
+> > >  drivers/idle/intel_idle.c |   48
+> > > +++++++++++++++++++++++++++++++++++----------- 1 file changed, 37
+> > > insertions(+), 11 deletions(-)
+> > > 
+> > > --- a/drivers/idle/intel_idle.c
+> > > +++ b/drivers/idle/intel_idle.c
+> > > @@ -129,21 +137,37 @@ static unsigned int mwait_substates __in
+> > >   *
+> > >   * Must be called under local_irq_disable().
+> > >   */  
+> > nit: this comment is no long true, right?  
+> 
+> It still is, all the idle routines are called with interrupts disabled,
+> but must also exit with interrupts disabled.
+> 
+> If the idle method requires interrupts to be enabled, it must be sure to
+> disable them again before returning. Given all the RCU/tracing concerns
+> it must use raw_local_irq_*() for this though.
+Makes sense, it is just little confusing when the immediate caller does
+raw_local_irq_enable() which does not cancel out local_irq_disable().
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-rc3
+Thanks,
 
-for you to fetch changes up to c836d9d17a7d102ded1ba4dbd4ee0bc42ba26211:
-
-  RISC-V: Some Svpbmt fixes (2022-06-16 15:48:39 -0700)
-
-----------------------------------------------------------------
-RISC-V Fixes for 5.19-rc3
-
-* A fix for the PolarFire SOC's device tree.
-* A handful of fixes for the recently added Svpmbt support.
-* An improvement to the Kconfig text for Svpbmt.
-
-----------------------------------------------------------------
-This is my first time taking an actual pull request, so sorry if I screwed
-something up.  It's just a single patch and I checked over things last night,
-though now that I look at this again I see that pretty much everyone is using
-the git URLs instead of the SSH URLs.  Happy to re-spin this for next week if
-that's a problem, but it looks like I've done that a handful of times before.
-
-----------------------------------------------------------------
-Conor Dooley (1):
-      riscv: dts: microchip: re-add pdma to mpfs device tree
-
-Heiko Stuebner (3):
-      riscv: fix dependency for t-head errata
-      riscv: drop cpufeature_apply_feature tracking variable
-      riscv: Improve description for RISCV_ISA_SVPBMT Kconfig symbol
-
-Palmer Dabbelt (2):
-      Merge tag 'dt-fixes-for-palmer-5.19-rc3' of ssh://gitolite.kernel.org/pub/scm/linux/kernel/git/conor/linux into fixes
-      RISC-V: Some Svpbmt fixes
-
- arch/riscv/Kconfig                      | 9 +++++++--
- arch/riscv/Kconfig.erratas              | 1 +
- arch/riscv/boot/dts/microchip/mpfs.dtsi | 9 +++++++++
- arch/riscv/kernel/cpufeature.c          | 5 +----
- 4 files changed, 18 insertions(+), 6 deletions(-)
+Jacob
 
 _______________________________________________
 linux-riscv mailing list
