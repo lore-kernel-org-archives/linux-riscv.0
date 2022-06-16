@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1500CCA481
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 06:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DA5C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 06:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4tKchvcuKSqu/i7RjjADqKrM34voz74WkUDY2bDZoto=; b=cfW7NfyZHmI4BO
-	AgaEGzrGODRF4TzO6ne+e+KP1UgOg2f6wiYyvakCbDXpEUH+Yjm0M2zSUOzv4p8WVDVRB3zli4xy1
-	bN7GKg5Gsu0XGDnm8pQkyOKsZUaoS4lqeIjtm5i4eFC4a9fNtzErb+JzXzLe9/weuEMnK7TPUYSDe
-	DTCbNAUhJoy5yt9Ne9vTuAVeceiShYDZABxKTzXD9QvIDOVfArxi8zZnpNwyMVEa7s5JxV9uzlE1K
-	46e4W6qXdmDQAgScf7qHv/Fv6PE0goOCewE/qwI01GPh+Wvb9h2oTkKWOlZdQEMLPfk5qjYetfeOY
-	+HXQnUduy5ISlysygLjQ==;
+	List-Owner; bh=h04WT/29iz5So+oIIPTlOiD0da7zST3cVfYREz+ekWY=; b=SNbijmqR+KdOr+
+	zLFnVtpiwrleczit88hoBJ/1t5SWtvcp2QDDs6e1AX20AtNvE4UwcgZBJj5EtgOAhC6EE5n+lRHFX
+	3CXaBn8Lz0Shxj8sH1HzH5Rr2shdQav+flAkjM5rHoxVGi2DA0S8dy6878Bpd4GFA4mkHUeuQ0Krj
+	odOPODMKzLy6kLTPwGpOWHsfL45VlbbkRr8ISANUoP+Th+TuiETP3eDhMQBaQ9g/kGvyBBbAaP4aO
+	VMbi+IAzj4iBso2lpXShRtGWRBkF7wPtCMwWhBA3VKevTagC4PrFotYVST/Y1tvLur1lji/eBVx8W
+	rv4QBMSKnh2Xxckwsdrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1jDH-000mrw-Fp; Thu, 16 Jun 2022 06:42:43 +0000
+	id 1o1jDp-000nCu-Pq; Thu, 16 Jun 2022 06:43:17 +0000
 Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1jBN-000laB-8N; Thu, 16 Jun 2022 06:40:46 +0000
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
-	by mailout.west.internal (Postfix) with ESMTP id 7F21A3200B51;
-	Thu, 16 Jun 2022 02:40:43 -0400 (EDT)
+	id 1o1jBQ-000lbh-49; Thu, 16 Jun 2022 06:40:49 +0000
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+	by mailout.west.internal (Postfix) with ESMTP id 6D33C3200B2A;
+	Thu, 16 Jun 2022 02:40:46 -0400 (EDT)
 Received: from mailfrontend1 ([10.202.2.162])
-  by compute2.internal (MEProxy); Thu, 16 Jun 2022 02:40:44 -0400
+  by compute4.internal (MEProxy); Thu, 16 Jun 2022 02:40:47 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
 	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1655361643; x=1655448043; bh=gj
-	1T9kOuDzjoImIENJ7o3y478sayKqN7VNgA40v4t4g=; b=ZY0Bkqv9Jl8jT1rhOj
-	I0Ugo7w7e/5w3pVe+JYO+29DsD7PrKLEzIVs4ggHApAvRQRrsha+2p03y2zs9ncn
-	lmEcff8nMGucoPe5HPT9FvWTE6bks+AwTBVPy42hCtiRgPuW+IwyRnOIHQKDnggi
-	qeWCGUqEb+T053Teg0bG1fVeknqorKeiNjtq6ydNN+VEU/n094V8vLj+64TdvLki
-	mcufMDvgYLdrh/7maeHz5vmoVGH+lVki9Nw018LZg5iBMOsdaLZJJvIDedqbcM5t
-	WWqz4NRgatdtxn8i9VUITSSFugC4Iq+yOV6RFcqAPd5aLsB9rJQIGQAjRMeNnfbT
-	x6Zw==
+	:subject:subject:to:to; s=fm3; t=1655361645; x=1655448045; bh=uM
+	iU0/vHQtAYhOmb6s+DsH12Q6brnpKc++SzAj3L2mk=; b=ljk4IdZT1ix1CUp2mu
+	x/d7g0roVuaRQxHX+k4o8jNJ5NMZTAw5FXPvN0RdjgPQBiblruWaEsPkCCoZkLyq
+	Q1TdHJieHlVHU39AxVK4DBDm2FpRLyAxkrmThAqbboDyTdaWPE9WGKVgkzsPAjmY
+	4GWBY+I/81d9WLiUeguuWzzBCr1g29OUN2ZN+BNCAcKst1HwYTY7KHxjEdWrWtWA
+	iWSYDAM8WOMoC+fxn7FPUBnKgpwXJarnyOg8S0KvveTCMewlEKteC0oRyUg4n+02
+	xflUAW9mARqu3g6bSwiqns+ykWUhNt7bn5ZpYZcwz0UiznCzplsUbdGfKurSbLmF
+	1vXA==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1655361643; x=1655448043; bh=gj1T9kOuDzjoI
-	mIENJ7o3y478sayKqN7VNgA40v4t4g=; b=R9lniPasK4ZzfWouh4JgWT5JIf+Js
-	A68RoIg1OTtxZVHmuw2mCixiQ+RHue2VqzGy2bihKXYmXwuFsaf4WyFX7+Nn/AJq
-	HgM22hTf9ONxha5vkqwpAnnp2WVSy9+iHOd6zjj4hrnTIDPCvithDpAu3hCuucJG
-	FIm/JQCfwSigdy5xdKT18ePNeQnPIK3qGL5mI0uoahx0CSFwLp1+OeWah58iLpSP
-	73d/Ea0zCBpmolHPOWh6jANDffFE2KSs3g02sJeTPJPafuTbHAJmK9+HlI/iPsHv
-	+h+EcZSdTVaCVOwYWhZPJqevNtSAhNgVlWDmaRFeccma0qbLueGYvhhhw==
-X-ME-Sender: <xms:atCqYuUtCs3VHnZS5MFOiJVxjyPwth4d5lOQYGavL9OncrIRtFT4bg>
-    <xme:atCqYqlko5_axUa1aAP80qjgPq72LOdLs6962kAl7P-9ikJqvYmHhGODGAn_AyyAR
-    6zCIgc6wdhuMc7nOQ>
-X-ME-Received: <xmr:atCqYiYKLhbKqfbZiLOqmHIwmEC6vpzoNrKXVGqYO9M2W2D8yy2LVQPf_fe0JifN85WXaXBzAg3xXyY5PpBVBdWqrvd4iRM7CqfmTPR069shznEkRmvFdZQKCOrlmXA7WwcVrw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedruddvvddguddtlecutefuodetggdotefrod
+	:x-sasl-enc; s=fm2; t=1655361645; x=1655448045; bh=uMiU0/vHQtAYh
+	Omb6s+DsH12Q6brnpKc++SzAj3L2mk=; b=nCOuqmSycUFRrZ5kNB8lkFHB/jFhg
+	rBzlOlhN5aqDLMQXlU5Ys4OmR/wY65DQ9vpEIB7y5qmLCy9uknsueDCnGqE7IybJ
+	DQW3n1/CT6KX6YxfuKZCSPZcvPmd9BzALd7AmqvW5vHIk5zrtYLY8HXs79Es3OB7
+	JN8f5VvYpi8Zs5u5SxoJZdyQBz2XfnYJp1bxA28usiFNY4OKS604bVNsIndH0GEW
+	+LayIee92TZJmIBUuZQwroNggOWzfel2VOEQhK/vqGn/jl+mZBo2jVE2VU2iQU0m
+	jNS7+G255vMmFxUj+xcyi7/S43umuXA8ZwXNkQp4I+o9zpUaJtJX17JsQ==
+X-ME-Sender: <xms:bdCqYhGFWAb6jV2diQY44yz2TlUptkgNzmeZbKtLAlkgoeMZ-W0V2A>
+    <xme:bdCqYmUK4Oz1t58f_fKT_X9hLt25iM3MsJtmX8xburpJ1gb_HhW95bfaeu6u9GeKg
+    4BaXPu_AaAwruHccw>
+X-ME-Received: <xmr:bdCqYjKDN0eRWyQFj73cpxmMpM2uHhAJRrfoTNuXLtSLZDhcHI2yDUUe2Soj73u5yZh12is3ZnGvMGytjA0Jd14hGTYj0nTulLIMifeQwLMfUSLQ6gH9CgZaGfpRubY5oKLlNA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedruddvvddguddtkecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
     necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
     enucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghm
@@ -64,13 +64,13 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedruddvvddguddtlecutefuodetgg
     ggtffrrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeeh
     gfdufeeitdevteenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
     hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:atCqYlXio2KsAw3QZ7QXmnl0qNCf3Z42EPQsLLzzwvgHXedksBXamQ>
-    <xmx:atCqYomAv9WIlI5gWpKkzVjT1PZxj7rrEn2zLssbNQYHlyhJHVFEGw>
-    <xmx:atCqYqdsN92KQ8YGA0XkBLRTuZ5qbzPaWJsfPQicNg4NfKYP3KRMHQ>
-    <xmx:a9CqYj_JXZYvmoz9w5Ia_TJxgJg1p6D0OsUmqP4uKxIr4cTKdnApOw>
+X-ME-Proxy: <xmx:bdCqYnE0fcXiX5mQ11Whz8Pv2U-034XH3RqHUSo9SzN3URLi4NJFwQ>
+    <xmx:bdCqYnWe3CVLSDhC39ZjJUvIEuJaY9LeQnWA127ryqk1QH03PURaZA>
+    <xmx:bdCqYiMyD2D9ar8la0F8nsVqP6mYezMUBvPthVsqIjuZeSXJwneoJg>
+    <xmx:bdCqYgtShV7gntXQVJkQAywOcMx-bTyH0EglRSEXE-oc8F9ae3VZJQ>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 16 Jun 2022 02:40:42 -0400 (EDT)
+ 16 Jun 2022 02:40:45 -0400 (EDT)
 From: Samuel Holland <samuel@sholland.org>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Marc Zyngier <maz@kernel.org>,
@@ -86,17 +86,16 @@ Cc: Samuel Holland <samuel@sholland.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 4/6] genirq: Provide an IRQ affinity mask in non-SMP configs
-Date: Thu, 16 Jun 2022 01:40:26 -0500
-Message-Id: <20220616064028.57933-5-samuel@sholland.org>
+Subject: [PATCH v2 5/6] irqchip/sifive-plic: Make better use of the effective affinity mask
+Date: Thu, 16 Jun 2022 01:40:27 -0500
+Message-Id: <20220616064028.57933-6-samuel@sholland.org>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220616064028.57933-1-samuel@sholland.org>
 References: <20220616064028.57933-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220615_234045_377296_711C9465 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220615_234048_251922_226A19F4 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,52 +112,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-IRQ affinity masks are not allocated in uniprocessor configurations.
-This requires special case non-SMP code in drivers for irqchips which
-have per-CPU enable or mask registers.
+The PLIC driver already updates the effective affinity mask in its
+.irq_set_affinity callback. Take advantage of that information to only
+touch bits (and take spinlocks) for the specific relevant hart contexts.
 
-Since IRQ affinity is always the same in a uniprocessor configuration,
-we can still provide the correct affinity mask without allocating one
-per IRQ. We can reuse the system-wide cpu_possible_mask.
+First, make sure the effective affinity mask is set before IRQ startup.
+Since this mask already takes priv->lmask into account, checking that
+mask later is no longer needed (and handler->present is equivalent to
+the bit being set in priv->lmask).
 
-By returning a real cpumask from irq_data_get_affinity_mask even when
-SMP is disabled, irqchip drivers which iterate over that mask will
-automatically do the right thing.
+Then, when (un)masking or changing affinity, only clear/set the enable
+bits in the specific old/new context(s). The cpumask operations in
+plic_irq_unmask() are not needed because they duplicate the code in
+plic_set_affinity().
 
 Signed-off-by: Samuel Holland <samuel@sholland.org>
 ---
 
 (no changes since v1)
 
- include/linux/irq.h | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/irqchip/Kconfig           |  1 +
+ drivers/irqchip/irq-sifive-plic.c | 26 ++++++++------------------
+ 2 files changed, 9 insertions(+), 18 deletions(-)
 
-diff --git a/include/linux/irq.h b/include/linux/irq.h
-index 69ee4e2f36ce..d5e958b026aa 100644
---- a/include/linux/irq.h
-+++ b/include/linux/irq.h
-@@ -151,7 +151,9 @@ struct irq_common_data {
- #endif
- 	void			*handler_data;
- 	struct msi_desc		*msi_desc;
-+#ifdef CONFIG_SMP
- 	cpumask_var_t		affinity;
-+#endif
- #ifdef CONFIG_GENERIC_IRQ_EFFECTIVE_AFF_MASK
- 	cpumask_var_t		effective_affinity;
- #endif
-@@ -881,7 +883,11 @@ static inline int irq_data_get_node(struct irq_data *d)
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 68be9eccc897..ccaa13b727c9 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -530,6 +530,7 @@ config SIFIVE_PLIC
+ 	bool "SiFive Platform-Level Interrupt Controller"
+ 	depends on RISCV
+ 	select IRQ_DOMAIN_HIERARCHY
++	select GENERIC_IRQ_EFFECTIVE_AFF_MASK if SMP
+ 	help
+ 	   This enables support for the PLIC chip found in SiFive (and
+ 	   potentially other) RISC-V systems.  The PLIC controls devices
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index bb87e4c3b88e..bf7d5bee0c0c 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -109,31 +109,18 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
+ 	for_each_cpu(cpu, mask) {
+ 		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
  
- static inline struct cpumask *irq_data_get_affinity_mask(struct irq_data *d)
- {
-+#ifdef CONFIG_SMP
- 	return d->common->affinity;
-+#else
-+	return &__cpu_possible_mask;
-+#endif
+-		if (handler->present &&
+-		    cpumask_test_cpu(cpu, &handler->priv->lmask))
+-			plic_toggle(handler, d->hwirq, enable);
++		plic_toggle(handler, d->hwirq, enable);
+ 	}
  }
  
- static inline struct cpumask *irq_get_affinity_mask(int irq)
+ static void plic_irq_unmask(struct irq_data *d)
+ {
+-	struct cpumask amask;
+-	unsigned int cpu;
+-	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
+-
+-	cpumask_and(&amask, &priv->lmask, cpu_online_mask);
+-	cpu = cpumask_any_and(irq_data_get_affinity_mask(d),
+-					   &amask);
+-	if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
+-		return;
+-	plic_irq_toggle(cpumask_of(cpu), d, 1);
++	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 1);
+ }
+ 
+ static void plic_irq_mask(struct irq_data *d)
+ {
+-	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
+-
+-	plic_irq_toggle(&priv->lmask, d, 0);
++	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
+ }
+ 
+ #ifdef CONFIG_SMP
+@@ -154,11 +141,13 @@ static int plic_set_affinity(struct irq_data *d,
+ 	if (cpu >= nr_cpu_ids)
+ 		return -EINVAL;
+ 
+-	plic_irq_toggle(&priv->lmask, d, 0);
+-	plic_irq_toggle(cpumask_of(cpu), d, !irqd_irq_masked(d));
++	plic_irq_mask(d);
+ 
+ 	irq_data_update_effective_affinity(d, cpumask_of(cpu));
+ 
++	if (!irqd_irq_masked(d))
++		plic_irq_unmask(d);
++
+ 	return IRQ_SET_MASK_OK_DONE;
+ }
+ #endif
+@@ -184,6 +173,7 @@ static struct irq_chip plic_chip = {
+ #ifdef CONFIG_SMP
+ 	.irq_set_affinity = plic_set_affinity,
+ #endif
++	.flags		= IRQCHIP_AFFINITY_PRE_STARTUP,
+ };
+ 
+ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
 -- 
 2.35.1
 
