@@ -4,205 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D57F0CCA47A
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 15:08:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17218C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 15:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OMvSlIOPkpGWiJqwCFpqYiLcfbMV3aqO/HLMX5wzXQ4=; b=YqMnEd9fHtKAkh
-	+dtsGca5td0miSCeFeFACCzhXgc5Xl6CCX+cbj53ezgw27JkT+DwriEROuufAm8W1d7y/E2Grx4tG
-	7Cpt+ZRpzZDiHFxWCq2lanSj/uTolcHDrXejzZoWwuzPNVALItj5EreHzx6TcFba4M1nRUEJsiium
-	/CEeL0yIUCNbdqZgERjX/grzZt23IDiSSYaFexb5jHLKN+W//k1Z6Lz8YuKf69BQmR1ySL5g/4iko
-	cyCrSnlWfmcEwk3T2qPKSi83/hBdtqqi0+OVI3LtKqIXmPQxXSmSm1CFWa19R4th+OvaBqaYg+brN
-	dehL3uoiHUpCVRFzLWrA==;
+	List-Owner; bh=MlSjFGYZB48ENOrYV20FAmIlHDACsaqI24sJ4D70aCk=; b=qDCfX/xIYQIBC5
+	4Q8MZ5MxIprQmTr7eYAHapJbloztHi0Ve1Q9efDAVzonhJwKYSRTt8MyHDDA/m3IOtsnr9z2AOzAm
+	BQGLHkPGNQGBY+2Uq8svtIU8oaomgvR8vLqaf1bXkpisOKOvpAZL8dtba47P6Lcn1Y2n0ZexWjD2r
+	Il+OPk9taJ6YlWJZfb81Qq7G4I26vc9f4q20P4dTuOagjAp8LhP7sxzaEpQWnxyWxsY/2urnLIQJ+
+	kfhyshbRtvGarqkxf0u1S0/FsLP8SogmD879wohQcfaJKbv0hZDsTXpBS+plQrVfRXyhLE/jk+8KY
+	isTwBEg0G/ha5CTKzfQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1r6U-0038mP-Bl; Thu, 16 Jun 2022 15:08:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1o1rFl-003AUZ-Ie; Thu, 16 Jun 2022 15:17:49 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1M9V-00CnEr-2b; Wed, 15 Jun 2022 06:05:18 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 7B693617B3;
-	Wed, 15 Jun 2022 06:05:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B477C34115;
-	Wed, 15 Jun 2022 06:05:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1655273115;
-	bh=yf3pNom/syiLiOha7Upiq9/nR1Hjl9dv2JULctSWZP0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=SjnyzJRJ5maovA4d7DzY2/Ij5TNs/akt5ph8MDjdNnh42oSEnpEqun3aky3dQcf6z
-	 rGme0eLVsl/XoKZXtCCkL0+cKE/nzsKpLCn2sT4A50UeO3p7crMUO1XfASUME8HSj0
-	 pD6alvihCcM/657amEHKEos8BTfaNv0g8jeH8Q6QrkIG8VgVi/YsytFwbegMDMw6Gn
-	 Pxj0w5BlxtbfpWb4+1rV886T9D/GynKsmxsWQDGtqkBJk0CUIxtfKvkZpW8JkVRt5W
-	 zI01Adx6IQH3zR34l9+HTfR6cCjay+Ytdyco9DFFfWGGA7opCch5d/Lzswk+yKRRZO
-	 /G8E+1jj9J/iQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1o1M9R-000hh4-Lq;
-	Wed, 15 Jun 2022 07:05:13 +0100
-Date: Wed, 15 Jun 2022 07:05:11 +0100
-Message-ID: <87mteepilk.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Peter Zijlstra <peterz@infradead.org>,
-	rth@twiddle.net,
-	ink@jurassic.park.msu.ru,
-	mattst88@gmail.com,
-	vgupta@kernel.org,
-	linux@armlinux.org.uk,
-	ulli.kroll@googlemail.com,
-	linus.walleij@linaro.org,
-	shawnguo@kernel.org,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-imx@nxp.com,
-	tony@atomide.com,
-	khilman@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	guoren@kernel.org,
-	bcain@quicinc.com,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	geert@linux-m68k.org,
-	sammy@sammy.net,
-	monstr@monstr.eu,
-	tsbogend@alpha.franken.de,
-	dinguyen@kernel.org,
-	jonas@southpole.se,
-	stefan.kristiansson@saunalahti.fi,
-	shorne@gmail.com,
-	James.Bottomley@HansenPartnership.com,
-	deller@gmx.de,
-	mpe@ellerman.id.au,
-	benh@kernel.crashing.org,
-	paulus@samba.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	hca@linux.ibm.com,
-	gor@linux.ibm.com,
-	agordeev@linux.ibm.com,
-	borntraeger@linux.ibm.com,
-	svens@linux.ibm.com,
-	ysato@users.sourceforge.jp,
-	dalias@libc.org,
-	davem@davemloft.net,
-	richard@nod.at,
-	anton.ivanov@cambridgegreys.com,
-	johannes@sipsolutions.net,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	x86@kernel.org,
-	hpa@zytor.com,
-	acme@kernel.org,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	namhyung@kernel.org,
-	jgross@suse.com,
-	srivatsa@csail.mit.edu,
-	amakhalov@vmware.com,
-	pv-drivers@vmware.com,
-	boris.ostrovsky@oracle.com,
-	chris@zankel.net,
-	jcmvbkbc@gmail.com,
-	rafael@kernel.org,
-	lenb@kernel.org,
-	pavel@ucw.cz,
-	gregkh@linuxfoundation.org,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	daniel.lezcano@linaro.org,
-	lpieralisi@kernel.org,
-	sudeep.holla@arm.com,
-	agross@kernel.org,
-	bjorn.andersson@linaro.org,
-	anup@brainfault.org,
-	thierry.reding@gmail.com,
-	jonathanh@nvidia.com,
-	jacob.jun.pan@linux.intel.com,
-	Arnd Bergmann <arnd@arndb.de>,
-	yury.norov@gmail.com,
-	andriy.shevchenko@linux.intel.com,
-	linux@rasmusvillemoes.dk,
-	rostedt@goodmis.org,
-	pmladek@suse.com,
-	senozhatsky@chromium.org,
-	john.ogness@linutronix.de,
-	paulmck@kernel.org,
-	frederic@kernel.org,
-	quic_neeraju@quicinc.com,
-	josh@joshtriplett.org,
-	mathieu.desnoyers@efficios.com,
-	jiangshanlai@gmail.com,
-	joel@joelfernandes.org,
-	juri.lelli@redhat.com,
-	vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com,
-	bsegall@google.com,
-	mgorman@suse.de,
-	bristot@redhat.com,
-	vschneid@redhat.com,
-	jpoimboe@kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org,
-	openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
+	id 1o1rFi-003ATY-68
+	for linux-riscv@lists.infradead.org; Thu, 16 Jun 2022 15:17:47 +0000
+Received: by mail-wm1-x335.google.com with SMTP id a10so949380wmj.5
+        for <linux-riscv@lists.infradead.org>; Thu, 16 Jun 2022 08:17:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=conchuod.ie; s=google;
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=oI88Qu4qiMkSjs5momI9WAT894CnS3fhP5J1kHBA0Xw=;
+        b=dvH6AD5BOgP7SSTByX9sqdfXDqv0OAOSj6yDH69SlzCgeOMMJ5RggvfLElOU/1QXhq
+         jYCoS4+pJ+UoOD+Lc0st87cKPaVMPrifpGWvfdHMjDcxCTaXRalKzy9yr+iVAXSqiqr+
+         aG2A6PGYZKOu7X87JiidBlHZRmUpgKqBFxJiXbJ/4siOMyHpspZEp0ToVO0ncipcNHGc
+         aX3XRSi6kg50O2HCZvy6xYLEXZSAJpBf/v9MQchyhTE0sFvYza9elswswpa7Korf2ZXc
+         K/syg11U9WT7hJ+DHV++210vXWPLaVHF9xyMxRisHNcCdvj3PEJts3hJF3cnEmRdhejl
+         EvZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:content-transfer-encoding;
+        bh=oI88Qu4qiMkSjs5momI9WAT894CnS3fhP5J1kHBA0Xw=;
+        b=ex/KqSlbVDpvnZMxUZ4vYW8SzdeAqVAi/lXn3HjWi9+GUOom0+tQMy+3iUCo65SQJP
+         +5vOKfzwj+A7ggI4BdBArm5TTGWgmp/F3FMIQZczRihWIvwiMpEy9WnTAuYA9tM2s9g6
+         P+sy8xfn2/OaDH31pPaad8giY1L+JS12XdHJFPBQH7F299KXmAqdtTTi2+vbfnFWsJNY
+         A9H3y8pIk0V+D2508duqExdvhXutWoIg0Oo8toR+HKxVwNEAwiplaZ9n0F3n0pVEEOdm
+         KLjm5gMDblNrQUqrYV61TbaGSdXv8Y+rf4BZjvzErYFwtk3sJZUCa1QeGduXVwnTu+Od
+         uBNQ==
+X-Gm-Message-State: AJIora8yIgmg7zyYVSJKCmbPqUZPywRS5JHHHIuVvCLFUvwSgzaqiw/O
+	toBVn4CETSN5EdIEogzRbNCInA==
+X-Google-Smtp-Source: AGRyM1t7s8sG7knah9RyDCtIy/zQzva/JpPwmUWGpQaRjdRRkx4tAVGSo4OZULRC2k5nQVmwxr3X/A==
+X-Received: by 2002:a05:600c:2244:b0:39c:4060:1ec9 with SMTP id a4-20020a05600c224400b0039c40601ec9mr5421401wmm.147.1655392660737;
+        Thu, 16 Jun 2022 08:17:40 -0700 (PDT)
+Received: from henark71.. ([51.37.234.167])
+        by smtp.gmail.com with ESMTPSA id j18-20020a5d6052000000b0021a35730281sm1929534wrt.91.2022.06.16.08.17.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 16 Jun 2022 08:17:40 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: nagasuresh.relli@microchip.com,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	palmer@dabbelt.com
+Cc: Conor Dooley <conor.dooley@microchip.com>,
 	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	xen-devel@lists.xenproject.org,
-	linux-xtensa@linux-xtensa.org,
-	linux-acpi@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	rcu@vger.kernel.org
-Subject: Re: [PATCH 23/36] arm64,smp: Remove trace_.*_rcuidle() usage
-In-Reply-To: <Yqi2UGb4alCAR5s4@FVFF77S0Q05N>
-References: <20220608142723.103523089@infradead.org>
-	<20220608144517.380962958@infradead.org>
-	<Yqi2UGb4alCAR5s4@FVFF77S0Q05N>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mark.rutland@arm.com, peterz@infradead.org, rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com, vgupta@kernel.org, linux@armlinux.org.uk, ulli.kroll@googlemail.com, linus.walleij@linaro.org, shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com, tony@atomide.com, khilman@kernel.org, catalin.marinas@arm.com, will@kernel.org, guoren@kernel.org, bcain@quicinc.com, chenhuacai@kernel.org, kernel@xen0n.name, geert@linux-m68k.org, sammy@sammy.net, monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org, jonas@southpole.se, stefan.kristiansson@saunalahti.fi, shorne@gmail.com, James.Bottomley@HansenPartnership.com, deller@gmx.de, mpe@ellerman.id.au, benh@kernel.crashing.org, paulus@samba.org, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com, borntraeger@linux.ibm.com, svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@
- libc.org, davem@davemloft.net, richard@nod.at, anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, acme@kernel.org, alexander.shishkin@linux.intel.com, jolsa@kernel.org, namhyung@kernel.org, jgross@suse.com, srivatsa@csail.mit.edu, amakhalov@vmware.com, pv-drivers@vmware.com, boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com, rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz, gregkh@linuxfoundation.org, mturquette@baylibre.com, sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org, sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org, anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com, jacob.jun.pan@linux.intel.com, arnd@arndb.de, yury.norov@gmail.com, andriy.shevchenko@linux.intel.com, linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com, senozhatsky@chromium.org, john.ogness@linutronix.de, paul
- mck@kernel.org, frederic@kernel.org, quic_neeraju@quicinc.com, josh@joshtriplett.org, mathieu.desnoyers@efficios.com, jiangshanlai@gmail.com, joel@joelfernandes.org, juri.lelli@redhat.com, vincent.guittot@linaro.org, dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de, bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org, linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, openrisc@lists.librecores.org, linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org, virtualization@lists.linux-foundation.org, xen-devel@lists.xenproject.org, 
- linux-xtensa@linux-xtensa.org, linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org, linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org, rcu@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	robh@kernel.org,
+	paul.walmsley@sifive.com,
+	linux-kernel@vger.kernel.org,
+	aou@eecs.berkeley.edu,
+	daire.mcnamara@microchip.com,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: microchip: remove spi-max-frequency property
+Date: Thu, 16 Jun 2022 16:17:12 +0100
+Message-Id: <165539261570.229722.8766263484989186462.b4-ty@microchip.com>
+X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220616064251.586263-1-nagasuresh.relli@microchip.com>
+References: <20220616064251.586263-1-nagasuresh.relli@microchip.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220614_230517_237584_A4B4CCC2 
-X-CRM114-Status: GOOD (  22.20  )
-X-Mailman-Approved-At: Thu, 16 Jun 2022 08:08:10 -0700
+X-CRM114-CacheID: sfid-20220616_081746_291484_F827979D 
+X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -219,54 +98,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Jun 2022 17:24:48 +0100,
-Mark Rutland <mark.rutland@arm.com> wrote:
-> 
-> On Wed, Jun 08, 2022 at 04:27:46PM +0200, Peter Zijlstra wrote:
-> > Ever since commit d3afc7f12987 ("arm64: Allow IPIs to be handled as
-> > normal interrupts") this function is called in regular IRQ context.
-> > 
-> > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> 
-> [adding Marc since he authored that commit]
-> 
-> Makes sense to me:
-> 
->   Acked-by: Mark Rutland <mark.rutland@arm.com>
-> 
-> Mark.
-> 
-> > ---
-> >  arch/arm64/kernel/smp.c |    4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> > 
-> > --- a/arch/arm64/kernel/smp.c
-> > +++ b/arch/arm64/kernel/smp.c
-> > @@ -865,7 +865,7 @@ static void do_handle_IPI(int ipinr)
-> >  	unsigned int cpu = smp_processor_id();
-> >  
-> >  	if ((unsigned)ipinr < NR_IPI)
-> > -		trace_ipi_entry_rcuidle(ipi_types[ipinr]);
-> > +		trace_ipi_entry(ipi_types[ipinr]);
-> >  
-> >  	switch (ipinr) {
-> >  	case IPI_RESCHEDULE:
-> > @@ -914,7 +914,7 @@ static void do_handle_IPI(int ipinr)
-> >  	}
-> >  
-> >  	if ((unsigned)ipinr < NR_IPI)
-> > -		trace_ipi_exit_rcuidle(ipi_types[ipinr]);
-> > +		trace_ipi_exit(ipi_types[ipinr]);
-> >  }
-> >  
-> >  static irqreturn_t ipi_handler(int irq, void *data)
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+On Thu, 16 Jun 2022 12:12:51 +0530, Nagasuresh Relli wrote:
+> Remove the spi-max-frequency property from the spi0 controller
+> node as it is supposed to be a per SPI peripheral device property.
+> 
+> 
 
-	M.
+Applied to dt-for-next, thanks!
 
--- 
-Without deviation from the norm, progress is not possible.
+[1/1] riscv: dts: microchip: remove spi-max-frequency property
+      https://git.kernel.org/conor/c/3f8ccf5f1a8c
+
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
