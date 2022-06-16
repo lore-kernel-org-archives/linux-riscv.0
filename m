@@ -4,98 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1300FC43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 06:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E5D2C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 16 Jun 2022 06:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SABL3GMCDdnpOBevyAbasdjRuuGLCQNvO2cb7XzM0z0=; b=RQZJZzK1jWC08q
-	MfBxsXP7ymDP8mgLsQNkWoO/KfMAMWmmP1CMnl5SAjU+cb0T516Si7J/fS/W9C24ZdaG8IUzAGenU
-	fSsWsq7oL4YOdxR7Xy8E4jCN3lYJ3iLt+VZi9RaBja6I83or4kbb+lP57sqHoZiDywKLg38D0RzX9
-	lIK8/cvCY2jL1IqKTjpRF11zyje3p9ZKsRX5HM304KlPMtEtw0IsxqrFTo97ZDi8O5MQVRCJCLQfN
-	osaSVOeUX7wWCeKPNcqYEJpoLM3+CLpLOOw7kHkya8mHPjSuoDouaW3K0f3qeNquQCRrQDoRgpLWj
-	SZ45P+pSpe4T5S9+w8zQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fWaWIrU8fzvfa6j+gHWJFkKYMpQZPviTfZjT3GYR+Ow=; b=BZ5KBlrfceTtjc
+	cbVSVdffazwPa2YEwbq27KJxxEislvxUFIrY32KectDqzcbC27gjObB/U3GtBXB5t0r3DTSANLZFS
+	LE5OHh6FGy0zWaE5wS5ik47cL0NvGidHGfjUe5xpanzWjNRPGUSwsD9FIiplusBYAAjZX4wA5uBby
+	ZEwFGEsNaGrIUMEF73FA070VODDEUhxdTL1SkjsyjHEBdRcdHty6Ktc5a/2SCBw/wI2e1hStJEcld
+	2PrhKhUIxYRqYB0rZ9zBwizk2hGMM3pko44RdjtHKtaaJpN1ZketrcuWhZbIRFfdN1jMmD9sJ+HSB
+	bnEgeakqVWxx7lXXSbvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1jEd-000neY-J0; Thu, 16 Jun 2022 06:44:07 +0000
-Received: from wout3-smtp.messagingengine.com ([64.147.123.19])
+	id 1o1jFV-000oC2-Il; Thu, 16 Jun 2022 06:45:01 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o1jBS-000ldJ-VL; Thu, 16 Jun 2022 06:40:52 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id 401C83200B3D;
-	Thu, 16 Jun 2022 02:40:49 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute5.internal (MEProxy); Thu, 16 Jun 2022 02:40:50 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1655361648; x=1655448048; bh=MH
-	jenYqjbc5iX1DDQJLjs+/Q4o7cKcluDYa/ibxYolQ=; b=onjoECb1FpSrXJCS/Z
-	dGfDdPKPqcy+ugDA3IPIwTu539hY/LrBhXjU1sDZ+NRRcEeVlvzsOjGpoWdZ25Ft
-	7rzPDNqXWQbWz8r/+L4eTtdZOBSt06EFfjUaU2AXxWjFhZfJKDNCbe9oBJ1Sl3eV
-	CoThwcyUvpV2SV0rXIGXNIZ9JJMMCbsj5ihvde+0wJdjzQiloUHG2KCVwxoSoIDs
-	LpydQOCWvArPm6s9bdxZddwdqTjH0BUJlb8X1fTOVD8kwPjLMWm5U5ZaP+DyzVZ1
-	g+P+KvKOeqMRPwJxa6l3Wsp8ja716H3DrR7DxUhtEFiY61bQUe0mP46h3Nf/FNds
-	k0/Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1655361648; x=1655448048; bh=MHjenYqjbc5iX
-	1DDQJLjs+/Q4o7cKcluDYa/ibxYolQ=; b=ZQumxlvxPeRsrOH9vREPiNuwKRnrE
-	e6ZOPExBR1beMVWdbAznpM5ObZlHSRQUvpKdQmvkshq4CQwjd53UkWoqTooDyZ5L
-	BCU9l9Tp43wAJpo+OnBS2+OAsTSfrchJXpXloseLWcQK1SVwgJiHfPkXTH6ZyWEN
-	R5qGrnv8kM8BbGy+QEfLS9MdzqBYbF5NVduqA6Kzyp5P19wnhfUvCBC0iz0MTqiG
-	mKQ0Sye/ibs9JUEi5P3rYXpYmp4dNogCh183Km/+i8HjW3eLUh/DcLKfP3wq0bbE
-	zkOgb5KR/QZlXubrKhdMvdb/v3m/XkB5fQQvDN9P8TLBBb1nvuLhGb63w==
-X-ME-Sender: <xms:cNCqYg_KQ1voYWBh7E0VZojE6_B5EIYlJ8-kdFVPDLu2WzgYL95YZg>
-    <xme:cNCqYoueMFP0zR76yYnZGE7VTJ1GCDnJP-e3Quu6KjBo8dbUqu-dLZ3CmYv2mBFxf
-    xO3l5OpfEmGj1JngA>
-X-ME-Received: <xmr:cNCqYmC7qMO4fFjl7xKtl4QjQHsZoK2CRW4IKYMGyIRLYN5eVULc66o1T0Sdihp0rrnrXhkeeRnTyD4iLkH3BZbromyjjuVuMsSJNYVXxDHioZL1CTw9-sgyvZ8esHkz10t4Vw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedruddvvddguddtkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpefurghm
-    uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
-    ggtffrrghtthgvrhhnpedukeetueduhedtleetvefguddvvdejhfefudelgfduveeggeeh
-    gfdufeeitdevteenucevlhhushhtvghrufhiiigvpedvnecurfgrrhgrmhepmhgrihhlfh
-    hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:cNCqYgd0kyiiQJ86e2vSuWUyUXjAz6yIWi7aC1yiQwnjYeB_ISjpew>
-    <xmx:cNCqYlN1vgW0yN5eEEbMFsSJoBnM_wMBiHxrIOzNIal5xoDHoD-2iA>
-    <xmx:cNCqYqki6zJVX__ed6nFZfPzuB85_c-kvym3NaNTyXm5mChG-K5IRg>
-    <xmx:cNCqYpl-MLciV_OUz5LqoUH52lW8Mn_Suh884K_N9-dCyVeJv5LJvw>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 16 Jun 2022 02:40:48 -0400 (EDT)
-From: Samuel Holland <samuel@sholland.org>
-To: Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Samuel Holland <samuel@sholland.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Guo Ren <guoren@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Wei Xu <xuwei5@hisilicon.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 6/6] irqchip/sifive-plic: Separate the enable and mask operations
-Date: Thu, 16 Jun 2022 01:40:28 -0500
-Message-Id: <20220616064028.57933-7-samuel@sholland.org>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220616064028.57933-1-samuel@sholland.org>
-References: <20220616064028.57933-1-samuel@sholland.org>
+	id 1o1jDx-000nFy-IA
+	for linux-riscv@lists.infradead.org; Thu, 16 Jun 2022 06:43:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1655361805; x=1686897805;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=qjNRaKtVF9yCz0DwkTUlTSkU7fN8dVYg780X+fwpa0g=;
+  b=ErzV/wREE4bZcEHJ0GV46iS0Hildvd6CltsIINPL6zONCUw9PU63NuTN
+   xvezkqEam5YTRSsukYENyT0ap5ZCQoaKJCuzZbuIFsu2Um/zPjZOGkq4s
+   pwWHTgfSycmITIYGBMrFDJIJB+oBJ5CWT5HELiN3hMAFds2SvLZa4mPzJ
+   ejzsKLjAwBeTTvYEwzGUukBcI6JZhIYYbgoaXP4ztmhlTxVWKmBtNk39V
+   2MkHHu7KEyGY8qx5BHIdrYdOFGodGc8tE/VwdLR03g4XzN72y7v2VdAKN
+   7qKS6ADwAQWGDMPSE7s2gRgn8dwckL9zNzL3DppPkaL1HI5RSJfDGnC+o
+   w==;
+X-IronPort-AV: E=Sophos;i="5.91,304,1647327600"; 
+   d="scan'208";a="160580445"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Jun 2022 23:43:20 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Wed, 15 Jun 2022 23:43:17 -0700
+Received: from microchip-OptiPlex-5040.microchip.com (10.10.115.15) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2375.17 via Frontend Transport; Wed, 15 Jun 2022 23:43:13 -0700
+From: Nagasuresh Relli <nagasuresh.relli@microchip.com>
+To: <robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+	<palmer@dabbelt.com>
+CC: <nagasuresh.relli@microchip.com>, <paul.walmsley@sifive.com>,
+	<aou@eecs.berkeley.edu>, <conor.dooley@microchip.com>,
+	<daire.mcnamara@microchip.com>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Rob
+ Herring" <robh@kernel.org>
+Subject: [PATCH] riscv: dts: microchip: remove spi-max-frequency property
+Date: Thu, 16 Jun 2022 12:12:51 +0530
+Message-ID: <20220616064251.586263-1-nagasuresh.relli@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220615_234051_085466_5615A8F0 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20220615_234325_716028_2ED615DA 
+X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,143 +82,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The PLIC has two per-IRQ checks before sending an IRQ to a hart context.
-First, it checks that the IRQ's priority is nonzero. Then, it checks
-that the enable bit is set for that combination of IRQ and context.
+Remove the spi-max-frequency property from the spi0 controller
+node as it is supposed to be a per SPI peripheral device property.
 
-Currently, the PLIC driver sets both the priority value and the enable
-bit in its (un)mask operations. However, modifying the enable bit is
-problematic for two reasons:
-  1) The enable bits are packed, so changes are not atomic and require
-     taking a spinlock.
-  2) The following requirement from the PLIC spec, which explains the
-     racy (un)mask operations in plic_irq_eoi():
-
-       If the completion ID does not match an interrupt source
-       that is currently enabled for the target, the completion
-       is silently ignored.
-
-Both of these problems are solved by using the priority value to mask
-IRQs. Each IRQ has a separate priority register, so writing the priority
-value is atomic. And since the enable bit remains set while an IRQ is
-masked, the EOI operation works normally. The enable bits are still used
-to control the IRQ's affinity.
-
-Signed-off-by: Samuel Holland <samuel@sholland.org>
+Reported-by: Rob Herring <robh@kernel.org>
+Link: https://lore.kernel.org/lkml/20220526014141.2872567-1-robh@kernel.org/
+Signed-off-by: Nagasuresh Relli <nagasuresh.relli@microchip.com>
 ---
+ arch/riscv/boot/dts/microchip/mpfs.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
-(no changes since v1)
-
- drivers/irqchip/irq-sifive-plic.c | 53 +++++++++++++++++++------------
- 1 file changed, 32 insertions(+), 21 deletions(-)
-
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index bf7d5bee0c0c..53d266a571be 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -103,9 +103,7 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
- 				   struct irq_data *d, int enable)
- {
- 	int cpu;
--	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
- 
--	writel(enable, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
- 	for_each_cpu(cpu, mask) {
- 		struct plic_handler *handler = per_cpu_ptr(&plic_handlers, cpu);
- 
-@@ -113,16 +111,37 @@ static inline void plic_irq_toggle(const struct cpumask *mask,
- 	}
- }
- 
--static void plic_irq_unmask(struct irq_data *d)
-+static void plic_irq_enable(struct irq_data *d)
- {
- 	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 1);
- }
- 
--static void plic_irq_mask(struct irq_data *d)
-+static void plic_irq_disable(struct irq_data *d)
- {
- 	plic_irq_toggle(irq_data_get_effective_affinity_mask(d), d, 0);
- }
- 
-+static void plic_irq_unmask(struct irq_data *d)
-+{
-+	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
-+
-+	writel(1, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
-+}
-+
-+static void plic_irq_mask(struct irq_data *d)
-+{
-+	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
-+
-+	writel(0, priv->regs + PRIORITY_BASE + d->hwirq * PRIORITY_PER_ID);
-+}
-+
-+static void plic_irq_eoi(struct irq_data *d)
-+{
-+	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-+
-+	writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
-+}
-+
- #ifdef CONFIG_SMP
- static int plic_set_affinity(struct irq_data *d,
- 			     const struct cpumask *mask_val, bool force)
-@@ -141,32 +160,21 @@ static int plic_set_affinity(struct irq_data *d,
- 	if (cpu >= nr_cpu_ids)
- 		return -EINVAL;
- 
--	plic_irq_mask(d);
-+	plic_irq_disable(d);
- 
- 	irq_data_update_effective_affinity(d, cpumask_of(cpu));
- 
--	if (!irqd_irq_masked(d))
--		plic_irq_unmask(d);
-+	if (!irqd_irq_disabled(d))
-+		plic_irq_enable(d);
- 
- 	return IRQ_SET_MASK_OK_DONE;
- }
- #endif
- 
--static void plic_irq_eoi(struct irq_data *d)
--{
--	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
--
--	if (irqd_irq_masked(d)) {
--		plic_irq_unmask(d);
--		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
--		plic_irq_mask(d);
--	} else {
--		writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
--	}
--}
--
- static struct irq_chip plic_chip = {
- 	.name		= "SiFive PLIC",
-+	.irq_enable	= plic_irq_enable,
-+	.irq_disable	= plic_irq_disable,
- 	.irq_mask	= plic_irq_mask,
- 	.irq_unmask	= plic_irq_unmask,
- 	.irq_eoi	= plic_irq_eoi,
-@@ -372,8 +380,11 @@ static int __init plic_init(struct device_node *node,
- 			i * CONTEXT_ENABLE_SIZE;
- 		handler->priv = priv;
- done:
--		for (hwirq = 1; hwirq <= nr_irqs; hwirq++)
-+		for (hwirq = 1; hwirq <= nr_irqs; hwirq++) {
- 			plic_toggle(handler, hwirq, 0);
-+			writel(1, priv->regs + PRIORITY_BASE +
-+				  hwirq * PRIORITY_PER_ID);
-+		}
- 		nr_handlers++;
- 	}
+diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+index fb963559ba96..1a5aa8836099 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+@@ -278,7 +278,6 @@ spi0: spi@20108000 {
+ 			interrupt-parent = <&plic>;
+ 			interrupts = <54>;
+ 			clocks = <&clkcfg CLK_SPI0>;
+-			spi-max-frequency = <25000000>;
+ 			status = "disabled";
+ 		};
  
 -- 
-2.35.1
+2.25.1
 
 
 _______________________________________________
