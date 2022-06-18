@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26200CCA487
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44D6CCA48A
 	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jun 2022 12:32:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fexyTmP7uOZ+kw7Qfz1MmXKjRUr9tDTvMDf4KU1pYTE=; b=XxljnmSpW3rAYR
-	GE2eqlMIsCLF9TuTCyafAMOhZIj/k6DHUS13BenYlDc+UY6XNi4I8etCbPIJKGivokQDmqWpEd3Fw
-	iEg65rPRm0dQ1kZ5WvZqgRwrM64kPbCX80K7NVgC2K5RDnMaB3b1t626ipIXB1qM0TTvzpLvuIIGl
-	HGBOu6+QulRazzxiVao7KLSeL9dY2j3B/Gvqxv3l0pmNFnxA/489RWjKLvBgERKqEPGMQ+K5vtJfZ
-	xqaIGU5aMDc12RfmkmXwY/k8WEabQEiC8K4C5vY5dSIBXqZUCFvmtsoZ/4nSWsfGz0LM8D7nked+D
-	9K2r7SPL1GgYmkb6teGg==;
+	List-Owner; bh=Hy7NlBH/iLXRhb7L1AjIIsOA+zTskS1A3llb8mMw7+o=; b=iMgqWmiO7h+/X0
+	BoobjmhQQZ9NIgdoJXYto4JpgP+ukW6+hZRhPppW7AVnZMBsDJ8r7rgWXo3RAk+qzbP/ds+x/rUqO
+	UQ2BsaXjYx3agW9+iQImMLTpU2IE94+4k/YEJ0timleGJlPHcI3frKL/zbYtYmQwOu7Z04btKwAY2
+	ZTBBhLkWDu5q2O8WM6OFpaJtcCuJgt+XP8a1ap5Q+gPUYviBLigTe5rdEaergQYAZMRy8WDKXc6en
+	Y3BsbCIDE1i1iXT/nTotnsQU8Yhz0j0PC8K3zQvekJSteIFPVZBX6aqUa/S+6pGpgrfdzOE7Jl6+e
+	lze6TxIusGsTs7UzO4Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o2Xcf-00BHeR-PY; Sat, 18 Jun 2022 12:32:17 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1o2Xch-00BHfk-R2; Sat, 18 Jun 2022 12:32:19 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o2XcY-00BHVp-15
-	for linux-riscv@lists.infradead.org; Sat, 18 Jun 2022 12:32:11 +0000
-Received: by mail-wr1-x430.google.com with SMTP id w17so8782348wrg.7
-        for <linux-riscv@lists.infradead.org>; Sat, 18 Jun 2022 05:32:03 -0700 (PDT)
+	id 1o2XcY-00BHW0-Rz
+	for linux-riscv@lists.infradead.org; Sat, 18 Jun 2022 12:32:13 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id m1so1046282wrb.2
+        for <linux-riscv@lists.infradead.org>; Sat, 18 Jun 2022 05:32:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding;
-        bh=wA+ekkpjde0Zx9cXanks0YsUmdtDvWig/ia7r5xRwsg=;
-        b=NLP+j4VvWO4pMdDxz+jP2qakHnxjIhWDW5IcIZ6iTjVuR6PvXGlfRvScvAs6fv4LGC
-         tVHzVYgFUHCv1IRJ4Ht4KdNVLD+jSSS5h4H+avCrhP5W5KXZfsniSNzQaIy0Vmjf7cJe
-         1JtCXoeodTgNGx3zxBouJNSTU+BRjTFYSAg0N4jBQrfeC5wyTPkZscKwWYLFzG+dbNUH
-         VQDUJvWUJkk/fS8UHWuapx2oX/lVLREXGX91trMzLN+PvRD1VA55gaBikAJhJXd6EtNJ
-         TXtuW3AI8LcIC7NdxtxNMfIR5WAfMQnhkZScOGuGAVa6FafYwFTfgLXwxWgUJlRmcjG8
-         FuBw==
+        bh=n9g/PqG7lJoC3tmWnVa7QkZ4DkjcrfTJ4GH+uywTgjo=;
+        b=YKP/o6CNE+lQ/JvutgsR0jZOXfHfDWCY/dQhqMKd5OzvitLi7mgxOOlC22neXUi3t3
+         BN9TvFhMfSVyIRalfKp0Va337xJ573OA/jlHmNvKMC9gL9WCqqIk9PYa0TsCVpUjtR8B
+         tbSkAAYjMwonv2CjEuI0NKpP3MKNtmcrz4U2Kau04jp49doWSVikIYXLNtIJ0CbxpRRk
+         ACyFnBPLFEDO8mQ9dOPY47H5osv138u3PU28fgbHfr0fyUMw+29W9vwD1hyvLo5Y4+V/
+         UZtdS0DFsqY5lgkZ/53LD/FQ/OdBPmTBXN7bsmN9ILMpN1rxcP2HcJnRbBzUtni7FWjs
+         qlYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=wA+ekkpjde0Zx9cXanks0YsUmdtDvWig/ia7r5xRwsg=;
-        b=G1r48MFLNAi47Y8wbYB/ew6dUh/ysHDKK2cZ523R07nSJoxiDAOAPz6L84IvX3t7LK
-         7yzg5hUD25Ojc/dGYoARHooYJsM12z0kk9JM0hD96ijpP/upficrU5wBFMQ5gtI+p/5u
-         HranlDFRlFx7Y4ivFmfY3Zf1t8T1sKd+roIKIFzSOE9oZsKPDTl+h6eKBqXYMecnHSDS
-         L8EQeaLQnIwuMFjy+LQYjwXIHh4W/lJOIJNkVW+tTvUGKaI9n3H2oWpPZYDzN8YiEKpL
-         T+bWCvnWHJEe2DDGZdiggaaNqMZRe+X6Q0lIe0vq8GIYN93xO7kQGM82/BkM7HCvoopo
-         b3AA==
-X-Gm-Message-State: AJIora+8wsLb5AbdFsd0tJihyDFwdt1FPFyAB9ldonyBc9iCywVqAmrz
-	55Yyq8nfhE03IQ92tKLLAxhE+w==
-X-Google-Smtp-Source: AGRyM1uabX5izdogY/5f2icOXRBDHwfiqcRqU22eeMbzZR7yfphBy2Stjoi6dvehhY38C8EymhY+dA==
-X-Received: by 2002:adf:ef52:0:b0:21b:81e8:5d0b with SMTP id c18-20020adfef52000000b0021b81e85d0bmr6154762wrp.502.1655555522853;
-        Sat, 18 Jun 2022 05:32:02 -0700 (PDT)
+        bh=n9g/PqG7lJoC3tmWnVa7QkZ4DkjcrfTJ4GH+uywTgjo=;
+        b=A2L4gEAnrQm2Kqw19hyP+JR7lKCi+m71+/Zzji+RP5uqjXy5ObI2DE2mNto8ME8kNA
+         kgwgviSaazpyZcRhx5qBnZuAI0XDw2rcw6GZqzVDpEnyj+mAJ/I5GUr+yBv485uQc7aW
+         pi/G5G9abgbE+V1G+E9kqxnCkW4c9WElPa9S5U6ZIeIjVC13uvtyXiIjLthdy5XiRsFA
+         5lZkXxrY0yXPy3uIuEdKhdysBH0yN5fRLU/tovX4yvIRzsXndq8L9NlkX+1VQZSEpcwm
+         MJ6VU7FDQq7s8K0HtFRSHHZOb7dPGTUlM5fCw/eP+2XxKJKP8WHINLOhe4Z0t60nY2s5
+         ITiw==
+X-Gm-Message-State: AJIora9vZjuZ+pQx4L/mfGNKr499ghMcdMLA5PBe80Ohfahy2WVXlG6j
+	s4oTu/cUSDclKh8RM7KXuH19ag==
+X-Google-Smtp-Source: AGRyM1uLcJx1fdLcx/uXs4UMpQTYdcZbfApX1+t2jE32dzxYMzfs1UyeNBdv+e0Fp23i7qfwRgxtPQ==
+X-Received: by 2002:a5d:4251:0:b0:21b:885b:2fcc with SMTP id s17-20020a5d4251000000b0021b885b2fccmr1452539wrr.52.1655555526382;
+        Sat, 18 Jun 2022 05:32:06 -0700 (PDT)
 Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id az10-20020adfe18a000000b00210396b2eaesm9292305wrb.45.2022.06.18.05.32.01
+        by smtp.gmail.com with ESMTPSA id az10-20020adfe18a000000b00210396b2eaesm9292305wrb.45.2022.06.18.05.32.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Jun 2022 05:32:02 -0700 (PDT)
+        Sat, 18 Jun 2022 05:32:05 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: David Airlie <airlied@linux.ie>,
 	Daniel Vetter <daniel@ffwll.ch>,
@@ -91,16 +91,16 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	alsa-devel@alsa-project.org,
 	linux-spi@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 02/14] dt-bindings: display: panel: allow ilitek,ili9341 in isolation
-Date: Sat, 18 Jun 2022 13:30:24 +0100
-Message-Id: <20220618123035.563070-3-mail@conchuod.ie>
+Subject: [PATCH 04/14] dt-bindings: dma: add Canaan k210 to Synopsys DesignWare DMA
+Date: Sat, 18 Jun 2022 13:30:26 +0100
+Message-Id: <20220618123035.563070-5-mail@conchuod.ie>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220618123035.563070-1-mail@conchuod.ie>
 References: <20220618123035.563070-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220618_053210_123435_872F9713 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20220618_053210_983701_4AF9625A 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,45 +119,96 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The dt-binding for the ilitek,ili9341 does not allow it to be used as a
-compatible in isolation. This generates a warning for the Canaan kd233
-devicetree:
-arch/riscv/boot/dts/canaan/canaan_kd233.dtb: panel@0: compatible:0: 'ilitek,ili9341' is not one of ['st,sf-tc240t-9370-t']
-        From schema: Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
-arch/riscv/boot/dts/canaan/canaan_kd233.dtb: panel@0: compatible: ['ilitek,ili9341'] is too short
-        From schema: Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
-Allow ilitek,ili9341 to be selected in isolation.
+The Canaan k210 apparently has a Sysnopsys Designware AXI DMA
+controller, but according to the documentation & devicetree it has 6
+interrupts rather than the standard one. Add a custom compatible that
+supports the 6 interrupt configuration which falls back to the standard
+binding which is currently the one in use in the devicetree entry.
 
+Link: https://canaan-creative.com/wp-content/uploads/2020/03/kendryte_standalone_programming_guide_20190311144158_en.pdf #Page 58
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/display/panel/ilitek,ili9341.yaml     | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ .../bindings/dma/snps,dw-axi-dmac.yaml        | 35 ++++++++++++++-----
+ 1 file changed, 26 insertions(+), 9 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml b/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
-index 94ca92878434..c402bedaa37a 100644
---- a/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
-+++ b/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
-@@ -19,12 +19,14 @@ allOf:
+diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+index 4324a94b26b2..bc85598151ef 100644
+--- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
++++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+@@ -18,9 +18,13 @@ allOf:
  
  properties:
    compatible:
--    items:
--      - enum:
--          # ili9341 240*320 Color on stm32f429-disco board
--          - st,sf-tc240t-9370-t
--          - adafruit,yx240qv29
--      - const: ilitek,ili9341
+-    enum:
+-      - snps,axi-dma-1.01a
+-      - intel,kmb-axi-dma
 +    oneOf:
 +      - items:
-+          - const: ilitek,ili9341
-+      - items:
-+          - enum:
-+              - st,sf-tc240t-9370-t
-+              - adafruit,yx240qv29
-+          - const: ilitek,ili9341
++          - const: canaan,k210-axi-dma
++          - const: snps,axi-dma-1.01a
++      - enum:
++          - snps,axi-dma-1.01a
++          - intel,kmb-axi-dma
  
-   reg: true
+   reg:
+     minItems: 1
+@@ -33,9 +37,6 @@ properties:
+       - const: axidma_ctrl_regs
+       - const: axidma_apb_regs
  
+-  interrupts:
+-    maxItems: 1
+-
+   clocks:
+     items:
+       - description: Bus Clock
+@@ -92,6 +93,22 @@ properties:
+     minimum: 1
+     maximum: 256
+ 
++if:
++  properties:
++    compatible:
++      contains:
++        const: canaan,k210-axi-dma
++
++then:
++  properties:
++    interrupts:
++      maxItems: 6
++
++else:
++  properties:
++    interrupts:
++      maxItems: 1
++
+ required:
+   - compatible
+   - reg
+@@ -105,7 +122,7 @@ required:
+   - snps,priority
+   - snps,block-size
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ examples:
+   - |
+@@ -113,12 +130,12 @@ examples:
+      #include <dt-bindings/interrupt-controller/irq.h>
+      /* example with snps,dw-axi-dmac */
+      dmac: dma-controller@80000 {
+-         compatible = "snps,axi-dma-1.01a";
++         compatible = "canaan,k210-axi-dma", "snps,axi-dma-1.01a";
+          reg = <0x80000 0x400>;
+          clocks = <&core_clk>, <&cfgr_clk>;
+          clock-names = "core-clk", "cfgr-clk";
+          interrupt-parent = <&intc>;
+-         interrupts = <27>;
++         interrupts = <27>, <28>, <29>, <30>, <31>, <32>;
+          #dma-cells = <1>;
+          dma-channels = <4>;
+          snps,dma-masters = <2>;
 -- 
 2.36.1
 
