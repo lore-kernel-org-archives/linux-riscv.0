@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44D6CCA48A
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jun 2022 12:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 368D3CCA480
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jun 2022 12:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hy7NlBH/iLXRhb7L1AjIIsOA+zTskS1A3llb8mMw7+o=; b=iMgqWmiO7h+/X0
-	BoobjmhQQZ9NIgdoJXYto4JpgP+ukW6+hZRhPppW7AVnZMBsDJ8r7rgWXo3RAk+qzbP/ds+x/rUqO
-	UQ2BsaXjYx3agW9+iQImMLTpU2IE94+4k/YEJ0timleGJlPHcI3frKL/zbYtYmQwOu7Z04btKwAY2
-	ZTBBhLkWDu5q2O8WM6OFpaJtcCuJgt+XP8a1ap5Q+gPUYviBLigTe5rdEaergQYAZMRy8WDKXc6en
-	Y3BsbCIDE1i1iXT/nTotnsQU8Yhz0j0PC8K3zQvekJSteIFPVZBX6aqUa/S+6pGpgrfdzOE7Jl6+e
-	lze6TxIusGsTs7UzO4Gw==;
+	List-Owner; bh=2TuRBeX7cGoQOZ6WATslKAPGswja6Qxst1yqSusywPM=; b=vFg/oq7xOyH9RS
+	kIzC7uWsO8/Ga96fifZtgd82LPs24QkKfF+LXqcnuOA2WPFzDYPXWrH8iSev4xiZqLQ3oMjg5RoHp
+	xNIr4X2YQQrEKx78e/b97urHsYCfelhCw+Ads2L8ak4XAyJsWpjlV9bl208tzpaqDv5TNpWpanzun
+	c/qO4LEz3RwMWGe1TrsgGrEvMjscoYRywgkCedDPwKFVI/EPExCNK/13tQzuByAd88fRPS21KQl5q
+	rNgPgWf+E070/rwr10SgjU7pT/sBwRSvT0hwSJSPTbcIgkrk/zdzZQPkxplvLTf52RInS/mhjCRis
+	6QJA5+skkx3hNgPAdNjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o2Xch-00BHfk-R2; Sat, 18 Jun 2022 12:32:19 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1o2Xck-00BHhq-4B; Sat, 18 Jun 2022 12:32:22 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o2XcY-00BHW0-Rz
+	id 1o2Xca-00BHWS-6s
 	for linux-riscv@lists.infradead.org; Sat, 18 Jun 2022 12:32:13 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id m1so1046282wrb.2
-        for <linux-riscv@lists.infradead.org>; Sat, 18 Jun 2022 05:32:07 -0700 (PDT)
+Received: by mail-wr1-x434.google.com with SMTP id m1so1046347wrb.2
+        for <linux-riscv@lists.infradead.org>; Sat, 18 Jun 2022 05:32:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding;
-        bh=n9g/PqG7lJoC3tmWnVa7QkZ4DkjcrfTJ4GH+uywTgjo=;
-        b=YKP/o6CNE+lQ/JvutgsR0jZOXfHfDWCY/dQhqMKd5OzvitLi7mgxOOlC22neXUi3t3
-         BN9TvFhMfSVyIRalfKp0Va337xJ573OA/jlHmNvKMC9gL9WCqqIk9PYa0TsCVpUjtR8B
-         tbSkAAYjMwonv2CjEuI0NKpP3MKNtmcrz4U2Kau04jp49doWSVikIYXLNtIJ0CbxpRRk
-         ACyFnBPLFEDO8mQ9dOPY47H5osv138u3PU28fgbHfr0fyUMw+29W9vwD1hyvLo5Y4+V/
-         UZtdS0DFsqY5lgkZ/53LD/FQ/OdBPmTBXN7bsmN9ILMpN1rxcP2HcJnRbBzUtni7FWjs
-         qlYw==
+        bh=qmSWtWUd+mMy8ZYoZTgQjYDztLIGNDdvta+tk149+dY=;
+        b=dM4LDKg5XtY0Inv2LgZSsQ50IPuzGfCzEsvHlFQ/2NLIm/6++fbLLGSB9koJgwMTjp
+         07IF9XMy4P4HaeMA1yfSnaPY3CYXQ+u0Kv6ZrDa4GjATk93Wx2p5DeaQw29BenmArCiz
+         I6simFjZ6ZTWhMpFS4z5vR9LZUvOOE+DqLAunuoSePBDY5dNABj/iCXgooJ7JUM1Gx2w
+         oJTVRWFtg+XkkdFP3+9IwXZt69jucggKlNwGuChB7WxmXKdl5k9lj8f8ITLIpfckoFQS
+         YaBPUVjvUVp7mpO9D9wZzFoEi6tceysbIOAoKo4R7lpk7QqiW4+Bkh5CqE2X/nDML5P4
+         Wj6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=n9g/PqG7lJoC3tmWnVa7QkZ4DkjcrfTJ4GH+uywTgjo=;
-        b=A2L4gEAnrQm2Kqw19hyP+JR7lKCi+m71+/Zzji+RP5uqjXy5ObI2DE2mNto8ME8kNA
-         kgwgviSaazpyZcRhx5qBnZuAI0XDw2rcw6GZqzVDpEnyj+mAJ/I5GUr+yBv485uQc7aW
-         pi/G5G9abgbE+V1G+E9kqxnCkW4c9WElPa9S5U6ZIeIjVC13uvtyXiIjLthdy5XiRsFA
-         5lZkXxrY0yXPy3uIuEdKhdysBH0yN5fRLU/tovX4yvIRzsXndq8L9NlkX+1VQZSEpcwm
-         MJ6VU7FDQq7s8K0HtFRSHHZOb7dPGTUlM5fCw/eP+2XxKJKP8WHINLOhe4Z0t60nY2s5
-         ITiw==
-X-Gm-Message-State: AJIora9vZjuZ+pQx4L/mfGNKr499ghMcdMLA5PBe80Ohfahy2WVXlG6j
-	s4oTu/cUSDclKh8RM7KXuH19ag==
-X-Google-Smtp-Source: AGRyM1uLcJx1fdLcx/uXs4UMpQTYdcZbfApX1+t2jE32dzxYMzfs1UyeNBdv+e0Fp23i7qfwRgxtPQ==
-X-Received: by 2002:a5d:4251:0:b0:21b:885b:2fcc with SMTP id s17-20020a5d4251000000b0021b885b2fccmr1452539wrr.52.1655555526382;
-        Sat, 18 Jun 2022 05:32:06 -0700 (PDT)
+        bh=qmSWtWUd+mMy8ZYoZTgQjYDztLIGNDdvta+tk149+dY=;
+        b=gCyR4MaOttv6ZiHg86Rh+gNvLBM0LADmn1r17BkeVG43S+2UIXYQk9sswoS/jTveKn
+         kUvN1/kqPkqRsok0+Gj9Sz3QBZ5V0GolZjVsO/qeoJr8qLr1S8qkGh6VApmW6WbGNUv2
+         K2p+JGgWqH8/bP7f8CdmyqpsqYv+6xn4xtFFtRf3FL+l6i5lUxsrKUNLYFz/qsQK2BqL
+         Hhbt4Aaaqi5G/fbRgRK/88V7jhw5cQR+uipBJfFl2xKcu6dxuyiQtlWpovucdvURt8VC
+         VCFYMUVmrswQtIi0WsQ5rc4tsVrnqgNJBvoYjGeSPlmMLjn1DPgzn725eTK+M34BSR8G
+         yzLQ==
+X-Gm-Message-State: AJIora+het3ed65Hx//Xvvc2sNWCkmBNwE1piATLPRWcVbnXF3CatYai
+	h82dHw5fOgJn7GZJOldK83EE0Q==
+X-Google-Smtp-Source: AGRyM1sfPQ5XTH8REWSlcNVbh+KVLu6pjXz8b6gchhSbSGxDuCamFh0CMH0mba5q/rzWCUN22eIJUA==
+X-Received: by 2002:a05:6000:1b03:b0:210:3372:2bd9 with SMTP id f3-20020a0560001b0300b0021033722bd9mr14215037wrz.704.1655555531747;
+        Sat, 18 Jun 2022 05:32:11 -0700 (PDT)
 Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id az10-20020adfe18a000000b00210396b2eaesm9292305wrb.45.2022.06.18.05.32.04
+        by smtp.gmail.com with ESMTPSA id az10-20020adfe18a000000b00210396b2eaesm9292305wrb.45.2022.06.18.05.32.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 18 Jun 2022 05:32:05 -0700 (PDT)
+        Sat, 18 Jun 2022 05:32:11 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: David Airlie <airlied@linux.ie>,
 	Daniel Vetter <daniel@ffwll.ch>,
@@ -91,16 +91,16 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	alsa-devel@alsa-project.org,
 	linux-spi@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH 04/14] dt-bindings: dma: add Canaan k210 to Synopsys DesignWare DMA
-Date: Sat, 18 Jun 2022 13:30:26 +0100
-Message-Id: <20220618123035.563070-5-mail@conchuod.ie>
+Subject: [PATCH 07/14] riscv: dts: canaan: fix the k210's memory node
+Date: Sat, 18 Jun 2022 13:30:29 +0100
+Message-Id: <20220618123035.563070-8-mail@conchuod.ie>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220618123035.563070-1-mail@conchuod.ie>
 References: <20220618123035.563070-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220618_053210_983701_4AF9625A 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20220618_053212_349861_4AD97B30 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,96 +119,36 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The Canaan k210 apparently has a Sysnopsys Designware AXI DMA
-controller, but according to the documentation & devicetree it has 6
-interrupts rather than the standard one. Add a custom compatible that
-supports the 6 interrupt configuration which falls back to the standard
-binding which is currently the one in use in the devicetree entry.
+The k210 memory node has a compatible string that does not match with
+any driver or dt-binding & has several non standard properties.
+Replace the reg names with a comment and delete the rest.
 
-Link: https://canaan-creative.com/wp-content/uploads/2020/03/kendryte_standalone_programming_guide_20190311144158_en.pdf #Page 58
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/dma/snps,dw-axi-dmac.yaml        | 35 ++++++++++++++-----
- 1 file changed, 26 insertions(+), 9 deletions(-)
+---
+ arch/riscv/boot/dts/canaan/k210.dtsi | 6 ------
+ 1 file changed, 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-index 4324a94b26b2..bc85598151ef 100644
---- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-+++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-@@ -18,9 +18,13 @@ allOf:
+diff --git a/arch/riscv/boot/dts/canaan/k210.dtsi b/arch/riscv/boot/dts/canaan/k210.dtsi
+index 44d338514761..287ea6eebe47 100644
+--- a/arch/riscv/boot/dts/canaan/k210.dtsi
++++ b/arch/riscv/boot/dts/canaan/k210.dtsi
+@@ -69,15 +69,9 @@ cpu1_intc: interrupt-controller {
  
- properties:
-   compatible:
--    enum:
--      - snps,axi-dma-1.01a
--      - intel,kmb-axi-dma
-+    oneOf:
-+      - items:
-+          - const: canaan,k210-axi-dma
-+          - const: snps,axi-dma-1.01a
-+      - enum:
-+          - snps,axi-dma-1.01a
-+          - intel,kmb-axi-dma
+ 	sram: memory@80000000 {
+ 		device_type = "memory";
+-		compatible = "canaan,k210-sram";
+ 		reg = <0x80000000 0x400000>,
+ 		      <0x80400000 0x200000>,
+ 		      <0x80600000 0x200000>;
+-		reg-names = "sram0", "sram1", "aisram";
+-		clocks = <&sysclk K210_CLK_SRAM0>,
+-			 <&sysclk K210_CLK_SRAM1>,
+-			 <&sysclk K210_CLK_AI>;
+-		clock-names = "sram0", "sram1", "aisram";
+ 	};
  
-   reg:
-     minItems: 1
-@@ -33,9 +37,6 @@ properties:
-       - const: axidma_ctrl_regs
-       - const: axidma_apb_regs
- 
--  interrupts:
--    maxItems: 1
--
-   clocks:
-     items:
-       - description: Bus Clock
-@@ -92,6 +93,22 @@ properties:
-     minimum: 1
-     maximum: 256
- 
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: canaan,k210-axi-dma
-+
-+then:
-+  properties:
-+    interrupts:
-+      maxItems: 6
-+
-+else:
-+  properties:
-+    interrupts:
-+      maxItems: 1
-+
- required:
-   - compatible
-   - reg
-@@ -105,7 +122,7 @@ required:
-   - snps,priority
-   - snps,block-size
- 
--additionalProperties: false
-+unevaluatedProperties: false
- 
- examples:
-   - |
-@@ -113,12 +130,12 @@ examples:
-      #include <dt-bindings/interrupt-controller/irq.h>
-      /* example with snps,dw-axi-dmac */
-      dmac: dma-controller@80000 {
--         compatible = "snps,axi-dma-1.01a";
-+         compatible = "canaan,k210-axi-dma", "snps,axi-dma-1.01a";
-          reg = <0x80000 0x400>;
-          clocks = <&core_clk>, <&cfgr_clk>;
-          clock-names = "core-clk", "cfgr-clk";
-          interrupt-parent = <&intc>;
--         interrupts = <27>;
-+         interrupts = <27>, <28>, <29>, <30>, <31>, <32>;
-          #dma-cells = <1>;
-          dma-channels = <4>;
-          snps,dma-masters = <2>;
+ 	clocks {
 -- 
 2.36.1
 
