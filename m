@@ -4,80 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 738D9CCA47E
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jun 2022 09:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75412C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jun 2022 12:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T3TPXNXaDyYpynPAzFPOIy0y3jL/psH5OwkEX767k2c=; b=fOISfb07tJMg7V
-	tdMU4JUGmQotfAVLUdBKUvR4tnFpkD/DFcpr55whWVjnpM0SmuMfidAGVb19tXSYyuErRPO6xoRG3
-	CyJXO0mP8FdnzCJCfk9Troz1bVOSYXMM27DNqdcC5v3cRCdFTr8mPL7NMrCixgXI0xAEm6yoww9lu
-	TpN/tOzDvPn7WVhAHIq4S2XiEEcHsbgeVga21hEgPwMG03rjqJMxnqWFsfvUuDZCQhOCut/yBhgbP
-	XVCgyPejQmW7RfL5BAlbhZuNzicg6urvRBQvEYIUwNvrEE3UO5lHHNK4Tqn/XMm8h2q9hC+XZg6Ug
-	XBhxsoQQvuwfhogN55fA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zUOlh9J2lu42+sANCui3JTYyWl1uaVlNU5UyDWyqRlY=; b=jnZCsbwQKyUFrV
+	0OQYXVamDHLSN0t9d/CKeZOtUnyAQURwb9h3r11QxTRpqrse1AhDZAeXEPGXIS2OpJB9bR21kVcOz
+	PajoDdcWNxMgFNzM1eC9kbIkF8FKf8+TEdEMPIMa/T8/omlbxAoDpTjhYI6AiFefkcno71xtj5xjN
+	6y9fvseMV+g51+6m+dv/9RDM8jn8jaTKnIm7tBmrz8MaVjuk6b8My3EDOvkWz6z/MAYjfx4yVGaKJ
+	VjuIIO8JwUawVmkXrVx+IjF7RKFT5K+UcpItj4wTfJq58RLZis8s4UVToM6OMxjpKPIZJ8VEpise/
+	XbPO4lBGjSjb//R5lDWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o2UMe-00AqZt-Nx; Sat, 18 Jun 2022 09:03:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1o2XcZ-00BHYW-9F; Sat, 18 Jun 2022 12:32:11 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o2UMC-00AqOa-3X; Sat, 18 Jun 2022 09:03:05 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4EB6260DCC;
-	Sat, 18 Jun 2022 09:03:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A834CC3411A;
-	Sat, 18 Jun 2022 09:03:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1655542981;
-	bh=G2NVbw5GE1KUhRgKcRWq5GgSU83SgY43XdstIbqHLgw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=hsZdCg4KciT1MCynTN15yLnPrAMI9/GR5LX/K1fDWZ+2jyhgqSbOm6WmbHsiK0wxO
-	 VUmi60QwaPkk8nhlcTGsmwJnUsfpGeQ4IjJG4eVZwBtH2sg3Fe+O2EtP0XpbnzKjcD
-	 O6JRKI6BS1qI9ex+8CXOIP92rCqIyOI05VEOPDPCfdsEbnOzZDMuOLsn2SoOg462V5
-	 Hf1uuKJ5LKd4Jm2F7gBMihn1aVgiAAYGDClGLK8WnG7dSS2VRLIrNCFZnWJchegUDq
-	 /WGUI0MUa4u2ViBuvVuVm2FbJtk2Eo8wNVmSND5aKlggLSpKDSrb1sZSaQFgYTMl7y
-	 ctyVQWmXxEXyg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1o2ULA-001RtF-1J;
-	Sat, 18 Jun 2022 10:02:59 +0100
-Date: Sat, 18 Jun 2022 10:01:55 +0100
-Message-ID: <87h74ipcos.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Samuel Holland <samuel@sholland.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
+	id 1o2XcV-00BHVk-Aw
+	for linux-riscv@lists.infradead.org; Sat, 18 Jun 2022 12:32:09 +0000
+Received: by mail-wr1-x434.google.com with SMTP id e25so4939155wrc.13
+        for <linux-riscv@lists.infradead.org>; Sat, 18 Jun 2022 05:32:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=conchuod.ie; s=google;
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=cxrfrrOtT2Oa/bD+7FBstHMfLsi5+SmAhxAWzjAkyZ0=;
+        b=S2mJhG/EP2bvAoovp3+1EX915fqgCN7s5TTHRtk6gjrtEqOI/5G9b2iqkP8Hp2fPJT
+         Xv7w9JM5mIzSBmUBnG5veKqEPc/MaxIruLrav0YlVhnIQlMG/M+wTnbgpcN0tcmr+tr2
+         or89IY4gglZ6yWfGfoA+jfJEq4JsK9dvMaD2rRItnHWPYoJkG7IkTqJN1pM8cYB5TpdM
+         9bGqfIt5FOQFRPbbNCxOn37acP1sIBQPp6tl26reXViVZmDuywOt0O5V9tWi+koaQg4c
+         DJEmvefmmDhAvEMjrhz9P1n7uaAObdu8xiUcENoorbn9u8vIjZNy1IW7RHROc+mSnsUJ
+         yKqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=cxrfrrOtT2Oa/bD+7FBstHMfLsi5+SmAhxAWzjAkyZ0=;
+        b=vKwB0gdAuBw5MCxYT3UTdgElnUJBua9vg2Oq6pCvq4IoDOand4cvplbx2stMQVzvvD
+         QBDoBlNVF7HcUpUIpa4ZAitFn9JPES1aQwj4P515VJW05UhJIcpbza7c4ENZtgNs+uPL
+         AJjhSDVDsJR7WtJiKxfjsJbo2sXR6RwbDNfc8UL7Cm8Nhk/K2qRfRjSfUg83JzeHGxyw
+         0X8MghQGE0UDpl4PwpJKXoybjXOv0UYmGPCNqa2R7DqRer22lj0BbtngqpqXILyTHpGO
+         /0rynxOnO/e8DK5220ioXCt8Fb9xsS23JnxAOZ1Pt86nRvi9H6ljHT+f/MiTtQRiISnS
+         6a2A==
+X-Gm-Message-State: AJIora8X+7bCFarkYAWPM6od+kY6NkixuvciECX9U5MRek8SSq8Q4+y8
+	C+5Qo1gtVIa9kRvZyG08V744Og==
+X-Google-Smtp-Source: AGRyM1vo09vBquhwF3XuUkIoGOLL2MXJBKKEyvgcE2QTAi/5UKplOA45WdH+tRLIApC05LNQOZn4qQ==
+X-Received: by 2002:adf:fd0f:0:b0:210:32d7:4cb5 with SMTP id e15-20020adffd0f000000b0021032d74cb5mr13971427wrr.565.1655555519244;
+        Sat, 18 Jun 2022 05:31:59 -0700 (PDT)
+Received: from henark71.. ([51.37.234.167])
+        by smtp.gmail.com with ESMTPSA id az10-20020adfe18a000000b00210396b2eaesm9292305wrb.45.2022.06.18.05.31.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 18 Jun 2022 05:31:58 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: David Airlie <airlied@linux.ie>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Guo Ren <guoren@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Wei Xu <xuwei5@hisilicon.com>,
-	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Niklas Cassel <niklas.cassel@wdc.com>,
+	Dillon Min <dillon.minfei@gmail.com>,
+	Heng Sia <jee.heng.sia@intel.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	alsa-devel@alsa-project.org,
+	linux-spi@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 4/6] genirq: Provide an IRQ affinity mask in non-SMP configs
-In-Reply-To: <20220616064028.57933-5-samuel@sholland.org>
-References: <20220616064028.57933-1-samuel@sholland.org>
-	<20220616064028.57933-5-samuel@sholland.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: samuel@sholland.org, tglx@linutronix.de, palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, brgl@bgdev.pl, guoren@kernel.org, mark.rutland@arm.com, linux@armlinux.org.uk, xuwei5@hisilicon.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Subject: [PATCH 00/14] Canaan devicetree fixes
+Date: Sat, 18 Jun 2022 13:30:22 +0100
+Message-Id: <20220618123035.563070-1-mail@conchuod.ie>
+X-Mailer: git-send-email 2.36.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220618_020304_283485_14B1940D 
-X-CRM114-Status: GOOD (  25.68  )
+X-CRM114-CacheID: sfid-20220618_053207_423779_1CDEC129 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,73 +115,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel,
+From: Conor Dooley <conor.dooley@microchip.com>
 
-On Thu, 16 Jun 2022 07:40:26 +0100,
-Samuel Holland <samuel@sholland.org> wrote:
-> 
-> IRQ affinity masks are not allocated in uniprocessor configurations.
-> This requires special case non-SMP code in drivers for irqchips which
-> have per-CPU enable or mask registers.
-> 
-> Since IRQ affinity is always the same in a uniprocessor configuration,
-> we can still provide the correct affinity mask without allocating one
-> per IRQ. We can reuse the system-wide cpu_possible_mask.
-> 
-> By returning a real cpumask from irq_data_get_affinity_mask even when
-> SMP is disabled, irqchip drivers which iterate over that mask will
-> automatically do the right thing.
-> 
-> Signed-off-by: Samuel Holland <samuel@sholland.org>
-> ---
-> 
-> (no changes since v1)
-> 
->  include/linux/irq.h | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/include/linux/irq.h b/include/linux/irq.h
-> index 69ee4e2f36ce..d5e958b026aa 100644
-> --- a/include/linux/irq.h
-> +++ b/include/linux/irq.h
-> @@ -151,7 +151,9 @@ struct irq_common_data {
->  #endif
->  	void			*handler_data;
->  	struct msi_desc		*msi_desc;
-> +#ifdef CONFIG_SMP
->  	cpumask_var_t		affinity;
-> +#endif
->  #ifdef CONFIG_GENERIC_IRQ_EFFECTIVE_AFF_MASK
->  	cpumask_var_t		effective_affinity;
->  #endif
-> @@ -881,7 +883,11 @@ static inline int irq_data_get_node(struct irq_data *d)
->  
->  static inline struct cpumask *irq_data_get_affinity_mask(struct irq_data *d)
->  {
-> +#ifdef CONFIG_SMP
->  	return d->common->affinity;
-> +#else
-> +	return &__cpu_possible_mask;
-> +#endif
+Hey all,
+This series should rid us of dtbs_check errors for the RISC-V Canaan k210
+based boards (well, unless you enable W=1 but that's another days work).
+I *DO NOT* have any Canaan hardware so I have not tested any of this in
+anger. I based the series on next-20220617.
 
-I have a bad feeling about this one. Being in a !SMP configuration
-doesn't necessarily mean that __cpu_possible_mask only contains a
-single CPU, specially with things like CONFIG_INIT_ALL_POSSIBLE. I can
-also imagine an architecture populating this bitmap from firmware
-tables irrespective of the SMP status of the kernel.
+For the bindings, I am never sure about which of {unevaluated,additional}
+Properties is correct to use, but the if statements in the binding didn't
+work with additional so I used unevaluated...
 
-Can't you use something like:
+@Mark, for your two bindings I was not sure about the properties that I
+made depend on the compatible, but I looked in tree and was not able to
+find other users to contradict what's in the Canaan devicetrees nor did
+I get that much help from their docs.
 
-	return cpumask_of(0);
+@Rob, yesterday's removal of ilitek,ili9341.txt is moved to ths series
+since I was editing the dt-schema binding here anyway.
 
-which is guaranteed to be the right thing on !SMP configuration?
+Finally, @Palmer:
+This + Atul's stuff + the sifive dts watchdog patch will get us sorted
+in terms of dtbs_check errors. To make keeping it that way a little
+easier, I changed the Canaan devicetree Makefile so that it would build
+all of the devicetrees in the directory if SOC_CANAAN. Hopefully someone
+with a device can test it - but my build log *looked* fine but that's
+not exactly sufficient.
 
 Thanks,
+Conor.
 
-	M.
+Conor Dooley (14):
+  dt-bindings: display: convert ilitek,ili9341.txt to dt-schema
+  dt-bindings: display: panel: allow ilitek,ili9341 in isolation
+  ASoC: dt-bindings: convert designware-i2s to dt-schema
+  dt-bindings: dma: add Canaan k210 to Synopsys DesignWare DMA
+  dt-bindings: timer: add Canaan k210 to Synopsys DesignWare timer
+  spi: dt-bindings: dw-apb-ssi: update spi-{r,t}x-bus-width for dwc-ssi
+  riscv: dts: canaan: fix the k210's memory node
+  riscv: dts: canaan: add a specific compatible for k210's dma
+  riscv: dts: canaan: add a specific compatible for k210's timers
+  riscv: dts: canaan: fix mmc node names
+  riscv: dts: canaan: fix kd233 display spi frequency
+  riscv: dts: canaan: use custom compatible for k210 i2s
+  riscv: dts: canaan: remove spi-max-frequency from controllers
+  riscv: dts: canaan: build all devicetress if SOC_CANAAN
 
+ .../bindings/display/ilitek,ili9341.txt       | 27 ------
+ .../display/panel/ilitek,ili9341.yaml         | 60 ++++++++----
+ .../bindings/dma/snps,dw-axi-dmac.yaml        | 35 +++++--
+ .../bindings/sound/designware-i2s.txt         | 35 -------
+ .../bindings/sound/snps,designware-i2s.yaml   | 93 +++++++++++++++++++
+ .../bindings/spi/snps,dw-apb-ssi.yaml         | 48 +++++++---
+ .../bindings/timer/snps,dw-apb-timer.yaml     | 28 ++++--
+ arch/riscv/boot/dts/canaan/Makefile           | 10 +-
+ arch/riscv/boot/dts/canaan/canaan_kd233.dts   |  4 +-
+ arch/riscv/boot/dts/canaan/k210.dtsi          | 25 ++---
+ .../riscv/boot/dts/canaan/sipeed_maix_bit.dts |  2 +-
+ .../boot/dts/canaan/sipeed_maix_dock.dts      |  2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_go.dts |  2 +-
+ .../boot/dts/canaan/sipeed_maixduino.dts      |  2 +-
+ 14 files changed, 239 insertions(+), 134 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/display/ilitek,ili9341.txt
+ delete mode 100644 Documentation/devicetree/bindings/sound/designware-i2s.txt
+ create mode 100644 Documentation/devicetree/bindings/sound/snps,designware-i2s.yaml
+
+
+base-commit: 07dc787be2316e243a16a33d0a9b734cd9365bd3
 -- 
-Without deviation from the norm, progress is not possible.
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
