@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B30C43334
-	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jun 2022 00:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 738D9CCA47E
+	for <linux-riscv@archiver.kernel.org>; Sat, 18 Jun 2022 09:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:References
-	:Mime-Version:Message-Id:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u9BzBpCXcvfe2RWKLBpPB90Q0uBJX3jZVnSZhlxsHAw=; b=csq3e9VjHnpE0t
-	4DAaIxDKst+EmH092GGGCl7WMN911PYryUEI2cDX+jTqbvquh6TkFDbxGYXlm5elJe5HnyU6X3Nm9
-	1O2QXVTglyIrlBKxg3EFmGEIqvb2g6UH+9VIwr0f7FqyDf40UmLhB2iBQk0Lye9HJnpeBEvI+9xNK
-	RED8cEH1Tt6PY31fMJfpj1PM7CAM8VlQoomJaDbibbk7zNgCeL4HL8uh9POI5esG1fi7+OGptLqAQ
-	tP08MHjTjYWvt7yQHHa2esE1fCjfYv60yjUSIWvnBOpp1HT1SaRZZrfppcyAM7nCIz7PaXVLRwKGa
-	m0yKlvsnxmbC1v+ftktw==;
+	List-Owner; bh=T3TPXNXaDyYpynPAzFPOIy0y3jL/psH5OwkEX767k2c=; b=fOISfb07tJMg7V
+	tdMU4JUGmQotfAVLUdBKUvR4tnFpkD/DFcpr55whWVjnpM0SmuMfidAGVb19tXSYyuErRPO6xoRG3
+	CyJXO0mP8FdnzCJCfk9Troz1bVOSYXMM27DNqdcC5v3cRCdFTr8mPL7NMrCixgXI0xAEm6yoww9lu
+	TpN/tOzDvPn7WVhAHIq4S2XiEEcHsbgeVga21hEgPwMG03rjqJMxnqWFsfvUuDZCQhOCut/yBhgbP
+	XVCgyPejQmW7RfL5BAlbhZuNzicg6urvRBQvEYIUwNvrEE3UO5lHHNK4Tqn/XMm8h2q9hC+XZg6Ug
+	XBhxsoQQvuwfhogN55fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o2M9C-009kK8-4r; Sat, 18 Jun 2022 00:17:06 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1o2UMe-00AqZt-Nx; Sat, 18 Jun 2022 09:03:32 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o2M8Z-009k2L-Tm
-	for linux-riscv@lists.infradead.org; Sat, 18 Jun 2022 00:16:30 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id o8-20020a17090a9f8800b001dc9f554c7fso2549380pjp.4
-        for <linux-riscv@lists.infradead.org>; Fri, 17 Jun 2022 17:16:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=reply-to:date:in-reply-to:message-id:mime-version:references
-         :subject:from:to:cc;
-        bh=+kEOXupEgF3LEKaQ7ETtoR1RHv4ePLtA8ZhkwBe1RYk=;
-        b=Dn05cv6fq5texyrcU+sgiFL6XElkOLr41OAqA7yu/YCnT3xe/CdMaKCDUb1d0e5uXg
-         lMPAVJ0reAvcdyRvnIfWoeDL9sd1vhVHkOGHHlgWb1QdAt9GlJOd94PvMY4miywZXe7Y
-         idwx5fC1h/wFYKMk0dPdRDEO+xMQ9WvDcMHgED/GS8UD68D98jVJWN4BUMbgzmlEVAhS
-         2dIQkU0V/dN0ooZLh037pFfG6H3PI9Z2Wa32o3Jt2pzVHBd8EFgHlKGw6jEM6KaXI4Q+
-         /6bGTvgNdYj3gmtIbUzGeExDloxJPM10xvcTCVAWHovIzmFD1dWbvQBhIlwBQPpmdPUz
-         vNBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:reply-to:date:in-reply-to:message-id
-         :mime-version:references:subject:from:to:cc;
-        bh=+kEOXupEgF3LEKaQ7ETtoR1RHv4ePLtA8ZhkwBe1RYk=;
-        b=ZkAujp0yXccqRsqJavnakSfVD3nPz8Mn2j+VzPPjsAPskQp0tRQzxU+NT9EgCLPOxF
-         mpR8SU7HG2CxGiyMf2DSBL2rLs9KMTq1IrvgcL5Y5XX23srMkRo2JAnMk5WKQnxBvzYM
-         qc7KlB5ghH4Awmnizkbg1leMFkC1SmPOuX+nT1SN/RUqvWh97rgrRTJG4bzENaSG5cmV
-         AJ7xearCdWgSezN5pVMZHsZqglapWYD0jkw/Y+EQ0zh8vpheFsfRisBc1aAByH7eLnH2
-         LHux13zo+WYPTBtFIbG7IPS+LVY0P812Ofb1wIKXrpSrG7kOEZKMSO6YNIK76oF8iu+N
-         QJfg==
-X-Gm-Message-State: AJIora+N280E6jqw53LxkPjsEl7jE0hrJxk9s+HyE93g3FTIZiERrVg1
-	VaD2TuDLDKX7ZuEoA3s57LqHtnMYib4=
-X-Google-Smtp-Source: AGRyM1tH2/eIDP/hPfMRCm8Pd53yxKYarOYPiOjvNi7PZ3OcG2KrqTiKgCQWjn0rLrRXuxKbVTARh+hJDQU=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6a00:1584:b0:51c:7932:975a with SMTP id
- u4-20020a056a00158400b0051c7932975amr12598033pfk.80.1655511386752; Fri, 17
- Jun 2022 17:16:26 -0700 (PDT)
-Date: Sat, 18 Jun 2022 00:16:18 +0000
-In-Reply-To: <20220618001618.1840806-1-seanjc@google.com>
-Message-Id: <20220618001618.1840806-4-seanjc@google.com>
-Mime-Version: 1.0
-References: <20220618001618.1840806-1-seanjc@google.com>
-X-Mailer: git-send-email 2.37.0.rc0.104.g0611611a94-goog
-Subject: [PATCH 3/3] KVM: selftest: Add __weak stubs for ucall_arch_(un)init()
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>
-Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Atish Patra <atishp@atishpatra.org>, 
-	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>, 
-	Andrew Jones <drjones@redhat.com>, Sean Christopherson <seanjc@google.com>
+	id 1o2UMC-00AqOa-3X; Sat, 18 Jun 2022 09:03:05 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 4EB6260DCC;
+	Sat, 18 Jun 2022 09:03:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A834CC3411A;
+	Sat, 18 Jun 2022 09:03:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1655542981;
+	bh=G2NVbw5GE1KUhRgKcRWq5GgSU83SgY43XdstIbqHLgw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=hsZdCg4KciT1MCynTN15yLnPrAMI9/GR5LX/K1fDWZ+2jyhgqSbOm6WmbHsiK0wxO
+	 VUmi60QwaPkk8nhlcTGsmwJnUsfpGeQ4IjJG4eVZwBtH2sg3Fe+O2EtP0XpbnzKjcD
+	 O6JRKI6BS1qI9ex+8CXOIP92rCqIyOI05VEOPDPCfdsEbnOzZDMuOLsn2SoOg462V5
+	 Hf1uuKJ5LKd4Jm2F7gBMihn1aVgiAAYGDClGLK8WnG7dSS2VRLIrNCFZnWJchegUDq
+	 /WGUI0MUa4u2ViBuvVuVm2FbJtk2Eo8wNVmSND5aKlggLSpKDSrb1sZSaQFgYTMl7y
+	 ctyVQWmXxEXyg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1o2ULA-001RtF-1J;
+	Sat, 18 Jun 2022 10:02:59 +0100
+Date: Sat, 18 Jun 2022 10:01:55 +0100
+Message-ID: <87h74ipcos.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Guo Ren <guoren@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Wei Xu <xuwei5@hisilicon.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 4/6] genirq: Provide an IRQ affinity mask in non-SMP configs
+In-Reply-To: <20220616064028.57933-5-samuel@sholland.org>
+References: <20220616064028.57933-1-samuel@sholland.org>
+	<20220616064028.57933-5-samuel@sholland.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: samuel@sholland.org, tglx@linutronix.de, palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, brgl@bgdev.pl, guoren@kernel.org, mark.rutland@arm.com, linux@armlinux.org.uk, xuwei5@hisilicon.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220617_171628_017808_119A21B0 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220618_020304_283485_14B1940D 
+X-CRM114-Status: GOOD (  25.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,106 +89,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide __weak stubs for (un)initializing ucall, aarch64 is the only
-architecture that actually needs to do work.
+Hi Samuel,
 
-No functional change intended.
+On Thu, 16 Jun 2022 07:40:26 +0100,
+Samuel Holland <samuel@sholland.org> wrote:
+> 
+> IRQ affinity masks are not allocated in uniprocessor configurations.
+> This requires special case non-SMP code in drivers for irqchips which
+> have per-CPU enable or mask registers.
+> 
+> Since IRQ affinity is always the same in a uniprocessor configuration,
+> we can still provide the correct affinity mask without allocating one
+> per IRQ. We can reuse the system-wide cpu_possible_mask.
+> 
+> By returning a real cpumask from irq_data_get_affinity_mask even when
+> SMP is disabled, irqchip drivers which iterate over that mask will
+> automatically do the right thing.
+> 
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
+> 
+> (no changes since v1)
+> 
+>  include/linux/irq.h | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/include/linux/irq.h b/include/linux/irq.h
+> index 69ee4e2f36ce..d5e958b026aa 100644
+> --- a/include/linux/irq.h
+> +++ b/include/linux/irq.h
+> @@ -151,7 +151,9 @@ struct irq_common_data {
+>  #endif
+>  	void			*handler_data;
+>  	struct msi_desc		*msi_desc;
+> +#ifdef CONFIG_SMP
+>  	cpumask_var_t		affinity;
+> +#endif
+>  #ifdef CONFIG_GENERIC_IRQ_EFFECTIVE_AFF_MASK
+>  	cpumask_var_t		effective_affinity;
+>  #endif
+> @@ -881,7 +883,11 @@ static inline int irq_data_get_node(struct irq_data *d)
+>  
+>  static inline struct cpumask *irq_data_get_affinity_mask(struct irq_data *d)
+>  {
+> +#ifdef CONFIG_SMP
+>  	return d->common->affinity;
+> +#else
+> +	return &__cpu_possible_mask;
+> +#endif
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- tools/testing/selftests/kvm/lib/riscv/ucall.c  |  8 --------
- tools/testing/selftests/kvm/lib/s390x/ucall.c  |  8 --------
- tools/testing/selftests/kvm/lib/ucall_common.c | 10 ++++++++++
- tools/testing/selftests/kvm/lib/x86_64/ucall.c |  8 --------
- 4 files changed, 10 insertions(+), 24 deletions(-)
+I have a bad feeling about this one. Being in a !SMP configuration
+doesn't necessarily mean that __cpu_possible_mask only contains a
+single CPU, specially with things like CONFIG_INIT_ALL_POSSIBLE. I can
+also imagine an architecture populating this bitmap from firmware
+tables irrespective of the SMP status of the kernel.
 
-diff --git a/tools/testing/selftests/kvm/lib/riscv/ucall.c b/tools/testing/selftests/kvm/lib/riscv/ucall.c
-index 37e091d4366e..1c6c0432bdd7 100644
---- a/tools/testing/selftests/kvm/lib/riscv/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/ucall.c
-@@ -10,14 +10,6 @@
- #include "kvm_util.h"
- #include "processor.h"
- 
--void ucall_arch_init(struct kvm_vm *vm, void *arg)
--{
--}
--
--void ucall_arch_uninit(struct kvm_vm *vm)
--{
--}
--
- struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
- 			unsigned long arg1, unsigned long arg2,
- 			unsigned long arg3, unsigned long arg4,
-diff --git a/tools/testing/selftests/kvm/lib/s390x/ucall.c b/tools/testing/selftests/kvm/lib/s390x/ucall.c
-index 0f695a031d35..3e8d4275c9e4 100644
---- a/tools/testing/selftests/kvm/lib/s390x/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/s390x/ucall.c
-@@ -6,14 +6,6 @@
-  */
- #include "kvm_util.h"
- 
--void ucall_arch_init(struct kvm_vm *vm, void *arg)
--{
--}
--
--void ucall_arch_uninit(struct kvm_vm *vm)
--{
--}
--
- void ucall_arch_do_ucall(vm_vaddr_t uc)
- {
- 	/* Exit via DIAGNOSE 0x501 (normally used for breakpoints) */
-diff --git a/tools/testing/selftests/kvm/lib/ucall_common.c b/tools/testing/selftests/kvm/lib/ucall_common.c
-index c488ed23d0dd..a1e563fd8fcc 100644
---- a/tools/testing/selftests/kvm/lib/ucall_common.c
-+++ b/tools/testing/selftests/kvm/lib/ucall_common.c
-@@ -1,6 +1,16 @@
- // SPDX-License-Identifier: GPL-2.0-only
- #include "kvm_util.h"
- 
-+void __weak ucall_arch_init(struct kvm_vm *vm, void *arg)
-+{
-+
-+}
-+
-+void __weak ucall_arch_uninit(struct kvm_vm *vm)
-+{
-+
-+}
-+
- void ucall(uint64_t cmd, int nargs, ...)
- {
- 	struct ucall uc = {
-diff --git a/tools/testing/selftests/kvm/lib/x86_64/ucall.c b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-index ec53a406f689..2f724f0bed32 100644
---- a/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-@@ -8,14 +8,6 @@
- 
- #define UCALL_PIO_PORT ((uint16_t)0x1000)
- 
--void ucall_arch_init(struct kvm_vm *vm, void *arg)
--{
--}
--
--void ucall_arch_uninit(struct kvm_vm *vm)
--{
--}
--
- void ucall_arch_do_ucall(vm_vaddr_t uc)
- {
- 	asm volatile("in %[port], %%al"
+Can't you use something like:
+
+	return cpumask_of(0);
+
+which is guaranteed to be the right thing on !SMP configuration?
+
+Thanks,
+
+	M.
+
 -- 
-2.37.0.rc0.104.g0611611a94-goog
-
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
