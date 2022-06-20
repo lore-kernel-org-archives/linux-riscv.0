@@ -4,99 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0684C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jun 2022 07:34:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 007C6C43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jun 2022 07:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sRvD4V4AAsgH0Kx2al7lprj78vZl9MJhlVDqb8QOtUc=; b=Mk2xb3HkgY/Hef
-	WxQ1YlWLzsS4TnXfE2QFjnjssHuR5KPANvcReDRvSalPeAOCccAfqvDSToYHlQNfT9Nikzo6LHI+g
-	N9R2zLztN9zCd9p+BhUbbP0LBh1lcSy4EqdjQpfKGxTj0ZAfEwHE+JBDgZ5fovRq9iAP+Ih2UPnK9
-	Dc5wqvNjKErQZRFsLcpXyrMb9P0n0S9kx9Y6uQf3EfBHu4H9NBZVAACsAtHqSoHm5GT+1cN8AD8/E
-	m1VybuSnEzVZxPhXFs3FonfKk53x0B3Crv+E8xXSsP3WEj4CRXbgRTOyiBwVAfvDEZWFIF+LagMDG
-	9nyeYwwlvPnZonqA311w==;
+	List-Owner; bh=fMgDDdcpWQlpEJOUAU3WpZDq07KhK2wyt/RlEuzVOy8=; b=0ktu+O7zcmunng
+	dojCY5kN2MdvrsZJap91krpGVw62jHSBStrUXmE/GHyXbaHZwVEeRA2XriaUDV6V4V0hfxM8dRb01
+	tAOovePg1o9nAvMpkWyDWsGIOcaJft5aMEaR6CuhdUPwbH7wmNH0vIzNY5yIE9zQOlMXR8NUNjeND
+	Yng6YJp9jYWEWAglv9lH5AR7Y6UjhSohoFDrAQU5MnMQHZidd9rD0MFNloUS7hwhmN8dokysU+QgE
+	vufKjwecos914fXNNZYgCthUpv8LNVS8tzMeeh9dCicIDgRI3+wdsDe0tdC1zrWT7nXAMGhEGvRI9
+	XIDzBwBIt8Z4mHgotJdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3BvP-00Ggar-6S; Mon, 20 Jun 2022 07:34:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1o3C1H-00Ghbv-70; Mon, 20 Jun 2022 07:40:23 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3BvC-00GgXW-SC
-	for linux-riscv@lists.infradead.org; Mon, 20 Jun 2022 07:34:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1655710442;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9O0CIqeEaoJn03vVtSYdv9IsNbaraVCXGcehJj6LilQ=;
-	b=ewkgVstQyW9Cfr3tbIeQA+8+IZLhP3s8fSfkwQipnK2ZzwqFUYtvTmiVAIhXBq2OKTvbCV
-	K6QjRenFUTmtB3RZtAUPGJiUSiwxPpCVeofgJ+ry7/jNrIxL+g5bbUZgSPr4djTOKhETKK
-	E8Xw7xv120qkrE///+1RI6QjSybDiMw=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-1-O4eQGoaBOPqOW6-y1hVOYQ-1; Mon, 20 Jun 2022 03:34:00 -0400
-X-MC-Unique: O4eQGoaBOPqOW6-y1hVOYQ-1
-Received: by mail-wr1-f69.google.com with SMTP id l9-20020adfa389000000b0021b8b489336so840932wrb.13
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Jun 2022 00:34:00 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to;
-        bh=9O0CIqeEaoJn03vVtSYdv9IsNbaraVCXGcehJj6LilQ=;
-        b=IFhL2m+syvrX9VzvYju54h+vscbk0jlmc6WPBhzs974OAK5J+odvH+OffPIhjdQZzY
-         7nGDTPc0J5DgdR9z9z1VCe7jh5fPL7A6d3jFP5cB8Ki9geIYAWi2nvrLSSu83iwsmwJQ
-         cJbxsjCCn01RSJJstbqTe2dF/5gM4BOBRJ5JmKNMhK7v3idPGsHHHFpQhoBJhZ0XGft7
-         EjuwRao7+7jKkUL68zcKdswlIeoG6/2CG6Too7fFkSl6eZ4YjJk3tnr6L8ZulIizlEnA
-         gzMvFIu7ehyAd3XjHPFWBArWXK90QDpZH9oaf5vbVSeT2e5YxzhuUTYk4KMQ5ZBDdsCc
-         Xaig==
-X-Gm-Message-State: AJIora9KOD3x10j4a+UIaIep3VZYgbkwx/fYwJv1AEtckYKFlfI14Hk3
-	+T3TVXaW6sE6hPgQVH90YQPC0up1VKd1IUz7oQPxpXpwGOQe3E17tnv219cV+tJj9e6+LZnavlO
-	ZALQFjwddog1qCVsvTEQVroU18HH/
-X-Received: by 2002:a5d:59ac:0:b0:218:5b7e:1c1c with SMTP id p12-20020a5d59ac000000b002185b7e1c1cmr21891435wrr.621.1655710439347;
-        Mon, 20 Jun 2022 00:33:59 -0700 (PDT)
-X-Google-Smtp-Source: AGRyM1vkewhJzwIOJ9l+/yqE7pUpzblIRdbrwtFQigT8P4KR1GnlkLPaHlZsigHVgHZi02aADaZXLg==
-X-Received: by 2002:a5d:59ac:0:b0:218:5b7e:1c1c with SMTP id p12-20020a5d59ac000000b002185b7e1c1cmr21891397wrr.621.1655710439119;
-        Mon, 20 Jun 2022 00:33:59 -0700 (PDT)
-Received: from gator (cst2-173-67.cust.vodafone.cz. [31.30.173.67])
-        by smtp.gmail.com with ESMTPSA id l9-20020a1c7909000000b0039c96b97359sm14054471wme.37.2022.06.20.00.33.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 20 Jun 2022 00:33:58 -0700 (PDT)
-Date: Mon, 20 Jun 2022 09:33:56 +0200
-From: Andrew Jones <drjones@redhat.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	James Morse <james.morse@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
-Subject: Re: [PATCH 0/3] KVM: selftests: Consolidate ucall code
-Message-ID: <20220620073356.fmtsa4ub74igm7me@gator>
-References: <20220618001618.1840806-1-seanjc@google.com>
+	id 1o3C14-00GhVW-Mf; Mon, 20 Jun 2022 07:40:12 +0000
+Received: from pps.filterd (m0098409.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 25K4lEg7017264;
+	Mon, 20 Jun 2022 07:39:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : date :
+ mime-version : subject : to : cc : references : from : in-reply-to :
+ content-type : content-transfer-encoding; s=pp1;
+ bh=7cqLTU9P1Ro0Wdde+r9wJ+UtamNnbvbI+jmvk75qn34=;
+ b=mjkUx6YN1YPZsmrPM/nAmw0GbmTV0oB/xGVwbdIuWE9YvF7d8Lk+u+IyJHKDT5CiHd2v
+ cy2pNOJbqMb/QoCVcny28OvN8BxYUKp70l6vTeiwW8ZTnv4aoLL7qf/0KHz8OrBYqfCS
+ Z16eWM6z4xkugZNOGg4vQcZ6gQrnc4EN1Tyw7ATMD64gdaZpvxIvVWkEcFHgrfp9JNIC
+ jP4Cw/llGNSIHyxRUzbvim7oDNvR41Skd18CAzTc/rcOzvvBntsvEjSWsklAjapMope5
+ sWLCY1tgyCg2/KZAVaVVMGixTfAcFIgzBEmWFErI/hQo0dTYaQTKzlhu4qOKEqVvz6zw 1w== 
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3gsr0u9vhy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 20 Jun 2022 07:39:58 +0000
+Received: from m0098409.ppops.net (m0098409.ppops.net [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 25K7JH3B018024;
+	Mon, 20 Jun 2022 07:39:57 GMT
+Received: from ppma06ams.nl.ibm.com (66.31.33a9.ip4.static.sl-reverse.com [169.51.49.102])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3gsr0u9vh1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 20 Jun 2022 07:39:57 +0000
+Received: from pps.filterd (ppma06ams.nl.ibm.com [127.0.0.1])
+	by ppma06ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 25K7bFew009561;
+	Mon, 20 Jun 2022 07:39:54 GMT
+Received: from b06cxnps4074.portsmouth.uk.ibm.com (d06relay11.portsmouth.uk.ibm.com [9.149.109.196])
+	by ppma06ams.nl.ibm.com with ESMTP id 3gs5yhj44t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 20 Jun 2022 07:39:54 +0000
+Received: from d06av24.portsmouth.uk.ibm.com (d06av24.portsmouth.uk.ibm.com [9.149.105.60])
+	by b06cxnps4074.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 25K7dpqf18481508
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 20 Jun 2022 07:39:51 GMT
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 764BC4203F;
+	Mon, 20 Jun 2022 07:39:51 +0000 (GMT)
+Received: from d06av24.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7625842041;
+	Mon, 20 Jun 2022 07:39:50 +0000 (GMT)
+Received: from [9.171.78.67] (unknown [9.171.78.67])
+	by d06av24.portsmouth.uk.ibm.com (Postfix) with ESMTP;
+	Mon, 20 Jun 2022 07:39:50 +0000 (GMT)
+Message-ID: <6518c2f2-476c-9f12-5a07-974af95a0b42@linux.ibm.com>
+Date: Mon, 20 Jun 2022 09:39:50 +0200
 MIME-Version: 1.0
-In-Reply-To: <20220618001618.1840806-1-seanjc@google.com>
-Authentication-Results: relay.mimecast.com;
-	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=drjones@redhat.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Content-Disposition: inline
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.0
+Subject: Re: [PATCH 1/3] KVM: selftests: Consolidate common code for
+ popuplating ucall struct
+Content-Language: en-US
+To: Sean Christopherson <seanjc@google.com>,
+        Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+        Anup Patel <anup@brainfault.org>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>
+Cc: James Morse <james.morse@arm.com>,
+        Alexandru Elisei <alexandru.elisei@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Atish Patra <atishp@atishpatra.org>,
+        David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>,
+        Andrew Jones <drjones@redhat.com>
+References: <20220618001618.1840806-1-seanjc@google.com>
+ <20220618001618.1840806-2-seanjc@google.com>
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20220618001618.1840806-2-seanjc@google.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 3kMnldFGR4mx2uIIfYJ39jhAL3unWFq8
+X-Proofpoint-ORIG-GUID: t79n4gkBCrUV_et_g7vpEmhdtxJM0A7F
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.883,Hydra:6.0.517,FMLib:17.11.64.514
+ definitions=2022-06-20_05,2022-06-17_01,2022-02-23_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxscore=0
+ malwarescore=0 mlxlogscore=999 lowpriorityscore=0 bulkscore=0 adultscore=0
+ priorityscore=1501 clxscore=1011 spamscore=0 impostorscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2204290000 definitions=main-2206200035
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220620_003407_033821_3DDC27F5 
-X-CRM114-Status: UNSURE (   9.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220620_004011_032662_3605240B 
+X-CRM114-Status: GOOD (  28.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,26 +120,299 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 18, 2022 at 12:16:15AM +0000, Sean Christopherson wrote:
-> Consolidate the code for making and getting ucalls.  All architectures pass
-> the ucall struct via memory, so filling and copying the struct is 100%
-> generic.  The only per-arch code is sending and receiving the address of
-> said struct.
+
+
+Am 18.06.22 um 02:16 schrieb Sean Christopherson:
+> Make ucall() a common helper that populates struct ucall, and only calls
+> into arch code to make the actually call out to userspace.
 > 
-> Tested on x86 and arm, compile tested on s390 and RISC-V.
+> Rename all arch-specific helpers to make it clear they're arch-specific,
+> and to avoid collisions with common helpers (one more on its way...)
+> 
+> No functional change intended.
+> 
+> Cc: Colton Lewis <coltonlewis@google.com>
+> Cc: Andrew Jones <drjones@redhat.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-For the series
+seems to work on s390.
+Tested-by: Christian Borntraeger <borntraeger@linux.ibm.com>
 
-Reviewed-by: Andrew Jones <drjones@redhat.com>
-
-Thanks,
-drew
-
+> ---
+>   tools/testing/selftests/kvm/Makefile          |  1 +
+>   .../selftests/kvm/include/ucall_common.h      | 23 ++++++++++++++++---
+>   .../testing/selftests/kvm/lib/aarch64/ucall.c | 23 ++++---------------
+>   tools/testing/selftests/kvm/lib/riscv/ucall.c | 23 ++++---------------
+>   tools/testing/selftests/kvm/lib/s390x/ucall.c | 23 ++++---------------
+>   .../testing/selftests/kvm/lib/ucall_common.c  | 20 ++++++++++++++++
+>   .../testing/selftests/kvm/lib/x86_64/ucall.c  | 23 ++++---------------
+>   7 files changed, 61 insertions(+), 75 deletions(-)
+>   create mode 100644 tools/testing/selftests/kvm/lib/ucall_common.c
+> 
+> diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
+> index b52c130f7b2f..bc2aee2af66c 100644
+> --- a/tools/testing/selftests/kvm/Makefile
+> +++ b/tools/testing/selftests/kvm/Makefile
+> @@ -46,6 +46,7 @@ LIBKVM += lib/perf_test_util.c
+>   LIBKVM += lib/rbtree.c
+>   LIBKVM += lib/sparsebit.c
+>   LIBKVM += lib/test_util.c
+> +LIBKVM += lib/ucall_common.c
+>   
+>   LIBKVM_x86_64 += lib/x86_64/apic.c
+>   LIBKVM_x86_64 += lib/x86_64/handlers.S
+> diff --git a/tools/testing/selftests/kvm/include/ucall_common.h b/tools/testing/selftests/kvm/include/ucall_common.h
+> index 98562f685151..c6a4fd7fe443 100644
+> --- a/tools/testing/selftests/kvm/include/ucall_common.h
+> +++ b/tools/testing/selftests/kvm/include/ucall_common.h
+> @@ -23,10 +23,27 @@ struct ucall {
+>   	uint64_t args[UCALL_MAX_ARGS];
+>   };
+>   
+> -void ucall_init(struct kvm_vm *vm, void *arg);
+> -void ucall_uninit(struct kvm_vm *vm);
+> +void ucall_arch_init(struct kvm_vm *vm, void *arg);
+> +void ucall_arch_uninit(struct kvm_vm *vm);
+> +void ucall_arch_do_ucall(vm_vaddr_t uc);
+> +uint64_t ucall_arch_get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc);
+> +
+>   void ucall(uint64_t cmd, int nargs, ...);
+> -uint64_t get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc);
+> +
+> +static inline void ucall_init(struct kvm_vm *vm, void *arg)
+> +{
+> +	ucall_arch_init(vm, arg);
+> +}
+> +
+> +static inline void ucall_uninit(struct kvm_vm *vm)
+> +{
+> +	ucall_arch_uninit(vm);
+> +}
+> +
+> +static inline uint64_t get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc)
+> +{
+> +	return ucall_arch_get_ucall(vcpu, uc);
+> +}
+>   
+>   #define GUEST_SYNC_ARGS(stage, arg1, arg2, arg3, arg4)	\
+>   				ucall(UCALL_SYNC, 6, "hello", stage, arg1, arg2, arg3, arg4)
+> diff --git a/tools/testing/selftests/kvm/lib/aarch64/ucall.c b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
+> index 0b949ee06b5e..2de9fdd34159 100644
+> --- a/tools/testing/selftests/kvm/lib/aarch64/ucall.c
+> +++ b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
+> @@ -21,7 +21,7 @@ static bool ucall_mmio_init(struct kvm_vm *vm, vm_paddr_t gpa)
+>   	return true;
+>   }
+>   
+> -void ucall_init(struct kvm_vm *vm, void *arg)
+> +void ucall_arch_init(struct kvm_vm *vm, void *arg)
+>   {
+>   	vm_paddr_t gpa, start, end, step, offset;
+>   	unsigned int bits;
+> @@ -64,31 +64,18 @@ void ucall_init(struct kvm_vm *vm, void *arg)
+>   	TEST_FAIL("Can't find a ucall mmio address");
+>   }
+>   
+> -void ucall_uninit(struct kvm_vm *vm)
+> +void ucall_arch_uninit(struct kvm_vm *vm)
+>   {
+>   	ucall_exit_mmio_addr = 0;
+>   	sync_global_to_guest(vm, ucall_exit_mmio_addr);
+>   }
+>   
+> -void ucall(uint64_t cmd, int nargs, ...)
+> +void ucall_arch_do_ucall(vm_vaddr_t uc)
+>   {
+> -	struct ucall uc = {
+> -		.cmd = cmd,
+> -	};
+> -	va_list va;
+> -	int i;
+> -
+> -	nargs = min(nargs, UCALL_MAX_ARGS);
+> -
+> -	va_start(va, nargs);
+> -	for (i = 0; i < nargs; ++i)
+> -		uc.args[i] = va_arg(va, uint64_t);
+> -	va_end(va);
+> -
+> -	*ucall_exit_mmio_addr = (vm_vaddr_t)&uc;
+> +	*ucall_exit_mmio_addr = uc;
+>   }
+>   
+> -uint64_t get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc)
+> +uint64_t ucall_arch_get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc)
+>   {
+>   	struct kvm_run *run = vcpu->run;
+>   	struct ucall ucall = {};
+> diff --git a/tools/testing/selftests/kvm/lib/riscv/ucall.c b/tools/testing/selftests/kvm/lib/riscv/ucall.c
+> index 087b9740bc8f..b1598f418c1f 100644
+> --- a/tools/testing/selftests/kvm/lib/riscv/ucall.c
+> +++ b/tools/testing/selftests/kvm/lib/riscv/ucall.c
+> @@ -10,11 +10,11 @@
+>   #include "kvm_util.h"
+>   #include "processor.h"
+>   
+> -void ucall_init(struct kvm_vm *vm, void *arg)
+> +void ucall_arch_init(struct kvm_vm *vm, void *arg)
+>   {
+>   }
+>   
+> -void ucall_uninit(struct kvm_vm *vm)
+> +void ucall_arch_uninit(struct kvm_vm *vm)
+>   {
+>   }
+>   
+> @@ -44,27 +44,14 @@ struct sbiret sbi_ecall(int ext, int fid, unsigned long arg0,
+>   	return ret;
+>   }
+>   
+> -void ucall(uint64_t cmd, int nargs, ...)
+> +void ucall_arch_do_ucall(vm_vaddr_t uc)
+>   {
+> -	struct ucall uc = {
+> -		.cmd = cmd,
+> -	};
+> -	va_list va;
+> -	int i;
+> -
+> -	nargs = min(nargs, UCALL_MAX_ARGS);
+> -
+> -	va_start(va, nargs);
+> -	for (i = 0; i < nargs; ++i)
+> -		uc.args[i] = va_arg(va, uint64_t);
+> -	va_end(va);
+> -
+>   	sbi_ecall(KVM_RISCV_SELFTESTS_SBI_EXT,
+>   		  KVM_RISCV_SELFTESTS_SBI_UCALL,
+> -		  (vm_vaddr_t)&uc, 0, 0, 0, 0, 0);
+> +		  uc, 0, 0, 0, 0, 0);
+>   }
+>   
+> -uint64_t get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc)
+> +uint64_t ucall_arch_get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc)
+>   {
+>   	struct kvm_run *run = vcpu->run;
+>   	struct ucall ucall = {};
+> diff --git a/tools/testing/selftests/kvm/lib/s390x/ucall.c b/tools/testing/selftests/kvm/lib/s390x/ucall.c
+> index 73dc4e21190f..114cb4af295f 100644
+> --- a/tools/testing/selftests/kvm/lib/s390x/ucall.c
+> +++ b/tools/testing/selftests/kvm/lib/s390x/ucall.c
+> @@ -6,34 +6,21 @@
+>    */
+>   #include "kvm_util.h"
+>   
+> -void ucall_init(struct kvm_vm *vm, void *arg)
+> +void ucall_arch_init(struct kvm_vm *vm, void *arg)
+>   {
+>   }
+>   
+> -void ucall_uninit(struct kvm_vm *vm)
+> +void ucall_arch_uninit(struct kvm_vm *vm)
+>   {
+>   }
+>   
+> -void ucall(uint64_t cmd, int nargs, ...)
+> +void ucall_arch_do_ucall(vm_vaddr_t uc)
+>   {
+> -	struct ucall uc = {
+> -		.cmd = cmd,
+> -	};
+> -	va_list va;
+> -	int i;
+> -
+> -	nargs = min(nargs, UCALL_MAX_ARGS);
+> -
+> -	va_start(va, nargs);
+> -	for (i = 0; i < nargs; ++i)
+> -		uc.args[i] = va_arg(va, uint64_t);
+> -	va_end(va);
+> -
+>   	/* Exit via DIAGNOSE 0x501 (normally used for breakpoints) */
+> -	asm volatile ("diag 0,%0,0x501" : : "a"(&uc) : "memory");
+> +	asm volatile ("diag 0,%0,0x501" : : "a"(uc) : "memory");
+>   }
+>   
+> -uint64_t get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc)
+> +uint64_t ucall_arch_get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc)
+>   {
+>   	struct kvm_run *run = vcpu->run;
+>   	struct ucall ucall = {};
+> diff --git a/tools/testing/selftests/kvm/lib/ucall_common.c b/tools/testing/selftests/kvm/lib/ucall_common.c
+> new file mode 100644
+> index 000000000000..749ffdf23855
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/lib/ucall_common.c
+> @@ -0,0 +1,20 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +#include "kvm_util.h"
+> +
+> +void ucall(uint64_t cmd, int nargs, ...)
+> +{
+> +	struct ucall uc = {
+> +		.cmd = cmd,
+> +	};
+> +	va_list va;
+> +	int i;
+> +
+> +	nargs = min(nargs, UCALL_MAX_ARGS);
+> +
+> +	va_start(va, nargs);
+> +	for (i = 0; i < nargs; ++i)
+> +		uc.args[i] = va_arg(va, uint64_t);
+> +	va_end(va);
+> +
+> +	ucall_arch_do_ucall((vm_vaddr_t)&uc);
+> +}
+> diff --git a/tools/testing/selftests/kvm/lib/x86_64/ucall.c b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
+> index e5f0f9e0d3ee..9f532dba1003 100644
+> --- a/tools/testing/selftests/kvm/lib/x86_64/ucall.c
+> +++ b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
+> @@ -8,34 +8,21 @@
+>   
+>   #define UCALL_PIO_PORT ((uint16_t)0x1000)
+>   
+> -void ucall_init(struct kvm_vm *vm, void *arg)
+> +void ucall_arch_init(struct kvm_vm *vm, void *arg)
+>   {
+>   }
+>   
+> -void ucall_uninit(struct kvm_vm *vm)
+> +void ucall_arch_uninit(struct kvm_vm *vm)
+>   {
+>   }
+>   
+> -void ucall(uint64_t cmd, int nargs, ...)
+> +void ucall_arch_do_ucall(vm_vaddr_t uc)
+>   {
+> -	struct ucall uc = {
+> -		.cmd = cmd,
+> -	};
+> -	va_list va;
+> -	int i;
+> -
+> -	nargs = min(nargs, UCALL_MAX_ARGS);
+> -
+> -	va_start(va, nargs);
+> -	for (i = 0; i < nargs; ++i)
+> -		uc.args[i] = va_arg(va, uint64_t);
+> -	va_end(va);
+> -
+>   	asm volatile("in %[port], %%al"
+> -		: : [port] "d" (UCALL_PIO_PORT), "D" (&uc) : "rax", "memory");
+> +		: : [port] "d" (UCALL_PIO_PORT), "D" (uc) : "rax", "memory");
+>   }
+>   
+> -uint64_t get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc)
+> +uint64_t ucall_arch_get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc)
+>   {
+>   	struct kvm_run *run = vcpu->run;
+>   	struct ucall ucall = {};
 
 _______________________________________________
 linux-riscv mailing list
