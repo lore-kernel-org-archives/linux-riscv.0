@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51990C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jun 2022 21:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96B2BC43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jun 2022 21:16:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gq6nrf1My9GBWCWQ3e/4Ts5Z3gvC1rRS+Qf2h3AkmqQ=; b=w405SAhuIhZYao
-	+XB24OuKBBPSmPbsyfiNfLxHY1BMOWViG3rErp5JQw7fMJmPva73r8WOHPdyVbt8GE22aXdQEtga7
-	MtOonu+18s9TGGreqXD5Fb6rjIJDFCkh+mvHYEFfOTT9M+ZbV7Y6IzLLU7xBqMlxyuY7YO568C8ce
-	JYMdL30d0U7zWLb4SdRYhzpNu66TJGgyFQsAZsHdzLAtXZvnH3hgFUBEkiuvYb59qRtMS2gXsqpTL
-	Q4uhoJPYx9Mo8OwAMYnuaGeeFzo/y4KVNxQbMfG/bF4FTM1uNYa/6IIyHdnBN+wzAl6HoSK0vyvaj
-	jL0Qbr2l0aPWqc7K5p2g==;
+	List-Owner; bh=hBKAdvCVjdoHDc+JDk3/6V1t5FqDowCaIYQCXWbD/zw=; b=cGPLjBQHfU9rWy
+	Ojvt+T02BsqqqBMfTxzH+TCZonJHwkx2jacklkAEl0C0PZX50EC6q8V7mBHTFXwVHrKx66j8gJHgd
+	vWkIqeQoIebKEik+n7da3gSXCS4gRZaBsrdO0JixvgpSecZDuj0tz1gF4bs/A8mFqgAgtMprpjaUf
+	w3p+TC/kjeG39iQE06hVD0CrQ5O/9XR+6EKcDM3NchBhFmGx7lkSsev3KB1q+pmaFkGnRlL7eoAoq
+	97J+UeIcNPItGSz0ttr24lQpEkCwllVEpnGAHY8E7pqDuYlI9nh0h0IIGmurcrcs55gEbfPV79DnW
+	6lH/27rldVGFmVdChfQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3OdM-002Vx3-M7; Mon, 20 Jun 2022 21:08:32 +0000
-Received: from mail-pj1-f46.google.com ([209.85.216.46])
+	id 1o3Ol0-002WrH-CH; Mon, 20 Jun 2022 21:16:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3OdH-002VvX-Gx
-	for linux-riscv@lists.infradead.org; Mon, 20 Jun 2022 21:08:30 +0000
-Received: by mail-pj1-f46.google.com with SMTP id f16so9851730pjj.1
-        for <linux-riscv@lists.infradead.org>; Mon, 20 Jun 2022 14:08:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=8vnXJaBC+wqR2rqj0TTygLadybVfml89WeYO1Om96V8=;
-        b=Pdn/lzKO4+Nc8CYBVlTgucaWvVOzKxWit8VFEDqCNC3Bo9ZDIenSGI0FW7kP8AQErk
-         Ew9vfXEQUcaJNbzAhw4PST3WtQfoZ5Or1pHIDClcLwnllolVbzOT/XayqpvaB24pAEVR
-         k7JWoOBTxk1TqJeXuKyMTorhrWkcY9Irx6cwDlD9mbPwaeUDhoOJSCk40rEUoUiwpm5o
-         v0Pwtp6mfkCLTsd59cb0VshBK9X0E2QacOqGC+WcZ0b2MTV+Rw4QKly8hAEjXfa5t8pj
-         2ePBYB1U8Hse3vuzFDI6H7OhUKxFicYxEbsKNha+DYt1ONiTIVeXFZjtNYF5pH8GJPVN
-         25oQ==
-X-Gm-Message-State: AJIora+6XUxpFNomKNAT7E7AchBfhRfD59st0rfE5v+0P0pUPJCo6JOT
-	lSI9dxjsqQ09o/guwZt4bCB9QDZwrcJsGl8o8xI=
-X-Google-Smtp-Source: AGRyM1sMagwhLX/FXm9Q+qgiRigk7x6gH6Y7s1wrNteJGy4Qabian8fCQ7YPPLO2LlmBYs363Dbro95SueaxFrvOaV4=
-X-Received: by 2002:a17:90b:3911:b0:1ec:bd65:a307 with SMTP id
- ob17-20020a17090b391100b001ecbd65a307mr2891655pjb.4.1655759304623; Mon, 20
- Jun 2022 14:08:24 -0700 (PDT)
+	id 1o3Okx-002WqZ-5y
+	for linux-riscv@lists.infradead.org; Mon, 20 Jun 2022 21:16:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1655759780;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lZhHQwIP7ahDScS1KF5bFADmc8igjElNlRZM3fUDtks=;
+	b=Aku/YqSi1tzcJb9WAMiLFNEtn/biQmAumDfGt+VOOe3RRIjdMs8cv81Y/PD3SQPrfARXdI
+	ZUVPJTshyprO9B+ccy8uItO0DdMHGuEjPUC2hWCw4/ySMJXp5ePrSLKM/QFTw4iGLyRzjj
+	xrVPFE6ktzyXkbQPkrYrhAe6wlAO870=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-363-vY5Lfy5bNyG3eOm35UQymw-1; Mon, 20 Jun 2022 17:16:17 -0400
+X-MC-Unique: vY5Lfy5bNyG3eOm35UQymw-1
+Received: from smtp.corp.redhat.com (int-mx07.intmail.prod.int.rdu2.redhat.com [10.11.54.7])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 68E2E3C02B75;
+	Mon, 20 Jun 2022 21:16:16 +0000 (UTC)
+Received: from [10.22.32.175] (unknown [10.22.32.175])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id DB067141510C;
+	Mon, 20 Jun 2022 21:16:15 +0000 (UTC)
+Message-ID: <f6513b4f-ef62-fd40-b031-27c9b7f57e00@redhat.com>
+Date: Mon, 20 Jun 2022 17:16:15 -0400
 MIME-Version: 1.0
-References: <20220617182424.324276-1-mail@conchuod.ie>
-In-Reply-To: <20220617182424.324276-1-mail@conchuod.ie>
-From: Emil Renner Berthing <kernel@esmil.dk>
-Date: Mon, 20 Jun 2022 22:08:13 +0100
-Message-ID: <CANBLGcxBSkSFSH=JqzY+CLoUap1hhRN+vxukxg0oxqUNu-NHkg@mail.gmail.com>
-Subject: Re: [PATCH] riscv: config: enable SOC_STARFIVE in defconfig
-To: Conor Dooley <mail@conchuod.ie>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	Conor Dooley <conor.dooley@microchip.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [PATCH V5] riscv: Add qspinlock support
+Content-Language: en-US
+To: Arnd Bergmann <arnd@arndb.de>, Guo Ren <guoren@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>,
+ Peter Zijlstra <peterz@infradead.org>, Boqun Feng <boqun.feng@gmail.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>
+References: <20220620155404.1968739-1-guoren@kernel.org>
+ <CAK8P3a2enbvE9a5V=JpUFt7FfyDGLQHTWTszibqqLVoeiMAo5Q@mail.gmail.com>
+From: Waiman Long <longman@redhat.com>
+In-Reply-To: <CAK8P3a2enbvE9a5V=JpUFt7FfyDGLQHTWTszibqqLVoeiMAo5Q@mail.gmail.com>
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220620_140827_647176_296FE8F4 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20220620_141623_343334_5F83B63D 
+X-CRM114-Status: GOOD (  20.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,46 +81,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 17 Jun 2022 at 19:26, Conor Dooley <mail@conchuod.ie> wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> SOC_STARFIVE is the odd one out among the (compatible) SOC_FOO options
-> as it is not enabled in the default defconfig. Add it to make catching
-> dt regressions etc easier.
->
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks, this would be great.
-Acked-by: Emil Renner Berthing <kernel@esmil.dk>
+On 6/20/22 16:42, Arnd Bergmann wrote:
+> On Mon, Jun 20, 2022 at 5:54 PM <guoren@kernel.org> wrote:
+>>> +config RISCV_USE_QUEUED_SPINLOCKS
+>> +       bool "Using queued spinlock instead of ticket-lock"
+> Maybe we can just make ARCH_USE_QUEUED_SPINLOCKS
+> user visible and give users the choice between the two generic
+> implementations across all architectures that support the qspinlock
+> variant.
+>
+> In arch/riscv, you'd then just have a
+>
+>          select ARCH_HAVE_QUEUED_SPINLOCKS
+>
+> diff --git a/arch/riscv/include/asm/spinlock.h
+> b/arch/riscv/include/asm/spinlock.h
+>> new file mode 100644
+>> index 000000000000..fd3fd09cff52
+>> --- /dev/null
+>> +++ b/arch/riscv/include/asm/spinlock.h
+>> @@ -0,0 +1,12 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +#ifndef __ASM_SPINLOCK_H
+>> +#define __ASM_SPINLOCK_H
+>> +
+>> +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+>> +#include <asm/qspinlock.h>
+>> +#include <asm/qrwlock.h>
+>> +#else
+>> +#include <asm-generic/spinlock.h>
+>> +#endif
+>> +
+> Along the same lines:
+>
+> I think I'd prefer the header changes to be done in the asm-generic
+> version of this file, so this can be shared across all architectures
+> that want to give the choice between ticket and queued spinlock.
 
->
-> git send-email gave me an error that was unclear as to whether anything
-> got sent. Checked lore (and my inbox) but didn't see it come through so
-> hopefully this isn't a resend.
->
->  arch/riscv/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index 0cc17db8aaba..f8d7d9527c6e 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -18,6 +18,7 @@ CONFIG_EXPERT=y
->  CONFIG_PROFILING=y
->  CONFIG_SOC_MICROCHIP_POLARFIRE=y
->  CONFIG_SOC_SIFIVE=y
-> +CONFIG_SOC_STARFIVE=y
->  CONFIG_SOC_VIRT=y
->  CONFIG_SMP=y
->  CONFIG_HOTPLUG_CPU=y
-> --
-> 2.36.1
->
+I concur. Qspinlock is only needed if we want to support systems with a 
+large number of CPUs. For systems with a small number of CPUs. It 
+doesn't matter if qspinlock or the ticket lock is being used.
+
+Cheers,
+Longman
+
 
 _______________________________________________
 linux-riscv mailing list
