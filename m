@@ -4,176 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DAECC43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jun 2022 08:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113E6C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jun 2022 11:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BH2YG5WczTF4XbjxiiyjiHO1GeE0Rg2TnC53QN9J6LE=; b=YhpeO4VuQ/3Owv
-	uAePOgzr3TGQzSmTFlacIwPRulRp3W1KC+u9ox6kOU01DBj60+uvJvid1og89bDyQs315WRYLrEYC
-	AJSIC96jUwCAlcOUhpIPjQA1BgNF6JYLr01OTcS8m0VwzwKGhoAb75v/2wuH5hDQCH/qPP7c0gjrI
-	6BjW/cb5S2vLAdtqmaQGVucvUwHHCfnAnDRBU1TTtM+ydVM8fHSgtSR694cfR2G9J6HnADfGdmX8z
-	+AW54NnqjeIwj8qbVaehbJGfrU4zyCblaXTgHoONW2bpeFbWWhWuEfh7+T36eV0HJfmvgz2LDgdxL
-	jHULv+gE/iZ0QtMzeTdA==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9mE6rWn5dZBL2DPJp91lhrMlXzGfURZfiWkUWOgF7yY=; b=ZLIISvJjSS0PDq
+	vbI13Ikbw3BZzGsrzIUW7Z6ZIB35QlpytPHV2s6q+nSd3xppxCUltpe1epvS1cvEmDNHACuG81nFG
+	WighdOZk1OETYEmNd0eO6HkS0Rci2Ad1+IvC4EpMNm8Os5LDMvmrD7aiiVUJjMMukuK06rgf+MFZq
+	GEGec+NRtYr62QVFOhlA7j1321C0RnrbWlRC2Lvvh9Nw5XF//X/ya8/+qmLTkReZ62akJuSbh8qJU
+	ByrJWnX1XUJ006sS1CwwfDymjJ7JOPwC7fO7JqMl2yL+l6v263BFnRr8tHRpDfHKOkCJ+iRRu7gAr
+	ulzZU+Cq+MMfXX56kd6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3D40-00GyUY-WE; Mon, 20 Jun 2022 08:47:17 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1o3G1T-000CPx-RI; Mon, 20 Jun 2022 11:56:51 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3D3x-00GySb-EP
-	for linux-riscv@lists.infradead.org; Mon, 20 Jun 2022 08:47:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1655714833; x=1687250833;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=PRKe2mFf2/0jpsQlQp0YkYzaobK0MvgwwQ0WU1ehzfI=;
-  b=eLNpYpyMLSKN5C1Y8vD55qKneELN5WCw9SftqxqBzAvA4UqY/0FYWkhd
-   S9VL08r9RQGJVxRGMGT3haQlBVO5Lk9Lznvk27tdwgrVQSYDhcdctkTz2
-   3Y4ISKFn6wyaSV6eR88fRlGjgnc1+0huBMJC4uoiCOLnkN25Jg9pDkmhI
-   1H5UldG3nrSlUBOZ/5ccbjEAsj3mv4WZh3eLOEUoBBT0MNAl8l+homONA
-   bBjLFx5PQ8b0or8V47XIHHOyAxzZp5cWi5WBZ8CLQwXQ05l69Kfa4FZQh
-   wwn8Dyl9jXjn4GPpVRdIlFmFXPAJiDGsxMVKXFT4ySv51fOymNy8RcSFo
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.92,306,1650956400"; 
-   d="scan'208";a="169079558"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Jun 2022 01:47:06 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Mon, 20 Jun 2022 01:47:06 -0700
-Received: from NAM02-BN1-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17 via Frontend Transport; Mon, 20 Jun 2022 01:47:06 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=TbEqW3zVBNSnbUNGBCH00dtjqcyJ2e/XojU6RJzV2M/YaPX9JD1MnQWFnM3jA07AN2bBNpS7YG5MYYZiswfREB9TWXsFa349GRww0b1GPVp+vChHkoVvnNPLVhnasd3dU+BJi/okCUENgx5fkRLn1MU7RLuKLnPhjSjTdJsBcF7GjDdPnaamkYvWJrwaOXr+OsZkso13QdiLSZKJsgY+ohoE8H2KBngo1/ka8U8lYwJ3I1VAdzq1ZIelL+KtPwVTnsFP15/kmfTdsMy2YAOg2nZqlSsgf+dwAo2z3mSNcoxEFGOu/sdTseI5SUYA4Sn5GzDAhYEjwFZEY++4oQoaSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=PRKe2mFf2/0jpsQlQp0YkYzaobK0MvgwwQ0WU1ehzfI=;
- b=gzFQ8n9n7Zlra3SvBXoNTQc1Qq6A7g/G/sctZGdz7vkCqLxjcw5m4VvsEbhY9BC4lWHAzbIHNpcXgsAH6qN+o8VTXl9wv/8FTiLWjSzQLzeKkLvdb6/MFlE2g44YYQdFdL5iN4fMjkTmtEw3uHvnLaaECLpMM4jsjDxU/kTSacx9mIX5EONBee5fS/PihgXkNnw8ejXl94IYtBBy5Bp79nZla1/q8ROSWq6D5OXm/tIgB9kuceSlR986lEl1N/d+1JlA1fU6iQy3sVhLIvSWX8xQRrFDHRnciU7MMN6aa6thcCjDGCjl3ZE6LhMvgeq07siRaHIHYkthfEjiMVLlog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+	id 1o3G1R-000COq-B3
+	for linux-riscv@lists.infradead.org; Mon, 20 Jun 2022 11:56:50 +0000
+Received: by mail-pf1-x435.google.com with SMTP id p14so4350705pfh.6
+        for <linux-riscv@lists.infradead.org>; Mon, 20 Jun 2022 04:56:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=PRKe2mFf2/0jpsQlQp0YkYzaobK0MvgwwQ0WU1ehzfI=;
- b=ftv0910CsZyxjJcXWEkVxoYlTsuokIBL4jcRUQphLbkq/VOqcj3DakZUcT0QBpZwc3Pxv3KeYkBlbFw9D2J42qvdlYpeotfxH2WxJO+LA0eUDEWlVr2ujwA760xXg3LjsjdEAO1/64k9kMDlk4uElVq1Ud2FAh9Y9xfxRi0OfXU=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by BN7PR11MB2545.namprd11.prod.outlook.com (2603:10b6:406:b0::27) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5353.14; Mon, 20 Jun
- 2022 08:47:04 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::699b:5c23:de4f:2bfa]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::699b:5c23:de4f:2bfa%4]) with mapi id 15.20.5353.020; Mon, 20 Jun 2022
- 08:47:03 +0000
-From: <Conor.Dooley@microchip.com>
-To: <geert@linux-m68k.org>
-CC: <airlied@linux.ie>, <daniel@ffwll.ch>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <thierry.reding@gmail.com>,
-	<sam@ravnborg.org>, <Eugeniy.Paltsev@synopsys.com>, <vkoul@kernel.org>,
-	<lgirdwood@gmail.com>, <broonie@kernel.org>, <fancer.lancer@gmail.com>,
-	<daniel.lezcano@linaro.org>, <palmer@dabbelt.com>, <palmer@rivosinc.com>,
-	<tglx@linutronix.de>, <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
-	<Conor.Dooley@microchip.com>, <masahiroy@kernel.org>,
-	<damien.lemoal@opensource.wdc.com>, <niklas.cassel@wdc.com>,
-	<dillon.minfei@gmail.com>, <jee.heng.sia@intel.com>, <joabreu@synopsys.com>,
-	<dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <dmaengine@vger.kernel.org>,
-	<alsa-devel@alsa-project.org>, <linux-spi@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH 06/14] spi: dt-bindings: dw-apb-ssi: update
- spi-{r,t}x-bus-width for dwc-ssi
-Thread-Topic: [PATCH 06/14] spi: dt-bindings: dw-apb-ssi: update
- spi-{r,t}x-bus-width for dwc-ssi
-Thread-Index: AQHYgw+Pu1Tn+/2s8EmHi9NhXNIv361X8fCAgAAMIQA=
-Date: Mon, 20 Jun 2022 08:47:03 +0000
-Message-ID: <effbd3b1-2d59-c0b2-fb88-215d2fc6e244@microchip.com>
-References: <20220618123035.563070-1-mail@conchuod.ie>
- <20220618123035.563070-7-mail@conchuod.ie>
- <CAMuHMdXtjZVvy-gGTksVRYa+dS7-1ngQf9_kfp6k29nkfizKbA@mail.gmail.com>
-In-Reply-To: <CAMuHMdXtjZVvy-gGTksVRYa+dS7-1ngQf9_kfp6k29nkfizKbA@mail.gmail.com>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: f63925be-d3b0-4fad-47f9-08da529972f8
-x-ms-traffictypediagnostic: BN7PR11MB2545:EE_
-x-microsoft-antispam-prvs: <BN7PR11MB25452F837E2ED725BBD6C5BA98B09@BN7PR11MB2545.namprd11.prod.outlook.com>
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: W6VNlMX1qCK6LJLHLte7HZvbUoIyyi+oVMUEPZoGisuHOnRN98/wrLhU+IpD0JhO/2A6tqY4X2h35Hcp+Dszq9CTuKfPol1rKxeDwAmdNUSEdh9ByTEuRGU1UwijApd44ecPRklTuHlo+en9wMWQmf0AvUGHiUVOh8FGIjngzCzIRN3Nh4CjW59O3DqhBX9yGAlClAzUFvkZnZhqhCPiXGGNi61ZzH/IufvdcYuk/GiTB1JlE9NI3EZ1UuwyEAwDe4HySnBn3aSM0pVxkYq7SwB1njaDye56qfdZSBqfzFqaawLZm+ZbIRKP6t+XNEJXs24ohSgT1xn9a7y1+hL+IMpJvG0LwanxAvWHJLAiaIy4+mrGbsQ0SH76vkLGP+Hu061jG1+d/TBHrLK3UKVsOUv9sKqJDsZIJv3TQzV5xtrF9MnNBB/GX3CVz4R7Gm6rPAd2U8BaIhTDLjJOX+0uup9IhM4QRQ/FLb7Gql1PsruRggca8+JCmjR9+08bvE5/3+bMTXq9QKkySVKVSNFAq8JDBQwRh5qOg62Pflsxs7xvbBr1TctR1WucgtHBZSwfhZsrihaRYVK9FUeDH5IPyYbGLR+7Lw2VwuUFygOJ2scZwu/JA30e7DLOnaS8a6UR5nH6kultr+hhEkP47qSRS97tCx+UIdHEsel1uhqSI3ABeGiFScryomP+c3KvyPFs+XJdhwOonpTnzCkeeWcoOUUrLjgAYBkjgtiAjx68PoAd37N6xzNHbW0OAp1rVc4DwF9YAmTnUSaBCb3d7yiq8A==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(2616005)(64756008)(71200400001)(186003)(36756003)(498600001)(6506007)(6486002)(66476007)(76116006)(31686004)(66446008)(66556008)(7416002)(7406005)(53546011)(316002)(66946007)(5660300002)(8676002)(83380400001)(26005)(122000001)(8936002)(15650500001)(4326008)(38100700002)(86362001)(31696002)(2906002)(6512007)(6916009)(54906003)(91956017)(38070700005)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UGFOSThYQTQxZTAvYWg3MnpwbUhrTVM5MnVLZGNPYmI4M2JLaVFXYldnQXB6?=
- =?utf-8?B?WkQzZm11eFdxUVlYTHowakpUWC9CWi80Z1Z6RXlXOC9XU005M3lTSFFGbGtl?=
- =?utf-8?B?ak04SHZnWlJnaURza3BOZmVFTFZ4a1RkV04rNzVrUExYVHAyaSthVzUxNmpR?=
- =?utf-8?B?bDRFeXUxSjRBcEcweUswanJ3Vm9lRlZyeC9UQzdYbjc1TWhjQm9SNnNFb1JZ?=
- =?utf-8?B?dlEzSDVPOFM2SE9QRDZmaU9sWkFFQnRnMURIK0Ivd2V1ZG9Rd1lac0ZEaUZC?=
- =?utf-8?B?U3lhRjZIU043d3VtTVFIbkVKTld0ZFpkZTNGNU83V2FpV0g0dFFyeFlhNHFT?=
- =?utf-8?B?TUUwbHdiQzJaaHdVUERyRDREUmVFTUZHZEpVaERmaG5RVC9UQU9JTHFoSnRy?=
- =?utf-8?B?OStISitZSDlTeGk0R2ZGS2JOeHFMazNOQlZLU21meitXRWZDdk5pSHY2dld4?=
- =?utf-8?B?MVJtOEZoSWRVenVKdEpHdTNkRitrQlZNTjdmaVhtQnM1ZDhMSnN0M1VLZkEv?=
- =?utf-8?B?Qmk2dGczcGoxM2lJTUpZcnZOdXFTNTVZVnAybVZiNk1rZVlycFhPQjJjK3Zh?=
- =?utf-8?B?b08rNjBBVHBKTUpSOTZoc2NDZFErdU1IYi9Xc2ZLckN5bnJjNkozakFVZ3BB?=
- =?utf-8?B?R294RzF5M25YN094czdhbm43R0lXSURNd1RITDFrQnE1VkxXS0lGeFl2czdm?=
- =?utf-8?B?VEx6a3FhM05vN1NIZm1FcENEbXRxNGxNZEFDSGRDc2NzcW0ybEdvcThZd1VC?=
- =?utf-8?B?dU04SWxhYmV4V3pHWmlUSit6L2dyTUVhNWluaE5ic3M4L0pmeVJ5QjBvbTJn?=
- =?utf-8?B?TWFOZVJtQXBDNzczN3l2R01ibUd1cGRwbXpSRXJPcmx3OUlnVmxiZXZHcEkx?=
- =?utf-8?B?ZW9tWHpGQlMvMFdrak5LRThQQi9XQWYwSEhvdDFhM2lRemZXZkt5cDdnRDIx?=
- =?utf-8?B?T01KRXdwRzJnSjROWGdsK2RybFR3Z1BkclBudG9zYk9JN0JzZmV6VC9oeHo2?=
- =?utf-8?B?ZTRCQ3lNZHAvTWdiMlJqbG9YU3ljeW03MG10SzlXZGllZm83V1kra0hCWThR?=
- =?utf-8?B?MmRFNGFqOTNjSkJlc1p5czZKdDIzdWtXMXl5YWlxbkRxOTZiS0s5eHZVSFQ1?=
- =?utf-8?B?YXZod3Vid3JMYWlwb1h1UkF2MkNpbUVpVVhMNnBzSG1teS9rRklPOEZQbVF3?=
- =?utf-8?B?MDR3K0VHS2FPNWpoWHhwdXVuWDlhOG5GTVg3QW9qbkxIWTNYM0FXLyt5L0Qx?=
- =?utf-8?B?ZzAxRWVpdHBqK0ZkUHk4ZUtWZit1YW5JZldhTFpyc0NHQm13ZlYrYUcvQVlJ?=
- =?utf-8?B?WmFXMDNSaGxSQytHSW1CMEJPNTlmMDAxN1ZtMFpLRWdDaVdFR3J2ZU5Md3kx?=
- =?utf-8?B?dm1IU1FyNXJDMXVFQ01aVGxaSFVGUC9sQ1ZNekFhQXhtb1Fiamx0eVpaUWhI?=
- =?utf-8?B?UWF3UDdiYngrY2ptSHJXdHI3MTRsL2FvUWpNS2VMdkp6QlhBSnFIL1ZkcmN0?=
- =?utf-8?B?SXc5bG91QU82SGF2NWZ6RUw5M2hNWXhsSFYzTTdJbjk3eEI4dnlkU09VUHAx?=
- =?utf-8?B?TlpmZXBONFVqVG5xZC9ubFZRRWw0TjJmQWJkaTd1ZVI1VUYveC90Z1VkV3Rt?=
- =?utf-8?B?Q3J5c0NLTWVJNjFteWMzT0IyQ3JzZnhweXJTMHFNS2VTRzNzek95a0UrZHpw?=
- =?utf-8?B?Vnd3bGd5bWxqbXYxU3RSODlTRWxGLzlyTWo5dUVTZitLajZiaXNSbVpxQnE1?=
- =?utf-8?B?N0F3S0pPZGgxUmZvN242bXRNUDRvWGs4dkM3N21wYXpTMW9ySkV6Qk9zeTNj?=
- =?utf-8?B?UFdvbXBESlh5anBYeHovNkZ5ZHEvQ2NvZWl5YWtTNDc0Wm5oS0w1cUZVUlhF?=
- =?utf-8?B?Z1V4UGF1ZFgzTnJ4bVcyZDBGREFOcFBJc1RHa2U4RGZ6NWZud1BpTVkvYkR4?=
- =?utf-8?B?ZFBLWitYdStPQ3lvR01uUElUbG8vNGRWYjg4b1prUVhMTWkweEc5WDRHWDJX?=
- =?utf-8?B?VXdrd2oxOVUyczRQd09iQlJBdkRXdjBRM1F0OExNdVZOY0JiUlEwcWZmaml2?=
- =?utf-8?B?WHZBMFNKb3owNzNycDdlOXZFTGgxTjd2UTh4QmQxbThkb3phTnpYanBycjEr?=
- =?utf-8?B?RzZBSmgwNVJZY2p0d3FhNzJjRVdiQ2N6eTV5dnhLZ0FGdWNwWEw4Y1dmOThx?=
- =?utf-8?B?SkJuVmFDZDkzSU16MW8xWGpqNmtmZDZJQXVUYUU2L28zdmdvY1BpbHZhcHdR?=
- =?utf-8?B?SC9RU1M5MkFmVFUwMitsWlJNSkhxa2ZmNnJSQUtUbzFQWVVzWXc2T1ZJU0R3?=
- =?utf-8?B?VDlsMytUMkl5elgzb0ovdmVJOTZKQXBDanJKMUlaNUNHNitWWnNFQT09?=
-Content-ID: <6236C2F76274C04CB2B6512308A40D40@namprd11.prod.outlook.com>
+        d=ventanamicro.com; s=google;
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=rI0zAiF6+xouFdkf88WxUsEVQ+mvGqHQih04lexR5nU=;
+        b=n1R4AymCtdjuMbvvEWoz/d9pnN3llJKP2G7oN4iZfCbG7/Y0GGXIzu6B1PssT/sF/d
+         CWsYvD6uglFULOhQdMIaOXecbMrj6pXPakW4qweTQCkmeC9zn8lW70vQp6sgr5FR9dcm
+         X6yQyWVqwwZJAwVDUYgCXeN5Q6arTIdHxRaquhWKB9qWoTjswJuOkEpGynPqbYXrqZLT
+         4b2WfwwmuarH2Y9DoxINyGvy1pqUg+LZyGsufMWArb3aNSJYeGCQRD0nNWun/WVaUbhG
+         UH7Ci/jtHZgZO1Xe/UBBrQ0Zvw/rP4jd7TlsbeLDv04g5JFoU9H1ElEQe4nxhDqZAgpT
+         yykg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=rI0zAiF6+xouFdkf88WxUsEVQ+mvGqHQih04lexR5nU=;
+        b=cJnDaVy8leFExzTlMSb8qNqITaVS0hOfAqpq74QETsOH0W6WJEDPoxsXk12ctgts2O
+         MySbk8t/9v15ffumwdub1DxE3fye49WbsycQdwp44W11DFJFatv5VT+0wgLJWdICIROC
+         8kYRiRKi1IP5HR6S+nv9aWhUj4kLVAnpR3mtssEx/SNprq7DdksaTo/ZTGUp+K7h+u0W
+         9BwJjRma6sQmwGgcI6DaEUfgvcszsdHSn8WE+ZqoQKJL5uBoANe+yCXpS2zprbOAbYfX
+         0uc1Vm7o45dlSngasGpZaqlOwpIY9+KD0huj3IJ0vlOKAPanwnkc5WMZdZZtsE7DZfml
+         uIWw==
+X-Gm-Message-State: AJIora8YQPnNw+D/VAenZoYbJzo1So7Wh2PMIXnNLEwRIeYxBcK9PVlF
+	1Jsp0EK0oKIxCo8cdlCP3ddXRg==
+X-Google-Smtp-Source: AGRyM1vC//SgXgox2YN72+b7ZCp08BereLLgLXewSNx2DC5V6PNqDmhpgdYQAR8ndKksIX1jIkydNg==
+X-Received: by 2002:a65:668b:0:b0:3f6:4026:97cd with SMTP id b11-20020a65668b000000b003f6402697cdmr21086549pgw.420.1655726207401;
+        Mon, 20 Jun 2022 04:56:47 -0700 (PDT)
+Received: from anup-ubuntu64-vm.. ([122.167.110.75])
+        by smtp.gmail.com with ESMTPSA id iy22-20020a170903131600b0016a1d007637sm2756809plb.110.2022.06.20.04.56.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Jun 2022 04:56:46 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: [PATCH] RISC-V: Add mvendorid, marchid, and mimpid to /proc/cpuinfo output
+Date: Mon, 20 Jun 2022 17:25:49 +0530
+Message-Id: <20220620115549.1529597-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f63925be-d3b0-4fad-47f9-08da529972f8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Jun 2022 08:47:03.8068
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: TUtVbxMIawDWzwr1C3ah4EVmJNTeXrAaYvh35RcxAVdo+zqbvSGUYJH22VlCaLMDI8fiKsXfXd72q+Y35zHLUpzuCiPZb2wRhoJZU8SPTZI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN7PR11MB2545
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220620_014713_524673_B9F62B45 
-X-CRM114-Status: GOOD (  22.46  )
+X-CRM114-CacheID: sfid-20220620_045649_421519_B91AD427 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,103 +80,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/06/2022 09:02, Geert Uytterhoeven wrote:
-> Hi Conor,
-> 
-> On Sat, Jun 18, 2022 at 2:32 PM Conor Dooley <mail@conchuod.ie> wrote:
->> From: Conor Dooley <conor.dooley@microchip.com>
->>
->> snps,dwc-ssi-1.01a has a single user - the Canaan k210, which uses a
->> width of 4 for spi-{r,t}x-bus-width. Update the binding to reflect
->> this.
->>
->> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Thanks for your patch!
-> 
->> --- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
->> +++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
->> @@ -135,19 +135,41 @@ properties:
->>         of the designware controller, and the upper limit is also subject to
->>         controller configuration.
->>
->> -patternProperties:
->> -  "^.*@[0-9a-f]+$":
->> -    type: object
->> -    properties:
->> -      reg:
->> -        minimum: 0
->> -        maximum: 3
->> -
->> -      spi-rx-bus-width:
->> -        const: 1
->> -
->> -      spi-tx-bus-width:
->> -        const: 1
->> +if:
->> +  properties:
->> +    compatible:
->> +      contains:
->> +        const: snps,dwc-ssi-1.01a
->> +
->> +then:
->> +  patternProperties:
->> +    "^.*@[0-9a-f]+$":
->> +      type: object
->> +      properties:
->> +        reg:
->> +          minimum: 0
->> +          maximum: 3
->> +
->> +        spi-rx-bus-width:
->> +          const: 4
->> +
->> +        spi-tx-bus-width:
->> +          const: 4
-> 
-> These two also depend on the board (SPI device + wiring).
-> So all of [1, 2, 4] are valid values.
+Identifying the underlying RISC-V implementation can be important
+for some of the user space applications. For example, the perf tool
+uses arch specific CPU implementation id (i.e. CPUID) to select a
+JSON file describing custom perf events on a CPU.
 
-Yeah, I wasn't sure about this one as I was writing it.
-enum: [1, 2, 4] I guess.
-As always, thanks Geert!
+Currently, there is no way to identify RISC-V implementation so we
+add mvendorid, marchid, and mimpid to /proc/cpuinfo output.
 
-Conor.
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/kernel/cpu.c | 51 +++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 51 insertions(+)
 
-> 
->> +
->> +else:
->> +  patternProperties:
->> +    "^.*@[0-9a-f]+$":
->> +      type: object
->> +      properties:
->> +        reg:
->> +          minimum: 0
->> +          maximum: 3
->> +
->> +        spi-rx-bus-width:
->> +          const: 1
->> +
->> +        spi-tx-bus-width:
->> +          const: 1
->>
->>   unevaluatedProperties: false
-> 
-> Gr{oetje,eeting}s,
-> 
->                          Geert
-> 
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-> 
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                  -- Linus Torvalds
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index fba9e9f46a8c..c037b8691bbb 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -3,10 +3,13 @@
+  * Copyright (C) 2012 Regents of the University of California
+  */
+ 
++#include <linux/cpu.h>
+ #include <linux/init.h>
+ #include <linux/seq_file.h>
+ #include <linux/of.h>
++#include <asm/csr.h>
+ #include <asm/hwcap.h>
++#include <asm/sbi.h>
+ #include <asm/smp.h>
+ #include <asm/pgtable.h>
+ 
+@@ -64,6 +67,50 @@ int riscv_of_parent_hartid(struct device_node *node)
+ }
+ 
+ #ifdef CONFIG_PROC_FS
++
++struct riscv_cpuinfo {
++	unsigned long mvendorid;
++	unsigned long marchid;
++	unsigned long mimpid;
++};
++static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
++
++static int riscv_cpuinfo_starting(unsigned int cpu)
++{
++	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
++
++#if defined(CONFIG_RISCV_SBI)
++	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
++	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
++	ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
++#elif defined(CONFIG_RISCV_M_MODE)
++	ci->mvendorid = csr_read(CSR_MVENDORID);
++	ci->marchid = csr_read(CSR_MARCHID);
++	ci->mimpid = csr_read(CSR_MIMPID);
++#else
++	ci->mvendorid = 0;
++	ci->marchid = 0;
++	ci->mimpid = 0;
++#endif
++
++	return 0;
++}
++
++static int __init riscv_cpuinfo_init(void)
++{
++	int ret;
++
++	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/cpuinfo:starting",
++				riscv_cpuinfo_starting, NULL);
++	if (ret < 0) {
++		pr_err("cpuinfo: failed to register hotplug callbacks.\n");
++		return ret;
++	}
++
++	return 0;
++}
++device_initcall(riscv_cpuinfo_init);
++
+ #define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
+ 	{							\
+ 		.uprop = #UPROP,				\
+@@ -178,6 +225,7 @@ static int c_show(struct seq_file *m, void *v)
+ {
+ 	unsigned long cpu_id = (unsigned long)v - 1;
+ 	struct device_node *node = of_get_cpu_node(cpu_id, NULL);
++	struct riscv_cpuinfo *ci = per_cpu_ptr(&riscv_cpuinfo, cpu_id);
+ 	const char *compat, *isa;
+ 
+ 	seq_printf(m, "processor\t: %lu\n", cpu_id);
+@@ -188,6 +236,9 @@ static int c_show(struct seq_file *m, void *v)
+ 	if (!of_property_read_string(node, "compatible", &compat)
+ 	    && strcmp(compat, "riscv"))
+ 		seq_printf(m, "uarch\t\t: %s\n", compat);
++	seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
++	seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
++	seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
+ 	seq_puts(m, "\n");
+ 	of_node_put(node);
+ 
+-- 
+2.34.1
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
