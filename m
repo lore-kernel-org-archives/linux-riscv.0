@@ -4,51 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6797BC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jun 2022 06:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0684C43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 20 Jun 2022 07:34:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gXG7BRTxI57FrPjA6liQVjyr/yl9REcgBW7jc1s5CBw=; b=IeEETZ3lEjSbxy
-	d0yE8saoR3BfrZp+i1CMrepIWgp9napHT8k19EtT9cPK+VP+geIRhQ8VGGWTSkvcHayYYiI4WQGh5
-	A2giQlnP4A+KRwMvwLAYNlP4S5CB3PKcE7kRZuHEc1k6pP8JkRFC0LntF99eM1h5eLZO4oBJM424H
-	wU4gjvZaWVcCoIFkVf/Mn+T4csQa3/S/whiM0Ua1Xy3BlRL65jldFuqZ9rY2se6BqG9ukTjTzNVoB
-	UNK1H2lYQAjytWrQ1cZ5yQIRUSW5ix/dEaCc4t5GjMf9uS6Y9hrU9QOQDSBP6SG/iJzjTlj/lc3BT
-	T6xngUxUhnafCHeBfUiw==;
+	List-Owner; bh=sRvD4V4AAsgH0Kx2al7lprj78vZl9MJhlVDqb8QOtUc=; b=Mk2xb3HkgY/Hef
+	WxQ1YlWLzsS4TnXfE2QFjnjssHuR5KPANvcReDRvSalPeAOCccAfqvDSToYHlQNfT9Nikzo6LHI+g
+	N9R2zLztN9zCd9p+BhUbbP0LBh1lcSy4EqdjQpfKGxTj0ZAfEwHE+JBDgZ5fovRq9iAP+Ih2UPnK9
+	Dc5wqvNjKErQZRFsLcpXyrMb9P0n0S9kx9Y6uQf3EfBHu4H9NBZVAACsAtHqSoHm5GT+1cN8AD8/E
+	m1VybuSnEzVZxPhXFs3FonfKk53x0B3Crv+E8xXSsP3WEj4CRXbgRTOyiBwVAfvDEZWFIF+LagMDG
+	9nyeYwwlvPnZonqA311w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3Ahq-00GQDQ-Vd; Mon, 20 Jun 2022 06:16:14 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1o3BvP-00Ggar-6S; Mon, 20 Jun 2022 07:34:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3Ahn-00GQCO-Tb
-	for linux-riscv@lists.infradead.org; Mon, 20 Jun 2022 06:16:13 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id DA9576732D; Mon, 20 Jun 2022 08:16:07 +0200 (CEST)
-Date: Mon, 20 Jun 2022 08:16:07 +0200
-From: Christoph Hellwig <hch@lst.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com,
-	philipp.tomsich@vrull.eu, hch@lst.de, samuel@sholland.org,
-	atishp@atishpatra.org, anup@brainfault.org, mick@ics.forth.gr,
-	robh+dt@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org,
-	drew@beagleboard.org, rdunlap@infradead.org,
-	Atish Patra <atish.patra@wdc.com>
-Subject: Re: [PATCH 3/4] riscv: Implement Zicbom-based cache management
- operations
-Message-ID: <20220620061607.GB10485@lst.de>
-References: <20220619203212.3604485-1-heiko@sntech.de> <20220619203212.3604485-4-heiko@sntech.de>
+	id 1o3BvC-00GgXW-SC
+	for linux-riscv@lists.infradead.org; Mon, 20 Jun 2022 07:34:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1655710442;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9O0CIqeEaoJn03vVtSYdv9IsNbaraVCXGcehJj6LilQ=;
+	b=ewkgVstQyW9Cfr3tbIeQA+8+IZLhP3s8fSfkwQipnK2ZzwqFUYtvTmiVAIhXBq2OKTvbCV
+	K6QjRenFUTmtB3RZtAUPGJiUSiwxPpCVeofgJ+ry7/jNrIxL+g5bbUZgSPr4djTOKhETKK
+	E8Xw7xv120qkrE///+1RI6QjSybDiMw=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-1-O4eQGoaBOPqOW6-y1hVOYQ-1; Mon, 20 Jun 2022 03:34:00 -0400
+X-MC-Unique: O4eQGoaBOPqOW6-y1hVOYQ-1
+Received: by mail-wr1-f69.google.com with SMTP id l9-20020adfa389000000b0021b8b489336so840932wrb.13
+        for <linux-riscv@lists.infradead.org>; Mon, 20 Jun 2022 00:34:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to;
+        bh=9O0CIqeEaoJn03vVtSYdv9IsNbaraVCXGcehJj6LilQ=;
+        b=IFhL2m+syvrX9VzvYju54h+vscbk0jlmc6WPBhzs974OAK5J+odvH+OffPIhjdQZzY
+         7nGDTPc0J5DgdR9z9z1VCe7jh5fPL7A6d3jFP5cB8Ki9geIYAWi2nvrLSSu83iwsmwJQ
+         cJbxsjCCn01RSJJstbqTe2dF/5gM4BOBRJ5JmKNMhK7v3idPGsHHHFpQhoBJhZ0XGft7
+         EjuwRao7+7jKkUL68zcKdswlIeoG6/2CG6Too7fFkSl6eZ4YjJk3tnr6L8ZulIizlEnA
+         gzMvFIu7ehyAd3XjHPFWBArWXK90QDpZH9oaf5vbVSeT2e5YxzhuUTYk4KMQ5ZBDdsCc
+         Xaig==
+X-Gm-Message-State: AJIora9KOD3x10j4a+UIaIep3VZYgbkwx/fYwJv1AEtckYKFlfI14Hk3
+	+T3TVXaW6sE6hPgQVH90YQPC0up1VKd1IUz7oQPxpXpwGOQe3E17tnv219cV+tJj9e6+LZnavlO
+	ZALQFjwddog1qCVsvTEQVroU18HH/
+X-Received: by 2002:a5d:59ac:0:b0:218:5b7e:1c1c with SMTP id p12-20020a5d59ac000000b002185b7e1c1cmr21891435wrr.621.1655710439347;
+        Mon, 20 Jun 2022 00:33:59 -0700 (PDT)
+X-Google-Smtp-Source: AGRyM1vkewhJzwIOJ9l+/yqE7pUpzblIRdbrwtFQigT8P4KR1GnlkLPaHlZsigHVgHZi02aADaZXLg==
+X-Received: by 2002:a5d:59ac:0:b0:218:5b7e:1c1c with SMTP id p12-20020a5d59ac000000b002185b7e1c1cmr21891397wrr.621.1655710439119;
+        Mon, 20 Jun 2022 00:33:59 -0700 (PDT)
+Received: from gator (cst2-173-67.cust.vodafone.cz. [31.30.173.67])
+        by smtp.gmail.com with ESMTPSA id l9-20020a1c7909000000b0039c96b97359sm14054471wme.37.2022.06.20.00.33.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 20 Jun 2022 00:33:58 -0700 (PDT)
+Date: Mon, 20 Jun 2022 09:33:56 +0200
+From: Andrew Jones <drjones@redhat.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	James Morse <james.morse@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	David Hildenbrand <david@redhat.com>, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu,
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
+Subject: Re: [PATCH 0/3] KVM: selftests: Consolidate ucall code
+Message-ID: <20220620073356.fmtsa4ub74igm7me@gator>
+References: <20220618001618.1840806-1-seanjc@google.com>
 MIME-Version: 1.0
+In-Reply-To: <20220618001618.1840806-1-seanjc@google.com>
+Authentication-Results: relay.mimecast.com;
+	auth=pass smtp.auth=CUSA124A263 smtp.mailfrom=drjones@redhat.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Content-Disposition: inline
-In-Reply-To: <20220619203212.3604485-4-heiko@sntech.de>
-User-Agent: Mutt/1.5.17 (2007-11-01)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220619_231612_163096_D91C6355 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20220620_003407_033821_3DDC27F5 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,50 +113,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 19, 2022 at 10:32:11PM +0200, Heiko Stuebner wrote:
-> +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> +#define ARCH_DMA_MINALIGN L1_CACHE_BYTES
-> +#endif
+On Sat, Jun 18, 2022 at 12:16:15AM +0000, Sean Christopherson wrote:
+> Consolidate the code for making and getting ucalls.  All architectures pass
+> the ucall struct via memory, so filling and copying the struct is 100%
+> generic.  The only per-arch code is sending and receiving the address of
+> said struct.
+> 
+> Tested on x86 and arm, compile tested on s390 and RISC-V.
 
-This needs to be greater or equal to riscv_cbom_block_size, but the
-core code requires a compile time constant here.  So we'll need a big
-fat comment here, and panic if riscv_cbom_block_size is >
-L1_CACHE_BYTES/ARCH_DMA_MINALIGN in the code that queries
-riscv_cbom_block_size.
+For the series
 
-Note that the arm64 folks are looking into making this variable or
-killing it off in this current form, so things might be getting better
-soon.
+Reviewed-by: Andrew Jones <drjones@redhat.com>
 
-> +void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
-> +			      enum dma_data_direction dir)
-> +{
-> +	void *vaddr = phys_to_virt(paddr);
-> +
-> +	switch (dir) {
-> +	case DMA_TO_DEVICE:
-> +		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
-> +		break;
-> +	case DMA_FROM_DEVICE:
-> +		ALT_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
-> +		break;
+Thanks,
+drew
 
-For this also see:
-
-https://lore.kernel.org/all/20220606152150.GA31568@willie-the-truck/
-
-and
-
-https://lore.kernel.org/linux-arm-kernel/20220610151228.4562-1-will@kernel.org/T/
-
-> +void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
-> +		const struct iommu_ops *iommu, bool coherent)
-> +{
-> +	dev->dma_coherent = coherent;
-> +}
-
-This probably wants a sanity check warn if coherent if false without
-any support for cache flushing as that will cause data corruption.
 
 _______________________________________________
 linux-riscv mailing list
