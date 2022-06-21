@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EBF9C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jun 2022 07:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09C1AC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jun 2022 08:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B+UX5CzmN1IHSv6Lguz+C4dx4dQ2IAC2SqfGd+fzdrk=; b=RPNc+HsdZoYd1y
-	rNZPK2p/dyNWAeDOAPqtc2Z5pvZXroLNE71J3Z19WKkT1Htja8+7PrRZQIPW+Odxm0iM1VsHCXFPx
-	sGgmK/SOa+yoI9OdxbU7K/x4nkQDASlasQ8cCrah1a+nO5P91ya254WkhGJbNPOAzSOk1gof4b7f0
-	FzracmygtDW1JT2cCqu8hPKchURVX8Q0baqfRbD9c4sFSM3kTbHwvbpkmLxNFP2b6/pfeWmBe5yCx
-	6KiSYQO3jx/Y+zULloVqkWPlyE/mjelo5O6e4VQkQPKYxsuKr1+I7IRHfZOuqNA4yDerKpfEx4HM4
-	SjvF+83K8APVC3j0Z/vQ==;
+	List-Owner; bh=IvVCgIGuYQ8cmdQU/6lo4dTN37jIQX3SqeRv4YPya6w=; b=f14io3+uatu2Bm
+	8s8oATU/jzcLWtUFJzdiyfFHhRWTSAi9NRSUzOiA+7QYfKqTGR3ltqxKUeTpxgLA4yqkjVvCJwPI1
+	ZqlfJHmJoZsbtjY9AANun0J+pGD8XQmjlNN6ouCzrJ7fHaMP/La4vO0SHBK/+tH4mz/kR/ORMPIkR
+	ZzMnCFQgho45wGX9sgI2Ej+RzKOB8gZZFsEJky7gjehN8eOm5WEr1S0eQ+MhqG5oQIzBif+Hj5SCi
+	arEFtdtAQMCYzHMKE70H6vFGccrWZnX8Muh9E9VTeYLrdliJDYI/XO5EWGF4TFQxMp2Mg2PhoQrLd
+	hPIXw6QPqL70vVfpBdtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3Ynd-004FuX-GR; Tue, 21 Jun 2022 07:59:49 +0000
-Received: from forward500p.mail.yandex.net ([77.88.28.110])
+	id 1o3YuF-004I8l-V5; Tue, 21 Jun 2022 08:06:39 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3YnO-004Fms-6u; Tue, 21 Jun 2022 07:59:36 +0000
-Received: from vla1-692e383ae130.qloud-c.yandex.net (vla1-692e383ae130.qloud-c.yandex.net [IPv6:2a02:6b8:c0d:4e82:0:640:692e:383a])
-	by forward500p.mail.yandex.net (Yandex) with ESMTP id 77FACF0172E;
-	Tue, 21 Jun 2022 10:59:27 +0300 (MSK)
-Received: from vla1-ef285479e348.qloud-c.yandex.net (vla1-ef285479e348.qloud-c.yandex.net [2a02:6b8:c0d:35a1:0:640:ef28:5479])
-	by vla1-692e383ae130.qloud-c.yandex.net (mxback/Yandex) with ESMTP id pUgtCkKl7o-xQfuv0vF;
-	Tue, 21 Jun 2022 10:59:27 +0300
-X-Yandex-Fwd: 2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail; t=1655798367;
-	bh=lnaqbp1FtSw3PBFIRJvp8ZTIBhxZSVF+tYdiKTeYk14=;
-	h=In-Reply-To:Subject:Cc:To:From:References:Date:Message-ID;
-	b=tB7GwYjx37B3QR+75UYngRf9E9yE5YzZjS4tAcmPAZzL9ZawWSnJgmpnnFb5+Bgyn
-	 pMNGF02QqiJdGFPvE91yI1PPLDCVdXHRIwF7Omyf/x5nLYffOpk01SpjBipFObDXOU
-	 1KrApVu56MFCYQqykmjj0596oLGLf4VKMgeZRNQw=
-Authentication-Results: vla1-692e383ae130.qloud-c.yandex.net; dkim=pass header.i=@maquefel.me
-Received: by vla1-ef285479e348.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA id eWF8YA4OF7-xON4813G;
-	Tue, 21 Jun 2022 10:59:25 +0300
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
-	(Client certificate not present)
-Date: Tue, 21 Jun 2022 10:59:23 +0300
-From: Nikita Shubin <nikita.shubin@maquefel.me>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>,
- Sunil V L <sunilvl@ventanamicro.com>, =?UTF-8?B?Sm/Do28gTcOhcmlv?= Domingos
- <joao.mario@tecnico.ulisboa.pt>, linux <linux@yadro.com>, Nikita Shubin
- <n.shubin@yadro.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Anup Patel
- <anup@brainfault.org>, Mark Rutland <mark.rutland@arm.com>, Geert
- Uytterhoeven <geert@linux-m68k.org>, linux-riscv
- <linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org List"
- <linux-kernel@vger.kernel.org>, Linux ARM
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v4 1/1] RISC-V: Create unique identification for SoC PMU
-Message-ID: <20220621105923.131fa20f@redslave.neermore.group>
-In-Reply-To: <CAK9=C2UiPdB2+UU6aqh5Muf0cnu87k01f1iga6mUYKZgiceAKQ@mail.gmail.com>
-References: <20220619111115.6354-1-nikita.shubin@maquefel.me>
-	<20220619111115.6354-2-nikita.shubin@maquefel.me>
-	<CAK9=C2X4TTCEjZya4wz-W6ndBaxzUpLBtzQAGJ4zphVM8NSgdg@mail.gmail.com>
-	<20220620174006.1c86a456@redslave.neermore.group>
-	<CAOnJCU+7_z1WN_Z6frQcUwzztVL4itbPSfmLUa_7Ob5xCtLo+Q@mail.gmail.com>
-	<20220621104139.7c77e348@redslave.neermore.group>
-	<CAK9=C2UiPdB2+UU6aqh5Muf0cnu87k01f1iga6mUYKZgiceAKQ@mail.gmail.com>
-X-Mailer: Claws Mail 3.17.7 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-MIME-Version: 1.0
+	id 1o3Ytz-004I3L-FG; Tue, 21 Jun 2022 08:06:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id D1253B816AD;
+	Tue, 21 Jun 2022 08:06:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 831E4C3411D;
+	Tue, 21 Jun 2022 08:06:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1655798779;
+	bh=8qCnewqKJmo59l8Sj5lCGp78mJervPUiBsnnQAaSXP8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Qkya9AELvEs7KfBcoqWIV90YtDor5KNTIHOQolDsiamDPj1nWG9NoZXtYf7Jky0Pk
+	 1sTAYweIRfZUetfph6wzdC9h90W31Rss/4k13wb8D17EHfhxd5mF0tKKIfYMezWXTR
+	 y6E8omfbdSOqRHsr47icJOllfMcCaeZLa/qQTuVFyGIP5L2v+q09/gzttpo/n8ZeKU
+	 IjP7FiEcXL4vUcTwVGRLuiRP8/YwKvUU9AvgPI/h4nnVnNERnhMnvrJ8Zn3Qpg0CyW
+	 vlFJJfG0VMm/1Hi9PtWG3B4KEshMYyFlnH/Xga10WYVRH77YvspXYZMnlkD1gbZQ1v
+	 TQNoLtozhj5mQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1o3Ytt-001zIC-EW;
+	Tue, 21 Jun 2022 09:06:17 +0100
+Date: Tue, 21 Jun 2022 09:06:17 +0100
+Message-ID: <87sfny30g6.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Samuel Holland <samuel@sholland.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Palmer Dabbelt
+ <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Guo Ren <guoren@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Wei Xu <xuwei5@hisilicon.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 4/6] genirq: Provide an IRQ affinity mask in non-SMP configs
+In-Reply-To: <eb0a74ce-f444-de74-d944-87fc42091c46@sholland.org>
+References: <20220616064028.57933-1-samuel@sholland.org>
+	<20220616064028.57933-5-samuel@sholland.org>
+	<87h74ipcos.wl-maz@kernel.org>
+	<eb0a74ce-f444-de74-d944-87fc42091c46@sholland.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: samuel@sholland.org, tglx@linutronix.de, palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, brgl@bgdev.pl, guoren@kernel.org, mark.rutland@arm.com, linux@armlinux.org.uk, xuwei5@hisilicon.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220621_005934_659447_1C15BDE2 
-X-CRM114-Status: GOOD (  42.17  )
+X-CRM114-CacheID: sfid-20220621_010623_893512_8F2DF20B 
+X-CRM114-Status: GOOD (  35.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,150 +92,98 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gQW51cCEKCk9uIFR1ZSwgMjEgSnVuIDIwMjIgMTM6MjE6MTEgKzA1MzAKQW51cCBQYXRl
-bCA8YXBhdGVsQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgoKPiBPbiBUdWUsIEp1biAyMSwgMjAy
-MiBhdCAxOjEzIFBNIE5pa2l0YSBTaHViaW4KPiA8bmlraXRhLnNodWJpbkBtYXF1ZWZlbC5tZT4g
-d3JvdGU6Cj4gPgo+ID4gSGVsbG8gQW51cCEKPiA+Cj4gPiBPbiBNb24sIDIwIEp1biAyMDIyIDEy
-OjQwOjIwIC0wNzAwCj4gPiBBdGlzaCBQYXRyYSA8YXRpc2hwQGF0aXNocGF0cmEub3JnPiB3cm90
-ZToKPiA+ICAKPiA+ID4gT24gTW9uLCBKdW4gMjAsIDIwMjIgYXQgNzo0MCBBTSBOaWtpdGEgU2h1
-YmluCj4gPiA+IDxuaWtpdGEuc2h1YmluQG1hcXVlZmVsLm1lPiB3cm90ZTogIAo+ID4gPiA+Cj4g
-PiA+ID4gT24gTW9uLCAyMCBKdW4gMjAyMiAxNzozMDo1OCArMDUzMAo+ID4gPiA+IEFudXAgUGF0
-ZWwgPGFwYXRlbEB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPiA+ID4gPiAgCj4gPiA+ID4gPiBP
-biBTdW4sIEp1biAxOSwgMjAyMiBhdCA0OjQxIFBNIE5pa2l0YSBTaHViaW4KPiA+ID4gPiA+IDxu
-aWtpdGEuc2h1YmluQG1hcXVlZmVsLm1lPiB3cm90ZTogIAo+ID4gPiA+ID4gPgo+ID4gPiA+ID4g
-PiBGcm9tOiBOaWtpdGEgU2h1YmluIDxuLnNodWJpbkB5YWRyby5jb20+Cj4gPiA+ID4gPiA+Cj4g
-PiA+ID4gPiA+IFByb3ZpZGUgUklTQy1WIFNCSSBQTVUgaWQgdG8gZGlzdGluZ3Vpc2ggZGlmZmVy
-ZW50IGNvcmVzIG9yCj4gPiA+ID4gPiA+IFNvQ3MgdmlhICJkZXZpY2VzL3BsYXRmb3JtL3Jpc2N2
-LXBtdS9pZCIgc3lzZnMgZW50cnkuCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFRoZSBpZGVudGlm
-aWNhdGlvbiBpcyBnZW5lcmF0ZWQgYXMgc3RyaW5nIG9mIG1hcmNoaWQsCj4gPiA+ID4gPiA+IG1p
-bXBpZCwgbXZlbmRvcmlkIGluIGhleCBmb3JtYXQgc2VwYXJhdGVkIGJ5IGNvbWEgLQo+ID4gPiA+
-ID4gPiAiMHg3MDAzMiwweDcwMDMyLDB4MCIuCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IFRoZSBD
-U1JzIGFyZSBkZXRhaWxlZCBpbiB0aGUgUklTQy1WIHByaXZpbGVnZWQgc3BlYyBbMV0uCj4gPiA+
-ID4gPiA+IFsxXSBodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtaXNhLW1hbnVhbAo+ID4g
-PiA+ID4gPgo+ID4gPiA+ID4gPiBJbnNwaXJlZC1ieTogSm/Do28gTcOhcmlvIERvbWluZ29zCj4g
-PiA+ID4gPiA+IDxqb2FvLm1hcmlvQHRlY25pY28udWxpc2JvYS5wdD4gU2lnbmVkLW9mZi1ieTog
-TmlraXRhCj4gPiA+ID4gPiA+IFNodWJpbiA8bi5zaHViaW5AeWFkcm8uY29tPiAgCj4gPiA+ID4g
-Pgo+ID4gPiA+ID4gVGhlIG12ZW5kb3JpZCwgbWFyY2hpZCwgYW5kIG1pbXBpZCBjYW4gYmUgdXNl
-ZnVsIHRvIGFwcHMgb3RoZXIKPiA+ID4gPiA+IHRoYW4gcGVyZiB0b29sLgo+ID4gPiA+ID4KPiA+
-ID4gPiA+IEkgaGF2ZSB0cmllZCB0byBleHRlbmQgL3Byb2MvY3B1aW5mbyB3aXRoIHRoaXMgaW5m
-b3JtYXRpb24KPiA+ID4gPiA+IHdoaWNoIGNhbiBiZSBwYXJzZWQgYnkgcGVyZiB0b29sOgo+ID4g
-PiA+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjIwNjIwMTE1NTQ5LjE1Mjk1OTct
-MS1hcGF0ZWxAdmVudGFuYW1pY3JvLmNvbS8KPiA+ID4gPiA+ICAKPiA+ID4gPgo+ID4gPiA+IEF0
-aXNoLCB3aGF0IGRvIHlvdSB0aGluayBhYm91dCB0aGlzID8KPiA+ID4gPgo+ID4gPiA+IFJJU0Mt
-ViBwZXJmIGNhbiByZWx5IG9uICIvcHJvYy9jcHVpbmZvIiwgaW4gc29tZSBzaW1pbGFyIG1hbm5l
-cgo+ID4gPiA+IGxpa2UgInRvb2xzL3BlcmYvYXJjaC9zMzkwL3V0aWwvaGVhZGVyLmMiIGRvZXMu
-Cj4gPiA+ID4gIAo+ID4gPgo+ID4gPiBZZXMuIFdlIGNhbiBleHBvc2UgdGhlc2UgdGhyZWUgdmFs
-dWVzIGVpdGhlciBpbiBzeXNmcyBvciBwcm9jZnMKPiA+ID4gKC9wcm9jL2NwdWluZm8pLiBGb3Ig
-cGVyZiB0b29sLCBpdCBzaG91bGRuJ3QgbWF0dGVyIGFzIHRoZQo+ID4gPiBoZWFkZXIuYyB3aWxs
-IG5lZWQgdG8gZ2VuZXJhdGUgdGhlIHVuaXF1ZSBjcHVpZAo+ID4gPiBzdHJpbmcgZnJvbSBlaXRo
-ZXIuCj4gPiA+Cj4gPiA+IEkgYW0gbm90IHN1cmUgaWYgYW55IG90aGVyIHVzZXJzcGFjZSB0b29s
-IHByZWZlcnMgdG8gcGFyc2Ugc3lzZnMKPiA+ID4gaW5zdGVhZCBvZiBjcHVpbmZvLiAgCj4gPgo+
-ID4gT2theSAtIGxldCdzIHN0aWNrIHRvIC9wcm9jL2NwdWluZm8uICAKPiAKPiBTb3VuZHMgZ29v
-ZC4KPiAKPiBZb3UgbWlnaHQgaGF2ZSB0byB3cml0ZSAvcHJvYy9jcHVpbmZvIHBhcnNpbmcgY29k
-ZSBpbiBwZXJmIHRvb2wKPiBoZWFkZXIuYy4gRG8geW91IHBsYW4gdG8gc2VuZCB2NCBvZiBwZXJm
-IHRvb2wgcGF0Y2hlcyA/PwoKWWVzLCBidXQgaSBtaWdodCBzcGxpdCBpdCBpbnRvIHNlcGFyYXRl
-IHNlcmllcywgbm90IHRvIG1peCBwZXJmIGhlYWRlcnMKYW5kIFU3NCBwbXUtZXZlbnRzIGJpbmRp
-bmdzLCBpIGxsIGFsc28gYWRkIHNvbWUgU0JJIGZpcm13YXJlIGV2ZW50CmJpbmRpbmdzIHRvIG1h
-a2UgdGhpbmdzIGVhc2llci4KCj4gCj4gUmVnYXJkcywKPiBBbnVwCj4gCj4gPiAgCj4gPiA+ICAK
-PiA+ID4gPiBDYW4gaXQgY3JlYXRlIHByb2JsZW1zIHdpdGggcG11IGlkZW50aWZpY2F0aW9uIGlu
-IGNhc2Ugb2YKPiA+ID4gPiBoZXRlcmdlbm91cyBoYXJ0cyA/Cj4gPiA+ID4gIAo+ID4gPgo+ID4g
-PiBEb2VzIHBlcmYgc3VwcG9ydCBoZXRlcmdlbm91cyBoYXJ0cyBhdCBhbGwgPyBBUk02NCBjb2Rl
-Cj4gPiA+ICh0b29sL3BlcmYvYXJjaC9hcm02NC91dGlsL2hlYWRlci5jKQo+ID4gPiBqdXN0IGJy
-ZWFrcyBvdXQgb2YgdGhlIGxvb3AgYWZ0ZXIgZmluZGluZyB0aGUgZmlyc3QgTUlEUi4KPiA+ID4g
-IAo+ID4gPiA+ID4KPiA+ID4gPiA+IFJlZ2FyZHMsCj4gPiA+ID4gPiBBbnVwCj4gPiA+ID4gPiAg
-Cj4gPiA+ID4gPiA+IC0tLQo+ID4gPiA+ID4gPiB2My0+djQ6Cj4gPiA+ID4gPiA+IC0gdXNlIHN0
-cmluZyBmb3IgcG11aWQKPiA+ID4gPiA+ID4gLSByZW5hbWUgcG11X3NiaV9pZF9zaG93IHRvIGlk
-X3Nob3cKPiA+ID4gPiA+ID4gLSBmaXggZXJyb3IgcHJpbnQgbWVzc2FnZSBpbiBpZF9zaG93Cj4g
-PiA+ID4gPiA+IC0gZml4IERFVklDRV9BVFRSIHRvIHVzZSBvY3RhbCBwZXJtaXNzaW9ucwo+ID4g
-PiA+ID4gPiAtLS0KPiA+ID4gPiA+ID4gIGFyY2gvcmlzY3Yva2VybmVsL3NiaS5jICAgICAgICB8
-ICAzICsrKwo+ID4gPiA+ID4gPiAgZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYyAgIHwgNDEK
-PiA+ID4gPiA+ID4gKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+ID4gPiA+ID4g
-PiBpbmNsdWRlL2xpbnV4L3BlcmYvcmlzY3ZfcG11LmggfCAxICsgMyBmaWxlcyBjaGFuZ2VkLCA0
-NQo+ID4gPiA+ID4gPiBpbnNlcnRpb25zKCspCj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+IGRpZmYg
-LS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9zYmkuYwo+ID4gPiA+ID4gPiBiL2FyY2gvcmlzY3Yv
-a2VybmVsL3NiaS5jIGluZGV4IDc3NWQzMzIyYjQyMi4uNTBkZDliNmVjYzllCj4gPiA+ID4gPiA+
-IDEwMDY0NCAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9zYmkuYwo+ID4gPiA+ID4gPiArKysgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9zYmkuYwo+ID4gPiA+ID4gPiBAQCAtNjI3LDE2ICs2MjcsMTkgQEAg
-bG9uZyBzYmlfZ2V0X212ZW5kb3JpZCh2b2lkKQo+ID4gPiA+ID4gPiAgewo+ID4gPiA+ID4gPiAg
-ICAgICAgIHJldHVybiBfX3NiaV9iYXNlX2VjYWxsKFNCSV9FWFRfQkFTRV9HRVRfTVZFTkRPUklE
-KTsKPiA+ID4gPiA+ID4gIH0KPiA+ID4gPiA+ID4gK0VYUE9SVF9TWU1CT0woc2JpX2dldF9tdmVu
-ZG9yaWQpOwo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiAgbG9uZyBzYmlfZ2V0X21hcmNoaWQodm9p
-ZCkKPiA+ID4gPiA+ID4gIHsKPiA+ID4gPiA+ID4gICAgICAgICByZXR1cm4gX19zYmlfYmFzZV9l
-Y2FsbChTQklfRVhUX0JBU0VfR0VUX01BUkNISUQpOwo+ID4gPiA+ID4gPiAgfQo+ID4gPiA+ID4g
-PiArRVhQT1JUX1NZTUJPTChzYmlfZ2V0X21hcmNoaWQpOwo+ID4gPiA+ID4gPgo+ID4gPiA+ID4g
-PiAgbG9uZyBzYmlfZ2V0X21pbXBpZCh2b2lkKQo+ID4gPiA+ID4gPiAgewo+ID4gPiA+ID4gPiAg
-ICAgICAgIHJldHVybiBfX3NiaV9iYXNlX2VjYWxsKFNCSV9FWFRfQkFTRV9HRVRfTUlNUElEKTsK
-PiA+ID4gPiA+ID4gIH0KPiA+ID4gPiA+ID4gK0VYUE9SVF9TWU1CT0woc2JpX2dldF9taW1waWQp
-Owo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiAgc3RhdGljIHZvaWQgc2JpX3NlbmRfY3B1bWFza19p
-cGkoY29uc3Qgc3RydWN0IGNwdW1hc2sKPiA+ID4gPiA+ID4gKnRhcmdldCkgewo+ID4gPiA+ID4g
-PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYwo+ID4gPiA+ID4gPiBi
-L2RyaXZlcnMvcGVyZi9yaXNjdl9wbXVfc2JpLmMgaW5kZXgKPiA+ID4gPiA+ID4gZGNhMzUzN2E4
-ZGNjLi5iZTgxMmY4NTU2MTcgMTAwNjQ0IC0tLQo+ID4gPiA+ID4gPiBhL2RyaXZlcnMvcGVyZi9y
-aXNjdl9wbXVfc2JpLmMgKysrCj4gPiA+ID4gPiA+IGIvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9z
-YmkuYyBAQCAtNjkzLDYgKzY5MywyOCBAQCBzdGF0aWMKPiA+ID4gPiA+ID4gaW50IHBtdV9zYmlf
-c2V0dXBfaXJxcyhzdHJ1Y3QgcmlzY3ZfcG11ICpwbXUsIHN0cnVjdAo+ID4gPiA+ID4gPiBwbGF0
-Zm9ybV9kZXZpY2UgKnBkZSByZXR1cm4gMDsgfQo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiArc3Rh
-dGljIHNzaXplX3QgaWRfc2hvdyhzdHJ1Y3QgZGV2aWNlICpkZXYsCj4gPiA+ID4gPiA+ICsgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IGRldmljZV9hdHRyaWJ1dGUKPiA+ID4g
-PiA+ID4gKmF0dHIsIGNoYXIgKmJ1ZikgK3sKPiA+ID4gPiA+ID4gKyAgICAgICBpbnQgbGVuOwo+
-ID4gPiA+ID4gPiArICAgICAgIHN0cnVjdCByaXNjdl9wbXUgKnBtdSA9Cj4gPiA+ID4gPiA+IGNv
-bnRhaW5lcl9vZihkZXZfZ2V0X2RydmRhdGEoZGV2KSwgc3RydWN0IHJpc2N2X3BtdSwgcG11KTsg
-Kwo+ID4gPiA+ID4gPiArICAgICAgIGxlbiA9IHNwcmludGYoYnVmLCAiJXNcbiIsIHBtdS0+cG11
-aWQpOwo+ID4gPiA+ID4gPiArICAgICAgIGlmIChsZW4gPD0gMCkKPiA+ID4gPiA+ID4gKyAgICAg
-ICAgICAgICAgIGRldl9lcnIoZGV2LCAiaW52YWxpZCBzcHJpbnRmIGxlbjogJWRcbiIsCj4gPiA+
-ID4gPiA+IGxlbik7ICsKPiA+ID4gPiA+ID4gKyAgICAgICByZXR1cm4gbGVuOwo+ID4gPiA+ID4g
-PiArfQo+ID4gPiA+ID4gPiArCj4gPiA+ID4gPiA+ICtzdGF0aWMgREVWSUNFX0FUVFIoaWQsIDA2
-NDQsIGlkX3Nob3csIE5VTEwpOwo+ID4gPiA+ID4gPiArCj4gPiA+ID4gPiA+ICtzdGF0aWMgc3Ry
-dWN0IGF0dHJpYnV0ZSAqcG11X3NiaV9hdHRyc1tdID0gewo+ID4gPiA+ID4gPiArICAgICAgICZk
-ZXZfYXR0cl9pZC5hdHRyLAo+ID4gPiA+ID4gPiArICAgICAgIE5VTEwKPiA+ID4gPiA+ID4gK307
-Cj4gPiA+ID4gPiA+ICsKPiA+ID4gPiA+ID4gK0FUVFJJQlVURV9HUk9VUFMocG11X3NiaSk7Cj4g
-PiA+ID4gPiA+ICsKPiA+ID4gPiA+ID4gIHN0YXRpYyBpbnQgcG11X3NiaV9kZXZpY2VfcHJvYmUo
-c3RydWN0IHBsYXRmb3JtX2RldmljZQo+ID4gPiA+ID4gPiAqcGRldikgewo+ID4gPiA+ID4gPiAg
-ICAgICAgIHN0cnVjdCByaXNjdl9wbXUgKnBtdSA9IE5VTEw7Cj4gPiA+ID4gPiA+IEBAIC03MTQs
-NiArNzM2LDE0IEBAIHN0YXRpYyBpbnQgcG11X3NiaV9kZXZpY2VfcHJvYmUoc3RydWN0Cj4gPiA+
-ID4gPiA+IHBsYXRmb3JtX2RldmljZSAqcGRldikgaWYKPiA+ID4gPiA+ID4gKHBtdV9zYmlfZ2V0
-X2N0cmluZm8obnVtX2NvdW50ZXJzKSkgZ290byBvdXRfZnJlZTsKPiA+ID4gPiA+ID4KPiA+ID4g
-PiA+ID4gKyAgICAgICAvKiBmaWxsIHBtdWlkICovCj4gPiA+ID4gPiA+ICsgICAgICAgcG11LT5w
-bXVpZCA9IGthc3ByaW50ZihHRlBfS0VSTkVMLAo+ID4gPiA+ID4gPiAiMHglbHgsMHglbHgsMHgl
-bHgiLAo+ID4gPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2JpX2dldF9t
-YXJjaGlkKCksCj4gPiA+ID4gPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzYmlf
-Z2V0X21pbXBpZCgpLAo+ID4gPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-c2JpX2dldF9tdmVuZG9yaWQoKSk7Cj4gPiA+ID4gPiA+ICsgICAgICAgaWYgKCFwbXUtPnBtdWlk
-KQo+ID4gPiA+ID4gPiArICAgICAgICAgICAgICAgZ290byBvdXRfZnJlZV9wbXVpZDsKPiA+ID4g
-PiA+ID4gKwo+ID4gPiA+ID4gPiAgICAgICAgIHJldCA9IHBtdV9zYmlfc2V0dXBfaXJxcyhwbXUs
-IHBkZXYpOwo+ID4gPiA+ID4gPiAgICAgICAgIGlmIChyZXQgPCAwKSB7Cj4gPiA+ID4gPiA+ICAg
-ICAgICAgICAgICAgICBwcl9pbmZvKCJQZXJmIHNhbXBsaW5nL2ZpbHRlcmluZyBpcyBub3QKPiA+
-ID4gPiA+ID4gc3VwcG9ydGVkIGFzIHNzY29mIGV4dGVuc2lvbiBpcyBub3QgYXZhaWxhYmxlXG4i
-KTsgQEAgLTczOSw4Cj4gPiA+ID4gPiA+ICs3NjksMTkgQEAgc3RhdGljIGludCBwbXVfc2JpX2Rl
-dmljZV9wcm9iZShzdHJ1Y3QKPiA+ID4gPiA+ID4gcGxhdGZvcm1fZGV2aWNlICpwZGV2KSByZXR1
-cm4gcmV0OyB9Cj4gPiA+ID4gPiA+Cj4gPiA+ID4gPiA+ICsgICAgICAgcmV0ID0gc3lzZnNfY3Jl
-YXRlX2dyb3VwKCZwZGV2LT5kZXYua29iaiwKPiA+ID4gPiA+ID4gJnBtdV9zYmlfZ3JvdXApOwo+
-ID4gPiA+ID4gPiArICAgICAgIGlmIChyZXQpIHsKPiA+ID4gPiA+ID4gKyAgICAgICAgICAgICAg
-IGRldl9lcnIoJnBkZXYtPmRldiwgInN5c2ZzIGNyZWF0aW9uCj4gPiA+ID4gPiA+IGZhaWxlZFxu
-Iik7Cj4gPiA+ID4gPiA+ICsgICAgICAgICAgICAgICByZXR1cm4gcmV0Owo+ID4gPiA+ID4gPiAr
-ICAgICAgIH0KPiA+ID4gPiA+ID4gKwo+ID4gPiA+ID4gPiArICAgICAgIHBkZXYtPmRldi5ncm91
-cHMgPSBwbXVfc2JpX2dyb3VwczsKPiA+ID4gPiA+ID4gKyAgICAgICBkZXZfc2V0X2RydmRhdGEo
-JnBkZXYtPmRldiwgcG11KTsKPiA+ID4gPiA+ID4gKwo+ID4gPiA+ID4gPiAgICAgICAgIHJldHVy
-biAwOwo+ID4gPiA+ID4gPgo+ID4gPiA+ID4gPiArb3V0X2ZyZWVfcG11aWQ6Cj4gPiA+ID4gPiA+
-ICsgICAgICAga2ZyZWUocG11LT5wbXVpZCk7Cj4gPiA+ID4gPiA+ICBvdXRfZnJlZToKPiA+ID4g
-PiA+ID4gICAgICAgICBrZnJlZShwbXUpOwo+ID4gPiA+ID4gPiAgICAgICAgIHJldHVybiByZXQ7
-Cj4gPiA+ID4gPiA+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L3BlcmYvcmlzY3ZfcG11LmgK
-PiA+ID4gPiA+ID4gYi9pbmNsdWRlL2xpbnV4L3BlcmYvcmlzY3ZfcG11LmggaW5kZXgKPiA+ID4g
-PiA+ID4gNDZmOWI2ZmUzMDZlLi5jZjM1NTdiNzdmYjggMTAwNjQ0IC0tLQo+ID4gPiA+ID4gPiBh
-L2luY2x1ZGUvbGludXgvcGVyZi9yaXNjdl9wbXUuaCArKysKPiA+ID4gPiA+ID4gYi9pbmNsdWRl
-L2xpbnV4L3BlcmYvcmlzY3ZfcG11LmggQEAgLTQyLDYgKzQyLDcgQEAgc3RydWN0Cj4gPiA+ID4g
-PiA+IGNwdV9od19ldmVudHMgeyBzdHJ1Y3QgcmlzY3ZfcG11IHsKPiA+ID4gPiA+ID4gICAgICAg
-ICBzdHJ1Y3QgcG11ICAgICAgcG11Owo+ID4gPiA+ID4gPiAgICAgICAgIGNoYXIgICAgICAgICAg
-ICAqbmFtZTsKPiA+ID4gPiA+ID4gKyAgICAgICBjaGFyICAgICAgICAgICAgKnBtdWlkOwo+ID4g
-PiA+ID4gPgo+ID4gPiA+ID4gPiAgICAgICAgIGlycXJldHVybl90ICAgICAoKmhhbmRsZV9pcnEp
-KGludCBpcnFfbnVtLCB2b2lkCj4gPiA+ID4gPiA+ICpkZXYpOwo+ID4gPiA+ID4gPgo+ID4gPiA+
-ID4gPiAtLQo+ID4gPiA+ID4gPiAyLjM1LjEKPiA+ID4gPiA+ID4gIAo+ID4gPiA+ICAKPiA+ID4K
-PiA+ID4gIAo+ID4gIAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On Tue, 21 Jun 2022 05:03:43 +0100,
+Samuel Holland <samuel@sholland.org> wrote:
+> 
+> On 6/18/22 4:01 AM, Marc Zyngier wrote:
+> > Hi Samuel,
+> > 
+> > On Thu, 16 Jun 2022 07:40:26 +0100,
+> > Samuel Holland <samuel@sholland.org> wrote:
+> >>
+> >> IRQ affinity masks are not allocated in uniprocessor configurations.
+> >> This requires special case non-SMP code in drivers for irqchips which
+> >> have per-CPU enable or mask registers.
+> >>
+> >> Since IRQ affinity is always the same in a uniprocessor configuration,
+> >> we can still provide the correct affinity mask without allocating one
+> >> per IRQ. We can reuse the system-wide cpu_possible_mask.
+> >>
+> >> By returning a real cpumask from irq_data_get_affinity_mask even when
+> >> SMP is disabled, irqchip drivers which iterate over that mask will
+> >> automatically do the right thing.
+> >>
+> >> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> >> ---
+> >>
+> >> (no changes since v1)
+> >>
+> >>  include/linux/irq.h | 6 ++++++
+> >>  1 file changed, 6 insertions(+)
+> >>
+> >> diff --git a/include/linux/irq.h b/include/linux/irq.h
+> >> index 69ee4e2f36ce..d5e958b026aa 100644
+> >> --- a/include/linux/irq.h
+> >> +++ b/include/linux/irq.h
+> >> @@ -151,7 +151,9 @@ struct irq_common_data {
+> >>  #endif
+> >>  	void			*handler_data;
+> >>  	struct msi_desc		*msi_desc;
+> >> +#ifdef CONFIG_SMP
+> >>  	cpumask_var_t		affinity;
+> >> +#endif
+> >>  #ifdef CONFIG_GENERIC_IRQ_EFFECTIVE_AFF_MASK
+> >>  	cpumask_var_t		effective_affinity;
+> >>  #endif
+> >> @@ -881,7 +883,11 @@ static inline int irq_data_get_node(struct irq_data *d)
+> >>  
+> >>  static inline struct cpumask *irq_data_get_affinity_mask(struct irq_data *d)
+> >>  {
+> >> +#ifdef CONFIG_SMP
+> >>  	return d->common->affinity;
+> >> +#else
+> >> +	return &__cpu_possible_mask;
+> >> +#endif
+> > 
+> > I have a bad feeling about this one. Being in a !SMP configuration
+> > doesn't necessarily mean that __cpu_possible_mask only contains a
+> > single CPU, specially with things like CONFIG_INIT_ALL_POSSIBLE. I can
+> > also imagine an architecture populating this bitmap from firmware
+> > tables irrespective of the SMP status of the kernel.
+> > 
+> > Can't you use something like:
+> > 
+> > 	return cpumask_of(0);
+> > 
+> > which is guaranteed to be the right thing on !SMP configuration?
+> 
+> I can if I cast away the const. However I see a lot of:
+> 
+>     cpumask_copy(irq_data_get_affinity_mask(d), foo);
+> 
+> which I suppose is a great reason not to do what I am doing.
+
+Ah, indeed. Not going to work very well...
+
+> The right solution seems to be adding irq_data_update_affinity() to
+> match irq_data_update_effective_affinity(), and making both getters
+> return a const cpumask. Then I can use cpumask_of(0).
+
+Sounds like a plan.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
