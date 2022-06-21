@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34340C43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jun 2022 07:04:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96659C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jun 2022 07:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QJw0Fkl/35hHg6GUQ9RLk5PiYXYyeAocBnQZ+8Yi17g=; b=3P+Zje16oqklHs
-	pD5sjbHcVdhdEVd2KXp4HXRynspZVdPsl/E7hm87ka4t2y48SGkKEr0O5Ekxk1zzNtPxUZRupNRfZ
-	RBVZw0Z0vkDje6VuxwCbcjL5d4jVNx8RIzokeYzmptaq6jROgMX34TbPgavssw9otTTbfMPcgqySu
-	asvYodwlzvVGDemwoKj0a/1SjBjkWkeqok5l2Uvk0BeTmxmBRfsBXnQCR/TRrvXc194d5VXqhip6r
-	p5nut6mmpGq3fkrIU01QqYi8WCW5FEMH9SNvkTBsYf8QXGsXmHc6UDgCwGDdLRCcxQo7z1QSuf+74
-	M6uU9aStKJ9NzqQ0RezQ==;
+	List-Owner; bh=07UEeyg2vb9WPlHpZyEm5lDv0rVUfGnLxd9f7m8haXA=; b=zYrNqsZnQk7uIK
+	Q9zfQViTakhgAvKtAICxd+kEG47JFvtUKeF5X3z4nUt5ekNY/+Kdw+Q4Z+akBjG6Rbie0p9+rxz8O
+	PkDyxH0kcjjSfe+UjrRScUWbIV2rv09XYpZxbf7UvTkvg6PsIIhN83u2mZFbwpKY4RF3u248Eubwl
+	6x1E1NAw0cwu++LWWM90ljGhyKkle1hqqZW/382lpIOUzPH1MsBGVd5eJufmQLAMLmTigc7aD1J3Q
+	94eCjoLsl2FbOZ9md1LxmjnBNGrsufp8K/sbijfuB29ed/jtzHz16KbZn1k1Ruap8lSuDKzuJGanH
+	1ZZ/xeqBOo280JIvBTlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3XvW-003wRX-V6; Tue, 21 Jun 2022 07:03:54 +0000
-Received: from mail-qv1-f43.google.com ([209.85.219.43])
+	id 1o3YVC-00497t-2t; Tue, 21 Jun 2022 07:40:46 +0000
+Received: from forward500o.mail.yandex.net ([2a02:6b8:0:1a2d::610])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3XvT-003wOz-UO
-	for linux-riscv@lists.infradead.org; Tue, 21 Jun 2022 07:03:53 +0000
-Received: by mail-qv1-f43.google.com with SMTP id i17so12410212qvo.13
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Jun 2022 00:03:49 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=4ezwPnqEAb9XxkVE6EHdU5akaM6B3QfniuvIAXM1ujs=;
-        b=l2R5u6s3F2GBU449Et0MghcIOJGAX3Rb5ijtulrj4i2YmkBhROqMpamGLBYVJXuPXk
-         DNYxwQDDSxTxDAjgTmovHPyI1GoULPnpTwndV52h3KFKvw/v+g0nApCClIC3MMA9ukZd
-         YesPWpcr6FdhMjWZP6Wq+A1B3b0y2gOhXK1kPU+tRablk6oJ9Y4vwQs6ivv1OMpw7IYH
-         KqdSFfkRRa4JG5QRe2ZlyyYlSWxNMhuzRyVPECJjP3V0PrdLV8yEXdf3CZ62RQy+RNGM
-         dbwhfrmVajqWHoLtPqwlV6MiMzGlkdH0TiaSG/moD2wtNKKd73fi4L48I5qvFtHBP1FL
-         4CxA==
-X-Gm-Message-State: AJIora/CjJA3h9kzQWYUR5/YViRHJDW+f7GZ2ICIGAyHMzY0RiTuJLCs
-	DNhSuee7+8O06IuxDusITPjvP5paWhEZZA==
-X-Google-Smtp-Source: AGRyM1vrRpWIIaHF6AkLvskTZLWWeEYz4ltzT4L3sj4T9CS0Bo1qlzuKoDTV1sTzXQbhyhtYwme2BA==
-X-Received: by 2002:a05:6214:21a5:b0:46e:3743:a0b6 with SMTP id t5-20020a05621421a500b0046e3743a0b6mr21337586qvc.19.1655795028439;
-        Tue, 21 Jun 2022 00:03:48 -0700 (PDT)
-Received: from mail-yb1-f182.google.com (mail-yb1-f182.google.com. [209.85.219.182])
-        by smtp.gmail.com with ESMTPSA id t5-20020a05620a450500b006a36b0d7f27sm14973387qkp.76.2022.06.21.00.03.48
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 21 Jun 2022 00:03:48 -0700 (PDT)
-Received: by mail-yb1-f182.google.com with SMTP id e4so10248853ybq.7
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Jun 2022 00:03:48 -0700 (PDT)
-X-Received: by 2002:a05:6902:a:b0:65c:b38e:6d9f with SMTP id
- l10-20020a056902000a00b0065cb38e6d9fmr30754158ybh.36.1655795017074; Tue, 21
- Jun 2022 00:03:37 -0700 (PDT)
+	id 1o3YV6-00493Z-LB
+	for linux-riscv@lists.infradead.org; Tue, 21 Jun 2022 07:40:44 +0000
+Received: from myt6-93965afc2133.qloud-c.yandex.net (myt6-93965afc2133.qloud-c.yandex.net [IPv6:2a02:6b8:c12:5525:0:640:9396:5afc])
+	by forward500o.mail.yandex.net (Yandex) with ESMTP id CD00D940DAC;
+	Tue, 21 Jun 2022 10:40:33 +0300 (MSK)
+Received: from myt5-01d0fbe499ab.qloud-c.yandex.net (myt5-01d0fbe499ab.qloud-c.yandex.net [2a02:6b8:c12:4619:0:640:1d0:fbe4])
+	by myt6-93965afc2133.qloud-c.yandex.net (mxback/Yandex) with ESMTP id DqjiMbBwxe-eWh05tEC;
+	Tue, 21 Jun 2022 10:40:33 +0300
+X-Yandex-Fwd: 2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail; t=1655797233;
+	bh=RdX/+yTKrxFGxvASlWbAzAdqYEzzocthfBSsMMgNr3Y=;
+	h=In-Reply-To:Subject:Cc:To:From:References:Date:Message-ID;
+	b=Qy4sYZrHWLy5aniM2Q8DLanUFI2lgGMlIcLBMZOvtbwlm7YyrxUEHTcfljkQpY0id
+	 q89bdZ8psW9qhCz159ety4bcuXPib6E965hdu9hgKWU5MWpeAOg6n/PQa0bz2W7e4A
+	 KgXh1+wx9D3ICmQgv+YD//brfOeeNQ0JECFWaJ44=
+Authentication-Results: myt6-93965afc2133.qloud-c.yandex.net; dkim=pass header.i=@maquefel.me
+Received: by myt5-01d0fbe499ab.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA id zSjiCSJHOL-eVMWsID8;
+	Tue, 21 Jun 2022 10:40:32 +0300
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
+	(Client certificate not present)
+Date: Tue, 21 Jun 2022 10:40:30 +0300
+From: Nikita Shubin <nikita.shubin@maquefel.me>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>, Atish Patra
+ <atishp@atishpatra.org>, Heinrich Schuchardt
+ <heinrich.schuchardt@canonical.com>, Anup Patel <anup@brainfault.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] RISC-V: Add mvendorid, marchid, and mimpid to
+ /proc/cpuinfo output
+Message-ID: <20220621104030.349c570b@redslave.neermore.group>
+In-Reply-To: <20220620115549.1529597-1-apatel@ventanamicro.com>
+References: <20220620115549.1529597-1-apatel@ventanamicro.com>
+X-Mailer: Claws Mail 3.17.7 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20220618123035.563070-1-mail@conchuod.ie> <20220618123035.563070-7-mail@conchuod.ie>
- <20220620205654.g7fyipwytbww5757@mobilestation>
-In-Reply-To: <20220620205654.g7fyipwytbww5757@mobilestation>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Tue, 21 Jun 2022 09:03:25 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWDcnAxjxdwpnbfUiDUoo=RGvQm537-EboAmaQTmxpY-g@mail.gmail.com>
-Message-ID: <CAMuHMdWDcnAxjxdwpnbfUiDUoo=RGvQm537-EboAmaQTmxpY-g@mail.gmail.com>
-Subject: Re: [PATCH 06/14] spi: dt-bindings: dw-apb-ssi: update
- spi-{r,t}x-bus-width for dwc-ssi
-To: Serge Semin <fancer.lancer@gmail.com>
-Cc: Conor Dooley <mail@conchuod.ie>, David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor.dooley@microchip.com>, Masahiro Yamada <masahiroy@kernel.org>, 
-	Damien Le Moal <damien.lemoal@opensource.wdc.com>, Niklas Cassel <niklas.cassel@wdc.com>, 
-	Dillon Min <dillon.minfei@gmail.com>, Heng Sia <jee.heng.sia@intel.com>, 
-	Jose Abreu <joabreu@synopsys.com>, DRI Development <dri-devel@lists.freedesktop.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, dmaengine <dmaengine@vger.kernel.org>, 
-	ALSA Development Mailing List <alsa-devel@alsa-project.org>, linux-spi <linux-spi@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220621_000352_017021_BD4B103A 
-X-CRM114-Status: GOOD (  33.96  )
+X-CRM114-CacheID: sfid-20220621_004041_958793_5A443008 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,108 +77,161 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Serge,
+Hello Anup!
 
-On Mon, Jun 20, 2022 at 10:56 PM Serge Semin <fancer.lancer@gmail.com> wrote:
-> On Sat, Jun 18, 2022 at 01:30:28PM +0100, Conor Dooley wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
-> >
-> > snps,dwc-ssi-1.01a has a single user - the Canaan k210, which uses a
-> > width of 4 for spi-{r,t}x-bus-width. Update the binding to reflect
-> > this.
-> >
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> > ---
-> >  .../bindings/spi/snps,dw-apb-ssi.yaml         | 48 ++++++++++++++-----
-> >  1 file changed, 35 insertions(+), 13 deletions(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-> > index e25d44c218f2..f2b9e3f062cd 100644
-> > --- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-> > +++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-> > @@ -135,19 +135,41 @@ properties:
-> >        of the designware controller, and the upper limit is also subject to
-> >        controller configuration.
-> >
-> > -patternProperties:
-> > -  "^.*@[0-9a-f]+$":
-> > -    type: object
-> > -    properties:
-> > -      reg:
-> > -        minimum: 0
-> > -        maximum: 3
-> > -
-> > -      spi-rx-bus-width:
-> > -        const: 1
-> > -
-> > -      spi-tx-bus-width:
-> > -        const: 1
-> > +if:
-> > +  properties:
-> > +    compatible:
-> > +      contains:
-> > +        const: snps,dwc-ssi-1.01a
-> > +
-> > +then:
-> > +  patternProperties:
-> > +    "^.*@[0-9a-f]+$":
-> > +      type: object
-> > +      properties:
-> > +        reg:
-> > +          minimum: 0
-> > +          maximum: 3
-> > +
-> > +        spi-rx-bus-width:
-> > +          const: 4
-> > +
-> > +        spi-tx-bus-width:
-> > +          const: 4
-> > +
-> > +else:
-> > +  patternProperties:
-> > +    "^.*@[0-9a-f]+$":
-> > +      type: object
-> > +      properties:
-> > +        reg:
-> > +          minimum: 0
-> > +          maximum: 3
-> > +
-> > +        spi-rx-bus-width:
-> > +          const: 1
-> > +
-> > +        spi-tx-bus-width:
-> > +          const: 1
->
-> You can just use a more relaxed constraint "enum: [1 2 4 8]" here
-> irrespective from the compatible string. The modern DW APB SSI
-> controllers of v.4.* and newer also support the enhanced SPI Modes too
-> (Dual, Quad and Octal). Since the IP-core version is auto-detected at
-> run-time there is no way to create a DT-schema correctly constraining
-> the Rx/Tx SPI bus widths. So let's keep the
-> compatible-string-independent "patternProperties" here but just extend
-> the set of acceptable "spi-rx-bus-width" and "spi-tx-bus-width"
-> properties values.
->
-> Note the DW APB SSI/AHB SSI driver currently doesn't support the
-> enhanced SPI modes. So I am not sure whether the multi-lines Rx/Tx SPI
-> bus indeed works for Canaan K210 AHB SSI controller. AFAICS from the
-> DW APB SSI v4.01a manual the Enhanced SPI mode needs to be properly
-> activated by means of the corresponding CSR. So most likely the DW AHB
-> SSI controllers need some specific setups too.
+On Mon, 20 Jun 2022 17:25:49 +0530
+Anup Patel <apatel@ventanamicro.com> wrote:
 
-That doesn't matter here, as DT describes hardware, not software
-limitations.
+> Identifying the underlying RISC-V implementation can be important
+> for some of the user space applications. For example, the perf tool
+> uses arch specific CPU implementation id (i.e. CPUID) to select a
+> JSON file describing custom perf events on a CPU.
+> 
+> Currently, there is no way to identify RISC-V implementation so we
+> add mvendorid, marchid, and mimpid to /proc/cpuinfo output.
 
-Gr{oetje,eeting}s,
+Tested on Sifive Unmatched:
 
-                        Geert
+localhost / # cat /proc/cpuinfo 
+processor       : 0
+hart            : 4
+isa             : rv64imafdc
+mmu             : sv39
+uarch           : sifive,bullet0
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+processor       : 1
+hart            : 1
+isa             : rv64imafdc
+mmu             : sv39
+uarch           : sifive,bullet0
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+processor       : 2
+hart            : 2
+isa             : rv64imafdc
+mmu             : sv39
+uarch           : sifive,bullet0
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
+
+processor       : 3
+hart            : 3
+isa             : rv64imafdc
+mmu             : sv39
+uarch           : sifive,bullet0
+mvendorid       : 0x489
+marchid         : 0x8000000000000007
+mimpid          : 0x20181004
+
+mvendorid, marchid values match the register description in u74 manual.
+
+mimpid seems to be ok, through i can't find exact in U74/Unmatched docs.
+
+Tested-by: Nikita Shubin <n.shubin@yadro.com>
+
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/kernel/cpu.c | 51
+> +++++++++++++++++++++++++++++++++++++++++ 1 file changed, 51
+> insertions(+)
+> 
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index fba9e9f46a8c..c037b8691bbb 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -3,10 +3,13 @@
+>   * Copyright (C) 2012 Regents of the University of California
+>   */
+>  
+> +#include <linux/cpu.h>
+>  #include <linux/init.h>
+>  #include <linux/seq_file.h>
+>  #include <linux/of.h>
+> +#include <asm/csr.h>
+>  #include <asm/hwcap.h>
+> +#include <asm/sbi.h>
+>  #include <asm/smp.h>
+>  #include <asm/pgtable.h>
+>  
+> @@ -64,6 +67,50 @@ int riscv_of_parent_hartid(struct device_node
+> *node) }
+>  
+>  #ifdef CONFIG_PROC_FS
+> +
+> +struct riscv_cpuinfo {
+> +	unsigned long mvendorid;
+> +	unsigned long marchid;
+> +	unsigned long mimpid;
+> +};
+> +static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+> +
+> +static int riscv_cpuinfo_starting(unsigned int cpu)
+> +{
+> +	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
+> +
+> +#if defined(CONFIG_RISCV_SBI)
+> +	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
+> +	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
+> +	ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
+> +#elif defined(CONFIG_RISCV_M_MODE)
+> +	ci->mvendorid = csr_read(CSR_MVENDORID);
+> +	ci->marchid = csr_read(CSR_MARCHID);
+> +	ci->mimpid = csr_read(CSR_MIMPID);
+> +#else
+> +	ci->mvendorid = 0;
+> +	ci->marchid = 0;
+> +	ci->mimpid = 0;
+> +#endif
+> +
+> +	return 0;
+> +}
+> +
+> +static int __init riscv_cpuinfo_init(void)
+> +{
+> +	int ret;
+> +
+> +	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+> "riscv/cpuinfo:starting",
+> +				riscv_cpuinfo_starting, NULL);
+> +	if (ret < 0) {
+> +		pr_err("cpuinfo: failed to register hotplug
+> callbacks.\n");
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +device_initcall(riscv_cpuinfo_init);
+> +
+>  #define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
+>  	{							\
+>  		.uprop = #UPROP,				\
+> @@ -178,6 +225,7 @@ static int c_show(struct seq_file *m, void *v)
+>  {
+>  	unsigned long cpu_id = (unsigned long)v - 1;
+>  	struct device_node *node = of_get_cpu_node(cpu_id, NULL);
+> +	struct riscv_cpuinfo *ci = per_cpu_ptr(&riscv_cpuinfo,
+> cpu_id); const char *compat, *isa;
+>  
+>  	seq_printf(m, "processor\t: %lu\n", cpu_id);
+> @@ -188,6 +236,9 @@ static int c_show(struct seq_file *m, void *v)
+>  	if (!of_property_read_string(node, "compatible", &compat)
+>  	    && strcmp(compat, "riscv"))
+>  		seq_printf(m, "uarch\t\t: %s\n", compat);
+> +	seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
+> +	seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
+> +	seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
+>  	seq_puts(m, "\n");
+>  	of_node_put(node);
+>  
+
 
 _______________________________________________
 linux-riscv mailing list
