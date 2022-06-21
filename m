@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96659C43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jun 2022 07:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4533C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 21 Jun 2022 07:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=07UEeyg2vb9WPlHpZyEm5lDv0rVUfGnLxd9f7m8haXA=; b=zYrNqsZnQk7uIK
-	Q9zfQViTakhgAvKtAICxd+kEG47JFvtUKeF5X3z4nUt5ekNY/+Kdw+Q4Z+akBjG6Rbie0p9+rxz8O
-	PkDyxH0kcjjSfe+UjrRScUWbIV2rv09XYpZxbf7UvTkvg6PsIIhN83u2mZFbwpKY4RF3u248Eubwl
-	6x1E1NAw0cwu++LWWM90ljGhyKkle1hqqZW/382lpIOUzPH1MsBGVd5eJufmQLAMLmTigc7aD1J3Q
-	94eCjoLsl2FbOZ9md1LxmjnBNGrsufp8K/sbijfuB29ed/jtzHz16KbZn1k1Ruap8lSuDKzuJGanH
-	1ZZ/xeqBOo280JIvBTlQ==;
+	List-Owner; bh=fsIFn+oFK3eAAWW8OECanCggIA6MhOPGxZ7QKBT/t1c=; b=ZHE90uzjlNUA6B
+	0R2E0vl8/TpkE+Sgup5Gd/aByVBnzxpK0ENY4GnPD7Z6GCZGneYg6n1J8wYjIXVA/uOFDSKIykEoE
+	JPHf0zFYmlz4B2PqhngCx4mGHi9F0691vi6Xos6hgz+O0pqNa0v0r4kpRvh2/jc9zSyjOXS1X6cP4
+	2yJfg7tvRWYFDV7vjeM6TLzym5GNYXg36wrj9ZJ9Gh1bNFRn9LAVm2Zo0PApgWCVEhi8s5PumJJ5D
+	K+r0fi61srl2yFKAyN8OXUgXBFxgrs4W+qC6+ZuOQLfnMPg/l0ZnhLWWyOaacnc1RGK6K5/KJ6EzN
+	XsWWFJA0ew5hzKmyQscw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3YVC-00497t-2t; Tue, 21 Jun 2022 07:40:46 +0000
-Received: from forward500o.mail.yandex.net ([2a02:6b8:0:1a2d::610])
+	id 1o3YXq-004A5M-OM; Tue, 21 Jun 2022 07:43:30 +0000
+Received: from forward501j.mail.yandex.net ([5.45.198.251])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3YV6-00493Z-LB
-	for linux-riscv@lists.infradead.org; Tue, 21 Jun 2022 07:40:44 +0000
-Received: from myt6-93965afc2133.qloud-c.yandex.net (myt6-93965afc2133.qloud-c.yandex.net [IPv6:2a02:6b8:c12:5525:0:640:9396:5afc])
-	by forward500o.mail.yandex.net (Yandex) with ESMTP id CD00D940DAC;
-	Tue, 21 Jun 2022 10:40:33 +0300 (MSK)
-Received: from myt5-01d0fbe499ab.qloud-c.yandex.net (myt5-01d0fbe499ab.qloud-c.yandex.net [2a02:6b8:c12:4619:0:640:1d0:fbe4])
-	by myt6-93965afc2133.qloud-c.yandex.net (mxback/Yandex) with ESMTP id DqjiMbBwxe-eWh05tEC;
-	Tue, 21 Jun 2022 10:40:33 +0300
+	id 1o3YXe-0049zf-46; Tue, 21 Jun 2022 07:43:20 +0000
+Received: from vla5-b542255b2eb7.qloud-c.yandex.net (vla5-b542255b2eb7.qloud-c.yandex.net [IPv6:2a02:6b8:c18:3514:0:640:b542:255b])
+	by forward501j.mail.yandex.net (Yandex) with ESMTP id 99DEE624007;
+	Tue, 21 Jun 2022 10:41:43 +0300 (MSK)
+Received: from vla1-aa6bc93a06fb.qloud-c.yandex.net (vla1-aa6bc93a06fb.qloud-c.yandex.net [2a02:6b8:c0d:3a21:0:640:aa6b:c93a])
+	by vla5-b542255b2eb7.qloud-c.yandex.net (mxback/Yandex) with ESMTP id aZSlotdOWI-fgeGPAv5;
+	Tue, 21 Jun 2022 10:41:43 +0300
 X-Yandex-Fwd: 2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail; t=1655797233;
-	bh=RdX/+yTKrxFGxvASlWbAzAdqYEzzocthfBSsMMgNr3Y=;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail; t=1655797303;
+	bh=VcW35AzP/3Dp38gpQny9DaSilKTu5rSPH8SbYdxNKFA=;
 	h=In-Reply-To:Subject:Cc:To:From:References:Date:Message-ID;
-	b=Qy4sYZrHWLy5aniM2Q8DLanUFI2lgGMlIcLBMZOvtbwlm7YyrxUEHTcfljkQpY0id
-	 q89bdZ8psW9qhCz159ety4bcuXPib6E965hdu9hgKWU5MWpeAOg6n/PQa0bz2W7e4A
-	 KgXh1+wx9D3ICmQgv+YD//brfOeeNQ0JECFWaJ44=
-Authentication-Results: myt6-93965afc2133.qloud-c.yandex.net; dkim=pass header.i=@maquefel.me
-Received: by myt5-01d0fbe499ab.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA id zSjiCSJHOL-eVMWsID8;
-	Tue, 21 Jun 2022 10:40:32 +0300
+	b=Qnv9rS0ugztTRy7dpivTm47VntUyKvxwAv/TbOhinVjZ/Zaa4T/hvN7ioxlYKNrQu
+	 dokRzna1SpHb7ulYg6QfoXtiJZ7tQdAMnjlB0zq06KnUTdFpnmu7WMc8gu25KbGviO
+	 O3KXWOlU66+BY+9dOzqQmEU2mGiqtD/8pGzLLgCs=
+Authentication-Results: vla5-b542255b2eb7.qloud-c.yandex.net; dkim=pass header.i=@maquefel.me
+Received: by vla1-aa6bc93a06fb.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA id HmnZX5AH9J-feMCXJdd;
+	Tue, 21 Jun 2022 10:41:41 +0300
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
 	(Client certificate not present)
-Date: Tue, 21 Jun 2022 10:40:30 +0300
+Date: Tue, 21 Jun 2022 10:41:39 +0300
 From: Nikita Shubin <nikita.shubin@maquefel.me>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>, Atish Patra
- <atishp@atishpatra.org>, Heinrich Schuchardt
- <heinrich.schuchardt@canonical.com>, Anup Patel <anup@brainfault.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] RISC-V: Add mvendorid, marchid, and mimpid to
- /proc/cpuinfo output
-Message-ID: <20220621104030.349c570b@redslave.neermore.group>
-In-Reply-To: <20220620115549.1529597-1-apatel@ventanamicro.com>
-References: <20220620115549.1529597-1-apatel@ventanamicro.com>
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Will Deacon <will@kernel.org>,
+ Sunil V L <sunilvl@ventanamicro.com>, =?UTF-8?B?Sm/Do28gTcOhcmlv?= Domingos
+ <joao.mario@tecnico.ulisboa.pt>, linux <linux@yadro.com>, Nikita Shubin
+ <n.shubin@yadro.com>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Anup Patel
+ <anup@brainfault.org>, Mark Rutland <mark.rutland@arm.com>, Geert
+ Uytterhoeven <geert@linux-m68k.org>, linux-riscv
+ <linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org List"
+ <linux-kernel@vger.kernel.org>, Linux ARM
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v4 1/1] RISC-V: Create unique identification for SoC PMU
+Message-ID: <20220621104139.7c77e348@redslave.neermore.group>
+In-Reply-To: <CAOnJCU+7_z1WN_Z6frQcUwzztVL4itbPSfmLUa_7Ob5xCtLo+Q@mail.gmail.com>
+References: <20220619111115.6354-1-nikita.shubin@maquefel.me>
+	<20220619111115.6354-2-nikita.shubin@maquefel.me>
+	<CAK9=C2X4TTCEjZya4wz-W6ndBaxzUpLBtzQAGJ4zphVM8NSgdg@mail.gmail.com>
+	<20220620174006.1c86a456@redslave.neermore.group>
+	<CAOnJCU+7_z1WN_Z6frQcUwzztVL4itbPSfmLUa_7Ob5xCtLo+Q@mail.gmail.com>
 X-Mailer: Claws Mail 3.17.7 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220621_004041_958793_5A443008 
-X-CRM114-Status: GOOD (  23.16  )
+X-CRM114-CacheID: sfid-20220621_004318_558963_83CEFC8C 
+X-CRM114-Status: GOOD (  38.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,168 +79,126 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Anup!
-
-On Mon, 20 Jun 2022 17:25:49 +0530
-Anup Patel <apatel@ventanamicro.com> wrote:
-
-> Identifying the underlying RISC-V implementation can be important
-> for some of the user space applications. For example, the perf tool
-> uses arch specific CPU implementation id (i.e. CPUID) to select a
-> JSON file describing custom perf events on a CPU.
-> 
-> Currently, there is no way to identify RISC-V implementation so we
-> add mvendorid, marchid, and mimpid to /proc/cpuinfo output.
-
-Tested on Sifive Unmatched:
-
-localhost / # cat /proc/cpuinfo 
-processor       : 0
-hart            : 4
-isa             : rv64imafdc
-mmu             : sv39
-uarch           : sifive,bullet0
-mvendorid       : 0x489
-marchid         : 0x8000000000000007
-mimpid          : 0x20181004
-
-processor       : 1
-hart            : 1
-isa             : rv64imafdc
-mmu             : sv39
-uarch           : sifive,bullet0
-mvendorid       : 0x489
-marchid         : 0x8000000000000007
-mimpid          : 0x20181004
-
-processor       : 2
-hart            : 2
-isa             : rv64imafdc
-mmu             : sv39
-uarch           : sifive,bullet0
-mvendorid       : 0x489
-marchid         : 0x8000000000000007
-mimpid          : 0x20181004
-
-processor       : 3
-hart            : 3
-isa             : rv64imafdc
-mmu             : sv39
-uarch           : sifive,bullet0
-mvendorid       : 0x489
-marchid         : 0x8000000000000007
-mimpid          : 0x20181004
-
-mvendorid, marchid values match the register description in u74 manual.
-
-mimpid seems to be ok, through i can't find exact in U74/Unmatched docs.
-
-Tested-by: Nikita Shubin <n.shubin@yadro.com>
-
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/kernel/cpu.c | 51
-> +++++++++++++++++++++++++++++++++++++++++ 1 file changed, 51
-> insertions(+)
-> 
-> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> index fba9e9f46a8c..c037b8691bbb 100644
-> --- a/arch/riscv/kernel/cpu.c
-> +++ b/arch/riscv/kernel/cpu.c
-> @@ -3,10 +3,13 @@
->   * Copyright (C) 2012 Regents of the University of California
->   */
->  
-> +#include <linux/cpu.h>
->  #include <linux/init.h>
->  #include <linux/seq_file.h>
->  #include <linux/of.h>
-> +#include <asm/csr.h>
->  #include <asm/hwcap.h>
-> +#include <asm/sbi.h>
->  #include <asm/smp.h>
->  #include <asm/pgtable.h>
->  
-> @@ -64,6 +67,50 @@ int riscv_of_parent_hartid(struct device_node
-> *node) }
->  
->  #ifdef CONFIG_PROC_FS
-> +
-> +struct riscv_cpuinfo {
-> +	unsigned long mvendorid;
-> +	unsigned long marchid;
-> +	unsigned long mimpid;
-> +};
-> +static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
-> +
-> +static int riscv_cpuinfo_starting(unsigned int cpu)
-> +{
-> +	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
-> +
-> +#if defined(CONFIG_RISCV_SBI)
-> +	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
-> +	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
-> +	ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
-> +#elif defined(CONFIG_RISCV_M_MODE)
-> +	ci->mvendorid = csr_read(CSR_MVENDORID);
-> +	ci->marchid = csr_read(CSR_MARCHID);
-> +	ci->mimpid = csr_read(CSR_MIMPID);
-> +#else
-> +	ci->mvendorid = 0;
-> +	ci->marchid = 0;
-> +	ci->mimpid = 0;
-> +#endif
-> +
-> +	return 0;
-> +}
-> +
-> +static int __init riscv_cpuinfo_init(void)
-> +{
-> +	int ret;
-> +
-> +	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-> "riscv/cpuinfo:starting",
-> +				riscv_cpuinfo_starting, NULL);
-> +	if (ret < 0) {
-> +		pr_err("cpuinfo: failed to register hotplug
-> callbacks.\n");
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +device_initcall(riscv_cpuinfo_init);
-> +
->  #define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
->  	{							\
->  		.uprop = #UPROP,				\
-> @@ -178,6 +225,7 @@ static int c_show(struct seq_file *m, void *v)
->  {
->  	unsigned long cpu_id = (unsigned long)v - 1;
->  	struct device_node *node = of_get_cpu_node(cpu_id, NULL);
-> +	struct riscv_cpuinfo *ci = per_cpu_ptr(&riscv_cpuinfo,
-> cpu_id); const char *compat, *isa;
->  
->  	seq_printf(m, "processor\t: %lu\n", cpu_id);
-> @@ -188,6 +236,9 @@ static int c_show(struct seq_file *m, void *v)
->  	if (!of_property_read_string(node, "compatible", &compat)
->  	    && strcmp(compat, "riscv"))
->  		seq_printf(m, "uarch\t\t: %s\n", compat);
-> +	seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
-> +	seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
-> +	seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
->  	seq_puts(m, "\n");
->  	of_node_put(node);
->  
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG8gQW51cCEKCk9uIE1vbiwgMjAgSnVuIDIwMjIgMTI6NDA6MjAgLTA3MDAKQXRpc2ggUGF0
+cmEgPGF0aXNocEBhdGlzaHBhdHJhLm9yZz4gd3JvdGU6Cgo+IE9uIE1vbiwgSnVuIDIwLCAyMDIy
+IGF0IDc6NDAgQU0gTmlraXRhIFNodWJpbgo+IDxuaWtpdGEuc2h1YmluQG1hcXVlZmVsLm1lPiB3
+cm90ZToKPiA+Cj4gPiBPbiBNb24sIDIwIEp1biAyMDIyIDE3OjMwOjU4ICswNTMwCj4gPiBBbnVw
+IFBhdGVsIDxhcGF0ZWxAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4gPiAgCj4gPiA+IE9uIFN1
+biwgSnVuIDE5LCAyMDIyIGF0IDQ6NDEgUE0gTmlraXRhIFNodWJpbgo+ID4gPiA8bmlraXRhLnNo
+dWJpbkBtYXF1ZWZlbC5tZT4gd3JvdGU6ICAKPiA+ID4gPgo+ID4gPiA+IEZyb206IE5pa2l0YSBT
+aHViaW4gPG4uc2h1YmluQHlhZHJvLmNvbT4KPiA+ID4gPgo+ID4gPiA+IFByb3ZpZGUgUklTQy1W
+IFNCSSBQTVUgaWQgdG8gZGlzdGluZ3Vpc2ggZGlmZmVyZW50IGNvcmVzIG9yCj4gPiA+ID4gU29D
+cyB2aWEgImRldmljZXMvcGxhdGZvcm0vcmlzY3YtcG11L2lkIiBzeXNmcyBlbnRyeS4KPiA+ID4g
+Pgo+ID4gPiA+IFRoZSBpZGVudGlmaWNhdGlvbiBpcyBnZW5lcmF0ZWQgYXMgc3RyaW5nIG9mIG1h
+cmNoaWQsIG1pbXBpZCwKPiA+ID4gPiBtdmVuZG9yaWQgaW4gaGV4IGZvcm1hdCBzZXBhcmF0ZWQg
+YnkgY29tYSAtCj4gPiA+ID4gIjB4NzAwMzIsMHg3MDAzMiwweDAiLgo+ID4gPiA+Cj4gPiA+ID4g
+VGhlIENTUnMgYXJlIGRldGFpbGVkIGluIHRoZSBSSVNDLVYgcHJpdmlsZWdlZCBzcGVjIFsxXS4K
+PiA+ID4gPiBbMV0gaHR0cHM6Ly9naXRodWIuY29tL3Jpc2N2L3Jpc2N2LWlzYS1tYW51YWwKPiA+
+ID4gPgo+ID4gPiA+IEluc3BpcmVkLWJ5OiBKb8OjbyBNw6FyaW8gRG9taW5nb3MgPGpvYW8ubWFy
+aW9AdGVjbmljby51bGlzYm9hLnB0Pgo+ID4gPiA+IFNpZ25lZC1vZmYtYnk6IE5pa2l0YSBTaHVi
+aW4gPG4uc2h1YmluQHlhZHJvLmNvbT4gIAo+ID4gPgo+ID4gPiBUaGUgbXZlbmRvcmlkLCBtYXJj
+aGlkLCBhbmQgbWltcGlkIGNhbiBiZSB1c2VmdWwgdG8gYXBwcyBvdGhlcgo+ID4gPiB0aGFuIHBl
+cmYgdG9vbC4KPiA+ID4KPiA+ID4gSSBoYXZlIHRyaWVkIHRvIGV4dGVuZCAvcHJvYy9jcHVpbmZv
+IHdpdGggdGhpcyBpbmZvcm1hdGlvbiB3aGljaAo+ID4gPiBjYW4gYmUgcGFyc2VkIGJ5IHBlcmYg
+dG9vbDoKPiA+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjIwNjIwMTE1NTQ5LjE1
+Mjk1OTctMS1hcGF0ZWxAdmVudGFuYW1pY3JvLmNvbS8KPiA+ID4gIAo+ID4KPiA+IEF0aXNoLCB3
+aGF0IGRvIHlvdSB0aGluayBhYm91dCB0aGlzID8KPiA+Cj4gPiBSSVNDLVYgcGVyZiBjYW4gcmVs
+eSBvbiAiL3Byb2MvY3B1aW5mbyIsIGluIHNvbWUgc2ltaWxhciBtYW5uZXIgbGlrZQo+ID4gInRv
+b2xzL3BlcmYvYXJjaC9zMzkwL3V0aWwvaGVhZGVyLmMiIGRvZXMuCj4gPiAgCj4gCj4gWWVzLiBX
+ZSBjYW4gZXhwb3NlIHRoZXNlIHRocmVlIHZhbHVlcyBlaXRoZXIgaW4gc3lzZnMgb3IgcHJvY2Zz
+Cj4gKC9wcm9jL2NwdWluZm8pLiBGb3IgcGVyZiB0b29sLCBpdCBzaG91bGRuJ3QgbWF0dGVyIGFz
+IHRoZSBoZWFkZXIuYwo+IHdpbGwgbmVlZCB0byBnZW5lcmF0ZSB0aGUgdW5pcXVlIGNwdWlkCj4g
+c3RyaW5nIGZyb20gZWl0aGVyLgo+IAo+IEkgYW0gbm90IHN1cmUgaWYgYW55IG90aGVyIHVzZXJz
+cGFjZSB0b29sIHByZWZlcnMgdG8gcGFyc2Ugc3lzZnMKPiBpbnN0ZWFkIG9mIGNwdWluZm8uCgpP
+a2F5IC0gbGV0J3Mgc3RpY2sgdG8gL3Byb2MvY3B1aW5mby4KCj4gCj4gPiBDYW4gaXQgY3JlYXRl
+IHByb2JsZW1zIHdpdGggcG11IGlkZW50aWZpY2F0aW9uIGluIGNhc2Ugb2YKPiA+IGhldGVyZ2Vu
+b3VzIGhhcnRzID8KPiA+ICAKPiAKPiBEb2VzIHBlcmYgc3VwcG9ydCBoZXRlcmdlbm91cyBoYXJ0
+cyBhdCBhbGwgPyBBUk02NCBjb2RlCj4gKHRvb2wvcGVyZi9hcmNoL2FybTY0L3V0aWwvaGVhZGVy
+LmMpCj4ganVzdCBicmVha3Mgb3V0IG9mIHRoZSBsb29wIGFmdGVyIGZpbmRpbmcgdGhlIGZpcnN0
+IE1JRFIuCj4gCj4gPiA+Cj4gPiA+IFJlZ2FyZHMsCj4gPiA+IEFudXAKPiA+ID4gIAo+ID4gPiA+
+IC0tLQo+ID4gPiA+IHYzLT52NDoKPiA+ID4gPiAtIHVzZSBzdHJpbmcgZm9yIHBtdWlkCj4gPiA+
+ID4gLSByZW5hbWUgcG11X3NiaV9pZF9zaG93IHRvIGlkX3Nob3cKPiA+ID4gPiAtIGZpeCBlcnJv
+ciBwcmludCBtZXNzYWdlIGluIGlkX3Nob3cKPiA+ID4gPiAtIGZpeCBERVZJQ0VfQVRUUiB0byB1
+c2Ugb2N0YWwgcGVybWlzc2lvbnMKPiA+ID4gPiAtLS0KPiA+ID4gPiAgYXJjaC9yaXNjdi9rZXJu
+ZWwvc2JpLmMgICAgICAgIHwgIDMgKysrCj4gPiA+ID4gIGRyaXZlcnMvcGVyZi9yaXNjdl9wbXVf
+c2JpLmMgICB8IDQxCj4gPiA+ID4gKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+
+ID4gPiA+IGluY2x1ZGUvbGludXgvcGVyZi9yaXNjdl9wbXUuaCB8IDEgKyAzIGZpbGVzIGNoYW5n
+ZWQsIDQ1Cj4gPiA+ID4gaW5zZXJ0aW9ucygrKQo+ID4gPiA+Cj4gPiA+ID4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3Yva2VybmVsL3NiaS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2JpLmMKPiA+ID4g
+PiBpbmRleCA3NzVkMzMyMmI0MjIuLjUwZGQ5YjZlY2M5ZSAxMDA2NDQKPiA+ID4gPiAtLS0gYS9h
+cmNoL3Jpc2N2L2tlcm5lbC9zYmkuYwo+ID4gPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Ni
+aS5jCj4gPiA+ID4gQEAgLTYyNywxNiArNjI3LDE5IEBAIGxvbmcgc2JpX2dldF9tdmVuZG9yaWQo
+dm9pZCkKPiA+ID4gPiAgewo+ID4gPiA+ICAgICAgICAgcmV0dXJuIF9fc2JpX2Jhc2VfZWNhbGwo
+U0JJX0VYVF9CQVNFX0dFVF9NVkVORE9SSUQpOwo+ID4gPiA+ICB9Cj4gPiA+ID4gK0VYUE9SVF9T
+WU1CT0woc2JpX2dldF9tdmVuZG9yaWQpOwo+ID4gPiA+Cj4gPiA+ID4gIGxvbmcgc2JpX2dldF9t
+YXJjaGlkKHZvaWQpCj4gPiA+ID4gIHsKPiA+ID4gPiAgICAgICAgIHJldHVybiBfX3NiaV9iYXNl
+X2VjYWxsKFNCSV9FWFRfQkFTRV9HRVRfTUFSQ0hJRCk7Cj4gPiA+ID4gIH0KPiA+ID4gPiArRVhQ
+T1JUX1NZTUJPTChzYmlfZ2V0X21hcmNoaWQpOwo+ID4gPiA+Cj4gPiA+ID4gIGxvbmcgc2JpX2dl
+dF9taW1waWQodm9pZCkKPiA+ID4gPiAgewo+ID4gPiA+ICAgICAgICAgcmV0dXJuIF9fc2JpX2Jh
+c2VfZWNhbGwoU0JJX0VYVF9CQVNFX0dFVF9NSU1QSUQpOwo+ID4gPiA+ICB9Cj4gPiA+ID4gK0VY
+UE9SVF9TWU1CT0woc2JpX2dldF9taW1waWQpOwo+ID4gPiA+Cj4gPiA+ID4gIHN0YXRpYyB2b2lk
+IHNiaV9zZW5kX2NwdW1hc2tfaXBpKGNvbnN0IHN0cnVjdCBjcHVtYXNrICp0YXJnZXQpCj4gPiA+
+ID4gIHsKPiA+ID4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYwo+
+ID4gPiA+IGIvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYyBpbmRleCBkY2EzNTM3YThkY2Mu
+LmJlODEyZjg1NTYxNwo+ID4gPiA+IDEwMDY0NCAtLS0gYS9kcml2ZXJzL3BlcmYvcmlzY3ZfcG11
+X3NiaS5jCj4gPiA+ID4gKysrIGIvZHJpdmVycy9wZXJmL3Jpc2N2X3BtdV9zYmkuYwo+ID4gPiA+
+IEBAIC02OTMsNiArNjkzLDI4IEBAIHN0YXRpYyBpbnQgcG11X3NiaV9zZXR1cF9pcnFzKHN0cnVj
+dAo+ID4gPiA+IHJpc2N2X3BtdSAqcG11LCBzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGUgcmV0
+dXJuIDA7Cj4gPiA+ID4gIH0KPiA+ID4gPgo+ID4gPiA+ICtzdGF0aWMgc3NpemVfdCBpZF9zaG93
+KHN0cnVjdCBkZXZpY2UgKmRldiwKPiA+ID4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIHN0cnVjdCBkZXZpY2VfYXR0cmlidXRlICphdHRyLAo+ID4gPiA+IGNoYXIgKmJ1ZikgK3sK
+PiA+ID4gPiArICAgICAgIGludCBsZW47Cj4gPiA+ID4gKyAgICAgICBzdHJ1Y3QgcmlzY3ZfcG11
+ICpwbXUgPQo+ID4gPiA+IGNvbnRhaW5lcl9vZihkZXZfZ2V0X2RydmRhdGEoZGV2KSwgc3RydWN0
+IHJpc2N2X3BtdSwgcG11KTsgKwo+ID4gPiA+ICsgICAgICAgbGVuID0gc3ByaW50ZihidWYsICIl
+c1xuIiwgcG11LT5wbXVpZCk7Cj4gPiA+ID4gKyAgICAgICBpZiAobGVuIDw9IDApCj4gPiA+ID4g
+KyAgICAgICAgICAgICAgIGRldl9lcnIoZGV2LCAiaW52YWxpZCBzcHJpbnRmIGxlbjogJWRcbiIs
+IGxlbik7Cj4gPiA+ID4gKwo+ID4gPiA+ICsgICAgICAgcmV0dXJuIGxlbjsKPiA+ID4gPiArfQo+
+ID4gPiA+ICsKPiA+ID4gPiArc3RhdGljIERFVklDRV9BVFRSKGlkLCAwNjQ0LCBpZF9zaG93LCBO
+VUxMKTsKPiA+ID4gPiArCj4gPiA+ID4gK3N0YXRpYyBzdHJ1Y3QgYXR0cmlidXRlICpwbXVfc2Jp
+X2F0dHJzW10gPSB7Cj4gPiA+ID4gKyAgICAgICAmZGV2X2F0dHJfaWQuYXR0ciwKPiA+ID4gPiAr
+ICAgICAgIE5VTEwKPiA+ID4gPiArfTsKPiA+ID4gPiArCj4gPiA+ID4gK0FUVFJJQlVURV9HUk9V
+UFMocG11X3NiaSk7Cj4gPiA+ID4gKwo+ID4gPiA+ICBzdGF0aWMgaW50IHBtdV9zYmlfZGV2aWNl
+X3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCj4gPiA+ID4gIHsKPiA+ID4gPiAg
+ICAgICAgIHN0cnVjdCByaXNjdl9wbXUgKnBtdSA9IE5VTEw7Cj4gPiA+ID4gQEAgLTcxNCw2ICs3
+MzYsMTQgQEAgc3RhdGljIGludCBwbXVfc2JpX2RldmljZV9wcm9iZShzdHJ1Y3QKPiA+ID4gPiBw
+bGF0Zm9ybV9kZXZpY2UgKnBkZXYpIGlmIChwbXVfc2JpX2dldF9jdHJpbmZvKG51bV9jb3VudGVy
+cykpCj4gPiA+ID4gICAgICAgICAgICAgICAgIGdvdG8gb3V0X2ZyZWU7Cj4gPiA+ID4KPiA+ID4g
+PiArICAgICAgIC8qIGZpbGwgcG11aWQgKi8KPiA+ID4gPiArICAgICAgIHBtdS0+cG11aWQgPSBr
+YXNwcmludGYoR0ZQX0tFUk5FTCwgIjB4JWx4LDB4JWx4LDB4JWx4IiwKPiA+ID4gPiArICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgc2JpX2dldF9tYXJjaGlkKCksCj4gPiA+ID4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHNiaV9nZXRfbWltcGlkKCksCj4gPiA+ID4gKyAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIHNiaV9nZXRfbXZlbmRvcmlkKCkpOwo+ID4gPiA+ICsg
+ICAgICAgaWYgKCFwbXUtPnBtdWlkKQo+ID4gPiA+ICsgICAgICAgICAgICAgICBnb3RvIG91dF9m
+cmVlX3BtdWlkOwo+ID4gPiA+ICsKPiA+ID4gPiAgICAgICAgIHJldCA9IHBtdV9zYmlfc2V0dXBf
+aXJxcyhwbXUsIHBkZXYpOwo+ID4gPiA+ICAgICAgICAgaWYgKHJldCA8IDApIHsKPiA+ID4gPiAg
+ICAgICAgICAgICAgICAgcHJfaW5mbygiUGVyZiBzYW1wbGluZy9maWx0ZXJpbmcgaXMgbm90Cj4g
+PiA+ID4gc3VwcG9ydGVkIGFzIHNzY29mIGV4dGVuc2lvbiBpcyBub3QgYXZhaWxhYmxlXG4iKTsg
+QEAgLTczOSw4Cj4gPiA+ID4gKzc2OSwxOSBAQCBzdGF0aWMgaW50IHBtdV9zYmlfZGV2aWNlX3By
+b2JlKHN0cnVjdAo+ID4gPiA+IHBsYXRmb3JtX2RldmljZSAqcGRldikgcmV0dXJuIHJldDsgfQo+
+ID4gPiA+Cj4gPiA+ID4gKyAgICAgICByZXQgPSBzeXNmc19jcmVhdGVfZ3JvdXAoJnBkZXYtPmRl
+di5rb2JqLAo+ID4gPiA+ICZwbXVfc2JpX2dyb3VwKTsKPiA+ID4gPiArICAgICAgIGlmIChyZXQp
+IHsKPiA+ID4gPiArICAgICAgICAgICAgICAgZGV2X2VycigmcGRldi0+ZGV2LCAic3lzZnMgY3Jl
+YXRpb24gZmFpbGVkXG4iKTsKPiA+ID4gPiArICAgICAgICAgICAgICAgcmV0dXJuIHJldDsKPiA+
+ID4gPiArICAgICAgIH0KPiA+ID4gPiArCj4gPiA+ID4gKyAgICAgICBwZGV2LT5kZXYuZ3JvdXBz
+ID0gcG11X3NiaV9ncm91cHM7Cj4gPiA+ID4gKyAgICAgICBkZXZfc2V0X2RydmRhdGEoJnBkZXYt
+PmRldiwgcG11KTsKPiA+ID4gPiArCj4gPiA+ID4gICAgICAgICByZXR1cm4gMDsKPiA+ID4gPgo+
+ID4gPiA+ICtvdXRfZnJlZV9wbXVpZDoKPiA+ID4gPiArICAgICAgIGtmcmVlKHBtdS0+cG11aWQp
+Owo+ID4gPiA+ICBvdXRfZnJlZToKPiA+ID4gPiAgICAgICAgIGtmcmVlKHBtdSk7Cj4gPiA+ID4g
+ICAgICAgICByZXR1cm4gcmV0Owo+ID4gPiA+IGRpZmYgLS1naXQgYS9pbmNsdWRlL2xpbnV4L3Bl
+cmYvcmlzY3ZfcG11LmgKPiA+ID4gPiBiL2luY2x1ZGUvbGludXgvcGVyZi9yaXNjdl9wbXUuaCBp
+bmRleAo+ID4gPiA+IDQ2ZjliNmZlMzA2ZS4uY2YzNTU3Yjc3ZmI4IDEwMDY0NCAtLS0KPiA+ID4g
+PiBhL2luY2x1ZGUvbGludXgvcGVyZi9yaXNjdl9wbXUuaCArKysKPiA+ID4gPiBiL2luY2x1ZGUv
+bGludXgvcGVyZi9yaXNjdl9wbXUuaCBAQCAtNDIsNiArNDIsNyBAQCBzdHJ1Y3QKPiA+ID4gPiBj
+cHVfaHdfZXZlbnRzIHsgc3RydWN0IHJpc2N2X3BtdSB7Cj4gPiA+ID4gICAgICAgICBzdHJ1Y3Qg
+cG11ICAgICAgcG11Owo+ID4gPiA+ICAgICAgICAgY2hhciAgICAgICAgICAgICpuYW1lOwo+ID4g
+PiA+ICsgICAgICAgY2hhciAgICAgICAgICAgICpwbXVpZDsKPiA+ID4gPgo+ID4gPiA+ICAgICAg
+ICAgaXJxcmV0dXJuX3QgICAgICgqaGFuZGxlX2lycSkoaW50IGlycV9udW0sIHZvaWQgKmRldik7
+Cj4gPiA+ID4KPiA+ID4gPiAtLQo+ID4gPiA+IDIuMzUuMQo+ID4gPiA+ICAKPiA+ICAKPiAKPiAK
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
