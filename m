@@ -4,74 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60ABDC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jun 2022 17:44:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98939C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jun 2022 22:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=nKEVL6GNRh4vTABqpZXFTmLhOBthwhrnR/GcjO0attE=; b=45Yr5dYkrXO0H12LcQWigAsin1
-	1qV4ehjQmGj4Atk1R8kJ0k4HzIkPzx3U+QahndV6xelNunertOpsHFHnJ+vTugK2AU4NuIvujxG0j
-	lcAQsgc7/mHxrzsqgKPZbIDXeE6Z/nLle/lNIOAECMcoYCG3XucQ2ZhydMaOMW2HPGeQEhoPoDIsl
-	W2vGKeHrUALFbK+Ejjb/T5kaZ6/hHshZsAKdquTiEXoxLOJtMcLePhmRUPr1yOKQBBHwYaWlYElC+
-	yxOrt/1X4n6yqgwWwl+71EgjLLlMN5wJAB662EMlRvhBXEF/VDT3VCFIaihKLBtfokDGOKGo2Z3Jj
-	JWVptLHA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zSleZhFuAfPerHfIRdYnUbkvcPb51tCnobgeepn02Bs=; b=Rq5YJl1CfNxiVJ
+	hadA1nteWoqK1dvRc7Il5hYX+a0gMthxPYY4BqYJPNWq11uY9RLzNnBy8q9Jh/OoYNyMmMD/DmD5f
+	rFQ/39FEMFhUbRxUe6Dcsoyv5bo+P3WUr70s4NIkV4gyDB4DcDkLtLyt+P5X+uXop1RLRzj4QaYGV
+	SoD8sP06zPo+ORCGRSdNaLUdPn6aCHIGYtsnZXhzy96AOdTf5lofVpwodKg/BUPKNoTmFxuHh8dp6
+	hHgUa+Ps2GtnbZKOriU5YksVLgCILT0f0U2o/Ulp3k8LWKR7/b1JPy0vZ8pG0lJjGnHLw2uOxC8UW
+	36h5SkCI2GJUUJorY0mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o44Oe-00Bjxl-AZ; Wed, 22 Jun 2022 17:44:08 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1o48yU-00CQZ6-11; Wed, 22 Jun 2022 22:37:26 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o44Oa-00Bjvx-Dz
-	for linux-riscv@lists.infradead.org; Wed, 22 Jun 2022 17:44:06 +0000
-Received: by mail-pg1-x532.google.com with SMTP id r66so10782938pgr.2
-        for <linux-riscv@lists.infradead.org>; Wed, 22 Jun 2022 10:43:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=bUXnsJdEFiCG+SMWEsd2jUVr6VH+u5NdRqQetyt+5jU=;
-        b=aN6cVYuVa2RBa6c0SK9DmWxymPrXYFhusiNe2XjgzwcSz3tFcnwgegQGnVn8Rk0G3E
-         no/B9vS8HejD4uV/kTwhBryE8MQqA/mKcM8jcYpwuN/DLI/ojwXxm+1Zj+WXiRhM6Wg5
-         Sek+ZSoMOhzJu9YYMxDVdFTUh7ea94tuidVaTJKWNcW/RbEBv2vpG92zlXVqviRUBnlT
-         b2GGoPNqlsPGG2lO/yN198G3z7+TLGKLeL/fm+d6mUVJ3iX2EhQt9MtUjj1MjVO/C+R8
-         GPKx97BL/HW+CXxCNfhLaSCU7n+8vNktRPyt5xKylDD/7+NZAH2sDsV1KM6Yh7oMVbrA
-         Anjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=bUXnsJdEFiCG+SMWEsd2jUVr6VH+u5NdRqQetyt+5jU=;
-        b=49rOhGi0OUXt7+BPbkMy9ry7i6LhzaZar4smSrQnYYhBzytrs7tv0cK2AyCECIHBJ+
-         W1umfR36tPKthCBKAHJateFdkrPrPVBVNHRWH3LU8PjQzNmXxg2FcyueD7BKgvYgNs/u
-         jfCt3T2Si6gag3/h+M3sZ5vCXP6xGalMB4ZWN0qu9lb7VmLYYo8iCYqG7f07RGteDXe3
-         snwqUMjCi+fc8WhKwJChTj/YzzRchEfRHAEbD5byvMRARPlSg8CIjAMO8bydCQKuAfEM
-         KwRfYq8f3ayWOb/7uPRq68+rcRyft/ID4/PEPAdz3lGgd1daVdhPf9YcU2m+Pwhx4oSK
-         VjCA==
-X-Gm-Message-State: AJIora/3g9NDQBqmw/ScVdQVfA/wJzx0mYmqEpbWpXdF8Eldjtw1FOp+
-	kJW2+N1Gkfr3wKzqXGoRtNnv8w==
-X-Google-Smtp-Source: AGRyM1uhuLVklzd1mZvWuHmjdudBMSsPGdfyvcUOZW4m0ZDtiPRFEmT62FqhS2XMIWcf8orqboT4kQ==
-X-Received: by 2002:a05:6a00:170b:b0:525:4e88:f7ec with SMTP id h11-20020a056a00170b00b005254e88f7ecmr1938154pfc.2.1655919837319;
-        Wed, 22 Jun 2022 10:43:57 -0700 (PDT)
-Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id d4-20020a170902e14400b001637997d0d4sm12932432pla.206.2022.06.22.10.43.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 22 Jun 2022 10:43:55 -0700 (PDT)
-Date: Wed, 22 Jun 2022 10:43:55 -0700 (PDT)
-X-Google-Original-Date: Wed, 22 Jun 2022 10:43:52 PDT (-0700)
-Subject: Re: [PING^2][PATCH] RISC-V: PCI: Avoid handing out address 0 to devices
-In-Reply-To: <alpine.DEB.2.21.2206221202590.57474@angie.orcam.me.uk>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  bhelgaas@google.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: macro@orcam.me.uk
-Message-ID: <mhng-a0733eea-8220-4bf6-b1da-9de3139dbae3@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1o48yR-00CQXa-M9
+	for linux-riscv@lists.infradead.org; Wed, 22 Jun 2022 22:37:25 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1655937435;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8tSupLdVkgmkJxR6XWH1BaGWmi5B6LARumTOlnBjCLU=;
+	b=h2dsoGyMgLwZjzVS9szjvLRMkofizn2sHhCAgoKoil5WEmoTfKt5Sv98yHwN1uZtQngl1q
+	bHkdqeJ2H5Ld+Vw8Xl4WcZqMqM1ObX/byCfCH7MCKOIcPG/DvDGxH3GeqzDyEHtGlW2xHb
+	CiI8wSJuKIXzC1Ve+OEK4GQxdwBdMHE1Cp8ukuW7UApz0g0SiW3v9Xh4hbQfd/icYFzVxF
+	NKakt9z2rIMmjHHxJXxd8/DrtogxTSsLjEvxqaEDUq1JoV26ZhL/EBBPhR1dr3EDabFb3d
+	xx6PuwQSQRiaYJ8fc3w9YNTAy48otfvkej2CPHfhRCYQYrOIZ4jAxrdVGUUSYA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1655937435;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8tSupLdVkgmkJxR6XWH1BaGWmi5B6LARumTOlnBjCLU=;
+	b=E8vgALv5rGfb7cjIr53AYf3otdbEMlM7X8s97Y88959INfA84zSQz6buqDJN519OKO9haJ
+	D05jBbsTXnSy3/Aw==
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Petr Mladek <pmladek@suse.com>, Sergey Senozhatsky
+ <senozhatsky@chromium.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
+ Gleixner <tglx@linutronix.de>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, linux-riscv
+ <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH printk v5 1/1] printk: extend console_lock for
+ per-console locking
+In-Reply-To: <CAMuHMdWjzH6GGkaZ_5cjeC6stc80u9Ly+5rrBuk8rKMvM7==8w@mail.gmail.com>
+References: <20220421212250.565456-1-john.ogness@linutronix.de>
+ <20220421212250.565456-15-john.ogness@linutronix.de>
+ <878rrs6ft7.fsf@jogness.linutronix.de>
+ <CAMuHMdWjzH6GGkaZ_5cjeC6stc80u9Ly+5rrBuk8rKMvM7==8w@mail.gmail.com>
+Date: Thu, 23 Jun 2022 00:43:15 +0206
+Message-ID: <87v8ssgw9w.fsf@jogness.linutronix.de>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220622_104404_742325_40479939 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220622_153723_950877_F9A7C79A 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,25 +76,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jun 2022 04:04:09 PDT (-0700), macro@orcam.me.uk wrote:
-> On Wed, 27 Apr 2022, Maciej W. Rozycki wrote:
+On 2022-06-22, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> I have bisected another intriguing issue to this commit: on SiPEED
+> MAiX BiT (Canaan K210 riscv), it no longer prints the line detecting
+> ttySIF0, i.e. the console output changes like:
 >
->> Therefore avoid handing out address 0, by bumping the lowest address
->> available to PCI via PCIBIOS_MIN_IO and PCIBIOS_MIN_MEM up by 4 and 16
->> respectively, which is the minimum allocation size for I/O and memory
->> BARs.
+>      spi-nor spi1.0: gd25lq128d (16384 Kbytes)
+>      i2c_dev: i2c /dev entries driver
+>      k210-fpioa 502b0000.pinmux: K210 FPIOA pin controller
+>     -38000000.serial: ttySIF0 at MMIO 0x38000000 (irq = 1, base_baud =
+> 115200) is a SiFive UART v0
+>      printk: console [ttySIF0] enabled
+>      printk: bootconsole [sifive0] disabled
+>      printk: console [ttySIF0] printing thread started
 >
->  Ping for:
-> <https://lore.kernel.org/lkml/alpine.DEB.2.21.2204271207590.9383@angie.orcam.me.uk/>
+> As this patch does not make any changes to drivers/tty/, and ttySIF0
+> does work (it's the console), I looked in /proc/kmsg, and bingo,
+> the missing line is there, so it is generated, but never printed.
 
-Sorry, I got this mixed up with the non-RISC-V patch.  David poked me 
-about it, this is on for-next.  It's passing my tests, but they're just 
-QEMU so probably not all that exciting here.
+What is sifive0? Are you using the earlycon driver to create an early
+boot console? Can I see your boot args?
+
+There is a known issue the that earlycon does not synchronize with
+normal consoles. A patch was recently posted [0] on LKML.
+
+> I tried taking the port spinlock in sifive_serial_startup(), as
+> suggested for the meson driver, but that doesn't make a difference.
+
+It may not have made a difference for you, but it should be there.
+sifive_serial_startup() is writing to SIFIVE_SERIAL_IE_OFFS without
+taking port->lock. sifive_serial_console_write() also writes to this
+register (under port->lock). This could lead to RX watermark interrupts
+being disabled for some time. The problem is not as bad as it was with
+the meson driver because __ssp_enable_rxwm() is updating the shadow
+copy. But still, it is a bug. And anyway we shouldn't have 2 CPUs
+writing to a register simultaneously.
+
+John Ogness
+
+[0] https://lore.kernel.org/lkml/20220621090900.GB7891@pathway.suse.cz
 
 _______________________________________________
 linux-riscv mailing list
