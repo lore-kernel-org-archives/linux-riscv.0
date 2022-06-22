@@ -4,50 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1441C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jun 2022 07:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C97C43334
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jun 2022 09:03:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=6KbnX6Bk/lp/nIiTdOlDllAQ4ic+lBe4pMMGASiRjXI=; b=M1oY7ZiK/QbSGc
-	ij6OHnJ+S2UaI9D1RumwankqfNwbXP7CyDOx3WaNxDZpHz67BsgC7AD6nNaoU4bjbBqzpnUsw2Br1
-	0Lnt5Xg5Xb9TsYAIrBuccmiiXHLmsT8gbFKMrWSDfE9uJXzve78PzfbOtZO+r6Fi9ruUWvxBnqzb2
-	iGPKnEGbRADemu2Hu5dQWZAxHxY7H5hvJslghxya2ZH2KmZrR8MJFO2Six31ndfBOMeVqJEwGU87u
-	cMMfOxjkye8w4/qx8HTMYsce1TwCBqmrqfvg0DS6++sAFfUXTH+i9XK6Z3Af65s57Wi98pQojRcG1
-	lvqhM9JDay3rza8M4l8g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=i/07yfQO8EFdiZQRBbCndWGc1iObNZj5BmzAwPLT8V4=; b=gRvux0W3zrW0It
+	Eg7jsHhcIvYzaLj6Zttkb686dIIMFbrVikqd22a5gg4D+M+CqIPnGTEkfBAg/Qsb/jDqDw7kj+CYo
+	JQHHnOXpnWzLSEt5VYQ1v2k8hjdHy7ioSHpU/5bcn5Gaiew3orwsq2w44c1kH2DAKHJdeOYbyhOXI
+	WV4dYxniLG4A55ttziHvDDOjuKsqiw1FLLS3J/abLGVDKpiHtlRqC1BmM30p8ZYh4PRVxG5qUBrM4
+	5drSaYy7N+rPYQGPpOsL158l6hsp5on591XCg6BEHGMZu8QMvGQZtCWYf3dG7TewORXvMFJW3aaE3
+	uhElNHl8lEtnNLks6ljA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3vDq-0098SM-70; Wed, 22 Jun 2022 07:56:22 +0000
-Received: from mail.olerise.pl ([46.183.184.59])
+	id 1o3wGi-009RUv-S7; Wed, 22 Jun 2022 09:03:24 +0000
+Received: from mail-qv1-f45.google.com ([209.85.219.45])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3vDn-0098N4-36
-	for linux-riscv@lists.infradead.org; Wed, 22 Jun 2022 07:56:20 +0000
-Received: by mail.olerise.pl (Postfix, from userid 1001)
-	id 2504D27AD1; Wed, 22 Jun 2022 09:50:58 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=olerise.pl; s=mail;
-	t=1655884397; bh=FDuFY3XQoq0gMX1b2gxgT7Py2p4Sxl0PJZYZ4NVaPho=;
-	h=Date:From:To:Subject:From;
-	b=Aakk15hHpGmHcU1KbzcPaJ/ZX5SFsfjGgYHwbs460Ao1ugc7UB/0rMtXj1M9DFgpx
-	 zipro0qFSrGAUtb1ZaXwTe/4a7rigLOZaox9QXaN7mBd5RHnsFw+zGBq7EYgiY7SFh
-	 DYHAI4mxw2ATpt0nrUfHdelkhng2JtvsMNcnmOuqY2NYBsnCBAp31k7Whe6woyDzVB
-	 Nkyk+hG+mrVtSt0r1LheFpyIE07+v53L/vOvFLUfJOc0HC4A8hsTnNkh3WwN7k+1tq
-	 YH59blISxqBpcu6OZint1+KjmcZ5QAbMQua3aBaQfYSjXDFnKiED9z7PR/boxR4dNf
-	 NUAfUq3REdFxw==
-Received: by mail.olerise.pl for <linux-riscv@lists.infradead.org>; Wed, 22 Jun 2022 07:50:21 GMT
-Message-ID: <20220622084500-0.1.j.bb9u.0.0214zckrz3@olerise.pl>
-Date: Wed, 22 Jun 2022 07:50:21 GMT
-From: =?UTF-8?Q?"Przemys=C5=82aw_Wr=C3=B3blewski"?= <przemyslaw.wroblewski@olerise.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: Wycena paneli fotowoltaicznych
-X-Mailer: mail.olerise.pl
+	id 1o3wGf-009RRR-Gz
+	for linux-riscv@lists.infradead.org; Wed, 22 Jun 2022 09:03:23 +0000
+Received: by mail-qv1-f45.google.com with SMTP id p31so24170865qvp.5
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Jun 2022 02:03:17 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=65BoBdNEPD+hhMSIaXkfwRdYUnoeWO1j5CRjqrWAPjs=;
+        b=L23ntSkXFJPw6UVRQEg2S/DaJkKTmhwoBCGSwUr9OF9wDwWnJCy4dLbW+apbs+SgCH
+         wfBE4YQFv3uNwpiiWn7vF4/DnbR3wvz1tE6e5Ku+QK9XsYkkwPPnWUz7SqB0nWB4s+7q
+         AprEowNR59k7HbsWO4ABqksnafzq0XmCd2UwwEftr6UoB+GMfqDcc0VAY0NNsEXJ0NHL
+         K9XRHCqNTS0dBnzmzVN9ne/TOTyZYGgDO+HzLMw5KbAI+rCM6Ak3w8aMnnfD1CcxcR1O
+         wT0W1S0bcE2QqomFpg9Hpl8tTP2dzIacqYxjeUTDSWNVYuiZ5vtv0O2AUsQk7rELKX5R
+         Mu6A==
+X-Gm-Message-State: AJIora+Y3+UUvYhHDhHPjJSjPtmvLb1rv53VguiYuu3KvT+81H3++KmL
+	a2l5iaUVPO5em8ZuQxpyX2hq9/BIXJih3w==
+X-Google-Smtp-Source: AGRyM1vEPk8P3B/4qXZKCZj5D6xUh7ATNnJjcklV9TqSBVjmAXd8dYMsx167+oSWrw81abHGs30NIg==
+X-Received: by 2002:a05:622a:1a15:b0:305:2db1:8c3 with SMTP id f21-20020a05622a1a1500b003052db108c3mr1976269qtb.256.1655888596632;
+        Wed, 22 Jun 2022 02:03:16 -0700 (PDT)
+Received: from mail-yw1-f181.google.com (mail-yw1-f181.google.com. [209.85.128.181])
+        by smtp.gmail.com with ESMTPSA id f5-20020a05620a280500b006a6a6f148e6sm15321659qkp.17.2022.06.22.02.03.15
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 22 Jun 2022 02:03:15 -0700 (PDT)
+Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-3177e60d980so134349237b3.12
+        for <linux-riscv@lists.infradead.org>; Wed, 22 Jun 2022 02:03:15 -0700 (PDT)
+X-Received: by 2002:a81:7c1:0:b0:317:897d:ea90 with SMTP id
+ 184-20020a8107c1000000b00317897dea90mr2828900ywh.283.1655888595308; Wed, 22
+ Jun 2022 02:03:15 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220421212250.565456-1-john.ogness@linutronix.de>
+ <20220421212250.565456-15-john.ogness@linutronix.de> <878rrs6ft7.fsf@jogness.linutronix.de>
+In-Reply-To: <878rrs6ft7.fsf@jogness.linutronix.de>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 22 Jun 2022 11:03:03 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWjzH6GGkaZ_5cjeC6stc80u9Ly+5rrBuk8rKMvM7==8w@mail.gmail.com>
+Message-ID: <CAMuHMdWjzH6GGkaZ_5cjeC6stc80u9Ly+5rrBuk8rKMvM7==8w@mail.gmail.com>
+Subject: Re: [PATCH printk v5 1/1] printk: extend console_lock for per-console locking
+To: John Ogness <john.ogness@linutronix.de>
+Cc: Petr Mladek <pmladek@suse.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	Steven Rostedt <rostedt@goodmis.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220622_005619_331007_AFD91648 
-X-CRM114-Status: UNSURE (   0.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220622_020321_581802_589CAA92 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,17 +81,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHppZcWEIGRvYnJ5LAoKZG9zdHJ6ZWdhbSBtb8W8bGl3b8WbxIcgd3Nww7PFgnByYWN5IHogUGHF
-hHN0d2EgZmlybcSFLgoKxZp3aWFkY3p5bXkga29tcGxla3Nvd8SFIG9ic8WCdWfEmSBpbndlc3R5
-Y2ppIHcgZm90b3dvbHRhaWvEmSwga3TDs3JhIG9ibmnFvGEga29zenR5IGVuZXJnaWkgZWxla3Ry
-eWN6bmVqIG5hd2V0IG8gOTAlLgoKQ3p5IHPEhSBQYcWEc3R3byB6YWludGVyZXNvd2FuaSB3ZXJ5
-ZmlrYWNqxIUgd3N0xJlwbnljaCBwcm9wb3p5Y2ppPwoKClBvemRyYXdpYW0sClByemVteXPFgmF3
-IFdyw7NibGV3c2tpCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+Hi John,
+
+On Tue, Apr 26, 2022 at 10:50 AM John Ogness <john.ogness@linutronix.de> wrote:
+> Currently threaded console printers synchronize against each
+> other using console_lock(). However, different console drivers
+> are unrelated and do not require any synchronization between
+> each other. Removing the synchronization between the threaded
+> console printers will allow each console to print at its own
+> speed.
+
+[...]
+
+> Signed-off-by: John Ogness <john.ogness@linutronix.de>
+
+Thanks for your patch, which is now commit 8e274732115f63c1
+("printk: extend console_lock for per-console locking") in
+v5.19-rc1.
+
+I have bisected another intriguing issue to this commit: on SiPEED
+MAiX BiT (Canaan K210 riscv), it no longer prints the line detecting
+ttySIF0, i.e. the console output changes like:
+
+     spi-nor spi1.0: gd25lq128d (16384 Kbytes)
+     i2c_dev: i2c /dev entries driver
+     k210-fpioa 502b0000.pinmux: K210 FPIOA pin controller
+    -38000000.serial: ttySIF0 at MMIO 0x38000000 (irq = 1, base_baud =
+115200) is a SiFive UART v0
+     printk: console [ttySIF0] enabled
+     printk: bootconsole [sifive0] disabled
+     printk: console [ttySIF0] printing thread started
+
+As this patch does not make any changes to drivers/tty/, and ttySIF0
+does work (it's the console), I looked in /proc/kmsg, and bingo,
+the missing line is there, so it is generated, but never printed.
+
+I tried taking the port spinlock in sifive_serial_startup(), as
+suggested for the meson driver, but that doesn't make a difference.
+
+Do you have a clue?
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
