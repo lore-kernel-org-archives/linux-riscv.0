@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEAF0C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jun 2022 01:52:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81250C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 22 Jun 2022 03:10:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XsTM96B80DRDxeRAJijvhThfawMu3+66gqVhrIFAZ4w=; b=0aKebajBGSIdO6
-	t5H8BQlP0X34lbks1Aida1ZYofvx8Ttk4yG7INq2EoFXHgUYeOE85vzJY54TkujsfwuFw4GVrCJf6
-	bKAQ1V3no+xGAurKmy35lw5atsEs4OM2frCDmAWU5YrOHgspKc/ApsxCDBtqbJu6bKHtfqr3pNSzI
-	rpPYoutqQA7O5/ZB+F/10rxrfYJV26PvmweS75x3GSTxU33S8epOx1qe1WQLn7jydrwrPGKJfxAL+
-	12RCSQWkspfvg2OPlLFGhNLQI4Ktokxtb2qCpyqXtKyN20a//GWq/EM0IZgXpsuppx4zaddInfkYJ
-	gxKh9Ox1GFCM/gRxBz1g==;
+	List-Owner; bh=4ImCkuLB5y8M1Pvj6Vt9X7scNt7RU8T2PKs6dLn8cgM=; b=NJW3ziwFVK9tHl
+	AaNV4/a2dJh6m6DTPXEIGe0wwis4IvX1e15GmmwVgkyh+Lhktfl+WXd6fEBVx15zIyIQ4SHWECAz5
+	BWQrS+9bG162G7uxZR7uQdblR2dkbTFktCTbpLVtgpWMPZ0UU8B5FAACz7nbKz7L4joNty6JjXHNK
+	YXC36/Usg3jyzZXlOY2Vrwpmjs5E4ULXYeRc53oGvEoZEMfeAld0GX6y6cpitz1+NbjaDVU69B2Tv
+	j6JMeKEcT940k3skQLYwDL4gzZ+69fTz9MVVNChhPsXbQsnLDYBHp75fGIgo+rXRKRnvPengpbRB0
+	5AcTWIKp5ILUKTajGIxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3pX5-0084AZ-Vr; Wed, 22 Jun 2022 01:51:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1o3ql5-008HhS-2U; Wed, 22 Jun 2022 03:10:23 +0000
+Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o3pX3-00848f-PC
-	for linux-riscv@lists.infradead.org; Wed, 22 Jun 2022 01:51:51 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 82CBC61857
-	for <linux-riscv@lists.infradead.org>; Wed, 22 Jun 2022 01:51:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1994C341C7
-	for <linux-riscv@lists.infradead.org>; Wed, 22 Jun 2022 01:51:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1655862707;
-	bh=yAoKxvq/RDbFoDjWadpyfGoPvsAe+GvtjboXMAJrB8U=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=WP2uA5+yhzxAiocs6TllYglw5Ney2lvFwuVS5SuF0ppeNQ7msSMo4PXnlYTThFAZO
-	 YRGmSuDuMFw6ndaXYOjX8PNgUMYls9HqiZawFwuYtkWg84/SdwXkTbbefygZCYPHNn
-	 hKYS3ttp+RikGG5yPSKGkdB3pjlN8kS/8u1Eu8vdOQ0Zyu9tS0sxlBcfkCdn4DLnoS
-	 SiXSN91uqHfjT8NG2YxB3aTVlSozwP5oTltY3J9Y1W8CL8B5jwZaZAZf70QVUqcJFR
-	 P4A/qi1fV80eWXT2k9g8VWLiHAr+i/epDObiHViCE1nKzp9oca6ru6y6VRVyv/E2sH
-	 j+nifdccyjbzQ==
-Received: by mail-vs1-f45.google.com with SMTP id i186so15713872vsc.9
-        for <linux-riscv@lists.infradead.org>; Tue, 21 Jun 2022 18:51:47 -0700 (PDT)
-X-Gm-Message-State: AJIora9nv4DhfOGJ71opKezMSNkK/iJe1b+IWKLritHDDA8uxHduznP3
-	dvTHapuG2bz/2rsNtCrV1fUerMBldadknt3qMac=
-X-Google-Smtp-Source: AGRyM1utZR//1y9issFD2tF2ldIncQQvR5Nc0+J0YOMi+6mLMJ2YHmHXaBKMVlzbI2nwm0FGLrq3VBDF3kYog1PA9kU=
-X-Received: by 2002:a05:6102:f8b:b0:354:57e8:4c1b with SMTP id
- e11-20020a0561020f8b00b0035457e84c1bmr970617vsv.8.1655862706699; Tue, 21 Jun
- 2022 18:51:46 -0700 (PDT)
+	id 1o3ql2-008Hgo-VR
+	for linux-riscv@lists.infradead.org; Wed, 22 Jun 2022 03:10:22 +0000
+Received: by mail-oi1-x231.google.com with SMTP id bd16so19537923oib.6
+        for <linux-riscv@lists.infradead.org>; Tue, 21 Jun 2022 20:10:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=FACxbqess0Pows5/Tzswl5y1waAC4sojiXabClOWhFQ=;
+        b=DiB9bZ5be8Rk6ThORaXRfqlJvLIplqBA1rG4IAnxfUJP/TKDMXYIW9kXoijspHvjRQ
+         ny5lrbejL89s3dg5MBonkXpAJfTfq6LysdWduwsS2jTqEOBGFVBrPTFUQhm4hM91yi1h
+         fDD9a98h26aFzh9xxPwHCjPc5iyRUrcZpL2ITkkTLs4/EZhZ5P8vEsHRYz+jXO9nkyAD
+         s+CZ2yL7n5OgyBZk2jlSw6EEPV99uo59Cf5VJ/dt6P8QLKApoYPLa0/2iNHNNwqMuqTu
+         kAJR6iPw+BJuyarqgyyi3AGohpP2ZJV7et5DeoWtDKBwVyOdKtnEPg6JTEKxX3FeXUT2
+         BYlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=FACxbqess0Pows5/Tzswl5y1waAC4sojiXabClOWhFQ=;
+        b=FRvNDl9KYCu9EpB73whJT1hTa9D7vWBjPsTow3UtzWbFbNT/Krob5401w8iuuS/EXn
+         FUtz1uJohU87/O7KHBty2BXe5vGq68NwarjI3hzqO0ryCipae9TTCcuwVnBrpiOWnXfn
+         Z0cJOILWnDBEoA3D4KV6pfb2qy3wGHyGGhjbGzqbuKZQMs7WYP58uzuCd2XkfrGgtU4E
+         0LKQFhZxoPJ7x3nE1IrzqI0epFUj/GiOkojY0frzLafxgAQGIF7g/SNMVgRsjIIHXC3R
+         RFsm2VKYd0tAuj5+9cOvkEKUGG3cXoMOaBgWaTssIrocZN1TleGLfuxiXuz3Ac0PVGjo
+         2xZw==
+X-Gm-Message-State: AJIora+91eC5163cNKUgRGyajBhpBY720mONpMGYI2msXvTAu/yRV29n
+	2OwsCpJQgi97o8syUj07Yi7D3R5SsjTG3CUk+XQIdA==
+X-Google-Smtp-Source: AGRyM1vcp3QQY9elvVpTAygpjR2XrlZ2bVmjlkkgbXEQ0+1DHHwlXjP5EuCc5Ey6+JmWdHgoPXaeJgXkXORhzfdz/LA=
+X-Received: by 2002:a05:6808:1485:b0:32e:c704:bcb with SMTP id
+ e5-20020a056808148500b0032ec7040bcbmr704189oiw.195.1655867417948; Tue, 21 Jun
+ 2022 20:10:17 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220621144920.2945595-1-guoren@kernel.org> <7adc9e19-7ffc-4b11-3e18-6e3a5225638f@redhat.com>
-In-Reply-To: <7adc9e19-7ffc-4b11-3e18-6e3a5225638f@redhat.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 22 Jun 2022 09:51:35 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTT4Q3HLabXPgACOmd-Z58LsD-77ga74pzgUT2scr+ydRA@mail.gmail.com>
-Message-ID: <CAJF2gTT4Q3HLabXPgACOmd-Z58LsD-77ga74pzgUT2scr+ydRA@mail.gmail.com>
-Subject: Re: [PATCH V6 0/2] riscv: Support qspinlock with generic headers
-To: Waiman Long <longman@redhat.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Peter Zijlstra <peterz@infradead.org>, Boqun Feng <boqun.feng@gmail.com>, Conor.Dooley@microchip.com, 
-	Huacai Chen <chenhuacai@loongson.cn>, Xuerui Wang <kernel@xen0n.name>, hev <r@hev.cc>, 
-	Stafford Horne <shorne@gmail.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	linux-arch <linux-arch@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+References: <20220610074459.3261383-1-andy.chiu@sifive.com>
+ <20220610074459.3261383-2-andy.chiu@sifive.com> <YqMzV/kXeHso3QW+@sirena.org.uk>
+In-Reply-To: <YqMzV/kXeHso3QW+@sirena.org.uk>
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Wed, 22 Jun 2022 11:06:48 +0800
+Message-ID: <CABgGipVH08Wpxh1pEqUyebWTVKE=Fx5EBfpn-jRv2YLTUU19wA@mail.gmail.com>
+Subject: Re: [PATCH next 1/1] spi: sifive: add PM callbacks to support suspend/resume
+To: Mark Brown <broonie@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-spi@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Greentime Hu <greentime.hu@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220621_185149_916483_A1A26A36 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20220621_201021_098183_8F198862 
+X-CRM114-Status: UNSURE (   5.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +87,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 21, 2022 at 11:08 PM Waiman Long <longman@redhat.com> wrote:
->
-> On 6/21/22 10:49, guoren@kernel.org wrote:
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > Enable qspinlock and meet the requirements mentioned in a8ad07e5240c9
-> > ("asm-generic: qspinlock: Indicate the use of mixed-size atomics").
-> >
-> > RISC-V LR/SC pairs could provide a strong/weak forward guarantee that
-> > depends on micro-architecture. And RISC-V ISA spec has given out
-> > several limitations to let hardware support strict forward guarantee
-> > (RISC-V User ISA - 8.3 Eventual Success of Store-Conditional
-> > Instructions):
-> > We restricted the length of LR/SC loops to fit within 64 contiguous
-> > instruction bytes in the base ISA to avoid undue restrictions on
-> > instruction cache and TLB size and associativity. Similarly, we
->
-> Does the 64 contiguous bytes need to be cacheline aligned?
-No, they are instructions, and the IFU & issue units would guarantee
-that. The programmer needn't worry about that.
+> Seems like the clock managemnet could usefully be done as runtime PM
+> too?  In any case, that can be done as an incremental change.
 
->
-> Regards,
-> Longman
->
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+Thanks for the suggestion. We will work on it soon in the future.
 
 _______________________________________________
 linux-riscv mailing list
