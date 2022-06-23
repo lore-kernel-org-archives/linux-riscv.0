@@ -4,114 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B1AC43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jun 2022 17:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04990C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jun 2022 18:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=egf8YYasFVhY+o7WafM6oT2UDCuZyJn9A21hmNzJrjw=; b=Sep/4FjjPeVIEG
-	labzupHpCthzSAqWUKy+Q6IDNuPUUy3WuzvbAlW6U/2RCuMbY7SVGhSxVFL0cxi8HrKk+atCR+X/h
-	ZcDP6O2IxFMH3T0fryK1jykxkeZjdgQ6OOFzRG+HsblUVVvJk6Mgsfus+9FOxZIiOz1dV1NHa7K01
-	cx/6VhEKZYI4No1TAcGnzjPD5BclampVl0b8/hRnFcuCDG6NexrG9W+ftK/UMcRGpW5QkMkFuw5AD
-	Gmdwl9qaNF+pT1zAlkuISCca2kQJMfWGetYSBSWjk6sCmDaDuXUpwFcmlocYJPA1n6vOeKDatFS4w
-	yc9AApkX3mZxLcwQ5jOw==;
+	List-Owner; bh=gAQOZFsRq5Vc9BsCpyNKm+zLlcbIMzp3Ojx/yld8qdg=; b=jAryOqbvXiaSkO
+	E92GmahqYouoG7ilnwLbmAo8eoyCsT5ZPMnOZYeuq4W4K6pGWxmpGRSleMY08GokFTx+MnJIcushX
+	huE2sNfydQ976jRGdBB1+p+5yXTB0x1Op/wxoPGqK/kDp/jDeAGDtMGr/8Pyx/7aLBjgWXaJcUcXT
+	gIzoab4MlQCHLfQcCZLy+p1aai6Bb6vaIXo9sC9y4peldB+XGx4Uc/Pl/Bv0WhMt0UjhC/9Xg0yG7
+	zORDt2G8OJE5WbETJBVlUtlgLk0gnVBOAcxsD9lPdWEoxKN0o++vaIJ4KrftazFFJKb7P/FQC8j1s
+	6iM9IQOKDNtWKMIoJBqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4R3E-00GDJH-In; Thu, 23 Jun 2022 17:55:32 +0000
-Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
+	id 1o4R7T-00GEDr-NJ; Thu, 23 Jun 2022 17:59:55 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4R3B-00GDIO-So
-	for linux-riscv@lists.infradead.org; Thu, 23 Jun 2022 17:55:31 +0000
-Received: by mail-qk1-x72d.google.com with SMTP id p63so15556919qkd.10
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Jun 2022 10:55:29 -0700 (PDT)
+	id 1o4R7R-00GECp-F7
+	for linux-riscv@lists.infradead.org; Thu, 23 Jun 2022 17:59:55 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-3176d94c236so2158147b3.3
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Jun 2022 10:59:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=feedback-id:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to;
-        bh=UL6VZe4xX6RusXDF47C8DXFCgl3ZVmVUhDz9s8GH6hE=;
-        b=PLmUuzq/7uSgu04xUBGadLJkUoeOBkEc+KT9X2ETfZHJDR8nD1kNpHOsuO1B+vqEZo
-         22pGZC/jwG2fuWRSRHMId8eLN8dgegaAdk5QnUZOE+wtbBKouUj8NCIWyaJRwWyRoNSP
-         B0VfuZMup2C1Y5GHBikeVcj4SJFDEzO3YYY7p3qEPPiLykTiyNdRGWaFrP8zjER4QD64
-         PPuDvu03DybJNLk95Kl9FslOWyPX0vPN41FOOA56luFEYDqh2lrMwp5uFI/XkCfb3gVz
-         X0jJ9cZvUS6+oPM7z+qjDyVTLArhQlu0FBdJ8uRQMJfsKNfr0bBAg9RQet9lFaZpEpGc
-         1qmg==
+        d=atishpatra.org; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=ad1EHEM7BNKa+dGCWQyxNAhoOq5Rrp+zKbB5QQwWDcU=;
+        b=ADkuySfE/zuZLZWLbgcqaS9w7VDz9JNQuh1S7T/qLAF3A0NDT8Cg6t86WNiJwHEO/J
+         VMHSGKlA4Z9XJPrynOzTxbBYE0z+3mqEuhVYYywJu7154uXc3kfNGQO44+ahiXEpaBw3
+         P0A5iCfT7Xcr96K8ykKW8rlPy4cCDnKodYpbk=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:feedback-id:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to;
-        bh=UL6VZe4xX6RusXDF47C8DXFCgl3ZVmVUhDz9s8GH6hE=;
-        b=u+7mWY35cwh/9HoNcmWOZvs947gNT/lZxN7WQNRYLeEmPZRuYXCLujVxWfgY39gVQ+
-         GpCm71dQYKGp81O8RkbBd6mmKBoGlvh7YIjAq4dOsPwjyQVLymzt1IoBgtWUv8Sg3QPg
-         Q7Ff17iXrsSe+E/O2NMWwZtJY1Znf1pBbD4wB8ENy4u6WbxsYRSFb98s1PYTn0HZh9bC
-         MoIuOvwNKBDXBoQbm/BcM04nGOgqYtFagenb6PDLxkAYf43JyFKY4CLN3y2HiKJ1wUDr
-         Ndl6+2wtE3gZjNIXpFffNnLIWyT+QibqGAWwfOre2QrB+TSA6ivDG460DBrYPTh+Y5Ov
-         l5ug==
-X-Gm-Message-State: AJIora/n3qYOWweXvExZL1EVnnbL12COYeF0BOhcDPhERIEMuzLw6SWI
-	xzD2moU/e3nr9DAEhEIDvPw=
-X-Google-Smtp-Source: AGRyM1uYXqyDlmIqV1TNqLVKGZNJVjFMdHZOQ6z/NGMJ1jlnG39b+iYhRNvViAr8Vmww95m00eY9Iw==
-X-Received: by 2002:a05:620a:d53:b0:6ae:f9c8:f6a4 with SMTP id o19-20020a05620a0d5300b006aef9c8f6a4mr2259123qkl.343.1656006928488;
-        Thu, 23 Jun 2022 10:55:28 -0700 (PDT)
-Received: from auth1-smtp.messagingengine.com (auth1-smtp.messagingengine.com. [66.111.4.227])
-        by smtp.gmail.com with ESMTPSA id p13-20020a05622a048d00b00304dd83a9b1sm18670431qtx.82.2022.06.23.10.55.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jun 2022 10:55:27 -0700 (PDT)
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailauth.nyi.internal (Postfix) with ESMTP id 54FBA27C0054;
-	Thu, 23 Jun 2022 13:55:26 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute3.internal (MEProxy); Thu, 23 Jun 2022 13:55:27 -0400
-X-ME-Sender: <xms:Dqm0YhEnueb_OOGhXG6s1RMyvWz6RxwjVypk0DEolW9Fv3IVEzRFcA>
-    <xme:Dqm0YmUEkZ-JG1crYZ-ABedloCYpv5AoQ92I19YMNAHKfJ7mw4BROfeq8i4iy3Z37
-    zfHHZvhXfpUbzBsNg>
-X-ME-Received: <xmr:Dqm0YjL1LdX7LCq6TAAN1eoPd4xPHvGsJpbIC-rqdRmSeg_za1W5NJ4V83ESxw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudefjedguddvtdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enogfuuhhsphgvtghtffhomhgrihhnucdlgeelmdenucfjughrpeffhffvvefukfhfgggt
-    uggjsehttdertddttddvnecuhfhrohhmpeeuohhquhhnucfhvghnghcuoegsohhquhhnrd
-    hfvghnghesghhmrghilhdrtghomheqnecuggftrfgrthhtvghrnhepffekvedvjeehuddt
-    tefhjeeitddttdfhteffudefudelkedtvdfguddvhfejleeunecuffhomhgrihhnpehkvg
-    hrnhgvlhdrohhrghdpghhoohhglhgvrdgtohhmpdhrihhstghvrdhorhhgpdhgihhthhhu
-    sgdrtghomhenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhroh
-    hmpegsohhquhhnodhmvghsmhhtphgruhhthhhpvghrshhonhgrlhhithihqdeiledvgeeh
-    tdeigedqudejjeekheehhedvqdgsohhquhhnrdhfvghngheppehgmhgrihhlrdgtohhmse
-    hfihigmhgvrdhnrghmvg
-X-ME-Proxy: <xmx:Dqm0YnG-17kvC6ytGlhCEhXPjgvcKTDkeLg8oQrcgDT20Ibx3TudKw>
-    <xmx:Dqm0YnVgZcBokeogHutY1LPnMK5bm5HWmTDpUjvQ93BvSlzMVVYhQQ>
-    <xmx:Dqm0YiPMleLP5LJ3PoABrA9PqWoKr_h6-EoxwrGbv9V628DOe5TzgA>
-    <xmx:Dqm0YqMtE5JUeF_5RvSNogrULcifiH3c6cWi5StRee4QiNCBQGn8pA>
-Feedback-ID: iad51458e:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 23 Jun 2022 13:55:25 -0400 (EDT)
-Date: Thu, 23 Jun 2022 10:55:11 -0700
-From: Boqun Feng <boqun.feng@gmail.com>
-To: Dan Lustig <dlustig@nvidia.com>
-Cc: Andrea Parri <parri.andrea@gmail.com>, Guo Ren <guoren@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	linux-arch <linux-arch@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V4 5/5] riscv: atomic: Optimize LRSC-pairs atomic ops
- with .aqrl annotation
-Message-ID: <YrSo/3iUuO0AL76T@boqun-archlinux>
-References: <CAJF2gTQoSQq_S4UvAiXgMviT040Ls8+VkDszQSke1a0zbXZ82A@mail.gmail.com>
- <mhng-7a274375-0d99-41c8-98a3-853d110f62e9@palmer-ri-x1c9>
- <CAJF2gTTXO42_TsZudaQuB9Re0teu__EZ11JZ96nktMqsQkMYNA@mail.gmail.com>
- <20220614110258.GA32157@anparri>
- <YrPei6q4rIAx6Ymf@boqun-archlinux>
- <fd664673-c4cc-be8f-9824-5272c5c79b40@nvidia.com>
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=ad1EHEM7BNKa+dGCWQyxNAhoOq5Rrp+zKbB5QQwWDcU=;
+        b=x/hIdsi1VWfKN6HKdR20nCKNQbf9cmtDSZop2uGR9RxMRlXgJLQoCI1eRWDGSqwEBa
+         KcRjPvam4kWiW0TeVzEPpXROwG6mklkoyO47VjItPgeli4MicuHWIX+fbdXKh9HsHEZj
+         DRpAgszFm8n93HA/SGuqUft7Xh7aJjXTf3yQ3WMdpFgQmL/hJPtKBZvkViWnKRjW1zLm
+         dsHHexEcvNvPBly2xKiy71PaEgKmRh73bzP/C+eLiBQTa2U7ix8XBNb44wqVhHPRZvid
+         7iRxJEyibUem8+2nvK5e8NEF7KTay0Sm18Lczd15zIWI9BDkIPQ0UlvS9brIMAo+gaYA
+         ZLKA==
+X-Gm-Message-State: AJIora9nR7Lqi/1nMEAqQrUZqj1nuON1ZhgWB8Ulrcdb+Z87G5lCQjuL
+	VK/7giUFN7dy1AwKIexoF3DAE9j/uHD/ogZbfPtXuQ5uMg==
+X-Google-Smtp-Source: AGRyM1tNb7dFKivMDucZ7v/MpAvJLeUsuT3g1y1Lwumkctm2/ik6jNYy8NB2nXiP4n7sM6J8WqnuR6yXzUD0ctwZLac=
+X-Received: by 2002:a81:3e17:0:b0:317:742d:fe67 with SMTP id
+ l23-20020a813e17000000b00317742dfe67mr12216551ywa.33.1656007190354; Thu, 23
+ Jun 2022 10:59:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <fd664673-c4cc-be8f-9824-5272c5c79b40@nvidia.com>
+References: <20220623112735.357093-1-geomatsi@gmail.com> <20220623112735.357093-3-geomatsi@gmail.com>
+In-Reply-To: <20220623112735.357093-3-geomatsi@gmail.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Thu, 23 Jun 2022 10:59:39 -0700
+Message-ID: <CAOnJCUKYOoxJLiH6YVwAPMqfEhEv_Do=Ptxs4dNSxdJSHVto6A@mail.gmail.com>
+Subject: Re: [PATCH 2/3] perf: RISC-V: allow to use the highest available counter
+To: Sergey Matyukevich <geomatsi@gmail.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, Anup Patel <anup@brainfault.org>, 
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220623_105529_985609_D696F5AB 
-X-CRM114-Status: GOOD (  52.36  )
+X-CRM114-CacheID: sfid-20220623_105953_546416_63517478 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,158 +81,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 23, 2022 at 01:09:23PM -0400, Dan Lustig wrote:
-> On 6/22/2022 11:31 PM, Boqun Feng wrote:
-> > Hi,
-> > 
-> > On Tue, Jun 14, 2022 at 01:03:47PM +0200, Andrea Parri wrote:
-> > [...]
-> >>> 5ce6c1f3535f ("riscv/atomic: Strengthen implementations with fences")
-> >>> is about fixup wrong spinlock/unlock implementation and not relate to
-> >>> this patch.
-> >>
-> >> No.  The commit in question is evidence of the fact that the changes
-> >> you are presenting here (as an optimization) were buggy/incorrect at
-> >> the time in which that commit was worked out.
-> >>
-> >>
-> >>> Actually, sc.w.aqrl is very strong and the same with:
-> >>> fence rw, rw
-> >>> sc.w
-> >>> fence rw,rw
-> >>>
-> >>> So "which do not give full-ordering with .aqrl" is not writen in
-> >>> RISC-V ISA and we could use sc.w/d.aqrl with LKMM.
-> >>>
-> >>>>
-> >>>>>> describes the issue more specifically, that's when we added these
-> >>>>>> fences.  There have certainly been complains that these fences are too
-> >>>>>> heavyweight for the HW to go fast, but IIUC it's the best option we have
-> >>>>> Yeah, it would reduce the performance on D1 and our next-generation
-> >>>>> processor has optimized fence performance a lot.
-> >>>>
-> >>>> Definately a bummer that the fences make the HW go slow, but I don't
-> >>>> really see any other way to go about this.  If you think these mappings
-> >>>> are valid for LKMM and RVWMO then we should figure this out, but trying
-> >>>> to drop fences to make HW go faster in ways that violate the memory
-> >>>> model is going to lead to insanity.
-> >>> Actually, this patch is okay with the ISA spec, and Dan also thought
-> >>> it was valid.
-> >>>
-> >>> ref: https://lore.kernel.org/lkml/41e01514-74ca-84f2-f5cc-2645c444fd8e@nvidia.com/raw
-> >>
-> >> "Thoughts" on this regard have _changed_.  Please compare that quote
-> >> with, e.g.
-> >>
-> >>   https://lore.kernel.org/linux-riscv/ddd5ca34-805b-60c4-bf2a-d6a9d95d89e7@nvidia.com/
-> >>
-> >> So here's a suggestion:
-> >>
-> >> Reviewers of your patches have asked:  How come that code we used to
-> >> consider as buggy is now considered "an optimization" (correct)?
-> >>
-> >> Denying the evidence or going around it is not making their job (and
-> >> this upstreaming) easier, so why don't you address it?  Take time to
-> >> review previous works and discussions in this area, understand them,
-> >> and integrate such knowledge in future submissions.
-> >>
-> > 
-> > I agree with Andrea.
-> > 
-> > And I actually took a look into this, and I think I find some
-> > explanation. There are two versions of RISV memory model here:
-> > 
-> > Model 2017: released at Dec 1, 2017 as a draft
-> > 
-> > 	https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/hKywNHBkAXM/m/QzUtxEWLBQAJ
-> > 
-> > Model 2018: released at May 2, 2018
-> > 
-> > 	https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/xW03vmfmPuA/m/bMPk3UCWAgAJ
-> > 
-> > Noted that previous conversation about commit 5ce6c1f3535f happened at
-> > March 2018. So the timeline is roughly:
-> > 
-> > 	Model 2017 -> commit 5ce6c1f3535f -> Model 2018
-> > 
-> > And in the email thread of Model 2018, the commit related to model
-> > changes also got mentioned:
-> > 
-> > 	https://github.com/riscv/riscv-isa-manual/commit/b875fe417948635ed68b9644ffdf718cb343a81a
-> > 
-> > in that commit, we can see the changes related to sc.aqrl are:
-> > 
-> > 	 to have occurred between the LR and a successful SC.  The LR/SC
-> > 	 sequence can be given acquire semantics by setting the {\em aq} bit on
-> > 	-the SC instruction.  The LR/SC sequence can be given release semantics
-> > 	-by setting the {\em rl} bit on the LR instruction.  Setting both {\em
-> > 	-  aq} and {\em rl} bits on the LR instruction, and setting the {\em
-> > 	-  aq} bit on the SC instruction makes the LR/SC sequence sequentially
-> > 	-consistent with respect to other sequentially consistent atomic
-> > 	-operations.
-> > 	+the LR instruction.  The LR/SC sequence can be given release semantics
-> > 	+by setting the {\em rl} bit on the SC instruction.  Setting the {\em
-> > 	+  aq} bit on the LR instruction, and setting both the {\em aq} and the {\em
-> > 	+  rl} bit on the SC instruction makes the LR/SC sequence sequentially
-> > 	+consistent, meaning that it cannot be reordered with earlier or
-> > 	+later memory operations from the same hart.
-> > 
-> > note that Model 2018 explicitly says that "ld.aq+sc.aqrl" is ordered
-> > against "earlier or later memory operations from the same hart", and
-> > this statement was not in Model 2017.
-> > 
-> > So my understanding of the story is that at some point between March and
-> > May 2018, RISV memory model folks decided to add this rule, which does
-> > look more consistent with other parts of the model and is useful.
-> > 
-> > And this is why (and when) "ld.aq+sc.aqrl" can be used as a fully-ordered
-> > barrier ;-)
-> > 
-> > Now if my understanding is correct, to move forward, it's better that 1)
-> > this patch gets resend with the above information (better rewording a
-> > bit), and 2) gets an Acked-by from Dan to confirm this is a correct
-> > history ;-)
-> 
-> I'm a bit lost as to why digging into RISC-V mailing list history is
-> relevant here...what's relevant is what was ratified in the RVWMO
-> chapter of the RISC-V spec, and whether the code you're proposing
-> is the most optimized code that is correct wrt RVWMO.
-> 
-> Is your claim that the code you're proposing to fix was based on a
-> pre-RVWMO RISC-V memory model definition, and you're updating it to
-> be more RVWMO-compliant?
-> 
+On Thu, Jun 23, 2022 at 4:27 AM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+>
+> From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+>
+> Both OpenSBI and Linux explicitly assume that there is no hardware counter
+> with index 1: hardware uses that bit for TM control. So OpenSBI filters
+> out that index in sanity checks. However its range sanity checks do not
+> treat that index in a special way. As a result, OpenSBI does not allow
+> to use the firmware counter with the highest index. Linux perf RISC-V
+> SBI driver is adapted for the current OpenSBI behavior: it excludes the
+> highest valid index from the counter mask passed to OpenSBI.
+>
+> This patch fixes ranges to re-enable the highest available counter.
+>
+> Accompanying OpenSBI fix to accept full mask:
+> - https://github.com/riscv-software-src/opensbi/pull/260
+>
+> Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+> ---
+>  drivers/perf/riscv_pmu_sbi.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index 3e0ea564b9b8..294d4bded59e 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -265,7 +265,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+>         struct sbiret ret;
+>         int idx;
+>         uint64_t cbase = 0;
+> -       uint64_t cmask = GENMASK_ULL(rvpmu->num_counters - 1, 0);
+> +       uint64_t cmask = GENMASK_ULL(rvpmu->num_counters, 0);
+>         unsigned long cflags = 0;
+>
+>         if (event->attr.exclude_kernel)
+> @@ -283,7 +283,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+>         }
+>
+>         idx = ret.value;
+> -       if (idx >= rvpmu->num_counters || !pmu_ctr_list[idx].value)
+> +       if (idx > rvpmu->num_counters || !pmu_ctr_list[idx].value)
+>                 return -ENOENT;
+>
+>         /* Additional sanity check for the counter id */
+> @@ -482,7 +482,7 @@ static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
+>          * which may include counters that are not enabled yet.
+>          */
+>         sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
+> -                 0, GENMASK_ULL(pmu->num_counters - 1, 0), 0, 0, 0, 0);
+> +                 0, GENMASK_ULL(pmu->num_counters, 0), 0, 0, 0, 0);
+>  }
+>
+>  static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
+> --
+> 2.36.1
+>
 
-Well, first it's not my code ;-)
+This won't be required to support maximum firmware counter index. With
+the fix, I proposed in your first patch in kernel
+and OpenSBI, it should be doable. Both kernel & OpenSBI should use
+zero indexed counter schemes to avoid confusion.
 
-The thing is that this patch proposed by Guo Ren kinda fixes/revertes a
-previous commit 5ce6c1f3535f ("riscv/atomic: Strengthen implementations
-with fences"). It looks to me that Guo Ren's patch fits the current
-RISCV memory model and Linux kernel memory model, but the question is
-that commit 5ce6c1f3535f was also a fix, so why do we change things
-back and forth? If I understand correctly, this is also what Palmer and
-Andrea asked for.
 
-My understanding is that commit 5ce6c1f3535f was based on a draft RVWMO
-that was different than the current one. I'd love to record this
-difference in the commit log of Guo Ren's patch, so that later on we
-know why we changed things back and forth. To do so, the confirmation
-from RVWMO authors is helpful.
-
-Hope that I make things more clear ;-)
-
+--
 Regards,
-Boqun
-
-> Dan
-> 
-> > Regards,
-> > Boqun
-> > 
-> >>   Andrea
-> >>
-> >>
-> > [...]
+Atish
 
 _______________________________________________
 linux-riscv mailing list
