@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93744C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jun 2022 19:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20FBFC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jun 2022 22:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=+wzERN6Ep2Mrw1onYLGxlCOt2Rbvmxn6GzI+v6SdsP8=; b=ch+ivP8uuymtitY6/qXuaSGViK
-	Al6r4lBU1Uzqzg4/jtPUh/pXqFwPamq1pRYk3rkbfSfuYAaW1O0zlkc3Mdq3WWCFvgTjrfYHBBYKl
-	lTMbRzX3uavI/aaUWhS0R8vd5nowPGnS3i5FFkP6luWGCg1YZAgI7TmeTa7Hlbx115yBvKRweNfnr
-	nVb3/f/PN3B2DhtHOlXIdPbyTFDeRRAHppuZmx6XK+TGs7+CNHDDCR8Z9ouXbQ9zqZNQMThZ9F1p5
-	UxYJLQce7CIzxPgbFmutnvh131OflGEVmgtWYFDyTT8AMZmmcMcdV/1kDM73aDmRqQxtZetpN/pu2
-	BeNMMGtA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=O0hT8Y3FKiA7q/0obvH7vEwg8TBjg2jRL2L3b7XQgq0=; b=LHwQ6PzFNMBowZgytKecZQTLSJ
+	Chzb1PaoEdvkR7NK1dXpwGVc7jHVONNs5X2D8k8ZJJzi0JzPA8Tc8sFGySBEDD5Lc2aurSog+hnTG
+	oLwv13B/W5e+vB8Tfduwr8ZeBpcbuu5posqZOLRUR6cCDZqiI4fmt8/UqmstI02RyCHWrbXIYaE/Q
+	vpJwbsQN4SkcLrNLS/j14jgHyxwCRToXnUr4z+hl60nonucrs4rE0+NIGfpMnYekqZo5yeJR/mlFd
+	Ar/UXn/+oyrPJ/7WdyP3F7nv3uTpbD6xCxoD+8N/pvLQI+eFCcbgovUGJ25BlzKEB4PFPvJhHK4aT
+	x0HMVHbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4Srf-00Gd1l-Qb; Thu, 23 Jun 2022 19:51:43 +0000
-Received: from wout4-smtp.messagingengine.com ([64.147.123.20])
+	id 1o4V6z-00GxL9-2a; Thu, 23 Jun 2022 22:15:41 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4Src-00Gd0f-Bn
-	for linux-riscv@lists.infradead.org; Thu, 23 Jun 2022 19:51:42 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id 5DD5B3200302;
-	Thu, 23 Jun 2022 15:51:32 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute5.internal (MEProxy); Thu, 23 Jun 2022 15:51:32 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm3; t=1656013891; x=
-	1656100291; bh=Ta2sfgEVBXbHwvfylrGMq36CcCTCCgqYt9iAFsgPiXw=; b=m
-	y3XZZcx7jaDQYn2lceSDYU3Jrs3ZmrfZ7S3IvMP2kKBH4W/gjLMcS+yqyOkFfDHm
-	flmwTrexEh3cXREjqZNrhm1aPqi1tQV8u90LSrTMQFRftcWjK6BMaMTcuR/zr0S4
-	FNmf3YTXdxOUCas/YZT/CkD/9OaMHaj7+pnGFtXwy2m4H0YESh3SJJhvgT/QHTww
-	N+BQVIql9bg5qtEItZuo9QeHqKZMOR/QtxdBO+m4URtnIFvpKrfX9oX7EOH1K07h
-	w4Mr9OVS1x0yPb9nfAgkZN3xr8pWOhGjRymG4HGoDnxX+97tu6Hf9FmYKYT+mLKH
-	ibhszMcpa+ALcGHuO+okw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1656013891; x=
-	1656100291; bh=Ta2sfgEVBXbHwvfylrGMq36CcCTCCgqYt9iAFsgPiXw=; b=U
-	nS/hCvhQARDv0Hn7Nen7AbpiR3ZhLSOD4pUiVSdcw4IFrK7QJNhVQGDdcmUZqhMn
-	feG8dpuZGqvJebNrPB5wU/dT1Axh0utH5ovc1MPCNs2BGKp8guBPJdn+hahnkZw1
-	+JMwYYndBoT5bWF7Jcrrz68h9fkbCUrFN92qhFzhJ/PmYJ4j6kzrwlofHbbEeOwh
-	UqP84beeiCZQfXQ4BSuZaDGMyzoyjzf0QYr4plAOfB5t7rLrlHGRRPAgH31Ga+Ca
-	SyPorj8rfcl3bGP/zINRNg6EmflUxxvKggHS278i1U5Ash+3fV6IiCZB5JTMEzK+
-	LeZMaBWR4UIgOSIO5dK+w==
-X-ME-Sender: <xms:Q8S0YncrgodOj5ic46KGBKo0h2vsM_PXBFW_hh8Wo1pyVnlh062xwA>
-    <xme:Q8S0YtOHIzEbdZ1sL25YTIp34YLyj8C4C1v3UnI4dPcxs4Zt-Wm_2A0B37UVFenLp
-    Y9uG61qde6WNkMkIQ>
-X-ME-Received: <xmr:Q8S0Ygi_DABcTTZYZ0V2elxu-TUXS35XhdCTlZNy6wl1lgIj3XbijExmoUXtke807TpEHdu76_JNe8ar3Gh9GjGrky13cUrkbaA654UufZdYsx3O0rUgk5xI2A>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudefjedgudegfecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefuvfevfhfhkffffgggjggtgfesthejredttdefjeenucfhrhhomhepufgr
-    mhhuvghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqne
-    cuggftrfgrthhtvghrnhepieetvdfhjefhvdejgfeguedtgeetjeffgfevtdejudekgfeu
-    kedttddvgeeftdfgnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucevlhhushhtvg
-    hrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsrghmuhgvlhesshhhohhl
-    lhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:Q8S0Yo_yUclnDE3kgpHCKSbHlXuVGouUqwUt60uJKlrB8VnQnfnJwQ>
-    <xmx:Q8S0YjuF6DHjlQAgkB00lQsyauclIgAMjTPYeRk9gb7YZTR63t5SVw>
-    <xmx:Q8S0YnFY_qSyHdvWHySPmWgCM6Piw3z258oL_vDJl1FUbVdFoXWSiw>
-    <xmx:Q8S0Ys7eCn0euq9eVu9BndG7rAzWEpxVb-kWn2HALTJTN-v_omxb2g>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 23 Jun 2022 15:51:31 -0400 (EDT)
-Subject: Re: Tickless timer regression in v5.18.3 on riscv
-To: Sergey Larin <cerg2010cerg2010@mail.ru>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>, linux-riscv@lists.infradead.org
-References: <bca6d76d-1708-fede-8008-d2588a14b656@mail.ru>
-From: Samuel Holland <samuel@sholland.org>
-Message-ID: <8887d851-19b7-ee10-a89e-fb69d54ac41e@sholland.org>
-Date: Thu, 23 Jun 2022 14:51:29 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
-MIME-Version: 1.0
-In-Reply-To: <bca6d76d-1708-fede-8008-d2588a14b656@mail.ru>
-Content-Language: en-US
+	id 1o4V6v-00GxJY-By
+	for linux-riscv@lists.infradead.org; Thu, 23 Jun 2022 22:15:39 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id o18so468196plg.2
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Jun 2022 15:15:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+         :content-transfer-encoding;
+        bh=Lv8fuWFnEj20dY6Qx6c1WZJrE8ba+8p1inUKoTp96/w=;
+        b=Q+0Esb0n2/u7z284w/2pQMS+0TVuNu6k0/7WLW24wexCyAgcQwp+DAfYFf8Oxr8yLy
+         YaaNFmwr3QJj5X8BNXFNoZnHNzVgja8+rOaAxS9N3DZ9YqDTPPdrsu4ZQtohcQuo+z0L
+         QZMVRLaa6gWm/8OFFgs5pDT1EH0f0kfBQBz7OAH9v+6SOeNh+UH1q5nLHKHx9Wk/LywJ
+         uT+6DfRqUnwDtE6ePjpfA3Pj2F9AagWyeK0kD4HRo5dr8XxV4YQHGkYWDbS1NI0dnYG5
+         ILiDCkRf3Bv2E1AXYRLQeRnHmsKCwBm91EJ36T/eB/KdqZaMmMGNMMcAoftajwGt4gdu
+         taxA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+         :mime-version:content-transfer-encoding;
+        bh=Lv8fuWFnEj20dY6Qx6c1WZJrE8ba+8p1inUKoTp96/w=;
+        b=frIb7VCPIWxlJy2fMDwPX9xZR2qjxhZ3CVIG1+J66bLqKhjfJ3vR0J/I1RPpQdjts2
+         N3QElhb5s7WpovGXUlGi+lloBOH0FZ5AN0PP0LnQuXgTLv95F+oHUTUVAGyXK6I503nN
+         pNpegZ3LiCTBTnNJd3yQQiThw3biczMyX7se7fcZXTCFyaRyH4ANZuPoAMPaRaAZK9nh
+         +La1YkJt5BKQ17RVNEYsttwBui/6GAbWdVL5eC4mURpsk43wux9w0tpUuE1fntXIDpPK
+         S9U6cMUR+vuTySdEivu8JzzsDeNoOZcIJdBATLCwLaTCe0iVvQpDlj+Yo7PCgkhKleEt
+         Tnrw==
+X-Gm-Message-State: AJIora/c9BjMyqKdEVDHRrEEDG/OHO/dBftnQI09gP9ktFU5E7Pi5iqC
+	jf5MhIK9cBcHaZykJ6dc8zaYGUu6MJqKdA==
+X-Google-Smtp-Source: AGRyM1sDFdjef/jMRpZMZdy7OCVQG8uP4Lz9rjzDx/2mDnhKUwt7lRQbLU4mNGlSzQQWN3pYnbqW7w==
+X-Received: by 2002:a17:903:2347:b0:16a:33cd:5308 with SMTP id c7-20020a170903234700b0016a33cd5308mr17395122plh.122.1656022533229;
+        Thu, 23 Jun 2022 15:15:33 -0700 (PDT)
+Received: from localhost ([12.3.194.138])
+        by smtp.gmail.com with ESMTPSA id a4-20020a170902710400b00162037fbb68sm274884pll.215.2022.06.23.15.15.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 23 Jun 2022 15:15:32 -0700 (PDT)
+Date: Thu, 23 Jun 2022 15:15:32 -0700 (PDT)
+X-Google-Original-Date: Thu, 23 Jun 2022 15:15:29 PDT (-0700)
+Subject: Re: [PATCH V4 5/5] riscv: atomic: Optimize LRSC-pairs atomic ops with .aqrl annotation
+In-Reply-To: <YrSo/3iUuO0AL76T@boqun-archlinux>
+CC: Daniel Lustig <dlustig@nvidia.com>, parri.andrea@gmail.com, guoren@kernel.org,
+  Arnd Bergmann <arnd@arndb.de>, mark.rutland@arm.com, Will Deacon <will@kernel.org>, peterz@infradead.org,
+  linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+  guoren@linux.alibaba.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: boqun.feng@gmail.com
+Message-ID: <mhng-f42f1283-50c1-48f1-ab2e-c5700b352aa1@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220623_125140_976457_C81957BD 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20220623_151537_530537_47E91D73 
+X-CRM114-Status: GOOD (  53.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,51 +84,180 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/23/22 1:11 PM, Sergey Larin wrote:
-> Hello,
-> 
-> It appears that tickless timer regression was introduced in commit
-> 232ccac1bd9b5bfe73895f527c08623e7fa0752d ("clocksource/drivers/riscv: Events are
-> stopped during CPU suspend").
-> 
-> Even though this is a fix for CPU suspend, it causes high idle CPU usage.
-> However, this usage is not reported to userspace, but can be observed in virtual
-> machines like QEMU or RVVM. So the kernel is not tickless now, disabling NO_HZ
-> has the same effects.
+On Thu, 23 Jun 2022 10:55:11 PDT (-0700), boqun.feng@gmail.com wrote:
+> On Thu, Jun 23, 2022 at 01:09:23PM -0400, Dan Lustig wrote:
+>> On 6/22/2022 11:31 PM, Boqun Feng wrote:
+>> > Hi,
+>> >
+>> > On Tue, Jun 14, 2022 at 01:03:47PM +0200, Andrea Parri wrote:
+>> > [...]
+>> >>> 5ce6c1f3535f ("riscv/atomic: Strengthen implementations with fences")
+>> >>> is about fixup wrong spinlock/unlock implementation and not relate to
+>> >>> this patch.
+>> >>
+>> >> No.  The commit in question is evidence of the fact that the changes
+>> >> you are presenting here (as an optimization) were buggy/incorrect at
+>> >> the time in which that commit was worked out.
+>> >>
+>> >>
+>> >>> Actually, sc.w.aqrl is very strong and the same with:
+>> >>> fence rw, rw
+>> >>> sc.w
+>> >>> fence rw,rw
+>> >>>
+>> >>> So "which do not give full-ordering with .aqrl" is not writen in
+>> >>> RISC-V ISA and we could use sc.w/d.aqrl with LKMM.
+>> >>>
+>> >>>>
+>> >>>>>> describes the issue more specifically, that's when we added these
+>> >>>>>> fences.  There have certainly been complains that these fences are too
+>> >>>>>> heavyweight for the HW to go fast, but IIUC it's the best option we have
+>> >>>>> Yeah, it would reduce the performance on D1 and our next-generation
+>> >>>>> processor has optimized fence performance a lot.
+>> >>>>
+>> >>>> Definately a bummer that the fences make the HW go slow, but I don't
+>> >>>> really see any other way to go about this.  If you think these mappings
+>> >>>> are valid for LKMM and RVWMO then we should figure this out, but trying
+>> >>>> to drop fences to make HW go faster in ways that violate the memory
+>> >>>> model is going to lead to insanity.
+>> >>> Actually, this patch is okay with the ISA spec, and Dan also thought
+>> >>> it was valid.
+>> >>>
+>> >>> ref: https://lore.kernel.org/lkml/41e01514-74ca-84f2-f5cc-2645c444fd8e@nvidia.com/raw
+>> >>
+>> >> "Thoughts" on this regard have _changed_.  Please compare that quote
+>> >> with, e.g.
+>> >>
+>> >>   https://lore.kernel.org/linux-riscv/ddd5ca34-805b-60c4-bf2a-d6a9d95d89e7@nvidia.com/
+>> >>
+>> >> So here's a suggestion:
+>> >>
+>> >> Reviewers of your patches have asked:  How come that code we used to
+>> >> consider as buggy is now considered "an optimization" (correct)?
+>> >>
+>> >> Denying the evidence or going around it is not making their job (and
+>> >> this upstreaming) easier, so why don't you address it?  Take time to
+>> >> review previous works and discussions in this area, understand them,
+>> >> and integrate such knowledge in future submissions.
+>> >>
+>> >
+>> > I agree with Andrea.
+>> >
+>> > And I actually took a look into this, and I think I find some
+>> > explanation. There are two versions of RISV memory model here:
+>> >
+>> > Model 2017: released at Dec 1, 2017 as a draft
+>> >
+>> > 	https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/hKywNHBkAXM/m/QzUtxEWLBQAJ
+>> >
+>> > Model 2018: released at May 2, 2018
+>> >
+>> > 	https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/xW03vmfmPuA/m/bMPk3UCWAgAJ
+>> >
+>> > Noted that previous conversation about commit 5ce6c1f3535f happened at
+>> > March 2018. So the timeline is roughly:
+>> >
+>> > 	Model 2017 -> commit 5ce6c1f3535f -> Model 2018
+>> >
+>> > And in the email thread of Model 2018, the commit related to model
+>> > changes also got mentioned:
+>> >
+>> > 	https://github.com/riscv/riscv-isa-manual/commit/b875fe417948635ed68b9644ffdf718cb343a81a
+>> >
+>> > in that commit, we can see the changes related to sc.aqrl are:
+>> >
+>> > 	 to have occurred between the LR and a successful SC.  The LR/SC
+>> > 	 sequence can be given acquire semantics by setting the {\em aq} bit on
+>> > 	-the SC instruction.  The LR/SC sequence can be given release semantics
+>> > 	-by setting the {\em rl} bit on the LR instruction.  Setting both {\em
+>> > 	-  aq} and {\em rl} bits on the LR instruction, and setting the {\em
+>> > 	-  aq} bit on the SC instruction makes the LR/SC sequence sequentially
+>> > 	-consistent with respect to other sequentially consistent atomic
+>> > 	-operations.
+>> > 	+the LR instruction.  The LR/SC sequence can be given release semantics
+>> > 	+by setting the {\em rl} bit on the SC instruction.  Setting the {\em
+>> > 	+  aq} bit on the LR instruction, and setting both the {\em aq} and the {\em
+>> > 	+  rl} bit on the SC instruction makes the LR/SC sequence sequentially
+>> > 	+consistent, meaning that it cannot be reordered with earlier or
+>> > 	+later memory operations from the same hart.
+>> >
+>> > note that Model 2018 explicitly says that "ld.aq+sc.aqrl" is ordered
+>> > against "earlier or later memory operations from the same hart", and
+>> > this statement was not in Model 2017.
+>> >
+>> > So my understanding of the story is that at some point between March and
+>> > May 2018, RISV memory model folks decided to add this rule, which does
+>> > look more consistent with other parts of the model and is useful.
+>> >
+>> > And this is why (and when) "ld.aq+sc.aqrl" can be used as a fully-ordered
+>> > barrier ;-)
+>> >
+>> > Now if my understanding is correct, to move forward, it's better that 1)
+>> > this patch gets resend with the above information (better rewording a
+>> > bit), and 2) gets an Acked-by from Dan to confirm this is a correct
+>> > history ;-)
+>>
+>> I'm a bit lost as to why digging into RISC-V mailing list history is
+>> relevant here...what's relevant is what was ratified in the RVWMO
+>> chapter of the RISC-V spec, and whether the code you're proposing
+>> is the most optimized code that is correct wrt RVWMO.
+>>
+>> Is your claim that the code you're proposing to fix was based on a
+>> pre-RVWMO RISC-V memory model definition, and you're updating it to
+>> be more RVWMO-compliant?
+>>
+>
+> Well, first it's not my code ;-)
+>
+> The thing is that this patch proposed by Guo Ren kinda fixes/revertes a
+> previous commit 5ce6c1f3535f ("riscv/atomic: Strengthen implementations
+> with fences"). It looks to me that Guo Ren's patch fits the current
+> RISCV memory model and Linux kernel memory model, but the question is
+> that commit 5ce6c1f3535f was also a fix, so why do we change things
+> back and forth? If I understand correctly, this is also what Palmer and
+> Andrea asked for.
 
-The SBI timer extension is not a great clockevent source to start with. It
-requires calling in to M-mode/the hypervisor, both for setting the timer and
-(without Sstc) a trap for handling the interrupt. That is why its rating is only
-100.
+That's essentially my confusion.  I'm not really a formal memory model 
+guy so I can easily get lost in these bits, but when I saw it I 
+remembered having looked at a fix before.  I dug that up, saw it was 
+from someone who likley knows a lot more about formal memory models than 
+I do, and thus figured I'd ask everyone to see what's up.
 
-Do your virtual machines have no other MMIO timer device? Practically any other
-clockevent device will be used in preference to this one. And if that other
-device does not have the CLOCK_EVT_FEAT_C3STOP flag, then idle CPU usage will
-not be increased.
+IMO if that original fix was made to a pre-ratification version of WMO, 
+this new version is legal WRT the ratified WMO then the code change is 
+fine to take on for-next.  That said, we should be explicit about why 
+it's legal and why the reasoning in the previous patch is no loger 
+connect, just to make sure everyone can follow along.
 
-> Any ideas why this is needed since CLINT timers should be active in WFI?
+> My understanding is that commit 5ce6c1f3535f was based on a draft RVWMO
+> that was different than the current one. I'd love to record this
+> difference in the commit log of Guo Ren's patch, so that later on we
+> know why we changed things back and forth. To do so, the confirmation
+> from RVWMO authors is helpful.
 
-The CLINT timers will be active in WFI, but not necessarily in all CPU idle
-states. For example, the T-HEAD C9xx includes the CLINT inside the CPU's reset
-domain[1]. So a nonretentive idle state that puts the CPU in reset will stop the
-CLINT (in addition to resetting the circuitry responsible for delivering the
-timer interrupt).
+Agreed.  IMO that's always good hygine, but it's extra important when 
+we're dealing with external specifications in a complex field like 
+formal models.
 
-Also keep in mind that the SBI time extension is not necessarily backed by a
-CLINT. In fact, the SBI specification lists no real requirements for the timer,
-such as minimum/maximum duration or when the timer is allowed to stop. So the
-kernel has to assume the worst case.
-
-Regards,
-Samuel
-
-[1]:
-https://github.com/T-head-Semi/openc906/blob/main/C906_RTL_FACTORY/gen_rtl/clint/rtl/clint_func.v#L369
+> Hope that I make things more clear ;-)
+>
+> Regards,
+> Boqun
+>
+>> Dan
+>>
+>> > Regards,
+>> > Boqun
+>> >
+>> >>   Andrea
+>> >>
+>> >>
+>> > [...]
 
 _______________________________________________
 linux-riscv mailing list
