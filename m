@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C74C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jun 2022 08:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 995A0C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jun 2022 08:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HkhRNRfRrmHBdwlaieqyWExvLg0pFKW8eDQS5iu7mTQ=; b=41xWt4Igt9F5/y
-	bwhCWf/amQfZXFJXq3ozLcaZryJ/sp4obSYGOvPxK+o9QgRbHifyX5rkeXX8wV/OJQ073do4Mlj33
-	Ane4PtJEGecG1T2dOwmESSvr4BhO9pa//cPEm08FKLj+kIBFSoHxSDKPzcL7FNS+NIXcUXOLNNxS7
-	d12QPf1WEBWmu6O/bcIwEFJT6VWoldubko9jhWO/gI9JIn2YTZJ6iLFvuLd47wQMWhfMPvqi3kwVj
-	GkAMXmz4SjYt0VcII+Kd2AYDvuYj5Yb6dSAx3htCH4k4EhMDPm+huQZU/6l1+0iG6RA6iKBGGW3lO
-	NPQoZ5yzwTFWeloq02Kw==;
+	List-Owner; bh=ATJ4PJdJGJlieUPbI9/MlUlHiu08e9ivFKuvyHsGQQw=; b=N+FAQlvtWBpTt5
+	XYZIOCjOktiPNB7NBxxqWXM+Ty1mnKtwopU6tAcRqElBgGe4sp6QOWodQkG58oWGzHMtD90KohDzL
+	21ddA6IX2GVO/329WrDiEKdWMIofh0sWJzmYj8kg7Um+rXJmneAxYNMWpdCf9t4c4CfJjrqBIkB6P
+	2gHpvHbRbl5EDxHm9ffYyqgManExBCxP4itt4Zw1dlNHc04QUWzqbdstkvUzHGl+XV2C3sQXnoyLJ
+	fmm3w2VMmOJUTt+sRTWHQ1ug0Poq8WPayqv2c3UFyccmHtkS8Lq+ad7EjUu/qY/qpbDgjwqbkpcrx
+	22t9NJVlP1H6XNtNbaeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4IEu-00E5lo-Do; Thu, 23 Jun 2022 08:31:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1o4IHg-00E6UX-MP; Thu, 23 Jun 2022 08:33:52 +0000
+Received: from mout.kundenserver.de ([212.227.17.10])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4IEr-00E5kx-N9
-	for linux-riscv@lists.infradead.org; Thu, 23 Jun 2022 08:30:59 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3BA8561C3A
-	for <linux-riscv@lists.infradead.org>; Thu, 23 Jun 2022 08:30:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96C79C341C7
-	for <linux-riscv@lists.infradead.org>; Thu, 23 Jun 2022 08:30:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1655973056;
-	bh=F5UR30hB3x0X8hdoOCoBr2Sxf6O6bd2Ool5zcZGjk54=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=PITc58SLVQX6+OIXxpvKXrYmMz5ioJtqqdMDq/mVS+wq9Hzrq6vbceIYxwei51e1H
-	 1bdhOQCXXfEuASliJ4yB4KQmj2/mwGVZgrlmWJS9w4oBz2cOVaMl5Fy6dxtZfsxqd4
-	 YgzL1mzesjUDMGc9pcRSfQqqOsGl0I8FXMbaAn5S90V7AVFbOBOepEwh9dBSTnTgK9
-	 7jjxoEXSmqmAu6AbEG3Ud8tj36I332As0K24M005Q2St/6chODoHoB1XuFZsAnfMEj
-	 GBM3z+2FX4WIFolnXQfxmjsbCoy8+efqx0WNgq1sMSPsJcOqoJUeP/F51YqlttrjKU
-	 4r3NirXf2rqjw==
-Received: by mail-vs1-f44.google.com with SMTP id z66so4795284vsb.3
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Jun 2022 01:30:56 -0700 (PDT)
-X-Gm-Message-State: AJIora9MDxjSbddJVNXbJ8VZYjyuSiIsoF0At6uKt6MDEsCypu2XB247
-	47Wx+7CDEH7aYqTbNfitTAsduqH/r2qZNfztrUw=
-X-Google-Smtp-Source: AGRyM1verVHsmB1e+p9XI5PjTAf8+ZIMXrCBSK8X3iGprjf7BgWHigdYt49CgBd/v4JodAETXNH9E5JaqCTKyF3/LUk=
-X-Received: by 2002:a05:6102:f8b:b0:354:57e8:4c1b with SMTP id
- e11-20020a0561020f8b00b0035457e84c1bmr4477837vsv.8.1655973055484; Thu, 23 Jun
- 2022 01:30:55 -0700 (PDT)
+	id 1o4IHd-00E6SZ-O9
+	for linux-riscv@lists.infradead.org; Thu, 23 Jun 2022 08:33:51 +0000
+Received: from mail-yb1-f176.google.com ([209.85.219.176]) by
+ mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MOzfO-1oIgPE22gu-00PL3Z for <linux-riscv@lists.infradead.org>; Thu, 23
+ Jun 2022 10:33:44 +0200
+Received: by mail-yb1-f176.google.com with SMTP id r3so34594577ybr.6
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Jun 2022 01:33:44 -0700 (PDT)
+X-Gm-Message-State: AJIora8B7ycqVGlfpqbUsy3Kz3BtLu+4Zbts2cIcFX2KxyxxOCcogL2E
+	G9TH9HdaVOmwi/epQY/MwuSx467tRoYhNT4uN5o=
+X-Google-Smtp-Source: AGRyM1vpjNUL/cDQCAr6IDE7zemhTcO8DLjRIsD3hMydd57CzdT1bmHPuTtCl+as80/GyaFbtaHiOikuetXsjsJdvX4=
+X-Received: by 2002:a25:d792:0:b0:669:2e6e:208e with SMTP id
+ o140-20020a25d792000000b006692e6e208emr8179490ybg.452.1655973223374; Thu, 23
+ Jun 2022 01:33:43 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220623074315.3814826-1-xianting.tian@linux.alibaba.com>
-In-Reply-To: <20220623074315.3814826-1-xianting.tian@linux.alibaba.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 23 Jun 2022 16:30:44 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTS0SW6GDmLb0iLv3Lux-jHv0EiN0pTErbBCFDB5G70SuQ@mail.gmail.com>
-Message-ID: <CAJF2gTS0SW6GDmLb0iLv3Lux-jHv0EiN0pTErbBCFDB5G70SuQ@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: use __smp_processor_id() instead of smp_processor_id()
-To: Xianting Tian <xianting.tian@linux.alibaba.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alex Ghiti <alex@ghiti.fr>, 
-	Liao Chang <liaochang1@huawei.com>, Nick Kossifidis <mick@ics.forth.gr>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+References: <20220621144920.2945595-1-guoren@kernel.org> <20220621144920.2945595-2-guoren@kernel.org>
+In-Reply-To: <20220621144920.2945595-2-guoren@kernel.org>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Thu, 23 Jun 2022 10:33:24 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a2rnz9mQqhN6-e0CGUUv9rntRELFdxt_weiD7FxH7fkfQ@mail.gmail.com>
+Message-ID: <CAK8P3a2rnz9mQqhN6-e0CGUUv9rntRELFdxt_weiD7FxH7fkfQ@mail.gmail.com>
+Subject: Re: [PATCH V6 1/2] asm-generic: spinlock: Move qspinlock &
+ ticket-lock into generic spinlock.h
+To: Guo Ren <guoren@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Peter Zijlstra <peterz@infradead.org>, Waiman Long <longman@redhat.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Conor Dooley <Conor.Dooley@microchip.com>, 
+	Huacai Chen <chenhuacai@loongson.cn>, Xuerui Wang <kernel@xen0n.name>, Rui Wang <r@hev.cc>, 
+	Stafford Horne <shorne@gmail.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	linux-arch <linux-arch@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>
+X-Provags-ID: V03:K1:7JoU4jONnUBSc5pFFK/MhvCRgDeYEW7r6D+XfasVai4bJBJhwFi
+ H0X41lzoFkWbttJWajXdhMF84epmIuKkH18+BZ3xGyh9k+iTDH6fCgpW0Esh4njC5Yt/TX0
+ OJhOyCRtqH5k4VzxL/PWnXuV1b/ufv8/n4JPE1pVc3EWTP75KzsgWl1Z+ey/bAj1HoQbqLi
+ A1V6c9b3atIwMj9mDkICQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:yqjSSLBKIJA=:pLVFf7mLdwl3ag/p/YHU5d
+ DEIGKoDa3nNdvcl0VoXqut8Q+ysTeAeV8HSZXUUM9NkQG6GNfDoX7t4B3UM5RkSk47yjSquhJ
+ r1rtGmplC8fsqYELC2GbuxAAhVrf1BnvNbSTC66+VCwnrihiJfBrJBU+ZGHvucQvd1VC7JmYW
+ mEvjIJuqNTfPvL22THXpmp0hB5mf/hjUgMdq6lLMQhpJ4l7ccdGvTcwqGHwS2K7ENnBgmGTMp
+ tS7kZ2FF0BdOQhty/4Mdq+5Z+1Rh/1Axc5EQcLWEuqQdNIJvpyWBau5KFX+gNI6FkEGb5vEa8
+ U6KzMnXFnIBVENlWS9Q4+AFmIvZ/X948kHsX23L1uh2U03DLx+A+0nca61xh/GAzt8VT3dyht
+ b2+4GzoGmA03OEhSEH8OJ/XDyf54qW6q06B4HsF4Fj7rIgwAxOfHj1XUKsPe6MQaAXd6NJHf/
+ iLzd6pJJVRZSfGY6XiagHeNjWAVKPnxkPEcg5+OcR5nJy8E4u1QiUTr/1ZpWYc/Qr2NNQKMHK
+ 4PB/mxvzGUnYYJvQpscYHbbtEAM2wATBSAXzGYmBK6HXi+QOcXbaOLm2l7SogF6Z/x3Sp13ES
+ 2LAXhG4SPYwN+4Xr1NYdRvGcVmPLh7qKtQIHR05v2x97TEolTmwPp+JPggE+3dUz62S7dmMty
+ c1R0MkfzzeRObCX+1BbGj+9zd96+xlUW89bb8snkz74W1HeD0fIDaFopuwqKkWSol3Jlf1xep
+ JkFlIGnoDgJJAvwDOEfrxhZYfU38jDUrFnW8Su7RVd9Fxj+GxfqMEArZ94FUCODcHOxXiQkxk
+ XheIxTVJuBXVLBeWwu7hbxxPXGJyYjCB5kwZGfqMnjIZHHY4MA7QKB9sf2EaxFU45mcn4O7Nh
+ w/9Tsq2MITzC1Q2FQsKg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220623_013057_896823_2DCDCDA2 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20220623_013350_128827_FA0B5618 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,92 +91,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 23, 2022 at 3:43 PM Xianting Tian
-<xianting.tian@linux.alibaba.com> wrote:
+On Tue, Jun 21, 2022 at 4:49 PM <guoren@kernel.org> wrote:
 >
-> Use __smp_processor_id() to avoid check the preemption context when
-> CONFIG_DEBUG_PREEMPT enabled, as we will enter crash kernel and no
-> return.
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
-> Without the patch,
-> [  103.781044] sysrq: Trigger a crash
-> [  103.784625] Kernel panic - not syncing: sysrq triggered crash
-> [  103.837634] CPU1: off
-> [  103.889668] CPU2: off
-> [  103.933479] CPU3: off
-> [  103.939424] Starting crashdump kernel...
-> [  103.943442] BUG: using smp_processor_id() in preemptible [00000000] code: sh/346
-> [  103.950884] caller is debug_smp_processor_id+0x1c/0x26
-> [  103.956051] CPU: 0 PID: 346 Comm: sh Kdump: loaded Not tainted 5.10.113-00002-gce03f03bf4ec-dirty #149
-> [  103.965355] Call Trace:
-> [  103.967805] [<ffffffe00020372a>] walk_stackframe+0x0/0xa2
-> [  103.973206] [<ffffffe000bcf1f4>] show_stack+0x32/0x3e
-> [  103.978258] [<ffffffe000bd382a>] dump_stack_lvl+0x72/0x8e
-> [  103.983655] [<ffffffe000bd385a>] dump_stack+0x14/0x1c
-> [  103.988705] [<ffffffe000bdc8fe>] check_preemption_disabled+0x9e/0xaa
-> [  103.995057] [<ffffffe000bdc926>] debug_smp_processor_id+0x1c/0x26
-> [  104.001150] [<ffffffe000206c64>] machine_kexec+0x22/0xd0
-> [  104.006463] [<ffffffe000291a7e>] __crash_kexec+0x6a/0xa4
-> [  104.011774] [<ffffffe000bcf3fa>] panic+0xfc/0x2b0
-> [  104.016480] [<ffffffe000656ca4>] sysrq_reset_seq_param_set+0x0/0x70
-> [  104.022745] [<ffffffe000657310>] __handle_sysrq+0x8c/0x154
-> [  104.028229] [<ffffffe0006577e8>] write_sysrq_trigger+0x5a/0x6a
-> [  104.034061] [<ffffffe0003d90e0>] proc_reg_write+0x58/0xd4
-> [  104.039459] [<ffffffe00036cff4>] vfs_write+0x7e/0x254
-> [  104.044509] [<ffffffe00036d2f6>] ksys_write+0x58/0xbe
-> [  104.049558] [<ffffffe00036d36a>] sys_write+0xe/0x16
-> [  104.054434] [<ffffffe000201b9a>] ret_from_syscall+0x0/0x2
-> [  104.067863] Will call new kernel at ecc00000 from hart id 0
-> [  104.074939] FDT image at fc5ee000
-> [  104.079523] Bye...
+> Separate ticket-lock into tspinlock.h and let generic spinlock support
+> qspinlock or ticket-lock selected by CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+> config.
 >
-> With the patch we can got clear output,
-> [   67.740553] sysrq: Trigger a crash
-> [   67.744166] Kernel panic - not syncing: sysrq triggered crash
-> [   67.809123] CPU1: off
-> [   67.865210] CPU2: off
-> [   67.909075] CPU3: off
-> [   67.919123] Starting crashdump kernel...
-> [   67.924900] Will call new kernel at ecc00000 from hart id 0
-> [   67.932045] FDT image at fc5ee000
-> [   67.935560] Bye...
->
-> Fixes: 0e105f1d0037 ("riscv: use hart id instead of cpu id on machine_kexec")
-> Co-developed-by: Guo Ren <guoren@kernel.org>
-
-- Co-developed-by: Guo Ren <guoren@kernel.org>
-+ Reviewed-by: Guo Ren <guoren@kernel.org>
-
-Thx
-
-> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Cc: Peter Zijlstra (Intel) <peterz@infradead.org>
+> Cc: Arnd Bergmann <arnd@arndb.de>
 > ---
->  arch/riscv/kernel/machine_kexec.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  include/asm-generic/spinlock.h        | 90 ++------------------------
+>  include/asm-generic/spinlock_types.h  | 14 ++--
+>  include/asm-generic/tspinlock.h       | 92 +++++++++++++++++++++++++++
+>  include/asm-generic/tspinlock_types.h | 17 +++++
+
+Unless someone has a very good argument for the "tspinlock" name, I would
+prefer naming the new file ticket_spinlock.h. While the 'qspinlock' name has
+an established meaning already, this is not the case for 'tspinlock', and
+the longer name would be less confusing in my opinion.
+
+> +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+> +#include <asm/qspinlock.h>
+>  #include <asm/qrwlock.h>
+> +#else
+> +#include <asm-generic/tspinlock.h>
+> +#endif
+
+As Huacai Chen suggested in the other thread, the asm/qrwlock.h include should
+be outside of the #ifdef here.
+
+> diff --git a/include/asm-generic/spinlock_types.h b/include/asm-generic/spinlock_types.h
+> index 8962bb730945..9875c1d058b3 100644
+> --- a/include/asm-generic/spinlock_types.h
+> +++ b/include/asm-generic/spinlock_types.h
+> @@ -3,15 +3,11 @@
+>  #ifndef __ASM_GENERIC_SPINLOCK_TYPES_H
+>  #define __ASM_GENERIC_SPINLOCK_TYPES_H
 >
-> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-> index df8e24559035..86d1b5f9dfb5 100644
-> --- a/arch/riscv/kernel/machine_kexec.c
-> +++ b/arch/riscv/kernel/machine_kexec.c
-> @@ -171,7 +171,7 @@ machine_kexec(struct kimage *image)
->         struct kimage_arch *internal = &image->arch;
->         unsigned long jump_addr = (unsigned long) image->start;
->         unsigned long first_ind_entry = (unsigned long) &image->head;
-> -       unsigned long this_cpu_id = smp_processor_id();
-> +       unsigned long this_cpu_id = __smp_processor_id();
->         unsigned long this_hart_id = cpuid_to_hartid_map(this_cpu_id);
->         unsigned long fdt_addr = internal->fdt_addr;
->         void *control_code_buffer = page_address(image->control_code_page);
-> --
-> 2.17.1
->
+> -#include <linux/types.h>
+> -typedef atomic_t arch_spinlock_t;
+> -
+> -/*
+> - * qrwlock_types depends on arch_spinlock_t, so we must typedef that before the
+> - * include.
+> - */
+> +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+> +#include <asm-generic/qspinlock_types.h>
+>  #include <asm/qrwlock_types.h>
+> -
+> -#define __ARCH_SPIN_LOCK_UNLOCKED      ATOMIC_INIT(0)
+> +#else
+> +#include <asm-generic/tspinlock_types.h>
+> +#endif
 
+I don't think this file warrants the extra indirection, since both
+versions have only a
+few lines. Just put it all into one file, and change the files that include
+asm-generic/qspinlock_types.h to use asm-generic/spinlock_types.h instead.
 
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
