@@ -4,44 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A3F1C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jun 2022 16:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 360D0C3F2D4
+	for <linux-riscv@archiver.kernel.org>; Thu, 23 Jun 2022 17:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0xjlopVENVJKX6L9Dno+efjaXMRVpY1hhDJjx9AtLqs=; b=gDNHdYWN8MDIPn
-	IMyllJBqhcVw4e0aCHhg6aFjenGXxbLBrr/EmCvklZjxktCjs+WhcJ/2IJJTwiGbpInrmmiuNM84e
-	r1rK/FjEVNZ+a5u1eeAGR6tJfhj9/3724BY3SfHhDGht3bE5FcopWIL2kC1lkhQey6EXMmQvUS/Rz
-	GEG8peEBC+FLNOg30llr5F5oHMFQQ9yrEn9B8GWQ3R+uiB8OL8h3XKd3wPucGXuJlz6F2H9ejriWM
-	ON4yTKBqYcib+zH8VfZItlvOo0H3FOFIt8bGSUQEiQ88C2dBBuZUChU92Rn7pucFg/DDo+T5j/h8E
-	bV68JrC79zRb/Q0qiKXA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:
+	References:Cc:To:Subject:Date:Message-ID:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=F9ZZZ+1xbR4ICLy19HzZw370fOXQtfiSnFKPDbocE/I=; b=t6DO93QpuKTwoHbdTZny/Wl/0J
+	dFIjN5A5a5IPwdDrf0EbA3P+btycztaetZNNIiqGl+D8O3kaXI1YgdSio7znHARAtSiV3u8bP+0QD
+	R6OCOJHB77X1CB7EJYQqNip7BJB2wlEBPOIb0YRxMcYpcGdKOcxjcj6n806ecIGRuodKNkGghavY8
+	xlHHj90U3H2h9tPYnhpZRDCE6yH3OD+f52Vgrwv+iq6PFQZD4oJz6vism+Os7VEyBGec7hSwL+MGe
+	caxt7Zm15/DoqoAn9o+mLG6XBdX+Ph5uq1J9lXxzVBbLf1HubGAYjRxfKyuPUB2Yiu4qqVZyR89Nc
+	To4bLp1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4Pks-00Fuo7-7i; Thu, 23 Jun 2022 16:32:30 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1o4QKw-00G3QL-8d; Thu, 23 Jun 2022 17:09:46 +0000
+Received: from mail-bn8nam04on2065.outbound.protection.outlook.com ([40.107.100.65] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4PkS-00FuUX-Fz
-	for linux-riscv@lists.infradead.org; Thu, 23 Jun 2022 16:32:06 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1o4PkE-0002xb-Gk; Thu, 23 Jun 2022 18:31:50 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Philipp Tomsich <philipp.tomsich@vrull.eu>, Aaron Durbin <adurbin@rivosinc.com>, Randy Dunlap <rdunlap@infradead.org>, Atish Patra <atishp@atishpatra.org>, Christoph Muellner <christoph.muellner@vrull.eu>
-Cc: Christoph =?ISO-8859-1?Q?M=FCllner?= <christoph.muellner@vrull.eu>
-Subject: Re: [RFC PATCH v2] riscv: Add Zawrs support for spinlocks
-Date: Thu, 23 Jun 2022 18:31:49 +0200
-Message-ID: <1903087.PYKUYFuaPT@diego>
-In-Reply-To: <20220623152948.1607295-1-christoph.muellner@vrull.eu>
-References: <20220623152948.1607295-1-christoph.muellner@vrull.eu>
+	id 1o4QKt-00G3NU-4X
+	for linux-riscv@lists.infradead.org; Thu, 23 Jun 2022 17:09:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=jshkuSfCIVNiVWM/ZOLnGbd9inGB5QOFmXdWleDbESitF4Bm9iDwuX7BLGyI8bmsU/3WaZZTuSfy4iqy3rhObAtsIi5R1VKsWrMaXg0MtJqG25Ro2Y/Ltt5MnLbqR4mojGO3LxJr1DYDidxuotiOPXsrngeBfbNQyxlTathAWJH/WTwq0nxvhCZv4IdmdgJHGh+QK8/5guCiyTHPLKeJJqPRMma2wW+47G3vsF4qiXM43AmpFtFAXg8K3iaZcCkBPAznsgk0GACxgoOCH4CBpOFr9qj6mXP3sUsuhGw7Tf6AGGKEHTknDfIM51CgF9WSlHE77nu1WEYGiB0h72EiQg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qYbgrSFrhvGWW+RzOTE4cXKoGn9hIRNFXQJEszRuaUc=;
+ b=Xo8i77FahL3t879dgv0PDz8VssJj+ixcmmbwVZzB68bAVonSDdIf/j8Oyh27Yy5NAivz3eRNWnWde3+r8CrULIIFIbPqafvXwFLsOMMyZG1meMe9DD4zPbttL3EjR83vbFBK+jfqC7c9IBUpjYC5bZwgANZeSOsG0T5chT5uY5xB+fnajQoHCZ9xK7roqf+rzcp6tE5Y5Fv58yW3KOH+2t4kqTbLZWSB4pChd/UfTy8aDSwP9NbizRFtffM+6IUvaW74EEtJAVjghg7MU3LeEEX67N5xv+sbEEq+vce6LF1dOx+0ozRzNnxfKCjBhS/A5Vf/mxciglplxiCneU+Uig==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qYbgrSFrhvGWW+RzOTE4cXKoGn9hIRNFXQJEszRuaUc=;
+ b=Gf/2xvHtZ7v47k+N0O5bhrmLg8YhTGU0h5tQYW+DUoO3nZMyLdd4Ig7DVFDnDdXcMOzY9a/+RG/f2ZuMXld4i6h2nu8F58zDm1jMP5KQXjP5JOeSHkOruUxlwUbrM5/IXFyGAcVdF+LSCGlmQgFDqQHlT7g3AfDNHLiHHM8dis+uNtDmNc685gKO+EzOBsESGqh5UOFdJDeYIhtG3YPI1IGITavJ3g5XFb7OY1PKf8WsWq7pTWnw5FbPLsQqlVAv8G1aZJjTqzwEOEH089W/fdyeud9bzLXlrDe6ngirg8OzkgWDT6ttx2CwJVMHAvIHW/m9c+CCtkqFsnfnNK0ebQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MN2PR12MB3437.namprd12.prod.outlook.com (2603:10b6:208:c3::20)
+ by DM4PR12MB6040.namprd12.prod.outlook.com (2603:10b6:8:af::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5353.15; Thu, 23 Jun
+ 2022 17:09:36 +0000
+Received: from MN2PR12MB3437.namprd12.prod.outlook.com
+ ([fe80::9d83:45f6:174f:73c]) by MN2PR12MB3437.namprd12.prod.outlook.com
+ ([fe80::9d83:45f6:174f:73c%7]) with mapi id 15.20.5353.019; Thu, 23 Jun 2022
+ 17:09:36 +0000
+Message-ID: <fd664673-c4cc-be8f-9824-5272c5c79b40@nvidia.com>
+Date: Thu, 23 Jun 2022 13:09:23 -0400
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.10.0
+Subject: Re: [PATCH V4 5/5] riscv: atomic: Optimize LRSC-pairs atomic ops with
+ .aqrl annotation
+Content-Language: en-US
+To: Boqun Feng <boqun.feng@gmail.com>, Andrea Parri <parri.andrea@gmail.com>
+Cc: Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ Guo Ren <guoren@linux.alibaba.com>
+References: <CAJF2gTQoSQq_S4UvAiXgMviT040Ls8+VkDszQSke1a0zbXZ82A@mail.gmail.com>
+ <mhng-7a274375-0d99-41c8-98a3-853d110f62e9@palmer-ri-x1c9>
+ <CAJF2gTTXO42_TsZudaQuB9Re0teu__EZ11JZ96nktMqsQkMYNA@mail.gmail.com>
+ <20220614110258.GA32157@anparri> <YrPei6q4rIAx6Ymf@boqun-archlinux>
+From: Dan Lustig <dlustig@nvidia.com>
+In-Reply-To: <YrPei6q4rIAx6Ymf@boqun-archlinux>
+X-ClientProxiedBy: MN2PR19CA0068.namprd19.prod.outlook.com
+ (2603:10b6:208:19b::45) To MN2PR12MB3437.namprd12.prod.outlook.com
+ (2603:10b6:208:c3::20)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 83909f70-8a7e-4845-f15c-08da553b2665
+X-MS-TrafficTypeDiagnostic: DM4PR12MB6040:EE_
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	=?utf-8?B?UUg2Z3ZML05UWDcrRlRHL0Rna1FWYUFCNzFlQUZYYWRKdy9DOEpORnZ3bmtX?=
+ =?utf-8?B?T2pTc2hvMDBNakJXTHRhWjRCQVFjdWFLWjVxVG1iTEo5c2FMZXNHSitYcC9O?=
+ =?utf-8?B?ZUhyTDNaRWQrSmZGUUs3T21jejdNUDhxeFkycXNiY1ZMelk3MDN6SUgzQXJa?=
+ =?utf-8?B?MWdkeExSUUU1WjZlbytEQTlQdE9EVUhrdTczTnNiWExYUElEajQ5d0FlRWNi?=
+ =?utf-8?B?N0I3UjNXeUZoSHpsaUpYd3duM29VTWdSNHBHZ0s5NEs2RXNXTFd6SCsrdVVG?=
+ =?utf-8?B?aFpzUVpGZEN1NWgyYkc1Q2NVZnVIRHYxL2ZLREpnTFBXMHFkS1pudjNwM1Nu?=
+ =?utf-8?B?QUVQZWdCQUtta1RIMmlJWmFjOGR4K1cyeTZYajhkWU1PRG5WUTZzZXVUQzRB?=
+ =?utf-8?B?SjVqazZHMDlFNTFINmJoT1M2Z0lNcnEvRFJZOHNVYmZKcDM4VnkyQWlMejJR?=
+ =?utf-8?B?ckdZZ2pRT2FwUGRnWVMyQk02YllzMlJMbldsZ3RpbUR1NUx3cEI5YWVZL0RM?=
+ =?utf-8?B?anYvbVBRdkJpcmdPTkUyOG9xZ2F6MDQyT1lQZWw3bUhXU2JhbjFwMENYdXBN?=
+ =?utf-8?B?aU1MVG5Bci9yOXpTenpMZGxhdlRaZitYM1BjOXpvVThzdERjQktyMjhoQURp?=
+ =?utf-8?B?azFNa2ZPUHJhL0tVTEhmdkpzZlpKY1VnWWZIY0s1dW9TNHVhZGpWbWVVb2t2?=
+ =?utf-8?B?RjlTNlhMaWJDRFVLVTd3Yk5seTdqeGRsVUJna1ZNNHJhVXBQUEtOdGJ3MDhZ?=
+ =?utf-8?B?MXYzejBIMHlGRm9Cd0hueUtHbnlQRVNJUnZXR3JUbmtZbG1xRTFkblhiN3pm?=
+ =?utf-8?B?SlFIaTdhNXhueUNtQys3bWdmMWhVQU5DWEFmRndpNXRpcWxyQWUyMjFYYTVU?=
+ =?utf-8?B?My9jTVlTSzVUbmNCYThRdTdDS1VRMVZnNGZtQ1R4T1V3SmI1WTFRaHp1eXpz?=
+ =?utf-8?B?TTF2UlM3RDVIODNCaGRBN1BHeDROT2NBMkRDaTBOVmc2Tm91dk1heGFJeW85?=
+ =?utf-8?B?aFVBbEkrdys5SVRXbnUwZ2N2ZDlXZnY1U2tadUNsa3V5WXdWTi8vSTdQNWZ5?=
+ =?utf-8?B?ZDg1cmMxZndnN2s1UTI1cjRLVGdRVlpLQklET2tBRWVoK1lsa0tJMW5OYnFR?=
+ =?utf-8?B?OUZpQXBsQWorazRkdDJEaUtmNUlXbjB5WUNUNWVTWXdXZE1MaFVsTWpEd0sv?=
+ =?utf-8?B?eGVGSVNBNDgrYWp6QlBvemU3OHpSa1c5czIvZWdsdXlkL2ViMEhCUm4zcDVh?=
+ =?utf-8?B?c3NKZXUzUnIxTWt3SWd1ZkpQUmtWa3FDcHI3d2tzZTBzck14dz09?=
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3437.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(4636009)(346002)(39860400002)(376002)(396003)(136003)(366004)(478600001)(5660300002)(186003)(36756003)(83380400001)(26005)(6666004)(38100700002)(6506007)(316002)(6486002)(31686004)(66556008)(4326008)(66476007)(53546011)(8936002)(7416002)(966005)(66946007)(86362001)(2906002)(31696002)(54906003)(6512007)(110136005)(41300700001)(8676002)(2616005)(142923001)(45980500001)(43740500002);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?utf-8?B?K0s1YnR5UFdzR3hZSnVRcUxkZjlIVytPYzVKREFYZldCajJlWENWR052Y0p6?=
+ =?utf-8?B?VjRpZ0lyK0xjSHZEZEUxR25lSUFpdloyNHBmU1FPenYwSE14TjVSRG1wUlVD?=
+ =?utf-8?B?R2hHS3lxZ1kzV1pXdXNkNHBrazIrb1FXWlRSNUV6S1FnSnN4VjZCS0MybVpX?=
+ =?utf-8?B?eFExczNObUJVYTZ0YlZWZGozR1BJdVQxUmdzY01hNG1VOFE3ZWNoMk5HaTl4?=
+ =?utf-8?B?ZDAya1JuRnlyR2lHeitPVGRxTkpiRCtINmVPRnM5V0FPNTRBWURoYXc3STAz?=
+ =?utf-8?B?U3EyTUk5UlpVYWdnR0M3TWxpT1piRXhvY1lqWUZLN3V6aUdyc05Za3ZxZlV0?=
+ =?utf-8?B?R3IxNWRraVZCd0NXY0twcFo2RFZPWVUwVTlmOUswVkNvdVYwck1SMUpjTnRE?=
+ =?utf-8?B?eDlHTit6RmZBSTFJMjNweXo4YjBVRnFWeGdudDJwRTlDK3JXZkc4UWdDUHd3?=
+ =?utf-8?B?YnBzME5ZUmJmREVheVl5NiszOCt6Z3c4YlQ0SWtiMmp2ZWczZ0xkSFNScDNW?=
+ =?utf-8?B?Y05GY2lFdjdrM09tK1dXNStyVjRjdUpQcVp1Z1VLbitPS2lSTHI2dGRkQmFL?=
+ =?utf-8?B?N0RWQVFWcmpzMXNmVDFOWmR1b09RZ1Ntdkd2UUM4Rk9VZTgwTlNMRVhJN1hs?=
+ =?utf-8?B?K28rck5tbGJZdHBqUEhuSmpGbWV0N01pYWJiaVZUbElFZkFqYTJ0d0hRRCtC?=
+ =?utf-8?B?bTIxaU1LSkY2QytxVGQ5VU5xMTRTMll2L0x4UzkrMGJaSnRZeGpQOUJLK1N5?=
+ =?utf-8?B?K3Z0aGNKRTk2anhuczFZNEJZSzN1SjZILzg1S3hxNlo0WXFTL25nSFhXdkcz?=
+ =?utf-8?B?dFQ0L1JENWh3UDBwZDRHei9mby9paldrMGdUaFdpTHZpbjhmZmFZS1Vzazh3?=
+ =?utf-8?B?VjFmL2VPU0tpUU1PRTlQZHcrZ0tvaStMQ29qZmhUS1F3M0dHdndOVU5kdnlZ?=
+ =?utf-8?B?aGFNNHBBdm9YR1pMYnAzMHo0R2dxNGZjTUJuV0VSamljTHhNcm8ySUhIdGRC?=
+ =?utf-8?B?Wm1jVFQzMnVOb2d6Wm9PczJSeFY2TUFLVDZ4TUYrbm5mc3R0TEt1R3dVSHBy?=
+ =?utf-8?B?OW9BTHpSa3diRGdSYXNvZ2gyR2p2MDFpK2RyTjdmL3Y2Y1NMSmJDaWJlcnQw?=
+ =?utf-8?B?QnJHSG5ucTJ1NlpDVlhPSm9XNFlzQU1SaG02MXhmTkNjRmRkZXY1dHBDZXpi?=
+ =?utf-8?B?dmIyOHhYdnEybkhmMWJSWit0eUlFMXZQbWNKUHMrQmxYZTZuU0dKTHE4MDZL?=
+ =?utf-8?B?eG4wTEJ5R3oyTUkzQU5xZ0tHbHlEMTZheWVqbDk0Q2RZU3RLZ3FybnN1Z01B?=
+ =?utf-8?B?QVFrS2ZscjJ3d2RlR2EyamJWZEx3TFUvZFJnVzltUGtOUFdFNGpTVDc1YnpV?=
+ =?utf-8?B?YzJDYkozNXVUUjRGSjVTK3poOXJyTThsMXpxaURsVjdFbHNJd2xSSWY4TU5S?=
+ =?utf-8?B?MlZmMGJlWjRRZXg1c3dpbzM4cWRhaUVVNUdkKzMwcVVtNVBzZjRtWFNlZjZL?=
+ =?utf-8?B?bzgyOGwzN1dFVzRaNng0ZzZ4cTUzK2tGN2VWRkVCa084dnJhT3RzOWRYYjg2?=
+ =?utf-8?B?UzhyNFo5M1A0TEkwS0xaSm8yZXoyMXdoYmM0VjNPWTF6aHI3N1pGL2tZQ2tP?=
+ =?utf-8?B?RUp6YkRuakZLUVVpcG1peEFmSlBDTlZYc3I3NzdKN2E5KzlDWTY1YjE3QVE3?=
+ =?utf-8?B?SU1OdkY4WXdySStybHVrR1pHUVBGcTN1M3M4eDAvZjkzdGVaOHpmQ05XZDhV?=
+ =?utf-8?B?a05HMjhZNWMydUdpQ2U2TEJkKzFHczZTZmdMTG9ZQ2huaTExT1VQQ0tTZDVD?=
+ =?utf-8?B?T3JkZytJblBmRE5PUFQ4WWt6WllnejFHbFdrVVE0WmU5aXU1VlczdHUyMWx5?=
+ =?utf-8?B?c1p1bS9mNkRHT0dnWHY0b1JQbDhyVC80R3ZZdFVNTjdDT1NScjRnNVFIWVhG?=
+ =?utf-8?B?SHZycnFNR01NbzZrWUZTNld4WXVIU2V0OGY4bjc5MUJ6VXRkTmlwVFJiVU43?=
+ =?utf-8?B?Y2RvTlJnTWYvV1lqbHdnaW5zRzBHU3lXK3NMTm9zTlNROEtmWVhyOGcvUzhB?=
+ =?utf-8?B?RGpaYVYrd1M4NzRRWFkwTHF0bHZYTHBxT1gvNTJtQkEzSmpyUTlkNHZMaklv?=
+ =?utf-8?B?S1ZySzNJamszQUlhSTRjTUxBUVNaNjhTMUhkeGtmQTQwdC9YVHhBT2N1b3lS?=
+ =?utf-8?B?UHZCV1NicE53WnEycklLYVRGUWdRYkk4OGV5UmpESFlreDc1UzZLdGlOMjkz?=
+ =?utf-8?B?UWVObWFscDlxc0pKa2hlUU9GbWwvSzRjeHpRM1hpbkR4emRHTUh3N0JYM0xx?=
+ =?utf-8?B?cmxNaGIrMDNBbUd0ZkxpMkJ0a0pPMiswYzdPdmo4dURNZStDOFlNQT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 83909f70-8a7e-4845-f15c-08da553b2665
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3437.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Jun 2022 17:09:36.3867
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZGlE0z4Q+5RoQqEybhtmZLM3ZbTjQsXPqqVaKH/UIKgImfnyGpmYHxRlC7h4O593EBfLiIRIs1aGilKyc7ugUg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB6040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220623_093204_595681_6396FCBD 
-X-CRM114-Status: GOOD (  30.82  )
+X-CRM114-CacheID: sfid-20220623_100943_316443_18270E8D 
+X-CRM114-Status: GOOD (  34.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,148 +171,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christoph,
+On 6/22/2022 11:31 PM, Boqun Feng wrote:
+> Hi,
+> 
+> On Tue, Jun 14, 2022 at 01:03:47PM +0200, Andrea Parri wrote:
+> [...]
+>>> 5ce6c1f3535f ("riscv/atomic: Strengthen implementations with fences")
+>>> is about fixup wrong spinlock/unlock implementation and not relate to
+>>> this patch.
+>>
+>> No.  The commit in question is evidence of the fact that the changes
+>> you are presenting here (as an optimization) were buggy/incorrect at
+>> the time in which that commit was worked out.
+>>
+>>
+>>> Actually, sc.w.aqrl is very strong and the same with:
+>>> fence rw, rw
+>>> sc.w
+>>> fence rw,rw
+>>>
+>>> So "which do not give full-ordering with .aqrl" is not writen in
+>>> RISC-V ISA and we could use sc.w/d.aqrl with LKMM.
+>>>
+>>>>
+>>>>>> describes the issue more specifically, that's when we added these
+>>>>>> fences.  There have certainly been complains that these fences are too
+>>>>>> heavyweight for the HW to go fast, but IIUC it's the best option we have
+>>>>> Yeah, it would reduce the performance on D1 and our next-generation
+>>>>> processor has optimized fence performance a lot.
+>>>>
+>>>> Definately a bummer that the fences make the HW go slow, but I don't
+>>>> really see any other way to go about this.  If you think these mappings
+>>>> are valid for LKMM and RVWMO then we should figure this out, but trying
+>>>> to drop fences to make HW go faster in ways that violate the memory
+>>>> model is going to lead to insanity.
+>>> Actually, this patch is okay with the ISA spec, and Dan also thought
+>>> it was valid.
+>>>
+>>> ref: https://lore.kernel.org/lkml/41e01514-74ca-84f2-f5cc-2645c444fd8e@nvidia.com/raw
+>>
+>> "Thoughts" on this regard have _changed_.  Please compare that quote
+>> with, e.g.
+>>
+>>   https://lore.kernel.org/linux-riscv/ddd5ca34-805b-60c4-bf2a-d6a9d95d89e7@nvidia.com/
+>>
+>> So here's a suggestion:
+>>
+>> Reviewers of your patches have asked:  How come that code we used to
+>> consider as buggy is now considered "an optimization" (correct)?
+>>
+>> Denying the evidence or going around it is not making their job (and
+>> this upstreaming) easier, so why don't you address it?  Take time to
+>> review previous works and discussions in this area, understand them,
+>> and integrate such knowledge in future submissions.
+>>
+> 
+> I agree with Andrea.
+> 
+> And I actually took a look into this, and I think I find some
+> explanation. There are two versions of RISV memory model here:
+> 
+> Model 2017: released at Dec 1, 2017 as a draft
+> 
+> 	https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/hKywNHBkAXM/m/QzUtxEWLBQAJ
+> 
+> Model 2018: released at May 2, 2018
+> 
+> 	https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/xW03vmfmPuA/m/bMPk3UCWAgAJ
+> 
+> Noted that previous conversation about commit 5ce6c1f3535f happened at
+> March 2018. So the timeline is roughly:
+> 
+> 	Model 2017 -> commit 5ce6c1f3535f -> Model 2018
+> 
+> And in the email thread of Model 2018, the commit related to model
+> changes also got mentioned:
+> 
+> 	https://github.com/riscv/riscv-isa-manual/commit/b875fe417948635ed68b9644ffdf718cb343a81a
+> 
+> in that commit, we can see the changes related to sc.aqrl are:
+> 
+> 	 to have occurred between the LR and a successful SC.  The LR/SC
+> 	 sequence can be given acquire semantics by setting the {\em aq} bit on
+> 	-the SC instruction.  The LR/SC sequence can be given release semantics
+> 	-by setting the {\em rl} bit on the LR instruction.  Setting both {\em
+> 	-  aq} and {\em rl} bits on the LR instruction, and setting the {\em
+> 	-  aq} bit on the SC instruction makes the LR/SC sequence sequentially
+> 	-consistent with respect to other sequentially consistent atomic
+> 	-operations.
+> 	+the LR instruction.  The LR/SC sequence can be given release semantics
+> 	+by setting the {\em rl} bit on the SC instruction.  Setting the {\em
+> 	+  aq} bit on the LR instruction, and setting both the {\em aq} and the {\em
+> 	+  rl} bit on the SC instruction makes the LR/SC sequence sequentially
+> 	+consistent, meaning that it cannot be reordered with earlier or
+> 	+later memory operations from the same hart.
+> 
+> note that Model 2018 explicitly says that "ld.aq+sc.aqrl" is ordered
+> against "earlier or later memory operations from the same hart", and
+> this statement was not in Model 2017.
+> 
+> So my understanding of the story is that at some point between March and
+> May 2018, RISV memory model folks decided to add this rule, which does
+> look more consistent with other parts of the model and is useful.
+> 
+> And this is why (and when) "ld.aq+sc.aqrl" can be used as a fully-ordered
+> barrier ;-)
+> 
+> Now if my understanding is correct, to move forward, it's better that 1)
+> this patch gets resend with the above information (better rewording a
+> bit), and 2) gets an Acked-by from Dan to confirm this is a correct
+> history ;-)
 
-Am Donnerstag, 23. Juni 2022, 17:29:48 CEST schrieb Christoph Muellner:
-> From: Christoph M=FCllner <christoph.muellner@vrull.eu>
-> =
+I'm a bit lost as to why digging into RISC-V mailing list history is
+relevant here...what's relevant is what was ratified in the RVWMO
+chapter of the RISC-V spec, and whether the code you're proposing
+is the most optimized code that is correct wrt RVWMO.
 
-> The current RISC-V code uses the generic ticket lock implementation,
-> that calls the macros smp_cond_load_relaxed() and smp_cond_load_acquire().
-> Currently, RISC-V uses the generic implementation of these macros.
-> This patch introduces a RISC-V specific implementation, of these
-> macros, that peels off the first loop iteration and modifies the waiting
-> loop such, that it is possible to use the WRS.STO instruction of the Zawrs
-> ISA extension to stall the CPU.
-> =
+Is your claim that the code you're proposing to fix was based on a
+pre-RVWMO RISC-V memory model definition, and you're updating it to
+be more RVWMO-compliant?
 
-> The resulting implementation of smp_cond_load_*() will only work for
-> 32-bit or 64-bit types for RV64 and 32-bit types for RV32.
-> This is caused by the restrictions of the LR instruction (RISC-V only
-> has LR.W and LR.D). Compiler assertions guard this new restriction.
-> =
+Dan
 
-> This patch uses the existing RISC-V ISA extension framework
-> to detect the presents of Zawrs at run-time.
-> If available a NOP instruction will be replaced by WRS.NTO or WRS.STO.
-> =
-
-> The whole mechanism is gated by Kconfig setting, which defaults to Y.
-> =
-
-> The Zawrs specification can be found here:
-> https://github.com/riscv/riscv-zawrs/blob/main/zawrs.adoc
-> =
-
-> Note, that the Zawrs extension is not frozen or ratified yet.
-> Therefore this patch is an RFC and not intended to get merged.
-> =
-
-> Changes since v1:
-> * Adding "depends on !XIP_KERNEL" to RISCV_ISA_ZAWRS
-> * Fixing type checking code in __smp_load_reserved*
-> * Adjustments according to the specification change
-> =
-
-> Signed-off-by: Christoph M=FCllner <christoph.muellner@vrull.eu>
-
-With the matching Qemu-Patch on
-- rv64 + Debian rootfs
-- rv32 + 32bit-Buildroot rootfs
-
-Tested-by: Heiko Stuebner <heiko@sntech.de>
-
-apart from the one nit below
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-> ---
->  arch/riscv/Kconfig                   | 11 ++++
->  arch/riscv/include/asm/barrier.h     | 92 ++++++++++++++++++++++++++++
->  arch/riscv/include/asm/errata_list.h | 19 +++++-
->  arch/riscv/include/asm/hwcap.h       |  3 +-
->  arch/riscv/kernel/cpu.c              |  1 +
->  arch/riscv/kernel/cpufeature.c       | 13 ++++
->  6 files changed, 136 insertions(+), 3 deletions(-)
-> =
-
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 32ffef9f6e5b..9d40569237c9 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -358,6 +358,17 @@ config RISCV_ISA_C
->  =
-
->  	   If you don't know what to do here, say Y.
->  =
-
-> +config RISCV_ISA_ZAWRS
-> +	bool "Zawrs extension support"
-> +	depends on !XIP_KERNEL
-> +	select RISCV_ALTERNATIVE
-> +	default y
-> +	help
-> +	   Adds support to dynamically detect the presence of the Zawrs extensi=
-on
-> +	   (wait for reservation set) and enable its usage.
-> +
-> +	   If you don't know what to do here, say Y.
-> +
->  config RISCV_ISA_SVPBMT
->  	bool "SVPBMT extension support"
->  	depends on 64BIT && MMU
-> diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/ba=
-rrier.h
-> index d0e24aaa2aa0..1f9628aaa7cb 100644
-> --- a/arch/riscv/include/asm/barrier.h
-> +++ b/arch/riscv/include/asm/barrier.h
-> @@ -12,6 +12,8 @@
->  =
-
->  #ifndef __ASSEMBLY__
->  =
-
-> +#include <asm/errata_list.h>
-> +
->  #define nop()		__asm__ __volatile__ ("nop")
->  =
-
->  #define RISCV_FENCE(p, s) \
-> @@ -42,6 +44,64 @@ do {									\
->  	___p1;								\
->  })
->  =
-
-> +#if __riscv_xlen =3D=3D 64
-> +
-
-nit: I guess we could do without the extra blanks?
-asm.h does so, and also the #else block below also doesn't
-use them ;-) . But I guess that is more a style debate
-
-> +#define __riscv_lrsc_word(t)						\
-> +	(sizeof(t) =3D=3D sizeof(int) ||					\
-> +	 sizeof(t) =3D=3D sizeof(long))
-> +
-> +#elif __riscv_xlen =3D=3D 32
-> +
-> +#define __riscv_lrsc_word(t)						\
-> +	(sizeof(t) =3D=3D sizeof(int))
-> +
-> +#else
-> +#error "Unexpected __riscv_xlen"
-> +#endif /* __riscv_xlen */
-
-[...]
-
-Thanks
-Heiko
-
-
+> Regards,
+> Boqun
+> 
+>>   Andrea
+>>
+>>
+> [...]
 
 _______________________________________________
 linux-riscv mailing list
