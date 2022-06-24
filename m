@@ -4,80 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC6EC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 07:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD214C43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 07:49:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CA2pMhN+xk+Chd4CmTJytBqHuKuLqusGo5a9abTvUBc=; b=2u+vieuNIQeMv3c92Hz5ZxjJFL
-	7kddfOI8OfExz3Q+tuhQ+UV3wnm0814OV6oKI/j0ktTwmv0ie5T871f/mvAxKJvI0DAmfjlhD5s7t
-	gljL+2yHyUuGBNu73VMlW9pFOAwb5kqsBh/kxRxm5NUroBL4oJ7i9xa9abZwPbkS2cEpGMvyaDxeB
-	5amR5U7BRsJE/9n7/Q/GCP0upN0HbN/EYEEIL+Xn7zFD6PG8mYvLPwr5avDfz6dXf0FAS/HKrKkmJ
-	FEGDijGPxyY6agDERi7Qgary7VmAg6k0NVI2GG+mpVGPZr174ataW4vsqHMgVNpoh71x4K3Th807j
-	jRIKKV6g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Q5jtpWifwWrE9HzwKKjJHHsyp+fFTVjPuKYA+dbO+bE=; b=1mgC0Rdv5Zyf2u
+	3UNEYfd249lxAQ3oHQYgTb6n4c47/Ao37z6OjCHKR+tV971viyn6dYxm8b1xTljm785UmVxJwMXt0
+	DDvrzCmKFkpvR1Cyo7w3XlABNGMJvi1ocvt2V7HkyZGgZULnq0nwYK5d5S0GvEqjzUK4cTd2ABOTO
+	wnv5Q8xzg/cYo8kZTgFqPfcLPHDhxvpk2jU0RyrfZ0xyF71pC4BWNTV/VmmSRRwkzqEq2jjQ7VnZg
+	fp0f8jABJbD6Sh6BbbSxZ71yuuMReOZdKNARXRAp381/QWchJ2tCm4WremUwy6yaWCeFo9prEi/Fj
+	82hJBoF5bvf7BXsGthlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4e09-0011ph-DS; Fri, 24 Jun 2022 07:45:13 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1o4e46-0012oa-L5; Fri, 24 Jun 2022 07:49:18 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4e06-0011p0-3x
-	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 07:45:11 +0000
-Received: by mail-lf1-x132.google.com with SMTP id g4so3022957lfv.9
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Jun 2022 00:45:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=message-id:date:mime-version:user-agent:subject:content-language:to
-         :references:from:in-reply-to:content-transfer-encoding;
-        bh=NchjUSZ7bsPtfYUbnFjNc8rS98X1NoaQCaTs+rsISfQ=;
-        b=YktYM87vr9qyoynAKx5BVqyGPGiD64LNzYzC0/fMzQQ7r05Nm2L6jp8aFvCLSSudlW
-         CXGrKqb6d/1rFhlpeAHDTwY+30eRvPP7EzZ5XZ77Kg9ri2om6wSpLEV2r2x8D9e52LHB
-         PZq2mFIVhOGv6Td5W37Sywx97b07ccciMrg6TBrAQbsO6O6+MjkE14jspol0oZDgVk/b
-         8RRwLmhifpc1DFmohO6MIMl+yx/121MJcC4rbygVenpksoCI+h/VZtv817fEB6n8QhS4
-         qBr37daKruVQHLMc3SvK6cS4GrIwIa63wyRyOixsBqPkWyPwxINniUJMbvwHSy3ksb0c
-         Ow5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-         :content-language:to:references:from:in-reply-to
-         :content-transfer-encoding;
-        bh=NchjUSZ7bsPtfYUbnFjNc8rS98X1NoaQCaTs+rsISfQ=;
-        b=EaWab4o7XfZppOqTjRq/DxePFh2F89XPLYKaGika4HIX1DsfFZwh5LXLo8Z94jnoLQ
-         Smrlk5oaOZ05pgN+NoALhKmqPKZVwDw3eXH4aMNZiNIWkQmRfDzhAMdXl5cnd5iK/G/I
-         wAoWmVju1zoh9vVML5WTW3AmfRzrLTnTicuqaa/8A4NPtAFGYm+VZGXNDJoSuDsMwcJJ
-         3p9wOREF6UMFMP7XLh//5MIeRWDiHOnJLvoDvW3OIXWAKyXXMy3vVA09FIsdeW40IHsZ
-         OG3APWFptB/F+mU7W/s7tUplLrKAtaEkvELU8G+y4SArleHEIKWhGWaENwglzmxO+Vn4
-         nLQA==
-X-Gm-Message-State: AJIora+EEobCnkRHuRTLqYYKzZQQ5+8GbLxJjK/JMx0eOpFntGyO4Q6q
-	FOGJCCegFOs/OOVYo/I5AfGBi0OpjQAJGw==
-X-Google-Smtp-Source: AGRyM1s8wfGqgQkqV1yfGKT0TSCcphK3AU6lNrJN4bDx5nKPuvE1jxH3c7OvJmsnUD83lq7vpv8ZVw==
-X-Received: by 2002:a05:6512:3b95:b0:47f:bc38:6bfe with SMTP id g21-20020a0565123b9500b0047fbc386bfemr796997lfv.507.1656056708140;
-        Fri, 24 Jun 2022 00:45:08 -0700 (PDT)
-Received: from [192.168.0.100] ([46.219.3.46])
-        by smtp.gmail.com with ESMTPSA id x5-20020a05651c104500b0025a672e97a6sm186447ljm.80.2022.06.24.00.45.07
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 24 Jun 2022 00:45:07 -0700 (PDT)
-Message-ID: <76741e1c-056d-d3ae-fc20-eeb8f6e996f6@gmail.com>
-Date: Fri, 24 Jun 2022 10:43:39 +0300
+	id 1o4e43-0012nx-2c
+	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 07:49:16 +0000
+Received: from p508fdadf.dip0.t-ipconnect.de ([80.143.218.223] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1o4e3z-0007Di-1E; Fri, 24 Jun 2022 09:49:11 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Christoph Hellwig <hch@lst.de>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com, philipp.tomsich@vrull.eu, hch@lst.de, samuel@sholland.org, atishp@atishpatra.org, anup@brainfault.org, mick@ics.forth.gr, robh+dt@kernel.org, krzk+dt@kernel.org, devicetree@vger.kernel.org, drew@beagleboard.org, rdunlap@infradead.org, Atish Patra <atish.patra@wdc.com>
+Subject: Re: [PATCH 3/4] riscv: Implement Zicbom-based cache management operations
+Date: Fri, 24 Jun 2022 09:49:09 +0200
+Message-ID: <4357313.8hb0ThOEGa@phil>
+In-Reply-To: <20220620061607.GB10485@lst.de>
+References: <20220619203212.3604485-1-heiko@sntech.de> <20220619203212.3604485-4-heiko@sntech.de> <20220620061607.GB10485@lst.de>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.10.0
-Subject: Re: Tickless timer regression in v5.18.3 on riscv
-Content-Language: en-US
-To: linux-riscv@lists.infradead.org
-References: <bca6d76d-1708-fede-8008-d2588a14b656@mail.ru>
- <8887d851-19b7-ee10-a89e-fb69d54ac41e@sholland.org>
- <CAAhSdy3CoRVs7Rn=TDBRrfqaNEr1R6h4r1cdgGR-QKCtg7QYrw@mail.gmail.com>
- <CAHBxVyFv57ggFhoJTCUfVPsosjRTdCy=2+TD=P3SSnT-NG-Y1g@mail.gmail.com>
-From: Eva Kotova <nyandarknessgirl@gmail.com>
-In-Reply-To: <CAHBxVyFv57ggFhoJTCUfVPsosjRTdCy=2+TD=P3SSnT-NG-Y1g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220624_004510_224441_A2B5DF8B 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220624_004915_163096_A9EA1FB0 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,30 +53,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 23, 2022 at 8:59 PM Anup Patel <anup@brainfault.org> wrote:
- > I suggest we introduce an optional "riscv,timer-always-on" DT
- > property for each HART. If all HART DT nodes have this property then
- > we don't set C3STOP flag in clockevent device, else we set it.
+Hi Christoph,
 
-Is there any particular reason not to implement the opposite DT property 
-"riscv,timer-s3stop" for timers that stop in suspend?
-Right now, this patch breaks the behavior of previously fine working 
-boards (worse sleep precision, higher idle consumption), and these 
-boards have none of the mentioned issues, so why should they degrade 
-after a kernel update?
-The CLINT timer is already well-defined and worked for years, i don't 
-see how suspend issues on particular hardware can justify going against 
-the official spec.
+Am Montag, 20. Juni 2022, 08:16:07 CEST schrieb Christoph Hellwig:
+> On Sun, Jun 19, 2022 at 10:32:11PM +0200, Heiko Stuebner wrote:
+> > +#ifdef CONFIG_RISCV_DMA_NONCOHERENT
+> > +#define ARCH_DMA_MINALIGN L1_CACHE_BYTES
+> > +#endif
+> 
+> This needs to be greater or equal to riscv_cbom_block_size, but the
+> core code requires a compile time constant here.  So we'll need a big
+> fat comment here, and panic if riscv_cbom_block_size is >
+> L1_CACHE_BYTES/ARCH_DMA_MINALIGN in the code that queries
+> riscv_cbom_block_size.
 
-I do really think this should be addressed by the platform SBI 
-implementation (that's why SBI exists after all?..) or DT properties for 
-suspend-affected hardware, not finding holes in SBI spec and introducing 
-fragmentation in the SW ecosystem.
+ARM people also had this nice WARN_TAINT to warn when the similar
+case happens on ARM64 and the ARCH_DMA_MINALIGN is smaller than
+the register value so I've added a similar mechanism.
+
+I've read numerous mails from Torvalds over time that panic-ing should
+only ever be the very very last resort, so that WARN_TAINT looks like
+a less drastic option while still generating that big warning to users.
+
+
+> Note that the arm64 folks are looking into making this variable or
+> killing it off in this current form, so things might be getting better
+> soon.
+> 
+> > +void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+> > +			      enum dma_data_direction dir)
+> > +{
+> > +	void *vaddr = phys_to_virt(paddr);
+> > +
+> > +	switch (dir) {
+> > +	case DMA_TO_DEVICE:
+> > +		ALT_CMO_OP(clean, vaddr, size, riscv_cbom_block_size);
+> > +		break;
+> > +	case DMA_FROM_DEVICE:
+> > +		ALT_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
+> > +		break;
+> 
+> For this also see:
+> 
+> https://lore.kernel.org/all/20220606152150.GA31568@willie-the-truck/
+> 
+> and
+> 
+> https://lore.kernel.org/linux-arm-kernel/20220610151228.4562-1-will@kernel.org/T/
+
+so from that discussion, it looks like a "clean" should happen here to
+prevent stale bytes (not written to by the dma transfer itself) in the
+buffer area I guess.
+
+I'll give that a spin :-)
+
+> > +void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
+> > +		const struct iommu_ops *iommu, bool coherent)
+> > +{
+> > +	dev->dma_coherent = coherent;
+> > +}
+> 
+> This probably wants a sanity check warn if coherent if false without
+> any support for cache flushing as that will cause data corruption.
+
+I've added a riscv_noncoherent_supported() call that will track that
+"somebody" implemented non-coherence functionality from their
+setup function (zicbom_probe, thead_errata-probe) and a matching
+second WARN_TAINT in arch_setup_dma_ops() when coherent value
+and availability of non-coherence handling is not matched.
+
+Heiko
+
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
