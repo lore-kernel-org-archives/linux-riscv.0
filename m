@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 255D9C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 04:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 985B3C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 05:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nlvx592Za3LGEh+KJGgzlqQ6wtRzvS13/kx2geCcSmM=; b=hK9V533N7ZWqrX
-	DecKRIbd8mKPvLVSZ+EI6HiopodS+nPr52sgRLpWqtjx7jBDhF8VUgPgk+73PXAHyi87H3/jysoDP
-	H9u0XP7jt4dW08eXjBA32COO6q7Gg5Y86EbbvqXHaFsvoQVeMd2WfiMhhvTEQH46OOZpH/86mG/h4
-	aEI+PRjnH+V8YosssocExT4Sj3yM5eDtTDNmA2yVA75y8Ty5ZPlA82skaRuVUpUUFKHvCkP9lIaT8
-	uGZ0YRkpkXlXJjjyqiOFcuoRvxqGZZ1YBMzE0ywXguNPYbocLrn6ngYmkjQl7DRN3OT5aon0psuQN
-	l8nMnn0nrRgxtL+fdAdg==;
+	List-Owner; bh=9hqkCNXp3lvMsLYKaNi8B+QK8iP0k8KdXxwVINYXgU0=; b=LdLTJ+EXuISVrs
+	SaEYdTzUquAGt/wQm5H75FmS5ca8m5o3D7ZcdFerXi9qLT0B/UQVEukdTWC6oTRwvQUUECAAY8sdY
+	Bev9bvH6h/A/10NA4DDGVmIBm7BudY0+DGti1/KHu1RYeQL1rLy0ugOd54xkdXlAzjPJjaBbErtKp
+	TceSD7C4IPiVqwoHX/FhiP/Dn28+aCyfIxn2xsT41XwsCGj3F9fGTUvZwnPVX5nHNMRxtcbeOr6yi
+	sJleWg+C1xjiw5AamDj4JET0iWXBkIkheXjwod8M5ZwPLyG1lCHgj4XjETygATw+FMl2h8IoVXc02
+	y+jBg0WQj20EttCIFYpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4bPy-000ODO-N5; Fri, 24 Jun 2022 04:59:42 +0000
+	id 1o4bQs-000OkI-Ut; Fri, 24 Jun 2022 05:00:39 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4bDE-000G5N-6M; Fri, 24 Jun 2022 04:46:34 +0000
+	id 1o4bDM-000GB6-3Q; Fri, 24 Jun 2022 04:46:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3BF6B1713;
-	Thu, 23 Jun 2022 21:46:31 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 34F261756;
+	Thu, 23 Jun 2022 21:46:39 -0700 (PDT)
 Received: from a077893.blr.arm.com (unknown [10.162.41.7])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 61E323F66F;
-	Thu, 23 Jun 2022 21:46:23 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A17F53F66F;
+	Thu, 23 Jun 2022 21:46:31 -0700 (PDT)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-mm@kvack.org
 Cc: hch@infradead.org,
@@ -54,17 +54,19 @@ Cc: hch@infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-um@lists.infradead.org,
 	linux-sh@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V4 19/26] ia64/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
-Date: Fri, 24 Jun 2022 10:13:32 +0530
-Message-Id: <20220624044339.1533882-20-anshuman.khandual@arm.com>
+	linux-kernel@vger.kernel.org,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Subject: [PATCH V4 20/26] mips/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+Date: Fri, 24 Jun 2022 10:13:33 +0530
+Message-Id: <20220624044339.1533882-21-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220624044339.1533882-1-anshuman.khandual@arm.com>
 References: <20220624044339.1533882-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220623_214632_381409_5F044733 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20220623_214640_327327_3FC4F52D 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,99 +88,75 @@ vm_get_page_prot() implementation via DECLARE_VM_GET_PAGE_PROT, which looks
 up a private and static protection_map[] array. Subsequently all __SXXX and
 __PXXX macros can be dropped which are no longer needed.
 
-Cc: linux-ia64@vger.kernel.org
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+Cc: linux-mips@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/ia64/Kconfig               |  1 +
- arch/ia64/include/asm/pgtable.h | 18 ------------------
- arch/ia64/mm/init.c             | 28 +++++++++++++++++++++++++++-
- 3 files changed, 28 insertions(+), 19 deletions(-)
+ arch/mips/Kconfig               |  1 +
+ arch/mips/include/asm/pgtable.h | 22 ----------------------
+ arch/mips/mm/cache.c            |  3 +++
+ 3 files changed, 4 insertions(+), 22 deletions(-)
 
-diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
-index cb93769a9f2a..0510a5737711 100644
---- a/arch/ia64/Kconfig
-+++ b/arch/ia64/Kconfig
-@@ -12,6 +12,7 @@ config IA64
- 	select ARCH_HAS_DMA_MARK_CLEAN
- 	select ARCH_HAS_STRNCPY_FROM_USER
+diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
+index db09d45d59ec..d0b7eb11ec81 100644
+--- a/arch/mips/Kconfig
++++ b/arch/mips/Kconfig
+@@ -14,6 +14,7 @@ config MIPS
  	select ARCH_HAS_STRNLEN_USER
+ 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
+ 	select ARCH_HAS_UBSAN_SANITIZE_ALL
 +	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_MIGHT_HAVE_PC_PARPORT
- 	select ARCH_MIGHT_HAVE_PC_SERIO
- 	select ACPI
-diff --git a/arch/ia64/include/asm/pgtable.h b/arch/ia64/include/asm/pgtable.h
-index 7aa8f2330fb1..6925e28ae61d 100644
---- a/arch/ia64/include/asm/pgtable.h
-+++ b/arch/ia64/include/asm/pgtable.h
-@@ -161,24 +161,6 @@
-  * attempts to write to the page.
+ 	select ARCH_HAS_GCOV_PROFILE_ALL
+ 	select ARCH_KEEP_MEMBLOCK
+ 	select ARCH_SUPPORTS_UPROBES
+diff --git a/arch/mips/include/asm/pgtable.h b/arch/mips/include/asm/pgtable.h
+index 374c6322775d..6caec386ad2f 100644
+--- a/arch/mips/include/asm/pgtable.h
++++ b/arch/mips/include/asm/pgtable.h
+@@ -41,28 +41,6 @@ struct vm_area_struct;
+  * by reasonable means..
   */
- 	/* xwr */
--#define __P000	PAGE_NONE
--#define __P001	PAGE_READONLY
--#define __P010	PAGE_READONLY	/* write to priv pg -> copy & make writable */
--#define __P011	PAGE_READONLY	/* ditto */
--#define __P100	__pgprot(__ACCESS_BITS | _PAGE_PL_3 | _PAGE_AR_X_RX)
--#define __P101	__pgprot(__ACCESS_BITS | _PAGE_PL_3 | _PAGE_AR_RX)
--#define __P110	PAGE_COPY_EXEC
--#define __P111	PAGE_COPY_EXEC
--
--#define __S000	PAGE_NONE
--#define __S001	PAGE_READONLY
--#define __S010	PAGE_SHARED	/* we don't have (and don't need) write-only */
--#define __S011	PAGE_SHARED
--#define __S100	__pgprot(__ACCESS_BITS | _PAGE_PL_3 | _PAGE_AR_X_RX)
--#define __S101	__pgprot(__ACCESS_BITS | _PAGE_PL_3 | _PAGE_AR_RX)
--#define __S110	__pgprot(__ACCESS_BITS | _PAGE_PL_3 | _PAGE_AR_RWX)
--#define __S111	__pgprot(__ACCESS_BITS | _PAGE_PL_3 | _PAGE_AR_RWX)
--
- #define pgd_ERROR(e)	printk("%s:%d: bad pgd %016lx.\n", __FILE__, __LINE__, pgd_val(e))
- #if CONFIG_PGTABLE_LEVELS == 4
- #define pud_ERROR(e)	printk("%s:%d: bad pud %016lx.\n", __FILE__, __LINE__, pud_val(e))
-diff --git a/arch/ia64/mm/init.c b/arch/ia64/mm/init.c
-index 855d949d81df..9c91df243d62 100644
---- a/arch/ia64/mm/init.c
-+++ b/arch/ia64/mm/init.c
-@@ -273,7 +273,7 @@ static int __init gate_vma_init(void)
- 	gate_vma.vm_start = FIXADDR_USER_START;
- 	gate_vma.vm_end = FIXADDR_USER_END;
- 	gate_vma.vm_flags = VM_READ | VM_MAYREAD | VM_EXEC | VM_MAYEXEC;
--	gate_vma.vm_page_prot = __P101;
-+	gate_vma.vm_page_prot = __pgprot(__ACCESS_BITS | _PAGE_PL_3 | _PAGE_AR_RX);
  
- 	return 0;
- }
-@@ -490,3 +490,29 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
- 	__remove_pages(start_pfn, nr_pages, altmap);
- }
- #endif
-+
-+static pgprot_t protection_map[16] __ro_after_init = {
-+	[VM_NONE]					= PAGE_NONE,
-+	[VM_READ]					= PAGE_READONLY,
-+	[VM_WRITE]					= PAGE_READONLY,
-+	[VM_WRITE | VM_READ]				= PAGE_READONLY,
-+	[VM_EXEC]					= __pgprot(__ACCESS_BITS | _PAGE_PL_3 |
-+								   _PAGE_AR_X_RX),
-+	[VM_EXEC | VM_READ]				= __pgprot(__ACCESS_BITS | _PAGE_PL_3 |
-+								   _PAGE_AR_RX),
-+	[VM_EXEC | VM_WRITE]				= PAGE_COPY_EXEC,
-+	[VM_EXEC | VM_WRITE | VM_READ]			= PAGE_COPY_EXEC,
-+	[VM_SHARED]					= PAGE_NONE,
-+	[VM_SHARED | VM_READ]				= PAGE_READONLY,
-+	[VM_SHARED | VM_WRITE]				= PAGE_SHARED,
-+	[VM_SHARED | VM_WRITE | VM_READ]		= PAGE_SHARED,
-+	[VM_SHARED | VM_EXEC]				= __pgprot(__ACCESS_BITS | _PAGE_PL_3 |
-+								   _PAGE_AR_X_RX),
-+	[VM_SHARED | VM_EXEC | VM_READ]			= __pgprot(__ACCESS_BITS | _PAGE_PL_3 |
-+								   _PAGE_AR_RX),
-+	[VM_SHARED | VM_EXEC | VM_WRITE]		= __pgprot(__ACCESS_BITS | _PAGE_PL_3 |
-+								   _PAGE_AR_RWX),
-+	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= __pgprot(__ACCESS_BITS | _PAGE_PL_3 |
-+								   _PAGE_AR_RWX)
-+};
+-/*
+- * Dummy values to fill the table in mmap.c
+- * The real values will be generated at runtime
+- */
+-#define __P000 __pgprot(0)
+-#define __P001 __pgprot(0)
+-#define __P010 __pgprot(0)
+-#define __P011 __pgprot(0)
+-#define __P100 __pgprot(0)
+-#define __P101 __pgprot(0)
+-#define __P110 __pgprot(0)
+-#define __P111 __pgprot(0)
+-
+-#define __S000 __pgprot(0)
+-#define __S001 __pgprot(0)
+-#define __S010 __pgprot(0)
+-#define __S011 __pgprot(0)
+-#define __S100 __pgprot(0)
+-#define __S101 __pgprot(0)
+-#define __S110 __pgprot(0)
+-#define __S111 __pgprot(0)
+-
+ extern unsigned long _page_cachable_default;
+ extern void __update_cache(unsigned long address, pte_t pte);
+ 
+diff --git a/arch/mips/mm/cache.c b/arch/mips/mm/cache.c
+index 7be7240f7703..11b3e7ddafd5 100644
+--- a/arch/mips/mm/cache.c
++++ b/arch/mips/mm/cache.c
+@@ -159,6 +159,9 @@ EXPORT_SYMBOL(_page_cachable_default);
+ 
+ #define PM(p)	__pgprot(_page_cachable_default | (p))
+ 
++static pgprot_t protection_map[16] __ro_after_init;
 +DECLARE_VM_GET_PAGE_PROT
++
+ static inline void setup_protection_map(void)
+ {
+ 	protection_map[0]  = PM(_PAGE_PRESENT | _PAGE_NO_EXEC | _PAGE_NO_READ);
 -- 
 2.25.1
 
