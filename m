@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24840C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 05:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E7A2C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 05:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
 	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RsZUspVLldCS4wen3FbWBVMrE8zK8nLFEG5f4QzuKDw=; b=ZwBKfK2Pkx2BZr
-	IS00a4UGWLCzmu66WnAmEV+v/SU4PGeU3I/aw3B99V57Op/lmcLJku1TzngGaq2jvAZiaHU7qtfxF
-	W9QUfDJxYQ2gdsaYzcYg99G59gH8fnusIFTU1+YA5ljnUXV0VL4KCT1z+jcj0GegYOn4flJ1rgj2r
-	iXT7xt2A1qfqXYntwXvlAYhbmGyp5B8K+4+dKo3HBK6BGhUGWt9EOaFQIZa2ZWLRAg7KHWYZPTy3F
-	5MY62wsVWclQYo+GWA5dpMs8KjrYxoI4LMDQI3abs+IDnUuMXVeJdE3bpdEPPUbK2GmgjcGkD2+uR
-	32S1qk5c/iuSRDUWFryA==;
+	List-Owner; bh=MMk/VQLuoCA0KPW3wZpjr4k2RgNjVlb4yXwIi20ak7c=; b=RfkiV9a+6i0+qP
+	9YsPhgtyqYKxz7HpvYa52hwxs94ySdOE52tPYNf2NrZbwPD+ONwNG/XpWEEdkbd6XVG7DlKbHSGx5
+	DD5JsGjo9fh3VbGezWgn/QNgJSetVI3hXsVksB9diSAsaJa8Zl5JQu9qA7V5c4mpWLE6LyyC7OF7E
+	JJq6tloEuikDdiF1m68itI3+2zeYIv1jqtCzSQhqocjq6bDwSqvq/eLgHtPmD3533QxjvODjKI6+e
+	W2Q5Zee6cVJKYc8PAvwkGvCoTIxYrfYoRwgHMLcuP86Vic/+cXd21Pw9lzQ7tCGRGmVjbrI6UPZW/
+	wvUlw6aPFBQk5u6HkKWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4bWA-000RsN-Jc; Fri, 24 Jun 2022 05:06:06 +0000
-Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	id 1o4bWK-000Ryx-U0; Fri, 24 Jun 2022 05:06:16 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4bF8-000HLu-1E
+	id 1o4bF7-000HLX-Vc
 	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 04:48:31 +0000
-Received: by mail-pg1-x534.google.com with SMTP id e63so1359731pgc.5
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Jun 2022 21:48:27 -0700 (PDT)
+Received: by mail-pj1-x102a.google.com with SMTP id x1-20020a17090abc8100b001ec7f8a51f5so4683318pjr.0
+        for <linux-riscv@lists.infradead.org>; Thu, 23 Jun 2022 21:48:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=subject:date:message-id:in-reply-to:references:mime-version
          :content-transfer-encoding:cc:from:to;
-        bh=YbFhCGzhKhLbr2G2ThS1s0sN7jwXYQ4vWhYkrXF5osc=;
-        b=kkxvDxX6n5CO12HAysNPgLTCaKTovZj6n1W4WM6NrdWPKdt8jHf/gjXiqu7I26pISm
-         ua6NuOBU0e747Hkio56Q5FXCk7rSyhq3Y6Zq55CZ25pU97Fj2MfR7zJOcZ41hi7FIff1
-         UZdKWwl3KHRXa7tdvTwjrgx6d6+yqM9BG8AZIhTjl1u7f/aVNNosUAXA5LKe9/MYnIvG
-         LlPZDl/L+rPWYZtuuiuwai4BFZqZ2PEnrQKWLvGk7JAWOVawnMXlmZxb2Q+2Kgculowg
-         wQXZjqI2+6jVMZLja/f8RD2VIlQY6lApwCHArAD4TdMuo1d9XJYF0lETVOugyAaATC3x
-         mPRg==
+        bh=vBU/QhGWkV1K4rpRU6iuVI+/0UvyZtTiMv0XrxYPMnY=;
+        b=KBTXLVQ9Myy+5fRcw18yS0lVJWlJWOdd7MztywK2mmLs41m1QyL9u71UUmRkZsVufO
+         WBGDCzLQmzxvYVvsyvL43mR/VUG7XnIdk39+oF8XwhmacjrZkaSZcXbdPN9I5HafTNer
+         xr82vLEO3N2V2NbYCHw86NmaenfnQTgypXQywZ3rOFxQ8Ry2BA3Q6/1czAnoeM+amgXI
+         PXNiI40EmhGP/RqKwo10U5bHYT3e2eMwbnXUA42H/MeYjCJBsRUSv0ePUpNifVLgVv1h
+         EOnTPql0DKaJ4Wn1LDQyp0D911OQtivur+xe4+XmZBEwj8WkviY0CU/CFaC8mcdEguoD
+         tZuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding:cc:from:to;
-        bh=YbFhCGzhKhLbr2G2ThS1s0sN7jwXYQ4vWhYkrXF5osc=;
-        b=YRDoeIqcjpqOJL501xpKFEtK7bld54uP6qWRyC8rcuBmlXO+Nfi74Gd0jrQ8l0GKC6
-         0WxhcpjUExAEW6JFdR/8Hgn5NBhZuoHL7KCYZz7JKDCgJrVm/iNXlopsGU+BPEaURcXL
-         ZI7D3u8squNvnWZNlNy7CI4M7O8BZ3Vzwxq2z6tXmwMxsvqbFBb87GQ7d37L9wRuPZeb
-         UjMo2uUXl3CH6q4GvUtv9PR5WaSEsUx4zKedFAHB330VLqnWUWbdsyBQOfDJD6H1r/Zf
-         IQWGEGDz580x2J3ah2oaBDxoc53cKyBtDE//6eb8S8Xkh0nUUQX12rXSTKB2d0ynEUTh
-         Gnnw==
-X-Gm-Message-State: AJIora9K3e81fsQWNNTnlv+CPF6KTWQmCf8whPqQGB6DrEgzfcFbUohS
-	2kvjmEhhzL3SrTyK8gfaa7mTLG+Dd3Q7Ew==
-X-Google-Smtp-Source: AGRyM1vJW29/sVxuMxr0tG1PDaIe69h+YLS81Q9kQN6GZXjLMUjcoObBkYAeIvvbIZG+ephEELUDwg==
-X-Received: by 2002:aa7:9470:0:b0:525:4214:bd9e with SMTP id t16-20020aa79470000000b005254214bd9emr13914582pfq.11.1656046106909;
-        Thu, 23 Jun 2022 21:48:26 -0700 (PDT)
+        bh=vBU/QhGWkV1K4rpRU6iuVI+/0UvyZtTiMv0XrxYPMnY=;
+        b=KKDQ3bg8sUIQgsGwP2WpRDWqehKRI530Jojc4JC5Mi9+RFyuNw4DGUgV7frze52qUq
+         X570RwazKvc0gdKFuRpANcpsXU6aK4sqEucxGU1RIGu4INamCYrMPxGpWkKgD8Z1x6dF
+         8dub3uoGjA7gvglwOiz66DMtNs/rS5G6B8IA02Vzw6IQTI43Dh+qHJsujNCEkIh7rInn
+         cNhRLO3TUzOXXB1VM/9DiRceKYs7d50Oqyo7B4kN73ScYz7lGYJ0aj9O86tTSAXSLjOu
+         Si3JWYuo5aWTlqxhSCWh4tFQ25ZUtiOk9HUmX+bQrEzf+ngdaED/1qqDWoaG8OJ9Jy29
+         7dBg==
+X-Gm-Message-State: AJIora87tGAkcXJyGn3YwyE5bCt2jLv6RD8nZCHaF2CGu7p0XGDo/uXr
+	6JBpg+/okjs30diP7TwzHgwwkNL7x7rQ7A==
+X-Google-Smtp-Source: AGRyM1voXMrdQb1DI39mijMlt8wYaDCo2EZoNrpq8QsrSaFoZs/0+hNfar1BHQvqZ1cGC/I8u7r8Ug==
+X-Received: by 2002:a17:902:7202:b0:167:6548:3f3e with SMTP id ba2-20020a170902720200b0016765483f3emr41641064plb.98.1656046105816;
+        Thu, 23 Jun 2022 21:48:25 -0700 (PDT)
 Received: from localhost ([12.3.194.138])
-        by smtp.gmail.com with ESMTPSA id j5-20020a63ec05000000b0040d2f92d30fsm503488pgh.88.2022.06.23.21.48.26
+        by smtp.gmail.com with ESMTPSA id x13-20020a056a000bcd00b005206d4fd636sm559062pfu.2.2022.06.23.21.48.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 23 Jun 2022 21:48:26 -0700 (PDT)
-Subject: [PATCH v2 2/5] ima: Fix a build issue on 32-bit platforms
-Date: Thu, 23 Jun 2022 21:48:08 -0700
-Message-Id: <20220624044811.9682-3-palmer@rivosinc.com>
+        Thu, 23 Jun 2022 21:48:24 -0700 (PDT)
+Subject: [PATCH v2 1/5] drivers: of: kexec ima: Support 32-bit platforms
+Date: Thu, 23 Jun 2022 21:48:07 -0700
+Message-Id: <20220624044811.9682-2-palmer@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20220624044811.9682-1-palmer@rivosinc.com>
 References: <20220624044811.9682-1-palmer@rivosinc.com>
 MIME-Version: 1.0
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-  linux-security-module@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>
+  linux-security-module@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>, Rob Herring <robh@kernel.org>
 From: Palmer Dabbelt <palmer@rivosinc.com>
 To: zohar@linux.ibm.com, dmitry.kasatkin@gmail.com, linux-integrity@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220623_214830_111282_D815E5EF 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20220623_214830_077712_D3380E4D 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,27 +88,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-ima_dump_measurement_list() took an "unsigned long *", but was passed a
-size_t.  This triggers build warnings on 32-bit RISC-V.
+RISC-V recently added kexec_file() support, which uses enables kexec
+IMA.  We're the first 32-bit platform to support this, so we found a
+build bug.
 
+Acked-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 ---
- security/integrity/ima/ima_kexec.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/of/kexec.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/security/integrity/ima/ima_kexec.c b/security/integrity/ima/ima_kexec.c
-index 13753136f03f..f2a94ec3002a 100644
---- a/security/integrity/ima/ima_kexec.c
-+++ b/security/integrity/ima/ima_kexec.c
-@@ -15,7 +15,7 @@
- #include "ima.h"
+diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
+index b9bd1cff1793..ed3451ec2b24 100644
+--- a/drivers/of/kexec.c
++++ b/drivers/of/kexec.c
+@@ -236,8 +236,8 @@ static int setup_ima_buffer(const struct kimage *image, void *fdt,
+ 	if (ret)
+ 		return -EINVAL;
  
- #ifdef CONFIG_IMA_KEXEC
--static int ima_dump_measurement_list(unsigned long *buffer_size, void **buffer,
-+static int ima_dump_measurement_list(size_t *buffer_size, void **buffer,
- 				     unsigned long segment_size)
- {
- 	struct ima_queue_entry *qe;
+-	pr_debug("IMA buffer at 0x%llx, size = 0x%zx\n",
+-		 image->ima_buffer_addr, image->ima_buffer_size);
++	pr_debug("IMA buffer at 0x%pa, size = 0x%zx\n",
++		 &image->ima_buffer_addr, image->ima_buffer_size);
+ 
+ 	return 0;
+ }
 -- 
 2.34.1
 
