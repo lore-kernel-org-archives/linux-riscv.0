@@ -4,48 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC76C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 17:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DBFDC43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 17:57:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5xP1bbPlZdEMZDZkntz9hoDPkFf2MpYfeJuFMVnm0PI=; b=HCxovJ82cAIoe6
-	MO4sJiUloDxjIzJJt4oTMF0SyWkXNxGXZ7Lr61/w3busTuE5JwKrz7H7r+FKiiS7bYzIXfHPqFK1q
-	AFyhPQP70g0Aw1YDdBZiNP5m0Y6LN2MOAxxRPw24wcDXYz3M2RztLJIKvsdQqA3f8kY4ztO+xJ9xZ
-	cW5WNaDuMIoOU4S67YJAKuK3P76Lo1LEQcdgem3X/w0h8RxYwDw8UE7A8VQLOH7GsdBT56HdG/g1y
-	JRY+SDIBwlDlsc5dmWPrW/PfOQHt2RXZapRNKCMngzP69gvVjSEB2HcMy3a7zRkfwBCVN2udqVV0v
-	No//z2TF0AaK9YeboERA==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=zB9PMBbXDn5KKKN2JHWsxsa23zwwiIMVZzkczhqgwPU=; b=29iGDT/pupcsBN
+	lI541zp8PwEpX1YZLx9Aeek10Kx0a4tp07zPd0txOrualduoXbyktneC8OF2bNsSA2GKm8qA2396O
+	4yAS6K4ogj8QVRjTwKMHGJr20Cv1HNTDofi2FDJR0RiLxsviixrVaOd3cwtswIQS7Gjfi6Txwvli8
+	2R00Gi2pZY4fg5z1pO0XwzMC9v6Jq+xCOa+C1ltfVaOXBeiXIrQqGw7MmKUixvmQTh93KsuVz7g5O
+	NJ4XKdGPcA42zRq2eqW/TZoThBDhG7AJYHhyotFdVhXoXoIS1UXalNT1OXpcMT5QWvua6rwR4R09d
+	1qNLGoYJSjEgxAa+GL+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4mwn-003Bfd-6f; Fri, 24 Jun 2022 17:18:21 +0000
-Received: from angie.orcam.me.uk ([2001:4190:8020::34])
+	id 1o4nYB-003NJX-Qe; Fri, 24 Jun 2022 17:56:59 +0000
+Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4mwj-003BbO-5O
-	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 17:18:19 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id 8E11392009C; Fri, 24 Jun 2022 19:18:11 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id 86F1F92009B;
-	Fri, 24 Jun 2022 18:18:11 +0100 (BST)
-Date: Fri, 24 Jun 2022 18:18:11 +0100 (BST)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Bjorn Helgaas <bhelgaas@google.com>, 
-    linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PING^2][PATCH] RISC-V: PCI: Avoid handing out address 0 to
- devices
-In-Reply-To: <mhng-a0733eea-8220-4bf6-b1da-9de3139dbae3@palmer-ri-x1c9>
-Message-ID: <alpine.DEB.2.21.2206231750490.57474@angie.orcam.me.uk>
-References: <mhng-a0733eea-8220-4bf6-b1da-9de3139dbae3@palmer-ri-x1c9>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
-MIME-Version: 1.0
+	id 1o4nY8-003NHM-QL
+	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 17:56:58 +0000
+X-IronPort-AV: E=Sophos;i="5.92,218,1650898800"; 
+   d="scan'208";a="125577364"
+Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
+  by relmlie6.idc.renesas.com with ESMTP; 25 Jun 2022 02:56:50 +0900
+Received: from localhost.localdomain (unknown [10.226.36.204])
+	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 84329400F791;
+	Sat, 25 Jun 2022 02:56:47 +0900 (JST)
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH] irqchip/sifive-plic: Make struct irq_chip const
+Date: Fri, 24 Jun 2022 18:56:39 +0100
+Message-Id: <20220624175639.2677-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220624_101817_417414_508C0224 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20220624_105657_001051_8F0E585B 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,44 +63,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 22 Jun 2022, Palmer Dabbelt wrote:
+These should be const, so make it so.
 
-> > > Therefore avoid handing out address 0, by bumping the lowest address
-> > > available to PCI via PCIBIOS_MIN_IO and PCIBIOS_MIN_MEM up by 4 and 16
-> > > respectively, which is the minimum allocation size for I/O and memory
-> > > BARs.
-> > 
-> >  Ping for:
-> > <https://lore.kernel.org/lkml/alpine.DEB.2.21.2204271207590.9383@angie.orcam.me.uk/>
-> 
-> Sorry, I got this mixed up with the non-RISC-V patch.
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+ drivers/irqchip/irq-sifive-plic.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- If you mean this:
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index bb87e4c3b88e..173446cc9204 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -176,7 +176,7 @@ static void plic_irq_eoi(struct irq_data *d)
+ 	}
+ }
+ 
+-static struct irq_chip plic_chip = {
++static const struct irq_chip plic_chip = {
+ 	.name		= "SiFive PLIC",
+ 	.irq_mask	= plic_irq_mask,
+ 	.irq_unmask	= plic_irq_unmask,
+-- 
+2.25.1
 
-<https://lore.kernel.org/lkml/alpine.DEB.2.21.2202260044180.25061@angie.orcam.me.uk/>
-
-then we just don't have consensus to move forward.  If we ever do for a 
-generic change, then we can revert the RISC-V platform solution, as it's 
-merely an internal implementation detail and not a part of the ABI or 
-something.
-
->  David poked me about
-> it, this is on for-next.  It's passing my tests, but they're just QEMU so
-> probably not all that exciting here.
-
- Thanks!  I don't know offhand what QEMU supports as far as the RISC-V 
-architecture is concerned; I guess you can't just enable a PCI port-I/O 
-serial port in the simulator and see if it works with Linux or not.
-
- Anyway it's just number shuffling, so the change should be reasonably 
-safe.
-
-  Maciej
 
 _______________________________________________
 linux-riscv mailing list
