@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E10EBC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 04:46:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA9C9C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 04:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k0zBeJRxFUMsxMwLfFnmZcZOkku7T+2sjISub5OKiXA=; b=U4OgZtL/6pydn7
-	bzW710HG/Uxx152om23jg6lfZ+aSDuFdvPguZQTwhH0dP7n0YqE4QD2nRCVgdVrf4nK0ZbNhFriQZ
-	2jgSV+so98fx//T+Nv3iMwNrtuDK5ox0bby+/C3oALTHJGVOsvKaqVjZXYJgNDTwcm2exG+S3Uimz
-	jRD28lwdZr2IMmou1L0bXMf/VREuiWZKi6mJDcoDttpbmh26jDCnPDXKXOQPUZf36o91ww2vIA+4U
-	SUvOYGrWa6AF7PetEdlefIBi1DNbhDOTqFRyAEkp2tgJekx1/96+veYAo8L2/JMvY6ddSsEsRZstQ
-	9mQgFgP8s/qtWAD+OtVw==;
+	List-Owner; bh=mDwXpkVpMTrf8nZydatu51e1HojyEhp/olRpBjji81Y=; b=hIjDPEngz2yeRa
+	OMczv8YLoiV78SX8mfV5ddzNIySz0Irjz7od02pr7oYy0B1GnM/Uq8leeQFpIIn3yUuZmy8wrrd5n
+	PM2n79PfjVj2DAP1AVNEFr9lJk4emBPgoTcagFv2UStCOtrSNjnC6YYA7cxIk3AOb8SNW97aZzzXE
+	P7UuKCvem65nFZw9/p3VulfwfiNXIMufELARzGPv3qAGsWDdQnI8+epeJrv3f8u6emgTskrtnIFeV
+	KoTj2NpHL/gaYkKoSyWosVdxFdXRXfLD9dM/247h/Bp5fcmpRekSL6HST/UhdTZDCph+Cqrg0i877
+	/nkk3hEOSggzZipM+mtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4bDO-000GD7-LZ; Fri, 24 Jun 2022 04:46:42 +0000
+	id 1o4bET-000GwU-IN; Fri, 24 Jun 2022 04:47:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4bBF-000EZw-OP; Fri, 24 Jun 2022 04:44:32 +0000
+	id 1o4bBO-000Egf-Lz; Fri, 24 Jun 2022 04:44:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A3EDB1576;
-	Thu, 23 Jun 2022 21:44:28 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6DE71596;
+	Thu, 23 Jun 2022 21:44:37 -0700 (PDT)
 Received: from a077893.blr.arm.com (unknown [10.162.41.7])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 765D53F66F;
-	Thu, 23 Jun 2022 21:44:20 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 153163F66F;
+	Thu, 23 Jun 2022 21:44:28 -0700 (PDT)
 From: Anshuman Khandual <anshuman.khandual@arm.com>
 To: linux-mm@kvack.org
 Cc: hch@infradead.org,
@@ -55,17 +55,18 @@ Cc: hch@infradead.org,
 	linux-um@lists.infradead.org,
 	linux-sh@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	"David S. Miller" <davem@davemloft.net>
-Subject: [PATCH V4 04/26] sparc/mm: Move protection_map[] inside the platform
-Date: Fri, 24 Jun 2022 10:13:17 +0530
-Message-Id: <20220624044339.1533882-5-anshuman.khandual@arm.com>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH V4 05/26] arm64/mm: Move protection_map[] inside the platform
+Date: Fri, 24 Jun 2022 10:13:18 +0530
+Message-Id: <20220624044339.1533882-6-anshuman.khandual@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220624044339.1533882-1-anshuman.khandual@arm.com>
 References: <20220624044339.1533882-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220623_214429_918067_A5DE8606 
-X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-CacheID: sfid-20220623_214438_865525_63CBEB89 
+X-CRM114-Status: UNSURE (   8.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,143 +84,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This moves protection_map[] inside the platform and while here, also enable
-ARCH_HAS_VM_GET_PAGE_PROT on 32 bit platforms via DECLARE_VM_GET_PAGE_PROT.
+This moves protection_map[] inside the platform and makes it a static.
 
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: sparclinux@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
- arch/sparc/Kconfig                  |  2 +-
- arch/sparc/include/asm/pgtable_32.h | 19 -------------------
- arch/sparc/include/asm/pgtable_64.h | 19 -------------------
- arch/sparc/mm/init_32.c             | 20 ++++++++++++++++++++
- arch/sparc/mm/init_64.c             |  3 +++
- 5 files changed, 24 insertions(+), 39 deletions(-)
+ arch/arm64/include/asm/pgtable-prot.h | 18 ------------------
+ arch/arm64/mm/mmap.c                  | 21 +++++++++++++++++++++
+ 2 files changed, 21 insertions(+), 18 deletions(-)
 
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index ba449c47effd..09f868613a4d 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -13,6 +13,7 @@ config 64BIT
- config SPARC
- 	bool
- 	default y
-+	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_MIGHT_HAVE_PC_PARPORT if SPARC64 && PCI
- 	select ARCH_MIGHT_HAVE_PC_SERIO
- 	select DMA_OPS
-@@ -84,7 +85,6 @@ config SPARC64
- 	select PERF_USE_VMALLOC
- 	select ARCH_HAVE_NMI_SAFE_CMPXCHG
- 	select HAVE_C_RECORDMCOUNT
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select ARCH_SUPPORTS_ATOMIC_RMW
- 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC
-diff --git a/arch/sparc/include/asm/pgtable_32.h b/arch/sparc/include/asm/pgtable_32.h
-index 4866625da314..8ff549004fac 100644
---- a/arch/sparc/include/asm/pgtable_32.h
-+++ b/arch/sparc/include/asm/pgtable_32.h
-@@ -64,25 +64,6 @@ void paging_init(void);
+diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
+index 62e0ebeed720..9b165117a454 100644
+--- a/arch/arm64/include/asm/pgtable-prot.h
++++ b/arch/arm64/include/asm/pgtable-prot.h
+@@ -89,24 +89,6 @@ extern bool arm64_use_ng_mappings;
+ #define PAGE_READONLY_EXEC	__pgprot(_PAGE_DEFAULT | PTE_USER | PTE_RDONLY | PTE_NG | PTE_PXN)
+ #define PAGE_EXECONLY		__pgprot(_PAGE_DEFAULT | PTE_RDONLY | PTE_NG | PTE_PXN)
  
- extern unsigned long ptr_in_current_pgd;
- 
--/*         xwr */
 -#define __P000  PAGE_NONE
 -#define __P001  PAGE_READONLY
--#define __P010  PAGE_COPY
--#define __P011  PAGE_COPY
--#define __P100  PAGE_READONLY
--#define __P101  PAGE_READONLY
--#define __P110  PAGE_COPY
--#define __P111  PAGE_COPY
+-#define __P010  PAGE_READONLY
+-#define __P011  PAGE_READONLY
+-#define __P100  PAGE_READONLY_EXEC	/* PAGE_EXECONLY if Enhanced PAN */
+-#define __P101  PAGE_READONLY_EXEC
+-#define __P110  PAGE_READONLY_EXEC
+-#define __P111  PAGE_READONLY_EXEC
 -
--#define __S000	PAGE_NONE
--#define __S001	PAGE_READONLY
--#define __S010	PAGE_SHARED
--#define __S011	PAGE_SHARED
--#define __S100	PAGE_READONLY
--#define __S101	PAGE_READONLY
--#define __S110	PAGE_SHARED
--#define __S111	PAGE_SHARED
+-#define __S000  PAGE_NONE
+-#define __S001  PAGE_READONLY
+-#define __S010  PAGE_SHARED
+-#define __S011  PAGE_SHARED
+-#define __S100  PAGE_READONLY_EXEC	/* PAGE_EXECONLY if Enhanced PAN */
+-#define __S101  PAGE_READONLY_EXEC
+-#define __S110  PAGE_SHARED_EXEC
+-#define __S111  PAGE_SHARED_EXEC
 -
- /* First physical page can be anywhere, the following is needed so that
-  * va-->pa and vice versa conversions work properly without performance
-  * hit for all __pa()/__va() operations.
-diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
-index 4679e45c8348..a779418ceba9 100644
---- a/arch/sparc/include/asm/pgtable_64.h
-+++ b/arch/sparc/include/asm/pgtable_64.h
-@@ -187,25 +187,6 @@ bool kern_addr_valid(unsigned long addr);
- #define _PAGE_SZHUGE_4U	_PAGE_SZ4MB_4U
- #define _PAGE_SZHUGE_4V	_PAGE_SZ4MB_4V
+ #endif /* __ASSEMBLY__ */
  
--/* These are actually filled in at boot time by sun4{u,v}_pgprot_init() */
--#define __P000	__pgprot(0)
--#define __P001	__pgprot(0)
--#define __P010	__pgprot(0)
--#define __P011	__pgprot(0)
--#define __P100	__pgprot(0)
--#define __P101	__pgprot(0)
--#define __P110	__pgprot(0)
--#define __P111	__pgprot(0)
--
--#define __S000	__pgprot(0)
--#define __S001	__pgprot(0)
--#define __S010	__pgprot(0)
--#define __S011	__pgprot(0)
--#define __S100	__pgprot(0)
--#define __S101	__pgprot(0)
--#define __S110	__pgprot(0)
--#define __S111	__pgprot(0)
--
- #ifndef __ASSEMBLY__
+ #endif /* __ASM_PGTABLE_PROT_H */
+diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+index 78e9490f748d..8f5b7ce857ed 100644
+--- a/arch/arm64/mm/mmap.c
++++ b/arch/arm64/mm/mmap.c
+@@ -13,6 +13,27 @@
+ #include <asm/cpufeature.h>
+ #include <asm/page.h>
  
- pte_t mk_pte_io(unsigned long, pgprot_t, int, unsigned long);
-diff --git a/arch/sparc/mm/init_32.c b/arch/sparc/mm/init_32.c
-index 1e9f577f084d..8693e4e28b86 100644
---- a/arch/sparc/mm/init_32.c
-+++ b/arch/sparc/mm/init_32.c
-@@ -302,3 +302,23 @@ void sparc_flush_page_to_ram(struct page *page)
- 		__flush_page_to_ram(vaddr);
- }
- EXPORT_SYMBOL(sparc_flush_page_to_ram);
-+
 +static pgprot_t protection_map[16] __ro_after_init = {
 +	[VM_NONE]					= PAGE_NONE,
 +	[VM_READ]					= PAGE_READONLY,
-+	[VM_WRITE]					= PAGE_COPY,
-+	[VM_WRITE | VM_READ]				= PAGE_COPY,
-+	[VM_EXEC]					= PAGE_READONLY,
-+	[VM_EXEC | VM_READ]				= PAGE_READONLY,
-+	[VM_EXEC | VM_WRITE]				= PAGE_COPY,
-+	[VM_EXEC | VM_WRITE | VM_READ]			= PAGE_COPY,
++	[VM_WRITE]					= PAGE_READONLY,
++	[VM_WRITE | VM_READ]				= PAGE_READONLY,
++	/* PAGE_EXECONLY if Enhanced PAN */
++	[VM_EXEC]					= PAGE_READONLY_EXEC,
++	[VM_EXEC | VM_READ]				= PAGE_READONLY_EXEC,
++	[VM_EXEC | VM_WRITE]				= PAGE_READONLY_EXEC,
++	[VM_EXEC | VM_WRITE | VM_READ]			= PAGE_READONLY_EXEC,
 +	[VM_SHARED]					= PAGE_NONE,
 +	[VM_SHARED | VM_READ]				= PAGE_READONLY,
 +	[VM_SHARED | VM_WRITE]				= PAGE_SHARED,
 +	[VM_SHARED | VM_WRITE | VM_READ]		= PAGE_SHARED,
-+	[VM_SHARED | VM_EXEC]				= PAGE_READONLY,
-+	[VM_SHARED | VM_EXEC | VM_READ]			= PAGE_READONLY,
-+	[VM_SHARED | VM_EXEC | VM_WRITE]		= PAGE_SHARED,
-+	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= PAGE_SHARED
++	/* PAGE_EXECONLY if Enhanced PAN */
++	[VM_SHARED | VM_EXEC]				= PAGE_READONLY_EXEC,
++	[VM_SHARED | VM_EXEC | VM_READ]			= PAGE_READONLY_EXEC,
++	[VM_SHARED | VM_EXEC | VM_WRITE]		= PAGE_SHARED_EXEC,
++	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= PAGE_SHARED_EXEC
 +};
-+DECLARE_VM_GET_PAGE_PROT
-diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-index f6174df2d5af..d6faee23c77d 100644
---- a/arch/sparc/mm/init_64.c
-+++ b/arch/sparc/mm/init_64.c
-@@ -2634,6 +2634,9 @@ void vmemmap_free(unsigned long start, unsigned long end,
- }
- #endif /* CONFIG_SPARSEMEM_VMEMMAP */
- 
-+/* These are actually filled in at boot time by sun4{u,v}_pgprot_init() */
-+static pgprot_t protection_map[16] __ro_after_init;
 +
- static void prot_init_common(unsigned long page_none,
- 			     unsigned long page_shared,
- 			     unsigned long page_copy,
+ /*
+  * You really shouldn't be using read() or write() on /dev/mem.  This might go
+  * away in the future.
 -- 
 2.25.1
 
