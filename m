@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CE0C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 18:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D5C1C43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 19:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=znKXB5UAlibxpXXDztVGU7XJQ+syd2C25MGNnnFThsA=; b=s8p8qIaJ8GteBB
-	Z7Q4YFz39OwN05bxprMMwgnlK9DfLGhHx/WZzDW434IE5LgD34eLH4jPWlo4nYv5BsGheVnyeRQIW
-	ItWZAqHQDbRXXJ9HHmVYYypoAvN7c8HS9oTFP94TlvOybDMkgFdKt6JqPZuJf6M/YPIc+0LS0U1HR
-	78oBqpJFNycZYbwfAMUJ6pZZDKyMtj6gy6B2ZVAaLe80WuctrGhsoRzrLCzywL81qIc+HVoRv7qHA
-	D0pgitz6j5INpmlbnk+a0K75Cej85G0BvgQdbKMCpLmDXMPWh+UygthqSQuyEfHmOFcXrYdXS0gYx
-	H4Y7iC7dsCpbSbP0cmnw==;
+	List-Owner; bh=I022/7NdbB6RQtWZshdGS3CYXpbeLRAot34eS6iOhnA=; b=DgNiGBDx4fQT+0
+	8UkNkWZdzyAQREgJNsPJj1YcNzEzegdHSCMzcYK34e+rtzMweF2zC9eW5DHaTtDpGJ7EzfFEGK+5N
+	lePF+kL/cif72Mw84Lf8hbcU483XZHDNaaT4xqGMKrXRDxQDBH4a7qJ4aiX5AcVSqq/ZXq9nE6Nl5
+	o9hhP1vvHDSpWyP/W+NaTCKxbFnd2RDfbt1dWOv4rG+UjBrcXzM73166ynPmuMjyJ38gB8Ctjav+a
+	3U9ZNhWweDDMiMhA1oc9j/pwrpYI9X0H3yVF89B32Ea9LjS7gIcYL8yqztnmCMDrLiimuRaIcD2dt
+	qNytTP7Mb1lzdzKtgYSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4neX-003OKr-Hl; Fri, 24 Jun 2022 18:03:33 +0000
-Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4neT-003OIP-Px
-	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 18:03:31 +0000
-X-IronPort-AV: E=Sophos;i="5.92,218,1650898800"; 
-   d="scan'208";a="124039040"
-Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
-  by relmlie5.idc.renesas.com with ESMTP; 25 Jun 2022 03:03:29 +0900
-Received: from localhost.localdomain (unknown [10.226.36.204])
-	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 1BD8F40C554E;
-	Sat, 25 Jun 2022 03:03:24 +0900 (JST)
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Thomas Gleixner <tglx@linutronix.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Sagar Kadam <sagar.kadam@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-renesas-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH 2/2] irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
-Date: Fri, 24 Jun 2022 19:03:11 +0100
-Message-Id: <20220624180311.3007-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220624180311.3007-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20220624180311.3007-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	id 1o4ox1-003d0m-MZ; Fri, 24 Jun 2022 19:26:43 +0000
+Received: from relay11.mail.gandi.net ([2001:4b98:dc4:8::231])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o4owz-003czG-4W
+	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 19:26:42 +0000
+Received: (Authenticated sender: alexandre.belloni@bootlin.com)
+	by mail.gandi.net (Postfix) with ESMTPSA id 4C0AC100007;
+	Fri, 24 Jun 2022 19:26:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1656098798;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=oCsyFgTXZ2+6MS9SQR2SFiEyjV3pfsnA6bTV48U0IZQ=;
+	b=GfoV+du9giy0BapImzO9HFE0YVlIMyChKTbjNuc7pBxFyj+9l6w8AxdB6Mt4/jyVV8Mexw
+	PX4+27+/I2oRrV3zeBht9Aua1ip/TMlFSlZINpetguPCwzWZ6QOzLLDjDZpgqZMluXmz44
+	S/QqA8a0noIXMRjvTZiSdRRTPmlEs0L9JbrXbA6pwpMuy/uLkeRdkzleeCxKUF8Av3PP8e
+	hPheVbb9jfteazjHQ62d5TCbUGkWHzhM4XKTPq/I/Z2qK6PLW9ACKATqPY7sfYHVO9CceF
+	zgCrLolU/CGjjqoyMXVw8EGO2kKfqTrLkF+VVWHvl458LY2ZpoOs0ellhdzm7g==
+Date: Fri, 24 Jun 2022 21:26:35 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: a.zummo@towertech.it, conor.dooley@microchip.com
+Cc: daire.mcnamara@microchip.com, linux-rtc@vger.kernel.org,
+	linux-riscv@lists.infradead.org, lewis.hanly@microchip.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 0/2] rtc: microchip: Add driver for PolarFire SoC
+Message-ID: <165609877582.32831.3964876505949828769.b4-ty@bootlin.com>
+References: <20220601123320.2861043-1-conor.dooley@microchip.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220601123320.2861043-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220624_110330_198533_CF2E2E4A 
-X-CRM114-Status: GOOD (  25.47  )
+X-CRM114-CacheID: sfid-20220624_122641_379895_41A78E14 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,215 +65,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
-NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
-case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
-edge until the previous completion message has been received and
-NCEPLIC100 doesn't support pending interrupt counter, hence losing the
-interrupts if not acknowledged in time.
+On Wed, 1 Jun 2022 13:33:19 +0100, Conor Dooley wrote:
+> Hey all,
+> This is technically a v5 of [0], although a fair bit of time has
+> passed since then. In the meantime I upstreamed the dt-binding, which
+> was in the v1, and this patch depends on the fixes to the dt-binding
+> and device tree etc which landed in v5.18-rc5.
+> 
+> The driver is quite substantially rewritten from the v1, as you wanted
+> it to be switched to "binary" rather than calendar mode - so hopefully I
+> have satisfied your concerns with the original driver. Specifically you
+> had an significant issue with the counter being reset on startup & that
+> is no longer the case.
+> 
+> [...]
 
-So the workaround for edge-triggered interrupts to be handled correctly
-and without losing is that it needs to be acknowledged first and then
-handler must be run so that we don't miss on the next edge-triggered
-interrupt.
+Applied, thanks!
 
-This patch adds a new compatible string for Renesas RZ/Five SoC and
-changes the chained interrupt haindler for RZ/Five SoC.
+[1/2] rtc: Add driver for Microchip PolarFire SoC
+      commit: 0b31d703598dc1993867597bbd45e87d824fc427
+[2/2] MAINTAINERS: add PolarFire SoC's RTC
+      commit: 1bdb08c180e8556d3d4cef844ea0f0bae79bb95d
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
----
-RFC-->v1:
-* Fixed review comments pointed by Geert
-* Dropped handle_fasteoi_ack_irq support as for the PLIC we need to
-claim the interrupt by reading the register and then acknowledge it.
-* Add a new chained handler for RZ/Five SoC.
----
- drivers/irqchip/irq-sifive-plic.c | 95 +++++++++++++++++++++++++++++--
- 1 file changed, 91 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index 173446cc9204..f53dff49e122 100644
---- a/drivers/irqchip/irq-sifive-plic.c
-+++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -60,10 +60,13 @@
- #define	PLIC_DISABLE_THRESHOLD		0x7
- #define	PLIC_ENABLE_THRESHOLD		0
- 
-+#define PLIC_INTERRUPT_CELL_SIZE2	2
-+
- struct plic_priv {
- 	struct cpumask lmask;
- 	struct irq_domain *irqdomain;
- 	void __iomem *regs;
-+	u32 intsize;
- };
- 
- struct plic_handler {
-@@ -163,7 +166,7 @@ static int plic_set_affinity(struct irq_data *d,
- }
- #endif
- 
--static void plic_irq_eoi(struct irq_data *d)
-+static void plic_irq_ack(struct irq_data *d)
- {
- 	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
- 
-@@ -176,6 +179,23 @@ static void plic_irq_eoi(struct irq_data *d)
- 	}
- }
- 
-+static void plic_irq_eoi(struct irq_data *d)
-+{
-+	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-+	unsigned int irq = irq_find_mapping(handler->priv->irqdomain, d->hwirq);
-+
-+	/*
-+	 * For Renesas RZ/Five (R9A07G043) SoC if the interrupt type is
-+	 * IRQ_TYPE_EDGE_RISING we have already acknowledged it in the
-+	 * handler.
-+	 */
-+	if (handler->priv->intsize == PLIC_INTERRUPT_CELL_SIZE2 &&
-+	    (irq_get_trigger_type(irq) & IRQ_TYPE_EDGE_RISING))
-+		return;
-+
-+	plic_irq_ack(d);
-+}
-+
- static const struct irq_chip plic_chip = {
- 	.name		= "SiFive PLIC",
- 	.irq_mask	= plic_irq_mask,
-@@ -198,6 +218,19 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
- 	return 0;
- }
- 
-+static int plic_irq_domain_translate(struct irq_domain *d,
-+				     struct irq_fwspec *fwspec,
-+				     unsigned long *hwirq,
-+				     unsigned int *type)
-+{
-+	struct plic_priv *priv = d->host_data;
-+
-+	if (priv->intsize == PLIC_INTERRUPT_CELL_SIZE2)
-+		return irq_domain_translate_twocell(d, fwspec, hwirq, type);
-+
-+	return irq_domain_translate_onecell(d, fwspec, hwirq, type);
-+}
-+
- static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 				 unsigned int nr_irqs, void *arg)
- {
-@@ -206,7 +239,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 	unsigned int type;
- 	struct irq_fwspec *fwspec = arg;
- 
--	ret = irq_domain_translate_onecell(domain, fwspec, &hwirq, &type);
-+	ret = plic_irq_domain_translate(domain, fwspec, &hwirq, &type);
- 	if (ret)
- 		return ret;
- 
-@@ -220,11 +253,55 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- }
- 
- static const struct irq_domain_ops plic_irqdomain_ops = {
--	.translate	= irq_domain_translate_onecell,
-+	.translate	= plic_irq_domain_translate,
- 	.alloc		= plic_irq_domain_alloc,
- 	.free		= irq_domain_free_irqs_top,
- };
- 
-+/*
-+ * On Renesas RZ/Five (R9A07G043) SoC IRQ_TYPE_LEVEL_HIGH and
-+ * IRQ_TYPE_EDGE_RISING interrupts are the supported interrupt types.
-+ * If the global interrupt source was edge-triggered NCEPLIC100 (PLIC
-+ * core on Renesas RZ/Five SoC) ignores next edge interrupts until the
-+ * previous completion message is received. NCEPLIC100 on Renesas RZ/Five
-+ * SoC doesn't stack the pending interrupts so in case there is a delay
-+ * in handling the IRQ_TYPE_EDGE_RISING interrupt we lose the subsequent
-+ * interrupts. The workaround for IRQ_TYPE_EDGE_RISING interrupt is to
-+ * first we have to claim the interrupt by reading the claim register,
-+ * then quickly issue an complete interrupt by writing the source ID
-+ * register back to the claim  register and then later run the handler.
-+ */
-+static void renesas_rzfive_plic_handle_irq(struct irq_desc *desc)
-+{
-+	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-+	struct irq_chip *chip = irq_desc_get_chip(desc);
-+	void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
-+	irq_hw_number_t hwirq;
-+	unsigned int irq;
-+	int err;
-+
-+	WARN_ON_ONCE(!handler->present);
-+
-+	chained_irq_enter(chip, desc);
-+
-+	while ((hwirq = readl(claim))) {
-+		irq = irq_find_mapping(handler->priv->irqdomain, hwirq);
-+		if (!irq) {
-+			pr_warn_ratelimited("can't find mapping for hwirq %lu\n", hwirq);
-+			break;
-+		}
-+
-+		if (irq_get_trigger_type(irq) & IRQ_TYPE_EDGE_RISING)
-+			plic_irq_ack(irq_get_irq_data(irq));
-+
-+		err = generic_handle_irq(irq);
-+		if (err)
-+			pr_warn_ratelimited("error handling irq %u\n", irq);
-+	}
-+
-+	chained_irq_exit(chip, desc);
-+}
-+
- /*
-  * Handling an interrupt is a two-step process: first you claim the interrupt
-  * by reading the claim register, then you complete the interrupt by writing
-@@ -288,11 +365,20 @@ static int __init plic_init(struct device_node *node,
- 	u32 nr_irqs;
- 	struct plic_priv *priv;
- 	struct plic_handler *handler;
-+	irq_flow_handler_t plic_chanined_handler;
- 
- 	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
- 	if (!priv)
- 		return -ENOMEM;
- 
-+	if (of_property_read_u32(node, "#interrupt-cells", &priv->intsize))
-+		return -EINVAL;
-+
-+	if (priv->intsize == PLIC_INTERRUPT_CELL_SIZE2)
-+		plic_chanined_handler = &renesas_rzfive_plic_handle_irq;
-+	else
-+		plic_chanined_handler = &plic_handle_irq;
-+
- 	priv->regs = of_iomap(node, 0);
- 	if (WARN_ON(!priv->regs)) {
- 		error = -EIO;
-@@ -358,7 +444,7 @@ static int __init plic_init(struct device_node *node,
- 			plic_parent_irq = irq_of_parse_and_map(node, i);
- 			if (plic_parent_irq)
- 				irq_set_chained_handler(plic_parent_irq,
--							plic_handle_irq);
-+							plic_chanined_handler);
- 		}
- 
- 		/*
-@@ -411,5 +497,6 @@ static int __init plic_init(struct device_node *node,
- }
- 
- IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
-+IRQCHIP_DECLARE(renesas_r9a07g043_plic, "renesas,r9a07g043-plic", plic_init);
- IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
- IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init); /* for firmware driver */
+Best regards,
 -- 
-2.25.1
-
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
