@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A729C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 04:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28161C43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 04:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vyhv2WNwGR9zQD9FxIXAnutqxzsVFATnmGu7LTxoNGI=; b=QGVjB8I4Eeu1Ey
-	lRZ5gJj0Ziwjx0C5t5bvcAr1qkL55KcOfQ3OCsdirFEHWWQU0xMyWsxHgWOBMajhHaqagT46yhvsh
-	edNQBTvclN9W4Okvy2jkO0c/K/MtJkTLT19YFwJY0POtL2Z1j02NughuOSv90/n2ZRc8q0Nxz5NuD
-	Kb4w7aR6eEVRDaj6dFXKJ++Rsbzu3hoXuOWJDzUnbbFZDnq1wHfFzIjMv3aihq8wBvaVti5U3NLok
-	/BFUJR6fmJsAhDGb5fc2KneGzwR/IRuJQcwex1AVRLHc0TQQcC0cQJVBsiJR5zii+SxYm5ubfmhhH
-	mPiwuO5iwwaHlUdc+XZg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9eTmncQcR35xqfLKOGIYlD6WoXc7JhPsZAV6f/I17JQ=; b=aLyUQ2NV4YWx3d
+	HH9MVZCQrMFR2GCcHCevXICWsnu1BgFlsH4oCMy0wbp6JnC++V3JO9Ssc8ei6h2Yrhumm8Z9mHbRw
+	A5VA9zr/GME7aZI88479CY+l1KotJ7Pzsemv/CVdc8t+pQLSGy+Au/BfF4eqCBkKRajLi1bucM1Iw
+	On2usebSkOjMtcjVbeNZ/JwWyMLFytTraytlC6CrKxZ33DIoo9BgeEK5YybTj6T0R/fT+jmdFJgxe
+	fzgxof6lamiPgbEVDZgP2F150+cjf8eYcM+PdzmlsSJdOHw485wsstRBD4+mK8T5UKWIcDhmV/YfT
+	akVKeOc5sNHq++h5MSXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4aU9-0008V4-V9; Fri, 24 Jun 2022 03:59:57 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4aU6-0008U6-Uh
-	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 03:59:56 +0000
-Received: by mail-wm1-x330.google.com with SMTP id f190so295202wma.5
-        for <linux-riscv@lists.infradead.org>; Thu, 23 Jun 2022 20:59:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=LFof6xyQlBViIwxTOHjGB1w+r5Yn7jKYGLlVPj/RtTs=;
-        b=Vhl7UlfH/nMtHrPMTkwdg+sFzADiAF4PEgmpUCFd+xSRDTtahQZoq4BDH7/EHpucBj
-         u0k7a+wtysIimE171POiJ72ICnddu7YtjUh8zHbZ17l+rBhXY3pib+2m2TETutPBAN52
-         Z/V8MZzZKNu7BYyFj5tO+HSYn6Kd+TFgdF4LcDoKP4ThnUsZQrHSM0M/+gJ76Rg4y7Yy
-         8mlYv9eWrwdLP+hboln1eFcl29LJis8THLOFvCK+ZqlWrJ4yIOScV778AORXIYeTuuXp
-         vFTifDkKEsQ2Nf6z1GnzkiU4YTSbaZzv/1GKJb4gyWTtCg1Xh+l4/GTu1YNhXiwL1VM1
-         5nLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=LFof6xyQlBViIwxTOHjGB1w+r5Yn7jKYGLlVPj/RtTs=;
-        b=R30EoPd52HGBkpOAnw0DKQUIuacgKfVi1VC6Xj+0BC+I2yz0KrB7qGO0Z5+1Y0/BUp
-         CSKbLBjySB64XHcPLhJq2sYxO4iyhufhsuBkWmZIhO2ZXJWDfm1WSsL6R6Y3w/a3nMdG
-         upz0dcOThrBt7atSfbKq1kN28w+sXglCTL4S8aLq66K9EmUHRWS10/EpfG4SlQIyRzb9
-         g/57tE+nYrAVdm/+tfXLyaTD1AM2FQQNpNkFYVss/CIBl6zfVYyvI3lBzRmXxFVNFXcI
-         PzUSKjLxb5UjRudp0ABSR4YragsGIIrgX5/CJE1v99/ngzBLqYWLPVASe16K/OCsHocr
-         Iv2g==
-X-Gm-Message-State: AJIora+rUUJ4oauB2G1J3AkKvrUs7/BcSVLj2pkdEbsINGg5qo2QbOo/
-	VL65oBXi1H/us9nCtS39XY1dx5pwtqhTF1D8aCNcPg==
-X-Google-Smtp-Source: AGRyM1sLLznWELMcbZGSLGioDuvilsOBSPavnzFCVZAlL/PgMkJWZmTKO+ORiEVxRTtnwU+z8kfHoeJUW6vFifm6xw0=
-X-Received: by 2002:a05:600c:1d0b:b0:3a0:3ab8:924 with SMTP id
- l11-20020a05600c1d0b00b003a03ab80924mr1282468wms.137.1656043191791; Thu, 23
- Jun 2022 20:59:51 -0700 (PDT)
+	id 1o4bB0-000EQP-3J; Fri, 24 Jun 2022 04:44:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o4bAn-000EIs-AZ; Fri, 24 Jun 2022 04:44:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4787612FC;
+	Thu, 23 Jun 2022 21:43:55 -0700 (PDT)
+Received: from a077893.blr.arm.com (unknown [10.162.41.7])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 961313F66F;
+	Thu, 23 Jun 2022 21:43:47 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org
+Cc: hch@infradead.org,
+	christophe.leroy@csgroup.eu,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	openrisc@lists.librecores.org,
+	linux-xtensa@linux-xtensa.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-ia64@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-um@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V4 00/26] mm/mmap: Drop __SXXX/__PXXX macros from across platforms
+Date: Fri, 24 Jun 2022 10:13:13 +0530
+Message-Id: <20220624044339.1533882-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <bca6d76d-1708-fede-8008-d2588a14b656@mail.ru> <8887d851-19b7-ee10-a89e-fb69d54ac41e@sholland.org>
-In-Reply-To: <8887d851-19b7-ee10-a89e-fb69d54ac41e@sholland.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 24 Jun 2022 09:29:40 +0530
-Message-ID: <CAAhSdy3CoRVs7Rn=TDBRrfqaNEr1R6h4r1cdgGR-QKCtg7QYrw@mail.gmail.com>
-Subject: Re: Tickless timer regression in v5.18.3 on riscv
-To: Samuel Holland <samuel@sholland.org>
-Cc: Sergey Larin <cerg2010cerg2010@mail.ru>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
-	Sunil V L <sunilvl@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220623_205955_029676_ED2D96BF 
-X-CRM114-Status: GOOD (  24.54  )
+X-CRM114-CacheID: sfid-20220623_214401_483031_EF9C96C7 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,81 +79,181 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+Atish (for Sstc patches), +Sunil (for ACPI support)
+__SXXX/__PXXX macros is an unnecessary abstraction layer in creating the
+generic protection_map[] array which is used for vm_get_page_prot(). This
+abstraction layer can be avoided, if the platforms just define the array
+protection_map[] for all possible vm_flags access permission combinations
+and also export vm_get_page_prot() implementation.
 
-On Fri, Jun 24, 2022 at 1:21 AM Samuel Holland <samuel@sholland.org> wrote:
->
-> On 6/23/22 1:11 PM, Sergey Larin wrote:
-> > Hello,
-> >
-> > It appears that tickless timer regression was introduced in commit
-> > 232ccac1bd9b5bfe73895f527c08623e7fa0752d ("clocksource/drivers/riscv: Events are
-> > stopped during CPU suspend").
-> >
-> > Even though this is a fix for CPU suspend, it causes high idle CPU usage.
-> > However, this usage is not reported to userspace, but can be observed in virtual
-> > machines like QEMU or RVVM. So the kernel is not tickless now, disabling NO_HZ
-> > has the same effects.
->
-> The SBI timer extension is not a great clockevent source to start with. It
-> requires calling in to M-mode/the hypervisor, both for setting the timer and
-> (without Sstc) a trap for handling the interrupt. That is why its rating is only
-> 100.
+This series drops __SXXX/__PXXX macros from across platforms in the tree.
+First it build protects generic protection_map[] array with '#ifdef __P000'
+and moves it inside platforms which enable ARCH_HAS_VM_GET_PAGE_PROT. Later
+this build protects same array with '#ifdef ARCH_HAS_VM_GET_PAGE_PROT' and
+moves inside remaining platforms while enabling ARCH_HAS_VM_GET_PAGE_PROT.
+This adds a new macro DECLARE_VM_GET_PAGE_PROT defining the current generic
+vm_get_page_prot(), in order for it to be reused on platforms that do not
+require custom implementation. Finally, ARCH_HAS_VM_GET_PAGE_PROT can just
+be dropped, as all platforms now define and export vm_get_page_prot(), via
+looking up a private and static protection_map[] array. protection_map[]
+data type is the following for all platforms without deviation (except the
+powerpc one which is shared between 32 and 64 bit platforms), keeping it
+unchanged for now.
 
-When Sstc is available, the clockevent device rating should be increased (400+).
+static pgprot_t protection_map[16] __ro_after_init
 
-(@Atish, can you update this in your Linux Sstc series?)
+This series applies on v5.19-rc3 and has been build tested for multiple
+platforms. While here it has dropped off all previous tags from folks after
+the current restructuring. Series common CC list has been expanded to cover
+all impacted platforms for wider reach.
 
->
-> Do your virtual machines have no other MMIO timer device? Practically any other
-> clockevent device will be used in preference to this one. And if that other
-> device does not have the CLOCK_EVT_FEAT_C3STOP flag, then idle CPU usage will
-> not be increased.
+- Anshuman
 
-I agree. RISC-V Platforms that don't preserve mtimer (MMIO) should have
-additional timer in the "always-on" domain for idle wake-up.
+Changes in V4:
 
->
-> > Any ideas why this is needed since CLINT timers should be active in WFI?
->
-> The CLINT timers will be active in WFI, but not necessarily in all CPU idle
-> states. For example, the T-HEAD C9xx includes the CLINT inside the CPU's reset
-> domain[1]. So a nonretentive idle state that puts the CPU in reset will stop the
-> CLINT (in addition to resetting the circuitry responsible for delivering the
-> timer interrupt).
->
-> Also keep in mind that the SBI time extension is not necessarily backed by a
-> CLINT. In fact, the SBI specification lists no real requirements for the timer,
-> such as minimum/maximum duration or when the timer is allowed to stop. So the
-> kernel has to assume the worst case.
+- Both protection_map[] and vm_get_page_prot() moves inside all platforms
+- Split patches to create modular changes for individual platforms
+- Add macro DECLARE_VM_GET_PAGE_PROT defining generic vm_get_page_prot()
+- Drop ARCH_HAS_VM_GET_PAGE_PROT
 
-Yes, when Sstc is available the SBI time extension will internally use stimecmp
-for SW compatibility (recommended by the Sstc specification).
+Changes in V3:
 
-For assuming the worst case and always setting C3STOP in timer-riscv is fine
-since we have very few platforms implementing CPU idle states but this will
-change soon.
+https://lore.kernel.org/all/20220616040924.1022607-1-anshuman.khandual@arm.com/
 
-I suggest we introduce an optional "riscv,timer-always-on" DT property for each
-HART. If all HART DT nodes have this property then we don't set C3STOP flag
-in clockevent device, else we set it.
+- Fix build issues on powerpc and riscv
 
-(Note: Our proposed ACPI ECRs all need this flag in HART capabilities table)
+Changes in V2:
 
-Regards,
-Anup
+https://lore.kernel.org/all/20220613053354.553579-1-anshuman.khandual@arm.com/
 
->
-> Regards,
-> Samuel
->
-> [1]:
-> https://github.com/T-head-Semi/openc906/blob/main/C906_RTL_FACTORY/gen_rtl/clint/rtl/clint_func.v#L369
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+- Add 'const' identifier to protection_map[] on powerpc
+- Dropped #ifndef CONFIG_ARCH_HAS_VM_GET_PAGE_PROT check from sparc 32
+- Dropped protection_map[] init from sparc 64
+- Dropped all new platform changes subscribing ARCH_HAS_VM_GET_PAGE_PROT
+- Added a second patch which moves generic protection_map[] array into
+  all remaining platforms (!ARCH_HAS_VM_GET_PAGE_PROT)
+
+Changes in V1:
+
+https://lore.kernel.org/all/20220603101411.488970-1-anshuman.khandual@arm.com/
+
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Christoph Hellwig <hch@infradead.org>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: sparclinux@vger.kernel.org
+Cc: x86@kernel.org
+Cc: openrisc@lists.librecores.org
+Cc: linux-xtensa@linux-xtensa.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linux-alpha@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-ia64@vger.kernel.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-um@lists.infradead.org
+Cc: linux-sh@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org
+
+Anshuman Khandual (26):
+  mm/mmap: Build protect protection_map[] with __P000
+  mm/mmap: Define DECLARE_VM_GET_PAGE_PROT
+  powerpc/mm: Move protection_map[] inside the platform
+  sparc/mm: Move protection_map[] inside the platform
+  arm64/mm: Move protection_map[] inside the platform
+  x86/mm: Move protection_map[] inside the platform
+  mm/mmap: Build protect protection_map[] with ARCH_HAS_VM_GET_PAGE_PROT
+  microblaze/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  loongarch/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  openrisc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  extensa/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  hexagon/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  parisc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  alpha/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  nios2/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  riscv/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  csky/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  s390/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  ia64/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  mips/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  m68k/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  arc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  arm/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  um/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  sh/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  mm/mmap: Drop ARCH_HAS_VM_GET_PAGE_PROT
+
+ arch/alpha/include/asm/pgtable.h          | 17 -------
+ arch/alpha/mm/init.c                      | 22 +++++++++
+ arch/arc/include/asm/pgtable-bits-arcv2.h | 18 --------
+ arch/arc/mm/mmap.c                        | 20 +++++++++
+ arch/arm/include/asm/pgtable.h            | 17 -------
+ arch/arm/lib/uaccess_with_memcpy.c        |  2 +-
+ arch/arm/mm/mmu.c                         | 20 +++++++++
+ arch/arm64/Kconfig                        |  1 -
+ arch/arm64/include/asm/pgtable-prot.h     | 18 --------
+ arch/arm64/mm/mmap.c                      | 21 +++++++++
+ arch/csky/include/asm/pgtable.h           | 18 --------
+ arch/csky/mm/init.c                       | 20 +++++++++
+ arch/hexagon/include/asm/pgtable.h        | 27 -----------
+ arch/hexagon/mm/init.c                    | 42 +++++++++++++++++
+ arch/ia64/include/asm/pgtable.h           | 18 --------
+ arch/ia64/mm/init.c                       | 28 +++++++++++-
+ arch/loongarch/include/asm/pgtable-bits.h | 19 --------
+ arch/loongarch/mm/cache.c                 | 46 +++++++++++++++++++
+ arch/m68k/include/asm/mcf_pgtable.h       | 54 ----------------------
+ arch/m68k/include/asm/motorola_pgtable.h  | 22 ---------
+ arch/m68k/include/asm/sun3_pgtable.h      | 17 -------
+ arch/m68k/mm/mcfmmu.c                     | 55 +++++++++++++++++++++++
+ arch/m68k/mm/motorola.c                   | 20 +++++++++
+ arch/m68k/mm/sun3mmu.c                    | 20 +++++++++
+ arch/microblaze/include/asm/pgtable.h     | 17 -------
+ arch/microblaze/mm/init.c                 | 20 +++++++++
+ arch/mips/include/asm/pgtable.h           | 22 ---------
+ arch/mips/mm/cache.c                      |  3 ++
+ arch/nios2/include/asm/pgtable.h          | 16 -------
+ arch/nios2/mm/init.c                      | 20 +++++++++
+ arch/openrisc/include/asm/pgtable.h       | 18 --------
+ arch/openrisc/mm/init.c                   | 20 +++++++++
+ arch/parisc/include/asm/pgtable.h         | 18 --------
+ arch/parisc/mm/init.c                     | 20 +++++++++
+ arch/powerpc/Kconfig                      |  1 -
+ arch/powerpc/include/asm/pgtable.h        | 20 +--------
+ arch/powerpc/mm/pgtable.c                 | 24 ++++++++++
+ arch/riscv/include/asm/pgtable.h          | 20 ---------
+ arch/riscv/mm/init.c                      | 20 +++++++++
+ arch/s390/include/asm/pgtable.h           | 17 -------
+ arch/s390/mm/mmap.c                       | 20 +++++++++
+ arch/sh/include/asm/pgtable.h             | 17 -------
+ arch/sh/mm/mmap.c                         | 20 +++++++++
+ arch/sparc/Kconfig                        |  1 -
+ arch/sparc/include/asm/pgtable_32.h       | 19 --------
+ arch/sparc/include/asm/pgtable_64.h       | 19 --------
+ arch/sparc/mm/init_32.c                   | 20 +++++++++
+ arch/sparc/mm/init_64.c                   |  3 ++
+ arch/um/include/asm/pgtable.h             | 17 -------
+ arch/um/kernel/mem.c                      | 20 +++++++++
+ arch/x86/Kconfig                          |  1 -
+ arch/x86/include/asm/pgtable_types.h      | 19 --------
+ arch/x86/mm/mem_encrypt_amd.c             |  7 ++-
+ arch/x86/mm/pgprot.c                      | 27 +++++++++++
+ arch/x86/um/mem_32.c                      |  2 +-
+ arch/xtensa/include/asm/pgtable.h         | 18 --------
+ arch/xtensa/mm/init.c                     | 20 +++++++++
+ include/linux/mm.h                        |  9 +++-
+ mm/Kconfig                                |  3 --
+ mm/mmap.c                                 | 27 -----------
+ 60 files changed, 584 insertions(+), 543 deletions(-)
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
