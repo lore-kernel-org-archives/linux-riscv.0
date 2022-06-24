@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07CC4C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 17:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 963CDC43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 17:08:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=42zw+7NQ93OZNpw0bj4rVzYJqR1eFqlirOVLh22YgrM=; b=bkddSjqW91vlZa
-	IHU/zROiPiWGNYbBVAFkALcanZUTU5XE3ptuzCU2aOAJVVIklrAfJYdJ5cb8Tt0aqXIUjYd8sckPR
-	hoXmsWTHwiHPgyzyLQL/IyK3sRlev+FxjaHsywq2spL8q/k6PUs+Id2+7G9BGFu4ngmrEkrj/Qise
-	e1I8w2l6YW+whfK1Gi7YTL8FBClQJ2L//FxQVJAFTk4ZxyKH9yeV7OyJ1z1jlmi04aVcjC7Q32vPi
-	eGsB0aLIIpis7cJS0sIIZD4AncXTNZctns4sJHn+68x2SB1opnEWp7D94PSdOm7ar6e8Tu7MXrh85
-	3pcDQtut5gEXh+ZTJoMg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IfxYE86xN66Fg7lIuAWZil/R6CraD3DQ3rLhjxs9j54=; b=SvuWx8CQ7072GK
+	s00hMh+jEwmfK2cXAzXixqYnNQPZWNLIUjoZH/Qa+esqbdRKXMEB2NUpvwnmkJKrjXyl/HFNyrWno
+	YBxQQH7EQlg0TkLuPlRCOY4ZRTa1nmz1WOc51JuP/e++kPWQB7UabPCGviR+Vw4bm2upqtHaOxfaW
+	eb5eOqLyNrYvInEfLWhbvcAfp+ydCp8sVtGAbv+b6LDZ6ZH540kxFFjROQJQuh0SsUpr91vPgQf4Z
+	4hf86ARMcc0qtFEDkrIQ2CZ8mTToVdfcZqWpHdBt3Yw1E3H6GAn/a5dXIKWwnJswGXYseSzv4PV0u
+	PbKhnukhfXxrVV/ZeuBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4mkn-0037QR-AE; Fri, 24 Jun 2022 17:05:57 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1o4mn8-0038Iq-7y; Fri, 24 Jun 2022 17:08:22 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4mkc-0037Ni-Dj
-	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 17:05:48 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id x38so5487352ybd.9
-        for <linux-riscv@lists.infradead.org>; Fri, 24 Jun 2022 10:05:45 -0700 (PDT)
+	id 1o4mn5-0038FP-SX
+	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 17:08:21 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id q6so5885975eji.13
+        for <linux-riscv@lists.infradead.org>; Fri, 24 Jun 2022 10:08:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=ZIPazKmSsD26XWJDudnBcSzWESOQebME2fbkS0xWFAE=;
-        b=ZT8/bZUMdVEcLuC1UUVyX3uDPk7EQ1xFxdjgEIyJolBUUEmp91wMIr7tSMXYICg7O3
-         aiDzcAiFvFvcQqxElKgz+8FHfBjpwSjJIGbwBK1ZyH9tvCAfGp7EuRH+AHlIpT0Nov6o
-         SaRWF/Es+NNu2GAFCPfW+KJ5+8LLrmhmxsfYM=
+        d=linaro.org; s=google;
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=B3kbilczJ8RqirddUQQRugRdMnYuaeBC6YottAZodwA=;
+        b=HRBaG764wephebWOC8/49MIYVztpToSxXeB0QsyV22rOgy8GG7+IV6JbhsDyVBO8Gv
+         fxdW2KYjaM16uOxKmVZSOuAJAKR/kFTEs02n7ITm9uXnV10YRgVgu9jfruDqQiarOpft
+         fxeakHN0/TAdKp1Qml2w6Gd0Szlu+Ln1r9h1el/0hvvNw7PblN2PimBFJPmH9TzJ+AXp
+         lsywsu8YIyLROyBxAZPk0rjDc1yc7bTet143kWB634CeJ7brnl+opM0bkpYwWfF9p/ra
+         PHvm2mrFQm+eR3dnUFyfvTbOKITIJdV47k4+pjsbbk/qAhDoowIx0Z3+JOFbDRAlgyq4
+         Q4iQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=ZIPazKmSsD26XWJDudnBcSzWESOQebME2fbkS0xWFAE=;
-        b=ZoD7Pg75hwcqx3YPW4ZIkxfkgyUk+gThlYC/PJ2oBON35D0kcyq3zFbfLBObFxrqQ+
-         PvaTtoKRsy3e4SUI4WKc6w7eh2mkZg6yP7jtiJh7ZbjJtQ+CcqB+yVKEFaND2V0hYsE6
-         w+ILzvvmZn01UTYaRbim1ZJuEFT2tkF6hi9lVbI+AkfM6mx0lu/0C2V4k6jkD0rwYI9u
-         tCrdCNP5rU2ltgV67j6pPnM6ED8z4Ozq4h36201xg5ojVGq7ziAsNyfOpdXD70LfvstQ
-         VVYU3GlkJ1sfZ0m6dzskBzOoeItCrXNw5b9f7DE2daQFmbkyWWlFgs3qOC/20FqKiDqb
-         MSUQ==
-X-Gm-Message-State: AJIora/WA7GSctJJBbGv7lrjAB9dP/g3SgFGeYy0ieDh75a0+SVsYNlJ
-	uPP28Z6eIBGcr5sqB8Zwh8wPZj82SoCaAQiHlTFx
-X-Google-Smtp-Source: AGRyM1sHDc2cW7clSCW0XylBGUiRR0RTkYDBhReAvtAFsWXBx2x2LeTFy4BM0fMgkJ61RgRmxJo/gZaREWNynpNDYpE=
-X-Received: by 2002:a5b:c4:0:b0:669:15d4:8b68 with SMTP id d4-20020a5b00c4000000b0066915d48b68mr122544ybp.473.1656090344842;
- Fri, 24 Jun 2022 10:05:44 -0700 (PDT)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=B3kbilczJ8RqirddUQQRugRdMnYuaeBC6YottAZodwA=;
+        b=iaT3/3grJzlGxR2+afAoRhUBdpV5iEaU4YnmMALbKz8Uq9u01DT4svL4JN0V3g5dRh
+         KcsABE0TFDBBwy71jlRxgzBjcal62mOWknq2FzXZhBIqMWJhdhsk2kp3j7vaeDQKVyCY
+         X/AcOq2bhXXcnc49drLNktAEgEjdoiZjH3Re92QLPw3w4zl5JMfpGTxBwLGki6+Jlaf+
+         EeddgR6xopH3+RzmZhtqwwehxVe4pavaAJlU9vj66GvBtMCkW2p8mhoCHo/uGAsHKDzE
+         3YjopJyFJ8lPwo/73j/lyMr9OetgwEx1P7ERfXMUmayEgOZNMnKqryU0nEMmTAn3g5SZ
+         Y/7g==
+X-Gm-Message-State: AJIora8BCkGJ0zRuDqhxvKE/y686JlUjbxCzFnon300a5+rkvD15vcAA
+	79Po9c+zafRQE+8E7jzOFSjpcQ==
+X-Google-Smtp-Source: AGRyM1uof2YdzllXeIBAMDcOip+DoGmlHYw/RrLhxqqbIl9BLXRgli7t/mzBKTyj/GlSUCJJRAzFSQ==
+X-Received: by 2002:a17:907:9727:b0:6fe:d943:312f with SMTP id jg39-20020a170907972700b006fed943312fmr14178971ejc.263.1656090496153;
+        Fri, 24 Jun 2022 10:08:16 -0700 (PDT)
+Received: from localhost.localdomain (xdsl-188-155-176-92.adslplus.ch. [188.155.176.92])
+        by smtp.gmail.com with ESMTPSA id i24-20020a170906251800b007262a1c8d20sm1433742ejb.19.2022.06.24.10.08.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 24 Jun 2022 10:08:15 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] riscv: dts: align gpio-key node names with dtschema
+Date: Fri, 24 Jun 2022 19:08:11 +0200
+Message-Id: <20220624170811.66395-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20220624160117.3206-1-nikita.shubin@maquefel.me>
-In-Reply-To: <20220624160117.3206-1-nikita.shubin@maquefel.me>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 24 Jun 2022 10:05:34 -0700
-Message-ID: <CAOnJCU+2mOMj7MPzLKVZQ46gRs=ghxP6FK6oWkss0DfN_si3DQ@mail.gmail.com>
-Subject: Re: [PATCH v4 0/5] RISC-V: Create unique identification for SoC PMU
-To: Nikita Shubin <nikita.shubin@maquefel.me>
-Cc: Anup Patel <anup@brainfault.org>, 
-	=?UTF-8?B?Sm/Do28gTcOhcmlvIERvbWluZ29z?= <joao.mario@tecnico.ulisboa.pt>, 
-	linux <linux@yadro.com>, Nikita Shubin <n.shubin@yadro.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Ingo Molnar <mingo@redhat.com>, Jiri Olsa <jolsa@kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, linux-perf-users@vger.kernel.org, 
-	linux-riscv <linux-riscv@lists.infradead.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Namhyung Kim <namhyung@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Will Deacon <will@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220624_100546_500107_FFE2E7A1 
-X-CRM114-Status: GOOD (  18.28  )
+X-CRM114-CacheID: sfid-20220624_100819_994853_2BE1B16C 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,76 +93,104 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 24, 2022 at 9:01 AM Nikita Shubin <nikita.shubin@maquefel.me> wrote:
->
-> From: Nikita Shubin <n.shubin@yadro.com>
->
-> This series aims to provide matching vendor SoC with corresponded JSON bindings.
->
-> The ID string is proposed to be in form of MVENDORID-MARCHID-MIMPID, for example
-> for Sifive Unmatched the corresponding string will be:
->
-> 0x489-0x8000000000000007-0x[[:xdigit:]]+,v1,sifive/u74,core
->
-> Where MIMPID can vary as all impl supported the same number of events, this might not
-> be true for all future SoC however.
->
-> Also added 3 counters which are standart for all RISC-V implementations and SBI firmware
-> events prerry names, as any firmware that supports SBI PMU should also support firmare
-> events.
->
-> Link: https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/riscv-sbi.adoc
-> Link: https://patchwork.kernel.org/project/linux-riscv/list/?series=648017
-> ---
-> v3->v4:
-> - drop pmuid in riscv_pmu_sbi, we are using /proc/cpuinfo
-> - rework util/header.c to use /proc/cpuinfo
-> - add SBI firmware events
-> - add firmware and std arch events to U74 pmu bindings
-> - change U74 id string and description in mapfile.csv
-> ---
-> Nikita Shubin (5):
->   drivers/perf: riscv_pmu_sbi: perf format
->   perf tools riscv: Add support for get_cpuid_str function
->   perf arch events: riscv arch std event files
->   perf arch events: riscv sbi firmare std event files
->   perf vendor events riscv: add Sifive U74 JSON file
->
->  drivers/perf/riscv_pmu_sbi.c                  |  20 +++
->  tools/perf/arch/riscv/util/Build              |   1 +
->  tools/perf/arch/riscv/util/header.c           | 109 ++++++++++++++
->  tools/perf/pmu-events/arch/riscv/mapfile.csv  |  17 +++
->  .../pmu-events/arch/riscv/riscv-generic.json  |  20 +++
->  .../arch/riscv/riscv-sbi-firmware.json        | 134 ++++++++++++++++++
->  .../arch/riscv/sifive/u74/firmware.json       |  68 +++++++++
->  .../arch/riscv/sifive/u74/generic.json        |  11 ++
->  .../arch/riscv/sifive/u74/instructions.json   |  92 ++++++++++++
->  .../arch/riscv/sifive/u74/memory.json         |  32 +++++
->  .../arch/riscv/sifive/u74/microarch.json      |  57 ++++++++
->  11 files changed, 561 insertions(+)
->  create mode 100644 tools/perf/arch/riscv/util/header.c
->  create mode 100644 tools/perf/pmu-events/arch/riscv/mapfile.csv
->  create mode 100644 tools/perf/pmu-events/arch/riscv/riscv-generic.json
->  create mode 100644 tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json
->  create mode 100644 tools/perf/pmu-events/arch/riscv/sifive/u74/firmware.json
->  create mode 100644 tools/perf/pmu-events/arch/riscv/sifive/u74/generic.json
->  create mode 100644 tools/perf/pmu-events/arch/riscv/sifive/u74/instructions.json
->  create mode 100644 tools/perf/pmu-events/arch/riscv/sifive/u74/memory.json
->  create mode 100644 tools/perf/pmu-events/arch/riscv/sifive/u74/microarch.json
->
-> --
-> 2.35.1
->
+The node names should be generic and DT schema expects certain pattern
+(e.g. with key/button/switch).
 
-Thanks Nikita for reworking on the patches. It is good to specify that
-this series now depends
-on Anup's patch[1] that adds the mvendorid/mimpid to the /proc/cpuinfo.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-[1] https://lkml.org/lkml/2022/6/20/498
+---
 
+See: https://lore.kernel.org/all/20220616005224.18391-1-krzysztof.kozlowski@linaro.org/
+---
+ arch/riscv/boot/dts/canaan/canaan_kd233.dts     | 2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts  | 2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts | 2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_go.dts   | 6 +++---
+ arch/riscv/boot/dts/canaan/sipeed_maixduino.dts | 2 +-
+ 5 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/canaan/canaan_kd233.dts b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
+index 039b92abf046..f72540bd14a3 100644
+--- a/arch/riscv/boot/dts/canaan/canaan_kd233.dts
++++ b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
+@@ -35,7 +35,7 @@ led1 {
+ 	gpio-keys {
+ 		compatible = "gpio-keys";
+ 
+-		key0 {
++		key {
+ 			label = "KEY0";
+ 			linux,code = <BTN_0>;
+ 			gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+index b9e30df127fe..8abdbe26a1d0 100644
+--- a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
++++ b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+@@ -47,7 +47,7 @@ led2 {
+ 	gpio-keys {
+ 		compatible = "gpio-keys";
+ 
+-		boot {
++		key-boot {
+ 			label = "BOOT";
+ 			linux,code = <BTN_0>;
+ 			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
+diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+index 8d23401b0bbb..3c6df1ecf76f 100644
+--- a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
++++ b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+@@ -52,7 +52,7 @@ led2 {
+ 	gpio-keys {
+ 		compatible = "gpio-keys";
+ 
+-		boot {
++		key-boot {
+ 			label = "BOOT";
+ 			linux,code = <BTN_0>;
+ 			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
+diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+index 24fd83b43d9d..03c9843d503e 100644
+--- a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
++++ b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+@@ -46,19 +46,19 @@ led2 {
+ 	gpio-keys {
+ 		compatible = "gpio-keys";
+ 
+-		up {
++		key-up {
+ 			label = "UP";
+ 			linux,code = <BTN_1>;
+ 			gpios = <&gpio1_0 7 GPIO_ACTIVE_LOW>;
+ 		};
+ 
+-		press {
++		key-press {
+ 			label = "PRESS";
+ 			linux,code = <BTN_0>;
+ 			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
+ 		};
+ 
+-		down {
++		key-down {
+ 			label = "DOWN";
+ 			linux,code = <BTN_2>;
+ 			gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
+diff --git a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+index 25341f38292a..7164ad063178 100644
+--- a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
++++ b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+@@ -23,7 +23,7 @@ chosen {
+ 	gpio-keys {
+ 		compatible = "gpio-keys";
+ 
+-		boot {
++		key-boot {
+ 			label = "BOOT";
+ 			linux,code = <BTN_0>;
+ 			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
 -- 
-Regards,
-Atish
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
