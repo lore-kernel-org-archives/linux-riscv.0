@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89CB8C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 05:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 126AAC43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 05:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OQy9PCbpmGPgrq4zXUM+goPNvbCMK3WI7elxD9W9OCs=; b=yPLSctWF4xWe6B
-	fsCnwymQqhiKcvqKo2s18u0wXMBmB/rwhneV+LeKo8Bii3AxDHPtQIHPQNvTimPH5j0r7N1gS5SQY
-	4hRehAk05Psas+ParKYttZgB4sky4ytgqqwp9ccxQB4yMwZP/JfNyxWwMPfjeP/bVShAMwTiwMac/
-	VOXFMEEMZsELeD7Q1KKJ7IK798J0cpRhvorFjdAzUNY25GLuwMvmNvIZ1dq2Z1nt+8KRsFplOggri
-	YLa/9Q4FijceH1OlJg3op5jo1SW08dMmWS2q4z+ZJiMHRSPKpYBlpc6XNntP7IZGNS+R0LY+NnxSw
-	+xs3dvv97rbPUwpLA+TQ==;
+	List-Owner; bh=9fGL9C0Tqt4xFoa4GzZeY/VD2Pyf4tW2dzsVB52lO0w=; b=swt9pTW1BysS9y
+	CVlfufMLXEDT6zlTkzisDzQCGSWD7cutziHDdP1PQWjgRouEN8M+Kq7MjvUke4FlAtLlmK4mVJ6qi
+	hRLG3/HdrCy+oAQLgf1o86Ou63ormH158FrovDVNw2PbuySkZk02HM7gpYoo7lP4tla2G/sB525Rd
+	Z8joFMtzf/swKXCg2Gwx2OMQKeElasmlcggYxa+boD1iglz6MpRkr8hBq5P5sr6BGgwMmJ2zEp2d4
+	7lvo+SB1fTaLCa0Z4IQAr5JzA/o8ZcqkLfok6vafvsnZmBLySxFq9dFxy90dVp44zco2Z3CX62cbr
+	sdkRM2B2ABYz7ueczc9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4bbB-000VDg-86; Fri, 24 Jun 2022 05:11:17 +0000
+	id 1o4bbr-000Vem-4P; Fri, 24 Jun 2022 05:11:59 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4bZb-000UJf-9K; Fri, 24 Jun 2022 05:09:39 +0000
-Date: Thu, 23 Jun 2022 22:09:39 -0700
+	id 1o4ba2-000UXp-Nf; Fri, 24 Jun 2022 05:10:06 +0000
+Date: Thu, 23 Jun 2022 22:10:06 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Anshuman Khandual <anshuman.khandual@arm.com>
 Cc: linux-mm@kvack.org, hch@infradead.org, christophe.leroy@csgroup.eu,
@@ -37,14 +37,17 @@ Cc: linux-mm@kvack.org, hch@infradead.org, christophe.leroy@csgroup.eu,
 	linux-mips@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
 	linux-snps-arc@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, linux-um@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V4 02/26] mm/mmap: Define DECLARE_VM_GET_PAGE_PROT
-Message-ID: <YrVHEw6bjUf62Eh5@infradead.org>
+	linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>
+Subject: Re: [PATCH V4 06/26] x86/mm: Move protection_map[] inside the
+ platform
+Message-ID: <YrVHLgHPX2qy+prc@infradead.org>
 References: <20220624044339.1533882-1-anshuman.khandual@arm.com>
- <20220624044339.1533882-3-anshuman.khandual@arm.com>
+ <20220624044339.1533882-7-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220624044339.1533882-3-anshuman.khandual@arm.com>
+In-Reply-To: <20220624044339.1533882-7-anshuman.khandual@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,16 +64,9 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 24, 2022 at 10:13:15AM +0530, Anshuman Khandual wrote:
-> This just converts the generic vm_get_page_prot() implementation into a new
-> macro i.e DECLARE_VM_GET_PAGE_PROT which later can be used across platforms
-> when enabling them with ARCH_HAS_VM_GET_PAGE_PROT. This does not create any
-> functional change.
+Looks good:
 
-mm.h is a huhe header included by almost everything in the kernel.
-I'd rather have it in something only included in a few files.  If we
-can't find anything suitable it might be worth to add a header just
-for this even.
+Reviewed-by: Christoph Hellwig <hch@lst.de>
 
 _______________________________________________
 linux-riscv mailing list
