@@ -4,56 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D5C1C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 19:26:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5BCC43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 19:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I022/7NdbB6RQtWZshdGS3CYXpbeLRAot34eS6iOhnA=; b=DgNiGBDx4fQT+0
-	8UkNkWZdzyAQREgJNsPJj1YcNzEzegdHSCMzcYK34e+rtzMweF2zC9eW5DHaTtDpGJ7EzfFEGK+5N
-	lePF+kL/cif72Mw84Lf8hbcU483XZHDNaaT4xqGMKrXRDxQDBH4a7qJ4aiX5AcVSqq/ZXq9nE6Nl5
-	o9hhP1vvHDSpWyP/W+NaTCKxbFnd2RDfbt1dWOv4rG+UjBrcXzM73166ynPmuMjyJ38gB8Ctjav+a
-	3U9ZNhWweDDMiMhA1oc9j/pwrpYI9X0H3yVF89B32Ea9LjS7gIcYL8yqztnmCMDrLiimuRaIcD2dt
-	qNytTP7Mb1lzdzKtgYSg==;
+	List-Owner; bh=TcJjVSWQ4eBV31YOaVsEJ/bVzJeD3GPIbNtrmAiApyQ=; b=Kl/xYV1AhHBSfU
+	7WbRYB078lUbt8WjAxWw3gGhhSMtxQzYNgew/ZGXv+OaGi6+hkoT66L13CwMBzIsAMbzBgiTp/nFr
+	Fj7s5yR9i4VSQ/DtAW96/Gl1AXgNRp7YLPzUGCWOU/esE+ihPelQyL6r5h0ZbU3G3ai9zYDTLuN9U
+	FSwAKj4jV8FNa1I6cTqcAGQ8dmLIUlAZpunTnJgu4905RneAi0N0CsbhInCOzMTT5lXSl/mPI6Eoy
+	SZyful7GL3XXsQ5rwBgRvL5Tb6z+ykMjI0irB5bA8NUKGcjqeGg0UzUNXGTO8r5ZNBUj6VoGt4xEC
+	XfZAGpmoheGS9kHnkPVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4ox1-003d0m-MZ; Fri, 24 Jun 2022 19:26:43 +0000
-Received: from relay11.mail.gandi.net ([2001:4b98:dc4:8::231])
+	id 1o4p7C-003e7U-DL; Fri, 24 Jun 2022 19:37:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4owz-003czG-4W
-	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 19:26:42 +0000
-Received: (Authenticated sender: alexandre.belloni@bootlin.com)
-	by mail.gandi.net (Postfix) with ESMTPSA id 4C0AC100007;
-	Fri, 24 Jun 2022 19:26:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1656098798;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oCsyFgTXZ2+6MS9SQR2SFiEyjV3pfsnA6bTV48U0IZQ=;
-	b=GfoV+du9giy0BapImzO9HFE0YVlIMyChKTbjNuc7pBxFyj+9l6w8AxdB6Mt4/jyVV8Mexw
-	PX4+27+/I2oRrV3zeBht9Aua1ip/TMlFSlZINpetguPCwzWZ6QOzLLDjDZpgqZMluXmz44
-	S/QqA8a0noIXMRjvTZiSdRRTPmlEs0L9JbrXbA6pwpMuy/uLkeRdkzleeCxKUF8Av3PP8e
-	hPheVbb9jfteazjHQ62d5TCbUGkWHzhM4XKTPq/I/Z2qK6PLW9ACKATqPY7sfYHVO9CceF
-	zgCrLolU/CGjjqoyMXVw8EGO2kKfqTrLkF+VVWHvl458LY2ZpoOs0ellhdzm7g==
-Date: Fri, 24 Jun 2022 21:26:35 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: a.zummo@towertech.it, conor.dooley@microchip.com
-Cc: daire.mcnamara@microchip.com, linux-rtc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, lewis.hanly@microchip.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/2] rtc: microchip: Add driver for PolarFire SoC
-Message-ID: <165609877582.32831.3964876505949828769.b4-ty@bootlin.com>
-References: <20220601123320.2861043-1-conor.dooley@microchip.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220601123320.2861043-1-conor.dooley@microchip.com>
+	id 1o4p7A-003e6j-00
+	for linux-riscv@lists.infradead.org; Fri, 24 Jun 2022 19:37:13 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5457C62230;
+	Fri, 24 Jun 2022 19:37:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2739BC341C8;
+	Fri, 24 Jun 2022 19:37:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1656099431;
+	bh=5ACM3bmKFglYuCnEdvbo4N4wC9DXmhVYmVrneXs9zUo=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=Ejgg1Dfb0BA6H/g3XHXNaw1NYfPVuJGJxCWWXn4vSLNegNjaze12aPlk2w1sCRLyf
+	 VkAgPi45tspTMz9NV8S8fx5A9WIzjxaWQr9w53ydTdhTBz7bdnT3FLl5UJFjk2DtSG
+	 cRnyubIyxEdVEEYS0EwU2nRXjwXTdbFBJ+nU0wNHU0rIs1DJ48FHkV0xAzQwRFJZyc
+	 gZls1tcWZepKRqH9wWzNcwo9KgyH54ONEDnMIflXY2wjm+Zdl5CGT+rtHbKfR+J2sd
+	 3WweGu46f88wH0C1UIfRUn6qBzOGcAJO088D+uUsq6OonCnV8UPCRRepFrU8wRWo5a
+	 wrfcyG9NdRhtQ==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 10C7DE574DA;
+	Fri, 24 Jun 2022 19:37:11 +0000 (UTC)
+Subject: Re: [GIT PULL] A Single RISC-V Fix for 5.19-rc4
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-3e339ca6-0ed6-4d02-96b8-2f664f62cc8c@palmer-mbp2014>
+References: <mhng-3e339ca6-0ed6-4d02-96b8-2f664f62cc8c@palmer-mbp2014>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <mhng-3e339ca6-0ed6-4d02-96b8-2f664f62cc8c@palmer-mbp2014>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-rc4
+X-PR-Tracked-Commit-Id: e83031564137cf37e07c2d10ad468046ff48a0cf
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 70d605cbeecb408dd884b1f0cd3963eeeaac144c
+Message-Id: <165609943106.3020.10530019402105354343.pr-tracker-bot@kernel.org>
+Date: Fri, 24 Jun 2022 19:37:11 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220624_122641_379895_41A78E14 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20220624_123712_111858_9DC46A3E 
+X-CRM114-Status: UNSURE (   3.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,38 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 1 Jun 2022 13:33:19 +0100, Conor Dooley wrote:
-> Hey all,
-> This is technically a v5 of [0], although a fair bit of time has
-> passed since then. In the meantime I upstreamed the dt-binding, which
-> was in the v1, and this patch depends on the fixes to the dt-binding
-> and device tree etc which landed in v5.18-rc5.
-> 
-> The driver is quite substantially rewritten from the v1, as you wanted
-> it to be switched to "binary" rather than calendar mode - so hopefully I
-> have satisfied your concerns with the original driver. Specifically you
-> had an significant issue with the counter being reset on startup & that
-> is no longer the case.
-> 
-> [...]
+The pull request you sent on Fri, 24 Jun 2022 09:08:12 -0700 (PDT):
 
-Applied, thanks!
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-rc4
 
-[1/2] rtc: Add driver for Microchip PolarFire SoC
-      commit: 0b31d703598dc1993867597bbd45e87d824fc427
-[2/2] MAINTAINERS: add PolarFire SoC's RTC
-      commit: 1bdb08c180e8556d3d4cef844ea0f0bae79bb95d
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/70d605cbeecb408dd884b1f0cd3963eeeaac144c
 
-Best regards,
+Thank you!
+
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
