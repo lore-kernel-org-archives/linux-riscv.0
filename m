@@ -4,26 +4,26 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4BFBC43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 05:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89CB8C43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 24 Jun 2022 05:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9fGL9C0Tqt4xFoa4GzZeY/VD2Pyf4tW2dzsVB52lO0w=; b=cgCQSaP4/gY7pe
-	OvOHoFzoYdoxoa1fJCWkkbAfSce6TzREG+WKAbH/bpRSf8GJoxtYMONsIpjHXxH6hv0zbnLOXFhqS
-	dm30zEuOswSNzd6oowrgIZ6l7b88Qu9aJVw3w4Dfd+Rx+OOnzfPBwWQk8K1ufdlVjEqRIuhPtRofU
-	+VDjQTXPKSUUY+ZEUhNM9Ndgfw/ye/jTDAmTikvXDnb3zCVl9Bop+rGg99lOMlbN+2kFRWwljVod7
-	gp+qhbWzR1tPStL64CCVuu+FvNTFuNhoC4tPUlMQCBMV5PJ8tj+f6Vrost3boeqCGGwXDfdTH1avA
-	6cmzaX3v9vcID0RYYv6A==;
+	List-Owner; bh=OQy9PCbpmGPgrq4zXUM+goPNvbCMK3WI7elxD9W9OCs=; b=yPLSctWF4xWe6B
+	fsCnwymQqhiKcvqKo2s18u0wXMBmB/rwhneV+LeKo8Bii3AxDHPtQIHPQNvTimPH5j0r7N1gS5SQY
+	4hRehAk05Psas+ParKYttZgB4sky4ytgqqwp9ccxQB4yMwZP/JfNyxWwMPfjeP/bVShAMwTiwMac/
+	VOXFMEEMZsELeD7Q1KKJ7IK798J0cpRhvorFjdAzUNY25GLuwMvmNvIZ1dq2Z1nt+8KRsFplOggri
+	YLa/9Q4FijceH1OlJg3op5jo1SW08dMmWS2q4z+ZJiMHRSPKpYBlpc6XNntP7IZGNS+R0LY+NnxSw
+	+xs3dvv97rbPUwpLA+TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4baO-000UnE-HS; Fri, 24 Jun 2022 05:10:28 +0000
+	id 1o4bbB-000VDg-86; Fri, 24 Jun 2022 05:11:17 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o4bYc-000Ths-6G; Fri, 24 Jun 2022 05:08:38 +0000
-Date: Thu, 23 Jun 2022 22:08:38 -0700
+	id 1o4bZb-000UJf-9K; Fri, 24 Jun 2022 05:09:39 +0000
+Date: Thu, 23 Jun 2022 22:09:39 -0700
 From: Christoph Hellwig <hch@infradead.org>
 To: Anshuman Khandual <anshuman.khandual@arm.com>
 Cc: linux-mm@kvack.org, hch@infradead.org, christophe.leroy@csgroup.eu,
@@ -38,14 +38,13 @@ Cc: linux-mm@kvack.org, hch@infradead.org, christophe.leroy@csgroup.eu,
 	linux-snps-arc@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, linux-um@lists.infradead.org,
 	linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V4 01/26] mm/mmap: Build protect protection_map[] with
- __P000
-Message-ID: <YrVG1hohcGD56pwV@infradead.org>
+Subject: Re: [PATCH V4 02/26] mm/mmap: Define DECLARE_VM_GET_PAGE_PROT
+Message-ID: <YrVHEw6bjUf62Eh5@infradead.org>
 References: <20220624044339.1533882-1-anshuman.khandual@arm.com>
- <20220624044339.1533882-2-anshuman.khandual@arm.com>
+ <20220624044339.1533882-3-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220624044339.1533882-2-anshuman.khandual@arm.com>
+In-Reply-To: <20220624044339.1533882-3-anshuman.khandual@arm.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,9 +61,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Looks good:
+On Fri, Jun 24, 2022 at 10:13:15AM +0530, Anshuman Khandual wrote:
+> This just converts the generic vm_get_page_prot() implementation into a new
+> macro i.e DECLARE_VM_GET_PAGE_PROT which later can be used across platforms
+> when enabling them with ARCH_HAS_VM_GET_PAGE_PROT. This does not create any
+> functional change.
 
-Reviewed-by: Christoph Hellwig <hch@lst.de>
+mm.h is a huhe header included by almost everything in the kernel.
+I'd rather have it in something only included in a few files.  If we
+can't find anything suitable it might be worth to add a header just
+for this even.
 
 _______________________________________________
 linux-riscv mailing list
