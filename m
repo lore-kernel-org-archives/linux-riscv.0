@@ -4,86 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3E4C43334
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jun 2022 20:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1E9C43334
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jun 2022 22:36:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NMgXe1PyCzz9x8LJwY7om/GKur1jhLbtCUd1j8Nh6EI=; b=VDRF56RtGGR87Z
-	LzCb99bp8isTl+4nSOdx+OnkE5NhIC+IbY5ekrkqJqV+i9peGJwp+qAu/6UxnkmyelpXvwtOfd88V
-	mBbxD7QyHi5MFkAQpvkATlsWJXGbRSMqEm73r+CYhN4joYHTpSPullpCUDqG9ckcLWBkEmeeODIlU
-	g0VIP9vC1fcN6/XxMRQxyKdbZDmQAviv+7brf3EMvgC5JCzWLIq182POHxiPQffalRgr2xA+SZqBG
-	3VhG1F1HJBdlhY2neqgKCL2sDGrDKDYOGDz0LlINAzeiODp+s5rGey4SRxvPuG/2nZxiRkXmG+eFd
-	9ABbkaYEvAOv/kxQy/GA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2crHcKkEjQn0bn+s6Bv7FdD0TREskk4LyJ+DShWmAaU=; b=e2pizGKorXEHaf
+	Pg5ajJm6DIlKpUl7kG6p14Yb5WxCfAuByCCXeimf7vGdOSGqU2wPSvNpgOlCDikWQSBD6Z6S2jHJ+
+	9zsG8GMVown0BWsxVyAsR3jDkDHEuIAxvlSeIRt/3dfh7Pt69W3MCdhPGgfmYGD1zekRyZ7TZ1TDv
+	gjtssaTFrV5M0JFZvYdPMjckSEtsWxDEOwfPtVlChbaAE3pJsV1qSb/zprQPriTZvcgH92IbRLc+3
+	Fsv/wXq0S8lnqidJfFdQG7NcuIILUCCLTk7vioYTAw2u3rMpjup7X5IiZO5TgexiLkVoxlE9pRzXw
+	BTLBwtrPbzBcI3UTpGjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5ByS-007Yy0-1U; Sat, 25 Jun 2022 20:01:44 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1o5ENn-008Dgn-LS; Sat, 25 Jun 2022 22:36:03 +0000
+Received: from conuserg-12.nifty.com ([210.131.2.79])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5ByP-007Ywi-2b
-	for linux-riscv@lists.infradead.org; Sat, 25 Jun 2022 20:01:42 +0000
-Received: by mail-ed1-x529.google.com with SMTP id eq6so7806097edb.6
-        for <linux-riscv@lists.infradead.org>; Sat, 25 Jun 2022 13:01:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=message-id:date:mime-version:user-agent:subject:content-language:to
-         :cc:references:from:in-reply-to:content-transfer-encoding;
-        bh=eLUkWe3N3ho8cfTa3t+ONCUq2y/Cga4VTVfEgbT2d1U=;
-        b=I2f9aiJ4WaR57Hl9e0IVnNn9g3MVdrAIgnzqHEx1MDg/UGlaNcpuj4OyVgpYP1pkl6
-         4LgzUHyXA2VC/pIMRlodhwg34bqqqqkjlpXA9EJU0H2ksIKBr09Rb/T/avrwUeKAKZcV
-         1o1+wQbjaw4HRM4VcoSsMo4ZAGRHcK+Nj4Z45cLKt58jrkBMH9BORte9KoVksmw6ptkJ
-         XEO0wzI1igrcB1la/uawH7JovJkaIj/oBgy7tl5FlInlVMYpTOasxUKyINVBJVGgApmK
-         Z513MT9xSUTHEyHNmd4wUtQVJf1/l108ht7zb6MihdORGAjzV/G8MrKyRVzYMauqxrL5
-         mciA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-         :content-language:to:cc:references:from:in-reply-to
-         :content-transfer-encoding;
-        bh=eLUkWe3N3ho8cfTa3t+ONCUq2y/Cga4VTVfEgbT2d1U=;
-        b=lot6WCXelxPoXXcyvTq+W6DWO3MbN0D2mEgvXgNkSEcp1OgVW/XIdVABQimAWaFX9D
-         hXzHK68Xe+sspGqp4KLkjSbYwSWdh3F2VcyqzwzfNzh5NG4ljESubBDCc2xU7t5ZLdZQ
-         k9GdAP30iuQ5uGVH0pQBfFt++MDJwQ3J3nn/Ct+47a+NfHV7j2xGp5n3NlxeNHVxdOwO
-         9vqfIcU1290qq2rI8y7BnZnjcnY5o+mxVnaam2S1oAKdvg6HW8PiDTrdI6XTX+2LDAAP
-         77/Ed02eKvutwJ3c+6aZj9093dcNMBvXPANRIu4EDER2zZYu19aRDKa2D1U3jLXKjiTx
-         vsFg==
-X-Gm-Message-State: AJIora8mAhmDxz315HUwtMXrEFiBWG/SJmmQsAF75sAlOoE9I20rLjbq
-	ziVH3MUxiZCDOvDw/N2B/RMsiA==
-X-Google-Smtp-Source: AGRyM1sknHsOi2FQ+azTJL4HGK/J1vfpZw0VDY8r98cQEG7zXxJxXdhGXAKaEoTZ33YbJW1joA6xWQ==
-X-Received: by 2002:a50:fc90:0:b0:435:6b30:f1b0 with SMTP id f16-20020a50fc90000000b004356b30f1b0mr6885798edq.423.1656187299784;
-        Sat, 25 Jun 2022 13:01:39 -0700 (PDT)
-Received: from [192.168.0.239] (xdsl-188-155-176-92.adslplus.ch. [188.155.176.92])
-        by smtp.gmail.com with ESMTPSA id a7-20020a056402236700b0043570d96d25sm4522957eda.95.2022.06.25.13.01.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 25 Jun 2022 13:01:39 -0700 (PDT)
-Message-ID: <59c043a4-dd40-1f6b-69d2-bc32b970e874@linaro.org>
-Date: Sat, 25 Jun 2022 22:01:38 +0200
+	id 1o5ENk-008Dex-Lw
+	for linux-riscv@lists.infradead.org; Sat, 25 Jun 2022 22:36:02 +0000
+Received: from grover.sesame (133-32-177-133.west.xps.vectant.ne.jp [133.32.177.133]) (authenticated)
+	by conuserg-12.nifty.com with ESMTP id 25PMYreK012075;
+	Sun, 26 Jun 2022 07:34:54 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 25PMYreK012075
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+	s=dec2015msa; t=1656196494;
+	bh=WgQFNPYHMxqyTX5c5nAwQv5As8G9LUvywSuGoACkOUs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=QcTUgYjurPsf2efpKisRgROBAzCFU7cFnKDW9nul/gyD8TJnU/ZnS4uK07qUYXjAE
+	 oLx1B3FWuxMZGfL+yMcRBgk9+ZGrKvtxwjUfyfyZg0qOOFvvo1Mm2EB1FPOgNcv+lC
+	 h8tbZC6t+1vi8gdYR0jTiNa11N4whzZtEiNWlBa+VdeuO+VHYl/yX0lINBPvltOxHN
+	 0dzDSk855TXFXeknCBrCNtuEiZG7Sryw5qkZUBm78SB+F2phNpiS+aFSp7UweLm8h/
+	 BH0O0cUGOESLL+e/tAG/8rU6NyO9TrmT0ZI7PHUUBp7KLDoXU5wT1l/1CeHIUEN+qd
+	 5cuBi6Oq1MqNg==
+X-Nifty-SrcIP: [133.32.177.133]
+From: Masahiro Yamada <masahiroy@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        linux-riscv@lists.infradead.org
+Cc: Masahiro Yamada <masahiroy@kernel.org>, linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] riscv/purgatory: hard-code obj-y in Makefile
+Date: Sun, 26 Jun 2022 07:34:36 +0900
+Message-Id: <20220625223438.835408-1-masahiroy@kernel.org>
+X-Mailer: git-send-email 2.32.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.10.0
-Subject: Re: [PATCH 1/2] dt-bindings: interrupt-controller: sifive,plic:
- Document Renesas RZ/Five SoC
-Content-Language: en-US
-To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Sagar Kadam <sagar.kadam@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
- linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
- Prabhakar <prabhakar.csengg@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>
-References: <20220624180311.3007-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220624180311.3007-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220624180311.3007-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220625_130141_172054_3518FF88 
-X-CRM114-Status: GOOD (  19.25  )
+X-CRM114-CacheID: sfid-20220625_153600_967686_54DD7C6F 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,96 +70,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 24/06/2022 20:03, Lad Prabhakar wrote:
-> Document Renesas RZ/Five (R9A07G043) SoC.
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
-> RFC->v1:
-> * Fixed Review comments pointed by Geert and Rob
-> ---
->  .../sifive,plic-1.0.0.yaml                    | 40 +++++++++++++++++--
->  1 file changed, 36 insertions(+), 4 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> index 27092c6a86c4..5eebe0b01b4d 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> @@ -28,7 +28,10 @@ description:
->  
->    While the PLIC supports both edge-triggered and level-triggered interrupts,
->    interrupt handlers are oblivious to this distinction and therefore it is not
-> -  specified in the PLIC device-tree binding.
-> +  specified in the PLIC device-tree binding for SiFive PLIC (and similar PLIC's),
-> +  but for the Renesas RZ/Five Soc (AX45MP AndesCore) which has NCEPLIC100 we need
-> +  to specify the interrupt type as the flow for EDGE interrupts is different
-> +  compared to LEVEL interrupts.
->  
->    While the RISC-V ISA doesn't specify a memory layout for the PLIC, the
->    "sifive,plic-1.0.0" device is a concrete implementation of the PLIC that
-> @@ -57,6 +60,7 @@ properties:
->            - enum:
->                - allwinner,sun20i-d1-plic
->            - const: thead,c900-plic
-> +      - const: renesas,r9a07g043-plic
->  
->    reg:
->      maxItems: 1
-> @@ -64,8 +68,7 @@ properties:
->    '#address-cells':
->      const: 0
->  
-> -  '#interrupt-cells':
-> -    const: 1
-> +  '#interrupt-cells': true
->  
->    interrupt-controller: true
->  
-> @@ -91,7 +94,36 @@ required:
->    - interrupts-extended
->    - riscv,ndev
->  
-> -additionalProperties: false
-> +if:
+The purgatory/ directory is entirely guarded in arch/riscv/Kbuild.
+CONFIG_ARCH_HAS_KEXEC_PURGATORY is bool type.
 
-Make it inside allOf. Avoids further indentation change on next variant.
+$(CONFIG_ARCH_HAS_KEXEC_PURGATORY) is always 'y' when Kbuild visits
+this Makefile for building.
 
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: renesas,r9a07g043-plic
-> +then:
-> +  properties:
-> +    clocks:
-> +      maxItems: 1
-> +
-> +    resets:
-> +      maxItems: 1
-> +
-> +    power-domains:
-> +      maxItems: 1
-> +
-> +    '#interrupt-cells':
-> +      const: 2
-> +
-> +  required:
-> +    - clocks
-> +    - resets
-> +    - power-domains
-> +
-> +else:
-> +  properties:
-> +    '#interrupt-cells':
-> +      const: 1
-> +
-> +unevaluatedProperties: false
+Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+---
 
+ arch/riscv/purgatory/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-This does not look correct, why changing additional->unevaluated here?
+diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+index d4df200f7edf..c2d14e2f345d 100644
+--- a/arch/riscv/purgatory/Makefile
++++ b/arch/riscv/purgatory/Makefile
+@@ -92,4 +92,4 @@ quiet_cmd_bin2c = BIN2C   $@
+ $(obj)/kexec-purgatory.c: $(obj)/purgatory.ro $(obj)/purgatory.chk FORCE
+ 	$(call if_changed,bin2c)
+ 
+-obj-$(CONFIG_ARCH_HAS_KEXEC_PURGATORY)	+= kexec-purgatory.o
++obj-y += kexec-purgatory.o
+-- 
+2.32.0
 
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
