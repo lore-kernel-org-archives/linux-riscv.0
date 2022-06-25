@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5981ACCA479
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jun 2022 09:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FEBEC43334
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jun 2022 09:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NGdtUKR4jOa7wVk6QrmYCe+LEOpDm1ctemtILkh622w=; b=RMiL7ktEF/XcVM
-	SP+vWrSLClucBieGwidYjbzJ9QFrD8Ea3uN/WMsvXB43j4ZdsFVOf3hjImdsvEQ0P5RiTIrJXnM5/
-	yclHfIsnoEmP2VQlaNEElxrz9IKjR5RAPCa9WIzbclRcaXS1+Ki/U/Onn0H8Unp7v+wP1ckQMZBDQ
-	nBcd5tOlQHQ59roQi4iQ4r9gGmfvGXPnAA0NsGYvzg28MrwT7wxBMb6czi1hykgoT9jwLuw7VBUZL
-	49xwlVF7JsCR30qb1k46DL5QUxdDu5iVplNDXhy+0Cr14T5MY1WGfruOJCTjc3tDRJ9FrHjqGQtJp
-	9qQz4o20SKbvKAATiX4A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+oYB95dI2z5z97XEhgtJoYTUI8ZZG7lfmvxYYcVm7kk=; b=Ft9ZkrdrV7wC2a
+	z8zcxC2dGv8KeAofC86rKOvUSGPX2CiWUQPu3OBxW4lKvk3tqo6qxktzmDzn+18Hsh4TZayfyQtSL
+	eB+tLJZ+H0SW0Ldhr9um2hUVbunXMxbRDugkd8Q/s7qQLD5XJyPxBw03jR5Z19kTBP5bOB1BjGOLq
+	DJjUOI8KZPWCfBTvGb7iIbtoJVyVY5wUJpGnVK9B/BlppxFq006Fb8BIgjCrGMP5znhvOCpThP7Oh
+	d1wN+RXIA0YU/vShV1ee6iJF0o/ZvUHJLXTNLpuaBnyqsnBakrWqlQO1kQhv2KdWG+OKBgFsHNVan
+	ls8j5mQYuMYWLhurUAdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o51hs-005FpQ-GM; Sat, 25 Jun 2022 09:03:56 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1o52Gq-005Mca-7s; Sat, 25 Jun 2022 09:40:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o51ho-005FmZ-Oa
-	for linux-riscv@lists.infradead.org; Sat, 25 Jun 2022 09:03:54 +0000
+	id 1o52Gn-005MbO-G9
+	for linux-riscv@lists.infradead.org; Sat, 25 Jun 2022 09:40:03 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 884C0B8123D;
-	Sat, 25 Jun 2022 09:03:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 283C8C341C7;
-	Sat, 25 Jun 2022 09:03:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DFDA260FA2;
+	Sat, 25 Jun 2022 09:40:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB54AC3411C;
+	Sat, 25 Jun 2022 09:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1656147827;
-	bh=oEBOr5nihwu0e5C08ofN61Rn4yRRvUL8uiYvbyfu/aU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GHR5jvNlT9kroKwU5IEA3i/s0quzy+bpY4LobmUUj+72TZVQAHn8F4OyjMmxZ21nI
-	 OHYReAhUW44IS2IzPU5V2bt/dkIXYoOOqa/zBJ6mqxkwTjPGy8dQ+w0ukwsgOWAS9G
-	 GYKkWQUCryBxWbAYlB6HNB8mE2zp0TLTGM3mlqpohVJxGLMDTjVYn/r/pgFyDy80nc
-	 FOeMb9dvof0SK3kJsRD8LzoTsIMiYZppkTVuzMl+rXwRnzgItrllQuzrEZXYw/eXD0
-	 z4a+4AZOPJgsE4bLDSzOmsJdfeuaEDpGbKmxqU0ua8n5bQZpRhuwzp7PqxzTkaXUXI
-	 gnjnF5rw0szXg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1o51gz-0032Mt-Cz;
-	Sat, 25 Jun 2022 10:03:44 +0100
-Date: Sat, 25 Jun 2022 10:03:06 +0100
-Message-ID: <8735ftf73p.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Sagar Kadam <sagar.kadam@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-renesas-soc@vger.kernel.org,
+	s=k20201202; t=1656150000;
+	bh=W8aNcm+QVE6ieO2OeUXQb2GCh5eqOLJo1sWOd6/UWC4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=X5/FubI/t3ncQJVzq7/D1pNHYmPPx5JqN8DHxEeRRe7g8WmXzMjM7r2hx1s8qKpih
+	 nWzex8LbW0BG00uiFIGKRQoLEHSODZmjxjVtuvqN8k6tx6LYHvLPB1f0BFvjbS+vDr
+	 1p/HTzRxRJr4q/REk6F/ie+cu5jlys+I0VCSmrG/ufAa4MQ+KUvRmiXm/26CYdHTMg
+	 2pQ3/83nYAj5TSQIYP3ZuxmffFcda4jMzRVhuRLRLKi+pdRa42873c+59ETI2a/Xka
+	 6bFCT3hgBYpEh+sNlSbATIhEhrx5lYZv88mgmIZQlp1PiFDtqtybtS+Asgzth3899A
+	 y+tgT+4MFO14Q==
+From: guoren@kernel.org
+To: palmer@rivosinc.com,
+	arnd@arndb.de,
+	parri.andrea@gmail.com,
+	dlustig@nvidia.com
+Cc: linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>
-Subject: Re: [PATCH 2/2] irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
-In-Reply-To: <20220624180311.3007-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20220624180311.3007-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-	<20220624180311.3007-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: prabhakar.mahadev-lad.rj@bp.renesas.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, sagar.kadam@sifive.com, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, geert+renesas@glider.be, linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, prabhakar.csengg@gmail.com, biju.das.jz@bp.renesas.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Guo Ren <guoren@linux.alibaba.com>,
+	Guo Ren <guoren@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Subject: [PATCH] riscv: atomic: Clean up unnecessary acquire and release definitions
+Date: Sat, 25 Jun 2022 05:39:45 -0400
+Message-Id: <20220625093945.423974-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220625_020353_162109_2305CF2A 
-X-CRM114-Status: GOOD (  51.99  )
+X-CRM114-CacheID: sfid-20220625_024001_690006_3AAB2806 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,217 +78,234 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jun 2022 19:03:11 +0100,
-Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
-> 
-> The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
-> NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
-> case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
-> edge until the previous completion message has been received and
-> NCEPLIC100 doesn't support pending interrupt counter, hence losing the
-> interrupts if not acknowledged in time.
-> 
-> So the workaround for edge-triggered interrupts to be handled correctly
-> and without losing is that it needs to be acknowledged first and then
-> handler must be run so that we don't miss on the next edge-triggered
-> interrupt.
-> 
-> This patch adds a new compatible string for Renesas RZ/Five SoC and
-> changes the chained interrupt haindler for RZ/Five SoC.
-> 
-> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> ---
-> RFC-->v1:
-> * Fixed review comments pointed by Geert
-> * Dropped handle_fasteoi_ack_irq support as for the PLIC we need to
-> claim the interrupt by reading the register and then acknowledge it.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Why? This is exactly what the fasteoi_ack flow gives you, and your
-initial patch was much better that this one in that regard.
+Clean up unnecessary xchg_acquire, xchg_release, and cmpxchg_release
+custom definitions, because the generic implementation is the same as
+the riscv custom implementation.
 
-> * Add a new chained handler for RZ/Five SoC.
-> ---
->  drivers/irqchip/irq-sifive-plic.c | 95 +++++++++++++++++++++++++++++--
->  1 file changed, 91 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index 173446cc9204..f53dff49e122 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -60,10 +60,13 @@
->  #define	PLIC_DISABLE_THRESHOLD		0x7
->  #define	PLIC_ENABLE_THRESHOLD		0
->  
-> +#define PLIC_INTERRUPT_CELL_SIZE2	2
-> +
->  struct plic_priv {
->  	struct cpumask lmask;
->  	struct irq_domain *irqdomain;
->  	void __iomem *regs;
-> +	u32 intsize;
->  };
->  
->  struct plic_handler {
-> @@ -163,7 +166,7 @@ static int plic_set_affinity(struct irq_data *d,
->  }
->  #endif
->  
-> -static void plic_irq_eoi(struct irq_data *d)
-> +static void plic_irq_ack(struct irq_data *d)
->  {
->  	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
->  
-> @@ -176,6 +179,23 @@ static void plic_irq_eoi(struct irq_data *d)
->  	}
->  }
->  
-> +static void plic_irq_eoi(struct irq_data *d)
-> +{
-> +	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-> +	unsigned int irq = irq_find_mapping(handler->priv->irqdomain, d->hwirq);
-> +
-> +	/*
-> +	 * For Renesas RZ/Five (R9A07G043) SoC if the interrupt type is
-> +	 * IRQ_TYPE_EDGE_RISING we have already acknowledged it in the
-> +	 * handler.
-> +	 */
-> +	if (handler->priv->intsize == PLIC_INTERRUPT_CELL_SIZE2 &&
+Before the patch:
+000000000000024e <.LBB238>:
+                ops = xchg_acquire(pending_ipis, 0);
+ 24e:   089937af                amoswap.d       a5,s1,(s2)
+ 252:   0230000f                fence   r,rw
 
-This costs you an extra two reads on the fast path, which is an
-unnecessary overhead for existing systems that do not suffer from this
-problem. Consider turning it into a static key.
+0000000000000256 <.LBB243>:
+                ops = xchg_release(pending_ipis, 0);
+ 256:   0310000f                fence   rw,w
+ 25a:   089934af                amoswap.d       s1,s1,(s2)
 
-Also, blindly renaming  plic_irq_eoi() to ack() is extremely
-confusing. I really think you should have your own callbacks instead
-of making a mess of the existing one.
+After the patch:
+000000000000026e <.LBB245>:
+                ops = xchg_acquire(pending_ipis, 0);
+ 26e:   089937af                amoswap.d       a5,s1,(s2)
 
-> +	    (irq_get_trigger_type(irq) & IRQ_TYPE_EDGE_RISING))
-> +		return;
-> +
-> +	plic_irq_ack(d);
-> +}
-> +
->  static const struct irq_chip plic_chip = {
->  	.name		= "SiFive PLIC",
->  	.irq_mask	= plic_irq_mask,
-> @@ -198,6 +218,19 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
->  	return 0;
->  }
->  
-> +static int plic_irq_domain_translate(struct irq_domain *d,
-> +				     struct irq_fwspec *fwspec,
-> +				     unsigned long *hwirq,
-> +				     unsigned int *type)
-> +{
-> +	struct plic_priv *priv = d->host_data;
-> +
-> +	if (priv->intsize == PLIC_INTERRUPT_CELL_SIZE2)
-> +		return irq_domain_translate_twocell(d, fwspec, hwirq, type);
-> +
-> +	return irq_domain_translate_onecell(d, fwspec, hwirq, type);
-> +}
-> +
->  static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
->  				 unsigned int nr_irqs, void *arg)
->  {
-> @@ -206,7 +239,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
->  	unsigned int type;
->  	struct irq_fwspec *fwspec = arg;
->  
-> -	ret = irq_domain_translate_onecell(domain, fwspec, &hwirq, &type);
-> +	ret = plic_irq_domain_translate(domain, fwspec, &hwirq, &type);
->  	if (ret)
->  		return ret;
->  
-> @@ -220,11 +253,55 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
->  }
->  
->  static const struct irq_domain_ops plic_irqdomain_ops = {
-> -	.translate	= irq_domain_translate_onecell,
-> +	.translate	= plic_irq_domain_translate,
->  	.alloc		= plic_irq_domain_alloc,
->  	.free		= irq_domain_free_irqs_top,
->  };
->  
-> +/*
-> + * On Renesas RZ/Five (R9A07G043) SoC IRQ_TYPE_LEVEL_HIGH and
-> + * IRQ_TYPE_EDGE_RISING interrupts are the supported interrupt types.
-> + * If the global interrupt source was edge-triggered NCEPLIC100 (PLIC
-> + * core on Renesas RZ/Five SoC) ignores next edge interrupts until the
-> + * previous completion message is received. NCEPLIC100 on Renesas RZ/Five
-> + * SoC doesn't stack the pending interrupts so in case there is a delay
-> + * in handling the IRQ_TYPE_EDGE_RISING interrupt we lose the subsequent
-> + * interrupts. The workaround for IRQ_TYPE_EDGE_RISING interrupt is to
-> + * first we have to claim the interrupt by reading the claim register,
-> + * then quickly issue an complete interrupt by writing the source ID
-> + * register back to the claim  register and then later run the handler.
-> + */
-> +static void renesas_rzfive_plic_handle_irq(struct irq_desc *desc)
-> +{
-> +	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
-> +	struct irq_chip *chip = irq_desc_get_chip(desc);
-> +	void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
-> +	irq_hw_number_t hwirq;
-> +	unsigned int irq;
-> +	int err;
-> +
-> +	WARN_ON_ONCE(!handler->present);
-> +
-> +	chained_irq_enter(chip, desc);
-> +
-> +	while ((hwirq = readl(claim))) {
-> +		irq = irq_find_mapping(handler->priv->irqdomain, hwirq);
-> +		if (!irq) {
-> +			pr_warn_ratelimited("can't find mapping for hwirq %lu\n", hwirq);
-> +			break;
-> +		}
-> +
-> +		if (irq_get_trigger_type(irq) & IRQ_TYPE_EDGE_RISING)
-> +			plic_irq_ack(irq_get_irq_data(irq));
-> +
-> +		err = generic_handle_irq(irq);
+0000000000000272 <.LBE247>:
+ 272:   0230000f                fence   r,rw
 
-No. We're not going back to this sort of constructs. Using the
-fasteoi_ack flow should work if properly configured. Also, looking up
-the interrupt *four* times in various tables/trees is not exactly the
-sort of things I want to see for a driver written in this century.
+0000000000000276 <.LBB249>:
+                ops = xchg_release(pending_ipis, 0);
+ 276:   0310000f                fence   rw,w
 
-Please explain why fasteoi_ack doesn't work. It really should work out
-of the box (I asked you to look into debugfs last time, but didn't ear
-anything from you on the subject). And if something is broken, let's
-fix it. But none of the above, please.
+000000000000027a <.LBB251>:
+ 27a:   089934af                amoswap.d       s1,s1,(s2)
 
-> +		if (err)
-> +			pr_warn_ratelimited("error handling irq %u\n", irq);
-> +	}
-> +
-> +	chained_irq_exit(chip, desc);
-> +}
-> +
->  /*
->   * Handling an interrupt is a two-step process: first you claim the interrupt
->   * by reading the claim register, then you complete the interrupt by writing
-> @@ -288,11 +365,20 @@ static int __init plic_init(struct device_node *node,
->  	u32 nr_irqs;
->  	struct plic_priv *priv;
->  	struct plic_handler *handler;
-> +	irq_flow_handler_t plic_chanined_handler;
->  
->  	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
->  	if (!priv)
->  		return -ENOMEM;
->  
-> +	if (of_property_read_u32(node, "#interrupt-cells", &priv->intsize))
-> +		return -EINVAL;
-> +
-> +	if (priv->intsize == PLIC_INTERRUPT_CELL_SIZE2)
+Only cmpxchg_acquire is necessary (It prevents unnecessary acquire
+ordering when the value from lr is different from old).
 
-Please gate this on the compatible string, not on the number of cells.
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+---
+ arch/riscv/include/asm/atomic.h  |  19 -----
+ arch/riscv/include/asm/cmpxchg.h | 116 -------------------------------
+ 2 files changed, 135 deletions(-)
 
-	M.
-
+diff --git a/arch/riscv/include/asm/atomic.h b/arch/riscv/include/asm/atomic.h
+index 0dfe9d857a76..83636320ba95 100644
+--- a/arch/riscv/include/asm/atomic.h
++++ b/arch/riscv/include/asm/atomic.h
+@@ -249,16 +249,6 @@ c_t arch_atomic##prefix##_xchg_relaxed(atomic##prefix##_t *v, c_t n)	\
+ 	return __xchg_relaxed(&(v->counter), n, size);			\
+ }									\
+ static __always_inline							\
+-c_t arch_atomic##prefix##_xchg_acquire(atomic##prefix##_t *v, c_t n)	\
+-{									\
+-	return __xchg_acquire(&(v->counter), n, size);			\
+-}									\
+-static __always_inline							\
+-c_t arch_atomic##prefix##_xchg_release(atomic##prefix##_t *v, c_t n)	\
+-{									\
+-	return __xchg_release(&(v->counter), n, size);			\
+-}									\
+-static __always_inline							\
+ c_t arch_atomic##prefix##_xchg(atomic##prefix##_t *v, c_t n)		\
+ {									\
+ 	return __xchg(&(v->counter), n, size);				\
+@@ -276,12 +266,6 @@ c_t arch_atomic##prefix##_cmpxchg_acquire(atomic##prefix##_t *v,	\
+ 	return __cmpxchg_acquire(&(v->counter), o, n, size);		\
+ }									\
+ static __always_inline							\
+-c_t arch_atomic##prefix##_cmpxchg_release(atomic##prefix##_t *v,	\
+-				     c_t o, c_t n)			\
+-{									\
+-	return __cmpxchg_release(&(v->counter), o, n, size);		\
+-}									\
+-static __always_inline							\
+ c_t arch_atomic##prefix##_cmpxchg(atomic##prefix##_t *v, c_t o, c_t n)	\
+ {									\
+ 	return __cmpxchg(&(v->counter), o, n, size);			\
+@@ -299,12 +283,9 @@ c_t arch_atomic##prefix##_cmpxchg(atomic##prefix##_t *v, c_t o, c_t n)	\
+ ATOMIC_OPS()
+ 
+ #define arch_atomic_xchg_relaxed	arch_atomic_xchg_relaxed
+-#define arch_atomic_xchg_acquire	arch_atomic_xchg_acquire
+-#define arch_atomic_xchg_release	arch_atomic_xchg_release
+ #define arch_atomic_xchg		arch_atomic_xchg
+ #define arch_atomic_cmpxchg_relaxed	arch_atomic_cmpxchg_relaxed
+ #define arch_atomic_cmpxchg_acquire	arch_atomic_cmpxchg_acquire
+-#define arch_atomic_cmpxchg_release	arch_atomic_cmpxchg_release
+ #define arch_atomic_cmpxchg		arch_atomic_cmpxchg
+ 
+ #undef ATOMIC_OPS
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 12debce235e5..67ab6375b650 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -44,76 +44,6 @@
+ 					    _x_, sizeof(*(ptr)));	\
+ })
+ 
+-#define __xchg_acquire(ptr, new, size)					\
+-({									\
+-	__typeof__(ptr) __ptr = (ptr);					\
+-	__typeof__(new) __new = (new);					\
+-	__typeof__(*(ptr)) __ret;					\
+-	switch (size) {							\
+-	case 4:								\
+-		__asm__ __volatile__ (					\
+-			"	amoswap.w %0, %2, %1\n"			\
+-			RISCV_ACQUIRE_BARRIER				\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
+-		break;							\
+-	case 8:								\
+-		__asm__ __volatile__ (					\
+-			"	amoswap.d %0, %2, %1\n"			\
+-			RISCV_ACQUIRE_BARRIER				\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
+-		break;							\
+-	default:							\
+-		BUILD_BUG();						\
+-	}								\
+-	__ret;								\
+-})
+-
+-#define arch_xchg_acquire(ptr, x)					\
+-({									\
+-	__typeof__(*(ptr)) _x_ = (x);					\
+-	(__typeof__(*(ptr))) __xchg_acquire((ptr),			\
+-					    _x_, sizeof(*(ptr)));	\
+-})
+-
+-#define __xchg_release(ptr, new, size)					\
+-({									\
+-	__typeof__(ptr) __ptr = (ptr);					\
+-	__typeof__(new) __new = (new);					\
+-	__typeof__(*(ptr)) __ret;					\
+-	switch (size) {							\
+-	case 4:								\
+-		__asm__ __volatile__ (					\
+-			RISCV_RELEASE_BARRIER				\
+-			"	amoswap.w %0, %2, %1\n"			\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
+-		break;							\
+-	case 8:								\
+-		__asm__ __volatile__ (					\
+-			RISCV_RELEASE_BARRIER				\
+-			"	amoswap.d %0, %2, %1\n"			\
+-			: "=r" (__ret), "+A" (*__ptr)			\
+-			: "r" (__new)					\
+-			: "memory");					\
+-		break;							\
+-	default:							\
+-		BUILD_BUG();						\
+-	}								\
+-	__ret;								\
+-})
+-
+-#define arch_xchg_release(ptr, x)					\
+-({									\
+-	__typeof__(*(ptr)) _x_ = (x);					\
+-	(__typeof__(*(ptr))) __xchg_release((ptr),			\
+-					    _x_, sizeof(*(ptr)));	\
+-})
+-
+ #define __xchg(ptr, new, size)						\
+ ({									\
+ 	__typeof__(ptr) __ptr = (ptr);					\
+@@ -253,52 +183,6 @@
+ 					_o_, _n_, sizeof(*(ptr)));	\
+ })
+ 
+-#define __cmpxchg_release(ptr, old, new, size)				\
+-({									\
+-	__typeof__(ptr) __ptr = (ptr);					\
+-	__typeof__(*(ptr)) __old = (old);				\
+-	__typeof__(*(ptr)) __new = (new);				\
+-	__typeof__(*(ptr)) __ret;					\
+-	register unsigned int __rc;					\
+-	switch (size) {							\
+-	case 4:								\
+-		__asm__ __volatile__ (					\
+-			RISCV_RELEASE_BARRIER				\
+-			"0:	lr.w %0, %2\n"				\
+-			"	bne  %0, %z3, 1f\n"			\
+-			"	sc.w %1, %z4, %2\n"			\
+-			"	bnez %1, 0b\n"				\
+-			"1:\n"						\
+-			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
+-			: "rJ" ((long)__old), "rJ" (__new)		\
+-			: "memory");					\
+-		break;							\
+-	case 8:								\
+-		__asm__ __volatile__ (					\
+-			RISCV_RELEASE_BARRIER				\
+-			"0:	lr.d %0, %2\n"				\
+-			"	bne %0, %z3, 1f\n"			\
+-			"	sc.d %1, %z4, %2\n"			\
+-			"	bnez %1, 0b\n"				\
+-			"1:\n"						\
+-			: "=&r" (__ret), "=&r" (__rc), "+A" (*__ptr)	\
+-			: "rJ" (__old), "rJ" (__new)			\
+-			: "memory");					\
+-		break;							\
+-	default:							\
+-		BUILD_BUG();						\
+-	}								\
+-	__ret;								\
+-})
+-
+-#define arch_cmpxchg_release(ptr, o, n)					\
+-({									\
+-	__typeof__(*(ptr)) _o_ = (o);					\
+-	__typeof__(*(ptr)) _n_ = (n);					\
+-	(__typeof__(*(ptr))) __cmpxchg_release((ptr),			\
+-					_o_, _n_, sizeof(*(ptr)));	\
+-})
+-
+ #define __cmpxchg(ptr, old, new, size)					\
+ ({									\
+ 	__typeof__(ptr) __ptr = (ptr);					\
 -- 
-Without deviation from the norm, progress is not possible.
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
