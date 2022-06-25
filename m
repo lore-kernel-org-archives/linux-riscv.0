@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41239C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jun 2022 15:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2795C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jun 2022 16:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Umn/7FMxg88nAfGqhCEVttv1Qb8l6z99szpeXV3JDKk=; b=jFh9sh+LpTil/6
-	3Qkc8hrZPrxb8XQ+zYxlYmImi5TrKE1TR+SUc9AIKAqoU9NhwujpFGiz4OqYXWraKDgH2s6GS9uQ3
-	9KgTShPwePGVK9KsaZfxoUr/3dBh7i1mUjB6E3r4kpm3N7yUIfxVkXnGBBI2IMUhbmmXfHUXfhBeE
-	s0Bj8/PHjwI+UVKE2UcaSt8pE7oPK5l9r6HPa//kWB6TJiGXNPUxT1DQW5aF1LTnVSqT6WrDuCkuY
-	AQZQusE4s6cpRvFfA4vzh1eNNuMRryyGL3z6ir2Z6LvyFKl/DK4bVDNdOzITGoE8VsrbWkQeG+ift
-	ZQyKEsAK9lRRKh53LIxg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=n0Cv8g7GsqeGObMWxQvNKxzgw+cLzVB8M3ZFtXfP5eE=; b=DobQqn30dT5H0K
+	Km/+wSNjCn4NwsMFdohx53XPYhAK1FlCiriuuWVPWVEBIn4iLWB78CPEAmf0HhGLbZ3ok20RtiguM
+	3GQbScxvxfdydhE7PCiV203JHTnNrFbj7DAJgapl2fd08HFvnzqapQZj6yZQeS+lDITEeAfRhwpwv
+	NFeohGJOvha/UnHKt+G+ErjkJMrIql14IpqvtG46N/uLFjJ6Sb1/B0+Iq08b7/UZOE25wajPywVNx
+	kzkBg7sWNyskUuA7TKC6rB8L1A6ZRe9SeNyRGksMwXfrsHCaCDhFm05uRGf6pke5xpA9omEF2avP4
+	BFB0LiM5ZVt5dhVjBa1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o57vQ-006ZfC-FP; Sat, 25 Jun 2022 15:42:20 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1o58IL-006gMl-VC; Sat, 25 Jun 2022 16:06:01 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o57vO-006Zct-3N
-	for linux-riscv@lists.infradead.org; Sat, 25 Jun 2022 15:42:19 +0000
-Received: from mail-ed1-f72.google.com (mail-ed1-f72.google.com [209.85.208.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	id 1o58IJ-006gKv-4t
+	for linux-riscv@lists.infradead.org; Sat, 25 Jun 2022 16:06:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 8F7A83FBD8
-	for <linux-riscv@lists.infradead.org>; Sat, 25 Jun 2022 15:42:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1656171729;
-	bh=F3RxS92s6HC7mDr70wELutMLarrjjf9M1klJ5znbLyM=;
-	h=From:To:Cc:Subject:Date:Message-Id:MIME-Version;
-	b=TKLRMG0FhfZIJiRDMYIl+EuxvQ8yx5PVYdKfSLkRY59YDBvv/ugL7plefeZYCudYt
-	 itRawkly5Vm+qxJALV4EXDq2DLMESSJcRIhFyThNE/Y7rZYcT6gKzFgjWYyCkvlvbL
-	 UpSGIVBoHnTq1hOzIR3VPiZe40uOAYHSKkrB9Q0DRCsw/vzTW/S/7nyD5WIa3bh+0l
-	 UUTnAEfI4awL/CuSUqxilpFXAxFIF9B3Bp8p22rhSKs7jRz/Y+gi+A3FY5rlDQ062D
-	 er+SfO7W5CVkB7QEP/+BES52tcVpoGMXKFsBd28TJLhErUDrWdEY83OoHrMcScDUQT
-	 cDEAYO71LYH0w==
-Received: by mail-ed1-f72.google.com with SMTP id y5-20020a056402358500b0043592ac3961so3974359edc.6
-        for <linux-riscv@lists.infradead.org>; Sat, 25 Jun 2022 08:42:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=F3RxS92s6HC7mDr70wELutMLarrjjf9M1klJ5znbLyM=;
-        b=e2Ne9hSkRc3eyzcPyhWCG4Dx3iOkmZAIoyxmF0n2Q9Uutg0rwfUbm6OYaNYgDFVX24
-         o7BDtFXnB0HTliA6zgYpXcTXv660Qq75prtIIa4YrRLCerBM2Lb49JRIkd/9SXvOZJWz
-         mMox7Yyo7Vt5ltC39ivPheyw4UWvO0TNbG64ZXq15UxeA9un/AcBdy5mxTZD/c0rI0zj
-         ovagWPOU51q2cXn3HLXibANKgag5PVWC6ekKKJPcjgWcAPpyZduINYgDpcacVUzA8EPH
-         GfkGx6ji75p6zYVqvO0YzykbC3L8UJCbdupEXtM5RjCodTfI6g/2m8EJHivcmkHS5bd9
-         da+g==
-X-Gm-Message-State: AJIora9AP1r99FURFFSg2wW99t/yYsxSEggYGy7mtuNv0WFUp2vQacMr
-	yOjLjnNfjlXPv3R0GdWavmohk3pk/DZeEDHd/qRoYuXkqIxPKlMUEOlimMeXDwYJb2PGOzhJmNG
-	hVn2f79xFjgHLgbNv1xzhqMtl8mV1pYLScuP0p9nTiZwJoQ==
-X-Received: by 2002:a17:907:97d1:b0:722:e6fc:a04 with SMTP id js17-20020a17090797d100b00722e6fc0a04mr4306660ejc.217.1656171728940;
-        Sat, 25 Jun 2022 08:42:08 -0700 (PDT)
-X-Google-Smtp-Source: AGRyM1uYGJDDSMNvYv5uR9pGeZx1Jsr335Pjv0f9MZFs+TktvMHV6apBD3ph5wMlh5CGZNyhkmfAdA==
-X-Received: by 2002:a17:907:97d1:b0:722:e6fc:a04 with SMTP id js17-20020a17090797d100b00722e6fc0a04mr4306647ejc.217.1656171728790;
-        Sat, 25 Jun 2022 08:42:08 -0700 (PDT)
-Received: from archlinux.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
-        by smtp.gmail.com with ESMTPSA id d18-20020a05640208d200b00435bfcad6d1sm4239439edz.74.2022.06.25.08.42.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 25 Jun 2022 08:42:08 -0700 (PDT)
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-To: linux-riscv@lists.infradead.org
-Cc: Guo Ren <guoren@linux.alibaba.com>,
+	by ams.source.kernel.org (Postfix) with ESMTPS id B70A1B80C69;
+	Sat, 25 Jun 2022 16:05:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61259C3411C;
+	Sat, 25 Jun 2022 16:05:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1656173156;
+	bh=AToRdKG3QacktWi9IxW2BHWjWYtnPEVe84zJg54fJbA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fGwapFIFYQVzdVIiYmnOpMXFdnjqbX7gyB8aL6hlrOh+99RVXILoAKibc4r6AmJk1
+	 W2V/iC/ytjfLhCPXtoWAx1T5i0Zn3cUBWsYueq3MBFUjMcR2MehYpSd4JbEEbmRQAv
+	 CQfhbX+NjKUTM7Bt79ck+4gj7H+MqrA5tCXwsOCPIrFHH9UXPyai2VXbX9z37KVEHU
+	 UeH5qkHiFsPbV+nB7K0zFgRf7vI+eW1Vk+sV6vQG6VTSBMDWkotVqPuMrWUC1EKmvj
+	 vLpfa6vmV3g/P2zkaLdqHTF0wfnar0Oo0+lh+yKeru11eGZGDeW0lcF0f0jeEWQl3v
+	 F4lw0It6clzXw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1o58IE-0035Px-7I;
+	Sat, 25 Jun 2022 17:05:54 +0100
+Date: Sat, 25 Jun 2022 17:05:59 +0100
+Message-ID: <87zgi0eniw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Sagar Kadam <sagar.kadam@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: compat: vdso: Fix vdso_install target
-Date: Sat, 25 Jun 2022 16:42:07 +0100
-Message-Id: <20220625154207.80972-1-emil.renner.berthing@canonical.com>
-X-Mailer: git-send-email 2.36.1
-MIME-Version: 1.0
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+	LKML <linux-kernel@vger.kernel.org>,
+	Biju Das <biju.das.jz@bp.renesas.com>
+Subject: Re: [PATCH 2/2] irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
+In-Reply-To: <CA+V-a8tFn7aS-1jD6o9TX9kNDQ=4S3xWCXwkww3Es2+Red6vmA@mail.gmail.com>
+References: <20220624180311.3007-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	<20220624180311.3007-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	<8735ftf73p.wl-maz@kernel.org>
+	<CA+V-a8ukQsotuWLm6_qR79qO9n_Ffo2e79AitC_=53ocsjZtzA@mail.gmail.com>
+	<87h7492c58.wl-maz@kernel.org>
+	<CA+V-a8tFn7aS-1jD6o9TX9kNDQ=4S3xWCXwkww3Es2+Red6vmA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: prabhakar.csengg@gmail.com, prabhakar.mahadev-lad.rj@bp.renesas.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, sagar.kadam@sifive.com, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, geert+renesas@glider.be, linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, biju.das.jz@bp.renesas.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220625_084218_316567_962C98E9 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20220625_090559_493358_B23AB0DD 
+X-CRM114-Status: GOOD (  33.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +100,162 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When CONFIG_COMPAT=y the vdso_install target fails:
+On Sat, 25 Jun 2022 14:03:33 +0100,
+"Lad, Prabhakar" <prabhakar.csengg@gmail.com> wrote:
+> 
+> [1  <text/plain; UTF-8 (7bit)>]
+> Hi Marc,
+> 
+> On Sat, Jun 25, 2022 at 12:52 PM Marc Zyngier <maz@kernel.org> wrote:
+> >
 
-$ make ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- vdso_install
-  INSTALL vdso.so
-make[1]: *** No rule to make target 'vdso_install'.  Stop.
-make: *** [arch/riscv/Makefile:112: vdso_install] Error 2
+[...]
 
-The problem is that arch/riscv/kernel/compat_vdso/Makefile doesn't
-have a vdso_install target, but instead calls it compat_vdso_install.
+> > You are just reinventing the wheel we are already have, except that
+> > yours is a bit square ;-). What really should happen is that the
+> > set_type method should set the correct flow depending on the trigger
+> > of the interrupt, and *never* have to check the configuration on the
+> > handling path.
+> >
+> A Bit lost here..
+> 
+> We have the below chained handler:
+> 
+> static void plic_handle_irq(struct irq_desc *desc)
+> {
+>     struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+>     struct irq_chip *chip = irq_desc_get_chip(desc);
+>     void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
+>     irq_hw_number_t hwirq;
+> 
+>     WARN_ON_ONCE(!handler->present);
+> 
+>     chained_irq_enter(chip, desc);
+> 
+>     while ((hwirq = readl(claim))) {
+>         int err = generic_handle_domain_irq(handler->priv->irqdomain,
+>                             hwirq);
+>         if (unlikely(err))
+>             pr_warn_ratelimited("can't find mapping for hwirq %lu\n",
+>                     hwirq);
+>     }
+> 
+>     chained_irq_exit(chip, desc);
+> }
+> 
+> static void plic_irq_eoi(struct irq_data *d)
+> {
+>     struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> 
+>     if (irqd_irq_masked(d)) {
+>         plic_irq_unmask(d);
+>         writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+>         plic_irq_mask(d);
+>     } else {
+>         writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+>     }
+> }
+> 
+> Where it's claiming -> handling interrupt -> interrupt completion in
+> eoi which is according to architecture.
+> 
+> 
+> Now with fasteoi_ack flow If I introduce the below ack callback to
+> issue interrupt completion.
+> 
+> static void plic_irq_ack(struct irq_data *d)
+> {
+>     struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> 
+>     if (irqd_irq_masked(d)) {
+>         plic_irq_unmask(d);
+>         writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+>         plic_irq_mask(d);
+>     } else {
+>         writel(d->hwirq, handler->hart_base + CONTEXT_CLAIM);
+>     }
+> }
+> 
+> Here we are issuing an interrupt completion first, and later in the
+> handler  plic_handle_irq() we are claiming the interrupt by reading
+> the claim register. With this we are not following [0].
 
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
----
- arch/riscv/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Whatever [0] says doesn't really matter, since the HW is totally
+busted.
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 34cf8a598617..5cfbef613e34 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -110,7 +110,7 @@ PHONY += vdso_install
- vdso_install:
- 	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
- 	$(if $(CONFIG_COMPAT),$(Q)$(MAKE) \
--		$(build)=arch/riscv/kernel/compat_vdso $@)
-+		$(build)=arch/riscv/kernel/compat_vdso compat_$@)
+> Do you think this flow is OK (interrupt completion -> Interrupt claim
+> -> handle IRQ)?
+
+You keep missing my point. Edge and Level *must* have different flows
+and this also implies different callbacks. You can't just handle both
+at once. You should have something like this (untested):
+
+diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+index bb87e4c3b88e..5e072be32d9f 100644
+--- a/drivers/irqchip/irq-sifive-plic.c
++++ b/drivers/irqchip/irq-sifive-plic.c
+@@ -176,16 +176,52 @@ static void plic_irq_eoi(struct irq_data *d)
+ 	}
+ }
  
- ifeq ($(KBUILD_EXTMOD),)
- ifeq ($(CONFIG_MMU),y)
--- 
-2.36.1
++static int broken_set_type(struct irq_data *d, unsigned int type);
++
+ static struct irq_chip plic_chip = {
+ 	.name		= "SiFive PLIC",
+ 	.irq_mask	= plic_irq_mask,
+ 	.irq_unmask	= plic_irq_unmask,
+ 	.irq_eoi	= plic_irq_eoi,
++	.irq_set_type	= broken_set_type,
++#ifdef CONFIG_SMP
++	.irq_set_affinity = plic_set_affinity,
++#endif
++};
++
++static void broken_eoi(struct irq_data *data) {}
++
++static struct irq_chip plic_chip_edge = {
++	.name		= "Edgy PLIC",
++	.irq_mask	= plic_irq_mask,
++	.irq_unmask	= plic_irq_unmask,
++	.irq_ack	= plic_irq_eoi,
++	.irq_eoi	= broken_eoi,
++	.irq_set_type	= broken_set_type,
+ #ifdef CONFIG_SMP
+ 	.irq_set_affinity = plic_set_affinity,
+ #endif
+ };
+ 
++static int broken_set_type(struct irq_data *d, unsigned int type)
++{
++	if (!plic_is_totaly_broken())
++		return 0;
++
++	if (type == IRQ_TYPE_EDGE_RISING)
++		irq_set_chip_handler_name_locked(d, plic_chip_edge,
++						 handle_fasteoi_ack_irq,
++						 "Edge");
++	else if (type == IRQ_TYPE_LEVEL_HIGH)
++		irq_set_chip_handler_name_locked(d, plic_chip,
++						 handle_fasteoi_irq,
++						 "Level");
++	else
++		return -EINVAL;
++
++	return 0;
++}
++
+ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+ 			      irq_hw_number_t hwirq)
+ {
 
+which applies the correct flow and chip depending on the trigger
+information. This also implies that for chained PLICs, the secondary
+PLIC output is handled as a level into the primary PLIC.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
