@@ -4,56 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA1E9C43334
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jun 2022 22:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31EAC43334
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jun 2022 22:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2crHcKkEjQn0bn+s6Bv7FdD0TREskk4LyJ+DShWmAaU=; b=e2pizGKorXEHaf
-	Pg5ajJm6DIlKpUl7kG6p14Yb5WxCfAuByCCXeimf7vGdOSGqU2wPSvNpgOlCDikWQSBD6Z6S2jHJ+
-	9zsG8GMVown0BWsxVyAsR3jDkDHEuIAxvlSeIRt/3dfh7Pt69W3MCdhPGgfmYGD1zekRyZ7TZ1TDv
-	gjtssaTFrV5M0JFZvYdPMjckSEtsWxDEOwfPtVlChbaAE3pJsV1qSb/zprQPriTZvcgH92IbRLc+3
-	Fsv/wXq0S8lnqidJfFdQG7NcuIILUCCLTk7vioYTAw2u3rMpjup7X5IiZO5TgexiLkVoxlE9pRzXw
-	BTLBwtrPbzBcI3UTpGjA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=J0O/J+T4ACIK7x+aWKhGu6FgK+Y5rpDvQZM0sl/AlEs=; b=2Wd0glj9Qvigz2
+	tjXG+K4N/7aIvfTXE+4jVcEHWI5RXPvRpD5PyRRgcbaxdDWfkR1TYc1WfgBxgn4kE9Yvuk4NX2gEA
+	cLP7o6S0sBJQPcGciSSZpy+KDK4mHgbp+BM4Tu2nzSxCCpkd8xJzcubnEVlUmhP/Kg1K2LHptMr3O
+	1AEjcwV4J8uzzRf3rfozH/UxGznyJbnOHTBf6jZ69Zlgl/qNDcUNEedpciT9AYiI4WSaM1sqgUXJX
+	VWD9VOhsUWEonitHlqiBPCGxSZPH4KzfmNNnK+SJy5Vdat2qFWeprU89OUnt7VVBJXO7JBJWV9R4N
+	17efdCbXhJk/atnQZr1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5ENn-008Dgn-LS; Sat, 25 Jun 2022 22:36:03 +0000
+	id 1o5ENp-008Dh8-5S; Sat, 25 Jun 2022 22:36:05 +0000
 Received: from conuserg-12.nifty.com ([210.131.2.79])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5ENk-008Dex-Lw
+	id 1o5ENk-008Dey-LH
 	for linux-riscv@lists.infradead.org; Sat, 25 Jun 2022 22:36:02 +0000
 Received: from grover.sesame (133-32-177-133.west.xps.vectant.ne.jp [133.32.177.133]) (authenticated)
-	by conuserg-12.nifty.com with ESMTP id 25PMYreK012075;
+	by conuserg-12.nifty.com with ESMTP id 25PMYreL012075;
 	Sun, 26 Jun 2022 07:34:54 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 25PMYreK012075
+DKIM-Filter: OpenDKIM Filter v2.10.3 conuserg-12.nifty.com 25PMYreL012075
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
-	s=dec2015msa; t=1656196494;
-	bh=WgQFNPYHMxqyTX5c5nAwQv5As8G9LUvywSuGoACkOUs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=QcTUgYjurPsf2efpKisRgROBAzCFU7cFnKDW9nul/gyD8TJnU/ZnS4uK07qUYXjAE
-	 oLx1B3FWuxMZGfL+yMcRBgk9+ZGrKvtxwjUfyfyZg0qOOFvvo1Mm2EB1FPOgNcv+lC
-	 h8tbZC6t+1vi8gdYR0jTiNa11N4whzZtEiNWlBa+VdeuO+VHYl/yX0lINBPvltOxHN
-	 0dzDSk855TXFXeknCBrCNtuEiZG7Sryw5qkZUBm78SB+F2phNpiS+aFSp7UweLm8h/
-	 BH0O0cUGOESLL+e/tAG/8rU6NyO9TrmT0ZI7PHUUBp7KLDoXU5wT1l/1CeHIUEN+qd
-	 5cuBi6Oq1MqNg==
+	s=dec2015msa; t=1656196495;
+	bh=lbkFgqQiQu+Q3HO8EUdOPNSxleofFd7eWayRksMuI0E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=c09GldJ6mwPUANUpNjLWdMi+FnQhvvLLQGErZr54l8Ey9hnalBHa1gF8ZEr1Xy2ZV
+	 AwxXRX4wJlEitlG85DJyiC4Sd59N8ws0zycPLQ+t6kT6YuEg9sPqUuGBbScSgb9PUg
+	 ndZbM9LitC/aJx8uOM9H84JY/52YlK5Oz/qaZSIHtszrvQ/JA92GRAz6ZxabjoN9ag
+	 8r0uHLMOW+msFlDTjqx3W8vsCjyiYLHzXCxTmQ4FWxhn85mXtKWj7g+PiAXqrPfK/9
+	 sElzsDpz0DDjw/0iftDtiDLSLC7lTM7JRmAppl7Q9wDd2PKNAKUhxW6tzBvKZEKZ2Z
+	 lKhmqCv8l2hVg==
 X-Nifty-SrcIP: [133.32.177.133]
 From: Masahiro Yamada <masahiroy@kernel.org>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
         Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
         linux-riscv@lists.infradead.org
 Cc: Masahiro Yamada <masahiroy@kernel.org>, linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] riscv/purgatory: hard-code obj-y in Makefile
-Date: Sun, 26 Jun 2022 07:34:36 +0900
-Message-Id: <20220625223438.835408-1-masahiroy@kernel.org>
+Subject: [PATCH 2/2] riscv/purgatory: Omit use of bin2c
+Date: Sun, 26 Jun 2022 07:34:37 +0900
+Message-Id: <20220625223438.835408-2-masahiroy@kernel.org>
 X-Mailer: git-send-email 2.32.0
+In-Reply-To: <20220625223438.835408-1-masahiroy@kernel.org>
+References: <20220625223438.835408-1-masahiroy@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220625_153600_967686_54DD7C6F 
-X-CRM114-Status: UNSURE (   7.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220625_153600_968401_08AF4EB7 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,28 +71,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The purgatory/ directory is entirely guarded in arch/riscv/Kbuild.
-CONFIG_ARCH_HAS_KEXEC_PURGATORY is bool type.
+The .incbin assembler directive is much faster than bin2c + $(CC).
 
-$(CONFIG_ARCH_HAS_KEXEC_PURGATORY) is always 'y' when Kbuild visits
-this Makefile for building.
+Do similar refactoring as in commit 4c0f032d4963 ("s390/purgatory:
+Omit use of bin2c").
+
+Please note the .quad directive matches to size_t in C (both 8 byte)
+because the purgatory is compiled only for the 64-bit kernel.
+(KEXEC_FILE depends on 64BIT).
 
 Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
 ---
 
- arch/riscv/purgatory/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/Kconfig                     |  1 -
+ arch/riscv/purgatory/.gitignore        |  1 -
+ arch/riscv/purgatory/Makefile          |  8 +-------
+ arch/riscv/purgatory/kexec-purgatory.S | 14 ++++++++++++++
+ scripts/remove-stale-files             |  2 ++
+ 5 files changed, 17 insertions(+), 9 deletions(-)
+ create mode 100644 arch/riscv/purgatory/kexec-purgatory.S
 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 32ffef9f6e5b..218c2f12b3ef 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -447,7 +447,6 @@ config KEXEC_FILE
+ 
+ config ARCH_HAS_KEXEC_PURGATORY
+ 	def_bool KEXEC_FILE
+-	select BUILD_BIN2C
+ 	depends on CRYPTO=y
+ 	depends on CRYPTO_SHA256=y
+ 
+diff --git a/arch/riscv/purgatory/.gitignore b/arch/riscv/purgatory/.gitignore
+index 38d7d1bda4d7..6e4dfb024ad2 100644
+--- a/arch/riscv/purgatory/.gitignore
++++ b/arch/riscv/purgatory/.gitignore
+@@ -1,4 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ purgatory.chk
+ purgatory.ro
+-kexec-purgatory.c
 diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index d4df200f7edf..c2d14e2f345d 100644
+index c2d14e2f345d..dd58e1d99397 100644
 --- a/arch/riscv/purgatory/Makefile
 +++ b/arch/riscv/purgatory/Makefile
-@@ -92,4 +92,4 @@ quiet_cmd_bin2c = BIN2C   $@
- $(obj)/kexec-purgatory.c: $(obj)/purgatory.ro $(obj)/purgatory.chk FORCE
- 	$(call if_changed,bin2c)
+@@ -84,12 +84,6 @@ $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
+ $(obj)/purgatory.chk: $(obj)/purgatory.ro FORCE
+ 		$(call if_changed,ld)
  
--obj-$(CONFIG_ARCH_HAS_KEXEC_PURGATORY)	+= kexec-purgatory.o
-+obj-y += kexec-purgatory.o
+-targets += kexec-purgatory.c
+-
+-quiet_cmd_bin2c = BIN2C   $@
+-      cmd_bin2c = $(objtree)/scripts/bin2c kexec_purgatory < $< > $@
+-
+-$(obj)/kexec-purgatory.c: $(obj)/purgatory.ro $(obj)/purgatory.chk FORCE
+-	$(call if_changed,bin2c)
++$(obj)/kexec-purgatory.o: $(obj)/purgatory.ro $(obj)/purgatory.chk
+ 
+ obj-y += kexec-purgatory.o
+diff --git a/arch/riscv/purgatory/kexec-purgatory.S b/arch/riscv/purgatory/kexec-purgatory.S
+new file mode 100644
+index 000000000000..0e9188815718
+--- /dev/null
++++ b/arch/riscv/purgatory/kexec-purgatory.S
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++	.section .rodata, "a"
++
++	.align	8
++kexec_purgatory:
++	.globl	kexec_purgatory
++	.incbin	"arch/riscv/purgatory/purgatory.ro"
++.Lkexec_purgatroy_end:
++
++	.align	8
++kexec_purgatory_size:
++	.globl	kexec_purgatory_size
++	.quad	.Lkexec_purgatroy_end - kexec_purgatory
+diff --git a/scripts/remove-stale-files b/scripts/remove-stale-files
+index 7adab4618035..d75a52199a38 100755
+--- a/scripts/remove-stale-files
++++ b/scripts/remove-stale-files
+@@ -40,4 +40,6 @@ if [ -n "${building_out_of_srctree}" ]; then
+ 	done
+ fi
+ 
++rm -f arch/riscv/purgatory/kexec-purgatory.c
++
+ rm -f scripts/extract-cert
 -- 
 2.32.0
 
