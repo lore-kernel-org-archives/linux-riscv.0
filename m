@@ -4,71 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB808C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jun 2022 07:22:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5981ACCA479
+	for <linux-riscv@archiver.kernel.org>; Sat, 25 Jun 2022 09:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WuKFz+G/Sfjd2fhOoVc9oHdQ+7Dek9/rpU8SyJFRt6M=; b=CiOcerCTm6GAoz
-	ac3EnEdtxs9IF75PSQrQXEVV+FObVMCmnSu6dcV6tCrvLWgLhs25vw5nTft1/kVqE7//QsTdAEb67
-	r2d8Nph6lxLIVBZoxGpgmn4ZYJ3NMGacPxTOmUiOsb1Fh2+cpzPr/6MqQsCHqHnhd1nOv1fJeb7Gh
-	9ZwX8D1adWWuE60aADYTAqnHhvdoSffjh7h4db02TX7KPw/VHD/SmchNzt0aou7N2kj1SS8J9+wAG
-	fPxQfxM4nxqPnV5wUxcKlqWezGlN+ttxN9vW96jU4T9kUNKljO5KWytxn/h0FHixerNf2O6FaCK7t
-	8ftcQukDXWtPwb3gE77A==;
+	List-Owner; bh=NGdtUKR4jOa7wVk6QrmYCe+LEOpDm1ctemtILkh622w=; b=RMiL7ktEF/XcVM
+	SP+vWrSLClucBieGwidYjbzJ9QFrD8Ea3uN/WMsvXB43j4ZdsFVOf3hjImdsvEQ0P5RiTIrJXnM5/
+	yclHfIsnoEmP2VQlaNEElxrz9IKjR5RAPCa9WIzbclRcaXS1+Ki/U/Onn0H8Unp7v+wP1ckQMZBDQ
+	nBcd5tOlQHQ59roQi4iQ4r9gGmfvGXPnAA0NsGYvzg28MrwT7wxBMb6czi1hykgoT9jwLuw7VBUZL
+	49xwlVF7JsCR30qb1k46DL5QUxdDu5iVplNDXhy+0Cr14T5MY1WGfruOJCTjc3tDRJ9FrHjqGQtJp
+	9qQz4o20SKbvKAATiX4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o507V-004zG1-QB; Sat, 25 Jun 2022 07:22:17 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1o51hs-005FpQ-GM; Sat, 25 Jun 2022 09:03:56 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o507T-004zFI-2m
-	for linux-riscv@lists.infradead.org; Sat, 25 Jun 2022 07:22:16 +0000
-Received: by mail-wr1-x435.google.com with SMTP id q5so559600wrc.2
-        for <linux-riscv@lists.infradead.org>; Sat, 25 Jun 2022 00:22:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=9cKQK7FbM7x2pbFj1LTUNC0vlA4K6e2zfCrImitpQBg=;
-        b=dTufpNwtV/jDnfAbvlUxEYOVqFnp74FznhyusAoiijBgzS9GZqSMTLpFZKJgw/XmEF
-         axK3YMIfs4SNYHIVEm8kaTtLLc4Sua0/6rJ0TV5l8tTRcTje6yGq2zbuuWqMmIYTf2L1
-         68zL1u7UR26A968sWLGSPKSaZxcf/q5eW7Y4foVvsbcbzYhK+4adf0xO8i7ZX/HzWBw5
-         6Q7ZjYo5ZwrUOgTgjLTq6IFQ48ljH8mIIfxcYY0FkkxK8xgfdMJeC0h/IJJ7v8IwvkHG
-         J2rqbZbtSxXl5nvkxEccIY9Wb2APVhyflViK2DkuVqLe+zlZ41uiyP9F9MlmgIyTim6S
-         Y3+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=9cKQK7FbM7x2pbFj1LTUNC0vlA4K6e2zfCrImitpQBg=;
-        b=PFddRSKQLxGSs1i0SWAoyy1R45wD/BJBrETPgT9UjWf/kcYdsmz2HR4zOtVojTVHdQ
-         RxwU6nEFze7PA7qu5amiIpdg9sZ7JSgIIk2lvgWxcmnGoqpwoewQFXS6ZvrD5NI1nGYO
-         0t7duRC8q2NFt1VAdzZLlqbEV+99Tkm3y8F0CO6AGMxG1DpWcMbz2Ie3clGgwOvXPs/F
-         IpqKNRulnijGXmWV2/CrwGqLzqg2/aVMT86T9n6ycVhAYdI70XNY+Djo+Xr2wcGj7dYN
-         t0onm2yk+HRvDgPLtkhQghy+SCo4JhdbQirY0EUIIrzrnpGuPFR1B0ulyDLO2IXKvhAe
-         h+HA==
-X-Gm-Message-State: AJIora86LwQ3FvxV2IZF54GMAasf0Y9fd8hyXHL3Q59t5jqNGCtgC/vc
-	9TymRLLdS7AXn/kul7SuPYb2DADDv4GbC+fTMd2cmOtWVRozdQ==
-X-Google-Smtp-Source: AGRyM1s2JyevF68DYH0E5FumiPiGuo3Gm1V+IubsbgZFrZpiK2yx8nWsEBGgEnDnU+l5ppPG474WrNtrHqw3Hh+omIM=
-X-Received: by 2002:a5d:4532:0:b0:21b:ab1e:e9fa with SMTP id
- j18-20020a5d4532000000b0021bab1ee9famr2689573wra.214.1656141732432; Sat, 25
- Jun 2022 00:22:12 -0700 (PDT)
-MIME-Version: 1.0
-References: <bca6d76d-1708-fede-8008-d2588a14b656@mail.ru> <8887d851-19b7-ee10-a89e-fb69d54ac41e@sholland.org>
- <CAAhSdy3CoRVs7Rn=TDBRrfqaNEr1R6h4r1cdgGR-QKCtg7QYrw@mail.gmail.com>
- <CAHBxVyFv57ggFhoJTCUfVPsosjRTdCy=2+TD=P3SSnT-NG-Y1g@mail.gmail.com> <76741e1c-056d-d3ae-fc20-eeb8f6e996f6@gmail.com>
-In-Reply-To: <76741e1c-056d-d3ae-fc20-eeb8f6e996f6@gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sat, 25 Jun 2022 12:52:01 +0530
-Message-ID: <CAAhSdy1pYZsRqKTt5jEsOy4MsPcSZDmBzY6FJGBhRTRLjC8xNg@mail.gmail.com>
-Subject: Re: Tickless timer regression in v5.18.3 on riscv
-To: Eva Kotova <nyandarknessgirl@gmail.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>
+	id 1o51ho-005FmZ-Oa
+	for linux-riscv@lists.infradead.org; Sat, 25 Jun 2022 09:03:54 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 884C0B8123D;
+	Sat, 25 Jun 2022 09:03:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 283C8C341C7;
+	Sat, 25 Jun 2022 09:03:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1656147827;
+	bh=oEBOr5nihwu0e5C08ofN61Rn4yRRvUL8uiYvbyfu/aU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GHR5jvNlT9kroKwU5IEA3i/s0quzy+bpY4LobmUUj+72TZVQAHn8F4OyjMmxZ21nI
+	 OHYReAhUW44IS2IzPU5V2bt/dkIXYoOOqa/zBJ6mqxkwTjPGy8dQ+w0ukwsgOWAS9G
+	 GYKkWQUCryBxWbAYlB6HNB8mE2zp0TLTGM3mlqpohVJxGLMDTjVYn/r/pgFyDy80nc
+	 FOeMb9dvof0SK3kJsRD8LzoTsIMiYZppkTVuzMl+rXwRnzgItrllQuzrEZXYw/eXD0
+	 z4a+4AZOPJgsE4bLDSzOmsJdfeuaEDpGbKmxqU0ua8n5bQZpRhuwzp7PqxzTkaXUXI
+	 gnjnF5rw0szXg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1o51gz-0032Mt-Cz;
+	Sat, 25 Jun 2022 10:03:44 +0100
+Date: Sat, 25 Jun 2022 10:03:06 +0100
+Message-ID: <8735ftf73p.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Sagar Kadam <sagar.kadam@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>
+Subject: Re: [PATCH 2/2] irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
+In-Reply-To: <20220624180311.3007-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20220624180311.3007-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	<20220624180311.3007-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: prabhakar.mahadev-lad.rj@bp.renesas.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, sagar.kadam@sifive.com, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, geert+renesas@glider.be, linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, prabhakar.csengg@gmail.com, biju.das.jz@bp.renesas.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220625_002215_389881_7B6301E0 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20220625_020353_162109_2305CF2A 
+X-CRM114-Status: GOOD (  51.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,58 +96,217 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 24, 2022 at 1:15 PM Eva Kotova <nyandarknessgirl@gmail.com> wrote:
->
-> On Thu, Jun 23, 2022 at 8:59 PM Anup Patel <anup@brainfault.org> wrote:
->  > I suggest we introduce an optional "riscv,timer-always-on" DT
->  > property for each HART. If all HART DT nodes have this property then
->  > we don't set C3STOP flag in clockevent device, else we set it.
->
-> Is there any particular reason not to implement the opposite DT property
-> "riscv,timer-s3stop" for timers that stop in suspend?
+On Fri, 24 Jun 2022 19:03:11 +0100,
+Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
+> 
+> The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
+> NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
+> case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
+> edge until the previous completion message has been received and
+> NCEPLIC100 doesn't support pending interrupt counter, hence losing the
+> interrupts if not acknowledged in time.
+> 
+> So the workaround for edge-triggered interrupts to be handled correctly
+> and without losing is that it needs to be acknowledged first and then
+> handler must be run so that we don't miss on the next edge-triggered
+> interrupt.
+> 
+> This patch adds a new compatible string for Renesas RZ/Five SoC and
+> changes the chained interrupt haindler for RZ/Five SoC.
+> 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> RFC-->v1:
+> * Fixed review comments pointed by Geert
+> * Dropped handle_fasteoi_ack_irq support as for the PLIC we need to
+> claim the interrupt by reading the register and then acknowledge it.
 
-The DT property definition should be about describing HW behavior and
-not about describing SW features to be used.
+Why? This is exactly what the fasteoi_ack flow gives you, and your
+initial patch was much better that this one in that regard.
 
-The "riscv,timer-always-on" DT property set in a HART means the timer
-in the corresponding HART is always on irrespective to idle state of HART.
+> * Add a new chained handler for RZ/Five SoC.
+> ---
+>  drivers/irqchip/irq-sifive-plic.c | 95 +++++++++++++++++++++++++++++--
+>  1 file changed, 91 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index 173446cc9204..f53dff49e122 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -60,10 +60,13 @@
+>  #define	PLIC_DISABLE_THRESHOLD		0x7
+>  #define	PLIC_ENABLE_THRESHOLD		0
+>  
+> +#define PLIC_INTERRUPT_CELL_SIZE2	2
+> +
+>  struct plic_priv {
+>  	struct cpumask lmask;
+>  	struct irq_domain *irqdomain;
+>  	void __iomem *regs;
+> +	u32 intsize;
+>  };
+>  
+>  struct plic_handler {
+> @@ -163,7 +166,7 @@ static int plic_set_affinity(struct irq_data *d,
+>  }
+>  #endif
+>  
+> -static void plic_irq_eoi(struct irq_data *d)
+> +static void plic_irq_ack(struct irq_data *d)
+>  {
+>  	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+>  
+> @@ -176,6 +179,23 @@ static void plic_irq_eoi(struct irq_data *d)
+>  	}
+>  }
+>  
+> +static void plic_irq_eoi(struct irq_data *d)
+> +{
+> +	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> +	unsigned int irq = irq_find_mapping(handler->priv->irqdomain, d->hwirq);
+> +
+> +	/*
+> +	 * For Renesas RZ/Five (R9A07G043) SoC if the interrupt type is
+> +	 * IRQ_TYPE_EDGE_RISING we have already acknowledged it in the
+> +	 * handler.
+> +	 */
+> +	if (handler->priv->intsize == PLIC_INTERRUPT_CELL_SIZE2 &&
 
-Whereas, the "riscv,timer-c3stop" DT property set in a HART means SW
-should use the C3STOP flag for the clock_event_device of this HART.
+This costs you an extra two reads on the fast path, which is an
+unnecessary overhead for existing systems that do not suffer from this
+problem. Consider turning it into a static key.
 
-Clearly, "riscv,timer-always-on" DT property is more appropriate since
-it describes HW behaviour.
+Also, blindly renaming  plic_irq_eoi() to ack() is extremely
+confusing. I really think you should have your own callbacks instead
+of making a mess of the existing one.
 
-> Right now, this patch breaks the behavior of previously fine working
-> boards (worse sleep precision, higher idle consumption), and these
-> boards have none of the mentioned issues, so why should they degrade
-> after a kernel update?
+> +	    (irq_get_trigger_type(irq) & IRQ_TYPE_EDGE_RISING))
+> +		return;
+> +
+> +	plic_irq_ack(d);
+> +}
+> +
+>  static const struct irq_chip plic_chip = {
+>  	.name		= "SiFive PLIC",
+>  	.irq_mask	= plic_irq_mask,
+> @@ -198,6 +218,19 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+>  	return 0;
+>  }
+>  
+> +static int plic_irq_domain_translate(struct irq_domain *d,
+> +				     struct irq_fwspec *fwspec,
+> +				     unsigned long *hwirq,
+> +				     unsigned int *type)
+> +{
+> +	struct plic_priv *priv = d->host_data;
+> +
+> +	if (priv->intsize == PLIC_INTERRUPT_CELL_SIZE2)
+> +		return irq_domain_translate_twocell(d, fwspec, hwirq, type);
+> +
+> +	return irq_domain_translate_onecell(d, fwspec, hwirq, type);
+> +}
+> +
+>  static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  				 unsigned int nr_irqs, void *arg)
+>  {
+> @@ -206,7 +239,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  	unsigned int type;
+>  	struct irq_fwspec *fwspec = arg;
+>  
+> -	ret = irq_domain_translate_onecell(domain, fwspec, &hwirq, &type);
+> +	ret = plic_irq_domain_translate(domain, fwspec, &hwirq, &type);
+>  	if (ret)
+>  		return ret;
+>  
+> @@ -220,11 +253,55 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  }
+>  
+>  static const struct irq_domain_ops plic_irqdomain_ops = {
+> -	.translate	= irq_domain_translate_onecell,
+> +	.translate	= plic_irq_domain_translate,
+>  	.alloc		= plic_irq_domain_alloc,
+>  	.free		= irq_domain_free_irqs_top,
+>  };
+>  
+> +/*
+> + * On Renesas RZ/Five (R9A07G043) SoC IRQ_TYPE_LEVEL_HIGH and
+> + * IRQ_TYPE_EDGE_RISING interrupts are the supported interrupt types.
+> + * If the global interrupt source was edge-triggered NCEPLIC100 (PLIC
+> + * core on Renesas RZ/Five SoC) ignores next edge interrupts until the
+> + * previous completion message is received. NCEPLIC100 on Renesas RZ/Five
+> + * SoC doesn't stack the pending interrupts so in case there is a delay
+> + * in handling the IRQ_TYPE_EDGE_RISING interrupt we lose the subsequent
+> + * interrupts. The workaround for IRQ_TYPE_EDGE_RISING interrupt is to
+> + * first we have to claim the interrupt by reading the claim register,
+> + * then quickly issue an complete interrupt by writing the source ID
+> + * register back to the claim  register and then later run the handler.
+> + */
+> +static void renesas_rzfive_plic_handle_irq(struct irq_desc *desc)
+> +{
+> +	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> +	struct irq_chip *chip = irq_desc_get_chip(desc);
+> +	void __iomem *claim = handler->hart_base + CONTEXT_CLAIM;
+> +	irq_hw_number_t hwirq;
+> +	unsigned int irq;
+> +	int err;
+> +
+> +	WARN_ON_ONCE(!handler->present);
+> +
+> +	chained_irq_enter(chip, desc);
+> +
+> +	while ((hwirq = readl(claim))) {
+> +		irq = irq_find_mapping(handler->priv->irqdomain, hwirq);
+> +		if (!irq) {
+> +			pr_warn_ratelimited("can't find mapping for hwirq %lu\n", hwirq);
+> +			break;
+> +		}
+> +
+> +		if (irq_get_trigger_type(irq) & IRQ_TYPE_EDGE_RISING)
+> +			plic_irq_ack(irq_get_irq_data(irq));
+> +
+> +		err = generic_handle_irq(irq);
 
-The breakage was unintentional.
+No. We're not going back to this sort of constructs. Using the
+fasteoi_ack flow should work if properly configured. Also, looking up
+the interrupt *four* times in various tables/trees is not exactly the
+sort of things I want to see for a driver written in this century.
 
-What we quickly need is a patch series (2 patches) for setting C3STOP
-based on "riscv,timer-always-on" (Just like ARM arch timer driver). The
-first patch will add documentation of "riscv,timer-always-on" in DT bindings
-and second patch will update drivers/clocksource/timer-riscv.c
+Please explain why fasteoi_ack doesn't work. It really should work out
+of the box (I asked you to look into debugfs last time, but didn't ear
+anything from you on the subject). And if something is broken, let's
+fix it. But none of the above, please.
 
-> The CLINT timer is already well-defined and worked for years, i don't
-> see how suspend issues on particular hardware can justify going against
-> the official spec.
->
-> I do really think this should be addressed by the platform SBI
-> implementation (that's why SBI exists after all?..) or DT properties for
-> suspend-affected hardware, not finding holes in SBI spec and introducing
-> fragmentation in the SW ecosystem.
+> +		if (err)
+> +			pr_warn_ratelimited("error handling irq %u\n", irq);
+> +	}
+> +
+> +	chained_irq_exit(chip, desc);
+> +}
+> +
+>  /*
+>   * Handling an interrupt is a two-step process: first you claim the interrupt
+>   * by reading the claim register, then you complete the interrupt by writing
+> @@ -288,11 +365,20 @@ static int __init plic_init(struct device_node *node,
+>  	u32 nr_irqs;
+>  	struct plic_priv *priv;
+>  	struct plic_handler *handler;
+> +	irq_flow_handler_t plic_chanined_handler;
+>  
+>  	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+>  	if (!priv)
+>  		return -ENOMEM;
+>  
+> +	if (of_property_read_u32(node, "#interrupt-cells", &priv->intsize))
+> +		return -EINVAL;
+> +
+> +	if (priv->intsize == PLIC_INTERRUPT_CELL_SIZE2)
 
-Whether, timer will be kept running or be turned-off in a non-retentive
-suspend state is a microarchitecture detail (or CPU implementation detail).
+Please gate this on the compatible string, not on the number of cells.
 
-This can't be enforced by RISC-V SBI specification because SBI calls are
-runtime services and do not describe HW. The best way is to discover this
-HW behaviour (or CPU implementation detail) is through DT or ACPI.
+	M.
 
-Regards,
-Anup
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
