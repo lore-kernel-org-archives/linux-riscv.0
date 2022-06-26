@@ -4,75 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58752C43334
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Jun 2022 04:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CC3C43334
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Jun 2022 08:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pfWWeKSaXIybfH6yt/IWglnCIE5FF1PzTXGOw4YZpmY=; b=N5xghdr3wzcnZX
-	6zC3AjZNNcImLsD0+RpOZeCpS23MNQoMAqEmcrMMJWMIg1l6M2is5CdQm/GGlGIdEsEdo0gx26cep
-	fL0PuEKjNP2voQL1gfSTS4deoqomP7xcjNyQcyAic3qzeUCXLAtyIaHj9XE+sPM/NcAzDycKJ7TrQ
-	hkKpJukubwVsxxATuiscTIkqo1LVQtet5Xty7xaCbT2kEW6VTCv16TeQMdSCj7/SMeJoISpo+wT/E
-	JDnZjiYMEl1QBbHcdkg23vftVEh6eS9qS976uvPiJAbfiaN4sdy8yWO42IUZlK1a+L6Mk46dw9qdn
-	6jZBQ6LyS3u9UCmw9YIA==;
+	List-Owner; bh=cEn0vhjiRThebpttuLcS8Uuq+St8A6y6omjElmcOC6s=; b=hjt158K2qUH/Ja
+	kLqN2+j9/mEh+EsBAlv0QLxJdnmGqZ6Skb38x9jTKkKIqWR2K68dvVDBtQRK3UUtLLVPx0NJF4Z6D
+	rYaLUdBO0UEJCfIvSB7zE7G8vl1KAdw55mec25Y9nZ/mp3q0belSVquDsjCV+5KLS0AimPFZvnBaG
+	3k0iW6c7nfBAtQVplwxENCMEtvLPuVsEH7HsxHTVDxfC6B6UMU3Az23k0gIEJQiwvpN6GLJhwlqf1
+	9m9vX6oyh9heM8eet9Vd+C/bxNLycc97Q87QJgmWa7wkV3kelF+ZWaRKYkZobkg5xQZs8WYSXVB9X
+	euYfW6K451pKG8lAGFXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5Jxc-009Ww9-EL; Sun, 26 Jun 2022 04:33:24 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1o5NNQ-00AYkG-48; Sun, 26 Jun 2022 08:12:16 +0000
+Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5JxZ-009WuD-II
-	for linux-riscv@lists.infradead.org; Sun, 26 Jun 2022 04:33:23 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id v65-20020a1cac44000000b003a03c76fa38so2816020wme.5
-        for <linux-riscv@lists.infradead.org>; Sat, 25 Jun 2022 21:33:20 -0700 (PDT)
+	id 1o5NNM-00AYgX-KD
+	for linux-riscv@lists.infradead.org; Sun, 26 Jun 2022 08:12:13 +0000
+Received: by mail-lf1-x12d.google.com with SMTP id t24so11583387lfr.4
+        for <linux-riscv@lists.infradead.org>; Sun, 26 Jun 2022 01:12:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=2kWtI1K8FBljQi8An/wyVTdiQqFYwSP32gsF9BQJ03c=;
-        b=FrZZoDyueMWB46rAlqAH1OYPceblyGuoIYSuiJh9AP7soufPKW1Jm2zZlInD7vPgfI
-         NdGX3xp4zNoqaACVAwsX+sYkPJm2kTFMCDSR2Ble7RTZVx4h5yM9Jw3Ne9acSpNBuH9a
-         pOpSHXejHqY/PixidKUtyNYZ2wsP77du0gW5ht7HC/sE3XMHwI5ks7yjJVy8tNZRRnxp
-         nuAYvLzeZTEeBv/e9XwsTzNXD+GY5Svw2Gqe0rRRmur2BeMr1Y6eEKv/zqvBj0HQta4H
-         djnLpYv0J0I1qlh3c4tQJKQuPXbyVejuRk9BzjOClEUAiH/eUHlQ342iTEhIRspr6YYU
-         0mEw==
+        d=gmail.com; s=20210112;
+        h=message-id:date:mime-version:user-agent:subject:content-language:to
+         :cc:references:from:in-reply-to:content-transfer-encoding;
+        bh=iOnjf5psLNx3xWw/YTRg8ZpCATrMjddLsDZJOrN+BW4=;
+        b=k54NS7IqzjlNIZVmVTc6McX1MLgAw+flmY4PqpowXZKgbYbu53c72jpinkaZmxgq1u
+         60zdMOXixeJxI6IbY3zp2LRTv5VjnRGtBjT2m6/Ntr4eZdwWdsCo2iil27SOg9mxnEMU
+         VJ37OUjumrxri4l7wCCU7oa/+Cfo5tlDeEkW6v33AQUK+2fuNXM1aGMKRmumts91Dm/T
+         MuReA4LCxLWP6aFIIVqAXUzAhhHGYO9KtQqMSOtTE5UowHBZ2Iy4I6vD2IqfHK/5hcym
+         VMS6s01sRj+zShlvkz9v/XgEovRL+gIgYRy46VkdxN5xTI2xo6Dqi4vfvn892vOEWhd3
+         WUzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=2kWtI1K8FBljQi8An/wyVTdiQqFYwSP32gsF9BQJ03c=;
-        b=mbkDGhiNqDb2IaEGwJNqImtgw3iFr8po1geIEv8CsZSxqzz9d0DT3s1lzlDfS0SqPN
-         9Oedd5yeXhwLvwG6V7wPlyqy1PgsB1WiDdQNe6zGH+/JMRLZckGaTwkMoKAfMxdPIXSq
-         lopEpO6IpPuU0iMWNQF7mftb3eLV8mDXUSg17iKef1NGOoErEdvz7DS+BiX3NGSrGj+U
-         kM4OMU8DHqE07gkLuFx8GEUHXOKb07IRgLDZhwl5mDGPoQVSEn9VpTlcQXrpDZP04eRx
-         ecrEsG4MQNJUm7Phc9PgAGcAJuE9IiojG8KB5LmHyxcrxxXmLDhDi1lq57fsm8E0yb81
-         nbUg==
-X-Gm-Message-State: AJIora/VqYwQ+twRnqy0jFqa04AuL3O8BSlEBYp0b5Eq9dAc9In4kVXN
-	kT/XsOoag4Vzi6dwO00Bg7rB654KpQbB02LzTYPsVg==
-X-Google-Smtp-Source: AGRyM1vAT0OOLfOI5Wn7s+3waQl1AufOpwQ7c6bUsnwcB4orgjTFZbOh+qBgJ1TE3EXFDt05Nh9wdwF8DhrwnXuYvd0=
-X-Received: by 2002:a05:600c:1d0b:b0:3a0:3ab8:924 with SMTP id
- l11-20020a05600c1d0b00b003a03ab80924mr7671319wms.137.1656217999456; Sat, 25
- Jun 2022 21:33:19 -0700 (PDT)
+        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+         :content-language:to:cc:references:from:in-reply-to
+         :content-transfer-encoding;
+        bh=iOnjf5psLNx3xWw/YTRg8ZpCATrMjddLsDZJOrN+BW4=;
+        b=NL8qg4lNnuvEmrWaUddeyPpLi/L+uoGnmxDv8aLRfUbjqdsO1wVujnwtFaj4ucE4fu
+         ABCW2FeSB0V39wMLQN9N++yhnJ64b2PkVfqcgD07LFdU4QONMExXQ6UE3szwoAcg83UN
+         48kCoaQ6WgbowK5DC9OdLXI7LZjkodVzDLCwOZGMUWyOm6cnAfLlAMFG2fxWYCXyakhF
+         08hAP1UbWZezB59VJChBxSMgURo82eVVHogd0WK82LKA1Xq75sAYYs6qT/vj4Ylk92wn
+         mtudNq4kftj3WZNFiBKpxuVXyOdilfZ9iOKcGyK8cChpFtKmeyLsxTBcT2LEWySsVg5y
+         PjQA==
+X-Gm-Message-State: AJIora+gp5Is/lx8c88wrrupEuwDfuZVdBt7UmeMFElX/AWCEfEvbO2G
+	w6SohVeo8oT0HbX4ZGvVZhZ2VEwi2YW6EA==
+X-Google-Smtp-Source: AGRyM1tOfbn58R5lZ+IXspFd1q2JtucmAP6wJ5+26Jd9PIP4JmKoWo/UKZYt8ZTksw1a+UyAu8qpkQ==
+X-Received: by 2002:a05:6512:281a:b0:47f:aea3:357e with SMTP id cf26-20020a056512281a00b0047faea3357emr4943615lfb.450.1656231122976;
+        Sun, 26 Jun 2022 01:12:02 -0700 (PDT)
+Received: from [192.168.0.100] ([46.219.3.46])
+        by smtp.gmail.com with ESMTPSA id p13-20020a2ea4cd000000b00255a17d5bfcsm880835ljm.106.2022.06.26.01.12.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 26 Jun 2022 01:12:02 -0700 (PDT)
+Message-ID: <c04b84c3-65f3-c15e-d20b-adffdf89b4ec@gmail.com>
+Date: Sun, 26 Jun 2022 11:10:35 +0300
 MIME-Version: 1.0
-References: <20220521143456.2759-1-jszhang@kernel.org>
-In-Reply-To: <20220521143456.2759-1-jszhang@kernel.org>
-From: Anup Patel <anup@brainfault.org>
-Date: Sun, 26 Jun 2022 10:03:07 +0530
-Message-ID: <CAAhSdy0mkwacNMVa_jFZmZ+NRPBa1TpKUQGpzr6Z9_wfoq1R4g@mail.gmail.com>
-Subject: Re: [PATCH v4 0/2] use static key to optimize pgtable_l4_enabled
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
-	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Alexandre Ghiti <alexandre.ghiti@canonical.com>, Atish Patra <atishp@rivosinc.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, kasan-dev@googlegroups.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.10.0
+Subject: Re: Tickless timer regression in v5.18.3 on riscv
+Content-Language: en-US
+To: Anup Patel <anup@brainfault.org>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>
+References: <bca6d76d-1708-fede-8008-d2588a14b656@mail.ru>
+ <8887d851-19b7-ee10-a89e-fb69d54ac41e@sholland.org>
+ <CAAhSdy3CoRVs7Rn=TDBRrfqaNEr1R6h4r1cdgGR-QKCtg7QYrw@mail.gmail.com>
+ <CAHBxVyFv57ggFhoJTCUfVPsosjRTdCy=2+TD=P3SSnT-NG-Y1g@mail.gmail.com>
+ <76741e1c-056d-d3ae-fc20-eeb8f6e996f6@gmail.com>
+ <CAAhSdy1pYZsRqKTt5jEsOy4MsPcSZDmBzY6FJGBhRTRLjC8xNg@mail.gmail.com>
+From: Eva Kotova <nyandarknessgirl@gmail.com>
+In-Reply-To: <CAAhSdy1pYZsRqKTt5jEsOy4MsPcSZDmBzY6FJGBhRTRLjC8xNg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220625_213321_651699_C257CAF0 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20220626_011212_732198_A6353AEA 
+X-CRM114-Status: UNSURE (   6.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,68 +91,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 21, 2022 at 8:13 PM Jisheng Zhang <jszhang@kernel.org> wrote:
->
-> The pgtable_l4|[l5]_enabled check sits at hot code path, performance
-> is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
-> boot, so static key can be used to solve the performance issue[1].
->
-> An unified way static key was introduced in [2], but it only targets
-> riscv isa extension. We dunno whether SV48 and SV57 will be considered
-> as isa extension, so the unified solution isn't used for
-> pgtable_l4[l5]_enabled now.
->
-> patch1 fixes a NULL pointer deference if static key is used a bit earlier.
-> patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
->
-> [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
-> [2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
->
-> Since v3:
->  - fix W=1 call to undeclared function 'static_branch_likely' error
->
-> Since v2:
->  - move the W=1 warning fix to a separate patch
->  - move the unified way to use static key to a new patch series.
->
-> Since v1:
->  - Add a W=1 warning fix
->  - Fix W=1 error
->  - Based on v5.18-rcN, since SV57 support is added, so convert
->    pgtable_l5_enabled as well.
->
->
->
-> Jisheng Zhang (2):
->   riscv: move sbi_init() earlier before jump_label_init()
->   riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
+On 25.06.2022 10:22, Anup Patel wrote:
+> Clearly, "riscv,timer-always-on" DT property is more appropriate
+> since it describes HW behaviour
 
-I have tested both these patches on QEMU RV64 and RV32.
+Well, I think this is fine, I was just worried that this was merged into
+stable kernel without a way to override it yet.
+Hope the "riscv,timer-always-on" hits stable tree as well soon. Thanks.
 
-Tested-by: Anup Patel <anup@brainfault.org>
-
-Thanks,
-Anup
-
->
->  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
->  arch/riscv/include/asm/pgtable-32.h |  3 ++
->  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
->  arch/riscv/include/asm/pgtable.h    |  5 +--
->  arch/riscv/kernel/cpu.c             |  4 +-
->  arch/riscv/kernel/setup.c           |  2 +-
->  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
->  arch/riscv/mm/kasan_init.c          | 16 ++++----
->  8 files changed, 104 insertions(+), 66 deletions(-)
->
-> --
-> 2.34.1
->
+Best regards,
+Eva
 
 _______________________________________________
 linux-riscv mailing list
