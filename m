@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CC3C43334
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Jun 2022 08:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED35C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 26 Jun 2022 08:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cEn0vhjiRThebpttuLcS8Uuq+St8A6y6omjElmcOC6s=; b=hjt158K2qUH/Ja
-	kLqN2+j9/mEh+EsBAlv0QLxJdnmGqZ6Skb38x9jTKkKIqWR2K68dvVDBtQRK3UUtLLVPx0NJF4Z6D
-	rYaLUdBO0UEJCfIvSB7zE7G8vl1KAdw55mec25Y9nZ/mp3q0belSVquDsjCV+5KLS0AimPFZvnBaG
-	3k0iW6c7nfBAtQVplwxENCMEtvLPuVsEH7HsxHTVDxfC6B6UMU3Az23k0gIEJQiwvpN6GLJhwlqf1
-	9m9vX6oyh9heM8eet9Vd+C/bxNLycc97Q87QJgmWa7wkV3kelF+ZWaRKYkZobkg5xQZs8WYSXVB9X
-	euYfW6K451pKG8lAGFXA==;
+	List-Owner; bh=bzkG7BxDvYu8iS/ydAp2Gkly/GMc9jyMFdZ/VuwZ0Fw=; b=YTfWoHcYdtgxbR
+	mGINlEQg8ocoM7v8/lHy5ZuAy1uh7A8hGXlvrcylvkuXgo1SJY+bU1PPcdJp39b18dJqDBSieZb6U
+	cde6X7FowJVcxuAuGfoE5heLlG4aeKKKhPBRMw79hBp71csG1bW5GmCm6pezWB6p0BmWUNlx0cOVs
+	pAe9OPELmlAV134wX9LMcJzoFQz0bVCSqlIg6uoBcd0NlwaZ2dFyuCwfPkeJ8xR1r64yz7UHtUESq
+	zHarS3AQ6359ZGZp3jgMet6gstpFCldNKDJ9ZqGPDMBx5esFihjZkE2cpfy88ge9/T/bLowP8oR4d
+	GE70o0irvgszE8O1CTog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5NNQ-00AYkG-48; Sun, 26 Jun 2022 08:12:16 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1o5O4i-00AkYC-UX; Sun, 26 Jun 2022 08:57:00 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5NNM-00AYgX-KD
-	for linux-riscv@lists.infradead.org; Sun, 26 Jun 2022 08:12:13 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id t24so11583387lfr.4
-        for <linux-riscv@lists.infradead.org>; Sun, 26 Jun 2022 01:12:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=message-id:date:mime-version:user-agent:subject:content-language:to
-         :cc:references:from:in-reply-to:content-transfer-encoding;
-        bh=iOnjf5psLNx3xWw/YTRg8ZpCATrMjddLsDZJOrN+BW4=;
-        b=k54NS7IqzjlNIZVmVTc6McX1MLgAw+flmY4PqpowXZKgbYbu53c72jpinkaZmxgq1u
-         60zdMOXixeJxI6IbY3zp2LRTv5VjnRGtBjT2m6/Ntr4eZdwWdsCo2iil27SOg9mxnEMU
-         VJ37OUjumrxri4l7wCCU7oa/+Cfo5tlDeEkW6v33AQUK+2fuNXM1aGMKRmumts91Dm/T
-         MuReA4LCxLWP6aFIIVqAXUzAhhHGYO9KtQqMSOtTE5UowHBZ2Iy4I6vD2IqfHK/5hcym
-         VMS6s01sRj+zShlvkz9v/XgEovRL+gIgYRy46VkdxN5xTI2xo6Dqi4vfvn892vOEWhd3
-         WUzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-         :content-language:to:cc:references:from:in-reply-to
-         :content-transfer-encoding;
-        bh=iOnjf5psLNx3xWw/YTRg8ZpCATrMjddLsDZJOrN+BW4=;
-        b=NL8qg4lNnuvEmrWaUddeyPpLi/L+uoGnmxDv8aLRfUbjqdsO1wVujnwtFaj4ucE4fu
-         ABCW2FeSB0V39wMLQN9N++yhnJ64b2PkVfqcgD07LFdU4QONMExXQ6UE3szwoAcg83UN
-         48kCoaQ6WgbowK5DC9OdLXI7LZjkodVzDLCwOZGMUWyOm6cnAfLlAMFG2fxWYCXyakhF
-         08hAP1UbWZezB59VJChBxSMgURo82eVVHogd0WK82LKA1Xq75sAYYs6qT/vj4Ylk92wn
-         mtudNq4kftj3WZNFiBKpxuVXyOdilfZ9iOKcGyK8cChpFtKmeyLsxTBcT2LEWySsVg5y
-         PjQA==
-X-Gm-Message-State: AJIora+gp5Is/lx8c88wrrupEuwDfuZVdBt7UmeMFElX/AWCEfEvbO2G
-	w6SohVeo8oT0HbX4ZGvVZhZ2VEwi2YW6EA==
-X-Google-Smtp-Source: AGRyM1tOfbn58R5lZ+IXspFd1q2JtucmAP6wJ5+26Jd9PIP4JmKoWo/UKZYt8ZTksw1a+UyAu8qpkQ==
-X-Received: by 2002:a05:6512:281a:b0:47f:aea3:357e with SMTP id cf26-20020a056512281a00b0047faea3357emr4943615lfb.450.1656231122976;
-        Sun, 26 Jun 2022 01:12:02 -0700 (PDT)
-Received: from [192.168.0.100] ([46.219.3.46])
-        by smtp.gmail.com with ESMTPSA id p13-20020a2ea4cd000000b00255a17d5bfcsm880835ljm.106.2022.06.26.01.12.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 26 Jun 2022 01:12:02 -0700 (PDT)
-Message-ID: <c04b84c3-65f3-c15e-d20b-adffdf89b4ec@gmail.com>
-Date: Sun, 26 Jun 2022 11:10:35 +0300
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.10.0
-Subject: Re: Tickless timer regression in v5.18.3 on riscv
-Content-Language: en-US
-To: Anup Patel <anup@brainfault.org>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>
-References: <bca6d76d-1708-fede-8008-d2588a14b656@mail.ru>
- <8887d851-19b7-ee10-a89e-fb69d54ac41e@sholland.org>
- <CAAhSdy3CoRVs7Rn=TDBRrfqaNEr1R6h4r1cdgGR-QKCtg7QYrw@mail.gmail.com>
- <CAHBxVyFv57ggFhoJTCUfVPsosjRTdCy=2+TD=P3SSnT-NG-Y1g@mail.gmail.com>
- <76741e1c-056d-d3ae-fc20-eeb8f6e996f6@gmail.com>
- <CAAhSdy1pYZsRqKTt5jEsOy4MsPcSZDmBzY6FJGBhRTRLjC8xNg@mail.gmail.com>
-From: Eva Kotova <nyandarknessgirl@gmail.com>
-In-Reply-To: <CAAhSdy1pYZsRqKTt5jEsOy4MsPcSZDmBzY6FJGBhRTRLjC8xNg@mail.gmail.com>
+	id 1o5O4g-00AkXM-Ay
+	for linux-riscv@lists.infradead.org; Sun, 26 Jun 2022 08:56:59 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B96E86115D;
+	Sun, 26 Jun 2022 08:56:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24FBAC341CA;
+	Sun, 26 Jun 2022 08:56:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1656233817;
+	bh=Y02jfhJb1Aqml7DaR0aSSrkuFXXZPYf8YiFSNPaKI7s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=eroUWlgUoQRbpFWysapxdXBVoUkOrEQpvFyG9hjANycmYhsy6EjgCPTMWsYIgsASa
+	 Urvby5om/JJ3V/EuSwdyynAGkJg8gO0keisYx0y32L6wLHj8fcyAPoFSduN7CyFUg1
+	 h95354tLRMfOZcuvBSNlsy+u304toTu4ub3uk6tHAH4a9dFcAvz8LN9/6xX8UHgAUy
+	 BBAtpOPvGmXFuX/1R0EPyg/AA5Uurb3MgQalw0yNd1sbnkVgt/lG9dtz6rfZJPbLO8
+	 /lyO/Jpm31W11yxjpijme6/kyUxwLK6ejIh4VQMyKx/aBrbSexfZlRXs24u7FaNWcz
+	 aWDaBHI1/I8xQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1o5O4c-003Af3-TG;
+	Sun, 26 Jun 2022 09:56:55 +0100
+Date: Sun, 26 Jun 2022 09:57:00 +0100
+Message-ID: <87wnd3erab.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Sagar Kadam <sagar.kadam@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-renesas-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>
+Subject: Re: [PATCH v2 2/2] irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
+In-Reply-To: <20220626004326.8548-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20220626004326.8548-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	<20220626004326.8548-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: prabhakar.mahadev-lad.rj@bp.renesas.com, tglx@linutronix.de, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, sagar.kadam@sifive.com, palmer@dabbelt.com, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, geert+renesas@glider.be, linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, prabhakar.csengg@gmail.com, biju.das.jz@bp.renesas.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220626_011212_732198_A6353AEA 
-X-CRM114-Status: UNSURE (   6.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220626_015658_497237_490DF1DF 
+X-CRM114-Status: GOOD (  36.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,21 +91,135 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25.06.2022 10:22, Anup Patel wrote:
-> Clearly, "riscv,timer-always-on" DT property is more appropriate
-> since it describes HW behaviour
+On Sun, 26 Jun 2022 01:43:26 +0100,
+Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
+> 
+> The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
+> NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
+> case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
+> edge until the previous completion message has been received and
+> NCEPLIC100 doesn't support pending interrupt counter, hence losing the
+> interrupts if not acknowledged in time.
+> 
+> So the workaround for edge-triggered interrupts to be handled correctly
+> and without losing is that it needs to be acknowledged first and then
+> handler must be run so that we don't miss on the next edge-triggered
+> interrupt.
+> 
+> This patch adds a new compatible string for Renesas RZ/Five SoC and adds
+> support to change interrupt flow based on the interrupt type. It also
+> implements irq_ack and irq_set_type callbacks.
+> 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> v1->v2:
+> * Implemented IRQ flow as suggested by Marc
+> 
+> RFC-->v1:
+> * Fixed review comments pointed by Geert
+> * Dropped handle_fasteoi_ack_irq support as for the PLIC we need to
+> claim the interrupt by reading the register and then acknowledge it.
+> * Add a new chained handler for RZ/Five SoC.
+> ---
+>  drivers/irqchip/Kconfig           |  1 +
+>  drivers/irqchip/irq-sifive-plic.c | 73 ++++++++++++++++++++++++++++++-
+>  2 files changed, 72 insertions(+), 2 deletions(-)
 
-Well, I think this is fine, I was just worried that this was merged into
-stable kernel without a way to override it yet.
-Hope the "riscv,timer-always-on" hits stable tree as well soon. Thanks.
+[...]
 
-Best regards,
-Eva
+>
+> +static int plic_irq_set_type(struct irq_data *d, unsigned int type)
+> +{
+> +	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> +
+> +	if (handler->priv->of_data != RENESAS_R9A07G043_PLIC)
+> +		return 0;
+> +
+> +	switch (type) {
+> +	case IRQ_TYPE_LEVEL_HIGH:
+> +		irq_set_chip_handler_name_locked(d, &renesas_rzfive_edge_plic_chip,
+> +						 handle_fasteoi_ack_irq,
+> +						 "Edge");
+> +		break;
+> +
+> +	case IRQ_TYPE_EDGE_RISING:
+> +		irq_set_chip_handler_name_locked(d, &plic_chip,
+> +						 handle_fasteoi_irq,
+> +						 "Level");
+> +		break;
+
+Really? Have you even tested this?
+
+> +
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+>  			      irq_hw_number_t hwirq)
+>  {
+> @@ -198,6 +248,19 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+>  	return 0;
+>  }
+>  
+> +static int plic_irq_domain_translate(struct irq_domain *d,
+> +				     struct irq_fwspec *fwspec,
+> +				     unsigned long *hwirq,
+> +				     unsigned int *type)
+> +{
+> +	struct plic_priv *priv = d->host_data;
+> +
+> +	if (priv->of_data == RENESAS_R9A07G043_PLIC)
+> +		return irq_domain_translate_twocell(d, fwspec, hwirq, type);
+> +
+> +	return irq_domain_translate_onecell(d, fwspec, hwirq, type);
+> +}
+> +
+>  static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  				 unsigned int nr_irqs, void *arg)
+>  {
+> @@ -206,7 +269,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  	unsigned int type;
+>  	struct irq_fwspec *fwspec = arg;
+>  
+> -	ret = irq_domain_translate_onecell(domain, fwspec, &hwirq, &type);
+> +	ret = plic_irq_domain_translate(domain, fwspec, &hwirq, &type);
+>  	if (ret)
+>  		return ret;
+>  
+> @@ -220,7 +283,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  }
+>  
+>  static const struct irq_domain_ops plic_irqdomain_ops = {
+> -	.translate	= irq_domain_translate_onecell,
+> +	.translate	= plic_irq_domain_translate,
+>  	.alloc		= plic_irq_domain_alloc,
+>  	.free		= irq_domain_free_irqs_top,
+>  };
+> @@ -293,6 +356,11 @@ static int __init plic_init(struct device_node *node,
+>  	if (!priv)
+>  		return -ENOMEM;
+>  
+> +	if (of_device_is_compatible(node, "renesas,r9a07g043-plic")) {
+> +		priv->of_data = RENESAS_R9A07G043_PLIC;
+> +		plic_chip.name = "Renesas RZ/Five PLIC";
+
+NAK. The irq_chip structure isn't the place for platform marketing.
+This is way too long anyway (and same for the edge version), and you
+even sent me a patch to make that structure const...
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
