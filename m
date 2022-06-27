@@ -4,157 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C79D8C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 26 Jun 2022 20:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E583C43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 04:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=taOnEH5boafkQ1OGU4ZGXT3A+t7x8UDKOw0Ji9FAABU=; b=S9h2lBEaz3fehc
-	4Jw+Zyw57J10NgHBf4Sj0byvVb6SVo8q6dEPj7tT8NsmKP6Hx2fCoxpcGBIxb75bLQ8bzRxo66Lu1
-	+/vKD6TWAbWrxx2zH1vRT1eVFwNoHbleEx8igsoM0vZffFHrbAeWQiFfVODx2VtZ6k7oNgoaLJhqs
-	pbGKYqDmgFXuBA+aJIDWNklhLkebM6vCP2BU6y0am9WErpaGOy6BbXA+Rck/mDgryvpZNFJG8S3km
-	JHAHcXBweSllK9Ct6b6nE1EYQv3TuDewTRgXU7BSV1nqnS9k4L+Ugq9VXrCHJBxHMLP0kY3t9HGEu
-	F3QUnS3WtbITFpYNSfBw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=9nTP2vaSovnTKtVkTMuRFSnP7d6yXH/TGYTDuQ4kbHM=; b=SCfa3n8X8/eOm41V4E8tFrzSjl
+	40mQx/1XHnR+dQJQNrcmoEjj83XWji5P6Ev0/rQ/m0caRBUX1/HOwdfTh6j0gZlw5v9Qi3GKGlYDt
+	btkX/OzYcTPVkDZliGIgC5gI4+HWpeBzpG2rpCwhOJmo4oKggTwryfk3VtIbtgF/Y5aXUEHBqMTc0
+	7UWefSqTANVKRLdfkD0S8sAYcsdSorY5kTtqUWv4dfIWXteq+laq5wSIhlXq5QaqUZ09muoQmlOKR
+	jnlBZRUCwCrB+wwiRzx6L8D/KQazuQ3GsaL2YCXrI1V2mbuBDQ5o8FX/sBEgh1whmOwE3g/u0psv1
+	4V8+Ra9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5ZIl-00DYks-KO; Sun, 26 Jun 2022 20:56:15 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1o5gmt-00FRxF-RU; Mon, 27 Jun 2022 04:55:51 +0000
+Received: from out2-smtp.messagingengine.com ([66.111.4.26])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5ZIh-00DYjZ-Th
-	for linux-riscv@lists.infradead.org; Sun, 26 Jun 2022 20:56:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1656276971; x=1687812971;
-  h=from:to:subject:date:message-id:references:in-reply-to:
-   content-id:content-transfer-encoding:mime-version;
-  bh=24EM5/QQASX2tkebaifTNE0LLLNMFAUIty0PXyNXwSI=;
-  b=P8hYd/TUxRCuTPrM6Hgc/p4HSrdQ8HVVSIN7UOdghpBdjkhzN+rzhR8L
-   u0RUzMO6IVSNsMiStJty2ZQa5QCmbLH3PYnpvEwh+sD3duiaG7NzVOJr3
-   zYvEaNwyC7saScHMtr3/+iCRrxxjzD8ggZsT+ZeWY+e2GvCThTjzr3S/X
-   8AgfG1CK4b4Ptqddqowb8ArF4mLQwsszCwJ4pDlVZwBlfxakLFA9CMiwx
-   5bhFR7igWGJAhuOZ2H53aYY+hJeqUmSw9CgkwBENpQ7R9wb5edmtqxQ12
-   uHU9g8qjx3ALNIcdSKOZ6irNDF78pOgSyT5ffOGvDbVQcmaaoaAwjACRi
-   g==;
-X-IronPort-AV: E=Sophos;i="5.92,224,1650956400"; 
-   d="scan'208";a="101799283"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Jun 2022 13:56:08 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Sun, 26 Jun 2022 13:56:07 -0700
-Received: from NAM04-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Sun, 26 Jun 2022 13:56:07 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=XsVRXB9+LyWFzseUW27ptxXYu2wSscaKczMFbg5GDMVUBDpwoE2+UR2chtqbWN9tMBz5OVcXKiUHmXEa7hrcq2yJTcVsf43DB/3VrHGPD5MjHslKJJrWgYxh0krlFB9fhWnlU6LyT0g3Mbn3McojnqvJ0ppCFkGskfn6bqOR9wlfjnKc4LlAk0OumnglLtmLrgLW1Ri68q4S/0xO24hQlVwauwz/ZliAUCBvscKTW5+rCfFJKC8padFv+Pb7jxnRkjgItsF2dqp5wv6e9fxn5jdE0c/i8Klc8nHdHBDA5gt5rGLIx7qoeSHIq+pq8/iZpoqYRmSMz6JrkpyzFM1REw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=24EM5/QQASX2tkebaifTNE0LLLNMFAUIty0PXyNXwSI=;
- b=MW7cJxR6/xq32oYNRbOF6U5eQzXWtSm9Pal61rDV+C6h06h6mQ5XuMw8dFraViSCdhjZSVfvU1FE+MNQAegKmfseegSxxprzg0mLAINYArD7mi+JWhojo+AmuYrUnKByoFpU5YU4kDKaUoGeHvFBNdPSMXFMMF/y9dXafER/I43+CEoMC4wuDXbuZwJAl2jVdE5LJDMmsXN8tfNPxS0d/P90QECoq5VzsyMkrlDnHrQrEWbXQGJjRJ9RHV/VDE9kPv+JbFDRvvJamASM2KuUhlOjHzvQjO0SBeA8BOS7VpkN+AFPMy7qf99eHKHEz6uAfOEKKNt3hLQJxe1PoH3YKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=24EM5/QQASX2tkebaifTNE0LLLNMFAUIty0PXyNXwSI=;
- b=dNKCIhb6QYExlGBbLz93OL8dIR2KbqYn5Q9l7TZKHfQD5aSEW0oX+v8bdqglINxy7zx5d4BH0Cp43vjcQui38duweWYvNtUPXPuAulEYeiz6ZXsXFTyS79H/cglDhf/U3KYeqy0Av3QJZkH+O5t0gzC0II6tFjTjDWaRhjP/VoA=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by LV2PR11MB6024.namprd11.prod.outlook.com (2603:10b6:408:17a::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5373.18; Sun, 26 Jun
- 2022 20:56:00 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::699b:5c23:de4f:2bfa]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::699b:5c23:de4f:2bfa%4]) with mapi id 15.20.5373.018; Sun, 26 Jun 2022
- 20:56:00 +0000
-From: <Conor.Dooley@microchip.com>
-To: <krzysztof.kozlowski@linaro.org>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] riscv: dts: align gpio-key node names with dtschema
-Thread-Topic: [PATCH] riscv: dts: align gpio-key node names with dtschema
-Thread-Index: AQHYh+0TSEsUfCu3dUCW8EahvV7Amq1iLm0A
-Date: Sun, 26 Jun 2022 20:56:00 +0000
-Message-ID: <daf4a88e-ea33-be74-7e0a-b2ff20ea734f@microchip.com>
-References: <20220624170811.66395-1-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220624170811.66395-1-krzysztof.kozlowski@linaro.org>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 0ffa3a80-7c82-4f65-261b-08da57b6469a
-x-ms-traffictypediagnostic: LV2PR11MB6024:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 9+XjyCBAQKIr0B0nk++klTblKs8nLd4JWKiN8FkM9++Wl86/9qaRYs40BNQ3HsJt5RKoRF81BhtGx1yDPbL9flUx+v0BEacAJcIRbQjqYbZoNpnjeISw3uHvbn3atUuCJQQHp3NZgy2wDZONKhlmXcXpNYjddpWyRSf4yONUqLgKuXtHOhAxENg8fedR/3mI4zzjPJdbBummyKZqL7zi4fNv4XAGSQcy7lE3L/f+HdQHTUt3Yw8L0g6FrogoJU5945tdIGaO460XnOdw5rOW/+FCXJRz9Xgcwso+bQJ6ersVU8PZ1AwFjP37stlTwBs5XuzRLLdupCAbD8ClWqeiTVAq3snozACgnKUdJq7LwE5jgRdyQAUAvXs5t0GGVOJlyjGt0PP6PLcvw+qXRpjxJS4npWwuCplBetphzSEQak+E1Slb2S/nY0MBSBIGrh6P7fAZzoPnndb2WaYmznntlzq3tHnVeDc4edCoVmNB7ZpsrdAQ5Ke7qZxL78cPKp4xMpIFS1EPgusHCe3KxoRPxnOy8QJ9ouh0jpvmcr6mfgIeVTLPsJ+3P2PrDs4lHtMmCg7CPdTmT6XQIQlsuujyq4QEBYXlBBMOPKDG2Jd9K1wf8BBW4hMtq84/Ungki6PxwVzfrftFK+G7Xz8F4Tcf/L8UPeaFIC/4JHJUJhHiLILgLp0evtADvVEu3bZ/HoZz4EdLCwn094D2deUHFl8rEm/Kqe79EWwFvKDfIQSLG9IZKwX5vmL7z+l2ULJuwOEtoxXYuplBtMdCURyH4t2S4aJvf1OM4FDatlxa8ZU6NmQ9126/jVVbz3POLH+ampNLSM0QaoIXZ+6TVzLuKiR+OM4+PQQrec8f8RZlfP2e7iMC1gneqa0yg5kjGZYU0TczgbwPF6jqfc38rlzw7xOrZg==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(396003)(366004)(39850400004)(346002)(136003)(376002)(38070700005)(8936002)(5660300002)(53546011)(26005)(83380400001)(6506007)(6512007)(2906002)(91956017)(41300700001)(66556008)(8676002)(66446008)(76116006)(64756008)(66476007)(66946007)(31696002)(86362001)(6486002)(31686004)(38100700002)(2616005)(966005)(36756003)(71200400001)(122000001)(316002)(110136005)(186003)(478600001)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?amFBenc2NnVuME9mWDhsMkZOblV4cUJZZERyUWVaZk1hZG0wblZtYkFrb1cr?=
- =?utf-8?B?dXhFcVRLRXB6YkREb2tBQnhOUWs3emplbnhVMzN3SmdlZnVrdFpNQUl0UTFs?=
- =?utf-8?B?MjRJZ1Q4endla2VoSE8yWW8rWDBoMEwzNnBvNTZueFkwdlgvV0J2NHlySThW?=
- =?utf-8?B?WjJrbmpOZ2IvYXFuT1gyNjdCMndET0FtSlNKQU94SjZLUFlreUV4Mnp5UktG?=
- =?utf-8?B?bGpURXMxaEM3WDI2ZVo2ZkhiVlQ5V0syald0SUpBaFI4NjVOKy8wY1JRSEw5?=
- =?utf-8?B?TlFYenJJaFhBdHFnb3RKbjlTazZjQzJuaUJnalhwL2pIK0tmRHFzMUdDUHRZ?=
- =?utf-8?B?T0xnUC9FbE5hcXEyN3pJUGtOMkxhMC95VDR0R1FkcGdZL3p2RVNkdnQrQ0kz?=
- =?utf-8?B?eUtNU2ZLK3JLaXJrazJ0N091enZEL0ZOaTdOcnBPS24wenpPYXdsb3BoSUZt?=
- =?utf-8?B?ZlZDN2VHSGNKS2lJWldEOWM2eDVId1pXL1VQVEZLeGovSzdSV2JnT1ZVbFB1?=
- =?utf-8?B?M0h4RmhzdXdVYU0zUjlUZStHTy8rNzliejBvVE5jTEJHZjY3NmNVdDgxZlVZ?=
- =?utf-8?B?NXl4eU5sUFpkUzRqZ0F4RHFuendEY0d3dmpUWlVtS2xPU0pkVXV6RzJVOFNO?=
- =?utf-8?B?NTNtMmt5NW5yTEQraGRiRTRRbnlRZ2lrTXpjWGxoVFJVTWpUY2JMZFFmSk45?=
- =?utf-8?B?aGEwNzJKR2lDK0JHSVJLakhQOFF3Sy9KSGoxYnZKY01SRjllQXZvWEY3dDQ2?=
- =?utf-8?B?ZmorWCt0Q0RjZTFtQUNCUHE0d3Vub3lNbUdsVEY3NDNHcWxEZlhHbkVFU3ds?=
- =?utf-8?B?eGpHNUVCbTE2MUtXeDRqUWVFaWl4Z3Z6a2ZJdE4zTVZMTFVoRVFTQ29zczBO?=
- =?utf-8?B?K25rZlIwUlJhZEU1OWg5UDRNUk1rdHQvNVkzK0xUMG9sTFlydVNaRHlEUmVu?=
- =?utf-8?B?Z1VCTWdMY0orL0xJMG91L0I4LzkvVWtrbDhKMDd5SzUzOHhYemc3THE4alh4?=
- =?utf-8?B?bFYzOXJJSmczdHNQUG05OVdIMllvQmJZWDNkeUR5d1p4R0JTVWV0YnZqcnFw?=
- =?utf-8?B?UFVtSXVZRjJ1R2k2Mjg3WUg5LzlVejRNcE9qWkR2MVlSVFhia1BNZE9mYjdj?=
- =?utf-8?B?dzh1bHJnSEJleG1CemJKaWNrY09tQ1FOWTltRlVUQUcvSDVWbmpYZUs1NzE4?=
- =?utf-8?B?bFQ4cW53RUlhaU04MHNncDdqcHJwMzQwUDFEWTRnTE9xeWRWb2Rid0xzdzY3?=
- =?utf-8?B?NkdtMThDTTZKTzBaWUl3UE84Sm1WaUFBdTlLZytYRXdOQndMNmFyZnlTL25O?=
- =?utf-8?B?aU5zdy8waUNEVGZHeUo3eUliYlZaYzZQcTduWkVnakEweC9GNjFyWDFzb2pU?=
- =?utf-8?B?ekQrbmgvRFg4K2Q4SDhTbkk3emwwUnpGNXh6ZndxclBRVDBWVDE4ZjVpZmdq?=
- =?utf-8?B?SnlaWGo1KzFwc1ZweUdYaEp6RVA5OFNrSGtlaDU5c2RKS2dsdzJSbGlwNGhI?=
- =?utf-8?B?eC9reFM0TkUvd2RQdHE1cGd1SUxzcmZTVzhURkFwcEZMUVlTSnlSRmw0V3dm?=
- =?utf-8?B?YmJrSHRTaVYxdHhBajBVS3lJRWl4ay8vajZEa3NoWjR0dFA0elZyb1VRRTRV?=
- =?utf-8?B?aERtb1lyTGpOOTRLU0tiUlIxVmtNSE1md2l4ZW8yS1llOUNBcXEyanRGRFhE?=
- =?utf-8?B?N1NmOEUrWVZ1S1pnOURVTzBsSG9UNWJFRnk2RUJJUUxwWkFZbk9JSW1qamU5?=
- =?utf-8?B?WElTVWFCUFlqSmdxS3IvUnNjbzBzRGdhUkpTb2k5enRieDlVQVB3UlUvT09s?=
- =?utf-8?B?RVJqRy93bVcwaFB5V0RkNDlsUWdQM2tVSndWaGgybmxHcWFEVWtua2pBWE5w?=
- =?utf-8?B?cE45UExrZzV2WDBzS0NiNDBpeWFiekRBY1JXby9YMzVjZzlpYU1CL1k0dnVM?=
- =?utf-8?B?T29ua3cwcnRURFZiM2ptMVBvaWtHbE9tNjZXWlJXTUtpdm9nNHNETmE4SE1Z?=
- =?utf-8?B?SlluKzhhaGU5dE5nTFZPdFJxQlBCWlVyd1FhWUVjNEhGcy8wdVRmcUZ4dk82?=
- =?utf-8?B?dGNER3d6dW4vaU9UTkF4TCtvU3N4dnNWeWZYck1GRWVVeWw3eTFCNUVqdW5H?=
- =?utf-8?Q?E7HimxDkyPjRxk9+Ya73CxtnJ?=
-Content-ID: <4CD79D64034B4B428C0577BE24689EB3@namprd11.prod.outlook.com>
+	id 1o5gmr-00FRu4-0K
+	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 04:55:51 +0000
+Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
+	by mailout.nyi.internal (Postfix) with ESMTP id 876DF5C019E;
+	Mon, 27 Jun 2022 00:55:40 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+  by compute5.internal (MEProxy); Mon, 27 Jun 2022 00:55:40 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm3; t=1656305740; x=
+	1656392140; bh=6wppfwUXcLefj2IFq/MV1ZMFMdYNVcYa9ZBLVFLqZ6U=; b=O
+	+nRZcs9Xqp+wU+BuiFdA1LD0G0icoTxhBUhY28I38pBZEzaeUckVIVHgXGVWOorp
+	4G2mClP6f/e7+WoTlVPgrvGq3Xh/UzHQAkKCiGsnCh2dhYzmaCcLOqcu6ETwoMI0
+	FuFqbq7bzZyshdxUoxqSPsK0GodpeYjr1qdwCPZvjEvxB168ovlIQW0iIac0dN9y
+	8baO/kujMXADJQanGTxd2EisfPOvweRHBY6o7YT0HT6tS9IE33Ht7JyH4AMgNQKa
+	XODUpzEdRZFv5HZAlXL2vKlDKcXqpI6gSjDlG40wdJUNUFj3FGXZSvkng/+Etl9h
+	7sXkNMJDCP0k2xF2GPmKQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1656305740; x=
+	1656392140; bh=6wppfwUXcLefj2IFq/MV1ZMFMdYNVcYa9ZBLVFLqZ6U=; b=h
+	LjVUnNm8xSuwo3w54ezfmMCyGbDRmlsExtStsLC3ZuJA4vBh2OVmRejHaqun/EAs
+	rB3zHC+nuk91LAV8xo8RlzSIqopGr1/yIN/R3Apdiv+/uEz1wpTuYmLLX5FgCQVP
+	NxduffUvpV37ankQQsrUEIyxy60pWK7SnIOQEaR+3VgYniJsUkFS0l57y43o0n3j
+	LBRKhB67zpSVKmJe6HygV4gKh6SrnqnpoQmlP3KSf6z4UMOoi/kWPQ863ikzXQ+S
+	2h40L4O6BytxfsVQpU5v7aTLfgRMTCKFbH+Iq6yNnuUEfwOLPABifBYPWUperDFk
+	p+ai52kwm6ohHWshv7kOg==
+X-ME-Sender: <xms:Szi5YtygINEKEFfEu3u3XY3Yw-Lun51HyPxcsKxF5cT9VACkdkYrFQ>
+    <xme:Szi5YtRBMLYvsNvLep_C9ZqVKGN_Slcg0zTYjMlJ59V2QYAPmgl7ctfj7zWZ9uGlJ
+    JZZhq6HxkY2dALMew>
+X-ME-Received: <xmr:Szi5YnXXgGx0Zwy0uFdnQWrWwIOdLqA6-whjFmaXnhJqeIKeCW2YRvO_Fe11_3KOo2plEtYjzBmuYDdt2FfAqTYY72Ga1W2CE-W7aYAUe75SCQt7ymkmTvKX3g>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudeggedgkeehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepuffvvehfhffkffgfgggjtgfgsehtjeertddtfeejnecuhfhrohhmpefurghm
+    uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
+    ggtffrrghtthgvrhhnpeeitedvhfejhfdvjefggeeutdegteejfffgvedtjedukefgueek
+    tddtvdegfedtgfenucffohhmrghinhepghhithhhuhgsrdgtohhmnecuvehluhhsthgvrh
+    fuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhholhhl
+    rghnugdrohhrgh
+X-ME-Proxy: <xmx:Szi5YvhGLk_W4nUwJUizvwxPhQcqn-NoaOEln-Cemz9fjXOLW-78GQ>
+    <xmx:Szi5YvDLWgOMv0CYYbbWqCKSZQOcJE-8RN1-fmmD-2SQxfCBF3mPIQ>
+    <xmx:Szi5YoIRCaMxlQUENFg1aYCqGWfnRPVtMrurFH3G_el9MLwIdJHawA>
+    <xmx:TDi5YvyL_nVWkUpIqG_R2cfewMRbJFe8EC5aGt1oKorinz6LagOnRQ>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 27 Jun 2022 00:55:38 -0400 (EDT)
+Subject: Re: [PATCH v2 2/2] irqchip/sifive-plic: Add support for Renesas
+ RZ/Five SoC
+To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Sagar Kadam <sagar.kadam@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
+ linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Prabhakar <prabhakar.csengg@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>
+References: <20220626004326.8548-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20220626004326.8548-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Samuel Holland <samuel@sholland.org>
+Message-ID: <9c0e2b5f-c8ce-aba9-8b2b-6d79f9624a7f@sholland.org>
+Date: Sun, 26 Jun 2022 23:55:37 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ffa3a80-7c82-4f65-261b-08da57b6469a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Jun 2022 20:56:00.5893
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: xgjYhSMJcHyvoXqqYaKgJg3O9vHykxrdG7/kd/npxy9iLqgYukrEohMY2YzG2oDmmXE80v08H+dvr1MDAKJ2oWeKEVE50Pacmya3W0IVuwM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR11MB6024
+In-Reply-To: <20220626004326.8548-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220626_135612_315251_941D8EE5 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20220626_215549_180721_3ACFF574 
+X-CRM114-Status: GOOD (  45.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,112 +116,248 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Marc, Prabhakar,
 
+On 6/25/22 7:43 PM, Lad Prabhakar wrote:
+> The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
+> NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
+> case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
+> edge until the previous completion message has been received and
+> NCEPLIC100 doesn't support pending interrupt counter, hence losing the
+> interrupts if not acknowledged in time.
 
-On 24/06/2022 18:08, Krzysztof Kozlowski wrote:
-> The node names should be generic and DT schema expects certain pattern
-> (e.g. with key/button/switch).
+Looking at its HDL[1], I realized the T-HEAD C9xx PLIC has the same issue. Its
+pending transitions simplify to:
+
+always @(posedge clock)
+begin
+  if (hreg_int_claim_kid_x)
+    int_pending <= 1'b0;
+  else if (
+    // The input level is currently high
+    int_vld &&
+    // Either this is a rising edge,
+    // or a level interrupt is being completed this clock cycle
+    (!int_vld_ff || (!pad_plic_int_cfg_x && hreg_int_complete_kid_x)) &&
+    // Either the interrupt is not currently being handled,
+    // or it is being completed this clock cycle
+    (!int_active || hreg_int_complete_kid_x)
+  )
+    int_pending <= 1'b1;
+end
+
+So an interrupt will never go pending while it is active. (And the hardware's
+"level" mode does not clear the pending state when the IRQ is deasserted, but
+that is a more minor issue.)
+
+I am about to send a series implementing this fix for the C9xx PLIC as found in
+the Allwinner D1, crediting you on the driver change -- hopefully that is okay
+with you. I tried to make it easy for you to rebase your series on top. And I
+think all of the comments should be resolved, including a couple of things
+brought up below.
+
+Regards,
+Samuel
+
+[1]:
+https://github.com/T-head-Semi/openc906/blob/main/C906_RTL_FACTORY/gen_rtl/plic/rtl/plic_int_kid.v
+
+> So the workaround for edge-triggered interrupts to be handled correctly
+> and without losing is that it needs to be acknowledged first and then
+> handler must be run so that we don't miss on the next edge-triggered
+> interrupt.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-Are you planning to change them all & then change the pattern
-property to complain if "key" is missing?
-Thanks,
-Conor.
-
+> This patch adds a new compatible string for Renesas RZ/Five SoC and adds
+> support to change interrupt flow based on the interrupt type. It also
+> implements irq_ack and irq_set_type callbacks.
 > 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > ---
+> v1->v2:
+> * Implemented IRQ flow as suggested by Marc
 > 
-> See: https://lore.kernel.org/all/20220616005224.18391-1-krzysztof.kozlowski@linaro.org/
+> RFC-->v1:
+> * Fixed review comments pointed by Geert
+> * Dropped handle_fasteoi_ack_irq support as for the PLIC we need to
+> claim the interrupt by reading the register and then acknowledge it.
+> * Add a new chained handler for RZ/Five SoC.
 > ---
->  arch/riscv/boot/dts/canaan/canaan_kd233.dts     | 2 +-
->  arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts  | 2 +-
->  arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts | 2 +-
->  arch/riscv/boot/dts/canaan/sipeed_maix_go.dts   | 6 +++---
->  arch/riscv/boot/dts/canaan/sipeed_maixduino.dts | 2 +-
->  5 files changed, 7 insertions(+), 7 deletions(-)
+>  drivers/irqchip/Kconfig           |  1 +
+>  drivers/irqchip/irq-sifive-plic.c | 73 ++++++++++++++++++++++++++++++-
+>  2 files changed, 72 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/riscv/boot/dts/canaan/canaan_kd233.dts b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-> index 039b92abf046..f72540bd14a3 100644
-> --- a/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-> +++ b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-> @@ -35,7 +35,7 @@ led1 {
->  	gpio-keys {
->  		compatible = "gpio-keys";
+> diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+> index 4ab1038b5482..0245dcabe3e9 100644
+> --- a/drivers/irqchip/Kconfig
+> +++ b/drivers/irqchip/Kconfig
+> @@ -530,6 +530,7 @@ config SIFIVE_PLIC
+>  	bool "SiFive Platform-Level Interrupt Controller"
+>  	depends on RISCV
+>  	select IRQ_DOMAIN_HIERARCHY
+> +	select IRQ_FASTEOI_HIERARCHY_HANDLERS
+>  	help
+>  	   This enables support for the PLIC chip found in SiFive (and
+>  	   potentially other) RISC-V systems.  The PLIC controls devices
+> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
+> index bb87e4c3b88e..9fb9f62afb6a 100644
+> --- a/drivers/irqchip/irq-sifive-plic.c
+> +++ b/drivers/irqchip/irq-sifive-plic.c
+> @@ -60,10 +60,13 @@
+>  #define	PLIC_DISABLE_THRESHOLD		0x7
+>  #define	PLIC_ENABLE_THRESHOLD		0
 >  
-> -		key0 {
-> +		key {
->  			label = "KEY0";
->  			linux,code = <BTN_0>;
->  			gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
-> index b9e30df127fe..8abdbe26a1d0 100644
-> --- a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
-> +++ b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
-> @@ -47,7 +47,7 @@ led2 {
->  	gpio-keys {
->  		compatible = "gpio-keys";
+> +#define RENESAS_R9A07G043_PLIC		1
+> +
+>  struct plic_priv {
+>  	struct cpumask lmask;
+>  	struct irq_domain *irqdomain;
+>  	void __iomem *regs;
+> +	u8 of_data;
+>  };
 >  
-> -		boot {
-> +		key-boot {
->  			label = "BOOT";
->  			linux,code = <BTN_0>;
->  			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
-> index 8d23401b0bbb..3c6df1ecf76f 100644
-> --- a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
-> +++ b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
-> @@ -52,7 +52,7 @@ led2 {
->  	gpio-keys {
->  		compatible = "gpio-keys";
+>  struct plic_handler {
+> @@ -81,6 +84,8 @@ static int plic_parent_irq __ro_after_init;
+>  static bool plic_cpuhp_setup_done __ro_after_init;
+>  static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
 >  
-> -		boot {
-> +		key-boot {
->  			label = "BOOT";
->  			linux,code = <BTN_0>;
->  			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
-> index 24fd83b43d9d..03c9843d503e 100644
-> --- a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
-> +++ b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
-> @@ -46,19 +46,19 @@ led2 {
->  	gpio-keys {
->  		compatible = "gpio-keys";
+> +static int plic_irq_set_type(struct irq_data *d, unsigned int type);
+> +
+>  static void __plic_toggle(void __iomem *enable_base, int hwirq, int enable)
+>  {
+>  	u32 __iomem *reg = enable_base + (hwirq / 32) * sizeof(u32);
+> @@ -176,16 +181,61 @@ static void plic_irq_eoi(struct irq_data *d)
+>  	}
+>  }
 >  
-> -		up {
-> +		key-up {
->  			label = "UP";
->  			linux,code = <BTN_1>;
->  			gpios = <&gpio1_0 7 GPIO_ACTIVE_LOW>;
->  		};
+> +static void renesas_rzfive_plic_edge_irq_eoi(struct irq_data *data)
+> +{
+> +	/* We have nothing to do here */
+> +}
+> +
+>  static struct irq_chip plic_chip = {
+>  	.name		= "SiFive PLIC",
+>  	.irq_mask	= plic_irq_mask,
+>  	.irq_unmask	= plic_irq_unmask,
+>  	.irq_eoi	= plic_irq_eoi,
+> +	.irq_set_type	= plic_irq_set_type,
+> +#ifdef CONFIG_SMP
+> +	.irq_set_affinity = plic_set_affinity,
+> +#endif
+> +};
+> +
+> +static struct irq_chip renesas_rzfive_edge_plic_chip = {
+> +	.name		= "Renesas RZ/Five PLIC",
+> +	.irq_mask	= plic_irq_mask,
+> +	.irq_unmask	= plic_irq_unmask,
+> +	.irq_ack	= plic_irq_eoi,
+> +	.irq_eoi	= renesas_rzfive_plic_edge_irq_eoi,
+> +	.irq_set_type	= plic_irq_set_type,
+>  #ifdef CONFIG_SMP
+>  	.irq_set_affinity = plic_set_affinity,
+>  #endif
+>  };
 >  
-> -		press {
-> +		key-press {
->  			label = "PRESS";
->  			linux,code = <BTN_0>;
->  			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
->  		};
+> +static int plic_irq_set_type(struct irq_data *d, unsigned int type)
+> +{
+> +	struct plic_handler *handler = this_cpu_ptr(&plic_handlers);
+> +
+> +	if (handler->priv->of_data != RENESAS_R9A07G043_PLIC)
+> +		return 0;
+> +
+> +	switch (type) {
+> +	case IRQ_TYPE_LEVEL_HIGH:
+> +		irq_set_chip_handler_name_locked(d, &renesas_rzfive_edge_plic_chip,
+> +						 handle_fasteoi_ack_irq,
+> +						 "Edge");
+
+This has a problem: for handle_fasteoi_ack_irq, in the !irq_may_run path, only
+.irq_eoi gets called, so the interrupt never gets "completed" (EOI'd).
+
+It looks to me like handle_edge_irq is the right flow to use here, since it
+unconditionally calls .irq_ack (either on its own or as part of of mask_ack_irq).
+
+> +		break;
+> +
+> +	case IRQ_TYPE_EDGE_RISING:
+> +		irq_set_chip_handler_name_locked(d, &plic_chip,
+> +						 handle_fasteoi_irq,
+> +						 "Level");
+> +		break;
+> +
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+>  			      irq_hw_number_t hwirq)
+>  {
+> @@ -198,6 +248,19 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
+>  	return 0;
+>  }
 >  
-> -		down {
-> +		key-down {
->  			label = "DOWN";
->  			linux,code = <BTN_2>;
->  			gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-> index 25341f38292a..7164ad063178 100644
-> --- a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-> +++ b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-> @@ -23,7 +23,7 @@ chosen {
->  	gpio-keys {
->  		compatible = "gpio-keys";
+> +static int plic_irq_domain_translate(struct irq_domain *d,
+> +				     struct irq_fwspec *fwspec,
+> +				     unsigned long *hwirq,
+> +				     unsigned int *type)
+> +{
+> +	struct plic_priv *priv = d->host_data;
+> +
+> +	if (priv->of_data == RENESAS_R9A07G043_PLIC)
+> +		return irq_domain_translate_twocell(d, fwspec, hwirq, type);
+> +
+> +	return irq_domain_translate_onecell(d, fwspec, hwirq, type);
+> +}
+> +
+>  static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  				 unsigned int nr_irqs, void *arg)
+>  {
+> @@ -206,7 +269,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  	unsigned int type;
+>  	struct irq_fwspec *fwspec = arg;
 >  
-> -		boot {
-> +		key-boot {
->  			label = "BOOT";
->  			linux,code = <BTN_0>;
->  			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
+> -	ret = irq_domain_translate_onecell(domain, fwspec, &hwirq, &type);
+> +	ret = plic_irq_domain_translate(domain, fwspec, &hwirq, &type);
+>  	if (ret)
+>  		return ret;
+>  
+> @@ -220,7 +283,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
+>  }
+>  
+>  static const struct irq_domain_ops plic_irqdomain_ops = {
+> -	.translate	= irq_domain_translate_onecell,
+> +	.translate	= plic_irq_domain_translate,
+>  	.alloc		= plic_irq_domain_alloc,
+>  	.free		= irq_domain_free_irqs_top,
+>  };
+> @@ -293,6 +356,11 @@ static int __init plic_init(struct device_node *node,
+>  	if (!priv)
+>  		return -ENOMEM;
+>  
+> +	if (of_device_is_compatible(node, "renesas,r9a07g043-plic")) {
+> +		priv->of_data = RENESAS_R9A07G043_PLIC;
+
+This really should be a feature flag, passed in to plic_init, so it can be
+enabled for whichever variants need it.
+
+> +		plic_chip.name = "Renesas RZ/Five PLIC";
+> +	}
+> +
+>  	priv->regs = of_iomap(node, 0);
+>  	if (WARN_ON(!priv->regs)) {
+>  		error = -EIO;
+> @@ -411,5 +479,6 @@ static int __init plic_init(struct device_node *node,
+>  }
+>  
+>  IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
+> +IRQCHIP_DECLARE(renesas_r9a07g043_plic, "renesas,r9a07g043-plic", plic_init);
+>  IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
+>  IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init); /* for firmware driver */
+> 
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
