@@ -4,68 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D6FC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 17:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 587CCC43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 17:15:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gJpJhOt6ruEg/QbwTJQvgcgvZ+eMIjWXyl6416YXWto=; b=TKACz5j6hFcNkp
-	FX3QFNjzqRyR1cLNnlc9zulq0J0gQ+KV9O/Izg+/9UWSw4vOaPue+tDjgUZY5gXpazHifkQatpEz8
-	W/bXGc1FpBs/xHnUHZ2L59FDnUrlSbPppKKBES3b0q4KIIIyUxjHeMxllnei6GWWm9Pyk6SNk04ZQ
-	WdD0x7cS6MSJFTUAHW6Fw+ZUmejJiuzWgaYIQ+mXLdo6rr7tTr+zAxJIT44riYlqr9MopA93htazz
-	J52RGsAoNLvgp2Y8i4rLo3xvXyNIYk0rVJ/WviTKfPyPZ0CVRyzXvUIVTsHdmirqZ6kAMs4EpNjXV
-	SftXE+TtNoHu14KareIQ==;
+	List-Owner; bh=ekLGu6YKPSiqf624kSpPGGiwfroMTHd99E+jLlKRRz0=; b=e1Kzrc19iUwjCM
+	YcgZ6AJad9hSpknFqnG7OaaN5KRR0t8/LGKpWUCHsItNdvitGdCztGIqXI726xxRhm6W08eA5krwA
+	2+B4iuLkTCLlUrYsWnss6nhzc0mdcNaKgcY84lAk0PpDiZnn0OChCWRgtG5mLjqP0/arVsXf5bz7M
+	AWgAR9pLvpNmwXILoXEh7zcS7NhF/a4J7gsU8htjYZtCyupFTMCoIY0iXtuxoHusZoH5tLnexk1ol
+	1ihiDgWitaoV2z/BQGXChjqgw+garAHdw5IKhk22wsHgQbzLC+pYZ45rLFkA2jC+zx3E/oxQnP7fD
+	hk8WaW8Gm3Bk6LSBOaZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5sKR-0026ve-1O; Mon, 27 Jun 2022 17:15:15 +0000
-Received: from mail-io1-f42.google.com ([209.85.166.42])
+	id 1o5sKp-00276a-MY; Mon, 27 Jun 2022 17:15:39 +0000
+Received: from mailrelay4-1.pub.mailoutpod1-cph3.one.com ([46.30.210.185])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5sKJ-0026nQ-3t
-	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 17:15:12 +0000
-Received: by mail-io1-f42.google.com with SMTP id r133so10267207iod.3
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Jun 2022 10:15:04 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to;
-        bh=An//ZVIBHusXq7ojPg64QggrwNUop5VEk57ILCBBv0U=;
-        b=V5fWk+EkvYjPFCUeuQ8bbExe7BCamWvp6cArP367Wo8U0sFjl8QVatGH7pqnufZLUN
-         XhB/65hT1WgoWF9wHY+Xp+QjCYUUnNozNqchDBAuwJZhAvj9JOTmYysQ2BBJ7vj7SoFq
-         kXuObmIezbd0d869ZtpT8hjkghxS073UZNRZwWgiDj1xTAPKUnQTIxaakEDLLkgY6u5h
-         QWsCBdcVHBN63mktsRcZK8+Za9IvRWONSDjQDK4sJ82l5f3wdMu/KcC6r42oIZDFIz3U
-         NAlwhMXPjuHbBZ90TFNETCRYA20s5xNfZOjbaSxlhU5xabscJ1wYEr08LvBSyChp5Bb+
-         K4vA==
-X-Gm-Message-State: AJIora9NpId2umsKmV4P5Gwycg37i/5/JIBmQ/0vRrXNmO5w1Zjy1SFv
-	GmlS1sttESzsYcUnqLPH2w==
-X-Google-Smtp-Source: AGRyM1trlOnex3HcAYrl5SVQu6l8zcvR+jlYFtBQiWM5jDgBNdFpV78MBBeicB8VYl+Oe0sIBxfwBA==
-X-Received: by 2002:a05:6638:3387:b0:33c:9f9e:5a17 with SMTP id h7-20020a056638338700b0033c9f9e5a17mr2713672jav.12.1656350104060;
-        Mon, 27 Jun 2022 10:15:04 -0700 (PDT)
-Received: from robh.at.kernel.org ([64.188.179.253])
-        by smtp.gmail.com with ESMTPSA id a23-20020a056638059700b003320e4b5bb7sm5118946jar.57.2022.06.27.10.15.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jun 2022 10:15:03 -0700 (PDT)
-Received: (nullmailer pid 2608313 invoked by uid 1000);
-	Mon, 27 Jun 2022 17:15:00 -0000
-Date: Mon, 27 Jun 2022 11:15:00 -0600
-From: Rob Herring <robh@kernel.org>
-To: Conor.Dooley@microchip.com
-Cc: fancer.lancer@gmail.com, mail@conchuod.ie, airlied@linux.ie, daniel@ffwll.ch, krzysztof.kozlowski+dt@linaro.org, thierry.reding@gmail.com, sam@ravnborg.org, Eugeniy.Paltsev@synopsys.com, vkoul@kernel.org, lgirdwood@gmail.com, broonie@kernel.org, daniel.lezcano@linaro.org, palmer@dabbelt.com, palmer@rivosinc.com, tglx@linutronix.de, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, masahiroy@kernel.org, damien.lemoal@opensource.wdc.com, geert@linux-m68k.org, niklas.cassel@wdc.com, dillon.minfei@gmail.com, jee.heng.sia@intel.com, joabreu@synopsys.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, alsa-devel@alsa-project.org, linux-spi@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 06/14] spi: dt-bindings: dw-apb-ssi: update
- spi-{r,t}x-bus-width for dwc-ssi
-Message-ID: <20220627171500.GA2600685-robh@kernel.org>
-References: <20220618123035.563070-1-mail@conchuod.ie>
- <20220618123035.563070-7-mail@conchuod.ie>
- <20220620205654.g7fyipwytbww5757@mobilestation>
- <61b0fb86-078d-0262-b142-df2984ce0f97@microchip.com>
+	id 1o5sKL-0026lD-4w
+	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 17:15:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=ravnborg.org; s=rsa1;
+	h=in-reply-to:content-type:mime-version:references:message-id:subject:cc:to:
+	 from:date:from;
+	bh=7lcoTIguoCU25UtATqw0zpenNexDp4klBKBcas47lUI=;
+	b=DnMKzuyWChdqVj0eyu9qk+S12hDc5E1lpoUVu+RwnrA66JDBO9VVaJjjgy7iZh0CwjBX0Tb2UW9eA
+	 IDL3blt0HWe+7nCJ6LBbtgtWCdYTIJf7JxMi5tEKyk04dMJhxQKgJhN19n7gZmip7ExOCH60av6Zc+
+	 fpOnPKVrkcE6dB7IpmBBA5V/48B5nOCXs0dWxrIHUJoi6B5gDTxnps7C32yW7RQiRmwMZofOskZtJ1
+	 g5yggk+VyjJho8A1QsSz/r/K9taqv0SWrqNZr//W7DugrtnSjHFKtDOi/ahsacud1GZwml0SRslSij
+	 +WBGlPijIt3aAxUmrpMXX3P747L7FOQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed;
+	d=ravnborg.org; s=ed1;
+	h=in-reply-to:content-type:mime-version:references:message-id:subject:cc:to:
+	 from:date:from;
+	bh=7lcoTIguoCU25UtATqw0zpenNexDp4klBKBcas47lUI=;
+	b=0c4FfNqt1mwTyFHOd20j3eJXx+yZAcz5xOVj+2VVBhkRNfl+lcYaMnmV/txPP7q97nUwiERp2Rz/D
+	 LTtF3EvDA==
+X-HalOne-Cookie: be347a0a6f76c63821867329f3b288b192d004df
+X-HalOne-ID: ab689703-f63c-11ec-8236-d0431ea8bb10
+Received: from mailproxy2.cst.dirpod3-cph3.one.com (80-162-45-141-cable.dk.customer.tdc.net [80.162.45.141])
+	by mailrelay4.pub.mailoutpod1-cph3.one.com (Halon) with ESMTPSA
+	id ab689703-f63c-11ec-8236-d0431ea8bb10;
+	Mon, 27 Jun 2022 17:14:58 +0000 (UTC)
+Date: Mon, 27 Jun 2022 19:14:56 +0200
+From: Sam Ravnborg <sam@ravnborg.org>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-mm@kvack.org, hch@infradead.org, christophe.leroy@csgroup.eu,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+	x86@kernel.org, openrisc@lists.librecores.org,
+	linux-xtensa@linux-xtensa.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linux-alpha@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-ia64@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-um@lists.infradead.org,
+	linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>
+Subject: Re: [PATCH V5 04/26] sparc/mm: Move protection_map[] inside the
+ platform
+Message-ID: <YrnlkLbyYSbI0EQw@ravnborg.org>
+References: <20220627045833.1590055-1-anshuman.khandual@arm.com>
+ <20220627045833.1590055-5-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <61b0fb86-078d-0262-b142-df2984ce0f97@microchip.com>
+In-Reply-To: <20220627045833.1590055-5-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220627_101507_224628_8F291744 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20220627_101509_543494_5B3D90B5 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,87 +91,155 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 20, 2022 at 09:06:34PM +0000, Conor.Dooley@microchip.com wrote:
-> On 20/06/2022 21:56, Serge Semin wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> > 
-> > On Sat, Jun 18, 2022 at 01:30:28PM +0100, Conor Dooley wrote:
-> >> From: Conor Dooley <conor.dooley@microchip.com>
-> >>
-> >> snps,dwc-ssi-1.01a has a single user - the Canaan k210, which uses a
-> >> width of 4 for spi-{r,t}x-bus-width. Update the binding to reflect
-> >> this.
-> >>
-> >> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> >> ---
-> >>  .../bindings/spi/snps,dw-apb-ssi.yaml         | 48 ++++++++++++++-----
-> >>  1 file changed, 35 insertions(+), 13 deletions(-)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-> >> index e25d44c218f2..f2b9e3f062cd 100644
-> >> --- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-> >> +++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-> >> @@ -135,19 +135,41 @@ properties:
-> >>        of the designware controller, and the upper limit is also subject to
-> >>        controller configuration.
-> >>
-> >> -patternProperties:
-> >> -  "^.*@[0-9a-f]+$":
-> >> -    type: object
-> >> -    properties:
-> >> -      reg:
-> >> -        minimum: 0
-> >> -        maximum: 3
-> >> -
-> >> -      spi-rx-bus-width:
-> >> -        const: 1
-> >> -
-> >> -      spi-tx-bus-width:
-> >> -        const: 1
-> >> +if:
-> >> +  properties:
-> >> +    compatible:
-> >> +      contains:
-> >> +        const: snps,dwc-ssi-1.01a
-> >> +
-> >> +then:
-> >> +  patternProperties:
-> >> +    "^.*@[0-9a-f]+$":
-> >> +      type: object
-> >> +      properties:
-> >> +        reg:
-> >> +          minimum: 0
-> >> +          maximum: 3
-> >> +
-> >> +        spi-rx-bus-width:
-> >> +          const: 4
-> >> +
-> >> +        spi-tx-bus-width:
-> >> +          const: 4
-> >> +
-> >> +else:
-> >> +  patternProperties:
-> >> +    "^.*@[0-9a-f]+$":
-> >> +      type: object
-> >> +      properties:
-> >> +        reg:
-> >> +          minimum: 0
-> >> +          maximum: 3
-> >> +
-> >> +        spi-rx-bus-width:
-> >> +          const: 1
-> >> +
-> >> +        spi-tx-bus-width:
-> >> +          const: 1
-> > 
-> > You can just use a more relaxed constraint "enum: [1 2 4 8]" here
+Hi Anshuman,
+
+On Mon, Jun 27, 2022 at 10:28:11AM +0530, Anshuman Khandual wrote:
+> This moves protection_map[] inside the platform and while here, also enable
+> ARCH_HAS_VM_GET_PAGE_PROT on 32 bit platforms via DECLARE_VM_GET_PAGE_PROT.
 > 
-> 8 too? sure.
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: sparclinux@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  arch/sparc/Kconfig                  |  2 +-
+>  arch/sparc/include/asm/pgtable_32.h | 19 -------------------
+>  arch/sparc/include/asm/pgtable_64.h | 19 -------------------
+>  arch/sparc/mm/init_32.c             | 20 ++++++++++++++++++++
+>  arch/sparc/mm/init_64.c             |  3 +++
+>  5 files changed, 24 insertions(+), 39 deletions(-)
+> 
+> diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
+> index ba449c47effd..09f868613a4d 100644
+> --- a/arch/sparc/Kconfig
+> +++ b/arch/sparc/Kconfig
+> @@ -13,6 +13,7 @@ config 64BIT
+>  config SPARC
+>  	bool
+>  	default y
+> +	select ARCH_HAS_VM_GET_PAGE_PROT
+>  	select ARCH_MIGHT_HAVE_PC_PARPORT if SPARC64 && PCI
+>  	select ARCH_MIGHT_HAVE_PC_SERIO
+>  	select DMA_OPS
+> @@ -84,7 +85,6 @@ config SPARC64
+>  	select PERF_USE_VMALLOC
+>  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
+>  	select HAVE_C_RECORDMCOUNT
+> -	select ARCH_HAS_VM_GET_PAGE_PROT
+>  	select HAVE_ARCH_AUDITSYSCALL
+>  	select ARCH_SUPPORTS_ATOMIC_RMW
+>  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC
+> diff --git a/arch/sparc/include/asm/pgtable_32.h b/arch/sparc/include/asm/pgtable_32.h
+> index 4866625da314..8ff549004fac 100644
+> --- a/arch/sparc/include/asm/pgtable_32.h
+> +++ b/arch/sparc/include/asm/pgtable_32.h
+> @@ -64,25 +64,6 @@ void paging_init(void);
+>  
+>  extern unsigned long ptr_in_current_pgd;
+>  
+> -/*         xwr */
+> -#define __P000  PAGE_NONE
+> -#define __P001  PAGE_READONLY
+> -#define __P010  PAGE_COPY
+> -#define __P011  PAGE_COPY
+> -#define __P100  PAGE_READONLY
+> -#define __P101  PAGE_READONLY
+> -#define __P110  PAGE_COPY
+> -#define __P111  PAGE_COPY
+> -
+> -#define __S000	PAGE_NONE
+> -#define __S001	PAGE_READONLY
+> -#define __S010	PAGE_SHARED
+> -#define __S011	PAGE_SHARED
+> -#define __S100	PAGE_READONLY
+> -#define __S101	PAGE_READONLY
+> -#define __S110	PAGE_SHARED
+> -#define __S111	PAGE_SHARED
+> -
+>  /* First physical page can be anywhere, the following is needed so that
+>   * va-->pa and vice versa conversions work properly without performance
+>   * hit for all __pa()/__va() operations.
+> diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
+> index 4679e45c8348..a779418ceba9 100644
+> --- a/arch/sparc/include/asm/pgtable_64.h
+> +++ b/arch/sparc/include/asm/pgtable_64.h
+> @@ -187,25 +187,6 @@ bool kern_addr_valid(unsigned long addr);
+>  #define _PAGE_SZHUGE_4U	_PAGE_SZ4MB_4U
+>  #define _PAGE_SZHUGE_4V	_PAGE_SZ4MB_4V
+>  
+> -/* These are actually filled in at boot time by sun4{u,v}_pgprot_init() */
+> -#define __P000	__pgprot(0)
+> -#define __P001	__pgprot(0)
+> -#define __P010	__pgprot(0)
+> -#define __P011	__pgprot(0)
+> -#define __P100	__pgprot(0)
+> -#define __P101	__pgprot(0)
+> -#define __P110	__pgprot(0)
+> -#define __P111	__pgprot(0)
+> -
+> -#define __S000	__pgprot(0)
+> -#define __S001	__pgprot(0)
+> -#define __S010	__pgprot(0)
+> -#define __S011	__pgprot(0)
+> -#define __S100	__pgprot(0)
+> -#define __S101	__pgprot(0)
+> -#define __S110	__pgprot(0)
+> -#define __S111	__pgprot(0)
+> -
+>  #ifndef __ASSEMBLY__
+>  
+>  pte_t mk_pte_io(unsigned long, pgprot_t, int, unsigned long);
+> diff --git a/arch/sparc/mm/init_32.c b/arch/sparc/mm/init_32.c
+> index 1e9f577f084d..8693e4e28b86 100644
+> --- a/arch/sparc/mm/init_32.c
+> +++ b/arch/sparc/mm/init_32.c
+> @@ -302,3 +302,23 @@ void sparc_flush_page_to_ram(struct page *page)
+>  		__flush_page_to_ram(vaddr);
+>  }
+>  EXPORT_SYMBOL(sparc_flush_page_to_ram);
+> +
+> +static pgprot_t protection_map[16] __ro_after_init = {
+This can be const - like done for powerpc and others.
+sparc32 and sparc64 uses each their own - and I do not see sparc32 do
+any modifications to protection_map.
 
-Then no constraints needed because the common definition already has 
-this presumably.
+With this change:
+Reviewed-by: Sam Ravnborg <sam@ravnborg.org>
 
-Rob
+> +	[VM_NONE]					= PAGE_NONE,
+> +	[VM_READ]					= PAGE_READONLY,
+> +	[VM_WRITE]					= PAGE_COPY,
+> +	[VM_WRITE | VM_READ]				= PAGE_COPY,
+> +	[VM_EXEC]					= PAGE_READONLY,
+> +	[VM_EXEC | VM_READ]				= PAGE_READONLY,
+> +	[VM_EXEC | VM_WRITE]				= PAGE_COPY,
+> +	[VM_EXEC | VM_WRITE | VM_READ]			= PAGE_COPY,
+> +	[VM_SHARED]					= PAGE_NONE,
+> +	[VM_SHARED | VM_READ]				= PAGE_READONLY,
+> +	[VM_SHARED | VM_WRITE]				= PAGE_SHARED,
+> +	[VM_SHARED | VM_WRITE | VM_READ]		= PAGE_SHARED,
+> +	[VM_SHARED | VM_EXEC]				= PAGE_READONLY,
+> +	[VM_SHARED | VM_EXEC | VM_READ]			= PAGE_READONLY,
+> +	[VM_SHARED | VM_EXEC | VM_WRITE]		= PAGE_SHARED,
+> +	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= PAGE_SHARED
+> +};
+> +DECLARE_VM_GET_PAGE_PROT
+> diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
+> index f6174df2d5af..d6faee23c77d 100644
+> --- a/arch/sparc/mm/init_64.c
+> +++ b/arch/sparc/mm/init_64.c
+> @@ -2634,6 +2634,9 @@ void vmemmap_free(unsigned long start, unsigned long end,
+>  }
+>  #endif /* CONFIG_SPARSEMEM_VMEMMAP */
+>  
+> +/* These are actually filled in at boot time by sun4{u,v}_pgprot_init() */
+> +static pgprot_t protection_map[16] __ro_after_init;
+> +
+>  static void prot_init_common(unsigned long page_none,
+>  			     unsigned long page_shared,
+>  			     unsigned long page_copy,
+> -- 
+> 2.25.1
 
 _______________________________________________
 linux-riscv mailing list
