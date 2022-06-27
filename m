@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4555C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 23:17:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF281C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 23:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h2zDcAnlCsByfc8JYPkpZnQVtctw1GpnKCnS3Wz3SFM=; b=iSFQv8HA1ECI5D
-	MMGHxW3gmVOIUPEAeLExIXYuw5eBwlykV5uEucRHPRMU+kYrClBy+kchen5LOW+7zV4xus3VDTzaw
-	koEDPAczLuXLZADjoEnZkpn8y7fxV708YjfWFSD772rieiuA7HHCjlIkistxibzOuT2ivhDkaP9/i
-	/X/FzAcvZRM4zNH1PlOyVyBIRsUEfpd5s+U5qWxlCL54GeeFEGrUVk+VBjJ9t54APFwRmbGtiPGpf
-	+rc/34EaLcWag5Mrxs2amRNrH0cNJpZRs3e6hF4bH/SGFg1mzIjPtXuZ2yf9IdR8JPbYiOV59+LcN
-	ElUbfilXgreUOZAgMa4g==;
+	List-Owner; bh=fU9glaZcOeHen24F694nmEzRaraep/uD8ZLyhw58aHc=; b=MzOUb24TVpRSMH
+	kaDGrRP/kQxESRsaxBJHr72h7v0tF8c0VlUyvDFNmAtHcrV0DbMjd5+HbT1zENpPHmlC0Vw4TBVaT
+	21rqpw3GfnhfJRbDX5NhQlNDQyzaUt5ovxgFGb4Io+0Q2zbIa1mle4q9AW8lBpC4ZGYYTmzZESFxN
+	0VNgaXGChYdqdR1yZFDDGUlsFMsccO8ftMm+Vr7Lc1+af+lfKWqzis1TCun5WqNQOBzxAptk0nhep
+	tDpH/TgmnjiUgP1x077B92DzEvaV5e7PLpEfuhxCnaySmvdDY05tj07SPkrPzJ1auDSmlHSt0SBmb
+	sliSWh+j4q5nCdy180FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5xyd-003Efa-7C; Mon, 27 Jun 2022 23:17:07 +0000
-Received: from mail-io1-f44.google.com ([209.85.166.44])
+	id 1o5y2O-003F7q-Nd; Mon, 27 Jun 2022 23:21:00 +0000
+Received: from mail-il1-f175.google.com ([209.85.166.175])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5xya-003Een-M5
-	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 23:17:05 +0000
-Received: by mail-io1-f44.google.com with SMTP id p128so11248471iof.1
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Jun 2022 16:17:03 -0700 (PDT)
+	id 1o5y2M-003F76-BV
+	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 23:20:59 +0000
+Received: by mail-il1-f175.google.com with SMTP id i17so7032644ils.12
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Jun 2022 16:20:57 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:from:to:cc:subject:message-id:references
          :mime-version:content-disposition:in-reply-to;
-        bh=ch0+XgUThIc/l8CQOuy5NljTuESRwdl/Mc/QQ/GRHwY=;
-        b=CsSZaLlxLoofz19kZgx+S3blBjKpKj887dv0CdBOiuv9i9LBdYbPdByyhDdli2E/Ls
-         58Pl6V4LvnvFBwmAx2cyVBBZ+bFWA0uMFWQTkG5n1tTiYdcQUsT2cXwG2s+ov5+Yiotf
-         i7DA7TzHmLg1fIMSA7llJjKaBZtCuyVDWIw+Jcbjd5oduBg9gRvWGFF1yoF5l3Vrht3K
-         ZMYtEgIIqCuSOp6xrtHHXMs4rYYZX10/fkvyU7kE+sj0riCwO7zdpqa+SSopfhBOrKbw
-         O7ne5uwmmSzhzaILdO6ddDD1cxfvgitAJAb1slxTtYINDZbIXFRAwwVhihtOEUuGiSgY
-         Tpsg==
-X-Gm-Message-State: AJIora8d937Hm1i43q6xwmpIZ9P1emCEo3wix7PuK+AEuemMUXsjmTBV
-	m1WO9mx8964EvicLtKSLbA==
-X-Google-Smtp-Source: AGRyM1sQjARQFnKoj25XCNLdCib4jTOupm0g5QOmkXXsBc0eHF5rPc9gxrBwiTwvftgDQ3k5Qq4cZA==
-X-Received: by 2002:a05:6638:190f:b0:339:bc9b:4d90 with SMTP id p15-20020a056638190f00b00339bc9b4d90mr9292586jal.153.1656371822830;
-        Mon, 27 Jun 2022 16:17:02 -0700 (PDT)
+        bh=ceugb8p4sPvAqdgfnrtKA+vm4NF5OVcyALYNjlDqlwc=;
+        b=Ac8eGbgVf13wE0KOeOaU2rOO1hcbXfvhplkIKPPmQsJWWn8QIscJcT6xlA66WgqhcB
+         4k1QDAUOxVQNbsVcoNPZupyDEZqgBLRS/yP388XOmqK1k4WMtbgxNPZ+686Xe66mTXF3
+         Kpe51XJq0AYRUiCld6tuujJmuUbgMFt7h3K/n+lH4kcY9gpB6ZMObUCDxtko1JgP/TqK
+         wjEr4WIL6y+zu6am/Y2t7dhcIVFL7c70jtyvblPLuS62Q+uIoc4/EDGE5SzZbOZ1W+UP
+         XgXG3fMrEd4zD8cM9r5OXXHxcbL4vwU0NTgxFVyJWGoTUMWubbacQGn0GIWlQ90+FnQW
+         cGLg==
+X-Gm-Message-State: AJIora9ZXGHt1EvKaOSQjbfo4kHYxKNcjwXMWoOEbQifIsD6ITUCOFUj
+	1KM/b5UXiR/Lc4VwG7Vadw==
+X-Google-Smtp-Source: AGRyM1s2ztwoSBusasaBa/b2ACZCEycSaaxHL4lJfIIeTxh/zrx32YNfVPG2AlRLoX75ei2t68AjEQ==
+X-Received: by 2002:a05:6e02:214e:b0:2d3:df8c:611 with SMTP id d14-20020a056e02214e00b002d3df8c0611mr8403927ilv.295.1656372057040;
+        Mon, 27 Jun 2022 16:20:57 -0700 (PDT)
 Received: from robh.at.kernel.org ([64.188.179.253])
-        by smtp.gmail.com with ESMTPSA id p16-20020a92d690000000b002daa70b6a83sm630571iln.20.2022.06.27.16.17.00
+        by smtp.gmail.com with ESMTPSA id y4-20020a056e02128400b002da7e147de7sm3137057ilq.17.2022.06.27.16.20.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jun 2022 16:17:02 -0700 (PDT)
-Received: (nullmailer pid 3150543 invoked by uid 1000);
-	Mon, 27 Jun 2022 23:17:00 -0000
-Date: Mon, 27 Jun 2022 17:17:00 -0600
+        Mon, 27 Jun 2022 16:20:56 -0700 (PDT)
+Received: (nullmailer pid 3155702 invoked by uid 1000);
+	Mon, 27 Jun 2022 23:20:54 -0000
+Date: Mon, 27 Jun 2022 17:20:54 -0600
 From: Rob Herring <robh@kernel.org>
 To: Conor Dooley <mail@conchuod.ie>
-Cc: David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>, 
+Cc: Masahiro Yamada <masahiroy@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>, 
+	Jose Abreu <joabreu@synopsys.com>, devicetree@vger.kernel.org, 
+	Vinod Koul <vkoul@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, alsa-devel@alsa-project.org, 
+	linux-riscv@lists.infradead.org, Rob Herring <robh+dt@kernel.org>, 
+	linux-kernel@vger.kernel.org, Serge Semin <fancer.lancer@gmail.com>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>, dri-devel@lists.freedesktop.org, 
+	Sam Ravnborg <sam@ravnborg.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Daniel Vetter <daniel@ffwll.ch>, 
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Serge Semin <fancer.lancer@gmail.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor.dooley@microchip.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Damien Le Moal <damien.lemoal@opensource.wdc.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Niklas Cassel <niklas.cassel@wdc.com>, 
-	Dillon Min <dillon.minfei@gmail.com>, Heng Sia <jee.heng.sia@intel.com>, 
-	Jose Abreu <joabreu@synopsys.com>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	dmaengine@vger.kernel.org, alsa-devel@alsa-project.org, 
-	linux-spi@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 02/14] dt-bindings: display: panel: allow ilitek,ili9341
- in isolation
-Message-ID: <20220627231700.GA3144115-robh@kernel.org>
+	Thierry Reding <thierry.reding@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Niklas Cassel <niklas.cassel@wdc.com>, Mark Brown <broonie@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Heng Sia <jee.heng.sia@intel.com>, 
+	dmaengine@vger.kernel.org, linux-spi@vger.kernel.org, 
+	David Airlie <airlied@linux.ie>, Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, 
+	Dillon Min <dillon.minfei@gmail.com>, Palmer Dabbelt <palmer@rivosinc.com>
+Subject: Re: [PATCH 01/14] dt-bindings: display: convert ilitek,ili9341.txt
+ to dt-schema
+Message-ID: <20220627232054.GA3155668-robh@kernel.org>
 References: <20220618123035.563070-1-mail@conchuod.ie>
- <20220618123035.563070-3-mail@conchuod.ie>
+ <20220618123035.563070-2-mail@conchuod.ie>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220618123035.563070-3-mail@conchuod.ie>
+In-Reply-To: <20220618123035.563070-2-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220627_161704_758700_DEA71F88 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20220627_162058_429939_62C3497E 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,24 +96,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 18, 2022 at 01:30:24PM +0100, Conor Dooley wrote:
+On Sat, 18 Jun 2022 13:30:23 +0100, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> The dt-binding for the ilitek,ili9341 does not allow it to be used as a
-> compatible in isolation. This generates a warning for the Canaan kd233
-> devicetree:
-> arch/riscv/boot/dts/canaan/canaan_kd233.dtb: panel@0: compatible:0: 'ilitek,ili9341' is not one of ['st,sf-tc240t-9370-t']
->         From schema: Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
-> arch/riscv/boot/dts/canaan/canaan_kd233.dtb: panel@0: compatible: ['ilitek,ili9341'] is too short
->         From schema: Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
-> Allow ilitek,ili9341 to be selected in isolation.
+> A dt-schema binding for the Ilitek ili9341 was created as
+> panel/ilitek,ili9341.yaml but the txt binding was ignored in the
+> process. Move the remaining items in the txt binding to the yaml one &
+> delete it.
+> 
+> The example in the txt binding has a spi-max-frequency which disagrees
+> with the yaml replacement (and its own documentation) so change that to
+> conform with the binding. There are no users in tree of the Adafruit
+> yx240qv29 to check against.
+> 
+> Link: https://cdn-learn.adafruit.com/assets/assets/000/046/879/original/SPEC-YX240QV29-T_Rev.A__1_.pdf
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../bindings/display/ilitek,ili9341.txt       | 27 -----------
+>  .../display/panel/ilitek,ili9341.yaml         | 48 +++++++++++++------
+>  2 files changed, 34 insertions(+), 41 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/display/ilitek,ili9341.txt
+> 
 
-Just because you get a warning doesn't mean it is right. ili9341 is a 
-panel driver IC, not a complete panel. It needs a more specific 
-compatible.
-
-Rob
-
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
