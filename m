@@ -4,68 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 998EFC43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 05:21:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 075DDC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 05:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a9JIc5L302PKeX2ay2cxHszODrAW8vNmqkojnA09+yw=; b=ZikvN0IQe6yShV
-	uiIyWhyATA03xNGv6WdL6CT5R65Pz1p4ItaLg2e9r0JYTXPFf2MRXt/DBZdHLXmqbatgs3Oc684nB
-	Yv3LQOMVIiu+br7AcpSwfa4ebcx6zDqxjEKVKo7db0aH9UviFf1wMgPh5S/BpIBDE6+lAoGL/2Ygq
-	ZcIm26UZLa5QDrAEookDUqYev0NkoPCQrwO89bLsp5vrzH6AX2Aw//2BvJe031juxKv1VtE8YxrPs
-	54kAgZhPK/1QzQ7Zx8q78lS/Otm4/bjHCD5k49wHamXR1/RhgYhcxXkp8fgy+ejDtgE4ZIv8X4gpG
-	putlKfOAvG4WvmOuVJuA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=TvUhqCK03VD25bSvKsxAM3/v+kPXeHcOnBvmmRLLl1c=; b=iZQWgq4/ov3F1J
+	lvH9KdqfhBmk7vcS/Q5jXap94T3q2V7ApCKsVqb/F+BJ+9rL6i+KNk1E4269e5ZMgFU0+B5u9XtWS
+	YnLo7/8Ae+JblXdzYEWONa3k0qmPnSCe95JhRv7awsFLqLvzs9ED+zGCfqH9zJPXF0/gOmzAf2Ymq
+	FLNkTETov+3+wBBjkfR2OmyWsMBABtNEkZhwfY5qOpzuWFkmpVrWETPE0yG3ON7AZPfMFkFtxJ4o5
+	lDaeuuzkfjR5ItTz0wD2DqSQZDXWdwJyoCz0h6yG7eooIdLNoBkI11fuuS1uyHHjTIOrBPsZi/LIZ
+	B+aESfszWirgEwdVq/EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5hBc-00Fhzw-Sx; Mon, 27 Jun 2022 05:21:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5gtE-00FVPx-Sw; Mon, 27 Jun 2022 05:02:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0E2991756;
-	Sun, 26 Jun 2022 22:02:24 -0700 (PDT)
-Received: from a077893.blr.arm.com (unknown [10.162.42.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 23D3A3F5A1;
-	Sun, 26 Jun 2022 22:02:15 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-mm@kvack.org
-Cc: hch@infradead.org,
-	christophe.leroy@csgroup.eu,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	openrisc@lists.librecores.org,
-	linux-xtensa@linux-xtensa.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linux-alpha@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-ia64@vger.kernel.org,
-	linux-mips@vger.kernel.org,
-	linux-m68k@lists.linux-m68k.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-um@lists.infradead.org,
-	linux-sh@vger.kernel.org,
+	id 1o5hD9-00Fj4p-O1; Mon, 27 Jun 2022 05:22:59 +0000
+Received: from out2-smtp.messagingengine.com ([66.111.4.26])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o5h3U-00FcVV-Md
+	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 05:13:02 +0000
+Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
+	by mailout.nyi.internal (Postfix) with ESMTP id C3E545C00FC;
+	Mon, 27 Jun 2022 01:12:59 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute2.internal (MEProxy); Mon, 27 Jun 2022 01:12:59 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:sender:subject
+	:subject:to:to; s=fm3; t=1656306779; x=1656393179; bh=dkueX+p0HF
+	YN1z2kkJI5unMCYjLIq2dF7wkxiC1Hy0g=; b=XQ6P+XfnaI1AmNkhMSzJl0yEyP
+	WFde2eM+YF5jN2Z2CEJ+uYF+sFJ4OLTgq3VlHjdJrExFf2QP9CZjGQuW1rkU61Av
+	L18Ttp5KonJEj5ce3vUQ3xb4cIpfZXIE74kh/+brUn0AUS3iLTjBPBUC7pzds/k+
+	t6Mnm3a/jSh7Q7F0qmo7lzvlVcQnFYVI0e9Oe7PGNuLGVOsxOzNHEmOnJYfZC7zJ
+	Yd+tTSxYqr0dR2lay4Xi4GdYab4ghofuQUwlRMNnkSEfaodBrefb9Ap9xrP1ehyG
+	kKz63rpNi1WK0W9kV6FG7Giq78hMmaqXryxvtjmmDscZPl8sk/Kz4A8j12xw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm2; t=1656306779; x=1656393179; bh=dkueX+p0HFYN1
+	z2kkJI5unMCYjLIq2dF7wkxiC1Hy0g=; b=t6SDsjptSrlFMiBuvnxyMDicrWH4T
+	H2tTDzHLzKigA7+PGp3tkoEZTiBLb9wLGItuKAAyALZtI8VJyql5WBm9n3M7EYp0
+	KRv3T1Wq/n8e5cJP3FzZPKvHlf0pR7rBBBt7xSxR8whQQuLKYcBZcKuNIYgpX92U
+	+EpSi/mgAl7u9DfSmxMm3CyIHcxsCcEdXn2OsDIyytrXKFIf3kTFzHNIVURmB7yS
+	soHAcGiv7grHn5sl19XTmiYLfOMgEj1suynJoAjnI61NtqzfKUFqV76IzY7W2gCi
+	3mE/KrpChugBABaXb4SrAACcTUGD+8SVAqkdYf9bCYYA/lwImloPNV67g==
+X-ME-Sender: <xms:Wjy5YtpA9epOY7jZ_4B-DR82wBgYNd4GGXnf-BMFySik5TzFf4mmYg>
+    <xme:Wjy5YvqUnn-zKWPUUrTZjHD_EQtnM6H43HopfooJF_hvoKmb-t7GuMRTRTK09HjaK
+    KMLFsPAT-Ui91-HbA>
+X-ME-Received: <xmr:Wjy5YqNiNuohVTQy4gxOkGs_oPPNA3Ynyttx-hnxTQklps_eWsRg5K7f1JxpjsMdMU7LMVonZtL1li-f1XLyIeQZyt6ftitQbg5WSlZ5KGiwUW5iXhwlPvhLV3RuI_8LvjfTdg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudeggedgkeelucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhephffvvefufffkofggtgfgsehtkeertdertdejnecuhfhrohhmpefurghmuhgv
+    lhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenucggtf
+    frrghtthgvrhhnpeefkedvudekfeehgffgteekieehhfekfeegteefgfduhfffvdehvdet
+    keegfefgteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuih
+    iivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepshgrmhhuvghlsehshhholhhlrghn
+    ugdrohhrgh
+X-ME-Proxy: <xmx:Wjy5Yo7d7SIKWlSRqO19nVFNUmQh1LKTD_zoGC84hPqr1qcHGrCOmQ>
+    <xmx:Wjy5Ys6tgDOtNUXgKHycW4cLryTMwwpkf4KCOcLWWfGybqEZZucDHg>
+    <xmx:Wjy5Ygixv-gXz66WozkAIBWqBuzeRgc7Cn4HSOQq_Ivd7UITaVqXjQ>
+    <xmx:Wzy5YorWnMzBB7hupMhVjcJv19e4QLc_36RXBJ4C6vHVhIrycYGD-Q>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 27 Jun 2022 01:12:57 -0400 (EDT)
+From: Samuel Holland <samuel@sholland.org>
+To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Prabhakar <prabhakar.csengg@gmail.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Sagar Kadam <sagar.kadam@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	Guo Ren <guoren@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Christoph Hellwig <hch@lst.de>
-Subject: [PATCH V5 26/26] mm/mmap: Drop ARCH_HAS_VM_GET_PAGE_PROT
-Date: Mon, 27 Jun 2022 10:28:33 +0530
-Message-Id: <20220627045833.1590055-27-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220627045833.1590055-1-anshuman.khandual@arm.com>
-References: <20220627045833.1590055-1-anshuman.khandual@arm.com>
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v1 0/3] irqchip/sifive-plic: Fix T-HEAD PLIC edge trigger handling
+Date: Mon, 27 Jun 2022 00:12:54 -0500
+Message-Id: <20220627051257.38543-1-samuel@sholland.org>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220626_220225_084445_3F8E68D9 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20220626_221301_092724_27889902 
+X-CRM114-Status: UNSURE (   7.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,371 +116,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now all the platforms enable ARCH_HAS_GET_PAGE_PROT. They define and export
-own vm_get_page_prot() whether custom or standard DECLARE_VM_GET_PAGE_PROT.
-Hence there is no need for default generic fallback for vm_get_page_prot().
-Just drop this fallback and also ARCH_HAS_GET_PAGE_PROT mechanism.
+This is a follow-up to the series "[PATCH v2 0/2] Add PLIC support for
+Renesas RZ/Five SoC"[1].
 
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org
-Reviewed-by: Christoph Hellwig <hch@lst.de>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
- arch/alpha/Kconfig      |  1 -
- arch/arc/Kconfig        |  1 -
- arch/arm/Kconfig        |  1 -
- arch/arm64/Kconfig      |  1 -
- arch/csky/Kconfig       |  1 -
- arch/hexagon/Kconfig    |  1 -
- arch/ia64/Kconfig       |  1 -
- arch/loongarch/Kconfig  |  1 -
- arch/m68k/Kconfig       |  1 -
- arch/microblaze/Kconfig |  1 -
- arch/mips/Kconfig       |  1 -
- arch/nios2/Kconfig      |  1 -
- arch/openrisc/Kconfig   |  1 -
- arch/parisc/Kconfig     |  1 -
- arch/powerpc/Kconfig    |  1 -
- arch/riscv/Kconfig      |  1 -
- arch/s390/Kconfig       |  1 -
- arch/sh/Kconfig         |  1 -
- arch/sparc/Kconfig      |  1 -
- arch/um/Kconfig         |  1 -
- arch/x86/Kconfig        |  1 -
- arch/xtensa/Kconfig     |  1 -
- include/linux/mm.h      |  3 ---
- mm/Kconfig              |  3 ---
- mm/mmap.c               | 22 ----------------------
- 25 files changed, 50 deletions(-)
+The change made there is also needed for the already-supported T-HEAD
+C9xx PLIC. So this binding change is necessary before I can send the
+Allwinner D1 devicetree.
 
-diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
-index db1c8b329461..7d0d26b5b3f5 100644
---- a/arch/alpha/Kconfig
-+++ b/arch/alpha/Kconfig
-@@ -2,7 +2,6 @@
- config ALPHA
- 	bool
- 	default y
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_32BIT_USTAT_F_TINODE
- 	select ARCH_MIGHT_HAVE_PC_PARPORT
- 	select ARCH_MIGHT_HAVE_PC_SERIO
-diff --git a/arch/arc/Kconfig b/arch/arc/Kconfig
-index 8be56a5d8a9b..9e3653253ef2 100644
---- a/arch/arc/Kconfig
-+++ b/arch/arc/Kconfig
-@@ -13,7 +13,6 @@ config ARC
- 	select ARCH_HAS_SETUP_DMA_OPS
- 	select ARCH_HAS_SYNC_DMA_FOR_CPU
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_SUPPORTS_ATOMIC_RMW if ARC_HAS_LLSC
- 	select ARCH_32BIT_OFF_T
- 	select BUILDTIME_TABLE_SORT
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index e153b6d4fc5b..7630ba9cb6cc 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -24,7 +24,6 @@ config ARM
- 	select ARCH_HAS_SYNC_DMA_FOR_CPU if SWIOTLB || !MMU
- 	select ARCH_HAS_TEARDOWN_DMA_OPS if MMU
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_HAVE_CUSTOM_GPIO_H
- 	select ARCH_HAVE_NMI_SAFE_CMPXCHG if CPU_V7 || CPU_V7M || CPU_V6K
- 	select ARCH_HAS_GCOV_PROFILE_ALL
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 1652a9800ebe..7030bf3f8d6f 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -45,7 +45,6 @@ config ARM64
- 	select ARCH_HAS_SYSCALL_WRAPPER
- 	select ARCH_HAS_TEARDOWN_DMA_OPS if IOMMU_SUPPORT
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_HAS_ZONE_DMA_SET if EXPERT
- 	select ARCH_HAVE_ELF_PROT
- 	select ARCH_HAVE_NMI_SAFE_CMPXCHG
-diff --git a/arch/csky/Kconfig b/arch/csky/Kconfig
-index 588b8a9c68ed..21d72b078eef 100644
---- a/arch/csky/Kconfig
-+++ b/arch/csky/Kconfig
-@@ -6,7 +6,6 @@ config CSKY
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_SYNC_DMA_FOR_CPU
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_USE_BUILTIN_BSWAP
- 	select ARCH_USE_QUEUED_RWLOCKS
- 	select ARCH_WANT_FRAME_POINTERS if !CPU_CK610 && $(cc-option,-mbacktrace)
-diff --git a/arch/hexagon/Kconfig b/arch/hexagon/Kconfig
-index bc4ceecd0588..54eadf265178 100644
---- a/arch/hexagon/Kconfig
-+++ b/arch/hexagon/Kconfig
-@@ -6,7 +6,6 @@ config HEXAGON
- 	def_bool y
- 	select ARCH_32BIT_OFF_T
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_NO_PREEMPT
- 	select DMA_GLOBAL_POOL
- 	# Other pending projects/to-do items.
-diff --git a/arch/ia64/Kconfig b/arch/ia64/Kconfig
-index 0510a5737711..cb93769a9f2a 100644
---- a/arch/ia64/Kconfig
-+++ b/arch/ia64/Kconfig
-@@ -12,7 +12,6 @@ config IA64
- 	select ARCH_HAS_DMA_MARK_CLEAN
- 	select ARCH_HAS_STRNCPY_FROM_USER
- 	select ARCH_HAS_STRNLEN_USER
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_MIGHT_HAVE_PC_PARPORT
- 	select ARCH_MIGHT_HAVE_PC_SERIO
- 	select ACPI
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index fd07b8e760ee..1920d52653b4 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -9,7 +9,6 @@ config LOONGARCH
- 	select ARCH_HAS_ACPI_TABLE_UPGRADE	if ACPI
- 	select ARCH_HAS_PHYS_TO_DMA
- 	select ARCH_HAS_PTE_SPECIAL
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_INLINE_READ_LOCK if !PREEMPTION
- 	select ARCH_INLINE_READ_LOCK_BH if !PREEMPTION
-diff --git a/arch/m68k/Kconfig b/arch/m68k/Kconfig
-index 49aa0cf13e96..936cce42ae9a 100644
---- a/arch/m68k/Kconfig
-+++ b/arch/m68k/Kconfig
-@@ -7,7 +7,6 @@ config M68K
- 	select ARCH_HAS_CURRENT_STACK_POINTER
- 	select ARCH_HAS_DMA_PREP_COHERENT if HAS_DMA && MMU && !COLDFIRE
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE if HAS_DMA
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_HAVE_NMI_SAFE_CMPXCHG if RMW_INSNS
- 	select ARCH_MIGHT_HAVE_PC_PARPORT if ISA
- 	select ARCH_NO_PREEMPT if !COLDFIRE
-diff --git a/arch/microblaze/Kconfig b/arch/microblaze/Kconfig
-index 15f91ba8a0c4..8cf429ad1c84 100644
---- a/arch/microblaze/Kconfig
-+++ b/arch/microblaze/Kconfig
-@@ -7,7 +7,6 @@ config MICROBLAZE
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_SYNC_DMA_FOR_CPU
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_MIGHT_HAVE_PC_PARPORT
- 	select ARCH_WANT_IPC_PARSE_VERSION
- 	select BUILDTIME_TABLE_SORT
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index d0b7eb11ec81..db09d45d59ec 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -14,7 +14,6 @@ config MIPS
- 	select ARCH_HAS_STRNLEN_USER
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_KEEP_MEMBLOCK
- 	select ARCH_SUPPORTS_UPROBES
-diff --git a/arch/nios2/Kconfig b/arch/nios2/Kconfig
-index e0459dffd218..4167f1eb4cd8 100644
---- a/arch/nios2/Kconfig
-+++ b/arch/nios2/Kconfig
-@@ -6,7 +6,6 @@ config NIOS2
- 	select ARCH_HAS_SYNC_DMA_FOR_CPU
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
- 	select ARCH_HAS_DMA_SET_UNCACHED
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_NO_SWAP
- 	select COMMON_CLK
- 	select TIMER_OF
-diff --git a/arch/openrisc/Kconfig b/arch/openrisc/Kconfig
-index fe0dfb50eb86..e814df4c483c 100644
---- a/arch/openrisc/Kconfig
-+++ b/arch/openrisc/Kconfig
-@@ -10,7 +10,6 @@ config OPENRISC
- 	select ARCH_HAS_DMA_SET_UNCACHED
- 	select ARCH_HAS_DMA_CLEAR_UNCACHED
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select COMMON_CLK
- 	select OF
- 	select OF_EARLY_FLATTREE
-diff --git a/arch/parisc/Kconfig b/arch/parisc/Kconfig
-index 90eabc846f81..5f2448dc5a2b 100644
---- a/arch/parisc/Kconfig
-+++ b/arch/parisc/Kconfig
-@@ -11,7 +11,6 @@ config PARISC
- 	select ARCH_HAS_ELF_RANDOMIZE
- 	select ARCH_HAS_STRICT_KERNEL_RWX
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_NO_SG_CHAIN
- 	select ARCH_SUPPORTS_HUGETLBFS if PA20
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 1035d172c7dd..250b8658b2d4 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -140,7 +140,6 @@ config PPC
- 	select ARCH_HAS_TICK_BROADCAST		if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_HAS_UACCESS_FLUSHCACHE
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_HAVE_NMI_SAFE_CMPXCHG
- 	select ARCH_KEEP_MEMBLOCK
- 	select ARCH_MIGHT_HAVE_PC_PARPORT
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 583389d4e43a..32ffef9f6e5b 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -32,7 +32,6 @@ config RISCV
- 	select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
- 	select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
- 	select ARCH_STACKWALK
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index c4481377ca83..91c0b80a8bf0 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -81,7 +81,6 @@ config S390
- 	select ARCH_HAS_SYSCALL_WRAPPER
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
- 	select ARCH_HAS_VDSO_DATA
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_HAVE_NMI_SAFE_CMPXCHG
- 	select ARCH_INLINE_READ_LOCK
- 	select ARCH_INLINE_READ_LOCK_BH
-diff --git a/arch/sh/Kconfig b/arch/sh/Kconfig
-index 91f3ea325388..5f220e903e5a 100644
---- a/arch/sh/Kconfig
-+++ b/arch/sh/Kconfig
-@@ -12,7 +12,6 @@ config SUPERH
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_HIBERNATION_POSSIBLE if MMU
- 	select ARCH_MIGHT_HAVE_PC_PARPORT
- 	select ARCH_WANT_IPC_PARSE_VERSION
-diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-index 09f868613a4d..9c1cce74953a 100644
---- a/arch/sparc/Kconfig
-+++ b/arch/sparc/Kconfig
-@@ -13,7 +13,6 @@ config 64BIT
- config SPARC
- 	bool
- 	default y
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_MIGHT_HAVE_PC_PARPORT if SPARC64 && PCI
- 	select ARCH_MIGHT_HAVE_PC_SERIO
- 	select DMA_OPS
-diff --git a/arch/um/Kconfig b/arch/um/Kconfig
-index 7fb43654e5b5..4ec22e156a2e 100644
---- a/arch/um/Kconfig
-+++ b/arch/um/Kconfig
-@@ -10,7 +10,6 @@ config UML
- 	select ARCH_HAS_KCOV
- 	select ARCH_HAS_STRNCPY_FROM_USER
- 	select ARCH_HAS_STRNLEN_USER
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_NO_PREEMPT
- 	select HAVE_ARCH_AUDITSYSCALL
- 	select HAVE_ARCH_SECCOMP_FILTER
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index be0b95e51df6..841e4843d0c4 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -94,7 +94,6 @@ config X86
- 	select ARCH_HAS_SYNC_CORE_BEFORE_USERMODE
- 	select ARCH_HAS_SYSCALL_WRAPPER
- 	select ARCH_HAS_UBSAN_SANITIZE_ALL
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_HAS_DEBUG_WX
- 	select ARCH_HAS_ZONE_DMA_SET if EXPERT
- 	select ARCH_HAVE_NMI_SAFE_CMPXCHG
-diff --git a/arch/xtensa/Kconfig b/arch/xtensa/Kconfig
-index 4c0d83520ff1..0b0f0172cced 100644
---- a/arch/xtensa/Kconfig
-+++ b/arch/xtensa/Kconfig
-@@ -11,7 +11,6 @@ config XTENSA
- 	select ARCH_HAS_DMA_SET_UNCACHED if MMU
- 	select ARCH_HAS_STRNCPY_FROM_USER if !KASAN
- 	select ARCH_HAS_STRNLEN_USER
--	select ARCH_HAS_VM_GET_PAGE_PROT
- 	select ARCH_USE_MEMTEST
- 	select ARCH_USE_QUEUED_RWLOCKS
- 	select ARCH_USE_QUEUED_SPINLOCKS
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 65b7f3d9ff87..fe28f19e3388 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -424,9 +424,6 @@ extern unsigned int kobjsize(const void *objp);
-  * mapping from the currently active vm_flags protection bits (the
-  * low four bits) to a page protection mask..
-  */
--#ifndef CONFIG_ARCH_HAS_VM_GET_PAGE_PROT
--extern pgprot_t protection_map[16];
--#endif
- 
- /*
-  * The default fault flags that should be used by most of the
-diff --git a/mm/Kconfig b/mm/Kconfig
-index 169e64192e48..f47d257a053b 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -951,9 +951,6 @@ config ARCH_HAS_CURRENT_STACK_POINTER
- 	  register alias named "current_stack_pointer", this config can be
- 	  selected.
- 
--config ARCH_HAS_VM_GET_PAGE_PROT
--	bool
--
- config ARCH_HAS_PTE_DEVMAP
- 	bool
- 
-diff --git a/mm/mmap.c b/mm/mmap.c
-index 2cc722e162fa..02d6889f0ef6 100644
---- a/mm/mmap.c
-+++ b/mm/mmap.c
-@@ -81,28 +81,6 @@ static void unmap_region(struct mm_struct *mm,
- 		struct vm_area_struct *vma, struct vm_area_struct *prev,
- 		unsigned long start, unsigned long end);
- 
--#ifndef CONFIG_ARCH_HAS_VM_GET_PAGE_PROT
--pgprot_t protection_map[16] __ro_after_init = {
--	[VM_NONE]					= __P000,
--	[VM_READ]					= __P001,
--	[VM_WRITE]					= __P010,
--	[VM_WRITE | VM_READ]				= __P011,
--	[VM_EXEC]					= __P100,
--	[VM_EXEC | VM_READ]				= __P101,
--	[VM_EXEC | VM_WRITE]				= __P110,
--	[VM_EXEC | VM_WRITE | VM_READ]			= __P111,
--	[VM_SHARED]					= __S000,
--	[VM_SHARED | VM_READ]				= __S001,
--	[VM_SHARED | VM_WRITE]				= __S010,
--	[VM_SHARED | VM_WRITE | VM_READ]		= __S011,
--	[VM_SHARED | VM_EXEC]				= __S100,
--	[VM_SHARED | VM_EXEC | VM_READ]			= __S101,
--	[VM_SHARED | VM_EXEC | VM_WRITE]		= __S110,
--	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= __S111
--};
--DECLARE_VM_GET_PAGE_PROT
--#endif	/* CONFIG_ARCH_HAS_VM_GET_PAGE_PROT */
--
- static pgprot_t vm_pgprot_modify(pgprot_t oldprot, unsigned long vm_flags)
- {
- 	return pgprot_modify(oldprot, vm_get_page_prot(vm_flags));
+[1]: https://lore.kernel.org/linux-riscv/20220626004326.8548-1-prabhakar.mahadev-lad.rj@bp.renesas.com/T/
+
+Changes in v1:
+ - Use a flag for enabling the changes instead of a variant ID
+ - Use handle_edge_irq instead of handle_fasteoi_ack_irq
+ - Do not set the handler name, as RISC-V selects GENERIC_IRQ_SHOW_LEVEL
+
+Samuel Holland (3):
+  dt-bindings: interrupt-controller: Require trigger type for T-HEAD
+    PLIC
+  irqchip/sifive-plic: Name the chip more generically
+  irqchip/sifive-plic: Fix T-HEAD PLIC edge trigger handling
+
+ .../sifive,plic-1.0.0.yaml                    | 31 ++++++-
+ drivers/irqchip/irq-sifive-plic.c             | 91 +++++++++++++++++--
+ 2 files changed, 108 insertions(+), 14 deletions(-)
+
 -- 
-2.25.1
+2.35.1
 
 
 _______________________________________________
