@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54738C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 13:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E682CCA473
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 13:48:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R3jQUEvgtMD8q0lxyh+hTLvgl2YgP3Ur83Ex0+VSbF0=; b=t2PP6sW4jhylQI
-	oSxpY1ZVxhPzI+XO889q9TtXHVaG3m2N0+33QdZiaPQlDuzpSBG6pRQrcFL4JOszXEmbwlVH+Zrtw
-	B4c659OzhjYGSVMAb6gOyWdRvckECz64NPGe2D4M3hw0r4bjDSWPJhB2AGsjCJbuT+x2JozGfKOMs
-	Qe6vwzbpxTkZNf3fJTHmFwyTy7VUwxylJECyEyENQ2urkCGS6s+/eqVA2vXYsgVoXsryyaZCK24jX
-	Uv5fXuYwvvKn6D5QSmjaZN4P8Ffpd13jypf1FBnIoUAyNYN/xWoPiAs3c7tx6zL8AZlAzo+QzD5wv
-	GetPGSenwco0UnjBllMg==;
+	List-Owner; bh=yiD0fuYSS/Qv1X8Uv8y2AuYwkFHv5qQX6lcHIv3mVl0=; b=Cg6x7z1eZVIS4D
+	GAOZDvKQ58RRPLWW6PxDkgLC3O4S1kNsG6wRqB9qkAvzEmbtqtQzxDv+z37kvoG/tb8JJ0Q/T4We1
+	0kchpupeRUxKGCdoEO4IkawFPl0o/xQcqmRbTzxDOa1jv7a0H8wwrhmK5ncdoFiF6Wul86CIKg7zU
+	FFfNbzzZL8VBSqMP7g2jkpWCdJUPDLd4JDbhAm7oyIvII3kCv+dhci8w2cy1CIeJoOWt+vKKDjLkR
+	qgIm5Qh16jO8U/GxJjyazoWs+RamheNcU2HN0f+8WIMfifTx0tgBYJairvrrjVTZXmJg2+N7Sz3r3
+	msJBmjXxk8BIefA6o89g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5p5P-001DpT-JU; Mon, 27 Jun 2022 13:47:31 +0000
+	id 1o5p63-001E3s-Cx; Mon, 27 Jun 2022 13:48:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5p5E-001DnD-Sj; Mon, 27 Jun 2022 13:47:22 +0000
+	id 1o5p5o-001DxC-IG; Mon, 27 Jun 2022 13:47:58 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B3E7C175A;
-	Mon, 27 Jun 2022 06:47:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C95BE1758;
+	Mon, 27 Jun 2022 06:47:55 -0700 (PDT)
 Received: from localhost (ionvoi01-desktop.cambridge.arm.com [10.1.196.65])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 251923F5A1;
-	Mon, 27 Jun 2022 06:47:19 -0700 (PDT)
-Date: Mon, 27 Jun 2022 14:47:17 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B5263F5A1;
+	Mon, 27 Jun 2022 06:47:55 -0700 (PDT)
+Date: Mon, 27 Jun 2022 14:47:53 +0100
 From: Ionela Voinescu <ionela.voinescu@arm.com>
 To: Sudeep Holla <sudeep.holla@arm.com>
 Cc: linux-kernel@vger.kernel.org, Greg KH <gregkh@linuxfoundation.org>,
@@ -43,17 +43,17 @@ Cc: linux-kernel@vger.kernel.org, Greg KH <gregkh@linuxfoundation.org>,
 	Pierre Gondois <pierre.gondois@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 18/20] arch_topology: Set cluster identifier in each
- core/thread from /cpu-map
-Message-ID: <Yrm05bAzu6c29XXB@arm.com>
+Subject: Re: [PATCH v4 19/20] arch_topology: Add support for parsing sockets
+ in /cpu-map
+Message-ID: <Yrm1CbXzgj4uowOV@arm.com>
 References: <20220621192034.3332546-1-sudeep.holla@arm.com>
- <20220621192034.3332546-19-sudeep.holla@arm.com>
+ <20220621192034.3332546-20-sudeep.holla@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220621192034.3332546-19-sudeep.holla@arm.com>
+In-Reply-To: <20220621192034.3332546-20-sudeep.holla@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220627_064721_062840_665C6D07 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20220627_064756_753107_5F5F1D85 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,81 +70,93 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tuesday 21 Jun 2022 at 20:20:32 (+0100), Sudeep Holla wrote:
-> Let us set the cluster identifier as parsed from the device tree
-> cluster nodes within /cpu-map.
+On Tuesday 21 Jun 2022 at 20:20:33 (+0100), Sudeep Holla wrote:
+> Finally let us add support for socket nodes in /cpu-map in the device
+> tree. Since this may not be present in all the old platforms and even
+> most of the existing platforms, we need to assume absence of the socket
+> node indicates that it is a single socket system and handle appropriately.
 > 
-> We don't support nesting of clusters yet as there are no real hardware
-> to support clusters of clusters.
+> Also it is likely that most single socket systems skip to as the node
+> since it is optional.
 > 
 > Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 > ---
->  drivers/base/arch_topology.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
+>  drivers/base/arch_topology.c | 37 +++++++++++++++++++++++++++++++-----
+>  1 file changed, 32 insertions(+), 5 deletions(-)
 > 
 > diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index 39be5dbaf4da..75604f783bfc 100644
+> index 75604f783bfc..ed1cb64a95aa 100644
 > --- a/drivers/base/arch_topology.c
 > +++ b/drivers/base/arch_topology.c
-> @@ -497,7 +497,7 @@ static int __init get_cpu_for_node(struct device_node *node)
->  }
->  
->  static int __init parse_core(struct device_node *core, int package_id,
-> -			     int core_id)
-> +			     int cluster_id, int core_id)
->  {
->  	char name[20];
->  	bool leaf = true;
-> @@ -513,6 +513,7 @@ static int __init parse_core(struct device_node *core, int package_id,
->  			cpu = get_cpu_for_node(t);
->  			if (cpu >= 0) {
->  				cpu_topology[cpu].package_id = package_id;
-> +				cpu_topology[cpu].cluster_id = cluster_id;
->  				cpu_topology[cpu].core_id = core_id;
->  				cpu_topology[cpu].thread_id = i;
->  			} else if (cpu != -ENODEV) {
-> @@ -534,6 +535,7 @@ static int __init parse_core(struct device_node *core, int package_id,
->  		}
->  
->  		cpu_topology[cpu].package_id = package_id;
-> +		cpu_topology[cpu].cluster_id = cluster_id;
->  		cpu_topology[cpu].core_id = core_id;
->  	} else if (leaf && cpu != -ENODEV) {
->  		pr_err("%pOF: Can't get CPU for leaf core\n", core);
-> @@ -543,7 +545,8 @@ static int __init parse_core(struct device_node *core, int package_id,
+> @@ -545,8 +545,8 @@ static int __init parse_core(struct device_node *core, int package_id,
 >  	return 0;
 >  }
 >  
-> -static int __init parse_cluster(struct device_node *cluster, int depth)
-> +static int __init
-> +parse_cluster(struct device_node *cluster, int cluster_id, int depth)
+> -static int __init
+> -parse_cluster(struct device_node *cluster, int cluster_id, int depth)
+> +static int __init parse_cluster(struct device_node *cluster, int package_id,
+> +				int cluster_id, int depth)
 >  {
 >  	char name[20];
 >  	bool leaf = true;
-> @@ -563,7 +566,7 @@ static int __init parse_cluster(struct device_node *cluster, int depth)
+> @@ -566,7 +566,7 @@ parse_cluster(struct device_node *cluster, int cluster_id, int depth)
 >  		c = of_get_child_by_name(cluster, name);
 >  		if (c) {
 >  			leaf = false;
-> -			ret = parse_cluster(c, depth + 1);
-> +			ret = parse_cluster(c, i, depth + 1);
+> -			ret = parse_cluster(c, i, depth + 1);
+> +			ret = parse_cluster(c, package_id, i, depth + 1);
 >  			of_node_put(c);
 >  			if (ret != 0)
 >  				return ret;
-> @@ -587,7 +590,7 @@ static int __init parse_cluster(struct device_node *cluster, int depth)
+> @@ -590,7 +590,8 @@ parse_cluster(struct device_node *cluster, int cluster_id, int depth)
 >  			}
 >  
 >  			if (leaf) {
-> -				ret = parse_core(c, 0, core_id++);
-> +				ret = parse_core(c, 0, cluster_id, core_id++);
+> -				ret = parse_core(c, 0, cluster_id, core_id++);
+> +				ret = parse_core(c, package_id, cluster_id,
+> +						 core_id++);
 >  			} else {
 >  				pr_err("%pOF: Non-leaf cluster with core %s\n",
 >  				       cluster, name);
-> @@ -626,7 +629,7 @@ static int __init parse_dt_topology(void)
+> @@ -610,6 +611,32 @@ parse_cluster(struct device_node *cluster, int cluster_id, int depth)
+>  	return 0;
+>  }
+>  
+> +static int __init parse_socket(struct device_node *socket)
+> +{
+> +	char name[20];
+> +	struct device_node *c;
+> +	bool has_socket = false;
+> +	int package_id = 0, ret;
+> +
+> +	do {
+> +		snprintf(name, sizeof(name), "socket%d", package_id);
+> +		c = of_get_child_by_name(socket, name);
+> +		if (c) {
+> +			has_socket = true;
+> +			ret = parse_cluster(c, package_id, -1, 0);
+> +			of_node_put(c);
+> +			if (ret != 0)
+> +				return ret;
+> +		}
+> +		package_id++;
+> +	} while (c);
+> +
+> +	if (!has_socket)
+> +		ret = parse_cluster(socket, 0, -1, 0);
+> +
+> +	return ret;
+> +}
+> +
+>  static int __init parse_dt_topology(void)
+>  {
+>  	struct device_node *cn, *map;
+> @@ -629,7 +656,7 @@ static int __init parse_dt_topology(void)
 >  	if (!map)
 >  		goto out;
 >  
-> -	ret = parse_cluster(map, 0);
-> +	ret = parse_cluster(map, -1, 0);
+> -	ret = parse_cluster(map, -1, 0);
+> +	ret = parse_socket(map);
 >  	if (ret != 0)
 >  		goto out_map;
 >  
