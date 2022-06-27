@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3F2BC433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 13:44:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54738C43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 13:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6kSN65adtiyjZwvDUIQzZodQH8vDoEwE8nm4GM1FuCY=; b=b8Tl0ZfByJVqOn
-	FcP16Oe1mqCk562jQgMrFWDo1bBByK3Pl5kn3PEh6EZMly/MInahsOogpAlkhOmKzHjSQ7eqH0sqF
-	qddiiZmWj9IrrP4Vhsl/wpQJagzZTEh98HblnasjnNLtaAhCxbubs6pVxWn0KS8PQci0P1mUqlARb
-	IfgFK2NnsETt0aMs8x7S4hZFYzeoaVJd3yrVNpeqNuKFFlvDCTSzoIdipMcy7ZxbPWfD59SSyOV2f
-	D7EExcTEemeIVCKw4WU8FhF2Wd3thBR4cz7wPA8pxXu6cOkG+iDckq5a8JoYr9ZNorPRQ2mjx+jfo
-	+Hj/gbEPsBvwaA0R+/MQ==;
+	List-Owner; bh=R3jQUEvgtMD8q0lxyh+hTLvgl2YgP3Ur83Ex0+VSbF0=; b=t2PP6sW4jhylQI
+	oSxpY1ZVxhPzI+XO889q9TtXHVaG3m2N0+33QdZiaPQlDuzpSBG6pRQrcFL4JOszXEmbwlVH+Zrtw
+	B4c659OzhjYGSVMAb6gOyWdRvckECz64NPGe2D4M3hw0r4bjDSWPJhB2AGsjCJbuT+x2JozGfKOMs
+	Qe6vwzbpxTkZNf3fJTHmFwyTy7VUwxylJECyEyENQ2urkCGS6s+/eqVA2vXYsgVoXsryyaZCK24jX
+	Uv5fXuYwvvKn6D5QSmjaZN4P8Ffpd13jypf1FBnIoUAyNYN/xWoPiAs3c7tx6zL8AZlAzo+QzD5wv
+	GetPGSenwco0UnjBllMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5p26-001CvN-2c; Mon, 27 Jun 2022 13:44:06 +0000
+	id 1o5p5P-001DpT-JU; Mon, 27 Jun 2022 13:47:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5p1s-001CqI-Fa; Mon, 27 Jun 2022 13:43:53 +0000
+	id 1o5p5E-001DnD-Sj; Mon, 27 Jun 2022 13:47:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 17BF6175A;
-	Mon, 27 Jun 2022 06:43:50 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B3E7C175A;
+	Mon, 27 Jun 2022 06:47:19 -0700 (PDT)
 Received: from localhost (ionvoi01-desktop.cambridge.arm.com [10.1.196.65])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7DD093F5A1;
-	Mon, 27 Jun 2022 06:43:49 -0700 (PDT)
-Date: Mon, 27 Jun 2022 14:43:47 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 251923F5A1;
+	Mon, 27 Jun 2022 06:47:19 -0700 (PDT)
+Date: Mon, 27 Jun 2022 14:47:17 +0100
 From: Ionela Voinescu <ionela.voinescu@arm.com>
 To: Sudeep Holla <sudeep.holla@arm.com>
 Cc: linux-kernel@vger.kernel.org, Greg KH <gregkh@linuxfoundation.org>,
@@ -43,17 +43,17 @@ Cc: linux-kernel@vger.kernel.org, Greg KH <gregkh@linuxfoundation.org>,
 	Pierre Gondois <pierre.gondois@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 15/20] arch_topology: Don't set cluster identifier as
- physical package identifier
-Message-ID: <Yrm0E3mFHvJ5Nkgt@arm.com>
+Subject: Re: [PATCH v4 18/20] arch_topology: Set cluster identifier in each
+ core/thread from /cpu-map
+Message-ID: <Yrm05bAzu6c29XXB@arm.com>
 References: <20220621192034.3332546-1-sudeep.holla@arm.com>
- <20220621192034.3332546-16-sudeep.holla@arm.com>
+ <20220621192034.3332546-19-sudeep.holla@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220621192034.3332546-16-sudeep.holla@arm.com>
+In-Reply-To: <20220621192034.3332546-19-sudeep.holla@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220627_064352_607024_A04D49B5 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20220627_064721_062840_665C6D07 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,66 +70,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tuesday 21 Jun 2022 at 20:20:29 (+0100), Sudeep Holla wrote:
-> Currently as we parse the CPU topology from /cpu-map node from the
-> device tree, we assign generated cluster count as the physical package
-> identifier for each CPU which is wrong.
+On Tuesday 21 Jun 2022 at 20:20:32 (+0100), Sudeep Holla wrote:
+> Let us set the cluster identifier as parsed from the device tree
+> cluster nodes within /cpu-map.
 > 
-> The device tree bindings for CPU topology supports sockets to infer
-> the socket or physical package identifier for a given CPU. Since it is
-> fairly new and not support on most of the old and existing systems, we
-                     ^^^^^^^
-Nit:		     supported
-> can assume all such systems have single socket/physical package.
-> 
-> Fix the physical package identifier to 0 by removing the assignment of
-> cluster identifier to the same.
+> We don't support nesting of clusters yet as there are no real hardware
+> to support clusters of clusters.
 > 
 > Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
+>  drivers/base/arch_topology.c | 13 ++++++++-----
+>  1 file changed, 8 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index 39be5dbaf4da..75604f783bfc 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -497,7 +497,7 @@ static int __init get_cpu_for_node(struct device_node *node)
+>  }
+>  
+>  static int __init parse_core(struct device_node *core, int package_id,
+> -			     int core_id)
+> +			     int cluster_id, int core_id)
+>  {
+>  	char name[20];
+>  	bool leaf = true;
+> @@ -513,6 +513,7 @@ static int __init parse_core(struct device_node *core, int package_id,
+>  			cpu = get_cpu_for_node(t);
+>  			if (cpu >= 0) {
+>  				cpu_topology[cpu].package_id = package_id;
+> +				cpu_topology[cpu].cluster_id = cluster_id;
+>  				cpu_topology[cpu].core_id = core_id;
+>  				cpu_topology[cpu].thread_id = i;
+>  			} else if (cpu != -ENODEV) {
+> @@ -534,6 +535,7 @@ static int __init parse_core(struct device_node *core, int package_id,
+>  		}
+>  
+>  		cpu_topology[cpu].package_id = package_id;
+> +		cpu_topology[cpu].cluster_id = cluster_id;
+>  		cpu_topology[cpu].core_id = core_id;
+>  	} else if (leaf && cpu != -ENODEV) {
+>  		pr_err("%pOF: Can't get CPU for leaf core\n", core);
+> @@ -543,7 +545,8 @@ static int __init parse_core(struct device_node *core, int package_id,
+>  	return 0;
+>  }
+>  
+> -static int __init parse_cluster(struct device_node *cluster, int depth)
+> +static int __init
+> +parse_cluster(struct device_node *cluster, int cluster_id, int depth)
+>  {
+>  	char name[20];
+>  	bool leaf = true;
+> @@ -563,7 +566,7 @@ static int __init parse_cluster(struct device_node *cluster, int depth)
+>  		c = of_get_child_by_name(cluster, name);
+>  		if (c) {
+>  			leaf = false;
+> -			ret = parse_cluster(c, depth + 1);
+> +			ret = parse_cluster(c, i, depth + 1);
+>  			of_node_put(c);
+>  			if (ret != 0)
+>  				return ret;
+> @@ -587,7 +590,7 @@ static int __init parse_cluster(struct device_node *cluster, int depth)
+>  			}
+>  
+>  			if (leaf) {
+> -				ret = parse_core(c, 0, core_id++);
+> +				ret = parse_core(c, 0, cluster_id, core_id++);
+>  			} else {
+>  				pr_err("%pOF: Non-leaf cluster with core %s\n",
+>  				       cluster, name);
+> @@ -626,7 +629,7 @@ static int __init parse_dt_topology(void)
+>  	if (!map)
+>  		goto out;
+>  
+> -	ret = parse_cluster(map, 0);
+> +	ret = parse_cluster(map, -1, 0);
+>  	if (ret != 0)
+>  		goto out_map;
+>  
+> -- 
+> 2.36.1
+> 
 
 Reviewed-by: Ionela Voinescu <ionela.voinescu@arm.com>
 
 Thanks,
 Ionela.
-
-> ---
->  drivers/base/arch_topology.c | 6 +-----
->  1 file changed, 1 insertion(+), 5 deletions(-)
-> 
-> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-> index 7a569aefe313..46fa1b70b02b 100644
-> --- a/drivers/base/arch_topology.c
-> +++ b/drivers/base/arch_topology.c
-> @@ -549,7 +549,6 @@ static int __init parse_cluster(struct device_node *cluster, int depth)
->  	bool leaf = true;
->  	bool has_cores = false;
->  	struct device_node *c;
-> -	static int package_id __initdata;
->  	int core_id = 0;
->  	int i, ret;
->  
-> @@ -588,7 +587,7 @@ static int __init parse_cluster(struct device_node *cluster, int depth)
->  			}
->  
->  			if (leaf) {
-> -				ret = parse_core(c, package_id, core_id++);
-> +				ret = parse_core(c, 0, core_id++);
->  			} else {
->  				pr_err("%pOF: Non-leaf cluster with core %s\n",
->  				       cluster, name);
-> @@ -605,9 +604,6 @@ static int __init parse_cluster(struct device_node *cluster, int depth)
->  	if (leaf && !has_cores)
->  		pr_warn("%pOF: empty cluster\n", cluster);
->  
-> -	if (leaf)
-> -		package_id++;
-> -
->  	return 0;
->  }
->  
-> -- 
-> 2.36.1
-> 
 
 _______________________________________________
 linux-riscv mailing list
