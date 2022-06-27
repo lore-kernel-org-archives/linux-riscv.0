@@ -4,77 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 587CCC43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 17:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A55B0CCA47E
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 18:06:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ekLGu6YKPSiqf624kSpPGGiwfroMTHd99E+jLlKRRz0=; b=e1Kzrc19iUwjCM
-	YcgZ6AJad9hSpknFqnG7OaaN5KRR0t8/LGKpWUCHsItNdvitGdCztGIqXI726xxRhm6W08eA5krwA
-	2+B4iuLkTCLlUrYsWnss6nhzc0mdcNaKgcY84lAk0PpDiZnn0OChCWRgtG5mLjqP0/arVsXf5bz7M
-	AWgAR9pLvpNmwXILoXEh7zcS7NhF/a4J7gsU8htjYZtCyupFTMCoIY0iXtuxoHusZoH5tLnexk1ol
-	1ihiDgWitaoV2z/BQGXChjqgw+garAHdw5IKhk22wsHgQbzLC+pYZ45rLFkA2jC+zx3E/oxQnP7fD
-	hk8WaW8Gm3Bk6LSBOaZA==;
+	List-Owner; bh=RPwfs7fH31QSBl2wd+n+V+7eKJTC5gIoBv0aSaZMZEU=; b=CACG8DpOfEFaEV
+	zgEVtYA/Feg9ljUizQ5wpzCPB1PKWosjz3kijAqEZ2SicGgEUUBL6qRirHbMwqVpTb3G2c9OVVzDK
+	uIyAvXFI9EOIoYPtdoRNOiL6/8aVxYxQjKF7i8YEnhxQDdwCFXVIyaqDNGawqEIERDlFKEfA+xAVG
+	YR5TNZ8FXMFicuM2tleKXRkAqxHULp9460ddFeHDTJPA5negvv0eXDvdi0RWT17/VOOyiOfEu7xjI
+	Y+uTFDI09ROxN1UwV2pJ9gnfwzsswZ/g3LzuSXRwO671pRvsUQw/4AVF01O3uvc0uol7RvKbRB83Z
+	SLLcy8MAKCZLnVAmlIGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5sKp-00276a-MY; Mon, 27 Jun 2022 17:15:39 +0000
-Received: from mailrelay4-1.pub.mailoutpod1-cph3.one.com ([46.30.210.185])
+	id 1o5t7T-002KVX-Pl; Mon, 27 Jun 2022 18:05:55 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5sKL-0026lD-4w
-	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 17:15:13 +0000
+	id 1o5t7P-002KSH-Tk
+	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 18:05:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1656353151; x=1687889151;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=jZk/JbbHouGijU0bHYxj5ANsT2FgUgoTS9HYC+K1d6Y=;
+  b=nrAuxcBfRl+pR5FUgbkhNTgalXJ+XFftBUlfudJVCyxjhSDHtZ8fRhmB
+   ZiZZvXIVbwrktCvJwSjuv5/MM280cDAdvF7KY3WGg/+FqZGYem+eEnBj9
+   AMgAq5kzNUclJwLI10lFojQCCw5AoLtfwNv2qew7sfk6hjtwDL9VjB2gk
+   o/DJd5Lsp3A6s0SuyYHqw6o5tLNknjJ587qlBuH+zk2sQoYPJOuRT/Z7N
+   MdYjEt/403poNXp9wjxwOLtVGTfCYlVaRDuvzaOcEoBhFFy5Xk6jZi1E1
+   TxMlr+PdxH9VKvOONPfCP9aqDm1EpHMEBUVwwJig7ansO/R5haE8RD6zC
+   w==;
+X-IronPort-AV: E=Sophos;i="5.92,227,1650956400"; 
+   d="scan'208";a="165295260"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Jun 2022 11:05:46 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Mon, 27 Jun 2022 11:05:45 -0700
+Received: from NAM02-DM3-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
+ Transport; Mon, 27 Jun 2022 11:05:45 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=D4Pu7qCv4ShRgPzG/qrH3iWZm4ea+Fh0jguRU7bwEpDyjBj79pXWwmiIf5p6By4FMOrKlR+KY0DtyeV7PBKYH8sgUYGZ/Vijv58dsefpnQFqjwNcwdSdjs1Rpoz8E+HmQdxvKPJxc0Ti6SZcbkmYpCUo4vQfIFzOMoIxrn1KMCX2n7Tl61OeQee3JAiiXuwxdDELEMWMqTB0GbWORR5R5rcPB3cXoUVA3/xRr8sMdCewPDlkq//sA6vLpSFE5mkbzdzzINnvW9OHiSccq5Xrb98v9hT1EKjAWr/9FUq55LUwLK9AwzO23oSVdIF88g52OtUlEX1Ey9WsTd4Kth/OAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jZk/JbbHouGijU0bHYxj5ANsT2FgUgoTS9HYC+K1d6Y=;
+ b=YltOrSiB2C2QO44BTvukxBIRlKGI6JQT7FAurheU5Jkr6p4Wg0WCzC6lkK8wDPvhIsoalcbefesmzTIaklEynNt6o2GgzkOSBhQQXI5zn+M+cYGedldNWOampWQ1lFROGPiwoSxHRf9+bbQJcxrOtoGDtYpC4k2g1KiMqMhR52UpkOSv0db9+EZhty9ixS4rP8iI04UF9K/g576omziAssc0nubG1nwcidJW0TPvIzssE2QrCVf+LT+Xix3FdeiYgruPCzVzCRdYBX7b3yoTGycmWo8dyGqlhZM+d4pCQDrCwqhzxkXu3n+8GlLZlpADZtQ/kKe09PtlNGuEsN39lg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ravnborg.org; s=rsa1;
-	h=in-reply-to:content-type:mime-version:references:message-id:subject:cc:to:
-	 from:date:from;
-	bh=7lcoTIguoCU25UtATqw0zpenNexDp4klBKBcas47lUI=;
-	b=DnMKzuyWChdqVj0eyu9qk+S12hDc5E1lpoUVu+RwnrA66JDBO9VVaJjjgy7iZh0CwjBX0Tb2UW9eA
-	 IDL3blt0HWe+7nCJ6LBbtgtWCdYTIJf7JxMi5tEKyk04dMJhxQKgJhN19n7gZmip7ExOCH60av6Zc+
-	 fpOnPKVrkcE6dB7IpmBBA5V/48B5nOCXs0dWxrIHUJoi6B5gDTxnps7C32yW7RQiRmwMZofOskZtJ1
-	 g5yggk+VyjJho8A1QsSz/r/K9taqv0SWrqNZr//W7DugrtnSjHFKtDOi/ahsacud1GZwml0SRslSij
-	 +WBGlPijIt3aAxUmrpMXX3P747L7FOQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed;
-	d=ravnborg.org; s=ed1;
-	h=in-reply-to:content-type:mime-version:references:message-id:subject:cc:to:
-	 from:date:from;
-	bh=7lcoTIguoCU25UtATqw0zpenNexDp4klBKBcas47lUI=;
-	b=0c4FfNqt1mwTyFHOd20j3eJXx+yZAcz5xOVj+2VVBhkRNfl+lcYaMnmV/txPP7q97nUwiERp2Rz/D
-	 LTtF3EvDA==
-X-HalOne-Cookie: be347a0a6f76c63821867329f3b288b192d004df
-X-HalOne-ID: ab689703-f63c-11ec-8236-d0431ea8bb10
-Received: from mailproxy2.cst.dirpod3-cph3.one.com (80-162-45-141-cable.dk.customer.tdc.net [80.162.45.141])
-	by mailrelay4.pub.mailoutpod1-cph3.one.com (Halon) with ESMTPSA
-	id ab689703-f63c-11ec-8236-d0431ea8bb10;
-	Mon, 27 Jun 2022 17:14:58 +0000 (UTC)
-Date: Mon, 27 Jun 2022 19:14:56 +0200
-From: Sam Ravnborg <sam@ravnborg.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-mm@kvack.org, hch@infradead.org, christophe.leroy@csgroup.eu,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
-	x86@kernel.org, openrisc@lists.librecores.org,
-	linux-xtensa@linux-xtensa.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linux-alpha@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-ia64@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-um@lists.infradead.org,
-	linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org,
-	"David S. Miller" <davem@davemloft.net>
-Subject: Re: [PATCH V5 04/26] sparc/mm: Move protection_map[] inside the
- platform
-Message-ID: <YrnlkLbyYSbI0EQw@ravnborg.org>
-References: <20220627045833.1590055-1-anshuman.khandual@arm.com>
- <20220627045833.1590055-5-anshuman.khandual@arm.com>
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jZk/JbbHouGijU0bHYxj5ANsT2FgUgoTS9HYC+K1d6Y=;
+ b=fro4JrCMRGR3ZDhp2wQyWwdPkOTrNe1lJYvdUZ1aYVjjO/wb5TEzpLdxMfOWF89dY2dWBepka1y+PKPKRXL33jDl3kHBVChoqjLjIlmM29spapB6YWu2RmQcvFCjwmT/3eJuyZ97c6t8gFoJKY+F6CcIutatXZ9ic/knz6O/KuA=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by BL1PR11MB5382.namprd11.prod.outlook.com (2603:10b6:208:31c::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5373.17; Mon, 27 Jun
+ 2022 18:05:40 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::699b:5c23:de4f:2bfa]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::699b:5c23:de4f:2bfa%4]) with mapi id 15.20.5373.018; Mon, 27 Jun 2022
+ 18:05:40 +0000
+From: <Conor.Dooley@microchip.com>
+To: <robh@kernel.org>
+CC: <mail@conchuod.ie>, <airlied@linux.ie>, <daniel@ffwll.ch>,
+	<krzysztof.kozlowski+dt@linaro.org>, <thierry.reding@gmail.com>,
+	<sam@ravnborg.org>, <Eugeniy.Paltsev@synopsys.com>,
+	<fancer.lancer@gmail.com>, <vkoul@kernel.org>, <lgirdwood@gmail.com>,
+	<broonie@kernel.org>, <daniel.lezcano@linaro.org>, <palmer@dabbelt.com>,
+	<palmer@rivosinc.com>, <tglx@linutronix.de>, <paul.walmsley@sifive.com>,
+	<aou@eecs.berkeley.edu>, <masahiroy@kernel.org>,
+	<damien.lemoal@opensource.wdc.com>, <geert@linux-m68k.org>,
+	<niklas.cassel@wdc.com>, <dillon.minfei@gmail.com>, <jee.heng.sia@intel.com>,
+	<joabreu@synopsys.com>, <dri-devel@lists.freedesktop.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<dmaengine@vger.kernel.org>, <alsa-devel@alsa-project.org>,
+	<linux-spi@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 06/14] spi: dt-bindings: dw-apb-ssi: update
+ spi-{r,t}x-bus-width for dwc-ssi
+Thread-Topic: [PATCH 06/14] spi: dt-bindings: dw-apb-ssi: update
+ spi-{r,t}x-bus-width for dwc-ssi
+Thread-Index: AQHYgw+Pu1Tn+/2s8EmHi9NhXNIv361YymsAgAACs4CACr+gAIAADiaA
+Date: Mon, 27 Jun 2022 18:05:40 +0000
+Message-ID: <4b143eab-9905-a926-b3bc-10627cf0098e@microchip.com>
+References: <20220618123035.563070-1-mail@conchuod.ie>
+ <20220618123035.563070-7-mail@conchuod.ie>
+ <20220620205654.g7fyipwytbww5757@mobilestation>
+ <61b0fb86-078d-0262-b142-df2984ce0f97@microchip.com>
+ <20220627171500.GA2600685-robh@kernel.org>
+In-Reply-To: <20220627171500.GA2600685-robh@kernel.org>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 583ddbaa-a6dd-417d-73be-08da5867a520
+x-ms-traffictypediagnostic: BL1PR11MB5382:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: sAWGaL7b6OZclb+HIG47GQLdhiJbeMtdLTHwdJFK3Q2299qcSQKpKFoOq/9IxvqAlR5mcpk0J0KQpb49XsxGcsAgMRNEcm2NwLwGYb2+9B7QkM4zm+73sFAfwucC4VfmZ9psXON79xUsFARjAGzqrybbqtOJ59UndghqXMq9293PMh2KVvUUUfpTslUADzXuULlC3+6+UuMmV5K54d9/oYTK6PNAcjbEy/fir14ejOhR//npXSAgHi31G2FaquPJ9xjKw7n5J3jZVtDYDu5TFiPWNK+978S3Za+3vyUq8beyA8C+SId+t/bkEusW4574npsW5mrfDvfipjEiWvFMHj0ISxRKTEoURisxvvGoLkKKSyKKV/7OT1rUbfZ87yZRS26fgUy09jmQfqCD2/Cy+5QdZwZNm4lCHDS0NAi++8YkkMZ4Xf7rLlKC6zkDix1AkN0Qh3zWfDXvQgR1WVf+6NSRwqH+AYxO0OOE0LdsiQiI6MbYjPqXS7NPtIIBqDK54RmFDrDPdGvNDgVWhbvqinN8vmelg7v7ivVMvJEDtas3U6TYt8F+90UBJFDX9hvpjqYTNuMtp1X0qQpqDqtO3Rhsq8JTTuM72KizOUCdQxVFLXt3t8ZmtOWVUY7JFD+vUxcgmXkxXGjyuvI7rutUYCOJI3Re8gYTrMNNPlTdmLMb3Lqwezq4SNqMZuY2OM2hMUq3EWKzibZsO5Gx7ke1xi0UjejPApPwKPPOCHW7GmextnQghZtW3jCEZyCHLCEq+6TZwb4/GP0AAtFX6m3n+SY0ELCqLtQE7dFkpFq/JE2r2+f79kwXTcYo9zE+voGTIBx4EJsToU5Tnf3a/ylENzOJxduyUSoUY/yUODBVNWk=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(39860400002)(136003)(396003)(376002)(346002)(2906002)(6506007)(15650500001)(122000001)(6916009)(186003)(478600001)(36756003)(53546011)(7416002)(38070700005)(31696002)(41300700001)(86362001)(316002)(31686004)(54906003)(8936002)(38100700002)(66476007)(6512007)(5660300002)(2616005)(4326008)(8676002)(91956017)(71200400001)(26005)(76116006)(66946007)(6486002)(66446008)(66556008)(64756008)(7406005)(83380400001)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bDB0MERITURHVHAwbWxmbW8yTDYxRU5wTkJzT0V0c1VBcGpnNXpocmJLRk9z?=
+ =?utf-8?B?dzVGZkFqN1ovNmxlY1pmYnpnNHFUL0QrUTUycUVGTi9Ycno4Mmt2M3BIbVdF?=
+ =?utf-8?B?alpvL0dBcitqTElUdGFHNFJCWWtINVdFb21XWHpuZy94ZEttM3I3M1h4cUxW?=
+ =?utf-8?B?WFFDUjlHRjVMZjNmeW5vQVJCTWcrUlVoNlNCbFJLa1hsTnRFT3BuSFpNUUZY?=
+ =?utf-8?B?S2xocVdwRmQ1a245bzJnMVVQalR4b05oSm8zUUUvbWJ5OUtBcWJ4SjN3Q0JU?=
+ =?utf-8?B?QUY0QlF5dmd1OXJUTnM2emIxR1NRUlpyNWZkcFYvV0R0OGg2ejVUaEpZZ0ZU?=
+ =?utf-8?B?WkhpbVRTZDJKQSt4T1Z3NTIvUXpDL3Q1cDlGeGRnc1BubnVGNkNuczlKVFJl?=
+ =?utf-8?B?Vkw3SDl3MHJDcWo5NW9sdjlxN0FWenhvNlR3ejNFVFMvL0JnL21ZV24reGZW?=
+ =?utf-8?B?WEd2clhodlJvczJmeE05ZE9RR3ZvSUVjZG9DdlVGSmRoUGxSdkJWQTRaWWFY?=
+ =?utf-8?B?dG13ekREeWs0RW5JUEtVdmpaaXZRTTY1TisxL2dab3JKeHNlaWRrWm1wWjdt?=
+ =?utf-8?B?bjJHSWRzSnJWcU1rWW1IMGlrZlA1cU9zQ2NYTXB1V0YwNjhVU0xjU3RESlhW?=
+ =?utf-8?B?NC90OTIrNG9NUWhnajRvcEwvTzBJUElMcXRmbTBOUG5Qd1oxNzd6cWQ5THFx?=
+ =?utf-8?B?RW1GSkJ4RmI5QUI5aEMzQTNaK1duTjhPUnpLMkEybmFmUzZ2UnlIaWxoZENY?=
+ =?utf-8?B?MHRUeGFWaXl5SmdDRE1JTDJLMmFoR2FxN0MrcExSUC96aEl1SkhzSjhMTVc3?=
+ =?utf-8?B?OERXTHV0UkIyZ3MwNFB5SUJEV2Y0OGVzZDlMOWJxTU8va2xHT0xJQyt5YlNF?=
+ =?utf-8?B?MGxNRktOSTRFbmZrWnVNaVhHRjlBc3pUNFlhL09LamdNUWpleDl4dFJJTWdM?=
+ =?utf-8?B?bS8yUmJvdmQ1Q2phZ3o1NXkwVzVDM1NVRHZIWi9MZ1RXdDhkNzFSK3RaWkhz?=
+ =?utf-8?B?bFNGRHJoSXhVOTA5K29lVjJhS2ZvY0RPbmxMd2Z5WEZrbDZvZzVTclJWUWpF?=
+ =?utf-8?B?a1ppbzh2YVp1RGhaWG91TUJxb0kvaUlyUXdIUmR1eUlpWG5xVXV0WnIrWXJt?=
+ =?utf-8?B?ZUR6bmgrblpzTW5PUkFHalg1eHVVYkJCZHEzeHp6cG5XdURMam1pUDNObEs2?=
+ =?utf-8?B?MVoyVmpLVGF0L3NtWWI1MERXUDVvV2FmbmxIU0c2V2EybFNoS0oyek5Ob09P?=
+ =?utf-8?B?RFpKUnFxSUpydTVTZXk5S3BmS1pZNURaSzdlb1N1dFFybEgyK0pSa0FMZGtj?=
+ =?utf-8?B?VnM1UXVjcDNkS3R6MllldXlWYUF1ME5LM2JYYzMrckh0MncrSzUybFlTQ1li?=
+ =?utf-8?B?MUhTSjZPRXJwUWtxclMzWVRyOVlza3ZmVnI0ZnJNV0lHbW8rTTkwL1lOMUw0?=
+ =?utf-8?B?aHVsYUI2NExWZzhKSnNiWmNIYzdyQzNZU1BSYmExMWNlZmlKMk1JOXlDZ0ow?=
+ =?utf-8?B?cm9ZdW5sUHRyak1rMEFRcmZvUFRpVGpadmlXVFlaTWVkQS9VajlBbHdCS29H?=
+ =?utf-8?B?S0pGdFNnRjNmbjE2T0JoTTVVODZvNFFoOXlBNm9ac0M1RnRKTGpNcHBCUDl0?=
+ =?utf-8?B?Z0ZsdFVVL20zYTJxbXA1OFAvQXNYVEtoMFFzMVlkZUJDQjBRUTlHRjF1dEN5?=
+ =?utf-8?B?UTNMTDBuVDN5dEJZbkp1d0lLN0Mrbis3UGtqdnlJMHVLNW4zSzA1RlpkVjRI?=
+ =?utf-8?B?SGw3M2RwTHVENURtU3V4ZmNpcVM2azVLZjNST2g0Z0xyNk1VNERSdmZUTWto?=
+ =?utf-8?B?NkhraDBhUUdJQU1Tbno1dm1iRkVLSUFTL1ZoelFLbThZTDRkcWgzKzV0VGo1?=
+ =?utf-8?B?WVlSRFVGbkxqbUhyS3ZueHBVQ1huc0dCZ0RVd0pQWm1JNGNUT0pJdXRadVhJ?=
+ =?utf-8?B?cHJFUnZRNHp2Sk1pb3haQUNxdWpFWWxnaDZjZ2pBbU1zUDIybDhvYVhNWEJh?=
+ =?utf-8?B?anBqM0FncjJienJQeEJ3U0JqMmhQTmZ6dzdVMzh0a0xLRUZZSEFqS0tGSFU4?=
+ =?utf-8?B?WXZHMm1PSUVUOEp6OU1kYTZOSndXZTFaVXZLNm1zMTVmYU9wN3QvM0tLenJ2?=
+ =?utf-8?B?dTJwNlQrdVRXV2FxalU0V3ZSZUxQQnpOQkRDeURuMjQwSTZlaDVRK3EwNDNa?=
+ =?utf-8?B?WGc9PQ==?=
+Content-ID: <671BECC7F1B437478D2868D3EB15E4DC@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220627045833.1590055-5-anshuman.khandual@arm.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 583ddbaa-a6dd-417d-73be-08da5867a520
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Jun 2022 18:05:40.1433
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: tP+MJgXXrT/tWBavS26BJT/1QE6lkA08rEL/sVp9uk1pkzoK6yCl7pi+YFJijHEnYY8CteKlZ3ibGkc7R7R+W66PAe8zCnn0ifIu9gesWCQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR11MB5382
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220627_101509_543494_5B3D90B5 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20220627_110552_107877_D6A5BA6B 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,155 +189,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anshuman,
-
-On Mon, Jun 27, 2022 at 10:28:11AM +0530, Anshuman Khandual wrote:
-> This moves protection_map[] inside the platform and while here, also enable
-> ARCH_HAS_VM_GET_PAGE_PROT on 32 bit platforms via DECLARE_VM_GET_PAGE_PROT.
+On 27/06/2022 18:15, Rob Herring wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: sparclinux@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
->  arch/sparc/Kconfig                  |  2 +-
->  arch/sparc/include/asm/pgtable_32.h | 19 -------------------
->  arch/sparc/include/asm/pgtable_64.h | 19 -------------------
->  arch/sparc/mm/init_32.c             | 20 ++++++++++++++++++++
->  arch/sparc/mm/init_64.c             |  3 +++
->  5 files changed, 24 insertions(+), 39 deletions(-)
+> On Mon, Jun 20, 2022 at 09:06:34PM +0000, Conor.Dooley@microchip.com wrote:
+>> On 20/06/2022 21:56, Serge Semin wrote:
+>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>>
+>>> On Sat, Jun 18, 2022 at 01:30:28PM +0100, Conor Dooley wrote:
+>>>> From: Conor Dooley <conor.dooley@microchip.com>
+>>>>
+>>>> snps,dwc-ssi-1.01a has a single user - the Canaan k210, which uses a
+>>>> width of 4 for spi-{r,t}x-bus-width. Update the binding to reflect
+>>>> this.
+>>>>
+>>>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>>>> ---
+>>>>  .../bindings/spi/snps,dw-apb-ssi.yaml         | 48 ++++++++++++++-----
+>>>>  1 file changed, 35 insertions(+), 13 deletions(-)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+>>>> index e25d44c218f2..f2b9e3f062cd 100644
+>>>> --- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+>>>> +++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+>>>> @@ -135,19 +135,41 @@ properties:
+>>>>        of the designware controller, and the upper limit is also subject to
+>>>>        controller configuration.
+>>>>
+>>>> -patternProperties:
+>>>> -  "^.*@[0-9a-f]+$":
+>>>> -    type: object
+>>>> -    properties:
+>>>> -      reg:
+>>>> -        minimum: 0
+>>>> -        maximum: 3
+>>>> -
+>>>> -      spi-rx-bus-width:
+>>>> -        const: 1
+>>>> -
+>>>> -      spi-tx-bus-width:
+>>>> -        const: 1
+>>>> +if:
+>>>> +  properties:
+>>>> +    compatible:
+>>>> +      contains:
+>>>> +        const: snps,dwc-ssi-1.01a
+>>>> +
+>>>> +then:
+>>>> +  patternProperties:
+>>>> +    "^.*@[0-9a-f]+$":
+>>>> +      type: object
+>>>> +      properties:
+>>>> +        reg:
+>>>> +          minimum: 0
+>>>> +          maximum: 3
+>>>> +
+>>>> +        spi-rx-bus-width:
+>>>> +          const: 4
+>>>> +
+>>>> +        spi-tx-bus-width:
+>>>> +          const: 4
+>>>> +
+>>>> +else:
+>>>> +  patternProperties:
+>>>> +    "^.*@[0-9a-f]+$":
+>>>> +      type: object
+>>>> +      properties:
+>>>> +        reg:
+>>>> +          minimum: 0
+>>>> +          maximum: 3
+>>>> +
+>>>> +        spi-rx-bus-width:
+>>>> +          const: 1
+>>>> +
+>>>> +        spi-tx-bus-width:
+>>>> +          const: 1
+>>>
+>>> You can just use a more relaxed constraint "enum: [1 2 4 8]" here
+>>
+>> 8 too? sure.
 > 
-> diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
-> index ba449c47effd..09f868613a4d 100644
-> --- a/arch/sparc/Kconfig
-> +++ b/arch/sparc/Kconfig
-> @@ -13,6 +13,7 @@ config 64BIT
->  config SPARC
->  	bool
->  	default y
-> +	select ARCH_HAS_VM_GET_PAGE_PROT
->  	select ARCH_MIGHT_HAVE_PC_PARPORT if SPARC64 && PCI
->  	select ARCH_MIGHT_HAVE_PC_SERIO
->  	select DMA_OPS
-> @@ -84,7 +85,6 @@ config SPARC64
->  	select PERF_USE_VMALLOC
->  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
->  	select HAVE_C_RECORDMCOUNT
-> -	select ARCH_HAS_VM_GET_PAGE_PROT
->  	select HAVE_ARCH_AUDITSYSCALL
->  	select ARCH_SUPPORTS_ATOMIC_RMW
->  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC
-> diff --git a/arch/sparc/include/asm/pgtable_32.h b/arch/sparc/include/asm/pgtable_32.h
-> index 4866625da314..8ff549004fac 100644
-> --- a/arch/sparc/include/asm/pgtable_32.h
-> +++ b/arch/sparc/include/asm/pgtable_32.h
-> @@ -64,25 +64,6 @@ void paging_init(void);
->  
->  extern unsigned long ptr_in_current_pgd;
->  
-> -/*         xwr */
-> -#define __P000  PAGE_NONE
-> -#define __P001  PAGE_READONLY
-> -#define __P010  PAGE_COPY
-> -#define __P011  PAGE_COPY
-> -#define __P100  PAGE_READONLY
-> -#define __P101  PAGE_READONLY
-> -#define __P110  PAGE_COPY
-> -#define __P111  PAGE_COPY
-> -
-> -#define __S000	PAGE_NONE
-> -#define __S001	PAGE_READONLY
-> -#define __S010	PAGE_SHARED
-> -#define __S011	PAGE_SHARED
-> -#define __S100	PAGE_READONLY
-> -#define __S101	PAGE_READONLY
-> -#define __S110	PAGE_SHARED
-> -#define __S111	PAGE_SHARED
-> -
->  /* First physical page can be anywhere, the following is needed so that
->   * va-->pa and vice versa conversions work properly without performance
->   * hit for all __pa()/__va() operations.
-> diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
-> index 4679e45c8348..a779418ceba9 100644
-> --- a/arch/sparc/include/asm/pgtable_64.h
-> +++ b/arch/sparc/include/asm/pgtable_64.h
-> @@ -187,25 +187,6 @@ bool kern_addr_valid(unsigned long addr);
->  #define _PAGE_SZHUGE_4U	_PAGE_SZ4MB_4U
->  #define _PAGE_SZHUGE_4V	_PAGE_SZ4MB_4V
->  
-> -/* These are actually filled in at boot time by sun4{u,v}_pgprot_init() */
-> -#define __P000	__pgprot(0)
-> -#define __P001	__pgprot(0)
-> -#define __P010	__pgprot(0)
-> -#define __P011	__pgprot(0)
-> -#define __P100	__pgprot(0)
-> -#define __P101	__pgprot(0)
-> -#define __P110	__pgprot(0)
-> -#define __P111	__pgprot(0)
-> -
-> -#define __S000	__pgprot(0)
-> -#define __S001	__pgprot(0)
-> -#define __S010	__pgprot(0)
-> -#define __S011	__pgprot(0)
-> -#define __S100	__pgprot(0)
-> -#define __S101	__pgprot(0)
-> -#define __S110	__pgprot(0)
-> -#define __S111	__pgprot(0)
-> -
->  #ifndef __ASSEMBLY__
->  
->  pte_t mk_pte_io(unsigned long, pgprot_t, int, unsigned long);
-> diff --git a/arch/sparc/mm/init_32.c b/arch/sparc/mm/init_32.c
-> index 1e9f577f084d..8693e4e28b86 100644
-> --- a/arch/sparc/mm/init_32.c
-> +++ b/arch/sparc/mm/init_32.c
-> @@ -302,3 +302,23 @@ void sparc_flush_page_to_ram(struct page *page)
->  		__flush_page_to_ram(vaddr);
->  }
->  EXPORT_SYMBOL(sparc_flush_page_to_ram);
-> +
-> +static pgprot_t protection_map[16] __ro_after_init = {
-This can be const - like done for powerpc and others.
-sparc32 and sparc64 uses each their own - and I do not see sparc32 do
-any modifications to protection_map.
+> Then no constraints needed because the common definition already has
+> this presumably.
 
-With this change:
-Reviewed-by: Sam Ravnborg <sam@ravnborg.org>
-
-> +	[VM_NONE]					= PAGE_NONE,
-> +	[VM_READ]					= PAGE_READONLY,
-> +	[VM_WRITE]					= PAGE_COPY,
-> +	[VM_WRITE | VM_READ]				= PAGE_COPY,
-> +	[VM_EXEC]					= PAGE_READONLY,
-> +	[VM_EXEC | VM_READ]				= PAGE_READONLY,
-> +	[VM_EXEC | VM_WRITE]				= PAGE_COPY,
-> +	[VM_EXEC | VM_WRITE | VM_READ]			= PAGE_COPY,
-> +	[VM_SHARED]					= PAGE_NONE,
-> +	[VM_SHARED | VM_READ]				= PAGE_READONLY,
-> +	[VM_SHARED | VM_WRITE]				= PAGE_SHARED,
-> +	[VM_SHARED | VM_WRITE | VM_READ]		= PAGE_SHARED,
-> +	[VM_SHARED | VM_EXEC]				= PAGE_READONLY,
-> +	[VM_SHARED | VM_EXEC | VM_READ]			= PAGE_READONLY,
-> +	[VM_SHARED | VM_EXEC | VM_WRITE]		= PAGE_SHARED,
-> +	[VM_SHARED | VM_EXEC | VM_WRITE | VM_READ]	= PAGE_SHARED
-> +};
-> +DECLARE_VM_GET_PAGE_PROT
-> diff --git a/arch/sparc/mm/init_64.c b/arch/sparc/mm/init_64.c
-> index f6174df2d5af..d6faee23c77d 100644
-> --- a/arch/sparc/mm/init_64.c
-> +++ b/arch/sparc/mm/init_64.c
-> @@ -2634,6 +2634,9 @@ void vmemmap_free(unsigned long start, unsigned long end,
->  }
->  #endif /* CONFIG_SPARSEMEM_VMEMMAP */
->  
-> +/* These are actually filled in at boot time by sun4{u,v}_pgprot_init() */
-> +static pgprot_t protection_map[16] __ro_after_init;
-> +
->  static void prot_init_common(unsigned long page_none,
->  			     unsigned long page_shared,
->  			     unsigned long page_copy,
-> -- 
-> 2.25.1
+Almost, the default has 0 in the enum too.
+I'll go with that - thanks!
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
