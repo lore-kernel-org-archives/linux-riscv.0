@@ -4,80 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 623A5C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 08:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53ADEC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 09:29:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+k7QXPyFS8Y0OCQ8pK+zHg7MfLkAFCih65QCAE9rVFU=; b=o88YYEWWJsfXi/
-	6paQCOuuMBrDxw2XGgJ6EKkLWt3euNrToJR04Z/CfPFSRhJgXvy+zhRX0dPtJw4lLyz8m8sEfmYU7
-	CtNhqI8Gfjg5adRSuqO0PkMYVXmEbFm2LFYofXUoWQPUOPjxNyhidAYxxN57J0ObY+j2cUX/HW4ZC
-	w040Z+5J6+5Cv4apLX6lUaH/B0V6rY/aIshbEgq8N+cy2phpueq02CbRe2irIJxUNyNb9oMbi5htO
-	sY8p6rj5whwX04et+HsuGpOes9WibFYa5V0Pr30gDdIXbtv7G/RI2+woRVC5RQOQQ8DT7IXPHZzA4
-	LcDZs6YYXTnnm02tbumw==;
+	List-Owner; bh=PG4IwVrs8akZQglSURQu9lpgpZWE5EZoqsqVXCJHaGc=; b=3KZgQhqLWOA/r9
+	5kl9EurLBizrFFi81AZezQ0thpYyO20fBf652uerBVuqzh4DoeKJ6ptistXgNEBe3UPy3EgbfqiVP
+	pOIhgTN0EKxAwhagEEiToKmkLJr71GDxm3jSDaOusL7IY2LEEQViVd5DbnqIi2HVfLY8hW5o2Q+5k
+	J0jGqlNsglZpfyvcbQDETEN8NOtFI2B012D4MfEZvqgRAY1wmf5VACy4I9hYAEMDm146GIw7J+/Qz
+	aDTDV/vrvM92VlKDcy4mIs2HsDwZfAxB4kNxQBtPQJc2UZFkg/yW0KeIzx+izWx53b9OUcgo8XUZe
+	spYlO/AZuevNT8pkx5NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5kUv-00H0et-In; Mon, 27 Jun 2022 08:53:33 +0000
-Received: from mail-qv1-f45.google.com ([209.85.219.45])
+	id 1o5l31-00HJSG-ED; Mon, 27 Jun 2022 09:28:47 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5kUs-00H0bs-9Q
-	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 08:53:31 +0000
-Received: by mail-qv1-f45.google.com with SMTP id 43so11874qva.9
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Jun 2022 01:53:28 -0700 (PDT)
+	id 1o5kyh-00HHAC-Gh
+	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 09:24:21 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id ge10so17802220ejb.7
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Jun 2022 02:24:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=message-id:date:mime-version:user-agent:subject:content-language:to
+         :cc:references:from:in-reply-to:content-transfer-encoding;
+        bh=WheMo0jihvDqC8vkz7SeuHDX+Y7spNQBPItzd2n3lJ0=;
+        b=L2p+vhW8V4W2qd7Xx3ICJgwuBfUCYsXAwPJ9+Y54ki6Mzrs21eZhOBQOQqzrdRq/ki
+         q0wO1Kbml/A5MfI4+eCB/NgTIvhAWmZPe+KUVsiGeHeztxDvJQabWrZZSskL6GEP1urI
+         di/+WaZWgQGlzKszgnTOuItTXx/H8QdR/6gx8NMdNwu9XtjumwRj0LLc8wZjyo/bYs0Y
+         pGGhj20wTkxXzcozlbLzEubE27s5Z5Pdn8wEDc4jfG6uWnRvSPbNv0rV59MkXIyeNnyd
+         zTqYMzzoQ/bRv2c90D5XQF1LkO+eUL1tVBNcnB2g7ZdGy97RIG1VFYU63ghv9apqNY+r
+         07gA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=8ruOoryFdJTYSwm98bFwmI1FC+X3Sx2AY+/obbwRbEE=;
-        b=jwZSh3nTDW8Tk7k7RYxnnTjuoqe72w5QSkgo3pDI8sTp6xBBI46xv1XmYwuug+98Ic
-         J2Ay/08Ead46wg03D3RHXH+xQmrjYwS4V6FQj4zmwrVvZDieI/V4IC9Td4UT/Ux5OP6K
-         wec7IkruJ+SA9aQ5MtOdIf6em14ylbRwlD2HP3hSL6Xxh9fzqZrjWgk2n6Gkr3txTnxb
-         LDwujwap3TM9qOWCkMtKijP8pafUCf6Fm7Om1uDEunw3JKdgDkHa/W63hTbks59CMeYw
-         Idmi9tfhAaxc19TkyXw0P7GEsBgrs3GbgXeJoIVvIi2lnIB81UTVdmEl40exgxFlZoWL
-         FsTg==
-X-Gm-Message-State: AJIora/rHejm5qjyAmD00YdQs5tPEjWSXqTvyjqY+n4AimpflGbejULt
-	ZLrJHWxSYFno4cfD5p/zuHF+81YZJEPr5A==
-X-Google-Smtp-Source: AGRyM1uxRQd2EP5iZe6tKhyYYgsfMxLADA8WtYu+JxNljAFQ4Nha0SM9lpMLvRCJFFSPJ6kcHAyMbQ==
-X-Received: by 2002:ac8:7f49:0:b0:305:3392:6eb7 with SMTP id g9-20020ac87f49000000b0030533926eb7mr8467160qtk.84.1656320007883;
-        Mon, 27 Jun 2022 01:53:27 -0700 (PDT)
-Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com. [209.85.128.173])
-        by smtp.gmail.com with ESMTPSA id o16-20020a05620a2a1000b006a68fdc2d18sm3383631qkp.130.2022.06.27.01.53.26
-        for <linux-riscv@lists.infradead.org>
+        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+         :content-language:to:cc:references:from:in-reply-to
+         :content-transfer-encoding;
+        bh=WheMo0jihvDqC8vkz7SeuHDX+Y7spNQBPItzd2n3lJ0=;
+        b=sniMKGXnlROanwZOYEuTR97JhlW846DlpPY76bYtFRqq9B2ryiASCljxc2NbrWJrZ3
+         CZ0M1Dto+6aUkDkJD5qQSFT2gyW8G3QfRfspd7RXS9251S6hr5uncSTyYdecoPxNrpBm
+         K+tbUZMEWJX4n/xouTcjR6Ts7UpSkdLfmoirvF+7MABDus2jY+epaqxgt5n+L4wo0o1l
+         A7Zy87OX2LzNKtP97l1r6leWm/Sx6SjJlwvGLWp3Wd0+1a8xktmgCW4o9cm0XqzHoy8n
+         Lprow+jIjoLMkg6I1onQZ//b4DIILc4wKdbEnx1F6h2NCOACq/wH8axv+Lvlpwn5goKR
+         /X8w==
+X-Gm-Message-State: AJIora8y8J1d8Ek/lFBgnEMZ32GRgVQMMHcsIH5V2tdQI4WjzSier0jv
+	pRrdeHX6+a9uKn312FGSFXVfhA==
+X-Google-Smtp-Source: AGRyM1vmSw4PkoUJobIyZ+0PFFNkXJG8udoaIUyo4XAy6BtVMPROE7ZMi8N88/BWlX2w6+MlYxVhXQ==
+X-Received: by 2002:a17:906:478e:b0:722:f84d:159f with SMTP id cw14-20020a170906478e00b00722f84d159fmr11897036ejc.182.1656321856221;
+        Mon, 27 Jun 2022 02:24:16 -0700 (PDT)
+Received: from [192.168.0.247] (xdsl-188-155-176-92.adslplus.ch. [188.155.176.92])
+        by smtp.gmail.com with ESMTPSA id d16-20020a170906545000b006feb20b5235sm4820639ejp.84.2022.06.27.02.24.14
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 27 Jun 2022 01:53:26 -0700 (PDT)
-Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-317741c86fdso78576847b3.2
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Jun 2022 01:53:26 -0700 (PDT)
-X-Received: by 2002:a81:574c:0:b0:317:7c3a:45be with SMTP id
- l73-20020a81574c000000b003177c3a45bemr13161209ywb.316.1656320006319; Mon, 27
- Jun 2022 01:53:26 -0700 (PDT)
+        Mon, 27 Jun 2022 02:24:15 -0700 (PDT)
+Message-ID: <430f5284-b107-e43c-7329-9e299093a352@linaro.org>
+Date: Mon, 27 Jun 2022 11:24:13 +0200
 MIME-Version: 1.0
-References: <20220626004326.8548-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220626004326.8548-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <87wnd3erab.wl-maz@kernel.org> <CA+V-a8tcxj_N0sBHhgAZAN8WSJ12JnDzAvUUnCXto3wHLqNVwg@mail.gmail.com>
- <87v8snehwi.wl-maz@kernel.org>
-In-Reply-To: <87v8snehwi.wl-maz@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 27 Jun 2022 10:53:13 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdVt9FjCtvMgJcCh=g2b+8b-fgabGbOLDcXNrrPMpC+3jQ@mail.gmail.com>
-Message-ID: <CAMuHMdVt9FjCtvMgJcCh=g2b+8b-fgabGbOLDcXNrrPMpC+3jQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] irqchip/sifive-plic: Add support for Renesas
- RZ/Five SoC
-To: Marc Zyngier <maz@kernel.org>
-Cc: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Sagar Kadam <sagar.kadam@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Biju Das <biju.das.jz@bp.renesas.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.10.0
+Subject: Re: [PATCH 07/14] riscv: dts: canaan: fix the k210's memory node
+Content-Language: en-US
+To: Conor.Dooley@microchip.com, damien.lemoal@opensource.wdc.com,
+ robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org
+Cc: fancer.lancer@gmail.com, tglx@linutronix.de, sam@ravnborg.org,
+ Eugeniy.Paltsev@synopsys.com, daniel.lezcano@linaro.org,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu, masahiroy@kernel.org,
+ geert@linux-m68k.org, lgirdwood@gmail.com, niklas.cassel@wdc.com,
+ dillon.minfei@gmail.com, jee.heng.sia@intel.com, thierry.reding@gmail.com,
+ joabreu@synopsys.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, airlied@linux.ie, linux-kernel@vger.kernel.org,
+ vkoul@kernel.org, palmer@dabbelt.com, broonie@kernel.org,
+ dmaengine@vger.kernel.org, alsa-devel@alsa-project.org,
+ linux-spi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ palmer@rivosinc.com, daniel@ffwll.ch
+References: <20220618123035.563070-1-mail@conchuod.ie>
+ <20220618123035.563070-8-mail@conchuod.ie>
+ <9cd60b3b-44fe-62ac-9874-80ae2223d078@opensource.wdc.com>
+ <e1fbf363-d057-1000-a846-3df524801f15@microchip.com>
+ <891cf74c-ac0a-b380-1d5f-dd7ce5aeda9d@opensource.wdc.com>
+ <6c9de242-6ccf-49a2-8422-e6949c5169ff@microchip.com>
+ <70cd0066-9aa7-ca41-ad61-898d491328aa@linaro.org>
+ <b8dce80e-2753-497e-1dd3-3eb0d248b74e@microchip.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <b8dce80e-2753-497e-1dd3-3eb0d248b74e@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220627_015330_384948_F38F19F0 
-X-CRM114-Status: GOOD (  41.12  )
+X-CRM114-CacheID: sfid-20220627_022419_643812_27D13361 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,82 +108,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On 27/06/2022 09:06, Conor.Dooley@microchip.com wrote:
+> 
+> 
+> On 27/06/2022 07:55, Krzysztof Kozlowski wrote:
+>> On 21/06/2022 11:49, Conor.Dooley@microchip.com wrote:
+>>> On 20/06/2022 01:25, Damien Le Moal wrote:
+>>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>>>
+>>>> On 6/20/22 08:54, Conor.Dooley@microchip.com wrote:
+>>>>> On 20/06/2022 00:38, Damien Le Moal wrote:
+>>>>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>>>>>
+>>>>>> On 6/18/22 21:30, Conor Dooley wrote:
+>>>>>>> From: Conor Dooley <conor.dooley@microchip.com>
+>>>>>>>
+>>>>>>> The k210 memory node has a compatible string that does not match with
+>>>>>>> any driver or dt-binding & has several non standard properties.
+>>>>>>> Replace the reg names with a comment and delete the rest.
+>>>>>>>
+>>>>>>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>>>>>>> ---
+>>>>>>> ---
+>>>>>>>    arch/riscv/boot/dts/canaan/k210.dtsi | 6 ------
+>>>>>>>    1 file changed, 6 deletions(-)
+>>>>>>>
+>>>>>>> diff --git a/arch/riscv/boot/dts/canaan/k210.dtsi b/arch/riscv/boot/dts/canaan/k210.dtsi
+>>>>>>> index 44d338514761..287ea6eebe47 100644
+>>>>>>> --- a/arch/riscv/boot/dts/canaan/k210.dtsi
+>>>>>>> +++ b/arch/riscv/boot/dts/canaan/k210.dtsi
+>>>>>>> @@ -69,15 +69,9 @@ cpu1_intc: interrupt-controller {
+>>>>>>>
+>>>>>>>         sram: memory@80000000 {
+>>>>>>>                 device_type = "memory";
+>>>>>>> -             compatible = "canaan,k210-sram";
+>>>>>>>                 reg = <0x80000000 0x400000>,
+>>>>>>>                       <0x80400000 0x200000>,
+>>>>>>>                       <0x80600000 0x200000>;
+>>>>>>> -             reg-names = "sram0", "sram1", "aisram";
+>>>>>>> -             clocks = <&sysclk K210_CLK_SRAM0>,
+>>>>>>> -                      <&sysclk K210_CLK_SRAM1>,
+>>>>>>> -                      <&sysclk K210_CLK_AI>;
+>>>>>>> -             clock-names = "sram0", "sram1", "aisram";
+>>>>>>>         };
+>>>>>>
+>>>>>> These are used by u-boot to setup the memory clocks and initialize the
+>>>>>> aisram. Sure the kernel actually does not use this, but to be in sync with
+>>>>>> u-boot DT, I would prefer keeping this as is. Right now, u-boot *and* the
+>>>>>> kernel work fine with both u-boot internal DT and the kernel DT.
+>>>>>
+>>>>> Right, but unfortunately that desire alone doesn't do anything about
+>>>>> the dtbs_check complaints.
+>>>>>
+>>>>> I guess the alternative approach of actually documenting the compatible
+>>>>> would be more palatable?
+>>>>
+>>>> Yes, I think so. That would allow keeping the fields without the DTB build
+>>>> warnings.
+>>>
+>>> Hmm looks like that approach contradicts the dt-schema;
+>>> https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/memory.yaml
+>>>
+>>> @Rob,Krzysztof what is one meant to do here?
+>>
+>> Why do you think it contradict bindings? Bindings for memory allow
+> 
+> Because when I tried to write the binding, the memory node complained
+> about the clock properties etc and referenced the dt-schema (which
+> for memory@foo nodes has additionalProperties: false.
 
-On Sun, Jun 26, 2022 at 2:19 PM Marc Zyngier <maz@kernel.org> wrote:
-> On Sun, 26 Jun 2022 10:38:18 +0100,
-> "Lad, Prabhakar" <prabhakar.csengg@gmail.com> wrote:
-> > On Sun, Jun 26, 2022 at 9:56 AM Marc Zyngier <maz@kernel.org> wrote:
-> > > On Sun, 26 Jun 2022 01:43:26 +0100,
-> > > Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
-> > > > The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
-> > > > NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
-> > > > case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
-> > > > edge until the previous completion message has been received and
-> > > > NCEPLIC100 doesn't support pending interrupt counter, hence losing the
-> > > > interrupts if not acknowledged in time.
-> > > >
-> > > > So the workaround for edge-triggered interrupts to be handled correctly
-> > > > and without losing is that it needs to be acknowledged first and then
-> > > > handler must be run so that we don't miss on the next edge-triggered
-> > > > interrupt.
-> > > >
-> > > > This patch adds a new compatible string for Renesas RZ/Five SoC and adds
-> > > > support to change interrupt flow based on the interrupt type. It also
-> > > > implements irq_ack and irq_set_type callbacks.
-> > > >
-> > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Ah, I see, I looked at wrong level. Indeed memory node cannot have
+anything else.
 
-> > > > +     if (of_device_is_compatible(node, "renesas,r9a07g043-plic")) {
-> > > > +             priv->of_data = RENESAS_R9A07G043_PLIC;
-> > > > +             plic_chip.name = "Renesas RZ/Five PLIC";
-> > >
-> > > NAK. The irq_chip structure isn't the place for platform marketing.
-> > > This is way too long anyway (and same for the edge version), and you
-> > > even sent me a patch to make that structure const...
-> > >
-> > My bad will drop this.
->
-> And why you're at it, please turn this rather random 'of_data' into
-> something like:
->
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index bb87e4c3b88e..cd1683b77caf 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -64,6 +64,10 @@ struct plic_priv {
->         struct cpumask lmask;
->         struct irq_domain *irqdomain;
->         void __iomem *regs;
-> +       enum {
-> +               VANILLA_PLIC,
-> +               RENESAS_R9A07G043_PLIC,
-> +       } flavour;
->  };
->
->  struct plic_handler {
->
-> to give some structure to the whole thing, because I'm pretty sure
-> we'll see more braindead implementations as time goes by.
+> 
+>> additional properties, so you just need to create binding for this one.
+>> And make it a correct binding, IOW, be sure that these clocks are real etc.
+>>
+>> Although usually we had separate bindings (and device drivers) for
+>> memory controllers, instead of including them in the "memory" node.
+> 
+> I guess changing to that format would probably require some changes on
+> the U-Boot side of things. Taking "calxeda,hb-ddr-ctrl" as an example,
+> looks like the clocks etc go in a controller node, which seems like a
+> "better" way of doing it - 
 
-What about using a feature flag (e.g. had_edge_irqs) instead?
+Yes, because I think memory node is kind of special. It describes the
+physical memory layout for the system, not the memory controller or
+memory characteristics (like timings).
 
-> It almost feels like I've written this whole patch. Oh wait...
+What U-Boot needs is indeed memory controller node. It's not only
+calxeda but also few others using JEDEC LPDDR bindings.
 
-> Without deviation from the norm, progress is not possible.
+> but would break existing dts in U-Boot
+> without changes to handle both methods there.
 
-How applicable ;-)
+Yes, that's a bit inconvenient but also a price someone has to pay for
+introducing DTS properties without bindings.
 
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
