@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 930D0C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 19:41:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989C4CCA473
+	for <linux-riscv@archiver.kernel.org>; Mon, 27 Jun 2022 19:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oQHEsTd7SWJrJRE/6PfFLR+HE4HXsBioJg2GByple9Y=; b=0WMXBu7kk9itka
-	FA6CKG/uINvwY/p3V8ou+hwsyqXQTLpVpA6ZInPatpzfgtKl/20UuZ4BQAY1el4oyMZiX7Nu8lMvq
-	c0u+LqYPKpDXUO/weLJ5GWP9G5BNCZAVMQPnjjhfsrOXIRiwkeJa72aUHHIuRxnR7XNR4O/SMpqzN
-	V7+sQQMI66bgPHXfMlCJIrVDOiXeLrBm4VXIZeGp4J4LtpjkNuCX6Vj0MOQQbSOg2hOUtz1Tsmbhc
-	YF6YfrCp447T/Q56zRi3RZ+zdSTzObsQFBxVa+DgRCY9BVs86mArKr9iX97dTClN6b2UW5ZbudVer
-	YhINfHDwIzqXqQNNThSQ==;
+	List-Owner; bh=5bL4QnRIdCCOJMxf7J69K5OyYemCnoiFeuzYsTocjkM=; b=3li9u5t8nHc9zX
+	Y+3VtQf/etjIurrVpAHSROtK36lBu1E4zEuxOdHvtjLXvn8U6OEds/hZXtBhNSM01xcBDziib6dOl
+	Lthrusv3P77dhRb44h9P9rLO9iU+oyvtQFDXN+s/d5mXJ+x0impZEuTNBRrd3R1jWEUkZKpJGvg2C
+	KGp32oRqypKJhW87MUmPdC9SkEUO+1JUH3AG4R9ANV9Pt5786Or8q4xKF3/X9OtNqE4gmuoPQeYcj
+	gAHhwzEPgxx9KEYIJmxkghiOyGhiyOrlHQy5qE/oLdSfl4Vv+YpIoKQQkIA3g35xTHN3MWBuDplTW
+	ul2FL4lnc1pv4ICu2tqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5uc8-002aux-5v; Mon, 27 Jun 2022 19:41:40 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1o5ucE-002b0n-UB; Mon, 27 Jun 2022 19:41:46 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o5ubs-002afo-8q
-	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 19:41:26 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id i25so8974835wrc.13
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Jun 2022 12:41:21 -0700 (PDT)
+	id 1o5ubu-002agz-Rm
+	for linux-riscv@lists.infradead.org; Mon, 27 Jun 2022 19:41:29 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id e28so9326535wra.0
+        for <linux-riscv@lists.infradead.org>; Mon, 27 Jun 2022 12:41:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding;
-        bh=L+tGP5Kq7UIoKfqvhhTL1feo63GGQB6sV6O4YA0h7fw=;
-        b=TY3zxo6VkLsIUdTKjBItn+/z8AdzcodR3qzEG//3XMYrcKS1k9ne/bka4gXxqXaQnp
-         2A7+CWc2r5jHxfXLCYbs1PZlU4HHPOUgQ1rseP1dGYAxgMuz3QBtCgscrP20WA5683HF
-         7DkBrqQ3cTdsOlJMk8LlpZ1sL4rLpwtH5c+0J1NR5w6oUFO9qMV2hs2XXgqe3IcaGcfj
-         8r05RuxtHhutZ2YZG6ECMl6/y9ahK5t/H0x7DgLIqJyfuVdALl46lW0xRlvkJ20t3Vcl
-         ZMUSRO1erAmX6lUgkQPLaSV9s+0p93XNH7HN5iFsEhgotSM/ZV3rJgj9Q45PHW2rpdNw
-         hH5g==
+        bh=rPDKSpav5hSShjOawRd8sA//kdWQiIl6x3DL8tBafaU=;
+        b=C1x747pHFCl5BIqO2tKVzQODSEqSKX0M+cQ0VD6TIiatD4/0B898wZwGc+vBUmCQ0Z
+         ADkKctZpaFeqts/DgO6pXu3oW1ot2vW9NotfT4U4Xa+zwfZDDxaHFDiYVvm2R9CNqtBj
+         E06Rcknh3CHYad9cflRuFOXZX1vmY5B3c3ybS+4vwbu/3Wp9I852RvQRqqNz4cuKOOgI
+         n6ASQz3H09UYndOSN0Sl15ncyePaPZCwy8CrQeWv2hWUXslPkctHVLpfaWL3RtoOlIom
+         6s/OUA/vQFDetPTA2Tu0u58R+o5XSwX+2TI4F7Y5afZgDMoZsAgvkVAFJy3S7tg8MlqF
+         4qZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=L+tGP5Kq7UIoKfqvhhTL1feo63GGQB6sV6O4YA0h7fw=;
-        b=KOPNRhwUdioIuSo+GE9MDYwggnNwnZAy5jBT/ohjIAZ4h1Xi8sJy85utvrQbwjQv7a
-         k5yX/NdF0i3eRNnTVAo8UoXzkhLwieYmBgWNyXEmFf4Su7Vd+u618IvcBmBW/wOgKDzm
-         J6WwtS61MZUiK+fHso+5Jxe/6aeTym39Pe8Lg0bpXa16K3KmWvaIyJy8bSeegDPd3hfj
-         YuFKhcGgVZZV/Gp+tf0nujlZif7Z0bx/dGUA3TVrBoJXjV8H256HpsDzI/l1DwSbMYL/
-         vebYixlWwh/LhVYXMUGTEhzoS/m0cFXlggi+92xG77tQIE8zzOs6xaotvzYOOgbFYKWo
-         VGAg==
-X-Gm-Message-State: AJIora/QNKVfPgtCN+/0cMfLAQe1al7DQioUD/EIiYJ9wKebjQ/E+bC0
-	KA/PiABydieYzKoyGd0SxxhhgA==
-X-Google-Smtp-Source: AGRyM1vJuw4zmcv+tO3VLNG3qwSgFi4f30I8dOa3KRcph1tZdQYK/eqiVVbCh1Yv7auGf7Z85mjobg==
-X-Received: by 2002:a5d:644a:0:b0:21a:75f3:ac7c with SMTP id d10-20020a5d644a000000b0021a75f3ac7cmr13433488wrw.506.1656358880472;
-        Mon, 27 Jun 2022 12:41:20 -0700 (PDT)
+        bh=rPDKSpav5hSShjOawRd8sA//kdWQiIl6x3DL8tBafaU=;
+        b=sah76jVPhzdkVqaG6WoyF9L7F5BW920A4fkn40fu63lVqJeK77KES3bwC6T1FML4Vr
+         aRfO3ekwgRhUpfg6EyJc3G9H506ttQTALDHIeX32hF8HlVCClO24KAgRTjuCvvSzKgbI
+         RdKyX9ZkLeFyQNVxP3bXW98jDeqMVlVg8O+KQcj9IdoW7f42Q8oIZmHlwhUh68MzHMy2
+         NpRnLjQbcX9k8d/196P4pN8o9MsDVdHFek99k9V9ceBtdGHFsTBpQfJnUpIeZtyn0N5x
+         qVLImJWVUb7dQVcP9IAGCDQq//eNQ2x+bfI2qBDoWE0fr3yFvPtWhud048ud9jeOomgI
+         t0oA==
+X-Gm-Message-State: AJIora+z79LKufcoB3MV4Df0pUsXd7ap/gFClGl3UYod7F8CdNbwGYwz
+	dK+QmGnmcbdonygvzw9IOAyFzQ==
+X-Google-Smtp-Source: AGRyM1tVL2lpq2bKGJHZFM8okKWTC0C0B/ryfKeZtLnMa7gdCDbQ3Nw3Z3guL69dxyfpeL6LZkAb/A==
+X-Received: by 2002:a5d:4592:0:b0:21b:8e50:7fb9 with SMTP id p18-20020a5d4592000000b0021b8e507fb9mr13593921wrq.428.1656358882170;
+        Mon, 27 Jun 2022 12:41:22 -0700 (PDT)
 Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id e9-20020a5d4e89000000b0021a3a87fda9sm11428047wru.47.2022.06.27.12.41.18
+        by smtp.gmail.com with ESMTPSA id e9-20020a5d4e89000000b0021a3a87fda9sm11428047wru.47.2022.06.27.12.41.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 27 Jun 2022 12:41:19 -0700 (PDT)
+        Mon, 27 Jun 2022 12:41:21 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: David Airlie <airlied@linux.ie>,
 	Daniel Vetter <daniel@ffwll.ch>,
@@ -91,16 +91,16 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	alsa-devel@alsa-project.org,
 	linux-spi@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 03/16] ASoC: dt-bindings: convert designware-i2s to dt-schema
-Date: Mon, 27 Jun 2022 20:39:51 +0100
-Message-Id: <20220627194003.2395484-4-mail@conchuod.ie>
+Subject: [PATCH v2 04/16] spi: dt-bindings: dw-apb-ssi: update spi-{r,t}x-bus-width
+Date: Mon, 27 Jun 2022 20:39:52 +0100
+Message-Id: <20220627194003.2395484-5-mail@conchuod.ie>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220627194003.2395484-1-mail@conchuod.ie>
 References: <20220627194003.2395484-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220627_124124_383305_A27133E0 
-X-CRM114-Status: GOOD (  19.12  )
+X-CRM114-CacheID: sfid-20220627_124126_999070_844AAAFE 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,158 +119,43 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Convert the Synopsys DesignWare I2S controller binding to dt-schema.
-There was no listed maintainer but Jose Abreu was the last editor of the
-txt binding so add him as maintainer.
+Most users of dw-apb-ssi use spi-{r,t}x-bus-width of 1, however the
+Canaan k210 is wired up for a width of 4.
+Quoting Serge:
+The modern DW APB SSI controllers of v.4.* and newer also support the
+enhanced SPI Modes too (Dual, Quad and Octal). Since the IP-core
+version is auto-detected at run-time there is no way to create a
+DT-schema correctly constraining the Rx/Tx SPI bus widths.
+/endquote
 
+As such, drop the restriction on only supporting a bus width of 1.
+
+Link: https://lore.kernel.org/all/20220620205654.g7fyipwytbww5757@mobilestation/
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/sound/designware-i2s.txt         | 35 -------
- .../bindings/sound/snps,designware-i2s.yaml   | 93 +++++++++++++++++++
- 2 files changed, 93 insertions(+), 35 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/sound/designware-i2s.txt
- create mode 100644 Documentation/devicetree/bindings/sound/snps,designware-i2s.yaml
+Serge, I dropped your R-b when I swapped to the default
+property since it changed the enum.
+---
+ Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml | 6 ------
+ 1 file changed, 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/sound/designware-i2s.txt b/Documentation/devicetree/bindings/sound/designware-i2s.txt
-deleted file mode 100644
-index 6a536d570e29..000000000000
---- a/Documentation/devicetree/bindings/sound/designware-i2s.txt
-+++ /dev/null
-@@ -1,35 +0,0 @@
--DesignWare I2S controller
+diff --git a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+index e25d44c218f2..0a43d6e0ef91 100644
+--- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
++++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+@@ -143,12 +143,6 @@ patternProperties:
+         minimum: 0
+         maximum: 3
+ 
+-      spi-rx-bus-width:
+-        const: 1
 -
--Required properties:
-- - compatible : Must be "snps,designware-i2s"
-- - reg : Must contain the I2S core's registers location and length
-- - clocks : Pairs of phandle and specifier referencing the controller's
--   clocks. The controller expects one clock: the clock used as the sampling
--   rate reference clock sample.
-- - clock-names : "i2sclk" for the sample rate reference clock.
-- - dmas: Pairs of phandle and specifier for the DMA channels that are used by
--   the core. The core expects one or two dma channels: one for transmit and
--   one for receive.
-- - dma-names : "tx" for the transmit channel, "rx" for the receive channel.
+-      spi-tx-bus-width:
+-        const: 1
 -
--Optional properties:
-- - interrupts: The interrupt line number for the I2S controller. Add this
--   parameter if the I2S controller that you are using does not support DMA.
--
--For more details on the 'dma', 'dma-names', 'clock' and 'clock-names'
--properties please check:
--	* resource-names.txt
--	* clock/clock-bindings.txt
--	* dma/dma.txt
--
--Example:
--
--	soc_i2s: i2s@7ff90000 {
--		compatible = "snps,designware-i2s";
--		reg = <0x0 0x7ff90000 0x0 0x1000>;
--		clocks = <&scpi_i2sclk 0>;
--		clock-names = "i2sclk";
--		#sound-dai-cells = <0>;
--		dmas = <&dma0 5>;
--		dma-names = "tx";
--	};
-diff --git a/Documentation/devicetree/bindings/sound/snps,designware-i2s.yaml b/Documentation/devicetree/bindings/sound/snps,designware-i2s.yaml
-new file mode 100644
-index 000000000000..5ac9c00157bf
---- /dev/null
-+++ b/Documentation/devicetree/bindings/sound/snps,designware-i2s.yaml
-@@ -0,0 +1,93 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/sound/snps,designware-i2s.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: DesignWare I2S controller
-+
-+maintainers:
-+  - Jose Abreu <joabreu@synopsys.com>
-+
-+properties:
-+  compatible:
-+    oneOf:
-+      - items:
-+          - const: canaan,k210-i2s
-+          - const: snps,designware-i2s
-+      - enum:
-+          - snps,designware-i2s
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    description: |
-+      The interrupt line number for the I2S controller. Add this
-+      parameter if the I2S controller that you are using does not
-+      support DMA.
-+    maxItems: 1
-+
-+  clocks:
-+    description: Sampling rate reference clock
-+
-+  clock-names:
-+    const: i2sclk
-+
-+  resets:
-+    maxItems: 1
-+
-+  dmas:
-+    items:
-+      - description: TX DMA Channel
-+      - description: RX DMA Channel
-+    minItems: 1
-+
-+  dma-names:
-+    items:
-+      - const: tx
-+      - const: rx
-+    minItems: 1
-+
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: canaan,k210-i2s
-+
-+then:
-+  properties:
-+    "#sound-dai-cells":
-+      const: 1
-+
-+else:
-+  properties:
-+    "#sound-dai-cells":
-+      const: 0
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+
-+oneOf:
-+  - required:
-+      - dmas
-+      - dma-names
-+  - required:
-+      - interrupts
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    soc_i2s: i2s@7ff90000 {
-+      compatible = "snps,designware-i2s";
-+      reg = <0x7ff90000 0x1000>;
-+      clocks = <&scpi_i2sclk 0>;
-+      clock-names = "i2sclk";
-+      #sound-dai-cells = <0>;
-+      dmas = <&dma0 5>;
-+      dma-names = "tx";
-+    };
+ unevaluatedProperties: false
+ 
+ required:
 -- 
 2.36.1
 
