@@ -4,60 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BECC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jun 2022 03:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93EC7C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jun 2022 06:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=23rvXbLQMokZnTxqsPXMSBlHzCc8QpocjZoPOxnhp+4=; b=SIZ3uPqAu7H5OU
-	4XBgv5MTGpMIHDaWk/GbodtNsZtxShFGblFBDv3D9MCPYOBDAvRRHCsxGKij4II5m6+3OYbCZiUuY
-	+kkx/NaSCoI/6yQMpfZCAiFkS37o5P9hcY8NI9w8F94xZL8/PMum4DwJS4b5tlgbF20sCTfkE0Dw0
-	CiHk24hgbxvbJCsWbWWmBLvwdCfHIToppsmCjXlU96J0DigNccm3l8x2IJKO+11OkkvE1cgn79SU6
-	XGCjQMJ5gHjqAebMpBfScidYIbdwYWPcFb+9dMJScvgR6m2ioCdlNqgF08ylG+4+v/vU+hBjVErP+
-	M4dxZBf9KQITlhRFULwg==;
+	List-Owner; bh=FiyRJjAurDzDCIeto1tD/MZIeiLMMaYGhQX1+FXPCII=; b=2MiY7kHuweFH+R
+	n9jINmR+vfnQc8KKJmuD8dy1HmM8AFIa8uEnE1O4v0nXOIBELEgNXOcOopxw49tLqX0fbuDjfnVjK
+	fH1D8w4/XVGL5yRy46rvRTY0Bn2/mTYmKFW0vIRgJJCSQdRt43NlPsffTHHw3tN7o5nM0pWdmjDBH
+	kzUkWizyzL7dYMt/DNobhcqg4oySDxZ9KdrJS6mAPGGS6z7w3Hshj472nrgG+MFhTSVbgxrHvjsnW
+	8gftt0rGCj/QCrDhk/6+CVxzYW9Aewg7yT2nmvplB1ecAnjp/cmy8k8T5701B9co1Joa3GNGD+B3J
+	CwRxUo+gYielqpG0G+8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o61ej-003yEl-8J; Tue, 28 Jun 2022 03:12:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o61eX-003yCU-Py; Tue, 28 Jun 2022 03:12:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71983150C;
-	Mon, 27 Jun 2022 20:12:34 -0700 (PDT)
-Received: from [10.162.42.7] (unknown [10.162.42.7])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D7AC3F792;
-	Mon, 27 Jun 2022 20:12:26 -0700 (PDT)
-Message-ID: <f26804cf-e342-5826-8f01-4b087a7baa63@arm.com>
-Date: Tue, 28 Jun 2022 08:42:24 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+	id 1o64gC-004gxD-6U; Tue, 28 Jun 2022 06:26:32 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o64g8-004gv8-OW
+	for linux-riscv@lists.infradead.org; Tue, 28 Jun 2022 06:26:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1656397588; x=1687933588;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=hwPfXGKmIjP7VMNBQPuMD6gbM2ZFED0kaYvQrO6d+E8=;
+  b=Tpl1dQtHRI8MMpXPDAussoIqfmjwqe6VhWSlpNHpUVtZ1msE9gFWty/I
+   rRGNsSlckQFn/dGxsNy6ZzRCBsFkbA6Zbwn56t/iGKQ8p2CkUYn9wbSN8
+   gemUc+u1+hBL6XZQIO8aLa1NITBTfExdOSrGhz5SrHfwBavB4Sylqf8Bt
+   k36rHErjf6PWcKkgoCEHv7+kLn1hjO3X88YZ2NqtLzGly5QucnW+t/DcA
+   ZNvSNk+u9h+N4fsIr51fGrQRANQjdLKmM0cFlRHF8He5Ljj/LHT8H/ta3
+   st2jdy/aLrWCZM826++UVnRlfEtofz73qVRpcLB4ObWwMLQ+iBUyFCVMF
+   A==;
+X-IronPort-AV: E=Sophos;i="5.92,227,1650956400"; 
+   d="scan'208";a="179789138"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 27 Jun 2022 23:26:22 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Mon, 27 Jun 2022 23:26:21 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17 via Frontend Transport; Mon, 27 Jun 2022 23:26:21 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=b77VodfbBCaGVgmIBEOL0f0WIBbfgpAuEjSYqu5E8XkG+/Nh3KQxJMuC5c1MdVtPoV96XkGEkRIHj6nZEZSPmgl+hJc/+Jq2yXK5EbjVTGzI5mOM0dVjfcMrxah9fm4h3eFc6yEOTO1SZquplg3pGwKX9dbtVxEIxakYXJdTEFCYdhN1BIRZ3aQ/du0buAQ5aCI0or+JCJAq3/jBblGdS7hq9082Quz2UMp5q8eG6mhgNrzHEmg6Hx6O6y+s143jqsUOOZoH8VVufKLwigOTKTwfABgeJDaAabEfmsqx9OO0E86p6oG04STZw4s2BcHPZU4F9F9NU56gpZFHoaEG9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hwPfXGKmIjP7VMNBQPuMD6gbM2ZFED0kaYvQrO6d+E8=;
+ b=OBxR/T7c8aDaCthHEyfzKUhIW9YJwx266q97Tbf6T6BAU+yiY2TthY2qTV6icjsMerSUAqs95w1IRBx8ylnnJ9KomsQwULQxXBszgrSqszSqIBnaASNU6lZ0+WM8ptTJumqMn3Bka3Nz5YenG07MGYys7Nao/1j02xwVgKztO1IUop9+vN4fzlo40uE8Rg+MJ5xaTH3EeMpVACD/dAMVwn9J64OLxbZ1iTLAdhPclqUH+DE5/He/+VB6piSLsaBwmp8Y0jmbM4nLi50eLVhAd2AspVwZnUFCKnCZB9PIbx6e4nGCKPg0uIOmAmaa2QVOzndw/gJT26y8edXvnqFc2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hwPfXGKmIjP7VMNBQPuMD6gbM2ZFED0kaYvQrO6d+E8=;
+ b=Kk0FuDW/bMiqiZlF3XDT4byjJyJRfoTRatD6PjSRaNviwOpHbBJONVF53gzfTJfNL2QoHtcV6mEnbtPcc9iQv6SrgcwEP6Zvo5mk1vsFLcqF+MZyX4cTKKktch6r4/KZmaUZAEk9M5HdGBfMRYWTLxr3iTOKmgCxZDipmCatoWo=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by MN2PR11MB4047.namprd11.prod.outlook.com (2603:10b6:208:13a::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5373.16; Tue, 28 Jun
+ 2022 06:26:20 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::699b:5c23:de4f:2bfa]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::699b:5c23:de4f:2bfa%4]) with mapi id 15.20.5373.018; Tue, 28 Jun 2022
+ 06:26:20 +0000
+From: <Conor.Dooley@microchip.com>
+To: <robh@kernel.org>, <mail@conchuod.ie>
+CC: <airlied@linux.ie>, <daniel@ffwll.ch>,
+	<krzysztof.kozlowski+dt@linaro.org>, <thierry.reding@gmail.com>,
+	<sam@ravnborg.org>, <Eugeniy.Paltsev@synopsys.com>, <vkoul@kernel.org>,
+	<lgirdwood@gmail.com>, <broonie@kernel.org>, <fancer.lancer@gmail.com>,
+	<daniel.lezcano@linaro.org>, <palmer@dabbelt.com>, <palmer@rivosinc.com>,
+	<tglx@linutronix.de>, <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
+	<masahiroy@kernel.org>, <damien.lemoal@opensource.wdc.com>,
+	<geert@linux-m68k.org>, <niklas.cassel@wdc.com>, <dillon.minfei@gmail.com>,
+	<jee.heng.sia@intel.com>, <joabreu@synopsys.com>,
+	<dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <dmaengine@vger.kernel.org>,
+	<alsa-devel@alsa-project.org>, <linux-spi@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 02/14] dt-bindings: display: panel: allow ilitek,ili9341
+ in isolation
+Thread-Topic: [PATCH 02/14] dt-bindings: display: panel: allow ilitek,ili9341
+ in isolation
+Thread-Index: AQHYgw+DiUijTE2HSUacpO42kUV7xa1j8eIAgAB37IA=
+Date: Tue, 28 Jun 2022 06:26:20 +0000
+Message-ID: <aeab5065-394a-7c39-c848-eb97e36186c6@microchip.com>
+References: <20220618123035.563070-1-mail@conchuod.ie>
+ <20220618123035.563070-3-mail@conchuod.ie>
+ <20220627231700.GA3144115-robh@kernel.org>
+In-Reply-To: <20220627231700.GA3144115-robh@kernel.org>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.9.1
-Subject: Re: [PATCH V5 04/26] sparc/mm: Move protection_map[] inside the
- platform
-Content-Language: en-US
-To: Sam Ravnborg <sam@ravnborg.org>
-Cc: linux-mm@kvack.org, hch@infradead.org, christophe.leroy@csgroup.eu,
- Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, x86@kernel.org, openrisc@lists.librecores.org,
- linux-xtensa@linux-xtensa.org, linux-csky@vger.kernel.org,
- linux-hexagon@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-ia64@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-um@lists.infradead.org, linux-sh@vger.kernel.org,
- linux-kernel@vger.kernel.org, "David S. Miller" <davem@davemloft.net>
-References: <20220627045833.1590055-1-anshuman.khandual@arm.com>
- <20220627045833.1590055-5-anshuman.khandual@arm.com>
- <YrnlkLbyYSbI0EQw@ravnborg.org>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <YrnlkLbyYSbI0EQw@ravnborg.org>
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: f015c1c8-96e7-40eb-bdaa-08da58cf1d6f
+x-ms-traffictypediagnostic: MN2PR11MB4047:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: GSSZV6EwrGYle0bM/wmXweUj8oMPwHWfuSz+wo0W5X+AwmVPPhmkhNZMBDZl9FXDIPa1ZJvS1qM6DydhRjsZYsyANCK98kI20hlMhofVVPIZrs/Z/x4n9VpipyVxtf6EBZO8FycSnppISMxDXNGn0xSRF4fSpj1Sw6Cem/lM5eZG9kA81tJJ1/faqFK7WWfFi7zLuFBgXX9jxZtBWNa/hVUN5zAXWDvdIpXv0ZqRpuK+/WmC0wgcQyeC+YKcFL2Belyes6kgn3p4S0tgrmhyVnK3pX7jZ+DZQafvIACIt6SquFw+uwwn0Fkr0XIgzmw7I3hIo5HT7IW0/uSVu+QoWbGZuGpouth0QzFROEyCRTQe5tJyugFS/ysNa2fZhctGYcDZRR8bKy/iusxTaPF5d06hmZ6LnHWbwzKydJkFHdEAgjNe/bdqOSU3Va+rfIfE5LMM8qBeuCYplusOeF/dn/m323Qq6LMOaspylPG/V2izKJ5FJ9WpBCWBZTAURAazFtYNHqgIuXBVaQUPFTwyAkTTsxksmRF97SuSn0JkyCQFMie5jhoY2yh5vgBdpoRLYMkHm/2+kA97e1lCUZWHLImrh0gxH7mlcJRbpZ7RHJXef3rdw7uZN6yiMolY3R2Z686qmg2/vHd1exdDt9laYDpD7i9H/ZJLad6PhgyRYxz2W+6OKwCGMzBW6r6sduvGaaj2A6HW9uh+7dEIj9Zh7+3Wnval/4OlXD3MSXgGD3/Rt+LynaLjmb9FDTo3GE5McooaUHH0NSThr5ZEhoBR6XBsSjVLEeLRui7ho6zIJSF38NN2wWPVgsBqmnj4IsB0iCCo5j7ETHGZRFiCPgp+2sI9TWoNmGfQNlSuq7D7a3w=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(376002)(346002)(136003)(396003)(366004)(39860400002)(478600001)(71200400001)(2616005)(6486002)(7406005)(31686004)(31696002)(41300700001)(91956017)(186003)(316002)(86362001)(38070700005)(54906003)(2906002)(66556008)(53546011)(38100700002)(64756008)(66446008)(122000001)(8676002)(4326008)(83380400001)(6512007)(6506007)(66946007)(26005)(8936002)(76116006)(110136005)(7416002)(66476007)(5660300002)(36756003)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?T1lXWFBjNzBGY3UvVWRNMVduUVd4TTJTS1hnUUlkRmJocHlybWlxVTB0KzJL?=
+ =?utf-8?B?aW1jc2RHZUt0d0RKR0pxS21rRVZNR3Fib0o4SlQ5TXJUMkR4RU5KTFFxR1ZC?=
+ =?utf-8?B?a3dmY1pGK0dqVDV4NUErQWVGaWVjbGIvSS9hd2xlNDdVY0U1OVI5L1lna2Vi?=
+ =?utf-8?B?N2EzeEpheW1QUG96VUtENlBNcnJDT2VXQnZOeFlWaFo4elljWDJ5VnN0ditZ?=
+ =?utf-8?B?QzRFWXJRMzZqQlpSdG5PcHJpdmRXNy9xT3pFcSt5Q2drQmhqZGtZWmhjazl1?=
+ =?utf-8?B?WnVMa3duK2pNYlNCVDlJMDVHOU5VWXRmbDUzWHlhNm54d0pnVGhhVzdYc2Z3?=
+ =?utf-8?B?TEU0bjcvaVlEVE4yVUQ2ZHdXOFNoRDB6TnQ0WDRUeDdHUFg0WjlFdTIrdmt3?=
+ =?utf-8?B?SXJNQnl5aTFidXpWWm9ua2tLUmRYcHdpN0FvR25sRXR5WWVFNXB5WnVpMFpQ?=
+ =?utf-8?B?NmM5bkFwNDF1anhEWW4wZmNlazgreEQwaElpY3ZNQ3I1dUh0enRmd21CTXFz?=
+ =?utf-8?B?cHVSSFlKUksxdmtIK1g3d2VmRTB2OE1RVXJEeWdDSm8xV1hJcEZ2WjJlNU1I?=
+ =?utf-8?B?MmpqZ3hTTzZ0bFpBVXgrL3BNc1hzdndNQ2ROTkpadGFVMWJhRnpmZGc2Zy94?=
+ =?utf-8?B?VGJHcjZvZEQvVjRVQmFXcmVBSW1lVEpHMGw3YmpiVS9xVFpSY2VXVHNUTHdC?=
+ =?utf-8?B?VVZJc3ZTYjlPSU1LYUFlRFhyMXMyTktyYk50U3dEenM0bXo0c0xKWThncUhm?=
+ =?utf-8?B?RTVldThNVlRPOEtkN2JIbXpWaEkyUVVYODNhQVZ5c2VIRldzb0FXMS9zOGJa?=
+ =?utf-8?B?M1FnRmlLMVhDN0FBMHViQmYvOFhSTlIxdnRNaWt4MTZVbVZ0WUN5R0F6REkw?=
+ =?utf-8?B?M3k0QnZuRTUwVEoxdC9peEFESENIek93QzF0elpBV3c5U2d3Q0tHajN5SWRY?=
+ =?utf-8?B?YVJOZ2cxQ1ZKKzJLVG9udUE1a3c1WjJ5cjFEc3cweWlTNS9YcGpNeUJYY1Ro?=
+ =?utf-8?B?dVpoQmR2U0cvZTY1b3NBd1VUTXJiNExuOFNoMnNZOU5Md2YyV2d1ZjRlVEVX?=
+ =?utf-8?B?WGY2RGsxbW8wbWcvYVJQL3l0dUE3OGhkWXRBcUdGNWVUaDRlRTBoM3NIYmtK?=
+ =?utf-8?B?NVVrcCtMKzFEWWVIcGdPM0tWV2dLbXpOaEZURW1ZS1RlWmZrYTZFYTNEOWps?=
+ =?utf-8?B?cGlQejVGT1c1Y3ErN3FVZ25IT3ZtZ1V0OS9zYUUvUlA4WjFDbC9ibVhtd0hJ?=
+ =?utf-8?B?U25GSmVDQjJ2YUc5V01SNTlQQWhua05zTmVjNXV0bVlpTGYzZVI4NE5ndXA3?=
+ =?utf-8?B?aU9lYjEwRXRJMW1kaDBjSXBpdkdPT1V6NnBJZG1zUE5LaU5tL25MMGY3b2dI?=
+ =?utf-8?B?NWZQMEtDSnE1T1lnQjFJWW0xZ0p0cDVqYWZKcThPcWtBb25HbUJhTWloYVVP?=
+ =?utf-8?B?djR4RzMraWtzTWxlb2JjbjZHSnZKUUlWY2tnT29jcWR6TzNMUWhlcncvWTl1?=
+ =?utf-8?B?alhISnhCdGMxWklqNFVmdnA3TEpvN2hLUWhBN3paaU9NN1VFZitLQkRrZ2E3?=
+ =?utf-8?B?aVJINllrLzg3V01GSjkvMm0wNkg0QmF4ZWxNN3ZyeWZOKzdmVlNEZ2o5Rlgv?=
+ =?utf-8?B?OFNWNys2aUpzUXNyYjNaMmJ2cHlBZFFGWGE2Yzhtd2taS2wrWDRSNjJjS0ha?=
+ =?utf-8?B?MUhpZVFKVHYxZTZXSDBjN3BuWkVnMVFXRW53L0ZFWVlNYU1wQng1WnB2ZVFp?=
+ =?utf-8?B?OGMrbHhKdFBIbEZtbGtqckVuejM4ZW5HMVVVa25McUJjbDk1VW01c2RPRXFL?=
+ =?utf-8?B?bDJqRjExREZOd3BYcUEzb296WHBNeGpQQXJFMWdiRnp5VEs1ZXYxYndPQ3FT?=
+ =?utf-8?B?blAwWnVaUStXSUhMZEcxRE9vWkR5Q0ZhL0ZFQWZkS3F3L2NRRzQ2NXByUWlH?=
+ =?utf-8?B?YTB6WWxpNGhxZVdvWVhnbHpkZWhUK09PSHA5eFdsbHpPVTFHa3BldHhXalZt?=
+ =?utf-8?B?WGVHR2hYSUtjV3ZLRkxWTC9xMXlDWklJb24wZmcrcVBzb08vZGd0Tk5tR3FQ?=
+ =?utf-8?B?SDNNaEVveHVIN2NEVDFMSEF3ZVF5Zkk4SlNlelZld1ZJeGV0bnJlQW5KckhD?=
+ =?utf-8?Q?Am+optQP8e5qV8W73L+PwlZ8o?=
+Content-ID: <94A71C5AFA68CC46B1E6B51E8141AC8F@namprd11.prod.outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f015c1c8-96e7-40eb-bdaa-08da58cf1d6f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jun 2022 06:26:20.1214
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: yKkwf2M0gU5HLnatzBrF1wLFUbKuMae8Nh1US1ekaKrCMmPTOAgrkMcki2m5+jBUyF0jueISAZ2FZ7kvxs6icLfi8hO13IX3uhX3rV7Bvwo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB4047
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220627_201237_992364_16022BE7 
-X-CRM114-Status: GOOD (  17.08  )
+X-CRM114-CacheID: sfid-20220627_232628_833452_64C32548 
+X-CRM114-Status: GOOD (  13.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,129 +186,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/27/22 22:44, Sam Ravnborg wrote:
-> Hi Anshuman,
+On 28/06/2022 00:17, Rob Herring wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> On Mon, Jun 27, 2022 at 10:28:11AM +0530, Anshuman Khandual wrote:
->> This moves protection_map[] inside the platform and while here, also enable
->> ARCH_HAS_VM_GET_PAGE_PROT on 32 bit platforms via DECLARE_VM_GET_PAGE_PROT.
+> On Sat, Jun 18, 2022 at 01:30:24PM +0100, Conor Dooley wrote:
+>> From: Conor Dooley <conor.dooley@microchip.com>
 >>
->> Cc: "David S. Miller" <davem@davemloft.net>
->> Cc: sparclinux@vger.kernel.org
->> Cc: linux-kernel@vger.kernel.org
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->> ---
->>  arch/sparc/Kconfig                  |  2 +-
->>  arch/sparc/include/asm/pgtable_32.h | 19 -------------------
->>  arch/sparc/include/asm/pgtable_64.h | 19 -------------------
->>  arch/sparc/mm/init_32.c             | 20 ++++++++++++++++++++
->>  arch/sparc/mm/init_64.c             |  3 +++
->>  5 files changed, 24 insertions(+), 39 deletions(-)
->>
->> diff --git a/arch/sparc/Kconfig b/arch/sparc/Kconfig
->> index ba449c47effd..09f868613a4d 100644
->> --- a/arch/sparc/Kconfig
->> +++ b/arch/sparc/Kconfig
->> @@ -13,6 +13,7 @@ config 64BIT
->>  config SPARC
->>  	bool
->>  	default y
->> +	select ARCH_HAS_VM_GET_PAGE_PROT
->>  	select ARCH_MIGHT_HAVE_PC_PARPORT if SPARC64 && PCI
->>  	select ARCH_MIGHT_HAVE_PC_SERIO
->>  	select DMA_OPS
->> @@ -84,7 +85,6 @@ config SPARC64
->>  	select PERF_USE_VMALLOC
->>  	select ARCH_HAVE_NMI_SAFE_CMPXCHG
->>  	select HAVE_C_RECORDMCOUNT
->> -	select ARCH_HAS_VM_GET_PAGE_PROT
->>  	select HAVE_ARCH_AUDITSYSCALL
->>  	select ARCH_SUPPORTS_ATOMIC_RMW
->>  	select ARCH_SUPPORTS_DEBUG_PAGEALLOC
->> diff --git a/arch/sparc/include/asm/pgtable_32.h b/arch/sparc/include/asm/pgtable_32.h
->> index 4866625da314..8ff549004fac 100644
->> --- a/arch/sparc/include/asm/pgtable_32.h
->> +++ b/arch/sparc/include/asm/pgtable_32.h
->> @@ -64,25 +64,6 @@ void paging_init(void);
->>  
->>  extern unsigned long ptr_in_current_pgd;
->>  
->> -/*         xwr */
->> -#define __P000  PAGE_NONE
->> -#define __P001  PAGE_READONLY
->> -#define __P010  PAGE_COPY
->> -#define __P011  PAGE_COPY
->> -#define __P100  PAGE_READONLY
->> -#define __P101  PAGE_READONLY
->> -#define __P110  PAGE_COPY
->> -#define __P111  PAGE_COPY
->> -
->> -#define __S000	PAGE_NONE
->> -#define __S001	PAGE_READONLY
->> -#define __S010	PAGE_SHARED
->> -#define __S011	PAGE_SHARED
->> -#define __S100	PAGE_READONLY
->> -#define __S101	PAGE_READONLY
->> -#define __S110	PAGE_SHARED
->> -#define __S111	PAGE_SHARED
->> -
->>  /* First physical page can be anywhere, the following is needed so that
->>   * va-->pa and vice versa conversions work properly without performance
->>   * hit for all __pa()/__va() operations.
->> diff --git a/arch/sparc/include/asm/pgtable_64.h b/arch/sparc/include/asm/pgtable_64.h
->> index 4679e45c8348..a779418ceba9 100644
->> --- a/arch/sparc/include/asm/pgtable_64.h
->> +++ b/arch/sparc/include/asm/pgtable_64.h
->> @@ -187,25 +187,6 @@ bool kern_addr_valid(unsigned long addr);
->>  #define _PAGE_SZHUGE_4U	_PAGE_SZ4MB_4U
->>  #define _PAGE_SZHUGE_4V	_PAGE_SZ4MB_4V
->>  
->> -/* These are actually filled in at boot time by sun4{u,v}_pgprot_init() */
->> -#define __P000	__pgprot(0)
->> -#define __P001	__pgprot(0)
->> -#define __P010	__pgprot(0)
->> -#define __P011	__pgprot(0)
->> -#define __P100	__pgprot(0)
->> -#define __P101	__pgprot(0)
->> -#define __P110	__pgprot(0)
->> -#define __P111	__pgprot(0)
->> -
->> -#define __S000	__pgprot(0)
->> -#define __S001	__pgprot(0)
->> -#define __S010	__pgprot(0)
->> -#define __S011	__pgprot(0)
->> -#define __S100	__pgprot(0)
->> -#define __S101	__pgprot(0)
->> -#define __S110	__pgprot(0)
->> -#define __S111	__pgprot(0)
->> -
->>  #ifndef __ASSEMBLY__
->>  
->>  pte_t mk_pte_io(unsigned long, pgprot_t, int, unsigned long);
->> diff --git a/arch/sparc/mm/init_32.c b/arch/sparc/mm/init_32.c
->> index 1e9f577f084d..8693e4e28b86 100644
->> --- a/arch/sparc/mm/init_32.c
->> +++ b/arch/sparc/mm/init_32.c
->> @@ -302,3 +302,23 @@ void sparc_flush_page_to_ram(struct page *page)
->>  		__flush_page_to_ram(vaddr);
->>  }
->>  EXPORT_SYMBOL(sparc_flush_page_to_ram);
->> +
->> +static pgprot_t protection_map[16] __ro_after_init = {
-> This can be const - like done for powerpc and others.
-> sparc32 and sparc64 uses each their own - and I do not see sparc32 do
-> any modifications to protection_map.
-
-Indeed protection_map[] arrays are independent both for sparc32 and spacr64.
-sparc32 platform never changes the protection_map[] array during boot. Sure,
-will make it into a const instead. Thanks for pointing this out.
-
+>> The dt-binding for the ilitek,ili9341 does not allow it to be used as a
+>> compatible in isolation. This generates a warning for the Canaan kd233
+>> devicetree:
+>> arch/riscv/boot/dts/canaan/canaan_kd233.dtb: panel@0: compatible:0: 'ilitek,ili9341' is not one of ['st,sf-tc240t-9370-t']
+>>          From schema: Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
+>> arch/riscv/boot/dts/canaan/canaan_kd233.dtb: panel@0: compatible: ['ilitek,ili9341'] is too short
+>>          From schema: Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
+>> Allow ilitek,ili9341 to be selected in isolation.
 > 
-> With this change:
-> Reviewed-by: Sam Ravnborg <sam@ravnborg.org>
-> 
+> Just because you get a warning doesn't mean it is right. ili9341 is a
+> panel driver IC, not a complete panel. It needs a more specific
+> compatible.
+
+pff, makes sense. I'll conjure one up.
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
