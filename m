@@ -4,56 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C139C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jun 2022 13:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93373C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jun 2022 15:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=bvWhCxKO046N4/fZ2J0RPbpI/o9gMHjDaVznuicJbWE=; b=RGS8ORohsXpfhz
-	FjvggDMozoVVkVaxN2xEhAbn7UkHfmdOg47zG3OG/lz0eQMfUe/uU13gMgi8dPvxG/F83PapvmK5g
-	z7vuAhW6doFSpdqN9H4FlqPYwQI+5ryhVMEx0MfiG4bxX/HWQP8jsIHTqBnhKFchrjbfC/goxZrvf
-	X58ygILP/lpsxVBMZUMVN75fr3LXxhsHWkRiphgHJkuc0QRPeyZyPvqdgqMBJGCw/K7G3txDoP0e6
-	d6pXhcW24F1OBd0mSTDCW2P0n1hKotyVEMs2UpijvLTPdqhA49NeRiTSgcCAeUmrq+65oCE7mRInt
-	RtaH2fMfZVhLqI0cHbGA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=j4g0fRY8FIQg1mE2IIpHm2NY3/98VWhudMGQkn1n5xQ=; b=CINN4Poa8Fzhil
+	i9OJebBxdG1yenYbESdQfcDj2lOC1lyBtYnQoaK/UbcQyglTjnWhW7J85pyFI0darqpvr/4CCf2r5
+	Y6K/s0Nv1AdfKefoVMc5l6hIPb763Wlfr3gDqEIstNI6HoQabFrhUISig4JBzEEneiZkBGE3STNBd
+	t7qUWm7WLr8XxpN5SX72wG4cb85DuZ5+FensFtSrjsOeOXvogNLFAxXY2tVfyibfc6uhNBMT3B3Bk
+	ij3keUVSdA2aQonEHpRLGJZc9BnevJJa+qWu+Nz3dFSwQlzSuyGUc8EBf6HUl6myQuvao46tYX4yQ
+	DATg+hdzAna72U11fxlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6Bgx-006Z3O-Op; Tue, 28 Jun 2022 13:55:47 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1o6Cih-006o07-MB; Tue, 28 Jun 2022 15:01:39 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6Bgo-006Yyr-Qj
-	for linux-riscv@lists.infradead.org; Tue, 28 Jun 2022 13:55:41 +0000
-Received: from dggpemm500022.china.huawei.com (unknown [172.30.72.54])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4LXQzr47xSzkWL4;
-	Tue, 28 Jun 2022 21:53:44 +0800 (CST)
-Received: from dggpemm500007.china.huawei.com (7.185.36.183) by
- dggpemm500022.china.huawei.com (7.185.36.162) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Tue, 28 Jun 2022 21:55:34 +0800
-Received: from huawei.com (10.175.103.91) by dggpemm500007.china.huawei.com
- (7.185.36.183) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Tue, 28 Jun
- 2022 21:55:34 +0800
-From: Yang Yingliang <yangyingliang@huawei.com>
-To: <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-CC: <conor.dooley@microchip.com>, <valentina.fernandezalanis@microchip.com>,
-	<gregkh@linuxfoundation.org>
-Subject: [PATCH -next] usb: musb: mpfs: add missing  clk_disable_unprepare() in mpfs_remove()
-Date: Tue, 28 Jun 2022 22:05:27 +0800
-Message-ID: <20220628140527.1404439-1-yangyingliang@huawei.com>
-X-Mailer: git-send-email 2.25.1
+	id 1o6Cie-006nxL-4V
+	for linux-riscv@lists.infradead.org; Tue, 28 Jun 2022 15:01:37 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1o6Ci1-0005Gn-Sy; Tue, 28 Jun 2022 17:00:57 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul <vkoul@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Serge Semin <fancer.lancer@gmail.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org
+Cc: Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor.dooley@microchip.com>, Masahiro Yamada <masahiroy@kernel.org>, Damien Le Moal <damien.lemoal@opensource.wdc.com>, Geert Uytterhoeven <geert@linux-m68k.org>, Niklas Cassel <niklas.cassel@wdc.com>, Dillon Min <dillon.minfei@gmail.com>, Heng Sia <jee.heng.sia@intel.com>, Jose Abreu <joabreu@synopsys.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, alsa-devel@alsa-project.org, linux-spi@vger.kernel.org, linux-riscv@lists.infradead.org, Conor Dooley <mail@conchuod.ie>
+Subject: Re: [PATCH v2 01/16] dt-bindings: display: convert ilitek,ili9341.txt to dt-schema
+Date: Tue, 28 Jun 2022 17:00:56 +0200
+Message-ID: <3361801.QJadu78ljV@diego>
+In-Reply-To: <20220627194003.2395484-2-mail@conchuod.ie>
+References: <20220627194003.2395484-1-mail@conchuod.ie> <20220627194003.2395484-2-mail@conchuod.ie>
 MIME-Version: 1.0
-X-Originating-IP: [10.175.103.91]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- dggpemm500007.china.huawei.com (7.185.36.183)
-X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220628_065539_570236_050B7E1A 
-X-CRM114-Status: UNSURE (   6.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220628_080136_222630_0CC08107 
+X-CRM114-Status: GOOD (  25.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,30 +58,157 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-clock source is prepared and enabled by clk_prepare_enable()
-in probe function, but no disable or unprepare in remove.
+Hi Conor,
 
-Fixes: 7a96b6ea90a4 ("usb: musb: Add support for PolarFire SoC's musb controller")
-Reported-by: Hulk Robot <hulkci@huawei.com>
-Signed-off-by: Yang Yingliang <yangyingliang@huawei.com>
----
- drivers/usb/musb/mpfs.c | 1 +
- 1 file changed, 1 insertion(+)
+Am Montag, 27. Juni 2022, 21:39:49 CEST schrieb Conor Dooley:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> A dt-schema binding for the Ilitek ili9341 was created as
+> panel/ilitek,ili9341.yaml but the txt binding was ignored in the
+> process. Move the remaining items in the txt binding to the yaml one &
+> delete it.
+> 
+> The example in the txt binding has a spi-max-frequency which disagrees
+> with the yaml replacement (and its own documentation) so change that to
+> conform with the binding. There are no users in tree of the Adafruit
+> yx240qv29 to check against.
+> 
+> Link: https://cdn-learn.adafruit.com/assets/assets/000/046/879/original/SPEC-YX240QV29-T_Rev.A__1_.pdf
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-diff --git a/drivers/usb/musb/mpfs.c b/drivers/usb/musb/mpfs.c
-index a69ca338eace..cea2e8108867 100644
---- a/drivers/usb/musb/mpfs.c
-+++ b/drivers/usb/musb/mpfs.c
-@@ -239,6 +239,7 @@ static int mpfs_remove(struct platform_device *pdev)
- {
- 	struct mpfs_glue *glue = platform_get_drvdata(pdev);
- 
-+	clk_disable_unprepare(glue->clk);
- 	platform_device_unregister(glue->musb);
- 	usb_phy_generic_unregister(pdev);
- 
--- 
-2.25.1
+in your v1 you already got a [0]
+Reviewed-by: Rob Herring <robh@kernel.org>
+for this patch
+
+Looking at the diffstat, which didn't change, you should
+include such tags in followup revisions, to prevent
+reviewers from double efforts.
+
+Heiko
+
+
+[0] https://lore.kernel.org/r/20220627232054.GA3155668-robh@kernel.org
+
+> ---
+>  .../bindings/display/ilitek,ili9341.txt       | 27 -----------
+>  .../display/panel/ilitek,ili9341.yaml         | 48 +++++++++++++------
+>  2 files changed, 34 insertions(+), 41 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/display/ilitek,ili9341.txt
+> 
+> diff --git a/Documentation/devicetree/bindings/display/ilitek,ili9341.txt b/Documentation/devicetree/bindings/display/ilitek,ili9341.txt
+> deleted file mode 100644
+> index 169b32e4ee4e..000000000000
+> --- a/Documentation/devicetree/bindings/display/ilitek,ili9341.txt
+> +++ /dev/null
+> @@ -1,27 +0,0 @@
+> -Ilitek ILI9341 display panels
+> -
+> -This binding is for display panels using an Ilitek ILI9341 controller in SPI
+> -mode.
+> -
+> -Required properties:
+> -- compatible:	"adafruit,yx240qv29", "ilitek,ili9341"
+> -- dc-gpios:	D/C pin
+> -- reset-gpios:	Reset pin
+> -
+> -The node for this driver must be a child node of a SPI controller, hence
+> -all mandatory properties described in ../spi/spi-bus.txt must be specified.
+> -
+> -Optional properties:
+> -- rotation:	panel rotation in degrees counter clockwise (0,90,180,270)
+> -- backlight:	phandle of the backlight device attached to the panel
+> -
+> -Example:
+> -	display@0{
+> -		compatible = "adafruit,yx240qv29", "ilitek,ili9341";
+> -		reg = <0>;
+> -		spi-max-frequency = <32000000>;
+> -		dc-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;
+> -		reset-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+> -		rotation = <270>;
+> -		backlight = <&backlight>;
+> -	};
+> diff --git a/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml b/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
+> index 6058948a9764..94ca92878434 100644
+> --- a/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
+> +++ b/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
+> @@ -23,6 +23,7 @@ properties:
+>        - enum:
+>            # ili9341 240*320 Color on stm32f429-disco board
+>            - st,sf-tc240t-9370-t
+> +          - adafruit,yx240qv29
+>        - const: ilitek,ili9341
+>  
+>    reg: true
+> @@ -47,31 +48,50 @@ properties:
+>    vddi-led-supply:
+>      description: Voltage supply for the LED driver (1.65 .. 3.3 V)
+>  
+> -additionalProperties: false
+> +unevaluatedProperties: false
+>  
+>  required:
+>    - compatible
+>    - reg
+>    - dc-gpios
+> -  - port
+> +
+> +if:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - st,sf-tc240t-9370-t
+> +then:
+> +  required:
+> +    - port
+>  
+>  examples:
+>    - |+
+> +    #include <dt-bindings/gpio/gpio.h>
+>      spi {
+>          #address-cells = <1>;
+>          #size-cells = <0>;
+>          panel: display@0 {
+> -                 compatible = "st,sf-tc240t-9370-t",
+> -                              "ilitek,ili9341";
+> -                 reg = <0>;
+> -                 spi-3wire;
+> -                 spi-max-frequency = <10000000>;
+> -                 dc-gpios = <&gpiod 13 0>;
+> -                 port {
+> -                         panel_in: endpoint {
+> -                           remote-endpoint = <&display_out>;
+> -                      };
+> -                 };
+> -             };
+> +            compatible = "st,sf-tc240t-9370-t",
+> +                         "ilitek,ili9341";
+> +            reg = <0>;
+> +            spi-3wire;
+> +            spi-max-frequency = <10000000>;
+> +            dc-gpios = <&gpiod 13 0>;
+> +            port {
+> +                panel_in: endpoint {
+> +                    remote-endpoint = <&display_out>;
+> +                };
+> +            };
+> +        };
+> +        display@1{
+> +            compatible = "adafruit,yx240qv29", "ilitek,ili9341";
+> +            reg = <1>;
+> +            spi-max-frequency = <10000000>;
+> +            dc-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;
+> +            reset-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+> +            rotation = <270>;
+> +            backlight = <&backlight>;
+>          };
+> +    };
+>  ...
+> 
+
+
+
 
 
 _______________________________________________
