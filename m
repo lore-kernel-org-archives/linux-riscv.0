@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C8BC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jun 2022 13:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0472ECCA479
+	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jun 2022 13:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Mime-Version:
-	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=nbq/P4MYsmDvTwXKlm6WQVYJctw9ZsoVPNo38H0Ze4s=; b=jlb
-	y6lfZJz/TwdibxfB3AYjL0/ZhoEc/OxalUVoy19hCruOnRvN8f8oWWxznZR+SiqyGVN2VNTOeGWSE
-	e75NkolIgDD7UJUNx04c+nDOsvqAO+iA35dXsdRl7ZU9pkpwRts1RJbg8nneC9orGMv41/gZJOiQ/
-	taK5fEvOOk9cx2MlqqTFyqNjhejVQ82dg+U1P5YnKplAv64j6susq3hrtUyxMch8nDHDXaXmBZmRI
-	YruOjLYzq6bIcZ+Iht7ZTD1zm0XEj3vEZum7MPs//bQVrZbZiz9lK6Kb3//Nys34c5HAX9U5JWKiB
-	dHMyzJekyYPE/uDlb1VbHjo2oZiR2Sw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Y1uFdsA5plqFNjMzLSLwtI6+PBjsHa/8Nkp5t3V8q18=; b=blR176ATnxP7ca
+	1PFnktTknUgl3ZLmdYFQS0CDtLtyAwImLRDTReuzw7QyXs7n33S3hGDZ6OqaongAsRuKUDFDo7crQ
+	V4AhVvc2LPRqqr5OzVm7Sk2aOwKvLhfkVeM/MqCfZyUHGzPtXtKjbwKQM0fhw4ki3UMVJLBOxLcVS
+	Zf5tfo0YkvzWHTO2/xuNVnJgZv4afx8Hb+M+pc5XwERzeTD55I0ELiIfVjE7HEC4+emM2ZBUMLIv6
+	j4ckl1VvbIWBcDvcP3MqFnjqD+liSKbrhz3KQAcO0JQ3o/oClrig4rkl5Egmq0YWGVZaNadxTb6dd
+	RrNrslAuQ8+T+w+Wm4iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6BJq-006QMT-BU; Tue, 28 Jun 2022 13:31:54 +0000
-Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
+	id 1o6BJt-006QNN-QY; Tue, 28 Jun 2022 13:31:57 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o60ZI-003c3k-P9
-	for linux-riscv@lists.infradead.org; Tue, 28 Jun 2022 02:03:14 +0000
-Received: by mail-yb1-xb4a.google.com with SMTP id a83-20020a251a56000000b0066c354a19ccso8690603yba.6
-        for <linux-riscv@lists.infradead.org>; Mon, 27 Jun 2022 19:03:05 -0700 (PDT)
+	id 1o60sb-003ghz-91; Tue, 28 Jun 2022 02:23:07 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id x138so8019067pfc.3;
+        Mon, 27 Jun 2022 19:23:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=date:message-id:mime-version:subject:from:to:cc;
-        bh=/OuahP8oPHDxIXADrtMOHzHvbE6HS+PoE4WDHegn+rY=;
-        b=XSa6BG9j+Us6qSO6vPHqc2TVfQxumnU0pAOfjBJHFlWcIck0At2n2mfq5tAA7z3Bx5
-         PD0vlBv1k9Q/E/30MAFFG1P5OxPr5/WK6+axB0HoavtP7KnHzjHkg1qUFmVSky1XYmCE
-         keKg7zc6YYKZDYEnwk3qbSxvFO3Xk4Y8/tdDX97msFctgpLZBdPkJDnH5LbWzXx7pTZH
-         CgzyIamG5okMqCh9aY8wAvuFixrOfwL/UhwfbnX/7paM2krnQNZDjv67WdvSzvvMWo7D
-         m5fFpT4ZoMrA6AasD66OkuDUwH3oHEeuCSo5kX9VLcSW8/gQ+X2898P5YGyQhyrYIK8G
-         Aulw==
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=HJxtqab0/tMiakWNEyC3nFz1/Ap3ZwjlyjInjl9oQ08=;
+        b=GtISRQAw32VwWkIqJjbS6kPz10YSeb/J+R05thf6bFPMAOY82jKQN3UdU/3Xm5A6wE
+         tMPJ9jiXwXd5WIpoNmuhYObSQi+a4vbyn3XjCacf3FIX++nTWeWgUHF+xWdV2kFekLbZ
+         0OzYqNi1FmudYoMCCJZeGvG2ye4sCgduv0rk2Zt4nVkQ98BfuFa3NPGjGKGgPVG9KtHY
+         DntPc1msd2JalXRAlzsxyFpEjwPnKkzTvOPkfaVuXEaP+ZKelLBEm4Nr7ZrcOOgm/4RV
+         HPa6kkD+OJGFCcd57tIyozXxW7wCGRkiieRac/DfVSrfyK1ch327OFoWU4ImG2SclPJ9
+         uIig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc;
-        bh=/OuahP8oPHDxIXADrtMOHzHvbE6HS+PoE4WDHegn+rY=;
-        b=Q2ANskxa2p6x6aKo/EXUptJhyG9VkrkcvoS4t0/TlEro+sKP7XB1/9E2O9XIB0OIvb
-         CYn+XgoqVMMBeNBpJ+z+imUntU/lqPHc3LMF0gNlWL2Wtgj9otpaz1zr2cJVdMO0Nsiy
-         LP9Glx1i49gODdxmT0kunauv0HsyU7j7yDaxXD08WaDsT1hZUZxBpb9BfurdiWYbI7n3
-         w4/bodpX0t8sYQ0qu5tSc1B7/6AazZKo6K1WXHZz5MxgKyHYqSaCThgrIUiTAANk57Kr
-         Cj6HccsVFXdBuYBO60b39/ZBnaMdTgJde42bsKW2zo4Ty0imel49ugfB8dwsjeYXZivm
-         SbRA==
-X-Gm-Message-State: AJIora/RhAB8DSTqXg5cZ0L/BbmwwPm+xHVBt9fqzsKczMGiqjF10rsd
-	01BTUtkDfPSzGdY4xtFV7zV1JpQAcVKx7ug=
-X-Google-Smtp-Source: AGRyM1s6TFssoICBD8dW4KaHJ9QFnbGLouWSVAgJ1icUDVgZq5pRLN92A6h2ACkaFVoX2i0qb9ktR7y39ECy36c=
-X-Received: from saravanak.san.corp.google.com ([2620:15c:2d:3:1f27:a302:2101:1c82])
- (user=saravanak job=sendgmr) by 2002:a81:9292:0:b0:317:dd64:5adc with SMTP id
- j140-20020a819292000000b00317dd645adcmr19123629ywg.145.1656381784427; Mon, 27
- Jun 2022 19:03:04 -0700 (PDT)
-Date: Mon, 27 Jun 2022 19:01:01 -0700
-Message-Id: <20220628020110.1601693-1-saravanak@google.com>
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.37.0.rc0.161.g10f37bed90-goog
-Subject: [PATCH v1 0/2] Fix console probe delay when stdout-path isn't set
-From: Saravana Kannan <saravanak@google.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=HJxtqab0/tMiakWNEyC3nFz1/Ap3ZwjlyjInjl9oQ08=;
+        b=gPq7GBn2xlBiHswEe8h7X99LpWc/2oe2LvqVGaoS2+xoYlbTcOIp1uWu/Fs0QeLfSg
+         in6rDa+aQLZbvIidErD7Z/6kmTcrU2WObeDavZcSU4etgLPLmFkx9bQY4EqyhLN2odLs
+         qCXS1ibOz+z7HbIkq/Jq0yIa/INbv8GEXqO9Srh+9jO7pk6mlfkkw4pXbyNwfnHumct5
+         C06yXOQys08yaxqfX0tN+8KwTVfMNZLx/RZJSmq29fuDVbKRTsqn5aFdVdCTqKfSzCKC
+         66C29orUXMGAhVVBRPZ/9Znc+ForTZD0gnSffIIcrXReeYVEHONHSGnza3uSuk0tPTzt
+         jGYQ==
+X-Gm-Message-State: AJIora8leMpDZn2itwTPafUknQcnjIQbSM4+MqMDhBF09ZcOTV1Yh8pV
+	Dk1EWjl+o6V2LAbBbshZoPooXVFBVImZNMZ0yQ4=
+X-Google-Smtp-Source: AGRyM1tkELEQsXZZ9rCiYz26Ox2Bo3COuaabo0ODviEYu2B5j99coTUXvXqjCJz9EcYG+uOHPMvd9KNaBAGlSJExO9A=
+X-Received: by 2002:a65:6a0e:0:b0:405:2310:22d0 with SMTP id
+ m14-20020a656a0e000000b00405231022d0mr15760605pgu.290.1656382983124; Mon, 27
+ Jun 2022 19:23:03 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220628020110.1601693-1-saravanak@google.com>
+In-Reply-To: <20220628020110.1601693-1-saravanak@google.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Mon, 27 Jun 2022 23:22:52 -0300
+Message-ID: <CAOMZO5D29QqH_-pktht6yO_Ga7B7KgeGXxzyUHJWGYfGTJr4pw@mail.gmail.com>
+Subject: Re: [PATCH v1 0/2] Fix console probe delay when stdout-path isn't set
+To: Saravana Kannan <saravanak@google.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
 	Laurentiu Tudor <laurentiu.tudor@nxp.com>, Jiri Slaby <jirislaby@kernel.org>, 
 	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
 	Paul Mackerras <paulus@samba.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>, 
@@ -79,10 +81,10 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael
 	Claudiu Beznea <claudiu.beznea@microchip.com>, Alexander Shiyan <shc_work@mail.ru>, 
 	Baruch Siach <baruch@tkos.co.il>, Shawn Guo <shawnguo@kernel.org>, 
 	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, 
-	Karol Gugala <kgugala@antmicro.com>, Mateusz Holenko <mholenko@antmicro.com>, 
-	Gabriel Somlo <gsomlo@gmail.com>, Neil Armstrong <narmstrong@baylibre.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	NXP Linux Team <linux-imx@nxp.com>, Karol Gugala <kgugala@antmicro.com>, 
+	Mateusz Holenko <mholenko@antmicro.com>, Gabriel Somlo <gsomlo@gmail.com>, 
+	Neil Armstrong <narmstrong@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
 	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
 	Taichi Sugaya <sugaya.taichi@socionext.com>, Takao Orito <orito.takao@socionext.com>, 
 	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
@@ -96,18 +98,19 @@ To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael
 	Patrice Chotard <patrice.chotard@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
 	Alexandre Torgue <alexandre.torgue@foss.st.com>, "David S. Miller" <davem@davemloft.net>, 
 	Hammer Hsieh <hammerh0314@gmail.com>, Peter Korsgaard <jacmet@sunsite.dk>, Timur Tabi <timur@kernel.org>, 
-	Michal Simek <michal.simek@xilinx.com>, Saravana Kannan <saravanak@google.com>
-Cc: Rob Herring <robh@kernel.org>, sascha hauer <sha@pengutronix.de>, peng fan <peng.fan@nxp.com>, 
-	kevin hilman <khilman@kernel.org>, ulf hansson <ulf.hansson@linaro.org>, 
-	len brown <len.brown@intel.com>, pavel machek <pavel@ucw.cz>, joerg roedel <joro@8bytes.org>, 
-	will deacon <will@kernel.org>, andrew lunn <andrew@lunn.ch>, heiner kallweit <hkallweit1@gmail.com>, 
+	Michal Simek <michal.simek@xilinx.com>, Rob Herring <robh@kernel.org>, 
+	sascha hauer <sha@pengutronix.de>, peng fan <peng.fan@nxp.com>, kevin hilman <khilman@kernel.org>, 
+	ulf hansson <ulf.hansson@linaro.org>, len brown <len.brown@intel.com>, 
+	pavel machek <pavel@ucw.cz>, joerg roedel <joro@8bytes.org>, will deacon <will@kernel.org>, 
+	andrew lunn <andrew@lunn.ch>, heiner kallweit <hkallweit1@gmail.com>, 
 	eric dumazet <edumazet@google.com>, jakub kicinski <kuba@kernel.org>, paolo abeni <pabeni@redhat.com>, 
 	linus walleij <linus.walleij@linaro.org>, hideaki yoshifuji <yoshfuji@linux-ipv6.org>, 
-	david ahern <dsahern@kernel.org>, kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, iommu@lists.linux-foundation.org, 
-	netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-serial@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	david ahern <dsahern@kernel.org>, kernel-team@android.com, 
+	linux-kernel <linux-kernel@vger.kernel.org>, linux-pm@vger.kernel.org, 
+	iommu@lists.linux-foundation.org, netdev <netdev@vger.kernel.org>, 
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+	linux-serial@vger.kernel.org, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, linux-aspeed@lists.ozlabs.org, 
 	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
 	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, 
 	linux-snps-arc@lists.infradead.org, linux-amlogic@lists.infradead.org, 
@@ -116,8 +119,8 @@ Cc: Rob Herring <robh@kernel.org>, sascha hauer <sha@pengutronix.de>, peng fan <
 	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
 	sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220627_190308_919767_5206C8B5 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20220627_192305_471155_47FD1E87 
+X-CRM114-Status: GOOD (  14.72  )
 X-Mailman-Approved-At: Tue, 28 Jun 2022 06:31:53 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,131 +138,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Since the series that fixes console probe delay based on stdout-path[1] got
-pulled into driver-core-next, I made these patches on top of them.
+Hi Saravana,
 
-Even if stdout-path isn't set in DT, this patch should take console
-probe times back to how they were before the deferred_probe_timeout
-clean up series[2].
+On Mon, Jun 27, 2022 at 11:03 PM Saravana Kannan <saravanak@google.com> wrote:
+>
+> Since the series that fixes console probe delay based on stdout-path[1] got
+> pulled into driver-core-next, I made these patches on top of them.
+>
+> Even if stdout-path isn't set in DT, this patch should take console
+> probe times back to how they were before the deferred_probe_timeout
+> clean up series[2].
+>
+> Fabio/Ahmad/Sascha,
+>
+> Can you give this a shot please?
 
-Fabio/Ahmad/Sascha,
+This series works fine for me (with and without stdout-path), thanks:
 
-Can you give this a shot please?
-
-[1] - https://lore.kernel.org/lkml/20220623080344.783549-1-saravanak@google.com/
-[2] - https://lore.kernel.org/lkml/20220601070707.3946847-1-saravanak@google.com/
-
-Thanks,
-Saravana
-
-cc: Rob Herring <robh@kernel.org>
-cc: sascha hauer <sha@pengutronix.de>
-cc: peng fan <peng.fan@nxp.com>
-cc: kevin hilman <khilman@kernel.org>
-cc: ulf hansson <ulf.hansson@linaro.org>
-cc: len brown <len.brown@intel.com>
-cc: pavel machek <pavel@ucw.cz>
-cc: joerg roedel <joro@8bytes.org>
-cc: will deacon <will@kernel.org>
-cc: andrew lunn <andrew@lunn.ch>
-cc: heiner kallweit <hkallweit1@gmail.com>
-cc: russell king <linux@armlinux.org.uk>
-cc: "david s. miller" <davem@davemloft.net>
-cc: eric dumazet <edumazet@google.com>
-cc: jakub kicinski <kuba@kernel.org>
-cc: paolo abeni <pabeni@redhat.com>
-cc: linus walleij <linus.walleij@linaro.org>
-cc: hideaki yoshifuji <yoshfuji@linux-ipv6.org>
-cc: david ahern <dsahern@kernel.org>
-cc: kernel-team@android.com
-cc: linux-kernel@vger.kernel.org
-cc: linux-pm@vger.kernel.org
-cc: iommu@lists.linux-foundation.org
-cc: netdev@vger.kernel.org
-cc: linux-gpio@vger.kernel.org
-Cc: kernel@pengutronix.de
-
-Saravana Kannan (2):
-  driver core: Add probe_no_timeout flag for drivers
-  serial: Set probe_no_timeout for all DT based drivers
-
- drivers/base/base.h                         |  1 +
- drivers/base/core.c                         |  7 +++++++
- drivers/base/dd.c                           |  3 +++
- drivers/tty/ehv_bytechan.c                  |  1 +
- drivers/tty/goldfish.c                      |  1 +
- drivers/tty/hvc/hvc_opal.c                  |  1 +
- drivers/tty/serial/8250/8250_acorn.c        |  1 -
- drivers/tty/serial/8250/8250_aspeed_vuart.c |  1 +
- drivers/tty/serial/8250/8250_bcm2835aux.c   |  1 +
- drivers/tty/serial/8250/8250_bcm7271.c      |  1 +
- drivers/tty/serial/8250/8250_dw.c           |  1 +
- drivers/tty/serial/8250/8250_em.c           |  1 +
- drivers/tty/serial/8250/8250_ingenic.c      |  1 +
- drivers/tty/serial/8250/8250_lpc18xx.c      |  1 +
- drivers/tty/serial/8250/8250_mtk.c          |  1 +
- drivers/tty/serial/8250/8250_of.c           |  1 +
- drivers/tty/serial/8250/8250_omap.c         |  1 +
- drivers/tty/serial/8250/8250_pxa.c          |  1 +
- drivers/tty/serial/8250/8250_tegra.c        |  1 +
- drivers/tty/serial/8250/8250_uniphier.c     |  1 +
- drivers/tty/serial/altera_jtaguart.c        |  1 +
- drivers/tty/serial/altera_uart.c            |  1 +
- drivers/tty/serial/amba-pl011.c             |  1 +
- drivers/tty/serial/apbuart.c                |  1 +
- drivers/tty/serial/ar933x_uart.c            |  1 +
- drivers/tty/serial/arc_uart.c               |  1 +
- drivers/tty/serial/atmel_serial.c           |  1 +
- drivers/tty/serial/bcm63xx_uart.c           |  1 +
- drivers/tty/serial/clps711x.c               |  1 +
- drivers/tty/serial/cpm_uart/cpm_uart_core.c |  1 +
- drivers/tty/serial/digicolor-usart.c        |  1 +
- drivers/tty/serial/fsl_linflexuart.c        |  1 +
- drivers/tty/serial/fsl_lpuart.c             |  1 +
- drivers/tty/serial/imx.c                    |  1 +
- drivers/tty/serial/lantiq.c                 |  1 +
- drivers/tty/serial/liteuart.c               |  1 +
- drivers/tty/serial/lpc32xx_hs.c             |  1 +
- drivers/tty/serial/max310x.c                |  1 +
- drivers/tty/serial/meson_uart.c             |  1 +
- drivers/tty/serial/milbeaut_usio.c          |  1 +
- drivers/tty/serial/mpc52xx_uart.c           |  1 +
- drivers/tty/serial/mps2-uart.c              |  1 +
- drivers/tty/serial/msm_serial.c             |  1 +
- drivers/tty/serial/mvebu-uart.c             |  1 +
- drivers/tty/serial/mxs-auart.c              |  1 +
- drivers/tty/serial/omap-serial.c            |  1 +
- drivers/tty/serial/owl-uart.c               |  1 +
- drivers/tty/serial/pic32_uart.c             |  1 +
- drivers/tty/serial/pmac_zilog.c             |  1 +
- drivers/tty/serial/pxa.c                    |  1 +
- drivers/tty/serial/qcom_geni_serial.c       |  1 +
- drivers/tty/serial/rda-uart.c               |  1 +
- drivers/tty/serial/samsung_tty.c            |  1 +
- drivers/tty/serial/sc16is7xx.c              |  1 +
- drivers/tty/serial/serial-tegra.c           |  1 +
- drivers/tty/serial/sh-sci.c                 |  1 +
- drivers/tty/serial/sifive.c                 |  1 +
- drivers/tty/serial/sprd_serial.c            |  1 +
- drivers/tty/serial/st-asc.c                 |  1 +
- drivers/tty/serial/stm32-usart.c            |  1 +
- drivers/tty/serial/sunhv.c                  |  1 +
- drivers/tty/serial/sunplus-uart.c           |  1 +
- drivers/tty/serial/sunsab.c                 |  1 +
- drivers/tty/serial/sunsu.c                  |  1 +
- drivers/tty/serial/sunzilog.c               |  1 +
- drivers/tty/serial/tegra-tcu.c              |  1 +
- drivers/tty/serial/uartlite.c               |  1 +
- drivers/tty/serial/ucc_uart.c               |  1 +
- drivers/tty/serial/vt8500_serial.c          |  1 +
- drivers/tty/serial/xilinx_uartps.c          |  1 +
- include/linux/device.h                      |  7 +++++++
- include/linux/device/driver.h               | 11 +++++++++++
- 72 files changed, 95 insertions(+), 1 deletion(-)
-
--- 
-2.37.0.rc0.161.g10f37bed90-goog
-
+Tested-by: Fabio Estevam <festevam@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
