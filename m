@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C213ECCA48B
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 18:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41DA4CCA480
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 18:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fChV6BerMqehSqCgDcdICOJYTOtA51e6ViX4cPpEynk=; b=z2C16Opmt5qmMG
-	o7MccYDeKTEBTe64dOtwRxgZyY1LyPlG5B3U/mjJAKNf802DiNB5wJQESOfZN4Pwi+fi1Odlyp5XV
-	Qhh0N5ABJ2NbI6mksqcCe8R91nqB2CqHydT3+ZlHnfQ/ooF1I/17YT7jv12XI2E4csMiYPulJUYax
-	5rY+J5w01OFhhWpzom0gq5rSqnCCfQ1WHa6tcEIg+xgmWQOyxqZSI742z1qgj3zCbvLueHikWUlef
-	TOfDmhdUEl0Gl6MjzzA3PZLHPGK5s3SgfUmQ7Dvr33Dn+FpfNdjmDRjr04TnVBCksYxQBG5PYrKB1
-	bLpvzR2rg3i2GynyGYiQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Pj4AKaoB/uHQFMgibCx2+q/T4NaBBFUElqv/M1Q0D38=; b=iqEnfen24sCICK
+	iDJOQI6kCMvvik3nEtm+vhxe4pVwqe+0jgpFK+Ggkvu4jJTeTrwSfq63MxxXcEqpb4tHqxtpSKJgT
+	yLhjeND5oLg3BrF+P6rjAkz0luonRTtY5LBMtHlBiVyV/lYhdznsytCwo3NE8pUrR7X9ezScOw3kz
+	wigt7W7r/323dH9A37nl9ICcB00wCQTXdlBp44yDIDURi1ICPNcYkJv+trwojtJ2n1zd+InJL4tQP
+	6OM7ApTh3FJW+uRZGoG0vOcUKgFKNKe4S/fXDQaZ3b9lpOj0PwOOWdaSaYLmaO7LGVR+IBrMlNa9i
+	wDa02Dj4+6qlUBRSWpdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6cg6-00DaAG-Aq; Wed, 29 Jun 2022 18:44:42 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1o6cgD-00DaGd-EH; Wed, 29 Jun 2022 18:44:49 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6cg3-00Da6e-21
-	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 18:44:40 +0000
-Received: by mail-wm1-x336.google.com with SMTP id u12-20020a05600c210c00b003a02b16d2b8so179945wml.2
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 11:44:37 -0700 (PDT)
+	id 1o6cg3-00Da8I-W7
+	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 18:44:42 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id e28so18633252wra.0
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 11:44:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
-        h=from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=ujlFidKBYN3+gnt+1Wkvol7kmUwt+TJSsn/V9xvehgY=;
-        b=FOsaCOs4FhntcBVLVzvRAs2gDZxoyx3YHWEOhRh45yswt/+jKUwE/J0wNxaZ37V6Uc
-         zuxSruVBSYWJDtgARcDoe5RocT823Ey0njk5JlleU3d0qYwcgqh6fodDsvAnnvbvV7Rm
-         PY3MlPeU1iH3j3/ZPjhi8DaO/OfWsUbzBea7z+PFQC921e9IBleQBh66fo7u2hKhyarj
-         5uvUGrXTVCRqFYQUTptcKkWgRxYwWQNU4qoXt5ehOXJMh8e1gGppyJaQ2eRKydUR+3Ht
-         l5p4BtxvL9zi+7zSv32N5RRgYtbMdTeb2fbubnUmSY4CPVXLHJ7NbZqjxV/soVbvVz+r
-         yCJA==
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=pXoQXaJVOBcKlATEFLMjlObz89E2TzcKnRwvkevhS5E=;
+        b=TiMYrDEEt89rfAhGSFc1B5YD3QZqhuKNQ4xkwTWbfZevazAu2mhWMcaTHlUtEcCYNZ
+         PZRE+oCT7U1sfBKQyVcQtfW6MZHEx0/00YN7x9xtHXEvM66WuXzC3JHAuIaJACEF+8Lm
+         Hi+2bqPC3qtad3Acb6APfQDnOpnq/J2finDaPIEGzIFWNzts89ClnAGqPbeivMqinot9
+         sYWU92G+3pHd8cF5N/57yPUnJQSiQXdwpp5FBZasFli56ZAAGmS3Wy0xq4xlBe5AAQvX
+         DpaLUbu+pp302S7qix947oJA4JAylye0BCc7vc9b73mEghugzKgH8kClzyL2HlRKy3yR
+         KjKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=ujlFidKBYN3+gnt+1Wkvol7kmUwt+TJSsn/V9xvehgY=;
-        b=GPxUTXIfdJKQii5Cv997BNbbyjynwGsyOb9QP3l81Fw65QmNk255qCCo2Z/GVynCk6
-         Y0HBCpmTQwWXGL4nJrThr/vJVfcsZmVYgrytEU3ctHk7SqiWr6yq3BH+tnoJxIDUEd6K
-         OCqenPoLtseBf+0FM0EsKCWyN/Csm6ZHvMnQ3sZzOgPjZP/L+bUWkas4Oj6R1rM//exc
-         RymALPObnY+fFTgyCfro5gtRDn4UOqLkv8yYe90d2BAejsGIaVkL/LAB2FtrNg2CnSsc
-         ODlpiBJtkcQEdSXXAp4MB0vPe9A3IIxqKMOdTe3Fa0TyVYUaYYgNskjxAg90cF+XDMJZ
-         NSFw==
-X-Gm-Message-State: AJIora/tKunGp7mdy4SHR6uDrEiv4UETa7KMHi4pmIo0NKDyWEhJpROb
-	H3Fjuypo5eJCPqEeMcSoaatHaw==
-X-Google-Smtp-Source: AGRyM1vkI72xwUrVzdm01K07LqtX2m50dz3LRYbM6zcBvoybVSkmTwAhtiBUgec39zvaIkLF0EZJrg==
-X-Received: by 2002:a05:600c:3516:b0:39c:8091:31b6 with SMTP id h22-20020a05600c351600b0039c809131b6mr7587210wmq.164.1656528276189;
-        Wed, 29 Jun 2022 11:44:36 -0700 (PDT)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:content-transfer-encoding;
+        bh=pXoQXaJVOBcKlATEFLMjlObz89E2TzcKnRwvkevhS5E=;
+        b=YpLsY5SCPbZECJNbxNAhJH3wW+pj58hgeYqbfXZXN4O9R81ZXTLtAZPEG7PpX+X5kX
+         K7X6eMQpChAAY1trCJNX17TGI8Q/1VR8wyrQLYT9zz1Y5itD7sTsDLAh1dFPQTgo0Dst
+         x2i6SnBL3gw5hsaFJQ1kbEhlc9SuTQ4zZtB11kwajzM8RCOSHCoPjaS5uL0a0LJhU+ko
+         kmmZD7N5aiz2uxFS3vQY9ZpWkGR4pyiirmt5W6WWBqDDcYPHj3jElwhDSwW0YlQQs4x0
+         w95vls91bSASb9u+cEF4tCkxhZyUTRwuPAyUpze0xEcBhq9z6kyAazr7obGjk0uqg9Hx
+         5o/Q==
+X-Gm-Message-State: AJIora8jx86XRec6XL7OTLzBHHlSDgTQoJt1BS1xICMJMq3Vo8dI8lro
+	7G93QENE09TwVuv0O1XhIjyVYA==
+X-Google-Smtp-Source: AGRyM1vxQHSJHGoQ6vCc8iCXWBFLLrjeWelTxc3fxvXsEsQpUDS+RGNItkpvnJxJOyD3/PmICtlZFw==
+X-Received: by 2002:a5d:49cf:0:b0:21b:818a:a09b with SMTP id t15-20020a5d49cf000000b0021b818aa09bmr4543186wrs.676.1656528277831;
+        Wed, 29 Jun 2022 11:44:37 -0700 (PDT)
 Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id u23-20020a7bcb17000000b0039aef592ca0sm3834371wmj.35.2022.06.29.11.44.34
+        by smtp.gmail.com with ESMTPSA id u23-20020a7bcb17000000b0039aef592ca0sm3834371wmj.35.2022.06.29.11.44.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jun 2022 11:44:35 -0700 (PDT)
+        Wed, 29 Jun 2022 11:44:37 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: David Airlie <airlied@linux.ie>,
 	Daniel Vetter <daniel@ffwll.ch>,
@@ -89,15 +89,18 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	dmaengine@vger.kernel.org,
 	alsa-devel@alsa-project.org,
 	linux-spi@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 00/15] Canaan devicetree fixes
-Date: Wed, 29 Jun 2022 19:43:29 +0100
-Message-Id: <20220629184343.3438856-1-mail@conchuod.ie>
+	linux-riscv@lists.infradead.org,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v3 01/15] dt-bindings: display: convert ilitek,ili9341.txt to dt-schema
+Date: Wed, 29 Jun 2022 19:43:30 +0100
+Message-Id: <20220629184343.3438856-2-mail@conchuod.ie>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220629184343.3438856-1-mail@conchuod.ie>
+References: <20220629184343.3438856-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220629_114439_174843_8DBDCB14 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20220629_114440_075746_6E6ED7C3 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,74 +119,135 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Hey all,
-This series should rid us of dtbs_check errors for the RISC-V Canaan k210
-based boards. To make keeping it that way a little easier, I changed the
-Canaan devicetree Makefile so that it would build all of the devicetrees
-in the directory if SOC_CANAAN.
+A dt-schema binding for the Ilitek ili9341 was created as
+panel/ilitek,ili9341.yaml but the txt binding was ignored in the
+process. Move the remaining items in the txt binding to the yaml one &
+delete it.
 
-I *DO NOT* have any Canaan hardware so I have not tested any of this in
-action. Since I sent v1, I tried to buy some since it's cheap - but could
-out of the limited stockists none seemed to want to deliver to Ireland :(
-I based the series on next-20220617.
+The example in the txt binding has a spi-max-frequency which disagrees
+with the yaml replacement (and its own documentation) so change that to
+conform with the binding. There are no users in tree of the Adafruit
+yx240qv29 to check against.
 
-Thanks,
-Conor.
-
-Changes since v2:
-- i2s: added clocks maxItems
-- dma: unconditionally extended the interrupts & dropped canaan
-  compatible
-- timer: as per Sergey, split the timer dts nodes in 2 & drop the
-  binding patch
-- ili9341: add a canaan specific compatible to the binding and dts
-
-Changes since v1:
-- I added a new dt node & compatible for the SRAM memory controller due
-  Damien's wish to preserve the inter-op with U-Boot.
-- The dw-apb-ssi binding now uses the default rx/tx widths
-- A new patch fixes bus {ranges,reg} warnings
-- Rearranged the patches in a slightly more logical order
-
-Conor Dooley (15):
-  dt-bindings: display: convert ilitek,ili9341.txt to dt-schema
-  dt-bindings: display: ili9341: document canaan kd233's lcd
-  ASoC: dt-bindings: convert designware-i2s to dt-schema
-  spi: dt-bindings: dw-apb-ssi: update spi-{r,t}x-bus-width
-  dt-bindings: dma: dw-axi-dmac: extend the number of interrupts
-  dt-bindings: memory-controllers: add canaan k210 sram controller
-  riscv: dts: canaan: fix the k210's memory node
-  riscv: dts: canaan: fix the k210's timer nodes
-  riscv: dts: canaan: fix mmc node names
-  riscv: dts: canaan: fix kd233 display spi frequency
-  riscv: dts: canaan: use custom compatible for k210 i2s
-  riscv: dts: canaan: remove spi-max-frequency from controllers
-  riscv: dts: canaan: fix bus {ranges,reg} warnings
-  riscv: dts: canaan: add specific compatible for kd233's LCD
-  riscv: dts: canaan: build all devicetress if SOC_CANAAN
-
- .../bindings/display/ilitek,ili9341.txt       | 27 ------
- .../display/panel/ilitek,ili9341.yaml         | 49 +++++++---
- .../bindings/dma/snps,dw-axi-dmac.yaml        |  4 +-
- .../memory-controllers/canaan,k210-sram.yaml  | 52 ++++++++++
- .../bindings/sound/designware-i2s.txt         | 35 -------
- .../bindings/sound/snps,designware-i2s.yaml   | 94 +++++++++++++++++++
- .../bindings/spi/snps,dw-apb-ssi.yaml         |  6 --
- arch/riscv/boot/dts/canaan/Makefile           | 10 +-
- arch/riscv/boot/dts/canaan/canaan_kd233.dts   |  6 +-
- arch/riscv/boot/dts/canaan/k210.dtsi          | 76 ++++++++++-----
- .../riscv/boot/dts/canaan/sipeed_maix_bit.dts |  2 +-
- .../boot/dts/canaan/sipeed_maix_dock.dts      |  2 +-
- arch/riscv/boot/dts/canaan/sipeed_maix_go.dts |  2 +-
- .../boot/dts/canaan/sipeed_maixduino.dts      |  2 +-
- 14 files changed, 253 insertions(+), 114 deletions(-)
+Link: https://cdn-learn.adafruit.com/assets/assets/000/046/879/original/SPEC-YX240QV29-T_Rev.A__1_.pdf
+Reviewed-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../bindings/display/ilitek,ili9341.txt       | 27 -----------
+ .../display/panel/ilitek,ili9341.yaml         | 48 +++++++++++++------
+ 2 files changed, 34 insertions(+), 41 deletions(-)
  delete mode 100644 Documentation/devicetree/bindings/display/ilitek,ili9341.txt
- create mode 100644 Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
- delete mode 100644 Documentation/devicetree/bindings/sound/designware-i2s.txt
- create mode 100644 Documentation/devicetree/bindings/sound/snps,designware-i2s.yaml
 
-
-base-commit: 07dc787be2316e243a16a33d0a9b734cd9365bd3
+diff --git a/Documentation/devicetree/bindings/display/ilitek,ili9341.txt b/Documentation/devicetree/bindings/display/ilitek,ili9341.txt
+deleted file mode 100644
+index 169b32e4ee4e..000000000000
+--- a/Documentation/devicetree/bindings/display/ilitek,ili9341.txt
++++ /dev/null
+@@ -1,27 +0,0 @@
+-Ilitek ILI9341 display panels
+-
+-This binding is for display panels using an Ilitek ILI9341 controller in SPI
+-mode.
+-
+-Required properties:
+-- compatible:	"adafruit,yx240qv29", "ilitek,ili9341"
+-- dc-gpios:	D/C pin
+-- reset-gpios:	Reset pin
+-
+-The node for this driver must be a child node of a SPI controller, hence
+-all mandatory properties described in ../spi/spi-bus.txt must be specified.
+-
+-Optional properties:
+-- rotation:	panel rotation in degrees counter clockwise (0,90,180,270)
+-- backlight:	phandle of the backlight device attached to the panel
+-
+-Example:
+-	display@0{
+-		compatible = "adafruit,yx240qv29", "ilitek,ili9341";
+-		reg = <0>;
+-		spi-max-frequency = <32000000>;
+-		dc-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;
+-		reset-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+-		rotation = <270>;
+-		backlight = <&backlight>;
+-	};
+diff --git a/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml b/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
+index 6058948a9764..c5571391ca28 100644
+--- a/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
++++ b/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
+@@ -21,6 +21,7 @@ properties:
+   compatible:
+     items:
+       - enum:
++          - adafruit,yx240qv29
+           # ili9341 240*320 Color on stm32f429-disco board
+           - st,sf-tc240t-9370-t
+       - const: ilitek,ili9341
+@@ -47,31 +48,50 @@ properties:
+   vddi-led-supply:
+     description: Voltage supply for the LED driver (1.65 .. 3.3 V)
+ 
+-additionalProperties: false
++unevaluatedProperties: false
+ 
+ required:
+   - compatible
+   - reg
+   - dc-gpios
+-  - port
++
++if:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - st,sf-tc240t-9370-t
++then:
++  required:
++    - port
+ 
+ examples:
+   - |+
++    #include <dt-bindings/gpio/gpio.h>
+     spi {
+         #address-cells = <1>;
+         #size-cells = <0>;
+         panel: display@0 {
+-                 compatible = "st,sf-tc240t-9370-t",
+-                              "ilitek,ili9341";
+-                 reg = <0>;
+-                 spi-3wire;
+-                 spi-max-frequency = <10000000>;
+-                 dc-gpios = <&gpiod 13 0>;
+-                 port {
+-                         panel_in: endpoint {
+-                           remote-endpoint = <&display_out>;
+-                      };
+-                 };
+-             };
++            compatible = "st,sf-tc240t-9370-t",
++                         "ilitek,ili9341";
++            reg = <0>;
++            spi-3wire;
++            spi-max-frequency = <10000000>;
++            dc-gpios = <&gpiod 13 0>;
++            port {
++                panel_in: endpoint {
++                    remote-endpoint = <&display_out>;
++                };
++            };
++        };
++        display@1{
++            compatible = "adafruit,yx240qv29", "ilitek,ili9341";
++            reg = <1>;
++            spi-max-frequency = <10000000>;
++            dc-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;
++            reset-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
++            rotation = <270>;
++            backlight = <&backlight>;
+         };
++    };
+ ...
 -- 
 2.36.1
 
