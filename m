@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12853C43334
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 18:46:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60936C43334
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 18:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TnbSl31Dz71H6rJN87cfkIbE0K+dDR8J5XFx2e5A/08=; b=KkbqaYm2XcVQCY
-	2H+uIA9QU/bv7WVjR8hTKC/3X6+CflYl2Dshqi2eN1lsZ0e16gRPizJY7g2iIJetV18wLK2PiSqzy
-	hIn9RGk9OKNktgQCbBmrT50Y3M2dW0Ue4GU2eL/fXMyNNzsMVwiwxIRSm3Sf51P+88ekVo0W2lcdM
-	ZZcKDsWtBISZk+ZglfXTdxiJGkIc6fMre6/hi6Mrq8/1d9mltT105Te8e1nSDpTV8gR2xoa57zE/t
-	ApEIgcSnZiNEFQslLcs9QgjVWJevZ/ZZxtHS6d21ydfN2vToDiyTMS7udc5O+a9wR/855dhiVbo/M
-	9xslvOTxWYfGEzd1u6bg==;
+	List-Owner; bh=3xGbUu1vMRYkTJZxR9G3AoJuzOHKT8zNMK6uJS0z574=; b=bV+6BoMexc0zYa
+	TLMEJSPCc6qYjOwx1RT5BbIwfVg5K9kbLDs0vU8iWtFtO1kxjIxugAQIDlb91BEUqz5TGpr9M7JTn
+	1UkTPKdhxNuK8rKad1tbySpHrH3KSDapq8zm2Zo5TV5Qt4bTobhEaQl4kFWdg6iZKyc9bmRgRsdKR
+	N8AhWS9KI/NTi3WIRlj2NRZTP0usB1E5WpKHjy/aAgGSymUXtjqWBALuY0S4wDVmtG+HJ/fa9x8Ea
+	a9J/SU6bOmIBnQFtn8Wi8Q8aAzDk2RPPALQrZn13AJ/cwxA8uh/xIDwXziJ7zF+zYKDg+bSO2NvNI
+	iFXRW16TVJBgNGFPhuEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6chR-00DbI9-6R; Wed, 29 Jun 2022 18:46:05 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1o6chZ-00DbPV-0W; Wed, 29 Jun 2022 18:46:13 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6cgM-00DaOR-PB
-	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 18:45:00 +0000
-Received: by mail-wr1-x434.google.com with SMTP id v9so8194008wrp.7
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 11:44:58 -0700 (PDT)
+	id 1o6cgP-00DaPl-0I
+	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 18:45:02 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id l68so4868547wml.3
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 11:45:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding;
-        bh=At25po1Wc0Z0LVVscrUsguBv2A3DKxx2gWOZDMIuiaM=;
-        b=WijjS3QGog80xtGqzblrYaaoGoUeqfb6SjDeiBhfRNzBdio44L6EGW9/Z8tdELkAW6
-         L9clreZk2UZKoJ9JIA0XqRhuszwyomm61dIFCzrch88g2jAODCY8XeiVZ+uZMBMMZF1X
-         28C8fpv0EZnh/al+rSxiF0l0uZHN5U//tuhTMK28cuEWxNRsQ54aVcWsQV3O7n03gcGG
-         t4zqFpt8r4DzKJg4IgbJ+vvKARa431qC4A2nW221KIGHoQVqbA3M3NgW9bZPPPd+b06/
-         9B4lhXNF7nJEA+yeIQbLhq59zdV268Ah0KGtuDIt7O1tHoewRNFl9Nzs7ADpYfcvKEXK
-         YCcw==
+        bh=qoN7yg76UgsEFXHXaQt2AveJ+WlGKI9wi9pTAfeqlpQ=;
+        b=e4CuTg/9p48DvSTUNdv17K46g3T0j+a8aeAGEEKwZCfJKs9OjS34vhGZ7HFoE764Hd
+         j8xFaBJnEvmew0GGSReaaY9xNCu/fR2Sc34atEiERkguYgduxUnuc58gW9QTCtElfHoh
+         +e4aG+8roo0EfND8Dp2rzL5lveRBxroMVkaiGySBPM8Qh9bYqkiTIqpFq/W5RA0SiiOj
+         PkZRxnuQRLUqrKTYridgjCyNZyMdVCaIDrvKh8cbK07c3fQ7hSJhIcZF+zo6hofXTYZU
+         rLSvEmCJJCmqf5LBxTtJA5BYCL/pC3D+iLf1VIJRxuvt++JTQuIt9u9ZtTRVQGNCwcNI
+         LZMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=At25po1Wc0Z0LVVscrUsguBv2A3DKxx2gWOZDMIuiaM=;
-        b=gHIRbDIku3U7Lsb+775N6Z1AmcFOxvlKBwT3obN53BwqbYBLBK0N1UHWKOnuWXaHIs
-         tQC4rBdzsQuVvwD437F+8kHz0U5avZgVzjQKLCKU8DWJnYz8T2/XjCeqUFMUifVdDNL1
-         ItrwWJ2C+Bub4g1fq4jtGeKM2igpXyNConoWkvg5TC4imTcF9dqABdeW/O1nfRluJJU2
-         zSClej4rMDY1SKJAaQHr/L4KS0ZIxj0rwJmprCJr8di+5fVog+dox3T2L3jxTvq+DPQU
-         f4eT7sV594fcwnlTlpdbQk0VROHqw0WppyNxipRcw2uFdbe+bQVVyzkKFa1wi6it/ckQ
-         XtNw==
-X-Gm-Message-State: AJIora+58rOSHTr8vaoRaB0u8PBq8cRiZyxrG7wb1PH4ynVvzh+4i8Ip
-	GpQZjIlkA47lsIdRYMr8QhTufg==
-X-Google-Smtp-Source: AGRyM1tFdtxNpzN6iXVKryB/C/h+KEXfAJwTszphJPZwHiXExUEtPjYGqRR55VLOxlslhU0/OHZqag==
-X-Received: by 2002:a5d:4b04:0:b0:21b:8640:273f with SMTP id v4-20020a5d4b04000000b0021b8640273fmr4644814wrq.195.1656528297564;
-        Wed, 29 Jun 2022 11:44:57 -0700 (PDT)
+        bh=qoN7yg76UgsEFXHXaQt2AveJ+WlGKI9wi9pTAfeqlpQ=;
+        b=2vbbBmm176+3XlKSrO3sRnACi1TDxOdFfh6qzttS6K2kQ4yjx4Wbmm/35OYLebn4Zu
+         qmWoJLbsbReTKAqh8NbnuhHrFGBA/4EVmGvmBEnrQYTLnVn9wqc3qrcw7dIIBBO8o7UA
+         0/VCe5iq7vTO/VspiLPJV5HEP5gq4yr6ikymxyEeUSHIURShzdFqz7EbPbv4iBpN1FeX
+         paGGcWVuEGb1Ef47Ocenl4fgnzs6Ch+sxCcdGG9GaHA96kqippGUUmIc+JWSZyGuh7gg
+         xxC9y7SNSmhWtO6TYWWT50wlN81zZCLqAUYbU7J79LQrUK7mtomqTMf5TLRgk3xkAedb
+         9vyg==
+X-Gm-Message-State: AJIora+TXMdgkFSkvdh1ODwXx5zMuHeV2KN3jcKTLko2EtAHcVfdQQ0U
+	st6sh429l50c42t9fMwqVxkmPw==
+X-Google-Smtp-Source: AGRyM1sAH2pQyXCWdny+eGMynhGGuuyXhbj2gCp3uhWDHvXjt8YqOA4VdUet5wJ8GqcAeQgDcQfsCA==
+X-Received: by 2002:a7b:c1ca:0:b0:3a0:3b9e:fd96 with SMTP id a10-20020a7bc1ca000000b003a03b9efd96mr5210627wmj.86.1656528299365;
+        Wed, 29 Jun 2022 11:44:59 -0700 (PDT)
 Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id u23-20020a7bcb17000000b0039aef592ca0sm3834371wmj.35.2022.06.29.11.44.56
+        by smtp.gmail.com with ESMTPSA id u23-20020a7bcb17000000b0039aef592ca0sm3834371wmj.35.2022.06.29.11.44.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jun 2022 11:44:57 -0700 (PDT)
+        Wed, 29 Jun 2022 11:44:58 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: David Airlie <airlied@linux.ie>,
 	Daniel Vetter <daniel@ffwll.ch>,
@@ -90,16 +90,16 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	alsa-devel@alsa-project.org,
 	linux-spi@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 13/15] riscv: dts: canaan: fix bus {ranges,reg} warnings
-Date: Wed, 29 Jun 2022 19:43:42 +0100
-Message-Id: <20220629184343.3438856-14-mail@conchuod.ie>
+Subject: [PATCH v3 14/15] riscv: dts: canaan: add specific compatible for kd233's LCD
+Date: Wed, 29 Jun 2022 19:43:43 +0100
+Message-Id: <20220629184343.3438856-15-mail@conchuod.ie>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220629184343.3438856-1-mail@conchuod.ie>
 References: <20220629184343.3438856-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220629_114458_893757_D8BD4E43 
-X-CRM114-Status: GOOD (  11.55  )
+X-CRM114-CacheID: sfid-20220629_114501_126130_9E0D5E99 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,53 +118,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The k210 devicetrees warn about missing/empty reg and/or ranges
-properties:
-arch/riscv/boot/dts/canaan/k210.dtsi:408.22-460.5: Warning (unit_address_vs_reg): /soc/bus@52000000: node has a unit name, but no reg or ranges property
-arch/riscv/boot/dts/canaan/k210.dtsi:352.22-406.5: Warning (simple_bus_reg): /soc/bus@50400000: missing or empty reg/ranges property
-
-Add reg and ranges properties that naively cap the buses after the
-allocation of their last devices.
+Add the recently introduced compatible for the LCD on the Canaan KD233.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/canaan/k210.dtsi | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+ arch/riscv/boot/dts/canaan/canaan_kd233.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/canaan/k210.dtsi b/arch/riscv/boot/dts/canaan/k210.dtsi
-index 948dc235e39d..6a34dc4f3e51 100644
---- a/arch/riscv/boot/dts/canaan/k210.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k210.dtsi
-@@ -163,7 +163,8 @@ apb0: bus@50200000 {
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			compatible = "simple-pm-bus";
--			ranges;
-+			regs = <0x50200000 0x200000>;
-+			ranges = <0x50200000 0x50200000 0x200000>;
- 			clocks = <&sysclk K210_CLK_APB0>;
+diff --git a/arch/riscv/boot/dts/canaan/canaan_kd233.dts b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
+index 4a540158f287..b0cd0105a5bd 100644
+--- a/arch/riscv/boot/dts/canaan/canaan_kd233.dts
++++ b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
+@@ -127,7 +127,7 @@ &spi0 {
+ 	cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
  
- 			gpio1: gpio@50200000 {
-@@ -382,7 +383,8 @@ apb1: bus@50400000 {
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			compatible = "simple-pm-bus";
--			ranges;
-+			regs = <0x50400000 0x40100>;
-+			ranges = <0x50400000 0x50400000 0x40100>;
- 			clocks = <&sysclk K210_CLK_APB1>;
- 
- 			wdt0: watchdog@50400000 {
-@@ -437,7 +439,8 @@ apb2: bus@52000000 {
- 			#address-cells = <1>;
- 			#size-cells = <1>;
- 			compatible = "simple-pm-bus";
--			ranges;
-+			regs = <0x52000000 0x2000200>;
-+			ranges = <0x52000000 0x52000000 0x2000200>;
- 			clocks = <&sysclk K210_CLK_APB2>;
- 
- 			spi0: spi@52000000 {
+ 	panel@0 {
+-		compatible = "ilitek,ili9341";
++		compatible = "canaan,kd233-tft", "ilitek,ili9341";
+ 		reg = <0>;
+ 		dc-gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
+ 		spi-max-frequency = <10000000>;
 -- 
 2.36.1
 
