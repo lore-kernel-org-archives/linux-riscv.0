@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B93CDC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 22:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64B96C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 22:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LOUngZ7VqBWF4yhiVCTfrva04jmEWD7d5K7yl0Ker7Q=; b=jAkblcH6ZSWBPW
-	yiZrKCH4e8R8aijMuTFGBkP8pkFQ5YJHy9yr5XlKD3TvkiH9A5l57gkd07jxH4pczkSxObDj2+AmD
-	B76XMmlPqwZBgvtmTSDcujTIAkrcFLiGNqY7APtcfnYDHzIGVxPmuUCRLfiq2ix9FDNo11ux4JDMi
-	srWT3PoCQHXaOg+G/JY6aljGjQBAcxxEZI9Lrh5ZMk1CMv3mRCfAd7OvWD6fV0wae7yKrORtaC5aN
-	z8cQhfnyDl9eSK6E0W+TecRyA6MdGNS8dzHi0iG1MMiSfidvDfP5HKdL09LMgxIcKn48suBZI0YlQ
-	he8dC6ltDTAuIqPENTDA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Clh+fE7xPrbFMyPLeW4pnoqOxUAqlcz4oPtvfClLQZw=; b=DKu7535LELgdlA
+	pvgqnLDKLynzdKIQB+ZtkM7201mJJvh+P7ECMeIgfynOzM9hy15g3lIH+Tlt99YLIGEF4zSAF8lpM
+	wMxAJRL98EUiV0b/XykAo60GWKvZBX0nU8GeVRyByQSca6tVE1L1hdVaKvl4ysLkZEen/G6UB0hHy
+	Pbnpv06YI50YTymGbzvUKibWKO25YC3erOpS2RHuhQq7Z9BkNboWET5ltqbmdu+D0WN7BX1/hLgyP
+	Un2ed9laE5Tptnx3JpNPRozYZtMhUzYJk2hf8UmBIMr4PO9kg9/tz0hr9dJc07ggmxmojiNFq2ywj
+	ubqEVVY8PW7H9e7H8mwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6fj4-00ECqB-7K; Wed, 29 Jun 2022 21:59:58 +0000
+	id 1o6fjA-00ECsu-NH; Wed, 29 Jun 2022 22:00:04 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6fj1-00ECob-SX
-	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 21:59:57 +0000
+	id 1o6fj1-00ECoa-Tt
+	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 21:59:58 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1o6fiw-0006yD-JR; Wed, 29 Jun 2022 23:59:50 +0200
+	id 1o6fiw-0006yD-0G; Wed, 29 Jun 2022 23:59:50 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: palmer@dabbelt.com,
 	paul.walmsley@sifive.com
@@ -50,16 +50,14 @@ Cc: linux-riscv@lists.infradead.org,
 	drew@beagleboard.org,
 	rdunlap@infradead.org,
 	Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH v5 1/4] of: also handle dma-noncoherent in of_dma_is_coherent()
-Date: Wed, 29 Jun 2022 23:59:41 +0200
-Message-Id: <20220629215944.397952-2-heiko@sntech.de>
+Subject: [PATCH v5 0/4] riscv: implement Zicbom-based CMO instructions + the t-head variant
+Date: Wed, 29 Jun 2022 23:59:40 +0200
+Message-Id: <20220629215944.397952-1-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220629215944.397952-1-heiko@sntech.de>
-References: <20220629215944.397952-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220629_145955_979085_42B2C72D 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20220629_145956_043607_F5AC0B49 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,66 +74,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-of_dma_is_coherent() currently expects the architecture to be
-non-coherent and some devices being coherent getting marked
-as such with the dma-coherent devicetree property.
+This series is based on the alternatives changes done in my svpbmt series
+and thus also depends on Atish's isa-extension parsing series.
 
-For PowerPC CONFIG_OF_DMA_DEFAULT_COHERENT was added which currently
-makes of_dma_is_coherent() always return true but doesn't handle
-the case of the architecture being coherent but some devices not.
+It implements using the cache-management instructions from the  Zicbom-
+extension to handle cache flush, etc actions on platforms needing them.
 
-So modify the function to also check for dma-noncoherent and
-set a suitable default return value. If CONFIG_OF_DMA_DEFAULT_COHERENT
-is set the value starts with true and finding dma-noncoherent will
-set it to false and without CONFIG_OF_DMA_DEFAULT_COHERENT, the
-behaviour is reversed.
+SoCs using cpu cores from T-Head like the Allwinne D1 implement a
+different set of cache instructions. But while they are different,
+instructions they provide the same functionality, so a variant can
+easly hook into the existing alternatives mechanism on those.
 
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- drivers/of/address.c | 17 ++++++++++-------
- 1 file changed, 10 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/of/address.c b/drivers/of/address.c
-index 94f017d808c4..96f0a12e507c 100644
---- a/drivers/of/address.c
-+++ b/drivers/of/address.c
-@@ -1045,26 +1045,29 @@ phys_addr_t __init of_dma_get_max_cpu_address(struct device_node *np)
-  *
-  * It returns true if "dma-coherent" property was found
-  * for this device in the DT, or if DMA is coherent by
-- * default for OF devices on the current platform.
-+ * default for OF devices on the current platform and no
-+ * "dma-noncoherent" property was found for this device.
-  */
- bool of_dma_is_coherent(struct device_node *np)
- {
- 	struct device_node *node;
--
--	if (IS_ENABLED(CONFIG_OF_DMA_DEFAULT_COHERENT))
--		return true;
-+	bool is_coherent = IS_ENABLED(CONFIG_OF_DMA_DEFAULT_COHERENT);
- 
- 	node = of_node_get(np);
- 
- 	while (node) {
- 		if (of_property_read_bool(node, "dma-coherent")) {
--			of_node_put(node);
--			return true;
-+			is_coherent = true;
-+			break;
-+		}
-+		if (of_property_read_bool(node, "dma-noncoherent")) {
-+			is_coherent = false;
-+			break;
- 		}
- 		node = of_get_next_dma_parent(node);
- 	}
- 	of_node_put(node);
--	return false;
-+	return is_coherent;
- }
- EXPORT_SYMBOL_GPL(of_dma_is_coherent);
- 
+An ongoing discussion is about the currently used pre-coded
+instructions. Palmer's current thinking is that we should wait
+until the relevant instructions have landed in binutils.
+
+The main Zicbom instructions are in toolchains now and at least
+Debian also carries a binutils snapshot with it, but the T-Head
+variant still uses pre-coded instructions for now.
+
+The series sits on top of my svpbmt fixup series, which
+for example includes the conversion away from function pointers
+for the check-functions. And also uses my nops-series.
+
+
+A new dma-noncoherent property was added for the devicetree-specification
+and dt-schema in:
+- https://www.spinics.net/lists/devicetree-spec/msg01053.html
+- https://github.com/devicetree-org/dt-schema/pull/78
+
+
+changes in v5:
+- beautify of_dma_is_coherent as suggested by Christoph Hellwig
+- WARN_TAINT when ARCH_DMA_MINALIGN smaller than riscv,cbom-block-size
+  (similar to how arm64 does this)
+- add a function to track if non-coherent handling is available
+- WARN_TAINT if a device is non-coherent but no non-coherent handling
+- use clean instead of inval in arch_sync_dma_for_device:DMA_FROM_DEVICE
+  hopefully I understood
+    https://lore.kernel.org/linux-arm-kernel/20220610151228.4562-1-will@kernel.org/T/
+  correctly in this
+
+changes in v4:
+- modify of_dma_is_coherent() also handle coherent system
+  with maybe noncoherent devices
+- move Zicbom to use real instructions
+- split off the actual dma-noncoherent code from the Zicbom
+  extension
+- Don't assumes devices are non-coherent, instead default to
+  coherent and require the non-coherent ones to be marked
+- CPUFEATURE_ZICBOM instead of CPUFEATURE_CMO
+- fix used cache addresses
+- drop some unused headers from dma-noncoherent.c
+- move unsigned long cast when calling ALT_CMO_OP
+- remove unneeded memset-0
+- define ARCH_DMA_MINALIGN
+- use flush instead of inval in arch_sync_dma_for_cpu()
+- depend on !XIP_KERNEL
+- trim some line lengths
+- improve Kconfig description
+
+changes in v3:
+- rebase onto 5.19-rc1 + svpbmt-fixup-series
+- adapt wording for block-size binding
+- include asm/cacheflush.h into dma-noncoherent to fix the
+  no-prototype error clang seems to generate
+- use __nops macro for readability
+- add some received tags
+- add a0 to the clobber list
+
+changes in v2:
+- cbom-block-size is hardware-specific and comes from firmware
+- update Kconfig name to use the ISA extension name
+- select the ALTERNATIVES symbol when enabled
+- shorten the line lengths of the errata-assembly
+
+Heiko Stuebner (4):
+  of: also handle dma-noncoherent in of_dma_is_coherent()
+  dt-bindings: riscv: document cbom-block-size
+  riscv: Implement Zicbom-based cache management operations
+  riscv: implement cache-management errata for T-Head SoCs
+
+ .../devicetree/bindings/riscv/cpus.yaml       |   5 +
+ arch/riscv/Kconfig                            |  31 +++++
+ arch/riscv/Kconfig.erratas                    |  11 ++
+ arch/riscv/Makefile                           |   4 +
+ arch/riscv/errata/thead/errata.c              |  20 ++++
+ arch/riscv/include/asm/cache.h                |   4 +
+ arch/riscv/include/asm/cacheflush.h           |  10 ++
+ arch/riscv/include/asm/errata_list.h          |  59 ++++++++-
+ arch/riscv/include/asm/hwcap.h                |   1 +
+ arch/riscv/kernel/cpu.c                       |   1 +
+ arch/riscv/kernel/cpufeature.c                |  24 ++++
+ arch/riscv/kernel/setup.c                     |   2 +
+ arch/riscv/mm/Makefile                        |   1 +
+ arch/riscv/mm/dma-noncoherent.c               | 112 ++++++++++++++++++
+ drivers/of/address.c                          |  17 +--
+ 15 files changed, 293 insertions(+), 9 deletions(-)
+ create mode 100644 arch/riscv/mm/dma-noncoherent.c
+
 -- 
 2.35.1
 
