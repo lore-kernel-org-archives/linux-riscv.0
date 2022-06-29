@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1594C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 18:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401F5C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 18:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XSluVxaQCtoxZpVW9lWnlvQV8Nqhc2CPrBCvOa6JA9I=; b=rxVxV9/8w8k8Tj
-	C7abX3Jxy46TaWogn2L47TQgrB52rHnmeqXLv89o5jHR0ol8rcBAegauau6QYY6y1ZU5k0bkgsswJ
-	dkmAe5PM7J51VMEkoMRyNEsXQid7e7liNnEKbj9n5dUOrToEQcmb5yo3PQPaT5kgUB/4n0QFawZ2P
-	wyjUA5u6L1KLDIE+IoN6wMRXmGxPO/fxdOJjWgoxxJbgGcdn+7hM42ZHJSb1x9jOSEhhpnq7fq5aX
-	yt9X81HJziIsRpGhc64YAVI65NrmAV2i5z2HjAF+TQ7waVoqHTvsxTLvWFa1HMsQG+8dLfQyBNHgV
-	+/d8KKDPyK+13GiTC6Rg==;
+	List-Owner; bh=ajDmSTwETDCbOlwxJ6VKuuL0pP3FKD8xoePLn71Tj60=; b=16VW7OftZITtbi
+	I3TDMR7ttzihghPIY6uljRZo0JY4R7s79oRGViPSI4epdnjQOem+W/7cWvKt/in1RW3zI6MZKuRU7
+	s+j6d9gy276D+Tu/exLFNzYOof9ayePZowA41VG4HcW42zGoGJJpa1FxtUPnyYXIwScl+9N7sKXPF
+	oxo4mV2hG6fq7uf9gcGlAp7ZlYUWBM4gGA54u13PHVyizs5bcTS3MjGx1mPWfL5N6Rf4fCUo53dZt
+	V1m+skBdR52F3Vqv1bLhmY5otPJSrE4OEZNXmbdAKHLe1Zo+znRoxxaZO60kT+HnaTXKaPDXvelTy
+	84jlGc5uZHpOOWNldxdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6ch2-00Davr-AA; Wed, 29 Jun 2022 18:45:40 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1o6ch6-00Db0N-CA; Wed, 29 Jun 2022 18:45:44 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6cgF-00DaH1-B4
-	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 18:44:53 +0000
-Received: by mail-wr1-x434.google.com with SMTP id d17so18142239wrc.10
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 11:44:50 -0700 (PDT)
+	id 1o6cgG-00DaID-KU
+	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 18:44:55 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id j7so147441wmp.2
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 11:44:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding;
-        bh=Juzz+Ngk10Ta05//fxfH00O+jv/gMrP+Bqb9Q3jKosQ=;
-        b=ZA8y7P8hKKrPtisjdtqQq+qA1CID6TRmuw8f26eSBGt1WTJeML7gtXTyV7fNJDHMK3
-         uuo7s6uFAg+bbTdr6RVne+0z6egOsvto5QiZ6mK0zZwxu/+Wi7VHR3Sih2KhTPitJxxv
-         lTfuAXeyZvMxoG6sYUHkPFi0QiV+MOFey0wVpULURsN00zFfHAxuzQa2wJRk2MJYufak
-         ZBER6WKxnutHozCshebTmqJ5yG6ZaDruFHXsj5/te+pMua81k77zKXbcbZvi+jh9fqcm
-         2tlxPmKfOjotnkDLVyD5TXiHh4tRn3SOWxgppXhFA3DURAdXDHGX1ICJCnx8LDK9p3Ha
-         1wZg==
+        bh=hRUbJk2nRy4s5CIJwi9VsR0jeyH/n7EOc4sICxWxXyQ=;
+        b=GU1PexhwxPI4aTWY3oJSr8UIVA61UsZoukLwT5nVxTvCr+0PRJe8zMkDBKITJKbtzX
+         ioQKiZLTtLcfBHcYt9JjslVGwoLAqlNLKPBCOMjF+0jfiCWj3zGkMmyV+FCbDRn+8HQd
+         Lk6RFwT8l58blRYSNy8XeEBTxLX/F8qnb8RXUxnCawWWCroXwQOkWoh5NJyTB1moXT3L
+         ky3lSGUcyI41S5opeosrrvJFPbYelZH+U+wz8LexP4CRkMjehb4REVMPoHRzl+pD4Hhy
+         5C4OrnH/kt+blRMXBzLRMJGtHE9SC4Lej5foWPPfLcelXJjdgixXkRAHFY1wcmIQWk1Y
+         0SnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=Juzz+Ngk10Ta05//fxfH00O+jv/gMrP+Bqb9Q3jKosQ=;
-        b=1HTjpnTJ3K2uBEtfbdPvynZzcU8X8sjOQDAXqrNFDNKk81m7OOE3ZEF0ptQNfWFZIS
-         DUTo3rWCYgjFepsA6MUTWe+cNC4p8OxINFwe8UC+DjSNCQUL5mVIoaWeuiBXETDmPBGk
-         iHOTSVjnJsx1q07L/pxtbNynPVx1lNXlGj79Ns1gHlL26nGdQZo8S5D4F6Hc48sN530h
-         uACFJveuA20NmRWNuN5GFm/sK8QoB84oKxKUVfLt9r8Q0aTCRXUV1ROwpfin4K4mv0Qk
-         71SVBqwH3Je5ywm0yu5zfhgRCXRF23Z48JSCl++Nz5Muf3Fjd8qFst0Eb0lSjUJwtxpl
-         hlVg==
-X-Gm-Message-State: AJIora/vuYFXdXrmmGMRJjSb2hD7Du/MV4OCGjxd1ua8IAz3z5NWqyK0
-	C1rhaL4ZypM/QXRUeSGAWqa38g==
-X-Google-Smtp-Source: AGRyM1s0I5FJ4BJCXP+3NEy7+7xMkTJben+77vrmXua6sh2SuaEOzmm9e8Tj0lFsY/ZmuWdd66mstA==
-X-Received: by 2002:a5d:6d45:0:b0:21a:2f43:cb76 with SMTP id k5-20020a5d6d45000000b0021a2f43cb76mr4604259wri.254.1656528289159;
-        Wed, 29 Jun 2022 11:44:49 -0700 (PDT)
+        bh=hRUbJk2nRy4s5CIJwi9VsR0jeyH/n7EOc4sICxWxXyQ=;
+        b=4tUDKqFngsUFmcpzLgj8uRxm0/d4tJunQdHWDbc4ONMN9nkb+f54Z82PpaSugNPfz4
+         r1/OFf1HtDGEpqZrZzjmst/bJL9sqDNcLEEllbPKUdAVUYY0Rj3T3ryEcoTavcb0Rtpe
+         0q6/Kx6jKsUO0HTuyUIMb9fauPLitXQ3stpxxDtHBalJ6KGdgk60mDwvAdh5uKW+AfLU
+         p4OjXqfdpkgFbtWOiLmnm+4EuvbaxPMekExdiR2iEZWT5O7hBm7skIl2zHsrPnXRD9WW
+         sv8FR0iLhtgua47ljVQg1qPrAHydz53mevBWZpHOfpkhTq9045CpTRoxpxQ/XPXfF/cs
+         xj5w==
+X-Gm-Message-State: AJIora8onkYQ6m7510QSTGOWL2gzykHHnKAZw/lzpkWvK7Mkifef/gLL
+	JC0yU+Xb/DqQakR+8nmn/JChuQ==
+X-Google-Smtp-Source: AGRyM1s9hghtvUiD4PkehSOpWHC180NLRRUmuGaKgWdAwp+740aIRHdfgINEDXzyjHxW4+Xl43C91g==
+X-Received: by 2002:a05:600c:1987:b0:3a1:7a21:ea47 with SMTP id t7-20020a05600c198700b003a17a21ea47mr1062506wmq.47.1656528290781;
+        Wed, 29 Jun 2022 11:44:50 -0700 (PDT)
 Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id u23-20020a7bcb17000000b0039aef592ca0sm3834371wmj.35.2022.06.29.11.44.47
+        by smtp.gmail.com with ESMTPSA id u23-20020a7bcb17000000b0039aef592ca0sm3834371wmj.35.2022.06.29.11.44.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 29 Jun 2022 11:44:48 -0700 (PDT)
+        Wed, 29 Jun 2022 11:44:50 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: David Airlie <airlied@linux.ie>,
 	Daniel Vetter <daniel@ffwll.ch>,
@@ -90,16 +90,16 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	alsa-devel@alsa-project.org,
 	linux-spi@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 08/15] riscv: dts: canaan: fix the k210's timer nodes
-Date: Wed, 29 Jun 2022 19:43:37 +0100
-Message-Id: <20220629184343.3438856-9-mail@conchuod.ie>
+Subject: [PATCH v3 09/15] riscv: dts: canaan: fix mmc node names
+Date: Wed, 29 Jun 2022 19:43:38 +0100
+Message-Id: <20220629184343.3438856-10-mail@conchuod.ie>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220629184343.3438856-1-mail@conchuod.ie>
 References: <20220629184343.3438856-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220629_114451_476571_984DE424 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20220629_114452_757911_D11F4886 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,91 +118,83 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The timers on the k210 have non standard interrupt configurations,
-which leads to dtbs_check warnings:
-
-k210_generic.dtb: timer@502d0000: interrupts: [[14], [15]] is too long
-From schema: Documentation/devicetree/bindings/timer/snps,dw-apb-timer.yaml
-
-Split the timer nodes in two, so that the second timer in the IP block
-can actually be accessed & in the process solve the dtbs_check warning.
+The newly-converted-to-dt-schema binding expects the mmc node name to be
+'^mmc(@.*)?$' so align the devicetree with the schema.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/canaan/k210.dtsi | 46 +++++++++++++++++++++++-----
- 1 file changed, 38 insertions(+), 8 deletions(-)
+ arch/riscv/boot/dts/canaan/canaan_kd233.dts     | 2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts  | 2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts | 2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_go.dts   | 2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maixduino.dts | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/canaan/k210.dtsi b/arch/riscv/boot/dts/canaan/k210.dtsi
-index cd4eae82d8b2..72f70128d751 100644
---- a/arch/riscv/boot/dts/canaan/k210.dtsi
-+++ b/arch/riscv/boot/dts/canaan/k210.dtsi
-@@ -319,28 +319,58 @@ fpioa: pinmux@502b0000 {
+diff --git a/arch/riscv/boot/dts/canaan/canaan_kd233.dts b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
+index 039b92abf046..40992d495aa8 100644
+--- a/arch/riscv/boot/dts/canaan/canaan_kd233.dts
++++ b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
+@@ -142,7 +142,7 @@ &spi1 {
+ 	cs-gpios = <&gpio0 16 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
  
- 			timer0: timer@502d0000 {
- 				compatible = "snps,dw-apb-timer";
--				reg = <0x502D0000 0x100>;
--				interrupts = <14>, <15>;
-+				reg = <0x502D0000 0x14>;
-+				interrupts = <14>;
- 				clocks = <&sysclk K210_CLK_TIMER0>,
- 					 <&sysclk K210_CLK_APB0>;
- 				clock-names = "timer", "pclk";
- 				resets = <&sysrst K210_RST_TIMER0>;
- 			};
+-	slot@0 {
++	mmc@0 {
+ 		compatible = "mmc-spi-slot";
+ 		reg = <0>;
+ 		voltage-ranges = <3300 3300>;
+diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+index b9e30df127fe..5e809d0e11fb 100644
+--- a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
++++ b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
+@@ -189,7 +189,7 @@ &spi1 {
+ 	cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
  
--			timer1: timer@502e0000 {
-+			timer1: timer@502d0014 {
- 				compatible = "snps,dw-apb-timer";
--				reg = <0x502E0000 0x100>;
--				interrupts = <16>, <17>;
-+				reg = <0x502D0014 0x14>;
-+				interrupts = <15>;
-+				clocks = <&sysclk K210_CLK_TIMER0>,
-+					 <&sysclk K210_CLK_APB0>;
-+				clock-names = "timer", "pclk";
-+				resets = <&sysrst K210_RST_TIMER0>;
-+			};
-+
-+			timer2: timer@502e0000 {
-+				compatible = "snps,dw-apb-timer";
-+				reg = <0x502E0000 0x14>;
-+				interrupts = <16>;
- 				clocks = <&sysclk K210_CLK_TIMER1>,
- 					 <&sysclk K210_CLK_APB0>;
- 				clock-names = "timer", "pclk";
- 				resets = <&sysrst K210_RST_TIMER1>;
- 			};
+-	slot@0 {
++	mmc@0 {
+ 		compatible = "mmc-spi-slot";
+ 		reg = <0>;
+ 		voltage-ranges = <3300 3300>;
+diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+index 8d23401b0bbb..4be5ffac6b4a 100644
+--- a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
++++ b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
+@@ -191,7 +191,7 @@ &spi1 {
+ 	cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
  
--			timer2: timer@502f0000 {
-+			timer3: timer@502e0014 {
-+				compatible = "snps,dw-apb-timer";
-+				reg = <0x502E0014 0x114>;
-+				interrupts = <17>;
-+				clocks = <&sysclk K210_CLK_TIMER1>,
-+					 <&sysclk K210_CLK_APB0>;
-+				clock-names = "timer", "pclk";
-+				resets = <&sysrst K210_RST_TIMER1>;
-+			};
-+
-+			timer4: timer@502f0000 {
-+				compatible = "snps,dw-apb-timer";
-+				reg = <0x502F0000 0x14>;
-+				interrupts = <18>;
-+				clocks = <&sysclk K210_CLK_TIMER2>,
-+					 <&sysclk K210_CLK_APB0>;
-+				clock-names = "timer", "pclk";
-+				resets = <&sysrst K210_RST_TIMER2>;
-+			};
-+
-+			timer5: timer@502f0014 {
- 				compatible = "snps,dw-apb-timer";
--				reg = <0x502F0000 0x100>;
--				interrupts = <18>, <19>;
-+				reg = <0x502F0014 0x14>;
-+				interrupts = <19>;
- 				clocks = <&sysclk K210_CLK_TIMER2>,
- 					 <&sysclk K210_CLK_APB0>;
- 				clock-names = "timer", "pclk";
+-	slot@0 {
++	mmc@0 {
+ 		compatible = "mmc-spi-slot";
+ 		reg = <0>;
+ 		voltage-ranges = <3300 3300>;
+diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+index 24fd83b43d9d..5c63f79b18ec 100644
+--- a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
++++ b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
+@@ -199,7 +199,7 @@ &spi1 {
+ 	cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
+ 
+-	slot@0 {
++	mmc@0 {
+ 		compatible = "mmc-spi-slot";
+ 		reg = <0>;
+ 		voltage-ranges = <3300 3300>;
+diff --git a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+index 25341f38292a..59f7eaf74655 100644
+--- a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
++++ b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
+@@ -164,7 +164,7 @@ &spi1 {
+ 	cs-gpios = <&gpio1_0 2 GPIO_ACTIVE_LOW>;
+ 	status = "okay";
+ 
+-	slot@0 {
++	mmc@0 {
+ 		compatible = "mmc-spi-slot";
+ 		reg = <0>;
+ 		voltage-ranges = <3300 3300>;
 -- 
 2.36.1
 
