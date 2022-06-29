@@ -4,71 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A6DC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 28 Jun 2022 18:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2DBC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 01:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0pr+lhoMXrxF8JL3jeRDdxqPrhp6GdkHaGjFQbCva48=; b=XQElUlajI50dt6
-	sL72ZIF9lCuIdR/e5rGhsqONCv1u4HDcQLaG/lqLkV3ADepJguqo+BH1uLZ5Ni+0BxbdPAUeKAkSr
-	KAxaREmcSiq7gdidzFNbbrEE7bSOkGiWxYWoz+Fu1U+K4Un9/wEcpotOdXcdnf0ctfuvjCzFMpez6
-	/604qcX+2LLEkn3fz35klLDHd1TVU+p5+yyOtvKzPSA/qCIG6sqDxSgMEM3l6uyVxOYghEqhavBOv
-	er07cbm53ZBRYcplRM9OFF44UEBJ6lbOQQw100JKr3dKWut7Y9uyD97cXXzg5l7m60xsB7THHzYkz
-	cZQz3kV0lHyi7rJL8iRg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=dPBtUIPS3t64P+GONOLBSUlK+gLP03lOhBcbc3+lvg4=; b=Dg0rXIMk78LpNw
+	F7JLN5Pe31Iw188UXI/TYN7Pgo/KB9hxzJoyq1KHjE07c3fYf0p4vurM060Rk93hQudsqfECV5jTK
+	bAWnDvGf4QnLXB5zKPsygrpqA4ATwFLmKYsJGwONd20s2EMX7ceUYo5rUNmf9rMQek54JsvoVNucu
+	hQm5U66Psl8r+ZJGkGZmo/O70uD6cDjucq/G/poJQkSmo503SD9awKXhLCdKF3ao/dAzU9ENc/nxF
+	sSIlytC07E5eO1ABt+5+uxJuGZTRSY8z+aQrl5WzscQju7MNos5pbh7FtjC2/EAiUTyo3uZTxrAPt
+	v7wSxNgKWJTaCzKomkKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6Fie-007aCB-Ud; Tue, 28 Jun 2022 18:13:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1o6MIx-008ssM-1d; Wed, 29 Jun 2022 01:15:43 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6Fib-007aBF-Nw
-	for linux-riscv@lists.infradead.org; Tue, 28 Jun 2022 18:13:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1656440024;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BCsO+VHWvi/xygeTHehRQRa8L5qzqJMKZwPbHoiNY8A=;
-	b=cBYdotTo1N8uURC2AHU6LRfuXC9tMmucNeqnTK9IDDolYm8AcWBW96XLTq6efFnaVLihKP
-	1FwFzfg34GBBYAOmg/P3nWFeOcJ39dfq0JU+R5oncpkFccJQAEhpEJhsY62J+FaRh3Tkuz
-	s8ey3WQJFUghBwKjHOx7Ywd0BcgmD5Q=
-Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
- [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- us-mta-384-z1c1mbwEPzysVN0r0myy4Q-1; Tue, 28 Jun 2022 14:13:41 -0400
-X-MC-Unique: z1c1mbwEPzysVN0r0myy4Q-1
-Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
-	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
-	(No client certificate requested)
-	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 7B543801233;
-	Tue, 28 Jun 2022 18:13:40 +0000 (UTC)
-Received: from [10.22.34.187] (unknown [10.22.34.187])
-	by smtp.corp.redhat.com (Postfix) with ESMTP id 170E4492CA3;
-	Tue, 28 Jun 2022 18:13:40 +0000 (UTC)
-Message-ID: <09abc75e-2ffb-1ab5-d0fc-1c15c943948d@redhat.com>
-Date: Tue, 28 Jun 2022 14:13:39 -0400
+	id 1o6MIu-008sqb-41
+	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 01:15:42 +0000
+Received: from kwepemi500012.china.huawei.com (unknown [172.30.72.56])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4LXk500rRXzkWvG;
+	Wed, 29 Jun 2022 09:14:12 +0800 (CST)
+Received: from huawei.com (10.67.174.53) by kwepemi500012.china.huawei.com
+ (7.221.188.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Wed, 29 Jun
+ 2022 09:15:31 +0800
+From: Liao Chang <liaochang1@huawei.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<mhiramat@kernel.org>, <rostedt@goodmis.org>, <liaochang1@huawei.com>
+CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH] riscv/kprobes: allocate detour buffer from module area
+Date: Wed, 29 Jun 2022 09:13:17 +0800
+Message-ID: <20220629011317.259986-1-liaochang1@huawei.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-Subject: Re: [PATCH V7 4/5] asm-generic: spinlock: Add combo spinlock (ticket
- & queued)
-Content-Language: en-US
-To: guoren@kernel.org, palmer@rivosinc.com, arnd@arndb.de, mingo@redhat.com,
- will@kernel.org, boqun.feng@gmail.com
-Cc: linux-riscv@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-kernel@vger.kernel.org, Guo Ren <guoren@linux.alibaba.com>,
- Peter Zijlstra <peterz@infradead.org>
-References: <20220628081707.1997728-1-guoren@kernel.org>
- <20220628081707.1997728-5-guoren@kernel.org>
-From: Waiman Long <longman@redhat.com>
-In-Reply-To: <20220628081707.1997728-5-guoren@kernel.org>
-X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
+X-Originating-IP: [10.67.174.53]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemi500012.china.huawei.com (7.221.188.12)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220628_111345_909634_835E95EF 
-X-CRM114-Status: GOOD (  21.76  )
+X-CRM114-CacheID: sfid-20220628_181540_374250_A18B61FE 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,81 +60,74 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/28/22 04:17, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> Some architecture has a flexible requirement on the type of spinlock.
-> Some LL/SC architectures of ISA don't force micro-arch to give a strong
-> forward guarantee. Thus different kinds of memory model micro-arch would
-> come out in one ISA. The ticket lock is suitable for exclusive monitor
-> designed LL/SC micro-arch with limited cores and "!NUMA". The
-> queue-spinlock could deal with NUMA/large-scale scenarios with a strong
-> forward guarantee designed LL/SC micro-arch.
->
-> So, make the spinlock a combo with feature.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->   include/asm-generic/spinlock.h | 43 ++++++++++++++++++++++++++++++++--
->   kernel/locking/qspinlock.c     |  2 ++
->   2 files changed, 43 insertions(+), 2 deletions(-)
->
-> diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
-> index f41dc7c2b900..a9b43089bf99 100644
-> --- a/include/asm-generic/spinlock.h
-> +++ b/include/asm-generic/spinlock.h
-> @@ -28,34 +28,73 @@
->   #define __ASM_GENERIC_SPINLOCK_H
->   
->   #include <asm-generic/ticket_spinlock.h>
-> +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
-> +#include <linux/jump_label.h>
-> +#include <asm-generic/qspinlock.h>
-> +
-> +DECLARE_STATIC_KEY_TRUE(use_qspinlock_key);
-> +#endif
-> +
-> +#undef arch_spin_is_locked
-> +#undef arch_spin_is_contended
-> +#undef arch_spin_value_unlocked
-> +#undef arch_spin_lock
-> +#undef arch_spin_trylock
-> +#undef arch_spin_unlock
->   
->   static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
->   {
-> -	ticket_spin_lock(lock);
-> +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
-> +	if (static_branch_likely(&use_qspinlock_key))
-> +		queued_spin_lock(lock);
-> +	else
-> +#endif
-> +		ticket_spin_lock(lock);
->   }
+To address the limitation of PC-relative branch instruction
+on riscv architecture, detour buffer slot is allocated from
+a area, the distance of which from kernel should be less than 4GB.
 
-Why do you use a static key to control whether to use qspinlock or 
-ticket lock? In the next patch, you have
+For the time being, Modules region always live before the kernel.
+But Vmalloc region reside far away from kernel, the distance is
+half of the kernel address space.
 
-+#if !defined(CONFIG_NUMA) && defined(CONFIG_QUEUED_SPINLOCKS)
-+	static_branch_disable(&use_qspinlock_key);
+Signed-off-by: Liao Chang <liaochang1@huawei.com>
+---
+ arch/riscv/kernel/probes/kprobes.c | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+
+diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+index e6e950b7cf32..bc027a663b17 100644
+--- a/arch/riscv/kernel/probes/kprobes.c
++++ b/arch/riscv/kernel/probes/kprobes.c
+@@ -6,12 +6,14 @@
+ #include <linux/extable.h>
+ #include <linux/slab.h>
+ #include <linux/stop_machine.h>
++#include <linux/moduleloader.h>
+ #include <asm/ptrace.h>
+ #include <linux/uaccess.h>
+ #include <asm/sections.h>
+ #include <asm/cacheflush.h>
+ #include <asm/bug.h>
+ #include <asm/patch.h>
++#include <asm/set_memory.h>
+ 
+ #include "decode-insn.h"
+ 
+@@ -86,10 +88,28 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+ #ifdef CONFIG_MMU
+ void *alloc_insn_page(void)
+ {
++#if defined(CONFIG_MODULES) && defined(CONFIG_64BIT)
++	void *page;
++
++	page = module_alloc(PAGE_SIZE);
++	if (!page)
++		return NULL;
++
++	set_vm_flush_reset_perms(page);
++	/*
++	 * First make the page read-only, and only then make it executable to
++	 * prevent it from being W+X in between.
++	 */
++	set_memory_ro((unsigned long)page, 1);
++	set_memory_x((unsigned long)page, 1);
++
++	return page;
++#else
+ 	return  __vmalloc_node_range(PAGE_SIZE, 1, VMALLOC_START, VMALLOC_END,
+ 				     GFP_KERNEL, PAGE_KERNEL_READ_EXEC,
+ 				     VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
+ 				     __builtin_return_address(0));
 +#endif
-
-So the current config setting determines if qspinlock will be used, not 
-some boot time parameter that user needs to specify. This patch will 
-just add useless code to lock/unlock sites. I don't see any benefit of 
-doing that.
-
-Cheers,
-Longman
+ }
+ #endif
+ 
+-- 
+2.17.1
 
 
 _______________________________________________
