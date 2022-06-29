@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4835BC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 08:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E53C43334
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 08:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wNZcVq78MdVGWzt1hSCQiEecyclhGHt6KpEJI9hlAq0=; b=FkiO9Vr/Y2Z5G+
-	49IR/nlR/8xm9ajk+JvlxcAvsKCKXsEtHOxkpXkfHm6R5aB5QugL+H4pjs/plx9pSO6ZBasMVMLZv
-	bbFThcVI4wWgF8RzxU0Rd8KAxxXWfKdkhPRQAGbJkVW22fRHLggDClPoUX4bY2vHfmLax4BaC6NTI
-	7/SIFXxDds1ZlD1xEjiTRULEHXOh8jMLc/Cmr+89HZcBfyHiS3sJeFlj7LEfU1lIwMpCrDdC82l7w
-	Ayy09sMWuQ2uHg+p37fH7JS5zjhuWE86I9sUe+YsjVU2XLgRUvMyYzIiAbF1lYMKozutCNPXviT33
-	/3V3/vJSt8hsQq3/Lhww==;
+	List-Owner; bh=2XdV3oy2Td2G4OY5K7jLvJMcKHW9aPtJ0+Za7irGirQ=; b=2PyOvEG2YDOiRN
+	RjpF9KntKPYudn87dRMiw/RSTfPjvAnkpGFvIEHBwlTz9IQBLnsw462nEwrl8FAgaf87jCmYDESRJ
+	C6G2IfuDjywqKbUE/NO2hHnPPlt9EspOD7SGV4MB2bYxgzMfNmhXZQltqs17aIxP4xrAQ+WZftuoi
+	jEM6/5ukY/vWgK/o6wgxJN39NoVOweaA0n9BY+zSSbNyDERhoFQYYhyPhLKRTOd5CJkP1neF1fSdf
+	zIYgHVqI3RBzW+6NbTZNKgfkIYxFUjEIPP0zmy7Oi6afZpHlyp/DK+d5TnCO7CszsLqY3EeK1c2gU
+	VjffoFUo112tHnjqONcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6T2m-00AOYw-NV; Wed, 29 Jun 2022 08:27:28 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1o6T5I-00APPA-7z; Wed, 29 Jun 2022 08:30:04 +0000
+Received: from mout.kundenserver.de ([212.227.17.10])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6T2j-00AOWS-L1
-	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 08:27:27 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-87-5EtqUqn2NCqq8mpFHFTvfw-1; Wed, 29 Jun 2022 09:27:20 +0100
-X-MC-Unique: 5EtqUqn2NCqq8mpFHFTvfw-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.36; Wed, 29 Jun 2022 09:27:19 +0100
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.036; Wed, 29 Jun 2022 09:27:19 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: "'guoren@kernel.org'" <guoren@kernel.org>, "palmer@rivosinc.com"
-	<palmer@rivosinc.com>, "arnd@arndb.de" <arnd@arndb.de>, "mingo@redhat.com"
-	<mingo@redhat.com>, "will@kernel.org" <will@kernel.org>, "longman@redhat.com"
-	<longman@redhat.com>, "boqun.feng@gmail.com" <boqun.feng@gmail.com>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Guo Ren
-	<guoren@linux.alibaba.com>, Peter Zijlstra <peterz@infradead.org>
-Subject: RE: [PATCH V7 1/5] asm-generic: ticket-lock: Remove unnecessary
- atomic_read
-Thread-Topic: [PATCH V7 1/5] asm-generic: ticket-lock: Remove unnecessary
- atomic_read
-Thread-Index: AQHYispbyiGvvAChcUmlft7kGYjTZ61mDYUQ
-Date: Wed, 29 Jun 2022 08:27:19 +0000
-Message-ID: <8eaf85d4e4d9401ea187366de12e7269@AcuMS.aculab.com>
-References: <20220628081707.1997728-1-guoren@kernel.org>
- <20220628081707.1997728-2-guoren@kernel.org>
-In-Reply-To: <20220628081707.1997728-2-guoren@kernel.org>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	id 1o6T5F-00APMF-Ii
+	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 08:30:03 +0000
+Received: from mail-yb1-f172.google.com ([209.85.219.172]) by
+ mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MLR5h-1oOxhg0ygd-00IQnr for <linux-riscv@lists.infradead.org>; Wed, 29
+ Jun 2022 10:29:55 +0200
+Received: by mail-yb1-f172.google.com with SMTP id v38so15920288ybi.3
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 01:29:55 -0700 (PDT)
+X-Gm-Message-State: AJIora/9+23LPx7gRy/iSQApBlAbKCdUe/LLfyXHIAFjV2ngm8GNJah9
+	g19U416YslBUa2njaDIe21yhGnY0UiE3mvse6UU=
+X-Google-Smtp-Source: AGRyM1s+0Vdgu6k29DCyj5luRoc2GU/O+zNZO7vZnJQkpulyhuYloGJMkGI6qdeLOKZPe+Xqib0p73hV9hsIc7OQwVE=
+X-Received: by 2002:a25:8b8b:0:b0:669:b37d:f9cd with SMTP id
+ j11-20020a258b8b000000b00669b37df9cdmr2039004ybl.394.1656491393923; Wed, 29
+ Jun 2022 01:29:53 -0700 (PDT)
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
-	auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+References: <20220628081707.1997728-1-guoren@kernel.org> <20220628081707.1997728-5-guoren@kernel.org>
+ <09abc75e-2ffb-1ab5-d0fc-1c15c943948d@redhat.com> <CAJF2gTQZzOtOsq0DV48Gi76UtBSa+vdY7dLZmoPD_OFUZ0Wbrg@mail.gmail.com>
+ <5166750c-3dc6-9b09-4a1e-cd53141cdde8@redhat.com> <CAK8P3a2jQ+UQ54=QcpyVt91vXRyZrvUtOygFYOHWTBzse3q3rg@mail.gmail.com>
+ <CAJF2gTTtKiMZJLWBEcRz-4CmNojH0cOgpUYGupLyCXXFjQD_FQ@mail.gmail.com>
+In-Reply-To: <CAJF2gTTtKiMZJLWBEcRz-4CmNojH0cOgpUYGupLyCXXFjQD_FQ@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Wed, 29 Jun 2022 10:29:37 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a3GiMgEJdBg5QQHHD0bDnpR0XwPkAw7=zT7ETzf6-sCmg@mail.gmail.com>
+Message-ID: <CAK8P3a3GiMgEJdBg5QQHHD0bDnpR0XwPkAw7=zT7ETzf6-sCmg@mail.gmail.com>
+Subject: Re: [PATCH V7 4/5] asm-generic: spinlock: Add combo spinlock (ticket
+ & queued)
+To: Guo Ren <guoren@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Waiman Long <longman@redhat.com>, 
+	Palmer Dabbelt <palmer@rivosinc.com>, Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	linux-arch <linux-arch@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
+	Peter Zijlstra <peterz@infradead.org>
+X-Provags-ID: V03:K1:ZG1SCr21qpAH1kXJ4g8cQQM3qP3d+ktYcBYDfdcrH/9gmzB+wxX
+ dYi6Kb6jFkOBvNRuKUf68mihnI+BJhlHCee4iLn5tWbeLqHtmk+9/ER5YFCHXlbyewPTgiH
+ MIJKIpjswG62oqv5rO5VhhGc0vhm/z26psQwZ0EeD9fR4UDzPQyN5L5hvijX40cQmT+de+t
+ HidI5GHhDfNLPANQwrWTg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:7XsZ/0PchR0=:l03OJ8rwvTdTsO6IguOXfO
+ +vAzr4P179JyUJwSDas+3bebO80dJGXOF8BfS6W8lDGLsAUNVjoIsTRPOFoIRwdYj6ad6pt12
+ 5DvYM52bUX+WOgaeMRZSoMQn/24XFhX1hKyVMwc5bZWI/6yLneptkD6YBB5TrDZQACw1L40m0
+ 0rzsNetmMR/PhKvZLLHFS5ngkAAONRI7qcZdbctl2YEEL4cMy/ELIZSm68g8gqz320qmxf+FU
+ k3WagLLHpar17OP6DASThdaJ+/GvaCoDYbciIVsmZFK85QbT1X5I6QE+zUIT8PuL6HrgnzYCU
+ 5vzXC/mdG/tjBsqGNyQyJ7W3V2HIWJ4Gm3xkC63y0QCvRGWJPr99L8svhKERT6lbpUYhHO3pW
+ yjpThQQw9RjgjIzz+UFFANOVMKGg/EXQ8HlJQTTvHl2NxX+zBHzsU7aXOgN9FGvzLBGkPqWsM
+ TDkoPNK9VBT50L2jVp1jP/I2NfLDL7LqvCq19w+No7zTu3Dt432r19io9HhHGbf0DQghhkCx3
+ i6sjWTT7JLeq/JeVpN35MnTkEhi+g7Ixd4skAZ6MF1FMAledZ+z+2Eu+Pzigb7VrqWpIAJhfd
+ rCYz9Q02DQwJbyUQiyAwLYgx4OQadSid4MTalv/3dXMetGe5RJ4ZlGsxTZEHB69slkc7+a3zf
+ pVQLVd7azoVAvpjwRjJ3SMe3dXt6H/BKkf9x3fBhlV8/mqp2rbAke0VS60QakvsTc4oBrSKqV
+ WlgpxB6jaBtJh3c7lTvcXRJvFtZ4v7e2kD3pMl4TNcgbUNZ8WjjxdA+IgnCuk3srlTEy2s2It
+ 4CShazfrvqr31nEK42LBbD3wPQNZc57uFbtVwgJkJWMv6oahnH3qdZmXYrfpY2pZbbVSxfmsm
+ Fi2PivG53/lLQ9sxq8Vg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220629_012726_005294_F501B31F 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220629_013001_956570_60B74CFC 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +93,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: guoren@kernel.org
-> Sent: 28 June 2022 09:17
-> 
-> From: Guo Ren <guoren@linux.alibaba.com>
-> 
-> Remove unnecessary atomic_read in arch_spin_value_unlocked(lock),
-> because the value has been in lock. This patch could prevent
-> arch_spin_value_unlocked contend spin_lock data again.
+On Wed, Jun 29, 2022 at 10:24 AM Guo Ren <guoren@kernel.org> wrote:
+> On Wed, Jun 29, 2022 at 3:09 PM Arnd Bergmann <arnd@arndb.de> wrote:
+> > On Wed, Jun 29, 2022 at 3:34 AM Waiman Long <longman@redhat.com> wrote:
+> >
+> > From looking at the header file dependencies on arm64, I know that
+> > putting jump labels into core infrastructure like the arch_spin_lock()
+> > makes a big mess of indirect includes and measurably slows down
+> > the kernel build.
+> arm64 needn't combo spinlock, it could use pure qspinlock with keeping
+> current header files included.
 
-I'm confused (as usual).
-Isn't atomic_read() pretty much free?
+arm64 has a different problem: there are two separate sets of atomic
+instructions, and the decision between those is similarly done using
+jump labels. I definitely like the ability to choose between qspinlock
+and ticket spinlock on arm64 as well. This can be done as a
+compile-time choice, but both of them still depend on jump labels.
 
-..
-> diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
-> index fdfebcb050f4..f1e4fa100f5a 100644
-> --- a/include/asm-generic/spinlock.h
-> +++ b/include/asm-generic/spinlock.h
-> @@ -84,7 +84,9 @@ static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
-> 
->  static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
->  {
-> -	return !arch_spin_is_locked(&lock);
-> +	u32 val = lock.counter;
-> +
-> +	return ((val >> 16) == (val & 0xffff));
-
-That almost certainly needs a READ_ONCE().
-
-The result is also inherently stale.
-So the uses must be pretty limited.
-
-	David
-
->  }
-> 
->  #include <asm/qrwlock.h>
-> --
-> 2.36.1
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
-
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
