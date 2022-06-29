@@ -4,100 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BF77C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 01:30:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70975C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 01:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=k+gDEcNVxMU+m0DUYJrgKYG4yeSPo1IPGGcslyTpZiw=; b=1XmwCuolbaBCp1TwI88DQTzADB
-	pC6qoew+j0pAH+8I/OGMuazGhjh7qUsTmo1Yc6y2NyQqoGA2yDMPsj5+jEz2RT2gQdRqj/5cfT34k
-	R3bDIhuDNljJ6/tAMG1Np78d0RKoTjUrVnOCaotBRh4wdAMAObNe6RoJM2eDa78E2nqSDg9TsOIG0
-	TC8cH89XTqIAYPLg/F9uWrmqChiR/NpzgaiMNp134qRKinbv2GF4fO9ZqQX/Jw1A0026rmH0B5Iad
-	wgr8XLtbA1KxW2/AV2j1imj94lNovkvpycOHAcnrBKhBZv/8kUtWoYIxyiQKZRoJcRKFk5iDlbTv4
-	NVdPZi+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Zvrue3hcNG2OEIj8ZbRy/OnCerxamMKb4LySHU7Pz9M=; b=sSa3ZOYRhaGRyC
+	QYHO8DdKuZLJgx6fu3vKPrx3gLLPZyLs+u2nNUGkjDtCGhmPqdD+Y3WpEdpHIcR62gsbuSsd/elJl
+	mwDWJdrTN3kDqqNBr6cpavAWREyx465vXHXGwCtH41xR0uWPm1wsO8UKm0sDJ+/sdL/cHAWB8x5wJ
+	8b8hM3kyI5EKmQcjCG4b+Gvx8K/duUdtJlZaw4U9Pgfu3aeKIgt4knKCyydbKNjB/dsSo6fePTA0t
+	TcorqQBdvxTfEBq0w+DrjH2k+tXpRyqUeqaJAucuN7XuiPgB37ghuL7Fksv0mEyCrDEmAyhGjv4hu
+	XHGl3AbLYf3n4Hrgt6Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6MWn-008v4I-VH; Wed, 29 Jun 2022 01:30:01 +0000
-Received: from wout5-smtp.messagingengine.com ([64.147.123.21])
+	id 1o6Max-008vg0-Kc; Wed, 29 Jun 2022 01:34:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6MWl-008v24-Cf
-	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 01:30:00 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id B2926320029B;
-	Tue, 28 Jun 2022 21:29:49 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute5.internal (MEProxy); Tue, 28 Jun 2022 21:29:51 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm3; t=1656466189; x=
-	1656552589; bh=AXEjIB0EunPRYPNTHnXu/72xIuUpwUBfefYv+LYFhKA=; b=G
-	qmrtRLhA4dXBrq+GXjSdXYLVvdTsnxe6CLbANT1451bjElKSxLK11IXY0uRLIbwP
-	cfg2RKlM4yfrWt7dL3WhyFY9fZKKqMw8sr2ILiJnb8sAm3iZTUjaaP3V6Ioh+846
-	NzILxCnTTsjB/s5qdZKS0GpWpLsV1zZf2T/01lvw7p93BFfjKD90YyGoKvIaTx0P
-	1bBCAI3aOjKhsRI+dKWZHxeebyEAgqBW9nke8BqhNET0sSDNDDxfJJgmVBAtwLE4
-	eA2ciHiSXa5jCZPX4tSDpTbomuQj94vbCZ2CW/7u5Xzjps3TmR8AWJAgV7N6x5ZT
-	W2cKtbc3fn6y5T9wAO76w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1656466189; x=
-	1656552589; bh=AXEjIB0EunPRYPNTHnXu/72xIuUpwUBfefYv+LYFhKA=; b=f
-	mcCBtXyXfdmZo3feQVsHY4E/QvrGAvwhz4IAkrWTqkPJAB/FypyoujxIAuPLehhh
-	wzjfCRFjLKvoHYtku6Zz+a2CE+ts8czt4lk+AuRllNrTX9HNSlCynQHO0Hcsu8Xq
-	D5VoNxQeGYHSZEGtn+aoLqGB8f5tHV723vMpntBSUCs0nWwzkSr3fgWsqWTy3cAf
-	WZiOselO/ClHzYd7AcVrVf2Pyjzz4jZP46afmfTVpyb5o1vlYSV++LPa/9kDModL
-	UP1YMb2pzBtpJVpxpPGrrQE/Bh6iOOfoW80IWomdncYIahu3J9D1s/sqj8f8HkuV
-	hdT/3bA9g3JmR1ZfJZpqw==
-X-ME-Sender: <xms:DKu7YmFNpE1ktm_1qYXghOYTYU47Y8DAfiOmABj_e6VCtd0vF2CI5g>
-    <xme:DKu7YnU03GeAJGhYaElEuJR06jV4pxpuOZdd22fkLuds_bym7Js_gEbk_joHAPFOJ
-    MYATC1Jdz08iTB4_g>
-X-ME-Received: <xmr:DKu7YgLMH9lTGLIVg8FifbKnmKgakpCUI6Uv_UZm6kHWgOsrZBKGIuHu-n-8r9Fp8ll9IDO4Yu3CMuKuHSbyAPybfKwDPnMBsX0hdU-7ChScZUB-2HuMBDpjBw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudegkedggeeiucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhepuffvvehfhffkffgfgggjtgfgsehtjeertddtfeejnecuhfhrohhmpefurghm
-    uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
-    ggtffrrghtthgvrhhnpefftdevkedvgeekueeutefgteffieelvedukeeuhfehledvhfei
-    tdehudfhudehhfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
-    hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
-X-ME-Proxy: <xmx:DKu7YgEVjxZHp2j4ARZQOHI-r1HLCxH-nPLYor_FYVswAVFerghlOw>
-    <xmx:DKu7YsWb-p6XTrc22Fj4WsdXNk6Wd3Hs0_b2SOV2MStiJcZXJHM_ng>
-    <xmx:DKu7YjPtKcn0Qx6Uv0QHeK_G0zGZMkMXRbSugStTFGNzlDaQ9GEMzg>
-    <xmx:Dau7Yol6fhnxWH4uw6PG7GccnI1YZIHY-MT2x0EtO2kaluaenoiLLQ>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 28 Jun 2022 21:29:47 -0400 (EDT)
-Subject: Re: [PATCH 4/4] riscv: implement cache-management errata for T-Head
- SoCs
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com,
- philipp.tomsich@vrull.eu, hch@lst.de, atishp@atishpatra.org,
- anup@brainfault.org, mick@ics.forth.gr, robh+dt@kernel.org,
- krzk+dt@kernel.org, devicetree@vger.kernel.org, drew@beagleboard.org,
- rdunlap@infradead.org
-References: <20220619203212.3604485-1-heiko@sntech.de>
- <20220619203212.3604485-5-heiko@sntech.de>
-From: Samuel Holland <samuel@sholland.org>
-Message-ID: <3ea5c3a7-8b17-18d5-9f38-bc0dcd79497d@sholland.org>
-Date: Tue, 28 Jun 2022 20:29:46 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	id 1o6Mau-008vf7-Qd
+	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 01:34:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1656466455;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=U29THEbFBBSE3dHo0tAlIpiJYjQVJvLrJOdKIjN45pA=;
+	b=JcP+n9yx2YGm0LHCv1jzBoDnIkkpMkvTDRbJqYuUX+0o6pYQYbVVEEDhFzwQu/yCi/B6h8
+	8sAIsYy7TSFhFCN2oMnfOORlZ08Q/28Zopgf1l3P1Efbr9UTWA4dLPNdZGjZImX3ALdBP2
+	RPT0Xtao/DJVCODwjVP4C2/3loQkH3g=
+Received: from mimecast-mx02.redhat.com (mx3-rdu2.redhat.com
+ [66.187.233.73]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-615-Fyc77svCMj-0NAgLP-_QpQ-1; Tue, 28 Jun 2022 21:34:12 -0400
+X-MC-Unique: Fyc77svCMj-0NAgLP-_QpQ-1
+Received: from smtp.corp.redhat.com (int-mx01.intmail.prod.int.rdu2.redhat.com [10.11.54.1])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id A6CBA1C0513A;
+	Wed, 29 Jun 2022 01:34:11 +0000 (UTC)
+Received: from [10.22.34.187] (unknown [10.22.34.187])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id E343240CF8E4;
+	Wed, 29 Jun 2022 01:34:10 +0000 (UTC)
+Message-ID: <5166750c-3dc6-9b09-4a1e-cd53141cdde8@redhat.com>
+Date: Tue, 28 Jun 2022 21:34:10 -0400
 MIME-Version: 1.0
-In-Reply-To: <20220619203212.3604485-5-heiko@sntech.de>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [PATCH V7 4/5] asm-generic: spinlock: Add combo spinlock (ticket
+ & queued)
 Content-Language: en-US
+To: Guo Ren <guoren@kernel.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>,
+ Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+ Boqun Feng <boqun.feng@gmail.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>, Peter Zijlstra <peterz@infradead.org>
+References: <20220628081707.1997728-1-guoren@kernel.org>
+ <20220628081707.1997728-5-guoren@kernel.org>
+ <09abc75e-2ffb-1ab5-d0fc-1c15c943948d@redhat.com>
+ <CAJF2gTQZzOtOsq0DV48Gi76UtBSa+vdY7dLZmoPD_OFUZ0Wbrg@mail.gmail.com>
+From: Waiman Long <longman@redhat.com>
+In-Reply-To: <CAJF2gTQZzOtOsq0DV48Gi76UtBSa+vdY7dLZmoPD_OFUZ0Wbrg@mail.gmail.com>
+X-Scanned-By: MIMEDefang 2.84 on 10.11.54.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220628_182959_510279_89A7784F 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220628_183416_989521_6A59815A 
+X-CRM114-Status: GOOD (  23.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,23 +85,92 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/19/22 3:32 PM, Heiko Stuebner wrote:
-> The T-Head C906 and C910 implement a scheme for handling
-> cache operations different from the generic Zicbom extension.
-> 
-> Add an errata for it next to the generic dma coherency ops.
-> 
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+On 6/28/22 21:17, Guo Ren wrote:
+> On Wed, Jun 29, 2022 at 2:13 AM Waiman Long <longman@redhat.com> wrote:
+>> On 6/28/22 04:17, guoren@kernel.org wrote:
+>>> From: Guo Ren <guoren@linux.alibaba.com>
+>>>
+>>> Some architecture has a flexible requirement on the type of spinlock.
+>>> Some LL/SC architectures of ISA don't force micro-arch to give a strong
+>>> forward guarantee. Thus different kinds of memory model micro-arch would
+>>> come out in one ISA. The ticket lock is suitable for exclusive monitor
+>>> designed LL/SC micro-arch with limited cores and "!NUMA". The
+>>> queue-spinlock could deal with NUMA/large-scale scenarios with a strong
+>>> forward guarantee designed LL/SC micro-arch.
+>>>
+>>> So, make the spinlock a combo with feature.
+>>>
+>>> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+>>> Signed-off-by: Guo Ren <guoren@kernel.org>
+>>> Cc: Peter Zijlstra (Intel) <peterz@infradead.org>
+>>> Cc: Arnd Bergmann <arnd@arndb.de>
+>>> Cc: Palmer Dabbelt <palmer@rivosinc.com>
+>>> ---
+>>>    include/asm-generic/spinlock.h | 43 ++++++++++++++++++++++++++++++++--
+>>>    kernel/locking/qspinlock.c     |  2 ++
+>>>    2 files changed, 43 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
+>>> index f41dc7c2b900..a9b43089bf99 100644
+>>> --- a/include/asm-generic/spinlock.h
+>>> +++ b/include/asm-generic/spinlock.h
+>>> @@ -28,34 +28,73 @@
+>>>    #define __ASM_GENERIC_SPINLOCK_H
+>>>
+>>>    #include <asm-generic/ticket_spinlock.h>
+>>> +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+>>> +#include <linux/jump_label.h>
+>>> +#include <asm-generic/qspinlock.h>
+>>> +
+>>> +DECLARE_STATIC_KEY_TRUE(use_qspinlock_key);
+>>> +#endif
+>>> +
+>>> +#undef arch_spin_is_locked
+>>> +#undef arch_spin_is_contended
+>>> +#undef arch_spin_value_unlocked
+>>> +#undef arch_spin_lock
+>>> +#undef arch_spin_trylock
+>>> +#undef arch_spin_unlock
+>>>
+>>>    static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
+>>>    {
+>>> -     ticket_spin_lock(lock);
+>>> +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+>>> +     if (static_branch_likely(&use_qspinlock_key))
+>>> +             queued_spin_lock(lock);
+>>> +     else
+>>> +#endif
+>>> +             ticket_spin_lock(lock);
+>>>    }
+>> Why do you use a static key to control whether to use qspinlock or
+>> ticket lock? In the next patch, you have
+>>
+>> +#if !defined(CONFIG_NUMA) && defined(CONFIG_QUEUED_SPINLOCKS)
+>> +       static_branch_disable(&use_qspinlock_key);
+>> +#endif
+>>
+>> So the current config setting determines if qspinlock will be used, not
+>> some boot time parameter that user needs to specify. This patch will
+>> just add useless code to lock/unlock sites. I don't see any benefit of
+>> doing that.
+> This is a startup patch for riscv. next, we could let vendors make choices.
+> I'm not sure they like cmdline or vendor-specific errata style.
+>
+> Eventually, we would let one riscv Image support all machines, some
+> use ticket-lock, and some use qspinlock.
 
-Thanks for the update!
+OK. Maybe you can postpone this combo spinlock until there is a good use 
+case for it. Upstream usually don't accept patches that have no good use 
+case yet.
 
-Reviewed-by: Samuel Holland <samuel@sholland.org>
-Tested-by: Samuel Holland <samuel@sholland.org>
+Cheers,
+Longman
+
 
 _______________________________________________
 linux-riscv mailing list
