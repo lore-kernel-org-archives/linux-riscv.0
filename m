@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E53C43334
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 08:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DDB8C43334
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 12:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2XdV3oy2Td2G4OY5K7jLvJMcKHW9aPtJ0+Za7irGirQ=; b=2PyOvEG2YDOiRN
-	RjpF9KntKPYudn87dRMiw/RSTfPjvAnkpGFvIEHBwlTz9IQBLnsw462nEwrl8FAgaf87jCmYDESRJ
-	C6G2IfuDjywqKbUE/NO2hHnPPlt9EspOD7SGV4MB2bYxgzMfNmhXZQltqs17aIxP4xrAQ+WZftuoi
-	jEM6/5ukY/vWgK/o6wgxJN39NoVOweaA0n9BY+zSSbNyDERhoFQYYhyPhLKRTOd5CJkP1neF1fSdf
-	zIYgHVqI3RBzW+6NbTZNKgfkIYxFUjEIPP0zmy7Oi6afZpHlyp/DK+d5TnCO7CszsLqY3EeK1c2gU
-	VjffoFUo112tHnjqONcg==;
+	List-Owner; bh=0hiawj5yHvWyHZqxXr17q6Xvky5d4qierneK6KOKex4=; b=ByM52B3oZoqdpl
+	mp26Yw32ho9G6Xat5Kzq1wMOKgjLycDc/qFWAQ5O8rSJ9FPVo6VwsU1HgCo6y+xXHvYsR80VkIIex
+	Jyv1U5OKbu75JceKhnqjN5jlOIhqoLDD5kecFSlK/8YZHlAqoa4KpmS8kzZ/6HSOaFXDwTsZo7Fvn
+	Li9VKmTzUjn7jen5etUlh7C2RXcBi5dAjU1EMrMwEslyiD2Cxy3Kbt4XAJKvs2u2SABCXvj1yBMJX
+	/aAE1iNVu/XzokEg3xQnpEK9j4ON8nWELnqqiOCeahOSrI5jahqUyfc7XWPaxubcKojQP++B0e5wr
+	BuhdGD8eGMvGmd7d4a6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6T5I-00APPA-7z; Wed, 29 Jun 2022 08:30:04 +0000
-Received: from mout.kundenserver.de ([212.227.17.10])
+	id 1o6XF2-00BzzR-UY; Wed, 29 Jun 2022 12:56:25 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6T5F-00APMF-Ii
-	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 08:30:03 +0000
-Received: from mail-yb1-f172.google.com ([209.85.219.172]) by
- mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MLR5h-1oOxhg0ygd-00IQnr for <linux-riscv@lists.infradead.org>; Wed, 29
- Jun 2022 10:29:55 +0200
-Received: by mail-yb1-f172.google.com with SMTP id v38so15920288ybi.3
-        for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 01:29:55 -0700 (PDT)
-X-Gm-Message-State: AJIora/9+23LPx7gRy/iSQApBlAbKCdUe/LLfyXHIAFjV2ngm8GNJah9
-	g19U416YslBUa2njaDIe21yhGnY0UiE3mvse6UU=
-X-Google-Smtp-Source: AGRyM1s+0Vdgu6k29DCyj5luRoc2GU/O+zNZO7vZnJQkpulyhuYloGJMkGI6qdeLOKZPe+Xqib0p73hV9hsIc7OQwVE=
-X-Received: by 2002:a25:8b8b:0:b0:669:b37d:f9cd with SMTP id
- j11-20020a258b8b000000b00669b37df9cdmr2039004ybl.394.1656491393923; Wed, 29
- Jun 2022 01:29:53 -0700 (PDT)
+	id 1o6XC5-00ByKM-LG
+	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 12:53:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1656507195;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WawQclrD5oXLJMHnyF+hbLilMGfaF/QFoHaiLc0vsok=;
+	b=bXunn1c3gIkUTNCnovuBfN6N11g70BM3RLx4t5O2T4lKzIKD355CKvUW1Do9K6fYttCDwC
+	aZfNKlbCQYWRVSX0TxBjYuxseWMufDTXXbFAduhyG70IbXuifKnkrKjtGDYzutYilL8p+M
+	nnpKSrV3arJsjpJQGhUEGyV0MYdhAFM=
+Received: from mimecast-mx02.redhat.com (mimecast-mx02.redhat.com
+ [66.187.233.88]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ us-mta-357-xDH1LqjePcWGr5D--bAMXA-1; Wed, 29 Jun 2022 08:53:12 -0400
+X-MC-Unique: xDH1LqjePcWGr5D--bAMXA-1
+Received: from smtp.corp.redhat.com (int-mx09.intmail.prod.int.rdu2.redhat.com [10.11.54.9])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mimecast-mx02.redhat.com (Postfix) with ESMTPS id 072FC801233;
+	Wed, 29 Jun 2022 12:53:12 +0000 (UTC)
+Received: from [10.22.17.197] (unknown [10.22.17.197])
+	by smtp.corp.redhat.com (Postfix) with ESMTP id 87B5C492C3B;
+	Wed, 29 Jun 2022 12:53:11 +0000 (UTC)
+Message-ID: <1a6f3163-02af-0235-b212-b72c7db6865b@redhat.com>
+Date: Wed, 29 Jun 2022 08:53:11 -0400
 MIME-Version: 1.0
-References: <20220628081707.1997728-1-guoren@kernel.org> <20220628081707.1997728-5-guoren@kernel.org>
- <09abc75e-2ffb-1ab5-d0fc-1c15c943948d@redhat.com> <CAJF2gTQZzOtOsq0DV48Gi76UtBSa+vdY7dLZmoPD_OFUZ0Wbrg@mail.gmail.com>
- <5166750c-3dc6-9b09-4a1e-cd53141cdde8@redhat.com> <CAK8P3a2jQ+UQ54=QcpyVt91vXRyZrvUtOygFYOHWTBzse3q3rg@mail.gmail.com>
- <CAJF2gTTtKiMZJLWBEcRz-4CmNojH0cOgpUYGupLyCXXFjQD_FQ@mail.gmail.com>
-In-Reply-To: <CAJF2gTTtKiMZJLWBEcRz-4CmNojH0cOgpUYGupLyCXXFjQD_FQ@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Wed, 29 Jun 2022 10:29:37 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a3GiMgEJdBg5QQHHD0bDnpR0XwPkAw7=zT7ETzf6-sCmg@mail.gmail.com>
-Message-ID: <CAK8P3a3GiMgEJdBg5QQHHD0bDnpR0XwPkAw7=zT7ETzf6-sCmg@mail.gmail.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
 Subject: Re: [PATCH V7 4/5] asm-generic: spinlock: Add combo spinlock (ticket
  & queued)
-To: Guo Ren <guoren@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Waiman Long <longman@redhat.com>, 
-	Palmer Dabbelt <palmer@rivosinc.com>, Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, 
-	Boqun Feng <boqun.feng@gmail.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	linux-arch <linux-arch@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
-	Peter Zijlstra <peterz@infradead.org>
-X-Provags-ID: V03:K1:ZG1SCr21qpAH1kXJ4g8cQQM3qP3d+ktYcBYDfdcrH/9gmzB+wxX
- dYi6Kb6jFkOBvNRuKUf68mihnI+BJhlHCee4iLn5tWbeLqHtmk+9/ER5YFCHXlbyewPTgiH
- MIJKIpjswG62oqv5rO5VhhGc0vhm/z26psQwZ0EeD9fR4UDzPQyN5L5hvijX40cQmT+de+t
- HidI5GHhDfNLPANQwrWTg==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:7XsZ/0PchR0=:l03OJ8rwvTdTsO6IguOXfO
- +vAzr4P179JyUJwSDas+3bebO80dJGXOF8BfS6W8lDGLsAUNVjoIsTRPOFoIRwdYj6ad6pt12
- 5DvYM52bUX+WOgaeMRZSoMQn/24XFhX1hKyVMwc5bZWI/6yLneptkD6YBB5TrDZQACw1L40m0
- 0rzsNetmMR/PhKvZLLHFS5ngkAAONRI7qcZdbctl2YEEL4cMy/ELIZSm68g8gqz320qmxf+FU
- k3WagLLHpar17OP6DASThdaJ+/GvaCoDYbciIVsmZFK85QbT1X5I6QE+zUIT8PuL6HrgnzYCU
- 5vzXC/mdG/tjBsqGNyQyJ7W3V2HIWJ4Gm3xkC63y0QCvRGWJPr99L8svhKERT6lbpUYhHO3pW
- yjpThQQw9RjgjIzz+UFFANOVMKGg/EXQ8HlJQTTvHl2NxX+zBHzsU7aXOgN9FGvzLBGkPqWsM
- TDkoPNK9VBT50L2jVp1jP/I2NfLDL7LqvCq19w+No7zTu3Dt432r19io9HhHGbf0DQghhkCx3
- i6sjWTT7JLeq/JeVpN35MnTkEhi+g7Ixd4skAZ6MF1FMAledZ+z+2Eu+Pzigb7VrqWpIAJhfd
- rCYz9Q02DQwJbyUQiyAwLYgx4OQadSid4MTalv/3dXMetGe5RJ4ZlGsxTZEHB69slkc7+a3zf
- pVQLVd7azoVAvpjwRjJ3SMe3dXt6H/BKkf9x3fBhlV8/mqp2rbAke0VS60QakvsTc4oBrSKqV
- WlgpxB6jaBtJh3c7lTvcXRJvFtZ4v7e2kD3pMl4TNcgbUNZ8WjjxdA+IgnCuk3srlTEy2s2It
- 4CShazfrvqr31nEK42LBbD3wPQNZc57uFbtVwgJkJWMv6oahnH3qdZmXYrfpY2pZbbVSxfmsm
- Fi2PivG53/lLQ9sxq8Vg==
+Content-Language: en-US
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>,
+ Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>,
+ Boqun Feng <boqun.feng@gmail.com>,
+ linux-riscv <linux-riscv@lists.infradead.org>,
+ linux-arch <linux-arch@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Guo Ren <guoren@linux.alibaba.com>, Peter Zijlstra <peterz@infradead.org>
+References: <20220628081707.1997728-1-guoren@kernel.org>
+ <20220628081707.1997728-5-guoren@kernel.org>
+ <09abc75e-2ffb-1ab5-d0fc-1c15c943948d@redhat.com>
+ <CAJF2gTQZzOtOsq0DV48Gi76UtBSa+vdY7dLZmoPD_OFUZ0Wbrg@mail.gmail.com>
+ <5166750c-3dc6-9b09-4a1e-cd53141cdde8@redhat.com>
+ <CAK8P3a2jQ+UQ54=QcpyVt91vXRyZrvUtOygFYOHWTBzse3q3rg@mail.gmail.com>
+From: Waiman Long <longman@redhat.com>
+In-Reply-To: <CAK8P3a2jQ+UQ54=QcpyVt91vXRyZrvUtOygFYOHWTBzse3q3rg@mail.gmail.com>
+X-Scanned-By: MIMEDefang 2.85 on 10.11.54.9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220629_013001_956570_60B74CFC 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20220629_055321_888834_E4F0DD7A 
+X-CRM114-Status: GOOD (  31.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,29 +87,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 29, 2022 at 10:24 AM Guo Ren <guoren@kernel.org> wrote:
-> On Wed, Jun 29, 2022 at 3:09 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> > On Wed, Jun 29, 2022 at 3:34 AM Waiman Long <longman@redhat.com> wrote:
-> >
-> > From looking at the header file dependencies on arm64, I know that
-> > putting jump labels into core infrastructure like the arch_spin_lock()
-> > makes a big mess of indirect includes and measurably slows down
-> > the kernel build.
-> arm64 needn't combo spinlock, it could use pure qspinlock with keeping
-> current header files included.
+On 6/29/22 03:08, Arnd Bergmann wrote:
+> On Wed, Jun 29, 2022 at 3:34 AM Waiman Long <longman@redhat.com> wrote:
+>> On 6/28/22 21:17, Guo Ren wrote:
+>>> On Wed, Jun 29, 2022 at 2:13 AM Waiman Long <longman@redhat.com> wrote:
+>>>> On 6/28/22 04:17, guoren@kernel.org wrote:
+>>>>
+>>>> So the current config setting determines if qspinlock will be used, not
+>>>> some boot time parameter that user needs to specify. This patch will
+>>>> just add useless code to lock/unlock sites. I don't see any benefit of
+>>>> doing that.
+>>> This is a startup patch for riscv. next, we could let vendors make choices.
+>>> I'm not sure they like cmdline or vendor-specific errata style.
+>>>
+>>> Eventually, we would let one riscv Image support all machines, some
+>>> use ticket-lock, and some use qspinlock.
+>> OK. Maybe you can postpone this combo spinlock until there is a good use
+>> case for it. Upstream usually don't accept patches that have no good use
+>> case yet.
+> I think the usecase on risc-v is this: there are cases where the qspinlock
+> is preferred for performance reasons, but there are also CPU cores on
+> which it is not safe to use. risc-v like most modern architectures has a
+> strict rule about being able to build kernels that work on all machines,
+> so without something like this, it would not be able to use qspinlock at all.
 
-arm64 has a different problem: there are two separate sets of atomic
-instructions, and the decision between those is similarly done using
-jump labels. I definitely like the ability to choose between qspinlock
-and ticket spinlock on arm64 as well. This can be done as a
-compile-time choice, but both of them still depend on jump labels.
+My objection for the current patch is really on the fact that everything 
+is determined at compiled time. So there is no point to use static key 
+if it cannot be changed at the boot time. Adding a boot time switch do 
+make the use of static key more reasonable.
 
-        Arnd
+
+>
+> On the other hand, I don't really like the idea of putting the static-key
+> wrapper into the asm-generic header. Especially the ticket spinlock
+> implementation should be simple and not depend on jump labels.
+>
+>  From looking at the header file dependencies on arm64, I know that
+> putting jump labels into core infrastructure like the arch_spin_lock()
+> makes a big mess of indirect includes and measurably slows down
+> the kernel build.
+>
+> I think this can still be done in the riscv asm/spinlock.h header with
+> minimal impact on the asm-generic file if the riscv maintainers see
+> a significant enough advantage, but I don't want it in the common code.
+
+I have a similar feeling. In addition, I don't like the idea of adding a 
+static key to qspinlock.c that have nothing to do with the qspinlock 
+logic. I would like to see it put elsewhere.
+
+Cheers,
+Longman
+
 
 _______________________________________________
 linux-riscv mailing list
