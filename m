@@ -4,72 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB8FC43334
-	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 02:32:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 434F8C43334
+	for <linux-riscv@archiver.kernel.org>; Wed, 29 Jun 2022 07:09:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=67yP3AozoNSN0EqOfy0KFHQVYIOhHHvysr1HMIBjjVU=; b=nuTm7lW0Q2Yrbt
-	KMpEEG/ZiXzXx/5ZzP9OlChtsM5gXE3OZ3z96TKxMBJPrA6NYzPiYrFsUE8YTU/ZGRETO810835k+
-	f9i+rTkDQCI17meXIkge/DCbF65RU+HkM0L3o3YEAQoKXj0D03suWUxqdSBkNEskgqP543tL7Y4FU
-	SQNWM4ddHp3yVJy1CYJPv4FQF2huOj9vGbEyalcPXUWmCRBT6pWeAAwNRuv5XIqmdO6BMmxnN+8Gk
-	nR6SjUuJMLqvjrYGZ1E1Jh3xT/wDHyhlMVvw5wC06YcNxEATvlWfIeCoyM8CrBeLFkXnRwB7KLRO/
-	5KtOnSRGUkDKrfhqaYBg==;
+	List-Owner; bh=6bfIrc99Sw+Wo+EuFeV3s5JFkTWIMUPgpejUiBVAJ8U=; b=dIW9OG25PX+52Q
+	lZ7Zf14Q2clFKt1ejXZFU+dcCqwCic7MhNwViC5XuFliw3UmjqbXQJILlURxwZHtAhMCushYzo2ZO
+	XtELSLwg51MPO9aoYln82Gnds1N+DQ9Wqad3ZQrBJWFMFNenng8DEMw8Qq1TXYMZNWvpZQXngljb9
+	NEWWMf6AnlZscuHDwgAMCxksoA8s/txA5RZ8aLlekQp/ugGuvrfeLIFmoiuOXmqrytmne3+Pe5jVo
+	PYCDP5umK1K3yShJZKoqu4e8J9eZOhIcCbo16hsRBTblAwwXRlut1/1NrUCnlShMAPDhOSv7Yflyc
+	NSm0Ka6m3vNI9xIptnTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6NT1-0096JD-P3; Wed, 29 Jun 2022 02:30:11 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1o6RpA-00A0YK-D7; Wed, 29 Jun 2022 07:09:20 +0000
+Received: from mout.kundenserver.de ([212.227.126.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6NSx-0096Hn-Ko
-	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 02:30:09 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id E4BD1B8215D
-	for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 02:30:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910A1C341CB
-	for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 02:30:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1656469802;
-	bh=yEaL8NGKkho+UZVTGWe8SLlug9pUXxj7ijAlf3AJkh4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hCGQVbMaUdjrMM4ER6tAsLFM5yXA7+721PupkbWvozMd5J5hhyecAa1rp888ZVWwA
-	 hfIs3v/cyIWd7RYmiSIWHKAAxEP3q1WAMlQrA4aRD2ysPIjvscc2ReQ14Lqudjohv3
-	 V8DxmDTpnccjEK5hIf1+nH93yzz8CK0tdF+WKKiqCbtftKUkhEfFEEpqDRu5lzzRPB
-	 89bGJcsdpZRUe9gEHVD2VlCMvtlnNvJBcCWn70T6JldJYCUE8KkhINrrfjVbg8U1nM
-	 db1bcS92xkHQsxl9N7+uDI+lTlLlPb/RUxEUQ2wadf6ulg7f3ygXOwcSio6KaiFr70
-	 /XjWrwm//8/aw==
-Received: by mail-vs1-f51.google.com with SMTP id o190so13850882vsc.5
-        for <linux-riscv@lists.infradead.org>; Tue, 28 Jun 2022 19:30:02 -0700 (PDT)
-X-Gm-Message-State: AJIora+nNJ5oH/eQ0d7hKbZzQgb5lqmu3f9gU6G4QQZRNcFlQZowp5ya
-	6fZ7H6tu5QjUsLCKuJo9mhaRRZoHilIEEnFS+q0=
-X-Google-Smtp-Source: AGRyM1tK4JbZw8tkKtdzn/wlbaoTM5+glSDTRp/onWIuYl8MNGjlyV9YQOG4HsuC2eRkoKhGb6Tm1ozh7DPFobEY/1c=
-X-Received: by 2002:a05:6102:3e91:b0:354:46ed:d1c3 with SMTP id
- m17-20020a0561023e9100b0035446edd1c3mr3274555vsv.51.1656469801524; Tue, 28
- Jun 2022 19:30:01 -0700 (PDT)
+	id 1o6Rp7-00A0Wb-II
+	for linux-riscv@lists.infradead.org; Wed, 29 Jun 2022 07:09:19 +0000
+Received: from mail-yb1-f172.google.com ([209.85.219.172]) by
+ mrelayeu.kundenserver.de (mreue012 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1M7ehh-1o0eWd1tsr-007zgB for <linux-riscv@lists.infradead.org>; Wed, 29 Jun
+ 2022 09:09:14 +0200
+Received: by mail-yb1-f172.google.com with SMTP id h187so24108163ybg.0
+        for <linux-riscv@lists.infradead.org>; Wed, 29 Jun 2022 00:09:14 -0700 (PDT)
+X-Gm-Message-State: AJIora+UVc4sYbcA/3mzaRWhzkIbdfp7UhI/S6fTqbj4wM6poEKsl/5G
+	AV+JY4cIjiJ6lsESfwz2brY51tmKRoIPsTFySgc=
+X-Google-Smtp-Source: AGRyM1vwFx+KUXwvbgg/ASvRBxEdL/JjOQ3Jx1tv8VOFIFQwJBGUiZKdd3oyAVRe8CZHrAKOLM6aLE6JRIBVMMOSe+E=
+X-Received: by 2002:a25:760e:0:b0:66c:95eb:6c69 with SMTP id
+ r14-20020a25760e000000b0066c95eb6c69mr1899906ybc.106.1656486552981; Wed, 29
+ Jun 2022 00:09:12 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220628081707.1997728-1-guoren@kernel.org> <20220628081707.1997728-5-guoren@kernel.org>
  <09abc75e-2ffb-1ab5-d0fc-1c15c943948d@redhat.com> <CAJF2gTQZzOtOsq0DV48Gi76UtBSa+vdY7dLZmoPD_OFUZ0Wbrg@mail.gmail.com>
  <5166750c-3dc6-9b09-4a1e-cd53141cdde8@redhat.com>
 In-Reply-To: <5166750c-3dc6-9b09-4a1e-cd53141cdde8@redhat.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 29 Jun 2022 10:29:50 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRv6e0z_tYMcFQQUGb=5sfx-GHoQmtz-Rtm1kQXHTgw-g@mail.gmail.com>
-Message-ID: <CAJF2gTRv6e0z_tYMcFQQUGb=5sfx-GHoQmtz-Rtm1kQXHTgw-g@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Wed, 29 Jun 2022 09:08:56 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a2jQ+UQ54=QcpyVt91vXRyZrvUtOygFYOHWTBzse3q3rg@mail.gmail.com>
+Message-ID: <CAK8P3a2jQ+UQ54=QcpyVt91vXRyZrvUtOygFYOHWTBzse3q3rg@mail.gmail.com>
 Subject: Re: [PATCH V7 4/5] asm-generic: spinlock: Add combo spinlock (ticket
  & queued)
 To: Waiman Long <longman@redhat.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>, Ingo Molnar <mingo@redhat.com>, 
-	Will Deacon <will@kernel.org>, Boqun Feng <boqun.feng@gmail.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-arch <linux-arch@vger.kernel.org>, 
+Cc: Guo Ren <guoren@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Arnd Bergmann <arnd@arndb.de>, Ingo Molnar <mingo@redhat.com>, Will Deacon <will@kernel.org>, 
+	Boqun Feng <boqun.feng@gmail.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	linux-arch <linux-arch@vger.kernel.org>, 
 	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
 	Peter Zijlstra <peterz@infradead.org>
+X-Provags-ID: V03:K1:XcGLxP+vmVJf1pTrSAPac0CftK9myZZH5J1Yeq4F5sjTLqeXx3Q
+ bJCXJrj0q8UveLHc1QET3ahktg7NbrNXfKpxDcpfDXlHC/gyM6YZtAmmsiV1MxAC/vLC4mG
+ 4jtkGHwpGkVox/jjhwmt//gOljfFkQbPd8kyR9ZDEGU7qvUjhgEuOxoWvc52o/t7Liszqv8
+ 1mV1h80v+O8TOUJ0GBDdA==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:/o5FUeB8HCc=:pXHy9thZaOtIE//jD4WsKe
+ 7pCZDpjRNG1obSO98zqhLUhOrki9Fk8KnQj6bEeSAdqXJxl9VAKOlibcWpi2sJ3kgp6/OHX8D
+ KHN9030PE8XBK1D1U/gceuuKZ64ZnwfXZECmntELnkkOt91yD7/0/C9UH+MBGZ3FlxqRzZxQU
+ SsLVfinDP04gtMNPv+4rdxjWUUX9mgAgF+pGJjd+TWlrug8fALCkHQdELP3yBNNEbgJDCWtqP
+ 4FzhOC26+NMSv7+70Y7sZL1hpxaqvASc962zNaQY4djVorhy9U3NIpTKTt/uTGXlENj+y7CMU
+ TKG2+52Zl+/CfcgPXLskHtQmZ8fxX5CS6Rv6jwJKoOupMvPJUQ9a+SF7tEgrfGCKq+vYjbWdx
+ lnFMFbe8aCr0lEARRbBxPPyX/yFbe/FqLQpfiUkLdIrUUpx/LoItF3Ft+w359KbFYLU0X4WNU
+ 8s0oJIWcmdEDjytAxSZYH4tsAj1RbUKrs0T1vkfoesY4XX9veQVv+OCYnpA3vBan9u9g49f5r
+ 3szqm/S42we/m1BEV72xhzGgozVAAQ39a+GT1fSawpXoaCcqBIS4x5lmHQfGJdLmd1slrTU9L
+ MauQDmAf2+qkppHjmrpRRS20aQcvsvT5n6iFYP6zxL7aYeeH+YhrUEEqoVToLDmIrBaRIc7Mc
+ BNYry4bpm/u7MClLDX2AabclC8rz4Dmm1ti2oTGBH1tqdP7C6MhppPbWBOe0yI5QYxEPZGyPQ
+ e9GHbxd1T93F9q+wnBobbSM8KBF0nSjalAm1KPif0K/gNlcFrWhvIi4H1myiNpHOtgfumMktE
+ TZaPFYhrAeD4/2DaCu+28pbR85P8+VQY2klihwmaxulM6Ofo7wYVEjh+TFg/jF4IxmxUWp6GH
+ +14SgpWAC4THCBo4oyUw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220628_193008_004006_F01C579D 
-X-CRM114-Status: GOOD (  33.61  )
+X-CRM114-CacheID: sfid-20220629_000917_947674_ED0E6344 
+X-CRM114-Status: GOOD (  27.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +92,10 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 29, 2022 at 9:34 AM Waiman Long <longman@redhat.com> wrote:
->
+On Wed, Jun 29, 2022 at 3:34 AM Waiman Long <longman@redhat.com> wrote:
 > On 6/28/22 21:17, Guo Ren wrote:
 > > On Wed, Jun 29, 2022 at 2:13 AM Waiman Long <longman@redhat.com> wrote:
 > >> On 6/28/22 04:17, guoren@kernel.org wrote:
-> >>> From: Guo Ren <guoren@linux.alibaba.com>
-> >>>
-> >>> Some architecture has a flexible requirement on the type of spinlock.
-> >>> Some LL/SC architectures of ISA don't force micro-arch to give a strong
-> >>> forward guarantee. Thus different kinds of memory model micro-arch would
-> >>> come out in one ISA. The ticket lock is suitable for exclusive monitor
-> >>> designed LL/SC micro-arch with limited cores and "!NUMA". The
-> >>> queue-spinlock could deal with NUMA/large-scale scenarios with a strong
-> >>> forward guarantee designed LL/SC micro-arch.
-> >>>
-> >>> So, make the spinlock a combo with feature.
-> >>>
-> >>> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> >>> Signed-off-by: Guo Ren <guoren@kernel.org>
-> >>> Cc: Peter Zijlstra (Intel) <peterz@infradead.org>
-> >>> Cc: Arnd Bergmann <arnd@arndb.de>
-> >>> Cc: Palmer Dabbelt <palmer@rivosinc.com>
-> >>> ---
-> >>>    include/asm-generic/spinlock.h | 43 ++++++++++++++++++++++++++++++++--
-> >>>    kernel/locking/qspinlock.c     |  2 ++
-> >>>    2 files changed, 43 insertions(+), 2 deletions(-)
-> >>>
-> >>> diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
-> >>> index f41dc7c2b900..a9b43089bf99 100644
-> >>> --- a/include/asm-generic/spinlock.h
-> >>> +++ b/include/asm-generic/spinlock.h
-> >>> @@ -28,34 +28,73 @@
-> >>>    #define __ASM_GENERIC_SPINLOCK_H
-> >>>
-> >>>    #include <asm-generic/ticket_spinlock.h>
-> >>> +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
-> >>> +#include <linux/jump_label.h>
-> >>> +#include <asm-generic/qspinlock.h>
-> >>> +
-> >>> +DECLARE_STATIC_KEY_TRUE(use_qspinlock_key);
-> >>> +#endif
-> >>> +
-> >>> +#undef arch_spin_is_locked
-> >>> +#undef arch_spin_is_contended
-> >>> +#undef arch_spin_value_unlocked
-> >>> +#undef arch_spin_lock
-> >>> +#undef arch_spin_trylock
-> >>> +#undef arch_spin_unlock
-> >>>
-> >>>    static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
-> >>>    {
-> >>> -     ticket_spin_lock(lock);
-> >>> +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
-> >>> +     if (static_branch_likely(&use_qspinlock_key))
-> >>> +             queued_spin_lock(lock);
-> >>> +     else
-> >>> +#endif
-> >>> +             ticket_spin_lock(lock);
-> >>>    }
-> >> Why do you use a static key to control whether to use qspinlock or
-> >> ticket lock? In the next patch, you have
-> >>
-> >> +#if !defined(CONFIG_NUMA) && defined(CONFIG_QUEUED_SPINLOCKS)
-> >> +       static_branch_disable(&use_qspinlock_key);
-> >> +#endif
 > >>
 > >> So the current config setting determines if qspinlock will be used, not
 > >> some boot time parameter that user needs to specify. This patch will
@@ -165,61 +110,27 @@ On Wed, Jun 29, 2022 at 9:34 AM Waiman Long <longman@redhat.com> wrote:
 > OK. Maybe you can postpone this combo spinlock until there is a good use
 > case for it. Upstream usually don't accept patches that have no good use
 > case yet.
->
-> Cheers,
-> Longman
->
 
-I would add a cmdline to control the choice of qspinlock/ticket-lock
-in the next version.
+I think the usecase on risc-v is this: there are cases where the qspinlock
+is preferred for performance reasons, but there are also CPU cores on
+which it is not safe to use. risc-v like most modern architectures has a
+strict rule about being able to build kernels that work on all machines,
+so without something like this, it would not be able to use qspinlock at all.
 
-diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-index b9b234157a66..5ade490c2f27 100644
---- a/arch/riscv/kernel/setup.c
-+++ b/arch/riscv/kernel/setup.c
-@@ -270,6 +270,10 @@ void __init setup_arch(char **cmdline_p)
+On the other hand, I don't really like the idea of putting the static-key
+wrapper into the asm-generic header. Especially the ticket spinlock
+implementation should be simple and not depend on jump labels.
 
-        early_ioremap_setup();
-        jump_label_init();
-+
-+#if !defined(CONFIG_NUMA) && defined(CONFIG_QUEUED_SPINLOCKS)
-+       static_branch_disable(&use_qspinlock_key);
-+#endif
-        parse_early_param();
+From looking at the header file dependencies on arm64, I know that
+putting jump labels into core infrastructure like the arch_spin_lock()
+makes a big mess of indirect includes and measurably slows down
+the kernel build.
 
-        efi_init();
-@@ -295,10 +299,6 @@ void __init setup_arch(char **cmdline_p)
-        setup_smp();
- #endif
+I think this can still be done in the riscv asm/spinlock.h header with
+minimal impact on the asm-generic file if the riscv maintainers see
+a significant enough advantage, but I don't want it in the common code.
 
--#if !defined(CONFIG_NUMA) && defined(CONFIG_QUEUED_SPINLOCKS)
--       static_branch_disable(&use_qspinlock_key);
--#endif
--
-        riscv_fill_hwcap();
-        apply_boot_alternatives();
- }
-@@ -330,3 +330,13 @@ void free_initmem(void)
-
-        free_initmem_default(POISON_FREE_INITMEM);
- }
-+
-+#ifdef CONFIG_QUEUED_SPINLOCKS
-+static int __init disable_qspinlock(char *p)
-+{
-+       static_branch_disable(&use_qspinlock_key);
-+       return 0;
-+}
-+
-+early_param("disable_qspinlock", disable_qspinlock);
-+#endif
-
-
--- 
-Best Regards
- Guo Ren
-
-ML: https://lore.kernel.org/linux-csky/
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
