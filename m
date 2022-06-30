@@ -4,72 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1976DC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 14:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0088C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 15:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0DIt33wKRGLfmLs2I97vIXqsXLCy7sQmIDkw+T+uZr4=; b=hIkxfk0wKvDkr5
-	GMgVQWD8+CkEp1ykjYHY3tDMYfhGahv7V0WHgs5fWij8Z1L5ZF3eQriL/14OzhkzAIL9PzfK1NsSX
-	vzNlh8MpqJGGKeY2T6BgzKlAQ+JFo5IYu11kQac6QXC6kNor2kGSBAchk6TUwD2KSiPxgnl7gOqJS
-	QEIkGFIWBbJBByvmVeWIpq8DugRsB1ca8hXvWZIDazl9t2T87+ZNx1x68ZZsw/djpj1BcW2sDx3Pp
-	1GLQj0YQQ3KxwDYMLIYwadW6isbHHR7bl/bDarwNJZY5dmL2lhBossi7Zk/DPIwGJvhJhRBpqeSbw
-	F2uZPs+BrPtuE7akyIKA==;
+	List-Owner; bh=N3a4M0dRhOklRpBhoQwl1kmfbYKK/xDihN9/9RmyqPY=; b=e4eH3pjaXA495z
+	md8dtmslW2AM7GEQVx4Q9EN5IprO8DcabvcfJIUgAt57LQzUdixo9l3xhtEbE0XHQkLfs7/VEO/Oa
+	4nTR0/1EHtcXs+jTLaFlo9klpER63V8L6fmDsJy+rmzruEm49cDNX6YouIzAIRT5Wfs7n90J99cj8
+	9UT+sel54Aicgkn9mfO49Xm0PyzWxO+RhT+qCwhdInmGkUge8U1AB9kCRPE3JNYTmCymqaw483A4x
+	9dzuAW8wiaeWmK0o6c9epwl2GsKitrvWAIPdTleX79NTLmkrlttOFHSEIUJMwyRaBII6XvWk7fP+c
+	odrTH6w2ZV7S8juTt7yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6vcT-000CpZ-B4; Thu, 30 Jun 2022 14:58:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6vcR-000CoZ-BX
-	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 14:58:12 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 66D0162345
-	for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 14:58:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE4E5C341D5
-	for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 14:58:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1656601088;
-	bh=UKnKVLsmwgsb6zWei4tbU3rznGJ4jcY7mTRLx0EKTYw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IJr8aXX+dS7I/19l275qbg2v1v2/pgmNqwdTAu9WXRr3I0HfNoHdNH/TrJeo8vs5q
-	 YW4cqeu/t+8YUo/Pvksha/Z7OF71ogTt+nmFfpFmsUFmSpGAOMwjJBtWiwuzZdbFOu
-	 IJqbxOk/x6kmqruhs58YfntZp/jIaUkcIkOjOjHsbb7bGsXUUWb1SjLW7GgXUfD+4t
-	 ILW5O0+3qqtNEd/PTyFCIvXCE00tGnd3yMFTxbNJ9R/f7ZDgMDm4HYQBcbZZRQ/eKE
-	 1Uh/AZb2046PqAlmPAsk4bbF+a0jelkNUz25fNTuHF2xxbgRXd0bVo86bB4sBV9bsI
-	 S3TVhbfSTMlbg==
-Received: by mail-vs1-f42.google.com with SMTP id j6so18561594vsi.0
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 07:58:08 -0700 (PDT)
-X-Gm-Message-State: AJIora9cqtCbzsYI+119/vwlglrGTRcB1Diou/ku6BwiFEYSH9Xk4Hf8
-	gPFkSdhkJrigtDgwUtgp68HYKa7BPwBmrmx6rQ==
-X-Google-Smtp-Source: AGRyM1vNW2S6jnhHGtcMai38gl4vIeEdPFLFP61mSQwHnmBOcUGSMJCIWPBh/erjMpjEg4+79PX0q0Lho1NHKMjWI4U=
-X-Received: by 2002:a67:1787:0:b0:354:6490:437f with SMTP id
- 129-20020a671787000000b003546490437fmr8749302vsx.26.1656601087622; Thu, 30
- Jun 2022 07:58:07 -0700 (PDT)
+	id 1o6wJk-000NN3-AA; Thu, 30 Jun 2022 15:42:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o6wJb-000NKN-TA
+	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 15:42:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B5781063;
+	Thu, 30 Jun 2022 08:42:46 -0700 (PDT)
+Received: from bogus (unknown [10.57.39.193])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A2683F66F;
+	Thu, 30 Jun 2022 08:42:43 -0700 (PDT)
+Date: Thu, 30 Jun 2022 16:41:32 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Daire McNamara <daire.mcnamara@microchip.com>,
+	Ivan Griffin <ivan.griffin@microchip.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Atish Patra <atishp@atishpatra.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: dts: microchip: hook up the mpfs' l2cache
+Message-ID: <20220630154132.i54to4l4divkbr2d@bogus>
+References: <20220629200732.4039258-1-conor@kernel.org>
 MIME-Version: 1.0
-References: <20220629215944.397952-1-heiko@sntech.de> <20220629215944.397952-2-heiko@sntech.de>
-In-Reply-To: <20220629215944.397952-2-heiko@sntech.de>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Thu, 30 Jun 2022 08:57:55 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqJEPL1Jc8k5W4P8hgGzOXxgfqNKNqYuc0nLkCnV274TxA@mail.gmail.com>
-Message-ID: <CAL_JsqJEPL1Jc8k5W4P8hgGzOXxgfqNKNqYuc0nLkCnV274TxA@mail.gmail.com>
-Subject: Re: [PATCH v5 1/4] of: also handle dma-noncoherent in of_dma_is_coherent()
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, wefu@redhat.com, Guo Ren <guoren@kernel.org>, 
-	cmuellner@linux.com, Philipp Tomsich <philipp.tomsich@vrull.eu>, 
-	Christoph Hellwig <hch@lst.de>, Samuel Holland <samuel@sholland.org>, Atish Patra <atishp@atishpatra.org>, 
-	Anup Patel <anup@brainfault.org>, Nick Kossifidis <mick@ics.forth.gr>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
-	Drew Fustini <drew@beagleboard.org>, Randy Dunlap <rdunlap@infradead.org>
+Content-Disposition: inline
+In-Reply-To: <20220629200732.4039258-1-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220630_075811_441437_6AC72D94 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20220630_084248_079568_C0D481F8 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,28 +72,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 29, 2022 at 4:00 PM Heiko Stuebner <heiko@sntech.de> wrote:
+On Wed, Jun 29, 2022 at 09:07:33PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> The initial PolarFire SoC devicetree must have been forked off from
+> the fu540 one prior to the addition of l2cache controller support being
+> added there. When the controller node was added to mpfs.dtsi, it was
+> not hooked up to the CPUs & thus sysfs reports an incorrect cache
+> configuration. Hook it up.
 >
-> of_dma_is_coherent() currently expects the architecture to be
-> non-coherent and some devices being coherent getting marked
-> as such with the dma-coherent devicetree property.
->
-> For PowerPC CONFIG_OF_DMA_DEFAULT_COHERENT was added which currently
-> makes of_dma_is_coherent() always return true but doesn't handle
-> the case of the architecture being coherent but some devices not.
->
-> So modify the function to also check for dma-noncoherent and
-> set a suitable default return value. If CONFIG_OF_DMA_DEFAULT_COHERENT
-> is set the value starts with true and finding dma-noncoherent will
-> set it to false and without CONFIG_OF_DMA_DEFAULT_COHERENT, the
-> behaviour is reversed.
->
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> ---
->  drivers/of/address.c | 17 ++++++++++-------
->  1 file changed, 10 insertions(+), 7 deletions(-)
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+
+-- 
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
