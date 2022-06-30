@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E92C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 22:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71115C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 23:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OLtKMcbbiGzmQNwWFhqMZuC3ThZtEPWyVSI78WgcpPc=; b=ni1FhW96LZWa7x
-	S56aaErgPqQBQYa5URZnRya8JlqwC+vM2832WuTeua0anxrGlpsLpJw7n+HKmNNiVg5oY5o/e03ZI
-	w+9qE0gcs9osD5Bjy5P9caWEJ3zQIlqFVF5x6EdrWKkFYrvYVcgb9Osu0MvD+GDw17FKGV0aBMHy4
-	6E3hzpwpwrD/tk1bcEvtCTml4KZzSbudjLde0RDnOyjIBUJHKSsOb6+e2Mht0Fi15CZpeKNvx5kOE
-	9M3n2UIcohN6oODeg2oZPDnzAlCefyC0g6+bc6XQA+DxZBudEu/LGc6QLLRcEoQ6q4P/aqfE51P9K
-	urnrIRp9NsAUMMRQ1ZhQ==;
+	List-Owner; bh=/FIZC8NOeglKMZG7h3dwfotD8P3ey/I7CItVTUYB5Jw=; b=fFmY0Py5kIPjxI
+	GMRyFn0nr0x+dzCcOCOyIgsYwfrUgjKQ8o5kkfgsGy4jFl9qZwIbAOWv915G4s2+gblXbKXVK/PWA
+	KGzAH6VJF8VUF5GH0B3byqEx2GTheTowcbbTMNeK76Mr87I8EinJwRDk636vTqGv0e3KTYSEM07Df
+	b1UF4gPs1d3g8GnTXGN75shcw5kBoojRY4KmP0oI+wX23nxk8zpaYvmbikuxOIzDh+RtrkfBGQVcp
+	nZsi6ImkyJOozNTmXuL6+OFEaJGo2y3fsz2wOEOw6BDANEwRoe5qQtz7wJ/3S69AQeGP67X/3tgzV
+	Z+bG507vpanQVVAuBtMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o72Kc-001lC8-Fj; Thu, 30 Jun 2022 22:08:14 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1o73LU-0022B4-LH; Thu, 30 Jun 2022 23:13:12 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o72KP-001l5w-GN; Thu, 30 Jun 2022 22:08:03 +0000
+	id 1o73LO-00228v-F5
+	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 23:13:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1656626881; x=1688162881;
+  t=1656630786; x=1688166786;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-id:content-transfer-encoding:
    mime-version;
-  bh=/F/0liJCEPwiLG3dAjfAqLm3SACsi0eCwJfaAudm8f0=;
-  b=IMxGoIXU9OMuQhstrWbm6MTqIWSW69FOpIV3j0Rt77cjMLYc18yflp7Y
-   w2x4fEVfGOFFtTi+hxhTWl3siZCqHJy4SbgCs2iXnPC8K3JvhyzEvAWrC
-   R1A1lzdazvPzC9MKgaViphZlZ+ARwBtcaaHPn11ow4vUj+rHk0WDb+9JX
-   k2GzgFX4E78fPQDcq+FFzgdgFKfEy3H33TaGCObzXZZikmi/zWmSSLE4f
-   F8WxdG+3tYFEk2O0W40uIv6mCL4w4fkltPI4voCk8rXHEktuSDiy1jtRu
-   S8a4aUsQyn0ZDa4YgEAtzFC1UOMt/Mt0G0QcHTpgJjRJRYmhZvByshriN
-   Q==;
+  bh=GheaHPNZSiD9lZ/VwxmLWqqq6RkC64WmSURgQ2qgFno=;
+  b=O4WWMpNmEj46XlHWK7BohqPmgwRGc5X2tr8kmuw/h3PCTATYASiJGDA9
+   sQijmI7Zkqh33/H/vO04WMOPAWn6BCLEQK4Phqd5vRFego13uNmvR3vmT
+   w8Br9anLW3B7o1YTE/9VbVh7GLwtMo7iR1Jd/D6jesZ9VAm+PDbAn3AgL
+   EjF9VZzzbhW/SDXDc6IgziYPFPjl8jiX/5Ug+DuP1pM7B9KMFg72qYKib
+   mP9TNiCPP7yrKErUKYrfpPuyt6puC8iEWt9UXK0sgLPhiOm60c4O277Rs
+   awBjK8lnUl7hkMFWWGXOVRYFQeksqNgQoFS827Xj0wplcDRfcdGR0322i
+   g==;
 X-IronPort-AV: E=Sophos;i="5.92,235,1650956400"; 
-   d="scan'208";a="165918206"
+   d="scan'208";a="170603292"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Jun 2022 15:07:57 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Jun 2022 16:12:59 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Thu, 30 Jun 2022 15:07:55 -0700
-Received: from NAM04-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Thu, 30 Jun 2022 15:07:55 -0700
+ 15.1.2375.17; Thu, 30 Jun 2022 16:12:58 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17 via Frontend Transport; Thu, 30 Jun 2022 16:12:58 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=dmlqXOxRnSBeFCqAxdJIG9iOp0O9Pv9066mNgzmSvHyHF+iEKaSzeYWdIPOWEezXg4lg6tJu8alN7pC5lJbBgjtDdbqd4YPRxD+ssOmfSmgUXQu/vT2z+fitYvv+SmSwLm6flHgq4Ae6u/Zc1ZiJimLRs6ffObVNvNRV0F8tBrKIqFjUZmWIqNUOu0hL/IN63r8ijWVZQ6lUTIaOIlmqUSi4AvMjaH7G3k88ss488Lw2QcOTD8A5UjMdCh6Tb8ORLju/8FQbgjfkUIr9JEzWgCmvNO3Z5fUEKf7AyXoIW8n7x06xPJ3ICTqy4tIIC2Vdu1bqcPDbxPehbUCuUQDEGg==
+ b=I4PNscrJ1kBcLcO459+mr2c9PEBuJ9tjeyAy43B9xENn3smNnQT3zcwUCCoXVMuM1WlLmPAOJKmrQVPGqqpXjZZ50NfjIkIhm8eqpnF1Modh4O/4RY7LaleYOvaS/OP2I9K1ul6NxSPN0Ratc5VNQNHoRzqEk5QW+KKG88LmSSjibo8qnwRpvOOGG7sfnaLVhvosMJEC0VyFjIktt0ZBye6ApYyT4BJT502ud2FYYz8zm+dBBgX0cDfzk+Mak+mcaCE3wqUWG+/82xOidQccc6FBUb2huSRS+OVbppHQM+94d1ipdJ7LkdNkOxYGdacdZ35z/eZ+p4kaWoqqBDAeYQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/F/0liJCEPwiLG3dAjfAqLm3SACsi0eCwJfaAudm8f0=;
- b=S+NNiIc/P9bwqn/SAcFgf8ILX2Ow1HVyBFuW5UGVnTKgAgfscGB5CrVSkeoY58+gzcSTn+ftfj6ph6Y1RM8fIdLgaPM+4b2fI1iobrLkjRD9LNQt2irKqkPblNCupVEpgmwf63/P8B7LdDvhdpChqIBKHX4AIV7H0lla2pvx2xmbJIz/GFwS0kFKR2JM+8zsp+BtKdu9T9+SVheqhA7K9SMBydxeQ54hbD04DcJ9xkb0yDSjQaFNhwoScCVbxnR4E/oMLSg7CnHCXHEWDD5XBqOXtax36igqaQwrjAru5uDK81s6+D6xQFQhh4b4cVJsnqr9mhlPAKJUnpy6D+mzKw==
+ bh=GheaHPNZSiD9lZ/VwxmLWqqq6RkC64WmSURgQ2qgFno=;
+ b=NiYO/5eEO05UsXHofS5GUf9iecz7X5tCOUC4MdBxgD07g7WcyjLReJJA68B3kQJ/XdQmRjG3Csx1YmW6dxRc+vWbzm4HZ/FpDBlNWEq7+lpoRCoDcx8JF0FHv3N6M0/ogysaB4VidlIQptCSdY2G11h07Nm3lJpriWEyAKrpnn5n9ysKfySlb83vRBuseq2sPLVyGZHyDqddQGYkicXaS+Ac+DsaNF/XMWcFYyRIAuyP6bnl9nFYLxUg6uAZFpa6r/uNgRRrFaW/H2Bnbo9VOjWlxTk8qpzvby5TJneDyrGsEZ2qKdl0OuGI6pZD+0JAjvRdvTr2wF215pJApUW6mw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -64,44 +65,42 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/F/0liJCEPwiLG3dAjfAqLm3SACsi0eCwJfaAudm8f0=;
- b=R7GmSj1O8S+y2Tcg5p8ge+PqVRG9QpDEAGBygrxcQoiZRcd2moYoIiN4ljjV5iVEerpVybrLAzhx4lREDmgyOVMJ6P4if9et43xf9Mpd+3cEy2ncLOQVCRV3Ctu0JJkzXVoarFOCT36qSZmLrskTxZZv5ALYEr+shtfAWB6CAZY=
+ bh=GheaHPNZSiD9lZ/VwxmLWqqq6RkC64WmSURgQ2qgFno=;
+ b=SQvm1qAC/80+ahrrjlAPAibTLyH5nwMUUrRdPf+Gd2YugdLYXKS9FAanQhwMP/h7yyUReF8fCzHDCk8ChkGucV+cxOdyrm3uOboIIJlIgGPFIlyiP0qctE0ISOH21Sutkbm8e2xNX5+q+7MNAALeiuAVQto52xG773LzMxSY5Cg=
 Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by CH0PR11MB5441.namprd11.prod.outlook.com (2603:10b6:610:d0::16) with
+ by CY5PR11MB6164.namprd11.prod.outlook.com (2603:10b6:930:27::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5395.15; Thu, 30 Jun
- 2022 22:07:49 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5395.14; Thu, 30 Jun
+ 2022 23:12:54 +0000
 Received: from CO1PR11MB5154.namprd11.prod.outlook.com
  ([fe80::699b:5c23:de4f:2bfa]) by CO1PR11MB5154.namprd11.prod.outlook.com
  ([fe80::699b:5c23:de4f:2bfa%4]) with mapi id 15.20.5373.022; Thu, 30 Jun 2022
- 22:07:49 +0000
+ 23:12:54 +0000
 From: <Conor.Dooley@microchip.com>
-To: <sudeep.holla@arm.com>, <Conor.Dooley@microchip.com>
-CC: <linux-kernel@vger.kernel.org>, <gregkh@linuxfoundation.org>,
-	<atishp@atishpatra.org>, <atishp@rivosinc.com>, <vincent.guittot@linaro.org>,
-	<dietmar.eggemann@arm.com>, <wangqing@vivo.com>, <robh+dt@kernel.org>,
-	<rafael@kernel.org>, <ionela.voinescu@arm.com>, <pierre.gondois@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<gshan@redhat.com>, <Valentina.FernandezAlanis@microchip.com>
-Subject: Re: [PATCH v5 09/19] arch_topology: Use the last level cache
- information from the cacheinfo
-Thread-Topic: [PATCH v5 09/19] arch_topology: Use the last level cache
- information from the cacheinfo
-Thread-Index: AQHYikaSsliGXUqkU0W62iFZL9A2pK1mrJEAgAAIIICAAAargIAAEAyAgAAEPgCAAAqJAIAAMFoAgAC8ZgCAAGP7gIAAEAqAgAAdSoCAAA0zgIAAAdqAgAACLICAAB2mAA==
-Date: Thu, 30 Jun 2022 22:07:49 +0000
-Message-ID: <f5d73b6b-081e-328e-6599-92e8abadbdc0@microchip.com>
-References: <f1f4a30e-7a84-30e2-197c-4153b3e66b64@microchip.com>
- <20220629195454.vbsjvcadmukiunt7@bogus>
- <03433f57-04ed-44a9-a2f6-5577df94f11e@microchip.com>
- <b2ab0ac1-bfef-5ba0-4ee5-15e604d8aa2e@microchip.com>
- <20220630103958.tcear5oz3orsqwg6@bogus>
- <9d9e80b8-17e2-b1d9-14fa-f1d8d7dfbd9a@microchip.com>
- <20220630173513.dyrrmjbpxzi3e6fe@bogus>
- <3840dbf7-ca18-b7ab-4d7a-92c9305476fa@microchip.com>
- <20220630200717.zlc6z6zcqbsw7euk@bogus>
- <ddb8238a-003e-fe5a-2a11-cb34c324fb33@microchip.com>
- <20220630202141.37p5qhppkiz6wrcb@bogus>
-In-Reply-To: <20220630202141.37p5qhppkiz6wrcb@bogus>
+To: <fancer.lancer@gmail.com>, <mail@conchuod.ie>
+CC: <airlied@linux.ie>, <daniel@ffwll.ch>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <thierry.reding@gmail.com>,
+	<sam@ravnborg.org>, <Eugeniy.Paltsev@synopsys.com>, <vkoul@kernel.org>,
+	<lgirdwood@gmail.com>, <broonie@kernel.org>, <daniel.lezcano@linaro.org>,
+	<palmer@dabbelt.com>, <palmer@rivosinc.com>, <tglx@linutronix.de>,
+	<paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>, <masahiroy@kernel.org>,
+	<damien.lemoal@opensource.wdc.com>, <geert@linux-m68k.org>,
+	<niklas.cassel@wdc.com>, <dillon.minfei@gmail.com>, <joabreu@synopsys.com>,
+	<dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <dmaengine@vger.kernel.org>,
+	<alsa-devel@alsa-project.org>, <linux-spi@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v3 05/15] dt-bindings: dma: dw-axi-dmac: extend the number
+ of interrupts
+Thread-Topic: [PATCH v3 05/15] dt-bindings: dma: dw-axi-dmac: extend the
+ number of interrupts
+Thread-Index: AQHYi+h3OU8MpvXbs0e9Pief7bAu5a1ogHUAgAAVk4A=
+Date: Thu, 30 Jun 2022 23:12:53 +0000
+Message-ID: <f7d64f1d-9fb8-6259-cd60-8bfc65636300@microchip.com>
+References: <20220629184343.3438856-1-mail@conchuod.ie>
+ <20220629184343.3438856-6-mail@conchuod.ie>
+ <20220630215540.cifnzovya57bgbsw@mobilestation>
+In-Reply-To: <20220630215540.cifnzovya57bgbsw@mobilestation>
 Accept-Language: en-IE, en-US
 Content-Language: en-IE
 X-MS-Has-Attach: 
@@ -111,66 +110,66 @@ user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=microchip.com;
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 83e4ba3f-2b8b-461c-b200-08da5ae4f880
-x-ms-traffictypediagnostic: CH0PR11MB5441:EE_
+x-ms-office365-filtering-correlation-id: a77bd506-d1b2-41ac-950a-08da5aee0fcb
+x-ms-traffictypediagnostic: CY5PR11MB6164:EE_
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: BGH43PkoqEs0/d56HNA9SvuwDK+6CHLJRWKh1WqMwwU5z/6RbEKUDeaGxxcG9pMiKBnoqpq896Uu2M2SPTc2WFLQT/S2FRAkQybRXrKKva2u3xaAA5kTf9eTGZpoKcdOfYBlh4mMbYtg8KeDcwMVgRxksdN/3AjUL+XaMyeriUrYZDMHttns+Gj9UYnxosCzz4A06GZnT7LYdR3Pzg3eNSv0hFQZOvJQWWO8GjePABQciEgzb2oXCLBMcVt6tfb0VBk1DfH0wGOYM+W9ebgF5xoRGwIfzgk18j7fG8wDrUgvoyAIUhwxviAPpzJ+2U6Kiy5ReuWhOBmsE9H8v7nz44ZJpOj7d2jhvImZgVEXykjBIB8VtnP4t2V1+FHtiEJESfdEnri/09JU97wVAeU5fHPq+hag6EXMrCrOpHZKdT8QnKiF9mNFQCcsppNeT7dfPc3kdfLMQ4O4Bfiu+J2WrVoxa/vs9p3iJV8OIR1DI4EVI+RkZdAAlJTMWaE2FRwZChpuMeQAn1hNyV1mk3jjuBPX+0rXmg5YLFzouw2Fq46aGyr2BJGbuJCG40RS8popQvXaKzbrdoWD4hlAOQf/ADwYZXRhv/d2upiDSS8gKB/OpVK16ToJDyovOL0FcZ3jfG+VWulZNQ0QK3CkBlM7+jYHmGUNB15abHCz8CyD0CziMuxWjbTFKtHtTDd/yp5KPE3JhzgWGybHG/J6VtaZU9G4jFNPU/o736GunqnfoSfU3ZB+bEJH3lIsejgBponLCTX1i1VFoSpgnY7VdjzreHMjUW6tQVICAYQH+GurWb5UkkK/Se4ipLuBKMrnHJhkeFP2o5hJpxqJ+xwV8uJEgHHN79Dg/IKIJHQAmUO4XokuT+E3yO+VBg1RQfcl76eW
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(136003)(346002)(376002)(39860400002)(366004)(396003)(7416002)(478600001)(8936002)(5660300002)(36756003)(2906002)(64756008)(54906003)(38070700005)(110136005)(4326008)(86362001)(316002)(122000001)(76116006)(91956017)(31696002)(66556008)(6486002)(66476007)(8676002)(71200400001)(66946007)(66446008)(41300700001)(2616005)(6512007)(107886003)(186003)(53546011)(26005)(6506007)(38100700002)(31686004)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-microsoft-antispam-message-info: /rAiy++3e8odaq9I1HByAYf5F2qPBXFTNehJOlUEHF2fUJ0AvsXshTCmJSQo/KzqbGenTP4jbsxO6x3aTsYKSm94i/7TjqzK8yV6LYF3fFLEXPxx7YpapxUWILf4ceiMxiSd7UCGI1v6GZwb/87f79/crMM31JjYNpKrO2L1vmiZlx4uU66zfY3E+0hpQQO7WwmMIyM8Z1zNlsdKj1QH3Y+/iOpQMtysnhscA3Fgulhsf91cFQoxbLURredM9eAY+ApcHySQD/QMOkTyIzJ33oczc81zr/AGpDQ2vUfUCHKEhgmguzgf1b1pXKgy5m1C6zSKQqcFsuQESSbtK0eKPxRcGAn0WPb9fSKP+blTaME8ImdRyRfiXyNExg2FsIS6oKS+ZzoaKjjFkuLWZDoEjUYUMgoRmKKSU2i0SXVMni8aD6sfOAiE520Jon4GZnFdeEWlq+iQY/IlPV/j8qemiSywReavqeyNTiI7YLOsgw7KCfmcfN5ktvj4nQoAq18u6kSALVP1T2lPloxKzqsTc3eEHNAFAT6cHckQLunlfiEMCwPah0JqoPqxZZs7d0TRrItXuJn8MbIX/y5SebLtuLrhC4JHQ2OSOwD43Q903HJmH/ENLvMPe/Xo4Et57XaU5eeHNN5vBJoG+ume3aJBYsyDGn0glA7SUrSQ+e1YHzIyHCIa+rljUGJBr91WRnH3lO83g7ea2L+pGy/o+xvf/uF5QWgiL9WCSD3Mw3F6GOTeRN44bBmL1IJ2M1UC5tWy2f8AXMsaka9YufKMjKXKlJw9lmZLDW97TUtLkmAg9c0JdmgukZJg2gaReextXPX76ctbc2KVVT/GWVYZS/9P+O1jouPWBlnLeZ/gSAyg2iMKNBsjAu4dKiE1eEWbp14Yxjo60g4iL7SJtCbPnLo8HlSHHxriK2RMpc0H4gmiiTy0Onl8hDoGqxhm+IeSRQ7i
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(346002)(396003)(39860400002)(376002)(136003)(366004)(2906002)(6486002)(966005)(478600001)(6512007)(110136005)(8676002)(4326008)(71200400001)(316002)(26005)(2616005)(31686004)(53546011)(86362001)(36756003)(8936002)(31696002)(76116006)(66476007)(7406005)(66446008)(66556008)(66946007)(7416002)(91956017)(38100700002)(83380400001)(5660300002)(64756008)(54906003)(122000001)(6506007)(38070700005)(186003)(41300700001)(15398625002)(43740500002)(45980500001);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?c2IvTFFnSnBEOHQvdnF6YzRvNjl3a3NVaFRQV3RKK0hoZ3N5VGg4Qm9UQnFN?=
- =?utf-8?B?dUlCZFFBRXFuSnlBc2dNaVNMM0g0azdLaDU1TG56TDNQSzZkMy9sYU5Cbkln?=
- =?utf-8?B?b2dJTHVxU3hOQ1h3bjFDU2JadTFtQXc3WHdrMzc3Y3Y4WXJXdWhnUHRkY0Q4?=
- =?utf-8?B?SnFyTGt2bVErNUg1ZGlBMXFEN1ZxTVVXVXdNakpXdFhpUk5qc20yNE1iTlk1?=
- =?utf-8?B?OHFLZVNCT2R3V2kxN2ErYXljVzNLeWlxZ2pLZzQ1YTZycUVsMW5VamlWUVE5?=
- =?utf-8?B?Ti9pY21RUDMzelo3ejVpQy9uc2EzM0pxTWpTVURDYVZyNDFtOEZseHhWSmxm?=
- =?utf-8?B?dGRZdFM4cll4c1YwOW5oZ3dsejdOcWwycEZSTlNSYlloQlQyRGtmZmNvTDFX?=
- =?utf-8?B?Z29aYS9EZmFmT0VpZ1hVREpxekFJVUxXRjVLOWRocUMxSWNaY0c4Ym5SeTJQ?=
- =?utf-8?B?djQrbXZTL3Y2RjBQekJEMjlDS0krdWtKMGFpdFJXdUlyVUY1bGZZSXZ3Tld1?=
- =?utf-8?B?clU1aGJTU2Vka3VZUWZFOURhZzQ2RDhnWEp0TkhNa01NS3R1WldPQXlWczA4?=
- =?utf-8?B?eGYvRm9Kc21YcXIzMEFvUzdyRnM2dnIvVU1Nb05vSTFYTDkzc2RwMXhMbnZV?=
- =?utf-8?B?aU1sS3BNc0VqNXR3REtoTHlpODF4elBsZFBSZmpUc2ZCQm5LdTBmMVhmNWVy?=
- =?utf-8?B?THg4UXZFN0tCalMrczBYbm1KNTc0cDAzbFFRZDhPckpFOW96S0VNMmRWbTBJ?=
- =?utf-8?B?dkp4dU1kZzNOdXphR2xIYWtPN3VrVnJXSXpGYldjcnNibU9RcDhkc21nNGZ1?=
- =?utf-8?B?RDBZNEN0enByVW9vUWUveW04VUx1QWRpS0hQa3lnbTh2WlBzdUV6RWplZ0dV?=
- =?utf-8?B?NkRRSU1VTTA1OFl4QXFYUm5mWGhRaWJndVJ6UDRJOWxOWWNRRzV1U1hLMlFn?=
- =?utf-8?B?TE0vY2htN2hjVlhlRGQ4aFNEVFNwQTh0TGFQdU5PT3RQSnhFV1dIb1ZRcHhF?=
- =?utf-8?B?M0xxNmd2OXV4YXhpajhCMUs2eTdaUXMvTHRlTFdlaHladzNreUNvRVRDaVA3?=
- =?utf-8?B?QVhFUFNYbFpWUDU4Z3JzaUNJRDBkS3pBWjYvS3ZnVFd2aHJxcFVHSk54eDAv?=
- =?utf-8?B?dnNicXMzWG9UeEZpbmZqMFpnQkZBWEtVeG1pR2R3bmRtemR6QW5xRThCc0Qr?=
- =?utf-8?B?Zk9FTE0wcEZ4WUJQWTlGREFhbHZxR1NEdG83RlBROXhjeVNUOFJPZm5VVG1j?=
- =?utf-8?B?bEh3b1c4STRNQVp6L0tvdml6RnZIZTRmS3BYZWRTY0ZvdTJ2bUE3NUEwOGk0?=
- =?utf-8?B?akl3V01ydTZBdzFVWTJ6U1BwZVNBUDY3UFlyQ1k3VkhJbzUwMmNWekl2Tzli?=
- =?utf-8?B?OTAwQk9PeVZCTFdQQWxleE5IVjdJYnRTL2lmV2x6eUhIcHJIdXNXckREci83?=
- =?utf-8?B?NGxOZ3FTM2NCT3F5cW1TTWMzaGMvSk5UZnNkcEdSQk5wOWI0SDk2anJaTC9t?=
- =?utf-8?B?M2Jza3NLTVJsOCsrVnlpcUtTV25ld0phUDVNRkRYcXBmWEFyYlN2MTZEckJU?=
- =?utf-8?B?NFJzTk1TT2dCUlcwTzBySS8yVWJWaXhQNk5Zb2RaM3lLTDJMS21RRUxjalhB?=
- =?utf-8?B?Y2dxWmQ1QlNUZEdNSC9vOU82ZytzbXpuMTFRR3dNMFpQaS91aW1vbTNURFRv?=
- =?utf-8?B?cFUrSHFyL1NBdCtDMHlsUUJkR3pOQTlhNHovZ3hxU1VqTy9QdWd3OGxmS3lO?=
- =?utf-8?B?c0xYYUpRcCtQOUNmQmJ4d0pmeWEzelhCS1RDNzZyZ3hFUXlQL0NrWm5va1R1?=
- =?utf-8?B?aUVkWXhKdUpnQWlaZ0FyTjhFbmZXd01NcldNMmlDa1RGZXJtYkQ2U1dwZjVC?=
- =?utf-8?B?cW5sZzJoUEVwd3doUmd3akwzdUlaZ3BiT3paL2tzQmZrZzRMaHNJS1RXN3RO?=
- =?utf-8?B?ZGFrS1EvdzRERk5iZGI5QkljTHhzZnQyZ3NoZFV1Vnl0ZkNWdXJta00ralNv?=
- =?utf-8?B?Zjh1YkNPYTlyb0MybDVTZmFWNDFUN0RTMlVjY2d1cW5vNmNPUW1JY1BsaWZk?=
- =?utf-8?B?bk50ZUJxM3FVb2daS3lkTHNZaTJqbG43dWZPem5haWd2RVR5Tk5HTnJJQ1Av?=
- =?utf-8?B?a1V5UlFXVVU1ZnJOcHp0eEh6bU82UXlFTStCL3dDUDE3NFNvZlBUczRVVnF3?=
- =?utf-8?B?aUE9PQ==?=
-Content-ID: <E7FC5F3ACC13DB46BCA95690E998A564@namprd11.prod.outlook.com>
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?U1lROWpoanZSejBxUElIOUJVMnhMVjBlL2lGVjk3c2o1RnNmd3BtR0Z0aHpQ?=
+ =?utf-8?B?aG5CY3QrU3hXckp0V0EzV2NvRy94M2JqOWRVNUM5ZS83aUF5bzNGQ2p0S21L?=
+ =?utf-8?B?cmJna2x1bTE2RVk2UDBCK2dqamMrSmhrbDVhNmg3ZGdoUUtNa0JTT2taZkFi?=
+ =?utf-8?B?bFZIWGxJeGttSTZDZlZBQmljQkF3UWtTQklDM2FuVTByaHVjQVBCZ0FZTVlG?=
+ =?utf-8?B?dzRKMURZSWczUUFMRlJ0MlVCKzN6REczT2haOHdRYytCKzhXNUdkWWNYaFJ3?=
+ =?utf-8?B?dFo2RmszRlV0VUpGQnI2MGJHME0zUW1NeVNlTmoycEdWYzF2NDN0am1kQjFX?=
+ =?utf-8?B?VElYdUtCYTExbkVBdzA2MlZrTklrSHFjOUZpcmVoTmwvZnREODQ0QjZ5WEJQ?=
+ =?utf-8?B?R1pyUDRPM0dueGJranB1bnpiM1BpTXRrSyt2cVV4VmkybWNVRmZDZ0I2Um92?=
+ =?utf-8?B?YS80NjE0NVJoanJoS2l2VUJqcnhYRWRBZldybHlZQXp3M1VRTjRSNWZaYng3?=
+ =?utf-8?B?ZEF2azVSV0c5VU5QZFNMVnlKOXJHV1NEcE5SSzM2S1FOdzRWRkEzWkFXVHpD?=
+ =?utf-8?B?UForNXE0SVBWZllNRDd0aUQ2UmhmYWRyV1hyUnVSdjB2aUtKdzJpcTBQamNy?=
+ =?utf-8?B?UThRcFdRYjE5NENvMG5IVVFEQm1Hb3dBalRiTC9VK09TTlRWT3ZxQ2svRVAx?=
+ =?utf-8?B?Q3RLTG1KZnQ1SGIrTzJ1OHBPbGtRSFZOMGRWdHFCQ0tqSnVvb1dMeFpYOWhP?=
+ =?utf-8?B?ZG9BZXorY1ZBRmdHNnBtVVVkSHFrelp5S0VOWmVOeWVQb2NnMFRnU1FkZE9W?=
+ =?utf-8?B?QXUyaXFjVUdKbEVNNEUxTE8vT0pMUHhhSjFSOW1kZWFGTDc4NHdMZHJYeGI3?=
+ =?utf-8?B?Z3VhNTBOMnlxdDNWb3htU3dPckFJZjZ5K21uSnhuNTk2MXBIQmxrZjY5TWdp?=
+ =?utf-8?B?QzVPUEx5aXRGZy9hK0k1SDgwRjJCRGZjQUsxS1l5R0lCenhlUWZlcVJDMWdG?=
+ =?utf-8?B?UHFwY3RNazdEWktQRHYwUlVvOFFTZXdyTXlQakFBclRTUFBsLzhUaFpkV2Vh?=
+ =?utf-8?B?a3kvTkpRMUZseTljMWVGeUVpVjBka1dqZHZLeW1EWk1aeWdtQkNOcEpSd0pk?=
+ =?utf-8?B?Ykk5Nk1ERGxsUVlFUVJKWENQb3RwUkZzK01yb0FWbkY1Zm1Ja1RqRmFnWXl4?=
+ =?utf-8?B?d0xsVG1ab2JZVERWeGY0NTAwY1ZOUHVPSHVNTHJDN010bzNKbVYyYmo2TFRt?=
+ =?utf-8?B?NEE3c29NMVE0dGVCYTVQRmMzekhFZW10ejVSUm1id3g4NDRoTnpWOVZFS0Y0?=
+ =?utf-8?B?RXl4KytvTnpPQU8xUExYQjIxSjNseHZJb2ZkVm00SUt1dWl6elFjOEIyRmZH?=
+ =?utf-8?B?RCtGL3o5WS80VVlnZnVaak10b1ZSMUJiR1B3UXBwdmdkTEdOTGJKSkRHY1RG?=
+ =?utf-8?B?VSs4YlNFTVdrMmh6L1RHTXVUNnNxNlh3S0FwSGdkVjNZYW9aVWR4clUxNGJW?=
+ =?utf-8?B?ZUZTclViTnptNVkvS21GZkZ0SEhSaVFWcjJDa2pBMUtVWW0rQXpyM3N5OVBk?=
+ =?utf-8?B?M2xsc0tFUmdOYzNVUU9UQzFhL0tFM2pKNWZVS1lzV2lHdjNocE1waWNmRVBH?=
+ =?utf-8?B?eGV5VlIyVWJZMkc4TlhZTG50VXUrcnVmWkhBeTg0VEp0dko4cElHR3ZMWm0y?=
+ =?utf-8?B?WTU1ZUFXYjJEWVhmNWl3MU1kaXI0U2RBTGpNSW95cnNJMjNROElDQTVpOTR6?=
+ =?utf-8?B?M1E4d2dUb0VZTkxCRGxoWCtOR28vOGczcEpVUDZiZjNtcU40YWprb2lqc3c0?=
+ =?utf-8?B?Tk5uczJhQllLZEliZkxJbm4xZW5sb3BwejBZYlpmZmZEbzBWVEVBWmJ0UGJH?=
+ =?utf-8?B?VW13eHNWcFhUY0xoSWU5OXVVSlA5R2FvZ1REeTdvcDdzY0Q0UytWdTN0WStQ?=
+ =?utf-8?B?NFFGblQ0UFY4eUQrc0ZaejZLcWFrdWlmZUU0Qzc4QWVZUmJXZjJtcXZiTEJ2?=
+ =?utf-8?B?WTJEZGY3bXhwYzdTaXdHdmc0eVN0UUJJSlRrdDJKbTgrYzE1TEhmNCtoRm1x?=
+ =?utf-8?B?amViUWRHYnA4SUtIbEJ1WnZiY1RZbktSQXprTk5OdU5wK2FvUlhmc0dEQ1FG?=
+ =?utf-8?B?SS9BODYrQXozRzkyMW9xS2c2enl5cVlMdDRpR0ZpYUN3ZlV1R0NoQ0hWSjlV?=
+ =?utf-8?B?L3c9PQ==?=
+Content-ID: <BAED936A9527EA448A01955AF45E8C93@namprd11.prod.outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 83e4ba3f-2b8b-461c-b200-08da5ae4f880
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jun 2022 22:07:49.3948
+X-MS-Exchange-CrossTenant-Network-Message-Id: a77bd506-d1b2-41ac-950a-08da5aee0fcb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jun 2022 23:12:53.9750
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: EvwKq3Olm8d8CO7t9saiKFO0WkRtV5QHmdBtFnnJCwrr1a2lDpKmEFL8L5EKDDVym8mYWwvfcO3niE9x3oR3sr1+5s0cTMVZzV1jx0nnOoc=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR11MB5441
+X-MS-Exchange-CrossTenant-userprincipalname: J6ilMbXizmR5OnlPzgSBjCGvTdS4zIGh+DK3AH6OJBTyQf0tA1Vo0rstbCOoENSk1OLfQs0u/UnPfcpPYyDxD6jflbTV9S5E7bOgtLDKPsM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR11MB6164
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220630_150801_856735_79987014 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20220630_161306_728506_8B366226 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,81 +186,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 30/06/2022 21:21, Sudeep Holla wrote:
-> On Thu, Jun 30, 2022 at 08:13:55PM +0000, Conor.Dooley@microchip.com wrote:
+On 30/06/2022 22:55, Serge Semin wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> On Wed, Jun 29, 2022 at 07:43:34PM +0100, Conor Dooley wrote:
+>> From: Conor Dooley <conor.dooley@microchip.com>
 >>
->> I didn't have the time to go digging into things, but the following
->> macro looked odd:
->> #define per_cpu_cacheinfo_idx(cpu, idx)		\
->> 				(per_cpu_cacheinfo(cpu) + (idx))
->> Maybe it is just badly named, but is this getting the per_cpu_cacheinfo
->> and then incrementing intentionally, or is it meant to get the
->> per_cpu_cacheinfo of cpu + idx?
+>> The Canaan k210 apparently has a Sysnopsys Designware AXI DMA
+>> controller, but according to the documentation & devicetree it has 6
+>> interrupts rather than the standard one. Support the 6 interrupt
+>> configuration by unconditionally extending the binding to a maximum of
+>> 8 per-channel interrupts thereby matching the number of possible
+>> channels.
+>>
+>> Link: https://canaan-creative.com/wp-content/uploads/2020/03/kendryte_standalone_programming_guide_20190311144158_en.pdf #Page 51
+>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>> ---
+>>  Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml | 4 +++-
+>>  1 file changed, 3 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+>> index 4324a94b26b2..e33ef22aec9c 100644
+>> --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+>> +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+>> @@ -34,7 +34,9 @@ properties:
+>>        - const: axidma_apb_regs
+>>
+>>    interrupts:
 > 
-> OK, basically per_cpu_cacheinfo(cpu) get the information for a cpu
-> while per_cpu_cacheinfo_idx(cpu, idx) will fetch the information for a
-> given cpu and given index within the cpu. So we are incrementing the
-> pointer by the index. These work just fine on arm64 platform.
+>> -    maxItems: 1
+>> +    description: per channel interrupts
+> 
+> Description is inaccurate. It's either combined or per-channel IRQs.
 
-Right, that's what I figured but wanted to be sure.
+I will change it to:
+  interrupts:
+    description: |
+      If the IP-core synthesis parameter DMAX_INTR_IO_TYPE is set to 1, this
+      will be per-channel interrupts. Otherwise, this is a single combined IRQ
+      for all channels.
+    minItems: 1
+    maxItems: 8
+
+How's that sound?
+
 
 > 
-> Not sure if compiler is optimising something as I still can't understand
-> how we can end up with valid llc but fw_token as NULL.
-See idk about that. The following fails to boot.
-index 167abfa6f37d..9d45c37fb004 100644
---- a/drivers/base/cacheinfo.c
-+++ b/drivers/base/cacheinfo.c
-@@ -36,6 +36,8 @@ struct cpu_cacheinfo *get_cpu_cacheinfo(unsigned int cpu)
- static inline bool cache_leaves_are_shared(struct cacheinfo *this_leaf,
-                                           struct cacheinfo *sib_leaf)
- {
-+       if (!this_leaf || !sib_leaf)
-+               return false;
-        /*
-         * For non DT/ACPI systems, assume unique level 1 caches,
-         * system-wide shared caches for all other levels. This will be used
-@@ -74,8 +76,12 @@ bool last_level_cache_is_shared(unsigned int cpu_x, unsigned int cpu_y)
- 
-        llc_x = per_cpu_cacheinfo_idx(cpu_x, cache_leaves(cpu_x) - 1);
-        llc_y = per_cpu_cacheinfo_idx(cpu_y, cache_leaves(cpu_y) - 1);
-+       if (!llc_x || !llc_y){
-+               printk("llc was null\n");
-+               return false;
-+       }
- 
--       return cache_leaves_are_shared(llc_x, llc_y);
-+       return false; //cache_leaves_are_shared(llc_x, llc_y);
- }
- 
- #ifdef CONFIG_OF
+> Other than that:
+> Reviewed-by: Serge Semin <fancer.lancer@gmail.com>
+> 
+> -Sergey
+> 
+>> +    minItems: 1
+>> +    maxItems: 8
+>>
+>>    clocks:
+>>      items:
+>> --
+>> 2.36.1
+>>
 
-and this boots:
-
-diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-index 167abfa6f37d..01900908fe31 100644
---- a/drivers/base/cacheinfo.c
-+++ b/drivers/base/cacheinfo.c
-@@ -36,6 +36,8 @@ struct cpu_cacheinfo *get_cpu_cacheinfo(unsigned int cpu)
- static inline bool cache_leaves_are_shared(struct cacheinfo *this_leaf,
-                                           struct cacheinfo *sib_leaf)
- {
-+       if (!this_leaf || !sib_leaf)
-+               return false;
-        /*
-         * For non DT/ACPI systems, assume unique level 1 caches,
-         * system-wide shared caches for all other levels. This will be used
-@@ -75,7 +77,7 @@ bool last_level_cache_is_shared(unsigned int cpu_x, unsigned int cpu_y)
-        llc_x = per_cpu_cacheinfo_idx(cpu_x, cache_leaves(cpu_x) - 1);
-        llc_y = per_cpu_cacheinfo_idx(cpu_y, cache_leaves(cpu_y) - 1);
- 
--       return cache_leaves_are_shared(llc_x, llc_y);
-+       return false; //cache_leaves_are_shared(llc_x, llc_y);
- }
- 
- #ifdef CONFIG_OF
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
