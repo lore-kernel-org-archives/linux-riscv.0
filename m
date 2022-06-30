@@ -4,57 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0088C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 15:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8217C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 16:02:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=N3a4M0dRhOklRpBhoQwl1kmfbYKK/xDihN9/9RmyqPY=; b=e4eH3pjaXA495z
-	md8dtmslW2AM7GEQVx4Q9EN5IprO8DcabvcfJIUgAt57LQzUdixo9l3xhtEbE0XHQkLfs7/VEO/Oa
-	4nTR0/1EHtcXs+jTLaFlo9klpER63V8L6fmDsJy+rmzruEm49cDNX6YouIzAIRT5Wfs7n90J99cj8
-	9UT+sel54Aicgkn9mfO49Xm0PyzWxO+RhT+qCwhdInmGkUge8U1AB9kCRPE3JNYTmCymqaw483A4x
-	9dzuAW8wiaeWmK0o6c9epwl2GsKitrvWAIPdTleX79NTLmkrlttOFHSEIUJMwyRaBII6XvWk7fP+c
-	odrTH6w2ZV7S8juTt7yg==;
+	List-Owner; bh=fOJjGNEZTtMyCcOtVBikSZ7nvdz+GQYwaSY2TXdV9vk=; b=hOJysTTFfyXJ6F
+	I1Wjze1APDco4NcnMdvl5kDqGCiWPrYlBeLHtMfV0BE9iHHInbOeB3NdDR3e7MxKKY3iQB/0qUh7N
+	Y1RmfCUMHyz3JxDaiYWurnIc1JhcPh38FOpgJMYbZMgCarEwwCqwrslidKTU8C7Obb1mtzaBF9hYz
+	CeGshBsORGV9ACe1ojhEEo8ZWKIMwZTrENhBFSGHMQyBz+4ERya2cZsPT6g373MyakXWzIXyyOOuT
+	8RJS7N1589qsgIVPUA66yZtsBxzcHRVzuqjQ29LYHaqWIoGQfa1UoToA2/1z6SfygeLYoxvySi4jS
+	aFiD5AwFrnbYNbo1iFug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6wJk-000NN3-AA; Thu, 30 Jun 2022 15:42:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6wJb-000NKN-TA
-	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 15:42:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B5781063;
-	Thu, 30 Jun 2022 08:42:46 -0700 (PDT)
-Received: from bogus (unknown [10.57.39.193])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A2683F66F;
-	Thu, 30 Jun 2022 08:42:43 -0700 (PDT)
-Date: Thu, 30 Jun 2022 16:41:32 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Daire McNamara <daire.mcnamara@microchip.com>,
-	Ivan Griffin <ivan.griffin@microchip.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Atish Patra <atishp@atishpatra.org>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: microchip: hook up the mpfs' l2cache
-Message-ID: <20220630154132.i54to4l4divkbr2d@bogus>
-References: <20220629200732.4039258-1-conor@kernel.org>
+	id 1o6wcc-000TiD-AX; Thu, 30 Jun 2022 16:02:26 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o6wca-000TgN-Ar
+	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 16:02:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 499C760FC3;
+	Thu, 30 Jun 2022 16:02:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB8CCC34115;
+	Thu, 30 Jun 2022 16:02:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1656604942;
+	bh=hwWzVmDS+Gn+ZGTxrGxGrVhSXn7V3fn4x4DATS7HEPE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=hGlt1AE1GAEQ1udAHkqLsbPVLAANFrSQJyHnl1Gp6uB/WV7Z5/r7TECpRJ5VuY9EM
+	 ykFlKGuENWnEsf5ktVfrUo7aIqSihmvThn4Ybio+0yD2wpErYIiD5gpW1s+XnQh0lt
+	 zU7Tw8Lp0Hv75ZWDhud71GhnioD3rKUX5I8HZUBf1luOksx0n2LvAdNB6pI6A0y0Zc
+	 iATfNeWSgfc4o/hzJhng+A6mFsw9lLoDXFvt7O4QYrsAKw19ElxwOa1p51j8UgyqZE
+	 Mo1jogC/R7V8m8rHdpW3ba/q2Ag2tqoOwOcsRK8Sesr4PBDgVNvwcZ6BXQBGXue15q
+	 5R+4ngfQY/fpA==
+Date: Thu, 30 Jun 2022 09:02:20 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Palmer Dabbelt <palmer@dabbelt.com>, "Nicolas Ferre"
+ <nicolas.ferre@microchip.com>, Claudiu Beznea
+ <claudiu.beznea@microchip.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ "Daire McNamara" <daire.mcnamara@microchip.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v1 06/14] net: macb: add polarfire soc reset support
+Message-ID: <20220630090220.7ee5c7a7@kernel.org>
+In-Reply-To: <20220630080532.323731-7-conor.dooley@microchip.com>
+References: <20220630080532.323731-1-conor.dooley@microchip.com>
+	<20220630080532.323731-7-conor.dooley@microchip.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220629200732.4039258-1-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220630_084248_079568_C0D481F8 
-X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-CacheID: sfid-20220630_090224_456074_A7AF5646 
+X-CRM114-Status: UNSURE (   9.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -72,21 +83,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 29, 2022 at 09:07:33PM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Thu, 30 Jun 2022 09:05:25 +0100 Conor Dooley wrote:
+> To date, the Microchip PolarFire SoC (MPFS) has been using the
+> cdns,macb compatible, however the generic device does not have reset
+> support. Add a new compatible & .data for MPFS to hook into the reset
+> functionality added for zynqmp support (and make the zynqmp init
+> function generic in the process).
 > 
-> The initial PolarFire SoC devicetree must have been forked off from
-> the fu540 one prior to the addition of l2cache controller support being
-> added there. When the controller node was added to mpfs.dtsi, it was
-> not hooked up to the CPUs & thus sysfs reports an incorrect cache
-> configuration. Hook it up.
->
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-
--- 
-Regards,
-Sudeep
+Please repost 2 and 6 separately with [PATCH net-next] in the subject.
 
 _______________________________________________
 linux-riscv mailing list
