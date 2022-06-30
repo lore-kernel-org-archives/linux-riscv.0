@@ -4,97 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455E7C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 13:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1976DC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 14:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X6ZX0Iq1heBb4b3uurnHia4HL91Syd2MRqq6mK4r+mw=; b=sbNnA8N8s5PkIc
-	hRoUtQ/GY5ZYVtGVcYkKkhiZo0JWiGk4h+b/G/yipQNUdKmRcnaeqYUHw/UXeQPcdOniHLOfGD8SP
-	DHgw6gbCkpyt52oYMXLNJy5ONn0c+cq7WYrM+g9KWbmiapHf+t7nPOOQizZJCFZektMl60WZ/Eatp
-	R3dZQpxU+QZk9qOPRgnDiqjlrqJv6z+/3RNFmve3uofqXva9YlONpIPweq2FuXlOKseZwZTjG5aF9
-	riG5UDz14PbvgkchZr7cD3I66nIFqA5Cdn9wohH2V1pstLiq5d7TYM2GcKsl4fOF+hAYoptmonsH/
-	/5+BFzC1Cp0MuWDhUfDA==;
+	List-Owner; bh=0DIt33wKRGLfmLs2I97vIXqsXLCy7sQmIDkw+T+uZr4=; b=hIkxfk0wKvDkr5
+	GMgVQWD8+CkEp1ykjYHY3tDMYfhGahv7V0WHgs5fWij8Z1L5ZF3eQriL/14OzhkzAIL9PzfK1NsSX
+	vzNlh8MpqJGGKeY2T6BgzKlAQ+JFo5IYu11kQac6QXC6kNor2kGSBAchk6TUwD2KSiPxgnl7gOqJS
+	QEIkGFIWBbJBByvmVeWIpq8DugRsB1ca8hXvWZIDazl9t2T87+ZNx1x68ZZsw/djpj1BcW2sDx3Pp
+	1GLQj0YQQ3KxwDYMLIYwadW6isbHHR7bl/bDarwNJZY5dmL2lhBossi7Zk/DPIwGJvhJhRBpqeSbw
+	F2uZPs+BrPtuE7akyIKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6u7W-00HHF6-Kw; Thu, 30 Jun 2022 13:22:10 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1o6vcT-000CpZ-B4; Thu, 30 Jun 2022 14:58:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6u7P-00HHDF-Mz
-	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 13:22:08 +0000
-Received: from pps.filterd (m0187473.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 25UCCQiF021464;
-	Thu, 30 Jun 2022 13:22:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=message-id : subject :
- from : to : cc : date : in-reply-to : references : content-type :
- content-transfer-encoding : mime-version; s=pp1;
- bh=Gz5rGKtpdQID8m6HmioTidsQ2SmRszmdxDHeu0i98ho=;
- b=HM0UuS4YYa1vixPvyBe6Vu9a1Fk+BHF5GC5p408SmUkVNQUx/0CWBhnTeY9r+mNmZB7N
- aEn0D4mbmhY/x7+iuEhnrOpwV0lMyoh99jVMDa43azLF9rbjwbRo4RV4EwJ+eu3DizsP
- DLWb5AK/JGrvMh1EgKuDzlYr46jCUTRap0mksaQGANInXC0BNvF0RBSQCGGqajsGM8xR
- Neww2acpfbyLrcRLXFvWt7o60N/O0yZy2dvLcwVSt2AITyBlHtxMTyCSRBE8WR9cl+KF
- dZZDnzyJcp5tyQ/gx7UkCZQDn2LAF3M2aFNnOUCVIa86Gw5ZIQ9xGTzbHCJEvQj57feW AQ== 
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3h1bmmt7e7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jun 2022 13:22:03 +0000
-Received: from m0187473.ppops.net (m0187473.ppops.net [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 25UCGTHS037328;
-	Thu, 30 Jun 2022 13:22:02 GMT
-Received: from ppma03ams.nl.ibm.com (62.31.33a9.ip4.static.sl-reverse.com [169.51.49.98])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3h1bmmt7d5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jun 2022 13:22:02 +0000
-Received: from pps.filterd (ppma03ams.nl.ibm.com [127.0.0.1])
-	by ppma03ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 25UDLJOo013809;
-	Thu, 30 Jun 2022 13:22:00 GMT
-Received: from b06cxnps3075.portsmouth.uk.ibm.com (d06relay10.portsmouth.uk.ibm.com [9.149.109.195])
-	by ppma03ams.nl.ibm.com with ESMTP id 3gwt09056p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 30 Jun 2022 13:22:00 +0000
-Received: from d06av25.portsmouth.uk.ibm.com (d06av25.portsmouth.uk.ibm.com [9.149.105.61])
-	by b06cxnps3075.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 25UDLw6923855568
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 30 Jun 2022 13:21:58 GMT
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 03F6011C04A;
-	Thu, 30 Jun 2022 13:21:58 +0000 (GMT)
-Received: from d06av25.portsmouth.uk.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 6A98611C050;
-	Thu, 30 Jun 2022 13:21:56 +0000 (GMT)
-Received: from li-f45666cc-3089-11b2-a85c-c57d1a57929f.ibm.com (unknown [9.211.82.30])
-	by d06av25.portsmouth.uk.ibm.com (Postfix) with ESMTP;
-	Thu, 30 Jun 2022 13:21:56 +0000 (GMT)
-Message-ID: <1c9924ca8c93182d8673064cd02262b75857fe67.camel@linux.ibm.com>
-Subject: Re: [PATCH v2 0/5] Support kexec_file on 32-bit RISC-V
-From: Mimi Zohar <zohar@linux.ibm.com>
-To: Palmer Dabbelt <palmer@rivosinc.com>, dmitry.kasatkin@gmail.com,
-        linux-integrity@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-security-module@vger.kernel.org
-Date: Thu, 30 Jun 2022 09:21:55 -0400
-In-Reply-To: <20220624044811.9682-1-palmer@rivosinc.com>
-References: <20220624044811.9682-1-palmer@rivosinc.com>
-X-Mailer: Evolution 3.28.5 (3.28.5-18.el8) 
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: Ff9ylWNk9uhWoXrVL2dO4Uh6CLqcKXp_
-X-Proofpoint-ORIG-GUID: d06SwYGMN-EpKPgDWtITZ5KlqDrEIo08
-X-Proofpoint-UnRewURL: 0 URL was un-rewritten
+	id 1o6vcR-000CoZ-BX
+	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 14:58:12 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 66D0162345
+	for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 14:58:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE4E5C341D5
+	for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 14:58:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1656601088;
+	bh=UKnKVLsmwgsb6zWei4tbU3rznGJ4jcY7mTRLx0EKTYw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=IJr8aXX+dS7I/19l275qbg2v1v2/pgmNqwdTAu9WXRr3I0HfNoHdNH/TrJeo8vs5q
+	 YW4cqeu/t+8YUo/Pvksha/Z7OF71ogTt+nmFfpFmsUFmSpGAOMwjJBtWiwuzZdbFOu
+	 IJqbxOk/x6kmqruhs58YfntZp/jIaUkcIkOjOjHsbb7bGsXUUWb1SjLW7GgXUfD+4t
+	 ILW5O0+3qqtNEd/PTyFCIvXCE00tGnd3yMFTxbNJ9R/f7ZDgMDm4HYQBcbZZRQ/eKE
+	 1Uh/AZb2046PqAlmPAsk4bbF+a0jelkNUz25fNTuHF2xxbgRXd0bVo86bB4sBV9bsI
+	 S3TVhbfSTMlbg==
+Received: by mail-vs1-f42.google.com with SMTP id j6so18561594vsi.0
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 07:58:08 -0700 (PDT)
+X-Gm-Message-State: AJIora9cqtCbzsYI+119/vwlglrGTRcB1Diou/ku6BwiFEYSH9Xk4Hf8
+	gPFkSdhkJrigtDgwUtgp68HYKa7BPwBmrmx6rQ==
+X-Google-Smtp-Source: AGRyM1vNW2S6jnhHGtcMai38gl4vIeEdPFLFP61mSQwHnmBOcUGSMJCIWPBh/erjMpjEg4+79PX0q0Lho1NHKMjWI4U=
+X-Received: by 2002:a67:1787:0:b0:354:6490:437f with SMTP id
+ 129-20020a671787000000b003546490437fmr8749302vsx.26.1656601087622; Thu, 30
+ Jun 2022 07:58:07 -0700 (PDT)
 MIME-Version: 1.0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.205,Aquarius:18.0.883,Hydra:6.0.517,FMLib:17.11.122.1
- definitions=2022-06-30_09,2022-06-28_01,2022-06-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015
- priorityscore=1501 malwarescore=0 adultscore=0 impostorscore=0
- lowpriorityscore=0 bulkscore=0 phishscore=0 spamscore=0 mlxlogscore=928
- suspectscore=0 mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2204290000 definitions=main-2206300052
+References: <20220629215944.397952-1-heiko@sntech.de> <20220629215944.397952-2-heiko@sntech.de>
+In-Reply-To: <20220629215944.397952-2-heiko@sntech.de>
+From: Rob Herring <robh+dt@kernel.org>
+Date: Thu, 30 Jun 2022 08:57:55 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJEPL1Jc8k5W4P8hgGzOXxgfqNKNqYuc0nLkCnV274TxA@mail.gmail.com>
+Message-ID: <CAL_JsqJEPL1Jc8k5W4P8hgGzOXxgfqNKNqYuc0nLkCnV274TxA@mail.gmail.com>
+Subject: Re: [PATCH v5 1/4] of: also handle dma-noncoherent in of_dma_is_coherent()
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, wefu@redhat.com, Guo Ren <guoren@kernel.org>, 
+	cmuellner@linux.com, Philipp Tomsich <philipp.tomsich@vrull.eu>, 
+	Christoph Hellwig <hch@lst.de>, Samuel Holland <samuel@sholland.org>, Atish Patra <atishp@atishpatra.org>, 
+	Anup Patel <anup@brainfault.org>, Nick Kossifidis <mick@ics.forth.gr>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
+	Drew Fustini <drew@beagleboard.org>, Randy Dunlap <rdunlap@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220630_062203_806507_CE6C0116 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20220630_075811_441437_6AC72D94 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,34 +86,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+On Wed, Jun 29, 2022 at 4:00 PM Heiko Stuebner <heiko@sntech.de> wrote:
+>
+> of_dma_is_coherent() currently expects the architecture to be
+> non-coherent and some devices being coherent getting marked
+> as such with the dma-coherent devicetree property.
+>
+> For PowerPC CONFIG_OF_DMA_DEFAULT_COHERENT was added which currently
+> makes of_dma_is_coherent() always return true but doesn't handle
+> the case of the architecture being coherent but some devices not.
+>
+> So modify the function to also check for dma-noncoherent and
+> set a suitable default return value. If CONFIG_OF_DMA_DEFAULT_COHERENT
+> is set the value starts with true and finding dma-noncoherent will
+> set it to false and without CONFIG_OF_DMA_DEFAULT_COHERENT, the
+> behaviour is reversed.
+>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  drivers/of/address.c | 17 ++++++++++-------
+>  1 file changed, 10 insertions(+), 7 deletions(-)
 
-On Thu, 2022-06-23 at 21:48 -0700, Palmer Dabbelt wrote:
-> This rolled itself back to the top of my inbox, so I figured I'd send it
-> again as Rob's review landed.  IMO the security/integrity/ima/ change is
-> sufficiently trivial that it's fine to take it through the RISC-V tree
-> but I don't have an Review/Ack so I'll wait until this loops back again
-> to give the security/integrity/ folks a chance to chime in.
-> 
-> If this loops back to the top of my queue (which looks about a month
-> deep right now) without any comments then I'll put it in riscv/for-next.
-> 
-> Thanks!
-> 
-> Changes since v1
-> <https://lore.kernel.org/all/20220520154430.18593-1-palmer@rivosinc.com/>
-> * Collected reviews for drivers/of/kexec.c.
-
-Maybe better that you upstream the RISC-V changes.  So far there aren't
-any merge conflicts with this patchset, but a number of other kexec
-patch sets will hopefully be upstreamed in the coming open window.  I'd
-appreciate if you could create a topic branch for the first two
-patches.
-
-thanks,
-
-Mimi
-
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
