@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08AC2C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 10:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6465BC43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 10:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tOvM1FpAt7reZItmtyRL4vIxId4UClbmIaBPCx8TvgA=; b=tTZ9Bi1x4T7ihb
-	HzGH1PoEjducSV1zg3Gioudbjiai8iBPhWISXVk7svoBvCE638SKp3w98+oq7uo91RZVqtt1vDKL+
-	qs1GJvXpqVENvAUArC8JPJQvsnJVs58SZihJuzaYxxLc3d4jE0mk0qugTGNe5bpTSvE5irjmdAGj6
-	LxI30obxCdl72Io0ukrOSGGdVdKTjtkt3kfdpp8JR90UaU5FnWr3XdKbpMmXkJyvort0k2BdjNgB4
-	+Rur2YCZs+BgplwhKR2458tSPewL/+znDEynd0VP9eg+di59LMFjmfcuy0x+INSXOPAaXxr25dlIA
-	YSsZhOERqMgI/aCckMlA==;
+	List-Owner; bh=jPtDoDMaGMkMETPVD5jTjAgnXx+UodmjGRnKrlc1cAU=; b=Cs+aw2rrCvGuqN
+	J7h/GzK9ofHLtnOTeZ37HqIIwJnQSLpWdtCXZX9eK6IqtMOltN7FxCHLcr0uWdkNUIEjhtf+CH/QI
+	Z08NWtEVYRlBAT5GUWcr36+2K0kPA+NCr8nbfwDs+tSKXkHbnD0AqGXe6c4GRiAIHo2AMng9U2p1/
+	tOYNpjXVJhnJ1pSNxonS3cNUY5YemB1SPS5ugAMoN+csuZys/1bGCx4BZVNLf1KdzPwzMu1KtkLLI
+	vCzR/hnzXctDoOsHTCFPIVBaqZ1ky1r/Sju5JHbap1Y/F/bgWlakacX75vqEJQLDyX4xEEhWZXSFK
+	EILReJO/uKpjING289UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6r0j-00GQbQ-75; Thu, 30 Jun 2022 10:02:57 +0000
+	id 1o6r0m-00GQcS-0U; Thu, 30 Jun 2022 10:03:00 +0000
 Received: from out1-smtp.messagingengine.com ([66.111.4.25])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6r0d-00GQWu-On
-	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 10:02:53 +0000
-Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
-	by mailout.nyi.internal (Postfix) with ESMTP id F3CEE5C01F4;
-	Thu, 30 Jun 2022 06:02:46 -0400 (EDT)
+	id 1o6r0e-00GQXI-07
+	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 10:02:54 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.nyi.internal (Postfix) with ESMTP id 6C45A5C0249;
+	Thu, 30 Jun 2022 06:02:49 -0400 (EDT)
 Received: from mailfrontend2 ([10.202.2.163])
-  by compute2.internal (MEProxy); Thu, 30 Jun 2022 06:02:46 -0400
+  by compute3.internal (MEProxy); Thu, 30 Jun 2022 06:02:49 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
 	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm3; t=1656583366; x=1656669766; bh=US
-	XwQha+QBnfM1Fl9ZZwnvSmTAXqjsiFPn241fwtTZo=; b=Ie/JCDy1b7M4it9W6y
-	J6ueYIYmmE9LgQ5IZZSekViY0DzfPNzrziv3TlvilS6WVUw5/EMWjJhJLzUY3flB
-	/lySGk6KXyP4QtQYDhajiOPe1ClmCrgvNEk07a/gUPczLpCmBtQztj9yUhdntHGs
-	KZM02gz57I69BtUfS++fEFsKrx0eznHjsCWVJL3jBFCR2IK57FnwC/edID+VAZb0
-	2SdRlReRM9YbtoScW3VOhZro7oWBXFQ7XGayPRktXnrHmJdK9Nv39O50pN+dKxHv
-	z+W4gAUCzFI1KOScQ9hU1sS6n3iCnCHEAlfp4wvJKg0X90LODq5lUMWuKYrqpYOF
-	IFFw==
+	:subject:subject:to:to; s=fm3; t=1656583369; x=1656669769; bh=RR
+	JIdrAZofAfNPH9Ms80aUvsjV2YDmaSvFUGEVQFoI0=; b=MhFhECyTKDc6fKbJX8
+	v6K6uLvYAy+WPV7z5+cM+mF8ZKDQM3KM2+HUCpdUHt+HclhTQ5oKXsZsOZXNuZhi
+	3kJwOy+02A2YkQ22uf9Z6GhhAZF704H1vVjBCtQRB6jKatfiRJzLwMvaklox6UXp
+	HukRMi4OSb3uWFxcR4nDRVEOuQLr4/azJ97y01o6ygZySkylznH9xqpYByUqQFVB
+	Vb0zdLjOHygWjXBqT/x8zwtddAFUOB/oa7xVpvteBiXZLJRHbLqMlhdZZXJKJZtO
+	OylRD++UrLbbXL5DOgct6zw4XliK9Un604lX9f7dVSJxfd/0nVGjFF9bt+MXPTrO
+	0HoQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm2; t=1656583366; x=1656669766; bh=USXwQha+QBnfM
-	1Fl9ZZwnvSmTAXqjsiFPn241fwtTZo=; b=lSKLQ6Dg6SVJcdW0Dy/46aBAnCTEp
-	xPKHrO/eJ5ZL9CvKyuSWdPHQWrpVu4fTSsXiQBSd5S3DjHAizqNg1GZeG9aoLeZg
-	q56zBVuI070aNztSP6t1pUqsfOn8F0thvbk0aQSiysYF7A6K8GTs299tHRD+vMXH
-	B5p33kVmLDRpn9+yvOT5t9/gdQRQ7ZjJKQkvsrniKviyafBKyDMu9OJ/1o1H2FSj
-	k0JtyTfb6pwDeVUtIuA8emIHneyqkCneRhtBiUinsnDp+8KW07tkBkKz0ScrI/fo
-	HjLio7+9EpWDGaP5j5cSQ2mRArt1s98GpPf3oZrC33VAozC5Nph1902Ig==
-X-ME-Sender: <xms:xnS9Yn5qsP8aGTlV3r7EIkhAQWUOGbVpUq6F0AY5MibVHZ9F98fo_Q>
-    <xme:xnS9Ys6n6BUnhnT-gWyhkEf5h5tcmEmMsoVggd8fAlqfFtEJ2R5o0Tx7ong2TOrMb
-    cfMkF00I8CYYkMe7Q>
-X-ME-Received: <xmr:xnS9YufeGqh84dVwo95Y_n3utFIYCRUGGwnsUzehWPNMAdBV5iHCpF-l22XRd4rtSfQhRtTBHPHIUgfatllU4E7R5K59gpWn2ySRamC9iQ3a3t1fuCJjSYrWt_nsEuayqmhdtQ>
+	:x-sasl-enc; s=fm2; t=1656583369; x=1656669769; bh=RRJIdrAZofAfN
+	PH9Ms80aUvsjV2YDmaSvFUGEVQFoI0=; b=FwLCNgj8ef0QZbrz4RcGVYTl5wm2i
+	FAT+kHCegEvqrgMI3bDELH/vSfe1yP/e+pNcWku4RrDk3/aVBDALQm9q0bY6hMty
+	5xH2PxDGuhX1M6PIs+J1ueBBf6reRnVImHwotMYTIrajVzlFwbL4rNJYxGoXLUp4
+	mC2bB7Og/GZX2hTMIK0yeEkGY5ZdZKheSYa30uS1z6NR4AFB5KA0hQ51sy7gqm/N
+	C51+r48vP6nb7Qwsz2Rneft9HVyyPlAQiisvfs6SOSMmWq6o6/FyTm5odu1TwU8T
+	o9TC8xmN2NSsOAUKizn+CM3yLOI1wxbcXjzXVm30A4uHbNSU4REDkxlmQ==
+X-ME-Sender: <xms:yXS9YuvS0UKoN7QsKJ79BjTtmlhyA9eGZGptPZj6qYfK2c4ntXUcDw>
+    <xme:yXS9YjcMcHl0s4RI86A5AmpbT4TIxraKL83hOmAd7DN50CNlAMjLSOvroM5mrszw_
+    r0n7stQ2YccqMmrsw>
+X-ME-Received: <xmr:yXS9Ypz1wkuWh8stqiNp0_wa8AKZ6c2a83i0PnECcPqAZuMoU1imgaFQV3U8GrElHcQOSfuFlK0fh_SUwrKb_dU3UMvWR8LYaErmidj8nVBd597OulntltWEbFWj8mszx-_eSw>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudehuddgvddtucetufdoteggodetrfdotf
     fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
     uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
@@ -65,13 +65,13 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudehuddgvddtucetufdoteggod
     ftrfgrthhtvghrnhepudekteeuudehtdelteevgfduvddvjefhfedulefgudevgeeghefg
     udefiedtveetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
     homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:xnS9YoLei8vgjCPk91q6bFrZCqlCLyuernU_-U_0wpDfcE88_G3XPA>
-    <xmx:xnS9YrJNkmzGfGGzNJxEv1Ns4ZF9j-A5rz9AxR4e4Jr2yuo26svSpg>
-    <xmx:xnS9YhydFynDr-j6OsJoTo9UHP2Fb4jsC61aQbe5QNsVFP-cK38b7Q>
-    <xmx:xnS9Ys60oC2ollD8JbhSJ08Oc8aEV90bcrqxs2Doq4A9sgrPZ0QhPw>
+X-ME-Proxy: <xmx:yXS9YpMnYGNMKuHk9EAA-1jewKV76hQf6cJP_BSW69bWyBofB_H8Jg>
+    <xmx:yXS9Yu-vRuXN3okDz-OCdE40D2lcNV7_nP1jIQaQ1JF3Fm7Bo6wGxg>
+    <xmx:yXS9YhU_ZBTaCCv9xr7bjjdcwzAM71z5aPcZpA0dBQO3KJJqqssVtQ>
+    <xmx:yXS9YpcRjg0fxvDznVJHYarskSV-1C9DSdQb6yCKfiT0F4NxNZLaMQ>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 30 Jun 2022 06:02:45 -0400 (EDT)
+ 30 Jun 2022 06:02:48 -0400 (EDT)
 From: Samuel Holland <samuel@sholland.org>
 To: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
@@ -90,16 +90,16 @@ Cc: Guo Ren <guoren@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 2/4] irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
-Date: Thu, 30 Jun 2022 05:02:39 -0500
-Message-Id: <20220630100241.35233-3-samuel@sholland.org>
+Subject: [PATCH v3 4/4] irqchip/sifive-plic: Fix T-HEAD PLIC edge trigger handling
+Date: Thu, 30 Jun 2022 05:02:41 -0500
+Message-Id: <20220630100241.35233-5-samuel@sholland.org>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220630100241.35233-1-samuel@sholland.org>
 References: <20220630100241.35233-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220630_030251_923275_6273A6CE 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20220630_030252_160880_F747E4EE 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,207 +116,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+The T-HEAD PLIC ignores additional edges seen while an edge-triggered
+interrupt is being handled. Because of this behavior, the driver needs
+to complete edge-triggered interrupts in the .irq_ack callback before
+handling them, instead of in the .irq_eoi callback afterward. Otherwise,
+it could miss some interrupts.
 
-The Renesas RZ/Five SoC has a RISC-V AX45MP AndesCore with NCEPLIC100. The
-NCEPLIC100 supports both edge-triggered and level-triggered interrupts. In
-case of edge-triggered interrupts NCEPLIC100 ignores the next interrupt
-edge until the previous completion message has been received and
-NCEPLIC100 doesn't support pending interrupt counter, hence losing the
-interrupts if not acknowledged in time.
-
-So the workaround for edge-triggered interrupts to be handled correctly
-and without losing is that it needs to be acknowledged first and then
-handler must be run so that we don't miss on the next edge-triggered
-interrupt.
-
-This patch adds a new compatible string for NCEPLIC100 (from Andes
-Technology) interrupt controller found on Renesas RZ/Five SoC and adds
-quirk bits to priv structure and implements PLIC_QUIRK_EDGE_INTERRUPT
-quirk to change the interrupt flow.
-
-Suggested-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 Signed-off-by: Samuel Holland <samuel@sholland.org>
 ---
 
 Changes in v3:
- - Use a quirk bit for selecting the flow instead of a variant ID
- - Use the andestech,nceplic100 compatible to select the new behavior
- - Use handle_edge_irq instead of handle_fasteoi_ack_irq so .irq_ack
-   always gets called
- - Do not set the handler name, as RISC-V selects GENERIC_IRQ_SHOW_LEVEL
- - Use the same name for plic_edge_chip as plic_chip
+ - Rebased on top of the RZ/Five patches
 
-Changes in v2:
- - Fixed review comments pointed by Marc and Krzysztof.
-
-Changes in v1:
- - Fixed review comments pointed by Rob and Geert.
- - Changed implementation for EDGE interrupt handling on Renesas RZ/Five
-   SoC.
-
- drivers/irqchip/irq-sifive-plic.c | 78 +++++++++++++++++++++++++++++--
- 1 file changed, 74 insertions(+), 4 deletions(-)
+ drivers/irqchip/irq-sifive-plic.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-index bb87e4c3b88e..90e44367bee9 100644
+index 90e44367bee9..b3a36dca7f1b 100644
 --- a/drivers/irqchip/irq-sifive-plic.c
 +++ b/drivers/irqchip/irq-sifive-plic.c
-@@ -60,10 +60,13 @@
- #define	PLIC_DISABLE_THRESHOLD		0x7
- #define	PLIC_ENABLE_THRESHOLD		0
+@@ -474,7 +474,6 @@ static int __init plic_init(struct device_node *node,
  
-+#define PLIC_QUIRK_EDGE_INTERRUPT	0
-+
- struct plic_priv {
- 	struct cpumask lmask;
- 	struct irq_domain *irqdomain;
- 	void __iomem *regs;
-+	unsigned long plic_quirks;
- };
- 
- struct plic_handler {
-@@ -81,6 +84,8 @@ static int plic_parent_irq __ro_after_init;
- static bool plic_cpuhp_setup_done __ro_after_init;
- static DEFINE_PER_CPU(struct plic_handler, plic_handlers);
- 
-+static int plic_irq_set_type(struct irq_data *d, unsigned int type);
-+
- static void __plic_toggle(void __iomem *enable_base, int hwirq, int enable)
- {
- 	u32 __iomem *reg = enable_base + (hwirq / 32) * sizeof(u32);
-@@ -176,6 +181,17 @@ static void plic_irq_eoi(struct irq_data *d)
- 	}
- }
- 
-+static struct irq_chip plic_edge_chip = {
-+	.name		= "SiFive PLIC",
-+	.irq_ack	= plic_irq_eoi,
-+	.irq_mask	= plic_irq_mask,
-+	.irq_unmask	= plic_irq_unmask,
-+#ifdef CONFIG_SMP
-+	.irq_set_affinity = plic_set_affinity,
-+#endif
-+	.irq_set_type	= plic_irq_set_type,
-+};
-+
- static struct irq_chip plic_chip = {
- 	.name		= "SiFive PLIC",
- 	.irq_mask	= plic_irq_mask,
-@@ -184,8 +200,32 @@ static struct irq_chip plic_chip = {
- #ifdef CONFIG_SMP
- 	.irq_set_affinity = plic_set_affinity,
- #endif
-+	.irq_set_type	= plic_irq_set_type,
- };
- 
-+static int plic_irq_set_type(struct irq_data *d, unsigned int type)
-+{
-+	struct plic_priv *priv = irq_data_get_irq_chip_data(d);
-+
-+	if (!test_bit(PLIC_QUIRK_EDGE_INTERRUPT, &priv->plic_quirks))
-+		return IRQ_SET_MASK_OK_NOCOPY;
-+
-+	switch (type) {
-+	case IRQ_TYPE_EDGE_RISING:
-+		irq_set_chip_handler_name_locked(d, &plic_edge_chip,
-+						 handle_edge_irq, NULL);
-+		break;
-+	case IRQ_TYPE_LEVEL_HIGH:
-+		irq_set_chip_handler_name_locked(d, &plic_chip,
-+						 handle_fasteoi_irq, NULL);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return IRQ_SET_MASK_OK;
-+}
-+
- static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
- 			      irq_hw_number_t hwirq)
- {
-@@ -198,6 +238,19 @@ static int plic_irqdomain_map(struct irq_domain *d, unsigned int irq,
- 	return 0;
- }
- 
-+static int plic_irq_domain_translate(struct irq_domain *d,
-+				     struct irq_fwspec *fwspec,
-+				     unsigned long *hwirq,
-+				     unsigned int *type)
-+{
-+	struct plic_priv *priv = d->host_data;
-+
-+	if (test_bit(PLIC_QUIRK_EDGE_INTERRUPT, &priv->plic_quirks))
-+		return irq_domain_translate_twocell(d, fwspec, hwirq, type);
-+
-+	return irq_domain_translate_onecell(d, fwspec, hwirq, type);
-+}
-+
- static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 				 unsigned int nr_irqs, void *arg)
- {
-@@ -206,7 +259,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- 	unsigned int type;
- 	struct irq_fwspec *fwspec = arg;
- 
--	ret = irq_domain_translate_onecell(domain, fwspec, &hwirq, &type);
-+	ret = plic_irq_domain_translate(domain, fwspec, &hwirq, &type);
- 	if (ret)
- 		return ret;
- 
-@@ -220,7 +273,7 @@ static int plic_irq_domain_alloc(struct irq_domain *domain, unsigned int virq,
- }
- 
- static const struct irq_domain_ops plic_irqdomain_ops = {
--	.translate	= irq_domain_translate_onecell,
-+	.translate	= plic_irq_domain_translate,
- 	.alloc		= plic_irq_domain_alloc,
- 	.free		= irq_domain_free_irqs_top,
- };
-@@ -281,8 +334,9 @@ static int plic_starting_cpu(unsigned int cpu)
- 	return 0;
- }
- 
--static int __init plic_init(struct device_node *node,
--		struct device_node *parent)
-+static int __init __plic_init(struct device_node *node,
-+			      struct device_node *parent,
-+			      unsigned long plic_quirks)
- {
- 	int error = 0, nr_contexts, nr_handlers = 0, i;
- 	u32 nr_irqs;
-@@ -293,6 +347,8 @@ static int __init plic_init(struct device_node *node,
- 	if (!priv)
- 		return -ENOMEM;
- 
-+	priv->plic_quirks = plic_quirks;
-+
- 	priv->regs = of_iomap(node, 0);
- 	if (WARN_ON(!priv->regs)) {
- 		error = -EIO;
-@@ -410,6 +466,20 @@ static int __init plic_init(struct device_node *node,
- 	return error;
- }
- 
-+static int __init plic_init(struct device_node *node,
-+			    struct device_node *parent)
-+{
-+	return __plic_init(node, parent, 0);
-+}
-+
  IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
  IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
- IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init); /* for firmware driver */
-+
-+static int __init plic_edge_init(struct device_node *node,
-+				 struct device_node *parent)
-+{
-+	return __plic_init(node, parent, BIT(PLIC_QUIRK_EDGE_INTERRUPT));
-+}
-+
-+IRQCHIP_DECLARE(andestech_nceplic100, "andestech,nceplic100", plic_edge_init);
+-IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init); /* for firmware driver */
+ 
+ static int __init plic_edge_init(struct device_node *node,
+ 				 struct device_node *parent)
+@@ -483,3 +482,4 @@ static int __init plic_edge_init(struct device_node *node,
+ }
+ 
+ IRQCHIP_DECLARE(andestech_nceplic100, "andestech,nceplic100", plic_edge_init);
++IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_edge_init);
 -- 
 2.35.1
 
