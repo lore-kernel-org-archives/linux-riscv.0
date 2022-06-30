@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE939C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 17:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31991C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 17:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:MIME-Version:Message-ID:
-	In-Reply-To:Date:References:Cc:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=TsuHsu8hdoUiC5k5b084O45WApgQ4OwDyrRHc8O6nVY=; b=bqUtFi/8a9yhRLYfHLXSgvNxgB
-	fyxLX4CkFGZQJyMo1M4+BEjxKntxEqBKMSgVAQkzglEGP3wdgylynFT+6CwCUeeFaScR3IsE4Q0Rk
-	7d/7gIXbgWsQxbRrSUYUpL90qr3lgULwakLX0tUag9fEj1R7y/JERWkVECZRTAzko2gnTyxtjIKuU
-	Si2WSXiCvTkAjKM54jIWlpgSnkUgx0djCaBzoKqn1u2mG/SIoZwMcUylCblA8LDM9Xx72ED1AhYpS
-	8+QaP28OElbTRHf+2Tc7f5lSNZjK99ckXIfSbR4HrtagGR/YPdVAU3zBR5eqgKQ7MJOrDDv9O7B/G
-	TUgOgRhQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aLfkkbm+9eo+HTCmgQEGiw+cEm6zhQETKWuRKDG5DyU=; b=5BSNQ57NP7umKZ
+	fHdVp7Jaem8VCNCfUVjtWoBQowo2wkhZcIDUnB/7LpLMsiYQiHbgGdJg1Mak0F/BB6GyLop79JXe1
+	MtdYZOXULLCd3ezgHjkso8W9GUsrQHbvjq118V+nQP+OI4jnu7QodDijAhKyVXSPAQCXGoRw58BiP
+	iE9n/CpJh/mQEHC7jhzrA7t7ZxZvPRXBDzdx3mAgWQ63RZ58lA4VrRKgG/MRR9TKQJQ3zyMRqmpSu
+	QurPFp6/ou7zIPeB1rjaMIgaT7AWhM29iMaK7wMACHC7ADb2uwsJQDPjG+k6w4ohIkumg4vazhyOK
+	rthvL+XefR4ZoAx82BvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6yMB-000wdF-4G; Thu, 30 Jun 2022 17:53:35 +0000
-Received: from out02.mta.xmission.com ([166.70.13.232])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o6yM8-000wZ1-6G
-	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 17:53:33 +0000
-Received: from in02.mta.xmission.com ([166.70.13.52]:44732)
-	by out02.mta.xmission.com with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.93)
-	(envelope-from <ebiederm@xmission.com>)
-	id 1o6yLn-0020mB-0Z; Thu, 30 Jun 2022 11:53:11 -0600
-Received: from ip68-227-174-4.om.om.cox.net ([68.227.174.4]:58068 helo=email.froward.int.ebiederm.org.xmission.com)
-	by in02.mta.xmission.com with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.93)
-	(envelope-from <ebiederm@xmission.com>)
-	id 1o6yLl-001wdx-Pt; Thu, 30 Jun 2022 11:53:10 -0600
-From: "Eric W. Biederman" <ebiederm@xmission.com>
-To: "Fabio M. De Francesco" <fmdefrancesco@gmail.com>
-Cc: Benjamin LaHaise <bcrl@kvack.org>,  Alexander Viro
- <viro@zeniv.linux.org.uk>,  Kees Cook <keescook@chromium.org>,  Dan
- Williams <dan.j.williams@intel.com>,  Matthew Wilcox
- <willy@infradead.org>,  Jan Kara <jack@suse.cz>,  Jeff Layton
- <jlayton@kernel.org>,  Chuck Lever <chuck.lever@oracle.com>,  Jens Axboe
- <axboe@kernel.dk>,  Pavel Begunkov <asml.silence@gmail.com>,  Thomas
- Gleixner <tglx@linutronix.de>,  Paul Walmsley <paul.walmsley@sifive.com>,
-  Palmer Dabbelt <palmer@dabbelt.com>,  Albert Ou <aou@eecs.berkeley.edu>,
-  Nathan Chancellor <nathan@kernel.org>,  Nick Desaulniers
- <ndesaulniers@google.com>,  Tom Rix <trix@redhat.com>,
-  linux-aio@kvack.org,  linux-fsdevel@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-mm@kvack.org,
-  nvdimm@lists.linux.dev,  io-uring@vger.kernel.org,
-  linux-riscv@lists.infradead.org,  llvm@lists.linux.dev,  Ira Weiny
- <ira.weiny@intel.com>
-References: <20220630163527.9776-1-fmdefrancesco@gmail.com>
-Date: Thu, 30 Jun 2022 12:38:08 -0500
-In-Reply-To: <20220630163527.9776-1-fmdefrancesco@gmail.com> (Fabio M. De
-	Francesco's message of "Thu, 30 Jun 2022 18:35:27 +0200")
-Message-ID: <8735fmqcfz.fsf@email.froward.int.ebiederm.org>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1 (gnu/linux)
+	id 1o6yNG-000woP-4c; Thu, 30 Jun 2022 17:54:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o6yND-000wne-1u
+	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 17:54:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3DEB31063;
+	Thu, 30 Jun 2022 10:54:35 -0700 (PDT)
+Received: from bogus (unknown [10.57.39.193])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 713CA3F5A1;
+	Thu, 30 Jun 2022 10:54:29 -0700 (PDT)
+Date: Thu, 30 Jun 2022 18:53:18 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Niklas Cassel <Niklas.Cassel@wdc.com>
+Cc: Conor Dooley <mail@conchuod.ie>, David Airlie <airlied@linux.ie>,
+	Daniel Vetter <daniel@ffwll.ch>, Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Vinod Koul <vkoul@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Dillon Min <dillon.minfei@gmail.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
+	"alsa-devel@alsa-project.org" <alsa-devel@alsa-project.org>,
+	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v3 00/15] Canaan devicetree fixes
+Message-ID: <20220630175318.g2zmu6ek7l5iakve@bogus>
+References: <20220629184343.3438856-1-mail@conchuod.ie>
+ <Yr3PKR0Uj1bE5Y6O@x1-carbon>
 MIME-Version: 1.0
-X-XM-SPF: eid=1o6yLl-001wdx-Pt;;;mid=<8735fmqcfz.fsf@email.froward.int.ebiederm.org>;;;hst=in02.mta.xmission.com;;;ip=68.227.174.4;;;frm=ebiederm@xmission.com;;;spf=softfail
-X-XM-AID: U2FsdGVkX19nGDcBXv1cJKDV99uQtYu50l8eqi94dLE=
-X-SA-Exim-Connect-IP: 68.227.174.4
-X-SA-Exim-Mail-From: ebiederm@xmission.com
-Subject: Re: [PATCH] fs: Replace kmap{,_atomic}() with kmap_local_page()
-X-SA-Exim-Version: 4.2.1 (built Sat, 08 Feb 2020 21:53:50 +0000)
-X-SA-Exim-Scanned: Yes (on in02.mta.xmission.com)
+Content-Disposition: inline
+In-Reply-To: <Yr3PKR0Uj1bE5Y6O@x1-carbon>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220630_105332_266197_F350C7EF 
-X-CRM114-Status: GOOD (  22.56  )
+X-CRM114-CacheID: sfid-20220630_105439_238114_E37DA33E 
+X-CRM114-Status: GOOD (  23.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,100 +88,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-"Fabio M. De Francesco" <fmdefrancesco@gmail.com> writes:
-
-> The use of kmap() and kmap_atomic() are being deprecated in favor of
-> kmap_local_page().
+On Thu, Jun 30, 2022 at 04:28:26PM +0000, Niklas Cassel wrote:
+> On Wed, Jun 29, 2022 at 07:43:29PM +0100, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> > 
+> > Hey all,
+> > This series should rid us of dtbs_check errors for the RISC-V Canaan k210
+> > based boards. To make keeping it that way a little easier, I changed the
+> > Canaan devicetree Makefile so that it would build all of the devicetrees
+> > in the directory if SOC_CANAAN.
+> > 
+> > I *DO NOT* have any Canaan hardware so I have not tested any of this in
+> > action. Since I sent v1, I tried to buy some since it's cheap - but could
+> > out of the limited stockists none seemed to want to deliver to Ireland :(
+> > I based the series on next-20220617.
+> > 
+> 
+> I first tried to apply your series on top of next-20220630,
+> but was greeted by a bunch of different warnings on boot,
+> including endless RCU stall warnings.
+> However, even when booting next-20220630 without your patches,
+> I got the same warnings and RCU stall.
 >
-> With kmap_local_page(), the mappings are per thread, CPU local and not
-> globally visible. Furthermore, the mappings can be acquired from any
-> context (including interrupts).
+
+Is it possible to share the boot logs please ?
+Conor is having issues with my arch_topology/cacheinfo updates in -next.
+I would like to know if your issue is related to that or not ?
+
+> So I tested your series on top of v5.19-rc4 +
+> commit 0397d50f4cad ("spi: dt-bindings: Move 'rx-sample-delay-ns' to
+> spi-peripheral-props.yaml") cherry-picked,
+> (in order to avoid conflicts when applying your series,)
+> and the board was working as intended, no warnings or RCU stalls.
 >
-> Therefore, use kmap_local_page() in exec.c because these mappings are per
-> thread, CPU local, and not globally visible.
->
-> Tested with xfstests on a QEMU + KVM 32-bits VM booting a kernel with
-> HIGHMEM64GB enabled.
 
-Can someone please refresh my memory on what is going on.
+If possible can you give this branch[1] a try where my changes are and doesn't
+have any other changes from -next. Sorry to bother you.
 
-I remember there were limitations that kmap_atomic had that are hard to
-meet so something I think it was kmap_local was invented and created
-to be the kmap_atomic replacement.
+Conor seem to have issue with this commit[2], so if you get issues try to
+check if [3] works.
 
-What are the requirements on kmap_local?  In copy_strings
-kmap is called in contexts that can sleep in page faults so any
-nearly any requirement except a thread local use is invalidated.
+Regards,
+Sudeep
 
-As you have described kmap_local above it does not sound like kmap_local
-is safe in this context, but that could just be a problem in description
-that my poor memory does is not recalling the necessary details to
-correct.
-
-Eric
-
-> Suggested-by: Ira Weiny <ira.weiny@intel.com>
-> Signed-off-by: Fabio M. De Francesco <fmdefrancesco@gmail.com>
-> ---
->  fs/exec.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
->
-> diff --git a/fs/exec.c b/fs/exec.c
-> index 0989fb8472a1..4a2129c0d422 100644
-> --- a/fs/exec.c
-> +++ b/fs/exec.c
-> @@ -583,11 +583,11 @@ static int copy_strings(int argc, struct user_arg_ptr argv,
->  
->  				if (kmapped_page) {
->  					flush_dcache_page(kmapped_page);
-> -					kunmap(kmapped_page);
-> +					kunmap_local(kaddr);
->  					put_arg_page(kmapped_page);
->  				}
->  				kmapped_page = page;
-> -				kaddr = kmap(kmapped_page);
-> +				kaddr = kmap_local_page(kmapped_page);
->  				kpos = pos & PAGE_MASK;
->  				flush_arg_page(bprm, kpos, kmapped_page);
->  			}
-> @@ -601,7 +601,7 @@ static int copy_strings(int argc, struct user_arg_ptr argv,
->  out:
->  	if (kmapped_page) {
->  		flush_dcache_page(kmapped_page);
-> -		kunmap(kmapped_page);
-> +		kunmap_local(kaddr);
->  		put_arg_page(kmapped_page);
->  	}
->  	return ret;
-> @@ -883,11 +883,11 @@ int transfer_args_to_stack(struct linux_binprm *bprm,
->  
->  	for (index = MAX_ARG_PAGES - 1; index >= stop; index--) {
->  		unsigned int offset = index == stop ? bprm->p & ~PAGE_MASK : 0;
-> -		char *src = kmap(bprm->page[index]) + offset;
-> +		char *src = kmap_local_page(bprm->page[index]) + offset;
->  		sp -= PAGE_SIZE - offset;
->  		if (copy_to_user((void *) sp, src, PAGE_SIZE - offset) != 0)
->  			ret = -EFAULT;
-> -		kunmap(bprm->page[index]);
-> +		kunmap_local(src);
->  		if (ret)
->  			goto out;
->  	}
-> @@ -1680,13 +1680,13 @@ int remove_arg_zero(struct linux_binprm *bprm)
->  			ret = -EFAULT;
->  			goto out;
->  		}
-> -		kaddr = kmap_atomic(page);
-> +		kaddr = kmap_local_page(page);
->  
->  		for (; offset < PAGE_SIZE && kaddr[offset];
->  				offset++, bprm->p++)
->  			;
->  
-> -		kunmap_atomic(kaddr);
-> +		kunmap_local(kaddr);
->  		put_arg_page(page);
->  	} while (offset == PAGE_SIZE);
+[1] https://git.kernel.org/sudeep.holla/c/ae85abf284e7
+[2] https://git.kernel.org/sudeep.holla/c/155bd845d17b
+[3] https://git.kernel.org/sudeep.holla/c/009297d29faa
 
 _______________________________________________
 linux-riscv mailing list
