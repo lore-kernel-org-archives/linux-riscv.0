@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC99DCCA47F
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:24:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72407CCA479
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o6tkGq7VgpRAHpMgzV6HTJ+MRW6DtM9478Gx04ltnhg=; b=iIJLO6LmV/77tq
-	9emLhcxBWmZrIizPkBrCLqMAzsvnHyg/94SVhX/dvTalmhjVGYdNnP4N5YO62W3D0M+PK6ObftfUn
-	ZPUcVMT9ga+ExU6dL2OHlbvxrCHcyhP53h4ftbFKk0MEqZz+elUS/2TvucDQw7rw69jHqm3NHFx6j
-	ZxVvCcmA8FmIg9Hb4DF3CxhhK/fylSFdSpoWGhVdDdcBiuP1MkaIrvniCYty4DHBNZCtY3iPxamJa
-	vV+hwS4zbs8KnJKnOHYBzJlB70mCmxKdY+n2tef6OvZHRRaQ1ins9b87ZsxLGDwltEFAoYPrTMF+8
-	Pomlm7NRdmFCPsNu/AwQ==;
+	List-Owner; bh=NeLSpGFzR5E4E/k0gS5quQAHIUeuKrwHGA/5zI27iKo=; b=kGRydkF3TH2RMK
+	xmlKCNVVejEmsYufEAM4fLgWeMQY8duO5AbG13ZcfDAqVGFdRUTAOCjv8AdbNEKyLc8qFcwnHjUxB
+	YW1238vHNmkaxVs7jdvnQ8SUYi4nQfDmPUVMCtPNAzVQptC19tVSPoqWqF6FFaimdYo7qTvcu5ZCk
+	0c2NWqPFqSiuKcIGDnGfJFUnGqa1VTTuH9qkfsr8ygKYVOITS/jXzgnynt42Wt9LWKOHPFzdfNG42
+	Q6Tbtkc+PXPHTUjRhGYGjgTk9sYIkyJkv55LnaKNAUpjyaQ9E6e5X+Mx2opnXnRIUvf4kzwtG7Q3i
+	GeRYFqGSHftYwp0m2iXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MFL-006XM0-0d; Fri, 01 Jul 2022 19:24:07 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1o7MFO-006XPO-UQ; Fri, 01 Jul 2022 19:24:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MFH-006XIT-F8
-	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:24:05 +0000
+	id 1o7MFL-006XM8-Co
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:24:08 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 8B18ACE34EE;
-	Fri,  1 Jul 2022 19:24:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 518B6C385A2;
-	Fri,  1 Jul 2022 19:23:54 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 02B3261F72;
+	Fri,  1 Jul 2022 19:24:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EFC7C341C8;
+	Fri,  1 Jul 2022 19:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1656703439;
-	bh=5IRTSJGvFO4OHAMn+9sgGglU08Ime9shNTeY7wLOS4w=;
+	s=k20201202; t=1656703445;
+	bh=p4PQCazigD+xmM5i27kOnGV9rsiuwNDpKW4UIqTXJfI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HrIL0NFFH8GvPv14X6eBnhKCVhPnGfzzX07lePmAewtmHaPeitZxlRu5IOvEN8SlI
-	 7G4EMoPHK8/OJfdGHElOOxvxKtHEGBTh//armumSOFz9SgygpEPyYZyqI3WB/e7umc
-	 AAIAZGIRKQ2ob/9ffk+5nMiI1uo9wHVqrT5J0L2sEEGf1q+qs3x0O8h7KlkxhudyOh
-	 xrIjmbssGpN0IuOXCgIgIzdSs3GD8enEK0Fj8RMS0uHS0tuu0OEkdYsa+XsIJHziFr
-	 94Tt4K0kSGITB4vKyoCbTjhgRa3Lnz3LfdtzLexUetgtpQS8PsXArIyYWSE7rBcfEz
-	 Fb1GAc9SDJGTg==
+	b=kUBm2m0/La9PmkaEPbAsuSfP6dZwjsuaeiPTbuUAJk5tIsVOpXtDngNwIqrBzt6ut
+	 mzxx5PsisykiMAj6f5V4p0kGj6Uk74t8zFgFh0cX7/vBvhep7u3IGKnljr6fbA368C
+	 ZS5SG3jCRkRW1lf3v893YwzS2pslqlh5ANGVF6ze3UNgonSjmumqc90lGKJ/ZjuF+c
+	 13AVgK15YjcoJ0o+Wqs40RQAVXuS//1Evjx3MH/hzkRYYPJ+pAxsk5FqNkuIILiHB1
+	 TUvuEo6eRCFm6SJcJ8PazdbKKMeokz7OxKr4WCT0MyNfaokdWQdbMgWuoLbLadS+3m
+	 67c6YRmTiRaBQ==
 From: Conor Dooley <conor@kernel.org>
 To: David Airlie <airlied@linux.ie>,
 	Daniel Vetter <daniel@ffwll.ch>,
@@ -72,16 +72,16 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	dmaengine@vger.kernel.org,
 	alsa-devel@alsa-project.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 04/14] dt-bindings: dma: dw-axi-dmac: extend the number of interrupts
-Date: Fri,  1 Jul 2022 20:22:50 +0100
-Message-Id: <20220701192300.2293643-5-conor@kernel.org>
+Subject: [PATCH v4 05/14] dt-bindings: memory-controllers: add canaan k210 sram controller
+Date: Fri,  1 Jul 2022 20:22:51 +0100
+Message-Id: <20220701192300.2293643-6-conor@kernel.org>
 X-Mailer: git-send-email 2.37.0
 In-Reply-To: <20220701192300.2293643-1-conor@kernel.org>
 References: <20220701192300.2293643-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220701_122403_700008_4EC05223 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20220701_122407_612660_0394CD7F 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,38 +100,75 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The Canaan k210 apparently has a Sysnopsys Designware AXI DMA
-controller, but according to the documentation & devicetree it has 6
-interrupts rather than the standard one. Support the 6 interrupt
-configuration by unconditionally extending the binding to a maximum of
-8 per-channel interrupts thereby matching the number of possible
-channels.
+The k210 U-Boot port has been using the clocks defined in the
+devicetree to bring up the board's SRAM, but this violates the
+dt-schema. As such, move the clocks to a dedicated node with
+the same compatible string & document it.
 
-Link: https://canaan-creative.com/wp-content/uploads/2020/03/kendryte_standalone_programming_guide_20190311144158_en.pdf #Page 51
-Reviewed-by: Serge Semin <fancer.lancer@gmail.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/dma/snps,dw-axi-dmac.yaml          | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ .../memory-controllers/canaan,k210-sram.yaml  | 52 +++++++++++++++++++
+ 1 file changed, 52 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
 
-diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-index 4324a94b26b2..98c2ab18d04f 100644
---- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-+++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-@@ -34,7 +34,12 @@ properties:
-       - const: axidma_apb_regs
- 
-   interrupts:
--    maxItems: 1
-+    description: |
-+      If the IP-core synthesis parameter DMAX_INTR_IO_TYPE is set to 1, this
-+      will be per-channel interrupts. Otherwise, this is a single combined IRQ
-+      for all channels.
+diff --git a/Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml b/Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
+new file mode 100644
+index 000000000000..82be32757713
+--- /dev/null
++++ b/Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
+@@ -0,0 +1,52 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/memory-controllers/canaan,k210-sram.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Canaan K210 SRAM memory controller
++
++description: |
++  The Canaan K210 SRAM memory controller is initialised and programmed by
++  firmware, but an OS might want to read its registers for error reporting
++  purposes and to learn about the DRAM topology.
++
++maintainers:
++  - Conor Dooley <conor@kernel.org>
++
++properties:
++  compatible:
++    enum:
++      - canaan,k210-sram
++
++  clocks:
 +    minItems: 1
-+    maxItems: 8
- 
-   clocks:
-     items:
++    items:
++      - description: sram0 clock
++      - description: sram1 clock
++      - description: aisram clock
++
++  clock-names:
++    minItems: 1
++    items:
++      - const: sram0
++      - const: sram1
++      - const: aisram
++
++required:
++  - compatible
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/k210-clk.h>
++    memory-controller {
++        compatible = "canaan,k210-sram";
++        clocks = <&sysclk K210_CLK_SRAM0>,
++                 <&sysclk K210_CLK_SRAM1>,
++                 <&sysclk K210_CLK_AI>;
++        clock-names = "sram0", "sram1", "aisram";
++    };
 -- 
 2.37.0
 
