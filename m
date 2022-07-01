@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E856FC43334
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8225CCA479
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TKnlG6aON+vHtTrxLaxGgPh/jea6jiLi6DBTsFSOsmw=; b=4XPk4iOjygzwG9
-	9GV8Rqx/2MaPQHzES5bKOCj0YheEn6ZvrecaiKm75G9KLXUjozXQYzdOSo7iwY4ztg0X0bLKqX6qA
-	SiufFCkKXWBPSpM9dVqRq7+yXkFclTLY28AKV/MaFxxkMcfpJqrnildfELDX3cNeENtm08NSQ9s7L
-	d3zcE+Jfn3OgWhjiAxDAi5aBYU5SS8J0X2Xqp9liUVUCTa44mG3dAEjLkDKgWsaMYg6ShElr9BgIg
-	qr0hI6B+LPOk+nl5JYxU6wc143wkXjX7uHfxjwj2RqmruEOEtZPh0J5hbKofGPB/cPkbNpjkSUCnW
-	AwiauCynX80gzutYvxZg==;
+	List-Owner; bh=xTZx9qo4rUz5cePg+BNGnVEHgxRnwVqtuRsfNScgVgk=; b=3zrg9rx6BbPVAL
+	H/h0tyMx/izRSPzCWTrIK2Mk9NDnpG+96+zszttiVfF6paBkMYeM4ahZddgqzK0AigHlFq8NMrnTp
+	VGpPvXbr1ZQSeYw8pFfw6kVv1WF+bMQgC/vTnw0wmRAMFRo9aC6yFeeqqG919XkJJ6vdToT13rR+/
+	2j/3hSkKctW9htIswkT5yAlMAz//sFVBcV7oRhcOBOMsbZ8LgGMFZtT/hHeM66u5VIIzDP3lcG7cn
+	73jSZe8Hl7ralhSCcKbPqRXfyXyVpT6MYeuOf79j9e+FBGw0vqfRkQJPgV/944oeyGIjQfyrI3qzd
+	ya+OBcvmaCy3Fx5ZdzCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MGF-006YGR-N0; Fri, 01 Jul 2022 19:25:03 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1o7MGK-006YLh-Qn; Fri, 01 Jul 2022 19:25:08 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MG8-006Y8d-MN
-	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:24:58 +0000
+	id 1o7MGE-006YEQ-Tt
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:25:04 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 0D1CCB831A9;
-	Fri,  1 Jul 2022 19:24:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4551FC3411E;
-	Fri,  1 Jul 2022 19:24:48 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 75CE5B831B1;
+	Fri,  1 Jul 2022 19:25:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4433EC341CE;
+	Fri,  1 Jul 2022 19:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1656703493;
-	bh=GQBZkYsOARLee0LoWUcB5KK1izgdhhT3qdxeMqPT9Js=;
+	s=k20201202; t=1656703499;
+	bh=8p0CrcOywNuZ8dCyl/5AL75RraFYWheVunkwKedwW2g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dj44/KsDsj9XCsKlI0DYZVNdzzBwOR1+6l6nZKtgV32waooME0H55JVPqqGngOxeZ
-	 /haG+mvmWd90gDOODN5oXUN7hxE9/mfPigkQIAvxorJzI+EOLFq6dXA8IfenN9E7ou
-	 qFyHheDQXzI2/FKBLNevZzeurvxUzMKf2Qoe/MvGXtX4flvYEznJ32IgT+mVFJyjzY
-	 R0SogVpw8kQHqYI3+tSQn9bKIwIkZbQvIe+vgZOs3Wy0CZDseklj+i7W8Qn3YyxVJq
-	 PbxRL5tzIljlVA4aAb2mHKmQHgucMAvRIqcKAPEJ9KzAB4ylsbWQMQhaQ3F/RWVI03
-	 NqiPFta0VCoPQ==
+	b=Tafm5NL7FvMwnLrPtK16jpCVhnv7dnfHP/dqMYMiz/wgTQDk6Bx3IhzIhFuq1uMyK
+	 RtqJTzqIjmVXIJvk40i2jXmaSeVBNn9WL/IrxoF7hfU1Vhw3IP0HJPTjYiqm+FhWir
+	 xyKa6Nql7yFSUqNUYIXaJNvBcMUm4IC6gkeyHUJ/F1RN8+h5ZrW5ZvyA37dZjHlPWi
+	 t23k7s7TGCluKhM84Ll4O44D6vKjIZkOzcsnu7tKOzZA61GDxOKqRxUxA1IMLJYob/
+	 7bZUdov1NUX3tf/ocua/Al36fJ+Sa2heU2eRkDNxbPGgxgO0lGtFlf4yEYGIv3A7zU
+	 iEzZ6f1N6h3VQ==
 From: Conor Dooley <conor@kernel.org>
 To: David Airlie <airlied@linux.ie>,
 	Daniel Vetter <daniel@ffwll.ch>,
@@ -72,16 +72,16 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	dmaengine@vger.kernel.org,
 	alsa-devel@alsa-project.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 13/14] riscv: dts: canaan: add specific compatible for kd233's LCD
-Date: Fri,  1 Jul 2022 20:22:59 +0100
-Message-Id: <20220701192300.2293643-14-conor@kernel.org>
+Subject: [PATCH v4 14/14] riscv: dts: canaan: build all devicetress if SOC_CANAAN
+Date: Fri,  1 Jul 2022 20:23:00 +0100
+Message-Id: <20220701192300.2293643-15-conor@kernel.org>
 X-Mailer: git-send-email 2.37.0
 In-Reply-To: <20220701192300.2293643-1-conor@kernel.org>
 References: <20220701192300.2293643-1-conor@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220701_122456_945007_1B51B122 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20220701_122503_155444_EE4123D6 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,26 +100,33 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Add the recently introduced compatible for the LCD on the Canaan KD233.
+Testing & checking the Canaan devicetrees is inconvenient as only the
+devicetree corresponding to SOC_CANAAN_K210_DTB_BUILTIN will be built.
+Change the Makefile so that all devicetrees are built by default if
+SOC_CANAAN but only the one specified by SOC_CANAAN_K210_DTB_BUILTIN
+gets built as an object.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/canaan/canaan_kd233.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/boot/dts/canaan/Makefile | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/canaan/canaan_kd233.dts b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-index 4a540158f287..b0cd0105a5bd 100644
---- a/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-+++ b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-@@ -127,7 +127,7 @@ &spi0 {
- 	cs-gpios = <&gpio0 20 GPIO_ACTIVE_HIGH>;
- 
- 	panel@0 {
--		compatible = "ilitek,ili9341";
-+		compatible = "canaan,kd233-tft", "ilitek,ili9341";
- 		reg = <0>;
- 		dc-gpios = <&gpio0 21 GPIO_ACTIVE_HIGH>;
- 		spi-max-frequency = <10000000>;
+diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/canaan/Makefile
+index c61b08ac8554..befe4eb7527b 100644
+--- a/arch/riscv/boot/dts/canaan/Makefile
++++ b/arch/riscv/boot/dts/canaan/Makefile
+@@ -1,3 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0
+-dtb-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .dtb, $(CONFIG_SOC_CANAAN_K210_DTB_SOURCE))
+-obj-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .o, $(dtb-y))
++dtb-$(CONFIG_SOC_CANAAN) += canaan_kd233.dtb
++dtb-$(CONFIG_SOC_CANAAN) += k210_generic.dtb
++dtb-$(CONFIG_SOC_CANAAN) += sipeed_maix_bit.dtb
++dtb-$(CONFIG_SOC_CANAAN) += sipeed_maix_dock.dtb
++dtb-$(CONFIG_SOC_CANAAN) += sipeed_maix_go.dtb
++dtb-$(CONFIG_SOC_CANAAN) += sipeed_maixduino.dtb
++
++obj-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .dtb.o, $(CONFIG_SOC_CANAAN_K210_DTB_SOURCE))
 -- 
 2.37.0
 
