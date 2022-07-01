@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426E8C43334
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:41:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60E0C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D0QSpIeIewfc2ZTlTiF6lpHOFFvL1b/qkiyGfdT0YSY=; b=qirSEcu6w2PYZY
-	q7eRQl3Y0kKSwrwv7I5L2DgFQbxQIF3Zt8mvqNgBqyoO9OMmglldVsJMZISgn+T+YL7NqRkU+w5Dn
-	Y2ZJKIOF5c8RxLkv3RxMHPBRmBKYgP5bBjVPocP32XzPx4MlV0oDdvHz2mNi8eRq0DaXFfMpw08om
-	0P3bJqe79wHjF3r2Y1y/TSG5Q3efoppRescYMZczI11yAl9ooUjAYzHon93Z2Zf6OXeXBgcj9PvQ9
-	kXidEOCqn+inFfQ85oUTg0qHQ571NT3zdUTCD1N4dNwGRhQMUKmTX7c8VK8mIMnoDw20KuPG2dmZV
-	awc4sHcZCvpUxRhzsI0Q==;
+	List-Owner; bh=556Mtfh0C1a+bZH7iMdRX+0siUSKpVZ6oVddagwGa8Y=; b=A5gyjAZE3ORX1H
+	6iukofdyNNhDerYa5Q6pXN0qGSBTvC0W1xuDiRqWIyQ2M+rS81TcLWOlfcPJ7vkxbStgP2BKVHHbz
+	08uPr0i51rgGWGtQR5GNZk2j+XCKNE2MNaX9ANaRIvzOhvTUoomNsaMct6JeVRZ86Lk0yMeU8u2xL
+	7bM0HvbzB0c4RqNDVFL525LkOH5S0f1Ddu2YTGrMg435DbZcQY0A+RgJBxRl8MqnlIVsk/h2KBmjg
+	sFnq11koM3FCc+l9fAhOJHK6nGC0f5dwpnzPWfaO2pJx65tOK4uSqLh3aQLZ5a01qN9ss7LrxRdIg
+	Nb4578XrpvNl5PN4ZVCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MW3-006f7y-Dz; Fri, 01 Jul 2022 19:41:23 +0000
-Received: from mail-io1-f43.google.com ([209.85.166.43])
+	id 1o7MeL-006h5x-Oz; Fri, 01 Jul 2022 19:49:57 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MVx-006f43-79
-	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:41:20 +0000
-Received: by mail-io1-f43.google.com with SMTP id y2so3182790ior.12
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 12:41:14 -0700 (PDT)
+	id 1o7MeI-006h3r-3s
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:49:55 +0000
+Received: by mail-qk1-x731.google.com with SMTP id b24so2589087qkn.4
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 12:49:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=u6fPAgM8gi/RJI8YuKyRjChuGCO5jCSEWC0CBzNffV0=;
+        b=ByfbfV2q6QbOnkjD39rDX3vW30bOrecwJhGvEHJzy5JQ/s934vXaj9cLQ9w0HT7ewk
+         dvx4xjT5TlZTxJ8LWAUp5DJ3HZnM6sYHf/Q5nRt5bv2Uf8SiSx9odeglVNB6rjCs7cgX
+         4UD6GljcU0u+QNeS8Sz4D281+08LbQJ8iUPe8a0e0GHMW+MnvDyP5SUppa9qndiB+nt2
+         M/GHSOqGlEBUZYAYrT2cIuovkV/rBEI0RQ7SlQsOY6ogtJt6ygSXnsNBVLKkfVTq/gT4
+         oPTL4dGhrujdy7vKT7Q07GIz5K76g7AKv/I0weag9+QqzgJeqs85YQYWu5qqAN6tIdU1
+         MTNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to;
-        bh=RHrkVsGF6yh4atuN/qmRjWl7VEZw4egW+a3OkfBFnbM=;
-        b=PqKQY3V5CVY3NEgLYM07EiMaJMNKeDJDc//YOXQviieEXOjgUnALXmb7QZ5k3EQyIJ
-         E6+4n4cV4mpzyC6rKVe7i0+TH6rmpkRSkwx6NSqNJrRAY7IE2GUVEbeux+BxiHNHKkmd
-         EgJbcA/klV9N/RkprnGlN58g/qTRmEtLKsDnDcSvbYH4YGxwBrgWPi+5mflkmqfLUEiz
-         iAlWpAIYB+qCTzbve9NMjRYsD/zX4sN4cjzbvVa+6zZE/mv/UGfKYNkT/twEFmSsg7yv
-         R6Ek8V0lTCwyGtVMmZ+VvjpGZQKGjQBES6puy/tvP7bHdXODPEe5ofBapZNtubwMi9SH
-         q2WQ==
-X-Gm-Message-State: AJIora+Fj/RI8cV2Jc4KKkHWGrDuWN+KHTDujGagYFMQU0Hh7KUdczH2
-	N8GhGcibR3JkwbOsIhlwzQ==
-X-Google-Smtp-Source: AGRyM1tlsN2RCONvqgzA0GpBUrUts90pmA7r74l1wJj1YnzPtK+Cu6hEsfzhUTYnzJsijdJvLVfcBg==
-X-Received: by 2002:a05:6638:33a4:b0:33e:9335:9f0e with SMTP id h36-20020a05663833a400b0033e93359f0emr5171953jav.260.1656704473689;
-        Fri, 01 Jul 2022 12:41:13 -0700 (PDT)
-Received: from robh.at.kernel.org ([64.188.179.248])
-        by smtp.gmail.com with ESMTPSA id y1-20020a02a381000000b00339c855eb15sm10186415jak.27.2022.07.01.12.41.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Jul 2022 12:41:13 -0700 (PDT)
-Received: (nullmailer pid 1390347 invoked by uid 1000);
-	Fri, 01 Jul 2022 19:41:10 -0000
-Date: Fri, 1 Jul 2022 13:41:10 -0600
-From: Rob Herring <robh@kernel.org>
-To: Conor.Dooley@microchip.com
-Cc: fancer.lancer@gmail.com, mail@conchuod.ie, airlied@linux.ie, daniel@ffwll.ch, krzysztof.kozlowski+dt@linaro.org, thierry.reding@gmail.com, sam@ravnborg.org, Eugeniy.Paltsev@synopsys.com, vkoul@kernel.org, lgirdwood@gmail.com, broonie@kernel.org, daniel.lezcano@linaro.org, palmer@dabbelt.com, palmer@rivosinc.com, tglx@linutronix.de, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, masahiroy@kernel.org, damien.lemoal@opensource.wdc.com, geert@linux-m68k.org, niklas.cassel@wdc.com, dillon.minfei@gmail.com, joabreu@synopsys.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, alsa-devel@alsa-project.org, linux-spi@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 05/15] dt-bindings: dma: dw-axi-dmac: extend the
- number of interrupts
-Message-ID: <20220701194110.GA1388036-robh@kernel.org>
-References: <20220629184343.3438856-1-mail@conchuod.ie>
- <20220629184343.3438856-6-mail@conchuod.ie>
- <20220630215540.cifnzovya57bgbsw@mobilestation>
- <f7d64f1d-9fb8-6259-cd60-8bfc65636300@microchip.com>
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=u6fPAgM8gi/RJI8YuKyRjChuGCO5jCSEWC0CBzNffV0=;
+        b=IhOnsqbZIrw+RB+u5606gYr7cCZHBuPD/qv1ucnYiAQH9Ac2RVDzF7Qt/6zcrCMAPr
+         3YGpg3Ja9e5iiNX+G+uOlGvc8lMOD+V57+gbmTgPs+iYX/oIxjayA++zmd48WUklJpuq
+         rhHOPTSrDbP6Ny8CWyn3XVgMxLo//b0GQBHhDIpgBezAS/TUShtTUKFF78IRt08BCxbz
+         FQ5ajNIxRDIQgDjb3n0OsN5R8gJ4ah6vbJbJ986684oYXtDmG3qWEiMxt5K1kLoK5geL
+         eTHxXF5i9R3TIu8N+Ylu1vllwiKCcxWIu8WRPBMy1JrHWVSAMIigECZ+Nt1JC+SITX2e
+         j0Lg==
+X-Gm-Message-State: AJIora+9vTY062rXEWxXFcr/GrKW56mxaPaw3GGlx+Zal+gBj9LI+0mR
+	eKXNA1Mzoe6ljURIrxk3+VTXmadWVI5uucnCzwQW9w==
+X-Google-Smtp-Source: AGRyM1s1AY7XBEABePvu0AwdCbeRlv4PSrgMczV/kpgOfIvJvzVm2yQHPAjRjjG9DAkpsWyd7uKVstLy75J/STwM7js=
+X-Received: by 2002:a05:620a:46ab:b0:6b1:6550:9062 with SMTP id
+ bq43-20020a05620a46ab00b006b165509062mr10580150qkb.80.1656704991257; Fri, 01
+ Jul 2022 12:49:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <f7d64f1d-9fb8-6259-cd60-8bfc65636300@microchip.com>
+References: <CABMhjYp3xUyQ9q6nXHvEA2zuzhYi0ETn6UETeH1apWf2n2eP7A@mail.gmail.com>
+ <7ba0c325-bc1f-f6e4-dd8a-b5d13a04ef93@microchip.com>
+In-Reply-To: <7ba0c325-bc1f-f6e4-dd8a-b5d13a04ef93@microchip.com>
+From: Atul Khare <atulkhare@rivosinc.com>
+Date: Fri, 1 Jul 2022 12:49:40 -0700
+Message-ID: <CABMhjYrDyOoDusE4-y4VzM87Vg=NhPbow_dQ+1C4EcX50LrMHw@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] dt-bindings: sifive: fix dt-schema errors
+To: Conor Dooley <Conor.Dooley@microchip.com>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-i2c@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220701_124117_297616_C57FCE51 
-X-CRM114-Status: GOOD (  22.12  )
+X-CRM114-CacheID: sfid-20220701_124954_415695_FD77AB38 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,57 +87,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 30, 2022 at 11:12:53PM +0000, Conor.Dooley@microchip.com wrote:
-> On 30/06/2022 22:55, Serge Semin wrote:
+Conor,
+
+Apologies for the delay, but my laptop died a couple of weeks ago, and
+I have been scrambling to get things up and running on the
+replacement. I will try and get back to it ASAP.
+
+On Sat, Jun 18, 2022 at 5:40 AM <Conor.Dooley@microchip.com> wrote:
+>
+> On 09/06/2022 00:39, Atul Khare wrote:
 > > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> > 
-> > On Wed, Jun 29, 2022 at 07:43:34PM +0100, Conor Dooley wrote:
-> >> From: Conor Dooley <conor.dooley@microchip.com>
-> >>
-> >> The Canaan k210 apparently has a Sysnopsys Designware AXI DMA
-> >> controller, but according to the documentation & devicetree it has 6
-> >> interrupts rather than the standard one. Support the 6 interrupt
-> >> configuration by unconditionally extending the binding to a maximum of
-> >> 8 per-channel interrupts thereby matching the number of possible
-> >> channels.
-> >>
-> >> Link: https://canaan-creative.com/wp-content/uploads/2020/03/kendryte_standalone_programming_guide_20190311144158_en.pdf #Page 51
-> >> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> >> ---
-> >>  Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml | 4 +++-
-> >>  1 file changed, 3 insertions(+), 1 deletion(-)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-> >> index 4324a94b26b2..e33ef22aec9c 100644
-> >> --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-> >> +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
-> >> @@ -34,7 +34,9 @@ properties:
-> >>        - const: axidma_apb_regs
-> >>
-> >>    interrupts:
-> > 
-> >> -    maxItems: 1
-> >> +    description: per channel interrupts
-> > 
-> > Description is inaccurate. It's either combined or per-channel IRQs.
-> 
-> I will change it to:
->   interrupts:
->     description: |
-
-Don't need '|'.
-
->       If the IP-core synthesis parameter DMAX_INTR_IO_TYPE is set to 1, this
->       will be per-channel interrupts. Otherwise, this is a single combined IRQ
->       for all channels.
->     minItems: 1
->     maxItems: 8
-> 
-> How's that sound?
-
-With that,
-
-Reviewed-by: Rob Herring <robh@kernel.org>
+> >
+> > The patch series fixes dt-schema validation errors that can be reproduced
+> > using the following: make ARCH=riscv defconfig; make ARCH=riscv
+> > dt_binding_check dtbs_check
+> >
+> > This is a rebased version of https://tinyurl.com/yvdvmsjd, and excludes
+> > two patches that are now redundant.
+>
+> Hey Atul,
+> Any word on (an applicable) v3? Would like to get rid of this last
+> couple of warnings.
+> Thanks,
+> Conor.
+>
+> >
+> > Atul Khare (2):
+> >   dt-bindings: sifive: add cache-set value of 2048
+> >   dt-bindings: sifive: add gpio-line-names
+> >
+> >  Documentation/devicetree/bindings/gpio/sifive,gpio.yaml      | 3 +++
+> >  Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml | 4 +++-
+> >  2 files changed, 6 insertions(+), 1 deletion(-)
+> >
+> > --
+> > 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
