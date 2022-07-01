@@ -4,74 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAADBC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 30 Jun 2022 23:44:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A150AC43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 02:34:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gva23QmcQb9FXVlUfl8VJyoDZA1oWVjty4MRgO2GKUA=; b=Qyp3M9I21jfyuS
-	EwfnsXLlR4nVgywz5SaxSetyrWAXoqxUn7PS+yIHlpV9BkuwWCQ9FAtZbHIg1RWbyNkL9GqykI0e0
-	C4d9SON+TAKW5bWp6vBbXb33YsjxPnWxm74u0OSNqJGMyES55Clf0Q1SmKenLA84f31iHoO//tYfp
-	USGwvlnbPxfRsX3whjFQYBhaAcDhFNcBCyFQeFtAEBhfX9piyNZr0MAjIuA5Rh/07uEdr6HxjCod5
-	CE0DtBnVNPQsgYgkEL3BxUMpclyZExjI8IIYYhRCzoRVzslsi0gJ+8p5ABV0HGKoOaPGcC3/Kbvpt
-	M92c6n/9rFFyBkZUk32w==;
+	List-Owner; bh=K+7YnIoZb7UHAu9TQUbMd0ZYwlFkGy5OwtS+FPDpug0=; b=VtUv/0UQhbeYo+
+	dZzBKwc5XfBpVYhBLbIB9wRZjW7Wd2H0dlAYPik5AH+rpwzRnbCKArf1KPYv67MK5e/fH9Xkfqa/4
+	rmxBpkApX3VaktWnbXhCGQsFjWOPZlBoqXpigh+E8IlXW72cww19dNmQLOBABJMp6gZdoml8K0rWo
+	pd76fKs+6SYNIK/CoF2vc025ZHHgBhvxZ9tEqAfdykrnH7NdlV3RzS+Nr7yTlNt1PSVTd5nbHfwQY
+	ZMe70EOHA4/4Xvs5NHKFJVyTMW7nfI5jg/HoSTWD1jI4kx0lrgBZvzaRbtKbQLrhU6CfjgWjoVU2a
+	rvI1INs5w707FEzEwyyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o73pJ-0025OG-Sh; Thu, 30 Jun 2022 23:44:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o73pG-0025Nq-Tq
-	for linux-riscv@lists.infradead.org; Thu, 30 Jun 2022 23:44:00 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C868261C1D
-	for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 23:43:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4C69C341C7
-	for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 23:43:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1656632635;
-	bh=eyoIxjqXwe6a+k27angKqff/ZHeX4NCkAQUMfqeZnqs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=h5pGmyR+BbEGhmec0pYuj5FrqsKLM4mTaPUTeh/LkgythWvwsfHnMHjUjzSgqvVLr
-	 gK4pOVOaDNGsN1gO7ns+6d9TW5TDoA237eu822yv8FmZSgTzxbaX+KBOSgbW6670lp
-	 sHUHhZD1bWTPxqJjHfM0thUM7/MSDi/5rbXEjE6dbzevPYEmyxRZ6gW4dqRfTvoEHR
-	 vrY+Ve8wxpdiIuVSgrR/KRDvSMJK4IEOOHVXLIfXPw0MTuoe3wS7h/qwG8PrKWWymJ
-	 Rmw2c0jxGSg5Rtkm2kE33/L4t5AaEdo5iKeTvOxo0zr+2M24MNNH4+607We3rH3FAN
-	 gzB9IoZUq4aPw==
-Received: by mail-vs1-f52.google.com with SMTP id 126so752477vsq.13
-        for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 16:43:55 -0700 (PDT)
-X-Gm-Message-State: AJIora/LOAAuc9Qb2am7ILe+vA5rOBUYAM+rwckVBpe8PDlOd4zYrzvv
-	ZQolC0fOFkncFKlnNTq8i4F4ULD2TPv2A+doapc=
-X-Google-Smtp-Source: AGRyM1uEB5FFrm+HdwYN5uiyj6I1oWB4vU5B6wSiitayditj5pSvoL87RU0uu+at6zQuX+F9vEQynXsbmQKJ9eeWyao=
-X-Received: by 2002:a05:6102:f8b:b0:354:57e8:4c1b with SMTP id
- e11-20020a0561020f8b00b0035457e84c1bmr10760309vsv.8.1656632634620; Thu, 30
- Jun 2022 16:43:54 -0700 (PDT)
+	id 1o76UW-002R1Y-6x; Fri, 01 Jul 2022 02:34:44 +0000
+Received: from fd01.gateway.ufhost.com ([61.152.239.71])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o76UR-002Qyf-0r
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 02:34:42 +0000
+Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
+	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
+	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E94BA24E0EA;
+	Fri,  1 Jul 2022 10:34:08 +0800 (CST)
+Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
+ (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.32; Fri, 1 Jul
+ 2022 10:34:09 +0800
+Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX068.cuchost.com
+ (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.32; Fri, 1 Jul
+ 2022 10:34:08 +0800
+Received: from EXMBX061.cuchost.com ([fe80::3912:9b8d:b65:fa67]) by
+ EXMBX061.cuchost.com ([fe80::3912:9b8d:b65:fa67%14]) with mapi id
+ 15.00.1497.033; Fri, 1 Jul 2022 10:34:08 +0800
+From: Leyfoon Tan <leyfoon.tan@starfivetech.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+CC: "alexandre.ghiti@canonical.com" <alexandre.ghiti@canonical.com>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: arch/riscv: SV48 patch series questions
+Thread-Topic: arch/riscv: SV48 patch series questions
+Thread-Index: AdhxrOkRGR9CQf46QWqljv+TL2tt2AEQwdsAABSqKCAFrAS48A==
+Date: Fri, 1 Jul 2022 02:34:08 +0000
+Message-ID: <d1d448faad0e421e9a0b4412d46681c5@EXMBX061.cuchost.com>
+References: <83813d991f96428c95c6d681c16ae852@EXMBX161.cuchost.com>
+ <mhng-055df44c-3feb-41ae-b8c0-ae3a6489dee1@palmer-ri-x1c9>
+ <e99af0ab0a264aadb77d949c4b73fd57@EXMBX161.cuchost.com>
+In-Reply-To: <e99af0ab0a264aadb77d949c4b73fd57@EXMBX161.cuchost.com>
+Accept-Language: en-US, zh-CN
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-exchange-transport-fromentityheader: Hosted
+x-originating-ip: [202.188.176.82]
+x-yovoleruleagent: yovoleflag
 MIME-Version: 1.0
-References: <20220630100241.35233-1-samuel@sholland.org> <20220630100241.35233-5-samuel@sholland.org>
-In-Reply-To: <20220630100241.35233-5-samuel@sholland.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 1 Jul 2022 07:43:43 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRm656yG0qaksQ47oozKhiJ6aSCgy1u721+59Wu8Sb=Ng@mail.gmail.com>
-Message-ID: <CAJF2gTRm656yG0qaksQ47oozKhiJ6aSCgy1u721+59Wu8Sb=Ng@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] irqchip/sifive-plic: Fix T-HEAD PLIC edge trigger handling
-To: Samuel Holland <samuel@sholland.org>
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Prabhakar <prabhakar.csengg@gmail.com>, Marc Zyngier <maz@kernel.org>, 
-	Sagar Kadam <sagar.kadam@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, linux-renesas-soc@vger.kernel.org, 
-	Biju Das <biju.das.jz@bp.renesas.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>, 
-	devicetree <devicetree@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220630_164359_078393_72AAC348 
-X-CRM114-Status: GOOD (  20.33  )
+X-CRM114-CacheID: sfid-20220630_193439_363490_44BFC24C 
+X-CRM114-Status: GOOD (  28.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,53 +80,68 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Guo Ren <guoren@kernel.org>
-
-On Thu, Jun 30, 2022 at 6:02 PM Samuel Holland <samuel@sholland.org> wrote:
->
-> The T-HEAD PLIC ignores additional edges seen while an edge-triggered
-> interrupt is being handled. Because of this behavior, the driver needs
-> to complete edge-triggered interrupts in the .irq_ack callback before
-> handling them, instead of in the .irq_eoi callback afterward. Otherwise,
-> it could miss some interrupts.
->
-> Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> Signed-off-by: Samuel Holland <samuel@sholland.org>
-> ---
->
-> Changes in v3:
->  - Rebased on top of the RZ/Five patches
->
->  drivers/irqchip/irq-sifive-plic.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/irqchip/irq-sifive-plic.c b/drivers/irqchip/irq-sifive-plic.c
-> index 90e44367bee9..b3a36dca7f1b 100644
-> --- a/drivers/irqchip/irq-sifive-plic.c
-> +++ b/drivers/irqchip/irq-sifive-plic.c
-> @@ -474,7 +474,6 @@ static int __init plic_init(struct device_node *node,
->
->  IRQCHIP_DECLARE(sifive_plic, "sifive,plic-1.0.0", plic_init);
->  IRQCHIP_DECLARE(riscv_plic0, "riscv,plic0", plic_init); /* for legacy systems */
-> -IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_init); /* for firmware driver */
->
->  static int __init plic_edge_init(struct device_node *node,
->                                  struct device_node *parent)
-> @@ -483,3 +482,4 @@ static int __init plic_edge_init(struct device_node *node,
->  }
->
->  IRQCHIP_DECLARE(andestech_nceplic100, "andestech,nceplic100", plic_edge_init);
-> +IRQCHIP_DECLARE(thead_c900_plic, "thead,c900-plic", plic_edge_init);
-> --
-> 2.35.1
->
 
 
--- 
-Best Regards
- Guo Ren
+> -----Original Message-----
+> From: Leyfoon Tan
+> Sent: Thursday, 2 June, 2022 1:44 PM
+> To: 'Palmer Dabbelt' <palmer@dabbelt.com>
+> Cc: alexandre.ghiti@canonical.com; linux-riscv@lists.infradead.org; linux-
+> kernel@vger.kernel.org
+> Subject: RE: arch/riscv: SV48 patch series questions
+> 
+> 
+> 
+> > -----Original Message-----
+> > From: Palmer Dabbelt <palmer@dabbelt.com>
+> > Sent: Thursday, 2 June, 2022 11:44 AM
+> > To: Leyfoon Tan <leyfoon.tan@starfivetech.com>
+> > Cc: alexandre.ghiti@canonical.com; linux-riscv@lists.infradead.org;
+> > linux- kernel@vger.kernel.org
+> > Subject: Re: arch/riscv: SV48 patch series questions
+> >
+> > On Fri, 27 May 2022 02:37:34 PDT (-0700), leyfoon.tan@starfivetech.com
+> > wrote:
+> > > Hi Palmer
+> > >
+> > > Alex's "Introduce sv48 support without relocatable kernel" patch
+> > > series in
+> > [1] was partially merged to Linux v5.17. But there are 4 patches are
+> > not merged (Patch-10 to 13).
+> > >
+> > > May I know what is the plan for these patches? Will them merged to
+> > > next
+> > v5.19 merging window? Or do you expect any changes for these patches
+> > or Alex needs resend with rebase to latest kernel version?
+> >
+> > I just saw this as I was digging up Alex's old email to reply to, all
+> > but #13 are now on for-next.
+> >
+> > > Note, we would like to use the Patch-13 in this series.
+> >
+> > Is your use case a CPU errata?  If so I think we should just go ahead
+> > and add that errata via the existing errata mechanism.  If you've got
+> > some other use case, do you mind elaborating?  From that other thread
+> > it sounds like a command-line argument is the way to go for folks who
+> > want to turn this off more dynamically, but happy to hear if you've
+> > got something different in mind.
+> It is not CPU errata.
+> RISC-V cpu can have sv39, sv48 or even sv57. If it is a heterogenous system,
+> cpu cores in the system might have different sv. Eg: one cpu can be sv39 and
+> another core is sv48.
+> In this case, auto detection is not work. So, Patch-13 can help in this use case.
+> 
+> >
+Hi Palmer
 
-ML: https://lore.kernel.org/linux-csky/
+Any further comment for this?
+
+Any chance merging Patch-13 in [1]?
+
+[1] https://patchwork.kernel.org/project/linux-riscv/patch/20211206104657.433304-14-alexandre.ghiti@canonical.com/
+
+Regards
+Ley Foon
 
 _______________________________________________
 linux-riscv mailing list
