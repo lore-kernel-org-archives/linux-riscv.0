@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE81C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73129C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:40:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2ztdbT5uJXainFNDhpPpYLu5i6ZsQAMtZlfVUVkXYwc=; b=AKGqh7RDFeNiI/
-	VvzAH4dHzsYHA+53D3NDeJRWdPLhXZC8YIrSn5djIa8AdVV+sXQiAuKh3y0WVq6f0LI7HEvsy1/R/
-	9W/ua7o/7iOyjxRuobG0gosB+HLskvY95xSCHYTtBbvZzaTmHKgeHo70xvG6OZqMoaWKqriWiqTG3
-	MAiamk6kTC0nTcCEvT9r0ZLHy9C1K/lCmfJmOHAdtV+5u8upnwzQ8RyTysYWckZt6SIS3V0McL+my
-	LuuIOlURag5DpKH00KZnBj3sjkG8zeNjfoXJOon0Ncs5dY2Mrvxav4G7qiZaqxO5ijZ0RtA0TnMpl
-	TkN7+mlS9Y6dIKlbnX1A==;
+	List-Owner; bh=wAFwnF0DmDFNzxGFf1/2osTU44oeWB7gYoSMNAI8YoI=; b=0eBVoy2O2bNckj
+	az+iXwBTwD9KqzygTO8ZQIzAu9PZJQBJEt2/noaQEViNUeJnOhWgKu7kD4kc460CEb5Ex8VYpTPnh
+	VlwK0iGK0ncClG/X/WP+auvbzz2mRNeCZLBecP9kHDCqAkpfVaQ328kgdNJMsHwnemQnQbddo2VC5
+	d5JDejDSqhuwY8U+g0kVQOM3P0gVHgDMapIrsMvpRldGkGuTYNHQutk01oWdTAe9S2vfV47aL4YvC
+	KQB/CNg8V5sstBfVFJu5x7dJ/zKViz+82duFCZhCS277QURJpUX4pXq5YG4o5merbIktuEfkSo0gX
+	hs+h16WSWQoD9pLdqUtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MT7-006e4k-II; Fri, 01 Jul 2022 19:38:21 +0000
-Received: from mail-io1-f50.google.com ([209.85.166.50])
+	id 1o7MUZ-006eYh-G0; Fri, 01 Jul 2022 19:39:51 +0000
+Received: from mail-io1-f46.google.com ([209.85.166.46])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MT4-006e2j-25
-	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:38:19 +0000
-Received: by mail-io1-f50.google.com with SMTP id s17so3206149iob.7
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 12:38:16 -0700 (PDT)
+	id 1o7MUU-006eUy-Ou
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:39:48 +0000
+Received: by mail-io1-f46.google.com with SMTP id m13so3272470ioj.0
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 12:39:44 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:from:to:cc:subject:message-id:references
          :mime-version:content-disposition:in-reply-to;
-        bh=oYGwea+9Dc5qlyJ44ffM89yyXqLnWemdQ1bnBNc3VDk=;
-        b=KaPXRhn/2F4x/eZd4eH1YwdPyTBGj6Ur6dlU26/IT2BVrGQZmWuOEpqv3jsyp0ab+v
-         6AbZoQKdYq6iyyG0jS1JIqP0I253REsHiZJXElkHiWb083oOXmfgrEr39d8+nBJVum7a
-         sWywZM1JVsKROkOVJ6F3yzt0Jr6mRT425vCOMJlWRHy1odE+RbnrgtMVgHkU40zyLGrt
-         dUOVhmV1Xfk0ZiCLbH2GtxoKkNp18iLuLCgHgkw+VzcgT6tJvy2g2CNF/hAyMsw21gH6
-         Xj3V+smEnyePqAG2sytsc1V2u8urCucZh8QXKouMKlmDavoK3Qa0TFQTnKPktiioVZwm
-         jh+g==
-X-Gm-Message-State: AJIora/vDS1Xf0GWKI4btZGrpbwka77h9lI8vEjpjJyQ3vCoskwpMJN7
-	Lb4iuy+zWef1zvndFSXn7Q==
-X-Google-Smtp-Source: AGRyM1uejcIwzsBE+pycB2Qnm2yYV9wtrnyFGLocbsLu1VxbRBag5KlqP0ugvtvcy/HrL02BZGM2Jw==
-X-Received: by 2002:a05:6602:2e8d:b0:64f:b683:c70d with SMTP id m13-20020a0566022e8d00b0064fb683c70dmr8094734iow.62.1656704295753;
-        Fri, 01 Jul 2022 12:38:15 -0700 (PDT)
+        bh=yIjC0VMQYlxHq3YH9uFPu/iSI53LcMMtf9U7T5PvCVs=;
+        b=p1sGUshtlnb5Sml3JtUuqxNRD1Y0uN74IV07B3NJlu2ETnv2DwlAuXQMQfIXgBKx1D
+         xpo6gjxWK0L/2xwTvUCMtlymC+pc6d8toE2ZmcwhxDXy6/L0gacwBcSg6+YBnX1OCctL
+         5BcUPXzhcuNpALHlFxhnoHYpAZAJsS/FCB2n2RGGk+o88Scby9uBcjAbadEYeRFtMhU3
+         njX2kmNJ1bpgIyLy994bfbUFSwrSwq7LOhkkn7hiDhgHcaIQmfIgk1xgj/7zCrfPW1Cm
+         D5p7QUj2u8pG+sSq2q8ajhXTsa9okgnz0uIhLJ2dGAOmIRIm2zi7uY4+q971is3grVSG
+         8Fug==
+X-Gm-Message-State: AJIora9LBT059HuktQ8VTA31Uw5CdD4L+fc+zMm48hkT8OrA/ySRZAus
+	42qOQ26uVPBVBrUQFz8bzw==
+X-Google-Smtp-Source: AGRyM1uDFG3jh7RbZC85xymUau5rtrth9s79OSclwWORLisSXLGll3gQmu6p4g13FmIUZ+MxpdIJrQ==
+X-Received: by 2002:a05:6638:250b:b0:331:b103:8b2b with SMTP id v11-20020a056638250b00b00331b1038b2bmr10057080jat.246.1656704383511;
+        Fri, 01 Jul 2022 12:39:43 -0700 (PDT)
 Received: from robh.at.kernel.org ([64.188.179.248])
-        by smtp.gmail.com with ESMTPSA id v1-20020a92c801000000b002d8f1269e97sm9277818iln.42.2022.07.01.12.38.13
+        by smtp.gmail.com with ESMTPSA id n3-20020a02a183000000b003316f4b9b26sm10145706jah.131.2022.07.01.12.39.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Jul 2022 12:38:15 -0700 (PDT)
-Received: (nullmailer pid 1385506 invoked by uid 1000);
-	Fri, 01 Jul 2022 19:38:12 -0000
-Date: Fri, 1 Jul 2022 13:38:12 -0600
+        Fri, 01 Jul 2022 12:39:43 -0700 (PDT)
+Received: (nullmailer pid 1387930 invoked by uid 1000);
+	Fri, 01 Jul 2022 19:39:39 -0000
+Date: Fri, 1 Jul 2022 13:39:39 -0600
 From: Rob Herring <robh@kernel.org>
 To: Conor Dooley <mail@conchuod.ie>
-Cc: Rob Herring <robh+dt@kernel.org>, Sam Ravnborg <sam@ravnborg.org>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Serge Semin <fancer.lancer@gmail.com>, devicetree@vger.kernel.org, 
-	Masahiro Yamada <masahiroy@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, dmaengine@vger.kernel.org, 
-	Vinod Koul <vkoul@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Dillon Min <dillon.minfei@gmail.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, Niklas Cassel <niklas.cassel@wdc.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Mark Brown <broonie@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Damien Le Moal <damien.lemoal@opensource.wdc.com>, 
-	David Airlie <airlied@linux.ie>, alsa-devel@alsa-project.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, 
-	Daniel Vetter <daniel@ffwll.ch>, Liam Girdwood <lgirdwood@gmail.com>, dri-devel@lists.freedesktop.org, 
-	linux-spi@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, 
-	linux-kernel@vger.kernel.org, Jose Abreu <joabreu@synopsys.com>
-Subject: Re: [PATCH v3 02/15] dt-bindings: display: ili9341: document canaan
- kd233's lcd
-Message-ID: <20220701193812.GA1385448-robh@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Jose Abreu <joabreu@synopsys.com>, Damien Le Moal <damien.lemoal@opensource.wdc.com>, 
+	Niklas Cassel <niklas.cassel@wdc.com>, linux-spi@vger.kernel.org, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
+	alsa-devel@alsa-project.org, linux-riscv@lists.infradead.org, 
+	Thierry Reding <thierry.reding@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Conor Dooley <conor.dooley@microchip.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, dri-devel@lists.freedesktop.org, 
+	Serge Semin <fancer.lancer@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
+	David Airlie <airlied@linux.ie>, Thomas Gleixner <tglx@linutronix.de>, devicetree@vger.kernel.org, 
+	Mark Brown <broonie@kernel.org>, Dillon Min <dillon.minfei@gmail.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, dmaengine@vger.kernel.org, 
+	Daniel Vetter <daniel@ffwll.ch>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 03/15] ASoC: dt-bindings: convert designware-i2s to
+ dt-schema
+Message-ID: <20220701193939.GA1387897-robh@kernel.org>
 References: <20220629184343.3438856-1-mail@conchuod.ie>
- <20220629184343.3438856-3-mail@conchuod.ie>
+ <20220629184343.3438856-4-mail@conchuod.ie>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220629184343.3438856-3-mail@conchuod.ie>
+In-Reply-To: <20220629184343.3438856-4-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220701_123818_155573_382699F2 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20220701_123946_876001_293AE0B4 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,16 +94,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Jun 2022 19:43:31 +0100, Conor Dooley wrote:
+On Wed, 29 Jun 2022 19:43:32 +0100, Conor Dooley wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> The Canaan KD233 development board has a built in LCD.
-> Add a specific compatible for it.
+> Convert the Synopsys DesignWare I2S controller binding to dt-schema.
+> There was no listed maintainer but Jose Abreu was the last editor of the
+> txt binding so add him as maintainer.
 > 
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  .../devicetree/bindings/display/panel/ilitek,ili9341.yaml        | 1 +
->  1 file changed, 1 insertion(+)
+>  .../bindings/sound/designware-i2s.txt         | 35 -------
+>  .../bindings/sound/snps,designware-i2s.yaml   | 94 +++++++++++++++++++
+>  2 files changed, 94 insertions(+), 35 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/sound/designware-i2s.txt
+>  create mode 100644 Documentation/devicetree/bindings/sound/snps,designware-i2s.yaml
 > 
 
 Reviewed-by: Rob Herring <robh@kernel.org>
