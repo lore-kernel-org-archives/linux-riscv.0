@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73129C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:40:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 426E8C43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wAFwnF0DmDFNzxGFf1/2osTU44oeWB7gYoSMNAI8YoI=; b=0eBVoy2O2bNckj
-	az+iXwBTwD9KqzygTO8ZQIzAu9PZJQBJEt2/noaQEViNUeJnOhWgKu7kD4kc460CEb5Ex8VYpTPnh
-	VlwK0iGK0ncClG/X/WP+auvbzz2mRNeCZLBecP9kHDCqAkpfVaQ328kgdNJMsHwnemQnQbddo2VC5
-	d5JDejDSqhuwY8U+g0kVQOM3P0gVHgDMapIrsMvpRldGkGuTYNHQutk01oWdTAe9S2vfV47aL4YvC
-	KQB/CNg8V5sstBfVFJu5x7dJ/zKViz+82duFCZhCS277QURJpUX4pXq5YG4o5merbIktuEfkSo0gX
-	hs+h16WSWQoD9pLdqUtA==;
+	List-Owner; bh=D0QSpIeIewfc2ZTlTiF6lpHOFFvL1b/qkiyGfdT0YSY=; b=qirSEcu6w2PYZY
+	q7eRQl3Y0kKSwrwv7I5L2DgFQbxQIF3Zt8mvqNgBqyoO9OMmglldVsJMZISgn+T+YL7NqRkU+w5Dn
+	Y2ZJKIOF5c8RxLkv3RxMHPBRmBKYgP5bBjVPocP32XzPx4MlV0oDdvHz2mNi8eRq0DaXFfMpw08om
+	0P3bJqe79wHjF3r2Y1y/TSG5Q3efoppRescYMZczI11yAl9ooUjAYzHon93Z2Zf6OXeXBgcj9PvQ9
+	kXidEOCqn+inFfQ85oUTg0qHQ571NT3zdUTCD1N4dNwGRhQMUKmTX7c8VK8mIMnoDw20KuPG2dmZV
+	awc4sHcZCvpUxRhzsI0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MUZ-006eYh-G0; Fri, 01 Jul 2022 19:39:51 +0000
-Received: from mail-io1-f46.google.com ([209.85.166.46])
+	id 1o7MW3-006f7y-Dz; Fri, 01 Jul 2022 19:41:23 +0000
+Received: from mail-io1-f43.google.com ([209.85.166.43])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MUU-006eUy-Ou
-	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:39:48 +0000
-Received: by mail-io1-f46.google.com with SMTP id m13so3272470ioj.0
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 12:39:44 -0700 (PDT)
+	id 1o7MVx-006f43-79
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:41:20 +0000
+Received: by mail-io1-f43.google.com with SMTP id y2so3182790ior.12
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 12:41:14 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:from:to:cc:subject:message-id:references
          :mime-version:content-disposition:in-reply-to;
-        bh=yIjC0VMQYlxHq3YH9uFPu/iSI53LcMMtf9U7T5PvCVs=;
-        b=p1sGUshtlnb5Sml3JtUuqxNRD1Y0uN74IV07B3NJlu2ETnv2DwlAuXQMQfIXgBKx1D
-         xpo6gjxWK0L/2xwTvUCMtlymC+pc6d8toE2ZmcwhxDXy6/L0gacwBcSg6+YBnX1OCctL
-         5BcUPXzhcuNpALHlFxhnoHYpAZAJsS/FCB2n2RGGk+o88Scby9uBcjAbadEYeRFtMhU3
-         njX2kmNJ1bpgIyLy994bfbUFSwrSwq7LOhkkn7hiDhgHcaIQmfIgk1xgj/7zCrfPW1Cm
-         D5p7QUj2u8pG+sSq2q8ajhXTsa9okgnz0uIhLJ2dGAOmIRIm2zi7uY4+q971is3grVSG
-         8Fug==
-X-Gm-Message-State: AJIora9LBT059HuktQ8VTA31Uw5CdD4L+fc+zMm48hkT8OrA/ySRZAus
-	42qOQ26uVPBVBrUQFz8bzw==
-X-Google-Smtp-Source: AGRyM1uDFG3jh7RbZC85xymUau5rtrth9s79OSclwWORLisSXLGll3gQmu6p4g13FmIUZ+MxpdIJrQ==
-X-Received: by 2002:a05:6638:250b:b0:331:b103:8b2b with SMTP id v11-20020a056638250b00b00331b1038b2bmr10057080jat.246.1656704383511;
-        Fri, 01 Jul 2022 12:39:43 -0700 (PDT)
+        bh=RHrkVsGF6yh4atuN/qmRjWl7VEZw4egW+a3OkfBFnbM=;
+        b=PqKQY3V5CVY3NEgLYM07EiMaJMNKeDJDc//YOXQviieEXOjgUnALXmb7QZ5k3EQyIJ
+         E6+4n4cV4mpzyC6rKVe7i0+TH6rmpkRSkwx6NSqNJrRAY7IE2GUVEbeux+BxiHNHKkmd
+         EgJbcA/klV9N/RkprnGlN58g/qTRmEtLKsDnDcSvbYH4YGxwBrgWPi+5mflkmqfLUEiz
+         iAlWpAIYB+qCTzbve9NMjRYsD/zX4sN4cjzbvVa+6zZE/mv/UGfKYNkT/twEFmSsg7yv
+         R6Ek8V0lTCwyGtVMmZ+VvjpGZQKGjQBES6puy/tvP7bHdXODPEe5ofBapZNtubwMi9SH
+         q2WQ==
+X-Gm-Message-State: AJIora+Fj/RI8cV2Jc4KKkHWGrDuWN+KHTDujGagYFMQU0Hh7KUdczH2
+	N8GhGcibR3JkwbOsIhlwzQ==
+X-Google-Smtp-Source: AGRyM1tlsN2RCONvqgzA0GpBUrUts90pmA7r74l1wJj1YnzPtK+Cu6hEsfzhUTYnzJsijdJvLVfcBg==
+X-Received: by 2002:a05:6638:33a4:b0:33e:9335:9f0e with SMTP id h36-20020a05663833a400b0033e93359f0emr5171953jav.260.1656704473689;
+        Fri, 01 Jul 2022 12:41:13 -0700 (PDT)
 Received: from robh.at.kernel.org ([64.188.179.248])
-        by smtp.gmail.com with ESMTPSA id n3-20020a02a183000000b003316f4b9b26sm10145706jah.131.2022.07.01.12.39.41
+        by smtp.gmail.com with ESMTPSA id y1-20020a02a381000000b00339c855eb15sm10186415jak.27.2022.07.01.12.41.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Jul 2022 12:39:43 -0700 (PDT)
-Received: (nullmailer pid 1387930 invoked by uid 1000);
-	Fri, 01 Jul 2022 19:39:39 -0000
-Date: Fri, 1 Jul 2022 13:39:39 -0600
+        Fri, 01 Jul 2022 12:41:13 -0700 (PDT)
+Received: (nullmailer pid 1390347 invoked by uid 1000);
+	Fri, 01 Jul 2022 19:41:10 -0000
+Date: Fri, 1 Jul 2022 13:41:10 -0600
 From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <mail@conchuod.ie>
-Cc: Vinod Koul <vkoul@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Jose Abreu <joabreu@synopsys.com>, Damien Le Moal <damien.lemoal@opensource.wdc.com>, 
-	Niklas Cassel <niklas.cassel@wdc.com>, linux-spi@vger.kernel.org, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh+dt@kernel.org>, 
-	alsa-devel@alsa-project.org, linux-riscv@lists.infradead.org, 
-	Thierry Reding <thierry.reding@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, dri-devel@lists.freedesktop.org, 
-	Serge Semin <fancer.lancer@gmail.com>, Sam Ravnborg <sam@ravnborg.org>, 
-	David Airlie <airlied@linux.ie>, Thomas Gleixner <tglx@linutronix.de>, devicetree@vger.kernel.org, 
-	Mark Brown <broonie@kernel.org>, Dillon Min <dillon.minfei@gmail.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, dmaengine@vger.kernel.org, 
-	Daniel Vetter <daniel@ffwll.ch>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 03/15] ASoC: dt-bindings: convert designware-i2s to
- dt-schema
-Message-ID: <20220701193939.GA1387897-robh@kernel.org>
+To: Conor.Dooley@microchip.com
+Cc: fancer.lancer@gmail.com, mail@conchuod.ie, airlied@linux.ie, daniel@ffwll.ch, krzysztof.kozlowski+dt@linaro.org, thierry.reding@gmail.com, sam@ravnborg.org, Eugeniy.Paltsev@synopsys.com, vkoul@kernel.org, lgirdwood@gmail.com, broonie@kernel.org, daniel.lezcano@linaro.org, palmer@dabbelt.com, palmer@rivosinc.com, tglx@linutronix.de, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, masahiroy@kernel.org, damien.lemoal@opensource.wdc.com, geert@linux-m68k.org, niklas.cassel@wdc.com, dillon.minfei@gmail.com, joabreu@synopsys.com, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, alsa-devel@alsa-project.org, linux-spi@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 05/15] dt-bindings: dma: dw-axi-dmac: extend the
+ number of interrupts
+Message-ID: <20220701194110.GA1388036-robh@kernel.org>
 References: <20220629184343.3438856-1-mail@conchuod.ie>
- <20220629184343.3438856-4-mail@conchuod.ie>
+ <20220629184343.3438856-6-mail@conchuod.ie>
+ <20220630215540.cifnzovya57bgbsw@mobilestation>
+ <f7d64f1d-9fb8-6259-cd60-8bfc65636300@microchip.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220629184343.3438856-4-mail@conchuod.ie>
+In-Reply-To: <f7d64f1d-9fb8-6259-cd60-8bfc65636300@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220701_123946_876001_293AE0B4 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20220701_124117_297616_C57FCE51 
+X-CRM114-Status: GOOD (  22.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,21 +82,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 29 Jun 2022 19:43:32 +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Thu, Jun 30, 2022 at 11:12:53PM +0000, Conor.Dooley@microchip.com wrote:
+> On 30/06/2022 22:55, Serge Semin wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> > 
+> > On Wed, Jun 29, 2022 at 07:43:34PM +0100, Conor Dooley wrote:
+> >> From: Conor Dooley <conor.dooley@microchip.com>
+> >>
+> >> The Canaan k210 apparently has a Sysnopsys Designware AXI DMA
+> >> controller, but according to the documentation & devicetree it has 6
+> >> interrupts rather than the standard one. Support the 6 interrupt
+> >> configuration by unconditionally extending the binding to a maximum of
+> >> 8 per-channel interrupts thereby matching the number of possible
+> >> channels.
+> >>
+> >> Link: https://canaan-creative.com/wp-content/uploads/2020/03/kendryte_standalone_programming_guide_20190311144158_en.pdf #Page 51
+> >> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> >> ---
+> >>  Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml | 4 +++-
+> >>  1 file changed, 3 insertions(+), 1 deletion(-)
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+> >> index 4324a94b26b2..e33ef22aec9c 100644
+> >> --- a/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+> >> +++ b/Documentation/devicetree/bindings/dma/snps,dw-axi-dmac.yaml
+> >> @@ -34,7 +34,9 @@ properties:
+> >>        - const: axidma_apb_regs
+> >>
+> >>    interrupts:
+> > 
+> >> -    maxItems: 1
+> >> +    description: per channel interrupts
+> > 
+> > Description is inaccurate. It's either combined or per-channel IRQs.
 > 
-> Convert the Synopsys DesignWare I2S controller binding to dt-schema.
-> There was no listed maintainer but Jose Abreu was the last editor of the
-> txt binding so add him as maintainer.
+> I will change it to:
+>   interrupts:
+>     description: |
+
+Don't need '|'.
+
+>       If the IP-core synthesis parameter DMAX_INTR_IO_TYPE is set to 1, this
+>       will be per-channel interrupts. Otherwise, this is a single combined IRQ
+>       for all channels.
+>     minItems: 1
+>     maxItems: 8
 > 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../bindings/sound/designware-i2s.txt         | 35 -------
->  .../bindings/sound/snps,designware-i2s.yaml   | 94 +++++++++++++++++++
->  2 files changed, 94 insertions(+), 35 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/sound/designware-i2s.txt
->  create mode 100644 Documentation/devicetree/bindings/sound/snps,designware-i2s.yaml
-> 
+> How's that sound?
+
+With that,
 
 Reviewed-by: Rob Herring <robh@kernel.org>
 
