@@ -4,77 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FE1AC43334
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 14:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7815CCA47B
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 14:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
-	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQZiCICjwgmTwItK15ydh3izqYBziOQCzpUFpX6W4dE=; b=TIKAlan+MkM6b9Wc09wE6+HVTM
-	zaPoDLGgZunCs8jjFWJWk41Kb14ptWUUZEID0djHb6ZRzPjBjumQz2V5h/JLgFOAZJdR8fmFOnM35
-	XYNYZeKeFKw53BknNzcIdcc5uJDdXKNg3+ptuIKFmc2fAeXkW7CB/0uFUT5T0c1UuHOvddCcBmkCu
-	98iOMmqVm4aG7x33+Uh1cw9OVT9vhPx3U+mqUeT6nhnlAmPSQ7/Wdxi92q84p6zXYthpuJFTV224k
-	G09B2aoN0gBj/QqRKBP6CpDtLJy9POcNtY7MDib2dhezd00wpBZMRsD2JhCq9N5hRbG+BagehAjZT
-	TBTZdgLw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=19jYZXS5eddKtP/kBX4xvOlsmuhlDMyJvhoX7U2E34E=; b=an7AdfXm9/pEu3
+	Pg+W2N2cBr/5hzx4fgH4AjNVS4qD5oK/N5oSsnJkhiUmktRopwkYNE3056nN58bLmsXlqU63JTvca
+	fuqcSP3MH1ccAebROFRiAlyBZ/9X2L9WtG+PZK2qkZYzsQCh5fDp+i+ExTw6xb1peZigiGvf8ZkJK
+	WqRTrcJFnF9PRP0Ol0O09iZ2Lmc0rUGyn6+23IETw3sYFy6qabGsbiRLgh5jjYWtClNQTDqJBHDRH
+	ktkSgHRwvOUYzXhc6TqRZno+WyqzPgLzgagQG+RffqSHz0D7nGfZ/BOlwnChI6YtpLiN4aKq0jhUj
+	YyUOWYV9tt+w926DDkPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7Hdh-005LEE-96; Fri, 01 Jul 2022 14:28:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7Hde-005LCj-49
-	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 14:28:55 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3577662233;
-	Fri,  1 Jul 2022 14:28:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CC2DC341C7;
-	Fri,  1 Jul 2022 14:28:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1656685730;
-	bh=eb0RVw4u/anxVBhBeK6RNGoBor+v7IkGnAADFe79wz8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=N4dveUvYzzWyC8fMV0v0hedmOK1ZAMnFbdqhysk4WaSM0nBJ5UGNNFqdZwQ6rvMIn
-	 CP7ClyXkRLM/63cRf55J9y6B7IMxWTTHcdoGVsMy4uSFk7LGQjzFjqRc6omPUcwwRn
-	 B9kqf9pRrlu6yoi8KFGJ7VRs49YYxJ/d2sia7XcvSGprDsbgyvadOiPqbzPAT1XDvJ
-	 9lUkAzGaYu2A49lfHm5lhFMTyzyBYx8+fliV5Kgwv/5AtG9NtVvmMuvIb5P+3JK/48
-	 moPFmDTxjnYJm7qHwhnkR8pKAXK4Y2HtDwBqgBMGVmYIOksPHsfjZwJ/VArWBElV2u
-	 fj3qZ04BLthLw==
-Received: from disco-boy.misterjones.org ([51.254.78.96] helo=www.loen.fr)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1o7HdY-004bu7-EO;
-	Fri, 01 Jul 2022 15:28:48 +0100
+	id 1o7Hku-005NHZ-SN; Fri, 01 Jul 2022 14:36:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o7Hkr-005NGL-Vb
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 14:36:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 89713113E;
+	Fri,  1 Jul 2022 07:36:19 -0700 (PDT)
+Received: from donnerap.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 03FFE3F792;
+	Fri,  1 Jul 2022 07:36:17 -0700 (PDT)
+Date: Fri, 1 Jul 2022 15:36:14 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Corentin Labbe <clabbe@baylibre.com>
+Cc: herbert@gondor.apana.org.au, hch@lst.de, heiko@sntech.de,
+ linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev, Ben Dooks
+ <ben.dooks@codethink.co.uk>
+Subject: Re: [RFC PATCH] crypto: flush poison data
+Message-ID: <20220701153614.0a576f9c@donnerap.cambridge.arm.com>
+In-Reply-To: <20220701132735.1594822-1-clabbe@baylibre.com>
+References: <20220701132735.1594822-1-clabbe@baylibre.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Date: Fri, 01 Jul 2022 15:28:48 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: Samuel Holland <samuel@sholland.org>
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Prabhakar
- <prabhakar.csengg@gmail.com>, Sagar Kadam <sagar.kadam@sifive.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Guo Ren <guoren@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Geert
- Uytterhoeven <geert+renesas@glider.be>, linux-renesas-soc@vger.kernel.org,
- Biju Das <biju.das.jz@bp.renesas.com>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Rob Herring <robh+dt@kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 0/4] Add PLIC support for Renesas RZ/Five SoC / Fix
- T-HEAD PLIC edge flow
-In-Reply-To: <20220630100241.35233-1-samuel@sholland.org>
-References: <20220630100241.35233-1-samuel@sholland.org>
-User-Agent: Roundcube Webmail/1.4.13
-Message-ID: <92a45bf04cfe140c7605559fa3d8f4eb@kernel.org>
-X-Sender: maz@kernel.org
-X-SA-Exim-Connect-IP: 51.254.78.96
-X-SA-Exim-Rcpt-To: samuel@sholland.org, prabhakar.mahadev-lad.rj@bp.renesas.com, prabhakar.csengg@gmail.com, sagar.kadam@sifive.com, paul.walmsley@sifive.com, palmer@dabbelt.com, guoren@kernel.org, tglx@linutronix.de, geert+renesas@glider.be, linux-renesas-soc@vger.kernel.org, biju.das.jz@bp.renesas.com, krzysztof.kozlowski+dt@linaro.org, robh+dt@kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220701_072854_297882_67D31BBF 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20220701_073622_111435_B0A74340 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,71 +59,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022-06-30 11:02, Samuel Holland wrote:
-> This patch series adds PLIC support for Renesas RZ/Five SoC.
-> 
-> Since the T-HEAD C900 PLIC has the same behavior, it also applies the
-> fix for that variant.
-> 
-> This series is an update of v2 of the RZ/Five series[0], and replaces
-> the separate T-HEAD series[1].
-> 
-> [0]:
-> https://lore.kernel.org/linux-riscv/20220626004326.8548-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-> [1]:
-> https://lore.kernel.org/linux-riscv/20220627051257.38543-1-samuel@sholland.org/
-> 
-> Changes in v3:
->  - Add a more detailed explanation for why #interrupt-cells differs
->  - Add andestech,nceplic100 as a fallback compatible
->  - Separate the conditional part of the binding into two blocks (one 
-> for
->    the PLIC implementation and the other for the SoC integration)
->  - Use a quirk bit for selecting the flow instead of a variant ID
->  - Use the andestech,nceplic100 compatible to select the new behavior
->  - Use handle_edge_irq instead of handle_fasteoi_ack_irq so .irq_ack
->    always gets called
->  - Do not set the handler name, as RISC-V selects 
-> GENERIC_IRQ_SHOW_LEVEL
->  - Use the same name for plic_edge_chip as plic_chip
-> 
-> Changes in v2:
->  - Fixed review comments pointed by Marc and Krzysztof.
-> 
-> Changes in v1:
->  - Fixed review comments pointed by Rob and Geert.
->  - Changed implementation for EDGE interrupt handling on Renesas 
-> RZ/Five
->    SoC.
-> 
-> Lad Prabhakar (2):
->   dt-bindings: interrupt-controller: sifive,plic: Document Renesas
->     RZ/Five SoC
->   irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
-> 
-> Samuel Holland (2):
->   dt-bindings: interrupt-controller: Require trigger type for T-HEAD
->     PLIC
->   irqchip/sifive-plic: Fix T-HEAD PLIC edge trigger handling
-> 
->  .../sifive,plic-1.0.0.yaml                    | 65 +++++++++++++--
->  drivers/irqchip/irq-sifive-plic.c             | 80 +++++++++++++++++--
->  2 files changed, 135 insertions(+), 10 deletions(-)
+On Fri,  1 Jul 2022 13:27:35 +0000
+Corentin Labbe <clabbe@baylibre.com> wrote:
 
-I'm going to provisionally queue this into -next so that it
-can get some testing. I'd still want the DT changes to be
-Ack'ed before the next merge window though.
+Hi,
 
-Thanks,
+> On my Allwinner D1 nezha, the sun8i-ce fail self-tests due to:
+> alg: skcipher: cbc-des3-sun8i-ce encryption overran dst buffer on test vector 0
+> 
+> In fact the buffer is not overran by device but by the dma_map_single() operation.
+> 
+> To prevent any corruption of the poisoned data, simply flush them before
+> giving the buffer to the tested driver.
+> 
+> Signed-off-by: Corentin Labbe <clabbe@baylibre.com>
+> ---
+> 
+> Hello
+> 
+> I put this patch as RFC, since this behavour happen only on non yet merged RISCV code.
+> (Mostly riscv: implement Zicbom-based CMO instructions + the t-head variant)
+> 
+> Regards
+> 
+>  crypto/testmgr.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+> index c59bd9e07978..187163e2e593 100644
+> --- a/crypto/testmgr.c
+> +++ b/crypto/testmgr.c
+> @@ -19,6 +19,7 @@
+>  #include <crypto/aead.h>
+>  #include <crypto/hash.h>
+>  #include <crypto/skcipher.h>
+> +#include <linux/cacheflush.h>
+>  #include <linux/err.h>
+>  #include <linux/fips.h>
+>  #include <linux/module.h>
+> @@ -205,6 +206,8 @@ static void testmgr_free_buf(char *buf[XBUFSIZE])
+>  static inline void testmgr_poison(void *addr, size_t len)
+>  {
+>  	memset(addr, TESTMGR_POISON_BYTE, len);
+> +	/* Be sure data is written to prevent corruption from some DMA sync */
+> +	flush_icache_range((unsigned long)addr, (unsigned long)addr + len);
 
-         M.
--- 
-Jazz is not dead. It just smells funny...
+As Ben already mentioned, this looks like having nothing to do with the I
+cache. I guess you picked that because it does the required cache cleaning
+and doesn't require a vma parameter?
+
+But more importantly: I think drivers shouldn't do explicit cache
+maintenance, this is what the DMA API is for.
+So if you get DMA corruption, then this points to some flaw in the DMA API
+usage: either the buffer belongs to the CPU, then the device must not write
+to it. Or the buffer belongs to the device, then the CPU cannot expect to
+write to that without that data potentially getting corrupted.
+
+So can you check if that's the case?
+
+Cheers,
+Andre
+
+>  }
+>  
+>  /* Is the memory region still fully poisoned? */
+
 
 _______________________________________________
 linux-riscv mailing list
