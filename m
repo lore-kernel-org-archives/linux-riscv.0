@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60E0C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6975BC43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 19:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=556Mtfh0C1a+bZH7iMdRX+0siUSKpVZ6oVddagwGa8Y=; b=A5gyjAZE3ORX1H
-	6iukofdyNNhDerYa5Q6pXN0qGSBTvC0W1xuDiRqWIyQ2M+rS81TcLWOlfcPJ7vkxbStgP2BKVHHbz
-	08uPr0i51rgGWGtQR5GNZk2j+XCKNE2MNaX9ANaRIvzOhvTUoomNsaMct6JeVRZ86Lk0yMeU8u2xL
-	7bM0HvbzB0c4RqNDVFL525LkOH5S0f1Ddu2YTGrMg435DbZcQY0A+RgJBxRl8MqnlIVsk/h2KBmjg
-	sFnq11koM3FCc+l9fAhOJHK6nGC0f5dwpnzPWfaO2pJx65tOK4uSqLh3aQLZ5a01qN9ss7LrxRdIg
-	Nb4578XrpvNl5PN4ZVCQ==;
+	List-Owner; bh=CrS0oF6QtBvCOD6F517X7OQdbilqzaWTycGzfC/t6Jw=; b=Wjydx6p8WEFwDc
+	XvMvMqAoatKvjq1gc6PZLNXVH4QFojXtIr4TI0gDTziuBAyI0h8BuSbRMxYlfr2ABPfnVBTFLoCll
+	92LZbaovHOhar6qiPbcPJsMYgK/mcDVksiRFdTkwde51Dj4iaDX88JNKSyWHHxLKENo6zDM1tlZC9
+	mGsYKDd7QQWwmm084T+Fto4LF0KD51/hIFeIc755T0AsxT/3m2qEHUBQIXnS3Wr+sr07KofuyNpAQ
+	TEsJ2Jlj5LIDOtSxhA3qXdAZT2IKprdGS6vAz82mOTB/fh6RH8IwoglcZJEnGlyvCNRUbhmZq4jbH
+	q0xLgn/Ef4wLUyPTjf3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MeL-006h5x-Oz; Fri, 01 Jul 2022 19:49:57 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	id 1o7MgK-006hWd-Lv; Fri, 01 Jul 2022 19:52:00 +0000
+Received: from mail-il1-f181.google.com ([209.85.166.181])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7MeI-006h3r-3s
-	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:49:55 +0000
-Received: by mail-qk1-x731.google.com with SMTP id b24so2589087qkn.4
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 12:49:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=u6fPAgM8gi/RJI8YuKyRjChuGCO5jCSEWC0CBzNffV0=;
-        b=ByfbfV2q6QbOnkjD39rDX3vW30bOrecwJhGvEHJzy5JQ/s934vXaj9cLQ9w0HT7ewk
-         dvx4xjT5TlZTxJ8LWAUp5DJ3HZnM6sYHf/Q5nRt5bv2Uf8SiSx9odeglVNB6rjCs7cgX
-         4UD6GljcU0u+QNeS8Sz4D281+08LbQJ8iUPe8a0e0GHMW+MnvDyP5SUppa9qndiB+nt2
-         M/GHSOqGlEBUZYAYrT2cIuovkV/rBEI0RQ7SlQsOY6ogtJt6ygSXnsNBVLKkfVTq/gT4
-         oPTL4dGhrujdy7vKT7Q07GIz5K76g7AKv/I0weag9+QqzgJeqs85YQYWu5qqAN6tIdU1
-         MTNQ==
+	id 1o7MgI-006hVo-IZ
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 19:51:59 +0000
+Received: by mail-il1-f181.google.com with SMTP id h20so2012054ilj.13
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 12:51:56 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=u6fPAgM8gi/RJI8YuKyRjChuGCO5jCSEWC0CBzNffV0=;
-        b=IhOnsqbZIrw+RB+u5606gYr7cCZHBuPD/qv1ucnYiAQH9Ac2RVDzF7Qt/6zcrCMAPr
-         3YGpg3Ja9e5iiNX+G+uOlGvc8lMOD+V57+gbmTgPs+iYX/oIxjayA++zmd48WUklJpuq
-         rhHOPTSrDbP6Ny8CWyn3XVgMxLo//b0GQBHhDIpgBezAS/TUShtTUKFF78IRt08BCxbz
-         FQ5ajNIxRDIQgDjb3n0OsN5R8gJ4ah6vbJbJ986684oYXtDmG3qWEiMxt5K1kLoK5geL
-         eTHxXF5i9R3TIu8N+Ylu1vllwiKCcxWIu8WRPBMy1JrHWVSAMIigECZ+Nt1JC+SITX2e
-         j0Lg==
-X-Gm-Message-State: AJIora+9vTY062rXEWxXFcr/GrKW56mxaPaw3GGlx+Zal+gBj9LI+0mR
-	eKXNA1Mzoe6ljURIrxk3+VTXmadWVI5uucnCzwQW9w==
-X-Google-Smtp-Source: AGRyM1s1AY7XBEABePvu0AwdCbeRlv4PSrgMczV/kpgOfIvJvzVm2yQHPAjRjjG9DAkpsWyd7uKVstLy75J/STwM7js=
-X-Received: by 2002:a05:620a:46ab:b0:6b1:6550:9062 with SMTP id
- bq43-20020a05620a46ab00b006b165509062mr10580150qkb.80.1656704991257; Fri, 01
- Jul 2022 12:49:51 -0700 (PDT)
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to;
+        bh=Y2u7piwMP8WRoOkwcLwV3edsFIFKViwRNW8iJEcQlGY=;
+        b=525uyt7rMHPROmsAmZ8vEFWiZj1qjqTbx++ehF0vGYVPsQIRApWNrsmiVm5Eh6CKdY
+         XYm6QC+6BDBvbEh1w3DayYLXN4hHUguU5TkmRVKrQn4/IjQ798KfjP5nOYbY92OAijD4
+         I4U6vHEsogb1U2BAJDxDJjfsidV8DI04rz71Yo3GFaMBQn0Obl/MKljJXBmnD9VFByRZ
+         lUGgF20BkwPOiGk7CHnk87JhvF/L9WK8j+3dcbFL75dj9+LuhK7YaBYwVtqqjEP6cF9/
+         oGJ9vG4/2MgDPHmNlrC6s0cMwKTIa4j7eOeKl6LLUg7uIxAhCveCAZogYl9TcyS1HyQH
+         p/PQ==
+X-Gm-Message-State: AJIora8WDvMS1M1xx1cvIuWN+v7L6MRvO+NkhjWv3CcHEAjh/sBfwKxF
+	NPcavdPaMgzIkUsX41Q2hA==
+X-Google-Smtp-Source: AGRyM1uCzukptXkjULJiVhiY7VNc7zMOwUSsnOp3OTAKsBWSKYNlI9cw6P3IxIahkJHGCw7J8sib6w==
+X-Received: by 2002:a05:6e02:168f:b0:2da:72fc:feec with SMTP id f15-20020a056e02168f00b002da72fcfeecmr9308243ila.185.1656705115458;
+        Fri, 01 Jul 2022 12:51:55 -0700 (PDT)
+Received: from robh.at.kernel.org ([64.188.179.248])
+        by smtp.gmail.com with ESMTPSA id e2-20020a5d9242000000b006758cc4aa76sm3276380iol.29.2022.07.01.12.51.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 01 Jul 2022 12:51:55 -0700 (PDT)
+Received: (nullmailer pid 1407947 invoked by uid 1000);
+	Fri, 01 Jul 2022 19:51:52 -0000
+Date: Fri, 1 Jul 2022 13:51:52 -0600
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-clk@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, linux-kernel@vger.kernel.org, Daire McNamara <daire.mcnamara@microchip.com>, Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Eric Dumazet <edumazet@google.com>, linux-riscv@lists.infradead.org, Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, devicetree@vger.kernel.org, Claudiu Beznea <claudiu.beznea@microchip.com>, "David S . Miller" <davem@davemloft.net>, Rob Herring <robh+dt@kernel.org>, netdev@vger.kernel.org
+Subject: Re: [PATCH v1 01/14] dt-bindings: clk: microchip: mpfs: add reset
+ controller support
+Message-ID: <20220701195152.GA1407913-robh@kernel.org>
+References: <20220630080532.323731-1-conor.dooley@microchip.com>
+ <20220630080532.323731-2-conor.dooley@microchip.com>
 MIME-Version: 1.0
-References: <CABMhjYp3xUyQ9q6nXHvEA2zuzhYi0ETn6UETeH1apWf2n2eP7A@mail.gmail.com>
- <7ba0c325-bc1f-f6e4-dd8a-b5d13a04ef93@microchip.com>
-In-Reply-To: <7ba0c325-bc1f-f6e4-dd8a-b5d13a04ef93@microchip.com>
-From: Atul Khare <atulkhare@rivosinc.com>
-Date: Fri, 1 Jul 2022 12:49:40 -0700
-Message-ID: <CABMhjYrDyOoDusE4-y4VzM87Vg=NhPbow_dQ+1C4EcX50LrMHw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] dt-bindings: sifive: fix dt-schema errors
-To: Conor Dooley <Conor.Dooley@microchip.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-i2c@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Rob Herring <robh@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20220630080532.323731-2-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220701_124954_415695_FD77AB38 
-X-CRM114-Status: GOOD (  18.49  )
+X-CRM114-CacheID: sfid-20220701_125158_651568_234932A2 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,42 +80,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Conor,
+On Thu, 30 Jun 2022 09:05:20 +0100, Conor Dooley wrote:
+> The "peripheral" devices on PolarFire SoC can be put into reset, so
+> update the device tree binding to reflect the presence of a reset
+> controller.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../bindings/clock/microchip,mpfs.yaml          | 17 +++++++++++++++--
+>  1 file changed, 15 insertions(+), 2 deletions(-)
+> 
 
-Apologies for the delay, but my laptop died a couple of weeks ago, and
-I have been scrambling to get things up and running on the
-replacement. I will try and get back to it ASAP.
-
-On Sat, Jun 18, 2022 at 5:40 AM <Conor.Dooley@microchip.com> wrote:
->
-> On 09/06/2022 00:39, Atul Khare wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> >
-> > The patch series fixes dt-schema validation errors that can be reproduced
-> > using the following: make ARCH=riscv defconfig; make ARCH=riscv
-> > dt_binding_check dtbs_check
-> >
-> > This is a rebased version of https://tinyurl.com/yvdvmsjd, and excludes
-> > two patches that are now redundant.
->
-> Hey Atul,
-> Any word on (an applicable) v3? Would like to get rid of this last
-> couple of warnings.
-> Thanks,
-> Conor.
->
-> >
-> > Atul Khare (2):
-> >   dt-bindings: sifive: add cache-set value of 2048
-> >   dt-bindings: sifive: add gpio-line-names
-> >
-> >  Documentation/devicetree/bindings/gpio/sifive,gpio.yaml      | 3 +++
-> >  Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml | 4 +++-
-> >  2 files changed, 6 insertions(+), 1 deletion(-)
-> >
-> > --
-> > 2.34.1
->
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
