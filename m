@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A150AC43334
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 02:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0778C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 04:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K+7YnIoZb7UHAu9TQUbMd0ZYwlFkGy5OwtS+FPDpug0=; b=VtUv/0UQhbeYo+
-	dZzBKwc5XfBpVYhBLbIB9wRZjW7Wd2H0dlAYPik5AH+rpwzRnbCKArf1KPYv67MK5e/fH9Xkfqa/4
-	rmxBpkApX3VaktWnbXhCGQsFjWOPZlBoqXpigh+E8IlXW72cww19dNmQLOBABJMp6gZdoml8K0rWo
-	pd76fKs+6SYNIK/CoF2vc025ZHHgBhvxZ9tEqAfdykrnH7NdlV3RzS+Nr7yTlNt1PSVTd5nbHfwQY
-	ZMe70EOHA4/4Xvs5NHKFJVyTMW7nfI5jg/HoSTWD1jI4kx0lrgBZvzaRbtKbQLrhU6CfjgWjoVU2a
-	rvI1INs5w707FEzEwyyA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=fQUPI8qyKvIGrzNuzbi4T4hE0FIpLiVq0/9dMu8EBks=; b=G8MpwKXMXUknIZvyXmF/ewC3bQ
+	4KusH47+7/pNqSGYGKCzkjV+o9/AgcUM1Xz9tD9dhj8gs/lC00W+ajzKHHwCDa9wXh6oyvgTsnJcP
+	Fl1useW/ssnkua+/nN5ZyQQh7fvhN8Qz3iW23kNL1/TadS20CCb6Z5c4bBz4m67ImtcI5pgykzErw
+	dkU0w/vkTAJIlZs+EPaqpSttg+xzgs+yIEn1rpEcsblJqPM2tWDgDLmMjTZGCi0PjYFW03vqNNIgf
+	Ena8OXDMcA/aLnf/hrnWID+wixAMZ/GifpFnKDzhfk0/kiJKyeSqA5Y4djfLjp7fdbfkvymbNbxtc
+	X8NWdCJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o76UW-002R1Y-6x; Fri, 01 Jul 2022 02:34:44 +0000
-Received: from fd01.gateway.ufhost.com ([61.152.239.71])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o76UR-002Qyf-0r
-	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 02:34:42 +0000
-Received: from EXMBX166.cuchost.com (unknown [175.102.18.54])
-	(using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
-	(Client CN "EXMBX166", Issuer "EXMBX166" (not verified))
-	by fd01.gateway.ufhost.com (Postfix) with ESMTP id E94BA24E0EA;
-	Fri,  1 Jul 2022 10:34:08 +0800 (CST)
-Received: from EXMBX068.cuchost.com (172.16.6.68) by EXMBX166.cuchost.com
- (172.16.6.76) with Microsoft SMTP Server (TLS) id 15.0.1497.32; Fri, 1 Jul
- 2022 10:34:09 +0800
-Received: from EXMBX061.cuchost.com (172.16.6.61) by EXMBX068.cuchost.com
- (172.16.6.68) with Microsoft SMTP Server (TLS) id 15.0.1497.32; Fri, 1 Jul
- 2022 10:34:08 +0800
-Received: from EXMBX061.cuchost.com ([fe80::3912:9b8d:b65:fa67]) by
- EXMBX061.cuchost.com ([fe80::3912:9b8d:b65:fa67%14]) with mapi id
- 15.00.1497.033; Fri, 1 Jul 2022 10:34:08 +0800
-From: Leyfoon Tan <leyfoon.tan@starfivetech.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-CC: "alexandre.ghiti@canonical.com" <alexandre.ghiti@canonical.com>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: RE: arch/riscv: SV48 patch series questions
-Thread-Topic: arch/riscv: SV48 patch series questions
-Thread-Index: AdhxrOkRGR9CQf46QWqljv+TL2tt2AEQwdsAABSqKCAFrAS48A==
-Date: Fri, 1 Jul 2022 02:34:08 +0000
-Message-ID: <d1d448faad0e421e9a0b4412d46681c5@EXMBX061.cuchost.com>
-References: <83813d991f96428c95c6d681c16ae852@EXMBX161.cuchost.com>
- <mhng-055df44c-3feb-41ae-b8c0-ae3a6489dee1@palmer-ri-x1c9>
- <e99af0ab0a264aadb77d949c4b73fd57@EXMBX161.cuchost.com>
-In-Reply-To: <e99af0ab0a264aadb77d949c4b73fd57@EXMBX161.cuchost.com>
-Accept-Language: en-US, zh-CN
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [202.188.176.82]
-x-yovoleruleagent: yovoleflag
-MIME-Version: 1.0
+	id 1o77vz-002mKl-Ej; Fri, 01 Jul 2022 04:07:11 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o77vx-002mI9-1x
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 04:07:10 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id x4so1320906pfq.2
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 21:07:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+         :content-transfer-encoding;
+        bh=IY8goiZ1JBtpku++C9CD9bs6j+IuJRusr8YmntfJEGo=;
+        b=aLj1r8Lj4Ms0Ut7M6JiRsc+4eKHLPrUHVY4czgHSqwLAOqs+0qTppNNDCco5mZXu4J
+         WRpWOpCD/C5Dubw14p67oFWZzT3vs9GOdbnIkbx89rYGfh9fol438aSEcQMT2UA+4eo2
+         KepnJUP9wu+5ADp0RuZGmn8ZxRGG7rgI/AC42eIx7ZTZvfEKMJdk3IIUFwJx9ysNujQ/
+         zuAUoUMWIUDB6CIn8kcaf26sW1Uz9Bb5fDIVfpwNoropRLfJwNdgxhAxCubwK/+oysx/
+         y5VgndyDuRjsvbWsQcxo9Tp1WnK3SmyyNqoZwuxJbItJLScmq2VpPF7u9/7hbEDMh8VB
+         w/9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+         :mime-version:content-transfer-encoding;
+        bh=IY8goiZ1JBtpku++C9CD9bs6j+IuJRusr8YmntfJEGo=;
+        b=gDHoquQlsRqCiL98m36x5AQl35MKG4sYkvvMue/1FjPZO3WSlqbCVc2w88sKTIc3HA
+         21pWVSKBVZ8hOFIPJKfUfjTAQ+1jtHFNPatf3U2+Q67J0OQrwUIuy9w0yhc+fNm0qpqW
+         FpSyA07imZEoFAfrryYfZzMeYOkd043RCUUwyZKQpsuFbZU1WPiI5nlYzLwaXGzvQPG0
+         PoNcZlR0E7TfCfG6y9J+/sfX3xxf64PRH2J/IVY4SthcrI74iFHjMHLrvQP9ICHhWA/w
+         7h84m7zSZQ0xWngBA39/tc0gNAv/BTgW/yz1bV1DwAf1YXQcS4WVF+O82b6t1DberM4t
+         +JAA==
+X-Gm-Message-State: AJIora8v+MOSstetu7bQTFbT5k8NsawJqIvNEZEYoiVRYgmjf3BM9XOk
+	x30cXIQ03Kzc3o9xWy+RyCxm6g==
+X-Google-Smtp-Source: AGRyM1sVBp+DLhMeTViEgDkuBeGdR/Y0NrmWeUnt3HCL253i4fvsg3QWDQ2JDMBTvhNrr3x8R5JxpQ==
+X-Received: by 2002:a63:6b0a:0:b0:40d:ffa6:85c5 with SMTP id g10-20020a636b0a000000b0040dffa685c5mr10481968pgc.327.1656648426398;
+        Thu, 30 Jun 2022 21:07:06 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id v22-20020a17090a0e1600b001ecbd9aa1a7sm5462214pje.1.2022.06.30.21.07.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 30 Jun 2022 21:07:05 -0700 (PDT)
+Date: Thu, 30 Jun 2022 21:07:05 -0700 (PDT)
+X-Google-Original-Date: Thu, 30 Jun 2022 21:06:53 PDT (-0700)
+Subject: Re: [PATCH 0/3] riscv: Kconfig: Style cleanups
+In-Reply-To: <20220520120232.148310-1-juergh@canonical.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, juergh@canonical.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: juerg.haefliger@canonical.com
+Message-ID: <mhng-bb67d78e-c98c-43ec-92b9-b2bcc46c9265@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220630_193439_363490_44BFC24C 
-X-CRM114-Status: GOOD (  28.11  )
+X-CRM114-CacheID: sfid-20220630_210709_345519_E84C4854 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,73 +82,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, 20 May 2022 05:02:29 PDT (-0700), juerg.haefliger@canonical.com wrote:
+> The majority of the Kconfig files use a single tab for basic indentation
+> and a single tab followed by two whitespaces for help text indentation.
+> Fix the lines that don't follow this convention.
+>
+> While at it:
+>   - Add trailing comments to endif/endmenu statements for better
+>     readability.
+>
+> Juerg Haefliger (3):
+>   riscv: Kconfig: Fix indentation and add comments
+>   riscv: Kconfig.erratas: Add comments
+>   riscv: Kconfig.socs: Add comments
+>
+>  arch/riscv/Kconfig         | 19 +++++++++----------
+>  arch/riscv/Kconfig.erratas |  2 +-
+>  arch/riscv/Kconfig.socs    |  4 ++--
+>  3 files changed, 12 insertions(+), 13 deletions(-)
 
-
-> -----Original Message-----
-> From: Leyfoon Tan
-> Sent: Thursday, 2 June, 2022 1:44 PM
-> To: 'Palmer Dabbelt' <palmer@dabbelt.com>
-> Cc: alexandre.ghiti@canonical.com; linux-riscv@lists.infradead.org; linux-
-> kernel@vger.kernel.org
-> Subject: RE: arch/riscv: SV48 patch series questions
-> 
-> 
-> 
-> > -----Original Message-----
-> > From: Palmer Dabbelt <palmer@dabbelt.com>
-> > Sent: Thursday, 2 June, 2022 11:44 AM
-> > To: Leyfoon Tan <leyfoon.tan@starfivetech.com>
-> > Cc: alexandre.ghiti@canonical.com; linux-riscv@lists.infradead.org;
-> > linux- kernel@vger.kernel.org
-> > Subject: Re: arch/riscv: SV48 patch series questions
-> >
-> > On Fri, 27 May 2022 02:37:34 PDT (-0700), leyfoon.tan@starfivetech.com
-> > wrote:
-> > > Hi Palmer
-> > >
-> > > Alex's "Introduce sv48 support without relocatable kernel" patch
-> > > series in
-> > [1] was partially merged to Linux v5.17. But there are 4 patches are
-> > not merged (Patch-10 to 13).
-> > >
-> > > May I know what is the plan for these patches? Will them merged to
-> > > next
-> > v5.19 merging window? Or do you expect any changes for these patches
-> > or Alex needs resend with rebase to latest kernel version?
-> >
-> > I just saw this as I was digging up Alex's old email to reply to, all
-> > but #13 are now on for-next.
-> >
-> > > Note, we would like to use the Patch-13 in this series.
-> >
-> > Is your use case a CPU errata?  If so I think we should just go ahead
-> > and add that errata via the existing errata mechanism.  If you've got
-> > some other use case, do you mind elaborating?  From that other thread
-> > it sounds like a command-line argument is the way to go for folks who
-> > want to turn this off more dynamically, but happy to hear if you've
-> > got something different in mind.
-> It is not CPU errata.
-> RISC-V cpu can have sv39, sv48 or even sv57. If it is a heterogenous system,
-> cpu cores in the system might have different sv. Eg: one cpu can be sv39 and
-> another core is sv48.
-> In this case, auto detection is not work. So, Patch-13 can help in this use case.
-> 
-> >
-Hi Palmer
-
-Any further comment for this?
-
-Any chance merging Patch-13 in [1]?
-
-[1] https://patchwork.kernel.org/project/linux-riscv/patch/20211206104657.433304-14-alexandre.ghiti@canonical.com/
-
-Regards
-Ley Foon
+Thanks, this is on for-next.  There were a few merge conflicts, 
+everything looks pretty straight-forward but let me know if there were 
+any issues.
 
 _______________________________________________
 linux-riscv mailing list
