@@ -4,78 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDC13C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 14:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3DFEC43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 15:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L9JVvRhhI5/rirahwje3t/9cIXkEMZtJMpVV0cqTrvA=; b=IWco2K4yXz+6li
-	gdiRq6TipL5kOwXh+1pUPEZ5zkXClNh86dBoxrOtLdryXVtYyCCpda78RT9YVgwGJNn0yx/s/9+/v
-	4xqaDTMJeqrKTYNPmQxAPnm18dJc/kgNSFxjcD9JHU0WhdvUqyvfoOboL9ze8AdSCafWrVvNsbOTL
-	9K7ncgUa7NSf0jAw9eEq5udW1rm9Hg0vhXvJIQe1BbuH2T28qdzKFWg3A9edpdPobIWVrWh89CkWx
-	GGFNB1DrHb7Tg1nq6ZpYtKR5JqqK9DuPJ6gjnCArV3qTNxCa00HOtIi8Eyi2NXT+uPyA9mQI6cSbG
-	+BoCUgaskbAgcAuraFng==;
+	List-Owner; bh=LEvi3744SPsJXcQkbVUN/3emO1XTUEZia3kNt0M1f+I=; b=vZqfMAybE8CVaR
+	gCJk3ridWPPi28/wrelv46MI2TVAg2sB6/ElW9GzCebXi87YKxT6JY7o5u0vTEeQOu3v3Lxe1Up74
+	jyF5mQcxmWvA65qsDA25FCcre9zSuLvmcX+DQN7R1QU2EYkwoxZvXGQA0rgK+sX0JR46ixSJ3kZwC
+	bceq+lo6PcVxHLspXzFp0tFRzNH3Ks/frLQozuwq5EWUD8UJZwDIWh4AZBDnHP4wYY1cpIklfokP8
+	VyREX3NR+i08rkRfXthujqwAEweGdI1LIwi37q7v2Rv9nXkPkNHWmjt9T8Ja6Kstb6mqJY64SydKq
+	XCTPWTx/1h5YZTojS9RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7I3V-005Tup-VZ; Fri, 01 Jul 2022 14:55:38 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1o7IPu-005cUa-O5; Fri, 01 Jul 2022 15:18:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7I3R-005TqK-Tn
-	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 14:55:36 +0000
-Received: by mail-wr1-x429.google.com with SMTP id cl1so3600337wrb.4
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 07:55:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20210112.gappssmtp.com; s=20210112;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to;
-        bh=aKmhqWsvz2VXt/NxPWZTmSfapGdUQJOe7XuueEGMywA=;
-        b=q7+4mVv9tGFQDYiHUjyiZhWOet/va8+qMXYFOdyNBU6x5hh0p/oE2lRkR7wEInuyyX
-         njarglTDvX8/WBvF5xCWpQ90YXMrij4tXs99p5lLzfEk9B0iGhvJTTw4yI3drnDlt5XS
-         lnhx8sGxE1b2ouu4aIo5+HzV3huTYEkpTvVHhvuQmuhVkNEpAzAcejTB4oO/QQk4g4jq
-         HpC+BRflTl7YknywuQmrycZRm2eJWEo9XUorIGW1B4vcty520Jc+Q5lYvsGqO1yNfwTW
-         wqjRhywZOUy3R7HsxEMdDhEUQ8P/9dODWLeKaRFkb6QmBmBMjm3h90Qp4PEUyVHi3YCs
-         ruRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:content-transfer-encoding
-         :in-reply-to;
-        bh=aKmhqWsvz2VXt/NxPWZTmSfapGdUQJOe7XuueEGMywA=;
-        b=Xga8AS7XUghRHhAyCSImp6FSgBOilv5vgHp/aJTJ8Bo0JjvTgh0uLGXC+Ys2BrC0ta
-         F0bATH/HVVO5MicSIgEvcTB3VQxHvs9rgc0QUU4MXGDOxy6Tyc5kIjpFI6O9L219p2VF
-         dTXFi8l6A59H3HXC4V54hOfi3MPNiBM8tUhAEUNfHNmh9IG9ZlyXvRqhP+wt1X5SMp+c
-         UBptk0/pZLBk03Mh2gtcp1IFXJCe8K7M4eXfrVfdK0C2blPtxp1Epmn2GSuLIOkzcCD5
-         x0sZttes1p1xZS0CbNipVwzWYRdv5ON5GWlIiQ1aJzWadBYs1UWOLTBsEWKRkDx2/MAb
-         I7Ag==
-X-Gm-Message-State: AJIora91ChQIxzjGa6iEq5hZAvrxe3f1+m0FvsW8m8AjNZeKbrZUrZV1
-	4HmpZStOQDqS2jewhhwyQL7bqg==
-X-Google-Smtp-Source: AGRyM1tCIA07jyVpPAgoHKY5VvDK82sz/FIuyrKzmAOblKWvPhdFd7fSDEiruHGXEYgIAT5QawR1jA==
-X-Received: by 2002:a5d:4b08:0:b0:21d:2ea6:2fe0 with SMTP id v8-20020a5d4b08000000b0021d2ea62fe0mr12365732wrq.144.1656687327276;
-        Fri, 01 Jul 2022 07:55:27 -0700 (PDT)
-Received: from Red ([2a01:cb1d:3d5:a100:264b:feff:fe03:2806])
-        by smtp.googlemail.com with ESMTPSA id b8-20020a05600c4e0800b003974cb37a94sm7081073wmq.22.2022.07.01.07.55.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 01 Jul 2022 07:55:26 -0700 (PDT)
-Date: Fri, 1 Jul 2022 16:55:24 +0200
-From: LABBE Corentin <clabbe@baylibre.com>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: herbert@gondor.apana.org.au, hch@lst.de, heiko@sntech.de,
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	Ben Dooks <ben.dooks@codethink.co.uk>
-Subject: Re: [RFC PATCH] crypto: flush poison data
-Message-ID: <Yr8K3Kxm6QzGY/g4@Red>
-References: <20220701132735.1594822-1-clabbe@baylibre.com>
- <20220701153614.0a576f9c@donnerap.cambridge.arm.com>
+	id 1o7IPo-005cR3-B4
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 15:18:41 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9115C623EC
+	for <linux-riscv@lists.infradead.org>; Fri,  1 Jul 2022 15:18:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B60C341CA
+	for <linux-riscv@lists.infradead.org>; Fri,  1 Jul 2022 15:18:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1656688718;
+	bh=XT19J7tfEXlwiUinDfQaGsUAqM2Jh+CfB0vp/2kuJP8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=PmO0KbcapyN0IF797m1MeyFs2D36zNUM4PWE2tXHGsno8vroSpAu8WJOdR+LqACgD
+	 qsgxFI3SsTwegRgvL/4Gzqv2MWyiqaCGNP4uGhFoiXXEcIYmNmYFw7r9b6btJ7ysIw
+	 I0ZyaX1UgsQKV8BpeRJIiCvau/TKfPGl9NpLwSH1M3+uAhTgAVpEv8sr5Hw1zuiVrW
+	 DIRABCoSFU7EiGAwxu5T68FeHDMo2ezlVZgmB0Ymg7+cu6UAZtuDXHwmE4Js04/p8o
+	 oLCjVYfkEIa+uuDbrjGdYofuawBP7a6xT3nwVI7EJcjJYJHmGCEMj2wMDIN1cF3NGQ
+	 Fg3ccan+5REaQ==
+Received: by mail-ua1-f45.google.com with SMTP id p19so945820uam.4
+        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 08:18:37 -0700 (PDT)
+X-Gm-Message-State: AJIora+UjpDF4yqtqFegS1j7oAoxRl/UvLBoTDhaZYASzm6c6DQh9zQU
+	rvolCH+6Lr4EBxS/VJMoYTLOIIggL7fIIVhgeRM=
+X-Google-Smtp-Source: AGRyM1su4bh/Qc4VULUJCugaye8aZYrrc3pSCAd5DT+9mUsito0CtDyo7cy8TkPrir1gknw2h5ic++3eTmFbXpc9OeA=
+X-Received: by 2002:ab0:4384:0:b0:37f:1bac:b425 with SMTP id
+ l4-20020ab04384000000b0037f1bacb425mr8408793ual.12.1656688716940; Fri, 01 Jul
+ 2022 08:18:36 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220701153614.0a576f9c@donnerap.cambridge.arm.com>
+References: <20220628081707.1997728-1-guoren@kernel.org> <20220628081707.1997728-2-guoren@kernel.org>
+ <8eaf85d4e4d9401ea187366de12e7269@AcuMS.aculab.com>
+In-Reply-To: <8eaf85d4e4d9401ea187366de12e7269@AcuMS.aculab.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Fri, 1 Jul 2022 23:18:25 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTWO-HxQNME=YN4pvEeFD5fT0dUx9pQhLujMk1V008U5A@mail.gmail.com>
+Message-ID: <CAJF2gTTWO-HxQNME=YN4pvEeFD5fT0dUx9pQhLujMk1V008U5A@mail.gmail.com>
+Subject: Re: [PATCH V7 1/5] asm-generic: ticket-lock: Remove unnecessary atomic_read
+To: David Laight <David.Laight@aculab.com>
+Cc: "palmer@rivosinc.com" <palmer@rivosinc.com>, "arnd@arndb.de" <arnd@arndb.de>, 
+	"mingo@redhat.com" <mingo@redhat.com>, "will@kernel.org" <will@kernel.org>, 
+	"longman@redhat.com" <longman@redhat.com>, "boqun.feng@gmail.com" <boqun.feng@gmail.com>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
+	Peter Zijlstra <peterz@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220701_075534_062214_7ADF39DF 
-X-CRM114-Status: GOOD (  27.20  )
+X-CRM114-CacheID: sfid-20220701_081840_508097_2BA54AF9 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,98 +81,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Le Fri, Jul 01, 2022 at 03:36:14PM +0100, Andre Przywara a =E9crit :
-> On Fri,  1 Jul 2022 13:27:35 +0000
-> Corentin Labbe <clabbe@baylibre.com> wrote:
-> =
+On Wed, Jun 29, 2022 at 4:27 PM David Laight <David.Laight@aculab.com> wrote:
+>
+> From: guoren@kernel.org
+> > Sent: 28 June 2022 09:17
+> >
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > Remove unnecessary atomic_read in arch_spin_value_unlocked(lock),
+> > because the value has been in lock. This patch could prevent
+> > arch_spin_value_unlocked contend spin_lock data again.
+>
+> I'm confused (as usual).
+> Isn't atomic_read() pretty much free?
+When a cache line is shared with multi-harts, not as free as you think.
+Preventing touching contended data is the basic principle.
 
-> Hi,
-> =
+atomic_read in alpha is heavy, It could be a potential user of ticket-lock.
 
-> > On my Allwinner D1 nezha, the sun8i-ce fail self-tests due to:
-> > alg: skcipher: cbc-des3-sun8i-ce encryption overran dst buffer on test =
-vector 0
-> > =
-
-> > In fact the buffer is not overran by device but by the dma_map_single()=
- operation.
-> > =
-
-> > To prevent any corruption of the poisoned data, simply flush them before
-> > giving the buffer to the tested driver.
-> > =
-
-> > Signed-off-by: Corentin Labbe <clabbe@baylibre.com>
-> > ---
-> > =
-
-> > Hello
-> > =
-
-> > I put this patch as RFC, since this behavour happen only on non yet mer=
-ged RISCV code.
-> > (Mostly riscv: implement Zicbom-based CMO instructions + the t-head var=
-iant)
-> > =
-
-> > Regards
-> > =
-
-> >  crypto/testmgr.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> > =
-
-> > diff --git a/crypto/testmgr.c b/crypto/testmgr.c
-> > index c59bd9e07978..187163e2e593 100644
-> > --- a/crypto/testmgr.c
-> > +++ b/crypto/testmgr.c
-> > @@ -19,6 +19,7 @@
-> >  #include <crypto/aead.h>
-> >  #include <crypto/hash.h>
-> >  #include <crypto/skcipher.h>
-> > +#include <linux/cacheflush.h>
-> >  #include <linux/err.h>
-> >  #include <linux/fips.h>
-> >  #include <linux/module.h>
-> > @@ -205,6 +206,8 @@ static void testmgr_free_buf(char *buf[XBUFSIZE])
-> >  static inline void testmgr_poison(void *addr, size_t len)
+>
+> ..
+> > diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
+> > index fdfebcb050f4..f1e4fa100f5a 100644
+> > --- a/include/asm-generic/spinlock.h
+> > +++ b/include/asm-generic/spinlock.h
+> > @@ -84,7 +84,9 @@ static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
+> >
+> >  static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
 > >  {
-> >  	memset(addr, TESTMGR_POISON_BYTE, len);
-> > +	/* Be sure data is written to prevent corruption from some DMA sync */
-> > +	flush_icache_range((unsigned long)addr, (unsigned long)addr + len);
-> =
+> > -     return !arch_spin_is_locked(&lock);
+> > +     u32 val = lock.counter;
+> > +
+> > +     return ((val >> 16) == (val & 0xffff));
+>
+> That almost certainly needs a READ_ONCE().
+>
+> The result is also inherently stale.
+> So the uses must be pretty limited.
+The previous read_once could get 64bit, use the API to check the 32bit
+atomic data part.
 
-> As Ben already mentioned, this looks like having nothing to do with the I
-> cache. I guess you picked that because it does the required cache cleaning
-> and doesn't require a vma parameter?
+>
+>         David
+>
+> >  }
+> >
+> >  #include <asm/qrwlock.h>
+> > --
+> > 2.36.1
+>
+> -
+> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
+> Registration No: 1397386 (Wales)
+>
 
-The reality is simpler, I just copied what did drivers/crypto/xilinx/zynqmp=
--sha.c
 
-> =
+-- 
+Best Regards
+ Guo Ren
 
-> But more importantly: I think drivers shouldn't do explicit cache
-> maintenance, this is what the DMA API is for.
-> So if you get DMA corruption, then this points to some flaw in the DMA API
-> usage: either the buffer belongs to the CPU, then the device must not wri=
-te
-> to it. Or the buffer belongs to the device, then the CPU cannot expect to
-> write to that without that data potentially getting corrupted.
-
-The device does nothing wrong, I removed all sun8i-ce device action (and ke=
-pt DMA API actions) and the the whole buffer is still corrupted.
-Anyway if the driver was doing something wrong, it should have fail on arm =
-or arm64.
-
-See my previous report https://lore.kernel.org/lkml/YllWTN+15CoskNBt@Red/ w=
-hich show the problem (The invalidated size is bigger than the dma_sync len=
-gth parameter)
-
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
