@@ -4,72 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3DFEC43334
-	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 15:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C94C43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  1 Jul 2022 15:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LEvi3744SPsJXcQkbVUN/3emO1XTUEZia3kNt0M1f+I=; b=vZqfMAybE8CVaR
-	gCJk3ridWPPi28/wrelv46MI2TVAg2sB6/ElW9GzCebXi87YKxT6JY7o5u0vTEeQOu3v3Lxe1Up74
-	jyF5mQcxmWvA65qsDA25FCcre9zSuLvmcX+DQN7R1QU2EYkwoxZvXGQA0rgK+sX0JR46ixSJ3kZwC
-	bceq+lo6PcVxHLspXzFp0tFRzNH3Ks/frLQozuwq5EWUD8UJZwDIWh4AZBDnHP4wYY1cpIklfokP8
-	VyREX3NR+i08rkRfXthujqwAEweGdI1LIwi37q7v2Rv9nXkPkNHWmjt9T8Ja6Kstb6mqJY64SydKq
-	XCTPWTx/1h5YZTojS9RQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Mime-Version:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=uMpQ+llj4mWXoqbfamFS6LOMA2kLKPzYa8sw4FspSqQ=; b=0g6
+	+jhWcxor1hIUbQoZrlKlH+4uC5XiPwzUyQoLAFJsw8cEbuRpKftGyeNFdrIT1EXhLdvOuM3CumY91
+	BzvCb4L+3tLnFzty4lP5S1gZEzW4YsUyViQwLNI5Onw8TQnt+SpLW3p3JA8LXVgfQWHxaIB6qlD5X
+	f77Uv/PhS/hx7ViX/hOlo4b9U2dZuOqKINaM9m3DrLgtchhVRT4fD7NBW9Z9NLpcJjVI/CC94QZTF
+	NyHAOkCKmtTH46vDav/gyduxewxTorw/3Q3tdKzXF0PPn/QIX4fIWf4s1yvM16LTGR7rG0VF1p/+u
+	mydoyLsLpT0UED8zXTMI3aiOwaoEDmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7IPu-005cUa-O5; Fri, 01 Jul 2022 15:18:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1o7ISZ-005dVo-K5; Fri, 01 Jul 2022 15:21:31 +0000
+Received: from mail-yb1-xb4a.google.com ([2607:f8b0:4864:20::b4a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o7IPo-005cR3-B4
-	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 15:18:41 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9115C623EC
-	for <linux-riscv@lists.infradead.org>; Fri,  1 Jul 2022 15:18:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04B60C341CA
-	for <linux-riscv@lists.infradead.org>; Fri,  1 Jul 2022 15:18:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1656688718;
-	bh=XT19J7tfEXlwiUinDfQaGsUAqM2Jh+CfB0vp/2kuJP8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=PmO0KbcapyN0IF797m1MeyFs2D36zNUM4PWE2tXHGsno8vroSpAu8WJOdR+LqACgD
-	 qsgxFI3SsTwegRgvL/4Gzqv2MWyiqaCGNP4uGhFoiXXEcIYmNmYFw7r9b6btJ7ysIw
-	 I0ZyaX1UgsQKV8BpeRJIiCvau/TKfPGl9NpLwSH1M3+uAhTgAVpEv8sr5Hw1zuiVrW
-	 DIRABCoSFU7EiGAwxu5T68FeHDMo2ezlVZgmB0Ymg7+cu6UAZtuDXHwmE4Js04/p8o
-	 oLCjVYfkEIa+uuDbrjGdYofuawBP7a6xT3nwVI7EJcjJYJHmGCEMj2wMDIN1cF3NGQ
-	 Fg3ccan+5REaQ==
-Received: by mail-ua1-f45.google.com with SMTP id p19so945820uam.4
-        for <linux-riscv@lists.infradead.org>; Fri, 01 Jul 2022 08:18:37 -0700 (PDT)
-X-Gm-Message-State: AJIora+UjpDF4yqtqFegS1j7oAoxRl/UvLBoTDhaZYASzm6c6DQh9zQU
-	rvolCH+6Lr4EBxS/VJMoYTLOIIggL7fIIVhgeRM=
-X-Google-Smtp-Source: AGRyM1su4bh/Qc4VULUJCugaye8aZYrrc3pSCAd5DT+9mUsito0CtDyo7cy8TkPrir1gknw2h5ic++3eTmFbXpc9OeA=
-X-Received: by 2002:ab0:4384:0:b0:37f:1bac:b425 with SMTP id
- l4-20020ab04384000000b0037f1bacb425mr8408793ual.12.1656688716940; Fri, 01 Jul
- 2022 08:18:36 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220628081707.1997728-1-guoren@kernel.org> <20220628081707.1997728-2-guoren@kernel.org>
- <8eaf85d4e4d9401ea187366de12e7269@AcuMS.aculab.com>
-In-Reply-To: <8eaf85d4e4d9401ea187366de12e7269@AcuMS.aculab.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 1 Jul 2022 23:18:25 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTWO-HxQNME=YN4pvEeFD5fT0dUx9pQhLujMk1V008U5A@mail.gmail.com>
-Message-ID: <CAJF2gTTWO-HxQNME=YN4pvEeFD5fT0dUx9pQhLujMk1V008U5A@mail.gmail.com>
-Subject: Re: [PATCH V7 1/5] asm-generic: ticket-lock: Remove unnecessary atomic_read
-To: David Laight <David.Laight@aculab.com>
-Cc: "palmer@rivosinc.com" <palmer@rivosinc.com>, "arnd@arndb.de" <arnd@arndb.de>, 
-	"mingo@redhat.com" <mingo@redhat.com>, "will@kernel.org" <will@kernel.org>, 
-	"longman@redhat.com" <longman@redhat.com>, "boqun.feng@gmail.com" <boqun.feng@gmail.com>, 
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
-	Peter Zijlstra <peterz@infradead.org>
+	id 1o75Qw-002H4g-AI
+	for linux-riscv@lists.infradead.org; Fri, 01 Jul 2022 01:27:02 +0000
+Received: by mail-yb1-xb4a.google.com with SMTP id j11-20020a05690212cb00b006454988d225so767929ybu.10
+        for <linux-riscv@lists.infradead.org>; Thu, 30 Jun 2022 18:26:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=date:message-id:mime-version:subject:from:to:cc;
+        bh=enThZq3GNhnkWKPd/daPanpJOP+0ijq4hNHtFP2b8Uo=;
+        b=ZGHrQo8oKcs/1MxqUV66WuroIOiuRhyDQTe/h9dNu56quZHoJH2GUaDbRl2ttRwgEe
+         SWqVcY/Veo5jphceJDpwMYzMdOJ0QXdCPktWf948t9BiLW5nmwSSwTlpJciNH3VIewIt
+         3ASh6A26F+KmkZttZjFaUnZEb4Vdr+50D/q0gexLqMMmpJA7NpBHgj2jcBkr1ZyXcHXM
+         U6Xnoa3WH+ep5XzMHbrLnEz24W5g5SeejVYD0NuN3ckqaoVAfjVlh+5k/BsS4sAB5hq6
+         ohdGwKO24kRPaNPr4udjwZ2k4/3lgZFaY78w+9+WaY8oo3hWqIQJ8JqaHbOBVz/YVY0e
+         BS/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:message-id:mime-version:subject:from:to:cc;
+        bh=enThZq3GNhnkWKPd/daPanpJOP+0ijq4hNHtFP2b8Uo=;
+        b=gXdkdjCrd6GoQZEkQQ/mK3qWzcHhKlFF0U9ZvUWJQ2cesu+wsXePydHcwes8RpwuI4
+         MAw6NGqWwbhSzS3JTOHAW/B9M7JloquItgzu/SGS2LxR0VY+sNk/DgZ5bxCs/vzn3yqp
+         qU2nolSmD6SsPG8BGTLw/278XdoRqaEbJFMiW7A83GkrSbcQ2hWe2H9/Nt/ed9j9vZE8
+         FWoSDrZmxQMNy0ZFwuaFBPU+kIx+ED4KAigHyh7oYdnMjnbE43sEMyb5s89yjvwdF+hU
+         Dd3D0+UBg5IZSStGslMOZFDDeqXXdHKtNZX7xlb1rRzK7PJy4FnV8NVIXnqNd2J3FzVl
+         8YLQ==
+X-Gm-Message-State: AJIora8bqb9ixK+XQdjy8zJFPltL8WZr6VJso95FuXXIhMj9ja01/kxz
+	8d9gtvig2yRjSUTxiiRuKjBFAlCWNFEluiQ=
+X-Google-Smtp-Source: AGRyM1uVtkICZeFb41qzlKfYUlr23L197fZnFh7B1zLJMqch7Nth1saNWtsGGUH9YN1+Q9+ZxuB5n3WOpcD3GoA=
+X-Received: from saravanak.san.corp.google.com ([2620:15c:2d:3:3973:d0f0:34a8:bf61])
+ (user=saravanak job=sendgmr) by 2002:a25:4b02:0:b0:66c:8709:44d1 with SMTP id
+ y2-20020a254b02000000b0066c870944d1mr12352911yba.602.1656638811027; Thu, 30
+ Jun 2022 18:26:51 -0700 (PDT)
+Date: Thu, 30 Jun 2022 18:26:38 -0700
+Message-Id: <20220701012647.2007122-1-saravanak@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.37.0.rc0.161.g10f37bed90-goog
+Subject: [PATCH v2 0/2] Fix console probe delay when stdout-path isn't set
+From: Saravana Kannan <saravanak@google.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>, Jiri Slaby <jirislaby@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+	Paul Mackerras <paulus@samba.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>, 
+	Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Al Cooper <alcooperx@gmail.com>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Paul Cercueil <paul@crapouillou.net>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Tobias Klauser <tklauser@distanz.ch>, Russell King <linux@armlinux.org.uk>, 
+	Vineet Gupta <vgupta@kernel.org>, Richard Genoud <richard.genoud@gmail.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Claudiu Beznea <claudiu.beznea@microchip.com>, Alexander Shiyan <shc_work@mail.ru>, 
+	Baruch Siach <baruch@tkos.co.il>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, 
+	Karol Gugala <kgugala@antmicro.com>, Mateusz Holenko <mholenko@antmicro.com>, 
+	Gabriel Somlo <gsomlo@gmail.com>, Neil Armstrong <narmstrong@baylibre.com>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Taichi Sugaya <sugaya.taichi@socionext.com>, Takao Orito <orito.takao@socionext.com>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Andy Gross <agross@kernel.org>, 
+	Bjorn Andersson <bjorn.andersson@linaro.org>, Pali Rohar <pali@kernel.org>, 
+	Andreas Farber <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Laxman Dewangan <ldewangan@nvidia.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang7@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, "David S. Miller" <davem@davemloft.net>, 
+	Hammer Hsieh <hammerh0314@gmail.com>, Peter Korsgaard <jacmet@sunsite.dk>, Timur Tabi <timur@kernel.org>, 
+	Michal Simek <michal.simek@xilinx.com>, Saravana Kannan <saravanak@google.com>
+Cc: Rob Herring <robh@kernel.org>, sascha hauer <sha@pengutronix.de>, peng fan <peng.fan@nxp.com>, 
+	kevin hilman <khilman@kernel.org>, ulf hansson <ulf.hansson@linaro.org>, 
+	len brown <len.brown@intel.com>, pavel machek <pavel@ucw.cz>, joerg roedel <joro@8bytes.org>, 
+	will deacon <will@kernel.org>, andrew lunn <andrew@lunn.ch>, heiner kallweit <hkallweit1@gmail.com>, 
+	eric dumazet <edumazet@google.com>, jakub kicinski <kuba@kernel.org>, paolo abeni <pabeni@redhat.com>, 
+	linus walleij <linus.walleij@linaro.org>, hideaki yoshifuji <yoshfuji@linux-ipv6.org>, 
+	david ahern <dsahern@kernel.org>, kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, iommu@lists.linux-foundation.org, 
+	netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-serial@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-actions@lists.infradead.org, 
+	linux-unisoc@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+	sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220701_081840_508097_2BA54AF9 
-X-CRM114-Status: GOOD (  19.03  )
+X-CRM114-CacheID: sfid-20220630_182658_431368_1DC2B747 
+X-CRM114-Status: GOOD (  11.06  )
+X-Mailman-Approved-At: Fri, 01 Jul 2022 08:21:30 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,66 +135,127 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 29, 2022 at 4:27 PM David Laight <David.Laight@aculab.com> wrote:
->
-> From: guoren@kernel.org
-> > Sent: 28 June 2022 09:17
-> >
-> > From: Guo Ren <guoren@linux.alibaba.com>
-> >
-> > Remove unnecessary atomic_read in arch_spin_value_unlocked(lock),
-> > because the value has been in lock. This patch could prevent
-> > arch_spin_value_unlocked contend spin_lock data again.
->
-> I'm confused (as usual).
-> Isn't atomic_read() pretty much free?
-When a cache line is shared with multi-harts, not as free as you think.
-Preventing touching contended data is the basic principle.
+These patches are on top of driver-core-next.
 
-atomic_read in alpha is heavy, It could be a potential user of ticket-lock.
+Even if stdout-path isn't set in DT, this patch should take console
+probe times back to how they were before the deferred_probe_timeout
+clean up series[1].
 
->
-> ..
-> > diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
-> > index fdfebcb050f4..f1e4fa100f5a 100644
-> > --- a/include/asm-generic/spinlock.h
-> > +++ b/include/asm-generic/spinlock.h
-> > @@ -84,7 +84,9 @@ static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
-> >
-> >  static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
-> >  {
-> > -     return !arch_spin_is_locked(&lock);
-> > +     u32 val = lock.counter;
-> > +
-> > +     return ((val >> 16) == (val & 0xffff));
->
-> That almost certainly needs a READ_ONCE().
->
-> The result is also inherently stale.
-> So the uses must be pretty limited.
-The previous read_once could get 64bit, use the API to check the 32bit
-atomic data part.
+v1->v2:
+- Fixed the accidental change that Tobias pointed out.
+- Added Tested-by tag
 
->
->         David
->
-> >  }
-> >
-> >  #include <asm/qrwlock.h>
-> > --
-> > 2.36.1
->
-> -
-> Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-> Registration No: 1397386 (Wales)
->
+[1] - https://lore.kernel.org/lkml/20220601070707.3946847-1-saravanak@google.com/
 
+-Saravana
+
+cc: Rob Herring <robh@kernel.org>
+cc: sascha hauer <sha@pengutronix.de>
+cc: peng fan <peng.fan@nxp.com>
+cc: kevin hilman <khilman@kernel.org>
+cc: ulf hansson <ulf.hansson@linaro.org>
+cc: len brown <len.brown@intel.com>
+cc: pavel machek <pavel@ucw.cz>
+cc: joerg roedel <joro@8bytes.org>
+cc: will deacon <will@kernel.org>
+cc: andrew lunn <andrew@lunn.ch>
+cc: heiner kallweit <hkallweit1@gmail.com>
+cc: russell king <linux@armlinux.org.uk>
+cc: "david s. miller" <davem@davemloft.net>
+cc: eric dumazet <edumazet@google.com>
+cc: jakub kicinski <kuba@kernel.org>
+cc: paolo abeni <pabeni@redhat.com>
+cc: linus walleij <linus.walleij@linaro.org>
+cc: hideaki yoshifuji <yoshfuji@linux-ipv6.org>
+cc: david ahern <dsahern@kernel.org>
+cc: kernel-team@android.com
+cc: linux-kernel@vger.kernel.org
+cc: linux-pm@vger.kernel.org
+cc: iommu@lists.linux-foundation.org
+cc: netdev@vger.kernel.org
+cc: linux-gpio@vger.kernel.org
+Cc: kernel@pengutronix.de
+
+Saravana Kannan (2):
+  driver core: Add probe_no_timeout flag for drivers
+  serial: Set probe_no_timeout for all DT based drivers
+
+ drivers/base/base.h                         |  1 +
+ drivers/base/core.c                         |  7 +++++++
+ drivers/base/dd.c                           |  3 +++
+ drivers/tty/ehv_bytechan.c                  |  1 +
+ drivers/tty/goldfish.c                      |  1 +
+ drivers/tty/hvc/hvc_opal.c                  |  1 +
+ drivers/tty/serial/8250/8250_aspeed_vuart.c |  1 +
+ drivers/tty/serial/8250/8250_bcm2835aux.c   |  1 +
+ drivers/tty/serial/8250/8250_bcm7271.c      |  1 +
+ drivers/tty/serial/8250/8250_dw.c           |  1 +
+ drivers/tty/serial/8250/8250_em.c           |  1 +
+ drivers/tty/serial/8250/8250_ingenic.c      |  1 +
+ drivers/tty/serial/8250/8250_lpc18xx.c      |  1 +
+ drivers/tty/serial/8250/8250_mtk.c          |  1 +
+ drivers/tty/serial/8250/8250_of.c           |  1 +
+ drivers/tty/serial/8250/8250_omap.c         |  1 +
+ drivers/tty/serial/8250/8250_pxa.c          |  1 +
+ drivers/tty/serial/8250/8250_tegra.c        |  1 +
+ drivers/tty/serial/8250/8250_uniphier.c     |  1 +
+ drivers/tty/serial/altera_jtaguart.c        |  1 +
+ drivers/tty/serial/altera_uart.c            |  1 +
+ drivers/tty/serial/amba-pl011.c             |  1 +
+ drivers/tty/serial/apbuart.c                |  1 +
+ drivers/tty/serial/ar933x_uart.c            |  1 +
+ drivers/tty/serial/arc_uart.c               |  1 +
+ drivers/tty/serial/atmel_serial.c           |  1 +
+ drivers/tty/serial/bcm63xx_uart.c           |  1 +
+ drivers/tty/serial/clps711x.c               |  1 +
+ drivers/tty/serial/cpm_uart/cpm_uart_core.c |  1 +
+ drivers/tty/serial/digicolor-usart.c        |  1 +
+ drivers/tty/serial/fsl_linflexuart.c        |  1 +
+ drivers/tty/serial/fsl_lpuart.c             |  1 +
+ drivers/tty/serial/imx.c                    |  1 +
+ drivers/tty/serial/lantiq.c                 |  1 +
+ drivers/tty/serial/liteuart.c               |  1 +
+ drivers/tty/serial/lpc32xx_hs.c             |  1 +
+ drivers/tty/serial/max310x.c                |  1 +
+ drivers/tty/serial/meson_uart.c             |  1 +
+ drivers/tty/serial/milbeaut_usio.c          |  1 +
+ drivers/tty/serial/mpc52xx_uart.c           |  1 +
+ drivers/tty/serial/mps2-uart.c              |  1 +
+ drivers/tty/serial/msm_serial.c             |  1 +
+ drivers/tty/serial/mvebu-uart.c             |  1 +
+ drivers/tty/serial/mxs-auart.c              |  1 +
+ drivers/tty/serial/omap-serial.c            |  1 +
+ drivers/tty/serial/owl-uart.c               |  1 +
+ drivers/tty/serial/pic32_uart.c             |  1 +
+ drivers/tty/serial/pmac_zilog.c             |  1 +
+ drivers/tty/serial/pxa.c                    |  1 +
+ drivers/tty/serial/qcom_geni_serial.c       |  1 +
+ drivers/tty/serial/rda-uart.c               |  1 +
+ drivers/tty/serial/samsung_tty.c            |  1 +
+ drivers/tty/serial/sc16is7xx.c              |  1 +
+ drivers/tty/serial/serial-tegra.c           |  1 +
+ drivers/tty/serial/sh-sci.c                 |  1 +
+ drivers/tty/serial/sifive.c                 |  1 +
+ drivers/tty/serial/sprd_serial.c            |  1 +
+ drivers/tty/serial/st-asc.c                 |  1 +
+ drivers/tty/serial/stm32-usart.c            |  1 +
+ drivers/tty/serial/sunhv.c                  |  1 +
+ drivers/tty/serial/sunplus-uart.c           |  1 +
+ drivers/tty/serial/sunsab.c                 |  1 +
+ drivers/tty/serial/sunsu.c                  |  1 +
+ drivers/tty/serial/sunzilog.c               |  1 +
+ drivers/tty/serial/tegra-tcu.c              |  1 +
+ drivers/tty/serial/uartlite.c               |  1 +
+ drivers/tty/serial/ucc_uart.c               |  1 +
+ drivers/tty/serial/vt8500_serial.c          |  1 +
+ drivers/tty/serial/xilinx_uartps.c          |  1 +
+ include/linux/device.h                      |  7 +++++++
+ include/linux/device/driver.h               | 11 +++++++++++
+ 71 files changed, 95 insertions(+)
 
 -- 
-Best Regards
- Guo Ren
+2.37.0.rc0.161.g10f37bed90-goog
 
-ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
