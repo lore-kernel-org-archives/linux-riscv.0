@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4858C43334
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jul 2022 12:17:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 049CEC43334
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jul 2022 13:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1eiPe3wYpKnhvDaPtanXLexCAyRXYzAsE1hI5Coi0LY=; b=L7/HdBjh4Vg8gx
-	+FvzSGL1iaObAruXJuMcFUEfTL3vLJ08gGNcnxkBtEXHA5qlRHrDoBzpdVnc3SCIkPCpCUoI8Cp5y
-	YN5zqKzhr3bGY5mScRGXfTU/G0OBH+JeBm4DNq/x1+bLFb6vuh2569F5RABXeaNXEMLgjGbGjilH0
-	Owrjdn7fBcKxyZdwEXxfTQb9zDYjaZJVLVnb6ZgzisTiXP87UtwCXctFkBwgOiHa/VwujeOxCZiBX
-	w95PX1EExzuMZENyW3U1LJFVGTgoqaF7mYJZq8VhWH/KcOzCwceliU3VZOebN9jp8qNigGy3SUk72
-	L5xwquXy29M8uL3WvGBQ==;
+	List-Owner; bh=us1Nx3XWTl8NWh7eHBidQgUf7QpI5OTYwKpVhS4kW6U=; b=lJnnIZlynwyhGl
+	4jChgxZwKqyHdipLyZQKxfbKMwg6KctKVB8PTHLUSaqoaHsJtM/U3FX9x0fdVntDr9S5FMeKUaKv/
+	7UhPZxbdG1Ml3aZ77Q/8dLFHv2BXGszQV7Wxm69Xz3w/8V6MWi3D/Wv9d7TbX7QElUxb6o4fOwaU2
+	vxbT1osGrAlaXjx73OSD8G3H9Q+3WjBX1qK5rq//1zks1eNGZRRxYj70jP0TLynqvBN9hMNItZpog
+	y/huMwcbQeDAp9OZ9LMSWEi+1hGIHb0xC6IfD15UJ5kT6Ien7b9ltJcUxCQZ5jl1ZLvHdCwxqW6pQ
+	QeI2G24yvymXmkkqNDFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8L0n-008fij-Ad; Mon, 04 Jul 2022 12:17:09 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1o8Ltl-0094nG-GA; Mon, 04 Jul 2022 13:13:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8L0e-008fa7-Sd
-	for linux-riscv@lists.infradead.org; Mon, 04 Jul 2022 12:17:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1656937020; x=1688473020;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=cyGVS60gG5sog/TGKIss/AIPg2gKY2XrIx5CQ4aywGs=;
-  b=nW75os0dYJokQ67KyvAhWMNKNzczSQzfsMPkGhCqEGX7+pDeTMb2LHDK
-   VkDQqC1IQnuuKytrFsVOd8YIwVjmfoRHNkPXsC7c8t5oHjLQ/B2ZECO/p
-   0UYi068oTee0N+88kG3i0ZQPNmLyjs/BZJgXewDccNDjayh/BAmT3+Zgt
-   SuSq8nKXhf8yoCwJZYCGdY/dDQQ4a+YYtWjFhv612jK02MP1xLq8uYBjE
-   IQnkVDL5d0nntk3HACnJD2F9n52mA+IzemBT5CnpMpXC2XLrfwKaKmVpm
-   5Cby5cv40Og0J1BoBp2WsK8dsThTqq3j3mLr7yQXytBGqDlLFza7d8tvP
-   A==;
-X-IronPort-AV: E=Sophos;i="5.92,243,1650956400"; 
-   d="scan'208";a="102909278"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Jul 2022 05:16:59 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Mon, 4 Jul 2022 05:16:53 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
- Transport; Mon, 4 Jul 2022 05:16:51 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor.dooley@microchip.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Daire McNamara <daire.mcnamara@microchip.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: [PATCH v2 11/12] clk: microchip: mpfs: convert cfg_clk to clk_divider
-Date: Mon, 4 Jul 2022 13:15:58 +0100
-Message-ID: <20220704121558.2088698-12-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220704121558.2088698-1-conor.dooley@microchip.com>
-References: <20220704121558.2088698-1-conor.dooley@microchip.com>
+	id 1o8Lti-0094lc-6b
+	for linux-riscv@lists.infradead.org; Mon, 04 Jul 2022 13:13:56 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 6D3DA61507
+	for <linux-riscv@lists.infradead.org>; Mon,  4 Jul 2022 13:13:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BA39C341D2
+	for <linux-riscv@lists.infradead.org>; Mon,  4 Jul 2022 13:13:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1656940432;
+	bh=CnKu3pTL9ZV3Laktxm3fz0s92pUc309Wza4i12uMZA0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=EaaC/y+r08Ug4xq29Xnk/jjaBHSJIPDNoaCHC0b/bAx+JVx+f6YzaqsG8YO83diLS
+	 SFPYAoVDfMfXJQJD/W0LOBBXmwmJ3jrrjjaLojBlkNg1fEXBr/3IY6eghs3NMv6lkp
+	 z8NkcUWQDBMIBJp0HnyYDQTuKk/rLTWDumEsc8EJXMGYBWqYdBWk1esVPkRU0LUwSl
+	 zTWobsK706iNXOcqoaIANgtvgS859Raf4+f+hrFhfoPuyTQIG/jieterfpUTViPfIp
+	 zE9jYjjlHi0Repf0ncUxtmQ8Ec1naa9T9avVRirfX130JYXgQpXc1sS3d7YjNpT4qT
+	 SqmqvEFiPDG6g==
+Received: by mail-vs1-f46.google.com with SMTP id j1so8948610vsj.12
+        for <linux-riscv@lists.infradead.org>; Mon, 04 Jul 2022 06:13:52 -0700 (PDT)
+X-Gm-Message-State: AJIora+Av5b+x+IIODnqK+PEkAvS9noGhytYJtj5B6+U7SOjnktrrkiE
+	YgJCYJIaovDAg7tPjWo2i8kcVtupfFl95RPOJpg=
+X-Google-Smtp-Source: AGRyM1tD+SQ1O1/eCXYDM8ZsBci+DT3mFEDYXzJs0l8d77mK4FOk06vvvdrUL72SOGsiGSdxG0ZUKNYexmkzw5KcMLI=
+X-Received: by 2002:a67:ae0e:0:b0:356:c48b:401d with SMTP id
+ x14-20020a67ae0e000000b00356c48b401dmr2244055vse.51.1656940431259; Mon, 04
+ Jul 2022 06:13:51 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220628081707.1997728-1-guoren@kernel.org> <20220628081707.1997728-5-guoren@kernel.org>
+ <YsK5o8eiVHeS+7Iw@hirez.programming.kicks-ass.net>
+In-Reply-To: <YsK5o8eiVHeS+7Iw@hirez.programming.kicks-ass.net>
+From: Guo Ren <guoren@kernel.org>
+Date: Mon, 4 Jul 2022 21:13:40 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQ0cmGJHPR=TzeDJDigiEgBL5-KabbR2WkS=dGJV7jSJA@mail.gmail.com>
+Message-ID: <CAJF2gTQ0cmGJHPR=TzeDJDigiEgBL5-KabbR2WkS=dGJV7jSJA@mail.gmail.com>
+Subject: Re: [PATCH V7 4/5] asm-generic: spinlock: Add combo spinlock (ticket
+ & queued)
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>, Ingo Molnar <mingo@redhat.com>, 
+	Will Deacon <will@kernel.org>, Waiman Long <longman@redhat.com>, Boqun Feng <boqun.feng@gmail.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, linux-arch <linux-arch@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220704_051701_065099_361D89DA 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20220704_061354_358406_01808F70 
+X-CRM114-Status: GOOD (  29.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,151 +84,176 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The cfg_clk struct is now just a redefinition of the clk_divider struct
-with custom implentations of the ops, that implement an extra level of
-redirection. Remove the custom struct and replace it with clk_divider.
+On Mon, Jul 4, 2022 at 5:58 PM Peter Zijlstra <peterz@infradead.org> wrote:
+>
+> On Tue, Jun 28, 2022 at 04:17:06AM -0400, guoren@kernel.org wrote:
+> > From: Guo Ren <guoren@linux.alibaba.com>
+> >
+> > Some architecture has a flexible requirement on the type of spinlock.
+> > Some LL/SC architectures of ISA don't force micro-arch to give a strong
+> > forward guarantee. Thus different kinds of memory model micro-arch would
+> > come out in one ISA. The ticket lock is suitable for exclusive monitor
+> > designed LL/SC micro-arch with limited cores and "!NUMA". The
+> > queue-spinlock could deal with NUMA/large-scale scenarios with a strong
+> > forward guarantee designed LL/SC micro-arch.
+> >
+> > So, make the spinlock a combo with feature.
+> >
+> > Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> > Signed-off-by: Guo Ren <guoren@kernel.org>
+> > Cc: Peter Zijlstra (Intel) <peterz@infradead.org>
+> > Cc: Arnd Bergmann <arnd@arndb.de>
+> > Cc: Palmer Dabbelt <palmer@rivosinc.com>
+> > ---
+> >  include/asm-generic/spinlock.h | 43 ++++++++++++++++++++++++++++++++--
+> >  kernel/locking/qspinlock.c     |  2 ++
+> >  2 files changed, 43 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
+> > index f41dc7c2b900..a9b43089bf99 100644
+> > --- a/include/asm-generic/spinlock.h
+> > +++ b/include/asm-generic/spinlock.h
+> > @@ -28,34 +28,73 @@
+> >  #define __ASM_GENERIC_SPINLOCK_H
+> >
+> >  #include <asm-generic/ticket_spinlock.h>
+> > +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+> > +#include <linux/jump_label.h>
+> > +#include <asm-generic/qspinlock.h>
+> > +
+> > +DECLARE_STATIC_KEY_TRUE(use_qspinlock_key);
+> > +#endif
+> > +
+> > +#undef arch_spin_is_locked
+> > +#undef arch_spin_is_contended
+> > +#undef arch_spin_value_unlocked
+> > +#undef arch_spin_lock
+> > +#undef arch_spin_trylock
+> > +#undef arch_spin_unlock
+> >
+> >  static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
+> >  {
+> > -     ticket_spin_lock(lock);
+> > +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+> > +     if (static_branch_likely(&use_qspinlock_key))
+> > +             queued_spin_lock(lock);
+> > +     else
+> > +#endif
+> > +             ticket_spin_lock(lock);
+> >  }
+> >
+> >  static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
+> >  {
+> > +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+> > +     if (static_branch_likely(&use_qspinlock_key))
+> > +             return queued_spin_trylock(lock);
+> > +#endif
+> >       return ticket_spin_trylock(lock);
+> >  }
+> >
+> >  static __always_inline void arch_spin_unlock(arch_spinlock_t *lock)
+> >  {
+> > -     ticket_spin_unlock(lock);
+> > +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+> > +     if (static_branch_likely(&use_qspinlock_key))
+> > +             queued_spin_unlock(lock);
+> > +     else
+> > +#endif
+> > +             ticket_spin_unlock(lock);
+> >  }
+> >
+> >  static __always_inline int arch_spin_is_locked(arch_spinlock_t *lock)
+> >  {
+> > +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+> > +     if (static_branch_likely(&use_qspinlock_key))
+> > +             return queued_spin_is_locked(lock);
+> > +#endif
+> >       return ticket_spin_is_locked(lock);
+> >  }
+> >
+> >  static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
+> >  {
+> > +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+> > +     if (static_branch_likely(&use_qspinlock_key))
+> > +             return queued_spin_is_contended(lock);
+> > +#endif
+> >       return ticket_spin_is_contended(lock);
+> >  }
+> >
+> >  static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
+> >  {
+> > +#ifdef CONFIG_ARCH_USE_QUEUED_SPINLOCKS
+> > +     if (static_branch_likely(&use_qspinlock_key))
+> > +             return queued_spin_value_unlocked(lock);
+> > +#endif
+> >       return ticket_spin_value_unlocked(lock);
+> >  }
+>
+> Urggghhhh....
+>
+> I really don't think you want this in generic code. Also, I'm thinking
+> any arch that does this wants to make sure it doesn't inline any of this
+Your advice is the same with Arnd, I would move static_branch out of generic.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/clk/microchip/clk-mpfs.c | 76 ++++----------------------------
- 1 file changed, 8 insertions(+), 68 deletions(-)
+> stuff. That is, said arch must not have ARCH_INLINE_SPIN_*
+What do you mean? I've tested with ARCH_INLINE_SPIN_* and it's okay
+with EXPORT_SYMBOL(use_qspinlock_key).
 
-diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
-index e58d0bc4669a..1d9e8c1e56b6 100644
---- a/drivers/clk/microchip/clk-mpfs.c
-+++ b/drivers/clk/microchip/clk-mpfs.c
-@@ -51,24 +51,13 @@ struct mpfs_msspll_hw_clock {
- 
- #define to_mpfs_msspll_clk(_hw) container_of(_hw, struct mpfs_msspll_hw_clock, hw)
- 
--struct mpfs_cfg_clock {
--	void __iomem *reg;
--	const struct clk_div_table *table;
--	u8 shift;
--	u8 width;
--	u8 flags;
--};
--
- struct mpfs_cfg_hw_clock {
--	struct mpfs_cfg_clock cfg;
--	struct clk_hw hw;
-+	struct clk_divider cfg;
- 	struct clk_init_data init;
- 	unsigned int id;
- 	u32 reg_offset;
- };
- 
--#define to_mpfs_cfg_clk(_hw) container_of(_hw, struct mpfs_cfg_hw_clock, hw)
--
- struct mpfs_periph_clock {
- 	void __iomem *reg;
- 	u8 shift;
-@@ -228,56 +217,6 @@ static int mpfs_clk_register_mssplls(struct device *dev, struct mpfs_msspll_hw_c
-  * "CFG" clocks
-  */
- 
--static unsigned long mpfs_cfg_clk_recalc_rate(struct clk_hw *hw, unsigned long prate)
--{
--	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
--	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
--	u32 val;
--
--	val = readl_relaxed(cfg->reg) >> cfg->shift;
--	val &= clk_div_mask(cfg->width);
--
--	return divider_recalc_rate(hw, prate, val, cfg->table, cfg->flags, cfg->width);
--}
--
--static long mpfs_cfg_clk_round_rate(struct clk_hw *hw, unsigned long rate, unsigned long *prate)
--{
--	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
--	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
--
--	return divider_round_rate(hw, rate, prate, cfg->table, cfg->width, 0);
--}
--
--static int mpfs_cfg_clk_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long prate)
--{
--	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
--	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
--	unsigned long flags;
--	u32 val;
--	int divider_setting;
--
--	divider_setting = divider_get_val(rate, prate, cfg->table, cfg->width, 0);
--
--	if (divider_setting < 0)
--		return divider_setting;
--
--	spin_lock_irqsave(&mpfs_clk_lock, flags);
--	val = readl_relaxed(cfg->reg);
--	val &= ~(clk_div_mask(cfg->width) << cfg_hw->cfg.shift);
--	val |= divider_setting << cfg->shift;
--	writel_relaxed(val, cfg->reg);
--
--	spin_unlock_irqrestore(&mpfs_clk_lock, flags);
--
--	return 0;
--}
--
--static const struct clk_ops mpfs_clk_cfg_ops = {
--	.recalc_rate = mpfs_cfg_clk_recalc_rate,
--	.round_rate = mpfs_cfg_clk_round_rate,
--	.set_rate = mpfs_cfg_clk_set_rate,
--};
--
- #define CLK_CFG(_id, _name, _parent, _shift, _width, _table, _flags, _offset) {		\
- 	.id = _id,									\
- 	.cfg.shift = _shift,								\
-@@ -285,7 +224,8 @@ static const struct clk_ops mpfs_clk_cfg_ops = {
- 	.cfg.table = _table,								\
- 	.reg_offset = _offset,								\
- 	.cfg.flags = _flags,								\
--	.hw.init = CLK_HW_INIT(_name, _parent, &mpfs_clk_cfg_ops, 0),			\
-+	.cfg.hw.init = CLK_HW_INIT(_name, _parent, &clk_divider_ops, 0),		\
-+	.cfg.lock = &mpfs_clk_lock,							\
- }
- 
- static struct mpfs_cfg_hw_clock mpfs_cfg_clks[] = {
-@@ -302,8 +242,8 @@ static struct mpfs_cfg_hw_clock mpfs_cfg_clks[] = {
- 		.cfg.table = mpfs_div_rtcref_table,
- 		.reg_offset = REG_RTC_CLOCK_CR,
- 		.cfg.flags = CLK_DIVIDER_ONE_BASED,
--		.hw.init =
--			CLK_HW_INIT_PARENTS_DATA("clk_rtcref", mpfs_ext_ref, &mpfs_clk_cfg_ops, 0),
-+		.cfg.hw.init =
-+			CLK_HW_INIT_PARENTS_DATA("clk_rtcref", mpfs_ext_ref, &clk_divider_ops, 0),
- 	}
- };
- 
-@@ -317,13 +257,13 @@ static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *
- 		struct mpfs_cfg_hw_clock *cfg_hw = &cfg_hws[i];
- 
- 		cfg_hw->cfg.reg = data->base + cfg_hw->reg_offset;
--		ret = devm_clk_hw_register(dev, &cfg_hw->hw);
-+		ret = devm_clk_hw_register(dev, &cfg_hw->cfg.hw);
- 		if (ret)
- 			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
- 					     cfg_hw->id);
- 
- 		id = cfg_hw->id;
--		data->hw_data.hws[id] = &cfg_hw->hw;
-+		data->hw_data.hws[id] = &cfg_hw->cfg.hw;
- 	}
- 
- 	return 0;
-@@ -393,7 +333,7 @@ static const struct clk_ops mpfs_periph_clk_ops = {
- 				  _flags),					\
- }
- 
--#define PARENT_CLK(PARENT) (&mpfs_cfg_clks[CLK_##PARENT].hw)
-+#define PARENT_CLK(PARENT) (&mpfs_cfg_clks[CLK_##PARENT].cfg.hw)
- 
- /*
-  * Critical clocks:
--- 
-2.36.1
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 47e12ab9c822..4587fb544326 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -32,6 +32,32 @@ config RISCV
+        select ARCH_HAS_STRICT_MODULE_RWX if MMU && !XIP_KERNEL
+        select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
+        select ARCH_HAS_UBSAN_SANITIZE_ALL
++       select ARCH_INLINE_READ_LOCK if !PREEMPTION
++       select ARCH_INLINE_READ_LOCK_BH if !PREEMPTION
++       select ARCH_INLINE_READ_LOCK_IRQ if !PREEMPTION
++       select ARCH_INLINE_READ_LOCK_IRQSAVE if !PREEMPTION
++       select ARCH_INLINE_READ_UNLOCK if !PREEMPTION
++       select ARCH_INLINE_READ_UNLOCK_BH if !PREEMPTION
++       select ARCH_INLINE_READ_UNLOCK_IRQ if !PREEMPTION
++       select ARCH_INLINE_READ_UNLOCK_IRQRESTORE if !PREEMPTION
++       select ARCH_INLINE_WRITE_LOCK if !PREEMPTION
++       select ARCH_INLINE_WRITE_LOCK_BH if !PREEMPTION
++       select ARCH_INLINE_WRITE_LOCK_IRQ if !PREEMPTION
++       select ARCH_INLINE_WRITE_LOCK_IRQSAVE if !PREEMPTION
++       select ARCH_INLINE_WRITE_UNLOCK if !PREEMPTION
++       select ARCH_INLINE_WRITE_UNLOCK_BH if !PREEMPTION
++       select ARCH_INLINE_WRITE_UNLOCK_IRQ if !PREEMPTION
++       select ARCH_INLINE_WRITE_UNLOCK_IRQRESTORE if !PREEMPTION
++       select ARCH_INLINE_SPIN_TRYLOCK if !PREEMPTION
++       select ARCH_INLINE_SPIN_TRYLOCK_BH if !PREEMPTION
++       select ARCH_INLINE_SPIN_LOCK if !PREEMPTION
++       select ARCH_INLINE_SPIN_LOCK_BH if !PREEMPTION
++       select ARCH_INLINE_SPIN_LOCK_IRQ if !PREEMPTION
++       select ARCH_INLINE_SPIN_LOCK_IRQSAVE if !PREEMPTION
++       select ARCH_INLINE_SPIN_UNLOCK if !PREEMPTION
++       select ARCH_INLINE_SPIN_UNLOCK_BH if !PREEMPTION
++       select ARCH_INLINE_SPIN_UNLOCK_IRQ if !PREEMPTION
++       select ARCH_INLINE_SPIN_UNLOCK_IRQRESTORE if !PREEMPTION
+        select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+        select ARCH_OPTIONAL_KERNEL_RWX_DEFAULT
+        select ARCH_STACKWALK
 
+Shall I add the above diff in the next version of the patch series?
+
+>
+> And if you're going to force things out of line, then I think you can
+> get better code using static_call().
+Good point, thx.
+
+>
+> *shudder*...
+
+
+
+--
+Best Regards
+ Guo Ren
+
+ML: https://lore.kernel.org/linux-csky/
 
 _______________________________________________
 linux-riscv mailing list
