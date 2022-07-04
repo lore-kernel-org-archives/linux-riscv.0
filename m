@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BC4C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jul 2022 10:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F95C43334
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jul 2022 10:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k0bkSnTFMYGR+JLyFxyyjNfpu3HOsVFEc+T58ma65Ys=; b=Uq9BFgG6Kgr8G/
-	XpT7fcKsPK1Sa6pjKlRR+luJWRCFq30dC1LC3C9M5rHjsrrzqdMoo6/5tMf+6RIgNc4Ccs4VKYXV2
-	qgFXZWfcc9RJ+E0zq9b1H5thMnwQ0O0GLBtwmVYc/yLpFBhSvPZ4sIzbFxw56cBpFkWlxMK8lyjjZ
-	xfxfIWo0n5fWMLMSDqFgYW96BAuBA1dZLA4Cszhd2aDf7WW6SM9ur0QP5YnHOKShWh5/JOge0q8MA
-	/RKywWVUDnUWwUm03tkOHD3+mRGGnnba8J2XiQhrJ65TYWhrE7cydfpgXKDR0RNi2gt+opFEIjI2K
-	HNJbEvennCdR0ZzgqTXw==;
+	List-Owner; bh=DQoLtihv5JeoPlB881rnacOC+Ruq8Jz75vKkZW7UFeo=; b=lqixYPk+9/yECh
+	SdNCGfwI40Xg7Kils3iVpQHV6bmZvKoMTOf4WT2gBdCpqodvYGP7cgMJaNQfBLRZjWqBEc/Jk+NGJ
+	AIK1NV5OZNtLPax8g/mkq9ir7Ho0knPubnS8AHLoPIPBhYSmaLSGxCddGrMVrfCIAyDbABrGyTRrY
+	2qNpXgNuAbOb4Mg65rCic71JXR8MC6GhNHxDjDo6bBUH5tI+cm654jL6cCNmfhRx3rMdOel5L7vhf
+	0MwTGu2tCph5TeZdjtTf4Gb4ayu5WHpy9gYMzO+VfgpzUusxvzLzbgpAmSLJ9fUEzRvigUA571zoF
+	Hwlii5TFMporR3fdKUCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8JDR-006vX8-7W; Mon, 04 Jul 2022 10:22:05 +0000
+	id 1o8JDf-006vj5-Cg; Mon, 04 Jul 2022 10:22:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8J7w-006rcg-2x; Mon, 04 Jul 2022 10:16:25 +0000
+	id 1o8J7y-006rcg-55; Mon, 04 Jul 2022 10:16:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BC6FF23A;
-	Mon,  4 Jul 2022 03:16:21 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D243414BF;
+	Mon,  4 Jul 2022 03:16:23 -0700 (PDT)
 Received: from usa.arm.com (e103737-lin.cambridge.arm.com [10.1.197.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8FED53F792;
-	Mon,  4 Jul 2022 03:16:19 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A64EA3F792;
+	Mon,  4 Jul 2022 03:16:21 -0700 (PDT)
 From: Sudeep Holla <sudeep.holla@arm.com>
 To: linux-kernel@vger.kernel.org,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
@@ -46,16 +46,16 @@ Cc: Sudeep Holla <sudeep.holla@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	Gavin Shan <gshan@redhat.com>
-Subject: [PATCH v6 03/21] cacheinfo: Add helper to access any cache index for a given CPU
-Date: Mon,  4 Jul 2022 11:15:47 +0100
-Message-Id: <20220704101605.1318280-4-sudeep.holla@arm.com>
+Subject: [PATCH v6 04/21] cacheinfo: Move cache_leaves_are_shared out of CONFIG_OF
+Date: Mon,  4 Jul 2022 11:15:48 +0100
+Message-Id: <20220704101605.1318280-5-sudeep.holla@arm.com>
 X-Mailer: git-send-email 2.37.0
 In-Reply-To: <20220704101605.1318280-1-sudeep.holla@arm.com>
 References: <20220704101605.1318280-1-sudeep.holla@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220704_031624_269127_26C372C4 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20220704_031626_300436_9FAA4936 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,100 +72,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The cacheinfo for a given CPU at a given index is used at quite a few
-places by fetching the base point for index 0 using the helper
-per_cpu_cacheinfo(cpu) and offsetting it by the required index.
+cache_leaves_are_shared is already used even with ACPI and PPTT. It
+checks if the cache leaves are the shared based on fw_token pointer.
+However it is defined conditionally only if CONFIG_OF is enabled which
+is wrong.
 
-Instead, add another helper to fetch the required pointer directly and
-use it to simplify and improve readability.
+Move the function cache_leaves_are_shared out of CONFIG_OF and keep it
+generic. It also handles the case where both OF and ACPI is not defined.
 
 Tested-by: Ionela Voinescu <ionela.voinescu@arm.com>
 Reviewed-by: Gavin Shan <gshan@redhat.com>
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- drivers/base/cacheinfo.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ drivers/base/cacheinfo.c | 20 +++++++++-----------
+ 1 file changed, 9 insertions(+), 11 deletions(-)
 
 diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-index b0bde272e2ae..e13ef41763e4 100644
+index e13ef41763e4..2cea9201f31c 100644
 --- a/drivers/base/cacheinfo.c
 +++ b/drivers/base/cacheinfo.c
-@@ -25,6 +25,8 @@ static DEFINE_PER_CPU(struct cpu_cacheinfo, ci_cpu_cacheinfo);
- #define ci_cacheinfo(cpu)	(&per_cpu(ci_cpu_cacheinfo, cpu))
- #define cache_leaves(cpu)	(ci_cacheinfo(cpu)->num_leaves)
- #define per_cpu_cacheinfo(cpu)	(ci_cacheinfo(cpu)->info_list)
-+#define per_cpu_cacheinfo_idx(cpu, idx)		\
-+				(per_cpu_cacheinfo(cpu) + (idx))
+@@ -33,13 +33,21 @@ struct cpu_cacheinfo *get_cpu_cacheinfo(unsigned int cpu)
+ 	return ci_cacheinfo(cpu);
+ }
  
- struct cpu_cacheinfo *get_cpu_cacheinfo(unsigned int cpu)
+-#ifdef CONFIG_OF
+ static inline bool cache_leaves_are_shared(struct cacheinfo *this_leaf,
+ 					   struct cacheinfo *sib_leaf)
  {
-@@ -172,7 +174,7 @@ static int cache_setup_of_node(unsigned int cpu)
- 	}
++	/*
++	 * For non DT/ACPI systems, assume unique level 1 caches,
++	 * system-wide shared caches for all other levels. This will be used
++	 * only if arch specific code has not populated shared_cpu_map
++	 */
++	if (!(IS_ENABLED(CONFIG_OF) || IS_ENABLED(CONFIG_ACPI)))
++		return !(this_leaf->level == 1);
++
+ 	return sib_leaf->fw_token == this_leaf->fw_token;
+ }
  
- 	while (index < cache_leaves(cpu)) {
--		this_leaf = this_cpu_ci->info_list + index;
-+		this_leaf = per_cpu_cacheinfo_idx(cpu, index);
- 		if (this_leaf->level != 1)
- 			np = of_find_next_cache_node(np);
- 		else
-@@ -231,7 +233,7 @@ static int cache_shared_cpu_map_setup(unsigned int cpu)
- 	for (index = 0; index < cache_leaves(cpu); index++) {
- 		unsigned int i;
++#ifdef CONFIG_OF
+ /* OF properties to query for a given cache type */
+ struct cache_type_info {
+ 	const char *size_prop;
+@@ -193,16 +201,6 @@ static int cache_setup_of_node(unsigned int cpu)
+ }
+ #else
+ static inline int cache_setup_of_node(unsigned int cpu) { return 0; }
+-static inline bool cache_leaves_are_shared(struct cacheinfo *this_leaf,
+-					   struct cacheinfo *sib_leaf)
+-{
+-	/*
+-	 * For non-DT/ACPI systems, assume unique level 1 caches, system-wide
+-	 * shared caches for all other levels. This will be used only if
+-	 * arch specific code has not populated shared_cpu_map
+-	 */
+-	return !(this_leaf->level == 1);
+-}
+ #endif
  
--		this_leaf = this_cpu_ci->info_list + index;
-+		this_leaf = per_cpu_cacheinfo_idx(cpu, index);
- 		/* skip if shared_cpu_map is already populated */
- 		if (!cpumask_empty(&this_leaf->shared_cpu_map))
- 			continue;
-@@ -242,7 +244,7 @@ static int cache_shared_cpu_map_setup(unsigned int cpu)
- 
- 			if (i == cpu || !sib_cpu_ci->info_list)
- 				continue;/* skip if itself or no cacheinfo */
--			sib_leaf = sib_cpu_ci->info_list + index;
-+			sib_leaf = per_cpu_cacheinfo_idx(i, index);
- 			if (cache_leaves_are_shared(this_leaf, sib_leaf)) {
- 				cpumask_set_cpu(cpu, &sib_leaf->shared_cpu_map);
- 				cpumask_set_cpu(i, &this_leaf->shared_cpu_map);
-@@ -258,12 +260,11 @@ static int cache_shared_cpu_map_setup(unsigned int cpu)
- 
- static void cache_shared_cpu_map_remove(unsigned int cpu)
- {
--	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
- 	struct cacheinfo *this_leaf, *sib_leaf;
- 	unsigned int sibling, index;
- 
- 	for (index = 0; index < cache_leaves(cpu); index++) {
--		this_leaf = this_cpu_ci->info_list + index;
-+		this_leaf = per_cpu_cacheinfo_idx(cpu, index);
- 		for_each_cpu(sibling, &this_leaf->shared_cpu_map) {
- 			struct cpu_cacheinfo *sib_cpu_ci;
- 
-@@ -274,7 +275,7 @@ static void cache_shared_cpu_map_remove(unsigned int cpu)
- 			if (!sib_cpu_ci->info_list)
- 				continue;
- 
--			sib_leaf = sib_cpu_ci->info_list + index;
-+			sib_leaf = per_cpu_cacheinfo_idx(sibling, index);
- 			cpumask_clear_cpu(cpu, &sib_leaf->shared_cpu_map);
- 			cpumask_clear_cpu(sibling, &this_leaf->shared_cpu_map);
- 		}
-@@ -609,7 +610,6 @@ static int cache_add_dev(unsigned int cpu)
- 	int rc;
- 	struct device *ci_dev, *parent;
- 	struct cacheinfo *this_leaf;
--	struct cpu_cacheinfo *this_cpu_ci = get_cpu_cacheinfo(cpu);
- 	const struct attribute_group **cache_groups;
- 
- 	rc = cpu_cache_sysfs_init(cpu);
-@@ -618,7 +618,7 @@ static int cache_add_dev(unsigned int cpu)
- 
- 	parent = per_cpu_cache_dev(cpu);
- 	for (i = 0; i < cache_leaves(cpu); i++) {
--		this_leaf = this_cpu_ci->info_list + i;
-+		this_leaf = per_cpu_cacheinfo_idx(cpu, i);
- 		if (this_leaf->disable_sysfs)
- 			continue;
- 		if (this_leaf->type == CACHE_TYPE_NOCACHE)
+ int __weak cache_setup_acpi(unsigned int cpu)
 -- 
 2.37.0
 
