@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E98C43334
-	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jul 2022 11:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A466C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon,  4 Jul 2022 11:51:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0P2T1p8dg2aHVb2zX2N3cCst7D62oK7rsjA9SmyXAys=; b=utgGoTGmOTdDn5
-	PdC6puBmGQgHgIsKgnSMYL9BejZEmOETZpKsikIRdnMchHQVF2Fkkd8Dh17CYq+voDcKjHXL7qEVF
-	B4RunqzjGfD9/3EmTd+slw0rBlEJWU0U5lDslieHrJBRAlK7qKOJ2eKwBNFe1zcj7jdWRanvg9SBv
-	/SZ58Ozk0prbz4ZoVJOkmdIWofq8mKzcEaMu/NMt6aZ3Vd+PWzr2D8TQ9Jwmw9412tBsZU7UWbSj1
-	XONy5CinNK9WxwLtHyIZXkfBRqRyB05tVrZZ7vXs6xfbZZsGcylYtJj8IfazKD9B4WcNht2pFDwIo
-	ccdf7yuyEGGYO/Kx55bQ==;
+	List-Owner; bh=hqgocqaeH68uxNEgev3abW5T5AY1shP1Zi4ghq4AGjY=; b=Sid89Go2iVSB25
+	YLN/N/Rg/4uRfvGVuiSY56LozZn8fBUwj/uwtpfxpKcoKYId75F6qp9539fMUDEnx2H7BIna7kVE1
+	IrJL+jKJFpU0SyF2DJPf01G5AxC6XuhhkZQhOydzq+csr1OkBf1C8GZ9VNZMMvjhFWW1lxZ4mDdAx
+	18sZL2YcU576Nt3RapIKvFWXooMOlJNzm1+EmZknUNWtZ5zcVgClu4Yq+MjKicXDPkTPkkkUypdSX
+	fuv2+5XO3kDzaOnW2rxyrVmknQooZhVVTcrsVR1VakmuH0hiF2PJj9x/Qnd2V/FssqLaHu1GR2uox
+	LlJAPIPLSrdMkAUm6LOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8Kc0-0088Fl-46; Mon, 04 Jul 2022 11:51:32 +0000
+	id 1o8KcA-0088Qb-0s; Mon, 04 Jul 2022 11:51:42 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8KWu-0081UN-EN
-	for linux-riscv@lists.infradead.org; Mon, 04 Jul 2022 11:46:18 +0000
+	id 1o8KWy-0081f8-2Z
+	for linux-riscv@lists.infradead.org; Mon, 04 Jul 2022 11:46:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1656935176; x=1688471176;
+  t=1656935179; x=1688471179;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=JSc+EOCWP1Za2eDD5QEpO7crjBu7/hikVujXUumMRXs=;
-  b=Zr5W5y6QaixbZnIVP4dGYxVbHZpt28NzEktOMqvr5yFf31gra4gxL479
-   SU4q6XvldzpYtdEK1gxVWoM6DYOs0aHD0O/pvywKZX6sK7DMQphU3ZxT9
-   Kqah5zeqlIUaJR2mujgWtrVK8U+Du3OPD0LVwQ0R8BVVwzDo7U1X/hkDd
-   sAosZyEaYzIHtorLWj43Gxkn7MJ0XiSvIXxbHTuAuZsDHrM4MpxxMQCMc
-   6TaZdVL03rv6jYlExcHRftF1jObfVrQnNT38k/wB2UMdwOHR3IrLhCvy5
-   ul/hkaTm4SYs4krYICqf45hWF3OckHrqC0sYGGsBW2PfB9SFItwTncZWM
-   g==;
+  bh=zfbKyBLC0mFyQIJx/KT+jhrSiCA/8O4T/yeF8thm6iM=;
+  b=vEohZ2okuoWK8d48kO5MJR89H8FFykMEhBel6WsCgRmfLc59j5ctLr3C
+   KBd9kUUmhZ9jl41Ky7AkudE0jve3rBuY8G2TgpKzBG3TQL2Y7IAu89lVF
+   cSh47fryrb2lFHeo/7+9WUACIcZhVeD4gGgIul14iuCk5+7TZS1ev1gCt
+   yvV9F0czkqGGbe5ijjfXZ1Oq0v1umeRKSi21uyvof9JILfVv1E4R22OZY
+   Gzs0aM/mVUQKcDxhRzvA5tAT0fhXzK0Y+R/hZDI+3+lQSTMWsqE7+ckJ5
+   0a7txDpDQnfihip+LHijaFmzWLCnBwKZt29mGMAZ6OxtA/zqmBsdZ5+5e
+   Q==;
 X-IronPort-AV: E=Sophos;i="5.92,243,1650956400"; 
-   d="scan'208";a="170950905"
+   d="scan'208";a="170950918"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Jul 2022 04:46:13 -0700
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 04 Jul 2022 04:46:19 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Mon, 4 Jul 2022 04:46:12 -0700
+ 15.1.2375.17; Mon, 4 Jul 2022 04:46:18 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
  (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
- Transport; Mon, 4 Jul 2022 04:46:10 -0700
+ Transport; Mon, 4 Jul 2022 04:46:15 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
 	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
@@ -58,16 +58,16 @@ To: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
 CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Conor
  Dooley" <conor.dooley@microchip.com>
-Subject: [net-next PATCH v2 3/5] net: macb: unify macb_config alignment style
-Date: Mon, 4 Jul 2022 12:45:10 +0100
-Message-ID: <20220704114511.1892332-4-conor.dooley@microchip.com>
+Subject: [net-next PATCH v2 5/5] net: macb: sort init_reset_optional() with other init()s
+Date: Mon, 4 Jul 2022 12:45:12 +0100
+Message-ID: <20220704114511.1892332-6-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220704114511.1892332-1-conor.dooley@microchip.com>
 References: <20220704114511.1892332-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220704_044616_532638_99DA87D8 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20220704_044620_169167_7A73E25E 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +84,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The various macb_config structs have taken different appraches to
-alignment when broken over newlines. Pick one style and make them
-match.
+init_reset_optional() is somewhat oddly placed amidst the macb_config
+struct definitions. Move it to a more reasonable location alongside
+the fu540 init functions.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/net/ethernet/cadence/macb_main.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ drivers/net/ethernet/cadence/macb_main.c | 68 ++++++++++++------------
+ 1 file changed, 34 insertions(+), 34 deletions(-)
 
 diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index d43bcf256b02..85a2e1ea7826 100644
+index 4423d99c72a7..36a659f2a289 100644
 --- a/drivers/net/ethernet/cadence/macb_main.c
 +++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -4626,8 +4626,8 @@ static const struct macb_config at91sam9260_config = {
- };
+@@ -4600,6 +4600,40 @@ static int fu540_c000_init(struct platform_device *pdev)
+ 	return macb_init(pdev);
+ }
  
- static const struct macb_config sama5d3macb_config = {
--	.caps = MACB_CAPS_SG_DISABLED
--	      | MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
-+	.caps = MACB_CAPS_SG_DISABLED |
-+		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
- 	.clk_init = macb_clk_init,
- 	.init = macb_init,
++static int init_reset_optional(struct platform_device *pdev)
++{
++	struct net_device *dev = platform_get_drvdata(pdev);
++	struct macb *bp = netdev_priv(dev);
++	int ret;
++
++	if (bp->phy_interface == PHY_INTERFACE_MODE_SGMII) {
++		/* Ensure PHY device used in SGMII mode is ready */
++		bp->sgmii_phy = devm_phy_optional_get(&pdev->dev, NULL);
++
++		if (IS_ERR(bp->sgmii_phy))
++			return dev_err_probe(&pdev->dev, PTR_ERR(bp->sgmii_phy),
++					     "failed to get SGMII PHY\n");
++
++		ret = phy_init(bp->sgmii_phy);
++		if (ret)
++			return dev_err_probe(&pdev->dev, ret,
++					     "failed to init SGMII PHY\n");
++	}
++
++	/* Fully reset controller at hardware level if mapped in device tree */
++	ret = device_reset_optional(&pdev->dev);
++	if (ret) {
++		phy_exit(bp->sgmii_phy);
++		return dev_err_probe(&pdev->dev, ret, "failed to reset controller");
++	}
++
++	ret = macb_init(pdev);
++	if (ret)
++		phy_exit(bp->sgmii_phy);
++
++	return ret;
++}
++
+ static const struct macb_usrio_config sama7g5_usrio = {
+ 	.mii = 0,
+ 	.rmii = 1,
+@@ -4689,40 +4723,6 @@ static const struct macb_config np4_config = {
  	.usrio = &macb_default_usrio,
-@@ -4658,8 +4658,8 @@ static const struct macb_config sama5d29_config = {
  };
  
- static const struct macb_config sama5d3_config = {
--	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE
--	      | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
-+	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE |
-+		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
- 	.dma_burst_length = 16,
- 	.clk_init = macb_clk_init,
- 	.init = macb_init,
-@@ -4731,8 +4731,8 @@ static int init_reset_optional(struct platform_device *pdev)
- 
+-static int init_reset_optional(struct platform_device *pdev)
+-{
+-	struct net_device *dev = platform_get_drvdata(pdev);
+-	struct macb *bp = netdev_priv(dev);
+-	int ret;
+-
+-	if (bp->phy_interface == PHY_INTERFACE_MODE_SGMII) {
+-		/* Ensure PHY device used in SGMII mode is ready */
+-		bp->sgmii_phy = devm_phy_optional_get(&pdev->dev, NULL);
+-
+-		if (IS_ERR(bp->sgmii_phy))
+-			return dev_err_probe(&pdev->dev, PTR_ERR(bp->sgmii_phy),
+-					     "failed to get SGMII PHY\n");
+-
+-		ret = phy_init(bp->sgmii_phy);
+-		if (ret)
+-			return dev_err_probe(&pdev->dev, ret,
+-					     "failed to init SGMII PHY\n");
+-	}
+-
+-	/* Fully reset controller at hardware level if mapped in device tree */
+-	ret = device_reset_optional(&pdev->dev);
+-	if (ret) {
+-		phy_exit(bp->sgmii_phy);
+-		return dev_err_probe(&pdev->dev, ret, "failed to reset controller");
+-	}
+-
+-	ret = macb_init(pdev);
+-	if (ret)
+-		phy_exit(bp->sgmii_phy);
+-
+-	return ret;
+-}
+-
  static const struct macb_config zynqmp_config = {
  	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
--			MACB_CAPS_JUMBO |
--			MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH,
-+		MACB_CAPS_JUMBO |
-+		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH,
- 	.dma_burst_length = 16,
- 	.clk_init = macb_clk_init,
- 	.init = init_reset_optional,
-@@ -4806,8 +4806,8 @@ MODULE_DEVICE_TABLE(of, macb_dt_ids);
- 
- static const struct macb_config default_gem_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
--			MACB_CAPS_JUMBO |
--			MACB_CAPS_GEM_HAS_PTP,
-+		MACB_CAPS_JUMBO |
-+		MACB_CAPS_GEM_HAS_PTP,
- 	.dma_burst_length = 16,
- 	.clk_init = macb_clk_init,
- 	.init = macb_init,
+ 		MACB_CAPS_JUMBO |
 -- 
 2.36.1
 
