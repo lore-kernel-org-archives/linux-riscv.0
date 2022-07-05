@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E874C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 21:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43767C43334
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 22:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xTZx9qo4rUz5cePg+BNGnVEHgxRnwVqtuRsfNScgVgk=; b=pmIaNZktTmhepI
-	/RzLkMlcWCiuL+CghViWnfcWjtguw3Jo4uvkE9KaFDsGkZWcTZZi/p7eP21owy4bvFC1VRJFKiZmR
-	zZ2kbno8mIqzjQHugV3iqpyTrbckeyH+ELHAfQIp5UBurYnaZA2qGGeB0Cwp1bgQcmNN75NHQZREm
-	5OXcl279udadb2eVFO5SwTs3JHU+nnBDlA9WM8gyFubCr1P2yNN2FVwuF7LnzjHSl1V0UWqgMuYjt
-	uX9Tkj+Z2vTF8qNHXurrPL3CivVRkuvh4CaK81ppM9vs51l+CsT+PqAW9hiw9nDHDxofebLq7z5kf
-	LYB361NAxG1datvCj4DA==;
+	List-Owner; bh=a7TQJwdANX+5X2mG1fm9mTdKTnM4FrwVx9Fue2THYR4=; b=QeJu7/7ycx3nVQ
+	i9sT6Q0m4nq+ejI+1ootOWQml3HCVFtGmEw65ia7wmC9Tq//ulTomAQ3E0J+I2Ei8QLK9uLIkKbkD
+	/zv1QlkmTpbbSF3ex8OusfqNl3J4gI2QAQCkDMKUNAQkQBmnXGkmnbLVRwEYLjORlBiCINGduD0Yk
+	Vv1hTyMcUE4URjA5SV3lKpjp7ROQNhtU3D78H+hWmP9QHfyIu/JoA90KYSTwZmlhE/di9URw3cygq
+	eCrAtqlXcE8FQrmL4wGwUsH2aH8j5rGCtpGcMPrHxqSYBsg09ozAUW/bYomgyuKHZAjBL1E6adSkp
+	C5tUQe//XIvgrSzsDpuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8qU2-0031LB-Oc; Tue, 05 Jul 2022 21:53:26 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1o8rKH-003H4F-DS; Tue, 05 Jul 2022 22:47:25 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8qTL-0030bX-FD
-	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 21:52:45 +0000
-Received: by mail-wr1-x432.google.com with SMTP id s1so19375328wra.9
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Jul 2022 14:52:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=lj8lQBl+rzKhHnZ+Xd+ZIX70dBba4zQ87/hMtZKztKo=;
-        b=SWBLyNd34TD/mZu6n2FRfmU1HE1CDonJi13qsFyhAyqnSyEQ/KmdR1UWXQSWh8Lc4S
-         wboztDYyEl0cB6dNxkPhLH8Vut8eQklDlAzLAba8wD+ncpM0c/ss1G9HZw6iwywvQYDc
-         Wp4EiJ8gFj2NtEhHkoHzq6BO5iZJQV8yqDNi/hV+TI3EdwxWa8PyiRtclVAhofmrQMv1
-         O4MgZCyDw4sYc3gDgn4HyTIQC0OgktoApwqj7hpRysjTLfmxTwmhIL9038u47rfi3QnR
-         TEsjdMTU0aXj0ZC25wthUzJnFtFa+8G8sy0GbjfRv+uUUgqNTVhurKapbgEb8iTWOR1w
-         qZPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=lj8lQBl+rzKhHnZ+Xd+ZIX70dBba4zQ87/hMtZKztKo=;
-        b=vU43T2ICIvb9yXPnq+epLb+U44wwJwGl5HcMKPAvn2KcGQpnOT2xiFh9lpRRXUTK0L
-         y2/C3Twm0qw1nYhOeIuHJPCDBJF2dfthBL5e5xCvYg9mrmr3DRTtxJur3egbZOyww7GB
-         Mi1L1sTVlvQ56mqGt8vriMRBFeeDDRr2RixTAl8PJlz+Lfg9Uz6tmMVcQomV3kA7yoBn
-         pnWn7RiTud003jQ5syhLRjgm5neFVBILQ2ADGRhuVlSRE95Tn7BoTM0K5bOq4F4il3pH
-         jD86lKlgPcZLNY9xx0OoHPd3vx16aABCdDi656X5rHEgoJvF9CYCdTyLoO70xuHY31Th
-         YlWQ==
-X-Gm-Message-State: AJIora8TF1cIVb9PVGXK6m7dOBX7VbpyM2cDFXfPFoRGbhf3dOwxwPc3
-	QqK8nniFNhewjyKWjlUEjKOTgw==
-X-Google-Smtp-Source: AGRyM1tr0mSvjiKuETZ7gcWxREDHaUXAsNoHFiE497jvmcwKxLKMvl+jTlZGzJe6mijwSzLjNBUwQQ==
-X-Received: by 2002:a5d:64aa:0:b0:21b:c38b:bb81 with SMTP id m10-20020a5d64aa000000b0021bc38bbb81mr33626354wrp.666.1657057962100;
-        Tue, 05 Jul 2022 14:52:42 -0700 (PDT)
-Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id g34-20020a05600c4ca200b0039c7dbafa7asm18353920wmp.19.2022.07.05.14.52.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Jul 2022 14:52:41 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: David Airlie <airlied@linux.ie>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Sam Ravnborg <sam@ravnborg.org>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Niklas Cassel <niklas.cassel@wdc.com>,
-	Dillon Min <dillon.minfei@gmail.com>,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
+	id 1o8rKD-003H1Q-O4
+	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 22:47:23 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1o8rK5-0003yY-Gi; Wed, 06 Jul 2022 00:47:13 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: palmer@dabbelt.com,
+	paul.walmsley@sifive.com
+Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	dmaengine@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 13/13] riscv: dts: canaan: build all devicetress if SOC_CANAAN
-Date: Tue,  5 Jul 2022 22:52:14 +0100
-Message-Id: <20220705215213.1802496-14-mail@conchuod.ie>
-X-Mailer: git-send-email 2.37.0
-In-Reply-To: <20220705215213.1802496-1-mail@conchuod.ie>
-References: <20220705215213.1802496-1-mail@conchuod.ie>
+	wefu@redhat.com,
+	guoren@kernel.org,
+	cmuellner@linux.com,
+	philipp.tomsich@vrull.eu,
+	hch@lst.de,
+	samuel@sholland.org,
+	atishp@atishpatra.org,
+	anup@brainfault.org,
+	mick@ics.forth.gr,
+	robh+dt@kernel.org,
+	krzk+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	drew@beagleboard.org,
+	rdunlap@infradead.org,
+	Heiko Stuebner <heiko@sntech.de>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v6 1/4] of: also handle dma-noncoherent in of_dma_is_coherent()
+Date: Wed,  6 Jul 2022 00:47:00 +0200
+Message-Id: <20220705224703.1571895-2-heiko@sntech.de>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220705224703.1571895-1-heiko@sntech.de>
+References: <20220705224703.1571895-1-heiko@sntech.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220705_145243_547432_2EC0BBBD 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20220705_154721_821333_982DC09D 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,37 +77,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+of_dma_is_coherent() currently expects the architecture to be
+non-coherent and some devices being coherent getting marked
+as such with the dma-coherent devicetree property.
 
-Testing & checking the Canaan devicetrees is inconvenient as only the
-devicetree corresponding to SOC_CANAAN_K210_DTB_BUILTIN will be built.
-Change the Makefile so that all devicetrees are built by default if
-SOC_CANAAN but only the one specified by SOC_CANAAN_K210_DTB_BUILTIN
-gets built as an object.
+For PowerPC CONFIG_OF_DMA_DEFAULT_COHERENT was added which currently
+makes of_dma_is_coherent() always return true but doesn't handle
+the case of the architecture being coherent but some devices not.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+So modify the function to also check for dma-noncoherent and
+set a suitable default return value. If CONFIG_OF_DMA_DEFAULT_COHERENT
+is set the value starts with true and finding dma-noncoherent will
+set it to false and without CONFIG_OF_DMA_DEFAULT_COHERENT, the
+behaviour is reversed.
+
+Reviewed-by: Christoph Hellwig <hch@lst.de>
+Reviewed-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- arch/riscv/boot/dts/canaan/Makefile | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+ drivers/of/address.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/canaan/Makefile b/arch/riscv/boot/dts/canaan/Makefile
-index c61b08ac8554..befe4eb7527b 100644
---- a/arch/riscv/boot/dts/canaan/Makefile
-+++ b/arch/riscv/boot/dts/canaan/Makefile
-@@ -1,3 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0
--dtb-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .dtb, $(CONFIG_SOC_CANAAN_K210_DTB_SOURCE))
--obj-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .o, $(dtb-y))
-+dtb-$(CONFIG_SOC_CANAAN) += canaan_kd233.dtb
-+dtb-$(CONFIG_SOC_CANAAN) += k210_generic.dtb
-+dtb-$(CONFIG_SOC_CANAAN) += sipeed_maix_bit.dtb
-+dtb-$(CONFIG_SOC_CANAAN) += sipeed_maix_dock.dtb
-+dtb-$(CONFIG_SOC_CANAAN) += sipeed_maix_go.dtb
-+dtb-$(CONFIG_SOC_CANAAN) += sipeed_maixduino.dtb
-+
-+obj-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += $(addsuffix .dtb.o, $(CONFIG_SOC_CANAAN_K210_DTB_SOURCE))
+diff --git a/drivers/of/address.c b/drivers/of/address.c
+index 94f017d808c4..96f0a12e507c 100644
+--- a/drivers/of/address.c
++++ b/drivers/of/address.c
+@@ -1045,26 +1045,29 @@ phys_addr_t __init of_dma_get_max_cpu_address(struct device_node *np)
+  *
+  * It returns true if "dma-coherent" property was found
+  * for this device in the DT, or if DMA is coherent by
+- * default for OF devices on the current platform.
++ * default for OF devices on the current platform and no
++ * "dma-noncoherent" property was found for this device.
+  */
+ bool of_dma_is_coherent(struct device_node *np)
+ {
+ 	struct device_node *node;
+-
+-	if (IS_ENABLED(CONFIG_OF_DMA_DEFAULT_COHERENT))
+-		return true;
++	bool is_coherent = IS_ENABLED(CONFIG_OF_DMA_DEFAULT_COHERENT);
+ 
+ 	node = of_node_get(np);
+ 
+ 	while (node) {
+ 		if (of_property_read_bool(node, "dma-coherent")) {
+-			of_node_put(node);
+-			return true;
++			is_coherent = true;
++			break;
++		}
++		if (of_property_read_bool(node, "dma-noncoherent")) {
++			is_coherent = false;
++			break;
+ 		}
+ 		node = of_get_next_dma_parent(node);
+ 	}
+ 	of_node_put(node);
+-	return false;
++	return is_coherent;
+ }
+ EXPORT_SYMBOL_GPL(of_dma_is_coherent);
+ 
 -- 
-2.37.0
+2.35.1
 
 
 _______________________________________________
