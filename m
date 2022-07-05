@@ -4,101 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7955C43334
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 21:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117B6C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 21:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x9Aby79GwmHvXDAvtbHxDM6XQX17FejSZZmDbBWrAFI=; b=NmdVDZWhVyq3PI
-	PBaP7m4hmSl5ZGW+nT26KXbFw1sEFrxqvxx4KISgvPVV9it33/heu5CnC8OxdG4k3ypMHM9wJ1IXZ
-	eXE1uHIdWjLAIpEMYKlpa7hTLFQZs0jCCh7ahy1M+HD27iCHoss6j3kkxmUWP5DMx98s+sigfEnEn
-	BiHRp5IuF5ePIZBEYVoTXmwNCDMAx/JBJNoi8sUZ1GagSn3o84QLF3931x+JKnMZMZgHEBXbEGUZA
-	RRq8uTXGtWIMU9Zhe5TMbmdlgjNrPtp7m6LY3DyHbaRD8o9TF280w2mXUZpv+RDIRwDOsr6TITyyb
-	BVAU0q5bTOLVIPQHOtbQ==;
+	List-Owner; bh=Z10eneKNzYma3BeIj3LeLZBIyGQB7AjwpqplfOMzeLI=; b=zersETTyFAlRDb
+	+cIk8hfL50q15lsMcZkfvqSMMbq31dhrlWIkX3Dq3BNNv3zfL7RLqEjBeFq7apNJ3SPPYI7dKNjc/
+	DZtcagmiDz8h3OKGA4Gtn9jT8kWK9a5U7SUgVP6VjVDOwISbKAHddgaiaNbltxguPDgqwtMpse6kO
+	9GVWkCbbrgfbyz+NIJ6gncaEVANCuf2B6hYAF+PXdcVh4Nx3aORIcywU651Im/wKcf6sZngqlygcT
+	fv3Xk1QTxkNZqogkcsKt/2josi0/OgnymCMysbIOotu3ebMULh5tU4qish9k2Hfu5/gYN5umGtVqX
+	hjBa5CIeSHHQlqADK7Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8pp8-002qaf-T6; Tue, 05 Jul 2022 21:11:11 +0000
-Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
+	id 1o8qTC-0030Sj-6V; Tue, 05 Jul 2022 21:52:34 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8pgC-002nKB-RH
-	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 21:01:59 +0000
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com [209.85.128.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id DE8DE40AAE
-	for <linux-riscv@lists.infradead.org>; Tue,  5 Jul 2022 21:01:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1657054910;
-	bh=AoMSkRbSsal7DXav6tHJCoGyFX+s+KqI3+R+nsluk4Y=;
-	h=From:To:Cc:Subject:Date:Message-Id:In-Reply-To:References:
-	 MIME-Version;
-	b=EZTV/g9pLZ7rlM3n6yiDtLZYy1oC+hcEXYERbK2b8kK/rj8Qm8CRLXwQ+PghI4H2g
-	 7LIDwqYC+onvsnFd8xDqpWiyA/LkVzqo46Ok4SIBmzaNzgUrHx0UgmgOsDPZi0M+PN
-	 WLbePTS1kftpdjutRBkwoI0XjKSfzI4SMmDyzzULl4IlAkQiwgoMbuhB80860a9ZPh
-	 +6rUDZmt4oJkAaAYQHZVqvChtLXUB3MuThBHooR3ztMdqalolkm6E90MPBe6oTiYZo
-	 TJwvXqAB1O23IwBGopAbbvKjX3NX2WXDfmp1tjdGGUitnw6OCLx+2kXqtEp2Fns8nQ
-	 eCFiGKnpzA/XQ==
-Received: by mail-wm1-f72.google.com with SMTP id 18-20020a05600c021200b003a19b2beb0aso3439905wmi.1
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Jul 2022 14:01:50 -0700 (PDT)
+	id 1o8qT8-0030P6-75
+	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 21:52:31 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id v14so19385848wra.5
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Jul 2022 14:52:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=conchuod.ie; s=google;
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=8/fojUw0EeEcK+rqcJSp3I2q4GoLWZt/YWa+Regpf2w=;
+        b=Jr18FWZSzSRSneVObsSjnVJxBEUXAHsbqU/4W10bboXeXN2L2pGC6VHQ4lgo/UBYrp
+         J0CMP0GRKp8dUKbMzK9I1qdn1rq3wK26lnd4XTIQ0sX7h71LptFUbULc6iaAnW6WGhm/
+         okjirNplhv/WA9IcoywKUcGHw+BXG46zwI2GDKyZOkmqjyOn04Z5BJhC7yJplgdtIB49
+         wuTwK1SUud924+xRGcyrhru3Yn2If8/5ynnTC895rXmhv7F9KKS2ySwpJDiF/o/a0tk6
+         AVZPaubBcC4eXqg35e2ngXfchcbpzRQnzCgaBYEME++JqIp0fl9txiaPCPAGuTEtjsUi
+         YJFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=AoMSkRbSsal7DXav6tHJCoGyFX+s+KqI3+R+nsluk4Y=;
-        b=joZM3tE9lf69j0N0Koi44rUOnzMv+aH2JB5V0bCU5BpSbwaBWD+YomONwXL5cS+P3X
-         bgDkKhnjmDgC3k52HjTyTG6z7qnFKP95injCBkO/tQI6QBlpcFfFQRP92e8m3dL9AL0A
-         M4V7mrYOQPY+1bdyqMOvSQFxPoPphE5u2TRym6IcpkQS1Al580fYox+wbpgeaICtmgn+
-         10zNMgDDMZ2PNXc3gpkAvO/xfYdQTxLkyiV3SGQYAeoEbsbFtoktbAdZGvgQ6aBWiYiO
-         qHFx1iCSYPCapYpeAkqO1drRAz96EKmZmj5zCoIBQp/SuJqEsLkt1cpPsP+ZU8SWvWyu
-         4sag==
-X-Gm-Message-State: AJIora/5sT0sfFoFjLa6GtKFxJaWmhFxwFktz8m06fqZfPfKhuoSefX2
-	rUnJfHc2CSNTydBLW9egsGA4iZqswcZioA32Hko40mCJEuUnZ6l3bSFSNkFxtM9UcpH8jvwlw7B
-	BiAQebxyFYENzbhT3LPb+TSOa0+u1HlheQ4kXIPaj0DuRXw==
-X-Received: by 2002:a5d:64ad:0:b0:21b:b412:a34b with SMTP id m13-20020a5d64ad000000b0021bb412a34bmr34737451wrp.161.1657054910462;
-        Tue, 05 Jul 2022 14:01:50 -0700 (PDT)
-X-Google-Smtp-Source: AGRyM1utl+vdlW/hT+y0u8P/5xgHHhGX/aEi5Iu3pv5PVf+eB3fFB+ZuQGqJZ0/RfxSFhjz/+hEgCA==
-X-Received: by 2002:a5d:64ad:0:b0:21b:b412:a34b with SMTP id m13-20020a5d64ad000000b0021bb412a34bmr34737424wrp.161.1657054910311;
-        Tue, 05 Jul 2022 14:01:50 -0700 (PDT)
-Received: from stitch.. (80.71.140.73.ipv4.parknet.dk. [80.71.140.73])
-        by smtp.gmail.com with ESMTPSA id r15-20020a0560001b8f00b0021d74906683sm2517667wru.28.2022.07.05.14.01.49
+        bh=8/fojUw0EeEcK+rqcJSp3I2q4GoLWZt/YWa+Regpf2w=;
+        b=YJXHzZGtOaSNnhpUyN3gkzaZ4AosvRXLzHzXV8zl0kV1eDmDlZAIpQUciJ+QXMBb32
+         rJ7vnkNEF54iCowjTiQ5yNK1jCDt+MJWFvTX7ksoWyhZtcIwFkwQlFKj84zpY8J9c/Oq
+         4mJjhyYKNUephWfMKgDS538clbL1yP5TKJbcqMDZv9CSKVNtdvWGDeAeHm8AKjEkCKIm
+         LJh7V6hgoc4gf/YOd8wBZm3hLrznHgn8UNju/la4YfUAMlNEry++7RM/To9kqWplyr8Q
+         5VPHxmxUhTyv3zMI+Y2W8UhSnr5jfY6CmuNP8McrcVQnjZMYAWedqyOoQwj29b9DkUWK
+         lfrw==
+X-Gm-Message-State: AJIora+EUd9Vnt0hZlXBdZ3Z30CaABEMoTsToFvMcMW/ypxqfjU32aQU
+	JwVsPAxMex/IHC/l+8NVmMGFaA==
+X-Google-Smtp-Source: AGRyM1tX5bERlh6TaveO6GrgyXdZI+WLqirgKBhUqp4y28CVn8caA9+OntupBTJIPlHx+MDpz9T9Gg==
+X-Received: by 2002:a5d:5985:0:b0:21b:c74b:5a7 with SMTP id n5-20020a5d5985000000b0021bc74b05a7mr31952683wri.242.1657057946655;
+        Tue, 05 Jul 2022 14:52:26 -0700 (PDT)
+Received: from henark71.. ([51.37.234.167])
+        by smtp.gmail.com with ESMTPSA id g34-20020a05600c4ca200b0039c7dbafa7asm18353920wmp.19.2022.07.05.14.52.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Jul 2022 14:01:50 -0700 (PDT)
-From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-To: linux-kernel@vger.kernel.org
-Cc: Pavel Machek <pavel@ucw.cz>,
+        Tue, 05 Jul 2022 14:52:26 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: David Airlie <airlied@linux.ie>,
+	Daniel Vetter <daniel@ffwll.ch>,
 	Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Vincent Pelletier <plr.vincent@gmail.com>,
-	Bin Meng <bin.meng@windriver.com>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Ron Economos <w6rz@comcast.net>,
-	Qiu Wenbo <qiuwenbo@kylinos.com.cn>,
+	Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
 	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Stephen L Arnold <nerdboy@gentoo.org>,
-	Jianlong Huang <jianlong.huang@starfivetech.com>,
-	Mark Kettenis <kettenis@openbsd.org>,
-	Sven Schwermer <sven.schwermer@disruptive-technologies.com>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	David Abdurachmanov <davidlt@rivosinc.com>,
-	linux-leds@vger.kernel.org,
+	Niklas Cassel <niklas.cassel@wdc.com>,
+	Dillon Min <dillon.minfei@gmail.com>,
+	dri-devel@lists.freedesktop.org,
 	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v1 4/4] riscv: dts: sifive unmatched: Add PWM controlled LEDs
-Date: Tue,  5 Jul 2022 23:01:43 +0200
-Message-Id: <20220705210143.315151-5-emil.renner.berthing@canonical.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220705210143.315151-1-emil.renner.berthing@canonical.com>
-References: <20220705210143.315151-1-emil.renner.berthing@canonical.com>
+	linux-kernel@vger.kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v5 02/13] dt-bindings: display: ili9341: document canaan kd233's lcd
+Date: Tue,  5 Jul 2022 22:52:03 +0100
+Message-Id: <20220705215213.1802496-3-mail@conchuod.ie>
+X-Mailer: git-send-email 2.37.0
+In-Reply-To: <20220705215213.1802496-1-mail@conchuod.ie>
+References: <20220705215213.1802496-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220705_140157_106755_F84A7E25 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20220705_145230_352799_ECA073E9 
+X-CRM114-Status: UNSURE (   8.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,75 +112,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This adds the two PWM controlled LEDs to the HiFive Unmatched device
-tree. D12 is just a regular green diode, but D2 is an RGB diode with 3
-PWM inputs controlling the three different colours.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+The Canaan KD233 development board has a built in LCD.
+Add a specific compatible for it.
+
+Reviewed-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../boot/dts/sifive/hifive-unmatched-a00.dts  | 42 +++++++++++++++++++
- 1 file changed, 42 insertions(+)
+ .../devicetree/bindings/display/panel/ilitek,ili9341.yaml        | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-index c4ed9efdff03..beaefe74755a 100644
---- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-+++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-@@ -4,6 +4,8 @@
- #include "fu740-c000.dtsi"
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pwm/pwm.h>
+diff --git a/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml b/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
+index c5571391ca28..99e0cb9440cf 100644
+--- a/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
++++ b/Documentation/devicetree/bindings/display/panel/ilitek,ili9341.yaml
+@@ -24,6 +24,7 @@ properties:
+           - adafruit,yx240qv29
+           # ili9341 240*320 Color on stm32f429-disco board
+           - st,sf-tc240t-9370-t
++          - canaan,kd233-tft
+       - const: ilitek,ili9341
  
- /* Clock frequency (in Hz) of the PCB crystal for rtcclk */
- #define RTCCLK_FREQ		1000000
-@@ -44,6 +46,46 @@ gpio-poweroff {
- 		compatible = "gpio-poweroff";
- 		gpios = <&gpio 2 GPIO_ACTIVE_LOW>;
- 	};
-+
-+	led-controller-1 {
-+		compatible = "pwm-leds";
-+
-+		led-d12 {
-+			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
-+			active-low;
-+			color = <LED_COLOR_ID_GREEN>;
-+			max-brightness = <255>;
-+			label = "d12";
-+		};
-+	};
-+
-+	led-controller-2 {
-+		compatible = "pwm-leds-multicolor";
-+
-+		multi-led {
-+			color = <LED_COLOR_ID_RGB>;
-+			max-brightness = <255>;
-+			label = "d2";
-+
-+			led-red {
-+				pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
-+				active-low;
-+				color = <LED_COLOR_ID_RED>;
-+			};
-+
-+			led-green {
-+				pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
-+				active-low;
-+				color = <LED_COLOR_ID_GREEN>;
-+			};
-+
-+			led-blue {
-+				pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
-+				active-low;
-+				color = <LED_COLOR_ID_BLUE>;
-+			};
-+		};
-+	};
- };
- 
- &uart0 {
+   reg: true
 -- 
 2.37.0
 
