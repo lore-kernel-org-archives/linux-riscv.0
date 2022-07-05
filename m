@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B97C4C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 21:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE496CCA47B
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 21:53:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NiUJ8393QCuO72BFig/eXkOPnmpALSlHu/ohMic183Y=; b=jpUsZuV+QYTDiF
-	8prceWMFuYzMb3G9yo2XMK0ZWXdVdx9f7YCrBtD/KzITxIMTY8xseEDFLJG7bLADP1dQZpoUn92/L
-	xaPXgnjq6wOWSZEdjqAj5t5vLdtwH+hoBgv0FKhxmCLz0RRDpvF578IgBgQ0OUUPhfh9DrLsdxC6H
-	AUEUMP1G4xh68bLNvhJwyHpVOCeBljoenK3TRA9upLs4NvDS3uMDKk4YdH0a3rKPHxhuqET8w9ecH
-	c2H/G5ZStfImtAjjz9fCrlt6sLMwuCBcrPqonk/cHvlBJkkSvW+wSpEB6D3n9/KtZP1G30nIPlad7
-	tY6/5KVc50tPDVdPFDKw==;
+	List-Owner; bh=1TX5OudhZpI6gJEFuZJen1aFyxHkbaT8J8OshEItO2A=; b=UIMiNoYX1RE+fh
+	e9Sm92aCuJMluF4XpJuc17/7s+oxGVhoUeocRuygq7mI2hW1C6QJ1fcmUocss2Fl4outjjIXRq+Hn
+	h8FljU8vuA1PKL54pcJF7CpdZsmmZOw5T05e5ht/4RiDkbiFakF1djqM65V7WYUmSlyHwHCDeDZsp
+	HX5H6QIESzm5XI21R0J3tZfbyF17Y5lhQnkH8N8te8z+uANCljZq9aTRonsTZenNXgKNpKM6X4J4J
+	SZn3biD6ZgyHYo7tSFfSiPdytxnBfME8So0PeIVZvH/AWbcQHcnVP+zQH9lLPmXbsQjyPIHQhRpmp
+	TKDs+JWDS5yJ7p4Ux3Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8qTc-0030wc-QE; Tue, 05 Jul 2022 21:53:00 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1o8qTh-00311L-SR; Tue, 05 Jul 2022 21:53:05 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8qTI-0030Vf-2L
-	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 21:52:41 +0000
-Received: by mail-wm1-x335.google.com with SMTP id r81-20020a1c4454000000b003a0297a61ddso10517167wma.2
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Jul 2022 14:52:37 -0700 (PDT)
+	id 1o8qTI-0030Wy-Vi
+	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 21:52:43 +0000
+Received: by mail-wm1-x336.google.com with SMTP id g39-20020a05600c4ca700b003a03ac7d540so10506716wmp.3
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Jul 2022 14:52:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding;
-        bh=btfD2ddLZTsrkxXM+5X0SlRWCSAFkc3crudlByDnEUI=;
-        b=R2ZH0gVpmULNTv6IJcLMhpWIi94ZX23K1txij23UvjFeSzC3TosPXLd2Xl8x/lj8HQ
-         9Y+0cd3VifBNPS8rtQtjRQbPZHdvl/w4dhwDPWCg0IXB58BUR6JYHlX9ZP1O+AhRmMgu
-         B8d/QnrymSEjCT1MzHxmsr77lUPEBwyrqAC5UCUuROQwCAY/g7zB8dSBkrmbVIZd8gTU
-         LjBB8oMchg8USlhrITWohYgE19TDziCHl77VuySNrjC2NTXP/bzmxACDHZEouWmEiU0B
-         1v7K3pQ5V1polgAp3q7tYlG4glWe6iedMPE5oJAkp24Ur4XhLIAuE8ditoMQgWPaJojK
-         TtAw==
+        bh=UPBn59oLWa4WN0TM+d54cWfp0e3Yu26JBz3nIt6z28k=;
+        b=Fy14/PvPj9PtUJSEWAsIoJtFk/QLAh+zpJW/GcdBuZm50Q5pLRFJxjVDsTQKO0jlNY
+         wJEhEFKcJ5jxv6DRNmvwQzfS2yJogdZFiP8ZdIrNQl6Bottomg6ONQGpr/VfsdGYeB/N
+         ND5Ib9C8J0JM8tXLAOqtqq8gufvNQQl45ZsHqL4Uj7+WAIQPsLAbZqQFWRiE0rUHtqzP
+         becDXpKRWZUyde0rVYxaUYFI2eG27lKUswHmHJCDuX/QVyN3tS9z6hbfBG61zxiJlXb7
+         2JG3cOJS+O+N5O45JGX8/QxjmcaDKeRngl+PnlPwot8S54C/CJA9gNgldo5hidh9YXiG
+         RGFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=btfD2ddLZTsrkxXM+5X0SlRWCSAFkc3crudlByDnEUI=;
-        b=plJSJBhr8Eu1kwx220hND+yidYxUfekQEsMQp8w9aLslyM7Vtd4x/qHXeSfPWFgiCS
-         jSSpifjmugodBeelCLD/5npvXeWhh+bbUhlk1ajz2JWlsRzs9qihQlQCgqdkjqwnp7ih
-         t39pgE/x4uCEqpHMC1YK1pDWGHS77YVx9drPha58ywGqyMLbAEkg5UujhNr7cmhYCrjj
-         sTcZwOv4eGdAjUU+CDD4H8Ch+P4cBQ5HjSnnvXutUQ8xEcAPXncRMonSIQ0ySf3ys8f1
-         nUPbxyBtOyDD+yPg7NFMX4NBHWzCVW6zqMVMtzSKg+6qrKSkR4i+dUcHF7Vtju6ufOmh
-         G2Ow==
-X-Gm-Message-State: AJIora/x3M8z1vcOwYb9HWtA4P/te2KfOnsduf/Z8VFIamUlBnG3eFzg
-	7XW/aJvA52+zK5a9p07iB0+Qsg==
-X-Google-Smtp-Source: AGRyM1uXxyzForUKTAh74BBZRKGne5xPz5YmmHzkkj1xxpM+GNVio6fhXm02YyxzMkM3fk0zBgZL5g==
-X-Received: by 2002:a7b:cd0d:0:b0:3a1:8f1e:cb2f with SMTP id f13-20020a7bcd0d000000b003a18f1ecb2fmr24066595wmj.10.1657057956434;
-        Tue, 05 Jul 2022 14:52:36 -0700 (PDT)
+        bh=UPBn59oLWa4WN0TM+d54cWfp0e3Yu26JBz3nIt6z28k=;
+        b=VWg9ODO9vDo0TeElW9acuAPagf95YXBGWby+7SgGh943gb24SbeAHgz5p7vNa7WT5g
+         ZVHmmvvjDBPVePiHJcglkZgB4+CyQOY5HLL1w7M/HpZdjMugpjR3ImbOrDf/ysN+wg/e
+         jJ6JTz/vU7NqoC99qLzQJjw+y4932BRC3MwOcGlnRt0hDB49Qb9dSPwsc8XUfxno7Sgp
+         LGGr8LgjWxs1keDvKLfnu3w2V3Wqgl6bJV9pSNb7MI51Fa6vVmHXTd5Ngbes6A7T8RJA
+         7g+yvR22ULRW5P1oe5/4aJpFoBe/iq0gWyltuYyvgbE7lQp5zc8VXwlra5VcO9ussr/X
+         1wRg==
+X-Gm-Message-State: AJIora87nmwuGq4qzGjio3y4WI+mzZqzUpcMHBvtlUsR2N+FlQCPyi1o
+	l9q7eGgkfl9Tkr7KwziVAUqcXg==
+X-Google-Smtp-Source: AGRyM1tsCEz43LIslI9FUHHd/xucvxD7qU2yykMq/Seu+ezPnUEgazknOGEg2oVZ51mnn77ZaJweNw==
+X-Received: by 2002:a05:600c:34ce:b0:3a0:3b4b:9022 with SMTP id d14-20020a05600c34ce00b003a03b4b9022mr40062698wmq.66.1657057957885;
+        Tue, 05 Jul 2022 14:52:37 -0700 (PDT)
 Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id g34-20020a05600c4ca200b0039c7dbafa7asm18353920wmp.19.2022.07.05.14.52.35
+        by smtp.gmail.com with ESMTPSA id g34-20020a05600c4ca200b0039c7dbafa7asm18353920wmp.19.2022.07.05.14.52.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Jul 2022 14:52:36 -0700 (PDT)
+        Tue, 05 Jul 2022 14:52:37 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: David Airlie <airlied@linux.ie>,
 	Daniel Vetter <daniel@ffwll.ch>,
@@ -84,16 +84,16 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-kernel@vger.kernel.org,
 	dmaengine@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 09/13] riscv: dts: canaan: use custom compatible for k210 i2s
-Date: Tue,  5 Jul 2022 22:52:10 +0100
-Message-Id: <20220705215213.1802496-10-mail@conchuod.ie>
+Subject: [PATCH v5 10/13] riscv: dts: canaan: remove spi-max-frequency from controllers
+Date: Tue,  5 Jul 2022 22:52:11 +0100
+Message-Id: <20220705215213.1802496-11-mail@conchuod.ie>
 X-Mailer: git-send-email 2.37.0
 In-Reply-To: <20220705215213.1802496-1-mail@conchuod.ie>
 References: <20220705215213.1802496-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220705_145240_166676_A0AC2521 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20220705_145241_082506_CCA46484 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,47 +112,46 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The devicetrees using the Canaan k210 all have a sound-dai-cells value
-of 1, whereas the standard binding example for the DesignWare i2s and
-other use cases suggest 0. Use a k210 specific compatible which
-supports this difference.
+spi-max-frequency is a device, not a controller  property and should be
+removed.
 
+Link: https://lore.kernel.org/lkml/20220526014141.2872567-1-robh@kernel.org/
+Tested-by: Niklas Cassel <niklas.cassel@wdc.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/canaan/k210.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/riscv/boot/dts/canaan/k210.dtsi | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
 
 diff --git a/arch/riscv/boot/dts/canaan/k210.dtsi b/arch/riscv/boot/dts/canaan/k210.dtsi
-index 72f70128d751..900dc629a945 100644
+index 900dc629a945..948dc235e39d 100644
 --- a/arch/riscv/boot/dts/canaan/k210.dtsi
 +++ b/arch/riscv/boot/dts/canaan/k210.dtsi
-@@ -251,7 +251,7 @@ spi2: spi@50240000 {
+@@ -451,7 +451,6 @@ spi0: spi@52000000 {
+ 				clock-names = "ssi_clk", "pclk";
+ 				resets = <&sysrst K210_RST_SPI0>;
+ 				reset-names = "spi";
+-				spi-max-frequency = <25000000>;
+ 				num-cs = <4>;
+ 				reg-io-width = <4>;
  			};
- 
- 			i2s0: i2s@50250000 {
--				compatible = "snps,designware-i2s";
-+				compatible = "canaan,k210-i2s", "snps,designware-i2s";
- 				reg = <0x50250000 0x200>;
- 				interrupts = <5>;
- 				clocks = <&sysclk K210_CLK_I2S0>;
-@@ -260,7 +260,7 @@ i2s0: i2s@50250000 {
+@@ -467,7 +466,6 @@ spi1: spi@53000000 {
+ 				clock-names = "ssi_clk", "pclk";
+ 				resets = <&sysrst K210_RST_SPI1>;
+ 				reset-names = "spi";
+-				spi-max-frequency = <25000000>;
+ 				num-cs = <4>;
+ 				reg-io-width = <4>;
  			};
- 
- 			i2s1: i2s@50260000 {
--				compatible = "snps,designware-i2s";
-+				compatible = "canaan,k210-i2s", "snps,designware-i2s";
- 				reg = <0x50260000 0x200>;
- 				interrupts = <6>;
- 				clocks = <&sysclk K210_CLK_I2S1>;
-@@ -269,7 +269,7 @@ i2s1: i2s@50260000 {
+@@ -483,8 +481,7 @@ spi3: spi@54000000 {
+ 				clock-names = "ssi_clk", "pclk";
+ 				resets = <&sysrst K210_RST_SPI3>;
+ 				reset-names = "spi";
+-				/* Could possibly go up to 200 MHz */
+-				spi-max-frequency = <100000000>;
++
+ 				num-cs = <4>;
+ 				reg-io-width = <4>;
  			};
- 
- 			i2s2: i2s@50270000 {
--				compatible = "snps,designware-i2s";
-+				compatible = "canaan,k210-i2s", "snps,designware-i2s";
- 				reg = <0x50270000 0x200>;
- 				interrupts = <7>;
- 				clocks = <&sysclk K210_CLK_I2S2>;
 -- 
 2.37.0
 
