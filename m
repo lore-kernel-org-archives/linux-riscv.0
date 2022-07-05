@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D13FCC43334
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 07:20:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D5BC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 07:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J1VsHH5rDitVoSCxvkWKU+iRRUsNAX2zc1grc3Zxh4I=; b=NwMgdCA+ppeX7w
-	PBD5BeUPiYaoq0LyvkfDv9YwsTGzu8jkvJsJIEvbhb5TX6apBD+vFWpCOV4bwW9AWJWz612MZkAjM
-	agvAIODbAL8VXfJ/bKXj7OwXjx09/s1Kx5BjQTmsZI3rarW/UkHKQEUm4xKzcP/vWgFn2TKRwOG1m
-	PfRtoVj0CVUGfSD56LWKCHaLcJk8NTtTxX9M6WVE3lm7LN+L4lI0lxJzvYibt1of2fQwuaNtOiBIa
-	UiqCcYWz05HfcGUZGTXPTAaboP/Fronx1bNbNr3XHMymtdRImiCtk2DXKwofjP7v4lyTBg2i5JqYV
-	a3Wou2i0TWQjaWlEK3Ow==;
+	List-Owner; bh=Eo9SXowf+zVhbBSu4eYPGytSORBPo4O+PX7/EJ/D55s=; b=afge1UN/6DGA1G
+	3hBZX1xDQVNCGN0DocYagE9Kr0Bio3v/5H5ug22XwRds+jXAgxBXsqws9yQESyKx2uyQU1KuiSn/w
+	Vf9fAmeEwY3C4p1xVXB0jLr3gex81t8kOGEB3PJNVtiVfbqOHmbJzvqnm5I1z3VL04HElJewWrDgq
+	XK7EniUHrzqPqpEZ6l8xfYFV+mxyn7QGGqpWBT9GBcItd6EJSrBczPZ0miYmsh+cHGG2LGVcNcSvl
+	vzW1TM0f+98mSMM1JLU7zOp6zUo+SgnW2HZAlNG7kCJ3NDqsW2T3bF6+JZHFZzQlhkkxrg+PjBVRA
+	/BoGJV803pccYgqfXmgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8cqt-00FUPb-0M; Tue, 05 Jul 2022 07:20:07 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1o8crs-00FWLM-Jm; Tue, 05 Jul 2022 07:21:08 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8cqo-00FUES-E6
-	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 07:20:06 +0000
+	id 1o8crp-00FWEW-PS
+	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 07:21:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1657005602; x=1688541602;
+  t=1657005666; x=1688541666;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-id:content-transfer-encoding:
    mime-version;
-  bh=EESTty5lfxesod253zoBi71Y0BXZUKcZehHCcHWlJwc=;
-  b=UfQAcAxV7KQCAsQdDq4Qk8m/fSEHuH+fX7C5jVvtwta0JlkY0y4t0I05
-   wNphDJ1aJVLgHW4CS1YLqbFmnDBj2v7KuBWH26iqKqiPpDvFBQ1hhveyb
-   2QbCcGh4hfkMiae7xuDIznUrk/axVVkjM5bhWzhqNEnF9Oq439pcrew5x
-   A6nhbiaDU5otWg2brBJukDe0o8DTzfa7+MycAQLe42kzBG0g/CWoaDM56
-   x7tBMGw5Pt5eM2Uml1+EZI7pnLf7KIwNgQhtPkxEB4SrBEq2F0cef+xHh
-   twYCORZsF4RME3dTTAXUSQgOLMebA8tml0EZhX7vRy+adD1y2Z67C4BDU
-   g==;
+  bh=dmpmuGnsLHXxQOn8LRjyDtZcIahdGOuFVLWJJVyNr1k=;
+  b=OXYZawERjLHYu3qjSPjADfg2C5jXpacppLd3iQHhjVDc/hCmXTNkJurH
+   YPzAQSOW7E4RkXYW/9ooaMfp39mhhdn4vpTzXJtSo1Zw2j+fd9VGiIWg6
+   Cm0pgWJRl4YLIr6dgX/AJFvUHJrI021/1V/1pQ+T+BQmYKOJwQ6svDnQ4
+   VVDPwUkXzkP68tqbO66GGGtqOD6WxeW5Gg8VVSaKYbRbR1fY78dQfHD+s
+   7GvrWLReDjxKxBSUwZgJ+tQt7d1bJf9rAntBPNIacsmnNEw/xmSoQEU0o
+   9WWy1va6ZS0dKQovVSnhSIzohEG009g5j7P0FO1zlGehVTpUv4WzU+sbH
+   w==;
 X-IronPort-AV: E=Sophos;i="5.92,245,1650956400"; 
-   d="scan'208";a="171042917"
+   d="scan'208";a="163310900"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Jul 2022 00:20:00 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Jul 2022 00:21:01 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Tue, 5 Jul 2022 00:19:59 -0700
+ 15.1.2375.17; Tue, 5 Jul 2022 00:21:00 -0700
 Received: from NAM11-CO1-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ email.microchip.com (10.10.87.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17 via Frontend Transport; Tue, 5 Jul 2022 00:19:59 -0700
+ 15.1.2375.17 via Frontend Transport; Tue, 5 Jul 2022 00:21:00 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=MvKqVGYGU3eouvgNgS6FKe6tStPTKlCK88z1CJI3cTcTnYNC3xnTdGZSfq6Wm9cuJN4yi6LLLfTSAgXrBPdKCiEL/eylHS8sl16HUySM/wYnZGp3A2qPa80zqSJwLEmM3f9KxHKjQT1243iFSxjjOCntuzl2jygGB0VzqPcWVBMu2uuOFhzvdhG9yuz82LqZY6cgHPvPzzluGTg92ADV3/4ryZHSO5Oy3lXyGGkNsdsAx9n8FG602PfdSSJMxotfatKtDP870svGbFM6yhbYJvLHQoqyrEoLwFpnbuajJJk+cZPM4V4A1j5YV6DTb5TF/TWfioBED46Sh7ihh+pHMA==
+ b=RsvD+Zazv/yAAj8hbe8kpr4HGddgu0n9+Dh7BlqwjNdE9iAl9WshT+msA5Kb/ADQGRe2myFmdOTucKtd+J/zRbtUSszLFVSaU1XwwgapTMJEtBFmOsbDaiY+mlky2s2vHJxLUxEqBMFmf2ZeGmX5wb8jL02Evi+c/S3tXy3vfiediQebDymj5jzKpaEUIq3cN9My/WnHmVqwWEG3F48m2T4Or1ypiqoyNn1qKeaADgYaTjd07Knyhn+hXSyzhQV6YulVjsJEs9P2/vCJxDX2vmRsyhEr7Sn3XdlJkrUqODAhQxuK+HFJSzYg8B3QI58CHfIlbE2oOOvZvwmrtB/53A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EESTty5lfxesod253zoBi71Y0BXZUKcZehHCcHWlJwc=;
- b=FbbCxLDCcF2zH6HIj0uS+IcLp1dtZG9D54RphwZCccl5FFGMgyvajea2wWe1jSzZCe7A905XolsmBCMNST5AvJvIzJaGn0KxPxzflHvDmZytTPiuFDjZLI6eUe0R1JmmqFOfLZs3G+k/rDFkcT1M4LzgmtDgBYOhIEIBALj+fAgpDVT+6a4ZzZdzaR3a1XSWNKcj4alycyDB8sa2j245ymCiSsy4JLvzWAUuGQ1X7DVEOTCpUu+zmk0F2FuJ53nN10HY4NmSqzi5GvEsWATqotRy+/Lued43PPGykoNEkGMqIrkMe62Yy1isC9Y5OIPI4g9S3G3GAwa969YGXx5jkQ==
+ bh=dmpmuGnsLHXxQOn8LRjyDtZcIahdGOuFVLWJJVyNr1k=;
+ b=SVu1J0Q5HogDyqd3kuOjG3ZMSQGXiIfYtknBrjA0cwkdCwq1/fLXXMKgX5emXYEqElDl6MvEOiGSteP4k07trSmKtsSgZaeJVtX2iWrdlaUBGmGH3jd581aKfxCtXWAiFG0dYb/7VaZrI6v8tyn2nHbwPnMeqy0TL4nRHwtroEkeZh+0opW1IiZNSEN5zo38r1RUpB4Y+/6AHyZUFz8pN8VYtod23HJKoVTyIt+YeV3KTcvmk5OdR9nFoipU8hcU5+8gb6UZHMtHFV8b5V8sSis1iRP7Dq2D9ccm/pfMAhP3erDZyp3RNIzZx5Yg0E8uBu/E7rDJEFJIiF8r2zdTdQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -65,17 +65,17 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EESTty5lfxesod253zoBi71Y0BXZUKcZehHCcHWlJwc=;
- b=YZUd+C/8YhM9O3J/OkfbICBpuntZup1RqAYtoxjHh/hExcrfSa6VO/UB4bCIcFjzJnt4egRZrSrXP1kxUy2SkaisH/+8aG9oSV1NEYtvwJXJk4tCSbU6Wq3FYbVwzcQds1dFkivWZrFskfgtaSvcIVo0w487/ROOUNBVTlmEpLQ=
+ bh=dmpmuGnsLHXxQOn8LRjyDtZcIahdGOuFVLWJJVyNr1k=;
+ b=o/oOcP782INZzNx1MZ8tckNaI+ttfhcQjppy2mus0euuEN1cJlA60FbndnWnPnINntnGQooMKPl/eX/hITefL0u1MjgYry6FlGwqeO7wh6J7UWBqbbKc0kAd67ec1hWRXs2fqciUbPM+eQip7yFgdLg2+PG9iqGtEWjjnZ23OsY=
 Received: from BN6PR11MB1953.namprd11.prod.outlook.com (2603:10b6:404:105::14)
  by CH0PR11MB5739.namprd11.prod.outlook.com (2603:10b6:610:100::20) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5395.15; Tue, 5 Jul
- 2022 07:19:55 +0000
+ 2022 07:20:55 +0000
 Received: from BN6PR11MB1953.namprd11.prod.outlook.com
  ([fe80::5c8c:c31f:454d:824c]) by BN6PR11MB1953.namprd11.prod.outlook.com
  ([fe80::5c8c:c31f:454d:824c%8]) with mapi id 15.20.5395.021; Tue, 5 Jul 2022
- 07:19:54 +0000
+ 07:20:55 +0000
 From: <Claudiu.Beznea@microchip.com>
 To: <Conor.Dooley@microchip.com>, <davem@davemloft.net>,
 	<edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
@@ -83,16 +83,13 @@ To: <Conor.Dooley@microchip.com>, <davem@davemloft.net>,
 	<Nicolas.Ferre@microchip.com>
 CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [net-next PATCH v2 3/5] net: macb: unify macb_config alignment
- style
-Thread-Topic: [net-next PATCH v2 3/5] net: macb: unify macb_config alignment
- style
-Thread-Index: AQHYkD+fxScyJXAhvky7g4JpHN4i5A==
-Date: Tue, 5 Jul 2022 07:19:54 +0000
-Message-ID: <8747ac2c-4363-4fc2-8139-08d21a778677@microchip.com>
+Subject: Re: [net-next PATCH v2 0/5] PolarFire SoC macb reset support
+Thread-Topic: [net-next PATCH v2 0/5] PolarFire SoC macb reset support
+Thread-Index: AQHYkD/DNT+YudLJkkuqU9aXIvYJXA==
+Date: Tue, 5 Jul 2022 07:20:55 +0000
+Message-ID: <69cdb133-c02a-e36b-b0a1-cf5ce81ad04f@microchip.com>
 References: <20220704114511.1892332-1-conor.dooley@microchip.com>
- <20220704114511.1892332-4-conor.dooley@microchip.com>
-In-Reply-To: <20220704114511.1892332-4-conor.dooley@microchip.com>
+In-Reply-To: <20220704114511.1892332-1-conor.dooley@microchip.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -102,66 +99,66 @@ user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=microchip.com;
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: a3711fe4-865f-47f1-47e9-08da5e56c263
+x-ms-office365-filtering-correlation-id: 29b36e93-3c2c-4643-ec2c-08da5e56e66b
 x-ms-traffictypediagnostic: CH0PR11MB5739:EE_
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: oQ0tbSm61XXUx+v5bOjJEft/sZTBufXhy36lDNpb8GmDOCPds0CxWMotsTBbx+pUAIPgqIpbbAoniA/5aRJwmBdhillaRXwuZ9WssK/19MOBT86De+8tjIj7YEMTcDCtoVnTSc0ldEr8YBiogNQJ2pkNmdAtuqTtthaMtsJN174aJVohhLJ4mPuzQV+Go/+vtVDVuAyptMcmJexhrijK/ykz/LW0amUPiXRgnlmNn2LrBVGSEuwYI5VAIOBDAFhuZTmaxmbYtGd0zUwiBN7heJ1xjeYF0WbmuJ0CQ7L9RI+R6J+EZYk1QXRitx360F9GRmBr33j2xwJKR7r8fqWHm4+sPBN8zAq3jH/8kXTkbftWITkjRPFj9UPMpA5mUi8c+tj6OGYXK+RgNseSlURvsEiqcvgMXTLjSpVy6y97KhaJXL0BZnOiaiXKhrQoJHzdSJT9K0zxaClXhUXPWMIZVo1cNk3uWuMTziWsis6a50n8CG4laexvdOM7kHQZ+HGB02O83+iW+iM4f0q0sjQRWw1ujuQqdqakXttVA5346osYfyeRk0GNvDqtCFeNUakBy114/hFK2S0INEPBHZujqhXyH8zoAQfppWL07Hg9POCr0xpXhMfyChDstkhreBOhOxJjmw0kg75VLO78FTQff3sX8mQYKKpKeHAxLrfBsHy6wDOCRiuUernCqPrzxc6POEYmtyHerRBBiAO3xDFcs1P5x+X7sL04IJMVgZgfqhQZ4TDvzaQOeTq/8ZwmQZPV1Ua/75IATvU7HAaclticTt6GRKBap8cpaI9ZyCR1vEmUyKSvfW07yDk4E3tFVe48aF/WfU08EigJgMYe7DiyKah6uBqas2tcJVgsBXY5nynt7ryfkG+3xPM9tpgD49WA
+x-microsoft-antispam-message-info: LA8goPhd3TGJd4rc4SLSOtz6YWVFam19nZJf7MJzM5jte1XSzeaaLVrHG/1C9AMhf/mdwJTyzB/09C5EANRyosfO3Er0eSjproJtVWAboOahEzeDqexfM5RHp0YjVl/Ifz0mfpkDzgXlXnsMpuouumiDohgNOkAcPi68Pyd3jDRwMbP4poUyTRMNEMeUmkV+BSB6zJZe3L0/3eJpKU8iKq8wMrnVToxUmE8hqGk2SXp9cs3bWE+TvqREe958gCyFXRSYDw+qeHhvNIMPCD3oO5wFp7j/O0UMwtIWXgqCMU/+8Z28gQhfD35m5x6JOKa39vnYC5RsAQfdFO49yBWDb9zK3vpDdLiI/BzhHZ1PO6MJF7qFGOOUPwxWFQCLqRQMnSlnjn4RNppMaFKxuzvtBuKKOGOBmeE8Bi6nM5lmkorR8L4Uog1k6lHehDLqk/RTpw94GlojJIP5n56z8T1N0rlNACimHfL1stC5mF8gECKOrx69boDQmDhfBQfnVb8ynrfFvgdvTLKsz35Pm4bx97iOmwIlXke2JEUazcuejOdqPgjty/wMNaiZgGg+lPyHq0DtJwLLCFGl3BVvH8gDzL++KQ5bgwIvu8ckj7ca2NwpZBgBfacTb4nTzHgXd7Xji9v+dErmudloRSy6vqjRWCUvd90XIxdPkQZ/jXSnASC0Wny9X5LOTftUsyw9Bo6btIc4AuU6gaAL11ywaxtgPVquM8WCyShbdWoKejIxcthE5py5AaHW/uTxn5mdyqeEZOyquCxc0vgsHVoFbFapZompLjOMEG4ujhZqnzBoynwJbW0PpTM1nQ1yQZ+ngZmiVpX78eQ+Hcy6csPgvQNLn94h9DT6BNSyyKBpBQJ3OZY2Vk5G+HTsQq/7B2+flvN9
 x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN6PR11MB1953.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(346002)(396003)(376002)(39860400002)(136003)(366004)(38100700002)(6506007)(31696002)(8676002)(76116006)(186003)(2616005)(86362001)(41300700001)(83380400001)(91956017)(6636002)(2906002)(53546011)(66476007)(66946007)(36756003)(66556008)(31686004)(110136005)(4326008)(316002)(122000001)(66446008)(64756008)(54906003)(71200400001)(26005)(8936002)(38070700005)(6512007)(478600001)(7416002)(5660300002)(6486002)(45980500001)(43740500002);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?WlVSQ0NDMEZWYjViOS9XenIvTk5ZVkE2SXFITmVscE9FWHNTUEpDQTVIaXVM?=
- =?utf-8?B?blJHUGNadStrTnY5Y3Q2RFY4NklUY3JtWHB2OGNOby9pSzkrSW5XYXJoODRO?=
- =?utf-8?B?ZnM1WkNpUWlwTEdTcE9UVjFYTXBlRThsbndlamtZUmNrMy9ZUDVveWVnTyt1?=
- =?utf-8?B?eVJOQ2VkdFRqRERJMjV2NDMxczBTb3ZHZlhsQktndVFsNFoyaU1JL3plUGtR?=
- =?utf-8?B?VHhXaDNpS0hqZzBoQWJSeVQwTDlsN1hENHhvYVhycVdrVk0zbUxyeG1BanYw?=
- =?utf-8?B?b3Y5cHhMVVBZV0N6MGltWXl5bExQNGpwUmxNbjN1T1Z3VnpNRU1kL1JES0N3?=
- =?utf-8?B?Rlc1MElEcnlZU2F0Q3FEWWZCMlhCTzFvV1NNeGRId2lCMnAvUWN6VmgwUlEx?=
- =?utf-8?B?ZFFTSkdaZUV0RmphMWFxRnFnaTlkc0FhTGNTd1NvY0RRUHI0SDZEQzNRZWpy?=
- =?utf-8?B?MURhVEtvem5lVVZ5RFl4aHlVa2grNDdwTVE0MXM1Vnl6d0RyNCtTVU9SRnVZ?=
- =?utf-8?B?R1FqeGxMalROTTk3M2ZIZUMybWMzanhyS3V2VE5DUXdaNHhRYzRtVVYzWkRw?=
- =?utf-8?B?V3NWd040Sjl1ZXQ4dTFEYkYxWXhXcGNqWW5HaXZwUWdUOXNuWjJ3a2JETzVw?=
- =?utf-8?B?eWxQYkY2Q0l3djJ0RG1XM0JrWDRERjNOdzd4YU1QRXFFZ3MzWVo2Wk5UVzY5?=
- =?utf-8?B?VTV3djIySHlmQmhqekRnZmlaTjl2RzRNNFNBdGorazY4OVI3Qnk5bEpOTks0?=
- =?utf-8?B?Nmw1NEJQK0ZxVHBMY0Vnck00enNWdU9FckJac0hnaEYveVBCZFRGdkp5LzJW?=
- =?utf-8?B?bTFmK3RmNTZ0V1ZDS1dtQjYvamRuZnBpOUFhZmNSOU1kZ29oSDN6M2JvSjln?=
- =?utf-8?B?cDVQbmJEYWd1TFdIYS83dmdPZWY5ZVBnU3dPVVRUaTlzSXpuVnhHak9NSUF4?=
- =?utf-8?B?ZzRDTkQ1aDM0TURjWGVXZHFLUnJOcWZCMU9BbTUrRnpBR1VnbW1uVzRWWi85?=
- =?utf-8?B?eDRoN20yUVVZc0F3Tk0vWEJINVBCMUJlSTVGTzhPMGtXZTY5Um9xYTJGU0Y3?=
- =?utf-8?B?VzROS0lyd2pXOERnUU9vbjNuLzNzTTdNQW1qcmRMV1FuN2FGZUFGYzZCaHB5?=
- =?utf-8?B?Zks1MzMrYXVJdzZkNlVxOURRcGhiWlFZaUZHc3FmNEZzRitxZjYyaDM4MHZz?=
- =?utf-8?B?SDAydmF3cDczTzhGWU4vY1JoWWF0cGNGU1lqdWY1SlpUV0hPSmxXRHpTU0kx?=
- =?utf-8?B?eUJ4cmVjZ2pueHlSa3hGbnZ2Tm9Wd3JmNm5ITXlPWWJsQlUyZ2YrUnM0cmVL?=
- =?utf-8?B?VGQ1L2FYeG5vRDBEZ3RVRjRiU1I5RXZHZ1llaHhSTmpDVEYwUGdxNGF3QXBp?=
- =?utf-8?B?emxza2xVbFliZ1ZsWTdVM25CaTNoZlRreFpWa0JTUTBReHFPcWJNV01aRE5o?=
- =?utf-8?B?enpnOTFCK1ZNaDVkZUdKQnJKQ3RoRGYvcEhGZjFxeElGaktZaW5uV3RTWDcz?=
- =?utf-8?B?N1NrVXFsVnNBck5WaGN0Y0pzZ2tmQ1dKZExOdDJRaHFNSXB6Nktwa2lGUklx?=
- =?utf-8?B?aGV2U2dHZVVaR3RjZThhSnRyZGJlSldoTFRqczNrY251ZGN2U0o3QVNibjAv?=
- =?utf-8?B?cnVGaUJXY1JXS1dyNEQvNzhsL1VkWHNVSTBrUlhpamt1OWFaV0tPeDlZaFVx?=
- =?utf-8?B?SzB4T0ZHV1MwWUwzOVdyL2J0T053bEFYSjlFYTJ3K2VGaWRuNW84eTUxK25L?=
- =?utf-8?B?cGRKa3lKMmdlcW9aaThqdE9GVjgwWGtqcFNoT0VVMTEwWGxHZnRpdnA5SXZn?=
- =?utf-8?B?VnkyUkNRVUhYbHlnR2RVUHFRbnJVOFlnUWhSZGhSSlJsWDdlVWZwWGdVbVU5?=
- =?utf-8?B?K1B0dGYvNTJzWlJZWCtRM3dQRkJFbmZ2STVaUlFNYTZwb1h4ZklmV3dzRjZF?=
- =?utf-8?B?OTR4SjdVTUJqblltdjFqRldyT09xZmxGYW0zMEYxTmtSeXRkTXh1M1BuemY1?=
- =?utf-8?B?TWdJMFVOK1hQVXBHbmVYTUpkYUtyVE9seFcyWVdDbDMxSndaa3lhU0tBNDkz?=
- =?utf-8?B?QStJY1h2NDQzS2xIbWwzMUhyL1RKczN1R2w2ZU8xM01Xdjg4MzhsV0E1Q1B2?=
- =?utf-8?B?dXREZjMvd3JlTmtsU0U5Nm5PUVVFMWRDZWFVb01CcXZXUzBmOVpxUXlUMXZr?=
- =?utf-8?B?d1E9PQ==?=
-Content-ID: <BAA0F1BA029A304AA85EC4B843FD1EB9@namprd11.prod.outlook.com>
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?anpuZ2kzMHNNSUdvd0NyNWlzM3Z3aVNIM1BKT3ZFWjdYaGpkc3o0SStZUTN4?=
+ =?utf-8?B?eDJzVnpnTzYrQWpUSGVsSkYydFZhcXlTZlk1WlY3cjBNdWtpS2ZVbis2aU9K?=
+ =?utf-8?B?clB6Q0F0MHcrN1BKbk80M1lhMGZHdm0ydnpDTlROVGNENnZqU2U5dDZjbXlW?=
+ =?utf-8?B?WVRSU0pzZTljV3FpS2xYQVg2SEFQN2U2dGc3S2ZCd2t3Z0NveXpxSTJWTFhn?=
+ =?utf-8?B?OTNJaDArSHhRU004cWZTczRVNWxYTUllUEtUK1c2dmV4Njk3b3hvUHQzbmxH?=
+ =?utf-8?B?Y0VSNzNsQzVlN3dEcEtGaE9ibmduS3VFd0NkT2k4ZDVIVGgwVGVPU1FTM2cr?=
+ =?utf-8?B?L2pBZEJOelNJK0JGUFJraGZEejlaejJFVGllZ3NwMitZV1AxaCtmZHV6OTdG?=
+ =?utf-8?B?SnVQajRJYW8vcDk4dXpxS2theGJxR1U3Tm1jUDQ1Q1Z5aDJJR01vTiszeWJw?=
+ =?utf-8?B?dzFDVXlOeklndDh3Q2NHbkdEcXZLQytLTjNVVHhSakM0MkR2QmRsMWtQWURF?=
+ =?utf-8?B?N3NNZkZWaTFzTTk5NkpLNnA1UlM2aVp0aUJ1UElVa0IvUjcxeFcvOUpVbVQz?=
+ =?utf-8?B?c1dQWHYvd3lMZHBaTGFyWjcvZTEwWTZpaXkzTCtNVXFjQUd1RkhYckN0ZVlm?=
+ =?utf-8?B?K2JHb3dSelMrQld2anluNGFYcGQxK1puVzVNUDliV2JpTlBEaTFMOWQrS0c1?=
+ =?utf-8?B?SThVcXgxQkRCd0xXT0YwUCt3cHRUOXRVWk44VjByTGgvOUtGWkhRRUtnaTJ4?=
+ =?utf-8?B?NGM5VXB5eUtpczhaOVJRUTlpd2VXVGlFVnNCaE90bWdxbXI4UzdsWU9hbU1q?=
+ =?utf-8?B?elQwMnVkZzRWaWl4QUJlTUN0dEUzT08yelZWNHpob1QwVDE4aVV1bVlhazdw?=
+ =?utf-8?B?a2xjb2d1ZHdDd3Z4amJidHE3NTJ5cnNaTUNESTUwUkNTWnQ3YTVqay9qUlc1?=
+ =?utf-8?B?WEpWNWRBTWs3OHhGUzdhMzFwWm5qVWNoYUJSY29iVnN3eXRoUWh5YTFOMWd5?=
+ =?utf-8?B?YTQ5K01NR1BCWDI2dEp3L0hBaG9pTWt2dE4vdVdZRDFlMDI1Qk5vZ1VQam9y?=
+ =?utf-8?B?SkJzY1poR3h3d2grZVNWMW5IbEU4cFZMZWFPZ3U5NnJJMytVbWZPOEVsVkRD?=
+ =?utf-8?B?cjFPclpxenArUWJTTnljM3A4SGExYVdOZlFUdm1aUFhZM1NEWHN3dzR3NkQr?=
+ =?utf-8?B?b1ozbGJOeHAwZFNHZjhSdDlsVlFhdi90U1VDeEdWUlptdURKZ2N6cnIzZDJT?=
+ =?utf-8?B?RUNqVkRTeUU4VVJEYlc4SEdnT3lxaURMUlpaZjh6bVhkcnk4bzVoRzZrbTFM?=
+ =?utf-8?B?OTFRZXA2Sk1SQkR1YWU2VXRiNnQzdzNVR05vZ1FRelFKbVNtbmRGeDRiNk5a?=
+ =?utf-8?B?R3QweGZhZGpFNy9YMy9VWVkxZmp1NDVuSmdvZzJvandRSDIxLyttR01qTjBo?=
+ =?utf-8?B?RUtsRlBDTGRZMk5NUWZmMVgwSy9qRndPU0ExMlhNZmlmWmY4eVZJOEFMaUJp?=
+ =?utf-8?B?cmd5QUFUOFp1bWZ6cmNCUS9zcm1kNFdidGQ0aDJQcWpMMDdCTWptMkhENzZz?=
+ =?utf-8?B?QkpqMEw4U0FNQWlBSnUrSWlvc1IwZkJXZHN1Y3RzV1V3bTVEbkx1d09FM0JN?=
+ =?utf-8?B?VGVRRVc0L1ZCVFBneEJGaENoY3VnSlNPbVYyRVVkQVp5Vmgwc1FSM0F2bXp0?=
+ =?utf-8?B?VlY1dmRPNWkrVGQ0ZEYzRzlNZ3hDc1lxM3NvVk0xSVFnZTVMalVyOE1tYlY1?=
+ =?utf-8?B?TzFIMWRJdVpsQjFHSHNTRGcwWFJOdHFLbFI0d3Fqa25rTmt3VEFPcms3eHF3?=
+ =?utf-8?B?bCt0enJQdUswWm5OdUk2bFNnQXJ3Nk5IcEVmcXFRRGJhLy9CbXJQbk53QTRI?=
+ =?utf-8?B?dlp3Wjg0SXdIbDlpOWtRaUdzY25JS1R1QXJIVjVYL0pKVWtTTEFqRERqYmRO?=
+ =?utf-8?B?NE9zVkxlRzJoN0ZwbklXbXQ1MHptTWlGQmkvR3pDb1dhakdaN1NSVW9CeGlW?=
+ =?utf-8?B?Ujd0YlFOS1g2NWp2UFhFejdwbndQREptMU9sUHVZN1pidStnZE93d2FQdHVX?=
+ =?utf-8?B?QXF6YittOVpmZ0N2UmdXVG5SUnZjK01FRGFmQ013MFhNUERkVE9IcnVyV3ll?=
+ =?utf-8?B?cW1OSUl3ZkdGVDdWcXJaZWtTRThJRnJlOWl4M1FST2xwdmdKSnhNRWJodGVm?=
+ =?utf-8?B?RGc9PQ==?=
+Content-ID: <1FF62982E9E3364D83D42E0616BE92AD@namprd11.prod.outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: BN6PR11MB1953.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a3711fe4-865f-47f1-47e9-08da5e56c263
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jul 2022 07:19:54.7206
+X-MS-Exchange-CrossTenant-Network-Message-Id: 29b36e93-3c2c-4643-ec2c-08da5e56e66b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Jul 2022 07:20:55.1908
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: W0Og39OrXQSPhED/ShsVHzKCn0Qk1tnOuLIwtpedrD8nVq/nlXctCVTZiDnxzeCuF23nshPaL4DECnKOv3Tfb7g2whTx3a7N07RqMgxJ1Vg=
+X-MS-Exchange-CrossTenant-userprincipalname: BM/WahfNseV+H1oLod4qYXYd1/CUS7mZEdWYVpkDdqydRA4OtHeteGbWoXpCdRuXiV1kN8BWwU6wmWPU/j70PMBDKL4tY3DnYwK+6DbjogU=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR11MB5739
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220705_002002_532905_700FB3C0 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20220705_002105_958598_D227CF76 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,66 +176,51 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 04.07.2022 14:45, Conor Dooley wrote:
-> The various macb_config structs have taken different appraches to
-
-s/appraches/approaches
-
-> alignment when broken over newlines. Pick one style and make them
-> match.
+> Hey all,
+> Jakub requested that these patches be split off from the series
+> adding the reset controller itself that I sent ~yesterday~ last
+> week [0].
 > 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  drivers/net/ethernet/cadence/macb_main.c | 16 ++++++++--------
->  1 file changed, 8 insertions(+), 8 deletions(-)
+> The Cadence MACBs on PolarFire SoC (MPFS) have reset capability and are
+> compatible with the zynqmp's init function. I have removed the zynqmp
+> specific comments from that function & renamed it to reflect what it
+> does, since it is no longer zynqmp only.
 > 
-> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-> index d43bcf256b02..85a2e1ea7826 100644
-> --- a/drivers/net/ethernet/cadence/macb_main.c
-> +++ b/drivers/net/ethernet/cadence/macb_main.c
-> @@ -4626,8 +4626,8 @@ static const struct macb_config at91sam9260_config = {
->  };
->  
->  static const struct macb_config sama5d3macb_config = {
-> -	.caps = MACB_CAPS_SG_DISABLED
-> -	      | MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
-> +	.caps = MACB_CAPS_SG_DISABLED |
-> +		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
->  	.clk_init = macb_clk_init,
->  	.init = macb_init,
->  	.usrio = &macb_default_usrio,
-> @@ -4658,8 +4658,8 @@ static const struct macb_config sama5d29_config = {
->  };
->  
->  static const struct macb_config sama5d3_config = {
-> -	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE
-> -	      | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
-> +	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE |
-> +		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
->  	.dma_burst_length = 16,
->  	.clk_init = macb_clk_init,
->  	.init = macb_init,
-> @@ -4731,8 +4731,8 @@ static int init_reset_optional(struct platform_device *pdev)
->  
->  static const struct macb_config zynqmp_config = {
->  	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
-> -			MACB_CAPS_JUMBO |
-> -			MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH,
-> +		MACB_CAPS_JUMBO |
-> +		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH,
->  	.dma_burst_length = 16,
->  	.clk_init = macb_clk_init,
->  	.init = init_reset_optional,
-> @@ -4806,8 +4806,8 @@ MODULE_DEVICE_TABLE(of, macb_dt_ids);
->  
->  static const struct macb_config default_gem_config = {
->  	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
-> -			MACB_CAPS_JUMBO |
-> -			MACB_CAPS_GEM_HAS_PTP,
-> +		MACB_CAPS_JUMBO |
-> +		MACB_CAPS_GEM_HAS_PTP,
->  	.dma_burst_length = 16,
->  	.clk_init = macb_clk_init,
->  	.init = macb_init,
+> MPFS's MACB had previously used the generic binding, so I also added
+> the required specific binding.
+> 
+> For v2, I noticed some low hanging cleanup fruit so there are extra
+> patches added for that:
+> moving the init function out of the config structs, aligning the
+> alignment of the zynqmp & default config structs with the other dozen
+> or so structs & simplifing the error paths to use dev_err_probe().
+> 
+> Feel free to apply as many or as few of those as you like.
+
+Other than minor comment on patch 3/5:
+
+Reviewed-by: Claudiu Beznea <claudiu.beznea@microchip.com>
+
+
+> 
+> Thanks,
+> Conor.
+> 
+> Changes since v1:
+> - added the 3 aforementioned cleanup patches
+> - fixed two stylistic complaints from Claudiu
+> 
+> Conor Dooley (5):
+>   dt-bindings: net: cdns,macb: document polarfire soc's macb
+>   net: macb: add polarfire soc reset support
+>   net: macb: unify macb_config alignment style
+>   net: macb: simplify error paths in init_reset_optional()
+>   net: macb: sort init_reset_optional() with other init()s
+> 
+>  .../devicetree/bindings/net/cdns,macb.yaml    |   1 +
+>  drivers/net/ethernet/cadence/macb_main.c      | 106 +++++++++---------
+>  2 files changed, 56 insertions(+), 51 deletions(-)
+> 
 
 _______________________________________________
 linux-riscv mailing list
