@@ -4,88 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B23C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 19:05:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0273C43334
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 19:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NaMcakLOQaItZNQ9e8FwaHpbU0ywgvRgCRWqB3NKNIY=; b=lTUiJs+UxDAsVG
-	6KHeLp06AuEf/nlzi8OOOK5oBICl3WMwvGBgvR1DdnE3ggqjPVovtVQmU0A10kX/C6+H3CESloFy5
-	e4qTMsYaOgxuQCZ5GOzBP3OlKrgct4UXS44pLVmt62Epry0fdBIo/qkKU9WyXFK9SxWXztuaMSaZ6
-	ybbboCGznEKJYCebQ4e9TupmfW4K/o0VPcv0C9+pJ5Tx6GEhMtE+biZMbsTezLXmVB1kAEmI5lJOF
-	2fFxxZAJW6QL292L+xNtuOZTNE81Ox0KgKPlrxhGA/46Kq4N9ut4d5nMukQMCzSWYy0BrtYIkMb5J
-	KtU8b8wykm/kxe6VNoIg==;
+	List-Owner; bh=kexTHeZ41peVK+XNHfmaU1ak35IC9SQOCEapCkm+Jpk=; b=FqxhKumMpmeoTx
+	W+yuvLY1/QiatLBj+xIOsXMtLxvmL0m8lUSDRSptA3gEcZqt/wdclIoxVvtC7StU07XnTOC1O37V+
+	gBjMMXFunmLphOKwaPal6LFFxM4xI2dH7P2tY7pg12kJhMXam8zkQP2+wvHjErSyZKxNEd70KVP7p
+	46GI8H3mkixYjCgqtkVfRqLqCUSTuDN8pvQSOcsu6DPNUi11QHoIuwlphIkrst6hZv/E2rDszXzjf
+	f9ZRH1c1x5SY9XqLawJo/RKbxbaoL73aKJwgqfzu6npceUZVsr1kyHgV/aqNOjlExal8QUztHXNSk
+	yNbLPIXXsGACRebVgI1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8nqx-002EOm-Tm; Tue, 05 Jul 2022 19:04:55 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1o8nr9-002EZ5-NY; Tue, 05 Jul 2022 19:05:07 +0000
+Received: from mail-io1-f52.google.com ([209.85.166.52])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8nqt-002EL7-EZ
-	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 19:04:52 +0000
-Received: by mail-wm1-x330.google.com with SMTP id f190so7580904wma.5
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Jul 2022 12:04:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=BQOVUNXHvwHVcucqUlVv6BnH7JR1aGPeK9i5YAi0Y4c=;
-        b=SMCwI1AUdC5Z5umwrRWknLPNvbobCNRXr5gkynO1gpaKoWOB7NbxsldL+1F5GgT+GR
-         DjGz9/P4VOH+zT0ApBC3nAj9SaYA8bl9PwDwpKYtJSvHPyBJ3rxIlwColLPEhHA6htoG
-         BshgcauwhGltFavxv3m2/BquB79DYVejyEytpDb2+tww9WA7j3jyELnuVx0KxT5+xpm8
-         q7n7J/XoBnMIEM5pjCg4ox5jYZ23uFdpqxeBwmOjjLvJQOm93XsRCkECL5jg+z9FG6Hh
-         KqleVJwWfSle8KFpr53AMLL8i7toF5OjUZapP8KmI1oRvdPgl9ReB1pPTTl1uWh9Ag73
-         0KqA==
+	id 1o8nr3-002ESN-KW
+	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 19:05:03 +0000
+Received: by mail-io1-f52.google.com with SMTP id p69so12008571iod.10
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Jul 2022 12:05:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=BQOVUNXHvwHVcucqUlVv6BnH7JR1aGPeK9i5YAi0Y4c=;
-        b=ckvHznZl/l/eCeEyzL2oujKld/CplaEk2Kp0b12zCK9A4E2FHlAqsnMjGUOV3iPToa
-         owHdUCZRDkFtoPhrpC2abIjE1Er75AFyjYi32DTfzVDgoW5y24DK4pY3MOw485O+q9tJ
-         UEgsg8KtgXHur4eo6w7UNrR4jOq6gGKtF+f6aJ8lUxj1exQQ6eyLuz4UtVRb03cPEniC
-         rkXIbhRJqvVM1tpywL4FzeXtVOIPwiRFj2S8Q0N6WehbzED4xd1DKUMvLWlkN+uevVsd
-         KFBSfjuWQysV9bJMnFkHyMQb1pXI/AvAZBurdWxVSkFn1XiOCephFJTB7ZZ3uM8DC/r4
-         5QTg==
-X-Gm-Message-State: AJIora+z2RjpI6KpdHPtrgphYFxoSekiyMTbCMEkW0qmo19uckrFab4Q
-	RJU9zvMmgKv7RLrsGDrS1oQmSA==
-X-Google-Smtp-Source: AGRyM1tZGLDMdvlgykupbCQXP9nd5v6//7GI6YZxCZExzQZtITUr0XqM8RF7qHZYbKpMoVi8K3BeLw==
-X-Received: by 2002:a05:600c:a08:b0:3a1:9319:ab78 with SMTP id z8-20020a05600c0a0800b003a19319ab78mr21659837wmp.158.1657047889777;
-        Tue, 05 Jul 2022 12:04:49 -0700 (PDT)
-Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id d7-20020a5d5387000000b0021d5c52f4b4sm9912961wrv.34.2022.07.05.12.04.48
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to;
+        bh=NYhNf6ucb9Y2EJr3g3GFcYGSI7hDN6hlWNBPyCne12o=;
+        b=TH0GlZXvkjeqfRuCQ9WdKS2ulvGGbBlVkLxlALeFX0RMw9mtu3OyfZ0I/E2IfgilYx
+         FcbkCW4o28+PUqcHDeHq07iMotRBhPv4BS7qh8Gy5rTNMu3UXJvSeWZmjbd9c5dvvB2q
+         AGQbqv7FM30BywxYKrRuenxOky3YLI2v7sHAK7JLikU14xZux34tfbdvcyfPepilPeV1
+         ryn33i7k9JjUDc3ghj1xwLaNUMnOUE5fIjmyAPtACFDhBUDxkxZOoaeCnaP8l+E5kY12
+         LkDBEiOSzNCTctVCnjOzd5FH7l/SH9v8x6BZlRd/WpBCl7bCUQBQ+JLseJCditGVmleK
+         hWjQ==
+X-Gm-Message-State: AJIora+AJg9Olt8Yc0DCMzLXUcBiUbjjxg/l6/7gYRNDE1oPmN1f/QX4
+	Saw70r8pwDatLXPyrmbw5A==
+X-Google-Smtp-Source: AGRyM1vbgvYpzb6OcGyK9lCHO48fmdYxy4SEAi8PzKsPwRclsAgNdeYXBff/q4XTwjXyQVl9lebl7A==
+X-Received: by 2002:a05:6638:2494:b0:33c:cfb8:1e3c with SMTP id x20-20020a056638249400b0033ccfb81e3cmr21373745jat.139.1657047900325;
+        Tue, 05 Jul 2022 12:05:00 -0700 (PDT)
+Received: from robh.at.kernel.org ([64.188.179.248])
+        by smtp.gmail.com with ESMTPSA id x8-20020a056638026800b00339c46a5e95sm14948822jaq.89.2022.07.05.12.04.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 05 Jul 2022 12:04:49 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Niklas Cassel <niklas.cassel@wdc.com>,
-	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Zong Li <zong.li@sifive.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Jonas Hahnfeld <hahnjo@hahnjo.de>
-Cc: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Brice Goglin <Brice.Goglin@inria.fr>
-Subject: [PATCH 1/5] riscv: dts: starfive: Add JH7100 CPU topology
-Date: Tue,  5 Jul 2022 20:04:32 +0100
-Message-Id: <20220705190435.1790466-2-mail@conchuod.ie>
-X-Mailer: git-send-email 2.37.0
-In-Reply-To: <20220705190435.1790466-1-mail@conchuod.ie>
-References: <20220705190435.1790466-1-mail@conchuod.ie>
+        Tue, 05 Jul 2022 12:04:59 -0700 (PDT)
+Received: (nullmailer pid 2450909 invoked by uid 1000);
+	Tue, 05 Jul 2022 19:04:57 -0000
+Date: Tue, 5 Jul 2022 13:04:57 -0600
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <conor@kernel.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Conor Dooley <conor.dooley@microchip.com>, 
+	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Niklas Cassel <niklas.cassel@wdc.com>, 
+	Rob Herring <robh+dt@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>, 
+	Daniel Vetter <daniel@ffwll.ch>, Dillon Min <dillon.minfei@gmail.com>, alsa-devel@alsa-project.org, 
+	Albert Ou <aou@eecs.berkeley.edu>, Liam Girdwood <lgirdwood@gmail.com>, 
+	dri-devel@lists.freedesktop.org, Vinod Koul <vkoul@kernel.org>, 
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Serge Semin <fancer.lancer@gmail.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, David Airlie <airlied@linux.ie>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, 
+	Thierry Reding <thierry.reding@gmail.com>, Jose Abreu <joabreu@synopsys.com>, 
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	Mark Brown <broonie@kernel.org>, Sam Ravnborg <sam@ravnborg.org>, devicetree@vger.kernel.org
+Subject: Re: [PATCH v4 02/14] dt-bindings: display: ili9341: document canaan
+ kd233's lcd
+Message-ID: <20220705190457.GA2450821-robh@kernel.org>
+References: <20220701192300.2293643-1-conor@kernel.org>
+ <20220701192300.2293643-3-conor@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220701192300.2293643-3-conor@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220705_120451_528995_546B1EE8 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20220705_120501_722670_97A3FBBE 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,79 +93,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jonas Hahnfeld <hahnjo@hahnjo.de>
+On Fri, 01 Jul 2022 20:22:48 +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> The Canaan KD233 development board has a built in LCD.
+> Add a specific compatible for it.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../devicetree/bindings/display/panel/ilitek,ili9341.yaml        | 1 +
+>  1 file changed, 1 insertion(+)
+> 
 
-Add cpu-map binding to inform the kernel about the hardware topology
-of the CPU cores.
-
-Before this change, lstopo would report 1 core with 2 threads:
-Machine (7231MB total)
-  Package L#0
-    NUMANode L#0 (P#0 7231MB)
-    L2 L#0 (2048KB) + Core L#0
-      L1d L#0 (32KB) + L1i L#0 (32KB) + PU L#0 (P#0)
-      L1d L#1 (32KB) + L1i L#1 (32KB) + PU L#1 (P#1)
-
-After this change, it correctly identifies two cores:
-Machine (7231MB total)
-  Package L#0
-    NUMANode L#0 (P#0 7231MB)
-    L2 L#0 (2048KB)
-      L1d L#0 (32KB) + L1i L#0 (32KB) + Core L#0 + PU L#0 (P#0)
-      L1d L#1 (32KB) + L1i L#1 (32KB) + Core L#1 + PU L#1 (P#1)
-
-Signed-off-by: Jonas Hahnfeld <hahnjo@hahnjo.de>
-Co-developed-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Emil Renner Berthing <kernel@esmil.dk>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/boot/dts/starfive/jh7100.dtsi | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/boot/dts/starfive/jh7100.dtsi b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-index 69f22f9aad9d..c617a61e26e2 100644
---- a/arch/riscv/boot/dts/starfive/jh7100.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7100.dtsi
-@@ -17,7 +17,7 @@ cpus {
- 		#address-cells = <1>;
- 		#size-cells = <0>;
- 
--		cpu@0 {
-+		U74_0: cpu@0 {
- 			compatible = "sifive,u74-mc", "riscv";
- 			reg = <0>;
- 			d-cache-block-size = <64>;
-@@ -42,7 +42,7 @@ cpu0_intc: interrupt-controller {
- 			};
- 		};
- 
--		cpu@1 {
-+		U74_1: cpu@1 {
- 			compatible = "sifive,u74-mc", "riscv";
- 			reg = <1>;
- 			d-cache-block-size = <64>;
-@@ -66,6 +66,18 @@ cpu1_intc: interrupt-controller {
- 				#interrupt-cells = <1>;
- 			};
- 		};
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&U74_0>;
-+				};
-+
-+				core1 {
-+					cpu = <&U74_1>;
-+				};
-+			};
-+		};
- 	};
- 
- 	osc_sys: osc_sys {
--- 
-2.37.0
-
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
