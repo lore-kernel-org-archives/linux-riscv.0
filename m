@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EC4C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 23:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9AC2C43334
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 23:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=99vfROO/ubBx2rwfZHHx8+uro/dLHlSJyDTfhPVy8bE=; b=wuGxo58v9z1l0h
-	qgiNR+apotAIJPNMuXFKBALko6e6SlESnnJpLStx8LoswYTMOC0NIbNgjI9LlzQrcv7PeD8BfTYA+
-	KX4KRbzaTEUv2jZgtQmpMk+EQscXso9dNq/ursruypatUgc0u0g+xzG+apuqlHtzWn5uZwPz0rcOz
-	Pg+iM79IX1eSFqf9rRNy1C9XpEsEi/TBU/ozG+Mq1WR1xZMJeHQr91ldTak4XiDe3PwMUDp8yYkUW
-	9l4In8agnbQmBJ5TPrKuFvo6hFGDN42KEvhZUlxtsIX01hseI8wgvl+LsVxK5SwIVFb8AdRCm3p77
-	Mo57Bqe65efFslaYshkA==;
+	List-Owner; bh=Q6z4paemBAFcrwQy1OGoAvEevj9YXRfHWt0tybmNq8Q=; b=Rgtx69gUniWlOB
+	9Sor5xKckKouEzGpz+KCh9jUprfi895EugvVuBor8TGdDhFFxQMc4aP7D3bY/bFBWPMa3yQ0TGZOP
+	zvKNtTxkcZLrlTpCCnpeyfP17Tq1DSHgayV1LMqE8Vg56PUYMoSKY5rJcay8vSo4dI5eO+gZm+8P+
+	IYSSr8z7MOiWUbDluRaPSqcAEAlvW4TKErJJXw1TFqJNY9N2h3elqwtodhpn5Cyi1/3oAQUnxe3Im
+	ICYQyRimfHxQ6muWJrsP30WftbBlAChxxh6YDS45QPujUw7bsnw5YveXGc7NTa587MDupNffYthIX
+	MFxwqggKCN0b/IqAAaDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8sGk-0041Lk-UP; Tue, 05 Jul 2022 23:47:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1o8sP9-004N05-PV; Tue, 05 Jul 2022 23:56:31 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8sGh-0041Ej-PR
-	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 23:47:49 +0000
+	id 1o8sP6-004MyK-CQ
+	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 23:56:29 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4CEF4608C1
-	for <linux-riscv@lists.infradead.org>; Tue,  5 Jul 2022 23:47:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB15FC341CD
-	for <linux-riscv@lists.infradead.org>; Tue,  5 Jul 2022 23:47:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id B824161092
+	for <linux-riscv@lists.infradead.org>; Tue,  5 Jul 2022 23:56:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D4BFC341D2
+	for <linux-riscv@lists.infradead.org>; Tue,  5 Jul 2022 23:56:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1657064866;
-	bh=ptichBaM2hD9wP7dMdNt41FsibNjXNpggiC/v5NP4zE=;
+	s=k20201202; t=1657065386;
+	bh=pyJzC5qc27n9ts7gOdH7Y14iM1O+gq7DhViVAUVhjus=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=LPLjR2SO6GjtryO2kpwqDUIVVn6VmRHsNDts5wJGlZSIgKa6MjIqF45PDKHsfcEbR
-	 V61uQHUI2ihtZo1Ik+Mt9TJ4Upr5ucB4iZevnxLnKiE+DaLGDtow3x/oIYo6oAzTUA
-	 hbHUXa32mfXxDvfMalvbeo5Vy53AbLVKfSNkNBSQXoHwyKYdLRbMoM0I/z6p9q5trn
-	 PJQUjjFujaiTudSm6s5eWHpuMuoWYhTg1EhhubzdH+RIpTkguyc8qzL/BC/MwpPVmt
-	 kcVKtfwXAKF1XCbuIS/z9e0wKNKLDpLLzyiQZS2XbpQlcGDKZ2ZMi5gkz83Iy2XCaQ
-	 KGTWyy/KslSHA==
-Received: by mail-vk1-f170.google.com with SMTP id j63so1105429vkj.8
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Jul 2022 16:47:46 -0700 (PDT)
-X-Gm-Message-State: AJIora/CmeniHbDqs8hDnYuarXbZ/T3tQgzQpom6gOwOExJJD9V/Z0Yv
-	RcDru5C3V+4sQtM5434laHDHqtt4cv0HYjaNhrQ=
-X-Google-Smtp-Source: AGRyM1u5pZJPyso1b/BUEYEUSXxPoEToHFgbDKPN5EdhOCOcuGTVk1OrkUZtHzYuywVinZDnN+rsMZoSeiUsM3lqXxI=
-X-Received: by 2002:a1f:1b4b:0:b0:36c:bc20:3982 with SMTP id
- b72-20020a1f1b4b000000b0036cbc203982mr21618553vkb.8.1657064865584; Tue, 05
- Jul 2022 16:47:45 -0700 (PDT)
+	b=uOaXqcT6Nqnoz5iTPIxrYXybBz5TVYVOuLyraqd5ykwMpaHan6oCVd5MrdZfwWBKJ
+	 bkmBAzM/e9WSwIquuqWx8XNog3ynjgr/lDcLcmbkqCR2jccIKkIICNe6Aeo+OodQYR
+	 KTtO46SB7+mNZd79g7zz9b0jSPfYVzIG59jkdisjDiknVH56JGdIo/qx3FE4EgJB/n
+	 O/9pLGO081qS8R4518kO4W1d2p6PJ7r66SCc8APOTuBS3SCxsVn1RulrPztgsePNix
+	 /wXM1ug0vIKEVNDRAggXp1V1eT5wQPwvWi3nND/DGg+z0h6UzDk6yD6i8tjY1SgZ+Y
+	 /gRXraHvfsbPg==
+Received: by mail-ua1-f52.google.com with SMTP id r18so3000962uan.4
+        for <linux-riscv@lists.infradead.org>; Tue, 05 Jul 2022 16:56:26 -0700 (PDT)
+X-Gm-Message-State: AJIora/3YptkEKdCXcfUTXbr/RHP/ef1aJCmHhFnFfEkVblrK5nLrWmb
+	YJ77iBCwQfQlrRtN2Hwwo/ybLcvFgWIzeM+s/sA=
+X-Google-Smtp-Source: AGRyM1uOYt+zBzsAmr5SVPnuUFI5kFnFOF6npikMUbA56ayRDIhPa74lhRIUZmMppMlMmBLczs9k5Mgk+BfCXpSqGcM=
+X-Received: by 2002:a9f:23c2:0:b0:365:958:e807 with SMTP id
+ 60-20020a9f23c2000000b003650958e807mr17489109uao.114.1657065385426; Tue, 05
+ Jul 2022 16:56:25 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220620201530.3929352-1-daolu@rivosinc.com> <CAKh7v-TfWBRiB6Jf0ke4Er68i_pVbvMtR-Xvvy=bdbJO4tKHvg@mail.gmail.com>
-In-Reply-To: <CAKh7v-TfWBRiB6Jf0ke4Er68i_pVbvMtR-Xvvy=bdbJO4tKHvg@mail.gmail.com>
+References: <20220705224703.1571895-1-heiko@sntech.de> <20220705224703.1571895-2-heiko@sntech.de>
+In-Reply-To: <20220705224703.1571895-2-heiko@sntech.de>
 From: Guo Ren <guoren@kernel.org>
-Date: Wed, 6 Jul 2022 07:47:34 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRr1eY+rZetLn+X4DCukPmFbhTPTpmifdD2LbtTwFTRJg@mail.gmail.com>
-Message-ID: <CAJF2gTRr1eY+rZetLn+X4DCukPmFbhTPTpmifdD2LbtTwFTRJg@mail.gmail.com>
-Subject: Re: [PATCH v4] arch/riscv: add Zihintpause support
-To: Dao Lu <daolu@rivosinc.com>
-Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Atish Patra <atishp@atishpatra.org>, 
-	Anup Patel <anup@brainfault.org>, Jisheng Zhang <jszhang@kernel.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Niklas Cassel <niklas.cassel@wdc.com>, 
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>, 
-	Alexandre Ghiti <alexandre.ghiti@canonical.com>, Rob Herring <robh@kernel.org>, 
-	Tsukasa OI <research_trasio@irq.a4lg.com>, Yury Norov <yury.norov@gmail.com>, 
-	"open list:RISC-V ARCHITECTURE" <linux-riscv@lists.infradead.org>
+Date: Wed, 6 Jul 2022 07:56:14 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRkQthkB0DJaN790PK5tNuKnrAtSy8rK8cpRRpc-nY_KQ@mail.gmail.com>
+Message-ID: <CAJF2gTRkQthkB0DJaN790PK5tNuKnrAtSy8rK8cpRRpc-nY_KQ@mail.gmail.com>
+Subject: Re: [PATCH v6 1/4] of: also handle dma-noncoherent in of_dma_is_coherent()
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Wei Fu <wefu@redhat.com>, 
+	Christoph Muellner <cmuellner@linux.com>, Philipp Tomsich <philipp.tomsich@vrull.eu>, 
+	Christoph Hellwig <hch@lst.de>, Samuel Holland <samuel@sholland.org>, Atish Patra <atishp@atishpatra.org>, 
+	Anup Patel <anup@brainfault.org>, Nick Kossifidis <mick@ics.forth.gr>, 
+	Rob Herring <robh+dt@kernel.org>, krzk+dt@kernel.org, 
+	devicetree <devicetree@vger.kernel.org>, Drew Fustini <drew@beagleboard.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220705_164747_946137_8F9C8D6C 
-X-CRM114-Status: GOOD (  29.60  )
+X-CRM114-CacheID: sfid-20220705_165628_543005_BCE6B7D7 
+X-CRM114-Status: GOOD (  26.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,116 +82,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UmV2aWV3ZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgoKT24gV2VkLCBKdWwgNiwg
-MjAyMiBhdCAxMjo1NyBBTSBEYW8gTHUgPGRhb2x1QHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBw
-aW5nCj4KPiBPbiBNb24sIEp1biAyMCwgMjAyMiBhdCAxOjE1IFBNIERhbyBMdSA8ZGFvbHVAcml2
-b3NpbmMuY29tPiB3cm90ZToKPiA+Cj4gPiBJbXBsZW1lbnQgc3VwcG9ydCBmb3IgdGhlIFppSGlu
-dFBhdXNlIGV4dGVuc2lvbi4KPiA+Cj4gPiBUaGUgUEFVU0UgaW5zdHJ1Y3Rpb24gaXMgYSBISU5U
-IHRoYXQgaW5kaWNhdGVzIHRoZSBjdXJyZW50IGhhcnTigJlzIHJhdGUKPiA+IG9mIGluc3RydWN0
-aW9uIHJldGlyZW1lbnQgc2hvdWxkIGJlIHRlbXBvcmFyaWx5IHJlZHVjZWQgb3IgcGF1c2VkLgo+
-ID4KPiA+IFJldmlld2VkLWJ5OiBIZWlrbyBTdHVlYm5lciA8aGVpa29Ac250ZWNoLmRlPgo+ID4g
-VGVzdGVkLWJ5OiBIZWlrbyBTdHVlYm5lciA8aGVpa29Ac250ZWNoLmRlPgo+ID4gU2lnbmVkLW9m
-Zi1ieTogRGFvIEx1IDxkYW9sdUByaXZvc2luYy5jb20+Cj4gPiAtLS0KPiA+Cj4gPiB2MSAtPiB2
-MjoKPiA+ICBSZW1vdmUgdGhlIHVzYWdlIG9mIHN0YXRpYyBicmFuY2gsIHVzZSBQQVVTRSBpZiB0
-b29sY2hhaW4gc3VwcG9ydHMgaXQKPiA+IHYyIC0+IHYzOgo+ID4gIEFkZGVkIHRoZSBzdGF0aWMg
-YnJhbmNoIGJhY2ssIGNwdV9yZWxheCgpIGJlaGF2aW9yIGlzIGtlcHQgdGhlIHNhbWUgZm9yCj4g
-PiBzeXN0ZW1zIHRoYXQgZG8gbm90IHN1cHBvcnQgWmlIaW50UGF1c2UKPiA+IHYzIC0+IHY0Ogo+
-ID4gIEFkb3B0ZWQgdGhlIG5ld2x5IGFkZGVkIHVuaWZpZWQgc3RhdGljIGtleXMgZm9yIGV4dGVu
-c2lvbnMKPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3YvTWFrZWZpbGUgICAgICAgICAgICAgICAgICAg
-ICB8ICA0ICsrKysKPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmggICAgICAgICAg
-fCAgNSArKysrKwo+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9wcm9jZXNzb3IuaCB8
-IDIxICsrKysrKysrKysrKysrKysrKy0tLQo+ID4gIGFyY2gvcmlzY3Yva2VybmVsL2NwdS5jICAg
-ICAgICAgICAgICAgICB8ICAxICsKPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMg
-ICAgICAgICAgfCAgMSArCj4gPiAgNSBmaWxlcyBjaGFuZ2VkLCAyOSBpbnNlcnRpb25zKCspLCAz
-IGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L01ha2VmaWxlIGIv
-YXJjaC9yaXNjdi9NYWtlZmlsZQo+ID4gaW5kZXggMzRjZjhhNTk4NjE3Li42ZGRhY2M2ZjQ0Yjkg
-MTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L01ha2VmaWxlCj4gPiArKysgYi9hcmNoL3Jpc2N2
-L01ha2VmaWxlCj4gPiBAQCAtNTYsNiArNTYsMTAgQEAgcmlzY3YtbWFyY2gtJChDT05GSUdfUklT
-Q1ZfSVNBX0MpICAgIDo9ICQocmlzY3YtbWFyY2gteSljCj4gPiAgdG9vbGNoYWluLW5lZWQtemlj
-c3ItemlmZW5jZWkgOj0gJChjYWxsIGNjLW9wdGlvbi15biwgLW1hcmNoPSQocmlzY3YtbWFyY2gt
-eSlfemljc3JfemlmZW5jZWkpCj4gPiAgcmlzY3YtbWFyY2gtJCh0b29sY2hhaW4tbmVlZC16aWNz
-ci16aWZlbmNlaSkgOj0gJChyaXNjdi1tYXJjaC15KV96aWNzcl96aWZlbmNlaQo+ID4KPiA+ICsj
-IENoZWNrIGlmIHRoZSB0b29sY2hhaW4gc3VwcG9ydHMgWmloaW50cGF1c2UgZXh0ZW5zaW9uCj4g
-PiArdG9vbGNoYWluLXN1cHBvcnRzLXppaGludHBhdXNlIDo9ICQoY2FsbCBjYy1vcHRpb24teW4s
-IC1tYXJjaD0kKHJpc2N2LW1hcmNoLXkpX3ppaGludHBhdXNlKQo+ID4gK3Jpc2N2LW1hcmNoLSQo
-dG9vbGNoYWluLXN1cHBvcnRzLXppaGludHBhdXNlKSA6PSAkKHJpc2N2LW1hcmNoLXkpX3ppaGlu
-dHBhdXNlCj4gPiArCj4gPiAgS0JVSUxEX0NGTEFHUyArPSAtbWFyY2g9JChzdWJzdCBmZCwsJChy
-aXNjdi1tYXJjaC15KSkKPiA+ICBLQlVJTERfQUZMQUdTICs9IC1tYXJjaD0kKHJpc2N2LW1hcmNo
-LXkpCj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaCBi
-L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+ID4gaW5kZXggZTQ4ZWViZGQyNjMxLi5k
-YzQ3MDE5YTBiMzggMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2Fw
-LmgKPiA+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaHdjYXAuaAo+ID4gQEAgLTgsNiAr
-OCw3IEBACj4gPiAgI2lmbmRlZiBfQVNNX1JJU0NWX0hXQ0FQX0gKPiA+ICAjZGVmaW5lIF9BU01f
-UklTQ1ZfSFdDQVBfSAo+ID4KPiA+ICsjaW5jbHVkZSA8YXNtL2Vycm5vLmg+Cj4gPiAgI2luY2x1
-ZGUgPGxpbnV4L2JpdHMuaD4KPiA+ICAjaW5jbHVkZSA8dWFwaS9hc20vaHdjYXAuaD4KPiA+Cj4g
-PiBAQCAtNTQsNiArNTUsNyBAQCBleHRlcm4gdW5zaWduZWQgbG9uZyBlbGZfaHdjYXA7Cj4gPiAg
-ZW51bSByaXNjdl9pc2FfZXh0X2lkIHsKPiA+ICAgICAgICAgUklTQ1ZfSVNBX0VYVF9TU0NPRlBN
-RiA9IFJJU0NWX0lTQV9FWFRfQkFTRSwKPiA+ICAgICAgICAgUklTQ1ZfSVNBX0VYVF9TVlBCTVQs
-Cj4gPiArICAgICAgIFJJU0NWX0lTQV9FWFRfWklISU5UUEFVU0UsCj4gPiAgICAgICAgIFJJU0NW
-X0lTQV9FWFRfSURfTUFYID0gUklTQ1ZfSVNBX0VYVF9NQVgsCj4gPiAgfTsKPiA+Cj4gPiBAQCAt
-NjQsNiArNjYsNyBAQCBlbnVtIHJpc2N2X2lzYV9leHRfaWQgewo+ID4gICAqLwo+ID4gIGVudW0g
-cmlzY3ZfaXNhX2V4dF9rZXkgewo+ID4gICAgICAgICBSSVNDVl9JU0FfRVhUX0tFWV9GUFUsICAg
-ICAgICAgIC8qIEZvciAnRicgYW5kICdEJyAqLwo+ID4gKyAgICAgICBSSVNDVl9JU0FfRVhUX0tF
-WV9aSUhJTlRQQVVTRSwKPiA+ICAgICAgICAgUklTQ1ZfSVNBX0VYVF9LRVlfTUFYLAo+ID4gIH07
-Cj4gPgo+ID4gQEAgLTgzLDYgKzg2LDggQEAgc3RhdGljIF9fYWx3YXlzX2lubGluZSBpbnQgcmlz
-Y3ZfaXNhX2V4dDJrZXkoaW50IG51bSkKPiA+ICAgICAgICAgICAgICAgICByZXR1cm4gUklTQ1Zf
-SVNBX0VYVF9LRVlfRlBVOwo+ID4gICAgICAgICBjYXNlIFJJU0NWX0lTQV9FWFRfZDoKPiA+ICAg
-ICAgICAgICAgICAgICByZXR1cm4gUklTQ1ZfSVNBX0VYVF9LRVlfRlBVOwo+ID4gKyAgICAgICBj
-YXNlIFJJU0NWX0lTQV9FWFRfWklISU5UUEFVU0U6Cj4gPiArICAgICAgICAgICAgICAgcmV0dXJu
-IFJJU0NWX0lTQV9FWFRfS0VZX1pJSElOVFBBVVNFOwo+ID4gICAgICAgICBkZWZhdWx0Ogo+ID4g
-ICAgICAgICAgICAgICAgIHJldHVybiAtRUlOVkFMOwo+ID4gICAgICAgICB9Cj4gPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nvci5oIGIvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nvci5oCj4gPiBpbmRleCAxMzQzODhjYmFhYTEuLjFl
-NGY4YjRhZWY3OSAxMDA2NDQKPiA+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9w
-cm9jZXNzb3IuaAo+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nv
-ci5oCj4gPiBAQCAtNCwxNSArNCwzMCBAQAo+ID4KPiA+ICAjaWZuZGVmIF9fQVNTRU1CTFlfXwo+
-ID4KPiA+ICsjaW5jbHVkZSA8bGludXgvanVtcF9sYWJlbC5oPgo+ID4gICNpbmNsdWRlIDxhc20v
-YmFycmllci5oPgo+ID4gKyNpbmNsdWRlIDxhc20vaHdjYXAuaD4KPiA+Cj4gPiAgc3RhdGljIGlu
-bGluZSB2b2lkIGNwdV9yZWxheCh2b2lkKQo+ID4gIHsKPiA+ICsgICAgICAgaWYgKCFzdGF0aWNf
-YnJhbmNoX2xpa2VseSgmcmlzY3ZfaXNhX2V4dF9rZXlzW1JJU0NWX0lTQV9FWFRfS0VZX1pJSElO
-VFBBVVNFXSkpIHsKPiA+ICAjaWZkZWYgX19yaXNjdl9tdWxkaXYKPiA+IC0gICAgICAgaW50IGR1
-bW15Owo+ID4gLSAgICAgICAvKiBJbiBsaWV1IG9mIGEgaGFsdCBpbnN0cnVjdGlvbiwgaW5kdWNl
-IGEgbG9uZy1sYXRlbmN5IHN0YWxsLiAqLwo+ID4gLSAgICAgICBfX2FzbV9fIF9fdm9sYXRpbGVf
-XyAoImRpdiAlMCwgJTAsIHplcm8iIDogIj1yIiAoZHVtbXkpKTsKPiA+ICsgICAgICAgICAgICAg
-ICBpbnQgZHVtbXk7Cj4gPiArICAgICAgICAgICAgICAgLyogSW4gbGlldSBvZiBhIGhhbHQgaW5z
-dHJ1Y3Rpb24sIGluZHVjZSBhIGxvbmctbGF0ZW5jeSBzdGFsbC4gKi8KPiA+ICsgICAgICAgICAg
-ICAgICBfX2FzbV9fIF9fdm9sYXRpbGVfXyAoImRpdiAlMCwgJTAsIHplcm8iIDogIj1yIiAoZHVt
-bXkpKTsKPiA+ICAjZW5kaWYKPiA+ICsgICAgICAgfSBlbHNlIHsKPiA+ICsgICAgICAgICAgICAg
-ICAvKgo+ID4gKyAgICAgICAgICAgICAgICAqIFJlZHVjZSBpbnN0cnVjdGlvbiByZXRpcmVtZW50
-Lgo+ID4gKyAgICAgICAgICAgICAgICAqIFRoaXMgYXNzdW1lcyB0aGUgUEMgY2hhbmdlcy4KPiA+
-ICsgICAgICAgICAgICAgICAgKi8KPiA+ICsjaWZkZWYgX19yaXNjdl96aWhpbnRwYXVzZQo+ID4g
-KyAgICAgICAgICAgICAgIF9fYXNtX18gX192b2xhdGlsZV9fICgicGF1c2UiKTsKPiA+ICsjZWxz
-ZQo+ID4gKyAgICAgICAgICAgICAgIC8qIEVuY29kaW5nIG9mIHRoZSBwYXVzZSBpbnN0cnVjdGlv
-biAqLwo+ID4gKyAgICAgICAgICAgICAgIF9fYXNtX18gX192b2xhdGlsZV9fICgiLjRieXRlIDB4
-MTAwMDAwRiIpOwo+ID4gKyNlbmRpZgo+ID4gKyAgICAgICB9Cj4gPiAgICAgICAgIGJhcnJpZXIo
-KTsKPiA+ICB9Cj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdS5jIGIv
-YXJjaC9yaXNjdi9rZXJuZWwvY3B1LmMKPiA+IGluZGV4IGZiYTllOWY0NmE4Yy4uYTEyM2U5MmIx
-NGRkIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1LmMKPiA+ICsrKyBiL2Fy
-Y2gvcmlzY3Yva2VybmVsL2NwdS5jCj4gPiBAQCAtODksNiArODksNyBAQCBpbnQgcmlzY3Zfb2Zf
-cGFyZW50X2hhcnRpZChzdHJ1Y3QgZGV2aWNlX25vZGUgKm5vZGUpCj4gPiAgc3RhdGljIHN0cnVj
-dCByaXNjdl9pc2FfZXh0X2RhdGEgaXNhX2V4dF9hcnJbXSA9IHsKPiA+ICAgICAgICAgX19SSVND
-Vl9JU0FfRVhUX0RBVEEoc3Njb2ZwbWYsIFJJU0NWX0lTQV9FWFRfU1NDT0ZQTUYpLAo+ID4gICAg
-ICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQShzdnBibXQsIFJJU0NWX0lTQV9FWFRfU1ZQQk1UKSwK
-PiA+ICsgICAgICAgX19SSVNDVl9JU0FfRVhUX0RBVEEoemloaW50cGF1c2UsIFJJU0NWX0lTQV9F
-WFRfWklISU5UUEFVU0UpLAo+ID4gICAgICAgICBfX1JJU0NWX0lTQV9FWFRfREFUQSgiIiwgUklT
-Q1ZfSVNBX0VYVF9NQVgpLAo+ID4gIH07Cj4gPgo+ID4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
-a2VybmVsL2NwdWZlYXR1cmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+ID4g
-aW5kZXggMWIzZWM0NGUyNWY1Li43MDhkZjJjMGJjMzQgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jp
-c2N2L2tlcm5lbC9jcHVmZWF0dXJlLmMKPiA+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZl
-YXR1cmUuYwo+ID4gQEAgLTE5OCw2ICsxOTgsNyBAQCB2b2lkIF9faW5pdCByaXNjdl9maWxsX2h3
-Y2FwKHZvaWQpCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICB9IGVsc2Ugewo+ID4gICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRfSVNBX0VYVF9NQVAoInNzY29mcG1mIiwgUklT
-Q1ZfSVNBX0VYVF9TU0NPRlBNRik7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IFNFVF9JU0FfRVhUX01BUCgic3ZwYm10IiwgUklTQ1ZfSVNBX0VYVF9TVlBCTVQpOwo+ID4gKyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTRVRfSVNBX0VYVF9NQVAoInppaGludHBhdXNl
-IiwgUklTQ1ZfSVNBX0VYVF9aSUhJTlRQQVVTRSk7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAg
-ICB9Cj4gPiAgI3VuZGVmIFNFVF9JU0FfRVhUX01BUAo+ID4gICAgICAgICAgICAgICAgIH0KPiA+
-IC0tCj4gPiAyLjI1LjEKPiA+CgoKCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Reviewed-by: Guo Ren <guoren@kernel.org>
+
+On Wed, Jul 6, 2022 at 6:47 AM Heiko Stuebner <heiko@sntech.de> wrote:
+>
+> of_dma_is_coherent() currently expects the architecture to be
+> non-coherent and some devices being coherent getting marked
+> as such with the dma-coherent devicetree property.
+>
+> For PowerPC CONFIG_OF_DMA_DEFAULT_COHERENT was added which currently
+> makes of_dma_is_coherent() always return true but doesn't handle
+> the case of the architecture being coherent but some devices not.
+>
+> So modify the function to also check for dma-noncoherent and
+> set a suitable default return value. If CONFIG_OF_DMA_DEFAULT_COHERENT
+> is set the value starts with true and finding dma-noncoherent will
+> set it to false and without CONFIG_OF_DMA_DEFAULT_COHERENT, the
+> behaviour is reversed.
+>
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> Reviewed-by: Rob Herring <robh@kernel.org>
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>  drivers/of/address.c | 17 ++++++++++-------
+>  1 file changed, 10 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/of/address.c b/drivers/of/address.c
+> index 94f017d808c4..96f0a12e507c 100644
+> --- a/drivers/of/address.c
+> +++ b/drivers/of/address.c
+> @@ -1045,26 +1045,29 @@ phys_addr_t __init of_dma_get_max_cpu_address(struct device_node *np)
+>   *
+>   * It returns true if "dma-coherent" property was found
+>   * for this device in the DT, or if DMA is coherent by
+> - * default for OF devices on the current platform.
+> + * default for OF devices on the current platform and no
+> + * "dma-noncoherent" property was found for this device.
+>   */
+>  bool of_dma_is_coherent(struct device_node *np)
+>  {
+>         struct device_node *node;
+> -
+> -       if (IS_ENABLED(CONFIG_OF_DMA_DEFAULT_COHERENT))
+> -               return true;
+> +       bool is_coherent = IS_ENABLED(CONFIG_OF_DMA_DEFAULT_COHERENT);
+>
+>         node = of_node_get(np);
+>
+>         while (node) {
+>                 if (of_property_read_bool(node, "dma-coherent")) {
+> -                       of_node_put(node);
+> -                       return true;
+> +                       is_coherent = true;
+> +                       break;
+> +               }
+> +               if (of_property_read_bool(node, "dma-noncoherent")) {
+> +                       is_coherent = false;
+> +                       break;
+>                 }
+>                 node = of_get_next_dma_parent(node);
+>         }
+>         of_node_put(node);
+> -       return false;
+> +       return is_coherent;
+>  }
+>  EXPORT_SYMBOL_GPL(of_dma_is_coherent);
+>
+> --
+> 2.35.1
+>
+
+
+-- 
+Best Regards
+ Guo Ren
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
