@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E77FC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 10:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA445C43334
+	for <linux-riscv@archiver.kernel.org>; Tue,  5 Jul 2022 10:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NdIWfq63Nol+LMKW+g9ZH5Vl1iE88O6BESgjeU3osqQ=; b=gn0sgyZ9j8Xb3W
-	qDVlG28mIfsUtVsZny2klWiAufNuzDPCoL1rWg2Zjbrwf4/L8xEykY4bxHLmVbfLP2pGXiin5TFLa
-	7rWnJWqB2S3EYNu/k+ubCCuwho847NcSx0RDF16wAs7W8dt4IHFs9b9P09lO93Hx9rogGOAsFgpYM
-	m0CMnxJVg5jGnVufRH/LdFU0eVwy7uEb3uTgbDd66SjaVAynQmEp4kk2O/PBOe/2csBsOMnzsSJcq
-	kj65TR2BR/kxg4FjdIfoAFrKl4A+lCLkKe2GXPOE4W6ibbab94ziH0nlcViL+FPOW3oBp5GMAD01s
-	SnNFWGZGlDRFihIPS3+g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cRe11J74E5LUhl9fQIJPZ+JxMtfFGGyOyrsWhJEGXPo=; b=bj4D/NcY0GLGq5
+	pP3dtNaMywnaaghZlqEe4uc5jVHOjP2sYJyz/Q9k5ozSsJw2IVsAW1PbibJkPxTt6E6qvtot5BsRy
+	c00A1TFnAzT/CDziYRO1/kOA9YSOIO8j4HbVcuaxeEDwZGJaSVm0G1NfPZPzUKpqicq7DKPnHUk6G
+	N2ImBYScVceyHfO+rLij3XM3q8/JTMeqZB93a5+8kRQxqSaHOnaTzEvmIftdPWSOqflo3wv46VUMB
+	TH18iNeaY/sITg2YhusKuGmYlXFhhlbaS1cPcEFU0/UbCl1+hf6NJ9PujmahhWmIXXJShwhzPVECu
+	UqfqbMAAk1O0Ih6lHEMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8fR3-00H4EV-Dv; Tue, 05 Jul 2022 10:05:37 +0000
+	id 1o8fR5-00H4FE-4Q; Tue, 05 Jul 2022 10:05:39 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8fR0-00H4Cv-HY
-	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 10:05:36 +0000
+	id 1o8fR1-00H4DH-0R
+	for linux-riscv@lists.infradead.org; Tue, 05 Jul 2022 10:05:37 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 27777B8172A;
-	Tue,  5 Jul 2022 10:05:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21985C341C7;
-	Tue,  5 Jul 2022 10:05:29 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A7112B81739;
+	Tue,  5 Jul 2022 10:05:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 560D9C341CB;
+	Tue,  5 Jul 2022 10:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1657015530;
-	bh=NDJXSzU8bKi2zwy9PzpSIP4MJ13vlchjaLY8RsOnnyg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=bq30MGSvZFvfoM0TWYUuHWthiGyz7XVI4+FH5OFwtYHM4w5qt9evEQTUepV0XiL4f
-	 t6s33fp787mEYCNZ9LhHDo/qxRIgKLxuazszAPX7Xwgya8cJSnX/c7DB7BmtfoP5+h
-	 LXtof0J1UokpF+5PRDtwyR7uk8ooBXyNIw709UxP8sGMkqfyKXimtbw9nk4jxrLnly
-	 fh8/IPIz3sA1owdXrPEWqGMBYkOjO7iloh3GSfIvuBv1EJrjrAGyOPPYWEMjLj43Zj
-	 MxP7ynuI69CWCwJjvfb91xvQBqPD7R3bIGFS+4X9iy5r4NYr3R1KtBmBpA2p4YMkBL
-	 TlV086UarMhfQ==
+	s=k20201202; t=1657015532;
+	bh=Mg7Jc2LCDxRomq+uVQTfBNWd2Qq0EN+47Xu2WP2P0dk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mtd/22D9Z0meQz5AAxidpXgB8w3ndiMpvOfEXBd40jTKKp1CekB4IoCe3H/KfwciB
+	 juL2qKTCAa4kT9EPLN2U60sCywLKjGjHVJc1LSiXp81aDLuYFGuR8uiKbPZy63ptam
+	 MuUWQlmCW644rpiK5MLQbdiB+vjH6T7Y3iL56ltWWXVAyvd/OwQhLyWwsToBEoodbR
+	 9Pn9MaUPI1+H8s30zvl69fZ3/wQ0dpyyt5I2H306A2eB8NJgxJW5PLsOp2OrZoap0Z
+	 Kv+8xhqRGWSXFbx/L91Hv3mnvs9eEfgq143Cylzpr0/4iTRmHPSOVnotxvA29Q/kHu
+	 oOpaNY801TLWQ==
 From: guoren@kernel.org
 To: palmer@rivosinc.com
 Cc: linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [RFC PATCH 0/4] Proof of concept for rv32 svpbmt support
-Date: Tue,  5 Jul 2022 06:05:19 -0400
-Message-Id: <20220705100523.1204595-1-guoren@kernel.org>
+	Guo Ren <guoren@linux.alibaba.com>,
+	Guo Ren <guoren@kernel.org>
+Subject: [RFC PATCH 1/4] riscv: Optimize satp_mode data type
+Date: Tue,  5 Jul 2022 06:05:20 -0400
+Message-Id: <20220705100523.1204595-2-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220705100523.1204595-1-guoren@kernel.org>
+References: <20220705100523.1204595-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220705_030534_772113_D3E0ABB2 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20220705_030535_236560_3A6F98FC 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,45 +75,46 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Make rv32 support svpbmt & napot by reducing the PPN witdth (sv32p34 ->
-sv32p31).
+Fixup satp_mode data type. Use ulong instead of u64 for rv32
+compatibility. Because the u64 type didn't cause any real problem, make
+it as optimized.
 
-RISC-V 32bit also requires svpbmt in cost-down chip embedded scenarios,
-and their RAM is limited (No more than 1GB). It is worth mentioning that
-rv32-Linux currently only supports 1GB of DRAM, and there is no plan for
-high-memory. So, there seems to be no obstacle to shrinking the physical
-address space of the rv32 from 16GB to 2GB. We recommend that ISA
-consider sv32p31 as the recommended configuration for the software
-ecosystem instead of sv32p34. Then we could merge rv64 & rv32 into one
-PTE format:
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
+ arch/riscv/include/asm/pgtable.h | 2 +-
+ arch/riscv/mm/init.c             | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-| XLEN-1 | XLEN-2 XLEN-3 | XLEN-4 10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-  N        MT[2]           RSV & PFN   reserved for SW   D   A   G   U   X   W   R   V
-
-We've finished the Linux Proof of concept of the proposal, which contains
-three parts:
- - Qemu rv32 svpbmt & napot support & hw/virt memory layout of 1GB IO
-   range [1]
- - Linux rv32 sv32p31 & svpbmt support
- - Opensbi needs to compile with FW_TEXT_START=0x40000000
-
-[1] https://github.com/guoren83/qemu/tree/rv32svpbmt
-
-Guo Ren (4):
-  riscv: Optimize satp_mode data type
-  riscv: Cleanup ERRATA_THEAD_PBMT for rv32 svpbmt compile
-  riscv: pgtable: Move svpbmt into the common pgtable-bits.h
-  riscv: Change rv32p34 to rv32p31 for svpbmt
-
- arch/riscv/Kconfig                    |  2 +-
- arch/riscv/include/asm/errata_list.h  | 11 +++++-
- arch/riscv/include/asm/pgtable-32.h   | 20 +---------
- arch/riscv/include/asm/pgtable-64.h   | 55 ---------------------------
- arch/riscv/include/asm/pgtable-bits.h | 53 ++++++++++++++++++++++++++
- arch/riscv/include/asm/pgtable.h      |  7 +++-
- arch/riscv/mm/init.c                  |  4 +-
- 7 files changed, 74 insertions(+), 78 deletions(-)
-
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 1d1be9d9419c..edc68759b69d 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -833,7 +833,7 @@ extern uintptr_t _dtb_early_pa;
+ #define dtb_early_va	_dtb_early_va
+ #define dtb_early_pa	_dtb_early_pa
+ #endif /* CONFIG_XIP_KERNEL */
+-extern u64 satp_mode;
++extern ulong satp_mode;
+ extern bool pgtable_l4_enabled;
+ 
+ void paging_init(void);
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index d466ec670e1f..eea147b1a617 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -38,9 +38,9 @@ EXPORT_SYMBOL(kernel_map);
+ #endif
+ 
+ #ifdef CONFIG_64BIT
+-u64 satp_mode __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL) ? SATP_MODE_57 : SATP_MODE_39;
++ulong satp_mode __ro_after_init = !IS_ENABLED(CONFIG_XIP_KERNEL) ? SATP_MODE_57 : SATP_MODE_39;
+ #else
+-u64 satp_mode __ro_after_init = SATP_MODE_32;
++ulong satp_mode __ro_after_init = SATP_MODE_32;
+ #endif
+ EXPORT_SYMBOL(satp_mode);
+ 
 -- 
 2.36.1
 
