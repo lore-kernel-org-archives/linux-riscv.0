@@ -4,49 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAEBDC43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 11:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 910A1CCA473
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 11:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7Wr8qPLUAmMXYvdUQfuoYDwYgeX4dkilnqpjEFUOSgE=; b=h73ZwRNH8H2/Xh
-	0JhbixFVtWsxjctVASaha3DKcMM5aQ53SXD3JblhKqE2/5mC+mSibKBPfbItEDFDSWUK796p7K/c6
-	yItKL63QvoPUA9DmbHJX2BBpr5V880vBOi2i0oSDUX/psNCL+8drBSP3XBVqDkWPJd5c2oxIMzxmt
-	38Oz7xQDObxKM2sEMrJaV+Rreobw93CAYXlyowvN1MjtSUACrNqfz2E/VdEDFGSn2FTl2ooX98heD
-	ckoug6aATAmmCR7i9CHKEhI4+ikZzZIH1WhJS5xAPrxqNDOP4J4UVTZIRFGMcWx/vsphHm3AEmtYr
-	EAmxw5xViFNsCCMEyw8Q==;
+	List-Owner; bh=rwli0NauNzWwgLk/ubB8WoWJ3q0F066TE6BgAPFE8PU=; b=PevKfXPx50spGB
+	+NDz/63IaJu8DoyCxgfAP/2iZGTeNvsJc6Jfh2HJsEFrpAvJ3zLxqJHWmlnR/Poxcb8QbXtr4BtAX
+	dbE6jBCRHcohOy+5al5lvhjbMOiaBiqSU7bZyurPCzZMCL6TddmoF17NutdACUDbzwQfjaa9WCAbp
+	jp75BFXGy2iTHwz1hD5C/a2DCXG3/M1rQCtHILV8pZcZCUDCl08QfvOc1pWhttbAXbLW7qPxgdoIk
+	qloKKlwITkqaJgDs5aYD0cgWZTuAJXMEne/BQ73K9scqcIpKI//TvEDx7UkXkEIPDdBnPUfGhjEQO
+	3JpEQOEw+vQo+59i3RqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o931B-009Kj3-Jj; Wed, 06 Jul 2022 11:16:29 +0000
-Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	id 1o93ct-009kPV-FE; Wed, 06 Jul 2022 11:55:27 +0000
+Received: from esa4.hgst.iphmx.com ([216.71.154.42])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o91t3-0087BM-FJ
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 10:04:04 +0000
-Received: from [167.98.27.226] (helo=[10.35.4.171])
-	by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
-	id 1o91sy-0001FO-GX; Wed, 06 Jul 2022 11:03:56 +0100
-Message-ID: <b916f508-aa9c-08df-f562-a0bd62163a95@codethink.co.uk>
-Date: Wed, 6 Jul 2022 11:03:56 +0100
+	id 1o93cq-009kNN-FK
+	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 11:55:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
+  t=1657108524; x=1688644524;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=9/V+jeecOKQ9buv2Jjb6PxTGk0efO8S6cyBl2B3zFEA=;
+  b=Vi35Nxj+cVlT5+uju417h+YQCNBZCj2vNGTZHo1aPujAt00LpuUncISM
+   7QsGBftpoQxtuYuBhCHSTnyF2ReAbfVvtSsGpa89HTTksNbZhKjHGSAto
+   HGvsKMh1Lx7q4A1NfjMfHPqhxf9wSVLCFwNJnyOEK3J9e/wTz7LgWVOZx
+   jw7OLHuKYKNNpXTct4L7b/+N3TfXjFsEqaJj/mCZIOMLS5nHnZRDIIkIi
+   la2vQxnwf85usyvA+Ww0esSys42FYiEcH1QOWMFR7qOkUZr/4G6KjAAD7
+   AmVtQ9FXu6PLtivflfPQ3CxcmHN1HzXPoti37+P9sMxbTxCZzDmmVfq9K
+   g==;
+X-IronPort-AV: E=Sophos;i="5.92,249,1650902400"; 
+   d="scan'208";a="203633484"
+Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com) ([199.255.45.15])
+  by ob1.hgst.iphmx.com with ESMTP; 06 Jul 2022 19:55:20 +0800
+IronPort-SDR: mKL/XSp97sSmqlbVevcR996y3V8JVearrBmOxDTTJsLvJzo85d4sWiav4A8pSgW54GQ2vEbaxO
+ QFgW6rBql7EldfDZvioGfF4SLQyvPsyiUT/4+ZX5SKgfZX2J9jMnJUoWZ89UlJT/W8tVAQn1Rp
+ lVu4F4ZVIyGSlp/Y/PPFuVyH4mOv19pWE9IFqCXZM1/QmTknfwvIa2NXNE0P8dZVUkiw5N8/Sl
+ Uac/Bn1rz/grIzs6SYHPxMHzT7dUKJHHwRR6WKhHarfvKnY1bBQV9gbf4QuFTOd/i5K18s6qeM
+ PXrmkshwsb89Y23ie8r8FK/T
+Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
+  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Jul 2022 04:12:35 -0700
+IronPort-SDR: /WArLtkXrtfY9CcId0JW747WGlKO/b2McdI0IeqPMik/MAT2ACzrRdtUyFAvktMJ50Tikm3miP
+ PP842TDZ4OJ4pGqRrkXbE5vLACI64AgmqWUTFZ8d38mhrNriTKoNx0HdKcqNxxvyEvaL3JviSp
+ jRVNt4tIyQnFpxqNEq0MqLqR20vzgIATQ9cGX0lgnDyWd+Ny9UXcG/warHtZlt9/jV9zm/thG3
+ sgrnf14uQFubRUES1TD7wcrhI+R1WqP22N7heWq9Rdtwowl7b1CNh5tRapEublRcTKTmlRHJt/
+ CoE=
+WDCIronportException: Internal
+Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
+  by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Jul 2022 04:55:21 -0700
+Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4LdHzX0hgxz1Rwnm
+	for <linux-riscv@lists.infradead.org>; Wed,  6 Jul 2022 04:55:20 -0700 (PDT)
+Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
+	reason="pass (just generated, assumed good)"
+	header.d=opensource.wdc.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
+	opensource.wdc.com; h=content-transfer-encoding:content-type
+	:in-reply-to:organization:from:references:to:content-language
+	:subject:user-agent:mime-version:date:message-id; s=dkim; t=
+	1657108519; x=1659700520; bh=9/V+jeecOKQ9buv2Jjb6PxTGk0efO8S6cyB
+	l2B3zFEA=; b=NQqp5LElpaPKjMMZjQfdqYiZ5oumHP+P3Xd9GbrdNrgubcqbuFF
+	adZTCfmZR2OSi/yQBwGd1r9Fyz9gtX1zz2Edg5JvjbZ5+jAU55bzfaD8vxC0iJxK
+	FjmDyQOzpQU2eV1RvmsxAylj+iyL3S0HnnEsdADgICDknHx7sSIwr0GbZvgJaV3n
+	PJ1Og/9rjksgt7jbSeDxdiawvaeos+wfkUYIkw3pCwPtPk5D+S/PnvyyeBpIoXg+
+	9y3tCzBiOMlQoUtJ3MRp853f+H9VMlDdbTwFDYdYZu9QNWBTBFn9K5BHwTTYfw13
+	JQXd2jB5amVQD43Q+484ebY5u5692zA2SIw==
+X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
+Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
+	by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id z9kFlr48S9g0 for <linux-riscv@lists.infradead.org>;
+	Wed,  6 Jul 2022 04:55:19 -0700 (PDT)
+Received: from [10.225.163.110] (unknown [10.225.163.110])
+	by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4LdHzQ65N7z1RtVk;
+	Wed,  6 Jul 2022 04:55:14 -0700 (PDT)
+Message-ID: <160267df-2f3f-02f7-4a4d-21baf60c4a44@opensource.wdc.com>
+Date: Wed, 6 Jul 2022 20:55:13 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.10.0
-Subject: Re: [PATCH 1/1] gpio: mpfs - add polarfire soc gpio support
-Content-Language: en-GB
-To: lewis.hanly@microchip.com, linux-gpio@vger.kernel.org,
- linux-riscv@lists.infradead.org, palmer@dabbelt.com, maz@kernel.org
-Cc: paul.walmsley@sifive.com, conor.dooley@microchip.com,
- daire.mcnamara@microchip.com
-References: <20220705134912.2740421-1-lewis.hanly@microchip.com>
- <20220705134912.2740421-2-lewis.hanly@microchip.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <20220705134912.2740421-2-lewis.hanly@microchip.com>
+ Thunderbird/91.11.0
+Subject: Re: [PATCH v5 00/13] Canaan devicetree fixes
+Content-Language: en-US
+To: Geert Uytterhoeven <geert@linux-m68k.org>, Conor Dooley <mail@conchuod.ie>
+Cc: David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Thierry Reding <thierry.reding@gmail.com>, Sam Ravnborg <sam@ravnborg.org>,
+ Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>, Vinod Koul
+ <vkoul@kernel.org>, Serge Semin <fancer.lancer@gmail.com>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Masahiro Yamada <masahiroy@kernel.org>, Niklas Cassel
+ <niklas.cassel@wdc.com>, Dillon Min <dillon.minfei@gmail.com>,
+ DRI Development <dri-devel@lists.freedesktop.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ dmaengine <dmaengine@vger.kernel.org>,
+ linux-riscv <linux-riscv@lists.infradead.org>
+References: <20220705215213.1802496-1-mail@conchuod.ie>
+ <CAMuHMdVOK+iHeTfRLDeMF1mwZoeH1KH_GHuCY72YnhQibGqhwA@mail.gmail.com>
+From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
+Organization: Western Digital Research
+In-Reply-To: <CAMuHMdVOK+iHeTfRLDeMF1mwZoeH1KH_GHuCY72YnhQibGqhwA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_030401_711081_505E38AA 
-X-CRM114-Status: GOOD (  33.98  )
+X-CRM114-CacheID: sfid-20220706_045524_678003_FBE51902 
+X-CRM114-Status: GOOD (  25.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,418 +127,52 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 05/07/2022 14:49, lewis.hanly@microchip.com wrote:
-> From: Lewis Hanly <lewis.hanly@microchip.com>
+On 7/6/22 17:03, Geert Uytterhoeven wrote:
+> Hi Conor,
 > 
-> Add a driver to support the Polarfire SoC gpio controller.
+> On Tue, Jul 5, 2022 at 11:52 PM Conor Dooley <mail@conchuod.ie> wrote:
+>> I *DO NOT* have any Canaan hardware so I have not tested any of this in
+>> action. Since I sent v1, I tried to buy some since it's cheap - but could
+>> out of the limited stockists none seemed to want to deliver to Ireland :(
+>> I based the series on next-20220617.
 > 
-> Signed-off-by: Lewis Hanly <lewis.hanly@microchip.com>
-> ---
->   drivers/gpio/Kconfig     |   7 +
->   drivers/gpio/Makefile    |   1 +
->   drivers/gpio/gpio-mpfs.c | 358 +++++++++++++++++++++++++++++++++++++++
->   3 files changed, 366 insertions(+)
->   create mode 100644 drivers/gpio/gpio-mpfs.c
+> Digi-Key does not want to ship to IRL?
+> The plain MAiX BiT is out-of-stock, but the kit incl. a display is
+> available (97 in stock).
+
+Seedstudio is out of stock on the MAIX bit, but they have maixduino, which
+is the same, almost (pin wiring differs, everything else is the same).
+
+https://www.seeedstudio.com/Sipeed-Maixduino-Kit-for-RISC-V-AI-IoT-p-4047.html
+
+And you can still find plenty of MAIX bit on Aliexpress too.
+
 > 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> --
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
-snip
-
-> diff --git a/drivers/gpio/gpio-mpfs.c b/drivers/gpio/gpio-mpfs.c
-> new file mode 100644
-> index 000000000000..df48f2836e97
-> --- /dev/null
-> +++ b/drivers/gpio/gpio-mpfs.c
-> @@ -0,0 +1,358 @@
-> +// SPDX-License-Identifier: (GPL-2.0)
-> +/*
-> + * Microchip PolarFire SoC (MPFS) GPIO controller driver
-> + *
-> + * Copyright (c) 2018-2022 Microchip Technology Inc. and its subsidiaries
-> + *
-> + * Author: Lewis Hanly <lewis.hanly@microchip.com>
-> + *
-> + */
-> +
-> +#include <linux/bitops.h>
-> +#include <linux/clk.h>
-> +#include <linux/device.h>
-> +#include <linux/errno.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/init.h>
-> +#include <linux/irq.h>
-> +#include <linux/irqchip/chained_irq.h>
-> +#include <linux/of.h>
-> +#include <linux/of_irq.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/spinlock.h>
-> +
-> +#define NUM_GPIO			32
-> +#define BYTE_BOUNDARY			0x04
-> +#define MPFS_GPIO_EN_INT		3
-> +#define MPFS_GPIO_EN_OUT_BUF		BIT(2)
-> +#define MPFS_GPIO_EN_IN			BIT(1)
-> +#define MPFS_GPIO_EN_OUT		BIT(0)
-> +
-> +#define MPFS_GPIO_TYPE_INT_EDGE_BOTH	0x80
-> +#define MPFS_GPIO_TYPE_INT_EDGE_NEG	0x60
-> +#define MPFS_GPIO_TYPE_INT_EDGE_POS	0x40
-> +#define MPFS_GPIO_TYPE_INT_LEVEL_LOW	0x20
-> +#define MPFS_GPIO_TYPE_INT_LEVEL_HIGH	0x00
-> +#define MPFS_GPIO_TYPE_INT_MASK		GENMASK(7, 5)
-> +#define MPFS_IRQ_REG			0x80
-> +#define MPFS_INP_REG			0x84
-> +#define MPFS_OUTP_REG			0x88
-> +
-> +struct mpfs_gpio_chip {
-> +	void __iomem *base;
-> +	struct clk *clk;
-> +	spinlock_t lock; /* lock */
-> +	struct gpio_chip gc;
-> +};
-> +
-> +static void mpfs_gpio_assign_bit(void __iomem *addr, unsigned int bit_offset, int value)
-> +{
-> +	u32 output = readl(addr);
-> +
-> +	if (value)
-> +		output |= BIT(bit_offset);
-> +	else
-> +		output &= ~BIT(bit_offset);
-> +
-> +	writel(output, addr);
-> +}
-> +
-> +static int mpfs_gpio_direction_input(struct gpio_chip *gc, unsigned int gpio_index)
-> +{
-> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
-> +	u32 gpio_cfg;
-> +	unsigned long flags;
-> +
-> +	if (gpio_index >= NUM_GPIO)
-> +		return -EINVAL;
-
-
-
-> +	spin_lock_irqsave(&mpfs_gpio->lock, flags);
-> +
-> +	gpio_cfg = readl(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
-> +	gpio_cfg |= MPFS_GPIO_EN_IN;
-> +	gpio_cfg &= ~(MPFS_GPIO_EN_OUT | MPFS_GPIO_EN_OUT_BUF);
-> +	writel(gpio_cfg, mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
-> +
-> +	spin_unlock_irqrestore(&mpfs_gpio->lock, flags);
-> +
-> +	return 0;
-> +}
-> +
-> +static int mpfs_gpio_direction_output(struct gpio_chip *gc, unsigned int gpio_index, int value)
-> +{
-> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
-> +	u32 gpio_cfg;
-> +	unsigned long flags;
-> +
-> +	if (gpio_index >= NUM_GPIO)
-> +		return -EINVAL;
-
-Is this necessary, shouldn't gpio layer have checked this already?
-
-> +	spin_lock_irqsave(&mpfs_gpio->lock, flags);
-> +
-> +	gpio_cfg = readl(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
-> +	gpio_cfg |= MPFS_GPIO_EN_OUT | MPFS_GPIO_EN_OUT_BUF;
-> +	gpio_cfg &= ~MPFS_GPIO_EN_IN;
-> +	writel(gpio_cfg, mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
-> +
-> +	mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_OUTP_REG, gpio_index, value);
-> +
-> +	spin_unlock_irqrestore(&mpfs_gpio->lock, flags);
-> +
-> +	return 0;
-> +}
-> +
-> +static int mpfs_gpio_get_direction(struct gpio_chip *gc,
-> +				   unsigned int gpio_index)
-> +{
-> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
-> +	u32 gpio_cfg;
-> +
-> +	if (gpio_index >= NUM_GPIO)
-> +		return -EINVAL;
-
-Is this necessary, shouldn't gpio layer have checked this already?
-
-> +	gpio_cfg = readl(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
-> +
-> +	if (gpio_cfg & MPFS_GPIO_EN_IN)
-> +		return 1;
-> +
-> +	return 0;
-> +}
-> +
-> +static int mpfs_gpio_get(struct gpio_chip *gc,
-> +			 unsigned int gpio_index)
-> +{
-> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
-> +
-> +	if (gpio_index >= NUM_GPIO)
-> +		return -EINVAL;
-
-Is this necessary, shouldn't gpio layer have checked this already?
-
-> +	return !!(readl(mpfs_gpio->base + MPFS_INP_REG) & BIT(gpio_index));
-> +}
-> +
-> +static void mpfs_gpio_set(struct gpio_chip *gc, unsigned int gpio_index, int value)
-> +{
-> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
-> +	unsigned long flags;
-> +
-> +	if (gpio_index >= NUM_GPIO)
-> +		return;
-
-Is this necessary, shouldn't gpio layer have checked this already?
-
-> +	spin_lock_irqsave(&mpfs_gpio->lock, flags);
-> +
-> +	mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_OUTP_REG,
-> +			     gpio_index, value);
-> +
-> +	spin_unlock_irqrestore(&mpfs_gpio->lock, flags);
-> +}
-> +
-> +static int mpfs_gpio_irq_set_type(struct irq_data *data, unsigned int type)
-> +{
-> +	struct gpio_chip *gc = irq_data_get_irq_chip_data(data);
-> +	int gpio_index = irqd_to_hwirq(data);
-> +	u32 interrupt_type;
-> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
-> +	u32 gpio_cfg;
-> +	unsigned long flags;
-> +
-> +	if (gpio_index >= NUM_GPIO)
-> +		return -EINVAL;
->
-
-Is this necessary, shouldn't gpio layer have checked this already?
-
-> +	switch (type) {
-> +	case IRQ_TYPE_EDGE_BOTH:
-> +		interrupt_type = MPFS_GPIO_TYPE_INT_EDGE_BOTH;
-> +		break;
-> +
-> +	case IRQ_TYPE_EDGE_FALLING:
-> +		interrupt_type = MPFS_GPIO_TYPE_INT_EDGE_NEG;
-> +		break;
-> +
-> +	case IRQ_TYPE_EDGE_RISING:
-> +		interrupt_type = MPFS_GPIO_TYPE_INT_EDGE_POS;
-> +		break;
-> +
-> +	case IRQ_TYPE_LEVEL_HIGH:
-> +		interrupt_type = MPFS_GPIO_TYPE_INT_LEVEL_HIGH;
-> +		break;
-> +
-> +	case IRQ_TYPE_LEVEL_LOW:
-> +	default:
-> +		interrupt_type = MPFS_GPIO_TYPE_INT_LEVEL_LOW;
-> +		break;
-> +	}
-> +
-> +	spin_lock_irqsave(&mpfs_gpio->lock, flags);
-> +
-> +	gpio_cfg = readl(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
-> +	gpio_cfg &= ~MPFS_GPIO_TYPE_INT_MASK;
-> +	gpio_cfg |= interrupt_type;
-> +	writel(gpio_cfg, mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
-> +
-> +	spin_unlock_irqrestore(&mpfs_gpio->lock, flags);
-> +
-> +	return 0;
-> +}
-> +
-> +static void mpfs_gpio_irq_enable(struct irq_data *data)
-> +{
-> +	struct gpio_chip *gc = irq_data_get_irq_chip_data(data);
-> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
-> +	int gpio_index = irqd_to_hwirq(data) % NUM_GPIO;
-> +
-> +	mpfs_gpio_direction_input(gc, gpio_index);
-> +	mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_IRQ_REG, gpio_index, 1);
-> +	mpfs_gpio_assign_bit(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY),
-> +			     MPFS_GPIO_EN_INT, 1);
-> +}
-> +
-> +static void mpfs_gpio_irq_disable(struct irq_data *data)
-> +{
-> +	struct gpio_chip *gc = irq_data_get_irq_chip_data(data);
-> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
-> +	int gpio_index = irqd_to_hwirq(data) % NUM_GPIO;
-> +
-> +	mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_IRQ_REG, gpio_index, 1);
-> +	mpfs_gpio_assign_bit(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY),
-> +			     MPFS_GPIO_EN_INT, 0);
-> +}
-> +
-> +static struct irq_chip mpfs_gpio_irqchip = {
-> +	.name = "mpfs_gpio_irqchip",
-> +	.irq_set_type = mpfs_gpio_irq_set_type,
-> +	.irq_enable = mpfs_gpio_irq_enable,
-> +	.irq_disable = mpfs_gpio_irq_disable,
-> +	.flags = IRQCHIP_MASK_ON_SUSPEND,
-> +};
-> +
-> +static irqreturn_t mpfs_gpio_irq_handler(int irq, void *mpfs_gpio_data)
-> +{
-> +	struct mpfs_gpio_chip *mpfs_gpio = mpfs_gpio_data;
-> +	unsigned long status;
-> +	int offset;
-> +
-> +	status = readl(mpfs_gpio->base + MPFS_IRQ_REG);
-> +
-> +	for_each_set_bit(offset, &status, mpfs_gpio->gc.ngpio) {
-> +		mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_IRQ_REG, offset, 1);
-> +		generic_handle_irq(irq_find_mapping(mpfs_gpio->gc.irq.domain, offset));
-> +	}
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int mpfs_gpio_probe(struct platform_device *pdev)
-> +{
-> +	struct clk *clk;
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *node = pdev->dev.of_node;
-> +	struct mpfs_gpio_chip *mpfs_gpio;
-> +	int i, ret, ngpio;
-> +	struct gpio_irq_chip *irq_c;
-> +
-> +	mpfs_gpio = devm_kzalloc(dev, sizeof(*mpfs_gpio), GFP_KERNEL);
-> +	if (!mpfs_gpio)
-> +		return -ENOMEM;
-> +
-> +	mpfs_gpio->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(mpfs_gpio->base)) {
-> +		dev_err(dev, "failed to allocate device memory\n");
-> +		return PTR_ERR(mpfs_gpio->base);
-> +	}
-
-seems to be a mix of dev_err and dev_err_probe() in here?
-
-> +	clk = devm_clk_get(&pdev->dev, NULL);
-> +	if (IS_ERR(clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "failed to get clock\n");
-> +
-> +	ret = clk_prepare_enable(clk);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret, "failed to enable clock\n");
-> +
-> +	mpfs_gpio->clk = clk;
-> +
-> +	spin_lock_init(&mpfs_gpio->lock);
-> +
-> +	ngpio = of_irq_count(node);
-> +	if (ngpio > NUM_GPIO) {
-> +		dev_err(dev, "too many interrupts\n");
-> +		goto cleanup_clock;
-> +	}
-> +
-> +	mpfs_gpio->gc.direction_input = mpfs_gpio_direction_input;
-> +	mpfs_gpio->gc.direction_output = mpfs_gpio_direction_output;
-> +	mpfs_gpio->gc.get_direction = mpfs_gpio_get_direction;
-> +	mpfs_gpio->gc.get = mpfs_gpio_get;
-> +	mpfs_gpio->gc.set = mpfs_gpio_set;
-> +	mpfs_gpio->gc.base = -1;
-> +	mpfs_gpio->gc.ngpio = ngpio;
-> +	mpfs_gpio->gc.label = dev_name(dev);
-> +	mpfs_gpio->gc.parent = dev;
-> +	mpfs_gpio->gc.owner = THIS_MODULE;
-> +
-> +	irq_c = &mpfs_gpio->gc.irq;
-> +	irq_c->chip = &mpfs_gpio_irqchip;
-> +	irq_c->chip->parent_device = dev;
-> +	irq_c->handler = handle_simple_irq;
-> +
-> +	ret = devm_irq_alloc_descs(&pdev->dev, -1, 0, ngpio, 0);
-> +	if (ret < 0) {
-> +		dev_err(dev, "failed to allocate descs\n");
-> +		goto cleanup_clock;
-> +	}
-> +
-> +	/*
-> +	 * Setup the interrupt handlers. Interrupts can be
-> +	 * direct and/or non-direct mode, based on register value:
-> +	 * GPIO_INTERRUPT_FAB_CR.
-> +	 */
-> +	for (i = 0; i < ngpio; i++) {
-> +		int irq = platform_get_irq_optional(pdev, i);
-> +
-> +		if (irq < 0)
-> +			continue;
-> +
-> +		ret = devm_request_irq(&pdev->dev, irq,
-> +				       mpfs_gpio_irq_handler,
-> +				       IRQF_SHARED, mpfs_gpio->gc.label, mpfs_gpio);
-> +		if (ret) {
-> +			dev_err(&pdev->dev, "failed to request irq %d: %d\n",
-> +				irq, ret);
-> +			goto cleanup_clock;
-> +		}
-> +	}
-> +
-> +	ret = gpiochip_add_data(&mpfs_gpio->gc, mpfs_gpio);
-> +	if (ret)
-> +		goto cleanup_clock;
-> +
-> +	platform_set_drvdata(pdev, mpfs_gpio);
-> +	dev_info(dev, "Microchip MPFS GPIO registered %d GPIOs\n", ngpio);
-> +
-> +	return 0;
-> +
-> +cleanup_clock:
-> +	clk_disable_unprepare(mpfs_gpio->clk);
-> +	return ret;
-> +}
-
-do you need to deal with EPROBEDEFER in the above probe?
-
-> +
-> +static int mpfs_gpio_remove(struct platform_device *pdev)
-> +{
-> +	struct mpfs_gpio_chip *mpfs_gpio = platform_get_drvdata(pdev);
-> +
-> +	gpiochip_remove(&mpfs_gpio->gc);
-> +	clk_disable_unprepare(mpfs_gpio->clk);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id mpfs_gpio_match[] = {
-> +	{ .compatible = "microchip,mpfs-gpio", },
-> +	{ /* end of list */ },
-> +};
-> +
-> +static struct platform_driver mpfs_gpio_driver = {
-> +	.probe = mpfs_gpio_probe,
-> +	.driver = {
-> +		.name = "microchip,mpfs-gpio",
-> +		.of_match_table = of_match_ptr(mpfs_gpio_match),
-> +	},
-> +	.remove = mpfs_gpio_remove,
-> +};
-> +
-> +builtin_platform_driver(mpfs_gpio_driver);
-
-MODULE_AUTHOR and associated info could do with being at the bottom.
 
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
+Damien Le Moal
+Western Digital Research
 
 _______________________________________________
 linux-riscv mailing list
