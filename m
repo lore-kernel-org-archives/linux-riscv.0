@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F164C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 18:46:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE46C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 19:26:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=y76V16C1iuPNp2KHo/w4vZoUvN7SeH3S/2cc8NZsgqs=; b=oFcbawA4Js+p9l
-	xD3UTREfWY2Jor2q1jCQ0UCth+w39EhTDUrDKtkOCpfMd60vnvNAh3+fK+7sSBb8PSLZmETQZPgA5
-	RuZypJMRKaiK6yXGkoue8zEny6O4JuzHpIdrm2ihkxA3+FPLiYtCmU+ccg1nbB7jhoUtr0F+yvinf
-	AeDVqhxqJ5fwnkyMxXSfjBqWUBGkqmQOld1oMnB97wzNqvgDjOJg1aUGDAglaw6O4I6ZvLzgA3nl9
-	0zooAsrHCT5FGSbPs3SkLkkEQ24TrzU6L/EGX1OQm7FEKCF+RIF14umbj48CHBAavdukwbPXe5R+s
-	Fsk16lBqReIX0Y52mGpA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gskKUmFYnHTTHsdvnq9emMDjhMWRu+okWoy1L93jJkY=; b=TnlTqMZsw+VTi30N1XEQVadUzO
+	QrkJ4wvz2BTKSPzAdUQdGBU8X6VMPEVY2vW2156wqvXjWiTFVy60rZVlM8uauQo/C3oO445ko4TXO
+	09/TmPDJvzeQZKHqLO23jN20B5LzJtPS0IonpYISSN45/tlmzo0QHaOnKavZ46DC3QdKIfFAfWU9U
+	9nB/2ZlcR9SQWqFesrOtmW4jjzExBi9N9T1D6XNyBXdcnPDpUoLfaEwTkmz3VkqR467DkXmoO3gKI
+	LJ6u2WsPhZtO3OA3Baoepdpvp5+edoGuapeyLhADAxXOF9GPdsz/8f2Nwpf/HDD0Cwsu0b2rlcAWx
+	R/jK1AvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9A2q-00C5B7-7c; Wed, 06 Jul 2022 18:46:40 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1o9Af6-00CChK-TT; Wed, 06 Jul 2022 19:26:12 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9A2n-00C595-C8
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 18:46:39 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id h17so10127931wrx.0
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Jul 2022 11:46:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=FGvdz6Rm9o6IiK39KaZUlJWK5Ze9j+QdwV7tWQUA7MU=;
-        b=Li8ztQ8ExNO98qv/gkCCl4oswxBwJHWf8Bm9oWaRjJHFNYPxPlYLiX0mSCO0sOMqOZ
-         Jhydkww51gb4Uzdx+NtkZTefyLEIV6NWETM39flo7p/dKteM1j/ggg7MnYCvVObggzGx
-         /6ylVdcmljUpSq9OA/i9kO9GcpyjtCl9dga4EYhHfBnP7Q17+zwBX7nU4w7dZBFsqalY
-         Yd7k/sCuBcRMkaWfTcuX72xrU6115zPPyaV02AFu/3IWfD56DXTDQ3eyM0oGlHJ8lAU+
-         A78ff5CDf76QCWcY5fxSv7JIhD3rFlS+r++abSr30I0PZjAV+bzU7DYvLwYqstqyn6Dj
-         x4Ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=FGvdz6Rm9o6IiK39KaZUlJWK5Ze9j+QdwV7tWQUA7MU=;
-        b=BzqSTACF/OUNHGlybd/J4iLrdYOQ9PFJSjSYnacKKOImQSVa3wHvnKuNjaXbW/0NeM
-         0PovnTYzUbIoP35d5MYAAftNUCNH9MT0+195Vce0AQ88HFqoE8qOEbz6HYW7kzgCFYg8
-         mMiNMYretlVgFUggkfb3jE/6G6FZjxnnXKVUQWB2y5yMB6jjduIC8VCyNK2GQPKypdCz
-         8Dzf2qjL2RwMbhJUvWx2pHxdH1uOYGFZhR2AKKTB/Cv2fIAnmnrxHQe9AzSFdxDg7J4B
-         r+n5K0DRGLk9SWCAacv82ZHd3qywdo8MnMUqUl/TMBsAyaRR6lmOn5/83P56GTimYg3s
-         dd7w==
-X-Gm-Message-State: AJIora/MTakgUTSz4qSdO2LEDoEEmDKTnDaC3je8abD7YtX168wpgwsW
-	6Zdkmw1BLI0H49myH7kblLtI0hd2BgxYw5wzMpY=
-X-Google-Smtp-Source: AGRyM1tc8cpgGWi82HnlRM0HYNg5vNvrHP5xofK1RdiRUlhPNGD8kzJ0a8PCmA+MWR+HU7nadb1BmQ==
-X-Received: by 2002:a5d:6488:0:b0:203:b628:70d2 with SMTP id o8-20020a5d6488000000b00203b62870d2mr37474998wri.83.1657133194465;
-        Wed, 06 Jul 2022 11:46:34 -0700 (PDT)
-Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id f7-20020a05600c4e8700b003a17ab4e7c8sm26876310wmq.39.2022.07.06.11.46.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Jul 2022 11:46:33 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sudeep Holla <sudeep.holla@arm.com>
-Cc: Daire McNamara <daire.mcnamara@microchip.com>,
+	id 1o9Af4-00CCgL-BS
+	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 19:26:11 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3BFAF6204F;
+	Wed,  6 Jul 2022 19:26:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFDEAC3411C;
+	Wed,  6 Jul 2022 19:26:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1657135568;
+	bh=B7KWI+zxs/Q0rPLko0afLemZyMmjeukiI8Nhzv0WVnc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PoosFBY5mA6HuAoVuuVa3eADaT24dr8FOlzQ3uiq2V7JbvufXQXgc6b5DYFzXAixk
+	 KI0qXCYKEzhTobeEFQ7tmcVEyQjXdKE7r5EcWHYIorhqGXOXA6DI9MVSCJ5cxnklLT
+	 WC9jUlxO1Tg3HL5MYm2wE3XFcr4UJh4iK+bWxm1nS9q6/jHj181LOKhxaXRG+2Tx3i
+	 L/y+O3ngdLToGFKigz0aNi2vWNlEEkIue5UUwcA45R+30UtQwJ1CRXjT5SPtqjx3qc
+	 tDoip3gRLC4jlzH7xk7Wxe8w3weMb5Ndf1gERxxaQoe7GAlTN/tlpCQFW6T7zENuzb
+	 K2+E/hkMJGOKQ==
+Date: Wed, 6 Jul 2022 21:26:00 +0200
+From: Wolfram Sang <wsa@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: linux-i2c@vger.kernel.org, ben.dooks@codethink.co.uk,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	daire.mcnamara@microchip.com
+Subject: Re: [PATCH v7 1/2] i2c: add support for microchip fpga i2c
+ controllers
+Message-ID: <YsXhyB9GrfUQjy4n@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa@kernel.org>,
 	Conor Dooley <conor.dooley@microchip.com>,
-	Niklas Cassel <niklas.cassel@wdc.com>,
-	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Zong Li <zong.li@sifive.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Jonas Hahnfeld <hahnjo@hahnjo.de>,
-	Guo Ren <guoren@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Changbin Du <changbin.du@intel.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Brice Goglin <Brice.Goglin@inria.fr>
-Subject: [PATCH] riscv: arch-topology: fix default topology reporting
-Date: Wed,  6 Jul 2022 19:45:59 +0100
-Message-Id: <20220706184558.2557301-1-mail@conchuod.ie>
-X-Mailer: git-send-email 2.37.0
+	linux-i2c@vger.kernel.org, ben.dooks@codethink.co.uk,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	daire.mcnamara@microchip.com
+References: <20220706141313.2504237-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
+In-Reply-To: <20220706141313.2504237-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_114637_509586_599D2665 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20220706_122610_476633_07732B03 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,146 +73,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4533881624103232263=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
 
-RISC-V has no sane defaults to fall back on where there is no cpu-map
-in the devicetree.
-Without sane defaults, the package, core and thread IDs are all set to
--1. This causes user-visible inaccuracies for tools like hwloc/lstopo
-which rely on the sysfs cpu topology files to detect a system's
-topology.
+--===============4533881624103232263==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3FVpZi6DzgGOTZib"
+Content-Disposition: inline
 
-Add sane defaults in ~the exact same way as ARM64.
 
-CC: stable@vger.kernel.org
-Fixes: 03f11f03dbfe ("RISC-V: Parse cpu topology during boot.")
-Reported-by: Brice Goglin <Brice.Goglin@inria.fr>
-Link: https://github.com/open-mpi/hwloc/issues/536
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
+--3FVpZi6DzgGOTZib
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Sudeep suggested that this be backported rather than the changes to
-the devicetrees adding cpu-map since that property is optional.
-That patchset is still valid in it's own right.
+On Wed, Jul 06, 2022 at 03:13:13PM +0100, Conor Dooley wrote:
+> Add Microchip CoreI2C i2c controller support. This driver supports the
+> "hard" i2c controller on the Microchip PolarFire SoC & the basic feature
+> set for "soft" i2c controller implemtations in the FPGA fabric.
+>=20
+> Co-developed-by: Daire McNamara <daire.mcnamara@microchip.com>
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
- arch/riscv/include/asm/topology.h | 13 +++++++++++++
- arch/riscv/kernel/Makefile        |  1 +
- arch/riscv/kernel/smpboot.c       |  4 ++++
- arch/riscv/kernel/topology.c      | 32 +++++++++++++++++++++++++++++++
- 4 files changed, 50 insertions(+)
- create mode 100644 arch/riscv/include/asm/topology.h
- create mode 100644 arch/riscv/kernel/topology.c
+Driver looks good, but what about the bindings? I shall not merge the
+driver without these.
 
-diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
-new file mode 100644
-index 000000000000..36bc6ecda898
---- /dev/null
-+++ b/arch/riscv/include/asm/topology.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries
-+ */
-+
-+#ifndef _ASM_RISCV_TOPOLOGY_H
-+#define _ASM_RISCV_TOPOLOGY_H
-+
-+#include <asm-generic/topology.h>
-+
-+void store_cpu_topology(unsigned int cpuid);
-+
-+#endif /* _ASM_RISCV_TOPOLOGY_H */
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index c71d6591d539..9518882ba6f9 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -50,6 +50,7 @@ obj-y	+= riscv_ksyms.o
- obj-y	+= stacktrace.o
- obj-y	+= cacheinfo.o
- obj-y	+= patch.o
-+obj-y	+= topology.o
- obj-y	+= probes/
- obj-$(CONFIG_MMU) += vdso.o vdso/
- 
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index f1e4948a4b52..d551c7f452d4 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -32,6 +32,7 @@
- #include <asm/sections.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
-+#include <asm/topology.h>
- 
- #include "head.h"
- 
-@@ -40,6 +41,8 @@ static DECLARE_COMPLETION(cpu_running);
- void __init smp_prepare_boot_cpu(void)
- {
- 	init_cpu_topology();
-+
-+	store_cpu_topology(smp_processor_id());
- }
- 
- void __init smp_prepare_cpus(unsigned int max_cpus)
-@@ -161,6 +164,7 @@ asmlinkage __visible void smp_callin(void)
- 	mmgrab(mm);
- 	current->active_mm = mm;
- 
-+	store_cpu_topology(curr_cpuid);
- 	notify_cpu_starting(curr_cpuid);
- 	numa_add_cpu(curr_cpuid);
- 	update_siblings_masks(curr_cpuid);
-diff --git a/arch/riscv/kernel/topology.c b/arch/riscv/kernel/topology.c
-new file mode 100644
-index 000000000000..db72862bd5b5
---- /dev/null
-+++ b/arch/riscv/kernel/topology.c
-@@ -0,0 +1,32 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries
-+ *
-+ * Based on the arm64 version, which was in turn based on arm32, which was
-+ * ultimately based on sh's.
-+ * The arm64 version was listed as:
-+ * Copyright (C) 2011,2013,2014 Linaro Limited.
-+ */
-+
-+#include <linux/arch_topology.h>
-+#include <linux/topology.h>
-+#include <asm/topology.h>
-+
-+void store_cpu_topology(unsigned int cpuid)
-+{
-+	struct cpu_topology *cpuid_topo = &cpu_topology[cpuid];
-+
-+	if (cpuid_topo->package_id != -1)
-+		goto topology_populated;
-+
-+	cpuid_topo->thread_id = -1;
-+	cpuid_topo->core_id = cpuid;
-+	cpuid_topo->package_id = cpu_to_node(cpuid);
-+
-+	pr_debug("CPU%u: package %d core %d thread %d\n",
-+		 cpuid, cpuid_topo->package_id, cpuid_topo->core_id,
-+		 cpuid_topo->thread_id);
-+
-+topology_populated:
-+	update_siblings_masks(cpuid);
-+}
 
-base-commit: b6f1f2fa2bddd69ff46a190b8120bd440fd50563
--- 
-2.37.0
+--3FVpZi6DzgGOTZib
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmLF4cQACgkQFA3kzBSg
+Kbantg/7BJmcaf7bvoLocUXjekKA9gxizf3QtabqYBIeWT7MBMc7uhgMfPGAEUl0
+MDuwfoopJsEdBsCV+OcCoL37T/7J+rJXFDoHbuDm6Uet7UkfMB7Am1IS+bl+EV+a
+TvTdxUhGSg3fwHORjaa9xiTxdzCPxn80NjRDXvjH9T7ej33xcgKQAY+Vtg16HTNV
+HMaJzrVt0cJf1P3wZQhGnKwK2mB4dYuvMB/5M18s0Lh9k847U+yWpqzJwo64Hn02
+SRqAQAfEZJ/fPjWehvxOjL3gKR1d+HbSLMxE2xEn+Mt9qsncqtkIXD9BHGfyc2cZ
+KkilV9WzKqsdEjWIlGav3NdLqL8eDfWbH8t3CmWxQ57+tNX2aZARqUMys7u3Elaf
+gTq3uF4oysBijmwx2ngQHEORzb07B+X07NUZtisBSlV4gcGiQOQdIUpX8XE2MpV5
+45nE8ymUeehSHG4rjB5Ez/fNl5pwUDmgDEn4OuJF6kCXn45PT0di96yBQBIfBefQ
+rHzJ0afvMha7R8W46RcMjr90c9B5Qll4vqJIoiBXRkBwLbtvrAiQBwcArZMx1zHd
+VPvy9TWx5G5+3M7MDMpni+Jy8XoxjGhLs7trtJ9Jhs5UUWkF8HPrZpInDhDlw9Hl
+pQ4wxcOGb53jXtHlBqEi5xYeIz2RosRmVkQT8Si5fwW4OFe+ZUY=
+=N2GO
+-----END PGP SIGNATURE-----
+
+--3FVpZi6DzgGOTZib--
+
+
+--===============4533881624103232263==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4533881624103232263==--
+
