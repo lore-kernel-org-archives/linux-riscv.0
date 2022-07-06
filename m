@@ -4,73 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD89C43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 08:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80C5C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 09:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i9OnxoZ7O7XuSUuM3vg2MHz87jNgItnyOcYa24ZzqbU=; b=oG/0SwfutdmCpa
-	8JBpccaaEv55ud633bPBQMQr/gr+5PXi1bvYuyULySoE4JinaIjsGCvEx/zDwrtQZZ6OqOiXQamKx
-	g7q/1JNsIUvmaJwX/TpBzMN0ezvTfj3/nC4I+YPenSUUTbIp0hPmFGZ+53ZGfD9YWJqLYA86q9GEH
-	7QCaqZFVk8Mm3P1qADJkuGXsjJjEBilZTsUK64E1t32qnqAZtxFCGYRlQ7+ikpCxdHbObwd8BsXzT
-	+id3wY1tPbQtfHyB2uEUHU/lFnxoM866KFvkkGnqApg5XKtW9aNka5b697dEqDJKZU/vdmMh259xR
-	XnLU71N2HwDBI/+Z5LZA==;
+	List-Owner; bh=7HhEmyNGUmlKRM9jWejQifbyDhiSq7xjXtrbNzvb478=; b=kmdYAjUJAPVO3D
+	oud1OTarchtZm9vePR8Ve5GGvcz2zbxzOgiviwlUOSzuQCDlKPQ8z5zRl6veDZKZfbITMA7jbKhNT
+	grI57Ei2IaeoCKgdidNqxGHJeSBEpaaGex1R4o4TFpWXP6p3xrynqwsoG7HcNuHu0rvjLclybL5Db
+	f8rBU9uqkuMNgYYfVigCa+tT2UnDqxwD/+zZUlyg+mkA87NctxoEVLP9th7R5BYvSZt+fNu0Aofn+
+	/1mfPY7pDelhVwnKpWVzRviKJaAG03HDEtOW0QmcLf+xDMXwIlBT1Auzr3nQFP0AVBmtcZa/ncHFI
+	nd49Vh3ziF9HoEP288BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o90TR-007OxI-5i; Wed, 06 Jul 2022 08:33:29 +0000
+	id 1o91Ce-007iv6-Oa; Wed, 06 Jul 2022 09:20:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o90TG-007OrP-4o; Wed, 06 Jul 2022 08:33:19 +0000
+	id 1o91Cb-007itw-8v
+	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 09:20:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 546F11596;
-	Wed,  6 Jul 2022 01:33:15 -0700 (PDT)
-Received: from [10.163.43.16] (unknown [10.163.43.16])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E08113F792;
-	Wed,  6 Jul 2022 01:33:07 -0700 (PDT)
-Message-ID: <ced30a7d-b3a0-d98f-08cf-f59dbfe3d229@arm.com>
-Date: Wed, 6 Jul 2022 14:03:05 +0530
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 753EC15A1;
+	Wed,  6 Jul 2022 02:20:05 -0700 (PDT)
+Received: from bogus (unknown [10.57.39.193])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9FEA3F66F;
+	Wed,  6 Jul 2022 02:20:00 -0700 (PDT)
+Date: Wed, 6 Jul 2022 10:18:50 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Conor.Dooley@microchip.com
+Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	Daire.McNamara@microchip.com, niklas.cassel@wdc.com,
+	damien.lemoal@opensource.wdc.com, geert@linux-m68k.org,
+	zong.li@sifive.com, kernel@esmil.dk, hahnjo@hahnjo.de,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Brice.Goglin@inria.fr
+Subject: Re: [PATCH 0/5] RISC-V: Add cpu-map topology information nodes
+Message-ID: <20220706091850.deealvovinkzjrml@bogus>
+References: <20220705190435.1790466-1-mail@conchuod.ie>
+ <20220705201931.nfwi5rlku7ykmydr@bogus>
+ <8f07796a-d9a2-3301-aafb-7fbec4d5b1a2@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-Subject: Re: [PATCH V6 00/26] mm/mmap: Drop __SXXX/__PXXX macros from across
- platforms
-Content-Language: en-US
-To: Arnd Bergmann <arnd@arndb.de>,
- Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "linux-xtensa@linux-xtensa.org" <linux-xtensa@linux-xtensa.org>,
- "linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>,
- "linux-parisc@vger.kernel.org" <linux-parisc@vger.kernel.org>,
- "linux-s390@vger.kernel.org" <linux-s390@vger.kernel.org>,
- "linux-sh@vger.kernel.org" <linux-sh@vger.kernel.org>,
- "linux-hexagon@vger.kernel.org" <linux-hexagon@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>,
- "linux-um@lists.infradead.org" <linux-um@lists.infradead.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "hch@infradead.org" <hch@infradead.org>,
- "linux-m68k@lists.linux-m68k.org" <linux-m68k@lists.linux-m68k.org>,
- "openrisc@lists.librecores.org" <openrisc@lists.librecores.org>,
- "linux-alpha@vger.kernel.org" <linux-alpha@vger.kernel.org>,
- "sparclinux@vger.kernel.org" <sparclinux@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-snps-arc@lists.infradead.org" <linux-snps-arc@lists.infradead.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20220630051630.1718927-1-anshuman.khandual@arm.com>
- <8a6ccbae-7d7c-6e08-cc28-eeb649f86112@arm.com>
- <85fff3f6-373f-3e6a-325e-0fa8ad46273a@csgroup.eu>
- <CAK8P3a1gb1Xrg4AGnncFpN=aDxVKfjkt1TmSvZXXADZTv7eE-g@mail.gmail.com>
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <CAK8P3a1gb1Xrg4AGnncFpN=aDxVKfjkt1TmSvZXXADZTv7eE-g@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <8f07796a-d9a2-3301-aafb-7fbec4d5b1a2@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_013318_285905_40460A11 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20220706_022009_397496_CB99CE37 
+X-CRM114-Status: GOOD (  23.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +68,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 7/6/22 12:34, Arnd Bergmann wrote:
-> On Wed, Jul 6, 2022 at 8:33 AM Christophe Leroy
-> <christophe.leroy@csgroup.eu> wrote:
+On Tue, Jul 05, 2022 at 08:33:39PM +0000, Conor.Dooley@microchip.com wrote:
 > 
->> As far as I can see in Kconfig, CONFIG_MMU is user selectable on the
->> following architectures:
->> - ARM
->> - M68K
->> - RISCV
->> - SH
->>
->> And is disabled by default on XTENSA.
 > 
-> Right, the list is complete, though it's also default-enabled for
-> every CPU core on xtensa, and you can only disable it for
-> "custom" CPU cores.
+> On 05/07/2022 21:19, Sudeep Holla wrote:
+> > On Tue, Jul 05, 2022 at 08:04:31PM +0100, Conor Dooley wrote:
+> >> From: Conor Dooley <conor.dooley@microchip.com>
+> >>
+> >> It was reported to me that the Hive Unmatched incorrectly reports
+> >> its topology to hwloc, but the StarFive VisionFive did in [0] &
+> >> a subsequent off-list email from Brice (the hwloc maintainer).
+> >> This turned out not to be entirely true, the /downstream/ version
+> >> of the VisionFive does work correctly but not upstream, as the
+> >> downstream devicetree has a cpu-map node that was added recently.
+> >>
+> >> This series adds a cpu-map node to all upstream devicetrees, which
+> >> I have tested on mpfs & fu540. The first patch is lifted directly
+> >> from the downstream StarFive devicetree.
+> >>
+> > 
+> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> > 
+> > I would recommend to have sane defaults in core risc-v code in case of
+> > absence of /cpu-map node as it is optional. The reason I mentioned is that
+> > Conor mentioned how the default values in absence of the node looked quite
+> > wrong. I don't know if it is possible on RISC-V but on ARM64 we do have
+> > default values if arch_topology fails to set based on DT/ACPI.
+> > 
+> 
+> Yeah the defaults are all -1. I'll add some sane defaults for a v2.
 
-ARM, M68K, RISCV all have got them inside wrapper or files which are
-not built, without CONFIG_MMU. With build fixes for SH and XTENSA on
-linux-next, I guess we are good.
+Sorry I didn't mean it to be part of this series. This series of DT changes
+are just fine on their own.
+
+-- 
+Regards,
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
