@@ -4,57 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E16C43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 11:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAEBDC43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 11:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dtDAyUV/w8fq/wgObZSjmU/etXm8Lx409tyKKmLpiuQ=; b=P/0jegnoIJWmll
-	wK1JIRGNt8pZDhSfLIqTtkTQBpKCRXUXade80m36fEN49GWm97AuigiBuKLFn3Sr4TLkIr4mglghn
-	GSmAFBQEml0HDTZz6fMqH2h5C2CVHIb443nCx6k8lOf5FVVsXa8zrBi5lfqhlj3FXbhdh7Z+GSqRb
-	i5z4qOhCTNtRvN1Q4aH8XCDtkTAXawFpSi0dHuruTsnhc7sIlODrqtbBLg92x2bQtjJM0q+zIwWr/
-	8ezSr5q/moEQYuVjw911BpXwXwO8tP+ieJtvFTPBLLfrG47K0zpZmDAIi9G2iKs+L8Lky4QmdzX2H
-	TGcrsvIOrhmKpJUBnRMQ==;
+	List-Owner; bh=7Wr8qPLUAmMXYvdUQfuoYDwYgeX4dkilnqpjEFUOSgE=; b=h73ZwRNH8H2/Xh
+	0JhbixFVtWsxjctVASaha3DKcMM5aQ53SXD3JblhKqE2/5mC+mSibKBPfbItEDFDSWUK796p7K/c6
+	yItKL63QvoPUA9DmbHJX2BBpr5V880vBOi2i0oSDUX/psNCL+8drBSP3XBVqDkWPJd5c2oxIMzxmt
+	38Oz7xQDObxKM2sEMrJaV+Rreobw93CAYXlyowvN1MjtSUACrNqfz2E/VdEDFGSn2FTl2ooX98heD
+	ckoug6aATAmmCR7i9CHKEhI4+ikZzZIH1WhJS5xAPrxqNDOP4J4UVTZIRFGMcWx/vsphHm3AEmtYr
+	EAmxw5xViFNsCCMEyw8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o931C-009Knc-8Q; Wed, 06 Jul 2022 11:16:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o91tp-0087nj-NM
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 10:04:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E1EB81042;
-	Wed,  6 Jul 2022 03:04:47 -0700 (PDT)
-Received: from bogus (unknown [10.57.39.193])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8046E3F66F;
-	Wed,  6 Jul 2022 03:04:44 -0700 (PDT)
-Date: Wed, 6 Jul 2022 11:03:33 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Conor.Dooley@microchip.com
-Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	Daire.McNamara@microchip.com, niklas.cassel@wdc.com,
-	damien.lemoal@opensource.wdc.com, geert@linux-m68k.org,
-	zong.li@sifive.com, kernel@esmil.dk, hahnjo@hahnjo.de,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Brice.Goglin@inria.fr
-Subject: Re: [PATCH 0/5] RISC-V: Add cpu-map topology information nodes
-Message-ID: <20220706100333.7n35rfnbdrnz6mh5@bogus>
-References: <20220705190435.1790466-1-mail@conchuod.ie>
- <20220705201931.nfwi5rlku7ykmydr@bogus>
- <8f07796a-d9a2-3301-aafb-7fbec4d5b1a2@microchip.com>
- <fb7be22c-cf19-0e06-f231-bb5b9167e179@microchip.com>
- <20220706092126.k6zaknwcwzyg22ak@bogus>
- <9f26cd2a-b389-3f4b-b7d2-06fa5c2d7016@microchip.com>
+	id 1o931B-009Kj3-Jj; Wed, 06 Jul 2022 11:16:29 +0000
+Received: from imap2.colo.codethink.co.uk ([78.40.148.184])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o91t3-0087BM-FJ
+	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 10:04:04 +0000
+Received: from [167.98.27.226] (helo=[10.35.4.171])
+	by imap2.colo.codethink.co.uk with esmtpsa  (Exim 4.92 #3 (Debian))
+	id 1o91sy-0001FO-GX; Wed, 06 Jul 2022 11:03:56 +0100
+Message-ID: <b916f508-aa9c-08df-f562-a0bd62163a95@codethink.co.uk>
+Date: Wed, 6 Jul 2022 11:03:56 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <9f26cd2a-b389-3f4b-b7d2-06fa5c2d7016@microchip.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.10.0
+Subject: Re: [PATCH 1/1] gpio: mpfs - add polarfire soc gpio support
+Content-Language: en-GB
+To: lewis.hanly@microchip.com, linux-gpio@vger.kernel.org,
+ linux-riscv@lists.infradead.org, palmer@dabbelt.com, maz@kernel.org
+Cc: paul.walmsley@sifive.com, conor.dooley@microchip.com,
+ daire.mcnamara@microchip.com
+References: <20220705134912.2740421-1-lewis.hanly@microchip.com>
+ <20220705134912.2740421-2-lewis.hanly@microchip.com>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <20220705134912.2740421-2-lewis.hanly@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_030449_943086_BF5F5904 
-X-CRM114-Status: GOOD (  39.75  )
+X-CRM114-CacheID: sfid-20220706_030401_711081_505E38AA 
+X-CRM114-Status: GOOD (  33.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,183 +58,418 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 06, 2022 at 09:43:02AM +0000, Conor.Dooley@microchip.com wrote:
+On 05/07/2022 14:49, lewis.hanly@microchip.com wrote:
+> From: Lewis Hanly <lewis.hanly@microchip.com>
 > 
+> Add a driver to support the Polarfire SoC gpio controller.
 > 
-> On 06/07/2022 10:21, Sudeep Holla wrote:
-> > On Tue, Jul 05, 2022 at 11:03:54PM +0000, Conor.Dooley@microchip.com wrote:
-> >>
-> >>
-> >> On 05/07/2022 21:33, Conor.Dooley@microchip.com wrote:
-> >>>
-> >>>
-> >>> On 05/07/2022 21:19, Sudeep Holla wrote:
-> >>>> On Tue, Jul 05, 2022 at 08:04:31PM +0100, Conor Dooley wrote:
-> >>>>> From: Conor Dooley <conor.dooley@microchip.com>
-> >>>>>
-> >>>>> It was reported to me that the Hive Unmatched incorrectly reports
-> >>>>> its topology to hwloc, but the StarFive VisionFive did in [0] &
-> >>>>> a subsequent off-list email from Brice (the hwloc maintainer).
-> >>>>> This turned out not to be entirely true, the /downstream/ version
-> >>>>> of the VisionFive does work correctly but not upstream, as the
-> >>>>> downstream devicetree has a cpu-map node that was added recently.
-> >>>>>
-> >>>>> This series adds a cpu-map node to all upstream devicetrees, which
-> >>>>> I have tested on mpfs & fu540. The first patch is lifted directly
-> >>>>> from the downstream StarFive devicetree.
-> >>>>>
-> >>>>
-> >>>> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> >>>>
-> >>>> I would recommend to have sane defaults in core risc-v code in case of
-> >>>> absence of /cpu-map node as it is optional. The reason I mentioned is that
-> >>>> Conor mentioned how the default values in absence of the node looked quite
-> >>>> wrong. I don't know if it is possible on RISC-V but on ARM64 we do have
-> >>>> default values if arch_topology fails to set based on DT/ACPI.
-> >>>>
-> >>>
-> >>> Yeah the defaults are all -1. I'll add some sane defaults for a v2.
-> >>> Thanks,
-> >>> Conor.
-> >>
-> >> I shamelessly stole from arm64... Seems to work, but have done minimal
-> >> testing (only PolarFire SoC).
-> >>
-> >> Author: Conor Dooley <conor.dooley@microchip.com>
-> >> Date:   Wed Jul 6 00:00:34 2022 +0100
-> >>
-> >>      riscv: arch-topology: add sane defaults
-> >>      
-> >>      RISC-V has no sane defaults to fall back on where there is no cpu-map
-> >>      in the devicetree. Add sane defaults in ~the exact same way as ARM64.
-> >>      
-> >>      Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> >>
-> >> diff --git a/arch/riscv/include/asm/topology.h b/arch/riscv/include/asm/topology.h
-> >> new file mode 100644
-> >> index 000000000000..71c80710f00e
-> >> --- /dev/null
-> >> +++ b/arch/riscv/include/asm/topology.h
-> >> @@ -0,0 +1,13 @@
-> >> +/* SPDX-License-Identifier: GPL-2.0-only */
-> >> +/*
-> >> + * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries
-> >> + */
-> >> +
-> >> +#ifndef _ASM_RISCV_TOPOLOGY_H
-> >> +#define _ASM_RISCV_TOPOLOGY_H
-> >> +
-> >> +#include <asm-generic/topology.h>
-> >> +
-> >> +void store_cpu_topology(unsigned int cpuid);
-> >> +
-> >> +#endif /* _ASM_RISCV_TOPOLOGY_H */
-> >> \ No newline at end of file
-> >> diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-> >> index c71d6591d539..9518882ba6f9 100644
-> >> --- a/arch/riscv/kernel/Makefile
-> >> +++ b/arch/riscv/kernel/Makefile
-> >> @@ -50,6 +50,7 @@ obj-y += riscv_ksyms.o
-> >>   obj-y  += stacktrace.o
-> >>   obj-y  += cacheinfo.o
-> >>   obj-y  += patch.o
-> >> +obj-y  += topology.o
-> >>   obj-y  += probes/
-> >>   obj-$(CONFIG_MMU) += vdso.o vdso/
-> >>   
-> >> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> >> index f1e4948a4b52..d551c7f452d4 100644
-> >> --- a/arch/riscv/kernel/smpboot.c
-> >> +++ b/arch/riscv/kernel/smpboot.c
-> >> @@ -32,6 +32,7 @@
-> >>   #include <asm/sections.h>
-> >>   #include <asm/sbi.h>
-> >>   #include <asm/smp.h>
-> >> +#include <asm/topology.h>
-> >>   
-> >>   #include "head.h"
-> >>   
-> >> @@ -40,6 +41,8 @@ static DECLARE_COMPLETION(cpu_running);
-> >>   void __init smp_prepare_boot_cpu(void)
-> >>   {
-> >>          init_cpu_topology();
-> >> +
-> >> +       store_cpu_topology(smp_processor_id());
-> >>   }
-> >>   
-> >>   void __init smp_prepare_cpus(unsigned int max_cpus)
-> >> @@ -161,6 +164,7 @@ asmlinkage __visible void smp_callin(void)
-> >>          mmgrab(mm);
-> >>          current->active_mm = mm;
-> >>   
-> >> +       store_cpu_topology(curr_cpuid);
-> >>          notify_cpu_starting(curr_cpuid);
-> >>          numa_add_cpu(curr_cpuid);
-> >>          update_siblings_masks(curr_cpuid);
-> >> diff --git a/arch/riscv/kernel/topology.c b/arch/riscv/kernel/topology.c
-> >> new file mode 100644
-> >> index 000000000000..799b3423e0bc
-> >> --- /dev/null
-> >> +++ b/arch/riscv/kernel/topology.c
-> >> @@ -0,0 +1,30 @@
-> >> +// SPDX-License-Identifier: GPL-2.0-only
-> >> +/*
-> >> + * Based on the arm64 version, which was in turn based on arm32, which was
-> >> + * ultimately based on sh's.
-> >> + * The arm64 version was listed as:
-> >> + * Copyright (C) 2011,2013,2014 Linaro Limited.
-> >> + *
-> >> + */
-> >> +#include <linux/arch_topology.h>
-> >> +#include <linux/topology.h>
-> >> +#include <asm/topology.h>
-> >> +
-> >> +void store_cpu_topology(unsigned int cpuid)
-> >> +{
-> >> +       struct cpu_topology *cpuid_topo = &cpu_topology[cpuid];
-> >> +
-> >> +       if (cpuid_topo->package_id != -1)
-> >> +               goto topology_populated;
-> >> +
-> >> +       cpuid_topo->thread_id = -1;
-> >> +       cpuid_topo->core_id = cpuid;
-> >> +       cpuid_topo->package_id = cpu_to_node(cpuid);
-> >> +
-> >> +       pr_info("CPU%u: cluster %d core %d thread %d\n",
-> >> +                cpuid, cpuid_topo->package_id, cpuid_topo->core_id,
-> >> +                cpuid_topo->thread_id);
-> >> +
-> >> +topology_populated:
-> >> +       update_siblings_masks(cpuid);
-> >> +}
-> >>
-> > 
-> > Looks good. Again package id is not cluster. This is what my series is
-> > addressing. So update the log as Package instead of Cluster above. The
-> > cluster id will be -1 unless you can get that for DT.
+> Signed-off-by: Lewis Hanly <lewis.hanly@microchip.com>
+> ---
+>   drivers/gpio/Kconfig     |   7 +
+>   drivers/gpio/Makefile    |   1 +
+>   drivers/gpio/gpio-mpfs.c | 358 +++++++++++++++++++++++++++++++++++++++
+>   3 files changed, 366 insertions(+)
+>   create mode 100644 drivers/gpio/gpio-mpfs.c
 > 
-> 
-> Cool, I'll respin a v2 without this included then & get the series
-> backported since this is user visible & will fix all existing supported
-> platforms.
+
+snip
+
+> diff --git a/drivers/gpio/gpio-mpfs.c b/drivers/gpio/gpio-mpfs.c
+> new file mode 100644
+> index 000000000000..df48f2836e97
+> --- /dev/null
+> +++ b/drivers/gpio/gpio-mpfs.c
+> @@ -0,0 +1,358 @@
+> +// SPDX-License-Identifier: (GPL-2.0)
+> +/*
+> + * Microchip PolarFire SoC (MPFS) GPIO controller driver
+> + *
+> + * Copyright (c) 2018-2022 Microchip Technology Inc. and its subsidiaries
+> + *
+> + * Author: Lewis Hanly <lewis.hanly@microchip.com>
+> + *
+> + */
+> +
+> +#include <linux/bitops.h>
+> +#include <linux/clk.h>
+> +#include <linux/device.h>
+> +#include <linux/errno.h>
+> +#include <linux/gpio/driver.h>
+> +#include <linux/init.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqchip/chained_irq.h>
+> +#include <linux/of.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/spinlock.h>
+> +
+> +#define NUM_GPIO			32
+> +#define BYTE_BOUNDARY			0x04
+> +#define MPFS_GPIO_EN_INT		3
+> +#define MPFS_GPIO_EN_OUT_BUF		BIT(2)
+> +#define MPFS_GPIO_EN_IN			BIT(1)
+> +#define MPFS_GPIO_EN_OUT		BIT(0)
+> +
+> +#define MPFS_GPIO_TYPE_INT_EDGE_BOTH	0x80
+> +#define MPFS_GPIO_TYPE_INT_EDGE_NEG	0x60
+> +#define MPFS_GPIO_TYPE_INT_EDGE_POS	0x40
+> +#define MPFS_GPIO_TYPE_INT_LEVEL_LOW	0x20
+> +#define MPFS_GPIO_TYPE_INT_LEVEL_HIGH	0x00
+> +#define MPFS_GPIO_TYPE_INT_MASK		GENMASK(7, 5)
+> +#define MPFS_IRQ_REG			0x80
+> +#define MPFS_INP_REG			0x84
+> +#define MPFS_OUTP_REG			0x88
+> +
+> +struct mpfs_gpio_chip {
+> +	void __iomem *base;
+> +	struct clk *clk;
+> +	spinlock_t lock; /* lock */
+> +	struct gpio_chip gc;
+> +};
+> +
+> +static void mpfs_gpio_assign_bit(void __iomem *addr, unsigned int bit_offset, int value)
+> +{
+> +	u32 output = readl(addr);
+> +
+> +	if (value)
+> +		output |= BIT(bit_offset);
+> +	else
+> +		output &= ~BIT(bit_offset);
+> +
+> +	writel(output, addr);
+> +}
+> +
+> +static int mpfs_gpio_direction_input(struct gpio_chip *gc, unsigned int gpio_index)
+> +{
+> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
+> +	u32 gpio_cfg;
+> +	unsigned long flags;
+> +
+> +	if (gpio_index >= NUM_GPIO)
+> +		return -EINVAL;
+
+
+
+> +	spin_lock_irqsave(&mpfs_gpio->lock, flags);
+> +
+> +	gpio_cfg = readl(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
+> +	gpio_cfg |= MPFS_GPIO_EN_IN;
+> +	gpio_cfg &= ~(MPFS_GPIO_EN_OUT | MPFS_GPIO_EN_OUT_BUF);
+> +	writel(gpio_cfg, mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
+> +
+> +	spin_unlock_irqrestore(&mpfs_gpio->lock, flags);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpfs_gpio_direction_output(struct gpio_chip *gc, unsigned int gpio_index, int value)
+> +{
+> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
+> +	u32 gpio_cfg;
+> +	unsigned long flags;
+> +
+> +	if (gpio_index >= NUM_GPIO)
+> +		return -EINVAL;
+
+Is this necessary, shouldn't gpio layer have checked this already?
+
+> +	spin_lock_irqsave(&mpfs_gpio->lock, flags);
+> +
+> +	gpio_cfg = readl(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
+> +	gpio_cfg |= MPFS_GPIO_EN_OUT | MPFS_GPIO_EN_OUT_BUF;
+> +	gpio_cfg &= ~MPFS_GPIO_EN_IN;
+> +	writel(gpio_cfg, mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
+> +
+> +	mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_OUTP_REG, gpio_index, value);
+> +
+> +	spin_unlock_irqrestore(&mpfs_gpio->lock, flags);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpfs_gpio_get_direction(struct gpio_chip *gc,
+> +				   unsigned int gpio_index)
+> +{
+> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
+> +	u32 gpio_cfg;
+> +
+> +	if (gpio_index >= NUM_GPIO)
+> +		return -EINVAL;
+
+Is this necessary, shouldn't gpio layer have checked this already?
+
+> +	gpio_cfg = readl(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
+> +
+> +	if (gpio_cfg & MPFS_GPIO_EN_IN)
+> +		return 1;
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpfs_gpio_get(struct gpio_chip *gc,
+> +			 unsigned int gpio_index)
+> +{
+> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
+> +
+> +	if (gpio_index >= NUM_GPIO)
+> +		return -EINVAL;
+
+Is this necessary, shouldn't gpio layer have checked this already?
+
+> +	return !!(readl(mpfs_gpio->base + MPFS_INP_REG) & BIT(gpio_index));
+> +}
+> +
+> +static void mpfs_gpio_set(struct gpio_chip *gc, unsigned int gpio_index, int value)
+> +{
+> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
+> +	unsigned long flags;
+> +
+> +	if (gpio_index >= NUM_GPIO)
+> +		return;
+
+Is this necessary, shouldn't gpio layer have checked this already?
+
+> +	spin_lock_irqsave(&mpfs_gpio->lock, flags);
+> +
+> +	mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_OUTP_REG,
+> +			     gpio_index, value);
+> +
+> +	spin_unlock_irqrestore(&mpfs_gpio->lock, flags);
+> +}
+> +
+> +static int mpfs_gpio_irq_set_type(struct irq_data *data, unsigned int type)
+> +{
+> +	struct gpio_chip *gc = irq_data_get_irq_chip_data(data);
+> +	int gpio_index = irqd_to_hwirq(data);
+> +	u32 interrupt_type;
+> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
+> +	u32 gpio_cfg;
+> +	unsigned long flags;
+> +
+> +	if (gpio_index >= NUM_GPIO)
+> +		return -EINVAL;
 >
 
-The DT /cpu-map is optional, so I don't think it needs to be backported.
+Is this necessary, shouldn't gpio layer have checked this already?
 
-> 
-> I'll send the topology code changes separately to avoid it going
-> forwards.
+> +	switch (type) {
+> +	case IRQ_TYPE_EDGE_BOTH:
+> +		interrupt_type = MPFS_GPIO_TYPE_INT_EDGE_BOTH;
+> +		break;
+> +
+> +	case IRQ_TYPE_EDGE_FALLING:
+> +		interrupt_type = MPFS_GPIO_TYPE_INT_EDGE_NEG;
+> +		break;
+> +
+> +	case IRQ_TYPE_EDGE_RISING:
+> +		interrupt_type = MPFS_GPIO_TYPE_INT_EDGE_POS;
+> +		break;
+> +
+> +	case IRQ_TYPE_LEVEL_HIGH:
+> +		interrupt_type = MPFS_GPIO_TYPE_INT_LEVEL_HIGH;
+> +		break;
+> +
+> +	case IRQ_TYPE_LEVEL_LOW:
+> +	default:
+> +		interrupt_type = MPFS_GPIO_TYPE_INT_LEVEL_LOW;
+> +		break;
+> +	}
+> +
+> +	spin_lock_irqsave(&mpfs_gpio->lock, flags);
+> +
+> +	gpio_cfg = readl(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
+> +	gpio_cfg &= ~MPFS_GPIO_TYPE_INT_MASK;
+> +	gpio_cfg |= interrupt_type;
+> +	writel(gpio_cfg, mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY));
+> +
+> +	spin_unlock_irqrestore(&mpfs_gpio->lock, flags);
+> +
+> +	return 0;
+> +}
+> +
+> +static void mpfs_gpio_irq_enable(struct irq_data *data)
+> +{
+> +	struct gpio_chip *gc = irq_data_get_irq_chip_data(data);
+> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
+> +	int gpio_index = irqd_to_hwirq(data) % NUM_GPIO;
+> +
+> +	mpfs_gpio_direction_input(gc, gpio_index);
+> +	mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_IRQ_REG, gpio_index, 1);
+> +	mpfs_gpio_assign_bit(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY),
+> +			     MPFS_GPIO_EN_INT, 1);
+> +}
+> +
+> +static void mpfs_gpio_irq_disable(struct irq_data *data)
+> +{
+> +	struct gpio_chip *gc = irq_data_get_irq_chip_data(data);
+> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
+> +	int gpio_index = irqd_to_hwirq(data) % NUM_GPIO;
+> +
+> +	mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_IRQ_REG, gpio_index, 1);
+> +	mpfs_gpio_assign_bit(mpfs_gpio->base + (gpio_index * BYTE_BOUNDARY),
+> +			     MPFS_GPIO_EN_INT, 0);
+> +}
+> +
+> +static struct irq_chip mpfs_gpio_irqchip = {
+> +	.name = "mpfs_gpio_irqchip",
+> +	.irq_set_type = mpfs_gpio_irq_set_type,
+> +	.irq_enable = mpfs_gpio_irq_enable,
+> +	.irq_disable = mpfs_gpio_irq_disable,
+> +	.flags = IRQCHIP_MASK_ON_SUSPEND,
+> +};
+> +
+> +static irqreturn_t mpfs_gpio_irq_handler(int irq, void *mpfs_gpio_data)
+> +{
+> +	struct mpfs_gpio_chip *mpfs_gpio = mpfs_gpio_data;
+> +	unsigned long status;
+> +	int offset;
+> +
+> +	status = readl(mpfs_gpio->base + MPFS_IRQ_REG);
+> +
+> +	for_each_set_bit(offset, &status, mpfs_gpio->gc.ngpio) {
+> +		mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_IRQ_REG, offset, 1);
+> +		generic_handle_irq(irq_find_mapping(mpfs_gpio->gc.irq.domain, offset));
+> +	}
+> +	return IRQ_HANDLED;
+> +}
+> +
+> +static int mpfs_gpio_probe(struct platform_device *pdev)
+> +{
+> +	struct clk *clk;
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *node = pdev->dev.of_node;
+> +	struct mpfs_gpio_chip *mpfs_gpio;
+> +	int i, ret, ngpio;
+> +	struct gpio_irq_chip *irq_c;
+> +
+> +	mpfs_gpio = devm_kzalloc(dev, sizeof(*mpfs_gpio), GFP_KERNEL);
+> +	if (!mpfs_gpio)
+> +		return -ENOMEM;
+> +
+> +	mpfs_gpio->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(mpfs_gpio->base)) {
+> +		dev_err(dev, "failed to allocate device memory\n");
+> +		return PTR_ERR(mpfs_gpio->base);
+> +	}
 
-This on the other hand can be backported to fix userspace.
+seems to be a mix of dev_err and dev_err_probe() in here?
+
+> +	clk = devm_clk_get(&pdev->dev, NULL);
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(clk), "failed to get clock\n");
+> +
+> +	ret = clk_prepare_enable(clk);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "failed to enable clock\n");
+> +
+> +	mpfs_gpio->clk = clk;
+> +
+> +	spin_lock_init(&mpfs_gpio->lock);
+> +
+> +	ngpio = of_irq_count(node);
+> +	if (ngpio > NUM_GPIO) {
+> +		dev_err(dev, "too many interrupts\n");
+> +		goto cleanup_clock;
+> +	}
+> +
+> +	mpfs_gpio->gc.direction_input = mpfs_gpio_direction_input;
+> +	mpfs_gpio->gc.direction_output = mpfs_gpio_direction_output;
+> +	mpfs_gpio->gc.get_direction = mpfs_gpio_get_direction;
+> +	mpfs_gpio->gc.get = mpfs_gpio_get;
+> +	mpfs_gpio->gc.set = mpfs_gpio_set;
+> +	mpfs_gpio->gc.base = -1;
+> +	mpfs_gpio->gc.ngpio = ngpio;
+> +	mpfs_gpio->gc.label = dev_name(dev);
+> +	mpfs_gpio->gc.parent = dev;
+> +	mpfs_gpio->gc.owner = THIS_MODULE;
+> +
+> +	irq_c = &mpfs_gpio->gc.irq;
+> +	irq_c->chip = &mpfs_gpio_irqchip;
+> +	irq_c->chip->parent_device = dev;
+> +	irq_c->handler = handle_simple_irq;
+> +
+> +	ret = devm_irq_alloc_descs(&pdev->dev, -1, 0, ngpio, 0);
+> +	if (ret < 0) {
+> +		dev_err(dev, "failed to allocate descs\n");
+> +		goto cleanup_clock;
+> +	}
+> +
+> +	/*
+> +	 * Setup the interrupt handlers. Interrupts can be
+> +	 * direct and/or non-direct mode, based on register value:
+> +	 * GPIO_INTERRUPT_FAB_CR.
+> +	 */
+> +	for (i = 0; i < ngpio; i++) {
+> +		int irq = platform_get_irq_optional(pdev, i);
+> +
+> +		if (irq < 0)
+> +			continue;
+> +
+> +		ret = devm_request_irq(&pdev->dev, irq,
+> +				       mpfs_gpio_irq_handler,
+> +				       IRQF_SHARED, mpfs_gpio->gc.label, mpfs_gpio);
+> +		if (ret) {
+> +			dev_err(&pdev->dev, "failed to request irq %d: %d\n",
+> +				irq, ret);
+> +			goto cleanup_clock;
+> +		}
+> +	}
+> +
+> +	ret = gpiochip_add_data(&mpfs_gpio->gc, mpfs_gpio);
+> +	if (ret)
+> +		goto cleanup_clock;
+> +
+> +	platform_set_drvdata(pdev, mpfs_gpio);
+> +	dev_info(dev, "Microchip MPFS GPIO registered %d GPIOs\n", ngpio);
+> +
+> +	return 0;
+> +
+> +cleanup_clock:
+> +	clk_disable_unprepare(mpfs_gpio->clk);
+> +	return ret;
+> +}
+
+do you need to deal with EPROBEDEFER in the above probe?
+
+> +
+> +static int mpfs_gpio_remove(struct platform_device *pdev)
+> +{
+> +	struct mpfs_gpio_chip *mpfs_gpio = platform_get_drvdata(pdev);
+> +
+> +	gpiochip_remove(&mpfs_gpio->gc);
+> +	clk_disable_unprepare(mpfs_gpio->clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct of_device_id mpfs_gpio_match[] = {
+> +	{ .compatible = "microchip,mpfs-gpio", },
+> +	{ /* end of list */ },
+> +};
+> +
+> +static struct platform_driver mpfs_gpio_driver = {
+> +	.probe = mpfs_gpio_probe,
+> +	.driver = {
+> +		.name = "microchip,mpfs-gpio",
+> +		.of_match_table = of_match_ptr(mpfs_gpio_match),
+> +	},
+> +	.remove = mpfs_gpio_remove,
+> +};
+> +
+> +builtin_platform_driver(mpfs_gpio_driver);
+
+MODULE_AUTHOR and associated info could do with being at the bottom.
 
 -- 
-Regards,
-Sudeep
+Ben Dooks				http://www.codethink.co.uk/
+Senior Engineer				Codethink - Providing Genius
+
+https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
