@@ -4,120 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD8AC43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 14:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9475DC43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 14:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lCAIijwRzDkHm9UbdgDkV6NfKHqopYalk7C40/oHq4I=; b=sxt0WNiT/5bVWd
-	Og3U+JZTy3GOdYCtEfo9CJp2EwVQ9z/94q7nPx9D05Xnc//iCJ5J2Vf+98hml4RGF1B4jgrjBx65z
-	1ujJxFE7bd8drGMg649OFcnnYzNHvT297krSOdJZU6YB1AN6EI5xdAYKAr5YrE/y5C81Y4m37xabB
-	YMmQnQo9lUhd6BuCx9bUOPFei1zwUjoZ4hS05tFLfDZUDGlEHxdEDJThK8Pj9BvR6gb7or2dkH8C7
-	E4KlwbSq2XX5C6/gmh2fEsJIVJ5BNTCBIjGy3JLRH7AdXBYNpvbeFEo3Y/ztyIcoiICqzIb7fDCRo
-	gqDWL9mYTNVD6fksDLOQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uvEdW85EHBTX+SDY5aDi8qb3w6Vh0VRnCdAorBkc/7A=; b=2SAl5pf7t1wf/N
+	n/ZUqqIBBQmT705fflIfF3xoMnf6M//tr4ZTM7go9yl+OwPJ5dEKPOtOhjuDq7n6CXPRHMzVnthl5
+	N/4cHrlwtWf47aC4hols1wSWvV0cHfcs3SOpl0SADLVKEMrK0YstyrHX8Uq91AZW4QqGh5HgkDiCN
+	d8UZZvjWTryazjIRrNAwEze/hbKKO2MQRrbW4AVp1DdztVE9hqjzQ8qCQZyqjDEA0LbMuAK0QnQty
+	2gPvgP4UgaBpp1xWQRt9SZF8dfHJ+sx9nU2KavfMkrv/eEhY+JvnMjWtPDvK8pmD/aWPSljCrreIU
+	bxBuMzJz8JoMR/MK96eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o95ej-00AWYj-Bs; Wed, 06 Jul 2022 14:05:29 +0000
-Received: from mail-yw1-f180.google.com ([209.85.128.180])
+	id 1o95mh-00AYto-69; Wed, 06 Jul 2022 14:13:43 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o95eA-00AWKy-54; Wed, 06 Jul 2022 14:04:56 +0000
-Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-31cf1adbf92so14210247b3.4;
-        Wed, 06 Jul 2022 07:04:54 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=UBE539EKjjJ8zkn99yLgr6sf0hQeHTgO/l2k1f9VAKg=;
-        b=SPGVVCnFyy30LAl97WOZrsgfSJ1s99p8UgkFf0ZSvgjXnfTgLtlVnpxXVYFmAhDsgx
-         D7TOXJXkbikS+MiAnuU7IWX+9BFmR3eUWZIHSpJPivoRTusdXz95By/vRVR1srFW8Svt
-         RGRpuT4sKHhAAcyaGivpX8tfLuQaBctqS6xU1zmTZDhClpiVLUtaX95Qira3bIYkKyBQ
-         y5cWOMJXi+sxssq67SVKmJ0eEtD3Ddma8SxHXDLQXniGjmv+5//hPiDahKiM6oWSUP05
-         ES5eealj3VRsrQgDqhL6eKZhP/pwrbzZG42u1Ffm5lTHEtgiNlMJrvHVC9+Ozvaj1TdO
-         k5Ug==
-X-Gm-Message-State: AJIora9ggsrPckTVZ3GsI06sddkbD1jEyfaALImjd6QFgpeicajnnqpi
-	TlSezClkcRXi4ttOc4VT4W/ooHWGkdxjuTIsd1U=
-X-Google-Smtp-Source: AGRyM1tzweDvK/HpOTrEcMtuYgu75xJlbU4wLmWYqVeEsIhNId5gL4a/NC1jAK4t+CVNf/Oa7/ufr1ZdqBFMCfc4FVA=
-X-Received: by 2002:a81:24c7:0:b0:314:1e60:a885 with SMTP id
- k190-20020a8124c7000000b003141e60a885mr46512506ywk.301.1657116293184; Wed, 06
- Jul 2022 07:04:53 -0700 (PDT)
+	id 1o95mc-00AYrj-Pb
+	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 14:13:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1657116818; x=1688652818;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=f+Vqk77QGOBg8k1gQpP0zFRTabmmmLcEHRrKGIpRwCM=;
+  b=tR6WVfkiEaGZrS7wP51KhvuuaZNAzWBTJh7WeOxcXkf9W6JJQT0MobD0
+   0jIjaTUX8VP4x838ZdP33jRad8rEuQFhxKw+YHKNQreYRW2yDK4+8p6mF
+   DwpchlGl2UOlXZo+pNsXRQLKwtd0AWjAYasIFRKnL4M/PoRAaQ76OMNI6
+   dUdbAgvbhoPn+foTXGXYMn6JCBG8Qbu4dtZQLE9z/5wxE+mmjRMzzVzUC
+   3My7EsdJ237H4U3mhKhvBcsOICOQGUpGc2wNPp05d3MXJLQ76PZrU7Qok
+   66x5SboZEz6HtQd9bIy8o3HcbLL8stl0wQFjUJd4p0QjitzCpTL/hFQDa
+   g==;
+X-IronPort-AV: E=Sophos;i="5.92,250,1650956400"; 
+   d="scan'208";a="103292279"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Jul 2022 07:13:35 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Wed, 6 Jul 2022 07:13:35 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
+ Transport; Wed, 6 Jul 2022 07:13:33 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: <wsa@kernel.org>, <linux-i2c@vger.kernel.org>
+CC: <ben.dooks@codethink.co.uk>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <daire.mcnamara@microchip.com>,
+	<conor.dooley@microchip.com>
+Subject: [PATCH v7 1/2] i2c: add support for microchip fpga i2c controllers
+Date: Wed, 6 Jul 2022 15:13:13 +0100
+Message-ID: <20220706141313.2504237-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-References: <20220608142723.103523089@infradead.org> <20220608144517.885263942@infradead.org>
-In-Reply-To: <20220608144517.885263942@infradead.org>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Wed, 6 Jul 2022 16:04:42 +0200
-Message-ID: <CAJZ5v0j6=x-u3dorwQNd6Sihaa1rx1-uaFXbL1Kc37Hu-fcH3A@mail.gmail.com>
-Subject: Re: [PATCH 31/36] cpuidle,acpi: Make noinstr clean
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: rth@twiddle.net, ink@jurassic.park.msu.ru, mattst88@gmail.com, 
-	vgupta@kernel.org, Russell King - ARM Linux <linux@armlinux.org.uk>, ulli.kroll@googlemail.com, 
-	Linus Walleij <linus.walleij@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Sascha Hauer <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, dl-linux-imx <linux-imx@nxp.com>, Tony Lindgren <tony@atomide.com>, 
-	Kevin Hilman <khilman@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, bcain@quicinc.com, 
-	Huacai Chen <chenhuacai@kernel.org>, kernel@xen0n.name, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, sammy@sammy.net, Michal Simek <monstr@monstr.eu>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, dinguyen@kernel.org, jonas@southpole.se, 
-	stefan.kristiansson@saunalahti.fi, Stafford Horne <shorne@gmail.com>, 
-	James Bottomley <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Yoshinori Sato <ysato@users.sourceforge.jp>, 
-	Rich Felker <dalias@libc.org>, David Miller <davem@davemloft.net>, 
-	Richard Weinberger <richard@nod.at>, anton.ivanov@cambridgegreys.com, 
-	Johannes Berg <johannes@sipsolutions.net>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "the arch/x86 maintainers" <x86@kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, acme@kernel.org, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, jolsa@kernel.org, namhyung@kernel.org, 
-	Juergen Gross <jgross@suse.com>, srivatsa@csail.mit.edu, amakhalov@vmware.com, 
-	pv-drivers@vmware.com, Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
-	Chris Zankel <chris@zankel.net>, jcmvbkbc@gmail.com, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, Pavel Machek <pavel@ucw.cz>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Andy Gross <agross@kernel.org>, Bjorn Andersson <bjorn.andersson@linaro.org>, 
-	Anup Patel <anup@brainfault.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jon Hunter <jonathanh@nvidia.com>, Jacob Pan <jacob.jun.pan@linux.intel.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Yury Norov <yury.norov@gmail.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Steven Rostedt <rostedt@goodmis.org>, 
-	Petr Mladek <pmladek@suse.com>, senozhatsky@chromium.org, 
-	John Ogness <john.ogness@linutronix.de>, "Paul E. McKenney" <paulmck@kernel.org>, 
-	Frederic Weisbecker <frederic@kernel.org>, quic_neeraju@quicinc.com, 
-	Josh Triplett <josh@joshtriplett.org>, Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
-	Lai Jiangshan <jiangshanlai@gmail.com>, Joel Fernandes <joel@joelfernandes.org>, 
-	Juri Lelli <juri.lelli@redhat.com>, Vincent Guittot <vincent.guittot@linaro.org>, 
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Benjamin Segall <bsegall@google.com>, 
-	Mel Gorman <mgorman@suse.de>, Daniel Bristot de Oliveira <bristot@redhat.com>, vschneid@redhat.com, 
-	jpoimboe@kernel.org, linux-alpha@vger.kernel.org, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-snps-arc@lists.infradead.org, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux OMAP Mailing List <linux-omap@vger.kernel.org>, linux-csky@vger.kernel.org, 
-	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org, 
-	linux-m68k <linux-m68k@lists.linux-m68k.org>, 
-	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, openrisc@lists.librecores.org, 
-	Parisc List <linux-parisc@vger.kernel.org>, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390@vger.kernel.org, 
-	Linux-sh list <linux-sh@vger.kernel.org>, sparclinux@vger.kernel.org, 
-	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	virtualization@lists.linux-foundation.org, xen-devel@lists.xenproject.org, 
-	linux-xtensa@linux-xtensa.org, 
-	ACPI Devel Maling List <linux-acpi@vger.kernel.org>, Linux PM <linux-pm@vger.kernel.org>, 
-	linux-clk <linux-clk@vger.kernel.org>, linux-arm-msm <linux-arm-msm@vger.kernel.org>, 
-	linux-tegra <linux-tegra@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>, 
-	rcu@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_070454_236618_0A42651A 
-X-CRM114-Status: GOOD (  18.95  )
-X-Mailman-Approved-At: Wed, 06 Jul 2022 07:05:16 -0700
+X-CRM114-CacheID: sfid-20220706_071339_019506_09D00C57 
+X-CRM114-Status: GOOD (  29.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,67 +78,585 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 8, 2022 at 4:47 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> vmlinux.o: warning: objtool: io_idle+0xc: call to __inb.isra.0() leaves .noinstr.text section
-> vmlinux.o: warning: objtool: acpi_idle_enter+0xfe: call to num_online_cpus() leaves .noinstr.text section
-> vmlinux.o: warning: objtool: acpi_idle_enter+0x115: call to acpi_idle_fallback_to_c1.isra.0() leaves .noinstr.text section
->
-> Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Add Microchip CoreI2C i2c controller support. This driver supports the
+"hard" i2c controller on the Microchip PolarFire SoC & the basic feature
+set for "soft" i2c controller implemtations in the FPGA fabric.
 
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
+Co-developed-by: Daire McNamara <daire.mcnamara@microchip.com>
+Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes from v6:
+- dropped the unused spinlock
+- switched the timeout to HZ
+- renamed to i2c-microchip-corei2c
+- fixed a useless < 0 check on a u16
+- removed unused iopoll.h
 
-> ---
->  arch/x86/include/asm/shared/io.h |    4 ++--
->  drivers/acpi/processor_idle.c    |    2 +-
->  include/linux/cpumask.h          |    4 ++--
->  3 files changed, 5 insertions(+), 5 deletions(-)
->
-> --- a/arch/x86/include/asm/shared/io.h
-> +++ b/arch/x86/include/asm/shared/io.h
-> @@ -5,13 +5,13 @@
->  #include <linux/types.h>
->
->  #define BUILDIO(bwl, bw, type)                                         \
-> -static inline void __out##bwl(type value, u16 port)                    \
-> +static __always_inline void __out##bwl(type value, u16 port)           \
->  {                                                                      \
->         asm volatile("out" #bwl " %" #bw "0, %w1"                       \
->                      : : "a"(value), "Nd"(port));                       \
->  }                                                                      \
->                                                                         \
-> -static inline type __in##bwl(u16 port)                                 \
-> +static __always_inline type __in##bwl(u16 port)                                \
->  {                                                                      \
->         type value;                                                     \
->         asm volatile("in" #bwl " %w1, %" #bw "0"                        \
-> --- a/drivers/acpi/processor_idle.c
-> +++ b/drivers/acpi/processor_idle.c
-> @@ -593,7 +593,7 @@ static int acpi_idle_play_dead(struct cp
->         return 0;
->  }
->
-> -static bool acpi_idle_fallback_to_c1(struct acpi_processor *pr)
-> +static __always_inline bool acpi_idle_fallback_to_c1(struct acpi_processor *pr)
->  {
->         return IS_ENABLED(CONFIG_HOTPLUG_CPU) && !pr->flags.has_cst &&
->                 !(acpi_gbl_FADT.flags & ACPI_FADT_C2_MP_SUPPORTED);
-> --- a/include/linux/cpumask.h
-> +++ b/include/linux/cpumask.h
-> @@ -908,9 +908,9 @@ static inline const struct cpumask *get_
->   * concurrent CPU hotplug operations unless invoked from a cpuhp_lock held
->   * region.
->   */
-> -static inline unsigned int num_online_cpus(void)
-> +static __always_inline unsigned int num_online_cpus(void)
->  {
-> -       return atomic_read(&__num_online_cpus);
-> +       return arch_atomic_read(&__num_online_cpus);
->  }
->  #define num_possible_cpus()    cpumask_weight(cpu_possible_mask)
->  #define num_present_cpus()     cpumask_weight(cpu_present_mask)
->
->
+Changes from v5:
+- add zero to the invalid irq check
+
+Changes from v4:
+- reset the controller on xfer timeout
+- sort the headers alphabetically
+
+Changes from v3:
+- update members in struct doc comment
+- move mchp_corei2c_transfer in its caller
+- change msg_len to a u16
+- remove unused variable msg_read
+- use adapater.timeout for completion
+- dont use last_byte goto
+- remove block on zero length messages
+   (the hardware can do them, was a carryover from the baremetal driver)
+- probe:
+   - drop unneeded initialisation
+   - use ret not val
+   - explain shared irq
+   - disallow 0 bus_clock_rate
+   - include base in device name
+   - dropped the duplicate "microchip" in the registered print
+     (its in driver.name)
+
+Changes from v2:
+- Fixed whitespace in defines that I removed accidentally
+
+Changes from v1:
+- Use byte write and read functions
+- Return IRQ_NONE and don't warn if not this drivers interrupt
+- Add a clk_disable_unprepare to avoid leaking a clock in the probe
+---
+ drivers/i2c/busses/Kconfig                 |  11 +
+ drivers/i2c/busses/Makefile                |   1 +
+ drivers/i2c/busses/i2c-microchip-corei2c.c | 480 +++++++++++++++++++++
+ 3 files changed, 492 insertions(+)
+ create mode 100644 drivers/i2c/busses/i2c-microchip-corei2c.c
+
+diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
+index b1d7069dd377..ccd6537cfd18 100644
+--- a/drivers/i2c/busses/Kconfig
++++ b/drivers/i2c/busses/Kconfig
+@@ -781,6 +781,17 @@ config I2C_MESON
+ 	  If you say yes to this option, support will be included for the
+ 	  I2C interface on the Amlogic Meson family of SoCs.
+ 
++config I2C_MICROCHIP_CORE
++	tristate "Microchip FPGA I2C controller"
++	depends on SOC_MICROCHIP_POLARFIRE || COMPILE_TEST
++	depends on OF
++	help
++	  If you say yes to this option, support will be included for the
++	  I2C interface on Microchip FPGAs.
++
++	  This driver can also be built as a module. If so, the module will be
++	  called i2c-microchip-core.
++
+ config I2C_MPC
+ 	tristate "MPC107/824x/85xx/512x/52xx/83xx/86xx"
+ 	depends on PPC
+diff --git a/drivers/i2c/busses/Makefile b/drivers/i2c/busses/Makefile
+index b0a10e5d9ee9..29d729b6a5b7 100644
+--- a/drivers/i2c/busses/Makefile
++++ b/drivers/i2c/busses/Makefile
+@@ -78,6 +78,7 @@ obj-$(CONFIG_I2C_JZ4780)	+= i2c-jz4780.o
+ obj-$(CONFIG_I2C_KEMPLD)	+= i2c-kempld.o
+ obj-$(CONFIG_I2C_LPC2K)		+= i2c-lpc2k.o
+ obj-$(CONFIG_I2C_MESON)		+= i2c-meson.o
++obj-$(CONFIG_I2C_MICROCHIP_CORE)	+= i2c-microchip-corei2c.o
+ obj-$(CONFIG_I2C_MPC)		+= i2c-mpc.o
+ obj-$(CONFIG_I2C_MT65XX)	+= i2c-mt65xx.o
+ obj-$(CONFIG_I2C_MT7621)	+= i2c-mt7621.o
+diff --git a/drivers/i2c/busses/i2c-microchip-corei2c.c b/drivers/i2c/busses/i2c-microchip-corei2c.c
+new file mode 100644
+index 000000000000..6df0f1c33278
+--- /dev/null
++++ b/drivers/i2c/busses/i2c-microchip-corei2c.c
+@@ -0,0 +1,480 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Microchip CoreI2C I2C controller driver
++ *
++ * Copyright (c) 2018-2022 Microchip Corporation. All rights reserved.
++ *
++ * Author: Daire McNamara <daire.mcnamara@microchip.com>
++ * Author: Conor Dooley <conor.dooley@microchip.com>
++ */
++#include <linux/clk.h>
++#include <linux/clkdev.h>
++#include <linux/err.h>
++#include <linux/i2c.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++
++#define CORE_I2C_CTRL	(0x00)
++#define  CTRL_CR0	BIT(0)
++#define  CTRL_CR1	BIT(1)
++#define  CTRL_AA	BIT(2)
++#define  CTRL_SI	BIT(3)
++#define  CTRL_STO	BIT(4)
++#define  CTRL_STA	BIT(5)
++#define  CTRL_ENS1	BIT(6)
++#define  CTRL_CR2	BIT(7)
++
++#define STATUS_BUS_ERROR			(0x00)
++#define STATUS_M_START_SENT			(0x08)
++#define STATUS_M_REPEATED_START_SENT		(0x10)
++#define STATUS_M_SLAW_ACK			(0x18)
++#define STATUS_M_SLAW_NACK			(0x20)
++#define STATUS_M_TX_DATA_ACK			(0x28)
++#define STATUS_M_TX_DATA_NACK			(0x30)
++#define STATUS_M_ARB_LOST			(0x38)
++#define STATUS_M_SLAR_ACK			(0x40)
++#define STATUS_M_SLAR_NACK			(0x48)
++#define STATUS_M_RX_DATA_ACKED			(0x50)
++#define STATUS_M_RX_DATA_NACKED			(0x58)
++#define STATUS_S_SLAW_ACKED			(0x60)
++#define STATUS_S_ARB_LOST_SLAW_ACKED		(0x68)
++#define STATUS_S_GENERAL_CALL_ACKED		(0x70)
++#define STATUS_S_ARB_LOST_GENERAL_CALL_ACKED	(0x78)
++#define STATUS_S_RX_DATA_ACKED			(0x80)
++#define STATUS_S_RX_DATA_NACKED			(0x88)
++#define STATUS_S_GENERAL_CALL_RX_DATA_ACKED	(0x90)
++#define STATUS_S_GENERAL_CALL_RX_DATA_NACKED	(0x98)
++#define STATUS_S_RX_STOP			(0xA0)
++#define STATUS_S_SLAR_ACKED			(0xA8)
++#define STATUS_S_ARB_LOST_SLAR_ACKED		(0xB0)
++#define STATUS_S_TX_DATA_ACK			(0xB8)
++#define STATUS_S_TX_DATA_NACK			(0xC0)
++#define STATUS_LAST_DATA_ACK			(0xC8)
++#define STATUS_M_SMB_MASTER_RESET		(0xD0)
++#define STATUS_S_SCL_LOW_TIMEOUT		(0xD8) /* 25 ms */
++#define STATUS_NO_STATE_INFO			(0xF8)
++
++#define CORE_I2C_STATUS		(0x04)
++#define CORE_I2C_DATA		(0x08)
++#define WRITE_BIT		(0x0)
++#define READ_BIT		(0x1)
++#define SLAVE_ADDR_SHIFT	(1)
++#define CORE_I2C_SLAVE0_ADDR	(0x0c)
++#define GENERAL_CALL_BIT	(0x0)
++#define CORE_I2C_SMBUS		(0x10)
++#define SMBALERT_INT_ENB	(0x0)
++#define SMBSUS_INT_ENB		(0x1)
++#define SMBUS_ENB		(0x2)
++#define SMBALERT_NI_STATUS	(0x3)
++#define SMBALERT_NO_CTRL	(0x4)
++#define SMBSUS_NI_STATUS	(0x5)
++#define SMBSUS_NO_CTRL		(0x6)
++#define SMBUS_RESET		(0x7)
++#define CORE_I2C_FREQ		(0x14)
++#define CORE_I2C_GLITCHREG	(0x18)
++#define CORE_I2C_SLAVE1_ADDR	(0x1c)
++
++#define PCLK_DIV_960	(CTRL_CR2)
++#define PCLK_DIV_256	(0)
++#define PCLK_DIV_224	(CTRL_CR0)
++#define PCLK_DIV_192	(CTRL_CR1)
++#define PCLK_DIV_160	(CTRL_CR0 | CTRL_CR1)
++#define PCLK_DIV_120	(CTRL_CR0 | CTRL_CR2)
++#define PCLK_DIV_60	(CTRL_CR1 | CTRL_CR2)
++#define BCLK_DIV_8	(CTRL_CR0 | CTRL_CR1 | CTRL_CR2)
++#define CLK_MASK	(CTRL_CR0 | CTRL_CR1 | CTRL_CR2)
++
++/**
++ * struct mchp_corei2c_dev - Microchip CoreI2C device private data
++ *
++ * @base:		pointer to register struct
++ * @dev:		device reference
++ * @i2c_clk:		clock reference for i2c input clock
++ * @buf:		pointer to msg buffer for easier use
++ * @msg_complete:	xfer completion object
++ * @adapter:		core i2c abstraction
++ * @msg_err:		error code for completed message
++ * @bus_clk_rate:	current i2c bus clock rate
++ * @isr_status:		cached copy of local ISR status
++ * @msg_len:		number of bytes transferred in msg
++ * @addr:		address of the current slave
++ */
++struct mchp_corei2c_dev {
++	void __iomem *base;
++	struct device *dev;
++	struct clk *i2c_clk;
++	u8 *buf;
++	struct completion msg_complete;
++	struct i2c_adapter adapter;
++	int msg_err;
++	u32 bus_clk_rate;
++	u32 isr_status;
++	u16 msg_len;
++	u8 addr;
++};
++
++static void mchp_corei2c_core_disable(struct mchp_corei2c_dev *idev)
++{
++	u8 ctrl = readb(idev->base + CORE_I2C_CTRL);
++
++	ctrl &= ~CTRL_ENS1;
++	writeb(ctrl, idev->base + CORE_I2C_CTRL);
++}
++
++static void mchp_corei2c_core_enable(struct mchp_corei2c_dev *idev)
++{
++	u8 ctrl = readb(idev->base + CORE_I2C_CTRL);
++
++	ctrl |= CTRL_ENS1;
++	writeb(ctrl, idev->base + CORE_I2C_CTRL);
++}
++
++static void mchp_corei2c_reset(struct mchp_corei2c_dev *idev)
++{
++	mchp_corei2c_core_disable(idev);
++	mchp_corei2c_core_enable(idev);
++}
++
++static inline void mchp_corei2c_stop(struct mchp_corei2c_dev *idev)
++{
++	u8 ctrl = readb(idev->base + CORE_I2C_CTRL);
++
++	ctrl |= CTRL_STO;
++	writeb(ctrl, idev->base + CORE_I2C_CTRL);
++}
++
++static inline int mchp_corei2c_set_divisor(u32 rate,
++					   struct mchp_corei2c_dev *idev)
++{
++	u8 clkval, ctrl;
++
++	if (rate >= 960)
++		clkval = PCLK_DIV_960;
++	else if (rate >= 256)
++		clkval = PCLK_DIV_256;
++	else if (rate >= 224)
++		clkval = PCLK_DIV_224;
++	else if (rate >= 192)
++		clkval = PCLK_DIV_192;
++	else if (rate >= 160)
++		clkval = PCLK_DIV_160;
++	else if (rate >= 120)
++		clkval = PCLK_DIV_120;
++	else if (rate >= 60)
++		clkval = PCLK_DIV_60;
++	else if (rate >= 8)
++		clkval = BCLK_DIV_8;
++	else
++		return -EINVAL;
++
++	ctrl = readb(idev->base + CORE_I2C_CTRL);
++	ctrl &= ~CLK_MASK;
++	ctrl |= clkval;
++	writeb(ctrl, idev->base + CORE_I2C_CTRL);
++
++	ctrl = readb(idev->base + CORE_I2C_CTRL);
++	if ((ctrl & CLK_MASK) != clkval)
++		return -EIO;
++
++	return 0;
++}
++
++static int mchp_corei2c_init(struct mchp_corei2c_dev *idev)
++{
++	u32 clk_rate = clk_get_rate(idev->i2c_clk);
++	u32 divisor = clk_rate / idev->bus_clk_rate;
++	int ret;
++
++	ret = mchp_corei2c_set_divisor(divisor, idev);
++	if (ret)
++		return ret;
++
++	mchp_corei2c_reset(idev);
++
++	return 0;
++}
++
++static void mchp_corei2c_empty_rx(struct mchp_corei2c_dev *idev)
++{
++	u8 ctrl;
++
++	if (idev->msg_len > 0) {
++		*idev->buf++ = readb(idev->base + CORE_I2C_DATA);
++		idev->msg_len--;
++	}
++
++	if (idev->msg_len == 0) {
++		ctrl = readb(idev->base + CORE_I2C_CTRL);
++		ctrl &= ~CTRL_AA;
++		writeb(ctrl, idev->base + CORE_I2C_CTRL);
++	}
++}
++
++static int mchp_corei2c_fill_tx(struct mchp_corei2c_dev *idev)
++{
++	if (idev->msg_len > 0)
++		writeb(*idev->buf++, idev->base + CORE_I2C_DATA);
++	idev->msg_len--;
++
++	return 0;
++}
++
++static irqreturn_t mchp_corei2c_handle_isr(struct mchp_corei2c_dev *idev)
++{
++	u32 status = idev->isr_status;
++	u8 ctrl;
++	bool last_byte = false, finished = false;
++
++	if (!idev->buf)
++		return IRQ_NONE;
++
++	switch (status) {
++	case STATUS_M_START_SENT:
++	case STATUS_M_REPEATED_START_SENT:
++		ctrl = readb(idev->base + CORE_I2C_CTRL);
++		ctrl &= ~CTRL_STA;
++		writeb(idev->addr, idev->base + CORE_I2C_DATA);
++		writeb(ctrl, idev->base + CORE_I2C_CTRL);
++		if (idev->msg_len == 0)
++			finished = true;
++		break;
++	case STATUS_M_ARB_LOST:
++		idev->msg_err = -EAGAIN;
++		finished = true;
++		break;
++	case STATUS_M_SLAW_ACK:
++	case STATUS_M_TX_DATA_ACK:
++		if (idev->msg_len > 0)
++			mchp_corei2c_fill_tx(idev);
++		else
++			last_byte = true;
++		break;
++	case STATUS_M_TX_DATA_NACK:
++	case STATUS_M_SLAR_NACK:
++	case STATUS_M_SLAW_NACK:
++		idev->msg_err = -ENXIO;
++		last_byte = true;
++		break;
++	case STATUS_M_SLAR_ACK:
++		ctrl = readb(idev->base + CORE_I2C_CTRL);
++		if (idev->msg_len == 1u) {
++			ctrl &= ~CTRL_AA;
++			writeb(ctrl, idev->base + CORE_I2C_CTRL);
++		} else {
++			ctrl |= CTRL_AA;
++			writeb(ctrl, idev->base + CORE_I2C_CTRL);
++		}
++		if (idev->msg_len < 1u)
++			last_byte = true;
++		break;
++	case STATUS_M_RX_DATA_ACKED:
++		mchp_corei2c_empty_rx(idev);
++		break;
++	case STATUS_M_RX_DATA_NACKED:
++		mchp_corei2c_empty_rx(idev);
++		if (idev->msg_len == 0)
++			last_byte = true;
++		break;
++	default:
++		break;
++	}
++
++	/* On the last byte to be transmitted, send STOP */
++	if (last_byte)
++		mchp_corei2c_stop(idev);
++
++	if (last_byte || finished)
++		complete(&idev->msg_complete);
++
++	return IRQ_HANDLED;
++}
++
++static irqreturn_t mchp_corei2c_isr(int irq, void *_dev)
++{
++	struct mchp_corei2c_dev *idev = _dev;
++	irqreturn_t ret = IRQ_NONE;
++	u8 ctrl;
++
++	ctrl = readb(idev->base + CORE_I2C_CTRL);
++	if (ctrl & CTRL_SI) {
++		idev->isr_status = readb(idev->base + CORE_I2C_STATUS);
++		ret = mchp_corei2c_handle_isr(idev);
++	}
++
++	ctrl = readb(idev->base + CORE_I2C_CTRL);
++	ctrl &= ~CTRL_SI;
++	writeb(ctrl, idev->base + CORE_I2C_CTRL);
++
++	return ret;
++}
++
++static int mchp_corei2c_xfer_msg(struct mchp_corei2c_dev *idev,
++				 struct i2c_msg *msg)
++{
++	u8 ctrl;
++	unsigned long time_left;
++
++	idev->addr = i2c_8bit_addr_from_msg(msg);
++	idev->msg_len = msg->len;
++	idev->buf = msg->buf;
++	idev->msg_err = 0;
++
++	reinit_completion(&idev->msg_complete);
++
++	mchp_corei2c_core_enable(idev);
++
++	ctrl = readb(idev->base + CORE_I2C_CTRL);
++	ctrl |= CTRL_STA;
++	writeb(ctrl, idev->base + CORE_I2C_CTRL);
++
++	time_left = wait_for_completion_timeout(&idev->msg_complete,
++						idev->adapter.timeout);
++	if (!time_left)
++		return -ETIMEDOUT;
++
++	return idev->msg_err;
++}
++
++static int mchp_corei2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
++			     int num)
++{
++	struct mchp_corei2c_dev *idev = i2c_get_adapdata(adap);
++	int i, ret;
++
++	for (i = 0; i < num; i++) {
++		ret = mchp_corei2c_xfer_msg(idev, msgs++);
++		if (ret)
++			return ret;
++	}
++
++	return num;
++}
++
++static u32 mchp_corei2c_func(struct i2c_adapter *adap)
++{
++	return I2C_FUNC_I2C | I2C_FUNC_SMBUS_EMUL;
++}
++
++static const struct i2c_algorithm mchp_corei2c_algo = {
++	.master_xfer = mchp_corei2c_xfer,
++	.functionality = mchp_corei2c_func,
++};
++
++static int mchp_corei2c_probe(struct platform_device *pdev)
++{
++	struct mchp_corei2c_dev *idev;
++	struct resource *res;
++	int irq, ret;
++
++	idev = devm_kzalloc(&pdev->dev, sizeof(*idev), GFP_KERNEL);
++	if (!idev)
++		return -ENOMEM;
++
++	idev->base = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
++	if (IS_ERR(idev->base))
++		return PTR_ERR(idev->base);
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq <= 0)
++		return dev_err_probe(&pdev->dev, -ENXIO,
++				     "invalid IRQ %d for I2C controller\n", irq);
++
++	idev->i2c_clk = devm_clk_get(&pdev->dev, NULL);
++	if (IS_ERR(idev->i2c_clk))
++		return dev_err_probe(&pdev->dev, PTR_ERR(idev->i2c_clk),
++				     "missing clock\n");
++
++	idev->dev = &pdev->dev;
++	init_completion(&idev->msg_complete);
++
++	ret = device_property_read_u32(idev->dev, "clock-frequency",
++				       &idev->bus_clk_rate);
++	if (ret || !idev->bus_clk_rate) {
++		dev_info(&pdev->dev, "default to 100kHz\n");
++		idev->bus_clk_rate = 100000;
++	}
++
++	if (idev->bus_clk_rate > 400000)
++		return dev_err_probe(&pdev->dev, -EINVAL,
++				     "clock-frequency too high: %d\n",
++				     idev->bus_clk_rate);
++
++	/*
++	 * This driver supports both the hard peripherals & soft FPGA cores.
++	 * The hard peripherals do not have shared IRQs, but we don't have
++	 * control over what way the interrupts are wired for the soft cores.
++	 */
++	ret = devm_request_irq(&pdev->dev, irq, mchp_corei2c_isr, IRQF_SHARED,
++			       pdev->name, idev);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to claim irq %d\n", irq);
++
++	ret = clk_prepare_enable(idev->i2c_clk);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to enable clock\n");
++
++	ret = mchp_corei2c_init(idev);
++	if (ret) {
++		clk_disable_unprepare(idev->i2c_clk);
++		return dev_err_probe(&pdev->dev, ret, "failed to program clock divider\n");
++	}
++
++	i2c_set_adapdata(&idev->adapter, idev);
++	snprintf(idev->adapter.name, sizeof(idev->adapter.name),
++		 "Microchip I2C hw bus at %08lx", (unsigned long)res->start);
++	idev->adapter.owner = THIS_MODULE;
++	idev->adapter.algo = &mchp_corei2c_algo;
++	idev->adapter.dev.parent = &pdev->dev;
++	idev->adapter.dev.of_node = pdev->dev.of_node;
++	idev->adapter.timeout = HZ;
++
++	platform_set_drvdata(pdev, idev);
++
++	ret = i2c_add_adapter(&idev->adapter);
++	if (ret) {
++		clk_disable_unprepare(idev->i2c_clk);
++		return ret;
++	}
++
++	dev_info(&pdev->dev, "registered CoreI2C bus driver\n");
++
++	return 0;
++}
++
++static int mchp_corei2c_remove(struct platform_device *pdev)
++{
++	struct mchp_corei2c_dev *idev = platform_get_drvdata(pdev);
++
++	clk_disable_unprepare(idev->i2c_clk);
++	i2c_del_adapter(&idev->adapter);
++
++	return 0;
++}
++
++static const struct of_device_id mchp_corei2c_of_match[] = {
++	{ .compatible = "microchip,mpfs-i2c" },
++	{ .compatible = "microchip,corei2c-rtl-v7" },
++	{},
++};
++MODULE_DEVICE_TABLE(of, mchp_corei2c_of_match);
++
++static struct platform_driver mchp_corei2c_driver = {
++	.probe = mchp_corei2c_probe,
++	.remove = mchp_corei2c_remove,
++	.driver = {
++		.name = "microchip-corei2c",
++		.of_match_table = mchp_corei2c_of_match,
++	},
++};
++
++module_platform_driver(mchp_corei2c_driver);
++
++MODULE_DESCRIPTION("Microchip CoreI2C bus driver");
++MODULE_AUTHOR("Daire McNamara <daire.mcnamara@microchip.com>");
++MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
++MODULE_LICENSE("GPL");
+
+base-commit: 088b9c375534d905a4d337c78db3b3bfbb52c4a0
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
