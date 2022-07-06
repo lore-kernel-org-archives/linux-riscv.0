@@ -4,168 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BBE2C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 10:20:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3DD5C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 10:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PaITq2CVTvrvu7yjWG4xUQvaVN8ORkRPFN1JIa0gsjQ=; b=OwFkRi7uPw7xOZ
-	7DCELgk3qusKbY/VRRN+7l7LymDWleDPQxd0xZ02RwD5hNkuF+MzYGsXkzKLpZhL64i+K6jNvJKHm
-	abHm6iWIuMdyfBCHmQItkaCA4EhPlksUcR/dVe6qyMWF8pdYJEydaG7t43+bWkxlvqB8beEKkLo5H
-	5Mer7orhRAfY2afbtXpzmB0ZRVYkRdkM2sN/xaa70oq9nOhYzONW/31AXz/SyOSrHHxh8rDddOYCG
-	g/3kKAEjF0jfYeIbSHXB31LuZk0Jr2eg6GBbI5AzvHaNGhm+5useO9wQOCRAXZ8FPrxU2b7sbJ4lj
-	1QVfFOYtAWYSNYbibSDQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zZRAsjliFE7LjJNrOIwY1lvnXwPDJAU3PTIbGBYqxxI=; b=ZSxUIW4TjC9TzqSIypoShQ5fFt
+	x/Jzoskb7QsBRlLBELxvg754yUppTdsuH054CqD0UlZdLCsl76wnbLBa2nP1rWEo0Iq9+ohlPIpTt
+	xSoQVQN5JLyXDAzJK68BJAvaUzMvp6YijyLnLOqgyPlTqlJ6hpwlLI6P6mrbfo40UkwzhZgIvkha6
+	CAA0VKk3O4uYKw9jxv8N6amynGCh6IBDNmMvVzCsXBms+OmEO67UIzCzz0myxpttPFShflQnrCrE1
+	mzn4Fn89y0MQ7a0z52uzrMDaJBCHUNICnkO1bZbaOk8OFNIQYX8rDd2jdXNHqXU5ppdudcNmzzo/z
+	xx4ujsBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o929D-008NJV-Hf; Wed, 06 Jul 2022 10:20:44 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1o92QA-008fDG-6k; Wed, 06 Jul 2022 10:38:14 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o920P-008E6A-68
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 10:11:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1657102296; x=1688638296;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=Wvhnq4Byl8tOAFh2kFk5YPG2ecT78CoeUeXCPq99jd0=;
-  b=z//nm6+5tU9ma2ErDcgdVSTLJnX5a3ummMkgc7iRPegxvUeqJik3f2Zq
-   iVFHXpfuqwKZjETtxwJGQGow/lBBidK7DbyGUceNd1x9XOjYF63AI8zrD
-   0P5enFGKqS50H9dvan/PQbauP3YbD+3e7erUwO80vHDlq/s4hgZ3/gJAk
-   0FLLsBx6Or+kZkHm5ev6PSmQPnIXfDxc60BntljhimKSgpexYnhHPxNt7
-   uk7Xocahin5hTxDKuubN5+NhVJGSKrYh/WWC11Sus6ICHGXtNyZ3kPfAP
-   4sUWtAxVhOty56Lv6buqrH0aupSQqJMINnT5eyo38t/ajMrQfZnHIzZyK
-   g==;
-X-IronPort-AV: E=Sophos;i="5.92,249,1650956400"; 
-   d="scan'208";a="180957718"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Jul 2022 03:11:36 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Wed, 6 Jul 2022 03:11:35 -0700
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Wed, 6 Jul 2022 03:11:35 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ceH/wr84mcVCFxSBaSERJpeH95k7MkNewmkSz2pR3hqA/iY5Czfe0sdguRjllrOBPoWD4wGdit+IdoOYi/BdbfJ5cEFTYUiXft1RUvsoHnPfHxuhJXqZo/kNmp1SAbPykYgmcIFI4TI/M8nN0oK2iqPj9rhpUi3NHzNugs0tBxjtiS0iwoPxTgLQFZcSMGw02UwxPIPjKEYCN+3BT7Z4cW3kn6WGiLWjmDzTxEFMDuc7frKf9m/dn1zixs6SbIKwN8MF9S450RE4FK+eslMBNj9PK2xUnS5RTKKndbt+7/6rrvz3ejmJHCPiqNqiA7hEDE+Zl1sVHjGb/MES0/czfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Wvhnq4Byl8tOAFh2kFk5YPG2ecT78CoeUeXCPq99jd0=;
- b=HiqFxbmc5EA/adX2RTk68sSlQmGdh2zFwVcC/mes4D4s5GhIhzrXRwWwb+6Sh1K4tkJpB0mXBebNOWjlSRoZsNEpYghVjG8ea7vMEv19OaODg+z4IBcO8nActxVxYlpiHa6QresW8O6VA/hjyuEoBradqelSpG442BnKJhA4okOOM/4KJn7FQWDTHkDBkhh1VWLICUNs4b0eSho172HEeNdrPGJ8qWXR8qu5qi6kgNJOd9qBvq9Dde+kYkI3bhj1sykXWmh7gCpLFJtiWeylfOiAH79Ww4irPuct14LrHSpgE3QdacNeT3uVVyOaOe/gi7Zl8yjjA+K048XKZr2PVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Wvhnq4Byl8tOAFh2kFk5YPG2ecT78CoeUeXCPq99jd0=;
- b=MmTI32Au8Kfa/442U+V2YTRtkx1DsU92bmR6RjHE+Vlo6Wkndr/AS3FFlJrwgxnQB9vuIe0is50Lo8w2DJNOV+NUOsCj7Xp6WegbViwWE6eoIfgwI83CFbX7ZuVbuh0dYBJ2/fEArymVu8flQnPr0YZRBTr2225fzracfX0ZKno=
-Received: from PH0PR11MB5160.namprd11.prod.outlook.com (2603:10b6:510:3e::8)
- by IA1PR11MB6444.namprd11.prod.outlook.com (2603:10b6:208:3a7::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5395.15; Wed, 6 Jul
- 2022 10:11:31 +0000
-Received: from PH0PR11MB5160.namprd11.prod.outlook.com
- ([fe80::6090:db2c:283b:fe69]) by PH0PR11MB5160.namprd11.prod.outlook.com
- ([fe80::6090:db2c:283b:fe69%8]) with mapi id 15.20.5395.021; Wed, 6 Jul 2022
- 10:11:31 +0000
-From: <Conor.Dooley@microchip.com>
-To: <sudeep.holla@arm.com>, <Conor.Dooley@microchip.com>
-CC: <robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<Daire.McNamara@microchip.com>, <niklas.cassel@wdc.com>,
-	<damien.lemoal@opensource.wdc.com>, <geert@linux-m68k.org>,
-	<zong.li@sifive.com>, <kernel@esmil.dk>, <hahnjo@hahnjo.de>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <Brice.Goglin@inria.fr>
-Subject: Re: [PATCH 0/5] RISC-V: Add cpu-map topology information nodes
-Thread-Topic: [PATCH 0/5] RISC-V: Add cpu-map topology information nodes
-Thread-Index: AQHYkKIdHc6oV2H//EKJV+LfcdW+Dq1wN82AgAAD8QCAACn8AIAArIoAgAAGDICAAAW4gIAAAj4A
-Date: Wed, 6 Jul 2022 10:11:31 +0000
-Message-ID: <c6829146-1a5e-6132-1e8b-bcb39f8a904e@microchip.com>
-References: <20220705190435.1790466-1-mail@conchuod.ie>
- <20220705201931.nfwi5rlku7ykmydr@bogus>
- <8f07796a-d9a2-3301-aafb-7fbec4d5b1a2@microchip.com>
- <fb7be22c-cf19-0e06-f231-bb5b9167e179@microchip.com>
- <20220706092126.k6zaknwcwzyg22ak@bogus>
- <9f26cd2a-b389-3f4b-b7d2-06fa5c2d7016@microchip.com>
- <20220706100333.7n35rfnbdrnz6mh5@bogus>
-In-Reply-To: <20220706100333.7n35rfnbdrnz6mh5@bogus>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 5f7e2466-cfcd-4f4f-bbf0-08da5f37e5ef
-x-ms-traffictypediagnostic: IA1PR11MB6444:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 4sCkCdPvGR4WGTGtjA/Rr6eLAPkFAywwB11SUlBhKx3X3UlzWTCjmiBLtlAv+cqVEIeWAUzNestSOnz1JlDiOKYbcUfX1cUyII1Le/GnJz+vnXViy/wF+5ANSFKSPnZjhTIyxz+5XOMpExXjI6knAkNUAbABM8NfKYTMfmlj6YNNsqgB+/ZX4y6Flvk57yMxuAiY4OPsR/I9oBKumqyq+aG1nbmvcxJnaLTFifZRAtUJGO/sgGM9GI5DxF9JYiwrGCo9a17OWL8EUAFl/qMLRRGUFYkdKJvm2xVsd6IyvKoO3S7bKGPNGrE6yEdrkooQkWoFsplo7hU6IMgD2ruwVLlWDoO4OXyTO2mWkbdZ/xN2bOdZzPH13AjxnROP1QfWAsD0W5REjqIUfdTzgCF1b/SUxkfMSyESMfHO3vMST/fIohu6BTtM3nTZlTCYbJXQhH7OYcgKRpJRqKCUUIM9OQiAZFbLqNvk0fcUMbYGQOeWsrpZra0XDSgry1oLsapvzLtBm7WWMrx9Bn3MG8eaczwW7/IplyVKWOqnnEBYJWAc8LCj4wFq4t5+zYz0HA0bML1QhjwNjP0d5wg0pmg5HksL/kqig+YqEEtOdGwlzcF56mT43G5joNxrNVFM8JZiOsU474vg2f/mlxwrOYY4MZTtn/g/EEIWnHDJLKQYrdsMkcSPMHD/xjJMY6g5rY8B/eXYhtMD3U76ibsh0mxx5J9BCCOWEvpwd9jc8PK8pmStchxsPKhGO4fUltB3MIDELKTbu3WKLICWkwG999CCbkv7YXH+8rxndyVh/VkXtgWwTyb5C2kid3aep8E8RCN9GC3gdOCeHHaqQCosYGlNC5VWbpwtROYdi/NXEt4i7kIf/0+J+C/LJ1sj9uLXWooR
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR11MB5160.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(39860400002)(346002)(376002)(136003)(396003)(66476007)(66446008)(8676002)(66556008)(4744005)(64756008)(7416002)(66946007)(38100700002)(36756003)(8936002)(4326008)(110136005)(316002)(76116006)(54906003)(71200400001)(5660300002)(91956017)(31686004)(478600001)(6512007)(26005)(6486002)(2616005)(41300700001)(53546011)(186003)(122000001)(38070700005)(31696002)(86362001)(6506007)(2906002)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?WmFoQUY3UEliYWMzRnRqeGZ6VnNEam9zRmJ5a2VsNVUvVDZOUFZyeFNKQ2hO?=
- =?utf-8?B?S2huc2ZzcW9lclQwUVpvbGtBSWpWejlIbEZMdUUxS3J3NG5Ma2dmUDk2emdq?=
- =?utf-8?B?N3JWS2IxajhOSExYZGhIbytKOCt3WHNUUmxjUXBRMm1kL09ETUljV3hUbkQx?=
- =?utf-8?B?cHB1MGFOZVNDZDRBVWJYUXNGQi9UYi9rTUpnYlViRjExRFBqcFNJN0YrSFFQ?=
- =?utf-8?B?NjZMMXR3alZaSHJHbG84cEVmVXBZWjBJbWltOWlwRnJxV01uYkpDWEZ4SjR3?=
- =?utf-8?B?Y2tBejhhOThXRGE1NVY1MVRKZkx2VTFTY0gwbG13R1ovRUZYL0U4WHRhL3Nk?=
- =?utf-8?B?U0l4WUdhajJkVGNVNjNYdXB0L0ZQQ2I0QjhINmE4Ly9lMEZSWmRYYmVYSFhX?=
- =?utf-8?B?RzFtL2xuVVpxK2cwZVZuWlg3clEwcWlPdUUzSzl4bkozUUFRRkRuOWpWSWZ2?=
- =?utf-8?B?V1ptdFpTWHF3N3VOWGo3Sk45aEVZYzNKRFZmenQ2K2NxZHd5R2tMU3FBQTBO?=
- =?utf-8?B?RmxxazRBdVRqaG1MTHBQbkJvY2dQVGp5STFrRlQ3c1FvOTZ6cSs3RDdVdERE?=
- =?utf-8?B?UVNPdnl0VFRPalg1QzdUQ1ltU20zZzh6bXJSY2J3M1puSHBmODBwdjBxbFMw?=
- =?utf-8?B?Y0VZYjdOdFpaRHJvemdrOWRlaUlNTms2TzBzZkN3eGMyWG1UTzZ5bm92MUJh?=
- =?utf-8?B?UHFxQ3Nvb3BvQkVoN1AxcGxlM3oyQnJnK1pqdGZYcTV6UWw5emFabGJ6endY?=
- =?utf-8?B?RVA1eGF0NU9RT3ZVdysxbjJvSWxBa0VRRXI5VU5mOGhvTDNhQUM1dW1XNHB3?=
- =?utf-8?B?SnVmK0Y5blQxRFBkYS9rQTM2ak9VMjlxUXRPMGtYcTNJa3VMU3hhdTk5Wllz?=
- =?utf-8?B?Z2tyQmFVZDJEa3N6L1VESWZQMmFDQUtTV05DaVlVMlVBSGZzU084dXNIdzJM?=
- =?utf-8?B?YUU1dTY4L0tBMGkwSmF3Nlp1TVovcUlBaWZZZDBWNFFCek9vc2YxbGFOZk4r?=
- =?utf-8?B?bXllMkkyQ1p1N0JsOWZaMTEyaDVEZEVTclRDVUQ4TUxDSjJ6a3VsU2FNVDJQ?=
- =?utf-8?B?ZUxwSGNMcnIwek0wQ0xQRTFFZGlOOWMvREgveVFUZ29XbVFiamJtMmJ2K2Mx?=
- =?utf-8?B?UGJmVHNmd0V5QXFMWlVBWHE5U2dQUDlxVTUrdXBkcjZvcDFtM3hBQUVPTmdQ?=
- =?utf-8?B?c0xERlMwMENmY0ZNMHFKU1FVd0dvL002YzFwNzFwcTUxSUlHMy9LVUdqWTAz?=
- =?utf-8?B?SC8ramtiMWx6L2g4TTNleWoxc2hSZWlLZ1RrVXgzOW9tWnRhWEpTakdHUWl3?=
- =?utf-8?B?WXY0YUxJUUx2NE1TT1UyRjNMV1pSSXkxZktQUXFvc3lOaGxkYThCekxVTHNh?=
- =?utf-8?B?UUlyTEZMUkJrdEtpZWZOUG1mcWpPQzJra25OTjdHSnppZHdMNzdwK3FwWDN3?=
- =?utf-8?B?QVNVME1lRFRKYzRSRmt5R0lYdmVRbFZySkZyTVJkT3BhYU1ZTDg5b2FGalhl?=
- =?utf-8?B?UFVvTkQzbU9Ham9RQTErenNGZ1c3S3lKeHZaOGZoRVI3S0EyVURWZC8wTS8y?=
- =?utf-8?B?dExqeTFyRFF1eWtjRHg1Yml0dWZxc0cxRmxSL0phYy9WQnhLQ2lWT284bTMy?=
- =?utf-8?B?TUFVeTE5NGFjdEtMY0M1TW1GenlldTNQdlFhUzQ1cnQrbkJNRkxBNStsSzZh?=
- =?utf-8?B?dERRamtxMlhHS2JINWJGTVQ1b0NLZ0dRUTd0MDFOamVUOWsxdmttZFM2cTUv?=
- =?utf-8?B?ODB2QjFtZmtORE44Zjc2dHZzTmV0UFgyQWgyQmJBeGJONERWNm83eWVpQ0cz?=
- =?utf-8?B?c3BkcU85RU9STm5HNVdNdmk2WW9VRU5nQ2x3WFJGQlZvNHluSzB6VEYwc2JD?=
- =?utf-8?B?TjA5cG1DNm1NSlFERnBtRkVDaE9jNGo5RzJGckc5b1JVL05XVXBISHdNUVRG?=
- =?utf-8?B?aFlQSVEwbGk1c2RZeWt4WVNjaDdyTFMwZlIzSDcwTW9oVDdSZ1JlWDFDZVJv?=
- =?utf-8?B?RDJyV2tQRTdwUnVza2pqOG1MRnhDdCtDdmtYMm9nYW9xRkw3VkpsQnovTzVt?=
- =?utf-8?B?ZmF2ZGxCUzdHdEZvRjFmUmptUkJidTdIVlFTb1BFaDRrWm04UW5VcmNYZkM0?=
- =?utf-8?Q?jvCFdkPJYTCsDMJ7y+wu3LCZZ?=
-Content-ID: <A6C56FA3EA34A14ABF9C1D78F96712E3@namprd11.prod.outlook.com>
+	id 1o92L3-008ZFH-MT
+	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 10:33:00 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 0A40CB81B31;
+	Wed,  6 Jul 2022 10:32:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17FD6C3411C;
+	Wed,  6 Jul 2022 10:32:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1657103574;
+	bh=RC0sAMRYDT1U59SwYYLhHEAvAo1xmi55rfLw6xp/hmg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UgfrUtZk32S41NHaKv+WfBqTPZlu2oza7bjcv+s3TEpmawoudj5uBSZZKfSBG8efZ
+	 urt/MVxszctw0h5NiIiu1BmNNw+3UKQpA3PVHDfUwDRQym2H3hEPz/mpKUtFzEgLHY
+	 T6hM/X1CSsJ0iKeI1FPHIuYpnW8vRWiIGBndHjqX1XZzyOzpjsScCKtUJABqNvD6U6
+	 wLmZQgnxxSXhfvNIazf4WU26qZQHVsHhsC+8k8nIn1rf+eS1zgnxbyL8GCBFoMrGbQ
+	 fPF3PJq2ceV6v1Pv7dBADOWvrqv6uy2WAd+gF9jd220BsReHN+RCGq840wxP0M8F7k
+	 e6/A70Iyzuapg==
+Date: Wed, 6 Jul 2022 12:32:48 +0200
+From: Wolfram Sang <wsa@kernel.org>
+To: Conor.Dooley@microchip.com
+Cc: linux-i2c@vger.kernel.org, ben.dooks@codethink.co.uk,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Daire.McNamara@microchip.com
+Subject: Re: [PATCH v6 1/2] i2c: add support for microchip fpga i2c
+ controllers
+Message-ID: <YsVk0Gg1x7juHcZU@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa@kernel.org>, Conor.Dooley@microchip.com,
+	linux-i2c@vger.kernel.org, ben.dooks@codethink.co.uk,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Daire.McNamara@microchip.com
+References: <20220621074238.957177-1-conor.dooley@microchip.com>
+ <YsU3eLA3PrceFS65@shikoro>
+ <ac070176-93b9-3bc4-5589-ec57d4d38af4@microchip.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PH0PR11MB5160.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f7e2466-cfcd-4f4f-bbf0-08da5f37e5ef
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Jul 2022 10:11:31.1567
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: pXgFPXIEpaHd2lscAtCwpJ7fHp8MyWnD6qrl5RGj+jx3U7xWIRsw3O4V7FUHqDBvh2BIVLEWgpTO5ispWyGWB5OL2WZHFrUIb6fK3DH2Jgw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6444
+In-Reply-To: <ac070176-93b9-3bc4-5589-ec57d4d38af4@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_031137_461062_D0BCA800 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20220706_033257_927193_975D8919 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,34 +74,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============6159993370572220796=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============6159993370572220796==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pqWsQi0x7XBD8P6y"
+Content-Disposition: inline
 
-On 06/07/2022 11:03, Sudeep Holla wrote:
-> On Wed, Jul 06, 2022 at 09:43:02AM +0000, Conor.Dooley@microchip.com wrote:
->> Cool, I'll respin a v2 without this included then & get the series
->> backported since this is user visible & will fix all existing supported
->> platforms.
->>
-> 
-> The DT /cpu-map is optional, so I don't think it needs to be backported.
-> 
->>
->> I'll send the topology code changes separately to avoid it going
->> forwards.
-> 
-> This on the other hand can be backported to fix userspace.
-> 
 
-Uh sure, that sounds like a better idea (but more work lol).
-No need for a v2 of this series then.
+--pqWsQi0x7XBD8P6y
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks again :)
+
+> I'd prefer the latter. Being called "core" is unfortunate and I
+> did think about that. i2c-microchip-corei2c would have been my
+> first choice but I thought the double usage of i2c would've been
+> disapproved of haha
+
+:) Well, double "i2c" is not exactly pretty but since it is the name of
+that IP core...
+
+> >> +		if (idev->msg_len <=3D 0)
+> >> +			finished =3D true;
+> >=20
+> > How can it happen that len is < 0? Wouldn't that be an error case?
+
+Is it to be on the safe side?
+
+> > Have you testes SMBUS_QUICK as well?
+>=20
+> Not specifically SMBUS_QUICK, but I did test with hardware
+> that uses "zero-length" messages.
+
+Good!
+
+> Thanks for the review :)
+
+You are welcome.
+
+
+--pqWsQi0x7XBD8P6y
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmLFZMwACgkQFA3kzBSg
+KbaFgw/8D7lDj4vUyKcwMGPx6bwOENbvQni8vymREU+9j3FAApPuYtvbkg3ulzqO
+Vr31LTbwZB6zYrnafuKPofGuJa9L3D7BkoovGGq8F/029h55FNksZm7jssnQkdgF
+ianlDedgOsyaLBvsGyxhpOpbJ9sG4DiGHvrlnOzy+L9wJ/dKfPnGKaZHh5BR0ZN6
+5WvSxdxTFFkLiNrOadLO9Wb8r0tTkw2gsrr5SeR8wbKEQJZlIlSy30vnqbD7VZ4i
+TOIisHPJpjtHIlOQ+ijbGpDvIZ7ZhNm2rwH24Sze0N9wUr4V2p3eQxeG4FfPf9IR
+HfFHJ2F/ZBcPPTHfkPqHvbLQIwMBvGcJ916SX6hc+ag0hrA488dDv84Qi8YaEZlR
+ddJqEF0XYN+uKG3tt8qpO5pAMw8PTJOKCT7RM6hM4SRE3GNF2FZkTZvzQfkzG75e
+d4N5wMW+yp76cVwTHx29aH9BL46rrQXgJLRBSPcfSPqoNWHBS7sC7X582UWs7R+t
+S3TDm2eYA6Y+t5a500BhqHcgCtuA/PZK0QeMkcDT4ljRpQVo17B5QdNlwAPY/SCW
+opdR3rlRHEG077SSLP6Ns3tkm2yl6uZrg2lJJ/hNOvBpsfEEXa9FecrjZtq8E63E
+8fNxY0M7OdQ3Yvd2+FNLcLuHioEtsz/h2sJKz82nZjcRhhshFfA=
+=uow+
+-----END PGP SIGNATURE-----
+
+--pqWsQi0x7XBD8P6y--
+
+
+--===============6159993370572220796==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6159993370572220796==--
+
