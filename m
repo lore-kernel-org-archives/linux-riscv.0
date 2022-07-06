@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC3DC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 10:11:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F011AC43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 10:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XjruKRQD3pV0Z50dn/3Onpp44Rzygjv2kXy20oeOlSs=; b=3RkbNiqGcEr2Lw
-	RP/Upw13L/pcSCLRBKS7tgdEqFij78kJfjEtMNKbyVoTmY5lOVknIeWRfDZxs7AMZByvla93DUFy7
-	FcGzQCbooYlxhyexwZlA4FGpYY3U/Y3aMrm6MniWcA7YlwJX5R2TBeproaic8awjzVrJWjgIWKlJO
-	6QGtuJ872W7Tw5/epfgWNlDPzXfovrTLIJOu4W6wXYgJ1/4THgan0me/QkGxwIqICdqGNqRaA0Hur
-	rCQdLUXG7MsxvL+QYh3a26jsTVFFjc6huHRNOWw9ER/jFvriTIqNGvw8hT+UgSHXeJpW6U6+b1yvP
-	v6AmTRytC/VDlSUr+0EA==;
+	List-Owner; bh=fofAkJ5Iu/06SP9GPkpAH9b4extoMjAFZYyKz0+QrEs=; b=ggKMAsJiHBHOHa
+	vp4XgJYWvXvj+Sx8EvrnpI6EWcxuGc2ywPXXPeW8PwgOY2PDLXGv3mJY8Aj4AwBPcsUqwJ06h8XdX
+	2kiP/sUin8zw+YTPOWbH0zl82d5l8xYQ2p00W9uSilvuhXEprj/nKlWsMWj/SBowoJsnvi612LsEb
+	S0vltUZphDraMTRgVfu4LiW09o9KN6b4U0gSUTMY8tMG3+N6ZMd/RNR/MXjH4Q3I6qRXavKMed4YW
+	3Jv2wv9VYzay6GZPueZeSHJ7GqrFGPerbhaFIn8JBJ/Gh5PM/+Sr0eTVQa0weqjZ03lS8UXeReDB2
+	IMJdjP6iJGm27/NUeB1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o91zg-008DIZ-55; Wed, 06 Jul 2022 10:10:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1o921W-008FIw-Mu; Wed, 06 Jul 2022 10:12:46 +0000
+Received: from mail-qk1-f179.google.com ([209.85.222.179])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o91hq-007xxT-74
-	for linux-riscv@bombadil.infradead.org; Wed, 06 Jul 2022 09:52:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=nrFMI239JwrdMXuTE5nC4SeQm0flVc3+BUmgdiqapwM=; b=E1917VT8Jdx6UOSDH8fyq8Cm7F
-	Ns7jaFyy1zWiBRxkgWWb18Mdz/U76uoKK820qCS/8/uWl+Zi//QBoxLmxoEwq/ots787PRs8L6io8
-	+uzf4wqoQJ39rroxDVxqFJlZRbqyWjU1PKDCCNF3ZJp6V/7AernQ8VeuBtlpY0gCEwh6wXAsL7Uz2
-	tNpGXOks/nVU5MrU7TIMQlm2/7ECBcKYqna3NeFarlkPhk0waHfQwcWX8SArnxQzhVohLng163boM
-	FLjCK2BeNZGttweiTxt17cXlyIWuVSz0Soaow0KpSODns6pon2LJ57pWtcTUf7JIAdYS1JZi9nVLm
-	dn+aToXw==;
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o91hX-000OJ9-Bn
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 09:52:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1657101127; x=1688637127;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=JcfI136RGD0OOfYVYgHacySTAY2bUr7/tZDULNQzTTA=;
-  b=DDau8Ygn/n/2LgekDHwzJdC4VQkPn+sI9IGmLgpyDP95zHMqG2oPxBTR
-   gRU3G0oinvyq0fesGMjizYlz2jVvDJVcEC6Gd25JOOAmv6t5eUMUVkt9c
-   YIDQiC1IJyTvd18+XREDIYPkEvrNT9qQeQCRX8brs62Lj6ETAKshHvqOC
-   ZzZ5YFwNBzAQjEBLKxHjAP7EduQEdPrtD1M5GA+ZPrpzSfdaydeVB9Ue5
-   L+XG5gOVgbv67BUjnMDL4dDJ0pIh4TA3xMl5kzEFuXQ8ZhY2pkN4hTMBy
-   CzHBPJnRYdv/F5dLRFzP7DP444p/286IR/Z0H+/7iqfTf/zUzcKIwGzX/
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.92,249,1650956400"; 
-   d="scan'208";a="163537854"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Jul 2022 02:52:04 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Wed, 6 Jul 2022 02:52:02 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
- Transport; Wed, 6 Jul 2022 02:51:59 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Nicolas Ferre
-	<nicolas.ferre@microchip.com>, Claudiu Beznea <claudiu.beznea@microchip.com>
-CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Conor
- Dooley" <conor.dooley@microchip.com>
-Subject: [net-next PATCH v3 3/5] net: macb: unify macb_config alignment style
-Date: Wed, 6 Jul 2022 10:51:27 +0100
-Message-ID: <20220706095129.828253-4-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220706095129.828253-1-conor.dooley@microchip.com>
-References: <20220706095129.828253-1-conor.dooley@microchip.com>
+	id 1o91sv-00873T-Ai; Wed, 06 Jul 2022 10:03:55 +0000
+Received: by mail-qk1-f179.google.com with SMTP id z16so10638684qkj.7;
+        Wed, 06 Jul 2022 03:03:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=moQR5LBdu+yLzctPNV/vOqPzvGKHHurzxQlNOu9l9Us=;
+        b=zyIus2bFF58rkeMMh8/J60l5LlZyrPz305JhA5QdMBQ9BJIrrYrdyHwnbdDe3QDKcW
+         tNU+zllcjhQzXj607NRf77SR1WwnwjyujbxJC/BRUVSzj7ZNDSlmEnvFyrq6jJXVlx88
+         Dl5I8Gg8Epb0WSympbRbcCuXetb81qcE8Fkkwf6Fc1xI78GRT2EGy302e3y32MeIzelt
+         Rx1lzrMp1HEK52JS2sXch9+b5Sprw7sSlj/OLv0fBud/R4TE0eUmLG6Oa1Pvy4aATCTE
+         8WcOrLbi/ZzAhZO0BSNwvQxKgjlsls/8SU7ETPWmpfs7LVt3D0QmludB5l8ERKUB2Qgz
+         Z26g==
+X-Gm-Message-State: AJIora9LDZ6bf7hJmj2Ud/+eFB2hhkd7KZFJEMg+M0e4TfABaeofgiRf
+	2elk7zR+V1pLqaeRrjjdrBYEvyWEEZfKYIEc
+X-Google-Smtp-Source: AGRyM1st5bgOldurPzv9ren1vBMLPZ6y9sMPfHN9kOsAUC3bOKdkRw+ShD+M0sh9sPBPAmrCGcnzrQ==
+X-Received: by 2002:a05:620a:4587:b0:6af:1a0a:4895 with SMTP id bp7-20020a05620a458700b006af1a0a4895mr26500575qkb.742.1657101830121;
+        Wed, 06 Jul 2022 03:03:50 -0700 (PDT)
+Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com. [209.85.128.170])
+        by smtp.gmail.com with ESMTPSA id az8-20020a05620a170800b006b14b303b37sm16805475qkb.102.2022.07.06.03.03.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 06 Jul 2022 03:03:49 -0700 (PDT)
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-31cb2c649f7so60184367b3.11;
+        Wed, 06 Jul 2022 03:03:49 -0700 (PDT)
+X-Received: by 2002:a0d:c787:0:b0:31b:a963:e1de with SMTP id
+ j129-20020a0dc787000000b0031ba963e1demr44581975ywd.283.1657101828958; Wed, 06
+ Jul 2022 03:03:48 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220630051630.1718927-1-anshuman.khandual@arm.com> <20220630051630.1718927-22-anshuman.khandual@arm.com>
+In-Reply-To: <20220630051630.1718927-22-anshuman.khandual@arm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 6 Jul 2022 12:03:37 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdX_Ji7dCzzCc3xw5ic6J=0PaPkyzXKpOgUFjjEkR+yJOw@mail.gmail.com>
+Message-ID: <CAMuHMdX_Ji7dCzzCc3xw5ic6J=0PaPkyzXKpOgUFjjEkR+yJOw@mail.gmail.com>
+Subject: Re: [PATCH V6 21/26] m68k/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Linux MM <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>, 
+	"linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>, Linux-sh list <linux-sh@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-csky@vger.kernel.org, 
+	sparclinux <sparclinux@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	linux-s390 <linux-s390@vger.kernel.org>, 
+	"open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>, "the arch/x86 maintainers" <x86@kernel.org>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Christoph Hellwig <hch@infradead.org>, 
+	arcml <linux-snps-arc@lists.infradead.org>, 
+	"open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>, linux-um <linux-um@lists.infradead.org>, 
+	linux-m68k <linux-m68k@lists.linux-m68k.org>, Openrisc <openrisc@lists.librecores.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Parisc List <linux-parisc@vger.kernel.org>, 
+	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, alpha <linux-alpha@vger.kernel.org>, 
+	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_105208_640214_455ADB2C 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220706_030353_512252_87CA2275 
+X-CRM114-Status: GOOD (  26.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,67 +93,99 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The various macb_config structs have taken different approaches to
-alignment when broken over newlines. Pick one style and make them
-match.
+Hi Anshuman,
 
-Reviewed-by: Claudiu Beznea <claudiu.beznea@microchip.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/net/ethernet/cadence/macb_main.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+On Thu, Jun 30, 2022 at 7:19 AM Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
+> This enables ARCH_HAS_VM_GET_PAGE_PROT on the platform and exports standard
+> vm_get_page_prot() implementation via DECLARE_VM_GET_PAGE_PROT, which looks
+> up a private and static protection_map[] array. Subsequently all __SXXX and
+> __PXXX macros can be dropped which are no longer needed.
+>
+> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+> Cc: linux-m68k@lists.linux-m68k.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index d43bcf256b02..85a2e1ea7826 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -4626,8 +4626,8 @@ static const struct macb_config at91sam9260_config = {
- };
- 
- static const struct macb_config sama5d3macb_config = {
--	.caps = MACB_CAPS_SG_DISABLED
--	      | MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
-+	.caps = MACB_CAPS_SG_DISABLED |
-+		MACB_CAPS_USRIO_HAS_CLKEN | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII,
- 	.clk_init = macb_clk_init,
- 	.init = macb_init,
- 	.usrio = &macb_default_usrio,
-@@ -4658,8 +4658,8 @@ static const struct macb_config sama5d29_config = {
- };
- 
- static const struct macb_config sama5d3_config = {
--	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE
--	      | MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
-+	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_GIGABIT_MODE_AVAILABLE |
-+		MACB_CAPS_USRIO_DEFAULT_IS_MII_GMII | MACB_CAPS_JUMBO,
- 	.dma_burst_length = 16,
- 	.clk_init = macb_clk_init,
- 	.init = macb_init,
-@@ -4731,8 +4731,8 @@ static int init_reset_optional(struct platform_device *pdev)
- 
- static const struct macb_config zynqmp_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
--			MACB_CAPS_JUMBO |
--			MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH,
-+		MACB_CAPS_JUMBO |
-+		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH,
- 	.dma_burst_length = 16,
- 	.clk_init = macb_clk_init,
- 	.init = init_reset_optional,
-@@ -4806,8 +4806,8 @@ MODULE_DEVICE_TABLE(of, macb_dt_ids);
- 
- static const struct macb_config default_gem_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
--			MACB_CAPS_JUMBO |
--			MACB_CAPS_GEM_HAS_PTP,
-+		MACB_CAPS_JUMBO |
-+		MACB_CAPS_GEM_HAS_PTP,
- 	.dma_burst_length = 16,
- 	.clk_init = macb_clk_init,
- 	.init = macb_init,
--- 
-2.36.1
+Thanks for your patch!
 
+> --- a/arch/m68k/include/asm/mcf_pgtable.h
+> +++ b/arch/m68k/include/asm/mcf_pgtable.h
+> @@ -91,60 +91,6 @@
+>   * for use. In general, the bit positions are xwr, and P-items are
+>   * private, the S-items are shared.
+>   */
+
+The comment above should be removed, too.
+
+> -#define __P000         PAGE_NONE
+> -#define __P001         __pgprot(CF_PAGE_VALID \
+> -                                | CF_PAGE_ACCESSED \
+> -                                | CF_PAGE_READABLE)
+
+> --- a/arch/m68k/include/asm/motorola_pgtable.h
+> +++ b/arch/m68k/include/asm/motorola_pgtable.h
+> @@ -83,28 +83,6 @@ extern unsigned long mm_cachebits;
+>  #define PAGE_COPY_C    __pgprot(_PAGE_PRESENT | _PAGE_RONLY | _PAGE_ACCESSED)
+>  #define PAGE_READONLY_C        __pgprot(_PAGE_PRESENT | _PAGE_RONLY | _PAGE_ACCESSED)
+
+You might move the *_C definitions above into arch/m68k/mm/motorola.c
+as well, as they are only used in the latter.
+
+>
+> -/*
+> - * The m68k can't do page protection for execute, and considers that the same are read.
+> - * Also, write permissions imply read permissions. This is the closest we can get..
+> - */
+> -#define __P000 PAGE_NONE_C
+> -#define __P001 PAGE_READONLY_C
+> -#define __P010 PAGE_COPY_C
+> -#define __P011 PAGE_COPY_C
+> -#define __P100 PAGE_READONLY_C
+> -#define __P101 PAGE_READONLY_C
+> -#define __P110 PAGE_COPY_C
+> -#define __P111 PAGE_COPY_C
+> -
+> -#define __S000 PAGE_NONE_C
+> -#define __S001 PAGE_READONLY_C
+> -#define __S010 PAGE_SHARED_C
+> -#define __S011 PAGE_SHARED_C
+> -#define __S100 PAGE_READONLY_C
+> -#define __S101 PAGE_READONLY_C
+> -#define __S110 PAGE_SHARED_C
+> -#define __S111 PAGE_SHARED_C
+> -
+>  #define pmd_pgtable(pmd) ((pgtable_t)pmd_page_vaddr(pmd))
+>
+>  /*
+> diff --git a/arch/m68k/include/asm/sun3_pgtable.h b/arch/m68k/include/asm/sun3_pgtable.h
+> index 5e4e753f0d24..9d919491765b 100644
+> --- a/arch/m68k/include/asm/sun3_pgtable.h
+> +++ b/arch/m68k/include/asm/sun3_pgtable.h
+> @@ -71,23 +71,6 @@
+>   * protection settings, valid (implying read and execute) and writeable. These
+>   * are as close as we can get...
+>   */
+
+The comment above should be removed, too.
+
+> -#define __P000 PAGE_NONE
+> -#define __P001 PAGE_READONLY
+
+With the above fixed:
+Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
