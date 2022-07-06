@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02FABC43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 07:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB14C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 07:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZHjLcREKBce9wcBpv35niEklGOEaGKeGERl6MvSaqbE=; b=L8XZZGmjDrVfQk
-	ANtOocf+hNYSVH/LIERa/a5NDQLb3DWIZXg/TrUi3rbH3k9ecXzbpe6XnAn8F/2T38qdRQwC79tbu
-	6X4/pLfXlspMPtKRxIRaL3YEbq8ShlFw6uiGSsaF6vSGqYE6hu+o9i6NY++VFKHqFKTJC6uWQZh92
-	SByNgHSj9BsY6BGGt502kDLiOVb7JqHnjikc0hVSNyeEWYnf7pHhqpcajABuRx+kLBMn0byo62Apk
-	wlpcAJ/6oC7s8ZjYRbjcmbzkg99XgqQGJ7HmyCVp8S2y93vRGo5LByFwpgvsMIrPFGpl5+sNqZeWp
-	vImsmWFSZ05Q7tXv7Jwg==;
+	List-Owner; bh=ZoIgx8A7mXsLofX1bpwOieK/Nl3YixKwPQjYr3hJYOQ=; b=hWqTSHoOvDATDo
+	CqAOqhqZSrTv/hd+sdUxdDGU/XLvh1V7nmjOF3EsiSHklJb/OFWaKaXoMTCI8Xq9zCIVSzWfW/ebv
+	kbhON9Q8ccKoPeMyBejEjIY3V2RVdlm7YSwm0EsJW586svoCwkkjuZlPHfaceV/xyYCVWHiVA2qAW
+	W4xmgZihZqvpKUySpd1Rf5X+HpnNrqgy0neLfvypg8yOZU1OxEnP9j+xVaW6kL71fKWQdgqrYAfgS
+	KV4KUxM50qT+6Ef/Ze2+tKWX4wuOXO/wIhb6MhuIZdxBuNPxjGZElnIcV93VywGf9TAFddbWilFgj
+	aNZC5uGsJsM/khRdjOfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8zh6-007A7Z-5Q; Wed, 06 Jul 2022 07:43:32 +0000
-Received: from mail-qt1-f180.google.com ([209.85.160.180])
+	id 1o8ztg-007DtL-1Z; Wed, 06 Jul 2022 07:56:32 +0000
+Received: from mail-qk1-f177.google.com ([209.85.222.177])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8zh3-007A6J-Kr
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 07:43:30 +0000
-Received: by mail-qt1-f180.google.com with SMTP id he28so17130648qtb.13
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Jul 2022 00:43:28 -0700 (PDT)
+	id 1o8ztd-007DrY-Nz
+	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 07:56:31 +0000
+Received: by mail-qk1-f177.google.com with SMTP id z12so10486765qki.3
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Jul 2022 00:56:29 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=kjnCdbt6inqH5uX2FYdrJz59MYQX17h31Der8YuPd8E=;
-        b=kNzfrTRGdBFl9Ihpman9LkdP7RF+HkduHneuEVmfCzka9X7ajTVImLsOL3fhKH7Rhe
-         g/oiF4UL/tH2hTEcZEJ1GAfqnLGtJBM8O9/JedZlldpNIbwhXjH6tQJSTetUl4sf/YtS
-         oedBi29XD2tTTAP2dpAkf5vpzyfS5KXAOxVZReyQEpc76L0PCz1TVF0sHOuFOUi0WPD8
-         rLlXMrzFjKDWqKJBg+ZoJwG0n8y6ccMPPqzSN4HYyvbIR0FIGVWmTIrmHJGJjlInXlxf
-         7uM8Qs9vMkQeFZIGaV0/EX+uRPo11r2cjeeQmLZ7hTpyiQQAvHTQoOgb4tlt8TkXWbNX
-         HKmA==
-X-Gm-Message-State: AJIora9+xZJmsX6QB+X4//wJj6vY2NKfUUbUOmvHvXiOts6FPh8CYx5o
-	E1A110WApKaVVHwTu5XtcR/LZZRdYiUdEg==
-X-Google-Smtp-Source: AGRyM1uFq0rkLVF6kMy2nbMLOORnREMVSPO1Wv4m9GzlSyE7WZvQbc5368Hv9hi0VaDnXcRKz6EdCw==
-X-Received: by 2002:a05:6214:f0f:b0:472:99fc:e34a with SMTP id gw15-20020a0562140f0f00b0047299fce34amr30162970qvb.108.1657093407660;
-        Wed, 06 Jul 2022 00:43:27 -0700 (PDT)
-Received: from mail-yb1-f169.google.com (mail-yb1-f169.google.com. [209.85.219.169])
-        by smtp.gmail.com with ESMTPSA id k11-20020a05620a0b8b00b006b25570d1c2sm12910460qkh.12.2022.07.06.00.43.26
+        bh=nFnExDmVG8iUyhRWe8k5w8cOxRLhlolbcIWrBxu+DeM=;
+        b=wwLkmmiPWMzz/pQc93RI9MOvdccqzvD1vTLRwM3SBKZDeOIWKDQZELQ24BKacpfGu9
+         HqgGoKKIK7AdG1g7Htva+JXPd62UDdgCJIE69tFMA6JDQXV0F1xZ+bu9aOMf1heYLAEn
+         U5Mws07d7rS/OiuvhP4MI6NDfYzS5vv0LoZUteQ34oBgFQHqv6um7C3CRpxaJ651p4nF
+         CHURUPi7R0AW2T1ir/RouVVKjusK91IcCcvDFe2fBqCkyQdWEjhdiwWJhLbPy0YT1ht3
+         /ercJhcqChbd20Z6u1UnAXhilc3HED+uIvvm4mFtxpwUD/avEe2EeZ/dWQSdhHSAYOOd
+         daYA==
+X-Gm-Message-State: AJIora+itDePpXAEQdxpZwsoqKSduTkKa5z6veCTPVtTu/9oOUNUx7U2
+	B9vFaSmksK0ZAh+tw3uwBCjkegtfmbz91A==
+X-Google-Smtp-Source: AGRyM1vCMeNex/lB5KxdcXhBngt4UFaShujTg1VhhxKJRek4RJvtO0VUTRJ8rGg+E/3vx6YK+WClYA==
+X-Received: by 2002:a05:620a:1b83:b0:6af:483d:aed4 with SMTP id dv3-20020a05620a1b8300b006af483daed4mr26600948qkb.5.1657094188451;
+        Wed, 06 Jul 2022 00:56:28 -0700 (PDT)
+Received: from mail-yb1-f177.google.com (mail-yb1-f177.google.com. [209.85.219.177])
+        by smtp.gmail.com with ESMTPSA id u4-20020a05620a430400b006a6d7c3a82esm29435182qko.15.2022.07.06.00.56.28
         for <linux-riscv@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Jul 2022 00:43:26 -0700 (PDT)
-Received: by mail-yb1-f169.google.com with SMTP id i7so25962503ybe.11
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Jul 2022 00:43:26 -0700 (PDT)
-X-Received: by 2002:a5b:6c1:0:b0:669:a7c3:4c33 with SMTP id
- r1-20020a5b06c1000000b00669a7c34c33mr41944626ybq.543.1657093406099; Wed, 06
- Jul 2022 00:43:26 -0700 (PDT)
+        Wed, 06 Jul 2022 00:56:28 -0700 (PDT)
+Received: by mail-yb1-f177.google.com with SMTP id l11so25963147ybu.13
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Jul 2022 00:56:28 -0700 (PDT)
+X-Received: by 2002:a05:6902:a:b0:65c:b38e:6d9f with SMTP id
+ l10-20020a056902000a00b0065cb38e6d9fmr44011964ybh.36.1657094187854; Wed, 06
+ Jul 2022 00:56:27 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220705210143.315151-1-emil.renner.berthing@canonical.com> <20220705210143.315151-4-emil.renner.berthing@canonical.com>
-In-Reply-To: <20220705210143.315151-4-emil.renner.berthing@canonical.com>
+References: <20220705210143.315151-1-emil.renner.berthing@canonical.com> <20220705210143.315151-5-emil.renner.berthing@canonical.com>
+In-Reply-To: <20220705210143.315151-5-emil.renner.berthing@canonical.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 6 Jul 2022 09:43:15 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdV4QVoN53cqrbmVn3YJVHSdbB78xd120AO0FNz74qeGyA@mail.gmail.com>
-Message-ID: <CAMuHMdV4QVoN53cqrbmVn3YJVHSdbB78xd120AO0FNz74qeGyA@mail.gmail.com>
-Subject: Re: [PATCH v1 3/4] leds: pwm-multicolor: Support active-low LEDs
+Date: Wed, 6 Jul 2022 09:56:16 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdV0VJh8Um2zM=kDTPPeLPci1OxU75mqkJgFSwhBZ1NR8w@mail.gmail.com>
+Message-ID: <CAMuHMdV0VJh8Um2zM=kDTPPeLPci1OxU75mqkJgFSwhBZ1NR8w@mail.gmail.com>
+Subject: Re: [PATCH v1 4/4] riscv: dts: sifive unmatched: Add PWM controlled LEDs
 To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Pavel Machek <pavel@ucw.cz>, 
 	Rob Herring <robh+dt@kernel.org>, 
@@ -75,8 +75,8 @@ Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Pavel Machek <pave
 	linux-leds <linux-leds@vger.kernel.org>, 
 	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_004329_727041_5400E694 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20220706_005629_820229_5CABA553 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,13 +93,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Emil,
+
 On Tue, Jul 5, 2022 at 11:01 PM Emil Renner Berthing
 <emil.renner.berthing@canonical.com> wrote:
-> Add support for LEDs wired up to light when the PWM output is low, just
-> like the regular PWM LEDs.
+> This adds the two PWM controlled LEDs to the HiFive Unmatched device
+> tree. D12 is just a regular green diode, but D2 is an RGB diode with 3
+> PWM inputs controlling the three different colours.
 >
 > Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
 
+Thanks for your patch!
+
+> --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> @@ -44,6 +46,46 @@ gpio-poweroff {
+>                 compatible = "gpio-poweroff";
+>                 gpios = <&gpio 2 GPIO_ACTIVE_LOW>;
+>         };
+> +
+> +       led-controller-1 {
+> +               compatible = "pwm-leds";
+> +
+> +               led-d12 {
+> +                       pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
+> +                       active-low;
+
+The first thing that came into my mind was "why not drop the
+PWM_POLARITY_INVERTED flag instead?".
+
+But it turns out drivers/pwm/pwm-sifive.c does not support
+non-inverted PWMs, and returns -EINVAL if PWM_POLARITY_INVERSED
+(no typo) is not set.  I think it would be good if
+Documentation/devicetree/bindings/pwm/pwm-sifive.yaml would mention
+this limitation, and perhaps even enforce it, if possible?
+
+I didn't check this against the schematics, but the generic structure
+LGTM, so
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
 Gr{oetje,eeting}s,
