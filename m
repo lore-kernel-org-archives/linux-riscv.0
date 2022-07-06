@@ -4,79 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08EFCC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 05:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D48A7C43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 05:58:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T2HoW6NiaYqnBBjzBbvsIgUhLVzYemsJDecRqYIL6OM=; b=hG5QS5FuuU+L6J
-	xiLM43fMJ61EwAWVIj2g9ryTkofZ6Q+PApujpRuvciJtFEmlc2CGO21JBsJ+2cNgzNThSogXTO7hG
-	Sml35E7rSCqM42Ms7DeYSZmGb6jrmktcoi3K6wbThslqtNtG/XrOf9Y3uYIeDThttJdVdnUgzvLne
-	azNFKWOxCVkBt5dDzBSX+qaoMaIH7yzB2/jwuUPrZRbxHoTnxQviYuj8qSefhUY4u3CzLHctr8rFi
-	cpeksOHNriK/PRidGob31GEXvNz75ieinw2r/3ssQbf1SRVmymQfcAAZljAlm1cZYlFB2PV7YHjqb
-	+2vO/2haOsyg6cyxsx5g==;
+	List-Owner; bh=2FJmekcy8/V2O6UDl71gVIafaLAGG8olLarNSdkfSww=; b=Icw0JPok4gXzW1
+	I1iHFTcdrKlBMIpJAh+OUqtWCBuaNrn5tPChgp4UlKRycIcUaSpLvw1YcQJL6v9TvOoRGb/LU2/Bo
+	zTRgbjdEycuSdQQitEtzk7oAjMoZgS/fsMjrKmr2IvfChcnT8JHTwwQIgRzUc/4bF0PasUu5B44el
+	/hw+TB9ukYpmCTx98ZJE2FGVpwJ/boh0SZiZNICDeCXUpz4rGGNrqcjtxhEtjDJsks9WkO7oMZIDh
+	hXP2i0EjgRB9o9lYWKxUXoqm73SnDI8aIdZuEa5ALW0SPg47pWgRQFibmb37HUEv+4LqKcJD+X4V0
+	5POY9fperKMdeJqt2avg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8xqp-006IAd-H2; Wed, 06 Jul 2022 05:45:27 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8xqm-006I6H-3c
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 05:45:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id A2660B817F4;
-	Wed,  6 Jul 2022 05:45:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99381C3411C;
-	Wed,  6 Jul 2022 05:45:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1657086320;
-	bh=3D6JnTyqnPP2jiPpHSlGQDcx4nSOuFUKoMkf/By5jzs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=beHWBKQE3jSY94shQkm5jd1+RuTdBb2ueweYw6N0sIMjpCw2iwAnt8svfD5/V1CtD
-	 +vfgei5ddElQG65X38w3m5VNNcfCgo93Bxb9axxKSjaZrjE1ecnx67Gne94S1fa7jc
-	 wCrKVt0N9qXQAmLWQyTSdhELrOsNNpHSnPVlYEKGNE7Ha10OJunLksj9WryWN3ijBE
-	 ywM0gzVZ+2vvLmJJwJaquNZXVnS5i2rFXFTdSnvcIP8HVrRhMVJBBqY7txkB5zrP7B
-	 3FpKbIw7odrseCf9io6Ui7Jc+cDP1wMWpf4ONB+s6Vto9h3LgpizR6VrjUSLAufLYC
-	 xHpUiJRr4WxMw==
-Date: Wed, 6 Jul 2022 11:15:16 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Conor Dooley <mail@conchuod.ie>
-Cc: David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Sam Ravnborg <sam@ravnborg.org>,
-	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Niklas Cassel <niklas.cassel@wdc.com>,
-	Dillon Min <dillon.minfei@gmail.com>,
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>
-Subject: Re: [PATCH v5 03/13] dt-bindings: dma: dw-axi-dmac: extend the
- number of interrupts
-Message-ID: <YsUhbD0zJk43/4oa@matsya>
-References: <20220705215213.1802496-1-mail@conchuod.ie>
- <20220705215213.1802496-4-mail@conchuod.ie>
+	id 1o8y3M-006Qua-SE; Wed, 06 Jul 2022 05:58:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o8y3A-006Qd9-Ve; Wed, 06 Jul 2022 05:58:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EBF5A1570;
+	Tue,  5 Jul 2022 22:58:09 -0700 (PDT)
+Received: from [10.163.43.16] (unknown [10.163.43.16])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C01D3F70D;
+	Tue,  5 Jul 2022 22:58:01 -0700 (PDT)
+Message-ID: <8a6ccbae-7d7c-6e08-cc28-eeb649f86112@arm.com>
+Date: Wed, 6 Jul 2022 11:27:59 +0530
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220705215213.1802496-4-mail@conchuod.ie>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+Subject: Re: [PATCH V6 00/26] mm/mmap: Drop __SXXX/__PXXX macros from across
+ platforms
+Content-Language: en-US
+To: linux-mm@kvack.org, akpm@linux-foundation.org
+Cc: hch@infradead.org, christophe.leroy@csgroup.eu,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org, x86@kernel.org,
+ openrisc@lists.librecores.org, linux-xtensa@linux-xtensa.org,
+ linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+ linux-parisc@vger.kernel.org, linux-alpha@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-ia64@vger.kernel.org, linux-mips@vger.kernel.org,
+ linux-m68k@lists.linux-m68k.org, linux-snps-arc@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-um@lists.infradead.org,
+ linux-sh@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20220630051630.1718927-1-anshuman.khandual@arm.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20220630051630.1718927-1-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220705_224524_378626_5C6BB2FE 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20220705_225813_161910_717ABC60 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,20 +71,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 05-07-22, 22:52, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+
+
+On 6/30/22 10:46, Anshuman Khandual wrote:
+> __SXXX/__PXXX macros is an unnecessary abstraction layer in creating the
+> generic protection_map[] array which is used for vm_get_page_prot(). This
+> abstraction layer can be avoided, if the platforms just define the array
+> protection_map[] for all possible vm_flags access permission combinations
+> and also export vm_get_page_prot() implementation.
 > 
-> The Canaan k210 apparently has a Sysnopsys Designware AXI DMA
-> controller, but according to the documentation & devicetree it has 6
-> interrupts rather than the standard one. Support the 6 interrupt
-> configuration by unconditionally extending the binding to a maximum of
-> 8 per-channel interrupts thereby matching the number of possible
-> channels.
+> This series drops __SXXX/__PXXX macros from across platforms in the tree.
+> First it build protects generic protection_map[] array with '#ifdef __P000'
+> and moves it inside platforms which enable ARCH_HAS_VM_GET_PAGE_PROT. Later
+> this build protects same array with '#ifdef ARCH_HAS_VM_GET_PAGE_PROT' and
+> moves inside remaining platforms while enabling ARCH_HAS_VM_GET_PAGE_PROT.
+> This adds a new macro DECLARE_VM_GET_PAGE_PROT defining the current generic
+> vm_get_page_prot(), in order for it to be reused on platforms that do not
+> require custom implementation. Finally, ARCH_HAS_VM_GET_PAGE_PROT can just
+> be dropped, as all platforms now define and export vm_get_page_prot(), via
+> looking up a private and static protection_map[] array. protection_map[]
+> data type has been changed as 'static const' on all platforms that do not
+> change it during boot.
+> 
+> This series applies on v5.19-rc4 and has been build tested for multiple
+> platforms. While here it has dropped off all previous tags from folks after
+> the current restructuring. Series common CC list has been expanded to cover
+> all impacted platforms for wider reach.
+> 
+> - Anshuman
+> 
+> Changes in V6:
+> 
+> - Converted protection_map[] array as 'static const' on sparc32 platform
+> - Rebased on v5.19-rc4
+> - Collected tags
 
-Applied, thanks
+There are two linux-next based build fixes for this series (listed below), when
+vm_get_page_prot() gets redefined with !CONFIG_MMU. Platform vm_get_page_prot()
+is required only with CONFIG_MMU enabled, otherwise there is a generic fallback
+stub in include/linux/mm.h
 
--- 
-~Vinod
+https://lore.kernel.org/all/20220705221411.3381797-1-jcmvbkbc@gmail.com/	[xtensa]
+https://lore.kernel.org/all/20220706054002.1936820-1-anshuman.khandual@arm.com/ [sh]
+
+It does not seem CONFIG_MMU can be disabled on other platforms thus exposing a build
+failure. But just to be on the safer side, should all vm_get_page_prot() be wrapped
+around with #ifdef CONFIG_MMU ? In that case will resend the series with above build
+fixes folded back in as well. Please do suggest. Thank you.
+
+- Anshuman
 
 _______________________________________________
 linux-riscv mailing list
