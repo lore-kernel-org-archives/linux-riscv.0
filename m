@@ -4,82 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37955C43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 12:24:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D20D6C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 12:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LwbNDFarqIORDXzCigELhxkaC+P2dyVhOc3++LE3DOw=; b=RIcmnATUac+h6+
-	gxMYFP+ucPcpyPOKbIOf9yWqkdEF9SFQ9x2MQid7sPB1vsgs8htXiDUhfWNCGspNwhJKuuKdlr7v3
-	TKvGBJ2vgw22DuCKbxtmo/uSW8Y5XtCuoWuns4KJCb/HCGzZIcOisOm5WU6pal2euyswmSvwL3XW1
-	t1Ww9aJ+ys8zbwE/TH5xfeDrVXsBgRWXB1UQU9UUUAxR3d0l6KJs26OqKdGqTOr/Vqg8w9maKSLHD
-	eUBUVwJu+/JFN9P8DQPAzHUU1RYj2PoxcWAv7Oxtp/iOZbWk054WX3UCAFKXYbVklbrMa7xydw9au
-	cSU2HEXg8uFyiseHpxow==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=p4NwgUO0IEjgbQ6GrC65MMOULfBJ4cf9Ucbmd5N4dME=; b=yo6/Mdu680H57Q
+	b/4p99E6pj1jAEkbSiJ0u9x1qNpdFEcEk0eLqqKtaxCVMVPsuBbM+w7e8Z9Y+ZQklMjOvpIaJi3x8
+	Iu+RWRSnc7zbWh4LWl0WQ3s1uz3S7xtLfyl3QrpFPe63fyqiS0p72VgNaRhdylGhy4zev5gNCbY+x
+	2TfWL9tmSj8Vy2a7awWPtSWyJ5lQ6MYQCS6ATjdnbGb3FYvdl3YBvtvsePvSwl9KgRxRZVl6jbM0p
+	PbZQ+SPvpHLqdpNjgNkkuNIhcWOEgbCjodVjbuLN9claGEUt371VOoeaswNf79MeN9eZLZn2vxgEY
+	Fx9I8SPJ+5i/a93rrOPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o944X-009tvc-DO; Wed, 06 Jul 2022 12:24:01 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o944T-009ttN-1J
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 12:23:59 +0000
-Received: by mail-wm1-x333.google.com with SMTP id t17-20020a1c7711000000b003a0434b0af7so8911425wmi.0
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Jul 2022 05:23:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20210112.gappssmtp.com; s=20210112;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:content-transfer-encoding:in-reply-to;
-        bh=5KHAdDcwX24NbzKDAvafzAtUGJGDqZUpioC/hxvH8ww=;
-        b=YOn5npfdMjt1/r8szulBt6rTdFj6qGfwHDuhJY2PuDnjluIUztjJMzr6hgUuSRSBhl
-         lkoC44nQXvdC7Q5O1RFglOvfMx1z/nxXl5FDN+Itlf+AgilBSq4fzrmn64lSUDrfj3fC
-         O+m11xW8/+KlcN65vAA1xncU4WiEiPmMdOW0RYodCekqGOnjr3sYyyeFeQyQnM67ZWBJ
-         Et/mzTE+6h4RHNGKL3pmR0KJ2zg//aTSo54D4iKo5sqRPDHkEGmrvddgQRLXQw4VgE0v
-         1npiY7eT2I13//lFrIMivwIc+VTfdJebv6wFllxVKU0YNpeZ0yhfz5beSDGxXTIcpp7W
-         4v1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:content-transfer-encoding
-         :in-reply-to;
-        bh=5KHAdDcwX24NbzKDAvafzAtUGJGDqZUpioC/hxvH8ww=;
-        b=f5kz6W5aOVwCuoxHA03GBfxpVWms4u2RF/tRCiyKI59XBKkOYQonzmddQnORWIaryv
-         GR+VMdq148BAXCOPIt9tmqKeblLmVzUUXJPzv1PoYQO8MGoD9C/xNFxww1nll3Ce/6zi
-         equQKlVCpuwPZK59NgsbsQ3mwZM+qCgyOxFEIA2zIQ6uijpOn7V0y81IBFXdPwTqmVm9
-         GjPiAkSSRoboLZZU2ToyCrn/FC44YXHtDNx11izOmAHDatfFVpniI5ulgoPC0ruF83h3
-         1q208IgVMCroHo7OkxFO5qB+TgHINHzz//QZCyuhL3myaJxIyRRslBtAHYdC5OEghcPK
-         DUPg==
-X-Gm-Message-State: AJIora+iUS3m5PrMlSkM6oD8Cd+zHOJzJMcY+WQsvqavs9LJMDNi3ASQ
-	jP57vkPHR97vPxVVQNcn0bjCwA==
-X-Google-Smtp-Source: AGRyM1s8pbcxPA7bUbV0T+xiYTeDMY3a909i6c7eZwEIlshJcOKVCYxEY2JgBSfJM15EErYJF1lrnQ==
-X-Received: by 2002:a05:600c:3b1d:b0:3a2:60a1:fe6a with SMTP id m29-20020a05600c3b1d00b003a260a1fe6amr15263688wms.3.1657110233895;
-        Wed, 06 Jul 2022 05:23:53 -0700 (PDT)
-Received: from Red ([2a01:cb1d:3d5:a100:264b:feff:fe03:2806])
-        by smtp.googlemail.com with ESMTPSA id i30-20020a1c541e000000b003a032c88877sm21834833wmb.15.2022.07.06.05.23.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Jul 2022 05:23:53 -0700 (PDT)
-Date: Wed, 6 Jul 2022 14:23:48 +0200
-From: LABBE Corentin <clabbe@baylibre.com>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Ben Dooks <ben.dooks@codethink.co.uk>, herbert@gondor.apana.org.au,
-	heiko@sntech.de, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: Re: [RFC PATCH] crypto: flush poison data
-Message-ID: <YsV+1DQzJ/KFnqBk@Red>
-References: <20220701132735.1594822-1-clabbe@baylibre.com>
- <4570f6d8-251f-2cdb-1ea6-c3a8d6bb9fcf@codethink.co.uk>
- <YsP0eekTthD4jWGV@Red>
- <20220705164213.GA14484@lst.de>
- <ec401a51-5895-fce7-1075-a2c964466d2b@codethink.co.uk>
- <20220706115807.GA16222@lst.de>
+	id 1o94Qv-00A0vZ-EM; Wed, 06 Jul 2022 12:47:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o94Qi-00A0pJ-Oh; Wed, 06 Jul 2022 12:46:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F2BF106F;
+	Wed,  6 Jul 2022 05:46:53 -0700 (PDT)
+Received: from usa.arm.com (e103737-lin.cambridge.arm.com [10.1.197.49])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 201873F792;
+	Wed,  6 Jul 2022 05:46:51 -0700 (PDT)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	ALKML <linux-arm-kernel@lists.infradead.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] cacheinfo/arch_topology: Updates for v5.20
+Date: Wed,  6 Jul 2022 13:46:44 +0100
+Message-Id: <20220706124644.2276077-1-sudeep.holla@arm.com>
+X-Mailer: git-send-email 2.37.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220706115807.GA16222@lst.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_052357_354491_6B720823 
-X-CRM114-Status: GOOD (  12.12  )
+X-CRM114-CacheID: sfid-20220706_054656_934821_B2F07E51 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +55,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Le Wed, Jul 06, 2022 at 01:58:07PM +0200, Christoph Hellwig a =E9crit :
-> On Wed, Jul 06, 2022 at 10:47:24AM +0100, Ben Dooks wrote:
-> > I'm not sure that the dma-mapping code for non-coherent riscv systems
-> > did get sorted. I couldn't find any when looking in 5.17.
-> =
+Hi Greg,
 
-> Yes, none of that is upstream.  But as supporting it is essential for
-> the allwinner SOCs I'm pretty sure Corentin is not actually using an
-> upstream kernel anyway.
+This is my first pull request to you, not sure if you are open to
+pull request or prefer pulling the patch series directly. I am fine
+either way. You can ignore this and pull the patches from[1] if you
+prefer.
 
-I use an upstream kernel + some "not yet merged but sent for review" patch =
-serie like
-"riscv: implement Zicbom-based CMO instructions + the t-head variant"
+Most of these changes are in -next for almost 2 weeks with small update
+to fix issue reported on RISC-V last week. The small changes in ACPI
+and arm64 are acked-by Rafael and Catalin.
 
-And good news, I just updated to use the v6 of this serie (just posted toda=
-y) and my problem disappear.
+Regards,
+Sudeep
 
-Regards
+[1] https://lore.kernel.org/all/20220704101605.1318280-1-sudeep.holla@arm.com/
+
+
+-->8
+
+The following changes since commit f2906aa863381afb0015a9eb7fefad885d4e5a56:
+
+  Linux 5.19-rc1 (2022-06-05 17:18:54 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/arch-cache-topo-5.20
+
+for you to fetch changes up to 7128af87c7f1c30cd6cebe0b012cc25872c689e2:
+
+  ACPI: Remove the unused find_acpi_cpu_cache_topology() (2022-07-04 16:23:23 +0100)
+
+----------------------------------------------------------------
+cacheinfo and arch_topology updates for v5.20
+
+These are updates to fix some discrepancies we have in the CPU topology
+parsing from the device tree /cpu-map node and the divergence from the
+behaviour on a ACPI enabled platform. The expectation is that both DT
+and ACPI enabled systems must present consistent view of the CPU topology.
+
+The current assignment of generated cluster count as the physical package
+identifier for each CPU is wrong. The device tree bindings for CPU
+topology supports sockets to infer the socket or physical package
+identifier for a given CPU. It is now being made use of you address the
+issue. These updates also assigns the cluster identifier as parsed from
+the device tree cluster nodes within /cpu-map without support for
+nesting of the clusters as there are no such reported/known platforms.
+
+In order to be on par with ACPI PPTT physical package/socket support,
+these updates also include support for socket nodes in /cpu-map.
+
+The only exception is that the last level cache id information can be
+inferred from the same ACPI PPTT while we need to parse CPU cache nodes
+in the device tree. The cacheinfo changes here is to enable the re-use
+of the cacheinfo to detect the cache attributes for all the CPU quite
+early even before the scondardaries are booted so that the information
+can be used to build the schedular domains especially the last level
+cache(LLC).
+
+----------------------------------------------------------------
+Ionela Voinescu (1):
+      arch_topology: Limit span of cpu_clustergroup_mask()
+
+Sudeep Holla (20):
+      ACPI: PPTT: Use table offset as fw_token instead of virtual address
+      cacheinfo: Use of_cpu_device_node_get instead cpu_dev->of_node
+      cacheinfo: Add helper to access any cache index for a given CPU
+      cacheinfo: Move cache_leaves_are_shared out of CONFIG_OF
+      cacheinfo: Add support to check if last level cache(LLC) is valid or shared
+      cacheinfo: Allow early detection and population of cache attributes
+      cacheinfo: Use cache identifiers to check if the caches are shared if available
+      cacheinfo: Align checks in cache_shared_cpu_map_{setup,remove} for readability
+      arch_topology: Add support to parse and detect cache attributes
+      arch_topology: Use the last level cache information from the cacheinfo
+      arm64: topology: Remove redundant setting of llc_id in CPU topology
+      arch_topology: Drop LLC identifier stash from the CPU topology
+      arch_topology: Set thread sibling cpumask only within the cluster
+      arch_topology: Check for non-negative value rather than -1 for IDs validity
+      arch_topology: Avoid parsing through all the CPUs once a outlier CPU is found
+      arch_topology: Don't set cluster identifier as physical package identifier
+      arch_topology: Set cluster identifier in each core/thread from /cpu-map
+      arch_topology: Add support for parsing sockets in /cpu-map
+      arch_topology: Warn that topology for nested clusters is not supported
+      ACPI: Remove the unused find_acpi_cpu_cache_topology()
+
+ arch/arm64/kernel/topology.c  |  14 -----
+ drivers/acpi/pptt.c           |  40 +-----------
+ drivers/base/arch_topology.c  | 102 +++++++++++++++++++++++-------
+ drivers/base/cacheinfo.c      | 143 +++++++++++++++++++++++++++---------------
+ include/linux/acpi.h          |   5 --
+ include/linux/arch_topology.h |   1 -
+ include/linux/cacheinfo.h     |   3 +
+ 7 files changed, 175 insertions(+), 133 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
