@@ -4,64 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AE46C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 19:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 497CAC43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 20:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gskKUmFYnHTTHsdvnq9emMDjhMWRu+okWoy1L93jJkY=; b=TnlTqMZsw+VTi30N1XEQVadUzO
-	QrkJ4wvz2BTKSPzAdUQdGBU8X6VMPEVY2vW2156wqvXjWiTFVy60rZVlM8uauQo/C3oO445ko4TXO
-	09/TmPDJvzeQZKHqLO23jN20B5LzJtPS0IonpYISSN45/tlmzo0QHaOnKavZ46DC3QdKIfFAfWU9U
-	9nB/2ZlcR9SQWqFesrOtmW4jjzExBi9N9T1D6XNyBXdcnPDpUoLfaEwTkmz3VkqR467DkXmoO3gKI
-	LJ6u2WsPhZtO3OA3Baoepdpvp5+edoGuapeyLhADAxXOF9GPdsz/8f2Nwpf/HDD0Cwsu0b2rlcAWx
-	R/jK1AvQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=txoSjxV22PFf/WBlWQrk53bzwjlwoHqeP0xB2rNIovs=; b=nbwSPbe3xjgsFU
+	qbYZhTEVIiCFyqiV06H+N40xZ2M/FgwswpnR/fPNKmfPwHNdPdh2ulcJeFn8eQowx6cMuPH9UscW7
+	p5B4eI97h147AsqYd29Tkk/CPnuVbcFEvIoAZW8d1Fo3WHHp7mOpJy6MA7XPb+POaEwGKeGxULgLM
+	KzN9Z1uHpYBB+uvWRCiDKrZzD7cBYX20TuSU80szPj+IFHGM8sIPs2EI5dXsYlviDI+z42Dn8liVr
+	Od0vUHSHtyGjIRkEPxtqwQ5dT4dKIakjYwM7PUSP4tu3X2dp7QGvs2B5qy2UdAY6FsNwmGjHCcuY6
+	KwLgYBYOv62gjSII8vJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9Af6-00CChK-TT; Wed, 06 Jul 2022 19:26:12 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1o9Bcx-00CJP8-N6; Wed, 06 Jul 2022 20:28:03 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9Af4-00CCgL-BS
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 19:26:11 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 3BFAF6204F;
-	Wed,  6 Jul 2022 19:26:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFDEAC3411C;
-	Wed,  6 Jul 2022 19:26:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1657135568;
-	bh=B7KWI+zxs/Q0rPLko0afLemZyMmjeukiI8Nhzv0WVnc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PoosFBY5mA6HuAoVuuVa3eADaT24dr8FOlzQ3uiq2V7JbvufXQXgc6b5DYFzXAixk
-	 KI0qXCYKEzhTobeEFQ7tmcVEyQjXdKE7r5EcWHYIorhqGXOXA6DI9MVSCJ5cxnklLT
-	 WC9jUlxO1Tg3HL5MYm2wE3XFcr4UJh4iK+bWxm1nS9q6/jHj181LOKhxaXRG+2Tx3i
-	 L/y+O3ngdLToGFKigz0aNi2vWNlEEkIue5UUwcA45R+30UtQwJ1CRXjT5SPtqjx3qc
-	 tDoip3gRLC4jlzH7xk7Wxe8w3weMb5Ndf1gERxxaQoe7GAlTN/tlpCQFW6T7zENuzb
-	 K2+E/hkMJGOKQ==
-Date: Wed, 6 Jul 2022 21:26:00 +0200
-From: Wolfram Sang <wsa@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-i2c@vger.kernel.org, ben.dooks@codethink.co.uk,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	daire.mcnamara@microchip.com
+	id 1o9Bcu-00CJNo-Ez
+	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 20:28:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1657139280; x=1688675280;
+  h=from:to:subject:date:message-id:references:in-reply-to:
+   content-id:content-transfer-encoding:mime-version;
+  bh=LwVTSewbqAqEEyXXzTWYMDNoZ+pyplZ6Q+XPmRfIpMs=;
+  b=pZGGSXnlV+uaN5Sl4FpsxO96eS62ZqAD4gxu9Gx4l8D5/0jTKE5D4l0h
+   ZnVXLQ91VdZ7lEyp3YcGVgTU0T5YTIqYDjUM7rjRQmm1Jnzp380IFEowa
+   bbmfT3crlbQtAdW9KsXRMYVon3Z4yOPJkReukJkNMVj3bOL7G6gG9vxge
+   MUWhfnBfZV22NhcKCu91gu8gT5PJf5BN4gMVi3Nw43Fxjb6AKCpZjQksP
+   L5DOh6cU2/4PIg1ulmGoul1KpnqvlPXnp6zrK0Wqf5SGy3M1hI3iJWU5T
+   sD6ZC5SYQzb1X0BdQUV9mT7lH7pkj0cyp+ghw2tWtkzC5MBD6OcI3ekfP
+   g==;
+X-IronPort-AV: E=Sophos;i="5.92,250,1650956400"; 
+   d="scan'208";a="103355036"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Jul 2022 13:27:52 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Wed, 6 Jul 2022 13:27:51 -0700
+Received: from NAM11-CO1-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
+ Transport; Wed, 6 Jul 2022 13:27:51 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=mhws4UnARREVFE8i8gXE/Uu/tTojotuBrLqvXcZUp2nv6UsSQJfPNC9dBgNSEkSVKvi+Bjd74lto7C3iVT231DUxsZFs7CtjuvrAxkio7v5CpR9+yno2npPjO/GsHTR6wDsEFvvjNbwtEK9xpl3Jym5EgLIZ/yRyeKLzaDcTMZe9QL/5nT1s6RS+n/RkiqnCjMzuzjh8CF6Y/nM2FQ86/2nN4IgwHBMYY9xMkdF4KfanwvxrSq8VgLCNdUxj03P/vMWwEbAG7ZK/HMP/q4ph/gQ0+8CsMJ8HUXaLkJxoIykaO0NPLLK660x/sd6FS3UJS4JQcxVBU2kIfkGu7NItXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LwVTSewbqAqEEyXXzTWYMDNoZ+pyplZ6Q+XPmRfIpMs=;
+ b=bWhmfKcbm3ofRbQWwylLlIDPsMwSrm4yD86UpGhrBckvWsRgFzhHwApl2vXkHxfgK4EnQu9sPLzT2WhYYdsxV+47QppLjlv4cfH8ExW1inBl56xB8KHwZpbnR5CguD2m7/YTqWCmvwllO23H9kZl+Z6CA8CKBQbmcXb84us2QLLkMiCWVU+yRd3MXSO08aVgtcJ98H6r1vxGiLjiL6a4gy3KxbAVnpl30JZJHrMtO1zQcu2T7lcR8XE6dg2+L41Q3Ih6x4CPFJqBfXStrDg0/BCMZMFRIz2XwM+cXKOllpmrHRM/ZubXpBS3XC7tuncw+Z7iJPxovddNKilPELj2Kw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LwVTSewbqAqEEyXXzTWYMDNoZ+pyplZ6Q+XPmRfIpMs=;
+ b=hKVsgcgsq/l1TORgETz6xC+Z+ycRQ8tOTcyK6av70G1SlGeuEjo8S547iger1QQKMf3yx7mNotnqxMx3mn/YWPVZuRZGcnqVkyWZPwesvq/CskKRqnHtl90YAxq9TPdykytyaN3vX0ii4OIvnaJM2v9Ih/qiOOgT7rABfVj/B74=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by DM6PR11MB3084.namprd11.prod.outlook.com (2603:10b6:5:6c::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5395.21; Wed, 6 Jul
+ 2022 20:27:50 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::8d4a:1681:398d:9714]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::8d4a:1681:398d:9714%5]) with mapi id 15.20.5417.016; Wed, 6 Jul 2022
+ 20:27:50 +0000
+From: <Conor.Dooley@microchip.com>
+To: <wsa@kernel.org>, <linux-i2c@vger.kernel.org>,
+	<ben.dooks@codethink.co.uk>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <Daire.McNamara@microchip.com>
 Subject: Re: [PATCH v7 1/2] i2c: add support for microchip fpga i2c
  controllers
-Message-ID: <YsXhyB9GrfUQjy4n@shikoro>
-Mail-Followup-To: Wolfram Sang <wsa@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	linux-i2c@vger.kernel.org, ben.dooks@codethink.co.uk,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	daire.mcnamara@microchip.com
+Thread-Topic: [PATCH v7 1/2] i2c: add support for microchip fpga i2c
+ controllers
+Thread-Index: AQHYkUKZtonGGLssTUOORFtF0KSp7a1xue0AgAARRYA=
+Date: Wed, 6 Jul 2022 20:27:50 +0000
+Message-ID: <0e28e644-a25a-173b-caeb-826cc4fb4537@microchip.com>
 References: <20220706141313.2504237-1-conor.dooley@microchip.com>
+ <YsXhyB9GrfUQjy4n@shikoro>
+In-Reply-To: <YsXhyB9GrfUQjy4n@shikoro>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: c6bdf090-3b34-4cc5-a294-08da5f8dff22
+x-ms-traffictypediagnostic: DM6PR11MB3084:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: o/0oQlDERGS0E4U3tznH0s19XFMThc5nfM0FVdSbodywpmk+/vhCfGxd2sPYtFkKXi18OW0kG8TaX5hthb8uH+TrUsNbK6WVvUllrjlxzy70eztGNL7sp87tBEgSVR9h8P8lYvCsjVilnaV+CDwwFcJegc7hIb5Ex9SpMDVUBulROLNFBpaPoDvclxI+K6mCQAAuVsNx0aS6Ah4vNtIrLNL5qcPt0Nx8SLM/I1CCu/KYDMyJQBuEJhNIYe/q/BdjnuCrHIcrxq40M45DntYu9PY0IoX97f01PoR1u068HxPgZjGR/RuAyzP471kv0w0QGSSPSgnWPFT7ci2R0qD86OL0R7LzpedKyr5AT5naNxR2riB7YMnMpjEEg4+CPqrxEziY+jf7gZbYmFO43wogiRpeeuT0QuRGesjW1mhuMkFIUxtOOH//73CjJy/Lg2DIGQ5EUE2SSaqz84/NPJ03bTCC55/+4hYz0uJUPefipAWfbmzsyYicCuT6hoOVZNB1N/oR+bC9WrmWvAfdrtL07KShwc7dJ1xBFWujmlCcdu4f/0a4qvrIQO8SX5b1NWWYm2bghKO2YLl/m0l0kNVi63SU4fQoX0nvM0Qg09wwidC9zaBin+gBVVlohXSESVYP5FLbihmX7X9dDQuQSAq9h4SY8CEhdL3iGIeXDywpcxucZrDX1IuzEbVwwPftfcoBDaYx90UCAFrxojs1WCN/2Hg761TCgHXX/22gj92fQUdjRX4gOco8shb18CbShvp7bqWb/f3OTLgoRv9GTAnH20Bbk/i/VmhlAX6iVnjA8g48d+5e7SFpijDT+IfBUcPgWffHWFhwGGcpiWVHzTsYz75iboUCC4plspBJ8di/bwhBquX1VIC7G+Teo6wiCxON
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(396003)(366004)(136003)(39860400002)(376002)(346002)(38070700005)(122000001)(38100700002)(110136005)(4744005)(316002)(71200400001)(6636002)(31686004)(8936002)(91956017)(76116006)(8676002)(64756008)(66556008)(2616005)(66446008)(6512007)(66476007)(66946007)(5660300002)(26005)(6486002)(478600001)(6506007)(53546011)(41300700001)(2906002)(36756003)(31696002)(186003)(86362001)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?V3hsYW9oMllzQmFka3ZrS3orOW9lUFNLME9FWjhqNHNPV1o3emNDOHhXbFhE?=
+ =?utf-8?B?U1N4MGtPQU52dHRGUmJ5SHZiL3E5YjcyaHJRcmFFcHh1MDJrWnRIYUhNU2xR?=
+ =?utf-8?B?czJZSE4wT2pRM2w3N1hzclYvb3JkcHFqVjZ5SlBscmVqWGNzWVVrcFlPcFZo?=
+ =?utf-8?B?WkdzdFlaTmE3YmNHV01WMWxYVjFTblUydXYvTXltcUd3Rk9JUzJGeklmVzFk?=
+ =?utf-8?B?dlJjNVZBdTlmdy9sOEtBOXVyWiszdkx2Wjdxd2x0ejRxbkh0VFlyc1dZQ0ZG?=
+ =?utf-8?B?L2FDUTFmaUR5QkF6ckQwQ2UzV3pRV2wxMy9qaEJTWGNsL3RMVmVwbm1FNFQ5?=
+ =?utf-8?B?dUFJbEZpcnFaU2ZCaEdTNTI4VnNmTnF2RUFLTGZ3ZU95VXFzUndMM2JUeG9r?=
+ =?utf-8?B?cTB4aUNvMk1SYXNwNXkrdWY2WGxKd0ZBOUdoK29meUc3bjlqZ0syN2IvR1hD?=
+ =?utf-8?B?d2g3b253L1BvVitqV0Y5b2VFTVBZUVpqNnovN3B2aWJtSlVFQ01KWWRYSmVx?=
+ =?utf-8?B?Nm1KeXRUUE9UZ1N0SUhmL2wxQVh5RFpwSXY5VGo2NCs5aVZSbU5oMEEwSnlT?=
+ =?utf-8?B?SXZxT2FSZTd4dEFrRzh4eFdmdUYxdDQzMU9vMzJ2Tml3cUJYak9UeXV5Ky9T?=
+ =?utf-8?B?WGZRZXRLa1dQd1VrQ3N3KzlaQkdjK0pyMmIxaGFYYlhSSktjZWYyUlo2cVh1?=
+ =?utf-8?B?ZjRLNVJYUEhkS3NOb3l2LzRSeXNpWDRKNTBITXZVK1NlV0JQZllHWDFNYjV4?=
+ =?utf-8?B?Q3BzTFIrSHNONTl2L2VBYzBrZlF2TG5PQmFwVmNHOUFmcTZuNjIyL2xiWmt3?=
+ =?utf-8?B?MXhTQWdwWlJLYlpSWHFMWkdrVFdLdEU2Q2VMRWE5ZzZWMitsSHQzaDVlZjFk?=
+ =?utf-8?B?QmNVZ0liK3BIVkl4cTZYQldBNU9uSXBiK0VuSHpEMlNIYWU5QmhDd2hPc0FF?=
+ =?utf-8?B?a1RqUGU3b3JNR2laRUlKQzlmZGZPTU5WWGhsa0NXSjg0T2ZoSnBiNjZNaytq?=
+ =?utf-8?B?S2MwVXVGcUNnczBXQWdwbk1Mcm1nTFFodHBIcnJnREJEbHZrbk9oSzRSdTFn?=
+ =?utf-8?B?MXIrTmlRR2N0dUExU1RFVlkzZ3VOMGtYT1BvNnVFSHBUTnh3b1JUNXFGaFFT?=
+ =?utf-8?B?ZWZiTUtyOEJuaDhBYmdCcTlSNXY3WVBldElJb0g3YkZwYkxmdHNKbDVUUWtB?=
+ =?utf-8?B?TmhEV2RwZWJiNnNoSEpzL0pDS01yT3RNQ2RaVCtpS094YmlXdlZWQ0JQa0ZJ?=
+ =?utf-8?B?VHhmbGcrcWRNZW5sRlVUUTZ3eDFxU1YvekRNOERKRHVDYVNiZWt0UGZuNnBH?=
+ =?utf-8?B?SFRac05TbTFrZncySjZld00rR29zeDNlSUlnQXRDb1N0UEtNMFFJOC9ZNmJ5?=
+ =?utf-8?B?V1d0Ukd2N0pGL0FMTTMyaUIxc09pcnhWbDF1ZWdZdU1IOXJHK1pEN0VmdFFL?=
+ =?utf-8?B?V3M4d3JlVmlLVDFUaHVZUXZxZTZpM1A2NG5xT3NNVnZncGpSY0FYWmVCc25k?=
+ =?utf-8?B?dU1uM0w4VFhCb3pUUzkzUk91SkhYK1pDblVNRHpRRGtyRnVJV1FTQXpMWFFM?=
+ =?utf-8?B?N1pCMzFvbXpPSUdXSTcxY0pRQ29kYkgzcnBZSnphb2d3T29VV3VqekVJblpQ?=
+ =?utf-8?B?aThSdVFhcmFocXJPc0EvcFIrdHB2NmtQdE5JQUFZMjJCZUt4QnFDV01nUzQw?=
+ =?utf-8?B?M2JnVUZ0TGpkSWZuYWdIVlNtQWQyUTBCOUVQa0txV2diMEc4WlozQmJTTzk5?=
+ =?utf-8?B?V08rNS93VGlTb1pQT0xpUkFqWXhlb2VGYzV4WFZkZ2ljRVBqeWZaV3lPbWZH?=
+ =?utf-8?B?V0lnSG5FYkhzVTAxbFJNSWVUNFoxTTFoMXRhZEF0ZEFteTB3aVg5SkZoU1BD?=
+ =?utf-8?B?Q0hScDRlUTlJYmxaR1l4ZHhMN3JHczVVYWxPL3B6M2pkMVhBK0dnRWtXTzMr?=
+ =?utf-8?B?bzJFMDNJamcxVFZyT002QkdIcnJZRXgwZVBNR0VUVUs0elRRa2JUYk45RFhk?=
+ =?utf-8?B?bndXT2ZoZ29RSldYczRQNjJzTi9pZHZBSVJWQmVtNFFsUTBoYW1qSVY2Rm5N?=
+ =?utf-8?B?R2poMFJXcXpSOXJWUkpFT3lyTndLQW8xZVpVRkozNnBjeFNYemVLN1Uwc1Rm?=
+ =?utf-8?B?eEtkaEMwU2FDL1pmK1lxQW80QmRwNHZXNWE3ajVRdXFYbTFINmJWMk01ZjVU?=
+ =?utf-8?B?K1E9PQ==?=
+Content-ID: <122748633B252E44B268E92D2E5D0942@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <20220706141313.2504237-1-conor.dooley@microchip.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6bdf090-3b34-4cc5-a294-08da5f8dff22
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Jul 2022 20:27:50.1677
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: adQvxET8SJRnUTXkaDmCCQOspA77ZeRRH/WZW1TiyxqIzNKET6ZLioSlewqn+p8u9aKtyrxpj3DZ1jvDJVQOEQ1XWkLkChIFeP2jyjmKmEc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB3084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_122610_476633_07732B03 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20220706_132800_858883_4968BE98 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,68 +169,30 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4533881624103232263=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 06/07/2022 20:26, Wolfram Sang wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> On Wed, Jul 06, 2022 at 03:13:13PM +0100, Conor Dooley wrote:
+>> Add Microchip CoreI2C i2c controller support. This driver supports the
+>> "hard" i2c controller on the Microchip PolarFire SoC & the basic feature
+>> set for "soft" i2c controller implemtations in the FPGA fabric.
+>>
+>> Co-developed-by: Daire McNamara <daire.mcnamara@microchip.com>
+>> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> 
+> Driver looks good, but what about the bindings? I shall not merge the
+> driver without these.
+> 
 
---===============4533881624103232263==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3FVpZi6DzgGOTZib"
-Content-Disposition: inline
-
-
---3FVpZi6DzgGOTZib
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Jul 06, 2022 at 03:13:13PM +0100, Conor Dooley wrote:
-> Add Microchip CoreI2C i2c controller support. This driver supports the
-> "hard" i2c controller on the Microchip PolarFire SoC & the basic feature
-> set for "soft" i2c controller implemtations in the FPGA fabric.
->=20
-> Co-developed-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-Driver looks good, but what about the bindings? I shall not merge the
-driver without these.
-
-
---3FVpZi6DzgGOTZib
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmLF4cQACgkQFA3kzBSg
-Kbantg/7BJmcaf7bvoLocUXjekKA9gxizf3QtabqYBIeWT7MBMc7uhgMfPGAEUl0
-MDuwfoopJsEdBsCV+OcCoL37T/7J+rJXFDoHbuDm6Uet7UkfMB7Am1IS+bl+EV+a
-TvTdxUhGSg3fwHORjaa9xiTxdzCPxn80NjRDXvjH9T7ej33xcgKQAY+Vtg16HTNV
-HMaJzrVt0cJf1P3wZQhGnKwK2mB4dYuvMB/5M18s0Lh9k847U+yWpqzJwo64Hn02
-SRqAQAfEZJ/fPjWehvxOjL3gKR1d+HbSLMxE2xEn+Mt9qsncqtkIXD9BHGfyc2cZ
-KkilV9WzKqsdEjWIlGav3NdLqL8eDfWbH8t3CmWxQ57+tNX2aZARqUMys7u3Elaf
-gTq3uF4oysBijmwx2ngQHEORzb07B+X07NUZtisBSlV4gcGiQOQdIUpX8XE2MpV5
-45nE8ymUeehSHG4rjB5Ez/fNl5pwUDmgDEn4OuJF6kCXn45PT0di96yBQBIfBefQ
-rHzJ0afvMha7R8W46RcMjr90c9B5Qll4vqJIoiBXRkBwLbtvrAiQBwcArZMx1zHd
-VPvy9TWx5G5+3M7MDMpni+Jy8XoxjGhLs7trtJ9Jhs5UUWkF8HPrZpInDhDlw9Hl
-pQ4wxcOGb53jXtHlBqEi5xYeIz2RosRmVkQT8Si5fwW4OFe+ZUY=
-=N2GO
------END PGP SIGNATURE-----
-
---3FVpZi6DzgGOTZib--
-
-
---===============4533881624103232263==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
+Already upstream :)
+Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4533881624103232263==--
-
