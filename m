@@ -4,57 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4C6DC43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 14:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1046CC43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 14:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=REkQrChifH3ByGNrXuqEphBZocoerf5YxodOGPf67/g=; b=SbkQDHEZDvqw3l
-	NrwZWsCAuMWQ4iqxlENuypr8/v9q7dS/gbsjKLYw+Q5xPHM/u6VjlipodTm4fMpv0OPw+eiygaGu5
-	zoBMm/NKcNDCM/tcdRAgEmq39M4Htu2LqhX+zb7aG3zXUk0aibgGBywoPsfCgOq3ghUsc+3Q5MfHY
-	fwJ02362615fk4qnOTwUEclHMPyF023AhzpwdtxL0DpgGf1saRyzgHlEognwfUvvi7hqsND2Rmx6c
-	I9Jjr/0XpNSxI2YQEd5okvtOiS7CA5noizhXbTy8ep0LE9JN7HkMeviSmSGFYt0cVvlyyG739b2t7
-	r2jy8tGI/gTRtotrHj+g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=M/5SvObfugagFpx0u7YwPVMM0WWVv5khVUuxfiuL8wE=; b=fAqPC6JGT06j82
+	9vlBDVTyocKKJiSnOOcdxMQ+OWV6oNPLQYScncwdTaHEau0QlUkClC4ikuOC+lPa8Yyogiqo+1cmM
+	u3hrKl4oa/dOOY9gGE0iw1CfcbaNnmn3WQ0B7uzZKsxg9cSmlrg7iuD3KtIn3m4OHUcGYBPYdNiAK
+	0keCj8FN1K60QhF87pixSiyXp+oWh68hoNfDwwskvh2wpBFHFwTfSKzezK9ej5yyzQZCR+TWueNXM
+	X/tY/gNqzEqd7qLWiimNhu+I0cScUsXvUkjJTAttIdb/bcx3Udq4gOzqIoZn/2UmFQ46sJ5H7kggu
+	rnJ+jKGLD3gjcCQgDmtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o95at-00AVTA-7l; Wed, 06 Jul 2022 14:01:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o95ap-00AVS9-Ug
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 14:01:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8792D106F;
-	Wed,  6 Jul 2022 07:01:25 -0700 (PDT)
-Received: from bogus (unknown [10.57.39.193])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B460B3F792;
-	Wed,  6 Jul 2022 07:01:22 -0700 (PDT)
-Date: Wed, 6 Jul 2022 15:00:11 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Conor.Dooley@microchip.com
-Cc: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	Daire.McNamara@microchip.com, niklas.cassel@wdc.com,
-	damien.lemoal@opensource.wdc.com, geert@linux-m68k.org,
-	zong.li@sifive.com, kernel@esmil.dk, hahnjo@hahnjo.de,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Brice.Goglin@inria.fr
-Subject: Re: [PATCH 0/5] RISC-V: Add cpu-map topology information nodes
-Message-ID: <20220706140011.oow6pswbyct6cwrd@bogus>
-References: <20220705190435.1790466-1-mail@conchuod.ie>
- <20220705201931.nfwi5rlku7ykmydr@bogus>
- <8f07796a-d9a2-3301-aafb-7fbec4d5b1a2@microchip.com>
- <fb7be22c-cf19-0e06-f231-bb5b9167e179@microchip.com>
- <20220706092126.k6zaknwcwzyg22ak@bogus>
- <bcc3fc6c-1ff8-3db6-5aa9-beed2d0ea41b@microchip.com>
+	id 1o95d2-00AW7a-TE; Wed, 06 Jul 2022 14:03:44 +0000
+Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o95cz-00AW6F-K3
+	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 14:03:43 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: linux-riscv@lists.infradead.org,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	bpf@vger.kernel.org
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <kafai@fb.com>,
+	Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Hengqi Chen <chenhengqi@outlook.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>
+Subject: [PATCH] riscv, libbpf: use a0 for RC register
+Date: Wed,  6 Jul 2022 22:02:04 +0800
+Message-Id: <20220706140204.47926-1-dlan@gentoo.org>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <bcc3fc6c-1ff8-3db6-5aa9-beed2d0ea41b@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_070128_088495_C2A54A96 
-X-CRM114-Status: GOOD (  10.31  )
+X-CRM114-CacheID: sfid-20220706_070341_722011_A0FFDF2C 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,30 +68,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 06, 2022 at 01:04:24PM +0000, Conor.Dooley@microchip.com wrote:
-> On 06/07/2022 10:21, Sudeep Holla wrote:
+According to the RISC-V calling convention register usage here[1],
+a0 is used as return value register, so rename it to make it consistent
+with the spec.
 
-[...]
+[1] section 18.2, table 18.2
+https://riscv.org/wp-content/uploads/2015/01/riscv-calling.pdf
 
-> > Looks good. Again package id is not cluster. This is what my series is
-> > addressing. So update the log as Package instead of Cluster above. The
-> > cluster id will be -1 unless you can get that for DT.
-> >
-> 
-> FYI I took that directly from arm64:
-> arch/arm64/kernel/topology.c:L57 (next-20220706)
-> 
-> 	pr_debug("CPU%u: cluster %d core %d thread %d mpidr %#016llx\n",
-> 		 cpuid, cpuid_topo->package_id, cpuid_topo->core_id,
-> 		 cpuid_topo->thread_id, mpidr);
-> 
+Fixes: 589fed479ba1 ("riscv, libbpf: Add RISC-V (RV64) support to bpf_tracing.h")
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
 
-Yikes, that needs to change. I will get that updates. Thanks for pointing
-that out.
+---
 
+I'm adding a Fixes tag here, although the original version may just work fine,
+and shouldn't be considered as a real error. But, the benefit is that we could
+make it consistent with RISC-V spec, and all other tools will follow the same usage.
+
+thanks, and let's me if there is any issue that I may not noticed..
+---
+ tools/lib/bpf/bpf_tracing.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/lib/bpf/bpf_tracing.h b/tools/lib/bpf/bpf_tracing.h
+index 01ce121c302df..11f9096407fc4 100644
+--- a/tools/lib/bpf/bpf_tracing.h
++++ b/tools/lib/bpf/bpf_tracing.h
+@@ -233,7 +233,7 @@ struct pt_regs___arm64 {
+ #define __PT_PARM5_REG a4
+ #define __PT_RET_REG ra
+ #define __PT_FP_REG s0
+-#define __PT_RC_REG a5
++#define __PT_RC_REG a0
+ #define __PT_SP_REG sp
+ #define __PT_IP_REG pc
+ /* riscv does not select ARCH_HAS_SYSCALL_WRAPPER. */
 -- 
-Regards,
-Sudeep
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
