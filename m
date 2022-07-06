@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F011AC43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 10:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65E8CC43334
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 10:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fofAkJ5Iu/06SP9GPkpAH9b4extoMjAFZYyKz0+QrEs=; b=ggKMAsJiHBHOHa
-	vp4XgJYWvXvj+Sx8EvrnpI6EWcxuGc2ywPXXPeW8PwgOY2PDLXGv3mJY8Aj4AwBPcsUqwJ06h8XdX
-	2kiP/sUin8zw+YTPOWbH0zl82d5l8xYQ2p00W9uSilvuhXEprj/nKlWsMWj/SBowoJsnvi612LsEb
-	S0vltUZphDraMTRgVfu4LiW09o9KN6b4U0gSUTMY8tMG3+N6ZMd/RNR/MXjH4Q3I6qRXavKMed4YW
-	3Jv2wv9VYzay6GZPueZeSHJ7GqrFGPerbhaFIn8JBJ/Gh5PM/+Sr0eTVQa0weqjZ03lS8UXeReDB2
-	IMJdjP6iJGm27/NUeB1Q==;
+	List-Owner; bh=zemBjSkcn52UvqNlown7YvgoVHwRtF00cknYLe0ZbCw=; b=RaoRxv6SokQpvg
+	XgqF6/3TsYUZXZBwJqpOAm0/REZ6aRkiHyhyjU300tDR4j9xoc9xUAl+ZAocijVyuEkYvOp2RXbkc
+	+uhH9E3MFpJt3v9Iz/fYxxfiGEyDIFtf+2nFd9QcC8poYxgO6xehdnBF4MLIUD1IKNhyQQY9IkzCE
+	OD/aSkK6/4labOJ0ENfkDmKmm6VDXMpurmGuXf/QMzfiz9nv6Ym9Ogk5fCw2N5jmQIPBkTxDStSKF
+	VoQoAVxc9OHyFtfdOeLEftq0AVX2lkgph75SSVxxslqCj3Wq0DNZqzNXAlnUxrBVJEYb4nE0slbpF
+	sCIwldTfpAzvytYXjtfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o921W-008FIw-Mu; Wed, 06 Jul 2022 10:12:46 +0000
-Received: from mail-qk1-f179.google.com ([209.85.222.179])
+	id 1o9239-008Gaz-4h; Wed, 06 Jul 2022 10:14:27 +0000
+Received: from mail-qt1-f179.google.com ([209.85.160.179])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o91sv-00873T-Ai; Wed, 06 Jul 2022 10:03:55 +0000
-Received: by mail-qk1-f179.google.com with SMTP id z16so10638684qkj.7;
-        Wed, 06 Jul 2022 03:03:51 -0700 (PDT)
+	id 1o91th-0087dA-0L; Wed, 06 Jul 2022 10:04:42 +0000
+Received: by mail-qt1-f179.google.com with SMTP id l14so17496310qtx.2;
+        Wed, 06 Jul 2022 03:04:36 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=moQR5LBdu+yLzctPNV/vOqPzvGKHHurzxQlNOu9l9Us=;
-        b=zyIus2bFF58rkeMMh8/J60l5LlZyrPz305JhA5QdMBQ9BJIrrYrdyHwnbdDe3QDKcW
-         tNU+zllcjhQzXj607NRf77SR1WwnwjyujbxJC/BRUVSzj7ZNDSlmEnvFyrq6jJXVlx88
-         Dl5I8Gg8Epb0WSympbRbcCuXetb81qcE8Fkkwf6Fc1xI78GRT2EGy302e3y32MeIzelt
-         Rx1lzrMp1HEK52JS2sXch9+b5Sprw7sSlj/OLv0fBud/R4TE0eUmLG6Oa1Pvy4aATCTE
-         8WcOrLbi/ZzAhZO0BSNwvQxKgjlsls/8SU7ETPWmpfs7LVt3D0QmludB5l8ERKUB2Qgz
-         Z26g==
-X-Gm-Message-State: AJIora9LDZ6bf7hJmj2Ud/+eFB2hhkd7KZFJEMg+M0e4TfABaeofgiRf
-	2elk7zR+V1pLqaeRrjjdrBYEvyWEEZfKYIEc
-X-Google-Smtp-Source: AGRyM1st5bgOldurPzv9ren1vBMLPZ6y9sMPfHN9kOsAUC3bOKdkRw+ShD+M0sh9sPBPAmrCGcnzrQ==
-X-Received: by 2002:a05:620a:4587:b0:6af:1a0a:4895 with SMTP id bp7-20020a05620a458700b006af1a0a4895mr26500575qkb.742.1657101830121;
-        Wed, 06 Jul 2022 03:03:50 -0700 (PDT)
-Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com. [209.85.128.170])
-        by smtp.gmail.com with ESMTPSA id az8-20020a05620a170800b006b14b303b37sm16805475qkb.102.2022.07.06.03.03.49
+        bh=Bj57DZQxAwyQ5rJJj/iE7VR9xSo/KE2P6unWd/aXevs=;
+        b=bMQbO+mR+HOc3Uc3GJKle8EQCw7F6lq6sLN8EQIlu60dg8IAigwz1AuT1PBjFbwKIZ
+         INI19UDLnofBg9y7Dk8+ugd+o1b7P1FGb/hGwlNI4cOsvoPdFC/FceDwlARL/eD31+tV
+         AIZDZOaFt1+HZP27haSQ0/OaucGrIkwMlXeMmRC0714w4qqZd8WkHnLDyr/Q6+Ctorm+
+         AiXs5iNtYPNE5ClVxQJ+IlAGoceQq7Yv8f65mDDzIXA8JPY7NfC/dGLKIgsy3isOBFdf
+         p6opM2ZNl+jIM79uoOwacJKnFOuOYpMcqp5Xf6j+LzdT4d+wXBgnqDeYlQzxa8tQRbys
+         Ripg==
+X-Gm-Message-State: AJIora9OMXXwfMP/gP7f68SH++WaoykPZmz8AF4V8ZzqQenCHi3ntfVc
+	jRmTN9WjU23PjCUXxZY6Dj/Unwn75M8To7Yq
+X-Google-Smtp-Source: AGRyM1usROoc+Zd+WlO3yBmMtfcxJ35WlHNyuS5loMGCfCgcgF8/F0qyzhChGcKJHjPzeJDL+jC//A==
+X-Received: by 2002:ac8:5949:0:b0:317:bcb6:98ca with SMTP id 9-20020ac85949000000b00317bcb698camr31174000qtz.124.1657101875674;
+        Wed, 06 Jul 2022 03:04:35 -0700 (PDT)
+Received: from mail-yb1-f174.google.com (mail-yb1-f174.google.com. [209.85.219.174])
+        by smtp.gmail.com with ESMTPSA id az16-20020a05620a171000b006af4a816963sm22353363qkb.133.2022.07.06.03.04.35
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 06 Jul 2022 03:03:49 -0700 (PDT)
-Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-31cb2c649f7so60184367b3.11;
-        Wed, 06 Jul 2022 03:03:49 -0700 (PDT)
-X-Received: by 2002:a0d:c787:0:b0:31b:a963:e1de with SMTP id
- j129-20020a0dc787000000b0031ba963e1demr44581975ywd.283.1657101828958; Wed, 06
- Jul 2022 03:03:48 -0700 (PDT)
+        Wed, 06 Jul 2022 03:04:35 -0700 (PDT)
+Received: by mail-yb1-f174.google.com with SMTP id 64so17199345ybt.12;
+        Wed, 06 Jul 2022 03:04:35 -0700 (PDT)
+X-Received: by 2002:a25:2b48:0:b0:668:3b7d:326c with SMTP id
+ r69-20020a252b48000000b006683b7d326cmr41431788ybr.380.1657101874906; Wed, 06
+ Jul 2022 03:04:34 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220630051630.1718927-1-anshuman.khandual@arm.com> <20220630051630.1718927-22-anshuman.khandual@arm.com>
-In-Reply-To: <20220630051630.1718927-22-anshuman.khandual@arm.com>
+References: <20220630051630.1718927-1-anshuman.khandual@arm.com> <20220630051630.1718927-27-anshuman.khandual@arm.com>
+In-Reply-To: <20220630051630.1718927-27-anshuman.khandual@arm.com>
 From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 6 Jul 2022 12:03:37 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdX_Ji7dCzzCc3xw5ic6J=0PaPkyzXKpOgUFjjEkR+yJOw@mail.gmail.com>
-Message-ID: <CAMuHMdX_Ji7dCzzCc3xw5ic6J=0PaPkyzXKpOgUFjjEkR+yJOw@mail.gmail.com>
-Subject: Re: [PATCH V6 21/26] m68k/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+Date: Wed, 6 Jul 2022 12:04:23 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVJiS6vm2td-PBH3zpsNZJeeoudS4+yu4JG08sOi+XFdA@mail.gmail.com>
+Message-ID: <CAMuHMdVJiS6vm2td-PBH3zpsNZJeeoudS4+yu4JG08sOi+XFdA@mail.gmail.com>
+Subject: Re: [PATCH V6 26/26] mm/mmap: Drop ARCH_HAS_VM_GET_PAGE_PROT
 To: Anshuman Khandual <anshuman.khandual@arm.com>
 Cc: Linux MM <linux-mm@kvack.org>, Andrew Morton <akpm@linux-foundation.org>, 
 	"linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>, Linux-sh list <linux-sh@vger.kernel.org>, 
 	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux-csky@vger.kernel.org, 
 	sparclinux <sparclinux@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	linux-s390 <linux-s390@vger.kernel.org>, 
+	Christoph Hellwig <hch@lst.de>, linux-s390 <linux-s390@vger.kernel.org>, 
 	"open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>, "the arch/x86 maintainers" <x86@kernel.org>, 
 	Christophe Leroy <christophe.leroy@csgroup.eu>, Christoph Hellwig <hch@infradead.org>, 
 	arcml <linux-snps-arc@lists.infradead.org>, 
 	"open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>, linux-um <linux-um@lists.infradead.org>, 
 	linux-m68k <linux-m68k@lists.linux-m68k.org>, Openrisc <openrisc@lists.librecores.org>, 
 	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Parisc List <linux-parisc@vger.kernel.org>, 
+	Parisc List <linux-parisc@vger.kernel.org>, 
 	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, alpha <linux-alpha@vger.kernel.org>, 
 	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_030353_512252_87CA2275 
-X-CRM114-Status: GOOD (  26.33  )
+X-CRM114-CacheID: sfid-20220706_030441_205574_6EBB8AD0 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,86 +93,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anshuman,
-
-On Thu, Jun 30, 2022 at 7:19 AM Anshuman Khandual
+On Thu, Jun 30, 2022 at 7:20 AM Anshuman Khandual
 <anshuman.khandual@arm.com> wrote:
-> This enables ARCH_HAS_VM_GET_PAGE_PROT on the platform and exports standard
-> vm_get_page_prot() implementation via DECLARE_VM_GET_PAGE_PROT, which looks
-> up a private and static protection_map[] array. Subsequently all __SXXX and
-> __PXXX macros can be dropped which are no longer needed.
+> Now all the platforms enable ARCH_HAS_GET_PAGE_PROT. They define and export
+> own vm_get_page_prot() whether custom or standard DECLARE_VM_GET_PAGE_PROT.
+> Hence there is no need for default generic fallback for vm_get_page_prot().
+> Just drop this fallback and also ARCH_HAS_GET_PAGE_PROT mechanism.
 >
-> Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-> Cc: linux-m68k@lists.linux-m68k.org
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: linux-mm@kvack.org
 > Cc: linux-kernel@vger.kernel.org
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-Thanks for your patch!
+>  arch/m68k/Kconfig       |  1 -
 
-> --- a/arch/m68k/include/asm/mcf_pgtable.h
-> +++ b/arch/m68k/include/asm/mcf_pgtable.h
-> @@ -91,60 +91,6 @@
->   * for use. In general, the bit positions are xwr, and P-items are
->   * private, the S-items are shared.
->   */
-
-The comment above should be removed, too.
-
-> -#define __P000         PAGE_NONE
-> -#define __P001         __pgprot(CF_PAGE_VALID \
-> -                                | CF_PAGE_ACCESSED \
-> -                                | CF_PAGE_READABLE)
-
-> --- a/arch/m68k/include/asm/motorola_pgtable.h
-> +++ b/arch/m68k/include/asm/motorola_pgtable.h
-> @@ -83,28 +83,6 @@ extern unsigned long mm_cachebits;
->  #define PAGE_COPY_C    __pgprot(_PAGE_PRESENT | _PAGE_RONLY | _PAGE_ACCESSED)
->  #define PAGE_READONLY_C        __pgprot(_PAGE_PRESENT | _PAGE_RONLY | _PAGE_ACCESSED)
-
-You might move the *_C definitions above into arch/m68k/mm/motorola.c
-as well, as they are only used in the latter.
-
->
-> -/*
-> - * The m68k can't do page protection for execute, and considers that the same are read.
-> - * Also, write permissions imply read permissions. This is the closest we can get..
-> - */
-> -#define __P000 PAGE_NONE_C
-> -#define __P001 PAGE_READONLY_C
-> -#define __P010 PAGE_COPY_C
-> -#define __P011 PAGE_COPY_C
-> -#define __P100 PAGE_READONLY_C
-> -#define __P101 PAGE_READONLY_C
-> -#define __P110 PAGE_COPY_C
-> -#define __P111 PAGE_COPY_C
-> -
-> -#define __S000 PAGE_NONE_C
-> -#define __S001 PAGE_READONLY_C
-> -#define __S010 PAGE_SHARED_C
-> -#define __S011 PAGE_SHARED_C
-> -#define __S100 PAGE_READONLY_C
-> -#define __S101 PAGE_READONLY_C
-> -#define __S110 PAGE_SHARED_C
-> -#define __S111 PAGE_SHARED_C
-> -
->  #define pmd_pgtable(pmd) ((pgtable_t)pmd_page_vaddr(pmd))
->
->  /*
-> diff --git a/arch/m68k/include/asm/sun3_pgtable.h b/arch/m68k/include/asm/sun3_pgtable.h
-> index 5e4e753f0d24..9d919491765b 100644
-> --- a/arch/m68k/include/asm/sun3_pgtable.h
-> +++ b/arch/m68k/include/asm/sun3_pgtable.h
-> @@ -71,23 +71,6 @@
->   * protection settings, valid (implying read and execute) and writeable. These
->   * are as close as we can get...
->   */
-
-The comment above should be removed, too.
-
-> -#define __P000 PAGE_NONE
-> -#define __P001 PAGE_READONLY
-
-With the above fixed:
 Reviewed-by: Geert Uytterhoeven <geert@linux-m68k.org>
 Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
 
