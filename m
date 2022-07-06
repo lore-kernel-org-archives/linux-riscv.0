@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 942CCC43334
-	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 05:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08EFCC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed,  6 Jul 2022 05:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E5XS1rgxCWoYLq/7kwAic6zrz3fkQpsB2HvVgJDItYQ=; b=OFQ9kXvLV4/6zl
-	h6ctpFasRFFbrGDVUccQUzzlwjgw5vXHFD/jo1W8BAcDu3rMlDgdbTQVD1x75SOVc/dXnt6TEYLJA
-	gJ33OtRg7FmTz24KL17yMg2tECIVEeQMlqoby/FM8Et4twH9fNv8lGn9X01M/E2pa0LRwfe+N5cCQ
-	4bphd+knP1EC8HEfhO0aJvls32d188K6DV11PYFbpo7VyzQqibEizwJoos1uTNlFYFdFpfB+oSeLv
-	qKumYNyDTU6uCMG2bLmnySMLmQlh4RWqyklbZt9oRNI6K8GAAZAMnKAEDICR1dcxF2LKamWF1KZe0
-	iRMO6cfxHOZ21dMkqyzw==;
+	List-Owner; bh=T2HoW6NiaYqnBBjzBbvsIgUhLVzYemsJDecRqYIL6OM=; b=hG5QS5FuuU+L6J
+	xiLM43fMJ61EwAWVIj2g9ryTkofZ6Q+PApujpRuvciJtFEmlc2CGO21JBsJ+2cNgzNThSogXTO7hG
+	Sml35E7rSCqM42Ms7DeYSZmGb6jrmktcoi3K6wbThslqtNtG/XrOf9Y3uYIeDThttJdVdnUgzvLne
+	azNFKWOxCVkBt5dDzBSX+qaoMaIH7yzB2/jwuUPrZRbxHoTnxQviYuj8qSefhUY4u3CzLHctr8rFi
+	cpeksOHNriK/PRidGob31GEXvNz75ieinw2r/3ssQbf1SRVmymQfcAAZljAlm1cZYlFB2PV7YHjqb
+	+2vO/2haOsyg6cyxsx5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8xgj-006ClW-Tz; Wed, 06 Jul 2022 05:35:01 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1o8xqp-006IAd-H2; Wed, 06 Jul 2022 05:45:27 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o8xgf-006CeP-SN
-	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 05:35:00 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id o4so20367739wrh.3
-        for <linux-riscv@lists.infradead.org>; Tue, 05 Jul 2022 22:34:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=mzFfzfxTcWfRcShNhy6xy755LFsV+j5QNgB0bsRHMsA=;
-        b=X42NG2+Sf0aWnqfS4qfOpCqXAfEE+6CCMdfftkTlEBQCdYnFhYljaLQSmS+t+7AzCA
-         gFzpyvgQUYsfXWK13XxOuCWYdTEQbzHNpTFMMkj9DQvbSux5DxDNLluyFQ5cd0K7DUvw
-         wR/mxVgt6/v39eZd6NDcRh3njWgDAGoJLR+P8PkQN/T7dsERTtxxyhdgLSsR1ar2zzsI
-         1TWk7Fdu/ej/nxidStT986zS7/AxOUCi59ZIiIrW5rkvkqfWRPZmfw0nJMg7VrAg3ssd
-         +EkPI9EwNIuB+nkyibVjL/T8eNfhfRK5eNZNXDeoECLuPzvKRyGg2Jg6FX9WOyan2Qar
-         GVyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=mzFfzfxTcWfRcShNhy6xy755LFsV+j5QNgB0bsRHMsA=;
-        b=Ixid1XloS1wo6I9TJKdDyWw0M3aK4xjUtakS2avuKjeg+50791dM2U0nUtTjc1FGIc
-         VwAdCCtpcFKhInfzMyeT6RI3XlDFCSNx980Ouifjs5IYZpBTxO7E5oAX/SXcgDK7Zlgr
-         UMCXN7dwwVZ2j2iwOCjyaTZ0nKqsYgZsvxhrV7ILyUav8PRjUnALYOqHczZRnomCzI8n
-         ZDZrfyWaGndi3iPLYbngdgdPXEsiW/3FLcFyQAAS1293xkszy5gViTGMAWXMoG4T4xDv
-         LYQ3VfT3Yt/ygOuuMLOK9viag1HrqaPmJCqToB0DccDY/JgK2Pevf53zv2TddSe/B2uk
-         EDSA==
-X-Gm-Message-State: AJIora9vjOWtDJeBIXNR4MXRAV3QzoE5RtWXB20U2lLkqDQG/C9ko7Z4
-	F7DVWk6v0orNeqRzlnV5ZUhSdaNEhCgqBJDjxp5Znw==
-X-Google-Smtp-Source: AGRyM1vyL5ovhu/btsIvVSG5+9OXLps7/KAEAuZRnTn1XLvqNJBXZNftteTtbHZgDDq3aVm+vcB58YxTc38C+GSX5IQ=
-X-Received: by 2002:adf:e9cf:0:b0:21d:7b89:da5 with SMTP id
- l15-20020adfe9cf000000b0021d7b890da5mr1872606wrn.346.1657085693935; Tue, 05
- Jul 2022 22:34:53 -0700 (PDT)
+	id 1o8xqm-006I6H-3c
+	for linux-riscv@lists.infradead.org; Wed, 06 Jul 2022 05:45:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A2660B817F4;
+	Wed,  6 Jul 2022 05:45:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99381C3411C;
+	Wed,  6 Jul 2022 05:45:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1657086320;
+	bh=3D6JnTyqnPP2jiPpHSlGQDcx4nSOuFUKoMkf/By5jzs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=beHWBKQE3jSY94shQkm5jd1+RuTdBb2ueweYw6N0sIMjpCw2iwAnt8svfD5/V1CtD
+	 +vfgei5ddElQG65X38w3m5VNNcfCgo93Bxb9axxKSjaZrjE1ecnx67Gne94S1fa7jc
+	 wCrKVt0N9qXQAmLWQyTSdhELrOsNNpHSnPVlYEKGNE7Ha10OJunLksj9WryWN3ijBE
+	 ywM0gzVZ+2vvLmJJwJaquNZXVnS5i2rFXFTdSnvcIP8HVrRhMVJBBqY7txkB5zrP7B
+	 3FpKbIw7odrseCf9io6Ui7Jc+cDP1wMWpf4ONB+s6Vto9h3LgpizR6VrjUSLAufLYC
+	 xHpUiJRr4WxMw==
+Date: Wed, 6 Jul 2022 11:15:16 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Conor Dooley <mail@conchuod.ie>
+Cc: David Airlie <airlied@linux.ie>, Daniel Vetter <daniel@ffwll.ch>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Sam Ravnborg <sam@ravnborg.org>,
+	Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Niklas Cassel <niklas.cassel@wdc.com>,
+	Dillon Min <dillon.minfei@gmail.com>,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Rob Herring <robh@kernel.org>
+Subject: Re: [PATCH v5 03/13] dt-bindings: dma: dw-axi-dmac: extend the
+ number of interrupts
+Message-ID: <YsUhbD0zJk43/4oa@matsya>
+References: <20220705215213.1802496-1-mail@conchuod.ie>
+ <20220705215213.1802496-4-mail@conchuod.ie>
 MIME-Version: 1.0
-References: <20220620234254.2610040-1-atishp@rivosinc.com> <CAAhSdy2ziUJV2vozZw+vDiA+-Xa5pNiC=Dy_gapCApoR4bnxWg@mail.gmail.com>
- <CAHBxVyFQUdNYdtt_d3MtOGnSGz8TKr7e-LuUi7fJT90TMykGTw@mail.gmail.com>
-In-Reply-To: <CAHBxVyFQUdNYdtt_d3MtOGnSGz8TKr7e-LuUi7fJT90TMykGTw@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 6 Jul 2022 11:04:40 +0530
-Message-ID: <CAAhSdy3gQ3Zwqd+xZzK4No9znUZruH8hbXs74HCAEJX8HmOYvw@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: Improve ISA extension by using a bitmap
-To: Atish Kumar Patra <atishp@rivosinc.com>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Jisheng Zhang <jszhang@kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>
+Content-Disposition: inline
+In-Reply-To: <20220705215213.1802496-4-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220705_223458_201038_AC37E256 
-X-CRM114-Status: GOOD (  39.65  )
+X-CRM114-CacheID: sfid-20220705_224524_378626_5C6BB2FE 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,407 +93,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 5, 2022 at 12:53 PM Atish Kumar Patra <atishp@rivosinc.com> wrote:
->
-> On Mon, Jul 4, 2022 at 1:47 AM Anup Patel <anup@brainfault.org> wrote:
-> >
-> > On Tue, Jun 21, 2022 at 5:13 AM Atish Patra <atishp@rivosinc.com> wrote:
-> > >
-> > > Currently, the every vcpu only stores the ISA extensions in a unsigned long
-> > > which is not scalable as number of extensions will continue to grow.
-> > > Using a bitmap allows the ISA extension to support any number of
-> > > extensions. The CONFIG one reg interface implementation is modified to
-> > > support the bitmap as well. But it is meant only for base extensions.
-> > > Thus, the first element of the bitmap array is sufficient for that
-> > > interface.
-> > >
-> > > In the future, all the new multi-letter extensions must use the
-> > > ISA_EXT one reg interface that allows enabling/disabling any extension
-> > > now.
-> > >
-> > > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > > ---
-> > >  arch/riscv/include/asm/kvm_host.h    |  3 +-
-> > >  arch/riscv/include/asm/kvm_vcpu_fp.h |  8 +--
-> > >  arch/riscv/kvm/vcpu.c                | 81 ++++++++++++++--------------
-> > >  arch/riscv/kvm/vcpu_fp.c             | 27 +++++-----
-> > >  4 files changed, 59 insertions(+), 60 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> > > index 319c8aeb42af..c749cdacbd63 100644
-> > > --- a/arch/riscv/include/asm/kvm_host.h
-> > > +++ b/arch/riscv/include/asm/kvm_host.h
-> > > @@ -14,6 +14,7 @@
-> > >  #include <linux/kvm_types.h>
-> > >  #include <linux/spinlock.h>
-> > >  #include <asm/csr.h>
-> > > +#include <asm/hwcap.h>
-> > >  #include <asm/kvm_vcpu_fp.h>
-> > >  #include <asm/kvm_vcpu_timer.h>
-> > >
-> > > @@ -170,7 +171,7 @@ struct kvm_vcpu_arch {
-> > >         int last_exit_cpu;
-> > >
-> > >         /* ISA feature bits (similar to MISA) */
-> > > -       unsigned long isa;
-> > > +       DECLARE_BITMAP(isa, RISCV_ISA_EXT_MAX);
-> > >
-> > >         /* SSCRATCH, STVEC, and SCOUNTEREN of Host */
-> > >         unsigned long host_sscratch;
-> > > diff --git a/arch/riscv/include/asm/kvm_vcpu_fp.h b/arch/riscv/include/asm/kvm_vcpu_fp.h
-> > > index 4da9b8e0f050..e86bb67f2a8a 100644
-> > > --- a/arch/riscv/include/asm/kvm_vcpu_fp.h
-> > > +++ b/arch/riscv/include/asm/kvm_vcpu_fp.h
-> > > @@ -22,9 +22,9 @@ void __kvm_riscv_fp_d_restore(struct kvm_cpu_context *context);
-> > >
-> > >  void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu);
-> > >  void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
-> > > -                                 unsigned long isa);
-> > > +                                 unsigned long *isa);
-> >
-> > Better to use "const unsigned long *"
-> >
-> > >  void kvm_riscv_vcpu_guest_fp_restore(struct kvm_cpu_context *cntx,
-> > > -                                    unsigned long isa);
-> > > +                                    unsigned long *isa);
-> >
-> > Same as above.
-> >
->
-> Yes. Thanks.
->
-> > >  void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx);
-> > >  void kvm_riscv_vcpu_host_fp_restore(struct kvm_cpu_context *cntx);
-> > >  #else
-> > > @@ -32,12 +32,12 @@ static inline void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu)
-> > >  {
-> > >  }
-> > >  static inline void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
-> > > -                                               unsigned long isa)
-> > > +                                               unsigned long *isa)
-> > >  {
-> > >  }
-> > >  static inline void kvm_riscv_vcpu_guest_fp_restore(
-> > >                                         struct kvm_cpu_context *cntx,
-> > > -                                       unsigned long isa)
-> > > +                                       unsigned long *isa)
-> > >  {
-> > >  }
-> > >  static inline void kvm_riscv_vcpu_host_fp_save(struct kvm_cpu_context *cntx)
-> > > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> > > index 7f4ad5e4373a..cb2a65b5d563 100644
-> > > --- a/arch/riscv/kvm/vcpu.c
-> > > +++ b/arch/riscv/kvm/vcpu.c
-> > > @@ -46,8 +46,19 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
-> > >                                                 riscv_isa_extension_mask(i) | \
-> > >                                                 riscv_isa_extension_mask(m))
-> > >
-> > > -#define KVM_RISCV_ISA_ALLOWED (KVM_RISCV_ISA_DISABLE_ALLOWED | \
-> > > -                              KVM_RISCV_ISA_DISABLE_NOT_ALLOWED)
-> > > +#define KVM_RISCV_ISA_MASK GENMASK(25, 0)
-> > > +
-> > > +/* Mapping between KVM ISA Extension ID & Host ISA extension ID */
-> > > +static unsigned long kvm_isa_ext_arr[] = {
-> > > +       RISCV_ISA_EXT_a,
-> > > +       RISCV_ISA_EXT_c,
-> > > +       RISCV_ISA_EXT_d,
-> > > +       RISCV_ISA_EXT_f,
-> > > +       RISCV_ISA_EXT_h,
-> > > +       RISCV_ISA_EXT_i,
-> > > +       RISCV_ISA_EXT_m,
-> > > +       RISCV_ISA_EXT_SSCOFPMF,
-> >
-> > The RISCV_ISA_EXT_SSCOFPMF should be added only after we have
-> > SBI PMU support in KVM RISC-V. Please drop it.
-> >
->
-> Ahh. Sorry. I forgot to remove it while rebasing.
->
-> > > +};
-> > >
-> > >  static void kvm_riscv_reset_vcpu(struct kvm_vcpu *vcpu)
-> > >  {
-> > > @@ -99,13 +110,20 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
-> > >  {
-> > >         struct kvm_cpu_context *cntx;
-> > >         struct kvm_vcpu_csr *reset_csr = &vcpu->arch.guest_reset_csr;
-> > > +       unsigned long host_isa, i;
-> > >
-> > >         /* Mark this VCPU never ran */
-> > >         vcpu->arch.ran_atleast_once = false;
-> > >         vcpu->arch.mmu_page_cache.gfp_zero = __GFP_ZERO;
-> > > +       bitmap_zero(vcpu->arch.isa, RISCV_ISA_EXT_MAX);
-> > >
-> > >         /* Setup ISA features available to VCPU */
-> > > -       vcpu->arch.isa = riscv_isa_extension_base(NULL) & KVM_RISCV_ISA_ALLOWED;
-> > > +       for (i = 0; i < ARRAY_SIZE(kvm_isa_ext_arr); i++) {
-> > > +               host_isa = kvm_isa_ext_arr[i];
-> > > +               if (__riscv_isa_extension_available(NULL, host_isa) &&
-> > > +                  host_isa != RISCV_ISA_EXT_h)
-> > > +                       set_bit(host_isa, vcpu->arch.isa);
-> > > +       }
-> > >
-> > >         /* Setup VCPU hfence queue */
-> > >         spin_lock_init(&vcpu->arch.hfence_lock);
-> > > @@ -199,7 +217,7 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
-> > >
-> > >         switch (reg_num) {
-> > >         case KVM_REG_RISCV_CONFIG_REG(isa):
-> > > -               reg_val = vcpu->arch.isa;
-> > > +               reg_val = vcpu->arch.isa[0] & KVM_RISCV_ISA_MASK;
-> > >                 break;
-> > >         default:
-> > >                 return -EINVAL;
-> > > @@ -220,6 +238,7 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
-> > >                                             KVM_REG_SIZE_MASK |
-> > >                                             KVM_REG_RISCV_CONFIG);
-> > >         unsigned long reg_val;
-> > > +       unsigned long isa_mask;
-> > >
-> > >         if (KVM_REG_SIZE(reg->id) != sizeof(unsigned long))
-> > >                 return -EINVAL;
-> > > @@ -227,13 +246,19 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
-> > >         if (copy_from_user(&reg_val, uaddr, KVM_REG_SIZE(reg->id)))
-> > >                 return -EFAULT;
-> > >
-> > > +       /* This ONE REG interface is only defined for single letter extensions */
-> > > +       if (fls(reg_val) >= RISCV_ISA_EXT_BASE)
-> > > +               return -EINVAL;
-> > > +
-> > >         switch (reg_num) {
-> > >         case KVM_REG_RISCV_CONFIG_REG(isa):
-> > >                 if (!vcpu->arch.ran_atleast_once) {
-> > >                         /* Ignore the disable request for these extensions */
-> > > -                       vcpu->arch.isa = reg_val | KVM_RISCV_ISA_DISABLE_NOT_ALLOWED;
-> > > -                       vcpu->arch.isa &= riscv_isa_extension_base(NULL);
-> > > -                       vcpu->arch.isa &= KVM_RISCV_ISA_ALLOWED;
-> > > +                       isa_mask = (reg_val | KVM_RISCV_ISA_DISABLE_NOT_ALLOWED);
-> > > +                       isa_mask &= riscv_isa_extension_base(NULL);
-> > > +                       /* Do not modify anything beyond single letter extensions */
-> > > +                       isa_mask |= (~KVM_RISCV_ISA_MASK);
-> > > +                       bitmap_and(vcpu->arch.isa, vcpu->arch.isa, &isa_mask, RISCV_ISA_EXT_MAX);
-> >
-> > A little more readable version of above sequence can be:
-> >
-> >             /* Ignore the disable request for these extensions */
-> >             reg_val |= KVM_RISCV_ISA_DISABLE_NOT_ALLOWED;
-> >             reg_val &= riscv_isa_extension_base(NULL);
-> >             /* Do not modify anything beyond single letter extensions */
-> >             reg_val = (vcpu->arch.isa[0] & ~KVM_RISCV_ISA_MASK) |
-> >                   (reg_val & KVM_RISCV_ISA_MASK);
-> >             vcpu->arch.isa[0] = reg_val;
-> >             kvm_riscv_vcpu_fp_reset(vcpu);
-> >
-> >
-> > >                         kvm_riscv_vcpu_fp_reset(vcpu);
-> > >                 } else {
-> > >                         return -EOPNOTSUPP;
-> > > @@ -374,17 +399,6 @@ static int kvm_riscv_vcpu_set_reg_csr(struct kvm_vcpu *vcpu,
-> > >         return 0;
-> > >  }
-> > >
-> > > -/* Mapping between KVM ISA Extension ID & Host ISA extension ID */
-> > > -static unsigned long kvm_isa_ext_arr[] = {
-> > > -       RISCV_ISA_EXT_a,
-> > > -       RISCV_ISA_EXT_c,
-> > > -       RISCV_ISA_EXT_d,
-> > > -       RISCV_ISA_EXT_f,
-> > > -       RISCV_ISA_EXT_h,
-> > > -       RISCV_ISA_EXT_i,
-> > > -       RISCV_ISA_EXT_m,
-> > > -};
-> > > -
-> > >  static int kvm_riscv_vcpu_get_reg_isa_ext(struct kvm_vcpu *vcpu,
-> > >                                           const struct kvm_one_reg *reg)
-> > >  {
-> > > @@ -403,7 +417,7 @@ static int kvm_riscv_vcpu_get_reg_isa_ext(struct kvm_vcpu *vcpu,
-> > >                 return -EINVAL;
-> > >
-> > >         host_isa_ext = kvm_isa_ext_arr[reg_num];
-> > > -       if (__riscv_isa_extension_available(&vcpu->arch.isa, host_isa_ext))
-> > > +       if (__riscv_isa_extension_available(vcpu->arch.isa, host_isa_ext))
-> > >                 reg_val = 1; /* Mark the given extension as available */
-> > >
-> > >         if (copy_to_user(uaddr, &reg_val, KVM_REG_SIZE(reg->id)))
-> > > @@ -437,30 +451,17 @@ static int kvm_riscv_vcpu_set_reg_isa_ext(struct kvm_vcpu *vcpu,
-> > >         if (!__riscv_isa_extension_available(NULL, host_isa_ext))
-> > >                 return  -EOPNOTSUPP;
-> > >
-> > > -       if (host_isa_ext >= RISCV_ISA_EXT_BASE &&
-> > > -           host_isa_ext < RISCV_ISA_EXT_MAX) {
-> > > -               /*
-> > > -                * Multi-letter ISA extension. Currently there is no provision
-> > > -                * to enable/disable the multi-letter ISA extensions for guests.
-> > > -                * Return success if the request is to enable any ISA extension
-> > > -                * that is available in the hardware.
-> > > -                * Return -EOPNOTSUPP otherwise.
-> > > -                */
-> > > -               if (!reg_val)
-> > > -                       return -EOPNOTSUPP;
-> > > -               else
-> > > -                       return 0;
-> > > -       }
-> > > -
-> > > -       /* Single letter base ISA extension */
-> > >         if (!vcpu->arch.ran_atleast_once) {
-> > > +               /* All multi-letter extension and a few single letter extension can be disabled */
-> > >                 host_isa_ext_mask = BIT_MASK(host_isa_ext);
-> > > -               if (!reg_val && (host_isa_ext_mask & KVM_RISCV_ISA_DISABLE_ALLOWED))
-> > > -                       vcpu->arch.isa &= ~host_isa_ext_mask;
-> > > +               if (!reg_val &&
-> > > +                  ((host_isa_ext_mask & KVM_RISCV_ISA_DISABLE_ALLOWED) ||
-> > > +                  ((host_isa_ext >= RISCV_ISA_EXT_BASE) && (host_isa_ext < RISCV_ISA_EXT_MAX))))
-> > > +                       clear_bit(host_isa_ext, vcpu->arch.isa);
-> > > +               else if (reg_val == 1 && (host_isa_ext != RISCV_ISA_EXT_h))
-> > > +                       set_bit(host_isa_ext, vcpu->arch.isa);
-> > >                 else
-> > > -                       vcpu->arch.isa |= host_isa_ext_mask;
-> > > -               vcpu->arch.isa &= riscv_isa_extension_base(NULL);
-> > > -               vcpu->arch.isa &= KVM_RISCV_ISA_ALLOWED;
-> > > +                       return -EINVAL;
-> >
-> > A slightly more readable version of above sequence can be:
-> >
-> >         /* All multi-letter extension and a few single letter
-> > extension can be disabled */
-> >         if (host_isa_ext >= RISCV_ISA_EXT_MAX)
-> >             return -EINVAL;
-> >         disable_allow_mask = KVM_RISCV_ISA_DISABLE_ALLOWED;
-> >         if (reg_val == 1)
-> >             set_bit(host_isa_ext, vcpu->arch.isa);
->
-> Shouldn't we ensure that (host_isa_ext != RISCV_ISA_EXT_h) here ?
+On 05-07-22, 22:52, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> The Canaan k210 apparently has a Sysnopsys Designware AXI DMA
+> controller, but according to the documentation & devicetree it has 6
+> interrupts rather than the standard one. Support the 6 interrupt
+> configuration by unconditionally extending the binding to a maximum of
+> 8 per-channel interrupts thereby matching the number of possible
+> channels.
 
-Ahh, yes. I have updated the KVM queue.
+Applied, thanks
 
-Thanks,
-Anup
-
->
-> >         else if (!reg_val && test_bit(host_isa_ext, &disable_allow_mask))
-> >             clear_bit(host_isa_ext, vcpu->arch.isa);
-> >         else
-> >             return -EINVAL;
-> >
-> >
-> > >                 kvm_riscv_vcpu_fp_reset(vcpu);
-> > >         } else {
-> > >                 return -EOPNOTSUPP;
-> > > diff --git a/arch/riscv/kvm/vcpu_fp.c b/arch/riscv/kvm/vcpu_fp.c
-> > > index d4308c512007..748a8f6a9b5d 100644
-> > > --- a/arch/riscv/kvm/vcpu_fp.c
-> > > +++ b/arch/riscv/kvm/vcpu_fp.c
-> > > @@ -16,12 +16,11 @@
-> > >  #ifdef CONFIG_FPU
-> > >  void kvm_riscv_vcpu_fp_reset(struct kvm_vcpu *vcpu)
-> > >  {
-> > > -       unsigned long isa = vcpu->arch.isa;
-> > >         struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
-> > >
-> > >         cntx->sstatus &= ~SR_FS;
-> > > -       if (riscv_isa_extension_available(&isa, f) ||
-> > > -           riscv_isa_extension_available(&isa, d))
-> > > +       if (riscv_isa_extension_available(vcpu->arch.isa, f) ||
-> > > +           riscv_isa_extension_available(vcpu->arch.isa, d))
-> > >                 cntx->sstatus |= SR_FS_INITIAL;
-> > >         else
-> > >                 cntx->sstatus |= SR_FS_OFF;
-> > > @@ -34,24 +33,24 @@ static void kvm_riscv_vcpu_fp_clean(struct kvm_cpu_context *cntx)
-> > >  }
-> > >
-> > >  void kvm_riscv_vcpu_guest_fp_save(struct kvm_cpu_context *cntx,
-> > > -                                 unsigned long isa)
-> > > +                                 unsigned long *isa)
-> > >  {
-> > >         if ((cntx->sstatus & SR_FS) == SR_FS_DIRTY) {
-> > > -               if (riscv_isa_extension_available(&isa, d))
-> > > +               if (riscv_isa_extension_available(isa, d))
-> > >                         __kvm_riscv_fp_d_save(cntx);
-> > > -               else if (riscv_isa_extension_available(&isa, f))
-> > > +               else if (riscv_isa_extension_available(isa, f))
-> > >                         __kvm_riscv_fp_f_save(cntx);
-> > >                 kvm_riscv_vcpu_fp_clean(cntx);
-> > >         }
-> > >  }
-> > >
-> > >  void kvm_riscv_vcpu_guest_fp_restore(struct kvm_cpu_context *cntx,
-> > > -                                    unsigned long isa)
-> > > +                                    unsigned long *isa)
-> > >  {
-> > >         if ((cntx->sstatus & SR_FS) != SR_FS_OFF) {
-> > > -               if (riscv_isa_extension_available(&isa, d))
-> > > +               if (riscv_isa_extension_available(isa, d))
-> > >                         __kvm_riscv_fp_d_restore(cntx);
-> > > -               else if (riscv_isa_extension_available(&isa, f))
-> > > +               else if (riscv_isa_extension_available(isa, f))
-> > >                         __kvm_riscv_fp_f_restore(cntx);
-> > >                 kvm_riscv_vcpu_fp_clean(cntx);
-> > >         }
-> > > @@ -80,7 +79,6 @@ int kvm_riscv_vcpu_get_reg_fp(struct kvm_vcpu *vcpu,
-> > >                               unsigned long rtype)
-> > >  {
-> > >         struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
-> > > -       unsigned long isa = vcpu->arch.isa;
-> > >         unsigned long __user *uaddr =
-> > >                         (unsigned long __user *)(unsigned long)reg->addr;
-> > >         unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-> > > @@ -89,7 +87,7 @@ int kvm_riscv_vcpu_get_reg_fp(struct kvm_vcpu *vcpu,
-> > >         void *reg_val;
-> > >
-> > >         if ((rtype == KVM_REG_RISCV_FP_F) &&
-> > > -           riscv_isa_extension_available(&isa, f)) {
-> > > +           riscv_isa_extension_available(vcpu->arch.isa, f)) {
-> > >                 if (KVM_REG_SIZE(reg->id) != sizeof(u32))
-> > >                         return -EINVAL;
-> > >                 if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
-> > > @@ -100,7 +98,7 @@ int kvm_riscv_vcpu_get_reg_fp(struct kvm_vcpu *vcpu,
-> > >                 else
-> > >                         return -EINVAL;
-> > >         } else if ((rtype == KVM_REG_RISCV_FP_D) &&
-> > > -                  riscv_isa_extension_available(&isa, d)) {
-> > > +                  riscv_isa_extension_available(vcpu->arch.isa, d)) {
-> > >                 if (reg_num == KVM_REG_RISCV_FP_D_REG(fcsr)) {
-> > >                         if (KVM_REG_SIZE(reg->id) != sizeof(u32))
-> > >                                 return -EINVAL;
-> > > @@ -126,7 +124,6 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
-> > >                               unsigned long rtype)
-> > >  {
-> > >         struct kvm_cpu_context *cntx = &vcpu->arch.guest_context;
-> > > -       unsigned long isa = vcpu->arch.isa;
-> > >         unsigned long __user *uaddr =
-> > >                         (unsigned long __user *)(unsigned long)reg->addr;
-> > >         unsigned long reg_num = reg->id & ~(KVM_REG_ARCH_MASK |
-> > > @@ -135,7 +132,7 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
-> > >         void *reg_val;
-> > >
-> > >         if ((rtype == KVM_REG_RISCV_FP_F) &&
-> > > -           riscv_isa_extension_available(&isa, f)) {
-> > > +           riscv_isa_extension_available(vcpu->arch.isa, f)) {
-> > >                 if (KVM_REG_SIZE(reg->id) != sizeof(u32))
-> > >                         return -EINVAL;
-> > >                 if (reg_num == KVM_REG_RISCV_FP_F_REG(fcsr))
-> > > @@ -146,7 +143,7 @@ int kvm_riscv_vcpu_set_reg_fp(struct kvm_vcpu *vcpu,
-> > >                 else
-> > >                         return -EINVAL;
-> > >         } else if ((rtype == KVM_REG_RISCV_FP_D) &&
-> > > -                  riscv_isa_extension_available(&isa, d)) {
-> > > +                  riscv_isa_extension_available(vcpu->arch.isa, d)) {
-> > >                 if (reg_num == KVM_REG_RISCV_FP_D_REG(fcsr)) {
-> > >                         if (KVM_REG_SIZE(reg->id) != sizeof(u32))
-> > >                                 return -EINVAL;
-> > > --
-> > > 2.25.1
-> > >
-> >
-> > Apart from minor comments above, this looks good to me.
-> >
-> Thanks.
->
-> > I have taken care of the above comments and queued it for 5.20. I
-> > can certainly modify my queue if you want further changes in this patch.
-> >
-> > Thanks,
-> > Anup
+-- 
+~Vinod
 
 _______________________________________________
 linux-riscv mailing list
