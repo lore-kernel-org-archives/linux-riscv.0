@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20703C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jul 2022 05:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 004BCC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jul 2022 05:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kHs7UY4IQBhqdlrFsz+xTl11ii0Qln0bCbaAnaH8V6w=; b=kPY4UpvUR1g7Ml
-	fgLf7BxWnQTcF5jwEGA8PWCTMOLBsK0KP2OZTnrNEABkvnMG0H8Wg/hv4vmUNk4iOw+/dJ/Urgzl+
-	V3ykw292xq7jrk3kSbfqMNPqGfb0STxnrZWY4jra9VPZK6jThFTml594P3mFKZ9tsYttl3NAzCYTg
-	4qhhzeLmXSGsWGZJ3Z+INO/ziXGQ2rKhyV9gxpBUo5eejA7ykpzR13mNop9fdyj99vfTY+X1caqjG
-	pR6cgNUefsigj1MktWitcHK9a+zklLA5Voe3wED6ji8R2dkq6OQPFHG31k2lvJO44AAGhcafTtd7v
-	HZRUPZG7cwYk4uEFR9bQ==;
+	List-Owner; bh=GHELp3jWekCvUP3fdBnT9W/HwDBsBOMC5n6IVz1MC0M=; b=AVU2T9+IL2M4On
+	70eAuTFSnShAFF1/kP7PBu+0r0TS3VhHPZLMGWbeT2PIdhcISWMemy0P9j0axL0NuGBwOYV4ivPDW
+	QjGyc8fCBNbjaK00zHDrjgQ9rl4TXCeBZR6FUUeP/gEOOtaadj59v6yfaSL90U4NVq0tR4bbjts+l
+	GrPB4fj1hSeeXK7IBMUg3CAvaguYtk7V7bCdDZxVbiP20NZsLyq/ZZo2tNDWAHqPUac39mxWuPo2s
+	OJ+UnamnLV+GH65iF+1QLUCYoF2of6kv/wdP/X9rzTgipq/evZ2vsaSZXXlYsgC7ZpnvNPjm+V7Ke
+	4jtzSTKyapHwi8NzQqEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9Jit-00DcjJ-89; Thu, 07 Jul 2022 05:06:43 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1o9Jj9-00Dcuq-Ib; Thu, 07 Jul 2022 05:06:59 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9Jiq-00Dcfx-IU
-	for linux-riscv@lists.infradead.org; Thu, 07 Jul 2022 05:06:42 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 19so6495ljz.4
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Jul 2022 22:06:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=qR9n1AXHGwoI9Ra7xwNbBAU0oY2jf+UCf20mhPrPNso=;
-        b=gQ4KMln/WlWGDHmdRD96WLahdU/SpigGyBU9zTz6wg3wVjttzAphiiE2e+6hna0huh
-         Dw+De/qy0X2d4bRxT3PXZiXjD5eU3EGQBQ614i+L8WYMyWpKIo4qfKKopjUnmqkvVF/P
-         jYHpjTNv+4XfEq05Ej9kweVoDpJKzRHc2LJ9oyrsARaQ2NU+Xo7pgfQaL1xR9xTNnrvf
-         Jyg74PZJCvN5DxFWjZqaL/wFS8rhkxa5Jr+XGZZRPGLk3+UQcRyS6cNVW+TAxE1FZWBW
-         EIVok9dO7/qVJTZI62pALZBb2ju5k4e9Ls7ba2Dh7EQy+cn5h/1VuF0/X7uLxgfCAV12
-         lTGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=qR9n1AXHGwoI9Ra7xwNbBAU0oY2jf+UCf20mhPrPNso=;
-        b=cEEJA+gnmFS+x0Eyo4X4OL111EDhtxk7TWTmkbn8Ch0CpTbTYuWevQVfrd9XxxytXD
-         yeXdVSzi4ZI2w3h2N6kZ/b38YK6FB31wXu5k20R+tnDFDOtaAAbEMBDAbVjSSRajf9eo
-         Q2feDgyA6x+gq7kydgxwqV7DQF9loXecRXMD3d1zddUXqWSQrqAQG7SHaidR3HWohflB
-         LyAySbm7B9x/2UTLvjeufMrtzJvt96wg2RO2z/jmnW4KlOdwRtEKoDx932B06wEdyS8L
-         9Yafxg3sbvnHu91rdxoCR9CiUbTuiR46ies2tJMmfNS3Hbx5lqEM7U8NV2h3Mbsy3G4e
-         9oAA==
-X-Gm-Message-State: AJIora/+ynE0O2iY8BHAo2eFOvkdGvik195NPfFVFkBmlPYJaihjMpq/
-	P7RWqM3rQY9icUHy5v3uviMGZv145VRyJT3uC09KSA==
-X-Google-Smtp-Source: AGRyM1vZhkDy4UwW2shgqoRhVTKc6zfQ35Wh8zG97gJmGVq3j+k/UhzzeuF3LEU/VpH+4dZ0/fAnn7n3/LV1is1FjC0=
-X-Received: by 2002:a2e:8558:0:b0:25a:a2f3:b69b with SMTP id
- u24-20020a2e8558000000b0025aa2f3b69bmr24264657ljj.24.1657170397672; Wed, 06
- Jul 2022 22:06:37 -0700 (PDT)
+	id 1o9Jj6-00Dcsi-GW
+	for linux-riscv@lists.infradead.org; Thu, 07 Jul 2022 05:06:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0A9A6621D7
+	for <linux-riscv@lists.infradead.org>; Thu,  7 Jul 2022 05:06:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01532C385A2
+	for <linux-riscv@lists.infradead.org>; Thu,  7 Jul 2022 05:06:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1657170414;
+	bh=Jp56n1Q8nuuJ/Ol2IwRkJZiElt4410mpz3pcmqKCxJQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=I1mHjlHJxkhERsYiWWoScAocHbegZ5nwykODXA9JF6/ezIFU8xlsxfW8wK2spOPVE
+	 Vd/cNkQoBEkZl6RAs1uCG6VSH+loyFtRWxpa8Ne6rgPah7r/F3rGWV26UV1Ogqeun6
+	 Qird4SyRPqwS3JrPGYcrf/1SOkOxK/RQlmHu0MZsYBLgSRbnQeRanInT6VIhbUeWx0
+	 zV4YLh3MkYmijuKJLveWnY3fhCYXOGYSK3DMu9gABcAGgyfv0z2K9V2BIA78Su3iYb
+	 xseBAQyxEwRJWOxAIzi+c2iDJFdE9CFFe9Wg6JxpM8aFUTu6FFATHhqF8Vd0PdPcv4
+	 ZSsmiigw5/J2g==
+Received: by mail-vs1-f54.google.com with SMTP id k2so7527154vsc.5
+        for <linux-riscv@lists.infradead.org>; Wed, 06 Jul 2022 22:06:53 -0700 (PDT)
+X-Gm-Message-State: AJIora9x4QUi+239cGYEmydX/ee7fUpfxYleuEp25QaVuWHaWxwrC97i
+	GcvazW37Fbz47Tnk/Kq1WK1MLxHllG1ZY3aDP5o=
+X-Google-Smtp-Source: AGRyM1sBMYmY+OGkZyWew1/NJ8m7Qs8YwqG4AF408nwDsdImXvFwJf0275nYv5IOS7xzaf2G+kyMnCcJ1FIsKk2mlbI=
+X-Received: by 2002:a67:ae0e:0:b0:356:c48b:401d with SMTP id
+ x14-20020a67ae0e000000b00356c48b401dmr10397967vse.51.1657170412784; Wed, 06
+ Jul 2022 22:06:52 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAEUhbmWqMPakKs+nYOHiib=U9O6gZpmsBMqhUgaqkLmNe5jr_w@mail.gmail.com>
-In-Reply-To: <CAEUhbmWqMPakKs+nYOHiib=U9O6gZpmsBMqhUgaqkLmNe5jr_w@mail.gmail.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Thu, 7 Jul 2022 10:36:25 +0530
-Message-ID: <CAK9=C2VEqHfieOVeLPCt66xtp77YgaXk64chuw9Ku0zX4UQABw@mail.gmail.com>
-Subject: Re: U-Boot S-mode payload does not boot with a multicore
- configuration in RISC-V QEMU/KVM
-To: Bin Meng <bmeng.cn@gmail.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, kvm-riscv@lists.infradead.org, 
-	KVM General <kvm@vger.kernel.org>, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+References: <20220705224703.1571895-1-heiko@sntech.de> <20220705224703.1571895-4-heiko@sntech.de>
+ <CAJF2gTT6DzPihaP+BHLM6Wvn=Hba-jb-bhs96U3+ApdSmT593g@mail.gmail.com> <3111003.5fSG56mABF@diego>
+In-Reply-To: <3111003.5fSG56mABF@diego>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 7 Jul 2022 13:06:41 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRN1J3edjbt5L9ELLtMzXKWUABQb=QxDA90uY7mj=O0rw@mail.gmail.com>
+Message-ID: <CAJF2gTRN1J3edjbt5L9ELLtMzXKWUABQb=QxDA90uY7mj=O0rw@mail.gmail.com>
+Subject: Re: [PATCH v6 3/4] riscv: Add support for non-coherent devices using
+ zicbom extension
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Wei Fu <wefu@redhat.com>, 
+	Christoph Muellner <cmuellner@linux.com>, Philipp Tomsich <philipp.tomsich@vrull.eu>, 
+	Christoph Hellwig <hch@lst.de>, Samuel Holland <samuel@sholland.org>, Atish Patra <atishp@atishpatra.org>, 
+	Anup Patel <anup@brainfault.org>, Nick Kossifidis <mick@ics.forth.gr>, 
+	Rob Herring <robh+dt@kernel.org>, krzk+dt@kernel.org, 
+	devicetree <devicetree@vger.kernel.org>, Drew Fustini <drew@beagleboard.org>, 
+	Randy Dunlap <rdunlap@infradead.org>, Atish Patra <atish.patra@wdc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_220640_654595_12F8454B 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20220706_220656_663398_3A88D051 
+X-CRM114-Status: GOOD (  32.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,152 +84,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 7, 2022 at 10:19 AM Bin Meng <bmeng.cn@gmail.com> wrote:
->
-> Hi Anup,
->
-> U-Boot S-mode payload does not boot with RISC-V KVM on the QEMU 'virt'
-> multicore machine. With QEMU TCG it can boot.
->
-> I am using the latest v5.19-rc5 kernel, along with QEMU 7.0.0 and
-> U-Boot v2022.04:
->
-> Reproduce steps:
->
-> U-Boot S-mode payload is built from U-Boot v2022.04:
-> $ make qemu-riscv64_smode_defconfig; make
->
-> The host 5.19-rc5 kernel is running on top of QEMU 7.0.0 on an x86 machine.
->
-> Use QEMU to launch the VM:
-> # qemu-system-riscv64 -M virt -accel kvm -m 2G -smp 2 -nographic
-> -kernel u-boot -device virtio-net-device,netdev=eth0 -netdev
-> user,id=eth0,hostfwd=tcp::8022-:22
->
-> U-Boot gets stuck during boot, logs below:
->
-> U-Boot 2022.04 (Jul 07 2022 - 11:23:28 +0800)
-> CPU: rv64imafdc
-> Model: riscv-virtio,qemu
-> DRAM: 2 GiB
-> Core: 17 devices, 9 uclasses, devicetree: board
-> Flash: <========== stuck here, and QEMU is completely unresponsive
-> (Ctrl+A, C is ignored)
->
-> The kernel reports:
->
-> [ 484.351698] INFO: task qemu-system-ris:1765 blocked for more than 120 seconds.
-> [ 484.360285] Not tainted 5.19.0-rc5-custom #1
-> [ 484.360871] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs"
-> disables this message.
-> [ 484.362560] task:qemu-system-ris state:D stack: 0 pid: 1765 ppid:
-> 1515 flags:0x00000000
-> [ 484.363785] Call Trace:
-> [ 484.363930] [] schedule+0x50/0xb2
-> [ 484.364758] [] schedule_timeout+0x10c/0x13c
-> [ 484.364806] [] __wait_for_common+0x148/0x226
-> [ 484.364840] [] wait_for_completion+0x2e/0x36
-> [ 484.364871] [] __synchronize_srcu.part.0+0x88/0xe2
-> [ 484.364918] [] synchronize_srcu_expedited+0x3a/0x44
-> [ 484.364952] [] kvm_swap_active_memslots+0x186/0x1ea
-> [ 484.364985] [] kvm_set_memslot+0x1fc/0x39c
-> [ 484.365014] [] __kvm_set_memory_region+0x144/0x30c
-> [ 484.365043] [] kvm_vm_ioctl+0x20a/0xc82
-> [ 484.365075] [] sys_ioctl+0x98/0xb2
-> [ 484.365135] [] ret_from_syscall+0x0/0x2
->
-> The QEMU vcpu thread backtrace is:
->
-> #0 __GI___ioctl (fd=, request=request@entry=1075883590) at
-> ../sysdeps/unix/sysv/linux/ioctl.c:35
-> #1 0x00aaaaaab8b916ae in kvm_vm_ioctl (s=s@entry=0xaaaaaaf1ec3e00,
-> type=type@entry=1075883590) at ../accel/kvm/kvm-all.c:3035
-> #2 0x00aaaaaab8b93572 in kvm_set_user_memory_region
-> (slot=slot@entry=0xffffffaa5d90a0, new=new@entry=false,
-> kml=0xaaaaaaf1ec4eb0, kml=) at ../accel/kvm/kvm-all.c:379
-> #3 0x00aaaaaab8b93862 in kvm_set_phys_mem (kml=0xaaaaaaf1ec4eb0,
-> section=section@entry=0xffffffaa513b70, add=, add@entry=false) at
-> ../accel/kvm/kvm-all.c:1413
-> #4 0x00aaaaaab8b93a30 in kvm_region_del (listener=,
-> section=0xffffffaa513b70) at ../accel/kvm/kvm-all.c:1511
-> #5 0x00aaaaaab8ad780c in address_space_update_topology_pass
-> (as=as@entry=0xaaaaaab90b87a0 ,
-> old_view=old_view@entry=0xaaaaaaf1f42c40,
-> new_view=new_view@entry=0xffffff1c001400, adding=adding@entry=fa
-> lse) at ../softmmu/memory.c:948
-> #6 0x00aaaaaab8ad7a2a in address_space_set_flatview
-> (as=0xaaaaaab90b87a0 ) at ../softmmu/memory.c:1050
-> #7 0x00aaaaaab8ada508 in memory_region_transaction_commit () at
-> ../softmmu/memory.c:1103
-> #8 0x00aaaaaab8adb6ee in memory_region_rom_device_set_romd
-> (mr=mr@entry=0xaaaaaaf22d6fe0, romd_mode=romd_mode@entry=false) at
-> ../softmmu/memory.c:2289
-> #9 0x00aaaaaab8951e1a in pflash_write (be=0, width=1, value=240,
-> offset=0, pfl=0xaaaaaaf22d6c30) at ../hw/block/pflash_cfi01.c:451
-> #10 pflash_mem_write_with_attrs (opaque=0xaaaaaaf22d6c30, addr=0,
-> value=, len=, attrs=...) at ../hw/block/pflash_cfi01.c:682
-> #11 0x00aaaaaab8ad5fa2 in access_with_adjusted_size
-> (addr=addr@entry=0, value=value@entry=0xffffffaa513dc8,
-> size=size@entry=1, access_size_min=, access_size_max=,
-> access_fn=0xaaaaaab8ad7d06 <
-> memory_region_write_with_attrs_accessor>, mr=0xaaaaaaf22d6fe0,
-> attrs=...) at ../softmmu/memory.c:554
-> #12 0x00aaaaaab8ad92ba in memory_region_dispatch_write
-> (mr=mr@entry=0xaaaaaaf22d6fe0, addr=addr@entry=0, data=,
-> data@entry=240, op=, attrs=attrs@entry=...) at
-> ../softmmu/memory.c:1521
-> #13 0x00aaaaaab8adee88 in flatview_write_continue
-> (fv=fv@entry=0xaaaaaaf1f42c40, addr=addr@entry=536870912,
-> attrs=attrs@entry=..., ptr=ptr@entry=0xffffffab730028,
-> len=len@entry=1, addr1=, l=,
-> mr=0xaaaaaaf22d6fe0) at ../softmmu/physmem.c:2814
-> #14 0x00aaaaaab8adf0d8 in flatview_write (fv=0xaaaaaaf1f42c40,
-> addr=536870912, attrs=..., buf=0xffffffab730028, len=len@entry=1) at
-> ../softmmu/physmem.c:2856
-> #15 0x00aaaaaab8ae1eca in address_space_write (len=1,
-> buf=0xffffffab730028, attrs=..., addr=536870912, as=0xaaaaaab90b87a0 )
-> at ../softmmu/physmem.c:2952
-> #16 address_space_rw (as=0xaaaaaab90b87a0 , addr=536870912, attrs=...,
-> attrs@entry=..., buf=buf@entry=0xffffffab730028, len=1, is_write=) at
-> ../softmmu/physmem.c:2962
-> #17 0x00aaaaaab8b94a3e in kvm_cpu_exec
-> (cpu=cpu@entry=0xaaaaaaf1ec92f0) at ../accel/kvm/kvm-all.c:2929
-> #18 0x00aaaaaab8b95572 in kvm_vcpu_thread_fn
-> (arg=arg@entry=0xaaaaaaf1ec92f0) at ../accel/kvm/kvm-accel-ops.c:49
-> #19 0x00aaaaaab8ca280a in qemu_thread_start (args=) at
-> ../util/qemu-thread-posix.c:556
-> #20 0x00ffffffab2cf5a6 in start_thread (arg=) at ./nptl/pthread_create.c:442
-> #21 0x00ffffffab31ba02 in __thread_start () at
-> ../sysdeps/unix/sysv/linux/riscv/clone.S:85
->
-> Based on above 2 logs, we can see the QEMU vcpu thread is blocked at KVM ioctl
-> KVM_SET_USER_MEMORY_REGION, and on the kernel side the ioctl call is
-> blocked at synchronize_srcu_expedited() so that ioctl never returns
-> back to the user land.
->
-> If I single step the QEMU instance starting from a breakpoint at
-> pflash_write(), the ioctl call of KVM_SET_USER_MEMORY_REGION does not
-> block, and U-Boot can boot eventually.
->
-> If I remove "-smp 2" from the QEMU command line when launching the VM,
-> U-Boot boots without any problem. Of course removing "-accel kvm"
-> works too.
->
-> It looks to me there is a locking timing issue in the RISC-V KVM
-> kernel when an SMP guest is launched. Any ideas?
-
-To further isolate the problem, does it work if QEMU does not generate
-the pflash DT node ?
-
-Regards,
-Anup
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdWwgNywgMjAyMiBhdCA3OjAzIEFNIEhlaWtvIFN0w7xibmVyIDxoZWlrb0BzbnRl
+Y2guZGU+IHdyb3RlOgo+Cj4gSGkgR3VvLAo+Cj4gQW0gTWl0dHdvY2gsIDYuIEp1bGkgMjAyMiwg
+MDE6MzI6MTIgQ0VTVCBzY2hyaWViIEd1byBSZW46Cj4gPiBPbiBXZWQsIEp1bCA2LCAyMDIyIGF0
+IDY6NDcgQU0gSGVpa28gU3R1ZWJuZXIgPGhlaWtvQHNudGVjaC5kZT4gd3JvdGU6Cj4gPiA+Cj4g
+PiA+IFRoZSBaaWNib20gSVNBLWV4dGVuc2lvbiB3YXMgcmF0aWZpZWQgaW4gbm92ZW1iZXIgMjAy
+MQo+ID4gPiBhbmQgaW50cm9kdWNlcyBpbnN0cnVjdGlvbnMgZm9yIGRjYWNoZSBpbnZhbGlkYXRl
+LCBjbGVhbgo+ID4gPiBhbmQgZmx1c2ggb3BlcmF0aW9ucy4KPiA+ID4KPiA+ID4gSW1wbGVtZW50
+IGNhY2hlIG1hbmFnZW1lbnQgb3BlcmF0aW9ucyBmb3Igbm9uLWNvaGVyZW50IGRldmljZXMKPiA+
+ID4gYmFzZWQgb24gdGhlbS4KPiA+ID4KPiA+ID4gT2YgY291cnNlIG5vdCBhbGwgY29yZXMgd2ls
+bCBzdXBwb3J0IHRoaXMsIHNvIGltcGxlbWVudCBhbgo+ID4gPiBhbHRlcm5hdGl2ZS1iYXNlZCBt
+ZWNoYW5pc20gdGhhdCByZXBsYWNlcyBlbXB0eSBpbnN0cnVjdGlvbnMKPiA+ID4gd2l0aCBvbmVz
+IGRvbmUgYXJvdW5kIFppY2JvbSBpbnN0cnVjdGlvbnMuCj4gPiA+Cj4gPiA+IEFzIGRpc2N1c3Nl
+ZCBpbiBwcmV2aW91cyB2ZXJzaW9ucywgYXNzdW1lIHRoZSBwbGF0Zm9ybQo+ID4gPiBiZWluZyBj
+b2hlcmVudCBieSBkZWZhdWx0IHNvIHRoYXQgbm9uLWNvaGVyZW50IGRldmljZXMgbmVlZAo+ID4g
+PiB0byBnZXQgbWFya2VkIGFjY29yZGluZ2x5IGJ5IGZpcm13YXJlLgo+ID4gPgo+ID4gPiBSZXZp
+ZXdlZC1ieTogQ2hyaXN0b3BoIEhlbGx3aWcgPGhjaEBsc3QuZGU+Cj4gPiA+IFNpZ25lZC1vZmYt
+Ynk6IEhlaWtvIFN0dWVibmVyIDxoZWlrb0BzbnRlY2guZGU+Cj4gPiA+IENjOiBDaHJpc3RvcGgg
+SGVsbHdpZyA8aGNoQGxzdC5kZT4KPiA+ID4gQ2M6IEF0aXNoIFBhdHJhIDxhdGlzaC5wYXRyYUB3
+ZGMuY29tPgo+ID4gPiBDYzogR3VvIFJlbiA8Z3VvcmVuQGtlcm5lbC5vcmc+Cj4gPiA+IENjOiBB
+bnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPgo+ID4gPiAtLS0KPiA+ID4gIGFyY2gvcmlz
+Y3YvS2NvbmZpZyAgICAgICAgICAgICAgICAgICB8ICAzMSArKysrKysrKwo+ID4gPiAgYXJjaC9y
+aXNjdi9NYWtlZmlsZSAgICAgICAgICAgICAgICAgIHwgICA0ICsKPiA+ID4gIGFyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vY2FjaGUuaCAgICAgICB8ICAgNCArCj4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL2NhY2hlZmx1c2guaCAgfCAgMTAgKysrCj4gPiA+ICBhcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2VycmF0YV9saXN0LmggfCAgMTkgKysrKy0KPiA+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vaHdjYXAuaCAgICAgICB8ICAgMSArCj4gPiA+ICBhcmNoL3Jpc2N2L2tlcm5lbC9jcHUuYyAg
+ICAgICAgICAgICAgfCAgIDEgKwo+ID4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvY3B1ZmVhdHVyZS5j
+ICAgICAgIHwgIDI0ICsrKysrKwo+ID4gPiAgYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYyAgICAg
+ICAgICAgIHwgICAyICsKPiA+ID4gIGFyY2gvcmlzY3YvbW0vTWFrZWZpbGUgICAgICAgICAgICAg
+ICB8ICAgMSArCj4gPiA+ICBhcmNoL3Jpc2N2L21tL2RtYS1ub25jb2hlcmVudC5jICAgICAgfCAx
+MTIgKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gPiA+ICAxMSBmaWxlcyBjaGFuZ2VkLCAy
+MDggaW5zZXJ0aW9ucygrKSwgMSBkZWxldGlvbigtKQo+ID4gPiAgY3JlYXRlIG1vZGUgMTAwNjQ0
+IGFyY2gvcmlzY3YvbW0vZG1hLW5vbmNvaGVyZW50LmMKPiA+ID4KPiA+ID4gZGlmZiAtLWdpdCBh
+L2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiBpbmRleCAzMmZm
+ZWY5ZjZlNWIuLmY3YjJiM2E0YjdmMSAxMDA2NDQKPiA+ID4gLS0tIGEvYXJjaC9yaXNjdi9LY29u
+ZmlnCj4gPiA+ICsrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwo+ID4gPiBAQCAtMTEzLDYgKzExMyw3
+IEBAIGNvbmZpZyBSSVNDVgo+ID4gPiAgICAgICAgIHNlbGVjdCBNT0RVTEVTX1VTRV9FTEZfUkVM
+QSBpZiBNT0RVTEVTCj4gPiA+ICAgICAgICAgc2VsZWN0IE1PRFVMRV9TRUNUSU9OUyBpZiBNT0RV
+TEVTCj4gPiA+ICAgICAgICAgc2VsZWN0IE9GCj4gPiA+ICsgICAgICAgc2VsZWN0IE9GX0RNQV9E
+RUZBVUxUX0NPSEVSRU5UCj4gPiA+ICAgICAgICAgc2VsZWN0IE9GX0VBUkxZX0ZMQVRUUkVFCj4g
+PiA+ICAgICAgICAgc2VsZWN0IE9GX0lSUQo+ID4gPiAgICAgICAgIHNlbGVjdCBQQ0lfRE9NQUlO
+U19HRU5FUklDIGlmIFBDSQo+ID4gPiBAQCAtMjE4LDYgKzIxOSwxNCBAQCBjb25maWcgUEdUQUJM
+RV9MRVZFTFMKPiA+ID4gIGNvbmZpZyBMT0NLREVQX1NVUFBPUlQKPiA+ID4gICAgICAgICBkZWZf
+Ym9vbCB5Cj4gPiA+Cj4gPiA+ICtjb25maWcgUklTQ1ZfRE1BX05PTkNPSEVSRU5UCj4gPiA+ICsg
+ICAgICAgYm9vbAo+ID4gPiArICAgICAgIHNlbGVjdCBBUkNIX0hBU19ETUFfUFJFUF9DT0hFUkVO
+VAo+ID4gPiArICAgICAgIHNlbGVjdCBBUkNIX0hBU19TWU5DX0RNQV9GT1JfREVWSUNFCj4gPiA+
+ICsgICAgICAgc2VsZWN0IEFSQ0hfSEFTX1NZTkNfRE1BX0ZPUl9DUFUKPiA+ID4gKyAgICAgICBz
+ZWxlY3QgQVJDSF9IQVNfU0VUVVBfRE1BX09QUwo+ID4gPiArICAgICAgIHNlbGVjdCBETUFfRElS
+RUNUX1JFTUFQCj4gPiA+ICsKPiA+ID4gIHNvdXJjZSAiYXJjaC9yaXNjdi9LY29uZmlnLnNvY3Mi
+Cj4gPiA+ICBzb3VyY2UgImFyY2gvcmlzY3YvS2NvbmZpZy5lcnJhdGFzIgo+ID4gPgo+ID4gPiBA
+QCAtMzc2LDYgKzM4NSwyOCBAQCBjb25maWcgUklTQ1ZfSVNBX1NWUEJNVAo+ID4gPgo+ID4gPiAg
+ICAgICAgICAgIElmIHlvdSBkb24ndCBrbm93IHdoYXQgdG8gZG8gaGVyZSwgc2F5IFkuCj4gPiA+
+Cj4gPiA+ICtjb25maWcgQ0NfSEFTX1pJQ0JPTQo+ID4gPiArICAgICAgIGJvb2wKPiA+ID4gKyAg
+ICAgICBkZWZhdWx0IHkgaWYgNjRCSVQgJiYgJChjYy1vcHRpb24sLW1hYmk9bHA2NCAtbWFyY2g9
+cnY2NGltYV96aWNib20pCj4gPiA+ICsgICAgICAgZGVmYXVsdCB5IGlmIDMyQklUICYmICQoY2Mt
+b3B0aW9uLC1tYWJpPWxwNjQgLW1hcmNoPXJ2MzJpbWFfemljYm9tKQo+ID4KPiA+IC1tYWJpPWxw
+NjQgZm9yIHJ2MzI/Cj4KPiBUaGFua3MgZm9yIGNhdGNoaW5nIHRoYXQhIDotKQpPa2F5LCBBZGQg
+bXkgIlJldmlld2VkLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4iIGluIHlvdXIgbmV4
+dCB2ZXJzaW9uLgoKPgo+IFdoZW4gSSBjb252ZXJ0ZWQgb3ZlciB0byB1c2luZyB0aGUgcmVhbCBp
+bnN0cnVjdGlvbnMgZm9yIFppY2JvbSBpbnN0ZWFkIG9mCj4gcHJlLWNvZGVkIG9uZXMsIEkgdXNl
+ZCBhIGRpZmZlcmVudCBmb3JtYXQgZmlyc3QgZm9yIGRldGVjdGluZyB0aGUgWmljYm9tCj4gZXhp
+c3RlbmNlIGFuZCBJIGd1ZXNzIHdoZW4gbW92aW5nIG92ZXIgdG8gdGhlIGFib3ZlIEkgbWFkZSBh
+IG1pc3Rha2UKPiBpbiB0aGUgY29udmVyc2lvbi4KPgo+IEluIGFueSBjYXNlLCB0aGF0IHNob3Vs
+ZCBvZiBjb3Vyc2UgYmUgaWxwMzIsIHNhbWUgYXMgaW4gdGhlIE1ha2VmaWxlLgo+IFdpdGggdXBk
+YXRlZCBvcGVuc2JpIGFuZCBRZW11IEkgaGF2ZSBub3cgcmUtdGVzdGVkIGFsbCBwb3NzaWJsZQo+
+IGNvbWJpbmF0aW9ucyBhbmQgYW0gcHJldHR5IGhvcGVmdWxseSB0aGF0IHRoaXMgc2hvdWxkIGZp
+dCBub3cuCj4KPiB2NyBmb2xsb3dpbmcgc2hvcnRseS4KPgo+IFRoYW5rcwo+IEhlaWtvCj4KPgoK
+Ci0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
