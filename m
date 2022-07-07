@@ -4,115 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09ACBC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jul 2022 00:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AD4C43334
+	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jul 2022 04:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OXOqvRDX8x11rnSlo7tHV6MmptJ6lLC8v8E9t1AGoPk=; b=FN2evgJjAk4yY/
-	fyao8ywKi8Z3IgaXM2vAd1iyCEinC413sc7eHA6W/8vtyrK96ZEDYDj5HurWWNzRxrj/dyMNxjj5N
-	r/2MRB+e9XOR5dI7yEo5QlwZecAbmo7Jiuy2LWgBAKGjCtCZCEK0odL3bWyGFASWD/KRP7NIRrQLu
-	VOpyDUaB691mW05PUo7tmiBPpdDDREIsQ/nnNHBy4vsVqkXBf/JmN8SCMXk8Xb8RoL9reg3f794uL
-	0Y5M/PmxLXXpFExCFd7t1YolxxRRHg7vKc2L5FLd/q0u8Mt5E1MDWw16c70rDwTBgIg9WYSmuF7ju
-	6qfQZoZQAAnAP27KcbFw==;
+	List-Owner; bh=foUYAbdU1mlhyFf4w8+0BPiTacWYJW5LpB1mIUA2hiM=; b=UZPByTEDtN45C5
+	2f5keBnQD663G2onJCzWtPeADieyen+clToeS49FitVNKVklqSmxfwy1ZmOCHWfe9sJUN5Z8QEVlu
+	NYJgoHD/tmzQ4L9l3YAYkGeF3R1EUxRGLxD7T5kj6/qc5NTC+mTNl5tb0vdnrzxJk38sIlfMcgF4p
+	girYhw+qlA4cg4ha34EBqhyBx1Z7Snm+ZKpcRkse392NlQ3rddMBFQUEscWr9eayKu3zAQd9f++Gk
+	2foKDlXZTu8at9t2sZ/29h3UAaMcqwxSOul1+WFuh6DvJDJWRJR4EV9NlXoiWMinNkdJhCYR04es/
+	zgpGENLH6Zip364ZjKSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9F06-00Cp6G-VP; Thu, 07 Jul 2022 00:04:11 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1o9JQJ-00DY2D-UW; Thu, 07 Jul 2022 04:47:31 +0000
+Received: from mga05.intel.com ([192.55.52.43])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9F04-00Cp4F-CJ
-	for linux-riscv@lists.infradead.org; Thu, 07 Jul 2022 00:04:10 +0000
-Received: by mail-qk1-x733.google.com with SMTP id o26so5171132qkl.6
-        for <linux-riscv@lists.infradead.org>; Wed, 06 Jul 2022 17:04:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=feedback-id:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to;
-        bh=egYv15cXkA5RpPdPdInxwHuoYF9xGZOxfekqWFe0C9c=;
-        b=GwM0NHat2U8pX71R1qnS62+slU9mefwq/s9YBnSLXYw4DRADz2gf7HZHLtcHa9acgK
-         CiOX+j/LqJPvg8DLU32IqVEi8a8U0O98IGzzPO4dxyRsXmFtGOdfs+UgizGbu28s99KF
-         EhQx/JUjrd21/jzwfg6ea25gOa6nkzRPjuE4TsLqhnItj/H53yEjW/y8Y4o9OSGULtRE
-         g5Z4a7shQR9ZPkiCECNGiEDghqVIG8RAXCYPt9zPhVrhi+Vq3X87XBzeNHbOCScAFTbX
-         NcR23wuT1z9OX9tGR5x2f5pGJBL2Xi3DMXhwwfKQHkWyblpVflAHkoAJF/HpG7klvv8A
-         0GPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:feedback-id:date:from:to:cc:subject:message-id
-         :references:mime-version:content-disposition:in-reply-to;
-        bh=egYv15cXkA5RpPdPdInxwHuoYF9xGZOxfekqWFe0C9c=;
-        b=OpHxlTr/mWcUI+v44xQnw5BaADrwGZrkXOsho1XsI8KslnPWV2VipXc+FGfWAyQqtL
-         F/Z94AUXfwpxO4IqCVCQcd5ZXX/vLovXW09943U0/jgAhK4XdyxYrMLsLMB9JkQVqpvp
-         OdXjPZR8QEo9SitK25wDDdyDjW79wsZ4lGjDjiDNPIoDeg38p43lAWfNPB+cdThX8Tw6
-         93mExTFdnAaL+GYtwPaQ9xdo03d/jL//OeIHrpdZFycPfFmUsECejMCxTiQsIcPsMVlT
-         yqzLsiijuhycOKcgpceJCNbINYFjykHAw25d2FZ+Svy/8T9ALyl16xJEdcDc81jcPS/D
-         2t1w==
-X-Gm-Message-State: AJIora9n4OwIqDvjaaKaNvgI+YmkUcZDMk2Y36iiSrJXa7snD+NvaN/l
-	IPjMOIEorM3E+rfdv5GP7vE=
-X-Google-Smtp-Source: AGRyM1s8wlVaTUmg4hECDVOwDwbH2eEUQQYqtVJ75ghJoTPH5GVm7OZyfjfQ0GBQyfR71wYpmPlxLA==
-X-Received: by 2002:a05:620a:1b8f:b0:6af:337a:5067 with SMTP id dv15-20020a05620a1b8f00b006af337a5067mr28799459qkb.343.1657152245657;
-        Wed, 06 Jul 2022 17:04:05 -0700 (PDT)
-Received: from auth1-smtp.messagingengine.com (auth1-smtp.messagingengine.com. [66.111.4.227])
-        by smtp.gmail.com with ESMTPSA id bs24-20020ac86f18000000b00304fa21762csm17824263qtb.53.2022.07.06.17.04.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 06 Jul 2022 17:04:04 -0700 (PDT)
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
-	by mailauth.nyi.internal (Postfix) with ESMTP id 3BC1127C0054;
-	Wed,  6 Jul 2022 20:04:04 -0400 (EDT)
-Received: from mailfrontend2 ([10.202.2.163])
-  by compute4.internal (MEProxy); Wed, 06 Jul 2022 20:04:04 -0400
-X-ME-Sender: <xms:8yLGYqt5mcXP06hhWtOGg6SmrTwOOyDrLdl4pa4yqBaZ8GW5s4K5qA>
-    <xme:8yLGYveLQsGc0b2yS-NTHDAHDnsfiZJ6IWYLL6jrwA2z-Ec3-6hJsOMcfu2bZEb08
-    4Cd1Lpw8uM18IDBTg>
-X-ME-Received: <xmr:8yLGYlzaKUT2FQgS1DBmykpVtChQxFQO9ezy_3fRVngvhwU6Ll6Ml4QTXtVd0g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudeigedgfeduucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    goufhushhpvggtthffohhmrghinhculdegledmnecujfgurhepfffhvfevuffkfhggtggu
-    jgesthdtrodttddtvdenucfhrhhomhepuehoqhhunhcuhfgvnhhguceosghoqhhunhdrfh
-    gvnhhgsehgmhgrihhlrdgtohhmqeenucggtffrrghtthgvrhhnpedugfeghfekveekveet
-    tddtgeehieefledttdegudeuledthfdvheeileeftdfffeenucffohhmrghinhepkhgvrh
-    hnvghlrdhorhhgpdhgohhoghhlvgdrtghomhdprhhishgtvhdrohhrghdpghhithhhuhgs
-    rdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomh
-    epsghoqhhunhdomhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqieelvdeghedt
-    ieegqddujeejkeehheehvddqsghoqhhunhdrfhgvnhhgpeepghhmrghilhdrtghomhesfh
-    higihmvgdrnhgrmhgv
-X-ME-Proxy: <xmx:8yLGYlMNtPmqK-WsxqwawZ_NmeqUAR1VS44l5mIuUrBHVEUlWgKwnA>
-    <xmx:8yLGYq8CapQHbyONWIdey2L4v02EOjk_wtjbQfvWQzhZxCKgSUf5yw>
-    <xmx:8yLGYtX6xiuLTGsmuTvr6rJlo5t_U2nuDqIoiR1sw7Te4m2H8lysPg>
-    <xmx:9CLGYtVslXJQuBgzT5qENf1h1gVoapA-OJAEQ3Xy8TS8Qre29_8HoQ>
-Feedback-ID: iad51458e:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 6 Jul 2022 20:04:02 -0400 (EDT)
-Date: Wed, 6 Jul 2022 17:03:09 -0700
-From: Boqun Feng <boqun.feng@gmail.com>
-To: Guo Ren <guoren@kernel.org>
-Cc: Dan Lustig <dlustig@nvidia.com>, Andrea Parri <parri.andrea@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	linux-arch <linux-arch@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	linux-riscv <linux-riscv@lists.infradead.org>,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH V4 5/5] riscv: atomic: Optimize LRSC-pairs atomic ops
- with .aqrl annotation
-Message-ID: <YsYivaDEksXPQPaH@boqun-archlinux>
-References: <CAJF2gTQoSQq_S4UvAiXgMviT040Ls8+VkDszQSke1a0zbXZ82A@mail.gmail.com>
- <mhng-7a274375-0d99-41c8-98a3-853d110f62e9@palmer-ri-x1c9>
- <CAJF2gTTXO42_TsZudaQuB9Re0teu__EZ11JZ96nktMqsQkMYNA@mail.gmail.com>
- <20220614110258.GA32157@anparri>
- <YrPei6q4rIAx6Ymf@boqun-archlinux>
- <fd664673-c4cc-be8f-9824-5272c5c79b40@nvidia.com>
- <CAJF2gTSEBQd75VWyyMwKuSDsLFoiBqB0WJfYsiEHVQbJgAgBvA@mail.gmail.com>
+	id 1o9JQG-00DXy3-SM
+	for linux-riscv@lists.infradead.org; Thu, 07 Jul 2022 04:47:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1657169248; x=1688705248;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KPHeN1M2tikU2dR02upVUOR2LHepqS/qsCyrD3NSLx0=;
+  b=LqdsjJk9WGFLQLzW/gtrzQlWQ4dOrPizJRd3aRBD+wPiewT7hQWN0AOU
+   AoftJ7TAORquT8/g0kqH9S13NRLenep+l7TkUC5hR2OMKHCkizpX6XPqN
+   241Nhj4r3760SQVjO8m18tL3cEW9Kgjt1+ZlzzsBPn1fbuSEowD0LUo3+
+   h1CTfUCrlHIDI9np+55Hddl+uTVdFEQ4PU0dEGVgsCWmGoLflANanLPry
+   a+FhWJBWjmk1YssyrX6VbCW9kXLmTVHnTShGkigWtiLaEAO1Wn+6uLmJm
+   o1YORIDUk0HFcQAy58bCw6buRxbHctjpt8VUIYCflSFbzoCN0g/9ZjQEo
+   g==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10400"; a="370246824"
+X-IronPort-AV: E=Sophos;i="5.92,251,1650956400"; 
+   d="scan'208";a="370246824"
+Received: from orsmga006.jf.intel.com ([10.7.209.51])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Jul 2022 21:47:25 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.92,251,1650956400"; 
+   d="scan'208";a="568356991"
+Received: from lkp-server01.sh.intel.com (HELO 68b931ab7ac1) ([10.239.97.150])
+  by orsmga006.jf.intel.com with ESMTP; 06 Jul 2022 21:47:23 -0700
+Received: from kbuild by 68b931ab7ac1 with local (Exim 4.95)
+	(envelope-from <lkp@intel.com>)
+	id 1o9JQA-000LYg-Hb;
+	Thu, 07 Jul 2022 04:47:22 +0000
+Date: Thu, 7 Jul 2022 12:46:44 +0800
+From: kernel test robot <lkp@intel.com>
+To: lewis.hanly@microchip.com, linux-gpio@vger.kernel.org,
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, maz@kernel.org
+Cc: kbuild-all@lists.01.org, paul.walmsley@sifive.com,
+	conor.dooley@microchip.com, daire.mcnamara@microchip.com,
+	lewis.hanly@microchip.com
+Subject: Re: [PATCH 1/1] gpio: mpfs - add polarfire soc gpio support
+Message-ID: <202207071219.0Jw0owWG-lkp@intel.com>
+References: <20220705134912.2740421-2-lewis.hanly@microchip.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAJF2gTSEBQd75VWyyMwKuSDsLFoiBqB0WJfYsiEHVQbJgAgBvA@mail.gmail.com>
+In-Reply-To: <20220705134912.2740421-2-lewis.hanly@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220706_170408_452214_0B7C72C5 
-X-CRM114-Status: GOOD (  54.86  )
+X-CRM114-CacheID: sfid-20220706_214729_052118_7EA5B956 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,187 +84,149 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 25, 2022 at 01:29:50PM +0800, Guo Ren wrote:
-> On Fri, Jun 24, 2022 at 1:09 AM Dan Lustig <dlustig@nvidia.com> wrote:
-> >
-> > On 6/22/2022 11:31 PM, Boqun Feng wrote:
-> > > Hi,
-> > >
-> > > On Tue, Jun 14, 2022 at 01:03:47PM +0200, Andrea Parri wrote:
-> > > [...]
-> > >>> 5ce6c1f3535f ("riscv/atomic: Strengthen implementations with fences")
-> > >>> is about fixup wrong spinlock/unlock implementation and not relate to
-> > >>> this patch.
-> > >>
-> > >> No.  The commit in question is evidence of the fact that the changes
-> > >> you are presenting here (as an optimization) were buggy/incorrect at
-> > >> the time in which that commit was worked out.
-> > >>
-> > >>
-> > >>> Actually, sc.w.aqrl is very strong and the same with:
-> > >>> fence rw, rw
-> > >>> sc.w
-> > >>> fence rw,rw
-> > >>>
-> > >>> So "which do not give full-ordering with .aqrl" is not writen in
-> > >>> RISC-V ISA and we could use sc.w/d.aqrl with LKMM.
-> > >>>
-> > >>>>
-> > >>>>>> describes the issue more specifically, that's when we added these
-> > >>>>>> fences.  There have certainly been complains that these fences are too
-> > >>>>>> heavyweight for the HW to go fast, but IIUC it's the best option we have
-> > >>>>> Yeah, it would reduce the performance on D1 and our next-generation
-> > >>>>> processor has optimized fence performance a lot.
-> > >>>>
-> > >>>> Definately a bummer that the fences make the HW go slow, but I don't
-> > >>>> really see any other way to go about this.  If you think these mappings
-> > >>>> are valid for LKMM and RVWMO then we should figure this out, but trying
-> > >>>> to drop fences to make HW go faster in ways that violate the memory
-> > >>>> model is going to lead to insanity.
-> > >>> Actually, this patch is okay with the ISA spec, and Dan also thought
-> > >>> it was valid.
-> > >>>
-> > >>> ref: https://lore.kernel.org/lkml/41e01514-74ca-84f2-f5cc-2645c444fd8e@nvidia.com/raw
-> > >>
-> > >> "Thoughts" on this regard have _changed_.  Please compare that quote
-> > >> with, e.g.
-> > >>
-> > >>   https://lore.kernel.org/linux-riscv/ddd5ca34-805b-60c4-bf2a-d6a9d95d89e7@nvidia.com/
-> > >>
-> > >> So here's a suggestion:
-> > >>
-> > >> Reviewers of your patches have asked:  How come that code we used to
-> > >> consider as buggy is now considered "an optimization" (correct)?
-> > >>
-> > >> Denying the evidence or going around it is not making their job (and
-> > >> this upstreaming) easier, so why don't you address it?  Take time to
-> > >> review previous works and discussions in this area, understand them,
-> > >> and integrate such knowledge in future submissions.
-> > >>
-> > >
-> > > I agree with Andrea.
-> > >
-> > > And I actually took a look into this, and I think I find some
-> > > explanation. There are two versions of RISV memory model here:
-> > >
-> > > Model 2017: released at Dec 1, 2017 as a draft
-> > >
-> > >       https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/hKywNHBkAXM/m/QzUtxEWLBQAJ
-> > >
-> > > Model 2018: released at May 2, 2018
-> > >
-> > >       https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/xW03vmfmPuA/m/bMPk3UCWAgAJ
-> > >
-> > > Noted that previous conversation about commit 5ce6c1f3535f happened at
-> > > March 2018. So the timeline is roughly:
-> > >
-> > >       Model 2017 -> commit 5ce6c1f3535f -> Model 2018
-> > >
-> > > And in the email thread of Model 2018, the commit related to model
-> > > changes also got mentioned:
-> > >
-> > >       https://github.com/riscv/riscv-isa-manual/commit/b875fe417948635ed68b9644ffdf718cb343a81a
-> > >
-> > > in that commit, we can see the changes related to sc.aqrl are:
-> > >
-> > >        to have occurred between the LR and a successful SC.  The LR/SC
-> > >        sequence can be given acquire semantics by setting the {\em aq} bit on
-> > >       -the SC instruction.  The LR/SC sequence can be given release semantics
-> > >       -by setting the {\em rl} bit on the LR instruction.  Setting both {\em
-> > >       -  aq} and {\em rl} bits on the LR instruction, and setting the {\em
-> > >       -  aq} bit on the SC instruction makes the LR/SC sequence sequentially
-> > >       -consistent with respect to other sequentially consistent atomic
-> > >       -operations.
-> > >       +the LR instruction.  The LR/SC sequence can be given release semantics
-> > >       +by setting the {\em rl} bit on the SC instruction.  Setting the {\em
-> > >       +  aq} bit on the LR instruction, and setting both the {\em aq} and the {\em
-> > >       +  rl} bit on the SC instruction makes the LR/SC sequence sequentially
-> > >       +consistent, meaning that it cannot be reordered with earlier or
-> > >       +later memory operations from the same hart.
-> > >
-> > > note that Model 2018 explicitly says that "ld.aq+sc.aqrl" is ordered
-> > > against "earlier or later memory operations from the same hart", and
-> > > this statement was not in Model 2017.
-> > >
-> > > So my understanding of the story is that at some point between March and
-> > > May 2018, RISV memory model folks decided to add this rule, which does
-> > > look more consistent with other parts of the model and is useful.
-> > >
-> > > And this is why (and when) "ld.aq+sc.aqrl" can be used as a fully-ordered
-> > > barrier ;-)
-> > >
-> > > Now if my understanding is correct, to move forward, it's better that 1)
-> > > this patch gets resend with the above information (better rewording a
-> > > bit), and 2) gets an Acked-by from Dan to confirm this is a correct
-> > > history ;-)
-> >
-> > I'm a bit lost as to why digging into RISC-V mailing list history is
-> > relevant here...what's relevant is what was ratified in the RVWMO
-> > chapter of the RISC-V spec, and whether the code you're proposing
-> > is the most optimized code that is correct wrt RVWMO.
-> >
-> > Is your claim that the code you're proposing to fix was based on a
-> > pre-RVWMO RISC-V memory model definition, and you're updating it to
-> > be more RVWMO-compliant?
-> Could "lr + beq + sc.aqrl" provides a conditional RCsc here with
-> current spec? I only found "lr.aq + sc.aqrl" despcriton which is
-> un-conditional RCsc.
-> 
+Hi,
 
-/me put the temporary RISCV memory model hat on and pretend to be a
-RISCV memory expert.
+I love your patch! Yet something to improve:
 
-I think the answer is yes, it's actually quite straightforwards given
-that RISCV treats PPO (Preserved Program Order) as part of GMO (Global
-Memory Order), considering the following (A and B are memory accesses):
+[auto build test ERROR on brgl/gpio/for-next]
+[also build test ERROR on linus/master v5.19-rc5 next-20220706]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-	A
-	..
-	sc.aqrl // M
-	..
-	B
+url:    https://github.com/intel-lab-lkp/linux/commits/lewis-hanly-microchip-com/Add-Polarfire-SoC-GPIO-support/20220705-220421
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git gpio/for-next
+config: i386-allyesconfig (https://download.01.org/0day-ci/archive/20220707/202207071219.0Jw0owWG-lkp@intel.com/config)
+compiler: gcc-11 (Debian 11.3.0-3) 11.3.0
+reproduce (this is a W=1 build):
+        # https://github.com/intel-lab-lkp/linux/commit/f1c1cf42734c00cf02babb6220f8b68a62e86d0e
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review lewis-hanly-microchip-com/Add-Polarfire-SoC-GPIO-support/20220705-220421
+        git checkout f1c1cf42734c00cf02babb6220f8b68a62e86d0e
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        make W=1 O=build_dir ARCH=i386 SHELL=/bin/bash drivers/
 
-, A has a ->ppo ordering to M since "sc.aqrl" is a RELEASE, and M has
-a ->ppo ordeing to B since "sc.aqrl" is an AQUIRE, so
+If you fix the issue, kindly add following tag where applicable
+Reported-by: kernel test robot <lkp@intel.com>
 
-	A ->ppo M ->ppo B
+All errors (new ones prefixed by >>):
 
-And since RISCV describes that PPO is part of GMO:
+   drivers/gpio/gpio-mpfs.c: In function 'mpfs_gpio_probe':
+>> drivers/gpio/gpio-mpfs.c:290:20: error: 'struct irq_chip' has no member named 'parent_device'
+     290 |         irq_c->chip->parent_device = dev;
+         |                    ^~
+>> drivers/gpio/gpio-mpfs.c:310:23: error: implicit declaration of function 'devm_request_irq'; did you mean 'can_request_irq'? [-Werror=implicit-function-declaration]
+     310 |                 ret = devm_request_irq(&pdev->dev, irq,
+         |                       ^~~~~~~~~~~~~~~~
+         |                       can_request_irq
+>> drivers/gpio/gpio-mpfs.c:312:40: error: 'IRQF_SHARED' undeclared (first use in this function)
+     312 |                                        IRQF_SHARED, mpfs_gpio->gc.label, mpfs_gpio);
+         |                                        ^~~~~~~~~~~
+   drivers/gpio/gpio-mpfs.c:312:40: note: each undeclared identifier is reported only once for each function it appears in
+   cc1: some warnings being treated as errors
 
-"""
-The subset of program order that must be respected by the global memory
-order is known as preserved program order.
-"""
 
-also in the herd model:
+vim +290 drivers/gpio/gpio-mpfs.c
 
-	(* Main model axiom *)
-	acyclic co | rfe | fr | ppo as Model
+   240	
+   241	static int mpfs_gpio_probe(struct platform_device *pdev)
+   242	{
+   243		struct clk *clk;
+   244		struct device *dev = &pdev->dev;
+   245		struct device_node *node = pdev->dev.of_node;
+   246		struct mpfs_gpio_chip *mpfs_gpio;
+   247		int i, ret, ngpio;
+   248		struct gpio_irq_chip *irq_c;
+   249	
+   250		mpfs_gpio = devm_kzalloc(dev, sizeof(*mpfs_gpio), GFP_KERNEL);
+   251		if (!mpfs_gpio)
+   252			return -ENOMEM;
+   253	
+   254		mpfs_gpio->base = devm_platform_ioremap_resource(pdev, 0);
+   255		if (IS_ERR(mpfs_gpio->base)) {
+   256			dev_err(dev, "failed to allocate device memory\n");
+   257			return PTR_ERR(mpfs_gpio->base);
+   258		}
+   259		clk = devm_clk_get(&pdev->dev, NULL);
+   260		if (IS_ERR(clk))
+   261			return dev_err_probe(&pdev->dev, PTR_ERR(clk), "failed to get clock\n");
+   262	
+   263		ret = clk_prepare_enable(clk);
+   264		if (ret)
+   265			return dev_err_probe(&pdev->dev, ret, "failed to enable clock\n");
+   266	
+   267		mpfs_gpio->clk = clk;
+   268	
+   269		spin_lock_init(&mpfs_gpio->lock);
+   270	
+   271		ngpio = of_irq_count(node);
+   272		if (ngpio > NUM_GPIO) {
+   273			dev_err(dev, "too many interrupts\n");
+   274			goto cleanup_clock;
+   275		}
+   276	
+   277		mpfs_gpio->gc.direction_input = mpfs_gpio_direction_input;
+   278		mpfs_gpio->gc.direction_output = mpfs_gpio_direction_output;
+   279		mpfs_gpio->gc.get_direction = mpfs_gpio_get_direction;
+   280		mpfs_gpio->gc.get = mpfs_gpio_get;
+   281		mpfs_gpio->gc.set = mpfs_gpio_set;
+   282		mpfs_gpio->gc.base = -1;
+   283		mpfs_gpio->gc.ngpio = ngpio;
+   284		mpfs_gpio->gc.label = dev_name(dev);
+   285		mpfs_gpio->gc.parent = dev;
+   286		mpfs_gpio->gc.owner = THIS_MODULE;
+   287	
+   288		irq_c = &mpfs_gpio->gc.irq;
+   289		irq_c->chip = &mpfs_gpio_irqchip;
+ > 290		irq_c->chip->parent_device = dev;
+   291		irq_c->handler = handle_simple_irq;
+   292	
+   293		ret = devm_irq_alloc_descs(&pdev->dev, -1, 0, ngpio, 0);
+   294		if (ret < 0) {
+   295			dev_err(dev, "failed to allocate descs\n");
+   296			goto cleanup_clock;
+   297		}
+   298	
+   299		/*
+   300		 * Setup the interrupt handlers. Interrupts can be
+   301		 * direct and/or non-direct mode, based on register value:
+   302		 * GPIO_INTERRUPT_FAB_CR.
+   303		 */
+   304		for (i = 0; i < ngpio; i++) {
+   305			int irq = platform_get_irq_optional(pdev, i);
+   306	
+   307			if (irq < 0)
+   308				continue;
+   309	
+ > 310			ret = devm_request_irq(&pdev->dev, irq,
+   311					       mpfs_gpio_irq_handler,
+ > 312					       IRQF_SHARED, mpfs_gpio->gc.label, mpfs_gpio);
+   313			if (ret) {
+   314				dev_err(&pdev->dev, "failed to request irq %d: %d\n",
+   315					irq, ret);
+   316				goto cleanup_clock;
+   317			}
+   318		}
+   319	
+   320		ret = gpiochip_add_data(&mpfs_gpio->gc, mpfs_gpio);
+   321		if (ret)
+   322			goto cleanup_clock;
+   323	
+   324		platform_set_drvdata(pdev, mpfs_gpio);
+   325		dev_info(dev, "Microchip MPFS GPIO registered %d GPIOs\n", ngpio);
+   326	
+   327		return 0;
+   328	
+   329	cleanup_clock:
+   330		clk_disable_unprepare(mpfs_gpio->clk);
+   331		return ret;
+   332	}
+   333	
 
-, therefore the ordering between A and B is GMO and GMO should be
-respected by all harts.
-
-Regards,
-Boqun
-
-> >
-> > Dan
-> >
-> > > Regards,
-> > > Boqun
-> > >
-> > >>   Andrea
-> > >>
-> > >>
-> > > [...]
-> 
-> 
-> 
-> --
-> Best Regards
->  Guo Ren
-> 
-> ML: https://lore.kernel.org/linux-csky/
+-- 
+0-DAY CI Kernel Test Service
+https://01.org/lkp
 
 _______________________________________________
 linux-riscv mailing list
