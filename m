@@ -4,157 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C77CEC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jul 2022 20:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1F02C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jul 2022 20:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U4LgoZFvE919w0r6KiuqfWnqbss0aisgoMVprFUg8ZY=; b=aFnww0EPzhCcGn
-	H9vbSi3YoKjqhpc+IP+9V6PxUnWeEI7Bve1dq5pkllSTU18t0eAujBhikTrwks+hDKHC0sxEqm5v7
-	oE56s21YLA9zdMWRNZutNrboHDzd6KBYaz/YEZ7iPq7g1tzhlG68w3xQKJseXosQ8wjhUN7SEeO+n
-	wZ9LlH5ddOAHABWQekxCMFzOuBwfiFpcpPcE5ufRkk2Ifb7B2/Vc0wqjkUuh5DgbmGQyMTOrHKwf0
-	98l81gvP4LluXmOyq4CtUunMKgrVFCNCOedHPOa9wggV6Vf09+lh/ZkexRRmAh1hjODTfeb5+SJep
-	sEA2jyArX4LO8ARLv/zg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fBjy6mP1o+zxCbjR700gwRYKRI4gS3Zygw2wttSMBc8=; b=yZI444UNln8UXT
+	wSRjnSPIsNcZ8yky8Y6Qpr+NlcGrYcUZKFOQ1qF5IIt6PvCCf+JoUvrBDK6Y52V22aYAck72eIQO+
+	4UEyqZIf+7NWQzPqJwTL2O4Vwt4E4EBqhlBft5NVBcbyjSjFNWGe/HvQ/qxQKQHcTUoEpRRqAo7OP
+	Xt/3ueSkUPqhtjw83y18tQreHvv1sT2oKCX1jeCGsDVZmvuPlzqqPiwvxQJFNojatrVS2R3bYVIDt
+	MAazPR6gFw8iVZEVv66iQlJMN7tdO3vW1G2BzquvdzntNdjg9UryLfRKYnk+5DqaphngcDEADwcdc
+	0F/MhjZjvooEDWUY9i7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9uSA-005lXV-Jg; Fri, 08 Jul 2022 20:19:54 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1o9ufl-005otY-SO; Fri, 08 Jul 2022 20:33:57 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9uS6-005lVw-CB
-	for linux-riscv@lists.infradead.org; Fri, 08 Jul 2022 20:19:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1657311590; x=1688847590;
-  h=from:to:subject:date:message-id:references:in-reply-to:
-   content-id:content-transfer-encoding:mime-version;
-  bh=236UK5xt7BF2KYiQxITsEUBu/dK7ay59XfQlU85k5HY=;
-  b=iY7VJFVZHiMCmCAVsU5vX6A9cN3arSDmipc0vAg/uNLRUUlP0NtCe27a
-   IeIgyx7srT3T7wGsvga0XEJNw179iRjalv6A8/SLkoTB5BT9BzUdm0Vsu
-   CoQqix0u0eWDQndbnJMNVS6YNx/g11fuo9ub+g1ULtNOCtBYu03UTCPc+
-   Z9DBylnaezTJSSu7tyoBtlzy6jEp/3Rxes1/eF1M8nUD3I8Io+iQIqPiA
-   R7nQ+T7N+tc2JStYM3XvUt3ZQYEy5jl5J0HWBK4cTYI98+iPtykhsFcuf
-   cFlJlldjlfLxkqDEYkl1IyqVomB2Le6E64V6tz9j7YVw4zAdH3t45cUyn
-   g==;
-X-IronPort-AV: E=Sophos;i="5.92,256,1650956400"; 
-   d="scan'208";a="167066601"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 08 Jul 2022 13:19:41 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Fri, 8 Jul 2022 13:19:41 -0700
-Received: from NAM04-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17 via Frontend Transport; Fri, 8 Jul 2022 13:19:40 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Vv+mgk2c3S91TGX2R9bsYmDJ58wBxyB4TMbkrAv/5JQt+mmWd/onLhzUEKKIOzMMeP/xPh1mPaAa7y8duRbplrbOnPuxDq2RTPWBflnmCSXM2JmbJ6h2X86iHjnwUkoZ2u+jq0kfIkIqIzNAW3vbITutJ51T/BC+6BmmZe8BrvO+jh8PLT+rL8GxqlU9WIGi9f1YAFCalJgT0RnGzHRhXcM6ZvUSK8EukkW8K6GHl9SHlJBefw5ILGy9m0tlwktTIwEZkAPXrZIhzMW/hpZnCkfzSvJKyBC5wbPKDLsyXkOW1/HGf0Fn1WLrlpLlmXdyiMf4JUM7QUfGZQfK0ePuRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=236UK5xt7BF2KYiQxITsEUBu/dK7ay59XfQlU85k5HY=;
- b=eoxowYpv7oEgziT+NszO/V8E1csjlm1aj7sYH/uuo/Pga19zq0hLZrWB58vczk61wJeEnNPY3sOdI920KCL582vSE56BI3pEIEc4BkOC5T02BQXa9pHel1m9VrBWcnAV2uYcWjuDgH0aocVnv0cQgqcIMMhxyT3/Vz9VEUkYbx8qYi2LEqvTt9VIkAJeSuHp+lBYJGj9ORMCCNLdJfH1XJ7oV/0pmk/ic1VncLp4J5EMUiP14o3553AE6ynqe30u0cp8c81E3SngSQHYzzZkgnegfT84ivdCTIXMw4i6WfwTLPoXB1qkj2Tr2RCGu+2TYTjDLGqY+ogqMRgrncJV6A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+	id 1o9ufj-005orU-5c
+	for linux-riscv@lists.infradead.org; Fri, 08 Jul 2022 20:33:56 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id d16so25637047wrv.10
+        for <linux-riscv@lists.infradead.org>; Fri, 08 Jul 2022 13:33:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=236UK5xt7BF2KYiQxITsEUBu/dK7ay59XfQlU85k5HY=;
- b=HkZxA2djjBlurH+hRNO3qsXZT761YrWsx1y2xVfreuL0hshUcMS4rwL4XMMUG4a/Ud7S4Nol/uLYZVmMsSgYVTdoxct9aeAEbUAS3PxviVS4VPVHA0uaFVCFPXLzSEkGsXwUoXBC/CPAOIXC+DCOwBuN/6j6soeOqubV4RUCMpg=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by BYAPR11MB2597.namprd11.prod.outlook.com (2603:10b6:a02:c0::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5417.20; Fri, 8 Jul
- 2022 20:19:35 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::8d4a:1681:398d:9714]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::8d4a:1681:398d:9714%5]) with mapi id 15.20.5417.016; Fri, 8 Jul 2022
- 20:19:34 +0000
-From: <Conor.Dooley@microchip.com>
-To: <zephray@outlook.com>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH] riscv: always honor the CONFIG_CMDLINE_FORCE when parsing
- dtb
-Thread-Topic: [PATCH] riscv: always honor the CONFIG_CMDLINE_FORCE when
- parsing dtb
-Thread-Index: AQHYkwb6Xt0fxugHH0q3a6opYrWrl6106gUA
-Date: Fri, 8 Jul 2022 20:19:34 +0000
-Message-ID: <737467de-c8a9-75e0-3f78-a6ab0860a6e8@microchip.com>
-References: <PSBPR04MB3991F5AF4EEA354A658A3BAAB1829@PSBPR04MB3991.apcprd04.prod.outlook.com>
-In-Reply-To: <PSBPR04MB3991F5AF4EEA354A658A3BAAB1829@PSBPR04MB3991.apcprd04.prod.outlook.com>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: c1880e6c-2fab-4f98-4220-08da611f2cb5
-x-ms-traffictypediagnostic: BYAPR11MB2597:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: SPht6IaqZvoq2V21DI0C47WjaBZKz6ODUCSy0UWR1Zb4lQoMIycgU3DoLw0+HLladAqHZm79xh0otG5YNMtfwU1e2MF8oCDMM/b+ij5BIKpJq92HmFxN7wchQdwi4S7cjgfPdiACq/OE6ONTOFQhBE5JCxQOMOm5gQCzrFSMkR30aiI0ZHxlWjdNDPS8bU65+4oilTUmpIOooSdjvMvAkhRVbwcMNnBbhS+K6YyuRANBZdlG2E/tLotcDaUMu/AUr5GxtmmtxA/ll27+CN41X7BnxOAKINnDynQ4mnOSTzF91WOxb2vr1lK/JmiCflfzRejzrIdyCHxrvvKrUYKa84DpTQrXnINlks/u40qBU87ZHHNo5Uiure8U0nUm3SjwPHoY1nYXeQ1rjTi7jCkItu0jRtJ8CyaXyfpq9I4J6MLqE396JrVdioqnZjavrU0Edl6NT00Yiz+63vVto83J+Thretp5ytJ2nbLnEbQlqAD7XjIZj1wjIYEirVLoAtK01uKdGyTEN6GyChGW+CabcmalGpfFkjw9oRrhe8WFTTL+YKIB3wappw3Hz9Ik8IKwZi75J9pHmBeJICHzcO4ZVPZ5pWnsmcmVQlx8Lls6/UAzKyFRO46MvGK/iQPvvn04gHTD+nHIg4T6tHX1TEFCRmnh3jQQQctEYTHdcgOOCcziVvHspEys1k7cH2aVADCZuqnZKOLhIBtCoMKaBAhYzSRkUjMEsLipVxPcVvjPrTgYNXFJUGPujD2niizzOr5ikdQO5gHesxnVQGvAuj+rhkgd2Y9/QFr8tnQ8kjD2SC8uF1qgoSwxbW95PHKvBo6odvnchM03yZgS30c0fZTchDWiJDZPtmnNP0yJIiYCPycPg+S2XDXKP+djb+ifYgeF
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(346002)(136003)(396003)(376002)(39860400002)(366004)(91956017)(122000001)(31686004)(66476007)(66556008)(316002)(66946007)(76116006)(64756008)(66446008)(83380400001)(110136005)(6512007)(478600001)(26005)(8936002)(71200400001)(5660300002)(8676002)(6486002)(36756003)(86362001)(53546011)(6506007)(41300700001)(38070700005)(186003)(2616005)(2906002)(31696002)(38100700002)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?cFpzTHR6SGFJdVZBSDZ2cWNUNktuNzQ5YmEwY1dweGJEWTFBaWU1OStEamJM?=
- =?utf-8?B?cm94aFoxb1ZFVDlaZkIyVE9JWDNFVlgyOEx2amg3c05TSzVlTnFDU1F0dzNV?=
- =?utf-8?B?ek1RTzdvMGFJUXB1S2ZrUzFVUThmdUg5ZEZtdk9ycWkvaWRrRVF5RzhycllX?=
- =?utf-8?B?WkcxYitrQWtDK2pxOVhRNUpoN2dON1E0RWxqaGQ0UHZidUZkWnYyOExuVXBJ?=
- =?utf-8?B?eFlVN3dwSHQzWERpNnFRME1PUHVRY2d1Szg4M3Q3cTZZbGRacWg1ZStTRFBx?=
- =?utf-8?B?UHl1dDJrRHY5S1NUSUJVOEVUQXExNlBpTitHczUyUWlraU5rUy9oSUJDOW9T?=
- =?utf-8?B?MlJGM2IxUDRLQWFFU0g3aTBSallrWWVteCtBQkJsTGZSWGhYV0pYeDZXSWVo?=
- =?utf-8?B?NU5XUzljZm1heC9zalFoUytCajJBSVNUbzR5S3c2SHdrQXdFSzB1NEo0Zys0?=
- =?utf-8?B?T3lpandXQkpWUGhXRnFXbzVDUzJ3REpxL01JbzBYSXhJbSt1MDVRbXpsRi9I?=
- =?utf-8?B?NzVWZVNYVmpLamZmeUEyQkRrc0daRnhNdTdIMnFOL1FLSG1ZZE11U1g1dzVX?=
- =?utf-8?B?Wi9WMC9HdFd0cEU5Y1diMk83QnFXemQxTjdSQzd0Qkpnd3cxOUtOTXpYZnB1?=
- =?utf-8?B?Rm9PbGUyZWluVnN0Y0k4NDBFVms1VnJEaHdmK1plcmx2OFBUSnI4K1U5VVQ4?=
- =?utf-8?B?bWJzVEVUR3c3WjZHY3JZcW5YSi81b1B3aDIxUjVyR3FJUk5IQUVaRmZncm14?=
- =?utf-8?B?RmU2VE1xRjdGeCtubklET211bEZ1cklkMTdJS1EzU3AzZ3d6ZU9ZRkE0d0Zu?=
- =?utf-8?B?bHBVWUtGR1pzc3U5TUZwczQ0cXNUZFVOdXFQS29Sb1UxQWk5dzZQY0huMEJY?=
- =?utf-8?B?Qkkra1hWRDg5YkttOER0Q1Z3VmdNOWVwS00rK0x0QWg3d3JUcjRkR0ticmJo?=
- =?utf-8?B?L3ZxME4wNHFjaG5JUDdYWVFHcTcyMytwS056VndiWWd0clFSYTRzYStTZTUv?=
- =?utf-8?B?TVdvU1AzZldpY3hQQ0t2ODNBWVI5UUtVS0JJQ2g3OWNGZ2Y2cTJHdE55T29U?=
- =?utf-8?B?Zkh4K3BqRjkrQmJzZ1lwcElWeXZ2dmZQRU1BbUt6UDJDYnB2OHA0OXNwSnND?=
- =?utf-8?B?Nm1NY25DYkxpaStxTittMG1pRDJCd2xtRnAyMkNKUDRmTHdBV2R5cEhjUlZV?=
- =?utf-8?B?TXJZd01aZUlWYWJzc2JkSE9sbFk1UlNycHFSUzc1emw4dElleHJJVVVXdnUr?=
- =?utf-8?B?R09SQmRGRHFBZGdnZkp6dWFDM1dUc0dVNDBGd2VaVVdGMk12SmZoTHQ2ZFFt?=
- =?utf-8?B?Qi8xRVkvWkFOUFNsTnNwcmN6azhIeTN0eGdqbm5oTjNLNFdhZy93VUVoRFZC?=
- =?utf-8?B?SS9OVkVVMlNSUWRldXRYYVRMOGl6OFhjNWsvcCtMR0x2Y21nMVhFQk8zUGRq?=
- =?utf-8?B?eDVkMWRPaTlZRkx0YThCcWJpSzRKMEU3cS85dDVmQnRFZzc0QWlPbmhabGpt?=
- =?utf-8?B?REt1bVR5RE5TUlp2MlZadXdVV0pFd0ltT011RXpWeWs1VHlqaUoweVhTdVBX?=
- =?utf-8?B?eEJocUFVczU0ZE1ieE5wa05kWjRWOVRFeFp2RDNiOFB1U1RGZHU5eklYTXlT?=
- =?utf-8?B?SjZzYXE0RWtTTitBK1pxeFJxdlBsbWpxQXZVN1IwR2loRmY1UENFanltV0JG?=
- =?utf-8?B?YVlBSXMxWEhRYVB5KzZua0ZjOU9QUFRzZTJ2ek5EVEFSQ0FRU1lwaGFXT0c4?=
- =?utf-8?B?Vmx4TDJycXplZkhxMFlHRVMwMWJRMFJWVTVKUG9ZMUVPUXVhUnhYSmZYYktB?=
- =?utf-8?B?K3VyRDRtb1VXVVE0VXo0eUdTd2NhZGpnQTRrQTJGaXNIRDkyNkJnaXZnY2Qw?=
- =?utf-8?B?ell3MVVxUmg1NmFYT2dZeDZheDdtVWZiZXNLblk2aTY4TTcwNFl1L1htbDZ0?=
- =?utf-8?B?bDlOUnZDR0p0bEV1Y1EzREIyTEkwUk5NTDBWMStmc1c5enp5bjVLM29xUFdP?=
- =?utf-8?B?QVRRNE5lMkhEaUYrNW9KT2FZVjlaZkhFNEc2NUkvb0xxUnUzU2c0TzViNjdp?=
- =?utf-8?B?dVdvMi95TDU2T3Q2cW9vNDZrbEhrUSthU3hmLzYwcUw4OE9admlIbDBIZmFv?=
- =?utf-8?B?NkJDQ2wxVXdYWWZMWkk0Y2JwOGFVdkEvZS9EN2ppdnNRdGpTdjNLK2luNWpD?=
- =?utf-8?B?Wmc9PQ==?=
-Content-ID: <DC4FC5FB1EFF57448843FAAF9DA7DD5C@namprd11.prod.outlook.com>
+        d=conchuod.ie; s=google;
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=J7aE5Nbw36y+7KVb892AE4NEYNWfAfYQAkoZmLt8mFw=;
+        b=fZBU276Fcxl+YM1cb4rfqdQjDpEA4t7V5dMpP1OBWWH58JiTETtYGW+BhpcP+fWWYp
+         3l4Lw5RVRfJBZH+chhoxp0I0PDaILDdV7RCk9g4G4L6/FvxKEeAtAxhWM+qTj3pg/kbm
+         WPLGyPfzRX7XZhFQKaIknluxpK6Bou54UXV4kno0mEQeAMQ9FHVBVPvV0P8Y2IOSqDIz
+         jXEVgxbx0b2RdkhXNTVpD6oNq2gFLcF/noA9KWAMMaDq8KM708Jgoi5JZ4hmAFdCus/Q
+         K9EsM+fW4IqQCnZg4modEg5IplVjH/lxaI9H2MG1vpSVVSpeGR/fapKz0HfvACLYcCgX
+         08VA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=J7aE5Nbw36y+7KVb892AE4NEYNWfAfYQAkoZmLt8mFw=;
+        b=Q/+O8lhleahqnw2pxjSlcLG0bZ52oPKtTn4Nsa5SQWAI8plp7oQjjcXhVO4HAWaBKU
+         CWP2Be/l7KsfvYO0AwyTbQ1PUenpXg+se5EoaMdA0zzBSBuz2c0AhwQygO8pphYSBp4T
+         HuPYU/ibJ30uobsEQs42xHICNZpJLCQ13LTeY+45GYuEiQkGYeX/52X3NwdEKrnivzMI
+         huLQcu031mhthetkTM091VXLvnipausnh8bWF15fsYiyF8FnX6yb0fZrwCO+klBR5MOg
+         WG/9I8YPcDmCjp+W9/j+bKZinSslei12yrSaUYB5PylsBr7ERmoqALKHMZX+D8iqtccS
+         /aLw==
+X-Gm-Message-State: AJIora88GEmnwYP3CC5AIXE+fwL5jcrLCJqpZ0aAfV7FZwCoDcIw9Yk/
+	RmpIAoVz3heDeNAZDpVxoqhjiA==
+X-Google-Smtp-Source: AGRyM1vvjnkjIO4BJ/3OsUkxWtTWWxiuZDyW8gz8dsIe0ki9rXSxWqa7cMdlqhcr6EBYykIN6uzOxg==
+X-Received: by 2002:adf:f1d1:0:b0:21d:7f88:d638 with SMTP id z17-20020adff1d1000000b0021d7f88d638mr5126429wro.586.1657312433655;
+        Fri, 08 Jul 2022 13:33:53 -0700 (PDT)
+Received: from henark71.. ([51.37.234.167])
+        by smtp.gmail.com with ESMTPSA id a3-20020a1cf003000000b0039c8a22554bsm3165034wmb.27.2022.07.08.13.33.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 08 Jul 2022 13:33:52 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Cc: Daire McNamara <daire.mcnamara@microchip.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Niklas Cassel <niklas.cassel@wdc.com>,
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Zong Li <zong.li@sifive.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Jonas Hahnfeld <hahnjo@hahnjo.de>,
+	Guo Ren <guoren@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Rob Herring <robh@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Brice Goglin <Brice.Goglin@inria.fr>
+Subject: [PATCH v2 0/2] Fix RISC-V's arch-topology reporting
+Date: Fri,  8 Jul 2022 21:33:41 +0100
+Message-Id: <20220708203342.256459-1-mail@conchuod.ie>
+X-Mailer: git-send-email 2.37.0
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c1880e6c-2fab-4f98-4220-08da611f2cb5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Jul 2022 20:19:34.7677
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: cYD9wYCr4yqy6Q8mdw4vt7ycrlcoVC6VGbMHEhTZSV6JFWad+vaE2ZnkVps0+YGHvB9aMxEgeVlBRmoME2v5TdgQConeSGtp6nSmtlVocII=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR11MB2597
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220708_131950_685373_D22CE6FC 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20220708_133355_252230_4925BEA0 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,60 +112,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Wenting,
-I see you've just CC'ed the list but not the maintainers.
-If you run get_maintainers in the scripts directory, you'll get
-a list spat out of the right people to CC.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-On 08/07/2022 21:09, Wenting Zhang wrote:
-> When CONFIG_CMDLINE_FORCE is enabled, cmdline provided by
-> CONFIG_CMDLINE are always used. This allows CONFIG_CMDLINE to be
-> used regardless of the result of device tree scanning.
-> 
-> This especially fixes the case where a device tree without the
+Hey all,
+It's my first time messing around with arch/ code at all, let alone
+more than one arch, so forgive me if I have screwed up how to do a
+migration like this.
 
-You mention a fix. Do you know what commit this fixes?
+The goal here is the fix the incorrectly reported arch topology on
+RISC-V which seems to have been broken since it was added.
+cpu, package and thread IDs are all currently reported as -1, so tools
+like lstopo think systems have multiple threads on the same core when
+this is not true:
+https://github.com/open-mpi/hwloc/issues/536
 
-> chosen node is supplied to the kernel. In such cases,
-> early_init_dt_scan would return true. But inside
-> early_init_dt_scan_chosen, the cmdline won't be updated as there
-> is no chosen node in the device tree. As a result, CONFIG_CMDLINE
-> is not copied into boot_command_line even if CONFIG_CMDLINE_FORCE
-> is enabled. This commit allows properly update boot_command_line
-> in this situation.
-> 
-> Signed-off-by: Wenting Zhang <zephray@outlook.com>
-> ---
->  arch/riscv/kernel/setup.c | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index f0f36a4a0e9b..6e8aaa1ff7c7 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -251,10 +251,9 @@ static void __init parse_dtb(void)
->  			pr_info("Machine model: %s\n", name);
->  			dump_stack_set_arch_desc("%s (DT)", name);
->  		}
-> -		return;
-> -	}
-> +	} else
-> +		pr_err("No DTB passed to the kernel\n");
+arm64's topology code basically applies to RISC-V too, so it has been
+made generic along with the removal of MPIDR related code, which
+appears to be redudant code since '3102bc0e6ac7 ("arm64: topology: Stop
+using MPIDR for topology information")' replaced the code that actually
+interacted with MPIDR with default values.
 
-Running one of the other scripts (checkpatch.pl with the --strict
-option) will complain about this:
-CHECK: Unbalanced braces around else statement
-#41: FILE: arch/riscv/kernel/setup.c:254:
-+	} else
+I only built tested for arm64, so hopefully it is not broken when used.
+Testing on both arm64 & !SMP RISC-V would really be appreciated!
+
+For V2, I dropped the idea of doing a RISC-V specific implementation
+followed by a move to the generic code & just went for the more straight
+forward method of moving to the shared version first. I also dropped the
+RFC :)
 
 Thanks,
 Conor.
 
->  
-> -	pr_err("No DTB passed to the kernel\n");
->  #ifdef CONFIG_CMDLINE_FORCE
->  	strscpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
->  	pr_info("Forcing kernel command line to: %s\n", boot_command_line);
+Conor Dooley (2):
+  arm64: topology: move store_cpu_topology() to shared code
+  riscv: topology: fix default topology reporting
+
+ arch/arm64/kernel/topology.c | 40 ------------------------------------
+ arch/riscv/Kconfig           |  2 +-
+ arch/riscv/kernel/smpboot.c  |  4 +++-
+ drivers/base/arch_topology.c | 19 +++++++++++++++++
+ 4 files changed, 23 insertions(+), 42 deletions(-)
+
+
+base-commit: b6f1f2fa2bddd69ff46a190b8120bd440fd50563
+-- 
+2.37.0
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
