@@ -4,90 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE844C43334
-	for <linux-riscv@archiver.kernel.org>; Thu,  7 Jul 2022 22:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 485E6C43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jul 2022 00:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4yohNoj58Yl/EAQttNf4u/j1HXG+Vs1rOigezHatOq0=; b=xsDZyXi5M2jWnM
-	IazxiQ1wvExvm9GN3VKn35BrskY7uDxmMYfX2dY1OtWB4sLPBuJGAK0oaFcVQ69DWoN5jtYvQNUpK
-	ek2WzqT005vwvbPzcRop3dBJ8wOiO1Qh4Yr3VSi8sRgZoxqzCZFTg3GSj50qtsfJqyls+v3PppMJz
-	wK/LRj6QWNO2x1a+RhPT7vAb92SjzjUFcRi5Bu+reTihH2NK9PQRzX9yt/1qse9nNI6YuWp8o3xZq
-	lcrWjNZ2jvTbxCiC7R4PZCgaZStnzNdi77XKJMpn5kRo2B6rUg+vuapk2l4GvOfmnoGlrXsOBpHAz
-	TnU6tLjkOKjls7PfjyBA==;
+	List-Owner; bh=KfD2Y/yJFkzgOwKTFr9795uKXyZFvOMjVbhYv1faqOM=; b=ilah2fbwCIO1qz
+	WGvrgD61iMsmWDtnBvIM1HFA5lilLvRWMa6n2Tme7gnEgWcX/WzR9tMFNd+i3IO5hiA6xWiZqR5ug
+	kkMFgJz7vnB9RH2DOjqxaUOV/MGoAD3QFzgIZc5hRDnZsM6pJEcrOM0OOFcZff/b3RoDBlQtKzPEd
+	l2TK0H3OSAnOV+36uJrtqJF+vvgr/88YRY9Rim7/D7vIbIVt82K9bphtASibYbWN16T03H+OoUb+z
+	5ZlKn33vdR8Z78Jqk1n2ob1LHUwkdfrLjpsR4wLjl0zyphxuH3YecySv7maUnHaAYUQ0QiGX8NBfV
+	1WQSTsbpzFnZ+VbfWOAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9Zzv-000XPY-Kr; Thu, 07 Jul 2022 22:29:23 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1o9bZy-000kRx-Cq; Fri, 08 Jul 2022 00:10:42 +0000
+Received: from mail-mw2nam10on2128.outbound.protection.outlook.com ([40.107.94.128] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9Zzj-000XMK-Et
-	for linux-riscv@lists.infradead.org; Thu, 07 Jul 2022 22:29:12 +0000
-Received: by mail-wm1-x331.google.com with SMTP id h14-20020a1ccc0e000000b0039eff745c53so71025wmb.5
-        for <linux-riscv@lists.infradead.org>; Thu, 07 Jul 2022 15:29:10 -0700 (PDT)
+	id 1o9bZl-000kLN-CX; Fri, 08 Jul 2022 00:10:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=OR5mGjalqJUnvdGmCQv8IlCEyVF+xD2LQQ3QOzjdMZGaFK3Eny67fUdv3BRg5bNsRXitBYsxJkdOpPsBucGevhGGiT3m+X0OD2a6XupxAMXeKLM2SAgBoC4Po2gcLtdmVSq4TtBtSVraFomnDtxQxB+7QwbEOhM4I67ntHHOd5RGvAWZKjjdz+yTEIJIePOW4QSnN/T3rCF/0xaaPAJRf6GWkKzHPf/OUDEqAXUTyPTn816gNpE1kA4soioIyGWZw6iiJyQOLFMDQ01erGpY//uV9/hev6kXZWq6wUE5UpEPtHU1eKALUA6Xi1bTq1YjhEd+iTAS6S0ztdnd9ZdI8A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jDulu4KqXCQF/eyEYtVYPzQnxuBIamyvUV+i9aH+1Gs=;
+ b=iqzpA6ijlCYnqL1lgiuM0WKsk+PNaLMYtgW0/UB05uS5qmj04eSRx1EFgxPDGYlt2P8UTzCCHj2mbQ+R6cIvKISQfMg+alllWTBWQUbfhDh6c0q+PZ5MaOYVHqdeXs9rq6eUxv3NNvYd9tB3wVcj65X6y/4n1/efPtHzMOuwWOyi/6x+5hcaARPVepX4dpDHKpda8DQf38FE6pJsdPEp+gEoaH4Ap++EhXYjCOaUitZkOzFR1FjOYoaSGG7CYzvdgTtJTLOWsRfRSDnX97uoYb7NZHlXmMGEEoR8aqzWXbBXqrd8tWO0ztkl1GSbqWZ4EmpqQn80DQt06raB9pucPg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=yBL3Qyiw2yU4MEqrOIkV21CEVLt8E6eaNuc5XFAqVgo=;
-        b=FIs7rf6SPWuGcAR0XCFWnjYw5T/OzNPnd9YSnTFkFAORauCxEU4Aczweq5XUCyU7kC
-         S6RAs/jQU9b9oym4qyKPg8K7NvN+W2Vqk+MfOsIkqhFSyTG7R1rpvU/VnfhMOfJKREgf
-         OYH40nwLHktSF2Fmgwdrt7PGSxYOuuMS6lwniQpOYOQjmOQCDMXunwkOoB/XcfAGxPcW
-         k9y2BBZmIKiNI1EcqHHmxgbwIveR1WuD4foEDFPBS0PYWKl80+8iwMicmElV0Yeuf3ah
-         6mq7A3UoXc8Kw2cdGowOwd4goKJ6pH1HhidVzp1le/gHe7ifDIu0YMC9wBqp2j4Shy5H
-         jCMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=yBL3Qyiw2yU4MEqrOIkV21CEVLt8E6eaNuc5XFAqVgo=;
-        b=3ZJoet3UwVx+jDZ2N2KcvfiNxT4TTJc1tMZRFf9rtUDKfTvBTn7nKdPvcwTIpi8QHU
-         xhYxmdSzTmff5WBmxxIWyS2yhfP8WKncYZlCpspPGtW7PepMzBRzBXBCvqHLaU0ECaJk
-         u5lq9ZNH2D9C3XULDXqBDctXUpDNX4VSPmVfSxGZNvkO8j9JsNvkde6i+V82LfjljYTJ
-         CVjFfxN3oXjQN8ZuJJhjz6C0DmdcbIyjjbUrROyPYv5CcKDaoFb5yp2kLw71YHomu0YB
-         cpCOVhw8MLmsxRCgGKuA9h+rWPTfweW/5lJ9tXg/SwViTT4TiBwNGRz2Q9SMviKsLm0V
-         LYtw==
-X-Gm-Message-State: AJIora+ELEPI0ll/veOkQcT3sfqU6Bj8fNwJOVIA9mstvk1BNTu/U1OY
-	F0cNdXAEjenyvWqSWAjuMhuPLw==
-X-Google-Smtp-Source: AGRyM1vHQ4F1C7uBW7hPq+3do+lBz+obsL6jknlXj5UKr4APcprktMviJ51oUK55Q3Z3fUeppuJe/A==
-X-Received: by 2002:a05:600c:1d17:b0:3a0:481b:f1e1 with SMTP id l23-20020a05600c1d1700b003a0481bf1e1mr7023439wms.136.1657232949057;
-        Thu, 07 Jul 2022 15:29:09 -0700 (PDT)
-Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id r190-20020a1c2bc7000000b003a18de85a64sm148855wmr.24.2022.07.07.15.29.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 07 Jul 2022 15:29:08 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: zong.li@sifive.com,
-	robh+dt@kernel.org,
-	palmer@dabbelt.com,
-	daire.mcnamara@microchip.com,
-	niklas.cassel@wdc.com,
-	hahnjo@hahnjo.de,
-	kernel@esmil.dk,
-	aou@eecs.berkeley.edu,
-	geert@linux-m68k.org,
-	paul.walmsley@sifive.com,
-	mail@conchuod.ie,
-	damien.lemoal@opensource.wdc.com,
-	krzysztof.kozlowski+dt@linaro.org
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Brice.Goglin@inria.fr
-Subject: Re: (subset) [PATCH 0/5] RISC-V: Add cpu-map topology information nodes
-Date: Thu,  7 Jul 2022 23:29:04 +0100
-Message-Id: <165723282709.4170238.17783892176422654947.b4-ty@microchip.com>
-X-Mailer: git-send-email 2.37.0
-In-Reply-To: <20220705190435.1790466-1-mail@conchuod.ie>
-References: <20220705190435.1790466-1-mail@conchuod.ie>
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jDulu4KqXCQF/eyEYtVYPzQnxuBIamyvUV+i9aH+1Gs=;
+ b=LjXwRpzMQwyo4qaNr6fQFHkbstjYaUA6klnZZchHmxCxN3+lyueKS9eumGv4qhBni4y5FZq3lximepT6aXmcid5Ur5kOJ5dwOrboIOpV6EcsE7sT3BVjmexirlmbEN8XmNpaL7GXr8qTuUqD+SQqOqYjawlYdZeXmCbJjpDUywM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from MWHPR01MB2638.prod.exchangelabs.com (2603:10b6:300:fe::18) by
+ BL0PR01MB4338.prod.exchangelabs.com (2603:10b6:208:37::12) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5417.16; Fri, 8 Jul 2022 00:10:20 +0000
+Received: from MWHPR01MB2638.prod.exchangelabs.com
+ ([fe80::e1e5:b43e:c774:40d2]) by MWHPR01MB2638.prod.exchangelabs.com
+ ([fe80::e1e5:b43e:c774:40d2%7]) with mapi id 15.20.5417.016; Fri, 8 Jul 2022
+ 00:10:20 +0000
+Date: Thu, 7 Jul 2022 17:10:19 -0700
+From: Darren Hart <darren@os.amperecomputing.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-kernel@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	conor.dooley@microchip.com, valentina.fernandezalanis@microchip.com,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Qing Wang <wangqing@vivo.com>, Rob Herring <robh+dt@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Ionela Voinescu <ionela.voinescu@arm.com>,
+	Pierre Gondois <pierre.gondois@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v6 17/21] arch_topology: Limit span of
+ cpu_clustergroup_mask()
+Message-ID: <Ysd160PQdWoDIdRC@fedora>
+References: <20220704101605.1318280-1-sudeep.holla@arm.com>
+ <20220704101605.1318280-18-sudeep.holla@arm.com>
+Content-Disposition: inline
+In-Reply-To: <20220704101605.1318280-18-sudeep.holla@arm.com>
+X-ClientProxiedBy: MWHPR02CA0014.namprd02.prod.outlook.com
+ (2603:10b6:300:4b::24) To MWHPR01MB2638.prod.exchangelabs.com
+ (2603:10b6:300:fe::18)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 76ccccaf-3d51-4f88-cf6d-08da60763ebc
+X-MS-TrafficTypeDiagnostic: BL0PR01MB4338:EE_
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	80a97X+XTt2uZx+/WU+hn8eJBuJvkPDTNo9dG8JxqAKfoiw27eqgUtcqgLsCFXX13jPHhrH0/UeAfIsUvnVANOhSz4Jb8scvWCpScGXUwUqHhHBEtd1ZAMwdFsurN4yEOlNOCeOFbraouZ/gyppOzRgN/X04AsAJddnNbdsqmLcn0OW9JPfojLjX3vHTTy8rPtsc5Ph3rNJoQdLXiVcmQJ5eAgqkGLy1NOOq1sT0/eJuKvu7gv3sK86CrSOV9N7cC00JOOmQyFX//sLcoBJ7edc6a2Dx0djaxV9opddkncS72tVbT4cQcwcKexwPjXDRDp3orYtgK30C8PCkTOYbSVapm4adnEc7EB4dWepnb6UmvSJN+a0KhhvdBcJuePHhz9LiuXlRxrdldgPYZolge8BB7sWB6TFm+3BpMK8BEQwnps8KF8FjcNLR3RXlc+FAuk6CF4pQWsn2CL5EGwmF5P3m3bY7ZC0c6NH5Vv55MaWPhNy2G3mi6cwc6I2kv5jG8nvYtJczZhK/ywAPjWRjX1d9hr3YdXfWZ77f2r2CtmcGW9QgefhiNvYkvsWZtghpzzXHO8C9OmuGmzbjYo6ut/j6xuWCEuQqqB1LVbvT54Af2pkpaC07gMioZMif3Xk7LkY+XqMBMlE7gJCMvjDGZOuhC8KPCoed+GoRiNNUedyvCDiGmBn/aJbqSn9NPWrLySC5RpgQZiXscg/8d87U7wgOUdWqeQfS+FgNBlg+/fMRVP+ial0wLL1QfG7/vhQd4jPzHvism58NnOWAQFCzd579lqex/XRnE3kJLZ64vi9f3kbxaS3qhjBcYbc/Hgp0
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MWHPR01MB2638.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230016)(4636009)(7916004)(366004)(136003)(396003)(39850400004)(346002)(376002)(8936002)(5660300002)(7416002)(33716001)(2906002)(83380400001)(41300700001)(6916009)(9686003)(38350700002)(54906003)(6486002)(66946007)(66476007)(66556008)(316002)(38100700002)(86362001)(8676002)(186003)(6506007)(6512007)(26005)(4326008)(478600001)(52116002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?Lxm8sXZUh7OpwuPhcG+UHdkrPVKKNJ9eK8YDoRZ0jAGcUGkMPuds91Cr0CZE?=
+ =?us-ascii?Q?Sacl+ScwF8c7y3YpmZV2oYxbMrc4ptmqgrpn6EpYJ0fjxgqT0teJ1fIv65+g?=
+ =?us-ascii?Q?Ko+lxvY3ztwKcXceA6juB6t6FQsn6MtNT8fnI03XGzCVhApiS1xdeTTLLsyI?=
+ =?us-ascii?Q?nbJVEcwidj/T6EydUYbt7JJFIdpLtkmGRwmScaPPa1BKgKKZv936nJh1vudf?=
+ =?us-ascii?Q?8PO+tWqjGgDvtsxtsA37TMjQyJbnAY0SVnQhxkSCNHr2KW/7xPZtIrryvubl?=
+ =?us-ascii?Q?Gn5DLMdedIioQhpYcgd68vuTN9uF9U1ArD2rnz5m4WGrpkQ7elphHDZ8t/6E?=
+ =?us-ascii?Q?KkGXxNLvIFKpBGWmHlbEZ93ZHj6/yxoEbZfDT1Rr0KxXPuvG95UVMiXi7HHR?=
+ =?us-ascii?Q?I8u/Vep8o6PBTAivjreBBWYb5/OdHZd6jgMeMV14WVNa+5x3J5SsZ9DsOGjd?=
+ =?us-ascii?Q?yln1N85EcxZsBhQYN5lKQwQKpOZWi53wL1bX7qH9z4/J0hkd4GuhcHVrYDAN?=
+ =?us-ascii?Q?ei4cEdF4CzIlNwfC7FzuhFvzvgl9UlX30bvFttjIH9/L7xF6v71j3gMijSNQ?=
+ =?us-ascii?Q?Jb8e2vw7uNLn2FFyXnUNnws9ZtGIwVGM73mDTKfk9Ezg8f48GmxDgNTAxVsN?=
+ =?us-ascii?Q?dbYcCIimnpeSKfRrW/mEVAT8UgUeD5maGdyXJKE/wkR554xT8K4G/x/YEb2Y?=
+ =?us-ascii?Q?TSnPeMlDcGy2NaSx0lTVC8rbMakZCQilHYnwGtMq7Dg5Gheyi+xsGxL9dNJd?=
+ =?us-ascii?Q?ZxRXDWjTCRJYuqYx276kaIDdZSPgf+pVtTQqtERAtVJCHAi0IsTH3d3aJAdf?=
+ =?us-ascii?Q?iyahmYNH4cCUW/6x/YgrTQt3Jg/G1qeYlCkHDWkZxDLWAiQj/XodzFMja7fC?=
+ =?us-ascii?Q?8VmSzzgKKh8gLbTmENqgZtyl2EEiwHTtfmz84mkfGDpScprTPiKKaK4eN5h/?=
+ =?us-ascii?Q?XIOuMFpkOutjCJfhSchOhPrQ6lh3wIIDa2aGTCEkdI1iGiI2tcHwOuEdosRC?=
+ =?us-ascii?Q?ATmeNFRNRJXQ4XTBrRDyFmX8wTMAUhnHlOMtASA/UQCBoUinaq/q98Je5poy?=
+ =?us-ascii?Q?H3JIhPjgUjhplMuYU3p6u6107Z+FgCF6YiWeX5Nfw5d6BYS0hpEMMmNzDJoW?=
+ =?us-ascii?Q?pqDTEW+4dABTf53Ym4KG+lAmADj8MEkifBDi03jmNJGs+SCcbXJgNeWkcu+v?=
+ =?us-ascii?Q?8Zdc6DpodBXNZyynhsbYWtIH46UJ+sh9VXffTb0BpWiXSOli+kf3N3AaHwDb?=
+ =?us-ascii?Q?LHTGDsw6gavjo05L/i7rNPIjVAxUDQoa8CpH0jmB1mtzWQtiSYnC3/Olv/lf?=
+ =?us-ascii?Q?f+EuT9LTeiYs30libFdH3n8Kv9H5I6+BjT7+hAfKLVjprAASC71JPB9JnSfI?=
+ =?us-ascii?Q?WFCCi4drlmA5ajgwFRJNpIi8AnDZBRCws/bpvpgNsopH8gGzDl0+jdcVAut+?=
+ =?us-ascii?Q?Pbx5gJeZX0r79cskH2VLsUvSKSX4bhGkCy4+fl0DmlwGwhFbSByiqk2F4ylM?=
+ =?us-ascii?Q?z3ykMBg8UGlSUE1LEOWpO20SvrRp55O9YFH0KOj2tsmNc9oIDHKA13u9e21I?=
+ =?us-ascii?Q?7NNmejhP23pPcoeCxhY7RdWOmvKkBz+EVHnd9ZKijQsuknVihXXR5XCSfn9t?=
+ =?us-ascii?Q?zPjdPxboNapLZrVVT9sDrjQ=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 76ccccaf-3d51-4f88-cf6d-08da60763ebc
+X-MS-Exchange-CrossTenant-AuthSource: MWHPR01MB2638.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2022 00:10:20.5064
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jQInQHaJehM08zRdKesTpfw21XhHfaWt8OJtvpHnydZ/+coZCJo7Nxdmgiyvq7yi8FhEaIbl+LZM2jvHkT9dlOy3T073QjlznfYLrnMDmIzStrq5+BjYCSrtSseqQjr7
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR01MB4338
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220707_152911_553870_2604D3EE 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220707_171029_620398_3D747839 
+X-CRM114-Status: GOOD (  30.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,29 +142,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Jul 04, 2022 at 11:16:01AM +0100, Sudeep Holla wrote:
+> From: Ionela Voinescu <ionela.voinescu@arm.com>
 
-On Tue, 5 Jul 2022 20:04:31 +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+Hi Sudeep and Ionela,
+
 > 
-> It was reported to me that the Hive Unmatched incorrectly reports
-> its topology to hwloc, but the StarFive VisionFive did in [0] &
-> a subsequent off-list email from Brice (the hwloc maintainer).
-> This turned out not to be entirely true, the /downstream/ version
-> of the VisionFive does work correctly but not upstream, as the
-> downstream devicetree has a cpu-map node that was added recently.
+> Currently the cluster identifier is not set on DT based platforms.
+> The reset or default value is -1 for all the CPUs. Once we assign the
+> cluster identifier values correctly, the cluster_sibling mask will be
+> populated and returned by cpu_clustergroup_mask() to contribute in the
+> creation of the CLS scheduling domain level, if SCHED_CLUSTER is
+> enabled.
 > 
-> [...]
+> To avoid topologies that will result in questionable or incorrect
+> scheduling domains, impose restrictions regarding the span of clusters,
 
-Applied to dt-for-next, thanks!
+Can you provide a specific example of a valid topology that results in
+the wrong thing currently?
 
-[4/5] riscv: dts: microchip: Add mpfs' topology information
-      https://git.kernel.org/conor/c/88d319c6abae
+> as presented to scheduling domains building code: cluster_sibling should
+> not span more or the same CPUs as cpu_coregroup_mask().
+> 
+> This is needed in order to obtain a strict separation between the MC and
+> CLS levels, and maintain the same domains for existing platforms in
+> the presence of CONFIG_SCHED_CLUSTER, where the new cluster information
+> is redundant and irrelevant for the scheduler.
 
-The rest is yours Palmer once reviewed :)
+Unfortunately, I believe this changes the behavior for the existing
+Ampere Altra systems, resulting in degraded performance particularly
+latency sensitive workloads by effectively reverting:
+
+  db1e59483d topology: make core_mask include at least cluster_siblings
+
+and ensuring the clustergroup_mask will return with just one CPU for the
+condition the above commit addresses.
+
+> 
+> While previously the scheduling domain builder code would have removed MC
+> as redundant and kept CLS if SCHED_CLUSTER was enabled and the
+> cpu_coregroup_mask() and cpu_clustergroup_mask() spanned the same CPUs,
+> now CLS will be removed and MC kept.
+> 
+
+This is not desireable for all systems, particular those which don't
+have an L3 but do share other resources - such as the snoop filter in
+the case of the Ampere Altra.
+
+While not universally supported, we agreed in the discussion on the
+above patch to allow systems to define clusters independently from the
+L3 as an LLC since this is also independently defined in PPTT.
+
+Going back to my first comment - does this fix an existing system with a
+valid topology? It's not clear to me what that would look like. The
+Ampere Altra presents a cluster level in PPTT because that is the
+desireable topology for the system. If it's not desirable for another
+system to have the cluster topology - shouldn't it not present that
+layer to the kernel in the first place?
 
 Thanks,
-Conor.
+
+> Cc: Darren Hart <darren@os.amperecomputing.com>
+> Acked-by: Vincent Guittot <vincent.guittot@linaro.org>
+> Tested-by: Ionela Voinescu <ionela.voinescu@arm.com>
+> Signed-off-by: Ionela Voinescu <ionela.voinescu@arm.com>
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
+>  drivers/base/arch_topology.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index e384afb6cac7..591c1f8e15e2 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -686,6 +686,14 @@ const struct cpumask *cpu_coregroup_mask(int cpu)
+>  
+>  const struct cpumask *cpu_clustergroup_mask(int cpu)
+>  {
+> +	/*
+> +	 * Forbid cpu_clustergroup_mask() to span more or the same CPUs as
+> +	 * cpu_coregroup_mask().
+> +	 */
+> +	if (cpumask_subset(cpu_coregroup_mask(cpu),
+> +			   &cpu_topology[cpu].cluster_sibling))
+> +		return get_cpu_mask(cpu);
+> +
+>  	return &cpu_topology[cpu].cluster_sibling;
+>  }
+>  
+> -- 
+> 2.37.0
+> 
+
+-- 
+Darren Hart
+Ampere Computing / OS and Kernel
 
 _______________________________________________
 linux-riscv mailing list
