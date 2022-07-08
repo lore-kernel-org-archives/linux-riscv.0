@@ -4,72 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CBDC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jul 2022 07:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82902C43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jul 2022 08:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hBWU38Sqb7VQKWuIG7ptZy9dkeZl/1Yfea2HRcSkTq8=; b=BRCFnvufsWB8D0
-	35rq33sTn2Cz6AliopczKx8cPJfMMYnFH9fiNJeZr6bJkeYQBAiQ2CIKX5leOUG/qFwIs6MR+Gvnz
-	q0NyvvPL9E0mQ6Nrvaaz2RlTRapixuHp+qWy/FivhlJroGT+1Il01jh/q0dL97WbU4e5fMwJQvso3
-	0VB8f4yV40pW/Aj8mP3XB3+yaGZw8jn71tMn9HhBvLqrBEmxImDV43GCWxAYiWEPErdL2Pvl19g+X
-	5Pm1CXU8OE676JBnGMqhAZN6Y8dHJkvWtFZrfnpY1uHF6Mrlyok2N+oEHGDMOfysHSt8AhemmwJj6
-	B9Rj1+mlXDR8VouaF3IA==;
+	List-Owner; bh=Up5nAtemFSs6P0OP2c4aigcyObbneqA1UbE2Ko1jTHY=; b=FFeqHpABKC+gDL
+	rtwaxovsTtdwClarzYuFZ9DjWo6ziqEp+jMZlmpQr/ecfCkY0LD3tiCW8w+1s4iMZriHYitydBhuT
+	54JhRAAtkEdNly3SGaSbpiVqd1krxuKdfGIgykeV/ykhFGqQAmxdo+viBjn/LGj8/b7c4w/QlEwZM
+	Xc4pmwijHWYXqoIDe9ECsKv2k70zDUNpR+4Bul/8SadrBMH06oH2A1OMxpp3ZIMWYtJ+l01q/XxkP
+	KFa7T7jLUXdd+d9A5JeaVozhXIjcGzC7dxX0flPgoMlx5eM3IRKFbPu0gnbkG4zoSan/tDnL7o1KQ
+	4bhAXo0ZdA5CocHsfqbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9ir3-002K9x-Tk; Fri, 08 Jul 2022 07:56:49 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9ir1-002K9J-Ma
-	for linux-riscv@lists.infradead.org; Fri, 08 Jul 2022 07:56:49 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-10c0052da61so17534429fac.12
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Jul 2022 00:56:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=Do5c8txc35InXIJTFqJJ/E8z0P5htDZ6YcOx7IOLib4=;
-        b=M9nZk+GiwzgziI39VmWu680AJS4FjtY1nR5tp27o4jWBQP0LZPqGcXn1x5sO529gDv
-         wCJuzTvesEgGqTiAHWF8cU3kn4+N2Yr5T9DGJk6pv6u7CkHhiSHk6wtezyQrBpYCtH2V
-         EfAJ3mBKs7snFwdWNzLZF70x2glvnCqbAmpShEpqcFa8qa9IeOntuXjifNq2l7OkzhaE
-         DnWEmGYXQvLh2BnwULxg5ncFEKox6sxrNXuDKj6zngPa5i78VRsUE7LXe8epTJJa3vrU
-         84NmXHCy1ov7orC3u6TV2fTkuT/DEHLbUKvS+JHIQSjX5Ds2X4+yz0MH63igFZvyCH//
-         vDfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=Do5c8txc35InXIJTFqJJ/E8z0P5htDZ6YcOx7IOLib4=;
-        b=Qf6+7thUM9lxx6zZlGVrsxK2JODZVtEbqr+ZDrQ/2r0oLsmsKTsivhgTpyvowG8iPy
-         i/Fzbl/4xbgh0M0MDdGvfVJBNu54F2tEA6qVuI72WonyJ/j+/wZ84zSniTqBB6EcwsCq
-         gXnuXsA5vQDkXJCjPiDGU+iQdXNC73T2kbbuGMJ5PcquYz1vhRchVqongRvoWNa9I0+o
-         QbvFqA6JHaYQ9OjQsvm9egSqPTiBugLwdn+c1FmN/NpGzh4We+egde0AiOZ2MHsoydaI
-         wBlZnwa5py3KmLpYpcrGE7Z0aFckXMx8Tb2qvWuzrFItLwpoqqhHubMeyNUbZ1fMdUxJ
-         bkxQ==
-X-Gm-Message-State: AJIora+Dt5bJVqb+XWnhUsliWZa+5+xQGbjJRoJCjvebzA8b59/t927z
-	rSvojqYeLJNTsJKwjF0QjkfXiNR9BWMNC+/HUFKC+w==
-X-Google-Smtp-Source: AGRyM1vCxElxv0AT4eNN481DIahwan83nHGGhEiE5wCdx/gz66WqGaIqD3+PJXDHARvWmjldH1bUoStaaIvojl41siE=
-X-Received: by 2002:a05:6871:5c2:b0:108:4cbf:a965 with SMTP id
- v2-20020a05687105c200b001084cbfa965mr1078660oan.285.1657267005216; Fri, 08
- Jul 2022 00:56:45 -0700 (PDT)
+	id 1o9izu-002MeV-MW; Fri, 08 Jul 2022 08:05:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o9izd-002MXH-U9; Fri, 08 Jul 2022 08:05:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD9CE1063;
+	Fri,  8 Jul 2022 01:05:38 -0700 (PDT)
+Received: from bogus (unknown [10.57.39.193])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 989E93F792;
+	Fri,  8 Jul 2022 01:05:35 -0700 (PDT)
+Date: Fri, 8 Jul 2022 09:04:24 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Darren Hart <darren@os.amperecomputing.com>
+Cc: linux-kernel@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	conor.dooley@microchip.com, valentina.fernandezalanis@microchip.com,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Qing Wang <wangqing@vivo.com>, Rob Herring <robh+dt@kernel.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Ionela Voinescu <ionela.voinescu@arm.com>,
+	Pierre Gondois <pierre.gondois@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v6 17/21] arch_topology: Limit span of
+ cpu_clustergroup_mask()
+Message-ID: <20220708080424.22x2bgcbggb6skua@bogus>
+References: <20220704101605.1318280-1-sudeep.holla@arm.com>
+ <20220704101605.1318280-18-sudeep.holla@arm.com>
+ <Ysd160PQdWoDIdRC@fedora>
 MIME-Version: 1.0
-References: <20220609071833.1051941-1-andy.chiu@sifive.com> <CABgGipVpafnRB6VhTonq3U5uFrLxCwJBqW9JZBCvYjA93gGESQ@mail.gmail.com>
-In-Reply-To: <CABgGipVpafnRB6VhTonq3U5uFrLxCwJBqW9JZBCvYjA93gGESQ@mail.gmail.com>
-From: Andy Chiu <andy.chiu@sifive.com>
-Date: Fri, 8 Jul 2022 15:56:34 +0800
-Message-ID: <CABgGipUDq+BdEAbs8+hHtkjkekswXK=J9ysa9=nR9q_M4N7rcg@mail.gmail.com>
-Subject: Re: [PATCH riscv/for-next 0/4] Enable ftrace with kernel preemption
- for RISC-V
-To: aou@eecs.berkeley.edu, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, rostedt@goodmis.org, mingo@redhat.com, 
-	linux-riscv@lists.infradead.org, guoren@linux.alibaba.com
-Cc: Greentime Hu <greentime.hu@sifive.com>, Zong Li <zong.li@sifive.com>
+Content-Disposition: inline
+In-Reply-To: <Ysd160PQdWoDIdRC@fedora>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220708_005647_804205_41FF14AB 
-X-CRM114-Status: GOOD (  33.63  )
+X-CRM114-CacheID: sfid-20220708_010542_102268_12DDC589 
+X-CRM114-Status: GOOD (  28.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,75 +73,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This is just a gentle ping. If there are concerns or problems
-regarding this patch, please let me know. Thanks!
+Hi Darren,
 
-> On Thu, Jun 9, 2022 at 3:21 PM Andy Chiu <andy.chiu@sifive.com> wrote:
-> >
-> > This patch remove dependency of dynamic ftrace from calling
-> > stop_machine(), and make it compatiable with kernel preemption.
-> > Originally, we ran into stack corruptions, or execution of partially
-> > updated instructions when starting or stopping ftrace on a fully
-> > preemptible kernel configuration. The reason is that kernel periodically
-> > calls rcu_momentary_dyntick_idle() on cores waiting for the code-patching
-> > core running in ftrace. Though rcu_momentary_dyntick_idle() itself is
-> > marked as notrace, it would call a bunch of tracable functions if we
-> > configured the kernel as preemptible. For example, these are some functions
-> > that happened to have a symbol and have not been marked as notrace on a
-> > RISC-V preemptible kernel compiled with GCC-11:
-> >  - __rcu_report_exp_rnp()
-> >  - rcu_report_exp_cpu_mult()
-> >  - rcu_preempt_deferred_qs()
-> >  - rcu_preempt_need_deferred_qs()
-> >  - rcu_preempt_deferred_qs_irqrestore()
-> >
-> > Thus, this make it not ideal for us to rely on stop_machine() and
-> > handly marked "notrace"s to perform runtime code patching. To remove
-> > such dependency, we must make updates of code seemed atomic on running
-> > cores. This might not be obvious for RISC-V since it usaually uses a pair
-> > of AUIPC + JALR to perform a long jump, which cannot be modified and
-> > executed concurrently if we consider preemptions. As such, this patch
-> > proposed a way to make it possible. It embeds a 32-bit rel-address data
-> > into instructions of each ftrace prologue and jumps indirectly. In this
-> > way, we could store and load the address atomically so that the code
-> > patching core could run simutaneously with the rest of running cores.
-> >
-> > After applying the patchset, we compiled a preemptible kernel with all
-> > tracers and ftrace-selftest enabled, and booted it on a 2-core QEMU virt
-> > machine. The kernel could boot up successfully, passing all ftrace
-> > testsuits. Besides, we ran a script that randomly pick a tracer on every
-> > 0~5 seconds. The kernel has sustained over 20K rounds of the test. In
-> > contrast, a preemptible kernel without our patch would panic in few
-> > rounds on the same machine.
-> >
-> > However, we did run into errors when using hwlat or irqsoff tracers
-> > together with cpu-online stressor from stress-ng on a preemptible kernel.
-> > The stressor would randomly take a cpu from 1-N offline and online using
-> > hotplug mechanism. Nonotheless, since we think there is little chance that
-> > it is related to our changes in ftrace, we are working on it in parallel,
-> > and may come up with another patch soon.
-> >
-> > Andy Chiu (4):
-> >   riscv: align ftrace to 4 Byte boundary and increase ftrace prologue
-> >     size
-> >   riscv: export patch_insn_write
-> >   riscv: ftrace: use indirect jump to work with kernel preemption
-> >   riscv: ftrace: do not use stop_machine to update code
-> >
-> >  arch/riscv/Makefile             |   2 +-
-> >  arch/riscv/include/asm/ftrace.h |  24 ------
-> >  arch/riscv/include/asm/patch.h  |   1 +
-> >  arch/riscv/kernel/ftrace.c      | 135 ++++++++++++++++++++------------
-> >  arch/riscv/kernel/mcount-dyn.S  |  62 +++++++++++----
-> >  arch/riscv/kernel/patch.c       |   4 +-
-> >  6 files changed, 136 insertions(+), 92 deletions(-)
-> >
-> > --
-> > 2.36.0
-> >
+I will let Ionela or Dietmar cover some of the scheduler aspects as
+I don't have much knowledge in that area.
 
+On Thu, Jul 07, 2022 at 05:10:19PM -0700, Darren Hart wrote:
+> On Mon, Jul 04, 2022 at 11:16:01AM +0100, Sudeep Holla wrote:
+> > From: Ionela Voinescu <ionela.voinescu@arm.com>
+> 
+> Hi Sudeep and Ionela,
+> 
+> > 
+> > Currently the cluster identifier is not set on DT based platforms.
+> > The reset or default value is -1 for all the CPUs. Once we assign the
+> > cluster identifier values correctly, the cluster_sibling mask will be
+> > populated and returned by cpu_clustergroup_mask() to contribute in the
+> > creation of the CLS scheduling domain level, if SCHED_CLUSTER is
+> > enabled.
+> > 
+> > To avoid topologies that will result in questionable or incorrect
+> > scheduling domains, impose restrictions regarding the span of clusters,
+> 
+> Can you provide a specific example of a valid topology that results in
+> the wrong thing currently?
+>
+
+As a simple example, Juno with 2 clusters and L2 for each cluster. IIUC
+MC is preferred instead of CLS and both MC and CLS domains are exact
+match.
+
+> > 
+> > While previously the scheduling domain builder code would have removed MC
+> > as redundant and kept CLS if SCHED_CLUSTER was enabled and the
+> > cpu_coregroup_mask() and cpu_clustergroup_mask() spanned the same CPUs,
+> > now CLS will be removed and MC kept.
+> > 
+> 
+> This is not desireable for all systems, particular those which don't
+> have an L3 but do share other resources - such as the snoop filter in
+> the case of the Ampere Altra.
+> 
+> While not universally supported, we agreed in the discussion on the
+> above patch to allow systems to define clusters independently from the
+> L3 as an LLC since this is also independently defined in PPTT.
+>
+> Going back to my first comment - does this fix an existing system with a
+> valid topology? 
+
+Yes as mentioned above Juno.
+
+> It's not clear to me what that would look like. The Ampere Altra presents
+> a cluster level in PPTT because that is the desireable topology for the
+> system.
+
+Absolutely wrong reason. It should present because the hardware is so,
+not because some OSPM desires something in someway. Sorry that's not how
+DT/ACPI is designed for. If 2 different OSPM desires different things, then
+one ACPI will not be sufficient.
+
+> If it's not desirable for another system to have the cluster topology -
+> shouldn't it not present that layer to the kernel in the first place?
+
+Absolutely 100% yes, it must present it if the hardware is designed so.
+No if or but.
+
+-- 
 Regards,
-Andy
+Sudeep
 
 _______________________________________________
 linux-riscv mailing list
