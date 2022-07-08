@@ -4,100 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979C7C43334
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jul 2022 20:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBDBAC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jul 2022 20:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=byFjgBWNm0oBDHY6oEOG0foZ4OQQHflzqnSYCxGrYD4=; b=hWKkLfpUoXM6ng
-	vt7njBFKDpHpOO4F0Go8clERljC0wDrL34r6xsocT8BL+S0oXsXMIlU9vL2vNQPry6nBysmYR1wPv
-	Z+/NrehfFFxsacVqobdzYla/Ms562yxhv6XKT1WCQRyVr/vp3/LtaaQrKxOhg+VyUYAlBAqGKjhPC
-	1rXjFAHhDXQskY80sbaTvd516Gs+u55IvpaLVtXXGYYhG51Wze4RqcXzZnZZ/pDUY+qPxpbzSKRWA
-	nEUdcgUdmi747q8L/VhNcvDSG0VQdrHXAHf0hqXl3Ixjfx5NhqaBXUDvcuY7M1oUO8W/t7SEEzdUb
-	Xh4xCkujn+HkTZoMmaTQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kTUw95NunW9WdsRyr3GnZMbBKwheYT4yXWI2UoajMaA=; b=PGWSWlOMP3GU69
+	D1jmymVoqN5vXcs9vnWxpjOk9meF2PYFk1yEJ0glz2TDQxmW/SyDDlbR3HZ35NO2q6Wgosse45lMH
+	rtZOE8LbHHFzQ8tHkUzHXrnPjkBZUeRVj/qNv9wCmJG7h9PojO2tSTrnxIWO1H/acK2jwN4CF4H8A
+	PizyNLqZ+DPOSp5n/S9pTy4NqTsFOiCNi1bMjXXS4hFlNfUXQDiRU08I/+3tPYdlTVQmUq9MQDUIk
+	7BtV1+MXLWftVBAGlyu6odeRDxHLicJSHhX6wKimagSALmrSw3ApqOSCYPceCjIzZOzhBrBGgiY3m
+	qdU3DSscZIjMQX/9r7fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9ugH-005p8n-8Q; Fri, 08 Jul 2022 20:34:29 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1o9uqW-005s8I-UK; Fri, 08 Jul 2022 20:45:04 +0000
+Received: from mail-tyzapc01olkn2068.outbound.protection.outlook.com ([40.92.107.68] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9ufp-005otc-UC
-	for linux-riscv@lists.infradead.org; Fri, 08 Jul 2022 20:34:03 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id bk26so16891767wrb.11
-        for <linux-riscv@lists.infradead.org>; Fri, 08 Jul 2022 13:33:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=e7OziW02Y/9peL0FmHLT2XkVqPVR8DGTtiJWYX8th9g=;
-        b=UEqfB1NDxQ4fuxAn57jO5JOXC85gsDa3qdlYdPAfKQbBmBo41BVTJKXkQ286sHM7Mk
-         6LPutCJJYxobipDur8SaWiKWDNA7F/5yJRFFfnxODfMMcz5WhTAYkwlNnIqarCW/dNDm
-         rFrAmWedvKoHFxbVpej+fzrUb3wwchTtl0wkqL8p576qk2dEBMTgzryWnttyup4o4W1b
-         vpJyZHZGw1A/THM+W8xbwymP/08dQ+TkP+qO9f6dXb50g96NFnktqZ017+y/u5POCTQf
-         XwK6IzN//c27a0FxB5KOjGE/Vx49Btj/tOHFaKmR1x9LZWkDK0kNtASZsl6msEbRprvE
-         JfRw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=e7OziW02Y/9peL0FmHLT2XkVqPVR8DGTtiJWYX8th9g=;
-        b=g8SkgOB4AZI8jJRJT+TRHkjGMT+vVoSZImJaFZJXWpMD70xogoIJ7p6YRzOTuyvRDK
-         U2M8pqwdm0a2fGS5kpvSM25XVGp7Ol8EkxCvHdsM+q+wG5JPMrQ3FrWYljO2mM3o+x8a
-         /ZPSBtlSDFWYPkfIVTr1seQl1nvHcitegqFSvEgA6LK6I90g8AAjXRM0B5YwhJ9K0rLd
-         3sba2/eeO06gb1JjIVuxy4hON/MIdA001aSpllFpv6DaDh4pAqjSIvmzZtMcz2Z+hHMx
-         X1Z5cgLEsxomq7tmuBzowHHv02lLD1jHExI20LPokyI87Y+KZSB7qDvuw05nq9kEuqmW
-         pDgQ==
-X-Gm-Message-State: AJIora/bs79MLoyfgIc0TL+Nko0pg7D0L3D1MZK3a+UTHdQuJZX+dRtP
-	LdGejyD/UVZ4dGbJN8/Zlk56Hw==
-X-Google-Smtp-Source: AGRyM1tiuAM/tea7RwU3EO1DtUOng8CK5amFDnoeTVJhCd41MOb5se0+VDnHisrU3+re40/QC6r2Mw==
-X-Received: by 2002:a5d:4582:0:b0:21d:7c57:1f4b with SMTP id p2-20020a5d4582000000b0021d7c571f4bmr4906085wrq.146.1657312437558;
-        Fri, 08 Jul 2022 13:33:57 -0700 (PDT)
-Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id a3-20020a1cf003000000b0039c8a22554bsm3165034wmb.27.2022.07.08.13.33.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 08 Jul 2022 13:33:56 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
+	id 1o9uqU-005s6q-0s
+	for linux-riscv@lists.infradead.org; Fri, 08 Jul 2022 20:45:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=AqRrK/eSwegSJr72eahjS3J2akwLFU9ifi4Wzzc6YKmD3bmaGsVRf81y5w2sdE9WRMs/gQnd6YutTz0Fiihg19f3effXGwYFLjVAd+ojoiERE3+fWbZ+oYgLDg9YNSzugx1zTX3X9pA0z9owveZXQvhSKir84Wm38t1nQvB6ese6kLhRr+nF4MEtiVrYTZ1bgCmvjxokaf6VhKa0XXcDW4AbXMwFiyMAt5XUPI3Y2qy3HVL5JXoH3iwYWDnmFVpbKldjEDZ7UPensD5/qH6bMBN5l55Lg+O+lMZhnBrm/x7oZp6dOf31rE3ZmvtAZrGDsXBlbdnmMpTMXGTUKSGVHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g4NhtYnQMBIxsGM0tNxNz6EJinn3yONEplQUbUiY9/k=;
+ b=aO9P+id8j9dIY9ZsEhkcWwp4PtlywRemXiYdd9uMRzMhif4u19kbHyK9ZZlygk2F8/nYr66Qbt1KmwXNSmaFBR2WbZ0M1Vcce520sEFDjGJ3bK+QM0C0vRmCJsWCs0ck2NipOBTZ0+Jhb3kaPEBB7nDZqeW09mmOp01uUV630ZcJdSx/qvvUitVvIbMpDcb6HwSVduiBTAY85jug+2M9GVNO64rNQJ2EQ+VYV1WP2A5g56e9MJILn3ZA0IZQmnoiQ6QoJLEWvzXGkm1gz8EN4zQRCsFyd4MQ+qgDAIk71PkpnQrWC7GLZCXSD9dYXtEHWNi3feBJlDLeDZ0Su+pvIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=g4NhtYnQMBIxsGM0tNxNz6EJinn3yONEplQUbUiY9/k=;
+ b=O26cDcJrYK6dwnygXaTCXOtFkPcY0i7clTNKJTBPJ7c2FmJMwC9zxGNIC9XV71wL0OwyORk6V614Vii3Tl2MBlvzxZLWobyl7GbvjlPbkNJ/Zsc+NBLveESsoe3/GO5RPXKdUQV/SJ2dZu7fFoTlAW5RE0F3a9G3cPV2ndhaHSCcFcConhrkFWprarWpNt7MnoQ1/6ctOudWsuFBT9JqiDi1MqC9jh4Lg2njNK+/m/XBTjwGa7O5eOT13nvf/1xEaPF3jzufMAE1H+UCSSI6Go7pZLiZ/za4B+Qe6slFoj6h9MjHd7tG7hdpcU17wFgy+3s7bvqoQqwujYU1d/jofA==
+Received: from PSBPR04MB3991.apcprd04.prod.outlook.com (2603:1096:301:1::9) by
+ KL1PR0401MB5244.apcprd04.prod.outlook.com (2603:1096:820:8e::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5417.15; Fri, 8 Jul
+ 2022 20:44:54 +0000
+Received: from PSBPR04MB3991.apcprd04.prod.outlook.com
+ ([fe80::21b8:a14e:260b:cade]) by PSBPR04MB3991.apcprd04.prod.outlook.com
+ ([fe80::21b8:a14e:260b:cade%7]) with mapi id 15.20.5395.025; Fri, 8 Jul 2022
+ 20:44:53 +0000
+From: Wenting Zhang <zephray@outlook.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J . Wysocki" <rafael@kernel.org>
-Cc: Daire McNamara <daire.mcnamara@microchip.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Niklas Cassel <niklas.cassel@wdc.com>,
-	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Zong Li <zong.li@sifive.com>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Jonas Hahnfeld <hahnjo@hahnjo.de>,
-	Guo Ren <guoren@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Tomsich <philipp.tomsich@vrull.eu>,
-	Rob Herring <robh@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Wenting Zhang <zephray@outlook.com>,
+	Palmer Dabbelt <palmer@sifive.com>,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Brice Goglin <Brice.Goglin@inria.fr>
-Subject: [PATCH v2 2/2] riscv: topology: fix default topology reporting
-Date: Fri,  8 Jul 2022 21:33:43 +0100
-Message-Id: <20220708203342.256459-3-mail@conchuod.ie>
-X-Mailer: git-send-email 2.37.0
-In-Reply-To: <20220708203342.256459-1-mail@conchuod.ie>
-References: <20220708203342.256459-1-mail@conchuod.ie>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] riscv: always honor the CONFIG_CMDLINE_FORCE when parsing dtb
+Date: Fri,  8 Jul 2022 16:38:22 -0400
+Message-ID:  <PSBPR04MB399135DFC54928AB958D0638B1829@PSBPR04MB3991.apcprd04.prod.outlook.com>
+X-Mailer: git-send-email 2.34.1
+X-TMN: [ZnY4+7SjfT2nAdfJ6HjQxuxd8bXRL/43]
+X-ClientProxiedBy: MN2PR15CA0006.namprd15.prod.outlook.com
+ (2603:10b6:208:1b4::19) To PSBPR04MB3991.apcprd04.prod.outlook.com
+ (2603:1096:301:1::9)
+X-Microsoft-Original-Message-ID:  <20220708203821.1695996-1-zephray@outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: f5f6fda3-b85f-4157-16b4-08da6122b604
+X-MS-Exchange-SLBlob-MailProps: 	DJLbvgWm8MbzvjTTznORWVK4iZPQeQ1VU1K3mRwsVX+lgbIz9Ke9J/0SF6PfYYxjM/aTSGTW7ne37rsEEl1pLG6FJqpEvQkQdrxW9uoz8h0dz9gz1H7wSTxBFD9a6uRWZA8rGLQdE8GYvSnXG53K3Cv6jKtKQzhcdoYmOA5IwmKNqH1u8yxX0UsQA+gZQgAbBEaP79PhlTb5kBxtHg4zhmqsNT/YnXnat+U9urr5z3vom7HRHpLNucK5VERz6YFbpQpn4E2f5mJ2c493MmHM75Yc4M7X2swq++MWkDGpmi3t8pCyXckqKw0ufLNpzrbfwgN7pa5gWUFeZ6lgRHocmtemQAo/oYsnrPLQpUw0Xtty/RS3jyd96m0x7velx1QfOUlfn51AHvcOS78HLnrMNX6PWMT03B8wGrXnz6cihhzoqoGIfnP9cccv/M5ug+yPi/Phjb+5lYaroel5jaliDXXheoOFyPCCu97DvonF4tZhGGldoAdVsBEcd+yfLPX909jI/lIYGNhFopXXS2hgazpG175wnK6S3olC0JQerloctXrFHgPGL78H2z7F37rLDJLV/17xkGEOcFSw43qrf4kXowpscQ5oAkqilF4WABkewuQdsWIbA+cxUnUUri7lq0JQmWATWYYUXZM5UIoYNSJHNGvm8R/nyFaJzkOfqjFy0lWIcRgEn3s/GGbjkJwZQjqHdJjjZTE/tOkFnnDXoQ==
+X-MS-TrafficTypeDiagnostic: KL1PR0401MB5244:EE_
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	jVsSGVvukMIXQuW40Tv38dmO7geKYi2WpRf1i4/oI2RQZT4iaV3kslHExrGDFY9TUeSb953jDjfd32+nuktphKJgCW882Yqjg6hgBJB4GGnqR8NijNfbwtcJdG68Ruud+LYFp6lc04+DWJGPXlP4Hk7gK5X0QieAyWQ69PHymMJHuZ9Oap1Bo6G+0SSs8rlid+kl2t9chDYXYkM4vSUborvxsXmvQhI5oZ1Rl8gsROwEcWW/Asrx0Uh4lzn0RNg8fzpTbPhzR5k8hDVi7+Fb9jwa0DOahKZjF4hUtum3a5DFCndPbPCEzcejKhCdjiSZz+hXAOz0VwSnLLQ1BTMk3MMmyr71+tpHIxtdXJ/FSauufDJJUFF7QvLkyVzWiD1TyqrUUZOVLHjWlun5Ki0ECW+Do85a/mTGTKh2gT2R55y3hmVg47NqarNdUgxAMxFOuialvuTO3L2mXUUdJ4JNnIhdCUMiDm9NcruR6n7SBkOB0Olsd9DARdfa8v3cl1zDrWbzhiGJTxmmF9lg6QQEsBcZmGGgO7QvXtXQtnepeV5ESlbQnq+ckuT74MA9Hkp7aJlMEAr0ZXIoBAjJoXVQ+71RD0R3n8FRiO+t40q0uFWR3alRVtWM6CoyZB43S4uzIAsGtZgETcNtIrnVv9+1ZKAVpZUelekpVValPy8rXITlQzTa70ZarKUXrW3e//aMJ1Cq1VyrJ4AyNA9IXt8VaQ==
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?6Ld3XOb/v3ZBedNODPTTNoy9SUDC45JRjXRmxYM8t/1PRoIR5GOLvYowDdcK?=
+ =?us-ascii?Q?T6sG+osQacUqBjK3ppXPlMRx2IyA3ZmFtNbn3crVfH4zxr72W2Wyo8L3Z6FF?=
+ =?us-ascii?Q?JdLUtY+roymScER69eZYImcAicD6vdWCIU+XHinb7DDjot6MG9hAbcoVzH4i?=
+ =?us-ascii?Q?qoc+1WhT41ovsf1z7SmM5S3bYIvrzL7xt5OUqkk3fAYjZKE+3ez0+DPGyOfo?=
+ =?us-ascii?Q?gBPNCpxsf7PknuOh5m6gSZaQ5udWcDUV2D390AOOcDJivQEFMU9VtyxRUjDR?=
+ =?us-ascii?Q?A936kX+12swae2rtGiAkk3U1A+RbLtrxEeSv5jiujvosapQpkU4X/8u1QXOY?=
+ =?us-ascii?Q?uHmwrUK7ESJ3yIibhWO8a1/y/kiD5mx305sFYcW0PCuQHNs7rkBDNme2L2AL?=
+ =?us-ascii?Q?MGGg+iCvt5r5qYe2bCgoli5MA9RG3pPd//OLTgVOJS3e3n62bXHc1mmuFxdv?=
+ =?us-ascii?Q?hc1fvXwUyuod/0HM54KGgXK+AnxLOewggt0aALr5DPNbOM4VVHCEuQVWz2Bs?=
+ =?us-ascii?Q?birajOUqEDS3sbZaPjIEKmPzmZnmla48fNwxbtBf4iSZ/YoMrCVNuYaKj7Kh?=
+ =?us-ascii?Q?ROzUGSao/7DDe0SFfOmYxJ+V4ibh/qIEk9M3zWyGwwZQoK7/qiC+l47busap?=
+ =?us-ascii?Q?BMIxDJc3eC5f1+NHZcYjFplnt1uBuI2iKBCRR0yCsus4ftJPRrNlQ9TND/Vu?=
+ =?us-ascii?Q?o188Kqb3lkFgGloxJkMveZ+8m+3o00XVHab2vWDT4W9fEhif9uRJ3dQiJxaE?=
+ =?us-ascii?Q?f7kV4eHyY8m+AsQYy0a3CRnETd47cOYeITWcLimR2fRwqNInfWKoVTHiXSb9?=
+ =?us-ascii?Q?dl+WVzL7zM2ywJPVuEmATZJPOlGOH7RbtnXpC5hlNuCuPwDJ0sX81JxbX6WK?=
+ =?us-ascii?Q?TOCTnPp+Cjh1hfIX2G9i+Xs9+OVX/0KA0tQQWjfTWZZSvSIeTpbLX17FKOnp?=
+ =?us-ascii?Q?M6B2ckDdIYDkDs6y+T81b3ZTnRkvWSKDCp0CK6u2NY7UaZpVGxkHynnTbJ43?=
+ =?us-ascii?Q?2qqjIYzPqrmEnvvG65dX0NGAwh29/p/IJqLOmEoE5VlgeDeIvyPofvZG2e83?=
+ =?us-ascii?Q?ygdtQ/knhziyZwCt6KtP1ENHRU/lgX+Tx5M4MQyvP5O6TClDIngOeC2f2t/F?=
+ =?us-ascii?Q?KGsIFL9zbanSqWFtLn/Y2VAvbeL5O8TA1klxkYTQ44Z3z6yB8MOOpmcwH/Xd?=
+ =?us-ascii?Q?4HsiWjpeE+My/tXro+7saBjqt/ah3qAoZdPnrlPS/+14jAcJiqO2Q/gj6x1o?=
+ =?us-ascii?Q?OohZnRKwTdpXeXfztK6Bf2ICJOEJRR26MVD+kSKghg=3D=3D?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f5f6fda3-b85f-4157-16b4-08da6122b604
+X-MS-Exchange-CrossTenant-AuthSource: PSBPR04MB3991.apcprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2022 20:44:53.8880
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 	00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR0401MB5244
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220708_133401_984616_E707D1A5 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20220708_134502_101576_5EB94CAB 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,88 +125,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+When CONFIG_CMDLINE_FORCE is enabled, cmdline provided by
+CONFIG_CMDLINE are always used. This allows CONFIG_CMDLINE to be
+used regardless of the result of device tree scanning.
 
-RISC-V has no sane defaults to fall back on where there is no cpu-map
-in the devicetree.
-Without sane defaults, the package, core and thread IDs are all set to
--1. This causes user-visible inaccuracies for tools like hwloc/lstopo
-which rely on the sysfs cpu topology files to detect a system's
-topology.
+This especially fixes the case where a device tree without the
+chosen node is supplied to the kernel. In such cases,
+early_init_dt_scan would return true. But inside
+early_init_dt_scan_chosen, the cmdline won't be updated as there
+is no chosen node in the device tree. As a result, CONFIG_CMDLINE
+is not copied into boot_command_line even if CONFIG_CMDLINE_FORCE
+is enabled. This commit allows properly update boot_command_line
+in this situation.
 
-On a PolarFire SoC, which should have 4 harts with a thread each,
-lstopo currently reports:
-
-Machine (793MB total)
-  Package L#0
-    NUMANode L#0 (P#0 793MB)
-    Core L#0
-      L1d L#0 (32KB) + L1i L#0 (32KB) + PU L#0 (P#0)
-      L1d L#1 (32KB) + L1i L#1 (32KB) + PU L#1 (P#1)
-      L1d L#2 (32KB) + L1i L#2 (32KB) + PU L#2 (P#2)
-      L1d L#3 (32KB) + L1i L#3 (32KB) + PU L#3 (P#3)
-
-Adding calls to store_cpu_topology() in {boot,smp} hart bringup code
-results in the correct topolgy being reported:
-
-Machine (793MB total)
-  Package L#0
-    NUMANode L#0 (P#0 793MB)
-    L1d L#0 (32KB) + L1i L#0 (32KB) + Core L#0 + PU L#0 (P#0)
-    L1d L#1 (32KB) + L1i L#1 (32KB) + Core L#1 + PU L#1 (P#1)
-    L1d L#2 (32KB) + L1i L#2 (32KB) + Core L#2 + PU L#2 (P#2)
-    L1d L#3 (32KB) + L1i L#3 (32KB) + Core L#3 + PU L#3 (P#3)
-
-CC: stable@vger.kernel.org
-Fixes: 03f11f03dbfe ("RISC-V: Parse cpu topology during boot.")
-Reported-by: Brice Goglin <Brice.Goglin@inria.fr>
-Link: https://github.com/open-mpi/hwloc/issues/536
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Fixes: 8fd6e05c7463 ("arch: riscv: support kernel command line forcing when no DTB passed")
+Signed-off-by: Wenting Zhang <zephray@outlook.com>
 ---
----
- arch/riscv/Kconfig          | 2 +-
- arch/riscv/kernel/smpboot.c | 4 +++-
- 2 files changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 2af0701b7518..4b6c2fdbb57c 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -52,7 +52,7 @@ config RISCV
- 	select COMMON_CLK
- 	select CPU_PM if CPU_IDLE
- 	select EDAC_SUPPORT
--	select GENERIC_ARCH_TOPOLOGY if SMP
-+	select GENERIC_ARCH_TOPOLOGY
- 	select GENERIC_ATOMIC64 if !64BIT
- 	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
- 	select GENERIC_EARLY_IOREMAP
-diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-index f1e4948a4b52..a1c861f84fe2 100644
---- a/arch/riscv/kernel/smpboot.c
-+++ b/arch/riscv/kernel/smpboot.c
-@@ -40,6 +40,8 @@ static DECLARE_COMPLETION(cpu_running);
- void __init smp_prepare_boot_cpu(void)
- {
- 	init_cpu_topology();
-+
-+	store_cpu_topology(smp_processor_id());
- }
+ChangeLog:
+
+v2: Add fixes in commit message; fix code style
+
+ arch/riscv/kernel/setup.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index f0f36a4a0e9b..061cf8db3156 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -251,10 +251,10 @@ static void __init parse_dtb(void)
+ 			pr_info("Machine model: %s\n", name);
+ 			dump_stack_set_arch_desc("%s (DT)", name);
+ 		}
+-		return;
++	} else {
++		pr_err("No DTB passed to the kernel\n");
+ 	}
  
- void __init smp_prepare_cpus(unsigned int max_cpus)
-@@ -161,9 +163,9 @@ asmlinkage __visible void smp_callin(void)
- 	mmgrab(mm);
- 	current->active_mm = mm;
- 
-+	store_cpu_topology(curr_cpuid);
- 	notify_cpu_starting(curr_cpuid);
- 	numa_add_cpu(curr_cpuid);
--	update_siblings_masks(curr_cpuid);
- 	set_cpu_online(curr_cpuid, 1);
- 
- 	/*
+-	pr_err("No DTB passed to the kernel\n");
+ #ifdef CONFIG_CMDLINE_FORCE
+ 	strscpy(boot_command_line, CONFIG_CMDLINE, COMMAND_LINE_SIZE);
+ 	pr_info("Forcing kernel command line to: %s\n", boot_command_line);
 -- 
-2.37.0
+2.34.1
 
 
 _______________________________________________
