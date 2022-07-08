@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82902C43334
-	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jul 2022 08:06:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 005C7C43334
+	for <linux-riscv@archiver.kernel.org>; Fri,  8 Jul 2022 08:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Up5nAtemFSs6P0OP2c4aigcyObbneqA1UbE2Ko1jTHY=; b=FFeqHpABKC+gDL
-	rtwaxovsTtdwClarzYuFZ9DjWo6ziqEp+jMZlmpQr/ecfCkY0LD3tiCW8w+1s4iMZriHYitydBhuT
-	54JhRAAtkEdNly3SGaSbpiVqd1krxuKdfGIgykeV/ykhFGqQAmxdo+viBjn/LGj8/b7c4w/QlEwZM
-	Xc4pmwijHWYXqoIDe9ECsKv2k70zDUNpR+4Bul/8SadrBMH06oH2A1OMxpp3ZIMWYtJ+l01q/XxkP
-	KFa7T7jLUXdd+d9A5JeaVozhXIjcGzC7dxX0flPgoMlx5eM3IRKFbPu0gnbkG4zoSan/tDnL7o1KQ
-	4bhAXo0ZdA5CocHsfqbA==;
+	List-Owner; bh=T96MR/oh0r6EbFZJPbo0ZHUyxCeqzSxGxTlrCIlxU38=; b=kRkp+VpfvaF5/T
+	oYTOzNdD6l6rQ0e6gXufZ8O+wD6PmrSansK8fcmyrxy8kTWqvOa5nYW+c3PXJOg+7Dt4YcTR0WR9r
+	53ZU7E2HbLd47DaLt9laFUBw9ECyKqcTjQtakzIwmB8iFXGP1nKqQVyQdmM84tuNeVcDB/DRlJoYx
+	lvaUvlTXPTeKp68p4sgMUas/X3SU6Ft1lHRqzgTO1nvWOO3+kdTijFkadXIceFBVSJXAjZlkcOTT5
+	+DrP2sE6y9bv7uq6OewkL0igAJWKacX7beHnH757JcCxYI3OQyFOO5hu8FRvRNaXkMuqVvXj738Na
+	dhnywrlgWHAo1EmEDBcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9izu-002MeV-MW; Fri, 08 Jul 2022 08:05:58 +0000
+	id 1o9jLK-002XOY-T4; Fri, 08 Jul 2022 08:28:06 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9izd-002MXH-U9; Fri, 08 Jul 2022 08:05:44 +0000
+	id 1o9jJK-002Wa3-BQ; Fri, 08 Jul 2022 08:26:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BD9CE1063;
-	Fri,  8 Jul 2022 01:05:38 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E21E1063;
+	Fri,  8 Jul 2022 01:26:00 -0700 (PDT)
 Received: from bogus (unknown [10.57.39.193])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 989E93F792;
-	Fri,  8 Jul 2022 01:05:35 -0700 (PDT)
-Date: Fri, 8 Jul 2022 09:04:24 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A11A53F792;
+	Fri,  8 Jul 2022 01:25:54 -0700 (PDT)
+Date: Fri, 8 Jul 2022 09:24:43 +0100
 From: Sudeep Holla <sudeep.holla@arm.com>
-To: Darren Hart <darren@os.amperecomputing.com>
-Cc: linux-kernel@vger.kernel.org,
+To: Conor Dooley <mail@conchuod.ie>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	conor.dooley@microchip.com, valentina.fernandezalanis@microchip.com,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Qing Wang <wangqing@vivo.com>, Rob Herring <robh+dt@kernel.org>,
 	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Ionela Voinescu <ionela.voinescu@arm.com>,
-	Pierre Gondois <pierre.gondois@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Niklas Cassel <niklas.cassel@wdc.com>,
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Zong Li <zong.li@sifive.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Jonas Hahnfeld <hahnjo@hahnjo.de>, Guo Ren <guoren@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Changbin Du <changbin.du@intel.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Rob Herring <robh@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v6 17/21] arch_topology: Limit span of
- cpu_clustergroup_mask()
-Message-ID: <20220708080424.22x2bgcbggb6skua@bogus>
-References: <20220704101605.1318280-1-sudeep.holla@arm.com>
- <20220704101605.1318280-18-sudeep.holla@arm.com>
- <Ysd160PQdWoDIdRC@fedora>
+	Brice Goglin <Brice.Goglin@inria.fr>
+Subject: Re: [RFC 2/4] arch-topology: add a default implementation of
+ store_cpu_topology()
+Message-ID: <20220708082443.azoqvuj7afrg7ox7@bogus>
+References: <20220707220436.4105443-1-mail@conchuod.ie>
+ <20220707220436.4105443-3-mail@conchuod.ie>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Ysd160PQdWoDIdRC@fedora>
+In-Reply-To: <20220707220436.4105443-3-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220708_010542_102268_12DDC589 
-X-CRM114-Status: GOOD (  28.93  )
+X-CRM114-CacheID: sfid-20220708_012602_475866_909A9C7C 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,70 +86,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Darren,
-
-I will let Ionela or Dietmar cover some of the scheduler aspects as
-I don't have much knowledge in that area.
-
-On Thu, Jul 07, 2022 at 05:10:19PM -0700, Darren Hart wrote:
-> On Mon, Jul 04, 2022 at 11:16:01AM +0100, Sudeep Holla wrote:
-> > From: Ionela Voinescu <ionela.voinescu@arm.com>
+On Thu, Jul 07, 2022 at 11:04:35PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Hi Sudeep and Ionela,
+> RISC-V & arm64 both use an almost identical method of filling in
+> default vales for arch topology. Create a weakly defined default
+> implementation with the intent of migrating both archs to use it.
 > 
-> > 
-> > Currently the cluster identifier is not set on DT based platforms.
-> > The reset or default value is -1 for all the CPUs. Once we assign the
-> > cluster identifier values correctly, the cluster_sibling mask will be
-> > populated and returned by cpu_clustergroup_mask() to contribute in the
-> > creation of the CLS scheduling domain level, if SCHED_CLUSTER is
-> > enabled.
-> > 
-> > To avoid topologies that will result in questionable or incorrect
-> > scheduling domains, impose restrictions regarding the span of clusters,
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  drivers/base/arch_topology.c  | 19 +++++++++++++++++++
+>  include/linux/arch_topology.h |  1 +
+>  2 files changed, 20 insertions(+)
 > 
-> Can you provide a specific example of a valid topology that results in
-> the wrong thing currently?
->
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index 441e14ac33a4..07e84c6ac5c2 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -765,6 +765,25 @@ void update_siblings_masks(unsigned int cpuid)
+>  	}
+>  }
+>  
+> +void __weak store_cpu_topology(unsigned int cpuid)
 
-As a simple example, Juno with 2 clusters and L2 for each cluster. IIUC
-MC is preferred instead of CLS and both MC and CLS domains are exact
-match.
-
-> > 
-> > While previously the scheduling domain builder code would have removed MC
-> > as redundant and kept CLS if SCHED_CLUSTER was enabled and the
-> > cpu_coregroup_mask() and cpu_clustergroup_mask() spanned the same CPUs,
-> > now CLS will be removed and MC kept.
-> > 
-> 
-> This is not desireable for all systems, particular those which don't
-> have an L3 but do share other resources - such as the snoop filter in
-> the case of the Ampere Altra.
-> 
-> While not universally supported, we agreed in the discussion on the
-> above patch to allow systems to define clusters independently from the
-> L3 as an LLC since this is also independently defined in PPTT.
->
-> Going back to my first comment - does this fix an existing system with a
-> valid topology? 
-
-Yes as mentioned above Juno.
-
-> It's not clear to me what that would look like. The Ampere Altra presents
-> a cluster level in PPTT because that is the desireable topology for the
-> system.
-
-Absolutely wrong reason. It should present because the hardware is so,
-not because some OSPM desires something in someway. Sorry that's not how
-DT/ACPI is designed for. If 2 different OSPM desires different things, then
-one ACPI will not be sufficient.
-
-> If it's not desirable for another system to have the cluster topology -
-> shouldn't it not present that layer to the kernel in the first place?
-
-Absolutely 100% yes, it must present it if the hardware is designed so.
-No if or but.
+I prefer to have this as default implementation. So just get the risc-v
+one pushed to upstream first(for v5.20) and get all the backports if required.
+Next cycle(i.e. v5.21), you can move both RISC-V and arm64.
 
 -- 
 Regards,
