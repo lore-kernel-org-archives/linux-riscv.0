@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5B8C43334
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jul 2022 16:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D43C43334
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jul 2022 16:38:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kt1/ve3hMvSCvxaNagWmgI2XDGDEXjiYFFtaMklboNE=; b=z2LoH2jXkus1HC
-	d3vwf7ZO3ndtRumZ91aVdHKo/7gLRb5c953AmjZiDqt+ry633uI01u5B5xNHnHtrk8xTdpZaSQxsD
-	syGxFGozK/y6qPhM0V38Lm5HID/0Fj2d+f/xWrxWWd8EQO99OuI868Qqab1qjpQpV1DOaNEspFW/T
-	1jnxzvcqID5qzWW9zMltuauw8V9+Wu9rwwGostPmze3ofT2Y5IdeiIEWUrBpjAMOlkBxm5mF++YZU
-	jRGHYN5C5jQN1b8Moo9e8vIKDVnkvMJmsBgeQitnv1T2z85vyGZ0EJP7cfFJcuS0Zb55TMOCpNzie
-	zqAfvXskjSLw/DkreiLg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cuiJ+UZ+9mR+TaSJME+7YjDqlYOZ5eswN4Oo10Dcsxc=; b=jYgpq7rTuouvrnZxSccpkD7NQH
+	7Ir2a6C66Ww6AvltnhBjPkCDTklOLPCGpSibIlwDKdLgIXOPH4MCuGzUJH4YVbt+VJjvsXnY9no/z
+	Gk8CWDImiYFGvctcYtovCSrSaSUfE9JNpmCdqQRZBwL9f3iMsEMktYbkR/icPiGMpGkjT96g4+MRo
+	x+Dos4qgOdJhu8tSgDg4leiZIGPA4X44AdYjI6xIpMjixu9EKJIfWQ0nxuusSOhLpJD2WO1afycbF
+	any6Qbyf4JfPtwKU5k4TW+3UeyT7rpnNRA9unO/P/FIqB45KQiIVVOMyXy8++RuJydBGhhWu0yBKv
+	PgaeGdXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oADFs-008euw-Vq; Sat, 09 Jul 2022 16:24:29 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oADTI-008gln-7y; Sat, 09 Jul 2022 16:38:20 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oADFp-008eu7-S2
-	for linux-riscv@lists.infradead.org; Sat, 09 Jul 2022 16:24:27 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 4B00DB81D76
-	for <linux-riscv@lists.infradead.org>; Sat,  9 Jul 2022 16:24:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F4156C3411C
-	for <linux-riscv@lists.infradead.org>; Sat,  9 Jul 2022 16:24:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1657383863;
-	bh=KsG67Lfa7AVasHtvsGDMSQQuaTj6p5qfZZi2CueYzHY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IZYWXAB9U08BlU7OyIUzwZILV6ciGww8fGbLRbplaLMRL5AsZT1Vd68yuZhD5FEId
-	 VeRdp0K7dTI3gq1zXm1LeLGF0wvph72p4drwCcapJXNQ8/hbZAf/6dzSRtf76Iuhxe
-	 aMI5/r6OO8f4e4kV+EbWU75yJz0RtO+YY4rX2gsUXAviEtY2znIRZzdRNceOh1B0Qq
-	 O0p4uvURy92+Mp5pCXKH4+oR1Kzj7P/J4yxBZxWndR21iYZ+uW76kCNDJg5BGP5peb
-	 rOOe/9z8dxehmIqsUoasWgjY1D6iCAjY979LbBhbu7sL/INuBSKPTQMKA83U/HUeMq
-	 2kgoExj2xXJGw==
-Received: by mail-vk1-f176.google.com with SMTP id r184so704412vkg.9
-        for <linux-riscv@lists.infradead.org>; Sat, 09 Jul 2022 09:24:22 -0700 (PDT)
-X-Gm-Message-State: AJIora/wUPpzG8vLRZZ13uUvriJwk9DUYA3UbcpO6icfPRw5e1XBL5hn
-	cuzLQmFK4Xts4zxxTYBKzlQ9z00CunLJPe8kTc0=
-X-Google-Smtp-Source: AGRyM1v03GhQqjWf0mQv28XQLPTecHaMcepR0XZ0JT914QNI0IuXqwR9hGabGYkQCMNZkYsXwd1pqttAtA4HDlZRrXE=
-X-Received: by 2002:a1f:1b4b:0:b0:36c:bc20:3982 with SMTP id
- b72-20020a1f1b4b000000b0036cbc203982mr3819753vkb.8.1657383861969; Sat, 09 Jul
- 2022 09:24:21 -0700 (PDT)
+	id 1oADTE-008glL-Pd
+	for linux-riscv@lists.infradead.org; Sat, 09 Jul 2022 16:38:18 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oADT2-0005D9-65; Sat, 09 Jul 2022 18:38:04 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oADSx-005TSX-79; Sat, 09 Jul 2022 18:38:02 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oADSz-0049CW-Ln; Sat, 09 Jul 2022 18:38:01 +0200
+Date: Sat, 9 Jul 2022 18:37:58 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Conor.Dooley@microchip.com
+Cc: thierry.reding@gmail.com, lee.jones@linaro.org, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, Daire.McNamara@microchip.com,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v5 3/4] pwm: add microchip soft ip corePWM driver
+Message-ID: <20220709163758.nvsaf4jcwqenl2ax@pengutronix.de>
+References: <20220708143923.1129928-1-conor.dooley@microchip.com>
+ <20220708143923.1129928-4-conor.dooley@microchip.com>
+ <20220709160206.cw5luo7kxdshoiua@pengutronix.de>
+ <f2720cc9-be02-f457-7e8e-0d6b3845477c@microchip.com>
 MIME-Version: 1.0
-References: <20220705100523.1204595-1-guoren@kernel.org> <20220705100523.1204595-3-guoren@kernel.org>
- <3498257.R56niFO833@diego>
-In-Reply-To: <3498257.R56niFO833@diego>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 10 Jul 2022 00:24:10 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTT7oGq9N64vubNHaiO7BpSZPqf0a4dQDkW+SXiPiqaFpw@mail.gmail.com>
-Message-ID: <CAJF2gTT7oGq9N64vubNHaiO7BpSZPqf0a4dQDkW+SXiPiqaFpw@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/4] riscv: Cleanup ERRATA_THEAD_PBMT for rv32 svpbmt compile
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	Guo Ren <guoren@linux.alibaba.com>
+In-Reply-To: <f2720cc9-be02-f457-7e8e-0d6b3845477c@microchip.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220709_092426_234669_1AD8C039 
-X-CRM114-Status: GOOD (  31.21  )
+X-CRM114-CacheID: sfid-20220709_093816_853009_274EDD69 
+X-CRM114-Status: GOOD (  47.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,125 +70,199 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3528284437126792853=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdWwgOCwgMjAyMiBhdCA0OjUxIFBNIEhlaWtvIFN0w7xibmVyIDxoZWlrb0BzbnRl
-Y2guZGU+IHdyb3RlOgo+Cj4gSGkgR3VvLAo+Cj4gQW0gRGllbnN0YWcsIDUuIEp1bGkgMjAyMiwg
-MTI6MDU6MjEgQ0VTVCBzY2hyaWViIGd1b3JlbkBrZXJuZWwub3JnOgo+ID4gRnJvbTogR3VvIFJl
-biA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgo+ID4KPiA+IE1ha2UgY29tcGlsZSBjbGVhbmVy
-IGFuZCBkb24ndCByZWZlcmVuY2UgdGhlIFRIRUFEX1BCTVQgZGF0YSBzdHJ1Y3Qgd2hlbgo+ID4g
-Q09ORklHX0VSUkFUQV9USEVBRF9QQk1UPXkuIE5leHQsIHdlIGNvdWxkIGNsZWFubHkgbWFrZSBz
-dnBibXQgdG8KPiA+IHN1cHBvcnQgcnYzMi4KPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVu
-IDxndW9yZW5AbGludXguYWxpYmFiYS5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxn
-dW9yZW5Aa2VybmVsLm9yZz4KPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJy
-YXRhX2xpc3QuaCB8IDExICsrKysrKysrKystCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDEwIGluc2Vy
-dGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJhdGFf
-bGlzdC5oCj4gPiBpbmRleCA0MTZlYWQwZjlhNjUuLjQ3MTc1ZDkxNzczZCAxMDA2NDQKPiA+IC0t
-LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3QuaAo+ID4gKysrIGIvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oCj4gPiBAQCAtNDcsNiArNDcsOCBAQCBhc20o
-QUxURVJOQVRJVkUoInNmZW5jZS52bWEgJTAiLCAic2ZlbmNlLnZtYSIsIFNJRklWRV9WRU5ET1Jf
-SUQsICAgIFwKPiA+ICAgKiBpbiB0aGUgZGVmYXVsdCBjYXNlLgo+ID4gICAqLwo+ID4gICNkZWZp
-bmUgQUxUX1NWUEJNVF9TSElGVCA2MQo+ID4gKwo+ID4gKyNpZmRlZiBDT05GSUdfRVJSQVRBX1RI
-RUFEX1BCTVQKPgo+IEkgZG9uJ3QgcmVhbGx5IHRoaW5rIHRoYXQgaXMgbmVjZXNzYXJ5IGFuZCBh
-Y3R1YWxseSBtYWtlcyB0aGUgY29kZQo+IG1vcmUgY29tcGxleCB0aGFuIG5lZWRlZC4KPgo+IEVh
-Y2ggYWx0ZXJuYXRpdmUtZW50cnkgYWxyZWFkeSBoYXMgdGhlIGRlcGVuZGVuY3kgb24KPiBDT05G
-SUdfKiAuLi4gaS5lLiBDT05GSUdfUklTQ1ZfSVNBX1NWUEJNVCBhbmQgQ09ORklHX0VSUkFUQV9U
-SEVBRF9QQk1UCj4KPiBXaGVuIHlvdSBsb29rIGF0IGFsdGVybmF0aXZlLW1hY3Jvcy5oIHlvdSds
-bCBzZWUgdGhpcyB0cmFuc2xhdGluZyB0byB0aGUKPiBlbmFibGUgYXJndW1lbnQgaW4gQUxUX05F
-V19DT05URU5ULgo+Cj4gU28gb25seSB3aGVuIHRoYXQgaXMgYWN0aXZlIGlzIHRoZSBhbHRlcm5h
-dGl2ZSBzZWN0aW9uIGFkZGVkIHRvIHRoZSBidWlsZC4KPiBJLmUuIHRoYXQgdHJhbnNsYXRlcyB0
-bzoKPgo+ICAgICAgICAgLmlmIElTX0VOQUJMRUQoQ09ORklHX0VSUkFUQV9USEVBRF9QQk1UKQo+
-ICAgICAgICAgLnB1c2hzZWN0aW9uIC5hbHRlcm5hdGl2ZSwgImEiCj4gICAgICAgICAuLi4KPgo+
-IFNvIHdoZW4gQ09ORklHX0VSUkFUQV9USEVBRF9QQk1UIGlzIGRpc2FibGVkIHRoZSB3aG9sZSBh
-bHRlcm5hdGl2ZQo+IHBhcnQgbmV2ZXIgZ2V0cyBhZGRlZCBhbHJlYWR5LCBzbyB0aGVyZSBzaG91
-bGRuJ3QgYmUgYW55IG5lZWQgdG8gbWFrZSB0aGUKPiBzb3VyY2UgbW9yZSBjb21wbGljYXRlZC4K
-Tm8sIHdlIG5lZWQgdGhpcyBmb3IgcnYzMiBjb21waWxlLgoK4p6cICBsaW51eCBnaXQ6KHJ2MzJz
-dnBibXRfdjJfdG1wKSBtYWtlIEFSQ0g9cmlzY3YKQ1JPU1NfQ09NUElMRT1yaXNjdjMyLWJ1aWxk
-cm9vdC1saW51eC1nbnUtIEVYVFJBX0NGTEFHUys9LWcKTz0uLi9idWlsZC1ydjMyLyAtc2tqIGFs
-bApJbiBmaWxlIGluY2x1ZGVkIGZyb20KL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgv
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLmg6MTUsCiAgICAgICAgICAgICAgICAgZnJv
-bQovaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9saW51eC9pbmNsdWRlL2xpbnV4L3BndGFibGUu
-aDo2LAogICAgICAgICAgICAgICAgIGZyb20gL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGlu
-dXgvaW5jbHVkZS9saW51eC9tbS5oOjI5LAogICAgICAgICAgICAgICAgIGZyb20KL2hvbWUvZ3Vv
-cmVuL3NvdXJjZS9rZXJuZWwvbGludXgvYXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9mZnNldHMuYzox
-MDoKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9lcnJhdGFfbGlzdC5oOjUwOgp3YXJuaW5nOiAiQUxUX1NWUEJNVF9TSElGVCIgcmVkZWZpbmVk
-CiAgIDUwIHwgI2RlZmluZSBBTFRfU1ZQQk1UX1NISUZUIChfX3Jpc2N2X3hsZW4tMykKICAgICAg
-fAovaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9saW51eC9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNt
-L2VycmF0YV9saXN0Lmg6NDk6Cm5vdGU6IHRoaXMgaXMgdGhlIGxvY2F0aW9uIG9mIHRoZSBwcmV2
-aW91cyBkZWZpbml0aW9uCiAgIDQ5IHwgI2RlZmluZSBBTFRfU1ZQQk1UX1NISUZUIDYxCiAgICAg
-IHwKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9wZ3RhYmxlLWJpdHMuaDoKSW4gZnVuY3Rpb24g4oCYcmlzY3ZfcGFnZV9tdG1hc2vigJk6Ci9o
-b21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0
-YWJsZS1iaXRzLmg6NDM6MTg6CmVycm9yOiDigJhfUEFHRV9NVE1BU0tfVEhFQUTigJkgdW5kZWNs
-YXJlZCAoZmlyc3QgdXNlIGluIHRoaXMgZnVuY3Rpb24pCiAgIDQzIHwgIEFMVF9TVlBCTVQodmFs
-LCBfUEFHRV9NVE1BU0spOwogICAgICB8ICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fn5+Ci9o
-b21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJy
-YXRhX2xpc3QuaDo2MTo5Ogpub3RlOiBpbiBkZWZpbml0aW9uIG9mIG1hY3JvIOKAmEFMVF9TVlBC
-TVTigJkKICAgNjEgfCAgICAgIkkiKHByb3QjI19USEVBRCA+PiBBTFRfVEhFQURfUEJNVF9TSElG
-VCksICBcCiAgICAgIHwgICAgICAgICBefn5+Ci9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xp
-bnV4L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vcGd0YWJsZS1iaXRzLmg6NDM6MTg6Cm5vdGU6IGVh
-Y2ggdW5kZWNsYXJlZCBpZGVudGlmaWVyIGlzIHJlcG9ydGVkIG9ubHkgb25jZSBmb3IgZWFjaApm
-dW5jdGlvbiBpdCBhcHBlYXJzIGluCiAgIDQzIHwgIEFMVF9TVlBCTVQodmFsLCBfUEFHRV9NVE1B
-U0spOwogICAgICB8ICAgICAgICAgICAgICAgICAgXn5+fn5+fn5+fn5+Ci9ob21lL2d1b3Jlbi9z
-b3VyY2Uva2VybmVsL2xpbnV4L2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vZXJyYXRhX2xpc3QuaDo2
-MTo5Ogpub3RlOiBpbiBkZWZpbml0aW9uIG9mIG1hY3JvIOKAmEFMVF9TVlBCTVTigJkKICAgNjEg
-fCAgICAgIkkiKHByb3QjI19USEVBRCA+PiBBTFRfVEhFQURfUEJNVF9TSElGVCksICBcCiAgICAg
-IHwgICAgICAgICBefn5+Ci9ob21lL2d1b3Jlbi9zb3VyY2Uva2VybmVsL2xpbnV4L2FyY2gvcmlz
-Y3YvaW5jbHVkZS9hc20vcGd0YWJsZS1iaXRzLmg6CkluIGZ1bmN0aW9uIOKAmHJpc2N2X3BhZ2Vf
-bm9jYWNoZeKAmToKL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9wZ3RhYmxlLWJpdHMuaDo1MToxODoKZXJyb3I6IOKAmF9QQUdFX05PQ0FDSEVf
-VEhFQUTigJkgdW5kZWNsYXJlZCAoZmlyc3QgdXNlIGluIHRoaXMgZnVuY3Rpb24pCiAgIDUxIHwg
-IEFMVF9TVlBCTVQodmFsLCBfUEFHRV9OT0NBQ0hFKTsKICAgICAgfCAgICAgICAgICAgICAgICAg
-IF5+fn5+fn5+fn5+fn4KL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oOjYxOjk6Cm5vdGU6IGluIGRlZmluaXRpb24gb2Yg
-bWFjcm8g4oCYQUxUX1NWUEJNVOKAmQogICA2MSB8ICAgICAiSSIocHJvdCMjX1RIRUFEID4+IEFM
-VF9USEVBRF9QQk1UX1NISUZUKSwgIFwKICAgICAgfCAgICAgICAgIF5+fn4KL2hvbWUvZ3VvcmVu
-L3NvdXJjZS9rZXJuZWwvbGludXgvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLWJpdHMu
-aDoKSW4gZnVuY3Rpb24g4oCYcmlzY3ZfcGFnZV9pb+KAmToKL2hvbWUvZ3VvcmVuL3NvdXJjZS9r
-ZXJuZWwvbGludXgvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wZ3RhYmxlLWJpdHMuaDo1OToxODoK
-ZXJyb3I6IOKAmF9QQUdFX0lPX1RIRUFE4oCZIHVuZGVjbGFyZWQgKGZpcnN0IHVzZSBpbiB0aGlz
-IGZ1bmN0aW9uKQogICA1OSB8ICBBTFRfU1ZQQk1UKHZhbCwgX1BBR0VfSU8pOwogICAgICB8ICAg
-ICAgICAgICAgICAgICAgXn5+fn5+fn4KL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgv
-YXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9lcnJhdGFfbGlzdC5oOjYxOjk6Cm5vdGU6IGluIGRlZmlu
-aXRpb24gb2YgbWFjcm8g4oCYQUxUX1NWUEJNVOKAmQogICA2MSB8ICAgICAiSSIocHJvdCMjX1RI
-RUFEID4+IEFMVF9USEVBRF9QQk1UX1NISUZUKSwgIFwKICAgICAgfCAgICAgICAgIF5+fn4KbWFr
-ZVsyXTogKioqIFsvaG9tZS9ndW9yZW4vc291cmNlL2tlcm5lbC9saW51eC9zY3JpcHRzL01ha2Vm
-aWxlLmJ1aWxkOjExNzoKYXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9mZnNldHMuc10gRXJyb3IgMQpt
-YWtlWzJdOiBUYXJnZXQgJ19fYnVpbGQnIG5vdCByZW1hZGUgYmVjYXVzZSBvZiBlcnJvcnMuCm1h
-a2VbMV06ICoqKiBbL2hvbWUvZ3VvcmVuL3NvdXJjZS9rZXJuZWwvbGludXgvTWFrZWZpbGU6MTIw
-MDogcHJlcGFyZTBdIEVycm9yIDIKbWFrZVsxXTogVGFyZ2V0ICdhbGwnIG5vdCByZW1hZGUgYmVj
-YXVzZSBvZiBlcnJvcnMuCm1ha2U6ICoqKiBbTWFrZWZpbGU6MjE5OiBfX3N1Yi1tYWtlXSBFcnJv
-ciAyCm1ha2U6IFRhcmdldCAnYWxsJyBub3QgcmVtYWRlIGJlY2F1c2Ugb2YgZXJyb3JzLgoKCj4K
-Pgo+IEhlaWtvCj4KPiA+ICAjZGVmaW5lIEFMVF9USEVBRF9QQk1UX1NISUZUIDU5Cj4gPiAgI2Rl
-ZmluZSBBTFRfU1ZQQk1UKF92YWwsIHByb3QpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICBcCj4gPiAgYXNtKEFMVEVSTkFUSVZFXzIoImxpICUwLCAwXHRcbm5v
-cCIsICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXAo+ID4gQEAgLTYwLDcgKzYyLDYg
-QEAgYXNtKEFMVEVSTkFUSVZFXzIoImxpICUwLCAwXHRcbm5vcCIsICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICAgICAgICAgICAgICAgICAiSSIoQUxUX1NWUEJN
-VF9TSElGVCksICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiAgICAgICAgICAg
-ICAgICAgIkkiKEFMVF9USEVBRF9QQk1UX1NISUZUKSkKPiA+Cj4gPiAtI2lmZGVmIENPTkZJR19F
-UlJBVEFfVEhFQURfUEJNVAo+ID4gIC8qCj4gPiAgICogSU8vTk9DQUNIRSBtZW1vcnkgdHlwZXMg
-YXJlIGhhbmRsZWQgdG9nZXRoZXIgd2l0aCBzdnBibXQsCj4gPiAgICogc28gb24gVC1IZWFkIGNo
-aXBzLCBjaGVjayBpZiBubyBvdGhlciBtZW1vcnkgdHlwZSBpcyBzZXQsCj4gPiBAQCAtOTAsNiAr
-OTEsMTQgQEAgYXNtIHZvbGF0aWxlKEFMVEVSTkFUSVZFKCAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIFwKPiA+ICAgICAgICAgIkkiKEFMVF9USEVBRF9QQk1UX1NISUZU
-KSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcCj4gPiAgICAgICA6ICJ0MyIp
-Cj4gPiAgI2Vsc2UKPiA+ICsjZGVmaW5lIEFMVF9TVlBCTVQoX3ZhbCwgcHJvdCkgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICthc20oQUxURVJOQVRJ
-VkUoImxpICUwLCAwXHRcbm5vcCIsICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBc
-Cj4gPiArICAgICAgICAgICAgICAibGkgJTAsICUxXHRcbnNsbGkgJTAsJTAsJTIiLCAwLCAgICAg
-ICAgICAgICAgICAgICAgICAgXAo+ID4gKyAgICAgICAgICAgICAgICAgICAgIENQVUZFQVRVUkVf
-U1ZQQk1ULCBDT05GSUdfUklTQ1ZfSVNBX1NWUEJNVCkgICAgIFwKPiA+ICsgICAgICAgICAgICAg
-OiAiPXIiKF92YWwpICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBc
-Cj4gPiArICAgICAgICAgICAgIDogIkkiKHByb3QjI19TVlBCTVQgPj4gQUxUX1NWUEJNVF9TSElG
-VCksICAgICAgICAgICAgICAgXAo+ID4gKyAgICAgICAgICAgICAgICJJIihBTFRfU1ZQQk1UX1NI
-SUZUKSkKPiA+ICsKPiA+ICAjZGVmaW5lIEFMVF9USEVBRF9QTUEoX3ZhbCkKPiA+ICAjZW5kaWYK
-PiA+Cj4gPgo+Cj4KPgo+CgoKLS0KQmVzdCBSZWdhcmRzCgogR3VvIFJlbgoKX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBs
-aXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVh
-ZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+
+--===============3528284437126792853==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="inz2fpmccobddp6g"
+Content-Disposition: inline
+
+
+--inz2fpmccobddp6g
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Hello Conor,
+
+On Sat, Jul 09, 2022 at 04:21:46PM +0000, Conor.Dooley@microchip.com wrote:
+> On 09/07/2022 17:02, Uwe Kleine-K=F6nig wrote:
+> > On Fri, Jul 08, 2022 at 03:39:22PM +0100, Conor Dooley wrote:
+> >> Add a driver that supports the Microchip FPGA "soft" PWM IP core.
+> >>
+> >> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---8<---
+> >> +	mchp_core_pwm_apply_duty(chip, pwm, state, prescale, period_steps);
+> >> +
+> >> +	/*
+> >> +	 * Notify the block to update the waveform from the shadow registers.
+> >> +	 * The updated values will not appear on the bus until they have been
+> >> +	 * applied to the waveform at the beginning of the next period. We m=
+ust
+> >> +	 * write these registers and wait for them to be applied before call=
+ing
+> >> +	 * enable().
+> >> +	 */
+> >> +	if (mchp_core_pwm->sync_update_mask & (1 << pwm->hwpwm)) {
+> >> +		writel_relaxed(1U, mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD);
+> >> +		usleep_range(state->period, state->period * 2);
+> >> +	}
+> >> +
+> >> +	spin_unlock(&mchp_core_pwm->lock);
+> >> +
+> >> +	mchp_core_pwm_enable(chip, pwm, true);
+> >=20
+> > I already asked in the last round: Do you really need to write the
+> > SYNC_UPD register twice? I would expect that you don't?!
+>=20
+> Sorry, I thought that I had replied to this on Friday, didn't
+> meant to ignore you.
+>=20
+> Yes, I do need to keep that - otherwise there are problems when
+> turning on the PWM channel for the first time.
+
+How unintuitive and unfortunate. I wonder if there is an upside of this
+approach that I'm missing.
+
+> Before writing to the enable registers, we need to make sure that
+> the values have been applied since both pos and neg edge registers
+> come out of reset set to 0x0.
+
+I always like to understand the hardware, can you explain the problems
+in more details?
+
+> > Also the locking looks fishy here. It would be simpler (and maybe even
+> > more robust, didn't think deeply about it) to assume in
+> > mchp_core_pwm_enable() that the caller holds the lock. Then you only
+> > grab the lock once during .apply() and nothing strange can happen in the
+> > gap.
+> >=20
+> >> +	return 0;
+> >> +}
+> >> +
+> >> +static void mchp_core_pwm_get_state(struct pwm_chip *chip, struct pwm=
+_device *pwm,
+> >> +				    struct pwm_state *state)
+> >> +{
+> >> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
+> >> +	u8 prescale, period_steps, duty_steps;
+> >> +	u8 posedge, negedge;
+> >> +	u16 channel_enabled;
+> >> +
+> >=20
+> > I'd take the lock here to be sure to get a consistent return value.
+> >=20
+> >> +	channel_enabled =3D (((u16)readb_relaxed(mchp_core_pwm->base + MCHPC=
+OREPWM_EN(1)) << 8) |
+> >> +		readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_EN(0)));
+> >=20
+> > micro optimisation: You're reading two register values here, but only u=
+se
+> > one. Shadowing the enabled registers in mchp_core_pwm might also be an
+> > idea.
+> >=20
+> >> +	if (channel_enabled & 1 << pwm->hwpwm)
+> >=20
+> > I'm always unsure about the associativity of & and <<, so I would have
+> > written that as
+> >=20
+> > 	if (channel_enabled & (1 << pwm->hwpwm))
+> >=20
+> > I just tested that for the umpteens time and your code is fine, so this
+> > is only for human readers like me.
+> >=20
+> >> +		state->enabled =3D true;
+> >> +	else
+> >> +		state->enabled =3D false;
+> >> +
+> >> +	prescale =3D PREG_TO_VAL(readb_relaxed(mchp_core_pwm->base + MCHPCOR=
+EPWM_PRESCALE));
+> >> +
+> >> +	posedge =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_POSEDGE(=
+pwm->hwpwm));
+> >> +	negedge =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_NEGEDGE(=
+pwm->hwpwm));
+> >> +
+> >> +	duty_steps =3D abs((s16)posedge - (s16)negedge);
+> >=20
+> > If duty_steps =3D=3D 0 the returned result is wrong. I suggest to fix t=
+hat,
+> > at least mention the problem in a comment.
+>=20
+> Ah right yeah, I didn't update this after changing the other logic. Sorry.
+>=20
+> >=20
+> >> +	state->duty_cycle =3D duty_steps * prescale * NSEC_PER_SEC;
+> >=20
+> > Can this overflow?
+> >=20
+> >> +	do_div(state->duty_cycle, clk_get_rate(mchp_core_pwm->clk));
+> >=20
+> > What is the typical return value of clk_get_rate(mchp_core_pwm->clk)?
+>=20
+> It's gonna be less than 600M
+
+An exact value would be interesting, then when I spot a rounding problem
+I could give you a test case to double check.
+
+> > You need to round up here. Did you test your driver with PWM_DEBUG on?
+> > During test please do for a few fixed periods:
+> >=20
+> > 	for duty_cycle in [0 .. period]:
+> > 		pwm_apply(mypwm, {.period =3D period, .duty_cycle =3D duty_cycle, .en=
+abled =3D true, ...})
+> >=20
+> > 	for duty_cycle in [period .. 0]:
+> > 		pwm_apply(mypwm, {.period =3D period, .duty_cycle =3D duty_cycle, .en=
+abled =3D true, ...})
+> >=20
+> > and check there is no output claiming a miscalculation.
+>=20
+> I ran the stuff you gave me last time, doing something similar w/ a
+> shell loop. Got no reported miscalculations.
+
+I'm surprise, I would have expected that my test recipe would find such
+an issue. Could you follow my arguing about the rounding direction?
+There always the possibility that I'm wrong, too.
+
+Best regards
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--inz2fpmccobddp6g
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmLJruQACgkQwfwUeK3K
+7Ambngf8DCGNj2gQVmcYUjNB0MdQaav0bGUsjq9z2lZv+l9hmwf3rhSbfhmJUxqS
+l7YzkeTazIurESGDA9TG/SBzhwgXqjL4NLpXw/U04CbLhxebXzAXU3aWWJ6O25nu
+L1+MN4E0c+eKDX/QnweAYkY8cgHn0bHtoQoMICBHt/TvdPuQtRGSYfgNNUJjigIY
+f1Xadta2Ig4SSmhLEgu5YesnzX1SEcjITaaOOLcy2s0JkMftPq9WX3PZ6458TTOD
+vgQ8F9MBKgYg+J2qTYhSeien9PBkma5x3TLAEdnY/1JM7CKfNnqCI2+TvGI7dVZp
+TpnPaLhUXbyLWpyMrXJSmIx/ZfpWJA==
+=brf2
+-----END PGP SIGNATURE-----
+
+--inz2fpmccobddp6g--
+
+
+--===============3528284437126792853==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3528284437126792853==--
+
