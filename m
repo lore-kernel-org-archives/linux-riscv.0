@@ -4,74 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E71C43334
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jul 2022 13:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6611BC433EF
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jul 2022 15:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7c5V4hL61CE/Xq+534v6Ymv2ZSgzUWeWmQIvHOrM6mc=; b=s8UsrZsWXFSzb/
-	X2yS1Hq6Pt8AFZptFwa60vJ+fa7dlP22XRDbTgiwnBGxZZxfbE4+5BCRnhdnjaX+jLoW93O9h1Njq
-	GXxAN13yuzJuvFhN/UGz+0BqxuVOKw8sNfyNStzaqeMcWdF6UWjYqJ0q0WJL4JzYY320ySWeb+N1v
-	LmbH39cUy0p2DI0Omqdu6F1wYzhH71Uisa5uIkEW3GMPkg9rDo/ir+E7GJ89wOmZCUKNSZqMV4aqe
-	xYFITgjKTwPeezqIxHR49hG2NbOk4p9DXGPd4XD5kUBgAZVZN3s7bmVn3wWd99i8bCR1NrThIMIzz
-	jIYnOmtLPDvztprMO4JA==;
+	List-Owner; bh=byFjgBWNm0oBDHY6oEOG0foZ4OQQHflzqnSYCxGrYD4=; b=Vihw6En82v4+SX
+	Vd4r48Nd1Zy+1qlJloJhqWTvl8gzv4mpypXtDEzZyKWO9E/+26FUpxdGPEPuUseHXVQ6OolVwIgVN
+	HTwV3mZpu57dFpMfWq4fI+VG5FLMDfZuyV2vcDk5p+6oXYh3800DA8tV32L4ZHKdd6GLYfAZR1SyM
+	iKjVKdK7yOzRKYpstuxGEzse32oYDAxDBTG2Kyf07/dMMsTtZyLqc5vpmplDC+DT/5SvpnOsFfiiZ
+	ITk8HoHjwYcVQP6xxPI4+CK7ESLmJIsCAjfaf3R2yKRSDWvsMDKCOP96vUxGyji0M0TFnqibB4Z0Q
+	GZrGgcpBQdzOYGnMl5Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAAqZ-0089Iw-HL; Sat, 09 Jul 2022 13:50:11 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1oACKK-008RpB-5v; Sat, 09 Jul 2022 15:25:00 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAAqV-0089Ht-GV
-	for linux-riscv@lists.infradead.org; Sat, 09 Jul 2022 13:50:09 +0000
-Received: by mail-wm1-x329.google.com with SMTP id h14-20020a1ccc0e000000b0039eff745c53so672691wmb.5
-        for <linux-riscv@lists.infradead.org>; Sat, 09 Jul 2022 06:50:02 -0700 (PDT)
+	id 1oACK5-008RiE-0D
+	for linux-riscv@lists.infradead.org; Sat, 09 Jul 2022 15:24:48 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id q9so1840434wrd.8
+        for <linux-riscv@lists.infradead.org>; Sat, 09 Jul 2022 08:24:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=6AwlVS7ym01f23RmElmj7m2WP4lOoPfaL1YMXav7pRM=;
-        b=pIt2+bYhcseZBRt8/Fas/v5VarYxXpx83sswhdnjAgP1HF72I0CNh3iJKQBuLdv7jb
-         PpZTrC5+FsQxiXe6FXPffYHPM2EcJis+pVtG1GacfgZHvuTlzGQFiJaVUZgoCmiFMX4h
-         wwXsYI4qAO6bjEwBwA0HEQEY1bFf/ByV7IcahET5+fWaiFpGSFLdNgqEL2lM7pm6FJzT
-         nqPaosGWvruNRnY1/lqK+IL8/yd//TrR3notQMqGyU6KiIlRQyxpza/F0d32VeeINOYE
-         JRBe2E+g7Kzx7Ya2+YSGuK8R8vkol64ePPGq8SdtB0PS+/ASyZppZE92vlxsB6oiobdj
-         j6Tg==
+        d=conchuod.ie; s=google;
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=e7OziW02Y/9peL0FmHLT2XkVqPVR8DGTtiJWYX8th9g=;
+        b=ECZOuvVPNJv4pwuzvrO842PwGYJwOVKmO+ePMzvMb2kiTRVtLSAGqq0e8HvKfnAoev
+         XwWbnXBDPV7oUrxaHTMMCTA7ZrD3zrxzMKO3H43E3lHT8OiWHNMJahLSJ2aQpJKNnkxz
+         DR7dBbK/xncoYRSghBvFnBFDf7pd1eFaR+Dq+r2peG656ErDx+tqLFcZHxyjrV1TVvOR
+         JMe0VByofu+6AGcXSNmPaB3ZHm0n+/koQ98BaXg9Pnm3gpnt3Tx4PbplmbCw4rd8Pl7S
+         rsgZrPPV825g3ar4sbMq9eDFKlj/mFEMjRm4PxtZD0jeW5r33d32r2r9X6r9YGTEg5nM
+         lU/A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=6AwlVS7ym01f23RmElmj7m2WP4lOoPfaL1YMXav7pRM=;
-        b=SdKkEfmVyo78pCGClYhXUx+xQv9M84ZmF8Qtzgbm8nc1iK8chkAeH7D+naAlWKr/DE
-         sXWlbY7RoL3d9mirgcwzx5czh8eazHXTn3YkK3YhzaOUIAOvnDiBQllG3eTqI6MA0vJx
-         cz6sKRlw2D6COFu/cfxEJESC1fXLFGGFKSRyQApbOOy5ZumevPfKBaNWlTN1GdLumgYK
-         ti1TsubcvoiCKSHZ0YL6534UhQ33FULKdkYl2owZT6hhrODIAbpQPmwqKaNyGNp6FKZ/
-         PeyZfzvWNzNiN+tzxaHSNDZveQSZ3VALNVedjyn8o5TXWL2X/kBQZ5xa6M5W2XZDUNv6
-         Lidw==
-X-Gm-Message-State: AJIora+niyxjXFZdRdO/8sBilbubNw4m/yeHif5FoJWWRlb2Qau9IlQT
-	52BVOIodBlrkP3o45cWCyx9zQDfOKBN28jK2mdMp5A==
-X-Google-Smtp-Source: AGRyM1vejPx/q8A16vF34FiOZm7Sc/duQb7mLu8U4FMgbXE/p1GrlP7UEBGBkd9E4jFifdvjYnW8/6DWmb7ojOCRsOU=
-X-Received: by 2002:a05:600c:4fcc:b0:3a1:987c:82c9 with SMTP id
- o12-20020a05600c4fcc00b003a1987c82c9mr5791933wmq.73.1657374601413; Sat, 09
- Jul 2022 06:50:01 -0700 (PDT)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:content-transfer-encoding;
+        bh=e7OziW02Y/9peL0FmHLT2XkVqPVR8DGTtiJWYX8th9g=;
+        b=h++jbAJN/PJfn+oyupeKusw6LxEWoQOxzUR/TSw4tr4m7lZhMxmNWD5kndI7Rwfpz3
+         TjqBFdU/j9MKR+K3RiBdBgt34o4RPHXQ0trEBNv7mKe3hUf21MwsmvxRKs6ovjzIH4Sa
+         8qTUXnnkBd0abGvv0l4Nd+haizLmyr4cfR64jN29L/wdyHwrg/ZJY+CgkHqjsfsbFH00
+         nmCYdQ5neap5lkNgGLhT1wovGQ2Scfng3R3AHoKH8flh1T+y6n2azkgngHjhZW3VFfpI
+         Ac/53VM1LAWjl4HRFSw7i+86uqkJ6hpOmTmZasdaXUFpC8aLyDoUlzGW/FbTJwrmQZ/l
+         Cr7Q==
+X-Gm-Message-State: AJIora/fGaUDNj+Ahrv7v8jy7sAVx9EggKG6xKMtYULB0PjrobIkUf7B
+	nKD6GflVOszcpcyX5CMPT2hKHg==
+X-Google-Smtp-Source: AGRyM1sTW2QGHBhqujHGrijOa1mBvsISG5gFuOmbHCFky2pxJAj8MH78/S0Xmj+pnEx/aUFb6oMnnQ==
+X-Received: by 2002:a5d:6a01:0:b0:21a:338c:4862 with SMTP id m1-20020a5d6a01000000b0021a338c4862mr8262063wru.631.1657380282203;
+        Sat, 09 Jul 2022 08:24:42 -0700 (PDT)
+Received: from henark71.. ([51.37.234.167])
+        by smtp.gmail.com with ESMTPSA id y12-20020a5d620c000000b0021d63fe0f03sm1626730wru.12.2022.07.09.08.24.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 09 Jul 2022 08:24:41 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J . Wysocki" <rafael@kernel.org>
+Cc: Daire McNamara <daire.mcnamara@microchip.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Niklas Cassel <niklas.cassel@wdc.com>,
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Zong Li <zong.li@sifive.com>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Jonas Hahnfeld <hahnjo@hahnjo.de>,
+	Guo Ren <guoren@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Tomsich <philipp.tomsich@vrull.eu>,
+	Rob Herring <robh@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Brice Goglin <Brice.Goglin@inria.fr>
+Subject: [PATCH v3 2/2] riscv: topology: fix default topology reporting
+Date: Sat,  9 Jul 2022 16:23:55 +0100
+Message-Id: <20220709152354.2856586-3-mail@conchuod.ie>
+X-Mailer: git-send-email 2.37.0
+In-Reply-To: <20220709152354.2856586-1-mail@conchuod.ie>
+References: <20220709152354.2856586-1-mail@conchuod.ie>
 MIME-Version: 1.0
-References: <CAEUhbmWqMPakKs+nYOHiib=U9O6gZpmsBMqhUgaqkLmNe5jr_w@mail.gmail.com>
- <CAK9=C2VEqHfieOVeLPCt66xtp77YgaXk64chuw9Ku0zX4UQABw@mail.gmail.com>
- <CAM=mAO=RsBi1jERMR3NM9Rc-VBTA7v=AcNPsvwX_zy=dnGDC2g@mail.gmail.com> <CAEUhbmUwqkOSsTAA0ASrAO9xkYeJAe-wDVrZFujebiohjTzZ8g@mail.gmail.com>
-In-Reply-To: <CAEUhbmUwqkOSsTAA0ASrAO9xkYeJAe-wDVrZFujebiohjTzZ8g@mail.gmail.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sat, 9 Jul 2022 19:19:49 +0530
-Message-ID: <CAAhSdy2isvZnTjiACkXBm7HqNgmWAxLoWVMBGJFf43nTBa=Hpw@mail.gmail.com>
-Subject: Re: U-Boot S-mode payload does not boot with a multicore
- configuration in RISC-V QEMU/KVM
-To: Bin Meng <bmeng.cn@gmail.com>, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220709_065007_829224_992C5098 
-X-CRM114-Status: GOOD (  30.05  )
+X-CRM114-CacheID: sfid-20220709_082445_065918_916D4852 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,253 +114,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Bin and Heinrich,
+From: Conor Dooley <conor.dooley@microchip.com>
 
-On Thu, Jul 7, 2022 at 1:18 PM Bin Meng <bmeng.cn@gmail.com> wrote:
->
-> On Thu, Jul 7, 2022 at 2:49 PM Heinrich Schuchardt
-> <heinrich.schuchardt@canonical.com> wrote:
-> >
-> > When removing the pflash driver in U-Boot the blocking occurs for virtio net. If we further remove virtio net, it occurs for virtio blk.
-> >
-> > The problem is not flash specific.
-> >
-> > Best regards
-> >
-> > Heinrich
-> >
-> > Anup Patel <apatel@ventanamicro.com> schrieb am Do., 7. Juli 2022, 07:06:
-> >>
-> >> On Thu, Jul 7, 2022 at 10:19 AM Bin Meng <bmeng.cn@gmail.com> wrote:
-> >> >
-> >> > Hi Anup,
-> >> >
-> >> > U-Boot S-mode payload does not boot with RISC-V KVM on the QEMU 'virt'
-> >> > multicore machine. With QEMU TCG it can boot.
-> >> >
-> >> > I am using the latest v5.19-rc5 kernel, along with QEMU 7.0.0 and
-> >> > U-Boot v2022.04:
-> >> >
-> >> > Reproduce steps:
-> >> >
-> >> > U-Boot S-mode payload is built from U-Boot v2022.04:
-> >> > $ make qemu-riscv64_smode_defconfig; make
-> >> >
-> >> > The host 5.19-rc5 kernel is running on top of QEMU 7.0.0 on an x86 machine.
-> >> >
-> >> > Use QEMU to launch the VM:
-> >> > # qemu-system-riscv64 -M virt -accel kvm -m 2G -smp 2 -nographic
-> >> > -kernel u-boot -device virtio-net-device,netdev=eth0 -netdev
-> >> > user,id=eth0,hostfwd=tcp::8022-:22
-> >> >
-> >> > U-Boot gets stuck during boot, logs below:
-> >> >
-> >> > U-Boot 2022.04 (Jul 07 2022 - 11:23:28 +0800)
-> >> > CPU: rv64imafdc
-> >> > Model: riscv-virtio,qemu
-> >> > DRAM: 2 GiB
-> >> > Core: 17 devices, 9 uclasses, devicetree: board
-> >> > Flash: <========== stuck here, and QEMU is completely unresponsive
-> >> > (Ctrl+A, C is ignored)
-> >> >
-> >> > The kernel reports:
-> >> >
-> >> > [ 484.351698] INFO: task qemu-system-ris:1765 blocked for more than 120 seconds.
-> >> > [ 484.360285] Not tainted 5.19.0-rc5-custom #1
-> >> > [ 484.360871] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs"
-> >> > disables this message.
-> >> > [ 484.362560] task:qemu-system-ris state:D stack: 0 pid: 1765 ppid:
-> >> > 1515 flags:0x00000000
-> >> > [ 484.363785] Call Trace:
-> >> > [ 484.363930] [] schedule+0x50/0xb2
-> >> > [ 484.364758] [] schedule_timeout+0x10c/0x13c
-> >> > [ 484.364806] [] __wait_for_common+0x148/0x226
-> >> > [ 484.364840] [] wait_for_completion+0x2e/0x36
-> >> > [ 484.364871] [] __synchronize_srcu.part.0+0x88/0xe2
-> >> > [ 484.364918] [] synchronize_srcu_expedited+0x3a/0x44
-> >> > [ 484.364952] [] kvm_swap_active_memslots+0x186/0x1ea
-> >> > [ 484.364985] [] kvm_set_memslot+0x1fc/0x39c
-> >> > [ 484.365014] [] __kvm_set_memory_region+0x144/0x30c
-> >> > [ 484.365043] [] kvm_vm_ioctl+0x20a/0xc82
-> >> > [ 484.365075] [] sys_ioctl+0x98/0xb2
-> >> > [ 484.365135] [] ret_from_syscall+0x0/0x2
-> >> >
-> >> > The QEMU vcpu thread backtrace is:
-> >> >
-> >> > #0 __GI___ioctl (fd=, request=request@entry=1075883590) at
-> >> > ../sysdeps/unix/sysv/linux/ioctl.c:35
-> >> > #1 0x00aaaaaab8b916ae in kvm_vm_ioctl (s=s@entry=0xaaaaaaf1ec3e00,
-> >> > type=type@entry=1075883590) at ../accel/kvm/kvm-all.c:3035
-> >> > #2 0x00aaaaaab8b93572 in kvm_set_user_memory_region
-> >> > (slot=slot@entry=0xffffffaa5d90a0, new=new@entry=false,
-> >> > kml=0xaaaaaaf1ec4eb0, kml=) at ../accel/kvm/kvm-all.c:379
-> >> > #3 0x00aaaaaab8b93862 in kvm_set_phys_mem (kml=0xaaaaaaf1ec4eb0,
-> >> > section=section@entry=0xffffffaa513b70, add=, add@entry=false) at
-> >> > ../accel/kvm/kvm-all.c:1413
-> >> > #4 0x00aaaaaab8b93a30 in kvm_region_del (listener=,
-> >> > section=0xffffffaa513b70) at ../accel/kvm/kvm-all.c:1511
-> >> > #5 0x00aaaaaab8ad780c in address_space_update_topology_pass
-> >> > (as=as@entry=0xaaaaaab90b87a0 ,
-> >> > old_view=old_view@entry=0xaaaaaaf1f42c40,
-> >> > new_view=new_view@entry=0xffffff1c001400, adding=adding@entry=fa
-> >> > lse) at ../softmmu/memory.c:948
-> >> > #6 0x00aaaaaab8ad7a2a in address_space_set_flatview
-> >> > (as=0xaaaaaab90b87a0 ) at ../softmmu/memory.c:1050
-> >> > #7 0x00aaaaaab8ada508 in memory_region_transaction_commit () at
-> >> > ../softmmu/memory.c:1103
-> >> > #8 0x00aaaaaab8adb6ee in memory_region_rom_device_set_romd
-> >> > (mr=mr@entry=0xaaaaaaf22d6fe0, romd_mode=romd_mode@entry=false) at
-> >> > ../softmmu/memory.c:2289
-> >> > #9 0x00aaaaaab8951e1a in pflash_write (be=0, width=1, value=240,
-> >> > offset=0, pfl=0xaaaaaaf22d6c30) at ../hw/block/pflash_cfi01.c:451
-> >> > #10 pflash_mem_write_with_attrs (opaque=0xaaaaaaf22d6c30, addr=0,
-> >> > value=, len=, attrs=...) at ../hw/block/pflash_cfi01.c:682
-> >> > #11 0x00aaaaaab8ad5fa2 in access_with_adjusted_size
-> >> > (addr=addr@entry=0, value=value@entry=0xffffffaa513dc8,
-> >> > size=size@entry=1, access_size_min=, access_size_max=,
-> >> > access_fn=0xaaaaaab8ad7d06 <
-> >> > memory_region_write_with_attrs_accessor>, mr=0xaaaaaaf22d6fe0,
-> >> > attrs=...) at ../softmmu/memory.c:554
-> >> > #12 0x00aaaaaab8ad92ba in memory_region_dispatch_write
-> >> > (mr=mr@entry=0xaaaaaaf22d6fe0, addr=addr@entry=0, data=,
-> >> > data@entry=240, op=, attrs=attrs@entry=...) at
-> >> > ../softmmu/memory.c:1521
-> >> > #13 0x00aaaaaab8adee88 in flatview_write_continue
-> >> > (fv=fv@entry=0xaaaaaaf1f42c40, addr=addr@entry=536870912,
-> >> > attrs=attrs@entry=..., ptr=ptr@entry=0xffffffab730028,
-> >> > len=len@entry=1, addr1=, l=,
-> >> > mr=0xaaaaaaf22d6fe0) at ../softmmu/physmem.c:2814
-> >> > #14 0x00aaaaaab8adf0d8 in flatview_write (fv=0xaaaaaaf1f42c40,
-> >> > addr=536870912, attrs=..., buf=0xffffffab730028, len=len@entry=1) at
-> >> > ../softmmu/physmem.c:2856
-> >> > #15 0x00aaaaaab8ae1eca in address_space_write (len=1,
-> >> > buf=0xffffffab730028, attrs=..., addr=536870912, as=0xaaaaaab90b87a0 )
-> >> > at ../softmmu/physmem.c:2952
-> >> > #16 address_space_rw (as=0xaaaaaab90b87a0 , addr=536870912, attrs=...,
-> >> > attrs@entry=..., buf=buf@entry=0xffffffab730028, len=1, is_write=) at
-> >> > ../softmmu/physmem.c:2962
-> >> > #17 0x00aaaaaab8b94a3e in kvm_cpu_exec
-> >> > (cpu=cpu@entry=0xaaaaaaf1ec92f0) at ../accel/kvm/kvm-all.c:2929
-> >> > #18 0x00aaaaaab8b95572 in kvm_vcpu_thread_fn
-> >> > (arg=arg@entry=0xaaaaaaf1ec92f0) at ../accel/kvm/kvm-accel-ops.c:49
-> >> > #19 0x00aaaaaab8ca280a in qemu_thread_start (args=) at
-> >> > ../util/qemu-thread-posix.c:556
-> >> > #20 0x00ffffffab2cf5a6 in start_thread (arg=) at ./nptl/pthread_create.c:442
-> >> > #21 0x00ffffffab31ba02 in __thread_start () at
-> >> > ../sysdeps/unix/sysv/linux/riscv/clone.S:85
-> >> >
-> >> > Based on above 2 logs, we can see the QEMU vcpu thread is blocked at KVM ioctl
-> >> > KVM_SET_USER_MEMORY_REGION, and on the kernel side the ioctl call is
-> >> > blocked at synchronize_srcu_expedited() so that ioctl never returns
-> >> > back to the user land.
-> >> >
-> >> > If I single step the QEMU instance starting from a breakpoint at
-> >> > pflash_write(), the ioctl call of KVM_SET_USER_MEMORY_REGION does not
-> >> > block, and U-Boot can boot eventually.
-> >> >
-> >> > If I remove "-smp 2" from the QEMU command line when launching the VM,
-> >> > U-Boot boots without any problem. Of course removing "-accel kvm"
-> >> > works too.
-> >> >
-> >> > It looks to me there is a locking timing issue in the RISC-V KVM
-> >> > kernel when an SMP guest is launched. Any ideas?
-> >>
-> >> To further isolate the problem, does it work if QEMU does not generate
-> >> the pflash DT node ?
->
-> No, and QEMU freezes when U-Boot tries to probe the virtio-net driver,
-> logs below:
->
-> U-Boot 2022.04 (Jul 07 2022 - 11:23:28 +0800)
-> CPU: rv64imafdc
-> Model: riscv-virtio,qemu
-> DRAM: 2 GiB
-> Core: 16 devices, 8 uclasses, devicetree: board
-> Loading Environment from nowhere... OK
-> In: uart@10000000
-> Out: uart@10000000
-> Err: uart@10000000
-> Net: <========== stuck here
->
-> Here is the backtrace on the QEMU side, as you can see this time the
-> VCPU thread is blocked at the ioctl of KVM_IOEVENTFD to KVM.
->
-> #0 __GI___ioctl (fd=, request=request@entry=1077980793) at
-> ../sysdeps/unix/sysv/linux/ioctl.c:35
-> #1 0x00aaaaaae53195f2 in kvm_vm_ioctl (s=0xaaaaab049a3e00,
-> type=type@entry=1077980793) at ../accel/kvm/kvm-all.c:3035
-> #2 0x00aaaaaae531a7ae in kvm_set_ioeventfd_mmio (fd=, addr=,
-> val=val@entry=0, assign=assign@entry=true, size=,
-> datamatch=datamatch@entry=true) at ../accel/kvm/kvm-all.c:1248
-> #3 0x00aaaaaae531a946 in kvm_mem_ioeventfd_add (listener=,
-> section=0xffffff8b949b00, match_data=, data=0, e=) at
-> ../accel/kvm/kvm-all.c:1579
-> #4 0x00aaaaaae5260a6e in address_space_add_del_ioeventfds
-> (fds_old_nb=0, fds_old=0x0, fds_new_nb=3, fds_new=0xfffffefc0386d0,
-> as=0xaaaaaae58407a0 ) at ../softmmu/memory.c:793
-> #5 address_space_update_ioeventfds (as=0xaaaaaae58407a0 ) at
-> ../softmmu/memory.c:854
-> #6 0x00aaaaaae52623bc in memory_region_transaction_commit () at
-> ../softmmu/memory.c:1111
-> #7 0x00aaaaaae52b04b8 in virtio_device_start_ioeventfd_impl
-> (vdev=0xaaaaab04e24f50) at ../hw/virtio/virtio.c:3723
-> #8 0x00aaaaaae51d0524 in virtio_bus_start_ioeventfd
-> (bus=bus@entry=0xaaaaab04bf2e70) at ../hw/virtio/virtio-bus.c:229
-> #9 0x00aaaaaae51d47ce in virtio_mmio_start_ioeventfd
-> (proxy=0xaaaaab04bf2a20) at ../hw/virtio/virtio-mmio.c:63
-> #10 virtio_mmio_write (opaque=0xaaaaab04bf2a20, offset=, value=6,
-> size=) at ../hw/virtio/virtio-mmio.c:431
-> #11 0x00aaaaaae525faa4 in memory_region_write_accessor
-> (mr=0xaaaaab04bf2d40, addr=112, value=, size=, shift=, mask=,
-> attrs=...) at ../softmmu/memory.c:492
-> #12 0x00aaaaaae525dee6 in access_with_adjusted_size
-> (addr=addr@entry=112, value=value@entry=0xffffff8b949dc8,
-> size=size@entry=4, access_size_min=, access_size_max=,
-> access_fn=0xaaaaaae525fa2e
-> , mr=0xaaaaab04bf2d40, attrs=...) at ../softmmu/memory.c:554
-> #13 0x00aaaaaae52611fe in memory_region_dispatch_write
-> (mr=mr@entry=0xaaaaab04bf2d40, addr=addr@entry=112, data=,
-> data@entry=6, op=, attrs=attrs@entry=...) at ../softmmu/memory.c:1521
-> #14 0x00aaaaaae5266dcc in flatview_write_continue
-> (fv=fv@entry=0xfffffefc001400, addr=addr@entry=268468336,
-> attrs=attrs@entry=..., ptr=ptr@entry=0xffffff8cb66028,
-> len=len@entry=4, addr1=, l=,
-> mr=0xaaaaab04bf2d40) at ../softmmu/physmem.c:2814
-> #15 0x00aaaaaae526701c in flatview_write (fv=0xfffffefc001400,
-> addr=268468336, attrs=..., buf=0xffffff8cb66028, len=len@entry=4) at
-> ../softmmu/physmem.c:2856
-> #16 0x00aaaaaae5269e0e in address_space_write (len=4,
-> buf=0xffffff8cb66028, attrs=..., addr=268468336, as=0xaaaaaae58407a0 )
-> at ../softmmu/physmem.c:2952
-> #17 address_space_rw (as=0xaaaaaae58407a0 , addr=268468336, attrs=...,
-> attrs@entry=..., buf=buf@entry=0xffffff8cb66028, len=4, is_write=) at
-> ../softmmu/physmem.c:2962
-> #18 0x00aaaaaae531c982 in kvm_cpu_exec
-> (cpu=cpu@entry=0xaaaaab049a92f0) at ../accel/kvm/kvm-all.c:2929
-> #19 0x00aaaaaae531d4b6 in kvm_vcpu_thread_fn
-> (arg=arg@entry=0xaaaaab049a92f0) at ../accel/kvm/kvm-accel-ops.c:49
-> #20 0x00aaaaaae542a74e in qemu_thread_start (args=) at
-> ../util/qemu-thread-posix.c:556
-> #21 0x00ffffff8c7055a6 in start_thread (arg=) at ./nptl/pthread_create.c:442
-> #22 0x00ffffff8c751a02 in __thread_start () at
-> ../sysdeps/unix/sysv/linux/riscv/clone.S:85
+RISC-V has no sane defaults to fall back on where there is no cpu-map
+in the devicetree.
+Without sane defaults, the package, core and thread IDs are all set to
+-1. This causes user-visible inaccuracies for tools like hwloc/lstopo
+which rely on the sysfs cpu topology files to detect a system's
+topology.
 
-I am able to reproduce this issue with KVMTOOL as well.
+On a PolarFire SoC, which should have 4 harts with a thread each,
+lstopo currently reports:
 
-I will debug and investigate further. Meanwhile, let me know if you
-encounter new findings.
+Machine (793MB total)
+  Package L#0
+    NUMANode L#0 (P#0 793MB)
+    Core L#0
+      L1d L#0 (32KB) + L1i L#0 (32KB) + PU L#0 (P#0)
+      L1d L#1 (32KB) + L1i L#1 (32KB) + PU L#1 (P#1)
+      L1d L#2 (32KB) + L1i L#2 (32KB) + PU L#2 (P#2)
+      L1d L#3 (32KB) + L1i L#3 (32KB) + PU L#3 (P#3)
 
-Thanks,
-Anup
+Adding calls to store_cpu_topology() in {boot,smp} hart bringup code
+results in the correct topolgy being reported:
 
->
-> Regards,
-> Bin
->
-> --
-> kvm-riscv mailing list
-> kvm-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/kvm-riscv
+Machine (793MB total)
+  Package L#0
+    NUMANode L#0 (P#0 793MB)
+    L1d L#0 (32KB) + L1i L#0 (32KB) + Core L#0 + PU L#0 (P#0)
+    L1d L#1 (32KB) + L1i L#1 (32KB) + Core L#1 + PU L#1 (P#1)
+    L1d L#2 (32KB) + L1i L#2 (32KB) + Core L#2 + PU L#2 (P#2)
+    L1d L#3 (32KB) + L1i L#3 (32KB) + Core L#3 + PU L#3 (P#3)
+
+CC: stable@vger.kernel.org
+Fixes: 03f11f03dbfe ("RISC-V: Parse cpu topology during boot.")
+Reported-by: Brice Goglin <Brice.Goglin@inria.fr>
+Link: https://github.com/open-mpi/hwloc/issues/536
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+---
+ arch/riscv/Kconfig          | 2 +-
+ arch/riscv/kernel/smpboot.c | 4 +++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 2af0701b7518..4b6c2fdbb57c 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -52,7 +52,7 @@ config RISCV
+ 	select COMMON_CLK
+ 	select CPU_PM if CPU_IDLE
+ 	select EDAC_SUPPORT
+-	select GENERIC_ARCH_TOPOLOGY if SMP
++	select GENERIC_ARCH_TOPOLOGY
+ 	select GENERIC_ATOMIC64 if !64BIT
+ 	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
+ 	select GENERIC_EARLY_IOREMAP
+diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
+index f1e4948a4b52..a1c861f84fe2 100644
+--- a/arch/riscv/kernel/smpboot.c
++++ b/arch/riscv/kernel/smpboot.c
+@@ -40,6 +40,8 @@ static DECLARE_COMPLETION(cpu_running);
+ void __init smp_prepare_boot_cpu(void)
+ {
+ 	init_cpu_topology();
++
++	store_cpu_topology(smp_processor_id());
+ }
+ 
+ void __init smp_prepare_cpus(unsigned int max_cpus)
+@@ -161,9 +163,9 @@ asmlinkage __visible void smp_callin(void)
+ 	mmgrab(mm);
+ 	current->active_mm = mm;
+ 
++	store_cpu_topology(curr_cpuid);
+ 	notify_cpu_starting(curr_cpuid);
+ 	numa_add_cpu(curr_cpuid);
+-	update_siblings_masks(curr_cpuid);
+ 	set_cpu_online(curr_cpuid, 1);
+ 
+ 	/*
+-- 
+2.37.0
+
 
 _______________________________________________
 linux-riscv mailing list
