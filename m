@@ -4,72 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A79C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jul 2022 01:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 991A0C43334
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jul 2022 01:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qSpfxhrvcqH/GbM2LoQGE9WUr95oUZxF70+2+BZmMhk=; b=i8Q3MLzIsN4fX0QDft/3bH3W3w
-	gPLfP4/MdN7a9huFshOSI1zpgCvTU/lOkE+x1P7TEUt8JaAV1NJoo1Mo/unMXt54uSI3suG/yUOi1
-	x9ccpIIb5NaqFHW0WTRnNbYab9FcDCLWAS2dEivNnbJviAKbvnamxQ+hLqgmqhDkc8oZ66apYt1lP
-	1OYFjXZEgvW9D+AdNUJAai/dI+78BIXC2ieJhEcK/58/dQuDbpTNbxQCoLa3lCvf0AZ2ga0XeC9Mf
-	7FPYV3oJ/IgFBLirhpnpaKMiUGslKLDXnALiVlb/vH34Gl1jrAMuPYbOTEvl1NnAgFMLurNf0B8vl
-	pMiT0oEw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mY5lrl/0RscjSt2Yq+ZeOKCNnfLaEMsL8ZArI3a0KRY=; b=m+ZjRo3RLW1+5f
+	0FCftXtGG+TmREW20hwuIPk3xJvZbsuAPInmnAACXXrcNbsFip89b9zRcva2mRlnXgE7G7y5GdXOi
+	NVnr5V0NMIC1woljOOR9DFesOcYKGDndLc0PC4TEHc+m+Ed8jTOu82RqlVIAKSiRrijYETpE0yoL4
+	s7w/BlZ5KKgUTkcs2OWUPwn6RJb2mrY0+rNn5q6JPz1kKXxu5QyjikZ+dcL2CpRM3FEzkAL/VNHHD
+	jAJQL5rvRJcRiexcxc/XaKuxEiUyDrrAdBy9zPW+k3vrKvW2Tt4OJjBcdLH8/ARK3jIK8NquCbPM0
+	brWvHCUcOEHtiqPBXQfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9zL4-006gsQ-MC; Sat, 09 Jul 2022 01:32:54 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1o9zbJ-006i54-TF; Sat, 09 Jul 2022 01:49:41 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9zL1-006grE-1M
-	for linux-riscv@lists.infradead.org; Sat, 09 Jul 2022 01:32:53 +0000
-Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.53])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Lfsyn1T0kz1L8dD;
-	Sat,  9 Jul 2022 09:30:09 +0800 (CST)
-Received: from dggpemm500019.china.huawei.com (7.185.36.180) by
- dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Sat, 9 Jul 2022 09:32:38 +0800
-Received: from [10.67.109.184] (10.67.109.184) by
- dggpemm500019.china.huawei.com (7.185.36.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Sat, 9 Jul 2022 09:32:37 +0800
-Subject: Re: [PATCH bpf-next v3 4/6] libbpf: Unify memory address casting
- operation style
-To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-CC: Daniel Borkmann <daniel@iogearbox.net>, bpf <bpf@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Networking <netdev@vger.kernel.org>, "open
- list" <linux-kernel@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
-	<bjorn@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang
-	<xi.wang@gmail.com>, Martin KaFai Lau <kafai@fb.com>, Song Liu
-	<songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, John Fastabend
-	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>
-References: <20220530092815.1112406-1-pulehui@huawei.com>
- <20220530092815.1112406-5-pulehui@huawei.com>
- <a31efed5-a436-49c9-4126-902303df9766@iogearbox.net>
- <CAEf4BzacrRNDDYFR_4GH40+wxff=hCiyxymig6N+NVrM537AAA@mail.gmail.com>
- <38a59b80-f64a-0913-73e4-29e4ee4149c5@huawei.com>
- <CAEf4BzaDQ+cPh8pLGqg-GSM+ryZz3vvDtUy=o2u19KM0CTrewg@mail.gmail.com>
-From: Pu Lehui <pulehui@huawei.com>
-Message-ID: <0355b933-c47b-d3d3-587a-50b38f192d54@huawei.com>
-Date: Sat, 9 Jul 2022 09:32:37 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.8.1
+	id 1o9zbJ-006i4v-9q; Sat, 09 Jul 2022 01:49:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=aHkveyM+Om9u2IdcFldBf9uD1c2apNFY/SnalVz/8kw=; b=UbHcmh9mUxnQGeVW674eJWgYeo
+	P29zhK3BeUIsE3QES2Up8mHl0nWDHapO+/eOdR8iLIJqHKwh5WbDVf2bucZxjIXcIIFK/EONqVu/N
+	ybjniFNFbj13lntQzf3R1YM218NE1r858HHZCI5EeF6xmjXYzejWD2tk2CTwqYMrrEji82xCHlEAj
+	baQH8uMrP8uDUzp2tyE645adqxVwRwbH5F6pBs9cwNg8fVXajHHnOlHixRBmGhwFs9w54rv4wc9NH
+	NhYL30uHz+bWDraLNLU5qNMBP4YY+/qN7xTsv2QKxpADicJQ4ibKZly9uMuQKLpfN+a5tcrzO0fh+
+	ZddVrIcw==;
+Received: from [2601:1c0:6280:3f0::a6b3] (helo=casper.infradead.org)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1o9zbD-0041Xe-Cq; Sat, 09 Jul 2022 01:49:35 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-kernel@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Wei Fu <wefu@redhat.com>,
+	Liu Shaohua <liush@allwinnertech.com>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] riscv: fix RISCV_ISA_SVPBMT kconfig dependency warning
+Date: Fri,  8 Jul 2022 18:49:29 -0700
+Message-Id: <20220709014929.14221-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-In-Reply-To: <CAEf4BzaDQ+cPh8pLGqg-GSM+ryZz3vvDtUy=o2u19KM0CTrewg@mail.gmail.com>
-Content-Language: en-US
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- dggpemm500019.china.huawei.com (7.185.36.180)
-X-CFilter-Loop: Reflected
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220708_183251_473100_0862CB8B 
-X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,80 +64,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+RISCV_ISA_SVPBMT selects RISCV_ALTERNATIVE which depends on !XIP_KERNEL.
+Therefore RISCV_ISA_SVPBMT should also depend on !XIP_KERNEL so
+quieten this kconfig warning:
 
+WARNING: unmet direct dependencies detected for RISCV_ALTERNATIVE
+  Depends on [n]: !XIP_KERNEL [=y]
+  Selected by [y]:
+  - RISCV_ISA_SVPBMT [=y] && 64BIT [=y] && MMU [=y]
 
-On 2022/7/9 6:30, Andrii Nakryiko wrote:
-> On Thu, Jul 7, 2022 at 5:23 AM Pu Lehui <pulehui@huawei.com> wrote:
->>
->>
->>
->> On 2022/6/4 5:03, Andrii Nakryiko wrote:
->>> On Mon, May 30, 2022 at 2:03 PM Daniel Borkmann <daniel@iogearbox.net> wrote:
->>>>
->>>> On 5/30/22 11:28 AM, Pu Lehui wrote:
->>>>> The members of bpf_prog_info, which are line_info, jited_line_info,
->>>>> jited_ksyms and jited_func_lens, store u64 address pointed to the
->>>>> corresponding memory regions. Memory addresses are conceptually
->>>>> unsigned, (unsigned long) casting makes more sense, so let's make
->>>>> a change for conceptual uniformity.
->>>>>
->>>>> Signed-off-by: Pu Lehui <pulehui@huawei.com>
->>>>> ---
->>>>>     tools/lib/bpf/bpf_prog_linfo.c | 9 +++++----
->>>>>     1 file changed, 5 insertions(+), 4 deletions(-)
->>>>>
->>>>> diff --git a/tools/lib/bpf/bpf_prog_linfo.c b/tools/lib/bpf/bpf_prog_linfo.c
->>>>> index 5c503096ef43..7beb060d0671 100644
->>>>> --- a/tools/lib/bpf/bpf_prog_linfo.c
->>>>> +++ b/tools/lib/bpf/bpf_prog_linfo.c
->>>>> @@ -127,7 +127,8 @@ struct bpf_prog_linfo *bpf_prog_linfo__new(const struct bpf_prog_info *info)
->>>>>         prog_linfo->raw_linfo = malloc(data_sz);
->>>>>         if (!prog_linfo->raw_linfo)
->>>>>                 goto err_free;
->>>>> -     memcpy(prog_linfo->raw_linfo, (void *)(long)info->line_info, data_sz);
->>>>> +     memcpy(prog_linfo->raw_linfo, (void *)(unsigned long)info->line_info,
->>>>> +            data_sz);
->>>>
->>>> Took in patch 1-3, lgtm, thanks! My question around the cleanups in patch 4-6 ...
->>>> there are various other such cases e.g. in libbpf, perhaps makes sense to clean all
->>>> of them up at once and not just the 4 locations in here.
->>>
->>> if (void *)(long) pattern is wrong, then I guess the best replacement
->>> should be (void *)(uintptr_t) ?
->>>
->>
->> I also think that (void *)(uintptr_t) would be the best replacement. I
->> applied the changes to kernel/bpf and samples/bpf, and it worked fine.
->> But in selftests/bpf, the following similar error occur at compile time:
->>
->> progs/test_cls_redirect.c:504:11: error: cast to 'uint8_t *' (aka
->> 'unsigned char *') from smaller integer type 'uintptr_t' (aka 'unsigned
->> int') [-Werror,-Wint-to-pointer-cast]
->>          .head = (uint8_t *)(uintptr_t)skb->data,
-> 
-> this is BPF-side code so using system's uintptr_t definition won't
-> work correctly here. Just do (unsigned long) instead?
-> 
+Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Cc: Wei Fu <wefu@redhat.com>
+Cc: Liu Shaohua <liush@allwinnertech.com>
+Cc: Guo Ren <guoren@kernel.org>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org
+---
+ arch/riscv/Kconfig |    1 +
+ 1 file changed, 1 insertion(+)
 
-It is fine by me, and for this cleanup
-
->>
->> I take clang to compile with the front and back end separation, like
->> samples/bpf, and it works. It seems that the all-in-one clang has
->> problems handling the uintptr_t.
->>
->>>>
->>>> Thanks,
->>>> Daniel
->>> .
->>>
-> .
-> 
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -362,6 +362,7 @@ config RISCV_ISA_C
+ config RISCV_ISA_SVPBMT
+ 	bool "SVPBMT extension support"
+ 	depends on 64BIT && MMU
++	depends on !XIP_KERNEL
+ 	select RISCV_ALTERNATIVE
+ 	default y
+ 	help
 
 _______________________________________________
 linux-riscv mailing list
