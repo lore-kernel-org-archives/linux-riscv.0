@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 893FBC433EF
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jul 2022 01:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A79C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jul 2022 01:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tkVqiQTn1AyvHDdpPcwah3y0LeiuaqJzS7ix+RbOwWM=; b=oHPHaDtTZVumsW
-	Ea8+gRYFTUd76JAJwMZcxOIRcGRY82izFYsN42Um65CHfix8cRe2CNazXXpZOLd92lqOLioSXpvkO
-	oYIqkRI0u0EK+zoCBK/so38nh5lm3PHpE+5MAbytGGflCuMcTinAuEa5aUXvHL1vAqj0+zRZ052Nx
-	Zf6lYlvntdSYXxhp9uhO/HGdes8XSNMM0tRck8R1IdZRwUqZD6WnNrgzFrvq8HY03uTv4j4y9pWAd
-	p0Z7kv7EuBWCvxqPfeNl6VjTIgH6ITQA8i90Q0qHE3XqSXgGodhwj6WXCn3nB6pHhNGyH6XC4mmno
-	EVyGSIgldtkmQTA4ZzuA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:CC:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qSpfxhrvcqH/GbM2LoQGE9WUr95oUZxF70+2+BZmMhk=; b=i8Q3MLzIsN4fX0QDft/3bH3W3w
+	gPLfP4/MdN7a9huFshOSI1zpgCvTU/lOkE+x1P7TEUt8JaAV1NJoo1Mo/unMXt54uSI3suG/yUOi1
+	x9ccpIIb5NaqFHW0WTRnNbYab9FcDCLWAS2dEivNnbJviAKbvnamxQ+hLqgmqhDkc8oZ66apYt1lP
+	1OYFjXZEgvW9D+AdNUJAai/dI+78BIXC2ieJhEcK/58/dQuDbpTNbxQCoLa3lCvf0AZ2ga0XeC9Mf
+	7FPYV3oJ/IgFBLirhpnpaKMiUGslKLDXnALiVlb/vH34Gl1jrAMuPYbOTEvl1NnAgFMLurNf0B8vl
+	pMiT0oEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9yqj-006eC5-Hn; Sat, 09 Jul 2022 01:01:33 +0000
-Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
+	id 1o9zL4-006gsQ-MC; Sat, 09 Jul 2022 01:32:54 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1o9yqh-006eAD-JS
-	for linux-riscv@lists.infradead.org; Sat, 09 Jul 2022 01:01:33 +0000
-Date: Sat, 9 Jul 2022 09:01:10 +0800
-From: Yixun Lan <dlan@gentoo.org>
-To: Christoph Hellwig <hch@infradead.org>
-Cc: Yonghong Song <yhs@fb.com>, Andrii Nakryiko <andrii.nakryiko@gmail.com>,
-	Alan Maguire <alan.maguire@oracle.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>
-Subject: Re: [PATCH] RISC-V/bpf: Enable bpf_probe_read{, str}()
-Message-ID: <YsjTVvyqdVGy1uYZ@ofant>
-References: <20220703130924.57240-1-dlan@gentoo.org>
- <YsKAZUJRo5cjtZ3n@infradead.org>
- <CAEf4BzbCswMd6KU7f9SEU6xHBBPu_rTL5f+KE0OkYj63e-h-bA@mail.gmail.com>
- <712c8fac-6784-2acd-66ca-d1fd393aef23@fb.com>
- <YsUzX2IeNb/u9VmN@infradead.org>
+	id 1o9zL1-006grE-1M
+	for linux-riscv@lists.infradead.org; Sat, 09 Jul 2022 01:32:53 +0000
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.53])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Lfsyn1T0kz1L8dD;
+	Sat,  9 Jul 2022 09:30:09 +0800 (CST)
+Received: from dggpemm500019.china.huawei.com (7.185.36.180) by
+ dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Sat, 9 Jul 2022 09:32:38 +0800
+Received: from [10.67.109.184] (10.67.109.184) by
+ dggpemm500019.china.huawei.com (7.185.36.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Sat, 9 Jul 2022 09:32:37 +0800
+Subject: Re: [PATCH bpf-next v3 4/6] libbpf: Unify memory address casting
+ operation style
+To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+CC: Daniel Borkmann <daniel@iogearbox.net>, bpf <bpf@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, Networking <netdev@vger.kernel.org>, "open
+ list" <linux-kernel@vger.kernel.org>, Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+	<bjorn@kernel.org>, Luke Nelson <luke.r.nels@gmail.com>, Xi Wang
+	<xi.wang@gmail.com>, Martin KaFai Lau <kafai@fb.com>, Song Liu
+	<songliubraving@fb.com>, Yonghong Song <yhs@fb.com>, John Fastabend
+	<john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>
+References: <20220530092815.1112406-1-pulehui@huawei.com>
+ <20220530092815.1112406-5-pulehui@huawei.com>
+ <a31efed5-a436-49c9-4126-902303df9766@iogearbox.net>
+ <CAEf4BzacrRNDDYFR_4GH40+wxff=hCiyxymig6N+NVrM537AAA@mail.gmail.com>
+ <38a59b80-f64a-0913-73e4-29e4ee4149c5@huawei.com>
+ <CAEf4BzaDQ+cPh8pLGqg-GSM+ryZz3vvDtUy=o2u19KM0CTrewg@mail.gmail.com>
+From: Pu Lehui <pulehui@huawei.com>
+Message-ID: <0355b933-c47b-d3d3-587a-50b38f192d54@huawei.com>
+Date: Sat, 9 Jul 2022 09:32:37 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YsUzX2IeNb/u9VmN@infradead.org>
+In-Reply-To: <CAEf4BzaDQ+cPh8pLGqg-GSM+ryZz3vvDtUy=o2u19KM0CTrewg@mail.gmail.com>
+Content-Language: en-US
+X-Originating-IP: [10.67.109.184]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ dggpemm500019.china.huawei.com (7.185.36.180)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220708_180131_673784_4E1532BC 
-X-CRM114-Status: GOOD (  21.04  )
+X-CRM114-CacheID: sfid-20220708_183251_473100_0862CB8B 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,55 +81,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Christoph, YongHong
 
-On 00:01 Wed 06 Jul     , Christoph Hellwig wrote:
-> On Tue, Jul 05, 2022 at 11:41:30PM -0700, Yonghong Song wrote:
-> > 
-> > 
-> > On 7/5/22 10:00 PM, Andrii Nakryiko wrote:
-> > > On Sun, Jul 3, 2022 at 10:53 PM Christoph Hellwig <hch@infradead.org> wrote:
-> > > > 
-> > > > On Sun, Jul 03, 2022 at 09:09:24PM +0800, Yixun Lan wrote:
-> > > > > Enable this option to fix a bcc error in RISC-V platform
-> > > > > 
-> > > > > And, the error shows as follows:
-> > > > 
-> > > > These should not be enabled on new platforms.  Use the proper helpers
-> > > > to probe kernel vs user pointers instead.
-> > > 
-> > > riscv existed as of [0], so I'd argue it is a proper bug fix, as
-> > > corresponding select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE should
-> > > have been added back then.
-> > > 
-> > > But I also agree that BCC tools should be updated to use proper
-> > > bpf_probe_read_{kernel,user}[_str()] helpers, please contribute such
-> > > fixes to BCC tools and BCC itself as well. Cc'ed Alan as his ksnoop in
-> > > libbpf-tools seems to be using bpf_probe_read() as well and needs to
-> > > be fixed.
-> > 
-> > Yixun, the bcc change looks like below:
+
+On 2022/7/9 6:30, Andrii Nakryiko wrote:
+> On Thu, Jul 7, 2022 at 5:23 AM Pu Lehui <pulehui@huawei.com> wrote:
+>>
+>>
+>>
+>> On 2022/6/4 5:03, Andrii Nakryiko wrote:
+>>> On Mon, May 30, 2022 at 2:03 PM Daniel Borkmann <daniel@iogearbox.net> wrote:
+>>>>
+>>>> On 5/30/22 11:28 AM, Pu Lehui wrote:
+>>>>> The members of bpf_prog_info, which are line_info, jited_line_info,
+>>>>> jited_ksyms and jited_func_lens, store u64 address pointed to the
+>>>>> corresponding memory regions. Memory addresses are conceptually
+>>>>> unsigned, (unsigned long) casting makes more sense, so let's make
+>>>>> a change for conceptual uniformity.
+>>>>>
+>>>>> Signed-off-by: Pu Lehui <pulehui@huawei.com>
+>>>>> ---
+>>>>>     tools/lib/bpf/bpf_prog_linfo.c | 9 +++++----
+>>>>>     1 file changed, 5 insertions(+), 4 deletions(-)
+>>>>>
+>>>>> diff --git a/tools/lib/bpf/bpf_prog_linfo.c b/tools/lib/bpf/bpf_prog_linfo.c
+>>>>> index 5c503096ef43..7beb060d0671 100644
+>>>>> --- a/tools/lib/bpf/bpf_prog_linfo.c
+>>>>> +++ b/tools/lib/bpf/bpf_prog_linfo.c
+>>>>> @@ -127,7 +127,8 @@ struct bpf_prog_linfo *bpf_prog_linfo__new(const struct bpf_prog_info *info)
+>>>>>         prog_linfo->raw_linfo = malloc(data_sz);
+>>>>>         if (!prog_linfo->raw_linfo)
+>>>>>                 goto err_free;
+>>>>> -     memcpy(prog_linfo->raw_linfo, (void *)(long)info->line_info, data_sz);
+>>>>> +     memcpy(prog_linfo->raw_linfo, (void *)(unsigned long)info->line_info,
+>>>>> +            data_sz);
+>>>>
+>>>> Took in patch 1-3, lgtm, thanks! My question around the cleanups in patch 4-6 ...
+>>>> there are various other such cases e.g. in libbpf, perhaps makes sense to clean all
+>>>> of them up at once and not just the 4 locations in here.
+>>>
+>>> if (void *)(long) pattern is wrong, then I guess the best replacement
+>>> should be (void *)(uintptr_t) ?
+>>>
+>>
+>> I also think that (void *)(uintptr_t) would be the best replacement. I
+>> applied the changes to kernel/bpf and samples/bpf, and it worked fine.
+>> But in selftests/bpf, the following similar error occur at compile time:
+>>
+>> progs/test_cls_redirect.c:504:11: error: cast to 'uint8_t *' (aka
+>> 'unsigned char *') from smaller integer type 'uintptr_t' (aka 'unsigned
+>> int') [-Werror,-Wint-to-pointer-cast]
+>>          .head = (uint8_t *)(uintptr_t)skb->data,
 > 
-> No, this is broken.  bcc needs to stop using bpf_probe_read entirely
-> for user addresses and unconditionally use bpf_probe_read_user first
-> and only fall back to bpf_probe_read if not supported.
-I agree with Christoph, there is something in the bcc tools that
-need to adjust in order to use new bpf_probe_read_{kernel,user}
+> this is BPF-side code so using system's uintptr_t definition won't
+> work correctly here. Just do (unsigned long) instead?
+> 
 
-Please check the ongoing discussion [0] in the bcc tools if you're
-interested in, advice and comments are welcome
+It is fine by me, and for this cleanup
 
-[0] https://github.com/iovisor/bcc/pull/4085#issuecomment-1179446738
-
--- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+>>
+>> I take clang to compile with the front and back end separation, like
+>> samples/bpf, and it works. It seems that the all-in-one clang has
+>> problems handling the uintptr_t.
+>>
+>>>>
+>>>> Thanks,
+>>>> Daniel
+>>> .
+>>>
+> .
+> 
 
 _______________________________________________
 linux-riscv mailing list
