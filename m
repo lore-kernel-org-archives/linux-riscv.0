@@ -4,31 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40420C43334
-	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jul 2022 06:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E6C7C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat,  9 Jul 2022 06:25:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NlTUPZqyprjCgRHUggv7eJEzeXWNAJtM3mUfxEjTn58=; b=KFT7KZxvMVIX5A
-	W0q/EW/5kNelWbxlicjA+vW4ZB++clWh01cVJXfE0+hcbw2jeG/VHJUhRRO0AIKKuYHXDyO1uLtWk
-	UZQ/EliZjI0DznEXya8a2FlesgOyElhHDmFyCzy7zBHCpkXXAJzsPo9+W/PrSQuq3ntEdVnNKI7r2
-	ICubhbqDKyTK6vw83IODjFE+fyjUvBQTWovbkzBYTuCOPacD642I5N5Zv6eJLuB5LPu4+SDoghoWH
-	jJ3RJkhrErn+jIluyiiNTpa9a5voQq6CZQfphohZ7II86eW/pWebIllFqTg9pAn9qKoY4JWepkCeZ
-	CAnUKKC/KDeV69nYWfgQ==;
+	List-Owner; bh=Umprs6YgVWovhQH01I+VxqvedOav778E+pzhnPULeRY=; b=gyP1SKsJSe7FnR
+	ImKVTxMj7g41ZBdSAHwe38aMaescCQzAzJ2hPUe54tI+56/imZzMmZIfmDmYUAFWEyeGSXN6fFT3Z
+	uf3bd+jBKnhNJWqay2qE58zdamunbYa9a6YEzvKZbzpjv9PD7xzPoIO8pG+aLT77Y6bxqOdyKNbFY
+	tWLQkTUBHRfNKJ8iSPT83/cOqhvrm6ZoGv1QEapzQ2gze5Sd67ybxeLm/mIHkN6qxtrf4rJ27L1ke
+	kyxJBCy3XaxuIanIFLNcn9jT0Bl9gKyIt3zjlmq+DoXQGE9Xp1Swdb5VWGNKb3aZedHoDlgV88ely
+	QzQkZv2CkSi4Lof9x/PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oA3tf-0078qv-Oc; Sat, 09 Jul 2022 06:24:55 +0000
+	id 1oA3tw-0078u3-4Z; Sat, 09 Jul 2022 06:25:12 +0000
 Received: from hch by bombadil.infradead.org with local (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oA3tZ-0078qA-S9; Sat, 09 Jul 2022 06:24:49 +0000
-Date: Fri, 8 Jul 2022 23:24:49 -0700
+	id 1oA3tu-0078te-IK; Sat, 09 Jul 2022 06:25:10 +0000
+Date: Fri, 8 Jul 2022 23:25:10 -0700
 From: Christoph Hellwig <hch@infradead.org>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Christoph Hellwig <hch@infradead.org>, Yonghong Song <yhs@fb.com>,
-	Andrii Nakryiko <andrii.nakryiko@gmail.com>,
-	Alan Maguire <alan.maguire@oracle.com>,
+To: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Cc: Christoph Hellwig <hch@infradead.org>,
+	Alan Maguire <alan.maguire@oracle.com>, Yixun Lan <dlan@gentoo.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -37,21 +36,21 @@ Cc: Christoph Hellwig <hch@infradead.org>, Yonghong Song <yhs@fb.com>,
 	Daniel Borkmann <daniel@iogearbox.net>,
 	Andrii Nakryiko <andrii@kernel.org>,
 	Martin KaFai Lau <kafai@fb.com>, Song Liu <songliubraving@fb.com>,
+	Yonghong Song <yhs@fb.com>,
 	John Fastabend <john.fastabend@gmail.com>,
 	KP Singh <kpsingh@kernel.org>,
 	open list <linux-kernel@vger.kernel.org>,
 	Networking <netdev@vger.kernel.org>, bpf <bpf@vger.kernel.org>
 Subject: Re: [PATCH] RISC-V/bpf: Enable bpf_probe_read{, str}()
-Message-ID: <YskfMTdnd+IyzCQ0@infradead.org>
+Message-ID: <YskfRqDqmNhGcuVF@infradead.org>
 References: <20220703130924.57240-1-dlan@gentoo.org>
  <YsKAZUJRo5cjtZ3n@infradead.org>
  <CAEf4BzbCswMd6KU7f9SEU6xHBBPu_rTL5f+KE0OkYj63e-h-bA@mail.gmail.com>
- <712c8fac-6784-2acd-66ca-d1fd393aef23@fb.com>
- <YsUzX2IeNb/u9VmN@infradead.org>
- <YsjTVvyqdVGy1uYZ@ofant>
+ <YsUy8jBpt11zoc5E@infradead.org>
+ <CAEf4BzZrvOyYxmJpw=azZ59adeEqnHYqnUXKQProyUKBP5NaUA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <YsjTVvyqdVGy1uYZ@ofant>
+In-Reply-To: <CAEf4BzZrvOyYxmJpw=azZ59adeEqnHYqnUXKQProyUKBP5NaUA@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,15 +67,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 09, 2022 at 09:01:10AM +0800, Yixun Lan wrote:
-> Please check the ongoing discussion [0] in the bcc tools if you're
-> interested in, advice and comments are welcome
+On Fri, Jul 08, 2022 at 03:22:51PM -0700, Andrii Nakryiko wrote:
+> On Wed, Jul 6, 2022 at 12:00 AM Christoph Hellwig <hch@infradead.org> wrote:
+> >
+> > On Tue, Jul 05, 2022 at 10:00:42PM -0700, Andrii Nakryiko wrote:
+> > > riscv existed as of [0], so I'd argue it is a proper bug fix, as
+> > > corresponding select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE should
+> > > have been added back then.
+> >
+> > How much of an eBPF ecosystem was there on RISC-V at the point?
 > 
-> [0] https://github.com/iovisor/bcc/pull/4085#issuecomment-1179446738
+> No idea, never used RISC-V and didn't pay much attention. But why does
+> it matter?
 
-I can't find a way to post there, as replying eems to require a login.
-Is there a mailing list discussion somewhere that is broadly accessible?
-
+It matters because we should not spread broken legacy interfaces.
 
 _______________________________________________
 linux-riscv mailing list
