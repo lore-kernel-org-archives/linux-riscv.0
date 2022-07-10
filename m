@@ -4,92 +4,188 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47B0DC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Jul 2022 19:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47044C43334
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Jul 2022 19:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KMlFy3HCAsTqd7u+RmMgAmisJzKmhSDDGkn7lv52cpU=; b=mZDXOPWHWuQUc0
-	RHWl6uj03QrTbv8V8ZfoTPsktjnFN5+lkHSREQbuTvx3hWAxpvyM97KZpol9r7UzPzYl2whXeqNt2
-	i7PdY7Q2jcq/v+a2qJq9cox8FmlSqOZA9EVIn/mpX7jEVPYplrc7iKpfCWBmAZuRGSa31rw8zYeso
-	fcOPHJk+f0AycXL8IR2qP9eG5QosRXy2KIq7/ETWkC6XPYJESMxsTpbElvwhPBj6MMKov5iH3h/jJ
-	UadC8a9G7yt2gEfbyr8F1tTgTHB6qHC7RJk8ibXuiHevE6wqDNKybimS8gSHuvW1gRCM6ANzMLami
-	At3WGqv3Fv/5xo2kS9mw==;
+	List-Owner; bh=ByPScnVcg642MkysuHyStyfXru0RPoK72zpwEwCPJb4=; b=v5ZOIz8xt8bU01
+	kMi+YCzaIXRHdZ5Jx9dWjvOi75pgqiHcXDoCrbpuj1CObPxAcwADJQae6OYSo/RG3gi5etkpj0oKb
+	Au8LUnJKkLbh38VXkCWM+cTaheqgRAndBkH8erx7k9g+MKCtdvJa7DVQsoNCiYJnMpvFhlRJJDsKp
+	GdVpksHCsyGF6PXj5bt0QDcnv72cDm2sDPnIH8dlnVEoTs+CRo6Iw1dm0F9+jozf7Yz8Bm/apIP3c
+	NGSQdkqRW/uvT4ODeejT3lrDjp+HSDYUwQcUd0qS8FJBrler8RLtIxMg072PYnbYUpws0LN/l06qH
+	Mhv90JjdefRgSrZ3Q8Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAcFs-00D6Ax-UX; Sun, 10 Jul 2022 19:06:08 +0000
-Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
+	id 1oAcmJ-00DM2c-Ev; Sun, 10 Jul 2022 19:39:39 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAcFp-00D66Z-Cb
-	for linux-riscv@lists.infradead.org; Sun, 10 Jul 2022 19:06:07 +0000
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com [209.85.128.70])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 098513F496
-	for <linux-riscv@lists.infradead.org>; Sun, 10 Jul 2022 19:05:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1657479959;
-	bh=AU84a54LMQtAp4Bbn2Cb/ADxUGGKmX/FMvyOTlD3ev0=;
-	h=Message-ID:Date:MIME-Version:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type;
-	b=R38ZHDBHtKWLd/c1tZ9xKRb0xBTnMS3JGZdidMJ9IVC+yzbes3diVbMUhdtEQpXYH
-	 SL6QmBUmuHwIjbEhfQBfRdOrFyZ4RDbahBH313tUX7Ydz5POxjYOW6SsHgQTJufk0Z
-	 YsK5WI7V9IbfVA6xg2CgaoQLirl4O/qUxORtMqx247Y0D+vj28qHhcuhiHVFo/d+Mp
-	 8AhiNGzSrCoEU+eVeknNcCWviz35vDfTjqRglUYoemI3OrrA1Zr78X1EIwr9nx9LWs
-	 CU5w9H4DbSw4u1x9M1OyXg1XJlcWi380A1q2cjr52Eoa2/fNsw2Q7gJj7mVOPrrMTP
-	 LWOpJxZLj3MjQ==
-Received: by mail-wm1-f70.google.com with SMTP id m20-20020a05600c4f5400b003a03aad6bdfso1827405wmq.6
-        for <linux-riscv@lists.infradead.org>; Sun, 10 Jul 2022 12:05:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-         :to:cc:references:content-language:from:in-reply-to
-         :content-transfer-encoding;
-        bh=AU84a54LMQtAp4Bbn2Cb/ADxUGGKmX/FMvyOTlD3ev0=;
-        b=7FKXwUth6rzkH0aCq0HhtXbll1/Wj2Rq5SV5CgSfyVms6RHv1sRV1yVcH2Sk/vsS+4
-         qdoZvYurDXkLwW4nRNnQTmRx19y/flu5iyLDIWV9Qq75QL7sGQItZOJLGIHZimrzUmaZ
-         5v87a/yjCwPVN/64P5DCCTM0uIFLhXo5R85YiC3s1HaFk3YAZ4D3SMarGoZMP+PZtr+X
-         lddN3JDjhiCWz+/d9yod57q22IOQJe8KYthnmVxXoJDHRFSFKxjTqF+Ln0Gc7+hPsj5Y
-         yflCdWweVN5n4UWG8AIB+W2iuV+4nZ/vXx0ET7I55CZGoUGV9cIAd6MTdt+2QeY64ePG
-         pk5w==
-X-Gm-Message-State: AJIora/mM+FR3CNI7H6muS76/9o+rD6fGgYiJwSSBSJQw0islOtAeSuL
-	qm7roCiwCBH5rAzjYZYeFtXPilMEQ57W3nhnjQNLUY0ukYsuWahpsi4ZjqxNEUoVe81nUutJf7H
-	z07MZZSoVwT0SUivkancpCxXEimJyc1bq8pLAqHcx+lQhUQ==
-X-Received: by 2002:adf:9d82:0:b0:21a:3906:59cc with SMTP id p2-20020adf9d82000000b0021a390659ccmr13390627wre.289.1657479957816;
-        Sun, 10 Jul 2022 12:05:57 -0700 (PDT)
-X-Google-Smtp-Source: AGRyM1tTmcZGS2GmMhtTGPs6e5tbzWV9u22k/C3/DFFLtfaa1HhYBjA1R2z3j5+wfx5jO4c3eS1COA==
-X-Received: by 2002:adf:9d82:0:b0:21a:3906:59cc with SMTP id p2-20020adf9d82000000b0021a390659ccmr13390612wre.289.1657479957561;
-        Sun, 10 Jul 2022 12:05:57 -0700 (PDT)
-Received: from [192.168.123.94] (ip-062-143-094-109.um16.pools.vodafone-ip.de. [62.143.94.109])
-        by smtp.gmail.com with ESMTPSA id m19-20020a05600c3b1300b003a2dd0d21f0sm6889262wms.13.2022.07.10.12.05.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 10 Jul 2022 12:05:57 -0700 (PDT)
-Message-ID: <c7093349-1a1e-bbad-d7bc-57056008e63c@canonical.com>
-Date: Sun, 10 Jul 2022 21:05:55 +0200
+	id 1oAcmF-00DLxJ-OW
+	for linux-riscv@lists.infradead.org; Sun, 10 Jul 2022 19:39:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1657481975; x=1689017975;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=1jopqVqZjlZonGknYBZnD7z03CRuZQK7TDwif9DIxv8=;
+  b=r/u+dBoxvVZcey/AYzhJo5mYHlxvVdpq85dZ73BRth3tKK8mQAo+1WUR
+   mnk52pm2xLTlTOkDAk933mIXdTsCMNnKju/XSx7tY88lhJ+cz0BxIS+1+
+   h7iVfGrOr1pOZ3cJC9fTiZD5JFp3Wo+y1T7Iso8GlZ/MqiOVOLZVhAYi0
+   yuEEHy/fXtD9CQP/TT6dPLm/UO5IKYfvSqD5ov6L5gToyokDepjJSIxGB
+   TassnLLnbMKQ2sR8ibYvaaro4Q+pv5SJGadIrtVveEGwmeZETQyxHhthi
+   je2CG7q12oYxmNH1ZUIidQ29ILUmANv8kD4GT8RGoh+FT1SRwz2zQuFM5
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.92,261,1650956400"; 
+   d="scan'208";a="164109211"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 10 Jul 2022 12:39:30 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Sun, 10 Jul 2022 12:39:29 -0700
+Received: from NAM04-MW2-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17 via Frontend Transport; Sun, 10 Jul 2022 12:39:29 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=bjnpHe1VdhlWD+SpOIMrB/II8hdxVr00fT046W7/vqtihKjeBQpQz+Yyb19HHVP+Ty+jAUEYEZqbl7hlJPN8oB1eTqJ/2T/jyrqUKg9XXRDRa3AUOkM3bmGNRmHcQFADoI2ci0x3/8kR88DN6MeAnumrZSX+oMyYIXfb2UgMEKMAUR4ObEKiUS73yQUjeAID8wnPkNz4ixIi/nPUu9O1iALW1P67yBi/sQ8PRDjxuN+3H0QSE7mEWyZjpUotcZHmrkXiMt/C9uw0Kx7kQz9ei/Ih6t6iNPxmWhnqe51DNFYVpr4gNOLICzRhn7X+lxIc7hrzkx25nKQ3XF9F0wayzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1jopqVqZjlZonGknYBZnD7z03CRuZQK7TDwif9DIxv8=;
+ b=g7IhIuiQXdcaZ/1jIOk8aqFYUg15GY7W1grDJzTRAU2p7bNyvRxPrqCOBvQO8CZLu/THODUnhKRw8Rd5WRFSa3RRjTbF4lsKMAuSNJy4ejh5FrGXza/+R4GdSq7Y2+u2QbXd9UeJ1IgVhVaGV9RT78MEp8Zyd/r1eemr0RGTC5vaLnPGSOETtJf2dUDSM97WGf5NQV7876zlB/wUTb8vLb+LjDccOkRb6PZWV1OizV76/4qAOdNUDI+5MWLaqjIQNY7MHZQo2ZFd4wfdrWyRPEMQYnwYHuKtMmBgIy0cwDpGG8JQ8BzXKoai8JMqpiaMJ9AI/ljMoG1PgpEzaSScyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1jopqVqZjlZonGknYBZnD7z03CRuZQK7TDwif9DIxv8=;
+ b=diTSBoDXcCyRZCse3gpk/cQof7ym+zbqiVZBNaCWlxGmOrQ4QPnLWeM2nxb4ikyrwAcUIVpyxDcRZMdM01ouns8poVNXyzDVMsxrQP09GGPDd2Q6I8gPCqo6YTl14uLoBHgbIj+yUzwekWoDvycjJo7oImjbFjn13dorehBvQB8=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by IA1PR11MB6370.namprd11.prod.outlook.com (2603:10b6:208:3ae::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5417.25; Sun, 10 Jul
+ 2022 19:39:24 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::8d4a:1681:398d:9714]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::8d4a:1681:398d:9714%5]) with mapi id 15.20.5417.026; Sun, 10 Jul 2022
+ 19:39:24 +0000
+From: <Conor.Dooley@microchip.com>
+To: <krzysztof.kozlowski+dt@linaro.org>, <damien.lemoal@opensource.wdc.com>
+CC: <daniel.lezcano@linaro.org>, <Eugeniy.Paltsev@synopsys.com>,
+	<sam@ravnborg.org>, <daniel@ffwll.ch>, <paul.walmsley@sifive.com>,
+	<vkoul@kernel.org>, <palmer@rivosinc.com>, <airlied@linux.ie>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <robh+dt@kernel.org>,
+	<masahiroy@kernel.org>, <geert@linux-m68k.org>, <niklas.cassel@wdc.com>,
+	<dillon.minfei@gmail.com>, <dri-devel@lists.freedesktop.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<dmaengine@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<fancer.lancer@gmail.com>, <thierry.reding@gmail.com>, <mail@conchuod.ie>
+Subject: Re: [PATCH v5 04/13] dt-bindings: memory-controllers: add canaan k210
+ sram controller
+Thread-Topic: [PATCH v5 04/13] dt-bindings: memory-controllers: add canaan
+ k210 sram controller
+Thread-Index: AQHYkLmpMN95aImTj0GtIyfn+RYzcq14CA+A
+Date: Sun, 10 Jul 2022 19:39:24 +0000
+Message-ID: <a516943f-3dac-70a0-3ebd-9f53fd307f25@microchip.com>
+References: <20220705215213.1802496-1-mail@conchuod.ie>
+ <20220705215213.1802496-5-mail@conchuod.ie>
+In-Reply-To: <20220705215213.1802496-5-mail@conchuod.ie>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: e244c075-bc2a-48b9-3042-08da62abe4c9
+x-ms-traffictypediagnostic: IA1PR11MB6370:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: =?utf-8?B?YXBSQStoc2paOUFPOWd1dGp0VkpLeXcwLzJvQWZUQVlIQUZCeG5WN0Jpc3FB?=
+ =?utf-8?B?WURRVW1HKzcvZUJpQ3VNTStLVk5mcUVQTmZ1ckRrcTVBTXFGU0UrVW9EZUVW?=
+ =?utf-8?B?OTFQV3Z1WGJkNlc4UUdONFRqekRwTmNMRlN5SFZETk1DWE5JQzJUNFJyUFgy?=
+ =?utf-8?B?aWVXcGxmU0d1azBZdk83VVFMZGUzbjBjT2FzMXE2WE1QSGVPOHduL1NSSGo4?=
+ =?utf-8?B?cHVYRm8vWUJ0NWVmRVNlR05pZ09Rb1d0dHJ1OElEeGxGTkFsZ0I2dU0rYXox?=
+ =?utf-8?B?SG5RbHRZcjI2QXo0QXdKc24rTzlPenZUekZZdnpTT3NlVk55WGZ2aXFFY2Nk?=
+ =?utf-8?B?NTBBWWgycU5PRHpMWmhlQlg4S1RPaFkzanYzQUNLVFhrUWNuaFdYV1RWcW0z?=
+ =?utf-8?B?am1wVEVlcThWU2xZUE10ckJ5aGdhZlpyaTFndVJobkt3MUc2dzdnelk5c2hq?=
+ =?utf-8?B?b2xXQnBTaVovZFdEcno5cjVlcTUza2dUaVg0NGE0US9GWXZWTUpYcEltMGFW?=
+ =?utf-8?B?RlRMOE5vbTRZMm1vS284bThlOEtUMlhFdkdWT0JJLzJWS1drSFFKMWJ1ZHdT?=
+ =?utf-8?B?WjQvemp6QUZyWXVOWEJpZ2d2by8yL1NEZ3dUTzJoZWdCaDRMemZTVU1IM1RC?=
+ =?utf-8?B?VXpIV043TGF2bkYrQVQ0aTRaMWkxcThOTldWb1JtZEU3KzE5MnpCYVRCKzN6?=
+ =?utf-8?B?MWpOZ2I3Rkt6QXBTWk9uMFZZZXRCQUJxbGhiUDFwekZ3NlFTYzV3YnRWZTF2?=
+ =?utf-8?B?bjlOM1ZURFhxc0xiZFZBQUlZZ0Vad05zNk1aOW1lTHl4Ri9Celcyb1c4THFO?=
+ =?utf-8?B?QVRsZmVzT0hXVlJCdkFoaXg4NktCYTNHTXdHTnhNYmZLZHRvR0dqbWZVWTBX?=
+ =?utf-8?B?MVNoMy9rSEFQRGVmcEp4TkJ5cGFqTGpMMFlqVjVlN3VaWnVwK3U4N2hsV1Bi?=
+ =?utf-8?B?MFlnSjEyL1RFSHpkOGJWL0gwblpvMVpuWGhzc0R0ZWhrQXZHT2VtUlRTekRS?=
+ =?utf-8?B?c3dhTEU0d1JSRDRNbFUxOUtzYWEvN0hCTEpPcmhHQzhUUG85KzdvaWdONGhz?=
+ =?utf-8?B?U2xhWklXRjhHbDR5NWxuUE4yUFlCNVowN0YzTUErQllPcjZuTUpHTm9SYzlo?=
+ =?utf-8?B?RFVRdWhMWHN0ODllbSsyOHlJbGFDaGpLd2Q2V1E3M01MQVptYVlYMTFZMnV2?=
+ =?utf-8?B?MWZoVDB3R25zS29BbW9UcHA5K3A4MHQxb1daaWt3azhqSEVGL3hqc1luZHND?=
+ =?utf-8?B?ZHpzQm9PL2c1MURIa1lqMEE0enFEUkczUnZVeFpPeUlaSkVrdz09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(39850400004)(366004)(396003)(136003)(376002)(346002)(86362001)(41300700001)(53546011)(26005)(478600001)(66446008)(122000001)(966005)(6486002)(2906002)(6512007)(31696002)(38070700005)(7416002)(5660300002)(6506007)(8936002)(31686004)(54906003)(83380400001)(2616005)(186003)(38100700002)(66476007)(76116006)(36756003)(8676002)(91956017)(71200400001)(110136005)(4326008)(64756008)(66556008)(66946007)(316002)(45980500001)(43740500002);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aFZ1WDEremlaekFGS29QZWJhSVFoUFJYeC9UVjJJRjVQUnVXYkxiRTRFdERW?=
+ =?utf-8?B?TGxuVVI5WjF6UU5aZC90Q2RSamlmTUFnQkJCd0xyZTkwU2htVnUwczVYN21j?=
+ =?utf-8?B?aCtZbm1PeG5GQStSaFY4WmFaZzVZeG1iYnoyQUZNY1pQenlKVkFFTVd1RWUw?=
+ =?utf-8?B?N0VCQjhSZml6QjNJK2N2Qk9lUE11cTk2WjRxUllkSisrVDRXVjNYUzJ0ZEx1?=
+ =?utf-8?B?MGVyRnRCOWlQQlU1Rnlab2g0QStvaW8zdi91cnBKN1ptNDNWMU5KQWxRSzk4?=
+ =?utf-8?B?VnZFY3dYeml2NHRXWEZyajl3dEp2WjVOWGY5UlV2MjdqTlFRMVl0LzZUZmZy?=
+ =?utf-8?B?cFpPUFdlZnQvNnVPcGlUOTdsSjVzRXRva0c1RDl0LzI5d2tQZk5wcVRMZEJR?=
+ =?utf-8?B?dEZ5cjQ3YTA2SFBHeTRFcnJISXhLSW9hQmtBR25vQ2hQT0NQelRObzNFRkdt?=
+ =?utf-8?B?QlpxOEZXLy9QS0FDOWFNM0tPQTk5SHNzNUdsc0FnQ3NMZ0lGanQ2cGd4UXFE?=
+ =?utf-8?B?S082TkdlWFZUMGVoRVNwdzM4U2tJbW9OUzNIOU9tWFZ6dDBPUnYxM29OVFBS?=
+ =?utf-8?B?b2dmRGtqTVg3dkJ6OHEvUkc5MkZ0TU1wcW5EbVdzWCtCOW96UURLL0tyd1Vy?=
+ =?utf-8?B?YjY2Z29DNmFGN0tMZ2hkT2tkOTNrOWczM2txMTJvWDJwVkJLQTNsMFBlMmt1?=
+ =?utf-8?B?QUJrMksxdkZYMHJkaThITlFiMkc2TzI0T09lZWJBMnFJODVVQ3dzY05pbU1P?=
+ =?utf-8?B?VU4vZjBGVmlmZkROSXFzT2ptSWVNcUcxRzlLcFoxNGRvNTdxbVFYYjV1NE9r?=
+ =?utf-8?B?ek5WZ3NjUERDbzF6NTJIOFdmcUJ1c3liY09Rb1JWcmZMTXJXbnJiQzFWejdW?=
+ =?utf-8?B?T042R1g3anZGMnlyd2l5dnN6TlFlSEVCemhvQlpWVWtPclBLMjY1Wm0rWjBT?=
+ =?utf-8?B?RldmMUxkWTh5bmFNYkdoM1QveXN4Z0tVT3lXTE5Xamt2elRoNjRwbllibVdz?=
+ =?utf-8?B?QWI2WW9JVllVOXpWNEZhQTI0SkphUHdpYkloS282aEUwRGQ0R280SzJmRTN2?=
+ =?utf-8?B?Z1dMNzhHY2NSckRrNkJFa2UwWUllbjI5bmcwaDF6bDNBdTM1TWx4cldaTXdW?=
+ =?utf-8?B?VVBDN0lyUDFNMUsrZGJZcmVSVEtpQ09jcld2T21wOTcxcTg2K0pITVZMUUdU?=
+ =?utf-8?B?enlHdzk4Wk5CSEpLejB6ODdyTk5yeTNPRTNQdEo3ekVabnFTZ3o1Ymc5d3A2?=
+ =?utf-8?B?VUJodlVSVk4raVJVUVNlOExwTWZJcjhxR2xDa2t1Z0h6NFVlZzdZRmMxOXNJ?=
+ =?utf-8?B?LzdtcXB0c0xyVlZQa1Nza2xNd25EZE5qSVRaQTRNOTJwZU5wa2phbU1qaFpE?=
+ =?utf-8?B?dEY3czZKWHd0aTlnNWlSck9ZYmxoS3ZkNTNzK0RmY29iWTQwanlmYzA4RXRV?=
+ =?utf-8?B?TDNvbXNST25WMDVWMG55VWI1MEhCVFdaV2tGdEhUZVJCWkVHdmxLZzM1bTh6?=
+ =?utf-8?B?Qk5jaXZITnc3djhtS3NhR3RlbjRmVDdmSzhQQWlTTC9udEY0ekZXN3h2OThS?=
+ =?utf-8?B?NUxpRytkR25aYkxhSzJWQ2w4c2o4TmJEcXJ2RDVlT1FzVXEvVjc5TlhKYy9S?=
+ =?utf-8?B?MlZvWE1YSEMxYXZtVVdFSE9mY3RkMUtTWXdIa1k3MndRSkR6U0tRS3lPblox?=
+ =?utf-8?B?SUNlVHN5b0U4ZGtkQjNnd0Z6cTE3SkQwenZVelNSTER4NzdDUFhnbWFwUmgz?=
+ =?utf-8?B?UkQ4STgzeCtNLzR4VkNOVDN5MnY0aUhTMVRKVlNVRndtbE9qeGNhMUtQdW1F?=
+ =?utf-8?B?d0VpbWV2L0liVmEwSXdWaDRFZ2x3akEzb3JGWlp2eTQ3K3RmUGVpd2NKcWtl?=
+ =?utf-8?B?UENiUXhzb2wwN2tKNXYxY21EOVRZcE14a294QktsUGc0S3c0QWR0MmlxdDVz?=
+ =?utf-8?B?ZkFqQ2tnUzZVOTl2U3Y2VFR4dUpHcFhnd2s2ZFc5TWNnY2VHa3NqOE52dmNI?=
+ =?utf-8?B?T3ZvaUk0aUg0RUViQlg1V002UC9QN0dNeCtPaCtrMjRKY0xibGN3U3Q5SEs3?=
+ =?utf-8?B?NGwyL1phQmZmRmFzZUFJYlFNbExHM2RCbHlxUFdnM1pFdUpSSTFoMFAwSFBC?=
+ =?utf-8?Q?s3oCMBPpebqkuyoyHfCtEVZ/q?=
+Content-ID: <BCD10CE1E9875B408B078CAC9B6AF971@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.0.1
-Subject: Re: [PATCH] RISC-V: KVM: Fix SRCU deadlock caused by
- kvm_riscv_check_vcpu_requests()
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Alistair Francis <Alistair.Francis@wdc.com>, Bin Meng <bmeng.cn@gmail.com>,
- Anup Patel <anup@brainfault.org>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
- Atish Patra <atishp@atishpatra.org>
-References: <20220710151105.687193-1-apatel@ventanamicro.com>
-Content-Language: en-US
-From: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-In-Reply-To: <20220710151105.687193-1-apatel@ventanamicro.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e244c075-bc2a-48b9-3042-08da62abe4c9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Jul 2022 19:39:24.3510
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: oXbiP2Muc+eTRQG2pHroAdmCdat1UsbxLId1+924b/36igh4jn+7dhpBCJg10V027cs8U41REAGoVtSyA2XgYa/8tBVffgcL2pKmGLk7H3g=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB6370
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220710_120605_594806_54F8A7BA 
-X-CRM114-Status: GOOD (  21.71  )
+X-CRM114-CacheID: sfid-20220710_123935_908676_60386995 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,93 +197,128 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/10/22 17:11, Anup Patel wrote:
-> The kvm_riscv_check_vcpu_requests() is called with SRCU read lock held
-> and for KVM_REQ_SLEEP request it will block the VCPU without releasing
-> SRCU read lock. This causes KVM ioctls (such as KVM_IOEVENTFD) from
-> other VCPUs of the same Guest/VM to hang/deadlock if there is any
-> synchronize_srcu() or synchronize_srcu_expedited() in the path.
+Damien, Krzysztof,
+
+I know this particular version has not been posted for all that
+long, but this binding is (functionally) unchanged for a few
+versions now. Are you happy with this approach Damien?
+U-Boot only cares about the compatible & the clocks property,
+not the regs etc.
+
+I (lazily) tested it in U-Boot with the following diff:
+
+diff --git a/arch/riscv/dts/k210.dtsi b/arch/riscv/dts/k210.dtsi
+index 3cc8379133..314db88340 100644
+--- a/arch/riscv/dts/k210.dtsi
++++ b/arch/riscv/dts/k210.dtsi
+@@ -82,11 +82,14 @@
+ 
+        sram: memory@80000000 {
+                device_type = "memory";
++               reg = <0x80000000 0x400000>, /* sram0 4 MiB */
++                     <0x80400000 0x200000>, /* sram1 2 MiB */
++                     <0x80600000 0x200000>; /* aisram 2 MiB */
++               u-boot,dm-pre-reloc;
++       };
++
++       sram_controller: memory-controller {
+                compatible = "canaan,k210-sram";
+-               reg = <0x80000000 0x400000>,
+-                     <0x80400000 0x200000>,
+-                     <0x80600000 0x200000>;
+-               reg-names = "sram0", "sram1", "aisram";
+                clocks = <&sysclk K210_CLK_SRAM0>,
+                         <&sysclk K210_CLK_SRAM1>,
+                         <&sysclk K210_CLK_AI>;
+
+If so, could you queue this for 5.20 please Krzysztof, unless
+you've got concerns about it?
+
+Thanks,
+Conor.
+
+On 05/07/2022 22:52, Conor Dooley wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> To fix the above in kvm_riscv_check_vcpu_requests(), we should do SRCU
-> read unlock before blocking the VCPU and do SRCU read lock after VCPU
-> wakeup.
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> Fixes: cce69aff689e ("RISC-V: KVM: Implement VCPU interrupts and
-> requests handling")
-> Reported-by: Bin Meng <bmeng.cn@gmail.com>
-
-Thanks Anup for resolving the problem originally reported in
-
-https://lore.kernel.org/all/5df27902-9009-afb9-68d3-186fdb4e4067@canonical.com/
-
-Thanks to Bin for his analysis.
-
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-
-With this patch applied to Linux v5.19-rc5 I am able to run U-Boot 
-qemu-riscv64_smode_defconfig on QEMU 7.0 with
-
-qemu-system-riscv64 \
--M virt -accel kvm -m 2G -smp 2 \
--nographic \
--kernel u-boot \
--drive file=kinetic-server-cloudimg-riscv64.raw,format=raw,if=virtio \
--device virtio-net-device,netdev=eth0 \
--netdev user,id=eth0,hostfwd=tcp::8022-:22
-
-and load files from the virtio drive.
-
-Without the patch virtio access blocks:
-
-[  +0.102462] INFO: task qemu-system-ris:1254 blocked for more than 120 
-seconds.
-[  +0.004034]       Not tainted 5.19.0-rc5 #4
-[  +0.001145] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs" 
-disables this message.
-[  +0.002189] task:qemu-system-ris state:D stack:    0 pid: 1254 ppid: 
-1068 flags:0x00000000
-[  +0.001546] Call Trace:
-[  +0.000389] [<ffffffff806b1340>] schedule+0x42/0xaa
-[  +0.008026] [<ffffffff806b6164>] schedule_timeout+0xa0/0xd4
-[  +0.000086] [<ffffffff806b1c0a>] __wait_for_common+0x9a/0x19a
-[  +0.000057] [<ffffffff806b1d24>] wait_for_completion+0x1a/0x22
-[  +0.000053] [<ffffffff80063a88>] __synchronize_srcu.part.0+0x78/0xce
-[  +0.000049] [<ffffffff80063b00>] synchronize_srcu_expedited+0x22/0x2c
-[  +0.000474] [<ffffffff01417560>] kvm_swap_active_memslots+0x12e/0x170 
-[kvm]
-[  +0.000864] [<ffffffff01419ad2>] kvm_set_memslot+0x1e8/0x388 [kvm]
-[  +0.000267] [<ffffffff01419da6>] __kvm_set_memory_region+0x134/0x2f8 [kvm]
-[  +0.000439] [<ffffffff0141d412>] kvm_vm_ioctl+0x1fc/0xba0 [kvm]
-[  +0.000232] [<ffffffff80176af0>] sys_ioctl+0x80/0x96
-[  +0.000129] [<ffffffff800032d2>] ret_from_syscall+0x0/0x2
-
-Tested-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-
+> The k210 U-Boot port has been using the clocks defined in the
+> devicetree to bring up the board's SRAM, but this violates the
+> dt-schema. As such, move the clocks to a dedicated node with
+> the same compatible string & document it.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->   arch/riscv/kvm/vcpu.c | 2 ++
->   1 file changed, 2 insertions(+)
+>  .../memory-controllers/canaan,k210-sram.yaml  | 52 +++++++++++++++++++
+>  1 file changed, 52 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
 > 
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index b7a433c54d0f..5d271b597613 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -845,9 +845,11 @@ static void kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
->   
->   	if (kvm_request_pending(vcpu)) {
->   		if (kvm_check_request(KVM_REQ_SLEEP, vcpu)) {
-> +			kvm_vcpu_srcu_read_unlock(vcpu);
->   			rcuwait_wait_event(wait,
->   				(!vcpu->arch.power_off) && (!vcpu->arch.pause),
->   				TASK_INTERRUPTIBLE);
-> +			kvm_vcpu_srcu_read_lock(vcpu);
->   
->   			if (vcpu->arch.power_off || vcpu->arch.pause) {
->   				/*
+> diff --git a/Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml b/Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
+> new file mode 100644
+> index 000000000000..f81fb866e319
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
+> @@ -0,0 +1,52 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/memory-controllers/canaan,k210-sram.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Canaan K210 SRAM memory controller
+> +
+> +description:
+> +  The Canaan K210 SRAM memory controller is responsible for the system's 8 MiB
+> +  of SRAM. The controller is initialised by the bootloader, which configures
+> +  its clocks, before OS bringup.
+> +
+> +maintainers:
+> +  - Conor Dooley <conor@kernel.org>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - canaan,k210-sram
+> +
+> +  clocks:
+> +    minItems: 1
+> +    items:
+> +      - description: sram0 clock
+> +      - description: sram1 clock
+> +      - description: aisram clock
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    items:
+> +      - const: sram0
+> +      - const: sram1
+> +      - const: aisram
+> +
+> +required:
+> +  - compatible
+> +  - clocks
+> +  - clock-names
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/k210-clk.h>
+> +    memory-controller {
+> +        compatible = "canaan,k210-sram";
+> +        clocks = <&sysclk K210_CLK_SRAM0>,
+> +                 <&sysclk K210_CLK_SRAM1>,
+> +                 <&sysclk K210_CLK_AI>;
+> +        clock-names = "sram0", "sram1", "aisram";
+> +    };
+> --
+> 2.37.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
