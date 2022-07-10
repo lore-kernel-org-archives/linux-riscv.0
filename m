@@ -4,72 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABB0C43334
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Jul 2022 11:14:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD0B4C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Jul 2022 15:11:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=D04AvUtJSrA+UjQln+l8CQkEnn1T3gQzJEXvrzUkfMo=; b=LFGMIhZWpEqAGe
-	jUwqD7lERc+YuFD3tP1nqhteQ+AJ8BzoVqtrLMD46FHYLsm7n493OWlOWzxYYE2yLRtzdObWR3rxB
-	xGXn1e/edyYme8zFNtETZBhD6M0i+4HnnxjM9CzDq9kcYGzq4HvjpuPKKcdroR/0SpQ81yT1p95Ro
-	rPCmy17FjmFTHN+8zbAV7UNseyH9M/ns58+ME7BBjS5VCA3FpthICXH2zrFGZOoq57LlimhchC8P9
-	thC4zOSG2B8jOZlrz4CEtPT1uj/seBvfVaHX+up5xzH9dr4V4uwshT79CvyTSQHSsr6Cczt85b1Mt
-	7VFf41MtqxWeLQBBCySQ==;
+	List-Owner; bh=+Vfh6gkS7S3BE5D7RzM4tcbyjprR+LVOnUrzFpoF3KU=; b=IsYEZYq6UnL7Vb
+	kgmHZK7fVFWeXs6Zt41eDatQHFOeItGUvIRJXi5ZZ11TPNezG8ivwqMtRxYCafSi1t+SXkhQvIyFc
+	CPZrD+TJn8ln4KI+1mIMCgjfV07Qm2lCef9f1pu67l8b0Mu4tC4U+Q7QQ8eZV47PTAvurqSSQC5i3
+	DcRKpoZNPr1S5gDPe5RQHMzyQtSDp8W2zcI80SFlq3oxKqIVRZYd493rfLsxXdQSJKhFNxj19M9yq
+	wl6gRQcwNRzvmgPqRzbrXQOSCqiMVGj2rAuCbeZqHKiRDT59LxWoSI4SdkoFq+x5GCKb3y4JMPjjJ
+	zLLOz5IRly4KKcVKC6Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAUsm-00BWQa-S4; Sun, 10 Jul 2022 11:13:48 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1oAYb6-00CBtv-3s; Sun, 10 Jul 2022 15:11:48 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAUsk-00BWOr-Ec
-	for linux-riscv@lists.infradead.org; Sun, 10 Jul 2022 11:13:47 +0000
-Received: by mail-wr1-x430.google.com with SMTP id q9so3697020wrd.8
-        for <linux-riscv@lists.infradead.org>; Sun, 10 Jul 2022 04:13:43 -0700 (PDT)
+	id 1oAYb3-00CBrn-GT
+	for linux-riscv@lists.infradead.org; Sun, 10 Jul 2022 15:11:46 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id z12-20020a17090a7b8c00b001ef84000b8bso6109218pjc.1
+        for <linux-riscv@lists.infradead.org>; Sun, 10 Jul 2022 08:11:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
+        d=ventanamicro.com; s=google;
         h=from:to:cc:subject:date:message-id:mime-version
          :content-transfer-encoding;
-        bh=XotajasaTrzcTphALWuHODKAXkdmyWSL9rWt7XNu2Y0=;
-        b=NpNCp7YzDhHzBQkNzF1dgxKIZ1CUcACxYBSLYsIO3p6Vrvj387ObeLen/xteZGTKPo
-         j0iZifZwvpsoT+YvO61cRsJYS0FZdtK0fT6uXUGDoIc6HH6cmznDgcZxmLAGHif5n+b4
-         4BS8NNQQUhYFEcKVf8O/bwvDBNC9n74Xq8IKu6aivcvlf5bBEMKDY6f+8gB+T65YyfBv
-         X82L3GVoqYPuC8ANp5EWfOAlFguKkyhfuN0odNMZwgTG+oYcMxS9eqbBqRRJ15PYBwQj
-         EV2aLvlYCeudETTyPqADzRfogEgBnaFSeGVb1miq50McX8jllPwFM5z69mgjp5Nz3fh1
-         pP+w==
+        bh=ZiGKAq8E/61V/xfD2osUhAigUxFAGIjOAFkVRU11S5c=;
+        b=SwASqhsqF/uwpbfqLellpCwOiSzS2k5/C73tZViHwi+wlDrtSvqy/CLZnD2QvQx14O
+         05Hik6bMxgJLrqyo0hAR3hJVC2DjtGviASL9QpxRfJ2Mr7prJ0NLHiUeNc6BuYBZft4X
+         ZTAqYVdhB8j7EjMsADYyuJSDB4RG6atPSLW3MPkjzoKYaSrWiG9MEd4+xUmzJ7pjW7n0
+         v8/5ZFNEOPxeviRy8dbKLUM+VbcoYbCkWE78lVU+ATrf/m6cHHGj76Xk5hFSN2VmLNRw
+         k84hTH7nPLuk9tK4wybq6iny6+lXDfG8UDKS9AImQNoG7IoP2xyJCGkMNzNNgc+CpBIZ
+         UO2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
          :content-transfer-encoding;
-        bh=XotajasaTrzcTphALWuHODKAXkdmyWSL9rWt7XNu2Y0=;
-        b=EILrjhhQ0CPXr5V1icXxKrjr3E0KiJWJGIBXMelZTWenDWIHSKRKuFqt9aizRZjLQh
-         7cCMBL8KyUi3rXdS7oJVIxIf97tZh4b5wkIuET7BCDlLqnlrsPuO4xN/lMP/FGfqm7Js
-         ptL1oJwDdo7B/gtCWW1wzYAIT6QROU44TcH54hpnah7F1JqYoIc/X5kUuyALjCFNrn8o
-         D88WxGkWXgcof329SDVhfjNzGRKWphVZeiVfN9HwOOenkNkGsRaqGpH6wcE/JA6uU3/Y
-         Bmip6rFS0vCmfUp+Aw5M7J6lrlpcowJAnWQGsjv0YVSI9ZGEO9X9S/HDuToaDPnQU38i
-         1sIg==
-X-Gm-Message-State: AJIora/BnWtwrm4+kHBqitSuAlnzuQ3ioNLro3OSPzgMXO/1v5+y5eXJ
-	n5sq/saj5xEY9v2798nsLaifpyI9vdBIG6Gu
-X-Google-Smtp-Source: AGRyM1s7b4YgY+LVmQ3Ji71Kha0HiLbKxdeCIyehbJyPzsOfVHGPRrHXx/xGa7tzKUbr8t/ad8fgMg==
-X-Received: by 2002:a05:6000:885:b0:21b:a423:172c with SMTP id ca5-20020a056000088500b0021ba423172cmr12040395wrb.98.1657451622648;
-        Sun, 10 Jul 2022 04:13:42 -0700 (PDT)
-Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id c8-20020a7bc848000000b003a2e7c13a3asm61219wml.42.2022.07.10.04.13.41
+        bh=ZiGKAq8E/61V/xfD2osUhAigUxFAGIjOAFkVRU11S5c=;
+        b=cwBtKIP0qiaE2EsDYOFyetFJNnaECoPFiY/GLIPSrdfdmCTrGP+qfAvuT2QGHDhDQC
+         l3+nJW7nlgIX/9A5XzN6dcGh3tJfNpw0tkw3iaul6kqejLEBU/Jki2eIBbehxaj+pBat
+         iftIaugdT85Cgq7U0hU0+JzaaRW9yIV0Kx19To2lSIGqc7nrcHpHojS9DIgfTlUqYHv9
+         SgnUE+DQ9JjyqJjKSQqf2ZM/Jal6RxnI0S8PYAs7iBEpNaLq/3KOT4PLaZYJNQvDhFQy
+         bRDa+X+FM4VE/oZdWTVCRX1kJJ2Q5WDrwmSohB/IB3z6KQm26kc1UlIs07kp5YGiIbEd
+         9LAw==
+X-Gm-Message-State: AJIora/MhXZKQtaMB3TilKHoRKwOT6jruJ8ohOUFvxEjSxtkpmXdwAYe
+	TmtTDTWi50jEDxjoX2L9flHTyw==
+X-Google-Smtp-Source: AGRyM1sR9ZDu/2Ia1wh+BMIiL0MAl4yRxaD0cHdlrNSxgTTfrD37Fazff0AZYrTaHIbPHcXWL6e9XQ==
+X-Received: by 2002:a17:90b:1c86:b0:1ee:e795:a6a with SMTP id oo6-20020a17090b1c8600b001eee7950a6amr11794505pjb.205.1657465903563;
+        Sun, 10 Jul 2022 08:11:43 -0700 (PDT)
+Received: from anup-ubuntu64-vm.. ([122.167.98.167])
+        by smtp.gmail.com with ESMTPSA id a200-20020a621ad1000000b0052ab37ef3absm3014756pfa.116.2022.07.10.08.11.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Jul 2022 04:13:42 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: Emil Renner Berthing <kernel@esmil.dk>
-Cc: linux-riscv@lists.infradead.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [RFC 0/2] JH7100 Monitor Core
-Date: Sun, 10 Jul 2022 12:13:28 +0100
-Message-Id: <20220710111330.3920699-1-mail@conchuod.ie>
-X-Mailer: git-send-email 2.37.0
+        Sun, 10 Jul 2022 08:11:42 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Paolo Bonzini <pbonzini@redhat.com>,
+	Atish Patra <atishp@atishpatra.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	Bin Meng <bmeng.cn@gmail.com>,
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>,
+	Anup Patel <anup@brainfault.org>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH] RISC-V: KVM: Fix SRCU deadlock caused by kvm_riscv_check_vcpu_requests()
+Date: Sun, 10 Jul 2022 20:41:05 +0530
+Message-Id: <20220710151105.687193-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220710_041346_519765_D657B85B 
-X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-CacheID: sfid-20220710_081145_568500_6ACED0BC 
+X-CRM114-Status: UNSURE (   9.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,33 +97,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+The kvm_riscv_check_vcpu_requests() is called with SRCU read lock held
+and for KVM_REQ_SLEEP request it will block the VCPU without releasing
+SRCU read lock. This causes KVM ioctls (such as KVM_IOEVENTFD) from
+other VCPUs of the same Guest/VM to hang/deadlock if there is any
+synchronize_srcu() or synchronize_srcu_expedited() in the path.
 
-Hey Emil,
+To fix the above in kvm_riscv_check_vcpu_requests(), we should do SRCU
+read unlock before blocking the VCPU and do SRCU read lock after VCPU
+wakeup.
 
-Had a go at adding that E24, made it an RFC b/c I am not sure if I got
-the cache setup anywhere close to correct. I had a look in the SiFive
-E24 docs & in [0] which said "16KB I-cache with 32 Byte cache line".
-Didn't have anything else to go on, so I kept the same ratio between
-lines/sets/size as other SiFive monitor cores, but since they're not
-32 bit I dunno if that's correct (IOW it is a wild guess).
+Fixes: cce69aff689e ("RISC-V: KVM: Implement VCPU interrupts and
+requests handling")
+Reported-by: Bin Meng <bmeng.cn@gmail.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
+ arch/riscv/kvm/vcpu.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Hopefully you know better than I do..
-Thanks,
-Conor.
-
-0: https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Data%20Sheet%20V01.01.04-EN%20(4-21-2021).pdf
-
-Conor Dooley (2):
-  dt-bindings: riscv: document the sifive e24
-  riscv: dts: starfive: add the missing monitor core
-
- .../devicetree/bindings/riscv/cpus.yaml       |  2 ++
- arch/riscv/boot/dts/starfive/jh7100.dtsi      | 20 +++++++++++++++++++
- 2 files changed, 22 insertions(+)
-
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index b7a433c54d0f..5d271b597613 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -845,9 +845,11 @@ static void kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
+ 
+ 	if (kvm_request_pending(vcpu)) {
+ 		if (kvm_check_request(KVM_REQ_SLEEP, vcpu)) {
++			kvm_vcpu_srcu_read_unlock(vcpu);
+ 			rcuwait_wait_event(wait,
+ 				(!vcpu->arch.power_off) && (!vcpu->arch.pause),
+ 				TASK_INTERRUPTIBLE);
++			kvm_vcpu_srcu_read_lock(vcpu);
+ 
+ 			if (vcpu->arch.power_off || vcpu->arch.pause) {
+ 				/*
 -- 
-2.37.0
+2.34.1
 
 
 _______________________________________________
