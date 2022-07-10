@@ -4,61 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D321BC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Jul 2022 07:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6657C43334
+	for <linux-riscv@archiver.kernel.org>; Sun, 10 Jul 2022 10:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o8cyiC0uzicWhc9UhFE809hAbaxxnnm94gM0KJV5EMY=; b=MhdwEEmOdn0E5f
-	WK68zMtwnsMrFWGGEZK09H8WRanf3F6wbetj7V/uO22JlQlcQIDCgINvHADwPfKkgoI/nHIYHrX6y
-	jD9sCVQADY9i5e9S9qZPX9vA+6WJfEViQXSOG76/Bn69MbxbL/ly2plrVKDYAxEZUy51uOKL4ad3Q
-	T2NbMm1Ps+5I9onwQij5gGF0HO+mxBxf/MNoXpG9Xmg900n4xeG8po6RTwnHix6DIREj5bnrVWpvB
-	Xy6AnYTCC/vECsHYe4xMqvzBNC+toYCmmb30HNjtggF67G5w9iyeHnm7ocOK4nTtsI+FJg7qJiHW7
-	rf483dzzhWIYoiHBjzxA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kNRhGLMPL3cpfV9L65tWJ8LZYphzQqy6q1QFb0kODXs=; b=XRqjXNiYnbbnH3
+	8Gfl/IraHFUO2Wkd0a9naVqWb9mLnuPdzU6geGY5xgHD/ISY5TuCEavmYInWA3XF3kI7DVPIsWCap
+	F5hfSKD8QACirwmKdYj38XlgUTU5qEPx8Z1nWp9SkV8leYxcOSN8MnTgawgsDnOQzWZCbEFUkIeqF
+	vSGTwTtQBVbAZ6j+/ibQuYyBkxDtmy3qhDAopL1LsGO+P94gFXbU4chK9mHMWH2HeEVrVqw85wZCg
+	vLn0koti3XfcH9qp5dAX5nVhzRn1NmLa/rM+gKGSQPRIO3xg1bdcKfeOmkAZh0eTZYXA9YdllFdQX
+	+svLFLS5Hvbp8xgaPMOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oARoS-00B427-Ft; Sun, 10 Jul 2022 07:57:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oATl8-00BLLP-G8; Sun, 10 Jul 2022 10:01:50 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oARoM-00B3xd-Py
-	for linux-riscv@lists.infradead.org; Sun, 10 Jul 2022 07:57:04 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4A98D6113A;
-	Sun, 10 Jul 2022 07:57:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 869FDC3411E;
-	Sun, 10 Jul 2022 07:56:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1657439821;
-	bh=4JJmPLx0LVNcn7om8XQGFBqayXZd6VXpKGntzgxF0tI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PgQwrLoqxxVvkJfSzAvCeMojgP2QFQTvFSTzYztgUyqoY1rWh2TzIi2qk5VRmzoWK
-	 Tyw7U5xIs9vHF0F63X25aRHkFEzJnK+YoUq5A/0uLMLw9WNproY1TTXzhuKHFvbRN0
-	 GY7nbe27WozmdAkex6E9q0vaLceURV/JUb3zV3SJRhXD+cVqwGjP15xUEQLfB7uQox
-	 dNesnJJ1E3pFFE0ynaecHudgOQGIMq5jzsnrBk3iGsKa9N679QjQr5gJnA1R3ozo4q
-	 b+SlyOM68KgfmbxpatSKDzLr+nMCpAId0r4agOZsRHfiF8JGPHmZXjJe7H64WHPJNy
-	 mZpwm7V2llGfQ==
-From: guoren@kernel.org
-To: palmer@rivosinc.com,
-	heiko@sntech.de,
-	hch@infradead.org
-Cc: linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	Guo Ren <guoren@kernel.org>
-Subject: [RFC PATCH V2 3/4] riscv: pgtable: Move svpbmt into the common pgtable-bits.h
-Date: Sun, 10 Jul 2022 03:56:43 -0400
-Message-Id: <20220710075644.738455-4-guoren@kernel.org>
+	id 1oATl5-00BLJU-6U
+	for linux-riscv@lists.infradead.org; Sun, 10 Jul 2022 10:01:48 +0000
+Received: by mail-wr1-x435.google.com with SMTP id bu1so2412566wrb.9
+        for <linux-riscv@lists.infradead.org>; Sun, 10 Jul 2022 03:01:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=81hvwpBlfxQBH7APOHFnmGU6Oy26r79hMsY7b8ngUnA=;
+        b=LaBR8No6eDA8e9Rql/Q8hpGkLLfuSD5/EMXQepcthh8cGp7UjbSFP1k9BsyzXUHnNy
+         /Tpq4atRiIOMgSMJhXBMpDbldJ1g4b5k0jQCcLGn8jfGRoB7x/q/8CTNYecJfV/bu4Bo
+         MERWiqyGTdkZFrXjwSPTS3Z7Yn+KmnzXcWrJiE8YusI2QP2MhVEHWCSDIj8F43mtTiYZ
+         TEX0Th1RPImvZ0IVeKx1UMGztnYZGsQwur0HjBXDJzClOHfTYfzZhOg8rixDdLobrGug
+         oZU4dhUGGW50vkkWM5cZ8x/txINWUWLWL80giRRZdFN9hqvwmfL00pFxL7khmpX45EwE
+         onMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=81hvwpBlfxQBH7APOHFnmGU6Oy26r79hMsY7b8ngUnA=;
+        b=TbhehNsbsT4bI8AoZreltBIYT8J8GOwOfwYPdC8ZL+7HFpChiBOmFgUP4KvxA5343R
+         Ba58QCH+qYlShqKSvOJnccPkX48H9tdmynlMCpEckb91w+pcoKtm/30xyw76JVdNjxyo
+         zxHAERMVHMu1rjogglCNQAawjQ7hGsyRJ2gPtsAutpnla1wVIv6DPtlhKjJH/kxb7rtZ
+         FWvZmDwAfyup2NI4pAehF3TVGrDtsSCgFZjew0qeq1Z+WoOISkmD1FDjpCaFxwdA6Wr+
+         g5qjG8Y7/pg5fN8/9kD7ir7UJFvbiXI4UAzbF9Hf9NXFdnf/EFDhheni3XNmwRhGjqai
+         l72Q==
+X-Gm-Message-State: AJIora8v2jhdDID2j5sNjbGB5gFjhwgo/pHrvtoWZ9GxquySqIMWq8SI
+	avmeBusSSit2nryaGQThE0w=
+X-Google-Smtp-Source: AGRyM1t1D8hDiyos2lkhzHSCdCKBxQy3yBejjsdGsbA5T1lQgpocurWl0ACdlPHS4JNTO6vo74nRPw==
+X-Received: by 2002:a05:6000:54f:b0:21b:944c:c70b with SMTP id b15-20020a056000054f00b0021b944cc70bmr12117283wrf.572.1657447303959;
+        Sun, 10 Jul 2022 03:01:43 -0700 (PDT)
+Received: from localhost.localdomain (host-95-235-102-55.retail.telecomitalia.it. [95.235.102.55])
+        by smtp.gmail.com with ESMTPSA id r7-20020a05600c434700b003a2da6b2cbesm3502026wme.33.2022.07.10.03.01.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 10 Jul 2022 03:01:42 -0700 (PDT)
+From: "Fabio M. De Francesco" <fmdefrancesco@gmail.com>
+To: Benjamin LaHaise <bcrl@kvack.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Kees Cook <keescook@chromium.org>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Matthew Wilcox <willy@infradead.org>,
+	Jan Kara <jack@suse.cz>,
+	Jeff Layton <jlayton@kernel.org>,
+	Chuck Lever <chuck.lever@oracle.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	Pavel Begunkov <asml.silence@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>,
+	linux-aio@kvack.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	nvdimm@lists.linux.dev,
+	io-uring@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	llvm@lists.linux.dev
+Cc: "Fabio M. De Francesco" <fmdefrancesco@gmail.com>,
+	Ira Weiny <ira.weiny@intel.com>
+Subject: [PATCH] fs: Call kmap_local_page() in copy_string_kernel()
+Date: Sun, 10 Jul 2022 12:01:36 +0200
+Message-Id: <20220710100136.25496-1-fmdefrancesco@gmail.com>
 X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220710075644.738455-1-guoren@kernel.org>
-References: <20220710075644.738455-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220710_005702_946625_CC84A16E 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20220710_030147_260025_6826CAEA 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,245 +111,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+The use of kmap_atomic() is being deprecated in favor of kmap_local_page().
 
-This patch is preparation for rv32 svpbmt, which only moves the svpbmt
-bits definitions into the standard header and no other functionality
-modification. Here is the list of modification:
- - Change u64 to ulong of riscv_page_nocache/mtmask/io functions
- - Using __riscv_xlen instead of 64
+With kmap_local_page(), the mappings are per thread, CPU local, not
+globally visible and can take page faults. Furthermore, the mappings can be
+acquired from any context (including interrupts).
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
+Therefore, use kmap_local_page() in copy_string_kernel() instead of
+kmap_atomic().
+
+Tested with xfstests on a QEMU + KVM 32-bits VM booting a kernel with
+HIGHMEM64GB enabled.
+
+Suggested-by: Ira Weiny <ira.weiny@intel.com>
+Signed-off-by: Fabio M. De Francesco <fmdefrancesco@gmail.com>
 ---
- arch/riscv/include/asm/errata_list.h  |  6 ++-
- arch/riscv/include/asm/pgtable-32.h   | 16 --------
- arch/riscv/include/asm/pgtable-64.h   | 55 ---------------------------
- arch/riscv/include/asm/pgtable-bits.h | 53 ++++++++++++++++++++++++++
- arch/riscv/include/asm/pgtable.h      |  5 +++
- 5 files changed, 63 insertions(+), 72 deletions(-)
 
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 47175d91773d..4cbc6b03b486 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -46,7 +46,11 @@ asm(ALTERNATIVE("sfence.vma %0", "sfence.vma", SIFIVE_VENDOR_ID,	\
-  * _val is marked as "will be overwritten", so need to set it to 0
-  * in the default case.
-  */
--#define ALT_SVPBMT_SHIFT 61
-+#ifdef CONFIG_64BIT
-+#define ALT_SVPBMT_SHIFT (61)
-+#else
-+#define ALT_SVPBMT_SHIFT (29)
-+#endif
+I sent a first patch to fs/exec.c for converting kmap() and kmap_atomic()
+to kmap_local_page():
+https://lore.kernel.org/lkml/20220630163527.9776-1-fmdefrancesco@gmail.com/
+
+Some days ago, Ira Weiny, while he was reviewing that patch, made me notice
+that I had overlooked a second kmap_atomic() in the same file (thanks):
+https://lore.kernel.org/lkml/YsiQptk19txHrG4c@iweiny-desk3/
+
+I've been asked to send this as an additional change. This is why there will
+not be any second version of that previous patch.
+
+ fs/exec.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/fs/exec.c b/fs/exec.c
+index 4a2129c0d422..5fa652ca5823 100644
+--- a/fs/exec.c
++++ b/fs/exec.c
+@@ -639,11 +639,11 @@ int copy_string_kernel(const char *arg, struct linux_binprm *bprm)
+ 		page = get_arg_page(bprm, pos, 1);
+ 		if (!page)
+ 			return -E2BIG;
+-		kaddr = kmap_atomic(page);
++		kaddr = kmap_local_page(page);
+ 		flush_arg_page(bprm, pos & PAGE_MASK, page);
+ 		memcpy(kaddr + offset_in_page(pos), arg, bytes_to_copy);
+ 		flush_dcache_page(page);
+-		kunmap_atomic(kaddr);
++		kunmap_local(kaddr);
+ 		put_arg_page(page);
+ 	}
  
- #ifdef CONFIG_ERRATA_THEAD_PBMT
- #define ALT_THEAD_PBMT_SHIFT 59
-diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-index 59ba1fbaf784..63b023bd4845 100644
---- a/arch/riscv/include/asm/pgtable-32.h
-+++ b/arch/riscv/include/asm/pgtable-32.h
-@@ -7,8 +7,6 @@
- #define _ASM_RISCV_PGTABLE_32_H
- 
- #include <asm-generic/pgtable-nopmd.h>
--#include <linux/bits.h>
--#include <linux/const.h>
- 
- /* Size of region mapped by a page global directory */
- #define PGDIR_SHIFT     22
-@@ -17,20 +15,6 @@
- 
- #define MAX_POSSIBLE_PHYSMEM_BITS 34
- 
--/*
-- * rv32 PTE format:
-- * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-- *       PFN      reserved for SW   D   A   G   U   X   W   R   V
-- */
- #define _PAGE_PFN_MASK  GENMASK(31, 10)
- 
--#define _PAGE_NOCACHE		0
--#define _PAGE_IO		0
--#define _PAGE_MTMASK		0
--
--/* Set of bits to preserve across pte_modify() */
--#define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ |	\
--					  _PAGE_WRITE | _PAGE_EXEC |	\
--					  _PAGE_USER | _PAGE_GLOBAL))
--
- #endif /* _ASM_RISCV_PGTABLE_32_H */
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index 5c2aba5efbd0..3263b910e7d2 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -6,10 +6,6 @@
- #ifndef _ASM_RISCV_PGTABLE_64_H
- #define _ASM_RISCV_PGTABLE_64_H
- 
--#include <linux/bits.h>
--#include <linux/const.h>
--#include <asm/errata_list.h>
--
- extern bool pgtable_l4_enabled;
- extern bool pgtable_l5_enabled;
- 
-@@ -67,25 +63,8 @@ typedef struct {
- 
- #define PTRS_PER_PMD    (PAGE_SIZE / sizeof(pmd_t))
- 
--/*
-- * rv64 PTE format:
-- * | 63 | 62 61 | 60 54 | 53  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-- *   N      MT     RSV    PFN      reserved for SW   D   A   G   U   X   W   R   V
-- */
- #define _PAGE_PFN_MASK  GENMASK(53, 10)
- 
--/*
-- * [62:61] Svpbmt Memory Type definitions:
-- *
-- *  00 - PMA    Normal Cacheable, No change to implied PMA memory type
-- *  01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
-- *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
-- *  11 - Rsvd   Reserved for future standard use
-- */
--#define _PAGE_NOCACHE_SVPBMT	(1UL << 61)
--#define _PAGE_IO_SVPBMT		(1UL << 62)
--#define _PAGE_MTMASK_SVPBMT	(_PAGE_NOCACHE_SVPBMT | _PAGE_IO_SVPBMT)
--
- /*
-  * [63:59] T-Head Memory Type definitions:
-  *
-@@ -98,40 +77,6 @@ typedef struct {
- #define _PAGE_IO_THEAD		(1UL << 63)
- #define _PAGE_MTMASK_THEAD	(_PAGE_PMA_THEAD | _PAGE_IO_THEAD | (1UL << 59))
- 
--static inline u64 riscv_page_mtmask(void)
--{
--	u64 val;
--
--	ALT_SVPBMT(val, _PAGE_MTMASK);
--	return val;
--}
--
--static inline u64 riscv_page_nocache(void)
--{
--	u64 val;
--
--	ALT_SVPBMT(val, _PAGE_NOCACHE);
--	return val;
--}
--
--static inline u64 riscv_page_io(void)
--{
--	u64 val;
--
--	ALT_SVPBMT(val, _PAGE_IO);
--	return val;
--}
--
--#define _PAGE_NOCACHE		riscv_page_nocache()
--#define _PAGE_IO		riscv_page_io()
--#define _PAGE_MTMASK		riscv_page_mtmask()
--
--/* Set of bits to preserve across pte_modify() */
--#define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ |	\
--					  _PAGE_WRITE | _PAGE_EXEC |	\
--					  _PAGE_USER | _PAGE_GLOBAL |	\
--					  _PAGE_MTMASK))
--
- static inline int pud_present(pud_t pud)
- {
- 	return (pud_val(pud) & _PAGE_PRESENT);
-diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
-index b9e13a8fe2b7..a0f863f71cc7 100644
---- a/arch/riscv/include/asm/pgtable-bits.h
-+++ b/arch/riscv/include/asm/pgtable-bits.h
-@@ -6,6 +6,11 @@
- #ifndef _ASM_RISCV_PGTABLE_BITS_H
- #define _ASM_RISCV_PGTABLE_BITS_H
- 
-+/*
-+ * PTE format:
-+ * | XLEN-1 | XLEN-2 XLEN-3 | XLEN-4 10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-+ *   N        MT[2]           RSV & PFN   reserved for SW   D   A   G   U   X   W   R   V
-+ */
- #define _PAGE_ACCESSED_OFFSET 6
- 
- #define _PAGE_PRESENT   (1 << 0)
-@@ -18,6 +23,54 @@
- #define _PAGE_DIRTY     (1 << 7)    /* Set by hardware on any write */
- #define _PAGE_SOFT      (1 << 8)    /* Reserved for software */
- 
-+#ifndef __ASSEMBLY__
-+/*
-+ * [XLEN-2:XLEN-3] Svpbmt Memory Type definitions:
-+ *
-+ *  00 - PMA    Normal Cacheable, No change to implied PMA memory type
-+ *  01 - NC     Non-cacheable, idempotent, weakly-ordered Main Memory
-+ *  10 - IO     Non-cacheable, non-idempotent, strongly-ordered I/O memory
-+ *  11 - Rsvd   Reserved for future standard use
-+ */
-+#define _PAGE_NOCACHE_SVPBMT	(1UL << ALT_SVPBMT_SHIFT)
-+#define _PAGE_IO_SVPBMT		(2UL << ALT_SVPBMT_SHIFT)
-+#define _PAGE_MTMASK_SVPBMT	(_PAGE_NOCACHE_SVPBMT | _PAGE_IO_SVPBMT)
-+
-+static inline ulong riscv_page_mtmask(void)
-+{
-+	ulong val;
-+
-+	ALT_SVPBMT(val, _PAGE_MTMASK);
-+	return val;
-+}
-+
-+static inline ulong riscv_page_nocache(void)
-+{
-+	ulong val;
-+
-+	ALT_SVPBMT(val, _PAGE_NOCACHE);
-+	return val;
-+}
-+
-+static inline ulong riscv_page_io(void)
-+{
-+	ulong val;
-+
-+	ALT_SVPBMT(val, _PAGE_IO);
-+	return val;
-+}
-+
-+#define _PAGE_NOCACHE		riscv_page_nocache()
-+#define _PAGE_IO		riscv_page_io()
-+#define _PAGE_MTMASK		riscv_page_mtmask()
-+
-+/* Set of bits to preserve across pte_modify() */
-+#define _PAGE_CHG_MASK  (~(unsigned long)(_PAGE_PRESENT | _PAGE_READ |	\
-+					  _PAGE_WRITE | _PAGE_EXEC |	\
-+					  _PAGE_USER | _PAGE_GLOBAL |	\
-+					  _PAGE_MTMASK))
-+#endif
-+
- #define _PAGE_SPECIAL   _PAGE_SOFT
- #define _PAGE_TABLE     _PAGE_PRESENT
- 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index edc68759b69d..5d5ba6513c14 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -8,7 +8,12 @@
- 
- #include <linux/mmzone.h>
- #include <linux/sizes.h>
-+#ifndef __ASSEMBLY__
-+#include <linux/bits.h>
-+#include <linux/const.h>
- 
-+#include <asm/errata_list.h>
-+#endif
- #include <asm/pgtable-bits.h>
- 
- #ifndef CONFIG_MMU
 -- 
 2.36.1
 
