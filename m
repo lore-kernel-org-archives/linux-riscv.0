@@ -4,74 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860D6C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 06:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8E5C43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 07:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UJgyc8t0sWb67eoIyTMDdBF4U59BuElJokRP/0HCTHQ=; b=Ecl++NWE+o1eX+
-	CvmcHRiMwclHNqegalqqzBDXkx2VGu0l/Hz2X5VxXTSv5r+Q88FuM83PsKN8F8tL9/PjSBDCeCV9T
-	z/F5jGhaj8HHBm2Lo+6oSdzBhwvtt/R7i2Thiji6dQgPq2nS1/H3mk90xdO4SJJvFny3FnZIKHlYq
-	DjYaq4o59jrXHG1RsAyAxgKHUhVGYHtHpwvlxNkgNI7dOLAin5YVcaeT8GBtyqVqpajSifoEnrET4
-	mjcetGlS/1BGBCiIyXL2qnPXuQo7B+6pg7JHojSG99utT4N/s55N6MZx8Qd28wklGY/fW9XPyOCib
-	+TRQjROxKuawLnifoa9A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=i/7UtTDtMch1xJbZf99HRT67OOxwPD7lrOBBMAGBGbk=; b=zvmVvVjilexCs2
+	ZCdRoRWnZUH5Kw687XY4MO5SfUU+4jpkENJld2eSS7Jo2OQO670nR5aE8a4h5DcuczEd0MWgH3NCu
+	6+zZgjwXnanmYhlLKIw8nexmApNmF2bwsY650D3xJLCEf2pb73o7fVqWVcFfVybWLok+Co3rYDg9y
+	+bmRFbwYRlvoNy629clbUNczcyaei/lBSYtFZIKQWqJw7eo8/XLUtk8aOyoml3ccp2kPQIUuhwsur
+	1Cdc7VDawGOezJuftJWnkQ4sRi/VbXRr/yCZVnPN8RiwSKb7UVlQl8+Tc8d/xWzNvy6j292/nUhrq
+	4ohunqTlNi6c4Vbe94Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAn8v-00GUZk-9M; Mon, 11 Jul 2022 06:43:41 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAn8r-00GUX9-Vu
-	for linux-riscv@lists.infradead.org; Mon, 11 Jul 2022 06:43:39 +0000
-Received: by mail-lj1-x232.google.com with SMTP id m16so5049682ljh.10
-        for <linux-riscv@lists.infradead.org>; Sun, 10 Jul 2022 23:43:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to;
-        bh=vYeId4FzfbuwrX6U3p5/rmTfl4tv1rUClzoqMxiZMbQ=;
-        b=OEZ3pKq9AQqAy4Bh733PBdPOLzRL0KnqVzSny9JLxvLxWp4gkQTJCWfCQRSwZ2m0Ws
-         /djDxRTF+BiIp+TAhxHBCAVpPDmroVO76Zp6IGD9iYvI8De45PQ8W5x3Lw1TDtTbY7CF
-         /lJp35CeEOy2RxJTwJlZyf4DJ2shF2Wnwkv51TB5dIk5TDn6CXDynR6tIB9rnyi1BqTu
-         ngvhjWPrZDN5nM3zCYyQ/SEql92rDpswk7E8XKrvC63mVvEdM1MmcMtPKRs2UrLmuQZ7
-         QK89okjW9fiPEvcKAwdaPd8VFTsZ66C/m+4iJnIH8hgCn62FuPVKzXkf+we8CgO3eNPb
-         61pQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to;
-        bh=vYeId4FzfbuwrX6U3p5/rmTfl4tv1rUClzoqMxiZMbQ=;
-        b=3IcMoNB43iXiUZlXbFCXduQD52aiCJckZxVj7Z9lb13YvM1u1wrTZ92eh3wq8yOtgc
-         ldF3U1aWbuVb2yVwzminZlMhBO96V/QsoH2s1ZqLAGoSFGQHX2FDPZdA3TpO4kXLsTGs
-         ndU6Y5MWcQ5i5D2pyzsHBlsjQ261BSzJfSEHmmCQ6ow20Yt1R+Ph/g8SGvtJ4E2Wug/e
-         xOAFoBq7ovjdxBf1FF4LuNraaOF5k4uMiNSf90hqzLtUEa6MvjEa6KGC2t2Cwbw64QgP
-         8za4uobQlfHGO50WNNtflMDPWzMY8jQBujxLMM2KiEoWBdIOQwm2tZEp660qz5jSMEFU
-         1RZA==
-X-Gm-Message-State: AJIora/NJoDceU8Xm2NfXuc7IOHGqKqnAWHlqBTwwprnXNkjvZLVR0oZ
-	bHCfDaWWPshQdPLfyMolgFbcanlr1aUx4Q==
-X-Google-Smtp-Source: AGRyM1tvKuX3k9C4iqlfJhl9HsB6ZPRBOY6V8lB6SMUAG9eiulT8vIicnb4fHX1wGdbyY3x3eErqmQ==
-X-Received: by 2002:a2e:880a:0:b0:25d:73af:52b5 with SMTP id x10-20020a2e880a000000b0025d73af52b5mr47027ljh.298.1657521812776;
-        Sun, 10 Jul 2022 23:43:32 -0700 (PDT)
-Received: from curiosity ([5.188.167.245])
-        by smtp.gmail.com with ESMTPSA id v12-20020ac258ec000000b00489dfb5d622sm375808lfo.257.2022.07.10.23.43.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Jul 2022 23:43:32 -0700 (PDT)
-Date: Mon, 11 Jul 2022 09:43:31 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: linux-riscv@lists.infradead.org, Atish Patra <atishp@atishpatra.org>
-Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH v2 1/2] perf: RISC-V: fix access beyond allocated array
-Message-ID: <YsvGk+ybtFZ9wQk1@curiosity>
-References: <20220624135902.520748-1-geomatsi@gmail.com>
- <20220624135902.520748-2-geomatsi@gmail.com>
+	id 1oAnV9-00Gawr-Ck; Mon, 11 Jul 2022 07:06:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oAnUw-00GanY-7S; Mon, 11 Jul 2022 07:06:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F0B5223A;
+	Mon, 11 Jul 2022 00:06:19 -0700 (PDT)
+Received: from a077893.arm.com (unknown [10.163.45.183])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B2CF33F70D;
+	Mon, 11 Jul 2022 00:06:11 -0700 (PDT)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org,
+	akpm@linux-foundation.org
+Cc: hch@infradead.org,
+	christophe.leroy@csgroup.eu,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	openrisc@lists.librecores.org,
+	linux-xtensa@linux-xtensa.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linux-alpha@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-ia64@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-um@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH V7 00/26] mm/mmap: Drop __SXXX/__PXXX macros from across platforms
+Date: Mon, 11 Jul 2022 12:35:34 +0530
+Message-Id: <20220711070600.2378316-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220624135902.520748-2-geomatsi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220710_234338_041503_750FDF57 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20220711_000626_389734_EB5F01B3 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,21 +79,214 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> The root cause could be related to the interpretation of the number of
-> counters reported by SBI firmware. For instance, if we assume that unused
-> timer counter with index 1 is not reported, then the range is correct
-> and larger array needs to be allocated.
-> 
-> This is not the case though since SBI firmware is supposed to report the
-> total number of firmware and hardware counters including special or
-> unused ones like the timer counter. So just fix the range in for-loop.
+__SXXX/__PXXX macros is an unnecessary abstraction layer in creating the
+generic protection_map[] array which is used for vm_get_page_prot(). This
+abstraction layer can be avoided, if the platforms just define the array
+protection_map[] for all possible vm_flags access permission combinations
+and also export vm_get_page_prot() implementation.
 
-Hi Atish,
+This series drops __SXXX/__PXXX macros from across platforms in the tree.
+First it build protects generic protection_map[] array with '#ifdef __P000'
+and moves it inside platforms which enable ARCH_HAS_VM_GET_PAGE_PROT. Later
+this build protects same array with '#ifdef ARCH_HAS_VM_GET_PAGE_PROT' and
+moves inside remaining platforms while enabling ARCH_HAS_VM_GET_PAGE_PROT.
+This adds a new macro DECLARE_VM_GET_PAGE_PROT defining the current generic
+vm_get_page_prot(), in order for it to be reused on platforms that do not
+require custom implementation. Finally, ARCH_HAS_VM_GET_PAGE_PROT can just
+be dropped, as all platforms now define and export vm_get_page_prot(), via
+looking up a private and static protection_map[] array. protection_map[]
+data type has been changed as 'static const' on all platforms that do not
+change it during boot.
 
-Just a friendly reminder.
+This series applies on v5.19-rc6 and has been build tested for multiple
+platforms. While here it has dropped off all previous tags from folks after
+the current restructuring. Series common CC list has been expanded to cover
+all impacted platforms for wider reach.
 
-Regards,
-Sergey
+- Anshuman
+
+Changes in V7:
+
+- Dropped comments from arch/m68k/include/asm/mcf_pgtable.h per Geert
+- Dropped comments from arch/m68k/include/asm/sun3_pgtable.h per Geert
+- Moved the *_C definitions above into arch/m68k/mm/motorola.c per Geert
+- Folded in following build failure fix patches on linux-next
+
+https://lore.kernel.org/all/20220705221411.3381797-1-jcmvbkbc@gmail.com/
+https://lore.kernel.org/all/20220706054002.1936820-1-anshuman.khandual@arm.com/
+https://lore.kernel.org/all/20220708230646.CA9B7C341C0@smtp.kernel.org/	
+
+- Collected tags from Geert
+- Rebased on v5.19-rc6
+
+Changes in V6:
+
+https://lore.kernel.org/all/20220630051630.1718927-1-anshuman.khandual@arm.com/
+
+- Converted protection_map[] array as 'static const' on sparc32 platform
+- Rebased on v5.19-rc4
+- Collected tags
+
+Changes in V5:
+
+https://lore.kernel.org/all/20220627045833.1590055-1-anshuman.khandual@arm.com/
+
+- Converted most platfomr protection_map[] array as 'static const'
+- Moved DECLARE_VM_GET_PAGE_PROT inside <include/linux/pgtable.h>
+- Moved generic protection_map[] comment near DECLARE_VM_GET_PAGE_PROT
+- Updated some commit messages
+
+Changes in V4:
+
+https://lore.kernel.org/all/20220624044339.1533882-1-anshuman.khandual@arm.com/
+
+- Both protection_map[] and vm_get_page_prot() moves inside all platforms
+- Split patches to create modular changes for individual platforms
+- Add macro DECLARE_VM_GET_PAGE_PROT defining generic vm_get_page_prot()
+- Drop ARCH_HAS_VM_GET_PAGE_PROT
+
+Changes in V3:
+
+https://lore.kernel.org/all/20220616040924.1022607-1-anshuman.khandual@arm.com/
+
+- Fix build issues on powerpc and riscv
+
+Changes in V2:
+
+https://lore.kernel.org/all/20220613053354.553579-1-anshuman.khandual@arm.com/
+
+- Add 'const' identifier to protection_map[] on powerpc
+- Dropped #ifndef CONFIG_ARCH_HAS_VM_GET_PAGE_PROT check from sparc 32
+- Dropped protection_map[] init from sparc 64
+- Dropped all new platform changes subscribing ARCH_HAS_VM_GET_PAGE_PROT
+- Added a second patch which moves generic protection_map[] array into
+  all remaining platforms (!ARCH_HAS_VM_GET_PAGE_PROT)
+
+Changes in V1:
+
+https://lore.kernel.org/all/20220603101411.488970-1-anshuman.khandual@arm.com/
+
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Christoph Hellwig <hch@infradead.org>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: sparclinux@vger.kernel.org
+Cc: x86@kernel.org
+Cc: openrisc@lists.librecores.org
+Cc: linux-xtensa@linux-xtensa.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-hexagon@vger.kernel.org
+Cc: linux-parisc@vger.kernel.org
+Cc: linux-alpha@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-csky@vger.kernel.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-ia64@vger.kernel.org
+Cc: linux-mips@vger.kernel.org
+Cc: linux-m68k@lists.linux-m68k.org
+Cc: linux-snps-arc@lists.infradead.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-um@lists.infradead.org
+Cc: linux-sh@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org
+
+
+Anshuman Khandual (26):
+  mm/mmap: Build protect protection_map[] with __P000
+  mm/mmap: Define DECLARE_VM_GET_PAGE_PROT
+  powerpc/mm: Move protection_map[] inside the platform
+  sparc/mm: Move protection_map[] inside the platform
+  arm64/mm: Move protection_map[] inside the platform
+  x86/mm: Move protection_map[] inside the platform
+  mm/mmap: Build protect protection_map[] with ARCH_HAS_VM_GET_PAGE_PROT
+  microblaze/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  loongarch/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  openrisc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  xtensa/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  hexagon/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  parisc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  alpha/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  nios2/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  riscv/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  csky/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  s390/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  ia64/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  mips/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  m68k/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  arc/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  arm/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  um/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  sh/mm: Enable ARCH_HAS_VM_GET_PAGE_PROT
+  mm/mmap: Drop ARCH_HAS_VM_GET_PAGE_PROT
+
+ arch/alpha/include/asm/pgtable.h          | 17 -------
+ arch/alpha/mm/init.c                      | 22 +++++++++
+ arch/arc/include/asm/pgtable-bits-arcv2.h | 18 -------
+ arch/arc/mm/mmap.c                        | 20 ++++++++
+ arch/arm/include/asm/pgtable.h            | 17 -------
+ arch/arm/lib/uaccess_with_memcpy.c        |  2 +-
+ arch/arm/mm/mmu.c                         | 20 ++++++++
+ arch/arm64/Kconfig                        |  1 -
+ arch/arm64/include/asm/pgtable-prot.h     | 18 -------
+ arch/arm64/mm/mmap.c                      | 21 ++++++++
+ arch/csky/include/asm/pgtable.h           | 18 -------
+ arch/csky/mm/init.c                       | 20 ++++++++
+ arch/hexagon/include/asm/pgtable.h        | 27 -----------
+ arch/hexagon/mm/init.c                    | 42 ++++++++++++++++
+ arch/ia64/include/asm/pgtable.h           | 18 -------
+ arch/ia64/mm/init.c                       | 28 ++++++++++-
+ arch/loongarch/include/asm/pgtable-bits.h | 19 --------
+ arch/loongarch/mm/cache.c                 | 46 ++++++++++++++++++
+ arch/m68k/include/asm/mcf_pgtable.h       | 59 -----------------------
+ arch/m68k/include/asm/motorola_pgtable.h  | 29 -----------
+ arch/m68k/include/asm/sun3_pgtable.h      | 23 ---------
+ arch/m68k/mm/mcfmmu.c                     | 55 +++++++++++++++++++++
+ arch/m68k/mm/motorola.c                   | 29 +++++++++++
+ arch/m68k/mm/sun3mmu.c                    | 20 ++++++++
+ arch/microblaze/include/asm/pgtable.h     | 17 -------
+ arch/microblaze/mm/init.c                 | 20 ++++++++
+ arch/mips/include/asm/pgtable.h           | 22 ---------
+ arch/mips/mm/cache.c                      |  3 ++
+ arch/nios2/include/asm/pgtable.h          | 16 ------
+ arch/nios2/mm/init.c                      | 20 ++++++++
+ arch/openrisc/include/asm/pgtable.h       | 18 -------
+ arch/openrisc/mm/init.c                   | 20 ++++++++
+ arch/parisc/include/asm/pgtable.h         | 18 -------
+ arch/parisc/mm/init.c                     | 20 ++++++++
+ arch/powerpc/Kconfig                      |  1 -
+ arch/powerpc/include/asm/pgtable.h        | 20 +-------
+ arch/powerpc/mm/pgtable.c                 | 24 +++++++++
+ arch/riscv/include/asm/pgtable.h          | 20 --------
+ arch/riscv/mm/init.c                      | 20 ++++++++
+ arch/s390/include/asm/pgtable.h           | 17 -------
+ arch/s390/mm/mmap.c                       | 20 ++++++++
+ arch/sh/include/asm/pgtable.h             | 17 -------
+ arch/sh/mm/mmap.c                         | 20 ++++++++
+ arch/sparc/Kconfig                        |  1 -
+ arch/sparc/include/asm/pgtable_32.h       | 19 --------
+ arch/sparc/include/asm/pgtable_64.h       | 19 --------
+ arch/sparc/mm/init_32.c                   | 20 ++++++++
+ arch/sparc/mm/init_64.c                   |  3 ++
+ arch/um/include/asm/pgtable.h             | 17 -------
+ arch/um/kernel/mem.c                      | 20 ++++++++
+ arch/x86/Kconfig                          |  1 -
+ arch/x86/include/asm/mem_encrypt.h        |  2 +
+ arch/x86/include/asm/pgtable_types.h      | 19 --------
+ arch/x86/mm/mem_encrypt_amd.c             |  6 +--
+ arch/x86/mm/pgprot.c                      | 28 +++++++++++
+ arch/x86/um/mem_32.c                      |  2 +-
+ arch/xtensa/include/asm/pgtable.h         | 18 -------
+ arch/xtensa/mm/init.c                     | 22 +++++++++
+ include/linux/mm.h                        |  1 -
+ include/linux/pgtable.h                   | 28 +++++++++++
+ mm/Kconfig                                |  3 --
+ mm/mmap.c                                 | 47 ------------------
+ 62 files changed, 617 insertions(+), 581 deletions(-)
+
+-- 
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
