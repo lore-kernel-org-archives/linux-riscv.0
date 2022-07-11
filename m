@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5042C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 03:47:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5E6EC43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 03:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wZRs6PgRdSJvErockl7MNKP5W/aDCCvzfBaD3wyoEeY=; b=1ZgbdAtr7uIJeT
-	VaPLVvMrfiKowLf+ihpXRvjVM/fbnKVhf7flzXgUYbEQMvyxLtFjrPDm5jK+jp+XUcxjF6FjruU8d
-	AFu2VhpgA0mFuuoTUX8oSIX7u1/mCsamLLjz0Hti8RdYfH2z4aIxzVtApXqPRtZPM3scf/yV8nxzh
-	zTnlbYL/OAzKxqCXi1TOezEp/vn/hmMJWYPd9kAomaKlWPFQnzPeNCPY+LaX+77cyvxuUfooXjtyM
-	hN4caKWqETnxF0G4IMWTR3AHxSB3rr2E/zY9z3m19xD7JGZj5BX0YALAHnw/QzZz5CQoFCAc7Yfbp
-	WKXpY4NItzQPlf1l3nug==;
+	List-Owner; bh=ESDxUERwJOBLNKzmiyqiBFEzEB58K6ocsrfKV8WPCPs=; b=2/gMSoWgU1W811
+	5rrC/E5oxldy3nVXYMWAU5JUT1jeuCR+IPBsv8dc2wiHZv9mKH8lkltGwOLFQ3ClO366EGMhgcBwK
+	uziWUmiGOawT5GX5O+ikFEmaneff+tHSNJeWb/mS6Lerendz513qpzb926o7g9HRaTBk664zVgRGk
+	u94vBYa9uoWbKv7HDmTViHl8Jn2fUOdB29ixeMOeVTl4kj+bwPQKJdZKSOwtiq8+m8qm2wveAsFWD
+	hDkHDB1A9jQgqSgQs6okvPYLkvZbvz1QaAZTZcTBfzABCHcCKzdJn8GCxRLNhYdUTGQYsQabw8beC
+	585ZcMiZkF3k2qjMgEdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAkOB-00FhFj-4y; Mon, 11 Jul 2022 03:47:15 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1oAkOR-00FhQk-6S; Mon, 11 Jul 2022 03:47:31 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAkNr-00Fh4e-KG; Mon, 11 Jul 2022 03:46:57 +0000
-Received: by mail-pf1-x429.google.com with SMTP id b9so3734486pfp.10;
-        Sun, 10 Jul 2022 20:46:54 -0700 (PDT)
+	id 1oAkO2-00FhAA-AZ; Mon, 11 Jul 2022 03:47:08 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id t5-20020a17090a6a0500b001ef965b262eso3773253pjj.5;
+        Sun, 10 Jul 2022 20:47:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding;
-        bh=lXaZY9eIuwP2fJopKwfWWT3qEb555n6mJNYuev1dBus=;
-        b=SioxnzTe2ch2xEYudKZfsl67d1QZ4TMyJtotZWTK0aAwzTLr9jj8xZp+pV2EbQoBT0
-         MAqRJsKlAj448br5lowpUBxxNEKiSIaSf4cPCV8M8MxZHjLrxh3lyCi8iKO61foW78+D
-         U3wLwVIJShgAZq8T6IAOO45Y0W77tixdThRHmTwLzJ6R7JfZwOteG+R57W/788gzDSuM
-         WSrrUIfKaYTC2JJcXRmfHiExmrpWtn7on9YUz3BRc1kulVxqkGhEPRDg5Zd7mbkhETJx
-         kb2MG90IEqRvvepP4MKGh9DxFmcY/93lXsU9TywbTvUJeRXaVm5GeyLXgoa+sw77yvXJ
-         swhA==
+        bh=5IhrKX64Q/Z6V/1v+K+JVKP0KaAJzbrmRGjpirKbhJY=;
+        b=nTf9L3OC40YJpmHflFSmz6KTAFSTaaZQ/S1ioxVsgmxptGp0IiaRp8EmBLD2A/gyAa
+         xCxhqU4FrY/lAvJTq2moA9lgpqjoUbWVxt9jLxPCj3p706ca9EfduK+9ZEqASUp+iSn4
+         EAQGxSVUN0yLRZXgqjdbfj5Fmtrix3Zcu+LFvg4y16WF7hkCA9xAsOqzQxEjWd454u2h
+         XE+9+f9Iud7s2Mj28twbgXcE2SL3KUqGtSOKhI9wUKt1VHNuIkvy6yU2jFaWI5VZAN/G
+         f94VxtVlrnt015VrVBiB2PQUM0RSK74qAsmnUwlhXwOzhhh3WvHkY5vJB3bG/9C0lVRi
+         fgUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=lXaZY9eIuwP2fJopKwfWWT3qEb555n6mJNYuev1dBus=;
-        b=HE/QZkKQbiNWiyN/ABK6dVyoGGDnEUZG941aaDHXJcxgH35vfO/kng02UC/TlkM7Nv
-         Y7fVdQ9GsQDi8qt6ooijAjvPJKZes4YcVFeRn317TwZZ0SG383xMhCqsxjJrxnI2byjR
-         ZVthATFkUPGJCBnWWYkvDNS9S5nRv/eJgwU8g6dJFpxJYaWagSje11d/6xh2SVG/b1kD
-         3zyVrtCF7TamTOzc38YucQLnbxy5isJ55TfRosJZaEIkvEAEaIlTMicd1KdCk2ltvwTX
-         RgBY22Y7RR9pXteSqFevuqXm1nvFOuiupgvF6rMRQTLhCbFGNC/RwcUSSI5dp7ddPTfE
-         eVyw==
-X-Gm-Message-State: AJIora/i7OUqzI+w/gTULCX1nZY6P7jdmPusOvZMgp9u9k27c3rG5ojr
-	mnznL3NfrZftyPrXw8bpAuE=
-X-Google-Smtp-Source: AGRyM1sZQM/y1E9SIJsc5yJdrFZSjEkOM1rd5dQPXVIU+O/k1albRoiLAbJq418n0LjL4QbX4nTFhg==
-X-Received: by 2002:a05:6a00:1496:b0:52a:c3fb:8ec7 with SMTP id v22-20020a056a00149600b0052ac3fb8ec7mr6880047pfu.25.1657511214461;
-        Sun, 10 Jul 2022 20:46:54 -0700 (PDT)
+        bh=5IhrKX64Q/Z6V/1v+K+JVKP0KaAJzbrmRGjpirKbhJY=;
+        b=1gjIfL2pd2NoR65N/Vrcoq1hoZ2cy70lya2XHN5RFL5cbBFpGr1YMb7mtUU+I3VTIQ
+         yqznlmeq56gwBQ9QLxZMmPs1LfshkLnVPUfnXwoZkC/2u6KJE/QozNHaRemLVTUKtNJS
+         qSX3N8vL4+Wc8eIJaVYC+2Nse3A8Wl9m/aazfaddz+/5pglcxlypS18k3Zj1ljxfRmkk
+         WYvagTEWGs9SrfQvU6fpsYl75cKavCEYS1GxEZu8g8YmOOpsCW4CKD3kNLaK5KMWW4Xj
+         VusX0Uuo75LJIchaX12R20jblJc5u/P/ZYMqPD9cnytsRp1uaqgkzAnnFdyTa6rQyXWt
+         PpXg==
+X-Gm-Message-State: AJIora9KF+ArvSHEz4LWZDuzrerTpfnE84+VFYK7kdoUxIlkpzE0pHFV
+	oF6o60zA8b2XYfLAKlEYi3w=
+X-Google-Smtp-Source: AGRyM1tGbLroqairLqOJOtLQAbkOgD2oJX4eg7rNXG45d2PB1rwtsYjv7Fwlc1lyPAUr+54PmfGNUg==
+X-Received: by 2002:a17:902:8344:b0:16a:6e99:de2c with SMTP id z4-20020a170902834400b0016a6e99de2cmr16521282pln.130.1657511224541;
+        Sun, 10 Jul 2022 20:47:04 -0700 (PDT)
 Received: from localhost.localdomain (47-72-206-164.dsl.dyn.ihug.co.nz. [47.72.206.164])
-        by smtp.gmail.com with ESMTPSA id a13-20020a170902eccd00b001664d88aab3sm3447949plh.240.2022.07.10.20.46.46
+        by smtp.gmail.com with ESMTPSA id a13-20020a170902eccd00b001664d88aab3sm3447949plh.240.2022.07.10.20.46.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 10 Jul 2022 20:46:53 -0700 (PDT)
+        Sun, 10 Jul 2022 20:47:04 -0700 (PDT)
 From: Barry Song <21cnbao@gmail.com>
 To: akpm@linux-foundation.org,
 	linux-mm@kvack.org,
@@ -80,17 +80,24 @@ Cc: corbet@lwn.net,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
-	Barry Song <v-songbaohua@oppo.com>
-Subject: [PATCH v2 2/4] mm: rmap: Allow platforms without mm_cpumask to defer TLB flush
-Date: Mon, 11 Jul 2022 15:46:13 +1200
-Message-Id: <20220711034615.482895-3-21cnbao@gmail.com>
+	Barry Song <v-songbaohua@oppo.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Nadav Amit <namit@vmware.com>,
+	Mel Gorman <mgorman@suse.de>
+Subject: [PATCH v2 3/4] mm: rmap: Extend tlbbatch APIs to fit new platforms
+Date: Mon, 11 Jul 2022 15:46:14 +1200
+Message-Id: <20220711034615.482895-4-21cnbao@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220711034615.482895-1-21cnbao@gmail.com>
 References: <20220711034615.482895-1-21cnbao@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220710_204655_694058_6A3AADE7 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20220710_204706_425129_5E5A6C80 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,164 +116,77 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Barry Song <v-songbaohua@oppo.com>
 
-Platforms like ARM64 have hareware TLB shootdown broadcast. They
-don't maintain mm_cpumask but just send tlbi and related sync
-instructions for TLB flush. task's mm_cpumask is normally empty
-in this case. We also allow deferred TLB flush on this kind of
-platforms.
+Add uaddr to tlbbatch APIs so that platforms like ARM64 are
+able to apply this on their specific hardware features. For
+ARM64, this could be sending tlbi into hardware queues for
+the page with this particular uaddr.
 
-Signed-off-by: Barry Song <v-songbaohua@oppo.com>>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: "H. Peter Anvin" <hpa@zytor.com>
+Cc: Nadav Amit <namit@vmware.com>
+Cc: Mel Gorman <mgorman@suse.de>
+Signed-off-by: Barry Song <v-songbaohua@oppo.com>
 ---
- arch/arm/Kconfig       | 1 +
- arch/loongarch/Kconfig | 1 +
- arch/mips/Kconfig      | 1 +
- arch/openrisc/Kconfig  | 1 +
- arch/powerpc/Kconfig   | 1 +
- arch/riscv/Kconfig     | 1 +
- arch/s390/Kconfig      | 1 +
- arch/um/Kconfig        | 1 +
- arch/x86/Kconfig       | 1 +
- mm/Kconfig             | 3 +++
- mm/rmap.c              | 4 ++++
- 11 files changed, 16 insertions(+)
+ arch/x86/include/asm/tlbflush.h |  3 ++-
+ mm/rmap.c                       | 10 ++++++----
+ 2 files changed, 8 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 7630ba9cb6cc..25c42747f488 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -13,6 +13,7 @@ config ARM
- 	select ARCH_HAS_KEEPINITRD
- 	select ARCH_HAS_KCOV
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
-+	select ARCH_HAS_MM_CPUMASK
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PTE_SPECIAL if ARM_LPAE
- 	select ARCH_HAS_PHYS_TO_DMA
-diff --git a/arch/loongarch/Kconfig b/arch/loongarch/Kconfig
-index 1920d52653b4..4b737c0d17a2 100644
---- a/arch/loongarch/Kconfig
-+++ b/arch/loongarch/Kconfig
-@@ -7,6 +7,7 @@ config LOONGARCH
- 	select ARCH_ENABLE_MEMORY_HOTPLUG
- 	select ARCH_ENABLE_MEMORY_HOTREMOVE
- 	select ARCH_HAS_ACPI_TABLE_UPGRADE	if ACPI
-+	select ARCH_HAS_MM_CPUMASK
- 	select ARCH_HAS_PHYS_TO_DMA
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_TICK_BROADCAST if GENERIC_CLOCKEVENTS_BROADCAST
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index db09d45d59ec..1b196acdeca3 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -9,6 +9,7 @@ config MIPS
- 	select ARCH_HAS_FORTIFY_SOURCE
- 	select ARCH_HAS_KCOV
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE if !EVA
-+	select ARCH_HAS_MM_CPUMASK
- 	select ARCH_HAS_PTE_SPECIAL if !(32BIT && CPU_HAS_RIXI)
- 	select ARCH_HAS_STRNCPY_FROM_USER
- 	select ARCH_HAS_STRNLEN_USER
-diff --git a/arch/openrisc/Kconfig b/arch/openrisc/Kconfig
-index e814df4c483c..82483b192f4a 100644
---- a/arch/openrisc/Kconfig
-+++ b/arch/openrisc/Kconfig
-@@ -9,6 +9,7 @@ config OPENRISC
- 	select ARCH_32BIT_OFF_T
- 	select ARCH_HAS_DMA_SET_UNCACHED
- 	select ARCH_HAS_DMA_CLEAR_UNCACHED
-+	select ARCH_HAS_MM_CPUMASK
- 	select ARCH_HAS_SYNC_DMA_FOR_DEVICE
- 	select COMMON_CLK
- 	select OF
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index c2ce2e60c8f0..19061ffe73a0 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -127,6 +127,7 @@ config PPC
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
- 	select ARCH_HAS_MEMREMAP_COMPAT_ALIGN	if PPC_64S_HASH_MMU
- 	select ARCH_HAS_MMIOWB			if PPC64
-+	select ARCH_HAS_MM_CPUMASK
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PHYS_TO_DMA
- 	select ARCH_HAS_PMEM_API
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index c22f58155948..7570c95a9cc8 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -25,6 +25,7 @@ config RISCV
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_HAS_KCOV
- 	select ARCH_HAS_MMIOWB
-+	select ARCH_HAS_MM_CPUMASK
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_SET_DIRECT_MAP if MMU
- 	select ARCH_HAS_SET_MEMORY if MMU
-diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
-index 91c0b80a8bf0..48d91fa05bab 100644
---- a/arch/s390/Kconfig
-+++ b/arch/s390/Kconfig
-@@ -73,6 +73,7 @@ config S390
- 	select ARCH_HAS_GIGANTIC_PAGE
- 	select ARCH_HAS_KCOV
- 	select ARCH_HAS_MEM_ENCRYPT
-+	select ARCH_HAS_MM_CPUMASK
- 	select ARCH_HAS_PTE_SPECIAL
- 	select ARCH_HAS_SCALED_CPUTIME
- 	select ARCH_HAS_SET_MEMORY
-diff --git a/arch/um/Kconfig b/arch/um/Kconfig
-index 4ec22e156a2e..df29c729267b 100644
---- a/arch/um/Kconfig
-+++ b/arch/um/Kconfig
-@@ -8,6 +8,7 @@ config UML
- 	select ARCH_EPHEMERAL_INODES
- 	select ARCH_HAS_GCOV_PROFILE_ALL
- 	select ARCH_HAS_KCOV
-+	select ARCH_HAS_MM_CPUMASK
- 	select ARCH_HAS_STRNCPY_FROM_USER
- 	select ARCH_HAS_STRNLEN_USER
- 	select ARCH_NO_PREEMPT
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index be0b95e51df6..a91d73866238 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -81,6 +81,7 @@ config X86
- 	select ARCH_HAS_KCOV			if X86_64
- 	select ARCH_HAS_MEM_ENCRYPT
- 	select ARCH_HAS_MEMBARRIER_SYNC_CORE
-+	select ARCH_HAS_MM_CPUMASK
- 	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
- 	select ARCH_HAS_PMEM_API		if X86_64
- 	select ARCH_HAS_PTE_DEVMAP		if X86_64
-diff --git a/mm/Kconfig b/mm/Kconfig
-index 169e64192e48..7bf54f57ca01 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -951,6 +951,9 @@ config ARCH_HAS_CURRENT_STACK_POINTER
- 	  register alias named "current_stack_pointer", this config can be
- 	  selected.
+diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
+index 4af5579c7ef7..1b32f4b999c7 100644
+--- a/arch/x86/include/asm/tlbflush.h
++++ b/arch/x86/include/asm/tlbflush.h
+@@ -251,7 +251,8 @@ static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
+ }
  
-+config ARCH_HAS_MM_CPUMASK
-+	bool
-+
- config ARCH_HAS_VM_GET_PAGE_PROT
- 	bool
- 
+ static inline void arch_tlbbatch_add_mm(struct arch_tlbflush_unmap_batch *batch,
+-					struct mm_struct *mm)
++					struct mm_struct *mm,
++					unsigned long uaddr)
+ {
+ 	inc_mm_tlb_gen(mm);
+ 	cpumask_or(&batch->cpumask, &batch->cpumask, mm_cpumask(mm));
 diff --git a/mm/rmap.c b/mm/rmap.c
-index 5bcb334cd6f2..13d4f9a1d4f1 100644
+index 13d4f9a1d4f1..a52381a680db 100644
 --- a/mm/rmap.c
 +++ b/mm/rmap.c
-@@ -692,6 +692,10 @@ static bool should_defer_flush(struct mm_struct *mm, enum ttu_flags flags)
- 	if (!(flags & TTU_BATCH_FLUSH))
- 		return false;
+@@ -642,12 +642,13 @@ void try_to_unmap_flush_dirty(void)
+ #define TLB_FLUSH_BATCH_PENDING_LARGE			\
+ 	(TLB_FLUSH_BATCH_PENDING_MASK / 2)
  
-+#ifndef CONFIG_ARCH_HAS_MM_CPUMASK
-+	return true;
-+#endif
-+
- 	/* If remote CPUs need to be flushed then defer batch the flush */
- 	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
- 		should_defer = true;
+-static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
++static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable,
++				      unsigned long uaddr)
+ {
+ 	struct tlbflush_unmap_batch *tlb_ubc = &current->tlb_ubc;
+ 	int batch, nbatch;
+ 
+-	arch_tlbbatch_add_mm(&tlb_ubc->arch, mm);
++	arch_tlbbatch_add_mm(&tlb_ubc->arch, mm, uaddr);
+ 	tlb_ubc->flush_required = true;
+ 
+ 	/*
+@@ -736,7 +737,8 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
+ 	}
+ }
+ #else
+-static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
++static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable,
++				      unsigned long uaddr)
+ {
+ }
+ 
+@@ -1599,7 +1601,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 				 */
+ 				pteval = ptep_get_and_clear(mm, address, pvmw.pte);
+ 
+-				set_tlb_ubc_flush_pending(mm, pte_dirty(pteval));
++				set_tlb_ubc_flush_pending(mm, pte_dirty(pteval), address);
+ 			} else {
+ 				pteval = ptep_clear_flush(vma, address, pvmw.pte);
+ 			}
 -- 
 2.25.1
 
