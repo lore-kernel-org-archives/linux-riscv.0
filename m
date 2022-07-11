@@ -4,67 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D542DC43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 07:30:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1579FC43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 08:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KqOn4ID8DrxhlP48i3Vn5RWDsCYsKJ7zbqcHNl9Whk8=; b=S7MYWrrwxzpYTe
-	M+NFluHaNEtQVxiKnVb2DGSj5QXacvH0nQs36o80ITaSFSmo8n1zQ1rg+7ppvTsgoeQyRw+A/GUON
-	jVdNNm3FXcJTtWUdzDgQgvimHTwpmmrFy+mEitMcd5VVdwoCrvQe5DKPIK3p/wXpI6jtYGx3TT+w3
-	aWEeHMPU2g8v6/wFkSckDrLYfEhQGGMloutwywqLlwdjs9Lz2onzusJREde2YKxWTB5S0mAgx+YdI
-	yO2ZGzrPypM5xwpMnYs6sJee4JcJmeAfH+Q56ZxLcBYjyPf++fh7lnoNvGwYT/UlQU43BINmOk2PN
-	y+UuwnporjPIf8OOn8pQ==;
+	List-Owner; bh=nzzlWjzOl/qxkQDmJWTlckfBY2yiEFW5QBY4W468jzI=; b=N7ZovqbwKB5RRA
+	DPa0mLo67ya9Hc/5zwiGoY35afr0f/Tu87ktF6dYS0EORtIY1uT/Z6gNSNQzmJW/ob6egEQXwaTVz
+	HlxqLIXAsC/bj6FeAgGrj6X79OYZNtbDVO0uISIkAWZSOkUtIXGBODK78578zlOpe5n+VxkNzlTuk
+	7uy0xnpc8pHxWUBWwDRvxH1DhsQ9cfM2l6aGJkQn1wrB19cFKE6iucpcIgEx5It1C+O4KFfDq3BNY
+	K46SKYhMAoNJ9xoFD6QmEuRYh4ttmS6XK+0E95MdD15ZtpZIMCCPuUBtm4YQsNqAwcocEXJv3KqVr
+	J3YC9IUi+apYYjYZrPmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAnsN-00GpvQ-Lg; Mon, 11 Jul 2022 07:30:39 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1oAp5o-00HKSw-PZ; Mon, 11 Jul 2022 08:48:36 +0000
+Received: from mail-pf1-f177.google.com ([209.85.210.177])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAnlC-00GmZj-4q
-	for linux-riscv@lists.infradead.org; Mon, 11 Jul 2022 07:23:15 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-2ef5380669cso40025057b3.9
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Jul 2022 00:23:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=2SoPBJmKp0saSsSrJnUdC1t5V8sczg7YM6NjBDpfI9M=;
-        b=uOrNhwEocIf53B5XY1R2Tvu8TokuoTzcDM9cm+Z4aJpx7RLrreRyBxVf7yGkHtiZJe
-         KxtuvbeyKR6ZXN/gY+cL+glI0SXf8NV/VPP5bIZFSQ+ePo6T/VmYtcgK62oNI6ZAqb/Z
-         WF+IkIGCKEeM7WZIfIdSbQ3gNlgxGxtXHQyu4=
+	id 1oAp5J-00HKBd-AG
+	for linux-riscv@lists.infradead.org; Mon, 11 Jul 2022 08:48:07 +0000
+Received: by mail-pf1-f177.google.com with SMTP id 70so4232089pfx.1
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Jul 2022 01:48:03 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=2SoPBJmKp0saSsSrJnUdC1t5V8sczg7YM6NjBDpfI9M=;
-        b=1WWLj61GwxKPqOcLCt6cem2k7oCCNl7NdaWSqMUOpVcIl1c+JWEd29AUKZ/+0h/ADu
-         kyQi5Wxe74F7gF0NwDBb9HZ+7timxsn70GpuHU+KiYZjij5eO+fdxvMb6KLp+Mcck6cI
-         RWQufcmAhiB2eXoSWo4d5ZHsnPzh9PnXRrrnfPmNBq4U0nMJdl1IR+jBK2/H4OXlIzpU
-         +V5ubzu8XOyqJzhHy7ZHNsWxGyBaCDmfX9AfhSyLmS9GYXjw2A3L9tfiiSFv/g7LvXiT
-         +86xusXc2KZBcHGek0luM7FO5HplLGVM+X149oj88gbFHCUZj1KAOO4OP+7hwNBWYC3M
-         sX+w==
-X-Gm-Message-State: AJIora9PzS5ImR842hiT1qKqCjtH8toxCqfKzwlji3BL5CAps72feOy8
-	wtWmi8w+eqtywBWatkzc2IOAMZZyt7cqKDNsQJ1kGJp19Q==
-X-Google-Smtp-Source: AGRyM1urq7PZ8Mtl92sfk9Au28AkBWUvldy4Lo74JrDu9e2Zto9Rj1gaNUByC2UgLYepy71G0xXK5jMH1Gk8p202EuQ=
-X-Received: by 2002:a81:5d55:0:b0:31c:dce7:96c9 with SMTP id
- r82-20020a815d55000000b0031cdce796c9mr17693064ywb.519.1657524189324; Mon, 11
- Jul 2022 00:23:09 -0700 (PDT)
+        bh=sArXXQj5yN5trfkMj+2zTcmQ9d7fsodbPTFMtpx4Fqo=;
+        b=huaEZRevxRySVkywXdb6MDx4OUKmDACi7DemFC1NRbrOZktFBfH4aWzxgCcZt0+oEI
+         zX2DhM0FIyY41C7txWmLkMZH1HQE5tdZgsnlEl6VW3AnlTZetAF17LhBCa1CpSZI0sXl
+         sv0IJ+6hROC7qvnvucP3X84E8FhIy3gGki6QvHnKMQ6oZWX1t2uZ4oz7I34PU1cdAwL/
+         h7JPzmxbqogtuUPVOrWR+wMoNazGMaL2zXdgIr1c6b1IpvRxbwTAirT6Ii845ElZrtNr
+         lzxXoa46ze0Z6iByROfqTBXkX6tGUPv6bLBLYMa9xwF8ktBRNX8QPjOBLerVVIoUrzjN
+         01ww==
+X-Gm-Message-State: AJIora+lTDe3Fx/uKVcb/s3JXPnlej/CXeX2MyRTQZkT3JI0zk9q3yWA
+	bdUmCT9LNLJss/CXkX1JUUSeN9zbv5hMaPwDrmGahnpTGDk=
+X-Google-Smtp-Source: AGRyM1tTOkjVtGUH9tdNwvjE+j5fM7I1AwjbSHeBbgiMkXKFjNhkVs3xYJQGOpIJRPT+6JWwGobvrzMnd3NjKeY5JwI=
+X-Received: by 2002:a63:1c6:0:b0:412:a989:34f4 with SMTP id
+ 189-20020a6301c6000000b00412a98934f4mr15578426pgb.72.1657529282742; Mon, 11
+ Jul 2022 01:48:02 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220624135902.520748-1-geomatsi@gmail.com> <20220624135902.520748-2-geomatsi@gmail.com>
- <YsvGk+ybtFZ9wQk1@curiosity>
-In-Reply-To: <YsvGk+ybtFZ9wQk1@curiosity>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Mon, 11 Jul 2022 00:22:58 -0700
-Message-ID: <CAOnJCUL8LUGbTkt5YywMHS07C0M8Dt1E=w5J22vJwisU_WWF9A@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] perf: RISC-V: fix access beyond allocated array
-To: Sergey Matyukevich <geomatsi@gmail.com>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>, Anup Patel <anup@brainfault.org>
+References: <20220710111330.3920699-1-mail@conchuod.ie>
+In-Reply-To: <20220710111330.3920699-1-mail@conchuod.ie>
+From: Emil Renner Berthing <kernel@esmil.dk>
+Date: Mon, 11 Jul 2022 10:47:51 +0200
+Message-ID: <CANBLGcwTeOHkFMTCG+hnV4xojeAr5x_gr0ABXHq2S39ZcUzE+A@mail.gmail.com>
+Subject: Re: [RFC 0/2] JH7100 Monitor Core
+To: Conor Dooley <mail@conchuod.ie>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220711_002314_248271_47737150 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20220711_014805_378347_10E14FCF 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,32 +73,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 10, 2022 at 11:43 PM Sergey Matyukevich <geomatsi@gmail.com> wrote:
+On Sun, 10 Jul 2022 at 13:13, Conor Dooley <mail@conchuod.ie> wrote:
 >
-> > The root cause could be related to the interpretation of the number of
-> > counters reported by SBI firmware. For instance, if we assume that unused
-> > timer counter with index 1 is not reported, then the range is correct
-> > and larger array needs to be allocated.
-> >
-> > This is not the case though since SBI firmware is supposed to report the
-> > total number of firmware and hardware counters including special or
-> > unused ones like the timer counter. So just fix the range in for-loop.
+> From: Conor Dooley <conor.dooley@microchip.com>
 >
-> Hi Atish,
+> Hey Emil,
 >
-> Just a friendly reminder.
+> Had a go at adding that E24, made it an RFC b/c I am not sure if I got
+> the cache setup anywhere close to correct. I had a look in the SiFive
+> E24 docs & in [0] which said "16KB I-cache with 32 Byte cache line".
+> Didn't have anything else to go on, so I kept the same ratio between
+> lines/sets/size as other SiFive monitor cores, but since they're not
+> 32 bit I dunno if that's correct (IOW it is a wild guess).
 >
+> Hopefully you know better than I do..
 
-Sorry. I thought I already sent the RB tag.
+Hi Conor,
 
-> Regards,
-> Sergey
+Thanks for the patch! Unfortunately I don't know any more, but I'm
+fine with adding this data for now.
 
+/Emil
 
+1: https://sifive.cdn.prismic.io/sifive/dc408861-94ce-4d82-a704-caddec98609d_e24_core_complex_manual_21G3.pdf
 
--- 
-Regards,
-Atish
+> Thanks,
+> Conor.
+>
+> 0: https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Data%20Sheet%20V01.01.04-EN%20(4-21-2021).pdf
+>
+> Conor Dooley (2):
+>   dt-bindings: riscv: document the sifive e24
+>   riscv: dts: starfive: add the missing monitor core
+>
+>  .../devicetree/bindings/riscv/cpus.yaml       |  2 ++
+>  arch/riscv/boot/dts/starfive/jh7100.dtsi      | 20 +++++++++++++++++++
+>  2 files changed, 22 insertions(+)
+>
+> --
+> 2.37.0
+>
 
 _______________________________________________
 linux-riscv mailing list
