@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE673C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 15:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF627C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 15:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NfxueKBAz1HRNE0XyBdcu/+rZPCGsQpCWr7HxLT1cng=; b=VZRDYnrL0hEE8q
-	tels0BBu5D31W9KEH/vyvRYjfVk1qPs871PVvGJkvQNTKnZeO4dORCG87hqi91W74kWdBpAyDmLzp
-	Nxpb2Fj39ta0nSD21h0hmUWW4+kyF00j7DAr/WaoXz7lOZYbgBLQC8XovcdYl4mQhbDwsbL+4vUNL
-	fqNw5EYNlFqtnv7CsJ1zaf6lDJOzmAstC4PtRdYotRKXDNjENiQyKtaYlWPqvYtqrrfTdzjdbycFy
-	95eEsQ0PJVDHCy2xiNjlWwdqy7scm/GwJPCD0wkJnly1vlFdrPP7jsf3rNIQxjq8LDn3wIcK3UX3u
-	ZTWHv9fzLVo+cJA76P+g==;
+	List-Owner; bh=kgDfrtSsPYuN3QMoL8KxY3KwvV/9d2EkLo6slFRvyXs=; b=NCkR+BEG9uNcXG
+	kDtbPf+HDmNkhhkHtZhHUXSDf4NHNTckn2DWZA4Mn7mAeBKKgbov6KaGDGPRMvT89jgv76foG4qQS
+	VqtYadnVcCKjuDJdwm6iuoPs0bVWr8CRWEf4UpYyXgyXRHlgn+6EutVbIbREh0NMEWAbxnkEhu4XG
+	QEKT78qMDv6DSDEHb8mcoZM/zyeBtiM5DIEs1gLoHrORWqODsLk4o249uwpJGWk8s3FWVGL7+it6e
+	BlXLnOl1SGb7MoUeQqYx9Mx4QtZTvZRWDqi7pB8Aut6iTwB7WXn19hdU0iot8A7sXUMAmb/K5cNc+
+	yAy6GE8rztUEWyyOETSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAuuk-002hDi-3R; Mon, 11 Jul 2022 15:01:34 +0000
+	id 1oAvIJ-002qjZ-TW; Mon, 11 Jul 2022 15:25:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAuuB-002gp4-4n; Mon, 11 Jul 2022 15:01:01 +0000
+	id 1oAvI8-002qfg-PQ; Mon, 11 Jul 2022 15:25:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BE1D91596;
-	Mon, 11 Jul 2022 08:00:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F3A91596;
+	Mon, 11 Jul 2022 08:25:41 -0700 (PDT)
 Received: from bogus (unknown [10.57.39.193])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A2DE23F70D;
-	Mon, 11 Jul 2022 08:00:52 -0700 (PDT)
-Date: Mon, 11 Jul 2022 15:59:41 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 56F7F3F70D;
+	Mon, 11 Jul 2022 08:25:35 -0700 (PDT)
+Date: Mon, 11 Jul 2022 16:24:23 +0100
 From: Sudeep Holla <sudeep.holla@arm.com>
-To: Conor Dooley <mail@conchuod.ie>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Conor Dooley <mail@conchuod.ie>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
 	Palmer Dabbelt <palmer@rivosinc.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J . Wysocki" <rafael@kernel.org>,
 	Daire McNamara <daire.mcnamara@microchip.com>,
 	Conor Dooley <conor.dooley@microchip.com>,
@@ -59,16 +59,19 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Brice Goglin <Brice.Goglin@inria.fr>
-Subject: Re: [PATCH v3 2/2] riscv: topology: fix default topology reporting
-Message-ID: <20220711145941.q5rdrtavstjkp3km@bogus>
+Subject: Re: [PATCH v3 1/2] arm64: topology: move store_cpu_topology() to
+ shared code
+Message-ID: <20220711152423.djfqk6wbhmrshbkr@bogus>
 References: <20220709152354.2856586-1-mail@conchuod.ie>
- <20220709152354.2856586-3-mail@conchuod.ie>
+ <20220709152354.2856586-2-mail@conchuod.ie>
+ <20220711143542.nlq6a5nuh4nouomo@bogus>
+ <Ysw4voXuz+tcSKhf@kroah.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220709152354.2856586-3-mail@conchuod.ie>
+In-Reply-To: <Ysw4voXuz+tcSKhf@kroah.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220711_080059_323295_4FF6B924 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20220711_082544_941172_1DFEAC2E 
+X-CRM114-Status: GOOD (  23.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,95 +88,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 09, 2022 at 04:23:55PM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
+On Mon, Jul 11, 2022 at 04:50:38PM +0200, Greg Kroah-Hartman wrote:
+> On Mon, Jul 11, 2022 at 03:35:42PM +0100, Sudeep Holla wrote:
+> > On Sat, Jul 09, 2022 at 04:23:54PM +0100, Conor Dooley wrote:
+> > > From: Conor Dooley <conor.dooley@microchip.com>
+> > > 
+> > > arm64's method of defining a default cpu topology requires only minimal
+> > > changes to apply to RISC-V also. The current arm64 implementation exits
+> > > early in a uniprocessor configuration by reading MPIDR & claiming that
+> > > uniprocessor can rely on the default values.
+> > > 
+> > > This is appears to be a hangover from prior to '3102bc0e6ac7 ("arm64:
+> > > topology: Stop using MPIDR for topology information")', because the
+> > > current code just assigns default values for multiprocessor systems.
+> > > 
+> > > With the MPIDR references removed, store_cpu_topolgy() can be moved to
+> > > the common arch_topology code.
+> > >
+> > 
+> > Looks good. FWIW,
+> > 
+> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> > 
+> > > CC: stable@vger.kernel.org
+> > 
+> > However, while I understand the reason why this is needed in stable trees
+> > for RISC-V, I am not sure if we want this for stable tree at-least on arm64.
+> > I leave that part to Greg and Will.
 > 
-> RISC-V has no sane defaults to fall back on where there is no cpu-map
-> in the devicetree.
-> Without sane defaults, the package, core and thread IDs are all set to
-> -1. This causes user-visible inaccuracies for tools like hwloc/lstopo
-> which rely on the sysfs cpu topology files to detect a system's
-> topology.
-> 
-> On a PolarFire SoC, which should have 4 harts with a thread each,
-> lstopo currently reports:
-> 
-> Machine (793MB total)
->   Package L#0
->     NUMANode L#0 (P#0 793MB)
->     Core L#0
->       L1d L#0 (32KB) + L1i L#0 (32KB) + PU L#0 (P#0)
->       L1d L#1 (32KB) + L1i L#1 (32KB) + PU L#1 (P#1)
->       L1d L#2 (32KB) + L1i L#2 (32KB) + PU L#2 (P#2)
->       L1d L#3 (32KB) + L1i L#3 (32KB) + PU L#3 (P#3)
-> 
-> Adding calls to store_cpu_topology() in {boot,smp} hart bringup code
-> results in the correct topolgy being reported:
-> 
-> Machine (793MB total)
->   Package L#0
->     NUMANode L#0 (P#0 793MB)
->     L1d L#0 (32KB) + L1i L#0 (32KB) + Core L#0 + PU L#0 (P#0)
->     L1d L#1 (32KB) + L1i L#1 (32KB) + Core L#1 + PU L#1 (P#1)
->     L1d L#2 (32KB) + L1i L#2 (32KB) + Core L#2 + PU L#2 (P#2)
->     L1d L#3 (32KB) + L1i L#3 (32KB) + Core L#3 + PU L#3 (P#3)
-> 
-> CC: stable@vger.kernel.org
-> Fixes: 03f11f03dbfe ("RISC-V: Parse cpu topology during boot.")
-> Reported-by: Brice Goglin <Brice.Goglin@inria.fr>
-> Link: https://github.com/open-mpi/hwloc/issues/536
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> ---
->  arch/riscv/Kconfig          | 2 +-
->  arch/riscv/kernel/smpboot.c | 4 +++-
->  2 files changed, 4 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 2af0701b7518..4b6c2fdbb57c 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -52,7 +52,7 @@ config RISCV
->  	select COMMON_CLK
->  	select CPU_PM if CPU_IDLE
->  	select EDAC_SUPPORT
-> -	select GENERIC_ARCH_TOPOLOGY if SMP
-> +	select GENERIC_ARCH_TOPOLOGY
+> Why would it be good for one arch but bad for another?
 
-I am not sure of !SMP as ARM64 is default SMP only. I have never reviewed
-the arch topology code with !SMP considered. I will leave that part to
-RISC-V developers.
+Not really bad as such. Just needs testing and must not change much ideally,
+but it really depends on which stable trees we will target and what is the
+original state there. As mentioned in the commit, this changed a bit around
+v5.8/9 on arm64 and not sure what kernels RISC-V needs this. There could
+be some surprises on some Andriod platforms but that is something we can
+look at when if and when there are complaints.
 
->  	select GENERIC_ATOMIC64 if !64BIT
->  	select GENERIC_CLOCKEVENTS_BROADCAST if SMP
->  	select GENERIC_EARLY_IOREMAP
-> diff --git a/arch/riscv/kernel/smpboot.c b/arch/riscv/kernel/smpboot.c
-> index f1e4948a4b52..a1c861f84fe2 100644
-> --- a/arch/riscv/kernel/smpboot.c
-> +++ b/arch/riscv/kernel/smpboot.c
-> @@ -40,6 +40,8 @@ static DECLARE_COMPLETION(cpu_running);
->  void __init smp_prepare_boot_cpu(void)
->  {
->  	init_cpu_topology();
-> +
-> +	store_cpu_topology(smp_processor_id());
->  }
->  
->  void __init smp_prepare_cpus(unsigned int max_cpus)
-> @@ -161,9 +163,9 @@ asmlinkage __visible void smp_callin(void)
->  	mmgrab(mm);
->  	current->active_mm = mm;
->  
-> +	store_cpu_topology(curr_cpuid);
->  	notify_cpu_starting(curr_cpuid);
->  	numa_add_cpu(curr_cpuid);
-> -	update_siblings_masks(curr_cpuid);
->  	set_cpu_online(curr_cpuid, 1);
->  
->  	/*
-
-Other than that, this looks good. FWIW:
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+I am in general not sure what is the -stable tree rules is such situation and
+hence made the noise so that we are aware that we may need more work than just
+backporting this patch. Also this is just my opinion. If we decide to backport
+esp. to kernels older than the one containing 3102bc0e6ac7, then arm64 may need
+more changes or probably we can pull that commit if that makes it easier. Based
+on what is decided and what are the targeted -stable trees, we can dig deeper.
 
 -- 
 Regards,
