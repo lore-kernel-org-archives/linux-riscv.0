@@ -4,74 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB176C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 01:38:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999D4C433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 02:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uw9uYODPX8tC2Jy+6QprDY6De+KRRFu+7tEw4qk0hsU=; b=S9ny+VVrcIuyjr
-	zM3FvxUj/7XSMeil+JyOfRtXeiQ/EDvoHWjiSxSXERlD6G3ZpfhICBEdBdDH9dKisrrPr/WFOJ2pt
-	FyuJaQJojEhWc81AQvefqI+g/ce1GDWorgJ5sc94F15VwHDYjIcB1Axk5MA8izpZxKBZecx0KeRxZ
-	Ha2d9xo3RslrJg+gVJ5viSixAeawwjp/BGx5SYaokr8Flkkq921uVo7M5Eex6X0SqW6mNgsgqcnsi
-	csiyLmt9J5LI4g8snKV9TIn+pGUL56Cf0QnjmlHLzNHs0+T4Z5bVfBVleMubCxjlC9+jjCD8W6Rxi
-	rIe0b4IHl6NwvuCxzmmg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Pkc63Nl8OEHoRSUU7R0ohAK/34IlbmG2i0CXZEJ6Ui0=; b=e1ydG5U1ESc0ys
+	0o3+C3mXoBum9awQPTY7nFQEyxcSueOqpaHwQ129PpfNvXTBYMfwhAts8eL9AQpLAc7sHfyLwRgvT
+	S3JFcinLeerdIQtSJbr0CFglnuI5LMFHChdkJ0jHaZaNME+nOOky2Si1di/KHHRBJGAvkHtH3vPqF
+	T0DmyuuQ6nPCW0z51t0Co1OMdgDRRWwacXDPezZCB4EgzQlA906ykPF/eUN2ibbJaXCZuk6UWHU3P
+	rEZ9vBmQuLNqR9KJ7HXppTVXXzAA4R0kIHbmmDe9fDMfZjXnBQgGGqgSJpTZM7ZxFdlHrIW4uL1Ii
+	x3GMmnJ96YHnUsuWgvfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAiNN-00F2G4-LZ; Mon, 11 Jul 2022 01:38:17 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1oAjRe-00FLPW-A6; Mon, 11 Jul 2022 02:46:46 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAiNK-00F2Dr-6J; Mon, 11 Jul 2022 01:38:15 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id 20so2925178qky.5;
-        Sun, 10 Jul 2022 18:38:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=xureSuw2V9E7tzVjUzBjylXpgFwjrDdPqi99TNgwo2k=;
-        b=GlElJxs6r9uyx/SQSYXULuTbs82yeDXXiSIJtB2p4ltiJUAxG9ZiGA77JLrro7RlQX
-         0kY2uWkVTgoPyTQhbejFres652JV82MmsmKKBoW3lGZVjXUzs+12F4Ds3sk8Hj8h2gqZ
-         TKthuvDMbemYVTKyLKl9gtMEOcu1gE2GYBXWlJRP5kRRR08sHNwobRml2McKgUfTpkBm
-         Stp0xir9M5UC+LyL8+nWyupiuK8UQalEUuKhWtpjANVl4t1qkAU7NxHjPigfxquc/ExS
-         0GQE90k2A3wgZURr1hM9eBXsn12M8PbjuTXwMkeWaDVvYrXYJf/5PfX2OzzSpjuD7XA7
-         BOQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=xureSuw2V9E7tzVjUzBjylXpgFwjrDdPqi99TNgwo2k=;
-        b=XapiohFGPpT9ILOVVotem3hYeug7+KWIRgjV0zKtj0V67aqtZwE18gIKun4EXcYjUf
-         fvTLT+FYxiXapVj9kVy4E3D6WbpJeoddBeua/+7koNJYloa3dp2Dpyyur4lD2Cwle4/1
-         sToBVCdvxxoADSeXHLbJHE9573qAnPmbvxcYlQuzqEjUbOblkdm647ZGXc5RZozUoG/Z
-         amZ4pbUaWMmntujlNcbCAw+LZRQ0yZN/UvcsCqf4NMirS9FutQ45i90IP37hHGWwLcpr
-         /xhqC3xxBqoSpo6Gwe2NUIm4/Q4PvYRI3YpXvEoM/3wOUKlsn3RLNS6Pei7JfX32pHA+
-         vFag==
-X-Gm-Message-State: AJIora9U/OJQOTxLxeRD5R97jYEC4JkYrSQvVeHYkbxRWZu8MVJZ0PQ0
-	9UZ1IaH8MC1HjnabU74WIryWqgQ0bZU8oC31tqs=
-X-Google-Smtp-Source: AGRyM1s9CHhxiUJJJrpIWa/HhpPbtbrmDcWTIZPv8HTqxaBbr9Pt2wMHh5OR5W6Z1I4zv7JCvOyBTmsSuwGZMVkeZ9s=
-X-Received: by 2002:a05:620a:430f:b0:6a7:9f9d:20cd with SMTP id
- u15-20020a05620a430f00b006a79f9d20cdmr9909341qko.389.1657503492197; Sun, 10
- Jul 2022 18:38:12 -0700 (PDT)
+	id 1oAjRa-00FLN9-JS
+	for linux-riscv@lists.infradead.org; Mon, 11 Jul 2022 02:46:44 +0000
+Received: from dggpemm500024.china.huawei.com (unknown [172.30.72.55])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4Lh7W91DfFz1L8q5;
+	Mon, 11 Jul 2022 10:44:05 +0800 (CST)
+Received: from dggpemm500016.china.huawei.com (7.185.36.25) by
+ dggpemm500024.china.huawei.com (7.185.36.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Mon, 11 Jul 2022 10:46:36 +0800
+Received: from huawei.com (10.67.175.41) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Mon, 11 Jul
+ 2022 10:46:36 +0800
+From: Yipeng Zou <zouyipeng@huawei.com>
+To: <linux-riscv@lists.infradead.org>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <guoren@kernel.org>
+CC: <zouyipeng@huawei.com>
+Subject: [PATCH -next] riscv:uprobe remove set/clear SR_SPIE in arch_uprobe_pre/post/abort_xol
+Date: Mon, 11 Jul 2022 10:43:50 +0800
+Message-ID: <20220711024350.49611-1-zouyipeng@huawei.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-References: <20220710151105.687193-1-apatel@ventanamicro.com>
-In-Reply-To: <20220710151105.687193-1-apatel@ventanamicro.com>
-From: Bin Meng <bmeng.cn@gmail.com>
-Date: Mon, 11 Jul 2022 09:37:59 +0800
-Message-ID: <CAEUhbmUzzoA4uUQ3tRk4V3jAA14AfPnD08KM0GT5Px6DMFwBRA@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: Fix SRCU deadlock caused by kvm_riscv_check_vcpu_requests()
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Alistair Francis <Alistair.Francis@wdc.com>, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Anup Patel <anup@brainfault.org>, 
-	KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	linux-kernel <linux-kernel@vger.kernel.org>
+X-Originating-IP: [10.67.175.41]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220710_183814_274045_D5E3C48E 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20220710_194642_844375_A5B84C82 
+X-CRM114-Status: UNSURE (   5.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,49 +69,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 10, 2022 at 11:11 PM Anup Patel <apatel@ventanamicro.com> wrote:
->
-> The kvm_riscv_check_vcpu_requests() is called with SRCU read lock held
-> and for KVM_REQ_SLEEP request it will block the VCPU without releasing
-> SRCU read lock. This causes KVM ioctls (such as KVM_IOEVENTFD) from
-> other VCPUs of the same Guest/VM to hang/deadlock if there is any
-> synchronize_srcu() or synchronize_srcu_expedited() in the path.
->
-> To fix the above in kvm_riscv_check_vcpu_requests(), we should do SRCU
-> read unlock before blocking the VCPU and do SRCU read lock after VCPU
-> wakeup.
->
-> Fixes: cce69aff689e ("RISC-V: KVM: Implement VCPU interrupts and
-> requests handling")
+In riscv the process of uprobe going to clear spie before exec
+the origin insn,and set spie after that.But When access the page
+which origin insn has been placed a page fault may happen and
+irq was disabled in arch_uprobe_pre_xol function,It cause a WARN
+as follows.
+There is no need to clear/set spie in arch_uprobe_pre/post/abort_xol.
+We can just remove it.
 
-nites: the "Fixes" tag should be put in a single line to avoid
-breaking scripts that parse the "Fixes" tag
+[   31.684157] BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1488
+[   31.684677] in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 76, name: work
+[   31.684929] preempt_count: 0, expected: 0
+[   31.685969] CPU: 2 PID: 76 Comm: work Tainted: G
+[   31.686542] Hardware name: riscv-virtio,qemu (DT)
+[   31.686797] Call Trace:
+[   31.687053] [<ffffffff80006442>] dump_backtrace+0x30/0x38
+[   31.687699] [<ffffffff80812118>] show_stack+0x40/0x4c
+[   31.688141] [<ffffffff8081817a>] dump_stack_lvl+0x44/0x5c
+[   31.688396] [<ffffffff808181aa>] dump_stack+0x18/0x20
+[   31.688653] [<ffffffff8003e454>] __might_resched+0x114/0x122
+[   31.688948] [<ffffffff8003e4b2>] __might_sleep+0x50/0x7a
+[   31.689435] [<ffffffff80822676>] down_read+0x30/0x130
+[   31.689728] [<ffffffff8000b650>] do_page_fault+0x166/x446
+[   31.689997] [<ffffffff80003c0c>] ret_from_exception+0x0/0xc
 
-> Reported-by: Bin Meng <bmeng.cn@gmail.com>
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  arch/riscv/kvm/vcpu.c | 2 ++
->  1 file changed, 2 insertions(+)
->
-> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index b7a433c54d0f..5d271b597613 100644
-> --- a/arch/riscv/kvm/vcpu.c
-> +++ b/arch/riscv/kvm/vcpu.c
-> @@ -845,9 +845,11 @@ static void kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
->
->         if (kvm_request_pending(vcpu)) {
->                 if (kvm_check_request(KVM_REQ_SLEEP, vcpu)) {
-> +                       kvm_vcpu_srcu_read_unlock(vcpu);
->                         rcuwait_wait_event(wait,
->                                 (!vcpu->arch.power_off) && (!vcpu->arch.pause),
->                                 TASK_INTERRUPTIBLE);
-> +                       kvm_vcpu_srcu_read_lock(vcpu);
->
->                         if (vcpu->arch.power_off || vcpu->arch.pause) {
->                                 /*
-> --
+Signed-off-by: Yipeng Zou <zouyipeng@huawei.com>
+---
+ arch/riscv/kernel/probes/uprobes.c | 6 ------
+ 1 file changed, 6 deletions(-)
 
-Tested-by: Bin Meng <bmeng.cn@gmail.com>
+diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
+index 7a057b5f0adc..c976a21cd4bd 100644
+--- a/arch/riscv/kernel/probes/uprobes.c
++++ b/arch/riscv/kernel/probes/uprobes.c
+@@ -59,8 +59,6 @@ int arch_uprobe_pre_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
+ 
+ 	instruction_pointer_set(regs, utask->xol_vaddr);
+ 
+-	regs->status &= ~SR_SPIE;
+-
+ 	return 0;
+ }
+ 
+@@ -72,8 +70,6 @@ int arch_uprobe_post_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
+ 
+ 	instruction_pointer_set(regs, utask->vaddr + auprobe->insn_size);
+ 
+-	regs->status |= SR_SPIE;
+-
+ 	return 0;
+ }
+ 
+@@ -111,8 +107,6 @@ void arch_uprobe_abort_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
+ 	 * address.
+ 	 */
+ 	instruction_pointer_set(regs, utask->vaddr);
+-
+-	regs->status &= ~SR_SPIE;
+ }
+ 
+ bool arch_uretprobe_is_alive(struct return_instance *ret, enum rp_check ctx,
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
