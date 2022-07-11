@@ -4,111 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F193C43334
-	for <linux-riscv@archiver.kernel.org>; Sun, 10 Jul 2022 23:21:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB176C43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 01:38:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/AA259z7mmKI1W2o8CeXFVaEBPDFhO3lSc3PUcTTx0Y=; b=fTkLzEE3/70Vhn
-	N0bq30mE27mdzH7WaRJDShwqtWl5MnSJZKKzf/29WMVk26+bQR8o4uiF7bfqXlx/J30s5rdwDa9PE
-	muj2+5p6Q0mmgSYU4zznYN9mwCcnD8WdQpoGdjSAzHBGIznTim6A1dWijNFhJD75Xo3Q6vo3+Ybsr
-	z8gcHleopXxVWe0dg9Oh4kTaC2AbeqQKfvb+IkdLQnL6SeblpmDvzoydm3Tq5+lOuMtgY+CC9zp8B
-	5U9h+epWkfdc4q9Abiiy+SwJQ4th4gvPtYaS+YebiEeOBFZT5Ifd/vf0LEvNJTukQHRDi5QoDxHIU
-	gSqNbY81gSEa4W6acxzA==;
+	List-Owner; bh=uw9uYODPX8tC2Jy+6QprDY6De+KRRFu+7tEw4qk0hsU=; b=S9ny+VVrcIuyjr
+	zM3FvxUj/7XSMeil+JyOfRtXeiQ/EDvoHWjiSxSXERlD6G3ZpfhICBEdBdDH9dKisrrPr/WFOJ2pt
+	FyuJaQJojEhWc81AQvefqI+g/ce1GDWorgJ5sc94F15VwHDYjIcB1Axk5MA8izpZxKBZecx0KeRxZ
+	Ha2d9xo3RslrJg+gVJ5viSixAeawwjp/BGx5SYaokr8Flkkq921uVo7M5Eex6X0SqW6mNgsgqcnsi
+	csiyLmt9J5LI4g8snKV9TIn+pGUL56Cf0QnjmlHLzNHs0+T4Z5bVfBVleMubCxjlC9+jjCD8W6Rxi
+	rIe0b4IHl6NwvuCxzmmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAgEu-00EET6-Tq; Sun, 10 Jul 2022 23:21:24 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1oAiNN-00F2G4-LZ; Mon, 11 Jul 2022 01:38:17 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAgEr-00EERB-QN
-	for linux-riscv@lists.infradead.org; Sun, 10 Jul 2022 23:21:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
-  t=1657495280; x=1689031280;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=2bOuAF8hy4hQXexxGrNRideeT3L1vDk2fxucN4Onkrw=;
-  b=IkPgbY+bFu8TN7C1SgTEdc8wEgy1tVic6r6D+wPCPw4ILUNvVvG0jGuj
-   4EiudP2RLqwKABVeSgG4enjTLoU5zrQ2YQjwTl9AoVmf5b6leigVZpCfJ
-   yVa4343dGloXkudGmJVeoH4qJdWdETrqp6cvz65bWQamyUE/AN/wPFnRv
-   y7+igniMFYeENBZYS8d7PYq0FEd9FP1V9UtCvMeOekFEAQ5antWVmhlPx
-   Tf1cbcM5vvtyAOoIJU9v2Rf+WWbHOxoTJ54gLiNSXEOELbGUMPXuZb5Z9
-   jgiIjuQ/+QqHNbSJoqdUzLZdf298JpRweiH0UP4Un/UlFj1n0tjuMmK76
-   w==;
-X-IronPort-AV: E=Sophos;i="5.92,261,1650902400"; 
-   d="scan'208";a="205310603"
-Received: from uls-op-cesaip02.wdc.com (HELO uls-op-cesaep02.wdc.com) ([199.255.45.15])
-  by ob1.hgst.iphmx.com with ESMTP; 11 Jul 2022 07:21:19 +0800
-IronPort-SDR: yAOBXal1FNopj8ONuX5+lGbk//nuYidge1woBHOHG1FcNI3h7ZVI4h2MhtapwbR7hmkCQxG2P3
- G7+/H/GGZlJQwFB6iTsGf5TrXnVe7HHmBhYMmHNJqL0oA3r1Ej4KLLEMa3hDnayzApk3hn2MbJ
- hTZ0SguA22Fv4eZoHhzu+LXSiltVxtXWX5jeWUz3Yesl7HzBNGwg1GpEHeDKG6VxYp61u6U90b
- /TxzSiJAjhH0JrGLLcQ1tk55tjV4DuP0pgcCEF/7dk9xH7ug0o2QHDfBBVd8IaR0QIytChCA1g
- i1ZPOeKPfAq2r7Tzji9nj1WW
-Received: from uls-op-cesaip02.wdc.com ([10.248.3.37])
-  by uls-op-cesaep02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Jul 2022 15:38:19 -0700
-IronPort-SDR: 9rF9WJ/7JwsWTzKCrL9kGptmPo/qxOfWzOrhQnpiKd48DxPNPYnIrZ1GABLbc+Gy8p60EteAK6
- SNHJuYM/z52kEy1+ngP91o1zd0CnJ54XJycZt/qQYeSyBteVYS7kcTm5QyWEI0DuS7RMWZi9GH
- xKzKEEixnhJH9jzV6AdMcPLn4K24vxp2aY3xlSk/YcPuy//T55ZIOHxspONsbEdLlKgOS+u29U
- 0oHzvzW+Pe6kYcmMOII0j2TKSWd5g1iEeC+pfjT/Qx01sRxllT9fQ90jO6lgzvQnee4BNkidxL
- sjg=
-WDCIronportException: Internal
-Received: from usg-ed-osssrv.wdc.com ([10.3.10.180])
-  by uls-op-cesaip02.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 10 Jul 2022 16:21:19 -0700
-Received: from usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1])
-	by usg-ed-osssrv.wdc.com (Postfix) with ESMTP id 4Lh31B4m38z1Rws9
-	for <linux-riscv@lists.infradead.org>; Sun, 10 Jul 2022 16:21:18 -0700 (PDT)
-Authentication-Results: usg-ed-osssrv.wdc.com (amavisd-new); dkim=pass
-	reason="pass (just generated, assumed good)"
-	header.d=opensource.wdc.com
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=
-	opensource.wdc.com; h=content-transfer-encoding:content-type
-	:in-reply-to:organization:from:references:to:content-language
-	:subject:user-agent:mime-version:date:message-id; s=dkim; t=
-	1657495277; x=1660087278; bh=2bOuAF8hy4hQXexxGrNRideeT3L1vDk2fxu
-	cN4Onkrw=; b=kxS1F6L5H2NuC1e0EsIrSS2qOKt1uW1gnwr4/ZYgc/u51C5hUcj
-	Yt0EDzPhgnwjcHMctndopkXeXDdwTCtKnxbpyWirRuwVpR+7EwFsaTPRkQIhnqZ8
-	7mCwyW4FJMnnppCjhv4TliQpoICRu3gOfhB9Es0z2pXiadJ5kyxxmInzP4hEHKg+
-	e1NRnJmCoXF1OAC+iwzHAVF9C5RXdGhhseyYlkIFdlIqzXgfXYDkniSA+7ZNbCof
-	UJfmLMSVLcqwkW8fFO2Tlz1pBVnkNKr9+aiB6XSCFHS3cPiYGauGATquDaUvoyg+
-	sDBx9W5QT5vDXVVeDvqOJjEnn6mwueYk91Q==
-X-Virus-Scanned: amavisd-new at usg-ed-osssrv.wdc.com
-Received: from usg-ed-osssrv.wdc.com ([127.0.0.1])
-	by usg-ed-osssrv.wdc.com (usg-ed-osssrv.wdc.com [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id kRPp9oSZuxrW for <linux-riscv@lists.infradead.org>;
-	Sun, 10 Jul 2022 16:21:17 -0700 (PDT)
-Received: from [10.225.163.114] (unknown [10.225.163.114])
-	by usg-ed-osssrv.wdc.com (Postfix) with ESMTPSA id 4Lh31457fMz1RtVk;
-	Sun, 10 Jul 2022 16:21:12 -0700 (PDT)
-Message-ID: <b8b015f0-d16f-8528-719a-1a3f74d9f176@opensource.wdc.com>
-Date: Mon, 11 Jul 2022 08:21:11 +0900
+	id 1oAiNK-00F2Dr-6J; Mon, 11 Jul 2022 01:38:15 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id 20so2925178qky.5;
+        Sun, 10 Jul 2022 18:38:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=xureSuw2V9E7tzVjUzBjylXpgFwjrDdPqi99TNgwo2k=;
+        b=GlElJxs6r9uyx/SQSYXULuTbs82yeDXXiSIJtB2p4ltiJUAxG9ZiGA77JLrro7RlQX
+         0kY2uWkVTgoPyTQhbejFres652JV82MmsmKKBoW3lGZVjXUzs+12F4Ds3sk8Hj8h2gqZ
+         TKthuvDMbemYVTKyLKl9gtMEOcu1gE2GYBXWlJRP5kRRR08sHNwobRml2McKgUfTpkBm
+         Stp0xir9M5UC+LyL8+nWyupiuK8UQalEUuKhWtpjANVl4t1qkAU7NxHjPigfxquc/ExS
+         0GQE90k2A3wgZURr1hM9eBXsn12M8PbjuTXwMkeWaDVvYrXYJf/5PfX2OzzSpjuD7XA7
+         BOQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=xureSuw2V9E7tzVjUzBjylXpgFwjrDdPqi99TNgwo2k=;
+        b=XapiohFGPpT9ILOVVotem3hYeug7+KWIRgjV0zKtj0V67aqtZwE18gIKun4EXcYjUf
+         fvTLT+FYxiXapVj9kVy4E3D6WbpJeoddBeua/+7koNJYloa3dp2Dpyyur4lD2Cwle4/1
+         sToBVCdvxxoADSeXHLbJHE9573qAnPmbvxcYlQuzqEjUbOblkdm647ZGXc5RZozUoG/Z
+         amZ4pbUaWMmntujlNcbCAw+LZRQ0yZN/UvcsCqf4NMirS9FutQ45i90IP37hHGWwLcpr
+         /xhqC3xxBqoSpo6Gwe2NUIm4/Q4PvYRI3YpXvEoM/3wOUKlsn3RLNS6Pei7JfX32pHA+
+         vFag==
+X-Gm-Message-State: AJIora9U/OJQOTxLxeRD5R97jYEC4JkYrSQvVeHYkbxRWZu8MVJZ0PQ0
+	9UZ1IaH8MC1HjnabU74WIryWqgQ0bZU8oC31tqs=
+X-Google-Smtp-Source: AGRyM1s9CHhxiUJJJrpIWa/HhpPbtbrmDcWTIZPv8HTqxaBbr9Pt2wMHh5OR5W6Z1I4zv7JCvOyBTmsSuwGZMVkeZ9s=
+X-Received: by 2002:a05:620a:430f:b0:6a7:9f9d:20cd with SMTP id
+ u15-20020a05620a430f00b006a79f9d20cdmr9909341qko.389.1657503492197; Sun, 10
+ Jul 2022 18:38:12 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-Subject: Re: [PATCH v5 04/13] dt-bindings: memory-controllers: add canaan k210
- sram controller
-Content-Language: en-US
-To: Conor.Dooley@microchip.com, krzysztof.kozlowski+dt@linaro.org
-Cc: daniel.lezcano@linaro.org, Eugeniy.Paltsev@synopsys.com,
- sam@ravnborg.org, daniel@ffwll.ch, paul.walmsley@sifive.com,
- vkoul@kernel.org, palmer@rivosinc.com, airlied@linux.ie, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, robh+dt@kernel.org, masahiroy@kernel.org,
- geert@linux-m68k.org, niklas.cassel@wdc.com, dillon.minfei@gmail.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
- linux-riscv@lists.infradead.org, fancer.lancer@gmail.com,
- thierry.reding@gmail.com, mail@conchuod.ie
-References: <20220705215213.1802496-1-mail@conchuod.ie>
- <20220705215213.1802496-5-mail@conchuod.ie>
- <a516943f-3dac-70a0-3ebd-9f53fd307f25@microchip.com>
-From: Damien Le Moal <damien.lemoal@opensource.wdc.com>
-Organization: Western Digital Research
-In-Reply-To: <a516943f-3dac-70a0-3ebd-9f53fd307f25@microchip.com>
+References: <20220710151105.687193-1-apatel@ventanamicro.com>
+In-Reply-To: <20220710151105.687193-1-apatel@ventanamicro.com>
+From: Bin Meng <bmeng.cn@gmail.com>
+Date: Mon, 11 Jul 2022 09:37:59 +0800
+Message-ID: <CAEUhbmUzzoA4uUQ3tRk4V3jAA14AfPnD08KM0GT5Px6DMFwBRA@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Fix SRCU deadlock caused by kvm_riscv_check_vcpu_requests()
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Anup Patel <anup@brainfault.org>, 
+	KVM General <kvm@vger.kernel.org>, kvm-riscv@lists.infradead.org, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220710_162121_898717_7B7E544F 
-X-CRM114-Status: GOOD (  27.88  )
+X-CRM114-CacheID: sfid-20220710_183814_274045_D5E3C48E 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,134 +88,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 7/11/22 04:39, Conor.Dooley@microchip.com wrote:
-> Damien, Krzysztof,
-> 
-> I know this particular version has not been posted for all that
-> long, but this binding is (functionally) unchanged for a few
-> versions now. Are you happy with this approach Damien?
-> U-Boot only cares about the compatible & the clocks property,
-> not the regs etc.
-> 
-> I (lazily) tested it in U-Boot with the following diff:
+On Sun, Jul 10, 2022 at 11:11 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> The kvm_riscv_check_vcpu_requests() is called with SRCU read lock held
+> and for KVM_REQ_SLEEP request it will block the VCPU without releasing
+> SRCU read lock. This causes KVM ioctls (such as KVM_IOEVENTFD) from
+> other VCPUs of the same Guest/VM to hang/deadlock if there is any
+> synchronize_srcu() or synchronize_srcu_expedited() in the path.
+>
+> To fix the above in kvm_riscv_check_vcpu_requests(), we should do SRCU
+> read unlock before blocking the VCPU and do SRCU read lock after VCPU
+> wakeup.
+>
+> Fixes: cce69aff689e ("RISC-V: KVM: Implement VCPU interrupts and
+> requests handling")
 
-If both the kernel and u-boot still work as expected with this change, I
-am OK with it.
+nites: the "Fixes" tag should be put in a single line to avoid
+breaking scripts that parse the "Fixes" tag
 
-> 
-> diff --git a/arch/riscv/dts/k210.dtsi b/arch/riscv/dts/k210.dtsi
-> index 3cc8379133..314db88340 100644
-> --- a/arch/riscv/dts/k210.dtsi
-> +++ b/arch/riscv/dts/k210.dtsi
-> @@ -82,11 +82,14 @@
->  
->         sram: memory@80000000 {
->                 device_type = "memory";
-> +               reg = <0x80000000 0x400000>, /* sram0 4 MiB */
-> +                     <0x80400000 0x200000>, /* sram1 2 MiB */
-> +                     <0x80600000 0x200000>; /* aisram 2 MiB */
-> +               u-boot,dm-pre-reloc;
-> +       };
-> +
-> +       sram_controller: memory-controller {
->                 compatible = "canaan,k210-sram";
-> -               reg = <0x80000000 0x400000>,
-> -                     <0x80400000 0x200000>,
-> -                     <0x80600000 0x200000>;
-> -               reg-names = "sram0", "sram1", "aisram";
->                 clocks = <&sysclk K210_CLK_SRAM0>,
->                          <&sysclk K210_CLK_SRAM1>,
->                          <&sysclk K210_CLK_AI>;
-> 
-> If so, could you queue this for 5.20 please Krzysztof, unless
-> you've got concerns about it?
-> 
-> Thanks,
-> Conor.
-> 
-> On 05/07/2022 22:52, Conor Dooley wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>
->> From: Conor Dooley <conor.dooley@microchip.com>
->>
->> The k210 U-Boot port has been using the clocks defined in the
->> devicetree to bring up the board's SRAM, but this violates the
->> dt-schema. As such, move the clocks to a dedicated node with
->> the same compatible string & document it.
->>
->> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->>  .../memory-controllers/canaan,k210-sram.yaml  | 52 +++++++++++++++++++
->>  1 file changed, 52 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml b/Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
->> new file mode 100644
->> index 000000000000..f81fb866e319
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
->> @@ -0,0 +1,52 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/memory-controllers/canaan,k210-sram.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Canaan K210 SRAM memory controller
->> +
->> +description:
->> +  The Canaan K210 SRAM memory controller is responsible for the system's 8 MiB
->> +  of SRAM. The controller is initialised by the bootloader, which configures
->> +  its clocks, before OS bringup.
->> +
->> +maintainers:
->> +  - Conor Dooley <conor@kernel.org>
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - canaan,k210-sram
->> +
->> +  clocks:
->> +    minItems: 1
->> +    items:
->> +      - description: sram0 clock
->> +      - description: sram1 clock
->> +      - description: aisram clock
->> +
->> +  clock-names:
->> +    minItems: 1
->> +    items:
->> +      - const: sram0
->> +      - const: sram1
->> +      - const: aisram
->> +
->> +required:
->> +  - compatible
->> +  - clocks
->> +  - clock-names
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/k210-clk.h>
->> +    memory-controller {
->> +        compatible = "canaan,k210-sram";
->> +        clocks = <&sysclk K210_CLK_SRAM0>,
->> +                 <&sysclk K210_CLK_SRAM1>,
->> +                 <&sysclk K210_CLK_AI>;
->> +        clock-names = "sram0", "sram1", "aisram";
->> +    };
->> --
->> 2.37.0
->>
-> 
+> Reported-by: Bin Meng <bmeng.cn@gmail.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  arch/riscv/kvm/vcpu.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> index b7a433c54d0f..5d271b597613 100644
+> --- a/arch/riscv/kvm/vcpu.c
+> +++ b/arch/riscv/kvm/vcpu.c
+> @@ -845,9 +845,11 @@ static void kvm_riscv_check_vcpu_requests(struct kvm_vcpu *vcpu)
+>
+>         if (kvm_request_pending(vcpu)) {
+>                 if (kvm_check_request(KVM_REQ_SLEEP, vcpu)) {
+> +                       kvm_vcpu_srcu_read_unlock(vcpu);
+>                         rcuwait_wait_event(wait,
+>                                 (!vcpu->arch.power_off) && (!vcpu->arch.pause),
+>                                 TASK_INTERRUPTIBLE);
+> +                       kvm_vcpu_srcu_read_lock(vcpu);
+>
+>                         if (vcpu->arch.power_off || vcpu->arch.pause) {
+>                                 /*
+> --
 
-
--- 
-Damien Le Moal
-Western Digital Research
+Tested-by: Bin Meng <bmeng.cn@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
