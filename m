@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05124C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 18:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E3CFC43334
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 18:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H9SzdVE/1xHVkCHMvxgMlXHITm8XHTWEagPd3uGnqlY=; b=YEE/5qlcOTKoTx
-	+a3Frjb14Hxd5B4VKASxUl1LoZXdwgxXuF3nLC5DkLuU9aW1mQ3oy0twYvpZxaYzzfsr4m8WrmdEM
-	RMQEIzuBY3QtpETIa3mpflY3KuWzOPv9x7x2pZg8KK206/VlOO41/RXFI1glk+5B4jeNE1QIvzGa9
-	7hQr/K+nGV2LQtU4bYbjsijqtTkvtMo4dj3n8cKisTuS3//ig84yK2bLnhnX2yaOMyVOXL/V3z6xH
-	9dNijtYEvfx8vONXnrxPYxadu09cGD+Ue9D046Lavd/+BNK4Fv8Pi6GenSqQFy/riIZYzpXbj+opc
-	vtBuzmAbOZjaML3ehZ6Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bbra0hxA67R4l3GMByRmvXJE2415FVfRYH4ApNHzVJw=; b=lV9fwRrZMJtSs5
+	CPF1FXG99D6MdsnOELK4VZ8LA0R87jFbm/5e/RcI0nq5ZA8gQM8clBfYRCTYmWdwEAHMHaceE2pwv
+	ECRLIVzQS+iJIQe+7v0Emt7lBqWfq1GkAWaUn2D21HBgf6pd3ZsH7mXcQxa+d/3jA4VkwCa3/OAOW
+	GO6rmNxYTCCZBXyFe7H3IBN3MNQ5rcDnLrC2KFrVE95Odr24zB11eEcscr8OdcxUgUB3toAogQlIi
+	1PTHx50wFbeSgIajlafRjULYuBBjEcA1d70iUi32uaJ87nSUgJimv3FGvAmy0LaJfipFqy9Ne91cH
+	yv11ggOoPr6otJs5w46A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAyOK-003xh6-GR; Mon, 11 Jul 2022 18:44:20 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1oAyOI-003xfz-V1; Mon, 11 Jul 2022 18:44:19 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAyOB-003xc7-W9
-	for linux-riscv@lists.infradead.org; Mon, 11 Jul 2022 18:44:19 +0000
-Received: by mail-wr1-x435.google.com with SMTP id d16so8139250wrv.10
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Jul 2022 11:44:10 -0700 (PDT)
+	id 1oAyOB-003xbx-GD
+	for linux-riscv@lists.infradead.org; Mon, 11 Jul 2022 18:44:15 +0000
+Received: by mail-wr1-x429.google.com with SMTP id h17so8216950wrx.0
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Jul 2022 11:44:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=V2JL5BeTsm1LVU5sfoBIObfRgPh6LElCg+G5xm4swvo=;
-        b=H0r3Hxp2neTDv5jPln/vTpOMlYqL6h/423r3IpRFomDRFVkT+5eMLk9RHOKG1n2NHh
-         n23b0BXFwzHNaAr/yy3KGnEWhtevU42TfeXI/1MalTCyz7xTQ0DE9+nimMV+v+Q5wdDm
-         Kt0DC6Ng+8+c/9wH9JqSYjETUO6ZbSeUpiIFk3pBHRiMoF82muWlxGs/4Tc3jILmjNUZ
-         I4jB1JqUP1wvZuMG8sA9zOSCJgVCYlhhwDwU+WWfuIIvgGLPs8O58NLgjI77PbOpxJY4
-         tFML/qQM775/o5yBW9O5qhLhq3IsWJfTDzpvC8qJbSngIzi0CZEYxtjmKuaoDskJ1b1h
-         IR6A==
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=Faba1IAeoFPLJV2hWR4qx2pHr6WFp+URpSyXW9hD/sw=;
+        b=EnKbvDK3bChx+ZOchcvV42N2sV91Y4yRRlv8gQYXMV5YZwSb4p4phAYGN2arUTkd1U
+         9V/94GurexAHB62cHXmX+NUAm0MzT0A9K05Mp8BmavqOut87xxXt9lXLVLfM0JWRLhC3
+         XzHjlOskracRxd3jY8q3Z9h7YfH7Xj0jmi6JTUwwqtB8KhV47qU21mFL+KaCjf1OUtBH
+         fdkmCs+vDWudLzSm070UBLxH6KMnAicJv11Gubqd3bfVb541VC007JULyGU4vy24hJZv
+         FsuAhASoDzEgHAI9vt4eWUl1dIGDFJuXi/1VF1JD2xhN345jAwYgiCB2SUgXmybObRuN
+         hrLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=V2JL5BeTsm1LVU5sfoBIObfRgPh6LElCg+G5xm4swvo=;
-        b=bsz+XyXiRgr0DwTJRarglx+kN0L/vYuRGToqI+ctCNGQ6gjVErk7Mrqik79PNhXiRY
-         u6P9/zlmtwHJlR6UBvgAccGg8ml335Ju/ZzE7OyN6ljQeycpWEZeyj53QERP4zRR34X3
-         KGEpfkt40x6BpneHmrsccrcJiptUYxqWr6/Y57/Rcme2KMFYxR1CzyVb6gwlkcborj82
-         4ZiVd/GrYBM1TjP41SiLafJQZuHTG+/rgBkuTTzYHhA01m66ZBb9v4rYpmLkM5udzf8w
-         DpJWl3or0QB8G6oo4Laocw7Y1UP6Io1yyXjQK340s+SwvI35NOVv+1CSfD1cJPkIQeum
-         rQcA==
-X-Gm-Message-State: AJIora/xi/v+vDB7O2eL5D+68qHbNX39HuRu5lVpykQc7IYwbOqkJWcN
-	O7oyK5KQ8sD9jXPWxIHB5oRppQ==
-X-Google-Smtp-Source: AGRyM1uuUcWNsE8syVVPrFhzpMcpyLLcS0n5o2c6m4kE2QklAam0XRkF04EnT7f7dj1PLfBVVaxsmA==
-X-Received: by 2002:a5d:5a1a:0:b0:21d:68ce:bc88 with SMTP id bq26-20020a5d5a1a000000b0021d68cebc88mr17745842wrb.527.1657565049608;
-        Mon, 11 Jul 2022 11:44:09 -0700 (PDT)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=Faba1IAeoFPLJV2hWR4qx2pHr6WFp+URpSyXW9hD/sw=;
+        b=BROtHYIV0gJBvRXJyjXzX8L8gBrpp+QWoPIXDzd5+sHzsBxmdiZbgVRTo7dkYJiSOL
+         0Be+2f6gfIIvYFcn0Zgl55cSR8SMotFlg01Glb12sghXBA02LRL5SdApBnKnm824oV/1
+         uhEkHiqLblumWVQqVjiKyDONKz/n507ocVcPyi79PXjayxBZyln6qLFPdX3gIFzlDdKP
+         n3PK9xrmYwt15taqHxzo2iJuWCO1XVkBj4TkPzAXJ+EJKATJDM1q96A2I+9goIROQVhZ
+         XiJjgWR14UUGWx55jfiaSkp57IaCN2eVyMqY/p25GPjcZoRR/JnFjzfAcl5bMdQnhvPy
+         vnLQ==
+X-Gm-Message-State: AJIora9rqBmCDiE7dY+bIiYmx08zXD4vWyhrSomXGx0YmealxS2CRIdp
+	KUFppZhcVoiUEsC8TMm3Iw5s8YT/AaUdGi8H
+X-Google-Smtp-Source: AGRyM1sqEmRYcTGeiTRRmrfP00jXcrV10B5+0GrH64Vg9kxTeAJXcFnx94KqZ4MPYAQZ6yfHVrhfaA==
+X-Received: by 2002:adf:eb0f:0:b0:21d:2f1d:8e40 with SMTP id s15-20020adfeb0f000000b0021d2f1d8e40mr17664845wrn.207.1657565048244;
+        Mon, 11 Jul 2022 11:44:08 -0700 (PDT)
 Received: from henark71.. ([51.37.234.167])
-        by smtp.gmail.com with ESMTPSA id j9-20020a05600c410900b003a02cbf862esm7330892wmi.13.2022.07.11.11.44.08
+        by smtp.gmail.com with ESMTPSA id j9-20020a05600c410900b003a02cbf862esm7330892wmi.13.2022.07.11.11.44.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Jul 2022 11:44:09 -0700 (PDT)
+        Mon, 11 Jul 2022 11:44:07 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: Emil Renner Berthing <kernel@esmil.dk>,
 	Rob Herring <robh+dt@kernel.org>,
@@ -70,16 +70,14 @@ To: Emil Renner Berthing <kernel@esmil.dk>,
 Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 1/2] dt-bindings: riscv: document the sifive e24
-Date: Mon, 11 Jul 2022 19:43:25 +0100
-Message-Id: <20220711184325.1367393-2-mail@conchuod.ie>
+Subject: [PATCH v1 0/2] Add the JH7100's Monitor Core
+Date: Mon, 11 Jul 2022 19:43:24 +0100
+Message-Id: <20220711184325.1367393-1-mail@conchuod.ie>
 X-Mailer: git-send-email 2.37.0
-In-Reply-To: <20220711184325.1367393-1-mail@conchuod.ie>
-References: <20220711184325.1367393-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220711_114412_076380_F089008D 
-X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-CacheID: sfid-20220711_114411_604001_511F9FE5 
+X-CRM114-Status: UNSURE (   8.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,33 +97,42 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The SiFive E24 is a 32 bit monitor core present on the JH7100.
+Hey Emil,
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- Documentation/devicetree/bindings/riscv/cpus.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+Following on from my RFC [0], here's the real patches adding the
+monitor core for the JH7100 w/ the ordering changed as requested.
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index d632ac76532e..195e762094a8 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -29,6 +29,7 @@ properties:
-           - enum:
-               - sifive,rocket0
-               - sifive,bullet0
-+              - sifive,e24
-               - sifive,e5
-               - sifive,e7
-               - sifive,e71
-@@ -75,6 +76,7 @@ properties:
-       lowercase to simplify parsing.
-     $ref: "/schemas/types.yaml#/definitions/string"
-     enum:
-+      - rv32imafc
-       - rv64imac
-       - rv64imafdc
- 
+I had a look in the SiFive E24 docs [1] & in [2] which said "16KB
+I-cache with 32 Byte cache line". Didn't have anything else to go on,
+so I kept the same ratio between lines/sets/size as other SiFive
+monitor cores, but since they're not 32 bit I dunno if that's correct
+(IOW it is a wild guess).
+
+The dts patch depends on adding the series adding the cpu-map [3]:
+
+Thanks,
+Conor.
+
+0: https://lore.kernel.org/linux-riscv/20220710111330.3920699-1-mail@conchuod.ie/
+1: https://sifive.cdn.prismic.io/sifive/dc408861-94ce-4d82-a704-caddec98609d_e24_core_complex_manual_21G3.pdf
+2: https://github.com/starfive-tech/JH7100_Docs/blob/main/JH7100%20Data%20Sheet%20V01.01.04-EN%20(4-21-2021).pdf
+3: https://lore.kernel.org/linux-riscv/20220705190435.1790466-1-mail@conchuod.ie/
+
+Conor Dooley (2):
+  dt-bindings: riscv: document the sifive e24
+  riscv: dts: starfive: add the missing monitor core
+
+ .../devicetree/bindings/riscv/cpus.yaml       |  2 ++
+ arch/riscv/boot/dts/starfive/jh7100.dtsi      | 21 +++++++++++++++++++
+ 2 files changed, 23 insertions(+)
+
+
+base-commit: b6f1f2fa2bddd69ff46a190b8120bd440fd50563
+prerequisite-patch-id: 946df827e9dad8ca6e9751fe4ba01fd5fe9d18cc
+prerequisite-patch-id: 59626290ee7b1e725bd446a4b7170ee2d6ca9bc0
+prerequisite-patch-id: e57a94cb7d69855a4e2d6044dcf86fbfe35cb696
+prerequisite-patch-id: 0ba94fd09377953ec4e9692358de569a7932bfa3
+prerequisite-patch-id: 398e9b178ce51c924bbd9115020d84b677f773bb
 -- 
 2.37.0
 
