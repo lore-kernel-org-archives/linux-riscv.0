@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F1D2C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 17:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6610AC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 11 Jul 2022 17:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pRqv/GPVvARMvAtpN9PYsh2fNGtWMSGAzMm+xiJnFpQ=; b=B/D2QUAIKnTL/V
-	Bl+FO+Ypht/zWDRdtbAnL8N7jn+wodI9tb44xi99tSfhL+Vn+WY2HKX0y2n/BW2zRtk6p3zK8j2PV
-	a+ky6lyadIIVoqin3Vqh0rCg9TkTvqu+qcs352x09faMxTD/hHzkHl3+eJ2ptiVisYrjiU8BYr3lX
-	ElhC2yMJaSZ0ndUhH7aMYTVQYmcpk3gzYOW76SiTu9YtZT0mptkfU3Ur4v0hLko973PRmbpeTffg0
-	0NM8PtCuN/GTxQFmjWewHGCpdsByattkMyayZhvOmCLPmkz+XFFIbwaCpnlWGtpapnP1+7etUPDle
-	zaKRsmkEPWdkAEET9IJg==;
+	List-Owner; bh=S76wlMH+UJySB8N8Sx9kU2UvCydDvOwk272/1/O4mQU=; b=cHVj3D87O3+BuJ
+	qEg9DhvIVgj75Sdh3Hq88iyreRKWfEMH/ffU3jFnLEJbh/HR17/bKjYdbOUGkeBoU6aWfWDiBFyfS
+	p0hygSd1Hk3DUrBRoObbmvLrFtcFoh+rhsZ9nbTeofHiXbs6ZdqDD8JQ/3PrUrzmfg1wsqOIxcMYU
+	foBi0yGP8VWOmYeheQ2dP4ZIFlwoCKgc2oL/A47361ntwBsdhWjxpIMZz8Kl5haXB+WXxGrGWY0W0
+	4l80g3YP3FwpDUUs/9MmgIsOg5c/iDfNP4YDTkZK5JgCZUQcEmKGSAsvKGuRTq/EeiRED7NHStb1v
+	yWskvjpH5XMktX05Kqeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAxUl-003apu-Hj; Mon, 11 Jul 2022 17:46:55 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1oAxUn-003ar0-9p; Mon, 11 Jul 2022 17:46:57 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oAxUd-003ahr-Nm
-	for linux-riscv@lists.infradead.org; Mon, 11 Jul 2022 17:46:49 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id s27so5310710pga.13
-        for <linux-riscv@lists.infradead.org>; Mon, 11 Jul 2022 10:46:47 -0700 (PDT)
+	id 1oAxUe-003aih-NB
+	for linux-riscv@lists.infradead.org; Mon, 11 Jul 2022 17:46:50 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id v4-20020a17090abb8400b001ef966652a3so9071173pjr.4
+        for <linux-riscv@lists.infradead.org>; Mon, 11 Jul 2022 10:46:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding;
-        bh=sDSNj3lh6sTDX65OlCD100Y9q85i9QCNDNF32ttMwM0=;
-        b=u3VR8WAkynCBOJ8n0dSu67CSUM1scF+iq2HkJHHwWNCnCzIicRNMFcHK+9f0MZBUKQ
-         2aXzF3fJ2mSF/+/pXnxqh2DTiPjFsIQHBlpw9mwaQZQwXWVMG1Tm8cmVlOY07txFp/dW
-         ZD1VpBG/GdY26VU7j8RIWu88xaedmSxqrUubsg6pCNJxJUjE6UhSZsXkVVtzmdGuQ0e9
-         zx/pZSfjxadzXscPBqTtjVyAGHeqKieBkSg3veGkPyQD6B3MwJJuS1NbTFiUg3ak5Jwd
-         XKyyefVrH/G6lP4dpA8Y9wSPXHR3C5iUpIV+fwToNTXH+opA8A8zr5fKwNdlhvhludvn
-         nHrQ==
+        bh=qEKWlCC7AAQFkN2lQOBvhkrAmVJAiIHFQ4je7dwmiQk=;
+        b=2A9Jrfj4QVotrraU60+KHLujeQqELkBCK2o0SIBWPzhzCkkHCw+z8s0bbAF0KbeYxc
+         zbVZelo4wIQOgJAdaUr7IR7bsty4mvle+P+vWkHvPPztirQRuk+aX4pul4bXl4AjBdic
+         imIEgWcf+p+9JjAsfKIerhclb/r9lB6t59zkrgNAswZSUXRyzf3CqJ1L/iRrmkpiI7NM
+         3Zc8AIUmQjWzoyBrJi2LhUzBgWt3Fs/NwejCUXcnMSDSf5RqEm75DexU1hoeN3T4sUge
+         7cHa2vTeM6N7sIxrWDQF/2YbULcMwE8DfBJi8CMeC6jtd1x6y0LIQCbfqKw77qdv+2ku
+         V+NQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=sDSNj3lh6sTDX65OlCD100Y9q85i9QCNDNF32ttMwM0=;
-        b=shFpcb4c0cCnB+tO6vUG+Cn7wfOqDLi/2VF+sbH9ePoJVKz/Q9nhb41QRoRfxvAKR1
-         2BebU6khRj8lz/ns9Pg3+3rZe/U7+K6pVmzEAN8F1PH9B0CaL1+ydCCbeSy9rvXPHEJL
-         jw468SKq4wplIf1cQqhR3e0+kLujUmbx0Fqpki570f7AXGPVxyunP7K45+FvfG4IaAYc
-         WD+xke70Skd7f7i0d52jVqh2xPSGBQ9rle3tNj/E8hkgTHOrwFgqrRCFGAFpW7J4htq8
-         mXk3EZZGHSE3E7/Tj6kKtkN+ysrk/5h58+Rg2Cb0uNrxuM6wk6V/WZxLDL6hj+vejZlQ
-         dXhw==
-X-Gm-Message-State: AJIora8myWU1d1Dp39e5SaEzSuxfinonOXtZtChILNVvLJg1h13KNa45
-	LEOxxEskkKYdIYpZX6Hok4mUgg==
-X-Google-Smtp-Source: AGRyM1sIjQ1yNU2YHO1M9vKkr0zih6h/RokRxyqSx3Rq6iQfnUyNXXET1eBJmKXi1sEon9yRbHennQ==
-X-Received: by 2002:a05:6a00:1d18:b0:52a:c350:6538 with SMTP id a24-20020a056a001d1800b0052ac3506538mr10510717pfx.7.1657561606627;
-        Mon, 11 Jul 2022 10:46:46 -0700 (PDT)
+        bh=qEKWlCC7AAQFkN2lQOBvhkrAmVJAiIHFQ4je7dwmiQk=;
+        b=LK/oUJpt4xq1pdt5EPjZiWRmPWAPW1xdzvqlp+je2xXFJrt3urb4vwfjeY10X612Sq
+         BuKHHHvPUUOchX7niDtL3l8Sle4BSTNLI/3YQwD4w/VzobMabusOr7Tqrh72StzK6p44
+         tqhpDQ4V2+vTNchvOkb02rlJSBDKef6IO/Yi76GB327WBUvqBY/34jJ2SxF4WIC3SkMc
+         8bRpgdov3plyf5OtzHUo9BWRT+qj/y3ZqGzwA5NQavE7c5D+Jsjd6U3cJcneE6+ODrVn
+         8l2y0hPjOWo5xKHEZW2FUWFbkKaD/FAzsuDIIjbXSZQOKB9d8VguxOUh4jSEkUvEEZN+
+         QnMA==
+X-Gm-Message-State: AJIora/DxQlcycEMqheaUCcjtPR6/QeHH6bt20Sv+W8EKL+jX3RBXPP1
+	qXB5qUnDdmlOQ/uu9oOCgtjKBw==
+X-Google-Smtp-Source: AGRyM1vDlkAyeYhMVtonPQR3SHvSE41Bb3Dw5m4IwtJFN0pmrxdwI062w3PGSAnkB/fmansJQkKpng==
+X-Received: by 2002:a17:902:d651:b0:16b:f55e:c626 with SMTP id y17-20020a170902d65100b0016bf55ec626mr20295734plh.78.1657561607597;
+        Mon, 11 Jul 2022 10:46:47 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id p10-20020a170902780a00b0016be9fa6807sm3236866pll.284.2022.07.11.10.46.45
+        by smtp.gmail.com with ESMTPSA id p10-20020a170902780a00b0016be9fa6807sm3236866pll.284.2022.07.11.10.46.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 11 Jul 2022 10:46:46 -0700 (PDT)
+        Mon, 11 Jul 2022 10:46:47 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -70,16 +70,17 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Will Deacon <will@kernel.org>
-Subject: [v3  4/5] RISC-V: Move counter info definition to sbi header file
-Date: Mon, 11 Jul 2022 10:46:31 -0700
-Message-Id: <20220711174632.4186047-5-atishp@rivosinc.com>
+Subject: [v3  5/5] RISC-V: Improve SBI definitions
+Date: Mon, 11 Jul 2022 10:46:32 -0700
+Message-Id: <20220711174632.4186047-6-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220711174632.4186047-1-atishp@rivosinc.com>
 References: <20220711174632.4186047-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220711_104647_822437_8DFAD8B7 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20220711_104648_776212_4CB3C917 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,66 +97,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Counter info encoding format is defined by the SBI specificaiton.
-KVM implementation of SBI PMU extension will also leverage this definition.
-Move the definition to common sbi header file from the sbi pmu driver.
+Fixed few typos and bit fields not aligned with the spec. Define other
+related macros that will be useful in the future.
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/sbi.h | 14 ++++++++++++++
- drivers/perf/riscv_pmu_sbi.c | 14 --------------
- 2 files changed, 14 insertions(+), 14 deletions(-)
+ arch/riscv/include/asm/sbi.h | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-index 9e3c2cf1edaf..d633ac0f5a32 100644
+index d633ac0f5a32..2a0ef738695e 100644
 --- a/arch/riscv/include/asm/sbi.h
 +++ b/arch/riscv/include/asm/sbi.h
-@@ -122,6 +122,20 @@ enum sbi_ext_pmu_fid {
- 	SBI_EXT_PMU_COUNTER_FW_READ,
+@@ -136,7 +136,7 @@ union sbi_pmu_ctr_info {
+ 	};
  };
  
-+union sbi_pmu_ctr_info {
-+	unsigned long value;
-+	struct {
-+		unsigned long csr:12;
-+		unsigned long width:6;
-+#if __riscv_xlen == 32
-+		unsigned long reserved:13;
-+#else
-+		unsigned long reserved:45;
-+#endif
-+		unsigned long type:1;
-+	};
-+};
-+
- #define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(55, 0)
+-#define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(55, 0)
++#define RISCV_PMU_RAW_EVENT_MASK GENMASK_ULL(47, 0)
  #define RISCV_PMU_RAW_EVENT_IDX 0x20000
  
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index bae614c73b14..24124546844c 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -21,20 +21,6 @@
- #include <asm/sbi.h>
- #include <asm/hwcap.h>
+ /** General pmu event codes specified in SBI PMU extension */
+@@ -203,12 +203,26 @@ enum sbi_pmu_ctr_type {
+ 	SBI_PMU_CTR_TYPE_FW,
+ };
  
--union sbi_pmu_ctr_info {
--	unsigned long value;
--	struct {
--		unsigned long csr:12;
--		unsigned long width:6;
--#if __riscv_xlen == 32
--		unsigned long reserved:13;
--#else
--		unsigned long reserved:45;
--#endif
--		unsigned long type:1;
--	};
--};
--
- /*
-  * RISC-V doesn't have hetergenous harts yet. This need to be part of
-  * per_cpu in case of harts with different pmu counters
++/* Helper macros to decode event idx */
++#define SBI_PMU_EVENT_IDX_OFFSET 20
++#define SBI_PMU_EVENT_IDX_MASK 0xFFFFF
++#define SBI_PMU_EVENT_IDX_CODE_MASK 0xFFFF
++#define SBI_PMU_EVENT_IDX_TYPE_MASK 0xF0000
++#define SBI_PMU_EVENT_RAW_IDX 0x20000
++#define SBI_PMU_FIXED_CTR_MASK 0x07
++
++#define SBI_PMU_EVENT_CACHE_ID_CODE_MASK 0xFFF8
++#define SBI_PMU_EVENT_CACHE_OP_ID_CODE_MASK 0x06
++#define SBI_PMU_EVENT_CACHE_RESULT_ID_CODE_MASK 0x01
++
++#define SBI_PMU_EVENT_IDX_INVALID 0xFFFFFFFF
++
+ /* Flags defined for config matching function */
+ #define SBI_PMU_CFG_FLAG_SKIP_MATCH	(1 << 0)
+ #define SBI_PMU_CFG_FLAG_CLEAR_VALUE	(1 << 1)
+ #define SBI_PMU_CFG_FLAG_AUTO_START	(1 << 2)
+ #define SBI_PMU_CFG_FLAG_SET_VUINH	(1 << 3)
+-#define SBI_PMU_CFG_FLAG_SET_VSNH	(1 << 4)
++#define SBI_PMU_CFG_FLAG_SET_VSINH	(1 << 4)
+ #define SBI_PMU_CFG_FLAG_SET_UINH	(1 << 5)
+ #define SBI_PMU_CFG_FLAG_SET_SINH	(1 << 6)
+ #define SBI_PMU_CFG_FLAG_SET_MINH	(1 << 7)
 -- 
 2.25.1
 
