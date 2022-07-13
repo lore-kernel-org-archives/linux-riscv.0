@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EFE7C43334
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jul 2022 20:44:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6EB8C43334
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jul 2022 21:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2TJnKV4TT48oqIwBrn78FyHjGJZ1kEFbX6q5EQ5pTsc=; b=sBeRLEDCBFLULs
-	rPJgBw8o3+KX9547miVAy/xBlD7ILRBoEq8ezfQ27748Wn3bfcucE1yyq5h+3KYwtzu8ZBbFLt+Iq
-	pSaEYEb1UjKcXZ6pz58fD9LHDw5VQU5QRlWE6jqLkA0yseXCWK74r1jjEaM1QM6mUCqesZDU/Ar4j
-	X2vIMRvOKo3cHxLDglCgyLqrUy9pK35eqkW4VWpV33vCERe9M08bVKmgIdMXyFJmoglV74+gZBnF6
-	Hl79Ll+elj2BIBYy53QuTu6ZU/j6gBVjHpLzF85FE8Hrq9Yr/rURZKqO5JM3AE3U5wrBaekPWkivA
-	zd/om/mVxvUhKbACh5UA==;
+	List-Owner; bh=JnR5YFyuBDo5H9D1aXRjQto50sW9ArMKSibMJUfqRtw=; b=NpCan29CdXlFgO
+	A1qWmvou5AzUgIIBa2FzmfGdrl+U0jI15H2GXehZhGJ9ukZGrFbpLbfOAr4b4d5lKY2/LCeAmgJnf
+	71mD5vPXh4RPZ6ivaPH+aNJSdQUlHOY+AvILvxLxx5N6ulYr2n9O93t82lGdH7Li6K2MtiJjysa4R
+	BcFEiReL1xqzZBtKL+3qEDEErxs5m2VMM9o+6CrFhn/6RHioH8UEDsDayyibhtAQH/UQ4I4iR9mso
+	WyxPtcXs3Lc/wX/Jj0zeUahK9+N08WhYfCl/X6n8T24gmhOSdDnRZ9/0QmNz60sywJvmfF+5IwgHB
+	uBtl6H1reNXdi6C6jebA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBjDX-007m5R-Cg; Wed, 13 Jul 2022 20:44:19 +0000
+	id 1oBjWF-007tJx-Qt; Wed, 13 Jul 2022 21:03:39 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBjDT-007m3S-Mw
-	for linux-riscv@lists.infradead.org; Wed, 13 Jul 2022 20:44:18 +0000
+	id 1oBjWC-007tIP-Ie
+	for linux-riscv@lists.infradead.org; Wed, 13 Jul 2022 21:03:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1657745056; x=1689281056;
+  t=1657746217; x=1689282217;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-id:content-transfer-encoding:
    mime-version;
-  bh=67BFlQxIk71xz3ho4t3VAWwB3+RrDgjrKJ592cbJEo4=;
-  b=KUtIfKNhfNiN2se8BnnM/bTqeSJAuwFJ0PZwSwFykR3Y3aFjbbQN+D80
-   fmy7rFgrs62NOydaEG07eJxLuWFs/k1atXAc+lR/EL2VmqJhfdR3ZGUQU
-   D8T54wwb8p9kbfpMaEJhAijVVtctrEJD2NOHMG8+wpOqkBTqaSCjK8i1A
-   aYwkyDhbjjuPFDt4QctKy/G73EuTGM7G2mJdfBi/QxdsCm5eugI8ppSGH
-   +08fRACz8AQXrrv3NQ86r0VRvAkhs51qpw5gHdo12tl6MAsaBQXxmtcx7
-   j74jFSeawLBwgLBPcsH+mggcPzHtiMIn7L/FbZouFrAsz/uvvZ5u1KH3F
+  bh=ZmxxFoVkYGqzpsEpNtr1jHCheBRTu1N3S2zZO5drZrU=;
+  b=BE2TeSVzq1WxyI24lkjMmQykdbACw00ZRU2Zbp97XoXThP4XI4atCa6x
+   3wIrrau2AInGVM+w9WZGaxobPblG9bB06ebkHM5FREIQzLFe9Uy89aMaS
+   r/QOFFxdZet25ujcJD+OMPaTXCk53o/pUB51DORu2NdZ4bW7Cx5L4TG25
+   xJnHfFxdaQ+0lCsq3E4fCxFBM7eTOqq469ROHmC7AqwIryWVqauOrmWJ7
+   pZvTrhOjk+BH4Lpd+B8xdOu26iy6oGl2pEisHeC5eH4OzPyKwfvbpSx4G
+   JAIwERqTpvsPIpwqdXjnSlRDPwQ/hHnCbOGp4z/j9mQGlJ19TYP6Xe/Hi
    Q==;
 X-IronPort-AV: E=Sophos;i="5.92,269,1650956400"; 
-   d="scan'208";a="104351584"
+   d="scan'208";a="164629369"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 13 Jul 2022 13:44:10 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 13 Jul 2022 14:01:34 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Wed, 13 Jul 2022 13:44:08 -0700
-Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Wed, 13 Jul 2022 13:44:08 -0700
+ 15.1.2375.17; Wed, 13 Jul 2022 14:00:47 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17 via Frontend Transport; Wed, 13 Jul 2022 14:00:47 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=gM5jd6lKt4IKFv9kgDXv0LUXbkMRNgVME1wOUqfwaJL+UmPdRzx39v4ZJUA7122OdJETBdJf8Ly8Gd3kyv4yxlrKyDP8wQ2HiOa0w5o2f/uiUjaVtsWyII96XBLO+BHY57GonC89zK5eBASfk4AWacxTL6MIDahFq2CAFX9mjY00V5lWhP3fcTL3Ncslq7kU5QRmEY1PixOPl5HOZu9tacdOob2hkg3zcGkJ6GzGJaYl1UXeqFHo0JJJ+Ivt8P0oR5UWzB0JhTACse+PsjOsXEJuqk91cULagjbMtmAYGQwQSR0nkakiMeqU+mXn0+TgxHMCTYBlxnlK+LHW3VJq7A==
+ b=AA7aGs+tLYXFbM30OMzOGxdPE1CL2vuvbtUkNTH+AbOZKLlUo4ulbqBYnvoX3/sXZ9Jz2oq7fkMVhaZDL6Ig6k4rPHohs2hEP8NohCuiWFTHKr1tjqtvTvMde+M31iK9z5JvgsVHarDg22fHNc8vHDkV+Jyf/H1YG9kVk42mocb8PACsJGPjSMRUTX9y20P9GB+ahgLjBItTJSzHtsckXlFdwoFwJL92W+ROu74RAQy+YzJf4pVpdB9w9Z7TtJWcUCC3hrVJZbmkpa2Hy/OsY2Vq/i1Ou6ylA9im/IakooUQBBK9d3/Hr/uGJv0Gjw2RuMEH2CE5h6tKzVVWFjPmKQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=67BFlQxIk71xz3ho4t3VAWwB3+RrDgjrKJ592cbJEo4=;
- b=EnBegWqu66NbyQYHgKPXBV3JNHSrqT07KbNwKFbYlt2yZTIBaJCcb2bBLm/4e8TH5Bi2BGQVCa+oCgVFiAzpzkmNhtVS1GGGHXOAv50jbMipNZLzIPu46gCqC9MTJHqqgWqBHGI6AZe912mlJvH3hSI/Et/z3SJQK/cTqW77bhjwe0DaozzNfo/x5f/UmBAnJNDqGXPigI1xuHrepoTvh6e/or2SrrAfKWNhdehkOJCa0vqh/n/J4PvZ2AT+galFn6lKs+heX09Zsw08kXv8Aff2vR1/yLoy81TMDLaxl3fEjUg/QUsR9PcHmCr7OyjWUcJONeJi5h/QXbKhwhz70A==
+ bh=ZmxxFoVkYGqzpsEpNtr1jHCheBRTu1N3S2zZO5drZrU=;
+ b=EDsZF6GtLZS3sgAvpXlSwKUQjVAjcKnbMaCZZvCHK3aY5YmnbQwZzWJHll8ix06JAj43QHnfz3U6kMrcUSPPzqt03y2TiUe5EcwKgGxaP24zfljK9nzTIxZRS/96o+0MBSmVZSNhO9siVHCqmPtlEgKimrA2KBb3LlaAerarUvkR+tp1jk2teBgkZQEB+IJlNHd7qN9uQgDRitYSOY3DQeIzuNdqwp1mQIHzuhPJ05/q/3roKTg788cgQ3MM1jebfk3siM4uElpG6W7kITfhvPW7/CRC7Z1Yj+HAO/6uGIORj1c0HcYQWNJ6ZxxO4po6TjErKlaS8pwTPKrUYWb71A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -65,32 +65,31 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=67BFlQxIk71xz3ho4t3VAWwB3+RrDgjrKJ592cbJEo4=;
- b=GQcofysMyjVSAco3OoX206EI1OYwppxtdh03+W9EHrMqI8yAcm5R/TOGoNKkd9pQhuX1pJHSfX2jLYlXWO9XNbXio8ybHm/pQpFP2xbouhGl8YS8nTOyzwfvw8KVhTd4Jzb29idFZhLO1qPl9gfc7O0OPQHtrJRTbZ6u4moGZBo=
+ bh=ZmxxFoVkYGqzpsEpNtr1jHCheBRTu1N3S2zZO5drZrU=;
+ b=ovAE01Z5U+oxjIkHeB2A/7x81wVOknUEAIfebhCeoTqyPGkUyA/R1tWU+UY/1qfNV8qNfYsbHFeb+rliXF9wsFD40VB81gFdgROMxAWhREu0zpdMnbg7IOvtj6MisabOnyg/Ibn7PZUgGupKryQsxOUzvxk/iy0SHZwCwfu6Jck=
 Received: from PH0PR11MB5925.namprd11.prod.outlook.com (2603:10b6:510:143::10)
- by MW5PR11MB5930.namprd11.prod.outlook.com (2603:10b6:303:1a1::16) with
+ by SJ1PR11MB6250.namprd11.prod.outlook.com (2603:10b6:a03:459::17) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5417.26; Wed, 13 Jul
- 2022 20:44:03 +0000
+ 2022 21:00:46 +0000
 Received: from PH0PR11MB5925.namprd11.prod.outlook.com
  ([fe80::5c03:1f60:ee1d:3928]) by PH0PR11MB5925.namprd11.prod.outlook.com
  ([fe80::5c03:1f60:ee1d:3928%7]) with mapi id 15.20.5417.026; Wed, 13 Jul 2022
- 20:44:03 +0000
+ 21:00:45 +0000
 From: <Lewis.Hanly@microchip.com>
-To: <andy.shevchenko@gmail.com>
-CC: <linux-riscv@lists.infradead.org>, <Conor.Dooley@microchip.com>,
+To: <linux-riscv@lists.infradead.org>, <Conor.Dooley@microchip.com>,
 	<brgl@bgdev.pl>, <linux-gpio@vger.kernel.org>, <linus.walleij@linaro.org>,
-	<palmer@dabbelt.com>, <maz@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<Daire.McNamara@microchip.com>
+	<palmer@dabbelt.com>, <maz@kernel.org>, <linux-kernel@vger.kernel.org>
+CC: <Daire.McNamara@microchip.com>, <Lewis.Hanly@microchip.com>
 Subject: Re: [PATCH v2 1/1] gpio: mpfs: add polarfire soc gpio support
 Thread-Topic: [PATCH v2 1/1] gpio: mpfs: add polarfire soc gpio support
-Thread-Index: AQHYlqemr2KX1URl4Eaxdmj5tFzD4a18MrcAgACSioA=
-Date: Wed, 13 Jul 2022 20:44:03 +0000
-Message-ID: <abdf389cfd049f60b951447c047bbd186fa19469.camel@microchip.com>
+Thread-Index: AQHYlqemr2KX1URl4Eaxdmj5tFzD4a18KWyAgACggAA=
+Date: Wed, 13 Jul 2022 21:00:45 +0000
+Message-ID: <9e00e2cca641b735fe56988ca1eec1aef183f481.camel@microchip.com>
 References: <20220713105910.931983-1-lewis.hanly@microchip.com>
 	 <20220713105910.931983-2-lewis.hanly@microchip.com>
-	 <CAHp75VfGTd02jKYsFq94BF_Gqro2trk3iyyALBatS1Bps3HYhw@mail.gmail.com>
-In-Reply-To: <CAHp75VfGTd02jKYsFq94BF_Gqro2trk3iyyALBatS1Bps3HYhw@mail.gmail.com>
+	 <776164f4-21cf-7720-3cf3-3b30b72b8b29@microchip.com>
+In-Reply-To: <776164f4-21cf-7720-3cf3-3b30b72b8b29@microchip.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -99,66 +98,66 @@ user-agent: Evolution 3.36.5-0ubuntu1
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=microchip.com;
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 27bb05d1-b6b6-4b89-03dc-08da65106c1c
-x-ms-traffictypediagnostic: MW5PR11MB5930:EE_
+x-ms-office365-filtering-correlation-id: deb59b53-a72b-4fba-6933-08da6512c1a0
+x-ms-traffictypediagnostic: SJ1PR11MB6250:EE_
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: Dj4nEYF8OVXZ2Wfk1Y0JaYuLTP6aCekSIkzq+elvIVYjzFi4ES62FlhZWht1vcU+euoahiZMY82XklPHPBhjqSxTk28Ejcb4B9XlAjmgY3TIhLdDcVvraOA2JNhEY/iDMMHC/qdr/KRCz0eESkAJt/4qw3yT3CpGaBsMFO88lO+outBwPzCniWpDzz+ljbP1YnPIpMcwcRZ6XowV7LlYn6/5seG/yqC/Qh8K3C36lj8P5r/0Xx/6glBJ1kXsxGO5TmUUhOKDrrhUMH8bfq6woNJgBYczX7ANFkZ0zDgGxrhZHTlyb/jr6Uk7wd4QNu28ViZ4qXNyNrQPAZECFxoHp3wUbKrrhDktZHN1dVlx3IIAJ8Demvcw1TB1+92fbHS3k0jDoEFtPFnJlOp13fHlgPD0eugDWosmEf+eDAWYpoetB3us1+UkEjyHchm5IGTd2s+FVmGO6S4lLQdlR4F2EzMmLTmNABeuheYFqF0PrVrWeAos1OEyL34kfpjhiepHzDZb0XY+aPLfS3uFdKtjbbFrdJPcJd6iMaD6w8k7BD5O3DkmodsudDXPHSuO2KO2xJaDGHJ52fQU5Vw0iR2m1vj9zfbG/p+Xyo74159BOp9ufs1fX70WT9R7K2v3jV/7LvyIBwpdVoKFnwUsxzy82bX0GJYTeYm/T93Cb/i128cx0gi5WVuuODHFSp/fQCPO5zPaspb0gZzYiliuYkzMODn9Cal0cvnTWcqLNbAqQ7JwpuV9T5Qo0q9kXybF4OAnDLs2Tme9ZqpNIun7JVQ9V30kLKFFacEiasCs9PbsxQzbUKzcJiF/hL1SpvHKfdCZCUY63v9mn72NQSwVdglTQNYm0Am+O7zylIfteDXqcNs=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR11MB5925.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(376002)(366004)(396003)(136003)(39860400002)(346002)(6486002)(83380400001)(71200400001)(6506007)(66946007)(38070700005)(76116006)(4326008)(8676002)(6916009)(66556008)(2616005)(122000001)(91956017)(107886003)(66446008)(64756008)(54906003)(478600001)(66476007)(186003)(86362001)(316002)(36756003)(38100700002)(41300700001)(26005)(6512007)(53546011)(2906002)(8936002)(5660300002)(341764005);DIR:OUT;SFP:1101;
+x-microsoft-antispam-message-info: QtMpC5hbRWE7bee4Y2lntJX5wZj37VsrToGpNqMBjKZifB1vlt0fVhOuPDMd0yRWefgc7P8vyAMlcdIH96fvPZL1pLoLxIp5HPa30Ju7GFdu5/JmjdK47sDW/aerEm+V27rj9gQr2WEMU84TRyGq9xKQASxmeuBm1sQKZ4upSB/swls7tUjmBtGNiFPIku1yOm6fYz6k7b60XyY5owo9VLqgw+KSqoHmfHE1CuLekMXbkNCYT7e2Dndd9IvBB1bb4h5pbUZXIxBj79fRHsV72RYQH1wghrU1YQQuxM1y/v6twJH1I44sPT1PEUPMit9wTZa5TMivoHdnY1Uuu+Q3JklL7pF39aMoki5C1aX1qSfYscjzLv67+/m54WV5U9iam+lF/VH6hy0j2i+oULKGmYs3RWBpe8wZ2a3PtpRhlz/if5t0OgmAdnOry6OxyCjwljPlBwa6n/MzjPdpFUEXqRNA3+QaSaZcxyfXpELP8rtXr5VJ6EcFlQhMahqyQsfFu2v0XteUGJixXlol3eHgRfR+HynF50MUWfvPgT7u7OobVjbUt9rTyYRSBXl0OsVa6LypKln57n8wY/nYuyTH5Oe3+E0dqvhIOdcHRrUpJ4SDOSfv6kaXZFU/BUvgjDn1PbefgiM16DP9itjIGoVSZKirDihp4Y7HHCNDSK5/ehkjeYeXwa1QdZbESXduCxUUUHVSdwjNvtzKKnO1VTXonJ02nOpt1zXbGK6XqfV6c2Hl+0AUjdBAiS+lhTip+//Tj+k0F5/jMUwR7ImZf4eLntYcjljYdtBGO+6gVvKopnw3ORA6GrlMQpVLZoYVHkJj
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH0PR11MB5925.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(39860400002)(396003)(136003)(376002)(346002)(6486002)(86362001)(26005)(91956017)(53546011)(6506007)(6512007)(2906002)(41300700001)(478600001)(76116006)(38100700002)(2616005)(8936002)(107886003)(5660300002)(36756003)(66476007)(186003)(122000001)(4326008)(66556008)(66946007)(83380400001)(38070700005)(54906003)(110136005)(71200400001)(64756008)(316002)(8676002)(66446008);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bnY2ek5tNUxuZ1l3VkF0TkJqRWM4b00wMERlZUV0U2tQRndvOUdkeW1HRkFM?=
- =?utf-8?B?Yk9qOURRUjlQMTZrY2pncytDT1NXUHRMOS83TkxGN2RTbUU1bHFOeEpkWDJJ?=
- =?utf-8?B?SWNxYzFNVDRPWW5ocjFkVmtlR3Nuc3E4Qzg5NjB1L1loanpLV3RzeUZVSWFn?=
- =?utf-8?B?Nm5GZ0J3SDBCQlJLb2JqV2F3ZEIvL3M2cXdXRGpEQSsranBuc21uUUlKQWJF?=
- =?utf-8?B?d1FneDZoa0Ezc2tSbDNyRWxnbmlDa1dYai9McEh0VnJsNEtKd3pTc2ZmZmNR?=
- =?utf-8?B?L3o2V1lkcWVEcERVU3E5USswTHRGSEFjOEZFZW1FS2xGY3dESWlYZWRjV3d4?=
- =?utf-8?B?a2FSbDFYL1dNVm5Ka2NOZGtZZFh5U3pGMmNKZS9ZL040b1FnN0RQQmVDajYw?=
- =?utf-8?B?WDJJZ25Hek5udUt4SW5TR3Q0bk9xM3RBT0Zvc2lxblFZaHczZ09vSUdXQUxk?=
- =?utf-8?B?ajVlbmlxK3pYWmVIdjFEUFBEcWY4bXN3Wk1ZSGR5T0VpSmcyZllVOG9JYXZY?=
- =?utf-8?B?TTdDTGpJNEcxSU8vUjNOSWdWTW9kaFd1dzVVK3pOWjNjTW15bktKSi84b0gy?=
- =?utf-8?B?UkY2TTBBQjJ5Rkx2dU5MNmg3RnNCZ2lxWlZhWXR3blM2aVVBMjVycUxRV0Yy?=
- =?utf-8?B?cjBKdEhITTVSdG9MR1BXSTN4MVN4U3hHNS8veXRlcjVyVytnem4zQW5KbkZD?=
- =?utf-8?B?NHBJMjdUcE5TSWZlZ0xEWXl5QkxQQkhEY2ppRW9mVXJXR3hOVzZaaDBUYTB0?=
- =?utf-8?B?WkhjYVdhaGZJemZDUTB4SkVMVmdmK2dHM09Qa3QwUWNwcHNDQkZTeHV1M25n?=
- =?utf-8?B?ZCt6dUpEQ1VWdkhySENWQU9TMi9CbHJESmJvdDlsalRRNXB3b0J1OUllSW96?=
- =?utf-8?B?RTlrS3RBVnpXR3NxaXgzdFdhOWRIOTBmL2JlTFpVUmI4VDh6dnJqem5ZYjdB?=
- =?utf-8?B?a1UyZjJ2V3dSc0xTL0daTUZwOFRtSUIvQ2pzdWppNVZ0WWxZRGk2a2pFV3Zj?=
- =?utf-8?B?MXBNYnBXc0M5WHFRV0h3Sjd5VEZhUU5vNFZCOExEYnZ2VXZ3d0NPeEU2ZUVY?=
- =?utf-8?B?MjBRT2RQM2xDQUlrOVVsbm9Ia3MwUzZkQkZ2Zm85aEpiSTlSeGFYcW5UWU1G?=
- =?utf-8?B?eks5bnA4Sm95MkU2UTNPcnZFS0NsZS9aQlpDcjNaRVBpcG5pK0JSdDArbTFH?=
- =?utf-8?B?dWVKVlIxY1RjK2VJbnJab1JucUF1SXJXWk1KRWI3U2luRklyVUJjMS9vNVd0?=
- =?utf-8?B?WnVUOGxqdWhVS0JhVDRnVmlEZHlQS1lBeU42eVBUOVczUFhQZzg3UnI2bXFj?=
- =?utf-8?B?RVlzYWNjYndxeXpEMnZSQjZkNyt6L3BqQmUybXczSS9SanVhTU9TTXJQcEZr?=
- =?utf-8?B?Y3hKV3dGMTdZcC9IdjRuNnpvM2IvMkFPZ21Yd1l2V2JnT1g3V2Fsb0NDTnJO?=
- =?utf-8?B?eUgxamFOcDJ6cHNWWFdtV3ptNUZtejdZb2J5bDRodU1zdllFNmU1NzNMOFRx?=
- =?utf-8?B?cEo3bnB4am5wOHRQQjJORzkvWnc5QTVzdFhzYnlvenF4dDY0VEdHUjRvcWJ4?=
- =?utf-8?B?ckdSTHZJVjZiSzl6eHpLcitnejdJRXFuNlFHVy9FdXBkY20vdldjbngzaVpa?=
- =?utf-8?B?OFVOK2VnRzRhcjZtK3MyNTRJMC9KbW5OcTh4TzRiRm9RVkh1dCtPaVc4SkZ1?=
- =?utf-8?B?ZzdrTEUrSHVqaE1oY0FGWml4NXRuNmEvU3B6cU9JWVc0NTdWZXhKYUJnSDBY?=
- =?utf-8?B?eVpTS040bmVORTNUaTBwbTZBUzZMenpNS0R0M3J3ak9KQk5kZ0p0TW9EdDF3?=
- =?utf-8?B?MHNsSWplOVlkbDZXNmtMbEhkVkJVY281dTR3NkdRNE9pT1FXNGZjeDdFc1Ir?=
- =?utf-8?B?UkMwa01TbmhZTXBtajAyUkdXMU1rZmlkS255K0MvVzNWSjBlT3pNNG96MHF2?=
- =?utf-8?B?emlsM2lDZ2lud0g1ZHhISW1lcTAzT3c1dW1OeTZ2SjNkbUlMMXNpRDlkTEVm?=
- =?utf-8?B?RFF6dWp4NE5hY254UWRKdGp1c2FXbzlsMFlkSUhGd01zdjdTR2xoM2kxTjE1?=
- =?utf-8?B?b1FobktKdDhRMHBkZ1pkNFR5bnk5clFab0xXbjJuczMxZTFXZUZWVlV5bW9o?=
- =?utf-8?B?ZTJucmxQSFQvNjBLbm1nM1VIZjZzVEhVbjljb3cyWS8ydXRiOFdWYkZSYlRx?=
- =?utf-8?B?REE9PQ==?=
-Content-ID: <222DFEB846206F46BBEE222B94B25B4A@namprd11.prod.outlook.com>
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?d0xla2xwdEJzWGl0cHZEemZwcTNHeHIyTC9Qb2puQjZuUXVJZHVVb2FyeElv?=
+ =?utf-8?B?aEJueGJQVUN0NnpEUW83RTRDSnNOeDN3dkpDUlUzVjlZbk9lck51K2p5U1Jz?=
+ =?utf-8?B?S1VxMDJlclNQK1ZKSkxLOU1tYTg2VGNhYmZYUFFlTklkaFRvSmJmUG1vamlD?=
+ =?utf-8?B?c0NESngxcytnaWJpRTRVRlVUd2k1WXROSGFnVXA1bXhxY2xKbmxoMG5MYXhJ?=
+ =?utf-8?B?cGc0NzVxS2NQUEc5ZHJ3UWVmdk9RMi90QVM5Z3JNT25IcWx0b3JUK0pPQWJN?=
+ =?utf-8?B?R0hibkZXS0M4RHVBcEFPRzUyMGtvZ3ZGQ3lKcDdrZ2RhbE1iMDZsMXF4Z1d4?=
+ =?utf-8?B?VmwvRkNpMS9rSkd6SDFYTFNPWStuUWR5TXNkSE1jeGpKbzhKZ0V2MUFUT3dK?=
+ =?utf-8?B?OG4vb2oyajJVWUpaaFJuTjNQdFFnUjBrQTd0TnpLMzJnbkhsSERYNkN3OGFl?=
+ =?utf-8?B?L2tsVU00SWk1M3NlU1p5NjBXakVSSXA5SFJ6S3RRVGRoZ09jRllMcTF5eW5x?=
+ =?utf-8?B?cmw1ak5ydDZJWlEvZGV2WDVjTWFxU0Qwc2VZQjF2SHAxc3ZqZkR4UEV6TmE2?=
+ =?utf-8?B?ZVBmQUgvZ3N3eGl4SmMwMVZuQXUvVllJM3c0UUovbEJxM3FGT2xJVElsSitY?=
+ =?utf-8?B?MkdNUEQ0REptRTFpT0ZQRmdZcDJLY0NQelBFR2JpTFFPblliN2I3VTZkQWNP?=
+ =?utf-8?B?WGRIbUZEK3pHL1ltNlFIY1I5Wk5BcUxrVEFsMEdxYzFCUXQyTWlFT1lNNDc1?=
+ =?utf-8?B?bWxnQW01RFUwYXBuNklrUnBZT2g5K0ZIVmhBSzhINzNzWjNoQXdRRkJxM0NU?=
+ =?utf-8?B?bGQveXl6ODZLdmJRU2s2L3RkYmx4aHpGa29teTl6cFlzK3c0bjVOYkYxRjNv?=
+ =?utf-8?B?YWhyOU9LZkhSMThBUW5qT3d1bmQ3QTFJUGkvay9HNmVIVjdmd2x3cVp0eE0z?=
+ =?utf-8?B?YUJBRHpvM3l2QzBCbzZEL3RKWUFsRXRkdVk0ZHRUY3diblJ4ZzJiMk8xRW4z?=
+ =?utf-8?B?TFV4bExqTkJjTjdaM0xWMmFwVmNpb1htUXg1TFI4V1l2KytxWCtTYmZHcHBS?=
+ =?utf-8?B?alg3czFIMkxKSWlsTUtCbzVVOHVvVDAveHZCTk1NejQ4TVNGMTdoMm52NjVD?=
+ =?utf-8?B?MHVmNnlxTW00WkVKdG9kWlBrdG5QbFRseUt1bjFwTHRrZG5PY1NneU9QVkNj?=
+ =?utf-8?B?d2NwRmc2NTdLejYvRE9rOGhQZHVoUldCNzNxVi85NnI5OVVNZlVYQ2xXbGNN?=
+ =?utf-8?B?Q2xPSnBCUFFGVnBpcDZ3TENVWEFVVTIvM0tJZ2RUTW1pNlFlV1VTeVFLTVY0?=
+ =?utf-8?B?N3BkQzF6aFJDUUs4dDBzN2w2OElvUlFXMk5lK1FhMHpkNXlHOXlhcVRVcGRr?=
+ =?utf-8?B?d0lXV3lWNjJrZDdyc1RueUFqSXp1c3BVaXJVVDcwTjRUUUxGTCtNTC83TTd0?=
+ =?utf-8?B?NlZEcmNDQjBIdEZCMjVram9Zb0NSMmZkbGFmRVozSytOMGNlSUEycU5rRUNT?=
+ =?utf-8?B?Vi9PbWtTUnEzNW9adzZnTk01OVJ0VlErSTF2VVBYYkxSRXpIL0w4NWlsdmJp?=
+ =?utf-8?B?NTc4dFNPMnR5cVFmaU52MTdtZ2gvTTNFWlNQdUpDUWQreEFBMHF2cVdOQ29r?=
+ =?utf-8?B?NkRXZXJOVUZKTmJ6RXhrd1JrY3BMTGhxd1V1Q21odTZsTW1jZlZaMDBLTDhk?=
+ =?utf-8?B?YTNuWUowY0crbFJuVDlvUERHL1JST0R6WkhnRHNkNDVFWFhLMnc3ZXZZQTdR?=
+ =?utf-8?B?SVAxWkUyckJLN2hnTDFiS2VyWHE3UlRKdGl6TVdlckZIQjZoVTZwdlphbVZ1?=
+ =?utf-8?B?ZHpNQnlaaDkrTWhnRktBQlRFVFVrR2trTjRGRTJpdjB4NnlFMjhLSWRQOWh6?=
+ =?utf-8?B?NVgrdm1DbWV1c2ZlM3dtaE5MbWxvRlI0dUdiK21NemhNWFpBaUJ3bmRJTi9P?=
+ =?utf-8?B?R3RGODV3bnJ3Z291aFhQallJZ0JrYk1TbzBDUmFjdGVEMDRwUktGTVFLekhv?=
+ =?utf-8?B?ZWlYSERoS3pzbGw1SkV4bm1QNTQwaGdPUU44NDlENnlVWEQveGEwdUt2bjRq?=
+ =?utf-8?B?SDFjSDN0UExLSDluSlFwaWhjODNZOVl2RW9HcjIvQWh3UU50RXNYVDR6Mks1?=
+ =?utf-8?B?RkV0Um5tcFVQMFdIbVU4VkZGU0psSzhKU01DTzNKYjUvU0YyV1Z3NnJCU1Vr?=
+ =?utf-8?B?OVE9PQ==?=
+Content-ID: <4CF1D83A40BCF248B0606C429F08B46F@namprd11.prod.outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: PH0PR11MB5925.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27bb05d1-b6b6-4b89-03dc-08da65106c1c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jul 2022 20:44:03.3691
+X-MS-Exchange-CrossTenant-Network-Message-Id: deb59b53-a72b-4fba-6933-08da6512c1a0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Jul 2022 21:00:45.8522
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: yBvTwQfm/QcJZ99UKKJUN2LIZu6ZSu9WatVebE8/DHs8OGtuvIRpZiLT03soiJ3dMQjxkzZ8z4mK/wHAjuMlEenpNp8jyOj9BdULlymZR68=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR11MB5930
+X-MS-Exchange-CrossTenant-userprincipalname: +gvzC6nUqLcFCkIWo9MELoBRqkVKIpqZ5VwOjNNs1XQ2xiv5H2IxKTxB6DN2lkyH0xAMOvmaRIB4zXygHkqcC9JhI4x4OaM9ssk1+y3S8lk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR11MB6250
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220713_134416_111586_A09947F8 
-X-CRM114-Status: GOOD (  29.79  )
+X-CRM114-CacheID: sfid-20220713_140336_733341_D328C18D 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,298 +174,190 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thanks Andy for the feedback.
-Points noted and updates will be in next revision.
+Thanks Conor.
 
-On Wed, 2022-07-13 at 13:59 +0200, Andy Shevchenko wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you
-> know the content is safe
+On Wed, 2022-07-13 at 11:26 +0000, Conor Dooley - M52691 wrote:
+> Hey Lewis,
+> Couple comments.
 > 
-> On Wed, Jul 13, 2022 at 1:00 PM <lewis.hanly@microchip.com> wrote:
+> On 13/07/2022 11:59, lewis.hanly@microchip.com wrote:
 > > From: Lewis Hanly <lewis.hanly@microchip.com>
 > > 
 > > Add a driver to support the Polarfire SoC gpio controller.
+> > 
+> > Signed-off-by: Lewis Hanly <lewis.hanly@microchip.com>
+> > ---
+> >   drivers/gpio/Kconfig     |   9 +
+> >   drivers/gpio/Makefile    |   1 +
+> >   drivers/gpio/gpio-mpfs.c | 379
+> > +++++++++++++++++++++++++++++++++++++++
+> >   3 files changed, 389 insertions(+)
+> >   create mode 100644 drivers/gpio/gpio-mpfs.c
+> > 
+> > +
+> > +static int mpfs_gpio_probe(struct platform_device *pdev)
+> > +{
+> > +	struct clk *clk;
+> > +	struct device *dev = &pdev->dev;
+> > +	struct device_node *node = pdev->dev.of_node;
+> > +	struct device_node *irq_parent;
+> > +	struct gpio_irq_chip *girq;
+> > +	struct irq_domain *parent;
+> > +	struct mpfs_gpio_chip *mpfs_gpio;
+> > +	int i, ret, ngpio;
+> > +
+> > +	mpfs_gpio = devm_kzalloc(dev, sizeof(*mpfs_gpio), GFP_KERNEL);
+> > +	if (!mpfs_gpio)
+> > +		return -ENOMEM;
+> > +
+> > +	mpfs_gpio->base = devm_platform_ioremap_resource(pdev, 0);
+> > +	if (IS_ERR(mpfs_gpio->base))
+> > +		return PTR_ERR(mpfs_gpio->base);
+> > +
+> > +	clk = devm_clk_get(&pdev->dev, NULL);
+> > +	if (IS_ERR(clk)) {
+> > +		dev_err(&pdev->dev, "devm_clk_get failed\n");
+> > +		return PTR_ERR(clk);
+> > +	}
+> > +
+> > +	ret = clk_prepare_enable(clk);
+> > +	if (ret) {
+> > +		dev_err(&pdev->dev, "failed to enable clock\n");
+> > +		return ret;
+> > +	}
+> > +
+> > +	mpfs_gpio->clk = clk;
+> > +
+> > +	ngpio = of_irq_count(node);
+> > +	if (ngpio > NUM_GPIO) {
+> > +		dev_err(dev, "Too many GPIO interrupts (max=%d)\n",
+> > +			NUM_GPIO);
 > 
-> GPIO
+> This should fit on one line
+Can do.
 > 
-> ...
+> > +		ret = -ENXIO;
+> > +		goto cleanup_clock;
+> > +	}
+> > +
+> > +	irq_parent = of_irq_find_parent(node);
+> > +	if (!irq_parent) {
+> > +		dev_err(dev, "no IRQ parent node\n");
+> > +		ret = -ENODEV;
+> > +		goto cleanup_clock;
+> > +	}
+> > +	parent = irq_find_host(irq_parent);
+> > +	if (!parent) {
+> > +		dev_err(dev, "no IRQ parent domain\n");
+> > +		ret = -ENODEV;
+> > +		goto cleanup_clock;
+> > +	}
+> > +
+> > +	/* Get the interrupt numbers.
 > 
-> Below my comments, I have tried hard not to duplicate what Conor
-> already mentioned. So consider this as additional part.
+> netdev style comment
 > 
-> ...
+> > +	 * Clear/Disable All interrupts before enabling parent
+> > interrupts.
+> > +	 */
+> > +	for (i = 0; i < ngpio; i++) {
+> > +		mpfs_gpio->irq_number[i] = platform_get_irq(pdev, i);
 > 
-> > +config GPIO_POLARFIRE_SOC
-> > +       bool "Microchip FPGA GPIO support"
+> You need to handle the case where platform_get_irq returns an error
+> right?
+Was not going to as I don't think it breaks if error. I will do a
+little more checking if required.
 > 
-> Why not tristate?
+> > +		mpfs_gpio_assign_bit(mpfs_gpio->base + MPFS_IRQ_REG, i,
+> > 1);
+> > +		mpfs_gpio_assign_bit(mpfs_gpio->base + (i *
+> > BYTE_BOUNDARY),
+> > +				     MPFS_GPIO_EN_INT, 0);
+> > +	}
+> > +
+> > +	raw_spin_lock_init(&mpfs_gpio->lock);
+> > +
+> > +	mpfs_gpio->gc.direction_input = mpfs_gpio_direction_input;
+> > +	mpfs_gpio->gc.direction_output = mpfs_gpio_direction_output;
+> > +	mpfs_gpio->gc.get_direction = mpfs_gpio_get_direction;
+> > +	mpfs_gpio->gc.get = mpfs_gpio_get;
+> > +	mpfs_gpio->gc.set = mpfs_gpio_set;
+> > +	mpfs_gpio->gc.base = -1;
+> > +	mpfs_gpio->gc.ngpio = ngpio;
+> > +	mpfs_gpio->gc.label = dev_name(dev);
+> > +	mpfs_gpio->gc.parent = dev;
+> > +	mpfs_gpio->gc.owner = THIS_MODULE;
+> > +
+> > +	/* Get a pointer to the gpio_irq_chip */
+> 
+> I doubt this comment is needed
 OK.
 > 
-> > +       depends on OF_GPIO
-> 
-> Why?
-> 
-> > +       select GPIOLIB_IRQCHIP
-> > +       select IRQ_DOMAIN_HIERARCHY
-> 
-> More naturally this line looks if put before GPIOLB_IRQCHIP one.
-Yes
-> 
-> > +       select GPIO_GENERIC
-> > +       help
-> > +         Say yes here to support the GPIO device on Microchip
-> > FPGAs.
-> 
-> When allowing it to be a module, add a text that tells how the driver
-> will be called.
-Not loading as a module.
-> 
-> ...
-> 
-> > +/*
-> > + * Microchip PolarFire SoC (MPFS) GPIO controller driver
-> > + *
-> > + * Copyright (c) 2018-2022 Microchip Technology Inc. and its
-> > subsidiaries
-> > + *
-> > + * Author: Lewis Hanly <lewis.hanly@microchip.com>
-> > + *
-> 
-> This line is not needed.
-OK
-> 
-> > + */
-> 
-> ...
-> 
-> > +#include <linux/of.h>
-> > +#include <linux/of_irq.h>
-> 
-> Why?
-Not sure, will check again.
-> 
-> Also don't forget mod_devicetable.h.
-Can't see why I need this header.
-> 
-> ...
-> 
-> > +#define NUM_GPIO                       32
-> > +#define BYTE_BOUNDARY                  0x04
-> 
-> Without namespace?
-> 
-> ...
-> 
-> > +       gpio_cfg = readl(mpfs_gpio->base + (gpio_index *
-> > BYTE_BOUNDARY));
+> > +	girq = &mpfs_gpio->gc.irq;
+> > +	gpio_irq_chip_set_chip(girq, &mpfs_gpio_irqchip);
+> > +	girq->fwnode = of_node_to_fwnode(node);
+> > +	girq->parent_domain = parent;
+> > +	girq->child_to_parent_hwirq = mpfs_gpio_child_to_parent_hwirq;
+> > +	girq->handler = handle_bad_irq;
+> > +	girq->default_type = IRQ_TYPE_NONE;
 > > +
+> > +	ret = gpiochip_add_data(&mpfs_gpio->gc, mpfs_gpio);
 > 
-> Unneeded line.
+> Can we use a devm_ variant instead here...
+Maybe, will check.
 > 
-> > +       if (gpio_cfg & MPFS_GPIO_EN_IN)
-> > +               return 1;
+> > +	if (ret)
+> > +		goto cleanup_clock;
 > > +
-> > +       return 0;
-> 
-> Don't we have specific definitions for the directions?
-No defines in file.
-> 
-> ...
-> 
-> > +       struct gpio_chip *gc = irq_data_get_irq_chip_data(data);
-> > +       int gpio_index = irqd_to_hwirq(data);
-> > +       u32 interrupt_type;
-> > +       struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
-> 
-> This line naturally looks better before interrupt_type definition.
-> Try to keep the "longest line first" everywhere in the driver.
-OK
-> 
-> > +       u32 gpio_cfg;
-> > +       unsigned long flags;
-> 
-> ...
-> 
-> > +       switch (type) {
-> > +       case IRQ_TYPE_EDGE_BOTH:
-> > +               interrupt_type = MPFS_GPIO_TYPE_INT_EDGE_BOTH;
-> > +               break;
-> > +
-> 
-> Unneeded line here and everywhere in the similar cases in the entire
-> code.
-OK
-> 
-> > +       case IRQ_TYPE_EDGE_FALLING:
-> > +               interrupt_type = MPFS_GPIO_TYPE_INT_EDGE_NEG;
-> > +               break;
-> > +
-> > +       case IRQ_TYPE_EDGE_RISING:
-> > +               interrupt_type = MPFS_GPIO_TYPE_INT_EDGE_POS;
-> > +               break;
-> > +
-> > +       case IRQ_TYPE_LEVEL_HIGH:
-> > +               interrupt_type = MPFS_GPIO_TYPE_INT_LEVEL_HIGH;
-> > +               break;
-> > +
-> > +       case IRQ_TYPE_LEVEL_LOW:
-> > +               interrupt_type = MPFS_GPIO_TYPE_INT_LEVEL_LOW;
-> > +               break;
-> > +       }
-> 
-> ...
-> 
-> > +       mpfs_gpio_assign_bit(mpfs_gpio->base + (gpio_index *
-> > BYTE_BOUNDARY),
-> > +                            MPFS_GPIO_EN_INT, 1);
-> 
-> Too many parentheses.
-I do think it makes reading easier.
-> 
-> ...
-> 
-> > +       mpfs_gpio_assign_bit(mpfs_gpio->base + (gpio_index *
-> > BYTE_BOUNDARY),
-> > +                            MPFS_GPIO_EN_INT, 0);
-> 
-> Ditto.
-> 
-> ...
-> 
-> > +static int mpfs_gpio_irq_set_affinity(struct irq_data *data,
-> > +                                     const struct cpumask *dest,
-> > +                                     bool force)
-> > +{
-> > +       if (data->parent_data)
-> > +               return irq_chip_set_affinity_parent(data, dest,
-> > force);
-> > +
-> > +       return -EINVAL;
-> > +}
-> 
-> Why do you need this? Isn't it taken care of by the IRQ chip core?
-Yes I believe we do/should, data->parent_data is used in
-irq_chip_set_affinity_parent(..) without checking so hence checked
-before calling.
-> 
-> ...
-> 
-> > +       struct clk *clk;
-> > +       struct device *dev = &pdev->dev;
-> > +       struct device_node *node = pdev->dev.of_node;
-> > +       struct device_node *irq_parent;
-> 
-> Why do you need these?
-Yes they are needed. Both of the same type but used in different
-places. I don't think I can reuse.
-
-> 
-> > +       struct gpio_irq_chip *girq;
-> > +       struct irq_domain *parent;
-> > +       struct mpfs_gpio_chip *mpfs_gpio;
-> > +       int i, ret, ngpio;
-> 
-> ...
-> 
-> > +       clk = devm_clk_get(&pdev->dev, NULL);
-> > +       if (IS_ERR(clk)) {
-> > +               dev_err(&pdev->dev, "devm_clk_get failed\n");
-> > +               return PTR_ERR(clk);
-> > +       }
-> 
-> return dev_err_probe(...);
-> 
-> It's not only convenient, but here it fixes a bug.
-Will use return dev_err_probe.
-> 
-> > +       ret = clk_prepare_enable(clk);
-> > +       if (ret) {
-> > +               dev_err(&pdev->dev, "failed to enable clock\n");
-> > +               return ret;
-> 
-> return dev_err_probe(...);
-Yes
-> 
-> > +       }
-> 
-> Make it managed as well in addition to gpiochip_add_data(), otherwise
-> you will have wrong ordering.
-> 
-> ...
-> 
-> > +       ngpio = of_irq_count(node);
-> > +       if (ngpio > NUM_GPIO) {
-> > +               dev_err(dev, "Too many GPIO interrupts (max=%d)\n",
-> > +                       NUM_GPIO);
-> > +               ret = -ENXIO;
-> > +               goto cleanup_clock;
-> 
-> return dev_err_probe(...);
-I need to cleanup clock before returning, will use dev_err_probe.
-> 
-> > +       }
-> > +
-> > +       irq_parent = of_irq_find_parent(node);
-> > +       if (!irq_parent) {
-> > +               dev_err(dev, "no IRQ parent node\n");
-> > +               ret = -ENODEV;
-> > +               goto cleanup_clock;
-> 
-> Ditto.
-> 
-> > +       }
-> > +       parent = irq_find_host(irq_parent);
-> > +       if (!parent) {
-> > +               dev_err(dev, "no IRQ parent domain\n");
-> > +               ret = -ENODEV;
-> > +               goto cleanup_clock;
-> 
-> Ditto.
-> 
-> > +       }
-> 
-> Why do you need all these? Seems a copy'n'paste from gpio-sifive,
-> which is the only GPIO driver using this pattern.
-Yes I believe we do need all this information. Yes it is similiar
-implementation to sifive. Not the only driver using this pattern, check
-gpio-ixp4xxx.c
-
-> 
-> ...
-> 
-> > +               mpfs_gpio_assign_bit(mpfs_gpio->base + (i *
-> > BYTE_BOUNDARY),
-> > +                                    MPFS_GPIO_EN_INT, 0);
-> 
-> Too many parentheses.
-> 
-> 
-> > +       girq->fwnode = of_node_to_fwnode(node);
-> 
-> This is an interesting way of
-> 
->     ...->fwnode = dev_fwnode(dev);
-> 
-> 
-> ...
-> 
-> > +       dev_info(dev, "Microchip MPFS GPIO registered, ngpio=%d\n",
+> > +	platform_set_drvdata(pdev, mpfs_gpio);
+> > +	dev_info(dev, "Microchip MPFS GPIO registered, ngpio=%d\n",
 > > ngpio);
+> > +
+> > +	return 0;
+> > +
+> > +cleanup_clock:
+> > +	clk_disable_unprepare(mpfs_gpio->clk);
+> > +	return ret;
+> > +}
+> > +
+> > +static int mpfs_gpio_remove(struct platform_device *pdev)
+> > +{
+> > +	struct mpfs_gpio_chip *mpfs_gpio = platform_get_drvdata(pdev);
+> > +
+> > +	gpiochip_remove(&mpfs_gpio->gc);
 > 
-> Noise.
-Maybe, but useful information to know the ngpio.
+> ... and drop this?
+eh, OK.
 > 
-> ...
+> > +	clk_disable_unprepare(mpfs_gpio->clk);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static const struct of_device_id mpfs_gpio_match[] = {
+> > +	{ .compatible = "microchip,mpfs-gpio", },
+> > +	{ /* end of list */ },
 > 
-> > +               .of_match_table = of_match_ptr(mpfs_gpio_match),
+> Don't need a comma after the sentinel
+OK.
 > 
-> Please, avoid using of_match_ptr(). It brings more harm than
-> usefulness.
-OK
+> > +};
+> > +
+> > +static struct platform_driver mpfs_gpio_driver = {
+> > +	.probe = mpfs_gpio_probe,
+> > +	.driver = {
+> > +		.name = "microchip,mpfs-gpio",
+> > +		.of_match_table = of_match_ptr(mpfs_gpio_match),
+> > +	},
+> > +	.remove = mpfs_gpio_remove,
+> > +};
+> > +builtin_platform_driver(mpfs_gpio_driver)
 > 
-> --
-> With Best Regards,
-> Andy Shevchenko
+> Mising semicolon?
+Can add..
+> 
+> Thanks,
+> Conor.
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
