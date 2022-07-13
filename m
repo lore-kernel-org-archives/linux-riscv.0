@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486A1C43334
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jul 2022 03:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D86C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jul 2022 05:49:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=scj6S+c1XLhiJYIfNEzlld/b6j85jF825K2e6b+6FQk=; b=XtuD4AAOGlA+luqIUGTy4xxnM+
-	GhVB+P0quzgDgU5Xqfk821NA1yPIHwYBCz2hZBrbiNRjFJVY2MxTyOHOHVAuQaOZlS+hz3HffTBpM
-	itVkW2KXf15SrnE5E+9CKtURh/DQw71Yi7MwQOQli2AWWw2SgSHNXyCFjCg3f2HJMIuXRZclWpt4T
-	O4OyN1Jv9xV3FbH1fvGJ/p/t27bSiySKrO/tlz4l1OfXXsjqy6ACIfJHlcANH0JA77dcDib0bw2K1
-	S6B/M+s4L72T50Yk6t8Du7dvGQjrV3Y6kFYGwshIMMwrB9vvTarCKO2K9D6Lut4CfDXuoY522dboW
-	yQ+y0nHg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MRKvUKU3lkueRz3cWxoHDh1psDuyCWQMNEDPWH8tTVg=; b=WOg6vyxlAvXOVe
+	X+LfWQXQSPzzmatzC4RtnoSdRdfRgReQNi2z/Txojsd/etfmoY7Pp5X28m32t3zAEO0DF3h/EjmlK
+	gKFsskY7u5bAua0HMfuki4x63Qes/EPrCbBP0DZCzZURoa1gz4vg2sSYqSEADKDC8hcV07R3gLYtR
+	UCVjHjviuCrp+z/SvBVQXlBX1ICa5XZZsY4KH8KOxgATo7iJGZMrLYeoliJsvUG9gJzM0QLQ0MrH5
+	iigfJ+8yUvIu54vrIxHxuAP45rdH2z/2JTR/h7X3kfgxsjrXbbSwKSteJxOIiRFauKzIo+WumMK1v
+	iNseNeXmGXUjkREIMsqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBSuA-00HAYI-BG; Wed, 13 Jul 2022 03:19:14 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1oBVEi-000Kvh-H2; Wed, 13 Jul 2022 05:48:36 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBSu7-00HAXM-Cr
-	for linux-riscv@lists.infradead.org; Wed, 13 Jul 2022 03:19:13 +0000
-Received: by mail-pf1-x432.google.com with SMTP id w185so9124274pfb.4
-        for <linux-riscv@lists.infradead.org>; Tue, 12 Jul 2022 20:19:09 -0700 (PDT)
+	id 1oBVEf-000KrM-L2
+	for linux-riscv@lists.infradead.org; Wed, 13 Jul 2022 05:48:35 +0000
+Received: by mail-wr1-x431.google.com with SMTP id v14so13951593wra.5
+        for <linux-riscv@lists.infradead.org>; Tue, 12 Jul 2022 22:48:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=R6xI0morLL57JUlbA0u3eGGm5aJePBaipJygvCaQ9U0=;
-        b=2BzjTzbUXD1woQQGYOJ7CSmknNB/O8RnasV2LMyIW04QMAfAF3i6aldO/K/u/4ioDt
-         hLdJe33qPcDPPAP8yb5qlaHVlsTECwjIMXNK1m+xG449/s/ilZ/hwVC3AhOIvUTW3Ovq
-         jGoD17lRk59TH65lzQaqIe54ZEi5I/g+CdhXSWLyAe3gHxCkuqaIoWNY0/h4ssVfMMtQ
-         1V3qugKEAA3RtRnAbsxiZ0FRcXvV+UEwDlXR5l/mJb4ewDjU7HubwrVCgH9uUirRx8v0
-         orUlIU9mx3I99gNzrI+6a2YV62S95lfPCYg+8zpVDFDK02H6pdC9SzsA9REXUPw3dmq/
-         fFGA==
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:from:date:message-id:subject:to:cc;
+        bh=a7Jq6CNl2s/wsfuy5DRMvbAZURyt/0nHWoFVyeWRnG8=;
+        b=ij9ylmOiMr6PNwHJF7dTc2/1Ag8iFSebIsCAGIwpIZvb8rUZium6cfRyZmuyO7YPSA
+         zCfn8ChLLcGJDNXYjzr6v58aWDrRg7+rz7z7YXKMNLyklIrD1wmFoliRXt2BMc3PI+yq
+         Cz5+NA6Agb1n0LRZ/fYEcFynKyAmay+FkWtBQ61YhDtG+FrOf8rmUe4QZ7HbxEgL2ZjY
+         A+TAo6vaeGxK4RML1Nw3EM8o1XXVLtFImc7nzPK5i4qfXQ3n8J0mifNEodyAurloab9S
+         XYRMYyFd/uJDJUAtcayGr/n9GaEmPtBnuQplgrqESw8ePCo34wRiwQ79DXC8/c1nn2Vb
+         uDQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=R6xI0morLL57JUlbA0u3eGGm5aJePBaipJygvCaQ9U0=;
-        b=5i7DKJetH9nNVE+ETLMq7agjGkWtGMNDL/Luz9AFaNlG5y4jpvPrrm+o2I/hVROQOc
-         aQZUq3XVKo/E2PIJIKDosNQP/zFjcbQQwtHhrQyp0pjlHjUvNd7H9T3h4/HavWtoW1Iw
-         kmdQNx0XMIMiiF2S/RTOatnwfFZTU2Wuq/IuyT6cyJFxUeLvDH3Fvlu8CnnD+nrV9g9Y
-         nndYy5AiYJSnGx1y3y3Ezlpm752AKwrkbbCnNbDUnxZLrfbp8sNd+qjQiiADnNc8mKUl
-         GX8o6/LsrorT/maXld7PuYUg9aVLb8+DsrfkioIobT9SxYjhmhmDM7ePuZQHs4dtC/ia
-         Z61g==
-X-Gm-Message-State: AJIora/lhgzmZHMDXhkQrj0hKvlcIlbacBgx8gekEpT1dtONhFAMFk4F
-	nABXNABGuF+H5Li3pnxrK8mOAg==
-X-Google-Smtp-Source: AGRyM1tZjKVMWuD2n12LJ90FJHY8IZsKaQrHl5SuVWznr1RNc44Ebbb9J2BH8KdkKZspCJ0XQXgm5Q==
-X-Received: by 2002:a65:4907:0:b0:3fd:bc3e:fb0a with SMTP id p7-20020a654907000000b003fdbc3efb0amr1155392pgs.123.1657682348898;
-        Tue, 12 Jul 2022 20:19:08 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id 77-20020a630650000000b0041299ef533csm6846318pgg.41.2022.07.12.20.19.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 12 Jul 2022 20:19:08 -0700 (PDT)
-Date: Tue, 12 Jul 2022 20:19:08 -0700 (PDT)
-X-Google-Original-Date: Tue, 12 Jul 2022 20:19:06 PDT (-0700)
-Subject: Re: [PATCH v3 0/4] Add PLIC support for Renesas RZ/Five SoC / Fix T-HEAD PLIC edge flow
-In-Reply-To: <92a45bf04cfe140c7605559fa3d8f4eb@kernel.org>
-CC: samuel@sholland.org, prabhakar.mahadev-lad.rj@bp.renesas.com,
-  prabhakar.csengg@gmail.com, sagar.kadam@sifive.com, Paul Walmsley <paul.walmsley@sifive.com>,
-  guoren@kernel.org, tglx@linutronix.de, geert+renesas@glider.be, linux-renesas-soc@vger.kernel.org,
-  biju.das.jz@bp.renesas.com, krzysztof.kozlowski+dt@linaro.org, robh+dt@kernel.org,
-  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Marc Zyngier <maz@kernel.org>, davidlt@rivosinc.com
-Message-ID: <mhng-60d46fe7-e88d-43b0-9cea-a4ae865baeb4@palmer-mbp2014>
-Mime-Version: 1.0 (MHng)
+        h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
+        bh=a7Jq6CNl2s/wsfuy5DRMvbAZURyt/0nHWoFVyeWRnG8=;
+        b=TlVrg4/cLQg2SSas44hP/G39etVi1OdXNzrpxGjCFaM4v2RlhKPgj/l4WIQqyCTovX
+         P2UlI4zBYnvk0GpJSXnKuZjT06YU76v17igY4aTwGsHs3A/kEjsZ/Kwx/a4hjHRcEDeH
+         HJfTBkjoXGPbEAPTD6i5mXXwvLoVQJJwjiKa9LOJbh9eNB6Ldmzf9LyCpg5HfayuwVg5
+         0344YapoE2dK2iacU65gyLjvgFZ85QmxrIuNcfNCF7uWY0SGgvj69ptXgKw4uzR6EYyY
+         tcqzwFmihvt1wTlQ8IAesZi4tSBot3NzmGpEFs8e/hKcSvUN2Rqw9xfqAN6Fs9xaknC7
+         u9Mg==
+X-Gm-Message-State: AJIora/ZXPRp2ztqXWOcLRZ92D35zPWotsJlOirw/UxXPOXzEcAnrzlX
+	v1nGIZwHQ9yaozJhvxrXN6GpM4pxi+FNcliQc3AowA==
+X-Google-Smtp-Source: AGRyM1sqkc4Ob6zlaKqcQ56jcIYT4y+cTXdT478VuRnF0kpbKo2bWa1a73J8Q25v81LPyt/PWSacxa+pf5n4C1oXGR0=
+X-Received: by 2002:a5d:64ac:0:b0:21d:7832:ecf9 with SMTP id
+ m12-20020a5d64ac000000b0021d7832ecf9mr1416098wrp.86.1657691306384; Tue, 12
+ Jul 2022 22:48:26 -0700 (PDT)
+MIME-Version: 1.0
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 13 Jul 2022 11:17:17 +0530
+Message-ID: <CAAhSdy1CAtr=mAVFtduTcED_Sjp2=4duQwgL5syxZ-sYM6SoWQ@mail.gmail.com>
+Subject: [GIT PULL] KVM/riscv fixes for 5.19, take #2
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Atish Patra <atishp@atishpatra.org>, 
+	KVM General <kvm@vger.kernel.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220712_201911_456051_3EF7BE26 
-X-CRM114-Status: GOOD (  19.70  )
+X-CRM114-CacheID: sfid-20220712_224833_712181_45342F2B 
+X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,75 +78,54 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 01 Jul 2022 07:28:48 PDT (-0700), Marc Zyngier wrote:
-> On 2022-06-30 11:02, Samuel Holland wrote:
->> This patch series adds PLIC support for Renesas RZ/Five SoC.
->>
->> Since the T-HEAD C900 PLIC has the same behavior, it also applies the
->> fix for that variant.
->>
->> This series is an update of v2 of the RZ/Five series[0], and replaces
->> the separate T-HEAD series[1].
->>
->> [0]:
->> https://lore.kernel.org/linux-riscv/20220626004326.8548-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
->> [1]:
->> https://lore.kernel.org/linux-riscv/20220627051257.38543-1-samuel@sholland.org/
->>
->> Changes in v3:
->>  - Add a more detailed explanation for why #interrupt-cells differs
->>  - Add andestech,nceplic100 as a fallback compatible
->>  - Separate the conditional part of the binding into two blocks (one
->> for
->>    the PLIC implementation and the other for the SoC integration)
->>  - Use a quirk bit for selecting the flow instead of a variant ID
->>  - Use the andestech,nceplic100 compatible to select the new behavior
->>  - Use handle_edge_irq instead of handle_fasteoi_ack_irq so .irq_ack
->>    always gets called
->>  - Do not set the handler name, as RISC-V selects
->> GENERIC_IRQ_SHOW_LEVEL
->>  - Use the same name for plic_edge_chip as plic_chip
->>
->> Changes in v2:
->>  - Fixed review comments pointed by Marc and Krzysztof.
->>
->> Changes in v1:
->>  - Fixed review comments pointed by Rob and Geert.
->>  - Changed implementation for EDGE interrupt handling on Renesas
->> RZ/Five
->>    SoC.
->>
->> Lad Prabhakar (2):
->>   dt-bindings: interrupt-controller: sifive,plic: Document Renesas
->>     RZ/Five SoC
->>   irqchip/sifive-plic: Add support for Renesas RZ/Five SoC
->>
->> Samuel Holland (2):
->>   dt-bindings: interrupt-controller: Require trigger type for T-HEAD
->>     PLIC
->>   irqchip/sifive-plic: Fix T-HEAD PLIC edge trigger handling
->>
->>  .../sifive,plic-1.0.0.yaml                    | 65 +++++++++++++--
->>  drivers/irqchip/irq-sifive-plic.c             | 80 +++++++++++++++++--
->>  2 files changed, 135 insertions(+), 10 deletions(-)
->
-> I'm going to provisionally queue this into -next so that it
-> can get some testing. I'd still want the DT changes to be
-> Ack'ed before the next merge window though.
+Hi Paolo,
 
-+David, as IIRC he still tests on SiFive hardware.
+We have two more fixes for 5.19 which were discovered recently:
+1) Fix missing PAGE_PFN_MASK
+2) Fix SRCU deadlock caused by kvm_riscv_check_vcpu_requests()
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Please pull.
 
-Though I also wait for Rob on DT stuff (I saw the other thread), so not 
-sure that helps any.
+Regards,
+Anup
 
-Thanks!
+The following changes since commit 32346491ddf24599decca06190ebca03ff9de7f8:
+
+  Linux 5.19-rc6 (2022-07-10 14:40:51 -0700)
+
+are available in the Git repository at:
+
+  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-fixes-5.19-2
+
+for you to fetch changes up to be82abe6a76ba8e76f25312566182b0f13c4fbf9:
+
+  RISC-V: KVM: Fix SRCU deadlock caused by
+kvm_riscv_check_vcpu_requests() (2022-07-11 09:36:32 +0530)
+
+----------------------------------------------------------------
+ KVM/riscv fixes for 5.19, take #2
+
+- Fix missing PAGE_PFN_MASK
+
+- Fix SRCU deadlock caused by kvm_riscv_check_vcpu_requests()
+
+----------------------------------------------------------------
+Alexandre Ghiti (1):
+      riscv: Fix missing PAGE_PFN_MASK
+
+Anup Patel (1):
+      RISC-V: KVM: Fix SRCU deadlock caused by kvm_riscv_check_vcpu_requests()
+
+ arch/riscv/include/asm/pgtable-64.h | 12 ++++++------
+ arch/riscv/include/asm/pgtable.h    |  6 +++---
+ arch/riscv/kvm/mmu.c                |  2 +-
+ arch/riscv/kvm/vcpu.c               |  2 ++
+ 4 files changed, 12 insertions(+), 10 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
