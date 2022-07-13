@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A093AC43334
-	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jul 2022 11:55:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5EDC433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 13 Jul 2022 11:55:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Duq1IRN9R6v1MW+/g/F5RGIlT63/Iejb5CoKSI7egaQ=; b=tRe7oHALQ27kvl
-	sJXX3jsHDmA8TsdEA+Xc6ej0HMM5OkRsh3D0HF/H2Aw6vjuNt9QJb38NlGtI90t0UwP1pOuR2nXEn
-	yRroyOmuU48vlP2mueiGVnFwTXToaY2rnS07x/+G3t+3bkQW8v8W/1PM8ybZZc5pt3vPWBwX4pbQ+
-	E4qUGfYAf7v9Qk52UwFbEj/2YKfTMcxLfh25nYcibT25Pf25UA2Vaj6JcMm4LnnaARFOcCdvjL9BJ
-	nvCeL/VFwLvV0GyJAn1laI3+uoC5YxubQU0EA6Rn27oKm7FAddzvpI5/mHfNjXw1pcte2NCvx7vpf
-	F1BOdasUTKAO8l5HSQVA==;
+	List-Owner; bh=+1V2Fk7dxnZXyaShlVCJ09j/V9XkiwjCOXQFrLFSa9U=; b=NvVD8+LuVIPhcw
+	1SCjU3+RcLsI8DEHJpOAzRcp8LJ1t2JKo04DlMTCm/uT51q/HQKuT5EzlxTDlDd+J1QagsFaPteCD
+	NIgba4wI8xc3ocHR/9/r3fDe0LxCCIV9T66WUPdHkZloQWZtttZtcPuXtctx3XDztWJEYR5om/KoK
+	cJ2tF+orgo/6Tk5u3Xh+vcywjvgLmblsAplKpcAyuuD7ssOJb9mNKdBqiTYZqos1RK6uD7oop2eOz
+	sDpbngxPSmz/AYscgwvJjPKXDYD4LfDFK+huCkES0yDw+aDaqiaF0WfaWJGCnUsxOX85UTOzpy5Vi
+	vV5AC5LEz+GkpOw2lWKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBaxu-003JLO-IH; Wed, 13 Jul 2022 11:55:38 +0000
+	id 1oBaxt-003JKh-4Q; Wed, 13 Jul 2022 11:55:37 +0000
 Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBaxp-003JGW-MD
-	for linux-riscv@lists.infradead.org; Wed, 13 Jul 2022 11:55:36 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R171e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045168;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0VJDr3Bl_1657713327;
-Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VJDr3Bl_1657713327)
+	id 1oBaxp-003JGs-Jf
+	for linux-riscv@lists.infradead.org; Wed, 13 Jul 2022 11:55:35 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R591e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045168;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0VJDrRM9_1657713328;
+Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VJDrRM9_1657713328)
           by smtp.aliyun-inc.com;
-          Wed, 13 Jul 2022 19:55:27 +0800
+          Wed, 13 Jul 2022 19:55:28 +0800
 From: Xianting Tian <xianting.tian@linux.alibaba.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -43,15 +43,16 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	huanyi.xj@alibaba-inc.com,
 	Xianting Tian <xianting.tian@linux.alibaba.com>
-Subject: [PATCH 1/2] RISC-V: Add arch_crash_save_vmcoreinfo support
-Date: Wed, 13 Jul 2022 19:55:22 +0800
-Message-Id: <20220713115523.357817-2-xianting.tian@linux.alibaba.com>
+Subject: [PATCH 2/2] riscv: Add modules to virtual kernel memory layout dump
+Date: Wed, 13 Jul 2022 19:55:23 +0800
+Message-Id: <20220713115523.357817-3-xianting.tian@linux.alibaba.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20220713115523.357817-1-xianting.tian@linux.alibaba.com>
 References: <20220713115523.357817-1-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220713_045533_942999_D779C607 
-X-CRM114-Status: GOOD (  13.63  )
+X-CRM114-CacheID: sfid-20220713_045533_861416_9AABB99B 
+X-CRM114-Status: UNSURE (   6.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,84 +70,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add arch_crash_save_vmcoreinfo(), which exports VM layout(MODULES, VMALLOC,
-VMEMMAP and KERNEL_LINK_ADDR ranges), satp mode and ram base to vmcore.
+Modules always live before the kernel, MODULES_END is fixed but
+MODULES_VADDR isn't fixed, it depends on the kernel size.
+Let's add it to virtual kernel memory layout dump.
 
-Default pagetable levels and PAGE_OFFSET aren't same for different kernel
-version as below. For default pagetable levels, it sets sv57 on defaultly
-in latest kernel and do fallback to try to set sv48 on boot time if sv57
-is not supported in current hardware.
-
-For ram base, the default value is 0x80200000 for qemu riscv64 env, 0x200000
-for riscv64 SoC platform(eg, SoC platform of RISC-V XuanTie 910 CPU).
-
- * Linux Kernel 5.18 ~
- *      PGTABLE_LEVELS = 5
- *      PAGE_OFFSET = 0xff60000000000000
- * Linux Kernel 5.17 ~
- *      PGTABLE_LEVELS = 4
- *      PAGE_OFFSET = 0xffffaf8000000000
- * Linux Kernel 4.19 ~
- *      PGTABLE_LEVELS = 3
- *      PAGE_OFFSET = 0xffffffe000000000
-
-Since these configurations change from time to time and version to version,
-it is preferable to export them via vmcoreinfo than to change the crash's
-code frequently, it can simiplify the development of crash tool.
+eg,
+MODULES_VADDR - MODULES_END
+0xffffffff01133000 - 0xffffffff80000000
 
 Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
 ---
- arch/riscv/kernel/Makefile     |  1 +
- arch/riscv/kernel/crash_core.c | 28 ++++++++++++++++++++++++++++
- 2 files changed, 29 insertions(+)
- create mode 100644 arch/riscv/kernel/crash_core.c
+ arch/riscv/mm/init.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/kernel/Makefile b/arch/riscv/kernel/Makefile
-index c71d6591d539..54e4183db080 100644
---- a/arch/riscv/kernel/Makefile
-+++ b/arch/riscv/kernel/Makefile
-@@ -81,6 +81,7 @@ obj-$(CONFIG_KGDB)		+= kgdb.o
- obj-$(CONFIG_KEXEC)		+= kexec_relocate.o crash_save_regs.o machine_kexec.o
- obj-$(CONFIG_KEXEC_FILE)	+= elf_kexec.o machine_kexec_file.o
- obj-$(CONFIG_CRASH_DUMP)	+= crash_dump.o
-+obj-$(CONFIG_CRASH_CORE)	+= crash_core.o
- 
- obj-$(CONFIG_JUMP_LABEL)	+= jump_label.o
- 
-diff --git a/arch/riscv/kernel/crash_core.c b/arch/riscv/kernel/crash_core.c
-new file mode 100644
-index 000000000000..3d9bdeb985a0
---- /dev/null
-+++ b/arch/riscv/kernel/crash_core.c
-@@ -0,0 +1,28 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <linux/crash_core.h>
-+#include <linux/pagemap.h>
-+
-+void arch_crash_save_vmcoreinfo(void)
-+{
-+	VMCOREINFO_NUMBER(phys_ram_base);
-+	VMCOREINFO_NUMBER(satp_mode);
-+
-+	/* Please note VMCOREINFO_NUMBER() uses "%d", not "%x" */
-+	vmcoreinfo_append_str("NUMBER(PAGE_OFFSET)=0x%lx\n", PAGE_OFFSET);
-+	vmcoreinfo_append_str("NUMBER(MODULES_VADDR)=0x%lx\n", MODULES_VADDR);
-+	vmcoreinfo_append_str("NUMBER(MODULES_END)=0x%lx\n", MODULES_END);
-+	vmcoreinfo_append_str("NUMBER(VMALLOC_START)=0x%lx\n", VMALLOC_START);
-+	vmcoreinfo_append_str("NUMBER(VMALLOC_END)=0x%lx\n", VMALLOC_END);
-+	vmcoreinfo_append_str("NUMBER(VMEMMAP_START)=0x%lx\n", VMEMMAP_START);
-+	vmcoreinfo_append_str("NUMBER(VMEMMAP_END)=0x%lx\n", VMEMMAP_END);
-+
-+	if (IS_ENABLED(CONFIG_64BIT)) {
-+#ifdef CONFIG_KASAN
-+		vmcoreinfo_append_str("NUMBER(KASAN_SHADOW_START)=0x%lx\n", KASAN_SHADOW_START);
-+		vmcoreinfo_append_str("NUMBER(KASAN_SHADOW_END)=0x%lx\n", KASAN_SHADOW_END);
-+#endif
-+		vmcoreinfo_append_str("NUMBER(KERNEL_LINK_ADDR)=0x%lx\n", KERNEL_LINK_ADDR);
-+		vmcoreinfo_append_str("NUMBER(ADDRESS_SPACE_END)=0x%lx\n", ADDRESS_SPACE_END);
-+	}
-+}
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index d466ec670e1f..bffab94f02d3 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -135,6 +135,8 @@ static void __init print_vm_layout(void)
+ 		(unsigned long)VMEMMAP_END);
+ 	print_ml("vmalloc", (unsigned long)VMALLOC_START,
+ 		(unsigned long)VMALLOC_END);
++	print_ml("modules", (unsigned long)MODULES_VADDR,
++		(unsigned long)MODULES_END);
+ 	print_ml("lowmem", (unsigned long)PAGE_OFFSET,
+ 		(unsigned long)high_memory);
+ 	if (IS_ENABLED(CONFIG_64BIT)) {
 -- 
 2.17.1
 
