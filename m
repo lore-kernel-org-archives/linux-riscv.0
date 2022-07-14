@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1034CCA47B
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 22:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99BB1CCA47B
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 22:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=K/kWHx3kT5BugQAV9Yp9gOwaTpO7RqC+iCGZFpwy6pI=; b=lxVGlYIhz7NPWRBB4zwHXcyyRd
-	9D9b+6NcO2pvXz8OT1EPRAcLLecHfu/zEhvZYxZPc+Tq7gpthp+HAVlphxGIpzugFpMUklf4I9ANB
-	Fl/exY7iebT7Gh05ywDreGJsUPel+NHELdY/FKmSUslVoQ65ERhWf81RoOY94b/VnPW1qMAB22dfv
-	D4UhuC8IsrnY4bxJP4KgU1OtGJG1zn+JIFrP3K1VkxpizcO3/9sUpF+OcAsbUSzw2Xf9/4hGV0pN+
-	jayUGDdVSbIOUPXAflNrYPpwJ+G/GysCku6eeN2G0XBsKKupfBO72hrq8gG4fLr06NYW8OGR4zd8u
-	hS2Ky6+A==;
+	bh=Bu3Q30Rr7aeI94bGAHGzIvFK7cClGc9l+r/FxwjOp5Y=; b=HPad623tEwMllVvXm9hEL0j70z
+	fcKOu6BMtxXz2UeRuLn6cWJaIUF/EULflnrSSQfWEzPw28xh2AvQuBVnBQuNlSioIKQc5XXCb8Hoj
+	feoi5RiiPDW/mQMIj3xkGQdESzfON/MNVRsmWDKkrI/YQfGSzBz273+UM7t4UhU9x/6tdaBUc9JO3
+	dHDbVqg38Wfz/u0xFru9R4WLJNN0jY5LrYD1eCiVaoqJYpeT4CazhyNbSMmhhp96hm/2K8jQpENHl
+	AlWYnXynoCFAfZ0ge+GVwML1hxdnZk4fQqULMpdvzY6BsIY+/21XHCNdYZJEW4YyvI2AGmd6st2RZ
+	a3BgdaAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oC6wO-001s5h-H4; Thu, 14 Jul 2022 22:04:12 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1oC6wP-001s6J-TY; Thu, 14 Jul 2022 22:04:13 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oC6wJ-001s3R-RK
-	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 22:04:09 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id o3-20020a17090a744300b001ef8f7f3dddso4353998pjk.3
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 15:04:07 -0700 (PDT)
+	id 1oC6wK-001s2i-H4
+	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 22:04:10 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id o12so3059853pfp.5
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 15:04:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
          :content-transfer-encoding;
-        bh=ywlJHcH7eypqCmP7zkmcLFhr+R1MKhJyHDg1SQdZ4+o=;
-        b=XvB9r9RXYlimHyg2tVGdZjZabKYGLze7MOQPJOwXRsyTNAMc+T8JkFwn9DHK0rw+FN
-         HBskxc3t+diLtZDeNPgT+DZIGRaT1TSLFqyOwNkawLVwR3fLGPO+1Att1oH2ea16v0VM
-         xCucMDs0YeZdbPd3NzMPMWCqZx+U06K3UzY0UKpjpErOo2MsAvIDIe+JvY+dA3CoQTaO
-         8RZAwgJDlw8wDWcr26G6exu7MCkxZ+2O+9ZEpxeKC+5OgZgwv/di6+1KZ/I7BTfpzUkR
-         6keniU94SgAhkc4npYoyHxM985UTjTFhpiqnl1ekmrGy4LPfqeNFS7qEJS25AFm2VnhA
-         H29Q==
+        bh=8PAchEXjU/hpKREmMLz/eNhHJ5OIRwF0hugCxV08cb8=;
+        b=jvbJ4JpBQsHmD4/EIg81fsqcAB85ED0GPvthGUEz8yEFX3y/GzdRGeLqbl80N410j4
+         taurkoZFYu+OyFw0WlUzU4PQjp0mizVPNPuL+Lx2bw6aAE6frJ+tKOUPh59CiYVBCveQ
+         UKadKyjkBsaggdv/7xVNFktE5PFWF06kcqSo2JQIeJ0lNXana4QZIpZIhPbmR4b9HzKW
+         t5o1wx3DW7pbA/RO1ybpmnosuzneJnshWaJ/oRt7jGe5eVIwoZWqvHlSjLadZCVjXBcz
+         b0CvjBdIZd0slBHZ9m1bsPqM8BFJuGuE8unE5L+mr84Niu9gKe6xCStd3Y7mFhCQS5mO
+         PtyA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
          :mime-version:content-transfer-encoding;
-        bh=ywlJHcH7eypqCmP7zkmcLFhr+R1MKhJyHDg1SQdZ4+o=;
-        b=Mo5MdI0yTLFK6DZGb1mrDy9QzW8f518nJuzDqVXjKVAL26zbOgKK28jAK/ns1xsTGP
-         CMNy9TnClZjVzszHz+qK6e9wz1gTeim94T0V4XBXvMVcSNILcn0ceItFhJxTKgg7+iTG
-         PB4VFc/N9pN3jtL4+dQN9EFIDkjGCnwRHFvXia5MjS9H0LwEp0RWJ3rX2P4/j9SfmrwA
-         J5PthxSuzke6ZhSQwWqR0X0rfaqvlr6ZzYrB2Ps5V1kMtTsmWJZiKciZ3TFV/y7F7Ori
-         Y/siiR32ez+YOIhMG7STiDpQKQGgtxV98aZjN4XRWrYckdUrvtliAMQivHGh+1Ycr/1H
-         GpQw==
-X-Gm-Message-State: AJIora9ReswoT0rFAfMaK4TMfX+D4EdjEBlI87gdiGYy6JqfnUhoJ5fp
-	4cHv/dl4sNl+S3jUgYYj20Q6Xg==
-X-Google-Smtp-Source: AGRyM1thP0N/IY4OLhYu9r6MjJ1HW8omCP9Uxv0y7tA8fStUOLH0EhhBVNxOBpyHqtol460Zk/Y6bA==
-X-Received: by 2002:a17:902:f68c:b0:16c:4eb6:913c with SMTP id l12-20020a170902f68c00b0016c4eb6913cmr10065283plg.2.1657836246537;
-        Thu, 14 Jul 2022 15:04:06 -0700 (PDT)
+        bh=8PAchEXjU/hpKREmMLz/eNhHJ5OIRwF0hugCxV08cb8=;
+        b=jKsMSchbRqyFL5Y9HQ6l7vmm8F6aN5jvx2lHuBIDtgGnaaN2PkCawgmhueVjiWlmlx
+         ucQX3qsd3sJ5792b5wVbVvRxyz2OEb4+X/g4P7x034Y78MPlv1agWeJuOpWJISRDBXWa
+         z7/Drd7go3Cn3DyJqVB5mMkylq8Icp88OuibzRwRfL2Cjw/0iBf2jsRqSIcVjvR9tKl0
+         dmu7LFifVziBwYrUXqeJRz8jyp6plARzqySkYpK9zHs8MGwO8NxB/kBCuwMDm49A5/ZD
+         mXMs1b+B+fwD+tZ9Fgj9ERl7XREnLoA0ltVFm9vSs7bfx9ZG0vw51DN1T8/iH6i0PVHC
+         451Q==
+X-Gm-Message-State: AJIora+Mdz2E/NnO4WHKNfv6oTABW/IJRC2wj8FyMv/BtPfqwnZviE8n
+	DxMu9zFOK8Afmx9GQXhjwSfMyA==
+X-Google-Smtp-Source: AGRyM1t7Xans7iI60RVbBY+W2WdNd4P9acnFda4kCQfiulDuJ6jzcy+AALghFtn/Vk8z0eOi6QXisA==
+X-Received: by 2002:a63:ff66:0:b0:412:6f4c:1e11 with SMTP id s38-20020a63ff66000000b004126f4c1e11mr9323094pgk.396.1657836248087;
+        Thu, 14 Jul 2022 15:04:08 -0700 (PDT)
 Received: from localhost ([50.221.140.186])
-        by smtp.gmail.com with ESMTPSA id r11-20020a170903410b00b0016c5306917fsm1927472pld.53.2022.07.14.15.04.05
+        by smtp.gmail.com with ESMTPSA id c4-20020a170902d48400b0016ca0fe6df5sm1957872plg.273.2022.07.14.15.04.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Jul 2022 15:04:05 -0700 (PDT)
-Date: Thu, 14 Jul 2022 15:04:05 -0700 (PDT)
-X-Google-Original-Date: Thu, 14 Jul 2022 14:46:55 PDT (-0700)
-Subject: Re: [PATCH v3 4/4] riscv: dts: sifive: "fix" pmic watchdog node name
-In-Reply-To: <20220606201343.514391-5-mail@conchuod.ie>
-CC: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, andrew@lunn.ch,
-  support.opensource@diasemi.com, lee.jones@linaro.org, ulf.hansson@linaro.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, stwiss.opensource@diasemi.com,
-  conor.dooley@microchip.com, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-  linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
-  atulkhare@rivosinc.com, krzysztof.kozlowski@linaro.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: mail@conchuod.ie
-Message-ID: <mhng-91bfbf9d-d8cc-4642-9688-20ef7ab21512@palmer-ri-x1c9>
+        Thu, 14 Jul 2022 15:04:07 -0700 (PDT)
+Date: Thu, 14 Jul 2022 15:04:07 -0700 (PDT)
+X-Google-Original-Date: Thu, 14 Jul 2022 15:01:38 PDT (-0700)
+Subject: Re: [PATCH v5 00/13] Canaan devicetree fixes
+In-Reply-To: <20220705215213.1802496-1-mail@conchuod.ie>
+CC: airlied@linux.ie, daniel@ffwll.ch, thierry.reding@gmail.com, sam@ravnborg.org,
+  Eugeniy.Paltsev@synopsys.com, fancer.lancer@gmail.com, daniel.lezcano@linaro.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, conor.dooley@microchip.com, masahiroy@kernel.org,
+  damien.lemoal@opensource.wdc.com, geert@linux-m68k.org, niklas.cassel@wdc.com, dillon.minfei@gmail.com,
+  dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+  dmaengine@vger.kernel.org, linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: mail@conchuod.ie, robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+  vkoul@kernel.org
+Message-ID: <mhng-85044754-c361-40bc-a6a2-7082f35930bb@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220714_150407_903659_4B0AB412 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20220714_150408_882945_2F49AEF4 
+X-CRM114-Status: GOOD (  26.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,32 +92,92 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jun 2022 13:13:44 PDT (-0700), mail@conchuod.ie wrote:
+On Tue, 05 Jul 2022 14:52:01 PDT (-0700), mail@conchuod.ie wrote:
 > From: Conor Dooley <conor.dooley@microchip.com>
 >
-> After converting the pmic watchdog binding to yaml, dtbs_check complains
-> that the node name doesn't match the binding. "Fix" it.
+> Hey all,
+> This series should rid us of dtbs_check errors for the RISC-V Canaan k210
+> based boards. To make keeping it that way a little easier, I changed the
+> Canaan devicetree Makefile so that it would build all of the devicetrees
+> in the directory if SOC_CANAAN.
 >
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> I *DO NOT* have any Canaan hardware so I have not tested any of this in
+> action. Since I sent v1, I tried to buy some since it's cheap - but could
+> out of the limited stockists none seemed to want to deliver to Ireland :(
+> I based the series on next-20220617.
 >
-> diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-> index c4ed9efdff03..1f386b07a832 100644
-> --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-> +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
-> @@ -90,7 +90,7 @@ rtc {
->  			compatible = "dlg,da9063-rtc";
->  		};
+> Thanks,
+> Conor.
 >
-> -		wdt {
-> +		watchdog {
->  			compatible = "dlg,da9063-watchdog";
->  		};
+> Changes since v4:
+> - add Rob's tags from v3
+> - sram: rephrase the binding description
+> - ASoC: dropped the applied binding
+>
+> Changes since v3:
+> - dts: drop the bogus "regs" property pointed out by Niklas
+> - dma/timer: add Serge's reviews (and expand on the dma interrupt
+>   description)
+> - dts: add Niklas' T-b where I felt it was suitable. lmk if you think it
+>   applies more broadly
+> - spi: drop the applied spi dt-binding change. Thanks Mark.
+>
+> Changes since v2:
+> - i2s: added clocks maxItems
+> - dma: unconditionally extended the interrupts & dropped canaan
+>   compatible
+> - timer: as per Sergey, split the timer dts nodes in 2 & drop the
+>   binding patch
+> - ili9341: add a canaan specific compatible to the binding and dts
+>
+> Changes since v1:
+> - I added a new dt node & compatible for the SRAM memory controller due
+>   Damien's wish to preserve the inter-op with U-Boot.
+> - The dw-apb-ssi binding now uses the default rx/tx widths
+> - A new patch fixes bus {ranges,reg} warnings
+> - Rearranged the patches in a slightly more logical order
+>
+> Conor Dooley (13):
+>   dt-bindings: display: convert ilitek,ili9341.txt to dt-schema
+>   dt-bindings: display: ili9341: document canaan kd233's lcd
+>   dt-bindings: dma: dw-axi-dmac: extend the number of interrupts
+>   dt-bindings: memory-controllers: add canaan k210 sram controller
+>   riscv: dts: canaan: fix the k210's memory node
+>   riscv: dts: canaan: fix the k210's timer nodes
+>   riscv: dts: canaan: fix mmc node names
+>   riscv: dts: canaan: fix kd233 display spi frequency
+>   riscv: dts: canaan: use custom compatible for k210 i2s
+>   riscv: dts: canaan: remove spi-max-frequency from controllers
+>   riscv: dts: canaan: fix bus {ranges,reg} warnings
+>   riscv: dts: canaan: add specific compatible for kd233's LCD
+>   riscv: dts: canaan: build all devicetress if SOC_CANAAN
+>
+>  .../bindings/display/ilitek,ili9341.txt       | 27 -------
+>  .../display/panel/ilitek,ili9341.yaml         | 49 +++++++++----
+>  .../bindings/dma/snps,dw-axi-dmac.yaml        |  7 +-
+>  .../memory-controllers/canaan,k210-sram.yaml  | 52 +++++++++++++
+>  arch/riscv/boot/dts/canaan/Makefile           | 10 ++-
+>  arch/riscv/boot/dts/canaan/canaan_kd233.dts   |  6 +-
+>  arch/riscv/boot/dts/canaan/k210.dtsi          | 73 +++++++++++++------
+>  .../riscv/boot/dts/canaan/sipeed_maix_bit.dts |  2 +-
+>  .../boot/dts/canaan/sipeed_maix_dock.dts      |  2 +-
+>  arch/riscv/boot/dts/canaan/sipeed_maix_go.dts |  2 +-
+>  .../boot/dts/canaan/sipeed_maixduino.dts      |  2 +-
+>  11 files changed, 159 insertions(+), 73 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/display/ilitek,ili9341.txt
+>  create mode 100644 Documentation/devicetree/bindings/memory-controllers/canaan,k210-sram.yaml
 
-Thanks, this is on for-next.
+I'm trying to sort out how to merge this one.  I'm not opposed to taking 
+it through the RISC-V tree as Rob's reviewed/acked the bindings, but 
+just figured I'd say something before putting anything on for-next to 
+try and minimize confusion.
+
+Unless I'm missing something it's just patch 3 that's been taken so far, 
+via Vinod's tree.  I've dropped that one and put the rest on 
+palmer/riscv-canaan_dt_schema, if that looks good then I'll take it into 
+riscv/for-next when this loops back to the top of my queue.
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
