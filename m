@@ -4,49 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B106C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 11:22:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02557C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 11:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=QEVdlxyDQ0c7fK8s3YNBdNr9pT5taxVQv6PgONV0xak=; b=Pzb
-	8YE+NR9qH+mm6d1CYnUp6a0jeEJ+znMEPensTQlLULocpXcmVVT0BK23nG5gvxYTfXPZzgUNmKzGx
-	zzvJ1pwqwhBIwXUbDWBVZSDnBRmlu5iRqEWUKqIliXNyjpqGNW6hr9HJ0WFFJhRMPDT3mB5WA4S37
-	A4B65ZZiHzk+/jGT/SM/8QH69kLTSqqD9v6/uZvJYH3eNHQx7kgKmuxTmmkqD8sbbxjC2GrHm13As
-	mWnr5hdgbkV/TxcmW/zgk0x+awKqGyfY3nHI9k0c62tDbOHjAlb75j/tXbqpa2bM9iG+OAUbJKTW3
-	CaQ5qc32kmwxGgZ6MmS/V+ABBuqXumQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IL9Ux7YvlWD1ifSNUHwUoSIp43bM5+gA8FZ9GjjSU1k=; b=z2c7GG/Pa6D6Ug
+	rhrkhzeQ6UkEfs1tsbqRFwEoMrP5JTNW3GS72MAUZl1Otm792NfIL1zNeAy7kMmM0XLUsfCLxjPq2
+	1QcqOFrP+hkYrKGnZIIv5MGqjN/FxEm81jEpZ8CBAxi49d6EqOG39NajNenSQ3hZveXdSm1mhCApV
+	JhdmgyNRRq4iZ+Q3Ls6bSBdsOlILVACb/64PTQOmB2k0R2NzFK0BXiSanx2CLQWma1AwleU6mFvm8
+	+0gjscS2MIBVsLPuMhPssHRcUR7Bt3jrkooZiOvoeWApLYabG/3lw9dMgWYGnwEB1eH6nVZaxFUhb
+	QljZ4MuRr/G3eUr5BJhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBwuk-00DhVF-IO; Thu, 14 Jul 2022 11:21:50 +0000
-Received: from maynard.decadent.org.uk ([95.217.213.242])
+	id 1oBx5n-00DnjP-Uv; Thu, 14 Jul 2022 11:33:15 +0000
+Received: from out30-56.freemail.mail.aliyun.com ([115.124.30.56])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBwui-00DhTD-2z
-	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 11:21:49 +0000
-Received: from [91.187.115.177] (helo=deadeye)
-	by maynard with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ben@decadent.org.uk>)
-	id 1oBwuf-0000DK-8w; Thu, 14 Jul 2022 13:21:45 +0200
-Received: from ben by deadeye with local (Exim 4.96)
-	(envelope-from <ben@decadent.org.uk>)
-	id 1oBwue-004vOq-1w;
-	Thu, 14 Jul 2022 13:21:44 +0200
-Date: Thu, 14 Jul 2022 13:21:44 +0200
-From: Ben Hutchings <ben@decadent.org.uk>
-To: linux-riscv@lists.infradead.org
-Cc: Guo Ren <guoren@kernel.org>
-Subject: [PATCH] riscv: Fix vdso_install target with CONFIG_COMPAT=y
-Message-ID: <Ys/8SFo/oC1TFZYk@decadent.org.uk>
-MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 91.187.115.177
-X-SA-Exim-Mail-From: ben@decadent.org.uk
-X-SA-Exim-Scanned: No (on maynard); SAEximRunCond expanded to false
+	id 1oBx5h-00Dnc9-Ml
+	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 11:33:11 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R211e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046050;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0VJJBi4t_1657798382;
+Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VJJBi4t_1657798382)
+          by smtp.aliyun-inc.com;
+          Thu, 14 Jul 2022 19:33:03 +0800
+From: Xianting Tian <xianting.tian@linux.alibaba.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alexandre.ghiti@canonical.com,
+	guoren@kernel.org,
+	anup@brainfault.org,
+	mick@ics.forth.gr,
+	rppt@kernel.org,
+	heiko@sntech.de
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	huanyi.xj@alibaba-inc.com,
+	Xianting Tian <xianting.tian@linux.alibaba.com>
+Subject: [PATCH V3 0/2] Improve vmcoreinfo and memory layout dump
+Date: Thu, 14 Jul 2022 19:32:58 +0800
+Message-Id: <20220714113300.367854-1-xianting.tian@linux.alibaba.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220714_042148_148343_43AD13F6 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20220714_043309_938581_A2E55147 
+X-CRM114-Status: UNSURE (   6.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,80 +62,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1287031369667609733=="
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This patch series are the improvements for vmcoreinfo and memory
+layout dump.
 
---===============1287031369667609733==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zSyKW5pUQfKFCzoD"
-Content-Disposition: inline
+The first patch(1/2) is to add VM layout to vmcoreinfo, which can
+simlify the development of crash tool as ARM64 already did
+(arch/arm64/kernel/crash_core.c).
 
+The second patch(2/2) is to add MODULES to memory layout dump.
 
---zSyKW5pUQfKFCzoD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Changes v1 -> v2:
+ patch 1: add VA_BITS to vmcoreinfo as ARM64 does, not satp_mode.
+          crash tool can read VA_BITS to determin the pagetable
+          levels.
+ patch 1,2: As MODULES area is only defined when CONFIG_64BIT=y for
+            riscv64, so only use MODULES area when CONFIG_64BIT=y.
+Changes v2 -> v3:
+ patch 1,2: use "#ifdef CONFIG_64BIT" instead of "IS_ENABLED(CONFIG_64BIT)"
+            when check whether MODULES area is available.
 
-The recipe for vdso_install in arch/riscv/Makefile invokes targets of
-the same name in arch/riscv/kernel/vdso and .../compat_vdso, but the
-target in the latter is called compat_vdso_install.  Change the
-recipe to use the right target name.
+Xianting Tian (2):
+  RISC-V: Add arch_crash_save_vmcoreinfo support
+  riscv: Add modules to virtual kernel memory layout dump
 
-Fixes: 0715372a06ce ("riscv: compat: vdso: Add COMPAT_VDSO base code ...")
-Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
----
- arch/riscv/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/riscv/kernel/Makefile     |  1 +
+ arch/riscv/kernel/crash_core.c | 29 +++++++++++++++++++++++++++++
+ arch/riscv/mm/init.c           |  4 ++++
+ 3 files changed, 34 insertions(+)
+ create mode 100644 arch/riscv/kernel/crash_core.c
 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index 34cf8a598617..ee763562895c 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -110,7 +110,7 @@ PHONY +=3D vdso_install
- vdso_install:
- 	$(Q)$(MAKE) $(build)=3Darch/riscv/kernel/vdso $@
- 	$(if $(CONFIG_COMPAT),$(Q)$(MAKE) \
--		$(build)=3Darch/riscv/kernel/compat_vdso $@)
-+		$(build)=3Darch/riscv/kernel/compat_vdso compat_vdso_install)
-=20
- ifeq ($(KBUILD_EXTMOD),)
- ifeq ($(CONFIG_MMU),y)
+-- 
+2.17.1
 
---zSyKW5pUQfKFCzoD
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEErCspvTSmr92z9o8157/I7JWGEQkFAmLP/EMACgkQ57/I7JWG
-EQmSGg/9Gqn86/Zj8LD3pFijFH4zJRiJZLp5KZIk9acadPU8cktZ5uY2BoQ6FKyJ
-HJ4sLcXjiNtvi+Q0bOW2ASDrF1k80SNGCsuTd+r0PTG1pc6wecUdtps53fWhRx3k
-IYs/jksn5sjDtD9r8jGdsN5i5V3GQ5wjVTGvjR+afejq9rA8xXkzH57WDWsHCtbU
-6zLXtbL5uEV9cKcom5bepxagAynUY4HFAJHEpiiSEggHWJjOaXd3xUtXkE1H11s8
-nhwNSaXViP5BzcAMkhYaVMn+vCZRfwr894eQ0N8Lp5FymamK0IJEiPWH3NP9JWAm
-BKtnn417DGPt74VpRTjlr5aEO76QLg8W2cPXfzGIqX9Tni2Otf3Nf80kG4DOGnL/
-ruA+xIniNQX6nuiQBEe7muhPjozxlUDdTVCrHF3IJk+8ybEjU7Q9Hg6MtO7ImYU1
-R1GNUCOL6RPQrYXSrU7+DKWFm12as8CIvt54HcC1rSa5NAAHMgXEf/CWm6IB0+xE
-AuJM2o1wANNo9mAHYGXNE/ZnE7HFQuxsqk3fb531O1l/PHuMMwVQpp4dUclINai/
-NGdmDJjWJ1fYyroDE5dhHJ/AA18IXxdlAlWnRtSbDzPGNcFfLfIR9nh2m4kkODZ+
-9ZM096U+BQE6bsqSV5IQ4dUEtTf3vTp/rlzV8YLfUq1JWneDs40=
-=STCW
------END PGP SIGNATURE-----
-
---zSyKW5pUQfKFCzoD--
-
-
---===============1287031369667609733==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1287031369667609733==--
-
