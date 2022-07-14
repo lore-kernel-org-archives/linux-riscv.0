@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88814C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 21:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC80C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 21:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=VVvhZozsfDwJSgvcbncHxYAJG9+IDMrCG9DMF+zhk0o=; b=AXHgAg/2KFlyeFRQ8y7NsG82sH
-	iOj6QBC8ApfFnSsDg9bDDgfihrmVM2Y/OvwZqxkQvWIVg1rD3Bwz1QjjKXVpHGQ1rOtazIt6SaU5L
-	8dIhtyIethmJvH63ZL01L/rRSE0O7J+GpcbrR5sHoFAkmU+kMMIfWELYZxjMM9PtyB/Q0+fn9vBoT
-	nn8WRmFWC1NDJk57ED9ippYX9coj0RaY5Yit4fzKJDogDeJWUpv9K1+Big9M7HYU/QbsnDgLxvm+P
-	X0ysMQFELuJ8S5N73plb3Jgy+B+UhSiSbcQkDMu+zE0pQzvqnCk1ymx/pGx/64irWYlLzeaHIOaoC
-	GN+TgQkw==;
+	bh=XfxDNdzLkhL1xcgQd1vU6SlBGm/6umIEYpMCIA67T7A=; b=CSx+0M/c4S8zkjX/MB5lfIGkDY
+	1MC4GsvcmjcVKct+nh/4zviQfmXKeZ8dJbnSqR0q7Vdth2DArU7SZIXHj/jFi7xkbOn99gCK1EXhQ
+	PsM+tMYWpFcSzczPhO2KmhafjvkZQCMYd4Nff3I8v3Eof4+PS0WuvVh0xr+evdaCrVjvQH+2dztpP
+	7D6Jf9a3BXI122EfAtbN63g5ZK6cZGce9Wbno4z8OEWiVN133XcnuaMozq59IjnJ25Bamk12TQmK1
+	h+CjAoz+u0+xLiK0LFRqJC+ChvQmdAC0OMdmHzrj21p6M19hfDO2JPFnl2pf4lh6hYg1c7mTSisyj
+	/FWNgvQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oC693-001auk-0z; Thu, 14 Jul 2022 21:13:13 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1oC6Lh-001d0V-I0; Thu, 14 Jul 2022 21:26:17 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oC68z-001atZ-OI
-	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 21:13:11 +0000
-Received: by mail-pf1-x434.google.com with SMTP id o12so2958713pfp.5
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 14:13:07 -0700 (PDT)
+	id 1oC6Lf-001cz3-4C
+	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 21:26:16 +0000
+Received: by mail-pf1-x436.google.com with SMTP id j3so2987452pfb.6
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 14:26:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
          :content-transfer-encoding;
-        bh=zujWsXV21W8ZcFmHduJwQJx5ZFVvbf7C8VVkfXRSy2E=;
-        b=lIqNnDPkpJUvBLG7ABgDbLC861u3by8ymz3X+gJ8jK4xa2Ln2rbtrn0NLGyyHzz3+D
-         KACRQPzBjHEYqYbstkRIa3NGshT+rjq//RAha9/GBGn5rEUCCjw//Np+pXfaQh0YEDvw
-         ZTPbtF84b7unvShUcY8l5h4jZvCQn5berhy1ZSSNPidkwTNP8i14mkZ/Irmo1UBDWUdM
-         jTGWJfkEWdYLjcVP5U6v8M1z0oyWxxpfLHYHQGJuCm8UE6LbT/iF5XzaPZnxBtpNiW2i
-         2aH962uxVwu8OdezamXVDM2PyWLvOLQGtEqKEIeMWABR9PDndkO6uvdZVmHF6B0mw95X
-         qu3w==
+        bh=5Uiq0GJnsn+FDRzb6jOWRSJ71sl+wZ69PTXG0mZN1lU=;
+        b=rjaa7O5jr3Rq4ZBbXrb7KZzdLIcV9qqJZa5NmVoUv/wV3MkOdLo8VgmgoItSUSGAnV
+         6JaY6P+VuJobEMF79aneWzx5VGO0/4QWmfDSYIZZrgL8mMtbmcElLN3fAPefeZ43b+hB
+         Gr3/67nquJXQnVBdsx91JItZwLNl0iueaJ+Edkea09IKOEX7UoQkgyBM7A8785Ers+lx
+         4r2ehtTKW85JF+YwBIPi+N/lfVVnE9eNwbyJBeKJ5kR9fadvD7G7ylcyJTlH59GY+3gI
+         Xuj6QKJa/29xRGlZO8nHCkjD2gWRc9mKFlqT87//zx2alPwiwOmm7fP0c55OyjGCKPzV
+         WJvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
          :mime-version:content-transfer-encoding;
-        bh=zujWsXV21W8ZcFmHduJwQJx5ZFVvbf7C8VVkfXRSy2E=;
-        b=3iozZoA3/rmUQBhl1VI3W2VPXHgV7YkA8C8kUvuXFBbkdI0jkwly3XnFpFmXIQzreP
-         xm1XbRUeRQP9ccWWMDtG4Nq6PjhsDCe3a77e3J0TQPaTt7Dm96u+wtgqd4Q4p0upIH/l
-         /4Ei2gwDaAh565jUvHY0jcPLksh+fXMz+eBThxTvHy9MYFqFKkBfr7Vd6HAQT7Bq66ji
-         183V4w/WpbPc01Fp088+QIZZGIPww+oH7MX749Ye2Memk0aquQtghJN8Ew7cQavCs8wd
-         9dhAzMWJnkqKVrwzZQ+vbOjjlxqlEBn8XhMZ3BOl3aJRw91nT8Uje0nO/tzO3bvGb3lz
-         3lJA==
-X-Gm-Message-State: AJIora8OfR5Xje3/qMyfSPoeMR+Vk9C5d2yVPvj2zuyX0rvAf7cgiduI
-	EREXEFnazeqiTyQDl79oyhQ8qg==
-X-Google-Smtp-Source: AGRyM1s2Z1Rtnu16BV2sAjAGLa1lblRBK6bLRO+8Qea0GtWYFkSZ8UBJBZwyTv4+pxQEgVszbxIBCQ==
-X-Received: by 2002:a05:6a00:21c2:b0:4fa:914c:2c2b with SMTP id t2-20020a056a0021c200b004fa914c2c2bmr10414427pfj.56.1657833186779;
-        Thu, 14 Jul 2022 14:13:06 -0700 (PDT)
+        bh=5Uiq0GJnsn+FDRzb6jOWRSJ71sl+wZ69PTXG0mZN1lU=;
+        b=lqqtZtegHTOunuocfK+7ks9rAVLSJb6via3qscmOlu+kENtFoWgPEQHgPFopSkasFK
+         E5bhUM4edo+8od0DtJgmfDzMg97hI8IlYFBZ2cUext86mpxeXJMwdtGq/d02eKpOWYr0
+         3V2/G0fGdgkzlw3RRwvb8SEdfqhnvd11Y2QdXUwwhaK182qdTYbwqZ37vPEAwt/KluhY
+         Yb17OgOV9o/Ap6/0/dLZHVkssk7BUxHcbyQD0lWOO/+1fxreYBlpSmvI+fKSqV+K3xXj
+         84wesZy5LHJu58bOoEbIdkONM3K/R+gwq0CC/YyCWw7HCEWfzjNIppnJVywUDzAEhiGq
+         39Uw==
+X-Gm-Message-State: AJIora+Ir1IK+8ZDGc6uG5BbXM/1WKuYuFXd89QaOn1cnTWo3MS2x2h9
+	8FB9b7w3NB5tNClTFBEvx932Mw==
+X-Google-Smtp-Source: AGRyM1tG8e3jIgDWHu80ncifreV87llJwuiwov21ReO0/D9bdDMfVakLwEeEzPrU6cNLDfIGQ/QlZQ==
+X-Received: by 2002:aa7:8ec2:0:b0:52a:d4f5:20b with SMTP id b2-20020aa78ec2000000b0052ad4f5020bmr10158726pfr.71.1657833973389;
+        Thu, 14 Jul 2022 14:26:13 -0700 (PDT)
 Received: from localhost ([50.221.140.186])
-        by smtp.gmail.com with ESMTPSA id v21-20020a170902ca9500b0016b80d2fac8sm1877913pld.248.2022.07.14.14.13.05
+        by smtp.gmail.com with ESMTPSA id u13-20020a17090341cd00b00163e06e1a99sm1987336ple.120.2022.07.14.14.26.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Jul 2022 14:13:05 -0700 (PDT)
-Date: Thu, 14 Jul 2022 14:13:05 -0700 (PDT)
-X-Google-Original-Date: Thu, 14 Jul 2022 14:13:04 PDT (-0700)
-Subject: Re: [PATCH -fixes v2] riscv: Fix missing PAGE_PFN_MASK
-In-Reply-To: <CAAhSdy3_EvAZJtHxFH=ihrfUaPUmp5EbXNY4eD+CRsiqNkYx9w@mail.gmail.com>
-CC: alexandre.ghiti@canonical.com, heiko@sntech.de, guoren@kernel.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, atishp@atishpatra.org, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: anup@brainfault.org
-Message-ID: <mhng-0f4afa61-94cd-4471-9768-3a86c8a4678a@palmer-ri-x1c9>
+        Thu, 14 Jul 2022 14:26:10 -0700 (PDT)
+Date: Thu, 14 Jul 2022 14:26:10 -0700 (PDT)
+X-Google-Original-Date: Thu, 14 Jul 2022 14:26:03 PDT (-0700)
+Subject: Re: [PATCH v3] RISC-V: Add CONFIG_{NON,}PORTABLE
+In-Reply-To: <20220521193356.26562-1-palmer@rivosinc.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  rdunlap@infradead.org, Arnd Bergmann <arnd@arndb.de>, anup@brainfault.org,
+  alexandre.ghiti@canonical.com, damien.lemoal@opensource.wdc.com, Atish Patra <atishp@rivosinc.com>,
+  axboe@kernel.dk, guoren@kernel.org, mchitale@ventanamicro.com, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, linux@rivosinc.com
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: linux-riscv@lists.infradead.org
+Message-ID: <mhng-b5cae221-396d-49a6-91b2-362f490ca732@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220714_141309_798883_F891310B 
-X-CRM114-Status: GOOD (  25.32  )
+X-CRM114-CacheID: sfid-20220714_142615_178950_3A24C3BA 
+X-CRM114-Status: GOOD (  27.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,156 +90,191 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 07 Jul 2022 07:56:31 PDT (-0700), anup@brainfault.org wrote:
-> Hi Palmer,
+On Sat, 21 May 2022 12:33:57 PDT (-0700), Palmer Dabbelt wrote:
+> From: Palmer Dabbelt <palmer@rivosinc.com>
 >
-> On Mon, Jun 13, 2022 at 3:01 PM Anup Patel <anup@brainfault.org> wrote:
->>
->> On Mon, Jun 13, 2022 at 2:23 PM Alexandre Ghiti
->> <alexandre.ghiti@canonical.com> wrote:
->> >
->> > There are a bunch of functions that use the PFN from a page table entry
->> > that end up with the svpbmt upper-bits because they are missing the newly
->> > introduced PAGE_PFN_MASK which leads to wrong addresses conversions and
->> > then crash: fix this by adding this mask.
->> >
->> > Fixes: 100631b48ded ("riscv: Fix accessing pfn bits in PTEs for non-32bit variants")
->> > Signed-off-by: Alexandre Ghiti <alexandre.ghiti@canonical.com>
->>
->> Looks good to me.
->>
->> Reviewed-by: Anup Patel <anup@brainfault.org>
->>
->> @Palmer let me know if you want me to take this through the KVM repo.
+> The RISC-V port has collected a handful of options that are
+> fundamentally non-portable.  To prevent users from shooting themselves
+> in the foot, hide them all behind a config entry that explicitly calls
+> out that non-portable binaries may be produced.
 >
-> This patch is required for KVM Svpbmt support so I have included it
-> in my KVM RISC-V Svpbmt series.
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> ---
+> Changes since v2:
 >
-> Let me know if you plan to send this as fix for Linux-5.19-rcX
+> * Update the nommu and rv32 defconfigs.  I'm still getting some ugliness
+>   like
+>
+>     $ make.riscv rv32_defconfig
+>     *** Default configuration is based on 'defconfig'
+>     #
+>     # configuration written to .config
+>     #
+>     Using .config as base
+>     Merging ./arch/riscv/configs/32-bit.config
+>     Value of CONFIG_PORTABLE is redefined by fragment ./arch/riscv/configs/32-bit.config:
+>     Previous value: CONFIG_PORTABLE=y
+>     New value: # CONFIG_PORTABLE is not set
+>
+>     Value of CONFIG_NONPORTABLE is redefined by fragment ./arch/riscv/configs/32-bit.config:
+>     Previous value: # CONFIG_NONPORTABLE is not set
+>     New value: CONFIG_NONPORTABLE=y
+>
+>     #
+>     # merged configuration written to .config (needs make)
+>     #
+>     .config:3831:warning: override: ARCH_RV32I changes choice state
+>     #
+>     # configuration written to .config
+>     #
+>
+>   not sure if there's a better way to do this.
+>
+> Changes since v1:
+>
+> * Fix a bunch of spelling mistakes.
+> * Move NONPORTABLE under the "Platform type" sub-heading.
+> * Fix the rv32i dependency.
+>
+> ---
+>  arch/riscv/Kconfig                            | 28 +++++++++++++++++--
+>  arch/riscv/configs/32-bit.config              |  2 ++
+>  arch/riscv/configs/nommu_k210_defconfig       |  1 +
+>  .../riscv/configs/nommu_k210_sdcard_defconfig |  1 +
+>  arch/riscv/configs/nommu_virt_defconfig       |  1 +
+>  arch/riscv/configs/rv32_defconfig             |  1 +
+>  6 files changed, 32 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index f863065b478c..cd67b09a80f5 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -222,6 +222,21 @@ source "arch/riscv/Kconfig.erratas"
+>
+>  menu "Platform type"
+>
+> +config NONPORTABLE
+> +	bool "Allow configurations that result in non-portable kernels"
+> +	help
+> +	  RISC-V kernel binaries are compatible between all known systems
+> +	  whenever possible, but there are some use cases that can only be
+> +	  satisfied by configurations that result in kernel binaries that are
+> +	  not portable between systems.
+> +
+> +	  Selecting N does not guarantee kernels will be portable to all known
+> +	  systems.  Selecting any of the options guarded by NONPORTABLE will
+> +	  result in kernel binaries that are unlikely to be portable between
+> +	  systems.
+> +
+> +	  If unsure, say N.
+> +
+>  choice
+>  	prompt "Base ISA"
+>  	default ARCH_RV64I
+> @@ -231,6 +246,7 @@ choice
+>
+>  config ARCH_RV32I
+>  	bool "RV32I"
+> +	depends on NONPORTABLE
+>  	select 32BIT
+>  	select GENERIC_LIB_ASHLDI3
+>  	select GENERIC_LIB_ASHRDI3
+> @@ -541,6 +557,7 @@ config STACKPROTECTOR_PER_TASK
+>
+>  config PHYS_RAM_BASE_FIXED
+>  	bool "Explicitly specified physical RAM address"
+> +	depends on NONPORTABLE
+>  	default n
+>
+>  config PHYS_RAM_BASE
+> @@ -554,7 +571,7 @@ config PHYS_RAM_BASE
+>
+>  config XIP_KERNEL
+>  	bool "Kernel Execute-In-Place from ROM"
+> -	depends on MMU && SPARSEMEM
+> +	depends on MMU && SPARSEMEM && NONPORTABLE
+>  	# This prevents XIP from being enabled by all{yes,mod}config, which
+>  	# fail to build since XIP doesn't support large kernels.
+>  	depends on !COMPILE_TEST
+> @@ -594,9 +611,16 @@ endmenu
+>
+>  config BUILTIN_DTB
+>  	bool
+> -	depends on OF
+> +	depends on OF && NONPORTABLE
+>  	default y if XIP_KERNEL
+>
+> +config PORTABLE
+> +	bool
+> +	default !NONPORTABLE
+> +	select EFI
+> +	select OF
+> +	select MMU
+> +
+>  menu "Power management options"
+>
+>  source "kernel/power/Kconfig"
+> diff --git a/arch/riscv/configs/32-bit.config b/arch/riscv/configs/32-bit.config
+> index 43f41323b67e..f6af0f708df4 100644
+> --- a/arch/riscv/configs/32-bit.config
+> +++ b/arch/riscv/configs/32-bit.config
+> @@ -1,2 +1,4 @@
+>  CONFIG_ARCH_RV32I=y
+>  CONFIG_32BIT=y
+> +# CONFIG_PORTABLE is not set
+> +CONFIG_NONPORTABLE=y
+> diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
+> index 2438fa39f8ae..96fe8def644c 100644
+> --- a/arch/riscv/configs/nommu_k210_defconfig
+> +++ b/arch/riscv/configs/nommu_k210_defconfig
+> @@ -28,6 +28,7 @@ CONFIG_EMBEDDED=y
+>  CONFIG_SLOB=y
+>  # CONFIG_MMU is not set
+>  CONFIG_SOC_CANAAN=y
+> +CONFIG_NONPORTABLE=y
+>  CONFIG_SMP=y
+>  CONFIG_NR_CPUS=2
+>  CONFIG_CMDLINE="earlycon console=ttySIF0"
+> diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+> index 9a133e63ae5b..379740654373 100644
+> --- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
+> +++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
+> @@ -20,6 +20,7 @@ CONFIG_EMBEDDED=y
+>  CONFIG_SLOB=y
+>  # CONFIG_MMU is not set
+>  CONFIG_SOC_CANAAN=y
+> +CONFIG_NONPORTABLE=y
+>  CONFIG_SMP=y
+>  CONFIG_NR_CPUS=2
+>  CONFIG_CMDLINE="earlycon console=ttySIF0 root=/dev/mmcblk0p1 rootwait ro"
+> diff --git a/arch/riscv/configs/nommu_virt_defconfig b/arch/riscv/configs/nommu_virt_defconfig
+> index 5269fbb6b4fc..1a56eda5ce46 100644
+> --- a/arch/riscv/configs/nommu_virt_defconfig
+> +++ b/arch/riscv/configs/nommu_virt_defconfig
+> @@ -25,6 +25,7 @@ CONFIG_EXPERT=y
+>  CONFIG_SLOB=y
+>  # CONFIG_MMU is not set
+>  CONFIG_SOC_VIRT=y
+> +CONFIG_NONPORTABLE=y
+>  CONFIG_SMP=y
+>  CONFIG_CMDLINE="root=/dev/vda rw earlycon=uart8250,mmio,0x10000000,115200n8 console=ttyS0"
+>  CONFIG_CMDLINE_FORCE=y
+> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
+> index 7e5efdc3829d..77bdb1d05a88 100644
+> --- a/arch/riscv/configs/rv32_defconfig
+> +++ b/arch/riscv/configs/rv32_defconfig
+> @@ -18,6 +18,7 @@ CONFIG_EXPERT=y
+>  CONFIG_PROFILING=y
+>  CONFIG_SOC_SIFIVE=y
+>  CONFIG_SOC_VIRT=y
+> +CONFIG_NONPORTABLE=y
+>  CONFIG_ARCH_RV32I=y
+>  CONFIG_SMP=y
+>  CONFIG_HOTPLUG_CPU=y
 
-Sorry I missed this one.
-
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-
-as it sounds like you already have it in a tree, but LMK if you wanted 
-me to.
-
->
-> Regards,
-> Anup
->
->>
->> Regards,
->> Anup
->>
->> > ---
->> >  arch/riscv/include/asm/pgtable-64.h | 12 ++++++------
->> >  arch/riscv/include/asm/pgtable.h    |  6 +++---
->> >  arch/riscv/kvm/mmu.c                |  2 +-
->> >  3 files changed, 10 insertions(+), 10 deletions(-)
->> >
->> > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
->> > index 5c2aba5efbd0..dc42375c2357 100644
->> > --- a/arch/riscv/include/asm/pgtable-64.h
->> > +++ b/arch/riscv/include/asm/pgtable-64.h
->> > @@ -175,7 +175,7 @@ static inline pud_t pfn_pud(unsigned long pfn, pgprot_t prot)
->> >
->> >  static inline unsigned long _pud_pfn(pud_t pud)
->> >  {
->> > -       return pud_val(pud) >> _PAGE_PFN_SHIFT;
->> > +       return __page_val_to_pfn(pud_val(pud));
->> >  }
->> >
->> >  static inline pmd_t *pud_pgtable(pud_t pud)
->> > @@ -278,13 +278,13 @@ static inline p4d_t pfn_p4d(unsigned long pfn, pgprot_t prot)
->> >
->> >  static inline unsigned long _p4d_pfn(p4d_t p4d)
->> >  {
->> > -       return p4d_val(p4d) >> _PAGE_PFN_SHIFT;
->> > +       return __page_val_to_pfn(p4d_val(p4d));
->> >  }
->> >
->> >  static inline pud_t *p4d_pgtable(p4d_t p4d)
->> >  {
->> >         if (pgtable_l4_enabled)
->> > -               return (pud_t *)pfn_to_virt(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
->> > +               return (pud_t *)pfn_to_virt(__page_val_to_pfn(p4d_val(p4d)));
->> >
->> >         return (pud_t *)pud_pgtable((pud_t) { p4d_val(p4d) });
->> >  }
->> > @@ -292,7 +292,7 @@ static inline pud_t *p4d_pgtable(p4d_t p4d)
->> >
->> >  static inline struct page *p4d_page(p4d_t p4d)
->> >  {
->> > -       return pfn_to_page(p4d_val(p4d) >> _PAGE_PFN_SHIFT);
->> > +       return pfn_to_page(__page_val_to_pfn(p4d_val(p4d)));
->> >  }
->> >
->> >  #define pud_index(addr) (((addr) >> PUD_SHIFT) & (PTRS_PER_PUD - 1))
->> > @@ -347,7 +347,7 @@ static inline void pgd_clear(pgd_t *pgd)
->> >  static inline p4d_t *pgd_pgtable(pgd_t pgd)
->> >  {
->> >         if (pgtable_l5_enabled)
->> > -               return (p4d_t *)pfn_to_virt(pgd_val(pgd) >> _PAGE_PFN_SHIFT);
->> > +               return (p4d_t *)pfn_to_virt(__page_val_to_pfn(pgd_val(pgd)));
->> >
->> >         return (p4d_t *)p4d_pgtable((p4d_t) { pgd_val(pgd) });
->> >  }
->> > @@ -355,7 +355,7 @@ static inline p4d_t *pgd_pgtable(pgd_t pgd)
->> >
->> >  static inline struct page *pgd_page(pgd_t pgd)
->> >  {
->> > -       return pfn_to_page(pgd_val(pgd) >> _PAGE_PFN_SHIFT);
->> > +       return pfn_to_page(__page_val_to_pfn(pgd_val(pgd)));
->> >  }
->> >  #define pgd_page(pgd)  pgd_page(pgd)
->> >
->> > diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
->> > index 1d1be9d9419c..5dbd6610729b 100644
->> > --- a/arch/riscv/include/asm/pgtable.h
->> > +++ b/arch/riscv/include/asm/pgtable.h
->> > @@ -261,7 +261,7 @@ static inline pgd_t pfn_pgd(unsigned long pfn, pgprot_t prot)
->> >
->> >  static inline unsigned long _pgd_pfn(pgd_t pgd)
->> >  {
->> > -       return pgd_val(pgd) >> _PAGE_PFN_SHIFT;
->> > +       return __page_val_to_pfn(pgd_val(pgd));
->> >  }
->> >
->> >  static inline struct page *pmd_page(pmd_t pmd)
->> > @@ -590,14 +590,14 @@ static inline pmd_t pmd_mkinvalid(pmd_t pmd)
->> >         return __pmd(pmd_val(pmd) & ~(_PAGE_PRESENT|_PAGE_PROT_NONE));
->> >  }
->> >
->> > -#define __pmd_to_phys(pmd)  (pmd_val(pmd) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
->> > +#define __pmd_to_phys(pmd)  (__page_val_to_pfn(pmd_val(pmd)) << PAGE_SHIFT)
->> >
->> >  static inline unsigned long pmd_pfn(pmd_t pmd)
->> >  {
->> >         return ((__pmd_to_phys(pmd) & PMD_MASK) >> PAGE_SHIFT);
->> >  }
->> >
->> > -#define __pud_to_phys(pud)  (pud_val(pud) >> _PAGE_PFN_SHIFT << PAGE_SHIFT)
->> > +#define __pud_to_phys(pud)  (__page_val_to_pfn(pud_val(pud)) << PAGE_SHIFT)
->> >
->> >  static inline unsigned long pud_pfn(pud_t pud)
->> >  {
->> > diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
->> > index 1c00695ebee7..9826073fbc67 100644
->> > --- a/arch/riscv/kvm/mmu.c
->> > +++ b/arch/riscv/kvm/mmu.c
->> > @@ -54,7 +54,7 @@ static inline unsigned long gstage_pte_index(gpa_t addr, u32 level)
->> >
->> >  static inline unsigned long gstage_pte_page_vaddr(pte_t pte)
->> >  {
->> > -       return (unsigned long)pfn_to_virt(pte_val(pte) >> _PAGE_PFN_SHIFT);
->> > +       return (unsigned long)pfn_to_virt(__page_val_to_pfn(pte_val(pte)));
->> >  }
->> >
->> >  static int gstage_page_size_to_level(unsigned long page_size, u32 *out_level)
->> > --
->> > 2.34.1
->> >
+This is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
