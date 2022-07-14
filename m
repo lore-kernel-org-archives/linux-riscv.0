@@ -4,79 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8225C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 04:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3360C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 06:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qaAjKP3XAi7WQ2obJwLO/fY5P9x56fWRp/buKkwX5Lc=; b=y8nc3nCaeaAEL/
-	wNV8j2h52Fthnp86+h7PqVjRGTHESNFEV/cdLNhIdj/BEjNjCSCQsBysyTfFLXWOO9jPjaJBo33/n
-	8WXV/YfIUQDtQkmcjJjzNARFe76iLW1RwtxBz5f3DRINcAWzJ2EX2pmHVVpsxB4eZZqP30C/PGADh
-	pi4LffoygMbRmHL/l/DyAKKYTWTra88KIiQebTUS31ZsfW+pRrXmtaPeIicDYeyAtbgpL1c+QUsTp
-	1XfZKjXqhXbwBExGKgy85XK1KmchjP1etd/xzW6bYeY2oJX5O+KXHCnr5/wlu7eCEYZZFqKDfiMFM
-	tT/a6ULk8k6rs3aRl13g==;
+	List-Owner; bh=KnbXGOmTAbhwrRv9Tze7F0gQT/wu4qokozEFrKwVyfI=; b=UiSoIDplxpSsDy
+	3yRobpO/JLCxGwrKUkYt9R04eT1viwEpxLFapb96FlxPb+it+zYX15H7/cTSo9eExmcN0dV79er8V
+	4YdYr2qRdU29fldiWdWmCRTth8frlWugx5DFX1A825/FzPYtRclxvwosKjz7io8tyYBiZSL4QcYU1
+	ie0juQI7tLqshnXTAUOsgZHFFOKXVizG4Gjusgo1hdPrWq9Tko2KWHA1iEMx5JtUrQbPx0zUepdfM
+	YiRLqN9KPFra+o0UhxUfoqnbz5na7e9bdwpPYbmJ/3jRLAOcJd6VWMaxIa/WOnHeMNdDfFr7NA69j
+	h5vkfGWKrCN86ZWxWuZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBqph-00Aoyw-Jr; Thu, 14 Jul 2022 04:52:13 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1oBsCQ-00BNoz-4z; Thu, 14 Jul 2022 06:19:46 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBqpV-00AorU-BY; Thu, 14 Jul 2022 04:52:03 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id r18so902651edb.9;
-        Wed, 13 Jul 2022 21:51:58 -0700 (PDT)
+	id 1oBsCN-00BNm4-7u
+	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 06:19:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1657779583; x=1689315583;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=LgDNh+vkS22vWiUqbKTqhG8rBowmu0MTSj0P2jcSdoI=;
+  b=X2/DWOxT++tGcTJbbYwGdWCu8OZxAxJfDlsk0bnAVZZBIzuYVfZupDnO
+   K+qpALCkBGzLI/j0Ge7ljhHscbh7FCrpmdjkUwNvid32jB2Rhu2VemIoP
+   IhXB+dmrMNUMZRmkCCAO7RUmJYNUoV8lpBfkiV/NKnjTgErmfa55cg7gE
+   IWemug/ZOb7yO+eHIrBQC4SpZw4oUGgzz3uLOGZeBZZ1JLL1wuxhMyPQv
+   7hiLxor44yKDvAYlILh9d3MwHEHUDpSng6F5t6GdQY80lv1Q02v0cjK9f
+   AwfCU8isHS5mixhDNp/zzZhRuQcrk+w5D62fQmMM+GHfsshGUpE9gnET2
+   w==;
+X-IronPort-AV: E=Sophos;i="5.92,269,1650956400"; 
+   d="scan'208";a="182098211"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 13 Jul 2022 23:19:39 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Wed, 13 Jul 2022 23:19:39 -0700
+Received: from NAM02-SN1-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17 via Frontend Transport; Wed, 13 Jul 2022 23:19:39 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=DebPixHtHR45N74osLnLucjZUptZMY4QGQAsaRF7sfPXQsJ4GiMKU2o8d9jFQHwMssMtzzQgSWpFQkNw0qJuMgnIQOxmwmhWhq4PTiHrjBXyoASEP7VqVS2mTfPJDT2mAR9aMyRgpuiizgCuCF1vmFPTU8MtgqytUl4pQz4vCBZoxnAmCQ4D8btaHA93BytEk+MQmNh4hVIJhkQxB8dmHAwPEK3z/JXi3g3tqbF9s6EUcDMHT8aOLvHEuktf2Wg1vs5fITT3fN0Agpo/tTEA+9fB5Hv6Y+/RF/QJLOQnexBKuHPKnAl5ndl+QYroXwjSfAEPodxHdB67eYdS49RtzQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LgDNh+vkS22vWiUqbKTqhG8rBowmu0MTSj0P2jcSdoI=;
+ b=B4ol3mLoCAzeEzsEt8FifO9NR0+xasdqHa04cxfQ5w8vCK/ltF69/6fFsquWeuJff56vZf43Xy9X0MmBFs6Dd8fhnhZjYvjCdjI3KatTcOkRUg91q1vQ0yCL+pVg3OJtIGbvntbo8g/8oRdZvaaEwgEkRvJNvnQQLZja73Dl7M47UWeaEnN6XntQHNaazBN/V4BCYYcR/jeHVTDRcS2STh1SpFnFHusY7xDkLHMu7gkkDLUDGWeej37r0lYGuYYy9x+QbFY6wcDdgh6V0Nkkb1CHtBlKeo2ib2MXvd3wN8Z3r49JiWvfwq272GR/wgQwAVkffj+i0FSBDPE7bL/p7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=hW7IbWPmYdn2d1NNnyMMYZo7sUWhfXMc3EeZopJnd9s=;
-        b=ixpskF3es1ZmyzgNugOOlVGXEXU01wH8x+O+9c0Hn53VnayTkfg7B02WDNC5tIrO7l
-         iEwg3ca5x42mE2uIM8nqQUrXVwXLpT6ULvvEDEhDoQovcbWbHLnoAwOv78ubyxnHhjrc
-         b+F58wCwdRfZkdz4PEAGwhDlQaXN17a/dAqjH7lRr9IZR6Oxl15yDJPqx5DZqhd1LDca
-         m3K9L9Ce8HJHQ3yTYC00bD8m8HCeZVO9kN8Rn4LXDKPCB1TSqsZxNf0zJQAMyjXyiJ7g
-         cpQu1lJzObpQ/9Off5+y4JJmm1YPuTUAuigqbDyhvyv4ipfIih1IQ2OiwKFqjfHfMEIL
-         9Opw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=hW7IbWPmYdn2d1NNnyMMYZo7sUWhfXMc3EeZopJnd9s=;
-        b=45nE/rvBQrMWoKrF0+ABfVtAZvaZChG3HpKxrvnNy8p/uuBPwMzhaxZFPd3n0kgrCj
-         TElqRBLV+esq2UvbJb2rMdYfQHOAU84xSEcEDBtqo+ZtSTNCIaN5yKe19XRuxPRbiC49
-         IxcM+qvHZQjddgTBAEVphKg9r2tJmWJnCnpwGEcNiDXLCWIpKoII8qDdAm6IDtwEDHqO
-         aWRmO87Y//wOG3oD0ZHGstJPHcxobC6LcIUXseABZTRcAXUf8RPd2fzaHOyNUkYOy1h2
-         uMpL41+AzmUQwqy2LuvFbrvMz1yfYbZ/UjEb/UPeP60GiF2HzZIg7fsMRmGfot0SUg4O
-         FOvA==
-X-Gm-Message-State: AJIora9i9VcSna7mWDL5LZJKXBmdpTALFL1ZoH3Hzr1RtYrQghh83+bz
-	CzTvSRnvpvpjIEhyvktpXujUQztSE4U/7b6N7xc=
-X-Google-Smtp-Source: AGRyM1sCekI8nbaSkEz0wXp62jC4NmfsPr1d7cEeKiuuhPUbnQAKxU8DeX6rgQmQqaqEEOVW9HUjdoQGawmviSj4Nuo=
-X-Received: by 2002:aa7:db9a:0:b0:43a:76bf:5401 with SMTP id
- u26-20020aa7db9a000000b0043a76bf5401mr9638511edt.244.1657774317014; Wed, 13
- Jul 2022 21:51:57 -0700 (PDT)
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LgDNh+vkS22vWiUqbKTqhG8rBowmu0MTSj0P2jcSdoI=;
+ b=tqPLjeCVtlPXjxBSM2ZHCxeY0d/+N7F5GFgrX1LNjfLIGu/OXzBhcaLV1b5tYrRio7XvmGGd2Mbfg5thyp2i023qgmofsO797URyst74v92iuvc624hVOgKF10J3sllyEeIxngXsRfrcOor3f6T5Uk5LxZlmWClMMTtlVaF627w=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by DM6PR11MB3547.namprd11.prod.outlook.com (2603:10b6:5:136::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5417.23; Thu, 14 Jul
+ 2022 06:19:32 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::357a:acc9:829e:bf7b]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::357a:acc9:829e:bf7b%7]) with mapi id 15.20.5438.014; Thu, 14 Jul 2022
+ 06:19:32 +0000
+From: <Conor.Dooley@microchip.com>
+To: <Lewis.Hanly@microchip.com>
+CC: <linux-riscv@lists.infradead.org>, <brgl@bgdev.pl>,
+	<andy.shevchenko@gmail.com>, <linux-gpio@vger.kernel.org>,
+	<linus.walleij@linaro.org>, <palmer@dabbelt.com>, <maz@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <Daire.McNamara@microchip.com>
+Subject: Re: [PATCH v2 1/1] gpio: mpfs: add polarfire soc gpio support
+Thread-Topic: [PATCH v2 1/1] gpio: mpfs: add polarfire soc gpio support
+Thread-Index: AQHYlqemVrcQOBoUV020qkXDgR8Pgq18MrcAgACSjICAABlAgIAAh5gA
+Date: Thu, 14 Jul 2022 06:19:32 +0000
+Message-ID: <9107c441-73b7-fd7c-9c25-e8a31afbe563@microchip.com>
+References: <20220713105910.931983-1-lewis.hanly@microchip.com>
+ <20220713105910.931983-2-lewis.hanly@microchip.com>
+ <CAHp75VfGTd02jKYsFq94BF_Gqro2trk3iyyALBatS1Bps3HYhw@mail.gmail.com>
+ <abdf389cfd049f60b951447c047bbd186fa19469.camel@microchip.com>
+ <CAHp75VeX8p4m7Bi=9Zvk5=MRTOb=BTmcuDbtW1ZUOr_-1mHvyQ@mail.gmail.com>
+In-Reply-To: <CAHp75VeX8p4m7Bi=9Zvk5=MRTOb=BTmcuDbtW1ZUOr_-1mHvyQ@mail.gmail.com>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.9.1
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 4dfdddf2-2b8d-4ff1-6efe-08da6560d13e
+x-ms-traffictypediagnostic: DM6PR11MB3547:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: NfuV/4yJz4PId8TB/Fi5dmalcW3xOod53XYrhyLmEXUT2WaZYF1aHJ7dwUBvykF/DKG3tNxw6+lda+vrmpKeNiDQlw+R0h+r1CmBJc6yo0ZDv72IElm5EoXW6/4RHIg8+1YPGLuMAckm9IqKa9gwbVRmn/g1Fy6xMOFVUti+XCfmrF4ZX4b81eGHhZSbBs0CnLi/q9fsAwJPbXHKb7MqZj36MAacUjNc2oDZrOCwERFggDGlNSNPweZ3yKeswsD8MBjD3FkOLx433SsxseZT/2f4IDQEmBQKqyKWXgRC5/rBmWlXEMq9UvNOnLsclAJEI6bdpsnCGGV1AMI6MX3gwTcEIhlxW8baUsE9dL3zVnEjg6SwmVG0rG9zmgxWLqVFcJdzWddJ3DWftWG12CIQXBpJ3z+6iPVfDdL6QOCKNQAOyeGg1FEzg1puBlwTb2uUSQU4KUrsN/Iyc+OwWU4IjCkSLdoPN5ED0fZ4O4HFLCRD6Qcd6VlqneUYTYDPSDHSdQ/njgZLNSyFDnLJZvQbeTdKnJiVq45MKoLUOv58P9vx7iid7QW0epk7aeD3C3RuaaoQjTTp+I+Pa4ApkRYal+dn7erkvyiINeu3wBWCdB5O/3e39uaE7fsBHHlV0MTO2V91IdN3zsgVZZNaDltClLcCPuKrdeGtZRKMuJLe2BJgalHhDf/f94P0BE2Ymwno4/hDmEpeUwNc+H2xSLywlwcpqdxKFpCch1cBKpqIHnRF2oM7tUs0uIR2NhMgG8LUZxuFhh5+s2odjPDsaSA0x1DogtKWG273FVXx+Bhf9onTevfuRGp4V4zrNRKE18mWPIpRehogBooP6HCnuoCPUuqL7EvHM2GlEradfA0cn66RWE6yVwIKsdbpkZAn24Z4a5rO85yZGlWRzUZZB7Hs4FHbcpaziGqzyyjLWf6mIuc=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(346002)(136003)(366004)(376002)(396003)(39860400002)(91956017)(6862004)(122000001)(64756008)(76116006)(966005)(41300700001)(38070700005)(86362001)(6506007)(8676002)(66476007)(4326008)(2906002)(66556008)(6486002)(8936002)(66446008)(71200400001)(66946007)(5660300002)(36756003)(4744005)(6512007)(31696002)(6636002)(37006003)(31686004)(186003)(38100700002)(54906003)(2616005)(26005)(107886003)(316002)(53546011)(478600001)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?WTFmMk90Tm5KU1VGdUZtRHZpYmhac3JJd1pxZ1hUUnJIclFXUmExOXFzSG1U?=
+ =?utf-8?B?T2lDNDd2RUtnUk9TTVRqR295cEN4YVEzcnBOUDQ5aUJjUGpmYXBDNWlteUIy?=
+ =?utf-8?B?TlR6TUxpRGNrNGZWSDdKVXl2MXpxVnlONXJDMzdwUXpnRW5BQVlCUFVJbE1m?=
+ =?utf-8?B?Tkdwa2puemxLaElKZWpzTVh1MXJCbUE5MmNZcmNldllTeENZSEVPSkRxVGZt?=
+ =?utf-8?B?emI3R0o5NUpHOEVrcXRkNnRFc1JISFBPKzRQVVROV2JabDJrZ1RmNElJZ1Nr?=
+ =?utf-8?B?WitrbUJLckNzeVlzbjdEbFBRbkhNSlNuOUIyak4yaDYxL0l0ZDZJSHpWQVNJ?=
+ =?utf-8?B?akFhUWFIVFVZVXpjK1pjV1NxeVMwa29zTWVyMW5XSjZrakd0dHBoMzZkRFdz?=
+ =?utf-8?B?WlVuamM0RzNuMUdvSXZKbTZRMUhHRkNXNDdmMnFzSHhCeUVWdFZCc2daUmZG?=
+ =?utf-8?B?ODN4SnFVdFczM2gyaE8zd29lVDB6VDh3SkFRbk5uU1U1Y0FyRkgyNG0ybGNZ?=
+ =?utf-8?B?LzFQSGh4VXI2UFFFVUtZTkJVMmNFdGdUNmlSU0VCcmxlTDZ4dkV1cExlTU9h?=
+ =?utf-8?B?NUc0UnBXR3NnZSs2cE5namFrRmtQZHBZOXloUXhTWVhQbFJlOTdvZFF4Vk15?=
+ =?utf-8?B?NEhWZm8wM1hHek1kampPWFF6a2t3ajFPMkQrSUFyVEdibFlEalF2dmxVQVY1?=
+ =?utf-8?B?bXltZjYzVVhOd21qYm1FUHRkNkw2KzRHVGRRdjh0VlhOemZFdGR6Vzl0ZVd5?=
+ =?utf-8?B?TGZYb005ZXFxRDUrajZoekVvbUQ2M1RxTE5uR0ljajJ5Yjh5blJQMlZJQlY2?=
+ =?utf-8?B?bnlCbThzMG5zYllZVlRWTEdtR1RLL0IreVZhem9VQ09ZUFloRVJxMTZndjAw?=
+ =?utf-8?B?a2ppcVVLQ0Mrc3B4V1gycWpjUzU3VC9GaVVlTjU5cS9KNngyNGlRanA2Q1dq?=
+ =?utf-8?B?Ykt0R3JtZGlCdWZZb2xtRDZ6SVJCSDJKaTMrREYrb1ZVbUVtbHg5Q2VwTXV3?=
+ =?utf-8?B?MnR0Z3FMUytqck12d2hWYTlvNW5DbnVGYXl0Tm9SYXhrVUlnNHNPRnNSbXRj?=
+ =?utf-8?B?V0JuUTc4Zk1zYlZjcGdrbCsvazNscFhkM2ZZcmJDbmdjRlJzelRWS252M3RG?=
+ =?utf-8?B?QU1zNjFLMlkvMGlVVFd1Tkx1dXNxWjZWTmM5VkRFNGhkbUdibytXUDVCMUVL?=
+ =?utf-8?B?VGpNcjJwYkZtYVVIRW1GRmc2LzZxcWdJK2w5RXc0UUJ2cVZWNVhDc2FyQ1B2?=
+ =?utf-8?B?RXQyQlpmUlorQS9zQ2VnWFdRMUxJOWtzd1VEYmsxKysxdVN3R1ZCMU9JQ2M0?=
+ =?utf-8?B?R2ZqY0llVUJ6dExxNUlzbFlBQXdSbENmNDF2U2IvbUVFR21rRTE4eE51QURy?=
+ =?utf-8?B?Y2FjS3FjUGVWUjVTR1hEdllGeXFhdXBPUXk2cU1TRjhxVTZQeHV3czROK2R4?=
+ =?utf-8?B?bUNYT1FSUEpQMzlSZktjNjRnRk0zQWxEalJaQm1qMHRkZW9lUGJTYUhOZFVv?=
+ =?utf-8?B?VDVRbGI1KzNEWGtyUWtVYzMvS2JZbE41d0YxdkFOYVoxL2d6ZmhsTmR2M3FM?=
+ =?utf-8?B?V3YvZmRzeHJJTDk2L0c5L2RwMWg4YnZQZ0kwUXRsbkhsc1lyWGpnb1d6Rllv?=
+ =?utf-8?B?UDl3V2o4aXU0cWNjLzhGN2xUWXY3cmNER0RVZlFVNHhFODJ3R3NxbGtpYVJw?=
+ =?utf-8?B?L0Z6QStSV1pRcVJ4ZmdVQ2RBd2tQVmxlK1dkYnRMZkJIbjlSV2gzcTQ4bWF2?=
+ =?utf-8?B?Qm8yMHZSSlZXK3VhenJ1UG5Gci9SYSt3YXRwTk12K3NMUXlmVjAvVE8yMmRU?=
+ =?utf-8?B?Qm8vK0hhTVdWL2d0UDZ4L1JPd2MvUDgyelNVUmJoTmpxNFpzTnNHck9XY0tt?=
+ =?utf-8?B?RGNLbnRFeDhtd0NuYVY4NHJxK1ZTdW5xRDdKVDZIU0lBRStOZFE2N21uKzlS?=
+ =?utf-8?B?SUkzWGJ5Q0VNZytieE9SS0xTdWV3TUR4dEZpNHo1UFlLUVo0OUVQZThsZnJU?=
+ =?utf-8?B?U0VKR1libnVXaE5lYnh5SE8xTkJobTBUM0JNUW5ZUVMvbUwvdEplL1BNMytY?=
+ =?utf-8?B?NHlIUmlCU2NWdXFOZERlZ2s1OTd6ZnowaW96aFF0OWc5aisyK3cxMkFWYUVz?=
+ =?utf-8?Q?B3OZbKOQZgrINd9m5prnyNrcW?=
+Content-ID: <4E69EB3F6AA38441BEFD7FC52AA19479@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-References: <20220711034615.482895-1-21cnbao@gmail.com> <24f5e25b-3946-b92a-975b-c34688005398@linux.alibaba.com>
-In-Reply-To: <24f5e25b-3946-b92a-975b-c34688005398@linux.alibaba.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Thu, 14 Jul 2022 16:51:45 +1200
-Message-ID: <CAGsJ_4zjnmQV6LT3yo--K-qD-92=hBmgfK121=n-Y0oEFX8RnQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/4] mm: arm64: bring up BATCHED_UNMAP_TLB_FLUSH
-To: xhao@linux.alibaba.com
-Cc: Andrew Morton <akpm@linux-foundation.org>, Linux-MM <linux-mm@kvack.org>, 
-	LAK <linux-arm-kernel@lists.infradead.org>, x86 <x86@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Arnd Bergmann <arnd@arndb.de>, LKML <linux-kernel@vger.kernel.org>, 
-	Darren Hart <darren@os.amperecomputing.com>, Yicong Yang <yangyicong@hisilicon.com>, 
-	huzhanyuan@oppo.com, =?UTF-8?B?5p2O5Z+56ZSLKHdpbmsp?= <lipeifeng@oppo.com>, 
-	=?UTF-8?B?5byg6K+X5piOKFNpbW9uIFpoYW5nKQ==?= <zhangshiming@oppo.com>, 
-	=?UTF-8?B?6YOt5YGl?= <guojian@oppo.com>, real mz <realmz6@gmail.com>, 
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4dfdddf2-2b8d-4ff1-6efe-08da6560d13e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jul 2022 06:19:32.7985
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WIk1Z38zMBcCooIPoUmYPv7xnp4W2xx/6kQMa3r/6n2+0X98mFReXco00jhiMYN+GzQjgTz4aWCWZTBmCnFHk3G5PwvYsKePgQN/7H6JbLQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB3547
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220713_215201_435142_5AC21943 
-X-CRM114-Status: GOOD (  39.41  )
+X-CRM114-CacheID: sfid-20220713_231943_540565_0CC6C0DE 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,189 +177,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 14, 2022 at 3:29 PM Xin Hao <xhao@linux.alibaba.com> wrote:
->
-> Hi barry.
->
-> I do some test on Kunpeng arm64 machine use Unixbench.
->
-> The test  result as below.
->
-> One core, we can see the performance improvement above +30%.
+On 13/07/2022 23:14, Andy Shevchenko wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> On Wed, Jul 13, 2022 at 10:44 PM <Lewis.Hanly@microchip.com> wrote:
+>> On Wed, 2022-07-13 at 13:59 +0200, Andy Shevchenko wrote:
+>>> On Wed, Jul 13, 2022 at 1:00 PM <lewis.hanly@microchip.com> wrote:
+>>>> +       if (gpio_cfg & MPFS_GPIO_EN_IN)
+>>>> +               return 1;
+>>>> +
+>>>> +       return 0;
+>>>
+>>> Don't we have specific definitions for the directions?
+>> No defines in file.
+> 
+> We have. Please, check again.
 
-I am really pleased to see the 30%+ improvement on unixbench on single core.
-
-> ./Run -c 1 -i 1 shell1
-> w/o
-> System Benchmarks Partial Index              BASELINE RESULT INDEX
-> Shell Scripts (1 concurrent)                     42.4 5481.0 1292.7
-> ========
-> System Benchmarks Index Score (Partial Only)                         1292.7
->
-> w/
-> System Benchmarks Partial Index              BASELINE RESULT INDEX
-> Shell Scripts (1 concurrent)                     42.4 6974.6 1645.0
-> ========
-> System Benchmarks Index Score (Partial Only)                         1645.0
->
->
-> But with whole cores, there have little performance degradation above -5%
-
-That is sad as we might get more concurrency between mprotect(), madvise(),
-mremap(), zap_pte_range() and the deferred tlbi.
-
->
-> ./Run -c 96 -i 1 shell1
-> w/o
-> Shell Scripts (1 concurrent)                  80765.5 lpm   (60.0 s, 1
-> samples)
-> System Benchmarks Partial Index              BASELINE RESULT INDEX
-> Shell Scripts (1 concurrent)                     42.4 80765.5 19048.5
-> ========
-> System Benchmarks Index Score (Partial Only)                        19048.5
->
-> w
-> Shell Scripts (1 concurrent)                  76333.6 lpm   (60.0 s, 1
-> samples)
-> System Benchmarks Partial Index              BASELINE RESULT INDEX
-> Shell Scripts (1 concurrent)                     42.4 76333.6 18003.2
-> ========
-> System Benchmarks Index Score (Partial Only)                        18003.2
->
-> ----------------------------------------------------------------------------------------------
->
->
-> After discuss with you, and do some changes in the patch.
->
-> ndex a52381a680db..1ecba81f1277 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -727,7 +727,11 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
->          int flushed = batch >> TLB_FLUSH_BATCH_FLUSHED_SHIFT;
->
->          if (pending != flushed) {
-> +#ifdef CONFIG_ARCH_HAS_MM_CPUMASK
->                  flush_tlb_mm(mm);
-> +#else
-> +               dsb(ish);
-> +#endif
->
-
-i was guessing the problem might be flush_tlb_batched_pending()
-so i asked you to change this to verify my guess.
-
-     /*
->                   * If the new TLB flushing is pending during flushing, leave
->                   * mm->tlb_flush_batched as is, to avoid losing flushing.
->
-> there have a performance improvement with whole cores, above +30%
-
-But I don't think it is a proper patch. There is no guarantee the cpu calling
-flush_tlb_batched_pending is exactly the cpu sending the deferred
-tlbi. so the solution is unsafe. But since this temporary code can bring the
-30%+ performance improvement back for high concurrency, we have huge
-potential to finally make it.
-
-Unfortunately I don't have an arm64 server to debug on this. I only have
-8 cores which are unlikely to reproduce regression which happens in
-high concurrency with 96 parallel tasks.
-
-So I'd ask if @yicong or someone else working on kunpeng or other
-arm64 servers  is able to actually debug and figure out a proper
-patch for this, then add the patch as 5/5 into this series?
-
->
-> ./Run -c 96 -i 1 shell1
-> 96 CPUs in system; running 96 parallel copies of tests
->
-> Shell Scripts (1 concurrent)                 109229.0 lpm   (60.0 s, 1 samples)
-> System Benchmarks Partial Index              BASELINE       RESULT    INDEX
-> Shell Scripts (1 concurrent)                     42.4     109229.0  25761.6
->                                                                     ========
-> System Benchmarks Index Score (Partial Only)                        25761.6
->
->
-> Tested-by: Xin Hao<xhao@linux.alibaba.com>
-
-Thanks for your testing!
-
->
-> Looking forward to your next version patch.
->
-> On 7/11/22 11:46 AM, Barry Song wrote:
-> > Though ARM64 has the hardware to do tlb shootdown, the hardware
-> > broadcasting is not free.
-> > A simplest micro benchmark shows even on snapdragon 888 with only
-> > 8 cores, the overhead for ptep_clear_flush is huge even for paging
-> > out one page mapped by only one process:
-> > 5.36%  a.out    [kernel.kallsyms]  [k] ptep_clear_flush
-> >
-> > While pages are mapped by multiple processes or HW has more CPUs,
-> > the cost should become even higher due to the bad scalability of
-> > tlb shootdown.
-> >
-> > The same benchmark can result in 16.99% CPU consumption on ARM64
-> > server with around 100 cores according to Yicong's test on patch
-> > 4/4.
-> >
-> > This patchset leverages the existing BATCHED_UNMAP_TLB_FLUSH by
-> > 1. only send tlbi instructions in the first stage -
-> >       arch_tlbbatch_add_mm()
-> > 2. wait for the completion of tlbi by dsb while doing tlbbatch
-> >       sync in arch_tlbbatch_flush()
-> > My testing on snapdragon shows the overhead of ptep_clear_flush
-> > is removed by the patchset. The micro benchmark becomes 5% faster
-> > even for one page mapped by single process on snapdragon 888.
-> >
-> >
-> > -v2:
-> > 1. Collected Yicong's test result on kunpeng920 ARM64 server;
-> > 2. Removed the redundant vma parameter in arch_tlbbatch_add_mm()
-> >     according to the comments of Peter Zijlstra and Dave Hansen
-> > 3. Added ARCH_HAS_MM_CPUMASK rather than checking if mm_cpumask
-> >     is empty according to the comments of Nadav Amit
-> >
-> > Thanks, Yicong, Peter, Dave and Nadav for your testing or reviewing
-> > , and comments.
-> >
-> > -v1:
-> > https://lore.kernel.org/lkml/20220707125242.425242-1-21cnbao@gmail.com/
-> >
-> > Barry Song (4):
-> >    Revert "Documentation/features: mark BATCHED_UNMAP_TLB_FLUSH doesn't
-> >      apply to ARM64"
-> >    mm: rmap: Allow platforms without mm_cpumask to defer TLB flush
-> >    mm: rmap: Extend tlbbatch APIs to fit new platforms
-> >    arm64: support batched/deferred tlb shootdown during page reclamation
-> >
-> >   Documentation/features/arch-support.txt       |  1 -
-> >   .../features/vm/TLB/arch-support.txt          |  2 +-
-> >   arch/arm/Kconfig                              |  1 +
-> >   arch/arm64/Kconfig                            |  1 +
-> >   arch/arm64/include/asm/tlbbatch.h             | 12 ++++++++++
-> >   arch/arm64/include/asm/tlbflush.h             | 23 +++++++++++++++++--
-> >   arch/loongarch/Kconfig                        |  1 +
-> >   arch/mips/Kconfig                             |  1 +
-> >   arch/openrisc/Kconfig                         |  1 +
-> >   arch/powerpc/Kconfig                          |  1 +
-> >   arch/riscv/Kconfig                            |  1 +
-> >   arch/s390/Kconfig                             |  1 +
-> >   arch/um/Kconfig                               |  1 +
-> >   arch/x86/Kconfig                              |  1 +
-> >   arch/x86/include/asm/tlbflush.h               |  3 ++-
-> >   mm/Kconfig                                    |  3 +++
-> >   mm/rmap.c                                     | 14 +++++++----
-> >   17 files changed, 59 insertions(+), 9 deletions(-)
-> >   create mode 100644 arch/arm64/include/asm/tlbbatch.h
-> >
-> --
-> Best Regards!
-> Xin Hao
->
-
-Thanks
-Barry
-
+I said what they were on another reply Lewis:
+https://elixir.bootlin.com/linux/latest/source/include/linux/gpio/driver.h#L25
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
