@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC80C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 21:26:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48161CCA483
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 21:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=XfxDNdzLkhL1xcgQd1vU6SlBGm/6umIEYpMCIA67T7A=; b=CSx+0M/c4S8zkjX/MB5lfIGkDY
-	1MC4GsvcmjcVKct+nh/4zviQfmXKeZ8dJbnSqR0q7Vdth2DArU7SZIXHj/jFi7xkbOn99gCK1EXhQ
-	PsM+tMYWpFcSzczPhO2KmhafjvkZQCMYd4Nff3I8v3Eof4+PS0WuvVh0xr+evdaCrVjvQH+2dztpP
-	7D6Jf9a3BXI122EfAtbN63g5ZK6cZGce9Wbno4z8OEWiVN133XcnuaMozq59IjnJ25Bamk12TQmK1
-	h+CjAoz+u0+xLiK0LFRqJC+ChvQmdAC0OMdmHzrj21p6M19hfDO2JPFnl2pf4lh6hYg1c7mTSisyj
-	/FWNgvQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=h+YU6In5WpjVWq8xR9riaGZzCbmhANdNJVcRtNArqc8=; b=GKCKm1up2l44YG
+	r/Kdkz5gfLqdd9i1j4SoDdTBnstmDQyZiBlORpnRZlyiRWLbv7dDHeE8uP9ID0mHlgA3Lo98s3GdA
+	tzU46tYEYUV2eHWxHt4ruyZTt3nWKgszN3ZN2dR8uvY5NMhgE+p7Io/8/s/TQkiAxdLh/1/cGRQCG
+	0iw6CWAjN3GZp3Thfu9q+U7dDA3gGigk+D/AEY06drA1cedY4BbIc87at/GFQ1W+ggKPuIslCQgOk
+	g3cWKGrRe+JCvSZUpTIQ0oKaswoeXjwipqqEqUpFm0Ga6OLK7lWNTN92t6hhn1O8vsoxY+hockD9R
+	nPubpMPNQyJWhsxJoGAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oC6Lh-001d0V-I0; Thu, 14 Jul 2022 21:26:17 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1oC6g5-001loO-C1; Thu, 14 Jul 2022 21:47:21 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oC6Lf-001cz3-4C
-	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 21:26:16 +0000
-Received: by mail-pf1-x436.google.com with SMTP id j3so2987452pfb.6
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 14:26:14 -0700 (PDT)
+	id 1oC6g2-001lme-F2
+	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 21:47:19 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id o31-20020a17090a0a2200b001ef7bd037bbso4387213pjo.0
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 14:47:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+        d=gmail.com; s=20210112;
+        h=from:to:cc:subject:date:message-id:mime-version
          :content-transfer-encoding;
-        bh=5Uiq0GJnsn+FDRzb6jOWRSJ71sl+wZ69PTXG0mZN1lU=;
-        b=rjaa7O5jr3Rq4ZBbXrb7KZzdLIcV9qqJZa5NmVoUv/wV3MkOdLo8VgmgoItSUSGAnV
-         6JaY6P+VuJobEMF79aneWzx5VGO0/4QWmfDSYIZZrgL8mMtbmcElLN3fAPefeZ43b+hB
-         Gr3/67nquJXQnVBdsx91JItZwLNl0iueaJ+Edkea09IKOEX7UoQkgyBM7A8785Ers+lx
-         4r2ehtTKW85JF+YwBIPi+N/lfVVnE9eNwbyJBeKJ5kR9fadvD7G7ylcyJTlH59GY+3gI
-         Xuj6QKJa/29xRGlZO8nHCkjD2gWRc9mKFlqT87//zx2alPwiwOmm7fP0c55OyjGCKPzV
-         WJvA==
+        bh=/JBraEEF7Pi/rPUlvSul3up/f1rkIrFL2lXpXxABUjo=;
+        b=lscc9nAaqk/gLbSr2XL8YrPRs/zyT8T4SiE+UzcwyfJZDejV2V03/Ceml36zOXDw2j
+         GSw5Bz+NY1ohcFs2Y+SbhIHhCmrrBRefc9Ctq2tTml3QpKdab/V6fYGRGmiVrgBUngI1
+         99Q4DNc0rMuLLiHGkogfp/rrBqI7OQKuhgDfVe9wNw9mtmWkUZ0MuZBbsOMzAVRzGvLD
+         9xrGld/ogqVffulMZ1eEaY/hE23kNAH0MTXlQDS3QZykMAvUoMSZwpUr0kXvMYTo6mw+
+         feoN81IqGiQNmpkPgcbCkP6v7rV2i5qe9SRfa03yGMJNePPiSyC36JkgtWtmZHn9FToR
+         7dKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=5Uiq0GJnsn+FDRzb6jOWRSJ71sl+wZ69PTXG0mZN1lU=;
-        b=lqqtZtegHTOunuocfK+7ks9rAVLSJb6via3qscmOlu+kENtFoWgPEQHgPFopSkasFK
-         E5bhUM4edo+8od0DtJgmfDzMg97hI8IlYFBZ2cUext86mpxeXJMwdtGq/d02eKpOWYr0
-         3V2/G0fGdgkzlw3RRwvb8SEdfqhnvd11Y2QdXUwwhaK182qdTYbwqZ37vPEAwt/KluhY
-         Yb17OgOV9o/Ap6/0/dLZHVkssk7BUxHcbyQD0lWOO/+1fxreYBlpSmvI+fKSqV+K3xXj
-         84wesZy5LHJu58bOoEbIdkONM3K/R+gwq0CC/YyCWw7HCEWfzjNIppnJVywUDzAEhiGq
-         39Uw==
-X-Gm-Message-State: AJIora+Ir1IK+8ZDGc6uG5BbXM/1WKuYuFXd89QaOn1cnTWo3MS2x2h9
-	8FB9b7w3NB5tNClTFBEvx932Mw==
-X-Google-Smtp-Source: AGRyM1tG8e3jIgDWHu80ncifreV87llJwuiwov21ReO0/D9bdDMfVakLwEeEzPrU6cNLDfIGQ/QlZQ==
-X-Received: by 2002:aa7:8ec2:0:b0:52a:d4f5:20b with SMTP id b2-20020aa78ec2000000b0052ad4f5020bmr10158726pfr.71.1657833973389;
-        Thu, 14 Jul 2022 14:26:13 -0700 (PDT)
-Received: from localhost ([50.221.140.186])
-        by smtp.gmail.com with ESMTPSA id u13-20020a17090341cd00b00163e06e1a99sm1987336ple.120.2022.07.14.14.26.10
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=/JBraEEF7Pi/rPUlvSul3up/f1rkIrFL2lXpXxABUjo=;
+        b=ix8K4DmuVlgoyst0vKMvTOrKnHYsCQfI0fB20PoOQP5DNsyLx5dMiNxwBFrYT18jd+
+         c9+7CLLtDf28L0L6S6uiipCsy/t5p3g8ZhFsmH3lm+CayN0u+ZViNwJLc0KIwvej20gn
+         htLUG/ZzqRohW4aBFeFV8u777XbxpxItVM2RV+cuqILFh+PC24XYC6TDb4BG9V3pG90Y
+         DO+WveKNYqA8QvNI6ta1nZACDBGbfZIawwAM2VkTATQm+E+idbqxr1fjRgbtNwFvtmlU
+         JTyg5G5Mw1IDIPUDeYMnZSJLvregShwGqD0+Wv1bX3v9RZEPci7VrpesgWuqY+BvuvS4
+         Vxxw==
+X-Gm-Message-State: AJIora8EW3I1KGMFktWKNpiofoDKPULIeE8qieIAta8mwPQaHbruS/0q
+	XqpOuWXpPPsQ5wy5eJQsVfzsbOhIgz9PmQ==
+X-Google-Smtp-Source: AGRyM1v5QC4ANKVLVpkPuuJcTPGQopcKs4QNjHemdLKq1UTYUTez/Vz/d5mLTfj3qgv8jyrxm1KP0A==
+X-Received: by 2002:a17:90b:3c07:b0:1f0:eab4:79e4 with SMTP id pb7-20020a17090b3c0700b001f0eab479e4mr3015352pjb.186.1657835237487;
+        Thu, 14 Jul 2022 14:47:17 -0700 (PDT)
+Received: from localhost ([2409:10:24a0:4700:e8ad:216a:2a9d:6d0c])
+        by smtp.gmail.com with ESMTPSA id v21-20020a17090ac91500b001f113765d48sm145572pjt.2.2022.07.14.14.47.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Jul 2022 14:26:10 -0700 (PDT)
-Date: Thu, 14 Jul 2022 14:26:10 -0700 (PDT)
-X-Google-Original-Date: Thu, 14 Jul 2022 14:26:03 PDT (-0700)
-Subject: Re: [PATCH v3] RISC-V: Add CONFIG_{NON,}PORTABLE
-In-Reply-To: <20220521193356.26562-1-palmer@rivosinc.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  rdunlap@infradead.org, Arnd Bergmann <arnd@arndb.de>, anup@brainfault.org,
-  alexandre.ghiti@canonical.com, damien.lemoal@opensource.wdc.com, Atish Patra <atishp@rivosinc.com>,
-  axboe@kernel.dk, guoren@kernel.org, mchitale@ventanamicro.com, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, linux@rivosinc.com
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
-Message-ID: <mhng-b5cae221-396d-49a6-91b2-362f490ca732@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        Thu, 14 Jul 2022 14:47:17 -0700 (PDT)
+From: Stafford Horne <shorne@gmail.com>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Stafford Horne <shorne@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-csky@vger.kernel.org
+Subject: [RFC PATCH 0/2] Updates for asm-generic/pci.h
+Date: Fri, 15 Jul 2022 06:46:55 +0900
+Message-Id: <20220714214657.2402250-1-shorne@gmail.com>
+X-Mailer: git-send-email 2.36.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220714_142615_178950_3A24C3BA 
-X-CRM114-Status: GOOD (  27.63  )
+X-CRM114-CacheID: sfid-20220714_144718_545397_BAEFC52C 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,196 +88,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, 21 May 2022 12:33:57 PDT (-0700), Palmer Dabbelt wrote:
-> From: Palmer Dabbelt <palmer@rivosinc.com>
->
-> The RISC-V port has collected a handful of options that are
-> fundamentally non-portable.  To prevent users from shooting themselves
-> in the foot, hide them all behind a config entry that explicitly calls
-> out that non-portable binaries may be produced.
->
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
-> Changes since v2:
->
-> * Update the nommu and rv32 defconfigs.  I'm still getting some ugliness
->   like
->
->     $ make.riscv rv32_defconfig
->     *** Default configuration is based on 'defconfig'
->     #
->     # configuration written to .config
->     #
->     Using .config as base
->     Merging ./arch/riscv/configs/32-bit.config
->     Value of CONFIG_PORTABLE is redefined by fragment ./arch/riscv/configs/32-bit.config:
->     Previous value: CONFIG_PORTABLE=y
->     New value: # CONFIG_PORTABLE is not set
->
->     Value of CONFIG_NONPORTABLE is redefined by fragment ./arch/riscv/configs/32-bit.config:
->     Previous value: # CONFIG_NONPORTABLE is not set
->     New value: CONFIG_NONPORTABLE=y
->
->     #
->     # merged configuration written to .config (needs make)
->     #
->     .config:3831:warning: override: ARCH_RV32I changes choice state
->     #
->     # configuration written to .config
->     #
->
->   not sure if there's a better way to do this.
->
-> Changes since v1:
->
-> * Fix a bunch of spelling mistakes.
-> * Move NONPORTABLE under the "Platform type" sub-heading.
-> * Fix the rv32i dependency.
->
-> ---
->  arch/riscv/Kconfig                            | 28 +++++++++++++++++--
->  arch/riscv/configs/32-bit.config              |  2 ++
->  arch/riscv/configs/nommu_k210_defconfig       |  1 +
->  .../riscv/configs/nommu_k210_sdcard_defconfig |  1 +
->  arch/riscv/configs/nommu_virt_defconfig       |  1 +
->  arch/riscv/configs/rv32_defconfig             |  1 +
->  6 files changed, 32 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index f863065b478c..cd67b09a80f5 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -222,6 +222,21 @@ source "arch/riscv/Kconfig.erratas"
->
->  menu "Platform type"
->
-> +config NONPORTABLE
-> +	bool "Allow configurations that result in non-portable kernels"
-> +	help
-> +	  RISC-V kernel binaries are compatible between all known systems
-> +	  whenever possible, but there are some use cases that can only be
-> +	  satisfied by configurations that result in kernel binaries that are
-> +	  not portable between systems.
-> +
-> +	  Selecting N does not guarantee kernels will be portable to all known
-> +	  systems.  Selecting any of the options guarded by NONPORTABLE will
-> +	  result in kernel binaries that are unlikely to be portable between
-> +	  systems.
-> +
-> +	  If unsure, say N.
-> +
->  choice
->  	prompt "Base ISA"
->  	default ARCH_RV64I
-> @@ -231,6 +246,7 @@ choice
->
->  config ARCH_RV32I
->  	bool "RV32I"
-> +	depends on NONPORTABLE
->  	select 32BIT
->  	select GENERIC_LIB_ASHLDI3
->  	select GENERIC_LIB_ASHRDI3
-> @@ -541,6 +557,7 @@ config STACKPROTECTOR_PER_TASK
->
->  config PHYS_RAM_BASE_FIXED
->  	bool "Explicitly specified physical RAM address"
-> +	depends on NONPORTABLE
->  	default n
->
->  config PHYS_RAM_BASE
-> @@ -554,7 +571,7 @@ config PHYS_RAM_BASE
->
->  config XIP_KERNEL
->  	bool "Kernel Execute-In-Place from ROM"
-> -	depends on MMU && SPARSEMEM
-> +	depends on MMU && SPARSEMEM && NONPORTABLE
->  	# This prevents XIP from being enabled by all{yes,mod}config, which
->  	# fail to build since XIP doesn't support large kernels.
->  	depends on !COMPILE_TEST
-> @@ -594,9 +611,16 @@ endmenu
->
->  config BUILTIN_DTB
->  	bool
-> -	depends on OF
-> +	depends on OF && NONPORTABLE
->  	default y if XIP_KERNEL
->
-> +config PORTABLE
-> +	bool
-> +	default !NONPORTABLE
-> +	select EFI
-> +	select OF
-> +	select MMU
-> +
->  menu "Power management options"
->
->  source "kernel/power/Kconfig"
-> diff --git a/arch/riscv/configs/32-bit.config b/arch/riscv/configs/32-bit.config
-> index 43f41323b67e..f6af0f708df4 100644
-> --- a/arch/riscv/configs/32-bit.config
-> +++ b/arch/riscv/configs/32-bit.config
-> @@ -1,2 +1,4 @@
->  CONFIG_ARCH_RV32I=y
->  CONFIG_32BIT=y
-> +# CONFIG_PORTABLE is not set
-> +CONFIG_NONPORTABLE=y
-> diff --git a/arch/riscv/configs/nommu_k210_defconfig b/arch/riscv/configs/nommu_k210_defconfig
-> index 2438fa39f8ae..96fe8def644c 100644
-> --- a/arch/riscv/configs/nommu_k210_defconfig
-> +++ b/arch/riscv/configs/nommu_k210_defconfig
-> @@ -28,6 +28,7 @@ CONFIG_EMBEDDED=y
->  CONFIG_SLOB=y
->  # CONFIG_MMU is not set
->  CONFIG_SOC_CANAAN=y
-> +CONFIG_NONPORTABLE=y
->  CONFIG_SMP=y
->  CONFIG_NR_CPUS=2
->  CONFIG_CMDLINE="earlycon console=ttySIF0"
-> diff --git a/arch/riscv/configs/nommu_k210_sdcard_defconfig b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> index 9a133e63ae5b..379740654373 100644
-> --- a/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> +++ b/arch/riscv/configs/nommu_k210_sdcard_defconfig
-> @@ -20,6 +20,7 @@ CONFIG_EMBEDDED=y
->  CONFIG_SLOB=y
->  # CONFIG_MMU is not set
->  CONFIG_SOC_CANAAN=y
-> +CONFIG_NONPORTABLE=y
->  CONFIG_SMP=y
->  CONFIG_NR_CPUS=2
->  CONFIG_CMDLINE="earlycon console=ttySIF0 root=/dev/mmcblk0p1 rootwait ro"
-> diff --git a/arch/riscv/configs/nommu_virt_defconfig b/arch/riscv/configs/nommu_virt_defconfig
-> index 5269fbb6b4fc..1a56eda5ce46 100644
-> --- a/arch/riscv/configs/nommu_virt_defconfig
-> +++ b/arch/riscv/configs/nommu_virt_defconfig
-> @@ -25,6 +25,7 @@ CONFIG_EXPERT=y
->  CONFIG_SLOB=y
->  # CONFIG_MMU is not set
->  CONFIG_SOC_VIRT=y
-> +CONFIG_NONPORTABLE=y
->  CONFIG_SMP=y
->  CONFIG_CMDLINE="root=/dev/vda rw earlycon=uart8250,mmio,0x10000000,115200n8 console=ttyS0"
->  CONFIG_CMDLINE_FORCE=y
-> diff --git a/arch/riscv/configs/rv32_defconfig b/arch/riscv/configs/rv32_defconfig
-> index 7e5efdc3829d..77bdb1d05a88 100644
-> --- a/arch/riscv/configs/rv32_defconfig
-> +++ b/arch/riscv/configs/rv32_defconfig
-> @@ -18,6 +18,7 @@ CONFIG_EXPERT=y
->  CONFIG_PROFILING=y
->  CONFIG_SOC_SIFIVE=y
->  CONFIG_SOC_VIRT=y
-> +CONFIG_NONPORTABLE=y
->  CONFIG_ARCH_RV32I=y
->  CONFIG_SMP=y
->  CONFIG_HOTPLUG_CPU=y
+When reviewing the OpenRISC PCI support patch Arnd suggested that
+we avoid copying arm64 and riscv asm/pci.h and moving that to be
+the new asm-generic/pci.h.
 
-This is on for-next.
+This patch does that by first moving the old pci.h definition
+of pci_get_legacy_ide_irq out to the architectures that use it.
+Next, we create the new pci.h definition.
+
+Stafford Horne (2):
+  asm-generic: Remove pci.h copying code out to architectures
+  asm-generic: Add new pci.h and use it
+
+ arch/alpha/include/asm/pci.h   |  1 -
+ arch/arm64/include/asm/pci.h   | 18 ++-----------
+ arch/csky/include/asm/pci.h    | 24 +++--------------
+ arch/ia64/include/asm/pci.h    |  1 -
+ arch/m68k/include/asm/pci.h    |  7 +++--
+ arch/powerpc/include/asm/pci.h |  1 -
+ arch/riscv/include/asm/pci.h   | 25 +++--------------
+ arch/s390/include/asm/pci.h    |  6 ++++-
+ arch/sparc/include/asm/pci.h   |  5 +++-
+ arch/um/include/asm/pci.h      | 24 ++---------------
+ arch/x86/include/asm/pci.h     |  6 +++--
+ arch/xtensa/include/asm/pci.h  |  6 +++--
+ include/asm-generic/pci.h      | 49 +++++++++++++++++++++++++---------
+ 13 files changed, 69 insertions(+), 104 deletions(-)
+
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
