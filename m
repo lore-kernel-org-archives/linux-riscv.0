@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B958C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 08:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6725FC43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 08:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lmVFIHSBEHRfgBQEqpMYRUm0Cw0wuxQ9xXwEqz2h80U=; b=IalB5Rh+QBfX77
-	RenUDfbus2bANA/4mdNLbKFsaoiD01mAhWn2EzP1CaERX9zDmkywbVdI5Yw8HNZjAn03u6fLFsx4k
-	R+3F8qc1+0ZUTJ7AAwiZ6DUxy4i+noI21YGYd6h14fZs9IDUryz0oJEnpH36PG45h/4U7BWixLUuc
-	+EG1Ch9yuh2Mg6ESrFMAbbxx8FMO3L3EAjEL+H0nkyDTpqwIkxiBxca4aQ4utoDkd5xvwnvJziYjv
-	Bg7R1aiHFzUDwRM56a1GzSdao6lI90vUhHnbz0nHxJDZqBf4C4Au0yb+LIyUCp1R3X729sKqPwRWc
-	/2h9R8Q68x47ErCrx//g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1CoPNluHq4L6mSdw90eBpiYe0FBUuMWNLxkouq5OT48=; b=XZyNs11vcqGqwe
+	T9LlSL19ZAURHhjI9OP/4wj9SE4wTvx1y5nCPXknDVEsHsahTd7JkMY9NcM5ZdXIvTRcREZ+VSQ2P
+	cvQ7V0u7m3JIOPvhu7Qyo4qgd6CrucTT/X3yMKIzW1DYm3fz/w+1swbIsCehuF+/6g1Q+2L9nOUVM
+	8HUjCH0im6t08QuXbMCEili9ndiXpUy4FwAUw2ZJ+8IQ+pp4t7VfN5VK7DAIfnwkpoNv3mAvvU7F5
+	7VDSsB+mW0uFFEIQFGhp0XxYbSZGoRfJIdZ7ZkvEv8Q9+FUKstoiLBmRQgYBBoxCXAK3AHmcN+9pu
+	Ga2MScB7Ru+sx+4SzBMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBtoV-00C9Tz-6D; Thu, 14 Jul 2022 08:03:11 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oBu9p-00CKQG-Vb; Thu, 14 Jul 2022 08:25:14 +0000
+Received: from mout.kundenserver.de ([212.227.17.10])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBtoR-00C9Rt-FM
-	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 08:03:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1657785787; x=1689321787;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=flmEbbHtH64y5bEmBPWo/m2F0akTKTLjBiP5tcJGFFU=;
-  b=JuR/Mw8CCcErmhqacKdzgJRwkBxvsgSSke5Wjz25ulPivY35qUriFGgG
-   DqXIJNSpL9FrOsFTz3rr1ILR5ADDu1uY+5KtS/PosPS6VNiFSAsu18BsJ
-   RS/wnR2aNYZyUhEFoRv/IPigkG/1XXQvLUuiArUUvcNrnAXWOs6+pmHxz
-   z7MLv/M3eDHogC6BSKZ8vjNKRW86ffD4QWyGBsn4cTRmaUDa2/WPY1uuh
-   qgt1sR3f/kW3GqIDrBag17I131GFH7dYlnN+jVjh9NK5NzIOV1WedRKtz
-   65pZ5tuzG/nBSc5zAKtUiBZsmXSC1BQ+zEQ36TzYf/XodjFWefu8pCACt
-   w==;
-X-IronPort-AV: E=Sophos;i="5.92,269,1650956400"; 
-   d="scan'208";a="167789670"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Jul 2022 01:03:06 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Thu, 14 Jul 2022 01:03:03 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
- Transport; Thu, 14 Jul 2022 01:03:00 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: <aou@eecs.berkeley.edu>, <linux-riscv@lists.infradead.org>,
-	<palmer@dabbelt.com>, <paul.walmsley@sifive.com>
-CC: <conor.dooley@microchip.com>, <ben.dooks@sifive.com>,
-	<jude.onyenegecha@sifive.com>, <atishp@rivosinc.com>, <anup@brainfault.org>,
-	<sudip.mukherjee@sifive.com>
-Subject: [PATCH v2] riscv: ensure cpu_ops_sbi is declared
-Date: Thu, 14 Jul 2022 09:02:36 +0100
-Message-ID: <20220714080235.3853374-1-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.36.1
+	id 1oBu9n-00CKNH-UF
+	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 08:25:13 +0000
+Received: from mail-yw1-f180.google.com ([209.85.128.180]) by
+ mrelayeu.kundenserver.de (mreue108 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1McY4R-1nZ0ZS0LLZ-00d1Xa for <linux-riscv@lists.infradead.org>; Thu, 14
+ Jul 2022 10:25:07 +0200
+Received: by mail-yw1-f180.google.com with SMTP id 00721157ae682-31caffa4a45so9731987b3.3
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 01:25:06 -0700 (PDT)
+X-Gm-Message-State: AJIora8dcW7KYCj0UvWvBW30S9OimqueI1VP6DuW/IF50KC0PBA8LzII
+	azwEyaO+74wvFdngYbCQA2f6DFryr0yQwlg6Xqo=
+X-Google-Smtp-Source: AGRyM1vt2i+MLzQoQ8EUAstVq2RqNs3pwOpWRFUMpYqOFMtyP7eGTQHRST6xfO3JNud96tGfOfo+oDtOe953D88c1j4=
+X-Received: by 2002:a81:d93:0:b0:31c:d32d:4d76 with SMTP id
+ 141-20020a810d93000000b0031cd32d4d76mr9102171ywn.135.1657787105766; Thu, 14
+ Jul 2022 01:25:05 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220714025901.359695-1-xianting.tian@linux.alibaba.com> <20220714025901.359695-3-xianting.tian@linux.alibaba.com>
+In-Reply-To: <20220714025901.359695-3-xianting.tian@linux.alibaba.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Thu, 14 Jul 2022 10:24:49 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a3-jKEs+uGL=_kjmfzao6DYgmrkO+YWtNhv5O+hFw_qog@mail.gmail.com>
+Message-ID: <CAK8P3a3-jKEs+uGL=_kjmfzao6DYgmrkO+YWtNhv5O+hFw_qog@mail.gmail.com>
+Subject: Re: [PATCH V2 2/2] riscv: Add modules to virtual kernel memory layout dump
+To: Xianting Tian <xianting.tian@linux.alibaba.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alexandre.ghiti@canonical.com>, 
+	Guo Ren <guoren@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Nick Kossifidis <mick@ics.forth.gr>, Mike Rapoport <rppt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, huanyi.xj@alibaba-inc.com
+X-Provags-ID: V03:K1:i+/Dg2i4ZKLxJZHIN3vIxWmjio/HaYYJn32cK4mG0C1XNPvq4Bv
+ Fw1kNOVTPJe+C1DL5/znGXcUTvSHipsGslblLO5dHTmMsohxq8qC68KShtqRdf9BVpGtv7/
+ U78SoZMleivPN7PdUaPsFSZ4OUM8JD51n87oewhOXb7kCIKFNKq5PBqTWGLb5t0HsAGPSeq
+ ACitn9AYNDaesMl7zMChQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:7MIddEBhIKo=:tDpX0kwxrjMF8Uh5ifFUnA
+ 2reqJi832jWSk5Kv/8BkLIEdUb7a3Zv3FjPZnw5nlJROQulqkMq0pZLB7F43DahqebYnEEHIY
+ L7Deh+eMPb3uxO59vRLwveyC7tOrdz8nvEIvXIMfRUNs5TalLtSokJ5TBH9sSrVZ4f/w6i/LT
+ uHpGmwoonS3ndi5K+DiaLrzjMxs6FprivKBZjyBC6F+X5XF8qMB+B7mxiGxshb5PXs1Nmkova
+ 2WntS2bgetfPmEWgMTlmqIpmS5dRgWgtRNqPG+blQSBhouul+fkAgXbRNtKue8RIDa1lyhRhl
+ o/eB26UfaVMmPJHAdTPUdG8OegtvWsH6zYGPohnGK8mKl5ynVv1dB9ybLPXWFvlMCgMF0lda1
+ OGxwIMWoM4jjMdMt9lcxb7in5xGQOe2azwqu52GmWo1B0oy5DA+P/edJcDZEkEujG/DjYFTde
+ BzjEYAe4Bfc9JJ98TDyacaGn903lITj9AHV2PYRkGTr5c2ihMDtW2x5Wkwp/jxjeCJz1o1Lm2
+ n5uys2gbsNSlqPaGOv0982xeXSvzDj5RRCjwuOJq+w0sglgEPdHUsQ72fHQ7/NjycGBtsBbcP
+ hxLUr3PUN2gPy0M3CiSqky+UQdePhohceohiQCZZgXfYJb6gCIN5d33mG1yGA5w88JQWSeytM
+ aE3j5sdRmR5yRuTDI2o/sHyyiGo2FtK5+2TKVcJdN5gpS0cOZa1oCO3EUaIt7jco0kvMqICV4
+ b0nvUWc6/qMWmCByHhrIpLqhTqwts34FBPG7yI2qTI5vTzHeHeCTORT030oSLwAi5rKoU/0hY
+ Dd0pfm3/7eO3c+exA/yWAw4nOFNpNfeg9+SEolY1PYev6aEdu+GSA/YffHCetU160CQmi1imu
+ LHNxQktxryCSBfIDAqLQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220714_010307_601495_A9EBA14F 
-X-CRM114-Status: UNSURE (   7.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220714_012512_299565_9C737D8E 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +89,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sparse complains that cpu_ops_sbi is used undeclared:
-arch/riscv/kernel/cpu_ops_sbi.c:17:29: warning: symbol 'cpu_ops_sbi' was not declared. Should it be static?
+On Thu, Jul 14, 2022 at 4:59 AM Xianting Tian
+<xianting.tian@linux.alibaba.com> wrote:
+>
+> As MODULES is only defined for CONFIG_64BIT, so we dump it when
+> CONFIG_64BIT.
 
-Fix the warning by adding cpu_ops_sbi to cpu_ops_sbi.h & including that
-where used.
+Doesn't this cause a compile-time error on 32-bit?
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
+>                 (unsigned long)VMEMMAP_END);
+>         print_ml("vmalloc", (unsigned long)VMALLOC_START,
+>                 (unsigned long)VMALLOC_END);
+> +       if (IS_ENABLED(CONFIG_64BIT))
+> +               print_ml("modules", (unsigned long)MODULES_VADDR,
+> +                       (unsigned long)MODULES_END);
 
-A trailing > broke the CC list, resending as v2 with just the CC
-list fixed.
+The IS_ENABLED() check prevents the line from getting executed, but
+unlike an #ifdef it still relies on it to be parsable.
 
- arch/riscv/include/asm/cpu_ops_sbi.h | 2 ++
- arch/riscv/kernel/cpu_ops.c          | 1 +
- 2 files changed, 3 insertions(+)
-
-diff --git a/arch/riscv/include/asm/cpu_ops_sbi.h b/arch/riscv/include/asm/cpu_ops_sbi.h
-index 56e4b76d09ff..d6e4665b3195 100644
---- a/arch/riscv/include/asm/cpu_ops_sbi.h
-+++ b/arch/riscv/include/asm/cpu_ops_sbi.h
-@@ -10,6 +10,8 @@
- #include <linux/sched.h>
- #include <linux/threads.h>
- 
-+extern const struct cpu_operations cpu_ops_sbi;
-+
- /**
-  * struct sbi_hart_boot_data - Hart specific boot used during booting and
-  *			       cpu hotplug.
-diff --git a/arch/riscv/kernel/cpu_ops.c b/arch/riscv/kernel/cpu_ops.c
-index 170d07e57721..916b71f5dfb9 100644
---- a/arch/riscv/kernel/cpu_ops.c
-+++ b/arch/riscv/kernel/cpu_ops.c
-@@ -9,6 +9,7 @@
- #include <linux/string.h>
- #include <linux/sched.h>
- #include <asm/cpu_ops.h>
-+#include <asm/cpu_ops_sbi.h>
- #include <asm/sbi.h>
- #include <asm/smp.h>
- 
--- 
-2.36.1
-
+         Arnd
 
 _______________________________________________
 linux-riscv mailing list
