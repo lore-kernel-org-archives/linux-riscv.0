@@ -4,51 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0EABC43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 03:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8225C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 04:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Reply-To:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QXM+Pzll8VOhth//qERd/dto0E2kZa0CaWPzKRzcSis=; b=JNeU0W+lSO0WHI
-	i0xcRJwtEKeG/lgML7Y+tM9dzyQ01CF6risZPZjkZ/YvefhI9cpIhz7WRAwAi4MX4kOWgyKLDs4km
-	cKJnf3AansjNWfuPRKmYLJVtHMaVn/iuDkzwc25e0wAr0lGXSrKtkt2z4AMY/YwYffiq7K+8I8vbi
-	xbnfPOskab7q7FuCwEnlj4IU4IxkigPPpCR3fkOuM/YAv2dCfvuqJrX8UQIidNUDQdv5jctTtahi6
-	J4uAalAENNHFhQoQpkdzOaWIoc4n4eFnwkOxLUKsA0lEbLptms9I3TseWBg1PQYhdyKwzbnWNH8pK
-	ykXqV9jUYu1txQx0wTwA==;
+	List-Owner; bh=qaAjKP3XAi7WQ2obJwLO/fY5P9x56fWRp/buKkwX5Lc=; b=y8nc3nCaeaAEL/
+	wNV8j2h52Fthnp86+h7PqVjRGTHESNFEV/cdLNhIdj/BEjNjCSCQsBysyTfFLXWOO9jPjaJBo33/n
+	8WXV/YfIUQDtQkmcjJjzNARFe76iLW1RwtxBz5f3DRINcAWzJ2EX2pmHVVpsxB4eZZqP30C/PGADh
+	pi4LffoygMbRmHL/l/DyAKKYTWTra88KIiQebTUS31ZsfW+pRrXmtaPeIicDYeyAtbgpL1c+QUsTp
+	1XfZKjXqhXbwBExGKgy85XK1KmchjP1etd/xzW6bYeY2oJX5O+KXHCnr5/wlu7eCEYZZFqKDfiMFM
+	tT/a6ULk8k6rs3aRl13g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBpXU-00AJIa-0h; Thu, 14 Jul 2022 03:29:20 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1oBqph-00Aoyw-Jr; Thu, 14 Jul 2022 04:52:13 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBpXH-00AJBM-Jd; Thu, 14 Jul 2022 03:29:09 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045170;MF=xhao@linux.alibaba.com;NM=1;PH=DS;RN=23;SR=0;TI=SMTPD_---0VJHMqdX_1657769336;
-Received: from B-X3VXMD6M-2058.local(mailfrom:xhao@linux.alibaba.com fp:SMTPD_---0VJHMqdX_1657769336)
-          by smtp.aliyun-inc.com;
-          Thu, 14 Jul 2022 11:28:59 +0800
-Subject: Re: [PATCH v2 0/4] mm: arm64: bring up BATCHED_UNMAP_TLB_FLUSH
-To: Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org,
- linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, x86@kernel.org,
- catalin.marinas@arm.com, will@kernel.org, linux-doc@vger.kernel.org
-Cc: corbet@lwn.net, arnd@arndb.de, linux-kernel@vger.kernel.org,
- darren@os.amperecomputing.com, yangyicong@hisilicon.com,
- huzhanyuan@oppo.com, lipeifeng@oppo.com, zhangshiming@oppo.com,
- guojian@oppo.com, realmz6@gmail.com, linux-mips@vger.kernel.org,
- openrisc@lists.librecores.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
-References: <20220711034615.482895-1-21cnbao@gmail.com>
-From: Xin Hao <xhao@linux.alibaba.com>
-Message-ID: <24f5e25b-3946-b92a-975b-c34688005398@linux.alibaba.com>
-Date: Thu, 14 Jul 2022 11:28:56 +0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
- Gecko/20100101 Thunderbird/78.14.0
+	id 1oBqpV-00AorU-BY; Thu, 14 Jul 2022 04:52:03 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id r18so902651edb.9;
+        Wed, 13 Jul 2022 21:51:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=hW7IbWPmYdn2d1NNnyMMYZo7sUWhfXMc3EeZopJnd9s=;
+        b=ixpskF3es1ZmyzgNugOOlVGXEXU01wH8x+O+9c0Hn53VnayTkfg7B02WDNC5tIrO7l
+         iEwg3ca5x42mE2uIM8nqQUrXVwXLpT6ULvvEDEhDoQovcbWbHLnoAwOv78ubyxnHhjrc
+         b+F58wCwdRfZkdz4PEAGwhDlQaXN17a/dAqjH7lRr9IZR6Oxl15yDJPqx5DZqhd1LDca
+         m3K9L9Ce8HJHQ3yTYC00bD8m8HCeZVO9kN8Rn4LXDKPCB1TSqsZxNf0zJQAMyjXyiJ7g
+         cpQu1lJzObpQ/9Off5+y4JJmm1YPuTUAuigqbDyhvyv4ipfIih1IQ2OiwKFqjfHfMEIL
+         9Opw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=hW7IbWPmYdn2d1NNnyMMYZo7sUWhfXMc3EeZopJnd9s=;
+        b=45nE/rvBQrMWoKrF0+ABfVtAZvaZChG3HpKxrvnNy8p/uuBPwMzhaxZFPd3n0kgrCj
+         TElqRBLV+esq2UvbJb2rMdYfQHOAU84xSEcEDBtqo+ZtSTNCIaN5yKe19XRuxPRbiC49
+         IxcM+qvHZQjddgTBAEVphKg9r2tJmWJnCnpwGEcNiDXLCWIpKoII8qDdAm6IDtwEDHqO
+         aWRmO87Y//wOG3oD0ZHGstJPHcxobC6LcIUXseABZTRcAXUf8RPd2fzaHOyNUkYOy1h2
+         uMpL41+AzmUQwqy2LuvFbrvMz1yfYbZ/UjEb/UPeP60GiF2HzZIg7fsMRmGfot0SUg4O
+         FOvA==
+X-Gm-Message-State: AJIora9i9VcSna7mWDL5LZJKXBmdpTALFL1ZoH3Hzr1RtYrQghh83+bz
+	CzTvSRnvpvpjIEhyvktpXujUQztSE4U/7b6N7xc=
+X-Google-Smtp-Source: AGRyM1sCekI8nbaSkEz0wXp62jC4NmfsPr1d7cEeKiuuhPUbnQAKxU8DeX6rgQmQqaqEEOVW9HUjdoQGawmviSj4Nuo=
+X-Received: by 2002:aa7:db9a:0:b0:43a:76bf:5401 with SMTP id
+ u26-20020aa7db9a000000b0043a76bf5401mr9638511edt.244.1657774317014; Wed, 13
+ Jul 2022 21:51:57 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20220711034615.482895-1-21cnbao@gmail.com>
+References: <20220711034615.482895-1-21cnbao@gmail.com> <24f5e25b-3946-b92a-975b-c34688005398@linux.alibaba.com>
+In-Reply-To: <24f5e25b-3946-b92a-975b-c34688005398@linux.alibaba.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Thu, 14 Jul 2022 16:51:45 +1200
+Message-ID: <CAGsJ_4zjnmQV6LT3yo--K-qD-92=hBmgfK121=n-Y0oEFX8RnQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/4] mm: arm64: bring up BATCHED_UNMAP_TLB_FLUSH
+To: xhao@linux.alibaba.com
+Cc: Andrew Morton <akpm@linux-foundation.org>, Linux-MM <linux-mm@kvack.org>, 
+	LAK <linux-arm-kernel@lists.infradead.org>, x86 <x86@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Linux Doc Mailing List <linux-doc@vger.kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Arnd Bergmann <arnd@arndb.de>, LKML <linux-kernel@vger.kernel.org>, 
+	Darren Hart <darren@os.amperecomputing.com>, Yicong Yang <yangyicong@hisilicon.com>, 
+	huzhanyuan@oppo.com, =?UTF-8?B?5p2O5Z+56ZSLKHdpbmsp?= <lipeifeng@oppo.com>, 
+	=?UTF-8?B?5byg6K+X5piOKFNpbW9uIFpoYW5nKQ==?= <zhangshiming@oppo.com>, 
+	=?UTF-8?B?6YOt5YGl?= <guojian@oppo.com>, real mz <realmz6@gmail.com>, 
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220713_202907_830874_D42F45BC 
-X-CRM114-Status: GOOD (  20.60  )
+X-CRM114-CacheID: sfid-20220713_215201_435142_5AC21943 
+X-CRM114-Status: GOOD (  39.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,120 +88,195 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: xhao@linux.alibaba.com
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgYmFycnkuCgpJIGRvIHNvbWUgdGVzdCBvbiBLdW5wZW5nIGFybTY0IG1hY2hpbmUgdXNlIFVu
-aXhiZW5jaC4KClRoZSB0ZXN0wqAgcmVzdWx0IGFzIGJlbG93LgoKT25lIGNvcmUsIHdlIGNhbiBz
-ZWUgdGhlIHBlcmZvcm1hbmNlIGltcHJvdmVtZW50IGFib3ZlICszMCUuCi4vUnVuIC1jIDEgLWkg
-MSBzaGVsbDEKdy9vClN5c3RlbSBCZW5jaG1hcmtzIFBhcnRpYWwgSW5kZXjCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCBCQVNFTElORSBSRVNVTFQgSU5ERVgKU2hlbGwgU2NyaXB0cyAoMSBjb25j
-dXJyZW50KcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgNDIuNCA1NDgx
-LjAgMTI5Mi43Cj09PT09PT09ClN5c3RlbSBCZW5jaG1hcmtzIEluZGV4IFNjb3JlIChQYXJ0aWFs
-IE9ubHkpwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDEy
-OTIuNwoKdy8KU3lzdGVtIEJlbmNobWFya3MgUGFydGlhbCBJbmRleMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIEJBU0VMSU5FIFJFU1VMVCBJTkRFWApTaGVsbCBTY3JpcHRzICgxIGNvbmN1cnJl
-bnQpwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA0Mi40IDY5NzQuNiAx
-NjQ1LjAKPT09PT09PT0KU3lzdGVtIEJlbmNobWFya3MgSW5kZXggU2NvcmUgKFBhcnRpYWwgT25s
-eSnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgMTY0NS4w
-CgoKQnV0IHdpdGggd2hvbGUgY29yZXMsIHRoZXJlIGhhdmUgbGl0dGxlIHBlcmZvcm1hbmNlIGRl
-Z3JhZGF0aW9uIGFib3ZlIC01JQoKLi9SdW4gLWMgOTYgLWkgMSBzaGVsbDEKdy9vClNoZWxsIFNj
-cmlwdHMgKDEgY29uY3VycmVudCnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDgw
-NzY1LjUgbHBtwqDCoCAoNjAuMCBzLCAxIApzYW1wbGVzKQpTeXN0ZW0gQmVuY2htYXJrcyBQYXJ0
-aWFsIEluZGV4wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgQkFTRUxJTkUgUkVTVUxUIElOREVY
-ClNoZWxsIFNjcmlwdHMgKDEgY29uY3VycmVudCnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIDQyLjQgODA3NjUuNSAxOTA0OC41Cj09PT09PT09ClN5c3RlbSBCZW5jaG1h
-cmtzIEluZGV4IFNjb3JlIChQYXJ0aWFsIE9ubHkpwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoCAxOTA0OC41Cgp3ClNoZWxsIFNjcmlwdHMgKDEgY29uY3VycmVu
-dCnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDc2MzMzLjYgbHBtwqDCoCAoNjAu
-MCBzLCAxIApzYW1wbGVzKQpTeXN0ZW0gQmVuY2htYXJrcyBQYXJ0aWFsIEluZGV4wqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqAgQkFTRUxJTkUgUkVTVUxUIElOREVYClNoZWxsIFNjcmlwdHMgKDEg
-Y29uY3VycmVudCnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDQyLjQg
-NzYzMzMuNiAxODAwMy4yCj09PT09PT09ClN5c3RlbSBCZW5jaG1hcmtzIEluZGV4IFNjb3JlIChQ
-YXJ0aWFsIE9ubHkpwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCAxODAwMy4yCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIAoKCkFmdGVy
-IGRpc2N1c3Mgd2l0aCB5b3UsIGFuZCBkbyBzb21lIGNoYW5nZXMgaW4gdGhlIHBhdGNoLgoKbmRl
-eCBhNTIzODFhNjgwZGIuLjFlY2JhODFmMTI3NyAxMDA2NDQKLS0tIGEvbW0vcm1hcC5jCisrKyBi
-L21tL3JtYXAuYwpAQCAtNzI3LDcgKzcyNywxMSBAQCB2b2lkIGZsdXNoX3RsYl9iYXRjaGVkX3Bl
-bmRpbmcoc3RydWN0IG1tX3N0cnVjdCAqbW0pCiAgICAgICAgIGludCBmbHVzaGVkID0gYmF0Y2gg
-Pj4gVExCX0ZMVVNIX0JBVENIX0ZMVVNIRURfU0hJRlQ7CgogICAgICAgICBpZiAocGVuZGluZyAh
-PSBmbHVzaGVkKSB7CisjaWZkZWYgQ09ORklHX0FSQ0hfSEFTX01NX0NQVU1BU0sKICAgICAgICAg
-ICAgICAgICBmbHVzaF90bGJfbW0obW0pOworI2Vsc2UKKyAgICAgICAgICAgICAgIGRzYihpc2gp
-OworI2VuZGlmCiAgICAgICAgICAgICAgICAgLyoKICAgICAgICAgICAgICAgICAgKiBJZiB0aGUg
-bmV3IFRMQiBmbHVzaGluZyBpcyBwZW5kaW5nIGR1cmluZyBmbHVzaGluZywgbGVhdmUKICAgICAg
-ICAgICAgICAgICAgKiBtbS0+dGxiX2ZsdXNoX2JhdGNoZWQgYXMgaXMsIHRvIGF2b2lkIGxvc2lu
-ZyBmbHVzaGluZy4KCnRoZXJlIGhhdmUgYSBwZXJmb3JtYW5jZSBpbXByb3ZlbWVudCB3aXRoIHdo
-b2xlIGNvcmVzLCBhYm92ZSArMzAlCgouL1J1biAtYyA5NiAtaSAxIHNoZWxsMQo5NiBDUFVzIGlu
-IHN5c3RlbTsgcnVubmluZyA5NiBwYXJhbGxlbCBjb3BpZXMgb2YgdGVzdHMKClNoZWxsIFNjcmlw
-dHMgKDEgY29uY3VycmVudCnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAxMDkyMjku
-MCBscG3CoMKgICg2MC4wIHMsIDEgc2FtcGxlcykKU3lzdGVtIEJlbmNobWFya3MgUGFydGlhbCBJ
-bmRleMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIEJBU0VMSU5FwqDCoMKgwqDCoMKgIFJFU1VM
-VMKgwqDCoCBJTkRFWApTaGVsbCBTY3JpcHRzICgxIGNvbmN1cnJlbnQpwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA0Mi40wqDCoMKgwqAgMTA5MjI5LjDCoCAyNTc2MS42
-CiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgPT09PT09PT0KU3lzdGVtIEJlbmNobWFya3MgSW5kZXggU2Nv
-cmUgKFBhcnRpYWwgT25seSnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgIDI1NzYxLjYKCgpUZXN0ZWQtYnk6IFhpbiBIYW88eGhhb0BsaW51eC5hbGliYWJhLmNv
-bT4KCkxvb2tpbmcgZm9yd2FyZCB0byB5b3VyIG5leHQgdmVyc2lvbiBwYXRjaC4KCk9uIDcvMTEv
-MjIgMTE6NDYgQU0sIEJhcnJ5IFNvbmcgd3JvdGU6Cj4gVGhvdWdoIEFSTTY0IGhhcyB0aGUgaGFy
-ZHdhcmUgdG8gZG8gdGxiIHNob290ZG93biwgdGhlIGhhcmR3YXJlCj4gYnJvYWRjYXN0aW5nIGlz
-IG5vdCBmcmVlLgo+IEEgc2ltcGxlc3QgbWljcm8gYmVuY2htYXJrIHNob3dzIGV2ZW4gb24gc25h
-cGRyYWdvbiA4ODggd2l0aCBvbmx5Cj4gOCBjb3JlcywgdGhlIG92ZXJoZWFkIGZvciBwdGVwX2Ns
-ZWFyX2ZsdXNoIGlzIGh1Z2UgZXZlbiBmb3IgcGFnaW5nCj4gb3V0IG9uZSBwYWdlIG1hcHBlZCBi
-eSBvbmx5IG9uZSBwcm9jZXNzOgo+IDUuMzYlICBhLm91dCAgICBba2VybmVsLmthbGxzeW1zXSAg
-W2tdIHB0ZXBfY2xlYXJfZmx1c2gKPgo+IFdoaWxlIHBhZ2VzIGFyZSBtYXBwZWQgYnkgbXVsdGlw
-bGUgcHJvY2Vzc2VzIG9yIEhXIGhhcyBtb3JlIENQVXMsCj4gdGhlIGNvc3Qgc2hvdWxkIGJlY29t
-ZSBldmVuIGhpZ2hlciBkdWUgdG8gdGhlIGJhZCBzY2FsYWJpbGl0eSBvZgo+IHRsYiBzaG9vdGRv
-d24uCj4KPiBUaGUgc2FtZSBiZW5jaG1hcmsgY2FuIHJlc3VsdCBpbiAxNi45OSUgQ1BVIGNvbnN1
-bXB0aW9uIG9uIEFSTTY0Cj4gc2VydmVyIHdpdGggYXJvdW5kIDEwMCBjb3JlcyBhY2NvcmRpbmcg
-dG8gWWljb25nJ3MgdGVzdCBvbiBwYXRjaAo+IDQvNC4KPgo+IFRoaXMgcGF0Y2hzZXQgbGV2ZXJh
-Z2VzIHRoZSBleGlzdGluZyBCQVRDSEVEX1VOTUFQX1RMQl9GTFVTSCBieQo+IDEuIG9ubHkgc2Vu
-ZCB0bGJpIGluc3RydWN0aW9ucyBpbiB0aGUgZmlyc3Qgc3RhZ2UgLQo+IAlhcmNoX3RsYmJhdGNo
-X2FkZF9tbSgpCj4gMi4gd2FpdCBmb3IgdGhlIGNvbXBsZXRpb24gb2YgdGxiaSBieSBkc2Igd2hp
-bGUgZG9pbmcgdGxiYmF0Y2gKPiAJc3luYyBpbiBhcmNoX3RsYmJhdGNoX2ZsdXNoKCkKPiBNeSB0
-ZXN0aW5nIG9uIHNuYXBkcmFnb24gc2hvd3MgdGhlIG92ZXJoZWFkIG9mIHB0ZXBfY2xlYXJfZmx1
-c2gKPiBpcyByZW1vdmVkIGJ5IHRoZSBwYXRjaHNldC4gVGhlIG1pY3JvIGJlbmNobWFyayBiZWNv
-bWVzIDUlIGZhc3Rlcgo+IGV2ZW4gZm9yIG9uZSBwYWdlIG1hcHBlZCBieSBzaW5nbGUgcHJvY2Vz
-cyBvbiBzbmFwZHJhZ29uIDg4OC4KPgo+Cj4gLXYyOgo+IDEuIENvbGxlY3RlZCBZaWNvbmcncyB0
-ZXN0IHJlc3VsdCBvbiBrdW5wZW5nOTIwIEFSTTY0IHNlcnZlcjsKPiAyLiBSZW1vdmVkIHRoZSBy
-ZWR1bmRhbnQgdm1hIHBhcmFtZXRlciBpbiBhcmNoX3RsYmJhdGNoX2FkZF9tbSgpCj4gICAgIGFj
-Y29yZGluZyB0byB0aGUgY29tbWVudHMgb2YgUGV0ZXIgWmlqbHN0cmEgYW5kIERhdmUgSGFuc2Vu
-Cj4gMy4gQWRkZWQgQVJDSF9IQVNfTU1fQ1BVTUFTSyByYXRoZXIgdGhhbiBjaGVja2luZyBpZiBt
-bV9jcHVtYXNrCj4gICAgIGlzIGVtcHR5IGFjY29yZGluZyB0byB0aGUgY29tbWVudHMgb2YgTmFk
-YXYgQW1pdAo+Cj4gVGhhbmtzLCBZaWNvbmcsIFBldGVyLCBEYXZlIGFuZCBOYWRhdiBmb3IgeW91
-ciB0ZXN0aW5nIG9yIHJldmlld2luZwo+ICwgYW5kIGNvbW1lbnRzLgo+Cj4gLXYxOgo+IGh0dHBz
-Oi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAyMjA3MDcxMjUyNDIuNDI1MjQyLTEtMjFjbmJhb0Bn
-bWFpbC5jb20vCj4KPiBCYXJyeSBTb25nICg0KToKPiAgICBSZXZlcnQgIkRvY3VtZW50YXRpb24v
-ZmVhdHVyZXM6IG1hcmsgQkFUQ0hFRF9VTk1BUF9UTEJfRkxVU0ggZG9lc24ndAo+ICAgICAgYXBw
-bHkgdG8gQVJNNjQiCj4gICAgbW06IHJtYXA6IEFsbG93IHBsYXRmb3JtcyB3aXRob3V0IG1tX2Nw
-dW1hc2sgdG8gZGVmZXIgVExCIGZsdXNoCj4gICAgbW06IHJtYXA6IEV4dGVuZCB0bGJiYXRjaCBB
-UElzIHRvIGZpdCBuZXcgcGxhdGZvcm1zCj4gICAgYXJtNjQ6IHN1cHBvcnQgYmF0Y2hlZC9kZWZl
-cnJlZCB0bGIgc2hvb3Rkb3duIGR1cmluZyBwYWdlIHJlY2xhbWF0aW9uCj4KPiAgIERvY3VtZW50
-YXRpb24vZmVhdHVyZXMvYXJjaC1zdXBwb3J0LnR4dCAgICAgICB8ICAxIC0KPiAgIC4uLi9mZWF0
-dXJlcy92bS9UTEIvYXJjaC1zdXBwb3J0LnR4dCAgICAgICAgICB8ICAyICstCj4gICBhcmNoL2Fy
-bS9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMSArCj4gICBhcmNoL2Fy
-bTY0L0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgMSArCj4gICBhcmNoL2Fy
-bTY0L2luY2x1ZGUvYXNtL3RsYmJhdGNoLmggICAgICAgICAgICAgfCAxMiArKysrKysrKysrCj4g
-ICBhcmNoL2FybTY0L2luY2x1ZGUvYXNtL3RsYmZsdXNoLmggICAgICAgICAgICAgfCAyMyArKysr
-KysrKysrKysrKysrKy0tCj4gICBhcmNoL2xvb25nYXJjaC9LY29uZmlnICAgICAgICAgICAgICAg
-ICAgICAgICAgfCAgMSArCj4gICBhcmNoL21pcHMvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgfCAgMSArCj4gICBhcmNoL29wZW5yaXNjL0tjb25maWcgICAgICAgICAgICAgICAg
-ICAgICAgICAgfCAgMSArCj4gICBhcmNoL3Bvd2VycGMvS2NvbmZpZyAgICAgICAgICAgICAgICAg
-ICAgICAgICAgfCAgMSArCj4gICBhcmNoL3Jpc2N2L0tjb25maWcgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgfCAgMSArCj4gICBhcmNoL3MzOTAvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgfCAgMSArCj4gICBhcmNoL3VtL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgfCAgMSArCj4gICBhcmNoL3g4Ni9LY29uZmlnICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgfCAgMSArCj4gICBhcmNoL3g4Ni9pbmNsdWRlL2FzbS90bGJmbHVzaC5oICAgICAg
-ICAgICAgICAgfCAgMyArKy0KPiAgIG1tL0tjb25maWcgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICB8ICAzICsrKwo+ICAgbW0vcm1hcC5jICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIHwgMTQgKysrKysrKy0tLS0KPiAgIDE3IGZpbGVzIGNoYW5nZWQsIDU5IGlu
-c2VydGlvbnMoKyksIDkgZGVsZXRpb25zKC0pCj4gICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9h
-cm02NC9pbmNsdWRlL2FzbS90bGJiYXRjaC5oCj4KLS0gCkJlc3QgUmVnYXJkcyEKWGluIEhhbwoK
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJp
-c2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9s
-aXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Thu, Jul 14, 2022 at 3:29 PM Xin Hao <xhao@linux.alibaba.com> wrote:
+>
+> Hi barry.
+>
+> I do some test on Kunpeng arm64 machine use Unixbench.
+>
+> The test  result as below.
+>
+> One core, we can see the performance improvement above +30%.
+
+I am really pleased to see the 30%+ improvement on unixbench on single core.
+
+> ./Run -c 1 -i 1 shell1
+> w/o
+> System Benchmarks Partial Index              BASELINE RESULT INDEX
+> Shell Scripts (1 concurrent)                     42.4 5481.0 1292.7
+> ========
+> System Benchmarks Index Score (Partial Only)                         1292.7
+>
+> w/
+> System Benchmarks Partial Index              BASELINE RESULT INDEX
+> Shell Scripts (1 concurrent)                     42.4 6974.6 1645.0
+> ========
+> System Benchmarks Index Score (Partial Only)                         1645.0
+>
+>
+> But with whole cores, there have little performance degradation above -5%
+
+That is sad as we might get more concurrency between mprotect(), madvise(),
+mremap(), zap_pte_range() and the deferred tlbi.
+
+>
+> ./Run -c 96 -i 1 shell1
+> w/o
+> Shell Scripts (1 concurrent)                  80765.5 lpm   (60.0 s, 1
+> samples)
+> System Benchmarks Partial Index              BASELINE RESULT INDEX
+> Shell Scripts (1 concurrent)                     42.4 80765.5 19048.5
+> ========
+> System Benchmarks Index Score (Partial Only)                        19048.5
+>
+> w
+> Shell Scripts (1 concurrent)                  76333.6 lpm   (60.0 s, 1
+> samples)
+> System Benchmarks Partial Index              BASELINE RESULT INDEX
+> Shell Scripts (1 concurrent)                     42.4 76333.6 18003.2
+> ========
+> System Benchmarks Index Score (Partial Only)                        18003.2
+>
+> ----------------------------------------------------------------------------------------------
+>
+>
+> After discuss with you, and do some changes in the patch.
+>
+> ndex a52381a680db..1ecba81f1277 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -727,7 +727,11 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
+>          int flushed = batch >> TLB_FLUSH_BATCH_FLUSHED_SHIFT;
+>
+>          if (pending != flushed) {
+> +#ifdef CONFIG_ARCH_HAS_MM_CPUMASK
+>                  flush_tlb_mm(mm);
+> +#else
+> +               dsb(ish);
+> +#endif
+>
+
+i was guessing the problem might be flush_tlb_batched_pending()
+so i asked you to change this to verify my guess.
+
+     /*
+>                   * If the new TLB flushing is pending during flushing, leave
+>                   * mm->tlb_flush_batched as is, to avoid losing flushing.
+>
+> there have a performance improvement with whole cores, above +30%
+
+But I don't think it is a proper patch. There is no guarantee the cpu calling
+flush_tlb_batched_pending is exactly the cpu sending the deferred
+tlbi. so the solution is unsafe. But since this temporary code can bring the
+30%+ performance improvement back for high concurrency, we have huge
+potential to finally make it.
+
+Unfortunately I don't have an arm64 server to debug on this. I only have
+8 cores which are unlikely to reproduce regression which happens in
+high concurrency with 96 parallel tasks.
+
+So I'd ask if @yicong or someone else working on kunpeng or other
+arm64 servers  is able to actually debug and figure out a proper
+patch for this, then add the patch as 5/5 into this series?
+
+>
+> ./Run -c 96 -i 1 shell1
+> 96 CPUs in system; running 96 parallel copies of tests
+>
+> Shell Scripts (1 concurrent)                 109229.0 lpm   (60.0 s, 1 samples)
+> System Benchmarks Partial Index              BASELINE       RESULT    INDEX
+> Shell Scripts (1 concurrent)                     42.4     109229.0  25761.6
+>                                                                     ========
+> System Benchmarks Index Score (Partial Only)                        25761.6
+>
+>
+> Tested-by: Xin Hao<xhao@linux.alibaba.com>
+
+Thanks for your testing!
+
+>
+> Looking forward to your next version patch.
+>
+> On 7/11/22 11:46 AM, Barry Song wrote:
+> > Though ARM64 has the hardware to do tlb shootdown, the hardware
+> > broadcasting is not free.
+> > A simplest micro benchmark shows even on snapdragon 888 with only
+> > 8 cores, the overhead for ptep_clear_flush is huge even for paging
+> > out one page mapped by only one process:
+> > 5.36%  a.out    [kernel.kallsyms]  [k] ptep_clear_flush
+> >
+> > While pages are mapped by multiple processes or HW has more CPUs,
+> > the cost should become even higher due to the bad scalability of
+> > tlb shootdown.
+> >
+> > The same benchmark can result in 16.99% CPU consumption on ARM64
+> > server with around 100 cores according to Yicong's test on patch
+> > 4/4.
+> >
+> > This patchset leverages the existing BATCHED_UNMAP_TLB_FLUSH by
+> > 1. only send tlbi instructions in the first stage -
+> >       arch_tlbbatch_add_mm()
+> > 2. wait for the completion of tlbi by dsb while doing tlbbatch
+> >       sync in arch_tlbbatch_flush()
+> > My testing on snapdragon shows the overhead of ptep_clear_flush
+> > is removed by the patchset. The micro benchmark becomes 5% faster
+> > even for one page mapped by single process on snapdragon 888.
+> >
+> >
+> > -v2:
+> > 1. Collected Yicong's test result on kunpeng920 ARM64 server;
+> > 2. Removed the redundant vma parameter in arch_tlbbatch_add_mm()
+> >     according to the comments of Peter Zijlstra and Dave Hansen
+> > 3. Added ARCH_HAS_MM_CPUMASK rather than checking if mm_cpumask
+> >     is empty according to the comments of Nadav Amit
+> >
+> > Thanks, Yicong, Peter, Dave and Nadav for your testing or reviewing
+> > , and comments.
+> >
+> > -v1:
+> > https://lore.kernel.org/lkml/20220707125242.425242-1-21cnbao@gmail.com/
+> >
+> > Barry Song (4):
+> >    Revert "Documentation/features: mark BATCHED_UNMAP_TLB_FLUSH doesn't
+> >      apply to ARM64"
+> >    mm: rmap: Allow platforms without mm_cpumask to defer TLB flush
+> >    mm: rmap: Extend tlbbatch APIs to fit new platforms
+> >    arm64: support batched/deferred tlb shootdown during page reclamation
+> >
+> >   Documentation/features/arch-support.txt       |  1 -
+> >   .../features/vm/TLB/arch-support.txt          |  2 +-
+> >   arch/arm/Kconfig                              |  1 +
+> >   arch/arm64/Kconfig                            |  1 +
+> >   arch/arm64/include/asm/tlbbatch.h             | 12 ++++++++++
+> >   arch/arm64/include/asm/tlbflush.h             | 23 +++++++++++++++++--
+> >   arch/loongarch/Kconfig                        |  1 +
+> >   arch/mips/Kconfig                             |  1 +
+> >   arch/openrisc/Kconfig                         |  1 +
+> >   arch/powerpc/Kconfig                          |  1 +
+> >   arch/riscv/Kconfig                            |  1 +
+> >   arch/s390/Kconfig                             |  1 +
+> >   arch/um/Kconfig                               |  1 +
+> >   arch/x86/Kconfig                              |  1 +
+> >   arch/x86/include/asm/tlbflush.h               |  3 ++-
+> >   mm/Kconfig                                    |  3 +++
+> >   mm/rmap.c                                     | 14 +++++++----
+> >   17 files changed, 59 insertions(+), 9 deletions(-)
+> >   create mode 100644 arch/arm64/include/asm/tlbbatch.h
+> >
+> --
+> Best Regards!
+> Xin Hao
+>
+
+Thanks
+Barry
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
