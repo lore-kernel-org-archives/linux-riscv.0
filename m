@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D2D8C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 07:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12D87CCA47B
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 07:29:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CC++M2u7uMAJrRJMOnYxqczFQ6u7EMISNqhV+y6JoO8=; b=aZ9kjcvQ0pR+GJ
-	KxCqssD0NzkuV/wnAz0LrZ423uP4zL67Y2lyzZRzDZtJx14OlorGD9WxFwu3469tpfXHna/qI8136
-	dp17eBEfcbOAMFQr7TQpcQDILbclhVWm4E8Xv3DzKPLPMaNk/7CtmD0PS8rJc/WI2eLl/384KxC3O
-	sRpaPK47TjDl4UQpcjSg7U7fx2zB5LNhIgjGwkV53QxIMrIQ9cJcz0fuXPnloPs+dT9thHl960okv
-	9K8JHiLe4yK8zz/n9ioDMklytKwjhVwE1cxxHPQLFH1bPN8Th48SON7V3DJOuaoXGFtCtcI2OEu70
-	ODDyYbNOpA65XFTEE91g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7EMgV4KipsREHexlsLzbmALV3QErWrbRu4fJ4cy050M=; b=iw3yrZWIl0CXZP
+	s9cZ4jbEsK8MSwyJwbRMnRyPon9M9rhGRt1RKMV62NM9CT74Z6TPqsFU2OgLOFjfnHikfR2t26u2M
+	DMuAWGBU+AXow1hfOCocwTaeC85IK1IFc+jLbQayCHRvbpXPofIG6NkgWn4ewfbJyKxK/9Qekn9Qj
+	iDqsCIyfiStCAsNIPxSTUz7N7esNgUOMYxsunonVDuERe6Vc49a552t+iuJTr0mo5Gu/f/SqsJwO3
+	Howx8qopiPN18Cuhz2Ua9CW36hihKpVSQigVDT2xYirfr8IWcfucfylirV7+PZ0PIqFnRiNpLfwvz
+	LG2zNjkv97eZb7Ns/z4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBt75-00BlF4-9o; Thu, 14 Jul 2022 07:18:19 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1oBtI6-00BqJ8-DO; Thu, 14 Jul 2022 07:29:42 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oBt73-00BlDP-97
-	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 07:18:18 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id v16so1287621wrd.13
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 00:18:16 -0700 (PDT)
+	id 1oBtI0-00BqCI-OJ
+	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 07:29:38 +0000
+Received: by mail-wr1-x431.google.com with SMTP id r2so329310wrs.3
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 00:29:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=sifive.com; s=google;
-        h=from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=hyZ5uWf+d5ConK8+B4WUpL957Rqjwx0DMI5X0G9r1AU=;
-        b=jtk1sZiVtXFJiZt0MmoPibI+vfGFDRC5SMSG2sVAkNWrvL8VcVOsCPUIMOR8sATBBe
-         iHXkIPV2lfkiuSt0yGViUR+ALf0FKI2K2X/cbs2pC/C39WA1EM/SW8fKYfEqACROHrTv
-         3KQ96FhoRPiaHf5RPkv+qzTg7VwHnfnf0EUdzaS4/yD4l4s1vgjkZEXibIie1rfKUyQD
-         AvNqTDUAHW97ZOVUrhJMAcvmuNQxooUOu3hduSQBBmFYjnUq//uFMmgT6e75NuagGdI+
-         6J7QcVmoq/wdouaNt/vxZDJC0/nTn3z3zdGZF7yQCsd31thWIF0Toa7N1t88fSWssbGx
-         KgXw==
+        h=message-id:date:mime-version:user-agent:subject:content-language:to
+         :cc:references:from:in-reply-to:content-transfer-encoding;
+        bh=LCn+jms5JkY0G8CnCXAGF7BMpKxIl3NF3yeP0gufuOs=;
+        b=Bxi8OJBllRQnNitC18OML2cjQoA55QsscoukDgYK2sDduwX2fLKUkGbGwe6vU3DHoI
+         NZTJ6/Fc+dIZgcWaaUtCFXfOF0sqALYrzlMpuLKIoxVarFATFoNdikUC4D8KMm9u9XAS
+         gBu0JIPPvfViytxTa1Yy7ydsuRUan94nfnLFnHiMV8vQLuixIrLwW+2zgAlDgDRCDMJQ
+         8VfZyaOVSstEbT0j9THl+HI3pEWdA3AV+XMo9P3Nde0byHsrqF4Feds2q+oPjcr5HRGx
+         5Gkoacj+94ozXkA/Sp/oBd6tYbgyvpg5pQ+m0Ofa7JxXVk+cS/7bGOs+WzadohHEFtkW
+         4Rgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+         :content-language:to:cc:references:from:in-reply-to
          :content-transfer-encoding;
-        bh=hyZ5uWf+d5ConK8+B4WUpL957Rqjwx0DMI5X0G9r1AU=;
-        b=P6z+ED16VuK0IeCVQeEtdkovKuELmrTfMdXBs1vApR49j33u6xE9zn+MyV3O2sJIcE
-         y7Xfs0+TL+J7QqhQImv2ZHo9cBxhlbXvwRQB9UFpLknv5LM//MJAJSsWGKO4CqycDJyz
-         GYc5PQ+WaL2rd2DAvcoQ4uQzMj4ET4DFQS3Esm76xEg/OCg8XtVdicYoYA4KExWu3z2V
-         y+rrpTx27h8GS0jMc/8Ux0x6UQXXTHjMBbFwxTf3ZQfCnmpT0Dwxs98SOvC0BGb5Oq/y
-         SETZsEdIqpPtbTtRZOwRENKvwF/q/dL8xjuDdrEyw4FuRlt3XVzOAnkjaDFVwXeEVuOm
-         cKSw==
-X-Gm-Message-State: AJIora+vjxKzTVbS1TCjCairONrqSLkWXY6fecI+q/5NU4T9fY+c7V3p
-	YpeowEdcaeU5BgVDkmYF1cel8uEVpJIpaFOp
-X-Google-Smtp-Source: AGRyM1vukzbS1Xxbl44PJGItJ4lb6GNHq1NxstesRKcCk4g27w/YvkWBBQ5nlTAhJQd9ZRh8cT0LnQ==
-X-Received: by 2002:a05:6000:1541:b0:21d:b298:96be with SMTP id 1-20020a056000154100b0021db29896bemr6876731wry.206.1657783093663;
-        Thu, 14 Jul 2022 00:18:13 -0700 (PDT)
-Received: from rainbowdash.office.codethink.co.uk ([167.98.27.226])
-        by smtp.gmail.com with ESMTPSA id o4-20020adfcf04000000b0021d7fa77710sm672028wrj.92.2022.07.14.00.18.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Jul 2022 00:18:13 -0700 (PDT)
-From: Ben Dooks <ben.dooks@sifive.com>
-To: linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Sudip Mukherjee <sudip.mukherjee@sifive.com>,
-	Jude Onyenegecha <jude.onyenegecha@sifive.com>,
-	Ben Dooks <ben.dooks@sifive.com>
-Subject: [PATCH] RISC-V: Declare cpu_ops_spinwait in <asm/cpu_ops.h>
-Date: Thu, 14 Jul 2022 08:18:11 +0100
-Message-Id: <20220714071811.187491-1-ben.dooks@sifive.com>
-X-Mailer: git-send-email 2.35.1
+        bh=LCn+jms5JkY0G8CnCXAGF7BMpKxIl3NF3yeP0gufuOs=;
+        b=1ekXuvRrFdJZcYNBo/rXMcyxQkwSEpu/r+kAUytBTl6xiOZvMy3uRApii/GLvizYG3
+         /6bidVRF6EeJ5DnYB16p6rF0hUC00jrRIUBT3tux/cjxkIGMNmebnW8hfZj0F4Ogui7m
+         Lydu0ZZgkQjkAQXQ7LAuhgM6Exe13ZeNFSQVjmdzR12hDn1llhx3ESrCODInIrNmaxIN
+         twvgZDEU5fqaNhJXX0g1mVzEk0W/yjf4Avtg3AZpvRvMH0FDDWO8mH5rffhEyIMhdDcm
+         2mTKphTHOBJgjTet4QoyA5uSKt2BZIEJmwz7t4+wOV6Ilwaku+ttCUADKB+UwQD9LACc
+         lT6w==
+X-Gm-Message-State: AJIora9+5agtyMx7s11A/EXL/uhqwdY255x867B6bqQW8WQdi0ZYh+cW
+	gClygLnKyRBRvxw1AOuwfILao3977IvrlThC
+X-Google-Smtp-Source: AGRyM1sqVWJWDxO8BKRI2e5MZHhBa0c2AFlvI2HUbQubBlb6D9uNjIaB7z4jFO5pAGZ/KGlXwKr1UA==
+X-Received: by 2002:adf:e30d:0:b0:21d:aee5:8ba3 with SMTP id b13-20020adfe30d000000b0021daee58ba3mr6831607wrj.541.1657783771615;
+        Thu, 14 Jul 2022 00:29:31 -0700 (PDT)
+Received: from [10.35.4.171] ([167.98.27.226])
+        by smtp.gmail.com with ESMTPSA id h14-20020a1ccc0e000000b003a2e7c13a3asm897964wmb.42.2022.07.14.00.29.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 14 Jul 2022 00:29:31 -0700 (PDT)
+Message-ID: <b97e3fd0-87dd-0ad1-2a4b-e1050c063e07@sifive.com>
+Date: Thu, 14 Jul 2022 08:29:30 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.10.0
+Subject: Re: [PATCH] RISC-V: cpu_ops_spinwait.c should include head.h
+Content-Language: en-GB
+To: Conor.Dooley@microchip.com, linux-riscv@lists.infradead.org
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ sudip.mukherjee@sifive.com, jude.onyenegecha@sifive.com
+References: <20220713215306.94675-1-ben.dooks@sifive.com>
+ <97c2c085-a869-74d1-4acb-ceb1cc3b09b4@microchip.com>
+From: Ben Dooks <ben.dooks@sifive.com>
+In-Reply-To: <97c2c085-a869-74d1-4acb-ceb1cc3b09b4@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220714_001817_394968_C9115A15 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220714_002936_849045_D7F5F135 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,37 +87,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The cpu_ops_spinwait is used in a couple of places in arch/riscv
-and is causing a sparse warning due to no declaration. Add this
-to <asm/cpu_ops.h> with the others to fix the following:
+On 14/07/2022 07:33, Conor.Dooley@microchip.com wrote:
+> On 13/07/2022 22:53, Ben Dooks wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>
+>> Running sparse shows cpu_ops_spinwait.c is missing two definitions
+>> found in head.h, so include it to stop the following warnings:
+>>
+>> arch/riscv/kernel/cpu_ops_spinwait.c:15:6: warning: symbol '__cpu_spinwait_stack_pointer' was not declared. Should it be static?
+>> arch/riscv/kernel/cpu_ops_spinwait.c:16:6: warning: symbol '__cpu_spinwait_task_pointer' was not declared. Should it be static?
+>>
+>> Signed-off-by: Ben Dooks <ben.dooks@sifive.com>
+> 
+> Hey Ben,
+> With this applied I still see a:
+> arch/riscv/kernel/cpu_ops.c:21:29: warning: symbol 'cpu_ops_spinwait' was not declared. Should it be static?
+> 
+> Seems to be in the same ballpack, so maybe you could fix that one too?
 
-arch/riscv/kernel/cpu_ops_spinwait.c:16:29: warning: symbol 'cpu_ops_spinwait' was not declared. Should it be static?
+I've done that as a new patch in case it needs to be moved.
+Not sure head.h was the right place nor where it ended up.
 
-Signed-off-by: Ben Dooks <ben.dooks@sifive.com>
----
- arch/riscv/include/asm/cpu_ops.h | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/riscv/include/asm/cpu_ops.h b/arch/riscv/include/asm/cpu_ops.h
-index 134590f1b843..aa128466c4d4 100644
---- a/arch/riscv/include/asm/cpu_ops.h
-+++ b/arch/riscv/include/asm/cpu_ops.h
-@@ -38,6 +38,7 @@ struct cpu_operations {
- #endif
- };
- 
-+extern const struct cpu_operations cpu_ops_spinwait;
- extern const struct cpu_operations *cpu_ops[NR_CPUS];
- void __init cpu_set_ops(int cpu);
- 
 -- 
-2.35.1
-
+Ben
 
 _______________________________________________
 linux-riscv mailing list
