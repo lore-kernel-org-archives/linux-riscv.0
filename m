@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2669CCA47C
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 22:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1034CCA47B
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 22:04:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=FhNNCB8PVcG+tuNB+MRgj8uXsHLwNYQSFh643v64hsc=; b=J69JuXotuz1QmmTw8n9LflJfUZ
-	hEQZaFzIOkrTvxdp4+YwxyIeT7mC6DurpFLE3KCPs1tf8GKGeCB2E8LTIyVq9Hyzxtzuju3UAok4P
-	qEEL0fHrOwPWrVZVulcPy0WTAocedl7KEGlovYFQciEsS8E4KpIu7cSPP//6k38hQiiEWDVKN6c12
-	1WBr3hq6oqmhcg2+NGhEuUf9UIAYmekvHyZsRUZUK/6l+Mbwk9hLauy+4prz9KMiP4MQVFReHxDjO
-	1PhELvNxd41tNkB7Ox6om/pSwuQ7nHbj2atKyyA/BGqcw/6kl9fNp4z9qaYWu40aHo/EQm23VZdiP
-	MnxZxR9Q==;
+	bh=K/kWHx3kT5BugQAV9Yp9gOwaTpO7RqC+iCGZFpwy6pI=; b=lxVGlYIhz7NPWRBB4zwHXcyyRd
+	9D9b+6NcO2pvXz8OT1EPRAcLLecHfu/zEhvZYxZPc+Tq7gpthp+HAVlphxGIpzugFpMUklf4I9ANB
+	Fl/exY7iebT7Gh05ywDreGJsUPel+NHELdY/FKmSUslVoQ65ERhWf81RoOY94b/VnPW1qMAB22dfv
+	D4UhuC8IsrnY4bxJP4KgU1OtGJG1zn+JIFrP3K1VkxpizcO3/9sUpF+OcAsbUSzw2Xf9/4hGV0pN+
+	jayUGDdVSbIOUPXAflNrYPpwJ+G/GysCku6eeN2G0XBsKKupfBO72hrq8gG4fLr06NYW8OGR4zd8u
+	hS2Ky6+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oC6wJ-001s3X-Nj; Thu, 14 Jul 2022 22:04:07 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1oC6wO-001s5h-H4; Thu, 14 Jul 2022 22:04:12 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oC6wG-001s1z-8x
-	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 22:04:06 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id i8-20020a17090a4b8800b001ef8a65bfbdso4373665pjh.1
-        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 15:04:03 -0700 (PDT)
+	id 1oC6wJ-001s3R-RK
+	for linux-riscv@lists.infradead.org; Thu, 14 Jul 2022 22:04:09 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id o3-20020a17090a744300b001ef8f7f3dddso4353998pjk.3
+        for <linux-riscv@lists.infradead.org>; Thu, 14 Jul 2022 15:04:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
          :content-transfer-encoding;
-        bh=KDtjlRiNkbkwbyu0K1cWU8KeaAVIJpnnNwqLxbVq1SM=;
-        b=ZVwA55GEKeisOGGK59fMpJ4hYruRMbnUWD907flsikQqWcIGC9s4PaNtfzDSK9+AiM
-         R4ob13YAe7zJrPTRE64X4XlhssTohU0uoCxt5DFrJLdflknyfdLqBs+jiFWw2peGBhSX
-         gRk83oWFWZZbAAFqoxTR9K+Y50UdHYCSaQcyDX/ogDknUaWlFVIvvnlVMojoDkLGqaqj
-         CDORZNdUuRSS6rgHiZi41QwjEjyUYScQjFC6VT+cr4XeR3f7lKEkeOywc4PmGM0Xyk0Z
-         4yturnY2DIJMEnbPtDaYpgEqlBWspLGoVP2j/lbjtrv83Nm8/v4+iqJNQcYqm0E3Iaga
-         TIag==
+        bh=ywlJHcH7eypqCmP7zkmcLFhr+R1MKhJyHDg1SQdZ4+o=;
+        b=XvB9r9RXYlimHyg2tVGdZjZabKYGLze7MOQPJOwXRsyTNAMc+T8JkFwn9DHK0rw+FN
+         HBskxc3t+diLtZDeNPgT+DZIGRaT1TSLFqyOwNkawLVwR3fLGPO+1Att1oH2ea16v0VM
+         xCucMDs0YeZdbPd3NzMPMWCqZx+U06K3UzY0UKpjpErOo2MsAvIDIe+JvY+dA3CoQTaO
+         8RZAwgJDlw8wDWcr26G6exu7MCkxZ+2O+9ZEpxeKC+5OgZgwv/di6+1KZ/I7BTfpzUkR
+         6keniU94SgAhkc4npYoyHxM985UTjTFhpiqnl1ekmrGy4LPfqeNFS7qEJS25AFm2VnhA
+         H29Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
          :mime-version:content-transfer-encoding;
-        bh=KDtjlRiNkbkwbyu0K1cWU8KeaAVIJpnnNwqLxbVq1SM=;
-        b=6cO0zHSPitimCPC0Nti/xRD3A7TM5KUb6mimZJ0VpOX7wzGL9AbfH455tKy3Yi6kMa
-         p3F+FM2NcGxEImSSP8mEdHacjH8DsXPlJx4moHN6BN42hYZRflbu0pzXXiLOZFg0lnU9
-         YCIYLabbResrr7sWZ9gsI2WTHaauaEX1ShLLKMdNOt9zWDrp0FFB2OzUW+Us1Sq00ddi
-         VGuKK8hl8Nv6+V/ydLtN9HJ89+peaA+cMHTzxSduH03JrkK1ZeBst+EavQeFgafS77oQ
-         uXt2ZtUCxHcr1eFCilxq34gjDt5LHdp2KVbzmDjJB+06XbqVOgUn+81R5oLT2bCbxS5D
-         fH2w==
-X-Gm-Message-State: AJIora/ecdmdAEZZZ3VG8UddYyqw9trDxSqQEWbndJ/AdpN7s3/v4NuX
-	ofMWZJZ5YAepHh9pQmpqfTKcWg==
-X-Google-Smtp-Source: AGRyM1uqiwhNrcoDyi7BO/M6oUSKAHXy3k3IByQCDQyMTQXgqTtuGVQdh9q861VVmOOyihKz1THYlA==
-X-Received: by 2002:a17:902:cad1:b0:16c:9816:648a with SMTP id y17-20020a170902cad100b0016c9816648amr7997084pld.166.1657836242750;
-        Thu, 14 Jul 2022 15:04:02 -0700 (PDT)
+        bh=ywlJHcH7eypqCmP7zkmcLFhr+R1MKhJyHDg1SQdZ4+o=;
+        b=Mo5MdI0yTLFK6DZGb1mrDy9QzW8f518nJuzDqVXjKVAL26zbOgKK28jAK/ns1xsTGP
+         CMNy9TnClZjVzszHz+qK6e9wz1gTeim94T0V4XBXvMVcSNILcn0ceItFhJxTKgg7+iTG
+         PB4VFc/N9pN3jtL4+dQN9EFIDkjGCnwRHFvXia5MjS9H0LwEp0RWJ3rX2P4/j9SfmrwA
+         J5PthxSuzke6ZhSQwWqR0X0rfaqvlr6ZzYrB2Ps5V1kMtTsmWJZiKciZ3TFV/y7F7Ori
+         Y/siiR32ez+YOIhMG7STiDpQKQGgtxV98aZjN4XRWrYckdUrvtliAMQivHGh+1Ycr/1H
+         GpQw==
+X-Gm-Message-State: AJIora9ReswoT0rFAfMaK4TMfX+D4EdjEBlI87gdiGYy6JqfnUhoJ5fp
+	4cHv/dl4sNl+S3jUgYYj20Q6Xg==
+X-Google-Smtp-Source: AGRyM1thP0N/IY4OLhYu9r6MjJ1HW8omCP9Uxv0y7tA8fStUOLH0EhhBVNxOBpyHqtol460Zk/Y6bA==
+X-Received: by 2002:a17:902:f68c:b0:16c:4eb6:913c with SMTP id l12-20020a170902f68c00b0016c4eb6913cmr10065283plg.2.1657836246537;
+        Thu, 14 Jul 2022 15:04:06 -0700 (PDT)
 Received: from localhost ([50.221.140.186])
-        by smtp.gmail.com with ESMTPSA id y3-20020a17090a134300b001ef82d23125sm4129123pjf.25.2022.07.14.15.03.59
+        by smtp.gmail.com with ESMTPSA id r11-20020a170903410b00b0016c5306917fsm1927472pld.53.2022.07.14.15.04.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 14 Jul 2022 15:03:59 -0700 (PDT)
-Date: Thu, 14 Jul 2022 15:03:59 -0700 (PDT)
-X-Google-Original-Date: Thu, 14 Jul 2022 14:33:22 PDT (-0700)
-Subject: Re: [PATCH] riscv: dts: align gpio-key node names with dtschema
-In-Reply-To: <20220624170811.66395-1-krzysztof.kozlowski@linaro.org>
-CC: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, devicetree@vger.kernel.org,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, krzysztof.kozlowski@linaro.org
+        Thu, 14 Jul 2022 15:04:05 -0700 (PDT)
+Date: Thu, 14 Jul 2022 15:04:05 -0700 (PDT)
+X-Google-Original-Date: Thu, 14 Jul 2022 14:46:55 PDT (-0700)
+Subject: Re: [PATCH v3 4/4] riscv: dts: sifive: "fix" pmic watchdog node name
+In-Reply-To: <20220606201343.514391-5-mail@conchuod.ie>
+CC: robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, andrew@lunn.ch,
+  support.opensource@diasemi.com, lee.jones@linaro.org, ulf.hansson@linaro.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, stwiss.opensource@diasemi.com,
+  conor.dooley@microchip.com, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+  linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, linux-riscv@lists.infradead.org,
+  atulkhare@rivosinc.com, krzysztof.kozlowski@linaro.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: krzysztof.kozlowski@linaro.org
-Message-ID: <mhng-26d4c307-b754-4c87-8858-789dca71c0ae@palmer-ri-x1c9>
+To: mail@conchuod.ie
+Message-ID: <mhng-91bfbf9d-d8cc-4642-9688-20ef7ab21512@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220714_150404_338240_3FA1107D 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20220714_150407_903659_4B0AB412 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,104 +91,32 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 24 Jun 2022 10:08:11 PDT (-0700), krzysztof.kozlowski@linaro.org wrote:
-> The node names should be generic and DT schema expects certain pattern
-> (e.g. with key/button/switch).
+On Mon, 06 Jun 2022 13:13:44 PDT (-0700), mail@conchuod.ie wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 >
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> After converting the pmic watchdog binding to yaml, dtbs_check complains
+> that the node name doesn't match the binding. "Fix" it.
 >
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
+>  arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> See: https://lore.kernel.org/all/20220616005224.18391-1-krzysztof.kozlowski@linaro.org/
-> ---
->  arch/riscv/boot/dts/canaan/canaan_kd233.dts     | 2 +-
->  arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts  | 2 +-
->  arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts | 2 +-
->  arch/riscv/boot/dts/canaan/sipeed_maix_go.dts   | 6 +++---
->  arch/riscv/boot/dts/canaan/sipeed_maixduino.dts | 2 +-
->  5 files changed, 7 insertions(+), 7 deletions(-)
->
-> diff --git a/arch/riscv/boot/dts/canaan/canaan_kd233.dts b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-> index 039b92abf046..f72540bd14a3 100644
-> --- a/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-> +++ b/arch/riscv/boot/dts/canaan/canaan_kd233.dts
-> @@ -35,7 +35,7 @@ led1 {
->  	gpio-keys {
->  		compatible = "gpio-keys";
->
-> -		key0 {
-> +		key {
->  			label = "KEY0";
->  			linux,code = <BTN_0>;
->  			gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
-> index b9e30df127fe..8abdbe26a1d0 100644
-> --- a/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
-> +++ b/arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts
-> @@ -47,7 +47,7 @@ led2 {
->  	gpio-keys {
->  		compatible = "gpio-keys";
->
-> -		boot {
-> +		key-boot {
->  			label = "BOOT";
->  			linux,code = <BTN_0>;
->  			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
-> index 8d23401b0bbb..3c6df1ecf76f 100644
-> --- a/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
-> +++ b/arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts
-> @@ -52,7 +52,7 @@ led2 {
->  	gpio-keys {
->  		compatible = "gpio-keys";
->
-> -		boot {
-> +		key-boot {
->  			label = "BOOT";
->  			linux,code = <BTN_0>;
->  			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
-> index 24fd83b43d9d..03c9843d503e 100644
-> --- a/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
-> +++ b/arch/riscv/boot/dts/canaan/sipeed_maix_go.dts
-> @@ -46,19 +46,19 @@ led2 {
->  	gpio-keys {
->  		compatible = "gpio-keys";
->
-> -		up {
-> +		key-up {
->  			label = "UP";
->  			linux,code = <BTN_1>;
->  			gpios = <&gpio1_0 7 GPIO_ACTIVE_LOW>;
+> diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> index c4ed9efdff03..1f386b07a832 100644
+> --- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> +++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+> @@ -90,7 +90,7 @@ rtc {
+>  			compatible = "dlg,da9063-rtc";
 >  		};
 >
-> -		press {
-> +		key-press {
->  			label = "PRESS";
->  			linux,code = <BTN_0>;
->  			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
+> -		wdt {
+> +		watchdog {
+>  			compatible = "dlg,da9063-watchdog";
 >  		};
->
-> -		down {
-> +		key-down {
->  			label = "DOWN";
->  			linux,code = <BTN_2>;
->  			gpios = <&gpio0 1 GPIO_ACTIVE_LOW>;
-> diff --git a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-> index 25341f38292a..7164ad063178 100644
-> --- a/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-> +++ b/arch/riscv/boot/dts/canaan/sipeed_maixduino.dts
-> @@ -23,7 +23,7 @@ chosen {
->  	gpio-keys {
->  		compatible = "gpio-keys";
->
-> -		boot {
-> +		key-boot {
->  			label = "BOOT";
->  			linux,code = <BTN_0>;
->  			gpios = <&gpio0 0 GPIO_ACTIVE_LOW>;
 
-Thanks, this is on fixes.
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
