@@ -4,165 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 847DDC43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 16:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E64B1C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 14 Jul 2022 17:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q+onBWt8vPOOYGuN2eQdyjnzAGmm3ElOUJZLpjqO2ck=; b=vlrCDlQzRpneTj
-	jafLuwGOuagIotg5aavaoLEvh0N5u5DPf5JAHZIg6EsjqZdruC58WoHqvI/hgUlvTVkr17sN7LYki
-	1pjNMHgzPXVfWpaz6P1YDvItBvaQsM63wc0uvC0MJJrThlhkV99PIenluIer9SMVDVdFcP2/bVPL4
-	EY0JNua0kMXX8AS78HaOYjurYRJdEUIJDmsMd5wmuLVd4oM40by2Kau74UXRcVGlgMM8qUYHIrPSr
-	XZv2M3b6+93sYSi0IRnHOKfF7KOXEeXV/zEalW3WTOX0X1036ssDyJII4rx73R+faf89mlTX22iMP
-	DDZTyere8QpUkaoyYOQw==;
+	List-Owner; bh=NtOXV/jvqd++TLDb8JFfEJHSKkLb7qKgSZbA1f8IR9o=; b=zQguLiR2IBsdwE
+	uRx81ebc3LNBS5m4/Bx8giLnS+8kC2kB12EHusRBilzjardIlbGaV/C+IqdqI8SBfan6leuSGoHUH
+	bi7siaEpDh2qIuk/XDZknI3nfO1Tk3IbmCdZOJBERe6UaA/fHnqP9/9i+Fs3MAsC/DZJiKsBYLJ/7
+	YQNTfjrhjCI3B2QhZ79BK59JIbCSd8/rvgUQ7RMcWTv47gx5dpRJ+48eBKm4RweZqy3Gu0KnQr5h+
+	Ma6x1MICH7S1uBiPs0p7/9SN7vbQUGzXoRlMllTAFtePVpRUNQKcfqTEnQiumAUc9oPczjvAYpc6P
+	iHniSnz51M0O0b/vIWBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oC1Qi-00G79Z-4q; Thu, 14 Jul 2022 16:11:08 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oC1QH-00G6xB-Ug; Thu, 14 Jul 2022 16:10:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1657815041; x=1689351041;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=xxuJAe+CI2uet20Fcj3lBElkHoj92fBZJeSqt3yej6I=;
-  b=OPBuIGsSjhRI314v5cMzudFmRTNyEfIa6k7IWwmNOIHO2/c6XVqKnfFl
-   HHWiKEbizdQUYmRJIBx6LOpXmQwKvVeh65TIOmBWyzLwJWDHSo7j3DnY3
-   nyEhJgXQkLHpSqLxDFVDx4EIb9sMAa0O4HxqHbb+NiyazR+BAh5ju6fnN
-   GaXpeu0lxMiEGAHYNJEQAr6do33y7QtoWc/OnfNnT8Y5z0EkVD5Yl0yF5
-   qy6qxddCucriYiZAjskw29A5qKBlm2ElVEZIBERET5yKt8iHuF0smez+b
-   5NVk5ISkC6c6py9r2yzKE2n2xc+A1KkoSc1/VfAuO73hOA7Ecl7/2vjG0
-   A==;
-X-IronPort-AV: E=Sophos;i="5.92,271,1650956400"; 
-   d="scan'208";a="104491637"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Jul 2022 09:10:40 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Thu, 14 Jul 2022 09:10:40 -0700
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Thu, 14 Jul 2022 09:10:40 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=I9vRNvq/KBkbCw/gea4zzgoIduRSqcSW47Sbpnq0Nw4/4y9+vFkqldj/ObxwM+spafH7HATAw0Z8uYQZXUIs/hCUcroO2S+yYvJ3uo7Scb/gR8rKXda3gjcztMa+7DEQl8gggF39d5amIDKzmyxynQyQjfaMUmXJfWWIukCh1oFHY61C5tzgEo1+XrR/P5M/XN0QGjyhsSYNqOMYGGoN4cEjWm6f3Ec+3vAbfYBtE2IA0Y3UWjaaFw5HBK/80Okl66iJG4gv9YWlqUtZWCX1r9EBLM+LcRcyb2Hsv6O7e21xN9CIQ5ZaozFu/QSd/aeBTAb38dHXpxq0rcaQgwyNyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xxuJAe+CI2uet20Fcj3lBElkHoj92fBZJeSqt3yej6I=;
- b=Ni5F0qzpZQc9txN3tefmvZ+WEtLUAcoRI/T1EFh8QcxvobzRk5qhaBKv8SmHG5iIjkXC/Xqdpa6+ATzeCAKYNnwtWpODjoCgyLCfKJ8hwb/OsM9XbzsfDh+gm262duyrZqKEgkl/tpJHKXSjhw0V1V5nGpqirQpdh1bcEwUqLG5HEIe8kTwsueqbzhgRYISrbn/GtciKQFeEGTi8Rkv5RMLE/Vot7Y66WlC4vhSxvRG6yxmnMoJBPF8nut9EaNA1DPiRhVs9i0WNuBKl3tc32zwCTstCy+EyN/Vau+Q8PNqQnENYRt2gSjxTH+fWKUSnPNwv3QHw9QZmZ+AXdQOiOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xxuJAe+CI2uet20Fcj3lBElkHoj92fBZJeSqt3yej6I=;
- b=q2cqnDoacRI8I6TMfzC76mFchjTQn2Xc7lIsoWFA5ompoeUYMDWSosYaFepo8Xa60N/Ic3Ys3RvuMgoHMKBBw/7EN70h61AvDT1Oyubt1w+biBrRp+f6AieRKXGSjGqhZRi/pp+5B+ydlzoxmWiXWafagO4QInrh21C4h6Iz4QY=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by DM6PR11MB3067.namprd11.prod.outlook.com (2603:10b6:5:6a::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5438.12; Thu, 14 Jul
- 2022 16:10:36 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::357a:acc9:829e:bf7b]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::357a:acc9:829e:bf7b%7]) with mapi id 15.20.5438.014; Thu, 14 Jul 2022
- 16:10:36 +0000
-From: <Conor.Dooley@microchip.com>
-To: <sudeep.holla@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <gregkh@linuxfoundation.org>,
-	<vincent.guittot@linaro.org>, <dietmar.eggemann@arm.com>,
-	<ionela.voinescu@arm.com>, <pierre.gondois@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>
+	id 1oC31Q-00Gtih-Qd; Thu, 14 Jul 2022 17:53:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oC31F-00GtdQ-4i; Thu, 14 Jul 2022 17:52:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4062C1D13;
+	Thu, 14 Jul 2022 10:52:52 -0700 (PDT)
+Received: from localhost (ionvoi01-desktop.cambridge.arm.com [10.1.196.65])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6883F3F70D;
+	Thu, 14 Jul 2022 10:52:51 -0700 (PDT)
+Date: Thu, 14 Jul 2022 18:52:49 +0100
+From: Ionela Voinescu <ionela.voinescu@arm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-kernel@vger.kernel.org, conor.dooley@microchip.com,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Pierre Gondois <pierre.gondois@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
 Subject: Re: [PATCH -next] arch_topology: Fix cache attributes detection in
  the CPU hotplug path
-Thread-Topic: [PATCH -next] arch_topology: Fix cache attributes detection in
- the CPU hotplug path
-Thread-Index: AQHYlr1LjktvAhTwm0O5ibr9nGIi2q19638AgAAMFQCAAAdOgIAACUEAgAAC4oA=
-Date: Thu, 14 Jul 2022 16:10:36 +0000
-Message-ID: <50b3316b-aed0-2ef1-a7ff-69aa3991d7e4@microchip.com>
+Message-ID: <YtBX8WX+oyPww/m+@arm.com>
 References: <20220713133344.1201247-1-sudeep.holla@arm.com>
- <0abd0acf-70a1-d546-a517-19efe60042d1@microchip.com>
- <20220714150100.aqvmdgjkymc2dr5t@bogus>
- <f9b13298-5a0b-34ee-44b9-90168205cc59@microchip.com>
- <20220714160016.honjpzg35ccq4fto@bogus>
-In-Reply-To: <20220714160016.honjpzg35ccq4fto@bogus>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 9396dee6-9185-411b-ba85-08da65b3631e
-x-ms-traffictypediagnostic: DM6PR11MB3067:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: lnY0CrrZkDEjaPp6wQsBY1Nm/BeSoaK+3znhTUrcLXFvf7J5Hq148tw6iBHOj5rkSPSCGRiJxG4HKiTjBFJHB/wOd9v0fzHAbw6PWe4eCssWloony/qmcgyShe9vFFp++tcuq0efRun9t1LcRIJ58si0kaOIHZBLyOXFeqi2gPLQWWboSZHmt/zGOn57I2824JB4qS0Yq1Pobik4KEjx+KPN9jTKbVeWy0y6sz1CX4usytymX7CE3YVH2Z9Zh/d9+Fa7EwIXKIbndmyn5g/f8e8ltin9Vpk75HvYUs4GsdM7LZFepsdGuDcMb0fDReysV3JvfU2LY3ZVdzSDuPEN7uC9D4INZOm+z1PLeossGs1llyXm1XdD9sLaUC6KYCIiqMosf0+d2NlfmU8eOJWwTbS/GcuMk21rRJrhWNpTXiVmKcUaxrk7Uo3IUc8vRhVEAb/wrd9IJh5Ur6Gr2SeUkfFevnoZFrQyMzCK/0Nytkf4vCDn4vYJQBnDrlmXKbaT/AeNLThnfxDPUQhFQ6LKiha8s1jyAmbinVs/Dyy04sd/NlL2dq1ImeYQz3o2YRnjsopuqt15LV/4IzPGbSJ5j1ADGpGVEXlaT4TRmg0s2aj2/Z5ePr/C13zS+0EzXDwq3/VycwemQnTOoWpdCDOcit4o2XPt0jTIU8VuIMdHGK3YHq5QoJCp00Sqv2GzrTM7cUGydqe791VCvct9RXifbEfLQ7axi/69AQ9kEAvFaGYSqDrbFK85RdESMjzDAtl1tfRLe5ZnWWt+ZKp78Jz/lkGyxtz2YNKzxa42fedkaUg3M1PUeXgaSe8xUliOrpSEi2kMbbBfvKGjQbpkBNiQqpYqPuQU0GzoBLvETbX3vWVTb8jR8/LrtA0CV6YWpoNb
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(346002)(376002)(396003)(366004)(136003)(39860400002)(53546011)(66476007)(66946007)(122000001)(71200400001)(6506007)(64756008)(66446008)(86362001)(91956017)(5660300002)(8676002)(76116006)(4326008)(31696002)(66556008)(41300700001)(478600001)(8936002)(83380400001)(38070700005)(2906002)(6486002)(6916009)(36756003)(38100700002)(54906003)(186003)(316002)(31686004)(2616005)(6512007)(26005)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?M0EzT29ucy8rLzVmOE1LeFJtYWFqbi9tVS9VeWRzWHpVcUZWNHpEYjJpYkho?=
- =?utf-8?B?VHYrNmpWb2VYRU5hM3ExMEladDB3S25kYVNHTnNocU10clpKUHpoWXAvS2Fr?=
- =?utf-8?B?M0NTZ1pVQ29JdVJjYTZIQW5jNmdxL2U4NVNVckRpbVpvV0FDWjNHakEyOVRP?=
- =?utf-8?B?eDIvU2tGRnc2aDRtVTAxaDQ1Um43VXgrMHA3cC9CWUs2ZXFzVGxpMWNhVElW?=
- =?utf-8?B?MzRPd0ljb3lSNU5RZDc0TmxmT1Q5OXo3V2xlTjhDNHB6Nk1pQzFYVVVlcHZu?=
- =?utf-8?B?UTBzbUdFOTMrR0Zva1R0RzllR00yVzVtclRVdTJ4TTh2dGt6bEgyMnlGVkRM?=
- =?utf-8?B?b1pZSGErVFd3WWpIQThnaEIvbVdVZ054MlJqVURqZmkzM3FSZ2psNTR0NUh2?=
- =?utf-8?B?YkUxUjRqZHRqT3JrY1lONmlwUkFPQlZRSDFGYk1GMVVVckpNTlNKdzRIM0tY?=
- =?utf-8?B?d2RiYmdCMm8xOHV1WDl1OVFCN2lCL3hZbytHUWozcS9jbnIwRDQrYU9HcGh6?=
- =?utf-8?B?L2ZRaG9uS2w4bVVoeWpiTVNuVzd0eXRUMkxVeEpRdHdLWXlabG0wZ1RMeEpV?=
- =?utf-8?B?M3lwY0FEQ3V1cXRkL2prYlFOSWxaeDhwdGRYYzVRU1FPRlMza1NtSGVhNFRz?=
- =?utf-8?B?NC9EdlBSRHdiQSswMnlISzd3UEU4Rml0Z2lydS9lcVpTRGpiMndJcWtZMCtG?=
- =?utf-8?B?c2lGaDRSVzNJNlpOUk5GbnJBVVJTTHVkMEFyaFpzdWVPZXB5TUYwdXJRdWxI?=
- =?utf-8?B?R2Q1NW80SUR6eFBicm1pMUFDdnZYUCs2ZldqMElBWE9PTlp1VVQ1bzRocHJi?=
- =?utf-8?B?L05OYmNJR1NpaFJ2eXc1VjNQME9heHozMCt4ZVIzOFc0RXVQa084QituTjIy?=
- =?utf-8?B?MlJNMzc3WlNjSTlkcGd1WlFhOFBUZXB0TVVHakU0MXNVMHl5bW8wNW9Xb1pr?=
- =?utf-8?B?bjh1bHkxRDkvKzh1OHIzRkZjMko2b1I4VUxFZnpFdDc5ekg0YWFzbzdiSnkz?=
- =?utf-8?B?TVpyQzk1ajIwZit6QjdxZjdRMG4reXJmTHlEcjFOTTVSazhiQnFQa2c5Z3dz?=
- =?utf-8?B?OE5vQ0ZEREYwdzh1aEc4WnozN1B5dkF4TU91UWM2aFBGK3ZFMUhOL1gvQURl?=
- =?utf-8?B?ZkgycUZqYkt1QllVUlNTK0I5SHlaTGJSb2pvNktTUEgrSDVJQXJpYVNDaGl5?=
- =?utf-8?B?bCswNFZDM3pCL0llV0lSUm9VTnhMbDRqTWc2MnZhT0szVllobkhTL1NaMWZ2?=
- =?utf-8?B?T01RcytxQjRJV0dkeTlheGw4aHRlY0U0NDNIYXdGeGtXTGRTK2dZYmdRQW50?=
- =?utf-8?B?V1Nuc0lDd3NmQmZBMVNWTGVxNG9NTjdLQ0pEdFJNMVhYRjNyT2llV0ZlTS9k?=
- =?utf-8?B?QXNiVkNXdDRLYUhKTU1GanoxZjI4U3dwVkNudTdjTmdlYnBSeWhvWXE1NkRX?=
- =?utf-8?B?UXJmblZmaXRNN2NrSVNWTHQreXlRT3lVaUcxVGtmRWxUREZ5UVZyVlM0T0hP?=
- =?utf-8?B?ejV0b3RtU2NzN2h5SUxVeENTTWloRkZMakZLTGpHM0FpVFRxNG5GNnNwM0Rl?=
- =?utf-8?B?bytYcm5mQ0JIejNHcWtldVovejJNUGYveUpOZFp3bER1ejM4UFV6TnNJOFc0?=
- =?utf-8?B?VXkzN0hQdTRVU0lGUi9HWXI4TXAvekdpNDlpZ0hKbnMwWGVqYkJWZlZPWHZD?=
- =?utf-8?B?SEltbmNVcWdxdEE0K1k0YXYwUUVpVW9VVXQ5NlRKVWxGUnZsb0dodHlidGVE?=
- =?utf-8?B?VVVGd1VMTnRzdlNURy9sNUsrdlNSaUdzWkFhQzBCampYZm5EVHh6S2xWcVEx?=
- =?utf-8?B?MDc4TjFjbE4ySVpWR1VJOUx1aDhxVTdqWVN4UUNqdjBLcjVWdUpLNjJ2MWFK?=
- =?utf-8?B?cUVQOTZjL0ZOQm0xSCtEUC9RNzV5SW9RenpLdytQWGFsQnVYN2tyQnhZa2Y3?=
- =?utf-8?B?ZmY4NDdzOGNDSldGTFZRTXEwNjByNGUzeHlQNHZCa21MTlVvbmFTdzZTZTJj?=
- =?utf-8?B?NHR6a0hCRXVzaVpZQUFmd2hld0VVVVN0Y3VDM0hvZGR6MTl1RDRHQWNGdXMx?=
- =?utf-8?B?TWp1YWFFSGE5Uys2eFltODNCdlFEd05hZXYxWjJFSDNDZFZJUVYzb0dOTG9s?=
- =?utf-8?B?dWtKWWZxTHNwcGVkVzZraDRPaWJTQStVMkM0d2J4ci83NnVIQ1lBNy9jNGR0?=
- =?utf-8?B?Mmc9PQ==?=
-Content-ID: <57CDA9D15FF07146B2C19FCDBA0CAA21@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9396dee6-9185-411b-ba85-08da65b3631e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Jul 2022 16:10:36.2387
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: KfcBtzRPxlsh7TJkQAV1Lo7E+NYBkXeIXNqNTaQN2/Y/xic+kye+nok4r4N7+Gqhw2pgd7f3NsVQUKbUSl803TDWNnrw+0yof2iRFXuIq50=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB3067
+Content-Disposition: inline
+In-Reply-To: <20220713133344.1201247-1-sudeep.holla@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220714_091042_109117_58555C72 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20220714_105257_319094_540BB4D5 
+X-CRM114-Status: GOOD (  27.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,49 +66,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/07/2022 17:00, Sudeep Holla wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+Hi Sudeep,
+
+Thank you for the fix!
+
+On Wednesday 13 Jul 2022 at 14:33:44 (+0100), Sudeep Holla wrote:
+> init_cpu_topology() is called only once at the boot and all the cache
+> attributes are detected early for all the possible CPUs. However when
+> the CPUs are hotplugged out, the cacheinfo gets removed. While the
+> attributes are added back when the CPUs are hotplugged back in as part
+> of CPU hotplug state machine, it ends up called quite late after the
+> update_siblings_masks() are called in the secondary_start_kernel()
+> resulting in wrong llc_sibling_masks.
 > 
-> On Thu, Jul 14, 2022 at 03:27:09PM +0000, Conor.Dooley@microchip.com wrote:
->> On 14/07/2022 16:01, Sudeep Holla wrote:
->>>
->>> Interesting, need to check if it is not in atomic context on arm64.
->>> Wonder if some configs are disabled and making this bug hidden. Let me
->>> check.
->>>
+> Move the call to detect_cache_attributes() inside update_siblings_masks()
+> to ensure the cacheinfo is updated before the LLC sibling masks are
+> updated. This will fix the incorrect LLC sibling masks generated when
+> the CPUs are hotplugged out and hotplugged back in again.
 > 
-> OK, it turns I didn't have necessary config options enabled. Enabling
-> them, I did see the BUG splat and changing allocation to GFP_ATOMIC
-> fixed the same. Can you try that please so that you can test if other
-> things are fine.
+> Reported-by: Ionela Voinescu <ionela.voinescu@arm.com>
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
+>  drivers/base/arch_topology.c | 16 ++++++----------
+>  1 file changed, 6 insertions(+), 10 deletions(-)
 > 
->>> One possible solution is to add GFP_ATOMIC to the allocation but I want
->>> to make sure if it is legal to be in atomic context when calling
->>> update_siblings_masks.
->>>
+> Hi Conor,
 > 
-> So I take is as legal and needs to be fixed to push my patch.
+> Ionela reported an issue with the CPU hotplug and as a fix I need to
+> move the call to detect_cache_attributes() which I had thought to keep
+> it there from first but for no reason had moved it to init_cpu_topology().
+> 
+> Wonder if this fixes the -ENOMEM on RISC-V as this one is called on the
+> cpu in the secondary CPUs init path while init_cpu_topology executed
+> detect_cache_attributes() for all possible CPUs much earlier. I think
+> this might help as the percpu memory might be initialised in this case.
+> 
+> Anyways give this a try, also test the CPU hotplug and check if nothing
+> is broken on RISC-V. We noticed this bug only on one platform while
+> 
+> Regards,
+> Sudeep
+> 
+> diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
+> index 441e14ac33a4..0424b59b695e 100644
+> --- a/drivers/base/arch_topology.c
+> +++ b/drivers/base/arch_topology.c
+> @@ -732,7 +732,11 @@ const struct cpumask *cpu_clustergroup_mask(int cpu)
+>  void update_siblings_masks(unsigned int cpuid)
+>  {
+>  	struct cpu_topology *cpu_topo, *cpuid_topo = &cpu_topology[cpuid];
+> -	int cpu;
+> +	int cpu, ret;
+> +
+> +	ret = detect_cache_attributes(cpuid);
+> +	if (ret)
+> +		pr_info("Early cacheinfo failed, ret = %d\n", ret);
+>  	/* update core and thread sibling masks */
+>  	for_each_online_cpu(cpu) {
+> @@ -821,7 +825,7 @@ __weak int __init parse_acpi_topology(void)
+>  #if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
+>  void __init init_cpu_topology(void)
+>  {
+> -	int ret, cpu;
+> +	int ret;
+>  	reset_cpu_topology();
+>  	ret = parse_acpi_topology();
+> @@ -836,13 +840,5 @@ void __init init_cpu_topology(void)
+>  		reset_cpu_topology();
+>  		return;
+>  	}
+> -
+> -	for_each_possible_cpu(cpu) {
+> -		ret = detect_cache_attributes(cpu);
+> -		if (ret) {
+> -			pr_info("Early cacheinfo failed, ret = %d\n", ret);
+> -			break;
+> -		}
+> -	}
+>  }
+>  #endif
+> --2.37.1
 > 
 
-With the GFP_ATOMIC, behaviour is the same as before for me.
+Reviewed-by: Ionela Voinescu <ionela.voinescu@arm.com>
+Tested-by:  Ionela Voinescu <ionela.voinescu@arm.com>
 
-Therefore, with the following diff & for RISC-V/DT:
+Kind regards,
+Ionela.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-
-diff --git a/drivers/base/cacheinfo.c b/drivers/base/cacheinfo.c
-index 65d566ff24c4..4b5cd08c5a65 100644
---- a/drivers/base/cacheinfo.c
-+++ b/drivers/base/cacheinfo.c
-@@ -356,7 +356,7 @@ int detect_cache_attributes(unsigned int cpu)
-                return -ENOENT;
- 
-        per_cpu_cacheinfo(cpu) = kcalloc(cache_leaves(cpu),
--                                        sizeof(struct cacheinfo), GFP_KERNEL);
-+                                        sizeof(struct cacheinfo), GFP_ATOMIC);
-        if (per_cpu_cacheinfo(cpu) == NULL) {
-                cache_leaves(cpu) = 0;
-                return -ENOMEM;
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
