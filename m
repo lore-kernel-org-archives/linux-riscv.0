@@ -4,58 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A4F7C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 16:57:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD49C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 17:02:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pj1TmWV/fEKe+Oc5DQ9yCwf9cVgM4HQpjDudJIiIYWs=; b=b+be+ein56Wi+P
-	dBJE/EycrkZGi/u9hkWiUuvFRtkQoDPO5OduEjqEpfYLrp7Vxu7IsGKUHOdlQ/V7IDBcS+DNP8ljW
-	CBmUzoJEdEidylBH6G2cctSq+y0G35KEsm7qX6XYkSm+GOdxc/d0DMlyh3+RzaNF2e7rx7BC+aOwj
-	NpUFD/R4L+C2g6nJ9VjiZkf3DWCVTxr0Ycu2fUmoeRm/VIbID+ggHWvuXxd5JUQ/wsxjiudkI2Bgm
-	yTpCt3GgEWbpkwHt/yZ6yJDForXigvxjXebZmI2k4a3pLg2Y/GoEL9FLb1lWid7I0KfXIiqs5UnVk
-	phlVDm4qrEEkzq7SWOiw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=cFvhifZhGpcQ4xsuf27iLTzVUT8sO24erQW54n4KwIs=; b=mN2jasuxGcvh4O
+	eA1ja3wYUbJ/GjDq4S6QhKuF9WTSOKC1Ti7pxxx/kKgQC7CJomeEaFnHzyhI++RxoL7MwSxiaXMqS
+	f22XoeMp+DCzMdTtW/WEKCB0QwBNIAVLzWB9OVW2VgVSSqN08i7OMs9jnFpiD4/2W6Qu/5mmYb28i
+	T1fFoK5eFvAZ7SPqMF2ZrTuFQrtjP+MJvqTffrtvQJq9wakLg0f7LQzOKdZ9Mpjg786eoBLiVW4t1
+	hgblYVtt4m6HL9cX3Cyv513MXhF4HfsXNVOKPDXXUV1mVGWL3gj38MS5t+1kmbUYidWZ0uRMBBueu
+	wuVcTPIgrOOrF65EHEjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCOcg-008yGM-P3; Fri, 15 Jul 2022 16:57:02 +0000
+	id 1oCOhp-0090wv-Q1; Fri, 15 Jul 2022 17:02:21 +0000
 Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCOcd-008y9E-Re
-	for linux-riscv@lists.infradead.org; Fri, 15 Jul 2022 16:57:01 +0000
+	id 1oCOhn-0090vP-3R
+	for linux-riscv@lists.infradead.org; Fri, 15 Jul 2022 17:02:20 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 1DF26B82D21;
-	Fri, 15 Jul 2022 16:56:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5B95C34115;
-	Fri, 15 Jul 2022 16:56:48 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 63BEFB82D22;
+	Fri, 15 Jul 2022 17:02:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59449C34115;
+	Fri, 15 Jul 2022 17:02:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1657904209;
-	bh=KupXbF85Vdym0NnWb28OdRC9H0j8O4pevvKskb1neSw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=t1zLcEg/BHu+kQUkd82G+gcJkSr2urc9hPw8L6N4osje+sZMWqLOp+syqqaAD/+0a
-	 36U/rKCmdrsRYaTLIou6X7pDNkH9xtC/KYQoCitBHH1LBNVRg1CgKlqr+mBddA04Mc
-	 VoHaIpuGVpgJ2XMS6GH+cmrSxEoIle/5632oUS17uZECy4cJ8EbI3UagVOKC9P/9BG
-	 V9+brqCBFtma47RzYbp707MNJAJopEhIMalvUWbaZYDg223JAMhcuEni5wzfc0YLih
-	 8VDCIN03XvC3wSvIioQnEz7P7jVojxo1vaZRyxV8o9jgPVMbE87D+XdQx81GRwLVnV
-	 l2vKlKh1CPTmg==
+	s=k20201202; t=1657904536;
+	bh=RneAB0zwL0Agua+ah8JJepJ4SyYzz9VQDMDzjZbNKm4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ewKkhklagPG8bQsRIeV3HeDAxKqJKsZpn4wuGiaNLGKmjYwWs6iDNwf6G+5acFVzZ
+	 nG9wSPVDoxMoluF8DqomLr8B8IUG3RQQ6Oz9hiWwB3BwknxTNP3fNRKp/nkC8800Ec
+	 JRL6S5V5HqPSR/bZCeSBObFRW5bTniT3msAfPWcsfSgYa7JuP9/SMvJ3y82TXydOEj
+	 oyUYKn7QMBvzwH730YcR2yCM1u2Ivh/yeLSWEsISJp3z4Xc5OfHU6xBxGndI/maZOp
+	 +a97+6bMd8Rypk9eK8NoDLIa+VD956MR8efgMH6NCPqf//Y+564ZNPQ6LG9vVfHLZ3
+	 St0qO1l9uYHXA==
+Date: Sat, 16 Jul 2022 00:53:18 +0800
 From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5] riscv: add irq stack support
-Date: Sat, 16 Jul 2022 00:47:54 +0800
-Message-Id: <20220715164754.2343-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com, Anup Patel <anup@brainfault.org>
+Subject: Re: [PATCH v5 2/2] riscv: turn pgtable_l4|[l5]_enabled to static key
+ for RV64
+Message-ID: <YtGbfmEl7/IkQxZp@xhacker>
+References: <20220715134847.2190-1-jszhang@kernel.org>
+ <20220715134847.2190-3-jszhang@kernel.org>
+ <CAJM55Z8JCePV8YRheyrsO1qQie79NM_-w-cYbNaJy-HLOtPfrw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAJM55Z8JCePV8YRheyrsO1qQie79NM_-w-cYbNaJy-HLOtPfrw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220715_095700_230717_27F7220F 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20220715_100219_472355_38FFB1DA 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,164 +84,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, IRQs are still handled on the kernel stack of the current
-task on riscv platforms. If the task has a deep call stack at the time
-of interrupt, and handling the interrupt also requires a deep stack,
-it's possible to see stack overflow.
+On Fri, Jul 15, 2022 at 05:04:38PM +0200, Emil Renner Berthing wrote:
+> On Fri, 15 Jul 2022 at 15:59, Jisheng Zhang <jszhang@kernel.org> wrote:
+> > On a specific HW platform, pgtable_l4|[l5]_enabled won't change after
+> > boot, and the check sits at hot code path, this characteristic makes it
+> > suitable for optimization with static key.
+> >
+> > _pgtable_l4|[l5]_enabled is used very early during boot, even is used
+> > with MMU off, so the static key mechanism isn't ready. For this case,
+> > we use another static key _pgtable_lx_ready to indicate whether we
+> > have finalised pgtable_l4|[l5]_enabled or not, then fall back to
+> > _pgtable_l4|[l5]_enabled_early bool.
+> >
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > Reviewed-by: Anup Patel <anup@brainfault.org>
+> > ---
+> >  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
+> >  arch/riscv/include/asm/pgtable-32.h |  3 ++
+> >  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
+> >  arch/riscv/include/asm/pgtable.h    |  5 +--
+> >  arch/riscv/kernel/cpu.c             |  4 +-
+> >  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
+> >  arch/riscv/mm/kasan_init.c          | 16 ++++----
+> >  7 files changed, 103 insertions(+), 65 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
+> > index 947f23d7b6af..0280eeb4756f 100644
+> > --- a/arch/riscv/include/asm/pgalloc.h
+> > +++ b/arch/riscv/include/asm/pgalloc.h
+> > @@ -41,7 +41,7 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
+> >
+> >  static inline void p4d_populate(struct mm_struct *mm, p4d_t *p4d, pud_t *pud)
+> >  {
+> > -       if (pgtable_l4_enabled) {
+> > +       if (pgtable_l4_enabled()) {
+> >                 unsigned long pfn = virt_to_pfn(pud);
+> >
+> >                 set_p4d(p4d, __p4d((pfn << _PAGE_PFN_SHIFT) | _PAGE_TABLE));
+> > @@ -51,7 +51,7 @@ static inline void p4d_populate(struct mm_struct *mm, p4d_t *p4d, pud_t *pud)
+> >  static inline void p4d_populate_safe(struct mm_struct *mm, p4d_t *p4d,
+> >                                      pud_t *pud)
+> >  {
+> > -       if (pgtable_l4_enabled) {
+> > +       if (pgtable_l4_enabled()) {
+> >                 unsigned long pfn = virt_to_pfn(pud);
+> >
+> >                 set_p4d_safe(p4d,
+> > @@ -61,7 +61,7 @@ static inline void p4d_populate_safe(struct mm_struct *mm, p4d_t *p4d,
+> >
+> >  static inline void pgd_populate(struct mm_struct *mm, pgd_t *pgd, p4d_t *p4d)
+> >  {
+> > -       if (pgtable_l5_enabled) {
+> > +       if (pgtable_l5_enabled()) {
+> >                 unsigned long pfn = virt_to_pfn(p4d);
+> >
+> >                 set_pgd(pgd, __pgd((pfn << _PAGE_PFN_SHIFT) | _PAGE_TABLE));
+> > @@ -71,7 +71,7 @@ static inline void pgd_populate(struct mm_struct *mm, pgd_t *pgd, p4d_t *p4d)
+> >  static inline void pgd_populate_safe(struct mm_struct *mm, pgd_t *pgd,
+> >                                      p4d_t *p4d)
+> >  {
+> > -       if (pgtable_l5_enabled) {
+> > +       if (pgtable_l5_enabled()) {
+> >                 unsigned long pfn = virt_to_pfn(p4d);
+> >
+> >                 set_pgd_safe(pgd,
+> > @@ -82,7 +82,7 @@ static inline void pgd_populate_safe(struct mm_struct *mm, pgd_t *pgd,
+> >  #define pud_alloc_one pud_alloc_one
+> >  static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
+> >  {
+> > -       if (pgtable_l4_enabled)
+> > +       if (pgtable_l4_enabled())
+> >                 return __pud_alloc_one(mm, addr);
+> >
+> >         return NULL;
+> > @@ -91,7 +91,7 @@ static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
+> >  #define pud_free pud_free
+> >  static inline void pud_free(struct mm_struct *mm, pud_t *pud)
+> >  {
+> > -       if (pgtable_l4_enabled)
+> > +       if (pgtable_l4_enabled())
+> >                 __pud_free(mm, pud);
+> >  }
+> >
+> > @@ -100,7 +100,7 @@ static inline void pud_free(struct mm_struct *mm, pud_t *pud)
+> >  #define p4d_alloc_one p4d_alloc_one
+> >  static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long addr)
+> >  {
+> > -       if (pgtable_l5_enabled) {
+> > +       if (pgtable_l5_enabled()) {
+> >                 gfp_t gfp = GFP_PGTABLE_USER;
+> >
+> >                 if (mm == &init_mm)
+> > @@ -120,7 +120,7 @@ static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
+> >  #define p4d_free p4d_free
+> >  static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
+> >  {
+> > -       if (pgtable_l5_enabled)
+> > +       if (pgtable_l5_enabled())
+> >                 __p4d_free(mm, p4d);
+> >  }
+> >
+> > diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
+> > index 59ba1fbaf784..1ef52079179a 100644
+> > --- a/arch/riscv/include/asm/pgtable-32.h
+> > +++ b/arch/riscv/include/asm/pgtable-32.h
+> > @@ -17,6 +17,9 @@
+> >
+> >  #define MAX_POSSIBLE_PHYSMEM_BITS 34
+> >
+> > +#define pgtable_l5_enabled() 0
+> > +#define pgtable_l4_enabled() 0
+> > +
+> >  /*
+> >   * rv32 PTE format:
+> >   * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+> > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> > index 5c2aba5efbd0..edfff00d8ca3 100644
+> > --- a/arch/riscv/include/asm/pgtable-64.h
+> > +++ b/arch/riscv/include/asm/pgtable-64.h
+> > @@ -8,18 +8,38 @@
+> >
+> >  #include <linux/bits.h>
+> >  #include <linux/const.h>
+> > +#include <linux/jump_label.h>
+> >  #include <asm/errata_list.h>
+> >
+> > -extern bool pgtable_l4_enabled;
+> > -extern bool pgtable_l5_enabled;
+> > +extern bool _pgtable_l5_enabled_early;
+> > +extern bool _pgtable_l4_enabled_early;
+> > +extern struct static_key_false _pgtable_l5_enabled;
+> > +extern struct static_key_false _pgtable_l4_enabled;
+> > +extern struct static_key_false _pgtable_lx_ready;
+> 
+> It amounts to the same, but I wonder if we ought to use the
+> DECLARE_STATIC_KEY_FALSE macro here.
 
-Before this patch, the stack_max_size of a v5.17-rc1 kernel running on
-a lichee RV board gave:
-~ # cat /sys/kernel/debug/tracing/stack_max_size
-3736
+Thanks for the hint, will send out a newer version soon. Before
+that, I will wait a bit for other review feedbacks.
 
-After this patch,
-~ # cat /sys/kernel/debug/tracing/stack_max_size
-3176
-
-We reduce the max kernel stack usage by 560 bytes!
-
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
-
-since v4:
- - rebase on v5.19-rcN
- - fix build error when randomized task_struct
- - use irq stack allocation method in v2, I.E use vmalloc when VMAP_STACK
-   otherwise use __get_free_pages.
-
-since v3:
- - Always use vmalloc to allocate irq stack. Thank Arnd.
-
-since v2:
- - rebase on v5.18-rcN
- - update commit msg, I.E remove the "it's possible to reduce the
-THREAD_SIZE to 8KB for RV64 platforms..."
-
-since v1:
- - add __ro_after_init to the irq_stack[] array.
-
- arch/riscv/include/asm/thread_info.h |  1 +
- arch/riscv/kernel/asm-offsets.c      |  2 ++
- arch/riscv/kernel/entry.S            | 39 +++++++++++++++++++++++++---
- arch/riscv/kernel/irq.c              | 16 ++++++++++++
- 4 files changed, 55 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index 78933ac04995..bc17b7070572 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -25,6 +25,7 @@
- #endif
- #define THREAD_SIZE		(PAGE_SIZE << THREAD_SIZE_ORDER)
- 
-+#define IRQ_STACK_SIZE		THREAD_SIZE
- /*
-  * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
-  * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index df9444397908..9e32748af0e8 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -37,6 +37,8 @@ void asm_offsets(void)
- 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
- 	OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
- 	OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
-+	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
-+	OFFSET(TASK_STACK, task_struct, stack);
- 
- 	OFFSET(TASK_THREAD_F0,  task_struct, thread.fstate.f[0]);
- 	OFFSET(TASK_THREAD_F1,  task_struct, thread.fstate.f[1]);
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 2e5b88ca11ce..2f2a68b3938a 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -126,12 +126,45 @@ skip_context_tracking:
- 	 */
- 	bge s4, zero, 1f
- 
--	la ra, ret_from_exception
-+	/* preserve the sp */
-+	move s0, sp
- 
--	/* Handle interrupts */
- 	move a0, sp /* pt_regs */
-+
-+	/*
-+	 * Compare sp with the base of the task stack.
-+	 * If the top ~(THREAD_SIZE - 1) bits match, we are on a task stack,
-+	 * and should switch to the irq stack.
-+	 */
-+.if (TASK_STACK > 2047)
-+	li t0, TASK_STACK
-+	add t0, t0, tp
-+	REG_L t0, 0(tp)
-+.else
-+	REG_L t0, TASK_STACK(tp)
-+.endif
-+	xor t0, t0, s0
-+	li t1, ~(THREAD_SIZE - 1)
-+	and t0, t0, t1
-+	bnez t0, 2f
-+
-+	la t1, irq_stack
-+	REG_L t2, TASK_TI_CPU(tp)
-+	slli t2, t2, RISCV_LGPTR
-+	add t1, t1, t2
-+	REG_L t2, 0(t1)
-+	li t1, IRQ_STACK_SIZE
-+	/* switch to the irq stack */
-+	add sp, t2, t1
-+
-+2:
-+	/* Handle interrupts */
- 	la a1, generic_handle_arch_irq
--	jr a1
-+	jalr a1
-+
-+	/* Restore sp */
-+	move sp, s0
-+	j ret_from_exception
- 1:
- 	/*
- 	 * Exceptions run with interrupts enabled or disabled depending on the
-diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-index 7207fa08d78f..f20cbfd42e82 100644
---- a/arch/riscv/kernel/irq.c
-+++ b/arch/riscv/kernel/irq.c
-@@ -10,6 +10,8 @@
- #include <linux/seq_file.h>
- #include <asm/smp.h>
- 
-+void *irq_stack[NR_CPUS] __ro_after_init;
-+
- int arch_show_interrupts(struct seq_file *p, int prec)
- {
- 	show_ipi_stats(p, prec);
-@@ -18,7 +20,21 @@ int arch_show_interrupts(struct seq_file *p, int prec)
- 
- void __init init_IRQ(void)
- {
-+	int cpu;
-+
- 	irqchip_init();
- 	if (!handle_arch_irq)
- 		panic("No interrupt controller found.");
-+
-+	for_each_possible_cpu(cpu) {
-+#ifdef CONFIG_VMAP_STACK
-+		void *s = __vmalloc_node(IRQ_STACK_SIZE, THREAD_ALIGN,
-+					 THREADINFO_GFP, cpu_to_node(cpu),
-+					 __builtin_return_address(0));
-+#else
-+		void *s = (void *)__get_free_pages(GFP_KERNEL, get_order(IRQ_STACK_SIZE));
-+#endif
-+
-+		irq_stack[cpu] = s;
-+	}
- }
--- 
-2.34.1
-
+Thanks
 
 _______________________________________________
 linux-riscv mailing list
