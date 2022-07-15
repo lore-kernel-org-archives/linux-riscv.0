@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB6DC43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 13:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECBCC43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 13:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=KUO/V7Tui9ZxbBvNSyWtsKKz22p+juP9DbEj/ac0ENs=; b=IJFdqW6AGUKvIE
-	3RxAIFZMsgg5s6ngWH7Epll6xy4e8BqKRW9fv+Z//PT68zayd8uF+XNpSzS2YrVA8uOoZYqt4RMdR
-	oH8Q4QhYoBmo217/969Xv/Rlji1sXUeMUpXLj8Q2H7rQtVIL3+lyRyAYg/6dTj53a46wqSBUa9426
-	KWw1JrrVrhF80gGVz1htP9npZ0JJutgbsQK9LoqJbJCQR5Cg5i9F8hISWkdRZfghQmzRwj0wUVpof
-	Jbh4q/0hQ22amtdsmtOfo/jnJEq7RPcEkHbPxJXAigB3En5MXgUTsVPbTIstXtXiEVrDAyyxcrxi4
-	33SdztBBcex9I/ch/Hhg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VhSUmZq47+OKhS2XS2iKdwWji/YK5MUvfRjmWTbrEOg=; b=WyPUiyUg6rakzW
+	LOIKABBQtqcIqhb4v5KNTCSAsDrjDJey91EdG6T+m5AIoNZKZpIlNYOi0Z5qkBbng+VRdPh8oPnHa
+	+j1O7hm4CGI6FvJRrdqH+TIYyg//tRslHpWrnfRKOvmdk2KybM4fApWoEJ585qPejL31fU3up4EgG
+	bRwKIzuqUWpfwec6/xyS9Qpdvzr/FLHTNXQSzzYd0FmgS+8w5ZdMC+6Pp9ul0u2228JS5sLZzsSh4
+	jJuieLNm6KchkaScR3uClXV7iWGdY2ddbdUiki35Qd2InT7V+IpRv08Si85D5Bk9Oog3t03VCdtlq
+	YcwslfmneF/gepSViAXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCKzK-0079AR-Am; Fri, 15 Jul 2022 13:04:10 +0000
-Received: from m15114.mail.126.com ([220.181.15.114])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCKzG-00799Z-Sc
-	for linux-riscv@lists.infradead.org; Fri, 15 Jul 2022 13:04:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=b4ulK
-	tkQ3AUm9ryEsB/eDOROCHPs+Q9LLFfD7GPr7jE=; b=lY9BG1vPUtlS9crdyIYPF
-	PmST+sm+53xWeOvVGW9eOX+O6vrRwXk17tuUVUyy4qlw2vsata51IoBD4siSCOT0
-	7GN7feHy7FmgjPzIMtm99VFRV59CY19UAKwr/csIA87ztZTMM3hi0BTAPVjOmISF
-	/2mCUHjMa0QFzyeKVmmaO0=
-Received: from localhost.localdomain (unknown [124.16.139.61])
-	by smtp7 (Coremail) with SMTP id DsmowAAn0vuiZdFi2v75Ew--.61029S2;
-	Fri, 15 Jul 2022 21:03:31 +0800 (CST)
-From: Liang He <windhl@126.com>
-To: atishp@atishpatra.org,
-	anup@brainfault.org,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org,
-	windhl@126.com
-Subject: [PATCH] perf: RISC-V: Add of_node_put() when breaking out of for_each_of_cpu_node()
-Date: Fri, 15 Jul 2022 21:03:30 +0800
-Message-Id: <20220715130330.443363-1-windhl@126.com>
-X-Mailer: git-send-email 2.25.1
+	id 1oCLce-007Kxt-H0; Fri, 15 Jul 2022 13:44:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oCLcc-007KvB-8M
+	for linux-riscv@lists.infradead.org; Fri, 15 Jul 2022 13:44:48 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 31FC7623E4;
+	Fri, 15 Jul 2022 13:44:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA350C34115;
+	Fri, 15 Jul 2022 13:44:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1657892682;
+	bh=8BPiocY7scDyLEcAlQjPC++udc/2v52MfXgPwsWJmaM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U/7omktuc5K9bv7/vVtx7s2hZGuEbq0x4Dh4gwEpveYMluuJqTFobMI6tTQq11MLB
+	 gIQ9PaLyEE9Muo+wlE9HzsHn1dKUYJC7GRQWYiJQ52ZMnxahn1VyzKEraFZtTIW/h6
+	 1FuC6wRdT1JG5zL75xUh52YjQ27H+tseApcbggAtffCJre2UsHzQJVRw7N3Ivn0kqK
+	 yBF60fvKOtN94xRY7MzDB95QGSINMLmbfbknA1Z4mEjxXOkqiWApUvyyyNd0/K06uX
+	 6FgysEEhgFN/3+LHriZH+Kloq/Td8aj4sdmOX18TkCAxSkScaj6bIcdEuxzoQ6DJiw
+	 U1ooy1Ii1DwUQ==
+Date: Fri, 15 Jul 2022 21:35:43 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: anup@brainfault.org, Paul Walmsley <paul.walmsley@sifive.com>,
+	aou@eecs.berkeley.edu, ryabinin.a.a@gmail.com, glider@google.com,
+	andreyknvl@gmail.com, dvyukov@google.com, vincenzo.frascino@arm.com,
+	alexandre.ghiti@canonical.com, Atish Patra <atishp@rivosinc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com
+Subject: Re: [PATCH v4 0/2] use static key to optimize pgtable_l4_enabled
+Message-ID: <YtFtL3+/3FNkalZ5@xhacker>
+References: <CAAhSdy0mkwacNMVa_jFZmZ+NRPBa1TpKUQGpzr6Z9_wfoq1R4g@mail.gmail.com>
+ <mhng-17913c13-57bd-42f9-9136-b4eb9632253c@palmer-mbp2014>
 MIME-Version: 1.0
-X-CM-TRANSID: DsmowAAn0vuiZdFi2v75Ew--.61029S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWrKF1rZw48Jw13AF43JFW7XFb_yoWDKrX_u3
-	s7Wr4IgrZ8tFs0q3WDXr4fZ3s2qryFgr9rWa92v3WSvw1UZ3s8Jwn8Xry3XayUZrWUGa4x
-	Xrn5GrW3CrWS9jkaLaAFLSUrUUUUUb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xR_b4S7UUUUU==
-X-Originating-IP: [124.16.139.61]
-X-CM-SenderInfo: hzlqvxbo6rjloofrz/1tbizgQ-F18RPf9o7gAAso
+Content-Disposition: inline
+In-Reply-To: <mhng-17913c13-57bd-42f9-9136-b4eb9632253c@palmer-mbp2014>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220715_060407_264574_544734C0 
-X-CRM114-Status: UNSURE (   8.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220715_064446_394487_03332957 
+X-CRM114-Status: GOOD (  33.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,40 +77,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In pmu_sbi_setup_irqs(), we should call of_node_put() for the 'cpu'
-when breaking out of for_each_of_cput_node() as its refcount will
-be automatically increased and decreased during the iteration.
+On Fri, Jul 01, 2022 at 08:48:25PM -0700, Palmer Dabbelt wrote:
+> On Sat, 25 Jun 2022 21:33:07 PDT (-0700), anup@brainfault.org wrote:
+> > On Sat, May 21, 2022 at 8:13 PM Jisheng Zhang <jszhang@kernel.org> wrote:
+> > > 
+> > > The pgtable_l4|[l5]_enabled check sits at hot code path, performance
+> > > is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
+> > > boot, so static key can be used to solve the performance issue[1].
+> > > 
+> > > An unified way static key was introduced in [2], but it only targets
+> > > riscv isa extension. We dunno whether SV48 and SV57 will be considered
+> > > as isa extension, so the unified solution isn't used for
+> > > pgtable_l4[l5]_enabled now.
+> > > 
+> > > patch1 fixes a NULL pointer deference if static key is used a bit earlier.
+> > > patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
+> > > 
+> > > [1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
+> > > [2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
+> > > 
+> > > Since v3:
+> > >  - fix W=1 call to undeclared function 'static_branch_likely' error
+> > > 
+> > > Since v2:
+> > >  - move the W=1 warning fix to a separate patch
+> > >  - move the unified way to use static key to a new patch series.
+> > > 
+> > > Since v1:
+> > >  - Add a W=1 warning fix
+> > >  - Fix W=1 error
+> > >  - Based on v5.18-rcN, since SV57 support is added, so convert
+> > >    pgtable_l5_enabled as well.
+> > > 
+> > > 
+> > > 
+> > > Jisheng Zhang (2):
+> > >   riscv: move sbi_init() earlier before jump_label_init()
+> > >   riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
+> > 
+> > I have tested both these patches on QEMU RV64 and RV32.
+> > 
+> > Tested-by: Anup Patel <anup@brainfault.org>
+> > 
+> > Thanks,
+> > Anup
+> 
+> Thanks for testing these.  Unfortunatly they're failing for me under my
+> kasan+sparsemem-vmemmap config, which looks like a defconfig with
+> 
+>    CONFIG_KASAN=y
+>    # CONFIG_FLATMEM_MANUAL is not set
+>    CONFIG_SPARSEMEM_MANUAL=y
+>    CONFIG_SPARSEMEM=y
+>    # CONFIG_SPARSEMEM_VMEMMAP is not set
 
-Fixes: 4905ec2fb7e6 ("RISC-V: Add sscofpmf extension support")
-Signed-off-by: Liang He <windhl@126.com>
----
- drivers/perf/riscv_pmu_sbi.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Hi Palmer,
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index dca3537a8dcc..705d249a1b53 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -666,12 +666,15 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
- 		child = of_get_compatible_child(cpu, "riscv,cpu-intc");
- 		if (!child) {
- 			pr_err("Failed to find INTC node\n");
-+			of_node_put(cpu);
- 			return -ENODEV;
- 		}
- 		domain = irq_find_host(child);
- 		of_node_put(child);
--		if (domain)
-+		if (domain) {
-+			of_node_put(cpu);
- 			break;
-+		}
- 	}
- 	if (!domain) {
- 		pr_err("Failed to find INTC IRQ root domain\n");
--- 
-2.25.1
+Thank you for the hint, I find the reason: SPARSEMEM is the key, KASAN
+doesn't matter. To fix this issue, we need to move
+riscv_finalise_pgtable_lx() after sparse_init(). I will send out a
+newer version soon.
 
+> 
+> Nothing's really jumping out and I'm not sure that's a super compelling
+> configuration, but IIRC it's found a handful of issues before so I'm not
+> sure it's sane to just toss it.
+> 
+> I've put this all on the riscv-pgtable_static_key branch of
+> kernel.org/palmer/linux .  If nobody has the time to look then I'll try and
+> give it another shot, but I'm pretty buried right now so happy to have the
+> help.
+
+Let me know if you want a seperate patch against
+riscv-pgtable_static_key branch.
+
+Thanks
+
+> 
+> > 
+> > > 
+> > >  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
+> > >  arch/riscv/include/asm/pgtable-32.h |  3 ++
+> > >  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
+> > >  arch/riscv/include/asm/pgtable.h    |  5 +--
+> > >  arch/riscv/kernel/cpu.c             |  4 +-
+> > >  arch/riscv/kernel/setup.c           |  2 +-
+> > >  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
+> > >  arch/riscv/mm/kasan_init.c          | 16 ++++----
+> > >  8 files changed, 104 insertions(+), 66 deletions(-)
+> > > 
+> > > --
+> > > 2.34.1
+> > > 
 
 _______________________________________________
 linux-riscv mailing list
