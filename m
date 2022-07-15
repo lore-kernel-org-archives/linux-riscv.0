@@ -4,80 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1745CCA482
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 19:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 465F2C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 23:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z2dGTeglm/JIuaKdEjkkh3hPW7Ax3RF9Qm/qswH72Us=; b=g4FrNhSDjPrMvH
-	N1hGrd6Bji/IXzBLE9SY+9Y4CyoLIyYRYo8raVKuUnQUUaZfs1njZd+2JuDzKQHPom6prU3LJMF3F
-	MNCAQE5fANfbmC4oP/1unAp0qQQQeeS0GVejo/QYxPLrPgZL0aXlkiklGWndmK9YWwR4nTdrAum3Y
-	IEBFrqCLsibRNexFJaS/rFE7Zeg2LIdqh8LVUAMBbeuI00IIMzl9kO6w+rTxghhkLMHsunCOfyXMw
-	n2sMqiv7+OgX/UBtsWxDiS+8thUZBPMKvxYww+4RoEpQ4gJHxOUQq0E9qiGTNEEIl1DByMaAxNLKV
-	0pudSJcTNH1hQBxwE5XQ==;
+	List-Owner; bh=R8tGvf4CnVIOf1cbnTjFz+ogCOfyLrAEbkJfK1XYyC0=; b=r/MYcmXZBMr47T
+	jsQwVmzIs8E3qCijo4AWV52gaElggmdMeHNXPTKYPM8lf9z4qum3l+Ofjwo75HqH8EfbPJ2AFEwcF
+	doXqmy0bdvbv22hVXvXim1l/MZAtUvmRcOUjit1WHskyMSnZxUV2Gknr8xs6jrlRm6QjF4XXB6ySW
+	R+kQXgbP87stCzFzmy8fsF8W53hVX5TwwBc/bo4HCzjT2ReXj9n428G7E5Ry/IwoPPoRaVaOVeE3x
+	55GE03LAuN9qchzjKLlqLnaWqzZhIfb7ge0ScUjbP8C/4lojMDeIeRjmJb2R0df9X17h8rpdZK6Op
+	8bPI3fWzi927Rjz4IoeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCR33-009nhW-Ou; Fri, 15 Jul 2022 19:32:25 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1oCUR4-00B0JN-2X; Fri, 15 Jul 2022 23:09:26 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCR31-009nda-HH
-	for linux-riscv@lists.infradead.org; Fri, 15 Jul 2022 19:32:25 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id p6so6747223ljc.8
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Jul 2022 12:32:19 -0700 (PDT)
+	id 1oCTiO-00Akp7-L0; Fri, 15 Jul 2022 22:23:18 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id a15so6872272pjs.0;
+        Fri, 15 Jul 2022 15:23:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=62LisgB4vdQ1c8/8kKz4C1ZR0gAFFmPHrTTuWUasxRc=;
-        b=I357LQfZoWHINcZeQOB0qENb6Wm1+23xXnjo8XkSmZKLJEzFpspjbAypIfyusq4IOA
-         wtLfUE0E++I5ViHa1WBkjLsa9pRMaElsmGv9UeCg0DKFIlwSeg+Z4ApouD1x3KxU6o8U
-         2nhnwZS2bJkJtVL+/iBuaLnZ/t45wrQKFA07cDsGQFFEAE7qQBCKyf6CPrXSzMCu3vKt
-         mNc12vbFt0QU05MaHiKUS3CHtj3JaHPZD+LQO3uxjyqezzuZkg98BA92P93zrogwpQkC
-         UAnCSDmbQo/DHTuq932KrHsIAiCZcfsSifethSJe5MVFC2xJ+yn+05GRU7W9gSopiH2C
-         S3/Q==
+        d=gmail.com; s=20210112;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to;
+        bh=Ou4ITJAtDpdEe2oGXNdiIauXOvcSg7DQL0fAZO9cl2U=;
+        b=Q8lGAoHw8McxXXPUu9JJi1XBb9QitejFhB3EEwl7pOmObYxg0niuVsgwD5pp+sh+vE
+         xuIKedL/WXyDOOgKJBNrsDZftnMo9VkkzEBAU07KrLja6rRFtcHKmFquU9rhG815UU2M
+         4qN1XN8OsBzeKfEo5BTfdcSUJQ2BwjYyJuOFMY1ANoellCCLxbAHe55abXJ7Zm6HvfQg
+         GKaa2Vtf5KUXirx9wqbsorAJO9z4sV3vRf0YDGd8uZXmu52ax/4hGUDH+Qk3BfTyJPaN
+         iAwhnKMbwb+t+CoQOhksE/3VAGMsc4nRaI5nIO7QpJ2agWHS8WCalQSMbeCbYh/XUxGP
+         0SVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=62LisgB4vdQ1c8/8kKz4C1ZR0gAFFmPHrTTuWUasxRc=;
-        b=N8IRS/nT73UkZMET0fD3uQ7cmLBWFM7s5FFyiQowJZyyecxfwX2vVZITvhL3TMrsNZ
-         KtgoR2MgIFX14AVymoe+xDl7lZ3Fpz6n2Xh5VP8JbXJNZBUpGl6Uj1P2ijBQ22/vpqYD
-         l9Iv7fKbaeUs+R2TgJZkZrXppqr3vAWtfTN5cs2gaE8QttZ06SGIyOvV+CS/M9RDpDhR
-         rIJx8fQqvo7BIF26r/PgP4g7P124miaSQDJv7na8n4lo3KXxcarItU7V0IS08k7L2Px/
-         ttflW1pcorXTNgR22PAdZfIbi5q7kEABwmom16Cv0HQVP5D/XBnF1gbuFhtuq8FECb4W
-         uOeg==
-X-Gm-Message-State: AJIora9aCV+ytuQO1pey37tWbLKEzvEyXFcvZBdAAh1h90MG7MFApn59
-	VDcfbfpvRZUdLi6U5f2zEOA4T8R0CJU2NsXmg3F07A==
-X-Google-Smtp-Source: AGRyM1vXl7wBE94PXzXIhMJnnOOI4FEuJNATilHuOmLU7pVA4YVkFPgDacg8SvhrLvy+nbmyEgKcJLDK1Vj/rnk63u8=
-X-Received: by 2002:a2e:be22:0:b0:25d:6179:4439 with SMTP id
- z34-20020a2ebe22000000b0025d61794439mr7834488ljq.369.1657913538165; Fri, 15
- Jul 2022 12:32:18 -0700 (PDT)
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to;
+        bh=Ou4ITJAtDpdEe2oGXNdiIauXOvcSg7DQL0fAZO9cl2U=;
+        b=7AvhPLxE2jmipVfeg6SpjFo9v9NDfDo9JZj6uqIeRvJgSAc1kS7Qg8C0zMEG9jdAym
+         bcp09dj0o9WwXyUAXsATIjkv+I2R0z0M7Wf3J0oY2FDPRcWH9HOwalvvP33qaJicntt3
+         ISgSsbHRAPrDZcUDlSmSVdQzep3BUqvOppPjEKy4fkxUYEqdMyYBaMAfrAyHLL9EjM7Y
+         reWi/ESlUx90gee32GyOZsBR9SPqKo/St5Ygt7vXq669ODS7qg6/AZbB6PFLZuoAE581
+         n5EHyy7MLf5UlkXeEAWWrCtYSEwRtDo5SKsIKEOlP/trEPt/PgEFo1GqVeILAa7ko0bs
+         5ZKw==
+X-Gm-Message-State: AJIora+NYWJPXi1CU57iow0xEWnu8aWK07Czvk63FBMDesnHQWuiCIK6
+	hZnotEmWeD3TUX523iU6FkA=
+X-Google-Smtp-Source: AGRyM1tY7KJ/8yKzDhwZuUT2Q/d9pehX12mE0ZjdresU33mAA0lNxgF0E239suZTF5xMlCXXfdaB4Q==
+X-Received: by 2002:a17:90b:3e8e:b0:1f0:1ac:5908 with SMTP id rj14-20020a17090b3e8e00b001f001ac5908mr17817321pjb.175.1657923792909;
+        Fri, 15 Jul 2022 15:23:12 -0700 (PDT)
+Received: from localhost ([2409:10:24a0:4700:e8ad:216a:2a9d:6d0c])
+        by smtp.gmail.com with ESMTPSA id j20-20020a170902759400b00161ccdc172dsm4013893pll.300.2022.07.15.15.23.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Jul 2022 15:23:12 -0700 (PDT)
+Date: Sat, 16 Jul 2022 07:23:10 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	linux-csky@vger.kernel.org,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	linux-um <linux-um@lists.infradead.org>,
+	linux-pci <linux-pci@vger.kernel.org>,
+	linux-arch <linux-arch@vger.kernel.org>,
+	David Woodhouse <dwmw2@infradead.org>
+Subject: Re: [RFC PATCH 2/2] asm-generic: Add new pci.h and use it
+Message-ID: <YtHozgXIkpyWHKth@antec>
+References: <20220714214657.2402250-1-shorne@gmail.com>
+ <20220714214657.2402250-3-shorne@gmail.com>
+ <CAK8P3a2_HKMf8nMcSkK1_jyCEHEdzz=YiRmPvN+ACbPTafXJzA@mail.gmail.com>
 MIME-Version: 1.0
-References: <20220618001618.1840806-1-seanjc@google.com> <19bba1a0-8fb7-2aae-a65a-1111e29b92d3@redhat.com>
- <YrHbml1HAfDtvMfn@google.com>
-In-Reply-To: <YrHbml1HAfDtvMfn@google.com>
-From: Peter Gonda <pgonda@google.com>
-Date: Fri, 15 Jul 2022 13:32:06 -0600
-Message-ID: <CAMkAt6p8_OUQ5rv7DsSjPX6_EUQV6TUn0L3Q4uT1B23e32PkSQ@mail.gmail.com>
-Subject: Re: [PATCH 0/3] KVM: selftests: Consolidate ucall code
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, James Morse <james.morse@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Atish Patra <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>, kvm list <kvm@vger.kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	LKML <linux-kernel@vger.kernel.org>, Colton Lewis <coltonlewis@google.com>, 
-	Andrew Jones <drjones@redhat.com>
+Content-Disposition: inline
+In-Reply-To: <CAK8P3a2_HKMf8nMcSkK1_jyCEHEdzz=YiRmPvN+ACbPTafXJzA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220715_123223_590433_B6D4B216 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20220715_152316_730696_5E7D46C9 
+X-CRM114-Status: GOOD (  31.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,32 +104,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 21, 2022 at 8:55 AM Sean Christopherson <seanjc@google.com> wrote:
->
-> On Mon, Jun 20, 2022, Paolo Bonzini wrote:
-> > On 6/18/22 02:16, Sean Christopherson wrote:
-> > > Consolidate the code for making and getting ucalls.  All architectures pass
-> > > the ucall struct via memory, so filling and copying the struct is 100%
-> > > generic.  The only per-arch code is sending and receiving the address of
-> > > said struct.
-> > >
-> > > Tested on x86 and arm, compile tested on s390 and RISC-V.
+On Fri, Jul 15, 2022 at 10:09:21AM +0200, Arnd Bergmann wrote:
+> On Thu, Jul 14, 2022 at 11:46 PM Stafford Horne <shorne@gmail.com> wrote:
 > >
-> > I'm not sure about doing this yet.  The SEV tests added multiple
-> > implementations of the ucalls in one architecture.  I have rebased those
-> > recently (not the SEV part) to get more familiar with the new kvm_vcpu API
-> > for selftests, and was going to look at your old review next...
->
-> I had forgotten about that code.  My idea of a per-VM list[*] would fit nicely on
-> top, though maybe drop the last patch from this series.
->
-> [*] https://lore.kernel.org/all/Yc4gcJdhxthBKUUd@google.com
+> > The asm/pci.h used for many newer architectures share similar
+> > definitions.  Move the common parts to asm-generic/pci.h to allow for
+> > sharing code.
+> 
+> This looks very nice, thanks for doing it!
+> 
+> > Two things to note are:
+> >
+> >  - isa_dma_bridge_buggy, traditionally this is defined in asm/dma.h but
+> >    these architectures avoid creating that file and add the definition
+> >    to asm/pci.h.
+> 
+> I would prefer if we could just kill off this variable for non-x86, as it's
+> only set to a nonzero value in two implementations that are both
+> x86-specific and most of the references are gone. That does not have
+> to be part of this series though, if you don't want to address it here, just
+> add a comment to the new pci.h file.
 
-I just sent an RFC of SEV selftesting using Sean's suggestion built on
-the first 2 patches in this series. I think they work well with the
-encrypted VMs ucalling.
+I will look at it, maybe in a v3.
 
-https://lore.kernel.org/all/20220715192956.1873315-1-pgonda@google.com/
+> >  - ARCH_GENERIC_PCI_MMAP_RESOURCE, csky does not define this so we
+> >    undefine it after including asm-generic/pci.h.  Why doesn't csky
+> >    define it?
+> 
+> Adding David Woodhouse to Cc, as he introduced this interface. As I
+> understand it, this was meant as a replacement for the old
+> architecture specific pci_mmap_page_range interface, and is ideally
+> used everywhere.
+> 
+> It's probably something that slipped through the review of csky and
+> should have been there.
+> 
+> As an aside, it seems the pci_mmap_page_range() cleanup was
+> left almost complete, with sparc being the only one left after
+> David Miller found a problem with the generic code. Not sure if
+> this was ever resolved:
+> https://lore.kernel.org/lkml/1519887203.622.3.camel@infradead.org/t/#u
+
+I see, I will leave it foe now.
+
+> > +#ifndef PCIBIOS_MIN_IO
+> > +#define PCIBIOS_MIN_IO         0
+> > +#endif
+> > +
+> > +#define PCIBIOS_MIN_MEM                0
+> 
+> We should probably #ifdef both of these for consistency.
+
+OK.
+
+> > +static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
+> > +{
+> > +       /* no legacy ide irq support */
+> > +       return -ENODEV;
+> > +}
+> 
+> And this can just go away now, according to what we found.
+
+Yeah, that will be nice.
+
+-Stafford
 
 _______________________________________________
 linux-riscv mailing list
