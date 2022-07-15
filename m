@@ -4,82 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A68C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 03:14:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E1E4C43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 03:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Za0dRju3gze19MFZB+yq2VnKB89i1TF7dDw+vtFJvrc=; b=cQZLHh93OwqlFN
-	nwr7XL1hqdlxXqG5H/RXDwTEAQvChgtnjX6BdKmGMbtkC1xQR/85+ZlBFieZ7zQ9eZs8k8EYDfTxm
-	OKMHmE3o/Ktq2w9MpAoUcTJ2xAtn20BA61CS4EWfDBXuDICq2P9BDubDXxfpblbUsiS5X8UJF1QXJ
-	uwbaZnsc419rT3+vL2wgY2aSByu4LEZKKSFbFZI3ffDvR9/WPWMCr8hbcFVVjoCUh2EECcI8aVmpe
-	R2YbDFpYyQnd3R4g7I0yZMomFUfkDXTfylUdiTx5ij2/pXfMxsnpJ5Dc/S5jXZsnhhEZM3Ujy4Zd4
-	2PCbOeqxQjSyW0ehEp+w==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	To:From:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IgSD2hN7lIKSAbLVIaZ1O6ODc6IozIesXD9yLm6QPU8=; b=DCHNTd08F+ADvolFbLVCOJFZaG
+	zD2Z/2G5U7gHs7BOdKMQueylYgtc04+b+qdQvhHmAZ3c8nl01yW9b24unIyEV0zbWPvmzFbQviH5Q
+	zJh7TUEmjCX3bjssa1I63m/aOMtg6TCoWdjqMbgKSqsr/iDshexmC/f8lS2PfMnLQ2PRQMXyh4O34
+	vHr/K0aNz2HFg08HX0AyHMKfO0gpba59K01UMv8vKCVjmC27RGg0cKuWTMKDfRCH4itJ9U/VpJ1uU
+	nSNrTBUduOp/tOLggxOFPjrkj3/79c744AkTDjTVFeZ8LtT0SUZIbMzySixl5Q3ifw3Nu0DSb4huf
+	3s3b7mFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCBlV-003p7z-TS; Fri, 15 Jul 2022 03:13:17 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1oCCIe-003udM-Ek; Fri, 15 Jul 2022 03:47:32 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCBlT-003p5d-TC; Fri, 15 Jul 2022 03:13:17 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 72so3311021pge.0;
-        Thu, 14 Jul 2022 20:13:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=message-id:date:mime-version:user-agent:subject:content-language:to
-         :cc:references:from:in-reply-to:content-transfer-encoding;
-        bh=0kNvzHNczTALecfT9wto6CsS50awskOSoxCbfvaNPgc=;
-        b=d6rOttoave+cYYycQLZVtn7+6/EvvZMoC4KlEKnu5+Iy0CvIZB6RZvM+yDNYgjVsg2
-         zExWP1Kt2mvHL2caS42uLQwLfFdIGT+vt+VNkOv6EFVEz1IJ1Ei1z/SUwomvWvL9yqs/
-         LsfjR3vwcHDm1bfvDdBsjVXVCIzYFoJ6KMcatcAC61WXc2/vMcOjiKCXnv0z+ZYpPW1D
-         29300GYk48m1QvWYlTwrWUJ2ga8Ap1QJw6DN92YdxZnF6aT4PwJr+48L7OzWyifSHnIo
-         bBliGjA2A7iI1JHvd2yG0VTITazqxx3xOm38zhCb9ZIUiYeXEPs2TlvdcILgJvPCljIq
-         R2+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-         :content-language:to:cc:references:from:in-reply-to
-         :content-transfer-encoding;
-        bh=0kNvzHNczTALecfT9wto6CsS50awskOSoxCbfvaNPgc=;
-        b=rNQXWA9zUhyoe5NcCKpnQ4EeEa9XPISo5RyHcjcTB42fr74jFGy0DaoU7p8JFmatPl
-         mMPsdoUi9itopTzM0fmztEAfcqnXbSLtLvqYzZfBsRqCJzhQyq4GYRWARtxl81egBqYd
-         qd7j8svyx996AU+O7jL5Zds5kZFC9vpeQTt+uFs6QMzp16FMjUb8xPtdFszpa0s14oU3
-         kYRSjFTrU6CEMpereUZjLMKxHXrbHcIDOvlLpwsKHZU+Z6OZGD2SlSJXetVck2GoVGRj
-         phc40CdXELmXRa2u25aCzkdQMSwiECvylmcj6zoGyAXUIpKc/sccV5Bdbbdm5AhkrC9K
-         PA2g==
-X-Gm-Message-State: AJIora9mcFk4w2P74kTARGvrbhQvoZ0yO9uCKOnyF5/os7n4+p4Cl/c/
-	PXpKiuo+NXIJ5SWK4Sa+oHs=
-X-Google-Smtp-Source: AGRyM1vK5uqkhNs5DYoiUnUKiOfj2RRKOpP4xHProAEOYr/w1Br1ZQPpNcitPwDkSe+/qgFCXMCFZg==
-X-Received: by 2002:a63:2051:0:b0:412:6d61:ab0a with SMTP id r17-20020a632051000000b004126d61ab0amr10627004pgm.52.1657854794876;
-        Thu, 14 Jul 2022 20:13:14 -0700 (PDT)
-Received: from [192.168.1.3] (ip72-194-116-95.oc.oc.cox.net. [72.194.116.95])
-        by smtp.gmail.com with ESMTPSA id d12-20020a170903230c00b0016c6a6d8967sm2236563plh.83.2022.07.14.20.13.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 14 Jul 2022 20:13:14 -0700 (PDT)
-Message-ID: <d95d1afe-655c-3526-0c7e-949dfad8c6ba@gmail.com>
-Date: Thu, 14 Jul 2022 20:13:12 -0700
+	id 1oCCIa-003uUn-Vk
+	for linux-riscv@lists.infradead.org; Fri, 15 Jul 2022 03:47:31 +0000
+Received: from dggpemm500024.china.huawei.com (unknown [172.30.72.56])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4LkcgB6lkCzjWyZ;
+	Fri, 15 Jul 2022 11:44:38 +0800 (CST)
+Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
+ dggpemm500024.china.huawei.com (7.185.36.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Fri, 15 Jul 2022 11:47:15 +0800
+Received: from [10.67.111.195] (10.67.111.195) by
+ dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Fri, 15 Jul 2022 11:47:15 +0800
+Subject: Re: [PATCH -next] riscv: lib: uaccess: fix CSR_STATUS SR_SUM bit
+From: chenlifu <chenlifu@huawei.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<akira.tsukamoto@gmail.com>, <jszhang@kernel.org>,
+	<wangkefeng.wang@huawei.com>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <alankao@andestech.com>
+References: <20220615014714.1650349-1-chenlifu@huawei.com>
+ <11a0698c-5726-15e8-2448-3529d2d0b098@huawei.com>
+Message-ID: <606b1f5a-ea1e-f756-a00b-6b622238b453@huawei.com>
+Date: Fri, 15 Jul 2022 11:47:01 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.9.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.0.2
-Subject: Re: [PATCH V12 01/20] uapi: simplify __ARCH_FLOCK{,64}_PAD a little
-Content-Language: en-US
-To: guoren@kernel.org, palmer@dabbelt.com, arnd@arndb.de,
- gregkh@linuxfoundation.org, hch@lst.de, nathan@kernel.org,
- naresh.kamboju@linaro.org
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- sparclinux@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-parisc@vger.kernel.org, linux-mips@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, x86@kernel.org, heiko@sntech.de
-References: <20220405071314.3225832-1-guoren@kernel.org>
- <20220405071314.3225832-2-guoren@kernel.org>
-From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <20220405071314.3225832-2-guoren@kernel.org>
+In-Reply-To: <11a0698c-5726-15e8-2448-3529d2d0b098@huawei.com>
+X-Originating-IP: [10.67.111.195]
+X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
+ dggpemm500001.china.huawei.com (7.185.36.107)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220714_201315_993234_6A5E0927 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20220714_204729_233929_68F63A32 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,67 +68,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/5/2022 12:12 AM, guoren@kernel.org wrote:
-> From: Christoph Hellwig <hch@lst.de>
-> 
-> Don't bother to define the symbols empty, just don't use them.
-> That makes the intent a little more clear.
-> 
-> Remove the unused HAVE_ARCH_STRUCT_FLOCK64 define and merge the
-> 32-bit mips struct flock into the generic one.
-> 
-> Add a new __ARCH_FLOCK_EXTRA_SYSID macro following the style of
-> __ARCH_FLOCK_PAD to avoid having a separate definition just for
-> one architecture.
-> 
-> Signed-off-by: Christoph Hellwig <hch@lst.de>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-> Tested-by: Heiko Stuebner <heiko@sntech.de>
-
-Being late to this, but this breaks the perf build for me using a MIPS 
-toolchain with the following:
-
-   CC 
-/home/fainelli/work/buildroot/output/bmips/build/linux-custom/tools/perf/trace/beauty/fcntl.o
-In file included from 
-../../../../host/mipsel-buildroot-linux-gnu/sysroot/usr/include/asm/fcntl.h:77,
-                  from ../include/uapi/linux/fcntl.h:5,
-                  from trace/beauty/fcntl.c:10:
-../include/uapi/asm-generic/fcntl.h:188:8: error: redefinition of 
-'struct flock'
-  struct flock {
-         ^~~~~
-In file included from ../include/uapi/linux/fcntl.h:5,
-                  from trace/beauty/fcntl.c:10:
-../../../../host/mipsel-buildroot-linux-gnu/sysroot/usr/include/asm/fcntl.h:63:8: 
-note: originally defined here
-  struct flock {
-         ^~~~~
-make[6]: *** 
-[/home/fainelli/work/buildroot/output/bmips/build/linux-custom/tools/build/Makefile.build:97: 
-/home/fainelli/work/buildroot/output/bmips/build/linux-custom/tools/perf/trace/beauty/fcntl.o] 
-Error 1
-
-the kernel headers are set to 4.1.31 which is arguably old but 
-toolchains using newer kernel headers do not fare much better either 
-unfortunately as I tried a toolchain with kernel headers 4.9.x.
-
-I will start doing more regular MIPS builds of the perf tools since that 
-seems to escape our testing.
-
-Thanks!
--- 
-Florian
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+Pj4gU2luY2UgY29tbWl0IDVkODU0NGUyZDAwNyAoIlJJU0MtVjogR2VuZXJpYyBsaWJyYXJ5IHJv
+dXRpbmVzIGFuZCAKPj4gYXNzZW1ibHkiKQo+PiBhbmQgY29tbWl0IGViY2JkNzVlMzk2MiAoInJp
+c2N2OiBGaXggdGhlIGJ1ZyBpbiBtZW1vcnkgYWNjZXNzIGZpeHVwIAo+PiBjb2RlIiksCj4+IGlm
+IF9fY2xlYXJfdXNlciBhbmQgX19jb3B5X3VzZXIgcmV0dXJuIGZyb20gYW4gZml4dXAgYnJhbmNo
+LAo+PiBDU1JfU1RBVFVTIFNSX1NVTSBiaXQgd2lsbCBiZSBzZXQsIGl0IGlzIGEgdnVsbmVyYWJp
+bGl0eSwgc28gdGhhdAo+PiBTLW1vZGUgbWVtb3J5IGFjY2Vzc2VzIHRvIHBhZ2VzIHRoYXQgYXJl
+IGFjY2Vzc2libGUgYnkgVS1tb2RlIHdpbGwgCj4+IHN1Y2Nlc3MuCj4+IERpc2FibGUgUy1tb2Rl
+IGFjY2VzcyB0byBVLW1vZGUgbWVtb3J5IHNob3VsZCBjbGVhciBTUl9TVU0gYml0Lgo+Pgo+PiBG
+aXhlczogNWQ4NTQ0ZTJkMDA3ICgiUklTQy1WOiBHZW5lcmljIGxpYnJhcnkgcm91dGluZXMgYW5k
+IGFzc2VtYmx5IikKPj4gRml4ZXM6IGViY2JkNzVlMzk2MiAoInJpc2N2OiBGaXggdGhlIGJ1ZyBp
+biBtZW1vcnkgYWNjZXNzIGZpeHVwIGNvZGUiKQo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBDaGVuIExp
+ZnUgPGNoZW5saWZ1QGh1YXdlaS5jb20+Cj4+IC0tLQo+PiDCoCBhcmNoL3Jpc2N2L2xpYi91YWNj
+ZXNzLlMgfCA0ICsrLS0KPj4gwqAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMiBk
+ZWxldGlvbnMoLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbGliL3VhY2Nlc3MuUyBi
+L2FyY2gvcmlzY3YvbGliL3VhY2Nlc3MuUwo+PiBpbmRleCA4YzQ3NWY0ZGEzMDguLmVjNDg2ZTUz
+NjlkOSAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9saWIvdWFjY2Vzcy5TCj4+ICsrKyBiL2Fy
+Y2gvcmlzY3YvbGliL3VhY2Nlc3MuUwo+PiBAQCAtMTczLDExICsxNzMsMTEgQEAgRU5UUlkoX19h
+c21fY29weV9mcm9tX3VzZXIpCj4+IMKgwqDCoMKgwqAgcmV0Cj4+IMKgwqDCoMKgwqAgLyogRXhj
+ZXB0aW9uIGZpeHVwIGNvZGUgKi8KPj4gwqAgMTA6Cj4+IMKgwqDCoMKgwqAgLyogRGlzYWJsZSBh
+Y2Nlc3MgdG8gdXNlciBtZW1vcnkgKi8KPj4gLcKgwqDCoCBjc3JzIENTUl9TVEFUVVMsIHQ2Cj4+
+ICvCoMKgwqAgY3NyYyBDU1JfU1RBVFVTLCB0Ngo+PiDCoMKgwqDCoMKgIG12IGEwLCB0NQo+PiDC
+oMKgwqDCoMKgIHJldAo+PiDCoCBFTkRQUk9DKF9fYXNtX2NvcHlfdG9fdXNlcikKPj4gwqAgRU5E
+UFJPQyhfX2FzbV9jb3B5X2Zyb21fdXNlcikKPj4gwqAgRVhQT1JUX1NZTUJPTChfX2FzbV9jb3B5
+X3RvX3VzZXIpCj4+IEBAIC0yMjUsMTAgKzIyNSwxMCBAQCBFTlRSWShfX2NsZWFyX3VzZXIpCj4+
+IMKgwqDCoMKgwqAgaiAzYgo+PiDCoMKgwqDCoMKgIC8qIEV4Y2VwdGlvbiBmaXh1cCBjb2RlICov
+Cj4+IMKgIDExOgo+PiDCoMKgwqDCoMKgIC8qIERpc2FibGUgYWNjZXNzIHRvIHVzZXIgbWVtb3J5
+ICovCj4+IC3CoMKgwqAgY3NycyBDU1JfU1RBVFVTLCB0Ngo+PiArwqDCoMKgIGNzcmMgQ1NSX1NU
+QVRVUywgdDYKPj4gwqDCoMKgwqDCoCBtdiBhMCwgYTEKPj4gwqDCoMKgwqDCoCByZXQKPj4gwqAg
+RU5EUFJPQyhfX2NsZWFyX3VzZXIpCj4+IMKgIEVYUE9SVF9TWU1CT0woX19jbGVhcl91c2VyKQo+
+Pgo+IAo+IGZyaWVuZGx5IHBpbmcgLi4uCj4gCgpmcmllbmRseSBwaW5nIC4uLgoKPiBfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cj4gLgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
