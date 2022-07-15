@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3575C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 07:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD533C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 07:48:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ze/b7b5TblkXK5srNDjRWxDey3UdkbBxvx4U5QAnPn8=; b=qqhZFE3EbpqWHc
-	r2DwqYcRwK8EGeCAKLLEvh1qScJCa6BoCH+86M3C70tlA+EiHCyo2+35/JOzU7XOhAV2x46fgLBoB
-	RKIUwDJC7Rf+o6O/cNHRfdMu3BVIjnDYIMe1FIpy2jbdsg+669bgyuEkI9gqeTVkSFjUzA7WWWMmv
-	pSk9knrhqHFfit72a3xWR2O9BNN9F7fAZaAPm63vF/jV7GUoEhmNF57M2IOMy8wf5cqZiNffUzty5
-	71pDQ1t768jSKotr5h9ufIDQWwhBtZ5VIwrQWqSTuhtzUw6Gw3NlpDQjP5Zpk7WRN+ZtVZkYIxtXU
-	sP1FnQRZ4ZzMW3FxbLsA==;
+	List-Owner; bh=YpKSzR8ZpicEio2RBT+sKLgYauWDj2QqpZ9WpJg3fZg=; b=GUEuYsmSl2QF/p
+	IYsXSzwV86w5Xs5Brp1BVQvJSxAvCJyHP3zM20sDPPCYf/D1zBmCkwlIylY4P2/7GVDV2499NZq50
+	+NQk19j2e5ySursBr8GcVHblj3aHevB1G9o313RQcdPKh/qCheDoBV+jEc7fzIfeqlxpeKpMp4PFf
+	y5CESbn5cCF3R0zxq+fn/M9HCB3AzThofBV0JAyUitmeaaZD/Ycw+3An9DYO3tfxCQwlolpnT0Fvq
+	8u6YXJjnh3jWj9AyLCplA3ONZLB4pG62wj2q4lmiOLdADnWXDDw+OvFmoLpEjuCyfOJmCjywhRHJF
+	UJLIU4mtAtlhuYK2BQxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCFwP-004zTO-Ce; Fri, 15 Jul 2022 07:40:49 +0000
-Received: from mout.kundenserver.de ([212.227.17.13])
+	id 1oCG3g-00526j-85; Fri, 15 Jul 2022 07:48:20 +0000
+Received: from mail-qv1-f53.google.com ([209.85.219.53])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCFwM-004zOU-5x
-	for linux-riscv@lists.infradead.org; Fri, 15 Jul 2022 07:40:47 +0000
-Received: from mail-ot1-f46.google.com ([209.85.210.46]) by
- mrelayeu.kundenserver.de (mreue106 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1Msqpq-1nNr8q3UIC-00tGC8 for <linux-riscv@lists.infradead.org>; Fri, 15
- Jul 2022 09:40:41 +0200
-Received: by mail-ot1-f46.google.com with SMTP id r22-20020a056830419600b0061c6edc5dcfso2944756otu.12
-        for <linux-riscv@lists.infradead.org>; Fri, 15 Jul 2022 00:40:38 -0700 (PDT)
-X-Gm-Message-State: AJIora90JHkVoIpEleeve56ibiSbWru7EvqB3DAr1RfGu9GRx4gv6/4D
-	6ai74K1lUpiXXCnMWKD7lugFe/OXxYLQn5VRjTw=
-X-Google-Smtp-Source: AGRyM1uqN7hbJWu1Kc45V1df/TuEhLpRBy0jFrUgJKDcJEoO7ehMJuFR6t3QFdid1eQbrmQCLxECRTpajxA3X2Ob8Ys=
-X-Received: by 2002:a81:1e4d:0:b0:31c:86f1:95b1 with SMTP id
- e74-20020a811e4d000000b0031c86f195b1mr14141207ywe.42.1657870826723; Fri, 15
- Jul 2022 00:40:26 -0700 (PDT)
+	id 1oCG3d-00525D-Ku
+	for linux-riscv@lists.infradead.org; Fri, 15 Jul 2022 07:48:19 +0000
+Received: by mail-qv1-f53.google.com with SMTP id kh20so3193773qvb.5
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Jul 2022 00:48:15 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=JbVpr0R59qtPw7baWfpBEgK5+t95ngcNjWBuGYLeZHA=;
+        b=GqZXy7gdbQ0cFbFh72GwbLGuPqggVSRZes9EJAjnnLsqpTK+x8K6+hD4y1TvcdBupa
+         P3+0wRvYKhJDMJuxqPDlUYPYPQPbiQyu9FR2Z8PORzcWneC+o0utxTLoITPEiZYNaDL/
+         I3I/ZydWMhcgHI/tY1b5+3MDoCdK++nhgGyEadWCBfUf99ZlLjxHRhEbv7NAd5t/2IPq
+         uc2P6UEsziQXahEg8I7iTV3FXYKtoK49pSKVZiJ+6IiM78wHDAozL/ozjKsOOCLzYEUP
+         E3uyzGV2gr38fKMtG4BnB6XUnUZap0k3HqhHOhl94uTIL9px1JBCMXrbGx7BNmRaB6Zs
+         bvOA==
+X-Gm-Message-State: AJIora8PU7NHCPpFmDW5v7TItrG4Qu8MbmfYzXTQzVNapN99+FGXYJiz
+	vwTa97D0EvCZIA4vIkjNWoLOx756loEXMg==
+X-Google-Smtp-Source: AGRyM1vNTehDr7Vxb5aPoCJLpRkG0MtS/DTRosBjA6nItseP4wr8BEMi/OKodJa4MCq1K205y90kqg==
+X-Received: by 2002:a0c:b414:0:b0:473:8ccb:3811 with SMTP id u20-20020a0cb414000000b004738ccb3811mr11006458qve.65.1657871294522;
+        Fri, 15 Jul 2022 00:48:14 -0700 (PDT)
+Received: from mail-yb1-f172.google.com (mail-yb1-f172.google.com. [209.85.219.172])
+        by smtp.gmail.com with ESMTPSA id bl25-20020a05620a1a9900b006a787380a5csm3481460qkb.67.2022.07.15.00.48.11
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 15 Jul 2022 00:48:12 -0700 (PDT)
+Received: by mail-yb1-f172.google.com with SMTP id l11so7147772ybu.13
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Jul 2022 00:48:11 -0700 (PDT)
+X-Received: by 2002:a25:2b48:0:b0:668:3b7d:326c with SMTP id
+ r69-20020a252b48000000b006683b7d326cmr12451089ybr.380.1657871291234; Fri, 15
+ Jul 2022 00:48:11 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220714214657.2402250-1-shorne@gmail.com> <20220714214657.2402250-2-shorne@gmail.com>
- <CAMo8BfKkGRHiFq1vu1ZKkURkUqC+Ee7D42yuKrCeDF+578s9cw@mail.gmail.com>
-In-Reply-To: <CAMo8BfKkGRHiFq1vu1ZKkURkUqC+Ee7D42yuKrCeDF+578s9cw@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 15 Jul 2022 09:40:10 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a3S5crDdUcO0kAgOLVGYgXnkU9D3uo44Wrcu5LdAWCGoQ@mail.gmail.com>
-Message-ID: <CAK8P3a3S5crDdUcO0kAgOLVGYgXnkU9D3uo44Wrcu5LdAWCGoQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/2] asm-generic: Remove pci.h copying code out to architectures
-To: Max Filippov <jcmvbkbc@gmail.com>
-Cc: Stafford Horne <shorne@gmail.com>, LKML <linux-kernel@vger.kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Richard Henderson <rth@twiddle.net>, 
-	Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner <mattst88@gmail.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, "David S. Miller" <davem@davemloft.net>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, 
-	"maintainer:X86 ARCHITECTURE..." <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Chris Zankel <chris@zankel.net>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Nick Child <nick.child@ibm.com>, Niklas Schnelle <schnelle@linux.ibm.com>, 
-	Matthew Rosato <mjrosato@linux.ibm.com>, Pierre Morel <pmorel@linux.ibm.com>, 
-	Kees Cook <keescook@chromium.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	"open list:ALPHA PORT" <linux-alpha@vger.kernel.org>, 
-	"open list:IA64 (Itanium) PL..." <linux-ia64@vger.kernel.org>, 
-	"open list:M68K ARCHITECTURE" <linux-m68k@lists.linux-m68k.org>, 
-	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, linux-s390 <linux-s390@vger.kernel.org>, 
-	"open list:SPARC + UltraSPAR..." <sparclinux@vger.kernel.org>, 
-	"open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>, linux-pci <linux-pci@vger.kernel.org>, 
-	Linux-Arch <linux-arch@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>
-X-Provags-ID: V03:K1:Avbat61dsLnm3o51p21BI4Sbn0YkAzKRPsy4HszdEzwVmHk3Vls
- ik4ZFThR3KOQqvz1sk/ov9UXJGEPLn6lnmejoZ81WZYThKpa0gl1BL8pk1ifZ21GUz5Owh9
- vQiPtovWBKNvVeH37Md1aVQRb9kxXrhrIwV5DaH56Ti2UALezW7TsvAnONjSqeDC4sgwjBE
- KD5uLwSGQ1EnYZ2HExKQw==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:qsRKztP8lZM=:a2WCuYyzNklUpHm/n6XG4s
- nT28N+zuVVx675o+HMU/FG23E9uGXY/221b3mB+E/QFxOmuL1x+6lHCR5K8DMVq0lejPuqWT6
- fVihb7/V7io4KUstIjSVAdbDqqcYD7HCY9czP7njKaENXpjg1QGFGqdUhLZ0/ls6q35SMQV9b
- Tkc+M8ZcN7s9gKcuVvA+zM3yoMhYpF+QZi9lsk846WBsfbveFEoZCjXfAA4wCb6SdE8WrCmCu
- 1mjXSOI2p6LISYE9WIJ3km9Z5MPprfiaHBbsPbJ6fHwDh2nN5qH/U38RW8KsE0Vns48x/6MBu
- 1csGmX57/5OAg6dhrpOxuE89DvPqKyqJMSebS31wUdNTCyGzGhn2PBnLlc1jlGiSq+xXTZcIW
- Yl5oBHtJNz4HK5x9OAsQ0Ufu6rB3ylsLCCujUuRwiTs1wCSw9fTvH6PF5KHqNUh5XMtVCxavo
- TA8jUiCQNITHZ2Q2tGCjk/hPS62BzxIa0TDQX+Ibhl6wkKtM8OJJ3m5vZS8D0+bJXlMeQ7L6Y
- hxMuvloHo75NFBtoxEjLfWkII+uwFMrCGgVcdsbSiQsOt/1TTvQHKDprW9aWiJMsXwSjPq3vp
- sITqwipfbZ1TqFbARJ9r+WxRdgiGB7zeLBUGCTYF3MgceRT1J5wX9WsokgsoP0x8UjXkDeizJ
- aYhSY8ktJKsdN9WvmaWxtXlccjqXv3ueLhqC2WX2m6tSByDwrqPHsRM5WGwnFdFj7I5gklZXQ
- TPQZKdNXb6CE9zShWs7gb81P0LHSjQoSACCvEaOxxvHu/Ykw6tKckSifoqOFYIKBIDidyPomE
- VWJv2JG4MbHgEPpTF0IIWKTerLuMSgqvpDRKf0svxgqnZF5dGG5jcN5w6oXjbIW37sreT/CAj
- 5LcwQPAA+EBOqCzw/W0g==
+References: <20220521193356.26562-1-palmer@rivosinc.com>
+In-Reply-To: <20220521193356.26562-1-palmer@rivosinc.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 15 Jul 2022 09:47:58 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVJ7bhPka0acgw2wAZmsgDP2+tbqS7fO2A=_BOmv+8+HA@mail.gmail.com>
+Message-ID: <CAMuHMdVJ7bhPka0acgw2wAZmsgDP2+tbqS7fO2A=_BOmv+8+HA@mail.gmail.com>
+Subject: Re: [PATCH v3] RISC-V: Add CONFIG_{NON,}PORTABLE
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv <linux-riscv@lists.infradead.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Randy Dunlap <rdunlap@infradead.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>, 
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>, 
+	Damien Le Moal <damien.lemoal@opensource.wdc.com>, Atish Patra <atishp@rivosinc.com>, 
+	Jens Axboe <axboe@kernel.dk>, Guo Ren <guoren@kernel.org>, mchitale@ventanamicro.com, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, linux@rivosinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220715_004046_526594_1DEC1446 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20220715_004817_707933_52DA0C33 
+X-CRM114-Status: GOOD (  27.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +89,92 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 15, 2022 at 3:45 AM Max Filippov <jcmvbkbc@gmail.com> wrote:
-> On Thu, Jul 14, 2022 at 2:47 PM Stafford Horne <shorne@gmail.com> wrote:
+Hi Palmer,
+
+On Sat, May 21, 2022 at 10:49 PM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+> From: Palmer Dabbelt <palmer@rivosinc.com>
 >
-> > +static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
-> > +{
-> > +       return channel ? 15 : 14;
-> > +}
+> The RISC-V port has collected a handful of options that are
+> fundamentally non-portable.  To prevent users from shooting themselves
+> in the foot, hide them all behind a config entry that explicitly calls
+> out that non-portable binaries may be produced.
 >
-> This addition does not make sense for the xtensa as it isn't even possible
-> to enable PNP support (the only user of this function) on xtensa.
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-Nice catch! I had looked at this function earlier and only tried to infer
-which architectures might have this based on who has those interrupt
-numbers reserved for ISA devices, but looking at CONFIG_PNP is clearly
-better here.
+Thanks for your patch, which is now commit 44c1e84a38a03175 ("RISC-V:
+Add CONFIG_{NON,}PORTABLE") in riscv/for-next
 
-PNP depends on "ISA || ACPI", and this already rules out most
-architectures. The remaining ones are:
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -222,6 +222,21 @@ source "arch/riscv/Kconfig.erratas"
+>
+>  menu "Platform type"
+>
+> +config NONPORTABLE
+> +       bool "Allow configurations that result in non-portable kernels"
+> +       help
+> +         RISC-V kernel binaries are compatible between all known systems
+> +         whenever possible, but there are some use cases that can only be
+> +         satisfied by configurations that result in kernel binaries that are
+> +         not portable between systems.
+> +
+> +         Selecting N does not guarantee kernels will be portable to all known
+> +         systems.  Selecting any of the options guarded by NONPORTABLE will
+> +         result in kernel binaries that are unlikely to be portable between
+> +         systems.
+> +
+> +         If unsure, say N.
 
-* x86, ia64, alpha: These clearly use PNP based on-board devices on
-   common machines, and use PC-style interrupts
+Doing it this way means allmodconfig will enable NONPORTABLE, which
+may not be what we want?
 
-* arm64, loongarch: These select PNP when ACPI is enabled. I don't
-   think they actually use PNP, but for the moment the function needs to
-  be defined, probably returning 0. Loongarch still lacks PCI support
-  though, so asm/pci.h is not yet there.
+> +
+>  choice
+>         prompt "Base ISA"
+>         default ARCH_RV64I
 
-* arm, mips, powerpc: Only a few older machines in each of these
-  support ISA devices, and the function is probably machine specific.
-  These all have a custom pci.h already and don't use the asm-generic
-  version.
+> @@ -554,7 +571,7 @@ config PHYS_RAM_BASE
+>
+>  config XIP_KERNEL
+>         bool "Kernel Execute-In-Place from ROM"
+> -       depends on MMU && SPARSEMEM
+> +       depends on MMU && SPARSEMEM && NONPORTABLE
 
-* m68k: there are two that enable CONFIG_ISA and one that enables
-  CONFIG_PCI, but nothing that has both, so we don't need this
-  function.
+Nice! Would we get something like this on arm32 past rmk?
 
-In summary, I think only x86 actually uses this function, and it is
-correct there, everything else either has its own implementation
-or does not need it, so the existing asm-generic/pci.h file can
-just be folded into the x86 asm/pci.h. That is a great cleanup.
+>         # This prevents XIP from being enabled by all{yes,mod}config, which
+>         # fail to build since XIP doesn't support large kernels.
+>         depends on !COMPILE_TEST
+> @@ -594,9 +611,16 @@ endmenu
+>
+>  config BUILTIN_DTB
+>         bool
+> -       depends on OF
+> +       depends on OF && NONPORTABLE
+>         default y if XIP_KERNEL
+>
+> +config PORTABLE
+> +       bool
+> +       default !NONPORTABLE
+> +       select EFI
+> +       select OF
+> +       select MMU
+> +
+>  menu "Power management options"
+>
 
-        Arnd
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
