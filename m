@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDD49C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 17:02:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E46E7C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 15 Jul 2022 17:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cFvhifZhGpcQ4xsuf27iLTzVUT8sO24erQW54n4KwIs=; b=mN2jasuxGcvh4O
-	eA1ja3wYUbJ/GjDq4S6QhKuF9WTSOKC1Ti7pxxx/kKgQC7CJomeEaFnHzyhI++RxoL7MwSxiaXMqS
-	f22XoeMp+DCzMdTtW/WEKCB0QwBNIAVLzWB9OVW2VgVSSqN08i7OMs9jnFpiD4/2W6Qu/5mmYb28i
-	T1fFoK5eFvAZ7SPqMF2ZrTuFQrtjP+MJvqTffrtvQJq9wakLg0f7LQzOKdZ9Mpjg786eoBLiVW4t1
-	hgblYVtt4m6HL9cX3Cyv513MXhF4HfsXNVOKPDXXUV1mVGWL3gj38MS5t+1kmbUYidWZ0uRMBBueu
-	wuVcTPIgrOOrF65EHEjQ==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=N/JNtck6HiA8Ef+sCGuvOCEAmOvCVIxl+D4XCvCvVm0=; b=pmgKP7EHshaiew
+	20nggeUQZ0Rr+/GLNaRgxbGh091nBby/xlXVGYSgQVuENmQRuM2RRINKpYHRFUyz2ZP9RJIKF2t19
+	kGgPUa2hepJXfMN9kgfcRXM5Gc2fBbfqOqD3KSjOhe2chACNizd8ZtyOF2TAN1C+Whu6wVcurfAc0
+	UywD9X8ACD72BQEypJwoFXoD9PEKLTTke5GvJa7Vw4CFYAnI4r+6x0gMHnf68CqhpF+oIGnX9/if7
+	PnYlW0qB00tNV4XhabE23zdQicWT3RyLMhwjiMmLfRf+5psN6YE03+GVSPtmCnGSW4O4+tOCdpxct
+	HB52jAkl6yj20OXDW4WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCOhp-0090wv-Q1; Fri, 15 Jul 2022 17:02:21 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oCP9p-009AdZ-7W; Fri, 15 Jul 2022 17:31:17 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCOhn-0090vP-3R
-	for linux-riscv@lists.infradead.org; Fri, 15 Jul 2022 17:02:20 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 63BEFB82D22;
-	Fri, 15 Jul 2022 17:02:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59449C34115;
-	Fri, 15 Jul 2022 17:02:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1657904536;
-	bh=RneAB0zwL0Agua+ah8JJepJ4SyYzz9VQDMDzjZbNKm4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ewKkhklagPG8bQsRIeV3HeDAxKqJKsZpn4wuGiaNLGKmjYwWs6iDNwf6G+5acFVzZ
-	 nG9wSPVDoxMoluF8DqomLr8B8IUG3RQQ6Oz9hiWwB3BwknxTNP3fNRKp/nkC8800Ec
-	 JRL6S5V5HqPSR/bZCeSBObFRW5bTniT3msAfPWcsfSgYa7JuP9/SMvJ3y82TXydOEj
-	 oyUYKn7QMBvzwH730YcR2yCM1u2Ivh/yeLSWEsISJp3z4Xc5OfHU6xBxGndI/maZOp
-	 +a97+6bMd8Rypk9eK8NoDLIa+VD956MR8efgMH6NCPqf//Y+564ZNPQ6LG9vVfHLZ3
-	 St0qO1l9uYHXA==
-Date: Sat, 16 Jul 2022 00:53:18 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com, Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH v5 2/2] riscv: turn pgtable_l4|[l5]_enabled to static key
- for RV64
-Message-ID: <YtGbfmEl7/IkQxZp@xhacker>
-References: <20220715134847.2190-1-jszhang@kernel.org>
- <20220715134847.2190-3-jszhang@kernel.org>
- <CAJM55Z8JCePV8YRheyrsO1qQie79NM_-w-cYbNaJy-HLOtPfrw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAJM55Z8JCePV8YRheyrsO1qQie79NM_-w-cYbNaJy-HLOtPfrw@mail.gmail.com>
+	id 1oCP9m-009AcS-5x
+	for linux-riscv@lists.infradead.org; Fri, 15 Jul 2022 17:31:15 +0000
+Received: by mail-pf1-x432.google.com with SMTP id w185so5213401pfb.4
+        for <linux-riscv@lists.infradead.org>; Fri, 15 Jul 2022 10:31:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=date:subject:cc:from:to:message-id;
+        bh=Zz8Y77yoAGNRfrRZsS32slqkoRu0n2tXilRPTny1hNk=;
+        b=U+HKY/vtJgiL6UI2Gho2wjd2mWjcGrbj6+j9CQ1oTRQk7ptpDKp2u9+Ki0ZW+sBIbf
+         NxJRSvvPdkdiN0sT2Ccz44VD0NxFZL1r2gSvczreME+0oiZezv8MU4Qjwj2Qn4w1xAWy
+         U42bC7no0E91NFnaMDU8Qpu5WV27GOFrrjemuxwmAaLnNBPRUY6gvsJG9B/yzwGSpgR2
+         uUYKCLXaiBgOGrZVk2ODbC4d9foXbk/I2L++BxvaesgQjVTOUTQLiJLSntB1nSZz1SM1
+         7Hi7MyoXiIjS5wzsrti3LKGJaYeG80gqMS9gJ4Ay27kdYMgYGlIm8R5Xi6LpRqcZUIz0
+         YNWA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:subject:cc:from:to:message-id;
+        bh=Zz8Y77yoAGNRfrRZsS32slqkoRu0n2tXilRPTny1hNk=;
+        b=0r+1DpUKotj89zPrUaPqyOl3zHx8YGBfeRe/NweucUY3Kx8Vl3Kaya2Y/8rg6EUvv1
+         eElFP3RLVXGJoC9+oCcSs05G2waK3EgodCDHNqnHoQIw2d+ls3p4iDip8EoKRSVVthSc
+         20EkLQiC0N1+MDqtdNx6ouMUH3PlZoeloPl64vdggoMmFuI7q0AmA41wDV2AjBYK1SQS
+         Fwy9f09UzKuXrUG39h+1I2LOClRv0ZeOwoSZDL6kh1n0zPfpnvG4TJxl5O7EgvOE6UM2
+         VeKAxtxdIv9YeoANbMkcgCaRbBj857vtxfV4rLvPKARtQ+cRINY8FGAWuV67am/KSP08
+         fNhA==
+X-Gm-Message-State: AJIora9R++ApUdDIkhdw3bTjr1JaeVoTWjr/kvtYHGKdRktQMiKU+z1i
+	cCW9zE5kg7P7ni6MevceJlH6KktEgrL8PQ==
+X-Google-Smtp-Source: AGRyM1uK6H62+1FI7CSjQPix+i5ysBrKbtH/rgd1suwn/D7CP71+5XnCnfYwW5dIr5nQ5w5uqvJE+A==
+X-Received: by 2002:a05:6a00:1908:b0:525:5dad:cb1c with SMTP id y8-20020a056a00190800b005255dadcb1cmr15080303pfi.47.1657906270704;
+        Fri, 15 Jul 2022 10:31:10 -0700 (PDT)
+Received: from localhost ([50.221.140.186])
+        by smtp.gmail.com with ESMTPSA id 125-20020a620483000000b00528c4c770c5sm4134320pfe.77.2022.07.15.10.31.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 15 Jul 2022 10:31:09 -0700 (PDT)
+Date: Fri, 15 Jul 2022 10:31:09 -0700 (PDT)
+X-Google-Original-Date: Fri, 15 Jul 2022 10:31:01 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 5.19-rc7
+CC: linux-kernel@vger.kernel.org,         linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-077c44de-b969-4894-9547-066c73040835@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220715_100219_472355_38FFB1DA 
-X-CRM114-Status: GOOD (  24.84  )
+X-CRM114-CacheID: sfid-20220715_103114_432265_43797B5C 
+X-CRM114-Status: UNSURE (   6.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,151 +78,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 15, 2022 at 05:04:38PM +0200, Emil Renner Berthing wrote:
-> On Fri, 15 Jul 2022 at 15:59, Jisheng Zhang <jszhang@kernel.org> wrote:
-> > On a specific HW platform, pgtable_l4|[l5]_enabled won't change after
-> > boot, and the check sits at hot code path, this characteristic makes it
-> > suitable for optimization with static key.
-> >
-> > _pgtable_l4|[l5]_enabled is used very early during boot, even is used
-> > with MMU off, so the static key mechanism isn't ready. For this case,
-> > we use another static key _pgtable_lx_ready to indicate whether we
-> > have finalised pgtable_l4|[l5]_enabled or not, then fall back to
-> > _pgtable_l4|[l5]_enabled_early bool.
-> >
-> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> > Reviewed-by: Anup Patel <anup@brainfault.org>
-> > ---
-> >  arch/riscv/include/asm/pgalloc.h    | 16 ++++----
-> >  arch/riscv/include/asm/pgtable-32.h |  3 ++
-> >  arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
-> >  arch/riscv/include/asm/pgtable.h    |  5 +--
-> >  arch/riscv/kernel/cpu.c             |  4 +-
-> >  arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
-> >  arch/riscv/mm/kasan_init.c          | 16 ++++----
-> >  7 files changed, 103 insertions(+), 65 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/pgalloc.h b/arch/riscv/include/asm/pgalloc.h
-> > index 947f23d7b6af..0280eeb4756f 100644
-> > --- a/arch/riscv/include/asm/pgalloc.h
-> > +++ b/arch/riscv/include/asm/pgalloc.h
-> > @@ -41,7 +41,7 @@ static inline void pud_populate(struct mm_struct *mm, pud_t *pud, pmd_t *pmd)
-> >
-> >  static inline void p4d_populate(struct mm_struct *mm, p4d_t *p4d, pud_t *pud)
-> >  {
-> > -       if (pgtable_l4_enabled) {
-> > +       if (pgtable_l4_enabled()) {
-> >                 unsigned long pfn = virt_to_pfn(pud);
-> >
-> >                 set_p4d(p4d, __p4d((pfn << _PAGE_PFN_SHIFT) | _PAGE_TABLE));
-> > @@ -51,7 +51,7 @@ static inline void p4d_populate(struct mm_struct *mm, p4d_t *p4d, pud_t *pud)
-> >  static inline void p4d_populate_safe(struct mm_struct *mm, p4d_t *p4d,
-> >                                      pud_t *pud)
-> >  {
-> > -       if (pgtable_l4_enabled) {
-> > +       if (pgtable_l4_enabled()) {
-> >                 unsigned long pfn = virt_to_pfn(pud);
-> >
-> >                 set_p4d_safe(p4d,
-> > @@ -61,7 +61,7 @@ static inline void p4d_populate_safe(struct mm_struct *mm, p4d_t *p4d,
-> >
-> >  static inline void pgd_populate(struct mm_struct *mm, pgd_t *pgd, p4d_t *p4d)
-> >  {
-> > -       if (pgtable_l5_enabled) {
-> > +       if (pgtable_l5_enabled()) {
-> >                 unsigned long pfn = virt_to_pfn(p4d);
-> >
-> >                 set_pgd(pgd, __pgd((pfn << _PAGE_PFN_SHIFT) | _PAGE_TABLE));
-> > @@ -71,7 +71,7 @@ static inline void pgd_populate(struct mm_struct *mm, pgd_t *pgd, p4d_t *p4d)
-> >  static inline void pgd_populate_safe(struct mm_struct *mm, pgd_t *pgd,
-> >                                      p4d_t *p4d)
-> >  {
-> > -       if (pgtable_l5_enabled) {
-> > +       if (pgtable_l5_enabled()) {
-> >                 unsigned long pfn = virt_to_pfn(p4d);
-> >
-> >                 set_pgd_safe(pgd,
-> > @@ -82,7 +82,7 @@ static inline void pgd_populate_safe(struct mm_struct *mm, pgd_t *pgd,
-> >  #define pud_alloc_one pud_alloc_one
-> >  static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
-> >  {
-> > -       if (pgtable_l4_enabled)
-> > +       if (pgtable_l4_enabled())
-> >                 return __pud_alloc_one(mm, addr);
-> >
-> >         return NULL;
-> > @@ -91,7 +91,7 @@ static inline pud_t *pud_alloc_one(struct mm_struct *mm, unsigned long addr)
-> >  #define pud_free pud_free
-> >  static inline void pud_free(struct mm_struct *mm, pud_t *pud)
-> >  {
-> > -       if (pgtable_l4_enabled)
-> > +       if (pgtable_l4_enabled())
-> >                 __pud_free(mm, pud);
-> >  }
-> >
-> > @@ -100,7 +100,7 @@ static inline void pud_free(struct mm_struct *mm, pud_t *pud)
-> >  #define p4d_alloc_one p4d_alloc_one
-> >  static inline p4d_t *p4d_alloc_one(struct mm_struct *mm, unsigned long addr)
-> >  {
-> > -       if (pgtable_l5_enabled) {
-> > +       if (pgtable_l5_enabled()) {
-> >                 gfp_t gfp = GFP_PGTABLE_USER;
-> >
-> >                 if (mm == &init_mm)
-> > @@ -120,7 +120,7 @@ static inline void __p4d_free(struct mm_struct *mm, p4d_t *p4d)
-> >  #define p4d_free p4d_free
-> >  static inline void p4d_free(struct mm_struct *mm, p4d_t *p4d)
-> >  {
-> > -       if (pgtable_l5_enabled)
-> > +       if (pgtable_l5_enabled())
-> >                 __p4d_free(mm, p4d);
-> >  }
-> >
-> > diff --git a/arch/riscv/include/asm/pgtable-32.h b/arch/riscv/include/asm/pgtable-32.h
-> > index 59ba1fbaf784..1ef52079179a 100644
-> > --- a/arch/riscv/include/asm/pgtable-32.h
-> > +++ b/arch/riscv/include/asm/pgtable-32.h
-> > @@ -17,6 +17,9 @@
-> >
-> >  #define MAX_POSSIBLE_PHYSMEM_BITS 34
-> >
-> > +#define pgtable_l5_enabled() 0
-> > +#define pgtable_l4_enabled() 0
-> > +
-> >  /*
-> >   * rv32 PTE format:
-> >   * | XLEN-1  10 | 9             8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
-> > diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-> > index 5c2aba5efbd0..edfff00d8ca3 100644
-> > --- a/arch/riscv/include/asm/pgtable-64.h
-> > +++ b/arch/riscv/include/asm/pgtable-64.h
-> > @@ -8,18 +8,38 @@
-> >
-> >  #include <linux/bits.h>
-> >  #include <linux/const.h>
-> > +#include <linux/jump_label.h>
-> >  #include <asm/errata_list.h>
-> >
-> > -extern bool pgtable_l4_enabled;
-> > -extern bool pgtable_l5_enabled;
-> > +extern bool _pgtable_l5_enabled_early;
-> > +extern bool _pgtable_l4_enabled_early;
-> > +extern struct static_key_false _pgtable_l5_enabled;
-> > +extern struct static_key_false _pgtable_l4_enabled;
-> > +extern struct static_key_false _pgtable_lx_ready;
-> 
-> It amounts to the same, but I wonder if we ought to use the
-> DECLARE_STATIC_KEY_FALSE macro here.
+The following changes since commit e83031564137cf37e07c2d10ad468046ff48a0cf:
 
-Thanks for the hint, will send out a newer version soon. Before
-that, I will wait a bit for other review feedbacks.
+  riscv: Fix ALT_THEAD_PMA's asm parameters (2022-06-17 06:16:46 -0700)
 
-Thanks
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-rc7
+
+for you to fetch changes up to 7fccd723912702acfc2d75e8f0596982534f7f24:
+
+  Merge tag 'dt-fixes-for-palmer-5.19-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git into fixes (2022-07-13 10:44:22 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 5.19-rc7
+
+* A fix to avoid printing a warning when modules do not exercise any
+  errata-dependent behavior and the SiFive errata are enabled.
+* A fix to the Microchip PFSOC to attach the L2 cache to the CPU nodes.
+
+----------------------------------------------------------------
+Conor Dooley (1):
+      riscv: dts: microchip: hook up the mpfs' l2cache
+
+Heiko Stuebner (1):
+      riscv: don't warn for sifive erratas in modules
+
+Palmer Dabbelt (1):
+      Merge tag 'dt-fixes-for-palmer-5.19-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git into fixes
+
+ arch/riscv/boot/dts/microchip/mpfs.dtsi | 4 ++++
+ arch/riscv/errata/sifive/errata.c       | 3 ++-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
 _______________________________________________
 linux-riscv mailing list
