@@ -4,78 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B157C43334
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 13:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57598C43334
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 13:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
+	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/X98LjVlYX3Gx/S31SWfkT5olZTVfX/8sk6GeBWZEjY=; b=coeHVnrxukNIMN
-	4Wr1/Pxl9f95AnseCVpJ+2fE22zEKtkp+zMFOcc3YmrJSYBV3L3/Tuxpb1+Rcn9iCi2+Df9fnYGPG
-	JEVEp6jCJUL4sPyw0Tr/sTBflQzS42S7lT+X27hXBeTU5y8nlkWhg4qYvSccP2HnYmo0zHwrDjGuK
-	7xZ+avoyKN9XUEAKi9hu2/n7eDXvvvMnOX5Eqp3BoTejNU+T2ovwQqq2jU6Hw0M+7F/7wVg49aLNa
-	dKXQ78zWGDfv7evODAH+FvhqUOHEm+VsrbGdkIC7KTqm/IVANuY9ntxYitkiagDfI0xcPJonH3nAl
-	CWw/RoekXobihW3fHFVA==;
+	List-Owner; bh=C1WE4C/DA3ZAJ8yF8sPxNcRCl9VaMSETVrSN+D7EgSw=; b=1Q7Nay3hKxEyga
+	7+iOexqnaVc3WqUH3/jhRdXOffIYNFBLV7qRIDBKrKiTLsFhqHMeqCg4sp8sGiDWzd9RUYiC7bEiV
+	UixPskuhz7biTtcAPCneugtS8OA/zlIznveL7o5O5UGOZXdh5LyTaj7uQKnYTBi7uGVMmavuqa1CM
+	D42fIKoA7LT7t0KCDKvFD6f4lC48d+UjsaneQy1qCYkswxib9MMue160AmdUIGzuX/xnY+x20lh0m
+	3n49u28v75MRh8v+q0oIfTK6Fql77MNch1vjsR2jI8Zl7GS6wbSpmC2cXi7AFV9A96UfvI7VlU7Nz
+	U+PHryUOqHtJoI/sLruQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oChyU-00GIHs-Sr; Sat, 16 Jul 2022 13:36:50 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oChyG-00GIB9-PK; Sat, 16 Jul 2022 13:36:38 +0000
-Received: by mail-il1-x130.google.com with SMTP id a12so3792508ilp.13;
-        Sat, 16 Jul 2022 06:36:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=5DwIeby9yP04RKpyJxL5PrbdIqogg6yPOhWbo7JHmTA=;
-        b=XobnjiTf7v9nif7ZIlYg6CbjUFX3cB/9L3Hz5e1BulKOtPVn2M/orxn0vsUl/cpKhY
-         dqFf2lJQAMgMO7d98L+pRwuR0kxrQIFhvsuMfZeYqLfiBHZYZCWTEUSA4lkLSVrdAHUr
-         Ix8rI8hyA0tAOhtbM0japKKIgJGjWKbUUtZAcLwcznI3x7/TobbZkwBk11WGmJYEkEcL
-         8QiDsZ6qmsKQg4OwcqnhT1EZm9n34q8SAbthTgCkexcQOgHQg2gIreI8iCBG+J/k4Urx
-         m81j8/RwwDwDhpw8LGZKfNWdJQmkOT/+vxA1G3qnh3GyJA5IWNOdXvpxn5y2BkXYBdpc
-         MX1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=5DwIeby9yP04RKpyJxL5PrbdIqogg6yPOhWbo7JHmTA=;
-        b=l9Aee46vLG4BMOVMdMmZRKvJAanv4VXNEm//Q+D8Tg81HXZ+aS+GlJsgscGT1rgJ7T
-         14fxMVoFQZPn+k4PalJlUmqe0gdkbW585nAntS+RKuPTBa4/1UbOPn1ndkYgLl9xwiz9
-         kdQqaaDNDeawVO+DPeSSwMkwjKWuMiZGFRUGLfSQsB/uk0w+1oHIWA5oUeNuborifWuw
-         gzoKJn9fJXNB5Xm0EilKE0IlHE3L6CNX1Z9ACWlC7+CmKsQVTDy4AYdU5ej2j9QBmvkA
-         rl42JSnzXHjkUkATzop1aKutojcDjM02K++GgpNv7sr663I7NsBwRF+/vNwvHo+M11Pf
-         8xNg==
-X-Gm-Message-State: AJIora+e64y2a1YwvDi/pY23CdqHPWLYvgMaBA8K1L6st2J3xCeKqhCN
-	Cx1pe5gCngkN4uJ2C4g8Fb/levB6L/j9Ikd0SJ8=
-X-Google-Smtp-Source: AGRyM1tG1YsrvjoLRvogD9K95sp2B6IZvclnFGnFqUdc0M2V7E19ryC7xwimpnUQHvy2WNgV44DytXl4VP+O6mesyIU=
-X-Received: by 2002:a05:6e02:188f:b0:2dc:7291:fd02 with SMTP id
- o15-20020a056e02188f00b002dc7291fd02mr9120346ilu.321.1657978593469; Sat, 16
- Jul 2022 06:36:33 -0700 (PDT)
+	id 1oCi38-00GJrv-9p; Sat, 16 Jul 2022 13:41:38 +0000
+Received: from smtp83.cstnet.cn ([159.226.251.83] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oCi34-00GJoj-2U
+	for linux-riscv@lists.infradead.org; Sat, 16 Jul 2022 13:41:36 +0000
+Received: by ajax-webmail-APP-09 (Coremail) ; Sat, 16 Jul 2022 21:41:28
+ +0800 (GMT+08:00)
+X-Originating-IP: [124.16.96.42]
+Date: Sat, 16 Jul 2022 21:41:28 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?5r2Y5bqG6ZyW?= <panqinglin2020@iscas.ac.cn>
+To: Conor.Dooley@microchip.com
+Cc: jszhang@kernel.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org, 
+	jeff@riscv.org, xuyinan@ict.ac.cn
+Subject: Re: Re: [PATCH v2 1/4] riscv, mm: detect svnapot cpu support at
+ runtime
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.13 build 20210104(ab8c30b6)
+ Copyright (c) 2002-2022 www.mailtech.cn cnic.cn
+In-Reply-To: <7292971d-9048-2b83-40c5-29c0a930d094@microchip.com>
+References: <20220716085648.4156408-1-panqinglin2020@iscas.ac.cn>
+ <20220716085648.4156408-2-panqinglin2020@iscas.ac.cn>
+ <YtKwjmbQmIMm4gEo@xhacker>
+ <7292971d-9048-2b83-40c5-29c0a930d094@microchip.com>
 MIME-Version: 1.0
-References: <20220523020209.11810-1-ojeda@kernel.org> <20220716124214.329949-1-conor@kernel.org>
-In-Reply-To: <20220716124214.329949-1-conor@kernel.org>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Sat, 16 Jul 2022 15:36:22 +0200
-Message-ID: <CANiq72nYRkHV6N2bGpTz3td=2Vto21apvZW0igTT-mV8TZtB2g@mail.gmail.com>
-Subject: Re: [PATCH v7 00/25] Rust support
-To: Conor Dooley <conor@kernel.org>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Greg KH <gregkh@linuxfoundation.org>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, KUnit Development <kunit-dev@googlegroups.com>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	Linux Doc Mailing List <linux-doc@vger.kernel.org>, 
-	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, 
-	Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, 
-	"open list:KERNEL SELFTEST FRAMEWORK" <linux-kselftest@vger.kernel.org>, linux-perf-users@vger.kernel.org, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-um@lists.infradead.org, 
-	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, live-patching@vger.kernel.org, 
-	rust-for-linux <rust-for-linux@vger.kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <6bb47d92.12c94.182073e1feb.Coremail.panqinglin2020@iscas.ac.cn>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: swCowABXXmIJwNJiGHELAA--.7517W
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAwIJDGKY1lCqdgAC
+	sm
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220716_063636_864521_7B62B9BE 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20220716_064134_500736_F90DE1E0 
+X-CRM114-Status: UNSURE (   4.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,26 +73,43 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+&gt; On 16/07/2022 13:35, Jisheng Zhang wrote:
+&gt; &gt; EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+&gt; &gt; 
+&gt; &gt; On Sat, Jul 16, 2022 at 04:56:45PM +0800, panqinglin2020@iscas.ac.cn wrote:
+&gt; &gt;&gt; From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+&gt; &gt;&gt;
+&gt; &gt;&gt; This patch add two erratas to enable/disable svnapot support, patches code
+&gt; &gt;&gt; dynamicly when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
+&gt; &gt;&gt; option is set. It will influence the behavior of has_svnapot function and
+&gt; &gt;&gt; pte_pfn function. All code dependent on svnapot should make sure that has_svnapot
+&gt; &gt;&gt; return true firstly.
+&gt; &gt;&gt;
+&gt; &gt;&gt; Also, this patch modifies PTE definition for Svnapot, and creates some functions in
+&gt; &gt;&gt; pgtable.h to mark a PTE as napot and check if it is a Svnapot PTE.
+&gt; &gt;&gt; Until now, only 64KB napot size is supported in draft spec, so some macros
+&gt; &gt;&gt; has only 64KB version.
+&gt; &gt;&gt;
+&gt; &gt;&gt; Yours,
+&gt; &gt;&gt; Qinglin
+&gt; &gt; 
+&gt; &gt; hmm, this "Yours ..." should be removed in commit msg
+&gt; 
+&gt; And while they're at it, they can drop the "This patch".
+&gt; 
+&gt; I might've said this on a v1 (I know I said it on someone's
+&gt; v1 recently) that having "Also, this patch" makes it sound
+&gt; like this should actually be two patches and not one.
+&gt; 
+&gt; Thanks,
+&gt; Conor.
+&gt; 
 
-On Sat, Jul 16, 2022 at 2:42 PM Conor Dooley <conor@kernel.org> wrote:
->
-> Maybe I am just missing something blatantly obvious here, but trying
-> to build rust support in -next fails for me. I am using ClangBuiltLinux
-> clang version 15.0.0 5b0788fef86ed7008a11f6ee19b9d86d42b6fcfa and LLD
-> 15.0.0. Is it just expected that building -next with rust support is
-> not a good idea?
+Thanks for the hints, will do in a newer version patch.
 
-Please see https://github.com/Rust-for-Linux/linux/issues/795 for
-details about the maple tree issue.
 
-I will update the `rust-next` branch next week with the new version of
-the patches; but if you are interested in developing, please use the
-development `rust` branch instead in GitHub for the moment.
-
-Cheers,
-Miguel
-
+Thanks,
+Qinglin.</panqinglin2020@iscas.ac.cn>
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
