@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FCDEC433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 12:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CACA2C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 12:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uituVm/IbcrzypL/ZZZ9y5R0kVwaEXtK2DtWQzEu05w=; b=VW8QquohXXJeYr
-	Hk7YNtclHTkLZJ9JM+a3dQB8RYH6oHtZ5bW47AhpZG9iRZqgyx0wyyS+4PFa7Pq52bJ1kh9/bQADH
-	q+Ih/3n0XHClJLkrXPqA0gIjbMbI6jWN8odIM/EBhEmvM8qxv/RWt475/N29z3okPEZRLLkIcMZc0
-	bIOXww1mB5fT5K0QzEQ7//Ijf34uKwAY3Gr/WzZE5uqfVudUbal2yUYy9qx6u6B7iZpFRhOIOxksu
-	LNNdbAkMx3OmHbXQ5Vz+5Mcs9qXLVvlQkQFOoKEjG/w+PzbN4IMqW70gfK8ZxA8gkQOJ2jnF2CP8A
-	S0/2is31MhUmR9ZZtQKQ==;
+	List-Owner; bh=DF8rhhHFmqmEUzztdf3L8MlyFGenQouHhdB8a5Wdd3Y=; b=lqcA4becD4+AMX
+	Z8m+10I1lRYspMFOznQvEmg777kDdrISXNZ0imU5Wyj8bIEi5pFbBKcMSi4jYe5Ga7zFpsiWt/eAU
+	cKLUSxklQGznO0coUOoDiZjTiak2N2xiq46V+oXrCW0g5V0QFkQnNil3b7mxnkvcCsQU9SsxeIabQ
+	dfQuRTT0EJCGopHp1nYEt0kmEyA2GVLJJWNyY7T0nRlBTrtcvoUWUaBYG01cmjxc30TaNhe0CYKiZ
+	VzEVn8yK6Nra1UGBpWnWDIv72RxIps8n+QWRMEIKBHHHEHJGogJU/subvntWxUeRJ7SV22E8KAVde
+	yErXcAXtCCWQB+4IxJIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCh7z-00G41U-7A; Sat, 16 Jul 2022 12:42:35 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oCh9o-00G4wj-U1; Sat, 16 Jul 2022 12:44:28 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCh7n-00G3vf-Ni; Sat, 16 Jul 2022 12:42:25 +0000
+	id 1oCh9l-00G4uK-5o
+	for linux-riscv@lists.infradead.org; Sat, 16 Jul 2022 12:44:27 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 49E6DB80022;
-	Sat, 16 Jul 2022 12:42:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6CBCC34114;
-	Sat, 16 Jul 2022 12:42:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 1F65E60FF7;
+	Sat, 16 Jul 2022 12:44:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B24CC34114;
+	Sat, 16 Jul 2022 12:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1657975340;
-	bh=HjF+NeyLSXs/BPREprBA9T9P63b0wfvdyRWiqF26LnM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=u23P2EU6qRL1vu6U1ohiYHNRckhBNC8KYLKdsiszyMvWP2H18PzeER3z0ZoCqs8Oz
-	 jcDv58i75lMPxVsyThQIDpuusbS1ggqazOvkBjc0XIBMWOOCt6FhnBOHk0SQrwKruJ
-	 XSo7j0jgJemcDPs9KTaC7peucwxSOMt4rJMAHkA5uwdtU7P3TVe7D9jWyfRcSJNhkk
-	 ZBSZAiI0ucFmL1fK5Dskz6B94ZFS2WZrK5KXL25yE+Q8WIfgxDRTt01tLNXdu4Q7N8
-	 DZobomePyEVsHwva8L8DkFKlH7VjnXfoKcEaNJxI9vUeO+aItFS6E/0zfWyfDmlOhH
-	 6F5kuracHfOdw==
-From: Conor Dooley <conor@kernel.org>
-To: ojeda@kernel.org
-Cc: gregkh@linuxfoundation.org,
-	jarkko@kernel.org,
-	kunit-dev@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-um@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	live-patching@vger.kernel.org,
-	rust-for-linux@vger.kernel.org,
-	torvalds@linux-foundation.org
-Subject: Re: [PATCH v7 00/25] Rust support
-Date: Sat, 16 Jul 2022 13:42:14 +0100
-Message-Id: <20220716124214.329949-1-conor@kernel.org>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20220523020209.11810-1-ojeda@kernel.org>
-References: <20220523020209.11810-1-ojeda@kernel.org>
+	s=k20201202; t=1657975463;
+	bh=5TX1mvexbvZNqP+jGJAnJRswtTXv+4lgbKlimg77lLA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fDJbeOczRSDOybBViMRoRCFHOm84wxyy98St/W180dDTuUENYyMT+3CGglgB3d3au
+	 f3KFRqD04OdlPlZ6+DDxP/6E9qysoW7k832flK1fKpMDPP8y/wbbzOGrqjuyEt7qVZ
+	 M6SZmkKWOb71nudhZYMNuqpHN8ECti6OMDe2a82AXjOS4hKlSSEfNAF9aA0IpoZshZ
+	 t4iAk5swTe45vN+mNC8SY97WTE4JsY9afRRBGzwut5AbhAkEgUDHKY5J0RciYqk7nx
+	 75TblWIjv0ykxZexw7AmZMS15ToLEmFQ2HK/WON1uvVveiR2aXz9wwH3asEm81gTXB
+	 WtPInfuNNBqJg==
+Date: Sat, 16 Jul 2022 20:35:26 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: panqinglin2020@iscas.ac.cn
+Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org,
+	xuyinan@ict.ac.cn
+Subject: Re: [PATCH v2 1/4] riscv, mm: detect svnapot cpu support at runtime
+Message-ID: <YtKwjmbQmIMm4gEo@xhacker>
+References: <20220716085648.4156408-1-panqinglin2020@iscas.ac.cn>
+ <20220716085648.4156408-2-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220716085648.4156408-2-panqinglin2020@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220716_054224_095436_3C2BB416 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20220716_054425_329532_A5D1D72D 
+X-CRM114-Status: GOOD (  31.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,137 +73,239 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey,
+On Sat, Jul 16, 2022 at 04:56:45PM +0800, panqinglin2020@iscas.ac.cn wrote:
+> From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> 
+> This patch add two erratas to enable/disable svnapot support, patches code
+> dynamicly when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
+> option is set. It will influence the behavior of has_svnapot function and
+> pte_pfn function. All code dependent on svnapot should make sure that has_svnapot
+> return true firstly.
+> 
+> Also, this patch modifies PTE definition for Svnapot, and creates some functions in
+> pgtable.h to mark a PTE as napot and check if it is a Svnapot PTE.
+> Until now, only 64KB napot size is supported in draft spec, so some macros
+> has only 64KB version.
+> 
+> Yours,
+> Qinglin
 
-Maybe I am just missing something blatantly obvious here, but trying
-to build rust support in -next fails for me. I am using ClangBuiltLinux
-clang version 15.0.0 5b0788fef86ed7008a11f6ee19b9d86d42b6fcfa and LLD
-15.0.0. Is it just expected that building -next with rust support is
-not a good idea?
-My defconfig is the default RISC-V one plus:
-CONFIG_RUST=y
-CONFIG_SAMPLES=y
-CONFIG_SAMPLES_RUST=y
-CONFIG_SAMPLE_RUST_MINIMAL=y
+hmm, this "Yours ..." should be removed in commit msg
+> 
+> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index b17fd4666b0c..c5e1629a6033 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -385,6 +385,13 @@ config FPU
+>  
+>  	  If you don't know what to do here, say Y.
+>  
+> +config SVNAPOT
+> +	bool "Svnapot support"
 
-Thanks,
-Conor.
+Do we add an config opition for each isa extension? That's not
+necessary. I think we'd better remove this CONFIG option and keep
+unified Image in mind.
 
-Fail log:
-  UPD     rust/target.json
-  BINDGEN rust/bindings_generated.rs
-  BINDGEN rust/bindings_helpers_generated.rs
-  RUSTC L rust/core.o
-  EXPORTS rust/exports_core_generated.h
-  RUSTC P rust/libmacros.so
-  RUSTC L rust/compiler_builtins.o
-  RUSTC L rust/alloc.o
-  RUSTC L rust/build_error.o
-  EXPORTS rust/exports_alloc_generated.h
-  RUSTC L rust/kernel.o
-error[E0428]: the name `maple_enode` is defined multiple times
-     --> linux/rust/bindings_generated.rs:18009:1
-      |
-18006 | pub struct maple_enode {
-      | ---------------------- previous definition of the type `maple_enode` here
-...
-18009 | pub type maple_enode = *mut maple_enode;
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `maple_enode` redefined here
-      |
-      = note: `maple_enode` must be defined only once in the type namespace of this module
+> +	default n
+> +	help
+> +	  Select if your CPU supports Svnapot and you want to enable it when
+> +	  kernel is booting.
+> +
+>  endmenu # "Platform type"
+>  menu "Kernel features"
+> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+> index 9e2888dbb5b1..84ad32075637 100644
+> --- a/arch/riscv/include/asm/errata_list.h
+> +++ b/arch/riscv/include/asm/errata_list.h
+> @@ -20,7 +20,8 @@
+>  #endif
+>  
+>  #define	CPUFEATURE_SVPBMT 0
+> -#define	CPUFEATURE_NUMBER 1
+> +#define	CPUFEATURE_SVNAPOT 1
+> +#define	CPUFEATURE_NUMBER 2
+>  
+>  #ifdef __ASSEMBLY__
+>  
+> @@ -93,6 +94,27 @@ asm volatile(ALTERNATIVE(						\
+>  #define ALT_THEAD_PMA(_val)
+>  #endif
+>  
+> +#define ALT_SVNAPOT(_val)						\
 
-error[E0428]: the name `maple_pnode` is defined multiple times
-     --> linux/rust/bindings_generated.rs:18015:1
-      |
-18012 | pub struct maple_pnode {
-      | ---------------------- previous definition of the type `maple_pnode` here
-...
-18015 | pub type maple_pnode = *mut maple_pnode;
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ `maple_pnode` redefined here
-      |
-      = note: `maple_pnode` must be defined only once in the type namespace of this module
+I believe SVNAPOT can be supported w/o ALTERNATIVE, static key mechanism
+would be much simpler.
 
-error[E0391]: cycle detected when expanding type alias `bindings::bindings_raw::maple_pnode`
-     --> linux/rust/bindings_generated.rs:18015:29
-      |
-18015 | pub type maple_pnode = *mut maple_pnode;
-      |                             ^^^^^^^^^^^
-      |
-      = note: ...which immediately requires expanding type alias `bindings::bindings_raw::maple_pnode` again
-      = note: type aliases cannot be recursive
-      = help: consider using a struct, enum, or union instead to break the cycle
-      = help: see <https://doc.rust-lang.org/reference/types.html#recursive-types> for more information
-note: cycle used when computing type of `bindings::bindings_raw::maple_range_64::parent`
-     --> linux/rust/bindings_generated.rs:18058:22
-      |
-18058 |     pub parent: *mut maple_pnode,
-      |                      ^^^^^^^^^^^
-
-error[E0391]: cycle detected when expanding type alias `bindings::bindings_raw::maple_enode`
-     --> linux/rust/bindings_generated.rs:18009:29
-      |
-18009 | pub type maple_enode = *mut maple_enode;
-      |                             ^^^^^^^^^^^
-      |
-      = note: ...which immediately requires expanding type alias `bindings::bindings_raw::maple_enode` again
-      = note: type aliases cannot be recursive
-      = help: consider using a struct, enum, or union instead to break the cycle
-      = help: see <https://doc.rust-lang.org/reference/types.html#recursive-types> for more information
-note: cycle used when computing type of `bindings::bindings_raw::maple_topiary::next`
-     --> linux/rust/bindings_generated.rs:18340:20
-      |
-18340 |     pub next: *mut maple_enode,
-      |                    ^^^^^^^^^^^
-
-error[E0117]: only traits defined in the current crate can be implemented for arbitrary types
-     --> linux/rust/bindings_generated.rs:18005:10
-      |
-18005 | #[derive(Copy, Clone)]
-      |          ^^^^
-      |          |
-      |          impl doesn't use only types from inside the current crate
-      |          `*mut [type error]` is not defined in the current crate
-      |
-      = note: define and implement a trait or new type instead
-      = note: this error originates in the derive macro `Copy` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-error[E0117]: only traits defined in the current crate can be implemented for arbitrary types
-     --> linux/rust/bindings_generated.rs:18011:10
-      |
-18011 | #[derive(Copy, Clone)]
-      |          ^^^^
-      |          |
-      |          impl doesn't use only types from inside the current crate
-      |          `*mut [type error]` is not defined in the current crate
-      |
-      = note: define and implement a trait or new type instead
-      = note: this error originates in the derive macro `Copy` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-error[E0117]: only traits defined in the current crate can be implemented for arbitrary types
-     --> linux/rust/bindings_generated.rs:18005:16
-      |
-18005 | #[derive(Copy, Clone)]
-      |                ^^^^^
-      |                |
-      |                impl doesn't use only types from inside the current crate
-      |                `*mut [type error]` is not defined in the current crate
-      |
-      = note: define and implement a trait or new type instead
-      = note: this error originates in the derive macro `Clone` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-error[E0117]: only traits defined in the current crate can be implemented for arbitrary types
-     --> linux/rust/bindings_generated.rs:18011:16
-      |
-18011 | #[derive(Copy, Clone)]
-      |                ^^^^^
-      |                |
-      |                impl doesn't use only types from inside the current crate
-      |                `*mut [type error]` is not defined in the current crate
-      |
-      = note: define and implement a trait or new type instead
-      = note: this error originates in the derive macro `Clone` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-error: aborting due to 8 previous errors
+> +asm(ALTERNATIVE("li %0, 0", "li %0, 1", 0,				\
+> +		CPUFEATURE_SVNAPOT, CONFIG_SVNAPOT)			\
+> +		: "=r"(_val) :)
+> +
+> +#define ALT_SVNAPOT_PTE_PFN(_val, _napot_shift, _pfn_mask, _pfn_shift)	\
+> +asm(ALTERNATIVE("and %0, %1, %2\n\t"					\
+> +		"srli %0, %0, %3\n\t"					\
+> +		"nop\n\tnop\n\tnop",					\
+> +		"srli t3, %1, %4\n\t"					\
+> +		"and %0, %1, %2\n\t"					\
+> +		"srli %0, %0, %3\n\t"					\
+> +		"sub  t4, %0, t3\n\t"					\
+> +		"and  %0, %0, t4",					\
+> +		0, CPUFEATURE_SVNAPOT, CONFIG_SVNAPOT)			\
+> +		: "+r"(_val)						\
+> +		: "r"(_val),						\
+> +		  "r"(_pfn_mask),					\
+> +		  "i"(_pfn_shift),					\
+> +		  "i"(_napot_shift))
+> +
+>  #endif /* __ASSEMBLY__ */
+>  
+>  #endif
+> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+> index e48eebdd2631..292ab93321e3 100644
+> --- a/arch/riscv/include/asm/hwcap.h
+> +++ b/arch/riscv/include/asm/hwcap.h
+> @@ -54,6 +54,7 @@ extern unsigned long elf_hwcap;
+>  enum riscv_isa_ext_id {
+>  	RISCV_ISA_EXT_SSCOFPMF = RISCV_ISA_EXT_BASE,
+>  	RISCV_ISA_EXT_SVPBMT,
+> +	RISCV_ISA_EXT_SVNAPOT,
+>  	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
+>  };
+>  
+> diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
+> index 5c2aba5efbd0..e8463515a46c 100644
+> --- a/arch/riscv/include/asm/pgtable-64.h
+> +++ b/arch/riscv/include/asm/pgtable-64.h
+> @@ -74,6 +74,20 @@ typedef struct {
+>   */
+>  #define _PAGE_PFN_MASK  GENMASK(53, 10)
+>  
+> +/*
+> + * [63] Svnapot definitions:
+> + * 0 Svnapot disabled
+> + * 1 Svnapot enabled
+> + */
+> +#define _PAGE_NAPOT_SHIFT 63
+> +#define _PAGE_NAPOT      (1UL << _PAGE_NAPOT_SHIFT)
+> +#define NAPOT_CONT64KB_ORDER 4UL
+> +#define NAPOT_CONT64KB_SHIFT (NAPOT_CONT64KB_ORDER + PAGE_SHIFT)
+> +#define NAPOT_CONT64KB_SIZE (1UL << NAPOT_CONT64KB_SHIFT)
+> +#define NAPOT_CONT64KB_MASK (NAPOT_CONT64KB_SIZE - 1)
+> +#define NAPOT_64KB_PTE_NUM (1UL << NAPOT_CONT64KB_ORDER)
+> +#define NAPOT_64KB_MASK (7UL << _PAGE_PFN_SHIFT)
+> +
+>  /*
+>   * [62:61] Svpbmt Memory Type definitions:
+>   *
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 1d1be9d9419c..34c4be9de79e 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -284,10 +284,38 @@ static inline pte_t pud_pte(pud_t pud)
+>  	return __pte(pud_val(pud));
+>  }
+>  
+> +static inline bool has_svnapot(void) {
+> +	u64 _val;
+> +	ALT_SVNAPOT(_val);
+> +	return _val;
+> +}
+> +
+> +#ifdef CONFIG_SVNAPOT
+> +
+> +static inline unsigned long pte_napot(pte_t pte)
+> +{
+> +	return pte_val(pte) & _PAGE_NAPOT;
+> +}
+> +
+> +static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
+> +{
+> +	unsigned long napot_bits = (1UL << (order - 1)) << _PAGE_PFN_SHIFT;
+> +	unsigned long lower_prot =
+> +		pte_val(pte) & ((1UL << _PAGE_PFN_SHIFT) - 1UL);
+> +	unsigned long upper_prot = (pte_val(pte) >> _PAGE_PFN_SHIFT)
+> +				   << _PAGE_PFN_SHIFT;
+> +
+> +	return __pte(upper_prot | napot_bits | lower_prot | _PAGE_NAPOT);
+> +}
+> +#endif /* CONFIG_SVNAPOT */
+> +
+>  /* Yields the page frame number (PFN) of a page table entry */
+>  static inline unsigned long pte_pfn(pte_t pte)
+>  {
+> -	return __page_val_to_pfn(pte_val(pte));
+> +	unsigned long _val  = pte_val(pte);
+> +	ALT_SVNAPOT_PTE_PFN(_val, _PAGE_NAPOT_SHIFT,
+> +			_PAGE_PFN_MASK, _PAGE_PFN_SHIFT);
+> +	return _val;
+>  }
+>  
+>  #define pte_page(x)     pfn_to_page(pte_pfn(x))
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index fba9e9f46a8c..9f1113fa2b96 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -89,6 +89,7 @@ int riscv_of_parent_hartid(struct device_node *node)
+>  static struct riscv_isa_ext_data isa_ext_arr[] = {
+>  	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
+>  	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
+> +	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
+>  	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
+>  };
+>  
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 1b3ec44e25f5..9f38b7d02f2a 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -198,6 +198,7 @@ void __init riscv_fill_hwcap(void)
+>  			} else {
+>  				SET_ISA_EXT_MAP("sscofpmf", RISCV_ISA_EXT_SSCOFPMF);
+>  				SET_ISA_EXT_MAP("svpbmt", RISCV_ISA_EXT_SVPBMT);
+> +				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
+>  			}
+>  #undef SET_ISA_EXT_MAP
+>  		}
+> @@ -259,6 +260,20 @@ static bool __init_or_module cpufeature_probe_svpbmt(unsigned int stage)
+>  	return false;
+>  }
+>  
+> +static bool __init_or_module cpufeature_probe_svnapot(unsigned int stage)
+> +{
+> +#ifdef CONFIG_SVNAPOT
+> +	switch (stage) {
+> +	case RISCV_ALTERNATIVES_EARLY_BOOT:
+> +		return false;
+> +	default:
+> +		return riscv_isa_extension_available(NULL, SVNAPOT);
+> +	}
+> +#endif
+> +
+> +	return false;
+> +}
+> +
+>  /*
+>   * Probe presence of individual extensions.
+>   *
+> @@ -273,6 +288,9 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
+>  	if (cpufeature_probe_svpbmt(stage))
+>  		cpu_req_feature |= (1U << CPUFEATURE_SVPBMT);
+>  
+> +	if (cpufeature_probe_svnapot(stage))
+> +		cpu_req_feature |= (1U << CPUFEATURE_SVNAPOT);
+> +
+>  	return cpu_req_feature;
+>  }
+>  
+> -- 
+> 2.35.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
