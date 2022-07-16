@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE57C43334
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 08:58:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD32C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 10:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=StoKBOWRfNgSmdFyCf3ayioKI1Ck7POEt3umyF0Xpqw=; b=t9EOOIWbV9B3Xn
-	rj36xxmME4WcVCnPyL+4RNlKwKIElWrdHl6Xj4HkcYWLKooWQWBHpZLB0TA2mxlDEEmPPo2QWxliY
-	LSo21fL0vGZ/W2kafTpJ+ZOL/Zlv7QL0Z9j4tOpVM/0XInwIFPLuVd965h/TkbCOHXfkEQHYvJ6u7
-	KBTlyThlvkltFXPYkME//vO2/QUc9uv7Y9Xr7Yh4cYmZ9Yc5tuzRaFyUtOb7KuRLgilI32em/x3Zd
-	gt0y5Lnlt+DerwZx01Zu0VG6WSSpZ7X2YCqLUD/+gSDsy0HbzdFR2YPlONLk18ZWkjkJXyaZFw3vJ
-	dzwTY8S8J9fjb8PgjYYA==;
+	List-Owner; bh=Z0wcrGKM6a56ajhxP+T2J5vRfKK9Z2RbmVbFNGzYBRs=; b=2Fbb3bymX88cOi
+	z8cDzL1/G9Jy3RSr+zDY2m1rassgCnICqUIcrHcrw9jNieh8ZY0I1ZjDO9CDE3to/nDNa0VAuS37L
+	unJNy5Xo86N+fQwXX3vDWOVJi9u5+H8YX4vp5pByEyr0xqPQ0EfwtGTl2YbbPrGEguUe/e0MjR0Jf
+	piABRIJZw0I5POrEBmRLAfTx22xlxVsoIKYijMvTUuLs1vfGPQipNMllgPLHm9DgNOYHS79dQhz3u
+	GETyQFKRGOD7xKmAcmCZVfTUkav8wuH9f+VK5xcEO2hkhv5qn9b3VA2dsLoGpjXYTuSX7c5Dqv+TC
+	2E+BTWXffJNK5nuZFYEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCdcb-00Eq6l-2d; Sat, 16 Jul 2022 08:57:57 +0000
-Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
+	id 1oCf70-00FOs8-9k; Sat, 16 Jul 2022 10:33:26 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCdcO-00Epy8-Hs; Sat, 16 Jul 2022 08:57:45 +0000
-Received: by mail-il1-x12d.google.com with SMTP id l11so1472071ilf.11;
-        Sat, 16 Jul 2022 01:57:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=IYks55HxgsoLlm9FNEz/2R9Y4bixjWKaygGPwKIVjx0=;
-        b=m7RolDKDIlPqQgPf5OTP/N6sK1eysv8GJE4Xfn8CjMg0SxwuCaAjEySP55tmXp5JVI
-         UpIwNpbxTFBX8XrQHPTU10osewAMlkpehUSHMxLE/z5AscetNKSTakXBmT4sFuZxvdSj
-         6pLhVxcEz3FFMTM6nM4GdyvOJqmUEFJQCr3AOL0xm1yUFCsUy47Z3rBXZtMZzmMP/h9s
-         7WpW+a65qg8gkRMjnKQbAyPOY44lzJH7wId88CcIuxY+ie25eQBbKgS5dR4nb4qAp0au
-         boOEvL+LfokeBh3nWrS03XXVnUDvFPo3DxazMu+hCulyNuyUUotHieO4rDvfdCn9+u/Z
-         mv8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=IYks55HxgsoLlm9FNEz/2R9Y4bixjWKaygGPwKIVjx0=;
-        b=IV2/PYYxFnNQ0P8Qv7V7MwRUrOsfociQwt+LKFuJXcgqKJ9MXTIqHDwKil7HQ7rF1j
-         NU2borKZIzhciQ+S1u3TopQ6JNTYaZZlH1URy9saVJH1+gfm5W16j+UpHNJvxnYcEEB6
-         uEIvYyUqiNOReLOEetQJzmi2M+XYsV2w594D/d3yd8gqGsoqlAzpnN57pJ9OYM/wvrD/
-         fubgBvrmx4c6a/TwGGLnvwVKoePS9KfoAbQ18iopx0AVd/qNFjF9ugIe/tBUOfzt147/
-         WwtAHS034b1hv8EmUaBdNei8HX/67xV9hId8BVfXaq5HLqrpNxcdabhcwEmJ0ZypsYgE
-         n4SA==
-X-Gm-Message-State: AJIora9XsksHtMzPiqgVIXZuV/dypJyr/eRMWphBNUosYniKDQnMTcnA
-	3JpNOtvp75lLIU1uLJZiir5y+xNH6B//H2s8EgY=
-X-Google-Smtp-Source: AGRyM1upiXNei9Ij258Ho2aijo3CxpUzFbH2CubB6AzfY4tMP/5ochBIlN/TgfrRN46dYIn9zQ7KIb7ZCJ9pwMhj3ew=
-X-Received: by 2002:a05:6e02:1c8d:b0:2dc:8162:282e with SMTP id
- w13-20020a056e021c8d00b002dc8162282emr8874969ill.5.1657961861953; Sat, 16 Jul
- 2022 01:57:41 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220523020209.11810-1-ojeda@kernel.org> <20220523020209.11810-22-ojeda@kernel.org>
- <CAK7LNAQZOTjxJyS3WC1sM7LE-An7DL8xoW=-s1ONe7cq4YukNQ@mail.gmail.com>
-In-Reply-To: <CAK7LNAQZOTjxJyS3WC1sM7LE-An7DL8xoW=-s1ONe7cq4YukNQ@mail.gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Sat, 16 Jul 2022 10:57:30 +0200
-Message-ID: <CANiq72k1aPQuvAL=TqNQVBZBmxojKfPBKU3v_2_B=731fhuJbQ@mail.gmail.com>
-Subject: Re: [PATCH v7 21/25] Kbuild: add Rust support
-To: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	rust-for-linux <rust-for-linux@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Jarkko Sakkinen <jarkko@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Finn Behrens <me@kloenk.de>, 
-	Adam Bratschi-Kaye <ark.email@gmail.com>, Wedson Almeida Filho <wedsonaf@google.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Sven Van Asbroeck <thesven73@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	Boris-Chengbiao Zhou <bobo1239@web.de>, Boqun Feng <boqun.feng@gmail.com>, Douglas Su <d0u9.su@outlook.com>, 
-	Dariusz Sosnowski <dsosnowski@dsosnowski.pl>, Antonio Terceiro <antonio.terceiro@linaro.org>, 
-	Daniel Xu <dxu@dxuuu.xyz>, Miguel Cano <macanroj@gmail.com>, David Gow <davidgow@google.com>, 
-	Michal Marek <michal.lkml@markovi.net>, Nick Desaulniers <ndesaulniers@google.com>, 
-	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Paul Mackerras <paulus@samba.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
-	"open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>, linux-um@lists.infradead.org
+	id 1oCf6x-00FOor-Br
+	for linux-riscv@lists.infradead.org; Sat, 16 Jul 2022 10:33:25 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 452D7B82EEA;
+	Sat, 16 Jul 2022 10:33:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8ACAC34114;
+	Sat, 16 Jul 2022 10:33:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1657967598;
+	bh=fb7zcFr0KnXxkQp0xpdk4Mcd+9GKD+xwhdHZmcfcxGM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=SFmHR5nFB+nKOqpu5Q04w6uop28XC7xK6cMvxDQaREF2HMd6r3jtvPck5KRlWzpPt
+	 ZAqPYOh3GcX7t1x08di4o+ogeZcjpS5gbe7lLzRcDOXhNLhpqHuJmttXcT79B9TNU6
+	 zip+sWCL1VN2i1A37PvY70STaJWY8ViWKU+cdVEfepMom4cXEGNe/yvbpIxu5k16f+
+	 GkDkLw6B8ooc17oyg4WHKA5Gu9oQ0sphFtAEbIRRPX1jD+G7BQwzQZufSlvVfmeA4n
+	 kGnzZ/L1Ln64G+T76u3rYxNu4QxL45rP36+edMzzWb+U+zyVoS4mCoOU1TFN3OJfnM
+	 eQSH9r4o8AWSQ==
+Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1oCf6p-007rDL-Ga;
+	Sat, 16 Jul 2022 11:33:15 +0100
+Date: Sat, 16 Jul 2022 11:33:08 +0100
+Message-ID: <87r12l4aaj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: <lewis.hanly@microchip.com>
+Cc: <linux-gpio@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>,
+	<linus.walleij@linaro.org>,
+	<brgl@bgdev.pl>,
+	<linux-kernel@vger.kernel.org>,
+	<palmer@dabbelt.com>,
+	<conor.dooley@microchip.com>,
+	<daire.mcnamara@microchip.com>
+Subject: Re: [PATCH v3 1/1] gpio: mpfs: add polarfire soc gpio support
+In-Reply-To: <20220716071113.1646887-2-lewis.hanly@microchip.com>
+References: <20220716071113.1646887-1-lewis.hanly@microchip.com>
+	<20220716071113.1646887-2-lewis.hanly@microchip.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.104.136.29
+X-SA-Exim-Rcpt-To: lewis.hanly@microchip.com, linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org, linus.walleij@linaro.org, brgl@bgdev.pl, linux-kernel@vger.kernel.org, palmer@dabbelt.com, conor.dooley@microchip.com, daire.mcnamara@microchip.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220716_015744_653307_27C2910B 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20220716_033323_723408_91A43D87 
+X-CRM114-Status: GOOD (  22.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,20 +91,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Masahiro,
+On Sat, 16 Jul 2022 08:11:13 +0100,
+<lewis.hanly@microchip.com> wrote:
+> 
+> From: Lewis Hanly <lewis.hanly@microchip.com>
+> 
+> Add a driver to support the Polarfire SoC gpio controller.
+> 
+> Signed-off-by: Lewis Hanly <lewis.hanly@microchip.com>
 
-On Sat, Jul 16, 2022 at 10:23 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
->
-> Is it intentional to print the successful message to stderr?
+[...]
 
-I think it makes sense to change it to `stdout`, given the message is
-the main point of running `rustavailable` for normal users, and those
-that just want the status code may ignore it.
+> +static int mpfs_gpio_child_to_parent_hwirq(struct gpio_chip *gc,
+> +					   unsigned int child,
+> +					   unsigned int child_type,
+> +					   unsigned int *parent,
+> +					   unsigned int *parent_type)
+> +{
+> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
+> +	struct irq_data *d = irq_get_irq_data(mpfs_gpio->irq_number[child]);
 
-Thanks for taking a look again!
+This looks totally wrong. It means that you have already instantiated
+part of the hierarchy, and it is likely that you will get multiple
+hierarchy sharing some levels, which isn't intended.
 
-Cheers,
-Miguel
+> +	*parent_type = IRQ_TYPE_NONE;
+> +	*parent = irqd_to_hwirq(d);
+> +
+> +	return 0;
+> +}
+> +
+> +static int mpfs_gpio_probe(struct platform_device *pdev)
+> +{
+> +	struct clk *clk;
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *node = pdev->dev.of_node;
+> +	struct device_node *irq_parent;
+> +	struct gpio_irq_chip *girq;
+> +	struct irq_domain *parent;
+> +	struct mpfs_gpio_chip *mpfs_gpio;
+> +	int i, ret, ngpio;
+> +
+> +	mpfs_gpio = devm_kzalloc(dev, sizeof(*mpfs_gpio), GFP_KERNEL);
+> +	if (!mpfs_gpio)
+> +		return -ENOMEM;
+> +
+> +	mpfs_gpio->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(mpfs_gpio->base))
+> +		return dev_err_probe(dev, PTR_ERR(mpfs_gpio->clk), "input clock not found.\n");
+> +
+> +	clk = devm_clk_get(dev, NULL);
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk), "devm_clk_get failed\n");
+> +
+> +	ret = clk_prepare_enable(clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to enable clock\n");
+> +
+> +	mpfs_gpio->clk = clk;
+> +
+> +	ngpio = of_irq_count(node);
+> +	if (ngpio > NUM_GPIO) {
+> +		ret = -ENXIO;
+> +		goto cleanup_clock;
+> +	}
+> +
+> +	irq_parent = of_irq_find_parent(node);
+> +	if (!irq_parent) {
+> +		ret = -ENODEV;
+> +		goto cleanup_clock;
+> +	}
+> +	parent = irq_find_host(irq_parent);
+> +	if (!parent) {
+> +		ret = -ENODEV;
+> +		goto cleanup_clock;
+> +	}
+> +
+> +	/* Get the interrupt numbers. */
+> +	/* Clear/Disable All interrupts before enabling parent interrupts. */
+> +	for (i = 0; i < ngpio; i++) {
+> +		mpfs_gpio->irq_number[i] = platform_get_irq(pdev, i);
+
+Bingo. You are allocating the interrupt for the level below. You
+really shouldn't do that.
+
+If you need to retrieve the *hwirq* for the level below, you need to
+parse the DT without triggering an IRQ allocation (of_irq_parse_one()
+and co).
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
