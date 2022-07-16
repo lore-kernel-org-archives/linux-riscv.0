@@ -4,98 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 120BAC433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 08:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8C44C433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 08:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NErqOtNzr10BNfh/mpEcLAeik6KbALsNLG1eY07xLiE=; b=KP1++6WT2wQxAm
-	uljb5fvAN63p1uEnLWVDlQuqSYU5j70rzjJfrPleZceJivlSqbz1W0lfq6j/+AeNHC/SFXVMey7CC
-	0b6pMYHUNEPDGRsyjURRou3JNYykyITmUhM8c3zU7KuJ/09f3EBBm6AAvLXOvTXE+qbjd+rQKpm1w
-	keEm2oyhN/JrbOS52M8VJufkHQF7gInBT2AUjlbRFn8EaPv+N+PTE4Mh18x0qWgeOwyQ2gIsJVTYw
-	xW6g9DHkGczYHh6gJm9srRq4p13Zk3c5aoW6g0UztH8dnIPHdtGapkZ22Y65bBXXMXXS6Chiw1f9d
-	dLJERWBoFCcUcVHlC0MQ==;
+	List-Owner; bh=eP8iLEi/6SNL025fi1yATfWXZdh4Ltlb9tqWYKW+Eho=; b=g4FdQUfznQG//Z
+	TR+DfIATQZHNx/qd4XrgEOh3EqnB9f1MsBWeygqfkvIStsUTWwl81yUvHO8BbyDms83MRo7hGd5hz
+	zAcx6Q21vbJMdPVKNVCYjukfK/ekmQHeVHQ3W6YLyad1My5L4WGNOrwjtMgcML5t4kbB7Hm3W/4ob
+	A1SKhnb3YMwKx4W6js/PC9ojLk3fV6NNB00r3R9ONKMw4AZk5qVbyY/Dq8shVv3oKOnI5oJo2ac71
+	T4+04rA4libvxYF5ZBuO7rDYo3mDZDbGcG9G1rHaVIyeCOF4kVPCXGacINPE4LbNagMR8RVHy+UOy
+	KH2gd8cnzimQF/nXhogw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCd5L-00EhDI-Jj; Sat, 16 Jul 2022 08:23:35 +0000
-Received: from conssluserg-05.nifty.com ([210.131.2.90])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCd5A-00Eh63-5F; Sat, 16 Jul 2022 08:23:25 +0000
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51]) (authenticated)
-	by conssluserg-05.nifty.com with ESMTP id 26G8MnVH030541;
-	Sat, 16 Jul 2022 17:22:50 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-05.nifty.com 26G8MnVH030541
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
-	s=dec2015msa; t=1657959771;
-	bh=HFhi2GgLg7oEsoRiMqw8ZEkU/FUuixaMOlho3HR5dck=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=V20EnMQuxsJMmK3y4z4GmknGeFh96ITmuDApbur3x2lsBmKjkPDIlbzAqKbB27qpz
-	 tlAr9JW5/uUBNMz41GSC0qZHBwQRrsWm6zlClCYerznAGfoGNxhm0lvCsQviIZeiRv
-	 jT2WkOPvypbaZmxj5OE/wxYNfWaeaJMZsz8jjDB0mqWqGbp7/6IwyzQNAWDoOZLlE3
-	 GwELyJCrzBM93ZcYT0MQUImALh0y4SkN0VDb/PgmOXbTFBbIRuHZq29ve5LgzNj8ko
-	 uDp54r/O8tR0Fkbj9OCRAGzjCe/tIsfJ3XVCT9TpaN9wIUzeFu7RECjwYamh98cpzD
-	 LlRHw5wR8TQIw==
-X-Nifty-SrcIP: [209.85.128.51]
-Received: by mail-wm1-f51.google.com with SMTP id 8-20020a05600c024800b003a2fe343db1so4358530wmj.1;
-        Sat, 16 Jul 2022 01:22:50 -0700 (PDT)
-X-Gm-Message-State: AJIora9LrZpZjPsaV2A+6BTI9ovkKbbd2+tqsRaTUqG2B5X145q7Mvlw
-	zsYReHInqQh82FPpk5GXhwC4G5ISS0rZyYd/Rek=
-X-Google-Smtp-Source: AGRyM1uoRO8Qz+FSCXJql+waCGu+mhRlQXVZ1LJNvE9kz6AJllMTUSrTJhZBfuW0GaHnoYXSlaf7O+xxZCeBVPOa6jI=
-X-Received: by 2002:a05:600c:35d6:b0:3a2:e873:6295 with SMTP id
- r22-20020a05600c35d600b003a2e8736295mr17513065wmq.22.1657959758310; Sat, 16
- Jul 2022 01:22:38 -0700 (PDT)
+	id 1oCdbv-00Epk8-AY; Sat, 16 Jul 2022 08:57:15 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oCdbr-00Epgl-B6
+	for linux-riscv@lists.infradead.org; Sat, 16 Jul 2022 08:57:14 +0000
+Received: from localhost.localdomain (unknown [124.16.141.248])
+	by APP-05 (Coremail) with SMTP id zQCowAAXOX5afdJiXNlgDg--.22302S4;
+	Sat, 16 Jul 2022 16:57:04 +0800 (CST)
+From: panqinglin2020@iscas.ac.cn
+To: palmer@dabbelt.com,
+	linux-riscv@lists.infradead.org
+Cc: jeff@riscv.org,
+	xuyinan@ict.ac.cn,
+	Qinglin Pan <panqinglin2020@iscas.ac.cn>
+Subject: [PATCH v2 2/4] mm: support Svnapot in physical page linear-mapping
+Date: Sat, 16 Jul 2022 16:56:46 +0800
+Message-Id: <20220716085648.4156408-3-panqinglin2020@iscas.ac.cn>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220716085648.4156408-1-panqinglin2020@iscas.ac.cn>
+References: <20220716085648.4156408-1-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
-References: <20220523020209.11810-1-ojeda@kernel.org> <20220523020209.11810-22-ojeda@kernel.org>
-In-Reply-To: <20220523020209.11810-22-ojeda@kernel.org>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Sat, 16 Jul 2022 17:21:59 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAQZOTjxJyS3WC1sM7LE-An7DL8xoW=-s1ONe7cq4YukNQ@mail.gmail.com>
-Message-ID: <CAK7LNAQZOTjxJyS3WC1sM7LE-An7DL8xoW=-s1ONe7cq4YukNQ@mail.gmail.com>
-Subject: Re: [PATCH v7 21/25] Kbuild: add Rust support
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        rust-for-linux@vger.kernel.org,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-        Jarkko Sakkinen <jarkko@kernel.org>,
-        Alex Gaynor <alex.gaynor@gmail.com>, Finn Behrens <me@kloenk.de>,
-        Adam Bratschi-Kaye <ark.email@gmail.com>,
-        Wedson Almeida Filho <wedsonaf@google.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Sven Van Asbroeck <thesven73@gmail.com>, Gary Guo <gary@garyguo.net>,
-        Boris-Chengbiao Zhou <bobo1239@web.de>,
-        Boqun Feng <boqun.feng@gmail.com>, Douglas Su <d0u9.su@outlook.com>,
-        Dariusz Sosnowski <dsosnowski@dsosnowski.pl>,
-        Antonio Terceiro <antonio.terceiro@linaro.org>,
-        Daniel Xu <dxu@dxuuu.xyz>, Miguel Cano <macanroj@gmail.com>,
-        David Gow <davidgow@google.com>,
-        Michal Marek <michal.lkml@markovi.net>,
-        Nick Desaulniers <ndesaulniers@google.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-        Paul Mackerras <paulus@samba.org>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Richard Weinberger <richard@nod.at>,
-        Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-        Johannes Berg <johannes@sipsolutions.net>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>,
-        "H. Peter Anvin" <hpa@zytor.com>,
-        Linux Kbuild mailing list <linux-kbuild@vger.kernel.org>,
-        linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-        linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
-        "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
-        linux-um@lists.infradead.org
+X-CM-TRANSID: zQCowAAXOX5afdJiXNlgDg--.22302S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxWFy8KFyDZFWxtr18Cr45KFg_yoW5Jw4Dpr
+	WxCr48uF4UAF1UuFWkAr1rXr9IkanrGa4xGay0kas8C3WfGr1F9w45Ca4Y9FW8Jrs2gayf
+	Jr4kZrW5ua43t3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPl14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26r1I6r4UM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+	Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
+	ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr0_Cr1U
+	M2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64
+	kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm
+	72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYx
+	C7M4kE6xkIj40Ew7xC0wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC2
+	0s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI
+	0_JF0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv2
+	0xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2js
+	IE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZF
+	pf9x0JUTHqxUUUUU=
+X-Originating-IP: [124.16.141.248]
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220716_012324_424659_C1438AF2 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20220716_015711_770054_C296932F 
+X-CRM114-Status: GOOD (  11.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,67 +80,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 23, 2022 at 11:04 AM Miguel Ojeda <ojeda@kernel.org> wrote:
->
-> Having all the new files in place, we now enable Rust support
-> in the build system, including `Kconfig` entries related to Rust,
-> the Rust configuration printer, the target specification
-> generation script, the version detection script and a few
-> other bits.
->
-> Co-developed-by: Alex Gaynor <alex.gaynor@gmail.com>
-> Signed-off-by: Alex Gaynor <alex.gaynor@gmail.com>
-> Co-developed-by: Finn Behrens <me@kloenk.de>
-> Signed-off-by: Finn Behrens <me@kloenk.de>
-> Co-developed-by: Adam Bratschi-Kaye <ark.email@gmail.com>
-> Signed-off-by: Adam Bratschi-Kaye <ark.email@gmail.com>
-> Co-developed-by: Wedson Almeida Filho <wedsonaf@google.com>
-> Signed-off-by: Wedson Almeida Filho <wedsonaf@google.com>
-> Co-developed-by: Michael Ellerman <mpe@ellerman.id.au>
-> Signed-off-by: Michael Ellerman <mpe@ellerman.id.au>
-> Co-developed-by: Sven Van Asbroeck <thesven73@gmail.com>
-> Signed-off-by: Sven Van Asbroeck <thesven73@gmail.com>
-> Co-developed-by: Gary Guo <gary@garyguo.net>
-> Signed-off-by: Gary Guo <gary@garyguo.net>
-> Co-developed-by: Boris-Chengbiao Zhou <bobo1239@web.de>
-> Signed-off-by: Boris-Chengbiao Zhou <bobo1239@web.de>
-> Co-developed-by: Boqun Feng <boqun.feng@gmail.com>
-> Signed-off-by: Boqun Feng <boqun.feng@gmail.com>
-> Co-developed-by: Douglas Su <d0u9.su@outlook.com>
-> Signed-off-by: Douglas Su <d0u9.su@outlook.com>
-> Co-developed-by: Dariusz Sosnowski <dsosnowski@dsosnowski.pl>
-> Signed-off-by: Dariusz Sosnowski <dsosnowski@dsosnowski.pl>
-> Co-developed-by: Antonio Terceiro <antonio.terceiro@linaro.org>
-> Signed-off-by: Antonio Terceiro <antonio.terceiro@linaro.org>
-> Co-developed-by: Daniel Xu <dxu@dxuuu.xyz>
-> Signed-off-by: Daniel Xu <dxu@dxuuu.xyz>
-> Co-developed-by: Miguel Cano <macanroj@gmail.com>
-> Signed-off-by: Miguel Cano <macanroj@gmail.com>
-> Co-developed-by: David Gow <davidgow@google.com>
-> Signed-off-by: David Gow <davidgow@google.com>
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
-> ---
+From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
+Svnapot is powerful when a physical region is going to mapped to a
+virtual region. Kernel will do like this when mapping all allocable
+physical pages to kernel vm space. This patch modify the
+create_pte_mapping function used in linear-mapping procedure, so the
+kernel can be able to use Svnapot when both address and length of
+physical region are 64KB align. Code here will be executed only when
+other size huge page is not suitable, so it can be an addition of
+PMD_SIZE and PUD_SIZE mapping.
 
+This patch also modifies the best_map_size function to give map_size
+many times instead of only once, so a memory region can be mapped by
+both PMD_SIZE and 64KB napot size.
 
+It is tested by setting qemu's memory to a 262272k region, and the
+kernel can boot successfully.
 
+Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-> +# Rust targets
-> +# ---------------------------------------------------------------------------
-> +
-> +# "Is Rust available?" target
-> +PHONY += rustavailable
-> +rustavailable:
-> +       $(Q)$(CONFIG_SHELL) $(srctree)/scripts/rust-is-available.sh -v && echo >&2 "Rust is available!"
-> +
-
-Is it intentional to print the successful message to stderr?
-
-
-
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index d466ec670e1f..3c766e7325aa 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -350,8 +350,20 @@ static void __init create_pte_mapping(pte_t *ptep,
+ {
+ 	uintptr_t pte_idx = pte_index(va);
+ 
+-	BUG_ON(sz != PAGE_SIZE);
++#ifdef CONFIG_SVNAPOT
++	pte_t pte;
++	if (has_svnapot() && sz == NAPOT_CONT64KB_SIZE) {
++		do {
++			pte = pfn_pte(PFN_DOWN(pa), prot);
++			ptep[pte_idx] = pte_mknapot(pte, NAPOT_CONT64KB_ORDER);
++			pte_idx++;
++			sz -= PAGE_SIZE;
++		} while (sz > 0);
++		return;
++	}
++#endif
+ 
++	BUG_ON(sz != PAGE_SIZE);
+ 	if (pte_none(ptep[pte_idx]))
+ 		ptep[pte_idx] = pfn_pte(PFN_DOWN(pa), prot);
+ }
+@@ -649,10 +661,18 @@ void __init create_pgd_mapping(pgd_t *pgdp,
+ static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
+ {
+ 	/* Upgrade to PMD_SIZE mappings whenever possible */
+-	if ((base & (PMD_SIZE - 1)) || (size & (PMD_SIZE - 1)))
++	base &= PMD_SIZE - 1;
++	if (!base && size >= PMD_SIZE)
++		return PMD_SIZE;
++
++	if (!has_svnapot())
+ 		return PAGE_SIZE;
+ 
+-	return PMD_SIZE;
++	base &= NAPOT_CONT64KB_SIZE - 1;
++	if (!base && size >= NAPOT_CONT64KB_SIZE)
++		return NAPOT_CONT64KB_SIZE;
++
++	return PAGE_SIZE;
+ }
+ 
+ #ifdef CONFIG_XIP_KERNEL
+@@ -1087,9 +1107,9 @@ static void __init setup_vm_final(void)
+ 		if (end >= __pa(PAGE_OFFSET) + memory_limit)
+ 			end = __pa(PAGE_OFFSET) + memory_limit;
+ 
+-		map_size = best_map_size(start, end - start);
+ 		for (pa = start; pa < end; pa += map_size) {
+ 			va = (uintptr_t)__va(pa);
++			map_size = best_map_size(pa, end - pa);
+ 
+ 			create_pgd_mapping(swapper_pg_dir, va, pa, map_size,
+ 					   pgprot_from_va(va));
 -- 
-Best Regards
-Masahiro Yamada
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
