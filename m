@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57598C43334
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 13:41:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413E1C43334
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 13:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:References:
 	In-Reply-To:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=C1WE4C/DA3ZAJ8yF8sPxNcRCl9VaMSETVrSN+D7EgSw=; b=1Q7Nay3hKxEyga
-	7+iOexqnaVc3WqUH3/jhRdXOffIYNFBLV7qRIDBKrKiTLsFhqHMeqCg4sp8sGiDWzd9RUYiC7bEiV
-	UixPskuhz7biTtcAPCneugtS8OA/zlIznveL7o5O5UGOZXdh5LyTaj7uQKnYTBi7uGVMmavuqa1CM
-	D42fIKoA7LT7t0KCDKvFD6f4lC48d+UjsaneQy1qCYkswxib9MMue160AmdUIGzuX/xnY+x20lh0m
-	3n49u28v75MRh8v+q0oIfTK6Fql77MNch1vjsR2jI8Zl7GS6wbSpmC2cXi7AFV9A96UfvI7VlU7Nz
-	U+PHryUOqHtJoI/sLruQ==;
+	List-Owner; bh=7Lm1aCX4jITdf4gB+Zs7JSHv/3ihhNRswbwlRJa/j7M=; b=ke57Pzum9pzl+T
+	kwkDv2lzwqPVy4WXJILiknT9jej3ObhAOi6TWrq1oHrJfgnYYF/EYN3fMK+Y4eKD2iAf4AXN2akkc
+	W+rhpIj4228ne8hrkKvLhQ06vzYnmIDBFL/yJfeWPuqWszQ1IBpT/RrNiC2LlMfuH4Dmx9VDKMWAV
+	j/wl2xSL0Pzkb4DpDgjeKmErc0LxZLZZlET7NiOqL4Qw9h9LA3GdCU/DzmtNwWJcxBPO1cc0NO1nj
+	WIuxltCMdMqTAf0ZN+xHA21ssiilKq8gMFzffi3wgjVqPC0NBmwkk+IzVoy48jT91wUpGVkUcJILB
+	pqr1D0ONpYl+nENAO30g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCi38-00GJrv-9p; Sat, 16 Jul 2022 13:41:38 +0000
+	id 1oCi40-00GKFU-AC; Sat, 16 Jul 2022 13:42:32 +0000
 Received: from smtp83.cstnet.cn ([159.226.251.83] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCi34-00GJoj-2U
-	for linux-riscv@lists.infradead.org; Sat, 16 Jul 2022 13:41:36 +0000
-Received: by ajax-webmail-APP-09 (Coremail) ; Sat, 16 Jul 2022 21:41:28
+	id 1oCi3w-00GKDQ-QE
+	for linux-riscv@lists.infradead.org; Sat, 16 Jul 2022 13:42:30 +0000
+Received: by ajax-webmail-APP-09 (Coremail) ; Sat, 16 Jul 2022 21:42:26
  +0800 (GMT+08:00)
 X-Originating-IP: [124.16.96.42]
-Date: Sat, 16 Jul 2022 21:41:28 +0800 (GMT+08:00)
+Date: Sat, 16 Jul 2022 21:42:26 +0800 (GMT+08:00)
 X-CM-HeaderCharset: UTF-8
 From: =?UTF-8?B?5r2Y5bqG6ZyW?= <panqinglin2020@iscas.ac.cn>
-To: Conor.Dooley@microchip.com
-Cc: jszhang@kernel.org, palmer@dabbelt.com, linux-riscv@lists.infradead.org, 
-	jeff@riscv.org, xuyinan@ict.ac.cn
+To: "Jisheng Zhang" <jszhang@kernel.org>
+Cc: palmer@dabbelt.com, linux-riscv@lists.infradead.org, jeff@riscv.org, 
+	xuyinan@ict.ac.cn
 Subject: Re: Re: [PATCH v2 1/4] riscv, mm: detect svnapot cpu support at
  runtime
 X-Priority: 3
 X-Mailer: Coremail Webmail Server Version XT5.0.13 build 20210104(ab8c30b6)
  Copyright (c) 2002-2022 www.mailtech.cn cnic.cn
-In-Reply-To: <7292971d-9048-2b83-40c5-29c0a930d094@microchip.com>
+In-Reply-To: <YtKwjmbQmIMm4gEo@xhacker>
 References: <20220716085648.4156408-1-panqinglin2020@iscas.ac.cn>
  <20220716085648.4156408-2-panqinglin2020@iscas.ac.cn>
  <YtKwjmbQmIMm4gEo@xhacker>
- <7292971d-9048-2b83-40c5-29c0a930d094@microchip.com>
 MIME-Version: 1.0
-Message-ID: <6bb47d92.12c94.182073e1feb.Coremail.panqinglin2020@iscas.ac.cn>
+Message-ID: <1e77fd92.12c97.182073f0555.Coremail.panqinglin2020@iscas.ac.cn>
 X-Coremail-Locale: zh_CN
-X-CM-TRANSID: swCowABXXmIJwNJiGHELAA--.7517W
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiAwIJDGKY1lCqdgAC
-	sm
+X-CM-TRANSID: swCowAAnh2BCwNJiIHELAA--.23W
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiCQwJDGKY1n4FBAAB
+	sS
 X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
 	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
 	daVFxhVjvjDU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220716_064134_500736_F90DE1E0 
-X-CRM114-Status: UNSURE (   4.77  )
+X-CRM114-CacheID: sfid-20220716_064229_242414_03CDC2F7 
+X-CRM114-Status: UNSURE (   3.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,43 +72,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-&gt; On 16/07/2022 13:35, Jisheng Zhang wrote:
-&gt; &gt; EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-&gt; &gt; 
-&gt; &gt; On Sat, Jul 16, 2022 at 04:56:45PM +0800, panqinglin2020@iscas.ac.cn wrote:
-&gt; &gt;&gt; From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-&gt; &gt;&gt;
-&gt; &gt;&gt; This patch add two erratas to enable/disable svnapot support, patches code
-&gt; &gt;&gt; dynamicly when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
-&gt; &gt;&gt; option is set. It will influence the behavior of has_svnapot function and
-&gt; &gt;&gt; pte_pfn function. All code dependent on svnapot should make sure that has_svnapot
-&gt; &gt;&gt; return true firstly.
-&gt; &gt;&gt;
-&gt; &gt;&gt; Also, this patch modifies PTE definition for Svnapot, and creates some functions in
-&gt; &gt;&gt; pgtable.h to mark a PTE as napot and check if it is a Svnapot PTE.
-&gt; &gt;&gt; Until now, only 64KB napot size is supported in draft spec, so some macros
-&gt; &gt;&gt; has only 64KB version.
-&gt; &gt;&gt;
-&gt; &gt;&gt; Yours,
-&gt; &gt;&gt; Qinglin
-&gt; &gt; 
-&gt; &gt; hmm, this "Yours ..." should be removed in commit msg
+&gt; &gt;  
+&gt; &gt; +config SVNAPOT
+&gt; &gt; + bool "Svnapot support"
 &gt; 
-&gt; And while they're at it, they can drop the "This patch".
-&gt; 
-&gt; I might've said this on a v1 (I know I said it on someone's
-&gt; v1 recently) that having "Also, this patch" makes it sound
-&gt; like this should actually be two patches and not one.
-&gt; 
-&gt; Thanks,
-&gt; Conor.
+&gt; Do we add an config opition for each isa extension? That's not
+&gt; necessary. I think we'd better remove this CONFIG option and keep
+&gt; unified Image in mind.
 &gt; 
 
-Thanks for the hints, will do in a newer version patch.
+I am also not very sure about necessity of this. Maybe we should allow user to disable
+Svnapot support manually? As this support may introduce extra overhead in functions
+like pte_pfn. So should such option be reserved for setting it off manually? If it should not,
+I will remove it in a newer version.
 
+&gt; &gt; diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+&gt; &gt; index 9e2888dbb5b1..84ad32075637 100644
+&gt; &gt; --- a/arch/riscv/include/asm/errata_list.h
+&gt; &gt; +++ b/arch/riscv/include/asm/errata_list.h
+&gt; &gt; @@ -20,7 +20,8 @@
+&gt; &gt;  #endif
+&gt; &gt;  
+&gt; &gt;  #define CPUFEATURE_SVPBMT 0
+&gt; &gt; -#define CPUFEATURE_NUMBER 1
+&gt; &gt; +#define CPUFEATURE_SVNAPOT 1
+&gt; &gt; +#define CPUFEATURE_NUMBER 2
+&gt; &gt;  
+&gt; &gt;  #ifdef __ASSEMBLY__
+&gt; &gt;  
+&gt; &gt; @@ -93,6 +94,27 @@ asm volatile(ALTERNATIVE(      \
+&gt; &gt;  #define ALT_THEAD_PMA(_val)
+&gt; &gt;  #endif
+&gt; &gt;  
+&gt; &gt; +#define ALT_SVNAPOT(_val)      \
+&gt; 
+&gt; I believe SVNAPOT can be supported w/o ALTERNATIVE, static key mechanism
+&gt; would be much simpler.
+&gt;
+
+Thanks for the hint, will implement it with static key mechanism in a newer version.
 
 Thanks,
-Qinglin.</panqinglin2020@iscas.ac.cn>
+Qinglin
+
+&gt; &gt; +asm(ALTERNATIVE("li %0, 0", "li %0, 1", 0,    \
+&gt; &gt; +  CPUFEATURE_SVNAPOT, CONFIG_SVNAPOT)   \
+&gt; &gt; +  : "=r"(_val) :)
+&gt; &gt; +
+&gt; &gt; +#define ALT_SVNAPOT_PTE_PFN(_val, _napot_shift, _pfn_mask, _pfn_shift) \
+&gt; &gt; +asm(ALTERNATIVE("and %0, %1, %2\n\t"     \
+&gt; &gt; +  "srli %0, %0, %3\n\t"     \
+&gt; &gt; +  "nop\n\tnop\n\tnop",     \
+&gt; &gt; +  "srli t3, %1, %4\n\t"     \
+&gt; &gt; +  "and %0, %1, %2\n\t"     \
+&gt; &gt; +  "srli %0, %0, %3\n\t"     \
+&gt; &gt; +  "sub  t4, %0, t3\n\t"     \
+&gt; &gt; +  "and  %0, %0, t4",     \
+&gt; &gt; +  0, CPUFEATURE_SVNAPOT, CONFIG_SVNAPOT)   \
+&gt; &gt; +  : "+r"(_val)      \
+&gt; &gt; +  : "r"(_val),      \
+&gt; &gt; +    "r"(_pfn_mask),     \
+&gt; &gt; +    "i"(_pfn_shift),     \
+&gt; &gt; +    "i"(_napot_shift))
+&gt; &gt; +
+&gt; &gt;  #endif /* __ASSEMBLY__ */
+&gt; &gt;  
+&gt; &gt;  #endif
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
