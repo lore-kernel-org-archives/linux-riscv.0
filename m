@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD32C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 10:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBFEC433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 16 Jul 2022 10:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z0wcrGKM6a56ajhxP+T2J5vRfKK9Z2RbmVbFNGzYBRs=; b=2Fbb3bymX88cOi
-	z8cDzL1/G9Jy3RSr+zDY2m1rassgCnICqUIcrHcrw9jNieh8ZY0I1ZjDO9CDE3to/nDNa0VAuS37L
-	unJNy5Xo86N+fQwXX3vDWOVJi9u5+H8YX4vp5pByEyr0xqPQ0EfwtGTl2YbbPrGEguUe/e0MjR0Jf
-	piABRIJZw0I5POrEBmRLAfTx22xlxVsoIKYijMvTUuLs1vfGPQipNMllgPLHm9DgNOYHS79dQhz3u
-	GETyQFKRGOD7xKmAcmCZVfTUkav8wuH9f+VK5xcEO2hkhv5qn9b3VA2dsLoGpjXYTuSX7c5Dqv+TC
-	2E+BTWXffJNK5nuZFYEg==;
+	List-Owner; bh=dH/bSHsQG0s7snoumIxiKLhnqILov2gvvqfuRkwbplc=; b=gJYwf+K/wnyBup
+	BGSMmL/t1L46IfRM7DR9vVWEWQC3WgLsbHLLEX6ukjv/vaSJbyybZ3XxEPA6mnpCcRQJUYXAVIgSC
+	2K2uJ4TcnL/N65Opmsf42hEv6nw+AiM9yR2uteq04SOtgoyCuGbLOgYDspmvtbLAncgBuRrQ6TnSg
+	eqaawijVJLzvxunFbDo1vVzyDASauo6PZyH50Abq0DRmsJM+buAlz5GfhACrzYN7puG8kH7fXaO71
+	dMgGVTkgcypT4oWs4jXyaxtHkZlDzh+ryYi4kmJGAq1HnVRA4X+bgwqGCy9GIi7ui06hVSk7GGWdS
+	BOD3goXkOXVm3GnBV5Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCf70-00FOs8-9k; Sat, 16 Jul 2022 10:33:26 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oCfHq-00FTfM-EF; Sat, 16 Jul 2022 10:44:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCf6x-00FOor-Br
-	for linux-riscv@lists.infradead.org; Sat, 16 Jul 2022 10:33:25 +0000
+	id 1oCfHn-00FTdM-9M
+	for linux-riscv@lists.infradead.org; Sat, 16 Jul 2022 10:44:36 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 452D7B82EEA;
-	Sat, 16 Jul 2022 10:33:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8ACAC34114;
-	Sat, 16 Jul 2022 10:33:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9934360FA6;
+	Sat, 16 Jul 2022 10:44:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A137C34114;
+	Sat, 16 Jul 2022 10:44:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1657967598;
-	bh=fb7zcFr0KnXxkQp0xpdk4Mcd+9GKD+xwhdHZmcfcxGM=;
+	s=k20201202; t=1657968273;
+	bh=MT/ioChApAV3Fbzdv9gL+KtbbUDKSiObJMHNjAz1Iwk=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=SFmHR5nFB+nKOqpu5Q04w6uop28XC7xK6cMvxDQaREF2HMd6r3jtvPck5KRlWzpPt
-	 ZAqPYOh3GcX7t1x08di4o+ogeZcjpS5gbe7lLzRcDOXhNLhpqHuJmttXcT79B9TNU6
-	 zip+sWCL1VN2i1A37PvY70STaJWY8ViWKU+cdVEfepMom4cXEGNe/yvbpIxu5k16f+
-	 GkDkLw6B8ooc17oyg4WHKA5Gu9oQ0sphFtAEbIRRPX1jD+G7BQwzQZufSlvVfmeA4n
-	 kGnzZ/L1Ln64G+T76u3rYxNu4QxL45rP36+edMzzWb+U+zyVoS4mCoOU1TFN3OJfnM
-	 eQSH9r4o8AWSQ==
+	b=N8I1FwXwIlaoSQq9N9cUgqE2zMOuBH932SIkqKWogyNUG3LefcXTehPghN6c/39Pj
+	 RVVX/7SgcJEL7AGz21Gir6Dow1kiXbRBUAU+fi0gN+lcs1IVH4iSNweCWVVqF4ZCHo
+	 cvZWz4sVhN5WAN22S+yeFaohJHNBLbcslRxi+XCsTya5JZFqG0ohFCfaDjr0jin/ew
+	 Mdspnl0BVP6KkZpf5wDXBgHsyBRA8JojgybzA3FGgMlRzDSQzHQF+MYATcp9i5ofjd
+	 kuxQIPv0HxsVpKBfS95Q2VWwgR/3h8y0dPMb/B4fp3BCKT47bP5EIv/wzptcYRQu+k
+	 rUqWUgfaS+dUA==
 Received: from ip-185-104-136-29.ptr.icomera.net ([185.104.136.29] helo=wait-a-minute.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1oCf6p-007rDL-Ga;
-	Sat, 16 Jul 2022 11:33:15 +0100
-Date: Sat, 16 Jul 2022 11:33:08 +0100
-Message-ID: <87r12l4aaj.wl-maz@kernel.org>
+	id 1oCfHi-007rH6-P9;
+	Sat, 16 Jul 2022 11:44:31 +0100
+Date: Sat, 16 Jul 2022 11:44:26 +0100
+Message-ID: <87pmi549rp.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: <lewis.hanly@microchip.com>
 Cc: <linux-gpio@vger.kernel.org>,
@@ -73,8 +73,8 @@ X-SA-Exim-Rcpt-To: lewis.hanly@microchip.com, linux-gpio@vger.kernel.org, linux-
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220716_033323_723408_91A43D87 
-X-CRM114-Status: GOOD (  22.09  )
+X-CRM114-CacheID: sfid-20220716_034435_386144_F99D59B0 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,85 +99,36 @@ On Sat, 16 Jul 2022 08:11:13 +0100,
 > Add a driver to support the Polarfire SoC gpio controller.
 > 
 > Signed-off-by: Lewis Hanly <lewis.hanly@microchip.com>
+> ---
+>  drivers/gpio/Kconfig     |   9 +
+>  drivers/gpio/Makefile    |   1 +
+>  drivers/gpio/gpio-mpfs.c | 361 +++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 371 insertions(+)
+>  create mode 100644 drivers/gpio/gpio-mpfs.c
 
-[...]
+A couple of other nits:
 
-> +static int mpfs_gpio_child_to_parent_hwirq(struct gpio_chip *gc,
-> +					   unsigned int child,
-> +					   unsigned int child_type,
-> +					   unsigned int *parent,
-> +					   unsigned int *parent_type)
-> +{
-> +	struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
-> +	struct irq_data *d = irq_get_irq_data(mpfs_gpio->irq_number[child]);
+> +static const struct of_device_id mpfs_of_ids[] = {
+> +	{ .compatible = "microchip,mpfs-gpio", },
 
-This looks totally wrong. It means that you have already instantiated
-part of the hierarchy, and it is likely that you will get multiple
-hierarchy sharing some levels, which isn't intended.
+Where is the DT binding for this?
 
-> +	*parent_type = IRQ_TYPE_NONE;
-> +	*parent = irqd_to_hwirq(d);
+> +	{ /* end of list */ }
+> +};
 > +
-> +	return 0;
-> +}
-> +
-> +static int mpfs_gpio_probe(struct platform_device *pdev)
-> +{
-> +	struct clk *clk;
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *node = pdev->dev.of_node;
-> +	struct device_node *irq_parent;
-> +	struct gpio_irq_chip *girq;
-> +	struct irq_domain *parent;
-> +	struct mpfs_gpio_chip *mpfs_gpio;
-> +	int i, ret, ngpio;
-> +
-> +	mpfs_gpio = devm_kzalloc(dev, sizeof(*mpfs_gpio), GFP_KERNEL);
-> +	if (!mpfs_gpio)
-> +		return -ENOMEM;
-> +
-> +	mpfs_gpio->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(mpfs_gpio->base))
-> +		return dev_err_probe(dev, PTR_ERR(mpfs_gpio->clk), "input clock not found.\n");
-> +
-> +	clk = devm_clk_get(dev, NULL);
-> +	if (IS_ERR(clk))
-> +		return dev_err_probe(dev, PTR_ERR(clk), "devm_clk_get failed\n");
-> +
-> +	ret = clk_prepare_enable(clk);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to enable clock\n");
-> +
-> +	mpfs_gpio->clk = clk;
-> +
-> +	ngpio = of_irq_count(node);
-> +	if (ngpio > NUM_GPIO) {
-> +		ret = -ENXIO;
-> +		goto cleanup_clock;
-> +	}
-> +
-> +	irq_parent = of_irq_find_parent(node);
-> +	if (!irq_parent) {
-> +		ret = -ENODEV;
-> +		goto cleanup_clock;
-> +	}
-> +	parent = irq_find_host(irq_parent);
-> +	if (!parent) {
-> +		ret = -ENODEV;
-> +		goto cleanup_clock;
-> +	}
-> +
-> +	/* Get the interrupt numbers. */
-> +	/* Clear/Disable All interrupts before enabling parent interrupts. */
-> +	for (i = 0; i < ngpio; i++) {
-> +		mpfs_gpio->irq_number[i] = platform_get_irq(pdev, i);
+> +static struct platform_driver mpfs_gpio_driver = {
+> +	.probe = mpfs_gpio_probe,
+> +	.driver = {
+> +		.name = "microchip,mpfs-gpio",
+> +		.of_match_table = mpfs_of_ids,
+> +	},
+> +	.remove = mpfs_gpio_remove,
 
-Bingo. You are allocating the interrupt for the level below. You
-really shouldn't do that.
-
-If you need to retrieve the *hwirq* for the level below, you need to
-parse the DT without triggering an IRQ allocation (of_irq_parse_one()
-and co).
+No, please. You cannot enforce that there are no interrupts being used
+(and nothing checks for this), and you're pretty much guaranteed that
+the system will catch fire on the first interrupt being delivered.
+Moreover, your "remove" callback only turns the clock off, which is
+yet another nail on that coffin.
 
 	M.
 
