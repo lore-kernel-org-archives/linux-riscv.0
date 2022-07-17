@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08DC5C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 04:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BF1C43334
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 04:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gVx/lxYYY0fkpkuS3BoAafXAEACCFIheOkgGNjzBlWM=; b=R2xfTk4sPClV/0
-	4xO2bBo1V6CD6zBkjuZN36TI86Q3FzAnkcLL4ZFXzPcxY+dOms1Zx4OTgcAE0zHDTsxfjlzt5JZsF
-	A0DwSEHJFqeYrKvDSqb7temKKte8gw9fJ+AjQwbOwcH+8N6lsZzcEwmw4hJOCLG5zWqWlHJDOm6XS
-	tzjUzTdOPRrthKqiUfyjKAY8DQLXJPyAQXhtP+OqXTEAAAdrP43cu6jeQTb2Tj6zHcw8wrpT7BG1R
-	NHOcGH0E6X03qHXWdFrWE1hu8vb7yXV6VIQfbGNYenZPJRb9dx7HxwuoUJfgjloqCqDMZRcnwSWb5
-	MHJo4cPkwnVYFt2akK7g==;
+	List-Owner; bh=yPRt/FUiSV7FGizKWeATNRYMCUeVRI09y91J+i/5RSM=; b=SSYCcmv+WbBDqU
+	jg6OBI/6xHyMRxHpWclHv6exPnxKJFfaQKtQXtkIhU7peLXkcffOqKklkc+TKJ0aE9RHoT2Sq4+MK
+	sHSyhsz+9b8StXg18JuGCVzCLDYVbenZLb7D60OIlixGV2ZXU5K5FYQgG4Rn7nndtczVNtjz0Q2RM
+	LpRdRlNekUDFfRzGPY0CH15OyWOVSqMf3WJAJHJY33U06CqQazNUJX6X8I5IHOW+qMysLGVKxr41s
+	Mp4jGnBk0i8bADb5eQEN3PKJUee4Q2sJs7go2ad3l1lczWo2L7GKvZRsY3DAE4QiPk9fw7z0TU/l5
+	zwsBVRoU36cU2CkmGq7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCvun-0040IX-ML; Sun, 17 Jul 2022 04:29:57 +0000
-Received: from out30-54.freemail.mail.aliyun.com ([115.124.30.54])
+	id 1oCvup-0040K3-0p; Sun, 17 Jul 2022 04:29:59 +0000
+Received: from out199-17.us.a.mail.aliyun.com ([47.90.199.17])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCvuY-00404x-Po
-	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 04:29:48 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046049;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0VJWzC9n_1658032172;
-Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VJWzC9n_1658032172)
+	id 1oCvub-00406Q-Vi
+	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 04:29:49 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045170;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0VJWxqTe_1658032176;
+Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VJWxqTe_1658032176)
           by smtp.aliyun-inc.com;
-          Sun, 17 Jul 2022 12:29:33 +0800
+          Sun, 17 Jul 2022 12:29:37 +0800
 From: Xianting Tian <xianting.tian@linux.alibaba.com>
 To: crash-utility@redhat.com,
 	mick@ics.forth.gr,
@@ -39,15 +39,15 @@ Cc: linux-riscv@lists.infradead.org,
 	hschauhan@nulltrace.org,
 	huanyi.xj@alibaba-inc.com,
 	Xianting Tian <xianting.tian@linux.alibaba.com>
-Subject: [PATCH 1/8] Add RISCV64 framework code support
-Date: Sun, 17 Jul 2022 12:29:22 +0800
-Message-Id: <20220717042929.370022-2-xianting.tian@linux.alibaba.com>
+Subject: [PATCH 5/8] RISCV64: Add 'bt' command support
+Date: Sun, 17 Jul 2022 12:29:26 +0800
+Message-Id: <20220717042929.370022-6-xianting.tian@linux.alibaba.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20220717042929.370022-1-xianting.tian@linux.alibaba.com>
 References: <20220717042929.370022-1-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220716_212943_856369_B76DCB6F 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20220716_212946_351330_AB87B310 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,629 +65,410 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch mainly added some environment configurations, macro definitions,
-specific architecture structures and some function declarations supported
-by the RISCV64 architecture.
+1, Add the implementation to get stack frame from active & inactive
+   task's stack.
+2, Add 'bt -l' command support get a line number associated with a
+   current pc address.
+3, Add 'bt -f' command support to display all stack data contained
+   in a frame
 
-We can use the build command to get the simplest version crash tool:
-	make target=RISCV64 -j2
+With the patch, we can get the backtrace,
+crash> bt
+PID: 113      TASK: ff6000000226c200  CPU: 0    COMMAND: "sh"
+ #0 [ff20000010333b90] riscv_crash_save_regs at ffffffff800078f8
+ #1 [ff20000010333cf0] panic at ffffffff806578c6
+ #2 [ff20000010333d50] sysrq_reset_seq_param_set at ffffffff8038c03c
+ #3 [ff20000010333da0] __handle_sysrq at ffffffff8038c604
+ #4 [ff20000010333e00] write_sysrq_trigger at ffffffff8038cae4
+ #5 [ff20000010333e20] proc_reg_write at ffffffff801b7ee8
+ #6 [ff20000010333e40] vfs_write at ffffffff80152bb2
+ #7 [ff20000010333e80] ksys_write at ffffffff80152eda
+ #8 [ff20000010333ed0] sys_write at ffffffff80152f52
+
+crash> bt -l
+PID: 113      TASK: ff6000000226c200  CPU: 0    COMMAND: "sh"
+ #0 [ff20000010333b90] riscv_crash_save_regs at ffffffff800078f8
+    /buildroot/qemu_riscv64_virt_defconfig/build/linux-custom/arch/riscv/kernel/crash_save_regs.S: 47
+ #1 [ff20000010333cf0] panic at ffffffff806578c6
+    /buildroot/qemu_riscv64_virt_defconfig/build/linux-custom/kernel/panic.c: 276
+ ... ...
+
+crash> bt -f
+PID: 113      TASK: ff6000000226c200  CPU: 0    COMMAND: "sh"
+ #0 [ff20000010333b90] riscv_crash_save_regs at ffffffff800078f8
+    [PC: ffffffff800078f8 RA: ffffffff806578c6 SP: ff20000010333b90 SIZE: 352]
+    ff20000010333b90: ff20000010333bb0 ffffffff800078f8
+    ff20000010333ba0: ffffffff8008862c ff20000010333b90
+    ff20000010333bb0: ffffffff810dde38 ff6000000226c200
+    ff20000010333bc0: ffffffff8032be68 0720072007200720
+ ... ...
 
 Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
 ---
- Makefile            |   7 +-
- README              |   2 +-
- configure.c         |  39 ++++++++++-
- defs.h              | 155 +++++++++++++++++++++++++++++++++++++++++++-
- diskdump.c          |  11 +++-
- help.c              |   2 +-
- lkcd_vmdump_v2_v3.h |   2 +-
- netdump.c           |   9 ++-
- ramdump.c           |   2 +
- riscv64.c           |  56 ++++++++++++++++
- symbols.c           |  10 +++
- 11 files changed, 285 insertions(+), 10 deletions(-)
- create mode 100644 riscv64.c
+ netdump.c |  13 +++
+ riscv64.c | 283 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 296 insertions(+)
 
-diff --git a/Makefile b/Makefile
-index 162c2ba..54ebb43 100644
---- a/Makefile
-+++ b/Makefile
-@@ -64,7 +64,7 @@ CFILES=main.c tools.c global_data.c memory.c filesys.c help.c task.c \
- 	kernel.c test.c gdb_interface.c configure.c net.c dev.c bpf.c \
- 	printk.c \
- 	alpha.c x86.c ppc.c ia64.c s390.c s390x.c s390dbf.c ppc64.c x86_64.c \
--	arm.c arm64.c mips.c mips64.c sparc64.c \
-+	arm.c arm64.c mips.c mips64.c riscv64.c sparc64.c \
- 	extensions.c remote.c va_server.c va_server_v1.c symbols.c cmdline.c \
- 	lkcd_common.c lkcd_v1.c lkcd_v2_v3.c lkcd_v5.c lkcd_v7.c lkcd_v8.c\
- 	lkcd_fix_mem.c s390_dump.c lkcd_x86_trace.c \
-@@ -84,7 +84,7 @@ OBJECT_FILES=main.o tools.o global_data.o memory.o filesys.o help.o task.o \
- 	build_data.o kernel.o test.o gdb_interface.o net.o dev.o bpf.o \
- 	printk.o \
- 	alpha.o x86.o ppc.o ia64.o s390.o s390x.o s390dbf.o ppc64.o x86_64.o \
--	arm.o arm64.o mips.o mips64.o sparc64.o \
-+	arm.o arm64.o mips.o mips64.o riscv64.o sparc64.o \
- 	extensions.o remote.o va_server.o va_server_v1.o symbols.o cmdline.o \
- 	lkcd_common.o lkcd_v1.o lkcd_v2_v3.o lkcd_v5.o lkcd_v7.o lkcd_v8.o \
- 	lkcd_fix_mem.o s390_dump.o netdump.o diskdump.o makedumpfile.o xendump.o \
-@@ -438,6 +438,9 @@ mips.o: ${GENERIC_HFILES} ${REDHAT_HFILES} mips.c
- mips64.o: ${GENERIC_HFILES} ${REDHAT_HFILES} mips64.c
- 	${CC} -c ${CRASH_CFLAGS} mips64.c ${WARNING_OPTIONS} ${WARNING_ERROR}
- 
-+riscv64.o: ${GENERIC_HFILES} ${REDHAT_HFILES} riscv64.c
-+	${CC} -c ${CRASH_CFLAGS} riscv64.c ${WARNING_OPTIONS} ${WARNING_ERROR}
-+
- sparc64.o: ${GENERIC_HFILES} ${REDHAT_HFILES} sparc64.c
- 	${CC} -c ${CRASH_CFLAGS} sparc64.c ${WARNING_OPTIONS} ${WARNING_ERROR}
- 
-diff --git a/README b/README
-index 5abbce1..5ac5b60 100644
---- a/README
-+++ b/README
-@@ -37,7 +37,7 @@
-   These are the current prerequisites: 
- 
-   o  At this point, x86, ia64, x86_64, ppc64, ppc, arm, arm64, alpha, mips,
--     mips64, s390 and s390x-based kernels are supported.  Other architectures
-+     mips64, riscv64, s390 and s390x-based kernels are supported.  Other architectures
-      may be addressed in the future.
- 
-   o  One size fits all -- the utility can be run on any Linux kernel version
-diff --git a/configure.c b/configure.c
-index 5188851..0d216d1 100644
---- a/configure.c
-+++ b/configure.c
-@@ -107,6 +107,7 @@ void add_extra_lib(char *);
- #undef MIPS
- #undef SPARC64
- #undef MIPS64
-+#undef RISCV64
- 
- #define UNKNOWN 0
- #define X86     1
-@@ -122,6 +123,7 @@ void add_extra_lib(char *);
- #define MIPS    11
- #define SPARC64 12
- #define MIPS64  13
-+#define RISCV64 14
- 
- #define TARGET_X86    "TARGET=X86"
- #define TARGET_ALPHA  "TARGET=ALPHA"
-@@ -136,6 +138,7 @@ void add_extra_lib(char *);
- #define TARGET_MIPS   "TARGET=MIPS"
- #define TARGET_MIPS64 "TARGET=MIPS64"
- #define TARGET_SPARC64 "TARGET=SPARC64"
-+#define TARGET_RISCV64 "TARGET=RISCV64"
- 
- #define TARGET_CFLAGS_X86    "TARGET_CFLAGS=-D_FILE_OFFSET_BITS=64"
- #define TARGET_CFLAGS_ALPHA  "TARGET_CFLAGS="
-@@ -158,6 +161,8 @@ void add_extra_lib(char *);
- #define TARGET_CFLAGS_MIPS_ON_X86_64  "TARGET_CFLAGS=-m32 -D_FILE_OFFSET_BITS=64"
- #define TARGET_CFLAGS_MIPS64          "TARGET_CFLAGS="
- #define TARGET_CFLAGS_SPARC64         "TARGET_CFLAGS="
-+#define TARGET_CFLAGS_RISCV64         "TARGET_CFLAGS="
-+#define TARGET_CFLAGS_RISCV64_ON_X86_64	"TARGET_CFLAGS="
- 
- #define GDB_TARGET_DEFAULT        "GDB_CONF_FLAGS="
- #define GDB_TARGET_ARM_ON_X86     "GDB_CONF_FLAGS=--target=arm-elf-linux"
-@@ -168,6 +173,7 @@ void add_extra_lib(char *);
- #define GDB_TARGET_PPC64_ON_X86_64  "GDB_CONF_FLAGS=--target=powerpc64le-unknown-linux-gnu"
- #define GDB_TARGET_MIPS_ON_X86     "GDB_CONF_FLAGS=--target=mipsel-elf-linux"
- #define GDB_TARGET_MIPS_ON_X86_64  "GDB_CONF_FLAGS=--target=mipsel-elf-linux CFLAGS=-m32 CXXFLAGS=-m32"
-+#define GDB_TARGET_RISCV64_ON_X86_64  "GDB_CONF_FLAGS=--target=riscv64-unknown-linux-gnu"
-      
- /*
-  *  The original plan was to allow the use of a particular version
-@@ -404,6 +410,9 @@ get_current_configuration(struct supported_gdb_version *sp)
- #ifdef __sparc_v9__
- 	target_data.target = SPARC64;
- #endif
-+#ifdef __riscv64__
-+	target_data.target = RISCV64;
-+#endif
- 
- 	set_initial_target(sp);
- 
-@@ -457,6 +466,12 @@ get_current_configuration(struct supported_gdb_version *sp)
- 			if ((target_data.initial_gdb_target != UNKNOWN) &&
- 			    (target_data.host != target_data.initial_gdb_target))
- 				arch_mismatch(sp);
-+		} else if ((target_data.target == X86_64) &&
-+			(name_to_target((char *)target_data.target_as_param) == RISCV64)) {
-+			/*
-+			 *  Build an RISCV64 crash binary on an X86_64 host.
-+			 */
-+			target_data.target = RISCV64;
- 		} else {
- 			fprintf(stderr,
- 			    "\ntarget=%s is not supported on the %s host architecture\n\n",
-@@ -497,6 +512,10 @@ get_current_configuration(struct supported_gdb_version *sp)
- 		    (target_data.target != MIPS64))
- 			arch_mismatch(sp);
- 
-+		if ((target_data.initial_gdb_target == RISCV64) &&
-+		    (target_data.target != RISCV64))
-+			arch_mismatch(sp);
-+
- 		if ((target_data.initial_gdb_target == X86) &&
- 		    (target_data.target != X86)) {
- 			if (target_data.target == X86_64) 
-@@ -660,6 +679,9 @@ show_configuration(void)
- 	case SPARC64:
- 		printf("TARGET: SPARC64\n");
- 		break;
-+	case RISCV64:
-+		printf("TARGET: RISCV64\n");
-+		break;
- 	}
- 
- 	if (strlen(target_data.program)) {
-@@ -777,6 +799,14 @@ build_configure(struct supported_gdb_version *sp)
- 		target = TARGET_SPARC64;
- 		target_CFLAGS = TARGET_CFLAGS_SPARC64;
- 		break;
-+	case RISCV64:
-+		target = TARGET_RISCV64;
-+		if (target_data.host == X86_64) {
-+			target_CFLAGS = TARGET_CFLAGS_RISCV64_ON_X86_64;
-+			gdb_conf_flags = GDB_TARGET_RISCV64_ON_X86_64;
-+		} else
-+			target_CFLAGS = TARGET_CFLAGS_RISCV64;
-+		break;
- 	}
- 
- 	ldflags = get_extra_flags("LDFLAGS.extra", NULL);
-@@ -1374,7 +1404,7 @@ make_spec_file(struct supported_gdb_version *sp)
- 	printf("Vendor: Red Hat, Inc.\n");
- 	printf("Packager: Dave Anderson <anderson@redhat.com>\n");
- 	printf("ExclusiveOS: Linux\n");
--	printf("ExclusiveArch: %%{ix86} alpha ia64 ppc ppc64 ppc64pseries ppc64iseries x86_64 s390 s390x arm aarch64 ppc64le mips mipsel mips64el sparc64\n");
-+	printf("ExclusiveArch: %%{ix86} alpha ia64 ppc ppc64 ppc64pseries ppc64iseries x86_64 s390 s390x arm aarch64 ppc64le mips mipsel mips64el sparc64 riscv64\n");
- 	printf("Buildroot: %%{_tmppath}/%%{name}-root\n");
- 	printf("BuildRequires: ncurses-devel zlib-devel bison\n");
- 	printf("Requires: binutils\n");
-@@ -1613,6 +1643,8 @@ set_initial_target(struct supported_gdb_version *sp)
- 		target_data.initial_gdb_target = MIPS;
- 	else if (strncmp(buf, "SPARC64", strlen("SPARC64")) == 0)
- 		target_data.initial_gdb_target = SPARC64;
-+	else if (strncmp(buf, "RISCV64", strlen("RISCV64")) == 0)
-+		target_data.initial_gdb_target = RISCV64;
- }
- 
- char *
-@@ -1633,6 +1665,7 @@ target_to_name(int target)
- 	case MIPS:   return("MIPS");
- 	case MIPS64: return("MIPS64");
- 	case SPARC64: return("SPARC64");
-+	case RISCV64: return("RISCV64");
- 	}
- 
- 	return "UNKNOWN";
-@@ -1697,6 +1730,10 @@ name_to_target(char *name)
- 		return MIPS64;
- 	else if (strncmp(name, "sparc64", strlen("sparc64")) == 0)
- 		return SPARC64;
-+	else if (strncmp(name, "RISCV64", strlen("RISCV64")) == 0)
-+		return RISCV64;
-+	else if (strncmp(name, "riscv64", strlen("riscv64")) == 0)
-+		return RISCV64;
- 
- 	return UNKNOWN;
- }
-diff --git a/defs.h b/defs.h
-index 9b1b69a..42ffba3 100644
---- a/defs.h
-+++ b/defs.h
-@@ -76,7 +76,7 @@
- #if !defined(X86) && !defined(X86_64) && !defined(ALPHA) && !defined(PPC) && \
-     !defined(IA64) && !defined(PPC64) && !defined(S390) && !defined(S390X) && \
-     !defined(ARM) && !defined(ARM64) && !defined(MIPS) && !defined(MIPS64) && \
--    !defined(SPARC64)
-+    !defined(RISCV64) && !defined(SPARC64)
- #ifdef __alpha__
- #define ALPHA
- #endif
-@@ -118,6 +118,9 @@
- #ifdef __sparc_v9__
- #define SPARC64
- #endif
-+#ifdef __riscv64__
-+#define RISCV64
-+#endif
- #endif
- 
- #ifdef X86
-@@ -159,6 +162,9 @@
- #ifdef SPARC64
- #define NR_CPUS  (4096)
- #endif
-+#ifdef RISCV64
-+#define NR_CPUS  (256)
-+#endif
- 
- #define NR_DEVICE_DUMPS (64)
- 
-@@ -3484,6 +3490,63 @@ struct arm64_stackframe {
- #define _MAX_PHYSMEM_BITS       48
- #endif  /* MIPS64 */
- 
-+#ifdef RISCV64
-+#define _64BIT_
-+#define MACHINE_TYPE		"RISCV64"
-+
-+/*
-+ * Direct memory mapping
-+ */
-+#define PTOV(X)										\
-+	(((unsigned long)(X)+(machdep->kvbase)) - machdep->machspec->phys_base)
-+#define VTOP(X)	({									\
-+	ulong _X = X;									\
-+	(THIS_KERNEL_VERSION >= 0x50D00 &&						\
-+		(_X) >= machdep->machspec->kernel_link_addr) ?				\
-+		(((unsigned long)(_X)-(machdep->machspec->kernel_link_addr)) +		\
-+		 machdep->machspec->phys_base):						\
-+		(((unsigned long)(_X)-(machdep->kvbase)) +				\
-+		 machdep->machspec->phys_base);						\
-+	})
-+#define PAGEBASE(X)		(((ulong)(X)) & (ulong)machdep->pagemask)
-+
-+/*
-+ * Stack size order
-+ */
-+#define THREAD_SIZE_ORDER       2
-+
-+#define PAGE_OFFSET		(machdep->machspec->page_offset)
-+#define VMALLOC_START		(machdep->machspec->vmalloc_start_addr)
-+#define VMALLOC_END		(machdep->machspec->vmalloc_end)
-+#define VMEMMAP_VADDR		(machdep->machspec->vmemmap_vaddr)
-+#define VMEMMAP_END		(machdep->machspec->vmemmap_end)
-+#define MODULES_VADDR		(machdep->machspec->modules_vaddr)
-+#define MODULES_END		(machdep->machspec->modules_end)
-+#define IS_VMALLOC_ADDR(X)	riscv64_IS_VMALLOC_ADDR((ulong)(X))
-+
-+/* from arch/riscv/include/asm/pgtable.h */
-+#define __SWP_TYPE_SHIFT        6
-+#define __SWP_TYPE_BITS         5
-+#define __SWP_TYPE_MASK         ((1UL << __SWP_TYPE_BITS) - 1)
-+#define __SWP_OFFSET_SHIFT      (__SWP_TYPE_BITS + __SWP_TYPE_SHIFT)
-+
-+#define MAX_SWAPFILES_CHECK()   BUILD_BUG_ON(MAX_SWAPFILES_SHIFT > __SWP_TYPE_BITS)
-+
-+#define SWP_TYPE(entry)		(((entry) >> __SWP_TYPE_SHIFT) & __SWP_TYPE_MASK)
-+#define SWP_OFFSET(entry)	((entry) >> __SWP_OFFSET_SHIFT)
-+#define __swp_type(entry)       SWP_TYPE(entry)
-+#define __swp_offset(entry)     SWP_OFFSET(entry)
-+
-+#define TIF_SIGPENDING          (THIS_KERNEL_VERSION >= LINUX(2,6,23) ? 1 : 2)
-+
-+/* from arch/riscv/include/asm/sparsemem.h */
-+#define _SECTION_SIZE_BITS      27
-+#define _MAX_PHYSMEM_BITS       56 /* 56-bit physical address supported */
-+#define PHYS_MASK_SHIFT		_MAX_PHYSMEM_BITS
-+#define PHYS_MASK		(((1UL) << PHYS_MASK_SHIFT) - 1)
-+
-+#endif  /* RISCV64 */
-+
- #ifdef X86
- #define _32BIT_
- #define MACHINE_TYPE       "X86"
-@@ -4532,6 +4595,10 @@ struct machine_specific {
- #define MAX_HEXADDR_STRLEN (16)
- #define UVADDR_PRLEN      (16)
- #endif
-+#ifdef RISCV64
-+#define MAX_HEXADDR_STRLEN (16)
-+#define UVADDR_PRLEN       (16)
-+#endif
- 
- #define BADADDR  ((ulong)(-1))
- #define BADVAL   ((ulong)(-1))
-@@ -5126,6 +5193,9 @@ void dump_build_data(void);
- #ifdef MIPS64
- #define machdep_init(X) mips64_init(X)
- #endif
-+#ifdef RISCV64
-+#define machdep_init(X) riscv64_init(X)
-+#endif
- #ifdef SPARC64
- #define machdep_init(X) sparc64_init(X)
- #endif
-@@ -5606,6 +5676,9 @@ void display_help_screen(char *);
- #ifdef SPARC64
- #define dump_machdep_table(X) sparc64_dump_machdep_table(X)
- #endif
-+#ifdef RISCV64
-+#define dump_machdep_table(X) riscv64_dump_machdep_table(X)
-+#endif
- extern char *help_pointer[];
- extern char *help_alias[];
- extern char *help_ascii[];
-@@ -6682,6 +6755,86 @@ struct machine_specific {
- 
- #endif /* MIPS64 */
- 
-+/*
-+ * riscv64.c
-+ */
-+void riscv64_display_regs_from_elf_notes(int, FILE *);
-+
-+#ifdef RISCV64
-+void riscv64_init(int);
-+void riscv64_dump_machdep_table(ulong);
-+int riscv64_IS_VMALLOC_ADDR(ulong);
-+
-+#define display_idt_table() \
-+	error(FATAL, "-d option is not applicable to RISCV64 architecture\n")
-+
-+/* from arch/riscv/include/asm/ptrace.h */
-+struct riscv64_register {
-+	ulong regs[36];
-+};
-+
-+struct riscv64_pt_regs {
-+	ulong badvaddr;
-+	ulong cause;
-+	ulong epc;
-+};
-+
-+struct riscv64_unwind_frame {
-+	ulong fp;
-+	ulong sp;
-+	ulong pc;
-+};
-+
-+#define KSYMS_START	(0x1)
-+
-+struct machine_specific {
-+	ulong phys_base;
-+	ulong page_offset;
-+	ulong vmalloc_start_addr;
-+	ulong vmalloc_end;
-+	ulong vmemmap_vaddr;
-+	ulong vmemmap_end;
-+	ulong modules_vaddr;
-+	ulong modules_end;
-+	ulong kernel_link_addr;
-+	ulong address_space_end;
-+
-+	ulong _page_present;
-+	ulong _page_read;
-+	ulong _page_write;
-+	ulong _page_exec;
-+	ulong _page_user;
-+	ulong _page_global;
-+	ulong _page_accessed;
-+	ulong _page_dirty;
-+	ulong _page_soft;
-+
-+	ulong _pfn_shift;
-+
-+	struct riscv64_register *crash_task_regs;
-+};
-+/* from arch/riscv/include/asm/pgtable-bits.h */
-+#define 	_PAGE_PRESENT	(machdep->machspec->_page_present)
-+#define 	_PAGE_READ	(machdep->machspec->_page_read)
-+#define 	_PAGE_WRITE	(machdep->machspec->_page_write)
-+#define 	_PAGE_EXEC	(machdep->machspec->_page_exec)
-+#define 	_PAGE_USER	(machdep->machspec->_page_user)
-+#define 	_PAGE_GLOBAL	(machdep->machspec->_page_global)
-+#define 	_PAGE_ACCESSED	(machdep->machspec->_page_accessed)
-+#define 	_PAGE_DIRTY	(machdep->machspec->_page_dirty)
-+#define 	_PAGE_SOFT	(machdep->machspec->_page_soft)
-+#define 	_PAGE_SEC	(machdep->machspec->_page_sec)
-+#define 	_PAGE_SHARE	(machdep->machspec->_page_share)
-+#define 	_PAGE_BUF	(machdep->machspec->_page_buf)
-+#define 	_PAGE_CACHE	(machdep->machspec->_page_cache)
-+#define 	_PAGE_SO	(machdep->machspec->_page_so)
-+#define 	_PAGE_SPECIAL	_PAGE_SOFT
-+#define		_PAGE_TABLE	_PAGE_PRESENT
-+#define 	_PAGE_PROT_NONE	_PAGE_READ
-+#define 	_PAGE_PFN_SHIFT	10
-+
-+#endif /* RISCV64 */
-+
- /*
-  * sparc64.c
-  */
-diff --git a/diskdump.c b/diskdump.c
-index 2c1f9be..28503bc 100644
---- a/diskdump.c
-+++ b/diskdump.c
-@@ -622,6 +622,9 @@ restart:
- 	else if (STRNEQ(header->utsname.machine, "aarch64") &&
- 	    machine_type_mismatch(file, "ARM64", NULL, 0))
- 		goto err;
-+	else if (STRNEQ(header->utsname.machine, "riscv64") &&
-+	    machine_type_mismatch(file, "RISCV64", NULL, 0))
-+		goto err;
- 
- 	if (header->block_size != block_size) {
- 		block_size = header->block_size;
-@@ -780,6 +783,8 @@ restart:
- 		dd->machine_type = EM_AARCH64;
- 	else if (machine_type("SPARC64"))
- 		dd->machine_type = EM_SPARCV9;
-+	else if (machine_type("RISCV64"))
-+		dd->machine_type = EM_RISCV;
- 	else {
- 		error(INFO, "%s: unsupported machine type: %s\n", 
- 			DISKDUMP_VALID() ? "diskdump" : "compressed kdump",
-@@ -1751,7 +1756,8 @@ dump_note_offsets(FILE *fp)
- 			qemu = FALSE;
- 			if (machine_type("X86_64") || machine_type("S390X") ||
- 			    machine_type("ARM64") || machine_type("PPC64") ||
--			    machine_type("SPARC64") || machine_type("MIPS64")) {
-+			    machine_type("SPARC64") || machine_type("MIPS64") ||
-+			    machine_type("RISCV64")) {
- 				note64 = (void *)dd->notes_buf + tot;
- 				len = sizeof(Elf64_Nhdr);
- 				if (STRNEQ((char *)note64 + len, "QEMU"))
-@@ -2558,7 +2564,8 @@ dump_registers_for_compressed_kdump(void)
- 	if (!KDUMP_CMPRS_VALID() || (dd->header->header_version < 4) ||
- 	    !(machine_type("X86") || machine_type("X86_64") ||
- 	      machine_type("ARM64") || machine_type("PPC64") ||
--	      machine_type("MIPS") || machine_type("MIPS64")))
-+	      machine_type("MIPS") || machine_type("MIPS64") ||
-+	      machine_type("RISCV64")))
- 		error(FATAL, "-r option not supported for this dumpfile\n");
- 
- 	if (machine_type("ARM64") && (kt->cpus != dd->num_prstatus_notes))
-diff --git a/help.c b/help.c
-index 99214c1..253c71b 100644
---- a/help.c
-+++ b/help.c
-@@ -9512,7 +9512,7 @@ char *README[] = {
- "  These are the current prerequisites: ",
- "",
- "  o  At this point, x86, ia64, x86_64, ppc64, ppc, arm, arm64, alpha, mips,",
--"     mips64, s390 and s390x-based kernels are supported.  Other architectures",
-+"     mips64, riscv64, s390 and s390x-based kernels are supported.  Other architectures",
- "     may be addressed in the future.",
- "",
- "  o  One size fits all -- the utility can be run on any Linux kernel version",
-diff --git a/lkcd_vmdump_v2_v3.h b/lkcd_vmdump_v2_v3.h
-index 984c2c2..7fa70b9 100644
---- a/lkcd_vmdump_v2_v3.h
-+++ b/lkcd_vmdump_v2_v3.h
-@@ -37,7 +37,7 @@
- 
- #if defined(ARM) || defined(X86) || defined(PPC) || defined(S390) || \
- 	defined(S390X) || defined(ARM64) || defined(MIPS) || \
--	defined(MIPS64) || defined(SPARC64)
-+	defined(MIPS64) || defined(SPARC64) || defined(RISCV64)
- 
- /*
-  * Kernel header file for Linux crash dumps.
 diff --git a/netdump.c b/netdump.c
-index ff273b4..4ec12a0 100644
+index 4ec12a0..1f418e6 100644
 --- a/netdump.c
 +++ b/netdump.c
-@@ -300,6 +300,12 @@ is_netdump(char *file, ulong source_query)
- 				goto bailout;
- 			break;
+@@ -42,6 +42,7 @@ static void get_netdump_regs_ppc64(struct bt_info *, ulong *, ulong *);
+ static void get_netdump_regs_arm(struct bt_info *, ulong *, ulong *);
+ static void get_netdump_regs_arm64(struct bt_info *, ulong *, ulong *);
+ static void get_netdump_regs_mips(struct bt_info *, ulong *, ulong *);
++static void get_netdump_regs_riscv(struct bt_info *, ulong *, ulong *);
+ static void check_dumpfile_size(char *);
+ static int proc_kcore_init_32(FILE *, int);
+ static int proc_kcore_init_64(FILE *, int);
+@@ -2675,6 +2676,10 @@ get_netdump_regs(struct bt_info *bt, ulong *eip, ulong *esp)
+ 		return get_netdump_regs_mips(bt, eip, esp);
+ 		break;
  
-+		case EM_RISCV:
-+			if (machine_type_mismatch(file, "RISCV64", NULL,
-+			    source_query))
-+				goto bailout;
-+			break;
++	case EM_RISCV:
++		return get_netdump_regs_riscv(bt, eip, esp);
++		break;
 +
- 		default:
- 			if (machine_type_mismatch(file, "(unknown)", NULL,
- 			    source_query))
-@@ -2935,7 +2941,8 @@ dump_registers_for_elf_dumpfiles(void)
+ 	default:
+ 		error(FATAL, 
+ 		   "support for ELF machine type %d not available\n",
+@@ -2931,6 +2936,8 @@ display_regs_from_elf_notes(int cpu, FILE *ofp)
+ 		mips_display_regs_from_elf_notes(cpu, ofp);
+ 	} else if (machine_type("MIPS64")) {
+ 		mips64_display_regs_from_elf_notes(cpu, ofp);
++	} else if (machine_type("RISCV64")) {
++		riscv64_display_regs_from_elf_notes(cpu, ofp);
+ 	}
+ }
  
-         if (!(machine_type("X86") || machine_type("X86_64") || 
- 	    machine_type("ARM64") || machine_type("PPC64") ||
--	    machine_type("MIPS") || machine_type("MIPS64")))
-+	    machine_type("MIPS") || machine_type("MIPS64") ||
-+	    machine_type("RISCV64")))
-                 error(FATAL, "-r option not supported for this dumpfile\n");
+@@ -3877,6 +3884,12 @@ get_netdump_regs_mips(struct bt_info *bt, ulong *eip, ulong *esp)
+ 	machdep->get_stack_frame(bt, eip, esp);
+ }
  
- 	if (NETDUMP_DUMPFILE()) {
-diff --git a/ramdump.c b/ramdump.c
-index a206fcb..d2bd7ff 100644
---- a/ramdump.c
-+++ b/ramdump.c
-@@ -188,6 +188,8 @@ char *ramdump_to_elf(void)
- 		e_machine = EM_MIPS;
- 	else if (machine_type("X86_64"))
- 		e_machine = EM_X86_64;
-+	else if (machine_type("RISCV64"))
-+		e_machine = EM_RISCV;
- 	else
- 		error(FATAL, "ramdump: unsupported machine type: %s\n", 
- 			MACHINE_TYPE);
++static void
++get_netdump_regs_riscv(struct bt_info *bt, ulong *eip, ulong *esp)
++{
++	machdep->get_stack_frame(bt, eip, esp);
++}
++
+ int 
+ is_partial_netdump(void)
+ {
 diff --git a/riscv64.c b/riscv64.c
-new file mode 100644
-index 0000000..c7df857
---- /dev/null
+index 465834f..c00ce90 100644
+--- a/riscv64.c
 +++ b/riscv64.c
-@@ -0,0 +1,56 @@
-+/* riscv64.c - core analysis suite
-+ *
-+ * Copyright (C) 2022 Alibaba Group Holding Limited.
-+ *
-+ * This program is free software; you can redistribute it and/or modify
-+ * it under the terms of the GNU General Public License as published by
-+ * the Free Software Foundation; either version 2 of the License, or
-+ * (at your option) any later version.
-+ *
-+ * This program is distributed in the hope that it will be useful,
-+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
-+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-+ * GNU General Public License for more details.
-+ */
-+#ifdef RISCV64
-+
-+#include <elf.h>
-+#include "defs.h"
-+
-+void
-+riscv64_dump_machdep_table(ulong arg)
-+{
-+}
-+
+@@ -33,6 +33,17 @@ static int riscv64_uvtop(struct task_context *tc, ulong vaddr,
+ static int riscv64_kvtop(struct task_context *tc, ulong kvaddr,
+ 			 physaddr_t *paddr, int verbose);
+ static void riscv64_cmd_mach(void);
++static void riscv64_stackframe_init(void);
++static void riscv64_back_trace_cmd(struct bt_info *bt);
++static int riscv64_get_dumpfile_stack_frame(struct bt_info *bt,
++					    ulong *nip, ulong *ksp);
++static void riscv64_get_stack_frame(struct bt_info *bt, ulong *pcp,
++				    ulong *spp);
++static int riscv64_get_frame(struct bt_info *bt, ulong *pcp,
++			     ulong *spp);
++static void riscv64_display_full_frame(struct bt_info *bt,
++				struct riscv64_unwind_frame *current,
++				struct riscv64_unwind_frame *previous);
+ static int riscv64_translate_pte(ulong, void *, ulonglong);
+ static int riscv64_init_active_task_regs(void);
+ static int riscv64_get_crash_notes(void);
+@@ -650,6 +661,275 @@ no_page:
+ 	return FALSE;
+ }
+ 
 +/*
-+ *  Include both vmalloc'd and module address space as VMALLOC space.
++ * 'bt -f' commend output
++ * Display all stack data contained in a frame
 + */
-+int
-+riscv64_IS_VMALLOC_ADDR(ulong vaddr)
++static void
++riscv64_display_full_frame(struct bt_info *bt, struct riscv64_unwind_frame *current,
++			  struct riscv64_unwind_frame *previous)
 +{
-+	return ((vaddr >= VMALLOC_START && vaddr <= VMALLOC_END) ||
-+		(vaddr >= VMEMMAP_VADDR && vaddr <= VMEMMAP_END) ||
-+		(vaddr >= MODULES_VADDR && vaddr <= MODULES_END));
-+}
++	int i, u_idx;
++	ulong *up;
++	ulong words, addr;
++	char buf[BUFSIZE];
 +
-+void
-+riscv64_init(int when)
-+{
-+}
++	if (previous->sp < current->sp)
++		return;
 +
-+void
-+riscv64_display_regs_from_elf_notes(int cpu, FILE *ofp)
-+{
-+}
++	if (!(INSTACK(previous->sp, bt) && INSTACK(current->sp, bt)))
++		return;
 +
-+#else /* !RISCV64 */
++	words = (previous->sp - current->sp) / sizeof(ulong) + 1;
++	addr = current->sp;
++	u_idx = (current->sp - bt->stackbase) / sizeof(ulong);
 +
-+#include "defs.h"
++	for (i = 0; i < words; i++, u_idx++) {
++		if (!(i & 1))
++			fprintf(fp, "%s    %lx: ", i ? "\n" : "", addr);
 +
-+void
-+riscv64_display_regs_from_elf_notes(int cpu, FILE *ofp)
-+{
++		up = (ulong *)(&bt->stackbuf[u_idx*sizeof(ulong)]);
++		fprintf(fp, "%s ", format_stack_entry(bt, buf, *up, 0));
++		addr += sizeof(ulong);
++	}
++	fprintf(fp, "\n");
++
 +	return;
 +}
 +
-+#endif /* !RISCV64 */
-diff --git a/symbols.c b/symbols.c
-index bee1faf..ea9e83e 100644
---- a/symbols.c
-+++ b/symbols.c
-@@ -3743,6 +3743,11 @@ is_kernel(char *file)
- 				goto bailout;
- 			break;
- 
-+		case EM_RISCV:
-+			if (machine_type_mismatch(file, "RISCV64", NULL, 0))
-+				goto bailout;
-+			break;
++static void
++riscv64_stackframe_init(void)
++{
++	long task_struct_thread = MEMBER_OFFSET("task_struct", "thread");
 +
- 		default:
- 			if (machine_type_mismatch(file, "(unknown)", NULL, 0))
- 				goto bailout;
-@@ -4002,6 +4007,11 @@ is_shared_object(char *file)
- 			if (machine_type("MIPS64"))
- 				return TRUE;
- 			break;
++	/* from arch/riscv/include/asm/processor.h */
++	long thread_reg_ra = MEMBER_OFFSET("thread_struct", "ra");
++	long thread_reg_sp = MEMBER_OFFSET("thread_struct", "sp");
++	long thread_reg_fp = MEMBER_OFFSET("thread_struct", "s");
 +
-+		case EM_RISCV:
-+			if (machine_type("RISCV64"))
-+				return TRUE;
-+			break;
- 		}
++	if ((task_struct_thread == INVALID_OFFSET) ||
++	    (thread_reg_ra == INVALID_OFFSET) ||
++	    (thread_reg_sp == INVALID_OFFSET) ||
++	    (thread_reg_fp == INVALID_OFFSET) ) {
++		error(FATAL,
++		      "cannot determine thread_struct offsets\n");
++		return;
++	}
++
++	ASSIGN_OFFSET(task_struct_thread_context_pc) =
++		task_struct_thread + thread_reg_ra;
++	ASSIGN_OFFSET(task_struct_thread_context_sp) =
++		task_struct_thread + thread_reg_sp;
++	ASSIGN_OFFSET(task_struct_thread_context_fp) =
++		task_struct_thread + thread_reg_fp;
++}
++
++static void
++riscv64_dump_backtrace_entry(struct bt_info *bt, struct syment *sym,
++			     struct riscv64_unwind_frame *current,
++			     struct riscv64_unwind_frame *previous, int level)
++{
++	const char *name = sym ? sym->name : "(invalid)";
++	struct load_module *lm;
++	char *name_plus_offset = NULL;
++	struct syment *symp;
++	ulong symbol_offset;
++	char buf[BUFSIZE];
++
++	if (bt->flags & BT_SYMBOL_OFFSET) {
++		symp = value_search(current->pc, &symbol_offset);
++
++		if (symp && symbol_offset)
++			name_plus_offset =
++				value_to_symstr(current->pc, buf, bt->radix);
++	}
++
++	fprintf(fp, "%s#%d [%016lx] %s at %016lx",
++		level < 10 ? " " : "",
++		level,
++		current->sp,
++		name_plus_offset ? name_plus_offset : name,
++		current->pc);
++
++	if (module_symbol(current->pc, NULL, &lm, NULL, 0))
++		fprintf(fp, " [%s]", lm->mod_name);
++
++	fprintf(fp, "\n");
++
++	/*
++	 * 'bt -l', get a line number associated with a current pc address.
++	 */
++	if (bt->flags & BT_LINE_NUMBERS) {
++		get_line_number(current->pc, buf, FALSE);
++		if (strlen(buf))
++			fprintf(fp, "    %s\n", buf);
++	}
++
++	/* bt -f */
++	if (bt->flags & BT_FULL) {
++		fprintf(fp, "    "
++			"[PC: %016lx RA: %016lx SP: %016lx SIZE: %ld]\n",
++			current->pc,
++			previous->pc,
++			current->sp,
++			previous->sp - current->sp);
++		riscv64_display_full_frame(bt, current, previous);
++	}
++}
++
++/*
++ * Unroll a kernel stack.
++ */
++static void
++riscv64_back_trace_cmd(struct bt_info *bt)
++{
++	struct riscv64_unwind_frame current, previous;
++	struct stackframe curr_frame;
++	int level = 0;
++
++	if (bt->flags & BT_REGS_NOT_FOUND)
++		return;
++
++	current.pc = bt->instptr;
++	current.sp = bt->stkptr;
++	current.fp = bt->frameptr;
++
++	if (!INSTACK(current.sp, bt))
++		return;
++
++	for (;;) {
++		struct syment *symbol = NULL;
++		struct stackframe *frameptr;
++		ulong low, high;
++		ulong offset;
++
++		if (CRASHDEBUG(8))
++			fprintf(fp, "level %d pc %#lx sp %lx fp 0x%lx\n",
++				level, current.pc, current.sp, current.fp);
++
++		/* Validate frame pointer */
++		low = current.sp + sizeof(struct stackframe);
++		high = bt->stacktop;
++		if (current.fp < low || current.fp > high || current.fp & 0x7) {
++			if (CRASHDEBUG(8))
++				fprintf(fp, "fp 0x%lx sp 0x%lx low 0x%lx high 0x%lx\n",
++					current.fp, current.sp, low, high);
++			return;
++		}
++
++		symbol = value_search(current.pc, &offset);
++		if (!symbol)
++			return;
++
++		frameptr = (struct stackframe *)current.fp - 1;
++		if (!readmem((ulong)frameptr, KVADDR, &curr_frame,
++		    sizeof(curr_frame), "get stack frame", RETURN_ON_ERROR))
++			return;
++
++		previous.pc = curr_frame.ra;
++		previous.fp = curr_frame.fp;
++		previous.sp = current.fp;
++
++		riscv64_dump_backtrace_entry(bt, symbol, &current, &previous, level++);
++
++		current.pc = previous.pc;
++		current.fp = previous.fp;
++		current.sp = previous.sp;
++
++		if (CRASHDEBUG(8))
++			fprintf(fp, "next %d pc %#lx sp %#lx fp %lx\n",
++				level, current.pc, current.sp, current.fp);
++	}
++}
++
++/*
++ * Get a stack frame combination of pc and ra from the most relevant spot.
++ */
++static void
++riscv64_get_stack_frame(struct bt_info *bt, ulong *pcp, ulong *spp)
++{
++	ulong ksp = 0, nip = 0;
++	int ret = 0;
++
++	if (DUMPFILE() && is_task_active(bt->task))
++		ret = riscv64_get_dumpfile_stack_frame(bt, &nip, &ksp);
++	else
++		ret = riscv64_get_frame(bt, &nip, &ksp);
++
++	if (pcp)
++		*pcp = nip;
++	if (spp)
++		*spp = ksp;
++}
++
++/*
++ * Get the starting point for the active cpu in a diskdump.
++ */
++static int
++riscv64_get_dumpfile_stack_frame(struct bt_info *bt, ulong *nip, ulong *ksp)
++{
++	const struct machine_specific *ms = machdep->machspec;
++	struct riscv64_register *regs;
++	ulong epc, sp;
++
++	if (!ms->crash_task_regs) {
++		bt->flags |= BT_REGS_NOT_FOUND;
++		return FALSE;
++	}
++
++	/*
++	 * We got registers for panic task from crash_notes. Just return them.
++	 */
++	regs = &ms->crash_task_regs[bt->tc->processor];
++	epc = regs->regs[RISCV64_REGS_EPC];
++	sp = regs->regs[RISCV64_REGS_SP];
++
++	/*
++	 * Set stack frame ptr.
++	 */
++	bt->frameptr = regs->regs[RISCV64_REGS_FP];
++
++	if (nip)
++		*nip = epc;
++	if (ksp)
++		*ksp = sp;
++
++	bt->machdep = regs;
++
++	return TRUE;
++}
++
++/*
++ * Do the work for riscv64_get_stack_frame() for non-active tasks.
++ * Get SP and PC values for idle tasks.
++ */
++static int
++riscv64_get_frame(struct bt_info *bt, ulong *pcp, ulong *spp)
++{
++	if (!bt->tc || !(tt->flags & THREAD_INFO))
++		return FALSE;
++
++	if (!readmem(bt->task + OFFSET(task_struct_thread_context_pc),
++		     KVADDR, pcp, sizeof(*pcp),
++		     "thread_struct.ra",
++		     RETURN_ON_ERROR))
++		return FALSE;
++
++	if (!readmem(bt->task + OFFSET(task_struct_thread_context_sp),
++		     KVADDR, spp, sizeof(*spp),
++		     "thread_struct.sp",
++		     RETURN_ON_ERROR))
++		return FALSE;
++
++	if (!readmem(bt->task + OFFSET(task_struct_thread_context_fp),
++		     KVADDR, &bt->frameptr, sizeof(bt->frameptr),
++		     "thread_struct.fp",
++		     RETURN_ON_ERROR))
++		return FALSE;
++
++	return TRUE;
++}
++
+ static int
+ riscv64_init_active_task_regs(void)
+ {
+@@ -967,6 +1247,8 @@ riscv64_init(int when)
+ 		machdep->uvtop = riscv64_uvtop;
+ 		machdep->kvtop = riscv64_kvtop;
+ 		machdep->cmd_mach = riscv64_cmd_mach;
++		machdep->get_stack_frame = riscv64_get_stack_frame;
++		machdep->back_trace = riscv64_back_trace_cmd;
  
- 		if (CRASHDEBUG(1))
+ 		machdep->vmalloc_start = riscv64_vmalloc_start;
+ 		machdep->processor_speed = riscv64_processor_speed;
+@@ -987,6 +1269,7 @@ riscv64_init(int when)
+ 	case POST_GDB:
+ 		machdep->section_size_bits = _SECTION_SIZE_BITS;
+ 		machdep->max_physmem_bits = _MAX_PHYSMEM_BITS;
++		riscv64_stackframe_init();
+ 		riscv64_page_type_init();
+ 
+ 		if (!machdep->hz)
 -- 
 2.17.1
 
