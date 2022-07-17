@@ -4,50 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BF1C43334
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 04:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF11CC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 08:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yPRt/FUiSV7FGizKWeATNRYMCUeVRI09y91J+i/5RSM=; b=SSYCcmv+WbBDqU
-	jg6OBI/6xHyMRxHpWclHv6exPnxKJFfaQKtQXtkIhU7peLXkcffOqKklkc+TKJ0aE9RHoT2Sq4+MK
-	sHSyhsz+9b8StXg18JuGCVzCLDYVbenZLb7D60OIlixGV2ZXU5K5FYQgG4Rn7nndtczVNtjz0Q2RM
-	LpRdRlNekUDFfRzGPY0CH15OyWOVSqMf3WJAJHJY33U06CqQazNUJX6X8I5IHOW+qMysLGVKxr41s
-	Mp4jGnBk0i8bADb5eQEN3PKJUee4Q2sJs7go2ad3l1lczWo2L7GKvZRsY3DAE4QiPk9fw7z0TU/l5
-	zwsBVRoU36cU2CkmGq7A==;
+	List-Owner; bh=HTvY+ar2i1BxuwUnOzmfFTb5bMaQ4iKcBAo8+9U81jI=; b=FIFRp3d9RNKMEL
+	DkRe/UwMcSBVu/SNOmYO9QKDXnoVKye8UmIwTw1QHKOrSj1V7bSS7byyHk0MOMwdLineujqWlJgMk
+	z9/KGSY3NKlYtFLnXCzXvMDBuzrLFzoZW8CYwOYh7oMxm1V01pyt6A3VeQdFDrGWDvj9l2MweQxhK
+	crt/Qxr8cTXpfdcNzmf90pR/rai3YKyCW4s+2NP/q+URatitQ6nfZGKqq/sv7uWs8JBZL7T+jUMOe
+	be8b/vdedXMZ3CkLL/hvXCTcE51OEIkwK7W2QM0IBqmaGwbZQifL/CnBru/iG1UK8ByPMrjd8qHKu
+	N+ts8KPt5QRUg7wdem1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCvup-0040K3-0p; Sun, 17 Jul 2022 04:29:59 +0000
-Received: from out199-17.us.a.mail.aliyun.com ([47.90.199.17])
+	id 1oD01i-005xfJ-En; Sun, 17 Jul 2022 08:53:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oCvub-00406Q-Vi
-	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 04:29:49 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R151e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045170;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0VJWxqTe_1658032176;
-Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VJWxqTe_1658032176)
-          by smtp.aliyun-inc.com;
-          Sun, 17 Jul 2022 12:29:37 +0800
-From: Xianting Tian <xianting.tian@linux.alibaba.com>
-To: crash-utility@redhat.com,
-	mick@ics.forth.gr,
-	heinrich.schuchardt@canonical.com,
-	guoren@kernel.org,
-	k-hagio-ab@nec.com
-Cc: linux-riscv@lists.infradead.org,
-	hschauhan@nulltrace.org,
-	huanyi.xj@alibaba-inc.com,
-	Xianting Tian <xianting.tian@linux.alibaba.com>
-Subject: [PATCH 5/8] RISCV64: Add 'bt' command support
-Date: Sun, 17 Jul 2022 12:29:26 +0800
-Message-Id: <20220717042929.370022-6-xianting.tian@linux.alibaba.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220717042929.370022-1-xianting.tian@linux.alibaba.com>
+	id 1oD01f-005xeC-PE
+	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 08:53:21 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5F09360FE9
+	for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 08:53:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2D36C385A5
+	for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 08:53:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1658047997;
+	bh=r7gE2cWShPHHFhlzYIopjBdniIsNaSIiB+MAozk+bEE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=GLKGxkIDsoctjGUM0pmu0xooFjoKWR6i7xVZT6ir3zqd2FIQe8P3B+s73yAImaVz2
+	 cEcLEm0vfpzuEw9TWPrY12Y+m7CyvemraqNEv6+aEJj430JKCtj71g2L07vEXS02a9
+	 YWTaIUe6LDV4TQsH88vY4/RpdmfdWX+ddanydIwsvN3xzxG6ZQ2GuaO7yM2fgvr0/v
+	 knjewhOf5V+3R4hOJU2Cgtg0dZt4omQWLHKOLTtK2otyp4x3MX28KugkIc2QEDokx0
+	 aHvQKjxR+6U+quTKYO5qP5s+gRk4EEIhpMWaKCNYHL5BvLhLWlxZtdOuuK5nV8wHq9
+	 QogD7VqA7FtzQ==
+Received: by mail-lj1-f175.google.com with SMTP id u14so2368675lju.0
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 01:53:17 -0700 (PDT)
+X-Gm-Message-State: AJIora+tSj5dVIHR+DE+VKlI8Tw6ApA9qDZyvViSDRpTwuB3EYyEQPZg
+	LPoNRj0p0jxKISfevXisfPpOgFPEEatz3HRqKl8=
+X-Google-Smtp-Source: AGRyM1tpNV82sBXI82jDmnQ+UoOmnEP915anS35eZApsmkEab2lvFcpfldUt0XkJIOG+5XD0kMbzxie9mJ/DHpD0pJg=
+X-Received: by 2002:a2e:9b0b:0:b0:25d:866b:5de7 with SMTP id
+ u11-20020a2e9b0b000000b0025d866b5de7mr10376574lji.50.1658047995783; Sun, 17
+ Jul 2022 01:53:15 -0700 (PDT)
+MIME-Version: 1.0
 References: <20220717042929.370022-1-xianting.tian@linux.alibaba.com>
+In-Reply-To: <20220717042929.370022-1-xianting.tian@linux.alibaba.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Sun, 17 Jul 2022 16:53:03 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQQNjbKNQfFHpzxPJmqvn_BSeYM57SXZB8Euy-ts216Hw@mail.gmail.com>
+Message-ID: <CAJF2gTQQNjbKNQfFHpzxPJmqvn_BSeYM57SXZB8Euy-ts216Hw@mail.gmail.com>
+Subject: Re: [PATCH 0/8] Support RISCV64 arch and common commands
+To: Xianting Tian <xianting.tian@linux.alibaba.com>
+Cc: crash-utility@redhat.com, Nick Kossifidis <mick@ics.forth.gr>, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, k-hagio-ab@nec.com, 
+	linux-riscv <linux-riscv@lists.infradead.org>, hschauhan@nulltrace.org, 
+	huanyi.xj@alibaba-inc.com, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Christoph Muellner <cmuellner@linux.com>, Philipp Tomsich <philipp.tomsich@vrull.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220716_212946_351330_AB87B310 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20220717_015319_938032_7EBF62FE 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,419 +78,152 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-1, Add the implementation to get stack frame from active & inactive
-   task's stack.
-2, Add 'bt -l' command support get a line number associated with a
-   current pc address.
-3, Add 'bt -f' command support to display all stack data contained
-   in a frame
+Great Job. After two years, we finally have crash ready to use.
 
-With the patch, we can get the backtrace,
-crash> bt
-PID: 113      TASK: ff6000000226c200  CPU: 0    COMMAND: "sh"
- #0 [ff20000010333b90] riscv_crash_save_regs at ffffffff800078f8
- #1 [ff20000010333cf0] panic at ffffffff806578c6
- #2 [ff20000010333d50] sysrq_reset_seq_param_set at ffffffff8038c03c
- #3 [ff20000010333da0] __handle_sysrq at ffffffff8038c604
- #4 [ff20000010333e00] write_sysrq_trigger at ffffffff8038cae4
- #5 [ff20000010333e20] proc_reg_write at ffffffff801b7ee8
- #6 [ff20000010333e40] vfs_write at ffffffff80152bb2
- #7 [ff20000010333e80] ksys_write at ffffffff80152eda
- #8 [ff20000010333ed0] sys_write at ffffffff80152f52
+Tested-by: Guo Ren <guoren@kernel.org>
 
-crash> bt -l
-PID: 113      TASK: ff6000000226c200  CPU: 0    COMMAND: "sh"
- #0 [ff20000010333b90] riscv_crash_save_regs at ffffffff800078f8
-    /buildroot/qemu_riscv64_virt_defconfig/build/linux-custom/arch/riscv/kernel/crash_save_regs.S: 47
- #1 [ff20000010333cf0] panic at ffffffff806578c6
-    /buildroot/qemu_riscv64_virt_defconfig/build/linux-custom/kernel/panic.c: 276
- ... ...
+On Sun, Jul 17, 2022 at 12:29 PM Xianting Tian
+<xianting.tian@linux.alibaba.com> wrote:
+>
+> This series of patches make crash tool support RISCV64 arch and the common
+> commands(*, bt, p, rd, mod, log, set, struct, task, dis and so on).
+>
+> To make the crash tool work normally for RISCV64 arch, we need a Linux kernel
+> patch(under reviewing), which exports the kernel virtual memory layout, va_bits,
+> phys_ram_base to vmcoreinfo, it can simplify the development of crash tool.
+>
+> THis Linux kernel patch:
+> https://patchwork.kernel.org/project/linux-riscv/patch/20220714113300.367854-2-xianting.tian@linux.alibaba.com/
+>
+> This series of patches are tested on QEMU RISCV64 env and SoC platform of
+> T-head Xuantie 910 CPU.
+>
+> ====================================
+>   Some test examples list as below
+> ====================================
+> ... ...
+>       KERNEL: vmlinux
+>     DUMPFILE: vmcore
+>         CPUS: 1
+>         DATE: Fri Jul 15 10:24:25 CST 2022
+>       UPTIME: 00:00:33
+> LOAD AVERAGE: 0.05, 0.01, 0.00
+>        TASKS: 41
+>     NODENAME: buildroot
+>      RELEASE: 5.18.9
+>      VERSION: #30 SMP Fri Jul 15 09:47:03 CST 2022
+>      MACHINE: riscv64  (unknown Mhz)
+>       MEMORY: 1 GB
+>        PANIC: "Kernel panic - not syncing: sysrq triggered crash"
+>          PID: 113
+>      COMMAND: "sh"
+>         TASK: ff60000002269600  [THREAD_INFO: ff60000002269600]
+>          CPU: 0
+>        STATE: TASK_RUNNING (PANIC)
+>
+> carsh>
+>
+> crash> p mem_map
+> mem_map = $1 = (struct page *) 0xff6000003effbf00
+>
+> crash> p /x *(struct page *) 0xff6000003effbf00
+> $5 = {
+>   flags = 0x1000,
+>   {
+>     {
+>       {
+>         lru = {
+>           next = 0xff6000003effbf08,
+>           prev = 0xff6000003effbf08
+>         },
+>         {
+>           __filler = 0xff6000003effbf08,
+>           mlock_count = 0x3effbf08
+>         }
+>       },
+>       mapping = 0x0,
+>       index = 0x0,
+>       private = 0x0
+>     },
+>   ... ...
+>
+> crash> mod
+>      MODULE       NAME             BASE         SIZE  OBJECT FILE
+> ffffffff0113e740  nvme_core  ffffffff01133000  98304  (not loaded)  [CONFIG_KALLSYMS]
+> ffffffff011542c0  nvme       ffffffff0114c000  61440  (not loaded)  [CONFIG_KALLSYMS]
+>
+> crash> rd ffffffff0113e740 8
+> ffffffff0113e740:  0000000000000000 ffffffff810874f8   .........t......
+> ffffffff0113e750:  ffffffff011542c8 726f635f656d766e   .B......nvme_cor
+> ffffffff0113e760:  0000000000000065 0000000000000000   e...............
+> ffffffff0113e770:  0000000000000000 0000000000000000   ................
+>
+> crash> vtop ffffffff0113e740
+> VIRTUAL           PHYSICAL
+> ffffffff0113e740  8254d740
+>
+>    PGD: ffffffff810e9ff8 => 2ffff001
+>   P4D: 0000000000000000 => 000000002fffec01
+>   PUD: 00005605c2957470 => 0000000020949801
+>   PMD: 00007fff7f1750c0 => 0000000020947401
+>    PTE: 0 => 209534e7
+>  PAGE: 000000008254d000
+>
+>   PTE     PHYSICAL  FLAGS
+> 209534e7  8254d000  (PRESENT|READ|WRITE|GLOBAL|ACCESSED|DIRTY)
+>
+>       PAGE       PHYSICAL      MAPPING       INDEX CNT FLAGS
+> ff6000003f0777d8 8254d000                0        0  1 0
+>
+> crash> bt
+> PID: 113      TASK: ff6000000226c200  CPU: 0    COMMAND: "sh"
+>  #0 [ff20000010333b90] riscv_crash_save_regs at ffffffff800078f8
+>  #1 [ff20000010333cf0] panic at ffffffff806578c6
+>  #2 [ff20000010333d50] sysrq_reset_seq_param_set at ffffffff8038c03c
+>  #3 [ff20000010333da0] __handle_sysrq at ffffffff8038c604
+>  #4 [ff20000010333e00] write_sysrq_trigger at ffffffff8038cae4
+>  #5 [ff20000010333e20] proc_reg_write at ffffffff801b7ee8
+>  #6 [ff20000010333e40] vfs_write at ffffffff80152bb2
+>  #7 [ff20000010333e80] ksys_write at ffffffff80152eda
+>  #8 [ff20000010333ed0] sys_write at ffffffff80152f52
+>
+> Xianting Tian (8):
+>   Add RISCV64 framework code support
+>   RISCV64: Make crash tool enter command line and support some commands
+>   RISCV64: Add 'dis' command support
+>   RISCV64: Add 'irq' command support
+>   RISCV64: Add 'bt' command support
+>   RISCV64: Add 'help -r' command support
+>   RISCV64: Add 'mach' command support
+>   RISCV64: Add the implementation of symbol verify
+>
+>  Makefile            |    7 +-
+>  README              |    2 +-
+>  configure.c         |   39 +-
+>  defs.h              |  248 +++++++-
+>  diskdump.c          |   21 +-
+>  help.c              |    2 +-
+>  lkcd_vmdump_v2_v3.h |    2 +-
+>  netdump.c           |   22 +-
+>  ramdump.c           |    2 +
+>  riscv64.c           | 1414 +++++++++++++++++++++++++++++++++++++++++++
+>  symbols.c           |   10 +
+>  11 files changed, 1759 insertions(+), 10 deletions(-)
+>  create mode 100644 riscv64.c
+>
+> --
+> 2.17.1
+>
 
-crash> bt -f
-PID: 113      TASK: ff6000000226c200  CPU: 0    COMMAND: "sh"
- #0 [ff20000010333b90] riscv_crash_save_regs at ffffffff800078f8
-    [PC: ffffffff800078f8 RA: ffffffff806578c6 SP: ff20000010333b90 SIZE: 352]
-    ff20000010333b90: ff20000010333bb0 ffffffff800078f8
-    ff20000010333ba0: ffffffff8008862c ff20000010333b90
-    ff20000010333bb0: ffffffff810dde38 ff6000000226c200
-    ff20000010333bc0: ffffffff8032be68 0720072007200720
- ... ...
 
-Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
----
- netdump.c |  13 +++
- riscv64.c | 283 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 296 insertions(+)
-
-diff --git a/netdump.c b/netdump.c
-index 4ec12a0..1f418e6 100644
---- a/netdump.c
-+++ b/netdump.c
-@@ -42,6 +42,7 @@ static void get_netdump_regs_ppc64(struct bt_info *, ulong *, ulong *);
- static void get_netdump_regs_arm(struct bt_info *, ulong *, ulong *);
- static void get_netdump_regs_arm64(struct bt_info *, ulong *, ulong *);
- static void get_netdump_regs_mips(struct bt_info *, ulong *, ulong *);
-+static void get_netdump_regs_riscv(struct bt_info *, ulong *, ulong *);
- static void check_dumpfile_size(char *);
- static int proc_kcore_init_32(FILE *, int);
- static int proc_kcore_init_64(FILE *, int);
-@@ -2675,6 +2676,10 @@ get_netdump_regs(struct bt_info *bt, ulong *eip, ulong *esp)
- 		return get_netdump_regs_mips(bt, eip, esp);
- 		break;
- 
-+	case EM_RISCV:
-+		return get_netdump_regs_riscv(bt, eip, esp);
-+		break;
-+
- 	default:
- 		error(FATAL, 
- 		   "support for ELF machine type %d not available\n",
-@@ -2931,6 +2936,8 @@ display_regs_from_elf_notes(int cpu, FILE *ofp)
- 		mips_display_regs_from_elf_notes(cpu, ofp);
- 	} else if (machine_type("MIPS64")) {
- 		mips64_display_regs_from_elf_notes(cpu, ofp);
-+	} else if (machine_type("RISCV64")) {
-+		riscv64_display_regs_from_elf_notes(cpu, ofp);
- 	}
- }
- 
-@@ -3877,6 +3884,12 @@ get_netdump_regs_mips(struct bt_info *bt, ulong *eip, ulong *esp)
- 	machdep->get_stack_frame(bt, eip, esp);
- }
- 
-+static void
-+get_netdump_regs_riscv(struct bt_info *bt, ulong *eip, ulong *esp)
-+{
-+	machdep->get_stack_frame(bt, eip, esp);
-+}
-+
- int 
- is_partial_netdump(void)
- {
-diff --git a/riscv64.c b/riscv64.c
-index 465834f..c00ce90 100644
---- a/riscv64.c
-+++ b/riscv64.c
-@@ -33,6 +33,17 @@ static int riscv64_uvtop(struct task_context *tc, ulong vaddr,
- static int riscv64_kvtop(struct task_context *tc, ulong kvaddr,
- 			 physaddr_t *paddr, int verbose);
- static void riscv64_cmd_mach(void);
-+static void riscv64_stackframe_init(void);
-+static void riscv64_back_trace_cmd(struct bt_info *bt);
-+static int riscv64_get_dumpfile_stack_frame(struct bt_info *bt,
-+					    ulong *nip, ulong *ksp);
-+static void riscv64_get_stack_frame(struct bt_info *bt, ulong *pcp,
-+				    ulong *spp);
-+static int riscv64_get_frame(struct bt_info *bt, ulong *pcp,
-+			     ulong *spp);
-+static void riscv64_display_full_frame(struct bt_info *bt,
-+				struct riscv64_unwind_frame *current,
-+				struct riscv64_unwind_frame *previous);
- static int riscv64_translate_pte(ulong, void *, ulonglong);
- static int riscv64_init_active_task_regs(void);
- static int riscv64_get_crash_notes(void);
-@@ -650,6 +661,275 @@ no_page:
- 	return FALSE;
- }
- 
-+/*
-+ * 'bt -f' commend output
-+ * Display all stack data contained in a frame
-+ */
-+static void
-+riscv64_display_full_frame(struct bt_info *bt, struct riscv64_unwind_frame *current,
-+			  struct riscv64_unwind_frame *previous)
-+{
-+	int i, u_idx;
-+	ulong *up;
-+	ulong words, addr;
-+	char buf[BUFSIZE];
-+
-+	if (previous->sp < current->sp)
-+		return;
-+
-+	if (!(INSTACK(previous->sp, bt) && INSTACK(current->sp, bt)))
-+		return;
-+
-+	words = (previous->sp - current->sp) / sizeof(ulong) + 1;
-+	addr = current->sp;
-+	u_idx = (current->sp - bt->stackbase) / sizeof(ulong);
-+
-+	for (i = 0; i < words; i++, u_idx++) {
-+		if (!(i & 1))
-+			fprintf(fp, "%s    %lx: ", i ? "\n" : "", addr);
-+
-+		up = (ulong *)(&bt->stackbuf[u_idx*sizeof(ulong)]);
-+		fprintf(fp, "%s ", format_stack_entry(bt, buf, *up, 0));
-+		addr += sizeof(ulong);
-+	}
-+	fprintf(fp, "\n");
-+
-+	return;
-+}
-+
-+static void
-+riscv64_stackframe_init(void)
-+{
-+	long task_struct_thread = MEMBER_OFFSET("task_struct", "thread");
-+
-+	/* from arch/riscv/include/asm/processor.h */
-+	long thread_reg_ra = MEMBER_OFFSET("thread_struct", "ra");
-+	long thread_reg_sp = MEMBER_OFFSET("thread_struct", "sp");
-+	long thread_reg_fp = MEMBER_OFFSET("thread_struct", "s");
-+
-+	if ((task_struct_thread == INVALID_OFFSET) ||
-+	    (thread_reg_ra == INVALID_OFFSET) ||
-+	    (thread_reg_sp == INVALID_OFFSET) ||
-+	    (thread_reg_fp == INVALID_OFFSET) ) {
-+		error(FATAL,
-+		      "cannot determine thread_struct offsets\n");
-+		return;
-+	}
-+
-+	ASSIGN_OFFSET(task_struct_thread_context_pc) =
-+		task_struct_thread + thread_reg_ra;
-+	ASSIGN_OFFSET(task_struct_thread_context_sp) =
-+		task_struct_thread + thread_reg_sp;
-+	ASSIGN_OFFSET(task_struct_thread_context_fp) =
-+		task_struct_thread + thread_reg_fp;
-+}
-+
-+static void
-+riscv64_dump_backtrace_entry(struct bt_info *bt, struct syment *sym,
-+			     struct riscv64_unwind_frame *current,
-+			     struct riscv64_unwind_frame *previous, int level)
-+{
-+	const char *name = sym ? sym->name : "(invalid)";
-+	struct load_module *lm;
-+	char *name_plus_offset = NULL;
-+	struct syment *symp;
-+	ulong symbol_offset;
-+	char buf[BUFSIZE];
-+
-+	if (bt->flags & BT_SYMBOL_OFFSET) {
-+		symp = value_search(current->pc, &symbol_offset);
-+
-+		if (symp && symbol_offset)
-+			name_plus_offset =
-+				value_to_symstr(current->pc, buf, bt->radix);
-+	}
-+
-+	fprintf(fp, "%s#%d [%016lx] %s at %016lx",
-+		level < 10 ? " " : "",
-+		level,
-+		current->sp,
-+		name_plus_offset ? name_plus_offset : name,
-+		current->pc);
-+
-+	if (module_symbol(current->pc, NULL, &lm, NULL, 0))
-+		fprintf(fp, " [%s]", lm->mod_name);
-+
-+	fprintf(fp, "\n");
-+
-+	/*
-+	 * 'bt -l', get a line number associated with a current pc address.
-+	 */
-+	if (bt->flags & BT_LINE_NUMBERS) {
-+		get_line_number(current->pc, buf, FALSE);
-+		if (strlen(buf))
-+			fprintf(fp, "    %s\n", buf);
-+	}
-+
-+	/* bt -f */
-+	if (bt->flags & BT_FULL) {
-+		fprintf(fp, "    "
-+			"[PC: %016lx RA: %016lx SP: %016lx SIZE: %ld]\n",
-+			current->pc,
-+			previous->pc,
-+			current->sp,
-+			previous->sp - current->sp);
-+		riscv64_display_full_frame(bt, current, previous);
-+	}
-+}
-+
-+/*
-+ * Unroll a kernel stack.
-+ */
-+static void
-+riscv64_back_trace_cmd(struct bt_info *bt)
-+{
-+	struct riscv64_unwind_frame current, previous;
-+	struct stackframe curr_frame;
-+	int level = 0;
-+
-+	if (bt->flags & BT_REGS_NOT_FOUND)
-+		return;
-+
-+	current.pc = bt->instptr;
-+	current.sp = bt->stkptr;
-+	current.fp = bt->frameptr;
-+
-+	if (!INSTACK(current.sp, bt))
-+		return;
-+
-+	for (;;) {
-+		struct syment *symbol = NULL;
-+		struct stackframe *frameptr;
-+		ulong low, high;
-+		ulong offset;
-+
-+		if (CRASHDEBUG(8))
-+			fprintf(fp, "level %d pc %#lx sp %lx fp 0x%lx\n",
-+				level, current.pc, current.sp, current.fp);
-+
-+		/* Validate frame pointer */
-+		low = current.sp + sizeof(struct stackframe);
-+		high = bt->stacktop;
-+		if (current.fp < low || current.fp > high || current.fp & 0x7) {
-+			if (CRASHDEBUG(8))
-+				fprintf(fp, "fp 0x%lx sp 0x%lx low 0x%lx high 0x%lx\n",
-+					current.fp, current.sp, low, high);
-+			return;
-+		}
-+
-+		symbol = value_search(current.pc, &offset);
-+		if (!symbol)
-+			return;
-+
-+		frameptr = (struct stackframe *)current.fp - 1;
-+		if (!readmem((ulong)frameptr, KVADDR, &curr_frame,
-+		    sizeof(curr_frame), "get stack frame", RETURN_ON_ERROR))
-+			return;
-+
-+		previous.pc = curr_frame.ra;
-+		previous.fp = curr_frame.fp;
-+		previous.sp = current.fp;
-+
-+		riscv64_dump_backtrace_entry(bt, symbol, &current, &previous, level++);
-+
-+		current.pc = previous.pc;
-+		current.fp = previous.fp;
-+		current.sp = previous.sp;
-+
-+		if (CRASHDEBUG(8))
-+			fprintf(fp, "next %d pc %#lx sp %#lx fp %lx\n",
-+				level, current.pc, current.sp, current.fp);
-+	}
-+}
-+
-+/*
-+ * Get a stack frame combination of pc and ra from the most relevant spot.
-+ */
-+static void
-+riscv64_get_stack_frame(struct bt_info *bt, ulong *pcp, ulong *spp)
-+{
-+	ulong ksp = 0, nip = 0;
-+	int ret = 0;
-+
-+	if (DUMPFILE() && is_task_active(bt->task))
-+		ret = riscv64_get_dumpfile_stack_frame(bt, &nip, &ksp);
-+	else
-+		ret = riscv64_get_frame(bt, &nip, &ksp);
-+
-+	if (pcp)
-+		*pcp = nip;
-+	if (spp)
-+		*spp = ksp;
-+}
-+
-+/*
-+ * Get the starting point for the active cpu in a diskdump.
-+ */
-+static int
-+riscv64_get_dumpfile_stack_frame(struct bt_info *bt, ulong *nip, ulong *ksp)
-+{
-+	const struct machine_specific *ms = machdep->machspec;
-+	struct riscv64_register *regs;
-+	ulong epc, sp;
-+
-+	if (!ms->crash_task_regs) {
-+		bt->flags |= BT_REGS_NOT_FOUND;
-+		return FALSE;
-+	}
-+
-+	/*
-+	 * We got registers for panic task from crash_notes. Just return them.
-+	 */
-+	regs = &ms->crash_task_regs[bt->tc->processor];
-+	epc = regs->regs[RISCV64_REGS_EPC];
-+	sp = regs->regs[RISCV64_REGS_SP];
-+
-+	/*
-+	 * Set stack frame ptr.
-+	 */
-+	bt->frameptr = regs->regs[RISCV64_REGS_FP];
-+
-+	if (nip)
-+		*nip = epc;
-+	if (ksp)
-+		*ksp = sp;
-+
-+	bt->machdep = regs;
-+
-+	return TRUE;
-+}
-+
-+/*
-+ * Do the work for riscv64_get_stack_frame() for non-active tasks.
-+ * Get SP and PC values for idle tasks.
-+ */
-+static int
-+riscv64_get_frame(struct bt_info *bt, ulong *pcp, ulong *spp)
-+{
-+	if (!bt->tc || !(tt->flags & THREAD_INFO))
-+		return FALSE;
-+
-+	if (!readmem(bt->task + OFFSET(task_struct_thread_context_pc),
-+		     KVADDR, pcp, sizeof(*pcp),
-+		     "thread_struct.ra",
-+		     RETURN_ON_ERROR))
-+		return FALSE;
-+
-+	if (!readmem(bt->task + OFFSET(task_struct_thread_context_sp),
-+		     KVADDR, spp, sizeof(*spp),
-+		     "thread_struct.sp",
-+		     RETURN_ON_ERROR))
-+		return FALSE;
-+
-+	if (!readmem(bt->task + OFFSET(task_struct_thread_context_fp),
-+		     KVADDR, &bt->frameptr, sizeof(bt->frameptr),
-+		     "thread_struct.fp",
-+		     RETURN_ON_ERROR))
-+		return FALSE;
-+
-+	return TRUE;
-+}
-+
- static int
- riscv64_init_active_task_regs(void)
- {
-@@ -967,6 +1247,8 @@ riscv64_init(int when)
- 		machdep->uvtop = riscv64_uvtop;
- 		machdep->kvtop = riscv64_kvtop;
- 		machdep->cmd_mach = riscv64_cmd_mach;
-+		machdep->get_stack_frame = riscv64_get_stack_frame;
-+		machdep->back_trace = riscv64_back_trace_cmd;
- 
- 		machdep->vmalloc_start = riscv64_vmalloc_start;
- 		machdep->processor_speed = riscv64_processor_speed;
-@@ -987,6 +1269,7 @@ riscv64_init(int when)
- 	case POST_GDB:
- 		machdep->section_size_bits = _SECTION_SIZE_BITS;
- 		machdep->max_physmem_bits = _MAX_PHYSMEM_BITS;
-+		riscv64_stackframe_init();
- 		riscv64_page_type_init();
- 
- 		if (!machdep->hz)
 -- 
-2.17.1
-
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
