@@ -4,69 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED70C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 11:03:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E84C433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 14:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n7dY7pSq/bwh0ufnnLBj6dAtnLT2/hKQZ/lNCrTHhyw=; b=GjragLYIZvuPxfQQOud/nuiIO6
-	je7uM40UbaY36+jUrQ9yW2/L7TsW0D7i1dYrOwb2EiWldIPu9R7ALUZuU19FxtsP5mKYJ8NndQA7P
-	cFeGWEJU7LsbZLkapSrVbKpytL/EBbFkocZ7TqL7wvHv5FSRAYFZAvw2Jh/MOexMLkWkFo0DPYRZt
-	oGfcU9pPhTgDnn2pOBnkyvRI5uq+FuS8vrFHgy8J2Sa/0rOU3StOQzGqtbymNISialguxGVw4qwtL
-	OdZdtSPu9Q6HuzcMW5vIZZNxNCwdFL4h1kRCCqHWsBm1UfHhDtvWAx0rRz6Tdc+2F/PCMoyqncXKb
-	SB44HzCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=OTJWzzVpqpLIWEJ3kKgxphUv+7Yci7fz9dh4lpwlNw0=; b=ZDDeNIGb222WHn
+	sNqe/ayV1/nOkMPfymPzXpSU6gE4dG6nMLf/qsCLkqLXqRw06MkdkT8gt32M8qsRilxL3kB9j5UBt
+	R7WkgYetkpiwLCS0mRq7DBZ+XPW8fI1XajNx19URuzWVWjObkVNqL6pHmk9O3L6DtZtaEK1sFlRWC
+	7mrpDvzs0RroP7ox1zu1Vtm0cWq/BHD6e4bpx7aXrAVd6MDTF/CAtllVmOpz3UjUUxzBCrPm7vfRL
+	PsIhgLGuuqjFQtyMRKAx89AJggDIgHzZmwcPdjPdK+l0RvgUqEkdyzSMhguLi6zP3nW2nhDURLise
+	aVJ9lDScEU0rWp4QW1hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oD234-006TZB-48; Sun, 17 Jul 2022 11:02:54 +0000
-Received: from jabberwock.ucw.cz ([46.255.230.98])
+	id 1oD4uS-007INP-90; Sun, 17 Jul 2022 14:06:12 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oD231-006TXo-CR
-	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 11:02:52 +0000
-Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
-	id CFBCF1C000A; Sun, 17 Jul 2022 13:02:49 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
-	t=1658055769;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5+3U4BoqIseximINTkRtUt+Nxs6zfcLxjIl2czwey7I=;
-	b=GWJTe8AEpO/14QNQQ1reCbJkDMgrVCxC8B/z18B7dYm8mHjT/aSUP2jOg6eT/eXVqfwyvO
-	kjHQTAuIw3/9dJdN3TDblzyc+DCwzXdnf32vwVsCNsKeR9X5MFUWADxCabQqgOdCtiTLUY
-	E47SHyApcktL1zW45A0XD/fgcYgfvik=
-Date: Sun, 17 Jul 2022 13:02:49 +0200
-From: Pavel Machek <pavel@ucw.cz>
-To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Vincent Pelletier <plr.vincent@gmail.com>,
-	Bin Meng <bin.meng@windriver.com>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Ron Economos <w6rz@comcast.net>,
-	Qiu Wenbo <qiuwenbo@kylinos.com.cn>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Stephen L Arnold <nerdboy@gentoo.org>,
-	Jianlong Huang <jianlong.huang@starfivetech.com>,
-	Mark Kettenis <kettenis@openbsd.org>,
-	Sven Schwermer <sven.schwermer@disruptive-technologies.com>,
-	Andy Shevchenko <andy.shevchenko@gmail.com>,
-	David Abdurachmanov <davidlt@rivosinc.com>,
-	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v1 0/4] Add HiFive Unmatched LEDs
-Message-ID: <20220717110249.GF14285@duo.ucw.cz>
-References: <20220705210143.315151-1-emil.renner.berthing@canonical.com>
+	id 1oD4uQ-007IKq-Cu
+	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 14:06:11 +0000
+Received: by mail-pl1-x636.google.com with SMTP id w7so6954852ply.12
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 07:06:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=RdbURAzaMtVKAm64U+lquu3tOi67fTVfwC/Ylbpg1cc=;
+        b=ICV9hw4EtODKZGQv3rQMabyMNI88qatQoPnBFoz3hXBRGPb5h+t6FJmb83wHfYCx/F
+         SQyaaArLuXR8ClHqfk0nFBTF+ThgI1G2PqM097KhhdvNTAAbmfGmE9XCsK9wFPPNYBfU
+         O94dGiu9pW7XWSKWKHiTGiFByaJL9BxImdtcSSzwRVweasBXif+yw1rMpf9SAtcY6POC
+         /Ow44OdOJzFZMsacPGE3T53UlutIXEF7a/NM36SEurCvz3ZGx7Abi9m0HV9gs+e32hEa
+         bvMS7sLFSb9Y7XaCbzzFLMhTQyVGjimMmJh9qWILeFM29lF/d7mXfayd8H41HtfZlE/+
+         gS/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=RdbURAzaMtVKAm64U+lquu3tOi67fTVfwC/Ylbpg1cc=;
+        b=DCrlUQxDIWuthJHewu8KtHQx1kPeeFLqyZb8OHr7PnIK3Sznp57m8G9O6RF2rbbyHS
+         wj51kVOIBgtTybZ1QbthY9xEoZM/NbL8zbR4yXGIGqbZXT+98nPMuuNuz+GOx517/pUn
+         P6VpnA20ykDwthexQ83ufaE9NGhzznz6xGsTzMTBmHgWLn9bweh10XfyvlxHFblSMhoo
+         z1nGz/snJ9AUwEcHzLGrihHAoUEyLNRJQzhoPIU8tU67uLR+ZqLRg1mCcUYWmNX9XTuL
+         1V3M+ptjyI+xt6YjFar4GR405uRvkcyreA9ijmFfpaGVPVeI3QtOk+cnruUp3sr0lPBr
+         eBgA==
+X-Gm-Message-State: AJIora+d/xBo9qQe6uJjOUHqDq6KGxhX2XkW2oS1ZFAQVJM/5OEyJHHm
+	OiFCc++2eJP6Q7AXe9cUOIiGPurpaAThUPG9OR0=
+X-Google-Smtp-Source: AGRyM1t17yxrUlssmp+E4vMnncQfhmMUXO1Ek8ekp/27kHZbCuwzkR1qoKrvES0/x9uWPZoyBZKwMIYDojiwt5K/U2s=
+X-Received: by 2002:a17:90a:bc04:b0:1f0:506d:78b9 with SMTP id
+ w4-20020a17090abc0400b001f0506d78b9mr27489758pjr.4.1658066762846; Sun, 17 Jul
+ 2022 07:06:02 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20220705210143.315151-1-emil.renner.berthing@canonical.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <20220705210143.315151-1-emil.renner.berthing@canonical.com>
+ <20220705210143.315151-5-emil.renner.berthing@canonical.com> <20220717105754.GE14285@duo.ucw.cz>
+In-Reply-To: <20220717105754.GE14285@duo.ucw.cz>
+From: Emil Renner Berthing <emil.renner.berthing@gmail.com>
+Date: Sun, 17 Jul 2022 16:05:51 +0200
+Message-ID: <CANBLGcw=jM4r5+UY5RZsf9zHdG7ga83hN2DnCvCcpdQGnWaY8g@mail.gmail.com>
+Subject: Re: [PATCH v1 4/4] riscv: dts: sifive unmatched: Add PWM controlled LEDs
+To: Pavel Machek <pavel@ucw.cz>, Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Vincent Pelletier <plr.vincent@gmail.com>, 
+	Bin Meng <bin.meng@windriver.com>, Aurelien Jarno <aurelien@aurel32.net>, 
+	Ron Economos <w6rz@comcast.net>, Qiu Wenbo <qiuwenbo@kylinos.com.cn>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Stephen L Arnold <nerdboy@gentoo.org>, 
+	Jianlong Huang <jianlong.huang@starfivetech.com>, Mark Kettenis <kettenis@openbsd.org>, 
+	Sven Schwermer <sven.schwermer@disruptive-technologies.com>, 
+	Andy Shevchenko <andy.shevchenko@gmail.com>, David Abdurachmanov <davidlt@rivosinc.com>, 
+	linux-leds@vger.kernel.org, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220717_040251_593227_D937B6B8 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220717_070610_459878_B0C30AA7 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +90,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9110944690313025863=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Sun, 17 Jul 2022 at 12:59, Pavel Machek <pavel@ucw.cz> wrote:
+> On Tue 2022-07-05 23:01:43, Emil Renner Berthing wrote:
+> > This adds the two PWM controlled LEDs to the HiFive Unmatched device
+> > tree. D12 is just a regular green diode, but D2 is an RGB diode with 3
+> > PWM inputs controlling the three different colours.
+> >
+> > Signed-off-by: Emil Renner Berthing
+> <emil.renner.berthing@canonical.com>
+>
+> Acked-by: Pavel Machek <pavel@ucw.cz>
+>
+> (This is dts change, I'd rather not take it through the LED tree).
 
---===============9110944690313025863==
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="Mjqg7Yu+0hL22rav"
-Content-Disposition: inline
+Makes sense. Palmer, will you consider this?
 
-
---Mjqg7Yu+0hL22rav
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hi!
-
-> This series adds support for the two LEDs on the HiFive Unmatched
-> RISC-V board.
->=20
-> Emil Renner Berthing (4):
->   leds: pwm-multicolor: Don't show -EPROBE_DEFER as errors
->   dt-bindings: leds: pwm-multicolor: Add active-low property
->   leds: pwm-multicolor: Support active-low LEDs
-
-Thank you, applied. Not taking the dts change
-
-Best regards,
-							Pavel
---=20
-People of Russia, stop Putin before his war on Ukraine escalates.
-
---Mjqg7Yu+0hL22rav
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCYtPsWQAKCRAw5/Bqldv6
-8gq0AJwIckPJm2yDxtGdkNcSELHvsLEndQCgh55aqv0nUOUw476HCy+Z7iSfGt0=
-=PdXv
------END PGP SIGNATURE-----
-
---Mjqg7Yu+0hL22rav--
-
-
---===============9110944690313025863==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+/Emil
+> Best regards,
+>                                                         Pavel
+>
+> --
+> People of Russia, stop Putin before his war on Ukraine escalates.
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9110944690313025863==--
-
