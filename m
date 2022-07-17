@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E09CCA47B
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 10:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5836AC43334
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 10:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=k+198Gzs2z6loNZHH5ayCejFRNWOXJGf4oT3rrzJ6GI=; b=WqWyfD/N6GBS7L
-	7MFWT+khb9ov1Y4oPkMoyNHGsnDWZqkPsFrDyKb3AbF929N9RF1YKOlaymWqP/jAiul4Gj/tHjpCK
-	NOFFU2HDY2P4MpQDEVsCcMZLgyGzDPU/6Hvjqq9wLymrmq4jlCATn9m2m6EbNBgxE2hUnalY13BlL
-	X+XNOadXtdvdQ5pwcrawEkcoHeEJEB3QKFrm/MecTZHSa5cqQUNkv1r3B7Joyxeo+jtV8Z+qWYVuN
-	9VJNnIq4Xy+G742m8CfyyAq0fmPn0cpcjJwQ/EsRAYFyFG8YzXAwnmVE7FYWWeQuVn1iBaWf4NkHG
-	Q6hInGurpmf1KZt0gnIA==;
+	List-Owner; bh=dT4JI8LdI3dloWXJteELc8oVi53F6P7WohDbNC8IFCk=; b=wdTDamo2xoJIgX
+	O1Nb1N2zXix7fpdopaSq55xtDt0Rpgr+86jxruWar80/GCEgWFXRN3IugFSoTYwYAKvZF5y7gETFV
+	HaMu3umEt3P7lIKIlAIfURo5MAHjbY6qL0KyNHLPoC51bbaWDiijSRyvqsQTBy9Nin8yQ9WBi5Xl6
+	igufsb++nuXheNlbYanNZ2gmyqrMB5dG4wnboMFm0bp9RS3e/D52vc1NL8Pf8oNN3kmX7vjLKdRe+
+	3vHVCmLUibKegP/edb4ATIdwuT9EQ85XqAIglwxYyAT1WBIOxabWPYYyLf6dF/eQOjn6Ajo6ATdvA
+	Kk5yHsJAbBZdGGa/AzNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oD1HR-006IrN-WF; Sun, 17 Jul 2022 10:13:42 +0000
-Received: from out30-43.freemail.mail.aliyun.com ([115.124.30.43])
+	id 1oD1HP-006IqM-E1; Sun, 17 Jul 2022 10:13:39 +0000
+Received: from out199-14.us.a.mail.aliyun.com ([47.90.199.14])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oD1HM-006Ine-3g
-	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 10:13:37 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R161e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045170;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0VJXkPSS_1658052810;
-Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VJXkPSS_1658052810)
+	id 1oD1HK-006InE-Dd
+	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 10:13:36 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R141e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045168;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0VJXhZO9_1658052807;
+Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VJXhZO9_1658052807)
           by smtp.aliyun-inc.com;
-          Sun, 17 Jul 2022 18:13:31 +0800
+          Sun, 17 Jul 2022 18:13:28 +0800
 From: Xianting Tian <xianting.tian@linux.alibaba.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -46,15 +46,15 @@ Cc: linux-riscv@lists.infradead.org,
 	k-hagio-ab@nec.com,
 	hschauhan@nulltrace.org,
 	Xianting Tian <xianting.tian@linux.alibaba.com>
-Subject: [PATCH 4/5] riscv: Add modules to virtual kernel memory layout dump
-Date: Sun, 17 Jul 2022 18:13:22 +0800
-Message-Id: <20220717101323.370245-5-xianting.tian@linux.alibaba.com>
+Subject: [PATCH 2/5] RISC-V: use __smp_processor_id() instead of smp_processor_id()
+Date: Sun, 17 Jul 2022 18:13:20 +0800
+Message-Id: <20220717101323.370245-3-xianting.tian@linux.alibaba.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20220717101323.370245-1-xianting.tian@linux.alibaba.com>
 References: <20220717101323.370245-1-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220717_031336_339402_470E6A07 
-X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-CacheID: sfid-20220717_031334_767944_73FD114B 
+X-CRM114-Status: UNSURE (   8.35  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,37 +73,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Modules always live before the kernel, MODULES_END is fixed but
-MODULES_VADDR isn't fixed, it depends on the kernel size.
-Let's add it to virtual kernel memory layout dump.
+Use __smp_processor_id() to avoid check the preemption context when
+CONFIG_DEBUG_PREEMPT enabled, as we will enter crash kernel and no
+return.
 
-As MODULES is only defined for CONFIG_64BIT, so we dump it when
-CONFIG_64BIT=y.
+Without the patch,
+[  103.781044] sysrq: Trigger a crash
+[  103.784625] Kernel panic - not syncing: sysrq triggered crash
+[  103.837634] CPU1: off
+[  103.889668] CPU2: off
+[  103.933479] CPU3: off
+[  103.939424] Starting crashdump kernel...
+[  103.943442] BUG: using smp_processor_id() in preemptible [00000000] code: sh/346
+[  103.950884] caller is debug_smp_processor_id+0x1c/0x26
+[  103.956051] CPU: 0 PID: 346 Comm: sh Kdump: loaded Not tainted 5.10.113-00002-gce03f03bf4ec-dirty #149
+[  103.965355] Call Trace:
+[  103.967805] [<ffffffe00020372a>] walk_stackframe+0x0/0xa2
+[  103.973206] [<ffffffe000bcf1f4>] show_stack+0x32/0x3e
+[  103.978258] [<ffffffe000bd382a>] dump_stack_lvl+0x72/0x8e
+[  103.983655] [<ffffffe000bd385a>] dump_stack+0x14/0x1c
+[  103.988705] [<ffffffe000bdc8fe>] check_preemption_disabled+0x9e/0xaa
+[  103.995057] [<ffffffe000bdc926>] debug_smp_processor_id+0x1c/0x26
+[  104.001150] [<ffffffe000206c64>] machine_kexec+0x22/0xd0
+[  104.006463] [<ffffffe000291a7e>] __crash_kexec+0x6a/0xa4
+[  104.011774] [<ffffffe000bcf3fa>] panic+0xfc/0x2b0
+[  104.016480] [<ffffffe000656ca4>] sysrq_reset_seq_param_set+0x0/0x70
+[  104.022745] [<ffffffe000657310>] __handle_sysrq+0x8c/0x154
+[  104.028229] [<ffffffe0006577e8>] write_sysrq_trigger+0x5a/0x6a
+[  104.034061] [<ffffffe0003d90e0>] proc_reg_write+0x58/0xd4
+[  104.039459] [<ffffffe00036cff4>] vfs_write+0x7e/0x254
+[  104.044509] [<ffffffe00036d2f6>] ksys_write+0x58/0xbe
+[  104.049558] [<ffffffe00036d36a>] sys_write+0xe/0x16
+[  104.054434] [<ffffffe000201b9a>] ret_from_syscall+0x0/0x2
+[  104.067863] Will call new kernel at ecc00000 from hart id 0
+[  104.074939] FDT image at fc5ee000
+[  104.079523] Bye...
 
-eg,
-MODULES_VADDR - MODULES_END
-0xffffffff01133000 - 0xffffffff80000000
+With the patch we can got clear output,
+[   67.740553] sysrq: Trigger a crash
+[   67.744166] Kernel panic - not syncing: sysrq triggered crash
+[   67.809123] CPU1: off
+[   67.865210] CPU2: off
+[   67.909075] CPU3: off
+[   67.919123] Starting crashdump kernel...
+[   67.924900] Will call new kernel at ecc00000 from hart id 0
+[   67.932045] FDT image at fc5ee000
+[   67.935560] Bye...
 
+Fixes: 0e105f1d0037 ("riscv: use hart id instead of cpu id on machine_kexec")
+Reviewed-by: Guo Ren <guoren@kernel.org>
 Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
 ---
- arch/riscv/mm/init.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/kernel/machine_kexec.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-index d466ec670e1f..2c4a64e97aec 100644
---- a/arch/riscv/mm/init.c
-+++ b/arch/riscv/mm/init.c
-@@ -135,6 +135,10 @@ static void __init print_vm_layout(void)
- 		(unsigned long)VMEMMAP_END);
- 	print_ml("vmalloc", (unsigned long)VMALLOC_START,
- 		(unsigned long)VMALLOC_END);
-+#ifdef CONFIG_64BIT
-+	print_ml("modules", (unsigned long)MODULES_VADDR,
-+		(unsigned long)MODULES_END);
-+#endif
- 	print_ml("lowmem", (unsigned long)PAGE_OFFSET,
- 		(unsigned long)high_memory);
- 	if (IS_ENABLED(CONFIG_64BIT)) {
+diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+index df8e24559035..86d1b5f9dfb5 100644
+--- a/arch/riscv/kernel/machine_kexec.c
++++ b/arch/riscv/kernel/machine_kexec.c
+@@ -171,7 +171,7 @@ machine_kexec(struct kimage *image)
+ 	struct kimage_arch *internal = &image->arch;
+ 	unsigned long jump_addr = (unsigned long) image->start;
+ 	unsigned long first_ind_entry = (unsigned long) &image->head;
+-	unsigned long this_cpu_id = smp_processor_id();
++	unsigned long this_cpu_id = __smp_processor_id();
+ 	unsigned long this_hart_id = cpuid_to_hartid_map(this_cpu_id);
+ 	unsigned long fdt_addr = internal->fdt_addr;
+ 	void *control_code_buffer = page_address(image->control_code_page);
 -- 
 2.17.1
 
