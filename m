@@ -4,65 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92AB2C433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 14:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E761C43334
+	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 15:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5eDBNP3FIxTWX0yTRcfoXRFAXDYleER7S1kVFP+woQk=; b=a/wD1nYe1jo5Yu
-	j05zWRjrv4hJBRo5jmpycziTTxNi046QjYHbS0rtOSRgLWeQe6VabJkNzcO8EaciecfDN/u3r+kVQ
-	H8b5KWmVdy9l2b1KeTpRLhJ9tcD1YGibo+urcQPK7Q/EYtk3sKQjs0p/g3r2pRAJnX4uc9rF43qGC
-	KEUPHDk4urSLlOGYAi3mCJHLa+vFnDUmg/Q7lNJPYKnVInQfTU3jL8BaPSg2sVTeH8iE4ZR1e3JiX
-	GN/A4fNuHDjV7+vZZaDIoOe66WPxFx0WT6bL+kCioFY34ag70Y5lanqlSV2NpgZwufJeK3n0M5514
-	gsHAwOUdlh3hJRC512CQ==;
+	List-Owner; bh=QxqXxSEGlXI8Yr4tVRsFTtkIqpfNQsNWfRLS/VkgAjg=; b=LLMVJOOaUUrZLz
+	+3YUkrTrAMX91pRGBNX091dtTivMgMX2GEmy5bultA8bN7Knlcn7BemzUMeY7DZ0IK43Or5e9pSAo
+	gVgjfX1C02tPZPimvwdm0+yTdGHG3Y5f4A3S4P72WFyq1zndL1cTRMAXnDEHpR2uhFqbBfDgX8Dh6
+	7PvyTw8kLiN4ZAm0YabjPUG7B/F0ZB07lXo6M3kAYb/HR1vNO3mL0t+OaRQGyPrrkP1Xkrr9jS6S7
+	toLKZJPDDVouR9xk00E6nSoEYaN9ykAn5fbC+oFnBsU9DBjdiw2+nsgRQdFYExP2bfh8lWMw+1ye0
+	LRXGNMNIS2q14/fa1mjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oD5Iw-007OcC-4y; Sun, 17 Jul 2022 14:31:30 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oD5uY-007Yv2-I9; Sun, 17 Jul 2022 15:10:22 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oD5Iu-007Oag-1h
-	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 14:31:29 +0000
+	id 1oD5uU-007Yss-Pi
+	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 15:10:20 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 7BD59B80D38
-	for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 14:31:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23B25C3411E
-	for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 14:31:25 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3127561233;
+	Sun, 17 Jul 2022 15:10:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 929AEC341C0;
+	Sun, 17 Jul 2022 15:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1658068285;
-	bh=pJ4t0k6XmyXiEzl7ZlYkfPxOiEZ5yTVc8cAg/K3WUqk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=PtqDsAfmv7wUkwL2Sq+kLmJuZBMnQf+K6r2DJELu9gRLHDonxGflAligAfIoQggvS
-	 +ixk+WgF0BqWaVO484SogfvW1a3yxWhVioKHEXOLgsa/hS5HMes90NJaJiu33fBE17
-	 t8GvceNJarDFEgXUOzORTDHnanRJiLlWuS/gWGBDm93CoZ9p6xjnBPmQbW2Iw6ront
-	 L5C0Q4QUACT4VlWm5asneGbZ7XrnuIo65o1AD/YTaJIwX9/TtRh9LJLhhZu/RNYhLR
-	 PFOP7suXvQh/M2X6fBvVUidOj/EW/AvPUBBc5Qm4SDT9fIqJdVXHRxOHn1evyVHctj
-	 MJWlNlumx9ePw==
-Received: by mail-lf1-f52.google.com with SMTP id u19so6614576lfs.0
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 07:31:25 -0700 (PDT)
-X-Gm-Message-State: AJIora8e7UBX7/nf6Dvbpxsq5w7W+Uvtdd6Vf4QH7wuC9gw6YoZhKdnB
-	llI1UnSXG0J3gE9wmOQTuE9L6fxIJD+0Y/eiA0s=
-X-Google-Smtp-Source: AGRyM1sb2uuey/LyOHbFE6QQiPVd/CaWuscIin4XAiwGwckHDVTGaB1OZeVRfZzr/fwVRF2YrFmdQGU8i5SdEEYtQVg=
-X-Received: by 2002:a05:6512:1191:b0:48a:2269:e87 with SMTP id
- g17-20020a056512119100b0048a22690e87mr6257453lfr.122.1658068283087; Sun, 17
- Jul 2022 07:31:23 -0700 (PDT)
-MIME-Version: 1.0
-References: <Ys/8SFo/oC1TFZYk@decadent.org.uk>
-In-Reply-To: <Ys/8SFo/oC1TFZYk@decadent.org.uk>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 17 Jul 2022 22:31:10 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSS56vzp2K_93P3fnUC4t=2v+jbnn11vMocuwVSrnW7bA@mail.gmail.com>
-Message-ID: <CAJF2gTSS56vzp2K_93P3fnUC4t=2v+jbnn11vMocuwVSrnW7bA@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Fix vdso_install target with CONFIG_COMPAT=y
-To: Ben Hutchings <ben@decadent.org.uk>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>
+	s=k20201202; t=1658070617;
+	bh=rybZH6DoLiT5LxhHBMWSE4NOpgY5dKRPw/6azfiC4Q8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KkoYgdlqAlqLRzbPQE9SOtQx1JN770rHhKQpJXLnhvtp2TWySRhryYsjP1mIj9p8x
+	 bgH8oDHylAJuIVbI+Z+297pe1R3Sl7fvszjKTHdHfliFxggR0uvSnQ1FXNdJIbVRts
+	 dZK9mNSAPRiKHK8DpD8W0SjRH33aMHKb3QqL/9OX12b3yxS59yfF8PX1vIpJ+GrXq4
+	 6HYQwKc/S8Srw209MZTMdmwUdf4DOur8XQ8qusfMk8g4O9XWMboyb8UvDd7DQryg+F
+	 rCboeSgjRdyKLSLRFmJQjBS/wSiH5PvR0VP/v6e0slFZ8Dcb+HigEwLqAJxJoArG60
+	 u6caSG04Ud4mw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1oD5uR-0081Wv-AV;
+	Sun, 17 Jul 2022 16:10:15 +0100
+Date: Sun, 17 Jul 2022 16:10:15 +0100
+Message-ID: <87v8rvzsfc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: <Conor.Dooley@microchip.com>
+Cc: <Lewis.Hanly@microchip.com>,
+	<linux-riscv@lists.infradead.org>,
+	<brgl@bgdev.pl>,
+	<linux-gpio@vger.kernel.org>,
+	<linus.walleij@linaro.org>,
+	<palmer@dabbelt.com>,
+	<linux-kernel@vger.kernel.org>,
+	<Daire.McNamara@microchip.com>
+Subject: Re: [PATCH v3 1/1] gpio: mpfs: add polarfire soc gpio support
+In-Reply-To: <a50d0f6e-0b35-4090-2ba6-9de680d23aa2@microchip.com>
+References: <20220716071113.1646887-1-lewis.hanly@microchip.com>
+	<20220716071113.1646887-2-lewis.hanly@microchip.com>
+	<87r12l4aaj.wl-maz@kernel.org>
+	<2d7f72d3e89686d3ba5cff5df8cfe443d04fc5f4.camel@microchip.com>
+	<87o7xp3pz2.wl-maz@kernel.org>
+	<a50d0f6e-0b35-4090-2ba6-9de680d23aa2@microchip.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Conor.Dooley@microchip.com, Lewis.Hanly@microchip.com, linux-riscv@lists.infradead.org, brgl@bgdev.pl, linux-gpio@vger.kernel.org, linus.walleij@linaro.org, palmer@dabbelt.com, linux-kernel@vger.kernel.org, Daire.McNamara@microchip.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220717_073128_255649_82DA9EC6 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20220717_081018_939961_3E887743 
+X-CRM114-Status: GOOD (  40.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,40 +95,157 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 14, 2022 at 7:21 PM Ben Hutchings <ben@decadent.org.uk> wrote:
->
-> The recipe for vdso_install in arch/riscv/Makefile invokes targets of
-> the same name in arch/riscv/kernel/vdso and .../compat_vdso, but the
-> target in the latter is called compat_vdso_install.  Change the
-> recipe to use the right target name.
->
-> Fixes: 0715372a06ce ("riscv: compat: vdso: Add COMPAT_VDSO base code ...")
-> Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
-> ---
->  arch/riscv/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 34cf8a598617..ee763562895c 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -110,7 +110,7 @@ PHONY += vdso_install
->  vdso_install:
->         $(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
->         $(if $(CONFIG_COMPAT),$(Q)$(MAKE) \
-> -               $(build)=arch/riscv/kernel/compat_vdso $@)
-> +               $(build)=arch/riscv/kernel/compat_vdso compat_vdso_install)
-Good catch, but what's the problem you've met?
+On Sat, 16 Jul 2022 19:32:20 +0100,
+<Conor.Dooley@microchip.com> wrote:
+> 
+> On 16/07/2022 18:52, Marc Zyngier wrote:
+> > On Sat, 16 Jul 2022 16:21:48 +0100,
+> > <Lewis.Hanly@microchip.com> wrote:
+> >>
+> >> Thanks Marc,
+> >>
+> >> On Sat, 2022-07-16 at 11:33 +0100, Marc Zyngier wrote:
+> >>> EXTERNAL EMAIL: Do not click links or open attachments unless you
+> >>> know the content is safe
+> >>>
+> >>> On Sat, 16 Jul 2022 08:11:13 +0100,
+> >>> <lewis.hanly@microchip.com> wrote:
+> >>>> From: Lewis Hanly <lewis.hanly@microchip.com>
+> >>>>
+> >>>> Add a driver to support the Polarfire SoC gpio controller.
+> >>>>
+> >>>> Signed-off-by: Lewis Hanly <lewis.hanly@microchip.com>
+> >>>
+> >>> [...]
+> >>>
+> >>>> +static int mpfs_gpio_child_to_parent_hwirq(struct gpio_chip *gc,
+> >>>> +                                        unsigned int child,
+> >>>> +                                        unsigned int child_type,
+> >>>> +                                        unsigned int *parent,
+> >>>> +                                        unsigned int *parent_type)
+> >>>> +{
+> >>>> +     struct mpfs_gpio_chip *mpfs_gpio = gpiochip_get_data(gc);
+> >>>> +     struct irq_data *d = irq_get_irq_data(mpfs_gpio-
+> >>>>> irq_number[child]);
+> >>>
+> >>> This looks totally wrong. It means that you have already instantiated
+> >>> part of the hierarchy, and it is likely that you will get multiple
+> >>> hierarchy sharing some levels, which isn't intended.
+> >>
+> >> Some background why I use the above.
+> >> We need to support both direct and non-direct IRQ connections to the
+> >> PLIC. 
+> >> In direct mode the GPIO IRQ's are connected directly to the PLIC and
+> >> certainly no need for the above. GPIO's can also be configured in non-
+> >> direct, which means they use a shared IRQ, hence the above.
+> > 
+> > That's unfortunately not acceptable. You need to distinguish which one
+> > is which, and separate them. Your non-direct mode certainly requires
+> > special handling, and is not fit for a hierarchical mode.
+> 
+> Unfortunately, the configuration is not fixed on the silicon level. The
+> SoC has 3 GPIOs (with 32 lines each). The interrupt configuration looks
 
+Let's start with a bit of terminology so that we can understand each
+other:
+- GPIO: a single piece of wire
+- GPIO block: a set of wires with a common programming interface
+
+As I understand it, you have 3 GPIO blocks, each with 32 GPIOs, for a
+total of 96 external lines. Correct?
+
+> something like the below:
+> GPIO#             width    IRQ#
+> ==================================
+> gpio0/2           14       [26:13]
+> gpio1/2           24       [50:27]
+> gpio0_non_direct  1         51
+> gpio1_non_direct  1         52
+> gpio2_non_direct  1         53
 >
->  ifeq ($(KBUILD_EXTMOD),)
->  ifeq ($(CONFIG_MMU),y)
+> Depending on what the bootloader/firmware does, these can be configured
+> differently (done prior to linux starting). By default, 14 GPIOs from
+> GPIO0 are fed into their own interrupt lines & ditto for 24 from GPIO1.
+> The remaining GPIO0 & GPIO1 lines go into the corresponding non-direct
+> interrupt. If they bootloader/firmware configures something different,
+> a "direct" interrupt line can be switched to a GPIO2 line instead.
 
+What does non-direct mean? Multiplexing inputs into a single output?
+Can you individually mask/unmask the input lines that are in this mode
+(the kernel calls this a "chained irqchip")?
 
+How does this switch between direct and non-direct happen? Do you have
+some sort of external pad to GPIO line routing? It would really help
+if you could point people at an actual specification for these blocks
+rather than paraphrasing things.
+
+> 
+> Something like the following (the interrupts are offset by 13 here, as
+> the global interrupts feed into the PLIC at an offset):
+> 
+> * global int  GPIO_INTERRUPT_FAB_CR
+>                 0               1
+>     0       GPIO0 bit 0     GPIO2 bit 0
+>     1       GPIO0 bit 1     GPIO2 bit 1
+>     .
+>     .
+>     12      GPIO0 bit 12    GPIO2 bit 12
+>     13      GPIO0 bit 13    GPIO2 bit 13
+>     14      GPIO1 bit 0     GPIO2 bit 14
+>     15      GPIO1 bit 1     GPIO2 bit 15
+>     .
+>     .
+>     .
+>     30      GPIO1 bit 16    GPIO2 bit 30
+>     31      GPIO1 bit 17    GPIO2 bit 31
+>     32          GPIO1 bit 18
+>     33          GPIO1 bit 19
+>     34          GPIO1 bit 20
+>     35          GPIO1 bit 21
+>     36          GPIO1 bit 22
+>     37          GPIO1 bit 23
+>     38  Or of all GPIO0 interrupts who do not have a direct connection enabled
+>     39  Or of all GPIO1 interrupts who do not have a direct connection enabled
+>     40  Or of all GPIO2 interrupts who do not have a direct connection enabled
+> 
+> Since we can tell based on the interrupt number in the device tree
+> whether a line is in direct mode - can you suggest what the most 
+> appropriate irq structure for the driver?
+
+The topology must be described in DT one way or another, and I don't
+really want to rely on a fixed interrupt number that will change from
+one version to another.
+
+In any case:
+
+- direct interrupts should be handled as a hierarchy, mostly like the
+  code currently does, but definitely without the probing hack.
+
+- muxed interrupts (non-direct?) should be handled via a chained
+  irqchip, using a different irqdomain, as the topology is radically
+  different.
+
+> Although for extending this driver to the "soft" IP core, it may be easier
+> to just create a "microchip,gpio-direct-mode-mask" property or similar and
+> use that to figure out what configuration a line is in.
+
+My guts feeling is that this will eventually end-up biting you, as
+people will want to change the direct/non-direct status of an
+interrupt at boot time, without depending on the FW to do that on
+their behalf.
+
+I'm not necessarily advocating for this as this is a lot more code and
+it could totally invalidate the existing binding, but this is worth
+keeping in mind.
+
+In any case, this driver needs some serious rewriting.
+
+Thanks,
+
+	M.
 
 -- 
-Best Regards
- Guo Ren
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
