@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3CB4C433EF
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jul 2022 12:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1960AC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jul 2022 13:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R9CVTn3ZvbE7pSK9r34G7m2jhwkOY3TZwg5v/oKRORg=; b=3l58MVXsHXbWAk
-	u3cVNYRci3sktsEsMBgkhbhiNogosfTSCdpYqnMBHMeot3JIeHdDah+BFY99PPc2kOIFQWd4L0stQ
-	1GK7arAqXCR4tbUkYRjoLug/Cc4Y+FzTCnnE4Xp6ZaFmcCQAe90Z5+/gqPye2cT6dShBLM1IV2wlo
-	qTux7KCv6yXsistucwL9eZy715oW90lGByzoTM8247G3TScttLnb0kTj1aPt/Fd/B0bmWvx/jmF2R
-	omnPA8Bsp77YNnVZi6RIwrFku3VcwoCGEIX/3f6BVX48X5hl0AAd2GVy20nqivDz6wD59sroCN3E9
-	Vi8umGsXUvxp20kyjxVQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:To:Subject:CC:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=UHxAMLtCxJH8JW/silRhJ3iSOxk7DF+rV7J28MOwTkw=; b=y3l8S1SQIgTH6Q1eQX7Kmjuj/b
+	phFyIioAiJ8gnNfG2n8wzKRqFtK4P/ap7VEbxQaAvptdiH+0p3D/BWypusaesghvS4pNlWpnqD6Vy
+	3HRx5LVpMyAMByl1B4J/wLB6JEMqj79UsoVA0SOh1QnbOKjRVXtU8oe01n2EqgZMT+YvbKQP40E82
+	f5HQ1iXSz9szGMVycgsk19MOOOifwZrBizN4i6B2kaijn+b+Uoq24WlyWCW5KdMjxLldoN+eKER4g
+	RRE48tMQ5a1vdruv/IR5FUu8JE8/9ocIynhjZ1SShrvvaMaj2Jj4xjXHaGKB4W1OXg11xcofHVtNQ
+	JeLxC7yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDPcj-00D9WI-8L; Mon, 18 Jul 2022 12:13:17 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1oDQny-00DkUE-UP; Mon, 18 Jul 2022 13:28:58 +0000
+Received: from szxga03-in.huawei.com ([45.249.212.189])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDPcg-00D9U0-BO
-	for linux-riscv@lists.infradead.org; Mon, 18 Jul 2022 12:13:15 +0000
-Received: by mail-ej1-x633.google.com with SMTP id oy13so20807336ejb.1
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Jul 2022 05:13:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=date:from:to:cc:subject:message-id:references:mime-version
-         :content-disposition:in-reply-to;
-        bh=Xr9CvkTDvuMZeQMh9+eMzYOG12NC3FJD/c9aCUtagVA=;
-        b=e4d+Mt+8foj4JG11SJ8E0TcLx4NkUO99IeHLFxan6SMsk7AVJ9qD4Iu9U40AcU0QOX
-         82wBDjjI7Q3FkVXWINvV6wNSM6bWN3sse0iv5i46dy/nlnBTtzgzGP2+A7Rl0s+k+BsH
-         vi/9cRjdQmzfHf8gBOqvxw5DuPwhmwylWT5tSUGRWsOBTw64SWELaVp0mCM2h0pg/7hx
-         u1PwEaVDXA7pr+W5aI9Xoo3MaRThnK5iKG9PPtn9ppMmyi3F/H+lKzLd94AULallE2xI
-         QlmXKoIoj0TAvmGxnS4HfufUUB5nd56Xiuu0McmqrBJAvKPvGkDybeqiB3iPwQxk61Um
-         KF6A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to;
-        bh=Xr9CvkTDvuMZeQMh9+eMzYOG12NC3FJD/c9aCUtagVA=;
-        b=hZ+qJlTR5rMiH+7W5WtYwEmAxF15RAI+ZXwBk9Ju4d/Hxw7xO/GURSUD0eTkAr9tm+
-         +ksn5EcDXFQD/678ifVIbbFSyBTmYTHCtbAZxQ3kLtVEbYxDdk0T3I+Q4CY6sLyKamVU
-         iwmNQm3foLC3Hg3BA9F7U2Ew/TjXMhf1WqerXJ36i86eF1dqdSql7ES1N9zuiJV0s62y
-         NBvT3+Bf3VexipmP3oyeIC7ky8mf9085bCyuM0i7bi/FkQHshygIlorMDlq2pwm8qN4j
-         hD4vvHnQkBlQRH0wD5plhQE4OYJfSJt9fTd7OocoMngg4EyjkO4Rd9vvHqldRApmBpNQ
-         jV/Q==
-X-Gm-Message-State: AJIora8DafYBpZ2Qem5m/26ESyBLHRoLksnhDJdy1CQz0vlFCS+ss3pD
-	rMpLcAFg4dRYjYVyRGdb32+YVw==
-X-Google-Smtp-Source: AGRyM1umuq2kWBtaOocGxk5zcLfpqwYWnOG089FeASyXAeDr8n1nNlLTQbWyCo8DPxwTNAkSwqgB1w==
-X-Received: by 2002:a17:907:2855:b0:72b:67b7:2c28 with SMTP id el21-20020a170907285500b0072b67b72c28mr25408917ejc.331.1658146391972;
-        Mon, 18 Jul 2022 05:13:11 -0700 (PDT)
-Received: from localhost (cst2-173-67.cust.vodafone.cz. [31.30.173.67])
-        by smtp.gmail.com with ESMTPSA id o22-20020a170906769600b00722dceb3f8bsm5460888ejm.151.2022.07.18.05.13.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Jul 2022 05:13:11 -0700 (PDT)
-Date: Mon, 18 Jul 2022 14:13:10 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Liang He <windhl@126.com>
-Cc: atishp@atishpatra.org, anup@brainfault.org, will@kernel.org,
-	mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] perf: RISC-V: Add of_node_put() when breaking out of
- for_each_of_cpu_node()
-Message-ID: <20220718121310.ndxz6ppqitkvu2jq@kamzik>
-References: <20220715130330.443363-1-windhl@126.com>
+	id 1oDQne-00DkG3-Ar; Mon, 18 Jul 2022 13:28:44 +0000
+Received: from canpemm500009.china.huawei.com (unknown [172.30.72.56])
+	by szxga03-in.huawei.com (SkyGuard) with ESMTP id 4LmjSL1J1JzFq9F;
+	Mon, 18 Jul 2022 21:27:30 +0800 (CST)
+Received: from [10.67.102.169] (10.67.102.169) by
+ canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Mon, 18 Jul 2022 21:28:30 +0800
+CC: Andrew Morton <akpm@linux-foundation.org>, Linux-MM <linux-mm@kvack.org>,
+	LAK <linux-arm-kernel@lists.infradead.org>, x86 <x86@kernel.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Linux Doc
+ Mailing List <linux-doc@vger.kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Arnd Bergmann <arnd@arndb.de>, LKML <linux-kernel@vger.kernel.org>, Darren
+ Hart <darren@os.amperecomputing.com>, <huzhanyuan@oppo.com>,
+	=?UTF-8?B?5p2O5Z+56ZSLKHdpbmsp?= <lipeifeng@oppo.com>,
+	=?UTF-8?B?5byg6K+X5piOKFNpbW9uIFpoYW5nKQ==?= <zhangshiming@oppo.com>,
+	=?UTF-8?B?6YOt5YGl?= <guojian@oppo.com>, real mz <realmz6@gmail.com>,
+	<linux-mips@vger.kernel.org>, <openrisc@lists.librecores.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <yangyicong@hisilicon.com>, "tiantao (H)"
+	<tiantao6@hisilicon.com>
+Subject: Re: [PATCH v2 0/4] mm: arm64: bring up BATCHED_UNMAP_TLB_FLUSH
+To: Barry Song <21cnbao@gmail.com>, <xhao@linux.alibaba.com>
+References: <20220711034615.482895-1-21cnbao@gmail.com>
+ <24f5e25b-3946-b92a-975b-c34688005398@linux.alibaba.com>
+ <CAGsJ_4zjnmQV6LT3yo--K-qD-92=hBmgfK121=n-Y0oEFX8RnQ@mail.gmail.com>
+From: Yicong Yang <yangyicong@huawei.com>
+Message-ID: <8e603deb-7023-5de5-c958-8911971aec24@huawei.com>
+Date: Mon, 18 Jul 2022 21:28:30 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.5.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220715130330.443363-1-windhl@126.com>
+In-Reply-To: <CAGsJ_4zjnmQV6LT3yo--K-qD-92=hBmgfK121=n-Y0oEFX8RnQ@mail.gmail.com>
+X-Originating-IP: [10.67.102.169]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ canpemm500009.china.huawei.com (7.192.105.203)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220718_051314_411710_71AA4BB9 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20220718_062839_426455_F0617653 
+X-CRM114-Status: GOOD (  31.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,43 +80,221 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 15, 2022 at 09:03:30PM +0800, Liang He wrote:
-> In pmu_sbi_setup_irqs(), we should call of_node_put() for the 'cpu'
-> when breaking out of for_each_of_cput_node() as its refcount will
-> be automatically increased and decreased during the iteration.
+On 2022/7/14 12:51, Barry Song wrote:
+> On Thu, Jul 14, 2022 at 3:29 PM Xin Hao <xhao@linux.alibaba.com> wrote:
+>>
+>> Hi barry.
+>>
+>> I do some test on Kunpeng arm64 machine use Unixbench.
+>>
+>> The test  result as below.
+>>
+>> One core, we can see the performance improvement above +30%.
 > 
-> Fixes: 4905ec2fb7e6 ("RISC-V: Add sscofpmf extension support")
-> Signed-off-by: Liang He <windhl@126.com>
-> ---
->  drivers/perf/riscv_pmu_sbi.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
+> I am really pleased to see the 30%+ improvement on unixbench on single core.
 > 
-> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> index dca3537a8dcc..705d249a1b53 100644
-> --- a/drivers/perf/riscv_pmu_sbi.c
-> +++ b/drivers/perf/riscv_pmu_sbi.c
-> @@ -666,12 +666,15 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
->  		child = of_get_compatible_child(cpu, "riscv,cpu-intc");
->  		if (!child) {
->  			pr_err("Failed to find INTC node\n");
-> +			of_node_put(cpu);
->  			return -ENODEV;
->  		}
->  		domain = irq_find_host(child);
->  		of_node_put(child);
-> -		if (domain)
-> +		if (domain) {
-> +			of_node_put(cpu);
->  			break;
-> +		}
->  	}
->  	if (!domain) {
->  		pr_err("Failed to find INTC IRQ root domain\n");
-> -- 
-> 2.25.1
->
+>> ./Run -c 1 -i 1 shell1
+>> w/o
+>> System Benchmarks Partial Index              BASELINE RESULT INDEX
+>> Shell Scripts (1 concurrent)                     42.4 5481.0 1292.7
+>> ========
+>> System Benchmarks Index Score (Partial Only)                         1292.7
+>>
+>> w/
+>> System Benchmarks Partial Index              BASELINE RESULT INDEX
+>> Shell Scripts (1 concurrent)                     42.4 6974.6 1645.0
+>> ========
+>> System Benchmarks Index Score (Partial Only)                         1645.0
+>>
+>>
+>> But with whole cores, there have little performance degradation above -5%
+> 
+> That is sad as we might get more concurrency between mprotect(), madvise(),
+> mremap(), zap_pte_range() and the deferred tlbi.
+> 
+>>
+>> ./Run -c 96 -i 1 shell1
+>> w/o
+>> Shell Scripts (1 concurrent)                  80765.5 lpm   (60.0 s, 1
+>> samples)
+>> System Benchmarks Partial Index              BASELINE RESULT INDEX
+>> Shell Scripts (1 concurrent)                     42.4 80765.5 19048.5
+>> ========
+>> System Benchmarks Index Score (Partial Only)                        19048.5
+>>
+>> w
+>> Shell Scripts (1 concurrent)                  76333.6 lpm   (60.0 s, 1
+>> samples)
+>> System Benchmarks Partial Index              BASELINE RESULT INDEX
+>> Shell Scripts (1 concurrent)                     42.4 76333.6 18003.2
+>> ========
+>> System Benchmarks Index Score (Partial Only)                        18003.2
+>>
+>> ----------------------------------------------------------------------------------------------
+>>
+>>
+>> After discuss with you, and do some changes in the patch.
+>>
+>> ndex a52381a680db..1ecba81f1277 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -727,7 +727,11 @@ void flush_tlb_batched_pending(struct mm_struct *mm)
+>>          int flushed = batch >> TLB_FLUSH_BATCH_FLUSHED_SHIFT;
+>>
+>>          if (pending != flushed) {
+>> +#ifdef CONFIG_ARCH_HAS_MM_CPUMASK
+>>                  flush_tlb_mm(mm);
+>> +#else
+>> +               dsb(ish);
+>> +#endif
+>>
+> 
+> i was guessing the problem might be flush_tlb_batched_pending()
+> so i asked you to change this to verify my guess.
+> 
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+flush_tlb_batched_pending() looks like the critical path for this issue then the code
+above can mitigate this.
+
+I cannot reproduce this on a 2P 128C Kunpeng920 server. The kernel is based on the
+v5.19-rc6 and unixbench of version 5.1.3. The result of `./Run -c 128 -i 1 shell1` is:
+      iter-1      iter-2     iter-3
+w/o  17708.1     17637.1    17630.1
+w    17766.0     17752.3    17861.7
+
+And flush_tlb_batched_pending()isn't the hot spot with the patch:
+   7.00%  sh        [kernel.kallsyms]      [k] ptep_clear_flush
+   4.17%  sh        [kernel.kallsyms]      [k] ptep_set_access_flags
+   2.43%  multi.sh  [kernel.kallsyms]      [k] ptep_clear_flush
+   1.98%  sh        [kernel.kallsyms]      [k] _raw_spin_unlock_irqrestore
+   1.69%  sh        [kernel.kallsyms]      [k] next_uptodate_page
+   1.66%  sort      [kernel.kallsyms]      [k] ptep_clear_flush
+   1.56%  multi.sh  [kernel.kallsyms]      [k] ptep_set_access_flags
+   1.27%  sh        [kernel.kallsyms]      [k] page_counter_cancel
+   1.11%  sh        [kernel.kallsyms]      [k] page_remove_rmap
+   1.06%  sh        [kernel.kallsyms]      [k] perf_event_alloc
+
+Hi Xin Hao,
+
+I'm not sure the test setup as well as the config is same with yours. (96C vs 128C
+should not be the reason I think). Did you check that the 5% is a fluctuation or
+not? It'll be helpful if more information provided for reproducing this issue.
+
+Thanks.
+
+>      /*
+>>                   * If the new TLB flushing is pending during flushing, leave
+>>                   * mm->tlb_flush_batched as is, to avoid losing flushing.
+>>
+>> there have a performance improvement with whole cores, above +30%
+> 
+> But I don't think it is a proper patch. There is no guarantee the cpu calling
+> flush_tlb_batched_pending is exactly the cpu sending the deferred
+> tlbi. so the solution is unsafe. But since this temporary code can bring the
+> 30%+ performance improvement back for high concurrency, we have huge
+> potential to finally make it.
+> 
+> Unfortunately I don't have an arm64 server to debug on this. I only have
+> 8 cores which are unlikely to reproduce regression which happens in
+> high concurrency with 96 parallel tasks.
+> 
+> So I'd ask if @yicong or someone else working on kunpeng or other
+> arm64 servers  is able to actually debug and figure out a proper
+> patch for this, then add the patch as 5/5 into this series?
+> 
+>>
+>> ./Run -c 96 -i 1 shell1
+>> 96 CPUs in system; running 96 parallel copies of tests
+>>
+>> Shell Scripts (1 concurrent)                 109229.0 lpm   (60.0 s, 1 samples)
+>> System Benchmarks Partial Index              BASELINE       RESULT    INDEX
+>> Shell Scripts (1 concurrent)                     42.4     109229.0  25761.6
+>>                                                                     ========
+>> System Benchmarks Index Score (Partial Only)                        25761.6
+>>
+>>
+>> Tested-by: Xin Hao<xhao@linux.alibaba.com>
+> 
+> Thanks for your testing!
+> 
+>>
+>> Looking forward to your next version patch.
+>>
+>> On 7/11/22 11:46 AM, Barry Song wrote:
+>>> Though ARM64 has the hardware to do tlb shootdown, the hardware
+>>> broadcasting is not free.
+>>> A simplest micro benchmark shows even on snapdragon 888 with only
+>>> 8 cores, the overhead for ptep_clear_flush is huge even for paging
+>>> out one page mapped by only one process:
+>>> 5.36%  a.out    [kernel.kallsyms]  [k] ptep_clear_flush
+>>>
+>>> While pages are mapped by multiple processes or HW has more CPUs,
+>>> the cost should become even higher due to the bad scalability of
+>>> tlb shootdown.
+>>>
+>>> The same benchmark can result in 16.99% CPU consumption on ARM64
+>>> server with around 100 cores according to Yicong's test on patch
+>>> 4/4.
+>>>
+>>> This patchset leverages the existing BATCHED_UNMAP_TLB_FLUSH by
+>>> 1. only send tlbi instructions in the first stage -
+>>>       arch_tlbbatch_add_mm()
+>>> 2. wait for the completion of tlbi by dsb while doing tlbbatch
+>>>       sync in arch_tlbbatch_flush()
+>>> My testing on snapdragon shows the overhead of ptep_clear_flush
+>>> is removed by the patchset. The micro benchmark becomes 5% faster
+>>> even for one page mapped by single process on snapdragon 888.
+>>>
+>>>
+>>> -v2:
+>>> 1. Collected Yicong's test result on kunpeng920 ARM64 server;
+>>> 2. Removed the redundant vma parameter in arch_tlbbatch_add_mm()
+>>>     according to the comments of Peter Zijlstra and Dave Hansen
+>>> 3. Added ARCH_HAS_MM_CPUMASK rather than checking if mm_cpumask
+>>>     is empty according to the comments of Nadav Amit
+>>>
+>>> Thanks, Yicong, Peter, Dave and Nadav for your testing or reviewing
+>>> , and comments.
+>>>
+>>> -v1:
+>>> https://lore.kernel.org/lkml/20220707125242.425242-1-21cnbao@gmail.com/
+>>>
+>>> Barry Song (4):
+>>>    Revert "Documentation/features: mark BATCHED_UNMAP_TLB_FLUSH doesn't
+>>>      apply to ARM64"
+>>>    mm: rmap: Allow platforms without mm_cpumask to defer TLB flush
+>>>    mm: rmap: Extend tlbbatch APIs to fit new platforms
+>>>    arm64: support batched/deferred tlb shootdown during page reclamation
+>>>
+>>>   Documentation/features/arch-support.txt       |  1 -
+>>>   .../features/vm/TLB/arch-support.txt          |  2 +-
+>>>   arch/arm/Kconfig                              |  1 +
+>>>   arch/arm64/Kconfig                            |  1 +
+>>>   arch/arm64/include/asm/tlbbatch.h             | 12 ++++++++++
+>>>   arch/arm64/include/asm/tlbflush.h             | 23 +++++++++++++++++--
+>>>   arch/loongarch/Kconfig                        |  1 +
+>>>   arch/mips/Kconfig                             |  1 +
+>>>   arch/openrisc/Kconfig                         |  1 +
+>>>   arch/powerpc/Kconfig                          |  1 +
+>>>   arch/riscv/Kconfig                            |  1 +
+>>>   arch/s390/Kconfig                             |  1 +
+>>>   arch/um/Kconfig                               |  1 +
+>>>   arch/x86/Kconfig                              |  1 +
+>>>   arch/x86/include/asm/tlbflush.h               |  3 ++-
+>>>   mm/Kconfig                                    |  3 +++
+>>>   mm/rmap.c                                     | 14 +++++++----
+>>>   17 files changed, 59 insertions(+), 9 deletions(-)
+>>>   create mode 100644 arch/arm64/include/asm/tlbbatch.h
+>>>
+>> --
+>> Best Regards!
+>> Xin Hao
+>>
+> 
+> Thanks
+> Barry
+> .
+> 
 
 _______________________________________________
 linux-riscv mailing list
