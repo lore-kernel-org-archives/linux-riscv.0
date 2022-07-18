@@ -4,162 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A6A4C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jul 2022 17:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E1ADC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jul 2022 17:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xzSLErC10EqRx499lMimAX9wqbcuvRuzwaTB28g72ts=; b=Vs5IqO+0k9MYyb
-	FSg3/ym+MjlJMBYva9Rtsogr6OhyopqQR1BSFk7FwAXZJBI0H2IFJGTYh08uk/RX4SOtkRprXKP5r
-	Irn7bmQTcgyZ6g7C3WicQkj7VhxljbZmoT8wRWwKH93/RB2gyEKSXFryyl0JrlAOUT9fITmxCG155
-	HCP7vipdKxij95C5dflsQzcdqMCYJcUzeql237YQZj4EYjJEDmYOyIqBJPHP5IJfBBAhHlQi+xFCb
-	GfJPdIhpXAvguJX9+kUBpVw4dNK+/AZ7VnmJCLzd8ZjfY6zCN4Va+7trPz4+F3fx74mfy+/88gi2Q
-	tuBmNNBk7HSI9twTJ9vw==;
+	List-Owner; bh=qJuEBSBCCG8omEIWbJIdbgFIPZmYVYcpz9NsnzPo1Js=; b=4pALPdXbm41o0A
+	dUdmEH1JCk5ltz7pIGAGPuAfFI734izU9sWlfVdeIvrJnHhAZXdMHStUlnGI8icZk2JpvBiq3U5+B
+	EpF9pW28RJ8TX4lWaEy6duKrCQ03RnctefA0CJxVRqMFjHI0wAf3njTd9am7g1cmYskB7L/YfxDWG
+	ctgaj6C7FbQYygpgOOCY3bssmlI8Gss+FHauyOJve3UeBjeWCWalUCZ0MHTsgb+/T7QvOQ327D0V1
+	7jGhb85VNDCayaFK5UZXCWbsHed3s8/KGIrwedyRjbkuhGXe7YmUPDPegsEfUnA6Yhm9FYsSycFXr
+	uLZRsYgX7NGpbHWtfJlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDV0N-00HNt9-GV; Mon, 18 Jul 2022 17:58:03 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oDV1r-00HOri-Tr; Mon, 18 Jul 2022 17:59:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDV09-00HNjm-Kq; Mon, 18 Jul 2022 17:57:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1658167069; x=1689703069;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=y/8l/bz5Iz4FtUSX5tUa7HYGZ39Af4QahKR3DbNV8ps=;
-  b=wmXaVmOR3A6AaDeo9YBe2aRR8FaoV/jTufDzprKoa9/P0fL8ofJk25Kr
-   pmtN28gHCCk50jkeFrEFsAeEhd27pUCEEVGFvd/biRIq3fThr8QQiNNaV
-   DT9lpP7JR93gKdn59Er3iijd3UrqQYd0SLvWrxBqGjqdqdLvQqWyTXB9P
-   j5Hfw9owir+g+wW+XKLvsk7KBOxqEaslnYyfoH7l+eYDad0FhBARgavmb
-   7tPMe5GSdzIomgGqPxHm+jn9p6OvZbRbeT6uLR55xbHJlrQlX6r2O3Roo
-   5bqg/o7LpN8Wcmb4EpjBDBhZc1n2soDCwUqM3GA9ppGS7UD20hQyULNxK
-   g==;
-X-IronPort-AV: E=Sophos;i="5.92,281,1650956400"; 
-   d="scan'208";a="104989725"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 18 Jul 2022 10:57:41 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Mon, 18 Jul 2022 10:57:39 -0700
-Received: from NAM11-CO1-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Mon, 18 Jul 2022 10:57:38 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=RgImFNO4QHU/bGuis/iq7eJytKN9BZde5hiLDKkFGzuGSsNDr4sIRjMB+kFzAg7jj4XUiy7xtPCHza+fI8CRESwWjOr8bH9ZuurqajPnRxUQzq4tRnj28MXDYKS5QQ1nd9Dv+82PcNi7hL7Vu1EijWBV6BaIYC3kvItzuxLElYI/jkTjiFWVRRqnz6rncWp1UI2v+xGpuKhZwXVcl87298+hnFnJUFOyzQ/9WDkDl3mYvpH3S6Kc+t2b9ORt+cZsKjhV8TdYX31wKdLtCZ2MRBKkj73cXBfGen7QV9vEyc/ZTiTTPdBUwlh7q0L0KHNKuJHi05vU4T0iUtf/EUjP2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=y/8l/bz5Iz4FtUSX5tUa7HYGZ39Af4QahKR3DbNV8ps=;
- b=ZLPkkSD42+v61FYQb7rtDqXzlcE7ZCCNh6iRkxuAK+Y5C7/PA/BQwwpc41XaEa9y8B004evCcN5gdOmDG70vJ/FIsUK059fIGmAswclun7ZwVDCCwEO+3SufiT2DQs1K9XCKiOE3vTpQuJmsIN5sEhjiC9dAgRdlaiSMmpEr0s8ttBkrXRnXIUHaFDnWQBhhbSnDtuqVQQ4Ek0wpMx1htHGWK8//5KwL0XojogfKFD7bol4x4rVVNcZa6VLGFlOfmaBxc7qqs2QNV64rPevi1fZNRk/oRaRXufkkuWQcLswRms+OuTc4GaMYvAcaYKTxY3H5MOUnaNFumQ4mp0OELw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+	id 1oDV1p-00HOb0-VF
+	for linux-riscv@bombadil.infradead.org; Mon, 18 Jul 2022 17:59:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=oOsWXe1XlE7Dvyt6YnaIl4l/lBbF3+FHoY2EVuHBogc=; b=df2lA3hEpYbeDHN9Y/B9J2YCKq
+	OWkw6odMQR7gGo2uW+4+UOAXLHbsDDrPV75Ny8IoCx7QALYITJA+73SHDAdmIgPynLYuGvi+uWyNf
+	e3aDW5I85iMRQTJI2ms2bobju75WQ8Og/UiUjNln7gOdAvkOprp1mMVfHtLUiChyOvwsfLaYpiXaI
+	No76sagYQvqfe84OrriiuTewkpUJ9M6QCUTl17r3FpFk2aTZbjFhKNFbriYC5qSZMLuGgo6P5mI7i
+	EiR7i7jTMpmKgONZiqr0qXsdxqdvtBkVSQRP2h81aLdNrIp2ExmvFitl5BSifZVCpA8wlbIklmgKl
+	NZlBGmnA==;
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oDUBw-004rQf-TW
+	for linux-riscv@lists.infradead.org; Mon, 18 Jul 2022 17:05:59 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id y141so11188648pfb.7
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Jul 2022 10:05:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=y/8l/bz5Iz4FtUSX5tUa7HYGZ39Af4QahKR3DbNV8ps=;
- b=ulbSk0ufAxe/ppnUxbCPUW5Tul40R8uxKGQ5qr85pmLEjEYwb6ugEJ+OrcKAZmcQK133D0lWAQktxLlT77wc3nt0jO/3gubOsSGLq3MMxys93/R7E/9puvCg7uXHz52J0IWXRtevXKPFZbBuFdWeUhg4nUGUVADz6w209pouUa8=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by MN2PR11MB4368.namprd11.prod.outlook.com (2603:10b6:208:17b::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5438.14; Mon, 18 Jul
- 2022 17:57:33 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::357a:acc9:829e:bf7b]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::357a:acc9:829e:bf7b%7]) with mapi id 15.20.5438.023; Mon, 18 Jul 2022
- 17:57:33 +0000
-From: <Conor.Dooley@microchip.com>
-To: <linux@roeck-us.net>, <sudeep.holla@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <Conor.Dooley@microchip.com>,
-	<gregkh@linuxfoundation.org>, <vincent.guittot@linaro.org>,
-	<dietmar.eggemann@arm.com>, <ionela.voinescu@arm.com>,
-	<pierre.gondois@arm.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH -next] arch_topology: Fix cache attributes detection in
- the CPU hotplug path
-Thread-Topic: [PATCH -next] arch_topology: Fix cache attributes detection in
- the CPU hotplug path
-Thread-Index: AQHYlr1LjktvAhTwm0O5ibr9nGIi2q2EbdiAgAAEYgA=
-Date: Mon, 18 Jul 2022 17:57:33 +0000
-Message-ID: <0744c97a-bb4e-0985-7f86-f98965b5d3c1@microchip.com>
-References: <20220713133344.1201247-1-sudeep.holla@arm.com>
- <20220718174151.GA462603@roeck-us.net>
-In-Reply-To: <20220718174151.GA462603@roeck-us.net>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 6b366c22-c61a-43f6-c6ec-08da68e6fd98
-x-ms-traffictypediagnostic: MN2PR11MB4368:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: MC9Xt0Cu5N7wEip9WvE8GRGpzAJAyKHuJr94KFw7VQlMpqtqP+93OYKHzdyiOBvYalrVpWI45pcdkIw7+4piHVpN6ni9bS+u4GvRpQvp2lJIxmLCBKNa/lT2aRd3pyuMMRyKXCM9HQPjxGzzHR6Ceuwguw8i4fNQeA+/JW56Wy4+gkAo5d5bHbEY+qQgQk55xMnHW9ZfGItxeqJZmY4Sl1NRqJJPvGz43MZx6xwdIGlXYTx4bcDM4OQyiR8VQr01hPB6azfFd3Jw0jdXt+m9/+HnUaltN0E0vJnWjS9Lu+gl4I38V/2BGKkOYwx9Q1cslPjdYmCjnevR2XgK8U4vvjfMtnJ7F9IU1nxFV/qGPxboIxfe/lKMnNXJPXF4a7nTHi1CFIzF0RaBGSho8FV9WL1SkRFf1shaalrmSXDneTbvVzd9IF0FLmnXs6QkjUQUa2VpTyzv4PdOoJ4Djxr/g3+gXmrhnI/akT56tgNfmgr1ZLyndXs/Ggig0sIcevOKSyX4U0MDQqKDeuSUuFCgNrX7deA6EyGhGWGjwOCPNonZkq2AVFreF8HF0P+ouqBJQ22cNy/ZHKr53hqGkT81yISwRkeRcuiLRtPAS95Fig1SqIVS8FFRn//S9wchtSNx7ZG51hzAbqqW3j70IkkNxMPzQDIpa42u77TuPRLKbkhc9gKoKSp5tnHoNIbUdyYLLessBh21OT7S7zv9MWiML/FCxECLjHLTyppQK+xppqjzvQQ9jYx/x774v8pwFPzH6tWCwqA32oqalTNvsq9RHdo8GlS/WT92nPFDOOEKAuhS0RWc3UL/F/CwHh4CCVYibBR9+sxWAimUAHf9pi+3NqU4tA2QLCmWRC8YIu1ncsk+KrkxqQ4nMQ6jCjTHf5ic
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(136003)(396003)(346002)(376002)(39860400002)(122000001)(316002)(91956017)(76116006)(66946007)(38070700005)(66556008)(31686004)(38100700002)(36756003)(54906003)(71200400001)(4326008)(8676002)(64756008)(66476007)(110136005)(66446008)(26005)(2906002)(41300700001)(186003)(6512007)(83380400001)(2616005)(8936002)(7416002)(5660300002)(6486002)(31696002)(86362001)(53546011)(6506007)(478600001)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Vk9QVTRJWW85dGVEYXVUb3UyME1uTXo4andXdHVVVnVVMUp4WFNqVzVuOFpW?=
- =?utf-8?B?U3l0b2xrMjBpWnZiR0pheTN2cmI1Ni9EWkQvSXJKUkxuWkJ5UVRrM1J5WmVN?=
- =?utf-8?B?NFRUVnFoT2pYeDM3R29nSmt4UWlyRFRyRUJIL2dBL3dCYUNiRG9aeHJRZVhG?=
- =?utf-8?B?TzRpdFF1MUo1OFdodTVXNWExMzdvbWxFR3gzaHVHNnhLSWZIQmtVRHNiTUxq?=
- =?utf-8?B?ZnYxcG4reGhodWlycGpieXdiVVNyRGNFWUtpMGQwVlVDUlpjNjRKNEVDNi9V?=
- =?utf-8?B?eVY5Y2hQTC9LNEtKdm5qRlZoa1I1cTYwd2cxellDWHZDVllheGRqckl0N1lT?=
- =?utf-8?B?RVFEK1VEbWNXRVFITU9HaUlyWUgyT3JNVTBVZWNEcndmcDkrQzJUTHg5YXhq?=
- =?utf-8?B?ZHdWU2x2UStpT1lnVkJMOGpYbXJPQzY0cFhBUTBkR2M1L1ZQakxweEVzeDdL?=
- =?utf-8?B?eXR2cEhUWkxLU0hsTThVZWxIVHlUajBueEhLQmFMMHRXVDBUWlRBRHBDVzZz?=
- =?utf-8?B?NlZQemdub3hvUDBRS3A1eE1BNE5pVWVTb3N2enlHYlg4TXJ2RkMzR1IzNG05?=
- =?utf-8?B?ckMrK1pBM0NwaXQzUHUvUXBMcWxQVnBNcUMrOXk0YVpDK3Zieit1c1MxTmxI?=
- =?utf-8?B?NFFGRk51dzlyeWFNdVVMZFBiTU9PK05ScEdDM3pxTG1RTGtzcHJkUG5ZWXVL?=
- =?utf-8?B?aGpKL3loSHlDZ1lGczB1RGRZSzZlNTJ5RHR0UzY2dDg2QTFsaGdaT2svRUdF?=
- =?utf-8?B?dFExVVdORFBwT1hQTk1BemZpczZDQ3NxT01CSVh0Y0tHSFZqSmp5dThXaisz?=
- =?utf-8?B?SlRLK2lsRVo1VjVZQTg2RTk4Y3grYWtqQWsyMmxUejRaZk1Fd3hlR2FvaXE2?=
- =?utf-8?B?RDhLOTZoakk1WEJKdmtlYUxjaVR0eURyY0w0UjZ0TjNtZkZPNlp1N1llUGJS?=
- =?utf-8?B?TllHUFdXUE1ublZvNXA0Skg4bXozdkpnbDV4aHFza3dMY3drUHlSWjNhRE1R?=
- =?utf-8?B?cFdPd1RUWWcvemExMkRVdnF6QUVPTEdXSXI1Y01kbCsrSEpNcU9nVFRWMm5S?=
- =?utf-8?B?cGxuOWgrSnB5UW1ZZG5PLzNaS2ZVTUpNRDN2NHJYVzE4aHlRN09uK0NpeXR3?=
- =?utf-8?B?dGpMazVHbXY2ajZ2TDlZanN2djFLRWNwOTM0UVZVTkdETVdSM25GV2VLWVZ3?=
- =?utf-8?B?clkvaGVuMWdPUG1JaDk5ZU1SOVB3dDB5NTNsVjZKQWZGd01XSVR3alJ3bnhy?=
- =?utf-8?B?enF5dERuc0FXOXZNanFzR3puY0drUC9BTnVoVzBBeUlJanRDSDk5SGxpcjgv?=
- =?utf-8?B?RG1MV2dQRmVCMjB6Q3NwdEFJZWRkT1I0S1BvUHQ2TUhZbzNmci9qMEhXb1pZ?=
- =?utf-8?B?SEZ1MlY3UGVPTHRQd2ZSZU5GVkVhS2xCaGxvQVgxaTY4K3gyUlNCb3FFMHFK?=
- =?utf-8?B?YlYwYWlvS0UzM2lyZWJsS3BaUU5ydlZreXVWRmRjNkZvS1dRZlFtRDRncmJE?=
- =?utf-8?B?cCtWNW5KeTV5YS81TU1WczRULzViejZBTEhkbmc4WWYyREJ3Q1l1WGoxTCtQ?=
- =?utf-8?B?RkozUDhjZnpnOGxYbUhDOG54ZlJCVFVlQUFZL0JRamlUOC81b203VERCdnR5?=
- =?utf-8?B?Y1JYalg0c0NsSCtwUE42Tjh0Wjh6WjJsSUl4UFBIbFhpdVYvOS91Qkh5VGJT?=
- =?utf-8?B?UzZsUm9VSFhmc3BSVjZ4cTJweTVJM1NXVFI5YitLd3UyTkl5Vmc4Q2UrV2pm?=
- =?utf-8?B?ZjhCejlDQjJNRVhwN1BMZHBMcjZRQUJKYUw3ZXk3eHJWbjBqa1RXeGNuTEpZ?=
- =?utf-8?B?cFNocHNwcExvb1NNWWpCOTFiQTFzeVJ1ams4S2pqVEtmempuVXpJZnFkOERa?=
- =?utf-8?B?S2NJampqbkZzVU1nRDMvbGdCVVhWSWVCU09DQWtsQVNoam95NDlPVFhodFli?=
- =?utf-8?B?Q01KWHlMdlB4aDRNQmIxKzZ3QlZSbEpwYk5SVU8za0VrMkhTN1J1UjZubU82?=
- =?utf-8?B?ZGhiRGYxUStPelpTbnk2NklNNWlkWjBTMXBVVHplM0daaEp6M2p1dXlnbVRs?=
- =?utf-8?B?THJYNE1TTWRhR3pJYkhpVk1EN1VFTUs3L3JZeERUZEhSWWdwNGJOTDVuZnBp?=
- =?utf-8?Q?uWHSyQw7pmlYQHYGfFzy8ojVR?=
-Content-ID: <D7DAC3101C868A4F98FC71B9DFB49D46@namprd11.prod.outlook.com>
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=oOsWXe1XlE7Dvyt6YnaIl4l/lBbF3+FHoY2EVuHBogc=;
+        b=yDEh3i7cvGOG1Tg6a3LH5g6p9IZ71ROXWiKkAcCBDzpRGIkynsCnDocSHaB+p5lMtJ
+         un3KvvMO1rR4R6lnmasBC5U/GtKZCLfazzQczKJ460Swi58kGxQQGVKHHLwGSZmXg52d
+         jAtF35upbVQffkVvkequyyH558IkEUcoc8q2Ta0kG9/goGLIh6PxPSMEhL/edqqRa/RU
+         3SY6aBwkzzhR/2uFSpIH2LMHaADdwA9v2eYNcHXpv5YnJIYXvNJVnj53+Dslhe2tZold
+         mCQD+57SYP0fEBMAGQSZHaskYwdskEPm0nGJwtL0AYAaeMlsu4wrXigjxkFByncTorSX
+         Lt7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:content-transfer-encoding;
+        bh=oOsWXe1XlE7Dvyt6YnaIl4l/lBbF3+FHoY2EVuHBogc=;
+        b=CIBswN4rBGbcWRaQXbnhPdGV3diGLj6nYOyJ+8O4r7HkUrUyYcLMH0rqeDy+fknpXm
+         RitHV5ygyBPf3Y6VYd8P0JvVrT0YYsgOS15Uk0UKV/UQDylXTsLpeLXBGRgIKZZkgmKH
+         fHCh2GKaAIRhAkaOTTdowEifurQsDgy1j5Es5oh4LiR+iPXHwMWuTXqxjYaqoWJ4Cp58
+         cmMk7kLg2XVhpaGWKhkGS1tsB3aTdsMMa9BgSFCGFd7J3L7xotNcQ09nAs4VJwhX5Q+m
+         Hu9ZI4BpoTdbVUvTZwsG3bfC5ZJs5EaNWAkqSIOr5tK0knDHFs8t5IQaIIgt0slX05Lr
+         oR2w==
+X-Gm-Message-State: AJIora8KeJkzyD0wemDoklQ0G+LfBIXtqQubVnlQSdCiTgV4haU47/gx
+	ZDKVT0x8WahLqvs/Ea239L9j5A==
+X-Google-Smtp-Source: AGRyM1u3Q+C0LQCywanESfw4GyKuwBIrIwjITjzR6A1JvgUVZ5Tnlck04W/lkZFWguLgJ06YyWcaMA==
+X-Received: by 2002:a63:3101:0:b0:419:a4c7:649a with SMTP id x1-20020a633101000000b00419a4c7649amr23650792pgx.199.1658163954901;
+        Mon, 18 Jul 2022 10:05:54 -0700 (PDT)
+Received: from atishp.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id r10-20020a170902be0a00b0016bc947c5b7sm9733402pls.38.2022.07.18.10.05.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 18 Jul 2022 10:05:54 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Atish Patra <atishp@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Guo Ren <guoren@kernel.org>,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Will Deacon <will@kernel.org>
+Subject: [RFC  9/9] RISC-V: KVM: Implement firmware events
+Date: Mon, 18 Jul 2022 10:02:05 -0700
+Message-Id: <20220718170205.2972215-10-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220718170205.2972215-1-atishp@rivosinc.com>
+References: <20220718170205.2972215-1-atishp@rivosinc.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6b366c22-c61a-43f6-c6ec-08da68e6fd98
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Jul 2022 17:57:33.2292
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: RsfSntLuxeSd7vi0UpRKoXynJIZ6clO8ksMTD7TnowKQPvfP1Onlv/6XANPwhs3w9SI5yCFfmGfvR1bhSAaYRhqpQv/T9cRPjX7yzxKML1c=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB4368
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220718_105750_021317_93D2CE4D 
-X-CRM114-Status: GOOD (  24.37  )
+X-CRM114-CacheID: sfid-20220718_180557_489559_525B7C23 
+X-CRM114-Status: GOOD (  27.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,84 +112,403 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/07/2022 18:41, Guenter Roeck wrote:
-> On Wed, Jul 13, 2022 at 02:33:44PM +0100, Sudeep Holla wrote:
->> init_cpu_topology() is called only once at the boot and all the cache
->> attributes are detected early for all the possible CPUs. However when
->> the CPUs are hotplugged out, the cacheinfo gets removed. While the
->> attributes are added back when the CPUs are hotplugged back in as part
->> of CPU hotplug state machine, it ends up called quite late after the
->> update_siblings_masks() are called in the secondary_start_kernel()
->> resulting in wrong llc_sibling_masks.
->>
->> Move the call to detect_cache_attributes() inside update_siblings_masks()
->> to ensure the cacheinfo is updated before the LLC sibling masks are
->> updated. This will fix the incorrect LLC sibling masks generated when
->> the CPUs are hotplugged out and hotplugged back in again.
->>
->> Reported-by: Ionela Voinescu <ionela.voinescu@arm.com>
->> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
->> ---
->>  drivers/base/arch_topology.c | 16 ++++++----------
->>  1 file changed, 6 insertions(+), 10 deletions(-)
->>
->> Hi Conor,
->>
->> Ionela reported an issue with the CPU hotplug and as a fix I need to
->> move the call to detect_cache_attributes() which I had thought to keep
->> it there from first but for no reason had moved it to init_cpu_topology().
->>
->> Wonder if this fixes the -ENOMEM on RISC-V as this one is called on the
->> cpu in the secondary CPUs init path while init_cpu_topology executed
->> detect_cache_attributes() for all possible CPUs much earlier. I think
->> this might help as the percpu memory might be initialised in this case.
->>
->> Anyways give this a try, also test the CPU hotplug and check if nothing
->> is broken on RISC-V. We noticed this bug only on one platform while
->>
-> 
-> arm64, with next-20220718:
-> 
-> ...
-> [    0.823405] Detected PIPT I-cache on CPU1
-> [    0.824456] BUG: sleeping function called from invalid context at kernel/locking/semaphore.c:164
-> [    0.824550] in_atomic(): 1, irqs_disabled(): 128, non_block: 0, pid: 0, name: swapper/1
-> [    0.824600] preempt_count: 1, expected: 0
-> [    0.824633] RCU nest depth: 0, expected: 0
-> [    0.824899] no locks held by swapper/1/0.
-> [    0.825035] irq event stamp: 0
-> [    0.825072] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
-> [    0.826017] hardirqs last disabled at (0): [<ffff800008158870>] copy_process+0x5e0/0x18e4
-> [    0.826123] softirqs last  enabled at (0): [<ffff800008158870>] copy_process+0x5e0/0x18e4
-> [    0.826191] softirqs last disabled at (0): [<0000000000000000>] 0x0
-> [    0.826764] CPU: 1 PID: 0 Comm: swapper/1 Not tainted 5.19.0-rc7-next-20220718 #1
-> [    0.827397] Call trace:
-> [    0.827456]  dump_backtrace.part.0+0xd4/0xe0
-> [    0.827574]  show_stack+0x18/0x50
-> [    0.827625]  dump_stack_lvl+0x9c/0xd8
-> [    0.827678]  dump_stack+0x18/0x34
-> [    0.827722]  __might_resched+0x178/0x220
-> [    0.827778]  __might_sleep+0x48/0x80
-> [    0.827833]  down_timeout+0x2c/0xa0
-> [    0.827896]  acpi_os_wait_semaphore+0x68/0x9c
-> [    0.827952]  acpi_ut_acquire_mutex+0x4c/0xb8
-> [    0.828008]  acpi_get_table+0x38/0xbc
-> [    0.828059]  acpi_find_last_cache_level+0x44/0x130
-> [    0.828112]  init_cache_level+0xb8/0xcc
-> [    0.828165]  detect_cache_attributes+0x240/0x580
-> [    0.828217]  update_siblings_masks+0x28/0x270
-> [    0.828270]  store_cpu_topology+0x64/0x74
-> [    0.828326]  secondary_start_kernel+0xd0/0x150
-> [    0.828386]  __secondary_switched+0xb0/0xb4
-> 
-> I know the problem has already been reported, but I think the backtrace
-> above is slightly different.
+SBI PMU extension defines a set of firmware events which can provide
+useful information to guests about number of SBI calls. As hypervisor
+implements the SBI PMU extension, these firmware events corresponds
+to ecall invocations between VS->HS mode. All other firmware events
+will always report zero if monitored as KVM doesn't implement them.
 
-Aye, I got a different BT on RISC-V + DT - but that should be fixed in
-next-20220718. This is a different problem unfortunately.
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/include/asm/kvm_vcpu_pmu.h | 16 +++++
+ arch/riscv/include/asm/sbi.h          |  2 +-
+ arch/riscv/kvm/tlb.c                  |  6 +-
+ arch/riscv/kvm/vcpu_pmu.c             | 90 +++++++++++++++++++++++----
+ arch/riscv/kvm/vcpu_sbi_replace.c     |  7 +++
+ 5 files changed, 106 insertions(+), 15 deletions(-)
 
-Thanks,
-Conor.
+diff --git a/arch/riscv/include/asm/kvm_vcpu_pmu.h b/arch/riscv/include/asm/kvm_vcpu_pmu.h
+index 5410236b62a8..d68b17ea796b 100644
+--- a/arch/riscv/include/asm/kvm_vcpu_pmu.h
++++ b/arch/riscv/include/asm/kvm_vcpu_pmu.h
+@@ -15,6 +15,14 @@
+ #ifdef CONFIG_RISCV_PMU_SBI
+ #define RISCV_KVM_MAX_FW_CTRS 32
+ 
++struct kvm_fw_event {
++	/* Current value of the event */
++	unsigned long value;
++
++	/* Event monitoring status */
++	bool started;
++};
++
+ /* Per virtual pmu counter data */
+ struct kvm_pmc {
+ 	u8 idx;
+@@ -22,11 +30,14 @@ struct kvm_pmc {
+ 	struct perf_event *perf_event;
+ 	uint64_t counter_val;
+ 	union sbi_pmu_ctr_info cinfo;
++	/* Monitoring event ID */
++	unsigned long event_idx;
+ };
+ 
+ /* PMU data structure per vcpu */
+ struct kvm_pmu {
+ 	struct kvm_pmc pmc[RISCV_MAX_COUNTERS];
++	struct kvm_fw_event fw_event[RISCV_KVM_MAX_FW_CTRS];
+ 	/* Number of the virtual firmware counters available */
+ 	int num_fw_ctrs;
+ 	/* Number of the virtual hardware counters available */
+@@ -48,6 +59,7 @@ struct kvm_pmu {
+ { .base = CSR_CYCLE,      .count = 31, .func = kvm_riscv_vcpu_pmu_read_hpm },
+ #endif
+ 
++int kvm_riscv_vcpu_pmu_incr_fw(struct kvm_vcpu *vcpu, unsigned long fid);
+ int kvm_riscv_vcpu_pmu_read_hpm(struct kvm_vcpu *vcpu, unsigned int csr_num,
+ 				unsigned long *val, unsigned long new_val,
+ 				unsigned long wr_mask);
+@@ -75,6 +87,10 @@ struct kvm_pmu {
+ #define KVM_RISCV_VCPU_HPMCOUNTER_CSR_FUNCS \
+ { .base = 0,      .count = 0, .func = NULL },
+ 
++static inline int kvm_riscv_vcpu_pmu_incr_fw(struct kvm_vcpu *vcpu, unsigned long fid)
++{
++	return 0;
++}
+ 
+ static inline int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
+ {
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 2a0ef738695e..a192a95a34eb 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -171,7 +171,7 @@ enum sbi_pmu_fw_generic_events_t {
+ 	SBI_PMU_FW_IPI_SENT		= 6,
+ 	SBI_PMU_FW_IPI_RECVD		= 7,
+ 	SBI_PMU_FW_FENCE_I_SENT		= 8,
+-	SBI_PMU_FW_FENCE_I_RECVD	= 9,
++	SBI_PMU_FW_FENCE_I_RCVD		= 9,
+ 	SBI_PMU_FW_SFENCE_VMA_SENT	= 10,
+ 	SBI_PMU_FW_SFENCE_VMA_RCVD	= 11,
+ 	SBI_PMU_FW_SFENCE_VMA_ASID_SENT	= 12,
+diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
+index 1a76d0b1907d..0793d39e8ff7 100644
+--- a/arch/riscv/kvm/tlb.c
++++ b/arch/riscv/kvm/tlb.c
+@@ -240,6 +240,7 @@ void kvm_riscv_local_tlb_sanitize(struct kvm_vcpu *vcpu)
+ 
+ void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu)
+ {
++	kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_FENCE_I_RCVD);
+ 	local_flush_icache_all();
+ }
+ 
+@@ -323,15 +324,18 @@ void kvm_riscv_hfence_process(struct kvm_vcpu *vcpu)
+ 						d.addr, d.size, d.order);
+ 			break;
+ 		case KVM_RISCV_HFENCE_VVMA_ASID_GVA:
++			kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD);
+ 			kvm_riscv_local_hfence_vvma_asid_gva(
+ 						READ_ONCE(v->vmid), d.asid,
+ 						d.addr, d.size, d.order);
+ 			break;
+ 		case KVM_RISCV_HFENCE_VVMA_ASID_ALL:
++			kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_ASID_RCVD);
+ 			kvm_riscv_local_hfence_vvma_asid_all(
+ 						READ_ONCE(v->vmid), d.asid);
+ 			break;
+ 		case KVM_RISCV_HFENCE_VVMA_GVA:
++			kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_RCVD);
+ 			kvm_riscv_local_hfence_vvma_gva(
+ 						READ_ONCE(v->vmid),
+ 						d.addr, d.size, d.order);
+@@ -382,7 +386,7 @@ void kvm_riscv_fence_i(struct kvm *kvm,
+ 		       unsigned long hbase, unsigned long hmask)
+ {
+ 	make_xfence_request(kvm, hbase, hmask, KVM_REQ_FENCE_I,
+-			    KVM_REQ_FENCE_I, NULL);
++		    KVM_REQ_FENCE_I, NULL);
+ }
+ 
+ void kvm_riscv_hfence_gvma_vmid_gpa(struct kvm *kvm,
+diff --git a/arch/riscv/kvm/vcpu_pmu.c b/arch/riscv/kvm/vcpu_pmu.c
+index 278c261efad3..f451d7ac2608 100644
+--- a/arch/riscv/kvm/vcpu_pmu.c
++++ b/arch/riscv/kvm/vcpu_pmu.c
+@@ -168,21 +168,39 @@ static int pmu_get_pmc_index(struct kvm_pmu *pmu, unsigned long eidx,
+ 	return pmu_get_programmable_pmc_index(pmu, eidx, cbase, cmask);
+ }
+ 
++int kvm_riscv_vcpu_pmu_incr_fw(struct kvm_vcpu *vcpu, unsigned long fid)
++{
++	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
++	struct kvm_fw_event *fevent;
++
++	if (!kvpmu || fid >= SBI_PMU_FW_MAX)
++		return -EINVAL;
++
++	fevent = &kvpmu->fw_event[fid];
++	if (fevent->started)
++		fevent->value++;
++
++	return 0;
++}
++
+ int kvm_riscv_vcpu_pmu_ctr_read(struct kvm_vcpu *vcpu, unsigned long cidx,
+ 				unsigned long *out_val)
+ {
+ 	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+ 	struct kvm_pmc *pmc;
+ 	u64 enabled, running;
++	int fevent_code;
+ 
+ 	if (!kvpmu)
+ 		return -EINVAL;
+ 
+ 	pmc = &kvpmu->pmc[cidx];
+-	if (!pmc->perf_event)
+-		return -EINVAL;
+ 
+-	pmc->counter_val += perf_event_read_value(pmc->perf_event, &enabled, &running);
++	if (pmc->cinfo.type == SBI_PMU_CTR_TYPE_FW) {
++		fevent_code = get_event_code(pmc->event_idx);
++		pmc->counter_val = kvpmu->fw_event[fevent_code].value;
++	} else if (pmc->perf_event)
++		pmc->counter_val += perf_event_read_value(pmc->perf_event, &enabled, &running);
+ 	*out_val = pmc->counter_val;
+ 
+ 	return 0;
+@@ -237,6 +255,7 @@ int kvm_riscv_vcpu_pmu_ctr_start(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ 	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+ 	int i, num_ctrs, pmc_index;
+ 	struct kvm_pmc *pmc;
++	int fevent_code;
+ 
+ 	num_ctrs = kvpmu->num_fw_ctrs + kvpmu->num_hw_ctrs;
+ 	if (ctr_base + __fls(ctr_mask) >= num_ctrs)
+@@ -250,7 +269,14 @@ int kvm_riscv_vcpu_pmu_ctr_start(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ 		pmc = &kvpmu->pmc[pmc_index];
+ 		if (flag & SBI_PMU_START_FLAG_SET_INIT_VALUE)
+ 			pmc->counter_val = ival;
+-		if (pmc->perf_event) {
++		if (pmc->cinfo.type == SBI_PMU_CTR_TYPE_FW) {
++			fevent_code = get_event_code(pmc->event_idx);
++			if (fevent_code >= SBI_PMU_FW_MAX)
++				return -EINVAL;
++
++			kvpmu->fw_event[fevent_code].started = true;
++			kvpmu->fw_event[fevent_code].value = pmc->counter_val;
++		} else if (pmc->perf_event) {
+ 			perf_event_period(pmc->perf_event, pmu_get_sample_period(pmc));
+ 			perf_event_enable(pmc->perf_event);
+ 		}
+@@ -266,6 +292,7 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ 	int i, num_ctrs, pmc_index;
+ 	u64 enabled, running;
+ 	struct kvm_pmc *pmc;
++	int fevent_code;
+ 
+ 	num_ctrs = kvpmu->num_fw_ctrs + kvpmu->num_hw_ctrs;
+ 	if ((ctr_base + __fls(ctr_mask)) >= num_ctrs)
+@@ -277,7 +304,12 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ 		if (!test_bit(pmc_index, kvpmu->used_pmc))
+ 			continue;
+ 		pmc = &kvpmu->pmc[pmc_index];
+-		if (pmc->perf_event) {
++		if (pmc->cinfo.type == SBI_PMU_CTR_TYPE_FW) {
++			fevent_code = get_event_code(pmc->event_idx);
++			if (fevent_code >= SBI_PMU_FW_MAX)
++				return -EINVAL;
++			kvpmu->fw_event[fevent_code].started = false;
++		} else if (pmc->perf_event) {
+ 			/* Stop counting the counter */
+ 			perf_event_disable(pmc->perf_event);
+ 			if (flag & SBI_PMU_STOP_FLAG_RESET) {
+@@ -285,9 +317,12 @@ int kvm_riscv_vcpu_pmu_ctr_stop(struct kvm_vcpu *vcpu, unsigned long ctr_base,
+ 				pmc->counter_val += perf_event_read_value(pmc->perf_event,
+ 									  &enabled, &running);
+ 				pmu_release_perf_event(pmc);
+-				clear_bit(pmc_index, kvpmu->used_pmc);
+ 			}
+ 		}
++		if (flag & SBI_PMU_STOP_FLAG_RESET) {
++			pmc->event_idx = SBI_PMU_EVENT_IDX_INVALID;
++			clear_bit(pmc_index, kvpmu->used_pmc);
++		}
+ 	}
+ 
+ 	return 0;
+@@ -303,14 +338,19 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
+ 	int num_ctrs, ctr_idx;
+ 	u32 etype = pmu_get_perf_event_type(eidx);
+ 	u64 config;
+-	struct kvm_pmc *pmc;
++	struct kvm_pmc *pmc = NULL;
++	bool is_fevent;
++	unsigned long event_code;
+ 
+ 	num_ctrs = kvpmu->num_fw_ctrs + kvpmu->num_hw_ctrs;
+ 	if ((etype == PERF_TYPE_MAX) || ((ctr_base + __fls(ctr_mask)) >= num_ctrs))
+ 		return -EINVAL;
+ 
+-	if (pmu_is_fw_event(eidx))
++	event_code = get_event_code(eidx);
++	is_fevent = pmu_is_fw_event(eidx);
++	if (is_fevent && event_code >= SBI_PMU_FW_MAX)
+ 		return -EOPNOTSUPP;
++
+ 	/*
+ 	 * SKIP_MATCH flag indicates the caller is aware of the assigned counter
+ 	 * for this event. Just do a sanity check if it already marked used.
+@@ -319,13 +359,23 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
+ 		if (!test_bit(ctr_base, kvpmu->used_pmc))
+ 			return -EINVAL;
+ 		ctr_idx = ctr_base;
+-		goto match_done;
++		if (is_fevent)
++			goto perf_event_done;
++		else
++			goto match_done;
+ 	}
+ 
+ 	ctr_idx = pmu_get_pmc_index(kvpmu, eidx, ctr_base, ctr_mask);
+ 	if (ctr_idx < 0)
+ 		return -EOPNOTSUPP;
+ 
++	/*
++	 * No need to create perf events for firmware events as the firmware counter
++	 * is supposed to return the measurement of VS->HS mode invocations.
++	 */
++	if (is_fevent)
++		goto perf_event_done;
++
+ match_done:
+ 	pmc = &kvpmu->pmc[ctr_idx];
+ 	pmu_release_perf_event(pmc);
+@@ -363,17 +413,26 @@ int kvm_riscv_vcpu_pmu_ctr_cfg_match(struct kvm_vcpu *vcpu, unsigned long ctr_ba
+ 		return -EOPNOTSUPP;
+ 	}
+ 
+-	set_bit(ctr_idx, kvpmu->used_pmc);
+ 	pmc->perf_event = event;
+-	if (flag & SBI_PMU_CFG_FLAG_AUTO_START)
+-		perf_event_enable(pmc->perf_event);
++perf_event_done:
++	if (flag & SBI_PMU_CFG_FLAG_AUTO_START) {
++		if (is_fevent)
++			kvpmu->fw_event[event_code].started = true;
++		else
++			perf_event_enable(pmc->perf_event);
++	}
++	/* This should be only true for firmware events */
++	if (!pmc)
++		pmc = &kvpmu->pmc[ctr_idx];
++	pmc->event_idx = eidx;
++	set_bit(ctr_idx, kvpmu->used_pmc);
+ 
+ 	return ctr_idx;
+ }
+ 
+ int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
+ {
+-	int i = 0, num_hw_ctrs, num_fw_ctrs, hpm_width;
++	int i, num_hw_ctrs, num_fw_ctrs, hpm_width;
+ 	struct kvm_pmu *kvpmu = vcpu_to_pmu(vcpu);
+ 	struct kvm_pmc *pmc;
+ 
+@@ -395,6 +454,7 @@ int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
+ 	bitmap_zero(kvpmu->used_pmc, RISCV_MAX_COUNTERS);
+ 	kvpmu->num_hw_ctrs = num_hw_ctrs;
+ 	kvpmu->num_fw_ctrs = num_fw_ctrs;
++	memset(&kvpmu->fw_event, 0, SBI_PMU_FW_MAX * sizeof(struct kvm_fw_event));
+ 	/*
+ 	 * There is no corelation betwen the logical hardware counter and virtual counters.
+ 	 * However, we need to encode a hpmcounter CSR in the counter info field so that
+@@ -409,6 +469,7 @@ int kvm_riscv_vcpu_pmu_init(struct kvm_vcpu *vcpu)
+ 		pmc->idx = i;
+ 		pmc->counter_val = 0;
+ 		pmc->vcpu = vcpu;
++		pmc->event_idx = SBI_PMU_EVENT_IDX_INVALID;
+ 		if (i < kvpmu->num_hw_ctrs) {
+ 			kvpmu->pmc[i].cinfo.type = SBI_PMU_CTR_TYPE_HW;
+ 			if (i < 3)
+@@ -444,7 +505,10 @@ void kvm_riscv_vcpu_pmu_deinit(struct kvm_vcpu *vcpu)
+ 	for_each_set_bit(i, kvpmu->used_pmc, RISCV_MAX_COUNTERS) {
+ 		pmc = &kvpmu->pmc[i];
+ 		pmu_release_perf_event(pmc);
++		pmc->counter_val = 0;
++		pmc->event_idx = SBI_PMU_EVENT_IDX_INVALID;
+ 	}
++	memset(&kvpmu->fw_event, 0, SBI_PMU_FW_MAX * sizeof(struct kvm_fw_event));
+ }
+ 
+ void kvm_riscv_vcpu_pmu_reset(struct kvm_vcpu *vcpu)
+diff --git a/arch/riscv/kvm/vcpu_sbi_replace.c b/arch/riscv/kvm/vcpu_sbi_replace.c
+index 4c034d8a606a..614ae127e102 100644
+--- a/arch/riscv/kvm/vcpu_sbi_replace.c
++++ b/arch/riscv/kvm/vcpu_sbi_replace.c
+@@ -12,6 +12,7 @@
+ #include <asm/csr.h>
+ #include <asm/sbi.h>
+ #include <asm/kvm_vcpu_timer.h>
++#include <asm/kvm_vcpu_pmu.h>
+ #include <asm/kvm_vcpu_sbi.h>
+ 
+ static int kvm_sbi_ext_time_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+@@ -25,6 +26,7 @@ static int kvm_sbi_ext_time_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	if (cp->a6 != SBI_EXT_TIME_SET_TIMER)
+ 		return -EINVAL;
+ 
++	kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_SET_TIMER);
+ #if __riscv_xlen == 32
+ 	next_cycle = ((u64)cp->a1 << 32) | (u64)cp->a0;
+ #else
+@@ -55,6 +57,7 @@ static int kvm_sbi_ext_ipi_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 	if (cp->a6 != SBI_EXT_IPI_SEND_IPI)
+ 		return -EINVAL;
+ 
++	kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_IPI_SENT);
+ 	kvm_for_each_vcpu(i, tmp, vcpu->kvm) {
+ 		if (hbase != -1UL) {
+ 			if (tmp->vcpu_id < hbase)
+@@ -65,6 +68,7 @@ static int kvm_sbi_ext_ipi_handler(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 		ret = kvm_riscv_vcpu_set_interrupt(tmp, IRQ_VS_SOFT);
+ 		if (ret < 0)
+ 			break;
++		kvm_riscv_vcpu_pmu_incr_fw(tmp, SBI_PMU_FW_IPI_RECVD);
+ 	}
+ 
+ 	return ret;
+@@ -89,6 +93,7 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
+ 	switch (funcid) {
+ 	case SBI_EXT_RFENCE_REMOTE_FENCE_I:
+ 		kvm_riscv_fence_i(vcpu->kvm, hbase, hmask);
++		kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_FENCE_I_SENT);
+ 		break;
+ 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA:
+ 		if (cp->a2 == 0 && cp->a3 == 0)
+@@ -96,6 +101,7 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
+ 		else
+ 			kvm_riscv_hfence_vvma_gva(vcpu->kvm, hbase, hmask,
+ 						  cp->a2, cp->a3, PAGE_SHIFT);
++		kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_SENT);
+ 		break;
+ 	case SBI_EXT_RFENCE_REMOTE_SFENCE_VMA_ASID:
+ 		if (cp->a2 == 0 && cp->a3 == 0)
+@@ -106,6 +112,7 @@ static int kvm_sbi_ext_rfence_handler(struct kvm_vcpu *vcpu, struct kvm_run *run
+ 						       hbase, hmask,
+ 						       cp->a2, cp->a3,
+ 						       PAGE_SHIFT, cp->a4);
++		kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_HFENCE_VVMA_ASID_SENT);
+ 		break;
+ 	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA:
+ 	case SBI_EXT_RFENCE_REMOTE_HFENCE_GVMA_VMID:
+-- 
+2.25.1
+
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
