@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 707EEC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 17 Jul 2022 23:30:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087EBC433EF
+	for <linux-riscv@archiver.kernel.org>; Mon, 18 Jul 2022 00:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YnaLR7nYneVrjNQ9K0WYY6Pz7yI5laj1eLbl0Rpm8UA=; b=UdxdGuKshrH3lF
-	J67vl52t7ecrjDRnK1rX4japa1JSoFw+EWheiQoamDMhfXtVCh/uH3/u4QZpUQJzqY8O96Zam73Z/
-	1KyDJzQpKqZlCcpzDTVsJmQe/1Ro1H+oOFlec7mP5eZv5yue0rslW3gsuPu0rKSTJ00RLjPH0jw5Y
-	iznRgdrREc2gMZH31jG/f4QMbxBRarIRHH5oOuHBo8oTeYMk80ac8wdFltINqhHX5vKAZjLzz5m5t
-	8GnOwerEHlLcGKcQsryGuOoV/aYega4oaiKSHBZDr+IlQ7WHGHIxFPTIL4FrpCgFfUJjH834bJm+H
-	Vcmz+fuS3UgeucmuAsXw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lXZsIj9ldD6LdFMoAuhUAfJ9MJAmWQ+BRMhheP6rNMk=; b=r6cps2wEHiBIZL
+	jj2+KQlvS02zEzDuZSpPVsdrHga2C1RKWWXWcRwCaNO9hNua4HN0wT40vZUocj3TL3LoWbyfGz5oK
+	bFo19TqzTkmh1nzniZpYbNgbR6V6HqZ+jiVpDNR8QmF7Nq2rAIU8hy0V4siPSMpuu2igCuwkt7K1I
+	kX3mPJ7UxEPSc9biWrnTBYlv50YXQYLpel6FLsdNpL03cYxx38RDJWDw0IXWG6cC54TeOLQn3SKPC
+	OKSy2lcAvi4713WJ0ODaW9N/3shKzj8FPto4SL/fps3cgywWH5gYuJ9bGBjgyIWMhGhCM53mulObi
+	FIqstNSOZRh7rLdAjJVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDDi7-009G6z-7a; Sun, 17 Jul 2022 23:30:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oDEpE-009Zoq-S0; Mon, 18 Jul 2022 00:41:28 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDDi4-009G5o-Nj
-	for linux-riscv@lists.infradead.org; Sun, 17 Jul 2022 23:30:02 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 18F8360EF0
-	for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 23:30:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CAECC341CE
-	for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 23:29:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1658100599;
-	bh=iuvMrsWWf7RIfn39Nd1G2GufJgkyRDmJ/6MLS82j1ow=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=u9BOReF9VfUlW4bAm3WJzRxXsTYEmAGpqXSLWQuZC768j0lBLbcvFN2OdhjC01y2+
-	 zJv+rKECKq27245lstmSzYhu7Gx/ua2uF33A8+g/3VR7/0/BfvWp32ZWrj+297CXjX
-	 zqdS4Q06wVl3bWMIBn+qY/otvdg0yo+yLKsUcn26sHPpGt+mZXb65E6n3WvRzU6uQs
-	 dwLnT7ymvBkDGbIolCjOuo9O7q668HM9RxRX91Y9PfMluRfnNCr9Veyg5atgu3dF9b
-	 GwESLQLNbVySuUGi6fNFjrLfeXGOYWz2Ax8aa6LY77TzoJOaBHs79De2C9b3GD3SMl
-	 0XZip0eiDAW0w==
-Received: by mail-lj1-f174.google.com with SMTP id u14so3839294lju.0
-        for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 16:29:59 -0700 (PDT)
-X-Gm-Message-State: AJIora8rhRoaS0AnLxGedHW6/U5Y1Ysn6a02N8/rdRLsLpn2JW9s3Kh/
-	jTk/fSQmlwAUzv4lpkMEMa+gFJuBy4iHOlQjvdE=
-X-Google-Smtp-Source: AGRyM1sor7H35sIsfAtGoSLbaquA4FbabaYjWXsABnv7y+FcDl8HSB2BdXBTfSPHVpggxda5Z5ZxAHGGp5reUrHnLDQ=
-X-Received: by 2002:a05:651c:1183:b0:25d:b04f:23ea with SMTP id
- w3-20020a05651c118300b0025db04f23eamr3068556ljo.116.1658100597465; Sun, 17
- Jul 2022 16:29:57 -0700 (PDT)
+	id 1oDEpC-009ZnN-VY
+	for linux-riscv@lists.infradead.org; Mon, 18 Jul 2022 00:41:28 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id v4-20020a17090abb8400b001ef966652a3so16668926pjr.4
+        for <linux-riscv@lists.infradead.org>; Sun, 17 Jul 2022 17:41:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=C9cFK95jUJ/VEHOa/R8FTtdnRjPaJWSBWfAQkMz6g64=;
+        b=gfzCKqBjbDBR8zsSfs57EcWDuLzHUloNR32b4bZWlu7m3tVcsDsSrF6WVpARw2GbYy
+         6mQCTWmFrIgEUEhv1x46fmN2FoDnRT5YM/vhynbFe1lP685xTFuUn2k8H2E42ltbfZw+
+         pCJ3vqcB6hYabbj43d4qHHR/Q2VMIRUBRWU3iEWlAHC4ti5h54l/2EQI3dKZbqYA4jLe
+         33p6ZhtGkHVV6pxD2IOcdNZahAFjzEdVct8Y/PgBDqDwowLPYwmYsNKpxsbQ5F/BoQMX
+         BdAtU+ICy4+n+xOSK5p/3S5cI5abd4xA4Wle52EeqaGBVrD605yWNUMb26VpQ0A4Kh4s
+         E7eA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=C9cFK95jUJ/VEHOa/R8FTtdnRjPaJWSBWfAQkMz6g64=;
+        b=7bQ39gCBatnXuTA26NTlJ9VQPnzaQh0AUgK8D7n/5pL3ykZicufH/L2fC02vSxiPHb
+         JG6Ws14IqSfkLjzIDZOlDtLCFoPiVaHXIyche77QTpmzCcQNvGNpOQDZXdYKYSJtVF+7
+         UDuObhx0FNkyWPoUN4fZTvsyM4FmKCAXf+Q3RbGt9NTdKTZq0f1c0J1JE3/P4xqLHx8f
+         KtsD0EH+JVIW4D8dJXKDH7owvbX2yJfU78pmh1KUrY2XiAxd2BoYHVyN34oG2yDJeXSv
+         Sh+tSPqNd3xc4jGQzIpZzC68BMpSmLzsNGTkS6xKMBUGmX4vUSkJwUQ5s0yGHaxT06VH
+         VwHQ==
+X-Gm-Message-State: AJIora/JOwe18eHuTnH4aDPaiS4Plv22YsQ4D03MIIF6O5ESVzwlY/nb
+	4+9JVL3UFI2O5nkSCG8L/2M=
+X-Google-Smtp-Source: AGRyM1sCUiFZMu5spy7h3aBwSkuHHCzPAj9rfWSz61VtJtlmq1sl10bnEhwEFfaF/9C0SByYzafGgg==
+X-Received: by 2002:a17:903:c5:b0:16b:d8d5:5f14 with SMTP id x5-20020a17090300c500b0016bd8d55f14mr25534716plc.18.1658104883939;
+        Sun, 17 Jul 2022 17:41:23 -0700 (PDT)
+Received: from localhost ([2409:10:24a0:4700:e8ad:216a:2a9d:6d0c])
+        by smtp.gmail.com with ESMTPSA id 64-20020a620443000000b005289a50e4c2sm7842627pfe.23.2022.07.17.17.41.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 17 Jul 2022 17:41:23 -0700 (PDT)
+From: Stafford Horne <shorne@gmail.com>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Stafford Horne <shorne@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Guo Ren <guoren@kernel.org>,
+	linux-riscv@lists.infradead.org,
+	linux-csky@vger.kernel.org
+Subject: [PATCH v3 0/2] Updates for asm-generic/pci.h
+Date: Mon, 18 Jul 2022 09:41:12 +0900
+Message-Id: <20220718004114.3925745-1-shorne@gmail.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-References: <Ys/8SFo/oC1TFZYk@decadent.org.uk> <CAJF2gTSS56vzp2K_93P3fnUC4t=2v+jbnn11vMocuwVSrnW7bA@mail.gmail.com>
- <f59e4a64c541c5781bd10dd81c8622249d785c70.camel@decadent.org.uk>
-In-Reply-To: <f59e4a64c541c5781bd10dd81c8622249d785c70.camel@decadent.org.uk>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 18 Jul 2022 07:29:44 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQ3V=TWib_cbw=r-wFtH9Ee=m7tG9OzizQhiZOU11Fa-Q@mail.gmail.com>
-Message-ID: <CAJF2gTQ3V=TWib_cbw=r-wFtH9Ee=m7tG9OzizQhiZOU11Fa-Q@mail.gmail.com>
-Subject: Re: [PATCH] riscv: Fix vdso_install target with CONFIG_COMPAT=y
-To: Ben Hutchings <ben@decadent.org.uk>
-Cc: linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220717_163000_878211_9165E753 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20220717_174127_038152_AF34DECB 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,89 +92,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I'm just curious who is using vdso_install, thx. Would you mind put
-below into the commit log?
+When reviewing the OpenRISC PCI support patch Arnd suggested that
+we avoid copying arm64 and riscv asm/pci.h and moving that to be
+the new asm-generic/pci.h.
 
-It broke the Debian package build
-/usr/bin/make [...] -C debian/build/build_riscv64_none_riscv64
-vdso_install INSTALL_MOD_PATH='/<<PKGBUILDDIR>>'/debian/linux-image-5.19.0-rc6-riscv64-dbg/usr/lib/debug
-make[3]: Entering directory
-'/<<PKGBUILDDIR>>/debian/build/build_riscv64_none_riscv64'
-[...]
-make[4]: *** No rule to make target 'vdso_install'.  Stop.
+This patch does that by first moving the old pci.h definition
+of pci_get_legacy_ide_irq out to the architectures that use it,
+this turns out to only be x86.
 
-Reviewed-by: Guo Ren <guoren@kernel.org>
+Next, we create the new pci.h definition.
 
-On Sun, Jul 17, 2022 at 11:26 PM Ben Hutchings <ben@decadent.org.uk> wrote:
->
-> On Sun, 2022-07-17 at 22:31 +0800, Guo Ren wrote:
-> > On Thu, Jul 14, 2022 at 7:21 PM Ben Hutchings <ben@decadent.org.uk> wrote:
-> > >
-> > > The recipe for vdso_install in arch/riscv/Makefile invokes targets of
-> > > the same name in arch/riscv/kernel/vdso and .../compat_vdso, but the
-> > > target in the latter is called compat_vdso_install.  Change the
-> > > recipe to use the right target name.
-> > >
-> > > Fixes: 0715372a06ce ("riscv: compat: vdso: Add COMPAT_VDSO base code ...")
-> > > Signed-off-by: Ben Hutchings <ben@decadent.org.uk>
-> > > ---
-> > >  arch/riscv/Makefile | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > >
-> > > diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> > > index 34cf8a598617..ee763562895c 100644
-> > > --- a/arch/riscv/Makefile
-> > > +++ b/arch/riscv/Makefile
-> > > @@ -110,7 +110,7 @@ PHONY += vdso_install
-> > >  vdso_install:
-> > >         $(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
-> > >         $(if $(CONFIG_COMPAT),$(Q)$(MAKE) \
-> > > -               $(build)=arch/riscv/kernel/compat_vdso $@)
-> > > +               $(build)=arch/riscv/kernel/compat_vdso compat_vdso_install)
-> > Good catch, but what's the problem you've met?
->
-> It broke the Debian package build
-> <https://buildd.debian.org/status/fetch.php?pkg=linux&arch=riscv64&ver=5.19%7Erc6-1%7Eexp1&stamp=1657777338&raw=0>:
->
-> [...] /usr/bin/make [...] -C debian/build/build_riscv64_none_riscv64 vdso_install INSTALL_MOD_PATH='/<<PKGBUILDDIR>>'/debian/linux-image-5.19.0-rc6-riscv64-dbg/usr/lib/debug
-> make[3]: Entering directory '/<<PKGBUILDDIR>>/debian/build/build_riscv64_none_riscv64'
-> [...]
-> /usr/bin/make -f /<<PKGBUILDDIR>>/scripts/Makefile.build obj=arch/riscv/kernel/vdso vdso_install
-> [...]
->    gcc-11 -Wp,-MMD,arch/riscv/kernel/vdso/.vgettimeofday.o.d -nostdinc -I/<<PKGBUILDDIR>>/arch/riscv/include -I./arch/riscv/include/generated -I/<<PKGBUILDDIR>>/include -I./include -I/<<PKGBUILDDIR>>/arch/riscv/include/uapi -I./arch/riscv/include/generated/uapi -I/<<PKGBUILDDIR>>/include/uapi -I./include/generated/uapi -include /<<PKGBUILDDIR>>/include/linux/compiler-version.h -include /<<PKGBUILDDIR>>/include/linux/kconfig.h -include /<<PKGBUILDDIR>>/include/linux/compiler_types.h -D__KERNEL__ -DCC_USING_PATCHABLE_FUNCTION_ENTRY -fmacro-prefix-map=/<<PKGBUILDDIR>>/= -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu11 -mabi=lp64 -march=rv64imac_zicsr_zifencei -mno-save-restore -DCONFIG_PAGE_OFFSET=0xff60000000000000 -mcmodel=medany -fno-omit-frame-pointer -mstrict-align -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-address-of-packed-member -O2 -fno-allow-store-data-races -Wframe-larger-than=2048 -fstack-protector-strong -Wimplicit-fallthrough=5 -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-stack-clash-protection -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-stringop-truncation -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -Wno-alloc-size-larger-than -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wno-packed-not-aligned -g -fdebug-prefix-map=/<<PKGBUILDDIR>>/= -fno-stack-protector -fPIC -include /<<PKGBUILDDIR>>/lib/vdso/gettimeofday.c -I /<<PKGBUILDDIR>>/arch/riscv/kernel/vdso -I ./arch/riscv/kernel/vdso    -DKBUILD_MODFILE='"arch/riscv/kernel/vdso/vgettimeofday"' -DKBUILD_BASENAME='"vgettimeofday"' -DKBUILD_MODNAME='"vgettimeofday"' -D__KBUILD_MODNAME=kmod_vgettimeofday -c -o arch/riscv/kernel/vdso/vgettimeofday.o /<<PKGBUILDDIR>>/arch/riscv/kernel/vdso/vgettimeofday.c
-> [...]
->   /<<PKGBUILDDIR>>/scripts/check-local-export arch/riscv/kernel/vdso/vgettimeofday.o
->   if nm arch/riscv/kernel/vdso/vgettimeofday.o 2>/dev/null | grep -q __ksymtab; then  gcc-11 -E -D__GENKSYMS__ -Wp,-MMD,arch/riscv/kernel/vdso/.vgettimeofday.o.d -nostdinc -I/<<PKGBUILDDIR>>/arch/riscv/include -I./arch/riscv/include/generated -I/<<PKGBUILDDIR>>/include -I./include -I/<<PKGBUILDDIR>>/arch/riscv/include/uapi -I./arch/riscv/include/generated/uapi -I/<<PKGBUILDDIR>>/include/uapi -I./include/generated/uapi -include /<<PKGBUILDDIR>>/include/linux/compiler-version.h -include /<<PKGBUILDDIR>>/include/linux/kconfig.h -include /<<PKGBUILDDIR>>/include/linux/compiler_types.h -D__KERNEL__ -DCC_USING_PATCHABLE_FUNCTION_ENTRY -fmacro-prefix-map=/<<PKGBUILDDIR>>/= -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu11 -mabi=lp64 -march=rv64imac_zicsr_zifencei -mno-save-restore -DCONFIG_PAGE_OFFSET=0xff60000000000000 -mcmodel=medany -fno-omit-frame-pointer -mstrict-align -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-address-of-packed-member -O2 -fno-allow-store-data-races -Wframe-larger-than=2048 -fstack-protector-strong -Wimplicit-fallthrough=5 -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-stack-clash-protection -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-stringop-truncation -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -Wno-alloc-size-larger-than -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wno-packed-not-aligned -g -fdebug-prefix-map=/<<PKGBUILDDIR>>/= -fno-stack-protector -fPIC -include /<<PKGBUILDDIR>>/lib/vdso/gettimeofday.c -I /<<PKGBUILDDIR>>/arch/riscv/kernel/vdso -I ./arch/riscv/kernel/vdso    -DKBUILD_MODFILE='"arch/riscv/kernel/vdso/vgettimeofday"' -DKBUILD_BASENAME='"vgettimeofday"' -DKBUILD_MODNAME='"vgettimeofday"' -D__KBUILD_MODNAME=kmod_vgettimeofday /<<PKGBUILDDIR>>/arch/riscv/kernel/vdso/vgettimeofday.c | scripts/genksyms/genksyms   -r /dev/null >> arch/riscv/kernel/vdso/.vgettimeofday.o.cmd; fi
->   ld -melf64lriscv  -shared -S -soname=linux-vdso.so.1 --build-id=sha1 --hash-style=both --eh-frame-hdr -T arch/riscv/kernel/vdso/vdso.lds arch/riscv/kernel/vdso/rt_sigreturn.o arch/riscv/kernel/vdso/vgettimeofday.o arch/riscv/kernel/vdso/getcpu.o arch/riscv/kernel/vdso/flush_icache.o arch/riscv/kernel/vdso/note.o -o arch/riscv/kernel/vdso/vdso.so.dbg.tmp && objcopy  -G __vdso_rt_sigreturn  -G __vdso_vgettimeofday  -G __vdso_getcpu  -G __vdso_flush_icache arch/riscv/kernel/vdso/vdso.so.dbg.tmp arch/riscv/kernel/vdso/vdso.so.dbg && rm arch/riscv/kernel/vdso/vdso.so.dbg.tmp
->   cp arch/riscv/kernel/vdso/vdso.so.dbg /<<PKGBUILDDIR>>/debian/linux-image-5.19.0-rc6-riscv64-dbg/usr/lib/debug/lib/modules/5.19.0-rc6-riscv64/vdso/vdso.so
->   :
-> /usr/bin/make -f /<<PKGBUILDDIR>>/scripts/Makefile.build obj=arch/riscv/kernel/compat_vdso vdso_install
-> [...]
-> make[4]: *** No rule to make target 'vdso_install'.  Stop.
-> make[3]: *** [/<<PKGBUILDDIR>>/arch/riscv/Makefile:112: vdso_install] Error 2
-> make[3]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/build_riscv64_none_riscv64'
-> make[2]: *** [debian/rules.real:513: install-image-dbg_riscv64_none_riscv64] Error 2
-> make[2]: *** Waiting for unfinished jobs....
->
-> Ben.
->
-> >
-> > >
-> > >  ifeq ($(KBUILD_EXTMOD),)
-> > >  ifeq ($(CONFIG_MMU),y)
-> >
-> >
-> >
->
-> --
-> Ben Hutchings
-> This sentence contradicts itself - no actually it doesn't.
+Note, for the series, I am working on these fixups as part of adding PCI to
+OpenRISC.  If the series is accepted I would like to merge via the OpenRISC tree
+with the OpenRISC PCI support patches to avoid having to coordinate upstream
+merges.
+
+Since v2:
+ - Remove pci_get_legacy_ide_irq from m68k.
+Since v1:
+ - Remove definition of pci_get_legacy_ide_irq on architectures
+   not using CONFIG_PNP, which eliminated most.
+ - Add ifdef around PCIBIOS_MIN_MEM for consistency.
 
 
+Stafford Horne (2):
+  asm-generic: Remove pci.h copying remaining code to x86
+  asm-generic: Add new pci.h and use it
+
+ arch/alpha/include/asm/pci.h   |  1 -
+ arch/arm64/include/asm/pci.h   | 12 +++------
+ arch/csky/include/asm/pci.h    | 24 +++--------------
+ arch/ia64/include/asm/pci.h    |  1 -
+ arch/m68k/include/asm/pci.h    |  2 --
+ arch/powerpc/include/asm/pci.h |  1 -
+ arch/riscv/include/asm/pci.h   | 25 +++---------------
+ arch/s390/include/asm/pci.h    |  1 -
+ arch/sparc/include/asm/pci.h   |  9 -------
+ arch/um/include/asm/pci.h      | 24 ++---------------
+ arch/x86/include/asm/pci.h     |  6 +++--
+ arch/xtensa/include/asm/pci.h  |  3 ---
+ include/asm-generic/pci.h      | 47 ++++++++++++++++++++++++----------
+ 13 files changed, 49 insertions(+), 107 deletions(-)
 
 -- 
-Best Regards
- Guo Ren
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
