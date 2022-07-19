@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EBA3C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jul 2022 15:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF20C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jul 2022 15:25:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Xw+KqZB+QUv9LXYPobvd/Xp7RpsCFBfhYoPKYXlOKjk=; b=JzynOpoXAUI3Hb
-	fYBcQMmirhX4NOg/zS8ECYpMtqC2GMtCPo8dFHRbKwC3fLpOqiJ55i2ywU3f5wm+h0wdX3hFMY+8V
-	LrEBh/hhavrwpy00rXJdqm8pbWaS4xmkhM0yN5rvHXHDa0h4/IFvwEZ3czMUZjcGkVlRM5DumlhIH
-	tBXP2DAJ1gsb0VkYMp0+50xmLdQwnouygEmY8TnKWAHJt1KuyV5ixXPb9aZQEwwuhiLFWhELuOlZJ
-	24fPLZ/wrajsPVPou93eAywkcazaLONc+ac4fjB3b18LcZ512ndQtSCbT5IIeFPNoRKrLNqxxSv1k
-	Xv6KzW6s5gu2gF/s3b1A==;
+	List-Owner; bh=8vlmaxH4Z5VmhkvqZWiFqnsM3oHKlp6Rk+TNI4LpXH0=; b=igpQw2XFJSwPxD
+	OIly0NKpFK6iuv0NT6lCKYU0dKVLVJ5ugJvpmDu+gggEdrUDCocCkgWzVAavB8bCnCgKTivd0OY82
+	7eFvYUcNNbNgISbBbt1KdRz7mtR7k1R75ZmDW7nHoazspgxyDLk0En90pcDwrarrsJ8E6mjiRpOwj
+	Q0yVioqzdm3z0CojXlT03XemSDiX6ZGlmax0eHkJavBwWOqSH98D4KArVWYsBLt1BL6A66Ow+3i6s
+	AbrBdGIH2yjLBRjczciMlf5NAgV/N0PDpEriIW6+2bxQ58giNgj85qNobLDg/l4dOj+8bErD6uLjV
+	yVaGNiHpPhlhlM2rCQIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDor4-009vgK-CY; Tue, 19 Jul 2022 15:09:46 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.86.151])
+	id 1oDp5l-00A0ra-Hp; Tue, 19 Jul 2022 15:24:57 +0000
+Received: from mail-qt1-f173.google.com ([209.85.160.173])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDor1-009vcW-1G
-	for linux-riscv@lists.infradead.org; Tue, 19 Jul 2022 15:09:44 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-183-zqQ9LstYPPWsc5DQ7f8mTg-1; Tue, 19 Jul 2022 16:09:36 +0100
-X-MC-Unique: zqQ9LstYPPWsc5DQ7f8mTg-1
-Received: from AcuMS.Aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) by
- AcuMS.aculab.com (fd9f:af1c:a25b:0:994c:f5c2:35d6:9b65) with Microsoft SMTP
- Server (TLS) id 15.0.1497.36; Tue, 19 Jul 2022 16:09:35 +0100
-Received: from AcuMS.Aculab.com ([fe80::994c:f5c2:35d6:9b65]) by
- AcuMS.aculab.com ([fe80::994c:f5c2:35d6:9b65%12]) with mapi id
- 15.00.1497.036; Tue, 19 Jul 2022 16:09:35 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Stafford Horne' <shorne@gmail.com>, Arnd Bergmann <arnd@arndb.de>
-CC: Christoph Hellwig <hch@infradead.org>, LKML
-	<linux-kernel@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Richard Weinberger <richard@nod.at>, Anton Ivanov
-	<anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>,
-	Bjorn Helgaas <bhelgaas@google.com>, Linux ARM
-	<linux-arm-kernel@lists.infradead.org>, "linux-csky@vger.kernel.org"
-	<linux-csky@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
-	linux-um <linux-um@lists.infradead.org>, linux-pci
-	<linux-pci@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>
-Subject: RE: [PATCH v2 2/2] asm-generic: Add new pci.h and use it
-Thread-Topic: [PATCH v2 2/2] asm-generic: Add new pci.h and use it
-Thread-Index: AQHYm2+TjSo9GtSn30WwmySb6t2iTK2Fy5bA
-Date: Tue, 19 Jul 2022 15:09:35 +0000
-Message-ID: <874af766883a4c0da6759eff433ec6d6@AcuMS.aculab.com>
-References: <20220717033453.2896843-1-shorne@gmail.com>
- <20220717033453.2896843-3-shorne@gmail.com> <YtTjeEnKr8f8z4JS@infradead.org>
- <CAK8P3a1KJe4K5g1z-Faoxc9NhXqjCUWxnvk2HPxsj2wzG_iDbg@mail.gmail.com>
- <CAAfxs740yz1vJmtFHOPTXT6fqi0+37SR_OhoGsONe4mx_21+_g@mail.gmail.com>
- <CAK8P3a1Mo9+-t21rkP8SDnPrmbj3-uuVPtmHbeUerAevxN3TNw@mail.gmail.com>
- <YtaNvpE7AA/4eV1I@antec>
- <CAK8P3a2UTND+F83k2uQ+f=o1GWV=oa5coshy8Hy+cKHUGuNzEg@mail.gmail.com>
- <YtaiSEAnMhVqR4HS@antec>
-In-Reply-To: <YtaiSEAnMhVqR4HS@antec>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	id 1oDp5a-00A0mu-7G; Tue, 19 Jul 2022 15:24:47 +0000
+Received: by mail-qt1-f173.google.com with SMTP id y9so7890794qtv.5;
+        Tue, 19 Jul 2022 08:24:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=HV4Wgjz/TAUUMEiA/dyksbNxySCx+zbsJF2fZfi2554=;
+        b=gqic9X1MEt/RL8VhHaKj0mOyYrBt7teQ8kgGaVKQUggj1zLiDGAhK1AmuGfQacVEef
+         1pcYA97HVLVtGXMO79BWfsV0xJeF0RaLI1CjYZZgpWZgRmaldsVtFtuhupQwNYR2GJRT
+         1Vb/FmqInsAEaJZcGXtILw7IjMWDBLV2950VObZVQ/YtERS4yHjrrG3v+F+IW4NwYvXC
+         UFr3VcH37JaYRPEJVrx6oowWhG0SqwXoIEOrmLVldJifpkhlKp1jURucjdvWnsp2eSaM
+         CHNyGOVAKtTA2XG42tYDAq6v/I3VUjiTTp0IrjDw9n8Ok0UZdxquQMnNFSv3hTLxzDXl
+         yvyQ==
+X-Gm-Message-State: AJIora+yfdNnP3ftH1HbiJj5T3AFcU0ryjmaeDbqC1MGB/8Qs53z/glg
+	sxeepiPRA1WMbBoMFxUmRZrKW3RwXlL/aA==
+X-Google-Smtp-Source: AGRyM1vPpSRPrCD+VFEpfxrMRmRYW73LAyyOY2vodkfOSVmG0/sgXjDt4l5+cY0/2XNksW5UO+dFSw==
+X-Received: by 2002:ac8:5b90:0:b0:31e:e9dd:65ea with SMTP id a16-20020ac85b90000000b0031ee9dd65eamr10063683qta.289.1658244284554;
+        Tue, 19 Jul 2022 08:24:44 -0700 (PDT)
+Received: from mail-yb1-f173.google.com (mail-yb1-f173.google.com. [209.85.219.173])
+        by smtp.gmail.com with ESMTPSA id h16-20020a37de10000000b006a693e46d5csm13753316qkj.11.2022.07.19.08.24.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 19 Jul 2022 08:24:44 -0700 (PDT)
+Received: by mail-yb1-f173.google.com with SMTP id j67so4459661ybb.3;
+        Tue, 19 Jul 2022 08:24:44 -0700 (PDT)
+X-Received: by 2002:a25:bc8e:0:b0:66e:fe43:645c with SMTP id
+ e14-20020a25bc8e000000b0066efe43645cmr32967226ybk.202.1658244283883; Tue, 19
+ Jul 2022 08:24:43 -0700 (PDT)
 MIME-Version: 1.0
-Authentication-Results: relay.mimecast.com;
-	auth=pass smtp.auth=C51A453 smtp.mailfrom=david.laight@aculab.com
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+References: <20220715102609.2160689-1-sudeep.holla@arm.com> <20220715102609.2160689-2-sudeep.holla@arm.com>
+In-Reply-To: <20220715102609.2160689-2-sudeep.holla@arm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 19 Jul 2022 17:24:32 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVfr3kzdacSJkPaOZ56x+7tJ1MjrUz+VG+Y+8aL+XW+jg@mail.gmail.com>
+Message-ID: <CAMuHMdVfr3kzdacSJkPaOZ56x+7tJ1MjrUz+VG+Y+8aL+XW+jg@mail.gmail.com>
+Subject: Re: [PATCH -next v2 2/2] arch_topology: Fix cache attributes
+ detection in the CPU hotplug path
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Conor Dooley <conor.dooley@microchip.com>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
+	Ionela Voinescu <ionela.voinescu@arm.com>, Pierre Gondois <pierre.gondois@arm.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220719_080943_452047_14ABEB3B 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20220719_082446_279416_FBB892D5 
+X-CRM114-Status: GOOD (  25.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,68 +86,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Stafford Horne
-> Sent: 19 July 2022 13:24
-> 
-> On Tue, Jul 19, 2022 at 01:55:03PM +0200, Arnd Bergmann wrote:
-> > On Tue, Jul 19, 2022 at 12:55 PM Stafford Horne <shorne@gmail.com> wrote:
-> >
-> > > diff --git a/drivers/comedi/drivers/comedi_isadma.c b/drivers/comedi/drivers/comedi_isadma.c
-> > > index 700982464c53..508421809128 100644
-> > > --- a/drivers/comedi/drivers/comedi_isadma.c
-> > > +++ b/drivers/comedi/drivers/comedi_isadma.c
-> > > @@ -104,8 +104,10 @@ unsigned int comedi_isadma_poll(struct comedi_isadma *dma)
-> > >
-> > >         flags = claim_dma_lock();
-> > >         clear_dma_ff(desc->chan);
-> > > +#ifdef CONFIG_X86_32
-> > >         if (!isa_dma_bridge_buggy)
-> > >                 disable_dma(desc->chan);
-> > > +#endif
-> >
-> > There is a logic mistake here: if we are on something other than x86-32,
-> > this always needs to call the disable_dma()/enable_dma().
-> 
-> Oops, thats right.  Sorry, I should have noticed that.
-> 
-> > Not sure how to best express this in a readable way, something like this
-> > would work:
-> 
-> Option 1:
-> 
-> > #ifdef CONFIG_X86_32
-> >         if (!isa_dma_bridge_buggy)
-> > #endif
-> >                disable_dma(desc->chan);
-> >
-> >
-> > or possibly at the start of this file, a
-> 
-> Option 2:
-> 
-> > #ifndef CONFIG_X86_32
-> > #define isa_dma_bridge_buggy 0
-> > #endif
-> 
-> Option 3:
-> 
-> > Or we could try to keep the generic definition in a global header
-> > like linux/isa-dma.h.
-> 
-> Perhaps option 3 makes the whole patch the most clean.
+Hi Sudeep,
 
-Isn't there a define that can be used inside an if?
-So you could do:
-		if (!IS_CONFIG_X86_32 || !isa_dma_bridge_buggy)
-			disable_dma();
-(but I can't remember the name!)
+On Fri, Jul 15, 2022 at 12:28 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
+> init_cpu_topology() is called only once at the boot and all the cache
+> attributes are detected early for all the possible CPUs. However when
+> the CPUs are hotplugged out, the cacheinfo gets removed. While the
+> attributes are added back when the CPUs are hotplugged back in as part
+> of CPU hotplug state machine, it ends up called quite late after the
+> update_siblings_masks() are called in the secondary_start_kernel()
+> resulting in wrong llc_sibling_masks.
+>
+> Move the call to detect_cache_attributes() inside update_siblings_masks()
+> to ensure the cacheinfo is updated before the LLC sibling masks are
+> updated. This will fix the incorrect LLC sibling masks generated when
+> the CPUs are hotplugged out and hotplugged back in again.
+>
+> Reported-by: Ionela Voinescu <ionela.voinescu@arm.com>
+> Tested-by: Ionela Voinescu <ionela.voinescu@arm.com>
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Ionela Voinescu <ionela.voinescu@arm.com>
+> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+> ---
+>  drivers/base/arch_topology.c | 16 ++++++----------
+>  1 file changed, 6 insertions(+), 10 deletions(-)
+>
+> v1->v2:
+>         - No change in this patch, but 1/2 was added to fix possible
+>           bug "sleeping in the atomic context" with this patch.
+>         - Added all the received tags
 
-	David
+Thank you, the "Early cacheinfo failed, ret = -12" is gone.
 
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
+Tested-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
