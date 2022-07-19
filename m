@@ -4,52 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C344C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jul 2022 10:29:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E94C43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jul 2022 10:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FOYtNKeTTgLV2WsY5WMPNeOmm8tt1eFutkUJhbPJqH8=; b=o2VWoqPweTLZKB
-	dXmpd+e7ae4eQ2193ZJsmqV4kqCGcuPjCFuSzUIMO0n4O13+kFO2NpsytVQ6oU8ue6htwyLLYox5f
-	GKqBjCQLHTUWXrmcdMK3XOWklrAAGrgbXH3srTPSltIInotdTB8j+hce37iR2e/LxsJpY/AnYBpBi
-	DtX024jUutDx77vCfdItt375svTEgQnCsCunOfbWr9tg6/nFR/8kYXHbGIoHAbllJUlgLcXw97+pK
-	ncpOKg4cfAwwj5WnTFieB6sb/fyRlaaPvoYhypUPLR14npLPdFzd/+XVS8kIW6BJtiyvnqBfsgQO7
-	ysa2lzxWmBO9ME3h47zQ==;
+	List-Owner; bh=uAkg+3rmqNDgkgRk2lJQnSFtDnKGjVMt2O8q/+LeseQ=; b=lzUdaA5Z8dx6w4
+	LhC1qAe629u69mBNoKPlrgYlbzC5KYdS9rPcsTiS9vrS7nHu8udynHOb1k50m1leU3NuAzPxlS3Pp
+	G8QP3Np4ukrfOxMoGL8DxWgthQxFJuwsz8uKv7xVcfDOePq8w7VyB9zvm3vu8X3DtfMWSdOFifUVb
+	U+s6jdhUeCG+SEStuI1w/7SiXRX0VBsnWaErW2WRbbRX+5BUVX5Eld8RyAqZZcUPNwYve+mTh7f4/
+	YxV5FyDok5HgLXaGfQDnWtb0UyMpDsx76ebYNbv0m/XPX3KLZm9B/MdCOPF6FRJgR1SieZLbn7cwZ
+	eX2WmbiyIeWS+Kn6DLuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDkTy-0080TV-Jv; Tue, 19 Jul 2022 10:29:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDkTm-0080Pn-Nu; Tue, 19 Jul 2022 10:29:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0AF101424;
-	Tue, 19 Jul 2022 03:29:21 -0700 (PDT)
-Received: from bogus (e103737-lin.cambridge.arm.com [10.1.197.49])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 377333F766;
-	Tue, 19 Jul 2022 03:29:19 -0700 (PDT)
-Date: Tue, 19 Jul 2022 11:29:16 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Conor.Dooley@microchip.com
-Cc: linux@roeck-us.net, linux-kernel@vger.kernel.org,
-	gregkh@linuxfoundation.org, vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com, ionela.voinescu@arm.com,
-	pierre.gondois@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH -next] arch_topology: Fix cache attributes detection in
- the CPU hotplug path
-Message-ID: <20220719102916.xixnvzxnnn5kslnd@bogus>
-References: <20220713133344.1201247-1-sudeep.holla@arm.com>
- <20220718174151.GA462603@roeck-us.net>
- <0744c97a-bb4e-0985-7f86-f98965b5d3c1@microchip.com>
+	id 1oDkaN-0081wu-0n; Tue, 19 Jul 2022 10:36:15 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oDkaK-0081v6-1Y
+	for linux-riscv@lists.infradead.org; Tue, 19 Jul 2022 10:36:13 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 7F2A3B81AAE
+	for <linux-riscv@lists.infradead.org>; Tue, 19 Jul 2022 10:36:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37543C341C6
+	for <linux-riscv@lists.infradead.org>; Tue, 19 Jul 2022 10:36:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1658226969;
+	bh=CuCNXtA9cHsdWHhcfcpKIBxwcqkHceZiT9ABLed1e7U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=msXlWyTQue/dCcPedHG3qszTQK6Gt0P4vWUtopHddB4sjiMLz1gguXvzn2rZpDtAq
+	 aBpjPPnJ5DxAYfvaBdjtd9v7XgX0u9hs22vVgxYF8MAygKfP5bQAS7/9OIpamKsCHz
+	 hFpJGrtVpLn2/8S+qbEgb0HoB/3t4Cn9ydej7KEWphQk3cqU5Pjj+p5ng9mgbmypad
+	 B7dQbC7AIkyH5cNiPZh4YWYoE36ygqPuWARjmHZUWobnGmhY/uoExWY/XG4+G5ZNgD
+	 GUC6Q1qLyzCWnKFxkPO4UqELj80dl+XuJttvXabLSLHOuchgn8nIu+/ofvO9bPuGYp
+	 o3AdMGUZXyNTA==
+Received: by mail-lf1-f42.google.com with SMTP id y11so24033448lfs.6
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Jul 2022 03:36:09 -0700 (PDT)
+X-Gm-Message-State: AJIora9gUGVbfFG2YqEx4hnQ3bq6jf5rH9PDzvX8UccwGuGpbumHBch4
+	oxFHc2ZxkZBiHr5kGWldrw3e2uHdryTe7o/RvLU=
+X-Google-Smtp-Source: AGRyM1uFcImQu9/rlgebidNhaapAk4T2VPDHi8d0V1gjkt/QAibFDMpTWt6rX7SSEoltNFTRF6CqAg9YlbjT+LeWw8I=
+X-Received: by 2002:a05:6512:1190:b0:48a:14ca:f071 with SMTP id
+ g16-20020a056512119000b0048a14caf071mr14315988lfr.542.1658226967238; Tue, 19
+ Jul 2022 03:36:07 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <0744c97a-bb4e-0985-7f86-f98965b5d3c1@microchip.com>
+References: <Ys/8SFo/oC1TFZYk@decadent.org.uk> <CAJF2gTSS56vzp2K_93P3fnUC4t=2v+jbnn11vMocuwVSrnW7bA@mail.gmail.com>
+ <f59e4a64c541c5781bd10dd81c8622249d785c70.camel@decadent.org.uk>
+ <CAJF2gTQ3V=TWib_cbw=r-wFtH9Ee=m7tG9OzizQhiZOU11Fa-Q@mail.gmail.com>
+ <CAJM55Z8Eq-iUBFb79HJpykgGOFD-QykNdOJ7Xvj2-azeFJehLA@mail.gmail.com>
+ <CAJF2gTTtEUL-o9Y+AbxWzT0Uf-8UwUqw8EgihZFn7D7huJvkmg@mail.gmail.com> <e896e651-89ef-6205-b2b5-ad9f4905f698@microchip.com>
+In-Reply-To: <e896e651-89ef-6205-b2b5-ad9f4905f698@microchip.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 19 Jul 2022 18:35:55 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTFg3+0k57kdE4qVAsO=r=76k_rnJ1-CrLoqfTUwURVqA@mail.gmail.com>
+Message-ID: <CAJF2gTTFg3+0k57kdE4qVAsO=r=76k_rnJ1-CrLoqfTUwURVqA@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Fix vdso_install target with CONFIG_COMPAT=y
+To: Conor Dooley <Conor.Dooley@microchip.com>
+Cc: emil.renner.berthing@canonical.com, Ben Hutchings <ben@decadent.org.uk>, 
+	linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220719_032926_894273_C92F3A28 
-X-CRM114-Status: GOOD (  32.70  )
+X-CRM114-CacheID: sfid-20220719_033612_364373_3D19468E 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,92 +84,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 18, 2022 at 05:57:33PM +0000, Conor.Dooley@microchip.com wrote:
-> On 18/07/2022 18:41, Guenter Roeck wrote:
-> > On Wed, Jul 13, 2022 at 02:33:44PM +0100, Sudeep Holla wrote:
-> >> init_cpu_topology() is called only once at the boot and all the cache
-> >> attributes are detected early for all the possible CPUs. However when
-> >> the CPUs are hotplugged out, the cacheinfo gets removed. While the
-> >> attributes are added back when the CPUs are hotplugged back in as part
-> >> of CPU hotplug state machine, it ends up called quite late after the
-> >> update_siblings_masks() are called in the secondary_start_kernel()
-> >> resulting in wrong llc_sibling_masks.
-> >>
-> >> Move the call to detect_cache_attributes() inside update_siblings_masks()
-> >> to ensure the cacheinfo is updated before the LLC sibling masks are
-> >> updated. This will fix the incorrect LLC sibling masks generated when
-> >> the CPUs are hotplugged out and hotplugged back in again.
-> >>
-> >> Reported-by: Ionela Voinescu <ionela.voinescu@arm.com>
-> >> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> >> ---
-> >>  drivers/base/arch_topology.c | 16 ++++++----------
-> >>  1 file changed, 6 insertions(+), 10 deletions(-)
-> >>
-> >> Hi Conor,
-> >>
-> >> Ionela reported an issue with the CPU hotplug and as a fix I need to
-> >> move the call to detect_cache_attributes() which I had thought to keep
-> >> it there from first but for no reason had moved it to init_cpu_topology().
-> >>
-> >> Wonder if this fixes the -ENOMEM on RISC-V as this one is called on the
-> >> cpu in the secondary CPUs init path while init_cpu_topology executed
-> >> detect_cache_attributes() for all possible CPUs much earlier. I think
-> >> this might help as the percpu memory might be initialised in this case.
-> >>
-> >> Anyways give this a try, also test the CPU hotplug and check if nothing
-> >> is broken on RISC-V. We noticed this bug only on one platform while
-> >>
-> > 
-> > arm64, with next-20220718:
-> > 
-> > ...
-> > [    0.823405] Detected PIPT I-cache on CPU1
-> > [    0.824456] BUG: sleeping function called from invalid context at kernel/locking/semaphore.c:164
-> > [    0.824550] in_atomic(): 1, irqs_disabled(): 128, non_block: 0, pid: 0, name: swapper/1
-> > [    0.824600] preempt_count: 1, expected: 0
-> > [    0.824633] RCU nest depth: 0, expected: 0
-> > [    0.824899] no locks held by swapper/1/0.
-> > [    0.825035] irq event stamp: 0
-> > [    0.825072] hardirqs last  enabled at (0): [<0000000000000000>] 0x0
-> > [    0.826017] hardirqs last disabled at (0): [<ffff800008158870>] copy_process+0x5e0/0x18e4
-> > [    0.826123] softirqs last  enabled at (0): [<ffff800008158870>] copy_process+0x5e0/0x18e4
-> > [    0.826191] softirqs last disabled at (0): [<0000000000000000>] 0x0
-> > [    0.826764] CPU: 1 PID: 0 Comm: swapper/1 Not tainted 5.19.0-rc7-next-20220718 #1
-> > [    0.827397] Call trace:
-> > [    0.827456]  dump_backtrace.part.0+0xd4/0xe0
-> > [    0.827574]  show_stack+0x18/0x50
-> > [    0.827625]  dump_stack_lvl+0x9c/0xd8
-> > [    0.827678]  dump_stack+0x18/0x34
-> > [    0.827722]  __might_resched+0x178/0x220
-> > [    0.827778]  __might_sleep+0x48/0x80
-> > [    0.827833]  down_timeout+0x2c/0xa0
-> > [    0.827896]  acpi_os_wait_semaphore+0x68/0x9c
-> > [    0.827952]  acpi_ut_acquire_mutex+0x4c/0xb8
-> > [    0.828008]  acpi_get_table+0x38/0xbc
-> > [    0.828059]  acpi_find_last_cache_level+0x44/0x130
-> > [    0.828112]  init_cache_level+0xb8/0xcc
-> > [    0.828165]  detect_cache_attributes+0x240/0x580
-> > [    0.828217]  update_siblings_masks+0x28/0x270
-> > [    0.828270]  store_cpu_topology+0x64/0x74
-> > [    0.828326]  secondary_start_kernel+0xd0/0x150
-> > [    0.828386]  __secondary_switched+0xb0/0xb4
-> > 
-> > I know the problem has already been reported, but I think the backtrace
-> > above is slightly different.
+On Tue, Jul 19, 2022 at 6:29 PM <Conor.Dooley@microchip.com> wrote:
 >
+> On 19/07/2022 11:15, Guo Ren wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> >
+> > Sorry, I missed your patch. You are the first person to catch that.
+> >
+> > + $(build)=arch/riscv/kernel/compat_vdso compat_$@)
+> >
+> > The above is also good for me.
+> >
+> > For that one, Could you add "Fixes: 0715372a06ce ("riscv: compat:
+> > vdso: Add COMPAT_VDSO base code ...")" in your next version of the
+> > patch from Ben's and add "Ben Hutchings as Co-developed-by:"?
+> >
+> >
+>
+> Why would Ben get a Co-developed-by?
 
-Thanks for the report, I forgot to run with lockdep on ACPI system. This is
-trickier. I will take a look at it.
+Just a suggestion to "Emil Renner Berthing".
 
-> Aye, I got a different BT on RISC-V + DT - but that should be fixed in
-> next-20220718. This is a different problem unfortunately.
+My reason is:
+1. I think the "Fixes:" is also necessary, and Emil could directly use
+it from Ben's patch.
+2. He also found that problem and shared the information with us. The
+key effect is to make Emil's patch quickly reviewed (Although I missed
+that patch).
 
-Yes, ACPI is bit different flow.
-
---
-Regards,
-Sudeep
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
