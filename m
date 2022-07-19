@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE33C43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jul 2022 05:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B489C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jul 2022 05:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=N0JaYHrgNV+saqjnDIehHB10emhlZa41os4ayUYBn78=; b=mLmvDqhZ31sr6S
-	iL1373U6UZ8ZHRQg9SOrBV5U8A0aBeANH6GYRKE35s3SfeVh0jX5hAfDTPRezE+MQrDPiHt95hIZa
-	z2XTs2hj5emi3/CM+E/p68YanBNo4XbkvuOtSVyfs8LCFyguylZxaEp4KZW8w6f9hEslTV5q/Sa1h
-	PKBSYTtoq9Kwx/PwYMA4pD7rSiJla1q2RnJIVGFeRLg+U51n5mts40NxA0o24zM9nyInOLkuTAzUn
-	u04dHPTm78S9hCK4qY1mk5C+40++y5qRKGln2IczcqcUIcoyXPcjoyaU1SAqnbfYAzCSO/5QMe+F3
-	oD6OT16Tlef0d4v4xi7w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lbuYhk7MTtKD6bixCgZwCImYT03TkeG2/RqEz8JvIqw=; b=194gTt5OKafrev
+	7jahT7FiPxTIT0CR7dPLTfNV8f3lpz6xRz7C4kP/MfPNJdGiYUS8WhwftqkiH1ywK9JcuzwdfXpx2
+	qpswaxQMZMrUAXWRDQAsmPSCZNJobb4jLy+pY1JcRxi0Ho1swz2PmtMC8RNEiIHcaiAgFBEwcD8ni
+	APjzmA0jHzJyfqOtscm9kwEcD1mruxZK1iOdDFz0aaKbWsC3vhlYuGN3GNPmASUF+KGlQTxwq9MS+
+	1LjApzNc2XYagMcIPS/V0LT2ZWUJZvBAbv1dj1/4XWm8A/cfZIZ9kyuDZclycMUpFlzY88cJ9puaF
+	WdFhIRVeqI4N+LwMabnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDg5q-005VP2-Kz; Tue, 19 Jul 2022 05:48:26 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1oDg5u-005VQy-VD; Tue, 19 Jul 2022 05:48:31 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDg5n-005VNb-A8
-	for linux-riscv@lists.infradead.org; Tue, 19 Jul 2022 05:48:24 +0000
-Received: by mail-pf1-x436.google.com with SMTP id b9so12574377pfp.10
-        for <linux-riscv@lists.infradead.org>; Mon, 18 Jul 2022 22:48:22 -0700 (PDT)
+	id 1oDg5s-005VOw-Cl
+	for linux-riscv@lists.infradead.org; Tue, 19 Jul 2022 05:48:29 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id f11so12555738pgj.7
+        for <linux-riscv@lists.infradead.org>; Mon, 18 Jul 2022 22:48:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=0sX1onoPJ1YOPt+mOAth6+mii2dmZ7QR6AiT86YyKdU=;
-        b=Q+etMlFe7tkFERxmJLMYSSfPYaSKlDVB5MmWG/aPRDojaTL7fGB65qXqN91Wp9rHzM
-         Z5NdjthNuFERRgaHn1ErM7tncHNinspsUs1jW3qrFtX00TaOJIdUoTQswz9XzPMLikE1
-         dvCti5riz+mJ5rvt2kWr6V0MA3Y4TcnntUXmZnRg/yJuwFv9jPW4NMXbKEsAIIt+K/sy
-         8rq9awPE1F7KbXNI1cCmjugCjPCEnhjT5hTPcYM8FlJ3M7Cc1zGUZaztBv9xjrBJYjbo
-         ULY4FCkMoLuUTLn83FyGLDKKs2UP1dcIOvP73UVAn9rp2Y/PMKIrBbpux8I9MIYYD7R4
-         sn2Q==
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=1Zv1KPN9JiNDXsrpx/KpRv4jlVQ/XgtQ+la2iBvvbEo=;
+        b=aPmyhgHbEj3yjha+RdH7+WmsgzNU6UK2PdYcjlAmGBwYMtEf1UUTaGFvA/5q3/uqf2
+         TSB6Pb0KkVqQxl+mHM+p05+aB2P5iNDR4JPwth096jqb6fK+ei29DWXX6/m5v9EsqHiI
+         4EJ/DM1d9n7Rq270JbzZLvMOQyJDkGEGWn0b9gPk0e8WV0U9tV5+yXOwjV8pN4Ua2ZPA
+         ZX5FKnH5IeeNqaVG+9NH1B6+Sz/m4+M852tl3ArR+1lescplIrffsGg4Y9JW/C4xwctn
+         gGtD4KLl+OQq9rj6VoPFcNUtmF+IrtEbwKLvDpQcEIUsvhbJOXyJwOzd5tEghk+vQCC2
+         gGGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=0sX1onoPJ1YOPt+mOAth6+mii2dmZ7QR6AiT86YyKdU=;
-        b=SV+YZA0udegvj0aFZTOf88YvBePP8MI7vNhqgJH3JdhBystwii6jB1Xyw5ikrW94BU
-         qJeWM4AAcSF2wFUFNckhkxhfqh04nBAMc0vMqxWkQByUKSWxzH4awPWYyxFX7DSvGyQC
-         OQhmqxOGGWEBdKQCw5rXn4PCmN5mnKNFRpSqVUzATUY3dJ9MvVYAY9+kGH1DY5dPeNZL
-         64uuzAzLCxOuC2pLVIjiLU3xDZWt3NTewd1c9rYbxQCDiBnQsrzPz0IjZq8MC3SR29kM
-         NbUMKqwTFFwDlw6g57hTpjwigXBUkOEjGztpehUYOQjhGdmCEHbZQ4sGBRE2y9Hk9mYb
-         W66A==
-X-Gm-Message-State: AJIora9yusDUf/3Qc5I89h9wsvdcVG2l0YONk31F4aQBJGXYrDE55U7u
-	z2GfXDcI2Z8oCRmCahHRa2djng==
-X-Google-Smtp-Source: AGRyM1vEptqqG+SuWmXjVjM2cnzKrtW4+dR5715b+Hro/HvmivhTCinXeLELS7w7xtHgkbdT9pABkA==
-X-Received: by 2002:a63:1a21:0:b0:412:b103:97a2 with SMTP id a33-20020a631a21000000b00412b10397a2mr27744199pga.12.1658209701359;
-        Mon, 18 Jul 2022 22:48:21 -0700 (PDT)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:content-transfer-encoding;
+        bh=1Zv1KPN9JiNDXsrpx/KpRv4jlVQ/XgtQ+la2iBvvbEo=;
+        b=o1qqtGRc+dNTIroUanwPws9uvtcq+FM5/ybMz+Yk10WdQHS2o2Byqwo59ZplWqQoJq
+         uohlOnzfuXR+d+CWok6bp9XtJ/5dxboagv1T2RKVUpmFshci10jgMb/K6c3ng9nPuiY+
+         Fjr25sS8esqL7wUer3AyiGAA5XzxTAVvSgmrHbHo7E0mJnffLpZKEoQPVZCVUn83bZp9
+         nBS5wsk45g8wNeXwYiAqhfYgJKLg7COT8gYdX1Pklx9Wk4XLqNlBFQIbsVZSN9F+bdY6
+         ZiYfLGOnwaqOt37881NJiBb4usEn8XyM6b+mLWtAdTx3yEatwq/CR6EOrXZAG/D9cIYr
+         WOzQ==
+X-Gm-Message-State: AJIora/mfEK/P8dxvw5MAmntDcun5vJYT9jLHZL2PjZlDP8sncIvHLqe
+	+eiHkXu6uwq2hAH+PFySQqfs/g==
+X-Google-Smtp-Source: AGRyM1swatdkW28ipNZyiwyjPCdj/wjSf0JTm3UtSlnt0QiJb65SJO6lfU4nMttdr1PWPl6x72yPxg==
+X-Received: by 2002:aa7:8887:0:b0:52b:17e8:fc7 with SMTP id z7-20020aa78887000000b0052b17e80fc7mr28107122pfe.35.1658209705381;
+        Mon, 18 Jul 2022 22:48:25 -0700 (PDT)
 Received: from anup-ubuntu64-vm.. ([171.76.93.102])
-        by smtp.gmail.com with ESMTPSA id o186-20020a62cdc3000000b0050dc7628171sm10374129pfg.75.2022.07.18.22.48.17
+        by smtp.gmail.com with ESMTPSA id o186-20020a62cdc3000000b0050dc7628171sm10374129pfg.75.2022.07.18.22.48.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 18 Jul 2022 22:48:20 -0700 (PDT)
+        Mon, 18 Jul 2022 22:48:24 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -72,14 +72,16 @@ Cc: Atish Patra <atishp@atishpatra.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 0/2] Improve CLOCK_EVT_FEAT_C3STOP feature setting
-Date: Tue, 19 Jul 2022 11:17:27 +0530
-Message-Id: <20220719054729.2224766-1-apatel@ventanamicro.com>
+Subject: [PATCH 1/2] dt-bindings: riscv: Add optional DT property riscv,timer-always-on
+Date: Tue, 19 Jul 2022 11:17:28 +0530
+Message-Id: <20220719054729.2224766-2-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20220719054729.2224766-1-apatel@ventanamicro.com>
+References: <20220719054729.2224766-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220718_224823_373030_49BFAA84 
-X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-CacheID: sfid-20220718_224828_449727_810E1BF3 
+X-CRM114-Status: UNSURE (   9.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,21 +99,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series improves the RISC-V timer driver to set CLOCK_EVT_FEAT_C3STOP
-feature based on RISC-V platform capabilities.
+We add an optional DT property riscv,timer-always-on which if present
+in CPU DT node then CPU timer is always powered-on and never loses
+context.
 
-These patches can also be found in riscv_timer_dt_imp_v1 branch at:
-https://github.com/avpatel/linux.git
-
-Anup Patel (2):
-  dt-bindings: riscv: Add optional DT property riscv,timer-always-on
-  clocksource: timer-riscv: Set CLOCK_EVT_FEAT_C3STOP based on DT
-    property
-
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+---
  Documentation/devicetree/bindings/riscv/cpus.yaml | 6 ++++++
- drivers/clocksource/timer-riscv.c                 | 6 +++++-
- 2 files changed, 11 insertions(+), 1 deletion(-)
+ 1 file changed, 6 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index d632ac76532e..33832b8dfaab 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -78,6 +78,12 @@ properties:
+       - rv64imac
+       - rv64imafdc
+ 
++  riscv,timer-always-on:
++    type: boolean
++    description:
++      If present, the timer is powered through an always-on power
++      domain, therefore it never loses context.
++
+   # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
+   timebase-frequency: false
+ 
 -- 
 2.34.1
 
