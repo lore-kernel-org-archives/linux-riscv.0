@@ -4,77 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 107AEC43334
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jul 2022 15:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84810C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jul 2022 16:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Nq9WaR2GxLT6iSPW5c/NF4Eqm++re06VRTbu93IRUE0=; b=RsoG8WPrq1fdMejxdUXJ5jXgVS
-	YLLvMnj6oSnqWQmBXdcPCHl0R16pRTsNiBHloaYcsVycN7PvKx5nARuNt8YQgct5WVJhwRRNNQ+E7
-	lHukjvJAzu60PDKhvsvuMzYP2bL08TkiwfkcTjaCnKy7LLM1W566m+tbnnjvhwaiAO2EbgC/doRT6
-	8KNnEbsM2Hp3eHNzZwn1yNrdsGH4yC7C/AfHMyoYpM2iNHeyrZrQJptrp11Nj9FjIA1INcVOpCAIZ
-	grCpyrz989gbh7dhmdvBkRfEBD1Add63HEuZWuWeBL7DyKoztwzvN07xXMKqvjpgoCJE/vgLSyNlC
-	+z62bWag==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=WAmc0lpl0n4HRXSReY2uOtwra1FoeeVmmszO02NXhtI=; b=DmuE1oN9pRcZuM
+	i9seTvX9IqZ9S92KeCihvskq9t9qcVIuU0XtiDU3YgprxLtVP5iR5RHR8jPtKKbGeikuH54WfQ5eh
+	DpgQcfeS8oVtzUJ++8/QMyF+UGjlhIUzBrp0oaMGEyJmOAivNid7Hl5VbraUmzyXc8Km/bfVHwbli
+	cxqp+/bTToaJi5H9G5ULSEhRNl9yebqavoa+/XXDaapwUm3ylzE91saYgPW1VLYc1Rc2PFw6oa9kl
+	4Fzjye9fgdPO42kdrjZuNh683vbb7HrSJLeALpM0/eJK9rHnEIOD//vkD40DS0EZ1o+0nFrVcCKOE
+	7rPT4Tu7swY0lyXj4NoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDpcY-00AKfA-GY; Tue, 19 Jul 2022 15:58:50 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1oDpo6-00APAF-IU; Tue, 19 Jul 2022 16:10:46 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDpcQ-00AKXj-FD
-	for linux-riscv@lists.infradead.org; Tue, 19 Jul 2022 15:58:48 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id b7-20020a17090a12c700b001f20eb82a08so1264971pjg.3
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Jul 2022 08:58:40 -0700 (PDT)
+	id 1oDpo4-00AP8N-HB
+	for linux-riscv@lists.infradead.org; Tue, 19 Jul 2022 16:10:45 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-2ef5380669cso146062767b3.9
+        for <linux-riscv@lists.infradead.org>; Tue, 19 Jul 2022 09:10:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=GtB8BI3Lg6RgIY+Axlp49dX2tSqW+wRJGV6SskGWNCM=;
-        b=X9q2GMc7HLMzv8eirrUEa5w1MWi56Y0W9j1JKwKt/i1hk0onwXPhvLNJuaz04N5yLC
-         QFzEf+SdOP0+Ok5BCOqp5kJnwAlrPuXztiqghKC0+T7VuOmuNm/UA6mcOGMRX27SdVDg
-         MIHYRin+E7ZWiYZ64pkCzFtLSM0a92iD994BxYhngFMi8qh09rSjw+3UDF6EwPHAfNm0
-         lA+tnQFr3nLUQHma2Wk56b5JO57cQHqs2e03f+jJVKp1vvtgCSBMuGC2nf2OAwzSD6ZX
-         Te4nQTx1/QnL5hXh6coSlvDGehckBcBOi3cUsrRpSdcBDGWwC/K+te9+oMGQbZaDhnia
-         ojCw==
+        d=atishpatra.org; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=5mrUDzdJiCDqXjSbtCKl32u2bj3CMJYrazGdcKxdcx8=;
+        b=KV5TaQP8NM7xr+vnCvenpiJbsOrdMVuazodVbVCujR5ddR4eByKFVr4E4NcwyPnv0+
+         gvAqVNByVx2a9wiQNKvq+vpF/HZHr1FMY3eOqYC2kpyEEEqnvwjOVR4ISAX8TlMPJ02T
+         1sEnw4TOh3qBrX2iJABnhbgd3AG8F2UDHSXes=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=GtB8BI3Lg6RgIY+Axlp49dX2tSqW+wRJGV6SskGWNCM=;
-        b=bG9H7sfGQBkFMX2aV904KLxZkWBNSEj/RfG1y5oFA6iqpDyrzxfX8IO7M6qvtweqRw
-         bVHomfehXPO8srjnWygtLCrS9gzKXq2Fvhz/83XgkjsGrMhtWOy0w265bg3hHt7CgMLG
-         7YtMnNG8COwjoI+sCVZJToygJbWw9xJu1JWuhbFFB1ImDeU4Ecz9gXAI294zdrNcQ2wF
-         PAfEPaz3KbQeuP2fx2wbtlHXUn6oPorj9VH+DqiDiKqINNMos5VvubbtkSvTbC3gQhLK
-         K/OgvNphhSvkxmEND1mky7AmmIc/HY4h/8xlU9VQYm9b5t6JDS65tSmBhnc238BdlthG
-         MiPg==
-X-Gm-Message-State: AJIora/2BYzqy2KXW3oH/E3yM60JwljoXVts0BWwrS6+4+OwT8aT6bsL
-	q2dxthaj5xEmQwLuLupZ5fCF2Q==
-X-Google-Smtp-Source: AGRyM1umXjHvfiCigjJ7IRDdLwG4rJDpGBCKgBPKB6XLgieis4LZ9EeDAGrjqpraxW+lvusRBwMHrQ==
-X-Received: by 2002:a17:902:eb86:b0:16c:c491:fce7 with SMTP id q6-20020a170902eb8600b0016cc491fce7mr24066423plg.14.1658246319913;
-        Tue, 19 Jul 2022 08:58:39 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id e2-20020a17090a118200b001ef3f85d1aasm14072478pja.9.2022.07.19.08.58.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Jul 2022 08:58:39 -0700 (PDT)
-Date: Tue, 19 Jul 2022 08:58:39 -0700 (PDT)
-X-Google-Original-Date: Tue, 19 Jul 2022 08:58:37 PDT (-0700)
-Subject: Re: [PATCH v3 2/2] asm-generic: Add new pci.h and use it
-In-Reply-To: <20220718004114.3925745-3-shorne@gmail.com>
-CC: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, shorne@gmail.com,
-  catalin.marinas@arm.com, Will Deacon <will@kernel.org>, guoren@kernel.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, richard@nod.at, anton.ivanov@cambridgegreys.com,
-  johannes@sipsolutions.net, bhelgaas@google.com, linux-arm-kernel@lists.infradead.org,
-  linux-csky@vger.kernel.org, linux-riscv@lists.infradead.org, linux-um@lists.infradead.org,
-  linux-pci@vger.kernel.org, linux-arch@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: shorne@gmail.com
-Message-ID: <mhng-3ae42214-abe0-4fad-9fa9-8f19809fa4d9@palmer-mbp2014>
-Mime-Version: 1.0 (MHng)
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=5mrUDzdJiCDqXjSbtCKl32u2bj3CMJYrazGdcKxdcx8=;
+        b=ZAdey85PKJFWN8PA49VzpJ5RCmSBiZgADzxGGey5Q/EwzhPc2gmPni3TRprbaleKKR
+         I3MgVaTbsPkZiHbi6dUi1QSF243jrt5pVNd/1O1SRCt5zCjc/s3FtAWHc3psiMx2dSUx
+         +4SeLaN7Vg1w/sTv2pqTXs0ehKm1usOLgYxli1ZRnkXcXrd7AOD15ouDvhFXXbcSeL4s
+         TyZhE6Y29ylHEOFAm5chTfwRjMJ3likz7chNJ2Z0hISKdhX8t226oA11MX9QRl961ru1
+         BtHR7V6yjA8Ai6U9rM7B/NFffbs7eJEJTFt9iwGOxrc1rdmzEniiW2MJ3QdYlfFc39Q7
+         2Yzw==
+X-Gm-Message-State: AJIora9qPwQRhvLAYy09wVCxzOOr5OpzWtxQLKyg1FLwDZ38Ic6d4KSm
+	RIFnBdGBea5fgsHJ7LN1WDC4YsvkyozsAQsKiHbh
+X-Google-Smtp-Source: AGRyM1u2hwRecb6c7VNGO1OAE3AxMi86C/e/LX7ads0P/FusP7g7FgOS7YOejcwLWVspUKGcQwUfKHI2iw8XsWE73j4=
+X-Received: by 2002:a81:5d55:0:b0:31c:dce7:96c9 with SMTP id
+ r82-20020a815d55000000b0031cdce796c9mr36567510ywb.519.1658247042476; Tue, 19
+ Jul 2022 09:10:42 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220715130330.443363-1-windhl@126.com>
+In-Reply-To: <20220715130330.443363-1-windhl@126.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Tue, 19 Jul 2022 09:10:31 -0700
+Message-ID: <CAOnJCUL=eixyiQYPD_K_jkHA0b0ZiHck8U1icmsxO7B2QgiUjQ@mail.gmail.com>
+Subject: Re: [PATCH] perf: RISC-V: Add of_node_put() when breaking out of for_each_of_cpu_node()
+To: Liang He <windhl@126.com>
+Cc: Anup Patel <anup@brainfault.org>, "will@kernel.org" <will@kernel.org>, 
+	"mark.rutland@arm.com" <mark.rutland@arm.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220719_085842_732007_85F03526 
-X-CRM114-Status: GOOD (  33.15  )
+X-CRM114-CacheID: sfid-20220719_091044_773115_35B81BAF 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,247 +77,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 17 Jul 2022 17:41:14 PDT (-0700), shorne@gmail.com wrote:
-> The asm/pci.h used for many newer architectures share similar
-> definitions.  Move the common parts to asm-generic/pci.h to allow for
-> sharing code.
+On Fri, Jul 15, 2022 at 6:03 AM Liang He <windhl@126.com> wrote:
 >
-> Two things to note are:
+> In pmu_sbi_setup_irqs(), we should call of_node_put() for the 'cpu'
+> when breaking out of for_each_of_cput_node() as its refcount will
+> be automatically increased and decreased during the iteration.
 >
->  - isa_dma_bridge_buggy, traditionally this is defined in asm/dma.h but
->    these architectures avoid creating that file and add the definition
->    to asm/pci.h.
->  - ARCH_GENERIC_PCI_MMAP_RESOURCE, csky does not define this so we
->    undefine it after including asm-generic/pci.h.  Why doesn't csky
->    define it?
->  - pci_get_legacy_ide_irq, This function is only used on architectures
->    that support PNP.  It is only maintained for arm64, in other
->    architectures it is removed.
->
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> Link: https://lore.kernel.org/lkml/CAK8P3a0JmPeczfmMBE__vn=Jbvf=nkbpVaZCycyv40pZNCJJXQ@mail.gmail.com/
-> Signed-off-by: Stafford Horne <shorne@gmail.com>
+> Fixes: 4905ec2fb7e6 ("RISC-V: Add sscofpmf extension support")
+> Signed-off-by: Liang He <windhl@126.com>
 > ---
-> Second note on isa_dma_bridge_buggy, this is set on x86 but it it also set in
-> pci/quirks.c.  We discussed limiting it only to x86 though as its a general
-> quick triggered by pci ids I think it will be more tricky than we thought so I
-> will leave as is.  It might be nice to move it out of asm/dma.h and into
-> asm/pci.h though.
+>  drivers/perf/riscv_pmu_sbi.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 >
-> Since v2:
->  - Nothing
-> Since v1:
->  - Remove definition of pci_get_legacy_ide_irq
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index dca3537a8dcc..705d249a1b53 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -666,12 +666,15 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+>                 child = of_get_compatible_child(cpu, "riscv,cpu-intc");
+>                 if (!child) {
+>                         pr_err("Failed to find INTC node\n");
+> +                       of_node_put(cpu);
+>                         return -ENODEV;
+>                 }
+>                 domain = irq_find_host(child);
+>                 of_node_put(child);
+> -               if (domain)
+> +               if (domain) {
+> +                       of_node_put(cpu);
+>                         break;
+> +               }
+>         }
+>         if (!domain) {
+>                 pr_err("Failed to find INTC IRQ root domain\n");
+> --
+> 2.25.1
 >
->  arch/arm64/include/asm/pci.h | 12 +++---------
->  arch/csky/include/asm/pci.h  | 24 ++++--------------------
->  arch/riscv/include/asm/pci.h | 25 +++----------------------
->  arch/um/include/asm/pci.h    | 24 ++----------------------
->  include/asm-generic/pci.h    | 36 ++++++++++++++++++++++++++++++++++++
->  5 files changed, 48 insertions(+), 73 deletions(-)
->  create mode 100644 include/asm-generic/pci.h
->
-> diff --git a/arch/arm64/include/asm/pci.h b/arch/arm64/include/asm/pci.h
-> index b33ca260e3c9..1180e83712f5 100644
-> --- a/arch/arm64/include/asm/pci.h
-> +++ b/arch/arm64/include/asm/pci.h
-> @@ -9,7 +9,6 @@
->  #include <asm/io.h>
->
->  #define PCIBIOS_MIN_IO		0x1000
-> -#define PCIBIOS_MIN_MEM		0
->
->  /*
->   * Set to 1 if the kernel should re-assign all PCI bus numbers
-> @@ -18,9 +17,6 @@
->  	(pci_has_flag(PCI_REASSIGN_ALL_BUS))
->
->  #define arch_can_pci_mmap_wc() 1
-> -#define ARCH_GENERIC_PCI_MMAP_RESOURCE	1
-> -
-> -extern int isa_dma_bridge_buggy;
->
->  #ifdef CONFIG_PCI
->  static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
-> @@ -28,11 +24,9 @@ static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
->  	/* no legacy IRQ on arm64 */
->  	return -ENODEV;
->  }
-> -
-> -static inline int pci_proc_domain(struct pci_bus *bus)
-> -{
-> -	return 1;
-> -}
->  #endif  /* CONFIG_PCI */
->
-> +/* Generic PCI */
-> +#include <asm-generic/pci.h>
-> +
->  #endif  /* __ASM_PCI_H */
-> diff --git a/arch/csky/include/asm/pci.h b/arch/csky/include/asm/pci.h
-> index ebc765b1f78b..44866c1ad461 100644
-> --- a/arch/csky/include/asm/pci.h
-> +++ b/arch/csky/include/asm/pci.h
-> @@ -9,26 +9,10 @@
->
->  #include <asm/io.h>
->
-> -#define PCIBIOS_MIN_IO		0
-> -#define PCIBIOS_MIN_MEM		0
-> +/* Generic PCI */
-> +#include <asm-generic/pci.h>
->
-> -/* C-SKY shim does not initialize PCI bus */
-> -#define pcibios_assign_all_busses() 1
-> -
-> -extern int isa_dma_bridge_buggy;
-> -
-> -#ifdef CONFIG_PCI
-> -static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
-> -{
-> -	/* no legacy IRQ on csky */
-> -	return -ENODEV;
-> -}
-> -
-> -static inline int pci_proc_domain(struct pci_bus *bus)
-> -{
-> -	/* always show the domain in /proc */
-> -	return 1;
-> -}
-> -#endif  /* CONFIG_PCI */
-> +/* csky doesn't use generic pci resource mapping */
-> +#undef ARCH_GENERIC_PCI_MMAP_RESOURCE
->
->  #endif  /* __ASM_CSKY_PCI_H */
-> diff --git a/arch/riscv/include/asm/pci.h b/arch/riscv/include/asm/pci.h
-> index 7fd52a30e605..12ce8150cfb0 100644
-> --- a/arch/riscv/include/asm/pci.h
-> +++ b/arch/riscv/include/asm/pci.h
-> @@ -12,29 +12,7 @@
->
->  #include <asm/io.h>
->
-> -#define PCIBIOS_MIN_IO		0
-> -#define PCIBIOS_MIN_MEM		0
 
-My for-next changes these in bb356ddb78b2 ("RISC-V: PCI: Avoid handing 
-out address 0 to devices").  Do you mind either splitting out the 
-arch/riscv bits or having this in via some sort of shared tag?
+Thanks for catching it.
 
-> -
-> -/* RISC-V shim does not initialize PCI bus */
-> -#define pcibios_assign_all_busses() 1
-> -
-> -#define ARCH_GENERIC_PCI_MMAP_RESOURCE 1
-> -
-> -extern int isa_dma_bridge_buggy;
-> -
->  #ifdef CONFIG_PCI
-> -static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
-> -{
-> -	/* no legacy IRQ on risc-v */
-> -	return -ENODEV;
-> -}
-> -
-> -static inline int pci_proc_domain(struct pci_bus *bus)
-> -{
-> -	/* always show the domain in /proc */
-> -	return 1;
-> -}
-> -
->  #ifdef	CONFIG_NUMA
->
->  static inline int pcibus_to_node(struct pci_bus *bus)
-> @@ -50,4 +28,7 @@ static inline int pcibus_to_node(struct pci_bus *bus)
->
->  #endif  /* CONFIG_PCI */
->
-> +/* Generic PCI */
-> +#include <asm-generic/pci.h>
-> +
->  #endif  /* _ASM_RISCV_PCI_H */
-> diff --git a/arch/um/include/asm/pci.h b/arch/um/include/asm/pci.h
-> index da13fd5519ef..34fe4921b5fa 100644
-> --- a/arch/um/include/asm/pci.h
-> +++ b/arch/um/include/asm/pci.h
-> @@ -4,28 +4,8 @@
->  #include <linux/types.h>
->  #include <asm/io.h>
->
-> -#define PCIBIOS_MIN_IO		0
-> -#define PCIBIOS_MIN_MEM		0
-> -
-> -#define pcibios_assign_all_busses() 1
-> -
-> -extern int isa_dma_bridge_buggy;
-> -
-> -#ifdef CONFIG_PCI
-> -static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
-> -{
-> -	/* no legacy IRQs */
-> -	return -ENODEV;
-> -}
-> -#endif
-> -
-> -#ifdef CONFIG_PCI_DOMAINS
-> -static inline int pci_proc_domain(struct pci_bus *bus)
-> -{
-> -	/* always show the domain in /proc */
-> -	return 1;
-> -}
-> -#endif  /* CONFIG_PCI */
-> +/* Generic PCI */
-> +#include <asm-generic/pci.h>
->
->  #ifdef CONFIG_PCI_MSI_IRQ_DOMAIN
->  /*
-> diff --git a/include/asm-generic/pci.h b/include/asm-generic/pci.h
-> new file mode 100644
-> index 000000000000..fbc25741696a
-> --- /dev/null
-> +++ b/include/asm-generic/pci.h
-> @@ -0,0 +1,36 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +
-> +#ifndef __ASM_GENERIC_PCI_H
-> +#define __ASM_GENERIC_PCI_H
-> +
-> +#include <linux/types.h>
-> +
-> +#ifndef PCIBIOS_MIN_IO
-> +#define PCIBIOS_MIN_IO		0
-> +#endif
-> +
-> +#ifndef PCIBIOS_MIN_MEM
-> +#define PCIBIOS_MIN_MEM		0
-> +#endif
-> +
-> +#ifndef pcibios_assign_all_busses
-> +/* For bootloaders that do not initialize the PCI bus */
-> +#define pcibios_assign_all_busses() 1
-> +#endif
-> +
-> +extern int isa_dma_bridge_buggy;
-> +
-> +/* Enable generic resource mapping code in drivers/pci/ */
-> +#define ARCH_GENERIC_PCI_MMAP_RESOURCE
-> +
-> +#ifdef CONFIG_PCI
-> +
-> +static inline int pci_proc_domain(struct pci_bus *bus)
-> +{
-> +	/* always show the domain in /proc */
-> +	return 1;
-> +}
-> +
-> +#endif /* CONFIG_PCI */
-> +
-> +#endif /* __ASM_GENERIC_PCI_H */
+
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+
+-- 
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
