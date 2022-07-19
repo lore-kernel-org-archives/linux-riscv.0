@@ -4,100 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59FC5C433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jul 2022 06:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B67BAC433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 19 Jul 2022 07:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=ChhOmxcikBsCbxBjndEwA+D6a2Ut48+s9ZsbwMfU5kc=; b=GbiggkEKclrL0WZb+z/nBRgLn1
-	viW9mSMTtqAJfqCOxfX+cYMiUZaTH/2pgjYtABv8s2Xkhdbj1H1UwgnIuFiFNSvvMGMBtLanaq2oG
-	mXtucnHOkNhemGwRVPefFO/a3FSKTnbh1+Zj7Yr32wVPZK+LCKIaNrubVqHe6LHR50IWnD4fxoFlh
-	KYEkcSxELJqJd5ah6rtP6Cd9BeqMhvOLmNI05uJnLKCeEm5XM3PUFO0MK/Rm8O0Kyb0j0WU+iiYUy
-	jg5DGKcDO5l7YL5IzBNQdlUrd/e9XiTRDfP4pwIblYzE/Z08lTfpWbaGpfvStuAD78+sGMLivfV39
-	Mvhs43kw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3tlvnCdCiOpsmiPjLPiUuXwkhjeSYHnI6Cv1arZ7ubg=; b=2y+f2E6ogZpYHM
+	qjtfqncrLKmzSvA+jUiTBi6LPuDVDe3N5UKYKtRv+ExGsl0Zm59h1kB1pKMaCkmURpqIrMXDGsa8A
+	pxyzqI6rN6YhGhCa5uEjpiZR5bdqyTIFs0kdYwiPc0U8c6XgIRZrycq59Zr6A3D0WnrkPCatzyE2g
+	dt22r1h6oXQNYTplHnBF/JvnfcIAer/iSnCNDiB9UXQyFNb+vXsda+xz3DVfdi8Pg7XziHkHaYqNW
+	xPq3VdrzaGd+9AbPterBsVxHeNzas0UDMaMcqfuYdueYxCV4uA7ikaIaAyzAqedIunoIYlqUc4RCh
+	oinlXIRlYd73pcJiB/XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDgwk-005hNz-M0; Tue, 19 Jul 2022 06:43:06 +0000
-Received: from wout4-smtp.messagingengine.com ([64.147.123.20])
+	id 1oDhwB-0062q8-0o; Tue, 19 Jul 2022 07:46:35 +0000
+Received: from mout.kundenserver.de ([212.227.126.135])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oDgwg-005hLB-Uk
-	for linux-riscv@lists.infradead.org; Tue, 19 Jul 2022 06:43:04 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id DC5EF32004E7;
-	Tue, 19 Jul 2022 02:42:49 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute5.internal (MEProxy); Tue, 19 Jul 2022 02:42:50 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to; s=fm1; t=1658212969; x=
-	1658299369; bh=/GcQTqnB2ExgalRjmVV8XkUuxgcyJVL6766PkWjqgyc=; b=I
-	4nLQvXlSPceoku3CMa/zXjocV9d7ngPSRWkIYe7C+/aJpMuwwV+4FyL3A/tekWZ2
-	8NqCCamttp3wfvFJ6j1LEA1JPesQal797n3Gs96aQvBBANcveWvdFb7Zj5UsF2rR
-	NZuqs4nt3v1Ar7vcPKvSZg12ynTOjyeu7+wEDcVCggT4izQRKl7BRGvePND5nEdi
-	2HWefHhE15tVQ801T8wilA8h5Ndt8RqoK7rOAL6UhX3M/BV3CF1iaZRuGjQ7zdjd
-	C5IL8kwJq/Xng9UJNK1QqgRD5MHMbxG4Mk1PbrWumxQjRy9rFVFSSMz4E+ZY2c2X
-	p2sFcmTVEa/oT2YsaN7tg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1658212969; x=
-	1658299369; bh=/GcQTqnB2ExgalRjmVV8XkUuxgcyJVL6766PkWjqgyc=; b=r
-	TkQEOJ6NJxkfyptcCjFZiG3Mw2Uj77BopsXua/wPn6z9wvN1Cvn9HDk7dxmHDIhM
-	pHQHoRB6OJQAMRlN1Yf6iAPjK8yO2fD7X7t0ZsTvUUaGkTEeNtmIBVhfco0Gckf/
-	frtVOzw4DYYHDn6Xkr9LKjNov04enG22YUrh+JDqnOwMCUlDaWc6TbHG51F8TyG8
-	P5JZq8APxceziPXvOlLvvW0VVoLkLbUzFlqgjzpHQ+SNKPX6EbIkkQFTk4mGTk4/
-	1QLqbCZjl+uj1gmE9C15UMpXPtiEKLWaJeBkRSA+jJrjdQb9Yuaf049jX9iXOFP2
-	n3EK5q6l6PsLaAq9E8Qiw==
-X-ME-Sender: <xms:aFLWYsfGgd2LjRlGEiBkRKN4UXEK8pK9_6lfya8PqKPsCsEHABiKPw>
-    <xme:aFLWYuOIQgLdXIzH7BmsUYTFwpgvlPgWDOpZSDkileXd-qJYSaVRrHiEqPUbEz9BW
-    dQ_EqMv6nyfLB7JWQ>
-X-ME-Received: <xmr:aFLWYtiS9L_s2GultdftWuPlEZtyjqBooO89Q7zE46tFwd64xGY7xe-LkERjh2VfAVIvl210i-V72aVp6_gv9Annd2xwk95C2a6x7DINkPIUb_5Oe6_wigRXow>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrudekledgudduvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefuvfevfhfhkffffgggjggtgfesthejredttdefjeenucfhrhhomhepufgr
-    mhhuvghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqne
-    cuggftrfgrthhtvghrnhepffdtveekvdegkeeuueetgfetffeileevudekuefhheelvdfh
-    iedtheduhfduhefhnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
-    hfrhhomhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:aFLWYh8CFGvqNWiJWzxiC5Vt6NhPAIF7XZAH9X65dnkipd7JMbs7Dw>
-    <xmx:aFLWYouFRKTtdq2JgQI_Od2YAfDs4WyhMrWDf_yQu0RO2dhI3JW6eg>
-    <xmx:aFLWYoFaMqjCIwwPodOSUYyuX0M4Pwa5CDVTYDsnoFcNttyGDRUrUw>
-    <xmx:aVLWYpmQ03E4TCTDLhPkNsFEtU63dMqJGyfrV2UKJagozTsiNoV8tg>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 19 Jul 2022 02:42:47 -0400 (EDT)
-Subject: Re: [PATCH 2/2] clocksource: timer-riscv: Set CLOCK_EVT_FEAT_C3STOP
- based on DT property
-To: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Thomas Gleixner <tglx@linutronix.de>
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20220719054729.2224766-1-apatel@ventanamicro.com>
- <20220719054729.2224766-3-apatel@ventanamicro.com>
-From: Samuel Holland <samuel@sholland.org>
-Message-ID: <315d9850-e660-f71e-2321-b0684f7df950@sholland.org>
-Date: Tue, 19 Jul 2022 01:42:47 -0500
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	id 1oDhvx-0062jr-P0; Tue, 19 Jul 2022 07:46:24 +0000
+Received: from mail-yw1-f169.google.com ([209.85.128.169]) by
+ mrelayeu.kundenserver.de (mreue009 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1N8XHV-1nRdX60aYb-014Soz; Tue, 19 Jul 2022 09:46:17 +0200
+Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-31c89653790so131734347b3.13;
+        Tue, 19 Jul 2022 00:46:15 -0700 (PDT)
+X-Gm-Message-State: AJIora8yI/t1hSJ/OxZ7EpQfcerTRveEuwA7lKB2yqYLI8EWo4Zwz4HN
+	TnLtJVrLNCU0PPJPsK/x3yDWHat2fN1w078RvKg=
+X-Google-Smtp-Source: AGRyM1uMUiVIGFjzA5TwWJRveS7h+exlQBS7bP6K2zksjYwuZuF4ih7u9nFVzpOHSizyHdxkqT+sJR2F1c3sqVPvIcs=
+X-Received: by 2002:a81:1914:0:b0:31c:e12a:f33a with SMTP id
+ 20-20020a811914000000b0031ce12af33amr34887188ywz.209.1658216774978; Tue, 19
+ Jul 2022 00:46:14 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20220719054729.2224766-3-apatel@ventanamicro.com>
-Content-Language: en-US
+References: <20220717033453.2896843-1-shorne@gmail.com> <20220717033453.2896843-3-shorne@gmail.com>
+ <YtTjeEnKr8f8z4JS@infradead.org> <CAK8P3a1KJe4K5g1z-Faoxc9NhXqjCUWxnvk2HPxsj2wzG_iDbg@mail.gmail.com>
+ <CAAfxs740yz1vJmtFHOPTXT6fqi0+37SR_OhoGsONe4mx_21+_g@mail.gmail.com>
+In-Reply-To: <CAAfxs740yz1vJmtFHOPTXT6fqi0+37SR_OhoGsONe4mx_21+_g@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Tue, 19 Jul 2022 09:45:58 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a1Mo9+-t21rkP8SDnPrmbj3-uuVPtmHbeUerAevxN3TNw@mail.gmail.com>
+Message-ID: <CAK8P3a1Mo9+-t21rkP8SDnPrmbj3-uuVPtmHbeUerAevxN3TNw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] asm-generic: Add new pci.h and use it
+To: Stafford Horne <shorne@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Christoph Hellwig <hch@infradead.org>, 
+	LKML <linux-kernel@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	linux-csky@vger.kernel.org, linux-riscv <linux-riscv@lists.infradead.org>, 
+	linux-um <linux-um@lists.infradead.org>, linux-pci <linux-pci@vger.kernel.org>, 
+	linux-arch <linux-arch@vger.kernel.org>
+X-Provags-ID: V03:K1:7giq/taAA80iDrRGeytiiycaOr+J7mwbln189QJA9Qxq3gFQWEC
+ 5gGUSjlIu6CChqNtO/DirykqQztIS9O2xl+ga8P10jgKyVApL9o6UWlani3z7xrIYtkjiJ3
+ OcFb+Y0WeUIGX20bcUtGI1cqNNgJukLrDh8BZa6/e+FyYCZm4TAYCYpYugTkVC67KxBLMJK
+ jb5S8qNrkrGiGdBkGXMXA==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:4DaNf5TPFPQ=:heulTc26qqL2SFjOnCwxUx
+ jrP5IlWTvmv4h29w9pJtRj2zHyU3/hHGyI4mZOkEZj8+Bok0iRUzUXGaETR5jKgsJ7NqmqAId
+ z1X4z60cO8XZDLHMsoE72OrNj0P6bIHh7Bg9Opsqa/DuJACVAvxs+A7qiwZGQiR+PgMWMK2hH
+ CKNiT5ENJAOT3FINZd3GUU1YzSlxM7iKJDL/JBFX/WIi1Kuiwsa3dyfAOd2XNVXP5eMFJAHwh
+ Z2na2rDjkI1EDkCPa+NBRk6SC22niuCLCFAeYErxeDNDyYQnNZYj80CPwwLi7ZHJsepoD12Qp
+ yZ+j2VK6mdnmuBhiGBbbDEKt/ZtQnqup57eIBNeKBdqGFlBpQCm9L6XqB4aCY1JWs7Nkl96nO
+ XXoJU8XzprHgNhLhBkxT3LLubUZj17X6W/Fq9k+uWwN9bpCSleKgE0BGUvhLnuecsDMAncRhq
+ yJIA/ENGwxHCxf5skL810HjHHlAcHjpIGDPGbptXAA6r3bcPAHh0GGrLWZPOX6OEcNqF1+jCf
+ My9jM9O2F3vw4gHwpS94wnZCTiTJ667+UWechoww9ZwVh7lmI77SvSRD189P+c3HALSs/LbhM
+ baWyObkB0JKKgRSWObcKqYcIlKZMAKrDg1XznGeBFCS1EmBtwNAtDa3O9SoH4ExjTiqU1kYXn
+ a8rlGR8mKAR18EAoFuvCw4aJpcvpawWWMAQIUtf/+CBuSO2/llYkBe0a1hEIZMnZGINEmQOLa
+ /m3QzYBykurOZ7B1foR+32kPgn+L9xgBcsfYhFNRcywW5jDsK8tUg8PTzQQyxSwbu+K+FuMZp
+ yOfQbc6C9gAA+ZqfGonxdr5PZxKbNFyuGYqX7aNkjYK7Nbil6Tv0LuhJ2ir1gJW5wOOJD5952
+ LaW2j8/HUZQFLQPxyPfW41N9baRN7p9Hlsyvca/G4=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220718_234303_056161_A0753831 
-X-CRM114-Status: GOOD (  24.27  )
+X-CRM114-CacheID: sfid-20220719_004622_151997_23BD9B1D 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,75 +93,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Anup,
+On Tue, Jul 19, 2022 at 1:19 AM Stafford Horne <shorne@gmail.com> wrote:
+> On Mon, Jul 18, 2022, 3:56 PM Arnd Bergmann <arnd@arndb.de> wrote:
+>>
+>> As mentioned before, it would be even better to just remove it
+>> entirely from everything except x86, and enclose the four
+>> references in an explicit "#ifdef X86_32". The variable declaration
+>> only exists because drivers/pci/quirks.c is compiled on all
+>> architecture, but the individual quirk is only active  based on
+>> the PCI device ID of certain early PCI-ISA bridges.
+>
+>
+> Ok, I was thinking of that route but once I saw the pci device IDs I
+> wasn't so sure it was limited to x86.  I'll go ahead with that approach.
 
-On 7/19/22 12:47 AM, Anup Patel wrote:
-> We should set CLOCK_EVT_FEAT_C3STOP for a clock_event_device only when
-> riscv,timer-always-on DT property is not present for the corresponding
-> CPU.
+Ok, thanks!
 
-The timer maintaining its context (and continuing to count) during non-retentive
-CPU suspend is not sufficient to drop CLOCK_EVT_FEAT_C3STOP.
+I checked all the PCI IDs yesterday, and I'm fairly sure they are x86
+specific. While some related products are general-purpose PCI-ISA
+bridges that have shown up on mips or arm boards, the ones listed
+here should all be safe.
 
-Another requirement is that the timer interrupt is generated and routed outside
-the CPU's power/reset domain, to whatever hardware is responsible for turning
-the CPU back on. It does not matter if the timer interrupt fires, if that
-interrupt cannot wake up the CPU.
-
-So something closer to "riscv,timer-can-wake-cpu" would be a more accurate
-property name for how you are using it.
-
-And even then, that ability is a property of the SBI implementation, not just
-the hardware. In the motivating example for the flag (Allwinner D1), the CLINT
-cannot wake the CPU from reset, but the SoC contains other MMIO timers that can.
-So the capability of the SBI timer extension depends on which timer hardware the
-SBI implementation chooses to use. So I am not sure that the property belongs in
-the CPU node.
-
-Maybe it makes sense to report this capability via a function in the SBI timer
-extension?
-
-Regards,
-Samuel
-
-> This way CLOCK_EVT_FEAT_C3STOP feature is set for clock_event_device
-> based on RISC-V platform capabilities rather than having it set for
-> all RISC-V platforms.
-> 
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->  drivers/clocksource/timer-riscv.c | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> index 593d5a957b69..3015324f2b59 100644
-> --- a/drivers/clocksource/timer-riscv.c
-> +++ b/drivers/clocksource/timer-riscv.c
-> @@ -34,7 +34,7 @@ static int riscv_clock_next_event(unsigned long delta,
->  static unsigned int riscv_clock_event_irq;
->  static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
->  	.name			= "riscv_timer_clockevent",
-> -	.features		= CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_C3STOP,
-> +	.features		= CLOCK_EVT_FEAT_ONESHOT,
->  	.rating			= 100,
->  	.set_next_event		= riscv_clock_next_event,
->  };
-> @@ -65,9 +65,13 @@ static struct clocksource riscv_clocksource = {
->  static int riscv_timer_starting_cpu(unsigned int cpu)
->  {
->  	struct clock_event_device *ce = per_cpu_ptr(&riscv_clock_event, cpu);
-> +	struct device_node *np = of_get_cpu_node(cpu, NULL);
->  
->  	ce->cpumask = cpumask_of(cpu);
->  	ce->irq = riscv_clock_event_irq;
-> +	if (!of_property_read_bool(np, "riscv,timer-always-on"))
-> +		ce->features |= CLOCK_EVT_FEAT_C3STOP;
-> +	of_node_put(np);
->  	clockevents_config_and_register(ce, riscv_timebase, 100, 0x7fffffff);
->  
->  	enable_percpu_irq(riscv_clock_event_irq,
-> 
-
+         Arnd
 
 _______________________________________________
 linux-riscv mailing list
