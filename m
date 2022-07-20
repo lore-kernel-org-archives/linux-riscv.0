@@ -4,76 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D3C3C433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jul 2022 04:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F44C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jul 2022 09:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=tgBVUUNquZVt5PLTdQwA5vOiq9ds/JYlVap0Rr8n3fc=; b=fkWRhFS6LCmMu3k3lkoz6M+O1q
-	lTiZyxuHTfdrMYEjfaFSEAyQn54qOl6XMwb9OntRD+3Gyfty43Kn/V3wJM44jrCqAIlIIM4PCfpxn
-	5Y4q2ggxfg9VkExkbBDv44xLIhSRpV3liUA6Jblq5vqNeM53CT11x1o3+SGWw3CorqTr4+ur7BH/I
-	HVqQ3UNO18sszJ5gT58wl/cxkDq4AobqmhOyZMkprBjfMsk2S3+j9MgIUa66jBXtMyPQbcHZtTFSk
-	uNHpxyya+6FErGRIOjXmrtbovNGTNABLkh6RHUHFPO7jZjv2B64sG1jEV0A1Tkg3h0pib+63xMEGT
-	Bd/4Wrcw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=E9cZ5TYEtbCejgczRjETsvg6nenoLJyVWaP8fL7DsDQ=; b=I0AyhkRZvsHSS+
+	i05rk9VdpfmKGJF88+gfZrhDKAnJ4M5qbmFQlnEw4xxPbwnui+wKVS5za2844AVxP6DSbqOFoTaDP
+	uzBTTfxC4jzgjJ74lB/BGsU1g4HQ0LzDrYrH4T7I16lvcwAELv2/QMSpx1UYDJCYIj30GdhM3fqLJ
+	r0W4OiU5IdSqJ8CGv/8VmRCRuC6tPtDUnpIOM9dselafJyZBue05vnyQSZTL8wtPRXa5wAwqi6GiO
+	sNb9mgeQ50tq3yQCXe+dcgEEgLg+1/95dyrswV1kpyUPC8J2ezFe26dAtwj+aTRywnsNxfOM+jXSe
+	csdUf7hRvZ1HkUdHrcjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oE1c1-000Hwt-CV; Wed, 20 Jul 2022 04:47:05 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1oE5as-002yoF-Nr; Wed, 20 Jul 2022 09:02:10 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oE1bx-000HuZ-J7
-	for linux-riscv@lists.infradead.org; Wed, 20 Jul 2022 04:47:03 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id b133so11728230pfb.6
-        for <linux-riscv@lists.infradead.org>; Tue, 19 Jul 2022 21:46:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=VtF9+07gASHhrIu6wD3FN1xOsSjHByW20JZ9pcO8ds0=;
-        b=fjQHDQLqh1A1CvsX2jafefzTGE36QKfdh3Qilgur+BwmX5uXp/iLBU4QybnFkKJVmG
-         pNABvDJrsAlwuXpzvTuIT5usg1eR++fZZZDamrFa8h3thcwUlBZnsOBf1ZmrICn3YSTj
-         T0Kcbxh3rIDHWJhYw3iXXLT9ja0KNaFgSGnuvEtGxH4R/1Yh/BHxeozZpnxsnFbA1soR
-         CDjSmGCruHE6nPmvn3/nPRAo6knbDZsoTXhw1FiwBGAm7jrQynzd6Eef+IE5+7qEdZPq
-         F9/35voq1+L1YkK0ibuaWgdnaDue1kGCBYqcebE+hQUo1D55mIvHYG0osACVHYXl0rGL
-         uCag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=VtF9+07gASHhrIu6wD3FN1xOsSjHByW20JZ9pcO8ds0=;
-        b=VEGTH/vCZawcUi8iEsfvf4lbqt/QzcilQSGzE4UsjJepNcS5zLgQxSBJwdGiZ1FuFw
-         s0XDTWL3N/6KSDY+y0QG/9hDSxhLYznx8oRwhrTtsQGcsz9LcZ3EGAo7vcHYEkt76z6o
-         m+MW4MWjADb+mSHjAEvwoZVv533OFJWb3OluEBBEB7nBUsw4Z8od5dRTaEeaDN25BSIv
-         KUimSRkGdI6hEzCUl9FzaqEIANjza9+fxPwu4cYAQ5PJ+JXg3oSx5tO4UiaBRz9I6uDT
-         Pk05Gaoo6hsJRgPC0J2TVkHCvLr79Tiv+iIN7HouVFFFFOymCh3Y9vXs3ucEAshk2EDu
-         vrlA==
-X-Gm-Message-State: AJIora9xPGReBKfvoojumlALlMsPv08o38TjJBAnTwo8iGySsWNNL9Pb
-	rBEXtnPQdtjOYsqaj2owVAj3wA==
-X-Google-Smtp-Source: AGRyM1vlzCdD69HQD5gb1Q92kSqgBlWCPv0ppUY5psQ46BDf24I6J7L22UUFB0Qj3qfpd4QsIhj9Eg==
-X-Received: by 2002:a05:6a00:134e:b0:52a:d5b4:19bb with SMTP id k14-20020a056a00134e00b0052ad5b419bbmr37009701pfu.45.1658292417692;
-        Tue, 19 Jul 2022 21:46:57 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id i5-20020a17090a4b8500b001f0097c2fb2sm481628pjh.28.2022.07.19.21.46.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 19 Jul 2022 21:46:56 -0700 (PDT)
-Date: Tue, 19 Jul 2022 21:46:56 -0700 (PDT)
-X-Google-Original-Date: Tue, 19 Jul 2022 21:16:19 PDT (-0700)
-Subject: Re: [PATCH V3 0/5] Support for 64bit hartid on RV64 platforms
-In-Reply-To: <20220527051743.2829940-1-sunilvl@ventanamicro.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  daniel.lezcano@linaro.org, tglx@linutronix.de, ardb@kernel.org, Marc Zyngier <maz@kernel.org>,
-  Atish Patra <atishp@rivosinc.com>, heinrich.schuchardt@canonical.com, apatel@ventanamicro.com,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org, sunil.vl@gmail.com,
-  sunilvl@ventanamicro.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: sunilvl@ventanamicro.com
-Message-ID: <mhng-4c49edf1-6367-4dd0-bec7-c6719745ecb5@palmer-mbp2014>
-Mime-Version: 1.0 (MHng)
+	id 1oE5aq-002yg5-3j
+	for linux-riscv@lists.infradead.org; Wed, 20 Jul 2022 09:02:09 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1oE5aZ-0007ol-4C; Wed, 20 Jul 2022 11:01:51 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: linux-kernel@vger.kernel.org, Randy Dunlap <rdunlap@infradead.org>
+Cc: Randy Dunlap <rdunlap@infradead.org>, Wei Fu <wefu@redhat.com>, Liu Shaohua <liush@allwinnertech.com>, Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] riscv: fix RISCV_ISA_SVPBMT kconfig dependency warning
+Date: Wed, 20 Jul 2022 11:01:50 +0200
+Message-ID: <2638366.mvXUDI8C0e@diego>
+In-Reply-To: <20220709014929.14221-1-rdunlap@infradead.org>
+References: <20220709014929.14221-1-rdunlap@infradead.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220719_214701_852826_0A5CE8C6 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20220720_020208_177372_FC279073 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,50 +54,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 26 May 2022 22:17:38 PDT (-0700), sunilvl@ventanamicro.com wrote:
-> The hartid can be a 64bit value on RV64 platforms. This series updates
-> the code so that 64bit hartid can be supported on RV64 platforms.
->
-> The series has been tested on both RV32 and RV64 qemu platforms.
->
-> Changes since V2:
-> 	1) Modified commit messages to mention RV64 and add RB tags.
->
-> Changes since V1:
-> 	1) Updated RB tag for PATCH 1 and PATCH3
-> 	2) Type Casting NR_CPUS before comparing with hartid in PATCH 2
-> 	3) Changed commit message of PATCH 2 to provide details about
-> 	   the bug it is fixing.
-> 	4) Updated PATCH 5 for unaligned 64bit read
->
->
-> Sunil V L (5):
->   riscv: cpu_ops_sbi: Add 64bit hartid support on RV64
->   riscv: spinwait: Fix hartid variable type
->   riscv: smp: Add 64bit hartid support on RV64
->   riscv: cpu: Add 64bit hartid support on RV64
->   riscv/efi_stub: Add 64bit boot-hartid support on RV64
->
->  arch/riscv/include/asm/processor.h        |  4 ++--
->  arch/riscv/include/asm/smp.h              |  4 ++--
->  arch/riscv/kernel/cpu.c                   | 26 +++++++++++++----------
->  arch/riscv/kernel/cpu_ops_sbi.c           |  4 ++--
->  arch/riscv/kernel/cpu_ops_spinwait.c      |  4 ++--
->  arch/riscv/kernel/cpufeature.c            |  6 ++++--
->  arch/riscv/kernel/smp.c                   |  4 ++--
->  arch/riscv/kernel/smpboot.c               |  9 ++++----
->  drivers/clocksource/timer-riscv.c         | 15 +++++++------
->  drivers/firmware/efi/libstub/riscv-stub.c | 13 +++++++++---
->  drivers/irqchip/irq-riscv-intc.c          |  7 +++---
->  drivers/irqchip/irq-sifive-plic.c         |  7 +++---
->  12 files changed, 60 insertions(+), 43 deletions(-)
+Am Samstag, 9. Juli 2022, 03:49:29 CEST schrieb Randy Dunlap:
+> RISCV_ISA_SVPBMT selects RISCV_ALTERNATIVE which depends on !XIP_KERNEL.
+> Therefore RISCV_ISA_SVPBMT should also depend on !XIP_KERNEL so
+> quieten this kconfig warning:
+> 
+> WARNING: unmet direct dependencies detected for RISCV_ALTERNATIVE
+>   Depends on [n]: !XIP_KERNEL [=y]
+>   Selected by [y]:
+>   - RISCV_ISA_SVPBMT [=y] && 64BIT [=y] && MMU [=y]
+> 
+> Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> Cc: Wei Fu <wefu@redhat.com>
+> Cc: Liu Shaohua <liush@allwinnertech.com>
+> Cc: Guo Ren <guoren@kernel.org>
+> Cc: Heiko Stuebner <heiko@sntech.de>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: linux-riscv@lists.infradead.org
 
-Thanks, this is on for-next.
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
