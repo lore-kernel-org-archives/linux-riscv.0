@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58197CCA485
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jul 2022 19:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4351ECCA487
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jul 2022 19:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=errLoNqTxjGdC4JOOTJwbYyY6O/POXKf4fucZkKgsog=; b=Lj05Qbb5i+N27o
-	W6hfxLBeyms1cVBLi1wb6KR997nynpGzS4ndTBBGamRNGaBF2cR8GWEr5L5yGo6tumR0X/nLQ6Dwf
-	HSyI8OU1KEknPFh8f5w74UqnSkbnVL5H8An8Ynq/Z1LTEr1HbTgHB5xNWulQK18i3p7piiWNtRpaq
-	FeseggTNHLb5N0+aEb6g4QjZutMALBud4iulycxk/dUgNA6Tw3w2MJGG4DH8J8PAkbUGTOl5YhBKB
-	X5vG+ERm0MfisdJml+p2YluqV8y+jr/g97Wl7Em+vlpc9N8qSk2OyNENYpG2J4CKELPxTkTOXDDQX
-	kIvBUJ7rTNi+eRwGeOPQ==;
+	List-Owner; bh=QKEpZ6PXCIIn/xfVSOOYu2Hf+Xt5gQXxKjfifTE64BY=; b=tWXBiEsedyCPJ9
+	5WVdoUJ/9MZmzD+HEIfKP0qfoEWZMjiJlIrDjNTkRDa+BoEGf5dJhQv/psdDtcp1994YuTrKBByet
+	Es957/2YAOSc0cSkbxnijuo1gnLiSYxvrMOvbuJqVVHH6QfxcPtAXujmkpq2bI3NKKChwluFWp66y
+	mf98QMEnu5woo600DiLNfH3sEE0pcYv1F4wgY1zRE3X3YEhRnmR21rS+WoERr4trS2nOSrM0NNK5U
+	p1+whNy2FJPqoAlgoU3GrGCI7QSzkWTE5Geq/8LbbA0/mhufWAw06wwepIzwuKPoS/CmL7B4li0r7
+	E/8JF7I/mLJQz43nnlHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEFIj-009oVN-70; Wed, 20 Jul 2022 19:24:05 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1oEFIf-009oOu-LD; Wed, 20 Jul 2022 19:24:01 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEFIc-009oHJ-ND
-	for linux-riscv@lists.infradead.org; Wed, 20 Jul 2022 19:24:00 +0000
-Received: by mail-pg1-x535.google.com with SMTP id h132so17257628pgc.10
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Jul 2022 12:23:56 -0700 (PDT)
+	id 1oEFIZ-009oDu-Nj
+	for linux-riscv@lists.infradead.org; Wed, 20 Jul 2022 19:23:58 +0000
+Received: by mail-pl1-x632.google.com with SMTP id c6so15861762pla.6
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Jul 2022 12:23:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=from:to:cc:subject:date:message-id:in-reply-to:references
          :mime-version:content-transfer-encoding;
-        bh=k7oAEso24XUyiMu0RhEG3Nlz67s2VkRn8qN/IYX5xGk=;
-        b=sY9xzDFI9X3wzme+LId9I8R9+tn4yaAMLQpEbWaQ3yG2PQ5DtSBnecKXDC1IFimX6t
-         K/qY0qg/2psalruNjlEzf0CEI1o2HccaVgkbFwMlwJj8LXADl7lxeiKjvIzcYUI8q5uJ
-         ttyGd73sE3NX1DqDjAytZoQjw4rUEo0+iIqu765dNAOiICi/0wbNDYOGnMYM7Idiw+f9
-         dxI0O1CY6sfcSs5MWgNo9pDebidl7EyZEPDZa3unG5xPqkvDeJRoKSNwIckNUA+nvsiS
-         kQry5184T2awXHtc9U47ggv3Fvs0JXytLLjZ9uJzG/lLzy5sXq+hstOnl5ywDIiGBreq
-         hYWw==
+        bh=Z3XlA8t9TDZtl4uJYv9cJwWL/SPmBlhXJhsAi+NFr/o=;
+        b=iGs/G8Fk8ICWu/8fkztpMX5VcYaKBChHqfCs1g5Yp+fv5KwxH+DRPv+4Cn9Le5g9hq
+         5g2I2tD2ixzrPbpgPQSJSEcBaa1BeEyrnJ+uyosHqPFaWgXDfL2YVrSv3v/NtEukLPuW
+         RCVHM/eSjFmbUh1z9d2RCywE+GRiF6jYxX2Dv0ppyXm4qaCZ498dXsnvvt428KcKUzlg
+         bnmpjbxCLgFb851k+iBmTb02jv5bwsI8tB1hKW24E867I8ebe4Sm1ETvxpJ01mDEQIJG
+         R0Sbj2sgj5wCd2H6wstT6sWfqMUoXQ3UZlOVdFy3okYNSStxgxE4GEN5XOeIfpk4LsTD
+         /M2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
          :references:mime-version:content-transfer-encoding;
-        bh=k7oAEso24XUyiMu0RhEG3Nlz67s2VkRn8qN/IYX5xGk=;
-        b=CmHpGLAmBDYPpjMAnfNHgR2mthMKOoDDBrLVnLfW9lE2HWfNJLRtx7UUP4MpgMercZ
-         XZd/lV32Mz3LkDthMMWHypjTJtTg3XrOpaVNagynDnYcUsCx1KjTL7v57jXnYHI9YL9H
-         GGmuxyVLtOGAZCwno1+DoqQUgpiiogSyi+JlaJTatvOEZem32AXVn5iiEPDef49qDfoG
-         NrOZLeAHBhvYG861eKe/zaagQnIo+08V4P9r72Yo53tSNLaBLlfHruzC1ebx6wZxcWcg
-         Wco36Qsn9Zfkmcpqv5DyMe5sig6Bc05FUFG/Jz7Tn7yGMyKSLCw3GgB/3z3drGfJ5+IJ
-         v4JA==
-X-Gm-Message-State: AJIora+Y0gL1+6pZuIVMGuqrw/zlBvS7kB+tN9hnkOXgQSzGQu/ioN1J
-	p9WrSFt0ri9z7Hj0re/a6W1m3w==
-X-Google-Smtp-Source: AGRyM1u3GnXaQ/dPKAAkFwq7+MPBAz7n0FxebmLk2pgdq9YV976oddbOqJyDP0CBIXa4PDlmreA76w==
-X-Received: by 2002:a65:4501:0:b0:3fc:4895:283b with SMTP id n1-20020a654501000000b003fc4895283bmr35712773pgq.231.1658345035855;
-        Wed, 20 Jul 2022 12:23:55 -0700 (PDT)
+        bh=Z3XlA8t9TDZtl4uJYv9cJwWL/SPmBlhXJhsAi+NFr/o=;
+        b=ka0afBUhtdQvtpZILxT56uySp/B0dxyD1ABDAk2x006xK9KPg1LCmrl45n5e19xPYn
+         jCnhmKB8Qnn7ffs3hhdwhMweUDD++JDqTCaMX9ilretrwbicK8GwmdOaxLT2yDTmW6Ir
+         MiU4yudRt7AtqowMZCD25AFKeReCVvnYDmrHQjUVlnAoYbOLKbu/P4DzBvwWeM2It3Pt
+         KqHRdWS5uFUh7AQKzAXwssxoZLrY2bLRSKV4ASBSvoMigGaEZEKKAEeipZxixtjzMei3
+         2Y0qHqYf2VglMGurrK+I9OklzEreTDE350Agag4qfPDf8DW//X9W5dntyuympgXdjQtE
+         faIg==
+X-Gm-Message-State: AJIora8UoozhrbWvtnmL8ZU/lkvW6n58fvXHD6x8xgVr+N1+qbQxjiN7
+	RO2VyNqc7k21w+MIjc6h7p0ypA==
+X-Google-Smtp-Source: AGRyM1uO6DuNqM2Sqju5yNtntBjmlH8f8n/3L/OrpS4Iy1m8+BKt/id8mOYe3xVwttvCP45QG4aMPw==
+X-Received: by 2002:a17:902:d2d1:b0:16c:223e:a3db with SMTP id n17-20020a170902d2d100b0016c223ea3dbmr40728628plc.37.1658345032791;
+        Wed, 20 Jul 2022 12:23:52 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([66.220.2.162])
-        by smtp.gmail.com with ESMTPSA id y23-20020a17090264d700b0016d2e772550sm219902pli.175.2022.07.20.12.23.54
+        by smtp.gmail.com with ESMTPSA id y23-20020a17090264d700b0016d2e772550sm219902pli.175.2022.07.20.12.23.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Jul 2022 12:23:55 -0700 (PDT)
+        Wed, 20 Jul 2022 12:23:52 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
 To: linux-kernel@vger.kernel.org
 Cc: Atish Patra <atishp@rivosinc.com>,
@@ -79,16 +79,17 @@ Cc: Atish Patra <atishp@rivosinc.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Tsukasa OI <research_trasio@irq.a4lg.com>,
 	Wei Fu <wefu@redhat.com>
-Subject: [PATCH v5 3/4] RISC-V: Prefer sstc extension if available
-Date: Wed, 20 Jul 2022 12:23:41 -0700
-Message-Id: <20220720192342.3428144-4-atishp@rivosinc.com>
+Subject: [PATCH v5 1/4] RISC-V: Add SSTC extension CSR details
+Date: Wed, 20 Jul 2022 12:23:39 -0700
+Message-Id: <20220720192342.3428144-2-atishp@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220720192342.3428144-1-atishp@rivosinc.com>
 References: <20220720192342.3428144-1-atishp@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220720_122358_909226_AD176A5F 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20220720_122355_805251_C6CAFBFB 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,70 +106,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V ISA has sstc extension which allows updating the next clock event
-via a CSR (stimecmp) instead of an SBI call. This should happen dynamically
-if sstc extension is available. Otherwise, it will fallback to SBI call
-to maintain backward compatibility.
+This patch just introduces the required CSR fields related to the
+SSTC extension.
 
 Reviewed-by: Anup Patel <anup@brainfault.org>
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- drivers/clocksource/timer-riscv.c | 24 +++++++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/csr.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 593d5a957b69..3f100fb53d82 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -7,6 +7,9 @@
-  * either be read from the "time" and "timeh" CSRs, and can use the SBI to
-  * setup events, or directly accessed using MMIO registers.
-  */
-+
-+#define pr_fmt(fmt) "riscv-timer: " fmt
-+
- #include <linux/clocksource.h>
- #include <linux/clockchips.h>
- #include <linux/cpu.h>
-@@ -23,11 +26,24 @@
- #include <asm/sbi.h>
- #include <asm/timex.h>
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 17516afc389a..0e571f6483d9 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -247,6 +247,9 @@
+ #define CSR_SIP			0x144
+ #define CSR_SATP		0x180
  
-+static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
++#define CSR_STIMECMP		0x14D
++#define CSR_STIMECMPH		0x15D
 +
- static int riscv_clock_next_event(unsigned long delta,
- 		struct clock_event_device *ce)
- {
-+	u64 next_tval = get_cycles64() + delta;
-+
- 	csr_set(CSR_IE, IE_TIE);
--	sbi_set_timer(get_cycles64() + delta);
-+	if (static_branch_likely(&riscv_sstc_available)) {
-+#if defined(CONFIG_32BIT)
-+		csr_write(CSR_STIMECMP, next_tval & 0xFFFFFFFF);
-+		csr_write(CSR_STIMECMPH, next_tval >> 32);
-+#else
-+		csr_write(CSR_STIMECMP, next_tval);
-+#endif
-+	} else
-+		sbi_set_timer(next_tval);
-+
- 	return 0;
- }
+ #define CSR_VSSTATUS		0x200
+ #define CSR_VSIE		0x204
+ #define CSR_VSTVEC		0x205
+@@ -256,6 +259,8 @@
+ #define CSR_VSTVAL		0x243
+ #define CSR_VSIP		0x244
+ #define CSR_VSATP		0x280
++#define CSR_VSTIMECMP		0x24D
++#define CSR_VSTIMECMPH		0x25D
  
-@@ -165,6 +181,12 @@ static int __init riscv_timer_init_dt(struct device_node *n)
- 	if (error)
- 		pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
- 		       error);
-+
-+	if (riscv_isa_extension_available(NULL, SSTC)) {
-+		pr_info("Timer interrupt in S-mode is available via sstc extension\n");
-+		static_branch_enable(&riscv_sstc_available);
-+	}
-+
- 	return error;
- }
- 
+ #define CSR_HSTATUS		0x600
+ #define CSR_HEDELEG		0x602
 -- 
 2.25.1
 
