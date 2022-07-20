@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF15FC433EF
-	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jul 2022 15:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76235C433EF
+	for <linux-riscv@archiver.kernel.org>; Wed, 20 Jul 2022 15:24:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HBbZ9RbNuffgyYFI49bEiK0E7PhKTb1lxUcXQuihmBM=; b=t5xwFZVSSg2IUf
-	SrdskQxEw5PZtH/gFWAmbLOckeJxnjPjgkx08BwLkjbezN9ElPu1pDZcXQhNSXUBjbNe8+xPhQg7A
-	hZLQXGCmhDGw+Hb36195LPtlckWqpMnxCVQd9pkHmaWbDrjrMaCsQPec0Da2I6DCH1Wjswxjo1Fzj
-	cQZwupG5qcpYh8yEVkue0VRmqRYD/r7ltIz7EgxM0k0zAywo15BLRX3UBXasoa7uNrGA4RC1aTNT7
-	0pitu/fIl/b6QIg6l1jjvJNVnNZHER3rW8tHL2NdIkLRWgCsiJKwuBEkzvOaC1j3iQrRYKkybI3+2
-	El57lOhtibVGVpA2j8nA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EjlZpKTHI6aW5IiBlVdFHEAb9+moUWn1ap5yySvJaWE=; b=xdG5wAxfFfl7o4
+	F4cbqRXOhcNzARICSuHEn/IGpDULwpeQa5pfUjBnXNCRIa4C7tGFjKUDGTdwINaqeDJY68PIC3zVM
+	eYCgIm6Uot7ENvafalJNQI/QxPXuRKjM5m0SQonBRSy6WntWlBZKwb3P9yPqP6IGPuVfXcF9c+v0m
+	Yx2ZoxDk5kjV4A2WsWTtZ2oRP4avCMy7OXGGV2hP60C1Ik4JiPCYKyhVeD7h1o3lzUe6c8U3aWth0
+	NpEOqF+gryTZ1K3rt4i3MkXgTrRuUcCvYlzwXxIX4oHIjqoZFZjKPaMTSX0ST6Jv5CW9m0+7MeEJQ
+	nTpqny2sdr8geJaTPWpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEBYq-007WGP-RJ; Wed, 20 Jul 2022 15:24:28 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1oEBYu-007WKV-Co; Wed, 20 Jul 2022 15:24:32 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEBYo-007WDF-0D
-	for linux-riscv@lists.infradead.org; Wed, 20 Jul 2022 15:24:27 +0000
-Received: by mail-pl1-x630.google.com with SMTP id k16so497857pls.8
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Jul 2022 08:24:23 -0700 (PDT)
+	id 1oEBYr-007WG2-Ul
+	for linux-riscv@lists.infradead.org; Wed, 20 Jul 2022 15:24:31 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id o18so3894257pjs.2
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Jul 2022 08:24:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=EHwhUmqnsj8HFUypS9rHK25Hx/gKDzV2R3u+QfRiaMw=;
-        b=hzEFXSBuSMgMbFZCf9M8Of8vt+XWPvlwgPldLZpxECiof0cHErJf12FlamvqlHCITP
-         kRqoD9rmOjne2RWom0AizCBgGptCe7oLnpBjfF96IP6hAi32xqTRfs+6FJYopD2Yr+Kl
-         5CN474gWYkk+p74H64MSNnt+xP9bimiiks4TfA8R7uuOgWGZJKsRFoO9JlZ1uz53mkrH
-         YnhB4WpPmWIOl9oJy5MCR049MXiLQKzTKT925LFxJMuAsPPZ422s7FW0tKg+Ruieds6B
-         w6XadtOABCMqna95ztZj+yM7eneiMB2plMc2pegDKEPdtMdvUIhgjj3jklBeceJ7/fyf
-         Aksw==
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=qHl3w50eHPbDg8ZW9/eV6YU7JVWrKk8VX9CvtFNZ+jA=;
+        b=CRupW9tTNawaIQTrxX8Gz790wRJKCLMsKZHqI4BYN6FTc/X1mqQ53iS5jjJT545EKa
+         knnqpNlH1IJn1r0oT/mGT7ID0LMZt/hPrOEDFWXGxLJcAgrA+GTjyOSFe5oEAA1zmxGq
+         qiG0H+7DcalIICdNFdMBc5b/mgfhXD8ESWbLk1YSsEQ6PUcPoZ3/UpJd6wnsJfhiSLFU
+         OTEZDuunttdQhu8chXvv5I46P6m4Cwa4cS38gBgbFijPruzGiq5yQPuc1AQOYDF70tyR
+         0SCFQsO4M1P4iiMUEQxiQBKGw4lVPr0tAcS19wMRx6CqjEA44zD61MAi73klmTNSba5C
+         N4mA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=EHwhUmqnsj8HFUypS9rHK25Hx/gKDzV2R3u+QfRiaMw=;
-        b=XcRwdrJmTGYgTXngDlZ09GUS4ilYl8LKaYxQ6MIVxfzgkpeWr2ylESsWm1GL+pHxQL
-         U1KKKvHJIYwAfRTIG/ocvNbOwimu7ekSF9e94ms+SsfeZ+qSMMvt77IuasyJ6kR7cKZF
-         lCO8rCFOkjmRG1E+hYVY0VHfq4nwk49Ej6njWI+wawwCR2we6iPwxzXCgx59oXlS2rrg
-         39VY2vrBKCDYZcXULgctQHPPTW+5W4FMut8LGW4I4crkF6259MF991bCxy4HNpjZz7J2
-         0OjnaVHG0sSt516eqrdVhz5zqqN1cwl3H5itdUqgbN1LDJ2dospNOiWygyaZIoW2ly4h
-         ykIw==
-X-Gm-Message-State: AJIora/CCoD2kG3bZnwqwJtVJDTPdCaP5HCDhZHZiIkMGJWxISna8CDo
-	ffUsZLjHO47fwfQFpOLLgoNDdw==
-X-Google-Smtp-Source: AGRyM1sCgYiniSpfKT8i8KggkBICG8BAIhcO4Q+48uVLRhVcZhWtkN4L21+uKdniDfLs00cXy7XEBg==
-X-Received: by 2002:a17:90b:4b81:b0:1ef:cd2c:bf2e with SMTP id lr1-20020a17090b4b8100b001efcd2cbf2emr5933583pjb.137.1658330662853;
-        Wed, 20 Jul 2022 08:24:22 -0700 (PDT)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:content-transfer-encoding;
+        bh=qHl3w50eHPbDg8ZW9/eV6YU7JVWrKk8VX9CvtFNZ+jA=;
+        b=GQrNrRzlR/synJmxNruC1SkFIuJushR12wJwjs/2CyZQuLGfrX7H90Q4YFCfGVGLzm
+         u1MmWtv+FSoUNGwR8LcSafmcLPWGPMeGxfbw5SGaV487sumTeeJeKp+GtFqPbR8EvGTx
+         UHLAlU2R9MqAn3vqbFQF2qGDT6BQEeKRiUyvycOdF+mULJL2Gr7mV1cGA7L+ygoprG8c
+         Gt91zKHRcBKCcubVsl7uDosfV7lKBR9lcfRiB5XKaH3TxAI1L6grPcJXM6vzI3QwWvyi
+         /AadpCDJm5LGAqkv3IwzXu8+lkyaOVyLpfIV0dlLAwm5ewPymCYTUPY07EFAJQu7sY48
+         Vbnw==
+X-Gm-Message-State: AJIora8dbKnRbTh38qiD2AtBQm5NQ2/AAplVAeTf0WFlcifrAu+6dY5X
+	wQ9GpG6u2uE1LKzlMcNrC1UbdA==
+X-Google-Smtp-Source: AGRyM1vb6D/rdAEnHi7mvaOCx/awuQho72gqkUgQnU7xQI4Im1bHybG17U2f/wflrhirS5zSlkZMcA==
+X-Received: by 2002:a17:90a:6404:b0:1f1:f935:7878 with SMTP id g4-20020a17090a640400b001f1f9357878mr5918503pjj.218.1658330666925;
+        Wed, 20 Jul 2022 08:24:26 -0700 (PDT)
 Received: from anup-ubuntu64-vm.. ([122.179.42.230])
-        by smtp.gmail.com with ESMTPSA id w15-20020a1709026f0f00b0016cf8f0bdd5sm6013031plk.108.2022.07.20.08.24.19
+        by smtp.gmail.com with ESMTPSA id w15-20020a1709026f0f00b0016cf8f0bdd5sm6013031plk.108.2022.07.20.08.24.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Jul 2022 08:24:22 -0700 (PDT)
+        Wed, 20 Jul 2022 08:24:26 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -69,15 +69,18 @@ Cc: Atish Patra <atishp@atishpatra.org>,
 	Anup Patel <anup@brainfault.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v7 0/7] RISC-V IPI Improvements
-Date: Wed, 20 Jul 2022 20:53:41 +0530
-Message-Id: <20220720152348.2889109-1-apatel@ventanamicro.com>
+	Anup Patel <apatel@ventanamicro.com>,
+	Bin Meng <bmeng.cn@gmail.com>
+Subject: [PATCH v7 1/7] RISC-V: Clear SIP bit only when using SBI IPI operations
+Date: Wed, 20 Jul 2022 20:53:42 +0530
+Message-Id: <20220720152348.2889109-2-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20220720152348.2889109-1-apatel@ventanamicro.com>
+References: <20220720152348.2889109-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220720_082426_066640_28E2DA59 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20220720_082430_015258_89828ACD 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,96 +97,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series aims to improve IPI support in Linux RISC-V in following ways:
- 1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
-    specific hooks. This also makes Linux RISC-V IPI support aligned with
-    other architectures.
- 2) Remote TLB flushes and icache flushes should prefer local IPIs instead
-    of SBI calls whenever we have specialized hardware (such as RISC-V AIA
-    IMSIC and RISC-V SWI) which allows S-mode software to directly inject
-    IPIs without any assistance from M-mode runtime firmware.
+The software interrupt pending (i.e. [M|S]SIP) bit is writeable for
+S-mode but read-only for M-mode so we clear this bit only when using
+SBI IPI operations.
 
-These patches were originally part of the "Linux RISC-V ACLINT Support"
-series but this now a separate series so that it can be merged independently
-of the "Linux RISC-V ACLINT Support" series.
-(Refer, https://lore.kernel.org/lkml/20211007123632.697666-1-anup.patel@wdc.com/)
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+---
+ arch/riscv/kernel/sbi.c | 8 +++++++-
+ arch/riscv/kernel/smp.c | 2 --
+ 2 files changed, 7 insertions(+), 3 deletions(-)
 
-These patches are also a preparatory patches for the up-coming:
- 1) Linux RISC-V AIA support
- 2) KVM RISC-V TLB flush improvements
- 3) Linux RISC-V SWI support
-
-These patches can also be found in riscv_ipi_imp_v7 branch at:
-https://github.com/avpatel/linux.git
-
-Changes since v6:
- - Rebased on Linux-5.19-rc7
- - Added documentation for struct ipi_mux_ops in PATCH3
- - Dropped dummy irq_mask()/unmask() in PATCH3
- - Added const for "ipi_mux_chip" in PATCH3
- - Removed "type" initialization from ipi_mux_domain_alloc() in PATCH3
- - Dropped translate() from "ipi_mux_domain_ops" in PATCH3
- - Improved barrier documentation in ipi_mux_process() of PATCH3
- - Added percpu check in ipi_mux_create() for parent_virq of PATCH3
- - Added nr_ipi parameter in ipi_mux_create() of PATCH3
-
-Changes since v5:
- - Rebased on Linux-5.18-rc3
- - Used kernel doc style in PATCH3
- - Removed redundant loop in ipi_mux_process() of PATCH3
- - Removed "RISC-V" prefix form ipi_mux_chip.name of PATCH3
- - Removed use of "this patch" in PATCH3 commit description
- - Addressed few other nit comments in PATCH3
-
-Changes since v4:
- - Rebased on Linux-5.17
- - Includes new PATCH3 which adds mechanism to multiplex a single HW IPI
-
-Changes since v3:
- - Rebased on Linux-5.17-rc6
- - Updated PATCH2 to not export riscv_set_intc_hwnode_fn()
- - Simplified riscv_intc_hwnode() in PATCH2
-
-Changes since v2:
- - Rebased on Linux-5.17-rc4
- - Updated PATCH2 to not create synthetic INTC fwnode and instead provide
-   a function which allows drivers to directly discover INTC fwnode
-
-Changes since v1:
- - Use synthetic fwnode for INTC instead of irq_set_default_host() in PATCH2
-
-Anup Patel (7):
-  RISC-V: Clear SIP bit only when using SBI IPI operations
-  irqchip/riscv-intc: Allow drivers to directly discover INTC hwnode
-  genirq: Add mechanism to multiplex a single HW IPI
-  RISC-V: Treat IPIs as normal Linux IRQs
-  RISC-V: Allow marking IPIs as suitable for remote FENCEs
-  RISC-V: Use IPIs for remote TLB flush when possible
-  RISC-V: Use IPIs for remote icache flush when possible
-
- arch/riscv/Kconfig                |   2 +
- arch/riscv/include/asm/irq.h      |   4 +
- arch/riscv/include/asm/sbi.h      |   2 +
- arch/riscv/include/asm/smp.h      |  51 +++++---
- arch/riscv/kernel/Makefile        |   1 +
- arch/riscv/kernel/cpu-hotplug.c   |   3 +-
- arch/riscv/kernel/irq.c           |  21 +++-
- arch/riscv/kernel/sbi-ipi.c       |  60 +++++++++
- arch/riscv/kernel/sbi.c           |  11 --
- arch/riscv/kernel/smp.c           | 167 +++++++++++++------------
- arch/riscv/kernel/smpboot.c       |   5 +-
- arch/riscv/mm/cacheflush.c        |   5 +-
- arch/riscv/mm/tlbflush.c          |  93 +++++++++++---
- drivers/clocksource/timer-clint.c |  41 ++++--
- drivers/irqchip/irq-riscv-intc.c  |  60 ++++-----
- include/linux/irq.h               |  16 +++
- kernel/irq/Kconfig                |   4 +
- kernel/irq/Makefile               |   1 +
- kernel/irq/ipi-mux.c              | 199 ++++++++++++++++++++++++++++++
- 19 files changed, 579 insertions(+), 167 deletions(-)
- create mode 100644 arch/riscv/kernel/sbi-ipi.c
- create mode 100644 kernel/irq/ipi-mux.c
-
+diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+index 775d3322b422..fc614650a2e3 100644
+--- a/arch/riscv/kernel/sbi.c
++++ b/arch/riscv/kernel/sbi.c
+@@ -643,8 +643,14 @@ static void sbi_send_cpumask_ipi(const struct cpumask *target)
+ 	sbi_send_ipi(target);
+ }
+ 
++static void sbi_ipi_clear(void)
++{
++	csr_clear(CSR_IP, IE_SIE);
++}
++
+ static const struct riscv_ipi_ops sbi_ipi_ops = {
+-	.ipi_inject = sbi_send_cpumask_ipi
++	.ipi_inject = sbi_send_cpumask_ipi,
++	.ipi_clear = sbi_ipi_clear
+ };
+ 
+ void __init sbi_init(void)
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index b5d30ea92292..6fd8b3cbec1b 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -89,8 +89,6 @@ void riscv_clear_ipi(void)
+ {
+ 	if (ipi_ops && ipi_ops->ipi_clear)
+ 		ipi_ops->ipi_clear();
+-
+-	csr_clear(CSR_IP, IE_SIE);
+ }
+ EXPORT_SYMBOL_GPL(riscv_clear_ipi);
+ 
 -- 
 2.34.1
 
