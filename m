@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 697E0C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 16:03:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA9CC433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 17:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=o0wrz7TwR6oebcGLpY8WG1tztGDPLywLwekgqRy+Z+8=; b=5BPTz+Bdu1tKC6
-	CbIu9oeil/mWY/8UiItUp0NltB4B7XkUlUnb/G/jnVi5XR+fGu61pUjGNgYJVC8s1lsher+IkJFyq
-	Ycj94kfNI6Q2oMWTz4Vo3CyVEAlu7LLzX/xbWjSuQQQf6GmrUcOjFy7sMCHMpxsJWrXJVC4TQ7o0V
-	OwA/TTVqNRCsFDhDXkmY/NNlPuI+Zr6qkiEqpE9IWCFQutTeKde+8fndno3hmlqbM7DvdzcptaejQ
-	6/7l9kAVEpkr+la3ctC4lOJQJOYK8hHc96ukfP7HA764StzeAOdTG/uBCBK/r3GOxcGP3AXvwqKoM
-	9olq9S9wsEyHi06lKJdg==;
+	List-Owner; bh=gshEyq3YBs020pIYp8PWESeVTdK6d7oSGO4aD1/Eegw=; b=cRpg2yeMdeMZ/8
+	8j29flBSfO2BlJtvQU9FPzpTaGVHeJL1mzVBhXLYmbgMoP8QUpDWxvsRwWZ0aT+0nvpnPLHfjjb58
+	lP39Ej0zfQibpjKQFnF/us5rjDIfPZ5OOaa1vJ7LeBleIP0JB0WUTxnekkgZ/3UNiUAaU1dHpJebB
+	2hTlJItLIkVDlSQJu5sYi1OE91PZz5nWEMdHNd+j3zBxElune6G7bcaUH4X4OvyGP4axMmKycX6k4
+	RDTdeCF4MziOPusyhEh+7acjCljRuH4AEUVQcZzvugHgspA5uvRr3llZMYonBjjG6iXkHudAyGTMi
+	/hr78gm4WlAnL9oQghuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEYda-009Vs4-Fq; Thu, 21 Jul 2022 16:02:54 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1oEZrg-00Afzj-7j; Thu, 21 Jul 2022 17:21:32 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEYdX-009Vr5-BL
-	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 16:02:52 +0000
-Received: by mail-lf1-x134.google.com with SMTP id bp17so3519725lfb.3
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Jul 2022 09:02:50 -0700 (PDT)
+	id 1oEZrc-00Afsw-WE
+	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 17:21:30 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id bu1so3200810wrb.9
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Jul 2022 10:21:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=message-id:date:mime-version:user-agent:subject:content-language:to
-         :cc:references:from:in-reply-to:content-transfer-encoding;
-        bh=qju+Xo1cDVvOX0Uo3QlgOkFxB3TmGBZn1gqhX1HAvMs=;
-        b=dPzlvv2YI6S+L8my5ZJJqz8/Y1vffPlYXyoiqwnXFwNO0Y92d0APBqWDPD3DeYq04b
-         KtX/BVK6Ch8jKrcMhZKrWTTVuSZskQWBLkDb/VDhB2rfDYp8O6xlzoLjiKMOtE43vUjc
-         9cqLPILxivW7mU+v96rD+R8MfsjNgSkqB+qsB6T2EU3OdijBcj1ebuecLpufKgjXcPEB
-         PbykVBceBN1GPWxBVUGUo7rAouOU/oUYnZc009ySavHh5MkI1xIH9UOQ7SGnHG+il+Rr
-         d0N9Kg3gis/BBYzdUwtCQyOtY/sA3iv8mdHQ76tggwtbguCYJs6NY5QtQ2BfExZ4z149
-         3klg==
+        d=conchuod.ie; s=google;
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=FRltm9CBKXROfT3TUcmTyCGbNeVKq4rgRYEpJSVmOTw=;
+        b=BE/cWNCZlI0Yl2QqiuxKv8xSMdjJtWyLI/XATrhxomnVoulKNVnl6BscEEGiBjoi9J
+         BZOY1voXavMn91Z/eD4KGNkYrKldYtbHnOVL31JiY9igICQa28VuBFpx1hmSWvjqUBMi
+         EAF89C6f9VFQib4yYUeWDY4QnawWxcEGZaqJxhodUJRAMPnLNgBM1MsV8JAH3Pm8Q/K3
+         QLWhvk4FjCGQ8/NuTqbwo4jLB77Q/+7i44oo4RfpKwLjr/T9JMa90ra6huIGyOmB+4rE
+         rnWdSdTKQ60CBLLWjeIuFgpJMUz3Ao57HKpHTsKgf5FKN+P/m5U1ukj43M+l8uMN9ZR0
+         BWog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-         :content-language:to:cc:references:from:in-reply-to
-         :content-transfer-encoding;
-        bh=qju+Xo1cDVvOX0Uo3QlgOkFxB3TmGBZn1gqhX1HAvMs=;
-        b=nsfGa7RC/v5Gvbe9305i+Ciy4hMYqAH0TExj/xT1iclvXSJoG7q5borLpxEUvLYxIP
-         DRE2bY+HzcHUbyMII2eSZ2+Q6DMb+eQlhfEEhECK9hWJx6MqGle1nfVYx3ZTg6Ytk25T
-         QnJfGdOJETUnC+K+g99WKkNKTcqJEgnYfDGpORyZe3tUoJsvaBCcOpl8TMlgi9HO+5Ph
-         zlhHXn4eTmhjFKaCEEs9lTgbI2+ADWguDwpCE0gNMCvlCuq0tfwGyPLkYDWDiFcKCoGD
-         qfUwYIINQDObauY3HQYV6aAKynMbhpDLKDSpKJ/kNPWo3bkWKbYUp3OW2sbYOG2dOpOT
-         QdTA==
-X-Gm-Message-State: AJIora8sAO47Z2/+Z/iEFfaAb5G2oIwkPS9415n7GWh8dsGfFlJgZqOj
-	uHuVq4qx74lGseAQXl+Cn9vHNg==
-X-Google-Smtp-Source: AGRyM1trY5ITtNlO72gsUBhEzJI3nk8oObNgljwg8ZoF82En3k3x+Nlrp2Fdllm3cPQdQB6BN0HlmA==
-X-Received: by 2002:a05:6512:3b0a:b0:489:da13:180a with SMTP id f10-20020a0565123b0a00b00489da13180amr23094700lfv.489.1658419369592;
-        Thu, 21 Jul 2022 09:02:49 -0700 (PDT)
-Received: from [192.168.115.193] (89-162-31-138.fiber.signal.no. [89.162.31.138])
-        by smtp.gmail.com with ESMTPSA id 18-20020ac25f52000000b0048910301774sm33339lfz.307.2022.07.21.09.02.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 21 Jul 2022 09:02:49 -0700 (PDT)
-Message-ID: <22bd8bc2-9d47-b7a6-6d3a-9c1ecb62cc7f@linaro.org>
-Date: Thu, 21 Jul 2022 18:02:47 +0200
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:content-transfer-encoding;
+        bh=FRltm9CBKXROfT3TUcmTyCGbNeVKq4rgRYEpJSVmOTw=;
+        b=JWlMN7WmouK+O5XrKmqcGSx7n6X2VtBgac9QygTJCs5K9E3rGnUyYmSMAvT5lIBeU8
+         wkxjVeUzLpIVTXK6wFqnBss5VYQ+mS7Z0qCTJjUpOArVmeekAJlK3DoQX9NtO4ailfTz
+         eD3D+kg+lxxjTprxJQdHELT9KLiL6vWMtjvgIip20NwCuYUoiNgCnqdukRlva5ovNzjw
+         wxpwFaN9g/y6wUyT67QaPeKy7Xbbd7ZuM3RwVmkrCoxLUC8fFW/siFRMophsCJU7ro9l
+         RXJRtMFNAT3vSVvaJW0BcrLxpp7tU90V1vpkrxAWbFii0utufjmKYkG8M87hS+GMwDlM
+         W4Yg==
+X-Gm-Message-State: AJIora+ItWkix9r1xOg1pVvFjXcHuQW7iFSLTL7ZGZe90JVFrV71YflQ
+	KBdah0gUy2tzBs+RcuhSKrNhEg==
+X-Google-Smtp-Source: AGRyM1vbAYGz2xsyca/zeMEjF8XABXoOModC93BUJZC9+XeAjfvxiTzDa0Td1Cv679XzakodtlQW7A==
+X-Received: by 2002:a05:6000:609:b0:21d:92ad:562 with SMTP id bn9-20020a056000060900b0021d92ad0562mr34175479wrb.369.1658424084463;
+        Thu, 21 Jul 2022 10:21:24 -0700 (PDT)
+Received: from henark71.. ([109.76.125.251])
+        by smtp.gmail.com with ESMTPSA id e24-20020a05600c219800b003a2cf1535aasm2455697wme.17.2022.07.21.10.21.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Jul 2022 10:21:23 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: u.kleine-koenig@pengutronix.de
+Cc: conor.dooley@microchip.com,
+	daire.mcnamara@microchip.com,
+	devicetree@vger.kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	lee.jones@linaro.org,
+	linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	robh+dt@kernel.org,
+	thierry.reding@gmail.com
+Subject: [PATCH v7 2/4] riscv: dts: fix the icicle's #pwm-cells
+Date: Thu, 21 Jul 2022 18:21:08 +0100
+Message-Id: <20220721172109.941900-3-mail@conchuod.ie>
+X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20220721172109.941900-1-mail@conchuod.ie>
+References: <20220721172109.941900-1-mail@conchuod.ie>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-Subject: Re: [PATCH] riscv: traps_misaligned: do not duplicate stringify
-Content-Language: en-US
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>,
- Anup Patel <anup@brainfault.org>
-References: <20220623112905.253157-1-krzysztof.kozlowski@linaro.org>
- <CAAhSdy35972j=qpqQWak1Ot1nZb0iiURzYqhrbZ1bfuuAdpw_w@mail.gmail.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <CAAhSdy35972j=qpqQWak1Ot1nZb0iiURzYqhrbZ1bfuuAdpw_w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220721_090251_421492_21EB067B 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220721_102129_081930_E1A0DC30 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,27 +96,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 23/06/2022 15:11, Anup Patel wrote:
-> On Thu, Jun 23, 2022 at 4:59 PM Krzysztof Kozlowski
-> <krzysztof.kozlowski@linaro.org> wrote:
->>
->> Use existing stringify macro from the kernel headers.
->>
->> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
-> Looks good to me.
-> 
-> Reviewed-by: Anup Patel <anup@brainfault.org>
-> 
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks!
+\#pwm-cells for the Icicle kit's fabric PWM was incorrectly set to 2 &
+blindly overridden by the (out of tree) driver anyway. The core can
+support inverted operation, so update the entry to correctly report its
+capabilities.
 
-Any other comments or reviews? This was sent a month ago, so maybe it
-could be merged?
+Fixes: 72560c6559b8 ("riscv: dts: microchip: add fpga fabric section to icicle kit")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
+index 0d28858b83f2..e09a13aef268 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
+@@ -8,7 +8,7 @@ core_pwm0: pwm@41000000 {
+ 		compatible = "microchip,corepwm-rtl-v4";
+ 		reg = <0x0 0x41000000 0x0 0xF0>;
+ 		microchip,sync-update-mask = /bits/ 32 <0>;
+-		#pwm-cells = <2>;
++		#pwm-cells = <3>;
+ 		clocks = <&fabric_clk3>;
+ 		status = "disabled";
+ 	};
+-- 
+2.37.1
 
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
