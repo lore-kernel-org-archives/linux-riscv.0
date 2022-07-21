@@ -4,161 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1593DC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 11:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D749FC43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 11:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8DCQoeMFGslpKggIOZZ+fAaq0F7zIaQ5DTwO6qGs3O4=; b=YRt8PMWy8pZ99d
-	dUtAyBP4CNG+mTuoDdWiKDnDzqqbFiYUakqTSqSjhRJ88J045OpqiXNPxuzMjHaHsKbmu3JX5eXg7
-	e/rMRuJz35VsnTNLlGakQNB59AM8dIk7/HMmUxKbkXNJOvufkYBilQbKIScII6nkPctWxtvIPdDdt
-	vvXMJVSVRftszdKWLJ/oDBbyvToO52fgkVTe42hpTaD50onfUULuDmEd2c+QtauUS3SE7ph0nxFMY
-	d087+oIEm6M7Gp7JgDEv0DnQWEs/HGCN5CGmfTB6ZG+tOHCyGTc1O33IYNDfZVjsCXRTPznNk5fG3
-	yXOsWYGIaUA3Fn+z6UaQ==;
+	List-Owner; bh=prs53SBJ72dXq3qtV3DKFXUyaLh4xt5qWpnIr1SM9n0=; b=Yq+NnTQDFjYjXl
+	BpTvRJcUk0c6HD+lorQ0HNL/X1dbyojm470TPTYzyoe7j7HtKVk/nCLvkF6npzbR/wd23+wbJwTjZ
+	gWODacZIGnzkWVKy5SfzMGcpGHnt0oyYuxpsGrUPlJIvHgfJcqH97JYphpa60QgYcXUlmRAA89Hbi
+	4bl0w41x0SbxPmPXzuvGysa4PdOurGra/MG/IEETEPCrJ7LutdAwFyTf5cih3wFwwaRy7hSJp/u0u
+	8hvS6M5wlsCxllB+WvndiX63yrOb3kFZDAUGH8RVSH86qIeiKIGjNhzqpgac9vDSGII86Ea22qqIX
+	Tv6j09NB2dYlMCgUOQpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEU0P-0050OY-Ke; Thu, 21 Jul 2022 11:06:09 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oEUbc-0061TX-8Y; Thu, 21 Jul 2022 11:44:36 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEU0L-004zaP-RI
-	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 11:06:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1658401565; x=1689937565;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=LbweySjnuigB0Bt43M9GVa+M4Rc/hzMLW9X+h7nmzc0=;
-  b=qgSnk9ZSE3K0u+eA7mgI52pO4kP7cioxbqUQaCEnmShLBqe2SfZ2SHwk
-   OofgV1wSZMzhESGGofLe7AQFVtzet2U/N/HczKneMLTW6mCet1xwtn09R
-   QT76YQeA5AD1BQAcdfrhh/If9PJn/A10f+f4RylNnFboZjHIoqDg1RtoV
-   tOMWRX3r2R74yLsnZQIYHSungAceAOgwJ88WTXIAVB+MM4SLxwFxYQmSy
-   CMztqAEkDm8uBCsneHQL5byZBeqeJea9yotdct1nkMdLIRI7KZZcyAHS/
-   ktgArZOJ5AUCEG/MBZGqYrgv2ViIxwLpyYItyKLFzq5sPUMSEB+YRWnQh
-   A==;
-X-IronPort-AV: E=Sophos;i="5.92,289,1650956400"; 
-   d="scan'208";a="183151154"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 21 Jul 2022 04:06:00 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Thu, 21 Jul 2022 04:06:00 -0700
-Received: from NAM10-MW2-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Thu, 21 Jul 2022 04:06:00 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=TS/fG5omRkpxO99AKpLL3IuJ2WqS+oGUDC7XxG61o36W59fF0fHCoy80MHqfEgmKdTYAkhoy5kCmBmISchFD9rbhovT77xLW8ImUUNXpoMybFsNZM6uVxR46n1I4dvBMHi+nDVM9N+RtQbgMaVbAn+sUugioSw7BZNPrZFDacBHS2hF31GmBmjPE5Q+5PBeHemdCNzdFBDRzmjSfgyl0pfrENBp7fYjxVPs4hHm1gU2lLmZhqLJLeR7Sm02hiiSfgPAe7FxZrmcmsNZ4NIb6wuuksc/LYIOvzwy8A2lXKtaooe9yp225nCCAsUHliFzeDzPqSxnfJ8h8ES1eEGFbew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LbweySjnuigB0Bt43M9GVa+M4Rc/hzMLW9X+h7nmzc0=;
- b=ijcKizBV9KG+8qejZZCdUv8vpLSH2PG0AaTDbMiwvUF0zmDiczC68xH8EqjOrxJgNZVzYJUkfkTqJaKMZhZwxOGbrRvMM3XgcVjkVMoAi32XniSGtRsScsIHbiKeq7hUjC9xHnHjTjT5bM0U2rHgwdCjnwjIKZqL6KqlHnIKojnwxHNVnUDdALQ1J76eMh/XaMMY+CPWgXh4BDCCin57rS07GEAhvL23shgVoJkYMjhEsyK6J5aehMQiFL+Yl8iw4s/vWaidxEQyK+8xNmLGcZu0giICH1nop4L2083JS8LJmk4M6eMvb3StsWOQjYiYHSX8fIhIa2EbLOrJ/2lvgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+	id 1oEUbY-0061LW-VI
+	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 11:44:34 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 8-20020a05600c024800b003a2fe343db1so676655wmj.1
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Jul 2022 04:44:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LbweySjnuigB0Bt43M9GVa+M4Rc/hzMLW9X+h7nmzc0=;
- b=FGSOQr3+bDjh7OwW/ZpQUCI1mobHrVmr9lBLSqMBQahw/U5XW/NWqie7SItqidvds5iKCclak9ctqJltcE5lqJEjnSQMcDUdAijniCzX0iXCd4z/FUR9TCM3I6WjcmqDpm2P+YVgHqNUgzq3bsmXfxGxDRz0/7tN5I56GDdzvxg=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by DM5PR11MB1467.namprd11.prod.outlook.com (2603:10b6:4:a::13) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.5438.20; Thu, 21 Jul 2022 11:05:54 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3%7]) with mapi id 15.20.5458.018; Thu, 21 Jul 2022
- 11:05:54 +0000
-From: <Conor.Dooley@microchip.com>
-To: <thierry.reding@gmail.com>, <u.kleine-koenig@pengutronix.de>,
-	<lee.jones@linaro.org>, <robh+dt@kernel.org>,
-	<krzysztof.kozlowski+dt@linaro.org>
-CC: <Daire.McNamara@microchip.com>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v6 3/4] pwm: add microchip soft ip corePWM driver
-Thread-Topic: [PATCH v6 3/4] pwm: add microchip soft ip corePWM driver
-Thread-Index: AQHYlftutkb03ZS7CE62xip0d2IE2a18AH4AgAy3VYA=
-Date: Thu, 21 Jul 2022 11:05:54 +0000
-Message-ID: <ee05749f-c33f-3505-4309-f4d036de92a1@microchip.com>
-References: <20220712142557.1773075-1-conor.dooley@microchip.com>
- <20220712142557.1773075-4-conor.dooley@microchip.com>
- <c49776c2-4807-91c1-010a-a33bd98b68b7@microchip.com>
-In-Reply-To: <c49776c2-4807-91c1-010a-a33bd98b68b7@microchip.com>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.9.1
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 5315ca32-fdd5-432b-c39c-08da6b08fb45
-x-ms-traffictypediagnostic: DM5PR11MB1467:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: vK3gZWBXhzSCTdufaE/IHB2NcNraKlzqAlAxqOppsqTsA7lyEQsKXXJU+Brmx3Teq6tKypRBCFR7JQuhjBFM6kHTWWv0us0leRmi4Gpr1fmcsYbUvvMxWVlPAjeMwrCkbtaIKwxH9nq5DHo5kirYL0zNuhj3QM3Mqy4zALFtOcUQjGaG5WQ4qgvQvocvEtQrKdmSJqMFSYSSYG8kveYEXSPegyRQSJfHTcjj2vWXbgZX5fikGGk0GIhNfPctl9OgWjMLbV3TqUOrBq+271GZ3gx8DICiWnDbM8GkwRb97iQ7swIX0wcyRkIiKmHjHoZf87MZsG0AtZ9ALIn1VJZ4nokDhdARTpLw6eDpr5S7otwXymWtbSzIir4t3IgV5C4m2K6PZNMM/U2iDDJhPpwhk62moUOOJ3cuIwjJrZo4veRWLn2OTC3Tg1PdAqOTY+huHIRd+t9KMCzmptp6/rwnEZq8MNZru1PmRQ3q8ZervP+lIuduuyJFp1ykXXGpOGNGLe6scLvPsQmkBuzXl5xWxeCSGcBpRQCh8IuzuuT6blx942jbIXm0PA30qCsHgeLRRM+O970kuif3QwcPS6bpuBjtzpLy5+Te5O8uWb+u7lGd9EU7diAldILw4FcVki9hkNN60OAh6F1ikRwFgkaTj0EPhTbcxTdjWadL+HGBrc/41LqALVUiGsfPRTGZyBq7vEV5EQ/XGcXZT0KEVveWBrKLAoe7qUpuNFYrwxsODRR9B62pxLo5MKwBtOcqNBsTpcIrxFBHqGjiO+6qlfr/dPMXpZfxsnrs7oD/AN/cdtOAX0dbWLWDff6dFelMvA9rSL5uWIxUk3n4GzAbAguKmoOR/6HkM+3MCtwKQXv8Qns=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(346002)(136003)(39860400002)(396003)(376002)(91956017)(4744005)(38070700005)(53546011)(2616005)(76116006)(4326008)(54906003)(478600001)(110136005)(41300700001)(2906002)(316002)(6506007)(26005)(6512007)(64756008)(8676002)(6486002)(66946007)(71200400001)(66476007)(86362001)(5660300002)(36756003)(83380400001)(66446008)(31696002)(31686004)(38100700002)(186003)(66556008)(8936002)(122000001)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?K2YxMWRka0kzT1NBS2tIU3R4ZW1nZjRsT2VBbmVPc3p1TWxQZmRxcFNGcEpD?=
- =?utf-8?B?OWhLamUyblE0bGdiRnUvc3dRTmFkd3VPYU84ellQTEJmMDRCOUp1Q1hXNGJ1?=
- =?utf-8?B?M0wxVnIzYzE1aS9qdDhCMmRkL043OWRDRlo5Q3JPbjE4Rk0wbng2aGpPNUxp?=
- =?utf-8?B?UU9WRnh0MGt6WCtMbjdRclM0VDlqZ3dwdHNoQ3VjY20xanJtZXVNcmFlMnRQ?=
- =?utf-8?B?cURISzIrZkh0NmZLOEtBejI2ZVlWa2VvY2crUFlKQUFQVlZlM3hqbUg4c0ZI?=
- =?utf-8?B?N3ZGbk5zUjVvdDZkckNFZ3dsS0ZJMXU2MWtqTmtneUY5RXdNbDJBdkkycmlU?=
- =?utf-8?B?Vzdha0F1TzJHU3hhZ3FCbHlGd3I4Z2FaVmZoMWM4NnUrUVFvbnhIb1hLd1Vp?=
- =?utf-8?B?Y09BZlZ4aUxBV20rc2lMT3dYMG4xcXByV0tqUlRDZHY3L2Z0aDFRaVVoM3lv?=
- =?utf-8?B?RU9SUUZYMVk4VHJEM3AyZ0VhMGJwMFZkOUhqMThlaWlkTXd3YzRQNXk5Q2pz?=
- =?utf-8?B?Q0ZPVDEvK0RJOWNKRm9qa2RzL2xBeEZRVjlhUFdaTnNwYWx6U1lRKzdkVFJi?=
- =?utf-8?B?OTcyMkY0QlZRSmhENnNHSDVYQXFuNEN5eU9KVHFhZ280dUVjVGt6SVAxc0pP?=
- =?utf-8?B?TzIxUGd1Y2ZJNy9nRFMxZ3IwZldFaGNlN004Q2FSQUZsT0VjRTltT0xvMzhq?=
- =?utf-8?B?VldrL0U3RFh2czJGYVlJMUtuUUFpMWw0b2tJOFVHeWFWUUFnWkh1RTNnUHdU?=
- =?utf-8?B?ZXpEZ3ZmOFlzbXlCQzFWMVQweVhoRmZSRFh0dzJRZWpPU2FsV2xEOVNOOTRt?=
- =?utf-8?B?amJGenNveUtVQTIrb2dPY2dkaVpBUHVEVUYrT3BSNS9XamQrWkhuNmpKMFpl?=
- =?utf-8?B?SC9TSW8zN3RMeVpXWE5lc0lEUi9RcFhqdmRIanRjVVM1WHNDM0ZucWRSN29Y?=
- =?utf-8?B?SGJSby93bXlyd0V1cjdHUy85MFYxV0tNMXc2UjY4VUZGbTdxS1VESXk3ZEZP?=
- =?utf-8?B?cnpwWEN2WEZ2LzBLOXRGSVZucVlTOVQ2akU5Z1loRXRLRWtOVXMrN0dkUlk3?=
- =?utf-8?B?TlRpeE4rUmtZQmgwRHNaWEN0Sk1vL09ZcFpyWnpHTHNvalZCTnRBb2hOWVYv?=
- =?utf-8?B?VUNRaGU2eDhqY1BnZmJqTnVrRkVkdzF3WTJ0MzZmazEwUnhrQ1o5V2YzaEF2?=
- =?utf-8?B?QWJtcU5ybFpwVUFNWGRRR0k2T2FiRlJEaGN6Q3g3K1pOZXRUVVExRWpXR1gz?=
- =?utf-8?B?SGYxUmlmKzNxenFtTXJiaU9TaG11M1VMNVM1RDNEVmZ1R0V2RkpNNmhVU3pR?=
- =?utf-8?B?NG1zODNUbkxsV1lKRUoxRm1KU255c1AwS096ZnlXRW5Oc1VSOUNYMXpqTE90?=
- =?utf-8?B?YUtTZWdrcytRVWE3bnp1VG1XOFE1K3pZbUc5dTJ1S0dQZE9ETmhNUGVzb3Y5?=
- =?utf-8?B?amZkNzN1eWVFSmRTSVUrOS9JNGttYkhlT3cvYlErellqTEV6eGpZd09hSTFQ?=
- =?utf-8?B?eTFaSGt6bWNYbDdkVEhYVTBjRTF0YkMrcWRjWUpPcUJSR2RqcTdkU0JXeFgv?=
- =?utf-8?B?OXJOMnpwMmxra21xSitWRWtPaUtXK2NPWlN0UWZtT3R0QTNrUDNZTUd0WUR6?=
- =?utf-8?B?VnNGWmhvcnpvSE5DdVE1Ujl1c0VyOXFTY1lveEVEV3lKNjdOMWJYRzdZeW5x?=
- =?utf-8?B?bzJuK3VSYXlZSXBjQzJQN0d6dzcvRnd3R2lCNzQ3Nk9pRS9sVkxqTk0wenpk?=
- =?utf-8?B?M2hDdXFTdTg2eXVmWTRoLzRPTGdtNmZmd1VsTm5hckdzblltazR4T3h2VEVj?=
- =?utf-8?B?NkhPRUQ3SkNYa2JGblJjT29YYldtSXZmd3BoN0RuN21EOW14MUVsYXR6ck0v?=
- =?utf-8?B?RCtlMVVoZUI4QzBMN2ZvOWFjZktmVndrZUhtR3h2SWV2emRiSXZRNWpGY2ZB?=
- =?utf-8?B?enlOcmtvanlsY3RIejlRYXNjSG44ckR3SGQzRWtsNjM3cUt5NXorelJlY2dZ?=
- =?utf-8?B?RkFCNlBWQlJQd2ROVitiRU9pN0xEMFE5S0RNSzY2WjYwMnQwakQwcEFvZmZM?=
- =?utf-8?B?MG9wL0JLNmZhSDUyL29pTTQ5cnRnN2RRWFhzWlR6bGhxN1RHNktpQ04rbXdl?=
- =?utf-8?Q?jxTAzI7gyU4d45BsGvR1ImEj5?=
-Content-ID: <7C4FC3583BB6E245BDB1A1618611F5C8@namprd11.prod.outlook.com>
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=yrCeN+nzRGg2rvQxRdS5jlsIxIfurmlBViQkcpLilHk=;
+        b=lIlW1HmPQvNAOAgb1o5z8ypceqFfrRuVqRJvXlV2TBs9IX3NdWig6yO07BcUoj2hrM
+         Qas1IlhXCBk5cY2MqS1D0ml0RGPRVI4JPA+u9MsCtOAa3E7yiR9tmigvGU2JCve6DERd
+         yuthuU5+lYPki2SSjBZklY8kPw3K6mJUtZ/ia3pEEnuF49dHav9vsquKjE81N4g8R6rD
+         FkGHT9MOgKqKpzmJuZMrbsIOD7rb2b1j3c1fkX8L16DyA4I5kCaG2bbDzj9TcKqosUpv
+         2XggM68QwK4e+uj/d3UrMr9DzmvaiX0YdRwC/XIsTB9RASHaBo2KZsp2lmOjau/Xb2Qz
+         QxWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=yrCeN+nzRGg2rvQxRdS5jlsIxIfurmlBViQkcpLilHk=;
+        b=Qbr4ieoDDR6FHkFluYp8o9Pi3mvAHSFRA0woEKjMB423/i5clxaEMu9upJvtM8al9m
+         td6+8Yo4pASgLP3Mr3XJxTT70H1n6VwinvQ83iP6fxLgtnAk/OUNYeKmTb4Th44Z4rGU
+         wO4GSu9uHuzEh5FZ6Zgs4ZDrHG2MSdrcUaQto3KXQ6y8HuoCWghudWkcGUDtLBYcTBwc
+         Y/gXjvnCowsrA3OxuE+jjP2Iu9yzxmM2UShhWLwrTLejGVFKkPJQjuLJNk+HS6Lzjl53
+         PQpxuEbGVkg0oChbXmk6EEqyGn3Pdm3/4SvBaiDvVK9gU+ZPIHHEDQpfd2G7FE5/dmdk
+         tHTA==
+X-Gm-Message-State: AJIora+TMz513JdZH9Lir9x04fi8ssccSqsxF9EdUpluVRI2hBWgO7be
+	iE55goAxOeKAlBOfLnvy3LAi1EYdn6yokw943tVZVg==
+X-Google-Smtp-Source: AGRyM1vl0hST0xMLzrJ49XHyA3ScQ8zXKZHED18CyYa6DW87skalJMnbbaq1G23Q3uR8zkdkYFncQ3laPrOdJOsUqDQ=
+X-Received: by 2002:a1c:f314:0:b0:3a2:fee4:91d4 with SMTP id
+ q20-20020a1cf314000000b003a2fee491d4mr7601376wmq.108.1658403869682; Thu, 21
+ Jul 2022 04:44:29 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5315ca32-fdd5-432b-c39c-08da6b08fb45
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Jul 2022 11:05:54.5284
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: wYMTvNNwnmkythaBp9Lexr8yOkonGpm1BJZShOp8BlBBhz8VIsFDZIC6KfmckWPpQldYnIoGnbmo6in5RV6o9PJ3Mlxz15tbN1GvWsNYqD4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR11MB1467
+References: <20220720152348.2889109-1-apatel@ventanamicro.com>
+ <20220720152348.2889109-4-apatel@ventanamicro.com> <8735euzq60.wl-maz@kernel.org>
+In-Reply-To: <8735euzq60.wl-maz@kernel.org>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 21 Jul 2022 17:14:16 +0530
+Message-ID: <CAAhSdy0MsPViOc83rGmDe8FPmUH-cgqf2oz2VoaESRTfd7Ez-g@mail.gmail.com>
+Subject: Re: [PATCH v7 3/7] genirq: Add mechanism to multiplex a single HW IPI
+To: Marc Zyngier <maz@kernel.org>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Atish Patra <atishp@atishpatra.org>, 
+	Alistair Francis <Alistair.Francis@wdc.com>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220721_040606_131186_B0F1F18E 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20220721_044433_226139_44C794D8 
+X-CRM114-Status: GOOD (  32.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,26 +88,157 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/07/2022 09:54, Conor Dooley - M52691 wrote:
-> On 12/07/2022 15:25, Conor Dooley wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>
->> Add a driver that supports the Microchip FPGA "soft" PWM IP core.
-> 
-> Looks like there's a couple W=1 warnings about the mutex use, I'll not respin
-> until you've had a chance to have a look at this version.
-> Thanks,
-> Conor.
+On Thu, Jul 21, 2022 at 4:30 PM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Wed, 20 Jul 2022 16:23:44 +0100,
+> Anup Patel <apatel@ventanamicro.com> wrote:
+> >
+> > All RISC-V platforms have a single HW IPI provided by the INTC local
+> > interrupt controller. The HW method to trigger INTC IPI can be through
+> > external irqchip (e.g. RISC-V AIA), through platform specific device
+> > (e.g. SiFive CLINT timer), or through firmware (e.g. SBI IPI call).
+> >
+> > To support multiple IPIs on RISC-V, we add a generic IPI multiplexing
+> > mechanism which help us create multiple virtual IPIs using a single
+> > HW IPI. This generic IPI multiplexing is shared among various RISC-V
+> > irqchip drivers.
+> >
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > ---
+> >  include/linux/irq.h  |  16 ++++
+> >  kernel/irq/Kconfig   |   4 +
+> >  kernel/irq/Makefile  |   1 +
+> >  kernel/irq/ipi-mux.c | 199 +++++++++++++++++++++++++++++++++++++++++++
+> >  4 files changed, 220 insertions(+)
+> >  create mode 100644 kernel/irq/ipi-mux.c
+> >
+> > diff --git a/include/linux/irq.h b/include/linux/irq.h
+> > index 505308253d23..a97bf13a8965 100644
+> > --- a/include/linux/irq.h
+> > +++ b/include/linux/irq.h
+> > @@ -1249,6 +1249,22 @@ int __ipi_send_mask(struct irq_desc *desc, const struct cpumask *dest);
+> >  int ipi_send_single(unsigned int virq, unsigned int cpu);
+> >  int ipi_send_mask(unsigned int virq, const struct cpumask *dest);
+> >
+> > +/**
+> > + * struct ipi_mux_ops - IPI multiplex operations
+> > + *
+> > + * @ipi_mux_clear:   Optional function to clear parent IPI
+> > + * @ipi_mux_send:    Trigger parent IPI on target CPUs
+> > + */
+> > +struct ipi_mux_ops {
+> > +     void (*ipi_mux_clear)(unsigned int parent_virq);
+> > +     void (*ipi_mux_send)(unsigned int parent_virq,
+> > +                          const struct cpumask *mask);
+> > +};
+> > +
+> > +void ipi_mux_process(void);
+> > +int ipi_mux_create(unsigned int parent_virq, unsigned int nr_ipi,
+> > +                const struct ipi_mux_ops *ops);
+> > +
+> >  #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
+> >  /*
+> >   * Registers a generic IRQ handling function as the top-level IRQ handler in
+> > diff --git a/kernel/irq/Kconfig b/kernel/irq/Kconfig
+> > index 10929eda9825..2388e7d40ed3 100644
+> > --- a/kernel/irq/Kconfig
+> > +++ b/kernel/irq/Kconfig
+> > @@ -84,6 +84,10 @@ config GENERIC_IRQ_IPI
+> >       bool
+> >       select IRQ_DOMAIN_HIERARCHY
+> >
+> > +# Generic IRQ IPI Mux support
+> > +config GENERIC_IRQ_IPI_MUX
+> > +     bool
+> > +
+> >  # Generic MSI interrupt support
+> >  config GENERIC_MSI_IRQ
+> >       bool
+> > diff --git a/kernel/irq/Makefile b/kernel/irq/Makefile
+> > index b4f53717d143..f19d3080bf11 100644
+> > --- a/kernel/irq/Makefile
+> > +++ b/kernel/irq/Makefile
+> > @@ -15,6 +15,7 @@ obj-$(CONFIG_GENERIC_IRQ_MIGRATION) += cpuhotplug.o
+> >  obj-$(CONFIG_PM_SLEEP) += pm.o
+> >  obj-$(CONFIG_GENERIC_MSI_IRQ) += msi.o
+> >  obj-$(CONFIG_GENERIC_IRQ_IPI) += ipi.o
+> > +obj-$(CONFIG_GENERIC_IRQ_IPI_MUX) += ipi-mux.o
+> >  obj-$(CONFIG_SMP) += affinity.o
+> >  obj-$(CONFIG_GENERIC_IRQ_DEBUGFS) += debugfs.o
+> >  obj-$(CONFIG_GENERIC_IRQ_MATRIX_ALLOCATOR) += matrix.o
+> > diff --git a/kernel/irq/ipi-mux.c b/kernel/irq/ipi-mux.c
+> > new file mode 100644
+> > index 000000000000..bd6b31ca588b
+> > --- /dev/null
+> > +++ b/kernel/irq/ipi-mux.c
+> > @@ -0,0 +1,199 @@
+> > +// SPDX-License-Identifier: GPL-2.0-only
+> > +/*
+> > + * Multiplex several virtual IPIs over a single HW IPI.
+> > + *
+> > + * Copyright (c) 2022 Ventana Micro Systems Inc.
+> > + */
+> > +
+> > +#define pr_fmt(fmt) "ipi-mux: " fmt
+> > +#include <linux/cpu.h>
+> > +#include <linux/init.h>
+> > +#include <linux/irq.h>
+> > +#include <linux/irqchip.h>
+> > +#include <linux/irqchip/chained_irq.h>
+> > +#include <linux/irqdomain.h>
+> > +#include <linux/smp.h>
+> > +
+> > +static unsigned int ipi_mux_nr;
+> > +static unsigned int ipi_mux_parent_virq;
+> > +static struct irq_domain *ipi_mux_domain;
+> > +static const struct  ipi_mux_ops *ipi_mux_ops;
+> > +static DEFINE_PER_CPU(unsigned long, ipi_mux_bits);
+> > +
+> > +static void ipi_mux_send_mask(struct irq_data *d, const struct cpumask *mask)
+> > +{
+> > +     int cpu;
+> > +
+> > +     /* Barrier before doing atomic bit update to IPI bits */
+> > +     smp_mb__before_atomic();
+> > +
+> > +     for_each_cpu(cpu, mask)
+> > +             set_bit(d->hwirq, per_cpu_ptr(&ipi_mux_bits, cpu));
+> > +
+> > +     /* Barrier after doing atomic bit update to IPI bits */
+> > +     smp_mb__after_atomic();
+> > +
+> > +     /* Trigger the parent IPI */
+> > +     ipi_mux_ops->ipi_mux_send(ipi_mux_parent_virq, mask);
+> > +}
+> > +
+> > +static const struct irq_chip ipi_mux_chip = {
+> > +     .name           = "IPI Mux",
+> > +     .ipi_send_mask  = ipi_mux_send_mask,
+>
+> I've given this a bit more though, and I came to the conclusion that
+> we really should have the full masking semantics here, even if Linux
+> currently doesn't really use it.
+>
+> It makes the handling a bit more complex, and unmasking a pending IPI
+> must be handled gracefully, but we already have implemented most of
+> that code in the irq-apple-aic driver.
+>
+> And if we go down this road, such a driver should be very easy to move
+> over this infrastructure, making the change a lot more palatable.
 
-Hey Uwe,
+Sounds good.
 
-Should I resubmit now with the warnings fixed?
-It is a pair of unused-result on the mutexes & a unused-variable so
-they should not have much of an impact on any review you would give
-for this version.
+I will send v8 of ipi-mux which can be easily adapted for irq-apple-aic driver
+and it will have masking semantics as well.
 
 Thanks,
-Conor.
+Anup
+
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
