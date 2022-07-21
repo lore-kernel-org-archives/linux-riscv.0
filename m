@@ -4,53 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F21C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 19:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03F9C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 20:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=a8iqvvBNJB6kjEzQCLO/FvLRWQV+2Nw/5qX6YnCFzpk=; b=45ssfUn7xFhiL0
-	ZGs4OmYaXFvd6TPUZ+bVe+Ca6n7M2OzcA5cTdzSN+uTVBCHfSsKsCXs5NtnLv1RK6t3Hp7SVIx0GF
-	7SYs6S8wjGv6Qhfed98xHaxCKd7IWoFti0ng/BvRLHi+b1XK+I/AM5q/vfUbInNlZl8sVrbCiKxSm
-	fInIvzh6pB5xVxqS6+tqz8YN4IPoxAxbCM0pZz1iytmDRo5EqhhXbeFNR/ynSV4M+4r87JhgN+6C2
-	BO/dm55Tcr0Z4pBUaV8MHhg8I4jc4fUUd9lL/V8quE/H3cHylels3kIL0i0QsQ+u09Ma64K3GDv38
-	7FUC3fHYqTt8OvltzNVw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t2EhVDNya+EoZWM+T+i25ByZe6Ii0Vz8WeA/oIHHUxM=; b=4d7vSawDfcNZyDsrKfvDAmGZVY
+	3H4aptnfDkEdgEDotbK81wmXrlPVx+JGa6qxzK5yo0BXDjU4MZpCpncR4LQNmHmn2qDlo06xVjiy0
+	PIPoH3nSEolw5bjqlR7U0GxQi0skUJjXwirXXP2yfVivedf44uj6X4CSCubIKfq7eLy5DnnFNlPKA
+	SbAPLJY/lwyQi8Vmb7V9cHOcoar2vacacrTv4UcyBLAzLzl60w42SdeKdOsEZs71M+QjKxLq1QpoJ
+	mlHoJLboUd0DyoIQpybbo86H3u4gYfjP81p1GlkyFkf0ni4xXrH12adIrl61UlAa4hhZOMNr6DPkT
+	cpPrKOZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEcGa-00Bu3c-1R; Thu, 21 Jul 2022 19:55:24 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net ([86.15.83.122] helo=luna)
+	id 1oEd3I-00CFff-Il; Thu, 21 Jul 2022 20:45:44 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEcGV-00Bu10-Iy; Thu, 21 Jul 2022 19:55:22 +0000
-Received: from ben by luna with local (Exim 4.96)
-	(envelope-from <ben@luna.fluff.org>)
-	id 1oEcGM-001knS-0y;
-	Thu, 21 Jul 2022 20:55:10 +0100
-From: Ben Dooks <ben-linux@fluff.org>
-To: linux-kernel@vger.kernel.org
-Cc: sparclinux@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-parisc@vger.kernel.org,
-	openrisc@lists.librecores.org,
-	linux-ia64@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	linux-csky@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-alpha@vger.kernel.org,
-	akpm@linux-foundation.org,
-	Ben Dooks <ben-linux@fluff.org>
-Subject: [PATCH] profile: setup_profiling_timer() is moslty not implemented
-Date: Thu, 21 Jul 2022 20:55:09 +0100
-Message-Id: <20220721195509.418205-1-ben-linux@fluff.org>
-X-Mailer: git-send-email 2.35.1
+	id 1oEd3F-00CFdc-R9
+	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 20:45:43 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oEd36-0007cE-VT; Thu, 21 Jul 2022 22:45:33 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oEd35-002NmU-4Y; Thu, 21 Jul 2022 22:45:31 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oEd34-006etl-Bn; Thu, 21 Jul 2022 22:45:30 +0200
+Date: Thu, 21 Jul 2022 22:45:22 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: linux-pwm@vger.kernel.org, Wan Jiabing <wanjiabing@vivo.com>,
+	"Wesley W. Terpstra" <wesley@sifive.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, kernel@pengutronix.de,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 6/7] pwm: sifive: Ensure the clk is enabled exactly one
+ per running PWM
+Message-ID: <20220721204522.rxmah6k66e5qe2kb@pengutronix.de>
+References: <20220721103129.304697-1-u.kleine-koenig@pengutronix.de>
+ <20220721103129.304697-6-u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
+In-Reply-To: <20220721103129.304697-6-u.kleine-koenig@pengutronix.de>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220721_125519_894296_517E855E 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20220721_134541_899583_741DCEC0 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,325 +71,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============7349191528810965615=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The setup_profiling_timer() is mostly un-implemented by many
-architectures. In many places it isn't guarded by CONFIG_PROFILE
-which is needed for it to be used. Make it a weak symbol in
-kernel/profile.c and remove the 'return -EINVAL' implementations
-from the kenrel.
 
-There are a couple of architectures which do return 0 from
-the setup_profiling_timer() function but they don't seem to
-do anything else with it. To keep the /proc compatibility for
-now, leave these for a future update or removal.
+--===============7349191528810965615==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="tw4bbsb5rcnz5y6s"
+Content-Disposition: inline
 
-On ARM, this fixes the following sparse warning:
-arch/arm/kernel/smp.c:793:5: warning: symbol 'setup_profiling_timer' was not declared. Should it be static?
 
-Signed-off-by: Ben Dooks <ben-linux@fluff.org>
----
- arch/alpha/kernel/smp.c     | 6 ------
- arch/arc/kernel/smp.c       | 8 --------
- arch/arm/kernel/smp.c       | 8 --------
- arch/arm64/kernel/smp.c     | 8 --------
- arch/csky/kernel/smp.c      | 5 -----
- arch/hexagon/kernel/smp.c   | 5 -----
- arch/ia64/kernel/smp.c      | 6 ------
- arch/openrisc/kernel/smp.c  | 6 ------
- arch/parisc/kernel/smp.c    | 7 -------
- arch/powerpc/kernel/smp.c   | 7 -------
- arch/riscv/kernel/smp.c     | 6 ------
- arch/sparc/kernel/smp_32.c  | 5 -----
- arch/sparc/kernel/smp_64.c  | 6 ------
- arch/x86/include/asm/apic.h | 2 --
- arch/x86/kernel/apic/apic.c | 5 -----
- kernel/profile.c            | 8 ++++++--
- 16 files changed, 6 insertions(+), 92 deletions(-)
+--tw4bbsb5rcnz5y6s
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/arch/alpha/kernel/smp.c b/arch/alpha/kernel/smp.c
-index cb64e4797d2a..f4e20f75438f 100644
---- a/arch/alpha/kernel/smp.c
-+++ b/arch/alpha/kernel/smp.c
-@@ -497,12 +497,6 @@ smp_cpus_done(unsigned int max_cpus)
- 	       ((bogosum + 2500) / (5000/HZ)) % 100);
- }
- 
--int
--setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- static void
- send_ipi_message(const struct cpumask *to_whom, enum ipi_message_type operation)
- {
-diff --git a/arch/arc/kernel/smp.c b/arch/arc/kernel/smp.c
-index d947473f1e6d..ab9e75e90f72 100644
---- a/arch/arc/kernel/smp.c
-+++ b/arch/arc/kernel/smp.c
-@@ -232,14 +232,6 @@ int __cpu_up(unsigned int cpu, struct task_struct *idle)
- 	return 0;
- }
- 
--/*
-- * not supported here
-- */
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- /*****************************************************************************/
- /*              Inter Processor Interrupt Handling                           */
- /*****************************************************************************/
-diff --git a/arch/arm/kernel/smp.c b/arch/arm/kernel/smp.c
-index 73fc645fc4c7..978db2d96b44 100644
---- a/arch/arm/kernel/smp.c
-+++ b/arch/arm/kernel/smp.c
-@@ -787,14 +787,6 @@ void panic_smp_self_stop(void)
- 		cpu_relax();
- }
- 
--/*
-- * not supported here
-- */
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- #ifdef CONFIG_CPU_FREQ
- 
- static DEFINE_PER_CPU(unsigned long, l_p_j_ref);
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 62ed361a4376..ffc5d76cf695 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -1078,14 +1078,6 @@ bool smp_crash_stop_failed(void)
- }
- #endif
- 
--/*
-- * not supported here
-- */
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- static bool have_cpu_die(void)
- {
- #ifdef CONFIG_HOTPLUG_CPU
-diff --git a/arch/csky/kernel/smp.c b/arch/csky/kernel/smp.c
-index 6bb38bc2f39b..4b605aa2e1d6 100644
---- a/arch/csky/kernel/smp.c
-+++ b/arch/csky/kernel/smp.c
-@@ -243,11 +243,6 @@ void __init smp_cpus_done(unsigned int max_cpus)
- {
- }
- 
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- void csky_start_secondary(void)
- {
- 	struct mm_struct *mm = &init_mm;
-diff --git a/arch/hexagon/kernel/smp.c b/arch/hexagon/kernel/smp.c
-index 619c56420aa0..4ba93e59370c 100644
---- a/arch/hexagon/kernel/smp.c
-+++ b/arch/hexagon/kernel/smp.c
-@@ -240,11 +240,6 @@ void arch_send_call_function_ipi_mask(const struct cpumask *mask)
- 	send_ipi(mask, IPI_CALL_FUNC);
- }
- 
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- void smp_start_cpus(void)
- {
- 	int i;
-diff --git a/arch/ia64/kernel/smp.c b/arch/ia64/kernel/smp.c
-index 7b7b64eb3129..e2cc59db86bc 100644
---- a/arch/ia64/kernel/smp.c
-+++ b/arch/ia64/kernel/smp.c
-@@ -333,9 +333,3 @@ smp_send_stop (void)
- {
- 	send_IPI_allbutself(IPI_CPU_STOP);
- }
--
--int
--setup_profiling_timer (unsigned int multiplier)
--{
--	return -EINVAL;
--}
-diff --git a/arch/openrisc/kernel/smp.c b/arch/openrisc/kernel/smp.c
-index 27041db2c8b0..e1419095a6f0 100644
---- a/arch/openrisc/kernel/smp.c
-+++ b/arch/openrisc/kernel/smp.c
-@@ -197,12 +197,6 @@ void smp_send_stop(void)
- 	smp_call_function(stop_this_cpu, NULL, 0);
- }
- 
--/* not supported, yet */
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- void __init set_smp_cross_call(void (*fn)(const struct cpumask *, unsigned int))
- {
- 	smp_cross_call = fn;
-diff --git a/arch/parisc/kernel/smp.c b/arch/parisc/kernel/smp.c
-index 24d0744c3b3a..7dbd92cafae3 100644
---- a/arch/parisc/kernel/smp.c
-+++ b/arch/parisc/kernel/smp.c
-@@ -513,10 +513,3 @@ void __cpu_die(unsigned int cpu)
- 
- 	pdc_cpu_rendezvous_unlock();
- }
--
--#ifdef CONFIG_PROC_FS
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--#endif
-diff --git a/arch/powerpc/kernel/smp.c b/arch/powerpc/kernel/smp.c
-index bcefab484ea6..c037c26540dd 100644
---- a/arch/powerpc/kernel/smp.c
-+++ b/arch/powerpc/kernel/smp.c
-@@ -1674,13 +1674,6 @@ void start_secondary(void *unused)
- 	BUG();
- }
- 
--#ifdef CONFIG_PROFILING
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return 0;
--}
--#endif
--
- static void __init fixup_topology(void)
- {
- 	int i;
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index b5d30ea92292..441d0ceb80ad 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -64,12 +64,6 @@ bool arch_match_cpu_phys_id(int cpu, u64 phys_id)
- 	return phys_id == cpuid_to_hartid_map(cpu);
- }
- 
--/* Unsupported */
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- static void ipi_stop(void)
- {
- 	set_cpu_online(smp_processor_id(), false);
-diff --git a/arch/sparc/kernel/smp_32.c b/arch/sparc/kernel/smp_32.c
-index 22b148e5a5f8..ad8094d955eb 100644
---- a/arch/sparc/kernel/smp_32.c
-+++ b/arch/sparc/kernel/smp_32.c
-@@ -174,11 +174,6 @@ void smp_call_function_interrupt(void)
- 	irq_exit();
- }
- 
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- void __init smp_prepare_cpus(unsigned int max_cpus)
- {
- 	int i, cpuid, extra;
-diff --git a/arch/sparc/kernel/smp_64.c b/arch/sparc/kernel/smp_64.c
-index a1f78e9ddaf3..a55295d1b924 100644
---- a/arch/sparc/kernel/smp_64.c
-+++ b/arch/sparc/kernel/smp_64.c
-@@ -1186,12 +1186,6 @@ void __irq_entry smp_penguin_jailcell(int irq, struct pt_regs *regs)
- 	preempt_enable();
- }
- 
--/* /proc/profile writes can call this, don't __init it please. */
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- void __init smp_prepare_cpus(unsigned int max_cpus)
- {
- }
-diff --git a/arch/x86/include/asm/apic.h b/arch/x86/include/asm/apic.h
-index bd8ae0a7010a..3415321c8240 100644
---- a/arch/x86/include/asm/apic.h
-+++ b/arch/x86/include/asm/apic.h
-@@ -98,8 +98,6 @@ static inline bool apic_from_smp_config(void)
- #include <asm/paravirt.h>
- #endif
- 
--extern int setup_profiling_timer(unsigned int);
--
- static inline void native_apic_mem_write(u32 reg, u32 v)
- {
- 	volatile u32 *addr = (volatile u32 *)(APIC_BASE + reg);
-diff --git a/arch/x86/kernel/apic/apic.c b/arch/x86/kernel/apic/apic.c
-index 189d3a5e471a..df764ceac2c8 100644
---- a/arch/x86/kernel/apic/apic.c
-+++ b/arch/x86/kernel/apic/apic.c
-@@ -1115,11 +1115,6 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_apic_timer_interrupt)
- 	set_irq_regs(old_regs);
- }
- 
--int setup_profiling_timer(unsigned int multiplier)
--{
--	return -EINVAL;
--}
--
- /*
-  * Local APIC start and shutdown
-  */
-diff --git a/kernel/profile.c b/kernel/profile.c
-index 37640a0bd8a3..244aa255c488 100644
---- a/kernel/profile.c
-+++ b/kernel/profile.c
-@@ -418,6 +418,12 @@ read_profile(struct file *file, char __user *buf, size_t count, loff_t *ppos)
- 	return read;
- }
- 
-+/* default is to not implement this call */
-+int __weak setup_profiling_timer(unsigned mult)
-+{
-+	return -EINVAL;
-+}
-+
- /*
-  * Writing to /proc/profile resets the counters
-  *
-@@ -428,8 +434,6 @@ static ssize_t write_profile(struct file *file, const char __user *buf,
- 			     size_t count, loff_t *ppos)
- {
- #ifdef CONFIG_SMP
--	extern int setup_profiling_timer(unsigned int multiplier);
--
- 	if (count == sizeof(int)) {
- 		unsigned int multiplier;
- 
--- 
-2.35.1
+Hello,
 
+[dropped Yash Shah from Cc, their email address bounces]
+
+While browsing the list of open patches in patchwork, I noticed a typo:
+
+$Subject ~=3D s/one/once/
+
+@Thierry: Assuming you are otherwise happy with this patch, should I
+resend for this typo, or do you fixup while applying it?
+
+Thanks
+Uwe
+
+--=20
+Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
+Industrial Linux Solutions                 | https://www.pengutronix.de/ |
+
+--tw4bbsb5rcnz5y6s
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmLZutkACgkQwfwUeK3K
+7Ak4jwf7B0aaBqdXkpF3FQrZPsipc/Vqc1BgGFhde6css7wDonrIajzx0QcrTjVw
+l9BeiCddSj2WbeLz+gkxy/G6bZYA3NhlxdkALfaia93EVFRsI1SAAZPZWKt1sF3K
+xjMe3i/33frybUvRoOekahbo5QJxKDibu859WrV0vsoMQ1SpWzihDSlUw0Uqaczs
+KXKHC24OURPEkdtsvxYHEUZMEKCQ3kY8S1Gwyfc9c/PUfiNR1GDbfaEQPB0aEcg4
+i7dySHXZ/WpVf18e0KIdk2GayszXcdoiuAUa8rn1shVw0yeJK9UTEU8z/hLnfqLZ
+tZ6T80mq9WUnAft0aNWN3pO4G52Oag==
+=iSjr
+-----END PGP SIGNATURE-----
+
+--tw4bbsb5rcnz5y6s--
+
+
+--===============7349191528810965615==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7349191528810965615==--
+
