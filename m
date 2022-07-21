@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C268C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 17:38:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02CC6C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 18:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=SZ1457KEMj0OEFcqyPHTuLWcS1moRjwiG3oMGyPOLEw=; b=kiHKd6+eBi5DwF
-	SuXfAZXldBdOMQLA4iYQF/3ameyvxeXQZ7QgvWWKZkMD/+pBuls3heuyPFOBkRFQuJJHOR8EMpmrT
-	Q95KqUlcf7TO/FilFZyIJ5lPP2x1OpC5UWPtDQDhsljp7ronbehQH+WAMk7ur0QWlWO/UmQ1AN48Q
-	oLKpduglbfUCCSESSQJFLwbS+ZlPnv56kliSJq60tm67qArfw9g2umY39uTdY7Z2yP920iPHZ7vGE
-	mFIM8yRib4EPxrp6ZXWzVOpVqRI0hDeC+jCGsTSw70N0I80rAUXACpzMRnfNijFIeNyFggOqE45gN
-	dIl/TYj1kh2o/2eLmEVA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QKEpZ6PXCIIn/xfVSOOYu2Hf+Xt5gQXxKjfifTE64BY=; b=W9Wc/OeqRquNWu
+	OMz8jk6UwoYVNUc++Cc8+MvJpFM1kKumFpGU7QEY0gEJJUhGbkU+MgllhYflPDnruUzrAJLxmGC6g
+	co5dGNJkytN63Wzb8zYZfnsNtSNdw/vaqEoN2Z0w9jEi6WOX/M7dbye6neWPPyLkSs8KAawdvVKWu
+	zkVmrsEYJcXW60veDIwmp/64iQRdJZ1ONgEWJ1oNIv3qE7Rvu/72Sd63a29G7nZ6jSHbWAZlnJZyx
+	xHFrhvP393KYYuwRKu3RoV/3K9PlatX4gPGYP2QXUQlrQUVWMWHXdhcTs27xrEP7lWDujdqYAjkSC
+	JEV8rtCUUs+yTCoqeojQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEa7R-00As2c-W6; Thu, 21 Jul 2022 17:37:50 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oEaf5-00BHqR-5t; Thu, 21 Jul 2022 18:12:35 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEa7G-00AruL-5I; Thu, 21 Jul 2022 17:37:39 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 86212B824FE;
-	Thu, 21 Jul 2022 17:37:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB7EEC341C6;
-	Thu, 21 Jul 2022 17:37:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1658425055;
-	bh=2AWWnE4tIrpJ8SBcVy69tEqxyINDzFIjNPSFonICTzQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=YlgQcJcxhim+W1ssq5nFy9NNdDXmnUR3+Fu3aU2VsxEi88lU0u99Pl8k9aQIhb7le
-	 lHSWW87lwcSMrSMVWEzXOAI73VPC+hzhbluy0iofuobXEShdi4FkBi37ESFcbF9ywC
-	 IIIywpkDc9UmSWImxOqrB10k9vMhDtylfqJfnNvdE/RifTHHZenoLcS2PlB5yeQxQk
-	 UtRxmmvJ5ynXbzI1EfKgwa4k+5IX5/5rMD+KQhtMhDFNMN98whd1A3m6XufrgNvKWG
-	 LYZJhLfCXnnCRitqdQFVyQN2e1Yska1TPVoFWQlyIpWJ2+XW38ZQeNxkEAdLzBfA6V
-	 62z9Hrd/awSMA==
-Date: Thu, 21 Jul 2022 12:37:33 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Stafford Horne <shorne@gmail.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Pierre Morel <pmorel@linux.ibm.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1oEaf1-00BHiO-1x
+	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 18:12:32 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id f11so2567168plr.4
+        for <linux-riscv@lists.infradead.org>; Thu, 21 Jul 2022 11:12:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=from:to:cc:subject:date:message-id:in-reply-to:references
+         :mime-version:content-transfer-encoding;
+        bh=Z3XlA8t9TDZtl4uJYv9cJwWL/SPmBlhXJhsAi+NFr/o=;
+        b=GtaROVH6xLNFe7Zt86i4dGHacmXliXAJ+jJ5NtiNtpXOdKGq5Wi/W1tWudXPPjPhn1
+         m0WFChGHEZMBukYbZ0DoyDoddePkAohw06EUPzmYlwXgyflgQhLTz9TrabJUWdOUdxcW
+         W79guXjajscHP2hNeVNzaGsNRDHU7Sl4Rb4VTOx2toedbRxGUqxFJ6k78dj+rRdWJZqK
+         1mFREVmwu4rxsebqhPXl+4Djtv52pG55bPaACi70S/EfuIEaQGytAnpq9FB+gpozzpTu
+         dPyyrXSrZTSR4lKIpiHSm4j1S2Ts66ARlqhSCx4XdtyCnn55BoUwMKnYcXb+rx7LSRuk
+         JvAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
+         :references:mime-version:content-transfer-encoding;
+        bh=Z3XlA8t9TDZtl4uJYv9cJwWL/SPmBlhXJhsAi+NFr/o=;
+        b=HmWjGxWJunGtRJYooLtuCxY6uEuZ6oJ6xb6vOVrJoYMoUIrlJBPnGjbBoFOlsFxrDn
+         bTLXCR/mNOt62pgFEDD3zGn+prJJpDFQpvz4uPidFgWfflPXHAwaQMTonyzvCLERB2Wn
+         uJRvfAayalE2jtWXptH4Zb5zw2s6J3SH0HwrD5jgR63mf7B4c+B771LcJJkwtiMkufDW
+         855HJZxGj+JMrTsDimMIR1LVy3sUSO9idzUXBNYk1oI5bDG18I67B2dD0fl+xgJlC9AV
+         2CoH1vFtOg1XDF69bl42VDARmKUxSRWnXtsEO2YtlAiMIvUWlnCYOnjbJ3kpbC+WU4uH
+         RviA==
+X-Gm-Message-State: AJIora/QZbqIO0bSTZiumVONpto/hW1i1DbMvNSWZPDhITBS7mAqrQGM
+	2WXjTALhgz60PkPIS+o6LY91Gw==
+X-Google-Smtp-Source: AGRyM1sLmCNHB6ZRJMx1svZh7gpfJhld21Y8gtdIzvTWghKGcfXD4XoqTqvJKRLL+Of38AF1zX9oXw==
+X-Received: by 2002:a17:902:e841:b0:16c:3053:c7e6 with SMTP id t1-20020a170902e84100b0016c3053c7e6mr44852245plg.163.1658427144286;
+        Thu, 21 Jul 2022 11:12:24 -0700 (PDT)
+Received: from atishp.ba.rivosinc.com ([66.220.2.162])
+        by smtp.gmail.com with ESMTPSA id b12-20020a1709027e0c00b0016d3a354cffsm617358plm.89.2022.07.21.11.12.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 21 Jul 2022 11:12:24 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+To: linux-kernel@vger.kernel.org
+Cc: Atish Patra <atishp@rivosinc.com>,
+	Anup Patel <anup@brainfault.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-um@lists.infradead.org,
-	linux-pci@vger.kernel.org, linux-arch@vger.kernel.org
-Subject: Re: [PATCH v5 4/4] asm-generic: Add new pci.h and use it
-Message-ID: <20220721173733.GA1731649@bhelgaas>
+	Atish Patra <atishp@atishpatra.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	kvm-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tsukasa OI <research_trasio@irq.a4lg.com>,
+	Wei Fu <wefu@redhat.com>
+Subject: [PATCH v6 1/4] RISC-V: Add SSTC extension CSR details
+Date: Thu, 21 Jul 2022 11:12:09 -0700
+Message-Id: <20220721181212.3705138-2-atishp@rivosinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20220721181212.3705138-1-atishp@rivosinc.com>
+References: <20220721181212.3705138-1-atishp@rivosinc.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220721134924.596152-5-shorne@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220721_103738_526472_F52F6F68 
-X-CRM114-Status: GOOD (  19.96  )
+X-CRM114-CacheID: sfid-20220721_111231_117165_E8C328AD 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,74 +103,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 21, 2022 at 10:49:24PM +0900, Stafford Horne wrote:
-> The asm/pci.h used for many newer architectures share similar
-> definitions.  Move the common parts to asm-generic/pci.h to allow for
-> sharing code.
-> 
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
-> Link: https://lore.kernel.org/lkml/CAK8P3a0JmPeczfmMBE__vn=Jbvf=nkbpVaZCycyv40pZNCJJXQ@mail.gmail.com/
-> Acked-by: Pierre Morel <pmorel@linux.ibm.com>
-> Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Stafford Horne <shorne@gmail.com>
-> ---
-> Since v4:
->  - Add reviewed-by
-> 
->  arch/arm64/include/asm/pci.h | 10 ++--------
->  arch/csky/include/asm/pci.h  | 17 ++---------------
->  arch/riscv/include/asm/pci.h | 23 ++++-------------------
->  arch/um/include/asm/pci.h    | 14 ++------------
->  include/asm-generic/pci.h    | 32 ++++++++++++++++++++++++++++++++
->  5 files changed, 42 insertions(+), 54 deletions(-)
->  create mode 100644 include/asm-generic/pci.h
+This patch just introduces the required CSR fields related to the
+SSTC extension.
 
-> +++ b/include/asm-generic/pci.h
-> @@ -0,0 +1,32 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +
-> +#ifndef __ASM_GENERIC_PCI_H
-> +#define __ASM_GENERIC_PCI_H
-> +
-> +#include <linux/types.h>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
+---
+ arch/riscv/include/asm/csr.h | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Do we need <linux/types.h> here?  I don't see anything below that
-depends on it.
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index 17516afc389a..0e571f6483d9 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -247,6 +247,9 @@
+ #define CSR_SIP			0x144
+ #define CSR_SATP		0x180
+ 
++#define CSR_STIMECMP		0x14D
++#define CSR_STIMECMPH		0x15D
++
+ #define CSR_VSSTATUS		0x200
+ #define CSR_VSIE		0x204
+ #define CSR_VSTVEC		0x205
+@@ -256,6 +259,8 @@
+ #define CSR_VSTVAL		0x243
+ #define CSR_VSIP		0x244
+ #define CSR_VSATP		0x280
++#define CSR_VSTIMECMP		0x24D
++#define CSR_VSTIMECMPH		0x25D
+ 
+ #define CSR_HSTATUS		0x600
+ #define CSR_HEDELEG		0x602
+-- 
+2.25.1
 
-> +#ifndef PCIBIOS_MIN_IO
-> +#define PCIBIOS_MIN_IO		0
-> +#endif
-> +
-> +#ifndef PCIBIOS_MIN_MEM
-> +#define PCIBIOS_MIN_MEM		0
-> +#endif
-> +
-> +#ifndef pcibios_assign_all_busses
-> +/* For bootloaders that do not initialize the PCI bus */
-> +#define pcibios_assign_all_busses() 1
-> +#endif
-> +
-> +/* Enable generic resource mapping code in drivers/pci/ */
-> +#define ARCH_GENERIC_PCI_MMAP_RESOURCE
-> +
-> +#ifdef CONFIG_PCI_DOMAINS
-> +static inline int pci_proc_domain(struct pci_bus *bus)
-> +{
-> +	/* always show the domain in /proc */
-> +	return 1;
-> +}
-> +#endif /* CONFIG_PCI_DOMAINS */
-> +
-> +#endif /* __ASM_GENERIC_PCI_H */
-> -- 
-> 2.36.1
-> 
-> 
-> _______________________________________________
-> linux-arm-kernel mailing list
-> linux-arm-kernel@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-arm-kernel
 
 _______________________________________________
 linux-riscv mailing list
