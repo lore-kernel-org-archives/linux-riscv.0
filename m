@@ -4,76 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4188C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 07:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6C3C433EF
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 08:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y60TuoF90UlL+33HOAgczp7C0CX6o3J1f0qHBzKYqL0=; b=QQwmF/KKX5nkJd
-	Zzjw0/1zCvyq4uYW1qCwiTSmU/w8d0WKFu34zn8gL8EQGnQNrB3AIN97j6UDk0MLCDycpt3doOkD4
-	Nuud6rEi1ayrCUW50xLKLNv5wtpgq4e5iXiazbwduHuj9yJJzoj7+d4UpHjVr1DFi51KwUNi8pDnL
-	KH6afv5uf0af/annsc0LcKvDAHOdtAKhjggk2QybS3YpjLbVkVzw713X0nIGdqnqlfGB4VTGcsS6v
-	/H8Vx7W4u7Nndo22J5NGQwc1gcpv9S6fFat3/5nQhf47vDl6KXkLr3quEMOO1yFTXosRpo/XyV9tx
-	UWZCgoSg3TyaKkXjhSVQ==;
+	List-Owner; bh=u9lHT/qJmkzRDCrr6m7HdXieiBVUbSbsgUUfAPS5nbo=; b=efpL1F87wRIM7B
+	QUvizrL7GBfI5l57ikyKGNd3AI3sPHXKOZ11e9PFPhf4UorgybIHv+YaVUfMLBkFrW/mWvWkD5FMy
+	rdxdpc6o5hl9lIiALySTETrQa4NUMWVj4D0chfeXCYLcz8XTEoUZ73RLlBF64RfqkroqA3LtphETg
+	HuLKdqre7abIS9axCM75VUiEEEd8XF8aUqxRwx1vi7z1rfyG2003Ni5r3xpgDRYdKr76iFsmnqfRw
+	4UAq2Twg1GpAcARiHmT8Rbx6/o4zL7wI/Il8Oq1IktgTJZzz70bDKi6g/4KY+D1DWktFHK1yK91ZF
+	unUt7AZ3AYN8FcpVSKpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEQGT-001RlY-UZ; Thu, 21 Jul 2022 07:06:29 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1oERMk-002MRN-Jy; Thu, 21 Jul 2022 08:17:02 +0000
+Received: from mail-os0jpn01on2071.outbound.protection.outlook.com ([40.107.113.71] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEQGQ-001Rii-Nl
-	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 07:06:28 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id 75so1339804ybf.4
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Jul 2022 00:06:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=LpwVsautRFlDJDA1sbNhSwQKO+NgjypEdty8BUqzXpg=;
-        b=VmBfYifBV1ljfmac3r8D0dIReL9DzQ35/6kgP/s+u12mzY159hJpPDgY02sx3F1Kzy
-         plAtnqrd9EZdt4t+2y2hjDCpYKZHmiRJosf/mLx3/5LZFegcV0y6VArqYpUPLFsP5pE7
-         IGJNq3qkoNiFtlBA+QjB82WGfdccUYDy1rsmQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=LpwVsautRFlDJDA1sbNhSwQKO+NgjypEdty8BUqzXpg=;
-        b=zmw+dgRK9Eyu6KLMo1nsmm3kut4QNK0jtMhi8xDjVZcr27PHrvGPkcgj5ORhRqNOvB
-         Z5XnUSOWXBqyZ5v3yBydPQArDZGE9r/ImGh6HX6iSmWwnnfiOm33OC19rkeSOZqtTK2F
-         4nRd0jglaFUFlXne89DtWep9IvpKgwtDzmN9s9wK60cqYhUsFRnC4yqDYqpGGlrccTw5
-         jAs5hmMXfDDYkWyU/pKzndqzwJYeuA/fEr2sdclsEs0OYdVaMmiGKbVE8Syi/K6Y6kDr
-         2nYuRovLpMvTZTUXougj2mHSXQUH5p3o9+xTURETm3resZxCPCofkYmuY9E+ulfIx+X/
-         m+lw==
-X-Gm-Message-State: AJIora/Apk7nVblxVSj3E1wdsRMadidxnsu+XgARNOL41E0oW5MbUrIY
-	L5Ze0QWlq8DQB/VyhdCcmm8I12YGdoLX/sADm7Ky
-X-Google-Smtp-Source: AGRyM1uo7Hxvn1TxM85yEqyVC1cUuwKWVnZ5dghq2ZtcLgmtZsc5994BJDhdFvxdpmHxzx2Lc6FjHkATcn0+tkV1dTk=
-X-Received: by 2002:a25:25d7:0:b0:66e:ce4d:da48 with SMTP id
- l206-20020a2525d7000000b0066ece4dda48mr39146020ybl.301.1658387184065; Thu, 21
- Jul 2022 00:06:24 -0700 (PDT)
+	id 1oERMg-002MKn-9T
+	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 08:17:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=SLApyOiFBRuCKm7r7mZoNcsnmbnJez2BRkzcLEOwKRwMu6dkkUg0+Gk7h5Foq6ba5+Z86+jXRVPbNsCTEs1NvzD2KrHbP+D4Nj2/tcLTipQwuzRaLTgEwe9XRkPl/S4aIOJNmXZWGLxq7BgPxPaqCHgd1VxOaAmOtr9poBUFa+dbfjznqDyM49H0uxZOuCUAj0ZPGjj3pQIx26/pd3xgRENSFfphLzqMPMK2TAVVJn0/1Hdv1eiwDCT/81tMuQXUaLc85EN8uiB8Av5EUrO77xCm/bEi3Pj5hbn+sxU54WnLr+U7P41K27HG/jwhVIBay7LvaNreF/hcAApcFyPT+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xingpHt8vQ7/OrYe0fMgAXXp4LRrdC5+Rb3LewfKUXI=;
+ b=WXmpKnj1QWWPk2ibS2hQcf4WxTvXdHNKRW1ESmgFbaPlvdcaWMeiJm/GXjCiSfxsr6kyIp7eGQ1zAlLwMiVU8nOzY08vykC4vCjvwxRozR/ty2TPbuaMPaj9SYV+40pIw2B8EASSHsKfqL6eJXzApY9tDmcz/pctVcmrHRqHKOsH9BGXAwwZwb4WW+Sj/bU0ILhyvMqZdDlbnNIJgpCv4Brcw3WXZ9CW1GRpiJjWyCFCY8oK9FG1DqyD48AVfVdjwA9y4khy1gxIWD4LFJpLG44/r3E7U++Yb9fj7BgJ1gHjMaeuoF2/p3qtq0q2aEwzDSJchZ+dhu67t2cyHZe02g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nec.com; dmarc=pass action=none header.from=nec.com; dkim=pass
+ header.d=nec.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nec.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xingpHt8vQ7/OrYe0fMgAXXp4LRrdC5+Rb3LewfKUXI=;
+ b=GdHTuTvoGbMOKS7wdJumHxM2GPFeTzoOgbXj6o6E5PIK1qW3CZEsZLp53cWfrv2n1o1pWrG4Gy7Q8TenzxGl62LP7gpyGamklj6HSr4PVW29hKHbaU39/HtMeeBG7kPnSm92FelsjM5Iz7WQxLNBYQiiLkCVz+XhEqGMiy6XNio=
+Received: from TYYPR01MB6777.jpnprd01.prod.outlook.com (2603:1096:400:cc::9)
+ by OS3PR01MB6322.jpnprd01.prod.outlook.com (2603:1096:604:f4::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5458.19; Thu, 21 Jul
+ 2022 08:16:43 +0000
+Received: from TYYPR01MB6777.jpnprd01.prod.outlook.com
+ ([fe80::7c2f:2e0d:ff2a:b7cc]) by TYYPR01MB6777.jpnprd01.prod.outlook.com
+ ([fe80::7c2f:2e0d:ff2a:b7cc%9]) with mapi id 15.20.5438.024; Thu, 21 Jul 2022
+ 08:16:43 +0000
+From: =?utf-8?B?SEFHSU8gS0FaVUhJVE8o6JCp5bC+44CA5LiA5LuBKQ==?=
+	<k-hagio-ab@nec.com>
+To: Xianting Tian <xianting.tian@linux.alibaba.com>,
+	"crash-utility@redhat.com" <crash-utility@redhat.com>, "mick@ics.forth.gr"
+	<mick@ics.forth.gr>, "heinrich.schuchardt@canonical.com"
+	<heinrich.schuchardt@canonical.com>, "guoren@kernel.org" <guoren@kernel.org>
+CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"hschauhan@nulltrace.org" <hschauhan@nulltrace.org>,
+	"huanyi.xj@alibaba-inc.com" <huanyi.xj@alibaba-inc.com>
+Subject: Re: [Crash-utility][PATCH 0/8] Support RISCV64 arch and common
+ commands
+Thread-Topic: [Crash-utility][PATCH 0/8] Support RISCV64 arch and common
+ commands
+Thread-Index: AQHYmlGje1fDtvSAcUOxtd0JJ+/xo62If8cA
+Date: Thu, 21 Jul 2022 08:16:43 +0000
+Message-ID: <f3b945bf-7210-e9b9-188f-56c962b9aa94@nec.com>
+References: <20220718025346.411758-1-xianting.tian@linux.alibaba.com>
+In-Reply-To: <20220718025346.411758-1-xianting.tian@linux.alibaba.com>
+Accept-Language: ja-JP, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nec.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 1f7affdf-dcbb-4f0c-22c1-08da6af158ef
+x-ms-traffictypediagnostic: OS3PR01MB6322:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info:  ZeHQ/tkRVOZ3XJwmSu0I/8W5cjURWjiZmfrFaWIaQCPFNYs7cvMApw19ibcjOZrBgZenFFrnHx2mlBvQ6SBkHRwQbl1FF7uzPs560BOHssDYz736DsGcYorAcH8S5BI4JgqZVH35FKqiQPv+B30GstAwJf9GD6ObG2eM/hNaN3WOaSi0oGefmfY9uqba3QkZm80v0XBVvb0BPSR6tJg4zx+nQnlOmnLF8VB5PKHrp/S5zjpHkVruqNE7pgPCIqCU5Sn0KVt5dSdCaBxOw/UuBR3DpVBF19oV9XL1ReDUi+yF2TE+4UhfVnAzELC3F5b7wDztO5+1y75QQm2HmbMknqk+kyC01s+llV0/Z3+niFkM4NwxOTEpphI0vBjfjnYgqrkiDTZql0yaSam3W1dPiTfxtAaBt3zqJlpTgrXH194Dlj5iutSsuMZqsCNuHNBlpOFBiaFF3kM46SpfV55sakWbvMDnKkQ3Lx2pPEtx/8d8O7R8m4vjEj+lrDwDeMTLEpwNLAaSXVwq1+cT8V8QK3YNmaghSumnRHsFj7Mau3Bgl0iXWCzDwginnU8fA638NeAlFM7jWVLYy9WC84VXvWHOr+c5Px0uXd5yuPO6Bj0Hw8jr7wPrRlVJOjJVauL9sLRKjOe0qRxIgqDsK1yzXCThbp1y8AIWp7mCFVK5DNSv2rwBQ5sl8O3OM6z/9lhH2pruX+09GI3c+TwQgZ0AWhy7exGqSxRNpQrJoQrvbvqTfS/Wra581A+wT2xhYfoLPv7YSKeUEbBw7ZVMv0bvpMz/SY6847iBGumzbv3hKNNlP6xd9CpCgRAGaKhmlG5V3qBIEREDl9yTFfBjiBEKbFrd4Cctrfw8zqGGrocQfU0=
+x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYYPR01MB6777.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(4636009)(366004)(396003)(39860400002)(346002)(136003)(376002)(53546011)(38100700002)(55236004)(6506007)(8936002)(41300700001)(38070700005)(5660300002)(2616005)(6486002)(966005)(122000001)(478600001)(82960400001)(71200400001)(4326008)(66446008)(76116006)(66946007)(83380400001)(64756008)(316002)(26005)(110136005)(54906003)(8676002)(6512007)(2906002)(31686004)(66556008)(36756003)(66476007)(86362001)(31696002)(85182001)(186003)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:  =?utf-8?B?MWZMTVNSVlRGdUVJWmhSK29uZ3RRVllHc3VldVc3R0QzNmRqaWtWcHJYVXNB?=
+ =?utf-8?B?QStPb0hHdnFjREZ3dWpJeW9wM05waElOWkJIU2dHblphZ0hSc0pDVDEzN2hy?=
+ =?utf-8?B?ellTdWNweWVVa1ZhOVhjU2hoU25RV1lneG9wcnZ1QmdZTEd5dzRURy9xYnlK?=
+ =?utf-8?B?akFrRGg1N2QxbXZjUW4xWWNjSGFqeEVyNDBVOEdSemtNTllYWWZWUm5SMUlw?=
+ =?utf-8?B?cEhjVkdUSDZnRFB6R0hTZmxmTlIrUXZuaWhKYUsvWEtMK3laQVFEZWUrWTds?=
+ =?utf-8?B?MEF0S2puMDdiSnppR0ZwdXl2ajB5TVJ0S3dOSkFnOXVyRlVrQjNZb3dnS2tN?=
+ =?utf-8?B?VU9mR3FwdjQ2c2J1ZHpVaU0vNU03eHg4U1hSdWRyMzdjbUV4ZFVwSWNFM05r?=
+ =?utf-8?B?aWluSzdoNTlScUhiSlpMR0tqb3pnTUxYbmloNmErakZsdE84MmhqTU5NRWln?=
+ =?utf-8?B?Vm9MMjk3ZzJJbnZLOGJyOTYzZ2N4OWtsOGYzdmZBUXJTZTN2WmhVek9RQlYw?=
+ =?utf-8?B?U3Z0VDlDMmlGcFB0bmV4aUpnK1FjQWxCZmo1OThQb2Y5UGhJUEdFb05oZjZs?=
+ =?utf-8?B?dHQzUEU4SVpvNy9pVFdYc29RNlJsMFhIMG4vaHNLY05TYk45NVJEZEtaNkNp?=
+ =?utf-8?B?S3dnRUV2blFMbVdwL2dUS3VrZnJCVkttQUp5OHBLdmRDRzZpNFhFdFdvcHlD?=
+ =?utf-8?B?MG1IWmtYOWsxS2JPd3hpNCtxZmNMcXBFbnJKbjJCU3V0VXI2cng2M3N5K0No?=
+ =?utf-8?B?enNWYlkrMTM1TjI1QjZ0L2JRS0xORXlVRlEzazZDd2ZMQTVPZ09LS3VibEtr?=
+ =?utf-8?B?RVY1Uk5LRE4rcXlGaEVxTVV3bUZIY0R0dU85M2pRc0R4cEd6ZHFjZnYrbGVp?=
+ =?utf-8?B?cHV2TVlCVG15K3AxR2k3NldDUUs5MFBlOWZuMkpBb1FBK3JYSFBTazY5Q3pO?=
+ =?utf-8?B?OGx1MGhXZjNjRzErWEZvaXhpZ1hvWmFXMFJrS2ZVYnpLQi8zSk1zZm00TTFk?=
+ =?utf-8?B?OXNOdlExMXlsaFlCVmxBdUdITFR0UEpYclVBTVRoUmtWREQ3d040dGRzZlJa?=
+ =?utf-8?B?djRqSmthZytLUlVPR3NGNmtpSzNMWEwzQ21VVk9mTGdFSFIwcHh1WG41cGRN?=
+ =?utf-8?B?VTlRSmhMemF2c2FqR3gwNmF0SlRxM0UxdEErOVdJZGNVWWZmbTJVTU8yRmRr?=
+ =?utf-8?B?Z0pGT1E1WkErYlRHWVdGY1M3Wm9QUjNFOTRPdmdSbU1TeWZ6ejQzWE82Ylhj?=
+ =?utf-8?B?TnpDaDg3QUM1ZnRRTVN6Z05DRUNvMVNWcEM2ZFpBOHJNMklCdDNIaE5YS3J2?=
+ =?utf-8?B?RXJ5UkR5a0pqNG9sMUlDWjg5dmxoOXUrVzgranZuYVAyV1AxSG42T0hSbUND?=
+ =?utf-8?B?dGZqZTJBeU9QSXJiTi9DakRJV0dXbzlWOFI4RmtvYWtBYzVUZ0JIVmpDd1Z4?=
+ =?utf-8?B?TXJOdC9hUGlsSTQ2Zkd2VHpyQkczbCtHYWRvY05rZTBJb0ZtWjczK2c0UDhS?=
+ =?utf-8?B?VnUvSHdCL2VzR3dmRHBYcjNqTnR6NG9tWWRsZkowNXJCdkxGY3VrekFRdjRz?=
+ =?utf-8?B?eUxPK2haNWRWdVI4Qzk1YnpRTkNZNjlmQnlQNlBQUmJ4WHRqUkJSUmtDUWxv?=
+ =?utf-8?B?aDNuUElJbHJ3cEtpNlhhMkdtSzk0Q3hhWUJvY2FpMndtOXFMZ3ZxVmwvb2k1?=
+ =?utf-8?B?dmQwSWlnajdJV1dPWHlsVkpqVHJIQisxYldsaXJ6UkNjVVRQMS9mZlNqK3FV?=
+ =?utf-8?B?MS9Yd0JKeU5tdDdOYm5VbHdvTW1aZVMyY0Q2QUNUU2FIckVrM1FKMStLNXZJ?=
+ =?utf-8?B?U2dTT2pod0xnd0FOejI3Ti8wSVlaSDgzb3RvaXlVOWxhKzJmTnFtVjcyVXJq?=
+ =?utf-8?B?alBBVFZTd3lGSlk5aXNZVnJLdDRVelZieXR2dlhaUk1Md2crRjdZL3FQNHNW?=
+ =?utf-8?B?TG1nY1R2Y3E1RGlKbVliVUtLVk9DRG1JUE4wc0czalIwdktLdDNvZ3F6SUtJ?=
+ =?utf-8?B?eFZTdUJKamgxZ3AxK1V4RnZqalozekc2V3FORllrSS9UVHAvZldWY1RybGoz?=
+ =?utf-8?B?dXQwWTN2a2RDNUNkUkpBOGIwT1RrV3k1OEFLckowK3ZYM21jWXArVWlPZjN6?=
+ =?utf-8?Q?WOUV+6gfPwo26r6IdZS6bzyZA?=
+Content-ID: <77C2FF0674F925468C32FD1FD5C805D0@jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
-References: <20220720192342.3428144-1-atishp@rivosinc.com> <20220720192342.3428144-5-atishp@rivosinc.com>
- <CAAhSdy1b0pAhex6V-T5AhLmvo5-F1B4fOTpphJ-0A3+si-Q2OA@mail.gmail.com>
-In-Reply-To: <CAAhSdy1b0pAhex6V-T5AhLmvo5-F1B4fOTpphJ-0A3+si-Q2OA@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 21 Jul 2022 00:06:13 -0700
-Message-ID: <CAOnJCUL0yOzKxi7BOrBp4Fax3TNT+j8LfZejHr0BC7=kP6vV6w@mail.gmail.com>
-Subject: Re: [PATCH v5 4/4] RISC-V: KVM: Support sstc extension
-To: Anup Patel <anup@brainfault.org>
-Cc: Atish Patra <atishp@rivosinc.com>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Guo Ren <guoren@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, Liu Shaohua <liush@allwinnertech.com>, 
-	Niklas Cassel <niklas.cassel@wdc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, Thomas Gleixner <tglx@linutronix.de>, 
-	Tsukasa OI <research_trasio@irq.a4lg.com>, Wei Fu <wefu@redhat.com>
+X-OriginatorOrg: nec.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYYPR01MB6777.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1f7affdf-dcbb-4f0c-22c1-08da6af158ef
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Jul 2022 08:16:43.7607
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: e67df547-9d0d-4f4d-9161-51c6ed1f7d11
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: oeYoFuTHDPN1o99jtMjBJyqqIgzV1SyXC+uyOBUwPnjcHd77o0HlLoHfqlAdMY5xdX5d1ZvVB+1NCCyNyrQ6GA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS3PR01MB6322
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220721_000626_794604_D855A182 
-X-CRM114-Status: GOOD (  31.14  )
+X-CRM114-CacheID: sfid-20220721_011658_958093_4F2B339F 
+X-CRM114-Status: GOOD (  14.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,323 +144,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 20, 2022 at 9:33 PM Anup Patel <anup@brainfault.org> wrote:
->
-> On Thu, Jul 21, 2022 at 12:53 AM Atish Patra <atishp@rivosinc.com> wrote:
-> >
-> > Sstc extension allows the guest to program the vstimecmp CSR directly
-> > instead of making an SBI call to the hypervisor to program the next
-> > event. The timer interrupt is also directly injected to the guest by
-> > the hardware in this case. To maintain backward compatibility, the
-> > hypervisors also update the vstimecmp in an SBI set_time call if
-> > the hardware supports it. Thus, the older kernels in guest also
-> > take advantage of the sstc extension.
-> >
-> > Reviewed-by: Anup Patel <anup@brainfault.org>
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  arch/riscv/include/asm/kvm_vcpu_timer.h |   7 ++
-> >  arch/riscv/include/uapi/asm/kvm.h       |   1 +
-> >  arch/riscv/kvm/vcpu.c                   |   7 +-
-> >  arch/riscv/kvm/vcpu_timer.c             | 144 +++++++++++++++++++++++-
-> >  4 files changed, 152 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/arch/riscv/include/asm/kvm_vcpu_timer.h b/arch/riscv/include/asm/kvm_vcpu_timer.h
-> > index 50138e2eb91b..0d8fdb8ec63a 100644
-> > --- a/arch/riscv/include/asm/kvm_vcpu_timer.h
-> > +++ b/arch/riscv/include/asm/kvm_vcpu_timer.h
-> > @@ -28,6 +28,11 @@ struct kvm_vcpu_timer {
-> >         u64 next_cycles;
-> >         /* Underlying hrtimer instance */
-> >         struct hrtimer hrt;
-> > +
-> > +       /* Flag to check if sstc is enabled or not */
-> > +       bool sstc_enabled;
-> > +       /* A function pointer to switch between stimecmp or hrtimer at runtime */
-> > +       int (*timer_next_event)(struct kvm_vcpu *vcpu, u64 ncycles);
-> >  };
-> >
-> >  int kvm_riscv_vcpu_timer_next_event(struct kvm_vcpu *vcpu, u64 ncycles);
-> > @@ -40,5 +45,7 @@ int kvm_riscv_vcpu_timer_deinit(struct kvm_vcpu *vcpu);
-> >  int kvm_riscv_vcpu_timer_reset(struct kvm_vcpu *vcpu);
-> >  void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu);
-> >  void kvm_riscv_guest_timer_init(struct kvm *kvm);
-> > +void kvm_riscv_vcpu_timer_save(struct kvm_vcpu *vcpu);
-> > +bool kvm_riscv_vcpu_timer_pending(struct kvm_vcpu *vcpu);
-> >
-> >  #endif
-> > diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> > index 24b2a6e27698..9ac3dbaf0b0f 100644
-> > --- a/arch/riscv/include/uapi/asm/kvm.h
-> > +++ b/arch/riscv/include/uapi/asm/kvm.h
-> > @@ -96,6 +96,7 @@ enum KVM_RISCV_ISA_EXT_ID {
-> >         KVM_RISCV_ISA_EXT_H,
-> >         KVM_RISCV_ISA_EXT_I,
-> >         KVM_RISCV_ISA_EXT_M,
-> > +       KVM_RISCV_ISA_EXT_SSTC,
->
-> Please don't add a new ISA ext register in-between to maintain
-> UAPI compatibility.
->
-
-Sure. As SVPBMT was not merged yet, I thought it would be good to keep
-them in canonical order.
-I will move it as per your suggestion it in the next version.
-
-> >         KVM_RISCV_ISA_EXT_SVPBMT,
-> >         KVM_RISCV_ISA_EXT_MAX,
-> >  };
-> > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> > index 5d271b597613..9ee6ad376eb2 100644
-> > --- a/arch/riscv/kvm/vcpu.c
-> > +++ b/arch/riscv/kvm/vcpu.c
-> > @@ -51,6 +51,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
-> >         RISCV_ISA_EXT_h,
-> >         RISCV_ISA_EXT_i,
-> >         RISCV_ISA_EXT_m,
-> > +       RISCV_ISA_EXT_SSTC,
->
-> Move this at the end of array as-per above.
->
-> >         RISCV_ISA_EXT_SVPBMT,
-> >  };
-> >
-> > @@ -203,7 +204,7 @@ void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
-> >
-> >  int kvm_cpu_has_pending_timer(struct kvm_vcpu *vcpu)
-> >  {
-> > -       return kvm_riscv_vcpu_has_interrupts(vcpu, 1UL << IRQ_VS_TIMER);
-> > +       return kvm_riscv_vcpu_timer_pending(vcpu);
-> >  }
-> >
-> >  void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu)
-> > @@ -785,6 +786,8 @@ static void kvm_riscv_vcpu_update_config(const unsigned long *isa)
-> >         if (__riscv_isa_extension_available(isa, RISCV_ISA_EXT_SVPBMT))
-> >                 henvcfg |= ENVCFG_PBMTE;
-> >
-> > +       if (__riscv_isa_extension_available(isa, RISCV_ISA_EXT_SSTC))
-> > +               henvcfg |= ENVCFG_STCE;
-> >         csr_write(CSR_HENVCFG, henvcfg);
-> >  #ifdef CONFIG_32BIT
-> >         csr_write(CSR_HENVCFGH, henvcfg >> 32);
-> > @@ -828,6 +831,8 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
-> >                                      vcpu->arch.isa);
-> >         kvm_riscv_vcpu_host_fp_restore(&vcpu->arch.host_context);
-> >
-> > +       kvm_riscv_vcpu_timer_save(vcpu);
-> > +
-> >         csr->vsstatus = csr_read(CSR_VSSTATUS);
-> >         csr->vsie = csr_read(CSR_VSIE);
-> >         csr->vstvec = csr_read(CSR_VSTVEC);
-> > diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
-> > index 595043857049..16f50c46ba39 100644
-> > --- a/arch/riscv/kvm/vcpu_timer.c
-> > +++ b/arch/riscv/kvm/vcpu_timer.c
-> > @@ -69,7 +69,18 @@ static int kvm_riscv_vcpu_timer_cancel(struct kvm_vcpu_timer *t)
-> >         return 0;
-> >  }
-> >
-> > -int kvm_riscv_vcpu_timer_next_event(struct kvm_vcpu *vcpu, u64 ncycles)
-> > +static int kvm_riscv_vcpu_update_vstimecmp(struct kvm_vcpu *vcpu, u64 ncycles)
-> > +{
-> > +#if defined(CONFIG_32BIT)
-> > +               csr_write(CSR_VSTIMECMP, ncycles & 0xFFFFFFFF);
-> > +               csr_write(CSR_VSTIMECMPH, ncycles >> 32);
-> > +#else
-> > +               csr_write(CSR_VSTIMECMP, ncycles);
-> > +#endif
-> > +               return 0;
-> > +}
-> > +
-> > +static int kvm_riscv_vcpu_update_hrtimer(struct kvm_vcpu *vcpu, u64 ncycles)
-> >  {
-> >         struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-> >         struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
-> > @@ -88,6 +99,65 @@ int kvm_riscv_vcpu_timer_next_event(struct kvm_vcpu *vcpu, u64 ncycles)
-> >         return 0;
-> >  }
-> >
-> > +int kvm_riscv_vcpu_timer_next_event(struct kvm_vcpu *vcpu, u64 ncycles)
-> > +{
-> > +       struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-> > +
-> > +       return t->timer_next_event(vcpu, ncycles);
-> > +}
-> > +
-> > +static enum hrtimer_restart kvm_riscv_vcpu_vstimer_expired(struct hrtimer *h)
-> > +{
-> > +       u64 delta_ns;
-> > +       struct kvm_vcpu_timer *t = container_of(h, struct kvm_vcpu_timer, hrt);
-> > +       struct kvm_vcpu *vcpu = container_of(t, struct kvm_vcpu, arch.timer);
-> > +       struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
-> > +
-> > +       if (kvm_riscv_current_cycles(gt) < t->next_cycles) {
-> > +               delta_ns = kvm_riscv_delta_cycles2ns(t->next_cycles, gt, t);
-> > +               hrtimer_forward_now(&t->hrt, ktime_set(0, delta_ns));
-> > +               return HRTIMER_RESTART;
-> > +       }
-> > +
-> > +       t->next_set = false;
-> > +       kvm_vcpu_kick(vcpu);
-> > +
-> > +       return HRTIMER_NORESTART;
-> > +}
-> > +
-> > +bool kvm_riscv_vcpu_timer_pending(struct kvm_vcpu *vcpu)
-> > +{
-> > +       struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-> > +       struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
-> > +
-> > +       if (!kvm_riscv_delta_cycles2ns(t->next_cycles, gt, t) ||
-> > +           kvm_riscv_vcpu_has_interrupts(vcpu, 1UL << IRQ_VS_TIMER))
-> > +               return true;
-> > +       else
-> > +               return false;
-> > +}
-> > +
-> > +static void kvm_riscv_vcpu_timer_blocking(struct kvm_vcpu *vcpu)
-> > +{
-> > +       struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-> > +       struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
-> > +       u64 delta_ns;
-> > +
-> > +       if (!t->init_done)
-> > +               return;
-> > +
-> > +       delta_ns = kvm_riscv_delta_cycles2ns(t->next_cycles, gt, t);
-> > +       if (delta_ns) {
-> > +               hrtimer_start(&t->hrt, ktime_set(0, delta_ns), HRTIMER_MODE_REL);
-> > +               t->next_set = true;
-> > +       }
-> > +}
-> > +
-> > +static void kvm_riscv_vcpu_timer_unblocking(struct kvm_vcpu *vcpu)
-> > +{
-> > +       kvm_riscv_vcpu_timer_cancel(&vcpu->arch.timer);
-> > +}
-> > +
-> >  int kvm_riscv_vcpu_get_reg_timer(struct kvm_vcpu *vcpu,
-> >                                  const struct kvm_one_reg *reg)
-> >  {
-> > @@ -180,10 +250,20 @@ int kvm_riscv_vcpu_timer_init(struct kvm_vcpu *vcpu)
-> >                 return -EINVAL;
-> >
-> >         hrtimer_init(&t->hrt, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
-> > -       t->hrt.function = kvm_riscv_vcpu_hrtimer_expired;
-> >         t->init_done = true;
-> >         t->next_set = false;
-> >
-> > +       /* Enable sstc for every vcpu if available in hardware */
-> > +       if (riscv_isa_extension_available(NULL, SSTC)) {
-> > +               t->sstc_enabled = true;
-> > +               t->hrt.function = kvm_riscv_vcpu_vstimer_expired;
-> > +               t->timer_next_event = kvm_riscv_vcpu_update_vstimecmp;
-> > +       } else {
-> > +               t->sstc_enabled = false;
-> > +               t->hrt.function = kvm_riscv_vcpu_hrtimer_expired;
-> > +               t->timer_next_event = kvm_riscv_vcpu_update_hrtimer;
-> > +       }
-> > +
-> >         return 0;
-> >  }
-> >
-> > @@ -199,21 +279,73 @@ int kvm_riscv_vcpu_timer_deinit(struct kvm_vcpu *vcpu)
-> >
-> >  int kvm_riscv_vcpu_timer_reset(struct kvm_vcpu *vcpu)
-> >  {
-> > +       struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-> > +
-> > +       t->next_cycles = -1ULL;
-> >         return kvm_riscv_vcpu_timer_cancel(&vcpu->arch.timer);
-> >  }
-> >
-> > -void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu)
-> > +static void kvm_riscv_vcpu_update_timedelta(struct kvm_vcpu *vcpu)
-> >  {
-> >         struct kvm_guest_timer *gt = &vcpu->kvm->arch.timer;
-> >
-> > -#ifdef CONFIG_64BIT
-> > -       csr_write(CSR_HTIMEDELTA, gt->time_delta);
-> > -#else
-> > +#if defined(CONFIG_32BIT)
-> >         csr_write(CSR_HTIMEDELTA, (u32)(gt->time_delta));
-> >         csr_write(CSR_HTIMEDELTAH, (u32)(gt->time_delta >> 32));
-> > +#else
-> > +       csr_write(CSR_HTIMEDELTA, gt->time_delta);
-> >  #endif
-> >  }
-> >
-> > +void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu)
-> > +{
-> > +       struct kvm_vcpu_csr *csr;
-> > +       struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-> > +
-> > +       kvm_riscv_vcpu_update_timedelta(vcpu);
-> > +
-> > +       if (!t->sstc_enabled)
-> > +               return;
-> > +
-> > +       csr = &vcpu->arch.guest_csr;
-> > +#if defined(CONFIG_32BIT)
-> > +       csr_write(CSR_VSTIMECMP, (u32)t->next_cycles);
-> > +       csr_write(CSR_VSTIMECMPH, (u32)(t->next_cycles >> 32));
-> > +#else
-> > +       csr_write(CSR_VSTIMECMP, t->next_cycles);
-> > +#endif
-> > +
-> > +       /* timer should be enabled for the remaining operations */
-> > +       if (unlikely(!t->init_done))
-> > +               return;
-> > +
-> > +       kvm_riscv_vcpu_timer_unblocking(vcpu);
-> > +}
-> > +
-> > +void kvm_riscv_vcpu_timer_save(struct kvm_vcpu *vcpu)
-> > +{
-> > +       struct kvm_vcpu_csr *csr;
-> > +       struct kvm_vcpu_timer *t = &vcpu->arch.timer;
-> > +
-> > +       if (!t->sstc_enabled)
-> > +               return;
-> > +
-> > +       csr = &vcpu->arch.guest_csr;
-> > +       t = &vcpu->arch.timer;
-> > +#if defined(CONFIG_32BIT)
-> > +       t->next_cycles = csr_read(CSR_VSTIMECMP);
-> > +       t->next_cycles |= (u64)csr_read(CSR_VSTIMECMPH) << 32;
-> > +#else
-> > +       t->next_cycles = csr_read(CSR_VSTIMECMP);
-> > +#endif
-> > +       /* timer should be enabled for the remaining operations */
-> > +       if (unlikely(!t->init_done))
-> > +               return;
-> > +
-> > +       if (kvm_vcpu_is_blocking(vcpu))
-> > +               kvm_riscv_vcpu_timer_blocking(vcpu);
-> > +}
-> > +
-> >  void kvm_riscv_guest_timer_init(struct kvm *kvm)
-> >  {
-> >         struct kvm_guest_timer *gt = &kvm->arch.timer;
-> > --
-> > 2.25.1
-> >
->
-> Regards,
-> Anup
-
-
-
--- 
-Regards,
-Atish
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjAyMi8wNy8xOCAxMTo1MywgWGlhbnRpbmcgVGlhbiB3cm90ZToNCj4gVGhpcyBzZXJpZXMg
+b2YgcGF0Y2hlcyBhcmUgZm9yIENyYXNoLXV0aWxpdHkgdG9vbCwgaXQgbWFrZSBjcmFzaCB0b29s
+IHN1cHBvcnQNCj4gUklTQ1Y2NCBhcmNoIGFuZCB0aGUgY29tbW9uIGNvbW1hbmRzKCosIGJ0LCBw
+LCByZCwgbW9kLCBsb2csIHNldCwgc3RydWN0LCB0YXNrLA0KPiBkaXMgYW5kIHNvIG9uKS4NCg0K
+V2l0aCB0aGUgcGF0Y2hzZXQsIHRoZSBmb2xsb3dpbmcgd2FybmluZ3MgYXJlIGVtaXR0ZWQuDQoN
+CiQgbWFrZSBjbGVhbiB0YXJnZXQ9UklTQ1Y2NCA7IG1ha2Ugd2FybiB0YXJnZXQ9UklTQ1Y2NA0K
+Li4uDQpjYyAtYyAtZyAtRFJJU0NWNjQgIC1ER0RCXzEwXzIgIHJpc2N2NjQuYyAtV2FsbCAtTzIg
+LVdzdHJpY3QtcHJvdG90eXBlcyAtV21pc3NpbmctcHJvdG90eXBlcyAtZnN0YWNrLXByb3RlY3Rv
+ciAtV2Zvcm1hdC1zZWN1cml0eQ0KcmlzY3Y2NC5jOiBJbiBmdW5jdGlvbiDigJhyaXNjdjY0X2dl
+dF9zdGFja19mcmFtZeKAmToNCnJpc2N2NjQuYzo5MDQ6Njogd2FybmluZzogdmFyaWFibGUg4oCY
+cmV04oCZIHNldCBidXQgbm90IHVzZWQgWy1XdW51c2VkLWJ1dC1zZXQtdmFyaWFibGVdDQogICBp
+bnQgcmV0ID0gMDsNCiAgICAgICBefn4NCkF0IHRvcCBsZXZlbDoNCnJpc2N2NjQuYzoxMzc6MTI6
+IHdhcm5pbmc6IOKAmHJpc2N2NjRfZ2V0X3N0cnVjdF9wYWdlX21heF9zaGlmdOKAmSBkZWZpbmVk
+IGJ1dCBub3QgdXNlZCBbLVd1bnVzZWQtZnVuY3Rpb25dDQogIHN0YXRpYyBpbnQgcmlzY3Y2NF9n
+ZXRfc3RydWN0X3BhZ2VfbWF4X3NoaWZ0KHN0cnVjdCBtYWNoaW5lX3NwZWNpZmljICptcykNCiAg
+ICAgICAgICAgICBefn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4NCnJpc2N2NjQuYzog
+SW4gZnVuY3Rpb24g4oCYcmlzY3Y2NF92dG9wXzNsZXZlbF80a+KAmToNCnJpc2N2NjQuYzo1MTU6
+Mzogd2FybmluZzog4oCYcG1kX3B0cuKAmSBtYXkgYmUgdXNlZCB1bmluaXRpYWxpemVkIGluIHRo
+aXMgZnVuY3Rpb24gWy1XbWF5YmUtdW5pbml0aWFsaXplZF0NCiAgICBmcHJpbnRmKGZwLCAiICBQ
+TUQ6ICUwMTZseCA9PiAlMDE2bHhcbiIsICh1bG9uZylwbWRfcHRyLCBwbWRfdmFsKTsNCiAgICBe
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
+fn5+fn5+fg0KcmlzY3Y2NC5jOjUyNjozOiB3YXJuaW5nOiDigJhwdGVfcHRy4oCZIG1heSBiZSB1
+c2VkIHVuaW5pdGlhbGl6ZWQgaW4gdGhpcyBmdW5jdGlvbiBbLVdtYXliZS11bmluaXRpYWxpemVk
+XQ0KICAgIGZwcmludGYoZnAsICIgICBQVEU6ICVseCA9PiAlbHhcbiIsICh1bG9uZylwdGVfcHRy
+LCBwdGVfdmFsKTsNCiAgICBefn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn4NCnJpc2N2NjQuYzogSW4gZnVuY3Rpb24g4oCYcmlzY3Y2NF92
+dG9wXzRsZXZlbF80a+KAmToNCnJpc2N2NjQuYzo1Nzk6Mzogd2FybmluZzog4oCYcHVkX3B0cuKA
+mSBtYXkgYmUgdXNlZCB1bmluaXRpYWxpemVkIGluIHRoaXMgZnVuY3Rpb24gWy1XbWF5YmUtdW5p
+bml0aWFsaXplZF0NCiAgICBmcHJpbnRmKGZwLCAiICBQVUQ6ICUwMTZseCA9PiAlMDE2bHhcbiIs
+ICh1bG9uZylwdWRfcHRyLCBwdWRfdmFsKTsNCiAgICBefn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fg0KcmlzY3Y2NC5jOjU5MDoz
+OiB3YXJuaW5nOiDigJhwbWRfcHRy4oCZIG1heSBiZSB1c2VkIHVuaW5pdGlhbGl6ZWQgaW4gdGhp
+cyBmdW5jdGlvbiBbLVdtYXliZS11bmluaXRpYWxpemVkXQ0KICAgIGZwcmludGYoZnAsICIgIFBN
+RDogJTAxNmx4ID0+ICUwMTZseFxuIiwgKHVsb25nKXBtZF9wdHIsIHBtZF92YWwpOw0KICAgIF5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
+fn5+fn5+DQpyaXNjdjY0LmM6NjAxOjM6IHdhcm5pbmc6IOKAmHB0ZV9wdHLigJkgbWF5IGJlIHVz
+ZWQgdW5pbml0aWFsaXplZCBpbiB0aGlzIGZ1bmN0aW9uIFstV21heWJlLXVuaW5pdGlhbGl6ZWRd
+DQogICAgZnByaW50ZihmcCwgIiAgIFBURTogJWx4ID0+ICVseFxuIiwgKHVsb25nKXB0ZV9wdHIs
+IHB0ZV92YWwpOw0KICAgIF5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fg0KcmlzY3Y2NC5jOiBJbiBmdW5jdGlvbiDigJhyaXNjdjY0X3Z0
+b3BfNWxldmVsXzRr4oCZOg0KcmlzY3Y2NC5jOjY1NTozOiB3YXJuaW5nOiDigJhwNGRfcHRy4oCZ
+IG1heSBiZSB1c2VkIHVuaW5pdGlhbGl6ZWQgaW4gdGhpcyBmdW5jdGlvbiBbLVdtYXliZS11bmlu
+aXRpYWxpemVkXQ0KICAgIGZwcmludGYoZnAsICIgIFA0RDogJTAxNmx4ID0+ICUwMTZseFxuIiwg
+KHVsb25nKXA0ZF9wdHIsIHA0ZF92YWwpOw0KICAgIF5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+DQpyaXNjdjY0LmM6NjY2OjM6
+IHdhcm5pbmc6IOKAmHB1ZF9wdHLigJkgbWF5IGJlIHVzZWQgdW5pbml0aWFsaXplZCBpbiB0aGlz
+IGZ1bmN0aW9uIFstV21heWJlLXVuaW5pdGlhbGl6ZWRdDQogICAgZnByaW50ZihmcCwgIiAgUFVE
+OiAlMDE2bHggPT4gJTAxNmx4XG4iLCAodWxvbmcpcHVkX3B0ciwgcHVkX3ZhbCk7DQogICAgXn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
+fn5+fn4NCnJpc2N2NjQuYzo2Nzc6Mzogd2FybmluZzog4oCYcG1kX3B0cuKAmSBtYXkgYmUgdXNl
+ZCB1bmluaXRpYWxpemVkIGluIHRoaXMgZnVuY3Rpb24gWy1XbWF5YmUtdW5pbml0aWFsaXplZF0N
+CiAgICBmcHJpbnRmKGZwLCAiICBQTUQ6ICUwMTZseCA9PiAlMDE2bHhcbiIsICh1bG9uZylwbWRf
+cHRyLCBwbWRfdmFsKTsNCiAgICBefn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fg0KcmlzY3Y2NC5jOjY4ODozOiB3YXJuaW5nOiDi
+gJhwdGVfcHRy4oCZIG1heSBiZSB1c2VkIHVuaW5pdGlhbGl6ZWQgaW4gdGhpcyBmdW5jdGlvbiBb
+LVdtYXliZS11bmluaXRpYWxpemVkXQ0KICAgIGZwcmludGYoZnAsICIgICBQVEU6ICVseCA9PiAl
+bHhcbiIsICh1bG9uZylwdGVfcHRyLCBwdGVfdmFsKTsNCiAgICBefn5+fn5+fn5+fn5+fn5+fn5+
+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4NCg0KVGhhbmtzLA0KS2F6
+dQ0KDQo+IA0KPiBUbyBtYWtlIHRoZSBjcmFzaCB0b29sIHdvcmsgbm9ybWFsbHkgZm9yIFJJU0NW
+NjQgYXJjaCwgd2UgbmVlZCBhIExpbnV4IGtlcm5lbA0KPiBwYXRjaCh1bmRlciByZXZpZXdpbmcp
+LCB3aGljaCBleHBvcnRzIHRoZSBrZXJuZWwgdmlydHVhbCBtZW1vcnkgbGF5b3V0LCB2YV9iaXRz
+LA0KPiBwaHlzX3JhbV9iYXNlIHRvIHZtY29yZWluZm8sIGl0IGNhbiBzaW1wbGlmeSB0aGUgZGV2
+ZWxvcG1lbnQgb2YgY3Jhc2ggdG9vbC4NCj4gDQo+IFRoZSBMaW51eCBrZXJuZWwgcGF0Y2hlczoN
+Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjA3MTcxMDEzMjMuMzcw
+MjQ1LTEteGlhbnRpbmcudGlhbkBsaW51eC5hbGliYWJhLmNvbS8NCj4gICANCj4gVGhpcyBzZXJp
+ZXMgb2YgcGF0Y2hlcyBhcmUgdGVzdGVkIG9uIFFFTVUgUklTQ1Y2NCBlbnYgYW5kIFNvQyBwbGF0
+Zm9ybSBvZg0KPiBULWhlYWQgWHVhbnRpZSA5MTAgQ1BVLg0KPiANCj4gPT09PT09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09DQo+ICAgIFNvbWUgdGVzdCBleGFtcGxlcyBsaXN0IGFzIGJl
+bG93DQo+ID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQ0KPiAuLi4gLi4uDQo+
+ICAgICAgICBLRVJORUw6IHZtbGludXgNCj4gICAgICBEVU1QRklMRTogdm1jb3JlDQo+ICAgICAg
+ICAgIENQVVM6IDENCj4gICAgICAgICAgREFURTogRnJpIEp1bCAxNSAxMDoyNDoyNSBDU1QgMjAy
+Mg0KPiAgICAgICAgVVBUSU1FOiAwMDowMDozMw0KPiBMT0FEIEFWRVJBR0U6IDAuMDUsIDAuMDEs
+IDAuMDANCj4gICAgICAgICBUQVNLUzogNDENCj4gICAgICBOT0RFTkFNRTogYnVpbGRyb290DQo+
+ICAgICAgIFJFTEVBU0U6IDUuMTguOQ0KPiAgICAgICBWRVJTSU9OOiAjMzAgU01QIEZyaSBKdWwg
+MTUgMDk6NDc6MDMgQ1NUIDIwMjINCj4gICAgICAgTUFDSElORTogcmlzY3Y2NCAgKHVua25vd24g
+TWh6KQ0KPiAgICAgICAgTUVNT1JZOiAxIEdCDQo+ICAgICAgICAgUEFOSUM6ICJLZXJuZWwgcGFu
+aWMgLSBub3Qgc3luY2luZzogc3lzcnEgdHJpZ2dlcmVkIGNyYXNoIg0KPiAgICAgICAgICAgUElE
+OiAxMTMNCj4gICAgICAgQ09NTUFORDogInNoIg0KPiAgICAgICAgICBUQVNLOiBmZjYwMDAwMDAy
+MjY5NjAwICBbVEhSRUFEX0lORk86IGZmNjAwMDAwMDIyNjk2MDBdDQo+ICAgICAgICAgICBDUFU6
+IDANCj4gICAgICAgICBTVEFURTogVEFTS19SVU5OSU5HIChQQU5JQykNCj4gDQo+IGNhcnNoPg0K
+PiANCj4gY3Jhc2g+IHAgbWVtX21hcA0KPiBtZW1fbWFwID0gJDEgPSAoc3RydWN0IHBhZ2UgKikg
+MHhmZjYwMDAwMDNlZmZiZjAwDQo+IA0KPiBjcmFzaD4gcCAveCAqKHN0cnVjdCBwYWdlICopIDB4
+ZmY2MDAwMDAzZWZmYmYwMA0KPiAkNSA9IHsNCj4gICAgZmxhZ3MgPSAweDEwMDAsDQo+ICAgIHsN
+Cj4gICAgICB7DQo+ICAgICAgICB7DQo+ICAgICAgICAgIGxydSA9IHsNCj4gICAgICAgICAgICBu
+ZXh0ID0gMHhmZjYwMDAwMDNlZmZiZjA4LA0KPiAgICAgICAgICAgIHByZXYgPSAweGZmNjAwMDAw
+M2VmZmJmMDgNCj4gICAgICAgICAgfSwNCj4gICAgICAgICAgew0KPiAgICAgICAgICAgIF9fZmls
+bGVyID0gMHhmZjYwMDAwMDNlZmZiZjA4LA0KPiAgICAgICAgICAgIG1sb2NrX2NvdW50ID0gMHgz
+ZWZmYmYwOA0KPiAgICAgICAgICB9DQo+ICAgICAgICB9LA0KPiAgICAgICAgbWFwcGluZyA9IDB4
+MCwNCj4gICAgICAgIGluZGV4ID0gMHgwLA0KPiAgICAgICAgcHJpdmF0ZSA9IDB4MA0KPiAgICAg
+IH0sDQo+ICAgIC4uLiAuLi4NCj4gDQo+IGNyYXNoPiBtb2QNCj4gICAgICAgTU9EVUxFICAgICAg
+IE5BTUUgICAgICAgICAgICAgQkFTRSAgICAgICAgIFNJWkUgIE9CSkVDVCBGSUxFDQo+IGZmZmZm
+ZmZmMDExM2U3NDAgIG52bWVfY29yZSAgZmZmZmZmZmYwMTEzMzAwMCAgOTgzMDQgIChub3QgbG9h
+ZGVkKSAgW0NPTkZJR19LQUxMU1lNU10NCj4gZmZmZmZmZmYwMTE1NDJjMCAgbnZtZSAgICAgICBm
+ZmZmZmZmZjAxMTRjMDAwICA2MTQ0MCAgKG5vdCBsb2FkZWQpICBbQ09ORklHX0tBTExTWU1TXQ0K
+PiANCj4gY3Jhc2g+IHJkIGZmZmZmZmZmMDExM2U3NDAgOA0KPiBmZmZmZmZmZjAxMTNlNzQwOiAg
+MDAwMDAwMDAwMDAwMDAwMCBmZmZmZmZmZjgxMDg3NGY4ICAgLi4uLi4uLi4udC4uLi4uLg0KPiBm
+ZmZmZmZmZjAxMTNlNzUwOiAgZmZmZmZmZmYwMTE1NDJjOCA3MjZmNjM1ZjY1NmQ3NjZlICAgLkIu
+Li4uLi5udm1lX2Nvcg0KPiBmZmZmZmZmZjAxMTNlNzYwOiAgMDAwMDAwMDAwMDAwMDA2NSAwMDAw
+MDAwMDAwMDAwMDAwICAgZS4uLi4uLi4uLi4uLi4uLg0KPiBmZmZmZmZmZjAxMTNlNzcwOiAgMDAw
+MDAwMDAwMDAwMDAwMCAwMDAwMDAwMDAwMDAwMDAwICAgLi4uLi4uLi4uLi4uLi4uLg0KPiANCj4g
+Y3Jhc2g+IHZ0b3AgZmZmZmZmZmYwMTEzZTc0MA0KPiBWSVJUVUFMICAgICAgICAgICBQSFlTSUNB
+TA0KPiBmZmZmZmZmZjAxMTNlNzQwICA4MjU0ZDc0MA0KPiANCj4gICAgIFBHRDogZmZmZmZmZmY4
+MTBlOWZmOCA9PiAyZmZmZjAwMQ0KPiAgICBQNEQ6IDAwMDAwMDAwMDAwMDAwMDAgPT4gMDAwMDAw
+MDAyZmZmZWMwMQ0KPiAgICBQVUQ6IDAwMDA1NjA1YzI5NTc0NzAgPT4gMDAwMDAwMDAyMDk0OTgw
+MQ0KPiAgICBQTUQ6IDAwMDA3ZmZmN2YxNzUwYzAgPT4gMDAwMDAwMDAyMDk0NzQwMQ0KPiAgICAg
+UFRFOiAwID0+IDIwOTUzNGU3DQo+ICAgUEFHRTogMDAwMDAwMDA4MjU0ZDAwMA0KPiANCj4gICAg
+UFRFICAgICBQSFlTSUNBTCAgRkxBR1MNCj4gMjA5NTM0ZTcgIDgyNTRkMDAwICAoUFJFU0VOVHxS
+RUFEfFdSSVRFfEdMT0JBTHxBQ0NFU1NFRHxESVJUWSkNCj4gDQo+ICAgICAgICBQQUdFICAgICAg
+IFBIWVNJQ0FMICAgICAgTUFQUElORyAgICAgICBJTkRFWCBDTlQgRkxBR1MNCj4gZmY2MDAwMDAz
+ZjA3NzdkOCA4MjU0ZDAwMCAgICAgICAgICAgICAgICAwICAgICAgICAwICAxIDANCj4gDQo+IGNy
+YXNoPiBidA0KPiBQSUQ6IDExMyAgICAgIFRBU0s6IGZmNjAwMDAwMDIyNmMyMDAgIENQVTogMCAg
+ICBDT01NQU5EOiAic2giDQo+ICAgIzAgW2ZmMjAwMDAwMTAzMzNiOTBdIHJpc2N2X2NyYXNoX3Nh
+dmVfcmVncyBhdCBmZmZmZmZmZjgwMDA3OGY4DQo+ICAgIzEgW2ZmMjAwMDAwMTAzMzNjZjBdIHBh
+bmljIGF0IGZmZmZmZmZmODA2NTc4YzYNCj4gICAjMiBbZmYyMDAwMDAxMDMzM2Q1MF0gc3lzcnFf
+cmVzZXRfc2VxX3BhcmFtX3NldCBhdCBmZmZmZmZmZjgwMzhjMDNjDQo+ICAgIzMgW2ZmMjAwMDAw
+MTAzMzNkYTBdIF9faGFuZGxlX3N5c3JxIGF0IGZmZmZmZmZmODAzOGM2MDQNCj4gICAjNCBbZmYy
+MDAwMDAxMDMzM2UwMF0gd3JpdGVfc3lzcnFfdHJpZ2dlciBhdCBmZmZmZmZmZjgwMzhjYWU0DQo+
+ICAgIzUgW2ZmMjAwMDAwMTAzMzNlMjBdIHByb2NfcmVnX3dyaXRlIGF0IGZmZmZmZmZmODAxYjdl
+ZTgNCj4gICAjNiBbZmYyMDAwMDAxMDMzM2U0MF0gdmZzX3dyaXRlIGF0IGZmZmZmZmZmODAxNTJi
+YjINCj4gICAjNyBbZmYyMDAwMDAxMDMzM2U4MF0ga3N5c193cml0ZSBhdCBmZmZmZmZmZjgwMTUy
+ZWRhDQo+ICAgIzggW2ZmMjAwMDAwMTAzMzNlZDBdIHN5c193cml0ZSBhdCBmZmZmZmZmZjgwMTUy
+ZjUyDQo+IA0KPiBYaWFudGluZyBUaWFuICg4KToNCj4gICAgQWRkIFJJU0NWNjQgZnJhbWV3b3Jr
+IGNvZGUgc3VwcG9ydA0KPiAgICBSSVNDVjY0OiBNYWtlIGNyYXNoIHRvb2wgZW50ZXIgY29tbWFu
+ZCBsaW5lIGFuZCBzdXBwb3J0IHNvbWUgY29tbWFuZHMNCj4gICAgUklTQ1Y2NDogQWRkICdkaXMn
+IGNvbW1hbmQgc3VwcG9ydA0KPiAgICBSSVNDVjY0OiBBZGQgJ2lycScgY29tbWFuZCBzdXBwb3J0
+DQo+ICAgIFJJU0NWNjQ6IEFkZCAnYnQnIGNvbW1hbmQgc3VwcG9ydA0KPiAgICBSSVNDVjY0OiBB
+ZGQgJ2hlbHAgLXInIGNvbW1hbmQgc3VwcG9ydA0KPiAgICBSSVNDVjY0OiBBZGQgJ21hY2gnIGNv
+bW1hbmQgc3VwcG9ydA0KPiAgICBSSVNDVjY0OiBBZGQgdGhlIGltcGxlbWVudGF0aW9uIG9mIHN5
+bWJvbCB2ZXJpZnkNCj4gDQo+ICAgTWFrZWZpbGUgICAgICAgICAgICB8ICAgIDcgKy0NCj4gICBS
+RUFETUUgICAgICAgICAgICAgIHwgICAgMiArLQ0KPiAgIGNvbmZpZ3VyZS5jICAgICAgICAgfCAg
+IDM5ICstDQo+ICAgZGVmcy5oICAgICAgICAgICAgICB8ICAyNDggKysrKysrKy0NCj4gICBkaXNr
+ZHVtcC5jICAgICAgICAgIHwgICAyMSArLQ0KPiAgIGhlbHAuYyAgICAgICAgICAgICAgfCAgICAy
+ICstDQo+ICAgbGtjZF92bWR1bXBfdjJfdjMuaCB8ICAgIDIgKy0NCj4gICBuZXRkdW1wLmMgICAg
+ICAgICAgIHwgICAyMiArLQ0KPiAgIHJhbWR1bXAuYyAgICAgICAgICAgfCAgICAyICsNCj4gICBy
+aXNjdjY0LmMgICAgICAgICAgIHwgMTQxNCArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrDQo+ICAgc3ltYm9scy5jICAgICAgICAgICB8ICAgMTAgKw0KPiAgIDExIGZp
+bGVzIGNoYW5nZWQsIDE3NTkgaW5zZXJ0aW9ucygrKSwgMTAgZGVsZXRpb25zKC0pDQo+ICAgY3Jl
+YXRlIG1vZGUgMTAwNjQ0IHJpc2N2NjQuYw0KPiAKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
+QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
+aXN0aW5mby9saW51eC1yaXNjdgo=
