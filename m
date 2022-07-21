@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B022C43334
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 09:54:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F495C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 10:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PmVnmoLw6cAHCnfPBoCEebcfP09Ny+I1bLO+PLpn6VQ=; b=az8a+n3M/aWv68
-	CKirVZjL0aLPrc2KDNX1/X431fCTMDIjMdIr9nmBVgvgjnEdq3pUKQEadCL6KC1McDG7s7aixlMn6
-	/OMVV4bDKyISD94x0sLTBY6crMTqiSsB+D7/eQEAEptObTeVi7D61Qns5WSlmVF9MgK3su7eit13V
-	Gu3H8XbS1uRoA29u+xamUltjnyaUyDlNniGo7Baaiyr9leASw5bXyS5vtxkLQMRsA6Ytf3/zow/Zw
-	+qNtkm4dNreLHiqdEhOhqopIPGi/H96h2pEBuBs0vx1qG3q4g1fF145wmklDTdXMDTZSgLIfmyw0v
-	V4cHEK4mc8o4YAiMN6xA==;
+	List-Owner; bh=TAULwTvD6oqQuChJ7VFMnD1UsXUkTXhb7Xs2thQjSAE=; b=a2FtopD2QfnuIo
+	EBqU5AiLzj6WUcnfZTl0o2EECtetSR475KL6oObQqI4HFGmaCSn0rrOFvXm5qGpTE0Tfz26mjqPI/
+	jS4qGRwf0myUtZ0i9pOoSSZRp4Evnz5sB2zXje5LSNuFUYN/tR2BCYPeqNPyszSooM7htW1mck0Gc
+	nzSMz0rujJCmoQPBlEStGBPqpitYXB+Y3gyyhDOQVLm4Y0PFwsk9gh89eZbWxN1B/5NvEUlkDgAYN
+	D8qHEqtpAteIcCp0vLLdfe1ZXJVzKOV71YhEtXWIZuJUyd6rV41w7IdMXJe/HjiJthbOlSaLsfbvz
+	gtHm5fmYINPdxo83t8FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oESt9-003Xd9-Ms; Thu, 21 Jul 2022 09:54:35 +0000
-Received: from mail-yw1-f178.google.com ([209.85.128.178])
+	id 1oETTI-003ro2-5h; Thu, 21 Jul 2022 10:31:56 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oESsu-003XSR-Md; Thu, 21 Jul 2022 09:54:22 +0000
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-31d85f82f0bso11431897b3.7;
-        Thu, 21 Jul 2022 02:54:18 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=iTJfNbacNs72Ij4X/S7T9wZZgS4I9cYRvxKbLI1wpAs=;
-        b=w4Tnf3HUQMHk/g0GG2FNQj7+e7YmwYTb01T3XkBSvOiUDUcm+tqSjNLTcMHyZWCZHy
-         7bA2XRZmRnW2LNN8ZsmYXRsr9hADQ+MXnsafI8YxW2rbtY+2rYy0IHLsptpHU5jQ97hf
-         5O72m4lzdDRgmDaiiV1y9X3ipCNoFGqgm0RDaSZzrXx2KiRtGhMruR9cuQUO4p25TuFB
-         srnQbJVfEkRlLLb4S3ibpLnVreWTcIZzbfpP0BbvI/IW+BbuTMrXjsgHSk1nXDZCEtu/
-         sgcMQMEPVvwTCx8oTeIcGTJQIWhmacaIOudDykT1c07Y+QnOpG3fuDPTy808gj6BvT58
-         iKdg==
-X-Gm-Message-State: AJIora/t61z0AM10GrmvVFIS9MQZ8Aw1hEuUcsjngKi0SjCCOd1myO82
-	pceDJSyz/efCWJMWMeHQLjDVrkIChYVhE2Ean2o=
-X-Google-Smtp-Source: AGRyM1tGJGvJH4lyIFuh4q9T0AcAsnMIfyWz0d7qz0qCCso3kBQcxWQBTlIfYJvS/hWYgsjCDGac9oVZPnBiFYj4OUc=
-X-Received: by 2002:a81:89c3:0:b0:31e:6908:f857 with SMTP id
- z186-20020a8189c3000000b0031e6908f857mr8348503ywf.149.1658397257668; Thu, 21
- Jul 2022 02:54:17 -0700 (PDT)
+	id 1oETT9-003rcn-Nb
+	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 10:31:51 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oETSz-0002Vy-QN; Thu, 21 Jul 2022 12:31:37 +0200
+Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
+	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oETSy-002IMk-IB; Thu, 21 Jul 2022 12:31:36 +0200
+Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
+	(envelope-from <ukl@pengutronix.de>)
+	id 1oETSx-006ZIS-UD; Thu, 21 Jul 2022 12:31:35 +0200
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Wan Jiabing <wanjiabing@vivo.com>,
+	kernel@pengutronix.de,
+	linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Yash Shah <yash.shah@sifive.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	"Wesley W. Terpstra" <wesley@sifive.com>
+Subject: [PATCH 5/7] pwm: sifive: Simplify clk handling
+Date: Thu, 21 Jul 2022 12:31:27 +0200
+Message-Id: <20220721103129.304697-5-u.kleine-koenig@pengutronix.de>
+X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220721103129.304697-1-u.kleine-koenig@pengutronix.de>
+References: <20220721103129.304697-1-u.kleine-koenig@pengutronix.de>
 MIME-Version: 1.0
-References: <20220720-arch_topo_fixes-v3-0-43d696288e84@arm.com> <20220720-arch_topo_fixes-v3-2-43d696288e84@arm.com>
-In-Reply-To: <20220720-arch_topo_fixes-v3-2-43d696288e84@arm.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Thu, 21 Jul 2022 11:54:05 +0200
-Message-ID: <CAJZ5v0jizZELraQsS0gP0ALL60wyhT2F-7no5p5KKmg7Spi6uw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] ACPI: PPTT: Leave the table mapped for the runtime usage
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Pierre Gondois <pierre.gondois@arm.com>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, Guenter Roeck <linux@roeck-us.net>, 
-	ACPI Devel Maling List <linux-acpi@vger.kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Ionela Voinescu <ionela.voinescu@arm.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1817; h=from:subject; bh=0fFwEZkhwtAHdV9/NUnEXXx4U/lJdZQ7HP84P2BZd3U=; b=owEBbQGS/pANAwAKAcH8FHityuwJAcsmYgBi2Sr4PlqUFDXOkb1eWHlVrO1iKgp5d1w/4C1/TlH0 MQzpDGWJATMEAAEKAB0WIQR+cioWkBis/z50pAvB/BR4rcrsCQUCYtkq+AAKCRDB/BR4rcrsCdnlB/ 9ZVYl1QMEBzPLGFquFuYMSf8xCwaQK/lcVrfciCCMgu4uOZ6A3srCMqVyMBQwJo9ZPa+jf+UFw4/GE n2aV5tusUN6QVOVZ5a3qgmCzehMnZv5hNWyjMPM+DPB38nHdMVebwHIrgFZB1QGC7zEx4VGNQ/NGN6 5rVN58ustUhIbTBPSlYKxA5pYdfBVSOYsw+M/pzQa1ALWRYW8dxmzxmLcnS0tvlltknksaVmSeKurf u/d4W3x8A6aoA7JTUpuCJsL83OnrXkVhmVqtH8Uc3OLUu4LwA4TrxgGvTmWx8J3TdC4KalbjkwANpZ KfbRdkbB2YdwEezoyAWsxjXwKhCdie
+X-Developer-Key: i=u.kleine-koenig@pengutronix.de; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: ukl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220721_025420_766166_B15EB089 
-X-CRM114-Status: GOOD (  29.95  )
+X-CRM114-CacheID: sfid-20220721_033147_822786_2C293181 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,243 +75,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 20, 2022 at 2:56 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
->
-> Currently, everytime an information needs to be fetched from the PPTT,
-> the table is mapped via acpi_get_table() and unmapped after the use via
-> acpi_put_table() which is fine. However we do this at runtime especially
-> when the CPU is hotplugged out and plugged in back since we re-populate
-> the cache topology and other information.
->
-> However, with the support to fetch LLC information from the PPTT in the
-> cpuhotplug path which is executed in the atomic context, it is preferred
-> to avoid mapping and unmapping of the PPTT for every single use as the
-> acpi_get_table() might sleep waiting for a mutex.
->
-> In order to avoid the same, the table is needs to just mapped once on
-> the boot CPU and is never unmapped allowing it to be used at runtime
-> with out the hassle of mapping and unmapping the table.
->
-> Reported-by: Guenter Roeck <linux@roeck-us.net>
-> Cc: Rafael J. Wysocki <rafael@kernel.org>
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
->
-> --
->
-> Hi Rafael,
->
-> Sorry to bother you again on this PPTT changes. Guenter reported an issue
-> with lockdep enabled in -next that include my cacheinfo/arch_topology changes
-> to utilise LLC from PPTT in the CPU hotplug path.
->
-> Please ack the change once you are happy so that I can get it merged with
-> other fixes via Greg's tree.
-
-OK
-
-Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-
->
-> diff --git a/drivers/acpi/pptt.c b/drivers/acpi/pptt.c
-> index dd3222a15c9c..c91342dcbcd6 100644
-> --- a/drivers/acpi/pptt.c
-> +++ b/drivers/acpi/pptt.c
-> @@ -533,21 +533,37 @@ static int topology_get_acpi_cpu_tag(struct acpi_table_header *table,
->         return -ENOENT;
->  }
->
-> +
-> +static struct acpi_table_header *acpi_get_pptt(void)
-> +{
-> +       static struct acpi_table_header *pptt;
-> +       acpi_status status;
-> +
-> +       /*
-> +        * PPTT will be used at runtime on every CPU hotplug in path, so we
-> +        * don't need to call acpi_put_table() to release the table mapping.
-> +        */
-> +       if (!pptt) {
-> +               status = acpi_get_table(ACPI_SIG_PPTT, 0, &pptt);
-> +               if (ACPI_FAILURE(status))
-> +                       acpi_pptt_warn_missing();
-> +       }
-> +
-> +       return pptt;
-> +}
-> +
->  static int find_acpi_cpu_topology_tag(unsigned int cpu, int level, int flag)
->  {
->         struct acpi_table_header *table;
-> -       acpi_status status;
->         int retval;
->
-> -       status = acpi_get_table(ACPI_SIG_PPTT, 0, &table);
-> -       if (ACPI_FAILURE(status)) {
-> -               acpi_pptt_warn_missing();
-> +       table = acpi_get_pptt();
-> +       if (!table)
->                 return -ENOENT;
-> -       }
-> +
->         retval = topology_get_acpi_cpu_tag(table, cpu, level, flag);
->         pr_debug("Topology Setup ACPI CPU %d, level %d ret = %d\n",
->                  cpu, level, retval);
-> -       acpi_put_table(table);
->
->         return retval;
->  }
-> @@ -568,16 +584,13 @@ static int find_acpi_cpu_topology_tag(unsigned int cpu, int level, int flag)
->  static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
->  {
->         struct acpi_table_header *table;
-> -       acpi_status status;
->         u32 acpi_cpu_id = get_acpi_id_for_cpu(cpu);
->         struct acpi_pptt_processor *cpu_node = NULL;
->         int ret = -ENOENT;
->
-> -       status = acpi_get_table(ACPI_SIG_PPTT, 0, &table);
-> -       if (ACPI_FAILURE(status)) {
-> -               acpi_pptt_warn_missing();
-> -               return ret;
-> -       }
-> +       table = acpi_get_pptt();
-> +       if (!table)
-> +               return -ENOENT;
->
->         if (table->revision >= rev)
->                 cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
-> @@ -585,8 +598,6 @@ static int check_acpi_cpu_flag(unsigned int cpu, int rev, u32 flag)
->         if (cpu_node)
->                 ret = (cpu_node->flags & flag) != 0;
->
-> -       acpi_put_table(table);
-> -
->         return ret;
->  }
->
-> @@ -605,18 +616,15 @@ int acpi_find_last_cache_level(unsigned int cpu)
->         u32 acpi_cpu_id;
->         struct acpi_table_header *table;
->         int number_of_levels = 0;
-> -       acpi_status status;
-> +
-> +       table = acpi_get_pptt();
-> +       if (!table)
-> +               return -ENOENT;
->
->         pr_debug("Cache Setup find last level CPU=%d\n", cpu);
->
->         acpi_cpu_id = get_acpi_id_for_cpu(cpu);
-> -       status = acpi_get_table(ACPI_SIG_PPTT, 0, &table);
-> -       if (ACPI_FAILURE(status)) {
-> -               acpi_pptt_warn_missing();
-> -       } else {
-> -               number_of_levels = acpi_find_cache_levels(table, acpi_cpu_id);
-> -               acpi_put_table(table);
-> -       }
-> +       number_of_levels = acpi_find_cache_levels(table, acpi_cpu_id);
->         pr_debug("Cache Setup find last level level=%d\n", number_of_levels);
->
->         return number_of_levels;
-> @@ -638,20 +646,16 @@ int acpi_find_last_cache_level(unsigned int cpu)
->  int cache_setup_acpi(unsigned int cpu)
->  {
->         struct acpi_table_header *table;
-> -       acpi_status status;
-> -
-> -       pr_debug("Cache Setup ACPI CPU %d\n", cpu);
->
-> -       status = acpi_get_table(ACPI_SIG_PPTT, 0, &table);
-> -       if (ACPI_FAILURE(status)) {
-> -               acpi_pptt_warn_missing();
-> +       table = acpi_get_pptt();
-> +       if (!table)
->                 return -ENOENT;
-> -       }
-> +
-> +       pr_debug("Cache Setup ACPI CPU %d\n", cpu);
->
->         cache_setup_acpi_cpu(table, cpu);
-> -       acpi_put_table(table);
->
-> -       return status;
-> +       return 0;
->  }
->
->  /**
-> @@ -730,50 +734,38 @@ int find_acpi_cpu_topology_package(unsigned int cpu)
->  int find_acpi_cpu_topology_cluster(unsigned int cpu)
->  {
->         struct acpi_table_header *table;
-> -       acpi_status status;
->         struct acpi_pptt_processor *cpu_node, *cluster_node;
->         u32 acpi_cpu_id;
->         int retval;
->         int is_thread;
->
-> -       status = acpi_get_table(ACPI_SIG_PPTT, 0, &table);
-> -       if (ACPI_FAILURE(status)) {
-> -               acpi_pptt_warn_missing();
-> +       table = acpi_get_pptt();
-> +       if (!table)
->                 return -ENOENT;
-> -       }
->
->         acpi_cpu_id = get_acpi_id_for_cpu(cpu);
->         cpu_node = acpi_find_processor_node(table, acpi_cpu_id);
-> -       if (cpu_node == NULL || !cpu_node->parent) {
-> -               retval = -ENOENT;
-> -               goto put_table;
-> -       }
-> +       if (!cpu_node || !cpu_node->parent)
-> +               return -ENOENT;
->
->         is_thread = cpu_node->flags & ACPI_PPTT_ACPI_PROCESSOR_IS_THREAD;
->         cluster_node = fetch_pptt_node(table, cpu_node->parent);
-> -       if (cluster_node == NULL) {
-> -               retval = -ENOENT;
-> -               goto put_table;
-> -       }
-> +       if (!cluster_node)
-> +               return -ENOENT;
-> +
->         if (is_thread) {
-> -               if (!cluster_node->parent) {
-> -                       retval = -ENOENT;
-> -                       goto put_table;
-> -               }
-> +               if (!cluster_node->parent)
-> +                       return -ENOENT;
-> +
->                 cluster_node = fetch_pptt_node(table, cluster_node->parent);
-> -               if (cluster_node == NULL) {
-> -                       retval = -ENOENT;
-> -                       goto put_table;
-> -               }
-> +               if (!cluster_node)
-> +                       return -ENOENT;
->         }
->         if (cluster_node->flags & ACPI_PPTT_ACPI_PROCESSOR_ID_VALID)
->                 retval = cluster_node->acpi_processor_id;
->         else
->                 retval = ACPI_PTR_DIFF(cluster_node, table);
->
-> -put_table:
-> -       acpi_put_table(table);
-> -
->         return retval;
->  }
->
->
-> --
-> b4 0.10.0-dev-54fef
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIGNsayBpcyBuZWNlc3NhcnkgZm9yIGJvdGggcmVnaXN0ZXIgYWNjZXNzIGFuZCAoZW5hYmxl
+ZCkgb3BlcmF0aW9uIG9mCnRoZSBQV00uIEluc3RlYWQgb2YKCgljbGtfZW5hYmxlKCkKCXVwZGF0
+ZV9odygpCglpZiBwd21fZ290X2VuYWJsZWQoKToKCQljbGtfZW5hYmxlKCkKCWVsaWYgcHdtX2dv
+dF9kaXNhYmxlZCgpOgoJCWNsa19kaXNhYmxlKCkKCWNsa19kaXNhYmxlKCkKCndoaWNoIGlzIHNv
+bWUgY2FzZXMgb25seSBjYWxscyBjbGtfZW5hYmxlKCkgdG8gaW1tZWRpYXRlbHkgYWZ0ZXJ3YXJk
+cwpjYWxsIGNsa19kaXNhYmxlIGFnYWluLCBkbzoKCglpZiAoIXByZXZfc3RhdGUuZW5hYmxlZCkK
+CQljbGtfZW5hYmxlKCkKCgkjIGNsayBlbmFibGVkIGV4YWN0bHkgb25jZQoKCXVwZGF0ZV9odygp
+CgoJaWYgKCFuZXh0X3N0YXRlLmVuYWJsZWQpCgkJY2xrX2Rpc2FibGUoKQoKd2hpY2ggaXMgbXVj
+aCBlYXNpZXIuCgpTaWduZWQtb2ZmLWJ5OiBVd2UgS2xlaW5lLUvDtm5pZyA8dS5rbGVpbmUta29l
+bmlnQHBlbmd1dHJvbml4LmRlPgotLS0KIGRyaXZlcnMvcHdtL3B3bS1zaWZpdmUuYyB8IDI2ICsr
+KysrKysrKysrKystLS0tLS0tLS0tLS0tCiAxIGZpbGUgY2hhbmdlZCwgMTMgaW5zZXJ0aW9ucygr
+KSwgMTMgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvZHJpdmVycy9wd20vcHdtLXNpZml2ZS5j
+IGIvZHJpdmVycy9wd20vcHdtLXNpZml2ZS5jCmluZGV4IGQ4MzM1MzZiNWU3YS4uMzRkMjNkNTZm
+YTI1IDEwMDY0NAotLS0gYS9kcml2ZXJzL3B3bS9wd20tc2lmaXZlLmMKKysrIGIvZHJpdmVycy9w
+d20vcHdtLXNpZml2ZS5jCkBAIC0xNjgsMjQgKzE2OCwyNCBAQCBzdGF0aWMgaW50IHB3bV9zaWZp
+dmVfYXBwbHkoc3RydWN0IHB3bV9jaGlwICpjaGlwLCBzdHJ1Y3QgcHdtX2RldmljZSAqcHdtLAog
+CX0KIAltdXRleF91bmxvY2soJmRkYXRhLT5sb2NrKTsKIAotCXJldCA9IGNsa19lbmFibGUoZGRh
+dGEtPmNsayk7Ci0JaWYgKHJldCkgewotCQlkZXZfZXJyKGRkYXRhLT5jaGlwLmRldiwgIkVuYWJs
+ZSBjbGsgZmFpbGVkXG4iKTsKLQkJcmV0dXJuIHJldDsKKwkvKgorCSAqIElmIHRoZSBQV00gaXMg
+ZW5hYmxlZCB0aGUgY2xrIGlzIGFscmVhZHkgb24uIFNvIG9ubHkgZW5hYmxlIGl0CisJICogY29u
+ZGl0aW9uYWxseSB0byBoYXZlIGl0IG9uIGV4YWN0bHkgb25jZSBhZnRlcndhcmRzIGluZGVwZW5k
+ZW50IG9mCisJICogdGhlIFBXTSBzdGF0ZS4KKwkgKi8KKwlpZiAoIWVuYWJsZWQpIHsKKwkJcmV0
+ID0gY2xrX2VuYWJsZShkZGF0YS0+Y2xrKTsKKwkJaWYgKHJldCkgeworCQkJZGV2X2VycihkZGF0
+YS0+Y2hpcC5kZXYsICJFbmFibGUgY2xrIGZhaWxlZFxuIik7CisJCQlyZXR1cm4gcmV0OworCQl9
+CiAJfQogCiAJd3JpdGVsKGZyYWMsIGRkYXRhLT5yZWdzICsgUFdNX1NJRklWRV9QV01DTVAocHdt
+LT5od3B3bSkpOwogCi0JaWYgKHN0YXRlLT5lbmFibGVkICE9IGVuYWJsZWQpIHsKLQkJaWYgKHN0
+YXRlLT5lbmFibGVkKSB7Ci0JCQlpZiAoY2xrX2VuYWJsZShkZGF0YS0+Y2xrKSkKLQkJCQlkZXZf
+ZXJyKGRkYXRhLT5jaGlwLmRldiwgIkVuYWJsZSBjbGsgZmFpbGVkXG4iKTsKLQkJfSBlbHNlIHsK
+LQkJCWNsa19kaXNhYmxlKGRkYXRhLT5jbGspOwotCQl9Ci0JfQorCWlmICghc3RhdGUtPmVuYWJs
+ZWQpCisJCWNsa19kaXNhYmxlKGRkYXRhLT5jbGspOwogCi0JY2xrX2Rpc2FibGUoZGRhdGEtPmNs
+ayk7CiAJcmV0dXJuIDA7CiB9CiAKLS0gCjIuMzYuMQoKCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
+YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
