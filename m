@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE59C433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 10:32:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2565EC43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 11:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=il3Ag3VPwvDeoG588AFq7KBckvk8HHB0AR3w5KHISfs=; b=0ZmnwbCZLmgdcy
-	adnT7Y6igodNoyCkI0z08BugCfTVNK8gaNVYMRXeGgjRp3QFJ5PlnVASeL+CCoJoom3IZYoRQuI4U
-	Besy+1cykFO/FFH9fAUem4v45vcl6rGjoJopRkXcfhCbz3oGETspTD6AHQkI/ksgUXlYxdTcdfCAD
-	8zpW5F6ATbt71VwY4tjwNdQNH68Xt/LiZcbLwZZ914Bmuz/U1iGyX326ODx7w2FUpiP2NZZGXZnvj
-	s8IAY77WRlHBz6gNeiZCZiy9yo0Lg270RXd8BMhXFT2Ed0/tTisBNU4rvuHHksytbB3LDJ0XijQRN
-	kILeNkMOZe0iJ1wcQ7Nw==;
+	List-Owner; bh=APV8Iy5h60xpw4pCc6r7ocmD0yf+Xg8Mw8aD33+Dxp4=; b=qzNY/fErNfrxea
+	/8bSIjA5kKw6BjpAB2VLoCxgq//GuGO79lOXLycn1ceokQbqUf3d1GMgeBiBz/X3wqY+TiN0uSJHJ
+	5SLDW6D/hqUsFxCHeLO8oR+nM4Pebn/u3in49iwBVEuameyVypeaRtUOmw5qZ8FlAw5SFIRUGik2Y
+	HFhn68ut6aPskX5mr5fC68sT4bQBIMQGLWCsRGqhSqtUtTXLkUgd/EIlnWrVrJCsdj+Y9MKL8p6NQ
+	A/mPUGJeHZQgryIuyCseGafxxzbfSCcOYEuwUDavKOLTKuPTb3RZqBqRHgOfE4ShOvhQuYJaEbhy4
+	mAUQY5ZdlV1Z7vMDfz6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oETTM-003rqO-Ik; Thu, 21 Jul 2022 10:32:00 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1oETv1-004kW8-GJ; Thu, 21 Jul 2022 11:00:35 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oETT9-003rcm-OE
-	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 10:31:51 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oETT0-0002W2-4g; Thu, 21 Jul 2022 12:31:38 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oETSz-002IMw-C6; Thu, 21 Jul 2022 12:31:37 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oETSy-006ZIV-3T; Thu, 21 Jul 2022 12:31:36 +0200
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Wan Jiabing <wanjiabing@vivo.com>,
-	kernel@pengutronix.de,
-	linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1oETux-004k5F-8C
+	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 11:00:34 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 4E0A6B8239B;
+	Thu, 21 Jul 2022 11:00:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB1D9C3411E;
+	Thu, 21 Jul 2022 11:00:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1658401225;
+	bh=Ea9B/drW2I5/wUW5EUvPUNDW6jClSjzDFf7/q9ktofk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Cu6QVFEKS9lI65MnO4BvYC9syNP117/ey0qM+jpD3Mf8QmPlnyrBwT3CfQbTpw9DV
+	 qxqvxzYrGpOsHSquiVvYMMSBgap4ccpxv7UNy5Qc8t282TwipbXo20YAAhLNTbNHf4
+	 qeD7KqyaAdku3B1O6DKkaMp7g1RMQwup0OLPfAXCD18tAxBtdE5pzEeAz9rhi0stQJ
+	 SJkCf7e6BLAw27igxVGkfbqE6BXyM7y6mxJppeKj7x39dUWMJeKrT/6zk/XOlB8/wW
+	 vZb8l0PV8E11c7Z6bnSehGOT0Jqz/ed5w9XXZPSt/CPmX3APqLbLVB48OoH1hLTHcn
+	 OBHvSFoeDwykw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1oETup-0093RK-LR;
+	Thu, 21 Jul 2022 12:00:23 +0100
+Date: Thu, 21 Jul 2022 12:00:23 +0100
+Message-ID: <8735euzq60.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Yash Shah <yash.shah@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
 	Atish Patra <atishp@atishpatra.org>,
-	"Wesley W. Terpstra" <wesley@sifive.com>
-Subject: [PATCH 6/7] pwm: sifive: Ensure the clk is enabled exactly one per running PWM
-Date: Thu, 21 Jul 2022 12:31:28 +0200
-Message-Id: <20220721103129.304697-6-u.kleine-koenig@pengutronix.de>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220721103129.304697-1-u.kleine-koenig@pengutronix.de>
-References: <20220721103129.304697-1-u.kleine-koenig@pengutronix.de>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3052; h=from:subject; bh=3zYgBnySD37iMkEgERXBOZoG3gCLgbZr9s4K5gsrSaA=; b=owEBbQGS/pANAwAKAcH8FHityuwJAcsmYgBi2Sr7s1Xee6KOfmM8IAOEhYJt8QASWiil0jdPQCuL 7xvik02JATMEAAEKAB0WIQR+cioWkBis/z50pAvB/BR4rcrsCQUCYtkq+wAKCRDB/BR4rcrsCWApB/ 9NmQ9Q2qgZCanYCyvqEAK0xeFbuNNq+pNUjV8I2bonDCLHyDawvdSynIyKzsXmnJsroYGrZuYcARPs ucb5MqG89QIvc94pYH/Nl2EAOz46lzslSUeKuml/WX8qndJbdqwnOYSHvX/8wo8aSdqgrOCH+/IHQ2 NT/n8pFBMDGO482OwHemUB7URNV1IJezr3U/ga5yxdZn9ZIfV2vhzt/jKn7J/WBeI10WQ2snXRz0eI uWDsQg04L2Nb/8Phl5S+mtQ5tTX+uUOziII2Dop+FtcJ5/fww+nEZeBSj2R39btihQA5zuPaWtQpky t198LoUZn2O2oeQ0LtHN95Gu9wfjRK
-X-Developer-Key: i=u.kleine-koenig@pengutronix.de; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 3/7] genirq: Add mechanism to multiplex a single HW IPI
+In-Reply-To: <20220720152348.2889109-4-apatel@ventanamicro.com>
+References: <20220720152348.2889109-1-apatel@ventanamicro.com>
+	<20220720152348.2889109-4-apatel@ventanamicro.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, daniel.lezcano@linaro.org, atishp@atishpatra.org, Alistair.Francis@wdc.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220721_033147_835507_40FA7B11 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20220721_040031_623775_D082E5EE 
+X-CRM114-Status: GOOD (  30.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,63 +87,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-LmFwcGx5KCkgYXNzdW1lcyB0aGUgY2xrIHRvIGJlIGZvciBhIGdpdmVuIFBXTSBpZmYgdGhlIFBX
-TSBpcyBlbmFibGVkLgpTbyBtYWtlIHN1cmUgdGhpcyBpcyB0aGUgY2FzZSB3aGVuIC5wcm9iZSgp
-IGNvbXBsZXRlcy4gQW5kIGluIC5yZW1vdmUoKQpkaXNhYmxlIHRoZSBhY2NvcmRpbmcgbnVtYmVy
-IG9mIHRpbWVzLgoKVGhpcyBmaXhlcyBhIGNsayBlbmFibGUvZGlzYWJsZSBpbWJhbGFuY2UsIGlm
-IHNvbWUgUFdNcyBhcmUgYWxyZWFkeSBydW5uaW5nCmF0IHByb2JlIHRpbWUuCgpGaXhlczogOWUz
-N2E1M2ViMDUxIChwd206IHNpZml2ZTogQWRkIGEgZHJpdmVyIGZvciBTaUZpdmUgU29DIFBXTSkK
-U2lnbmVkLW9mZi1ieTogVXdlIEtsZWluZS1Lw7ZuaWcgPHUua2xlaW5lLWtvZW5pZ0BwZW5ndXRy
-b25peC5kZT4KLS0tCiBkcml2ZXJzL3B3bS9wd20tc2lmaXZlLmMgfCA0NiArKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKy0tLS0tLS0tCiAxIGZpbGUgY2hhbmdlZCwgMzcgaW5zZXJ0aW9u
-cygrKSwgOSBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9kcml2ZXJzL3B3bS9wd20tc2lmaXZl
-LmMgYi9kcml2ZXJzL3B3bS9wd20tc2lmaXZlLmMKaW5kZXggMzRkMjNkNTZmYTI1Li5kYTQwYWRl
-MGViZGYgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvcHdtL3B3bS1zaWZpdmUuYworKysgYi9kcml2ZXJz
-L3B3bS9wd20tc2lmaXZlLmMKQEAgLTIxNiw2ICsyMTYsOCBAQCBzdGF0aWMgaW50IHB3bV9zaWZp
-dmVfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKIAlzdHJ1Y3QgcHdtX3NpZml2
-ZV9kZGF0YSAqZGRhdGE7CiAJc3RydWN0IHB3bV9jaGlwICpjaGlwOwogCWludCByZXQ7CisJdTMy
-IHZhbDsKKwl1bnNpZ25lZCBpbnQgZW5hYmxlZF9wd21zID0gMCwgZW5hYmxlZF9jbGtzID0gMTsK
-IAogCWRkYXRhID0gZGV2bV9remFsbG9jKGRldiwgc2l6ZW9mKCpkZGF0YSksIEdGUF9LRVJORUwp
-OwogCWlmICghZGRhdGEpCkBAIC0yNDIsNiArMjQ0LDMzIEBAIHN0YXRpYyBpbnQgcHdtX3NpZml2
-ZV9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQogCQlyZXR1cm4gcmV0OwogCX0K
-IAorCXZhbCA9IHJlYWRsKGRkYXRhLT5yZWdzICsgUFdNX1NJRklWRV9QV01DRkcpOworCWlmICh2
-YWwgJiBQV01fU0lGSVZFX1BXTUNGR19FTl9BTFdBWVMpIHsKKwkJdW5zaWduZWQgaW50IGk7CisK
-KwkJZm9yIChpID0gMDsgaSA8IGNoaXAtPm5wd207ICsraSkgeworCQkJdmFsID0gcmVhZGwoZGRh
-dGEtPnJlZ3MgKyBQV01fU0lGSVZFX1BXTUNNUChpKSk7CisJCQlpZiAodmFsID4gMCkKKwkJCQkr
-K2VuYWJsZWRfcHdtczsKKwkJfQorCX0KKworCS8qIFRoZSBjbGsgc2hvdWxkIGJlIG9uIG9uY2Ug
-Zm9yIGVhY2ggcnVubmluZyBQV00uICovCisJaWYgKGVuYWJsZWRfcHdtcykgeworCQl3aGlsZSAo
-ZW5hYmxlZF9jbGtzIDwgZW5hYmxlZF9wd21zKSB7CisJCQkvKiBUaGlzIGlzIG5vdCBleHBlY3Rl
-ZCB0byBmYWlsIGFzIHRoZSBjbGsgaXMgYWxyZWFkeSBvbiAqLworCQkJcmV0ID0gY2xrX2VuYWJs
-ZShkZGF0YS0+Y2xrKTsKKwkJCWlmICh1bmxpa2VseShyZXQpKSB7CisJCQkJZGV2X2Vycl9wcm9i
-ZShkZXYsIHJldCwgIkZhaWxlZCB0byBlbmFibGUgY2xrXG4iKTsKKwkJCQlnb3RvIGRpc2FibGVf
-Y2xrOworCQkJfQorCQkJKytlbmFibGVkX2Nsa3M7CisJCX0KKwl9IGVsc2UgeworCQljbGtfZGlz
-YWJsZShkZGF0YS0+Y2xrKTsKKwkJZW5hYmxlZF9jbGtzID0gMDsKKwl9CisKIAkvKiBXYXRjaCBm
-b3IgY2hhbmdlcyB0byB1bmRlcmx5aW5nIGNsb2NrIGZyZXF1ZW5jeSAqLwogCWRkYXRhLT5ub3Rp
-Zmllci5ub3RpZmllcl9jYWxsID0gcHdtX3NpZml2ZV9jbG9ja19ub3RpZmllcjsKIAlyZXQgPSBj
-bGtfbm90aWZpZXJfcmVnaXN0ZXIoZGRhdGEtPmNsaywgJmRkYXRhLT5ub3RpZmllcik7CkBAIC0y
-NjQsNyArMjkzLDExIEBAIHN0YXRpYyBpbnQgcHdtX3NpZml2ZV9wcm9iZShzdHJ1Y3QgcGxhdGZv
-cm1fZGV2aWNlICpwZGV2KQogdW5yZWdpc3Rlcl9jbGs6CiAJY2xrX25vdGlmaWVyX3VucmVnaXN0
-ZXIoZGRhdGEtPmNsaywgJmRkYXRhLT5ub3RpZmllcik7CiBkaXNhYmxlX2NsazoKLQljbGtfZGlz
-YWJsZV91bnByZXBhcmUoZGRhdGEtPmNsayk7CisJd2hpbGUgKGVuYWJsZWRfY2xrcykgeworCQlj
-bGtfZGlzYWJsZShkZGF0YS0+Y2xrKTsKKwkJLS1lbmFibGVkX2Nsa3M7CisJfQorCWNsa191bnBy
-ZXBhcmUoZGRhdGEtPmNsayk7CiAKIAlyZXR1cm4gcmV0OwogfQpAQCAtMjcyLDIxICszMDUsMTYg
-QEAgc3RhdGljIGludCBwd21fc2lmaXZlX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBk
-ZXYpCiBzdGF0aWMgaW50IHB3bV9zaWZpdmVfcmVtb3ZlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2Ug
-KmRldikKIHsKIAlzdHJ1Y3QgcHdtX3NpZml2ZV9kZGF0YSAqZGRhdGEgPSBwbGF0Zm9ybV9nZXRf
-ZHJ2ZGF0YShkZXYpOwotCWJvb2wgaXNfZW5hYmxlZCA9IGZhbHNlOwogCXN0cnVjdCBwd21fZGV2
-aWNlICpwd207CiAJaW50IGNoOwogCiAJZm9yIChjaCA9IDA7IGNoIDwgZGRhdGEtPmNoaXAubnB3
-bTsgY2grKykgewogCQlwd20gPSAmZGRhdGEtPmNoaXAucHdtc1tjaF07Ci0JCWlmIChwd20tPnN0
-YXRlLmVuYWJsZWQpIHsKLQkJCWlzX2VuYWJsZWQgPSB0cnVlOwotCQkJYnJlYWs7Ci0JCX0KKwkJ
-aWYgKHB3bS0+c3RhdGUuZW5hYmxlZCkKKwkJCWNsa19kaXNhYmxlKGRkYXRhLT5jbGspOwogCX0K
-LQlpZiAoaXNfZW5hYmxlZCkKLQkJY2xrX2Rpc2FibGUoZGRhdGEtPmNsayk7CiAKLQljbGtfZGlz
-YWJsZV91bnByZXBhcmUoZGRhdGEtPmNsayk7CisJY2xrX3VucHJlcGFyZShkZGF0YS0+Y2xrKTsK
-IAlwd21jaGlwX3JlbW92ZSgmZGRhdGEtPmNoaXApOwogCWNsa19ub3RpZmllcl91bnJlZ2lzdGVy
-KGRkYXRhLT5jbGssICZkZGF0YS0+bm90aWZpZXIpOwogCi0tIAoyLjM2LjEKCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, 20 Jul 2022 16:23:44 +0100,
+Anup Patel <apatel@ventanamicro.com> wrote:
+> 
+> All RISC-V platforms have a single HW IPI provided by the INTC local
+> interrupt controller. The HW method to trigger INTC IPI can be through
+> external irqchip (e.g. RISC-V AIA), through platform specific device
+> (e.g. SiFive CLINT timer), or through firmware (e.g. SBI IPI call).
+> 
+> To support multiple IPIs on RISC-V, we add a generic IPI multiplexing
+> mechanism which help us create multiple virtual IPIs using a single
+> HW IPI. This generic IPI multiplexing is shared among various RISC-V
+> irqchip drivers.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  include/linux/irq.h  |  16 ++++
+>  kernel/irq/Kconfig   |   4 +
+>  kernel/irq/Makefile  |   1 +
+>  kernel/irq/ipi-mux.c | 199 +++++++++++++++++++++++++++++++++++++++++++
+>  4 files changed, 220 insertions(+)
+>  create mode 100644 kernel/irq/ipi-mux.c
+> 
+> diff --git a/include/linux/irq.h b/include/linux/irq.h
+> index 505308253d23..a97bf13a8965 100644
+> --- a/include/linux/irq.h
+> +++ b/include/linux/irq.h
+> @@ -1249,6 +1249,22 @@ int __ipi_send_mask(struct irq_desc *desc, const struct cpumask *dest);
+>  int ipi_send_single(unsigned int virq, unsigned int cpu);
+>  int ipi_send_mask(unsigned int virq, const struct cpumask *dest);
+>  
+> +/**
+> + * struct ipi_mux_ops - IPI multiplex operations
+> + *
+> + * @ipi_mux_clear:	Optional function to clear parent IPI
+> + * @ipi_mux_send:	Trigger parent IPI on target CPUs
+> + */
+> +struct ipi_mux_ops {
+> +	void (*ipi_mux_clear)(unsigned int parent_virq);
+> +	void (*ipi_mux_send)(unsigned int parent_virq,
+> +			     const struct cpumask *mask);
+> +};
+> +
+> +void ipi_mux_process(void);
+> +int ipi_mux_create(unsigned int parent_virq, unsigned int nr_ipi,
+> +		   const struct ipi_mux_ops *ops);
+> +
+>  #ifdef CONFIG_GENERIC_IRQ_MULTI_HANDLER
+>  /*
+>   * Registers a generic IRQ handling function as the top-level IRQ handler in
+> diff --git a/kernel/irq/Kconfig b/kernel/irq/Kconfig
+> index 10929eda9825..2388e7d40ed3 100644
+> --- a/kernel/irq/Kconfig
+> +++ b/kernel/irq/Kconfig
+> @@ -84,6 +84,10 @@ config GENERIC_IRQ_IPI
+>  	bool
+>  	select IRQ_DOMAIN_HIERARCHY
+>  
+> +# Generic IRQ IPI Mux support
+> +config GENERIC_IRQ_IPI_MUX
+> +	bool
+> +
+>  # Generic MSI interrupt support
+>  config GENERIC_MSI_IRQ
+>  	bool
+> diff --git a/kernel/irq/Makefile b/kernel/irq/Makefile
+> index b4f53717d143..f19d3080bf11 100644
+> --- a/kernel/irq/Makefile
+> +++ b/kernel/irq/Makefile
+> @@ -15,6 +15,7 @@ obj-$(CONFIG_GENERIC_IRQ_MIGRATION) += cpuhotplug.o
+>  obj-$(CONFIG_PM_SLEEP) += pm.o
+>  obj-$(CONFIG_GENERIC_MSI_IRQ) += msi.o
+>  obj-$(CONFIG_GENERIC_IRQ_IPI) += ipi.o
+> +obj-$(CONFIG_GENERIC_IRQ_IPI_MUX) += ipi-mux.o
+>  obj-$(CONFIG_SMP) += affinity.o
+>  obj-$(CONFIG_GENERIC_IRQ_DEBUGFS) += debugfs.o
+>  obj-$(CONFIG_GENERIC_IRQ_MATRIX_ALLOCATOR) += matrix.o
+> diff --git a/kernel/irq/ipi-mux.c b/kernel/irq/ipi-mux.c
+> new file mode 100644
+> index 000000000000..bd6b31ca588b
+> --- /dev/null
+> +++ b/kernel/irq/ipi-mux.c
+> @@ -0,0 +1,199 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Multiplex several virtual IPIs over a single HW IPI.
+> + *
+> + * Copyright (c) 2022 Ventana Micro Systems Inc.
+> + */
+> +
+> +#define pr_fmt(fmt) "ipi-mux: " fmt
+> +#include <linux/cpu.h>
+> +#include <linux/init.h>
+> +#include <linux/irq.h>
+> +#include <linux/irqchip.h>
+> +#include <linux/irqchip/chained_irq.h>
+> +#include <linux/irqdomain.h>
+> +#include <linux/smp.h>
+> +
+> +static unsigned int ipi_mux_nr;
+> +static unsigned int ipi_mux_parent_virq;
+> +static struct irq_domain *ipi_mux_domain;
+> +static const struct  ipi_mux_ops *ipi_mux_ops;
+> +static DEFINE_PER_CPU(unsigned long, ipi_mux_bits);
+> +
+> +static void ipi_mux_send_mask(struct irq_data *d, const struct cpumask *mask)
+> +{
+> +	int cpu;
+> +
+> +	/* Barrier before doing atomic bit update to IPI bits */
+> +	smp_mb__before_atomic();
+> +
+> +	for_each_cpu(cpu, mask)
+> +		set_bit(d->hwirq, per_cpu_ptr(&ipi_mux_bits, cpu));
+> +
+> +	/* Barrier after doing atomic bit update to IPI bits */
+> +	smp_mb__after_atomic();
+> +
+> +	/* Trigger the parent IPI */
+> +	ipi_mux_ops->ipi_mux_send(ipi_mux_parent_virq, mask);
+> +}
+> +
+> +static const struct irq_chip ipi_mux_chip = {
+> +	.name		= "IPI Mux",
+> +	.ipi_send_mask	= ipi_mux_send_mask,
+
+I've given this a bit more though, and I came to the conclusion that
+we really should have the full masking semantics here, even if Linux
+currently doesn't really use it.
+
+It makes the handling a bit more complex, and unmasking a pending IPI
+must be handled gracefully, but we already have implemented most of
+that code in the irq-apple-aic driver.
+
+And if we go down this road, such a driver should be very easy to move
+over this infrastructure, making the change a lot more palatable.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
