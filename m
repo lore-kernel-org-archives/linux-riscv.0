@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA44FC433EF
-	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 05:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 684B9C43334
+	for <linux-riscv@archiver.kernel.org>; Thu, 21 Jul 2022 05:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=cxvSeImW7bcwjTTlETdp/SKjY7CVHNqejWbaZGwDHu0=; b=kMSpTobnqJ/oJOQxp7djy46lz9
-	pgHgM34V2IFIW9Xb+Lcv+5VUulSHJU345Jm+bvgsvY92RzshiE1dkdxxYhsFTpOIGfFT7pKecsVu7
-	psmpZJgEJ77BJDP0yXMxQxF4d1sTbopqMc7bP4HpDUdUR/AGG7YBGoJdvK2QhXm/N/nvQuI9J3EV4
-	qLIUKoKwgZHc/VJS7+GB67Xxxh0JvYP5atnsgUv4JQfKhaCnB2UX+I04XctgMyWo/C7iIhNBJRqk0
-	kCGHZSNBPQJTiWBF/o9uc74eoiVIvHCWvQPNRuNY/xEmdfZFqMAdabqP1/3/k8ooYvSc66vJ6xOU2
-	iqk9glMA==;
+	bh=PyYde7NGB+rZKJRzXfLl9SCP5FdehaCffwILhQltOAE=; b=xj4wHRKZbcVKiTzxrYLR+Y75qo
+	B0J1FlF69MauhzYim5V/g9K/m9o+YfzXitXxj7+K82ARId+orWMt12+glPclPACF2VUcaB1Njxi8H
+	e5xa1N/B8AbfERnvDuzjP8y2l6LdCt8IViAonKC0RN02eJ6RmM1Ws5OUc/OqWAuPRzAHdae+EEEvH
+	3657Iy96BxLUaEDY6jBEWA7nS2Vyt7GewnoSh1mJX3Tg8QGSCaotCmQnILAUwM4XKmHtgYZYA+Ls4
+	3sgAKDecexnHSc8OBoI0mQTGJpG97YuAc6nW0+ju+B2gByIncSpDu3e+cT4BI0OBQENkZJsUpRBv3
+	yLlul/tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEOvG-00020J-3O; Thu, 21 Jul 2022 05:40:30 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1oEOvI-0002C1-PT; Thu, 21 Jul 2022 05:40:32 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEOvD-0001T5-CU
-	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 05:40:28 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id e132so688887pgc.5
-        for <linux-riscv@lists.infradead.org>; Wed, 20 Jul 2022 22:40:18 -0700 (PDT)
+	id 1oEOvF-0001ad-Mg
+	for linux-riscv@lists.infradead.org; Thu, 21 Jul 2022 05:40:31 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id o5-20020a17090a3d4500b001ef76490983so493253pjf.2
+        for <linux-riscv@lists.infradead.org>; Wed, 20 Jul 2022 22:40:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
          :content-transfer-encoding;
-        bh=24WLm3F/pEKL6HqPEYvFFMa8L5OIGROgadJlOu++WLM=;
-        b=KMyMNqxpl17A8Q/QFULg/+j9PJFBoVmwhC0O9OE332akVxeAQSiiePwJtoQAJMnM0B
-         W3QHtjNHa5Tdx2wdk4vx9NQltxJczMIaIOY/NYOdrotiTgOk7LmRQcnh2HXYBoK+++cD
-         /wNIDKpX8RQQatvJLt366/Vm1+0w6uGsL4MOKfpJCqVuK/KiqpJ329vamy+9C1z/+LnT
-         yf3Ss6ggFw5bXIGiGqcPPiFSocrweZrWoBxF0wFJoFMLZc4cPm+rAgvjU65EC16UG1BW
-         60K5+92Fa6NScpQLCRt3/abEF55xMARfJdbq7vaXHPbaOsUM/u00fBZgynZqKLHFngNJ
-         vJ7A==
+        bh=AXiILc/Yjh7zVg/j1KQ6k4x0s0Lbfe3RtnKXCgBCrpk=;
+        b=eu/BXvmb1PxFPZgP6Z8ehV3zmJL4vxb8MmIVKh5EJDnlJ3839ylRTp5LqVp0n0FmK0
+         OqqyGSPgGzwQSS7TUZFh499OsW+54DAkYegG0clLoCkGck72w0STg3gVrHLkulQz70G0
+         NsUGHv+uyxyNLS+5Og9ugAtGZQfSRuGPV6N8xMNvtrr3AzXQrVJ14cvEbI2WPmx2BXQ5
+         M3ysx3Bx2+0qALZS6esEcLrQ2E7TFHxWJ6aj8ff1jrpkSB76LIChYIW322ICKAVs5jrf
+         vNvU92k8yyKDrEHHOXgtaQG021t9r7SrGoSyzT4Q7RTKerBF2O9C8bf1vFUE2hc7lA+1
+         suow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
          :mime-version:content-transfer-encoding;
-        bh=24WLm3F/pEKL6HqPEYvFFMa8L5OIGROgadJlOu++WLM=;
-        b=a9uFTaM+DCL9N+RtVCLB0hgqzHkvO9oV4D+qC7MGFGK/GLVPMOHkHWx9OWvREen1u5
-         gYRA92wJZf9AoBLcvkjn00nLaqriKTaOVYxk7rvCKQXUhCtweULTrldnC75Faz6kV4bm
-         1LHWwTH5NIWcmd7X8Kw6ukiVJKCjXDvl50poJjPgKONUP8npBCIO0AOBhHDq3p0NYtsk
-         x42qKyTzOHGAjt8nqeVZxnxRjXaNHKPhGIe9Flrma/eXNR5u9EjTq0XKp+7D6OkT8Fsc
-         /l9C2B8ar9j0n5oBRiF04svAHKbb2mVsHCxR51Vm8CBJVgXCf1JMAzrfWnM0dHnOFiUq
-         e1BA==
-X-Gm-Message-State: AJIora+jUa3jImLexMkJPKqvRXTbouC8hoqME6yKic5zF7r42Kn+OkdO
-	WCTR7QfG0YmVPvLyPrQANvbBO+P/on8SOQ==
-X-Google-Smtp-Source: AGRyM1uIe+Uww9SHPMIl46ySyaSvYF2dSO/oOFGChsXmbCLq6uV3ZSkBBGwpD62rL5YWws3EwdxiYw==
-X-Received: by 2002:a05:6a00:14c4:b0:52a:c36c:1854 with SMTP id w4-20020a056a0014c400b0052ac36c1854mr41543603pfu.27.1658382017434;
-        Wed, 20 Jul 2022 22:40:17 -0700 (PDT)
+        bh=AXiILc/Yjh7zVg/j1KQ6k4x0s0Lbfe3RtnKXCgBCrpk=;
+        b=uCVKuehhILkyPchhGY83Uk24j1ZZEWLrtNygDp3gL5S2UXuVIgzEprSQM5tlMk6JHb
+         T9yZ4oyhUXN/MKGqp5/jLkNLvrQJq2+7aLbxzzkJhNwLQOycN2Kh9N66xs5NEJelY66i
+         iwO1Fez+BkwYYqbMYk9f8rVXN5wNHNaJpinVq3YJhKu215VJS0V6WODa3eboYE9v54uC
+         IF8gRNb0seINWhM3Zv/cyXpn/+SNS6fEC/qwXu4WXnRz5rEz3qQcbrwAt7jpE9wlpv1s
+         Z5cYsjLOiN4xdMvfCOH3YrN4mSAS8MVE+0XteLsOCJJfXoplfaNfSby1HDdPj1v/5Ois
+         IYpQ==
+X-Gm-Message-State: AJIora8/j9Gfu1iFujOvd3/OIBVyn68RSAQs/qyNJnlC2OSS/oakDEtH
+	3/i5ru/xLpr35mvKNxGYlLOGtMv4Yw05Cw==
+X-Google-Smtp-Source: AGRyM1vPQ8MROWvLS3PmLV+KqWfcRXKS8+oKYwzssgQZrjztWUEnpRayRCTzXkrJuEYB+Xg3uIHiMg==
+X-Received: by 2002:a17:902:bb90:b0:16d:2d15:3a91 with SMTP id m16-20020a170902bb9000b0016d2d153a91mr3681876pls.4.1658382020096;
+        Wed, 20 Jul 2022 22:40:20 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id n7-20020a170903110700b0016bdeb58611sm594285plh.112.2022.07.20.22.40.15
+        by smtp.gmail.com with ESMTPSA id l2-20020a622502000000b005254535a2cfsm640841pfl.136.2022.07.20.22.40.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 20 Jul 2022 22:40:15 -0700 (PDT)
-Date: Wed, 20 Jul 2022 22:40:15 -0700 (PDT)
-X-Google-Original-Date: Wed, 20 Jul 2022 19:47:37 PDT (-0700)
-Subject: Re: [RFC PATCH riscv/for-next 2/4] riscv: export patch_insn_write
-In-Reply-To: <20220529143315.3678563-3-andy.chiu@sifive.com>
+        Wed, 20 Jul 2022 22:40:19 -0700 (PDT)
+Date: Wed, 20 Jul 2022 22:40:19 -0700 (PDT)
+X-Google-Original-Date: Wed, 20 Jul 2022 22:40:07 PDT (-0700)
+Subject: Re: [RFC PATCH riscv/for-next 4/4] riscv: ftrace: do not use stop_machine to update code
+In-Reply-To: <20220529143315.3678563-5-andy.chiu@sifive.com>
 CC: linux-riscv@lists.infradead.org, mingo@redhat.com,
   Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, rostedt@goodmis.org, guoren@linux.alibaba.com,
   andy.chiu@sifive.com, greentime.hu@sifive.com, zong.li@sifive.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: andy.chiu@sifive.com
-Message-ID: <mhng-ca44b9c5-5470-4665-ba3f-9601860d6b95@palmer-mbp2014>
+Message-ID: <mhng-b2db7b1a-3055-471f-9186-0869bbb407ae@palmer-mbp2014>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220720_224027_448029_A39B3280 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20220720_224029_770400_50D3DFB1 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,53 +88,40 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 29 May 2022 07:33:13 PDT (-0700), andy.chiu@sifive.com wrote:
-> So that we may patch code without issuing fence.i
+On Sun, 29 May 2022 07:33:15 PDT (-0700), andy.chiu@sifive.com wrote:
+> Now it is safe to remove dependency from stop_machine() to patch code in
+> ftrace.
 >
 > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 > Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
 > Reviewed-by: Zong Li <zong.li@sifive.com>
 > ---
->  arch/riscv/include/asm/patch.h | 1 +
->  arch/riscv/kernel/patch.c      | 4 ++--
->  2 files changed, 3 insertions(+), 2 deletions(-)
+>  arch/riscv/kernel/ftrace.c | 5 +++++
+>  1 file changed, 5 insertions(+)
 >
-> diff --git a/arch/riscv/include/asm/patch.h b/arch/riscv/include/asm/patch.h
-> index 9a7d7346001e..327e99114d67 100644
-> --- a/arch/riscv/include/asm/patch.h
-> +++ b/arch/riscv/include/asm/patch.h
-> @@ -6,6 +6,7 @@
->  #ifndef _ASM_RISCV_PATCH_H
->  #define _ASM_RISCV_PATCH_H
+> diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> index d4bf0e5255f6..e7b8bf0a699b 100644
+> --- a/arch/riscv/kernel/ftrace.c
+> +++ b/arch/riscv/kernel/ftrace.c
+> @@ -12,6 +12,11 @@
+>  #include <asm/patch.h>
 >
-> +int patch_insn_write(void *addr, const void *insn, size_t len);
->  int patch_text_nosync(void *addr, const void *insns, size_t len);
->  int patch_text(void *addr, u32 insn);
->
-> diff --git a/arch/riscv/kernel/patch.c b/arch/riscv/kernel/patch.c
-> index 0b552873a577..834855cfd0fb 100644
-> --- a/arch/riscv/kernel/patch.c
-> +++ b/arch/riscv/kernel/patch.c
-> @@ -49,7 +49,7 @@ static void patch_unmap(int fixmap)
->  }
->  NOKPROBE_SYMBOL(patch_unmap);
->
-> -static int patch_insn_write(void *addr, const void *insn, size_t len)
-> +int patch_insn_write(void *addr, const void *insn, size_t len)
+>  #ifdef CONFIG_DYNAMIC_FTRACE
+> +void arch_ftrace_update_code(int command)
+> +{
+> +	ftrace_modify_all_code(command);
+> +}
+> +
+>  int ftrace_arch_code_modify_prepare(void) __acquires(&text_mutex)
 >  {
->  	void *waddr = addr;
->  	bool across_pages = (((uintptr_t) addr & ~PAGE_MASK) + len) > PAGE_SIZE;
-> @@ -78,7 +78,7 @@ static int patch_insn_write(void *addr, const void *insn, size_t len)
->  }
->  NOKPROBE_SYMBOL(patch_insn_write);
->  #else
-> -static int patch_insn_write(void *addr, const void *insn, size_t len)
-> +int patch_insn_write(void *addr, const void *insn, size_t len)
->  {
->  	return copy_to_kernel_nofault(addr, insn, len);
->  }
+>  	mutex_lock(&text_mutex);
 
 Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+Assuming we sort out the issues in #3.  IIUC we don't need to ensure the 
+command is fully visible before returning, as the concurrent 
+modification scheme doesn't flush the remote icaches and thus may skip 
+instrumentation.
 
 _______________________________________________
 linux-riscv mailing list
