@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AB86C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 21:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B9E9C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 21:43:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qel+zr2yE+1FC5Au5SERg19xS9NPQHJzLqQ0wUASRvk=; b=jGD3Fbs0v8K0XI
-	Xf+Grr8c4UPuptIcD4u/E0Ytd0ioS9+WSkr/gEGRKzRDWzVpyQfnjqS7QQn/Z52BoifhwaaHfPfyP
-	Bz1YOgvW+M7X/IxWe9dyTm+Wr/iExsWWO1JuVJwx6LqBqcF0tdUXPuKpcuSG62LP7+PCkTJGXPhDu
-	hXuSuxPUvUrc5BBxs8ELMjW8waxxAMIzcZ4CFIttKnt71IZ3fBV0nu3t3pTt4oclitofFRb4tk4Vg
-	1tfUFs9lIWCECHJtaO88DkyXAsqG4s/n2+p9BhsZjlYZmjzCcX8YH2hyBA+cKB0asZYGqCgjnPC5P
-	bkIFtLndmcTDvJlQ0VxQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EGCsEW1/Dt6JZ6BSRL8ShuZqrYdjm8asPBUt8GOcm4g=; b=TeIndE+FaBGmRZ
+	xcsub4EZ+hGsDavpwp509gXLF+oQzcgMwdvQ5kW7w7TxbKn5RpG/kvLbmkeiiXJnEpH1BRNw7j/MB
+	n3vy3EJmETcdk46OGJ8zE3DktE4MvGP/a/cZDHlKmS8VV3hcnXNQdjeUychRfTlpXNd1xfkerm7GM
+	F9yN2Ujltmd/VMFYLXugWH2+bq4wKzOcwHswtqjKVpabAF6j09k8gVyCrT9FqWG7YQAsjSUT/L/Z6
+	9LjaadWdlcHzKQvtLsPjkvzzuSF2oL04Xd7rTR7+G7i1Hk8Wwqm2RvfAq84ufRzJ0Mr98DKcSxDae
+	7ZgLMMjAplC0jbM2KH+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oF0Mw-00BZ0z-U4; Fri, 22 Jul 2022 21:39:34 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1oF0R2-00BbBu-Tb; Fri, 22 Jul 2022 21:43:48 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oF0Mk-00BYra-QJ
-	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 21:39:25 +0000
-Received: by mail-wr1-x430.google.com with SMTP id l15so4093250wro.11
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 14:39:20 -0700 (PDT)
+	id 1oF0Qr-00Bb5c-Dq; Fri, 22 Jul 2022 21:43:38 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id gq7so5415212pjb.1;
+        Fri, 22 Jul 2022 14:43:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jrtc27.com; s=gmail.jrtc27.user;
-        h=mime-version:subject:from:in-reply-to:date:cc
-         :content-transfer-encoding:message-id:references:to;
-        bh=FxcKHw+KeNRqCkk5qROt/9GMubXJxUVMHKA1De+QJz8=;
-        b=P4rzv0+8JfcWUKy1JivKJYMUetypR5ZiNXPA/6TSTJ0YOhLtsMWwVXnQAHjl5ygmW9
-         dSBVgFFBSsuonWbdOk8Ky+8qccZi6wfbk6zGgOEGk0PVttqaVNlAyBadARwj1Y//JgTT
-         wL6bVCh2M0D2piZA9vHUlRbbhnt5btt+pxUjCwafnt83Hj6JsO3UAIXiah1okFR8mkjn
-         XW3LXj5OrIDz9y0dGYXXNmg2sdZwG8rkxjOyqFkSkwPRULwu5FrrylKP4IeJIMyTOz30
-         OH0e6tl4+7ksBnlFP1VAGBJQezXleYMqd17bvJr97uuUoAOxjo7DEfiyq52KAf/qLNWt
-         Shew==
+        d=gmail.com; s=20210112;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to;
+        bh=i4Qp1mKbIG2ruYUdux/tc/3csBK1hzMenyp+t9FkaYk=;
+        b=FRbsnnig1i03refpFl63/oYlraRh54F+mJVHhcNi2f4eeFNzYIp7qg4GQM9aN6VAp2
+         y6oOij7gj/FKdqLi7xJGownmX/nVVSlkLkcRP75s/8ETfXBivanzKdoecGl451+B0G9M
+         5Nm04yoIVcl2UXc68JS+DR0lVc8Z63qI7A40Lz++GlqZboTjktogd+sTIiNnfSuSNn9q
+         54OdXFAby1g0IEQgkOUzixoj7dWll3RbROqD2LO1TrdZnsfhqyGqOe0CQY2nPgO3u0ms
+         tPCQMgLaB24XcjaXETs320r93j1KKENMbYJFui4dpYkNrKd9EbgKu9aoYklJNW8c4r8F
+         NDJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
-         :content-transfer-encoding:message-id:references:to;
-        bh=FxcKHw+KeNRqCkk5qROt/9GMubXJxUVMHKA1De+QJz8=;
-        b=Ju3StRVKUGZRrGfLQDUpW6VXwfSX5F1UItEMSUk+tniMIBuPOM1BoNee5fRCQ5Yas8
-         d+0Vs27Xkpc3gf0rJ2gKK91GgHLHYBBXYvWGBbUep0+tbvunAwYgyagn54u3xvsAUoI+
-         URRQVt05W3npAOojoGCL9gq3nD1BGI1rXSh6LtKCNfX6Hx4xdupxW7iudDSyETUlU3N9
-         E+c3fYRwsI9IKS5qHztbLfkl/ekgXUyRkugJXTTRoq3uYC7fglSpF32jUWdIOt0fdG1D
-         nHv4y8U+OINLjc1MyZA3aLnIIrsTErAV33c0ar3ar+Vob0bdcCneNaB/KoZxbqIZKvQ1
-         L3UA==
-X-Gm-Message-State: AJIora+No/dc0HfQIs3z7kIc2mG+r8zDXB9CQICVZQtbugo4KnY6X5rM
-	283JJ1IinKvIL0o+0tpvwiVWtQ==
-X-Google-Smtp-Source: AGRyM1tPVIVZfV6qM8vhMpTbxX0oe2mvWjKidKhJrKbIkCzM/uzQTakUQbNW/CotdHpNthpStjOk6Q==
-X-Received: by 2002:a5d:6285:0:b0:21e:6554:5e31 with SMTP id k5-20020a5d6285000000b0021e65545e31mr1109911wru.21.1658525959500;
-        Fri, 22 Jul 2022 14:39:19 -0700 (PDT)
-Received: from smtpclient.apple (global-5-142.n-2.net.cam.ac.uk. [131.111.5.142])
-        by smtp.gmail.com with ESMTPSA id ay36-20020a05600c1e2400b003a2d6c623f3sm10104785wmb.19.2022.07.22.14.39.18
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Fri, 22 Jul 2022 14:39:18 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.80.82.1.1\))
-Subject: Re: [PATCH v3 2/2] asm-generic: Add new pci.h and use it
-From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <CAK8P3a2aTS74TG8F+cVHX969hMQHKP3Ai5V0h-m+GeAq6kq5pQ@mail.gmail.com>
-Date: Fri, 22 Jul 2022 22:39:18 +0100
-Cc: Rob Herring <robh@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>,
- Bjorn Helgaas <bhelgaas@google.com>,
- "Maciej W. Rozycki" <macro@orcam.me.uk>,
- Stafford Horne <shorne@gmail.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Guo Ren <guoren@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Richard Weinberger <richard@nod.at>,
- Anton Ivanov <anton.ivanov@cambridgegreys.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
- linux-csky@vger.kernel.org,
- linux-riscv <linux-riscv@lists.infradead.org>,
- linux-um <linux-um@lists.infradead.org>,
- PCI <linux-pci@vger.kernel.org>,
- "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>
-Message-Id: <41B9AC54-DCFE-4055-B950-265B3CBDD842@jrtc27.com>
-References: <CAL_Jsq+_5-fhXddhxG2mr-4HD_brcKZExkZqvME1yEpa6dOGGg@mail.gmail.com>
- <mhng-7e3146ca-79b8-4e16-98a9-e354fb6d03ba@palmer-mbp2014>
- <CAL_JsqJHZEcnJi+UHQbYWVoy1okQjHSc9T377P1q8oOJnHBWFw@mail.gmail.com>
- <CAK8P3a2aTS74TG8F+cVHX969hMQHKP3Ai5V0h-m+GeAq6kq5pQ@mail.gmail.com>
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to;
+        bh=i4Qp1mKbIG2ruYUdux/tc/3csBK1hzMenyp+t9FkaYk=;
+        b=WoAyDVQZ9CMjqMMbPQY7RIAt/OK/G8bN0vCwuyR2Um8QGhY31nyJ2I0ugUYSl3iE92
+         sSIR9/TWWaSmxyifH3K1QBxsR3o3FmY/dR+jBV7yRo4TZzdSE/1pAZYDKuJBXwLWuZrd
+         OVbtx8Q2+q/cqIY44XMVfqmCYdp+wc7Ig4EN2glVLef2U+1H2g7wi7ORaSJCuPzDpyNY
+         XzfUHlTnTNU0PBH3lnjW3pt+TTxrzu5tpRvjnoCGfaO24cJxfm+gwnlpNOm12rwmJrxT
+         0FMq+zijy94u70BlrkSbOW77sLRu4Q3DF2l7qOLOPUuw4jYjDC80q+ZC2f1TY+u1h6K8
+         FB0A==
+X-Gm-Message-State: AJIora+G7fMc2Dage+Pu9c/UeoKi18lNcnUwmA9pnc8o8PusdnF/az/G
+	/ivs0S3tSFtZ9lNPCJI3glw=
+X-Google-Smtp-Source: AGRyM1tDESdKAY40zEtiRQTmyQgc9zR+ckOecpVbQSNki8M4gmNYammHVylV0yXZ2taDdNJJIYKkvw==
+X-Received: by 2002:a17:90a:bb12:b0:1f2:59a7:657a with SMTP id u18-20020a17090abb1200b001f259a7657amr1726131pjr.151.1658526213902;
+        Fri, 22 Jul 2022 14:43:33 -0700 (PDT)
+Received: from localhost ([2409:10:24a0:4700:e8ad:216a:2a9d:6d0c])
+        by smtp.gmail.com with ESMTPSA id g8-20020aa79f08000000b0052b6277df9esm4344616pfr.43.2022.07.22.14.43.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 Jul 2022 14:43:33 -0700 (PDT)
+Date: Sat, 23 Jul 2022 06:43:31 +0900
+From: Stafford Horne <shorne@gmail.com>
 To: Arnd Bergmann <arnd@arndb.de>
-X-Mailer: Apple Mail (2.3696.80.82.1.1)
+Cc: Bjorn Helgaas <helgaas@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+	Pierre Morel <pmorel@linux.ibm.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	linux-csky@vger.kernel.org,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	linux-um <linux-um@lists.infradead.org>,
+	linux-pci <linux-pci@vger.kernel.org>,
+	linux-arch <linux-arch@vger.kernel.org>
+Subject: Re: [PATCH v5 4/4] asm-generic: Add new pci.h and use it
+Message-ID: <YtsaA2Zjqa/XZZou@antec>
+References: <20220721134924.596152-5-shorne@gmail.com>
+ <20220721173733.GA1731649@bhelgaas>
+ <YtnMEwh3U3Ng9q4a@antec>
+ <CAK8P3a3T0GvYyRgw=ojD_wts_pfdzfqXS8iNfUYuByBvLF9SGQ@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAK8P3a3T0GvYyRgw=ojD_wts_pfdzfqXS8iNfUYuByBvLF9SGQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220722_143922_888376_90ACBF49 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20220722_144337_486317_4C1D3F80 
+X-CRM114-Status: GOOD (  23.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +102,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjIgSnVsIDIwMjIsIGF0IDIwOjU1LCBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPiB3
-cm90ZToKPiAKPiBPbiBGcmksIEp1bCAyMiwgMjAyMiBhdCA2OjM2IFBNIFJvYiBIZXJyaW5nIDxy
-b2JoQGtlcm5lbC5vcmc+IHdyb3RlOgo+PiBPbiBGcmksIEp1bCAyMiwgMjAyMiBhdCA5OjI3IEFN
-IFBhbG1lciBEYWJiZWx0IDxwYWxtZXJAZGFiYmVsdC5jb20+IHdyb3RlOgo+PiAKPj4gRnJvbSBm
-dTc0MDoKPj4gICAgICAgICAgICAgICAgICAgICAgIHJhbmdlcyA9IDwweDgxMDAwMDAwICAweDAg
-MHg2MDA4MDAwMCAgMHgwCj4+IDB4NjAwODAwMDAgMHgwIDB4MTAwMDA+LCAgICAgIC8qIEkvTyAq
-Lwo+IC4uLgo+PiBTbyBhZ2FpbiwgaG93IGRvZXMgb25lIGdldCBhIDAgYWRkcmVzcyBoYW5kZWQg
-b3V0IHdoZW4gdGhhdCdzIG5vdCBldmVuCj4+IGEgdmFsaWQgcmVnaW9uIGFjY29yZGluZyB0byBE
-VD8gSXMgdGhlcmUgc29tZSBsZWdhY3kgc3R1ZmYgdGhhdAo+PiBpZ25vcmVzIHRoZSBicmlkZ2Ug
-d2luZG93cz8KPiAKPiBUaGUgUENJLXNpZGUgcG9ydCBudW1iZXIgMHg2MDA4MDAwMCBnZXRzIHR1
-cm5lZCBpbnRvIExpbnV4IEkvTyByZXNvdXJjZSAwLAo+IHdoaWNoIEkgdGhpbmsgaXMgd2hhdCBf
-X3BjaV9hc3NpZ25fcmVzb3VyY2Ugb3BlcmF0ZXMgb24uCj4gCj4gVGhlIG90aGVyIHF1ZXN0aW9u
-IGlzIHdoeSB0aGUgcGxhdGZvcm0gd291bGQgd2FudCB0byBjb25maWd1cmUgdGhlCj4gUENJIGJ1
-cyB0byBoYXZlIGEgUENJIEkvTyBzcGFjZSB3aW5kb3cgb2Ygc2l6ZSAweDEwMDAwIGF0IHRoZSBh
-ZGRyZXNzCj4gaXQncyBtYXBwZWQgaW50bywgcmF0aGVyIHRoYW4gcHV0dGluZyBpdCBhdCBhZGRy
-ZXNzIHplcm8uIElzIHRoaXMgYSBoYXJkd2FyZQo+IGJ1ZywgYSBib290bG9hZGVyIGJ1Zywgb3Ig
-anVzdCBiYWRseSBzZXQgdXAgaW4gdGhlIERUPwo+IAo+IFB1dHRpbmcgdGhlIFBDSSBhZGRyZXNz
-IG9mIHRoZSBJL08gc3BhY2Ugd2luZG93IGF0IHBvcnQgMCBpcyB1c3VhbGx5Cj4gYmV0dGVyIGJl
-Y2F1c2UgaXQgd29ya3Mgd2l0aCBQQ0kgZGV2aWNlcyBhbmQgZHJpdmVycyB0aGF0IGFzc3VtZSB0
-aGF0Cj4gcG9ydCBudW1iZXJzIGFyZSBiZWxvdyAweGZmZmZmLCBhbmQgbWFrZXMgdGhlIFBDSSBw
-b3J0IG51bWJlciBtYXRjaAo+IHRoZSBMaW51eCBwb3J0IG51bWJlci4KClBvc3NpYmx5IHJlbGF0
-ZWQgaXMgdGhlIChoYXJtbGVzcykgd2FybmluZyBzcGV3IHNlZW4gZHVyaW5nIGJvb3Qgb24KRnJl
-ZUJTRC4gVGhlIGJyaWRnZSwgYW5kIGFsbCBkb3duc3RyZWFtIG9uZXMsIHJlc2V0IHRvIGhhdmlu
-ZyBJL08Kd2luZG93IDB4MC0weGZmZiBhbmQgbWVtb3J5L3ByZWZldGNoIHdpbmRvdyAweDAtMHhm
-ZmZmZiAod2hpY2ggRnJlZUJTRAp0cmllcyB0byBhbGxvY2F0ZSwgZmFpbHMgYmVjYXVzZSB0aGF0
-4oCZcyBvdXRzaWRlIHRoZSB2YWxpZCByYW5nZXMgYWJvdmUsCnNvIGl0IHRoZW4ganVzdCBwYXZl
-cyBvdmVyIHdpdGggYSBzYW5lIGZyZXNoIGNvbmZpZykuIExpbnV4IHJlc2V0cyB0aGUKY29udHJv
-bGxlciBvbiBwcm9iZSBzbyB0aGlzIGlzIHRoZSBpbml0aWFsIHN0YXRlIHdoZW4gZW51bWVyYXRp
-bmcsIGFuZApwZXJoYXBzIHRoYXTigJlzIG5vdCBoYW5kbGVkIHNvIGdyYWNlZnVsbHkgYXMgb24g
-RnJlZUJTRCAod2hpY2ggYWxzbwpyZXNldHMgaW4gZGV2aWNlX2F0dGFjaCwgdGhlIHNlY29uZCBo
-YWxmIG9mIHdoYXQgTGludXggY2FsbHMgcHJvYmUpPwoKSmVzcwoKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Jul 22, 2022 at 09:53:07AM +0200, Arnd Bergmann wrote:
+> On Thu, Jul 21, 2022 at 11:58 PM Stafford Horne <shorne@gmail.com> wrote:
+> > On Thu, Jul 21, 2022 at 12:37:33PM -0500, Bjorn Helgaas wrote:
+> 
+> >
+> > Thanks, you are right, I think some of the earlier functions may have needed it,
+> > which is why I had it earlier.  But now that we have removed those we should be
+> > able to remove this.
+> >
+> > That said, I think some of the architecture includes could also be removed.  On
+> > OpenRISC we are able to get away with only having the global asm-generic/pci.h
+> > so we don't need a wrapper pci.h header at all.
+> >
+> > However, I don't have everything setup to build all of those architectures so I
+> > was being a bit conservative to remove headers.  I'll see what I can do in the
+> > next version.
+> 
+> No need to worry about linux/types.h, this is pretty much included everywhere
+> already and neither the risk of extraneous includes or missing ones is
+> something to worry about. I'd just remove it if you do another respin, or
+> we can leave it in if Bjorn wants to just apply the v5 version.
+
+I will respin a v6 as we didn't get a reply on this.  Bjorn are you planning to
+apply the series before the upcoming merge window?
+
+Originally I was thinking to merge these with my OpenRISC PCI support patches as
+OpenRISC depends on this.  However, the series is getting a bit more involved
+for OpenRISC only.
+
+Once you get it merged I will like to rebase my OpenRISC PCI support patches on
+you branch.  Hopefully, we can make it by the merge window.
+
+Also, Palmer has a conflict with the series and his RISC-V for-next branch.
+He would like to have a tag or branch to be able to merge into is branch to
+resolve the conflict.
+
+-Stafford
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
