@@ -4,57 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA27C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 22:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C07AC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 22:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HCs7b1br5dqVuaG34N99fJyapCWJAjeThTEj5BgXtTo=; b=fyGYYGvzUQHiG0
-	++41iJBR1bQqrqOY6ihdSfSdfceJtEr2UaklzTFN6Kah4nupdMnrND5vs01DkZ+oXYzqDrjRnlfBf
-	yqGHRzKiwI1tmojJPy29usGOxZBkW83axhPxySreaQkw6inGW75+k8zRS/AH1LfEAXzOOr/lcFd/b
-	YUyudblcne2iKAPggGFkhy1fCAeVyE4bA4lehF5XMnvOxXQiDbimodI2jOXBkQw4xhfRgj7PwlsNf
-	Wg7uP+apMyvriqjYrgj1WOuhQpRUsliSywrL8QvXHTaDt58+xi+rbbjzV9Z85yEBlRaBXQOIJ29xT
-	qAwoWQ/yiFXTJQblgZ/A==;
+	List-Owner; bh=JfpMaBTXU2pzxpl62+PCcgXPzFOO9xbmYwKDCOdzEpk=; b=TpfWD+qYUKW5pb
+	e6wLJOPBoHDC+6/TLf4vU+q0JVIu7n6ZqPqsOL2Yl7yGhO2lxsRNrk3KlusuaHQoPzvsFG0jwsjdq
+	hoZsEaNGSOQDi/cm5jfapFO1zFIsRcYgRSGvSe2Hr5so/b/qkVsBPl3z6DhyzRfYwwBwr7F8QrG7I
+	RB6qIDgMpxALIbpxJbZeC7mNSYq8ODJDKCdUnhPzGx0hwB5tsdPLM5AV4WQxzRXm8sBW0AGmXEE5p
+	OhI+DzZQwXL7gzBnDx6O971++qPXrLK1fxWzStMet5iL5GX9nOYAFL71/QfhAiVmwzZIyaigOQX+F
+	NGF0gQv+MK9IyAiq6MFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oF1LX-00CDZT-K4; Fri, 22 Jul 2022 22:42:11 +0000
-Received: from angie.orcam.me.uk ([2001:4190:8020::34])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oF1LM-00CDR0-DJ; Fri, 22 Jul 2022 22:42:02 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id 5D6F792009C; Sat, 23 Jul 2022 00:41:54 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id 598B392009B;
-	Fri, 22 Jul 2022 23:41:54 +0100 (BST)
-Date: Fri, 22 Jul 2022 23:41:54 +0100 (BST)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Rob Herring <robh@kernel.org>
-cc: Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
-    Bjorn Helgaas <bhelgaas@google.com>, Stafford Horne <shorne@gmail.com>, 
-    "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-    Guo Ren <guoren@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-    Albert Ou <aou@eecs.berkeley.edu>, Richard Weinberger <richard@nod.at>, 
-    Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-    Johannes Berg <johannes@sipsolutions.net>, 
-    linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-    linux-csky@vger.kernel.org, linux-riscv <linux-riscv@lists.infradead.org>, 
-    linux-um <linux-um@lists.infradead.org>, PCI <linux-pci@vger.kernel.org>, 
-    "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>
-Subject: Re: [PATCH v3 2/2] asm-generic: Add new pci.h and use it
-In-Reply-To: <CAL_JsqKZoru2VZLeovPnQWe01ZMdw0krq0tcPx1O6YFUKa-L0g@mail.gmail.com>
-Message-ID: <alpine.DEB.2.21.2207222328230.48997@angie.orcam.me.uk>
-References: <CAL_Jsq+_5-fhXddhxG2mr-4HD_brcKZExkZqvME1yEpa6dOGGg@mail.gmail.com> <mhng-7e3146ca-79b8-4e16-98a9-e354fb6d03ba@palmer-mbp2014> <CAL_JsqJHZEcnJi+UHQbYWVoy1okQjHSc9T377P1q8oOJnHBWFw@mail.gmail.com> <CAK8P3a2aTS74TG8F+cVHX969hMQHKP3Ai5V0h-m+GeAq6kq5pQ@mail.gmail.com>
- <CAL_JsqKZoru2VZLeovPnQWe01ZMdw0krq0tcPx1O6YFUKa-L0g@mail.gmail.com>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	id 1oF1Zn-00CP1M-41; Fri, 22 Jul 2022 22:56:55 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oF1Zb-00COsd-NJ; Fri, 22 Jul 2022 22:56:44 +0000
+Received: by mail-pg1-x536.google.com with SMTP id bf13so5491342pgb.11;
+        Fri, 22 Jul 2022 15:56:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to;
+        bh=QHz11oQeWHexBI56qDzwQXLxjXmaVbVkx6Bas8PmE/k=;
+        b=Ka+ldo0XLtywqq9IwQWZHdMH1dcCO2laspYwU+Op0InQlgp+ogZlovkLGm0DFFuQ/k
+         fiHpzEjPIHaMSVKJWqqKAWeBY6r3qcMyNITEJD7s8SEqjAuCuzbd94YZN5lT4XOSECli
+         /bnx4vnZI1HO7VFrHsUaEhWya7uD7oaNlBq2TrBrzNACWfrkUPkrdRt7FJlNJ/ntBgKz
+         fkwj4EN9wJVaSiexE7LNp+EqHEhjbJ+Q+OT73Dc9gq7EJqakTbEM50Ci0Dr49BBWyxZ8
+         287X03pnCwfiKX+9xZ0AUU2My1OT8Jhrr7lx37rBQcjMowlf6q37R8vhEIx7paGvCuaE
+         0nmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to;
+        bh=QHz11oQeWHexBI56qDzwQXLxjXmaVbVkx6Bas8PmE/k=;
+        b=c3IJRMSIA5OriV0ZUSFhA4QJOMT8JVtqnJW2Tk9BXu7jbTH3CslH7cPnX73VB2pD8X
+         TE+C9dB1j2mKTzfijJqwa/6SsldKew58d9MasdhrbBSDylOEoQs7H1XJbBkl30xTghu2
+         eQfPP+mG3QoXYf1dQGGfCYo2rzIPI4k09l3HWdXTgpDQ6mUxezkxuhCaVXb6caNTX3+p
+         rCzkq79C25HegWNqJazimL5O06qUzWkFW6BC3Xd8CEghjYqVkYhOqlgO7Ma2wiIltGQ2
+         m5q1xaPPsCjqQElIE29+qGhfWc6pTb2gR7Kej9+HvGfqdDZ4C0cIc5z70wHAzpeAvbB7
+         gsog==
+X-Gm-Message-State: AJIora+YnULPSXqiIoAW0HwAlTykUgWP48wVocvPpOW0qVrUViVoW/HM
+	US+9fDhb2Nc1SlC/PQizWO8=
+X-Google-Smtp-Source: AGRyM1ssgspuNhoA5Gk+4Uhjl6x5FR+5SagZFy8Le8E2u02NnQwVlEOFcwcDrNPisPsRABzcoxkccw==
+X-Received: by 2002:a05:6a00:855:b0:52b:213d:fc03 with SMTP id q21-20020a056a00085500b0052b213dfc03mr2139243pfk.31.1658530601024;
+        Fri, 22 Jul 2022 15:56:41 -0700 (PDT)
+Received: from localhost ([2409:10:24a0:4700:e8ad:216a:2a9d:6d0c])
+        by smtp.gmail.com with ESMTPSA id v12-20020a17090a6b0c00b001f229f07b27sm4007457pjj.12.2022.07.22.15.56.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 Jul 2022 15:56:40 -0700 (PDT)
+Date: Sat, 23 Jul 2022 07:56:38 +0900
+From: Stafford Horne <shorne@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, LKML <linux-kernel@vger.kernel.org>,
+	Pierre Morel <pmorel@linux.ibm.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	linux-csky@vger.kernel.org,
+	linux-riscv <linux-riscv@lists.infradead.org>,
+	linux-um <linux-um@lists.infradead.org>,
+	linux-pci <linux-pci@vger.kernel.org>,
+	linux-arch <linux-arch@vger.kernel.org>
+Subject: Re: [PATCH v5 4/4] asm-generic: Add new pci.h and use it
+Message-ID: <YtsrJghwLPf3uj4W@antec>
+References: <YtsaA2Zjqa/XZZou@antec>
+ <20220722223146.GA1947394@bhelgaas>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220722223146.GA1947394@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220722_154200_638766_143CFA54 
-X-CRM114-Status: UNSURE (   7.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220722_155643_795696_97966E75 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,20 +105,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Jul 2022, Rob Herring wrote:
+On Fri, Jul 22, 2022 at 05:31:46PM -0500, Bjorn Helgaas wrote:
+> On Sat, Jul 23, 2022 at 06:43:31AM +0900, Stafford Horne wrote:
+> 
+> > I will respin a v6 as we didn't get a reply on this.  Bjorn are you
+> > planning to apply the series before the upcoming merge window?
+> 
+> I see your v6, and I can apply it.  I only got patches 1, 2, 4
+> (without the csky patch).  Do you want that to go a separate route?  I
+> don't care either way, but not sure it improves things to split it
+> across trees.
 
-> P.S. I really wish I/O space would disappear completely.
+I sent 3/4 directly to you now.  Hopefully you see it.
 
- Some systems make it happen already, such as the POWER9 platform and its 
-PHB4 host bridge (which doesn't handle PCIe TLP I/O read or write commands 
-at all), however some PCI/e devices do require I/O space, such as IEEE 
-1284 parallel port adapters.  Some PCI devices dating back as far as to 
-1990s provide dual mapping of their resources via an I/O and a memory BAR 
-both at a time, so we can choose which to use depending on circumstances.
+Patch 4/4 depends on it in a sense so its best to keep 3/4 together.
 
- FWIW,
-
-  Maciej
+-Stafford
 
 _______________________________________________
 linux-riscv mailing list
