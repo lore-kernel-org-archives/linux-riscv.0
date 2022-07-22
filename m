@@ -4,78 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD97C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 10:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72ABFC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 12:49:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wGy1ZGDJnoslQDcDWn+eSaoZ1YVyJqKoVsHHDU1SFXM=; b=Lh3V3zbvh4yMva
-	DkbZUqVXakLcYKmF8fpwp95usdVLWkej6yRh6qnx3kj8ZLbAb19VEPOq+X2bddPApK8jHovOdfz8D
-	OGF0AQdgwbD9+gkmRA/kej1jbS7cX/CKjQuSUsCvbAlzgjjx0po/BIPiEaqJysMyO07hGqvVurfJU
-	9qt8Z9cbVS28v8RNQ9gbijVEVL9GySOkR2NtcDSzE8J3wPn/JdvDFXVq+1t2Jhmt04c8zg+YuFGMb
-	YwSdwESUEyy5QI+ZJMYxNs2iIgEAL/HS+3u6vUd0NwBSYPefWj4lYDp3BH2qkhxc8t6T0yZ8bPTR2
-	HKzzohK3USrSu9kiPA/g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IhDfFeBSDtGzZt0wLpgQA+/7KfV/TYdpNhaoZNatRxI=; b=vdVpMLYFM92ISkywmKrJVsDbLW
+	gcvjdYJXosLneK43eTmRm/xVBLuRGAfjqkPKE2/9vQ3qg3vBnTJ18iopyB6pec0iisGPAx/VI8kuc
+	7si78ybegpagsclTpItVU/drk9yeGuGYRAyLwncD46jg+CUJgHgF5EZo+cbaFqozp74ln2zMR1Wp/
+	pSykqevLZA7+JLl/UOCx/HqBQ7ITuuicE4DmpMPdgDEzm62/1Xn6DKhKgRQZ33gbFie0iP3v6r8q7
+	rPv5fvCnzws8CroHmEvl/N5XRkkv/djvFoCwx8Fi4CuKN4Uc7RMUm3dZDz7dsuwM45OUA6mqtr79u
+	hFo7F0bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEqId-0031Up-63; Fri, 22 Jul 2022 10:54:27 +0000
-Received: from mout.kundenserver.de ([212.227.126.187])
+	id 1oEs68-004WYJ-O5; Fri, 22 Jul 2022 12:49:40 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEqIJ-00319h-Os; Fri, 22 Jul 2022 10:54:09 +0000
-Received: from mail-oi1-f177.google.com ([209.85.167.177]) by
- mrelayeu.kundenserver.de (mreue011 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1MAOa3-1oLD9e04fj-00BwfX; Fri, 22 Jul 2022 12:54:01 +0200
-Received: by mail-oi1-f177.google.com with SMTP id u9so5181706oiv.12;
-        Fri, 22 Jul 2022 03:54:00 -0700 (PDT)
-X-Gm-Message-State: AJIora8/0SxYjKXI2J/me4vPkXufQuiNGj11dYnx2/4+w5Cmf25gJ4Xq
-	Rif7atoOzdFuzc7K9SEDqgHw5KiWNnteHGuIBHw=
-X-Google-Smtp-Source: AGRyM1vy78FVr9qHehqDiblEj3V70Xauesbczc+NWbVsp5PyEl2CXocctR2Sg0IIOFpYE1nv6PajH1Yeg0LPhB77W8o=
-X-Received: by 2002:a05:6808:1511:b0:33a:b4f1:5247 with SMTP id
- u17-20020a056808151100b0033ab4f15247mr1728223oiw.188.1658487239317; Fri, 22
- Jul 2022 03:53:59 -0700 (PDT)
+	id 1oEs64-004WPd-40
+	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 12:49:38 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046049;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0VK557-E_1658494167;
+Received: from B-LB6YLVDL-0141.local(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VK557-E_1658494167)
+          by smtp.aliyun-inc.com;
+          Fri, 22 Jul 2022 20:49:28 +0800
+Subject: Re: [PATCH 4/5] riscv: Add modules to virtual kernel memory layout
+ dump
+To: Andreas Schwab <schwab@linux-m68k.org>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ anup@brainfault.org, heiko@sntech.de, guoren@kernel.org, mick@ics.forth.gr,
+ alexandre.ghiti@canonical.com, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, crash-utility@redhat.com,
+ huanyi.xj@alibaba-inc.com, heinrich.schuchardt@canonical.com,
+ k-hagio-ab@nec.com, hschauhan@nulltrace.org
+References: <20220717101323.370245-1-xianting.tian@linux.alibaba.com>
+ <20220717101323.370245-5-xianting.tian@linux.alibaba.com>
+ <87wnc5xxsj.fsf@igel.home>
+From: tianxianting <xianting.tian@linux.alibaba.com>
+Message-ID: <cef36a7e-f652-3c65-2627-5147291b83ea@linux.alibaba.com>
+Date: Fri, 22 Jul 2022 20:49:27 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.10.1
 MIME-Version: 1.0
-References: <20220718004114.3925745-3-shorne@gmail.com> <mhng-3ae42214-abe0-4fad-9fa9-8f19809fa4d9@palmer-mbp2014>
- <CAL_Jsq+_5-fhXddhxG2mr-4HD_brcKZExkZqvME1yEpa6dOGGg@mail.gmail.com>
-In-Reply-To: <CAL_Jsq+_5-fhXddhxG2mr-4HD_brcKZExkZqvME1yEpa6dOGGg@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 22 Jul 2022 12:53:43 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a0FwLmFO6Ew6kkJv=rOGRdQ+cyXok4b1kRr1RQP499wKA@mail.gmail.com>
-Message-ID: <CAK8P3a0FwLmFO6Ew6kkJv=rOGRdQ+cyXok4b1kRr1RQP499wKA@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] asm-generic: Add new pci.h and use it
-To: Rob Herring <robh@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Stafford Horne <shorne@gmail.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, Bjorn Helgaas <bhelgaas@google.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-csky@vger.kernel.org, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-um <linux-um@lists.infradead.org>, 
-	PCI <linux-pci@vger.kernel.org>, 
-	"open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>
-X-Provags-ID: V03:K1:Ois1pY9iISignUToa3wgqdufvqaABUximEkOELApCizdnnGN7Ke
- TBcncExufjXzyU8p1LkZVpV9z2x+PPgLCYHRL96cDfyfx3lyZD9OhSAGKOq5uWUB3yzwSeJ
- KiKZ+cwWswv2YTLG+XqX6imC4FCjSLU5t6ce+FDFuhs/HkUB4dN3BffbmC1W0jcGDMKcRJj
- kKCTXmERNy4N0tCqJ/n3w==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:G45qrpPCGDA=:0GOFNWJZrR8xxwxA/CGbV+
- zepBOqFYeTATdA6xAZefZU0mM45Nwyf/MMqCxrog1lC8cGsXMpsUJYo0KgYN8xoDbwhJa/UOu
- YxrT6pV6/lN7P/Pua56RE7Hhv+7kT2mUuD6QSZacvU6eNP9NJCRm8XmIno84Y4MRe15NbEZwF
- AAAAu6i1UkVrI55isX3qKds0X4NEdXDnMNeSozX2aU2iBycD0lAuq9Pna9gJLSMKZlX/a577r
- 8X9042iIAADKiFoDDjIa5wCKx44a3IVuWup0UdQvYmy9IfG8dMd9KyP/ho1gYl8LZpPmoBAZg
- cSqCRqcxoDGubZ/3XaE24xYXf7f3crqnkAVRfaI2nHl7NvVcmp1lH3IN8PNC+oJoTOhBiTXLc
- ZeP81lYbkxtvVpDPeoUWpKrK5WScncAmapxfs1DgnYgC7hzEvcvC51LKZccjtG1svqlELuxB7
- m54pM9BJt8PedLdjKemZGOOEVjnhkUBZX4/ljxGXiSZaGBSpepe7LIKh+s1VgMB41IkEVAFsB
- OPwJqLxlr6LDYaItjvRuPJH/GRLBFKcxWcMBuyPTgYGhcmYF+pvqwvrZXEw5GGj8mgOer9K98
- UgGKFQ/Kw7cG7xO1SzNB2BJBsasfH1MRO/x3eC7b33ZLVNWn9ONV0ycwuPmDji30Vua4SVYoQ
- 7XzlD30pCWAhrKZ8932b6XLbjZzP4g4y8LiumBHFi+cG2Jm/Tsa4WuZoP1csB0GA+PY31wfwb
- PvheoVB/pi0rZWf0Bnl6sa8t4S8GCX0sJohNL/NVjTm4nlx9u3v7XlhafVL9dZG4yIpvNt8yE
- 1mytlmb0qvjVCdNq70otZTbXyJYyEYpFIbn9qEQeciNHtNSo/+LLgFe4hSyAeXLPvyroL/k4L
- no67pjWClilSvQlEt4ArUSQmGog5E9KfUM/pVVvls=
+In-Reply-To: <87wnc5xxsj.fsf@igel.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220722_035408_123686_01EABDA3 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20220722_054936_432643_F5B2F056 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,55 +63,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 22, 2022 at 1:06 AM Rob Herring <robh@kernel.org> wrote:
-> On Tue, Jul 19, 2022 at 9:59 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
-> > On Sun, 17 Jul 2022 17:41:14 PDT (-0700), shorne@gmail.com wrote:
-
-> > > diff --git a/arch/riscv/include/asm/pci.h b/arch/riscv/include/asm/pci.h
-> > > index 7fd52a30e605..12ce8150cfb0 100644
-> > > --- a/arch/riscv/include/asm/pci.h
-> > > +++ b/arch/riscv/include/asm/pci.h
-> > > @@ -12,29 +12,7 @@
-> > >
-> > >  #include <asm/io.h>
-> > >
-> > > -#define PCIBIOS_MIN_IO               0
-> > > -#define PCIBIOS_MIN_MEM              0
-> >
-> > My for-next changes these in bb356ddb78b2 ("RISC-V: PCI: Avoid handing
-> > out address 0 to devices").  Do you mind either splitting out the
-> > arch/riscv bits or having this in via some sort of shared tag?
->
-> Shouldn't the values not matter here if the IO and mem resources are
-> described in the DT (and don't use 0)? The values of 4 and 16 look
-> odd.
-
-I think it's different for the two types: For memory resources, this only
-matters if the bus actually contains MMIO address zero. In most cases
-the MMIO addresses are the same as the address seen by the CPU
-and already nonzero based on the SoC design.
-
-For the I/O port numbers, the port numbers tend to be more dynamic,
-but you'd normally have addresses 0 through 0xffff on each PCI host
-bridge with memory mapped I/O ports, so this can clearly happen.
-
-Still, it seems better to not address the port zero issue in architecture
-specific code but instead do it in the PCI core code. Ideally
-we'd just use the 0x1000 minimum, which also helps stay out of
-the ISA port numbers that may be used by things like
-VGA or SATA adapters in legacy mode. The only reason I can
-see for allowed smaller port numbers is for machines that have
-a very limited I/O port window and do not have ports over
-0x1000 at all.
-
-        Arnd
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CuWcqCAyMDIyLzcvMjIg5LiL5Y2INjoxMCwgQW5kcmVhcyBTY2h3YWIg5YaZ6YGTOgo+IE9uIEp1
+bCAxNyAyMDIyLCBYaWFudGluZyBUaWFuIHdyb3RlOgo+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
+c2N2L21tL2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4+IGluZGV4IGQ0NjZlYzY3MGUx
+Zi4uMmM0YTY0ZTk3YWVjIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L21tL2luaXQuYwo+PiAr
+KysgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+PiBAQCAtMTM1LDYgKzEzNSwxMCBAQCBzdGF0aWMg
+dm9pZCBfX2luaXQgcHJpbnRfdm1fbGF5b3V0KHZvaWQpCj4+ICAgCQkodW5zaWduZWQgbG9uZylW
+TUVNTUFQX0VORCk7Cj4+ICAgCXByaW50X21sKCJ2bWFsbG9jIiwgKHVuc2lnbmVkIGxvbmcpVk1B
+TExPQ19TVEFSVCwKPj4gICAJCSh1bnNpZ25lZCBsb25nKVZNQUxMT0NfRU5EKTsKPj4gKyNpZmRl
+ZiBDT05GSUdfNjRCSVQKPj4gKwlwcmludF9tbCgibW9kdWxlcyIsICh1bnNpZ25lZCBsb25nKU1P
+RFVMRVNfVkFERFIsCj4+ICsJCSh1bnNpZ25lZCBsb25nKU1PRFVMRVNfRU5EKTsKPiAjaWZkZWYg
+TU9EVUxFU19WQUREUiA/Ck1heWJlIENPTkZJR182NEJJVCBpcyBiZXR0ZXIsIGl0IHNob3dzIG1v
+cmUgaW5mb3MoNjRiaXQgZGVmaW5lZCwgMzJiaXQgCm5vdCkuIElmIHVzZSBNT0RVTEVTX1ZBREQs
+IHBlb3BsZSBtYXkgZG91YnQgd2hpY2ggY29uZGl0aW9ucyAKTU9EVUxFU19WQUREIGlzIG5vdCBk
+ZWZpbmVkPwo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
