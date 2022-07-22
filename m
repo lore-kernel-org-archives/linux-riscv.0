@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 197C9C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 10:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD97C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 10:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
-	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=au6TfiH7vHXhbMHqMhcGReR4Xc9ZPT5+OvzzoaiIbpk=; b=NxFKztfeRPfqPm
-	E6CHam5Gf1/NmLaMT+KE0cz6fuKWPiXf2i2yEiamvtESk07ZS0wu3Lm7ebXM/bEJ0LQ3MvrJtk3QA
-	5+8scnuCQ+x1BeVVHGWi8zBWyjjzXZb2FStweVLOld9pK334c+qI86VweKG/AA3M2YyFSjSkiuCem
-	btZSdIPGSiXZI+egBMmj4PDOZDZdMygvzERSp1uGkBYKnXZiOj+YpQQLMfxYNdtdFUejRGRt1R0vo
-	KrVlPaibEKVGvkW7WWAkKZJbULshAYyDsH3w0kxDpUbKWG4+ZXsN3kvsuX3KHX1ajmrSgqPd44PTD
-	zweuVyWo1FKMxNK9yqbw==;
+	List-Owner; bh=wGy1ZGDJnoslQDcDWn+eSaoZ1YVyJqKoVsHHDU1SFXM=; b=Lh3V3zbvh4yMva
+	DkbZUqVXakLcYKmF8fpwp95usdVLWkej6yRh6qnx3kj8ZLbAb19VEPOq+X2bddPApK8jHovOdfz8D
+	OGF0AQdgwbD9+gkmRA/kej1jbS7cX/CKjQuSUsCvbAlzgjjx0po/BIPiEaqJysMyO07hGqvVurfJU
+	9qt8Z9cbVS28v8RNQ9gbijVEVL9GySOkR2NtcDSzE8J3wPn/JdvDFXVq+1t2Jhmt04c8zg+YuFGMb
+	YwSdwESUEyy5QI+ZJMYxNs2iIgEAL/HS+3u6vUd0NwBSYPefWj4lYDp3BH2qkhxc8t6T0yZ8bPTR2
+	HKzzohK3USrSu9kiPA/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEpci-002NFJ-5Z; Fri, 22 Jul 2022 10:11:08 +0000
-Received: from mail-out.m-online.net ([212.18.0.9])
+	id 1oEqId-0031Up-63; Fri, 22 Jul 2022 10:54:27 +0000
+Received: from mout.kundenserver.de ([212.227.126.187])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEpcf-002N7O-9u
-	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 10:11:07 +0000
-Received: from frontend01.mail.m-online.net (unknown [192.168.8.182])
-	by mail-out.m-online.net (Postfix) with ESMTP id 4Lq4vg2j6Kz1r0nJ;
-	Fri, 22 Jul 2022 12:10:54 +0200 (CEST)
-Received: from localhost (dynscan1.mnet-online.de [192.168.6.70])
-	by mail.m-online.net (Postfix) with ESMTP id 4Lq4vf4FwVz1qqkp;
-	Fri, 22 Jul 2022 12:10:54 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at mnet-online.de
-Received: from mail.mnet-online.de ([192.168.8.182])
-	by localhost (dynscan1.mail.m-online.net [192.168.6.70]) (amavisd-new, port 10024)
-	with ESMTP id rbkTNUbe7Ccr; Fri, 22 Jul 2022 12:10:53 +0200 (CEST)
-X-Auth-Info: 5V4d3Fnr8BDMPb3jkQu0EDJRSLyYFrjOv2Xdf5FYdjjFzWdHQsnOnSqJzPDYV4V9
-Received: from igel.home (ppp-46-244-169-212.dynamic.mnet-online.de [46.244.169.212])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mail.mnet-online.de (Postfix) with ESMTPSA;
-	Fri, 22 Jul 2022 12:10:53 +0200 (CEST)
-Received: by igel.home (Postfix, from userid 1000)
-	id 6F9AD2C3A72; Fri, 22 Jul 2022 12:10:52 +0200 (CEST)
-From: Andreas Schwab <schwab@linux-m68k.org>
-To: Xianting Tian <xianting.tian@linux.alibaba.com>
-Cc: paul.walmsley@sifive.com,  palmer@dabbelt.com,  aou@eecs.berkeley.edu,
-  anup@brainfault.org,  heiko@sntech.de,  guoren@kernel.org,
-  mick@ics.forth.gr,  alexandre.ghiti@canonical.com,
-  linux-riscv@lists.infradead.org,  linux-kernel@vger.kernel.org,
-  crash-utility@redhat.com,  huanyi.xj@alibaba-inc.com,
-  heinrich.schuchardt@canonical.com,  k-hagio-ab@nec.com,
-  hschauhan@nulltrace.org
-Subject: Re: [PATCH 4/5] riscv: Add modules to virtual kernel memory layout
- dump
-References: <20220717101323.370245-1-xianting.tian@linux.alibaba.com>
-	<20220717101323.370245-5-xianting.tian@linux.alibaba.com>
-X-Yow: You must be a CUB SCOUT!!  Have you made your MONEY-DROP today??
-Date: Fri, 22 Jul 2022 12:10:52 +0200
-In-Reply-To: <20220717101323.370245-5-xianting.tian@linux.alibaba.com>
-	(Xianting Tian's message of "Sun, 17 Jul 2022 18:13:22 +0800")
-Message-ID: <87wnc5xxsj.fsf@igel.home>
-User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.1.90 (gnu/linux)
+	id 1oEqIJ-00319h-Os; Fri, 22 Jul 2022 10:54:09 +0000
+Received: from mail-oi1-f177.google.com ([209.85.167.177]) by
+ mrelayeu.kundenserver.de (mreue011 [213.165.67.97]) with ESMTPSA (Nemesis) id
+ 1MAOa3-1oLD9e04fj-00BwfX; Fri, 22 Jul 2022 12:54:01 +0200
+Received: by mail-oi1-f177.google.com with SMTP id u9so5181706oiv.12;
+        Fri, 22 Jul 2022 03:54:00 -0700 (PDT)
+X-Gm-Message-State: AJIora8/0SxYjKXI2J/me4vPkXufQuiNGj11dYnx2/4+w5Cmf25gJ4Xq
+	Rif7atoOzdFuzc7K9SEDqgHw5KiWNnteHGuIBHw=
+X-Google-Smtp-Source: AGRyM1vy78FVr9qHehqDiblEj3V70Xauesbczc+NWbVsp5PyEl2CXocctR2Sg0IIOFpYE1nv6PajH1Yeg0LPhB77W8o=
+X-Received: by 2002:a05:6808:1511:b0:33a:b4f1:5247 with SMTP id
+ u17-20020a056808151100b0033ab4f15247mr1728223oiw.188.1658487239317; Fri, 22
+ Jul 2022 03:53:59 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220718004114.3925745-3-shorne@gmail.com> <mhng-3ae42214-abe0-4fad-9fa9-8f19809fa4d9@palmer-mbp2014>
+ <CAL_Jsq+_5-fhXddhxG2mr-4HD_brcKZExkZqvME1yEpa6dOGGg@mail.gmail.com>
+In-Reply-To: <CAL_Jsq+_5-fhXddhxG2mr-4HD_brcKZExkZqvME1yEpa6dOGGg@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Fri, 22 Jul 2022 12:53:43 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a0FwLmFO6Ew6kkJv=rOGRdQ+cyXok4b1kRr1RQP499wKA@mail.gmail.com>
+Message-ID: <CAK8P3a0FwLmFO6Ew6kkJv=rOGRdQ+cyXok4b1kRr1RQP499wKA@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] asm-generic: Add new pci.h and use it
+To: Rob Herring <robh@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Stafford Horne <shorne@gmail.com>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+	Johannes Berg <johannes@sipsolutions.net>, Bjorn Helgaas <bhelgaas@google.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-csky@vger.kernel.org, 
+	linux-riscv <linux-riscv@lists.infradead.org>, linux-um <linux-um@lists.infradead.org>, 
+	PCI <linux-pci@vger.kernel.org>, 
+	"open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>
+X-Provags-ID: V03:K1:Ois1pY9iISignUToa3wgqdufvqaABUximEkOELApCizdnnGN7Ke
+ TBcncExufjXzyU8p1LkZVpV9z2x+PPgLCYHRL96cDfyfx3lyZD9OhSAGKOq5uWUB3yzwSeJ
+ KiKZ+cwWswv2YTLG+XqX6imC4FCjSLU5t6ce+FDFuhs/HkUB4dN3BffbmC1W0jcGDMKcRJj
+ kKCTXmERNy4N0tCqJ/n3w==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:G45qrpPCGDA=:0GOFNWJZrR8xxwxA/CGbV+
+ zepBOqFYeTATdA6xAZefZU0mM45Nwyf/MMqCxrog1lC8cGsXMpsUJYo0KgYN8xoDbwhJa/UOu
+ YxrT6pV6/lN7P/Pua56RE7Hhv+7kT2mUuD6QSZacvU6eNP9NJCRm8XmIno84Y4MRe15NbEZwF
+ AAAAu6i1UkVrI55isX3qKds0X4NEdXDnMNeSozX2aU2iBycD0lAuq9Pna9gJLSMKZlX/a577r
+ 8X9042iIAADKiFoDDjIa5wCKx44a3IVuWup0UdQvYmy9IfG8dMd9KyP/ho1gYl8LZpPmoBAZg
+ cSqCRqcxoDGubZ/3XaE24xYXf7f3crqnkAVRfaI2nHl7NvVcmp1lH3IN8PNC+oJoTOhBiTXLc
+ ZeP81lYbkxtvVpDPeoUWpKrK5WScncAmapxfs1DgnYgC7hzEvcvC51LKZccjtG1svqlELuxB7
+ m54pM9BJt8PedLdjKemZGOOEVjnhkUBZX4/ljxGXiSZaGBSpepe7LIKh+s1VgMB41IkEVAFsB
+ OPwJqLxlr6LDYaItjvRuPJH/GRLBFKcxWcMBuyPTgYGhcmYF+pvqwvrZXEw5GGj8mgOer9K98
+ UgGKFQ/Kw7cG7xO1SzNB2BJBsasfH1MRO/x3eC7b33ZLVNWn9ONV0ycwuPmDji30Vua4SVYoQ
+ 7XzlD30pCWAhrKZ8932b6XLbjZzP4g4y8LiumBHFi+cG2Jm/Tsa4WuZoP1csB0GA+PY31wfwb
+ PvheoVB/pi0rZWf0Bnl6sa8t4S8GCX0sJohNL/NVjTm4nlx9u3v7XlhafVL9dZG4yIpvNt8yE
+ 1mytlmb0qvjVCdNq70otZTbXyJYyEYpFIbn9qEQeciNHtNSo/+LLgFe4hSyAeXLPvyroL/k4L
+ no67pjWClilSvQlEt4ArUSQmGog5E9KfUM/pVVvls=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220722_031105_532860_50E74007 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20220722_035408_123686_01EABDA3 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,26 +92,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Jul 17 2022, Xianting Tian wrote:
+On Fri, Jul 22, 2022 at 1:06 AM Rob Herring <robh@kernel.org> wrote:
+> On Tue, Jul 19, 2022 at 9:59 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+> > On Sun, 17 Jul 2022 17:41:14 PDT (-0700), shorne@gmail.com wrote:
 
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index d466ec670e1f..2c4a64e97aec 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -135,6 +135,10 @@ static void __init print_vm_layout(void)
->  		(unsigned long)VMEMMAP_END);
->  	print_ml("vmalloc", (unsigned long)VMALLOC_START,
->  		(unsigned long)VMALLOC_END);
-> +#ifdef CONFIG_64BIT
-> +	print_ml("modules", (unsigned long)MODULES_VADDR,
-> +		(unsigned long)MODULES_END);
+> > > diff --git a/arch/riscv/include/asm/pci.h b/arch/riscv/include/asm/pci.h
+> > > index 7fd52a30e605..12ce8150cfb0 100644
+> > > --- a/arch/riscv/include/asm/pci.h
+> > > +++ b/arch/riscv/include/asm/pci.h
+> > > @@ -12,29 +12,7 @@
+> > >
+> > >  #include <asm/io.h>
+> > >
+> > > -#define PCIBIOS_MIN_IO               0
+> > > -#define PCIBIOS_MIN_MEM              0
+> >
+> > My for-next changes these in bb356ddb78b2 ("RISC-V: PCI: Avoid handing
+> > out address 0 to devices").  Do you mind either splitting out the
+> > arch/riscv bits or having this in via some sort of shared tag?
+>
+> Shouldn't the values not matter here if the IO and mem resources are
+> described in the DT (and don't use 0)? The values of 4 and 16 look
+> odd.
 
-#ifdef MODULES_VADDR ?
+I think it's different for the two types: For memory resources, this only
+matters if the bus actually contains MMIO address zero. In most cases
+the MMIO addresses are the same as the address seen by the CPU
+and already nonzero based on the SoC design.
 
--- 
-Andreas Schwab, schwab@linux-m68k.org
-GPG Key fingerprint = 7578 EB47 D4E5 4D69 2510  2552 DF73 E780 A9DA AEC1
-"And now for something completely different."
+For the I/O port numbers, the port numbers tend to be more dynamic,
+but you'd normally have addresses 0 through 0xffff on each PCI host
+bridge with memory mapped I/O ports, so this can clearly happen.
+
+Still, it seems better to not address the port zero issue in architecture
+specific code but instead do it in the PCI core code. Ideally
+we'd just use the 0x1000 minimum, which also helps stay out of
+the ISA port numbers that may be used by things like
+VGA or SATA adapters in legacy mode. The only reason I can
+see for allowed smaller port numbers is for machines that have
+a very limited I/O port window and do not have ports over
+0x1000 at all.
+
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
