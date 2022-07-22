@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 182B9C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 18:10:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C173DC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 19:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
+	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+/0MO9JS6YUSJtzoZJB7B7eAEbWFlWmEWMAsJ7HYbys=; b=vGN9pT1MQNNLlb
-	54xIdTK4xwKT6c47A2rocoN0VhCKiwrQ8m4xHpw44tZMus+HgSaaTb24ALlSaTUVQwliqsJeoTuDv
-	ei69JB1YfR0oU3RQ1/NL97pXjGwm1Qsesz+3BdMAKWXT7pdcpvJDW2HZN0o0nwQGsJQ0pXvrKAX6D
-	SC4//S7GVF2sTjQ0+J4bnSbexqldazBRWotpH1dJxJdwFgmrw+le/h+d1sPkHhYhRRRzq55QxQBB8
-	hxn0pHJOTAQV4+iwZZFoOmOPmSDXpmJ35wq3PLuFIMrXdBcNGm4FfRut8+Cq+DeIxdqK7wc4Y0vH0
-	dC0eS6JzjBv2iiF4F0Iw==;
+	List-Owner; bh=6eRq2Tr9/tDUdh2tZ2jSJ43+XiekLujgLXKje6cxc6c=; b=gA6lS4VD/VDaXf
+	dO0TLKnOavRoabg7NbuocK46G/TOgbc8k0l2LzLDLMsu3yEyBSa2clLuBt0KTgKldXRi9a1fG3g0J
+	SuAOU/TybGcM7hVFBN6lVlKu6GpcIXHh++6Wgv6wPF9yK+wZ73dnv5Mqc3Isw7H+UC3EsmTNXU9S7
+	9UF/Wm1BJeDVWuVOod/xhcAPzEj2S5vj1UD+0v1bULy8PRnbYRW9PeRJTVbWP4/53M6bef57lgbZa
+	8lfluI9d8tnF8Wq7eYSlUh6EFccvA7YkIvWBhtY/UhxZgcvEnzKo0q82z97isV69vAzFyPt+rYefA
+	Hi2Yz2gMdO9PegmNac0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEx6A-008lly-CQ; Fri, 22 Jul 2022 18:10:02 +0000
-Received: from mail-il1-f181.google.com ([209.85.166.181])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEx67-008ljN-Gh
-	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 18:10:00 +0000
-Received: by mail-il1-f181.google.com with SMTP id n13so2684543ilk.1
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 11:09:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
-         :mime-version:content-disposition:in-reply-to;
-        bh=PIQt+5ITwOzmhuISQoyrlkf2sasQzT8bLBRP5gAJJHI=;
-        b=R2tz7RZj28moZWhVpJ8dJZ+k0f5jzMrUpY/0hYmDSjqeIQkz+eMe9F5LQcJ+nEkUEh
-         dGfyh8io4peita1m6GWnhwmrYmaP4z9MDV6UtJGG64R+iOETWmW6NTXLUZ/C9MvmDfIi
-         Dvn0SlF7acYX3HA4lJTEfhib38fCO9/7rzTHpCZnqjy104/OooDXPMxEL59EkPUDM8YO
-         C1EJ9ugz+FGyDK/omLOaaH19hToon5qQWLQjerQCIBrLaRCXAQ4y3TxxSaRs/P0DLUjt
-         kp7XFX2BfyqO4nul4HefumciTvcEpI4qmUPWByOOlEAxvOmqaEcHmggCHjTogjAYeYRj
-         rulQ==
-X-Gm-Message-State: AJIora9AJGT3WHSvWuTyl1FsgFi1MshGsUYdh3BqF0qSWDzJ4g/M08Uz
-	4/UEV/G63w+w1FNYtcuVaA==
-X-Google-Smtp-Source: AGRyM1viYesRRMCE+hE3852h7f+4YHNmRnNBlfzb2xqh4FaCp1/QljiBpc+/NB38QuvSIp2ETH6ijg==
-X-Received: by 2002:a05:6e02:b21:b0:2dc:6d2d:5a61 with SMTP id e1-20020a056e020b2100b002dc6d2d5a61mr495214ilu.273.1658513397529;
-        Fri, 22 Jul 2022 11:09:57 -0700 (PDT)
-Received: from robh.at.kernel.org ([64.188.179.248])
-        by smtp.gmail.com with ESMTPSA id x15-20020a92cc8f000000b002dd12857a13sm1950282ilo.80.2022.07.22.11.09.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Jul 2022 11:09:57 -0700 (PDT)
-Received: (nullmailer pid 3797638 invoked by uid 1000);
-	Fri, 22 Jul 2022 18:09:55 -0000
-Date: Fri, 22 Jul 2022 12:09:55 -0600
-From: Rob Herring <robh@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, Thomas Gleixner <tglx@linutronix.de>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Sagar Kadam <sagar.kadam@sifive.com>, "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, Geert Uytterhoeven <geert+renesas@glider.be>, LKML <linux-kernel@vger.kernel.org>, Linux-Renesas <linux-renesas-soc@vger.kernel.org>, Phil Edworthy <phil.edworthy@renesas.com>, Biju Das <biju.das.jz@bp.renesas.com>
-Subject: Re: [PATCH RFC 1/2] dt-bindings: interrupt-controller: sifive,plic:
- Document Renesas RZ/Five SoC
-Message-ID: <20220722180955.GA3770737-robh@kernel.org>
-References: <20220524172214.5104-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220524172214.5104-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220605142333.GA3439339-robh@kernel.org>
- <CA+V-a8smk8TqyWpm1KXo-3dKnCAodKsiYsaqnK_3ubfXE9YauQ@mail.gmail.com>
- <20220706215827.GA572635-robh@kernel.org>
- <87a69lmesa.wl-maz@kernel.org>
- <20220712181916.GI1823936-robh@kernel.org>
- <878roy16iw.wl-maz@kernel.org>
+	id 1oEyFk-009LJ7-8k; Fri, 22 Jul 2022 19:24:00 +0000
+Received: from angie.orcam.me.uk ([2001:4190:8020::34])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oEyFW-009L84-Cd; Fri, 22 Jul 2022 19:23:48 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+	id 94A7192009C; Fri, 22 Jul 2022 21:23:36 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by angie.orcam.me.uk (Postfix) with ESMTP id 8971D92009B;
+	Fri, 22 Jul 2022 20:23:36 +0100 (BST)
+Date: Fri, 22 Jul 2022 20:23:36 +0100 (BST)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Rob Herring <robh@kernel.org>
+cc: Palmer Dabbelt <palmer@dabbelt.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+    Stafford Horne <shorne@gmail.com>, 
+    "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+    Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+    Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
+    Paul Walmsley <paul.walmsley@sifive.com>, 
+    Albert Ou <aou@eecs.berkeley.edu>, Richard Weinberger <richard@nod.at>, 
+    Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+    Johannes Berg <johannes@sipsolutions.net>, 
+    linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+    linux-csky@vger.kernel.org, linux-riscv <linux-riscv@lists.infradead.org>, 
+    linux-um@lists.infradead.org, PCI <linux-pci@vger.kernel.org>, 
+    "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>
+Subject: Re: [PATCH v3 2/2] asm-generic: Add new pci.h and use it
+In-Reply-To: <CAL_JsqJHZEcnJi+UHQbYWVoy1okQjHSc9T377P1q8oOJnHBWFw@mail.gmail.com>
+Message-ID: <alpine.DEB.2.21.2207222006140.48997@angie.orcam.me.uk>
+References: <CAL_Jsq+_5-fhXddhxG2mr-4HD_brcKZExkZqvME1yEpa6dOGGg@mail.gmail.com> <mhng-7e3146ca-79b8-4e16-98a9-e354fb6d03ba@palmer-mbp2014> <CAL_JsqJHZEcnJi+UHQbYWVoy1okQjHSc9T377P1q8oOJnHBWFw@mail.gmail.com>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <878roy16iw.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220722_110959_575665_F58953B3 
-X-CRM114-Status: GOOD (  20.06  )
+X-CRM114-CacheID: sfid-20220722_122346_628385_0CC19875 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +70,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 12, 2022 at 08:21:27PM +0100, Marc Zyngier wrote:
-> On Tue, 12 Jul 2022 19:19:16 +0100,
-> Rob Herring <robh@kernel.org> wrote:
-> > 
-> > On Thu, Jul 07, 2022 at 10:51:33AM +0100, Marc Zyngier wrote:
+On Fri, 22 Jul 2022, Rob Herring wrote:
+
+> > Maybe the right thing to do here is actually to make the default
+> > definitions of these macros non-zero, or to add some sort of ARCH_
+> > flavor of them and move that non-zero requirement closer to where it
+> > comes from?  From the look of it any port that uses the generic port I/O
+> > functions and has 0 for these will be broken in the same way.
 > >
-> > > Can you please have a look at the latest instance[1][2] of this
-> > > series, as posted by Samuel? I've provisionally queued it, but only on
-> > > the provision that you would eventually ack these patches.
-> > 
-> > I did already[1]. They passed checks, were already in linux-next, and I 
-> > didn't see anything major needing comments, so I marked it N/A (meaning 
-> > someone else applies it) without comment.
-> > 
-> > Rob
-> > 
-> > [1] https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20220630100241.35233-2-samuel@sholland.org/
+> > That said, I'm not really a PCI guy so maybe Bjorn or Maciej has a
+> > better idea?
 > 
-> How are people supposed to track this if it doesn't appear on the ML?
+> >From fu740:
+>                        ranges = <0x81000000  0x0 0x60080000  0x0
+> 0x60080000 0x0 0x10000>,      /* I/O */
+>                                  <0x82000000  0x0 0x60090000  0x0
+> 0x60090000 0x0 0xff70000>,    /* mem */
+>                                  <0x82000000  0x0 0x70000000  0x0
+> 0x70000000 0x0 0x1000000>,    /* mem */
+>                                  <0xc3000000 0x20 0x00000000 0x20
+> 0x00000000 0x20 0x00000000>;  /* mem prefetchable */
+> 
+> So again, how does one get a 0 address handed out when that's not even
+> a valid region according to DT? Is there some legacy stuff that
+> ignores the bridge windows?
 
-Look at patchwork?
+ It doesn't matter as <asm/pci.h> just sets it as a generic parameter for 
+the platform, reflecting the limitation of PCI core, which in the course 
+of the discussion referred was found rather infeasible to remove.  The 
+FU740 does not decode to PCI at 0, but another RISC-V device could.  And I 
+think that DT should faithfully describe hardware and not our software 
+limitations.
 
-How am I supposed to track maintainers that will rebase what they have 
-in next to add acks and those that won't?
+ Mind that PCI has originated from the x86 world where decoding low 24-bit 
+memory space to ISA has been implied (implicitly decoded on PCI systems by 
+the southbridge) for areas not decoded to DRAM by the memory controller. 
+So the inability of our PCI core to handle MMIO at 0 did not matter at the 
+time it was introduced as the value of 0 would never be used for a memory 
+BAR.
 
-> That's not really an ack, AFAICT. That's a "I don't care".
-
-I still look at it, so really it's an implicit ack. In this case, I 
-probably just saw the irqchip-bot mail and missed your reply to the 
-cover.
-
-> Does it mean I'm free to take any random DT patch unless you or a bot
-> shouts? I'd rather know.
-
-Wait for acked/reviewed-by to apply? Isn't that the process?
-
-Rob
+  Maciej
 
 _______________________________________________
 linux-riscv mailing list
