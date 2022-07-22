@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F44C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 07:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E37C43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 07:53:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=86b6emQfcpreAxF5NLLL9HK8Xt+i7y5x9xqXBdnbC/M=; b=YAj/THibEH/s4p
-	juR4muCXDzNPb4EiyZAzM6SXQEJml3hvpuDGu9DN/dr1NWbnenegl+XWUsZLXW+ZopHxndrxG5QbK
-	AnHkEqQCXh8qx6I11NdURg7vT8baqB52C331F1od6vCXlFS3lkJ7Ns46xwvw0jo3kKRF0FuaQFXid
-	uKRX+MjrC3xOOfDnyQWZ8RXYHNmkG+nli1KTLR5jbO2Tkzq0Yp+FWooOwloi95MmhIO88kUNEneV5
-	pSJ5V8IZWb5QHPAttKRMiyFmmOMp5o1dNXk6eFno8k9Hk16FI9oYyACNZdIj5znCjekuk7a89LF92
-	ofoPm1mb+NMt+xMAeCCg==;
+	List-Owner; bh=MWmqWNkb1zKkqfUb2uAvUAw36k5cja6+5miwxsxBRSA=; b=kU1NHAANsLZWOw
+	ziZ4bAr8U6vliFHi3UbOl1jjFujP5RWn+GZ5otQDPHGDihSLssOujTWHBXzq2XQRD74Cw4JauINBV
+	CN+KS+IecImLcISudd6SVwaLEnd862Og1KPxtiKWAgVTNRvl+daFqrt3+YCMjeaTYq5aipKfGgM+L
+	eiPJGpIyIzdHZ3SMTPJT2D99Edsv6SvSVpu7FXnxDswgrrBd/ahFV2nryfX4cT0BG6ysy7nDAmBI2
+	HsgCAOz/0ltdtzL64B9k0rqH4LOxuSMj6BkuMZEpDEDNdGFFXL253uhcxy2zt9rinAhoxErwNy35m
+	BhnTY9dZb7Qe1/HMCm2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEnRe-000lBU-AE; Fri, 22 Jul 2022 07:51:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oEnTc-000lzt-G9; Fri, 22 Jul 2022 07:53:36 +0000
+Received: from mout.kundenserver.de ([217.72.192.73])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEnRb-000l9J-Ip
-	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 07:51:32 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 35C2A60E04
-	for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 07:51:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02B42C341D4
-	for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 07:51:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1658476287;
-	bh=hteyvn0yaPK0/2NRgzXD5OW+6qZL0byNi3OkzsX0uAo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=rKVjbDXOBTaNiMUz6SpJ4kE6NZouClsh46kJhMGLk3L+QqUyhEKmkvnsVX7z8Ula4
-	 sQuIDMCP21geiA+TpnCitZ6JznpJMXTCjzC+bEu4eZMAoGh/9I6OT8tKDLd7FP9hFr
-	 MEoWTpJ0vos0391G5Zj8PWvkK6KJ1MSKWAR+eL2vMeYeR0rh9QXy6GVo80uoWBxqXO
-	 XZ6jGkPQuoBIXTkxy6xTKlg/rrvkYgnErPVSb5udHIwPk9FcBMrmKri2K78BCv7NTR
-	 jjANJslVkjNfJk4V/OnMbhVQXHiL+WjjQCSR3tJIabIphmTZKz/Dqv4QA8XUGd77Bn
-	 FK4m3dza1oaOA==
-Received: by mail-lf1-f46.google.com with SMTP id p11so1547366lfu.5
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 00:51:26 -0700 (PDT)
-X-Gm-Message-State: AJIora+ubomx59UuYAHectE4BlFE7d5OHfp+VgABWhbYx/rTNAriB1dl
-	oHh/MFoKV1dEm9FjLTPuoJzXH+V9bZhmm6JQJIY=
-X-Google-Smtp-Source: AGRyM1ulyx/y0eJ3gMB2WigTyNk+sRot7MzH9LBTdkd6YkOvurOggIitYqJPWWUU2qS5qF8F4OYRyUlPT9BKgH1CkHk=
-X-Received: by 2002:a05:6512:1191:b0:48a:2269:e87 with SMTP id
- g17-20020a056512119100b0048a22690e87mr826633lfr.122.1658476284840; Fri, 22
- Jul 2022 00:51:24 -0700 (PDT)
+	id 1oEnTZ-000lwk-9Z; Fri, 22 Jul 2022 07:53:34 +0000
+Received: from mail-yb1-f170.google.com ([209.85.219.170]) by
+ mrelayeu.kundenserver.de (mreue108 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MBlpC-1oMXEU09jY-00C86S; Fri, 22 Jul 2022 09:53:30 +0200
+Received: by mail-yb1-f170.google.com with SMTP id r3so6766937ybr.6;
+        Fri, 22 Jul 2022 00:53:25 -0700 (PDT)
+X-Gm-Message-State: AJIora9IgmRqpW0pqnoTPkg2ZLgn41oeEi2tUelc2bf5JOWYPEorIu7t
+	b9HEYT7vWp9exRssJ3dfy71SXSjVxQsUkalqBMs=
+X-Google-Smtp-Source: AGRyM1u41IXDpMEFZlEyB5V83L7UcLnJ5KdxUhKbRxndnLJwe/AJGnvb+uTj5YbKPfI9znCIi02PXAb+ssOFnGHCMII=
+X-Received: by 2002:a25:9f87:0:b0:669:4345:a8c0 with SMTP id
+ u7-20020a259f87000000b006694345a8c0mr1946760ybq.472.1658476404347; Fri, 22
+ Jul 2022 00:53:24 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220717101323.370245-1-xianting.tian@linux.alibaba.com>
- <20220717101323.370245-5-xianting.tian@linux.alibaba.com> <7405851.EvYhyI6sBW@diego>
-In-Reply-To: <7405851.EvYhyI6sBW@diego>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 22 Jul 2022 15:51:12 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSYp4-2VLq4HmvcdDWq3ygkHiXpDfTyocYStxGpejx7jg@mail.gmail.com>
-Message-ID: <CAJF2gTSYp4-2VLq4HmvcdDWq3ygkHiXpDfTyocYStxGpejx7jg@mail.gmail.com>
-Subject: Re: [PATCH 4/5] riscv: Add modules to virtual kernel memory layout dump
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
-	Nick Kossifidis <mick@ics.forth.gr>, Alexandre Ghiti <alexandre.ghiti@canonical.com>, 
-	Xianting Tian <xianting.tian@linux.alibaba.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, crash-utility@redhat.com, 
-	huanyi.xj@alibaba-inc.com, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, k-hagio-ab@nec.com, 
-	hschauhan@nulltrace.org
+References: <20220721134924.596152-5-shorne@gmail.com> <20220721173733.GA1731649@bhelgaas>
+ <YtnMEwh3U3Ng9q4a@antec>
+In-Reply-To: <YtnMEwh3U3Ng9q4a@antec>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Fri, 22 Jul 2022 09:53:07 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a3T0GvYyRgw=ojD_wts_pfdzfqXS8iNfUYuByBvLF9SGQ@mail.gmail.com>
+Message-ID: <CAK8P3a3T0GvYyRgw=ojD_wts_pfdzfqXS8iNfUYuByBvLF9SGQ@mail.gmail.com>
+Subject: Re: [PATCH v5 4/4] asm-generic: Add new pci.h and use it
+To: Stafford Horne <shorne@gmail.com>
+Cc: Bjorn Helgaas <helgaas@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Pierre Morel <pmorel@linux.ibm.com>, 
+	Geert Uytterhoeven <geert@linux-m68k.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Bjorn Helgaas <bhelgaas@google.com>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-csky@vger.kernel.org, 
+	linux-riscv <linux-riscv@lists.infradead.org>, linux-um <linux-um@lists.infradead.org>, 
+	linux-pci <linux-pci@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>
+X-Provags-ID: V03:K1:gevxnFAxARYcMGhy8ttWvCFfD9Dn7idbRRIXqWgzxGT0fGoLLjk
+ VcAXZAfwssLfmKj6ZsxNSntBAxtYWxpQjJf5M3zrwmcWJPT3OQHReOWwdeMaBLDNe9Ch3z9
+ OH/uCIcnQNeJ2vhI1eI8NRyW/tXiQrOf9/BdDG6EwGzlFtd6ZXlUkLhZVw6YporYcJaK/UA
+ UgKf/8Sy/ro6b+MoJnHeg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:IKuyRd1lahE=:E82bSvQ8WaHHJSGqZAGInb
+ 0brKh1TqSVhm/YN1jqnvsQLBrO0kOFBep11iDzOmq1VXefuLoaufGllTj/SKL57l0QQWf9VKc
+ iXGI1xEKzgQh8sb18EDQZESvRMenRfdaIVukDMQVyAKdhNTN5VAZmtri+JDgRpKo/5Lv+toKo
+ 7a+e83PnjZHDx0eb0ZNRaQGgN4da1Oppn4N6evha7JyLT2w0Be9AEgd/Iy789HW+zqklkDnfv
+ wIfMqwOPHoCjGQvzXwgPHLn8PDRPx2SnRjM96qZ/d74p/9ugYgbKpN8r0hDUvk4nt+7XBr9Eh
+ Y6XNsObpNcJpYMJldOGQ9qkR5do6aEqzxJ7YsrRCjownBu3x0U7cjF8xAUTcdmbEPPkja94is
+ k7S7r6+B05gyP1BL8mmm8+6NhwgUPdtT3d4TdQpCi5WYLY5yDHmfLCO/YNYyHqvyQ6j4Laz6g
+ 0CunsT8KjR8ULr+P8qNY7iHlxtyb1EX9svBYpT/8e42PbhXecdQabYxlG4R+TWpeVs1IXc4wZ
+ VGjJM7FZsvLnguM7ZZSHWEhIuTBfIrt7c7HeFRPRGClZ+6YxkKjl9zxNlAo/ijjR71hZjNSjP
+ BbFb0FfMDuG8inax0W6m7S8UAn4GJ57mFyUkvuRc1JK2DM5DRyPm7tnTmLFdZDFAcMQLuOWI+
+ kXB7kZp6ameNS/w1YMJ4zEzQW6025RgcVnekynqZE8jwkzgEOiNeQ8YcGVshdHYUwfxuYVAoe
+ 312MntazkTj3FxD0YhgPpUg5GdjLKnGNfEHr4BDOghh7JIkz4kbLeN8mnCJNCgRTlzdwiW/I0
+ FvD6x3bzo3I+JLMqyFRo2mrzwjNS2LlbocmjArtBguCgI+EbcTY9CmiPj3M3tVikHEJyC0vQU
+ wGq+SHAb9fMtJ8bgJZzg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220722_005131_741919_C75A48E1 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20220722_005333_654863_ACDCCD14 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +88,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBKdWwgMjIsIDIwMjIgYXQgMzoyNCBQTSBIZWlrbyBTdMO8Ym5lciA8aGVpa29Ac250
-ZWNoLmRlPiB3cm90ZToKPgo+IEFtIFNvbm50YWcsIDE3LiBKdWxpIDIwMjIsIDEyOjEzOjIyIENF
-U1Qgc2NocmllYiBYaWFudGluZyBUaWFuOgo+ID4gTW9kdWxlcyBhbHdheXMgbGl2ZSBiZWZvcmUg
-dGhlIGtlcm5lbCwgTU9EVUxFU19FTkQgaXMgZml4ZWQgYnV0Cj4gPiBNT0RVTEVTX1ZBRERSIGlz
-bid0IGZpeGVkLCBpdCBkZXBlbmRzIG9uIHRoZSBrZXJuZWwgc2l6ZS4KPiA+IExldCdzIGFkZCBp
-dCB0byB2aXJ0dWFsIGtlcm5lbCBtZW1vcnkgbGF5b3V0IGR1bXAuCj4gPgo+ID4gQXMgTU9EVUxF
-UyBpcyBvbmx5IGRlZmluZWQgZm9yIENPTkZJR182NEJJVCwgc28gd2UgZHVtcCBpdCB3aGVuCj4g
-PiBDT05GSUdfNjRCSVQ9eS4KPiA+Cj4gPiBlZywKPiA+IE1PRFVMRVNfVkFERFIgLSBNT0RVTEVT
-X0VORAo+ID4gMHhmZmZmZmZmZjAxMTMzMDAwIC0gMHhmZmZmZmZmZjgwMDAwMDAwCj4gPgo+ID4g
-U2lnbmVkLW9mZi1ieTogWGlhbnRpbmcgVGlhbiA8eGlhbnRpbmcudGlhbkBsaW51eC5hbGliYWJh
-LmNvbT4KPgo+IEknbSBzdGlsbCBub3Qgc3VyZSBpZiBpdCB3b3VsZCBiZSBiZXR0ZXIgdG8gZGVm
-aW5lIE1PRFVMRVNfKiBjb25zdGFudHMKPiBldmVuIG9uIDMyYml0ICh3aXRoIHRoZWlyIFZNQUxM
-T0NfU1RBUlQgZXRjIHZhbHVlcykgYW5kIHByZXZlbnQKPiBuZWVkaW5nIHRoZSBDT05GSUdfNjRC
-SVQgaWZkZWYsIGJ1dCB0aGF0J3MgZm9yIG90aGVycyB0byBkZWNpZGUgOi0pClRoZXJlIGlzIG5v
-IE1PRFVMRVNfVkFERFIgZm9yIDMyLWJpdCwgYmVjYXVzZSBpdCByZXVzZXMgdm1hbGxvYyBhcmVh
-LgoKV2Ugc2hvdWxkIHByaW50IE1PRFVMRVNfVkFERFIgaGVyZSB0byBtYWtlIHBlb3BsZSBjbGVh
-ciB0byBrbm93LgoKUmV2aWV3ZWQtYnk6IEd1byBSZW4gPGd1b3JlbkBrZXJuZWwub3JnPgoKPgo+
-IFRoZSBiZWxvdyBhbHNvIGxvb2tzIGdvb2QsIHNvCj4gUmV2aWV3ZWQtYnk6IEhlaWtvIFN0dWVi
-bmVyIDxoZWlrb0BzbnRlY2guZGU+Cj4KPiA+IC0tLQo+ID4gIGFyY2gvcmlzY3YvbW0vaW5pdC5j
-IHwgNCArKysrCj4gPiAgMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKQo+ID4KPiA+IGRp
-ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4g
-PiBpbmRleCBkNDY2ZWM2NzBlMWYuLjJjNGE2NGU5N2FlYyAxMDA2NDQKPiA+IC0tLSBhL2FyY2gv
-cmlzY3YvbW0vaW5pdC5jCj4gPiArKysgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+ID4gQEAgLTEz
-NSw2ICsxMzUsMTAgQEAgc3RhdGljIHZvaWQgX19pbml0IHByaW50X3ZtX2xheW91dCh2b2lkKQo+
-ID4gICAgICAgICAgICAgICAodW5zaWduZWQgbG9uZylWTUVNTUFQX0VORCk7Cj4gPiAgICAgICBw
-cmludF9tbCgidm1hbGxvYyIsICh1bnNpZ25lZCBsb25nKVZNQUxMT0NfU1RBUlQsCj4gPiAgICAg
-ICAgICAgICAgICh1bnNpZ25lZCBsb25nKVZNQUxMT0NfRU5EKTsKPiA+ICsjaWZkZWYgQ09ORklH
-XzY0QklUCj4gPiArICAgICBwcmludF9tbCgibW9kdWxlcyIsICh1bnNpZ25lZCBsb25nKU1PRFVM
-RVNfVkFERFIsCj4gPiArICAgICAgICAgICAgICh1bnNpZ25lZCBsb25nKU1PRFVMRVNfRU5EKTsK
-PiA+ICsjZW5kaWYKPiA+ICAgICAgIHByaW50X21sKCJsb3dtZW0iLCAodW5zaWduZWQgbG9uZylQ
-QUdFX09GRlNFVCwKPiA+ICAgICAgICAgICAgICAgKHVuc2lnbmVkIGxvbmcpaGlnaF9tZW1vcnkp
-Owo+ID4gICAgICAgaWYgKElTX0VOQUJMRUQoQ09ORklHXzY0QklUKSkgewo+ID4KPgo+Cj4KPgoK
-Ci0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+On Thu, Jul 21, 2022 at 11:58 PM Stafford Horne <shorne@gmail.com> wrote:
+> On Thu, Jul 21, 2022 at 12:37:33PM -0500, Bjorn Helgaas wrote:
+
+>
+> Thanks, you are right, I think some of the earlier functions may have needed it,
+> which is why I had it earlier.  But now that we have removed those we should be
+> able to remove this.
+>
+> That said, I think some of the architecture includes could also be removed.  On
+> OpenRISC we are able to get away with only having the global asm-generic/pci.h
+> so we don't need a wrapper pci.h header at all.
+>
+> However, I don't have everything setup to build all of those architectures so I
+> was being a bit conservative to remove headers.  I'll see what I can do in the
+> next version.
+
+No need to worry about linux/types.h, this is pretty much included everywhere
+already and neither the risk of extraneous includes or missing ones is
+something to worry about. I'd just remove it if you do another respin, or
+we can leave it in if Bjorn wants to just apply the v5 version.
+
+       Arnd
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
