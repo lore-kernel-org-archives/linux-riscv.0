@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5220C43334
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 15:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F74DC43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 15:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=muWtIn8C7wt+kmS+ASjsXvdoF/OXkI0Qa0iluDPfBE4=; b=ckciBzcZth2PST/BTuU4EYjgHg
-	0OSWsDkvixv8hZqSL8NDIbRNUrJutl9wf5MnS8FKUULRcz56/tUefW638rMkmreDXRyYe9hTXhV5x
-	1DTjXmbkUXCQSH8l1GYh741RJSmmZzW3igy2A6eqeWQGrT2GLCee3GPx+CwAgcUQcDzdLvub7GOZB
-	2X+V2whc6ywIUcmFQzUTXdKRmswrmwEdmBJsxUHA6g+RFzr3ALKIx6+phgCc71vbmvRGLmpDQE33g
-	Uml2JoyROqTK1PCm7dZWyosaC57gi3BzrMSiVPztUTKNSIau6aGcaErwe1bBLUONEucHQS/HKa4Dq
-	ILaNKghg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jGoypUyLjILoft917vOcsUD2jje/82vu0DHA7FfJaXM=; b=ZmiVyMWc4qKupv
+	OjZ1/9dEaG7hHdtxNyTda+/9NS0pqA3lixwJqz6XUFOubIYGwvDuFKBSNoioV+TSvjxKxF0mUNO1Q
+	4GFmmKlUQ76bXA23LwF7FwEkXmjKeLICUn8ro1fzyKvEJ8aRMLEGbIIuwoj3SxaQE+8E46Rlz1vK3
+	/QdCr1KOh5Jqogs4WykHh02ieGgjZQ9Kgm/w3vRy3wY/kvXbpwXHUC8Eq5iWDFpmuFmtuQVxLHaIc
+	LYaBJIjW+ZEueXAGXqL32YPKtdxHtLkjnGXrmR0dyqQL1A7n1AZXiVWEcNwS2tXA02jP+HHYe0cwe
+	LrOHDs0y4mAHRYvPfkxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEuZ2-007N0c-1j; Fri, 22 Jul 2022 15:27:40 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1oEuwq-007bzH-9I; Fri, 22 Jul 2022 15:52:16 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEuYx-007Mvr-Ky
-	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 15:27:37 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d10so4723503pfd.9
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 08:27:32 -0700 (PDT)
+	id 1oEuwn-007byK-Jg
+	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 15:52:15 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id b10so4726172pjq.5
+        for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 08:52:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=JiTsgIyx7zIuebw3jPBiJz5uZKu7LJAxJF1fKKcrwMc=;
-        b=rrckFJbUDVsImQF7IueIbd0/U72biyUAgvOzS+WhlcjHCI3ldV94QbLnmmGX/EQSr+
-         c8TSWho4ZocrCsAjV6gxmPElF1BHN92O4e1VfJB6B8bR82dmtAYAf8QTGOxStbnKVdnF
-         Rr9z7B4FLIxTcqsj3J4Ep53UwR44wRjA2i+TA8UHQ9jC0eqwkKnSRwGNwiYl3JihLKdL
-         1oyg1K4t6/seSECyO7ysuzncwYAIxoww5m1UBmjQwNf0zHUNZHFNBBwqN39nCLjmjVJG
-         LHZtpEy0JFK7N84KO0Jz7kvgGjh7WVGK2YZaqOzvnCz0FdvPKk9PLma/CLmmlb2xLLpZ
-         9q9Q==
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=message-id:to:from:cc:subject:date:from:to:cc;
+        bh=xxCjmpN4Td1O1TLl9RPWhjj4pmV0G2VbYEtqRP5n4WU=;
+        b=RT+f+K/2V1LHD4Z/VOLMCmId4hLO6umi4FFYwOybHCOifv8e5/eRrXZiUqKVqjKzMS
+         KuuE5PIYICkz428gzsdKYfmHn/0vPNxwhmigBh6C4lJgoqlPRLdjSzRjBHoA89JfceGq
+         +1qfTspOAidXZUBBPeEfkwLDRijDt+Wj2mz/8QSeH7Ym+tzbUTfL/aRkFMJtg5OWD3Uw
+         Wy89HSIKDDL3IA8VD7E0begRcSA+v6rDADaYcMqKRCBLjYos+5GjoPKxp9cL3iC4Oz+J
+         by0lZ5hUZXD3HXzGEr+5XjUZEPc3MJGEYaQjE3hiotqTPRE+ywjBZg36JU0PNkZfOpym
+         sq4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=JiTsgIyx7zIuebw3jPBiJz5uZKu7LJAxJF1fKKcrwMc=;
-        b=zvn5qUlHaph0PyT1SMk5YikSvXHAlXepyJVRfPomUUEQcmLRvRv0NZ3Ykg1qh1ybQ0
-         mUWMjrx9hgwqvNKXS+dABlxQx+N+KtaGZHh4RzbifRk5LaIapEhZNsiwfKynwh75sX+6
-         ejRWglgGohTDcRGwTZS7nZFLTVQYV+GQInItFFKGjUpuImlZadAMBwTqLCYrBhlBMtrI
-         r880U13GBBKb9CNBVeB8s4qeGiO+97DLXMz3z7sB2/dlXe6nVX7Eaa2BKg5lK2+mJhC7
-         X4xDY2/PAiNVtNXDPdXMFxXLjTOaEnpw9aDBCOZp9+Q0+4e4GKkQH5qSN5Cu89cGKyz9
-         GndQ==
-X-Gm-Message-State: AJIora+xEjbKSK+9Yn5DXavFhsMqV2ZuvYEjbBLcibZrAUB3FyjrNG7N
-	XQlyL1FY5f1PEwTwwLLg7Q08Aw==
-X-Google-Smtp-Source: AGRyM1vjiNi3gAsTSR6PPVAuJFh976n3sC3CS18PuJ5NGShYw7q13nR9jGjBImNfgAPUs0Ag9vo1kQ==
-X-Received: by 2002:a65:460b:0:b0:41a:6637:6544 with SMTP id v11-20020a65460b000000b0041a66376544mr257298pgq.511.1658503652107;
-        Fri, 22 Jul 2022 08:27:32 -0700 (PDT)
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc;
+        bh=xxCjmpN4Td1O1TLl9RPWhjj4pmV0G2VbYEtqRP5n4WU=;
+        b=OeMnZq0NT8Sv6nJeKk3BBGi38xaC9GgWygjlvy6A8C+NQ4ibZ0X5TRZvu8owhDQr+7
+         hOd38ZbIcz1Qf4Z/nJThT/+B7nYnYifFiWrvXRe67XKg2Zx0H8ltT+BpC9PKzO7vRfec
+         gSPRa2TbQUZpNdr+lafSEWuJeXbvRKCKLkt3flQ5ngu5z68oEN2cefnOlbZiX99O8pJh
+         uqApW7vEkeIuzuVr3CFzOkFVbLHiorzXIXQtlPJ1GwNxCBj5SccQLEfecNgDwcM4pi0S
+         qiQhdgoU5Wthw6PuC0EEzcxo+8IixptzXZXj8baTOQdoCdtXg0l23BVNi5FGmhAgajM+
+         HMpA==
+X-Gm-Message-State: AJIora/2kXP4XyAD1XCdANj/N5M3G60Yi5Hz2hRebf25FoHa6gmHn0kE
+	JQT1UVeIL+C00OlNDB6gkvu6r9WgQUOXAA==
+X-Google-Smtp-Source: AGRyM1vEZLAZF9DCuWsNoUFGP21Kyefpbe3NfQBqP64ehoiXTyy2/lOEI165BJMePyRi4UzpoCXLfw==
+X-Received: by 2002:a17:902:ccc9:b0:16b:af81:37c6 with SMTP id z9-20020a170902ccc900b0016baf8137c6mr499347ple.107.1658505131786;
+        Fri, 22 Jul 2022 08:52:11 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id p4-20020a17090a930400b001e292e30129sm3562385pjo.22.2022.07.22.08.27.31
+        by smtp.gmail.com with ESMTPSA id n3-20020a170902f60300b0016bdea07b9esm3885040plg.190.2022.07.22.08.52.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Jul 2022 08:27:31 -0700 (PDT)
-Date: Fri, 22 Jul 2022 08:27:31 -0700 (PDT)
-X-Google-Original-Date: Fri, 22 Jul 2022 08:27:30 PDT (-0700)
-Subject: Re: [PATCH v3 2/2] asm-generic: Add new pci.h and use it
-In-Reply-To: <CAL_Jsq+_5-fhXddhxG2mr-4HD_brcKZExkZqvME1yEpa6dOGGg@mail.gmail.com>
-CC: shorne@gmail.com, linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-  catalin.marinas@arm.com, Will Deacon <will@kernel.org>, guoren@kernel.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, richard@nod.at, anton.ivanov@cambridgegreys.com,
-  johannes@sipsolutions.net, linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-  linux-riscv@lists.infradead.org, linux-um@lists.infradead.org, linux-pci@vger.kernel.org,
-  linux-arch@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: Rob Herring <robh@kernel.org>, bhelgaas@google.com, macro@orcam.me.uk
-Message-ID: <mhng-7e3146ca-79b8-4e16-98a9-e354fb6d03ba@palmer-mbp2014>
-Mime-Version: 1.0 (MHng)
+        Fri, 22 Jul 2022 08:52:11 -0700 (PDT)
+Date: Fri, 22 Jul 2022 08:52:11 -0700 (PDT)
+X-Google-Original-Date: Fri, 22 Jul 2022 08:52:08 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 5.19-rc8
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-84a83727-f880-4d8a-b9df-0c45accff355@palmer-mbp2014>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220722_082735_934224_27B82ABC 
-X-CRM114-Status: GOOD (  36.48  )
+X-CRM114-CacheID: sfid-20220722_085213_885333_B75A120F 
+X-CRM114-Status: UNSURE (   7.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,161 +78,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 21 Jul 2022 16:06:52 PDT (-0700), Rob Herring wrote:
-> On Tue, Jul 19, 2022 at 9:59 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>
->> On Sun, 17 Jul 2022 17:41:14 PDT (-0700), shorne@gmail.com wrote:
->> > The asm/pci.h used for many newer architectures share similar
->> > definitions.  Move the common parts to asm-generic/pci.h to allow for
->> > sharing code.
->> >
->> > Two things to note are:
->> >
->> >  - isa_dma_bridge_buggy, traditionally this is defined in asm/dma.h but
->> >    these architectures avoid creating that file and add the definition
->> >    to asm/pci.h.
->> >  - ARCH_GENERIC_PCI_MMAP_RESOURCE, csky does not define this so we
->> >    undefine it after including asm-generic/pci.h.  Why doesn't csky
->> >    define it?
->> >  - pci_get_legacy_ide_irq, This function is only used on architectures
->> >    that support PNP.  It is only maintained for arm64, in other
->> >    architectures it is removed.
->> >
->> > Suggested-by: Arnd Bergmann <arnd@arndb.de>
->> > Link: https://lore.kernel.org/lkml/CAK8P3a0JmPeczfmMBE__vn=Jbvf=nkbpVaZCycyv40pZNCJJXQ@mail.gmail.com/
->> > Signed-off-by: Stafford Horne <shorne@gmail.com>
->> > ---
->> > Second note on isa_dma_bridge_buggy, this is set on x86 but it it also set in
->> > pci/quirks.c.  We discussed limiting it only to x86 though as its a general
->> > quick triggered by pci ids I think it will be more tricky than we thought so I
->> > will leave as is.  It might be nice to move it out of asm/dma.h and into
->> > asm/pci.h though.
->> >
->> > Since v2:
->> >  - Nothing
->> > Since v1:
->> >  - Remove definition of pci_get_legacy_ide_irq
->> >
->> >  arch/arm64/include/asm/pci.h | 12 +++---------
->> >  arch/csky/include/asm/pci.h  | 24 ++++--------------------
->> >  arch/riscv/include/asm/pci.h | 25 +++----------------------
->> >  arch/um/include/asm/pci.h    | 24 ++----------------------
->> >  include/asm-generic/pci.h    | 36 ++++++++++++++++++++++++++++++++++++
->> >  5 files changed, 48 insertions(+), 73 deletions(-)
->> >  create mode 100644 include/asm-generic/pci.h
->> >
->> > diff --git a/arch/arm64/include/asm/pci.h b/arch/arm64/include/asm/pci.h
->> > index b33ca260e3c9..1180e83712f5 100644
->> > --- a/arch/arm64/include/asm/pci.h
->> > +++ b/arch/arm64/include/asm/pci.h
->> > @@ -9,7 +9,6 @@
->> >  #include <asm/io.h>
->> >
->> >  #define PCIBIOS_MIN_IO               0x1000
->> > -#define PCIBIOS_MIN_MEM              0
->> >
->> >  /*
->> >   * Set to 1 if the kernel should re-assign all PCI bus numbers
->> > @@ -18,9 +17,6 @@
->> >       (pci_has_flag(PCI_REASSIGN_ALL_BUS))
->> >
->> >  #define arch_can_pci_mmap_wc() 1
->> > -#define ARCH_GENERIC_PCI_MMAP_RESOURCE       1
->> > -
->> > -extern int isa_dma_bridge_buggy;
->> >
->> >  #ifdef CONFIG_PCI
->> >  static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
->> > @@ -28,11 +24,9 @@ static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
->> >       /* no legacy IRQ on arm64 */
->> >       return -ENODEV;
->> >  }
->> > -
->> > -static inline int pci_proc_domain(struct pci_bus *bus)
->> > -{
->> > -     return 1;
->> > -}
->> >  #endif  /* CONFIG_PCI */
->> >
->> > +/* Generic PCI */
->> > +#include <asm-generic/pci.h>
->> > +
->> >  #endif  /* __ASM_PCI_H */
->> > diff --git a/arch/csky/include/asm/pci.h b/arch/csky/include/asm/pci.h
->> > index ebc765b1f78b..44866c1ad461 100644
->> > --- a/arch/csky/include/asm/pci.h
->> > +++ b/arch/csky/include/asm/pci.h
->> > @@ -9,26 +9,10 @@
->> >
->> >  #include <asm/io.h>
->> >
->> > -#define PCIBIOS_MIN_IO               0
->> > -#define PCIBIOS_MIN_MEM              0
->> > +/* Generic PCI */
->> > +#include <asm-generic/pci.h>
->> >
->> > -/* C-SKY shim does not initialize PCI bus */
->> > -#define pcibios_assign_all_busses() 1
->> > -
->> > -extern int isa_dma_bridge_buggy;
->> > -
->> > -#ifdef CONFIG_PCI
->> > -static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
->> > -{
->> > -     /* no legacy IRQ on csky */
->> > -     return -ENODEV;
->> > -}
->> > -
->> > -static inline int pci_proc_domain(struct pci_bus *bus)
->> > -{
->> > -     /* always show the domain in /proc */
->> > -     return 1;
->> > -}
->> > -#endif  /* CONFIG_PCI */
->> > +/* csky doesn't use generic pci resource mapping */
->> > +#undef ARCH_GENERIC_PCI_MMAP_RESOURCE
->> >
->> >  #endif  /* __ASM_CSKY_PCI_H */
->> > diff --git a/arch/riscv/include/asm/pci.h b/arch/riscv/include/asm/pci.h
->> > index 7fd52a30e605..12ce8150cfb0 100644
->> > --- a/arch/riscv/include/asm/pci.h
->> > +++ b/arch/riscv/include/asm/pci.h
->> > @@ -12,29 +12,7 @@
->> >
->> >  #include <asm/io.h>
->> >
->> > -#define PCIBIOS_MIN_IO               0
->> > -#define PCIBIOS_MIN_MEM              0
->>
->> My for-next changes these in bb356ddb78b2 ("RISC-V: PCI: Avoid handing
->> out address 0 to devices").  Do you mind either splitting out the
->> arch/riscv bits or having this in via some sort of shared tag?
->
-> Shouldn't the values not matter here if the IO and mem resources are
-> described in the DT (and don't use 0)? The values of 4 and 16 look
-> odd.
+merged tag 'dt-fixes-for-palmer-5.19-rc6'
+The following changes since commit 7fccd723912702acfc2d75e8f0596982534f7f24:
 
-The linked thread has a fairly long discussion 
-<https://lore.kernel.org/all/alpine.DEB.2.21.2202260044180.25061@angie.orcam.me.uk/>.  
-I agree it's odd to have this in arch code: "don't hand out address 0" 
-isn't really a RISC-V constraint (ie, we don't have architecture-defined 
-limitations on these address spaces) but a constraint that comes from 
-the generic port I/O functions and some other related PCI/resource code 
-where the value 0 is a sentinel.
+  Merge tag 'dt-fixes-for-palmer-5.19-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git into fixes (2022-07-13 10:44:22 -0700)
 
-Maybe the right thing to do here is actually to make the default 
-definitions of these macros non-zero, or to add some sort of ARCH_ 
-flavor of them and move that non-zero requirement closer to where it 
-comes from?  From the look of it any port that uses the generic port I/O 
-functions and has 0 for these will be broken in the same way.
+are available in the Git repository at:
 
-That said, I'm not really a PCI guy so maybe Bjorn or Maciej has a 
-better idea?
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-rc8
+
+for you to fetch changes up to c1f6eff304e4dfa4558b6a8c6b2d26a91db6c998:
+
+  riscv: add as-options for modules with assembly compontents (2022-07-21 12:09:29 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 5.19-rc8
+
+* Two kexec-related build fixes.
+* A DTS update to make the GPIO nodes match the upcoming dtschema.
+* A fix that passes -mno-relax directly to the assembler when building
+  modules, to work around compilers that fail to do so.
+
+----------------------------------------------------------------
+Ben Dooks (1):
+      riscv: add as-options for modules with assembly compontents
+
+Krzysztof Kozlowski (1):
+      riscv: dts: align gpio-key node names with dtschema
+
+Li Zhengyu (2):
+      RISCV: kexec: Fix build error without CONFIG_MODULES
+      RISC-V: kexec: Fix build error without CONFIG_KEXEC
+
+ arch/riscv/Makefile                             | 1 +
+ arch/riscv/boot/dts/canaan/canaan_kd233.dts     | 2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_bit.dts  | 2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_dock.dts | 2 +-
+ arch/riscv/boot/dts/canaan/sipeed_maix_go.dts   | 6 +++---
+ arch/riscv/boot/dts/canaan/sipeed_maixduino.dts | 2 +-
+ arch/riscv/kernel/Makefile                      | 2 +-
+ arch/riscv/kernel/elf_kexec.c                   | 2 +-
+ 8 files changed, 10 insertions(+), 9 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
