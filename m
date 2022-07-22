@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D4EC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 19:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDD4C43334
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 20:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tVQ+qhufrMY5azbCOe2/wb13tFQhw+mZX+/hny3LLSQ=; b=zAHySuqgC3W/5a
-	cJq0OrJSJQdYCHKDyT6G0fjLGvPrY92wo90jsMPNrst5/tn3y3a3eHt3cCGwS25ndKiYXZFXv9bbL
-	SC3kVTfY/WqFwYB+HQZwfyxCHlfCchfju+S3i16TNwe6XEfAugghBzMJoEwqUiDi5H0WvzdqaIKUh
-	rJ0tLnbdoT3XxgGuzKUaBOOkLJa09ss4ig+nXv8NsHfquwdH3y2qn8QvdfwoAmNTLdvVs1Lpwv05k
-	UtEiA/RjvU/xM7dtUKPiEUNZmBdNE2VIZQU13THamVXhMudzTRqQoH+P+9BsdVddF3mr5LBWVTB0b
-	94XT802WqSJbtolpQYAg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=OdJKtS+kZEJhTenGEt4wGCR2YL0Qh1Rv7LMpcm7hO5Y=; b=F3uVH10hA4MFKr9txvyTz23d8W
+	CZAMmCHDKCXDBOpkd3X3nhTXJxHF9l8ICh4TY6635qsA5VSBlOa4zxw0PikAaTDrfFAvErlBMkKrb
+	v6j/LZYvQNXLfKV2g6JOyF9fNH1+eka0cxT5YKTQCP5er7hIOqO6rVurVed64nLNrpXR8zLKY8TiU
+	UiFUi3hQebW5PW3b5j67NrW1Gqg17nWW0YaQngDPI2vuYKBW1M/45yPT86he+I7Nylc2YfVZiy9AC
+	D4pjBbXhdWg7cwtV2ObxGeeZma8PuexOQrf3mez8N3lSFMkCSBVtGd/prsOyMj6JBkyrJsRR/p01x
+	M16RX8dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEykF-009c1W-0a; Fri, 22 Jul 2022 19:55:31 +0000
-Received: from mout.kundenserver.de ([212.227.17.24])
+	id 1oEyvK-009lE3-8v; Fri, 22 Jul 2022 20:06:58 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEykC-009bwI-LA; Fri, 22 Jul 2022 19:55:30 +0000
-Received: from mail-yw1-f177.google.com ([209.85.128.177]) by
- mrelayeu.kundenserver.de (mreue107 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MC3H1-1oMS3A0Ydp-00CVYZ; Fri, 22 Jul 2022 21:55:21 +0200
-Received: by mail-yw1-f177.google.com with SMTP id 00721157ae682-31e1ecea074so58240567b3.8;
-        Fri, 22 Jul 2022 12:55:20 -0700 (PDT)
-X-Gm-Message-State: AJIora+NevP+S54YIRiNLImRwtw2m0iZoON+ckg438uhadiIdgKGQkNd
-	AA336HNX/L8tnzKBwB2Y3jj6YjFOHPKnvVUyXxM=
-X-Google-Smtp-Source: AGRyM1uXuwQnOqTAc2eAgULJ3gnB6/3HxjqG6YsVYm4rwIeb3o/ICJSu11fKuAtGWX5g0pRwxfQ7v0EfBH0rTQPFdhs=
-X-Received: by 2002:a0d:cec1:0:b0:31e:590c:c6e4 with SMTP id
- q184-20020a0dcec1000000b0031e590cc6e4mr1302476ywd.42.1658519719648; Fri, 22
- Jul 2022 12:55:19 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAL_Jsq+_5-fhXddhxG2mr-4HD_brcKZExkZqvME1yEpa6dOGGg@mail.gmail.com>
- <mhng-7e3146ca-79b8-4e16-98a9-e354fb6d03ba@palmer-mbp2014> <CAL_JsqJHZEcnJi+UHQbYWVoy1okQjHSc9T377P1q8oOJnHBWFw@mail.gmail.com>
-In-Reply-To: <CAL_JsqJHZEcnJi+UHQbYWVoy1okQjHSc9T377P1q8oOJnHBWFw@mail.gmail.com>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Fri, 22 Jul 2022 21:55:03 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a2aTS74TG8F+cVHX969hMQHKP3Ai5V0h-m+GeAq6kq5pQ@mail.gmail.com>
-Message-ID: <CAK8P3a2aTS74TG8F+cVHX969hMQHKP3Ai5V0h-m+GeAq6kq5pQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] asm-generic: Add new pci.h and use it
-To: Rob Herring <robh@kernel.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	"Maciej W. Rozycki" <macro@orcam.me.uk>, Stafford Horne <shorne@gmail.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Richard Weinberger <richard@nod.at>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-csky@vger.kernel.org, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-um <linux-um@lists.infradead.org>, 
-	PCI <linux-pci@vger.kernel.org>, 
-	"open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>
-X-Provags-ID: V03:K1:6CqFIc+bMc9siF2i41yJ5BF0RXy0ZHr1uEIqRfFHJp8m3yK34Uz
- fE3Kz1kW4YnxxtFocsq9FTAVQKS9SxBcoN+nyey+4ZtnU1R7ZE7rsVRpirT4Br4mAIz5eK9
- DqusGwUsBF+SkbUP2O5e7+9M4MBCvGwjeXQ1oW3KLOpxGrgWOPZ1U2qi2nC+n4TdUUZLSZt
- ugJhxZvcneMiYc7M50LUQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:dqMGzWar9qE=:zk5zJlJldfqtFwwGWBfmip
- EbUy1VW7zQ0UazAUeimfzS+Q7A4zFjKI/iJGk65+VSEXkW2DUSP21j8N202poG+4QbVYdYpZn
- EDUH5szBxSEOP9zemKlMo4c9pW7pErES9NW8ocYRz/QhWTv7uFVlP8ZchPOzXH/DsIm4OaiCK
- 9QAYQo8VovBUO4JzOTEkNe14/BW62JyGr42Oe8X+DeRpKlO/cYtDx1Dpdy3p4hYoV7LEO/FzL
- m7ykavjxspRjD+/AihmC04EgB0cbwNuXY9ds52LBlQ/n9P7Lbp24yzv/GnNnjznIONZ7m0RNI
- cKNBfFrshka36XA28zbpZwW1+Xpj3a7cv/6PkGGXTl6LYAiMyHxqL1MJF0ZhziaCt0FfGetDJ
- B6UWY0EVy9bsy6izJ4C6oGAwT1qsBsH5WSPh8YtDnsFgmxangXHk/Y1lDi4TIhW5taJGRgNqG
- LDFTOlXJTIYpCSHG5XZXhIOBLzMjqSX0D4lRTwcznrAfreOdWqDbmRG2MlTvA76env5do6xSY
- PeJmGjclwcTcIdJs8EZskWuFpyJDf9uRmBJ/UwEwSudRnUvU8a+BcBR9nKX+SIyBzjUQdvkwG
- 99fWXCR/iF9fbAEOd8qMDWJ0hzUxG8LqPB7aoTrPU+Rd2essFKWV1xC1ilAHQe0LcHC7K6XH9
- ZRVE8UidzZr2aSta1kPSRJlUiHHfh4H2Kv5aXUE6hANb4+g8/ezEFr97F94/bir4D/PlZzBYx
- mDW2jb3op/sjlIC87B/X8gMShcG05oKJOTXnKFTT1l5n6whoSp7dubZetUpgyyZDW+L/K8RM9
- wQ6ffJ79tU2P0cZzH3L08cqo33Tec454SIGx5ujDXZ/y4GAt0NVprb3Fg9chU9LiAursK4YPp
- jx6+piG4dh+HijNWDPCg==
+	id 1oEyvG-009l1p-T4
+	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 20:06:56 +0000
+Received: by mail-pl1-x629.google.com with SMTP id c6so1341136plc.5
+        for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 13:06:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
+         :content-transfer-encoding;
+        bh=zLMtuNEKcomDL9En+iBTEL2RGFbAke6YE3hVmvEcPio=;
+        b=Eig2NvAhLfj/vpfp9dGkC4QXb4hU/3IYvKdkRbtZYah9nJFIfw7QsduxCPs3GEAJgI
+         Pq/geWl82IjlD+B8qljZf/fdO354mZpallnYP/YnAotuJ2oxrgu1tEgDT1g3Dz1bbweK
+         +e9LaZaadoKuGVs7ehfKURTGuw2c2fgpmOG4q2hJw8UUU1EZ1PrcwOGOu9TdSuI+zWv7
+         fRwpyB4vVBvp+aw3Bs3r3mIE3AeUHKLQ+T2sCg67aVvq/ET8zN3uQRzql8+n5zZD+Cg+
+         VHEx4+FeBCF1vcf19ruV6MjlGoVX8DmicMdRsd/yCioaGLIkt51EobwFJNDsxoQKaJdv
+         rn5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
+         :mime-version:content-transfer-encoding;
+        bh=zLMtuNEKcomDL9En+iBTEL2RGFbAke6YE3hVmvEcPio=;
+        b=4IYLid7UotOEJNoPXpg+r+TxjFlAp8MTs0fho64We6Qabs8DNZLcKR8P/B3V8KZmQg
+         YChEwUqnjSWUNP6+YF6bECZCD+33MuqLZ+IlaytzhAjt7+1Nm3oiiMPBzQ8BssASBkAY
+         npTdnOz6TzKnfgPwQFSH2XJt7MeRSbhkUMLdQTkxgA0VoT/a/SJn+M80QzO/Lxns8rSy
+         3Qbpj7M0E2XWaP43jSPv38bj6eQEodRR59Y9aiHQ8VDgQhv9YEH0a67V9MWST/bUOYtx
+         F9wj8nnM3GVveRuMVdZBR0p4kMuQuR58Cio8r5YEGGghBnD6l5iS4+gZT0uIvhhaqwLB
+         XxJQ==
+X-Gm-Message-State: AJIora+mxMzvRiyJY2+/zbuQvGoO6mU9OQLlDURigXsN6yR8kAoS1pPc
+	bzTLTNkzOKpGgQqDOSuGv26GuDtmbrN2CA==
+X-Google-Smtp-Source: AGRyM1uX2FdOU6xdhlNSf3B6XRXhfVe67iGwEPo/S4uLCyT2clrlec8g1WtQC/6pvHoV17nvASPNDQ==
+X-Received: by 2002:a17:902:ec91:b0:16c:29d7:5e90 with SMTP id x17-20020a170902ec9100b0016c29d75e90mr1512512plg.114.1658520411130;
+        Fri, 22 Jul 2022 13:06:51 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id o7-20020a170902d4c700b0016cb98ab5b4sm4120255plg.153.2022.07.22.13.06.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 22 Jul 2022 13:06:50 -0700 (PDT)
+Date: Fri, 22 Jul 2022 13:06:50 -0700 (PDT)
+X-Google-Original-Date: Fri, 22 Jul 2022 13:02:58 PDT (-0700)
+Subject: Re: [PATCH] riscv: compat: vdso: Fix vdso_install target
+In-Reply-To: <20220625154207.80972-1-emil.renner.berthing@canonical.com>
+CC: linux-riscv@lists.infradead.org, guoren@linux.alibaba.com,
+  linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: emil.renner.berthing@canonical.com
+Message-ID: <mhng-f6f17824-3a4a-4461-9195-dec6695e03a1@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220722_125529_012709_53078648 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20220722_130655_153662_A9524AF7 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,36 +82,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 22, 2022 at 6:36 PM Rob Herring <robh@kernel.org> wrote:
-> On Fri, Jul 22, 2022 at 9:27 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+On Sat, 25 Jun 2022 08:42:07 PDT (-0700), emil.renner.berthing@canonical.com wrote:
+> When CONFIG_COMPAT=y the vdso_install target fails:
 >
-> From fu740:
->                        ranges = <0x81000000  0x0 0x60080000  0x0
-> 0x60080000 0x0 0x10000>,      /* I/O */
-...
-> So again, how does one get a 0 address handed out when that's not even
-> a valid region according to DT? Is there some legacy stuff that
-> ignores the bridge windows?
+> $ make ARCH=riscv CROSS_COMPILE=riscv64-linux-gnu- vdso_install
+>   INSTALL vdso.so
+> make[1]: *** No rule to make target 'vdso_install'.  Stop.
+> make: *** [arch/riscv/Makefile:112: vdso_install] Error 2
+>
+> The problem is that arch/riscv/kernel/compat_vdso/Makefile doesn't
+> have a vdso_install target, but instead calls it compat_vdso_install.
+>
+> Signed-off-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+> ---
+>  arch/riscv/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 34cf8a598617..5cfbef613e34 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -110,7 +110,7 @@ PHONY += vdso_install
+>  vdso_install:
+>  	$(Q)$(MAKE) $(build)=arch/riscv/kernel/vdso $@
+>  	$(if $(CONFIG_COMPAT),$(Q)$(MAKE) \
+> -		$(build)=arch/riscv/kernel/compat_vdso $@)
+> +		$(build)=arch/riscv/kernel/compat_vdso compat_$@)
+>
+>  ifeq ($(KBUILD_EXTMOD),)
+>  ifeq ($(CONFIG_MMU),y)
 
-The PCI-side port number 0x60080000 gets turned into Linux I/O resource 0,
-which I think is what __pci_assign_resource operates on.
-
-The other question is why the platform would want to configure the
-PCI bus to have a PCI I/O space window of size 0x10000 at the address
-it's mapped into, rather than putting it at address zero. Is this a hardware
-bug, a bootloader bug, or just badly set up in the DT?
-
-Putting the PCI address of the I/O space window at port 0 is usually
-better because it works with PCI devices and drivers that assume that
-port numbers are below 0xfffff, and makes the PCI port number match
-the Linux port number.
-
-         Arnd
+Sorry for missing this, it's on fixes.
 
 _______________________________________________
 linux-riscv mailing list
