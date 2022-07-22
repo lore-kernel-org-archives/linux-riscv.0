@@ -4,53 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72ABFC433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 12:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E0BC433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 13:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IhDfFeBSDtGzZt0wLpgQA+/7KfV/TYdpNhaoZNatRxI=; b=vdVpMLYFM92ISkywmKrJVsDbLW
-	gcvjdYJXosLneK43eTmRm/xVBLuRGAfjqkPKE2/9vQ3qg3vBnTJ18iopyB6pec0iisGPAx/VI8kuc
-	7si78ybegpagsclTpItVU/drk9yeGuGYRAyLwncD46jg+CUJgHgF5EZo+cbaFqozp74ln2zMR1Wp/
-	pSykqevLZA7+JLl/UOCx/HqBQ7ITuuicE4DmpMPdgDEzm62/1Xn6DKhKgRQZ33gbFie0iP3v6r8q7
-	rPv5fvCnzws8CroHmEvl/N5XRkkv/djvFoCwx8Fi4CuKN4Uc7RMUm3dZDz7dsuwM45OUA6mqtr79u
-	hFo7F0bA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Date:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=ISJZOPw8ZvsWtjPlUEJWmBLQy9w5XQUU9n/w9ipSx6Y=; b=tJI
+	XWOE5B5sRuIeYobjOyO0gRRo7ELDXsGafpB4FkCNLvAbrPOY5zdGMh3fk8gn3zKtOGhZzi2E6bLOP
+	KNWsVkOGKhkrzJzjBeBScgDxgvZazfiZvWzFdV5MMzN6tthrvEb8haquXoqHPpMYpx/mx49ISkJHC
+	k2AKaAUHYW6GjIU5TAXwrjLcDFFQhkXTUNjaJnReT6fLUj3JEFxgtcdHzH2cYRpN2+jeeC+NirkF+
+	ivWtKBKVv0VqHvHiydhFjDYEqc3iK9nLCl4bgsiDNNBYtztUQoTA6OAG+bc3snd5Tm2hERQpQF1xL
+	Gs9WJN1q5JDda3gILl9m5/srgXNRNuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEs68-004WYJ-O5; Fri, 22 Jul 2022 12:49:40 +0000
-Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
+	id 1oEt1E-005J26-Pm; Fri, 22 Jul 2022 13:48:40 +0000
+Received: from mail-il1-f198.google.com ([209.85.166.198])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEs64-004WPd-40
-	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 12:49:38 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046049;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0VK557-E_1658494167;
-Received: from B-LB6YLVDL-0141.local(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VK557-E_1658494167)
-          by smtp.aliyun-inc.com;
-          Fri, 22 Jul 2022 20:49:28 +0800
-Subject: Re: [PATCH 4/5] riscv: Add modules to virtual kernel memory layout
- dump
-To: Andreas Schwab <schwab@linux-m68k.org>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- anup@brainfault.org, heiko@sntech.de, guoren@kernel.org, mick@ics.forth.gr,
- alexandre.ghiti@canonical.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, crash-utility@redhat.com,
- huanyi.xj@alibaba-inc.com, heinrich.schuchardt@canonical.com,
- k-hagio-ab@nec.com, hschauhan@nulltrace.org
-References: <20220717101323.370245-1-xianting.tian@linux.alibaba.com>
- <20220717101323.370245-5-xianting.tian@linux.alibaba.com>
- <87wnc5xxsj.fsf@igel.home>
-From: tianxianting <xianting.tian@linux.alibaba.com>
-Message-ID: <cef36a7e-f652-3c65-2627-5147291b83ea@linux.alibaba.com>
-Date: Fri, 22 Jul 2022 20:49:27 +0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
- Gecko/20100101 Thunderbird/78.10.1
+	id 1oEt1B-005Itq-ID
+	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 13:48:39 +0000
+Received: by mail-il1-f198.google.com with SMTP id k1-20020a056e021a8100b002dccedf8a35so2797294ilv.14
+        for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 06:48:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:date:message-id:subject:from:to
+         :content-transfer-encoding;
+        bh=mCsSQHuLkL2HnIjMOibznrVYHaKQx0++SvtSIli3YoQ=;
+        b=VT8YXafrrDKiz1oAtp/pVkJL9B81Q4R7vIIc3ZLjYSBYolSZPfwkk1lAkYOKIGhAzl
+         0aHJWw6lMtOUUyABDRfpEL7eAT28Qwz2DNp+zz9fVSpMQRRqNXV17UCVD1IgaWdiS58v
+         ZeG4tVLiTsThCUNK40ovghyJ9LvdTHpt/X8HZvMLB49aaSdM4OVc26oWFf8fi9/74Gm/
+         sGujmfmA5BeZNvgVCxb53r1MnXYMtcJBIn6apMiguLXKcmC6MybGMSf1Enp5mSkWti9U
+         VjZaEKNCIyoWS8xQQ2baHZ7ZyVJoatwF5ONcn6ar45Bsvx8SlR2fkn+lo+HeR0Dar8oU
+         8+zA==
+X-Gm-Message-State: AJIora+RrJMrIXEa3YWXDIWbkr+fVmz8yGasQcrFLtC2UVK3nAJXJ4Io
+	dL1A/T30X2HHf4p2fr+pZYGl2aIIuxJO++yljXVE78fjTslZ
+X-Google-Smtp-Source: AGRyM1uCX9aS//Hi74av33BzZUVSo89iaYLQ5yLePnoyrKohzqss0410ihMAa0kVZxkemNUZ0HZL+ICVraskDJKsPvvTSUHtNS8d
 MIME-Version: 1.0
-In-Reply-To: <87wnc5xxsj.fsf@igel.home>
+X-Received: by 2002:a05:6e02:1b85:b0:2dc:c1c5:c444 with SMTP id
+ h5-20020a056e021b8500b002dcc1c5c444mr7777ili.81.1658497713882; Fri, 22 Jul
+ 2022 06:48:33 -0700 (PDT)
+Date: Fri, 22 Jul 2022 06:48:33 -0700
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <00000000000018cbe205e465173b@google.com>
+Subject: [syzbot] riscv/fixes boot error: WARNING in __apply_to_page_range
+From: syzbot <syzbot+36ce1b73a1f7a4e0894b@syzkaller.appspotmail.com>
+To: andrii@kernel.org, aou@eecs.berkeley.edu, ast@kernel.org, bjorn@kernel.org, 
+	bpf@vger.kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com, 
+	kafai@fb.com, kpsingh@kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, luke.r.nels@gmail.com, 
+	netdev@vger.kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	songliubraving@fb.com, syzkaller-bugs@googlegroups.com, xi.wang@gmail.com, 
+	yhs@fb.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220722_054936_432643_F5B2F056 
-X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-CacheID: sfid-20220722_064837_623578_F0565CB5 
+X-CRM114-Status: UNSURE (   5.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -63,25 +73,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CuWcqCAyMDIyLzcvMjIg5LiL5Y2INjoxMCwgQW5kcmVhcyBTY2h3YWIg5YaZ6YGTOgo+IE9uIEp1
-bCAxNyAyMDIyLCBYaWFudGluZyBUaWFuIHdyb3RlOgo+Cj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L21tL2luaXQuYyBiL2FyY2gvcmlzY3YvbW0vaW5pdC5jCj4+IGluZGV4IGQ0NjZlYzY3MGUx
-Zi4uMmM0YTY0ZTk3YWVjIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L21tL2luaXQuYwo+PiAr
-KysgYi9hcmNoL3Jpc2N2L21tL2luaXQuYwo+PiBAQCAtMTM1LDYgKzEzNSwxMCBAQCBzdGF0aWMg
-dm9pZCBfX2luaXQgcHJpbnRfdm1fbGF5b3V0KHZvaWQpCj4+ICAgCQkodW5zaWduZWQgbG9uZylW
-TUVNTUFQX0VORCk7Cj4+ICAgCXByaW50X21sKCJ2bWFsbG9jIiwgKHVuc2lnbmVkIGxvbmcpVk1B
-TExPQ19TVEFSVCwKPj4gICAJCSh1bnNpZ25lZCBsb25nKVZNQUxMT0NfRU5EKTsKPj4gKyNpZmRl
-ZiBDT05GSUdfNjRCSVQKPj4gKwlwcmludF9tbCgibW9kdWxlcyIsICh1bnNpZ25lZCBsb25nKU1P
-RFVMRVNfVkFERFIsCj4+ICsJCSh1bnNpZ25lZCBsb25nKU1PRFVMRVNfRU5EKTsKPiAjaWZkZWYg
-TU9EVUxFU19WQUREUiA/Ck1heWJlIENPTkZJR182NEJJVCBpcyBiZXR0ZXIsIGl0IHNob3dzIG1v
-cmUgaW5mb3MoNjRiaXQgZGVmaW5lZCwgMzJiaXQgCm5vdCkuIElmIHVzZSBNT0RVTEVTX1ZBREQs
-IHBlb3BsZSBtYXkgZG91YnQgd2hpY2ggY29uZGl0aW9ucyAKTU9EVUxFU19WQUREIGlzIG5vdCBk
-ZWZpbmVkPwo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
-ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
-Cg==
+Hello,
+
+syzbot found the following issue on:
+
+HEAD commit:    c1f6eff304e4 riscv: add as-options for modules with assemb..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+console output: https://syzkaller.appspot.com/x/log.txt?x=11e9576e080000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=491348d73710a809
+dashboard link: https://syzkaller.appspot.com/bug?extid=36ce1b73a1f7a4e0894b
+compiler:       riscv64-linux-gnu-gcc (Debian 10.2.1-6) 10.2.1 20210110, GNU ld (GNU Binutils for Debian) 2.35.2
+userspace arch: riscv64
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+36ce1b73a1f7a4e0894b@syzkaller.appspotmail.com
+
+------------[ cut here ]------------
+WARNING: CPU: 1 PID: 1949 at mm/memory.c:2662 apply_to_pmd_range mm/memory.c:2662 [inline]
+WARNING: CPU: 1 PID: 1949 at mm/memory.c:2662 apply_to_pud_range mm/memory.c:2705 [inline]
+WARNING: CPU: 1 PID: 1949 at mm/memory.c:2662 apply_to_p4d_range mm/memory.c:2741 [inline]
+WARNING: CPU: 1 PID: 1949 at mm/memory.c:2662 __apply_to_page_range+0x898/0x10ac mm/memory.c:2775
+Modules linked in:
+CPU: 1 PID: 1949 Comm: dhcpcd Not tainted 5.19.0-rc1-syzkaller-00004-gc1f6eff304e4 #0
+Hardware name: riscv-virtio,qemu (DT)
+epc : apply_to_pmd_range mm/memory.c:2662 [inline]
+epc : apply_to_pud_range mm/memory.c:2705 [inline]
+epc : apply_to_p4d_range mm/memory.c:2741 [inline]
+epc : __apply_to_page_range+0x898/0x10ac mm/memory.c:2775
+ ra : apply_to_pmd_range mm/memory.c:2662 [inline]
+ ra : apply_to_pud_range mm/memory.c:2705 [inline]
+ ra : apply_to_p4d_range mm/memory.c:2741 [inline]
+ ra : __apply_to_page_range+0x898/0x10ac mm/memory.c:2775
+epc : ffffffff803fe6da ra : ffffffff803fe6da sp : ff20000013687380
+ gp : ffffffff85a89060 tp : ff60000010d96300 t0 : ff60000012046820
+ t1 : 00000000000f0000 t2 : ffffffff80437ed4 s0 : ff20000013687470
+ s1 : 0000000000000006 a0 : 0000000000000007 a1 : 00000000000f0000
+ a2 : ffffffff803fe6da a3 : 0000000000000002 a4 : ff60000010d97300
+ a5 : 0000000000000000 a6 : 0000000000000003 a7 : 0000000000000000
+ s2 : fffffffeef001000 s3 : 00000000371000e7 s4 : ff6000007a660bc0
+ s5 : fffffffeef001000 s6 : 0000000000001000 s7 : 0000000000000001
+ s8 : ffffffff804a840e s9 : 0000000000000000 s10: fffffffeef000000
+ s11: 0000000000000000 t3 : fffffffff3f3f300 t4 : fffffffef09c69dc
+ t5 : fffffffef09c69dd t6 : ff6000000f3902e8
+status: 0000000000000120 badaddr: 0000000000000000 cause: 0000000000000003
+[<ffffffff803fef22>] apply_to_page_range+0x34/0x46 mm/memory.c:2794
+[<ffffffff804a86b4>] kasan_populate_vmalloc+0x52/0x5e mm/kasan/shadow.c:302
+[<ffffffff80430d5e>] alloc_vmap_area+0x950/0x1340 mm/vmalloc.c:1594
+[<ffffffff804319a4>] __get_vm_area_node.constprop.0+0x256/0x378 mm/vmalloc.c:2453
+[<ffffffff80437ed4>] __vmalloc_node_range+0x130/0xbc2 mm/vmalloc.c:3125
+[<ffffffff80017cb2>] bpf_jit_alloc_exec+0x46/0x52 arch/riscv/net/bpf_jit_core.c:184
+[<ffffffff8026ffd4>] bpf_jit_binary_alloc+0x96/0x144 kernel/bpf/core.c:1056
+[<ffffffff80017a3a>] bpf_int_jit_compile+0x78e/0x9a4 arch/riscv/net/bpf_jit_core.c:111
+[<ffffffff802719b6>] bpf_prog_select_runtime+0x1a2/0x22e kernel/bpf/core.c:2219
+[<ffffffff82837d74>] bpf_migrate_filter+0x258/0x2be net/core/filter.c:1295
+[<ffffffff8283b0c0>] bpf_prepare_filter net/core/filter.c:1343 [inline]
+[<ffffffff8283b0c0>] __get_filter+0x1d6/0x2d0 net/core/filter.c:1512
+[<ffffffff82841618>] sk_attach_filter+0x22/0x11a net/core/filter.c:1527
+[<ffffffff827839b6>] sock_setsockopt+0x13ea/0x20b2 net/core/sock.c:1253
+[<ffffffff82772160>] __sys_setsockopt+0x422/0x480 net/socket.c:2255
+[<ffffffff827721f8>] __do_sys_setsockopt net/socket.c:2270 [inline]
+[<ffffffff827721f8>] sys_setsockopt+0x3a/0x4c net/socket.c:2267
+[<ffffffff80005bfa>] ret_from_syscall+0x0/0x2
+irq event stamp: 908
+hardirqs last  enabled at (907): [<ffffffff8328f0e4>] __raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:151 [inline]
+hardirqs last  enabled at (907): [<ffffffff8328f0e4>] _raw_spin_unlock_irqrestore+0x68/0x98 kernel/locking/spinlock.c:194
+hardirqs last disabled at (908): [<ffffffff80010070>] __trace_hardirqs_off+0x18/0x20 arch/riscv/kernel/trace_irq.c:25
+softirqs last  enabled at (896): [<ffffffff8328ff60>] softirq_handle_end kernel/softirq.c:414 [inline]
+softirqs last  enabled at (896): [<ffffffff8328ff60>] __do_softirq+0x618/0x8fc kernel/softirq.c:600
+softirqs last disabled at (877): [<ffffffff80066cec>] do_softirq_own_stack include/asm-generic/softirq_stack.h:10 [inline]
+softirqs last disabled at (877): [<ffffffff80066cec>] invoke_softirq kernel/softirq.c:452 [inline]
+softirqs last disabled at (877): [<ffffffff80066cec>] __irq_exit_rcu+0x142/0x1f8 kernel/softirq.c:650
+---[ end trace 0000000000000000 ]---
+dhcpcd: vmalloc error: size 4096, vm_struct allocation failed, mode:0xcc0(GFP_KERNEL), nodemask=(null),cpuset=/,mems_allowed=0
+CPU: 1 PID: 1949 Comm: dhcpcd Tainted: G        W         5.19.0-rc1-syzkaller-00004-gc1f6eff304e4 #0
+Hardware name: riscv-virtio,qemu (DT)
+Call Trace:
+[<ffffffff8000b40e>] dump_backtrace+0x2e/0x3c arch/riscv/kernel/stacktrace.c:111
+[<ffffffff83241e0c>] show_stack+0x34/0x40 arch/riscv/kernel/stacktrace.c:117
+[<ffffffff83250e66>] __dump_stack lib/dump_stack.c:88 [inline]
+[<ffffffff83250e66>] dump_stack_lvl+0xe4/0x150 lib/dump_stack.c:106
+[<ffffffff83250eee>] dump_stack+0x1c/0x24 lib/dump_stack.c:113
+[<ffffffff80443bba>] warn_alloc+0x170/0x212 mm/page_alloc.c:4271
+[<ffffffff80437f12>] __vmalloc_node_range+0x16e/0xbc2 mm/vmalloc.c:3130
+[<ffffffff80017cb2>] bpf_jit_alloc_exec+0x46/0x52 arch/riscv/net/bpf_jit_core.c:184
+[<ffffffff8026ffd4>] bpf_jit_binary_alloc+0x96/0x144 kernel/bpf/core.c:1056
+[<ffffffff80017a3a>] bpf_int_jit_compile+0x78e/0x9a4 arch/riscv/net/bpf_jit_core.c:111
+[<ffffffff802719b6>] bpf_prog_select_runtime+0x1a2/0x22e kernel/bpf/core.c:2219
+[<ffffffff82837d74>] bpf_migrate_filter+0x258/0x2be net/core/filter.c:1295
+[<ffffffff8283b0c0>] bpf_prepare_filter net/core/filter.c:1343 [inline]
+[<ffffffff8283b0c0>] __get_filter+0x1d6/0x2d0 net/core/filter.c:1512
+[<ffffffff82841618>] sk_attach_filter+0x22/0x11a net/core/filter.c:1527
+[<ffffffff827839b6>] sock_setsockopt+0x13ea/0x20b2 net/core/sock.c:1253
+[<ffffffff82772160>] __sys_setsockopt+0x422/0x480 net/socket.c:2255
+[<ffffffff827721f8>] __do_sys_setsockopt net/socket.c:2270 [inline]
+[<ffffffff827721f8>] sys_setsockopt+0x3a/0x4c net/socket.c:2267
+[<ffffffff80005bfa>] ret_from_syscall+0x0/0x2
+Mem-Info:
+active_anon:27 inactive_anon:479 isolated_anon:0
+ active_file:632 inactive_file:81 isolated_file:0
+ unevictable:768 dirty:9 writeback:0
+ slab_reclaimable:4694 slab_unreclaimable:17966
+ mapped:420 shmem:795 pagetables:93 bounce:0
+ kernel_misc_reclaimable:0
+ free:288376 free_pcp:778 free_cma:4096
+Node 0 active_anon:108kB inactive_anon:1916kB active_file:2528kB inactive_file:324kB unevictable:3072kB isolated(anon):0kB isolated(file):0kB mapped:1680kB dirty:36kB writeback:0kB shmem:3180kB writeback_tmp:0kB kernel_stack:4472kB pagetables:372kB all_unreclaimable? no
+Node 0 DMA32 free:1153504kB boost:0kB min:4656kB low:6012kB high:7368kB reserved_highatomic:0KB active_anon:108kB inactive_anon:1916kB active_file:2528kB inactive_file:324kB unevictable:3072kB writepending:36kB present:2095104kB managed:1359072kB mlocked:0kB bounce:0kB free_pcp:3112kB local_pcp:1876kB free_cma:16384kB
+lowmem_reserve[]: 0 0 0
+Node 0 DMA32: 76*4kB (UME) 70*8kB (UME) 42*16kB (UME) 15*32kB (UME) 4*64kB (UME) 6*128kB (UME) 2*256kB (UE) 2*512kB (UM) 2*1024kB (UM) 2*2048kB (C) 279*4096kB (MC) = 1153504kB
+Node 0 hugepages_total=0 hugepages_free=0 hugepages_surp=0 hugepages_size=1048576kB
+Node 0 hugepages_total=4 hugepages_free=4 hugepages_surp=0 hugepages_size=2048kB
+1509 total pagecache pages
+0 pages in swap cache
+Swap cache stats: add 0, delete 0, find 0/0
+Free swap  = 0kB
+Total swap = 0kB
+523776 pages RAM
+0 pages HighMem/MovableOnly
+184008 pages reserved
+4096 pages cma reserved
+
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
