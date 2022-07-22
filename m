@@ -4,75 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C62C433EF
-	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 00:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC7A7C433EF
+	for <linux-riscv@archiver.kernel.org>; Fri, 22 Jul 2022 00:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=TVu8DK8iyFRbxta/DUs9hnNaFciAmANOAbkGlqFraGo=; b=ZOUFj+gcQesfhpvLsgaHNsmJN+
-	paFEzEBodHa0kx23COf3Rc6NJznrUEm9nx8Nlw34ZWNUv9yQvIFwLBuMKxop1WA/jTgWxc/jEsy1w
-	u92D67gsgkvv+nwHxDlD31GeKOT+07jy3Lpfsaq1COK/CNUxJX8mewitR6syLBobhuDmmb1FFBuIN
-	KWDPj7LHAISW34+qYIEE/LIpKlGwr+WSopHFO5CONicmMFf+cJ0OiMJ5wg+Ilrsp3kIG4tnwOBQLj
-	UCNcpP7IKjI065qHFVZtLs2aNw5i6SlMWfTFR8BGJWB1gLIy+DFZ4O4TiAaMpvFuNMAHac6o0VfYB
-	mPGoz6ow==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=VLhvAXmoBBAaswH1+K2e/CdO89kMy90UpXKT13jcMJM=; b=aobPVHiLOGWnD1
+	9ST6AjPgZDSpbq7tqgN5+qa7JzvZNSrIEHaVDjOmWkB7GYX0T9k8v9I5oxKPYZudWFtO83vBhB2JM
+	qclq1tkXATGD0FXzxveUVFNXXUwPDQsBbSTZ4BL/5demT8FCTaxRzJ3Q0STGCv4s/U7sGsdBDaabG
+	3oSZfKVxWUKuy1Mzw5O4cjTcVrQg+GftVsMC7s/0NIPxRjkuDKELC7B66Q3V/uRz3hqonQ1uXtNNR
+	XEL/JJQvIOYQ+PWNrqVSOJK9NermV+b3QeU0djNoO9xj6SYmKbneMl7U8QzF22fc7M5/2oUJcaT4n
+	tFAusoUZ9EA9pgRi6upg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEgG9-00DjLJ-EI; Fri, 22 Jul 2022 00:11:13 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1oEgJU-00DlDg-Nw; Fri, 22 Jul 2022 00:14:40 +0000
+Received: from mga01.intel.com ([192.55.52.88])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oEgG6-00DjGl-26
-	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 00:11:11 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id p6-20020a17090a680600b001f2267a1c84so5080883pjj.5
-        for <linux-riscv@lists.infradead.org>; Thu, 21 Jul 2022 17:11:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=date:subject:in-reply-to:cc:from:to:message-id:mime-version
-         :content-transfer-encoding;
-        bh=PqbUV51qi52lrKQhfCf/gzD84m8gLhls7/B6ZdVqa/M=;
-        b=ZTVeoyJ2YXiZu5jk15o9L1VobOx0d0pdDXua+aewXF/XkkApabUZE/5ZQ3TU+HUMZL
-         EyBJ5rXuSCDN19gvV87EvXMAclujYjRBFFA7x/W9G258vZ3zmrL80a6RaR7yac1hz7e3
-         wgDtuY0VvR/ZPdHb4/0aF7p0iygOc8Cly0ssFBHjlrIWWoSOulPh+Fqh02QP8xwhQmio
-         kyOZDr2q0Hpeqk1OW26DohM+xN4/HxIdmoGvBzI4VDD1voJcWlXnwdOtxTs46tix4/nD
-         SaGS5bBCoGmZ5SoyZS/Ic82U5DSrUJ8SwnlFqJICxKl+MGearAs63k7bI5XGQrSCmdr3
-         E4Vw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:date:subject:in-reply-to:cc:from:to:message-id
-         :mime-version:content-transfer-encoding;
-        bh=PqbUV51qi52lrKQhfCf/gzD84m8gLhls7/B6ZdVqa/M=;
-        b=Jo694mYkBQHCyU8hBiy7WW73bE0qQFrbhrdKYDIBC+JsnLyXWkNcm4XoyLWIOFPOb8
-         pIKRY/bdPH6soXm1/GjTxSs80Rvb50XXInFwX9f81Jcf7eWlNn3Qrx61jsGv2Rfh4EdC
-         fi5IxV6Xpc8L9W32KP0UTdBgEk2vxqPD/8uGBemzTCVaZdLaFerzFAHcyicRlT2cvEeN
-         VNJ1m4rJluLOknKBpLo2g+UQrKVtuR/On9eGs30G64QcCGBhxZPiJlYD6uEfA8Fx0ZK7
-         NdJtGqaiF22TJP1TRaKnqo8bx4l6H/KDB/vn+1cTmLwjwgKcQ121Iyt59hYG9o3Ijfco
-         IiXw==
-X-Gm-Message-State: AJIora8b5+kLAc5k24yU680q5JDCS0NspB68hHfKNCrF5LtBucmOT0IJ
-	7mc6rzPw9owhasoQoww6Cs1COQ==
-X-Google-Smtp-Source: AGRyM1tXcBNLCwVKHbHbV7qjxyfn5Jjq2ISRTnE50I9Ilhew1GrpnrmxmKsZ28ecr1pCNFjI8UVxVQ==
-X-Received: by 2002:a17:903:41c2:b0:16c:52f8:9240 with SMTP id u2-20020a17090341c200b0016c52f89240mr931214ple.161.1658448666805;
-        Thu, 21 Jul 2022 17:11:06 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id s29-20020a63215d000000b0041166bf9ca8sm2088739pgm.34.2022.07.21.17.11.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 21 Jul 2022 17:11:06 -0700 (PDT)
-Date: Thu, 21 Jul 2022 17:11:06 -0700 (PDT)
-X-Google-Original-Date: Thu, 21 Jul 2022 16:52:31 PDT (-0700)
-Subject: Re: [RESEND PATCH v2] RISC-V: Add fast call path of crash_kexec()
-In-Reply-To: <20220606082308.2883458-1-xianting.tian@linux.alibaba.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  wangkefeng.wang@huawei.com, philipp.tomsich@vrull.eu, ebiederm@xmission.com, heiko@sntech.de,
-  vitaly.wool@konsulko.com, tongtiangen@huawei.com, guoren@kernel.org, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, xianting.tian@linux.alibaba.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: xianting.tian@linux.alibaba.com
-Message-ID: <mhng-c42cbd7f-4935-4d16-9150-5504fd06aedd@palmer-mbp2014>
-Mime-Version: 1.0 (MHng)
+	id 1oEgJR-00Dl90-Al
+	for linux-riscv@lists.infradead.org; Fri, 22 Jul 2022 00:14:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1658448877; x=1689984877;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=2PIJKeRHLkcyqYFcpmXXbs0b2mGiyoYSnorAdJIVD5Y=;
+  b=m0P8pWOEHAS0empzbXHL3nxbBoyOdbxR60J2uTQlzCPOyMCGF9jp5Cna
+   D8xI39RGn3CYAvns0TL3vh1+rTp1D/CN/35JR38HQ2aNB3AqMe8Tl2Szx
+   jqlB7Gg5cUjLiEFa7BsBmJLOSXpQrwSedPxxzbp4ylx3I+c9MW+Iber+l
+   PFQRu1UxSbDPUNgRVjvAvCJCORBiYNzcUR4Zc288ha2BkiCnJuu5OYAZR
+   tS82UwiD5yr73Wm7j+K8DVl9ePciKw2XwTNISluUl0uKEWrrxeVj4i2my
+   JEOwXwgT2ReoIwxuUG4AvyMzXTxYAVYWozf5GXDgwPi1BoDRjY17bykBq
+   g==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10415"; a="312919532"
+X-IronPort-AV: E=Sophos;i="5.93,184,1654585200"; 
+   d="scan'208";a="312919532"
+Received: from fmsmga003.fm.intel.com ([10.253.24.29])
+  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Jul 2022 17:14:35 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.93,184,1654585200"; 
+   d="scan'208";a="688099395"
+Received: from fmsmsx601.amr.corp.intel.com ([10.18.126.81])
+  by FMSMGA003.fm.intel.com with ESMTP; 21 Jul 2022 17:14:34 -0700
+Received: from fmsmsx605.amr.corp.intel.com (10.18.126.85) by
+ fmsmsx601.amr.corp.intel.com (10.18.126.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.28; Thu, 21 Jul 2022 17:14:34 -0700
+Received: from fmsedg601.ED.cps.intel.com (10.1.192.135) by
+ fmsmsx605.amr.corp.intel.com (10.18.126.85) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.28 via Frontend Transport; Thu, 21 Jul 2022 17:14:34 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (104.47.55.103)
+ by edgegateway.intel.com (192.55.55.70) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2308.27; Thu, 21 Jul 2022 17:14:32 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=N8P70FTne9XOJTsxG0kuKj3u8EUP0VWQn9UDdf/UsUTffo+l9OZ/WGVg8CbjKdCcPmHN6005Wztp5mljYSZXarJSTSU+FKF3gNgCDS0huiLO8spkKxCXcKMPvnDnPFoSS29r3Lovo7ZGBtlfSZrcpFhYdRyBfpJfLythyknBPQBicZj0WkGrYMZbMQkP1YuJQ8RiWaKSnSzr8QBp+u8181UcYgCeYAGT8qhYrqpHgB2pHfE68fj3KUrWv+4cyXHiDCB7xgYS5arYJAdjK8hlr8h5a7L9Vv7fAcMli30LTkPIIzD+TIzrgXX6gD42JiuzHGs18rl1Qz193mdTXzf9ow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BWlyxbG/DP4Y5gAW9c3viWFFScPNOUFOhhDDW1oXLSw=;
+ b=Obv8wN0h0VGc+CCjztEHYpOUtfnPpSqDASaOLq6ZKh8Bo4OqojQRgj+Dm7xlYQ9x9E8hfSO4ksQzAheOosmS+VvxBcDETJPgaTMgq+XB5NaIJEVRMc+rmxDSQsuhvbn34HzivuO9Y39SsNF/mXEmWxhhPfAGUGAO71UKXeAQtsH7ppeOUILIHkC5XJpwRrC+FmN1zHx6zptwhvGjKa6eygcn35Bm+8ofmMqlK+58Q9IEusmuHuW5RNebigClKo93OHkRKMcWD9HH8fWicIk5N/Pm7168lXufjJtmrqS9+Fefr9nZmLiqyOJjmYTilZKLXnjVVNkPSdcU7WyTbnQMpg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DM4PR11MB6311.namprd11.prod.outlook.com (2603:10b6:8:a6::21) by
+ BYAPR11MB3590.namprd11.prod.outlook.com (2603:10b6:a03:b2::23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5438.21; Fri, 22 Jul 2022 00:14:31 +0000
+Received: from DM4PR11MB6311.namprd11.prod.outlook.com
+ ([fe80::3154:e32f:e50c:4fa6]) by DM4PR11MB6311.namprd11.prod.outlook.com
+ ([fe80::3154:e32f:e50c:4fa6%6]) with mapi id 15.20.5438.017; Fri, 22 Jul 2022
+ 00:14:30 +0000
+Date: Thu, 21 Jul 2022 17:14:20 -0700
+From: Ira Weiny <ira.weiny@intel.com>
+To: "Fabio M. De Francesco" <fmdefrancesco@gmail.com>
+CC: Benjamin LaHaise <bcrl@kvack.org>, Alexander Viro
+	<viro@zeniv.linux.org.uk>, Eric Biederman <ebiederm@xmission.com>, Kees Cook
+	<keescook@chromium.org>, Dan Williams <dan.j.williams@intel.com>, "Matthew
+ Wilcox" <willy@infradead.org>, Jan Kara <jack@suse.cz>, Jeff Layton
+	<jlayton@kernel.org>, Chuck Lever <chuck.lever@oracle.com>, Jens Axboe
+	<axboe@kernel.dk>, Pavel Begunkov <asml.silence@gmail.com>, Thomas Gleixner
+	<tglx@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, "Nathan
+ Chancellor" <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>,
+	Tom Rix <trix@redhat.com>, <linux-aio@kvack.org>,
+	<linux-fsdevel@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mm@kvack.org>, <nvdimm@lists.linux.dev>, <io-uring@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <llvm@lists.linux.dev>
+Subject: Re: [PATCH] fs: Call kmap_local_page() in copy_string_kernel()
+Message-ID: <Ytnr3IhSkDOjqbZ1@iweiny-desk3>
+References: <20220710100136.25496-1-fmdefrancesco@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20220710100136.25496-1-fmdefrancesco@gmail.com>
+X-ClientProxiedBy: SJ0PR05CA0201.namprd05.prod.outlook.com
+ (2603:10b6:a03:330::26) To DM4PR11MB6311.namprd11.prod.outlook.com
+ (2603:10b6:8:a6::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 55526f5a-02da-4703-cf78-08da6b7724d1
+X-MS-TrafficTypeDiagnostic: BYAPR11MB3590:EE_
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: TlbSlknmpHEkDeN542HSZ9m9+Sdbz9MSToyInr59UYEGyIctmpAM5OIMN0fgj6ZuwxZ7WS3MNCbQw+BTH/HUa4cW+SN/WWYJb06HbEvupwbUDSJzlhiMtXAUBwYB6uZvNGS52/dZsUeX9GBoi9NrVU+6OiD87cpuxJbFziVNvG5m8SHcljY0fi9Dm0dxawnZk4sh3oYOJ0VUhqYyKlCUmV77e3mCQf1Z6CkpNaE/qKEwP/BhdyGyMJ/i/H6da+Qwt/NXXgbUITgpZRLhyWLOUYM6jNTuKoSHew4XbxVSCIT4qfj8VgImKXaXJAWlIHbtInU+AV9nrRSGJbQlN9hw3IsPhxjut/5SMkzSrdP7XJqWnspTVKYesTJ2VIaupSCHnj2L98kPNR9IdtdTVHTTrnuql3HGo0BK2uX/OKBO3atJG8s/e/a+vTLElbhWS46xj4q6LeKIrZXG0A7f/C9H/G2ZBPsPyzA9NVrYq0yzi0e1AtI9Gtls8o6Yrs/R7/BxWkNFKjiNa0qfBiONdysiNS2yiG5ecP0bWUuMYAjEyroUtkjEK8N7wekA9UehIJKWyKqcXDfA78MsAOd2Tk3FzboTxtkzAtmBB7eJipKkNrRHcdyoOVs61onAS0yPhIWYQgmosfS/UpQVxpIh9qL84xJFkDMNKWp+Gep+rv5gtnBbJCSLc6ghfja/x6cJ6VC4m+xIvpp/1KbEO4yuXRSKGBGUSPVv9wvE2qCBnuS7TZ8dgltA3J2pDJGu+A5rbp3HgvtobBIMg4y+HFacFs24AvhYpTVzzVDDcrUQAdGPZxsUwlduOlJUr+0uYSbhCFLD
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR11MB6311.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(7916004)(39860400002)(136003)(366004)(346002)(376002)(396003)(66946007)(38100700002)(33716001)(186003)(66476007)(4326008)(26005)(8676002)(83380400001)(66556008)(9686003)(6512007)(966005)(6506007)(6666004)(8936002)(6486002)(41300700001)(7416002)(478600001)(6916009)(44832011)(5660300002)(2906002)(82960400001)(54906003)(86362001)(316002);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WjWILRGnvuBg4k1bKJ5GvpgMFb429mGS8L7csu1TIkAkgNdmWLFxVgONVr31?=
+ =?us-ascii?Q?LhTsZnGTMdWkA8S7JtXHz7OP1J2YenJ6UonU+5coVFvYzd6W/8BHWoGq0wpS?=
+ =?us-ascii?Q?MRXZIT6h1AEFuX93mrO8QJowVzXgd3/F8qZfWGRtqmWe5Ct3dgjVKC7eak14?=
+ =?us-ascii?Q?GSNwKqQxsInM4aUwOcGsxLeFhQbj4q3b/jcUE0x2gb/6w1rUu8omW9P4S/EF?=
+ =?us-ascii?Q?1vu1OM6qM6fzsZDup+P7lsFAE1MM2WcuUZaO8eXwHpcLPKqrLI5V3a37Cp0F?=
+ =?us-ascii?Q?/TcyRZrf0klDoJCooDnZFqx7Vb2YanRSHmYta9WctdsolTERwpfJC+dtsRDx?=
+ =?us-ascii?Q?5YnNLHjuJQuKq4khzzKPUuJSADK3ISX+pyhHayfOOwoKssVwOHQWNhp5i5Tf?=
+ =?us-ascii?Q?LwdfFKXizpvXs71uA7aQhc4e/X+M4mc2tr6tGWAKleGtqNhiign+GH6FIbZY?=
+ =?us-ascii?Q?yhUDziT5ClGCEeX+PLIM9KXYgsqR0+d9NR+FYDnqFBC0wCKnry0RXfIGEnj0?=
+ =?us-ascii?Q?ebErm66sCnhY5EwPFxzaXS9NUhJj+v4KkaqSRxIkurGwhgqKBp4UNmuM/I/W?=
+ =?us-ascii?Q?mf86edmT2YGAaWhkEynolj51VxCwYpG4WBxn4BPPLLv01weKDJe9QTpNO0oq?=
+ =?us-ascii?Q?kvVkkh4yPP8nFS/T5IRlkEseo/EkiS7ISzjC3kdNdCEwVnLaX0mMeJLgxKBD?=
+ =?us-ascii?Q?+d6kXVGAu7J74uPIwSsVs/eYEnBXchFCCHUBvok2qWU1x1DnxPpRaxoxMaoq?=
+ =?us-ascii?Q?mcxKnzSmkYQctng4VjUaZXQLVNxoc18oiT8ISbGwPqKFMM9C/8a6vsY1OIkO?=
+ =?us-ascii?Q?7VJsLjAa66JMSNrC3zTnC5CTGKpBXupc9a/EkQRNFcZu+szWbHgqwGdwPu03?=
+ =?us-ascii?Q?Qr43wlW16Uwy+7ApveJS1lFbrnlqQjQHP2XzR4rON3kHaiVN7jt0NInIGqKu?=
+ =?us-ascii?Q?pe5om5FwrgRvPbsLdQpafm3mqdiXmJwUExwlPI7rxH6tLGytdtSgBSbFb+qX?=
+ =?us-ascii?Q?Mn6OfTjVfcXgkAgxeP/6JBEjnrdMsYmZW48BT/a0Wl5oW09Lu/AQqG1nfTOK?=
+ =?us-ascii?Q?CCw/xXdsA63O39f2Xx8Zw9SB4SyH9W1+bksaIXj79jswZoHjcJ8bv/1Q7r+A?=
+ =?us-ascii?Q?eDcHAieJq0FL0Y9/L0e2pE8SzluQp/YM/2tiERpd/PFPdTi5yoUvdw2OWrzY?=
+ =?us-ascii?Q?3TdcGa4NhtXbgSzhe5swaLlJwBbmV28udVbCXArFfhotI9hvRxFCtSXFY2Fv?=
+ =?us-ascii?Q?52zkIMC/4rXot3eHKmnfKw/iMbNVbByeASETYw3xV2L62vnMq7p5Zd0SSfpB?=
+ =?us-ascii?Q?qVXbULoa95binYCOAn5TYIKAgRB3gDJTSwjI5p1C2KpaFL8+vbqqS9FS7xLb?=
+ =?us-ascii?Q?9r8yUfKivrnXpYZ8CB7sUFHjdEuZ+weK8jXdIgIl1R4X8Q/p/z3G4Ad4O3n/?=
+ =?us-ascii?Q?kS2tS2KE5nODqVCgv+gzfneMWqkqC4n6thzUWIPZV8mwJIMOWJsh08QZ/obo?=
+ =?us-ascii?Q?jV59NuExyGh+fLrJPiqSViOBTN36z5Wv8Fi6NxILxSC/fWZ+bKIM2R4rVzr5?=
+ =?us-ascii?Q?MjTV8rmUssXpIXmch9OpItA4Ng8H/vu+XW0gMLk7?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 55526f5a-02da-4703-cf78-08da6b7724d1
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR11MB6311.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jul 2022 00:14:30.6864
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: prgdSKDxEJxiOdp5KZM1kgZoISq/vsMTY11MIsre7DusiU8UxC/Q1VImTKUy0T8LroS670vWmZGP1QnRcQjWmw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR11MB3590
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220721_171110_320405_21FE5E74 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20220721_171437_410767_4D425CEF 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,75 +166,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jun 2022 01:23:08 PDT (-0700), xianting.tian@linux.alibaba.com wrote:
-> Currently, almost all archs (x86, arm64, mips...) support fast call
-> of crash_kexec() when "regs && kexec_should_crash()" is true. But
-> RISC-V not, it can only enter crash system via panic(). However panic()
-> doesn't pass the regs of the real accident scene to crash_kexec(),
-> it caused we can't get accurate backtrace via gdb,
-> 	$ riscv64-linux-gnu-gdb vmlinux vmcore
-> 	Reading symbols from vmlinux...
-> 	[New LWP 95]
-> 	#0  console_unlock () at kernel/printk/printk.c:2557
-> 	2557                    if (do_cond_resched)
-> 	(gdb) bt
-> 	#0  console_unlock () at kernel/printk/printk.c:2557
-> 	#1  0x0000000000000000 in ?? ()
->
-> With the patch we can get the accurate backtrace,
-> 	$ riscv64-linux-gnu-gdb vmlinux vmcore
-> 	Reading symbols from vmlinux...
-> 	[New LWP 95]
-> 	#0  0xffffffe00063a4e0 in test_thread (data=<optimized out>) at drivers/test_crash.c:81
-> 	81             *(int *)p = 0xdead;
-> 	(gdb)
-> 	(gdb) bt
-> 	#0  0xffffffe00064d5c0 in test_thread (data=<optimized out>) at drivers/test_crash.c:81
-> 	#1  0x0000000000000000 in ?? ()
->
-> Test code to produce NULL address dereference in test_crash.c,
-> 	void *p = NULL;
-> 	*(int *)p = 0xdead;
->
-> Reviewed-by: Guo Ren <guoren@kernel.org>
-> Tested-by: Xianting Tian <xianting.tian@linux.alibaba.com>
-> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+On Sun, Jul 10, 2022 at 12:01:36PM +0200, Fabio M. De Francesco wrote:
+> The use of kmap_atomic() is being deprecated in favor of kmap_local_page().
+> 
+> With kmap_local_page(), the mappings are per thread, CPU local, not
+> globally visible and can take page faults. Furthermore, the mappings can be
+> acquired from any context (including interrupts).
+> 
+> Therefore, use kmap_local_page() in copy_string_kernel() instead of
+> kmap_atomic().
+> 
+> Tested with xfstests on a QEMU + KVM 32-bits VM booting a kernel with
+> HIGHMEM64GB enabled.
+> 
+> Suggested-by: Ira Weiny <ira.weiny@intel.com>
+> Signed-off-by: Fabio M. De Francesco <fmdefrancesco@gmail.com>
 > ---
-> Changes from v1:
-> - simplify the commit message
-> ---
->  arch/riscv/kernel/traps.c | 4 ++++
->  1 file changed, 4 insertions(+)
->
-> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> index fe92e119e6a3..e666ebfa2a64 100644
-> --- a/arch/riscv/kernel/traps.c
-> +++ b/arch/riscv/kernel/traps.c
-> @@ -16,6 +16,7 @@
->  #include <linux/mm.h>
->  #include <linux/module.h>
->  #include <linux/irq.h>
-> +#include <linux/kexec.h>
->
->  #include <asm/asm-prototypes.h>
->  #include <asm/bug.h>
-> @@ -44,6 +45,9 @@ void die(struct pt_regs *regs, const char *str)
->
->  	ret = notify_die(DIE_OOPS, str, regs, 0, regs->cause, SIGSEGV);
->
-> +	if (regs && kexec_should_crash(current))
-> +		crash_kexec(regs);
-> +
->  	bust_spinlocks(0);
->  	add_taint(TAINT_DIE, LOCKDEP_NOW_UNRELIABLE);
->  	spin_unlock_irq(&die_lock);
+> 
+> I sent a first patch to fs/exec.c for converting kmap() and kmap_atomic()
+> to kmap_local_page():
+> https://lore.kernel.org/lkml/20220630163527.9776-1-fmdefrancesco@gmail.com/
+> 
+> Some days ago, Ira Weiny, while he was reviewing that patch, made me notice
+> that I had overlooked a second kmap_atomic() in the same file (thanks):
+> https://lore.kernel.org/lkml/YsiQptk19txHrG4c@iweiny-desk3/
+> 
+> I've been asked to send this as an additional change. This is why there will
+> not be any second version of that previous patch.
+> 
+>  fs/exec.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/fs/exec.c b/fs/exec.c
+> index 4a2129c0d422..5fa652ca5823 100644
+> --- a/fs/exec.c
+> +++ b/fs/exec.c
+> @@ -639,11 +639,11 @@ int copy_string_kernel(const char *arg, struct linux_binprm *bprm)
+>  		page = get_arg_page(bprm, pos, 1);
+>  		if (!page)
+>  			return -E2BIG;
+> -		kaddr = kmap_atomic(page);
+> +		kaddr = kmap_local_page(page);
+>  		flush_arg_page(bprm, pos & PAGE_MASK, page);
 
-Thanks, this is on for-next.
+I really question why we can't use memcpy_to_page() here and move the
+flush_arg_page() prior to the mapping?
+
+flush_arg_page() only calls flush_cache_page() which does not need the
+mapping to work correctly AFAICT.
+
+Ira
+
+>  		memcpy(kaddr + offset_in_page(pos), arg, bytes_to_copy);
+>  		flush_dcache_page(page);
+> -		kunmap_atomic(kaddr);
+> +		kunmap_local(kaddr);
+>  		put_arg_page(page);
+>  	}
+>  
+> -- 
+> 2.36.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
