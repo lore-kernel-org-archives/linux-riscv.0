@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FD1C433EF
-	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jul 2022 01:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C1CC433EF
+	for <linux-riscv@archiver.kernel.org>; Sat, 23 Jul 2022 04:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jkII5tKaM3zjUqFvmL97GcyQATFGEWsiyWbYg5EM56M=; b=jaL4AvqA4Du5Oq
-	pXtuhLijkTZyeoAra+2U5Xbv0CV+0nffys0DgRT1MgGD/P5KWOoVJapGhjv6Nd+CQTEx863FjeahL
-	M5dKVhvt4tp1A/CgUg44AruR3Q1lqCZP0fTdRFpaybTfLgaqZuEjhPG2DJw+15ZjVEnVuM9TmAfNH
-	TLxIT6jrB6FFClSIGywpwFIWlV6KZ8hr6W2Ssn7KFPGuzJ5E6laeAGvKtrNZN/P3qb5yaCz5mnlVY
-	n8gnEhzsXXsEinhkHKZCw6mXX/OcojgGmiW23fWXg3B5RVCD/+2qblbNGMjv9gmvM9KrAK0wS5tyI
-	B/jjS5SrgA25dwyPOi8A==;
+	List-Owner; bh=LjmsBEeuY3jp8bEkBDSAF/SLUJ/csB004ud5B+BgIM8=; b=1BrHdkD0pEleKd
+	BZyF+a4BVcw5Cd8+5kwTXDuWxirjRDNhrVDUzTtEdGERVJS0uFMlpR1donlcD9CiKlnR+O5f8/v5T
+	83e/biHGGQUFw1G2JPvvdHn9B3ZnMYGGLLzJ2DPJLQBMFzgH3luctTYWNQJq0MXzQkVUT0bEvzQEi
+	MPf54EwZtGG0H+R4zDad5zGHxU+JImxau4JOVbgRN8arE6VUSUM1xWEEo79pzuN5zHbFO8VnQ8fpn
+	YgwFyGoQ37R/CIqFrT+Nt2/obXPR3oO3RWnWkU/kURTPoP8hCilbGK8oWvIBQDqJYf5mhCUra9txS
+	TWM/gGr8uIq81H05bqLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oF3XX-00DxEg-A1; Sat, 23 Jul 2022 01:02:43 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1oF72y-00Fn2O-Nu; Sat, 23 Jul 2022 04:47:24 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oF3XT-00DxBa-FF
-	for linux-riscv@lists.infradead.org; Sat, 23 Jul 2022 01:02:41 +0000
-Received: by mail-ed1-x530.google.com with SMTP id v12so7571325edc.10
-        for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 18:02:37 -0700 (PDT)
+	id 1oF72v-00Fmzk-Kt
+	for linux-riscv@lists.infradead.org; Sat, 23 Jul 2022 04:47:23 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id b21-20020a05600c4e1500b003a32bc8612fso3454943wmq.3
+        for <linux-riscv@lists.infradead.org>; Fri, 22 Jul 2022 21:47:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=jlyu+Ezdns1o/Dl+mNDx1dSSzCArmmCHe5zOulHCgYY=;
-        b=PZsBl5ooCfsAyfBssviyiVR5Tq1jj7pKvSq+8EIYiuLRuANId3eEJ8Cfne0oRH5tST
-         cNckwvwkYNCJil7c4bHdQwdq+1j/ZICMbKPDmupGpGkjuYuypwIlqr25b/2zb8nGj+L7
-         8X6BT7i0cfdvLYah+oB/+uw18/v7O2tlssjrHraunx39DcQd6oIsFM91LN1KRUjOeySk
-         107g886IDOhDMfSuVZ8M22SN2x2lCSM95MlNgPfYmjNiwur+gHG+g9710+/nPbgwn0jJ
-         VB2nk9BZ+suPliZX/YIqKiK3alTptYuhcFjUg7RbgvcF8nWJZFV9um7H8k3hL7Y+Q5TY
-         PsjA==
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=ClkRR6M+900US0KQHHRgn2sKqC8Wt2qOmc26396rdLw=;
+        b=sCzL+HDv0axLrw3jxXM06IvPYPBB/FqyaN5CzcyIs518O6+S5/Hq6HW0Vtm8IrrN9a
+         JlEoRO3fzJcqMiA5rECLNcZUTyfzZnduc6XmJoxXEIJ4Fa/i/mBRTN4a226oLGfZOy1T
+         ZrOZBGtNb7jDv4c4cLT3HU2K5LAR+2K5qxKy6mRUcO2lMTPYGngWJngUi1s/49AZATMi
+         vHTWJRjvVmdXTABGUuRMNhvtBEEH/zpdBUjLdv/kWoG/AC6eD7wkYIXXobgqA2vPgvCH
+         dCy+zmkL6e/pgjUzPS+fawOaB4WCErjeADN8Gx2KtQfWmuQ65cHlJvW6YycGCCVgB0Pd
+         VwEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=jlyu+Ezdns1o/Dl+mNDx1dSSzCArmmCHe5zOulHCgYY=;
-        b=PYx4OiGYG7w42IvV0h5+5xXK43zUJ8prU6tl1ZJ/oSX5y9QlbN55AODTI/JrEFst08
-         93vE32wqJcXpdp6YzJ1p5kHPymdc1MzskyRyPET8EWqeBiEE/xKCtvRcRFEE9GbrxsJJ
-         oI1UnjAaQ2ZhA01a4WH33afsW94jg3WjJKzLxfKRSPiP5hd/uEUilRL2+lVchaennE88
-         Sd0WdwR4ha+dGTZ60S+SzmJoJVNFGC9lkurbz9AgsrExDTIJMIgQCcYhL7q56EovJQp3
-         LOBl1chSqzHZ+hiFk2HLLmmPnJ+ruuPVcGkzWCdF6I1R0rZLM7Lc5+EmvYy9gtheCMCg
-         WXew==
-X-Gm-Message-State: AJIora8p4X/n+SoP/dfMnSrPIQ7p8SRbIXWmK8HYeyJvnIb17aTUPajZ
-	7gnAso3+sRo+tFEllVI15+LTYtFX1SNyaA==
-X-Google-Smtp-Source: AGRyM1sAMP8KHkAWh5bS378ppL8TdO4StC0sEC6TB/Rq2m5BGNgizfRRhPByQs8fPv0/46kAMhGelA==
-X-Received: by 2002:a05:6402:524d:b0:43a:72fe:76b7 with SMTP id t13-20020a056402524d00b0043a72fe76b7mr2211131edd.398.1658538155443;
-        Fri, 22 Jul 2022 18:02:35 -0700 (PDT)
-Received: from opensuse.localnet (host-79-56-6-250.retail.telecomitalia.it. [79.56.6.250])
-        by smtp.gmail.com with ESMTPSA id r10-20020a1709061baa00b0071cef8bafc3sm2549153ejg.1.2022.07.22.18.02.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 22 Jul 2022 18:02:34 -0700 (PDT)
-From: "Fabio M. De Francesco" <fmdefrancesco@gmail.com>
-To: Ira Weiny <ira.weiny@intel.com>
-Cc: Benjamin LaHaise <bcrl@kvack.org>, Alexander Viro <viro@zeniv.linux.org.uk>, Eric Biederman <ebiederm@xmission.com>, Kees Cook <keescook@chromium.org>, Dan Williams <dan.j.williams@intel.com>, Matthew Wilcox <willy@infradead.org>, Jan Kara <jack@suse.cz>, Jeff Layton <jlayton@kernel.org>, Chuck Lever <chuck.lever@oracle.com>, Jens Axboe <axboe@kernel.dk>, Pavel Begunkov <asml.silence@gmail.com>, Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <ndesaulniers@google.com>, Tom Rix <trix@redhat.com>, linux-aio@kvack.org, linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, nvdimm@lists.linux.dev, io-uring@vger.kernel.org, linux-riscv@lists.infradead.org, llvm@lists.linux.dev
-Subject: Re: [PATCH] fs: Call kmap_local_page() in copy_string_kernel()
-Date: Sat, 23 Jul 2022 03:02:32 +0200
-Message-ID: <2115146.irdbgypaU6@opensuse>
-In-Reply-To: <Ytnr3IhSkDOjqbZ1@iweiny-desk3>
-References: <20220710100136.25496-1-fmdefrancesco@gmail.com> <Ytnr3IhSkDOjqbZ1@iweiny-desk3>
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=ClkRR6M+900US0KQHHRgn2sKqC8Wt2qOmc26396rdLw=;
+        b=z66sWwl0ASKFkQ6g9U9q8WvQthZQnzmYSgnLva8tPJoFfn2uws553XdKkpyhj7i75J
+         g/l5KbobeL1QBKmRoXgVD8qgrgsnQbB908tVJxUwyWo0z99bvjjq1G3uY5eYZAXBeAsI
+         +LJbq/1T3fwqY4IWUjTkL1nnYmUTmy+ywdVYUQ9Nq0jwXgA5GZGkQ5OMdSmiMEkfFtYB
+         R3oJYu3rLxMGC1Y69HP3K8q7IVr2FltA3FH3OT7W/3qJQWzcqpbnp4U4Pb07dOdP42tg
+         t3jSx3g3vYYDkMUGIj29Bddknbv2FiNmUAZYJwgofqRuWIBccE9kCwxKI5Gwukokb9dQ
+         NyiA==
+X-Gm-Message-State: AJIora9j9+yS22hAd5TK4RoSHEtZ1O7PhwEfCQ6TA89LI4UL6zig65PW
+	RQ5u6e+N4qjWSU/MEcbKCvCTn1TQPZluLNTM4R32Qw==
+X-Google-Smtp-Source: AGRyM1vdTDHnXx6/iSL72TAIkM2o5HPzQQpmceFlCysZbho0p1KKEyC2jfWh5dOmd2LLx/uobVYvmK1JdDJJLKgFhWQ=
+X-Received: by 2002:a05:600c:3caa:b0:394:8fb8:716 with SMTP id
+ bg42-20020a05600c3caa00b003948fb80716mr14237697wmb.105.1658551638574; Fri, 22
+ Jul 2022 21:47:18 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220722165047.519994-1-atishp@rivosinc.com>
+In-Reply-To: <20220722165047.519994-1-atishp@rivosinc.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Sat, 23 Jul 2022 10:17:06 +0530
+Message-ID: <CAAhSdy2UDwZYK+EaKHPXLxyKUMv-OX02EdaBDBgjNF0jdDJ7xQ@mail.gmail.com>
+Subject: Re: [PATCH v7 0/4] Add Sstc extension support
+To: Atish Patra <atishp@rivosinc.com>
+Cc: linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, 
+	Atish Patra <atishp@atishpatra.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Tsukasa OI <research_trasio@irq.a4lg.com>, 
+	Wei Fu <wefu@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220722_180239_573084_F94C567E 
-X-CRM114-Status: GOOD (  26.44  )
+X-CRM114-CacheID: sfid-20220722_214721_940111_7D6AE658 
+X-CRM114-Status: GOOD (  24.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,56 +85,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gdmVuZXJkw6wgMjIgbHVnbGlvIDIwMjIgMDI6MTQ6MjAgQ0VTVCBJcmEgV2Vpbnkgd3JvdGU6
-Cj4gT24gU3VuLCBKdWwgMTAsIDIwMjIgYXQgMTI6MDE6MzZQTSArMDIwMCwgRmFiaW8gTS4gRGUg
-RnJhbmNlc2NvIHdyb3RlOgo+ID4gVGhlIHVzZSBvZiBrbWFwX2F0b21pYygpIGlzIGJlaW5nIGRl
-cHJlY2F0ZWQgaW4gZmF2b3Igb2YgCmttYXBfbG9jYWxfcGFnZSgpLgo+ID4gCj4gPiBXaXRoIGtt
-YXBfbG9jYWxfcGFnZSgpLCB0aGUgbWFwcGluZ3MgYXJlIHBlciB0aHJlYWQsIENQVSBsb2NhbCwg
-bm90Cj4gPiBnbG9iYWxseSB2aXNpYmxlIGFuZCBjYW4gdGFrZSBwYWdlIGZhdWx0cy4gRnVydGhl
-cm1vcmUsIHRoZSBtYXBwaW5ncyAKY2FuIGJlCj4gPiBhY3F1aXJlZCBmcm9tIGFueSBjb250ZXh0
-IChpbmNsdWRpbmcgaW50ZXJydXB0cykuCj4gPiAKPiA+IFRoZXJlZm9yZSwgdXNlIGttYXBfbG9j
-YWxfcGFnZSgpIGluIGNvcHlfc3RyaW5nX2tlcm5lbCgpIGluc3RlYWQgb2YKPiA+IGttYXBfYXRv
-bWljKCkuCj4gPiAKPiA+IFRlc3RlZCB3aXRoIHhmc3Rlc3RzIG9uIGEgUUVNVSArIEtWTSAzMi1i
-aXRzIFZNIGJvb3RpbmcgYSBrZXJuZWwgd2l0aAo+ID4gSElHSE1FTTY0R0IgZW5hYmxlZC4KPiA+
-IAo+ID4gU3VnZ2VzdGVkLWJ5OiBJcmEgV2VpbnkgPGlyYS53ZWlueUBpbnRlbC5jb20+Cj4gPiBT
-aWduZWQtb2ZmLWJ5OiBGYWJpbyBNLiBEZSBGcmFuY2VzY28gPGZtZGVmcmFuY2VzY29AZ21haWwu
-Y29tPgo+ID4gLS0tCj4gPiAKPiA+IEkgc2VudCBhIGZpcnN0IHBhdGNoIHRvIGZzL2V4ZWMuYyBm
-b3IgY29udmVydGluZyBrbWFwKCkgYW5kIAprbWFwX2F0b21pYygpCj4gPiB0byBrbWFwX2xvY2Fs
-X3BhZ2UoKToKPiA+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xrbWwvMjAyMjA2MzAxNjM1Mjcu
-OTc3Ni0xLWZtZGVmcmFuY2VzY29AZ21haWwuY29tLwo+ID4gCj4gPiBTb21lIGRheXMgYWdvLCBJ
-cmEgV2VpbnksIHdoaWxlIGhlIHdhcyByZXZpZXdpbmcgdGhhdCBwYXRjaCwgbWFkZSBtZSAKbm90
-aWNlCj4gPiB0aGF0IEkgaGFkIG92ZXJsb29rZWQgYSBzZWNvbmQga21hcF9hdG9taWMoKSBpbiB0
-aGUgc2FtZSBmaWxlICh0aGFua3MpOgo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC9Z
-c2lRcHRrMTl0eEhyRzRjQGl3ZWlueS1kZXNrMy8KPiA+IAo+ID4gSSd2ZSBiZWVuIGFza2VkIHRv
-IHNlbmQgdGhpcyBhcyBhbiBhZGRpdGlvbmFsIGNoYW5nZS4gVGhpcyBpcyB3aHkgdGhlcmUgCndp
-bGwKPiA+IG5vdCBiZSBhbnkgc2Vjb25kIHZlcnNpb24gb2YgdGhhdCBwcmV2aW91cyBwYXRjaC4K
-PiA+IAo+ID4gIGZzL2V4ZWMuYyB8IDQgKystLQo+ID4gIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2Vy
-dGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCj4gPiAKPiA+IGRpZmYgLS1naXQgYS9mcy9leGVjLmMg
-Yi9mcy9leGVjLmMKPiA+IGluZGV4IDRhMjEyOWMwZDQyMi4uNWZhNjUyY2E1ODIzIDEwMDY0NAo+
-ID4gLS0tIGEvZnMvZXhlYy5jCj4gPiArKysgYi9mcy9leGVjLmMKPiA+IEBAIC02MzksMTEgKzYz
-OSwxMSBAQCBpbnQgY29weV9zdHJpbmdfa2VybmVsKGNvbnN0IGNoYXIgKmFyZywgc3RydWN0IAps
-aW51eF9iaW5wcm0gKmJwcm0pCj4gPiAgCQlwYWdlID0gZ2V0X2FyZ19wYWdlKGJwcm0sIHBvcywg
-MSk7Cj4gPiAgCQlpZiAoIXBhZ2UpCj4gPiAgCQkJcmV0dXJuIC1FMkJJRzsKPiA+IC0JCWthZGRy
-ID0ga21hcF9hdG9taWMocGFnZSk7Cj4gPiArCQlrYWRkciA9IGttYXBfbG9jYWxfcGFnZShwYWdl
-KTsKPiA+ICAJCWZsdXNoX2FyZ19wYWdlKGJwcm0sIHBvcyAmIFBBR0VfTUFTSywgcGFnZSk7Cj4g
-Cj4gSSByZWFsbHkgcXVlc3Rpb24gd2h5IHdlIGNhbid0IHVzZSBtZW1jcHlfdG9fcGFnZSgpIGhl
-cmUgYW5kIG1vdmUgdGhlCj4gZmx1c2hfYXJnX3BhZ2UoKSBwcmlvciB0byB0aGUgbWFwcGluZz8K
-PiAKPiBmbHVzaF9hcmdfcGFnZSgpIG9ubHkgY2FsbHMgZmx1c2hfY2FjaGVfcGFnZSgpIHdoaWNo
-IGRvZXMgbm90IG5lZWQgdGhlCj4gbWFwcGluZyB0byB3b3JrIGNvcnJlY3RseSBBRkFJQ1QuCgpZ
-b3UncmUgcmlnaHQgaGVyZS4gSSdtIHNvcnJ5IGZvciBiZWluZyBzbyBsYXp5IGFuZCBub3QgY2hl
-Y2tpbmcgdGhhdCAKZmx1c2hfYXJnX3BhZ2UoKSBkb2VzIG5vdCBuZWVkIHRvIGJlIGNhbGxlZCB3
-aGlsZSB0aGUgdGFzayBob2xkcyB0aGUgbG9jYWwgCm1hcHBpbmcgOi0oCgpJbiB2MiBJJ2xsIG1v
-dmUgZmx1c2hfYXJnX3BhZ2UoKSBvbmUgbGluZSBhYm92ZSBtZW1jcHlfdG9fcGFnZSgpLgoKVGhh
-bmtzIGZvciB5b3VyIGNvbW1lbnQsCgpGYWJpbwoKPiAKPiBJcmEKPiAKPiA+ICAJCW1lbWNweShr
-YWRkciArIG9mZnNldF9pbl9wYWdlKHBvcyksIGFyZywgCmJ5dGVzX3RvX2NvcHkpOwo+ID4gIAkJ
-Zmx1c2hfZGNhY2hlX3BhZ2UocGFnZSk7Cj4gPiAtCQlrdW5tYXBfYXRvbWljKGthZGRyKTsKPiA+
-ICsJCWt1bm1hcF9sb2NhbChrYWRkcik7Cj4gPiAgCQlwdXRfYXJnX3BhZ2UocGFnZSk7Cj4gPiAg
-CX0KPiA+ICAKPiA+IC0tIAo+ID4gMi4zNi4xCj4gPiAKPiAKCgoKCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Palmer,
+
+On Fri, Jul 22, 2022 at 10:20 PM Atish Patra <atishp@rivosinc.com> wrote:
+>
+> This series implements Sstc extension support which was ratified recently.
+> Before the Sstc extension, an SBI call is necessary to generate timer
+> interrupts as only M-mode have access to the timecompare registers. Thus,
+> there is significant latency to generate timer interrupts at kernel.
+> For virtualized enviornments, its even worse as the KVM handles the SBI call
+> and uses a software timer to emulate the timecomapre register.
+>
+> Sstc extension solves both these problems by defining a stimecmp/vstimecmp
+> at supervisor (host/guest) level. It allows kernel to program a timer and
+> recieve interrupt without supervisor execution enviornment (M-mode/HS mode)
+> intervention.
+>
+> KVM directly updates the vstimecmp as well if the guest kernel invokes the SBI
+> call instead of updating stimecmp directly. This is required because KVM will
+> enable sstc extension if the hardware supports it unless the VMM explicitly
+> disables it for that guest. The hardware is expected to compare the
+> vstimecmp at every cycle if sstc is enabled and any stale value in vstimecmp
+> will lead to spurious timer interrupts. This also helps maintaining the
+> backward compatibility with older kernels.
+>
+> Similary, the M-mode firmware(OpenSBI) uses stimecmp for older kernel
+> without sstc support as STIP bit in mip is read only for hardware with sstc.
+>
+> The PATCH 1 & 2 enables the basic infrastructure around Sstc extension while
+> PATCH 3 lets kernel use the Sstc extension if it is available in hardware.
+> PATCH 4 implements the Sstc extension in KVM.
+>
+> This series has been tested on Qemu(RV32 & RV64) with additional patches in
+> Qemu[2]. This series can also be found at [3].
+>
+> Changes from v6->v7:
+> 1. Fixed a compilation error reported by 0-day bot.
+>
+> Changes from v5->v6:
+> 1. Moved SSTC extension enum below SVPBMT.
+>
+> Changes from v4->v5:
+> 1. Added RB tag.
+> 2. Changed the pr-format.
+> 3. Rebased on 5.19-rc7 and kvm-queue.
+> 4. Moved the henvcfg modification from hardware enable to vcpu_load.
+>
+> Changes from v3->v4:
+> 1. Rebased on 5.18-rc6
+> 2. Unified vstimemp & next_cycles.
+> 3. Addressed comments in PATCH 3 & 4.
+>
+> Changes from v2->v3:
+> 1. Dropped unrelated KVM fixes from this series.
+> 2. Rebased on 5.18-rc3.
+>
+> Changes from v1->v2:
+> 1. Separate the static key from kvm usage
+> 2. Makde the sstc specific static key local to the driver/clocksource
+> 3. Moved the vstimecmp update code to the vcpu_timer
+> 4. Used function pointers instead of static key to invoke vstimecmp vs
+>    hrtimer at the run time. This will help in future for migration of vms
+>    from/to sstc enabled hardware to non-sstc enabled hardware.
+> 5. Unified the vstimer & timer to 1 timer as only one of them will be used
+>    at runtime.
+>
+> [1] https://drive.google.com/file/d/1m84Re2yK8m_vbW7TspvevCDR82MOBaSX/view
+> [2] https://github.com/atishp04/qemu/tree/sstc_v6
+> [3] https://github.com/atishp04/linux/tree/sstc_v7
+>
+> Atish Patra (4):
+> RISC-V: Add SSTC extension CSR details
+> RISC-V: Enable sstc extension parsing from DT
+> RISC-V: Prefer sstc extension if available
+> RISC-V: KVM: Support sstc extension
+
+The PATCH4 is dependent on the KVM patches in queue for 5.20.
+
+I suggest you take PATCH1, PATCH2 and PATCH3. I will send
+PATCH4 in second batch/PR for 5.20 assuming you will send the
+first three patches in your first PR for 5.20
+
+Does this sound okay to you ?
+
+Regards,
+Anup
+
+>
+> arch/riscv/include/asm/csr.h            |   5 +
+> arch/riscv/include/asm/hwcap.h          |   1 +
+> arch/riscv/include/asm/kvm_vcpu_timer.h |   7 ++
+> arch/riscv/include/uapi/asm/kvm.h       |   1 +
+> arch/riscv/kernel/cpu.c                 |   1 +
+> arch/riscv/kernel/cpufeature.c          |   1 +
+> arch/riscv/kvm/vcpu.c                   |   8 +-
+> arch/riscv/kvm/vcpu_timer.c             | 144 +++++++++++++++++++++++-
+> drivers/clocksource/timer-riscv.c       |  25 +++-
+> 9 files changed, 185 insertions(+), 8 deletions(-)
+>
+> --
+> 2.25.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
