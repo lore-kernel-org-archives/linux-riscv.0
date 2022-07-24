@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA15C43334
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Jul 2022 15:23:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85773C43334
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Jul 2022 15:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m8KYzQSqe9151jzKb37T58Cw79PfuYPuPESU45M5Kzg=; b=dJmpiJsN6YO8dw
-	NHcWbTYusG4HvdRQB2gYtuG9pQxzihsHhJTg51CvSH5V6ssK368SQZgNFrgQgCzRtzbN+nPNDUNOt
-	OjXdbSGrh7PMNjq3BYrNoZI4lJAnIxC/HuzSf29NNKnsifX/C/iz/k82f8Pyb3Jzv9or404hfBIOC
-	QWyNJfqHE3QhDy7dVKk36EFy86CKwlsMA/X/roEvTPcSpVfdU7eseGNrQQNoJezHLykXXEH4wLPEZ
-	08tvaWRYPFlSHt8IyCoigZvo6N6GhgK+ObqaIWauxBDlMUBhj9LFCDWeveDl8uoU7ImACaaJ3yBUn
-	Xe9guWIy8qEl5AS31eKQ==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=U16JksNKqii6KZMJkWrHAVX3lEVMLCgsMCayamx57qM=; b=lhcKqxS0xdJtRt
+	1ZfFAnJ1R/h4kBu1U622pdy6utQLrLKcDoT1VbLOyTpg1VBPCqU0036FrNCcydc/X/W9Vwtq11sdu
+	gBrnhD/7gP0y2iVo87aAV42BhNNfVWdX76fNVEvreIa0X9ho51p8qpmrcCWO3xnCRAJizvzWYdJLK
+	x8w/56O7DnhD6SrjM330R5CKY08AEUA4jdW5m7xwFDwQTgCGxL88xlWkwGeBupH4pR+Ky4a+lm4pI
+	Kydb6OQ/i2I2uCgawg/NmE5kpfNqdyfb4pQKAXQWh+IgKOVt/oLwFTQPav9LfY/aPg37+Xzl5Ev2F
+	eALQ7F0vC1SA+5l81PLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oFdRw-006sSe-Dp; Sun, 24 Jul 2022 15:23:20 +0000
-Received: from out30-56.freemail.mail.aliyun.com ([115.124.30.56])
+	id 1oFdS1-006sXv-Ft; Sun, 24 Jul 2022 15:23:25 +0000
+Received: from out30-42.freemail.mail.aliyun.com ([115.124.30.42])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oFdRr-006sPz-Fo
-	for linux-riscv@lists.infradead.org; Sun, 24 Jul 2022 15:23:18 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045168;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0VKDkjNB_1658676187;
-Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VKDkjNB_1658676187)
+	id 1oFdRw-006sQl-1b
+	for linux-riscv@lists.infradead.org; Sun, 24 Jul 2022 15:23:21 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R971e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046060;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=16;SR=0;TI=SMTPD_---0VKDZF39_1658676191;
+Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VKDZF39_1658676191)
           by smtp.aliyun-inc.com;
-          Sun, 24 Jul 2022 23:23:08 +0800
+          Sun, 24 Jul 2022 23:23:12 +0800
 From: Xianting Tian <xianting.tian@linux.alibaba.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -46,13 +46,16 @@ Cc: linux-riscv@lists.infradead.org,
 	k-hagio-ab@nec.com,
 	hschauhan@nulltrace.org,
 	Xianting Tian <xianting.tian@linux.alibaba.com>
-Subject: [PATCH V2 0/5] Fixups to work with crash tool
-Date: Sun, 24 Jul 2022 23:23:00 +0800
-Message-Id: <20220724152305.1037212-1-xianting.tian@linux.alibaba.com>
+Subject: [PATCH V2 3/5] riscv: Add modules to virtual kernel memory layout dump
+Date: Sun, 24 Jul 2022 23:23:03 +0800
+Message-Id: <20220724152305.1037212-4-xianting.tian@linux.alibaba.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20220724152305.1037212-1-xianting.tian@linux.alibaba.com>
+References: <20220724152305.1037212-1-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220724_082315_742318_CD4B117E 
-X-CRM114-Status: GOOD (  10.27  )
+X-CRM114-CacheID: sfid-20220724_082320_337547_5C09F321 
+X-CRM114-Status: UNSURE (   7.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,52 +73,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I ever sent the patch 1 in the link:
-https://patchwork.kernel.org/project/linux-riscv/patch/20220708073150.352830-3-xianting.tian@linux.alibaba.com/
-And patch 2,3 in the link:
-https://patchwork.kernel.org/project/linux-riscv/patch/20220714113300.367854-2-xianting.tian@linux.alibaba.com/
-https://patchwork.kernel.org/project/linux-riscv/patch/20220714113300.367854-3-xianting.tian@linux.alibaba.com/
+Modules always live before the kernel, MODULES_END is fixed but
+MODULES_VADDR isn't fixed, it depends on the kernel size.
+Let's add it to virtual kernel memory layout dump.
 
-This patch series just put these patches together, and with two new patch 4, 5.
-these five patches are the fixups for machine_kexec, kernel mode PC for vmcore
-and improvements for vmcoreinfo and memory layout dump.
+As MODULES is only defined for CONFIG_64BIT, so we dump it when
+CONFIG_64BIT=y.
 
-The main changes in the five patchs as below,
-Patch 1: use __smp_processor_id() instead of smp_processor_id() to cleanup
-	 the console prints.
-Patch 2: Add VM layout, va bits, ram base to vmcoreinfo, which can simplify
-	 the development of crash tool as ARM64 already did
-	 (arch/arm64/kernel/crash_core.c).
-Patch 3: Add modules to virtual kernel memory layout dump.
-Patch 4: Fixup to get correct kernel mode PC for vmcore.
-Patch 5: Updates vmcoreinfo.rst.
+eg,
+MODULES_VADDR - MODULES_END
+0xffffffff01133000 - 0xffffffff80000000
 
-With these 5 patches(patch 2 is must), crash tool can work well to analyze
-a vmcore. The patches for crash tool for RISCV64 is in the link:
-https://lore.kernel.org/linux-riscv/20220718025346.411758-1-xianting.tian@linux.alibaba.com/
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+---
+ arch/riscv/mm/init.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-Changes v1 -> v2:
- 1, remove the patch "Add a fast call path of crash_kexec()" from this series
- of patches, as it already applied to riscv git.
- https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/commit/?h=for-next&id=3f1901110a89b0e2e13adb2ac8d1a7102879ea98
- 2, add 'Reviewed-by' based on the comments of v1.  
-
-Xianting Tian (5):
-  RISC-V: use __smp_processor_id() instead of smp_processor_id()
-  RISC-V: Add arch_crash_save_vmcoreinfo support
-  riscv: Add modules to virtual kernel memory layout dump
-  RISC-V: Fixup getting correct current pc
-  riscv64: crash_core: Export kernel vm layout, phys_ram_base
-
- .../admin-guide/kdump/vmcoreinfo.rst          | 31 +++++++++++++++++++
- arch/riscv/kernel/Makefile                    |  1 +
- arch/riscv/kernel/crash_core.c                | 29 +++++++++++++++++
- arch/riscv/kernel/crash_save_regs.S           |  2 +-
- arch/riscv/kernel/machine_kexec.c             |  2 +-
- arch/riscv/mm/init.c                          |  4 +++
- 6 files changed, 67 insertions(+), 2 deletions(-)
- create mode 100644 arch/riscv/kernel/crash_core.c
-
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index d466ec670e1f..2c4a64e97aec 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -135,6 +135,10 @@ static void __init print_vm_layout(void)
+ 		(unsigned long)VMEMMAP_END);
+ 	print_ml("vmalloc", (unsigned long)VMALLOC_START,
+ 		(unsigned long)VMALLOC_END);
++#ifdef CONFIG_64BIT
++	print_ml("modules", (unsigned long)MODULES_VADDR,
++		(unsigned long)MODULES_END);
++#endif
+ 	print_ml("lowmem", (unsigned long)PAGE_OFFSET,
+ 		(unsigned long)high_memory);
+ 	if (IS_ENABLED(CONFIG_64BIT)) {
 -- 
 2.17.1
 
