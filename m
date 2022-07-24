@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C2FCCA47C
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Jul 2022 12:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2544C43334
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Jul 2022 15:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DefRvucyATU6XHFzksfg6VFctXIMNgy1vXaK7KMOv+Y=; b=qQ0Q4OA+kzW+9e
-	tj+53iydoDYn0D2QXO43shwUJWxpx6AtcvUkwFGl7aSZkdyZvAxKm0Zg79+Ru6MBma0OH57Em9tT2
-	ZgVUed1tMYtjJc5R61TuJ25SPQJrgFtamGaDYEuc3h1ZLBgLrAGirmq12GikgoWf3Ll4j9cTAp4dg
-	4ZQ2kJZ/RTXnaa6gXqka+9Fp6CDHKtE9fPPfRcnoJu+e3gaGNfYRDv/XEAPOEGLcvq31lb8OFT912
-	9JeS+xzgFBJn5q4JqFbo9PXu254oAqWR2QUnlPVEeFesJM6UytyWh04C98pqKp9dbO9S1Yl0ISa8e
-	UIVjJ/TiV9DtY50L4oXg==;
+	List-Owner; bh=BqKG1rg6G0lwjR/7MFMN6pKzhXip5K3ZSkn8mOzoOh4=; b=m9TqUE/7XxnEhE
+	ZRkZKmKABA5jvM8HdrLjmsPAnFslmRtHwOb5YjSgbd6t1Grn3AupjC/Iwh/Th4ZBCmUANOXm8kV2p
+	oJqwez8Db63hiMp6rm1z/9wTjd7bHRBgyIWlcbLeHbi7X5CHHKmIfL4dww8yychTLWS6fcy7MGyES
+	ClwhP2gfHckpu43scAi/nJ3/+m52EPcGzVWZ6GOPvIJSmuo2c67HYHKYgjy3mlHKmWa2OUQL2eWzP
+	6s4Yxshqa6kQRDC2m8TY7ixLavXshmMmiNm/m1wEgRzbQrGM+KI5EFjO2/JEkBkrcWnWNr+6J+8/A
+	oEtLyRK8oZN8BYc88nfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oFagt-0061K3-8J; Sun, 24 Jul 2022 12:26:35 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oFdIq-006p2R-MA; Sun, 24 Jul 2022 15:13:56 +0000
+Received: from conssluserg-06.nifty.com ([210.131.2.91])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oFago-0061Fn-QG
-	for linux-riscv@lists.infradead.org; Sun, 24 Jul 2022 12:26:32 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 56A1A6106F;
-	Sun, 24 Jul 2022 12:26:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C77F7C385A5;
-	Sun, 24 Jul 2022 12:26:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1658665590;
-	bh=920mmnpEJPScVrA5dKwmyImPh9PCuH+GiFZjlE1o8zI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KOdKpq+E4B/EJi49xbzc27v1TLG7ZtjFILg8aSF7N9+lSnRnEpR7LjSRUSbqeMr5L
-	 ZQAzxLJ3xxcSfBXGnpPhlbsaOsZUgB2f5Coi0rleUrDhjTQsHtAntM9kz0YHpGH2/x
-	 8SDZPhVIT9NXdYQ+a5aF0lacSIH7mk/oI/Gs0GFgyQoz+d+WmU59fNUftUET9/CTFl
-	 07mv1i8TnX854bxdJzBN7waa7YDuL9WjQpSlYSBtjAgMzjl5qvUt7VBbsgSivTjMTs
-	 AceE9qPAzul9KUiQIBQbEamCnpi8hpkTsb7O7rriYH9Rwui3zWwu81lDWuthAzyX86
-	 qAB+XEfb3ayyA==
-From: guoren@kernel.org
-To: palmer@rivosinc.com,
-	heiko@sntech.de,
-	hch@infradead.org,
-	arnd@arndb.de,
-	peterz@infradead.org,
-	will@kernel.org,
-	boqun.feng@gmail.com,
-	longman@redhat.com,
-	mingo@redhat.com,
-	philipp.tomsich@vrull.eu,
-	cmuellner@linux.com,
-	linux-kernel@vger.kernel.org,
-	David.Laight@ACULAB.COM
-Cc: linux-riscv@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	Guo Ren <guoren@linux.alibaba.com>,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH V8 10/10] csky: Add qspinlock support
-Date: Sun, 24 Jul 2022 08:25:17 -0400
-Message-Id: <20220724122517.1019187-11-guoren@kernel.org>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220724122517.1019187-1-guoren@kernel.org>
-References: <20220724122517.1019187-1-guoren@kernel.org>
+	id 1oFdIn-006p1F-SV
+	for linux-riscv@lists.infradead.org; Sun, 24 Jul 2022 15:13:55 +0000
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41]) (authenticated)
+	by conssluserg-06.nifty.com with ESMTP id 26OFDbYB022701
+	for <linux-riscv@lists.infradead.org>; Mon, 25 Jul 2022 00:13:38 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com 26OFDbYB022701
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+	s=dec2015msa; t=1658675618;
+	bh=oiFMhm7uDjU3kqq1a01hrOtShD22Qh3LrQK0lfMWe9o=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=A3UlfYb+zU4edSjqU3suKNUFKaWpU2OUYSgmaueuooSedaujiCC4SPBnM7AapWgb5
+	 JEas3SQWl3RHGyMgrTfKVMxtrhnD9X5CGO3Lo41kPNQ8HbZf278t5Gzsio/dtcNTw4
+	 cAyVRzrj6KOH6Nc5UxWV4wFc0YYKZgYzMDoK1EbBOp8qplS9uIN1wZj2co/NU9qk09
+	 tChl/cFRHSTjAjeN/z/KqHvGJS20KO8OAtC7qECKsqto3TaFe0HJ0DZEO4IqwnWqwn
+	 ySnnP/Z7zL+PDto7jSvo3Z41J738Mu0GD27OXpBzMeQPXc2M3mkIiti3NeJO+NbYla
+	 r5XnWF2oYLSAg==
+X-Nifty-SrcIP: [209.85.221.41]
+Received: by mail-wr1-f41.google.com with SMTP id h9so12706010wrm.0
+        for <linux-riscv@lists.infradead.org>; Sun, 24 Jul 2022 08:13:38 -0700 (PDT)
+X-Gm-Message-State: AJIora/EWZG/8CyOVDdDNr52yyJ2SGUuE29iRfvgkSzpyYwCJAaI/OeR
+	eIZMFabc3myiAJKIisj3pxrW9pEYPTNGIc38U3g=
+X-Google-Smtp-Source: AGRyM1uShHrO4T5UY6OkXCTlB4FwmFpeRAb42CPm68h6kQJyePMiAKxYFTuMHzEAd03vpoTkKvgGqonm79ayIOslvxk=
+X-Received: by 2002:a5d:4e08:0:b0:21d:a689:7dd1 with SMTP id
+ p8-20020a5d4e08000000b0021da6897dd1mr5254632wrt.477.1658675617101; Sun, 24
+ Jul 2022 08:13:37 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220625223438.835408-1-masahiroy@kernel.org>
+In-Reply-To: <20220625223438.835408-1-masahiroy@kernel.org>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Mon, 25 Jul 2022 00:12:39 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARyhvn1mU=cAA5zagJMExnfoTEZqi2irVvBKxfooA0JVQ@mail.gmail.com>
+Message-ID: <CAK7LNARyhvn1mU=cAA5zagJMExnfoTEZqi2irVvBKxfooA0JVQ@mail.gmail.com>
+Subject: Re: [PATCH 1/2] riscv/purgatory: hard-code obj-y in Makefile
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220724_052631_033925_D4F3D7CA 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20220724_081354_163651_D02374A4 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,102 +79,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+On Sun, Jun 26, 2022 at 7:36 AM Masahiro Yamada <masahiroy@kernel.org> wrote:
+>
+> The purgatory/ directory is entirely guarded in arch/riscv/Kbuild.
+> CONFIG_ARCH_HAS_KEXEC_PURGATORY is bool type.
+>
+> $(CONFIG_ARCH_HAS_KEXEC_PURGATORY) is always 'y' when Kbuild visits
+> this Makefile for building.
+>
+> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> ---
 
-Enable qspinlock by the requirements mentioned in a8ad07e5240c9
-("asm-generic: qspinlock: Indicate the use of mixed-size atomics").
+ Ping?
 
-C-SKY only has "ldex/stex" for all atomic operations. So csky give a
-strong forward guarantee for "ldex/stex." That means when ldex grabbed
-the cache line into $L1, it would block other cores from snooping the
-address with several cycles.
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
----
- arch/csky/Kconfig               | 16 ++++++++++++++++
- arch/csky/include/asm/Kbuild    |  2 ++
- arch/csky/include/asm/cmpxchg.h | 20 ++++++++++++++++++++
- 3 files changed, 38 insertions(+)
+>  arch/riscv/purgatory/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
+> index d4df200f7edf..c2d14e2f345d 100644
+> --- a/arch/riscv/purgatory/Makefile
+> +++ b/arch/riscv/purgatory/Makefile
+> @@ -92,4 +92,4 @@ quiet_cmd_bin2c = BIN2C   $@
+>  $(obj)/kexec-purgatory.c: $(obj)/purgatory.ro $(obj)/purgatory.chk FORCE
+>         $(call if_changed,bin2c)
+>
+> -obj-$(CONFIG_ARCH_HAS_KEXEC_PURGATORY) += kexec-purgatory.o
+> +obj-y += kexec-purgatory.o
+> --
+> 2.32.0
+>
 
-diff --git a/arch/csky/Kconfig b/arch/csky/Kconfig
-index dfdb436b6078..09f7d1f06bca 100644
---- a/arch/csky/Kconfig
-+++ b/arch/csky/Kconfig
-@@ -354,6 +354,22 @@ config HAVE_EFFICIENT_UNALIGNED_STRING_OPS
- 	  Say Y here to enable EFFICIENT_UNALIGNED_STRING_OPS. Some CPU models could
- 	  deal with unaligned access by hardware.
- 
-+choice
-+	prompt "C-SKY spinlock type"
-+	default CSKY_TICKET_SPINLOCKS
-+
-+config CSKY_TICKET_SPINLOCKS
-+	bool "Using ticket spinlock"
-+
-+config CSKY_QUEUED_SPINLOCKS
-+	bool "Using queued spinlock"
-+	depends on SMP
-+	select ARCH_USE_QUEUED_SPINLOCKS
-+	help
-+	  Make sure your micro arch LL/SC has a strong forward progress guarantee.
-+	  Otherwise, stay at ticket-lock/combo-lock.
-+endchoice
-+
- endmenu
- 
- source "arch/csky/Kconfig.platforms"
-diff --git a/arch/csky/include/asm/Kbuild b/arch/csky/include/asm/Kbuild
-index 103207a58f97..b70b14de904f 100644
---- a/arch/csky/include/asm/Kbuild
-+++ b/arch/csky/include/asm/Kbuild
-@@ -3,10 +3,12 @@ generic-y += asm-offsets.h
- generic-y += extable.h
- generic-y += gpio.h
- generic-y += kvm_para.h
-+generic-y += mcs_spinlock.h
- generic-y += spinlock.h
- generic-y += spinlock_types.h
- generic-y += qrwlock.h
- generic-y += qrwlock_types.h
-+generic-y += qspinlock.h
- generic-y += parport.h
- generic-y += user.h
- generic-y += vmlinux.lds.h
-diff --git a/arch/csky/include/asm/cmpxchg.h b/arch/csky/include/asm/cmpxchg.h
-index 5b8faccd65e4..5f693fadb56c 100644
---- a/arch/csky/include/asm/cmpxchg.h
-+++ b/arch/csky/include/asm/cmpxchg.h
-@@ -15,6 +15,26 @@ extern void __bad_xchg(void);
- 	__typeof__(*(ptr)) __ret;				\
- 	unsigned long tmp;					\
- 	switch (size) {						\
-+	case 2: {						\
-+		u32 ret;					\
-+		u32 shif = ((ulong)__ptr & 2) ? 16 : 0;		\
-+		u32 mask = 0xffff << shif;			\
-+		__ptr = (__typeof__(ptr))((ulong)__ptr & ~2);	\
-+		__asm__ __volatile__ (				\
-+			"1:	ldex.w %0, (%4)\n"		\
-+			"	and    %1, %0, %2\n"		\
-+			"	or     %1, %1, %3\n"		\
-+			"	stex.w %1, (%4)\n"		\
-+			"	bez    %1, 1b\n"		\
-+			: "=&r" (ret), "=&r" (tmp)		\
-+			: "r" (~mask),				\
-+			  "r" ((u32)__new << shif),		\
-+			  "r" (__ptr)				\
-+			: "memory");				\
-+		__ret = (__typeof__(*(ptr)))			\
-+			((ret & mask) >> shif);			\
-+		break;						\
-+	}							\
- 	case 4:							\
- 		asm volatile (					\
- 		"1:	ldex.w		%0, (%3) \n"		\
+
 -- 
-2.36.1
-
+Best Regards
+Masahiro Yamada
 
 _______________________________________________
 linux-riscv mailing list
