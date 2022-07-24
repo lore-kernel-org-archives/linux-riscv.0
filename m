@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A7BC433EF
-	for <linux-riscv@archiver.kernel.org>; Sun, 24 Jul 2022 12:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5755DC433EF
+	for <linux-riscv@archiver.kernel.org>; Sun, 24 Jul 2022 12:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hKILd7HyYrz2abpzn3ZzGAS6/oI+zSBPYoR+j+MJAsM=; b=2KPWhwYf4zv8B0
-	n84HNyVtEA+tpxrbTkj9LAhC1aOoJ51hHtQYoChHQ52f86DTgf0ds+LHf/yzjkX/onIVWecoHYIbS
-	TLVsEeirvn4rG958Lqp7x6JENbg2pmFxq1mE4HHu/xCXbQa0D7M4VMJCirRCrxyeRV067+Wp8Y58p
-	Z6FCipFiTULlJdVIlVqhHZ/w06da2/ixzUr8bzEkkr+2fyD9ZmlXNhq2HZXzgnBmO1LhYZcQWQLLV
-	SKTzmSrAYi++Yseu2wbswayoaY0qaVMfxywTks0Ydhju+Hl4WlqQZiGU5311/lbYJkevIC1Xyot1y
-	pd8ZwAk4W1jfv4a04K9A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kBxl61PUeRoGa+Bg4EUORc6DvaaViY4/QEWjIK+D3x8=; b=HkUQ4Rv0zMmq45
+	+39jMznPJTL+zDOxe7uUuFWTKtBO+25UrZmnxCiONgWZjKiQZ3qJ/HgpPeB/j7VZUOlkVYuzRo8Dw
+	J7dLgzWLfgaLUvVzZCatQ/MDYUYP94AXtZr7tkO63PQX9V/1yyZrylSTf1tTkMXm5admSCxDPSQro
+	XHDy9i999hxhRs86ZavlkMMv+Phf6YhQxAmHDuCjnjq7+ckCvWNYrCiH3FJff5PeClCvsdHhRAsVY
+	a7/dc0fw7qfW0+FTTOtP126mxNDmaUlwu9dMT488Ox5vhwHgteJ/DpDr8PBqLNFUNbtrwMD6ljTgB
+	R91aCkFkwQ5cNy9+7BPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oFag0-0060WK-CG; Sun, 24 Jul 2022 12:25:40 +0000
+	id 1oFag4-0060Z0-Re; Sun, 24 Jul 2022 12:25:44 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oFafx-0060SD-M9
-	for linux-riscv@lists.infradead.org; Sun, 24 Jul 2022 12:25:39 +0000
+	id 1oFag2-0060UU-Hi
+	for linux-riscv@lists.infradead.org; Sun, 24 Jul 2022 12:25:43 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B44D26104E;
+	by dfw.source.kernel.org (Postfix) with ESMTPS id BAB5561050;
+	Sun, 24 Jul 2022 12:25:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C85A0C341C0;
 	Sun, 24 Jul 2022 12:25:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 044BFC3411E;
-	Sun, 24 Jul 2022 12:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1658665529;
-	bh=VOfIGOKOIXbu6EDdNFw/8vizu/PSUWKWc6UVcQMVnGE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=efLfBEYZsSFKPN6u5/CEpHEVMsFM8IMrsdKMwhaZenOXF4ytT2A9He34zJ0Ug3KtO
-	 AoCRH3/HLhkVF9aD6zoM0+jKnaNYfuqTemOx/6C+Vt6YiCA4RCAxGYwmNaNjXptH/T
-	 vbgSJQodLjJyYFwfC3kNrY9lqzkeF61ShwdWIAQ7LfN3qIW5WPRb0r/zGGP47kQfMX
-	 +hCc1kZRGoJ3RjUqiLbxi2uqCyPmWQzY+g5nRzUslpLOw3hP8706XLsTJOy0GDbssb
-	 DvX18uFS2wqmYlSL1fvXUgyP4nB2UL+0BV4Hpv+yYmoGbTG4odbj/xA2qXGOpygOpd
-	 IFu4GllAi2uWg==
+	s=k20201202; t=1658665535;
+	bh=x8ThgiIuKR7Cb/zZ7HilMYDMWlq4+j+CW+ILWn7Ti5k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=kKZZEb6YKDRcOlsszyCzQ7M/uNpEnrWtnxpdvQHnPWNz6K51FSe01RcVzp+UyRzpo
+	 Y7gWUT7sY12kIkJR5bdYjqslJJh+yrQ8N0P1Skiv+7a2AThxxRTaRpSyzoJ5Ao7wwS
+	 irOpP/RkMvz7YrrfbUqsK/Gmt+hqmkZ2OlZd6LIwe8Nv5YxR/98QnkRfte95q2QhFg
+	 o+ZJTSbNZbOiaTbHrLMktgKfNHuiFCb5yAG7DMzP41IP9xpwjfN4fOnNOv2wzsFOov
+	 IpfSE7107PyFic9a3E9sYqpNyD84Ki2YVyFeZP3R2ugR4GwMP2A4Sx9tdkWPhPMeP/
+	 Yp2xWgZPk1Lcw==
 From: guoren@kernel.org
 To: palmer@rivosinc.com,
 	heiko@sntech.de,
@@ -58,15 +58,19 @@ To: palmer@rivosinc.com,
 	David.Laight@ACULAB.COM
 Cc: linux-riscv@lists.infradead.org,
 	linux-csky@vger.kernel.org,
-	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH V8 00/10] arch: Add qspinlock support with combo style
-Date: Sun, 24 Jul 2022 08:25:07 -0400
-Message-Id: <20220724122517.1019187-1-guoren@kernel.org>
+	Guo Ren <guoren@linux.alibaba.com>,
+	Guo Ren <guoren@kernel.org>
+Subject: [PATCH V8 01/10] asm-generic: ticket-lock: Remove unnecessary atomic_read
+Date: Sun, 24 Jul 2022 08:25:08 -0400
+Message-Id: <20220724122517.1019187-2-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220724122517.1019187-1-guoren@kernel.org>
+References: <20220724122517.1019187-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220724_052537_852588_61477B9B 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20220724_052542_645337_A25CE799 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,108 +82,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogR3VvIFJlbiA8Z3VvcmVuQGxpbnV4LmFsaWJhYmEuY29tPgoKRW5hYmxlIHFzcGlubG9j
-ayBhbmQgbWVldCB0aGUgcmVxdWlyZW1lbnRzIG1lbnRpb25lZCBpbiBhOGFkMDdlNTI0MGM5Cigi
-YXNtLWdlbmVyaWM6IHFzcGlubG9jazogSW5kaWNhdGUgdGhlIHVzZSBvZiBtaXhlZC1zaXplIGF0
-b21pY3MiKS4KClJJU0MtViBMUi9TQyBwYWlycyBjb3VsZCBwcm92aWRlIGEgc3Ryb25nL3dlYWsg
-Zm9yd2FyZCBndWFyYW50ZWUgdGhhdApkZXBlbmRzIG9uIG1pY3JvLWFyY2hpdGVjdHVyZS4gQW5k
-IFJJU0MtViBJU0Egc3BlYyBoYXMgZ2l2ZW4gb3V0CnNldmVyYWwgbGltaXRhdGlvbnMgdG8gbGV0
-IGhhcmR3YXJlIHN1cHBvcnQgc3RyaWN0IGZvcndhcmQgZ3VhcmFudGVlCihSSVNDLVYgVXNlciBJ
-U0EgLSA4LjMgRXZlbnR1YWwgU3VjY2VzcyBvZiBTdG9yZS1Db25kaXRpb25hbApJbnN0cnVjdGlv
-bnMpOgpXZSByZXN0cmljdGVkIHRoZSBsZW5ndGggb2YgTFIvU0MgbG9vcHMgdG8gZml0IHdpdGhp
-biA2NCBjb250aWd1b3VzCmluc3RydWN0aW9uIGJ5dGVzIGluIHRoZSBiYXNlIElTQSB0byBhdm9p
-ZCB1bmR1ZSByZXN0cmljdGlvbnMgb24KaW5zdHJ1Y3Rpb24gY2FjaGUgYW5kIFRMQiBzaXplIGFu
-ZCBhc3NvY2lhdGl2aXR5LiBTaW1pbGFybHksIHdlCmRpc2FsbG93ZWQgb3RoZXIgbG9hZHMgYW5k
-IHN0b3JlcyB3aXRoaW4gdGhlIGxvb3BzIHRvIGF2b2lkIHJlc3RyaWN0aW9ucwpvbiBkYXRhLWNh
-Y2hlIGFzc29jaWF0aXZpdHkgaW4gc2ltcGxlIGltcGxlbWVudGF0aW9ucyB0aGF0IHRyYWNrIHRo
-ZQpyZXNlcnZhdGlvbiB3aXRoaW4gYSBwcml2YXRlIGNhY2hlLiBUaGUgcmVzdHJpY3Rpb25zIG9u
-IGJyYW5jaGVzIGFuZApqdW1wcyBsaW1pdCB0aGUgdGltZSB0aGF0IGNhbiBiZSBzcGVudCBpbiB0
-aGUgc2VxdWVuY2UuIEZsb2F0aW5nLXBvaW50Cm9wZXJhdGlvbnMgYW5kIGludGVnZXIgbXVsdGlw
-bHkvZGl2aWRlIHdlcmUgZGlzYWxsb3dlZCB0byBzaW1wbGlmeSB0aGUKb3BlcmF0aW5nIHN5c3Rl
-beKAmXMgZW11bGF0aW9uIG9mIHRoZXNlIGluc3RydWN0aW9ucyBvbiBpbXBsZW1lbnRhdGlvbnMK
-bGFja2luZyBhcHByb3ByaWF0ZSBoYXJkd2FyZSBzdXBwb3J0LgpTb2Z0d2FyZSBpcyBub3QgZm9y
-YmlkZGVuIGZyb20gdXNpbmcgdW5jb25zdHJhaW5lZCBMUi9TQyBzZXF1ZW5jZXMsIGJ1dApwb3J0
-YWJsZSBzb2Z0d2FyZSBtdXN0IGRldGVjdCB0aGUgY2FzZSB0aGF0IHRoZSBzZXF1ZW5jZSByZXBl
-YXRlZGx5CmZhaWxzLCB0aGVuIGZhbGwgYmFjayB0byBhbiBhbHRlcm5hdGUgY29kZSBzZXF1ZW5j
-ZSB0aGF0IGRvZXMgbm90IHJlbHkKb24gYW4gdW5jb25zdHJhaW5lZCBMUi9TQyBzZXF1ZW5jZS4g
-SW1wbGVtZW50YXRpb25zIGFyZSBwZXJtaXR0ZWQgdG8KdW5jb25kaXRpb25hbGx5IGZhaWwgYW55
-IHVuY29uc3RyYWluZWQgTFIvU0Mgc2VxdWVuY2UuCgplZzoKU29tZSByaXNjdiBoYXJkd2FyZSBz
-dWNoIGFzIEJPT012MyAmIFhpYW5nU2hhbiBjb3VsZCBwcm92aWRlIHN0cmljdCAmCnN0cm9uZyBm
-b3J3YXJkIGd1YXJhbnRlZSAoVGhlIGNhY2hlIGxpbmUgd291bGQgYmUga2VwdCBpbiBhbiBleGNs
-dXNpdmUKc3RhdGUgZm9yIEJhY2tvZmYgY3ljbGVzLCBhbmQgb25seSB0aGlzIGNvcmUncyBpbnRl
-cnJ1cHQgY291bGQgYnJlYWsKdGhlIExSL1NDIHBhaXIpLgpRZW11IHJpc2N2IGdpdmUgYSB3ZWFr
-IGZvcndhcmQgZ3VhcmFudGVlIGJ5IHdyb25nIGltcGxlbWVudGF0aW9uCmN1cnJlbnRseSBbMV0u
-CgpBZGQgY29tYm8gc3BpbmxvY2sgKHRpY2tldCAmIHF1ZXVlZCkgc3VwcG9ydApTb21lIGFyY2hp
-dGVjdHVyZSBoYXMgYSBmbGV4aWJsZSByZXF1aXJlbWVudCBvbiB0aGUgdHlwZSBvZiBzcGlubG9j
-ay4KU29tZSBMTC9TQyBhcmNoaXRlY3R1cmVzIG9mIElTQSBkb24ndCBmb3JjZSBtaWNyby1hcmNo
-IHRvIGdpdmUgYSBzdHJvbmcKZm9yd2FyZCBndWFyYW50ZWUuIFRodXMgZGlmZmVyZW50IGtpbmRz
-IG9mIG1lbW9yeSBtb2RlbCBtaWNyby1hcmNoIHdvdWxkCmNvbWUgb3V0IGluIG9uZSBJU0EuIFRo
-ZSB0aWNrZXQgbG9jayBpcyBzdWl0YWJsZSBmb3IgZXhjbHVzaXZlIG1vbml0b3IKZGVzaWduZWQg
-TEwvU0MgbWljcm8tYXJjaCB3aXRoIGxpbWl0ZWQgY29yZXMgYW5kICIhTlVNQSIuIFRoZQpxdWV1
-ZS1zcGlubG9jayBjb3VsZCBkZWFsIHdpdGggTlVNQS9sYXJnZS1zY2FsZSBzY2VuYXJpb3Mgd2l0
-aCBhIHN0cm9uZwpmb3J3YXJkIGd1YXJhbnRlZSBkZXNpZ25lZCBMTC9TQyBtaWNyby1hcmNoLgoK
-VGhlIGZpcnN0IHRyeSBvZiBxc3BpbmxvY2sgZm9yIHJpc2N2IHdhcyBtYWRlIGluIDIwMTkuMSBb
-Ml0uCgpbMV0gaHR0cHM6Ly9naXRodWIuY29tL3FlbXUvcWVtdS9ibG9iL21hc3Rlci90YXJnZXQv
-cmlzY3YvaW5zbl90cmFucy90cmFuc19ydmEuYy5pbmMKWzJdIGh0dHBzOi8vbG9yZS5rZXJuZWwu
-b3JnL2xpbnV4LXJpc2N2LzIwMTkwMjExMDQzODI5LjMwMDk2LTEtbWljaGFlbGpjbGFya0BtYWMu
-Y29tLyNyCgpDaGFuZ2VzIGluIFY4OgogLSBDb2RpbmcgY29udmVudGlvbiB0aWNrZXQgZml4dXAK
-IC0gTW92ZSBjb21ibyBzcGlubG9jayBpbnRvIHJpc2N2IGFuZCBzaW1wbHkgYXNtLWdlbmVyaWMv
-c3BpbmxvY2suaAogLSBGaXh1cCB4Y2hnMTYgd2l0aCB3cm9uZyByZXR1cm4gdmFsdWUKIC0gQWRk
-IGNza3kgcXNwaW5sb2NrCiAtIEFkZCBjb21ibyAmIHFzcGlubG9jayAmIHRpY2tldC1sb2NrIGNv
-bXBhcmlzb24KIC0gQ2xlYW4gdXAgdW5uZWNlc3NhcnkgcmlzY3YgYWNxdWlyZSBhbmQgcmVsZWFz
-ZSBkZWZpbml0aW9ucwogLSBFbmFibGUgQVJDSF9JTkxJTkVfUkVBRCovV1JJVEUqL1NQSU4qIGZv
-ciByaXNjdiAmIGNza3kKCkNoYW5nZXMgaW4gVjc6CiAtIEFkZCBjb21ibyBzcGlubG9jayAodGlj
-a2V0ICYgcXVldWVkKSBzdXBwb3J0CiAtIFJlbmFtZSB0aWNrZXRfc3BpbmxvY2suaAogLSBSZW1v
-dmUgdW5uZWNlc3NhcnkgYXRvbWljX3JlYWQgaW4gdGlja2V0X3NwaW5fdmFsdWVfdW5sb2NrZWQg
-IAoKQ2hhbmdlcyBpbiBWNjoKIC0gRml4dXAgQ2xhbmcgY29tcGlsZSBwcm9ibGVtIFJlcG9ydGVk
-LWJ5OiBrZXJuZWwgdGVzdCByb2JvdAogICA8bGtwQGludGVsLmNvbT4KIC0gQ2xlYW51cCBhc20t
-Z2VuZXJpYy9zcGlubG9jay5oCiAtIFJlbW92ZSBjaGFuZ2Vsb2cgaW4gcGF0Y2ggbWFpbiBjb21t
-ZW50IHBhcnQsIHN1Z2dlc3RlZCBieQogICBDb25vci5Eb29sZXlAbWljcm9jaGlwLmNvbQogLSBS
-ZW1vdmUgImRlZmF1bHQgeSBpZiBOVU1BIiBpbiBLY29uZmlnCgpDaGFuZ2VzIGluIFY1OgogLSBV
-cGRhdGUgY29tbWVudCB3aXRoIFJJU0MtViBmb3J3YXJkIGd1YXJhbnRlZSBmZWF0dXJlLgogLSBC
-YWNrIHRvIFYzIGRpcmVjdGlvbiBhbmQgb3B0aW1pemUgYXNtIGNvZGUuCgpDaGFuZ2VzIGluIFY0
-OgogLSBSZW1vdmUgY3VzdG9tIHN1Yi13b3JkIHhjaGcgaW1wbGVtZW50YXRpb24KIC0gQWRkIEFS
-Q0hfVVNFX1FVRVVFRF9TUElOTE9DS1NfWENIRzMyIGluIGxvY2tpbmcvcXNwaW5sb2NrCgpDaGFu
-Z2VzIGluIFYzOgogLSBDb2RpbmcgY29udmVudGlvbiBieSBQZXRlciBaaWpsc3RyYSdzIGFkdmlj
-ZXMKCkNoYW5nZXMgaW4gVjI6CiAtIENvZGluZyBjb252ZW50aW9uIGluIGNtcHhjaGcuaAogLSBS
-ZS1pbXBsZW1lbnQgc2hvcnQgeGNoZwogLSBSZW1vdmUgY2hhciAmIGNtcHhjaGcgaW1wbGVtZW50
-YXRpb25zCgotLS0KCkd1byBSZW4gKDIpOgogIGFzbS1nZW5lcmljOiBzcGlubG9jazogTW92ZSBx
-c3BpbmxvY2sgJiB0aWNrZXQtbG9jayBpbnRvIGdlbmVyaWMgc3BpbmxvY2suaAogIHJpc2N2OiBB
-ZGQgcXNwaW5sb2NrIHN1cHBvcnQKCkd1byBSZW4gKDUpOgogIGFzbS1nZW5lcmljOiB0aWNrZXQt
-bG9jazogUmVtb3ZlIHVubmVjZXNzYXJ5IGF0b21pY19yZWFkCiAgYXNtLWdlbmVyaWM6IHRpY2tl
-dC1sb2NrOiBVc2UgdGhlIHNhbWUgc3RydWN0IGRlZmluaXRpb25zIHdpdGggcXNwaW5sb2NrCiAg
-YXNtLWdlbmVyaWM6IHRpY2tldC1sb2NrOiBNb3ZlIGludG8gdGlja2V0X3NwaW5sb2NrLmgKICBh
-c20tZ2VuZXJpYzogc3BpbmxvY2s6IEFkZCBjb21ibyBzcGlubG9jayAodGlja2V0ICYgcXVldWVk
-KQogIHJpc2N2OiBBZGQgcXNwaW5sb2NrIHN1cHBvcnQKCgpHdW8gUmVuICgxMCk6CiAgYXNtLWdl
-bmVyaWM6IHRpY2tldC1sb2NrOiBSZW1vdmUgdW5uZWNlc3NhcnkgYXRvbWljX3JlYWQKICBhc20t
-Z2VuZXJpYzogdGlja2V0LWxvY2s6IFVzZSB0aGUgc2FtZSBzdHJ1Y3QgZGVmaW5pdGlvbnMgd2l0
-aCBxc3BpbmxvY2sKICBhc20tZ2VuZXJpYzogdGlja2V0LWxvY2s6IE1vdmUgaW50byB0aWNrZXRf
-c3BpbmxvY2suaAogIGFzbS1nZW5lcmljOiBzcGlubG9jazogQWRkIHF1ZXVlZCBzcGlubG9jayBz
-dXBwb3J0IGluIGNvbW1vbiBoZWFkZXIKICByaXNjdjogRW5hYmxlIEFSQ0hfSU5MSU5FX1JFQUQq
-L1dSSVRFKi9TUElOKgogIHJpc2N2OiBhdG9taWM6IENsZWFuIHVwIHVubmVjZXNzYXJ5IGFjcXVp
-cmUgYW5kIHJlbGVhc2UgZGVmaW5pdGlvbnMKICByaXNjdjogQWRkIHFzcGlubG9jayBzdXBwb3J0
-CiAgcmlzY3Y6IEFkZCBjb21ibyBzcGlubG9jayBzdXBwb3J0CiAgY3NreTogRW5hYmxlIEFSQ0hf
-SU5MSU5FX1JFQUQqL1dSSVRFKi9TUElOKgogIGNza3k6IEFkZCBxc3BpbmxvY2sgc3VwcG9ydAoK
-IGFyY2gvY3NreS9LY29uZmlnICAgICAgICAgICAgICAgICAgICAgfCAgNDIgKysrKysrKysrCiBh
-cmNoL2Nza3kvaW5jbHVkZS9hc20vS2J1aWxkICAgICAgICAgIHwgICAyICsKIGFyY2gvY3NreS9p
-bmNsdWRlL2FzbS9jbXB4Y2hnLmggICAgICAgfCAgMjAgKysrKwogYXJjaC9yaXNjdi9LY29uZmln
-ICAgICAgICAgICAgICAgICAgICB8ICA0OSArKysrKysrKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL0tidWlsZCAgICAgICAgIHwgICAzICstCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2F0b21p
-Yy5oICAgICAgIHwgIDE5IC0tLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vY21weGNoZy5oICAg
-ICAgfCAxMjkgKysrLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9h
-c20vc3BpbmxvY2suaCAgICAgfCAgNzcgKysrKysrKysrKysrKysrCiBhcmNoL3Jpc2N2L2tlcm5l
-bC9zZXR1cC5jICAgICAgICAgICAgIHwgIDIyICsrKysrCiBpbmNsdWRlL2FzbS1nZW5lcmljL3Nw
-aW5sb2NrLmggICAgICAgIHwgIDg5ICstLS0tLS0tLS0tLS0tLS0tLQogaW5jbHVkZS9hc20tZ2Vu
-ZXJpYy9zcGlubG9ja190eXBlcy5oICB8ICAxMiArLS0KIGluY2x1ZGUvYXNtLWdlbmVyaWMvdGlj
-a2V0X3NwaW5sb2NrLmggfCAxMDMgKysrKysrKysrKysrKysrKysrKysKIDEyIGZpbGVzIGNoYW5n
-ZWQsIDMzOSBpbnNlcnRpb25zKCspLCAyMjggZGVsZXRpb25zKC0pCiBjcmVhdGUgbW9kZSAxMDA2
-NDQgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zcGlubG9jay5oCiBjcmVhdGUgbW9kZSAxMDA2NDQg
-aW5jbHVkZS9hc20tZ2VuZXJpYy90aWNrZXRfc3BpbmxvY2suaAoKLS0gCjIuMzYuMQoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Guo Ren <guoren@linux.alibaba.com>
+
+Remove unnecessary atomic_read in arch_spin_value_unlocked(lock),
+because the value has been in lock. This patch could prevent
+arch_spin_value_unlocked contend spin_lock data again.
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+---
+ include/asm-generic/spinlock.h | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
+index fdfebcb050f4..90803a826ba0 100644
+--- a/include/asm-generic/spinlock.h
++++ b/include/asm-generic/spinlock.h
+@@ -68,11 +68,18 @@ static __always_inline void arch_spin_unlock(arch_spinlock_t *lock)
+ 	smp_store_release(ptr, (u16)val + 1);
+ }
+ 
++static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
++{
++	u32 val = lock.counter;
++
++	return ((val >> 16) == (val & 0xffff));
++}
++
+ static __always_inline int arch_spin_is_locked(arch_spinlock_t *lock)
+ {
+-	u32 val = atomic_read(lock);
++	arch_spinlock_t val = READ_ONCE(*lock);
+ 
+-	return ((val >> 16) != (val & 0xffff));
++	return !arch_spin_value_unlocked(val);
+ }
+ 
+ static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
+@@ -82,11 +89,6 @@ static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
+ 	return (s16)((val >> 16) - (val & 0xffff)) > 1;
+ }
+ 
+-static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
+-{
+-	return !arch_spin_is_locked(&lock);
+-}
+-
+ #include <asm/qrwlock.h>
+ 
+ #endif /* __ASM_GENERIC_SPINLOCK_H */
+-- 
+2.36.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
