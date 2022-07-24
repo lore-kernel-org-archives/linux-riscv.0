@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5755DC433EF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F992CCA48A
 	for <linux-riscv@archiver.kernel.org>; Sun, 24 Jul 2022 12:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kBxl61PUeRoGa+Bg4EUORc6DvaaViY4/QEWjIK+D3x8=; b=HkUQ4Rv0zMmq45
-	+39jMznPJTL+zDOxe7uUuFWTKtBO+25UrZmnxCiONgWZjKiQZ3qJ/HgpPeB/j7VZUOlkVYuzRo8Dw
-	J7dLgzWLfgaLUvVzZCatQ/MDYUYP94AXtZr7tkO63PQX9V/1yyZrylSTf1tTkMXm5admSCxDPSQro
-	XHDy9i999hxhRs86ZavlkMMv+Phf6YhQxAmHDuCjnjq7+ckCvWNYrCiH3FJff5PeClCvsdHhRAsVY
-	a7/dc0fw7qfW0+FTTOtP126mxNDmaUlwu9dMT488Ox5vhwHgteJ/DpDr8PBqLNFUNbtrwMD6ljTgB
-	R91aCkFkwQ5cNy9+7BPA==;
+	List-Owner; bh=5jk3WsB8334eNTcYCXwRCTFiGyK7R5KVf4kGErfDj+g=; b=dmcGWFKcgXPIbZ
+	hzI1u44WQ6Z9fFGZia3pi85tM4icIMmhIOsunoiFSmQZIeOYz5Xzm2Iwd+Gcvuyi6bBVxlQetXmYx
+	CXWlO2H5wk0FxowbgfbjnFRgEFBX+2FVh5Uyvt1C+qEIzSUmttlhOw8ixFn7ujyc7J0oRQRJ2jgHX
+	FVhgbzmOrAv/AOaff8z2oOy1LkmerySv1vuN/aIfeOpvHyvH/CV5iaBnJ9fP/IQDUcW2ztJhfIW04
+	nf3ZYpHop0ZMOiufNaL5AKgQM4MKvxHywh1/RVM7rpCd+PYC0owdlKO7Clpn/4Guk193AIry++dqN
+	xfV9PngMP5Gteb5vq0NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oFag4-0060Z0-Re; Sun, 24 Jul 2022 12:25:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oFag8-0060bi-LB; Sun, 24 Jul 2022 12:25:48 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oFag2-0060UU-Hi
-	for linux-riscv@lists.infradead.org; Sun, 24 Jul 2022 12:25:43 +0000
+	id 1oFag5-0060YR-Aj
+	for linux-riscv@lists.infradead.org; Sun, 24 Jul 2022 12:25:47 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id BAB5561050;
+	by ams.source.kernel.org (Postfix) with ESMTPS id BAED6B80D6E;
+	Sun, 24 Jul 2022 12:25:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8681C3411E;
 	Sun, 24 Jul 2022 12:25:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C85A0C341C0;
-	Sun, 24 Jul 2022 12:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1658665535;
-	bh=x8ThgiIuKR7Cb/zZ7HilMYDMWlq4+j+CW+ILWn7Ti5k=;
+	s=k20201202; t=1658665541;
+	bh=thtaHW8jAZpgDJtozuaQ3X5L4SWn53gdQRWmJtXyzQQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kKZZEb6YKDRcOlsszyCzQ7M/uNpEnrWtnxpdvQHnPWNz6K51FSe01RcVzp+UyRzpo
-	 Y7gWUT7sY12kIkJR5bdYjqslJJh+yrQ8N0P1Skiv+7a2AThxxRTaRpSyzoJ5Ao7wwS
-	 irOpP/RkMvz7YrrfbUqsK/Gmt+hqmkZ2OlZd6LIwe8Nv5YxR/98QnkRfte95q2QhFg
-	 o+ZJTSbNZbOiaTbHrLMktgKfNHuiFCb5yAG7DMzP41IP9xpwjfN4fOnNOv2wzsFOov
-	 IpfSE7107PyFic9a3E9sYqpNyD84Ki2YVyFeZP3R2ugR4GwMP2A4Sx9tdkWPhPMeP/
-	 Yp2xWgZPk1Lcw==
+	b=UnTJUpGnWFgQUfFUaP/J8Gr85hqNtITgyPJ7f1lf8YOMcFr04jUI8QGAG2EgxANxL
+	 rSNPl3PymOV0CzGRikYoGCPmxfc4oEmFPAZgpRRN/C7P82V0baZnBD7Jpd00B9coJ/
+	 ZspOuxxtg9RnIUfGkW8bnM8V8nMj8T6Ks7hvrjOLGkd+0Z0RvGA5Zm0fRcOuwv3cEF
+	 dYAXbGNDX/f/FHqbrJ47l1ZAuxHR22CZmysINqyYZ40cefYoFpJrijBG7UaioUW0xB
+	 8NAnGWNyYqgygeS4KcEwwMt/+pqV19pmDuvLdRZi5CMl0q8FoMVZANeK0PqCtNrp/6
+	 TGaXv+x+jYWZQ==
 From: guoren@kernel.org
 To: palmer@rivosinc.com,
 	heiko@sntech.de,
@@ -60,17 +60,16 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-csky@vger.kernel.org,
 	Guo Ren <guoren@linux.alibaba.com>,
 	Guo Ren <guoren@kernel.org>
-Subject: [PATCH V8 01/10] asm-generic: ticket-lock: Remove unnecessary atomic_read
-Date: Sun, 24 Jul 2022 08:25:08 -0400
-Message-Id: <20220724122517.1019187-2-guoren@kernel.org>
+Subject: [PATCH V8 02/10] asm-generic: ticket-lock: Use the same struct definitions with qspinlock
+Date: Sun, 24 Jul 2022 08:25:09 -0400
+Message-Id: <20220724122517.1019187-3-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220724122517.1019187-1-guoren@kernel.org>
 References: <20220724122517.1019187-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220724_052542_645337_A25CE799 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220724_052545_708697_8AA95B45 
+X-CRM114-Status: GOOD (  11.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,53 +88,97 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Remove unnecessary atomic_read in arch_spin_value_unlocked(lock),
-because the value has been in lock. This patch could prevent
-arch_spin_value_unlocked contend spin_lock data again.
+Let ticket_lock use the same struct definitions with qspinlock, and then
+we could move to combo spinlock (combine ticket & queue).
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
 ---
- include/asm-generic/spinlock.h | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
+ include/asm-generic/spinlock.h       | 14 +++++++-------
+ include/asm-generic/spinlock_types.h | 12 ++----------
+ 2 files changed, 9 insertions(+), 17 deletions(-)
 
 diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
-index fdfebcb050f4..90803a826ba0 100644
+index 90803a826ba0..4773334ee638 100644
 --- a/include/asm-generic/spinlock.h
 +++ b/include/asm-generic/spinlock.h
-@@ -68,11 +68,18 @@ static __always_inline void arch_spin_unlock(arch_spinlock_t *lock)
+@@ -32,7 +32,7 @@
+ 
+ static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
+ {
+-	u32 val = atomic_fetch_add(1<<16, lock);
++	u32 val = atomic_fetch_add(1<<16, &lock->val);
+ 	u16 ticket = val >> 16;
+ 
+ 	if (ticket == (u16)val)
+@@ -46,31 +46,31 @@ static __always_inline void arch_spin_lock(arch_spinlock_t *lock)
+ 	 * have no outstanding writes due to the atomic_fetch_add() the extra
+ 	 * orderings are free.
+ 	 */
+-	atomic_cond_read_acquire(lock, ticket == (u16)VAL);
++	atomic_cond_read_acquire(&lock->val, ticket == (u16)VAL);
+ 	smp_mb();
+ }
+ 
+ static __always_inline bool arch_spin_trylock(arch_spinlock_t *lock)
+ {
+-	u32 old = atomic_read(lock);
++	u32 old = atomic_read(&lock->val);
+ 
+ 	if ((old >> 16) != (old & 0xffff))
+ 		return false;
+ 
+-	return atomic_try_cmpxchg(lock, &old, old + (1<<16)); /* SC, for RCsc */
++	return atomic_try_cmpxchg(&lock->val, &old, old + (1<<16)); /* SC, for RCsc */
+ }
+ 
+ static __always_inline void arch_spin_unlock(arch_spinlock_t *lock)
+ {
+ 	u16 *ptr = (u16 *)lock + IS_ENABLED(CONFIG_CPU_BIG_ENDIAN);
+-	u32 val = atomic_read(lock);
++	u32 val = atomic_read(&lock->val);
+ 
  	smp_store_release(ptr, (u16)val + 1);
  }
  
-+static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
-+{
-+	u32 val = lock.counter;
-+
-+	return ((val >> 16) == (val & 0xffff));
-+}
-+
- static __always_inline int arch_spin_is_locked(arch_spinlock_t *lock)
+ static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
  {
--	u32 val = atomic_read(lock);
-+	arch_spinlock_t val = READ_ONCE(*lock);
+-	u32 val = lock.counter;
++	u32 val = lock.val.counter;
  
--	return ((val >> 16) != (val & 0xffff));
-+	return !arch_spin_value_unlocked(val);
+ 	return ((val >> 16) == (val & 0xffff));
  }
+@@ -84,7 +84,7 @@ static __always_inline int arch_spin_is_locked(arch_spinlock_t *lock)
  
  static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
-@@ -82,11 +89,6 @@ static __always_inline int arch_spin_is_contended(arch_spinlock_t *lock)
+ {
+-	u32 val = atomic_read(lock);
++	u32 val = atomic_read(&lock->val);
+ 
  	return (s16)((val >> 16) - (val & 0xffff)) > 1;
  }
+diff --git a/include/asm-generic/spinlock_types.h b/include/asm-generic/spinlock_types.h
+index 8962bb730945..f534aa5de394 100644
+--- a/include/asm-generic/spinlock_types.h
++++ b/include/asm-generic/spinlock_types.h
+@@ -3,15 +3,7 @@
+ #ifndef __ASM_GENERIC_SPINLOCK_TYPES_H
+ #define __ASM_GENERIC_SPINLOCK_TYPES_H
  
--static __always_inline int arch_spin_value_unlocked(arch_spinlock_t lock)
--{
--	return !arch_spin_is_locked(&lock);
--}
+-#include <linux/types.h>
+-typedef atomic_t arch_spinlock_t;
 -
- #include <asm/qrwlock.h>
+-/*
+- * qrwlock_types depends on arch_spinlock_t, so we must typedef that before the
+- * include.
+- */
+-#include <asm/qrwlock_types.h>
+-
+-#define __ARCH_SPIN_LOCK_UNLOCKED	ATOMIC_INIT(0)
++#include <asm-generic/qspinlock_types.h>
++#include <asm-generic/qrwlock_types.h>
  
- #endif /* __ASM_GENERIC_SPINLOCK_H */
+ #endif /* __ASM_GENERIC_SPINLOCK_TYPES_H */
 -- 
 2.36.1
 
