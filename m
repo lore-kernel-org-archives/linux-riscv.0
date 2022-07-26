@@ -4,74 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B96BBC25B07
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jul 2022 13:57:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 577CAC00144
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jul 2022 14:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XX9UwJl7L/K8piyw3v90g3Cs42wYgZXGdOtF20jljgk=; b=gHBqYyH8gLzBy2
-	wfQgxNqSAzQbO92eAGd9JAsuTArSHvCETqlxmY0MNtTMmKveRQXkrQ3Mr4+AOcIxxpuwWOrIqt6UD
-	KEKZJCCj13rH1LgSooRsDzsewWeDSRkFMiCewnuhopSVCsQKZkzCg/M/qin4c41TYlANsVeV7Y8pB
-	EutAulqEuoIMApWUB9lB1qoDh0c6CJpFWptSX/Lezt0gKp23pumvHmpCioera86pJLQY7e8H9H1dm
-	uuPv0R56jGlFCp6WMaTooS+lzqUYnIJ5VfcN4zY3QJc8pni2R999C7nWTCDlBwPcdUHxiUl6t/T/H
-	WoKNV/216suhL/1nzEvg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HXGMlaC6YqfH1v3ptjeL001zaX6hc9qic2GHpA5qW0Q=; b=TolHuJPnHuPdsQG8/Qgfp4uuwU
+	TUnskBGXsq628RtoIUlMfqlrL5ji52mAExKb59kz5pjAEDOQVRBVj+o9i3O+COe2MrCyzUOwW6iXS
+	bCbN/mIJJDDCR0fcKyGdlPenAkcJ+G+WYNb4ZKo8G/0lsQNmt7KTbcllWAZCoj4opXHLke4G9rs8u
+	SQmI3qiPkVui/buszuzBXleqT9Gtm0OhaYCZxkBJYELr0rabSMNyEoywFR24pBmi83vgYfTaa7miJ
+	dpMs2H24IouBlTX+9Xl59zpfN6F4mdW1Jjhgdihu/Wg6dXM75xELIrBeJhBt+98Ag3ZQDWiIRP+kA
+	Bn7LlsZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGKr5-00HT6F-GV; Tue, 26 Jul 2022 13:44:11 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1oGL7o-0001EI-Iv; Tue, 26 Jul 2022 14:01:28 +0000
+Received: from out30-43.freemail.mail.aliyun.com ([115.124.30.43])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGKr2-00HT4h-A8
-	for linux-riscv@lists.infradead.org; Tue, 26 Jul 2022 13:44:09 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id b26so20245106wrc.2
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Jul 2022 06:44:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=oQ8s3zPZY+TFJkH6m+UUXWT+JWabae4Qo2BwG+X/dtA=;
-        b=EqK8sgogR79mEUl/YeNrDUb+Y+dW6RBsh5xIg9wH0CgvvZYyLVjTlNRJGmwxL4Qt4s
-         oS/ENaOx+3r7jBOIFOAIfdQlx46fKBlSTCLJWU1bDpG4zIJKTORp/+HSufNT/Y/j8VK+
-         ZH87Q+MvYZljijN8hSiGm1/CrfjsOK/IUfQf2t0+R4y7abiYDBwxd3tU2ZkaOwfV9uPq
-         TrLBsqYaB/L+lwIl9+M5bZhtBbaD9xXN93M5ShyeuaQBlsh/IZsks6QQLQfkmkJIhKYx
-         GXjFNpIbZ3kZO1B33eOJDV6XX543AKvZvW43VUR985vMQ5a2lOrgk0si1ciUtMw1IzQo
-         Tbhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=oQ8s3zPZY+TFJkH6m+UUXWT+JWabae4Qo2BwG+X/dtA=;
-        b=zqJ38yC9sdsRW1JE8FmzZv1kA0H0gyW0NZpYjFhE0EaO2YHrKchovdpFworlpJ8nYp
-         mzLYpB/HIWeAhwGTYYCAyowTKVAFl2Pg01qdpBV0d4hhhuXQoMT83UBxGuQFLvojp1/f
-         edwD4KHAFTbNa0uyAAsDcmqIvbmo/tvDYuHxUF9Giw6MyFMtQPc7+dSUkiC1KD4/W5/k
-         f/971WA2nXOrtt1weTS8e71GXpvS8A2Y1AfS5Q+xe7rdvL+4+m1SUbE98RKt4S5AwuEi
-         RYXVfWaCDRsQLwg2ANf0OOgMzIsrPlevOptLbcIeHRl5nmLDcaIpvFroxcHOve99DFyK
-         urrg==
-X-Gm-Message-State: AJIora/aVGA+ooTyZergh8EVCwk5Rk4e8Sj8mGZinBMjTZ5Dy2lvvMU2
-	YwmSoT1zhXJM5eH0AfzR9/pOFKPnEYmgeU3VOqi6rw==
-X-Google-Smtp-Source: AGRyM1sWnAdjWjvz1F29mMNoTK0f/PXmP4buefrfmWkMl0uYgx1rCpW/MGp5I+wz+UW9+gcrqT8oEK0KQ5TKu590ONA=
-X-Received: by 2002:adf:ee4b:0:b0:21e:8e1a:8f3c with SMTP id
- w11-20020adfee4b000000b0021e8e1a8f3cmr5314211wro.346.1658843046640; Tue, 26
- Jul 2022 06:44:06 -0700 (PDT)
+	id 1oGL4p-00HaDx-MG; Tue, 26 Jul 2022 13:58:27 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R131e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=e01e04400;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=22;SR=0;TI=SMTPD_---0VKVecKN_1658843892;
+Received: from 192.168.1.4(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VKVecKN_1658843892)
+          by smtp.aliyun-inc.com;
+          Tue, 26 Jul 2022 21:58:14 +0800
+Subject: Re: [PATCH V4 0/5] RISC-V fixups to work with crash tool
+To: Conor.Dooley@microchip.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, anup@brainfault.org, heiko@sntech.de,
+ guoren@kernel.org, mick@ics.forth.gr, alexandre.ghiti@canonical.com,
+ bhe@redhat.com, vgoyal@redhat.com, dyoung@redhat.com, corbet@lwn.net
+Cc: kexec@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ crash-utility@redhat.com, huanyi.xj@alibaba-inc.com,
+ heinrich.schuchardt@canonical.com, k-hagio-ab@nec.com,
+ hschauhan@nulltrace.org
+References: <20220726093729.1231867-1-xianting.tian@linux.alibaba.com>
+ <651b552d-8954-e58c-e994-4a9782f1112a@microchip.com>
+From: Xianting Tian <xianting.tian@linux.alibaba.com>
+Message-ID: <0f723ce0-48b4-b31d-e590-94b45cef8fa5@linux.alibaba.com>
+Date: Tue, 26 Jul 2022 21:58:12 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.14.0
 MIME-Version: 1.0
-References: <20220620115549.1529597-1-apatel@ventanamicro.com>
- <CAAhSdy0mHbxQ3QVP9j1==oTG75Z9_T2bDSif-UGKppG+-hoJng@mail.gmail.com> <659c6aa4-1100-0945-4965-3e106dfd490f@microchip.com>
-In-Reply-To: <659c6aa4-1100-0945-4965-3e106dfd490f@microchip.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Tue, 26 Jul 2022 19:13:52 +0530
-Message-ID: <CAAhSdy0XwTsQ+dgYatqf6BvGmcGwz_bzmdV5fNeF8oY3rK6dDg@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: Add mvendorid, marchid, and mimpid to
- /proc/cpuinfo output
-To: Conor.Dooley@microchip.com
-Cc: palmer@dabbelt.com, apatel@ventanamicro.com, arnd@arndb.de, 
-	paul.walmsley@sifive.com, linux-kernel@vger.kernel.org, 
-	heinrich.schuchardt@canonical.com, atishp@atishpatra.org, 
-	linux-riscv@lists.infradead.org
+In-Reply-To: <651b552d-8954-e58c-e994-4a9782f1112a@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220726_064408_566371_B2E4DBFB 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20220726_065824_001248_F106B701 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +61,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 26, 2022 at 7:10 PM <Conor.Dooley@microchip.com> wrote:
->
-> Hey Anup,
->
-> On 26/07/2022 12:57, Anup Patel wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> >
-> > Hi Palmer,
-> >
-> > On Mon, Jun 20, 2022 at 5:26 PM Anup Patel <apatel@ventanamicro.com> wrote:
-> >>
-> >> Identifying the underlying RISC-V implementation can be important
-> >> for some of the user space applications. For example, the perf tool
-> >> uses arch specific CPU implementation id (i.e. CPUID) to select a
-> >> JSON file describing custom perf events on a CPU.
-> >>
-> >> Currently, there is no way to identify RISC-V implementation so we
-> >> add mvendorid, marchid, and mimpid to /proc/cpuinfo output.
-> >>
-> >> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> >
-> > Can this patch be considered for 5.20 ?
->
-> iirc I mentioned the consistency of using defined() for
-> CONFIG_RISCV_SBI versus IS_ENABLED() elsewhere in arch/riscv/
-> but I don't recall a response.
-
-Sorry, I missed your comment. I will address and send v2 soon.
-
-Regards,
-Anup
-
->
-> Thanks,
-> Conor.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CuWcqCAyMDIyLzcvMjYg5LiL5Y2INTo1MiwgQ29ub3IuRG9vbGV5QG1pY3JvY2hpcC5jb20g5YaZ
+6YGTOgo+IE9uIDI2LzA3LzIwMjIgMTA6MzcsIFhpYW50aW5nIFRpYW4gd3JvdGU6Cj4+IEVYVEVS
+TkFMIEVNQUlMOiBEbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bmxlc3Mg
+eW91IGtub3cgdGhlIGNvbnRlbnQgaXMgc2FmZQo+IEFoIEkgc2VlIHlvdSd2ZSBhbHJlYWR5IHNl
+bnQgYSB2NC4KPgo+PiBDaGFuZ2VzIHYxIC0+IHYyOgo+PiAgICAxLCByZW1vdmUgdGhlIHBhdGNo
+ICJBZGQgYSBmYXN0IGNhbGwgcGF0aCBvZiBjcmFzaF9rZXhlYygpIiBmcm9tIHRoaXMgc2VyaWVz
+Cj4+ICAgIG9mIHBhdGNoZXMsIGFzIGl0IGFscmVhZHkgYXBwbGllZCB0byByaXNjdiBnaXQuCj4+
+ICAgIGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3Jpc2N2
+L2xpbnV4LmdpdC9jb21taXQvP2g9Zm9yLW5leHQmaWQ9M2YxOTAxMTEwYTg5YjBlMmUxM2FkYjJh
+YzhkMWE3MTAyODc5ZWE5OAo+PiAgICAyLCBhZGQgJ1Jldmlld2VkLWJ5JyBiYXNlZCBvbiB0aGUg
+Y29tbWVudHMgb2YgdjEuCj4+IENoYW5nZXMgdjIgLT4gdjM6Cj4+ICAgIHVzZSAicmlzY3YiIGlu
+c3RlYWQgb2YgInJpc2N2NjQiIGluIHBhdGNoIDUgc3ViamVjdCBsaW5lLgo+PiBDaGFuZ2VzIHYz
+IC0+IHY0Ogo+PiAgICB1c2UgInJpc2N2IiBpbnN0ZWFkIG9mICJyaXNjdjY0IiBpbiB0aGUgc3Vt
+bWFyeSBvZiBwYXRjaCA1IHN1YmplY3QgbGluZS4KPiBUaGVyZSdzIG5vIG5lZWQgdG8gcmVzcGlu
+IGEgc2VyaWVzIGZvciB0aGUgc2FrZSAzIGNoYXJhY3RlcnMgaW4gdGhlIGNvdmVyCj4gbGV0dGVy
+IChzbyBzb3JyeSBpZiB5b3UgbWlzdW5kZXJzdG9vZCBtZSEpLi4uCj4KPj4gWGlhbnRpbmcgVGlh
+biAoNSk6Cj4+ICAgICBSSVNDLVY6IHVzZSBfX3NtcF9wcm9jZXNzb3JfaWQoKSBpbnN0ZWFkIG9m
+IHNtcF9wcm9jZXNzb3JfaWQoKQo+PiAgICAgUklTQy1WOiBBZGQgYXJjaF9jcmFzaF9zYXZlX3Zt
+Y29yZWluZm8gc3VwcG9ydAo+PiAgICAgcmlzY3Y6IEFkZCBtb2R1bGVzIHRvIHZpcnR1YWwga2Vy
+bmVsIG1lbW9yeSBsYXlvdXQgZHVtcAo+PiAgICAgUklTQy1WOiBGaXh1cCBnZXR0aW5nIGNvcnJl
+Y3QgY3VycmVudCBwYwo+PiAgICAgcmlzY3Y6IGNyYXNoX2NvcmU6IEV4cG9ydCBrZXJuZWwgdm0g
+bGF5b3V0LCBwaHlzX3JhbV9iYXNlCj4gLi4uYnV0IGl0IHdvdWxkJ3ZlIGJlZW4gZ29vZCB0byBh
+bGlnbiB0aGVzZSB0byBlaXRoZXIgInJpc2N2OiIgb3IKPiAiUklTQy1WOiIgJiBub3QgbWl4IHRo
+ZSB0d28gaW4gYSBzZXJpZXMuIERvbid0IGRvIHRoaXMgcmlnaHQgYXdheSwKPiBpdCBpcyBva2F5
+IHRvIHdhaXQgZm9yIG1vcmUgc2lnbmlmaWNhbnQgY2hhbmdlcyBiZWZvcmUgc2VuZGluZyBvdXQK
+PiBhIG5ldyB2ZXJzaW9uIGFzIHRoaXMgc29ydCBvZiB0aGluZyBjb3VsZCBlYXNpbHkgYmUgY2hh
+bmdlZCB3aGVuCj4gYmVpbmcgYXBwbGllZC4KTWFueSB0aGFua3MsIEkgZ290IGl0LCB3YWl0aW5n
+IHRoZXNlIHBhdGNoZXMgdG8gYmUgYXBwbGllZDopCj4KPiBUaGFua3MsCj4gQ29ub3IuCj4KPgoK
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
+Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
+c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
