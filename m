@@ -4,80 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB60BC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jul 2022 08:14:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C116EC43334
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jul 2022 08:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O9skazMjyv1AJG+a8GhFQbcga5S5k3e1tlIXNSDlOdA=; b=SbAG8RSiumJa4T
-	Q85EhFtA/cw1v8XowraW8vw3mUKblez0nENHg6UyXii7TAScTsvgRk44sesDrPR34AK4ndTch1hO3
-	7hvzu6JLJm2bC9KPXtZqGW7NqwU3oaGO4XuwZ9PsjiPNdYrQcplo5fIwEQefH0NwImylf4zyr6vsO
-	RWT3krlx6VvlMP4fLDiO6OouzqJMl/RJmNsV2ZWYCciw6hpYj16CmFGCmT55XepGBXhBAmTFP/H3t
-	/sj6FMH7qvbPH/G3Hn37DjCl6w7Xav9RrCwD5zW5xwiO1f/JEacOiPlTJ1Iq1EGBEYbXjBq/Tt9bU
-	3lnPSTHrstH0tcp4VYiA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sngy4FeeqekOp034xbP7fqo2n7Ue6YhlKFsmZCY9SvE=; b=MIAe3OF3eXb5fZ1cbixeSmo/Ny
+	iLKn/Hw5t2rMRryJ5jjQY4nmr4mXfz4XOSS0URbL8OhHnYEIpnfVAUf9401FCXFm2Ld/UNZwbl8AV
+	551nAJ69DcETC+vjrqtwIEA359//a9qzvIEbmmCdJmGcqo3nnfA/hyG12frHU02a+YgpFMWA1Z6Hq
+	1hlPSaGZYpV8Z073/NZqdhYmbG4oEZZelJpRxQDY6P7QsaSPHxJS43VNUBCkrAk05fALgA7EQe1u+
+	GBnHi97gcutv7XsWIRZVW2X/jyQc6ChrxHw08rkXuhd5U4OnpnnMXr9undJPkpHYWZpUDl9YWHW6j
+	Pi4+YgjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGFhe-009zIj-OV; Tue, 26 Jul 2022 08:14:06 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1oGFjv-00A1Gy-Mf; Tue, 26 Jul 2022 08:16:27 +0000
+Received: from out30-43.freemail.mail.aliyun.com ([115.124.30.43])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGFgI-009y5W-KH
-	for linux-riscv@lists.infradead.org; Tue, 26 Jul 2022 08:12:44 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-31f434f2884so20917387b3.6
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Jul 2022 01:12:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=nCX2ALCWALFGybcMGwSCyXmdfN3GI/+m4dDqSmPpw10=;
-        b=s0G272QfIh9/l63hjHAAeg/H9EPmVwACwS37tb+LwxjryHa4mlQWqrwvINvSIIEoW/
-         Z5YvAD93ZwX3PpzFcVYHu2JNnjVTJEbu9Utqrz3Y4iFYljnNLzmhkxMNWfU/cW+IHO08
-         BtMqsqCC7Au9eyjhgIOU+Pk7NDXHMOQRmVzOs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=nCX2ALCWALFGybcMGwSCyXmdfN3GI/+m4dDqSmPpw10=;
-        b=VL3SOHXAlKRQpFwzQc0GaW6jnSU2GTDyFbIPUJV2uC9KHYuhAgIWOFzNONV4kKlahY
-         fhtZiD/DN8A/8QIzJYrQTdAowWTWX1tlahIy7+o3SxDyMM3wmM666phOW03k/2JkOrZY
-         9KQSLR6sILAmrA+tmCtzdhAxQvvInDGcbCillr+j1Qe3qkd4AX8Sg0B0Fw7S5CSkgkxo
-         qeaYY5Pl5sDOfpubhBAP9wV5tNUQfMhekz0mNBElUuKJGMNTF13XQ6CYxb/PuRx2Ec1e
-         KD7UhYia4WfTbqLzHWoPaVAghIios3YatyJxzzyZN2Zk8s8vgQKC6r7LXhQdQYu3QtEh
-         sHDw==
-X-Gm-Message-State: AJIora/CmGr/uJ8MVAnUtUf45gh/HWuw13tykWAynGtU6GgUIudcLTDJ
-	SyS+R16evBg46zhifYZPzaUPtND2YSbDZT+BwVbJnUvIyQ==
-X-Google-Smtp-Source: AGRyM1s8Apd3hvFA44J5aJBKOXCo+fbuaspIcsLZraEzhnuLtGz3y8ZMjuWlDz61tH0RApEnIjJf8dPeiNTkr3bt800=
-X-Received: by 2002:a0d:ebc8:0:b0:31f:4f08:63aa with SMTP id
- u191-20020a0debc8000000b0031f4f0863aamr352109ywe.145.1658823159618; Tue, 26
- Jul 2022 01:12:39 -0700 (PDT)
+	id 1oGFjl-00A16G-Ct; Tue, 26 Jul 2022 08:16:19 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R621e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046049;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=22;SR=0;TI=SMTPD_---0VKUXwnf_1658823370;
+Received: from B-LB6YLVDL-0141.local(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VKUXwnf_1658823370)
+          by smtp.aliyun-inc.com;
+          Tue, 26 Jul 2022 16:16:12 +0800
+Subject: Re: [RESEND PATCH V2 0/5] Fixups to work with crash tool
+To: Conor.Dooley@microchip.com
+Cc: alexandre.ghiti@canonical.com, heiko@sntech.de, palmer@dabbelt.com,
+ mick@ics.forth.gr, guoren@kernel.org, kexec@lists.infradead.org,
+ bhe@redhat.com, linux-doc@vger.kernel.org, vgoyal@redhat.com,
+ linux-riscv@lists.infradead.org, dyoung@redhat.com,
+ linux-kernel@vger.kernel.org, crash-utility@redhat.com,
+ huanyi.xj@alibaba-inc.com, heinrich.schuchardt@canonical.com,
+ anup@brainfault.org, corbet@lwn.net, k-hagio-ab@nec.com,
+ hschauhan@nulltrace.org, paul.walmsley@sifive.com, aou@eecs.berkeley.edu
+References: <20220725014539.1037627-1-xianting.tian@linux.alibaba.com>
+ <51c97da7-422f-1b5b-03d3-dc36c9132c2a@microchip.com>
+ <7a395f64-8ec7-e07f-e763-afc1f2611c75@linux.alibaba.com>
+ <2301681f-361d-b85b-e255-3bf449ceeaa9@microchip.com>
+From: Xianting Tian <xianting.tian@linux.alibaba.com>
+Message-ID: <cf00c1f6-b043-a11e-f7a5-bed1e829cb73@linux.alibaba.com>
+Date: Tue, 26 Jul 2022 16:16:10 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.14.0
 MIME-Version: 1.0
-References: <20220715175155.3567243-1-mail@conchuod.ie> <96972ad8-d146-3bc2-0e49-ffe88580bbee@microchip.com>
- <20220725091346.GA20370@willie-the-truck> <28e38506-8fce-9000-c211-199a7aa69910@microchip.com>
-In-Reply-To: <28e38506-8fce-9000-c211-199a7aa69910@microchip.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Tue, 26 Jul 2022 01:12:28 -0700
-Message-ID: <CAOnJCUJh0vU8-tK31-A44h+VNHZA2_R6GayNjFg-7Daa6efbag@mail.gmail.com>
-Subject: Re: [PATCH v4 0/2] Fix RISC-V's arch-topology reporting
-To: Conor Dooley <Conor.Dooley@microchip.com>
-Cc: "will@kernel.org" <will@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Sudeep Holla <sudeep.holla@arm.com>, 
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	"Rafael J. Wysocki" <rafael@kernel.org>, Daire McNamara <Daire.McNamara@microchip.com>, 
-	Niklas Cassel <niklas.cassel@wdc.com>, Damien Le Moal <damien.lemoal@opensource.wdc.com>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Zong Li <zong.li@sifive.com>, 
-	Emil Renner Berhing <kernel@esmil.dk>, Jonas Hahnfeld <hahnjo@hahnjo.de>, Guo Ren <guoren@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Philipp Tomsich <philipp.tomsich@vrull.eu>, Rob Herring <robh@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, Brice Goglin <Brice.Goglin@inria.fr>
+In-Reply-To: <2301681f-361d-b85b-e255-3bf449ceeaa9@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220726_011242_694590_D3F7AFA9 
-X-CRM114-Status: GOOD (  26.47  )
+X-CRM114-CacheID: sfid-20220726_011617_674111_C2F090D5 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,65 +64,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 25, 2022 at 2:20 AM <Conor.Dooley@microchip.com> wrote:
->
-> On 25/07/2022 10:13, Will Deacon wrote:
-> > On Sat, Jul 23, 2022 at 11:22:01AM +0000, Conor.Dooley@microchip.com wrote:
-> >> On 15/07/2022 18:51, Conor Dooley wrote:
-> >>
-> >> Hey,
-> >>
-> >> Not got any feedback on the smpboot changes from the RISC-V side.
-> >> I tested it on polarfire, the d1 (with both SMP & !SMP set iirc)
-> >> & on the u540. It all looked good to me.
-> >>
-> >> I'd like to have this fixed for v5.20, but there isn't too much
-> >> time left before the mw. Not too sure about the cross-tree changes,
-> >> does it need an immutable branch or could it go through driver-core?
-> >> Catalin suggested removing the CC stable from patch 1/2 & adding it
-> >> as a dependency for the 2/2 patch - but obviously that's up to the
-> >> committer to sort out.
-> >
-> > I'm finalising the arm64 queue today, so I don't really want to pull in
-> > additional changes beyond critical fixes at this point, I'm afraid. I was
-> > half-expecting a pull request from the riscv side last week but I didn't
-> > see anything.
->
-> Yeah, that's fair. It's late in the game for cross-tree messing.
-> I know Palmer has been p busy recently.
->
-> > FWIW, if there's still no movement by -rc1, then I'm happy to queue all
-> > of this on its own branch in the arm64 tree for 5.21.
->
-> Hopefully someone on the riscv side will have confirmed what I am doing
-> is sane by then.
->
-> >
-> > Let me know.
->
-> I will, thanks!
-
-Sorry for the delayed response here. I was planning to test the series
-last week itself
-but got dragged into something else and a qemu bug for NUMA.
-
-Thanks for the fixes. I have tested this on Qemu(removing the topology
-node) for the following configurations.
-SMP, !SMP, NUMA (2 sockets)
-
-FWIW,
-Tested-by: Atish Patra <atishp@rivosinc.com>
-
--- 
-Regards,
-Atish
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CuWcqCAyMDIyLzcvMjYg5LiL5Y2INDowMSwgQ29ub3IuRG9vbGV5QG1pY3JvY2hpcC5jb20g5YaZ
+6YGTOgo+IE9uIDI2LzA3LzIwMjIgMDg6NTQsIHRpYW54aWFudGluZyB3cm90ZToKPj4g5ZyoIDIw
+MjIvNy8yNiDkuIrljYgxOjEzLCBDb25vci5Eb29sZXlAbWljcm9jaGlwLmNvbSDlhpnpgZM6Cj4+
+PiBUaGF0IHNhaWQsIHRoaXMgZG9lcyBub3QgYXBwbHkgdG8gcmlzY3YvZm9yLW5leHQ6Cj4+PiBi
+NCBzaGF6YW0gMjAyMjA3MjUwMTQ1MzkuMTAzNzYyNy0xLXhpYW50aW5nLnRpYW5AbGludXguYWxp
+YmFiYS5jb20KPj4+IEdyYWJiaW5nIHRocmVhZCBmcm9tIGxvcmUua2VybmVsLm9yZy9hbGwvMjAy
+MjA3MjUwMTQ1MzkuMTAzNzYyNy0xLXhpYW50aW5nLnRpYW4lNDBsaW51eC5hbGliYWJhLmNvbS90
+Lm1ib3guZ3oKPj4+IENoZWNraW5nIGZvciBuZXdlciByZXZpc2lvbnMgb24gaHR0cHM6Ly9sb3Jl
+Lmtlcm5lbC5vcmcvYWxsLwo+Pj4gQW5hbHl6aW5nIDYgbWVzc2FnZXMgaW4gdGhlIHRocmVhZAo+
+Pj4gQ2hlY2tpbmcgYXR0ZXN0YXRpb24gb24gYWxsIG1lc3NhZ2VzLCBtYXkgdGFrZSBhIG1vbWVu
+dC4uLgo+Pj4gLS0tCj4+PiAgwqDCoCBbUEFUQ0ggdjIgMS81XSBSSVNDLVY6IHVzZSBfX3NtcF9w
+cm9jZXNzb3JfaWQoKSBpbnN0ZWFkIG9mIHNtcF9wcm9jZXNzb3JfaWQoKQo+Pj4gIMKgwqAgW1BB
+VENIIHYyIDIvNV0gUklTQy1WOiBBZGQgYXJjaF9jcmFzaF9zYXZlX3ZtY29yZWluZm8gc3VwcG9y
+dAo+Pj4gIMKgwqAgW1BBVENIIHYyIDMvNV0gcmlzY3Y6IEFkZCBtb2R1bGVzIHRvIHZpcnR1YWwg
+a2VybmVsIG1lbW9yeSBsYXlvdXQgZHVtcAo+Pj4gIMKgwqAgW1BBVENIIHYyIDQvNV0gUklTQy1W
+OiBGaXh1cCBnZXR0aW5nIGNvcnJlY3QgY3VycmVudCBwYwo+Pj4gIMKgwqAgW1BBVENIIHYyIDUv
+NV0gcmlzY3Y6IGNyYXNoX2NvcmU6IEV4cG9ydCBrZXJuZWwgdm0gbGF5b3V0LCBwaHlzX3JhbV9i
+YXNlCj4+PiAtLS0KPj4+IFRvdGFsIHBhdGNoZXM6IDUKPj4+IC0tLQo+Pj4gQXBwbHlpbmc6IFJJ
+U0MtVjogdXNlIF9fc21wX3Byb2Nlc3Nvcl9pZCgpIGluc3RlYWQgb2Ygc21wX3Byb2Nlc3Nvcl9p
+ZCgpCj4+PiBBcHBseWluZzogUklTQy1WOiBBZGQgYXJjaF9jcmFzaF9zYXZlX3ZtY29yZWluZm8g
+c3VwcG9ydAo+Pj4gUGF0Y2ggZmFpbGVkIGF0IDAwMDIgUklTQy1WOiBBZGQgYXJjaF9jcmFzaF9z
+YXZlX3ZtY29yZWluZm8gc3VwcG9ydAo+PiBwYXRjaCAyIGFwcGx5IGlzIE9LIGZvciBtZSwgSSBk
+b24ndCBrbm93IHdoeSB5b3UgZmFpbGVkIDooCj4+IERvIHlvdSBoYXZlIG1vcmUgZGV0YWxzIGZv
+ciB0aGlzPwo+Pgo+IFdoYXQgZGlkIHlvdSBhcHBseSBpdCB0bz8gSXQgZG9lcyBub3QgYXBwbHkg
+Zm9yIG1lIHRvIHJpc2N2L2Zvci1uZXh0Ogo+IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3Nj
+bS9saW51eC9rZXJuZWwvZ2l0L3Jpc2N2L2xpbnV4LmdpdC9sb2cvP2g9Zm9yLW5leHQKClRoaXMg
+NSBwYXRjaGVzIGFyZSBiYXNlZCBvbiB0aGUgbWFzdGVyIGJyYW5jaCBvZiBiZWxvdyBnaXQ6Cgpo
+dHRwczovL2tlcm5lbC5nb29nbGVzb3VyY2UuY29tL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC90
+b3J2YWxkcy9saW51eC5naXQKCiJnaXQgYW0gMDAwMi1SSVNDLVYtQWRkLWFyY2hfY3Jhc2hfc2F2
+ZV92bWNvcmVpbmZvLXN1cHBvcnQucGF0Y2giIHRvIAp0aGlzIGdpdCBpcyBvayBmb3IgbWUuCgpB
+bGwgaXMgY29ycmVjdD8KCj4KPiBUaGFua3MsCj4gQ29ub3IuCj4KCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
