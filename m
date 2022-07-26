@@ -4,52 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B55C43334
-	for <linux-riscv@archiver.kernel.org>; Mon, 25 Jul 2022 20:49:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33989C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jul 2022 04:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IF3im/aO6SeHdA8DwokfcCyyk/WtkWn3+JZLtcoeA3A=; b=t3+7nVqdJ/+R9A
-	kF8z0mImNXQhccNRE3UmoTSwHDisYqHCrJj7o/3d+KmNpSIHPU6FO+qmbCqsgx6oM1joNmx6WQRbg
-	t0DtAUHQcr6bACg9OV8+elkC8omJ389mU2ojN+jRYrCj0d+HVi6QMPBzdVcPO17B+9L3+btqwUo9/
-	ossmWgKTx/yAkCRzkVytFVGrnXOt6Y4ngVoCl8KIl7dmlXroLFwrM25pfM7r2n5xeKM887P+ONoom
-	rEZXa3OkTVvvyPgVyjtc4ntZX/3LFDAFFWqC+sv1/eAe/IgIpxh9nUwptdNDJaowJa1IYLVYo3dD3
-	tPC61RhUqYhzqMo7YmCQ==;
+	List-Owner; bh=ZH5NgTzlrbTJ1p17VUQYNROFPlimK6uOEB39XBgX6LU=; b=blYlazisgewHxi
+	paW/TDvIQF5/EF2a60eZg15FAPpdz6bs0u5U8r3oMryzBF1cnoW66621OUrFEeTF7mTHqnDhLmtdN
+	9S1vWU7DCPZcBi5yPiYFWxxV5ZnQ7xTjNHhkq5OxdQauvax1dZ6RLw0QHANZVaiArmlOo2EUsxS7u
+	J/URzjoOnB2IJ9P0/XCqd9bhF8BKlzLA0I9v215KCNLu/4zcvGlzzdgn3G87AdFcp6lKzhFbbHtih
+	tlmim/SdW1WvG4VFkrBWcfK24lJv04ctaY6Qg+fhrkhOxuEyloVzDdghF7KZ3OaU6VDYnk4+YJyZI
+	DRmrYBCoWiY27mPi8D5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oG50V-002DXi-5Z; Mon, 25 Jul 2022 20:48:51 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1oGCVQ-007avx-Fm; Tue, 26 Jul 2022 04:49:16 +0000
+Received: from conssluserg-04.nifty.com ([210.131.2.83])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oG50S-002DSI-1e; Mon, 25 Jul 2022 20:48:49 +0000
-Received: from cpc152649-stkp13-2-0-cust121.10-2.cable.virginm.net ([86.15.83.122] helo=[192.168.0.17])
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1oG508-006V3d-JH; Mon, 25 Jul 2022 21:48:29 +0100
-Message-ID: <a5b079bb-64ab-092d-27d4-d32d0d35afcb@codethink.co.uk>
-Date: Mon, 25 Jul 2022 21:48:28 +0100
+	id 1oGCVM-007asa-HE
+	for linux-riscv@lists.infradead.org; Tue, 26 Jul 2022 04:49:14 +0000
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42]) (authenticated)
+	by conssluserg-04.nifty.com with ESMTP id 26Q4mlZA004983
+	for <linux-riscv@lists.infradead.org>; Tue, 26 Jul 2022 13:48:48 +0900
+DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-04.nifty.com 26Q4mlZA004983
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
+	s=dec2015msa; t=1658810929;
+	bh=TJAt1sPKJdZeEtouGB202AmkAZKPNWADM2oec71xILQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=H+bAzdQoX1NlMoaWJVuA1qncXKv/uWJmIsm2+S5S1gbF5VtEW3a9Y6QLpOMnoJdPv
+	 BEuiVLlmY65JNmt3oBdAif4zPVavxqucMyfPem6pO48uWP4Kb60m2el6Z6Ac2u9Qie
+	 jidXg/g1F6OWB5fVtavRcOxYuELafLNxMxCACDt1bbiAlsXNN6ZKO8f3JlMto0wCS0
+	 7v4S0r7IMUaC2dM3uwnoC/K3SGK/3qhAjES2Z3+O2smdYJv8iykVyTEW1DAslRL/zs
+	 1VtyXoNwJwhjUoiKjVYc45AJDFEbZ0IfMm++K0NkIt0CQTr9NBB37CAxV8h3VOITbx
+	 2djtMGiL149Jw==
+X-Nifty-SrcIP: [209.85.221.42]
+Received: by mail-wr1-f42.google.com with SMTP id bn9so7663766wrb.9
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Jul 2022 21:48:48 -0700 (PDT)
+X-Gm-Message-State: AJIora+/jXz/dWvtkpEYUQXSkGYi6C1v0iHDH/n3Mf/WOpf6NnmrQGNt
+	tPOSOdNSp9Ag1JAnuvsw2fO7azUK+0G+E3Qysgw=
+X-Google-Smtp-Source: AGRyM1vqyF2N00F5xIlUZdPlGCSBPRAMhN1dql2XSqm2aGCeTkFnj866PnWyStoi52GSkOBa0GFxHDU1rqg4meNzUYA=
+X-Received: by 2002:a5d:52c4:0:b0:21e:af40:7f0b with SMTP id
+ r4-20020a5d52c4000000b0021eaf407f0bmr92775wrv.477.1658810926938; Mon, 25 Jul
+ 2022 21:48:46 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.10.0
-Subject: Re: [PATCH] profile: setup_profiling_timer() is moslty not
- implemented
-Content-Language: en-GB
-To: Andrew Morton <akpm@linux-foundation.org>, Ben Dooks <ben-linux@fluff.org>
-Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-riscv@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- linux-parisc@vger.kernel.org, openrisc@lists.librecores.org,
- linux-ia64@vger.kernel.org, linux-hexagon@vger.kernel.org,
- linux-csky@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-snps-arc@lists.infradead.org, linux-alpha@vger.kernel.org
-References: <20220721195509.418205-1-ben-linux@fluff.org>
- <20220725123948.f16674b10022404814161d4a@linux-foundation.org>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <20220725123948.f16674b10022404814161d4a@linux-foundation.org>
+References: <20220713194112.15557-1-wafgo01@gmail.com> <fa77d640-a18d-ca77-ba57-6735094a224f@microchip.com>
+In-Reply-To: <fa77d640-a18d-ca77-ba57-6735094a224f@microchip.com>
+From: Masahiro Yamada <masahiroy@kernel.org>
+Date: Tue, 26 Jul 2022 13:47:47 +0900
+X-Gmail-Original-Message-ID: <CAK7LNARu4OU_hGQHu8B7F=5jLzU1jp7L=RHVcyo3eLkEyWNcQw@mail.gmail.com>
+Message-ID: <CAK7LNARu4OU_hGQHu8B7F=5jLzU1jp7L=RHVcyo3eLkEyWNcQw@mail.gmail.com>
+Subject: Re: [PATCH] checkstack: add riscv support for scripts/checkstack.pl
+To: Conor.Dooley@microchip.com
+Cc: wafgo01@gmail.com, Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+        "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220725_134848_137097_ED802FE0 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20220725_214913_039911_BC62B8CA 
+X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,43 +75,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25/07/2022 20:39, Andrew Morton wrote:
-> On Thu, 21 Jul 2022 20:55:09 +0100 Ben Dooks <ben-linux@fluff.org> wrote:
-> 
->> The setup_profiling_timer() is mostly un-implemented by many
->> architectures. In many places it isn't guarded by CONFIG_PROFILE
->> which is needed for it to be used. Make it a weak symbol in
->> kernel/profile.c and remove the 'return -EINVAL' implementations
->> from the kenrel.
->>
->> There are a couple of architectures which do return 0 from
->> the setup_profiling_timer() function but they don't seem to
->> do anything else with it. To keep the /proc compatibility for
->> now, leave these for a future update or removal.
->>
->> On ARM, this fixes the following sparse warning:
->> arch/arm/kernel/smp.c:793:5: warning: symbol 'setup_profiling_timer' was not declared. Should it be static?
-> 
-> I'll grab this.
-> 
-> We have had some problems with weak functions lately.  See
-> 
-> https://lore.kernel.org/all/87ee0q7b92.fsf@email.froward.int.ebiederm.org/T/#u
-> 
-> Hopefully that was a rare corner case.
+On Tue, Jul 26, 2022 at 2:40 AM <Conor.Dooley@microchip.com> wrote:
+>
+> On 13/07/2022 20:41, Wadim Mueller wrote:
+> > [You don't often get email from wafgo01@gmail.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+> >
+>
+> I feel like you might've been mislead by get_maintainer for this
+> patch. It looks like the maintainer covering this is Masahiro
+> Yamada <masahiroy@kernel.org> (at least he's taken the last few
+> patches for it).
 
-Great, thanks.
+
+I can pick this up.
+
+Applied to linux-kbuild. Thanks.
+
+
+>
+> I'll be honest, I don't know how to verify that the output is
+> correct - but I did run it & it does output something that looks
+> sane /shrug
+>
+> Thanks,
+> Conor.
+>
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> >
+> > scripts/checkstack.pl lacks support for the riscv architecture. Add
+> > support to detect "addi sp,sp,-FRAME_SIZE" stack frame generation instruction
+> >
+> > Signed-off-by: Wadim Mueller <wafgo01@gmail.com>
+> > ---
+> >  scripts/checkstack.pl | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> >
+> > diff --git a/scripts/checkstack.pl b/scripts/checkstack.pl
+> > index d2c38584ece6..d48dfed6d3db 100755
+> > --- a/scripts/checkstack.pl
+> > +++ b/scripts/checkstack.pl
+> > @@ -16,6 +16,7 @@
+> >  #      AArch64, PARISC ports by Kyle McMartin
+> >  #      sparc port by Martin Habets <errandir_news@mph.eclipse.co.uk>
+> >  #      ppc64le port by Breno Leitao <leitao@debian.org>
+> > +#      riscv port by Wadim Mueller <wafgo01@gmail.com>
+> >  #
+> >  #      Usage:
+> >  #      objdump -d vmlinux | scripts/checkstack.pl [arch]
+> > @@ -108,6 +109,9 @@ my (@stack, $re, $dre, $sub, $x, $xs, $funcre, $min_stack);
+> >         } elsif ($arch eq 'sparc' || $arch eq 'sparc64') {
+> >                 # f0019d10:       9d e3 bf 90     save  %sp, -112, %sp
+> >                 $re = qr/.*save.*%sp, -(([0-9]{2}|[3-9])[0-9]{2}), %sp/o;
+> > +       } elsif ($arch =~ /^riscv(64)?$/) {
+> > +               #ffffffff8036e868:      c2010113                addi    sp,sp,-992
+> > +               $re = qr/.*addi.*sp,sp,-(([0-9]{2}|[3-9])[0-9]{2})/o;
+> >         } else {
+> >                 print("wrong or unknown architecture \"$arch\"\n");
+> >                 exit
+> > --
+> > 2.25.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+
 
 -- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
+Best Regards
+Masahiro Yamada
 
 _______________________________________________
 linux-riscv mailing list
