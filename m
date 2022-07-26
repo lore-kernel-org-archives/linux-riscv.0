@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068E4C00140
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jul 2022 18:07:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE84C19F29
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jul 2022 18:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CGh9fJ73iSUvkt/ju/XDpBYexap0mZyRzpgkj0vUnvc=; b=MhP8oajz6Eb7Y/
-	ylwOg3TQaz6oeOmeckkcvthC10BEtSdM7x8LPNOuaepr3y3cz+ZgEt7/16ig9M7h6ZeQPQg2POCIU
-	1amvfvxDs3c2J/1auuDyS8ZChH2LrDyJBD1yf93pG7Fb0DB5PKWeS9+xcw5HmnsNDtMc2rVNQ3NVw
-	AvPl0yjwW+uPSWS4wwr7oenofPKwJFtSxkBM73eya1VwKQRX3uR/lg/whbBlK7hv7tDVOF4o9oYdJ
-	C+AvhynSPp+b0JaeYQmWYEvsAK7wh2Au+urrrQh8WpC9+ZPWU7JqV+xcKJP0qzgyWTTSIHReAS0Ty
-	WMAzT6nch2M13SBTGk+A==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZqCq4mL4E2KLxuSFkxYaHZL/Sa3kzqrC31b/WVWLVmo=; b=0GQ1a8pLGBIkZo
+	euQ3sxS4ciUQH6RyewKoGuAXBaiPu/auwz4hDCyoI3Uu5VeH5bH0hPLLL40ic79MvTKV7mOCaGpI0
+	fP2kkLgIzyD+hEw59ISGyG/z6H1MJgVex3LwauqXOmMfMfOVvVk2K++ok3dn0hOikNJVwp4fHsEvM
+	r0InvMKcyHnooQ0WZYxE706PnXDlFRNVDsMTcX9sTGF4T6YjC3z5DF9dY3wojJPHsQihwQJzFY959
+	LIZEm40GUqH9hSUm4Z7zgMgqZpakEIVUijHbZ0bzQasK+oTq34lMOYeQyxJgNnq+i/IHMqit9ouX+
+	NocM3UK6hS3ZAm8C9CAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGOxA-001vKo-Pq; Tue, 26 Jul 2022 18:06:44 +0000
+	id 1oGOxN-001vVq-WA; Tue, 26 Jul 2022 18:06:58 +0000
 Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGOx6-001vGT-1Y
-	for linux-riscv@lists.infradead.org; Tue, 26 Jul 2022 18:06:42 +0000
+	id 1oGOxL-001vL1-5F
+	for linux-riscv@lists.infradead.org; Tue, 26 Jul 2022 18:06:56 +0000
 X-IronPort-AV: E=Sophos;i="5.93,194,1654527600"; 
-   d="scan'208";a="129202667"
+   d="scan'208";a="129202696"
 Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
-  by relmlie6.idc.renesas.com with ESMTP; 27 Jul 2022 03:06:35 +0900
+  by relmlie6.idc.renesas.com with ESMTP; 27 Jul 2022 03:06:54 +0900
 Received: from localhost.localdomain (unknown [10.226.36.204])
-	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 0573D40C58A7;
-	Wed, 27 Jul 2022 03:06:30 +0900 (JST)
+	by relmlir6.idc.renesas.com (Postfix) with ESMTP id 7CE6D40C58A7;
+	Wed, 27 Jul 2022 03:06:50 +0900 (JST)
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
 	Magnus Damm <magnus.damm@gmail.com>,
@@ -48,13 +48,16 @@ Cc: Anup Patel <anup@brainfault.org>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH 0/6] Add support for Renesas RZ/Five SoC
-Date: Tue, 26 Jul 2022 19:06:17 +0100
-Message-Id: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH 4/6] dt-bindings: riscv: Add DT binding documentation for Renesas RZ/Five SoC and SMARC EVK
+Date: Tue, 26 Jul 2022 19:06:21 +0100
+Message-Id: <20220726180623.1668-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220726_110640_223896_CCD2EF94 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20220726_110655_325417_4E9AE93F 
+X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,154 +75,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+Document Renesas RZ/Five (R9A07G043) SoC and SMARC EVK based on this SoC.
 
-The RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP Single)
-1.0 GHz, 16-bit DDR3L/DDR4 interface. And it also has many interfaces such
-as Gbit-Ether, CAN, and USB 2.0, making it ideal for applications such as
-entry-class social infrastructure gateway control and industrial gateway
-control.
-
-This patch series adds initial SoC DTSi support for Renesas RZ/Five
-(R9A07G043) SoC and updates the bindings for the same. Below is the list
-of IP blocks added in the initial SoC DTSI which can be used to boot via
-initramfs on RZ/Five SMARC EVK:
-- AX45MP CPU
-- CPG
-- PINCTRL
-- PLIC
-- SCIF0
-- SYSC
-
-Useful links:
--------------
-[0] https://www.renesas.com/us/en/products/microcontrollers-microprocessors/
-rz-mpus/rzfive-risc-v-general-purpose-microprocessors-risc-v-cpu-core-
-andes-ax45mp-single-10-ghz-2ch-gigabit-ethernet
-
-[1] http://www.andestech.com/en/products-solutions/andescore-processors/
-riscv-ax45mp/
-
-Patch series depends on:
------------------------
-[0] https://patchwork.kernel.org/project/linux-renesas-soc/cover/
-20220722141506.20171-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-
-[1] https://patchwork.kernel.org/project/linux-renesas-soc/
-cover/20220630100241.35233-1-samuel@sholland.org/
-
-[2] https://patchwork.kernel.org/project/linux-renesas-soc/patch/
-20220726174525.620-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-
-[3] https://patchwork.kernel.org/project/linux-renesas-soc/patch/
-20220726174929.950-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-
-[4] https://patchwork.kernel.org/project/linux-renesas-soc/patch/
-20220726175315.1147-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
-
-Below are the logs from Renesas RZ/Five SMARC EVK:
--------------------------------------------------
-
-/ # cat /proc/cpuinfo
-processor       : 0
-hart            : 0
-isa             : rv64imafdc
-mmu             : sv39
-uarch           : andestech,ax45mp
-mvendorid       : 0x31e
-marchid         : 0x8000000000008a45
-mimpid          : 0x500
-
-/ # cat /proc/meminfo
-MemTotal:         884132 kB
-MemFree:          863292 kB
-MemAvailable:     860880 kB
-Buffers:               0 kB
-Cached:             1796 kB
-SwapCached:            0 kB
-Active:             1412 kB
-Inactive:            456 kB
-Active(anon):       1412 kB
-Inactive(anon):      456 kB
-Active(file):          0 kB
-Inactive(file):        0 kB
-Unevictable:           0 kB
-Mlocked:               0 kB
-SwapTotal:             0 kB
-SwapFree:              0 kB
-Dirty:                 0 kB
-Writeback:             0 kB
-AnonPages:           108 kB
-Mapped:             1136 kB
-Shmem:              1796 kB
-KReclaimable:       6424 kB
-Slab:              12548 kB
-SReclaimable:       6424 kB
-SUnreclaim:         6124 kB
-KernelStack:         844 kB
-PageTables:           32 kB
-NFS_Unstable:          0 kB
-Bounce:                0 kB
-WritebackTmp:          0 kB
-CommitLimit:      442064 kB
-Committed_AS:       2388 kB
-VmallocTotal:   67108864 kB
-VmallocUsed:         860 kB
-VmallocChunk:          0 kB
-Percpu:               84 kB
-CmaTotal:              0 kB
-CmaFree:               0 kB
-HugePages_Total:       0
-HugePages_Free:        0
-HugePages_Rsvd:        0
-HugePages_Surp:        0
-Hugepagesize:       2048 kB
-Hugetlb:               0 kB
-/ # 
-/ # cat /proc/interrupts 
-           CPU0       
-  1:          0  SiFive PLIC 412 Level     1004b800.serial:rx err
-  2:          1  SiFive PLIC 414 Level     1004b800.serial:rx full
-  3:         72  SiFive PLIC 415 Level     1004b800.serial:tx empty
-  4:          0  SiFive PLIC 413 Level     1004b800.serial:break
-  5:      10193  RISC-V INTC   5 Edge      riscv-timer
-  6:         14  SiFive PLIC 416 Level     1004b800.serial:rx ready
-IPI0:         0  Rescheduling interrupts
-IPI1:         0  Function call interrupts
-IPI2:         0  CPU stop interrupts
-IPI3:         0  IRQ work interrupts
-IPI4:         0  Timer broadcast interrupts
-/ # 
-/ # for i in machine family soc_id revision; do echo -n "$i: ";cat /sys/devices/
-soc0/$i; done
-machine: Renesas SMARC EVK based on r9a07g043
-family: RZ/Five
-soc_id: r9a07g043
-revision: 0
-/ # 
-
-Cheers,
-Prabhakar
-
-Lad Prabhakar (6):
-  dt-bindings: arm: renesas: Ignore the schema for RISC-V arch
-  dt-bindings: riscv: Sort the CPU core list alphabetically
-  dt-bindings: riscv: Add Andes AX45MP core to the list
-  dt-bindings: riscv: Add DT binding documentation for Renesas RZ/Five
-    SoC and SMARC EVK
-  RISC-V: Kconfig.socs: Add Renesas RZ/Five SoC kconfig option
-  riscv: dts: renesas: Add initial devicetree for Renesas RZ/Five SoC
-
- .../devicetree/bindings/arm/renesas.yaml      |   9 ++
- .../devicetree/bindings/riscv/cpus.yaml       |  11 +-
- .../devicetree/bindings/riscv/renesas.yaml    |  49 +++++++
- arch/riscv/Kconfig.socs                       |  14 ++
- arch/riscv/boot/dts/Makefile                  |   1 +
- arch/riscv/boot/dts/renesas/r9a07g043.dtsi    | 121 ++++++++++++++++++
- 6 files changed, 200 insertions(+), 5 deletions(-)
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+ .../devicetree/bindings/riscv/renesas.yaml    | 49 +++++++++++++++++++
+ 1 file changed, 49 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/riscv/renesas.yaml
- create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043.dtsi
 
+diff --git a/Documentation/devicetree/bindings/riscv/renesas.yaml b/Documentation/devicetree/bindings/riscv/renesas.yaml
+new file mode 100644
+index 000000000000..f72f8aea6a82
+--- /dev/null
++++ b/Documentation/devicetree/bindings/riscv/renesas.yaml
+@@ -0,0 +1,49 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/riscv/renesas.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Renesas RZ/Five Platform Device Tree Bindings
++
++maintainers:
++  - Geert Uytterhoeven <geert+renesas@glider.be>
++  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
++
++# We want to ignore this schema if the board is SMARC EVK based on ARM64 arch
++select:
++  not:
++    properties:
++      compatible:
++        contains:
++          items:
++            - const: renesas,smarc-evk
++            - enum:
++                - renesas,r9a07g043u11
++                - renesas,r9a07g043u12
++                - renesas,r9a07g044c1
++                - renesas,r9a07g044c2
++                - renesas,r9a07g044l1
++                - renesas,r9a07g044l2
++                - renesas,r9a07g054l1
++                - renesas,r9a07g054l2
++            - enum:
++                - renesas,r9a07g043
++                - renesas,r9a07g044
++                - renesas,r9a07g054
++
++properties:
++  $nodename:
++    const: '/'
++  compatible:
++    oneOf:
++      - description: RZ/Five (R9A07G043)
++        items:
++          - enum:
++              - renesas,smarc-evk # SMARC EVK
++          - const: renesas,r9a07g043f01
++          - const: renesas,r9a07g043
++
++additionalProperties: true
++
++...
 -- 
 2.17.1
 
