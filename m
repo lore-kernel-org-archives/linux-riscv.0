@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA414C04A68
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83FDEC00140
 	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jul 2022 17:08:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1g1N3FV553lce3d/7EEKa1ttF8FD2dDSKo/gqEvveWY=; b=siQqUt3qG0mRR4
-	V5rpJI9ZXwhR74DRq+nSy4P9MrZl0Yp/Gs6H1THt77hAiiylVafo4mF4ELORVpkxi1K9dq2kDmeae
-	AAPRYXrIbgA+mo3HCcHSXQh245xLbaDZrBXdGIdJ09nlb8u9P7d5Cdn8+dYiXWajlNfuguUTpF6S6
-	N1K8+YrLzMTuJxQ5XkbqmeXPztRpbTNmXw80Kr27btptwHewSR48FqmBx3Hpc92gg2KH0czZiHjRz
-	QQ09KyiPOlTEJNUPbI6io1VreXQx1tbxI24TUDlOOtY3TFc5smocIdnQ4+2pPNSYcq7bic5oL64Gg
-	MqJGOtUbbZTQpNanFqgA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=An5ijrNgUANypuJyAc+pBOYCi4iNad0euue+GYw9/1I=; b=vu5lZ7nfAQ6fot
+	lKrKEx0+RLXhSntJLXkNnjH3nqWRgyVV2zzD/xgrkFeJRuFadHTtSidx9LOMHWgsjbJ+HLWoZ/WT/
+	5IJhbSiJX1LKlaY3ULOi8VTNFMT4wPvLEtwnEobd029gR7mccsbQBILtkjxOHt0IrMp4ltYgPwp5i
+	MkbI6YLD7wxl7pY5w1dIyQAxjAr6mrGBsk3KKP2Mm4sp+Ce6Ant8+r8vpDDgfj1c2vIVDTnYP8i3S
+	SttRONXv9v8+uhIaVFWqJHSELsISAx/yFOvpRHIk5XtALSaSZ+XrZjmUVAzrdFKVvygJ9zFJFivjx
+	lmmJ/L+Vx5xnfD/Sftng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGO2O-001GCO-Jk; Tue, 26 Jul 2022 17:08:04 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1oGO2Q-001GDb-2e; Tue, 26 Jul 2022 17:08:06 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGO2L-001G9J-KG
+	id 1oGO2L-001G8c-9B
 	for linux-riscv@lists.infradead.org; Tue, 26 Jul 2022 17:08:02 +0000
-Received: by mail-wr1-x433.google.com with SMTP id q18so10618956wrx.8
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Jul 2022 10:07:59 -0700 (PDT)
+Received: by mail-wr1-x431.google.com with SMTP id b26so21060208wrc.2
+        for <linux-riscv@lists.infradead.org>; Tue, 26 Jul 2022 10:07:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=bYJZAGYDWBMT6g6cijNnHNizMWzKxFhdHEezep+ZyM8=;
-        b=JFg1dFPc3aCGDcZqQP/YmQ+ORnEAFxNTUqKD4xP2JSkkRiCAG7wPPGNJAY9a7T0Bi5
-         lbT/nHrUl9oxPbeYHYpArtD2weheB51Uynj4CrewODHCh4i/2Fn9ytSZ23BEYUXqy6qn
-         eg0vfOgO/RE5D7Usial/oeuuleip50PkC49Ec6N0l9dz2uDVhG/aVF4Qfz18lKfssm2v
-         A2VLmR9zMqkYfvbi0YSM9GkRvjtywJXAMiKfL+GlhwZJ4qbs7Op8Vhk7m/gZNPpSoOaa
-         F3XPF71x+fEpaw/A9zR/1beKiAGNW5WzymfAnnemm878U3duUOjbYW1EGVmaefthEAes
-         diiA==
+        h=from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=DqEbmzhKx0NMjg0VvinCoPEfypWpQp7BkQaC0Xs8ciA=;
+        b=NhvjhaDnJnixTK5JKS13CF/cGWT95PlYz5ESq87WVqMG6WDROqjbUK6xqAdGJULCpz
+         mZAEIbbjJbwrPzrktT3T+hs2SojuMjASB5/5RaZoK38FRiqIXI9nm4IqEXTYfpBUQxtF
+         OPtgT59X4RnD04NW5HDTK6tYnDxxB2LsL5xk2MnnjXPyXCal1tupwafaj+/mzZ6Fj9W/
+         JfPOIe+myCgsz1tzJGLmJmP3pdNNjuat7gTHpEFrvR0In+IQ2op4pUbfhe/IF2sD+2gR
+         IfxFyDXvhZ3ePvPndTkPjf9k+OU+nebEjUnlZWBsRDd2q5POSB7gmnFOjIdy0UhQpO3n
+         T4Lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=bYJZAGYDWBMT6g6cijNnHNizMWzKxFhdHEezep+ZyM8=;
-        b=QaDmE85D2fJdOzv8hcVPHTmwafJoRTmPMoHsCZyy1zYZ7onVTR1ohNDnWmV8paLy34
-         fZ4EHM7BNEK3L8XxWIMKwToo/1zMDyU5RLqBZLY0KVT6+Ls2Z0QXCR7C9I7IjGzAgTZK
-         olLINTDhqIY3uE9JNwp1gwCg25p51Gu35iFDsbMoG5d/rhR5MlZ6rQ9S7g7UspVCjF+m
-         76L3DG3YcLUWFgg8Meq4tv1BtuTcWfIfIApvgTAiHiorFpaAqJJkOkRF8tsValgD0UL6
-         6NmCkJAMc+8Wdra+z+u9WYIbb4UkchGzBqFL6KkrSRQvwfiYrOtcgx+bYrhpUwVktOM2
-         7z+w==
-X-Gm-Message-State: AJIora+XLl7YTbW6t0l0OOMwXsN1fp+xUkkIfHA5XLRgvB2orHGKvzfb
-	lIZRw5LhpFDnFZGBs14lC+xotg==
-X-Google-Smtp-Source: AGRyM1s6BYK8WW9ORA/vI2Ql3Ij0kc9HdxUUm/7aljKXohKq8ulI7JwqqnPKXbr0u5sk9KEbkVlC7A==
-X-Received: by 2002:a5d:5986:0:b0:21e:811c:f688 with SMTP id n6-20020a5d5986000000b0021e811cf688mr8824688wri.8.1658855278124;
-        Tue, 26 Jul 2022 10:07:58 -0700 (PDT)
+        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+         :content-transfer-encoding;
+        bh=DqEbmzhKx0NMjg0VvinCoPEfypWpQp7BkQaC0Xs8ciA=;
+        b=Q7niGcL47/DGfu1vvZvGCeIXu+V9rZL7KH7ib3IX9MK3hqOMcT6ba1CxxL1mveNddq
+         eHh5uxrs3vDMf8fiCUTDoWVE00nVVxPwQZA2kr1uZMJeaHWb7kXN+Qli0Z5oz8PlS/L4
+         ZQQJFTr5wmkO4LyXzAg9rO58ZxW8sXpNJ1GtJ4nchQttSaAZLO7S4KM6T1m18wTfn379
+         SIHZgaDXs+pyE24Sr4WCqT3++IMUgQWYii7KaY1cXojoMFnjMpdMv/6I/9Rudn+z8hrh
+         OpEjjSWHZkjfcM3veml9UjJ8DQNk1AzZyjBXxAcML9Wgt+LxmmwLoiSmn0cmHXgzIGCr
+         VDoQ==
+X-Gm-Message-State: AJIora8SV3r5QgOzr6KD7m6c4/C7jOvpLGEl8GqZFKFZG4p3EFGr5zef
+	QQrYaKRKDTMiYfbQVSW0j6j9ig==
+X-Google-Smtp-Source: AGRyM1ujJrahHNmwiwz/mBnF/zHJW0mN4KLDNf4jcWEuw6EW0rtMpqQBl3Uq7RHHGJqWG90H0YU3xw==
+X-Received: by 2002:adf:e193:0:b0:21e:626c:d082 with SMTP id az19-20020adfe193000000b0021e626cd082mr11227518wrb.159.1658855276724;
+        Tue, 26 Jul 2022 10:07:56 -0700 (PDT)
 Received: from henark71.. ([109.76.124.168])
-        by smtp.gmail.com with ESMTPSA id r17-20020a5d52d1000000b0021d68a504cbsm14859618wrv.94.2022.07.26.10.07.56
+        by smtp.gmail.com with ESMTPSA id r17-20020a5d52d1000000b0021d68a504cbsm14859618wrv.94.2022.07.26.10.07.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Jul 2022 10:07:57 -0700 (PDT)
+        Tue, 26 Jul 2022 10:07:55 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
@@ -73,16 +73,14 @@ Cc: linux-gpio@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/2] dt-bindings: sifive: add cache-set value of 2048
-Date: Tue, 26 Jul 2022 18:07:25 +0100
-Message-Id: <20220726170725.3245278-2-mail@conchuod.ie>
+Subject: [PATCH v3 0/2] Fix SiFive dt-schema errors
+Date: Tue, 26 Jul 2022 18:07:24 +0100
+Message-Id: <20220726170725.3245278-1-mail@conchuod.ie>
 X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20220726170725.3245278-1-mail@conchuod.ie>
-References: <20220726170725.3245278-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220726_100801_684588_E6E480BA 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20220726_100801_375694_BDC34DDE 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,36 +97,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Atul Khare <atulkhare@rivosinc.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Fixes Running device tree schema validation error messages like
-'... cache-sets:0:0: 1024 was expected'.
+Hi all,
+As these are the last remaining dtbs_check warnings for the default
+riscv defconfig I am reviving the series. Atul has been hit by some
+hardware issues so has not had a chance to send an applicable version
+of these patches. All I have done here is rebase on linux-next, so by
+the time the merge window reopens it will hopefully apply..
 
-The existing bindings had a single enumerated value of 1024, which
-trips up the dt-schema checks. The ISA permits any arbitrary power
-of two for the cache-sets value, but we decided to add the single
-additional value of 2048 because we couldn't spot an obvious way
-to express the constraint in the schema.
+On Atul's V2, Rob had a comment about changing the cache-sets in the
+patch 1/2:
+There is not any way to express power of 2, so you have to list values.
+Rather than just adding 1 more value, I would add at least a few more so
+we're not adding these one by one. This is for a specific cache
+implementation, so it can't really be *any* power of 2. Designs have
+some limits or physics does. /endquote
 
-Signed-off-by: Atul Khare <atulkhare@rivosinc.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
+I don't think that there's value in speculatively adding values to this
+enum especially as (I think at least) the scala for this cache IP has
+been released publicly:
+https://github.com/sifive/block-inclusivecache-sifive/blob/master/design/craft/inclusivecache/src/Parameters.scala#L32
+
+The two compatibles in the file match only against two specific cache
+implemenations: the fu540's & the fu740's. I would seem to me that, it
+would be better to lock this to a single value per compatible since the
+1024 applies to the fu540 & the new value of 2048 applies only to the
+fu740.
+
+I have not made that change, I simply wanted to repackage this series
+in a way that could be more easily applied & restart the discussion.
+
+Thanks,
+Conor.
+
+Atul Khare (2):
+  dt-bindings: sifive: add cache-set value of 2048
+  dt-bindings: sifive: add gpio-line-names
+
+ Documentation/devicetree/bindings/gpio/sifive,gpio.yaml      | 4 ++++
  Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ 2 files changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-index e2d330bd4608..ab6043d9cdbe 100644
---- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-+++ b/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
-@@ -46,7 +46,7 @@ properties:
-     const: 2
- 
-   cache-sets:
--    const: 1024
-+    enum: [1024, 2048]
- 
-   cache-size:
-     const: 2097152
+
+base-commit: 058affafc65a74cf54499fb578b66ad0b18f939b
 -- 
 2.37.1
 
