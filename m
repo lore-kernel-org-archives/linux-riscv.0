@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFFFEC433EF
-	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jul 2022 04:50:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31265C433EF
+	for <linux-riscv@archiver.kernel.org>; Tue, 26 Jul 2022 05:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kVg1a4TD6lHSucJK5ZNCZxteth39Hp/oUBUIHDIpCLY=; b=0bzwtQMNM/cpbo
-	X5slCVpJYCJPS/zthn/+MiPFPEnvfCa4OMXfLjNSmWaWSZPh4VcsdrZRQNAQ7kdKUDqSFAh9kFNo+
-	Hak0bJEphYxkTVKHhlrXE/lcwFMbfnD5lwfbR9DpYnrXJP44Wta3LVjVlJo1aWs/dicd1RwuAZGqu
-	2Pr8G/y9RPXEwsuYPALiPUw9e6Mecb9bsIOWpEgz1f9FooCqn/l4SiQkLUpGkh8Z/+YfEzziMoLGV
-	hrxy+/CzpGgR32qsJx9efR/AJBksS3JUUL+pIPN9A3s2YdP2wexV9/RQ8KGAKMaXw73y5Yxt9sgaw
-	m/UBAgJPrv9za0C7fUQw==;
+	List-Owner; bh=lYunwIfxUws2nAz1aP7rt7omVQfIpBqqWq45DPpAYKg=; b=k/FhW0O0X2f1hD
+	GRg3wBoxpvVBZtAe5+m0RYW/cUNaJGVWMzhde/TDLLc16vz/2DTCpiJAkYlozVxT7A/i20Tcp2ZTv
+	7ao3aFnfq3OvF0kQ7lMQ4jvqsgQbdVfVvBzf8boq1oYRqGAGb3nfY9QeKoGGRaPeT02C0VkxCFzAO
+	X3Df4Ay5p+eyE27siEek0lG75cQpiAEN9ONo1Tzz1R/fE//UANuA0CO1bxKkYMaE8Rh5/aTK/U5x1
+	0QdtYsY0mqbKspKiHfLpSXDJ9MryE2YEufgg3DFBEQGssZj/mvgDDoAA3118m5Pq73lAo4qDtCex6
+	rLjcOyLWWU+RArfGmwSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGCWt-007bxt-Q3; Tue, 26 Jul 2022 04:50:47 +0000
-Received: from conssluserg-06.nifty.com ([210.131.2.91])
+	id 1oGDS4-008Lhq-GJ; Tue, 26 Jul 2022 05:49:52 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGCWr-007bsy-2L
-	for linux-riscv@lists.infradead.org; Tue, 26 Jul 2022 04:50:47 +0000
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45]) (authenticated)
-	by conssluserg-06.nifty.com with ESMTP id 26Q4oM6u007471
-	for <linux-riscv@lists.infradead.org>; Tue, 26 Jul 2022 13:50:23 +0900
-DKIM-Filter: OpenDKIM Filter v2.10.3 conssluserg-06.nifty.com 26Q4oM6u007471
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nifty.com;
-	s=dec2015msa; t=1658811023;
-	bh=bOZAcieAa1N62XoVyvfG8Oy27JGkm1s/9RXmx1fJRrE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=YFXXmjnh4y69aiFbk1PaKHs8novfu+w/+HV72S6gaUA6ucdcfLLqRRRN1j0vtprQR
-	 hKjTZ/SMbOMtO9Y+nXZ4y4rVW/UHyJ7d4+sLxhd8Pad2lS6tpHKvoUDtDXEFs39soL
-	 yY2NjwgV3hSQQ+BAg8MqIHkNovH5apZUtorE4PnOZbYaRvkD0L02oko+OzmLoZ1NwU
-	 4SBRmoiSNOiuesnahy8+4JKI71/ZYaM0PsfQ3B6horB/06ZnjCeYlemWdp5DIA76qP
-	 Q4hLLvfwDir/ihC36vSTSKGgT/IV7DyZ9orjaO7tlSEvLf17EqwsZkHsZibHgAIX3w
-	 4y6XlJQGLYLcw==
-X-Nifty-SrcIP: [209.85.221.45]
-Received: by mail-wr1-f45.google.com with SMTP id v13so10767605wru.12
-        for <linux-riscv@lists.infradead.org>; Mon, 25 Jul 2022 21:50:23 -0700 (PDT)
-X-Gm-Message-State: AJIora+OEbyfJcqYbokiB5Ces7847Kj8OXEkq7CKQWBuu0todOrwlSPN
-	lEBoT7en19gzn+Z+kq1HECOH2YLxfaggerjMABY=
-X-Google-Smtp-Source: AGRyM1sO8PExZzNIZki1jcl13eLZDRM1AI4QIG7u52VwXSdJRXz/qSXJJkT3pU0lrlNFDIea9wgV568q9eiXejuFAdM=
-X-Received: by 2002:adf:979b:0:b0:21d:868a:7f2f with SMTP id
- s27-20020adf979b000000b0021d868a7f2fmr9419101wrb.409.1658811021682; Mon, 25
- Jul 2022 21:50:21 -0700 (PDT)
+	id 1oGDS1-008Lde-DP
+	for linux-riscv@lists.infradead.org; Tue, 26 Jul 2022 05:49:51 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-31e7ca45091so131458937b3.3
+        for <linux-riscv@lists.infradead.org>; Mon, 25 Jul 2022 22:49:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=wC2AgKCkoa/FuALgKTQYRYYG1SVq93t6JSMuNrwiiVQ=;
+        b=F4isfSDJdigZd5IbUyJaKZkLsqKJ0djQ5AJsNPp5sk3hO0Srpfu02Gd+HPjkgrz5wo
+         O+PaCOQyaFPTLB4WTUB8yVUUezS7JlUl8/ZSoHLcV6jckZwGIHBJ1tZepFRTGIu7NQS5
+         H6jeRvyaDzVzWFxtir2ln7IMoyaT6NHB+P+ew=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=wC2AgKCkoa/FuALgKTQYRYYG1SVq93t6JSMuNrwiiVQ=;
+        b=y8tltDbJt2PeZ24lx9BxyfGXd0j4O8seejuuBDIUzhhrlC33G1Bc/h1ONBdvOrF7eP
+         B+jVMaaMuMIYoJiPcAM/5gjYUlIDJ6+req4/1HjTZKQCPO/ZohxYuqxCaQ7lBOpt6zZT
+         jSdARZ/ykNJYKGcsnJ3qvEFGsNAzrOAffVsuUrhNMoWFvEyaQacVdMIJdZq8UtnLf37H
+         1blkAoBqneYkoYnJGVqtroieRpHDx2Xf9dnVDkDszjDNk3T/UDqfIbxmz6X/A3nzrOVd
+         vIQrsOMX1LsHJARmZKJj82k5caei59DcdLfR2R0LpPFcDRLBe1ZKY7PWUycRao8Bjm+n
+         ylVw==
+X-Gm-Message-State: AJIora+mxv2pug37cLIJqU88zzKj5NMFFFBglnLjiEYaYFnG/5b70lGC
+	hL2gi3u5qgGw002Q8wyzPyUbTebznwrUC2o42EsK
+X-Google-Smtp-Source: AGRyM1ui8146ZmRckyLg9qtt9W1JTT+gVnn4Uua002pEWROvnIjWvUOUDn+8rcpNk56CG05r6u+sWklRBNPaopmmcSU=
+X-Received: by 2002:a81:7589:0:b0:31e:620b:e75 with SMTP id
+ q131-20020a817589000000b0031e620b0e75mr12770978ywc.482.1658814584983; Mon, 25
+ Jul 2022 22:49:44 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220725021902.625630-1-masahiroy@kernel.org> <20220725021902.625630-2-masahiroy@kernel.org>
- <CAKwvOdkWxZy-is5uxWEizgNM4UXB5E_=QSO3iEeVFdPFqv00EA@mail.gmail.com>
-In-Reply-To: <CAKwvOdkWxZy-is5uxWEizgNM4UXB5E_=QSO3iEeVFdPFqv00EA@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Tue, 26 Jul 2022 13:49:21 +0900
-X-Gmail-Original-Message-ID: <CAK7LNASAO7ZoNvPs-odJKb6Uy1ueP1GPWC4iEtJfBrKcsNJcLg@mail.gmail.com>
-Message-ID: <CAK7LNASAO7ZoNvPs-odJKb6Uy1ueP1GPWC4iEtJfBrKcsNJcLg@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] riscv/purgatory: Omit use of bin2c
-To: Nick Desaulniers <ndesaulniers@google.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        "open list:SIFIVE DRIVERS" <linux-riscv@lists.infradead.org>,
-        Borislav Petkov <bp@suse.de>, Helge Deller <deller@gmx.de>,
-        Li Zhengyu <lizhengyu3@huawei.com>,
-        "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+References: <20220722165047.519994-1-atishp@rivosinc.com> <20220722165047.519994-4-atishp@rivosinc.com>
+In-Reply-To: <20220722165047.519994-4-atishp@rivosinc.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Mon, 25 Jul 2022 22:49:34 -0700
+Message-ID: <CAOnJCUK1JppQkZ+bv7mNpCm95i3gGZ5wHaRc2wiBGyp3zj2Dhw@mail.gmail.com>
+Subject: Re: [PATCH v7 3/4] RISC-V: Prefer sstc extension if available
+To: Atish Patra <atishp@rivosinc.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Guo Ren <guoren@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Tsukasa OI <research_trasio@irq.a4lg.com>, 
+	Wei Fu <wefu@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220725_215045_341298_EBE98F7A 
-X-CRM114-Status: GOOD (  25.20  )
+X-CRM114-CacheID: sfid-20220725_224949_475448_FD7502C5 
+X-CRM114-Status: GOOD (  21.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,128 +88,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 26, 2022 at 2:52 AM Nick Desaulniers
-<ndesaulniers@google.com> wrote:
+On Fri, Jul 22, 2022 at 9:50 AM Atish Patra <atishp@rivosinc.com> wrote:
 >
-> On Sun, Jul 24, 2022 at 7:22 PM Masahiro Yamada <masahiroy@kernel.org> wrote:
-> >
-> > The .incbin assembler directive is much faster than bin2c + $(CC).
-> >
-> > Do similar refactoring as in commit 4c0f032d4963 ("s390/purgatory:
-> > Omit use of bin2c").
-> >
-> > Please note the .quad directive matches to size_t in C (both 8 byte)
-> > because the purgatory is compiled only for the 64-bit kernel.
-> > (KEXEC_FILE depends on 64BIT).
-> >
-> > Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> RISC-V ISA has sstc extension which allows updating the next clock event
+> via a CSR (stimecmp) instead of an SBI call. This should happen dynamically
+> if sstc extension is available. Otherwise, it will fallback to SBI call
+> to maintain backward compatibility.
 >
-> Seems fine.  Is the overall goal working towards removing scripts/bin2c?
-
-
-Yes.
-I want to remove bin2c.
-
-
-> Acked-by: Nick Desaulniers <ndesaulniers@google.com>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+> ---
+>  drivers/clocksource/timer-riscv.c | 25 ++++++++++++++++++++++++-
+>  1 file changed, 24 insertions(+), 1 deletion(-)
 >
-> > ---
-> >
-> > Changes in v2:
-> >   - Fix a typo (kexec_purgatroy_end -> kexec_purgatory_end)
-> >
-> >  arch/riscv/Kconfig                     |  1 -
-> >  arch/riscv/purgatory/.gitignore        |  1 -
-> >  arch/riscv/purgatory/Makefile          |  8 +-------
-> >  arch/riscv/purgatory/kexec-purgatory.S | 14 ++++++++++++++
-> >  scripts/remove-stale-files             |  2 ++
-> >  5 files changed, 17 insertions(+), 9 deletions(-)
-> >  create mode 100644 arch/riscv/purgatory/kexec-purgatory.S
-> >
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index 32ffef9f6e5b..218c2f12b3ef 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -447,7 +447,6 @@ config KEXEC_FILE
-> >
-> >  config ARCH_HAS_KEXEC_PURGATORY
-> >         def_bool KEXEC_FILE
-> > -       select BUILD_BIN2C
-> >         depends on CRYPTO=y
-> >         depends on CRYPTO_SHA256=y
-> >
-> > diff --git a/arch/riscv/purgatory/.gitignore b/arch/riscv/purgatory/.gitignore
-> > index 38d7d1bda4d7..6e4dfb024ad2 100644
-> > --- a/arch/riscv/purgatory/.gitignore
-> > +++ b/arch/riscv/purgatory/.gitignore
-> > @@ -1,4 +1,3 @@
-> >  # SPDX-License-Identifier: GPL-2.0-only
-> >  purgatory.chk
-> >  purgatory.ro
-> > -kexec-purgatory.c
-> > diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-> > index c2d14e2f345d..dd58e1d99397 100644
-> > --- a/arch/riscv/purgatory/Makefile
-> > +++ b/arch/riscv/purgatory/Makefile
-> > @@ -84,12 +84,6 @@ $(obj)/purgatory.ro: $(PURGATORY_OBJS) FORCE
-> >  $(obj)/purgatory.chk: $(obj)/purgatory.ro FORCE
-> >                 $(call if_changed,ld)
-> >
-> > -targets += kexec-purgatory.c
-> > -
-> > -quiet_cmd_bin2c = BIN2C   $@
-> > -      cmd_bin2c = $(objtree)/scripts/bin2c kexec_purgatory < $< > $@
-> > -
-> > -$(obj)/kexec-purgatory.c: $(obj)/purgatory.ro $(obj)/purgatory.chk FORCE
-> > -       $(call if_changed,bin2c)
-> > +$(obj)/kexec-purgatory.o: $(obj)/purgatory.ro $(obj)/purgatory.chk
-> >
-> >  obj-y += kexec-purgatory.o
-> > diff --git a/arch/riscv/purgatory/kexec-purgatory.S b/arch/riscv/purgatory/kexec-purgatory.S
-> > new file mode 100644
-> > index 000000000000..32c53581b8f2
-> > --- /dev/null
-> > +++ b/arch/riscv/purgatory/kexec-purgatory.S
-> > @@ -0,0 +1,14 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +
-> > +       .section .rodata, "a"
-> > +
-> > +       .align  8
-> > +kexec_purgatory:
-> > +       .globl  kexec_purgatory
-> > +       .incbin "arch/riscv/purgatory/purgatory.ro"
-> > +.Lkexec_purgatory_end:
-> > +
-> > +       .align  8
-> > +kexec_purgatory_size:
-> > +       .globl  kexec_purgatory_size
-> > +       .quad   .Lkexec_purgatory_end - kexec_purgatory
-> > diff --git a/scripts/remove-stale-files b/scripts/remove-stale-files
-> > index 7adab4618035..d75a52199a38 100755
-> > --- a/scripts/remove-stale-files
-> > +++ b/scripts/remove-stale-files
-> > @@ -40,4 +40,6 @@ if [ -n "${building_out_of_srctree}" ]; then
-> >         done
-> >  fi
-> >
-> > +rm -f arch/riscv/purgatory/kexec-purgatory.c
-> > +
-> >  rm -f scripts/extract-cert
-> > --
-> > 2.34.1
-> >
+> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+> index 593d5a957b69..05f6cf067289 100644
+> --- a/drivers/clocksource/timer-riscv.c
+> +++ b/drivers/clocksource/timer-riscv.c
+> @@ -7,6 +7,9 @@
+>   * either be read from the "time" and "timeh" CSRs, and can use the SBI to
+>   * setup events, or directly accessed using MMIO registers.
+>   */
+> +
+> +#define pr_fmt(fmt) "riscv-timer: " fmt
+> +
+>  #include <linux/clocksource.h>
+>  #include <linux/clockchips.h>
+>  #include <linux/cpu.h>
+> @@ -20,14 +23,28 @@
+>  #include <linux/of_irq.h>
+>  #include <clocksource/timer-riscv.h>
+>  #include <asm/smp.h>
+> +#include <asm/hwcap.h>
+>  #include <asm/sbi.h>
+>  #include <asm/timex.h>
 >
+> +static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
+> +
+>  static int riscv_clock_next_event(unsigned long delta,
+>                 struct clock_event_device *ce)
+>  {
+> +       u64 next_tval = get_cycles64() + delta;
+> +
+>         csr_set(CSR_IE, IE_TIE);
+> -       sbi_set_timer(get_cycles64() + delta);
+> +       if (static_branch_likely(&riscv_sstc_available)) {
+> +#if defined(CONFIG_32BIT)
+> +               csr_write(CSR_STIMECMP, next_tval & 0xFFFFFFFF);
+> +               csr_write(CSR_STIMECMPH, next_tval >> 32);
+> +#else
+> +               csr_write(CSR_STIMECMP, next_tval);
+> +#endif
+> +       } else
+> +               sbi_set_timer(next_tval);
+> +
+>         return 0;
+>  }
+>
+> @@ -165,6 +182,12 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+>         if (error)
+>                 pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
+>                        error);
+> +
+> +       if (riscv_isa_extension_available(NULL, SSTC)) {
+> +               pr_info("Timer interrupt in S-mode is available via sstc extension\n");
+> +               static_branch_enable(&riscv_sstc_available);
+> +       }
+> +
+>         return error;
+>  }
 >
 > --
-> Thanks,
-> ~Nick Desaulniers
+> 2.25.1
+>
 
-
+Hi Stephen,
+Can you please review this whenever you get a chance ? We probably
+need an ACK at least :)
 
 -- 
-Best Regards
-Masahiro Yamada
+Regards,
+Atish
 
 _______________________________________________
 linux-riscv mailing list
