@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A3AC04A68
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 10:06:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73621C04A68
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 10:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xqHA0/m67JwIjwxryiVn8zJfO9xJmHD/tLA9QHKM5kk=; b=emJmWNrpG6hYxK
-	TAzkr21jqh7LboKQ7BtQ9AJvjD3oKebDyJcZrm9hSW1SVAFkmHdC2dDV8JHmbg48B512h7QmTGjhD
-	OsWyyPuJ17Yi/hVg32HKaJQcgL0uE7bimyK72YQP4zohuyaWTf039Kbz+1wTsfu0857NhOKjAIJC5
-	gk8sO9EMKUiOSRc1dHqc3P2W9RLjnCfn53yCTEh8s6q/8LIay3wxcY8tcxgMbQaSCt/NUm7qL4Ow4
-	lAF9B3riXFMUfoSpV1MqO60ydeIzN1kYcCvYnfHkNR16NLEsCBLDk40FdBNevs3BO+1gcFnSuOy/s
-	XIv23k2b8wU0XuQoO1rw==;
+	List-Owner; bh=eIVpSiSXw8CeX1iKU2KtsaKBaLjIK4UF6xCpgGS3aZE=; b=N3ParWUIZHtN8c
+	40aWx+hjD+mCOeAXzRfXJSUvqquv5A3kZFWdEwKVCEYu6nq2mnNjbjHwogR8VYkKp6Ru1g/fnstCL
+	VNkZZbRxtc0kf1mdgfWpMjfI/jo+iKIz7g+wxRRM8SDJZUIemhqvKOGWb7e6+5SX3VqbyS9tH2cMd
+	dchg4vnU4ODSBJr0Hj9nMng0edFTYP/rhPWB2tjWu/+SJzkZxhUQa27dBP49V9oBtqW0szL6R0mYY
+	q/mN2IehO3G9wWkOZ2BHhoBPeB3PcgYfIFsrzMrEW8zdMjhqrnCEGpN676Fw9xHzggY/6zSHI0Afo
+	cwqDQhWoah6fByngAZ9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGdwH-00CArL-8G; Wed, 27 Jul 2022 10:06:49 +0000
-Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
+	id 1oGdwx-00CBNL-2G; Wed, 27 Jul 2022 10:07:31 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGdwD-00CAoC-0r
-	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 10:06:47 +0000
-Received: by mail-yb1-xb34.google.com with SMTP id a82so23863299ybb.12
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 03:06:44 -0700 (PDT)
+	id 1oGdwu-00CBIL-2h
+	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 10:07:29 +0000
+Received: by mail-wr1-x430.google.com with SMTP id q18so13060209wrx.8
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 03:07:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc:content-transfer-encoding;
-        bh=BPThQ8r+ZT9oR0uD4pwUUo7cjt+VO1rD6YsDH+nlihk=;
-        b=qbWR7gUpU7e9J+PPmxUdtB5/GmZf5wlrRNm0DOOaKF5DXy89Dr/unc9YC5mc8A1esU
-         XFX1MYNO7zaRatC2WSmQfw5Dq+pud9H5xu+XOlqt4DIdpSqcKhdTIdu//7IeLzE09Ccj
-         XKb/5o5PNXYfTeog/pJmB4e4yThWzGJN4zH/CSpp/XT5AyJX8oCf5MCIxUgChjt0VT3A
-         WSgLFqpYmdqVG6b7hxPnAfECJjDh9a1BNHw1WZ7hCBBUiE0+t7AyazrXL3QHmyp4h5o+
-         9QW3R/qYLdVkEdcjKjVtM61T+4WTbamQz6hooXUr0s/TSMkMAPWd0EoOD9leKB5PBS0Y
-         33cw==
+         :cc;
+        bh=41fQ447csC/Sul1qlYvawlHHS0vJEi7xV/QYB1Ga0pc=;
+        b=HSUOtBxm7FJI/iSIhq6yiARyBJP7rol9gTL95UdtEHjLZ6X5uXsnoVuJZh8vjocOyt
+         YxkhYRUEwgFzXYYTTo/Z42Xf6JyMem9hHiUfJo5HsFHLKvJmA0tkR9BINENxI/OAWqN3
+         fybWoyMz/Twv/jHlgnzsDfVORKBxgC1uOEt3cQmSRA7qtTIdeBO+K5X7qfvhJUR50E8Q
+         7zdso1Y6UkeiQ7zyY4hMJX7MM+7/vn0K7no7dJCT7et1rykhvUsFgJ+UjLpx/1cc2nLC
+         fkU3evBQHEuDUG96FCvoBMMXnBjlZ5soA5epTpD9YtyhX8FgBJAILRRMEvlE3ntD4CUw
+         U/Nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc:content-transfer-encoding;
-        bh=BPThQ8r+ZT9oR0uD4pwUUo7cjt+VO1rD6YsDH+nlihk=;
-        b=viETqfK4cfyC1ZGM31gzWaIjkBfyw48I5mnRWnI+lKnLPwLZXEqlvAny6i+iAnmLOk
-         awceHqRWeKtyYBnEteCxWJSNgL/P00zuOyQM2e+2gwDuKtenxkhW7+nAGhWlm5cmewgA
-         6SHaO0Y5AyPd3+TFrl4onZef/Rqqq+jg/nMh/OlVTV9owe9OKg5QpLEmMf730aT/w4/D
-         i3LCgpCw67TEsL9u8kgkabtcioIrbYQqD6lYUNGoPhBZae4T+7dkeJrzb89PriqEm+xi
-         uPFw20/uGRAKtqL5jCHWyOP6clswEeZxDvxdkEV10xPq3pdC1iSWryG6FGAWzBBw0hya
-         LXlw==
-X-Gm-Message-State: AJIora+k+Yby8ICxcyo+5At6mpw02K+3ZaN0s3wMIbiyyoX8m93n/Llc
-	PO5PZmfYK0m4XPTV5tiyioxTbJgU1OQiXMGQv+3v+ML/dtd4RLtI
-X-Google-Smtp-Source: AGRyM1uLyoISGXm0Dw4G+wD70j1DWooC7FmOm76jqB8f5BUN1E/7u6keGf4JjYqcGFuYXQUnjqRSppYhLPKBQ2LLuiM=
-X-Received: by 2002:a25:4689:0:b0:671:6d4f:c974 with SMTP id
- t131-20020a254689000000b006716d4fc974mr7048181yba.354.1658916403819; Wed, 27
- Jul 2022 03:06:43 -0700 (PDT)
+         :message-id:subject:to:cc;
+        bh=41fQ447csC/Sul1qlYvawlHHS0vJEi7xV/QYB1Ga0pc=;
+        b=Wn6ehg3QIFP6hD6jQGfcsckOEc8AHlHcI37i5HWYbQnNye3V7TsJQgEIyatwGyWSuV
+         HRoUbx91WnOrfJWRxtZAlDyJ6kQm7N9FsxjoGjzEr6yS8+1RMNBih+CZ/f9/4flbwB3v
+         LXXHyIArCoiz6xKjqN5tr7bXBUWUnIEMJsm5S131X2bP4Vzpa/yanZiyBUEkCQi6Dana
+         Kr7Vq1cF0X1grpG2JQrP8+3EY0itAnzmZE1fdaKR8PhuR+mF9O2NLctG7g2nWTl3Nqa8
+         3RuFPv/uCPcO+zHMT3jxzkGyHFUgIB7TVzVgcPyJwmDfQm3arWq8J6kEQ7sbRuaHtaHw
+         3yUw==
+X-Gm-Message-State: AJIora/NlsfQ6LGY6YgqpFf7Sp7yhbsY/NMZ5JYpNFjBZVPM4OAK6OHg
+	baXrkP4gYV6X3HDKmpNilaEMxIHIsMz+KIeyUcuXuw==
+X-Google-Smtp-Source: AGRyM1vR/TLTvBF0z8CpxsqcCxYhhvhTXAxCMf1szlEtvDyyIxvQ3yV+uvZzcCLFx9fz2Ov7XLMjvdH5WUdQQK3wChQ=
+X-Received: by 2002:a05:6000:224:b0:21e:7efc:c506 with SMTP id
+ l4-20020a056000022400b0021e7efcc506mr11349213wrz.313.1658916443377; Wed, 27
+ Jul 2022 03:07:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220726180623.1668-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <636e9214-4b36-e9a6-3c6b-b6edb944335e@linaro.org> <CA+V-a8sTw1qzuTeD2vb7RgDmmNdEP5qEcxXCjrFgkyrBrLrt5Q@mail.gmail.com>
- <e64cc15e-b31e-876d-b3cf-b60d255c495b@linaro.org>
-In-Reply-To: <e64cc15e-b31e-876d-b3cf-b60d255c495b@linaro.org>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Wed, 27 Jul 2022 11:06:16 +0100
-Message-ID: <CA+V-a8u1VW9xaj2KjySyMuegpisLVENO_6uJOpAFZGbKziYLYw@mail.gmail.com>
-Subject: Re: [PATCH 4/6] dt-bindings: riscv: Add DT binding documentation for
- Renesas RZ/Five SoC and SMARC EVK
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	LKML <linux-kernel@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>
+References: <20220727043829.151794-1-apatel@ventanamicro.com> <724f176b-02f1-b171-726f-16158c650896@codethink.co.uk>
+In-Reply-To: <724f176b-02f1-b171-726f-16158c650896@codethink.co.uk>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 27 Jul 2022 15:36:33 +0530
+Message-ID: <CAAhSdy1tnTDv0AVyo=5FD=aE070ds6qYGGhdup+8jUqr3M66qA@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: Add mvendorid, marchid, and mimpid to
+ /proc/cpuinfo output
+To: Ben Dooks <ben.dooks@codethink.co.uk>
+Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Atish Patra <atishp@atishpatra.org>, 
+	linux-riscv@lists.infradead.org, Nikita Shubin <n.shubin@yadro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220727_030645_409582_9B2AAB66 
-X-CRM114-Status: GOOD (  28.69  )
+X-CRM114-CacheID: sfid-20220727_030728_345928_C0819864 
+X-CRM114-Status: GOOD (  29.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,222 +87,155 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On Wed, Jul 27, 2022 at 10:54 AM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
+On Wed, Jul 27, 2022 at 2:25 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
 >
-> On 27/07/2022 11:05, Lad, Prabhakar wrote:
-> > Hi Krzysztof,
+> On 27/07/2022 05:38, Anup Patel wrote:
+> > Identifying the underlying RISC-V implementation can be important
+> > for some of the user space applications. For example, the perf tool
+> > uses arch specific CPU implementation id (i.e. CPUID) to select a
+> > JSON file describing custom perf events on a CPU.
 > >
-> > Thank you for the review.
+> > Currently, there is no way to identify RISC-V implementation so we
+> > add mvendorid, marchid, and mimpid to /proc/cpuinfo output.
 > >
-> > On Wed, Jul 27, 2022 at 9:54 AM Krzysztof Kozlowski
-> > <krzysztof.kozlowski@linaro.org> wrote:
-> >>
-> >> On 26/07/2022 20:06, Lad Prabhakar wrote:
-> >>> Document Renesas RZ/Five (R9A07G043) SoC and SMARC EVK based on this SoC.
-> >>>
-> >>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> >>> ---
-> >>>  .../devicetree/bindings/riscv/renesas.yaml    | 49 +++++++++++++++++++
-> >>>  1 file changed, 49 insertions(+)
-> >>>  create mode 100644 Documentation/devicetree/bindings/riscv/renesas.yaml
-> >>>
-> >>> diff --git a/Documentation/devicetree/bindings/riscv/renesas.yaml b/Documentation/devicetree/bindings/riscv/renesas.yaml
-> >>> new file mode 100644
-> >>> index 000000000000..f72f8aea6a82
-> >>> --- /dev/null
-> >>> +++ b/Documentation/devicetree/bindings/riscv/renesas.yaml
-> >>> @@ -0,0 +1,49 @@
-> >>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >>> +%YAML 1.2
-> >>> +---
-> >>> +$id: http://devicetree.org/schemas/riscv/renesas.yaml#
-> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >>> +
-> >>> +title: Renesas RZ/Five Platform Device Tree Bindings
-> >>> +
-> >>> +maintainers:
-> >>> +  - Geert Uytterhoeven <geert+renesas@glider.be>
-> >>> +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> >>> +
-> >>> +# We want to ignore this schema if the board is SMARC EVK based on ARM64 arch
-> >>> +select:
-> >>> +  not:
-> >>> +    properties:
-> >>> +      compatible:
-> >>> +        contains:
-> >>> +          items:
-> >>
-> >> I think you should rather ignore the RiscV SoCs, not specific board.
-> >>
-> > You mean to ignore ARM/64 SoCs?
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> > Tested-by: Nikita Shubin <n.shubin@yadro.com>
+> > ---
+> > Changes since v1:
+> >   - Use IS_ENABLED() to check CONFIG defines
+> >   - Added RB and TB tags in commit description
+> > ---
+> >   arch/riscv/kernel/cpu.c | 51 +++++++++++++++++++++++++++++++++++++++++
+> >   1 file changed, 51 insertions(+)
 > >
-> > Agreed just the below enum, should do the trick.
+> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> > index fba9e9f46a8c..04bcc91c91ea 100644
+> > --- a/arch/riscv/kernel/cpu.c
+> > +++ b/arch/riscv/kernel/cpu.c
+> > @@ -3,10 +3,13 @@
+> >    * Copyright (C) 2012 Regents of the University of California
+> >    */
 > >
-> >             - enum:
-> >                 - renesas,r9a07g043u11
-> >                 - renesas,r9a07g043u12
-> >                 - renesas,r9a07g044c1
-> >                 - renesas,r9a07g044c2
-> >                 - renesas,r9a07g044l1
-> >                 - renesas,r9a07g044l2
-> >                 - renesas,r9a07g054l1
-> >                 - renesas,r9a07g054l2
+> > +#include <linux/cpu.h>
+> >   #include <linux/init.h>
+> >   #include <linux/seq_file.h>
+> >   #include <linux/of.h>
+> > +#include <asm/csr.h>
+> >   #include <asm/hwcap.h>
+> > +#include <asm/sbi.h>
+> >   #include <asm/smp.h>
+> >   #include <asm/pgtable.h>
 > >
+> > @@ -64,6 +67,50 @@ int riscv_of_parent_hartid(struct device_node *node)
+> >   }
 > >
-> >>> +            - const: renesas,smarc-evk
-> >>> +            - enum:
-> >>> +                - renesas,r9a07g043u11
-> >>> +                - renesas,r9a07g043u12
-> >>> +                - renesas,r9a07g044c1
-> >>> +                - renesas,r9a07g044c2
-> >>> +                - renesas,r9a07g044l1
-> >>> +                - renesas,r9a07g044l2
-> >>> +                - renesas,r9a07g054l1
-> >>> +                - renesas,r9a07g054l2
-> >>> +            - enum:
-> >>> +                - renesas,r9a07g043
-> >>> +                - renesas,r9a07g044
-> >>> +                - renesas,r9a07g054
-> >>
-> >> Did you actually test that it works and properly matches?
-> >>
-> > Yes I have run the dtbs_check and dt_binding _check for ARM64 and
-> > RISC-V. Do you see any cases where it can fail?
+> >   #ifdef CONFIG_PROC_FS
+> > +
+> > +struct riscv_cpuinfo {
+> > +     unsigned long mvendorid;
+> > +     unsigned long marchid;
+> > +     unsigned long mimpid;
+> > +};
+> > +static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+> > +
+> > +static int riscv_cpuinfo_starting(unsigned int cpu)
+> > +{
+> > +     struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
+> > +
+> > +#if IS_ENABLED(CONFIG_RISCV_SBI)
+> > +     ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
+> > +     ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
+> > +     ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
+>
+> how about:
+>
+>         if (IS_ENABLED(CONFIG_RISCV_SBI)) {
+>                 ...
+>         } ... {
+>
+> or maybe even:
 >
 >
-> Just remove the renesas,smarc-evk2 from
-> arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dts. Do you see the
-> error? Not from this schema. The only error you will see is that no
-> matching schema was found.
+>         if (IS_ENABLED(CONFIG_RISCV_SBI)) {
+>                 if (sbi_spec_is_0_1()) {
+>                         ...
+>                 }
+>         } ... {
 >
-I did run the dtbs_check test as per your suggestion (below is the
-log) and didn't see "no matching schema error"
+> would mean better compile coverage (at the slight exepnese of
+> having "false" sbi_spec_is_0_1() implemenation
 
-prasmi@prasmi:~/work/linux$ git diff
-diff --git a/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dts
-b/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dts
-index 121e55282d18..b8129d85515f 100644
---- a/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dts
-+++ b/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dts
-@@ -11,5 +11,5 @@
+Most of the sbi_xyz() functions are not available for NoMMU
+kernel so using "if (IS_ENABLED())" results in compile error.
 
- / {
-        model = "Renesas SMARC EVK based on r9a07g043u11";
--       compatible = "renesas,smarc-evk", "renesas,r9a07g043u11",
-"renesas,r9a07g043";
-+       compatible = "renesas,r9a07g043u11", "renesas,r9a07g043";
- };
-prasmi@prasmi:~/work/linux$ rm
-Documentation/devicetree/bindings/processed-schema.json
-arch/arm64/boot/dts/renesas/*.dtb
-prasmi@prasmi:~/work/linux$ make ARCH=arm64
-CROSS_COMPILE=aarch64-linux-gnu- dtbs_check -j6
-  LINT    Documentation/devicetree/bindings
-  CHKDT   Documentation/devicetree/bindings/processed-schema.json
-  SCHEMA  Documentation/devicetree/bindings/processed-schema.json
-  DTC     arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dtb
-  DTC     arch/arm64/boot/dts/renesas/r9a07g044c2-smarc.dtb
-  DTC     arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dtb
-  DTC     arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dtb
-  DTC     arch/arm64/boot/dts/renesas/r9a09g011-v2mevk2.dtb
-  CHECK   arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dtb
-  CHECK   arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dtb
-  CHECK   arch/arm64/boot/dts/renesas/r9a09g011-v2mevk2.dtb
-  CHECK   arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dtb
-  CHECK   arch/arm64/boot/dts/renesas/r9a07g044c2-smarc.dtb
-/home/prasmi/work/linux/arch/arm64/boot/dts/renesas/r9a07g044c2-smarc.dtb:
-flash@0: compatible: 'oneOf' conditional failed, one must be fixed:
-    ['micron,mt25qu512a', 'jedec,spi-nor'] is too long
-    'micron,mt25qu512a' does not match
-'^((((micron|spansion|st),)?(m25p(40|80|16|32|64|128)|n25q(32b|064|128a11|128a13|256a|512a|164k)))|atmel,at25df(321a|641|081a)|everspin,mr25h(10|40|128|256)|(mxicy|macronix),mx25l(4005a|1606e|6405d|8005|12805d|25635e)|(mxicy|macronix),mx25u(4033|4035)|(spansion,)?s25fl(128s|256s1|512s|008k|064k|164k)|(sst|microchip),sst25vf(016b|032b|040b)|(sst,)?sst26wf016b|(sst,)?sst25wf(040b|080)|winbond,w25x(80|32)|(winbond,)?w25q(16|32(w|dw)?|64(dw)?|80bl|128(fw)?|256))$'
-    'micron,mt25qu512a' is not one of ['issi,is25lp016d',
-'micron,mt25qu02g', 'mxicy,mx25r1635f', 'mxicy,mx25u6435f',
-'mxicy,mx25v8035f', 'spansion,s25sl12801', 'spansion,s25fs512s']
-    'jedec,spi-nor' was expected
-    From schema:
-/home/prasmi/work/linux/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
-arch/arm64/boot/dts/renesas/r9a07g044c2-smarc.dtb:0:0:
-/soc/spi@10060000/flash@0: failed to match any schema with compatible:
-['micron,mt25qu512a', 'jedec,spi-nor']
-/home/prasmi/work/linux/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dtb:
-pinctrl@11030000: 'interrupt-controller' is a required property
-    From schema:
-/home/prasmi/work/linux/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-/home/prasmi/work/linux/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dtb:
-pinctrl@11030000: '#interrupt-cells' is a required property
-    From schema:
-/home/prasmi/work/linux/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-/home/prasmi/work/linux/arch/arm64/boot/dts/renesas/r9a07g044c2-smarc.dtb:
-pinctrl@11030000: #address-cells: 'anyOf' conditional failed, one must
-be fixed:
-    [[2]] is not of type 'object'
-    From schema:
-/home/prasmi/work/linux/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-/home/prasmi/work/linux/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dtb:
-flash@0: compatible: 'oneOf' conditional failed, one must be fixed:
-    ['micron,mt25qu512a', 'jedec,spi-nor'] is too long
-    'micron,mt25qu512a' does not match
-'^((((micron|spansion|st),)?(m25p(40|80|16|32|64|128)|n25q(32b|064|128a11|128a13|256a|512a|164k)))|atmel,at25df(321a|641|081a)|everspin,mr25h(10|40|128|256)|(mxicy|macronix),mx25l(4005a|1606e|6405d|8005|12805d|25635e)|(mxicy|macronix),mx25u(4033|4035)|(spansion,)?s25fl(128s|256s1|512s|008k|064k|164k)|(sst|microchip),sst25vf(016b|032b|040b)|(sst,)?sst26wf016b|(sst,)?sst25wf(040b|080)|winbond,w25x(80|32)|(winbond,)?w25q(16|32(w|dw)?|64(dw)?|80bl|128(fw)?|256))$'
-    'micron,mt25qu512a' is not one of ['issi,is25lp016d',
-'micron,mt25qu02g', 'mxicy,mx25r1635f', 'mxicy,mx25u6435f',
-'mxicy,mx25v8035f', 'spansion,s25sl12801', 'spansion,s25fs512s']
-    'jedec,spi-nor' was expected
-    From schema:
-/home/prasmi/work/linux/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
-arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dtb:0:0:
-/soc/spi@10060000/flash@0: failed to match any schema with compatible:
-['micron,mt25qu512a', 'jedec,spi-nor']
-/home/prasmi/work/linux/arch/arm64/boot/dts/renesas/r9a07g054l2-smarc.dtb:
-pinctrl@11030000: #address-cells: 'anyOf' conditional failed, one must
-be fixed:
-    [[2]] is not of type 'object'
-    From schema:
-/home/prasmi/work/linux/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-/home/prasmi/work/linux/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dtb:
-flash@0: compatible: 'oneOf' conditional failed, one must be fixed:
-    ['micron,mt25qu512a', 'jedec,spi-nor'] is too long
-    'micron,mt25qu512a' does not match
-'^((((micron|spansion|st),)?(m25p(40|80|16|32|64|128)|n25q(32b|064|128a11|128a13|256a|512a|164k)))|atmel,at25df(321a|641|081a)|everspin,mr25h(10|40|128|256)|(mxicy|macronix),mx25l(4005a|1606e|6405d|8005|12805d|25635e)|(mxicy|macronix),mx25u(4033|4035)|(spansion,)?s25fl(128s|256s1|512s|008k|064k|164k)|(sst|microchip),sst25vf(016b|032b|040b)|(sst,)?sst26wf016b|(sst,)?sst25wf(040b|080)|winbond,w25x(80|32)|(winbond,)?w25q(16|32(w|dw)?|64(dw)?|80bl|128(fw)?|256))$'
-    'micron,mt25qu512a' is not one of ['issi,is25lp016d',
-'micron,mt25qu02g', 'mxicy,mx25r1635f', 'mxicy,mx25u6435f',
-'mxicy,mx25v8035f', 'spansion,s25sl12801', 'spansion,s25fs512s']
-    'jedec,spi-nor' was expected
-    From schema:
-/home/prasmi/work/linux/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
-arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dtb:0:0:
-/soc/spi@10060000/flash@0: failed to match any schema with compatible:
-['micron,mt25qu512a', 'jedec,spi-nor']
-/home/prasmi/work/linux/arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dtb:
-usbphy-ctrl@11c40000: compatible:0: 'renesas,r9a07g043-usbphy-ctrl' is
-not one of ['renesas,r9a07g044-usbphy-ctrl',
-'renesas,r9a07g054-usbphy-ctrl']
-    From schema:
-/home/prasmi/work/linux/Documentation/devicetree/bindings/reset/renesas,rzg2l-usbphy-ctrl.yaml
-arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dtb:0:0:
-/soc/usbphy-ctrl@11c40000: failed to match any schema with compatible:
-['renesas,r9a07g043-usbphy-ctrl', 'renesas,rzg2l-usbphy-ctrl']
-/home/prasmi/work/linux/arch/arm64/boot/dts/renesas/r9a07g044l2-smarc.dtb:
-pinctrl@11030000: #address-cells: 'anyOf' conditional failed, one must
-be fixed:
-    [[2]] is not of type 'object'
-    From schema:
-/home/prasmi/work/linux/Documentation/devicetree/bindings/pinctrl/renesas,rzg2l-pinctrl.yaml
-prasmi@prasmi:~/work/linux$
-prasmi@prasmi:~/work/linux$
-
-
-Note: I am using dtschema version 2022.7.
-
-> I don't think you can use such selects...
 >
-> Best regards,
-> Krzysztof
+> > +#elif IS_ENABLED(CONFIG_RISCV_M_MODE)
+> > +     ci->mvendorid = csr_read(CSR_MVENDORID);
+> > +     ci->marchid = csr_read(CSR_MARCHID);
+> > +     ci->mimpid = csr_read(CSR_MIMPID);
+> > +#else
+> > +     ci->mvendorid = 0;
+> > +     ci->marchid = 0;
+> > +     ci->mimpid = 0;
+> > +#endif
+>
+> Would it be easier to zero out all the fields first and then fill them
+> in if supported?
 
-Cheers,
-Prabhakar
+Clearing out fields before "#if" ladder results in dead assignments.
+
+Regards,
+Anup
+
+>
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int __init riscv_cpuinfo_init(void)
+> > +{
+> > +     int ret;
+> > +
+> > +     ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/cpuinfo:starting",
+> > +                             riscv_cpuinfo_starting, NULL);
+> > +     if (ret < 0) {
+> > +             pr_err("cpuinfo: failed to register hotplug callbacks.\n");
+> > +             return ret;
+> > +     }
+> > +
+> > +     return 0;
+> > +}
+> > +device_initcall(riscv_cpuinfo_init);
+> > +
+> >   #define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
+> >       {                                                       \
+> >               .uprop = #UPROP,                                \
+> > @@ -178,6 +225,7 @@ static int c_show(struct seq_file *m, void *v)
+> >   {
+> >       unsigned long cpu_id = (unsigned long)v - 1;
+> >       struct device_node *node = of_get_cpu_node(cpu_id, NULL);
+> > +     struct riscv_cpuinfo *ci = per_cpu_ptr(&riscv_cpuinfo, cpu_id);
+> >       const char *compat, *isa;
+> >
+> >       seq_printf(m, "processor\t: %lu\n", cpu_id);
+> > @@ -188,6 +236,9 @@ static int c_show(struct seq_file *m, void *v)
+> >       if (!of_property_read_string(node, "compatible", &compat)
+> >           && strcmp(compat, "riscv"))
+> >               seq_printf(m, "uarch\t\t: %s\n", compat);
+> > +     seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
+> > +     seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
+> > +     seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
+> >       seq_puts(m, "\n");
+> >       of_node_put(node);
+> >
+>
+>
+> --
+> Ben Dooks                               http://www.codethink.co.uk/
+> Senior Engineer                         Codethink - Providing Genius
+>
+> https://www.codethink.co.uk/privacy.html
 
 _______________________________________________
 linux-riscv mailing list
