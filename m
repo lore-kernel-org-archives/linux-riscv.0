@@ -4,85 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C00C04A68
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 11:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCD35C04A68
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 11:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bkCauc84ZtcjzHnWUXgFkt9oBQUOr2p0Wrq9jnYCqxM=; b=kTOYvt2p1pCQwB
-	lVQQIxRpG1UDxwyzFL8j4qWs/X2jJP4tZ5OYDLVjdFYm56rcHZKN9MTyjNzhjtSTR+LiosCxc6g26
-	iWbONTRXR/+f3cP3DDjjGavyQkJcIrHz6Y9qCCBBZTV7/oja4z3fbo/RhGyMkH7R4HSzDA1QqDDqw
-	cQyHOaHGPR2utlh0jO+njOGqCXXk+rAtDxfNsbpiuW7Z21Dsrvn51qiUh60A3Gs2VJr70nSIKqKuX
-	vUjrCyT272KLVQRtgpsHp1fZApmAJbpwe4hdfDptzMbKHAiI2Qx2f8Ui2keM6LlWoWyDYsm5tWNZi
-	sVcpKFwSeqp7BROAcgVQ==;
+	List-Owner; bh=qqGVh2iu8k+AQS5om4BJWYWH1bqS09GhjlNQ5DbvBTk=; b=b/K+HOzYI8Niq5
+	6AObZkeE/sqYDrcDtyEIrpEhHebrRV0RolTl1tD1AiuzvC2R8gwiuZSNS6RfLt3UW6/SGzqVn83Zk
+	JBxvRcHA8KDZ3f/878CQ6eJhWdg8trLPR9AiXG+bpmID1VGKEof9BC3665nGflIm7HI0OnjdWlYVF
+	uvir0a7QA7Cs/fMgzEkFaNDD01QG069It/5Hp3/IlLCUPOUolXzqiqEToAevrYaZovRoE9UbFP3Zm
+	NMjWoUxLIoE5MypLXNjwwEPsavwXZX3EyddxpYhAWW46SP5o4BeMcL/Gx5NoltCO8Kadob1aazUKA
+	LPZXZ6AWpb++d6CUAI7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGfSR-00D5EE-IL; Wed, 27 Jul 2022 11:44:07 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1oGfTI-00D5s1-Kn; Wed, 27 Jul 2022 11:45:00 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGfSP-00D5Bv-03
-	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 11:44:06 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id bh13so15714050pgb.4
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 04:44:04 -0700 (PDT)
+	id 1oGfTF-00D5oL-7H
+	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 11:44:58 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id q7so4076268ljp.13
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 04:44:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=from:to:cc:subject:date:message-id:in-reply-to:references
-         :mime-version:content-transfer-encoding;
-        bh=ZDeYW4AY28vTxurFqUXv3ebNyVNdEODpLRCvig5J+Z8=;
-        b=aqjEe3mvrZ/sXf2TJhUGnviXYa1l1LYvbO7SQNCsbRoBm0VTSB5S/Vn+NZ3BombPyd
-         c/hYAThtpLetobdizee3fkOS/RlfZitV1e4eh2Sk4CmKvhXeGs41oltsGCrZGXrdUf48
-         KqR1b30FD6/M8sVRF0rEJQ51pt9SPXLoBxvDhX4eVN/KXOe2sdLQPZNBb9CRlQ/bPmuo
-         Wp4KqHYcaAC+mWT20tlu1Bk2gicSXZDrADeE+ruejivezkjr9GXD9SOCjeCwsDvBrAAh
-         sQUbAXEjW9hO/WPRC9DvATAtc4z6/vfE48At2mxmtoyzPv5qgLh6b7VpH8SrqxlEuomp
-         YRPw==
+        d=linaro.org; s=google;
+        h=message-id:date:mime-version:user-agent:subject:content-language:to
+         :cc:references:from:in-reply-to:content-transfer-encoding;
+        bh=jtn8/pXZqVmyVmHFD0ROY+AOvBnJkk+T5jet+Sm8Mvw=;
+        b=dyptcIS3dLYiYzrlsmmZOGIFth86TvW5l6M+4b0Mr9yn3urso9iRQ8rrR+W6NJXyte
+         5wUp/Y9tUrZurvjY8+ZAJMb6OHPUFlDkKz7oyecCf62uJpXyr1ZO7ZLgLiNlHY5Fkt4R
+         /dpHOcf947Ov7D8EhsepB/JwpSU8g3etAeE6vzsV1mrOSD8A1zEYB7bRuEr93FTaCZTY
+         +y07iTbyKMJB1/WNq35+23UBJlm7NWtygCOAJUjsxXqzaABbVnr+IFMZJ4JoV0dlaR3b
+         D+vLSZZKd+EsmqYaht1OLj05H+041oIkPOjblXPTeuAQ4lQPLzQjHGJ37ZNFf9kcQt+W
+         0TNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:in-reply-to
-         :references:mime-version:content-transfer-encoding;
-        bh=ZDeYW4AY28vTxurFqUXv3ebNyVNdEODpLRCvig5J+Z8=;
-        b=uosCONbVFG26sesOTFprXSal0+8wId8xxyMpLrmLhbMgj8KcAIn8dwMG2G97gpLoN6
-         zQfjRYBZgbMLkLRf1pqGzvwJRIKQaEtJ7PvNrK5TcReweozSxg246OT8CUy9fE1xyscM
-         Hk5yyi8uxCPXsOMW5R881hz2Ym6lySUz6S+FxLUidyQqMeJ1Ybz9L2u0mwbX5UNNBqts
-         3x8molXboAsBHR3oP/AJSN+pp2EMhwKxyzodrPnCJzYPhVczHp3pXUjBiTul3qIRpNh+
-         q3YKBhEhrXwBL9BHGlxZtmURlvNjVDUrXJW9Gyl1JXuz+PmH2H/UsF6YM/Hl1zRg1v5o
-         6YPA==
-X-Gm-Message-State: AJIora/p413Trj2lBMDMbAI5iPLVCSSyXL9GB483ZU+VdYlLLOjYklar
-	gzhWIQJxjKu2UOR257nu1XLx3g==
-X-Google-Smtp-Source: AGRyM1vgoJVgOpNZ5zoSEMsNCq+Vu0AoGtr3UpQlEBz0aThV4QkKeFQREyfDS6te99XytVvnKPacaA==
-X-Received: by 2002:a63:fd4f:0:b0:41b:539b:ba8e with SMTP id m15-20020a63fd4f000000b0041b539bba8emr812287pgj.17.1658922244094;
-        Wed, 27 Jul 2022 04:44:04 -0700 (PDT)
-Received: from anup-ubuntu64-vm.. ([171.76.87.63])
-        by smtp.gmail.com with ESMTPSA id o8-20020a170902d4c800b0016be9fa6807sm13486685plg.284.2022.07.27.04.43.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 27 Jul 2022 04:44:03 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Andrew Jones <ajones@ventanamicro.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Anup Patel <anup@brainfault.org>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v2 2/2] clocksource: timer-riscv: Set CLOCK_EVT_FEAT_C3STOP based on DT property
-Date: Wed, 27 Jul 2022 17:13:02 +0530
-Message-Id: <20220727114302.302201-3-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220727114302.302201-1-apatel@ventanamicro.com>
-References: <20220727114302.302201-1-apatel@ventanamicro.com>
+        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+         :content-language:to:cc:references:from:in-reply-to
+         :content-transfer-encoding;
+        bh=jtn8/pXZqVmyVmHFD0ROY+AOvBnJkk+T5jet+Sm8Mvw=;
+        b=H2P6IeqGhAf244jU334QBcE4RlxfK20ZqoV8J4FIql8WlLUS++LeGiMPXzr8vf53Ac
+         5RfLMHymFh+8bNENc64ulgBhKF6zVkIOlq7tIdYAkdsV0H0DuMdf+cztlbzQHTWVhOsm
+         MS2OUNRIpqWEZ1n83rTap999be1MlRUvLkDJhlepoeJ8U6qfBTTEfj2fuvShKxXNetUl
+         zlvI0ZR3UBHIMJSiKRN5hEdriiTD81l3csuiRFRgtG8bxFFgwyiPnj2F+Qxbr7gRgO5o
+         O0BBu1UVGSON4Bfo9bvKGnassOKNTGmFgiWflAq12i7/AB1nL87cI4rkQcWqZPBKbW/y
+         vnbg==
+X-Gm-Message-State: AJIora8bsL7i032zGI79kCkMhta2WBw5pHzcwAli8DsHnEc8dKOtqDEt
+	7NA3DTB46KJH145JjNY4Uv3rDoYhrKd2TGUU
+X-Google-Smtp-Source: AGRyM1vKJFrPlmDXjA4BYKoOZrKRj/fRP1aoIdOTCo6UEZmXfLZ4iTyhVjD9Nptbds6dKOvZYwUDIg==
+X-Received: by 2002:a2e:9ada:0:b0:25e:1109:b067 with SMTP id p26-20020a2e9ada000000b0025e1109b067mr3243919ljj.425.1658922294916;
+        Wed, 27 Jul 2022 04:44:54 -0700 (PDT)
+Received: from [192.168.3.197] (78-26-46-173.network.trollfjord.no. [78.26.46.173])
+        by smtp.gmail.com with ESMTPSA id o5-20020ac24345000000b0047920d89606sm3745948lfl.187.2022.07.27.04.44.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 Jul 2022 04:44:54 -0700 (PDT)
+Message-ID: <9f32a4a9-66b4-ba2e-1713-436103c2faf8@linaro.org>
+Date: Wed, 27 Jul 2022 13:44:52 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
+Subject: Re: [PATCH 4/6] dt-bindings: riscv: Add DT binding documentation for
+ Renesas RZ/Five SoC and SMARC EVK
+Content-Language: en-US
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup@brainfault.org>,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
+ LKML <linux-kernel@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>
+References: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20220726180623.1668-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <636e9214-4b36-e9a6-3c6b-b6edb944335e@linaro.org>
+ <CA+V-a8sTw1qzuTeD2vb7RgDmmNdEP5qEcxXCjrFgkyrBrLrt5Q@mail.gmail.com>
+ <e64cc15e-b31e-876d-b3cf-b60d255c495b@linaro.org>
+ <CA+V-a8u1VW9xaj2KjySyMuegpisLVENO_6uJOpAFZGbKziYLYw@mail.gmail.com>
+ <e31e0c1f-4755-704e-8428-93970877d8f5@linaro.org>
+ <CA+V-a8sX=Frs_cds9MriauTFRvcZUNCvoeZ+SaC0GUpL7L6qhg@mail.gmail.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <CA+V-a8sX=Frs_cds9MriauTFRvcZUNCvoeZ+SaC0GUpL7L6qhg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220727_044405_065011_AB0DEBBB 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20220727_044457_303754_B1D177AB 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,49 +108,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We should set CLOCK_EVT_FEAT_C3STOP for a clock_event_device only when
-riscv,timer-can-wake-cpu DT property is not present for the corresponding
-CPU.
+On 27/07/2022 13:37, Lad, Prabhakar wrote:
+>>>>
+>>> I did run the dtbs_check test as per your suggestion (below is the
+>>> log) and didn't see "no matching schema error"
+>>>
+>>
+>> So you do not see any errors at all. Then it does not work, does it?
+>>
+> Right I reverted my changes I can see it complaining, dtb_check seems
+> to have returned false positive in my case.
+> 
+> What approach would you suggest to ignore the schema here?
 
-This way CLOCK_EVT_FEAT_C3STOP feature is set for clock_event_device
-based on RISC-V platform capabilities rather than having it set for
-all RISC-V platforms.
+I don't think currently it would work with your approach. Instead, you
+should select here all SoCs which the schema should match.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- drivers/clocksource/timer-riscv.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+This leads to my previous concern - you use the same SoC compatible for
+two different architectures and different SoCs: ARMv8 and RISC-V.
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 593d5a957b69..92a0b9832d8c 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -34,7 +34,7 @@ static int riscv_clock_next_event(unsigned long delta,
- static unsigned int riscv_clock_event_irq;
- static DEFINE_PER_CPU(struct clock_event_device, riscv_clock_event) = {
- 	.name			= "riscv_timer_clockevent",
--	.features		= CLOCK_EVT_FEAT_ONESHOT | CLOCK_EVT_FEAT_C3STOP,
-+	.features		= CLOCK_EVT_FEAT_ONESHOT,
- 	.rating			= 100,
- 	.set_next_event		= riscv_clock_next_event,
- };
-@@ -65,9 +65,13 @@ static struct clocksource riscv_clocksource = {
- static int riscv_timer_starting_cpu(unsigned int cpu)
- {
- 	struct clock_event_device *ce = per_cpu_ptr(&riscv_clock_event, cpu);
-+	struct device_node *np = of_get_cpu_node(cpu, NULL);
- 
- 	ce->cpumask = cpumask_of(cpu);
- 	ce->irq = riscv_clock_event_irq;
-+	if (!of_property_read_bool(np, "riscv,timer-can-wake-cpu"))
-+		ce->features |= CLOCK_EVT_FEAT_C3STOP;
-+	of_node_put(np);
- 	clockevents_config_and_register(ce, riscv_timebase, 100, 0x7fffffff);
- 
- 	enable_percpu_irq(riscv_clock_event_irq,
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
