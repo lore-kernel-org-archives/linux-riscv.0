@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B7C9C04A68
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 14:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D26C04A68
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 15:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XRyDjjsfHOE3fzckNGKrxg6ChvSWmX1sGP89BywW8d4=; b=1Mwxt36skJR4jH
-	G7YvwycC2XwiWkOf6IocOWmw9ve2X2e+b+O9KjGzbh44EDLNeptVjp5vhZJbQLu/z/NdWlLrxYj9P
-	4fjD8wyK2ye9FGj9wEIu9ooU330Lv8oLa3fYMQnT2jYrLhAgVsKwcCSAFu8VhdPrpm8lXJK1kJ5qw
-	+D6pMECEf3x1erPbtCU0+F9HQ8h1MPoBcRZ4HLzNOlOUBPD9kBLnRq3Q1ZwCV6nuE0x1es97X9lcx
-	GJvXz4p2kuQtK1my4ZQWJy4+KHI1BjMULp5yiJNo6aQhwdg2D+iY6m2+AZVKrLGQS0Syq1CCNTw4L
-	HUegIbBy6uoWSHrmGtIg==;
+	List-Owner; bh=/KM3A1W9SpggEDtNeBRo9VAN0WUpMFfx+IvWl/RNdFw=; b=XV7V3qhEieEIZ/
+	UuwmRKF3UCP8ZJ/s2jx5QYqeCSHb/cXJkY6Pi1OrNyU8YKpjOHFKTp4amQT7rIJroO9Tm2iW7VKJx
+	CjtlOGixAVxxegd+PLpi788EJJGgef1FNINRAPQ65OD6ypkwNuFpXj5rOD+iCDbQ4yrhO8O02kmTE
+	zEpwanQRCxMfoTzwlFdM5aqCvCxVJUHSTrjoqIZrRDFGU7QjyNVBuM12AmVKO4XSXaiNrofxTapWm
+	2HhVQNNxyZrDcP/xxgGC+4g7HDEa+noCE0Hvpyq0Qq094RoNjj03SUjS/yksPGk2TVPtzmM+dI/6K
+	lWkD5Xe+KC0+axy3UlzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGi79-00EbCo-Iu; Wed, 27 Jul 2022 14:34:19 +0000
-Received: from mail-oa1-x30.google.com ([2001:4860:4864:20::30])
+	id 1oGit2-00F0c7-49; Wed, 27 Jul 2022 15:23:48 +0000
+Received: from mail-il1-f179.google.com ([209.85.166.179])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGi73-00Eb71-Ej
-	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 14:34:18 +0000
-Received: by mail-oa1-x30.google.com with SMTP id 586e51a60fabf-10d867a8358so22754380fac.10
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 07:34:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=ocwps31eJoPlFy7kJz3fXf0jQvWTYeUtGM2NYW8gcq8=;
-        b=c2yeu5Tk0TFjxcFBk4hL+KLpb6Dy+y3eyyFETi4Ja91jeC1l52eBlTXO9AwiqJ3M0c
-         c6wI0Bz1pEg55JZ65zB9sDL1yKWLxtqW6H1ARYgB5AqlKVbqfrKoZAdD48CnPUcHmHG6
-         0XMHc0S0nFOiWa+5Kbl3EEQUvg9CA7LtQQkdXxxnAXgldDOzTzuxN2iX6hxtQZqb0287
-         vxi+TrVFiGMQGla0HiXydfNP/I/S5FJk87qGzHuv/5aCBkv+hmmM9dtWCerNHOKd+8FD
-         sUOShxo39+UTJcOtgmIOoGUQ8TmHxJ54oWdzQOG+U09as4w6RXFY11OF6pJ1+KMjApzW
-         A//g==
+	id 1oGisw-00F0YE-6y
+	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 15:23:43 +0000
+Received: by mail-il1-f179.google.com with SMTP id l3so197238ilo.4
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 08:23:41 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=ocwps31eJoPlFy7kJz3fXf0jQvWTYeUtGM2NYW8gcq8=;
-        b=pyMUGlC8USaic7vLeCJE8KPTDTUYkxikb7OFDOb6qhJyCHNStOjZaQAMdDEFohR0X5
-         RQb4ZbfdpUR/LzFUkYLfECKN2gU+iv78N2naO8UVijZAWbK2S2a4jjhLOeHPLbkFa5xJ
-         og6Bm9BwaqantsSKPMmdaidmZoPYF2GfrHTmulKIrvJXpbXrmpTnDeMchC5H6g3zU4aQ
-         u1z7MAC/qRHT6e7JPyIslSNLDQoUmg133jS/ldsNmyqZirWMOtRWXs8mM8VMSf144hLs
-         AHr8XO7dGTqt/SfKe+g4TldOiMeuqHjtB4Ptx7veug2BYLatDbCLzkxHbgXOC6LRmDEy
-         JW+g==
-X-Gm-Message-State: AJIora/LxaKQ2wAI6XgB544ouAOUMsXyQM25eZta3+a1T6/liKKuvTuL
-	iMaFjF01pX3IlyWF1WdWMreGGvlSJPuXMs3rUsQ=
-X-Google-Smtp-Source: AGRyM1vMMXDM+DQUa8AAprjMAhDCGkUgLRrOBcK0Tu+gN1BbocTTnMVpowQS/FgBt9I21WxUpfHQKrvyVl3G32GIwJw=
-X-Received: by 2002:a05:6870:9688:b0:10d:a895:21ef with SMTP id
- o8-20020a056870968800b0010da89521efmr2183923oaq.110.1658932449622; Wed, 27
- Jul 2022 07:34:09 -0700 (PDT)
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to;
+        bh=z5vpqZfmFKwVrz9tfkSeyBo2CWCpn59/Ud7Jqj6aBSo=;
+        b=zAenoKwD3Ni/GgZbk9px7tNHaj1aG5QG0mN0kUDP/440WQ4WN3Msu5mE0f8yLXrLTC
+         4uXp6qtpHNjrp6El5lvmyGElZYDBW59auwXgiIwFGvrdn0T0H28DidSrWV8EI3YKokvZ
+         bQoy0eRa6aSN5MiIm00220C7bAyX8B+0mkIiSZbCaq06nXqGkexywrcK08OQTKlZjJSP
+         HVWUfN+1ILYQM/+nLChDbagSGdPpRDQSbnz4UohN7HfmzKBB03OPL/YNsiE8VohsURVf
+         JHHQ3dAJMLoR5EdribLlBKjfFRSnmCEkqqK6kt1fkCTgcj0zPzeKlvDM99vuvqWqPq/B
+         8HhA==
+X-Gm-Message-State: AJIora+99oJwjQ7T7Jix6PJf9IAUJ8UVQKuBEYI5nqs/foNb/gL5+tyT
+	xpVqg5Rcz5TC1ETWwX9d1Q==
+X-Google-Smtp-Source: AGRyM1up1oPDnQEY9tNohSqCcyJOjFy1DCKFfz/b2rGCtlJVjvqTI93Dp4hC6w8f3DmUzFX2ZvN2pA==
+X-Received: by 2002:a05:6e02:1c8d:b0:2dc:8162:282e with SMTP id w13-20020a056e021c8d00b002dc8162282emr8837058ill.5.1658935420412;
+        Wed, 27 Jul 2022 08:23:40 -0700 (PDT)
+Received: from robh.at.kernel.org ([64.188.179.248])
+        by smtp.gmail.com with ESMTPSA id v5-20020a056e0213c500b002dce9ddcb08sm61488ilj.30.2022.07.27.08.23.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 27 Jul 2022 08:23:39 -0700 (PDT)
+Received: (nullmailer pid 2696011 invoked by uid 1000);
+	Wed, 27 Jul 2022 15:23:38 -0000
+Date: Wed, 27 Jul 2022 09:23:38 -0600
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <mail@conchuod.ie>
+Cc: Atul Khare <atulkhare@rivosinc.com>, Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <conor.dooley@microchip.com>, Bartosz Golaszewski <brgl@bgdev.pl>, Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh+dt@kernel.org>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Sagar Kadam <sagar.kadam@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] dt-bindings: sifive: add gpio-line-names
+Message-ID: <20220727152338.GA2695979-robh@kernel.org>
+References: <20220726170725.3245278-1-mail@conchuod.ie>
+ <20220726170725.3245278-3-mail@conchuod.ie>
 MIME-Version: 1.0
-References: <20220718025346.411758-1-xianting.tian@linux.alibaba.com> <20220718025346.411758-2-xianting.tian@linux.alibaba.com>
-In-Reply-To: <20220718025346.411758-2-xianting.tian@linux.alibaba.com>
-From: Yixun Lan <yixun.lan@gmail.com>
-Date: Wed, 27 Jul 2022 14:33:58 +0000
-Message-ID: <CALecT5i3r_QTFHGBjYoccfgTz1NceW-_=9p8AsrqmK+pE+ZWUw@mail.gmail.com>
-Subject: Re: [Crash-utility][PATCH 1/8] Add RISCV64 framework code support
-To: Xianting Tian <xianting.tian@linux.alibaba.com>
-Cc: crash-utility@redhat.com, Nick Kossifidis <mick@ics.forth.gr>, 
-	heinrich.schuchardt@canonical.com, guoren@kernel.org, k-hagio-ab@nec.com, 
-	linux-riscv <linux-riscv@lists.infradead.org>, hschauhan@nulltrace.org, 
-	huanyi.xj@alibaba-inc.com
+Content-Disposition: inline
+In-Reply-To: <20220726170725.3245278-3-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220727_073413_644899_D2FF7DAF 
-X-CRM114-Status: GOOD (  29.60  )
+X-CRM114-CacheID: sfid-20220727_082342_274318_07F698D4 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,643 +79,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 18, 2022 at 2:55 AM Xianting Tian
-<xianting.tian@linux.alibaba.com> wrote:
->
-> This patch mainly added some environment configurations, macro definitions,
-> specific architecture structures and some function declarations supported
-> by the RISCV64 architecture.
->
-> We can use the build command to get the simplest version crash tool:
->         make target=RISCV64 -j2
->
-> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+On Tue, 26 Jul 2022 18:07:26 +0100, Conor Dooley wrote:
+> From: Atul Khare <atulkhare@rivosinc.com>
+> 
+> Fix device tree schema validation messages like 'gpio-line-names'
+> does not match any of the regexes: 'pinctrl-[0-9]+' From schema: ...
+> sifive,gpio.yaml'.
+> 
+> The bindings were missing the gpio-line-names element, which was
+> causing the dt-schema checker to trip-up.
+> 
+> Signed-off-by: Atul Khare <atulkhare@rivosinc.com>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  Makefile            |   7 +-
->  README              |   2 +-
->  configure.c         |  39 ++++++++++-
->  defs.h              | 155 +++++++++++++++++++++++++++++++++++++++++++-
->  diskdump.c          |  11 +++-
->  help.c              |   2 +-
->  lkcd_vmdump_v2_v3.h |   2 +-
->  netdump.c           |   9 ++-
->  ramdump.c           |   2 +
->  riscv64.c           |  56 ++++++++++++++++
->  symbols.c           |  10 +++
->  11 files changed, 285 insertions(+), 10 deletions(-)
->  create mode 100644 riscv64.c
->
-> diff --git a/Makefile b/Makefile
-> index 162c2ba..54ebb43 100644
-> --- a/Makefile
-> +++ b/Makefile
-> @@ -64,7 +64,7 @@ CFILES=main.c tools.c global_data.c memory.c filesys.c help.c task.c \
->         kernel.c test.c gdb_interface.c configure.c net.c dev.c bpf.c \
->         printk.c \
->         alpha.c x86.c ppc.c ia64.c s390.c s390x.c s390dbf.c ppc64.c x86_64.c \
-> -       arm.c arm64.c mips.c mips64.c sparc64.c \
-> +       arm.c arm64.c mips.c mips64.c riscv64.c sparc64.c \
->         extensions.c remote.c va_server.c va_server_v1.c symbols.c cmdline.c \
->         lkcd_common.c lkcd_v1.c lkcd_v2_v3.c lkcd_v5.c lkcd_v7.c lkcd_v8.c\
->         lkcd_fix_mem.c s390_dump.c lkcd_x86_trace.c \
-> @@ -84,7 +84,7 @@ OBJECT_FILES=main.o tools.o global_data.o memory.o filesys.o help.o task.o \
->         build_data.o kernel.o test.o gdb_interface.o net.o dev.o bpf.o \
->         printk.o \
->         alpha.o x86.o ppc.o ia64.o s390.o s390x.o s390dbf.o ppc64.o x86_64.o \
-> -       arm.o arm64.o mips.o mips64.o sparc64.o \
-> +       arm.o arm64.o mips.o mips64.o riscv64.o sparc64.o \
->         extensions.o remote.o va_server.o va_server_v1.o symbols.o cmdline.o \
->         lkcd_common.o lkcd_v1.o lkcd_v2_v3.o lkcd_v5.o lkcd_v7.o lkcd_v8.o \
->         lkcd_fix_mem.o s390_dump.o netdump.o diskdump.o makedumpfile.o xendump.o \
-> @@ -438,6 +438,9 @@ mips.o: ${GENERIC_HFILES} ${REDHAT_HFILES} mips.c
->  mips64.o: ${GENERIC_HFILES} ${REDHAT_HFILES} mips64.c
->         ${CC} -c ${CRASH_CFLAGS} mips64.c ${WARNING_OPTIONS} ${WARNING_ERROR}
->
-> +riscv64.o: ${GENERIC_HFILES} ${REDHAT_HFILES} riscv64.c
-> +       ${CC} -c ${CRASH_CFLAGS} riscv64.c ${WARNING_OPTIONS} ${WARNING_ERROR}
-> +
->  sparc64.o: ${GENERIC_HFILES} ${REDHAT_HFILES} sparc64.c
->         ${CC} -c ${CRASH_CFLAGS} sparc64.c ${WARNING_OPTIONS} ${WARNING_ERROR}
->
-> diff --git a/README b/README
-> index 5abbce1..5ac5b60 100644
-> --- a/README
-> +++ b/README
-> @@ -37,7 +37,7 @@
->    These are the current prerequisites:
->
->    o  At this point, x86, ia64, x86_64, ppc64, ppc, arm, arm64, alpha, mips,
-> -     mips64, s390 and s390x-based kernels are supported.  Other architectures
-> +     mips64, riscv64, s390 and s390x-based kernels are supported.  Other architectures
->       may be addressed in the future.
->
->    o  One size fits all -- the utility can be run on any Linux kernel version
-> diff --git a/configure.c b/configure.c
-> index 5188851..0d216d1 100644
-> --- a/configure.c
-> +++ b/configure.c
-> @@ -107,6 +107,7 @@ void add_extra_lib(char *);
->  #undef MIPS
->  #undef SPARC64
->  #undef MIPS64
-> +#undef RISCV64
->
->  #define UNKNOWN 0
->  #define X86     1
-> @@ -122,6 +123,7 @@ void add_extra_lib(char *);
->  #define MIPS    11
->  #define SPARC64 12
->  #define MIPS64  13
-> +#define RISCV64 14
->
->  #define TARGET_X86    "TARGET=X86"
->  #define TARGET_ALPHA  "TARGET=ALPHA"
-> @@ -136,6 +138,7 @@ void add_extra_lib(char *);
->  #define TARGET_MIPS   "TARGET=MIPS"
->  #define TARGET_MIPS64 "TARGET=MIPS64"
->  #define TARGET_SPARC64 "TARGET=SPARC64"
-> +#define TARGET_RISCV64 "TARGET=RISCV64"
->
->  #define TARGET_CFLAGS_X86    "TARGET_CFLAGS=-D_FILE_OFFSET_BITS=64"
->  #define TARGET_CFLAGS_ALPHA  "TARGET_CFLAGS="
-> @@ -158,6 +161,8 @@ void add_extra_lib(char *);
->  #define TARGET_CFLAGS_MIPS_ON_X86_64  "TARGET_CFLAGS=-m32 -D_FILE_OFFSET_BITS=64"
->  #define TARGET_CFLAGS_MIPS64          "TARGET_CFLAGS="
->  #define TARGET_CFLAGS_SPARC64         "TARGET_CFLAGS="
-> +#define TARGET_CFLAGS_RISCV64         "TARGET_CFLAGS="
-> +#define TARGET_CFLAGS_RISCV64_ON_X86_64        "TARGET_CFLAGS="
->
->  #define GDB_TARGET_DEFAULT        "GDB_CONF_FLAGS="
->  #define GDB_TARGET_ARM_ON_X86     "GDB_CONF_FLAGS=--target=arm-elf-linux"
-> @@ -168,6 +173,7 @@ void add_extra_lib(char *);
->  #define GDB_TARGET_PPC64_ON_X86_64  "GDB_CONF_FLAGS=--target=powerpc64le-unknown-linux-gnu"
->  #define GDB_TARGET_MIPS_ON_X86     "GDB_CONF_FLAGS=--target=mipsel-elf-linux"
->  #define GDB_TARGET_MIPS_ON_X86_64  "GDB_CONF_FLAGS=--target=mipsel-elf-linux CFLAGS=-m32 CXXFLAGS=-m32"
-> +#define GDB_TARGET_RISCV64_ON_X86_64  "GDB_CONF_FLAGS=--target=riscv64-unknown-linux-gnu"
->
->  /*
->   *  The original plan was to allow the use of a particular version
-> @@ -404,6 +410,9 @@ get_current_configuration(struct supported_gdb_version *sp)
->  #ifdef __sparc_v9__
->         target_data.target = SPARC64;
->  #endif
-> +#ifdef __riscv64__
-> +       target_data.target = RISCV64;
-> +#endif
->
->         set_initial_target(sp);
->
-> @@ -457,6 +466,12 @@ get_current_configuration(struct supported_gdb_version *sp)
->                         if ((target_data.initial_gdb_target != UNKNOWN) &&
->                             (target_data.host != target_data.initial_gdb_target))
->                                 arch_mismatch(sp);
-> +               } else if ((target_data.target == X86_64) &&
-> +                       (name_to_target((char *)target_data.target_as_param) == RISCV64)) {
-> +                       /*
-> +                        *  Build an RISCV64 crash binary on an X86_64 host.
-> +                        */
-> +                       target_data.target = RISCV64;
->                 } else {
->                         fprintf(stderr,
->                             "\ntarget=%s is not supported on the %s host architecture\n\n",
-> @@ -497,6 +512,10 @@ get_current_configuration(struct supported_gdb_version *sp)
->                     (target_data.target != MIPS64))
->                         arch_mismatch(sp);
->
-> +               if ((target_data.initial_gdb_target == RISCV64) &&
-> +                   (target_data.target != RISCV64))
-> +                       arch_mismatch(sp);
-> +
->                 if ((target_data.initial_gdb_target == X86) &&
->                     (target_data.target != X86)) {
->                         if (target_data.target == X86_64)
-> @@ -660,6 +679,9 @@ show_configuration(void)
->         case SPARC64:
->                 printf("TARGET: SPARC64\n");
->                 break;
-> +       case RISCV64:
-> +               printf("TARGET: RISCV64\n");
-> +               break;
->         }
->
->         if (strlen(target_data.program)) {
-> @@ -777,6 +799,14 @@ build_configure(struct supported_gdb_version *sp)
->                 target = TARGET_SPARC64;
->                 target_CFLAGS = TARGET_CFLAGS_SPARC64;
->                 break;
-> +       case RISCV64:
-> +               target = TARGET_RISCV64;
-> +               if (target_data.host == X86_64) {
-> +                       target_CFLAGS = TARGET_CFLAGS_RISCV64_ON_X86_64;
-> +                       gdb_conf_flags = GDB_TARGET_RISCV64_ON_X86_64;
-> +               } else
-> +                       target_CFLAGS = TARGET_CFLAGS_RISCV64;
-> +               break;
->         }
->
->         ldflags = get_extra_flags("LDFLAGS.extra", NULL);
-> @@ -1374,7 +1404,7 @@ make_spec_file(struct supported_gdb_version *sp)
->         printf("Vendor: Red Hat, Inc.\n");
->         printf("Packager: Dave Anderson <anderson@redhat.com>\n");
->         printf("ExclusiveOS: Linux\n");
-> -       printf("ExclusiveArch: %%{ix86} alpha ia64 ppc ppc64 ppc64pseries ppc64iseries x86_64 s390 s390x arm aarch64 ppc64le mips mipsel mips64el sparc64\n");
-> +       printf("ExclusiveArch: %%{ix86} alpha ia64 ppc ppc64 ppc64pseries ppc64iseries x86_64 s390 s390x arm aarch64 ppc64le mips mipsel mips64el sparc64 riscv64\n");
->         printf("Buildroot: %%{_tmppath}/%%{name}-root\n");
->         printf("BuildRequires: ncurses-devel zlib-devel bison\n");
->         printf("Requires: binutils\n");
-> @@ -1613,6 +1643,8 @@ set_initial_target(struct supported_gdb_version *sp)
->                 target_data.initial_gdb_target = MIPS;
->         else if (strncmp(buf, "SPARC64", strlen("SPARC64")) == 0)
->                 target_data.initial_gdb_target = SPARC64;
-> +       else if (strncmp(buf, "RISCV64", strlen("RISCV64")) == 0)
-> +               target_data.initial_gdb_target = RISCV64;
->  }
->
->  char *
-> @@ -1633,6 +1665,7 @@ target_to_name(int target)
->         case MIPS:   return("MIPS");
->         case MIPS64: return("MIPS64");
->         case SPARC64: return("SPARC64");
-> +       case RISCV64: return("RISCV64");
->         }
->
->         return "UNKNOWN";
-> @@ -1697,6 +1730,10 @@ name_to_target(char *name)
->                 return MIPS64;
->         else if (strncmp(name, "sparc64", strlen("sparc64")) == 0)
->                 return SPARC64;
-> +       else if (strncmp(name, "RISCV64", strlen("RISCV64")) == 0)
-> +               return RISCV64;
-> +       else if (strncmp(name, "riscv64", strlen("riscv64")) == 0)
-> +               return RISCV64;
->
->         return UNKNOWN;
->  }
-> diff --git a/defs.h b/defs.h
-> index 9b1b69a..42ffba3 100644
-> --- a/defs.h
-> +++ b/defs.h
-> @@ -76,7 +76,7 @@
->  #if !defined(X86) && !defined(X86_64) && !defined(ALPHA) && !defined(PPC) && \
->      !defined(IA64) && !defined(PPC64) && !defined(S390) && !defined(S390X) && \
->      !defined(ARM) && !defined(ARM64) && !defined(MIPS) && !defined(MIPS64) && \
-> -    !defined(SPARC64)
-> +    !defined(RISCV64) && !defined(SPARC64)
->  #ifdef __alpha__
->  #define ALPHA
->  #endif
-> @@ -118,6 +118,9 @@
->  #ifdef __sparc_v9__
->  #define SPARC64
->  #endif
-> +#ifdef __riscv64__
-this is wrong, should be
- #if defined(__riscv) && (__riscv_xlen == 64)
+>  Documentation/devicetree/bindings/gpio/sifive,gpio.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
 
-> +#define RISCV64
-> +#endif
->  #endif
->
->  #ifdef X86
-> @@ -159,6 +162,9 @@
->  #ifdef SPARC64
->  #define NR_CPUS  (4096)
->  #endif
-> +#ifdef RISCV64
-> +#define NR_CPUS  (256)
-> +#endif
->
->  #define NR_DEVICE_DUMPS (64)
->
-> @@ -3484,6 +3490,63 @@ struct arm64_stackframe {
->  #define _MAX_PHYSMEM_BITS       48
->  #endif  /* MIPS64 */
->
-> +#ifdef RISCV64
-> +#define _64BIT_
-> +#define MACHINE_TYPE           "RISCV64"
-> +
-> +/*
-> + * Direct memory mapping
-> + */
-> +#define PTOV(X)                                                                                \
-> +       (((unsigned long)(X)+(machdep->kvbase)) - machdep->machspec->phys_base)
-> +#define VTOP(X)        ({                                                                      \
-> +       ulong _X = X;                                                                   \
-> +       (THIS_KERNEL_VERSION >= 0x50D00 &&                                              \
-> +               (_X) >= machdep->machspec->kernel_link_addr) ?                          \
-> +               (((unsigned long)(_X)-(machdep->machspec->kernel_link_addr)) +          \
-> +                machdep->machspec->phys_base):                                         \
-> +               (((unsigned long)(_X)-(machdep->kvbase)) +                              \
-> +                machdep->machspec->phys_base);                                         \
-> +       })
-> +#define PAGEBASE(X)            (((ulong)(X)) & (ulong)machdep->pagemask)
-> +
-> +/*
-> + * Stack size order
-> + */
-> +#define THREAD_SIZE_ORDER       2
-> +
-> +#define PAGE_OFFSET            (machdep->machspec->page_offset)
-> +#define VMALLOC_START          (machdep->machspec->vmalloc_start_addr)
-> +#define VMALLOC_END            (machdep->machspec->vmalloc_end)
-> +#define VMEMMAP_VADDR          (machdep->machspec->vmemmap_vaddr)
-> +#define VMEMMAP_END            (machdep->machspec->vmemmap_end)
-> +#define MODULES_VADDR          (machdep->machspec->modules_vaddr)
-> +#define MODULES_END            (machdep->machspec->modules_end)
-> +#define IS_VMALLOC_ADDR(X)     riscv64_IS_VMALLOC_ADDR((ulong)(X))
-> +
-> +/* from arch/riscv/include/asm/pgtable.h */
-> +#define __SWP_TYPE_SHIFT        6
-> +#define __SWP_TYPE_BITS         5
-> +#define __SWP_TYPE_MASK         ((1UL << __SWP_TYPE_BITS) - 1)
-> +#define __SWP_OFFSET_SHIFT      (__SWP_TYPE_BITS + __SWP_TYPE_SHIFT)
-> +
-> +#define MAX_SWAPFILES_CHECK()   BUILD_BUG_ON(MAX_SWAPFILES_SHIFT > __SWP_TYPE_BITS)
-> +
-> +#define SWP_TYPE(entry)                (((entry) >> __SWP_TYPE_SHIFT) & __SWP_TYPE_MASK)
-> +#define SWP_OFFSET(entry)      ((entry) >> __SWP_OFFSET_SHIFT)
-> +#define __swp_type(entry)       SWP_TYPE(entry)
-> +#define __swp_offset(entry)     SWP_OFFSET(entry)
-> +
-> +#define TIF_SIGPENDING          (THIS_KERNEL_VERSION >= LINUX(2,6,23) ? 1 : 2)
-> +
-> +/* from arch/riscv/include/asm/sparsemem.h */
-> +#define _SECTION_SIZE_BITS      27
-> +#define _MAX_PHYSMEM_BITS       56 /* 56-bit physical address supported */
-> +#define PHYS_MASK_SHIFT                _MAX_PHYSMEM_BITS
-> +#define PHYS_MASK              (((1UL) << PHYS_MASK_SHIFT) - 1)
-> +
-> +#endif  /* RISCV64 */
-> +
->  #ifdef X86
->  #define _32BIT_
->  #define MACHINE_TYPE       "X86"
-> @@ -4532,6 +4595,10 @@ struct machine_specific {
->  #define MAX_HEXADDR_STRLEN (16)
->  #define UVADDR_PRLEN      (16)
->  #endif
-> +#ifdef RISCV64
-> +#define MAX_HEXADDR_STRLEN (16)
-> +#define UVADDR_PRLEN       (16)
-> +#endif
->
->  #define BADADDR  ((ulong)(-1))
->  #define BADVAL   ((ulong)(-1))
-> @@ -5126,6 +5193,9 @@ void dump_build_data(void);
->  #ifdef MIPS64
->  #define machdep_init(X) mips64_init(X)
->  #endif
-> +#ifdef RISCV64
-> +#define machdep_init(X) riscv64_init(X)
-> +#endif
->  #ifdef SPARC64
->  #define machdep_init(X) sparc64_init(X)
->  #endif
-> @@ -5606,6 +5676,9 @@ void display_help_screen(char *);
->  #ifdef SPARC64
->  #define dump_machdep_table(X) sparc64_dump_machdep_table(X)
->  #endif
-> +#ifdef RISCV64
-> +#define dump_machdep_table(X) riscv64_dump_machdep_table(X)
-> +#endif
->  extern char *help_pointer[];
->  extern char *help_alias[];
->  extern char *help_ascii[];
-> @@ -6682,6 +6755,86 @@ struct machine_specific {
->
->  #endif /* MIPS64 */
->
-> +/*
-> + * riscv64.c
-> + */
-> +void riscv64_display_regs_from_elf_notes(int, FILE *);
-> +
-> +#ifdef RISCV64
-> +void riscv64_init(int);
-> +void riscv64_dump_machdep_table(ulong);
-> +int riscv64_IS_VMALLOC_ADDR(ulong);
-> +
-> +#define display_idt_table() \
-> +       error(FATAL, "-d option is not applicable to RISCV64 architecture\n")
-> +
-> +/* from arch/riscv/include/asm/ptrace.h */
-> +struct riscv64_register {
-> +       ulong regs[36];
-> +};
-> +
-> +struct riscv64_pt_regs {
-> +       ulong badvaddr;
-> +       ulong cause;
-> +       ulong epc;
-> +};
-> +
-> +struct riscv64_unwind_frame {
-> +       ulong fp;
-> +       ulong sp;
-> +       ulong pc;
-> +};
-> +
-> +#define KSYMS_START    (0x1)
-> +
-> +struct machine_specific {
-> +       ulong phys_base;
-> +       ulong page_offset;
-> +       ulong vmalloc_start_addr;
-> +       ulong vmalloc_end;
-> +       ulong vmemmap_vaddr;
-> +       ulong vmemmap_end;
-> +       ulong modules_vaddr;
-> +       ulong modules_end;
-> +       ulong kernel_link_addr;
-> +       ulong address_space_end;
-> +
-> +       ulong _page_present;
-> +       ulong _page_read;
-> +       ulong _page_write;
-> +       ulong _page_exec;
-> +       ulong _page_user;
-> +       ulong _page_global;
-> +       ulong _page_accessed;
-> +       ulong _page_dirty;
-> +       ulong _page_soft;
-> +
-> +       ulong _pfn_shift;
-> +
-> +       struct riscv64_register *crash_task_regs;
-> +};
-> +/* from arch/riscv/include/asm/pgtable-bits.h */
-> +#define        _PAGE_PRESENT   (machdep->machspec->_page_present)
-> +#define        _PAGE_READ      (machdep->machspec->_page_read)
-> +#define        _PAGE_WRITE     (machdep->machspec->_page_write)
-> +#define        _PAGE_EXEC      (machdep->machspec->_page_exec)
-> +#define        _PAGE_USER      (machdep->machspec->_page_user)
-> +#define        _PAGE_GLOBAL    (machdep->machspec->_page_global)
-> +#define        _PAGE_ACCESSED  (machdep->machspec->_page_accessed)
-> +#define        _PAGE_DIRTY     (machdep->machspec->_page_dirty)
-> +#define        _PAGE_SOFT      (machdep->machspec->_page_soft)
-> +#define        _PAGE_SEC       (machdep->machspec->_page_sec)
-> +#define        _PAGE_SHARE     (machdep->machspec->_page_share)
-> +#define        _PAGE_BUF       (machdep->machspec->_page_buf)
-> +#define        _PAGE_CACHE     (machdep->machspec->_page_cache)
-> +#define        _PAGE_SO        (machdep->machspec->_page_so)
-> +#define        _PAGE_SPECIAL   _PAGE_SOFT
-> +#define                _PAGE_TABLE     _PAGE_PRESENT
-> +#define        _PAGE_PROT_NONE _PAGE_READ
-> +#define        _PAGE_PFN_SHIFT 10
-> +
-> +#endif /* RISCV64 */
-> +
->  /*
->   * sparc64.c
->   */
-> diff --git a/diskdump.c b/diskdump.c
-> index 2c1f9be..28503bc 100644
-> --- a/diskdump.c
-> +++ b/diskdump.c
-> @@ -622,6 +622,9 @@ restart:
->         else if (STRNEQ(header->utsname.machine, "aarch64") &&
->             machine_type_mismatch(file, "ARM64", NULL, 0))
->                 goto err;
-> +       else if (STRNEQ(header->utsname.machine, "riscv64") &&
-> +           machine_type_mismatch(file, "RISCV64", NULL, 0))
-> +               goto err;
->
->         if (header->block_size != block_size) {
->                 block_size = header->block_size;
-> @@ -780,6 +783,8 @@ restart:
->                 dd->machine_type = EM_AARCH64;
->         else if (machine_type("SPARC64"))
->                 dd->machine_type = EM_SPARCV9;
-> +       else if (machine_type("RISCV64"))
-> +               dd->machine_type = EM_RISCV;
->         else {
->                 error(INFO, "%s: unsupported machine type: %s\n",
->                         DISKDUMP_VALID() ? "diskdump" : "compressed kdump",
-> @@ -1751,7 +1756,8 @@ dump_note_offsets(FILE *fp)
->                         qemu = FALSE;
->                         if (machine_type("X86_64") || machine_type("S390X") ||
->                             machine_type("ARM64") || machine_type("PPC64") ||
-> -                           machine_type("SPARC64") || machine_type("MIPS64")) {
-> +                           machine_type("SPARC64") || machine_type("MIPS64") ||
-> +                           machine_type("RISCV64")) {
->                                 note64 = (void *)dd->notes_buf + tot;
->                                 len = sizeof(Elf64_Nhdr);
->                                 if (STRNEQ((char *)note64 + len, "QEMU"))
-> @@ -2558,7 +2564,8 @@ dump_registers_for_compressed_kdump(void)
->         if (!KDUMP_CMPRS_VALID() || (dd->header->header_version < 4) ||
->             !(machine_type("X86") || machine_type("X86_64") ||
->               machine_type("ARM64") || machine_type("PPC64") ||
-> -             machine_type("MIPS") || machine_type("MIPS64")))
-> +             machine_type("MIPS") || machine_type("MIPS64") ||
-> +             machine_type("RISCV64")))
->                 error(FATAL, "-r option not supported for this dumpfile\n");
->
->         if (machine_type("ARM64") && (kt->cpus != dd->num_prstatus_notes))
-> diff --git a/help.c b/help.c
-> index 99214c1..253c71b 100644
-> --- a/help.c
-> +++ b/help.c
-> @@ -9512,7 +9512,7 @@ char *README[] = {
->  "  These are the current prerequisites: ",
->  "",
->  "  o  At this point, x86, ia64, x86_64, ppc64, ppc, arm, arm64, alpha, mips,",
-> -"     mips64, s390 and s390x-based kernels are supported.  Other architectures",
-> +"     mips64, riscv64, s390 and s390x-based kernels are supported.  Other architectures",
->  "     may be addressed in the future.",
->  "",
->  "  o  One size fits all -- the utility can be run on any Linux kernel version",
-> diff --git a/lkcd_vmdump_v2_v3.h b/lkcd_vmdump_v2_v3.h
-> index 984c2c2..7fa70b9 100644
-> --- a/lkcd_vmdump_v2_v3.h
-> +++ b/lkcd_vmdump_v2_v3.h
-> @@ -37,7 +37,7 @@
->
->  #if defined(ARM) || defined(X86) || defined(PPC) || defined(S390) || \
->         defined(S390X) || defined(ARM64) || defined(MIPS) || \
-> -       defined(MIPS64) || defined(SPARC64)
-> +       defined(MIPS64) || defined(SPARC64) || defined(RISCV64)
->
->  /*
->   * Kernel header file for Linux crash dumps.
-> diff --git a/netdump.c b/netdump.c
-> index ff273b4..4ec12a0 100644
-> --- a/netdump.c
-> +++ b/netdump.c
-> @@ -300,6 +300,12 @@ is_netdump(char *file, ulong source_query)
->                                 goto bailout;
->                         break;
->
-> +               case EM_RISCV:
-> +                       if (machine_type_mismatch(file, "RISCV64", NULL,
-> +                           source_query))
-> +                               goto bailout;
-> +                       break;
-> +
->                 default:
->                         if (machine_type_mismatch(file, "(unknown)", NULL,
->                             source_query))
-> @@ -2935,7 +2941,8 @@ dump_registers_for_elf_dumpfiles(void)
->
->          if (!(machine_type("X86") || machine_type("X86_64") ||
->             machine_type("ARM64") || machine_type("PPC64") ||
-> -           machine_type("MIPS") || machine_type("MIPS64")))
-> +           machine_type("MIPS") || machine_type("MIPS64") ||
-> +           machine_type("RISCV64")))
->                  error(FATAL, "-r option not supported for this dumpfile\n");
->
->         if (NETDUMP_DUMPFILE()) {
-> diff --git a/ramdump.c b/ramdump.c
-> index a206fcb..d2bd7ff 100644
-> --- a/ramdump.c
-> +++ b/ramdump.c
-> @@ -188,6 +188,8 @@ char *ramdump_to_elf(void)
->                 e_machine = EM_MIPS;
->         else if (machine_type("X86_64"))
->                 e_machine = EM_X86_64;
-> +       else if (machine_type("RISCV64"))
-> +               e_machine = EM_RISCV;
->         else
->                 error(FATAL, "ramdump: unsupported machine type: %s\n",
->                         MACHINE_TYPE);
-> diff --git a/riscv64.c b/riscv64.c
-> new file mode 100644
-> index 0000000..c7df857
-> --- /dev/null
-> +++ b/riscv64.c
-> @@ -0,0 +1,56 @@
-> +/* riscv64.c - core analysis suite
-> + *
-> + * Copyright (C) 2022 Alibaba Group Holding Limited.
-> + *
-> + * This program is free software; you can redistribute it and/or modify
-> + * it under the terms of the GNU General Public License as published by
-> + * the Free Software Foundation; either version 2 of the License, or
-> + * (at your option) any later version.
-> + *
-> + * This program is distributed in the hope that it will be useful,
-> + * but WITHOUT ANY WARRANTY; without even the implied warranty of
-> + * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-> + * GNU General Public License for more details.
-> + */
-> +#ifdef RISCV64
-> +
-> +#include <elf.h>
-> +#include "defs.h"
-> +
-> +void
-> +riscv64_dump_machdep_table(ulong arg)
-> +{
-> +}
-> +
-> +/*
-> + *  Include both vmalloc'd and module address space as VMALLOC space.
-> + */
-> +int
-> +riscv64_IS_VMALLOC_ADDR(ulong vaddr)
-> +{
-> +       return ((vaddr >= VMALLOC_START && vaddr <= VMALLOC_END) ||
-> +               (vaddr >= VMEMMAP_VADDR && vaddr <= VMEMMAP_END) ||
-> +               (vaddr >= MODULES_VADDR && vaddr <= MODULES_END));
-> +}
-> +
-> +void
-> +riscv64_init(int when)
-> +{
-> +}
-> +
-> +void
-> +riscv64_display_regs_from_elf_notes(int cpu, FILE *ofp)
-> +{
-> +}
-> +
-> +#else /* !RISCV64 */
-> +
-> +#include "defs.h"
-> +
-> +void
-> +riscv64_display_regs_from_elf_notes(int cpu, FILE *ofp)
-> +{
-> +       return;
-> +}
-> +
-> +#endif /* !RISCV64 */
-> diff --git a/symbols.c b/symbols.c
-> index bee1faf..ea9e83e 100644
-> --- a/symbols.c
-> +++ b/symbols.c
-> @@ -3743,6 +3743,11 @@ is_kernel(char *file)
->                                 goto bailout;
->                         break;
->
-> +               case EM_RISCV:
-> +                       if (machine_type_mismatch(file, "RISCV64", NULL, 0))
-> +                               goto bailout;
-> +                       break;
-> +
->                 default:
->                         if (machine_type_mismatch(file, "(unknown)", NULL, 0))
->                                 goto bailout;
-> @@ -4002,6 +4007,11 @@ is_shared_object(char *file)
->                         if (machine_type("MIPS64"))
->                                 return TRUE;
->                         break;
-> +
-> +               case EM_RISCV:
-> +                       if (machine_type("RISCV64"))
-> +                               return TRUE;
-> +                       break;
->                 }
->
->                 if (CRASHDEBUG(1))
-> --
-> 2.17.1
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Acked-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
