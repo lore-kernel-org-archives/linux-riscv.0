@@ -4,99 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A8FC19F2B
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 13:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E26BC04A68
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 13:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MBGkDzlYkbokiZr+iOjoJh+L8AalosopDKrjjgvwVpo=; b=WXNYFqfyMBEXXi
-	oPuDrOFJwgwUhdlPYAeA6voeIx+vJ9hGMjUMRazy+WwIY5EIuc8xaOZiHodjb+UNYlkHkbw3EevvX
-	/ADrTK9x4AZluO/x62juOn0Rz9L2nVt55lyvLjUn0406/xxyJwy5B00Wh+a/2Gwf14PsMR7FU6wUx
-	9s/UvgIT+R8Gdoa9Gx7zom9UYegU+KEcRZzba89H/7eUt14IrzRaNqPpG4D2mS6Ld+zDKSvuoTtza
-	Z0o4qTgnD9+Sr7pTs08+RGjNw0n/IeLGQVEF2k9PcOvpXjj5of3FBKISJNGe4viRZ6cAuXPyY6+CN
-	d8jjvGv5CZuV39JjlmIA==;
+	List-Owner; bh=wlMdCFgF2gQ/WVAWPYgh152ocC6ZpZ3NgyUv+8Ny0E4=; b=YYPozKiZKAVO4J
+	fDn7dBeOqWxrZnNpG1vtppdX0SH4L45Z9cL0OkbJKl8+wavJNqadNLi0tNlNAKanBaKK1BhwaPCWn
+	1tJbQBljZxN/Krzbr7SLqyGyIRBaR3IqNbP1XsEBdcZyVOEX7kCkwoLf7s0AZr9QZ2F4KJcQ2Z+H3
+	9tTVzkRR6OgSrr9Ep/PvXpIbPjvYkApEFgqlNs5FKV114WXJvIF2ZTmqTXnlD6/RU3cNX7q1wshd1
+	nIXjZ3t3xroiRSWz7/sPAxcZ1fu66q3MS2jXQdtmVMVRlAYEDdmIxtqGpf6LnM43AYoSiVTn6QSLi
+	xJsbNNuiZPYriZGx2a/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGgeg-00DnHl-98; Wed, 27 Jul 2022 13:00:50 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1oGgx2-00Dx9t-Bj; Wed, 27 Jul 2022 13:19:48 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGged-00DnCc-5O
-	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 13:00:48 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id y11so26832587lfs.6
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 06:00:43 -0700 (PDT)
+	id 1oGgww-00Dx2n-E5
+	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 13:19:46 +0000
+Received: by mail-wr1-x429.google.com with SMTP id h9so24172940wrm.0
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 06:19:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=message-id:date:mime-version:user-agent:subject:content-language:to
-         :cc:references:from:in-reply-to:content-transfer-encoding;
-        bh=xt/iFa0Gww8PQ4QvOwKstYasksWx1xQKZXD7icliRMg=;
-        b=nbUaUiRllsTbFH3Eus9e9UO4svt+vu8pCbP4kZQ1WT8glgkQh76sC4B6uwYKBgcsgG
-         2xahkgtvpatCU6uSb9gtnePlK6Yaz5GKnH6PKRHc6yDcDaGHo03vfdwj4nZv0/8H+FtS
-         CAqLBZnrGAx5Vb/z1k+kaPvbI7xZhQb9pS8F1ppy/zdpq+qLjsh18zolWqj3H6y+LOdL
-         XFimzwZKqd7dJET7E5G85tNvJdiBYQDp3yiBGcDez1HrYZVoJWsIXhuWf8vRghlK/Qcf
-         5GLPT8J4ljVPbZ0xp1W3lNkz83IcNq+ejVOUgUaQsWBDfZeKmb5EGtrEsTR+63o2+VUD
-         D5qA==
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+         :cc;
+        bh=Dibkbw64+uQcY04egPFlqnHwHsFqfmAeKYM6z+pWQOk=;
+        b=Y/X9OjJkkL7iDYVukFb7bLpNmZgR1h2IcOwkq2eCmqjYacPrz37zhp0ZsbdiZVi/RV
+         Xb/wNpkg0x4WAMbKdwVole23Tp5wqsEgSVNUSF+6leNzUbah8IRZpzLkhp8S3PjglWvq
+         lu0hsbVN/SNET9UoO94QR18JsGrUpRvHcYX9j+ErHYRIDKreiAs98P1cZH23eZFhpByS
+         vxCkePTSqWqN6i3Q1pAl21HvHQuEyibsLb3W3hZqJPOEMH9AMsGwXXi1IccwlFkUfgdJ
+         p5lq2gpNzSF38Yiy7tN31a+bmGQuPmFJe9o9+meZ7oVM8797/AeQKdvQYp48aBbtHTi5
+         yEOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-         :content-language:to:cc:references:from:in-reply-to
-         :content-transfer-encoding;
-        bh=xt/iFa0Gww8PQ4QvOwKstYasksWx1xQKZXD7icliRMg=;
-        b=1qY6dleWq4IYkXJ28pcHWKbO2TtFSMlYof38t8gmQLxHQ4gkVXy9CewoBym3HwIytH
-         vgzJhLnoEK/8eI9SoIZ2MXVJ8XmkIR9Rg0UCiWVkSQYIE/PlniqOuOBinbR/NHtC54Dh
-         pAebZionNIdAldkWFi4wYGfh5Yrd5/wKV/pTtdT/t49V8Yj8YgpCHgbxb94enUoCFUgu
-         jZY7VdAzDZgqBZzWOcz1lFZu/JYsIBw50oQYz6N8XzxH1i3HKF4B1kVHuGqLOMf1By5P
-         6w6fcsa7rzBaBB5nSBkItpnO/1lMELsVYtgC15vFr7XYqd/LTq04dJgQw0F8Rnsc+Sw4
-         s/4g==
-X-Gm-Message-State: AJIora+lnvFOH625+LW3W0w36piA0rMeC1mlGGyDuo5sRa+ZtskRdjuO
-	/F311SWK2wslM6dQL25dzb1i8g==
-X-Google-Smtp-Source: AGRyM1um+pnIbZzevQmvuQYPA79p7q3V9/eshGhbnk08XsshNMDjZQ3pVxUN/3rrgAfllb5kV38jFg==
-X-Received: by 2002:a05:6512:1050:b0:48a:2319:59bc with SMTP id c16-20020a056512105000b0048a231959bcmr7964312lfb.665.1658926842477;
-        Wed, 27 Jul 2022 06:00:42 -0700 (PDT)
-Received: from [192.168.3.197] (78-26-46-173.network.trollfjord.no. [78.26.46.173])
-        by smtp.gmail.com with ESMTPSA id z20-20020a056512309400b0048a93325906sm1438931lfd.171.2022.07.27.06.00.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 27 Jul 2022 06:00:41 -0700 (PDT)
-Message-ID: <75e5ace3-3255-2302-65f5-9fbef9cb1147@linaro.org>
-Date: Wed, 27 Jul 2022 15:00:40 +0200
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to:cc;
+        bh=Dibkbw64+uQcY04egPFlqnHwHsFqfmAeKYM6z+pWQOk=;
+        b=FF0fYGZe6ucsi2awYnECP8qZk8W+5pvXebjLpTp7q4BJwjLFrTHMAoelPukTfUWFK2
+         gIxWSuGC5iVwO50HqR6v34dbx7Kl7fS3ZXeS0IBkwAcnSRdXiU2vyQhvThEo0dnYXCM4
+         tS41NUVjoPJWyn8qlgMdygPceqrvlqgvS8osBS1ANPbA1THBktZYqJcPu0/DTCcuJWb8
+         TKhuNexrG7Cl7BRHdXtV+RoObztjkhHHPriJQmJBUT8+3GfxWz4rerHV6qTf6rDoJ7VU
+         Kc6TMDdtMp8qLS6nMDrwoj4YKwG8vkvoDhv+9nvwxdjkebqpNkzhnl81Gqp7IUgTt7V+
+         0f4Q==
+X-Gm-Message-State: AJIora+tgrkbLaxclQbIXA2FZs4Iz4/q4ukHuthDn5iq17JHA1mL3r0v
+	sVMkBIiaR1a5FQ1wwmWfq/GPc5B4fQJ2JCuBzNyzSg==
+X-Google-Smtp-Source: AGRyM1to8HbWQ44clapjD+5JGTD4YIZugXsbUPGE3wnHGXlqx7QirS2COMcNXHJ8Gy7Ob3it50+Qnfk4bKm9iNKFwpk=
+X-Received: by 2002:a5d:64ac:0:b0:21d:7832:ecf9 with SMTP id
+ m12-20020a5d64ac000000b0021d7832ecf9mr14023296wrp.86.1658927974767; Wed, 27
+ Jul 2022 06:19:34 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.12.0
-Subject: Re: [PATCH 4/6] dt-bindings: riscv: Add DT binding documentation for
- Renesas RZ/Five SoC and SMARC EVK
-Content-Language: en-US
-To: Biju Das <biju.das.jz@bp.renesas.com>,
- "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Anup Patel <anup@brainfault.org>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
- LKML <linux-kernel@vger.kernel.org>
-References: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220726180623.1668-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <636e9214-4b36-e9a6-3c6b-b6edb944335e@linaro.org>
- <CA+V-a8sTw1qzuTeD2vb7RgDmmNdEP5qEcxXCjrFgkyrBrLrt5Q@mail.gmail.com>
- <e64cc15e-b31e-876d-b3cf-b60d255c495b@linaro.org>
- <CA+V-a8u1VW9xaj2KjySyMuegpisLVENO_6uJOpAFZGbKziYLYw@mail.gmail.com>
- <e31e0c1f-4755-704e-8428-93970877d8f5@linaro.org>
- <CA+V-a8sX=Frs_cds9MriauTFRvcZUNCvoeZ+SaC0GUpL7L6qhg@mail.gmail.com>
- <9f32a4a9-66b4-ba2e-1713-436103c2faf8@linaro.org>
- <OS0PR01MB5922763582B836DA45CDFF0886979@OS0PR01MB5922.jpnprd01.prod.outlook.com>
- <80f08089-e3bb-983e-313b-45613364829e@linaro.org>
- <OS0PR01MB5922FDF8CFFE44A611D3783886979@OS0PR01MB5922.jpnprd01.prod.outlook.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <OS0PR01MB5922FDF8CFFE44A611D3783886979@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+References: <20220727114302.302201-1-apatel@ventanamicro.com>
+ <20220727114302.302201-2-apatel@ventanamicro.com> <372e37bf-ac90-c371-ad9e-b9c18e1cc059@linaro.org>
+ <20220727124556.owk3zlyzsg5uaa4t@bogus>
+In-Reply-To: <20220727124556.owk3zlyzsg5uaa4t@bogus>
+From: Anup Patel <anup@brainfault.org>
+Date: Wed, 27 Jul 2022 18:49:23 +0530
+Message-ID: <CAAhSdy1guiVFxzU+r_7njH-E_hWUDy+r7P36YEf5OB80nDHuhA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: riscv: Add optional DT property riscv,timer-can-wake-cpu
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Anup Patel <apatel@ventanamicro.com>, 
+	Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Andrew Jones <ajones@ventanamicro.com>, 
+	Atish Patra <atishp@atishpatra.org>, Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220727_060047_258312_7DA33C75 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20220727_061942_502687_CC9E4916 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,40 +91,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 27/07/2022 14:56, Biju Das wrote:
->>
->> Then it is not the same SoC! Same means same, identical. CPU
->> architecture is one of the major differences, which means it is not the
->> same.
-> 
-> Family SoC(R9A07G043) is at top level. Then it has different SoCId for taking care of
-> differences for SoC based on ARMV8 and RISC-V which has separate compatible like
-> r9a07g043u11 and r9a07g043f01?
+On Wed, Jul 27, 2022 at 6:16 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
+>
+> On Wed, Jul 27, 2022 at 02:07:50PM +0200, Krzysztof Kozlowski wrote:
+> > On 27/07/2022 13:43, Anup Patel wrote:
+> > > We add an optional DT property riscv,timer-can-wake-cpu which if present
+> > > in CPU DT node then CPU timer is always powered-on and never loses context.
+> > >
+> > > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > > ---
+> > >  Documentation/devicetree/bindings/riscv/cpus.yaml | 6 ++++++
+> > >  1 file changed, 6 insertions(+)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > > index d632ac76532e..b60b64b4113a 100644
+> > > --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > > +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> > > @@ -78,6 +78,12 @@ properties:
+> > >        - rv64imac
+> > >        - rv64imafdc
+> > >
+> > > +  riscv,timer-can-wake-cpu:
+> > > +    type: boolean
+> > > +    description:
+> > > +      If present, the timer interrupt can wake up the CPU from
+> > > +      suspend/idle state.
+> >
+> > Isn't this a property of a timer, not CPU? IOW, your timer node should
+> > have "wakeup-source" property.
+> >
+>
+> I agree on the concept that this is property of the timer and not CPU.
+> However we generally don't need to use wakeup-source property for timer
+> as we ideally use this for waking up from system sleep state and we don't
+> want to be running timer when we enter the state.
+>
+> > Now that's actual problem: why the RISC-V timer is bound to "riscv"
+> > compatible, not to dedicated timer node? How is it related to actual CPU
+> > (not SoC)?
+>
+> We have "always-on" property for this on arm arch timer, and I also see
+> "regulator-always-on" or something similar defined. So in absence of timer
+> node probably "local-timer-always-on" make sense ? Thoughts ?
 
-This does not answer the concern - it's not the same SoC. The most
-generic compatible denotes the most common part. I would argue that
-instruction set and architecture are the most important differences.
-None of ARMv8 SoCs (SoCs, not CPU cores) have "arm,armv8" compatible and
-you went even more - you combined two architectures in the most generic
-compatibles.
+I agree.
 
-> 
->>
->>> Using same SoM and Carrier board?
->>
->> It's like saying PC with x86 and ARMv8 board are the same because they
->> both use same "PC chassis".
-> 
-> What I meant is board based on Family SoC(R9A07G043) that is either based on ARMv8 or
-> RISC-V cpu architecture.
+In the v1 patch, I had named it "riscv,timer-always-on" but I chose a
+more specific name in v2 based on comments from Samuel. I think
+we should use more consistent naming between ARM and RISC-V
+so "riscv,timer-always-on" makes more sense to me.
 
-I don't see this related to the topic at all. What board do you use,
-does not matter. The board does not change the fact these SoCs have
-entirely different architecture - ARMv8 and RISC-V.
-
-
-Best regards,
-Krzysztof
+Regards,
+Anup
 
 _______________________________________________
 linux-riscv mailing list
