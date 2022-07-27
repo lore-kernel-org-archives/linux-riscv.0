@@ -4,71 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 822CFC19F21
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 04:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1610BC04A68
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 07:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TughRPC6bIbiWd/6L8Vvd/8CqED21//68J46e97qZRA=; b=4MWSN2sZbaDlEs
-	ld20ZPpyNRp1gMyxh3KsufC/LNTzYH3RjP49uKcKUu7JwdJhlmup3sphkp05MXj7mz/lKc6wNpwIa
-	B9BIhq/AJeP/nOyTt7OXbDVSRezbuqbuYWuo3Ge+Le0jUwMR9ZkFYdGq2Nwtrt/Ky1sVl/1ydLJZb
-	BP4r3aH74C+lCfLSq4wJqEeKP4kARgSmBhYnEIsSo7opJIIzVkcJLBRL+cUFK8T9uFJ9aSzZ4W0M5
-	/GlAr+hYWq9xkd8lfCSmhlZIVRYU3MlCvZfRBD6fKnoiytzYh//Q19rv0NPal8Y7UNMzzC5Up7pfk
-	GvPf//QHR8aOTXEPckIw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QRVCnYaryM8OEPrnjKSfqS0I46CgtzDRbgL9VJBZ2QU=; b=r+lPiidpB7Mk+i
+	V2m7fSAEFkta0Q4yBO+hzMjdDvdg5FqjJWddjZzRslw1b1icCmf2+OZXYpJkb03GH0ECnv6CCRH0E
+	ybq71WaRfzgulkpTIsIQX6syMnYp68kWNilRSmtgD2P9ALTzrhRXJo9Nsys8lDyJGnNseL6KcDwYI
+	1QKeE2hFzDpyxNfRIqbvHJaLtb75Of2F7vTLowEnMugWQ1h5cxKsHMBxPa7ZqOR8vXT8S/+dPQbuf
+	3JIJa0TiFSWxE9olOa4m0bejucUVahlFTNYCe+TDuGWXNOpWa9IkpMHWnCRMwapV7Earhiu6J+va9
+	Y5GlC5ZntfYwCV/NXYyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGYpW-008w8H-7n; Wed, 27 Jul 2022 04:39:30 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1oGbEy-00AOY2-62; Wed, 27 Jul 2022 07:13:56 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGYpT-008w4c-3n
-	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 04:39:28 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id o14-20020a17090a4b4e00b001f2f2b61be5so1002826pjl.4
-        for <linux-riscv@lists.infradead.org>; Tue, 26 Jul 2022 21:39:23 -0700 (PDT)
+	id 1oGbEt-00AOUK-Kq
+	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 07:13:53 +0000
+Received: by mail-lf1-x132.google.com with SMTP id z25so25912570lfr.2
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 00:13:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=from:to:cc:subject:date:message-id:mime-version
-         :content-transfer-encoding;
-        bh=72mc9rV+Or/UCSUqmbngTq+GJzkxqJLuquOjL+k6DMk=;
-        b=RUBWXp3346mGXGsT/osQGMIKkSCA7yBvKUWTxP6L7ZIoPDHhZWW3FU0T2eh8E66tQu
-         639S1w9a6BlXBIGp2jX6yp5WT2gYUDqvnvYRa4cuHGwRQ3xENfJv/A+KPLMCA3EUsGhI
-         hgzz0vAqmQoeaVWvPbRpm/8xi0fiS2xSf1wsACbKru8KFtUNsK0c+O+stYy2n8GxyAim
-         qrRUEbZGWGVSDoicrAUaKPzTHfVF23eXYxcO/PIFW5gbXJPU5+tynMvpsPUogKKg9d1P
-         nG3fUHb7Ln1NJ3aU99x6VeKAkO2mWvEMaPOxwSYv7hAZvbO88LjX9WrifLX3tfQWSyE+
-         ihNg==
+        d=linaro.org; s=google;
+        h=message-id:date:mime-version:user-agent:subject:content-language:to
+         :cc:references:from:in-reply-to:content-transfer-encoding;
+        bh=Ssg4tRasr4DBZJdl6J73astDPl5I4c2/6pZV2Ko1zDg=;
+        b=p7y2YstySuGWCWGMOCXucGNBqC60lFvOVhWKJj4kFmbSertbFPzRAen3ld28vGIP/V
+         cVqz0GdshAIp19Q85UxA3WWuPVbhMvIQDf1MsRsn1wc++jPYBV2he98aQaANdhUSbsMz
+         bAQkNv0J7JIFzft9JYLrUjhavcW9aaw967EZQE8Qq3mDl+chdRUNerZj4Sp3l6FGHZjd
+         t20+lQbIowTX0GJWhelQZFJueC4uDd7BuVgXuy1oV4GMXaOKmITg4q58+qBhnUy1x5u0
+         yviK4Nz/cEvWTiLB8CcyqUXQFUVV5Vy/ofoqZXOH1EyhRzSIcMdZ9keZPHAEPKu/2L6X
+         I/nA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:from:to:cc:subject:date:message-id:mime-version
+        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+         :content-language:to:cc:references:from:in-reply-to
          :content-transfer-encoding;
-        bh=72mc9rV+Or/UCSUqmbngTq+GJzkxqJLuquOjL+k6DMk=;
-        b=H3MNQ03TqT1B3yqSWSqJIQKlJkYBsgmipYaRDF9zgqkMIBGpaj4epxY66QSGu/JzbG
-         +hg+c/LgJZSd0TsDFwzlDpudA+bMw6DRUjneYPDC0UiEnklG1R4eNDJIvksSFJGX8jC1
-         cFQ+ZQxG9wFux8D4g4EVahslwton4ppFkiwD0mLcEvzXyrirvbHmwjoo0VGsyNFiQMwR
-         NCdUjwz+Ft30mjJxVsayd7DOfU2fPtwafUMvqxS9TJT0AOjOhSZ6Qa8yYrpSPCVEY7Q6
-         lCGR3a0xDBLy23NL1DJeIwzlO16ogFWHRnWK3DSVs4Oby7/XGeKOUyxDy6IvSMj6iemK
-         dqow==
-X-Gm-Message-State: AJIora9pTpSpI5JCuxTqIrsotJb9CU2qs23CApQ3IDDGRWKLDq4e6REY
-	h0MYoWIHZJ3GFgns4MxvNInX/w==
-X-Google-Smtp-Source: AGRyM1sye5+G+KwpZYkgsqAmcItRzmgg5pY5UJAmggWcyiP+mzsHBRWAibIrbpUGHL0TCdZYem73+g==
-X-Received: by 2002:a17:902:7143:b0:16d:986c:f2f9 with SMTP id u3-20020a170902714300b0016d986cf2f9mr7136604plm.42.1658896763327;
-        Tue, 26 Jul 2022 21:39:23 -0700 (PDT)
-Received: from anup-ubuntu64-vm.. ([171.76.87.63])
-        by smtp.gmail.com with ESMTPSA id p2-20020a17090a284200b001f216407204sm500698pjf.36.2022.07.26.21.39.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 26 Jul 2022 21:39:22 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: [PATCH v2] RISC-V: Add mvendorid, marchid, and mimpid to /proc/cpuinfo output
-Date: Wed, 27 Jul 2022 10:08:29 +0530
-Message-Id: <20220727043829.151794-1-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
+        bh=Ssg4tRasr4DBZJdl6J73astDPl5I4c2/6pZV2Ko1zDg=;
+        b=J948YVY2fyDqCKjfwUjf20GH+L7X2iicShPOu+k3EvgJT3QiTESr6gZIsWBzUbRefl
+         m2XI6XRv7117xXIzwnp/L8Gnk+KKTriBvJQosTI+L5JFN8IjCVjRZu61YdzgLzzMR9E7
+         vwQ1fx96fQqTO+hNU+h5f1cyYL4eTiD13I8Be+XomiAdRYYgDS8sxlSQs/F8NlRf+6uI
+         OhffbKR6iwTvAEnSXkOHX8Sb5eg/C5oj5fFw6PT1GRoHq6NAzuOn9DSFse2al9WfCTdV
+         uiFNHIca13QZ87gtBi+H7ikl736u5LMdEYWqnZXYP7yzYIY716ojd5y0VZieqnGPdXUp
+         Iu8w==
+X-Gm-Message-State: AJIora9QiYRl6Cust8uMwcs8DHr06ImUHgcj7AkFAavRhfWEq93/isXE
+	nqFlWHn/qMpN4UTzcitdEiUtPA==
+X-Google-Smtp-Source: AGRyM1tnPRmGL8sIq6AcjbGyICwHFDjJ/A/xNKBKL5VlEN4NDa4zhRLe4k8vMTsts1cvocOPufsErg==
+X-Received: by 2002:a05:6512:3041:b0:48a:9c71:8ee2 with SMTP id b1-20020a056512304100b0048a9c718ee2mr3208891lfb.369.1658906027938;
+        Wed, 27 Jul 2022 00:13:47 -0700 (PDT)
+Received: from [192.168.3.197] (78-26-46-173.network.trollfjord.no. [78.26.46.173])
+        by smtp.gmail.com with ESMTPSA id u11-20020ac258cb000000b0048a884bdb84sm1756297lfo.52.2022.07.27.00.13.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 Jul 2022 00:13:47 -0700 (PDT)
+Message-ID: <bf470847-9e96-fc5e-0b82-d05068aaeb47@linaro.org>
+Date: Wed, 27 Jul 2022 09:13:46 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
+Subject: Re: [PATCH v3 1/2] dt-bindings: sifive: add cache-set value of 2048
+Content-Language: en-US
+To: Conor.Dooley@microchip.com, linus.walleij@linaro.org, brgl@bgdev.pl,
+ robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu, atulkhare@rivosinc.com,
+ sagar.kadam@sifive.com
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20220726170725.3245278-1-mail@conchuod.ie>
+ <20220726170725.3245278-2-mail@conchuod.ie>
+ <246f132a-a23d-7c53-38a7-2bcec50d65e5@linaro.org>
+ <c77f34aa-ff29-b18a-a3a7-9d90145364a8@microchip.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <c77f34aa-ff29-b18a-a3a7-9d90145364a8@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220726_213927_180735_F07B7DA9 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20220727_001351_712301_6EB286F1 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,121 +92,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, Arnd Bergmann <arnd@arndb.de>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Nikita Shubin <n.shubin@yadro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Identifying the underlying RISC-V implementation can be important
-for some of the user space applications. For example, the perf tool
-uses arch specific CPU implementation id (i.e. CPUID) to select a
-JSON file describing custom perf events on a CPU.
+On 26/07/2022 19:39, Conor.Dooley@microchip.com wrote:
+> 
+> 
+> On 26/07/2022 18:35, Krzysztof Kozlowski wrote:
+>> On 26/07/2022 19:07, Conor Dooley wrote:
+>>> From: Atul Khare <atulkhare@rivosinc.com>
+>>>
+>>> Fixes Running device tree schema validation error messages like
+>>> '... cache-sets:0:0: 1024 was expected'.
+>>>
+>>> The existing bindings had a single enumerated value of 1024, which
+>>> trips up the dt-schema checks. The ISA permits any arbitrary power
+>>> of two for the cache-sets value, but we decided to add the single
+>>> additional value of 2048 because we couldn't spot an obvious way
+>>> to express the constraint in the schema.
+>>
+>> There is no way to express "power of two" but enum for multiple values
+>> would work. Is there a reason to limit only to 2048?
+> 
+> Copy pasting from the cover:
+>> I don't think that there's value in speculatively adding values to this
+>> enum especially as (I think at least) the scala for this cache IP has
+>> been released publicly:
+>> https://github.com/sifive/block-inclusivecache-sifive/blob/master/design/craft/inclusivecache/src/Parameters.scala#L32
+>>
+>> The two compatibles in the file match only against two specific cache
+>> implemenations: the fu540's & the fu740's. I would seem to me that, it
+>> would be better to lock this to a single value per compatible since the
+>> 1024 applies to the fu540 & the new value of 2048 applies only to the
+>> fu740.
+>>
+>> I have not made that change, I simply wanted to repackage this series
+>> in a way that could be more easily applied & restart the discussion.
+> 
+> TL;DR: I would limit it to 1024 & 2048 to match the only implementations
+> although not in the way this patch did it.
 
-Currently, there is no way to identify RISC-V implementation so we
-add mvendorid, marchid, and mimpid to /proc/cpuinfo output.
+The explanation in cover letter is good, but it would be good to have
+one sentence like this in the commit msg. Otherwise your commit is
+actually confusing - you mention that you want power of two and then set
+only 1k + 2k.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-Tested-by: Nikita Shubin <n.shubin@yadro.com>
----
-Changes since v1:
- - Use IS_ENABLED() to check CONFIG defines
- - Added RB and TB tags in commit description
----
- arch/riscv/kernel/cpu.c | 51 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 51 insertions(+)
 
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index fba9e9f46a8c..04bcc91c91ea 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -3,10 +3,13 @@
-  * Copyright (C) 2012 Regents of the University of California
-  */
- 
-+#include <linux/cpu.h>
- #include <linux/init.h>
- #include <linux/seq_file.h>
- #include <linux/of.h>
-+#include <asm/csr.h>
- #include <asm/hwcap.h>
-+#include <asm/sbi.h>
- #include <asm/smp.h>
- #include <asm/pgtable.h>
- 
-@@ -64,6 +67,50 @@ int riscv_of_parent_hartid(struct device_node *node)
- }
- 
- #ifdef CONFIG_PROC_FS
-+
-+struct riscv_cpuinfo {
-+	unsigned long mvendorid;
-+	unsigned long marchid;
-+	unsigned long mimpid;
-+};
-+static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
-+
-+static int riscv_cpuinfo_starting(unsigned int cpu)
-+{
-+	struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
-+
-+#if IS_ENABLED(CONFIG_RISCV_SBI)
-+	ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
-+	ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
-+	ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
-+#elif IS_ENABLED(CONFIG_RISCV_M_MODE)
-+	ci->mvendorid = csr_read(CSR_MVENDORID);
-+	ci->marchid = csr_read(CSR_MARCHID);
-+	ci->mimpid = csr_read(CSR_MIMPID);
-+#else
-+	ci->mvendorid = 0;
-+	ci->marchid = 0;
-+	ci->mimpid = 0;
-+#endif
-+
-+	return 0;
-+}
-+
-+static int __init riscv_cpuinfo_init(void)
-+{
-+	int ret;
-+
-+	ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/cpuinfo:starting",
-+				riscv_cpuinfo_starting, NULL);
-+	if (ret < 0) {
-+		pr_err("cpuinfo: failed to register hotplug callbacks.\n");
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+device_initcall(riscv_cpuinfo_init);
-+
- #define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
- 	{							\
- 		.uprop = #UPROP,				\
-@@ -178,6 +225,7 @@ static int c_show(struct seq_file *m, void *v)
- {
- 	unsigned long cpu_id = (unsigned long)v - 1;
- 	struct device_node *node = of_get_cpu_node(cpu_id, NULL);
-+	struct riscv_cpuinfo *ci = per_cpu_ptr(&riscv_cpuinfo, cpu_id);
- 	const char *compat, *isa;
- 
- 	seq_printf(m, "processor\t: %lu\n", cpu_id);
-@@ -188,6 +236,9 @@ static int c_show(struct seq_file *m, void *v)
- 	if (!of_property_read_string(node, "compatible", &compat)
- 	    && strcmp(compat, "riscv"))
- 		seq_printf(m, "uarch\t\t: %s\n", compat);
-+	seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
-+	seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
-+	seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
- 	seq_puts(m, "\n");
- 	of_node_put(node);
- 
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
