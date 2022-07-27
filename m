@@ -4,73 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73621C04A68
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 10:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DC0C19F21
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 10:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eIVpSiSXw8CeX1iKU2KtsaKBaLjIK4UF6xCpgGS3aZE=; b=N3ParWUIZHtN8c
-	40aWx+hjD+mCOeAXzRfXJSUvqquv5A3kZFWdEwKVCEYu6nq2mnNjbjHwogR8VYkKp6Ru1g/fnstCL
-	VNkZZbRxtc0kf1mdgfWpMjfI/jo+iKIz7g+wxRRM8SDJZUIemhqvKOGWb7e6+5SX3VqbyS9tH2cMd
-	dchg4vnU4ODSBJr0Hj9nMng0edFTYP/rhPWB2tjWu/+SJzkZxhUQa27dBP49V9oBtqW0szL6R0mYY
-	q/mN2IehO3G9wWkOZ2BHhoBPeB3PcgYfIFsrzMrEW8zdMjhqrnCEGpN676Fw9xHzggY/6zSHI0Afo
-	cwqDQhWoah6fByngAZ9w==;
+	List-Owner; bh=vYMA89fU1v4Cx4ytQnUa4SURCDlOc2IllrAOPuTjIP8=; b=V0qDOIFrIxRY5B
+	7nZ7VcITHO6UT8BZutpqu0+6/8/P5kET/S4Adala+2CvyreQaF6mjP8cNt+6fJ0I0fZjSClAaDMN2
+	ZweZgxOaeW1mlACqagaC56vyUIf/SH5r14zAUWPj25Jm6B2uPmWjTvNEVSlILcGKlOy8RrZ+WJhf4
+	Lnn35a83EcOaB0Ls+aUC+yBsz145QbnB2AYsEhFm3uh2CCuax7SfWiCJlxTEeBT3/SpUjO1YP4iki
+	GLWlHn6XBQVu1NLErsdf0uDAhZWmzaMa9SxSuHuAZddS1Mg6mCn8JNEw3Ui4lGRCIrjx6/wPqG60Z
+	T9cdF73zZEaX399AlYag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGdwx-00CBNL-2G; Wed, 27 Jul 2022 10:07:31 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1oGdym-00CCak-Jo; Wed, 27 Jul 2022 10:09:24 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGdwu-00CBIL-2h
-	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 10:07:29 +0000
-Received: by mail-wr1-x430.google.com with SMTP id q18so13060209wrx.8
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 03:07:24 -0700 (PDT)
+	id 1oGdyi-00CCSu-Ed
+	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 10:09:22 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id p22so9457869lji.10
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 03:09:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=41fQ447csC/Sul1qlYvawlHHS0vJEi7xV/QYB1Ga0pc=;
-        b=HSUOtBxm7FJI/iSIhq6yiARyBJP7rol9gTL95UdtEHjLZ6X5uXsnoVuJZh8vjocOyt
-         YxkhYRUEwgFzXYYTTo/Z42Xf6JyMem9hHiUfJo5HsFHLKvJmA0tkR9BINENxI/OAWqN3
-         fybWoyMz/Twv/jHlgnzsDfVORKBxgC1uOEt3cQmSRA7qtTIdeBO+K5X7qfvhJUR50E8Q
-         7zdso1Y6UkeiQ7zyY4hMJX7MM+7/vn0K7no7dJCT7et1rykhvUsFgJ+UjLpx/1cc2nLC
-         fkU3evBQHEuDUG96FCvoBMMXnBjlZ5soA5epTpD9YtyhX8FgBJAILRRMEvlE3ntD4CUw
-         U/Nw==
+        d=linaro.org; s=google;
+        h=message-id:date:mime-version:user-agent:subject:content-language:to
+         :cc:references:from:in-reply-to:content-transfer-encoding;
+        bh=uuNq9hfTepHAFE0eywf2hpY8DuWFXCPjA0vLmy+cL2Y=;
+        b=hRcrD6P42aCD0B448rCI9bv5kCUIWCcmpojo29vmyxbcMy0+g4ExD9urSz7AQlk+M2
+         bNVe7+Fgy1GnWbByGZOQ/Ag/AfwQusPqpUQivmPLeri8o3pvVxTe7EMi01YNxT3qUc4C
+         jzhszp6GFbBBcicGwNz8VkugOOhygffJOIRWId3r4a2SYxyc8DaxP//ODNNZb58zg9+y
+         jCf/U/2IKfLTet7/jk4/aEaI6fTv3BjbjaV23KxqPXJv6symih2qxwqjpwdwg7vN8piS
+         7uDrnw/TRX1qEJR2ZuADJNf+ws8GxVKI4UxvN3vCARHVmUapPl5CNMtsSz8ukq1d1KDm
+         zFWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=41fQ447csC/Sul1qlYvawlHHS0vJEi7xV/QYB1Ga0pc=;
-        b=Wn6ehg3QIFP6hD6jQGfcsckOEc8AHlHcI37i5HWYbQnNye3V7TsJQgEIyatwGyWSuV
-         HRoUbx91WnOrfJWRxtZAlDyJ6kQm7N9FsxjoGjzEr6yS8+1RMNBih+CZ/f9/4flbwB3v
-         LXXHyIArCoiz6xKjqN5tr7bXBUWUnIEMJsm5S131X2bP4Vzpa/yanZiyBUEkCQi6Dana
-         Kr7Vq1cF0X1grpG2JQrP8+3EY0itAnzmZE1fdaKR8PhuR+mF9O2NLctG7g2nWTl3Nqa8
-         3RuFPv/uCPcO+zHMT3jxzkGyHFUgIB7TVzVgcPyJwmDfQm3arWq8J6kEQ7sbRuaHtaHw
-         3yUw==
-X-Gm-Message-State: AJIora/NlsfQ6LGY6YgqpFf7Sp7yhbsY/NMZ5JYpNFjBZVPM4OAK6OHg
-	baXrkP4gYV6X3HDKmpNilaEMxIHIsMz+KIeyUcuXuw==
-X-Google-Smtp-Source: AGRyM1vR/TLTvBF0z8CpxsqcCxYhhvhTXAxCMf1szlEtvDyyIxvQ3yV+uvZzcCLFx9fz2Ov7XLMjvdH5WUdQQK3wChQ=
-X-Received: by 2002:a05:6000:224:b0:21e:7efc:c506 with SMTP id
- l4-20020a056000022400b0021e7efcc506mr11349213wrz.313.1658916443377; Wed, 27
- Jul 2022 03:07:23 -0700 (PDT)
+        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+         :content-language:to:cc:references:from:in-reply-to
+         :content-transfer-encoding;
+        bh=uuNq9hfTepHAFE0eywf2hpY8DuWFXCPjA0vLmy+cL2Y=;
+        b=qGNQwhKztlZzNFyDeoPoLyLikvw/eJEz8CZDpO+O1rKbVsZiYK4+wwKMiUbvaIHy2C
+         XPMZmKJkRIKOphwkG7He/5LNXE3GQ8dXShjR7g95QwSm/BsOWspFy3AZl9GnvzM96da7
+         SnRJ6HX+stawT5JaZNi8LrzYH8jV3o0UQrcrO7HeKsG3V/ftQcmJyFAl8ZCpQ8y8cD3k
+         Z0LxwbOqQS3XtlATkJPEqPiIY80yYUqrh9UwMiU8iHgblHWJ9T4q84qL+QJHgK6n8R2L
+         RAaOhTMOwZzXuziIGWxcXCT6qOJGmma/W230Vx83tTnukCyAGNd5GLh+jyXojtCmHr5p
+         yhZA==
+X-Gm-Message-State: AJIora/vKXVG9ytJEDxoTy3s0wiuydUiwiclGkaiJ3y2MJYZKbOVweJZ
+	S4xnYAnQcRGB6vQv4XDLWYkOfg==
+X-Google-Smtp-Source: AGRyM1suc/PKkW1uyphUiV/vWtNfdbJ3RSHOSpNeADbXVSbYHIolqold/1p4v27Nh3Q/P8gVj9+FVg==
+X-Received: by 2002:a2e:9193:0:b0:25e:568:6a8a with SMTP id f19-20020a2e9193000000b0025e05686a8amr5303577ljg.166.1658916551822;
+        Wed, 27 Jul 2022 03:09:11 -0700 (PDT)
+Received: from [192.168.3.197] (78-26-46-173.network.trollfjord.no. [78.26.46.173])
+        by smtp.gmail.com with ESMTPSA id e14-20020a2e930e000000b0025e0ca6f6b8sm765782ljh.77.2022.07.27.03.09.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 Jul 2022 03:09:11 -0700 (PDT)
+Message-ID: <e31e0c1f-4755-704e-8428-93970877d8f5@linaro.org>
+Date: Wed, 27 Jul 2022 12:09:09 +0200
 MIME-Version: 1.0
-References: <20220727043829.151794-1-apatel@ventanamicro.com> <724f176b-02f1-b171-726f-16158c650896@codethink.co.uk>
-In-Reply-To: <724f176b-02f1-b171-726f-16158c650896@codethink.co.uk>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 27 Jul 2022 15:36:33 +0530
-Message-ID: <CAAhSdy1tnTDv0AVyo=5FD=aE070ds6qYGGhdup+8jUqr3M66qA@mail.gmail.com>
-Subject: Re: [PATCH v2] RISC-V: Add mvendorid, marchid, and mimpid to
- /proc/cpuinfo output
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: Anup Patel <apatel@ventanamicro.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Atish Patra <atishp@atishpatra.org>, 
-	linux-riscv@lists.infradead.org, Nikita Shubin <n.shubin@yadro.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
+Subject: Re: [PATCH 4/6] dt-bindings: riscv: Add DT binding documentation for
+ Renesas RZ/Five SoC and SMARC EVK
+Content-Language: en-US
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Anup Patel <anup@brainfault.org>,
+ Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>,
+ LKML <linux-kernel@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>
+References: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20220726180623.1668-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <636e9214-4b36-e9a6-3c6b-b6edb944335e@linaro.org>
+ <CA+V-a8sTw1qzuTeD2vb7RgDmmNdEP5qEcxXCjrFgkyrBrLrt5Q@mail.gmail.com>
+ <e64cc15e-b31e-876d-b3cf-b60d255c495b@linaro.org>
+ <CA+V-a8u1VW9xaj2KjySyMuegpisLVENO_6uJOpAFZGbKziYLYw@mail.gmail.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <CA+V-a8u1VW9xaj2KjySyMuegpisLVENO_6uJOpAFZGbKziYLYw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220727_030728_345928_C0819864 
-X-CRM114-Status: GOOD (  29.71  )
+X-CRM114-CacheID: sfid-20220727_030921_150831_2C636BC0 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,155 +106,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 27, 2022 at 2:25 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
->
-> On 27/07/2022 05:38, Anup Patel wrote:
-> > Identifying the underlying RISC-V implementation can be important
-> > for some of the user space applications. For example, the perf tool
-> > uses arch specific CPU implementation id (i.e. CPUID) to select a
-> > JSON file describing custom perf events on a CPU.
-> >
-> > Currently, there is no way to identify RISC-V implementation so we
-> > add mvendorid, marchid, and mimpid to /proc/cpuinfo output.
-> >
-> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> > Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> > Tested-by: Nikita Shubin <n.shubin@yadro.com>
-> > ---
-> > Changes since v1:
-> >   - Use IS_ENABLED() to check CONFIG defines
-> >   - Added RB and TB tags in commit description
-> > ---
-> >   arch/riscv/kernel/cpu.c | 51 +++++++++++++++++++++++++++++++++++++++++
-> >   1 file changed, 51 insertions(+)
-> >
-> > diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> > index fba9e9f46a8c..04bcc91c91ea 100644
-> > --- a/arch/riscv/kernel/cpu.c
-> > +++ b/arch/riscv/kernel/cpu.c
-> > @@ -3,10 +3,13 @@
-> >    * Copyright (C) 2012 Regents of the University of California
-> >    */
-> >
-> > +#include <linux/cpu.h>
-> >   #include <linux/init.h>
-> >   #include <linux/seq_file.h>
-> >   #include <linux/of.h>
-> > +#include <asm/csr.h>
-> >   #include <asm/hwcap.h>
-> > +#include <asm/sbi.h>
-> >   #include <asm/smp.h>
-> >   #include <asm/pgtable.h>
-> >
-> > @@ -64,6 +67,50 @@ int riscv_of_parent_hartid(struct device_node *node)
-> >   }
-> >
-> >   #ifdef CONFIG_PROC_FS
-> > +
-> > +struct riscv_cpuinfo {
-> > +     unsigned long mvendorid;
-> > +     unsigned long marchid;
-> > +     unsigned long mimpid;
-> > +};
-> > +static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
-> > +
-> > +static int riscv_cpuinfo_starting(unsigned int cpu)
-> > +{
-> > +     struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
-> > +
-> > +#if IS_ENABLED(CONFIG_RISCV_SBI)
-> > +     ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
-> > +     ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
-> > +     ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
->
-> how about:
->
->         if (IS_ENABLED(CONFIG_RISCV_SBI)) {
->                 ...
->         } ... {
->
-> or maybe even:
->
->
->         if (IS_ENABLED(CONFIG_RISCV_SBI)) {
->                 if (sbi_spec_is_0_1()) {
->                         ...
->                 }
->         } ... {
->
-> would mean better compile coverage (at the slight exepnese of
-> having "false" sbi_spec_is_0_1() implemenation
+On 27/07/2022 12:06, Lad, Prabhakar wrote:
+> Hi Krzysztof,
+> 
+> On Wed, Jul 27, 2022 at 10:54 AM Krzysztof Kozlowski
+> <krzysztof.kozlowski@linaro.org> wrote:
+>>
+>> On 27/07/2022 11:05, Lad, Prabhakar wrote:
+>>> Hi Krzysztof,
+>>>
+>>> Thank you for the review.
+>>>
+>>> On Wed, Jul 27, 2022 at 9:54 AM Krzysztof Kozlowski
+>>> <krzysztof.kozlowski@linaro.org> wrote:
+>>>>
+>>>> On 26/07/2022 20:06, Lad Prabhakar wrote:
+>>>>> Document Renesas RZ/Five (R9A07G043) SoC and SMARC EVK based on this SoC.
+>>>>>
+>>>>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>>>>> ---
+>>>>>  .../devicetree/bindings/riscv/renesas.yaml    | 49 +++++++++++++++++++
+>>>>>  1 file changed, 49 insertions(+)
+>>>>>  create mode 100644 Documentation/devicetree/bindings/riscv/renesas.yaml
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/riscv/renesas.yaml b/Documentation/devicetree/bindings/riscv/renesas.yaml
+>>>>> new file mode 100644
+>>>>> index 000000000000..f72f8aea6a82
+>>>>> --- /dev/null
+>>>>> +++ b/Documentation/devicetree/bindings/riscv/renesas.yaml
+>>>>> @@ -0,0 +1,49 @@
+>>>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>>>> +%YAML 1.2
+>>>>> +---
+>>>>> +$id: http://devicetree.org/schemas/riscv/renesas.yaml#
+>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>> +
+>>>>> +title: Renesas RZ/Five Platform Device Tree Bindings
+>>>>> +
+>>>>> +maintainers:
+>>>>> +  - Geert Uytterhoeven <geert+renesas@glider.be>
+>>>>> +  - Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>>>>> +
+>>>>> +# We want to ignore this schema if the board is SMARC EVK based on ARM64 arch
+>>>>> +select:
+>>>>> +  not:
+>>>>> +    properties:
+>>>>> +      compatible:
+>>>>> +        contains:
+>>>>> +          items:
+>>>>
+>>>> I think you should rather ignore the RiscV SoCs, not specific board.
+>>>>
+>>> You mean to ignore ARM/64 SoCs?
+>>>
+>>> Agreed just the below enum, should do the trick.
+>>>
+>>>             - enum:
+>>>                 - renesas,r9a07g043u11
+>>>                 - renesas,r9a07g043u12
+>>>                 - renesas,r9a07g044c1
+>>>                 - renesas,r9a07g044c2
+>>>                 - renesas,r9a07g044l1
+>>>                 - renesas,r9a07g044l2
+>>>                 - renesas,r9a07g054l1
+>>>                 - renesas,r9a07g054l2
+>>>
+>>>
+>>>>> +            - const: renesas,smarc-evk
+>>>>> +            - enum:
+>>>>> +                - renesas,r9a07g043u11
+>>>>> +                - renesas,r9a07g043u12
+>>>>> +                - renesas,r9a07g044c1
+>>>>> +                - renesas,r9a07g044c2
+>>>>> +                - renesas,r9a07g044l1
+>>>>> +                - renesas,r9a07g044l2
+>>>>> +                - renesas,r9a07g054l1
+>>>>> +                - renesas,r9a07g054l2
+>>>>> +            - enum:
+>>>>> +                - renesas,r9a07g043
+>>>>> +                - renesas,r9a07g044
+>>>>> +                - renesas,r9a07g054
+>>>>
+>>>> Did you actually test that it works and properly matches?
+>>>>
+>>> Yes I have run the dtbs_check and dt_binding _check for ARM64 and
+>>> RISC-V. Do you see any cases where it can fail?
+>>
+>>
+>> Just remove the renesas,smarc-evk2 from
+>> arch/arm64/boot/dts/renesas/r9a07g043u11-smarc.dts. Do you see the
+>> error? Not from this schema. The only error you will see is that no
+>> matching schema was found.
+>>
+> I did run the dtbs_check test as per your suggestion (below is the
+> log) and didn't see "no matching schema error"
+> 
 
-Most of the sbi_xyz() functions are not available for NoMMU
-kernel so using "if (IS_ENABLED())" results in compile error.
+So you do not see any errors at all. Then it does not work, does it?
 
->
-> > +#elif IS_ENABLED(CONFIG_RISCV_M_MODE)
-> > +     ci->mvendorid = csr_read(CSR_MVENDORID);
-> > +     ci->marchid = csr_read(CSR_MARCHID);
-> > +     ci->mimpid = csr_read(CSR_MIMPID);
-> > +#else
-> > +     ci->mvendorid = 0;
-> > +     ci->marchid = 0;
-> > +     ci->mimpid = 0;
-> > +#endif
->
-> Would it be easier to zero out all the fields first and then fill them
-> in if supported?
-
-Clearing out fields before "#if" ladder results in dead assignments.
-
-Regards,
-Anup
-
->
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +static int __init riscv_cpuinfo_init(void)
-> > +{
-> > +     int ret;
-> > +
-> > +     ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/cpuinfo:starting",
-> > +                             riscv_cpuinfo_starting, NULL);
-> > +     if (ret < 0) {
-> > +             pr_err("cpuinfo: failed to register hotplug callbacks.\n");
-> > +             return ret;
-> > +     }
-> > +
-> > +     return 0;
-> > +}
-> > +device_initcall(riscv_cpuinfo_init);
-> > +
-> >   #define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
-> >       {                                                       \
-> >               .uprop = #UPROP,                                \
-> > @@ -178,6 +225,7 @@ static int c_show(struct seq_file *m, void *v)
-> >   {
-> >       unsigned long cpu_id = (unsigned long)v - 1;
-> >       struct device_node *node = of_get_cpu_node(cpu_id, NULL);
-> > +     struct riscv_cpuinfo *ci = per_cpu_ptr(&riscv_cpuinfo, cpu_id);
-> >       const char *compat, *isa;
-> >
-> >       seq_printf(m, "processor\t: %lu\n", cpu_id);
-> > @@ -188,6 +236,9 @@ static int c_show(struct seq_file *m, void *v)
-> >       if (!of_property_read_string(node, "compatible", &compat)
-> >           && strcmp(compat, "riscv"))
-> >               seq_printf(m, "uarch\t\t: %s\n", compat);
-> > +     seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
-> > +     seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
-> > +     seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
-> >       seq_puts(m, "\n");
-> >       of_node_put(node);
-> >
->
->
-> --
-> Ben Dooks                               http://www.codethink.co.uk/
-> Senior Engineer                         Codethink - Providing Genius
->
-> https://www.codethink.co.uk/privacy.html
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
