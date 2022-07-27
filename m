@@ -4,75 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 514D6C04A68
-	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 11:53:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE17CC04A68
+	for <linux-riscv@archiver.kernel.org>; Wed, 27 Jul 2022 12:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CIKu0ERsgbzi6fHEYQ+nm6EPl2qw16EMsu1GhKKxYsc=; b=WLWVyfKtiQp7lw
-	IcrMHlNb5KIVtcdGURNSOmb+iLX/VlCWGlwWF0X7lhHxzqitB5IdmukyTnvLVBUzxGZeZlyd3IABx
-	22EgsHPR7cTlmBAcupkvERfSCbkPkuXBGpDBkZyvX2/TcSRfzRC/Q7p746tFupT2XeifPEuX1PvdV
-	NYIFysUeXyvB0pDQyqeDfWa5xi11MfIp8OW6qztmki7fBplV/kBS6KdTtDbljBTW+vVUl+9LRR80C
-	iFbQC/Qc44Q0Simz/7bS+AevWh/fMssypCelSVSe4LZuvv8z7O2zeMn8JUdH7/nYxPwYSL8wgAtiI
-	rNIgglbaGZ34aW28F+sQ==;
+	List-Owner; bh=7iv4HOsaccDNS2W12zZ1HtGUSqplwpf3MAUJp83wMOU=; b=1E3EiiY6Efci8j
+	4swI55RU2AQe0ZjLR9GUzFwTx68Bbh0Es0M0t3g22UZ7e8EcbfuG2KTpQ3LaiEPpt2xnr65hqiZMS
+	FbOdPVjIEER1a3gNtBF2zAsbZzU1uUjnwAIYPeDsZuOQt0852CKoWFdUmn0HKvHMr8VoVpd8/fbeV
+	m/mD2sIcyVQV/SVp0FPd8IqNjYAEjS1fu2InKIriNXloylHej1zObMrXhTUrBgoKj3VBtkZ+JUMYd
+	O4ZFveB1MjV59+orOoTw+zoN9dueJsgkh3aZDnIY/dfn5PfNv90Z/R9l5IhYaF2RRUdwMoj5uje58
+	Nk+XglvwFSx02ThPZ0tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGfbj-00DAo2-1c; Wed, 27 Jul 2022 11:53:43 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1oGfpV-00DIwr-Gw; Wed, 27 Jul 2022 12:07:57 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oGfbf-00DAkg-CD
-	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 11:53:41 +0000
-Received: by mail-lf1-x129.google.com with SMTP id p11so21919361lfu.5
-        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 04:53:36 -0700 (PDT)
+	id 1oGfpT-00DItK-EQ
+	for linux-riscv@lists.infradead.org; Wed, 27 Jul 2022 12:07:56 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id w18so8510003lje.1
+        for <linux-riscv@lists.infradead.org>; Wed, 27 Jul 2022 05:07:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=mime-version:references:in-reply-to:from:date:message-id:subject:to
-         :cc;
-        bh=D17IrGjqfDknOXwcV65EANowXkYAl11/dUWcANUuskM=;
-        b=oVw67IFKfMhTwkj4St44LIOpvrqAZzRqnzv4Y6bOpBCLP1BJqNpuGPO3Uc7xddTl5f
-         j5A6Y8WjaPxg/sdXKtxLKAGFjyuZNwIDaRhBgyALOmxuItXIbngCj3GOK1JQvu30Re7+
-         r4RD3h5Iak81lXY67URzLu9se5r4YzRWRiKV4ja4WWOi7Sm3fWtDlgzz9ujeab893YDt
-         lGPy2fEMzHxGy9y69eduiSsauiQCxXmD5iGx6aiZ5XXSgvF0uABy161+ThPMqxnMXlY7
-         bihpQmO442/TV2gnjs+uV/9OYkt1dYFU2GubxhKdlykVWq06MzPO/H1giTFJ7UwN4pDE
-         31EA==
+        d=linaro.org; s=google;
+        h=message-id:date:mime-version:user-agent:subject:content-language:to
+         :cc:references:from:in-reply-to:content-transfer-encoding;
+        bh=P+2FHV1UyVrnsYNntWHopzv4+MXcff3Of4ioJzVnCGI=;
+        b=AnjWDI8tr9bmZBYUFMj9WPOl3m53p4x/SYpzv83Z2ehj6b2z5tMohFMPs66mns4vtc
+         F/SNUthfL0SBnMR6A5PHNawbqprmZHCGM8GPGB15ac2wkhyNqIl1KNLdyBx61K+BAUNL
+         jocFxnN7BpnKnJ6SSfKw6fW/CS1mnG4kGf3tr9tXRV49p8zNvIPdzlwfffMHUsqkw5jR
+         vUEDwdjzBSf7aCCkIaQBkGOMv6Hh3n6kPErwGpbNTbtC015ZZXyQLxlpQDEWD0bnXXNz
+         y30vudbTCmTfC10TrgUQx+B9RbsZ6WMfh6Ukm66KrPi9H8m7J2ALrcwfnlnV1kDfRvY8
+         lKbA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
-         :message-id:subject:to:cc;
-        bh=D17IrGjqfDknOXwcV65EANowXkYAl11/dUWcANUuskM=;
-        b=8M0LFIS2b5sjfsjugo5O+H4JRHjUxZ1towqAMj1pAlqF04CExS76rEsg6ie2fRGwuF
-         sGeg3YrSbGsQOI6beoakV6aG2sk/32hA9CGDw8HFpUDxtYoOk432oeIKjCJZHGc03nnj
-         t3FEJLsbHs3RBenVyjNHFq2zaviqbSez69XHSvkQcBTU7owlLsera/2PCzC0mGNcBYWQ
-         uER+MnUY6wz/D226px1QFFadhKlH9zZ7Z+oqUZs3U9m3E9nTgmsvNWJy/du1dpsHaLCt
-         wFtZ/wdzkZM9hpl+P/y4Nwp/bpcKiIxQ/TrjEnoyx7UP4ydJmPKzUf3NbGVdZfzAPCK7
-         QcRA==
-X-Gm-Message-State: AJIora9CjpLGaCwb4O3w+KXBGSi9xib4NYLJJJ0dlLqttawJoYsQnkRz
-	tece2yy/0RoEhOwDSJ34tqe9RjFkD8U73Gw4V4k81A==
-X-Google-Smtp-Source: AGRyM1u+OEpVbywXqdYqThd2+8RU5rq/CspyP7SYzjjwWXkCGKFjuZpoPxUSb6FvGHuNiE70BOfGzvpVzIphnOxHoqo=
-X-Received: by 2002:a05:6512:2304:b0:48a:c120:88dc with SMTP id
- o4-20020a056512230400b0048ac12088dcmr14529lfu.419.1658922815582; Wed, 27 Jul
- 2022 04:53:35 -0700 (PDT)
+        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+         :content-language:to:cc:references:from:in-reply-to
+         :content-transfer-encoding;
+        bh=P+2FHV1UyVrnsYNntWHopzv4+MXcff3Of4ioJzVnCGI=;
+        b=CblgeJO82/mzA5DBIg80t+0ZXMI8d2hmhk/Dab0k/0uisrHjWrohtEIpQDYOkRdq3W
+         +e7/zwLBGD6sQ0tIg+a38yjGp9rpLxiWjN2MGvu03ypX5oeNcoZg4xHzf9KD0rursoIv
+         CSWxrByFDdr2Yu/ibg7kPPhBSci4jaraOr/lIogZgkgic6JzfQkG3AwTkHFsAImSDuaG
+         s6YZ6WuAtlLrKKDn/IUTikZW/jvi5xn800zifRbKavmlt7WvPLR9F/6Wf6dMw5qihUZY
+         ar/XkC9MDjVFyTA077LqbSEiexnFBDvCLF+VAwCKKOewjEcn9KIUo1Y/itgVkIV8oCEw
+         1qTA==
+X-Gm-Message-State: AJIora8fO3C6RcLQa/6jJIu91n/K5gRvnj8bCrPksqyJxJ+svrhMQZa8
+	x34m9cpqhKpC+lTyYHssvtQWOg==
+X-Google-Smtp-Source: AGRyM1tefcSIkMswKYXFzdVt4s4uRUWesrNpwAbExSgtNMXR5q2dqpfuBJJUEyVR9BHyqpbYoCJv5Q==
+X-Received: by 2002:a2e:8898:0:b0:25d:fc17:5efe with SMTP id k24-20020a2e8898000000b0025dfc175efemr7083795lji.132.1658923672053;
+        Wed, 27 Jul 2022 05:07:52 -0700 (PDT)
+Received: from [192.168.3.197] (78-26-46-173.network.trollfjord.no. [78.26.46.173])
+        by smtp.gmail.com with ESMTPSA id b14-20020a2eb90e000000b0025dda2c8013sm3912287ljb.28.2022.07.27.05.07.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 27 Jul 2022 05:07:51 -0700 (PDT)
+Message-ID: <372e37bf-ac90-c371-ad9e-b9c18e1cc059@linaro.org>
+Date: Wed, 27 Jul 2022 14:07:50 +0200
 MIME-Version: 1.0
-References: <20220727043829.151794-1-apatel@ventanamicro.com>
- <724f176b-02f1-b171-726f-16158c650896@codethink.co.uk> <CAAhSdy1tnTDv0AVyo=5FD=aE070ds6qYGGhdup+8jUqr3M66qA@mail.gmail.com>
- <20a94c3c-85ed-2227-458e-60c780fd4ad7@codethink.co.uk>
-In-Reply-To: <20a94c3c-85ed-2227-458e-60c780fd4ad7@codethink.co.uk>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Wed, 27 Jul 2022 17:23:24 +0530
-Message-ID: <CAK9=C2Xoi7zW0evH-q15699vRqQ1UY72C_Z3UpYHMbkgL+efUg@mail.gmail.com>
-Subject: Re: [PATCH v2] RISC-V: Add mvendorid, marchid, and mimpid to
- /proc/cpuinfo output
-To: Ben Dooks <ben.dooks@codethink.co.uk>
-Cc: Anup Patel <anup@brainfault.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
-	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Atish Patra <atishp@atishpatra.org>, 
-	linux-riscv@lists.infradead.org, Nikita Shubin <n.shubin@yadro.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
+Subject: Re: [PATCH v2 1/2] dt-bindings: riscv: Add optional DT property
+ riscv,timer-can-wake-cpu
+Content-Language: en-US
+To: Anup Patel <apatel@ventanamicro.com>, Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+ Atish Patra <atishp@atishpatra.org>, Samuel Holland <samuel@sholland.org>,
+ Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20220727114302.302201-1-apatel@ventanamicro.com>
+ <20220727114302.302201-2-apatel@ventanamicro.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20220727114302.302201-2-apatel@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220727_045339_440866_AC1EB278 
-X-CRM114-Status: GOOD (  26.51  )
+X-CRM114-CacheID: sfid-20220727_050755_520317_A47CDD87 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,126 +99,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 27, 2022 at 3:42 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
->
-> On 27/07/2022 11:06, Anup Patel wrote:
-> > On Wed, Jul 27, 2022 at 2:25 PM Ben Dooks <ben.dooks@codethink.co.uk> wrote:
-> >>
-> >> On 27/07/2022 05:38, Anup Patel wrote:
-> >>> Identifying the underlying RISC-V implementation can be important
-> >>> for some of the user space applications. For example, the perf tool
-> >>> uses arch specific CPU implementation id (i.e. CPUID) to select a
-> >>> JSON file describing custom perf events on a CPU.
-> >>>
-> >>> Currently, there is no way to identify RISC-V implementation so we
-> >>> add mvendorid, marchid, and mimpid to /proc/cpuinfo output.
-> >>>
-> >>> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> >>> Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
-> >>> Tested-by: Nikita Shubin <n.shubin@yadro.com>
-> >>> ---
-> >>> Changes since v1:
-> >>>    - Use IS_ENABLED() to check CONFIG defines
-> >>>    - Added RB and TB tags in commit description
-> >>> ---
-> >>>    arch/riscv/kernel/cpu.c | 51 +++++++++++++++++++++++++++++++++++++++++
-> >>>    1 file changed, 51 insertions(+)
-> >>>
-> >>> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-> >>> index fba9e9f46a8c..04bcc91c91ea 100644
-> >>> --- a/arch/riscv/kernel/cpu.c
-> >>> +++ b/arch/riscv/kernel/cpu.c
-> >>> @@ -3,10 +3,13 @@
-> >>>     * Copyright (C) 2012 Regents of the University of California
-> >>>     */
-> >>>
-> >>> +#include <linux/cpu.h>
-> >>>    #include <linux/init.h>
-> >>>    #include <linux/seq_file.h>
-> >>>    #include <linux/of.h>
-> >>> +#include <asm/csr.h>
-> >>>    #include <asm/hwcap.h>
-> >>> +#include <asm/sbi.h>
-> >>>    #include <asm/smp.h>
-> >>>    #include <asm/pgtable.h>
-> >>>
-> >>> @@ -64,6 +67,50 @@ int riscv_of_parent_hartid(struct device_node *node)
-> >>>    }
-> >>>
-> >>>    #ifdef CONFIG_PROC_FS
-> >>> +
-> >>> +struct riscv_cpuinfo {
-> >>> +     unsigned long mvendorid;
-> >>> +     unsigned long marchid;
-> >>> +     unsigned long mimpid;
-> >>> +};
-> >>> +static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
-> >>> +
-> >>> +static int riscv_cpuinfo_starting(unsigned int cpu)
-> >>> +{
-> >>> +     struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
-> >>> +
-> >>> +#if IS_ENABLED(CONFIG_RISCV_SBI)
-> >>> +     ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
-> >>> +     ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
-> >>> +     ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
-> >>
-> >> how about:
-> >>
-> >>          if (IS_ENABLED(CONFIG_RISCV_SBI)) {
-> >>                  ...
-> >>          } ... {
-> >>
-> >> or maybe even:
-> >>
-> >>
-> >>          if (IS_ENABLED(CONFIG_RISCV_SBI)) {
-> >>                  if (sbi_spec_is_0_1()) {
-> >>                          ...
-> >>                  }
-> >>          } ... {
-> >>
-> >> would mean better compile coverage (at the slight exepnese of
-> >> having "false" sbi_spec_is_0_1() implemenation
-> >
-> > Most of the sbi_xyz() functions are not available for NoMMU
-> > kernel so using "if (IS_ENABLED())" results in compile error.
->
-> How about defining "false" versions for no-mmu case and try
-> and avoid these #if mountains?
+On 27/07/2022 13:43, Anup Patel wrote:
+> We add an optional DT property riscv,timer-can-wake-cpu which if present
+> in CPU DT node then CPU timer is always powered-on and never loses context.
+> 
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> index d632ac76532e..b60b64b4113a 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> @@ -78,6 +78,12 @@ properties:
+>        - rv64imac
+>        - rv64imafdc
+>  
+> +  riscv,timer-can-wake-cpu:
+> +    type: boolean
+> +    description:
+> +      If present, the timer interrupt can wake up the CPU from
+> +      suspend/idle state.
 
-Well, we are not simplifying anything by moving from a "#if" ladder
-to "if ()" ladder. Also, I don't see how the "#if" ladder will grow over
-time.
+Isn't this a property of a timer, not CPU? IOW, your timer node should
+have "wakeup-source" property.
 
-Regards,
-Anup
+Now that's actual problem: why the RISC-V timer is bound to "riscv"
+compatible, not to dedicated timer node? How is it related to actual CPU
+(not SoC)?
 
->
-> >>
-> >>> +#elif IS_ENABLED(CONFIG_RISCV_M_MODE)
-> >>> +     ci->mvendorid = csr_read(CSR_MVENDORID);
-> >>> +     ci->marchid = csr_read(CSR_MARCHID);
-> >>> +     ci->mimpid = csr_read(CSR_MIMPID);
-> >>> +#else
-> >>> +     ci->mvendorid = 0;
-> >>> +     ci->marchid = 0;
-> >>> +     ci->mimpid = 0;
-> >>> +#endif
-> >>
-> >> Would it be easier to zero out all the fields first and then fill them
-> >> in if supported?
-> >
-> > Clearing out fields before "#if" ladder results in dead assignments.
->
-> Not sure which is worse here, the #if ladder or some possibly dead
-> assignments.
->
-> --
-> Ben Dooks                               http://www.codethink.co.uk/
-> Senior Engineer                         Codethink - Providing Genius
->
-> https://www.codethink.co.uk/privacy.html
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
