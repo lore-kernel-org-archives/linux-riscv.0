@@ -4,166 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26816C04A68
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jul 2022 17:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B50C04A68
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jul 2022 19:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hUODLZJTITRJj0sS3MaSab6a76hzxXHO3Nmqyy4PCQw=; b=nudKSHrGOBH2rh
-	uJtk6LMUz72k9SAK7gI5lPBjonchvaIobkilasUANNwSlgwAkSpeYJSR+/SCn2ovh1qXQ554Dljpd
-	fLgRx43M5R/awwVp0H3uWyDdpRLQN6IphIXkcRj/t1gN0Li/4msUylvPm9wlpnD5OfP1GIbSkXzqg
-	u7ubyYcDB36gr17kjzcWIoqjDgG1t9WAJjpVya2hYHkeMNKIrIhPN2GnZFTD20tvOXg27UgeHN4eG
-	bG6cyiTqPhrmZ4mNL9FAPG1f6+FJzvW1tPNb54PrLJouqS4n6DeJ6h9Eo/sSMZrmFA0cnrocL3L4e
-	yTovYWc3nNgKWd0YfPpQ==;
+	List-Owner; bh=BNEeWMoaUAqslaUD8fPXYtMV4eHeRrvwyq1suV2sOCc=; b=B2C8Cwfhor9DID
+	0DpjFg4/cD/9iZri+H+ajEQNSnxsbbxvIjBunHavZ1GXZyqGS4IQcKYYhz7GDMA5PEdHKOWLsJJM+
+	MtP2PM/I4g3vBuHGaHzIxqUwmsM07ZTDBKhf5Rx65btop+jk1XWm8L/SDi/y0vnF5y6vlXaJASKoz
+	5lSEJleWp3pmiFWx+cuH8nHAUNk3iuNGoBnXKeJ36U8yuHtGQqbLwVLkrVXlos58WFvSfAkjJms+d
+	OjluBhoCJLibz/Owm3txsJSeboYeEQ9hE8PUFzWHNGAjAfx6PXIsUXGu2xYZ7ESibQ4M9uM2BxYQZ
+	AkYQssjEx2JkSHj1eoQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oH7aA-00D3Nq-5d; Thu, 28 Jul 2022 17:45:58 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oH9N4-00DbMX-2Q; Thu, 28 Jul 2022 19:40:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oH7a6-00D3NF-Gi
-	for linux-riscv@lists.infradead.org; Thu, 28 Jul 2022 17:45:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1659030355; x=1690566355;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=nBZJoZB11Q5KE9obYt+eknm9mEYMY/OT5Oi9SBx7F+I=;
-  b=V0qPl1xQANTydPVzCg1th3wyV4jff3k6GIc3AGzGNYOnobKMXVTot99i
-   fciMRqDh4IpADwI7Zk+nahRLUKaDvL50idUifx1gVqtrFyg0Zhbq+8i8j
-   53KphB1wrB8nURhi3WC5dthx2Tha1Oh6uHE7i7uK94OXjBRbv8pmgB5Ej
-   yNt6VHviM+6dLVUZBBVkLG+FK8xEb4YGo7iILJYmo3HHE6OQ2fuWsZ9+T
-   X/jgUIl/GqW4b4gPbA310wVLk9sGhc+b+5rD8Lu88OIn9S9RosWek2R9j
-   +XOQRNq+bbX/drphUApnAN29we9f7mHht1TI3fWUOm42C/vN9GBq717TG
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.93,198,1654585200"; 
-   d="scan'208";a="166831876"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 28 Jul 2022 10:45:44 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Thu, 28 Jul 2022 10:45:42 -0700
-Received: from NAM12-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Thu, 28 Jul 2022 10:45:41 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=P488l/S54uk/lQnEwybZUSVKXNTbsXNXvWXWsjeHI5LbE7Vjsp7ZopHIiujwx8jU1Yk9uMuBwcWNTCuUCQudrx8p7ATdQJOFdZrNUggrBoOYWl/rrzrCAqCDH6D05X/AqkNEn2hM8Xi9oToHCSE8W6TXktiAuGHb4Qg7yXouk7VOaNgKAZQHt1hgt/HMKYj4NtpoeBb9/qd9rMtnqL3oK8H+BP+zIvL08z3edjds2+mzJQaiTN6tbfxh8IGIdYX6o9eoDSS3Rn9IzjnWSBqrxKYYZpjIyHiI/VcR7G/uRg/AIbsTyHxXHmkihOOW9I/5zxSnclberxSDKeiiW5nOFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nBZJoZB11Q5KE9obYt+eknm9mEYMY/OT5Oi9SBx7F+I=;
- b=MbvmI/odacESUm+NuBfqS78/Q9xeMJ5QsFRrWVob2ezPqKkft+XsQma2hCmCa8C7Ky6idzd8KzfOS73OMmNMVSuBLFM/rZHJxcfhgHRNU5NI1pClRbKRQ2LGoWCOBRVbBn7fTwvW3fJxEXElO3prQDVn3/Qz+mGIGeuldpiuME7St6UKYnn7X4rt632MssX0VXwPbdbzFS/bx+XNmtij3szWHVCBbNl97rCry+bYYrSGMbIJeTkzbAnguZBdeoXBL7Z5IIfTNH2TRHZhtQSq7EGzsUSq3g0K7gjZTmVHSYvZmvnMJjeSRTgtOS9RFf9wljTLRK5LuxCwGkMDzqMaqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nBZJoZB11Q5KE9obYt+eknm9mEYMY/OT5Oi9SBx7F+I=;
- b=AFkp1pDbohB5/Uz7MuMkdmxvSx+11QqRRub5DdslgdZNxcea04G9SNIIrdDgK1jmq3CxPbseA0tQXzlnpEeKSmoa1Nl7tvp88qo138zGzaMM/EPcyNdp4OTny9Grse3AWEagmvTbUj37WMaVLTCp0wuTBd//yq5nqRjjoQM30Y4=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by CH0PR11MB5564.namprd11.prod.outlook.com (2603:10b6:610:d7::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5458.19; Thu, 28 Jul
- 2022 17:45:40 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3%9]) with mapi id 15.20.5482.011; Thu, 28 Jul 2022
- 17:45:40 +0000
-From: <Conor.Dooley@microchip.com>
-To: <thierry.reding@gmail.com>, <emil.renner.berthing@canonical.com>
-CC: <u.kleine-koenig@pengutronix.de>, <wanjiabing@vivo.com>,
-	<kernel@pengutronix.de>, <linux-pwm@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>, <yash.shah@sifive.com>, <atishp@atishpatra.org>,
-	<wesley@sifive.com>
-Subject: Re: [PATCH 7/7] pwm: sifive: Shut down hardware only after
- pwmchip_remove() completed
-Thread-Topic: [PATCH 7/7] pwm: sifive: Shut down hardware only after
- pwmchip_remove() completed
-Thread-Index: AQHYnO0pSeG9RSNezEiCiw42RZEnVa2Kq9MAgAlkqYCAAAldAA==
-Date: Thu, 28 Jul 2022 17:45:40 +0000
-Message-ID: <7d173447-b52d-4495-56d3-6a59ad3a0bbc@microchip.com>
-References: <20220721103129.304697-1-u.kleine-koenig@pengutronix.de>
- <20220721103129.304697-7-u.kleine-koenig@pengutronix.de>
- <CAJM55Z_+AOmyFs-QgaQdnk4m7SN=JMcszjG+mtANzBcWkGYBkQ@mail.gmail.com>
- <YuLDaawwep6noOJL@orome>
-In-Reply-To: <YuLDaawwep6noOJL@orome>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 2d07f3c5-35cb-438d-e49d-08da70c0fce2
-x-ms-traffictypediagnostic: CH0PR11MB5564:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: I+lKIlFdhe5HjHZpJ7BAre5Ee7MbZPWvL+2PXdniXp5Ah/YmoRFFpWN/+iD7rWvljdENhkbq3HKO+rB3UIbCEMhH03rj1P1YLJuHGRtaohMxs2xru42jvHQyQcPqMy8gM2/AFKvPpveBm2uCZxK3c6aSLf2fIOz8zMX1pFAJuNAB+mwqR55/lKHNTLeapZ768yaXKZVFCzItaTDStX01jIIYlP5M6DjjXmIme9WT7QGqOOD4RP6q11XRINYBZ/Kt0d8j67i/Ahyfbw5Id+ie4VA2pLiw+80AcEm47WyH5wn/0uw1XCxtgdJzXFtDKf0s8oorB2TqyzFtssnEnK7Gz21T72+ZlDfqeL869k9FIvKFY/qR4XJY7GHxKcywTyp/BPCPPiNZRqUnuXBTuwCAP25aASKh/9Pe4TlxkT29zV4C838tHqPZA6pkNGByqtcIuCBZ6kBx5wxUjuUv0QYSAJZFVWOMQ0TW7NWpcFQ+WsWoz5OKp7RfQtt4NGbSYPzT+Rp+wTSwlW5uBffxgj3qdI/Iv1lEfZcoeEIQWAqCTJrhS5nMisHD10Ih/xhfbcb27XNdoBaJ+t1FOcJBK5aFvtFH6QR4ps+CCXdiq8JUy5aisoz6QY3VTkwzDsMuyHs3Nr9aauf2uu/10hd3E9Ux8NUR0bJmZdkRtstkT08HPjtvsnLdBCdLDvZgafUIDijv84DE8pSN9TIRq3pKUPN8/h1qRZZlr9+wWuAt+4SevKzXHQ9PIzrdW+8E0aGsuaTUxHaHSbKiBofScVzVpmQKXy5pO+w0aW6YNNZKxaUAswIhKaObw+VIHNl0HvPfX9pszyf4+rpvwSk0CWzrTVOz7F5xnQkgnSwm4oWu+sgzoZP7+CtYgJZ40PE5wafMeM+1Nxtosi45qPgkr3NOiGigdg==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(136003)(346002)(366004)(376002)(396003)(39860400002)(316002)(26005)(6506007)(2616005)(53546011)(54906003)(31686004)(38100700002)(2906002)(122000001)(66574015)(66446008)(478600001)(4326008)(66476007)(66556008)(7416002)(8936002)(36756003)(64756008)(41300700001)(8676002)(76116006)(66946007)(71200400001)(91956017)(966005)(86362001)(6512007)(31696002)(110136005)(38070700005)(5660300002)(186003)(6486002)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dC91dzQvSWR0RXplY2JjcGV0dC9ZWW54eXl0NE9Hb1g4SEpybW1KOS9GN3Rk?=
- =?utf-8?B?ai96alVIeWFMNnVYbUNDSlVBV0dTMkNNL2k5TVNoaVNNMVhlckNHZ2ttNUJ5?=
- =?utf-8?B?OURqRzVYVHhINjFEazV3aVZWQzEvUStyNnlteUdwZE5Gc0VRVFhrWDJtR1lm?=
- =?utf-8?B?WXNEYnBhcGVTbFVvOEpPbXZwZjNpazRLci9YM05DYUI3TzNRT0lvSlh6VEd0?=
- =?utf-8?B?QlhYRzNFTkV4OEFzYkFTMGx0ZFZld1ozODYxOVNsVFdwUXViUndhc1hTVFRk?=
- =?utf-8?B?eE1xbWR5ZDYwb1VFZm0rN1hNTnJpVGluMTR5cmw4RXVVYnlyNW85QXdhNThi?=
- =?utf-8?B?Q3ZrbGpwYmMyVS9WL2g3N3pQRTMwcFJ4VHdrTkJGczlJM3pZS2swUVJLVkhU?=
- =?utf-8?B?cUh4a2RPaTlTTzJRaGlrcmJONUlPdElrNHhiRVhMd05SQjMyRkp5RlBScXZJ?=
- =?utf-8?B?UWlGZjgvWkNHYXJkYkNUL0tkUjlCZmNZVjFERkJkYk84SElicjc5Yk91SlFW?=
- =?utf-8?B?MU44NDI0b0ZLNThuakEwdTNoSjFGRjVHZkxtd2NNZU4vblFPazJHOWtGU01j?=
- =?utf-8?B?V1c0bEJTZkh5dklwYzNGcGlBWHFPdHRld2prRzZKbXhVZDBHWVdWWWVZS0ww?=
- =?utf-8?B?R29jRlJtMUREclNzQlRxTzAxWWZITC9BWWxDK05pdDZUWmwzSk52SUVsaU0v?=
- =?utf-8?B?bHR6RDN4OTdDY0pheENjUjArc21BSGcxSHBVZFVZSzMzeU1rZmtqZG1VY0pZ?=
- =?utf-8?B?T1R4S0JGc3duZFZ6d3Z6T2kyWDJzOFU1VjhPaUVxREl5QmR3RUtLcnJoN3Q5?=
- =?utf-8?B?WStvYW1NbWNuZ0dLVWlwMk1adDRVeGt5SCtxbURidkZSUEpQTUZ2amYxdC9L?=
- =?utf-8?B?d2p5S0pMbXhxV1ViTzUwTDJHZy9kNHROb1I0dTlNa0UvalNuTGw3empibllO?=
- =?utf-8?B?dDE1RmtXMmZFTTIyNW5kMXVvVVptVEZ0dEwza1JqcGFFL3hubW1VT1VQZWNk?=
- =?utf-8?B?bjlyNlBoSHZQVGxlcVIvaVppcVE5SjlIbkw5YlRvb2VwRjIrV2tKRlhrT1ph?=
- =?utf-8?B?bjZGeFFQNklMK3V3aVdNWCt0YktQempQUDAraEtnd3ZyUFcyN1J5UHJaVnBn?=
- =?utf-8?B?M3M5MU9semdOekIwelJDZFNYdmRKV0lOL2FZUHdlL2xWWmZCSVMrVndJRjRj?=
- =?utf-8?B?R1RqNVV2bW5Hd3VMY1Q5cGsxa3BYV2FLdTl0NXNpdDlMbjlJZDNvNUhPdzdl?=
- =?utf-8?B?TkNRNUFuWnQxaXQ3NUhXcSsxUFBGWUNXTXVucVcwdmQ2RzFSeTdMY1VzSEVp?=
- =?utf-8?B?TzdsNC9QQklsdW5CYVpuT0E5UDZia2F4OHNhVmpPT3VPVVc2SnM4b3RlVjhH?=
- =?utf-8?B?Y2pNK1pQVmF6UDhpdU1UMVIxTU9NR3dSSytwRFNNZUpZeG1rTWREN2pGVGZu?=
- =?utf-8?B?VDFWMER6ejl5OGxBRmdBam5oVWtFU01vZlBVTmVKSUo0U3M4MVlMNzdnanNi?=
- =?utf-8?B?NDBkWGY5S0tHbW5yVzFpQmxPeW9LcWF4VDRQcngwS0oya2laVDBwUWJ6TzNn?=
- =?utf-8?B?N2UwNEFXeFV3REpHN3UzaHIxTEl1L0tsa2Eyc3VRMmJHS1JGZnNtRjVOR3Ew?=
- =?utf-8?B?OGJsWDdXWUVFdjhKMFcycjRmUGh5bnJ4YnNCRWdIeHNFNGFwTitOT0RFK1pV?=
- =?utf-8?B?N28yVnlGdW56R2RTZ1RKZWhobnJRTU9kbkplaVVoTjhUdDN4VHRPUityazM1?=
- =?utf-8?B?b1dpU1J6V1pLSHh2bDNuY2FjQldxWDBReHNETnBTWEcyMzdXTDJLWnF4b3dx?=
- =?utf-8?B?MkEzYk4rTGtmS3pwc3BUYlUraHNYMGd2YVU3cjNEVTlLMit1ZDhubW1xMDcw?=
- =?utf-8?B?RUhZZWNnUHBGUUZrdjA2Q1NFbWxySHdWUk04TWRJMjRNeC92RkV1cGEzd2RY?=
- =?utf-8?B?SkxKajUwM3M3djg3Zmo1VFcyNWIvMFoxMS9ISVVxN2MzbENoVFRIMnk2T2h1?=
- =?utf-8?B?Z2d1ajBsU0RzamMxS2RERHplOEFMWVZLN2xXVDJLanBLc3FSejZVbHRVMlNn?=
- =?utf-8?B?TmNlRGNjVTdxM09mbEZtLzJWdnhiL29YZlVwVTExN0E3UVdtaTVPTDFEK2VU?=
- =?utf-8?B?aG5SU1MxcElib1ByaS9Jekc2VG95UEVwbFB2b1hPdUlTMTE3VWtMb29YZHhR?=
- =?utf-8?B?K1E9PQ==?=
-Content-ID: <048991DE12267548921710621D8261FC@namprd11.prod.outlook.com>
+	id 1oH7Bw-00D1Ql-6g; Thu, 28 Jul 2022 17:20:57 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9441F612B2;
+	Thu, 28 Jul 2022 17:20:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED372C43140;
+	Thu, 28 Jul 2022 17:20:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1659028854;
+	bh=3juGR+P+/PoNu1lEhZFgztJ6A9LmEO7Lb+rh9Y4NDdw=;
+	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
+	b=Ajcg/8L4izAZKa2mPe4A6mwD2xhNPSF6zD8jqYYYRNqfhpnanJCwPLkeDTtzMAAXY
+	 M7oUXZ6CZuH31IjVxAqM2gRnsWZITNKb55wlZ5JnD/DUCRDg3UdeAIrzeX0lNHjHAR
+	 wzgi3C8wJdIpBMqt7sc3STjd7C0uykM6U86/xrKMdBkv3A6gpbtO4hXjJ5l+TjHaLy
+	 e4DKSoCgdb1tzebEFm0O9AJWb9AqCOKWaWW3sVozalRIPGLkf5E1tw9aRE4zu/+akq
+	 X3FcajNE+AfhyfG4rrsgNdfZt/xVPEzBnwFe9tFjDbwwql6CH8YXjM30w46DcxQYCb
+	 8dZ4kaIUmww0Q==
+Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
+	id 9739D5C0B3E; Thu, 28 Jul 2022 10:20:53 -0700 (PDT)
+Date: Thu, 28 Jul 2022 10:20:53 -0700
+From: "Paul E. McKenney" <paulmck@kernel.org>
+To: Michel Lespinasse <michel@lespinasse.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, rth@twiddle.net,
+	ink@jurassic.park.msu.ru, mattst88@gmail.com, vgupta@kernel.org,
+	linux@armlinux.org.uk, ulli.kroll@googlemail.com,
+	linus.walleij@linaro.org, shawnguo@kernel.org,
+	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
+	festevam@gmail.com, linux-imx@nxp.com, tony@atomide.com,
+	khilman@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+	guoren@kernel.org, bcain@quicinc.com, chenhuacai@kernel.org,
+	kernel@xen0n.name, geert@linux-m68k.org, sammy@sammy.net,
+	monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org,
+	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
+	shorne@gmail.com, James.Bottomley@HansenPartnership.com,
+	deller@gmx.de, mpe@ellerman.id.au, benh@kernel.crashing.org,
+	paulus@samba.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, hca@linux.ibm.com, gor@linux.ibm.com,
+	agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
+	svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org,
+	davem@davemloft.net, richard@nod.at,
+	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	acme@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	namhyung@kernel.org, jgross@suse.com, srivatsa@csail.mit.edu,
+	amakhalov@vmware.com, pv-drivers@vmware.com,
+	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
+	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
+	gregkh@linuxfoundation.org, mturquette@baylibre.com,
+	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
+	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org,
+	anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
+	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>,
+	yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
+	linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com,
+	senozhatsky@chromium.org, john.ogness@linutronix.de,
+	frederic@kernel.org, quic_neeraju@quicinc.com,
+	josh@joshtriplett.org, mathieu.desnoyers@efficios.com,
+	jiangshanlai@gmail.com, joel@joelfernandes.org,
+	juri.lelli@redhat.com, vincent.guittot@linaro.org,
+	dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de,
+	bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org,
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org,
+	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
+	rcu@vger.kernel.org, rh0@fb.com
+Subject: Re: [PATCH 04/36] cpuidle,intel_idle: Fix CPUIDLE_FLAG_IRQ_ENABLE
+Message-ID: <20220728172053.GA3607379@paulmck-ThinkPad-P17-Gen-1>
+References: <20220608142723.103523089@infradead.org>
+ <20220608144516.172460444@infradead.org>
+ <20220725194306.GA14746@lespinasse.org>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2d07f3c5-35cb-438d-e49d-08da70c0fce2
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Jul 2022 17:45:40.4482
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: jj3MNb6jveJjoWIyADDDzYiZp3UYnPt+FrbCMEMb042ENdnOM3t0Ck9/lHQgsPoBoGHchygdRkxFV5nnIk0G9Ft3QaE+fPgNOKc4LcGE9Dg=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR11MB5564
+Content-Disposition: inline
+In-Reply-To: <20220725194306.GA14746@lespinasse.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220728_104554_902877_672D689E 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20220728_102056_371002_3D2A6D65 
+X-CRM114-Status: GOOD (  29.94  )
+X-Mailman-Approved-At: Thu, 28 Jul 2022 12:40:33 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,39 +126,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: paulmck@kernel.org
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjgvMDcvMjAyMiAxODoxMiwgVGhpZXJyeSBSZWRpbmcgd3JvdGU6DQo+IEVYVEVSTkFMIEVN
-QUlMOiBEbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bmxlc3MgeW91IGtu
-b3cgdGhlIGNvbnRlbnQgaXMgc2FmZQ0KPiANCj4gT24gRnJpLCBKdWwgMjIsIDIwMjIgYXQgMDc6
-NDU6MzJQTSArMDIwMCwgRW1pbCBSZW5uZXIgQmVydGhpbmcgd3JvdGU6DQo+PiBPbiBUaHUsIDIx
-IEp1bCAyMDIyIGF0IDEyOjMyLCBVd2UgS2xlaW5lLUvDtm5pZw0KPj4gPHUua2xlaW5lLWtvZW5p
-Z0BwZW5ndXRyb25peC5kZT4gd3JvdGU6DQo+Pj4gVGhlIFBXTXMgYXJlIGV4cGVjdGVkIHRvIGJl
-IGZ1bmN0aW9uYWwgdW50aWwgcHdtY2hpcF9yZW1vdmUoKSBpcyBjYWxsZWQuDQo+Pj4gU28gZGlz
-YWJsZSB0aGUgY2xrcyBvbmx5IGFmdGVyd2FyZHMuDQo+Pj4NCj4+PiBGaXhlczogOWUzN2E1M2Vi
-MDUxICgicHdtOiBzaWZpdmU6IEFkZCBhIGRyaXZlciBmb3IgU2lGaXZlIFNvQyBQV00iKQ0KPj4+
-IFNpZ25lZC1vZmYtYnk6IFV3ZSBLbGVpbmUtS8O2bmlnIDx1LmtsZWluZS1rb2VuaWdAcGVuZ3V0
-cm9uaXguZGU+DQo+Pg0KPj4gSGkgVXdlLA0KPj4NCj4+IFlvdSBkaWRuJ3Qgc2VuZCBhIGNvdmVy
-IGxldHRlciBzbyB1bnN1cmUgd2hpY2ggbWFpbCB0byByZXNwb25kIHRvLCBidXQNCj4+IEkgdGVz
-dGVkIHRoaXMgc2VyaWVzIHdpdGgNCj4+DQo+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51
-eC1yaXNjdi8yMDIyMDcwNTIxMDE0My4zMTUxNTEtMS1lbWlsLnJlbm5lci5iZXJ0aGluZ0BjYW5v
-bmljYWwuY29tLw0KPj4NCj4+IC4uYW5kIGV2ZXJ5dGhpbmcga2VlcHMgd29ya2luZywgc28NCj4+
-DQo+PiBUZXN0ZWQtYnk6IEVtaWwgUmVubmVyIEJlcmhpbmcgPGVtaWwucmVubmVyLmJlcnRoaW5n
-QGNhbm9uaWNhbC5jb20+DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgIF4NClByZXR0eSBt
-aW5vciBJIGd1ZXNzLCBidXQgdGhhdCBzaG91bGQgYmUgIkJlcnRoaW5nIg0KDQo+IA0KPiBUaGlz
-IGlzIGZpbmUsIEkndmUgYXBwbGllZCB0aGUgdGFnIHRvIHRoZSB3aG9sZSBzZXJpZXMgc2luY2Ug
-eW91IHNhaWQNCj4gdGhhdCB5b3UgaGFkIHRlc3RlZCB0aGUgd2hvbGUgc2VyaWVzLiBJJ20gbm90
-IHN1cmUsIGJ1dCBJIGRvbid0IHRoaW5rDQo+IHBhdGNod29yayBhdXRvbWF0aWNhbGx5IGFkZHMg
-dGFncyB0byBhbGwgcGF0Y2hlcyBpZiB0aGV5IGFyZSBnaXZlbiB0bw0KPiB0aGUgY292ZXIgbGV0
-dGVyLCBzbyBpbiB0aG9zZSBjYXNlcyBhIGJpdCBvZiBtYW51YWwgaW50ZXJ2ZW50aW9uIGNhbg0K
-PiBiZSBuZWNlc3NhcnkuIFBlcmhhcHMgYjQgY2FuIGRvIHRoaXMgYXV0b21hdGljYWxseS4gSSBz
-aG91bGQgcHJvYmFibHkNCj4gdGVzdCB0aGF0IGF0IHNvbWUgcG9pbnQuDQoNClRoZSAtdCBmbGFn
-IGZvciBiNCBhbSB3aWxsIGRvIGl0IGF1dG9tYXRpY2FsbHkgZm9yIHRhZ3MgYXBwbGllZCB0byB0
-aGUNCmNvdmUuIEluIGZhY3QgaXQgcHJvbXB0cyB5b3UgaWYgeW91IGRvbid0IHBhc3MgLXQgYW5k
-IHRoZSBjb3ZlciBoYXMNCnRhZ3MuDQoNClRoYW5rcywNCkNvbm9yLg0KX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, Jul 25, 2022 at 12:43:06PM -0700, Michel Lespinasse wrote:
+> On Wed, Jun 08, 2022 at 04:27:27PM +0200, Peter Zijlstra wrote:
+> > Commit c227233ad64c ("intel_idle: enable interrupts before C1 on
+> > Xeons") wrecked intel_idle in two ways:
+> > 
+> >  - must not have tracing in idle functions
+> >  - must return with IRQs disabled
+> > 
+> > Additionally, it added a branch for no good reason.
+> > 
+> > Fixes: c227233ad64c ("intel_idle: enable interrupts before C1 on Xeons")
+> > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> 
+> After this change was introduced, I am seeing "WARNING: suspicious RCU
+> usage" when booting a kernel with debug options compiled in. Please
+> see the attached dmesg output. The issue starts with commit 32d4fd5751ea
+> and is still present in v5.19-rc8.
+> 
+> I'm not sure, is this too late to fix or revert in v5.19 final ?
+
+I finally got a chance to take a quick look at this.
+
+The rcu_eqs_exit() function is making a lockdep complaint about
+being invoked with interrupts enabled.  This function is called from
+rcu_idle_exit(), which is an expected code path from cpuidle_enter_state()
+via its call to rcu_idle_exit().  Except that rcu_idle_exit() disables
+interrupts before invoking rcu_eqs_exit().
+
+The only other call to rcu_idle_exit() does not disable interrupts,
+but it is via rcu_user_exit(), which would be a very odd choice for
+cpuidle_enter_state().
+
+It seems unlikely, but it might be that it is the use of local_irq_save()
+instead of raw_local_irq_save() within rcu_idle_exit() that is causing
+the trouble.  If this is the case, then the commit shown below would
+help.  Note that this commit removes the warning from lockdep, so it
+is necessary to build the kernel with CONFIG_RCU_EQS_DEBUG=y to enable
+equivalent debugging.
+
+Could you please try your test with the -rce commit shown below applied?
+
+							Thanx, Paul
+
+------------------------------------------------------------------------
+
+commit ed4ae5eff4b38797607cbdd80da394149110fb37
+Author: Paul E. McKenney <paulmck@kernel.org>
+Date:   Tue May 17 21:00:04 2022 -0700
+
+    rcu: Apply noinstr to rcu_idle_enter() and rcu_idle_exit()
+    
+    This commit applies the "noinstr" tag to the rcu_idle_enter() and
+    rcu_idle_exit() functions, which are invoked from portions of the idle
+    loop that cannot be instrumented.  These tags require reworking the
+    rcu_eqs_enter() and rcu_eqs_exit() functions that these two functions
+    invoke in order to cause them to use normal assertions rather than
+    lockdep.  In addition, within rcu_idle_exit(), the raw versions of
+    local_irq_save() and local_irq_restore() are used, again to avoid issues
+    with lockdep in uninstrumented code.
+    
+    This patch is based in part on an earlier patch by Jiri Olsa, discussions
+    with Peter Zijlstra and Frederic Weisbecker, earlier changes by Thomas
+    Gleixner, and off-list discussions with Yonghong Song.
+    
+    Link: https://lore.kernel.org/lkml/20220515203653.4039075-1-jolsa@kernel.org/
+    Reported-by: Jiri Olsa <jolsa@kernel.org>
+    Reported-by: Alexei Starovoitov <ast@kernel.org>
+    Reported-by: Andrii Nakryiko <andrii@kernel.org>
+    Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
+    Reviewed-by: Yonghong Song <yhs@fb.com>
+
+diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
+index c25ba442044a6..9a5edab5558c9 100644
+--- a/kernel/rcu/tree.c
++++ b/kernel/rcu/tree.c
+@@ -631,8 +631,8 @@ static noinstr void rcu_eqs_enter(bool user)
+ 		return;
+ 	}
+ 
+-	lockdep_assert_irqs_disabled();
+ 	instrumentation_begin();
++	lockdep_assert_irqs_disabled();
+ 	trace_rcu_dyntick(TPS("Start"), rdp->dynticks_nesting, 0, atomic_read(&rdp->dynticks));
+ 	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !user && !is_idle_task(current));
+ 	rcu_preempt_deferred_qs(current);
+@@ -659,9 +659,9 @@ static noinstr void rcu_eqs_enter(bool user)
+  * If you add or remove a call to rcu_idle_enter(), be sure to test with
+  * CONFIG_RCU_EQS_DEBUG=y.
+  */
+-void rcu_idle_enter(void)
++void noinstr rcu_idle_enter(void)
+ {
+-	lockdep_assert_irqs_disabled();
++	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !raw_irqs_disabled());
+ 	rcu_eqs_enter(false);
+ }
+ EXPORT_SYMBOL_GPL(rcu_idle_enter);
+@@ -861,7 +861,7 @@ static void noinstr rcu_eqs_exit(bool user)
+ 	struct rcu_data *rdp;
+ 	long oldval;
+ 
+-	lockdep_assert_irqs_disabled();
++	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !raw_irqs_disabled());
+ 	rdp = this_cpu_ptr(&rcu_data);
+ 	oldval = rdp->dynticks_nesting;
+ 	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && oldval < 0);
+@@ -896,13 +896,13 @@ static void noinstr rcu_eqs_exit(bool user)
+  * If you add or remove a call to rcu_idle_exit(), be sure to test with
+  * CONFIG_RCU_EQS_DEBUG=y.
+  */
+-void rcu_idle_exit(void)
++void noinstr rcu_idle_exit(void)
+ {
+ 	unsigned long flags;
+ 
+-	local_irq_save(flags);
++	raw_local_irq_save(flags);
+ 	rcu_eqs_exit(false);
+-	local_irq_restore(flags);
++	raw_local_irq_restore(flags);
+ }
+ EXPORT_SYMBOL_GPL(rcu_idle_exit);
+ 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
