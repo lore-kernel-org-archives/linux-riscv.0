@@ -4,72 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B6DDC04A68
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jul 2022 14:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EDEC04A68
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jul 2022 17:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nwaAcN5vNp5jxz0KbtQPC8ifHZEeVvGj3/iWAuQYuEg=; b=sC8PFJdvHJITHv
-	ENkpwxNNyvVAZpkewAYGO/oVwAcmZQvdOVqcdTfrJMTymEDDg/OdA+EhiDIsILW1xaMajxSiMvSuY
-	d0N5tEssquDsMbnfNa7CZi1N15rbawggrxkb/6wSntu72djKoA0eHgboRIGL39eK6gfHRIVJX/y99
-	CzTJVyVuJDEFu4BqvpitNQUODKp2+5smoefavlOBltPR9an+ktNcxHLfxUn9lyg0plRoSXa92Xk/i
-	0ZpMt0W+NlLguy+WczXTrotyyIkMWdxSS2XGFj7YxxEb3CSt6vkKF//NPabwPFCA3oENhrs+vkvV2
-	TtXxCPJF9leEYX1O1rTQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=I8sHNKyCyxC8KazimTR3vTcTULeO01GtoaiqpGglrN8=; b=IdYN70EZ31VzMlOsSFILItBOeu
+	2Cf8kFkmDOduxG/U4EK/dRyChHGIXynxMjT3Vp0ZgTKg89R9CZhUIyYlIZEyH84zOMRqZJghwHND5
+	Hqz9VsqIVCS8YQpCqoq8H4FsVBQNThYZctvcr7bXauP7FGy2FVqxBltIv3Pj5xkrwy8XPdXvDF7ne
+	w6MbRTWCqWRnsUjsYASsqV62uKr/zs2+oWqzRoDYsWMFTPK8scBXzmS0nnyJxh478wBZ5q5HWm2GJ
+	hJk0KyAH0Bggg7ucpSoHvFrti57Hu/IHqDEHd66L0tSPsMLd1U7OFQWkRS2Z9qx20NWe68egnBjns
+	q+liQHEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oH4ba-00AANC-Qa; Thu, 28 Jul 2022 14:35:14 +0000
-Received: from [87.245.175.230] (helo=mail.baikalelectronics.com)
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oH4bN-00AABR-C7; Thu, 28 Jul 2022 14:35:04 +0000
-Received: from mail (mail.baikal.int [192.168.51.25])
-	by mail.baikalelectronics.com (Postfix) with ESMTP id C9B0716DA;
-	Thu, 28 Jul 2022 17:37:16 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.baikalelectronics.com C9B0716DA
+	id 1oH71j-00Bx0G-SF; Thu, 28 Jul 2022 17:10:23 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oH71g-00BwIk-Qd
+	for linux-riscv@lists.infradead.org; Thu, 28 Jul 2022 17:10:22 +0000
+Received: by mail-ej1-x630.google.com with SMTP id os14so4241247ejb.4
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Jul 2022 10:10:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=baikalelectronics.ru; s=mail; t=1659019038;
-	bh=LK/KQIK47NI/dK7xufslLw+tGML3X3ct2BzUNZLG4SM=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References:From;
-	b=bZWg6p+rHUM1GPvdcA9Yc1TKAyLuF1Bsf3qntIRxro/i4bKXezW+/G4oqZwoBdiXe
-	 9XKAMKdlQzMVb0H8m+vxC+GBSimdYt4co4IIXaIArN3XhHwkCYqK2Qo+1wbrAZr7df
-	 7qYYqscyQfgQf7/icJgIRuB5wr2MV/bErUl+tzNg=
-Received: from localhost (192.168.53.207) by mail (192.168.51.25) with
- Microsoft SMTP Server (TLS) id 15.0.1395.4; Thu, 28 Jul 2022 17:34:51 +0300
-From: Serge Semin <Sergey.Semin@baikalelectronics.ru>
-To: Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Bjorn Helgaas
-	<bhelgaas@google.com>, Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, Jingoo
- Han <jingoohan1@gmail.com>, Gustavo Pimentel <gustavo.pimentel@synopsys.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, Xiaowei Song
-	<songxiaowei@hisilicon.com>, Binghui Wang <wangbinghui@hisilicon.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Greentime Hu <greentime.hu@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>, Kunihiko Hayashi
-	<hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>,
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
-CC: Serge Semin <Sergey.Semin@baikalelectronics.ru>, Serge Semin
-	<fancer.lancer@gmail.com>, Alexey Malahov
-	<Alexey.Malahov@baikalelectronics.ru>, Pavel Parkhomenko
-	<Pavel.Parkhomenko@baikalelectronics.ru>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>, Frank Li
-	<Frank.Li@nxp.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	<linux-pci@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: [PATCH v4 05/17] dt-bindings: PCI: dwc: Stop selecting generic bindings by default
-Date: Thu, 28 Jul 2022 17:34:15 +0300
-Message-ID: <20220728143427.13617-6-Sergey.Semin@baikalelectronics.ru>
-In-Reply-To: <20220728143427.13617-1-Sergey.Semin@baikalelectronics.ru>
-References: <20220728143427.13617-1-Sergey.Semin@baikalelectronics.ru>
+        d=gmail.com; s=20210112;
+        h=date:from:to:cc:subject:message-id:references:mime-version
+         :content-disposition:in-reply-to:user-agent;
+        bh=DPaVj85L+sFty8ivscMdof++1UUYZn+/8d+eAz7Grl0=;
+        b=VqyqIdmAKxgyhkqVDUCGvpI7gkWce9ODf+kcWQB4tas1LZa7+C866nLGbT9pPI06qZ
+         tPCXfANhNrFhEB7x6tBfZJc/R8k4sE7aVtNCA5+6rHL87pknnzqvpS4UTbWbFdazB8il
+         JHqUNn3UdhQ2F6rctuUyNVfmp0a/AJrRSBTk0ct9h6Oeb2kilS3v+z/KhRAVchOWxFo3
+         TubYpqA3z5MGchpDMTBWiOP8vzC870GCdlUYJy++mRle/JGf7HrQ07cZwwGtutVsksFG
+         hhwaIdFdc7J7HBI9Z2+1kYftfr/1Nl4+aFaXamYORWllvQ3dmYaAEcJioNwlSI0jLHMx
+         ZgSw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:date:from:to:cc:subject:message-id:references
+         :mime-version:content-disposition:in-reply-to:user-agent;
+        bh=DPaVj85L+sFty8ivscMdof++1UUYZn+/8d+eAz7Grl0=;
+        b=bFyWlmNXxdrO0oetIvctL6FAuyM9ehbVrDTgqrG+9HnYOPOOo7Ur78wRxSusJFoBvE
+         dwgTpgrnJgNrQLZiSaHnas5i/jKNQ2jCdexnrjFGOLxthZCn59ib4g69lK/o4vbqtOws
+         SleIkYsk+kJxug2UmFVsP6trSYeGxxohszDFxCV/P/4Nx/xW7Fdaj3X9ustUFf8+nSqn
+         fImSh6nDE34Nia9YqnTMiHwXwnLgvhZaTHNv4DOi/atM6K0th3VqiEAli+3h6JjHiaOD
+         ox0Xvt/BYy7dw2EITtf/flyai0j3Y/o8/JqKn6ltSLlDi086sVuOwQSkm7iFxvvvJsJV
+         T2ow==
+X-Gm-Message-State: AJIora+OlHKA/3QvbpVdGGpwkDnrPA7Z/VPSqkJQ75NKW/tPHPLnbqFQ
+	xaWoZwgfFvdIBGbsMFEI+nM=
+X-Google-Smtp-Source: AGRyM1tWCQzKBev5EHcvexeC1ISwWJ62VxldbLWNtSJxUvXMXoVr/1Y9j9PFsnlbZV9n2knPP1szPw==
+X-Received: by 2002:a17:906:84e8:b0:72e:2f3c:6784 with SMTP id zp8-20020a17090684e800b0072e2f3c6784mr21954954ejb.390.1659028211397;
+        Thu, 28 Jul 2022 10:10:11 -0700 (PDT)
+Received: from orome (p200300e41f12c800f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f12:c800:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id e15-20020a50fb8f000000b0043a6df72c11sm949787edq.63.2022.07.28.10.10.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Jul 2022 10:10:10 -0700 (PDT)
+Date: Thu, 28 Jul 2022 19:10:08 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Cc: linux-pwm@vger.kernel.org, Wan Jiabing <wanjiabing@vivo.com>,
+	"Wesley W. Terpstra" <wesley@sifive.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>, kernel@pengutronix.de,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 6/7] pwm: sifive: Ensure the clk is enabled exactly one
+ per running PWM
+Message-ID: <YuLC8IFNLQKY+IrO@orome>
+References: <20220721103129.304697-1-u.kleine-koenig@pengutronix.de>
+ <20220721103129.304697-6-u.kleine-koenig@pengutronix.de>
+ <20220721204522.rxmah6k66e5qe2kb@pengutronix.de>
 MIME-Version: 1.0
-X-ClientProxiedBy: MAIL.baikal.int (192.168.51.25) To mail (192.168.51.25)
+In-Reply-To: <20220721204522.rxmah6k66e5qe2kb@pengutronix.de>
+User-Agent: Mutt/2.2.6 (2022-06-05)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220728_073501_833386_22966394 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20220728_101020_902935_65478A5D 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,249 +90,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============9056059841769259268=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It's highly encouraged to have the separate DT schema for each available
-particular device, while the generic schema should be left untouched
-representing just a set of the common device properties (mainly advertised
-by the IP-core reference manual). Seeing there is no currently DW PCIe
-RP/EP dts nodes with only generic compatible string and since there isn't
-any vendor-specific compatible string added to the generic DT schema,
-before it's too late let's mark the snps,dw-pcie.yaml and
-snps,dw-pcie-ep.yaml schemas not selected for checking by default and add
-the explicit requirement to have the compatible string containing the
-generic device name.
 
-Note due to this modification we need to switch some of the DW PCIe-based
-DT-bindings to referring to the common DT-schema instead of evaluating
-against the generic DW PCIe DT-bindings. They are already defined as
-having the vendor-specific compatible string only. So we can't change that
-semantic.
+--===============9056059841769259268==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="cYboAQbv0PYEbGws"
+Content-Disposition: inline
 
-Signed-off-by: Serge Semin <Sergey.Semin@baikalelectronics.ru>
 
----
+--cYboAQbv0PYEbGws
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Changelog v3:
-- This is a new patch unpinned from the next one:
-  https://lore.kernel.org/linux-pci/20220503214638.1895-2-Sergey.Semin@baikalelectronics.ru/
-  by the Rob' request. (@Rob)
-- Fix compatible property schema so one would work as expected: string
-  must contain either generic DW PCIe IP-core name or both generic and
-  equipped with IP-core version names.
----
- .../bindings/pci/fsl,imx6q-pcie.yaml          |  3 ++-
- .../bindings/pci/hisilicon,kirin-pcie.yaml    |  3 ++-
- .../bindings/pci/sifive,fu740-pcie.yaml       |  3 ++-
- .../bindings/pci/snps,dw-pcie-ep.yaml         | 24 +++++++++++++++----
- .../devicetree/bindings/pci/snps,dw-pcie.yaml | 24 +++++++++++++++----
- .../pci/socionext,uniphier-pcie-ep.yaml       |  9 +++----
- .../bindings/pci/toshiba,visconti-pcie.yaml   |  3 ++-
- 7 files changed, 53 insertions(+), 16 deletions(-)
+On Thu, Jul 21, 2022 at 10:45:22PM +0200, Uwe Kleine-K=C3=B6nig wrote:
+> Hello,
+>=20
+> [dropped Yash Shah from Cc, their email address bounces]
+>=20
+> While browsing the list of open patches in patchwork, I noticed a typo:
+>=20
+> $Subject ~=3D s/one/once/
+>=20
+> @Thierry: Assuming you are otherwise happy with this patch, should I
+> resend for this typo, or do you fixup while applying it?
 
-diff --git a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-index 252e5b72aee0..6f99baa445a6 100644
---- a/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
-@@ -15,7 +15,8 @@ description: |+
-   and thus inherits all the common properties defined in snps,dw-pcie.yaml.
- 
- allOf:
--  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-+  - $ref: /schemas/pci/pci-bus.yaml#
-+  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
- 
- properties:
-   compatible:
-diff --git a/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml b/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml
-index c9f04999c9cf..f0d5314f340f 100644
---- a/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/hisilicon,kirin-pcie.yaml
-@@ -17,7 +17,8 @@ description: |
-   Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml.
- 
- allOf:
--  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-+  - $ref: /schemas/pci/pci-bus.yaml#
-+  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
- 
- properties:
-   compatible:
-diff --git a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-index 195e6afeb169..b0cf8ce99ce3 100644
---- a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-@@ -17,7 +17,8 @@ maintainers:
-   - Greentime Hu <greentime.hu@sifive.com>
- 
- allOf:
--  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-+  - $ref: /schemas/pci/pci-bus.yaml#
-+  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
- 
- properties:
-   compatible:
-diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
-index fc3b5d4ac245..b04ce7ddb796 100644
---- a/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
-+++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
-@@ -13,6 +13,12 @@ maintainers:
- description: |
-   Synopsys DesignWare PCIe host controller endpoint
- 
-+# Please create a separate DT-schema for the particular DWC PCIe Endpoint
-+# controller and make sure it's assigned with the vendor-specific
-+# compatible string together with the generic Synopsys DWC PCIe strings so
-+# the bindings would be evaluated against that schema.
-+select: false
-+
- allOf:
-   - $ref: /schemas/pci/pci-ep.yaml#
-   - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
-@@ -20,8 +26,18 @@ allOf:
- properties:
-   compatible:
-     anyOf:
--      - {}
--      - const: snps,dw-pcie-ep
-+      - description:
-+          DWC PCIe Endpoint controller (IP-core version is explicitly
-+          specified in the additional compatible string)
-+        contains:
-+          allOf:
-+            - pattern: '^snps,dw-pcie-ep-[0-9]+\.[0-9]+a?$'
-+            - const: snps,dw-pcie-ep
-+      - description:
-+          DWC PCIe Endpoint controller (IP-core version is either unknown
-+          or can be read from the PCIe version register of the PL reg-space)
-+        contains:
-+          const: snps,dw-pcie-ep
- 
-   reg:
-     description: |
-@@ -38,16 +54,16 @@ properties:
-       enum: [dbi, dbi2, config, atu, addr_space, link, atu_dma, appl]
- 
- required:
-+  - compatible
-   - reg
-   - reg-names
--  - compatible
- 
- additionalProperties: true
- 
- examples:
-   - |
-     pcie-ep@dfd00000 {
--      compatible = "snps,dw-pcie-ep";
-+      compatible = "vendor,soc-pcie", "snps,dw-pcie-ep";
-       reg = <0xdfc00000 0x0001000>, /* IP registers 1 */
-             <0xdfc01000 0x0001000>, /* IP registers 2 */
-             <0xd0000000 0x2000000>; /* Configuration space */
-diff --git a/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml b/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
-index 01cedf51e0f8..8b2e3210e3e2 100644
---- a/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
-@@ -13,6 +13,12 @@ maintainers:
- description: |
-   Synopsys DesignWare PCIe host controller
- 
-+# Please create a separate DT-schema for the particular DWC PCIe Root Port
-+# controller and make sure it's assigned with the vendor-specific
-+# compatible string together with the generic Synopsys DWC PCIe strings so
-+# the bindings would be evaluated against that schema.
-+select: false
-+
- allOf:
-   - $ref: /schemas/pci/pci-bus.yaml#
-   - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
-@@ -20,8 +26,18 @@ allOf:
- properties:
-   compatible:
-     anyOf:
--      - {}
--      - const: snps,dw-pcie
-+      - description:
-+          DWC PCIe Root Port controller (IP-core version is explicitly
-+          specified in the additional compatible string)
-+        contains:
-+          allOf:
-+            - pattern: '^snps,dw-pcie-[0-9]+\.[0-9]+a?$'
-+            - const: snps,dw-pcie
-+      - description:
-+          DWC PCIe Root Port controller (IP-core version is either unknown
-+          or can be read from the PCIe version register of the PL reg-space)
-+        contains:
-+          const: snps,dw-pcie
- 
-   reg:
-     description: |
-@@ -47,14 +63,14 @@ properties:
- additionalProperties: true
- 
- required:
-+  - compatible
-   - reg
-   - reg-names
--  - compatible
- 
- examples:
-   - |
-     pcie@dfc00000 {
--      compatible = "snps,dw-pcie";
-+      compatible = "vendor,soc-pcie", "snps,dw-pcie";
-       device_type = "pci";
-       reg = <0xdfc00000 0x0001000>, /* IP registers */
-             <0xd0000000 0x0002000>; /* Configuration space */
-diff --git a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml
-index 437e61618d06..1719a36952c0 100644
---- a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml
-+++ b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie-ep.yaml
-@@ -20,9 +20,10 @@ allOf:
- 
- properties:
-   compatible:
--    enum:
--      - socionext,uniphier-pro5-pcie-ep
--      - socionext,uniphier-nx1-pcie-ep
-+    contains:
-+      enum:
-+        - socionext,uniphier-pro5-pcie-ep
-+        - socionext,uniphier-nx1-pcie-ep
- 
-   reg:
-     minItems: 4
-@@ -92,7 +93,7 @@ unevaluatedProperties: false
- examples:
-   - |
-     pcie_ep: pcie-ep@66000000 {
--        compatible = "socionext,uniphier-pro5-pcie-ep";
-+        compatible = "socionext,uniphier-pro5-pcie-ep", "snps,dw-pcie-ep";
-         reg-names = "dbi", "dbi2", "link", "addr_space";
-         reg = <0x66000000 0x1000>, <0x66001000 0x1000>,
-               <0x66010000 0x10000>, <0x67000000 0x400000>;
-diff --git a/Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.yaml b/Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.yaml
-index 30b6396d83c8..a08002ce9119 100644
---- a/Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/toshiba,visconti-pcie.yaml
-@@ -13,7 +13,8 @@ description:
-   Toshiba Visconti5 SoC PCIe host controller is based on the Synopsys DesignWare PCIe IP.
- 
- allOf:
--  - $ref: /schemas/pci/snps,dw-pcie.yaml#
-+  - $ref: /schemas/pci/pci-bus.yaml#
-+  - $ref: /schemas/pci/snps,dw-pcie-common.yaml#
- 
- properties:
-   compatible:
--- 
-2.35.1
+I've fixed this up while applying, thanks.
 
+Thierry
+
+--cYboAQbv0PYEbGws
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmLiwu0ACgkQ3SOs138+
+s6G7og/9FF9+VMbdRZoBPBnZnC2p5DKIYkq9L1h94GS08zisJw27ewLKy47H7ZRf
+m/KUuT5v92QdfQG4DZ5/96F5wA+zcojVfF/Kj5OKFRP8NsoxB5pbJn4G6qjTcQ6J
+MXdA8qX2GEE/wP7MoiL7nmGdfuJSmw9ov+z54uAr6uYMprGEdL8bby0cu1eEswhf
+P2aMDopKwsoc0Iuegzqc8Mg4P6ESWi42ITBuQahtrw4sKAiwWSL/9OJoB9fQpfDv
+nZpPdDceNy/jNq7lGNvUC0yO/fgLaWhWWBeX2t9cKROyaq3r5Oyw3dwCKdkShVUy
+i+6btJLu7vXfQ34HdYDw8xbp+cM+Zlq4F9b791HdQ7ArXdBhy8WIw7N77qsWnbWn
+kIU1dMKL4SJ/RopTBcof5NnTEQiPcmZIVirN5j/45c7lNJZ9VBvWkz00IlNM8sLc
+iRIIMABacmjlBDIc7zThyQP96Zh/s6IV5Re0auZwdEy7ShylZumT+hmJcfNpAzsE
+W7WeaRyZ2BzDak2Mi96V2Da9Q3nOpKEV1FiFUaCDSEL1RD7ld6zjmzJNDL6oJWlP
+Od9Z+sQfDcnGqlLGBEFuAdwpUg3c0eCEASwc4iw/5Urac9qg1jP97LuOYiX1aIhd
+P5VfNBgJXU90rcK5wCkVs9K3Eshpc5bibBQ81TJ8BeRPqxRJXGs=
+=74I6
+-----END PGP SIGNATURE-----
+
+--cYboAQbv0PYEbGws--
+
+
+--===============9056059841769259268==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============9056059841769259268==--
+
