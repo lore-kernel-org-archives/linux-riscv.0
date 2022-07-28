@@ -4,117 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B50C04A68
-	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jul 2022 19:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 294DAC04A68
+	for <linux-riscv@archiver.kernel.org>; Thu, 28 Jul 2022 21:08:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BNEeWMoaUAqslaUD8fPXYtMV4eHeRrvwyq1suV2sOCc=; b=B2C8Cwfhor9DID
-	0DpjFg4/cD/9iZri+H+ajEQNSnxsbbxvIjBunHavZ1GXZyqGS4IQcKYYhz7GDMA5PEdHKOWLsJJM+
-	MtP2PM/I4g3vBuHGaHzIxqUwmsM07ZTDBKhf5Rx65btop+jk1XWm8L/SDi/y0vnF5y6vlXaJASKoz
-	5lSEJleWp3pmiFWx+cuH8nHAUNk3iuNGoBnXKeJ36U8yuHtGQqbLwVLkrVXlos58WFvSfAkjJms+d
-	OjluBhoCJLibz/Owm3txsJSeboYeEQ9hE8PUFzWHNGAjAfx6PXIsUXGu2xYZ7ESibQ4M9uM2BxYQZ
-	AkYQssjEx2JkSHj1eoQg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
+	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=H/f8KI27wxVHXWWAENfTvKt1f8etc9doH/EIdyAKEyE=; b=v6tRvVQkNgRwYX
+	XSusMz2jOf2vxj8z5Shre4EFT3ePms6AnvD67ivl4BlaUIjW4/GLnG8cAsdQL8k9FRrCXAdQBKqll
+	XZGvA4lb5u25smUeR3anxcuv5QZCTssU8g8xEvy33V4ernufLOPOv0Mnnw8i+k2XpDzN4hiV6wbEf
+	AuJu5eT93KvGYJk6QLUhAUO86pZ0Sg2aANP3LKduCyL6tnWALvlYIA2Rn9Fn4+gWHKFja6BLTJ44x
+	fLd2gBq7VTZUuRyJB05OQnBL73uTyMj3d7Vqnr7Vtg2iKgO2xKcKhh5XaO+Dtk8h+oi0y1tnl12qH
+	4V6IGykYTKpcwLU+whMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oH9N4-00DbMX-2Q; Thu, 28 Jul 2022 19:40:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oHAjR-00EaVI-FZ; Thu, 28 Jul 2022 21:07:45 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oH7Bw-00D1Ql-6g; Thu, 28 Jul 2022 17:20:57 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9441F612B2;
-	Thu, 28 Jul 2022 17:20:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED372C43140;
-	Thu, 28 Jul 2022 17:20:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1659028854;
-	bh=3juGR+P+/PoNu1lEhZFgztJ6A9LmEO7Lb+rh9Y4NDdw=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=Ajcg/8L4izAZKa2mPe4A6mwD2xhNPSF6zD8jqYYYRNqfhpnanJCwPLkeDTtzMAAXY
-	 M7oUXZ6CZuH31IjVxAqM2gRnsWZITNKb55wlZ5JnD/DUCRDg3UdeAIrzeX0lNHjHAR
-	 wzgi3C8wJdIpBMqt7sc3STjd7C0uykM6U86/xrKMdBkv3A6gpbtO4hXjJ5l+TjHaLy
-	 e4DKSoCgdb1tzebEFm0O9AJWb9AqCOKWaWW3sVozalRIPGLkf5E1tw9aRE4zu/+akq
-	 X3FcajNE+AfhyfG4rrsgNdfZt/xVPEzBnwFe9tFjDbwwql6CH8YXjM30w46DcxQYCb
-	 8dZ4kaIUmww0Q==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 9739D5C0B3E; Thu, 28 Jul 2022 10:20:53 -0700 (PDT)
-Date: Thu, 28 Jul 2022 10:20:53 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Michel Lespinasse <michel@lespinasse.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, rth@twiddle.net,
-	ink@jurassic.park.msu.ru, mattst88@gmail.com, vgupta@kernel.org,
-	linux@armlinux.org.uk, ulli.kroll@googlemail.com,
-	linus.walleij@linaro.org, shawnguo@kernel.org,
-	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
-	festevam@gmail.com, linux-imx@nxp.com, tony@atomide.com,
-	khilman@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	guoren@kernel.org, bcain@quicinc.com, chenhuacai@kernel.org,
-	kernel@xen0n.name, geert@linux-m68k.org, sammy@sammy.net,
-	monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org,
-	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
-	shorne@gmail.com, James.Bottomley@HansenPartnership.com,
-	deller@gmx.de, mpe@ellerman.id.au, benh@kernel.crashing.org,
-	paulus@samba.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, hca@linux.ibm.com, gor@linux.ibm.com,
-	agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
-	svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org,
-	davem@davemloft.net, richard@nod.at,
-	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	acme@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	namhyung@kernel.org, jgross@suse.com, srivatsa@csail.mit.edu,
-	amakhalov@vmware.com, pv-drivers@vmware.com,
-	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
-	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
-	gregkh@linuxfoundation.org, mturquette@baylibre.com,
-	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
-	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org,
-	anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
-	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>,
-	yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
-	linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com,
-	senozhatsky@chromium.org, john.ogness@linutronix.de,
-	frederic@kernel.org, quic_neeraju@quicinc.com,
-	josh@joshtriplett.org, mathieu.desnoyers@efficios.com,
-	jiangshanlai@gmail.com, joel@joelfernandes.org,
-	juri.lelli@redhat.com, vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de,
-	bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org,
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org,
-	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
-	rcu@vger.kernel.org, rh0@fb.com
-Subject: Re: [PATCH 04/36] cpuidle,intel_idle: Fix CPUIDLE_FLAG_IRQ_ENABLE
-Message-ID: <20220728172053.GA3607379@paulmck-ThinkPad-P17-Gen-1>
-References: <20220608142723.103523089@infradead.org>
- <20220608144516.172460444@infradead.org>
- <20220725194306.GA14746@lespinasse.org>
+	id 1oHAjO-00EaUJ-Ra
+	for linux-riscv@lists.infradead.org; Thu, 28 Jul 2022 21:07:44 +0000
+Received: by mail-pf1-x433.google.com with SMTP id 17so3005211pfy.0
+        for <linux-riscv@lists.infradead.org>; Thu, 28 Jul 2022 14:07:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:to:cc;
+        bh=20zO2FT2JEdVmGgde/EIUF8PTTirUHSwEDYNPZ44Pgg=;
+        b=p5F2+1uekipyQTSPfAX9HTNnh+s8rs4JzMcbfmP2rciMhLOLs/BJ1lT1wlNCW75IaJ
+         TeGKO8/VEM62witITuWamrO7mM80bTZFgorffYUiNIT63txY3XDLKmKOGb4ODk8UxcIB
+         SAoyzVUd3k8qRJNDBkq+fqiZkEtHAYtOyeRY0uGQAQZLyiu1nv4K1m89/k9M2o/jo2xQ
+         UZcoLSRsTl082ii08jfcUVbn8LlcgSLA12uEkLPClKzvZP9R+grPWetSS3FndjOUut3s
+         Cbz+RZAsKPZJuTL2dB1V3AOsaKBUOyVqUSlcJXeYHikSzjXltwt9b9gwoiczKJ/zjfwC
+         RkzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
+         :subject:x-gm-message-state:from:to:cc;
+        bh=20zO2FT2JEdVmGgde/EIUF8PTTirUHSwEDYNPZ44Pgg=;
+        b=Jk/ecka/UouXCJjFJIBxYV6Duqurq5w/5QbJjriBJ1r/DkpLmsVaL3FzCyRdzaQfIT
+         XSIQUUhRO8ZCNinN++TjwpoXCKw56xPdiXHYKUnKbXyRsWEbCtS6wTW4aBVYzooRdPlX
+         PYNOgX8afIA8ddiie+mhSi6BEKJRLIqRC58GpB3CinK8V2gmS7fhhQmpXlAR8BbZsGej
+         vEtlXRJBMOJaoOBVJX6LXzjqeac2HPjOEPrGZY06TQdXQD58LSDurrNgrmQ2ajHV5ziu
+         LgsU7tGEcyme+XLNoIdPpxoCvAg8EN1GZ46oQ5Z1IDtDq9qd2fNW9WhAYziTtNd9jUH2
+         WorQ==
+X-Gm-Message-State: AJIora+DGSn9rrKay2tPNQVfTN3aRf9iAjR7H2GtPbZ/3dZS4ILWWRTI
+	5ws3ZwN0GNLzHwj3+4efDK9E6sGK0mjubw==
+X-Google-Smtp-Source: AGRyM1v2M7Q1YpIsy9H18azfAtgYtbvNwBK7Xc1E6c9U2gGjQ5VCipBScMYENZ2vwWNXuW8n8/ceiA==
+X-Received: by 2002:a65:5a05:0:b0:41a:ea25:a631 with SMTP id y5-20020a655a05000000b0041aea25a631mr495385pgs.46.1659042460013;
+        Thu, 28 Jul 2022 14:07:40 -0700 (PDT)
+Received: from localhost ([50.221.140.186])
+        by smtp.gmail.com with ESMTPSA id n3-20020a1709026a8300b0016b81679c31sm1704066plk.213.2022.07.28.14.07.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 28 Jul 2022 14:07:38 -0700 (PDT)
+Subject: [PATCH] doc: RISC-V: Document that misaligned accesses are supported
+Date: Thu, 28 Jul 2022 14:07:15 -0700
+Message-Id: <20220728210715.17214-1-palmer@rivosinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220725194306.GA14746@lespinasse.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+  aou@eecs.berkeley.edu, bagasdotme@gmail.com, linux-doc@vger.kernel.org,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux@rivosinc.com,
+  Palmer Dabbelt <palmer@rivosinc.com>
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: corbet@lwn.net
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220728_102056_371002_3D2A6D65 
-X-CRM114-Status: GOOD (  29.94  )
-X-Mailman-Approved-At: Thu, 28 Jul 2022 12:40:33 -0700
+X-CRM114-CacheID: sfid-20220728_140743_152530_26C38801 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,135 +83,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 25, 2022 at 12:43:06PM -0700, Michel Lespinasse wrote:
-> On Wed, Jun 08, 2022 at 04:27:27PM +0200, Peter Zijlstra wrote:
-> > Commit c227233ad64c ("intel_idle: enable interrupts before C1 on
-> > Xeons") wrecked intel_idle in two ways:
-> > 
-> >  - must not have tracing in idle functions
-> >  - must return with IRQs disabled
-> > 
-> > Additionally, it added a branch for no good reason.
-> > 
-> > Fixes: c227233ad64c ("intel_idle: enable interrupts before C1 on Xeons")
-> > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> 
-> After this change was introduced, I am seeing "WARNING: suspicious RCU
-> usage" when booting a kernel with debug options compiled in. Please
-> see the attached dmesg output. The issue starts with commit 32d4fd5751ea
-> and is still present in v5.19-rc8.
-> 
-> I'm not sure, is this too late to fix or revert in v5.19 final ?
+From: Palmer Dabbelt <palmer@rivosinc.com>
 
-I finally got a chance to take a quick look at this.
+The RISC-V ISA manual used to mandate that misaligned accesses were
+supported in user mode, but that requirement was removed in 2018 via
+riscv-isa-manual commit 61cadb9 ("Provide new description of misaligned
+load/store behavior compatible with privileged architecture.").  Since
+the Linux uABI was already frozen at that point it's just been demoted
+to part of the uABI, but that was never written down.
 
-The rcu_eqs_exit() function is making a lockdep complaint about
-being invoked with interrupts enabled.  This function is called from
-rcu_idle_exit(), which is an expected code path from cpuidle_enter_state()
-via its call to rcu_idle_exit().  Except that rcu_idle_exit() disables
-interrupts before invoking rcu_eqs_exit().
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 
-The only other call to rcu_idle_exit() does not disable interrupts,
-but it is via rcu_user_exit(), which would be a very odd choice for
-cpuidle_enter_state().
+---
 
-It seems unlikely, but it might be that it is the use of local_irq_save()
-instead of raw_local_irq_save() within rcu_idle_exit() that is causing
-the trouble.  If this is the case, then the commit shown below would
-help.  Note that this commit removes the warning from lockdep, so it
-is necessary to build the kernel with CONFIG_RCU_EQS_DEBUG=y to enable
-equivalent debugging.
+We currently rely on either hardware or M-mode to support misaligned
+accesses.  It's probably worth supporting the PR_SET_UNALIGN so
+userspace can opt out of the emulation routines, but we can't break the
+uABI so we're stuck with defaulting to them on for now.  Doing so would
+also require some way of informing M-mode that unsupported accesses
+shouldn't be emulated.
+---
+ Documentation/riscv/index.rst | 1 +
+ Documentation/riscv/uabi.rst  | 6 ++++++
+ 2 files changed, 7 insertions(+)
+ create mode 100644 Documentation/riscv/uabi.rst
 
-Could you please try your test with the -rce commit shown below applied?
-
-							Thanx, Paul
-
-------------------------------------------------------------------------
-
-commit ed4ae5eff4b38797607cbdd80da394149110fb37
-Author: Paul E. McKenney <paulmck@kernel.org>
-Date:   Tue May 17 21:00:04 2022 -0700
-
-    rcu: Apply noinstr to rcu_idle_enter() and rcu_idle_exit()
-    
-    This commit applies the "noinstr" tag to the rcu_idle_enter() and
-    rcu_idle_exit() functions, which are invoked from portions of the idle
-    loop that cannot be instrumented.  These tags require reworking the
-    rcu_eqs_enter() and rcu_eqs_exit() functions that these two functions
-    invoke in order to cause them to use normal assertions rather than
-    lockdep.  In addition, within rcu_idle_exit(), the raw versions of
-    local_irq_save() and local_irq_restore() are used, again to avoid issues
-    with lockdep in uninstrumented code.
-    
-    This patch is based in part on an earlier patch by Jiri Olsa, discussions
-    with Peter Zijlstra and Frederic Weisbecker, earlier changes by Thomas
-    Gleixner, and off-list discussions with Yonghong Song.
-    
-    Link: https://lore.kernel.org/lkml/20220515203653.4039075-1-jolsa@kernel.org/
-    Reported-by: Jiri Olsa <jolsa@kernel.org>
-    Reported-by: Alexei Starovoitov <ast@kernel.org>
-    Reported-by: Andrii Nakryiko <andrii@kernel.org>
-    Signed-off-by: Paul E. McKenney <paulmck@kernel.org>
-    Reviewed-by: Yonghong Song <yhs@fb.com>
-
-diff --git a/kernel/rcu/tree.c b/kernel/rcu/tree.c
-index c25ba442044a6..9a5edab5558c9 100644
---- a/kernel/rcu/tree.c
-+++ b/kernel/rcu/tree.c
-@@ -631,8 +631,8 @@ static noinstr void rcu_eqs_enter(bool user)
- 		return;
- 	}
+diff --git a/Documentation/riscv/index.rst b/Documentation/riscv/index.rst
+index e23b876ad6eb..2e5b18fbb145 100644
+--- a/Documentation/riscv/index.rst
++++ b/Documentation/riscv/index.rst
+@@ -8,6 +8,7 @@ RISC-V architecture
+     boot-image-header
+     vm-layout
+     patch-acceptance
++    uabi
  
--	lockdep_assert_irqs_disabled();
- 	instrumentation_begin();
-+	lockdep_assert_irqs_disabled();
- 	trace_rcu_dyntick(TPS("Start"), rdp->dynticks_nesting, 0, atomic_read(&rdp->dynticks));
- 	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !user && !is_idle_task(current));
- 	rcu_preempt_deferred_qs(current);
-@@ -659,9 +659,9 @@ static noinstr void rcu_eqs_enter(bool user)
-  * If you add or remove a call to rcu_idle_enter(), be sure to test with
-  * CONFIG_RCU_EQS_DEBUG=y.
-  */
--void rcu_idle_enter(void)
-+void noinstr rcu_idle_enter(void)
- {
--	lockdep_assert_irqs_disabled();
-+	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !raw_irqs_disabled());
- 	rcu_eqs_enter(false);
- }
- EXPORT_SYMBOL_GPL(rcu_idle_enter);
-@@ -861,7 +861,7 @@ static void noinstr rcu_eqs_exit(bool user)
- 	struct rcu_data *rdp;
- 	long oldval;
+     features
  
--	lockdep_assert_irqs_disabled();
-+	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !raw_irqs_disabled());
- 	rdp = this_cpu_ptr(&rcu_data);
- 	oldval = rdp->dynticks_nesting;
- 	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && oldval < 0);
-@@ -896,13 +896,13 @@ static void noinstr rcu_eqs_exit(bool user)
-  * If you add or remove a call to rcu_idle_exit(), be sure to test with
-  * CONFIG_RCU_EQS_DEBUG=y.
-  */
--void rcu_idle_exit(void)
-+void noinstr rcu_idle_exit(void)
- {
- 	unsigned long flags;
- 
--	local_irq_save(flags);
-+	raw_local_irq_save(flags);
- 	rcu_eqs_exit(false);
--	local_irq_restore(flags);
-+	raw_local_irq_restore(flags);
- }
- EXPORT_SYMBOL_GPL(rcu_idle_exit);
- 
+diff --git a/Documentation/riscv/uabi.rst b/Documentation/riscv/uabi.rst
+new file mode 100644
+index 000000000000..21a82cfb6c4d
+--- /dev/null
++++ b/Documentation/riscv/uabi.rst
+@@ -0,0 +1,6 @@
++.. SPDX-License-Identifier: GPL-2.0
++
++RISC-V Linux User ABI
++=====================
++
++Misaligned accesses are supported in userspace, but they may perform poorly.
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
