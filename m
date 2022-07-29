@@ -4,120 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44F32C00144
-	for <linux-riscv@archiver.kernel.org>; Fri, 29 Jul 2022 17:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE9F7C00144
+	for <linux-riscv@archiver.kernel.org>; Fri, 29 Jul 2022 17:38:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3/l9sn1TOU431vmx2Ak8iX2bqqdpRpFYTAIIPNIQR/U=; b=IRKJrLvVfXGuDG
-	/dMrjYotdfwpmZMN68RdReV/wXe8lUiMnEahyyYvu6WZmUaFEDKyMkZObESdlCJJ76FzV7rA7kIqa
-	MRp+x416dJqcw2rrH3XypwmGSrHhv/wpVC/21icvdIIpMPHNb7d2NueHOCXNGe/+1UfZCjSWbDM+i
-	Y3C9ZwL/C6zY4GJ6yhzl4NgHSJtZKNF4e/KDyFIKOmZo6cEDbA3Iom2SN66Ev4Kv/Chf65auftcD0
-	Xv9LHRBG+kfHAAoaBkRLXy+N7KJlD3GmLCbtyKZeWmFsrq6YoH2SbAEGMSiUgZT7BcfrbJkOuLnFP
-	aA8kqjubXLqIWtbrJ5dg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YbqTXwGsv9HHmyG2MxurbHBSFGqLJJx+ftmKqw6trUU=; b=030uxRPoBwINPA
+	rN0boZM3tEh7cNb0g+jeTs6gKCcpjECL5YrjzeGlKDJvqRiGKDuuhGnb2ltXIcCudzF8UaDinsZLQ
+	eHMeZRIzdrm0C79I3tMaSP9ltEAeeeCV0iYf7Tg2EPh1uDxY8cqs5oXgsYllrVEcghItO6l98Np8z
+	28R2VGXLm8xIACiCAgRP7kaKFSTslt1cnlB7sRNtXi1wG6LQ1a5DXUqrq9SU2qKUTdm+F3NcVN0ZS
+	PfguOj6Iq0I1MnP1Ix3vxmpCM9nQlp5YLaU9OzTMK4pOdMGnrDYH4wM/hy0Mu7q6p8Q3trmkJv8XR
+	sBNIhdaN4xnWTa58BlaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oHTqp-008KYi-8Q; Fri, 29 Jul 2022 17:32:39 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oHTwD-008Y8R-MN; Fri, 29 Jul 2022 17:38:13 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oHRuS-005tlG-BV; Fri, 29 Jul 2022 15:28:18 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 0B522B82844;
-	Fri, 29 Jul 2022 15:28:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1F1EC433D6;
-	Fri, 29 Jul 2022 15:28:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1659108493;
-	bh=+Eu1+NpdMQSxhSpBOHg1xq9IY5RE5+jGBaKhcxBU/fw=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=SYC3Dsw++Jo9/onL7ZbEg1e34NjAkGJ0/LEyzxxtRyARi5tsRhnhMCBXpA48hlrbx
-	 /ygCpipyirN70BTWI+O7BPw3KEXhwiaeJ1toIS9f4x8NNUrtDb0g9IXD0fU2Bmoo6M
-	 w/YCbZ5sds6/EqIKdGN13GNgPIYzv0deYvecUifHVmZHvmvFFPvpCRqJ8szO8EVscM
-	 zHVucD9HNGWsnSLNuXErgrHHYht/KZ+I5xQvurQSs2gAeRSzLQTzOZZkq+fQyiif2B
-	 dBwd0T3KOaUJi1JScRgdDFB1nTqlfa6EEzGGbx1ADBkWPp5B2oyL/vemt0EQW8/A3l
-	 tsRJX93dX43kQ==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 77B5C5C033E; Fri, 29 Jul 2022 08:28:13 -0700 (PDT)
-Date: Fri, 29 Jul 2022 08:28:13 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Michel Lespinasse <michel@lespinasse.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, rth@twiddle.net,
-	ink@jurassic.park.msu.ru, mattst88@gmail.com, vgupta@kernel.org,
-	linux@armlinux.org.uk, ulli.kroll@googlemail.com,
-	linus.walleij@linaro.org, shawnguo@kernel.org,
-	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
-	festevam@gmail.com, linux-imx@nxp.com, tony@atomide.com,
-	khilman@kernel.org, catalin.marinas@arm.com, will@kernel.org,
-	guoren@kernel.org, bcain@quicinc.com, chenhuacai@kernel.org,
-	kernel@xen0n.name, geert@linux-m68k.org, sammy@sammy.net,
-	monstr@monstr.eu, tsbogend@alpha.franken.de, dinguyen@kernel.org,
-	jonas@southpole.se, stefan.kristiansson@saunalahti.fi,
-	shorne@gmail.com, James.Bottomley@HansenPartnership.com,
-	deller@gmx.de, mpe@ellerman.id.au, benh@kernel.crashing.org,
-	paulus@samba.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, hca@linux.ibm.com, gor@linux.ibm.com,
-	agordeev@linux.ibm.com, borntraeger@linux.ibm.com,
-	svens@linux.ibm.com, ysato@users.sourceforge.jp, dalias@libc.org,
-	davem@davemloft.net, richard@nod.at,
-	anton.ivanov@cambridgegreys.com, johannes@sipsolutions.net,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	acme@kernel.org, mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
-	namhyung@kernel.org, jgross@suse.com, srivatsa@csail.mit.edu,
-	amakhalov@vmware.com, pv-drivers@vmware.com,
-	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
-	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
-	gregkh@linuxfoundation.org, mturquette@baylibre.com,
-	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
-	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org,
-	anup@brainfault.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
-	jacob.jun.pan@linux.intel.com, Arnd Bergmann <arnd@arndb.de>,
-	yury.norov@gmail.com, andriy.shevchenko@linux.intel.com,
-	linux@rasmusvillemoes.dk, rostedt@goodmis.org, pmladek@suse.com,
-	senozhatsky@chromium.org, john.ogness@linutronix.de,
-	frederic@kernel.org, quic_neeraju@quicinc.com,
-	josh@joshtriplett.org, mathieu.desnoyers@efficios.com,
-	jiangshanlai@gmail.com, joel@joelfernandes.org,
-	juri.lelli@redhat.com, vincent.guittot@linaro.org,
-	dietmar.eggemann@arm.com, bsegall@google.com, mgorman@suse.de,
-	bristot@redhat.com, vschneid@redhat.com, jpoimboe@kernel.org,
-	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
-	linux-ia64@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-um@lists.infradead.org, linux-perf-users@vger.kernel.org,
-	virtualization@lists.linux-foundation.org,
-	xen-devel@lists.xenproject.org, linux-xtensa@linux-xtensa.org,
-	linux-acpi@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
-	rcu@vger.kernel.org, rh0@fb.com
-Subject: Re: [PATCH 04/36] cpuidle,intel_idle: Fix CPUIDLE_FLAG_IRQ_ENABLE
-Message-ID: <20220729152813.GA3579395@paulmck-ThinkPad-P17-Gen-1>
-References: <20220608142723.103523089@infradead.org>
- <20220608144516.172460444@infradead.org>
- <20220725194306.GA14746@lespinasse.org>
- <20220728172053.GA3607379@paulmck-ThinkPad-P17-Gen-1>
- <20220729102458.GA1695@lespinasse.org>
- <20220729152622.GM2860372@paulmck-ThinkPad-P17-Gen-1>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220729152622.GM2860372@paulmck-ThinkPad-P17-Gen-1>
+	id 1oHTQU-006w8g-39
+	for linux-riscv@lists.infradead.org; Fri, 29 Jul 2022 17:05:27 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 15-20020a17090a098f00b001f305b453feso8974779pjo.1
+        for <linux-riscv@lists.infradead.org>; Fri, 29 Jul 2022 10:05:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=message-id:to:from:cc:subject:date:from:to:cc;
+        bh=/3BdWYttn03VGR4fwCuRJmzCnEYtlhjvSmUfc+xUaAg=;
+        b=AbfEDD9zPqfj25/856E5WxuTS6BHzNWjlH65DEm/Wf49Pog1AlvEwqlH/JQQsJARnn
+         7wbbku7SuNgR6/VJRMDDzHyNxkO/oqA0KaVG7NM3T9IuPQKlARjFhEukX39wDY84mqkL
+         xkcNF7NDiwLGQci48SdCnk5nLN8etTD/tIKiX8Jza7ONVSyyMkuo8cOR9RaNZqF1qZ1K
+         KhNsSqNMiCjji8q6tS6H8Tzy4it+WxBtZmAVwhETPtyMQi+AkzrnKxJhqpc/Bv1LUbvK
+         pEi+bVoRPggLJYEkZePtbpSnUbvPF2AKcx/Wvnzx6Ml4RP/NlPoWQ9YY0VwGUTlyRWi/
+         Bjww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc;
+        bh=/3BdWYttn03VGR4fwCuRJmzCnEYtlhjvSmUfc+xUaAg=;
+        b=RbDhMt99eA7lMBa121VWAyqPs41uc4pYJQtL/mFBcZNLWVdEohfJ+S6Rq91Kk2Cqou
+         Iql9983Y/NS0VoPtMggHykGOMnOPrWGGX2EA28CDFOfM3IHqfc3SByLftRou9y8cSXYc
+         TN/BaMEtQ48soZkkI2YzDLbimqpdFt9+SPZAwpsXxU6ddTwfDlDy0DANBHR1QPvhC12S
+         vAZNep12FLtHy9vqCSkI9280U4n83iPK/2ex9h7ewRbBGLVh3e9lcC+4/K9JLvVx64QD
+         ttxc4Vr7sX4Pf28yt+UGc6sOOpJzHflpU6cuziRaARF1fIM1ZR7O9KE+54cW1vk8twwZ
+         /dVA==
+X-Gm-Message-State: ACgBeo2PDRAc0m3PQASbOmmumFIoq0NgNeHDzABTEoJqcwsXH41A3U+O
+	OAQif8P3KctYIEe4hbrLMDVCqwotIkBvbA==
+X-Google-Smtp-Source: AA6agR5BxLWeIzE9fX8MvX4co5THji4842WgX+WlF6UbFnHK7wEbUrrPvOfdDsgaSArpV6mX9k+K7w==
+X-Received: by 2002:a17:90a:9315:b0:1f1:fea7:5899 with SMTP id p21-20020a17090a931500b001f1fea75899mr5646182pjo.123.1659114323013;
+        Fri, 29 Jul 2022 10:05:23 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id h4-20020a170902f7c400b0016a6cd546d6sm3777919plw.251.2022.07.29.10.05.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 29 Jul 2022 10:05:21 -0700 (PDT)
+Date: Fri, 29 Jul 2022 10:05:21 -0700 (PDT)
+X-Google-Original-Date: Fri, 29 Jul 2022 10:05:10 PDT (-0700)
+Subject: [GIT PULL] A Single RISC-V Fix for 5.19
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-b20f34d5-a1cb-4254-8cc5-d3c7752b3908@palmer-mbp2014>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220729_082816_692159_5F1766D5 
-X-CRM114-Status: GOOD (  47.43  )
-X-Mailman-Approved-At: Fri, 29 Jul 2022 10:19:48 -0700
+X-CRM114-CacheID: sfid-20220729_100526_394108_B608270F 
+X-CRM114-Status: UNSURE (   7.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,139 +78,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Or better yet, try the patch that Rafael proposed.  ;-)
+The following changes since commit c1f6eff304e4dfa4558b6a8c6b2d26a91db6c998:
 
-							Thanx, Paul
+  riscv: add as-options for modules with assembly compontents (2022-07-21 12:09:29 -0700)
 
-On Fri, Jul 29, 2022 at 08:26:22AM -0700, Paul E. McKenney wrote:
-> On Fri, Jul 29, 2022 at 03:24:58AM -0700, Michel Lespinasse wrote:
-> > On Thu, Jul 28, 2022 at 10:20:53AM -0700, Paul E. McKenney wrote:
-> > > On Mon, Jul 25, 2022 at 12:43:06PM -0700, Michel Lespinasse wrote:
-> > > > On Wed, Jun 08, 2022 at 04:27:27PM +0200, Peter Zijlstra wrote:
-> > > > > Commit c227233ad64c ("intel_idle: enable interrupts before C1 on
-> > > > > Xeons") wrecked intel_idle in two ways:
-> > > > > 
-> > > > >  - must not have tracing in idle functions
-> > > > >  - must return with IRQs disabled
-> > > > > 
-> > > > > Additionally, it added a branch for no good reason.
-> > > > > 
-> > > > > Fixes: c227233ad64c ("intel_idle: enable interrupts before C1 on Xeons")
-> > > > > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> > > > 
-> > > > After this change was introduced, I am seeing "WARNING: suspicious RCU
-> > > > usage" when booting a kernel with debug options compiled in. Please
-> > > > see the attached dmesg output. The issue starts with commit 32d4fd5751ea
-> > > > and is still present in v5.19-rc8.
-> > > > 
-> > > > I'm not sure, is this too late to fix or revert in v5.19 final ?
-> > > 
-> > > I finally got a chance to take a quick look at this.
-> > > 
-> > > The rcu_eqs_exit() function is making a lockdep complaint about
-> > > being invoked with interrupts enabled.  This function is called from
-> > > rcu_idle_exit(), which is an expected code path from cpuidle_enter_state()
-> > > via its call to rcu_idle_exit().  Except that rcu_idle_exit() disables
-> > > interrupts before invoking rcu_eqs_exit().
-> > > 
-> > > The only other call to rcu_idle_exit() does not disable interrupts,
-> > > but it is via rcu_user_exit(), which would be a very odd choice for
-> > > cpuidle_enter_state().
-> > > 
-> > > It seems unlikely, but it might be that it is the use of local_irq_save()
-> > > instead of raw_local_irq_save() within rcu_idle_exit() that is causing
-> > > the trouble.  If this is the case, then the commit shown below would
-> > > help.  Note that this commit removes the warning from lockdep, so it
-> > > is necessary to build the kernel with CONFIG_RCU_EQS_DEBUG=y to enable
-> > > equivalent debugging.
-> > > 
-> > > Could you please try your test with the -rce commit shown below applied?
-> > 
-> > Thanks for looking into it.
-> 
-> And thank you for trying this shot in the dark!
-> 
-> > After checking out Peter's commit 32d4fd5751ea,
-> > cherry picking your commit ed4ae5eff4b3,
-> > and setting CONFIG_RCU_EQS_DEBUG=y in addition of my usual debug config,
-> > I am now seeing this a few seconds into the boot:
-> > 
-> > [    3.010650] ------------[ cut here ]------------
-> > [    3.010651] WARNING: CPU: 0 PID: 0 at kernel/sched/clock.c:397 sched_clock_tick+0x27/0x60
-> 
-> And this is again a complaint about interrupts not being disabled.
-> 
-> But it does appear that the problem was the lockdep complaint, and
-> eliminating that did take care of part of the problem.  But lockdep
-> remained enabled, and you therefore hit the next complaint.
-> 
-> > [    3.010657] Modules linked in:
-> > [    3.010660] CPU: 0 PID: 0 Comm: swapper/0 Not tainted 5.19.0-rc1-test-00005-g1be22fea0611 #1
-> > [    3.010662] Hardware name: LENOVO 30BFS44D00/1036, BIOS S03KT51A 01/17/2022
-> > [    3.010663] RIP: 0010:sched_clock_tick+0x27/0x60
-> 
-> The most straightforward way to get to sched_clock_tick() from
-> cpuidle_enter_state() is via the call to sched_clock_idle_wakeup_event().
-> 
-> Except that it disables interrupts before invoking sched_clock_tick().
-> 
-> > [    3.010665] Code: 1f 40 00 53 eb 02 5b c3 66 90 8b 05 2f c3 40 01 85 c0 74 18 65 8b 05 60 88 8f 4e 85 c0 75 0d 65 8b 05 a9 85 8f 4e 85 c0 74 02 <0f> 0b e8 e2 6c 89 00 48 c7 c3 40 d5 02 00
-> >  89 c0 48 03 1c c5 c0 98
-> > [    3.010667] RSP: 0000:ffffffffb2803e28 EFLAGS: 00010002
-> > [    3.010670] RAX: 0000000000000001 RBX: ffffc8ce7fa07060 RCX: 0000000000000001
-> > [    3.010671] RDX: 0000000000000000 RSI: ffffffffb268dd21 RDI: ffffffffb269ab13
-> > [    3.010673] RBP: 0000000000000001 R08: ffffffffffc300d5 R09: 000000000002be80
-> > [    3.010674] R10: 000003625b53183a R11: ffffa012b802b7a4 R12: ffffffffb2aa9e80
-> > [    3.010675] R13: ffffffffb2aa9e00 R14: 0000000000000001 R15: 0000000000000000
-> > [    3.010677] FS:  0000000000000000(0000) GS:ffffa012b8000000(0000) knlGS:0000000000000000
-> > [    3.010678] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-> > [    3.010680] CR2: ffffa012f81ff000 CR3: 0000000c99612001 CR4: 00000000003706f0
-> > [    3.010681] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 0000000000000000
-> > [    3.010682] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 0000000000000400
-> > [    3.010683] Call Trace:
-> > [    3.010685]  <TASK>
-> > [    3.010688]  cpuidle_enter_state+0xb7/0x4b0
-> > [    3.010694]  cpuidle_enter+0x29/0x40
-> > [    3.010697]  do_idle+0x1d4/0x210
-> > [    3.010702]  cpu_startup_entry+0x19/0x20
-> > [    3.010704]  rest_init+0x117/0x1a0
-> > [    3.010708]  arch_call_rest_init+0xa/0x10
-> > [    3.010711]  start_kernel+0x6d8/0x6ff
-> > [    3.010716]  secondary_startup_64_no_verify+0xce/0xdb
-> > [    3.010728]  </TASK>
-> > [    3.010729] irq event stamp: 44179
-> > [    3.010730] hardirqs last  enabled at (44179): [<ffffffffb2000ccb>] asm_sysvec_apic_timer_interrupt+0x1b/0x20
-> > [    3.010734] hardirqs last disabled at (44177): [<ffffffffb22003f0>] __do_softirq+0x3f0/0x498
-> > [    3.010736] softirqs last  enabled at (44178): [<ffffffffb2200332>] __do_softirq+0x332/0x498
-> > [    3.010738] softirqs last disabled at (44171): [<ffffffffb16c760b>] irq_exit_rcu+0xab/0xf0
-> > [    3.010741] ---[ end trace 0000000000000000 ]---
-> 
-> Would you be willing to try another shot in the dark, but untested
-> this time?  I freely admit that this is getting strange.
-> 
-> 							Thanx, Paul
-> 
-> ------------------------------------------------------------------------
-> 
-> diff --git a/kernel/sched/clock.c b/kernel/sched/clock.c
-> index e374c0c923dae..279f557bf60bb 100644
-> --- a/kernel/sched/clock.c
-> +++ b/kernel/sched/clock.c
-> @@ -394,7 +394,7 @@ notrace void sched_clock_tick(void)
->  	if (!static_branch_likely(&sched_clock_running))
->  		return;
->  
-> -	lockdep_assert_irqs_disabled();
-> +	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !raw_irqs_disabled());
->  
->  	scd = this_scd();
->  	__scd_stamp(scd);
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.19-rc9
+
+for you to fetch changes up to 88bd24d73d5bfa1b7b97a9221ff320fc44ef401a:
+
+  riscv: compat: vdso: Fix vdso_install target (2022-07-22 12:23:14 -0700)
+
+----------------------------------------------------------------
+A Single RISC-V Fix for 5.19
+
+* A build fix for "make vdso_install" that avoids an issue trying to
+  install the compat VDSO.
+
+----------------------------------------------------------------
+Emil Renner Berthing (1):
+      riscv: compat: vdso: Fix vdso_install target
+
+ arch/riscv/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 _______________________________________________
 linux-riscv mailing list
