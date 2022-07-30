@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9FCC19F28
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3428C19F2C
 	for <linux-riscv@archiver.kernel.org>; Wed,  3 Aug 2022 13:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ct58SskO62nmsA0s7m5/9osWBxnHq4wCeemQTYgzLaM=; b=kRh5PPztu3fbLu
-	TSxfb46aI4QOWrVUhCNdshKcOPzZofCA7P/YJkcUzoObzw6Moa574DSWoLCOLFBDHScLoBgatHtJK
-	Hha6NZ/tu6jyvpi+AwwHdXrUm3PMXxWRmlWXBptXIh48TRdegsEoSo6+vRzfXK74YUsMDQve71xJC
-	lgKwtfbNFnwcGb7T93XQr54fFjWGhXnhI5sIfoYPkwKfV393bjLewc7Wa2ANNkUORW5PLmsP0wslp
-	AgXCjSgoeHSpPCyow2VXxTsjbw73V2GIY9PYMI+4Mv07hWQsLvBd6FtRXKB65A1rqbo4OMlgptUuf
-	Bg8p4rFR5v0yXH5RRvPw==;
+	List-Owner; bh=eauStHOp3ngnxyu8vJglbG9NZwrcN3ml5UCeXZOafsA=; b=hPk6U+fD9PxREX
+	JKl1RE4VW6soYyzbTufux9TZF0iB7a28mvMGFSnHUF54FWPgjH8la0IxSXJurJf9vVogJHl4up+h4
+	+3pE144EZ52azNCdL6GJjcN1DU4ziB1tErgrSyYuzm63iUudjnEZuJo71KRhHPTVwS5CY1SOFnpqV
+	6/ncX31IdK42yA4vpE6KF/9b1EY776CANm1eYpHNjaB6Pao57o6CDdffpZWuCJSaJ+gwMiVVUGmYv
+	mQnL4zr7DTebbe8Zujbb+Jl1TqaPEcZLlSIhkV117wd2bKJGD1geuaMbcB6ED1dVZrN455PIuM7Je
+	UhSV1abX8vUzdpzOJiOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oJEm6-006UIi-5D; Wed, 03 Aug 2022 13:51:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oJEm1-006UG9-N4; Wed, 03 Aug 2022 13:50:57 +0000
+Received: from server.lespinasse.org ([2001:470:82ab::100:0])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oHr10-003BfY-LW; Sat, 30 Jul 2022 18:16:43 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 4276E60EEB;
-	Sat, 30 Jul 2022 18:16:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98DEFC433D7;
-	Sat, 30 Jul 2022 18:16:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1659204999;
-	bh=YJXP6A7d+KZPrg8HQv8x+gqLEMy1sjVdzXnl/qX62uw=;
-	h=Date:From:To:Cc:Subject:Reply-To:References:In-Reply-To:From;
-	b=gJSpKVSsAKz8pom4RuAB5Je2VfXHGMhI5S8QuPgLw6sbq0QnDrcsB984Q3KCjMEP4
-	 SYUjeqdnSm23czJoxrwT8/cSChg2wZ3j8oXxKHXQSMFJwdsOWYkZ8L3yHTrxHHHv/B
-	 PCAYHs9Jnrby4wbTToGryEY6Ex3TIpS7AHVXuUJU6nS/OoMCgZLC69/yQVKdeU26z2
-	 g1F1UjpLlSrDEHmQXbwyZ9oeANnc2U7/KwPArewe4hoBbjnHbzgEqXp6HAhF3f96Ro
-	 rfGOh77ykaTrG15ZCImyvdTTA95ZiEUj+F32tOHQ6Prrb5v2smeceYH3zHnZYF0uH1
-	 p/j3tMujFTrgw==
-Received: by paulmck-ThinkPad-P17-Gen-1.home (Postfix, from userid 1000)
-	id 3BA285C0266; Sat, 30 Jul 2022 11:16:39 -0700 (PDT)
-Date: Sat, 30 Jul 2022 11:16:39 -0700
-From: "Paul E. McKenney" <paulmck@kernel.org>
-To: Michel Lespinasse <michel@lespinasse.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, rth@twiddle.net,
+	id 1oHixb-00H4ZP-28; Sat, 30 Jul 2022 09:40:40 +0000
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed;
+ d=lespinasse.org; i=@lespinasse.org; q=dns/txt; s=srv-79-ed;
+ t=1659174032; h=date : from : to : cc : subject : message-id :
+ references : mime-version : content-type : in-reply-to : from;
+ bh=weCa4etYCrU0JKpJO/Ui+2clGa/1cbP+1Ce8uxB4Z2U=;
+ b=x/Ziq42GBYdLObjVTEjRxMr42JGNj1S6ikUonHkCSS9+QUAEIEusirhrUb1NLAhWCN9I/
+ 26gXmKmVFCvOvm8Ag==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lespinasse.org;
+ i=@lespinasse.org; q=dns/txt; s=srv-79-rsa; t=1659174032; h=date :
+ from : to : cc : subject : message-id : references : mime-version :
+ content-type : in-reply-to : from;
+ bh=weCa4etYCrU0JKpJO/Ui+2clGa/1cbP+1Ce8uxB4Z2U=;
+ b=xjlyRJ2PLCvlHddIpET9xkdQ9b2YJIlAuRmqVD4Zi9LYcfMqzgs3mU4rkm/FKHLXNUOaJ
+ LyyP89/nFeA6CHdOEfvoMWe+2hvIc5qWIl7OAgthzIj8J1BY1lyEpfvyFmhVmffdeRhfjdo
+ vMuxuuddA8OZu54a34mTh9dLsyNfUY1VEPbkQXmB5bXD5tY51a2x0Dy7lPzCrgrdbPY9jea
+ g6bR8AptJZSZjsf3hgGuxahRdvKbF0nVgvjROX7b4fAX0R64UDLs/zIoRFldyB9Yfr1EawK
+ tm9ki9L5Z6WkfftzLymxjgxhP/KXmf4WU+QM/fsd13mCq3dze1SIRx1wUOGA==
+Received: by server.lespinasse.org (Postfix, from userid 1000)
+	id 1452116096D; Sat, 30 Jul 2022 02:40:32 -0700 (PDT)
+Date: Sat, 30 Jul 2022 02:40:32 -0700
+From: Michel Lespinasse <michel@lespinasse.org>
+To: "Paul E. McKenney" <paulmck@kernel.org>
+Cc: Michel Lespinasse <michel@lespinasse.org>,
+	Peter Zijlstra <peterz@infradead.org>, rth@twiddle.net,
 	ink@jurassic.park.msu.ru, mattst88@gmail.com, vgupta@kernel.org,
 	linux@armlinux.org.uk, ulli.kroll@googlemail.com,
 	linus.walleij@linaro.org, shawnguo@kernel.org,
@@ -104,20 +105,20 @@ Cc: Peter Zijlstra <peterz@infradead.org>, rth@twiddle.net,
 	linux-tegra@vger.kernel.org, linux-arch@vger.kernel.org,
 	rcu@vger.kernel.org, rh0@fb.com
 Subject: Re: [PATCH 04/36] cpuidle,intel_idle: Fix CPUIDLE_FLAG_IRQ_ENABLE
-Message-ID: <20220730181639.GS2860372@paulmck-ThinkPad-P17-Gen-1>
+Message-ID: <20220730094032.GA1587@lespinasse.org>
 References: <20220608142723.103523089@infradead.org>
  <20220608144516.172460444@infradead.org>
  <20220725194306.GA14746@lespinasse.org>
  <20220728172053.GA3607379@paulmck-ThinkPad-P17-Gen-1>
  <20220729102458.GA1695@lespinasse.org>
  <20220729152622.GM2860372@paulmck-ThinkPad-P17-Gen-1>
- <20220730094032.GA1587@lespinasse.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220730094032.GA1587@lespinasse.org>
+In-Reply-To: <20220729152622.GM2860372@paulmck-ThinkPad-P17-Gen-1>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220730_111642_821605_F022B96E 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20220730_024039_371525_5E398321 
+X-CRM114-Status: GOOD (  13.95  )
 X-Mailman-Approved-At: Wed, 03 Aug 2022 06:50:55 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,39 +131,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: paulmck@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jul 30, 2022 at 02:40:32AM -0700, Michel Lespinasse wrote:
-> On Fri, Jul 29, 2022 at 08:26:22AM -0700, Paul E. McKenney wrote:> Would you be willing to try another shot in the dark, but untested
-> > this time?  I freely admit that this is getting strange.
-> > 
-> > 							Thanx, Paul
+On Fri, Jul 29, 2022 at 08:26:22AM -0700, Paul E. McKenney wrote:> Would you be willing to try another shot in the dark, but untested
+> this time?  I freely admit that this is getting strange.
 > 
-> Yes, adding this second change got rid of the boot time warning for me.
+> 							Thanx, Paul
 
-OK, I will make a real patch.  May I have your Tested-by?
+Yes, adding this second change got rid of the boot time warning for me.
 
-							Thanx, Paul
-
-> > ------------------------------------------------------------------------
-> > 
-> > diff --git a/kernel/sched/clock.c b/kernel/sched/clock.c
-> > index e374c0c923dae..279f557bf60bb 100644
-> > --- a/kernel/sched/clock.c
-> > +++ b/kernel/sched/clock.c
-> > @@ -394,7 +394,7 @@ notrace void sched_clock_tick(void)
-> >  	if (!static_branch_likely(&sched_clock_running))
-> >  		return;
-> >  
-> > -	lockdep_assert_irqs_disabled();
-> > +	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !raw_irqs_disabled());
-> >  
-> >  	scd = this_scd();
-> >  	__scd_stamp(scd);
+> ------------------------------------------------------------------------
+> 
+> diff --git a/kernel/sched/clock.c b/kernel/sched/clock.c
+> index e374c0c923dae..279f557bf60bb 100644
+> --- a/kernel/sched/clock.c
+> +++ b/kernel/sched/clock.c
+> @@ -394,7 +394,7 @@ notrace void sched_clock_tick(void)
+>  	if (!static_branch_likely(&sched_clock_running))
+>  		return;
+>  
+> -	lockdep_assert_irqs_disabled();
+> +	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !raw_irqs_disabled());
+>  
+>  	scd = this_scd();
+>  	__scd_stamp(scd);
 
 _______________________________________________
 linux-riscv mailing list
