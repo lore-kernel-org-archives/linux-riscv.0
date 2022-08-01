@@ -4,51 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C646EC00144
-	for <linux-riscv@archiver.kernel.org>; Mon,  1 Aug 2022 04:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29A36C00144
+	for <linux-riscv@archiver.kernel.org>; Mon,  1 Aug 2022 04:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=63HlS2zPeyS64cvWDm3JwgW+cIEjejNalFknV3cV+oE=; b=3zq3JJP5ZgBRoy
-	q0zHAtSK3N11TJnVubBxEY4XxxhluiL1Fqwa8syZv0iF923jJZ+UKa7MEhg0uetqPuJVkOeWX7wp0
-	h0bHO5nNhtTY6aSbPWu2GdgulNFdi0n8GQH9M1TRKpDZLz8YIIThHqYOXW1Mgayf7hOH36VRSp3yE
-	j705n0muq9D/F/c6Rdp6X6cfOsBuRDH9cbpPdwuwE47pv+dpDbsdQQVYNhvGJtcLw0yIri97K2cmt
-	T4057WYN6ZuQHmPzuMLTObX+4DLgfj0gbtmiw0i6LDoDYLXinuvDr+qciHymB48GRzxTgHiVZrW4N
-	4iET3KdwmN8aj6AfYjTw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
+	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PDYcyoznkA0VkJyePMcn1UYbEN+X42FEbIfGe0YVAq4=; b=GYXOcGu+J0AkWK3bDjtu3WUu2/
+	NpHG3cD+EHw/omT49i1ZsV3bYVJXIqONFNBwsiI+LN+AzPKitOLCkIFP9eZWg45CX7RZ1EiUqjbmj
+	q9nUXCwv8kgyFhWG5jL6cGBFDOhIgN35FJ7/S7GVV5cVfeRI5uAsMeaISBV2WGcGds+UKBFd58K3o
+	VePBCrmh6PK2susplk4deh0nF+dVYOE5bXCOyDPwLPzZ+dThyntxdtk+/+mburBOHb9ss5y2KaHtV
+	7DoFsKNNH94WaGrOipcbdXIBcxs7MOGT4iZWRofkv9Dbi9Iv1wJxbtFWU3ehq4Iq21iz1bRojkngo
+	GR3276Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oIN6P-001k8i-8a; Mon, 01 Aug 2022 04:32:25 +0000
-Received: from out30-45.freemail.mail.aliyun.com ([115.124.30.45])
+	id 1oIN9K-001mPN-3k; Mon, 01 Aug 2022 04:35:26 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oIN4x-001itM-0s; Mon, 01 Aug 2022 04:31:03 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R411e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045170;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=11;SR=0;TI=SMTPD_---0VL.aQKk_1659328245;
-Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VL.aQKk_1659328245)
+	id 1oIN9G-001mKE-DF
+	for linux-riscv@lists.infradead.org; Mon, 01 Aug 2022 04:35:24 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R191e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046059;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=9;SR=0;TI=SMTPD_---0VL.tjoA_1659328516;
+Received: from B-LB6YLVDL-0141.local(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VL.tjoA_1659328516)
           by smtp.aliyun-inc.com;
-          Mon, 01 Aug 2022 12:30:46 +0800
+          Mon, 01 Aug 2022 12:35:17 +0800
+Subject: Re: [Crash-utility][PATCH 0/8] Support RISCV64 arch and common
+ commands
+To: Yixun Lan <yixun.lan@gmail.com>
+Cc: crash-utility@redhat.com, Nick Kossifidis <mick@ics.forth.gr>,
+ heinrich.schuchardt@canonical.com, guoren@kernel.org, k-hagio-ab@nec.com,
+ linux-riscv <linux-riscv@lists.infradead.org>, hschauhan@nulltrace.org,
+ huanyi.xj@alibaba-inc.com
+References: <20220718025346.411758-1-xianting.tian@linux.alibaba.com>
+ <CALecT5h+Z5D8hKfz0SiA6oWcSQ_bH=eM-15boYhmwrEM3=cySg@mail.gmail.com>
+ <f596ee67-0595-b891-dcb3-6893c3be328a@linux.alibaba.com>
+ <CALecT5i_sb9mZkn2T7_AbD1oDSbZynFLxUeT0Xb_2FmZ-2=qMA@mail.gmail.com>
+ <a3d92ef9-9a65-7a49-54b1-dc41839a5205@linux.alibaba.com>
+ <CALecT5jAQp8a3Zs4juFGwa-smty9Rsko5Soy=wF=dusNdtnhag@mail.gmail.com>
+ <18d565c4-c8a2-d81f-d63f-e93ee72364b6@linux.alibaba.com>
+ <CALecT5hkW2KBUVuMve-sr+ijT5gGav5Ss2HSO-3KwOG-6uR17g@mail.gmail.com>
 From: Xianting Tian <xianting.tian@linux.alibaba.com>
-To: crash-utility@redhat.com,
-	mick@ics.forth.gr,
-	heinrich.schuchardt@canonical.com,
-	guoren@kernel.org,
-	k-hagio-ab@nec.com,
-	yixun.lan@gmail.com
-Cc: linux-riscv@lists.infradead.org,
-	kexec@lists.infradead.org,
-	hschauhan@nulltrace.org,
-	huanyi.xj@alibaba-inc.com,
-	Xianting Tian <xianting.tian@linux.alibaba.com>
-Subject: [Crash-utility][PATCH V2 2/9] RISCV64: Make crash tool enter command line and support some commands
-Date: Mon,  1 Aug 2022 12:30:33 +0800
-Message-Id: <20220801043040.2003264-3-xianting.tian@linux.alibaba.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220801043040.2003264-1-xianting.tian@linux.alibaba.com>
-References: <20220801043040.2003264-1-xianting.tian@linux.alibaba.com>
+Message-ID: <0d2132fa-3fb3-328a-80bb-a816ce3500f2@linux.alibaba.com>
+Date: Mon, 1 Aug 2022 12:35:16 +0800
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
+ Gecko/20100101 Thunderbird/78.14.0
+MIME-Version: 1.0
+In-Reply-To: <CALecT5hkW2KBUVuMve-sr+ijT5gGav5Ss2HSO-3KwOG-6uR17g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220731_213055_492548_289AB1C0 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20220731_213522_680721_9C79050E 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,1295 +65,185 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-1. Add riscv64_init() implementation, do all necessary machine-specific setup,
-   which will be called multiple times during initialization.
-2. Add riscv64 sv39/48/57 pagetable macro definitions, the function of converting
-   virtual address to a physical address via 4k page table.
-3. Add the implementation of the vtop command, which is used to convert a
-   virtual address to a physical address(call the functions defined in 2).
-4. Add the implementation to get virtual memory layout, va_bits, phys_ram_base
-   from vmcoreinfo. As these configurations changes from time to time, we send
-   a Linux kernel patch to export these configurations, which can simplify the
-   development of crash tool.
-   The Linux patch(patch 2 of the patch set):
-	https://lore.kernel.org/linux-riscv/20220726093729.1231867-1-xianting.tian@linux.alibaba.com/
-5. Add riscv64_get_smp_cpus() implementation, get the number of online cpus.
-6. Add riscv64_get_page_size() implementation, get page size.
-And so on.
-
-With this patch, we can enter crash command line, and run "vtop", "mod", "rd",
-"*", "p", "kmem" ...
-
-Tested on QEMU RISCV64 end and SoC platform of T-head Xuantie 910 CPU.
-
-      KERNEL: vmlinux
-    DUMPFILE: vmcore
-        CPUS: 1
-        DATE: Fri Jul 15 10:24:25 CST 2022
-      UPTIME: 00:00:33
-LOAD AVERAGE: 0.05, 0.01, 0.00
-       TASKS: 41
-    NODENAME: buildroot
-     RELEASE: 5.18.9
-     VERSION: #30 SMP Fri Jul 15 09:47:03 CST 2022
-     MACHINE: riscv64  (unknown Mhz)
-      MEMORY: 1 GB
-       PANIC: "Kernel panic - not syncing: sysrq triggered crash"
-         PID: 113
-     COMMAND: "sh"
-        TASK: ff60000002269600  [THREAD_INFO: ff60000002269600]
-         CPU: 0
-       STATE: TASK_RUNNING (PANIC)
-
-crash> p mem_map
-mem_map = $1 = (struct page *) 0xff6000003effbf00
-
-crash> p /x *(struct page *) 0xff6000003effbf00
-$5 = {
-  flags = 0x1000,
-  {
-    {
-      {
-        lru = {
-          next = 0xff6000003effbf08,
-          prev = 0xff6000003effbf08
-        },
-        {
-          __filler = 0xff6000003effbf08,
-          mlock_count = 0x3effbf08
-        }
-      },
-      mapping = 0x0,
-      index = 0x0,
-      private = 0x0
-    },
-
-crash> mod
-     MODULE       NAME             BASE         SIZE  OBJECT FILE
-ffffffff0113e740  nvme_core  ffffffff01133000  98304  (not loaded)  [CONFIG_KALLSYMS]
-ffffffff011542c0  nvme       ffffffff0114c000  61440  (not loaded)  [CONFIG_KALLSYMS]
-
-crash> rd ffffffff0113e740 8
-ffffffff0113e740:  0000000000000000 ffffffff810874f8   .........t......
-ffffffff0113e750:  ffffffff011542c8 726f635f656d766e   .B......nvme_cor
-ffffffff0113e760:  0000000000000065 0000000000000000   e...............
-ffffffff0113e770:  0000000000000000 0000000000000000   ................
-
-crash> vtop ffffffff0113e740
-VIRTUAL           PHYSICAL
-ffffffff0113e740  8254d740
-
-   PGD: ffffffff810e9ff8 => 2ffff001
-  P4D: 0000000000000000 => 000000002fffec01
-  PUD: 00005605c2957470 => 0000000020949801
-  PMD: 00007fff7f1750c0 => 0000000020947401
-   PTE: 0 => 209534e7
- PAGE: 000000008254d000
-
-  PTE     PHYSICAL  FLAGS
-209534e7  8254d000  (PRESENT|READ|WRITE|GLOBAL|ACCESSED|DIRTY)
-
-      PAGE       PHYSICAL      MAPPING       INDEX CNT FLAGS
-ff6000003f0777d8 8254d000                0        0  1 0
-
-Tested-by: Yixun Lan <yixun.lan@gmail.com>
-Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
----
- defs.h     |  93 +++++
- diskdump.c |  10 +
- riscv64.c  | 999 +++++++++++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 1102 insertions(+)
-
-diff --git a/defs.h b/defs.h
-index 8743f83..5cc9727 100644
---- a/defs.h
-+++ b/defs.h
-@@ -3494,6 +3494,81 @@ struct arm64_stackframe {
- #define _64BIT_
- #define MACHINE_TYPE		"RISCV64"
- 
-+typedef struct { ulong pgd; } pgd_t;
-+typedef struct { ulong p4d; } p4d_t;
-+typedef struct { ulong pud; } pud_t;
-+typedef struct { ulong pmd; } pmd_t;
-+typedef struct { ulong pte; } pte_t;
-+typedef signed int s32;
-+
-+/* arch/riscv/include/asm/pgtable-64.h */
-+#define PGD_SHIFT_L3		(30)
-+#define PGD_SHIFT_L4		(39)
-+#define PGD_SHIFT_L5		(48)
-+
-+#define P4D_SHIFT		(39)
-+#define PUD_SHIFT		(30)
-+#define PMD_SHIFT		(21)
-+
-+#define PTRS_PER_PGD		(512)
-+#define PTRS_PER_P4D		(512)
-+#define PTRS_PER_PUD		(512)
-+#define PTRS_PER_PMD		(512)
-+#define PTRS_PER_PTE		(512)
-+
-+/*
-+ * Mask for bit 53~0(PPN and PROT) of PTE
-+ * 63 6261  60    54  53 10  9 8 7 6 5 4 3 2 1 0
-+ * N  PBMT  Reserved  P P N  RSW D A G U X W R V
-+ */
-+#define PTE_PFN_PROT_MASK	0x3FFFFFFFFFFFFF
-+
-+/*
-+ * 3-levels / 4K pages
-+ *
-+ * sv39
-+ * PGD  |  PMD  |  PTE  |  OFFSET  |
-+ *  9   |   9   |   9   |    12    |
-+ */
-+#define pgd_index_l3_4k(addr) (((addr) >> PGD_SHIFT_L3) & (PTRS_PER_PGD - 1))
-+#define pmd_index_l3_4k(addr) (((addr) >> PMD_SHIFT) & (PTRS_PER_PMD - 1))
-+#define pte_index_l3_4k(addr) (((addr) >> PAGESHIFT()) & (PTRS_PER_PTE - 1))
-+
-+/*
-+ * 4-levels / 4K pages
-+ *
-+ * sv48
-+ * PGD  |  PUD  |  PMD  |   PTE   |  OFFSET  |
-+ *  9   |   9   |   9   |    9    |    12    |
-+ */
-+#define pgd_index_l4_4k(addr) (((addr) >> PGD_SHIFT_L4) & (PTRS_PER_PGD - 1))
-+#define pud_index_l4_4k(addr) (((addr) >> PUD_SHIFT) & (PTRS_PER_PUD - 1))
-+#define pmd_index_l4_4k(addr) (((addr) >> PMD_SHIFT) & (PTRS_PER_PMD - 1))
-+#define pte_index_l4_4k(addr) (((addr) >> PAGESHIFT()) & (PTRS_PER_PTE - 1))
-+
-+/*
-+ * 5-levels / 4K pages
-+ *
-+ * sv48
-+ * PGD  |  P4D  |  PUD  |  PMD  |   PTE   |  OFFSET  |
-+ *  9   |   9   |   9   |   9   |    9    |    12    |
-+ */
-+#define pgd_index_l5_4k(addr) (((addr) >> PGD_SHIFT_L5) & (PTRS_PER_PGD - 1))
-+#define p4d_index_l5_4k(addr) (((addr) >> P4D_SHIFT) & (PTRS_PER_P4D - 1))
-+#define pud_index_l5_4k(addr) (((addr) >> PUD_SHIFT) & (PTRS_PER_PUD - 1))
-+#define pmd_index_l5_4k(addr) (((addr) >> PMD_SHIFT) & (PTRS_PER_PMD - 1))
-+#define pte_index_l5_4k(addr) (((addr) >> PAGESHIFT()) & (PTRS_PER_PTE - 1))
-+
-+#define VM_L3_4K	(0x2)
-+#define VM_L3_2M	(0x4)
-+#define VM_L3_1G	(0x8)
-+#define VM_L4_4K	(0x10)
-+#define VM_L4_2M	(0x20)
-+#define VM_L4_1G	(0x40)
-+#define VM_L5_4K	(0x80)
-+#define VM_L5_2M	(0x100)
-+#define VM_L5_1G	(0x200)
-+
- /*
-  * Direct memory mapping
-  */
-@@ -3545,6 +3620,14 @@ struct arm64_stackframe {
- #define PHYS_MASK_SHIFT 	_MAX_PHYSMEM_BITS
- #define PHYS_MASK		(((1UL) << PHYS_MASK_SHIFT) - 1)
- 
-+#define IS_LAST_P4D_READ(p4d)	((ulong)(p4d) == machdep->machspec->last_p4d_read)
-+#define FILL_P4D(P4D, TYPE, SIZE)					      \
-+    if (!IS_LAST_P4D_READ(P4D)) {					      \
-+	    readmem((ulonglong)((ulong)(P4D)), TYPE, machdep->machspec->p4d,  \
-+		     SIZE, "p4d page", FAULT_ON_ERROR);                       \
-+	    machdep->machspec->last_p4d_read = (ulong)(P4D);                  \
-+    }
-+
- #endif  /* RISCV64 */
- 
- #ifdef X86
-@@ -6810,6 +6893,10 @@ struct machine_specific {
- 	ulong _page_soft;
- 
- 	ulong _pfn_shift;
-+	ulong va_bits;
-+	char *p4d;
-+	ulong last_p4d_read;
-+	ulong struct_page_size;
- 
- 	struct riscv64_register *crash_task_regs;
- };
-@@ -6833,6 +6920,12 @@ struct machine_specific {
- #define _PAGE_PROT_NONE _PAGE_READ
- #define _PAGE_PFN_SHIFT 10
- 
-+/* from 'struct pt_regs' definitions of RISC-V arch */
-+#define RISCV64_REGS_EPC  0
-+#define RISCV64_REGS_RA   1
-+#define RISCV64_REGS_SP   2
-+#define RISCV64_REGS_FP   8
-+
- #endif /* RISCV64 */
- 
- /*
-diff --git a/diskdump.c b/diskdump.c
-index 28503bc..cf5f5d9 100644
---- a/diskdump.c
-+++ b/diskdump.c
-@@ -1531,6 +1531,12 @@ get_diskdump_regs_mips(struct bt_info *bt, ulong *eip, ulong *esp)
- 	machdep->get_stack_frame(bt, eip, esp);
- }
- 
-+static void
-+get_diskdump_regs_riscv64(struct bt_info *bt, ulong *eip, ulong *esp)
-+{
-+	machdep->get_stack_frame(bt, eip, esp);
-+}
-+
- static void
- get_diskdump_regs_sparc64(struct bt_info *bt, ulong *eip, ulong *esp)
- {
-@@ -1610,6 +1616,10 @@ get_diskdump_regs(struct bt_info *bt, ulong *eip, ulong *esp)
- 		get_diskdump_regs_sparc64(bt, eip, esp);
- 		break;
- 
-+	case EM_RISCV:
-+		get_diskdump_regs_riscv64(bt, eip, esp);
-+		break;
-+
- 	default:
- 		error(FATAL, "%s: unsupported machine type: %s\n",
- 			DISKDUMP_VALID() ? "diskdump" : "compressed kdump",
-diff --git a/riscv64.c b/riscv64.c
-index c7df857..188a3a8 100644
---- a/riscv64.c
-+++ b/riscv64.c
-@@ -16,10 +16,319 @@
- 
- #include <elf.h>
- #include "defs.h"
-+#include <math.h>
-+
-+static ulong riscv64_get_page_size(void);
-+static int riscv64_vtop_3level_4k(ulong *pgd, ulong vaddr,
-+				   physaddr_t *paddr, int verbose);
-+static int riscv64_vtop_4level_4k(ulong *pgd, ulong vaddr,
-+				   physaddr_t *paddr, int verbose);
-+static int riscv64_vtop_5level_4k(ulong *pgd, ulong vaddr,
-+				   physaddr_t *paddr, int verbose);
-+static void riscv64_page_type_init(void);
-+static int riscv64_is_kvaddr(ulong vaddr);
-+static int riscv64_is_uvaddr(ulong vaddr, struct task_context *tc);
-+static int riscv64_uvtop(struct task_context *tc, ulong vaddr,
-+			  physaddr_t *paddr, int verbose);
-+static int riscv64_kvtop(struct task_context *tc, ulong kvaddr,
-+			  physaddr_t *paddr, int verbose);
-+static void riscv64_cmd_mach(void);
-+static int riscv64_translate_pte(ulong, void *, ulonglong);
-+static int riscv64_init_active_task_regs(void);
-+static int riscv64_get_crash_notes(void);
-+static int riscv64_get_elf_notes(void);
-+static void riscv64_get_va_range(struct machine_specific *ms);
-+static void riscv64_get_va_bits(struct machine_specific *ms);
-+static void riscv64_get_struct_page_size(struct machine_specific *ms);
-+
-+#define REG_FMT 	"%016lx"
-+#define SZ_2G		0x80000000
-+
-+/*
-+ * Holds registers during the crash.
-+ */
-+static struct riscv64_register *panic_task_regs;
-+
-+/* from arch/riscv/include/asm/stacktrace.h */
-+struct stackframe {
-+	ulong fp;
-+	ulong ra;
-+};
-+
-+static struct machine_specific riscv64_machine_specific = {
-+	._page_present = (1 << 0),
-+	._page_read = (1 << 1),
-+	._page_write = (1 << 2),
-+	._page_exec = (1 << 3),
-+	._page_user = (1 << 4),
-+	._page_global = (1 << 5),
-+	._page_accessed = (1 << 6),
-+	._page_dirty = (1 << 7),
-+	._page_soft = (1 << 8),
-+
-+	.va_bits = 0,
-+	.struct_page_size = 0,
-+};
-+
-+static void
-+pt_level_alloc(char **lvl, char *name)
-+{
-+	size_t sz = PAGESIZE();
-+	void *pointer = malloc(sz);
-+
-+	if (!pointer)
-+		error(FATAL, name);
-+	*lvl = pointer;
-+}
-+
-+static ulong
-+riscv64_get_page_size(void)
-+{
-+	return memory_page_size();
-+}
-+
-+static ulong
-+riscv64_vmalloc_start(void)
-+{
-+	return ((ulong)VMALLOC_START);
-+}
-+
-+/* Get the size of struct page {} */
-+static void riscv64_get_struct_page_size(struct machine_specific *ms)
-+{
-+	char *string;
-+
-+	string = pc->read_vmcoreinfo("SIZE(page)");
-+	if (string)
-+		ms->struct_page_size = atol(string);
-+	free(string);
-+}
-+
-+static void
-+riscv64_cmd_mach(void)
-+{
-+	/* TODO: */
-+}
-+
-+static int
-+riscv64_verify_symbol(const char *name, ulong value, char type)
-+{
-+	/* TODO: */
-+	return TRUE;
-+}
- 
- void
- riscv64_dump_machdep_table(ulong arg)
- {
-+	/* TODO: */
-+}
-+
-+static ulong
-+riscv64_processor_speed(void)
-+{
-+	/* TODO: */
-+	return 0;
-+}
-+
-+static unsigned long riscv64_get_kernel_version(void)
-+{
-+	char *string;
-+	char buf[BUFSIZE];
-+	char *p1, *p2;
-+
-+	if (THIS_KERNEL_VERSION)
-+		return THIS_KERNEL_VERSION;
-+
-+	string = pc->read_vmcoreinfo("OSRELEASE");
-+	if (string) {
-+		strcpy(buf, string);
-+
-+		p1 = p2 = buf;
-+		while (*p2 != '.')
-+			p2++;
-+		*p2 = NULLCHAR;
-+		kt->kernel_version[0] = atoi(p1);
-+
-+		p1 = ++p2;
-+		while (*p2 != '.')
-+			p2++;
-+		*p2 = NULLCHAR;
-+		kt->kernel_version[1] = atoi(p1);
-+
-+		p1 = ++p2;
-+		while ((*p2 >= '0') && (*p2 <= '9'))
-+			p2++;
-+		*p2 = NULLCHAR;
-+		kt->kernel_version[2] = atoi(p1);
-+	}
-+	free(string);
-+	return THIS_KERNEL_VERSION;
-+}
-+
-+static void
-+riscv64_get_phys_ram_base(struct machine_specific *ms)
-+{
-+	unsigned long kernel_version = riscv64_get_kernel_version();
-+
-+	/*
-+	 * phys_ram_base is defined in Linux kernel since 5.14.
-+	 */
-+	if (kernel_version >= LINUX(5,14,0)) {
-+		char *string;
-+		if ((string = pc->read_vmcoreinfo("NUMBER(phys_ram_base)"))) {
-+			ms->phys_base = atol(string);
-+			free(string);
-+		} else
-+			error(FATAL, "cannot read phys_ram_base\n");
-+	} else
-+		/*
-+		 * For qemu rv64 env and hardware platform, default phys base
-+		 * may different, eg,
-+		 *	hardware platform: 0x200000
-+		 *	qemu   rv64   env: 0x80200000
-+		 *
-+		 * But we only can set one default value, in this case, qemu
-+		 * rv64 env may can't work.
-+		 */
-+		ms->phys_base = 0x200000;
-+}
-+
-+static void riscv64_get_va_bits(struct machine_specific *ms)
-+{
-+	unsigned long kernel_version = riscv64_get_kernel_version();
-+
-+	/*
-+	 * VA_BITS is defined in Linux kernel since 5.17. So we use the
-+	 * default va bits 39 when Linux version < 5.17.
-+	 */
-+	if (kernel_version >= LINUX(5,17,0)) {
-+		char *string;
-+		if ((string = pc->read_vmcoreinfo("NUMBER(VA_BITS)"))) {
-+			ms->va_bits = atol(string);
-+			free(string);
-+		}
-+	} else
-+		ms->va_bits = 39;
-+}
-+
-+static void riscv64_get_va_range(struct machine_specific *ms)
-+{
-+	unsigned long kernel_version = riscv64_get_kernel_version();
-+	char *string;
-+
-+	if ((string = pc->read_vmcoreinfo("NUMBER(PAGE_OFFSET)"))) {
-+		ms->page_offset = htol(string, QUIET, NULL);
-+		free(string);
-+	} else
-+		goto error;
-+
-+	if ((string = pc->read_vmcoreinfo("NUMBER(VMALLOC_START)"))) {
-+		ms->vmalloc_start_addr = htol(string, QUIET, NULL);
-+		free(string);
-+	} else
-+		goto error;
-+
-+	if ((string = pc->read_vmcoreinfo("NUMBER(VMALLOC_END)"))) {
-+		ms->vmalloc_end = htol(string, QUIET, NULL);
-+                free(string);
-+	} else
-+		goto error;
-+
-+	if ((string = pc->read_vmcoreinfo("NUMBER(VMEMMAP_START)"))) {
-+		ms->vmemmap_vaddr = htol(string, QUIET, NULL);
-+		free(string);
-+	} else
-+		goto error;
-+
-+	if ((string = pc->read_vmcoreinfo("NUMBER(VMEMMAP_END)"))) {
-+		ms->vmemmap_end = htol(string, QUIET, NULL);
-+		free(string);
-+	} else
-+		goto error;
-+
-+	if ((string = pc->read_vmcoreinfo("NUMBER(KERNEL_LINK_ADDR)"))) {
-+		ms->kernel_link_addr = htol(string, QUIET, NULL);
-+		free(string);
-+	} else
-+		goto error;
-+
-+	if ((string = pc->read_vmcoreinfo("NUMBER(ADDRESS_SPACE_END)"))) {
-+		ms->address_space_end = htol(string, QUIET, NULL);
-+		free(string);
-+	} else
-+		goto error;
-+
-+	/*
-+	 * From Linux 5.13, the kernel mapping is moved to the last 2GB
-+	 * of the address space, modules use the 2GB memory range right
-+	 * before the kernel. Before Linux 5.13, modules area is embedded
-+	 * in vmalloc area.
-+	 *
-+	 */
-+	if (kernel_version >= LINUX(5,13,0)) {
-+		if ((string = pc->read_vmcoreinfo("NUMBER(MODULES_VADDR)"))) {
-+			ms->modules_vaddr = htol(string, QUIET, NULL);
-+			free(string);
-+		} else
-+			goto error;
-+
-+		if ((string = pc->read_vmcoreinfo("NUMBER(MODULES_END)"))) {
-+			ms->modules_end = htol(string, QUIET, NULL);
-+			free(string);
-+		} else
-+			goto error;
-+	} else {
-+		ms->modules_vaddr = ms->vmalloc_start_addr;
-+		ms->modules_end = ms->vmalloc_end;
-+	}
-+
-+	if (CRASHDEBUG(1)) {
-+		fprintf(fp, "vmemmap	: 0x%lx - 0x%lx\n",
-+			ms->vmemmap_vaddr, ms->vmemmap_end);
-+		fprintf(fp, "vmalloc	: 0x%lx - 0x%lx\n",
-+			ms->vmalloc_start_addr, ms->vmalloc_end);
-+		fprintf(fp, "mudules	: 0x%lx - 0x%lx\n",
-+			ms->modules_vaddr, ms->modules_end);
-+		fprintf(fp, "lowmem	: 0x%lx -\n", ms->page_offset);
-+		fprintf(fp, "kernel	: 0x%lx - 0x%lx\n",
-+			ms->kernel_link_addr, ms->address_space_end);
-+	}
-+	return;
-+error:
-+	error(FATAL, "cannot get vm layout\n");
-+}
-+
-+static int
-+riscv64_is_kvaddr(ulong vaddr)
-+{
-+	if (IS_VMALLOC_ADDR(vaddr))
-+		return TRUE;
-+
-+	return (vaddr >= machdep->kvbase);
-+}
-+
-+static int
-+riscv64_is_uvaddr(ulong vaddr, struct task_context *unused)
-+{
-+	if (IS_VMALLOC_ADDR(vaddr))
-+		return FALSE;
-+
-+	return (vaddr < machdep->kvbase);
-+}
-+
-+static int
-+riscv64_is_task_addr(ulong task)
-+{
-+	if (tt->flags & THREAD_INFO)
-+		return IS_KVADDR(task);
-+
-+	return (IS_KVADDR(task) && ALIGNED_STACK_OFFSET(task) == 0);
-+}
-+
-+static int
-+riscv64_get_smp_cpus(void)
-+{
-+	return (get_cpus_online() > 0) ? get_cpus_online() : kt->cpus;
- }
- 
- /*
-@@ -33,11 +342,701 @@ riscv64_IS_VMALLOC_ADDR(ulong vaddr)
- 		(vaddr >= MODULES_VADDR && vaddr <= MODULES_END));
- }
- 
-+/*
-+ * Translate a PTE, returning TRUE if the page is present.
-+ * If a physaddr pointer is passed in, don't print anything.
-+ */
-+static int
-+riscv64_translate_pte(ulong pte, void *physaddr, ulonglong unused)
-+{
-+	char ptebuf[BUFSIZE];
-+	char physbuf[BUFSIZE];
-+	char buf[BUFSIZE];
-+	int page_present;
-+	int len1, len2, others;
-+	ulong paddr;
-+
-+	paddr = PTOB(pte >> _PAGE_PFN_SHIFT);
-+	page_present = !!(pte & _PAGE_PRESENT);
-+
-+	if (physaddr) {
-+		*(ulong *)physaddr = paddr;
-+		return page_present;
-+	}
-+
-+	sprintf(ptebuf, "%lx", pte);
-+	len1 = MAX(strlen(ptebuf), strlen("PTE"));
-+	fprintf(fp, "%s  ", mkstring(buf, len1, CENTER | LJUST, "PTE"));
-+
-+	if (!page_present)
-+		return page_present;
-+
-+	sprintf(physbuf, "%lx", paddr);
-+	len2 = MAX(strlen(physbuf), strlen("PHYSICAL"));
-+	fprintf(fp, "%s  ", mkstring(buf, len2, CENTER | LJUST, "PHYSICAL"));
-+
-+	fprintf(fp, "FLAGS\n");
-+	fprintf(fp, "%s  %s  ",
-+		mkstring(ptebuf, len1, CENTER | RJUST, NULL),
-+		mkstring(physbuf, len2, CENTER | RJUST, NULL));
-+
-+	fprintf(fp, "(");
-+	others = 0;
-+
-+#define CHECK_PAGE_FLAG(flag)				\
-+	if ((_PAGE_##flag) && (pte & _PAGE_##flag))	\
-+		fprintf(fp, "%s" #flag, others++ ? "|" : "")
-+	if (pte) {
-+		CHECK_PAGE_FLAG(PRESENT);
-+		CHECK_PAGE_FLAG(READ);
-+		CHECK_PAGE_FLAG(WRITE);
-+		CHECK_PAGE_FLAG(EXEC);
-+		CHECK_PAGE_FLAG(USER);
-+		CHECK_PAGE_FLAG(GLOBAL);
-+		CHECK_PAGE_FLAG(ACCESSED);
-+		CHECK_PAGE_FLAG(DIRTY);
-+		CHECK_PAGE_FLAG(SOFT);
-+	} else {
-+		fprintf(fp, "no mapping");
-+	}
-+
-+	fprintf(fp, ")\n");
-+
-+	return page_present;
-+}
-+
-+static void
-+riscv64_page_type_init(void)
-+{
-+	ulong va_bits = machdep->machspec->va_bits;
-+
-+	/*
-+	 * For RISCV64 arch, any level of PTE may be a leaf PTE,
-+	 * so in addition to 4KiB pages,
-+	 * Sv39 supports 2 MiB megapages, 1 GiB gigapages;
-+	 * Sv48 supports 2 MiB megapages, 1 GiB gigapages, 512 GiB terapages;
-+	 * Sv57 supports 2 MiB megapages, 1 GiB gigapages, 512 GiB terapages, and 256 TiB petapages.
-+	 *
-+	 * refs to riscv-privileged spec.
-+	 *
-+	 * We just support 4KiB, 2MiB, 1GiB now.
-+	 */
-+	switch (machdep->pagesize)
-+	{
-+	case 0x1000:		// 4 KiB
-+		machdep->flags |= (va_bits == 57 ? VM_L5_4K :
-+				  (va_bits == 48 ? VM_L4_4K : VM_L3_4K));
-+		break;
-+	case 0x200000:		// 2 MiB
-+		/* TODO: */
-+	case 0x40000000: 	// 1 GiB
-+		/* TODO: */
-+	default:
-+		if (machdep->pagesize)
-+			error(FATAL, "invalid/unsupported page size: %d\n",
-+			      machdep->pagesize);
-+		else
-+			error(FATAL, "cannot determine page size\n");
-+	}
-+}
-+
-+static int
-+riscv64_vtop_3level_4k(ulong *pgd, ulong vaddr, physaddr_t *paddr, int verbose)
-+{
-+	ulong *pgd_ptr, pgd_val;
-+	ulong pmd_val;
-+	ulong pte_val, pte_pfn;
-+	ulong pt_phys;
-+
-+	/* PGD */
-+	pgd_ptr = pgd + pgd_index_l3_4k(vaddr);
-+	FILL_PGD(pgd, KVADDR, PAGESIZE());
-+	pgd_val = ULONG(machdep->pgd + PAGEOFFSET(pgd_ptr));
-+	if (verbose)
-+		fprintf(fp, "   PGD: %lx => %lx\n", (ulong)pgd_ptr, pgd_val);
-+	if (!pgd_val)
-+		goto no_page;
-+	pgd_val &= PTE_PFN_PROT_MASK;
-+	pt_phys = (pgd_val >> _PAGE_PFN_SHIFT) << PAGESHIFT();
-+
-+	/* PMD */
-+	FILL_PMD(PAGEBASE(pt_phys), PHYSADDR, PAGESIZE());
-+	pmd_val = ULONG(machdep->pmd + PAGEOFFSET(sizeof(pmd_t) *
-+			pmd_index_l3_4k(vaddr)));
-+	if (verbose)
-+		fprintf(fp, "  PMD: %016lx => %016lx\n", pt_phys, pmd_val);
-+	if (!pmd_val)
-+		goto no_page;
-+	pmd_val &= PTE_PFN_PROT_MASK;
-+	pt_phys = (pmd_val >> _PAGE_PFN_SHIFT) << PAGESHIFT();
-+
-+	/* PTE */
-+	FILL_PTBL(PAGEBASE(pt_phys), PHYSADDR, PAGESIZE());
-+	pte_val = ULONG(machdep->ptbl + PAGEOFFSET(sizeof(pte_t) *
-+			pte_index_l3_4k(vaddr)));
-+	if (verbose)
-+		fprintf(fp, "   PTE: %lx => %lx\n", pt_phys, pte_val);
-+	if (!pte_val)
-+		goto no_page;
-+	pte_val &= PTE_PFN_PROT_MASK;
-+	pte_pfn = pte_val >> _PAGE_PFN_SHIFT;
-+
-+	if (!(pte_val & _PAGE_PRESENT)) {
-+		if (verbose) {
-+			fprintf(fp, "\n");
-+			riscv64_translate_pte((ulong)pte_val, 0, 0);
-+		}
-+		fprintf(fp, " PAGE: %016lx not present\n\n", PAGEBASE(*paddr));
-+		return FALSE;
-+	}
-+
-+	*paddr = PTOB(pte_pfn) + PAGEOFFSET(vaddr);
-+
-+	if (verbose) {
-+		fprintf(fp, " PAGE: %016lx\n\n", PAGEBASE(*paddr));
-+		riscv64_translate_pte(pte_val, 0, 0);
-+	}
-+
-+	return TRUE;
-+no_page:
-+	fprintf(fp, "invalid\n");
-+	return FALSE;
-+}
-+
-+static int
-+riscv64_vtop_4level_4k(ulong *pgd, ulong vaddr, physaddr_t *paddr, int verbose)
-+{
-+	ulong *pgd_ptr, pgd_val;
-+	ulong pud_val;
-+	ulong pmd_val;
-+	ulong pte_val, pte_pfn;
-+	ulong pt_phys;
-+
-+	/* PGD */
-+	pgd_ptr = pgd + pgd_index_l4_4k(vaddr);
-+	FILL_PGD(pgd, KVADDR, PAGESIZE());
-+	pgd_val = ULONG(machdep->pgd + PAGEOFFSET(pgd_ptr));
-+	if (verbose)
-+		fprintf(fp, "   PGD: %lx => %lx\n", (ulong)pgd_ptr, pgd_val);
-+	if (!pgd_val)
-+		goto no_page;
-+	pgd_val &= PTE_PFN_PROT_MASK;
-+	pt_phys = (pgd_val >> _PAGE_PFN_SHIFT) << PAGESHIFT();
-+
-+	/* PUD */
-+	FILL_PUD(PAGEBASE(pt_phys), PHYSADDR, PAGESIZE());
-+	pud_val = ULONG(machdep->pud + PAGEOFFSET(sizeof(pud_t) *
-+			pud_index_l4_4k(vaddr)));
-+	if (verbose)
-+		fprintf(fp, "  PUD: %016lx => %016lx\n", pt_phys, pud_val);
-+	if (!pud_val)
-+		goto no_page;
-+	pud_val &= PTE_PFN_PROT_MASK;
-+	pt_phys = (pud_val >> _PAGE_PFN_SHIFT) << PAGESHIFT();
-+
-+	/* PMD */
-+	FILL_PMD(PAGEBASE(pt_phys), PHYSADDR, PAGESIZE());
-+	pmd_val = ULONG(machdep->pmd + PAGEOFFSET(sizeof(pmd_t) *
-+			pmd_index_l4_4k(vaddr)));
-+	if (verbose)
-+		fprintf(fp, "  PMD: %016lx => %016lx\n", pt_phys, pmd_val);
-+	if (!pmd_val)
-+		goto no_page;
-+	pmd_val &= PTE_PFN_PROT_MASK;
-+	pt_phys = (pmd_val >> _PAGE_PFN_SHIFT) << PAGESHIFT();
-+
-+	/* PTE */
-+	FILL_PTBL(PAGEBASE(pt_phys), PHYSADDR, PAGESIZE());
-+	pte_val = ULONG(machdep->ptbl + PAGEOFFSET(sizeof(pte_t) *
-+			pte_index_l4_4k(vaddr)));
-+	if (verbose)
-+		fprintf(fp, "   PTE: %lx => %lx\n", pt_phys, pte_val);
-+	if (!pte_val)
-+		goto no_page;
-+	pte_val &= PTE_PFN_PROT_MASK;
-+	pte_pfn = pte_val >> _PAGE_PFN_SHIFT;
-+
-+	if (!(pte_val & _PAGE_PRESENT)) {
-+		if (verbose) {
-+			fprintf(fp, "\n");
-+			riscv64_translate_pte((ulong)pte_val, 0, 0);
-+		}
-+		fprintf(fp, " PAGE: %016lx not present\n\n", PAGEBASE(*paddr));
-+		return FALSE;
-+	}
-+
-+	*paddr = PTOB(pte_pfn) + PAGEOFFSET(vaddr);
-+
-+	if (verbose) {
-+		fprintf(fp, " PAGE: %016lx\n\n", PAGEBASE(*paddr));
-+		riscv64_translate_pte(pte_val, 0, 0);
-+	}
-+
-+	return TRUE;
-+no_page:
-+	fprintf(fp, "invalid\n");
-+	return FALSE;
-+}
-+
-+static int
-+riscv64_vtop_5level_4k(ulong *pgd, ulong vaddr, physaddr_t *paddr, int verbose)
-+{
-+	ulong *pgd_ptr, pgd_val;
-+	ulong p4d_val;
-+	ulong pud_val;
-+	ulong pmd_val;
-+	ulong pte_val, pte_pfn;
-+	ulong pt_phys;
-+
-+	/* PGD */
-+	pgd_ptr = pgd + pgd_index_l5_4k(vaddr);
-+	FILL_PGD(pgd, KVADDR, PAGESIZE());
-+	pgd_val = ULONG(machdep->pgd + PAGEOFFSET(pgd_ptr));
-+	if (verbose)
-+		fprintf(fp, "   PGD: %lx => %lx\n", (ulong)pgd_ptr, pgd_val);
-+	if (!pgd_val)
-+		goto no_page;
-+	pgd_val &= PTE_PFN_PROT_MASK;
-+	pt_phys = (pgd_val >> _PAGE_PFN_SHIFT) << PAGESHIFT();
-+
-+	/* P4D */
-+	FILL_P4D(PAGEBASE(pt_phys), PHYSADDR, PAGESIZE());
-+	p4d_val = ULONG(machdep->machspec->p4d + PAGEOFFSET(sizeof(p4d_t) *
-+			p4d_index_l5_4k(vaddr)));
-+	if (verbose)
-+		fprintf(fp, "  P4D: %016lx => %016lx\n", pt_phys, p4d_val);
-+	if (!p4d_val)
-+		goto no_page;
-+	p4d_val &= PTE_PFN_PROT_MASK;
-+	pt_phys = (p4d_val >> _PAGE_PFN_SHIFT) << PAGESHIFT();
-+
-+	/* PUD */
-+	FILL_PUD(PAGEBASE(pt_phys), PHYSADDR, PAGESIZE());
-+	pud_val = ULONG(machdep->pud + PAGEOFFSET(sizeof(pud_t) *
-+			pud_index_l5_4k(vaddr)));
-+	if (verbose)
-+		fprintf(fp, "  PUD: %016lx => %016lx\n", pt_phys, pud_val);
-+	if (!pud_val)
-+		goto no_page;
-+	pud_val &= PTE_PFN_PROT_MASK;
-+	pt_phys = (pud_val >> _PAGE_PFN_SHIFT) << PAGESHIFT();
-+
-+	/* PMD */
-+	FILL_PMD(PAGEBASE(pt_phys), PHYSADDR, PAGESIZE());
-+	pmd_val = ULONG(machdep->pmd + PAGEOFFSET(sizeof(pmd_t) *
-+			pmd_index_l4_4k(vaddr)));
-+	if (verbose)
-+		fprintf(fp, "  PMD: %016lx => %016lx\n", pt_phys, pmd_val);
-+	if (!pmd_val)
-+		goto no_page;
-+	pmd_val &= PTE_PFN_PROT_MASK;
-+	pt_phys = (pmd_val >> _PAGE_PFN_SHIFT) << PAGESHIFT();
-+
-+	/* PTE */
-+	FILL_PTBL(PAGEBASE(pt_phys), PHYSADDR, PAGESIZE());
-+	pte_val = ULONG(machdep->ptbl + PAGEOFFSET(sizeof(pte_t) *
-+			pte_index_l4_4k(vaddr)));
-+	if (verbose)
-+		fprintf(fp, "   PTE: %lx => %lx\n", pt_phys, pte_val);
-+	if (!pte_val)
-+		goto no_page;
-+	pte_val &= PTE_PFN_PROT_MASK;
-+	pte_pfn = pte_val >> _PAGE_PFN_SHIFT;
-+
-+	if (!(pte_val & _PAGE_PRESENT)) {
-+		if (verbose) {
-+			fprintf(fp, "\n");
-+			riscv64_translate_pte((ulong)pte_val, 0, 0);
-+		}
-+		printf("!_PAGE_PRESENT\n");
-+		return FALSE;
-+	}
-+
-+	*paddr = PTOB(pte_pfn) + PAGEOFFSET(vaddr);
-+
-+	if (verbose) {
-+		fprintf(fp, " PAGE: %016lx\n\n", PAGEBASE(*paddr));
-+		riscv64_translate_pte(pte_val, 0, 0);
-+	}
-+
-+	return TRUE;
-+no_page:
-+	fprintf(fp, "invalid\n");
-+	return FALSE;
-+}
-+
-+static int
-+riscv64_init_active_task_regs(void)
-+{
-+	int retval;
-+
-+	retval = riscv64_get_crash_notes();
-+	if (retval == TRUE)
-+		return retval;
-+
-+	return riscv64_get_elf_notes();
-+}
-+
-+/*
-+ * Retrieve task registers for the time of the crash.
-+ */
-+static int
-+riscv64_get_crash_notes(void)
-+{
-+	struct machine_specific *ms = machdep->machspec;
-+	ulong crash_notes;
-+	Elf64_Nhdr *note;
-+	ulong offset;
-+	char *buf, *p;
-+	ulong *notes_ptrs;
-+	ulong i;
-+
-+	/*
-+	 * crash_notes contains per cpu memory for storing cpu states
-+	 * in case of system crash.
-+	 */
-+	if (!symbol_exists("crash_notes"))
-+		return FALSE;
-+
-+	crash_notes = symbol_value("crash_notes");
-+
-+	notes_ptrs = (ulong *)GETBUF(kt->cpus*sizeof(notes_ptrs[0]));
-+
-+	/*
-+	 * Read crash_notes for the first CPU. crash_notes are in standard ELF
-+	 * note format.
-+	 */
-+	if (!readmem(crash_notes, KVADDR, &notes_ptrs[kt->cpus-1],
-+	    sizeof(notes_ptrs[kt->cpus-1]), "crash_notes",
-+		     RETURN_ON_ERROR)) {
-+		error(WARNING, "cannot read crash_notes\n");
-+		FREEBUF(notes_ptrs);
-+		return FALSE;
-+	}
-+
-+	if (symbol_exists("__per_cpu_offset")) {
-+
-+		/*
-+		 * Add __per_cpu_offset for each cpu to form the pointer to the notes
-+		 */
-+		for (i = 0; i < kt->cpus; i++)
-+			notes_ptrs[i] = notes_ptrs[kt->cpus-1] + kt->__per_cpu_offset[i];
-+	}
-+
-+	buf = GETBUF(SIZE(note_buf));
-+
-+	if (!(panic_task_regs = calloc((size_t)kt->cpus, sizeof(*panic_task_regs))))
-+		error(FATAL, "cannot calloc panic_task_regs space\n");
-+
-+	for (i = 0; i < kt->cpus; i++) {
-+
-+		if (!readmem(notes_ptrs[i], KVADDR, buf, SIZE(note_buf), "note_buf_t",
-+			     RETURN_ON_ERROR)) {
-+			error(WARNING,
-+				"cannot find NT_PRSTATUS note for cpu: %d\n", i);
-+			goto fail;
-+		}
-+
-+		/*
-+		 * Do some sanity checks for this note before reading registers from it.
-+		 */
-+		note = (Elf64_Nhdr *)buf;
-+		p = buf + sizeof(Elf64_Nhdr);
-+
-+		/*
-+		 * dumpfiles created with qemu won't have crash_notes, but there will
-+		 * be elf notes; dumpfiles created by kdump do not create notes for
-+		 * offline cpus.
-+		 */
-+		if (note->n_namesz == 0 && (DISKDUMP_DUMPFILE() || KDUMP_DUMPFILE())) {
-+			if (DISKDUMP_DUMPFILE())
-+				note = diskdump_get_prstatus_percpu(i);
-+			else if (KDUMP_DUMPFILE())
-+				note = netdump_get_prstatus_percpu(i);
-+			if (note) {
-+				/*
-+				 * SIZE(note_buf) accounts for a "final note", which is a
-+				 * trailing empty elf note header.
-+				 */
-+				long notesz = SIZE(note_buf) - sizeof(Elf64_Nhdr);
-+
-+				if (sizeof(Elf64_Nhdr) + roundup(note->n_namesz, 4) +
-+				    note->n_descsz == notesz)
-+					BCOPY((char *)note, buf, notesz);
-+			} else {
-+				error(WARNING,
-+					"cannot find NT_PRSTATUS note for cpu: %d\n", i);
-+				continue;
-+			}
-+		}
-+
-+		/*
-+		 * Check the sanity of NT_PRSTATUS note only for each online cpu.
-+		 */
-+		if (note->n_type != NT_PRSTATUS) {
-+			error(WARNING, "invalid NT_PRSTATUS note (n_type != NT_PRSTATUS)\n");
-+			goto fail;
-+		}
-+		if (!STRNEQ(p, "CORE")) {
-+			error(WARNING, "invalid NT_PRSTATUS note (name != \"CORE\"\n");
-+			goto fail;
-+		}
-+
-+		/*
-+		 * Find correct location of note data. This contains elf_prstatus
-+		 * structure which has registers etc. for the crashed task.
-+		 */
-+		offset = sizeof(Elf64_Nhdr);
-+		offset = roundup(offset + note->n_namesz, 4);
-+		p = buf + offset; /* start of elf_prstatus */
-+
-+		BCOPY(p + OFFSET(elf_prstatus_pr_reg), &panic_task_regs[i],
-+		      sizeof(panic_task_regs[i]));
-+	}
-+
-+	/*
-+	 * And finally we have the registers for the crashed task. This is
-+	 * used later on when dumping backtrace.
-+	 */
-+	ms->crash_task_regs = panic_task_regs;
-+
-+	FREEBUF(buf);
-+	FREEBUF(notes_ptrs);
-+	return TRUE;
-+
-+fail:
-+	FREEBUF(buf);
-+	FREEBUF(notes_ptrs);
-+	free(panic_task_regs);
-+	return FALSE;
-+}
-+
-+static int
-+riscv64_get_elf_notes(void)
-+{
-+	struct machine_specific *ms = machdep->machspec;
-+	int i;
-+
-+	if (!DISKDUMP_DUMPFILE() && !KDUMP_DUMPFILE())
-+		return false;
-+
-+	panic_task_regs = calloc(kt->cpus, sizeof(*panic_task_regs));
-+	if (!panic_task_regs)
-+		error(FATAL, "cannot calloc panic_task_regs space\n");
-+
-+	for (i = 0; i < kt->cpus; i++) {
-+		Elf64_Nhdr *note = NULL;
-+		size_t len;
-+
-+		if (DISKDUMP_DUMPFILE())
-+			note = diskdump_get_prstatus_percpu(i);
-+		else if (KDUMP_DUMPFILE())
-+			note = netdump_get_prstatus_percpu(i);
-+
-+		if (!note) {
-+			error(WARNING,
-+				"cannot find NT_PRSTATUS note for cpu: %d\n", i);
-+			continue;
-+		}
-+
-+		len = sizeof(Elf64_Nhdr);
-+		len = roundup(len + note->n_namesz, 4);
-+
-+		BCOPY((char *)note + len + OFFSET(elf_prstatus_pr_reg),
-+		      &panic_task_regs[i], sizeof(panic_task_regs[i]));
-+	}
-+
-+	ms->crash_task_regs = panic_task_regs;
-+
-+	return TRUE;
-+}
-+
-+/*
-+ * Translates a user virtual address to its physical address.
-+ */
-+static int
-+riscv64_uvtop(struct task_context *tc, ulong uvaddr, physaddr_t *paddr, int verbose)
-+{
-+	ulong mm, active_mm;
-+	ulong *pgd;
-+
-+	if (!tc)
-+		error(FATAL, "current context invalid\n");
-+
-+	*paddr = 0;
-+
-+	if (is_kernel_thread(tc->task) && IS_KVADDR(uvaddr)) {
-+		readmem(tc->task + OFFSET(task_struct_active_mm),
-+			KVADDR, &active_mm, sizeof(void *),
-+			"task active_mm contents", FAULT_ON_ERROR);
-+
-+		if (!active_mm)
-+			error(FATAL,
-+			      "no active_mm for this kernel thread\n");
-+
-+		readmem(active_mm + OFFSET(mm_struct_pgd),
-+			KVADDR, &pgd, sizeof(long),
-+			"mm_struct pgd", FAULT_ON_ERROR);
-+	} else {
-+		if ((mm = task_mm(tc->task, TRUE)))
-+			pgd = ULONG_PTR(tt->mm_struct + OFFSET(mm_struct_pgd));
-+		else
-+			readmem(tc->mm_struct + OFFSET(mm_struct_pgd),
-+				KVADDR, &pgd, sizeof(long), "mm_struct pgd",
-+				FAULT_ON_ERROR);
-+	}
-+
-+	switch (machdep->flags & (VM_L3_4K | VM_L4_4K | VM_L5_4K))
-+	{
-+	case VM_L3_4K:
-+		return riscv64_vtop_3level_4k(pgd, uvaddr, paddr, verbose);
-+	case VM_L4_4K:
-+		return riscv64_vtop_4level_4k(pgd, uvaddr, paddr, verbose);
-+	case VM_L5_4K:
-+		return riscv64_vtop_5level_4k(pgd, uvaddr, paddr, verbose);
-+	default:
-+		return FALSE;
-+	}
-+}
-+
-+static int
-+riscv64_kvtop(struct task_context *tc, ulong kvaddr, physaddr_t *paddr, int verbose)
-+{
-+	ulong kernel_pgd;
-+
-+	if (!IS_KVADDR(kvaddr))
-+		return FALSE;
-+
-+	if (!vt->vmalloc_start) {
-+		*paddr = VTOP(kvaddr);
-+		return TRUE;
-+	}
-+
-+	if (!IS_VMALLOC_ADDR(kvaddr)) {
-+		*paddr = VTOP(kvaddr);
-+		if (!verbose)
-+			return TRUE;
-+	}
-+
-+	kernel_pgd = vt->kernel_pgd[0];
-+	*paddr = 0;
-+
-+	switch (machdep->flags & (VM_L3_4K | VM_L4_4K | VM_L5_4K))
-+	{
-+	case VM_L3_4K:
-+		return riscv64_vtop_3level_4k((ulong *)kernel_pgd, kvaddr, paddr, verbose);
-+	case VM_L4_4K:
-+		return riscv64_vtop_4level_4k((ulong *)kernel_pgd, kvaddr, paddr, verbose);
-+	case VM_L5_4K:
-+		return riscv64_vtop_5level_4k((ulong *)kernel_pgd, kvaddr, paddr, verbose);
-+	default:
-+		return FALSE;
-+	}
-+}
-+
- void
- riscv64_init(int when)
- {
-+	switch (when) {
-+	case SETUP_ENV:
-+		machdep->process_elf_notes = process_elf64_notes;
-+		break;
-+
-+	case PRE_SYMTAB:
-+		machdep->verify_symbol = riscv64_verify_symbol;
-+		machdep->machspec = &riscv64_machine_specific;
-+		if (pc->flags & KERNEL_DEBUG_QUERY)
-+			return;
-+
-+		machdep->verify_paddr = generic_verify_paddr;
-+		machdep->ptrs_per_pgd = PTRS_PER_PGD;
-+		break;
-+
-+	case PRE_GDB:
-+		machdep->pagesize = riscv64_get_page_size();
-+		machdep->pageshift = ffs(machdep->pagesize) - 1;
-+		machdep->pageoffset = machdep->pagesize - 1;
-+		machdep->pagemask = ~((ulonglong)machdep->pageoffset);
-+		machdep->stacksize = machdep->pagesize << THREAD_SIZE_ORDER;
-+
-+		riscv64_get_phys_ram_base(machdep->machspec);
-+		riscv64_get_struct_page_size(machdep->machspec);
-+		riscv64_get_va_bits(machdep->machspec);
-+		riscv64_get_va_range(machdep->machspec);
-+
-+		pt_level_alloc(&machdep->pgd, "cannot malloc pgd space.");
-+		pt_level_alloc(&machdep->machspec->p4d, "cannot malloc p4d space.");
-+		pt_level_alloc(&machdep->pud, "cannot malloc pud space.");
-+		pt_level_alloc(&machdep->pmd, "cannot malloc pmd space.");
-+		pt_level_alloc(&machdep->ptbl, "cannot malloc ptbl space.");
-+
-+		machdep->last_pgd_read = 0;
-+		machdep->machspec->last_p4d_read = 0;
-+		machdep->last_pud_read = 0;
-+		machdep->last_pmd_read = 0;
-+		machdep->last_ptbl_read = 0;
-+
-+		machdep->kvbase = machdep->machspec->page_offset;
-+		machdep->identity_map_base = machdep->kvbase;
-+		machdep->is_kvaddr = riscv64_is_kvaddr;
-+		machdep->is_uvaddr = riscv64_is_uvaddr;
-+		machdep->uvtop = riscv64_uvtop;
-+		machdep->kvtop = riscv64_kvtop;
-+		machdep->cmd_mach = riscv64_cmd_mach;
-+
-+		machdep->vmalloc_start = riscv64_vmalloc_start;
-+		machdep->processor_speed = riscv64_processor_speed;
-+		machdep->get_stackbase = generic_get_stackbase;
-+		machdep->get_stacktop = generic_get_stacktop;
-+		machdep->translate_pte = riscv64_translate_pte;
-+		machdep->memory_size = generic_memory_size;
-+		machdep->is_task_addr = riscv64_is_task_addr;
-+		machdep->get_smp_cpus = riscv64_get_smp_cpus;
-+		machdep->value_to_symbol = generic_machdep_value_to_symbol;
-+		machdep->show_interrupts = generic_show_interrupts;
-+		machdep->get_irq_affinity = generic_get_irq_affinity;
-+		machdep->init_kernel_pgd = NULL; /* pgd set by symbol_value("swapper_pg_dir") */
-+		break;
-+
-+	case POST_GDB:
-+		machdep->section_size_bits = _SECTION_SIZE_BITS;
-+		machdep->max_physmem_bits = _MAX_PHYSMEM_BITS;
-+		riscv64_page_type_init();
-+
-+		if (!machdep->hz)
-+			machdep->hz = 250;
-+
-+		if (symbol_exists("irq_desc"))
-+			ARRAY_LENGTH_INIT(machdep->nr_irqs, irq_desc,
-+					  "irq_desc", NULL, 0);
-+		else if (kernel_symbol_exists("nr_irqs"))
-+			get_symbol_data("nr_irqs", sizeof(unsigned int),
-+					&machdep->nr_irqs);
-+
-+		MEMBER_OFFSET_INIT(elf_prstatus_pr_reg, "elf_prstatus",
-+				   "pr_reg");
-+
-+		STRUCT_SIZE_INIT(note_buf, "note_buf_t");
-+		break;
-+
-+	case POST_VM:
-+		/*
-+		 * crash_notes contains machine specific information about the
-+		 * crash. In particular, it contains CPU registers at the time
-+		 * of the crash. We need this information to extract correct
-+		 * backtraces from the panic task.
-+		 */
-+		if (!ACTIVE() && !riscv64_init_active_task_regs())
-+			error(WARNING,
-+				"cannot retrieve registers for active task%s\n\n",
-+				kt->cpus > 1 ? "s" : "");
-+		break;
-+	}
- }
- 
-+/*
-+ * 'help -r' command output
-+ */
- void
- riscv64_display_regs_from_elf_notes(int cpu, FILE *ofp)
- {
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CuWcqCAyMDIyLzgvMSDkuIrljYgxMTowNiwgWWl4dW4gTGFuIOWGmemBkzoKPiBIaSBYaWFudGlu
+Zwo+Cj4gT24gTW9uLCBBdWcgMSwgMjAyMiBhdCAyOjM2IEFNIFhpYW50aW5nIFRpYW4KPiA8eGlh
+bnRpbmcudGlhbkBsaW51eC5hbGliYWJhLmNvbT4gd3JvdGU6Cj4+Cj4+IOWcqCAyMDIyLzgvMSDk
+uIrljYgxMDowOSwgWWl4dW4gTGFuIOWGmemBkzoKPj4+IEhJIFhpYW50aW5n77yaCj4+Pgo+Pj4g
+T24gU2F0LCBKdWwgMzAsIDIwMjIgYXQgODo1NiBBTSBYaWFudGluZyBUaWFuCj4+PiA8eGlhbnRp
+bmcudGlhbkBsaW51eC5hbGliYWJhLmNvbT4gd3JvdGU6Cj4+Pj4g5ZyoIDIwMjIvNy8zMCDkuIrl
+jYg3OjI5LCBZaXh1biBMYW4g5YaZ6YGTOgo+Pj4+PiBISSBYaWFudGluZwo+Pj4+Pgo+Pj4+PiBP
+biBGcmksIEp1bCAyOSwgMjAyMiBhdCAzOjExIFBNIFhpYW50aW5nIFRpYW4KPj4+Pj4gPHhpYW50
+aW5nLnRpYW5AbGludXguYWxpYmFiYS5jb20+IHdyb3RlOgo+Pj4+Pj4g5ZyoIDIwMjIvNy8yOSDk
+uIvljYg5OjQ0LCBZaXh1biBMYW4g5YaZ6YGTOgo+Pj4+Pj4+IEhpIFhpYW50aW5nCj4+Pj4+Pj4K
+Pj4+Pj4+PiBPbiBNb24sIEp1bCAxOCwgMjAyMiBhdCAyOjU1IEFNIFhpYW50aW5nIFRpYW4KPj4+
+Pj4+PiA8eGlhbnRpbmcudGlhbkBsaW51eC5hbGliYWJhLmNvbT4gd3JvdGU6Cj4+Pj4+Pj4+IFRo
+aXMgc2VyaWVzIG9mIHBhdGNoZXMgYXJlIGZvciBDcmFzaC11dGlsaXR5IHRvb2wsIGl0IG1ha2Ug
+Y3Jhc2ggdG9vbCBzdXBwb3J0Cj4+Pj4+Pj4+IFJJU0NWNjQgYXJjaCBhbmQgdGhlIGNvbW1vbiBj
+b21tYW5kcygqLCBidCwgcCwgcmQsIG1vZCwgbG9nLCBzZXQsIHN0cnVjdCwgdGFzaywKPj4+Pj4+
+Pj4gZGlzIGFuZCBzbyBvbikuCj4+Pj4+Pj4+Cj4+Pj4+Pj4+IFRvIG1ha2UgdGhlIGNyYXNoIHRv
+b2wgd29yayBub3JtYWxseSBmb3IgUklTQ1Y2NCBhcmNoLCB3ZSBuZWVkIGEgTGludXgga2VybmVs
+Cj4+Pj4+Pj4+IHBhdGNoKHVuZGVyIHJldmlld2luZyksIHdoaWNoIGV4cG9ydHMgdGhlIGtlcm5l
+bCB2aXJ0dWFsIG1lbW9yeSBsYXlvdXQsIHZhX2JpdHMsCj4+Pj4+Pj4+IHBoeXNfcmFtX2Jhc2Ug
+dG8gdm1jb3JlaW5mbywgaXQgY2FuIHNpbXBsaWZ5IHRoZSBkZXZlbG9wbWVudCBvZiBjcmFzaCB0
+b29sLgo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBUaGUgTGludXgga2VybmVsIHBhdGNoZXM6Cj4+Pj4+Pj4+
+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjIwNzE3MTAxMzIzLjM3MDI0
+NS0xLXhpYW50aW5nLnRpYW5AbGludXguYWxpYmFiYS5jb20vCj4+Pj4+Pj4+Cj4+Pj4+Pj4+IFRo
+aXMgc2VyaWVzIG9mIHBhdGNoZXMgYXJlIHRlc3RlZCBvbiBRRU1VIFJJU0NWNjQgZW52IGFuZCBT
+b0MgcGxhdGZvcm0gb2YKPj4+Pj4+Pj4gVC1oZWFkIFh1YW50aWUgOTEwIENQVS4KPj4+Pj4+Pj4K
+Pj4+Pj4+Pj4gPT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Cj4+Pj4+Pj4+ICAg
+ICAgIFNvbWUgdGVzdCBleGFtcGxlcyBsaXN0IGFzIGJlbG93Cj4+Pj4+Pj4+ID09PT09PT09PT09
+PT09PT09PT09PT09PT09PT09PT09PT09PQo+Pj4+Pj4+PiAuLi4gLi4uCj4+Pj4+Pj4+ICAgICAg
+ICAgICBLRVJORUw6IHZtbGludXgKPj4+Pj4+Pj4gICAgICAgICBEVU1QRklMRTogdm1jb3JlCj4+
+Pj4+Pj4+ICAgICAgICAgICAgIENQVVM6IDEKPj4+Pj4+Pj4gICAgICAgICAgICAgREFURTogRnJp
+IEp1bCAxNSAxMDoyNDoyNSBDU1QgMjAyMgo+Pj4+Pj4+PiAgICAgICAgICAgVVBUSU1FOiAwMDow
+MDozMwo+Pj4+Pj4+PiBMT0FEIEFWRVJBR0U6IDAuMDUsIDAuMDEsIDAuMDAKPj4+Pj4+Pj4gICAg
+ICAgICAgICBUQVNLUzogNDEKPj4+Pj4+Pj4gICAgICAgICBOT0RFTkFNRTogYnVpbGRyb290Cj4+
+Pj4+Pj4+ICAgICAgICAgIFJFTEVBU0U6IDUuMTguOQo+Pj4+Pj4+PiAgICAgICAgICBWRVJTSU9O
+OiAjMzAgU01QIEZyaSBKdWwgMTUgMDk6NDc6MDMgQ1NUIDIwMjIKPj4+Pj4+Pj4gICAgICAgICAg
+TUFDSElORTogcmlzY3Y2NCAgKHVua25vd24gTWh6KQo+Pj4+Pj4+PiAgICAgICAgICAgTUVNT1JZ
+OiAxIEdCCj4+Pj4+Pj4+ICAgICAgICAgICAgUEFOSUM6ICJLZXJuZWwgcGFuaWMgLSBub3Qgc3lu
+Y2luZzogc3lzcnEgdHJpZ2dlcmVkIGNyYXNoIgo+Pj4+Pj4+PiAgICAgICAgICAgICAgUElEOiAx
+MTMKPj4+Pj4+Pj4gICAgICAgICAgQ09NTUFORDogInNoIgo+Pj4+Pj4+PiAgICAgICAgICAgICBU
+QVNLOiBmZjYwMDAwMDAyMjY5NjAwICBbVEhSRUFEX0lORk86IGZmNjAwMDAwMDIyNjk2MDBdCj4+
+Pj4+Pj4+ICAgICAgICAgICAgICBDUFU6IDAKPj4+Pj4+Pj4gICAgICAgICAgICBTVEFURTogVEFT
+S19SVU5OSU5HIChQQU5JQykKPj4+Pj4+Pj4KPj4+Pj4+Pj4gY2Fyc2g+Cj4+Pj4+Pj4+Cj4+Pj4+
+Pj4+IGNyYXNoPiBwIG1lbV9tYXAKPj4+Pj4+Pj4gbWVtX21hcCA9ICQxID0gKHN0cnVjdCBwYWdl
+ICopIDB4ZmY2MDAwMDAzZWZmYmYwMAo+Pj4+Pj4+Pgo+Pj4+Pj4+PiBjcmFzaD4gcCAveCAqKHN0
+cnVjdCBwYWdlICopIDB4ZmY2MDAwMDAzZWZmYmYwMAo+Pj4+Pj4+PiAkNSA9IHsKPj4+Pj4+Pj4g
+ICAgICAgZmxhZ3MgPSAweDEwMDAsCj4+Pj4+Pj4+ICAgICAgIHsKPj4+Pj4+Pj4gICAgICAgICB7
+Cj4+Pj4+Pj4+ICAgICAgICAgICB7Cj4+Pj4+Pj4+ICAgICAgICAgICAgIGxydSA9IHsKPj4+Pj4+
+Pj4gICAgICAgICAgICAgICBuZXh0ID0gMHhmZjYwMDAwMDNlZmZiZjA4LAo+Pj4+Pj4+PiAgICAg
+ICAgICAgICAgIHByZXYgPSAweGZmNjAwMDAwM2VmZmJmMDgKPj4+Pj4+Pj4gICAgICAgICAgICAg
+fSwKPj4+Pj4+Pj4gICAgICAgICAgICAgewo+Pj4+Pj4+PiAgICAgICAgICAgICAgIF9fZmlsbGVy
+ID0gMHhmZjYwMDAwMDNlZmZiZjA4LAo+Pj4+Pj4+PiAgICAgICAgICAgICAgIG1sb2NrX2NvdW50
+ID0gMHgzZWZmYmYwOAo+Pj4+Pj4+PiAgICAgICAgICAgICB9Cj4+Pj4+Pj4+ICAgICAgICAgICB9
+LAo+Pj4+Pj4+PiAgICAgICAgICAgbWFwcGluZyA9IDB4MCwKPj4+Pj4+Pj4gICAgICAgICAgIGlu
+ZGV4ID0gMHgwLAo+Pj4+Pj4+PiAgICAgICAgICAgcHJpdmF0ZSA9IDB4MAo+Pj4+Pj4+PiAgICAg
+ICAgIH0sCj4+Pj4+Pj4+ICAgICAgIC4uLiAuLi4KPj4+Pj4+Pj4KPj4+Pj4+Pj4gY3Jhc2g+IG1v
+ZAo+Pj4+Pj4+PiAgICAgICAgICBNT0RVTEUgICAgICAgTkFNRSAgICAgICAgICAgICBCQVNFICAg
+ICAgICAgU0laRSAgT0JKRUNUIEZJTEUKPj4+Pj4+Pj4gZmZmZmZmZmYwMTEzZTc0MCAgbnZtZV9j
+b3JlICBmZmZmZmZmZjAxMTMzMDAwICA5ODMwNCAgKG5vdCBsb2FkZWQpICBbQ09ORklHX0tBTExT
+WU1TXQo+Pj4+Pj4+PiBmZmZmZmZmZjAxMTU0MmMwICBudm1lICAgICAgIGZmZmZmZmZmMDExNGMw
+MDAgIDYxNDQwICAobm90IGxvYWRlZCkgIFtDT05GSUdfS0FMTFNZTVNdCj4+Pj4+Pj4+Cj4+Pj4+
+Pj4+IGNyYXNoPiByZCBmZmZmZmZmZjAxMTNlNzQwIDgKPj4+Pj4+Pj4gZmZmZmZmZmYwMTEzZTc0
+MDogIDAwMDAwMDAwMDAwMDAwMDAgZmZmZmZmZmY4MTA4NzRmOCAgIC4uLi4uLi4uLnQuLi4uLi4K
+Pj4+Pj4+Pj4gZmZmZmZmZmYwMTEzZTc1MDogIGZmZmZmZmZmMDExNTQyYzggNzI2ZjYzNWY2NTZk
+NzY2ZSAgIC5CLi4uLi4ubnZtZV9jb3IKPj4+Pj4+Pj4gZmZmZmZmZmYwMTEzZTc2MDogIDAwMDAw
+MDAwMDAwMDAwNjUgMDAwMDAwMDAwMDAwMDAwMCAgIGUuLi4uLi4uLi4uLi4uLi4KPj4+Pj4+Pj4g
+ZmZmZmZmZmYwMTEzZTc3MDogIDAwMDAwMDAwMDAwMDAwMDAgMDAwMDAwMDAwMDAwMDAwMCAgIC4u
+Li4uLi4uLi4uLi4uLi4KPj4+Pj4+Pj4KPj4+Pj4+Pj4gY3Jhc2g+IHZ0b3AgZmZmZmZmZmYwMTEz
+ZTc0MAo+Pj4+Pj4+PiBWSVJUVUFMICAgICAgICAgICBQSFlTSUNBTAo+Pj4+Pj4+PiBmZmZmZmZm
+ZjAxMTNlNzQwICA4MjU0ZDc0MAo+Pj4+Pj4+Pgo+Pj4+Pj4+PiAgICAgICAgUEdEOiBmZmZmZmZm
+ZjgxMGU5ZmY4ID0+IDJmZmZmMDAxCj4+Pj4+Pj4+ICAgICAgIFA0RDogMDAwMDAwMDAwMDAwMDAw
+MCA9PiAwMDAwMDAwMDJmZmZlYzAxCj4+Pj4+Pj4+ICAgICAgIFBVRDogMDAwMDU2MDVjMjk1NzQ3
+MCA9PiAwMDAwMDAwMDIwOTQ5ODAxCj4+Pj4+Pj4+ICAgICAgIFBNRDogMDAwMDdmZmY3ZjE3NTBj
+MCA9PiAwMDAwMDAwMDIwOTQ3NDAxCj4+Pj4+Pj4+ICAgICAgICBQVEU6IDAgPT4gMjA5NTM0ZTcK
+Pj4+Pj4+Pj4gICAgICBQQUdFOiAwMDAwMDAwMDgyNTRkMDAwCj4+Pj4+Pj4+Cj4+Pj4+Pj4+ICAg
+ICAgIFBURSAgICAgUEhZU0lDQUwgIEZMQUdTCj4+Pj4+Pj4+IDIwOTUzNGU3ICA4MjU0ZDAwMCAg
+KFBSRVNFTlR8UkVBRHxXUklURXxHTE9CQUx8QUNDRVNTRUR8RElSVFkpCj4+Pj4+Pj4+Cj4+Pj4+
+Pj4+ICAgICAgICAgICBQQUdFICAgICAgIFBIWVNJQ0FMICAgICAgTUFQUElORyAgICAgICBJTkRF
+WCBDTlQgRkxBR1MKPj4+Pj4+Pj4gZmY2MDAwMDAzZjA3NzdkOCA4MjU0ZDAwMCAgICAgICAgICAg
+ICAgICAwICAgICAgICAwICAxIDAKPj4+Pj4+Pj4KPj4+Pj4+Pj4gY3Jhc2g+IGJ0Cj4+Pj4+Pj4+
+IFBJRDogMTEzICAgICAgVEFTSzogZmY2MDAwMDAwMjI2YzIwMCAgQ1BVOiAwICAgIENPTU1BTkQ6
+ICJzaCIKPj4+Pj4+Pj4gICAgICAjMCBbZmYyMDAwMDAxMDMzM2I5MF0gcmlzY3ZfY3Jhc2hfc2F2
+ZV9yZWdzIGF0IGZmZmZmZmZmODAwMDc4ZjgKPj4+Pj4+Pj4gICAgICAjMSBbZmYyMDAwMDAxMDMz
+M2NmMF0gcGFuaWMgYXQgZmZmZmZmZmY4MDY1NzhjNgo+Pj4+Pj4+PiAgICAgICMyIFtmZjIwMDAw
+MDEwMzMzZDUwXSBzeXNycV9yZXNldF9zZXFfcGFyYW1fc2V0IGF0IGZmZmZmZmZmODAzOGMwM2MK
+Pj4+Pj4+Pj4gICAgICAjMyBbZmYyMDAwMDAxMDMzM2RhMF0gX19oYW5kbGVfc3lzcnEgYXQgZmZm
+ZmZmZmY4MDM4YzYwNAo+Pj4+Pj4+PiAgICAgICM0IFtmZjIwMDAwMDEwMzMzZTAwXSB3cml0ZV9z
+eXNycV90cmlnZ2VyIGF0IGZmZmZmZmZmODAzOGNhZTQKPj4+Pj4+Pj4gICAgICAjNSBbZmYyMDAw
+MDAxMDMzM2UyMF0gcHJvY19yZWdfd3JpdGUgYXQgZmZmZmZmZmY4MDFiN2VlOAo+Pj4+Pj4+PiAg
+ICAgICM2IFtmZjIwMDAwMDEwMzMzZTQwXSB2ZnNfd3JpdGUgYXQgZmZmZmZmZmY4MDE1MmJiMgo+
+Pj4+Pj4+PiAgICAgICM3IFtmZjIwMDAwMDEwMzMzZTgwXSBrc3lzX3dyaXRlIGF0IGZmZmZmZmZm
+ODAxNTJlZGEKPj4+Pj4+Pj4gICAgICAjOCBbZmYyMDAwMDAxMDMzM2VkMF0gc3lzX3dyaXRlIGF0
+IGZmZmZmZmZmODAxNTJmNTIKPj4+Pj4+Pj4KPj4+Pj4+Pj4gWGlhbnRpbmcgVGlhbiAoOCk6Cj4+
+Pj4+Pj4+ICAgICAgIEFkZCBSSVNDVjY0IGZyYW1ld29yayBjb2RlIHN1cHBvcnQKPj4+Pj4+Pj4g
+ICAgICAgUklTQ1Y2NDogTWFrZSBjcmFzaCB0b29sIGVudGVyIGNvbW1hbmQgbGluZSBhbmQgc3Vw
+cG9ydCBzb21lIGNvbW1hbmRzCj4+Pj4+Pj4+ICAgICAgIFJJU0NWNjQ6IEFkZCAnZGlzJyBjb21t
+YW5kIHN1cHBvcnQKPj4+Pj4+Pj4gICAgICAgUklTQ1Y2NDogQWRkICdpcnEnIGNvbW1hbmQgc3Vw
+cG9ydAo+Pj4+Pj4+PiAgICAgICBSSVNDVjY0OiBBZGQgJ2J0JyBjb21tYW5kIHN1cHBvcnQKPj4+
+Pj4+Pj4gICAgICAgUklTQ1Y2NDogQWRkICdoZWxwIC1yJyBjb21tYW5kIHN1cHBvcnQKPj4+Pj4+
+Pj4gICAgICAgUklTQ1Y2NDogQWRkICdtYWNoJyBjb21tYW5kIHN1cHBvcnQKPj4+Pj4+Pj4gICAg
+ICAgUklTQ1Y2NDogQWRkIHRoZSBpbXBsZW1lbnRhdGlvbiBvZiBzeW1ib2wgdmVyaWZ5Cj4+Pj4+
+Pj4+Cj4+Pj4+Pj4+ICAgICAgTWFrZWZpbGUgICAgICAgICAgICB8ICAgIDcgKy0KPj4+Pj4+Pj4g
+ICAgICBSRUFETUUgICAgICAgICAgICAgIHwgICAgMiArLQo+Pj4+Pj4+PiAgICAgIGNvbmZpZ3Vy
+ZS5jICAgICAgICAgfCAgIDM5ICstCj4+Pj4+Pj4+ICAgICAgZGVmcy5oICAgICAgICAgICAgICB8
+ICAyNDggKysrKysrKy0KPj4+Pj4+Pj4gICAgICBkaXNrZHVtcC5jICAgICAgICAgIHwgICAyMSAr
+LQo+Pj4+Pj4+PiAgICAgIGhlbHAuYyAgICAgICAgICAgICAgfCAgICAyICstCj4+Pj4+Pj4+ICAg
+ICAgbGtjZF92bWR1bXBfdjJfdjMuaCB8ICAgIDIgKy0KPj4+Pj4+Pj4gICAgICBuZXRkdW1wLmMg
+ICAgICAgICAgIHwgICAyMiArLQo+Pj4+Pj4+PiAgICAgIHJhbWR1bXAuYyAgICAgICAgICAgfCAg
+ICAyICsKPj4+Pj4+Pj4gICAgICByaXNjdjY0LmMgICAgICAgICAgIHwgMTQxNCArKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4+Pj4+Pj4+ICAgICAgc3ltYm9scy5j
+ICAgICAgICAgICB8ICAgMTAgKwo+Pj4+Pj4+PiAgICAgIDExIGZpbGVzIGNoYW5nZWQsIDE3NTkg
+aW5zZXJ0aW9ucygrKSwgMTAgZGVsZXRpb25zKC0pCj4+Pj4+Pj4+ICAgICAgY3JlYXRlIG1vZGUg
+MTAwNjQ0IHJpc2N2NjQuYwo+Pj4+Pj4+Pgo+Pj4+Pj4+PiAtLQo+Pj4+Pj4+PiAyLjE3LjEKPj4+
+Pj4+Pj4KPj4+Pj4+PiBJJ20gYWN0dWFsbHkgaGF2aW5nIHByb2JsZW0gd2l0aCB0aGVzZSBwYXRj
+aCBzZXQsIGdvdCBhIGNvbXBpbGluZyBlcnJvcjoKPj4+Pj4+Pgo+Pj4+Pj4+ID09PSBlcnJvciBs
+b2cgPT09Cj4+Pj4+Pj4gcmlzY3Y2NC11bmtub3duLWxpbnV4LWdudS1nY2MgLWMgLWcgLURSSVND
+VjY0ICAtREdEQl8xMF8yIC1PMiAtcGlwZQo+Pj4+Pj4+IGxrY2RfY29tbW9uLmMKPj4+Pj4+PiBy
+aXNjdjY0LXVua25vd24tbGludXgtZ251LWdjYyAtYyAtZyAtRFJJU0NWNjQgIC1ER0RCXzEwXzIg
+LU8yIC1waXBlCj4+Pj4+Pj4gbGtjZF92MS5jIC1ETUNMWAo+Pj4+Pj4+IHJpc2N2NjQtdW5rbm93
+bi1saW51eC1nbnUtZ2NjIC1jIC1nIC1EUklTQ1Y2NCAgLURHREJfMTBfMiAtTzIgLXBpcGUKPj4+
+Pj4+PiBsa2NkX3YyX3YzLmMgLURNQ0xYCj4+Pj4+Pj4gSW4gZmlsZSBpbmNsdWRlZCBmcm9tIGxr
+Y2RfdjEuYzoyMToKPj4+Pj4+PiBsa2NkX3ZtZHVtcF92MS5oOjEyMTozMDogZXJyb3I6IGZpZWxk
+IOKAmGRoX3JlZ3PigJkgaGFzIGluY29tcGxldGUgdHlwZQo+Pj4+Pj4+ICAgICAgIDEyMSB8ICAg
+ICAgICAgc3RydWN0IHB0X3JlZ3MgICAgICAgZGhfcmVnczsKPj4+Pj4+PiAgICAgICAgICAgfCAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5+fn5+fn4KPj4+Pj4+PiBtYWtlWzVdOiAqKiog
+W01ha2VmaWxlOjM4NTogbGtjZF92MS5vXSBFcnJvciAxCj4+Pj4+Pj4gbWFrZVs1XTogKioqIFdh
+aXRpbmcgZm9yIHVuZmluaXNoZWQgam9icy4uLi4KPj4+Pj4+PiBJbiBmaWxlIGluY2x1ZGVkIGZy
+b20gbGtjZF92Ml92My5jOjIxOgo+Pj4+Pj4+IGxrY2Rfdm1kdW1wX3YyX3YzLmg6OTA6MzA6IGVy
+cm9yOiBmaWVsZCDigJhkaGFfcmVnc+KAmSBoYXMgaW5jb21wbGV0ZSB0eXBlCj4+Pj4+Pj4gICAg
+ICAgIDkwIHwgICAgICAgICBzdHJ1Y3QgcHRfcmVncyAgICAgICBkaGFfcmVnczsKPj4+Pj4+PiAg
+ICAgICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5+fn5+fn5+Cj4+Pj4+Pj4g
+bWFrZVs1XTogKioqIFtNYWtlZmlsZTozODg6IGxrY2RfdjJfdjMub10gRXJyb3IgMQo+Pj4+Pj4+
+IG1ha2VbNF06ICoqKiBbTWFrZWZpbGU6MTg3MTogZ2RiXSBFcnJvciAyCj4+Pj4+Pj4gbWFrZVsz
+XTogKioqIFtNYWtlZmlsZToxMDA3MjogYWxsLWdkYl0gRXJyb3IgMgo+Pj4+Pj4+IG1ha2VbMl06
+ICoqKiBbTWFrZWZpbGU6ODYwOiBhbGxdIEVycm9yIDIKPj4+Pj4+Pgo+Pj4+Pj4+IGNyYXNoIGJ1
+aWxkIGZhaWxlZAo+Pj4+Pj4gSXQncyBzdHJhbmdlLCBhY3R1YWxseSBJIGRpZG4ndCBtZWV0IHN1
+Y2ggY29tcGlsaW5nIGVycm9yIGJ5ICdtYWtlCj4+Pj4+PiB0YXJnZXQ9UklTQ1Y2NCcsIHRoZSBj
+b21waWxpbmcgaXMgT0suCj4+Pj4+Pgo+Pj4+Pj4gRG8geW91IGhhdmUgbW9yZSBkZXRhaWxzIGZv
+ciB0aGUgYnVpbGQ/Cj4+Pj4+Pgo+Pj4+PiBGWUksIEknbSB1c2luZyBzb3VyY2UgY29kZSBvZiBj
+cmFzaCwgY29tbWl0OiBmMzdkZjdkZjhhNTAKPj4+Pj4gSSBkb24ndCB0aGluayBpdCdzIG5lY2Vz
+c2FyeSB0byBwYXNzICd0YXJnZXQnIHZhcmlhYmxlIGV4cGxpY2l0bHksIHNlZQo+Pj4+PiB0aGUg
+Y29tbWVudCBvZiBNYWtlZmlsZQo+Pj4+Pgo+Pj4+PiA9PT09IHNuaXAgb2YgTWFrZWZpbGUKPj4+
+Pj4gIyB0YXJnZXQgY291bGQgYmUgc2V0IG9uIGNvbW1hbmQgbGluZSB3aGVuIGludm9raW5nIG1h
+a2UuIExpa2U6IG1ha2UgdGFyZ2V0PUFSTQo+Pj4+PiAjIG90aGVyd2lzZSB0YXJnZXQgd2lsbCBi
+ZSB0aGUgc2FtZSBhcyB0aGUgaG9zdAo+Pj4+PiBpZm5lcSAoJCh0YXJnZXQpLCkKPj4+Pj4gQ09O
+Rl9UQVJHRVRfRkxBRz0iLXQkKHRhcmdldCkiCj4+Pj4+IGVuZGlmCj4+Pj4+ID09PT0KPj4+Pj4K
+Pj4+Pj4gYmVzaWRlcywgaXQgYWN0dWFsbHkgcmVjb2duaXplZCB0aGUgY29ycmVjdCB0YXJnZXQg
+c3VjY2Vzc2Z1bGx5Cj4+Pj4+Cj4+Pj4+ID09PT0gc25pcCBvZiBidWlsZCBsb2cKPj4+Pj4gbWFr
+ZSAtajggQ0M9cmlzY3Y2NC11bmtub3duLWxpbnV4LWdudS1nY2MKPj4+Pj4gQVI9cmlzY3Y2NC11
+bmtub3duLWxpbnV4LWdudS1hciAnQ0ZMQUdTPS1PMiAtcGlwZScgJ0xERkxBR1M9LVdsLC1PMQo+
+Pj4+PiAtV2wsLS1hcy1uZWVkZWQnCj4+Pj4+IFRBUkdFVDogUklTQ1Y2NAo+Pj4+PiAgICAgQ1JB
+U0g6IDguMC4xKysKPj4+Pj4gICAgICAgR0RCOiAxMC4yCj4+Pj4+ID09PT0KPj4+PiBTb3JyeSwg
+SSBkb24ndCBxdWl0ZSB1bmRlcnN0YW5kLCB3ZSB1c3VhbGx5IGJ1aWxkIGNyYXNoIHRvb2wgb24g
+eDg2XzY0Cj4+Pj4gZm9yIGFuYWx5emluZyBvdGhlciBBUkNIJ3Mgdm1jb3JlLgo+Pj4+Cj4+Pj4g
+QXMgUkVBRE1FIHNob3dzLCB3ZSBuZWVkIHR5cGUgdGFyZ2V0PVhYWCBmb3IgYW5hbHl6aW5nIFhY
+WCBhcmNoIHZtY29yZS4KPj4+PiBJZiB3ZSBvbmx5IHVzZSAnbWFrZScgdG8gYnVpbGQgb24gWDg2
+XzY0LCBpdCBpcyB1c2VkIHRvIGFuYWx5emUgeDg2XzY0J3MKPj4+PiB2bWNvcmUuCj4+Pj4KPj4+
+PiBJIGRvbid0IHRoaW5rICJtYWtlIC1qOCBDQz1yaXNjdjY0LXVua25vd24tbGludXgtZ251LWdj
+YyIgaXMgb2sgZm9yIHRoZQo+Pj4+IGJ1aWxkLiAgSWYgSSBhbSB3cm9uZywgcGxlYXNlIGNvcnJl
+Y3QgbWUuIHRoYW5rcwo+Pj4+Cj4+PiB0aGUgZGlmZmVyZW5jZSBpcyA6Cj4+PiBJJ20gaGVyZSB1
+c2luZyBuYXRpdmUgY29tcGlsaW5nIGFwcHJvYWNoIGZvciBjcmFzaCB1dGlsaXR5LCB3aGljaCBt
+ZWFuCj4+PiB0aGUgaG9zdCBPUyBkaXN0cm8gaXMgYWxzbyBhIHJpc2N2NjQgKGxwNjRkKSBMaW51
+eC4KPj4+Cj4+PiAjIHVuYW1lIC1hCj4+PiBMaW51eCB1bm1hdGNoIDUuMTguMTUtZ2VudG9vLXJp
+c2N2NjQgIzEgU01QIFNhdCBKdWwgMzAgMjA6MTI6MTYgQ1NUCj4+PiAyMDIyIHJpc2N2NjQgR05V
+L0xpbnV4Cj4+Pgo+Pj4gdGhpcyBzaG91bGQgYWxzbyB3b3JrIGFzIGV4cGVjdGVkIHdoaWNoIGFs
+cmVhZHkgcHJvdmVkIGJ5IGFybTY0L3BwYy9ldGMuLgo+PiBUaGFua3MsIHNlZW1zIG5vdCBhbGwg
+QVJDSHMgc3VwcG9ydCBzdWNoIGJ1aWxkLgo+Pgo+PiBBbnl3YXksIEkgd2lsbCBhZGQgeW91ciBm
+aXggYXMgYSBzZXBhcmF0ZSBwYXRjaCB0byBiZSBpbmNsdWRlZCBieSBteQo+PiBwYXRjaCBzZXQs
+IGFuZCBhZGQgIkNvLWRldmVsb3BlZC1ieTogWWl4dW4gTGFuIDx5aXh1bi5sYW5AZ21haWwuY29t
+PiIKPj4KPiBoZXksIEkgdGhpbmsgaXQncyBub3QgcXVpdGUgYW4gaW5kZXBlbmRlbnQgcGF0Y2gs
+IHNvIEknbSB0b3RhbGx5IGZpbmUKPiB3aXRoIGl0IGZvbGRpbmcgaW50byBvdGhlciBwYXRjaGVz
+LAo+IGFuZCBzaW5jZSBpdCdzIHRyaXZpYWwsIEkgZG9uJ3QgbWluZCBkcm9wcGluZyB0aGUgIkNv
+LWRldmVsb3BlZC1ieSIgdGFnLAo+IGluc3RlYWQgaWYgeW91IGxpa2UsIHlvdSBjYW4gYWRkIG15
+ICJUZXN0ZWQtYnkiIHRhZwpJdCBpcyBPSywgVjIgcGF0Y2ggc2V0IGhhcyBzZW50LCB5b3UgY2Fu
+IGNoZWNrIGl0Lgo+Cj4gdGhhbmtzCj4KPiBZaXh1bgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
