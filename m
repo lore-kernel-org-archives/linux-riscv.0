@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE80C00140
-	for <linux-riscv@archiver.kernel.org>; Tue,  2 Aug 2022 14:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC021C00140
+	for <linux-riscv@archiver.kernel.org>; Tue,  2 Aug 2022 15:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jsso5QyfzY76MFdsAxx8vg3Hn+/dKb2fYEp1ltpcZco=; b=3LN7guOl4rJ2mz
-	iH0i8LdYNMIlkEbHTNe916HNvO9jPxdByl9ikLywNO7Oz8e83jHnhoXOxdfYQ4ljOP+A/c+BdGwV9
-	NCIS3p1mf2zWBGdaJUaKHB/iw/cFpK/1vRBcTyRBPgeCjkDXh0eOfgfcycPBMIb78oupVZdOrGA1Y
-	Iv8CzWOEGtfGgJNsqJfgtnzAz841rASQZF3bUu2D8BfHYwlCf2kPNZ5O6sV2SjYY2p1rU2biJgoxx
-	CTE/Qm5uPmwCQfkTzK2rr5L1FeKeY2alby+RSJ5cx1P1s36+yJs1PFPHi9qyRIQrjl9CbZbWn4wyE
-	MXffyFKjhiO9FIVpofgw==;
+	List-Owner; bh=3ByF9up6+Z9BdA3Wvqlp0sPkwocIY9JDxOYdrxHhyO4=; b=aFd/Ara61UJqUD
+	BMyyYx4Ki+cP0kILWexL7NZUbK7pwpKFeRZT4CAb65UYml6elFhHD/lv/eHdiFNDdOR9kwqr5BhF2
+	xX+9d7sryjd4n/7SqFucdZ8+JOiHTkEmT/gT3pVweQuhXQuOLnH+TIV4ThrullVHkTYuzEuYfRKtK
+	oCpXaHcOzkfDQ5HABS846plelEuPS4YfKwgHO4tviia7zeIVCRP7/BaGt2uMcaD7sT9pROAODgRc4
+	Jbx98GVBtkv6h+ccSi9GkcPtbaNc4Rddhl4CLauj80FQqr0geQj8nLtOY9Fqc5ueecDRsCQ8hYcBo
+	fydIWevrM4KQ3vp4TJAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oIsi9-00Esxf-9O; Tue, 02 Aug 2022 14:17:29 +0000
-Received: from mail-io1-xd32.google.com ([2607:f8b0:4864:20::d32])
+	id 1oItWW-00FFeh-FK; Tue, 02 Aug 2022 15:09:32 +0000
+Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oIshl-00EsjA-Vy; Tue, 02 Aug 2022 14:17:07 +0000
-Received: by mail-io1-xd32.google.com with SMTP id z132so10761706iof.0;
-        Tue, 02 Aug 2022 07:17:05 -0700 (PDT)
+	id 1oItWJ-00FFYb-MR; Tue, 02 Aug 2022 15:09:21 +0000
+Received: by mail-il1-x130.google.com with SMTP id w16so7158212ilh.0;
+        Tue, 02 Aug 2022 08:09:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=mime-version:references:in-reply-to:from:date:message-id:subject:to
          :cc;
-        bh=dzbPWwhcEKIUb5XmuwsXZk0WHu1HAmpGHak33W/hz4Y=;
-        b=SY+mGld3c8Zk5Jxf7IddnvW31p46/D08XTmBEhxsrkVs4fSRF9TXUtbmjH5o29Gxrt
-         bM66MbluvwjQq1o0MRDc/b6vnsKl1e+6ofpDuhtDNVKZb08z8wTfrEPdcJSCiW6ofXiB
-         qEuAm4F+ALOKrC2llY5tCHy3VoSjYivoxA06GuVSAfECweP/3IaLqi3p3FY6ucuhokla
-         K4mOlgf3XQjAXVMtSZachXXq7XaOA4DS7qtJwOaRv8mXGyQ+Z+gZE4oZIhwUV0zcSiun
-         FkleluOQc7MJ6OTzXCqMZT9Pusj5PuHsJNZDnH4IvH4LGi5U09DMZvSX2vIPTdKNG3zj
-         mTdQ==
+        bh=TnTubc6T2moNEJDYoN4cgfDzPxoHQtes0c+6H3Y5Dww=;
+        b=pkkYVaCXoDjN3BxJA9fdnVundUXhEs1ZNjfqqqRGarF5AV++es8DHqocJO+FlDtBo2
+         K9VLQBHIKirR+kBAZXEW9X3tax+LPb3OLjnPtBLoJhQvOpYVhyum0CDwjRQmi8N3QLG9
+         qVZKGbs47r3RtFLMkEjxsxA5QRB0Pkop+q4m7mjlwSgMKR5zZqDQjBomHGV1Us1vun9a
+         vz+DnLQ27XHfdmEC6MvRGoByNQNFIbb1wMouC5XlTA9YXSvZ12GajCS96japFxJgfg9b
+         tHVgeXFpFd/wEAlJhB2ZChsOmOVxsmNul/LP5dMDpuISoJLCiJvTU58sqjiz4XsvWNCB
+         Ou/w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=x-gm-message-state:mime-version:references:in-reply-to:from:date
          :message-id:subject:to:cc;
-        bh=dzbPWwhcEKIUb5XmuwsXZk0WHu1HAmpGHak33W/hz4Y=;
-        b=ZY1zYYLivdZn8+A5JG1MZRIOYp3d7eAx/ZL8tx0xj+lFLVvxW3YnD8Hsa6UTESEOkj
-         Is68dvsWyZn1ZlBwsxtVkPGzbxWCHMb/0q0vXy2HGIHRaL3l/Ta7qwqW7Ce5STpsF7cU
-         UmpZwwSppi7FQD38iHZxTXoL2acqxtKu7ryNDf10aG1StNzLG0P/0+U/oFYtpL7fe4hk
-         EY3pHftmRcnD0sTOFH+q86hrEXCCdJNA2wXQQpGXX298wNE/FQU8owvHFEMIh5zzxulw
-         V/bSFIkSmcPGOFOFNBp+G7uGtrgqPRLspsEJqnUXvjtxt4B1Ec8YFS9JM+63reMruyJy
-         BqpQ==
-X-Gm-Message-State: AJIora/LOfRXbhxQiARnHI4El/0mOlFnc6riQnEDz6qnJtD+u+oZ721U
-	n2X76GhEZMgf8EuyqXFLZYgWjDovBZuuN/c+O5U=
-X-Google-Smtp-Source: AGRyM1uIEC0PcctxDbe0s059lTbpgzq5joEE1C4fgSlA6DPH4iRSwaj5/x2NpdBckrK5+ERUo19alicmxyTxfHdCTU8=
-X-Received: by 2002:a05:6638:25cb:b0:341:6546:1534 with SMTP id
- u11-20020a05663825cb00b0034165461534mr8193243jat.308.1659449825119; Tue, 02
- Aug 2022 07:17:05 -0700 (PDT)
+        bh=TnTubc6T2moNEJDYoN4cgfDzPxoHQtes0c+6H3Y5Dww=;
+        b=AScwzL90p31dgq1XIfKC5G/Cs6nnGr67Rqf03FMuFu+R1b4vSSBP/oYDQkm9WPL2ze
+         ozW1u0KWNVfFwFg3XFx5p7ziHNhefAjb96lrPqKDfjTZzL3o0JRLo/Mys+UALjr88ohJ
+         yX3GO8gL3e6ae1FKhoX/ziydqCcBiDa3lYhFNNyQ/lIuJ8MKOBg0yVw6KLq+HKXC8c06
+         ktMjGjvBG9xUH2tFz3l3x8bRyQ291ItmM1xodBQYux+j1FivATzIW0+j34+jRoZtJddA
+         U4lC6zJoQqMxYiqZ6gaxVRaeW08cYQqFOmHi+TphYXv+XAr5rtlXX8j/CnHjAnmE6MqF
+         WwyA==
+X-Gm-Message-State: AJIora/shxYqnxpJxuVEwdjVJ709N/Nd4mXmAAU6YDGmxKdiEbGvTOnZ
+	l/mpKb8HfaLQFd32cr4U/rDnRw5Jj95j1KE8T7M=
+X-Google-Smtp-Source: AGRyM1s/X7XdR0/a8lkQRbVcBP+dwZOZipEH93h8R/VlEWYf/KISRMdds5FIhduFNaDE0FsZQymaRLP6g1Da/s6WJVw=
+X-Received: by 2002:a05:6e02:17c6:b0:2dd:d9dc:6387 with SMTP id
+ z6-20020a056e0217c600b002ddd9dc6387mr8296085ilu.321.1659452957891; Tue, 02
+ Aug 2022 08:09:17 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220802015052.10452-1-ojeda@kernel.org> <YukYByl76DKqa+iD@casper.infradead.org>
- <CANiq72k7JKqq5-8Nqf3Q2r2t_sAffC8g86A+v8yBc=W-1--_Tg@mail.gmail.com> <YukrFS9NIMSP/I/Q@infradead.org>
-In-Reply-To: <YukrFS9NIMSP/I/Q@infradead.org>
+ <CANiq72k7JKqq5-8Nqf3Q2r2t_sAffC8g86A+v8yBc=W-1--_Tg@mail.gmail.com> <YukuUtuXm/xPUuoP@casper.infradead.org>
+In-Reply-To: <YukuUtuXm/xPUuoP@casper.infradead.org>
 From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Tue, 2 Aug 2022 16:16:53 +0200
-Message-ID: <CANiq72=rRxQf+CLhDBpR7YFYkjSFKQoik082q5_bgh_AMCb3rQ@mail.gmail.com>
+Date: Tue, 2 Aug 2022 17:09:05 +0200
+Message-ID: <CANiq72kgwssTSE7F+4xkRrXBGVgHeWxCyjeZ-NHLUXWnFjMyTg@mail.gmail.com>
 Subject: Re: [PATCH v8 00/31] Rust support
-To: Christoph Hellwig <hch@infradead.org>
-Cc: Matthew Wilcox <willy@infradead.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
+To: Matthew Wilcox <willy@infradead.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Miguel Ojeda <ojeda@kernel.org>, 
 	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	Jarkko Sakkinen <jarkko@kernel.org>, linux-arm-kernel@lists.infradead.org, 
@@ -73,8 +73,8 @@ Cc: Matthew Wilcox <willy@infradead.org>, Linus Torvalds <torvalds@linux-foundat
 	linux-um@lists.infradead.org, live-patching@vger.kernel.org, 
 	linux-fsdevel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220802_071706_049717_FD4E0768 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20220802_080919_871829_F491236D 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,19 +91,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 2, 2022 at 3:48 PM Christoph Hellwig <hch@infradead.org> wrote:
+On Tue, Aug 2, 2022 at 4:01 PM Matthew Wilcox <willy@infradead.org> wrote:
 >
-> handwaiving and pointing to git trees is not how Linux development
-> works.  Please make sure all the patches go to the relevant lists
-> and maintainers first, and actually do have ACKs.
+> No objections to any of this.  I love the idea of being able to write
+> filesystems in Rust.  I just think it would go more smoothly if
+> linux-fsdevel were involved more closely so people at least have the
+> option of being able to follow design decisions, and hopefully influence
+> them.  That goes both ways, of course; I hardly think our current
+> operations structures are the optimum way to implement a filesystem,
+> and having fresh eyes say things like "But that shouldn't be part of the
+> address_space_operations" can impel better abstractions.
 
-Which hand-waving? In fact, we were requested to do it like this.
+I will send the patches to fsdevel then!
 
-As for the Cc's, if any ML wants to be Cc'd for an abstraction we
-create, even if no C code is modified on their side, I am more than
-happy to Cc them. I can even do that by default, but not everyone may
-want to hear about the Rust side just yet, so I have not been doing it
-so far.
+As for following development closely and design decisions, we have
+been doing it in GitHub so far pre-merge, so the easiest until the
+merge (for us) would be to ping you there. We can also send you copies
+of the `fs` related patches too if you would like that. I would highly
+recommend joining the monthly informal calls too.
+
+(I appreciate the kind answer, by the way!)
+
+> The obvious answer is to split out the 'fs module' into its own patch
+> ;-)  I presume it was part of the kernel crate which would have been
+> either patch 17 or 11 in that series?
+
+Yeah, patch 17, exactly (patch 11 is the `alloc` import). I have asked
+Konstantin privately about them.
+
+In any case, I will split the patches further for v9 which should help.
+
+Meanwhile, you can also see the `fs` module here, if you are curious:
+
+    https://github.com/Rust-for-Linux/linux/blob/rust-next/rust/kernel/fs.rs
+    https://github.com/Rust-for-Linux/linux/blob/rust-next/rust/kernel/fs/param.rs
 
 Cheers,
 Miguel
