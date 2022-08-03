@@ -4,84 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACF8C19F28
-	for <linux-riscv@archiver.kernel.org>; Wed,  3 Aug 2022 15:56:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E7DC19F28
+	for <linux-riscv@archiver.kernel.org>; Wed,  3 Aug 2022 17:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:To:From
+	:Date:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OxCL/WBgNXv5ED40GAoUCbE5YBNUGwTP+QpgznKtorw=; b=AA8FLSxpKYvAy+
-	pOAQ5jnY0+bapHqO2AbROGl+riKH4hvUnTycqZbCi1+a+U4CQSTv+sak/VLW7VWw5uCsNqjPhRj5+
-	6Bp56OAFrBoHj5tgjZYoYHACFHDr7SCarUl+RSZmnAcrEm22whJnjCjRYgNFYLbAqTW+PjqacfxH+
-	B8Z5Ka/mTD7UF0SB5jtG7XzdmZr4V/bfR29SF5E+tFWi4RCkCmN18T62b5q3gP1sWiXZTherMqf0o
-	sWKfyTWgatCtBIlmgWxamFHgbH4+B6UlfEHfNasHRc46Q0L+i2Bgw+87QWrcIDExlr5CCBJJXYGlP
-	BA7R0dd6wFZkK00vx3EA==;
+	List-Owner; bh=Ydvc50Wy6/fwVkfhRcx60WjQlExY4qQdoZ554rZC460=; b=EhzcnEWHmySRMf
+	HW/7wJHFB/JfJq10Qgd2qY2xaDsRjO5c+bSfbysiybnLOprqRDOleTd/41GAeXhabUrN+309ut7qd
+	cXAnSpnlfvuqhnh2D9OlB6aIgBf8QQ0qFn8e0aCyjKI/k0wZUVezBO3awhQOjkBG3Tb02vk12cSw+
+	ezi4pEobn0mUej/XAha2fLIFU3NuRI6DOJWulnwdK7HC7pBwc8uvlH4TytBYQdE0KJ4p8gCuvNHqT
+	dsA50YOnvy8UPop8zri8D9vvNY6zD3JWPEtBNEwbdFLKPjapinGYQryGzV9YSKwbyX30hdYMg+Lmg
+	Wib2oH/zBG/oDzQ+29eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oJGj9-007JIL-QD; Wed, 03 Aug 2022 15:56:07 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1oJHok-007lK6-IY; Wed, 03 Aug 2022 17:05:58 +0000
+Received: from mail-il1-f177.google.com ([209.85.166.177])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oJGj6-007JEZ-Su
-	for linux-riscv@lists.infradead.org; Wed, 03 Aug 2022 15:56:06 +0000
-Received: by mail-wm1-x334.google.com with SMTP id l19so2179533wms.1
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Aug 2022 08:56:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc;
-        bh=mxMtG/Q251T7R62iX9Xk/wpEgTp311fOpnJ0ShthtKM=;
-        b=B4+uBSxdHMiSA/FZHsjqRDTozx+JSIc1seFJm34ExPeztEVDD07wRjHK6FzULPj52N
-         0EMMYg3C77CqUFN29Loe0BUvz9T7wymLNRWvAVD/cIeIv0TUhupDo7MN1Pz5qwUDAn+7
-         BN5c/JV8oa3KMpsf5W+JM2rqd/VNTOpME5Zc9FtJVWEJYzaIQktD0/XCDYoLzNhYvn5f
-         7ftKrnOMC/S5QQvtkDaDyjY63dAnPxsBSjdnN9I0z+Meib5U4r1inilkPVme/npe8a6u
-         JMfE2ZYEVFLITL4oLRmvF3dRRMEYgoAiwOlWNDjQDUXb8Q2Xk+rL21TfON4HgoYl27YA
-         0MOQ==
+	id 1oJHoh-007lHT-CO
+	for linux-riscv@lists.infradead.org; Wed, 03 Aug 2022 17:05:56 +0000
+Received: by mail-il1-f177.google.com with SMTP id h16so8760895ilc.10
+        for <linux-riscv@lists.infradead.org>; Wed, 03 Aug 2022 10:05:54 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc;
-        bh=mxMtG/Q251T7R62iX9Xk/wpEgTp311fOpnJ0ShthtKM=;
-        b=o0D8DKuepcnLgek/MO0DS3A92SYGBhvyT91m/1D3BcHMofMp2P7SkpG9+uPnRFWEHg
-         4J9s53mXsTbE1pHCziflbr0CA9pFkQTzFt9cakwYOOqK2agqGUmnAqPaEZSfUfpdbACj
-         p0iUQTjwuZjGWwZJCpM4oSbyt6wWTMMbeV+GVcJJNEnjNfxiO6hpSR4qXlRHUKBg68+K
-         hquA7ZKpAdfa3ND8WGg4AuD3S4K0HzzX1Khg3EeEhfbUoN3ZRMIkx3rrHwLUs2f2NZOg
-         +4TjjIqvciZEYFJDlcVFXEBgWmKQX/03chWVRHQ5tdg4FhrSyelD/nCawQ4Qo5tkFbjU
-         dR3Q==
-X-Gm-Message-State: ACgBeo0aN/FVabAlsO+BIRU9Y1fIa6eDVnWXWQFRgqIGY8uBrV2jscY4
-	Z/ufHP1gXUvXTjXYEWr/QWI4hA==
-X-Google-Smtp-Source: AA6agR5BfqTfNvlJd1g6OG5xcTlUNOnmja0gCtgMu3jkzJTU+0HROXQ6ioslOvzyFPUGUa6hAhSIyA==
-X-Received: by 2002:a05:600c:19d2:b0:3a3:2cdb:cc02 with SMTP id u18-20020a05600c19d200b003a32cdbcc02mr3313498wmq.182.1659542160960;
-        Wed, 03 Aug 2022 08:56:00 -0700 (PDT)
-Received: from henark71.. ([93.107.66.220])
-        by smtp.gmail.com with ESMTPSA id w13-20020adfee4d000000b0021f0af83142sm18107277wro.91.2022.08.03.08.55.59
+        h=content-disposition:mime-version:message-id:subject:to:from:date
+         :x-gm-message-state:from:to:cc;
+        bh=v4roaZfqx7PcCIU4byNAVqdVVXRQGgV9wju3rqJ7gjI=;
+        b=RzofM4l+gNP5FBZ1pAM3RrAlpwEatR56dkmFbcQYyYTiV41k8/geA4kyl52RiWbmsg
+         MOuyaFGL7gAvFbBCmwOIQmrloL3+eosgsVYT8SrwQ6hINuaHH/D9cF3HipTpnHfUlJo8
+         0zeKJVbzohDJjqcIl7Q3O7PiQPup4yRRNe4y1ZpkvS43mdz7HAQni0AuDfX7Um0Xy7v4
+         XFSiv9E0ZPayBsBwaKU0D626oP6vXhKbEM/6g/56/eHsoIuql2ZsEYaPcHrSpOCRZ3A0
+         eE3G+sxl7VXDAEQavt+vXQ2KbLt4+jWDN3uf0CEY9elAP8aKqOMZUXP3W7W56nJJcxFL
+         2uCg==
+X-Gm-Message-State: AJIora98C02WkZPjLsO2ecL2yjCsIrZs13V8g39SggNgJ0v+S6LE7vFO
+	VWszE1Pgu7LkeMYhBjk0Jg==
+X-Google-Smtp-Source: AGRyM1v4ORHo4C/fzjAcUDL0GgJ4P9hEjXLJyCajqcS7rGT5MYm7xFNpQ8Xa/I6qzuXragIdgkR8mw==
+X-Received: by 2002:a92:2809:0:b0:2de:2060:193 with SMTP id l9-20020a922809000000b002de20600193mr10893104ilf.188.1659546353588;
+        Wed, 03 Aug 2022 10:05:53 -0700 (PDT)
+Received: from robh.at.kernel.org ([64.188.179.248])
+        by smtp.gmail.com with ESMTPSA id q8-20020a02a988000000b0033f22c2e5b3sm7931254jam.98.2022.08.03.10.05.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Aug 2022 08:56:00 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Atul Khare <atulkhare@rivosinc.com>,
-	Sagar Kadam <sagar.kadam@sifive.com>
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH v4] dt-bindings: gpio: sifive: add gpio-line-names
-Date: Wed,  3 Aug 2022 16:55:40 +0100
-Message-Id: <20220803155539.800766-1-mail@conchuod.ie>
-X-Mailer: git-send-email 2.37.1
+        Wed, 03 Aug 2022 10:05:53 -0700 (PDT)
+Received: (nullmailer pid 2293770 invoked by uid 1000);
+	Wed, 03 Aug 2022 17:05:52 -0000
+Date: Wed, 3 Aug 2022 11:05:52 -0600
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <mail@conchuod.ie>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: DT schema warnings on Risc-V virt machine
+Message-ID: <20220803170552.GA2250266-robh@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220803_085605_034084_84D34E8F 
-X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-CacheID: sfid-20220803_100555_437268_CD730DD1 
+X-CRM114-Status: UNSURE (   5.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -99,47 +76,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Atul Khare <atulkhare@rivosinc.com>
+Hey folks,
 
-Fix device tree schema validation messages like 'gpio-line-names'
-does not match any of the regexes: 'pinctrl-[0-9]+' From schema: ...
-sifive,gpio.yaml'.
+FYI, I ran DT validation on the Risc-V 'virt' machine and these are the 
+warnings:
 
-The bindings were missing the gpio-line-names element, which was
-causing the dt-schema checker to trip-up.
+/home/rob/riscv-virt.dtb: cpu@0: riscv,isa:0: 'rv64imafdcsuh' is not one of ['rv64imac', 'rv64imafdc']
+        From schema: /home/rob/proj/git/linux-dt/Documentation/devicetree/bindings/riscv/cpus.yaml
+/home/rob/riscv-virt.dtb: soc: poweroff: {'value': [[21845]], 'offset': [[0]], 'regmap': [[4]], 'compatible': ['syscon-poweroff']} should not be valid under {'type': 'object'}
+        From schema: /home/rob/proj/git/dt-schema/dtschema/schemas/simple-bus.yaml
+/home/rob/riscv-virt.dtb: soc: reboot: {'value': [[30583]], 'offset': [[0]], 'regmap': [[4]], 'compatible': ['syscon-reboot']} should not be valid under {'type': 'object'}
+        From schema: /home/rob/proj/git/dt-schema/dtschema/schemas/simple-bus.yaml
+/home/rob/riscv-virt.dtb: uart@10000000: $nodename:0: 'uart@10000000' does not match '^serial(@.*)?$'
+        From schema: /home/rob/proj/git/linux-dt/Documentation/devicetree/bindings/serial/8250.yaml
+/home/rob/riscv-virt.dtb: plic@c000000: compatible: 'oneOf' conditional failed, one must be fixed:
+        'sifive,plic-1.0.0' is not one of ['sifive,fu540-c000-plic', 'starfive,jh7100-plic', 'canaan,k210-plic']
+        'sifive,plic-1.0.0' is not one of ['allwinner,sun20i-d1-plic']
+        'sifive,plic-1.0.0' was expected
+        'thead,c900-plic' was expected
+        From schema: /home/rob/proj/git/linux-dt/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+/home/rob/riscv-virt.dtb: plic@c000000: '#address-cells' is a required property
+        From schema: /home/rob/proj/git/linux-dt/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+/home/rob/riscv-virt.dtb: clint@2000000: compatible:0: 'sifive,clint0' is not one of ['sifive,fu540-c000-clint', 'starfive,jh7100-clint', 'canaan,k210-clint']
+        From schema: /home/rob/proj/git/linux-dt/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+/home/rob/riscv-virt.dtb: clint@2000000: compatible:1: 'sifive,clint0' was expected
+        From schema: /home/rob/proj/git/linux-dt/Documentation/devicetree/bindings/timer/sifive,clint.yaml
 
-Acked-by: Rob Herring <robh@kernel.org>
-Signed-off-by: Atul Khare <atulkhare@rivosinc.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-Changes since v3[0]:
-- Dropped patch 1 & the now unneeded cover letter
-- Added Rob's Ack
-- Changed the patch title to include the subsystem
 
-0 - https://lore.kernel.org/all/20220726170725.3245278-3-mail@conchuod.ie/
----
- Documentation/devicetree/bindings/gpio/sifive,gpio.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+Also from the 'spike' machine:
 
-diff --git a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
-index 939e31c48081..fc095646adea 100644
---- a/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
-+++ b/Documentation/devicetree/bindings/gpio/sifive,gpio.yaml
-@@ -46,6 +46,10 @@ properties:
-     maximum: 32
-     default: 16
- 
-+  gpio-line-names:
-+    minItems: 1
-+    maxItems: 32
-+
-   gpio-controller: true
- 
- required:
--- 
-2.37.1
+/home/rob/riscv-spike.dtb: cpu@0: riscv,isa:0: 'rv64imafdcsuh' is not one of ['rv64imac', 'rv64imafdc']
+        From schema: /home/rob/proj/git/linux-dt/Documentation/devicetree/bindings/riscv/cpus.yaml
+/home/rob/riscv-spike.dtb: clint@2000000: compatible:0: 'sifive,clint0' is not one of ['sifive,fu540-c000-clint', 'starfive,jh7100-clint', 'canaan,k210-clint']
+        From schema: /home/rob/proj/git/linux-dt/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+/home/rob/riscv-spike.dtb: clint@2000000: compatible:1: 'sifive,clint0' was expected
+        From schema: /home/rob/proj/git/linux-dt/Documentation/devicetree/bindings/timer/sifive,clint.yaml
 
+
+There could also be other warnings from non-default configurations.
+
+To reproduce, dump the dtb and run:
+
+dt-validate -p Documentation/devicetree/bindings/processed-schema.json riscv-spike.dtb 
+
+(processed-schema.json is from kernel validation run)
+
+Rob
 
 _______________________________________________
 linux-riscv mailing list
