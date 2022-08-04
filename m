@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 381BEC19F29
-	for <linux-riscv@archiver.kernel.org>; Thu,  4 Aug 2022 02:13:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA37C19F29
+	for <linux-riscv@archiver.kernel.org>; Thu,  4 Aug 2022 02:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O4jktdXlZGUjo/Uu0lY7HQ6wjgiJPvZpxz5HQBR15fA=; b=MdPZTXTgQUoxjP
-	/7oEA+1KJRPOUYK73iq2q4HNwGIKaoEUc9MFyTvfw59M/VehfEXq16Bq1vvTqa0Q4yCSZnBX7kJnd
-	X8xWKvm24Ez5xU50Tp48yvc25Ijz2cFdC2a6Pk75cnj6w1iirkKO8NSlgnD6Yk2HEV8dB+QJSyMwH
-	x6MfzOKT/hva8fll03B25sUw7WC3UGdP8jRTz//ZTJHGzHOvopVy8RUVRF+L9yEoNhp78dnyPqEFA
-	XEIRs84oxcOrW1Gn8ymX1zYiMCODRgIF8q88MRkwi31dKWbc5RiKxvij43gbWJzV+3O4g3o9+u100
-	sxyUiuR+i7PuU72p8puA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=padx49Iq2WjaJWW8K12L9Jfc7ukmJJkiEFWw6Yw3EzM=; b=DqPMafDUASfRUW
+	pAiJ/LOofZ7XJWk5HDciI8LYMBD2dZDSX1nylE82xLMYTSwXupsNsA3sVtn/3MTiarp16vSBcS/ET
+	Wg311Hi5NVH/D7n73OQqC3wl8VLb1j4At+3oZ57MUL9NOnZwfNhBIqoBdSczqQNin4uxuYdyJcrN/
+	GG0B8uExqsEmDqdIx7GDLqMUFaCnbA6ALkDJM7g6EL/0UQv9RhEIwBa8AZZIkEW2+j7am3sEEq+TI
+	TBe5aptvOytVAOuhFNXSRTWub1f8pVJhVZIi6d21P64+z+IrEOxZJ+LaRLMTVj5liTE3E2hDHEKt/
+	L/dXDzrgcx+l2pk4+fkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oJQM8-00Douk-13; Thu, 04 Aug 2022 02:13:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oJR0t-00Eua1-9d; Thu, 04 Aug 2022 02:55:07 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oJQM5-00DopH-TC
-	for linux-riscv@lists.infradead.org; Thu, 04 Aug 2022 02:12:59 +0000
+	id 1oJR0r-00EuLM-Ay
+	for linux-riscv@lists.infradead.org; Thu, 04 Aug 2022 02:55:06 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 587AD6177D
-	for <linux-riscv@lists.infradead.org>; Thu,  4 Aug 2022 02:12:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9249C433C1
-	for <linux-riscv@lists.infradead.org>; Thu,  4 Aug 2022 02:12:56 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id D9E3AB823B1;
+	Thu,  4 Aug 2022 02:55:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4694CC433D6;
+	Thu,  4 Aug 2022 02:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1659579176;
-	bh=epAxio5diH96CFBkzTZwKEWSTogy6nSq9q1SQoW4viM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ceCGZfQWkWmI6GpvHGENHKlJTVKAuQBEnZSFMbNMwdL3adkcUOIQii3S0f4Kyp8Bb
-	 KoXLuNDTPpeM+tbNcQ49P9oq8jVA9vMK4FMy6z8jR/3HCqVL1weN5EOOqETXge6yJG
-	 nBFGD8bOrJmR9Mw5WhHCIO5W1I09DiyNemQ1xw8F2jamvkzlU7drDgbdstNxPtv0gF
-	 Vixg+rpEEnKCDbYzHgOPtaX3dCOJO0pZPkL1wllA1/1afczoKpJ0EKktRsTh3uV5ga
-	 i+abEpZGK1uyPnCu7xZC1uylg7v9v8aWRlyowogN82MXD6DXPnsGgaBQAXlS/xu4Mc
-	 2iS4HY3nt22KQ==
-Received: by mail-ot1-f44.google.com with SMTP id o16-20020a9d4110000000b0061cac66bd6dso13340062ote.11
-        for <linux-riscv@lists.infradead.org>; Wed, 03 Aug 2022 19:12:56 -0700 (PDT)
-X-Gm-Message-State: ACgBeo1kHN+J2pIONlj6+4u3HvzCxQrLaOnj59MzJEe68qMPz1F8uHkT
-	qmIhL+cq6vQ+q45+WQqKlnCgg+NvdABDu35G/co=
-X-Google-Smtp-Source: AA6agR4F20j452D1vIKrFY4A90rWCSqTF2vNMheqHPpQqXXnlAlq4zSIa+r6cn2/wD2OCL0hfuxWK19txHwype4SI50=
-X-Received: by 2002:a05:6830:18fc:b0:633:9af8:f137 with SMTP id
- d28-20020a05683018fc00b006339af8f137mr4813011otf.140.1659579175844; Wed, 03
- Aug 2022 19:12:55 -0700 (PDT)
+	s=k20201202; t=1659581701;
+	bh=NAbVm/nXXyhNpdbg8nzJ5becF+EsxM+Ud3RVYm5SLI0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=egesjTcYbSHr1A3+IjC4NFJF9T/4KsnMSAYDAAAZYRz0mEltVwpwq0tv2nD6eBb5v
+	 UABfR8Ba0bgrqgi6uK6N/XYONEPLy9ouujpixQB0lTs0W7wAP4fL2Wistj6QKPC/Mx
+	 Kknlh7/wlbTON79liAx7P9n3eX5Y5vf1xZXe0Gyco7g5PjnXucIHHCX9Qi1ej4vMc6
+	 FrwPjzC8DbdOmhpWQitk7dkFk4wHYUeFzBPferrbm718fdpgDFPeSwLctVGzbpagc+
+	 BbMStOs7HzvKaAoyjPyLiLRQ1jg7XIwpJRaMLha2mgSxFgjg0loN+dcgA1oVBSgU0v
+	 8/56ig6S1KDnA==
+From: guoren@kernel.org
+To: guoren@kernel.org,
+	arnd@arndb.de
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>,
+	Eugene Syromiatnikov <esyr@redhat.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Christoph Hellwig <hch@lst.de>,
+	Heiko Stuebner <heiko@sntech.de>
+Subject: [PATCH V2] uapi: Fixup strace compile error
+Date: Wed,  3 Aug 2022 22:54:48 -0400
+Message-Id: <20220804025448.1240780-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-References: <20220613142947.GA4110@lst.de> <mhng-f091aa29-2a87-4d82-9bab-f35533de7161@palmer-ri-x1c9>
-In-Reply-To: <mhng-f091aa29-2a87-4d82-9bab-f35533de7161@palmer-ri-x1c9>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 4 Aug 2022 10:12:43 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQPX0bbFvkkXCA2hUf2ei0KK1ZCHtNWj+JMDgsMP-M4oA@mail.gmail.com>
-Message-ID: <CAJF2gTQPX0bbFvkkXCA2hUf2ei0KK1ZCHtNWj+JMDgsMP-M4oA@mail.gmail.com>
-Subject: Re: [PATCH] uapi: Fixup strace compile error
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Christoph Hellwig <hch@lst.de>, Arnd Bergmann <arnd@arndb.de>, Guenter Roeck <linux@roeck-us.net>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, linux-arch <linux-arch@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Guo Ren <guoren@linux.alibaba.com>, 
-	Eugene Syromiatnikov <esyr@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220803_191258_014260_67C579AD 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20220803_195505_557568_67E23059 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +77,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thx for the reply, I even forgot that patch. I would update V2 with
-your acked, and Christoph advice.
+From: Guo Ren <guoren@linux.alibaba.com>
 
+Export F_*64 definitions to userspace permanently. "ifndef" usage made it
+vailable at all times to the userspace, and this change has actually broken
+building strace with the latest kernel headers. There could be some debate
+whether having these F_*64 definitions exposed to the user space 64-bit
+applications, but it seems that were no harm (as they were exposed already
+for quite some time), and they are useful at least for strace for compat
+application tracing purposes.
 
-On Thu, Aug 4, 2022 at 8:40 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Mon, 13 Jun 2022 07:29:47 PDT (-0700), Christoph Hellwig wrote:
-> > The change looks fine, but the commit log could use some work, please
-> > move the notes from the back to the front and make them a standalone
-> > commit log and just drop the rest.
->
-> I'm digging through old stuff and don't see a v2, not sure if I just
-> missed it.  Either way I don't think it's really a RISC-V thing so
->
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
->
-> in case that helps.
->
-> Thanks!
+Fixes: 306f7cc1e9061 "uapi: always define F_GETLK64/F_SETLK64/F_SETLKW64 in fcntl.h"
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+Signed-off-by: Guo Ren <guoren@kernel.org>
+Reported-by: Eugene Syromiatnikov <esyr@redhat.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Christoph Hellwig <hch@lst.de>
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Heiko Stuebner <heiko@sntech.de>
+---
+ include/uapi/asm-generic/fcntl.h | 2 --
+ 1 file changed, 2 deletions(-)
 
+diff --git a/include/uapi/asm-generic/fcntl.h b/include/uapi/asm-generic/fcntl.h
+index 1ecdb911add8..3a389895328a 100644
+--- a/include/uapi/asm-generic/fcntl.h
++++ b/include/uapi/asm-generic/fcntl.h
+@@ -116,13 +116,11 @@
+ #define F_GETSIG	11	/* for sockets. */
+ #endif
+ 
+-#if __BITS_PER_LONG == 32 || defined(__KERNEL__)
+ #ifndef F_GETLK64
+ #define F_GETLK64	12	/*  using 'struct flock64' */
+ #define F_SETLK64	13
+ #define F_SETLKW64	14
+ #endif
+-#endif /* __BITS_PER_LONG == 32 || defined(__KERNEL__) */
+ 
+ #ifndef F_SETOWN_EX
+ #define F_SETOWN_EX	15
+-- 
+2.36.1
 
-
---
-Best Regards
-
- Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
