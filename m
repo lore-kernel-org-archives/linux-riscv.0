@@ -4,160 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88865C25B08
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Aug 2022 21:49:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 581CDC00140
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Aug 2022 23:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OPetUrlTFFCpJwiwpwb6V1G12MxxaQrLPY8UqSje/1U=; b=EZ3AJMxka/OFkr
-	zPzq3I3dpMX6zbSyiXrCCSjBA3pAM51qbUZh2yHaB6xJsWhy1oa+QDmp73mtnio8tgUSgERiBLkgz
-	Q8p2tvypNySR3q9D4i1T8tmGESW91rCI6PSBFGQfVEr8+jZSFMTSnjDWKrCtq0Nf0lG8HUK3bcEk6
-	FGW71BJtrQPrtGF4V5PF/W9OH59TOswvO1OtEHmPmouQI22JCoYJAM2phSnYs625U+sPW/MnnxwQM
-	LD4mD51z8b55vRyWSFXl1HF56MysfDzL4rHbSWk7LtaTclXSScue9z8R5GEVEhljrKOE7f5+tw9ic
-	fPUBsu1SXQSqS+/KMQug==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rpfuWmvBbkJVMAREjrCR90kkc0yk4PMLuMMQN+thOCQ=; b=KbvZaVUdsMCNcF
+	KL7ZCvL6cW7xaFnwiWSWZ1ou+ra5d9hWT1Xzz8fbsSs+T8TaGW8jI1miRlmAmvrxdqysMi9CKC3Nu
+	rZ8SI0kK0S9A27Bmiitf/aZCgnYpAm7/CkKzYGafQzBR8RVyOT4HSzvIN33cgAhPTPr8HWz9TvDKq
+	mKfBWO4ktksOFblp+ze8Tggxszp3HSOSFJ5ysoF4uebQj18piX8inx+qJt6VD/fIVl+I0nKDW34dy
+	MhfTmXmzKjY/Ji8hbqsBhbPNGsUV13f5PC2h+zUOypUnvjAKj63a1Yo1m0U5sp+wLaVElOn4pzuqv
+	5q4eVniSEKsa+r10F89w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oK5CI-000wEd-BB; Fri, 05 Aug 2022 21:49:34 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oK6s4-001i4S-LS; Fri, 05 Aug 2022 23:36:48 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oK5CE-000wBB-B8
-	for linux-riscv@lists.infradead.org; Fri, 05 Aug 2022 21:49:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1659736170; x=1691272170;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=Fp1gRB1Q95h6Riu4D4cJgPt6bM8LyPRJhor+LI1pedM=;
-  b=vgIRyGM+OkX7XQAdYh3CuH2WPZXIGqm7cKkSaIEFQSk2Ww6dG2jRwJXc
-   6pY1DgPhxhDKjuAJhcGhs3ep7VJVl6FgLaHHgMDqZimDN5NNKT+mqjzex
-   xxM+ikh+9vuh+IS2+PmYgVc+WNyuFvZPFJ//3nOMRk1oTGdUcT2Bn+32O
-   vZaQDsAjru+NyO3+ZSq3/zOm19XCq7hC9vD2U1sut8+BMPehjtorjfvYT
-   Zfy41+oaMW/piAGZmflP27IHYUeKuwscAN3LC/DIXLA7a54u/V2QQff+/
-   EqEgyblpa35p8vjgbaxuTXpgSVoauU3aO+LZI32UEUwOElpxMV6hIZIqa
-   A==;
-X-IronPort-AV: E=Sophos;i="5.93,216,1654585200"; 
-   d="scan'208";a="107816751"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Aug 2022 14:49:25 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.28; Fri, 5 Aug 2022 14:49:24 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.17 via Frontend
- Transport; Fri, 5 Aug 2022 14:49:24 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HVrn5iGZGo0yPrqdB3eZ7ug5BRAKw3W90o3y2u9VXl8Ine1Y1We3kmIEUm+dODQRK05nK1ZXkmF+1eusV/jPzeAMGSQxZAb1dJtC6lNb5rH2aY67rZ1shJkHoLu7L1Tea97yKHqdA0HW4FnwO+y59VEeVOQ6sSVDsP9QQfiP6PyIms/0A6A6Y3cOQb3CSb5awJou7+MrNKZDR+wNit0t0sR67JE3gplZadnmUAFNCwJocHHob8JpT/lJONXzMRquVmqFv7oU83yPK9pnNm0+hJ+I8EElrHqI/++XbGSXuxDv90c0p5WrFHPpXvIRe6Ivzz0vGzHfhx3ehQGNWaHgqA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Fp1gRB1Q95h6Riu4D4cJgPt6bM8LyPRJhor+LI1pedM=;
- b=CwN9KfecL4qamtg6Ldw0MpcdJkfu+ZVEc/1rlGSEJ2N7DlNwmW4upfLdv9BUw4dyKqm++kMvAytNyEqsDA9pmRqIhpqdEy5yCeYj9RoGy6oMFdL3bi3csH/8NDuEi6P18LZ7j8cqfNlQ74XAnPRJgH6suXehYa0fM1daUayh3F14Kdt9kR6sRe5pSfn19axAW3GDsSJK4/soMJqk0V7S/BkQxYDJD+HYWqS2AeGCjZpwTRhNP3wUySyXbA25X75i9QxsrV030ZrK7wga0nzWmgcYisDXO5HDfcMuB4WKDptQNPyHIjImV5UBFK/RyvayNiR/zaKc34lCnN1V/1PLDQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+	id 1oK6ry-001i0g-V9
+	for linux-riscv@lists.infradead.org; Fri, 05 Aug 2022 23:36:47 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id c19-20020a17090ae11300b001f2f94ed5c6so8377249pjz.1
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Aug 2022 16:36:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Fp1gRB1Q95h6Riu4D4cJgPt6bM8LyPRJhor+LI1pedM=;
- b=lkVW/otHtzKuGSDAr1eWgaeEpiVdD0TrxUzecqND7mdE2MOrz0f2ti96mW3jObm2ynKu3IVR4HwxtRhwnuoH19sKWwqIUeijPhKmtwAuJOqbYNRt/Prh0asZfCn8dz+IMdFs9+pHyf9f6kYrZtzEImjobozSfmm94eIdlrK/1mI=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by DM6PR11MB3098.namprd11.prod.outlook.com (2603:10b6:5:70::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5504.15; Fri, 5 Aug
- 2022 21:49:22 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3%8]) with mapi id 15.20.5504.016; Fri, 5 Aug 2022
- 21:49:22 +0000
-From: <Conor.Dooley@microchip.com>
-To: <christophe.jaillet@wanadoo.fr>, <Conor.Dooley@microchip.com>,
-	<Daire.McNamara@microchip.com>, <broonie@kernel.org>,
-	<yangyingliang@huawei.com>
-CC: <linux-kernel@vger.kernel.org>, <kernel-janitors@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-spi@vger.kernel.org>
-Subject: Re: [PATCH] spi: microchip-core: Simplify some error message
-Thread-Topic: [PATCH] spi: microchip-core: Simplify some error message
-Thread-Index: AQHYqRMTVToPNxWA0EWoMyaK4pw8ia2g2EqA
-Date: Fri, 5 Aug 2022 21:49:22 +0000
-Message-ID: <e2450741-af74-2cdd-58aa-6483a639306b@microchip.com>
-References: <fb894ecec68e03fb7fc9353027c8b1a2610833d7.1659735153.git.christophe.jaillet@wanadoo.fr>
-In-Reply-To: <fb894ecec68e03fb7fc9353027c8b1a2610833d7.1659735153.git.christophe.jaillet@wanadoo.fr>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: a7803986-9653-415d-d249-08da772c5b8d
-x-ms-traffictypediagnostic: DM6PR11MB3098:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: hVUxZJDhtWzoVXa2gZd/Vo2TaWls1ZvD1yeyI/BLGZXjerNLHiYwxkDDpQp3KaAm2cRj5PSpBwQKK2qGG/qcdGyA9RooLGheoD50kWcSp9Xanzrx2UXqzHdDgXg3NVxaeauu8wQXaC2XiizZZZzMSVkrIgp51hthLFYUJ4sW5Op2CZdggzdecbi66GSP7ZKge0qV7/4Rlb4RtL30Y1aCKebvDbrPt54GZJwv6zz6u/VKNsqSAGLN9G1Nn4OKp2f5rb10+hYUoFd0CBoapNXvhngHKviJQTawRi0/VUKp/oBR13XLcWZ2fIEubSHl2EcN9cNILygTE5BdH1Ax7BeZQJNGaZfKvVIVCEECFGzqzJvo4TXysb15Qlb/gEQSAL/0zJwLtvGHDKdQD2+4ZHy0vCJX6BCewfIx98EyPTUosT3Htogb8hp+jPGPw1PwA7jZJjxAHBjLn6F0jt7dL9lpMKTQzI0XfIJh7FxvjC4s/oDi+hJxp3vZ1AHdP8sQcj6Ek4vfzG0rHjAPR39NqUGCB1lmtpWOEdgA5sZVCTcyPGeskjNRGz57O8FfA//EVQPRWHtiWIgdg6tTlnwV6lfKQGKUoYw8whTeMZp5nkXHxzUCE9a8IXuW7cVX5Jmcvk1DD1oZQZUz9njrxHBbqHoM2ZXNq/Xx4PKT9FSLLt0gXsSNm7UE3sTc6eLY0SFjR/UVltZIxctgDHWdkAgojAwtcW49KhI6/KFPNZCl9kfJm9oN5w1D7MM44M8kGQVBnbYVq+G5ZRN+Pve5b3RdS9foqpfKSZV1hT1NF3wo/gWrWitu+AN9Yuk7bqdNl7odZM1rrYJQDaRj9A4YjY5dbG7yVr4vWwl6SbXDSf34ePdBTIdZ3mpEvpXgm6d+sl58USdI
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(396003)(346002)(366004)(39860400002)(136003)(376002)(8676002)(5660300002)(478600001)(4326008)(76116006)(8936002)(2616005)(6486002)(66946007)(53546011)(26005)(6506007)(66476007)(66446008)(64756008)(15650500001)(86362001)(31696002)(91956017)(71200400001)(66556008)(6512007)(41300700001)(2906002)(110136005)(38070700005)(31686004)(54906003)(38100700002)(186003)(83380400001)(122000001)(316002)(36756003)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eWlPZEo3TGR6akhZdUtCZklFOExpSnBTY1d4eTF3YTdQVDJuYVVOZDVFSDBs?=
- =?utf-8?B?U0JTK2IvY2M4VUwvQ2lvK3NOcGRiUXg5RDhmbGloQVBWelk1bCtqWGNrSkhF?=
- =?utf-8?B?YjRBUG9YQWNQNUtsQm9XYjFmUXZXelY3REc2S1FaUGQ3MTBIU05LRDJUYXVR?=
- =?utf-8?B?TG16cjlXeUUyYk82MnJFS0R5VHM4Qk5UdEx1ejlCU2xkVVcyYXBERmhRZXhL?=
- =?utf-8?B?eE5zK1FVNVFMTkRQT1RyVUViQVkrQjVBWTJzOE4vY2E5Zml4eFhycDJCcnR4?=
- =?utf-8?B?aE5SVEtSNTZtVEx6Q1oreDZmZlVoMzlhOGV3aHpYMnVCK0c1TG5kbjEzZytF?=
- =?utf-8?B?ejlzbUNaTDQzQ2RlNmFkV0dNNWFoN1A0RXYyRHZrU09ubHJXZFZaOGp1dWYz?=
- =?utf-8?B?RTFsa0xOUzhqcExjcG5JaFNpMkFQakxuejgrODlQRFh0TmVKZDQ2bnVJa3d5?=
- =?utf-8?B?aHFGaExuUjI1Ty9jQnQxZFh0bFlRM0tIVUdKOFRQbDd4QVFVT0lQTXRkc0Iz?=
- =?utf-8?B?ajU2R2dNY0ZLY21kQm5Mc0QyWndvZ0dvaGpLYWFFbmgrOHNBM1RQUFQ1RnRK?=
- =?utf-8?B?cnNiV2tQTVFXdkVKUlNKZldlSEZUeFJYcVE0cUNUdE5pMkxUNTUwRnFDamVy?=
- =?utf-8?B?Njc5bDNYeEZidmk1aXNOcjF4MElPeURoUFRZdG5IT05sNVJuY0U1aFdmWno5?=
- =?utf-8?B?Z2VjdkcxV1dFNnZJWVlDYUJzM25ESi94QTBFSHdYblhiK21wUGc1ME05MFNK?=
- =?utf-8?B?SU1FNnVGOVlDRDlnaUl3eCtZSWs5ZXVzaGxtZ2pBd0NBZUZ3M2NYU2Ftd05Z?=
- =?utf-8?B?eGU0QlUwaU9RNG1Oc1l6N2ZpSW9TS25FanZYdTVnaGN6V1daZThBOTdhakJx?=
- =?utf-8?B?ZXZFRDlrc1hMTUswZ0l4UVl3QTlLZjIyVWprWVFIRjlnZm85TDNUbHFGdjY3?=
- =?utf-8?B?RGY1d0p1VXpJYStBU2FncmxsM3BhUEdLcjZJQXBYYTlNKzFBYld4ODZxOXdn?=
- =?utf-8?B?cW9RYjlUOVBqaXlPbjA1d1M4K2gzRFhpOHF1MTRYd0ZieDhOdjU3amVlNGVw?=
- =?utf-8?B?NTVHSjhuS21UQUF4UkNwcHEvSlA1MTRsb3IrUG1Sb3V0TDMwS3VCQllxOE9y?=
- =?utf-8?B?YnRDdGQ2c1Y2cDUrRSs2Y1lsNUtXVWYyaENIVlJOUEMzWGVsL2NCT2RJa0l4?=
- =?utf-8?B?cEVzaTcyalVvU1dNbXd0YnJzbkdKWVJiRERHdUd6WjJ4YkN6aDFnSy9DK1Rm?=
- =?utf-8?B?S1daNXNCVjZsODZMNTJEbFZJMlpsT2lIenRIUkQvVDFzWUZOelhSWlFkN2x5?=
- =?utf-8?B?Z2o5QW5JUVIrazV0RGRBLzYveUVINFJuOVIrVWdRVkkydHk0aXlaSTBKL1lE?=
- =?utf-8?B?czlYSHk4cVUwajdwU1BwQkpyYWt2b0ZuV284dDBjMCtVN3FSL2hrK1hUUzZR?=
- =?utf-8?B?N2tWSlNtc1dGb0oxRjN1QkFXVUJrRjZSQlE5Z3RlbUUwVlhHSnZyUk84Sk9K?=
- =?utf-8?B?emxjUmYyaWlKQ0lLT2VMUTZpQlFXNkxtdnVMZTFpZUZTeE1WWUpnRnU1RzY2?=
- =?utf-8?B?MWxwRG4yb21tUm5WbzhkTHNJNUdhWVJxMUcycGRWNi9Fak9POFN1ZmtIazNp?=
- =?utf-8?B?Y3AxQXh0bG9TWXI4NmxIeWpHbXI1UllmdkxPbHJZTjN1R1gwVFZyRzk3Qzdr?=
- =?utf-8?B?OXgvM1g2SlNkUThENENjRUhVOGp2bVVMR2FiRUFUb2hEQmZ4K0Z4R1FhWjNt?=
- =?utf-8?B?UDdONjMwMXE2V1dsanlqYTNPckR0a2k1R01CZ0VTQ0hLanczTi9haWdyK3lp?=
- =?utf-8?B?R2tCL0xobjJyZVlqTmx4d094allTWmVYOGNnQ0hyZ1hibWQwbFBVeUQwRzcw?=
- =?utf-8?B?U1I3c1RnWVp4NDF0UHB5WC90YllGRVE1NThWQjhOa0x4R0Jram9aMGN4Wm1u?=
- =?utf-8?B?S3J6VVRJQVMvVFJ2bHdKeXMrUE9hbUtlN1NMcTNTczFHRXdlTHJMdWJGRXdM?=
- =?utf-8?B?WXEwOUszNHREZDJ4TG1YMHZ5ZmhBOUdsMHNnVlpsTzZrRjBJeWNXNFNhdDZP?=
- =?utf-8?B?dEZqWHY5RWtxMStKbWtoUFg0NW5MSjlrcWsyd2tvTjFuSGN4aGwzcTJVaGJv?=
- =?utf-8?B?OFNKaXhMa29mSk5kMGpGMldvQUJMNW10V3ZuZ1grcjBzZks2WFJISHNUYTNi?=
- =?utf-8?B?Zmc9PQ==?=
-Content-ID: <7856B630579C0342BCE3686F4C932A10@namprd11.prod.outlook.com>
-MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7803986-9653-415d-d249-08da772c5b8d
-X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Aug 2022 21:49:22.4009
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: CF0898YxB0B4JfvLuAvZiSecscb6qExYp8gTIoXB6el1PB8qzzwCTC/tqg8M9q5J/Bwy5kNjwHRwVQgsTCokF8wXsGgSEDC3BGzcrYTUWuY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB3098
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=message-id:to:from:cc:subject:date:from:to:cc;
+        bh=cOwlb6expcLd4UHhO8G6tDy9VjkKqVWVaG/fYduE5to=;
+        b=7x8+1bd5bGyIEZJ5N3ge9bNBt5KvNoTan2VvVJ+5v3GcaBRUtd3jDc5duxjcfSG1M9
+         tD5R3bCC4DoDfdbIDU4jgOO3GWlbR4r2Di39guRzMpZCRwtix6HvvdSN93R+FxUc8/vF
+         DhkLtycenIekFlnjKSgY+uIJzOPOg/fEvRPnlbY0xfxd6nhmhCg+UgFhVeled02C6Khp
+         utzvtNCgBIGT49dbBd9Nefs0/Ss58e2ZSF4injmXneF0fwmNsNkyXpUgpbhdz+PjY4KE
+         JhJVen0vELFeJBn4Qmq6x/zxES/Q7wwEm+fLFMTEWIHooIHTazRoQIzj17cRGPnuA0f8
+         p+oQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc;
+        bh=cOwlb6expcLd4UHhO8G6tDy9VjkKqVWVaG/fYduE5to=;
+        b=3JLOFVwKgouyUCmR+/YD2KV5KeVfFkJ24ZFa8GIqCafDRXQaDSlrUPfXzBBLJj5X3x
+         iWCdG3TAK4CI5CebMCJNhcT+WcuHLYSBk6qbLl0eUn4EbxBk42wpa/Od5v0DZOLCk0iG
+         GhWXAvLdQM67Jq7CJxG+mJYdf1c0Y1PaE75ZjAZ/s3k8nWffGHMUkTbZf11T1sFiqq62
+         LzeCIxLH6Sw//WCt7+F5KxZg15kbUUwz3qc7G7+Fz8moXJNbX4MIn8bqbmyQ5/UlIt2D
+         PAduRGZkO58IqSRFwLEEtbLzLDsUr49oUfePJnc3vXljHGoWBEgr97VB9WwJNuqI6LC1
+         +h3w==
+X-Gm-Message-State: ACgBeo1RtaqasjjPgv/9JOqOeeFePv0HKRE2973wQtb9hEDgVpftSRWV
+	evkDUF7WA5c+fqtNmPhGtMjkc/KwSwGEOw==
+X-Google-Smtp-Source: AA6agR4Qy/sMvyvrxwGBMHJjqNJnqoeqiwUtEM0T6/4Mh4aiv0GFZlOi7tH+fbr+NNfSuZ3zfPUaug==
+X-Received: by 2002:a17:902:d50c:b0:16f:736:33a0 with SMTP id b12-20020a170902d50c00b0016f073633a0mr9279339plg.137.1659742599039;
+        Fri, 05 Aug 2022 16:36:39 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id m3-20020a17090a34c300b001f50e4c43c4sm6090633pjf.22.2022.08.05.16.36.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Aug 2022 16:36:38 -0700 (PDT)
+Date: Fri, 05 Aug 2022 16:36:38 -0700 (PDT)
+X-Google-Original-Date: Fri, 05 Aug 2022 16:36:27 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 5.20 Merge Window, Part 1
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-1cbba637-6dd2-456a-859b-9d3f8be6bab7@palmer-mbp2014>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220805_144930_740223_26172FC2 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20220805_163643_265536_D4D19DF4 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,49 +77,190 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 05/08/2022 22:33, Christophe JAILLET wrote:
-> dev_err_probe() already prints the error code in a human readable way, so
-> there is no need to duplicate it as a numerical value at the end of the
-> message.
-> 
-> Moreover, in the case of devm_clk_get() it would only display '0' because
-> 'ret' is know to be 0 at this point.
-> 
-> Fixes: cdeaf3a99a02 ("spi: microchip-core: switch to use dev_err_probe()")
-> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+The following changes since commit 924cbb8cbe3460ea192e6243017ceb0ceb255b1b:
 
-bah, should have noticed that when I reviewed the switch over...
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Thanks!
+  riscv: Improve description for RISCV_ISA_SVPBMT Kconfig symbol (2022-06-16 15:47:39 -0700)
 
-> ---
->  drivers/spi/spi-microchip-core.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/spi/spi-microchip-core.c b/drivers/spi/spi-microchip-core.c
-> index ce4385330b19..d352844c798c 100644
-> --- a/drivers/spi/spi-microchip-core.c
-> +++ b/drivers/spi/spi-microchip-core.c
-> @@ -548,12 +548,12 @@ static int mchp_corespi_probe(struct platform_device *pdev)
->  			       IRQF_SHARED, dev_name(&pdev->dev), master);
->  	if (ret)
->  		return dev_err_probe(&pdev->dev, ret,
-> -				     "could not request irq: %d\n", ret);
-> +				     "could not request irq\n");
->  
->  	spi->clk = devm_clk_get(&pdev->dev, NULL);
->  	if (IS_ERR(spi->clk))
->  		return dev_err_probe(&pdev->dev, PTR_ERR(spi->clk),
-> -				     "could not get clk: %d\n", ret);
-> +				     "could not get clk\n");
->  
->  	ret = clk_prepare_enable(spi->clk);
->  	if (ret)
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.20-mw0
+
+for you to fetch changes up to ba6cfef057e1c594c456627aad81c2343fdb5d13:
+
+  riscv: enable Docker requirements in defconfig (2022-07-22 13:43:28 -0700)
+
+----------------------------------------------------------------
+RISC-V Patches for the 5.20 Merge Window, Part 1
+
+* Enabling the FPU is now a static_key.
+* Improvements to the Svpbmt support.
+* CPU topology bindings for a handful of systems.
+* Support for systems with 64-bit hart IDs.
+* Many settings have been enabled in the defconfig, including both
+  support for the StarFive systems and many of the Docker requirements.
+
+There are also a handful of cleanups and improvements, like usual.
+
+----------------------------------------------------------------
+This all passes my standard tests, with the old caveat that I'm still seeing
+some weirdness with QEMU-7.0 and a new issue where GCC-11 is tripping up on
+some fortify string checks in lm90.c on rv32 (GCC-12 works).  I don't really
+like to send stuff when there's some outstanding issues like this, but after
+poking around for a bit it doesn't look like either is related to this pull
+request so it seems worse to hold off any longer.
+
+I'm also not 100% sure why it's calling out a patch in the middle as the base,
+I see v5.19-rc1 in the history.  Sorry if something went off the rails there.
+
+I have one merge conflict, these defines were set to non-zero in arch/riscv at
+the same time the refactoring to make them generic went in.  I'd considered
+merging that PR locally and making the fix in my tree, but that looked uglier
+than just passing the merge conflict on.  Let me know if I should have done
+this the other way around, though.
+
+diff --cc arch/riscv/include/asm/pci.h
+index 830ac621dbbc,6ef4a1426194..cc2a184cfc2e
+--- a/arch/riscv/include/asm/pci.h
++++ b/arch/riscv/include/asm/pci.h
+@@@ -12,31 -12,7 +12,10 @@@
+
+  #include <asm/io.h>
+
+ +#define PCIBIOS_MIN_IO                4
+ +#define PCIBIOS_MIN_MEM               16
+ +
+- /* RISC-V shim does not initialize PCI bus */
+- #define pcibios_assign_all_busses() 1
+-
+- #define ARCH_GENERIC_PCI_MMAP_RESOURCE 1
+-
+- extern int isa_dma_bridge_buggy;
+-
+- #ifdef CONFIG_PCI
+- static inline int pci_get_legacy_ide_irq(struct pci_dev *dev, int channel)
+- {
+-       /* no legacy IRQ on risc-v */
+-       return -ENODEV;
+- }
+-
+- static inline int pci_proc_domain(struct pci_bus *bus)
+- {
+-       /* always show the domain in /proc */
+-       return 1;
+- }
+-
+- #ifdef        CONFIG_NUMA
+-
++ #if defined(CONFIG_PCI) && defined(CONFIG_NUMA)
+  static inline int pcibus_to_node(struct pci_bus *bus)
+  {
+        return dev_to_node(&bus->dev);
+
+----------------------------------------------------------------
+Celeste Liu (1):
+      riscv: mmap with PROT_WRITE but no PROT_READ is invalid
+
+Conor Dooley (7):
+      riscv: dts: microchip: remove spi-max-frequency property
+      riscv: dts: microchip: Add mpfs' topology information
+      riscv: config: enable SOC_STARFIVE in defconfig
+      riscv: dts: sifive: Add fu540 topology information
+      riscv: dts: sifive: Add fu740 topology information
+      riscv: dts: canaan: Add k210 topology information
+      riscv: dts: sifive: "fix" pmic watchdog node name
+
+Heiko Stuebner (4):
+      riscv: make patch-function pointer more generic in cpu_manufacturer_info struct
+      riscv: remove usage of function-pointers from cpufeatures and t-head errata
+      riscv: introduce nops and __nops macros for NOP sequences
+      riscv: convert the t-head pbmt errata to use the __nops macro
+
+Heinrich Schuchardt (1):
+      riscv: enable Docker requirements in defconfig
+
+Jisheng Zhang (2):
+      riscv: introduce unified static key mechanism for ISA extensions
+      riscv: switch has_fpu() to the unified static key mechanism
+
+Jonas Hahnfeld (1):
+      riscv: dts: starfive: Add JH7100 CPU topology
+
+Juerg Haefliger (3):
+      riscv: Kconfig: Fix indentation and add comments
+      riscv: Kconfig.erratas: Add comments
+      riscv: Kconfig.socs: Add comments
+
+Maciej W. Rozycki (1):
+      RISC-V: PCI: Avoid handing out address 0 to devices
+
+Nagasuresh Relli (1):
+      riscv: dts: microchip: remove spi-max-frequency property
+
+Palmer Dabbelt (8):
+      RISC-V: Use the extension probing code to enable the FPU
+      RISC-V: Some Svpbmt fixes and cleanups
+      riscv: Kconfig: Style cleanups
+      RISC-V: Add CONFIG_{NON,}PORTABLE
+      Merge tag 'dt-for-palmer-v5.20-mw0' of git://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git into for-next
+      Merge branch 'riscv-cpu_map_topo' of git://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git into for-next
+      RISC-V: Support for 64bit hartid on RV64 platforms
+      riscv: Add macro for multiple nop instructions
+
+Sunil V L (5):
+      riscv: cpu_ops_sbi: Add 64bit hartid support on RV64
+      riscv: spinwait: Fix hartid variable type
+      riscv: smp: Add 64bit hartid support on RV64
+      riscv: cpu: Add 64bit hartid support on RV64
+      riscv/efi_stub: Add 64bit boot-hartid support on RV64
+
+Xianting Tian (1):
+      RISC-V: Add fast call path of crash_kexec()
+
+ arch/riscv/Kconfig                                 | 47 ++++++++++++----
+ arch/riscv/Kconfig.erratas                         |  2 +-
+ arch/riscv/Kconfig.socs                            |  4 +-
+ arch/riscv/boot/dts/canaan/k210.dtsi               | 12 ++++
+ arch/riscv/boot/dts/microchip/mpfs.dtsi            | 27 ++++++++-
+ arch/riscv/boot/dts/sifive/fu540-c000.dtsi         | 24 ++++++++
+ arch/riscv/boot/dts/sifive/fu740-c000.dtsi         | 24 ++++++++
+ .../riscv/boot/dts/sifive/hifive-unmatched-a00.dts |  2 +-
+ arch/riscv/boot/dts/starfive/jh7100.dtsi           | 16 +++++-
+ arch/riscv/configs/32-bit.config                   |  2 +
+ arch/riscv/configs/defconfig                       | 65 +++++++++++++++++++++-
+ arch/riscv/configs/nommu_k210_defconfig            |  1 +
+ arch/riscv/configs/nommu_k210_sdcard_defconfig     |  1 +
+ arch/riscv/configs/nommu_virt_defconfig            |  1 +
+ arch/riscv/configs/rv32_defconfig                  |  1 +
+ arch/riscv/errata/thead/errata.c                   | 38 ++++---------
+ arch/riscv/include/asm/asm.h                       | 15 +++++
+ arch/riscv/include/asm/barrier.h                   |  2 +
+ arch/riscv/include/asm/errata_list.h               |  8 +--
+ arch/riscv/include/asm/hwcap.h                     | 25 +++++++++
+ arch/riscv/include/asm/pci.h                       |  4 +-
+ arch/riscv/include/asm/processor.h                 |  4 +-
+ arch/riscv/include/asm/smp.h                       |  4 +-
+ arch/riscv/include/asm/switch_to.h                 |  4 +-
+ arch/riscv/kernel/alternative.c                    | 18 +++---
+ arch/riscv/kernel/cpu.c                            | 26 +++++----
+ arch/riscv/kernel/cpu_ops_sbi.c                    |  4 +-
+ arch/riscv/kernel/cpu_ops_spinwait.c               |  4 +-
+ arch/riscv/kernel/cpufeature.c                     | 52 +++++++----------
+ arch/riscv/kernel/smp.c                            |  4 +-
+ arch/riscv/kernel/smpboot.c                        |  9 +--
+ arch/riscv/kernel/sys_riscv.c                      |  5 +-
+ arch/riscv/kernel/traps.c                          |  4 ++
+ drivers/clocksource/timer-riscv.c                  | 15 ++---
+ drivers/firmware/efi/libstub/riscv-stub.c          | 13 ++++-
+ drivers/irqchip/irq-riscv-intc.c                   |  7 ++-
+ drivers/irqchip/irq-sifive-plic.c                  |  7 ++-
+ 37 files changed, 358 insertions(+), 143 deletions(-)
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
