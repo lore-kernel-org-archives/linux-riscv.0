@@ -4,76 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F67BC00140
-	for <linux-riscv@archiver.kernel.org>; Fri,  5 Aug 2022 16:18:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4598AC25B0C
+	for <linux-riscv@archiver.kernel.org>; Fri,  5 Aug 2022 16:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5SE0RspCCkzVfCqC2x93o7OeYwptjDZNhFr6n//V9kQ=; b=UmWJbr54udKJIi
-	HTrosQFF6u51C85JiA7AqL9T64/rz0QOpM2tKk5jNdVM8BHyGJqn6WithubtjumkkdJnD+x1/GVVx
-	x+JZzuXH/nyoNnzRjD5yeomTyKJQFaC9CbYEv2M1Z31vWM0HIxX2pIngrFjefk9tAhZXLTlUfM0gQ
-	RkKP/P/xLsrPVjM15g2fz+fP79AZJuWZdWby5pS5O4dKwppsWreVGanhW86ty4NS7ajigH/7OWfkh
-	XM2MwI9tDo/Oq1aIWOtRKVpyrz4ovWNleLhtffhBH0U7o+99K2iaAL9qlfF88/+l1mxWqJAGSOfEM
-	ZLzy55lYsdbRkTN4NuBA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=O3yP7o0xuA87e+nSgQlGLyaBuOLa15MfA2iUSgB/Cek=; b=MTGNslj4nj8m8t
+	ukiAvrslD8N7nhEynW7m9OlcxII1RL8qukXAMbESHx01mlUzCmS+DIDWjA/cyNEFRYnkOk+Ec0xZq
+	rt3frV7BIvbjS4fdB8ED7Jer948zWgT9h9SP9UZSub7lnkKhb/bwc9RNU2tlQpU6FwCsSnoSp2Lph
+	qOHGfomz8rwMDieyL56uSY1oNzK6CsRG3LfMTOoyehfyt21z+BmcWzy80F+Sx/XAhn57rCzKaeoRs
+	Pbk7kAx+p96ZK5eRj0Bh8trl4hTYkzZMngDMO1o1SkJ8XJMXr12lEnrCCNtGQvWZCEskBbXG0EWAZ
+	vSwIvd6KC8xFGX6KQOLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oK01I-00Gfls-2X; Fri, 05 Aug 2022 16:17:52 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
+	id 1oK0CE-00Gkcs-61; Fri, 05 Aug 2022 16:29:10 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oK01E-00Gfi9-Ul
-	for linux-riscv@lists.infradead.org; Fri, 05 Aug 2022 16:17:50 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-31f443e276fso29080897b3.1
-        for <linux-riscv@lists.infradead.org>; Fri, 05 Aug 2022 09:17:46 -0700 (PDT)
+	id 1oK0C9-00GkZW-9I
+	for linux-riscv@lists.infradead.org; Fri, 05 Aug 2022 16:29:07 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id j15so3826306wrr.2
+        for <linux-riscv@lists.infradead.org>; Fri, 05 Aug 2022 09:29:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc;
-        bh=eU9F5KTyLXS6Ehm35W4ZJ4KkazoKzToP1yWNY4wU9Kg=;
-        b=OTIMcxvVmtHvZYnx9w+o/IIVHMVnFTjtZpg0iBHBJF/Skq2sQZgscB+aLiUJLN0sfj
-         ysp6VTKukTmrHLmujjUvOzPbY2bFxqoHBmuaRFR/pAJBoyv7X1Nu520OafIyx6Qr6bOV
-         +R3D5siCAJFSmOozQy6OIy6w4KtvhRp01pfrA=
+        d=conchuod.ie; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc;
+        bh=er0g7uHt/REArzX+ze5K8GPRuPY+Jxgp51y8SELP3FM=;
+        b=EbOTl21mdJTL1GSzLoH5mndTGZ7rvd3Xg13P4ZKyz1HCSdoZ+u7F/xmaKdmhUrrJYR
+         ArAdrwc4a1//4AnluZSlFDO6+T3WonDWZ7YJAoV50fmI/J5ExQUtkLJKbPjLjsScuXwe
+         WN1Qs3sMEseZZVv/O9h179kGKXIXUaZ7acdsR24+fFhX69GI2nTzP/kZtlcjr7KN9DOZ
+         vFaNNYQYq6E/a41Mn8Y+odfAkjrhdjCAvuuGk00A/HgX+GlhAhe93bBVZfYbqTMm1ZFx
+         Vpkg4f2wo26DXiVBb+vHMqHogYZl59hldL5jGPOYrirc97C0RUGdzYLF2J//OSiPFvsa
+         0YFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc;
-        bh=eU9F5KTyLXS6Ehm35W4ZJ4KkazoKzToP1yWNY4wU9Kg=;
-        b=VkufBRvxHItwF/vh/pUpSuKSiHwf1s+lU7VgX1SPSyL6Kc+ExNXKwiBWXqUkeu7QqW
-         FLVk7gZLGwrcXxWTQVapHuFOBVl/RQjRyR2n/cYleEtEprL0wLdl38RkzCgJcEzAABIi
-         lsv9jQcO6oBniTbMx2XVHvQJSfWxWZlAYknA6kfVGgESg0t2EOMWFqO/ODo65zH0Ix0I
-         UOpVgc9tLrdOQrGzdDcMWtqj1+OoPOallK4tTVMuoCQ8kOjTd+cnh6KINU6UByZ/rgvA
-         m+vFd5C/kkmKwljIA+xawBy0uqPM7gVPRi4DZY0H3OwSpySTwrH7SRIfvas+H38f+GpT
-         fVkw==
-X-Gm-Message-State: ACgBeo1FcWvSYbfY4nJ5nWDNYhDlWS9ZOfVixXAKykMHhmvz7Kv/g8s9
-	tkPeR65YedLtlM+4J6/jVK4lJVg+tab13qlfaYYv
-X-Google-Smtp-Source: AA6agR62cKws3SRTlgdcM1pts0cZpN6r3mdMoI/TrJcr4NwaVIxxT+6rUb3vilx/LYfVks/NtNXlI1usDhozpgqRr64=
-X-Received: by 2002:a81:5251:0:b0:31f:56c6:b69 with SMTP id
- g78-20020a815251000000b0031f56c60b69mr6801352ywb.75.1659716265625; Fri, 05
- Aug 2022 09:17:45 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc;
+        bh=er0g7uHt/REArzX+ze5K8GPRuPY+Jxgp51y8SELP3FM=;
+        b=QRVY9byATVuPrwpmLvPsk57OOY4jDNFLQo/lBtTVRbyML7975O4sb3DwDiWEbG4rot
+         vOZxFeHODeUaX+1gBBmeFT3Ql0iB9xyuajp33q8JdA9XQh4pc3xX8ph+pb+wpeC06dA0
+         Q/z3JMQ5vjB7wcwS3PUMGgugnbluYiaElndvRTaLfoZNtXoe7iplb0mweCIOciE2XF9C
+         4vJdEsyEqJFnfs3GzTmamCPilv1YpI+h0eBUGgeB6eBdT+8E0/Z+fRil0rlBTvilGc6q
+         hXYcon8gnl93YnI8WtzHJxYBFM08oEyvtcNRVLYM/W5aYoFYRe3Q7MoUfmbZJuuKnlaj
+         vt1g==
+X-Gm-Message-State: ACgBeo2wv4n/OLhHKWbMxYENX+E86plsD94OtPZlter55ne9lAeTRL75
+	IYAfsEvf9gIgEHdQFcVmS6fx9w==
+X-Google-Smtp-Source: AA6agR5PYR+Wl+0VOlguEQQuXuRRJGr8efSXklKvUOQvZ7GXAI/mg5rEbgBwI6yH/e0BdmhHI1txbw==
+X-Received: by 2002:a05:6000:1542:b0:220:603d:ec93 with SMTP id 2-20020a056000154200b00220603dec93mr5044554wry.73.1659716943539;
+        Fri, 05 Aug 2022 09:29:03 -0700 (PDT)
+Received: from henark71.. ([93.107.66.220])
+        by smtp.gmail.com with ESMTPSA id b10-20020a056000054a00b00220633d96f2sm5210086wrf.72.2022.08.05.09.29.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Aug 2022 09:29:03 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Anup Patel <anup@brainfault.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>,
+	Sagar Kadam <sagar.kadam@sifive.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	qemu-riscv@nongnu.org
+Subject: [PATCH 0/3] Fix dt-validate issues on qemu dtbdumps due to dt-bindings
+Date: Fri,  5 Aug 2022 17:28:42 +0100
+Message-Id: <20220805162844.1554247-1-mail@conchuod.ie>
+X-Mailer: git-send-email 2.37.1
 MIME-Version: 1.0
-References: <20220722165047.519994-1-atishp@rivosinc.com> <20220722165047.519994-4-atishp@rivosinc.com>
- <CAOnJCUK1JppQkZ+bv7mNpCm95i3gGZ5wHaRc2wiBGyp3zj2Dhw@mail.gmail.com>
-In-Reply-To: <CAOnJCUK1JppQkZ+bv7mNpCm95i3gGZ5wHaRc2wiBGyp3zj2Dhw@mail.gmail.com>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 5 Aug 2022 09:17:35 -0700
-Message-ID: <CAOnJCUJrwVim1c8BpLYrHUAhHc-jO8w_wV5EuBc_3DhSb8DjLQ@mail.gmail.com>
-Subject: Re: [PATCH v7 3/4] RISC-V: Prefer sstc extension if available
-To: Stephen Boyd <sboyd@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Palmer Dabbelt <palmer@rivosinc.com>
-Cc: "linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Atish Patra <atishp@rivosinc.com>, 
-	Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Guo Ren <guoren@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Rob Herring <robh@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Tsukasa OI <research_trasio@irq.a4lg.com>, 
-	Wei Fu <wefu@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220805_091749_002983_E0B70E8D 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20220805_092905_442311_D2273DA7 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,98 +100,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 25, 2022 at 10:49 PM Atish Patra <atishp@atishpatra.org> wrote:
->
-> On Fri, Jul 22, 2022 at 9:50 AM Atish Patra <atishp@rivosinc.com> wrote:
-> >
-> > RISC-V ISA has sstc extension which allows updating the next clock event
-> > via a CSR (stimecmp) instead of an SBI call. This should happen dynamically
-> > if sstc extension is available. Otherwise, it will fallback to SBI call
-> > to maintain backward compatibility.
-> >
-> > Reviewed-by: Anup Patel <anup@brainfault.org>
-> > Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> > ---
-> >  drivers/clocksource/timer-riscv.c | 25 ++++++++++++++++++++++++-
-> >  1 file changed, 24 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> > index 593d5a957b69..05f6cf067289 100644
-> > --- a/drivers/clocksource/timer-riscv.c
-> > +++ b/drivers/clocksource/timer-riscv.c
-> > @@ -7,6 +7,9 @@
-> >   * either be read from the "time" and "timeh" CSRs, and can use the SBI to
-> >   * setup events, or directly accessed using MMIO registers.
-> >   */
-> > +
-> > +#define pr_fmt(fmt) "riscv-timer: " fmt
-> > +
-> >  #include <linux/clocksource.h>
-> >  #include <linux/clockchips.h>
-> >  #include <linux/cpu.h>
-> > @@ -20,14 +23,28 @@
-> >  #include <linux/of_irq.h>
-> >  #include <clocksource/timer-riscv.h>
-> >  #include <asm/smp.h>
-> > +#include <asm/hwcap.h>
-> >  #include <asm/sbi.h>
-> >  #include <asm/timex.h>
-> >
-> > +static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
-> > +
-> >  static int riscv_clock_next_event(unsigned long delta,
-> >                 struct clock_event_device *ce)
-> >  {
-> > +       u64 next_tval = get_cycles64() + delta;
-> > +
-> >         csr_set(CSR_IE, IE_TIE);
-> > -       sbi_set_timer(get_cycles64() + delta);
-> > +       if (static_branch_likely(&riscv_sstc_available)) {
-> > +#if defined(CONFIG_32BIT)
-> > +               csr_write(CSR_STIMECMP, next_tval & 0xFFFFFFFF);
-> > +               csr_write(CSR_STIMECMPH, next_tval >> 32);
-> > +#else
-> > +               csr_write(CSR_STIMECMP, next_tval);
-> > +#endif
-> > +       } else
-> > +               sbi_set_timer(next_tval);
-> > +
-> >         return 0;
-> >  }
-> >
-> > @@ -165,6 +182,12 @@ static int __init riscv_timer_init_dt(struct device_node *n)
-> >         if (error)
-> >                 pr_err("cpu hp setup state failed for RISCV timer [%d]\n",
-> >                        error);
-> > +
-> > +       if (riscv_isa_extension_available(NULL, SSTC)) {
-> > +               pr_info("Timer interrupt in S-mode is available via sstc extension\n");
-> > +               static_branch_enable(&riscv_sstc_available);
-> > +       }
-> > +
-> >         return error;
-> >  }
-> >
-> > --
-> > 2.25.1
-> >
->
-> Hi Stephen,
-> Can you please review this whenever you get a chance ? We probably
-> need an ACK at least :)
->
+From: Conor Dooley <conor.dooley@microchip.com>
 
-Ping ?
+The device trees produced automatically for the virt and spike machines
+fail dt-validate on several grounds. Some of these need to be fixed in
+the linux kernel's dt-bindings, but others are caused by bugs in QEMU.
 
-> --
-> Regards,
-> Atish
+Patches been sent that fix the QEMU issues [0], but a couple of them
+need to be fixed in the kernel's dt-bindings. The first patches add
+compatibles for "riscv,{clint,plic}0" which are present in drivers and
+the auto generated QEMU dtbs. The final patch adds some new ISA strings
+which needs scruitiny from someone with more knowledge about what ISA
+extension strings should be reported in a dt than I have.
+
+Thanks to Rob Herring for reporting these issues [1],
+Conor.
+
+To reproduce the errors:
+./build/qemu-system-riscv64 -nographic -machine virt,dumpdtb=qemu.dtb
+dt-validate -p /path/to/linux/kernel/Documentation/devicetree/bindings/processed-schema.json qemu.dtb
+(The processed schema needs to be generated first)
+
+0 - https://lore.kernel.org/linux-riscv/20220805155405.1504081-1-mail@conchuod.ie
+1 - https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
+
+Conor Dooley (3):
+  dt-bindings: timer: sifive,clint: add legacy riscv compatible
+  dt-bindings: interrupt-controller: sifive,plic: add legacy riscv
+    compatible
+  dt-bindings: riscv: add new riscv,isa strings for emulators
+
+ .../sifive,plic-1.0.0.yaml                     |  5 +++++
+ .../devicetree/bindings/riscv/cpus.yaml        |  2 ++
+ .../bindings/timer/sifive,clint.yaml           | 18 ++++++++++++------
+ 3 files changed, 19 insertions(+), 6 deletions(-)
 
 
-
+base-commit: 42d670bda02fdba0f3944c92f545984501e5788d
 -- 
-Regards,
-Atish
+2.37.1
+
 
 _______________________________________________
 linux-riscv mailing list
