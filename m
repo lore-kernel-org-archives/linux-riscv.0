@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E85C19F2A
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Aug 2022 19:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30B01C19F2A
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Aug 2022 19:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fq7tbXpwS7ZKA5djBh1IOFLFpN7Z1ugOVZ6zpcAjRQE=; b=yxD18Dru/VoDdS
-	bgy4Ki8Tc7gs9HmivPCSnsKR8PxWbdzc5vFxK6JDu1uEaLsJnyPeSqqwAHC95ye/PF6RPqk8Om22u
-	3jqFyk0Bm+avcr5JAKLsPMAEj2fLOsjp2JgVTz/d/2sP+DU4drlWcpME51VuuxflWkIxieWgpEyXd
-	NrCvBr0N9R4nXgai+MS0scxcw5pwD0f4g3Rp39TC6tsHq3BH+zqwyEoLOypR2Z7Abwl0QfF3EAxTp
-	84RMVYWbAMnaiMtoZGkp6grMf0VDQCsSRlk6D9yh/AkgOKuuTZOgtVik6BwaXBtWrUMw0faSf600/
-	yew1+4FjwGJT7SSWCcrA==;
+	List-Owner; bh=IoUR/MZSEBSLnaHD8NNRxrW7XDI2lEI1bKtzTKnHzGY=; b=t5ZEVqohOkGKj8
+	H/y/xrCVih6qdYfTM2mXZkLS46v78v1TlnR3ivu3tyyZxsOrIPmywvtrIm4z+2P1Ot5F56H57a1vz
+	p8kuLnPT6guLEIi2KGFbRvzTrpS9XFlI+ogvL1ObCrIKTSmJH47Spgbolr8x8sj6u85Lju/CQogAo
+	q0HOpOTDfvp9rQ0/NqYWAGzN+Lr6L+QikvxIxvJMBUSZutcEXJBrRH//zQcNavDSFxmObZ62ubPjz
+	DnPFIIq8rJXB1zuRcwrNxQyFFhkLYVDGFgBlcBAJObvcVqqZlswoZNX6pYOyeaAxK5cf9CvPoOg3u
+	w2eLjgIYL/9srt7EqSYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKmCx-001s58-Vr; Sun, 07 Aug 2022 19:45:08 +0000
-Received: from mout.kundenserver.de ([212.227.126.187])
+	id 1oKmDx-001sda-Gi; Sun, 07 Aug 2022 19:46:09 +0000
+Received: from mout.kundenserver.de ([212.227.126.134])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKmCu-001s3v-IO
-	for linux-riscv@lists.infradead.org; Sun, 07 Aug 2022 19:45:06 +0000
-Received: from mail-wr1-f47.google.com ([209.85.221.47]) by
+	id 1oKmDu-001sXu-Bn
+	for linux-riscv@lists.infradead.org; Sun, 07 Aug 2022 19:46:07 +0000
+Received: from mail-wr1-f49.google.com ([209.85.221.49]) by
  mrelayeu.kundenserver.de (mreue010 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1N2Unv-1nPY8p0WMR-013vkW for <linux-riscv@lists.infradead.org>; Sun, 07 Aug
- 2022 21:45:00 +0200
-Received: by mail-wr1-f47.google.com with SMTP id j7so8758210wrh.3
-        for <linux-riscv@lists.infradead.org>; Sun, 07 Aug 2022 12:45:00 -0700 (PDT)
-X-Gm-Message-State: ACgBeo1YaD3XMbwe+acpb5F79Tf8zFaUt3DvF0PGhysxMiAUdUftsME5
-	JuPUhEcPz3LVZk5FTKOP++j497g4WeGMTaijatQ=
-X-Google-Smtp-Source: AA6agR7WvYipqruEUqI3FozO1bMoMLoFg3gTNr1wJxvZ4oY3kYpws83YatqbI24HkVKiWoEkfQMs1s6P8NVFSqcphg4=
-X-Received: by 2002:adf:f5c7:0:b0:220:6871:de96 with SMTP id
- k7-20020adff5c7000000b002206871de96mr9685215wrp.516.1659901499836; Sun, 07
- Aug 2022 12:44:59 -0700 (PDT)
+ 1MqbDs-1nYXAh1ffc-00mYnL for <linux-riscv@lists.infradead.org>; Sun, 07 Aug
+ 2022 21:40:59 +0200
+Received: by mail-wr1-f49.google.com with SMTP id bv3so8723543wrb.5
+        for <linux-riscv@lists.infradead.org>; Sun, 07 Aug 2022 12:40:56 -0700 (PDT)
+X-Gm-Message-State: ACgBeo1UzK2J29C/FKkEKPuGA5sxa8FC24U2iKS1kIdbqIiryklfJNAy
+	hdHw06xy8GcWeX6Nzy/BuTCt/YmyMGn3hj8uAfE=
+X-Google-Smtp-Source: AA6agR6hxd+c6uxIaU58pn/ju2/Kpl1hrPDOtejwBjDN9MsDwixXKlT0pf81lWjwhwXW39QULBi5Dg6hl/EgSri8ztI=
+X-Received: by 2002:a05:6000:18a2:b0:221:7d32:e6a5 with SMTP id
+ b2-20020a05600018a200b002217d32e6a5mr5774325wri.278.1659901256671; Sun, 07
+ Aug 2022 12:40:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220807172854.12971-1-rdunlap@infradead.org>
-In-Reply-To: <20220807172854.12971-1-rdunlap@infradead.org>
+References: <20220807172839.12359-1-rdunlap@infradead.org>
+In-Reply-To: <20220807172839.12359-1-rdunlap@infradead.org>
 From: Arnd Bergmann <arnd@arndb.de>
-Date: Sun, 7 Aug 2022 21:44:43 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a0FR2ySLXAMGR1ZmaAQMbVwB4MFBPvBw4py_pbgtQSfgA@mail.gmail.com>
-Message-ID: <CAK8P3a0FR2ySLXAMGR1ZmaAQMbVwB4MFBPvBw4py_pbgtQSfgA@mail.gmail.com>
-Subject: Re: [PATCH] asm-generic: unistd.h: make 'compat_sys_fadvise64_64' conditional
+Date: Sun, 7 Aug 2022 21:40:40 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a0s0y9jbw4EFsLM2-unSNuHfqoVcuq_NuO9fTsjN4cWiQ@mail.gmail.com>
+Message-ID: <CAK8P3a0s0y9jbw4EFsLM2-unSNuHfqoVcuq_NuO9fTsjN4cWiQ@mail.gmail.com>
+Subject: Re: [PATCH] riscv: compat: make __ARCH_WANT_COMPAT_FADVISE64_64 conditional
 To: Randy Dunlap <rdunlap@infradead.org>
 Cc: linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
 	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org
-X-Provags-ID: V03:K1:Fv1XzN7p5DKzOI1VWQNAZojJDihjycijh02vfDM9d9tZOqk7Aw+
- E4gtilug7DMjS2nm0rDiLUsgi8AZWRFQXZAbVUVqtUAdSSKAcdjizL1isUFidgxnB/yWJYS
- AWEdk9Hjgx+Uv54jcEjrkFTanE2dRKcyQM/d8wpRmnWtLPfa9I14kH2PHrZAPP2krf4hl9I
- lt+UiOgjbbT58Uu/+WV8g==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:oAR+CiO95gE=:W891Xoprm96EjUleRMknRc
- lnqnfi2SqXW6mFqGF3vBWnQ8jsx1vdolGBWSOt2eM7oKGgj1+AAExki96ONhqYyDNE+ee08rT
- 0DWfjaeXWVrWj5J/XiM6IQvTGuCT3bQfI7wVcnZQGGYNHpbCK4/L0xUYYV+Y8gpMcdP8Qp+Ss
- iJlmAtwzY/2AAa2qYDqyxHtQM7Zf7f/cA1YQC7WYWo6prRG5KueJnKpmIVZn0eWKO00y7HByN
- eRZBpy4JkzSh/1GvNBN1rmuKfzaGJ+Nsfa1RXy60mSXJtmviTglrntLx9qefRKV8m4/Xjwzp6
- aCR8Fk/k6AHavfcYNy9bKH5jSFPLepNT3QrQlX2O2OycZrjU3YebNg7qpT5XfddwY7YUKgQoJ
- fqNbZlGWrX4XjXr6DENgeW1QgDf+On4J0phx2h4UWVHyo6W3/FRyxHeegd3qwzhUbBFREahdR
- 2FCpjkfeepC1ygxqLuG9A8am87WKUgBcMtZeSUAyejaaxFyOol8M8DIhJcGbrqmkyRYIzzMFM
- gRe8+xYd6ZZc1wewyFcvdGldaixC1mD+VQTV+G45gWUHspu+fnoqPrwrSGionzSCU8RoPAOAW
- IXchnxImhjT7euy8UeCOGswlHmRwXT/exB+OByU89qLmczS9QNyUUtjFm/GM0fJ6LVPAEdku8
- xqdSnhAxRZv+z95L9S74Dq9x2BNRH0+BKNd+IVoe0U+IXUIPzRi3EihMqbnJEroOlOHSeVtXV
- QHUUA0yGqu0KaLfXcNKxFovYWBXWgYIHJO19fOH4yitvE9Tnot8tiG0xO74gLwbEk+3lH9AUv
- 7bhadUHEo+zqXYXk91Mya0coPmaStW/AIy6vFDfHIpepcSCEzB+YQvF+aGSraczfBYRjjXwKM
- yZ9TzxMX2Ddl3+TuBNuA==
+	linux-riscv@lists.infradead.org, Guo Ren <guoren@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>
+X-Provags-ID: V03:K1:ibc+Tkl8vJhyJ5XY+4ME5BX7/xfsb3v+lKlu1zCE7p1ZOzcoeTW
+ KadU27qecfTdOpnjNBApsWdt9NqFW+HGiPg+hKqD8TEuyeVlKzqJezv3seck7K3Zov4fwTa
+ A46vdmE7u80Dz89qrFVzubIbO3wgfxJ7AfsNyNP4aGlC5aJtjx1YDLydXqxTANLWbSRivkp
+ U59MlBWh071pt84GOBeAQ==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:j/tCUiN2ghk=:EGtun8yNf425RYQ9jBzcHW
+ Ju6ES9rEkmy8kSgcOijLCEiSjpgmJ8zk7TKopRbqTzaFn2zh5ks0P68HVcM3RKZJ7ir9no7w+
+ 1XK7nIkL4b4JhkJQ/GogGDTtLe8VQ4MhlDAhud6EWG1PRt8tkEZHSs1r/mlR1GgYw5MpgTkW9
+ RMsxpUIkEcEw1WiMacH0WF/+3kDbBTsXfoE2Mt1RL7Ns4Qu7/tls2sFNhdYvqGTr4kCns8TkE
+ Jg6gf3XZ4tMb6l36zqLf5+F654/cAA4UDj8q7LYQ3xiRqqT/B27zx3RXP6BY/GCEuRitEYJzM
+ Lcq03jcX+YE5fQf+KzzamBY/CtWSIIAK0fGqxKoN0UsXlGiRsfR6p9+bgSOsLZx7CfIlJpi9D
+ 1uJPUjms98TWB5OFnQyQAbcyPC+O2ZHIB4YbkdY4tMQQjPHuDcqAWx6rHs/9oXe2d1Vp0D8b6
+ zgvPaYxOqpI0ity0mtb0HBMLoISYe6B8m6/btFRasW3+wcBWU90O1WNzBW5XoI6AdG9Hr6H+y
+ 5pF5W6Y6tW9U3q/rKTk+kgz3ju2V4OpbvsLedF280ek7sioofyiNjureq7e0+KGD8WCEiQbXQ
+ 8yDyzoq9upal1zaCIdYyfp1YYQ7oauz1zcZOsc5erVdjEjGT9dGOvP4rAuka5BKHfXxqTDeUE
+ FSysoc5/Bx18Slbg2lO8SkqAXO3LOJxgU7x7uoOzXJ9Gcka9sesaUkOmtjvr8yG592L4NTECd
+ MjiNAGEUd6WJd4uqtlt74pHqhCyDj1pzx6GOTA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220807_124504_946227_2B7EE2EF 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20220807_124606_751313_804383E0 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,55 +87,44 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Sun, Aug 7, 2022 at 7:28 PM Randy Dunlap <rdunlap@infradead.org> wrote:
 >
-> Don't require 'compat_sys_fadvise64_64' when
-> __ARCH_WANT_COMPAT_FADVISE64_64 is not set.
+> When CONFIG_ADVISE_SYSCALLS is not set/enabled and CONFIG_COMPAT is
+> set/enabled, the riscv compat_syscall_table references
+> 'compat_sys_fadvise64_64', which is not defined:
 >
-> Fixes this build error when CONFIG_ADVISE_SYSCALLS is not set:
+> riscv64-linux-ld: arch/riscv/kernel/compat_syscall_table.o:(.rodata+0x6f8):
+> undefined reference to `compat_sys_fadvise64_64'
 >
-> include/uapi/asm-generic/unistd.h:649:49: error: 'compat_sys_fadvise64_64' undeclared here (not in a function); did you mean 'ksys_fadvise64_64'?
->   649 | __SC_COMP(__NR3264_fadvise64, sys_fadvise64_64, compat_sys_fadvise64_64)
-> arch/riscv/kernel/compat_syscall_table.c:12:42: note: in definition of macro '__SYSCALL'
->    12 | #define __SYSCALL(nr, call)      [nr] = (call),
-> include/uapi/asm-generic/unistd.h:649:1: note: in expansion of macro '__SC_COMP'
->   649 | __SC_COMP(__NR3264_fadvise64, sys_fadvise64_64, compat_sys_fadvise64_64)
+> Only set __ARCH_WANT_COMPAT_FADVISE64_64 when CONFIG_ADVISE_SYSCALLS
+> is set.
 >
+> Fixes: 59c10c52f573 ("riscv: compat: syscall: Add compat_sys_call_table implementation")
 > Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 > Cc: Paul Walmsley <paul.walmsley@sifive.com>
 > Cc: Palmer Dabbelt <palmer@dabbelt.com>
 > Cc: Albert Ou <aou@eecs.berkeley.edu>
 > Cc: linux-riscv@lists.infradead.org
+> Cc: Guo Ren <guoren@kernel.org>
 > Cc: Arnd Bergmann <arnd@arndb.de>
-> Cc: linux-arch@vger.kernel.org
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: linux-mm@kvack.org
 > ---
->  include/uapi/asm-generic/unistd.h |    2 ++
+>  arch/riscv/include/asm/unistd.h |    2 ++
 >  1 file changed, 2 insertions(+)
 >
-> --- a/include/uapi/asm-generic/unistd.h
-> +++ b/include/uapi/asm-generic/unistd.h
-> @@ -645,8 +645,10 @@ __SC_COMP(__NR_execve, sys_execve, compa
->  #define __NR3264_mmap 222
->  __SC_3264(__NR3264_mmap, sys_mmap2, sys_mmap)
->  /* mm/fadvise.c */
-> +#ifdef __ARCH_WANT_COMPAT_FADVISE64_64
->  #define __NR3264_fadvise64 223
->  __SC_COMP(__NR3264_fadvise64, sys_fadvise64_64, compat_sys_fadvise64_64)
+> --- a/arch/riscv/include/asm/unistd.h
+> +++ b/arch/riscv/include/asm/unistd.h
+> @@ -18,8 +18,10 @@
+>  #define __ARCH_WANT_COMPAT_PWRITE64
+>  #define __ARCH_WANT_COMPAT_SYNC_FILE_RANGE
+>  #define __ARCH_WANT_COMPAT_READAHEAD
+> +#ifdef CONFIG_ADVISE_SYSCALLS
+>  #define __ARCH_WANT_COMPAT_FADVISE64_64
+>  #endif
 > +#endif
->
 
-This does not work: __ARCH_WANT_COMPAT_FADVISE64_64 is defined in
-arch/riscv/include/asm/unistd.h, which is not a UAPI header. By making the line
-conditional on this, user space no longer sees the macro definition.
+I think it's better to add this to kernel/sys_ni.c next to
+COND_SYSCALL(fadvise64_64), to make it more consistent
+with the other conditionally enabled syscalls.
 
-It looks like you also drop the native definition on all architectures other
-than riscv here. What we probably want is to just make all the
-declarations in include/linux/compat.h unconditional and not have them
-depend on architecture specific macros. Some of these may have
-incompatible prototypes depending on the architecture, but if we run
-into those, I would suggest we just give them unique names.
-
-       Arnd
+        Arnd
 
 _______________________________________________
 linux-riscv mailing list
