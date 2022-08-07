@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93AABC19F2A
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Aug 2022 22:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6367C19F2A
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Aug 2022 22:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/eJGwBo26TPFa9YGee4Dhwk3vtClWbg2xRrTOui4liQ=; b=fb507wBY17y2tK
-	VWD4e+NA7NlUT1aobxGeJ97HAN1ZrvzpI7ViAm44hkSew/3zNhHUjxtE2d1mSJP6CQ4soLcAL9FU5
-	VM+/JCbWBIogdUmPKXSnLvdlYr4CekPv0Vo3o23MhHQr72x7s5K/WDNJpza15B+p+kWveg/BBnh3s
-	ASIsas/gHhwkU60tZoahYpk1liVpuZ0W2EIHyP1bH07+Kx9nWhJFF7/RnI6hn0DU1EvtMWtLgHoSF
-	/5pzK7/rmjV2cy4R/8PEdqunSSmpE1Y/6HgGbqdXI+SXxiNXQQiJwIzHvQPZ5IK3zw1L1PYuPvEtN
-	wFR4ja91i08UKinjMJMQ==;
+	List-Owner; bh=57QALs+C0zKuOeJ95eFeU5CBDMzdVNY/iU1XWo1VGrg=; b=xVQC1A8wrKMI6d
+	rxIkLeGEsNbf4Mqlb/PJWRdNpo7Ob39qR0p5fbK2bqCofmZnMN+/LfIHrZMQjEpRAXn8p+viMm054
+	LRpN1qS7LcRMv0MmFZDWXB9HBlizqWBEOmtwmA9chC/az3ImaEiI0QogulapOXmUK6+YeWZcD4DUn
+	gurEQ+IsDrVr0pEw40KL7Sess2Ja1PPggkhh4PAK5sD+VHIrwH5H0Xl2J5dXyKkQNsLowl+X3/Ws+
+	qnUBSShMf5QXgikoW6RsKgZH8H5WZl2ReRXQ+jtar3keOPOEhAWW1gBdjzynx86rNGZLOVvcdf2iy
+	tQaJxWa+AtX22Lz1GLzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKpBM-003dBn-Ko; Sun, 07 Aug 2022 22:55:40 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1oKpBh-003dPG-Hw; Sun, 07 Aug 2022 22:56:01 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKpBB-003d3Y-TQ
-	for linux-riscv@lists.infradead.org; Sun, 07 Aug 2022 22:55:38 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id p8so7027733plq.13
-        for <linux-riscv@lists.infradead.org>; Sun, 07 Aug 2022 15:55:29 -0700 (PDT)
+	id 1oKpBe-003dNM-K3
+	for linux-riscv@lists.infradead.org; Sun, 07 Aug 2022 22:56:00 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 15-20020a17090a098f00b001f305b453feso12919748pjo.1
+        for <linux-riscv@lists.infradead.org>; Sun, 07 Aug 2022 15:55:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc;
-        bh=FgYajevSy5JJOV/dvjp7vruzarNh37WfAGf2aLFXqgE=;
-        b=ACcFkSGhwqsqXioVrnxFq+RHZwtSA3xfQ79I7MuOg3je8Uo8iu29m3bFj3LxCAbnzw
-         Yn0JKEb+bYOZFF+p14jUyWBSnlMtB9HwEC5eaEGz5/Rmwr5sg4SCNNZc83pOihcjCuBS
-         Nbd051rtoMLWuW1zXCH4+kNJxnZT9+/jM/OSRrcSHnbD/IPRa3Z6fs/bYaTZnIrr8Nmn
-         6Zp+TdarbryM4360O6H0LtSF2X/NHPmcHxrZhBM0mUfj2veudWxkAXGUIAbHMUyIVZDo
-         K9QjLWBfzRTNEl8pPdsRa6FzH3JY+GI4iap68m0g/fpE2lbFxHMvlgNdM7ohys3UFdV9
-         4ioA==
+        bh=J35VYfb/k+UHn3LPA5cvyRwQTefgVmN3WoLJbDt7REk=;
+        b=X7HrpkbtFlnom2BYDhOHN1/hcm5nT8vTY9GfQkTFJ6w1muRYq5d6B7NHusUJL7HALl
+         oN5DhwJ+p1vg1/hdLhzym/7R0sUOG1L3wNcqxGx6HaG6nQ7SmMMbcp/pNRDBil2Pb+qO
+         My6fxbo4SsnC5MMUZMPB9bM/DsrxCVh4ktVP7ToiWlluVg0ZxCmAb0prkGevw1ua4/ET
+         4BpOwxdjKfNtW9QK/mYAmHuZz2ST5OLSwbNAx+yu6jHGwx7IwHoQrGcUG3IpBt2x0r6+
+         T/w6nv2ObzbL06Ko+oMUjkvGsyyILXL7K/sRAlx/Y2zPLC3koFKUnpVPoarOzhAL7jXn
+         aR5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc;
-        bh=FgYajevSy5JJOV/dvjp7vruzarNh37WfAGf2aLFXqgE=;
-        b=DgKt1f3b8aR9albgsRYLgQaaBvFcyAxUJQ7aqpDLIoYTAgQU1Oy84BCqo8aKEGnqx8
-         qfPP+oXZWNpEOVw+tDDCrMx7tuAqABjKPKGU4tmaqiZMGZUKBGfzIU2Ct50Z2gN+rYwW
-         bXzp5A9J45diJMBx48ZmhI7D7GoWZ1vh5fyTsXsSu5NY38ODZiptXL6YCOpEklSxQk4M
-         24obYEHVXGcyMdVYi2UyBlseRPsLlBHejZEa4VX/8QnM4E4+5djGv6ZrjZxCEMSfMJQH
-         zLpgjmVRSWT58M3fStHyHpkhmH+VjEkUW1NvBY0nFgI61eL3qNXeRCYpMNcn9Ekdk8cQ
-         p9gw==
-X-Gm-Message-State: ACgBeo3XdF15ZhzSKIsyToBRpS4+f8suvs8NeoB1DG9uljjUf9AA29W1
-	8Xbf6iCHsZI2iFy6tdozvRqhjjPvpyF1TrcGYoXjaEAhgL8=
-X-Google-Smtp-Source: AA6agR4Mgwjx8G9tE8+yz7IcX0GIElOKLyDRRuqBHhObSd0d30OhHfKYgCPcdYjlc65+6MWSnTlph9piLPmCczZqlUs=
-X-Received: by 2002:a17:90a:b391:b0:1f3:6c3:392c with SMTP id
- e17-20020a17090ab39100b001f306c3392cmr26040074pjr.166.1659912928746; Sun, 07
- Aug 2022 15:55:28 -0700 (PDT)
+        bh=J35VYfb/k+UHn3LPA5cvyRwQTefgVmN3WoLJbDt7REk=;
+        b=yRLHPt64YHnZpXnnaWEibmipj6qUfbdOD62nWu0wSTqSGRGPfMILB5WsrSACeXQVgZ
+         Yjeh0pGt9/nXTm1n6s9YIagDS0JN2I1eYoO8wcsBgkQoT0miIM14gAwo2hoQrtnq8TI2
+         6Itwp7DwhlkJzNX4NkmOB1KCpYHcX1F72TLLsgVjVd9ody17Khi+t3F0ekACifLCnjMb
+         XlgUpACFvLX7rPmHk42RneR2RFUXDyWTlhjOjADLuK/Dxb2B5oQLCTa8qdrjzkzYpOVN
+         ThKWp+bI7adGEFkUBKpn8UT1o5gCMzgSUljiumJjYACkInob1Jnq7s/VM7R0wk8paLhA
+         vJKg==
+X-Gm-Message-State: ACgBeo3tldC7LS0YBEsgIU9hfXEysZ26Y607UfHfXfaIV1wbg8w0NCbh
+	uFJOKIfvdCpS6kxozgTJr4IwRTBs3jZuwhQawy5Uo5bFziE=
+X-Google-Smtp-Source: AA6agR5vRb9tdgQsI3Fu1w/08lyVQregHr4zyKnVRFkyDEFtxF1wZXMQ5+F/Emzi2XElDWvHoW82YDNkH5B3UtZktuQ=
+X-Received: by 2002:a17:902:e5c8:b0:16f:1511:7575 with SMTP id
+ u8-20020a170902e5c800b0016f15117575mr16374823plf.83.1659912957399; Sun, 07
+ Aug 2022 15:55:57 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220805155405.1504081-1-mail@conchuod.ie> <20220805155405.1504081-4-mail@conchuod.ie>
-In-Reply-To: <20220805155405.1504081-4-mail@conchuod.ie>
+References: <20220805155405.1504081-1-mail@conchuod.ie> <20220805155405.1504081-3-mail@conchuod.ie>
+In-Reply-To: <20220805155405.1504081-3-mail@conchuod.ie>
 From: Alistair Francis <alistair23@gmail.com>
-Date: Mon, 8 Aug 2022 08:55:02 +1000
-Message-ID: <CAKmqyKPv52ZkoJsEqHRJSnQS+ojQehY+PX0e0FN3xSFBYOMPYQ@mail.gmail.com>
-Subject: Re: [PATCH 3/5] hw/riscv: virt: Fix the plic's address cells
+Date: Mon, 8 Aug 2022 08:55:31 +1000
+Message-ID: <CAKmqyKOipk6L56xFYO52JXrW2DFjbfrtXvdm+6=Wjh2H5rxx-Q@mail.gmail.com>
+Subject: Re: [PATCH 2/5] hw/riscv: virt: fix uart node name
 To: Conor Dooley <mail@conchuod.ie>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, Alistair Francis <alistair.francis@wdc.com>, 
 	Bin Meng <bin.meng@windriver.com>, Rob Herring <robh@kernel.org>, 
 	Conor Dooley <conor.dooley@microchip.com>, "open list:RISC-V" <qemu-riscv@nongnu.org>, 
 	"qemu-devel@nongnu.org Developers" <qemu-devel@nongnu.org>, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220807_155534_913462_395C731D 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20220807_155558_764376_8B99EC8E 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,20 +86,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 6, 2022 at 2:11 AM Conor Dooley <mail@conchuod.ie> wrote:
+On Sat, Aug 6, 2022 at 2:01 AM Conor Dooley <mail@conchuod.ie> wrote:
 >
 > From: Conor Dooley <conor.dooley@microchip.com>
 >
-> When optional AIA PLIC support was added the to the virt machine, the
-> address cells property was removed leading the issues with dt-validate
-> on a dump from the virt machine:
-> /stuff/qemu/qemu.dtb: plic@c000000: '#address-cells' is a required property
->         From schema: /stuff/linux/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
-> Add back the property to suppress the warning.
+> "uart" is not a node name that complies with the dt-schema.
+> Change the node name to "serial" to ix warnings seen during
+> dt-validate on a dtbdump of the virt machine such as:
+> /stuff/qemu/qemu.dtb: uart@10000000: $nodename:0: 'uart@10000000' does not match '^serial(@.*)?$'
+>         From schema: /stuff/linux/Documentation/devicetree/bindings/serial/8250.yaml
 >
 > Reported-by: Rob Herring <robh@kernel.org>
 > Link: https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
-> Fixes: e6faee6585 ("hw/riscv: virt: Add optional AIA APLIC support to virt machine")
+> Fixes: 04331d0b56 ("RISC-V VirtIO Machine")
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
 Reviewed-by: Alistair Francis <alistair.francis@wdc.com>
@@ -107,35 +106,22 @@ Reviewed-by: Alistair Francis <alistair.francis@wdc.com>
 Alistair
 
 > ---
->  hw/riscv/virt.c         | 2 ++
->  include/hw/riscv/virt.h | 1 +
->  2 files changed, 3 insertions(+)
+>  hw/riscv/virt.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
 > diff --git a/hw/riscv/virt.c b/hw/riscv/virt.c
-> index 6c61a406c4..8b2978076e 100644
+> index bc424dd2f5..6c61a406c4 100644
 > --- a/hw/riscv/virt.c
 > +++ b/hw/riscv/virt.c
-> @@ -465,6 +465,8 @@ static void create_fdt_socket_plic(RISCVVirtState *s,
->      qemu_fdt_add_subnode(mc->fdt, plic_name);
->      qemu_fdt_setprop_cell(mc->fdt, plic_name,
->          "#interrupt-cells", FDT_PLIC_INT_CELLS);
-> +    qemu_fdt_setprop_cell(mc->fdt, plic_name,
-> +        "#address-cells", FDT_PLIC_ADDR_CELLS);
->      qemu_fdt_setprop_string_array(mc->fdt, plic_name, "compatible",
->                                    (char **)&plic_compat,
->                                    ARRAY_SIZE(plic_compat));
-> diff --git a/include/hw/riscv/virt.h b/include/hw/riscv/virt.h
-> index 984e55c77f..be4ab8fe7f 100644
-> --- a/include/hw/riscv/virt.h
-> +++ b/include/hw/riscv/virt.h
-> @@ -111,6 +111,7 @@ enum {
+> @@ -917,7 +917,7 @@ static void create_fdt_uart(RISCVVirtState *s, const MemMapEntry *memmap,
+>      char *name;
+>      MachineState *mc = MACHINE(s);
 >
->  #define FDT_PCI_ADDR_CELLS    3
->  #define FDT_PCI_INT_CELLS     1
-> +#define FDT_PLIC_ADDR_CELLS   0
->  #define FDT_PLIC_INT_CELLS    1
->  #define FDT_APLIC_INT_CELLS   2
->  #define FDT_IMSIC_INT_CELLS   0
+> -    name = g_strdup_printf("/soc/uart@%lx", (long)memmap[VIRT_UART0].base);
+> +    name = g_strdup_printf("/soc/serial@%lx", (long)memmap[VIRT_UART0].base);
+>      qemu_fdt_add_subnode(mc->fdt, name);
+>      qemu_fdt_setprop_string(mc->fdt, name, "compatible", "ns16550a");
+>      qemu_fdt_setprop_cells(mc->fdt, name, "reg",
 > --
 > 2.37.1
 >
