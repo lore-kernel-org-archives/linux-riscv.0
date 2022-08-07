@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 272FDC19F2A
-	for <linux-riscv@archiver.kernel.org>; Sun,  7 Aug 2022 22:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88482C19F2A
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Aug 2022 22:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aXdtdtdaoXA0KRZjz6RgOvBiz4Ku0t43JhZXP0vNhG0=; b=jvDMJI6cMEXP2I
-	kCTsamn9LhplbbTBtxaC6NRNJ2ApKnoju67xK370ibmdW1q2nTzX522ndbZnHNNQL1IegvA8+9nIH
-	mt3WMsa7qTwwgTEZzpns7C5w5i/b5SSQ1avhGqdF2x3e/KtRQ8ZAdFEH073dzsCDyASBGRbBHnGs5
-	lMbqdtXZKl21YTbMhJp8fvb0rBDPDTjCAtAw/cAZBzprD8UlBR10wAQFSvWM9WPx7wuBCb/lPpyY8
-	JWFWoDZRinYBEuiwnBrnCv/AjJYaxwNwH7Ij6st+akTkf8miVt7v/yjs2e2hENjkZuz4yoc9XeYfD
-	Obw9TIK98ag72p85LU6w==;
+	List-Owner; bh=i+A7UsHHeP2+asOdjSObY9T7+vdmmpvkjFTzNZblAzY=; b=Hpmk3fN/1VCeoD
+	2FbXBQynw7JzdnkkfiAavEdEnNjfNYU5NrAPOfsxkGxwFiWODKJTkJMnqbRYMa89rE1WYy+IE5Pwf
+	LWmE77cHx6XJAjDDORwSv5MSwzrmfRGKorskYVsWcIh5TdSpyR8/tb4A0Lzxk4A9wMPPqOzzrCrgt
+	Ys+59iYa8hMjziT0W3ajh9LDJDD3i8FPk735D5Q8+WWbQ8YXHWJYTBS9ObdpLTtZJ1ugUgO075+ss
+	NXogwE+/dALOl3dbhscWi+ZZu36qK8Oq8XBp/5Ues9jYFRw/26tijRvd5/MYM3cflSKWObpmKPgTl
+	nOUrPLEQttefKC5jCZyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKpCn-003e8J-KB; Sun, 07 Aug 2022 22:57:09 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1oKpDP-003eaP-2R; Sun, 07 Aug 2022 22:57:53 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKpCe-003dzp-2o
-	for linux-riscv@lists.infradead.org; Sun, 07 Aug 2022 22:57:01 +0000
-Received: by mail-pf1-x429.google.com with SMTP id k14so4684598pfh.0
-        for <linux-riscv@lists.infradead.org>; Sun, 07 Aug 2022 15:56:59 -0700 (PDT)
+	id 1oKpDK-003eXY-Pl
+	for linux-riscv@lists.infradead.org; Sun, 07 Aug 2022 22:57:45 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id b4so7260581pji.4
+        for <linux-riscv@lists.infradead.org>; Sun, 07 Aug 2022 15:57:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc;
-        bh=m6mp7lo6yuezAIF/o/AFEZq8cosxJpR5uX3sLTCul3c=;
-        b=dbsCt/bpEragvjxy3VsKqM1MOZVTx/S27Ecr6MV4DzyPscuWnd4Gn/x/U2TYwZnWCb
-         58pGEx5fa1uirisZSBP3VE8Gbpbh86aIQcNDgEsamGpI3bsxL4tE6mkyLKclK0O45IcZ
-         X4x9RuthG1+Otx3zU9Vfq9T9+8pLbL+E5/g2XzJJfd99XuuwEReyYCIY6yieA63zlcFV
-         +SSVB9yvkn0qOLoH4R/Gf0am+cVcjO3I2V4Zq8etglKa/ygMj7nmR4gAnN0C+zx5tv/B
-         tXM6TBZB0WMyBKeokUQHE0xd1DHIMQ9KONFNp3sLhcL9EDmTA9R65gFuM9pMpXpyZfoV
-         5WNg==
+        bh=BMTC+DwXoz+zkXquQeRYDcoGv3cu7wN4+LhltZtMJeA=;
+        b=Dpsn7TpMHiZJHB69YFWtt1X9ZOAYMem6tdASVybB0ucUfIciTrCsPvMlpLtkjW/3kS
+         gZE1yw2ek86JaO8tZnw4ZKMwAraiLvJqc2ku0Q07tix6Kw3ZhOoVzF5JDYzJFWn3ncHN
+         jyfgTblbTb8Nk8SWTl/auuTU7sFvHvJWm5oGzMCI0oZftTge47gNm4nJuSCgKE4b7NoC
+         wYW3s1doMg6O2LC6Q2btGNzweEyzwrqwFyDV7/n4P+o5gVLFMZN4x01uJULSp/fsetVo
+         rxwE0fq7VSa4/rVA9ng9u3vXnTT6Fbhtyup8LY5NZct3cWp7CFhqojucyOAdtqAyXyFw
+         gHOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc;
-        bh=m6mp7lo6yuezAIF/o/AFEZq8cosxJpR5uX3sLTCul3c=;
-        b=qkwhfCpjSaVk7TSUA7ImeWqwcEMRy4dGJXKM1h7EYB8Bs6TdvNFCKWfr3mGGoYyEcy
-         JGePo2+lrYFVDSC/I8UTdhXFUxJpaRgDtIijoEnPpC85Z0xuJqGMWNo8NKDxWpeuvqVu
-         2QANofpInSwRq9VZhkeLGCJKvCwOu9CmpUThkNBvCcyDFr6KEpQGupa+EqlElu1JcPxd
-         gEkb5Dv7IO+sM3lByQPrS18T9yBsKzIkD+dU0sNqjnXI36bhwq5zdlGGYGTApj3RT+Sk
-         XE0Ul15GLbkZWJf14lum2ZNhY9aaE0+HTVQrvo1XfXlI7meRUVtTBd2oguKKtQxm99W/
-         EXrQ==
-X-Gm-Message-State: ACgBeo2RatLbELBnQft2ritW6RSJ17U267p3lBQ+ecqmIi4TgzETdRig
-	m2JlViUv00z8z+6w6UF48uWNIJ3FLhiSDxVxiT8=
-X-Google-Smtp-Source: AA6agR4/zm3uU4TtEdDqN1yGCg2kBlKZTWXny5+xTeKCQIFhWINjiGWbF0nA4f6gTPfylqGo85QJuVG5aHs8RfiNl74=
-X-Received: by 2002:a63:f14c:0:b0:41a:b83d:a636 with SMTP id
- o12-20020a63f14c000000b0041ab83da636mr13455804pgk.361.1659913018847; Sun, 07
- Aug 2022 15:56:58 -0700 (PDT)
+        bh=BMTC+DwXoz+zkXquQeRYDcoGv3cu7wN4+LhltZtMJeA=;
+        b=JUSxYuwBAcquMOy5xOm6lB8pDc697LnsL9AKzPluFeGBtOJKyS4Wkf4UR17JOeuEHY
+         sLKgw9NLqxsSqLqUID0rx683Yz3W/bE+u5SgT3mWTknaixXWi19LMWY0abTYt3YJEFDW
+         MxgzDdl3HZF2dmgT69polLXGLjoJGSNX9+R00RRIS7XahahxJ6HwUUnUPiQnuF5vguLQ
+         /u/Ay8V2N5eyKy8UwJ646+KM1AWp8N/nli4UHdp9uK0cVPTW2rVtJR58Z87qzH9aIXgI
+         Fb1Nky8BDCDojBY8xDlvsl5rgkOB7gtYjtyZuXGHGh/jCqbE4QzyTN8nJbCd3i3fNyrc
+         e4nA==
+X-Gm-Message-State: ACgBeo1RtBWxcSUnlUt5uas56J7EOd+YxdHA6uWIxqCZRA8hBuTS3ySE
+	L8C2JhgMacLA1a9+gD9a6FP/8yxR4eBHE3V9S/g=
+X-Google-Smtp-Source: AA6agR6xoAS6Kjto5qys7Bhma0ux+UmuU+jZ6yGBvIQ/DRXyLznEjcQQpr0tVst26RQpRmZupfAMyo/Ej5t7f5RGHcc=
+X-Received: by 2002:a17:90b:3b49:b0:1f4:df09:d671 with SMTP id
+ ot9-20020a17090b3b4900b001f4df09d671mr18013298pjb.129.1659913061562; Sun, 07
+ Aug 2022 15:57:41 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220805155405.1504081-1-mail@conchuod.ie> <20220805155405.1504081-5-mail@conchuod.ie>
-In-Reply-To: <20220805155405.1504081-5-mail@conchuod.ie>
+References: <20220805155405.1504081-1-mail@conchuod.ie> <20220805155405.1504081-6-mail@conchuod.ie>
+In-Reply-To: <20220805155405.1504081-6-mail@conchuod.ie>
 From: Alistair Francis <alistair23@gmail.com>
-Date: Mon, 8 Aug 2022 08:56:32 +1000
-Message-ID: <CAKmqyKPkSi9A074tK3AhCsaxkXaE71UO=OW5PSh4bYbVjVHRmQ@mail.gmail.com>
-Subject: Re: [PATCH 4/5] hw/riscv: virt: fix syscon subnode paths
+Date: Mon, 8 Aug 2022 08:57:15 +1000
+Message-ID: <CAKmqyKO02Wx5XOcNUrX-+at+BTLgCLNo_7zqi4i_HM6ZcBLN6w@mail.gmail.com>
+Subject: Re: [PATCH 5/5] hw/core: fix platform bus node name
 To: Conor Dooley <mail@conchuod.ie>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>, Alistair Francis <alistair.francis@wdc.com>, 
 	Bin Meng <bin.meng@windriver.com>, Rob Herring <robh@kernel.org>, 
 	Conor Dooley <conor.dooley@microchip.com>, "open list:RISC-V" <qemu-riscv@nongnu.org>, 
 	"qemu-devel@nongnu.org Developers" <qemu-devel@nongnu.org>, linux-riscv <linux-riscv@lists.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220807_155700_163805_B4BFE3A2 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20220807_155744_409954_481D064C 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,26 +86,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Aug 6, 2022 at 2:10 AM Conor Dooley <mail@conchuod.ie> wrote:
+On Sat, Aug 6, 2022 at 2:02 AM Conor Dooley <mail@conchuod.ie> wrote:
 >
 > From: Conor Dooley <conor.dooley@microchip.com>
 >
-> The subnodes of the syscon have been added to the incorrect paths.
-> Rather than add them as subnodes, they were originally added to "/foo"
-> and a later patch moved them to "/soc/foo". Both are incorrect & they
-> should have been added as "/soc/test@###/foo" as "/soc/test" is the
-> syscon node. Fix both the reboot and poweroff subnodes to avoid errors
-> such as:
+> "platform" is not a valid name for a bus node in dt-schema, so warnings
+> can be see in dt-validate on a dump of the riscv virt dtb:
 >
-> /stuff/qemu/qemu.dtb: soc: poweroff: {'value': [[21845]], 'offset': [[0]], 'regmap': [[4]], 'compatible': ['syscon-poweroff']} should not be valid under {'type': 'object'}
+> /stuff/qemu/qemu.dtb: platform@4000000: $nodename:0: 'platform@4000000' does not match '^([a-z][a-z0-9\\-]+-bus|bus|soc|axi|ahb|apb)(@[0-9a-f]+)?$'
 >         From schema: /home/conor/.local/lib/python3.9/site-packages/dtschema/schemas/simple-bus.yaml
-> /stuff/qemu/qemu.dtb: soc: reboot: {'value': [[30583]], 'offset': [[0]], 'regmap': [[4]], 'compatible': ['syscon-reboot']} should not be valid under {'type': 'object'}
->         From schema: /home/conor/.local/lib/python3.9/site-packages/dtschema/schemas/simple-bus.yaml
+> "platform-bus" is a valid name, so use that instead.
 >
-> Reported-by: Rob Herring <robh@kernel.org>
-> Link: https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
-> Fixes: 18df0b4695 ("hw/riscv: virt: Allow creating multiple NUMA sockets")
-> Fixes: 0e404da007 ("riscv/virt: Add syscon reboot and poweroff DT nodes")
+> CC: Rob Herring <robh@kernel.org>
+> Fixes: 11d306b9df ("hw/arm/sysbus-fdt: helpers for platform bus nodes addition")
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
 Reviewed-by: Alistair Francis <alistair.francis@wdc.com>
@@ -113,33 +106,22 @@ Reviewed-by: Alistair Francis <alistair.francis@wdc.com>
 Alistair
 
 > ---
->  hw/riscv/virt.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
+>  hw/core/sysbus-fdt.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/hw/riscv/virt.c b/hw/riscv/virt.c
-> index 8b2978076e..a98b054545 100644
-> --- a/hw/riscv/virt.c
-> +++ b/hw/riscv/virt.c
-> @@ -896,7 +896,8 @@ static void create_fdt_reset(RISCVVirtState *s, const MemMapEntry *memmap,
->      test_phandle = qemu_fdt_get_phandle(mc->fdt, name);
->      g_free(name);
+> diff --git a/hw/core/sysbus-fdt.c b/hw/core/sysbus-fdt.c
+> index 19d22cbe73..edb0c49b19 100644
+> --- a/hw/core/sysbus-fdt.c
+> +++ b/hw/core/sysbus-fdt.c
+> @@ -539,7 +539,7 @@ void platform_bus_add_all_fdt_nodes(void *fdt, const char *intc, hwaddr addr,
 >
-> -    name = g_strdup_printf("/soc/reboot");
-> +    name = g_strdup_printf("/soc/test@%lx/reboot",
-> +        (long)memmap[VIRT_TEST].base);
->      qemu_fdt_add_subnode(mc->fdt, name);
->      qemu_fdt_setprop_string(mc->fdt, name, "compatible", "syscon-reboot");
->      qemu_fdt_setprop_cell(mc->fdt, name, "regmap", test_phandle);
-> @@ -904,7 +905,8 @@ static void create_fdt_reset(RISCVVirtState *s, const MemMapEntry *memmap,
->      qemu_fdt_setprop_cell(mc->fdt, name, "value", FINISHER_RESET);
->      g_free(name);
+>      assert(fdt);
 >
-> -    name = g_strdup_printf("/soc/poweroff");
-> +    name = g_strdup_printf("/soc/test@%lx/poweroff",
-> +        (long)memmap[VIRT_TEST].base);
->      qemu_fdt_add_subnode(mc->fdt, name);
->      qemu_fdt_setprop_string(mc->fdt, name, "compatible", "syscon-poweroff");
->      qemu_fdt_setprop_cell(mc->fdt, name, "regmap", test_phandle);
+> -    node = g_strdup_printf("/platform@%"PRIx64, addr);
+> +    node = g_strdup_printf("/platform-bus@%"PRIx64, addr);
+>
+>      /* Create a /platform node that we can put all devices into */
+>      qemu_fdt_add_subnode(fdt, node);
 > --
 > 2.37.1
 >
