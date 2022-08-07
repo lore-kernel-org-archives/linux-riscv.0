@@ -4,66 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D09C19F2D
-	for <linux-riscv@archiver.kernel.org>; Sat,  6 Aug 2022 22:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A0BC19F2A
+	for <linux-riscv@archiver.kernel.org>; Sun,  7 Aug 2022 17:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c96fhmx7YLdi9HwIo7DUlAGGPBgHjUSZXreTIP/XdHU=; b=X6tRuQnwMAtB93
-	zPJJkXoMYz5WsALOjH4YvMCxIo/vaNZtBD1zEfjsfsyH5tC3iHJXPRItmrqJQXz5/0zflaxQoj8KB
-	vvhOLzXM6/qLootolgDbV1mG3CTT8KiQZECgdM5L5CjjDbaPUnVBFgK49M5xCUZNprkvktQMaHgYa
-	AclZG8sNidLc8chdsqlq5AE2i4hqjSfTTDLEdfFtf1pnNJ3Pe7yRqMUsCWKq3SVTeI0x5SO1C2P1o
-	AwZatuqgVAZB6bOlcXmv4UREGfDWDTtzwpA2F/GNjMV/3Rf9YtIrd1YF4EJIs8nm4YCjT8ao2Q1Hs
-	NtLho+LdsbUG9UzWs+Mw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=U80aow5Fh3XSO9cm3PDXY8gRtvVLT0fEvtV/HawXpoQ=; b=eBspuPyZ7pEvGx
+	1RpJk5/T1EVYJJDYTxhE2zy6YPomkETXFpBesMxfjjyM9ZUNS6TbtX/mP9HEJX4GNoJ2LavNNYSJj
+	5bJQAj9GDMsETeD53AF4iVLH0UDyjj+Ie0KRV0RnKRWLWM1O5scxwHrdkuTIeCehaKNEr7JF75U7D
+	iGs+kSeRMpQ7xw9CqGB5A1eR8tX1dLmWX51Ht63W/Q3gz9y06KTRWcQtebmTKe32nxl97uYjCK7M1
+	YBcgHjRKhcyhF7LH9/Wf39Y/9EtMwHFvxmd+DRXdvy3NQfdP0HO9R19jwb/PaMsJydAi/SQrRwQiK
+	GDQXQCviyQH/fHHfaMEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKRyK-0013uR-4u; Sat, 06 Aug 2022 22:08:40 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oKk53-000pTk-0u; Sun, 07 Aug 2022 17:28:49 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKRyI-0013rg-1W
-	for linux-riscv@lists.infradead.org; Sat, 06 Aug 2022 22:08:39 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B9D0D60C6F;
-	Sat,  6 Aug 2022 22:08:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 25139C433D7;
-	Sat,  6 Aug 2022 22:08:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1659823715;
-	bh=jZ0uCQ6by0VwAs59D5COi1dX0BnewwZqZNVNuMw2mdw=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=qnIb+hvUmHFHi056ppH659k9KBA5VY22QTa3oW/X6P5Ak/H62+gjoX4O6QpMMz6nV
-	 f18fNxbtbsrUUyaswIkiipGnEFBnqugSZftyQ4BhUbj6hvWJGBpWDVuzY3oAj1/CjO
-	 I934C8HMiLm9Tq2wv3AwsJtXkBG6Aeu+VVBviDva87JQd9FilPUmXVcPXzqW1EifNL
-	 XWmWZ6wNEIatFRKSKOgIf6cXlCF0yZMCMRvPexW36imKV6LtQEDhewlrkIhmY0Gmej
-	 2AIb5qP279tVbeiPx8yY8arBCgGKsKIsMg40fyYHplml5h26ShTl76HCizCvbKXdJ9
-	 wzxwDs4P79nqQ==
-Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 1615FC43142;
-	Sat,  6 Aug 2022 22:08:35 +0000 (UTC)
-Subject: Re: [GIT PULL] RISC-V Patches for the 5.20 Merge Window, Part 1
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <mhng-1cbba637-6dd2-456a-859b-9d3f8be6bab7@palmer-mbp2014>
-References: <mhng-1cbba637-6dd2-456a-859b-9d3f8be6bab7@palmer-mbp2014>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <mhng-1cbba637-6dd2-456a-859b-9d3f8be6bab7@palmer-mbp2014>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.20-mw0
-X-PR-Tracked-Commit-Id: ba6cfef057e1c594c456627aad81c2343fdb5d13
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 4d1044fcb996e8de9b9ab392f4a767890e45202d
-Message-Id: <165982371508.16627.10357025252070843404.pr-tracker-bot@kernel.org>
-Date: Sat, 06 Aug 2022 22:08:35 +0000
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220806_150838_142582_8B938819 
-X-CRM114-Status: UNSURE (   3.96  )
-X-CRM114-Notice: Please train this message.
+	id 1oKk51-000pSh-JK; Sun, 07 Aug 2022 17:28:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=OQ6HIEzvGhUBHIBVK/MMVvqDNtQvuWyey2ZBasDPQw8=; b=qWiaI30ZKgT7wPXCto/BonchEx
+	ImXG1XAqUDBZ/9lA+h2rUk1iTg4dbXp/b5PwQwoHKZiKhLm66BuWm2pbiYi5ToBrxSsmNVLgfKWmd
+	KdMY+X7jnjPqVyzAIrFvR+UVDE5+o9LskBdVDdoRwmMXt/TFw9NW4hsEs804QqdYNrCKTaYbhPnyn
+	SZuwHVzM6dylK2g/TfOYdOBvQDXZlbrAbh9Hn8ohLn5kReIOL174+qFzZPf1WBXi5MBM4P0nUyrr6
+	REYLVqUayELkiW0Kc15JSydrvWFE0Ef1yNu/UsJ/nQMGbBVhBT4Ek3mgK75z84CvczxOMi2Ka30Km
+	yIInvvuQ==;
+Received: from [2601:1c0:6280:3f0::a6b3] (helo=casper.infradead.org)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oKk4y-00DB4C-Gb; Sun, 07 Aug 2022 17:28:45 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-kernel@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>
+Subject: [PATCH] riscv: compat: make __ARCH_WANT_COMPAT_FADVISE64_64 conditional
+Date: Sun,  7 Aug 2022 10:28:39 -0700
+Message-Id: <20220807172839.12359-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.37.1
+MIME-Version: 1.0
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,24 +62,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 05 Aug 2022 16:36:38 -0700 (PDT):
+When CONFIG_ADVISE_SYSCALLS is not set/enabled and CONFIG_COMPAT is
+set/enabled, the riscv compat_syscall_table references
+'compat_sys_fadvise64_64', which is not defined:
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.20-mw0
+riscv64-linux-ld: arch/riscv/kernel/compat_syscall_table.o:(.rodata+0x6f8):
+undefined reference to `compat_sys_fadvise64_64'
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/4d1044fcb996e8de9b9ab392f4a767890e45202d
+Only set __ARCH_WANT_COMPAT_FADVISE64_64 when CONFIG_ADVISE_SYSCALLS
+is set.
 
-Thank you!
+Fixes: 59c10c52f573 ("riscv: compat: syscall: Add compat_sys_call_table implementation")
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org
+Cc: Guo Ren <guoren@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>
+---
+ arch/riscv/include/asm/unistd.h |    2 ++
+ 1 file changed, 2 insertions(+)
 
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+--- a/arch/riscv/include/asm/unistd.h
++++ b/arch/riscv/include/asm/unistd.h
+@@ -18,8 +18,10 @@
+ #define __ARCH_WANT_COMPAT_PWRITE64
+ #define __ARCH_WANT_COMPAT_SYNC_FILE_RANGE
+ #define __ARCH_WANT_COMPAT_READAHEAD
++#ifdef CONFIG_ADVISE_SYSCALLS
+ #define __ARCH_WANT_COMPAT_FADVISE64_64
+ #endif
++#endif
+ 
+ #include <uapi/asm/unistd.h>
+ 
 
 _______________________________________________
 linux-riscv mailing list
