@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11D6C00140
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 07:14:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BB9C00140
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 07:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AxDC60TyagQv70aE7EJMquPxMk863hhyII9wyCttFRo=; b=x/lQluVHHR6D0U
-	SowOfV552l6ei3CJR42qN/L8R1bL9BSGGolGAJI+nvXnJvMGE1BKrtkUQeK96NgSOnUKb2Qt8oqJf
-	NLdHTkd8dbqk9AE34aFhiFFBJDh0JFw/oTu5djbCYsBXHajdNT0mf2jh2ONFaUixotioQOAX6DIIB
-	YeSiFi7gHx0AfuXU3NNTOJnrOaPuAZPNziuqP/wfd9iuWugr90EyP6qhIjWkcQrTjmr68AnOkwhoA
-	9h0Z2vyIcwY2zfNCJuOIOHPeYT1sL23QIM3hbCat+q3zsY0KI6GICIfHZ84PYnfZnXOVrBO1+TzJ8
-	gYi21EGPEp4jeklzecag==;
+	List-Owner; bh=82Z3TnUhXL0ukgntI1o5miFIQiddYja3owAOZehczt4=; b=KfHqxbBidzuSR8
+	jEGey85xztuRhg1J5XmoJ9sxai6fKRyUJrBEghCIXL/1MTsGaDcwgqXv5S86UCTBzLE4T9An7Wjlv
+	UNAlLdg4lO2YXiaceJkwt4KmwT8Gk6zV2JPeB3ayS2umz1haRuRCsk/4Wx15YnqNWtziSOc5pcBDr
+	8c1ygcPONT0kHNGYdmyAwHJUpTswUim4BoQ17T3IFGs8PzTBhsNT29VshtAo2dqHjZjM8zBj2NF2C
+	6QbBjOMqxmRfa3TIbZzlIw/76ZEOPyU1mtBAWrGS23JSzMQeWuwSOlbJIIl+LuV4p+RzVC8xsykRP
+	TjQZ79QeeOcb+MZ5fZtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKwxh-00C1nB-SS; Mon, 08 Aug 2022 07:14:05 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oKwxo-00C1sf-HR; Mon, 08 Aug 2022 07:14:12 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKwxe-00C1kT-Pq
-	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 07:14:04 +0000
+	id 1oKwxl-00C1oQ-BN
+	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 07:14:10 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 650D160D30;
-	Mon,  8 Aug 2022 07:14:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13FA8C433D6;
-	Mon,  8 Aug 2022 07:13:55 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 213ACB80E13;
+	Mon,  8 Aug 2022 07:14:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1E9AC43144;
+	Mon,  8 Aug 2022 07:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1659942841;
-	bh=VTgzxT5YWA/FXTGh2L0uPc4Dz3cqTkrreO/CY7INghE=;
+	s=k20201202; t=1659942846;
+	bh=WoY94/J8cfzum9irmyRxRUySe4AhzCRGKz56Za4j0Us=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bfPqsa8VFloG1NRbhC8enTrVw0OkRGrGcLm+//WoDzQ9TvOTVF75xkB/W5QkB21ty
-	 X/CwZ9TYEc/E66B3wvCUHwWY38osrkJhBa/VQjO8x8sCm17Xq3EXus/jyOwRI6q6pl
-	 0i9vN7To7knSIEXDvUSRmzNFJUIT0B6XB9bx2kHRiTc4JjieQpAdn3tUdFr+36K4Li
-	 rV+PiNTwZ4E92wpAs5/tCcoRlJxu2vsxg9POGgIdKFPWqnm6QV5+GLcbA5mB4Hy4u3
-	 Y5xrgmB+hTFWRBsHoMNL+WpL4OBjFpR1yVnxV97fa+YUnvw9jhQFzFECEajyBhu4sp
-	 QRNjxJEU9Brlw==
+	b=Dmp61UFU8SA/lRXSMwulcK8hsmZHXKxWNoltZU6J1+C0Tl1VlTX6NbEQpqhjmwwC0
+	 aC2JsVf6ET8hY6KdAULsOP5se+CPera0Vk+WakOUOMR2TfRuAJrA/5K2ZuXBQFJXhN
+	 b1vZCmK7gyPtayyCTr39QKIDO4xmLbUcZf2eYISecYjR0isYe5RDarzFsF3t8RE3rC
+	 F5O/b5SdogsbAuMSc5EZn5LAL3v4OSBUnsf69xe1NxDIPiRTe5IsbD1ct861I21LXy
+	 gt8cZJsiA/wU0qpb7KnvWYckD8OOBtFM/nIGT+ZxpzSQB79WHN0CgQNfNOrkQX70Wc
+	 yOkxvWPJg/ahA==
 From: guoren@kernel.org
 To: palmer@rivosinc.com,
 	heiko@sntech.de,
@@ -59,16 +59,17 @@ Cc: linux-csky@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Guo Ren <guoren@linux.alibaba.com>,
 	Guo Ren <guoren@kernel.org>
-Subject: [PATCH V9 04/15] asm-generic: ticket-lock: Keep ticket-lock the same semantic with qspinlock
-Date: Mon,  8 Aug 2022 03:13:07 -0400
-Message-Id: <20220808071318.3335746-5-guoren@kernel.org>
+Subject: [PATCH V9 05/15] asm-generic: spinlock: Add queued spinlock support in common header
+Date: Mon,  8 Aug 2022 03:13:08 -0400
+Message-Id: <20220808071318.3335746-6-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220808071318.3335746-1-guoren@kernel.org>
 References: <20220808071318.3335746-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220808_001402_954092_A35F3E3D 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20220808_001409_547449_049FAF55 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,86 +88,32 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Define smp_mb__after_spinlock by smp_mb as default behavior to give RCsc
-synchronization point for all architectures. Keep the same semantic with
-qspinlock, a acquire (RCpc) synchronization point. More detail, see
-include/linux/spinlock.h.
-
-Some architectures could give more robust semantics than smp_mb, eg.
-riscv. Some architectures needn't smp_mb__after_spinlock because their
-spinlocks have contained an RCsc.
+Select queued spinlock or ticket lock by CONFIG_QUEUED_SPINLOCKS in
+the common header file. Define smp_mb__after_spinlock with smp_mb()
+as default.
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
 ---
- include/asm-generic/spinlock.h        |  5 +++++
- include/asm-generic/ticket_spinlock.h | 18 ++++--------------
- 2 files changed, 9 insertions(+), 14 deletions(-)
+ include/asm-generic/spinlock.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
 diff --git a/include/asm-generic/spinlock.h b/include/asm-generic/spinlock.h
-index 970590baf61b..6f5a1b838ca2 100644
+index 6f5a1b838ca2..349cdb46a99c 100644
 --- a/include/asm-generic/spinlock.h
 +++ b/include/asm-generic/spinlock.h
-@@ -6,4 +6,9 @@
+@@ -3,7 +3,11 @@
+ #ifndef __ASM_GENERIC_SPINLOCK_H
+ #define __ASM_GENERIC_SPINLOCK_H
+ 
++#ifdef CONFIG_QUEUED_SPINLOCKS
++#include <asm-generic/qspinlock.h>
++#else
  #include <asm-generic/ticket_spinlock.h>
++#endif
  #include <asm/qrwlock.h>
  
-+/* See include/linux/spinlock.h */
-+#ifndef smp_mb__after_spinlock
-+#define smp_mb__after_spinlock()	smp_mb()
-+#endif
-+
- #endif /* __ASM_GENERIC_SPINLOCK_H */
-diff --git a/include/asm-generic/ticket_spinlock.h b/include/asm-generic/ticket_spinlock.h
-index cfcff22b37b3..d8e6ec82f096 100644
---- a/include/asm-generic/ticket_spinlock.h
-+++ b/include/asm-generic/ticket_spinlock.h
-@@ -14,9 +14,8 @@
-  * a test-and-set.
-  *
-  * It further assumes atomic_*_release() + atomic_*_acquire() is RCpc and hence
-- * uses atomic_fetch_add() which is RCsc to create an RCsc hot path, along with
-- * a full fence after the spin to upgrade the otherwise-RCpc
-- * atomic_cond_read_acquire().
-+ * uses smp_mb__after_spinlock which is RCsc to create an RCsc hot path, See
-+ * include/linux/spinlock.h
-  *
-  * The implementation uses smp_cond_load_acquire() to spin, so if the
-  * architecture has WFE like instructions to sleep instead of poll for word
-@@ -32,22 +31,13 @@
- 
- static __always_inline void ticket_spin_lock(arch_spinlock_t *lock)
- {
--	u32 val = atomic_fetch_add(1<<16, &lock->val);
-+	u32 val = atomic_fetch_add_acquire(1<<16, &lock->val);
- 	u16 ticket = val >> 16;
- 
- 	if (ticket == (u16)val)
- 		return;
- 
--	/*
--	 * atomic_cond_read_acquire() is RCpc, but rather than defining a
--	 * custom cond_read_rcsc() here we just emit a full fence.  We only
--	 * need the prior reads before subsequent writes ordering from
--	 * smb_mb(), but as atomic_cond_read_acquire() just emits reads and we
--	 * have no outstanding writes due to the atomic_fetch_add() the extra
--	 * orderings are free.
--	 */
- 	atomic_cond_read_acquire(&lock->val, ticket == (u16)VAL);
--	smp_mb();
- }
- 
- static __always_inline bool ticket_spin_trylock(arch_spinlock_t *lock)
-@@ -57,7 +47,7 @@ static __always_inline bool ticket_spin_trylock(arch_spinlock_t *lock)
- 	if ((old >> 16) != (old & 0xffff))
- 		return false;
- 
--	return atomic_try_cmpxchg(&lock->val, &old, old + (1<<16)); /* SC, for RCsc */
-+	return atomic_try_cmpxchg_acquire(&lock->val, &old, old + (1<<16));
- }
- 
- static __always_inline void ticket_spin_unlock(arch_spinlock_t *lock)
+ /* See include/linux/spinlock.h */
 -- 
 2.36.1
 
