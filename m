@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86078C25B0C
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 09:32:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80528C00140
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 14:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:
-	In-Reply-To:Subject:cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M7L8nIGZ2Ao2YZGafgJP7/Ia5Q/fz1YvnNf62PeOFGg=; b=Xq7etAD4Uc6shy
-	drDyLvR1QTjhNiko3OiKFnapCt/55cefYNATEhGnB7Ffk5CmaHGWjIOSLRDTAH6BHw7Iehurt9DBi
-	aYXmylx0rSGbBHqEjUD51suuI7wOE91qTc3lOxg4KYhsZ480zzY2BTpgMolTKDQtJk9fhxIuSU0Z1
-	gw4uwOwjTJaFp8LdDDJOtOlO+WiJ6wSbBDYVicjSZnx6KaFHfGPM/9QNHQc17YcdbwzEcWceYsMUV
-	eIzX3qyzYeHgFDxsDIj5YILnbACclKB+q+hQEOu9isLgJ90UmNNcE45HrIhtOrptA4daQmKij7ZUy
-	mDaH1uAUqCcvyTRsrXHg==;
+	List-Owner; bh=B5zmSsW6B0F/ocrY/zXwA8Wl53G1bmXYKi7RfxCL5ZU=; b=d2qRH7Qjmg9yJ1
+	kuUTK/8j2vrGvqhQ1IXWZyenfXj412w1O2SnlNWL8JhX3L3NH2/P5bCA5S4Lq+9dH0D9TeJhF0QbJ
+	niJRGCzIkU9C7IMj6qtpQP09XyP6lRVVe/KHAA8tCtTq82UZaL2+Y570qFRktgD5fvs1f/QSdKiFL
+	9a1TJ11dyN4RK9XAYmx/F9J68q6j2yXh3IEw8HMCRmvokknUkR3zB5BHJyVwo+cOWESI3KjDH6U/n
+	0/lnGpaq5oV8zeThMQZIGv1LslL8NKnM5//aPoSFVrklHXxMlKpvAzF/572BqIqR/NobB0TA+1aUV
+	5D9kilpugkqEF2D3i+7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKz74-00Cfrr-Hx; Mon, 08 Aug 2022 09:31:54 +0000
-Received: from gentwo.de ([161.97.139.209])
+	id 1oL3nD-00EPJw-Qk; Mon, 08 Aug 2022 14:31:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKz71-00Cfnp-EG
-	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 09:31:53 +0000
-Received: by gentwo.de (Postfix, from userid 1001)
-	id 35513B0031D; Mon,  8 Aug 2022 11:31:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.de; s=default;
-	t=1659951104; bh=cAm0EF/td7pugO5S6hgTN1A7+5y0vwo9DxRBgMuNTBQ=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=LDa2NTnVzPd6kEC7wusjeNwIM0cuMz+3R/iBHFN4COgE+Cvgj1cZmXpjCByFf0QIq
-	 k1VkgeRGA0gooFKtOpta6BdcHZVyI/UBTAoC8T+eX32jzrsgxg36fLzKrfELVcegef
-	 gMyRlSrKoNOYki+D+fSwK5IoV1YmGlKOLicYOKUMWq1UbD/vrj/FA9mWLQbtGmhmcu
-	 UeGsOcrH7QJM8PGolvvaZnngGc4xqBgjjTcRMbhT6m3XWbKQWXCf01gC/wlGkr6Fto
-	 TMxpGipWiOdiz0iZIdLKCwU0354++VdoKcyTQYv/r9lV5s0u5w/i5w8VO0hiceiGzc
-	 f2LOzG6aMZA8g==
-Received: from localhost (localhost [127.0.0.1])
-	by gentwo.de (Postfix) with ESMTP id 327D9B00179;
-	Mon,  8 Aug 2022 11:31:44 +0200 (CEST)
-Date: Mon, 8 Aug 2022 11:31:44 +0200 (CEST)
-From: Christoph Lameter <cl@gentwo.de>
-To: Guo Ren <guoren@kernel.org>
-cc: tj@kernel.org, palmer@dabbelt.com, will@kernel.org, 
-    catalin.marinas@arm.com, peterz@infradead.org, arnd@arndb.de, 
-    linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-    linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [RFC PATCH 1/4] vmstat: percpu: Rename HAVE_CMPXCHG_LOCAL to
- HAVE_CMPXCHG_PERCPU_BYTE
-In-Reply-To: <20220808080600.3346843-2-guoren@kernel.org>
-Message-ID: <alpine.DEB.2.22.394.2208081119230.411952@gentwo.de>
-References: <20220808080600.3346843-1-guoren@kernel.org> <20220808080600.3346843-2-guoren@kernel.org>
-User-Agent: Alpine 2.22 (DEB 394 2020-01-19)
+	id 1oL3nA-00EPH3-Hg
+	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 14:31:42 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 86D3160C92;
+	Mon,  8 Aug 2022 14:31:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61530C433C1;
+	Mon,  8 Aug 2022 14:31:37 +0000 (UTC)
+Authentication-Results: smtp.kernel.org;
+	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="VcD2K99q"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
+	t=1659969095;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ef7IfqRG3PSUpglontqBYdjluCQQmLxuCBr8SM/TE4A=;
+	b=VcD2K99qyCFmSRRQeFFMcLJum44QPCF1zVXXjoefTdKnLxZZ+ZQdG8kl9Yyz8h+AoTgc65
+	KkRPlHMt83g/ETmtlIcbSUlePKz4Hy0bg+xXu6gURwd7sHVndjaoTyHGCYVkoI51hTjqsg
+	8h/U0TurjRlKeVUBMvLmrwWSoUEwQsM=
+Received: 	by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 83fae7db (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
+	Mon, 8 Aug 2022 14:31:34 +0000 (UTC)
+Date: Mon, 8 Aug 2022 16:31:30 +0200
+From: "Jason A. Donenfeld" <Jason@zx2c4.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [GIT PULL] RISC-V Patches for the 5.20 Merge Window, Part 1
+Message-ID: <YvEeQrzuPIKiEh8m@zx2c4.com>
+References: <mhng-1cbba637-6dd2-456a-859b-9d3f8be6bab7@palmer-mbp2014>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-1cbba637-6dd2-456a-859b-9d3f8be6bab7@palmer-mbp2014>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220808_023151_942228_7C870A9B 
-X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-CacheID: sfid-20220808_073140_898579_347477C5 
+X-CRM114-Status: UNSURE (   9.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,29 +76,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 8 Aug 2022, guoren@kernel.org wrote:
+Hi Palmer,
 
-> The name HAVE_CMPXCHG_LOCAL is confused with using cmpxchg_local, but
-> vmstat needs this_cpu_cmpxchg_1. Rename would clarify the meaning, and
-> maybe we could remove cmpxchg(64)_local API (Only drivers/iommu/intel
-> used) in the future.
+On Fri, Aug 05, 2022 at 04:36:38PM -0700, Palmer Dabbelt wrote:
+> The following changes since commit 924cbb8cbe3460ea192e6243017ceb0ceb255b1b:
+> 
+>   riscv: Improve description for RISCV_ISA_SVPBMT Kconfig symbol (2022-06-16 15:47:39 -0700)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.20-mw0
 
-HAVE_CMPXCHG_LOCAL indicates that cmpxchg_local() is available.
+Just FYI, the WireGuard test suite over on build.wireguard.com no longer
+boots for riscv32 after this merge. Investigating...
 
-The term LOCAL is important because that has traditionally signified an
-operation that has an atomic nature that only works on the local core.
-
-cmpxchg local is used in slub too in the form of this_cpu_cmpxchg_double.
-
-But there is the other naming using this_cpu.....
-
-Maybe rename to
-
-	HAVE_THIS_CPU_CMPXCHG ?
-
-and clean up all the other mentions of "local" in the source too?
-
-There is also a local.h header around somewhere
+Jason
 
 _______________________________________________
 linux-riscv mailing list
