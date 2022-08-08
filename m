@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2766EC00140
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 06:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86199C25B0C
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 07:01:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CXFJ4voD+4h/1EZtONABFudI0s7m6zwGtQj0gweWedM=; b=MjXdfDhhYqSnRG
-	SiHpyX0YMG4yZ3fNLcfuZJf4Hja3Vi60T++d0lrRvPkd0nh2DiMRYohucYQ2T3n7g2HnQdJxJteuT
-	iydZKjisl0suMJiDnl75T0igbZ+l5ex7RrEPcD/vDzBr3DX0/4lgs+50cagbUCSCcDkSgdqBvnMQY
-	jyqluZ0zEYH6ebPzmXXtq4OehS88ZV0lOztuAdyYAKwOO5kbYd5qEEGillvXXBvB2xquyP4Hqr2wa
-	6hd7yg0NY0aVD0n/7NJCjS76jzl/xegiK+pLo/TziTnxhdyi6swzWby5oZBvZBGwOxwoOP/j6gD55
-	xbrwoOktZNNtYEniP0Sg==;
+	List-Owner; bh=eRgYkfVxx7biDoKupRNql0KikFAvNDE0Jcpc8zPX3yc=; b=3qCzpkssR/3ajV
+	9feYB9wAMObabq2zT5IfgyqjzfPvGcOa2OJGlDKkhJceCXXOcGJu2he+rqwO6omqQamBBmn6G8r9y
+	ijDo3Nc6nRG5Xi3jV8MEh7bdjgc+M6zd1W/7ECGZvTsEq/VzZnPaknVj2NRCRTTuoZQymveSxUta4
+	hYaMfZBiFQl5ceAuYwjPckXQ/2GcfPkaXzzSLFIETJpLZZxu3E4A7ZzLjS/Q0igsP61uUkFtUr1RO
+	K6pabhHRZFjg0M8DnkJwSmRg8Yy4m3jNf3izf5lqxqbL0Uao/m14pLAFPMvwTjbX6/iGXRKP9OMnU
+	zAisp3havZAhkxZ4qolQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKwiR-00ByaJ-1i; Mon, 08 Aug 2022 06:58:19 +0000
-Received: from mout.kundenserver.de ([212.227.17.10])
+	id 1oKwlP-00BzFY-Qa; Mon, 08 Aug 2022 07:01:23 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKwiO-00ByWY-4R
-	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 06:58:17 +0000
-Received: from mail-ej1-f50.google.com ([209.85.218.50]) by
- mrelayeu.kundenserver.de (mreue109 [213.165.67.113]) with ESMTPSA (Nemesis)
- id 1MLR5h-1o4FCy02gF-00ISbX for <linux-riscv@lists.infradead.org>; Mon, 08
- Aug 2022 08:58:11 +0200
-Received: by mail-ej1-f50.google.com with SMTP id k26so14876118ejx.5
-        for <linux-riscv@lists.infradead.org>; Sun, 07 Aug 2022 23:58:10 -0700 (PDT)
-X-Gm-Message-State: ACgBeo0oX15PfPoNW1+04YiU0fQqo9WWRsrnURDl3gvIzqWXVl0a5xIy
-	UuI5C3EsLRgl05lq9o24Grr9AJ+Gh7cx46HMwNM=
-X-Google-Smtp-Source: AA6agR7+MNBPFkwjMYrs9F5cklCO3PmGk+NVWugFBet3Tm9GK726GURnSLhj9K8pZOtw7GOLS3S01sY9ymEq4UpWwag=
-X-Received: by 2002:a17:907:7395:b0:730:b636:2c89 with SMTP id
- er21-20020a170907739500b00730b6362c89mr12935429ejc.547.1659941890680; Sun, 07
- Aug 2022 23:58:10 -0700 (PDT)
+	id 1oKwlN-00BzDx-CO
+	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 07:01:22 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id u1so11345014lfq.4
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Aug 2022 00:01:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google;
+        h=message-id:date:mime-version:user-agent:subject:content-language:to
+         :cc:references:from:in-reply-to:content-transfer-encoding;
+        bh=TNens4dzDr8b/FfgJaaPeV+Bo1fmiGV2IZIds2mzQ4U=;
+        b=wCXfwUw2QoMuar6lfHymOJQ8aEuO4kEu28Jxk6Z5wZsnirHtVyXBcML6Xyfg49wBK8
+         N5wqK8o7ffRno6O91+gydq3gTYpcvPbfL2rE5+I57n90uZKwQrBcL7pKZQ7zg/sI2CM3
+         mtWxa2dOBHEJanRYj1xdLXeF4mNeQzpNppgE+syKltZPk4RXkhHKlsOamOU7Fq4QPHae
+         iS2KQ5I0EydknwCd7OUd5oN+aJTkJict9d/a2jrzu/nPE26mvTe8JKBK7Wv/u3BaHJa6
+         xo+/NkF7qTMgFsUlRJ2DCmXaiACWTpBaYpguNQFFdfEefSByeuDHSMQxHrFsIIHRWq9K
+         h+jQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
+         :content-language:to:cc:references:from:in-reply-to
+         :content-transfer-encoding;
+        bh=TNens4dzDr8b/FfgJaaPeV+Bo1fmiGV2IZIds2mzQ4U=;
+        b=ieMFX5qtjeJMVZWGB3hrgTIHjhEfg3akEBvdCCufKdfzDdZPaQwfo6BK+NmlOzebW1
+         vUEq8sQIL/R3mn+bFGzzf+CgwDB7BKv/tpxxmQOHMCHE9seU+XCCtU7AUo55Uw+jXjwy
+         4bCUcUw5MX+99cq+1F09y/NFijnX0PsnZJF50WlyaTJSVTN4qvv8ZPTbkSdV212CofgB
+         7ovPioL+3AsA1s0qhr6TjjxOmFBEbaXoBkTXHrnc8CYgj0HXki5bG1aYV5W248Y9gfx8
+         8mfXEIicXwybTXO4Nqnqn0gTKiQ299ecHVlVHMz5mwIQudlvqgCzkXZAuegMQhJgYXSg
+         ggEw==
+X-Gm-Message-State: ACgBeo3A/ch+hhzF8rCCGlfLLkGlibG1sIkAh8/3MxV8MN+aoorFb+ZZ
+	ni22hZgfgnb4+6UCnXzGq9ly4t7Q7zglRwyi
+X-Google-Smtp-Source: AA6agR7h9f9j7kJmy4eXv6HRMrXlzHuLszLtzEP+dX+EERyr5T4kuPtlqmFellRKW1jKlCQpBzg0rA==
+X-Received: by 2002:a05:6512:158f:b0:48b:714:5efa with SMTP id bp15-20020a056512158f00b0048b07145efamr6383704lfb.354.1659942079749;
+        Mon, 08 Aug 2022 00:01:19 -0700 (PDT)
+Received: from [192.168.1.39] ([83.146.140.105])
+        by smtp.gmail.com with ESMTPSA id h11-20020a056512054b00b0048b12f65672sm1319094lfl.272.2022.08.08.00.01.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 08 Aug 2022 00:01:19 -0700 (PDT)
+Message-ID: <9a1f19f5-e17f-d8f6-8010-e399bdd6c6b9@linaro.org>
+Date: Mon, 8 Aug 2022 10:01:18 +0300
 MIME-Version: 1.0
-References: <20220807220934.5689-1-rdunlap@infradead.org>
-In-Reply-To: <20220807220934.5689-1-rdunlap@infradead.org>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Mon, 8 Aug 2022 08:57:54 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a1-NxPazURDPdKYU0Het+pjL6E3BZMskjQD=aCU91Q=rw@mail.gmail.com>
-Message-ID: <CAK8P3a1-NxPazURDPdKYU0Het+pjL6E3BZMskjQD=aCU91Q=rw@mail.gmail.com>
-Subject: Re: [PATCH v2] kernel/sys_ni: add compat entry for fadvise64_64
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
-	Josh Triplett <josh@joshtriplett.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	linux-riscv@lists.infradead.org, linux-api@vger.kernel.org, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org
-X-Provags-ID: V03:K1:NDxKtlEXtI5w63OvMxQriaxs6pKojtjp6i33BnqLiDyPWT+AN9m
- NmMZztJN1SjYvsmaKSLLqjuuT9LJt6jypwsqdfFv1k4CHq5578ka9gcAjG72zQSJuZDXB2J
- WeBOEKJygUQ2NtuuMogyMR6mLNoMrBsjmKEAa0wNOpFmCnoMt3My/NNdlPJxkbDuFC2YUO3
- TioWGbjLP6+OLOQVSEy+Q==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:wxaCQEA3A8w=:PGAeqjtj9HoRKXSjpsHtn2
- VTghNGFVvCL49Ryrt/ibHDg+bUQu1QO3buam8g5fRM8mjVKEoHSNUTMuUEwdBCBOnKiOJcwNa
- XD92yJcdtdrIhyYYdHicESoMjYxYWn1rnZdrKKmjgJAsw/xqWsCU91YSOfEq9921GXymKXEH5
- 3VSFj4IXD3psfVVCUEBtSntZiUhz5M7frGZk35gu+qhnv6/f9DVOj6OFTU0Ac+ST9cbRYyX0y
- TVLfcDb8kDcjcxK9ohhJBHHZJcu+n3ypka+pWJGCNzXULB3wpfPUFXLUwCr+D2NqTyvWg/nqU
- oAHeqBzUJG3A4ypLvKoxnzyLTHV09fxywMwhpwSn5NvhPsSTVKACSvt1tYo9A527zBmKqwaVe
- ZlQptbuDA7QbjiWOybb4bEBkxc/LBwBiQUqD9tMfDfmJ5+ZmwlI55Kcr1645C8f11wpwMcftL
- TaGRrv/cxZjCpW2X7kY8BAkJbseAexKAARPWe5U06Lpsyvuyi2p2TcxB7NSvQTiA3hg55Bon4
- 2wR9TuO0PXLXfPt5AlqLZHVWAMiMlvW0BljAa7vsMBGAc+PmP8poPEVwMN8uKJT/Wp2SyECYv
- b3lMutvLPfG50pvyHlsKdE+pXt6cPBR0lpqWeAEJAYcjBagYrZetdvgq/Z0NBGLZx7MBt6ROi
- pYWYZkUhLlNCVF559Z+7DsCo9LHWMt5EhHOtEvhAlEIZJD0nkwcWBblEKHH1zwjeZRFJcU45n
- IOkUHKZMjQK3QHW8DyFXlsse/ay7hW/R9esO2jKzDSfOd8oEdF9M3keV3sRsadnUfRxYwlh+L
- QUDRFWVzo2qQGL3SETFxyMZYAEb3T14iBBLivM6MxOwI2+OKvVGqx5S9JRDCYZ8Nf4KU0x3tv
- SP7u+nmzZfPjRDbjlJsw==
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
+Subject: Re: [PATCH 1/3] dt-bindings: mailbox: fix the mpfs' reg property
+Content-Language: en-US
+To: Conor.Dooley@microchip.com, jassisinghbrar@gmail.com, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org
+Cc: Daire.McNamara@microchip.com, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20220805125618.733628-1-conor.dooley@microchip.com>
+ <20220805125618.733628-2-conor.dooley@microchip.com>
+ <04b697b5-d344-0191-f511-c0f8e0c247ef@microchip.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <04b697b5-d344-0191-f511-c0f8e0c247ef@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220807_235816_493558_CBD50783 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20220808_000121_529361_3709E214 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,24 +94,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 8, 2022 at 12:09 AM Randy Dunlap <rdunlap@infradead.org> wrote:
->
-> When CONFIG_ADVISE_SYSCALLS is not set/enabled and CONFIG_COMPAT is
-> set/enabled, the riscv compat_syscall_table references
-> 'compat_sys_fadvise64_64', which is not defined:
->
-> riscv64-linux-ld: arch/riscv/kernel/compat_syscall_table.o:(.rodata+0x6f8):
-> undefined reference to `compat_sys_fadvise64_64'
->
-> Add 'fadvise64_64' to kernel/sys_ni.c as a conditional COMPAT function
-> so that when CONFIG_ADVISE_SYSCALLS is not set, there is a fallback
-> function available.
->
-> Fixes: d3ac21cacc24 ("mm: Support compiling out madvise and fadvise")
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> Suggested-by: Arnd Bergmann <arnd@arndb.de>
+On 05/08/2022 15:01, Conor.Dooley@microchip.com wrote:
+> On 05/08/2022 13:56, Conor Dooley wrote:
+>> The "data" region of the PolarFire SoC's system controller mailbox is
+>> not one continuous register space - the system controller's QSPI sits
+>> between the control and data registers. Split the "data" reg into two
+>> parts: "data" & "control".
+>>
+>> Fixes: 213556235526 ("dt-bindings: soc/microchip: update syscontroller compatibles")
+> 
+> I omitted the second fixes tag:
+> Fixes: ed9543d6f2c4 ("dt-bindings: add bindings for polarfire soc mailbox")
+> 
+>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>> ---
+>>   .../bindings/mailbox/microchip,mpfs-mailbox.yaml  | 15 +++++++++++----
+>>   1 file changed, 11 insertions(+), 4 deletions(-)
+>>
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
