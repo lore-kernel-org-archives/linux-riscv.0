@@ -4,47 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 818FEC25B0F
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 07:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53115C00140
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 08:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LL19fjKuxQ3k0hZIp5rqGhzifElH6G6hxICg1FcFIT8=; b=2uxuAXopNiEKcs
-	6mFKw6Yr9pALVJM/hIbiaeTRJyc8DLALDP0a+q1D5a5qQ38uIl5GO9+jEHpJgVcVHTizLvV892FPh
-	VabqA7UgvXpkmTayD71UI3HuhKpM2O0SllSC1MJODa9ZI+xCWQVq7Zsn45dEoPy9b2m84no/IAa+U
-	glWB6zapwimHi5swy16uDitoE2K+cgjaUf3c+1V3kz7Z0mAVX2oBl3oKdWP9b11jhLypSW+cGEtwO
-	ZlIO/6bp4zHjaMnFYo+nQbW9f9IzOQVgx1etUZJeU1ydKR9+dZO3VMO7IbxXk7AJ5mQxidagpzvVd
-	baf7lkmnQf7saKev9CWA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HS9R6Lq2rx7b5ZBZwDt34Xn+8xzV9rtR9TfRcq/P240=; b=M0rbhnbKxtq6O9xj+fW4ivlDDp
+	i6vp7igow8a8JG1GKfBdF/pKGkV9+oqX3ilhgOhzt53HENL4i4V40mGPQPtnc8476u7JEBD5nTpjk
+	bNB3g8Kq1VsBfeeGj0OlLs1+ugEuVFkrdqOyeSIaFhs2IBBqmS1r0R611iTNznfwb6pAnOm/wrqcj
+	+uvOCh9OIE2Hb6VZu6IR05GPrCdSwc7fP2DwkcFOIzSWzEMjUwDpOmavet/TF56GVFiUEf28DxvKH
+	MO+SKqK/b56jHZkccnmY4h3Sc4adsAWsOPubDslGdZQOSaIh45dctP/7xSS1DDSKEXuEi4t9Hw1Nl
+	z6lMRezw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKxIU-00C9ZG-9f; Mon, 08 Aug 2022 07:35:34 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1oKxjY-00CHrB-0q; Mon, 08 Aug 2022 08:03:32 +0000
+Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKxIR-00C9WB-Lb
-	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 07:35:33 +0000
-Received: from [167.98.27.226] (helo=[10.35.5.6])
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1oKxIL-0029jq-14; Mon, 08 Aug 2022 08:35:25 +0100
-Message-ID: <76d4f1d3-e72e-ef2e-12d0-f241fe680717@codethink.co.uk>
-Date: Mon, 8 Aug 2022 08:35:24 +0100
+	id 1oKxjT-00CHpD-74
+	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 08:03:30 +0000
+Received: from gallifrey.ext.pengutronix.de ([2001:67c:670:201:5054:ff:fe8d:eefb] helo=bjornoya.blackshift.org)
+	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1oKxjI-00013K-AU; Mon, 08 Aug 2022 10:03:16 +0200
+Received: from pengutronix.de (unknown [IPv6:2a01:4f8:1c1c:29e9:22:41ff:fe00:1400])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 45B26C45C4;
+	Mon,  8 Aug 2022 08:03:12 +0000 (UTC)
+Date: Mon, 8 Aug 2022 10:03:10 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Daire McNamara <daire.mcnamara@microchip.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Mark Brown <broonie@kernel.org>,
+	Wolfram Sang <wsa@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Wolfgang Grandegger <wg@grandegger.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Arnd Bergmann <arnd@arndb.de>, Olof Johansson <olof@lixom.net>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
+Subject: Re: [PATCH] MAINTAINERS: add PolarFire SoC dt bindings
+Message-ID: <20220808080310.ets2zqhgjbymajkx@pengutronix.de>
+References: <20220805134908.749935-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.10.0
-Subject: Re: [GIT PULL] RISC-V Patches for the 5.20 Merge Window, Part 1
-Content-Language: en-GB
-To: Palmer Dabbelt <palmer@rivosinc.com>,
- Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <mhng-1cbba637-6dd2-456a-859b-9d3f8be6bab7@palmer-mbp2014>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <mhng-1cbba637-6dd2-456a-859b-9d3f8be6bab7@palmer-mbp2014>
+In-Reply-To: <20220805134908.749935-1-conor.dooley@microchip.com>
+X-SA-Exim-Connect-IP: 2001:67c:670:201:5054:ff:fe8d:eefb
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220808_003531_786742_FDCDBF89 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20220808_010327_274938_0649509D 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -56,47 +77,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============1296358353507837364=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06/08/2022 00:36, Palmer Dabbelt wrote:
-> The following changes since commit 924cbb8cbe3460ea192e6243017ceb0ceb255b1b:
-> 
->    riscv: Improve description for RISCV_ISA_SVPBMT Kconfig symbol (2022-06-16 15:47:39 -0700)
-> 
-> are available in the Git repository at:
-> 
->    git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-5.20-mw0
-> 
-> for you to fetch changes up to ba6cfef057e1c594c456627aad81c2343fdb5d13:
-> 
->    riscv: enable Docker requirements in defconfig (2022-07-22 13:43:28 -0700)
-> 
-> ----------------------------------------------------------------
-> RISC-V Patches for the 5.20 Merge Window, Part 1
-> 
-> * Enabling the FPU is now a static_key.
-> * Improvements to the Svpbmt support.
-> * CPU topology bindings for a handful of systems.
-> * Support for systems with 64-bit hart IDs.
-> * Many settings have been enabled in the defconfig, including both
->    support for the StarFive systems and many of the Docker requirements.
-> 
-> There are also a handful of cleanups and improvements, like usual.
-> 
 
-Hi, are some of mine and Connor's fixes planned for part2?
+--===============1296358353507837364==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="akuyayyjxuecv7hz"
+Content-Disposition: inline
 
 
--- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
+--akuyayyjxuecv7hz
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-https://www.codethink.co.uk/privacy.html
+On 05.08.2022 14:49:09, Conor Dooley wrote:
+> So far when I added bindings for the platform I never added them to
+> our MAINTAINERS entry. No time like the present to improve the coverage.
+>=20
+> Suggested-by: Mark Brown <broonie@kernel.org>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> I have another maintainers change queued, I'll send this via soc along
+> with it unless there are any objections.
+>=20
+> CC: Mark Brown <broonie@kernel.org>
+> CC: Wolfram Sang <wsa@kernel.org>
+> CC: Thierry Reding <thierry.reding@gmail.com>
+> CC: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@pengutronix.de>
+> CC: Jassi Brar <jassisinghbrar@gmail.com>
+> CC: Linus Walleij <linus.walleij@linaro.org>
+> CC: Bartosz Golaszewski <brgl@bgdev.pl>
+> CC: Wolfgang Grandegger <wg@grandegger.com>
+> CC: Marc Kleine-Budde <mkl@pengutronix.de>
+
+Acked-by: Marc Kleine-Budde <mkl@pengutronix.de> # for can
+
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde           |
+Embedded Linux                   | https://www.pengutronix.de  |
+Vertretung West/Dortmund         | Phone: +49-231-2826-924     |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-5555 |
+
+--akuyayyjxuecv7hz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEBsvAIBsPu6mG7thcrX5LkNig010FAmLwwzwACgkQrX5LkNig
+013l+wgApwvDL8b9qW0m6aPWs7WXpXGzFfqR5PZFh+o3IpIYaQurj3KbQ9S0rSRP
+iRq2vTbwdn/9aVMaiXRGm0ueJ0MJbZ4qLXQlUQ3ZCvC41Laobgm6AXaZwerwrINe
+sCQm+ruJUoVvf2I7zDEjYx1OaCrIS8slPOHXHnN2EZk+PqNzXuKy3BShRACjsAyw
+SKxCgmfoiKlSTM+nEw6QOmEkPKHf2Nz6aqmOeNNVZ7wocMU8jmwYdBMrK1X2fNpQ
+xXNUFTRALOW/CS/dLohurp5hpnBzzufYu/mO8hCDCfgSSdF25ZjzJWhYE3YdORTO
+11gCmKQ41hHEz92LOr94vyPPl0QfZg==
+=udbm
+-----END PGP SIGNATURE-----
+
+--akuyayyjxuecv7hz--
+
+
+--===============1296358353507837364==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1296358353507837364==--
+
