@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86199C25B0C
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 07:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13BA4C00140
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 07:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eRgYkfVxx7biDoKupRNql0KikFAvNDE0Jcpc8zPX3yc=; b=3qCzpkssR/3ajV
-	9feYB9wAMObabq2zT5IfgyqjzfPvGcOa2OJGlDKkhJceCXXOcGJu2he+rqwO6omqQamBBmn6G8r9y
-	ijDo3Nc6nRG5Xi3jV8MEh7bdjgc+M6zd1W/7ECGZvTsEq/VzZnPaknVj2NRCRTTuoZQymveSxUta4
-	hYaMfZBiFQl5ceAuYwjPckXQ/2GcfPkaXzzSLFIETJpLZZxu3E4A7ZzLjS/Q0igsP61uUkFtUr1RO
-	K6pabhHRZFjg0M8DnkJwSmRg8Yy4m3jNf3izf5lqxqbL0Uao/m14pLAFPMvwTjbX6/iGXRKP9OMnU
-	zAisp3havZAhkxZ4qolQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1cN+0Sz+0baAU9ELQS/f6EtFFex0v2ZaSuR46kP2eHE=; b=klKMo2mZWiqS/A
+	EAA4TFufvWgeJdUnl94p7SdBnyth+e1t/8JkVGriuVxaW/NC2bOpqMY3kFMcDhH9AgYQT9mbOdb16
+	xlBvkVXlVpV3R20LDAXNZ01+3gM27MOrGma9dIjzWkSbdqDNzHCbQeztUJhHLNkw7gcGcvpSVdslK
+	MNKwXqpiPtQyb3+ZBIcUaqD/4yVCfgzcuqRQreQTghN99Z1gNzC0Od9qkAHZWH/7noB+G4FnXz6cW
+	fIhSMVdQ9aCfLQi0qt6nh5Vn0WO5eEu4T3mDiaTA355Kz6Gpa0383HnZGKJAPtb3I7X4PLJ/G7PU4
+	H/XKXux2vq4cwyGk3pJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKwlP-00BzFY-Qa; Mon, 08 Aug 2022 07:01:23 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1oKwxO-00C1Zp-QR; Mon, 08 Aug 2022 07:13:46 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oKwlN-00BzDx-CO
-	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 07:01:22 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id u1so11345014lfq.4
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Aug 2022 00:01:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=message-id:date:mime-version:user-agent:subject:content-language:to
-         :cc:references:from:in-reply-to:content-transfer-encoding;
-        bh=TNens4dzDr8b/FfgJaaPeV+Bo1fmiGV2IZIds2mzQ4U=;
-        b=wCXfwUw2QoMuar6lfHymOJQ8aEuO4kEu28Jxk6Z5wZsnirHtVyXBcML6Xyfg49wBK8
-         N5wqK8o7ffRno6O91+gydq3gTYpcvPbfL2rE5+I57n90uZKwQrBcL7pKZQ7zg/sI2CM3
-         mtWxa2dOBHEJanRYj1xdLXeF4mNeQzpNppgE+syKltZPk4RXkhHKlsOamOU7Fq4QPHae
-         iS2KQ5I0EydknwCd7OUd5oN+aJTkJict9d/a2jrzu/nPE26mvTe8JKBK7Wv/u3BaHJa6
-         xo+/NkF7qTMgFsUlRJ2DCmXaiACWTpBaYpguNQFFdfEefSByeuDHSMQxHrFsIIHRWq9K
-         h+jQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=x-gm-message-state:message-id:date:mime-version:user-agent:subject
-         :content-language:to:cc:references:from:in-reply-to
-         :content-transfer-encoding;
-        bh=TNens4dzDr8b/FfgJaaPeV+Bo1fmiGV2IZIds2mzQ4U=;
-        b=ieMFX5qtjeJMVZWGB3hrgTIHjhEfg3akEBvdCCufKdfzDdZPaQwfo6BK+NmlOzebW1
-         vUEq8sQIL/R3mn+bFGzzf+CgwDB7BKv/tpxxmQOHMCHE9seU+XCCtU7AUo55Uw+jXjwy
-         4bCUcUw5MX+99cq+1F09y/NFijnX0PsnZJF50WlyaTJSVTN4qvv8ZPTbkSdV212CofgB
-         7ovPioL+3AsA1s0qhr6TjjxOmFBEbaXoBkTXHrnc8CYgj0HXki5bG1aYV5W248Y9gfx8
-         8mfXEIicXwybTXO4Nqnqn0gTKiQ299ecHVlVHMz5mwIQudlvqgCzkXZAuegMQhJgYXSg
-         ggEw==
-X-Gm-Message-State: ACgBeo3A/ch+hhzF8rCCGlfLLkGlibG1sIkAh8/3MxV8MN+aoorFb+ZZ
-	ni22hZgfgnb4+6UCnXzGq9ly4t7Q7zglRwyi
-X-Google-Smtp-Source: AA6agR7h9f9j7kJmy4eXv6HRMrXlzHuLszLtzEP+dX+EERyr5T4kuPtlqmFellRKW1jKlCQpBzg0rA==
-X-Received: by 2002:a05:6512:158f:b0:48b:714:5efa with SMTP id bp15-20020a056512158f00b0048b07145efamr6383704lfb.354.1659942079749;
-        Mon, 08 Aug 2022 00:01:19 -0700 (PDT)
-Received: from [192.168.1.39] ([83.146.140.105])
-        by smtp.gmail.com with ESMTPSA id h11-20020a056512054b00b0048b12f65672sm1319094lfl.272.2022.08.08.00.01.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Aug 2022 00:01:19 -0700 (PDT)
-Message-ID: <9a1f19f5-e17f-d8f6-8010-e399bdd6c6b9@linaro.org>
-Date: Mon, 8 Aug 2022 10:01:18 +0300
+	id 1oKwxM-00C1WM-1S
+	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 07:13:45 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 9573DB80DD7;
+	Mon,  8 Aug 2022 07:13:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76568C433D6;
+	Mon,  8 Aug 2022 07:13:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1659942818;
+	bh=mp7IlNGuC/mEeBlxm+TFmON4y1tQUocDWgcQyAy5k2Q=;
+	h=From:To:Cc:Subject:Date:From;
+	b=DiuuBcyVYaTX3T3cqhBu0StXLE+g8PiCN3zuRNn1XijfnR+rny0forVTFI/RVUMNr
+	 c9m+LgHDqQv79MTlVHjFDyj0sAXPH6CGYLlXDvBq2WdxbitT5MZ/lWa//F9blFQArY
+	 J+U6d/v/hOEWUG5W45hXqZ9W/2uRWVgxWmOP0Qpn5j/pGIACrMwQA9dl95da7Pp7bq
+	 TRJQ//iMi5kVeBew0P39u2XyLYYisW6kzbAnX0fa6Fz5pk6Ih3hTw0CwIYbtS5v0uc
+	 c0ucRlvJyGr3j6XlOGTxfkKVII+/yvungk2ze18j7j/jSNs6Nq10aedthG225TjTh+
+	 qxXB7C3bJmUIw==
+From: guoren@kernel.org
+To: palmer@rivosinc.com,
+	heiko@sntech.de,
+	hch@infradead.org,
+	arnd@arndb.de,
+	peterz@infradead.org,
+	will@kernel.org,
+	boqun.feng@gmail.com,
+	longman@redhat.com,
+	shorne@gmail.com,
+	conor.dooley@microchip.com
+Cc: linux-csky@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: [PATCH V9 00/15] arch: Add qspinlock support and atomic cleanup
+Date: Mon,  8 Aug 2022 03:13:03 -0400
+Message-Id: <20220808071318.3335746-1-guoren@kernel.org>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.12.0
-Subject: Re: [PATCH 1/3] dt-bindings: mailbox: fix the mpfs' reg property
-Content-Language: en-US
-To: Conor.Dooley@microchip.com, jassisinghbrar@gmail.com, robh+dt@kernel.org,
- krzysztof.kozlowski+dt@linaro.org
-Cc: Daire.McNamara@microchip.com, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20220805125618.733628-1-conor.dooley@microchip.com>
- <20220805125618.733628-2-conor.dooley@microchip.com>
- <04b697b5-d344-0191-f511-c0f8e0c247ef@microchip.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <04b697b5-d344-0191-f511-c0f8e0c247ef@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220808_000121_529361_3709E214 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20220808_001344_412940_DFC3BD29 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,29 +82,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 05/08/2022 15:01, Conor.Dooley@microchip.com wrote:
-> On 05/08/2022 13:56, Conor Dooley wrote:
->> The "data" region of the PolarFire SoC's system controller mailbox is
->> not one continuous register space - the system controller's QSPI sits
->> between the control and data registers. Split the "data" reg into two
->> parts: "data" & "control".
->>
->> Fixes: 213556235526 ("dt-bindings: soc/microchip: update syscontroller compatibles")
-> 
-> I omitted the second fixes tag:
-> Fixes: ed9543d6f2c4 ("dt-bindings: add bindings for polarfire soc mailbox")
-> 
->> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->>   .../bindings/mailbox/microchip,mpfs-mailbox.yaml  | 15 +++++++++++----
->>   1 file changed, 11 insertions(+), 4 deletions(-)
->>
+From: Guo Ren <guoren@linux.alibaba.com>
 
+In this series:
+ - Cleanup generic ticket-lock code, (Using smp_mb__after_spinlock as RCsc)
+ - Add qspinlock and combo-lock for riscv
+ - Add qspinlock to openrisc
+ - Use generic header in csky
+ - Optimize cmpxchg & atomic code
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Enable qspinlock and meet the requirements mentioned in a8ad07e5240c9
+("asm-generic: qspinlock: Indicate the use of mixed-size atomics").
 
-Best regards,
-Krzysztof
+RISC-V LR/SC pairs could provide a strong/weak forward guarantee that
+depends on micro-architecture. And RISC-V ISA spec has given out
+several limitations to let hardware support strict forward guarantee
+(RISC-V User ISA - 8.3 Eventual Success of Store-Conditional
+Instructions).
+
+eg:
+Some riscv hardware such as BOOMv3 & XiangShan could provide strict &
+strong forward guarantee (The cache line would be kept in an exclusive
+state for Backoff cycles, and only this core's interrupt could break
+the LR/SC pair).
+Qemu riscv give a weak forward guarantee by wrong implementation
+currently [1].
+
+So we Add combo spinlock (ticket & queued) support for riscv. Thus different
+kinds of memory model micro-arch processors could use the same Image
+
+The first try of qspinlock for riscv was made in 2019.1 [2].
+
+[1] https://github.com/qemu/qemu/blob/master/target/riscv/insn_trans/trans_rva.c.inc
+[2] https://lore.kernel.org/linux-riscv/20190211043829.30096-1-michaeljclark@mac.com/#r
+
+Guo Ren (15):
+  asm-generic: ticket-lock: Remove unnecessary atomic_read
+  asm-generic: ticket-lock: Use the same struct definitions with qspinlock
+  asm-generic: ticket-lock: Move into ticket_spinlock.h
+  asm-generic: ticket-lock: Keep ticket-lock the same semantic with qspinlock
+  asm-generic: spinlock: Add queued spinlock support in common header
+  riscv: atomic: Clean up unnecessary acquire and release definitions
+  riscv: cmpxchg: Remove xchg32 and xchg64
+  riscv: cmpxchg: Forbid arch_cmpxchg64 for 32-bit
+  riscv: cmpxchg: Optimize cmpxchg64
+  riscv: Enable ARCH_INLINE_READ*/WRITE*/SPIN*
+  riscv: Add qspinlock support
+  riscv: Add combo spinlock support
+  openrisc: cmpxchg: Cleanup unnecessary codes
+  openrisc: Move from ticket-lock to qspinlock
+  csky: spinlock: Use the generic header files
+
+ arch/csky/include/asm/Kbuild           |   2 +
+ arch/csky/include/asm/spinlock.h       |  12 --
+ arch/csky/include/asm/spinlock_types.h |   9 --
+ arch/openrisc/Kconfig                  |   1 +
+ arch/openrisc/include/asm/Kbuild       |   2 +
+ arch/openrisc/include/asm/cmpxchg.h    | 192 ++++++++++---------------
+ arch/riscv/Kconfig                     |  49 +++++++
+ arch/riscv/include/asm/Kbuild          |   3 +-
+ arch/riscv/include/asm/atomic.h        |  19 ---
+ arch/riscv/include/asm/cmpxchg.h       | 177 +++++++----------------
+ arch/riscv/include/asm/spinlock.h      |  77 ++++++++++
+ arch/riscv/kernel/setup.c              |  22 +++
+ include/asm-generic/spinlock.h         |  94 ++----------
+ include/asm-generic/spinlock_types.h   |  12 +-
+ include/asm-generic/ticket_spinlock.h  |  93 ++++++++++++
+ 15 files changed, 384 insertions(+), 380 deletions(-)
+ delete mode 100644 arch/csky/include/asm/spinlock.h
+ delete mode 100644 arch/csky/include/asm/spinlock_types.h
+ create mode 100644 arch/riscv/include/asm/spinlock.h
+ create mode 100644 include/asm-generic/ticket_spinlock.h
+
+-- 
+2.36.1
+
 
 _______________________________________________
 linux-riscv mailing list
