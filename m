@@ -4,81 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E99C3F6B0
-	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 21:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F3CC00140
+	for <linux-riscv@archiver.kernel.org>; Mon,  8 Aug 2022 21:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:Cc:Date:
-	In-Reply-To:From:Subject:Mime-Version:Reply-To:Content-ID:Content-Description
-	:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=c3e3KcYAsXdQmag9IGOm4sX2EZ3W9ZcFCkxXk9EfQAY=; b=s/M/VuF/sN8m2F
-	XnInKmE9YPON9AnyInF7DPSaJx7yilveuq+klVHbT1iHeLtDKbX7Gc+Mln509ktSzFM+t4m/6TFMC
-	VYU8cd8UVR3CkGaLQhsHXPWgDa9IHeefgMjXb/dICzNBsnyi6ZSabyHJQF7nfwN4JnBo1H17iMh1D
-	u82sShbTsfSvJg0MW+X4Y7AmI6kg2xvy175rTRUlYnBsTFZSLqO4hpqnxAdcTbxmUmvCA/RAtzP8L
-	FF9A6FEuGSAlryZoniABc8gxSB27XQybK61WdEX2rnv5jQPaRa94VQBFR6DOT/bUdsl9lrBDqUW+c
-	0h8oqw7BxEEexCmGOYug==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LhEgg2K75aQXOU7qVfCvcv6T6npyNwV1UQ30C1KXOJY=; b=wERgM5JAFy1osH
+	Md+nTa2Heh3HZzLfzf+pKk3lqrRygnOQTXKCAV8izVV5jD5TipuvVViUp03Itv9S6StPik6kB+vAg
+	Fa9evgVFjEomb8oMo4Uh03kyqPE7C/r7HNe7lujHp0RJ6ND4zWA1T1IuP7zUtiCadeCd5M8iylMLA
+	S2ypurwh6CTyei1gITPfbTWP48Y/PkF2oV6i6RDqbrIbzTzebwayHbvzVXatYA40Aq7U8biGDcy3D
+	jB4BBOSmHFjmOfcvX3eCniOhC03oekF4NEwLyeSYCIn9clbRCHbbva9kLz2KsX7ZzMzqX5dQ50spv
+	/JieZxP0zfQ9VJZIxNLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLAIQ-00G9B7-SE; Mon, 08 Aug 2022 21:28:22 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1oLAOQ-00GAiY-7j; Mon, 08 Aug 2022 21:34:34 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLAIO-00G9A5-EP
-	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 21:28:22 +0000
-Received: by mail-wr1-x429.google.com with SMTP id z12so12247635wrs.9
-        for <linux-riscv@lists.infradead.org>; Mon, 08 Aug 2022 14:28:18 -0700 (PDT)
+	id 1oLAON-00GAfu-8X
+	for linux-riscv@lists.infradead.org; Mon, 08 Aug 2022 21:34:32 +0000
+Received: by mail-wr1-x432.google.com with SMTP id z12so12261722wrs.9
+        for <linux-riscv@lists.infradead.org>; Mon, 08 Aug 2022 14:34:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=jrtc27.com; s=gmail.jrtc27.user;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc;
-        bh=i7aLZBzX/VueIll13gdwWAufXZi6UvA/3xPKiBV4yhg=;
-        b=KFIM3X/OqwWXkiuO/oSPbpudOd0TIk1R4DdpLS/Xp4EP+dZEVeI+Yvona4t5yu1y1l
-         Lfs5uZUIrIpl1dDjCq36VZdJqcIbgtkdNw0DpuH3EPnBMr4ip8SAIwRh4Ilwl2whTZxF
-         39WDsfRCqlAukD0wyxhAa1xPwQxmMUTYo6u79BiWCJ3BLlAbemkFKKfKXIID5ZrSx1/2
-         6OvnKtK2BF/moQTdTh/+BO+rFAcoBBFMXlJK5/IbKsSjfN9QShsTM6yTSE5l7ivSlrmC
-         ztxjUoUNtqZnbRq/A9cy961oUZTW4nsbkAL3d+NDIYbJSfcoGxdkULuNqXF4Tv0gd3WJ
-         ns6g==
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc;
+        bh=9kRHsgOgJ6PrAYABPQZo5fFEimmGDPOkqaNSMbcJVyc=;
+        b=TYEiGXwYdSs4KSceoUw0CONgMh/BCvSsIAkhexa4o4d8X0/H14uel438GJ7mB39Q0O
+         IE1q8hV2gxxGTpP8sXz39FaGlVNq0vre28mLKsTHR71YmHlycqTUxLWbMDvW8G9zA1kV
+         aIcKAijN6Zne3pHprutjgeaZzPmEvNOOU/9mPkehxyznxeoFODtYxiK/b2/16Cayl1VM
+         rTq2CSDmDw/x9K20038uoWnRahYX9u1Vnd/MNldNaqz17kK9epaesrnTJrVd7N5gemCz
+         Xg8i4j+c8J0AhUsr6FCPhlytlOXTxD48x+cdFRPhrYN6g7snYKStSUeycdlW4nfYRVVg
+         vyzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc;
-        bh=i7aLZBzX/VueIll13gdwWAufXZi6UvA/3xPKiBV4yhg=;
-        b=lk9aVNvntrjSZUuJbbJbYCYM4GipSORrt0ptM3zH6JFXSYwu67pSeB1Vb/uun9lfBu
-         MkKlHH++5t+mmQlvA4ICKsh3yZOmWW4jr1iO01FDdRhcicZMTlUGAI8Yu0Lwi8R1JIen
-         ZyMIGv6fG5eIQuo0lxhULHiYCyCLwYoV4KVh3Gqx3r2croO2TJOkmcqiT/m8LmFpm0zB
-         Vi5KD9j51OfHGc7xJrc/aplfu/soSnVNsbceHJqgx/kNu9p75rnDwcTH7Bigm+2/f8ns
-         3/WDc6YcdawEfLN/ILqsatGZGQ8T2dAmhXkLKGamN4nGY7pi8YwGa8DGY3yw32lykN2S
-         bp/Q==
-X-Gm-Message-State: ACgBeo1Fjl4e4KIcJTy5zAI5agOffBhG7wH+2B49qxDsdvXBJM4OpNu2
-	7ReP2+jhGwVgN4+ysxxHuQ4w3A==
-X-Google-Smtp-Source: AA6agR4DQZ8bkSuxcJF32aGE0rzuknem9jxFkpyGqu+SX71Jlf09Ux9CYHmk/YomBYV4cag9aKPjng==
-X-Received: by 2002:adf:d1e8:0:b0:223:bca:8019 with SMTP id g8-20020adfd1e8000000b002230bca8019mr2737187wrd.562.1659994097412;
-        Mon, 08 Aug 2022 14:28:17 -0700 (PDT)
-Received: from smtpclient.apple (global-5-141.n-2.net.cam.ac.uk. [131.111.5.141])
-        by smtp.gmail.com with ESMTPSA id w15-20020adfec4f000000b0021e6b62fde2sm11996117wrn.59.2022.08.08.14.28.16
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 08 Aug 2022 14:28:16 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.80.82.1.1\))
-Subject: Re: [PATCH v2 3/4] hw/riscv: virt: fix syscon subnode paths
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc;
+        bh=9kRHsgOgJ6PrAYABPQZo5fFEimmGDPOkqaNSMbcJVyc=;
+        b=bXIu9Zoq3lFE/h8btJsdAmEvOeZbuf+eY7T1AxTYWittGDdrgER8zd+ZPVpgegJxr6
+         4Zim91B3YpI4J4UvoOMhkbtEfCnlv/vB7Kl7AhFRTtgEKUX8/OaxmxmqkkV/m4epa6fl
+         Ms7fYafTBThvz8xNdAwqZiI3zx3pmnAqk0/l53SA68GMmXPAz2m1DJqTGThcyBrD2d5V
+         nPsqUrSI5uEAA4q5cFX1PfO188CqFanuRyrzuo7W9s3uRJb8kzd4YI/LoPiof50Da8lx
+         5YZMExoYeEZ53Wbf+6c5LqTdjUB+1rPyuLRQgtkCsI8UtSAWRbqTVmc3XYeDxBRUE+OQ
+         fWvA==
+X-Gm-Message-State: ACgBeo0t2UoY4AlooUPCkMWgOIcYV7ZWFEtAAPYF89ZTERmGINI5ZAMK
+	tAb7Ff6VF1q9uud7eGzAoqvNp1vrHJi6Z8R1cZI=
+X-Google-Smtp-Source: AA6agR5mFLBH7jdSMh6Rb2K0gPj3kWj9UbS6iuvGWq1LcSMGI6UaYFSJLp5u4ZP4z0ZR67q8PSvObQ==
+X-Received: by 2002:a05:6000:235:b0:220:3a22:fe38 with SMTP id l21-20020a056000023500b002203a22fe38mr12675264wrz.419.1659994465738;
+        Mon, 08 Aug 2022 14:34:25 -0700 (PDT)
+Received: from Jessicas-MacBook-Pro.localdomain (global-5-141.n-2.net.cam.ac.uk. [131.111.5.141])
+        by smtp.gmail.com with ESMTPSA id m6-20020a05600c4f4600b003a4eea0aa48sm15541146wmq.0.2022.08.08.14.34.25
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 08 Aug 2022 14:34:25 -0700 (PDT)
+Received: by Jessicas-MacBook-Pro.localdomain (Postfix, from userid 501)
+	id B48C929DB6B6; Mon,  8 Aug 2022 22:34:24 +0100 (BST)
+Date: Mon, 8 Aug 2022 22:34:24 +0100
 From: Jessica Clarke <jrtc27@jrtc27.com>
-In-Reply-To: <20220808210643.2192602-4-mail@conchuod.ie>
-Date: Mon, 8 Aug 2022 22:28:16 +0100
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- Alistair Francis <alistair.francis@wdc.com>,
- Bin Meng <bin.meng@windriver.com>,
- Rob Herring <robh@kernel.org>,
- Conor Dooley <conor.dooley@microchip.com>,
- qemu-riscv@nongnu.org,
- QEMU Developers <qemu-devel@nongnu.org>,
- linux-riscv <linux-riscv@lists.infradead.org>
-Message-Id: <4BA66590-3A82-4B5C-829B-67F8B5D5029D@jrtc27.com>
-References: <20220808210643.2192602-1-mail@conchuod.ie>
- <20220808210643.2192602-4-mail@conchuod.ie>
 To: Conor Dooley <mail@conchuod.ie>
-X-Mailer: Apple Mail (2.3696.80.82.1.1)
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Anup Patel <anup@brainfault.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Guo Ren <guoren@kernel.org>, Sagar Kadam <sagar.kadam@sifive.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, qemu-riscv@nongnu.org
+Subject: Re: [PATCH 0/3] Fix dt-validate issues on qemu dtbdumps due to
+ dt-bindings
+Message-ID: <YvGBYKZyW0B2/wSr@Jessicas-MacBook-Pro>
+References: <20220805162844.1554247-1-mail@conchuod.ie>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220805162844.1554247-1-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220808_142820_551727_6C138544 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20220808_143431_347153_FD060D64 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,70 +96,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gOCBBdWcgMjAyMiwgYXQgMjI6MDYsIENvbm9yIERvb2xleSA8bWFpbEBjb25jaHVvZC5pZT4g
-d3JvdGU6Cj4gCj4gRnJvbTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlAbWljcm9jaGlwLmNv
-bT4KPiAKPiBUaGUgc3Vibm9kZXMgb2YgdGhlIHN5c2NvbiBoYXZlIGJlZW4gYWRkZWQgdG8gdGhl
-IGluY29ycmVjdCBwYXRocy4KPiBSYXRoZXIgdGhhbiBhZGQgdGhlbSBhcyBzdWJub2RlcywgdGhl
-eSB3ZXJlIG9yaWdpbmFsbHkgYWRkZWQgdG8gIi9mb28iCj4gYW5kIGEgbGF0ZXIgcGF0Y2ggbW92
-ZWQgdGhlbSB0byAiL3NvYy9mb28iLiBCb3RoIGFyZSBpbmNvcnJlY3QgJiB0aGV5Cj4gc2hvdWxk
-IGhhdmUgYmVlbiBhZGRlZCBhcyAiL3NvYy90ZXN0QCMjIy9mb28iIGFzICIvc29jL3Rlc3QiIGlz
-IHRoZQo+IHN5c2NvbiBub2RlLiBGaXggYm90aCB0aGUgcmVib290IGFuZCBwb3dlcm9mZiBzdWJu
-b2RlcyB0byBhdm9pZCBlcnJvcnMKPiBzdWNoIGFzOgo+IAo+IC9zdHVmZi9xZW11L3FlbXUuZHRi
-OiBzb2M6IHBvd2Vyb2ZmOiB7J3ZhbHVlJzogW1syMTg0NV1dLCAnb2Zmc2V0JzogW1swXV0sICdy
-ZWdtYXAnOiBbWzRdXSwgJ2NvbXBhdGlibGUnOiBbJ3N5c2Nvbi1wb3dlcm9mZiddfSBzaG91bGQg
-bm90IGJlIHZhbGlkIHVuZGVyIHsndHlwZSc6ICdvYmplY3QnfQo+ICAgICAgICBGcm9tIHNjaGVt
-YTogL2hvbWUvY29ub3IvLmxvY2FsL2xpYi9weXRob24zLjkvc2l0ZS1wYWNrYWdlcy9kdHNjaGVt
-YS9zY2hlbWFzL3NpbXBsZS1idXMueWFtbAo+IC9zdHVmZi9xZW11L3FlbXUuZHRiOiBzb2M6IHJl
-Ym9vdDogeyd2YWx1ZSc6IFtbMzA1ODNdXSwgJ29mZnNldCc6IFtbMF1dLCAncmVnbWFwJzogW1s0
-XV0sICdjb21wYXRpYmxlJzogWydzeXNjb24tcmVib290J119IHNob3VsZCBub3QgYmUgdmFsaWQg
-dW5kZXIgeyd0eXBlJzogJ29iamVjdCd9Cj4gICAgICAgIEZyb20gc2NoZW1hOiAvaG9tZS9jb25v
-ci8ubG9jYWwvbGliL3B5dGhvbjMuOS9zaXRlLXBhY2thZ2VzL2R0c2NoZW1hL3NjaGVtYXMvc2lt
-cGxlLWJ1cy55YW1sCj4gCj4gUmVwb3J0ZWQtYnk6IFJvYiBIZXJyaW5nIDxyb2JoQGtlcm5lbC5v
-cmc+Cj4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAyMjA4MDMx
-NzA1NTIuR0EyMjUwMjY2LXJvYmhAa2VybmVsLm9yZy8KPiBGaXhlczogMThkZjBiNDY5NSAoImh3
-L3Jpc2N2OiB2aXJ0OiBBbGxvdyBjcmVhdGluZyBtdWx0aXBsZSBOVU1BIHNvY2tldHMiKQo+IEZp
-eGVzOiAwZTQwNGRhMDA3ICgicmlzY3YvdmlydDogQWRkIHN5c2NvbiByZWJvb3QgYW5kIHBvd2Vy
-b2ZmIERUIG5vZGVzIikKPiBSZXZpZXdlZC1ieTogQWxpc3RhaXIgRnJhbmNpcyA8YWxpc3RhaXIu
-ZnJhbmNpc0B3ZGMuY29tPgo+IFNpZ25lZC1vZmYtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9v
-bGV5QG1pY3JvY2hpcC5jb20+CgpUaGlzIGJyZWFrcyBGcmVlQlNE4oCZcyBkcml2ZXIgKHdlbGws
-IGl0IGp1c3Qgd29u4oCZdCBwcm9iZS9hdHRhY2gpLCB3aGljaAppcyB3cml0dGVuIHRvIGhhbmRs
-ZSBzeXNjb24tcG93ZXJvZmYvcmVib290IGV4aXN0aW5nIGFzIGEgY2hpbGQgb2YgYQpzaW1wbGVi
-dXMgbm90IGEgc3lzY29uLiBNb3Jlb3Zlciwgd2hhdCBpcyB0aGUgcG9pbnQgb2YgcmVnbWFwIGlu
-IHRoaXMKY2FzZT8gSXRzIGV4aXN0ZW5jZSBzdWdnZXN0cyB0aGUgcG9pbnQgaXMgZm9yIHRoZW0g
-dG8gKm5vdCogYmUgY2hpbGRyZW4Kb2YgdGhlIHN5c2Nvbiwgb3RoZXJ3aXNlIHlvdSB3b3VsZG7i
-gJl0IG5lZWQgYW4gZXhwbGljaXQgcGhhbmRsZSwgeW914oCZZApqdXN0IGxvb2sgYXQgdGhlIHBh
-cmVudC4gTW92aW5nIHRoZSBub2RlcyB3aGlsc3Qga2VlcGluZyB0aGUgcHJvcGVydHkKZG9lc27i
-gJl0IG1ha2Ugc2Vuc2UgdG8gbWUuCgpKZXNzCgo+IC0tLQo+IGh3L3Jpc2N2L3ZpcnQuYyB8IDYg
-KysrKy0tCj4gMSBmaWxlIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkK
-PiAKPiBkaWZmIC0tZ2l0IGEvaHcvcmlzY3YvdmlydC5jIGIvaHcvcmlzY3YvdmlydC5jCj4gaW5k
-ZXggOGIyOTc4MDc2ZS4uYTk4YjA1NDU0NSAxMDA2NDQKPiAtLS0gYS9ody9yaXNjdi92aXJ0LmMK
-PiArKysgYi9ody9yaXNjdi92aXJ0LmMKPiBAQCAtODk2LDcgKzg5Niw4IEBAIHN0YXRpYyB2b2lk
-IGNyZWF0ZV9mZHRfcmVzZXQoUklTQ1ZWaXJ0U3RhdGUgKnMsIGNvbnN0IE1lbU1hcEVudHJ5ICpt
-ZW1tYXAsCj4gICAgIHRlc3RfcGhhbmRsZSA9IHFlbXVfZmR0X2dldF9waGFuZGxlKG1jLT5mZHQs
-IG5hbWUpOwo+ICAgICBnX2ZyZWUobmFtZSk7Cj4gCj4gLSAgICBuYW1lID0gZ19zdHJkdXBfcHJp
-bnRmKCIvc29jL3JlYm9vdCIpOwo+ICsgICAgbmFtZSA9IGdfc3RyZHVwX3ByaW50ZigiL3NvYy90
-ZXN0QCVseC9yZWJvb3QiLAo+ICsgICAgICAgIChsb25nKW1lbW1hcFtWSVJUX1RFU1RdLmJhc2Up
-Owo+ICAgICBxZW11X2ZkdF9hZGRfc3Vibm9kZShtYy0+ZmR0LCBuYW1lKTsKPiAgICAgcWVtdV9m
-ZHRfc2V0cHJvcF9zdHJpbmcobWMtPmZkdCwgbmFtZSwgImNvbXBhdGlibGUiLCAic3lzY29uLXJl
-Ym9vdCIpOwo+ICAgICBxZW11X2ZkdF9zZXRwcm9wX2NlbGwobWMtPmZkdCwgbmFtZSwgInJlZ21h
-cCIsIHRlc3RfcGhhbmRsZSk7Cj4gQEAgLTkwNCw3ICs5MDUsOCBAQCBzdGF0aWMgdm9pZCBjcmVh
-dGVfZmR0X3Jlc2V0KFJJU0NWVmlydFN0YXRlICpzLCBjb25zdCBNZW1NYXBFbnRyeSAqbWVtbWFw
-LAo+ICAgICBxZW11X2ZkdF9zZXRwcm9wX2NlbGwobWMtPmZkdCwgbmFtZSwgInZhbHVlIiwgRklO
-SVNIRVJfUkVTRVQpOwo+ICAgICBnX2ZyZWUobmFtZSk7Cj4gCj4gLSAgICBuYW1lID0gZ19zdHJk
-dXBfcHJpbnRmKCIvc29jL3Bvd2Vyb2ZmIik7Cj4gKyAgICBuYW1lID0gZ19zdHJkdXBfcHJpbnRm
-KCIvc29jL3Rlc3RAJWx4L3Bvd2Vyb2ZmIiwKPiArICAgICAgICAobG9uZyltZW1tYXBbVklSVF9U
-RVNUXS5iYXNlKTsKPiAgICAgcWVtdV9mZHRfYWRkX3N1Ym5vZGUobWMtPmZkdCwgbmFtZSk7Cj4g
-ICAgIHFlbXVfZmR0X3NldHByb3Bfc3RyaW5nKG1jLT5mZHQsIG5hbWUsICJjb21wYXRpYmxlIiwg
-InN5c2Nvbi1wb3dlcm9mZiIpOwo+ICAgICBxZW11X2ZkdF9zZXRwcm9wX2NlbGwobWMtPmZkdCwg
-bmFtZSwgInJlZ21hcCIsIHRlc3RfcGhhbmRsZSk7Cj4gLS0gCj4gMi4zNy4xCj4gCj4gCj4gX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKPiBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDov
-L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Aug 05, 2022 at 05:28:42PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> The device trees produced automatically for the virt and spike machines
+> fail dt-validate on several grounds. Some of these need to be fixed in
+> the linux kernel's dt-bindings, but others are caused by bugs in QEMU.
+> 
+> Patches been sent that fix the QEMU issues [0], but a couple of them
+> need to be fixed in the kernel's dt-bindings. The first patches add
+> compatibles for "riscv,{clint,plic}0" which are present in drivers and
+> the auto generated QEMU dtbs.
+
+IMO the correct thing is to have QEMU use a qemu,plicX rather than to
+weaken the requirement that a non-generic compatible be used. Otherwise
+you end up with QEMU using something that's marked as deprecated and
+either the warning remains and annoys people still or it becomes too
+weak and people ignore it when creating real hardware.
+
+> The final patch adds some new ISA strings
+> which needs scruitiny from someone with more knowledge about what ISA
+> extension strings should be reported in a dt than I have.
+
+Listing every possible ISA string supported by the Linux kernel really
+is not going to scale...
+
+Jess
+
+> Thanks to Rob Herring for reporting these issues [1],
+> Conor.
+> 
+> To reproduce the errors:
+> ./build/qemu-system-riscv64 -nographic -machine virt,dumpdtb=qemu.dtb
+> dt-validate -p /path/to/linux/kernel/Documentation/devicetree/bindings/processed-schema.json qemu.dtb
+> (The processed schema needs to be generated first)
+> 
+> 0 - https://lore.kernel.org/linux-riscv/20220805155405.1504081-1-mail@conchuod.ie
+> 1 - https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
+> 
+> Conor Dooley (3):
+>   dt-bindings: timer: sifive,clint: add legacy riscv compatible
+>   dt-bindings: interrupt-controller: sifive,plic: add legacy riscv
+>     compatible
+>   dt-bindings: riscv: add new riscv,isa strings for emulators
+> 
+>  .../sifive,plic-1.0.0.yaml                     |  5 +++++
+>  .../devicetree/bindings/riscv/cpus.yaml        |  2 ++
+>  .../bindings/timer/sifive,clint.yaml           | 18 ++++++++++++------
+>  3 files changed, 19 insertions(+), 6 deletions(-)
+> 
+> 
+> base-commit: 42d670bda02fdba0f3944c92f545984501e5788d
+> -- 
+> 2.37.1
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
