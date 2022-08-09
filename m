@@ -4,77 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED933C19F2D
-	for <linux-riscv@archiver.kernel.org>; Tue,  9 Aug 2022 07:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF6EC19F2D
+	for <linux-riscv@archiver.kernel.org>; Tue,  9 Aug 2022 11:02:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vPaJol3sJTriivhTNCUkWKkZkBZo33eTPAGebnxHEnk=; b=eE8Ji/TOjxAJiL
-	QQB2GBXWit3numb7rBJqWSXceZGqyhbDh1+bHxNEvxL1Wwvzynraahx99H/qoGlSWkY3Cg749+nY0
-	/2p+PX6bAF901WXjYiuFIwDsyaKpRzPnDTbIQJhZSdmqxZfD+KsBg+DClwhPAVh7Krues5harqZgv
-	XcBv4KSpEixgIwWXLTsl+1kLk3cK8x6ussD7cU09t01PzXcpiwBzIFdSAOoDSArqaCIhtmY8WbZzN
-	E9DwdQjNi6SiFsCq1xR1gqeGxXzZXsxcE+DnBA6LHbf7jqEbxexhHcscSjb/M3ibDNoe4AN5qPLD4
-	vHKIo4pBRczdDiARe0Eg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:References:
+	To:From:Subject:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZW/TO0Y1YgWd7jdrP0Nlc4+0AwGnsMk02GhVgPXSmKQ=; b=zJkuUaTCzo9kKV6HmTMbPTTy2N
+	vM/iIbZH/q7Bg48JgdCOU+keT0vFQLzJOzQZKXbdSvBE1uGb5piExbOa9sRK/soMDwbSVQeCW9/xG
+	H7HzWa+CCSOBFqJRodIHeO9t1EfhCDlYfkeKFivpICo828wP1nLYE/G+JJL+mOXmqu/BQKPNvfERs
+	RcpoxoYS24L0fVl1/QDJMIxkKdC4pleQ9BQtVnzXduhea9pT/5k610P7jCywX7gjgZWbmdYdVGXTD
+	q6REA3aR+Hnxd3xP32uFJkW72xIeRM3BcEraLOf8aKdL4LMzkpYQJGmgCOvagMx6fuJuqCkhhqq5+
+	LEL8ubxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLJKY-002EBn-7t; Tue, 09 Aug 2022 07:07:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oLN08-003P1l-KN; Tue, 09 Aug 2022 11:02:20 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLJK6-002E07-VM
-	for linux-riscv@lists.infradead.org; Tue, 09 Aug 2022 07:06:55 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B5DB36125D
-	for <linux-riscv@lists.infradead.org>; Tue,  9 Aug 2022 07:06:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78BA1C43470
-	for <linux-riscv@lists.infradead.org>; Tue,  9 Aug 2022 07:06:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1660028800;
-	bh=d7u06MyJmpLesNkm5cSnlW0NGio88o7LILjpUBUSYps=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=N0lbVOO9KOtkL6YRGzqFszgtLdGFO/hetH6C6lTo148OgGYjO5ftMlnH1E+O8bcKD
-	 c2FZWkAegaXHgNDcswFOTx/vpJRNswWsHco6QEfg+YTl9I3/TNn8uIrDpwP0hh9yBX
-	 LzkAMbazEO0QVinK9ymd3ElmBcU72W9b7sFPiDmxk3qf2nuFVmkLVIyGWMKsI/fHTJ
-	 l55O2xoEscah7ICukXZ7mSrhET8G6wP3xERdrCbINQo7h8/qgvdGu5qclKQJBxCQmM
-	 la7rHiVnMPGJSJwpUUffCmzNReC9WacAAiXUxT8gTGjQI+4E1Leb75uOx1R1evhLsP
-	 V+fgqJb+gPnfg==
-Received: by mail-oi1-f176.google.com with SMTP id w196so7829633oiw.10
-        for <linux-riscv@lists.infradead.org>; Tue, 09 Aug 2022 00:06:40 -0700 (PDT)
-X-Gm-Message-State: ACgBeo1WnhxtvV5ooGt7IllcQAK2cBNF2vFAdOfiwmIJLR9vM3q8Pnv2
-	hckFTic4Jh1A5cDjLU7d0SwDkN4P+K/wvLu6oDA=
-X-Google-Smtp-Source: AA6agR78NnJywvVZqMX25JDxFdB8ajyCDauOFlG+yJGN9fZTYYAPQrcwHC+hs6SVkQ5ZrWtX9VrI1QYm0nkp4mAtnNU=
-X-Received: by 2002:a05:6808:a10:b0:33a:d654:bf98 with SMTP id
- n16-20020a0568080a1000b0033ad654bf98mr12273684oij.112.1660028799516; Tue, 09
- Aug 2022 00:06:39 -0700 (PDT)
+	id 1oLN05-003Oyg-CN
+	for linux-riscv@lists.infradead.org; Tue, 09 Aug 2022 11:02:19 +0000
+Received: from dggpemm500024.china.huawei.com (unknown [172.30.72.55])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4M29715yFzzlVqB;
+	Tue,  9 Aug 2022 18:59:09 +0800 (CST)
+Received: from dggpemm500001.china.huawei.com (7.185.36.107) by
+ dggpemm500024.china.huawei.com (7.185.36.203) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Tue, 9 Aug 2022 19:02:01 +0800
+Received: from [10.67.111.195] (10.67.111.195) by
+ dggpemm500001.china.huawei.com (7.185.36.107) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Tue, 9 Aug 2022 19:02:01 +0800
+Subject: Re: [PATCH -next] riscv: lib: uaccess: fix CSR_STATUS SR_SUM bit
+From: chenlifu <chenlifu@huawei.com>
+To: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<akira.tsukamoto@gmail.com>, <jszhang@kernel.org>,
+	<wangkefeng.wang@huawei.com>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <alankao@andestech.com>
+References: <20220615014714.1650349-1-chenlifu@huawei.com>
+ <11a0698c-5726-15e8-2448-3529d2d0b098@huawei.com>
+ <606b1f5a-ea1e-f756-a00b-6b622238b453@huawei.com>
+Message-ID: <dda3f0c3-a5ee-e648-fac1-d484e475634c@huawei.com>
+Date: Tue, 9 Aug 2022 19:01:49 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
+ Thunderbird/78.9.0
 MIME-Version: 1.0
-References: <CAJF2gTQoSQq_S4UvAiXgMviT040Ls8+VkDszQSke1a0zbXZ82A@mail.gmail.com>
- <mhng-7a274375-0d99-41c8-98a3-853d110f62e9@palmer-ri-x1c9>
- <CAJF2gTTXO42_TsZudaQuB9Re0teu__EZ11JZ96nktMqsQkMYNA@mail.gmail.com>
- <20220614110258.GA32157@anparri> <YrPei6q4rIAx6Ymf@boqun-archlinux>
- <fd664673-c4cc-be8f-9824-5272c5c79b40@nvidia.com> <CAJF2gTSEBQd75VWyyMwKuSDsLFoiBqB0WJfYsiEHVQbJgAgBvA@mail.gmail.com>
- <YsYivaDEksXPQPaH@boqun-archlinux> <CAJF2gTT=7+qYC-y1PapVx5yprmsr4mZGzRqz3hPq1i4SM-xqXg@mail.gmail.com>
- <4179929a-5062-7bf6-4115-121582822504@nvidia.com>
-In-Reply-To: <4179929a-5062-7bf6-4115-121582822504@nvidia.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 9 Aug 2022 15:06:27 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTJF4eOsFgbEN5HpKskjVtFNDha8Wmy=cYJxYZQ4UUjLg@mail.gmail.com>
-Message-ID: <CAJF2gTTJF4eOsFgbEN5HpKskjVtFNDha8Wmy=cYJxYZQ4UUjLg@mail.gmail.com>
-Subject: Re: [PATCH V4 5/5] riscv: atomic: Optimize LRSC-pairs atomic ops with
- .aqrl annotation
-To: Dan Lustig <dlustig@nvidia.com>
-Cc: Boqun Feng <boqun.feng@gmail.com>, Andrea Parri <parri.andrea@gmail.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>, 
-	Will Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	linux-arch <linux-arch@vger.kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, Guo Ren <guoren@linux.alibaba.com>
+In-Reply-To: <606b1f5a-ea1e-f756-a00b-6b622238b453@huawei.com>
+X-Originating-IP: [10.67.111.195]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ dggpemm500001.china.huawei.com (7.185.36.107)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220809_000643_116084_0CD04CED 
-X-CRM114-Status: GOOD (  59.94  )
+X-CRM114-CacheID: sfid-20220809_040217_609733_3BBC80AB 
+X-CRM114-Status: UNSURE (   8.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,249 +70,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 14, 2022 at 9:06 PM Dan Lustig <dlustig@nvidia.com> wrote:
->
-> On 7/13/2022 7:47 PM, Guo Ren wrote:
-> > On Thu, Jul 7, 2022 at 8:04 AM Boqun Feng <boqun.feng@gmail.com> wrote:
-> >>
-> >> On Sat, Jun 25, 2022 at 01:29:50PM +0800, Guo Ren wrote:
-> >>> On Fri, Jun 24, 2022 at 1:09 AM Dan Lustig <dlustig@nvidia.com> wrote:
-> >>>>
-> >>>> On 6/22/2022 11:31 PM, Boqun Feng wrote:
-> >>>>> Hi,
-> >>>>>
-> >>>>> On Tue, Jun 14, 2022 at 01:03:47PM +0200, Andrea Parri wrote:
-> >>>>> [...]
-> >>>>>>> 5ce6c1f3535f ("riscv/atomic: Strengthen implementations with fences")
-> >>>>>>> is about fixup wrong spinlock/unlock implementation and not relate to
-> >>>>>>> this patch.
-> >>>>>>
-> >>>>>> No.  The commit in question is evidence of the fact that the changes
-> >>>>>> you are presenting here (as an optimization) were buggy/incorrect at
-> >>>>>> the time in which that commit was worked out.
-> >>>>>>
-> >>>>>>
-> >>>>>>> Actually, sc.w.aqrl is very strong and the same with:
-> >>>>>>> fence rw, rw
-> >>>>>>> sc.w
-> >>>>>>> fence rw,rw
-> >>>>>>>
-> >>>>>>> So "which do not give full-ordering with .aqrl" is not writen in
-> >>>>>>> RISC-V ISA and we could use sc.w/d.aqrl with LKMM.
-> >>>>>>>
-> >>>>>>>>
-> >>>>>>>>>> describes the issue more specifically, that's when we added these
-> >>>>>>>>>> fences.  There have certainly been complains that these fences are too
-> >>>>>>>>>> heavyweight for the HW to go fast, but IIUC it's the best option we have
-> >>>>>>>>> Yeah, it would reduce the performance on D1 and our next-generation
-> >>>>>>>>> processor has optimized fence performance a lot.
-> >>>>>>>>
-> >>>>>>>> Definately a bummer that the fences make the HW go slow, but I don't
-> >>>>>>>> really see any other way to go about this.  If you think these mappings
-> >>>>>>>> are valid for LKMM and RVWMO then we should figure this out, but trying
-> >>>>>>>> to drop fences to make HW go faster in ways that violate the memory
-> >>>>>>>> model is going to lead to insanity.
-> >>>>>>> Actually, this patch is okay with the ISA spec, and Dan also thought
-> >>>>>>> it was valid.
-> >>>>>>>
-> >>>>>>> ref: https://lore.kernel.org/lkml/41e01514-74ca-84f2-f5cc-2645c444fd8e@nvidia.com/raw
-> >>>>>>
-> >>>>>> "Thoughts" on this regard have _changed_.  Please compare that quote
-> >>>>>> with, e.g.
-> >>>>>>
-> >>>>>>   https://lore.kernel.org/linux-riscv/ddd5ca34-805b-60c4-bf2a-d6a9d95d89e7@nvidia.com/
-> >>>>>>
-> >>>>>> So here's a suggestion:
-> >>>>>>
-> >>>>>> Reviewers of your patches have asked:  How come that code we used to
-> >>>>>> consider as buggy is now considered "an optimization" (correct)?
-> >>>>>>
-> >>>>>> Denying the evidence or going around it is not making their job (and
-> >>>>>> this upstreaming) easier, so why don't you address it?  Take time to
-> >>>>>> review previous works and discussions in this area, understand them,
-> >>>>>> and integrate such knowledge in future submissions.
-> >>>>>>
-> >>>>>
-> >>>>> I agree with Andrea.
-> >>>>>
-> >>>>> And I actually took a look into this, and I think I find some
-> >>>>> explanation. There are two versions of RISV memory model here:
-> >>>>>
-> >>>>> Model 2017: released at Dec 1, 2017 as a draft
-> >>>>>
-> >>>>>       https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/hKywNHBkAXM/m/QzUtxEWLBQAJ
-> >>>>>
-> >>>>> Model 2018: released at May 2, 2018
-> >>>>>
-> >>>>>       https://groups.google.com/a/groups.riscv.org/g/isa-dev/c/xW03vmfmPuA/m/bMPk3UCWAgAJ
-> >>>>>
-> >>>>> Noted that previous conversation about commit 5ce6c1f3535f happened at
-> >>>>> March 2018. So the timeline is roughly:
-> >>>>>
-> >>>>>       Model 2017 -> commit 5ce6c1f3535f -> Model 2018
-> >>>>>
-> >>>>> And in the email thread of Model 2018, the commit related to model
-> >>>>> changes also got mentioned:
-> >>>>>
-> >>>>>       https://github.com/riscv/riscv-isa-manual/commit/b875fe417948635ed68b9644ffdf718cb343a81a
-> >>>>>
-> >>>>> in that commit, we can see the changes related to sc.aqrl are:
-> >>>>>
-> >>>>>        to have occurred between the LR and a successful SC.  The LR/SC
-> >>>>>        sequence can be given acquire semantics by setting the {\em aq} bit on
-> >>>>>       -the SC instruction.  The LR/SC sequence can be given release semantics
-> >>>>>       -by setting the {\em rl} bit on the LR instruction.  Setting both {\em
-> >>>>>       -  aq} and {\em rl} bits on the LR instruction, and setting the {\em
-> >>>>>       -  aq} bit on the SC instruction makes the LR/SC sequence sequentially
-> >>>>>       -consistent with respect to other sequentially consistent atomic
-> >>>>>       -operations.
-> >>>>>       +the LR instruction.  The LR/SC sequence can be given release semantics
-> >>>>>       +by setting the {\em rl} bit on the SC instruction.  Setting the {\em
-> >>>>>       +  aq} bit on the LR instruction, and setting both the {\em aq} and the {\em
-> >>>>>       +  rl} bit on the SC instruction makes the LR/SC sequence sequentially
-> >>>>>       +consistent, meaning that it cannot be reordered with earlier or
-> >>>>>       +later memory operations from the same hart.
-> >>>>>
-> >>>>> note that Model 2018 explicitly says that "ld.aq+sc.aqrl" is ordered
-> >>>>> against "earlier or later memory operations from the same hart", and
-> >>>>> this statement was not in Model 2017.
-> >>>>>
-> >>>>> So my understanding of the story is that at some point between March and
-> >>>>> May 2018, RISV memory model folks decided to add this rule, which does
-> >>>>> look more consistent with other parts of the model and is useful.
-> >>>>>
-> >>>>> And this is why (and when) "ld.aq+sc.aqrl" can be used as a fully-ordered
-> >>>>> barrier ;-)
-> >>>>>
-> >>>>> Now if my understanding is correct, to move forward, it's better that 1)
-> >>>>> this patch gets resend with the above information (better rewording a
-> >>>>> bit), and 2) gets an Acked-by from Dan to confirm this is a correct
-> >>>>> history ;-)
-> >>>>
-> >>>> I'm a bit lost as to why digging into RISC-V mailing list history is
-> >>>> relevant here...what's relevant is what was ratified in the RVWMO
-> >>>> chapter of the RISC-V spec, and whether the code you're proposing
-> >>>> is the most optimized code that is correct wrt RVWMO.
-> >>>>
-> >>>> Is your claim that the code you're proposing to fix was based on a
-> >>>> pre-RVWMO RISC-V memory model definition, and you're updating it to
-> >>>> be more RVWMO-compliant?
-> >>> Could "lr + beq + sc.aqrl" provides a conditional RCsc here with
-> >>> current spec? I only found "lr.aq + sc.aqrl" despcriton which is
-> >>> un-conditional RCsc.
-> >>>
-> >>
-> >> /me put the temporary RISCV memory model hat on and pretend to be a
-> >> RISCV memory expert.
-> >>
-> >> I think the answer is yes, it's actually quite straightforwards given
-> >> that RISCV treats PPO (Preserved Program Order) as part of GMO (Global
-> >> Memory Order), considering the following (A and B are memory accesses):
-> >>
-> >>         A
-> >>         ..
-> >>         sc.aqrl // M
-> >>         ..
-> >>         B
-> >>
-> >> , A has a ->ppo ordering to M since "sc.aqrl" is a RELEASE, and M has
-> >> a ->ppo ordeing to B since "sc.aqrl" is an AQUIRE, so
-> >>
-> >>         A ->ppo M ->ppo B
-> > That also means M must fence.rl + sc + fence.aq. But in the release
-> > consistency model, "rl + aq" is not legal and has no guarantee at all.
-> >
-> > So sc.aqrl should be clarified in spec, but I only found "lr.aq +
-> > sc.aqrl" description, see the patch commit log.
->
-> The spec doesn't try to enumerate every possible synchronization
-> instruction sequence.  That's why the RVWMO rules are in place.
-Okay, I just want to confirm "lr + sc.aqrl" is correct here.
-
-
->
-> > Could we treat sc.aqrl as a whole in ISA? Because in micro-arch, we
-> > must separate it into pieces for implementation.
-> >
-> > That is what the RVWMO should give out.
->
-> What exactly would you like the spec to say about this?  RVWMO and the
-> RISC-V spec in general describe the required architecturally observable
-> behavior.  They're not implementation guides.
->
-> Generally speaking, I would expect splitting an sc.aqrl into a
-> ".rl; sc; .aq" pattern to be OK.  That wouldn't introduce new observable
-> behaviors compared to treating the sc.aqrl as a single indivisible
-> operation, would it?
-Yes, I think the below modification is correct, and it could improve
-the performance in the fast path. Adding .aq annotation during the
-false loop won't cause side effects. right?
-                "0:     lr.d     %[p],  %[c]\n"
-                "       beq      %[p],  %[u], 1f\n"
-                "       add      %[rc], %[p], %[a]\n"
--               "       sc.d.rl  %[rc], %[rc], %[c]\n"
-+               "       sc.d.aqrl  %[rc], %[rc], %[c]\n"
-                "       bnez     %[rc], 0b\n"
--               "       fence    rw, rw\n"
-
->
-> Dan
->
-> >> And since RISCV describes that PPO is part of GMO:
-> >>
-> >> """
-> >> The subset of program order that must be respected by the global memory
-> >> order is known as preserved program order.
-> >> """
-> >>
-> >> also in the herd model:
-> >>
-> >>         (* Main model axiom *)
-> >>         acyclic co | rfe | fr | ppo as Model
-> > If the herd7 model has defined that, I think it should be legal. Good catch.
-> >
-> >
-> >>
-> >> , therefore the ordering between A and B is GMO and GMO should be
-> >> respected by all harts.
-> >>
-> >> Regards,
-> >> Boqun
-> >>
-> >>>>
-> >>>> Dan
-> >>>>
-> >>>>> Regards,
-> >>>>> Boqun
-> >>>>>
-> >>>>>>   Andrea
-> >>>>>>
-> >>>>>>
-> >>>>> [...]
-> >>>
-> >>>
-> >>>
-> >>> --
-> >>> Best Regards
-> >>>  Guo Ren
-> >>>
-> >>> ML: https://lore.kernel.org/linux-csky/
-> >
-> >
-> >
-
-
-
---
-Best Regards
- Guo Ren
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjIvNy8xNSAxMTo0NywgY2hlbmxpZnUg5YaZ6YGTOgo+Pj4gU2luY2UgY29tbWl0IDVk
+ODU0NGUyZDAwNyAoIlJJU0MtVjogR2VuZXJpYyBsaWJyYXJ5IHJvdXRpbmVzIGFuZCAKPj4+IGFz
+c2VtYmx5IikKPj4+IGFuZCBjb21taXQgZWJjYmQ3NWUzOTYyICgicmlzY3Y6IEZpeCB0aGUgYnVn
+IGluIG1lbW9yeSBhY2Nlc3MgZml4dXAgCj4+PiBjb2RlIiksCj4+PiBpZiBfX2NsZWFyX3VzZXIg
+YW5kIF9fY29weV91c2VyIHJldHVybiBmcm9tIGFuIGZpeHVwIGJyYW5jaCwKPj4+IENTUl9TVEFU
+VVMgU1JfU1VNIGJpdCB3aWxsIGJlIHNldCwgaXQgaXMgYSB2dWxuZXJhYmlsaXR5LCBzbyB0aGF0
+Cj4+PiBTLW1vZGUgbWVtb3J5IGFjY2Vzc2VzIHRvIHBhZ2VzIHRoYXQgYXJlIGFjY2Vzc2libGUg
+YnkgVS1tb2RlIHdpbGwgCj4+PiBzdWNjZXNzLgo+Pj4gRGlzYWJsZSBTLW1vZGUgYWNjZXNzIHRv
+IFUtbW9kZSBtZW1vcnkgc2hvdWxkIGNsZWFyIFNSX1NVTSBiaXQuCj4+Pgo+Pj4gRml4ZXM6IDVk
+ODU0NGUyZDAwNyAoIlJJU0MtVjogR2VuZXJpYyBsaWJyYXJ5IHJvdXRpbmVzIGFuZCBhc3NlbWJs
+eSIpCj4+PiBGaXhlczogZWJjYmQ3NWUzOTYyICgicmlzY3Y6IEZpeCB0aGUgYnVnIGluIG1lbW9y
+eSBhY2Nlc3MgZml4dXAgY29kZSIpCj4+Pgo+Pj4gU2lnbmVkLW9mZi1ieTogQ2hlbiBMaWZ1IDxj
+aGVubGlmdUBodWF3ZWkuY29tPgo+Pj4gLS0tCj4+PiDCoCBhcmNoL3Jpc2N2L2xpYi91YWNjZXNz
+LlMgfCA0ICsrLS0KPj4+IMKgIDEgZmlsZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDIgZGVs
+ZXRpb25zKC0pCj4+Pgo+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbGliL3VhY2Nlc3MuUyBi
+L2FyY2gvcmlzY3YvbGliL3VhY2Nlc3MuUwo+Pj4gaW5kZXggOGM0NzVmNGRhMzA4Li5lYzQ4NmU1
+MzY5ZDkgMTAwNjQ0Cj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2xpYi91YWNjZXNzLlMKPj4+ICsrKyBi
+L2FyY2gvcmlzY3YvbGliL3VhY2Nlc3MuUwo+Pj4gQEAgLTE3MywxMSArMTczLDExIEBAIEVOVFJZ
+KF9fYXNtX2NvcHlfZnJvbV91c2VyKQo+Pj4gwqDCoMKgwqDCoCByZXQKPj4+IMKgwqDCoMKgwqAg
+LyogRXhjZXB0aW9uIGZpeHVwIGNvZGUgKi8KPj4+IMKgIDEwOgo+Pj4gwqDCoMKgwqDCoCAvKiBE
+aXNhYmxlIGFjY2VzcyB0byB1c2VyIG1lbW9yeSAqLwo+Pj4gLcKgwqDCoCBjc3JzIENTUl9TVEFU
+VVMsIHQ2Cj4+PiArwqDCoMKgIGNzcmMgQ1NSX1NUQVRVUywgdDYKPj4+IMKgwqDCoMKgwqAgbXYg
+YTAsIHQ1Cj4+PiDCoMKgwqDCoMKgIHJldAo+Pj4gwqAgRU5EUFJPQyhfX2FzbV9jb3B5X3RvX3Vz
+ZXIpCj4+PiDCoCBFTkRQUk9DKF9fYXNtX2NvcHlfZnJvbV91c2VyKQo+Pj4gwqAgRVhQT1JUX1NZ
+TUJPTChfX2FzbV9jb3B5X3RvX3VzZXIpCj4+PiBAQCAtMjI1LDEwICsyMjUsMTAgQEAgRU5UUlko
+X19jbGVhcl91c2VyKQo+Pj4gwqDCoMKgwqDCoCBqIDNiCj4+PiDCoMKgwqDCoMKgIC8qIEV4Y2Vw
+dGlvbiBmaXh1cCBjb2RlICovCj4+PiDCoCAxMToKPj4+IMKgwqDCoMKgwqAgLyogRGlzYWJsZSBh
+Y2Nlc3MgdG8gdXNlciBtZW1vcnkgKi8KPj4+IC3CoMKgwqAgY3NycyBDU1JfU1RBVFVTLCB0Ngo+
+Pj4gK8KgwqDCoCBjc3JjIENTUl9TVEFUVVMsIHQ2Cj4+PiDCoMKgwqDCoMKgIG12IGEwLCBhMQo+
+Pj4gwqDCoMKgwqDCoCByZXQKPj4+IMKgIEVORFBST0MoX19jbGVhcl91c2VyKQo+Pj4gwqAgRVhQ
+T1JUX1NZTUJPTChfX2NsZWFyX3VzZXIpCj4+Pgo+Pgo+PiBmcmllbmRseSBwaW5nIC4uLgo+Pgo+
+IAo+IGZyaWVuZGx5IHBpbmcgLi4uCj4gCj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCj4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+PiBsaW51eC1y
+aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKPj4gLgo+IC4KCmZyaWVuZGx5IHBpbmcgLi4uCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
