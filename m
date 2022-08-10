@@ -4,80 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E19AC25B07
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Aug 2022 18:46:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CECC00140
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Aug 2022 18:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OSSx7MqWfitwOutLNHK0H8FnmUxEw2TIkAWVz5yP39o=; b=X0zJQf5ppwd7VR
-	T12bhwOgn4QBhMW9tiPtDqpHT73eRhFNADaJl0zk5rjOaQVTAiB2U2QQ8CbWSUiB/vfAUlLOEowkg
-	BCc9RwCXeNOqDztUHIcSb+0yCpDyGwnwjCOKvLz2bKLuudvQTcS0XA6g/GjHXLLQk60PMECBPClB4
-	SwMWgB4mfrl2cT2X0tuTOGGtsPAkgTSrwIWL5tEQbtrnTep7Fb66G18olnrsGTKdU5kxbxqGIsxNf
-	Nj3aceEllUP/qrB48HyNEfjJvfPn9OAYIr4p+Xdz8y0Pb4q7D/fE3yl4mfIJU/1jkxt0h2aO31uyY
-	3iox8s6gPAKiVz8qxhqQ==;
+	List-Owner; bh=Ia6F9nod9zMIuPfJ2UznGiagYRI3FRnIk6jMzmv6sTQ=; b=FYLA5+7GU2qFN0
+	icgpf2HqMn9YoS02Ke1Xf+ipNJmA70WVr4DUrXOcr57EXNCGYrQsTTkTY/rTlMJZW31UnppW/qW2b
+	GOcRAecsoNWgHrmy+7Ej7Nyc+jUD3Kei6kTWhsqUSo9SWpZ5FKCmq++klk0OwFg1DAZEHw5jOzw7z
+	koTWHeIhWiaeQtGYr4KhDDSR6kAddKnVguuGHY4lM/vuIWV9kmoXfY446rhRNthMR9Ef+AgXWdnS0
+	gLS4ogLDF78LvxYlm9bgz/xO73cmqnhTRSJGifwEeYiSYwiB3XG+UnnzHsMAB6GpXUN5xeyYzLFbu
+	HqqoQMf8VY6ZpNIq6P9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLqis-00DrD7-QY; Wed, 10 Aug 2022 18:46:30 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1oLqsy-00DwYs-EL; Wed, 10 Aug 2022 18:56:56 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLqij-00Dr6b-NU
-	for linux-riscv@lists.infradead.org; Wed, 10 Aug 2022 18:46:23 +0000
-Received: by mail-wr1-x431.google.com with SMTP id z17so18724970wrq.4
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Aug 2022 11:46:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc;
-        bh=VJdQR/zkeKenpTuqia/TTJ9m1dTc7j3X6f24wA4YnSA=;
-        b=JCziDnpU8rCiA8ClzY/qKpkzwNSWGcUrRt8hBWMXdKyFhGK2L0StNyBrEujci74qL2
-         0nW44P7962pD7aiCmXLxKgF0Y17J/doJaV1eFIlWyufOIdrqEGGVl94W9BbZO0kwQXRY
-         LjdXlJKRmQZat78f15w4ni+6mcdd7NGoByc4ij86QBARZPGaG4N3Tou3Y1nBCaR3/Ejw
-         sWmFKisjiPAP4SFIJvlFkZeIXzbCFCh/13miY5D6s611Asz41glRIYYAZf3yjNqm1QwV
-         5sS1wIvdTJAVr6T8NaA053f76PwfV9gj6sMc1GhOsCLQdMZrkLn2Wwb1YodCLL1zB+re
-         R5BA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
-        bh=VJdQR/zkeKenpTuqia/TTJ9m1dTc7j3X6f24wA4YnSA=;
-        b=JBsPrq3VdHP96YMExksCzpSNVJciGg5nF7i+MyweCfR+jie1QOPFnh39NCI9+CBswq
-         8tKCV/wqwf+CZ5JRhcXKTeNbvvt7RDW9UbU4oE1utSFOWjvebtMl9DYPw3N9WVmIZlHS
-         tMBvaot73QqEu3nX8kCDyDmkd1Nr9EK4vKP4Md2A7Mlr7gjT4twf2dIFTPLngBLmFLrO
-         Em02zcrqY2nLCWdHCoAq5AHxnEzJPKxkLUjgKyACAhI07wkgDQJM3HEZTquhBm3Bw7sl
-         29hm2yJSkkymLWZ09geV+T/dgLCLrBZ5Oe9dm3qCJiTYpDT+mXSVNi+FuB3kZXuYXygr
-         eJjg==
-X-Gm-Message-State: ACgBeo36UmNGS44JgMaHfpo+9koAHH/nuw+m++09SvQM2E4oUEmVjxLW
-	VDOGfnUixN417SpbRFFuX6+bSw==
-X-Google-Smtp-Source: AA6agR7TAaQQe6nfKejnLpfRfrSOf3iJHZk7un51nw1xco6YVF1eMQV4AjOpJBkFg0N8+VJaIdPvNQ==
-X-Received: by 2002:a5d:504b:0:b0:220:7ae9:d7df with SMTP id h11-20020a5d504b000000b002207ae9d7dfmr17470381wrt.465.1660157179375;
-        Wed, 10 Aug 2022 11:46:19 -0700 (PDT)
-Received: from henark71.. ([109.76.58.63])
-        by smtp.gmail.com with ESMTPSA id y13-20020adfdf0d000000b0021f0ff1bc6csm16944743wrl.41.2022.08.10.11.46.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Aug 2022 11:46:19 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Alistair Francis <alistair.francis@wdc.com>,
-	Bin Meng <bin.meng@windriver.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	qemu-riscv@nongnu.org,
-	qemu-devel@nongnu.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3 4/4] hw/core: fix platform bus node name
-Date: Wed, 10 Aug 2022 19:46:12 +0100
-Message-Id: <20220810184612.157317-5-mail@conchuod.ie>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20220810184612.157317-1-mail@conchuod.ie>
-References: <20220810184612.157317-1-mail@conchuod.ie>
+	id 1oLqst-00DwWD-Sv
+	for linux-riscv@lists.infradead.org; Wed, 10 Aug 2022 18:56:54 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 4EFB6B81B5E;
+	Wed, 10 Aug 2022 18:56:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32EC4C433D6;
+	Wed, 10 Aug 2022 18:56:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1660157809;
+	bh=rcTCkFaa5mnwnbCSMET43K9fqBB3KokZWCSy5dHR5GQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HcWvZR/cP6oJBqzJ9rwSKxG1FjJzBUlrrE/oD/IC3Klzkl4HWAaNgPqZY/dMUMyiL
+	 4OBWnUnbZM67jfvgZ1REdlMc11QNRSLKwap2pXWMSJzHl7w2DMS4JhkAjutQ3zxIYH
+	 QURRecZ4LiXjHkkckWyhenKID3bYBTIwjFp5fL2ebRLAGJiwyBRPogCUIhPaADJmbu
+	 m0VldOfvHey+P5zNVMqbC1nMWU5PuvJi7JlJ+kalY4RXB1Z+ddcKkUNKEiUzFmxBQs
+	 i03AnhVKLsTDHHdIwvZaRTRj+mp4ey4gtU3OOxalEdqSpjPY1wPVagH/1T4/9Wn7ck
+	 IUQbO1QxmypHg==
+Date: Wed, 10 Aug 2022 11:56:46 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Conor.Dooley@microchip.com
+Cc: ndesaulniers@google.com, llvm@lists.linux.dev, mturquette@baylibre.com,
+	sboyd@kernel.org, robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, p.zabel@pengutronix.de,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Daire.McNamara@microchip.com, palmer@dabbelt.com
+Subject: Re: [PATCH v2 00/12] PolarFire SoC reset controller & clock cleanups
+Message-ID: <YvP/bjh+wXihlrdG@dev-arch.thelio-3990X>
+References: <20220704121558.2088698-1-conor.dooley@microchip.com>
+ <bd14f1a2-750d-2511-df0a-85a9f5925f84@microchip.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <bd14f1a2-750d-2511-df0a-85a9f5925f84@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220810_114621_789205_D449EE34 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20220810_115652_755908_652E38BF 
+X-CRM114-Status: GOOD (  45.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,39 +78,177 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+Hi Conor,
 
-"platform" is not a valid name for a bus node in dt-schema, so warnings
-can be see in dt-validate on a dump of the riscv virt dtb:
+On Tue, Aug 09, 2022 at 11:05:32PM +0000, Conor.Dooley@microchip.com wrote:
+> +CC clang people :)
+> 
+> Got an odd one here and would appreciate some pointers for where to
+> look. This code when built with gcc boots fine, for example with:
+> riscv64-unknown-linux-gnu-gcc (g5964b5cd727) 11.1.0
+> The same code but build with clang build it fails to boot but prior to
+> that applying this patchset it boots fine. Specifically it is the patch
+> "clk: microchip: mpfs: move id & offset out of clock structs"
+> 
+> I applied this patchset on top of tonight's master (15205c2829ca) but
+> I've been seeing the same problem for a few weeks on -next too. I tried
+> the following 2 versions of clang/llvm:
+> ClangBuiltLinux clang version 15.0.0 (5b0788fef86ed7008a11f6ee19b9d86d42b6fcfa), LLD 15.0.0
+> ClangBuiltLinux clang version 15.0.0 (bab8af8ea062f6332b5c5d13ae688bb8900f244a), LLD 15.0.0
 
-/stuff/qemu/qemu.dtb: platform@4000000: $nodename:0: 'platform@4000000' does not match '^([a-z][a-z0-9\\-]+-bus|bus|soc|axi|ahb|apb)(@[0-9a-f]+)?$'
-        From schema: /home/conor/.local/lib/python3.9/site-packages/dtschema/schemas/simple-bus.yaml
-"platform-bus" is a valid name, so use that instead.
+Good to know that it reproduces with fairly recent versions of LLVM :)
 
-CC: Rob Herring <robh@kernel.org>
-Fixes: 11d306b9df ("hw/arm/sysbus-fdt: helpers for platform bus nodes addition")
-Reviewed-by: Alistair Francis <alistair.francis@wdc.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- hw/core/sysbus-fdt.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> It's probably something silly that I've overlooked but I am not au
+> fait with these sort of things unfortunately, but hey - at least I'll
+> learn something then.
 
-diff --git a/hw/core/sysbus-fdt.c b/hw/core/sysbus-fdt.c
-index 19d22cbe73..edb0c49b19 100644
---- a/hw/core/sysbus-fdt.c
-+++ b/hw/core/sysbus-fdt.c
-@@ -539,7 +539,7 @@ void platform_bus_add_all_fdt_nodes(void *fdt, const char *intc, hwaddr addr,
- 
-     assert(fdt);
- 
--    node = g_strdup_printf("/platform@%"PRIx64, addr);
-+    node = g_strdup_printf("/platform-bus@%"PRIx64, addr);
- 
-     /* Create a /platform node that we can put all devices into */
-     qemu_fdt_add_subnode(fdt, node);
--- 
-2.37.1
+I took a quick glance at the patch you mentioned above and I don't
+immediately see anything as problematic... I was going to see if I could
+reproduce this locally in QEMU since I do see there is a machine
+'microchip-icicle-kit' but I am not having much success getting the
+machine past SBI. Does this reproduce in QEMU or are you working with
+the real hardware? If QEMU, do you happen to have a working invocation
+handy?
 
+Cheers,
+Nathan
+
+> The boot log is fairly short so here ya go:
+> 
+> [    0.000000] Linux version 5.19.0-13253-g374b508ee318 (conor@spud) (ClangBuiltLinux clang version 15.0.0 (git@g
+> ithub.com:llvm/llvm-project.git 5b0788fef86ed7008a11f6ee19b9d86d42b6fcfa), LLD 15.0.0) #1 SMP Tue Aug 9 22:42:10 IST 
+> 2022
+> [    0.000000] OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
+> [    0.000000] Machine model: Microchip PolarFire-SoC Icicle Kit
+> [    0.000000] earlycon: ns16550a0 at MMIO32 0x0000000020100000 (options '115200n8')
+> [    0.000000] printk: bootconsole [ns16550a0] enabled
+> [    0.000000] efi: UEFI not found.
+> [    0.000000] Zone ranges:
+> [    0.000000]   DMA32    [mem 0x0000000080200000-0x00000000ffffffff]
+> [    0.000000]   Normal   [mem 0x0000000100000000-0x000000103fffffff]
+> [    0.000000] Movable zone start for each node
+> [    0.000000] Early memory node ranges
+> [    0.000000]   node   0: [mem 0x0000000080200000-0x00000000adffffff]
+> [    0.000000]   node   0: [mem 0x0000001000000000-0x000000103fffffff]
+> [    0.000000] Initmem setup node 0 [mem 0x0000000080200000-0x000000103fffffff]
+> [    0.000000] On node 0, zone Normal: 16064512 pages in unavailable ranges
+> [    0.000000] SBI specification v0.3 detected
+> [    0.000000] SBI implementation ID=0x1 Version=0x9
+> [    0.000000] SBI TIME extension detected
+> [    0.000000] SBI IPI extension detected
+> [    0.000000] SBI RFENCE extension detected
+> [    0.000000] SBI HSM extension detected
+> [    0.000000] CPU with hartid=0 is not available
+> [    0.000000] CPU with hartid=0 is not available
+> [    0.000000] riscv: base ISA extensions acdfim
+> [    0.000000] riscv: ELF capabilities acdfim
+> [    0.000000] percpu: Embedded 18 pages/cpu s34168 r8192 d31368 u73728
+> [    0.000000] pcpu-alloc: s34168 r8192 d31368 u73728 alloc=18*4096
+> [    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
+> [    0.000000] CPU node for /cpus/cpu@0 exist but the possible cpu range is :0-3
+> [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 224263
+> [    0.000000] Kernel command line: root=/dev/nfs ip=dhcp debug nfsroot=192.168.2.5:/stuff/nfs_share earlycon
+> [    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+> [    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+> [    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+> [    0.000000] software IO TLB: area num 4.
+> [    0.000000] software IO TLB: mapped [mem 0x00000000aa000000-0x00000000ae000000] (64MB)
+> [    0.000000] Virtual kernel memory layout:
+> [    0.000000]       fixmap : 0xffffffc6fee00000 - 0xffffffc6ff000000   (2048 kB)
+> [    0.000000]       pci io : 0xffffffc6ff000000 - 0xffffffc700000000   (  16 MB)
+> [    0.000000]      vmemmap : 0xffffffc700000000 - 0xffffffc800000000   (4096 MB)
+> [    0.000000]      vmalloc : 0xffffffc800000000 - 0xffffffd800000000   (  64 GB)
+> [    0.000000]       lowmem : 0xffffffd800000000 - 0xffffffe7bfe00000   (  62 GB)
+> [    0.000000]       kernel : 0xffffffff80000000 - 0xffffffffffffffff   (2047 MB)
+> [    0.000000] Memory: 803032K/1800192K available (7485K kernel code, 2858K rwdata, 4096K rodata, 2181K init, 394K bss, 997160K reserved, 0K cma-reserved)
+> [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+> [    0.000000] rcu: Hierarchical RCU implementation.
+> [    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=4.
+> [    0.000000] rcu:     RCU debug extended QS entry/exit.
+> [    0.000000]  Tracing variant of Tasks RCU enabled.
+> [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+> [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+> [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+> [    0.000000] CPU with hartid=0 is not available
+> [    0.000000] riscv-intc: unable to find hart id for /cpus/cpu@0/interrupt-controller
+> [    0.000000] riscv-intc: 64 local interrupts mapped
+> [    0.000000] plic: interrupt-controller@c000000: mapped 186 interrupts with 4 handlers for 9 contexts.
+> [    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+> [    0.000000] riscv_timer_init_dt: Registering clocksource cpuid [0] hartid [4]
+> [    0.000000] clocksource: riscv_clocksource: mask: 0xffffffffffffffff max_cycles: 0x1d854df40, max_idle_ns: 3526361616960 ns
+> [    0.000003] sched_clock: 64 bits at 1000kHz, resolution 1000ns, wraps every 2199023255500ns
+> [    0.009713] Console: colour dummy device 80x25
+> [    0.014676] printk: console [tty0] enabled
+> [    0.019217] printk: bootconsole [ns16550a0] disabled
+> 
+> FWIW this is right about when the clock driver gets loaded
+> as you might imagine.
+> 
+> My config is here, but it's been reproduced on a few different
+> defconfigs:
+> https://raw.githubusercontent.com/ConchuOD/polarfire-soc-buildroot-sdk/dev/conf/lowmem/defconfig
+> 
+> On 04/07/2022 13:15, Conor Dooley wrote:
+> > Hey all,
+> > I know I have not sat on the RFC I sent about the aux. bus parts
+> > for too long, but figured I'd just send the whole thing anyway to all
+> > lists etc.
+> > 
+> > Kinda two things happening in this series, but I sent it together to
+> > ensure the second part would apply correctly.
+> > 
+> > The first is the reset controller that I promised after discovering the
+> > issue triggered by CONFIG_PM & the phy not coming up correctly. I have
+> > now removed all the messing with resets from clock enable/disable
+> > functions & now use the aux bus to set up a reset controller driver.
+> > Since I needed something to test it, I hooked up the reset for the
+> > Cadence MACB on PolarFire SoC. This has been split into a second series
+> > for v2:
+> > https://lore.kernel.org/all/20220704114511.1892332-1-conor.dooley@microchip.com/
+> > 
+> > The second part adds rate control for the MSS PLL clock, followed by
+> > some simplifications to the driver & conversions of some custom structs
+> > to the corresponding structs in the framework.
+> > 
+> > Thanks,
+> > Conor.
+> > 
+> > Changes since v1:
+> > - split off the net patches
+> > - clk: actually pass the spinlock to the converted dividers & gates
+> > - reset: added a spinlock around RMW access to registers
+> > - reset: switched to BIT(i) macros
+> > - reset: used local copies of some variables as pointed out by Philipp
+> > - reset: dropped the success printout
+> > 
+> > Conor Dooley (12):
+> >   dt-bindings: clk: microchip: mpfs: add reset controller support
+> >   clk: microchip: mpfs: add reset controller
+> >   reset: add polarfire soc reset support
+> >   MAINTAINERS: add polarfire soc reset controller
+> >   riscv: dts: microchip: add mpfs specific macb reset support
+> >   clk: microchip: mpfs: add module_authors entries
+> >   clk: microchip: mpfs: add MSS pll's set & round rate
+> >   clk: microchip: mpfs: move id & offset out of clock structs
+> >   clk: microchip: mpfs: simplify control reg access
+> >   clk: microchip: mpfs: delete 2 line mpfs_clk_register_foo()
+> >   clk: microchip: mpfs: convert cfg_clk to clk_divider
+> >   clk: microchip: mpfs: convert periph_clk to clk_gate
+> > 
+> >  .../bindings/clock/microchip,mpfs.yaml        |  17 +-
+> >  MAINTAINERS                                   |   1 +
+> >  arch/riscv/boot/dts/microchip/mpfs.dtsi       |   7 +-
+> >  drivers/clk/microchip/Kconfig                 |   1 +
+> >  drivers/clk/microchip/clk-mpfs.c              | 379 +++++++++---------
+> >  drivers/reset/Kconfig                         |   7 +
+> >  drivers/reset/Makefile                        |   2 +-
+> >  drivers/reset/reset-mpfs.c                    | 157 ++++++++
+> >  include/soc/microchip/mpfs.h                  |   8 +
+> >  9 files changed, 386 insertions(+), 193 deletions(-)
+> >  create mode 100644 drivers/reset/reset-mpfs.c
+> > 
+> > 
+> > base-commit: b13baccc3850ca8b8cccbf8ed9912dbaa0fdf7f3
 
 _______________________________________________
 linux-riscv mailing list
