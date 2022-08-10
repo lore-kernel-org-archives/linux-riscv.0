@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA1CC25B07
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Aug 2022 14:04:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99635C00140
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Aug 2022 14:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=REuwnFKD34tNTR2C/jY1DUPZiu0bZ3JW9tJ1OJhnhd0=; b=whbPLkuEX3DONw
-	59UpVTz11rCmHP0KPbA6XW3bRNorjCpTc2JZbUIa81c0HNTW5FfL5ItA0z0lHHZBVXR4YjgxpBFUO
-	Znxx5hWm7FQYfQ9eVIBoYT6Zbp/+x1Ih9wO3o8ka1R45Yw3rkBn0W/Wm9kdt44f9ds5j/kIJTvZT0
-	cMQ/athuridoPOxrl0iIhuCYYCDBXKeXpCytLG4z9BEIW+6ECjHfMTBtktDSGsfDHE+kX/Lvfws5F
-	3TcjEB5F7x7sVA+6h2UHY13/jcGR9TY6fd+7ukJjCfVwDrxxsYhSPmG3i3drJKxBWIwC2at9z/tVc
-	9xwy4driLBRkKnsfwaBg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=S93etzKQi2t57vcJoK1pjuOL2h2v8xcILGhewS9IsRw=; b=wMZwHXYJj4bhsf
+	pNUBPqWMOIDdR4AHx010mzYNxpKe4YQ96D+78gApwRcSE0t2koDXl3Q0sbrpDoFs1SGBb75Hetwmg
+	J/ZflIIFCWHQKrZ6smOtoqi3Zhn43ZvNZgCXG2mGUEkmcTAvCGDxVJqWKTGiyM/jxqrDckQD9jNw2
+	Qo26G3TAhgpf050ZwyAG49SRs+nnwr+qJlLw5L4uTbHbgANHZOD9c8K+Vo6XExAoLlvEjCsWVnzjv
+	i///7qUVE2vVuW+H+xXgrI3I9FRtpPa69M0ssuC1shhxoxJziIwUiuKjwx6XzGjlfRyy1SnGscLbB
+	RGQIBS74iduPH9/jdh8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLmJc-00CDBW-Tf; Wed, 10 Aug 2022 14:04:09 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oLmJf-00CDE1-Uv; Wed, 10 Aug 2022 14:04:11 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLmJO-00CD4z-7l
+	id 1oLmJR-00CD6k-CA
 	for linux-riscv@lists.infradead.org; Wed, 10 Aug 2022 14:04:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1660140235; x=1691676235;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=j+ubEaa4d6letw3k0c6vUxa4al5aj0IPLS7HTum/LzY=;
-  b=KLO5c3B5TFj+JYJGUvBaJc9K4tOG/9Ub7VT/IYm/syhYsHLm+RlqpOEH
-   tvd9pvc7YuvmabnW1CKxwUkNxj5bJ5VnGJS0w8IsEf/ScBKe24AKXZUij
-   SCeUi4peuNPjK72Zqfg78auxHsX6c+e4lneHkBbSGXNaQHzhT+eUFDfK6
-   n11CUNl/GU/LeAoBt96QQJTDm6oIjPHoTGD9sc/iijVFzrvX9gqFnRSY8
-   AxNHK0olsN4oqZW3ScxuWFZirdnTmSb0fOjyEaHZTujdD7SuhyD5WCktb
-   2zg+cFcDWOb9ZOD+zqB34YMEl6xFsGnYocTO/6uap0CsMV2EWGXjwwDDM
-   A==;
+  t=1660140237; x=1691676237;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=6wm8qFNBUY4i8KtmlFHnTGwoCmChYaNk0zbrd4k51PQ=;
+  b=KiqVKYNsWFOqZHGFlVd0FtFM02eVucn1POTZg4IgX6Sl3nauvu58UJZx
+   xtUhKu3IjdB0ABiHpl8Z0UaD+U8ksaHktSqLIwUpsKOR0nSMNiEEKA1vb
+   WYIyFGfiLZyZfU6Zh9O7Pl5WMwt6CPMKGwWlACz7rTGxj8ZhjWWSCIwiB
+   jQn/HqmdPfkCOWd8cDp3nNfFFrKD8nJV9pPPXSlNyFAjKqvlS3LtUV7gH
+   c4Jb4YoK36QsYYAU6gigQScLjLAkJLzCM/xrkaoWz6b0139iB+DlLG2fE
+   ctchIqzx6Hse/DfbDIgNHEGFtwGwP1s/kj0YPIEEvd38R1cgA9wmplx3F
+   g==;
 X-IronPort-AV: E=Sophos;i="5.93,227,1654585200"; 
-   d="scan'208";a="175691467"
+   d="scan'208";a="108427959"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 10 Aug 2022 07:03:46 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 10 Aug 2022 07:03:48 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Wed, 10 Aug 2022 07:03:45 -0700
+ 15.1.2375.28; Wed, 10 Aug 2022 07:03:48 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.28 via Frontend
- Transport; Wed, 10 Aug 2022 07:03:42 -0700
+ Transport; Wed, 10 Aug 2022 07:03:45 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: <soc@kernel.org>, Daire McNamara <daire.mcnamara@microchip.com>
 CC: Mark Brown <broonie@kernel.org>, Wolfram Sang <wsa@kernel.org>, "Thierry
@@ -59,15 +59,18 @@ CC: Mark Brown <broonie@kernel.org>, Wolfram Sang <wsa@kernel.org>, "Thierry
  Bergmann" <arnd@arndb.de>, Olof Johansson <olof@lixom.net>, Michael Turquette
 	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Conor Dooley
-	<conor.dooley@microchip.com>
-Subject: [RESEND/PULL PATCH 0/2] MAINTAINERS updates for PolarFire SoC
-Date: Wed, 10 Aug 2022 15:02:42 +0100
-Message-ID: <20220810140243.2685416-1-conor.dooley@microchip.com>
+	<conor.dooley@microchip.com>, Marc Kleine-Budde <mkl@pengutronix.de>
+Subject: [RESEND PATCH 1/2] MAINTAINERS: add PolarFire SoC dt bindings
+Date: Wed, 10 Aug 2022 15:02:43 +0100
+Message-ID: <20220810140243.2685416-2-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220810140243.2685416-1-conor.dooley@microchip.com>
+References: <20220810140243.2685416-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220810_070401_611566_17D3673C 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20220810_070401_554177_E1873633 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +82,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Arnd,
-
-Could you please take the following two patches via the soc tree when
-you get a chance?
-
-The first is adding coverage for "my" dt-bindings as suggested by Mark.
-I CCed all the subsystem maintainers on a V1 a week ago & I've added
-them explicity to the patch text this time as CCs. Correct me if I am
-wrong, but I am operating on the assumption that their Acks are not
-required here. Hopefully increasing the binding coverage is non
-controversial!
-
-The second patch is a resend of a patch that was deferred to later in
-the merge window avoid messing about with a 4th conflict in the entry.
-
-Thanks,
-Conor.
-
-Conor Dooley (2):
-  MAINTAINERS: add PolarFire SoC dt bindings
-  MAINTAINERS: add the Polarfire SoC's i2c driver
-
- MAINTAINERS | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-
-base-commit: 4e23eeebb2e57f5a28b36221aa776b5a1122dde5
--- 
-2.36.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+U28gZmFyIHdoZW4gSSBhZGRlZCBiaW5kaW5ncyBmb3IgdGhlIHBsYXRmb3JtIEkgbmV2ZXIgYWRk
+ZWQgdGhlbSB0bwpvdXIgTUFJTlRBSU5FUlMgZW50cnkuIE5vIHRpbWUgbGlrZSB0aGUgcHJlc2Vu
+dCB0byBpbXByb3ZlIHRoZSBjb3ZlcmFnZS4KCkNDOiBNYXJrIEJyb3duIDxicm9vbmllQGtlcm5l
+bC5vcmc+CkNDOiBXb2xmcmFtIFNhbmcgPHdzYUBrZXJuZWwub3JnPgpDQzogVGhpZXJyeSBSZWRp
+bmcgPHRoaWVycnkucmVkaW5nQGdtYWlsLmNvbT4KQ0M6IFV3ZSBLbGVpbmUtS8O2bmlnIDx1Lmts
+ZWluZS1rb2VuaWdAcGVuZ3V0cm9uaXguZGU+CkNDOiBKYXNzaSBCcmFyIDxqYXNzaXNpbmdoYnJh
+ckBnbWFpbC5jb20+CkNDOiBMaW51cyBXYWxsZWlqIDxsaW51cy53YWxsZWlqQGxpbmFyby5vcmc+
+CkNDOiBCYXJ0b3N6IEdvbGFzemV3c2tpIDxicmdsQGJnZGV2LnBsPgpDQzogR3JlZyBLcm9haC1I
+YXJ0bWFuIDxncmVna2hAbGludXhmb3VuZGF0aW9uLm9yZz4KQ0M6IEFybmQgQmVyZ21hbm4gPGFy
+bmRAYXJuZGIuZGU+CkNDOiBPbG9mIEpvaGFuc3NvbiA8b2xvZkBsaXhvbS5uZXQ+CkNDOiBNaWNo
+YWVsIFR1cnF1ZXR0ZSA8bXR1cnF1ZXR0ZUBiYXlsaWJyZS5jb20+CkNDOiBTdGVwaGVuIEJveWQg
+PHNib3lkQGtlcm5lbC5vcmc+ClN1Z2dlc3RlZC1ieTogTWFyayBCcm93biA8YnJvb25pZUBrZXJu
+ZWwub3JnPgpBY2tlZC1ieTogTWFyYyBLbGVpbmUtQnVkZGUgPG1rbEBwZW5ndXRyb25peC5kZT4g
+IyBmb3IgY2FuClNpZ25lZC1vZmYtYnk6IENvbm9yIERvb2xleSA8Y29ub3IuZG9vbGV5QG1pY3Jv
+Y2hpcC5jb20+Ci0tLQogTUFJTlRBSU5FUlMgfCA5ICsrKysrKysrKwogMSBmaWxlIGNoYW5nZWQs
+IDkgaW5zZXJ0aW9ucygrKQoKZGlmZiAtLWdpdCBhL01BSU5UQUlORVJTIGIvTUFJTlRBSU5FUlMK
+aW5kZXggODY4YmJmMzE2MDNkLi5mZDBmMTBhMTEwZTcgMTAwNjQ0Ci0tLSBhL01BSU5UQUlORVJT
+CisrKyBiL01BSU5UQUlORVJTCkBAIC0xNzUxMiw2ICsxNzUxMiwxNSBAQCBNOglDb25vciBEb29s
+ZXkgPGNvbm9yLmRvb2xleUBtaWNyb2NoaXAuY29tPgogTToJRGFpcmUgTWNOYW1hcmEgPGRhaXJl
+Lm1jbmFtYXJhQG1pY3JvY2hpcC5jb20+CiBMOglsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCiBTOglTdXBwb3J0ZWQKK0Y6CURvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9j
+bG9jay9taWNyb2NoaXAsbXBmcy55YW1sCitGOglEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmlu
+ZGluZ3MvZ3Bpby9taWNyb2NoaXAsbXBmcy1ncGlvLnlhbWwKK0Y6CURvY3VtZW50YXRpb24vZGV2
+aWNldHJlZS9iaW5kaW5ncy9pMmMvbWljcm9jaGlwLGNvcmVpMmMueWFtbAorRjoJRG9jdW1lbnRh
+dGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL21haWxib3gvbWljcm9jaGlwLG1wZnMtbWFpbGJveC55
+YW1sCitGOglEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbmV0L2Nhbi9taWNyb2No
+aXAsbXBmcy1jYW4ueWFtbAorRjoJRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3B3
+bS9taWNyb2NoaXAsY29yZXB3bS55YW1sCitGOglEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmlu
+ZGluZ3Mvc29jL21pY3JvY2hpcC9taWNyb2NoaXAsbXBmcy1zeXMtY29udHJvbGxlci55YW1sCitG
+OglEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvc3BpL21pY3JvY2hpcCxtcGZzLXNw
+aS55YW1sCitGOglEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdXNiL21pY3JvY2hp
+cCxtcGZzLW11c2IueWFtbAogRjoJYXJjaC9yaXNjdi9ib290L2R0cy9taWNyb2NoaXAvCiBGOglk
+cml2ZXJzL2NoYXIvaHdfcmFuZG9tL21wZnMtcm5nLmMKIEY6CWRyaXZlcnMvY2xrL21pY3JvY2hp
+cC9jbGstbXBmcy5jCi0tIAoyLjM2LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
