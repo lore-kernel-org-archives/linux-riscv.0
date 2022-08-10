@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12105C00140
-	for <linux-riscv@archiver.kernel.org>; Wed, 10 Aug 2022 07:07:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AEAC00140
+	for <linux-riscv@archiver.kernel.org>; Wed, 10 Aug 2022 09:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vdvCHXknSlD52qssj4gFSyZZDay7rOlY5e5Q+BsYzyw=; b=iU4VS6jxQgtbSk
-	vLY5HxSRfaKUDF3UJ/IeDQBuA3wunt2MQsPGFsmhUvaxxPqv0p0JbVm0/EjtwNDiL9IroMkUkSSkC
-	wm/dhCgCsJKRbmRvxnKmznhST8PzW9PUewoblIMkpwgxb4C9vxY4H1f5YwQoYhXwPOWcWD3H4xJGc
-	QFy6BiT2rAvbMXaEAx70Ladj0Cuti9ALwiE+is5X6q9VT+cH/SGoUgyFMluVWnLCOVCfGETfRPE4c
-	YKVzxEQZfYiVTiiX0JWLnpWvzxyrZuuCWU+gztLk257gunoxmE9TvjhAHp96rNq6aKXP1AEWpH21H
-	woWDqSOuHacMTFjRkClA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YHz4D/aJB0jf4iQ+TVbUvJ7bzHAhrqNcFfUTuDQc1zg=; b=ZYcQ0fJShthdLL
+	We93tZgb0ei9iLSui5+Ejr8ISoOPCXPJeRHakiMaK82/nYXZlAwVvTQgHVGdghxgQmUczOja9+esI
+	lmd161/qB9XCM/rVz6JHhAGW4G/8UPutOKmc3i6ihrwmvwXEOtQ/olh4Dl8YZ4X80clO3sp9zfDxj
+	Ex/q00+issz0DqqLyNByhs+GQbZZcadXu3/2ruo3THCIaf0xlzfICjF4YqJ+1o4I/uSSFPi9uP9Q6
+	evu4TbYwUISmhqy7C6RSgvnOn1gULy5gA722sqAlPbDrcp/zc301kfhZE+EpU7E9NyUTIqQs1wcxg
+	IgNKVD3THMXtUBcincTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLfo6-00AF9Q-1N; Wed, 10 Aug 2022 07:07:10 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1oLhZh-00AuE4-95; Wed, 10 Aug 2022 09:00:25 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLfo2-00AF3A-M3
-	for linux-riscv@lists.infradead.org; Wed, 10 Aug 2022 07:07:09 +0000
-Received: by mail-lj1-x233.google.com with SMTP id s9so15180797ljs.6
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Aug 2022 00:06:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc;
-        bh=sMw4VU5RWixo87gNCaJPKsEZSe5TLfAn57Qyc69mrdA=;
-        b=Sv56YTKDWEOyhnXx1FQ5ZE2ckw4nXj1LcSyOrgQfjqu5TLpKLBG9Gea43oeMcGjPDc
-         JKqaMuXgfL6THGSCpquXFBEr3jQwLnSAXJMLi8zbqw74SfWPIT8j0mmtGPv37qHKiRai
-         nkoedzPayuw3M5g287Sp3woJpApHX/3AqUO2OrmqulH4w6D4FSFDfrWx5DQJlGVw8l1V
-         wuqALINYn6BXW48uP/am96hkbaeb4JHBcbDeFBHJAMLsCMiishu3tkAdJlra0EiEmXWu
-         hgGcpk1meX2aEDPxjVkZbx2yznmRdqlaRVZ+UzluaBK2gvrattSu7ToLeQ1Sp3QwCQRf
-         B9Hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc;
-        bh=sMw4VU5RWixo87gNCaJPKsEZSe5TLfAn57Qyc69mrdA=;
-        b=51ck27cHDYIm42gjAJdtsc8bjSOrKNBKsJhY2dCj6oPc7H6usE/5WlNYG8TeTaTOkY
-         gUFlEZpou+5MMuSRmR8q0MRTq6cU7viGY0602QjrwECVrXEaElzQq4muK25d3bit9jn9
-         FvBPC4J+X6Yx8KQUEHHHKafpLeD6Jk1/bwRUufSZisYUeM9rAjml85FJ5hv1ONt0wnbM
-         fM5wFvrnkIHLHdEarEEubYujAfoV0ku03bkeJ5HGKzkqPNxmmD4c2JFvinF93mb7M5af
-         kje4I0Wf+dFIREku2pJP+8uoHsidGtDbytD/MgUhVGLYuEF0W+QfE5NTvlUQCovIbap6
-         T8Xw==
-X-Gm-Message-State: ACgBeo0o+iAFx5m3O7kBX9EU8qvlVkZ+vQWPY+E82lIw5GQq5lX5V6Iz
-	xiDIMFsfLbGjigaTmBq4RdBz1JIbm5M=
-X-Google-Smtp-Source: AA6agR4RBP14N0qHmRad2+Pees6yHaT7IEVkKpXERAlwYESy4KecdOD8pRD8h3BKr0drRBlbxURfeA==
-X-Received: by 2002:a2e:7218:0:b0:25f:dd3c:dfd2 with SMTP id n24-20020a2e7218000000b0025fdd3cdfd2mr4360514ljc.299.1660115209475;
-        Wed, 10 Aug 2022 00:06:49 -0700 (PDT)
-Received: from curiosity ([5.188.167.245])
-        by smtp.gmail.com with ESMTPSA id o12-20020a05651205cc00b0048b1d05631fsm228634lfo.202.2022.08.10.00.06.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Aug 2022 00:06:48 -0700 (PDT)
-Date: Wed, 10 Aug 2022 10:06:47 +0300
-From: Sergey Matyukevich <geomatsi@gmail.com>
-To: linux-riscv@lists.infradead.org
-Cc: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>
-Subject: Re: [PATCH v2 0/2] perf: RISC-V: fix access beyond allocated array
-Message-ID: <YvNZB7FNMPSlpnVC@curiosity>
-References: <20220624135902.520748-1-geomatsi@gmail.com>
+	id 1oLhZd-00AuCD-5G
+	for linux-riscv@lists.infradead.org; Wed, 10 Aug 2022 09:00:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1660122021; x=1691658021;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=c2PE8iAmkH1Oin6CAU5HGkAjPeE646cGNzdZY+RUVJE=;
+  b=iMF1qZHcfnO379iNNojfYGMo1NkmbTJWCVgQtUpCF/0kw1T3UR7Oi60c
+   eH/0amMKrIEMkvqbb2FObtALNzM3Cpwkasdlj8TxaOaW6K5U+nU7dMmyT
+   C5GIhhG9LlEOk67IuoIeJ1oXu9RknF9v8EfLCbeAoFpktZW48sJV4pakM
+   zr64wDsFSlSQ4G0UGYZ/NESjq1VHmsJj5ego5T1oQbWxclFeIUZQd/RYc
+   nhIAPV1uKkitOB+DeQ5chO46Pj1kySIez++xpTQIRNfFeuOGewxknL+gs
+   /4JZKjp+Qi5aIzUJtDe+d0DAPNwBcG0YXyp6MFldNbq5PHEiVZIUFFGRT
+   w==;
+X-IronPort-AV: E=Sophos;i="5.93,226,1654585200"; 
+   d="scan'208";a="108383200"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 10 Aug 2022 02:00:18 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.17; Wed, 10 Aug 2022 02:00:13 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2375.28 via Frontend
+ Transport; Wed, 10 Aug 2022 02:00:11 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>
+CC: <nagasuresh.relli@microchip.com>,
+	<valentina.fernandezalanis@microchip.com>, <broonie@kernel.org>,
+	<devicetree@vger.kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+	<robh+dt@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-spi@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH] riscv: dts: microchip: add qspi compatible fallback
+Date: Wed, 10 Aug 2022 09:59:15 +0100
+Message-ID: <20220810085914.801170-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220624135902.520748-1-geomatsi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220810_000706_765086_3EAF10DB 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20220810_020021_382722_00393A49 
+X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +82,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Atish, Anup
+The "hard" QSPI peripheral on PolarFire SoC is derived from version 2
+of the FPGA IP core. The original binding had no fallback etc, so this
+device tree is valid as is. There was also no functional driver for the
+QSPI IP, so no device with a devicetree from a previous mainline
+release will regress.
 
-> These patches suggest some fixes and cleanups for the handling of pmu
-> counters. The first patch fixes access beyond the allocated pmu_ctr_list
-> array. The second patch fixes the counters mask sent to SBI firmware: it
-> excludes counters that were not fully specified by SBI firmware on init.
-> 
-> Initial attempt to fix access to the highest available has been reworked.
-> Now it is handled in the OpenSBI, see the following patch:
-> - https://patchwork.ozlabs.org/project/opensbi/patch/20220624110330.452640-1-geomatsi@gmail.com/
-> 
-> Regards,
-> Sergey
-> 
-> v1 -> v2:
-> - drop changes for access to the highest available counter as they are
->   now handled on the OpenSBI side
-> - drop switch to IDR: in fact there is no need to handle non-contiguous
->   counter ranges
-> 
-> Sergey Matyukevich (2):
->   perf: RISC-V: fix access beyond allocated array
->   perf: RISC-V: exclude invalid pmu counters from SBI calls
-> 
->  drivers/perf/riscv_pmu_legacy.c |  4 ++--
->  drivers/perf/riscv_pmu_sbi.c    | 24 ++++++++++++++----------
->  include/linux/perf/riscv_pmu.h  |  2 +-
->  3 files changed, 17 insertions(+), 13 deletions(-)
+Link: https://lore.kernel.org/linux-spi/7c9f0d96-2882-964a-cd1f-916ddb3f0410@linaro.org/
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+See the link for binding discussion. I'll apply this at some point once
+the driver makes it upstream.
 
-Friendly ping.  I have already received RB tag from Atish for the first
-patch. Do you have any concerns with the second one ?
+CC: nagasuresh.relli@microchip.com
+CC: valentina.fernandezalanis@microchip.com
+CC: broonie@kernel.org
+CC: devicetree@vger.kernel.org
+CC: krzysztof.kozlowski+dt@linaro.org
+CC: robh+dt@kernel.org
+CC: linux-kernel@vger.kernel.org
+CC: linux-spi@vger.kernel.org
+CC: linux-riscv@lists.infradead.org
+---
+ arch/riscv/boot/dts/microchip/mpfs.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Besides, what is the appropriate merge path for RISC-V PMU driver ?
-Are they usually merged via risc-v kernel trees ?
+diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+index 499c2e63ad35..45e3cc659882 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+@@ -330,7 +330,7 @@ spi1: spi@20109000 {
+ 		};
+ 
+ 		qspi: spi@21000000 {
+-			compatible = "microchip,mpfs-qspi";
++			compatible = "microchip,mpfs-qspi", "microchip,coreqspi-rtl-v2";
+ 			#address-cells = <1>;
+ 			#size-cells = <0>;
+ 			reg = <0x0 0x21000000 0x0 0x1000>;
+-- 
+2.36.1
 
-Regards,
-Sergey
 
 _______________________________________________
 linux-riscv mailing list
