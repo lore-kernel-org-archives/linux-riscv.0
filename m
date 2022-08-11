@@ -4,76 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45B1C19F2A
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 21:50:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C16C25B06
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 23:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=Q2XXP/3N4k3b6PbdXi4k8SjGHzFt/HABVO13cGmyzqw=; b=oY41UNWmjBmpLexm1R1lStFJte
-	Q024A7tM3ma1EqGGQBakDA8+4ipODk3Ic03qmUMJxm0Gdzg7sKCYvEQSeFCfFgN6XLdSCoJxcIj0P
-	PmvLdQJRvCfTq5eaIJIIGkiSxlprLtlqrbMw3qfN1e+34AGvCHOppN6DZYi1uxWUHG989RYjemetm
-	1YBNz6gTz93bxfoupgWlcyuqJ7QPh/9rR7R3uKC5JUfmhoILZll1koGpk72f5ONGePDhgQMJbTo9a
-	jCy8ypxm18UlTnuX1afOGYers3tcZ5Fo3BCjLdMaCdauP0urhBS7JIHJnZVOQBjKZX5p4cQsOPEMT
-	t/PEtuWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=SjBDJ4yZxYKx4fm+HhHbJ84u6u4gE6vadB7+kQX7y1w=; b=AckjKVI/8fS4oi
+	dhvxoBG24wFoytvv3E9+LrWeUm7H/8IgOozg4WV3OGXvxRpkMyEyjFTASLeaRcEUSZroGzc+9Y/vJ
+	ldGwi+T/ymzsdlqDopB9o0ijwjeUH2AkjUdBK6PD6fj8sti3Y25RsltjiRDwyDws/pLHRxphpMLY6
+	cwSREqK4+1aKHZZDpPyKB4gdUvFYOQGG+PhqiHxJnhim+v5j6x+NvADfoGaKAYRB/4yNsM1DINdM6
+	5jDpyo9gUKZaxNaHN+Cfa0IAvS1hUV+Y74x+AMBPTLhH0IRidbrzUCDTPDEqf7AWb6iHt5lh/J9D8
+	kkjjPUb1UpwgutoYTZ7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMG40-005oBM-6W; Thu, 11 Aug 2022 21:50:00 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1oMHkm-006lnW-2h; Thu, 11 Aug 2022 23:38:16 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMG3t-005o5G-4n
-	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 21:49:55 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id s206so18232309pgs.3
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 14:49:51 -0700 (PDT)
+	id 1oMHkj-006lkk-Ts
+	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 23:38:15 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-32269d60830so188031587b3.2
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 16:38:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc;
-        bh=a6547274K2iHeQNpwwXuIMlyGaHvz13NtJhgq6J2+CU=;
-        b=0eEqkfey7J4G19PaVOI/piHoBJuBvI0VNHZvD59Ma+ludVEtEC8D3xz5dU8dWCU861
-         WNxZnA83yYBS2kbC0O8fsTwoCR5QpFaCZB8pHTnCAZ0h/eoofy5djcnzBjZVA/I82OOL
-         UVZ/nF3TmDov/7R5SfGsqn94Ms8wGGaVLDBt1ULekYRHENIKuUNBC1nnBq+up9Q4rnia
-         oyAyidS17Hm3JkJK8fWY6UXioTj3jErFXKs/lFSlucN39J0YgySyLzeZAWrcML+FBQIU
-         DY0MZZ0KeGCIxXcYFMN7EmUFGmH4XTRxTEk9yevc58KuX/iGdWnnaZEoHBMKycNAdft/
-         Dtyw==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc;
+        bh=IVeJqcWhysLWzgWUShSqLwDczoSExRUDYbSpzRpTiXQ=;
+        b=k9jTdTI8sjO6UKOTeC4As0uQK2prWT7dSWXk4grIFRnvMm8jpC71fdZnFr5SVlFie3
+         J5u9uJmgcQOpJlmDc+TH8w1teZWNMP2cwYNXmIFamQ+6Oez/W8vAph4I54W5OMxOaWi3
+         nzH8r7JhnuooVcrrlRzGUgyXwBWg/NRqQooBGrXsRw4UH8M3qym/5q98FZ1LWi/Q8gIy
+         /zQtmgyn6JIhmp/XPWJ4Df1VyBMTp6GMv1xc22OfjJDwRgldahF+FV3/Co5okfwaU45w
+         TNz2pQ/MqF4vgbz7VCz+TSEj0hjfhtVk2wGEkuFhFUsNc94jgGEMz6GSwyK20nFeGtll
+         uO2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
-        bh=a6547274K2iHeQNpwwXuIMlyGaHvz13NtJhgq6J2+CU=;
-        b=XeeUHlwfWL+1gnl/hzGF5YHFxOZctf+bDCFuKDeVoUJk5+BUGv/jP3mIISlFn+POfT
-         /jhC3BEXwaCIsRhWSs0F92JSMJsEBSqU2hE+9QCqfKpGRiWM7yU+NXyBVjK+TFbzZSKp
-         C7jKS8elw6o7OKoTUZdAKqfDDnZD64Wr5oElTmznhSe2aHdUUa61LQvYkcwXuU7SemN+
-         RQdXkc22TCvQFMF6LpAwozovbdaKzu8jPNVfBnawz+B6U3UCB3BQ6EoOEOYu5s+4Opgq
-         nlMP0rZ8jlR+Nhk1e0z+nBcRdO3cgzBLyhjmfpsnHillqSXGYNFiCeum7rPI3Jpa4YJR
-         24Iw==
-X-Gm-Message-State: ACgBeo2H9xkNbdf6mMSn1v6DHjglODxmqulIixm0nBjMX1Q0AmGPfqP+
-	j1ZYitaeiZB9PIVRKhr0+aTEgg==
-X-Google-Smtp-Source: AA6agR4dInN19yKFsA3LGylGiOASG3Dp6LBKaYH3f0WnCSF91Nk9WeBWvRzf+9+x0ZP4WM+mrQ0b1A==
-X-Received: by 2002:a63:5947:0:b0:41d:d4ea:6c87 with SMTP id j7-20020a635947000000b0041dd4ea6c87mr752298pgm.528.1660254591255;
-        Thu, 11 Aug 2022 14:49:51 -0700 (PDT)
-Received: from localhost ([50.221.140.186])
-        by smtp.gmail.com with ESMTPSA id r1-20020aa79ec1000000b0053249b67215sm161690pfq.131.2022.08.11.14.49.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Aug 2022 14:49:50 -0700 (PDT)
-Date: Thu, 11 Aug 2022 14:49:50 -0700 (PDT)
-X-Google-Original-Date: Thu, 11 Aug 2022 14:49:38 PDT (-0700)
-Subject: Re: [PATCH v7 0/4] Add Sstc extension support
-In-Reply-To: <CAAhSdy2UDwZYK+EaKHPXLxyKUMv-OX02EdaBDBgjNF0jdDJ7xQ@mail.gmail.com>
-CC: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org,
-  aou@eecs.berkeley.edu, atishp@atishpatra.org, daniel.lezcano@linaro.org, guoren@kernel.org,
-  heiko@sntech.de, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
-  linux-riscv@lists.infradead.org, pbonzini@redhat.com, Paul Walmsley <paul.walmsley@sifive.com>, robh@kernel.org,
-  tglx@linutronix.de, research_trasio@irq.a4lg.com, wefu@redhat.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: anup@brainfault.org
-Message-ID: <mhng-368a1ddb-43d3-4d61-934b-3916c63005d4@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc;
+        bh=IVeJqcWhysLWzgWUShSqLwDczoSExRUDYbSpzRpTiXQ=;
+        b=XNsZo0NlTMhha33UfBmts0GwLsOlquYX4ikSiQboXmdGcgcuY1YWydtCw6f9iKKADW
+         XKMn/EDiEomcvTIqk9jsMzZJZo2i/FInU45SS4NXtbkZU78pj79jK0B/HlqLrMx9Urz3
+         uC/t7OMWg+FJoiurihxsou0SD/6uNQVeKQx1G7VlV3m7jarguaAmRpzuQ6FHP+ybeiJj
+         FWYCL2ASynhNEH58E6+vs/dxEpiKr3oBArkBFsBLjZaqgrOmwlQfovO5o6fmPaAIcyrb
+         A9Xraxhs0QYP7vP0zXf0FfGutsKynsfKWws7p3E4Kp2a0j4uxFk/2yzIr3aItE7Zp4Xq
+         +Y0Q==
+X-Gm-Message-State: ACgBeo0Vl+68F/R3+7t/f4yvYYLAk99K3aSHy80Te/wxSnL485uDR+zB
+	J1IUHOg0gU/YQl8qk/xV1ddc8NR26FqTo4Sh9p8=
+X-Google-Smtp-Source: AA6agR53mPvsRpuEkAtKI6C+nhnmHsWN+IupElYcWWe4XANRE7IWo58pKjOW1TMETFZly0nVg2UElycZ1NeUGtGGebc=
+X-Received: by 2002:a0d:f282:0:b0:329:7da1:90e8 with SMTP id
+ b124-20020a0df282000000b003297da190e8mr1535254ywf.519.1660261089750; Thu, 11
+ Aug 2022 16:38:09 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20220726180623.1668-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <952a85ec-d1e9-7c14-6404-bc087723252f@linaro.org> <CA+V-a8vb+za1Zckk5aTxz0hKkd5fHQk7gtfV+HR_2YMZ5JuJEQ@mail.gmail.com>
+ <3e3c0c80-48eb-098d-977d-a1801036fc0c@linaro.org> <CA+V-a8tJVGz57FcJVnbksMot=pg5dXALo4QEyqO+57HnOTJLfQ@mail.gmail.com>
+ <CAMuHMdWih6XiVfLT0g=k8QrMmVzb2sqv9hxqtGE1t1F1Jvj_QA@mail.gmail.com>
+In-Reply-To: <CAMuHMdWih6XiVfLT0g=k8QrMmVzb2sqv9hxqtGE1t1F1Jvj_QA@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 12 Aug 2022 00:37:42 +0100
+Message-ID: <CA+V-a8tkRJrugewfAunO7CP9H7A8H5OM2=uRQtDfk7=15Zkw4A@mail.gmail.com>
+Subject: Re: [PATCH 1/6] dt-bindings: arm: renesas: Ignore the schema for
+ RISC-V arch
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	LKML <linux-kernel@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220811_144953_237318_72D68C16 
-X-CRM114-Status: GOOD (  25.96  )
+X-CRM114-CacheID: sfid-20220811_163814_035372_57DC4C8F 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,119 +91,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 22 Jul 2022 21:47:06 PDT (-0700), anup@brainfault.org wrote:
-> Hi Palmer,
->
-> On Fri, Jul 22, 2022 at 10:20 PM Atish Patra <atishp@rivosinc.com> wrote:
->>
->> This series implements Sstc extension support which was ratified recently.
->> Before the Sstc extension, an SBI call is necessary to generate timer
->> interrupts as only M-mode have access to the timecompare registers. Thus,
->> there is significant latency to generate timer interrupts at kernel.
->> For virtualized enviornments, its even worse as the KVM handles the SBI call
->> and uses a software timer to emulate the timecomapre register.
->>
->> Sstc extension solves both these problems by defining a stimecmp/vstimecmp
->> at supervisor (host/guest) level. It allows kernel to program a timer and
->> recieve interrupt without supervisor execution enviornment (M-mode/HS mode)
->> intervention.
->>
->> KVM directly updates the vstimecmp as well if the guest kernel invokes the SBI
->> call instead of updating stimecmp directly. This is required because KVM will
->> enable sstc extension if the hardware supports it unless the VMM explicitly
->> disables it for that guest. The hardware is expected to compare the
->> vstimecmp at every cycle if sstc is enabled and any stale value in vstimecmp
->> will lead to spurious timer interrupts. This also helps maintaining the
->> backward compatibility with older kernels.
->>
->> Similary, the M-mode firmware(OpenSBI) uses stimecmp for older kernel
->> without sstc support as STIP bit in mip is read only for hardware with sstc.
->>
->> The PATCH 1 & 2 enables the basic infrastructure around Sstc extension while
->> PATCH 3 lets kernel use the Sstc extension if it is available in hardware.
->> PATCH 4 implements the Sstc extension in KVM.
->>
->> This series has been tested on Qemu(RV32 & RV64) with additional patches in
->> Qemu[2]. This series can also be found at [3].
->>
->> Changes from v6->v7:
->> 1. Fixed a compilation error reported by 0-day bot.
->>
->> Changes from v5->v6:
->> 1. Moved SSTC extension enum below SVPBMT.
->>
->> Changes from v4->v5:
->> 1. Added RB tag.
->> 2. Changed the pr-format.
->> 3. Rebased on 5.19-rc7 and kvm-queue.
->> 4. Moved the henvcfg modification from hardware enable to vcpu_load.
->>
->> Changes from v3->v4:
->> 1. Rebased on 5.18-rc6
->> 2. Unified vstimemp & next_cycles.
->> 3. Addressed comments in PATCH 3 & 4.
->>
->> Changes from v2->v3:
->> 1. Dropped unrelated KVM fixes from this series.
->> 2. Rebased on 5.18-rc3.
->>
->> Changes from v1->v2:
->> 1. Separate the static key from kvm usage
->> 2. Makde the sstc specific static key local to the driver/clocksource
->> 3. Moved the vstimecmp update code to the vcpu_timer
->> 4. Used function pointers instead of static key to invoke vstimecmp vs
->>    hrtimer at the run time. This will help in future for migration of vms
->>    from/to sstc enabled hardware to non-sstc enabled hardware.
->> 5. Unified the vstimer & timer to 1 timer as only one of them will be used
->>    at runtime.
->>
->> [1] https://drive.google.com/file/d/1m84Re2yK8m_vbW7TspvevCDR82MOBaSX/view
->> [2] https://github.com/atishp04/qemu/tree/sstc_v6
->> [3] https://github.com/atishp04/linux/tree/sstc_v7
->>
->> Atish Patra (4):
->> RISC-V: Add SSTC extension CSR details
->> RISC-V: Enable sstc extension parsing from DT
->> RISC-V: Prefer sstc extension if available
->> RISC-V: KVM: Support sstc extension
->
-> The PATCH4 is dependent on the KVM patches in queue for 5.20.
->
-> I suggest you take PATCH1, PATCH2 and PATCH3. I will send
-> PATCH4 in second batch/PR for 5.20 assuming you will send the
-> first three patches in your first PR for 5.20
->
-> Does this sound okay to you ?
+Hi Geert,
 
-Sorry for being slow here, I just merged the non-KVM ones onto 
-riscv/for-next.  LMK if you want me to try and sort out the KVM bits, 
-the branch base is at palmer/riscv-sstc assuming that's easier for you 
-to just merge in locally.
+On Thu, Aug 11, 2022 at 4:26 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+>
+> Hi Prabhakar,
+>
+> On Wed, Jul 27, 2022 at 11:48 AM Lad, Prabhakar
+> <prabhakar.csengg@gmail.com> wrote:
+> > On Wed, Jul 27, 2022 at 10:31 AM Krzysztof Kozlowski
+> > <krzysztof.kozlowski@linaro.org> wrote:
+> > > On 27/07/2022 11:00, Lad, Prabhakar wrote:
+> > > > On Wed, Jul 27, 2022 at 9:53 AM Krzysztof Kozlowski
+> > > > <krzysztof.kozlowski@linaro.org> wrote:
+> > > >> On 26/07/2022 20:06, Lad Prabhakar wrote:
+> > > >>> Ignore the ARM renesas.yaml schema if the board is RZ/Five SMARC EVK
+> > > >>> (RISC-V arch).
+> > > >>>
+> > > >>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > >>> ---
+> > > >>>  Documentation/devicetree/bindings/arm/renesas.yaml | 9 +++++++++
+> > > >>>  1 file changed, 9 insertions(+)
+> > > >>>
+> > > >>> diff --git a/Documentation/devicetree/bindings/arm/renesas.yaml b/Documentation/devicetree/bindings/arm/renesas.yaml
+> > > >>> index ff80152f092f..f646df1a23af 100644
+> > > >>> --- a/Documentation/devicetree/bindings/arm/renesas.yaml
+> > > >>> +++ b/Documentation/devicetree/bindings/arm/renesas.yaml
+> > > >>> @@ -9,6 +9,15 @@ title: Renesas SH-Mobile, R-Mobile, and R-Car Platform Device Tree Bindings
+> > > >>>  maintainers:
+> > > >>>    - Geert Uytterhoeven <geert+renesas@glider.be>
+> > > >>>
+> > > >>> +# We want to ignore this schema if the board is of RISC-V arch
+> > > >>> +select:
+> > > >>> +  not:
+> > > >>> +    properties:
+> > > >>> +      compatible:
+> > > >>> +        contains:
+> > > >>> +          items:
+> > > >>> +            - const: renesas,r9a07g043f01
+> > > >>
+> > > >> Second issue - why not renesas,r9a07g043?
+> > > >>
+> > > > We have two R9A07G043 SOC'S one is based on ARM64 and other on RISC-V.
+> > > >
+> > > > RZ/G2UL ARM64:
+> > > > Type-1 Part Number: R9A07G043U11GBG#BC0
+> > > > Type-2 Part Number: R9A07G043U12GBG#BC0
+> > > >
+> > > > RZ/Five RISCV:
+> > > > 13 x 13 mm Package Part Number: R9A07G043F01GBG#BC0
+> > > >
+> > > > So to differentiate in ARM schema I am using  renesas,r9a07g043f01.
+> > >
+> > > What is the point to keep then r9a07g043 fallback? The two SoCs are not
+> > > compatible at all, so they must not use the same fallback.
+> > >
+> > Agreed, I wanted to keep it consistent with what was done with ARM64
+> > (since both the SoCs shared R9A07G043 part number).
+> >
+> > Geert - What are your thoughts on the above?
+>
+> "renesas,r9a07g043" is the CPU-less SoC base containing I/O devices.
+> "renesas,r9a07g043f01", "renesas,r9a07g043u11", and
+> "renesas,r9a07g043u12" are SoCs built by integrating one or more
+> RV64 or ARM64 CPU cores and the related interrupt controllers with
+> the CPU-less SoC base.
+>
+That's bang on! which I missed to convenience the DT maintainers.
 
->
-> Regards,
-> Anup
->
->>
->> arch/riscv/include/asm/csr.h            |   5 +
->> arch/riscv/include/asm/hwcap.h          |   1 +
->> arch/riscv/include/asm/kvm_vcpu_timer.h |   7 ++
->> arch/riscv/include/uapi/asm/kvm.h       |   1 +
->> arch/riscv/kernel/cpu.c                 |   1 +
->> arch/riscv/kernel/cpufeature.c          |   1 +
->> arch/riscv/kvm/vcpu.c                   |   8 +-
->> arch/riscv/kvm/vcpu_timer.c             | 144 +++++++++++++++++++++++-
->> drivers/clocksource/timer-riscv.c       |  25 +++-
->> 9 files changed, 185 insertions(+), 8 deletions(-)
->>
->> --
->> 2.25.1
->>
+Cheers,
+Prabhakar
 
 _______________________________________________
 linux-riscv mailing list
