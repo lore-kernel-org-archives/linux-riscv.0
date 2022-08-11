@@ -4,84 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B7FCC19F2A
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 15:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BD5C25B0C
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 15:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=syFnn2N6jdu+w1R9cxOCtdVmJw5yQZBsArrX4I8WgZ8=; b=iwUWuzFBPHsQDL
-	rptkpCdLcL0l2wegkrOzFMdB7N0cGitmvWyg+qOyYTz/x/UprxPFjjKHI4vKDGT8a3BC9WqEbiB9I
-	lXL9R3miVFQ0knvYHP+LwfKtOhxNjLeHRvxmIdL5LHjh6vkEDJSV4a58kta1wzjqrL20KIDzF4Ejm
-	Va3uaatDMj4rsKWyu/zoDNT3+LzOSkU0zi++p3xl6n66rWdMWr3o42ttmJwWsyPDv3b+prQ+DALxQ
-	GHI5tMQ/BPLaIbJ+tq3CeCe/6JRT6Cf/t0ij+UjgNYDrtkZVAZeKSb+ewIOxqWxq3b6C9TsmeDuJ+
-	YIGYs/jm8w4+23oUt0FA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=j4I0QiRSBl4AC+An9N7rIU80lzQvbPBTvuS7sgR6X+4=; b=mzehREeklPZCj91UpJqqXAAQXL
+	721HzSZ5nmL+pcoGjj21rJgp1JwTL3+f7qizrnVpC5y/47ULvmwBuEm4RS0HudimOrMdmhH7dmSE0
+	K/VP+jT0IOGp8iGMne012l89C3lRNgSf1SzYMQTr+KAXUGa4lt38bLYU//h9ug8qtYzYiChqYQWuY
+	MGhD1otNXHmMSqBAxsrJwnRjUVyprBDqRh66HcX3Iu/dQVRtl0s9fK6sQ7BFXW/fO4xZzuB90Z1jn
+	Nftzcz3OOKMN1H028Df5kzH4hUVvDkmIGIPCdwG+uvZAdmU1prSwEMXqjOJUhvxzygiiyzxLtxZZe
+	bEozpTxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMAKb-00E9R9-6J; Thu, 11 Aug 2022 15:42:45 +0000
-Received: from mail-qv1-f45.google.com ([209.85.219.45])
+	id 1oMAND-00EBbl-Nu; Thu, 11 Aug 2022 15:45:27 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMAKY-00E9NW-89
-	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 15:42:43 +0000
-Received: by mail-qv1-f45.google.com with SMTP id d10so8018060qvn.8
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 08:42:40 -0700 (PDT)
+	id 1oMAN8-00EBVd-AA
+	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 15:45:26 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id gj1so18069708pjb.0
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 08:45:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc;
+        bh=IqdpAm+3ZI27zm3WrWt4kogz8HX3uySUVAkMSid/X6U=;
+        b=1G0z6VKeHyOv+DmFlwNaDXpbESavfOAPdJ0y7qxpkZ8KGb1ELkE4Oi3sNw5j1vlVrv
+         YsT/Jvnr4Qx4zxafupJ6e465wLqyqB94XpJdUo1RMy0UAaoWJ2m9rEns8gIXEddP+y/G
+         1Lcw6OCuCuxqK9qvhxVrW914AGArcswAUhTHLJZ7gA/zEismEh7/w4AKVuAwf0eAzk5j
+         bAbiWFDAIE7pU3pwRWZqCGEl9PkgLvUfdi/HBFADY5zuJ8T8djjykzn2LsYLXKNoJKjt
+         ZKfPAOFCPCMSlKygsEwhK8NAgqV+i6VGFHBBNq3eAyEi2+/p6PBbELjvq6J9dh4q4dxY
+         IJnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc;
-        bh=CmaQmycmiDs0ZhLNzBEap3uy9DegAtgeJY98yfTaoT0=;
-        b=aSvCr6vxBw71h+W1vWsxtc5atEFuTNHjYIQaACvQl8On0bH8PPgJpjUif7UgiEfcnJ
-         z/v3hKsyMLYdRJ7cFxeQVoOMIbkVeNiGLiS9NUW+35HEeYoQhEd9GfnjXqQ7wRx1snuF
-         0Kbs6YqH6W4jbQAeKh7kSE+cEtVwnNM/bcEgSKmgNwsRjvZeZpGkgbcIb6tovGwDTHpf
-         buYC6uotsAIfB8WtaOymJ69dplvSGOtHqE0CFzidep4HwrQpJhoSn5Fa+ZJsDi4yhLAA
-         eRWZtrel6ewbKu8ESn/K2bnVImS4TnTy+qywAbMgt/bhOo1heI54YOj1cIstI91ryvvD
-         FoXg==
-X-Gm-Message-State: ACgBeo1MRnVVtQstVfSF88CZqloy0rAWvFXOyBN4XPGW0o2OEyY17BKv
-	6sNpK+GfHsesLF1eiJIQucgQfXKHmVWlvoyY
-X-Google-Smtp-Source: AA6agR42sjihgijdKIq3wON6LOBXG9ZSLieswJsMCuhaEioEKBuyu8Xj/qxJAFEdG1S0YzduiVSo8w==
-X-Received: by 2002:a0c:9d92:0:b0:476:95b7:1dc1 with SMTP id s18-20020a0c9d92000000b0047695b71dc1mr28951581qvd.19.1660232559491;
-        Thu, 11 Aug 2022 08:42:39 -0700 (PDT)
-Received: from mail-yb1-f182.google.com (mail-yb1-f182.google.com. [209.85.219.182])
-        by smtp.gmail.com with ESMTPSA id dm23-20020a05620a1d5700b006b906c7ba98sm506279qkb.85.2022.08.11.08.42.35
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Aug 2022 08:42:36 -0700 (PDT)
-Received: by mail-yb1-f182.google.com with SMTP id z5so28864022yba.3
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 08:42:35 -0700 (PDT)
-X-Received: by 2002:a5b:6c1:0:b0:669:a7c3:4c33 with SMTP id
- r1-20020a5b06c1000000b00669a7c34c33mr29967472ybq.543.1660232555433; Thu, 11
- Aug 2022 08:42:35 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220726180623.1668-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <636e9214-4b36-e9a6-3c6b-b6edb944335e@linaro.org> <CA+V-a8sTw1qzuTeD2vb7RgDmmNdEP5qEcxXCjrFgkyrBrLrt5Q@mail.gmail.com>
- <e64cc15e-b31e-876d-b3cf-b60d255c495b@linaro.org> <CA+V-a8u1VW9xaj2KjySyMuegpisLVENO_6uJOpAFZGbKziYLYw@mail.gmail.com>
- <e31e0c1f-4755-704e-8428-93970877d8f5@linaro.org> <CA+V-a8sX=Frs_cds9MriauTFRvcZUNCvoeZ+SaC0GUpL7L6qhg@mail.gmail.com>
- <9f32a4a9-66b4-ba2e-1713-436103c2faf8@linaro.org> <OS0PR01MB5922763582B836DA45CDFF0886979@OS0PR01MB5922.jpnprd01.prod.outlook.com>
- <80f08089-e3bb-983e-313b-45613364829e@linaro.org>
-In-Reply-To: <80f08089-e3bb-983e-313b-45613364829e@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 11 Aug 2022 17:42:23 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdWOdQ5HNU8CuWYXHqYs-UfdggTuCf1AARdJC-3WMTy7Hg@mail.gmail.com>
-Message-ID: <CAMuHMdWOdQ5HNU8CuWYXHqYs-UfdggTuCf1AARdJC-3WMTy7Hg@mail.gmail.com>
-Subject: Re: [PATCH 4/6] dt-bindings: riscv: Add DT binding documentation for
- Renesas RZ/Five SoC and SMARC EVK
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Biju Das <biju.das.jz@bp.renesas.com>, 
-	"Lad, Prabhakar" <prabhakar.csengg@gmail.com>, 
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	LKML <linux-kernel@vger.kernel.org>
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
+        bh=IqdpAm+3ZI27zm3WrWt4kogz8HX3uySUVAkMSid/X6U=;
+        b=Z02rYSAeuwNxkjUT7jBS8as+kRi3fGSE9u9X8N48ntGpfs1YVhOnkSgKRg716peBVb
+         iK9EFQKCZABRvO2HJNIihkeKdrYgpTZOuLKY0PT+ewufV+uC427VdG0QR2BknXmtK/8P
+         +HFhvPc6gTrztHUKBWQQ6SO0pjWn1tKSCYY0DFI7mrWeZu2mTERxuPgYnuwOUVoPRqPP
+         HrxtDlt8FkD1PWbDDsdhcKCVnqiBEF1tQPqk5pok924Jze7H/PivKqoQ0JLTxdLh9nnr
+         UXN9fGaklSR3PrxUyVZFc7raMms3E5M9kAbimWVMaHwKLJtIxMImsMZt/RlEBImr/NWL
+         9f4g==
+X-Gm-Message-State: ACgBeo0BMm1ELv85Ns4mtISir/oWgqzxRdyicZO9vXR1EjPlHbFBIjGL
+	CobdtyCie9lbXCFtkC+bxeTtA/HaweN64A==
+X-Google-Smtp-Source: AA6agR4aa6Jphe0Y0Hlh91VQt7xwxcn4/ibQAux03E/k/HY8C9mVj0pgJLt4eegG06tTQiRHNA5sfg==
+X-Received: by 2002:a17:903:31cb:b0:16f:3d1:f5b with SMTP id v11-20020a17090331cb00b0016f03d10f5bmr33577264ple.148.1660232719614;
+        Thu, 11 Aug 2022 08:45:19 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id n129-20020a622787000000b0052dcbd87ae8sm4216988pfn.25.2022.08.11.08.45.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Aug 2022 08:45:19 -0700 (PDT)
+Date: Thu, 11 Aug 2022 08:45:19 -0700 (PDT)
+X-Google-Original-Date: Thu, 11 Aug 2022 08:39:47 PDT (-0700)
+Subject: Re: [PATCH] riscv: traps_misaligned: do not duplicate stringify
+In-Reply-To: <20220623112905.253157-1-krzysztof.kozlowski@linaro.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, krzysztof.kozlowski@linaro.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: krzysztof.kozlowski@linaro.org
+Message-ID: <mhng-1a6d1fe9-4b73-4088-bd89-015486990666@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220811_084242_311497_D541EF98 
-X-CRM114-Status: GOOD (  33.71  )
+X-CRM114-CacheID: sfid-20220811_084522_404672_20A53ED8 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,80 +82,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On Wed, Jul 27, 2022 at 2:37 PM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
-> On 27/07/2022 14:21, Biju Das wrote:
-> >> Subject: Re: [PATCH 4/6] dt-bindings: riscv: Add DT binding
-> >> documentation for Renesas RZ/Five SoC and SMARC EVK
-> >> On 27/07/2022 13:37, Lad, Prabhakar wrote:
-> >>>>> I did run the dtbs_check test as per your suggestion (below is the
-> >>>>> log) and didn't see "no matching schema error"
-> >>>>>
-> >>>>
-> >>>> So you do not see any errors at all. Then it does not work, does it?
-> >>>>
-> >>> Right I reverted my changes I can see it complaining, dtb_check seems
-> >>> to have returned false positive in my case.
-> >>>
-> >>> What approach would you suggest to ignore the schema here?
-> >>
-> >> I don't think currently it would work with your approach. Instead, you
-> >> should select here all SoCs which the schema should match.
-> >>
-> >> This leads to my previous concern - you use the same SoC compatible for
-> >> two different architectures and different SoCs: ARMv8 and RISC-V.
-> >
-> > Or is it same SoC(R9A07G043) based on two different CPU architectures (ARMv8 and RISC-V)
+On Thu, 23 Jun 2022 04:29:05 PDT (-0700), krzysztof.kozlowski@linaro.org wrote:
+> Use existing stringify macro from the kernel headers.
 >
-> Then it is not the same SoC! Same means same, identical. CPU
-> architecture is one of the major differences, which means it is not the
-> same.
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  arch/riscv/kernel/traps_misaligned.c | 8 +++-----
+>  1 file changed, 3 insertions(+), 5 deletions(-)
 >
-> > Using same SoM and Carrier board?
+> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
+> index 46c4dafe3ba0..378f5b151443 100644
+> --- a/arch/riscv/kernel/traps_misaligned.c
+> +++ b/arch/riscv/kernel/traps_misaligned.c
+> @@ -7,6 +7,7 @@
+>  #include <linux/mm.h>
+>  #include <linux/module.h>
+>  #include <linux/irq.h>
+> +#include <linux/stringify.h>
 >
-> It's like saying PC with x86 and ARMv8 board are the same because they
-> both use same "PC chassis".
+>  #include <asm/processor.h>
+>  #include <asm/ptrace.h>
+> @@ -150,9 +151,6 @@
+>  #define PRECISION_S 0
+>  #define PRECISION_D 1
+>
+> -#define STR(x) XSTR(x)
+> -#define XSTR(x) #x
+> -
+>  #define DECLARE_UNPRIVILEGED_LOAD_FUNCTION(type, insn)			\
+>  static inline type load_##type(const type *addr)			\
+>  {									\
+> @@ -207,9 +205,9 @@ static inline ulong get_insn(ulong mepc)
+>  	asm ("and %[tmp], %[addr], 2\n"
+>  		"bnez %[tmp], 1f\n"
+>  #if defined(CONFIG_64BIT)
+> -		STR(LWU) " %[insn], (%[addr])\n"
+> +		__stringify(LWU) " %[insn], (%[addr])\n"
+>  #else
+> -		STR(LW) " %[insn], (%[addr])\n"
+> +		__stringify(LW) " %[insn], (%[addr])\n"
+>  #endif
+>  		"and %[tmp], %[insn], %[rvc_mask]\n"
+>  		"beq %[tmp], %[rvc_mask], 2f\n"
 
-That's not a fair comparison: the "PC chassis" is passive, while the
-carrier board is an active PCB.  So it is more akin to plugging
-any Intel LGA 1151 processor into any motherboard with an LGA
-1151 socket.  Do we have compatible values for all such possible
-combinations? ;-)
-
-The classic compatible scheme of an ordered list from most-specific
-to least-specific is not well-suited for this case of mere
-aggregation.  That's why we have been decoupling board and SoC
-compatible values for a while, and identifying specific boards by a
-combination of a board-specific and an SoC-specific compatible value.
-
-New SoCs that are available with different core CPU families (and
-that are pin-compatible) are just the next step in the evolution....
-
-At the DT validation level, I think the proper solution is to
-merge Documentation/devicetree/bindings/arm/renesas.yaml and
-Documentation/devicetree/bindings/riscv/renesas.yaml into a single
-file under Documentation/devicetree/bindings/soc/renesas/.
-
-What do other people think?
-Thanks!
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
