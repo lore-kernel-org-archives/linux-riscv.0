@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3FA5C19F2D
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 04:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B27BC19F2D
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 05:06:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=SpYpfHiYQkRJNyUzz7BglLoJZ2wQVFkmnGXsmMyEz0Q=; b=2yEM6tx9Gp2TXwV5UkiIcPrPT/
-	g7Y+PloGz8WN+SW52BedDW+1SAiItLhCHgKU8vzkRIph5Y53kNIvrULo0503fUEu+2d1ysuX3Tq43
-	LOhncqSjCoGR0Mx1gpe/PmXFZFXZI+nydxRN6Iv3fxVh5ZExHBKqjq0JW919eoYsvquVV/MC2Kc6k
-	w1X+LtiZ7knBTFwWxjSj4wnYqOLH5wo14Ttlt5lc6SIh2WNP81vatZfr9GifqptmX+kd7jL/GBEqJ
-	ygiDUjs/PhVfsMZkNqn4sv2w3pSJi+e+QTZCednfwLuv4M0R5rwliH9HsY83FiVGA1GWWiYIU9QUw
-	w/f1eEhg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EPA7Hf9cDhTgRyLVXwfk42k0XgRjqYbKQ7B1+1H4uHc=; b=v8sa9x9ti3KddW
+	vHzs1Je+q8fXVhoxKuKfgJPcLJby6e2XJFFGLrMhuQzcbHQdStgC/9Y3xzgcqHc6Xc6Pe/WDIjQUD
+	nuPxC+RSekwvms7yuxpv3UkAh2wryLJbpl3/ku4aoyZJhyAXBTvQ4FBHbFfEYSrkAjv43TpB+Gj2i
+	gmMHpRVGUl6mfsJv1e7o5/a5pVFxJbJrGkgZNUIoJwj7/Y94l7QBotXHTVMnOjD8bSW6oh6+OmKyz
+	Yu57f9cElNK6gWOgvk33crEBF+A/lEOzilXoZTaJmS357o2yr38CnQcGng6gk5uDGmPC3mjqVZ+3H
+	z4Ndqcz7oaVehxWkpCCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oM0BD-005Pdv-Ho; Thu, 11 Aug 2022 04:52:23 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1oM0OP-005bsj-2B; Thu, 11 Aug 2022 05:06:01 +0000
+Received: from mail-yb1-xb34.google.com ([2607:f8b0:4864:20::b34])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oM0B9-005PZn-Bp
-	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 04:52:21 +0000
-Received: by mail-pl1-x634.google.com with SMTP id 13so14604324plo.12
-        for <linux-riscv@lists.infradead.org>; Wed, 10 Aug 2022 21:52:17 -0700 (PDT)
+	id 1oM0OL-005bbY-KA
+	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 05:05:59 +0000
+Received: by mail-yb1-xb34.google.com with SMTP id i62so26609359yba.5
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Aug 2022 22:05:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc;
-        bh=f9lKlYHVcsMmtqSXgvKZOc7zNWpHzbugb2ZvOggm7+8=;
-        b=S4gcGXoUOmKHDv7mFl6eUlG9J/CJI3jZ30sxu4tI7jxbsBvGExLMnbZKnJivB6YDwh
-         7A69bemlu4GU+2S8fOGcqweOrlqe1X3U7nd+qD7TLdKOOyp90ZKpNcAMnlvVEMqi6d9/
-         vuO50kb2z+nkMJd9lwWR032rWCz8BgRieK1bZGd0hgEUCPkYwiK5tieI70SRir4XPQ5m
-         17UGyABv6pu1/7YyiwBUNMx8Pk3EDi3p7URwERFthkOtIYIxmhdQ+Ew9c39bS3dyR3ik
-         zsBAdWUml+ClfZ1v8bL5gDT4BRfYYiQGijXZ32sOKVQRUX2HtL+cxuNhJp6zgTr8AB6p
-         L1Zg==
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc;
+        bh=/EV/6vKBfwB5hGGmbwACRoUY2VnjvKdGK/sVggplOt0=;
+        b=SZp0czCs3FP+FA1BlEgSpDvs1bQvp06qb4C2kPdLUTDPYTy2WBrUZg3/a98c3dSrOz
+         lGQ9NM5A48i91jEmokx5aCis0sLdi3toGNtRdy1hiPfR31NeTGDH6TECnw0ddgB6S18E
+         jMN2VTy4W38RTTNeBe8jQvapDj8jwb1VzFs/EfZLmQn1NJc3Fahb90KOC9VQxTEalV+W
+         R2ZcD/OTZ5YeMvEVMqFxUolpWf0oJnQGZwHd1rMKYZutLoZ5uAV+ktX/4R0IN98zMlmx
+         5ZbRJctM5wTp7/f9H0HO0TTCCASLuLBd+gAvWY1uBv4ki4MEy4HLNKNxy+D2xKif6ixW
+         eYsw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
-        bh=f9lKlYHVcsMmtqSXgvKZOc7zNWpHzbugb2ZvOggm7+8=;
-        b=niNf1eJpUelapZj6Ux+eI4lpbGZmVSIdjf1LAknRyTAEEMxcFRBEhxOMlpXOdoeYU3
-         ndj9Is8Yatq2cvluLKwmqAWbAWe1/HcyFjIsjJNT307Ib0BxjBJnl9GBrsZEujcZLP/5
-         TWv9/TMn5CFPW2e5alZ3K1P0O+h1H8DRXRwXbJI0v2DNCBat3bnJy/0gtFVFqIW4AM2M
-         Pzcp3H+xWR/+d7C6H6I482oFqoibAr/TUsNEAkzZCRu+DTRspRVY+pkEs8Pbw6pv+Bg3
-         TQVbtsSItQlDyqul9+AkS8fM3TTaOndCW/dxLvBH+wtrgDDBOLFSSKkaC12ecsv+hewU
-         m9IA==
-X-Gm-Message-State: ACgBeo2k5r3mfG6OQjitpa7DU4K/DnbnX/Uo5XWXE5DJwF+pWLWZ5F/8
-	0nyMVtdNJGHYCIcnHp3cn1Ww+Q==
-X-Google-Smtp-Source: AA6agR49u3UFrXcLzjikkseLWSPFxFzGbnFqnrRqM5nDSGc27oRG4AhuNkUD/YKHXYE+RICXLuszxw==
-X-Received: by 2002:a17:903:1207:b0:170:96d4:ac1d with SMTP id l7-20020a170903120700b0017096d4ac1dmr20466454plh.11.1660193536910;
-        Wed, 10 Aug 2022 21:52:16 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id ok3-20020a17090b1d4300b001f23db09351sm2615106pjb.46.2022.08.10.21.52.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Aug 2022 21:52:16 -0700 (PDT)
-Date: Wed, 10 Aug 2022 21:52:16 -0700 (PDT)
-X-Google-Original-Date: Wed, 10 Aug 2022 21:52:13 PDT (-0700)
-Subject: Re: [PATCH v7 0/4] riscv: implement Zicbom-based CMO instructions + the t-head variant
-In-Reply-To: <20220706231536.2041855-1-heiko@sntech.de>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com,
-  philipp.tomsich@vrull.eu, Christoph Hellwig <hch@lst.de>, samuel@sholland.org, atishp@atishpatra.org,
-  anup@brainfault.org, mick@ics.forth.gr, robh+dt@kernel.org, krzk+dt@kernel.org,
-  devicetree@vger.kernel.org, drew@beagleboard.org, rdunlap@infradead.org, heiko@sntech.de
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: heiko@sntech.de
-Message-ID: <mhng-2f62428c-544a-4908-a91d-fb8788ae67b3@palmer-mbp2014>
-Mime-Version: 1.0 (MHng)
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc;
+        bh=/EV/6vKBfwB5hGGmbwACRoUY2VnjvKdGK/sVggplOt0=;
+        b=jd2tYPPEy8n5n+Z8HAgMtJ7Mo2w+Nu1/7ntVe1X2GKpdF4zQrJFoDkYHMAWcC+dvSl
+         RMYxLHLQNyjABsrnxd02oydi3fpqbY80oFAcrrOdgxE25vOWPG6d4vdhPrgoB23mc0xX
+         8iZ7FzcKXa9YxDY56v6zyWlgjW0V6OVdgJTaBpAHwwqlnveqecVK7ZMF5C9o3D8QC9tg
+         vtpMBfmy9fe48bsWdS/aWhD5nfwyPRRtchOe2d55QqlcVcu8G/qEdjaqQTw23NirQhPT
+         9198eodXY6wBoiIO8xTwW2tBZPP9JF6RsnDbZ5KmcwA9AGPiWZyO0MnLj30UAx8FANPe
+         mzwQ==
+X-Gm-Message-State: ACgBeo08/noX/t1Gw+2UcuIAq2glqLJ13FPlDGbDB4b8WhD480UTS8dv
+	ASnP3tMYAwL/exIWVXtn7R7bILTJ3JzfkwbIRosjTQ==
+X-Google-Smtp-Source: AA6agR40PCuyaSTI1Uow9nq58N+CsnqePvWW40teJrjRbbony3PdddX4i0iGhgizr7ACr2kj8T7+iXEDrzG/Xhf/nBs=
+X-Received: by 2002:a25:abd4:0:b0:67b:db4b:b682 with SMTP id
+ v78-20020a25abd4000000b0067bdb4bb682mr16829510ybi.423.1660194351452; Wed, 10
+ Aug 2022 22:05:51 -0700 (PDT)
+MIME-Version: 1.0
+References: <20220727043829.151794-1-apatel@ventanamicro.com>
+In-Reply-To: <20220727043829.151794-1-apatel@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Thu, 11 Aug 2022 10:35:39 +0530
+Message-ID: <CAAhSdy1rUT6g-VfZUF5aGv0BU0yqvy7eiZ0k=OFp9z88ORnRLw@mail.gmail.com>
+Subject: Re: [PATCH v2] RISC-V: Add mvendorid, marchid, and mimpid to
+ /proc/cpuinfo output
+To: Palmer Dabbelt <palmer@dabbelt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220810_215219_673621_D342EE18 
-X-CRM114-Status: GOOD (  38.51  )
+X-CRM114-CacheID: sfid-20220810_220557_924304_E5E35659 
+X-CRM114-Status: GOOD (  24.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,136 +78,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, Atish Patra <atishp@atishpatra.org>, linux-riscv@lists.infradead.org, Nikita Shubin <n.shubin@yadro.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 06 Jul 2022 16:15:32 PDT (-0700), heiko@sntech.de wrote:
-> This series is based on the alternatives changes done in my svpbmt series
-> and thus also depends on Atish's isa-extension parsing series.
->
-> It implements using the cache-management instructions from the  Zicbom-
-> extension to handle cache flush, etc actions on platforms needing them.
->
-> SoCs using cpu cores from T-Head like the Allwinne D1 implement a
-> different set of cache instructions. But while they are different,
-> instructions they provide the same functionality, so a variant can
-> easly hook into the existing alternatives mechanism on those.
->
->
-> An ongoing discussion is about the currently used pre-coded
-> instructions. Palmer's current thinking is that we should wait
-> until the relevant instructions have landed in binutils.
->
-> The main Zicbom instructions are in toolchains now and at least
-> Debian also carries a binutils snapshot with it, but the T-Head
-> variant still uses pre-coded instructions for now.
->
-> The series sits on top of my svpbmt fixup series, which
-> for example includes the conversion away from function pointers
-> for the check-functions.
->
->
-> It also uses my nops-series to shorten multiple nop statements:
-> https://lore.kernel.org/r/20220607143059.1054074-1-heiko@sntech.de
->
->
-> A new dma-noncoherent property was added for the devicetree-specification
-> and dt-schema in:
-> - https://www.spinics.net/lists/devicetree-spec/msg01053.html
-> - https://github.com/devicetree-org/dt-schema/pull/78
->
-> The dtschema-patch was already merged and patch1 in this series
-> got a reviewed-by from Rob, so I guess that new property should be
-> ok to use.
->
-> changes in v7:
-> - add recently received review-tags
-> - fix wrong rv32 mabi when testing for Zicbom in Kconfig
->
-> changes in v6:
-> - add recently received review-tags
-> - adapt non-coherent patch subject as suggested by Christoph Hellwig
->
-> changes in v5:
-> - beautify of_dma_is_coherent as suggested by Christoph Hellwig
-> - WARN_TAINT when ARCH_DMA_MINALIGN smaller than riscv,cbom-block-size
->   (similar to how arm64 does this)
-> - add a function to track if non-coherent handling is available
-> - WARN_TAINT if a device is non-coherent but no non-coherent handling
-> - use clean instead of inval in arch_sync_dma_for_device:DMA_FROM_DEVICE
->   hopefully I understood
->     https://lore.kernel.org/linux-arm-kernel/20220610151228.4562-1-will@kernel.org/T/
->   correctly in this
->
-> changes in v4:
-> - modify of_dma_is_coherent() also handle coherent system
->   with maybe noncoherent devices
-> - move Zicbom to use real instructions
-> - split off the actual dma-noncoherent code from the Zicbom
->   extension
-> - Don't assumes devices are non-coherent, instead default to
->   coherent and require the non-coherent ones to be marked
-> - CPUFEATURE_ZICBOM instead of CPUFEATURE_CMO
-> - fix used cache addresses
-> - drop some unused headers from dma-noncoherent.c
-> - move unsigned long cast when calling ALT_CMO_OP
-> - remove unneeded memset-0
-> - define ARCH_DMA_MINALIGN
-> - use flush instead of inval in arch_sync_dma_for_cpu()
-> - depend on !XIP_KERNEL
-> - trim some line lengths
-> - improve Kconfig description
->
-> changes in v3:
-> - rebase onto 5.19-rc1 + svpbmt-fixup-series
-> - adapt wording for block-size binding
-> - include asm/cacheflush.h into dma-noncoherent to fix the
->   no-prototype error clang seems to generate
-> - use __nops macro for readability
-> - add some received tags
-> - add a0 to the clobber list
->
-> changes in v2:
-> - cbom-block-size is hardware-specific and comes from firmware
-> - update Kconfig name to use the ISA extension name
-> - select the ALTERNATIVES symbol when enabled
-> - shorten the line lengths of the errata-assembly
->
-> Heiko Stuebner (4):
->   of: also handle dma-noncoherent in of_dma_is_coherent()
->   dt-bindings: riscv: document cbom-block-size
->   riscv: Add support for non-coherent devices using zicbom extension
->   riscv: implement cache-management errata for T-Head SoCs
->
->  .../devicetree/bindings/riscv/cpus.yaml       |   5 +
->  arch/riscv/Kconfig                            |  31 +++++
->  arch/riscv/Kconfig.erratas                    |  11 ++
->  arch/riscv/Makefile                           |   4 +
->  arch/riscv/errata/thead/errata.c              |  20 ++++
->  arch/riscv/include/asm/cache.h                |   4 +
->  arch/riscv/include/asm/cacheflush.h           |  10 ++
->  arch/riscv/include/asm/errata_list.h          |  59 ++++++++-
->  arch/riscv/include/asm/hwcap.h                |   1 +
->  arch/riscv/kernel/cpu.c                       |   1 +
->  arch/riscv/kernel/cpufeature.c                |  24 ++++
->  arch/riscv/kernel/setup.c                     |   2 +
->  arch/riscv/mm/Makefile                        |   1 +
->  arch/riscv/mm/dma-noncoherent.c               | 112 ++++++++++++++++++
->  drivers/of/address.c                          |  17 +--
->  15 files changed, 293 insertions(+), 9 deletions(-)
->  create mode 100644 arch/riscv/mm/dma-noncoherent.c
+Hi Palmer,
 
-Thanks, this is on for-next.  I had to fix up a few things, nothing big 
-but I did end up making Zicbom depend on MMU -- that's probably not 
-strictly necessary, but it looks like the dma_noncoherent stuff pulls in 
-some MMU dependencies.  Since the only hardware that has Zicbom also has 
-an MMU I figured it's OK for now, but happy to take an improvement if 
-someone has one.
+On Wed, Jul 27, 2022 at 10:09 AM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> Identifying the underlying RISC-V implementation can be important
+> for some of the user space applications. For example, the perf tool
+> uses arch specific CPU implementation id (i.e. CPUID) to select a
+> JSON file describing custom perf events on a CPU.
+>
+> Currently, there is no way to identify RISC-V implementation so we
+> add mvendorid, marchid, and mimpid to /proc/cpuinfo output.
+>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Reviewed-by: Heinrich Schuchardt <heinrich.schuchardt@canonical.com>
+> Tested-by: Nikita Shubin <n.shubin@yadro.com>
 
-Since there's a new extension it also requires updating sparse, I sent a 
-patch (linked in the merge commit).
+Can this patch be considered for 5.20 ?
+
+Regards,
+Anup
+
+
+> ---
+> Changes since v1:
+>  - Use IS_ENABLED() to check CONFIG defines
+>  - Added RB and TB tags in commit description
+> ---
+>  arch/riscv/kernel/cpu.c | 51 +++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+>
+> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+> index fba9e9f46a8c..04bcc91c91ea 100644
+> --- a/arch/riscv/kernel/cpu.c
+> +++ b/arch/riscv/kernel/cpu.c
+> @@ -3,10 +3,13 @@
+>   * Copyright (C) 2012 Regents of the University of California
+>   */
+>
+> +#include <linux/cpu.h>
+>  #include <linux/init.h>
+>  #include <linux/seq_file.h>
+>  #include <linux/of.h>
+> +#include <asm/csr.h>
+>  #include <asm/hwcap.h>
+> +#include <asm/sbi.h>
+>  #include <asm/smp.h>
+>  #include <asm/pgtable.h>
+>
+> @@ -64,6 +67,50 @@ int riscv_of_parent_hartid(struct device_node *node)
+>  }
+>
+>  #ifdef CONFIG_PROC_FS
+> +
+> +struct riscv_cpuinfo {
+> +       unsigned long mvendorid;
+> +       unsigned long marchid;
+> +       unsigned long mimpid;
+> +};
+> +static DEFINE_PER_CPU(struct riscv_cpuinfo, riscv_cpuinfo);
+> +
+> +static int riscv_cpuinfo_starting(unsigned int cpu)
+> +{
+> +       struct riscv_cpuinfo *ci = this_cpu_ptr(&riscv_cpuinfo);
+> +
+> +#if IS_ENABLED(CONFIG_RISCV_SBI)
+> +       ci->mvendorid = sbi_spec_is_0_1() ? 0 : sbi_get_mvendorid();
+> +       ci->marchid = sbi_spec_is_0_1() ? 0 : sbi_get_marchid();
+> +       ci->mimpid = sbi_spec_is_0_1() ? 0 : sbi_get_mimpid();
+> +#elif IS_ENABLED(CONFIG_RISCV_M_MODE)
+> +       ci->mvendorid = csr_read(CSR_MVENDORID);
+> +       ci->marchid = csr_read(CSR_MARCHID);
+> +       ci->mimpid = csr_read(CSR_MIMPID);
+> +#else
+> +       ci->mvendorid = 0;
+> +       ci->marchid = 0;
+> +       ci->mimpid = 0;
+> +#endif
+> +
+> +       return 0;
+> +}
+> +
+> +static int __init riscv_cpuinfo_init(void)
+> +{
+> +       int ret;
+> +
+> +       ret = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/cpuinfo:starting",
+> +                               riscv_cpuinfo_starting, NULL);
+> +       if (ret < 0) {
+> +               pr_err("cpuinfo: failed to register hotplug callbacks.\n");
+> +               return ret;
+> +       }
+> +
+> +       return 0;
+> +}
+> +device_initcall(riscv_cpuinfo_init);
+> +
+>  #define __RISCV_ISA_EXT_DATA(UPROP, EXTID) \
+>         {                                                       \
+>                 .uprop = #UPROP,                                \
+> @@ -178,6 +225,7 @@ static int c_show(struct seq_file *m, void *v)
+>  {
+>         unsigned long cpu_id = (unsigned long)v - 1;
+>         struct device_node *node = of_get_cpu_node(cpu_id, NULL);
+> +       struct riscv_cpuinfo *ci = per_cpu_ptr(&riscv_cpuinfo, cpu_id);
+>         const char *compat, *isa;
+>
+>         seq_printf(m, "processor\t: %lu\n", cpu_id);
+> @@ -188,6 +236,9 @@ static int c_show(struct seq_file *m, void *v)
+>         if (!of_property_read_string(node, "compatible", &compat)
+>             && strcmp(compat, "riscv"))
+>                 seq_printf(m, "uarch\t\t: %s\n", compat);
+> +       seq_printf(m, "mvendorid\t: 0x%lx\n", ci->mvendorid);
+> +       seq_printf(m, "marchid\t\t: 0x%lx\n", ci->marchid);
+> +       seq_printf(m, "mimpid\t\t: 0x%lx\n", ci->mimpid);
+>         seq_puts(m, "\n");
+>         of_node_put(node);
+>
+> --
+> 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
