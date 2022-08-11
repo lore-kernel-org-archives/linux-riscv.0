@@ -4,55 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB82AC00140
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 03:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3FA5C19F2D
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 04:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjycxfjGTW9f7TqRaMTqxWdmztq/7MDgA8M1wjo1Us8=; b=uTd3StUcY+URE2NZK1q9bA7qDj
-	5Da4I/mUAr0e56LhNVXqVU/qTrTymIb/P3V+ZsfpBbV72KuiqpJNHQwnwjXIm1FklF4L3JGBw2nPi
-	FZpZm1iDauoLj8vZEunUCrDk8udQawH0Y4fbhyP1o8+9jOBPyu1BdMp6Bmew5GUeI7Rlsf2Nx/hMh
-	5rOwjSWleE/8qjv5oEn8uM1Bm+8NNJhkcDlyHGW0FIdpTJhiAm1FFKZEKArIk8TlkrJBnuH4VKZwd
-	crK/KnPbIa5BM0bgXvJmXtQ9vgVLCmLMBlTUMxZEHcayZgaKo8+a7LQAnRVKJefrzd86DW+dcxwfD
-	Oq6kLErA==;
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=SpYpfHiYQkRJNyUzz7BglLoJZ2wQVFkmnGXsmMyEz0Q=; b=2yEM6tx9Gp2TXwV5UkiIcPrPT/
+	g7Y+PloGz8WN+SW52BedDW+1SAiItLhCHgKU8vzkRIph5Y53kNIvrULo0503fUEu+2d1ysuX3Tq43
+	LOhncqSjCoGR0Mx1gpe/PmXFZFXZI+nydxRN6Iv3fxVh5ZExHBKqjq0JW919eoYsvquVV/MC2Kc6k
+	w1X+LtiZ7knBTFwWxjSj4wnYqOLH5wo14Ttlt5lc6SIh2WNP81vatZfr9GifqptmX+kd7jL/GBEqJ
+	ygiDUjs/PhVfsMZkNqn4sv2w3pSJi+e+QTZCednfwLuv4M0R5rwliH9HsY83FiVGA1GWWiYIU9QUw
+	w/f1eEhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLz0z-004sXF-G6; Thu, 11 Aug 2022 03:37:45 +0000
-Received: from out30-130.freemail.mail.aliyun.com ([115.124.30.130])
+	id 1oM0BD-005Pdv-Ho; Thu, 11 Aug 2022 04:52:23 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oLz0u-004sVs-8T; Thu, 11 Aug 2022 03:37:42 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R541e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045168;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=24;SR=0;TI=SMTPD_---0VLxQ5Q3_1660189052;
-Received: from B-LB6YLVDL-0141.local(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VLxQ5Q3_1660189052)
-          by smtp.aliyun-inc.com;
-          Thu, 11 Aug 2022 11:37:34 +0800
-Subject: Re: [PATCH V5 5/6] riscv: crash_core: Export kernel vm layout,
- phys_ram_base
-To: Bagas Sanjaya <bagasdotme@gmail.com>
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- anup@brainfault.org, heiko@sntech.de, guoren@kernel.org, mick@ics.forth.gr,
- alexandre.ghiti@canonical.com, bhe@redhat.com, vgoyal@redhat.com,
- dyoung@redhat.com, corbet@lwn.net, Conor.Dooley@microchip.com,
- kexec@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- crash-utility@redhat.com, huanyi.xj@alibaba-inc.com,
- heinrich.schuchardt@canonical.com, k-hagio-ab@nec.com,
- hschauhan@nulltrace.org, yixun.lan@gmail.com
-References: <20220802121818.2201268-1-xianting.tian@linux.alibaba.com>
- <20220802121818.2201268-6-xianting.tian@linux.alibaba.com>
- <YvRyT5f5uH7LBs4H@debian.me>
-From: Xianting Tian <xianting.tian@linux.alibaba.com>
-Message-ID: <81bf1acd-307c-b093-44c2-280c70f44e08@linux.alibaba.com>
-Date: Thu, 11 Aug 2022 11:37:32 +0800
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0)
- Gecko/20100101 Thunderbird/78.14.0
-MIME-Version: 1.0
-In-Reply-To: <YvRyT5f5uH7LBs4H@debian.me>
+	id 1oM0B9-005PZn-Bp
+	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 04:52:21 +0000
+Received: by mail-pl1-x634.google.com with SMTP id 13so14604324plo.12
+        for <linux-riscv@lists.infradead.org>; Wed, 10 Aug 2022 21:52:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc;
+        bh=f9lKlYHVcsMmtqSXgvKZOc7zNWpHzbugb2ZvOggm7+8=;
+        b=S4gcGXoUOmKHDv7mFl6eUlG9J/CJI3jZ30sxu4tI7jxbsBvGExLMnbZKnJivB6YDwh
+         7A69bemlu4GU+2S8fOGcqweOrlqe1X3U7nd+qD7TLdKOOyp90ZKpNcAMnlvVEMqi6d9/
+         vuO50kb2z+nkMJd9lwWR032rWCz8BgRieK1bZGd0hgEUCPkYwiK5tieI70SRir4XPQ5m
+         17UGyABv6pu1/7YyiwBUNMx8Pk3EDi3p7URwERFthkOtIYIxmhdQ+Ew9c39bS3dyR3ik
+         zsBAdWUml+ClfZ1v8bL5gDT4BRfYYiQGijXZ32sOKVQRUX2HtL+cxuNhJp6zgTr8AB6p
+         L1Zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
+        bh=f9lKlYHVcsMmtqSXgvKZOc7zNWpHzbugb2ZvOggm7+8=;
+        b=niNf1eJpUelapZj6Ux+eI4lpbGZmVSIdjf1LAknRyTAEEMxcFRBEhxOMlpXOdoeYU3
+         ndj9Is8Yatq2cvluLKwmqAWbAWe1/HcyFjIsjJNT307Ib0BxjBJnl9GBrsZEujcZLP/5
+         TWv9/TMn5CFPW2e5alZ3K1P0O+h1H8DRXRwXbJI0v2DNCBat3bnJy/0gtFVFqIW4AM2M
+         Pzcp3H+xWR/+d7C6H6I482oFqoibAr/TUsNEAkzZCRu+DTRspRVY+pkEs8Pbw6pv+Bg3
+         TQVbtsSItQlDyqul9+AkS8fM3TTaOndCW/dxLvBH+wtrgDDBOLFSSKkaC12ecsv+hewU
+         m9IA==
+X-Gm-Message-State: ACgBeo2k5r3mfG6OQjitpa7DU4K/DnbnX/Uo5XWXE5DJwF+pWLWZ5F/8
+	0nyMVtdNJGHYCIcnHp3cn1Ww+Q==
+X-Google-Smtp-Source: AA6agR49u3UFrXcLzjikkseLWSPFxFzGbnFqnrRqM5nDSGc27oRG4AhuNkUD/YKHXYE+RICXLuszxw==
+X-Received: by 2002:a17:903:1207:b0:170:96d4:ac1d with SMTP id l7-20020a170903120700b0017096d4ac1dmr20466454plh.11.1660193536910;
+        Wed, 10 Aug 2022 21:52:16 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id ok3-20020a17090b1d4300b001f23db09351sm2615106pjb.46.2022.08.10.21.52.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Aug 2022 21:52:16 -0700 (PDT)
+Date: Wed, 10 Aug 2022 21:52:16 -0700 (PDT)
+X-Google-Original-Date: Wed, 10 Aug 2022 21:52:13 PDT (-0700)
+Subject: Re: [PATCH v7 0/4] riscv: implement Zicbom-based CMO instructions + the t-head variant
+In-Reply-To: <20220706231536.2041855-1-heiko@sntech.de>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, wefu@redhat.com, guoren@kernel.org, cmuellner@linux.com,
+  philipp.tomsich@vrull.eu, Christoph Hellwig <hch@lst.de>, samuel@sholland.org, atishp@atishpatra.org,
+  anup@brainfault.org, mick@ics.forth.gr, robh+dt@kernel.org, krzk+dt@kernel.org,
+  devicetree@vger.kernel.org, drew@beagleboard.org, rdunlap@infradead.org, heiko@sntech.de
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: heiko@sntech.de
+Message-ID: <mhng-2f62428c-544a-4908-a91d-fb8788ae67b3@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220810_203740_490688_629BC2C8 
-X-CRM114-Status: GOOD (  15.02  )
+X-CRM114-CacheID: sfid-20220810_215219_673621_D342EE18 
+X-CRM114-Status: GOOD (  38.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,53 +85,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CuWcqCAyMDIyLzgvMTEg5LiK5Y2IMTE6MDYsIEJhZ2FzIFNhbmpheWEg5YaZ6YGTOgo+IE9uIFR1
-ZSwgQXVnIDAyLCAyMDIyIGF0IDA4OjE4OjE3UE0gKzA4MDAsIFhpYW50aW5nIFRpYW4gd3JvdGU6
-Cj4+IFRoZXNlIGluZm9zIGFyZSBuZWVkZWQgYnkgdGhlIGtkdW1wIGNyYXNoIHRvb2wuIFNpbmNl
-IHRoZXNlIHZhbHVlcyBjaGFuZ2UKPj4gZnJvbSB0aW1lIHRvIHRpbWUsIGl0IGlzIHByZWZlcmFi
-bGUgdG8gZXhwb3J0IHRoZW0gdmlhIHZtY29yZWluZm8gdGhhbiB0bwo+PiBjaGFuZ2UgdGhlIGNy
-YXNoJ3MgY29kZSBmcmVxdWVudGx5Lgo+Pgo+IEkgaGF2ZSB0byBhZ3JlZSB3aXRoIENvbm9yLkRv
-b2xleSwgdGhhdCB0aGlzIHBhdGNoIGlzIG1pc2xlYWRpbmcgKEkgc2VlCj4gZG9jdW1lbnRhdGlv
-biBpbnN0ZWFkIG9mIHJlYWwgZXhwb3J0KS4gU28gSU1PLCB0aGUgcGF0Y2ggc3ViamVjdCBzaG91
-bGQKPiBiZSAiRG9jdW1lbnRhdGlvbjoga2R1bXA6IGRlc2NyaWJlIFZNQ09SRUlORk8gZXhwb3J0
-IGZvciBSSVNDVjY0Ii4KPgo+IEZvciBNT0RVTEVTX1ZBRERSIGFuZCBmcmllbmRzLCB0aGUgZG9j
-IGNhbiBiZSBpbXByb3ZlZCwgbGlrZToKPgo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2Fk
-bWluLWd1aWRlL2tkdW1wL3ZtY29yZWluZm8ucnN0IGIvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlk
-ZS9rZHVtcC92bWNvcmVpbmZvLnJzdAo+IGluZGV4IDZiNzYyODRhNTAzY2E1Li42Njk0YWNjMzJj
-MzU4OCAxMDA2NDQKPiAtLS0gYS9Eb2N1bWVudGF0aW9uL2FkbWluLWd1aWRlL2tkdW1wL3ZtY29y
-ZWluZm8ucnN0Cj4gKysrIGIvRG9jdW1lbnRhdGlvbi9hZG1pbi1ndWlkZS9rZHVtcC92bWNvcmVp
-bmZvLnJzdAo+IEBAIC02MTUsMTQgKzYxNSwxMyBAQCBwaHlzX3JhbV9iYXNlCj4gICAKPiAgIElu
-ZGljYXRlcyB0aGUgc3RhcnQgcGh5c2ljYWwgUkFNIGFkZHJlc3MuCj4gICAKPiAtTU9EVUxFU19W
-QUREUnxNT0RVTEVTX0VORHxWTUFMTE9DX1NUQVJUfFZNQUxMT0NfRU5EfFZNRU1NQVBfU1RBUlR8
-Vk1FTU1BUF9FTkQKPiAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KPiAtS0FTQU5fU0hBRE9XX1NUQVJU
-fEtBU0FOX1NIQURPV19FTkR8S0VSTkVMX0xJTktfQUREUnxBRERSRVNTX1NQQUNFX0VORAo+IC0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tCj4gK01PRFVMRVNfVkFERFJ8TU9EVUxFU19FTkR8Vk1BTExPQ19TVEFSVHxW
-TUFMTE9DX0VORHxWTUVNTUFQX1NUQVJUfFZNRU1NQVBfRU5EfEtBU0FOX1NIQURPV19TVEFSVHxL
-QVNBTl9TSEFET1dfRU5EfEtFUk5FTF9MSU5LX0FERFJ8QUREUkVTU19TUEFDRV9FTkQKPiArLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+ICAgCj4gICBVc2VkIHRvIGdldCB0aGUg
-Y29ycmVjdCByYW5nZXM6Cj4gLQlNT0RVTEVTX1ZBRERSIH4gTU9EVUxFU19FTkQgOiBLZXJuZWwg
-bW9kdWxlIHNwYWNlLgo+IC0JVk1BTExPQ19TVEFSVCB+IFZNQUxMT0NfRU5EIDogdm1hbGxvYygp
-IC8gaW9yZW1hcCgpIHNwYWNlLgo+IC0JVk1FTU1BUF9TVEFSVCB+IFZNRU1NQVBfRU5EIDogdm1l
-bW1hcCByZWdpb24sIHVzZWQgZm9yIHN0cnVjdCBwYWdlIGFycmF5Lgo+IC0JS0FTQU5fU0hBRE9X
-X1NUQVJUIH4gS0FTQU5fU0hBRE9XX0VORCA6IGthc2FuIHNoYWRvdyBzcGFjZS4KPiAtCUtFUk5F
-TF9MSU5LX0FERFIgfiBBRERSRVNTX1NQQUNFX0VORCA6IEtlcm5lbCBsaW5rIGFuZCBCUEYgc3Bh
-Y2UuCj4gKwo+ICsgICogTU9EVUxFU19WQUREUiB+IE1PRFVMRVNfRU5EIDogS2VybmVsIG1vZHVs
-ZSBzcGFjZS4KPiArICAqIFZNQUxMT0NfU1RBUlQgfiBWTUFMTE9DX0VORCA6IHZtYWxsb2MoKSAv
-IGlvcmVtYXAoKSBzcGFjZS4KPiArICAqIFZNRU1NQVBfU1RBUlQgfiBWTUVNTUFQX0VORCA6IHZt
-ZW1tYXAgcmVnaW9uLCB1c2VkIGZvciBzdHJ1Y3QgcGFnZSBhcnJheS4KPiArICAqIEtBU0FOX1NI
-QURPV19TVEFSVCB+IEtBU0FOX1NIQURPV19FTkQgOiBrYXNhbiBzaGFkb3cgc3BhY2UuCj4gKyAg
-KiBLRVJORUxfTElOS19BRERSIH4gQUREUkVTU19TUEFDRV9FTkQgOiBLZXJuZWwgbGluayBhbmQg
-QlBGIHNwYWNlLgpUaGFua3MgZm9yIHRoZSBjb21tZW50LCBJIHdpbGwgZml4IGl0IGluIFY2Cj4K
-PiBUaGFua3MuCj4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+On Wed, 06 Jul 2022 16:15:32 PDT (-0700), heiko@sntech.de wrote:
+> This series is based on the alternatives changes done in my svpbmt series
+> and thus also depends on Atish's isa-extension parsing series.
+>
+> It implements using the cache-management instructions from the  Zicbom-
+> extension to handle cache flush, etc actions on platforms needing them.
+>
+> SoCs using cpu cores from T-Head like the Allwinne D1 implement a
+> different set of cache instructions. But while they are different,
+> instructions they provide the same functionality, so a variant can
+> easly hook into the existing alternatives mechanism on those.
+>
+>
+> An ongoing discussion is about the currently used pre-coded
+> instructions. Palmer's current thinking is that we should wait
+> until the relevant instructions have landed in binutils.
+>
+> The main Zicbom instructions are in toolchains now and at least
+> Debian also carries a binutils snapshot with it, but the T-Head
+> variant still uses pre-coded instructions for now.
+>
+> The series sits on top of my svpbmt fixup series, which
+> for example includes the conversion away from function pointers
+> for the check-functions.
+>
+>
+> It also uses my nops-series to shorten multiple nop statements:
+> https://lore.kernel.org/r/20220607143059.1054074-1-heiko@sntech.de
+>
+>
+> A new dma-noncoherent property was added for the devicetree-specification
+> and dt-schema in:
+> - https://www.spinics.net/lists/devicetree-spec/msg01053.html
+> - https://github.com/devicetree-org/dt-schema/pull/78
+>
+> The dtschema-patch was already merged and patch1 in this series
+> got a reviewed-by from Rob, so I guess that new property should be
+> ok to use.
+>
+> changes in v7:
+> - add recently received review-tags
+> - fix wrong rv32 mabi when testing for Zicbom in Kconfig
+>
+> changes in v6:
+> - add recently received review-tags
+> - adapt non-coherent patch subject as suggested by Christoph Hellwig
+>
+> changes in v5:
+> - beautify of_dma_is_coherent as suggested by Christoph Hellwig
+> - WARN_TAINT when ARCH_DMA_MINALIGN smaller than riscv,cbom-block-size
+>   (similar to how arm64 does this)
+> - add a function to track if non-coherent handling is available
+> - WARN_TAINT if a device is non-coherent but no non-coherent handling
+> - use clean instead of inval in arch_sync_dma_for_device:DMA_FROM_DEVICE
+>   hopefully I understood
+>     https://lore.kernel.org/linux-arm-kernel/20220610151228.4562-1-will@kernel.org/T/
+>   correctly in this
+>
+> changes in v4:
+> - modify of_dma_is_coherent() also handle coherent system
+>   with maybe noncoherent devices
+> - move Zicbom to use real instructions
+> - split off the actual dma-noncoherent code from the Zicbom
+>   extension
+> - Don't assumes devices are non-coherent, instead default to
+>   coherent and require the non-coherent ones to be marked
+> - CPUFEATURE_ZICBOM instead of CPUFEATURE_CMO
+> - fix used cache addresses
+> - drop some unused headers from dma-noncoherent.c
+> - move unsigned long cast when calling ALT_CMO_OP
+> - remove unneeded memset-0
+> - define ARCH_DMA_MINALIGN
+> - use flush instead of inval in arch_sync_dma_for_cpu()
+> - depend on !XIP_KERNEL
+> - trim some line lengths
+> - improve Kconfig description
+>
+> changes in v3:
+> - rebase onto 5.19-rc1 + svpbmt-fixup-series
+> - adapt wording for block-size binding
+> - include asm/cacheflush.h into dma-noncoherent to fix the
+>   no-prototype error clang seems to generate
+> - use __nops macro for readability
+> - add some received tags
+> - add a0 to the clobber list
+>
+> changes in v2:
+> - cbom-block-size is hardware-specific and comes from firmware
+> - update Kconfig name to use the ISA extension name
+> - select the ALTERNATIVES symbol when enabled
+> - shorten the line lengths of the errata-assembly
+>
+> Heiko Stuebner (4):
+>   of: also handle dma-noncoherent in of_dma_is_coherent()
+>   dt-bindings: riscv: document cbom-block-size
+>   riscv: Add support for non-coherent devices using zicbom extension
+>   riscv: implement cache-management errata for T-Head SoCs
+>
+>  .../devicetree/bindings/riscv/cpus.yaml       |   5 +
+>  arch/riscv/Kconfig                            |  31 +++++
+>  arch/riscv/Kconfig.erratas                    |  11 ++
+>  arch/riscv/Makefile                           |   4 +
+>  arch/riscv/errata/thead/errata.c              |  20 ++++
+>  arch/riscv/include/asm/cache.h                |   4 +
+>  arch/riscv/include/asm/cacheflush.h           |  10 ++
+>  arch/riscv/include/asm/errata_list.h          |  59 ++++++++-
+>  arch/riscv/include/asm/hwcap.h                |   1 +
+>  arch/riscv/kernel/cpu.c                       |   1 +
+>  arch/riscv/kernel/cpufeature.c                |  24 ++++
+>  arch/riscv/kernel/setup.c                     |   2 +
+>  arch/riscv/mm/Makefile                        |   1 +
+>  arch/riscv/mm/dma-noncoherent.c               | 112 ++++++++++++++++++
+>  drivers/of/address.c                          |  17 +--
+>  15 files changed, 293 insertions(+), 9 deletions(-)
+>  create mode 100644 arch/riscv/mm/dma-noncoherent.c
+
+Thanks, this is on for-next.  I had to fix up a few things, nothing big 
+but I did end up making Zicbom depend on MMU -- that's probably not 
+strictly necessary, but it looks like the dma_noncoherent stuff pulls in 
+some MMU dependencies.  Since the only hardware that has Zicbom also has 
+an MMU I figured it's OK for now, but happy to take an improvement if 
+someone has one.
+
+Since there's a new extension it also requires updating sparse, I sent a 
+patch (linked in the merge commit).
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
