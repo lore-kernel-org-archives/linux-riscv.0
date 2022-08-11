@@ -4,72 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26527C19F2A
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 17:20:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4913C19F2A
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 20:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Message-ID:References:In-Reply-To:Subject:Cc:To:From
-	:Date:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RDQhP2B3+7KWZwLxXw6GMTIU6suP3t02HdECtKsXFyg=; b=CJMwb/POP665ItBQ/Ng65AR6AC
-	Efcc1yPGM/Q2iRMSLvKYtFovwNZwPu1Dk01yTVMPDemJH4GpBhsTj3FHInmGqYkoxzyaCTUjtFv1Y
-	qSnJ4/BXlWrI1mSpzHbVVszurO4ubO5/kzSBLjq0qKUdN9kjhxXZ5LUbYHkoioDeuAINtKMTxhy0q
-	DUOXVm6x6G4sLnfbGVkEUlOh5qmAmeYAt5KXdmmoQv2n7sQ5j9TdHKEfz8SvXOZVoef/dP/UKC17L
-	l+MmIaLFdMsF56UT4myt4evp/cevdlhk2cTktyqQGvptmljI/2/iYEwbdVoj4NcDojoFiUxSrNuuV
-	VREhhXhw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uxUKEXZ0O75rJsPRZOkPYiWxh/Gx0QORwe2fDq3QnHs=; b=hocdYsD7z+6dag
+	AQLhrj6+CS64NC3OQBKNY5ktra/BG21mJwi1zwATsa0lquOp0zK4/QQ/a1h1NGnIn/E7TyQBCxELm
+	v0nmpe/BJvd0UkDlXbpvqWDVbEm1od6kOdwasCIdpOWbf1ZsZD5ll9KN7kUMEP1kc82+5kGuLzCsL
+	Euo17Rn31VHEnsCh6iCSsHRYq1kxZ2iEck+o9vKrdkva2mq/tWyJJ62BHiOKWyzMWdaNye6JnYqAj
+	WTptuG6+sjm87unDpx42EMmhpb2Ixn24g6Cbz+h4oVu+hwZF6GNzBZB0n0TYPr6LEdB1wOU0rLZnZ
+	tP/xxy8oPMdiQFlVo6jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMBqV-00FuSN-1I; Thu, 11 Aug 2022 17:19:47 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oMEqd-0055q9-NC; Thu, 11 Aug 2022 20:32:07 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMBqS-00FuME-20
-	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 17:19:45 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 8D27CB82205;
-	Thu, 11 Aug 2022 17:19:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BE9CC433D6;
-	Thu, 11 Aug 2022 17:19:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1660238381;
-	bh=4TnnSHe/Xp9maH0JKMds58skYOS7Cg1upinXS2ls2OM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RvpfFthYr58aCHVRgiI5w+v1WO2G2o/SCiIL4fy8KaZHl57NS4y8eCutaUGEPGj1i
-	 nfhG2CujkkaEzY0yxGWjkRwV34J5GGb98C0/x1BMn10QNRitkvJe2aaA98hcWp0mye
-	 QvSxERRPd8zyf6okW0JHHVmf43IVEwvxmxPWnHqjqXIXvpzLbjV0qXgztcWicLdInu
-	 GoLo5h8C2p8XZMARKypXyVbeH9D6E+tDNcQDsORdtQMm3OjbaAdsjQ3yNxuVN9L3Rs
-	 CmQKErC63+mMn9bB8sTv3urSZTiWrhgTn45aAkd6lOiTeM1rIpa9q15nZbqeMEvE8+
-	 k9lEH5sBDdO4w==
-Received: from disco-boy.misterjones.org ([51.254.78.96] helo=www.loen.fr)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1oMBqM-002Po5-PX;
-	Thu, 11 Aug 2022 18:19:38 +0100
+	id 1oMEqb-0055na-1T
+	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 20:32:06 +0000
+Received: by mail-wr1-x436.google.com with SMTP id h13so22568480wrf.6
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 13:32:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=conchuod.ie; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc;
+        bh=NRC10trzuqulg2mbWP7/9kZe6SgJG6yhrQ9QCsgz3RY=;
+        b=XCutOpnPVVZAhqOaRWoHNzRAgMQx51l0/PCcMxYRlNOseA+OItbKcHJEKWbm+xLZ6Y
+         1O3hD1vVHJ81uZVSSVt1e3UDPKJkaZS1SChDX43YOC61XGyLqDTk5IUVkJFcPLiLFdL1
+         NvtfvEjj+pgrlyHICggcJiGSX6A7ubcIgUCSEE1VQyG76VLdbUYxgGMB5gpKj2gbwZa/
+         nMdM4F3m7kJ7wIP7spW01DrV0sYRbHjF5mLuvv+GT5xwDiM1dyhYbyp9UzGHRdIB9RiB
+         VOAVcTmrRjcjEY+F5lib/jjC21Rz+7G5QE2/aTsk/g8DKnF3iQxhtkP5+1kBsu2raXJb
+         9bQw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc;
+        bh=NRC10trzuqulg2mbWP7/9kZe6SgJG6yhrQ9QCsgz3RY=;
+        b=csHtGxBr2LfKFIkZSEQfbKIaHn7I2oinTnNJ9s9QGnPk/83Jk8I+EKnvc61PhDPOaq
+         8HuQhTUHNanbBo826zB8fEzbzVWrX5dcif9GdZZ0NwGET1FvsmBzu20T58qQdg1nCjUj
+         HAf80nkkDZUkR0KL6ZwfyRrqUBV0mg0/1LO2MBAwaA0BLlQIIzS7cGiDVkl1g9qdbcYr
+         nsoJIv4Bas3QpWMqmJpI5RuuONxBqreeVspIicX4oYG+tbDpzLbFAWdlBC/UpQPen9xK
+         60IXJ2cV+K+JzGgtMgPDI8JsOrzwYLvgtdh9NDO983udgjxjEGpHmusTkeiqWCJNtXqc
+         o9wQ==
+X-Gm-Message-State: ACgBeo3nifZuxUcU1TLbWWOhK3gDxYaIQ/ZTxjd7hcLV3hTdz0DeKSEG
+	he87bpnWK6L0wQ21/mzKUi53EQ==
+X-Google-Smtp-Source: AA6agR6GlDpUiPt5PzjH7aZTJbryfnMlgfg7zCpD/CJubC7Re1tH3mrv1P6fO36cNnFdc4wpXfFkbQ==
+X-Received: by 2002:adf:e112:0:b0:21d:7195:3a8d with SMTP id t18-20020adfe112000000b0021d71953a8dmr333222wrz.371.1660249920196;
+        Thu, 11 Aug 2022 13:32:00 -0700 (PDT)
+Received: from henark71.. ([109.76.58.63])
+        by smtp.gmail.com with ESMTPSA id n18-20020a05600c4f9200b003a1980d55c4sm8480521wmq.47.2022.08.11.13.31.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Aug 2022 13:31:59 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+Cc: Masahiro Yamada <yamada.masahiro@socionext.com>,
+	Piotr Sroka <piotrs@cadence.com>,
+	linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH] dt-bindings: mmc: cdns: add card-detect-delay property
+Date: Thu, 11 Aug 2022 21:31:52 +0100
+Message-Id: <20220811203151.179258-1-mail@conchuod.ie>
+X-Mailer: git-send-email 2.37.1
 MIME-Version: 1.0
-Date: Thu, 11 Aug 2022 18:19:38 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: prabhakar.mahadev-lad.rj@bp.renesas.com, tglx@linutronix.de, Paul
- Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org,
- geert+renesas@glider.be, linux-renesas-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, prabhakar.csengg@gmail.com,
- biju.das.jz@bp.renesas.com
-Subject: Re: [PATCH] irqchip/sifive-plic: Make struct irq_chip const
-In-Reply-To: <mhng-16e473fc-4513-4998-b732-9059d2c0b870@palmer-mbp2014>
-References: <mhng-16e473fc-4513-4998-b732-9059d2c0b870@palmer-mbp2014>
-User-Agent: Roundcube Webmail/1.4.13
-Message-ID: <771e663cebf23735782a7ce41e51d33e@kernel.org>
-X-Sender: maz@kernel.org
-X-SA-Exim-Connect-IP: 51.254.78.96
-X-SA-Exim-Rcpt-To: palmer@dabbelt.com, prabhakar.mahadev-lad.rj@bp.renesas.com, tglx@linutronix.de, paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, geert+renesas@glider.be, linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, prabhakar.csengg@gmail.com, biju.das.jz@bp.renesas.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220811_101944_274805_B6971ECF 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20220811_133205_131974_0487E30B 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,46 +89,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022-08-11 17:53, Palmer Dabbelt wrote:
-> On Fri, 24 Jun 2022 10:56:39 PDT (-0700),
-> prabhakar.mahadev-lad.rj@bp.renesas.com wrote:
->> These should be const, so make it so.
->> 
->> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->> ---
->>  drivers/irqchip/irq-sifive-plic.c | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->> 
->> diff --git a/drivers/irqchip/irq-sifive-plic.c 
->> b/drivers/irqchip/irq-sifive-plic.c
->> index bb87e4c3b88e..173446cc9204 100644
->> --- a/drivers/irqchip/irq-sifive-plic.c
->> +++ b/drivers/irqchip/irq-sifive-plic.c
->> @@ -176,7 +176,7 @@ static void plic_irq_eoi(struct irq_data *d)
->>  	}
->>  }
->> 
->> -static struct irq_chip plic_chip = {
->> +static const struct irq_chip plic_chip = {
->>  	.name		= "SiFive PLIC",
->>  	.irq_mask	= plic_irq_mask,
->>  	.irq_unmask	= plic_irq_unmask,
-> 
-> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-> 
-> Not sure if this got picked up somewhere, but it looks fine to me.
+From: Conor Dooley <conor.dooley@microchip.com>
 
-It probably needs respinning (the PLIC code has evolved a bit since).
+Upgrading dt-schema to v2022.08 brings with it better handling of
+unevaluatedProperties, exposing a previously undetected missing
+property in the cadence sdhci dt-binding:
+arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dtb: mmc@20008000: Unevaluated properties are not allowed ('card-detect-delay' was unexpected)
+        From schema: Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml
 
-         M.
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Should this have a fixes tag? If anything, it'd be
+Fixes: 84723eec251d ("dt-bindings: mmc: cdns: document Microchip MPFS MMC/SDHCI controller")
+but idk.
+---
+ Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml b/Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml
+index 4207fed62dfe..99f89eb19356 100644
+--- a/Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml
++++ b/Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml
+@@ -112,6 +112,13 @@ properties:
+     minimum: 0
+     maximum: 0x7f
+ 
++  card-detect-delay:
++    description:
++      Delay in milli-seconds before detecting card after card
++      insert event. The default value is 0.
++    $ref: /schemas/types.yaml#/definitions/uint32
++    default: 0
++
+ required:
+   - compatible
+   - reg
 -- 
-Jazz is not dead. It just smells funny...
+2.37.1
+
 
 _______________________________________________
 linux-riscv mailing list
