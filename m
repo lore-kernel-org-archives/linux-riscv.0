@@ -4,183 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BE0C25B0C
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 15:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0298C25B0D
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 15:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mdQT1hJ/e5nqJfyhz+ea0bUumwjPKhNIJ6faAKH5a1A=; b=zmF8uvQJWgbvL4
-	q6oAG4S3Z0Jfo/1ecqP6b08B6Qsg8c6N7oIt3IsAauRHQUbADiyO5f1mEk3y7wm1Ehr3lFf+iFp92
-	GpxaEoNJwwKnvT/0E0ARu0G8JsMtt/wGIcCFlv3CrKLIiELlS9vdV/fFNvwNgEj0+TE6mw1AFT7Bk
-	8RN98litRXNR6f0CBMz4rsCT64hoFxj3YNdO3scav56KIjxtTooMhBce/0TJ+VUk8lNImHjJ1WQpA
-	4iQTVIebk2b3B1rp953DE1O5yqbzIZOU8AYsCPrMe5mC9ZD/s9+MHNMjwUepS23E29Sr8fny9fo4T
-	zcD3fbcSSbE1iUB9Ck+Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=9VNzS5oJEinKlKg9RIarreGej6p08yG0FlRrWFl1gDY=; b=ZFhpfGibcibwBHv1aM/Vbu2hKP
+	ptG7AfM9d2na03pkMsGPN8KAu2cOalNomLXseJfdP8liKgDt+YM+FXNrlyjpRyLwcogC+3vDx2knO
+	ArQ0pl2u99vQy/VdKxLCyo0Q/Jh1Bpz8IijvZJPH8DDn0jBbvsbtzuj6vu9jqs7+FITsaolWK7GmE
+	RBEodo6nPOy9CbfobNP7HWRYjv+jRDoIst7Gg1LtipXzAOOvfvO4N15kZLU8Yc2EkmV/gaENaDVhR
+	leNPwlhcPid6oj6zhbv5Xa8dhc9MSnXBclFeJw/8IfA8rVXnhgB4fd9ujahH2eQuu86+KfWRzQmtg
+	lIgR5INQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMANJ-00EBiE-Os; Thu, 11 Aug 2022 15:45:33 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oMANH-00EBfh-1Y; Thu, 11 Aug 2022 15:45:31 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMANF-00EBZW-22; Thu, 11 Aug 2022 15:45:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1660232728; x=1691768728;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=T09UjqL5opG4ReqiMCIBmeO3OHznXb1kRyXgKAvelCA=;
-  b=vKW54KAucRNXh+lQ6zOXu3frQ+DjOhSNP5BcUNyK0DQr8431YIPwdMT5
-   +DwIP7oIMKQ5gGIMXbEd2mj/O5QG3BGnUIHeP0H9som7BzSV8f0qtagbL
-   Xiw6Yft4cmGzgikOAv330g395Yz86316ImrcAWQ7q4GfSNpT956H6ZMjV
-   Fj2/cSNukGQxrVgIuzDMREjNahqXAWBcCYaIKUPj+Stw8MIk8Kfs+TiP5
-   YruD75Jo1WKlx3r9eiMD07bf1OfonJKhZedo1B7aiEdScAHScXzzPc10d
-   VTHQZuVwh7sWzSW4KWBSHur7eolzNDouoY2afd6ezR8nbhm+KO5nP8Hps
-   w==;
-X-IronPort-AV: E=Sophos;i="5.93,230,1654585200"; 
-   d="scan'208";a="108636189"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 11 Aug 2022 08:45:21 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.17; Thu, 11 Aug 2022 08:45:18 -0700
-Received: from NAM11-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.28 via Frontend Transport; Thu, 11 Aug 2022 08:45:18 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=d7qDNUKZ0YlrF4GZvaBIh60vkelLYaLO2b/lFCMTGYqP8mUjGA3mTv6jEcJle4qKdCwFdflm+7WjmXOYwxjyVocn+Bv4GMDpNNUAvYHn3z4nylcG53ritO0glwGSrqdEGYNCTQNp82Nz6Pl+kgD43ygiGYeuTqKV1QrCtqEiZow2DTPAJUu5Tx75BVx43SxX9vBb2ZS8bvXv8u9HfxXITjjuNPNhqqKAnEtALAkUG03TXjrxNt7O9Ol3t17enwhAvlo2MH06sYVXP6ID0ZspkYIHarxg0oanx/CjpVx0yOriHoA7Dc8l1cE4/naOR1+VSRNVLf8Pi8MKXggh87CnDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T09UjqL5opG4ReqiMCIBmeO3OHznXb1kRyXgKAvelCA=;
- b=Iv7O0bTicCg5obargJvrqJxNb6uSlR3kX3okMqoUBnkVa2AaC3Lp4Z+FtL131R7NmDGRZirSmNW/nMwKGjwl6tyB+vTCqPDhmtbFia1h8WvicdXi+bIVhS+tIz1pNpPHURN3ApmcT3gFnyrkdWm74MJgHgB3umLMr8LiZx15sEWmKkpJUmpUivpDnQCH7ztkRZxuIoKXhSza1Od7pVSxtMryeSJaMcOF8YcJB/ShRpBYrc3lwWwZAAnfkNuxleviiKZMItnLD01oY5h7rJIw/77kz8o28HTnsO88uZ74r0X+tIqEr7s2BNF1s9woupYLdjm7CbviDsPAiPOCTeoVGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+	id 1oMAN8-00EBUg-8J
+	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 15:45:26 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id h132so17444421pgc.10
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 08:45:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T09UjqL5opG4ReqiMCIBmeO3OHznXb1kRyXgKAvelCA=;
- b=rui74rKykxf1vzBIFkehd83BqbF43E9lH03ZBpnDsV4CuFtw4eY/aIijUa71YPrULv3xJby0mom3ErmjDGZXMp7MuhBr7h4E3DbxR8dlirQejyE7ilBezh7/9y1L2H0C6DCnv5yymDFwveggTQRHWWwzIqD0go6j4Dzt3Bz3vW8=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by BL0PR11MB3010.namprd11.prod.outlook.com (2603:10b6:208:7c::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5525.11; Thu, 11 Aug
- 2022 15:45:16 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3%8]) with mapi id 15.20.5525.011; Thu, 11 Aug 2022
- 15:45:16 +0000
-From: <Conor.Dooley@microchip.com>
-To: <xianting.tian@linux.alibaba.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <anup@brainfault.org>,
-	<heiko@sntech.de>, <guoren@kernel.org>, <mick@ics.forth.gr>,
-	<alexandre.ghiti@canonical.com>, <bhe@redhat.com>, <vgoyal@redhat.com>,
-	<dyoung@redhat.com>, <corbet@lwn.net>
-CC: <kexec@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<crash-utility@redhat.com>, <heinrich.schuchardt@canonical.com>,
-	<k-hagio-ab@nec.com>, <hschauhan@nulltrace.org>, <yixun.lan@gmail.com>
-Subject: Re: [PATCH V6 0/6] RISC-V fixups to work with crash tool
-Thread-Topic: [PATCH V6 0/6] RISC-V fixups to work with crash tool
-Thread-Index: AQHYrVXcv96MB9H2nE2Pb9bFKutIJ62p2AeA
-Date: Thu, 11 Aug 2022 15:45:16 +0000
-Message-ID: <1e070eac-edb7-ba89-f189-bed0fd0b1702@microchip.com>
-References: <20220811074150.3020189-1-xianting.tian@linux.alibaba.com>
-In-Reply-To: <20220811074150.3020189-1-xianting.tian@linux.alibaba.com>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: a62143b1-9626-4c1e-b32b-08da7bb07ca9
-x-ms-traffictypediagnostic: BL0PR11MB3010:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: =?utf-8?B?SThzaGc1ZDFzL3NqdlNpamhXZEdjUFZLS0N3R3dPMWZzKzNxVUs4U1lMM1Qz?=
- =?utf-8?B?NVpVMzNwcHBKSWVPeTMwSFRlQnVrOUoydEJ6czFPcFRVdVdQQ1ZtRkVscVBV?=
- =?utf-8?B?WGtkbEtOdVllRzlldFQzbVVnN2dibkZ0MDVCLzFrWllaeUVVVStCb092QU5V?=
- =?utf-8?B?YWgzMEdIY3kyYmJsL2UwNWJMMGc0WXlEZ0V6dUJLSHlDSG9wQTdvaS9vbysx?=
- =?utf-8?B?MXYwc3BhUkd5L3UwZ0ZKaDE2cXNURUhKejZzaE9pbUc0ckxHSzVJVGV4Ymdu?=
- =?utf-8?B?MUo4Y1hYSW4yU1VOYm5pRHUxdm1zTDhxZ0xkelY4Znl1R2dYWG53a3lFSTVI?=
- =?utf-8?B?UTFKQlJMZkYvYnU2bWs0S0ZvT1l2K1crek54Qjl2WFVNd0F3ejgyMVEwU28y?=
- =?utf-8?B?d2gzLzF5UWQ4aTVhclExellWTTlWeHBBSmEraFlVNVN3cVBJUVE4dDJuR0ls?=
- =?utf-8?B?TXR5cGR2MkpuWjkyVTlhaGZaOXM0Y1VUQkRZMkVzZjBHRWpZbkFVbTZGYm82?=
- =?utf-8?B?M0VTNk1IQUsrVWhBU1VjNWJkaHZKbU5PUmF1cWJ5b3Z0b3pvaGN5eTFjRmpV?=
- =?utf-8?B?NTgxVzBlajFuNmRTT1JjNFEwZWdkTlpkbWxtQ1FINzJXZGwxU2RER2dMQVN0?=
- =?utf-8?B?Sy84MjZFb0sxcWZib09WekRkekNweDZtRnFKbG0zUHJJcnlzdlR2cEZ2eGFG?=
- =?utf-8?B?Z3k0ckNUQWRzZHBHd1lGMzhpZ3RKK1BvVlNhWDlhakwyZEEwU3NUdk9LWTFC?=
- =?utf-8?B?WjhCb3EyVG94eHJTUjNkOTAyeWRkWGZOSXlUNjM2Z2RDY05RYU1ESFhPRm4x?=
- =?utf-8?B?cUFiVHJKMWxWMTRiRVl5UzNPaDBvQWFrMW43ZEloQ2pCZDRmdWwzMFR6dWtZ?=
- =?utf-8?B?QW43YUpWUnAwQzlMYmdQRU54TnNOSzY3UnExS3oxNGJhT2J0cmVaMlM3WXc5?=
- =?utf-8?B?OWczVWlCRHViMmRKSEplTVZ5Q1c2OTc3MC9VU2ZIZWtaeFVkcVJLby9ZWXFE?=
- =?utf-8?B?RFJ3V2JWR2xMdDdORWJvUzVWd2ZnM2g1NHVsU3N6blQ3NEZ0SVJuajRCeDhF?=
- =?utf-8?B?eWNWTnlOT0syb0w4VnNJWGJYYkJGbHUvY1NQcEljMkdwSVVySWd4cWhISVdh?=
- =?utf-8?B?TXUrMUxLWTBGUGplTG1nYk5Td3REMnZpRXFMc2pZUTQ2eFdQTnJlK01pVG8y?=
- =?utf-8?B?MCtTUUpxYkhBOTFEUVZTd2grVUZ6d3c1b2V1cFljWE9sTFBKTUdLMElsV1RF?=
- =?utf-8?B?NUpqRmROYTc3NVhUSm5ZKzVJNGNxTU95c0dzRG92MjBZOXdaUT09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(396003)(39860400002)(376002)(136003)(346002)(186003)(71200400001)(2616005)(41300700001)(86362001)(26005)(53546011)(36756003)(6506007)(6512007)(83380400001)(110136005)(31696002)(54906003)(4326008)(316002)(91956017)(76116006)(64756008)(66946007)(66446008)(66476007)(2906002)(66556008)(5660300002)(966005)(6486002)(478600001)(8936002)(38070700005)(921005)(8676002)(7416002)(38100700002)(122000001)(31686004)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?OVR5K1N3NW9KMHM2SWR1ODZNU0FoTGJrRUh2SW9DeWpYZnRpbFRXTzg4MTF0?=
- =?utf-8?B?WGpBZkxRK2s5Skl3MSs2QVpxVmFDOTBiQzdCWWNaajBGMm9YalBQNkE4QXE1?=
- =?utf-8?B?ZElrSjNNZ2libzlCOHFEMnVRZENhTEhXcTUxODg1dU0yYitkUm1VYi9pWGt6?=
- =?utf-8?B?dEt4Zk9jMVFtNUZ2Y1NVSFhRTzFmZXpsMHpiTWdaanNnUWQ1QzM5bitNSXlY?=
- =?utf-8?B?ZCtSZ0RPWDFQMjh5WGJIRGVNSXRkMHpvY21icURib0svM1dvaHIzL2ZTUVlk?=
- =?utf-8?B?SUdrYnJqMEFmOEtiTUljOUFHNHBQbkV3MFZhaTIvOWZzWkUvV0JaZHFUbm5w?=
- =?utf-8?B?WHIwSlcvajBNa2Q4d3pmdzMwSU1ETitIQU5NNGwwaDFQNTdHcHlFMzR4Q0Nz?=
- =?utf-8?B?UVdsUkJqRVQ0cjRwbkhUdE5ZM1FtMDFZT1lIcmV5ZkU0cTZqMkpGbFFqUlZm?=
- =?utf-8?B?VS9DZEllOW1NRWx0MzhzTnB4MUdkaWh0Nk10WWFiSHBlYVI5T0ViZnRvbWlD?=
- =?utf-8?B?cTFkWENITHNrWlJPM0F4VnZRNXFqWUlKVGdJemZxNloyOGZuemQ3OE8zeUlZ?=
- =?utf-8?B?VTIwTUtaMngzbStRNVhmT1JuVkdqcXBNUWc1QXNUVUFOYmlQTnE5dSttTGVF?=
- =?utf-8?B?TXNQY3k3K2lWTEdjVmhWcVFrc2x1YjRuR2FsUDI4dVM3NkV0SHkvMHNrdGc2?=
- =?utf-8?B?ZzVVZmsrSU53elhwYlNJR0tVbXJRR3psSU1kODhMbkFJNlhYNExQSW8rZXNa?=
- =?utf-8?B?dFV2SGlzS01EbmV1clJSRVVORmpHUkVTTEh5VTBzNjJLKzIzSVpObGYxUUNj?=
- =?utf-8?B?cjVRVkNKTWFDMnZkbTV3UUpnU3E1RE1sdzM2bDA5SkZzZGlnbVZvVUxqNXVt?=
- =?utf-8?B?ZnFqRnNJWnlvZm42Yml6MzU4OXIraDNNRFJJVlRYZTVWUlh0dHpVWFNOMStI?=
- =?utf-8?B?K3RMeGpQL21iMUtqeWZ1eG40cUZDdEtGa2xIY2R1clhaaWxXUzlPdjNSY1VL?=
- =?utf-8?B?TStZUDBpVjJGbTNGWDY0ZmIzNnZ3emh0T0xEWFJwYUFLOStrODZackEzbHdk?=
- =?utf-8?B?VzgwLzFhZmVYbWRMekJYWUZPZkUwaFl1NnVkU211TkpWejBGTE5jbTQwa2lw?=
- =?utf-8?B?QjNic3BnRUNIVFVoTjZuTCtiK3RPZGFpRmJSdENPa0xzT2JzaXlnRklwVkZR?=
- =?utf-8?B?RHVNSEVwbmF1WmJMNzVaNFhhWGR0UFZtT0xNcHpiUFpBbzRHdGNMenRNQWR2?=
- =?utf-8?B?LzVXaFBxK2NXMS8rRjduRkNIdlpDdFdBeHk2WTFxT2FtM0o1NWJNelhhQTNq?=
- =?utf-8?B?L0JWb1lUU0tnTXhLQWgrSE5JK3B0Y1ZTRlFxbmtvcEJUckc0V1RYZitFOURy?=
- =?utf-8?B?N0Rxa0VPa2wycjVOTjN6S0J2cWNRQWQxWlptWFdZWVZmTGk3ZEJnSFF5TzBr?=
- =?utf-8?B?amp0VkdONHJaUFoxK3JUOFZGTDRNa3lrUzZWa1I5Y1lTVGpwTXBkZXhIYlN2?=
- =?utf-8?B?M1dEc2x2TnFEaUpuNVFvRDl5MUdvS0NNY0E0c005UHpHd043cjM0ejRUeG9K?=
- =?utf-8?B?L2RIei82bjdnTmcwanY2Zi9yUGVjbm01ZWR3ZXBpeWE1V1ZTVTliVGxCZ0J4?=
- =?utf-8?B?TW5ncDVndWZLdUk3eGppTUNWWGE2K0JWd3M0dmxnRDJpTDlGdWUrcTdNWHZS?=
- =?utf-8?B?K29IZjVCeWphV0h6b3g1UnVGbzlpLzlQK0ZsSVBXb25vT3c0aTh0bmFkMm5K?=
- =?utf-8?B?U3V3M2RKcGl4L1J4aFNXL0hTb0htbVdWNmgzRTBBblQ5ZDRCRWhUVWlvbk9i?=
- =?utf-8?B?ekhwZTNBQmFhNWhCZHdONFlYWktBV3R5VzR6R0t0WFNRWUFkUVpRZllWSjVO?=
- =?utf-8?B?cHUrcnZxMDBVbDZ4R3FyTXViWUQrZlhrdnd2WDVlTkFhUWg1R05qbDhSQTk3?=
- =?utf-8?B?ektnenZGSUZqUFBqdG9mYm1WWTgzVVRDYmhpTHo2NzNseE1LV3E0YzRmZ3h6?=
- =?utf-8?B?ckpna1JUN3JXQW1EMmVieDBmc3lNdzV0QTBGSmREQlQxWlB3NXc0dEVNSDln?=
- =?utf-8?B?dERaM2ZLTTlwMW52cEhLU2dtSWd1YVM5MmNXaEg3dElyWTFHWkxGMmxCWEky?=
- =?utf-8?Q?cHRuy37qSE1FhmUD4NY/AiJ69?=
-Content-ID: <636BE292DF4F034B9B1862C794B80785@namprd11.prod.outlook.com>
-MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a62143b1-9626-4c1e-b32b-08da7bb07ca9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Aug 2022 15:45:16.1663
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: h11MSsrc4YcuzCHaS2ByBNbvNqI6aOrMK9X8xrqqxa6k8Suff4DhGrHXMeIAlaczvbCXTs/CiXs/55lIvUITT04Psq5nN4FLYRijslzuLDI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL0PR11MB3010
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc;
+        bh=wgIBglyDiY3KB6HM29FTTdKDZNb7OUXfe8TnmIwNm5c=;
+        b=hEH12hyFXBHshNWK8eGibGdry1CsakVDjNu7i3pW/bqNftRhuWogZ4NM2nYBBsqnfD
+         TQJ9dVd4/8GChFQtUX781cdLr7LTCIU/Wy3d2DbX3ajOEOHPlHAXUJhVmB8RdeFuHrzA
+         6yG7fcS6Wm8mzfk3tHl6AD/kfD+i9mvS04U4LagIFHsWBKJQ5ipzT7tGUvEf9cSwcDTa
+         OlBbGqqWrH8fBomBAwGDdSvjIv4ClLpo2R/tzQBqD34s6CeLSkdNz/PVSG7ctmWKav1j
+         mK9bVIwDDJKNDvfuSzkblMpa5/twB3Ukj3s4e3PM7k8S5ysGJ2yOMziuhuHeXJzfYYCS
+         In5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
+        bh=wgIBglyDiY3KB6HM29FTTdKDZNb7OUXfe8TnmIwNm5c=;
+        b=0HJ9kBNb1D6QAtAKipvNb0pBu7govdPTkjZLXvbVm9zdXwN3U/cYxsYmlPj+m9rhuT
+         BQQhQnISq/8zLj8iUbJpA7zdavBJd61WN+XMr2F/rb4LvlJ+uf8yWVEpt0DIeGRHusom
+         aWTAlcuVVU3BYd+83C1q7Dc9g4Rt1e83RBdRnhVYzw7z/PwCzuDGIpi2qok7RRce2yic
+         Z+I3AKYij+vU9NTk2ForbVjNxvr9izgXSarEMju9TfwkLQGEuQbza+wsNci9fMkeFf1h
+         EjpzK/dZRhiLXLAkuLjAo7PK4P2vkzexFdJ8Qee0wDTYlxcomnnVm8JIktw2N7+G60Sp
+         sFWw==
+X-Gm-Message-State: ACgBeo1vGW8BkXGhBDtPkWOlNkhpsiPC4alkVnrGxJYgLLEcdC4skQcL
+	5Ns2lHLZ1Ch8ZBSj7s0OqwUP9g==
+X-Google-Smtp-Source: AA6agR6dd1fRyPM1u3MobTledxZFhW9GS+asncCvV3rmn0Yv9hX3pp+Q4CJy55kWLkFI5sXYjqblIQ==
+X-Received: by 2002:a63:1d1d:0:b0:41c:3d54:b123 with SMTP id d29-20020a631d1d000000b0041c3d54b123mr27197433pgd.357.1660232718650;
+        Thu, 11 Aug 2022 08:45:18 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id y67-20020a623246000000b0052acb753b8bsm4182857pfy.158.2022.08.11.08.45.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Aug 2022 08:45:18 -0700 (PDT)
+Date: Thu, 11 Aug 2022 08:45:18 -0700 (PDT)
+X-Google-Original-Date: Thu, 11 Aug 2022 08:38:56 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: use __smp_processor_id() instead of smp_processor_id()
+In-Reply-To: <20220623074315.3814826-1-xianting.tian@linux.alibaba.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, alex@ghiti.fr,
+  liaochang1@huawei.com, mick@ics.forth.gr, guoren@kernel.org, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, xianting.tian@linux.alibaba.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: xianting.tian@linux.alibaba.com
+Message-ID: <mhng-34326299-6545-4626-b804-0b2bcf02ba4a@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220811_084529_468812_4699FF93 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20220811_084522_375514_F7CFEAE6 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,90 +83,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Xianting,
-I still think the commit subjects could be more specific, but
-not going to suggest wasting your time respinning for that.
-Cosmetically:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+On Thu, 23 Jun 2022 00:43:15 PDT (-0700), xianting.tian@linux.alibaba.com wrote:
+> Use __smp_processor_id() to avoid check the preemption context when
+> CONFIG_DEBUG_PREEMPT enabled, as we will enter crash kernel and no
+> return.
+>
+> Without the patch,
+> [  103.781044] sysrq: Trigger a crash
+> [  103.784625] Kernel panic - not syncing: sysrq triggered crash
+> [  103.837634] CPU1: off
+> [  103.889668] CPU2: off
+> [  103.933479] CPU3: off
+> [  103.939424] Starting crashdump kernel...
+> [  103.943442] BUG: using smp_processor_id() in preemptible [00000000] code: sh/346
+> [  103.950884] caller is debug_smp_processor_id+0x1c/0x26
+> [  103.956051] CPU: 0 PID: 346 Comm: sh Kdump: loaded Not tainted 5.10.113-00002-gce03f03bf4ec-dirty #149
+> [  103.965355] Call Trace:
+> [  103.967805] [<ffffffe00020372a>] walk_stackframe+0x0/0xa2
+> [  103.973206] [<ffffffe000bcf1f4>] show_stack+0x32/0x3e
+> [  103.978258] [<ffffffe000bd382a>] dump_stack_lvl+0x72/0x8e
+> [  103.983655] [<ffffffe000bd385a>] dump_stack+0x14/0x1c
+> [  103.988705] [<ffffffe000bdc8fe>] check_preemption_disabled+0x9e/0xaa
+> [  103.995057] [<ffffffe000bdc926>] debug_smp_processor_id+0x1c/0x26
+> [  104.001150] [<ffffffe000206c64>] machine_kexec+0x22/0xd0
+> [  104.006463] [<ffffffe000291a7e>] __crash_kexec+0x6a/0xa4
+> [  104.011774] [<ffffffe000bcf3fa>] panic+0xfc/0x2b0
+> [  104.016480] [<ffffffe000656ca4>] sysrq_reset_seq_param_set+0x0/0x70
+> [  104.022745] [<ffffffe000657310>] __handle_sysrq+0x8c/0x154
+> [  104.028229] [<ffffffe0006577e8>] write_sysrq_trigger+0x5a/0x6a
+> [  104.034061] [<ffffffe0003d90e0>] proc_reg_write+0x58/0xd4
+> [  104.039459] [<ffffffe00036cff4>] vfs_write+0x7e/0x254
+> [  104.044509] [<ffffffe00036d2f6>] ksys_write+0x58/0xbe
+> [  104.049558] [<ffffffe00036d36a>] sys_write+0xe/0x16
+> [  104.054434] [<ffffffe000201b9a>] ret_from_syscall+0x0/0x2
+> [  104.067863] Will call new kernel at ecc00000 from hart id 0
+> [  104.074939] FDT image at fc5ee000
+> [  104.079523] Bye...
+>
+> With the patch we can got clear output,
+> [   67.740553] sysrq: Trigger a crash
+> [   67.744166] Kernel panic - not syncing: sysrq triggered crash
+> [   67.809123] CPU1: off
+> [   67.865210] CPU2: off
+> [   67.909075] CPU3: off
+> [   67.919123] Starting crashdump kernel...
+> [   67.924900] Will call new kernel at ecc00000 from hart id 0
+> [   67.932045] FDT image at fc5ee000
+> [   67.935560] Bye...
+>
+> Fixes: 0e105f1d0037 ("riscv: use hart id instead of cpu id on machine_kexec")
+> Co-developed-by: Guo Ren <guoren@kernel.org>
+> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+> ---
+>  arch/riscv/kernel/machine_kexec.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+> index df8e24559035..86d1b5f9dfb5 100644
+> --- a/arch/riscv/kernel/machine_kexec.c
+> +++ b/arch/riscv/kernel/machine_kexec.c
+> @@ -171,7 +171,7 @@ machine_kexec(struct kimage *image)
+>  	struct kimage_arch *internal = &image->arch;
+>  	unsigned long jump_addr = (unsigned long) image->start;
+>  	unsigned long first_ind_entry = (unsigned long) &image->head;
+> -	unsigned long this_cpu_id = smp_processor_id();
+> +	unsigned long this_cpu_id = __smp_processor_id();
+>  	unsigned long this_hart_id = cpuid_to_hartid_map(this_cpu_id);
+>  	unsigned long fdt_addr = internal->fdt_addr;
+>  	void *control_code_buffer = page_address(image->control_code_page);
 
-@Palmer Would you consider at least patches 1-3 of the series
-for 6.0?
-Thanks,
-Conor.
-
-On 11/08/2022 08:41, Xianting Tian wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> I ever sent the patch 1 in the link:
-> https://patchwork.kernel.org/project/linux-riscv/patch/20220708073150.352830-3-xianting.tian@linux.alibaba.com/
-> And patch 2,3 in the link:
-> https://patchwork.kernel.org/project/linux-riscv/patch/20220714113300.367854-2-xianting.tian@linux.alibaba.com/
-> https://patchwork.kernel.org/project/linux-riscv/patch/20220714113300.367854-3-xianting.tian@linux.alibaba.com/
-> 
-> This patch set just put these patches together, and with three new patch 4, 5, 6.
-> these six patches are the fixups for machine_kexec, kernel mode PC for vmcore
-> and improvements for vmcoreinfo, memory layout dump and fixup schedule out issue
-> in machine_crash_shutdown().
-> 
-> The main changes in the six patchs as below,
-> Patch 1: Fixup use of smp_processor_id() in preemptible context, to cleanup
->          the console prints.
-> Patch 2: Fixup to get correct kernel mode PC for kernel mode regs for vmcore.
-> Patch 3: Fixup schedule out issue in machine_crash_shutdown()
-> Patch 4: Add modules to virtual kernel memory layout dump.
-> Patch 5: Add VM layout, va bits, ram base to vmcoreinfo, which can simplify
->          the development of crash tool as ARM64 already did
->          (arch/arm64/kernel/crash_core.c).
-> Patch 6: Updates vmcoreinfo.rst for vmcoreinfo export for RISCV64.
-> 
-> With these six patches(patch 2 is must), crash tool can work well to analyze
-> a vmcore. The patches for crash tool for RISCV64 is in the link:
-> https://lore.kernel.org/linux-riscv/20220801043040.2003264-1-xianting.tian@linux.alibaba.com/
-> 
-> ------
-> Changes v1 -> v2:
->   1, remove the patch "Add a fast call path of crash_kexec()" from this series
->      of patches, as it already applied to riscv git.
->      https://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git/commit/?h=for-next&id=3f1901110a89b0e2e13adb2ac8d1a7102879ea98
->   2, add 'Reviewed-by' based on the comments of v1.
-> Changes v2 -> v3:
->   use "riscv" instead of "riscv64" in patch 5 subject line.
-> Changes v3 -> v4:
->   use "riscv" instead of "riscv64" in the summary of patch 5 subject line.
-> Changes v4 -> v5:
->   add a new patch "RISC-V: Fixup schedule out issue in machine_crash_shutdown()"
-> Changes v5 -> v6:
->   1, move "fixup" patches to the start of the patch set.
->   2, change patch 1, 2, 6's subject to make it tell more what it's about.
->   3, add Fixes for patch 3.
->   4, adjuest the changes format for patch 6.
-> 
-> 
-> Xianting Tian (6):
->   RISC-V: kexec: Fixup use of smp_processor_id() in preemptible context
->   RISC-V: Fixup get incorrect user mode PC for kernel mode regs
->   RISC-V: Fixup schedule out issue in machine_crash_shutdown()
->   RISC-V: Add modules to virtual kernel memory layout dump
->   RISC-V: Add arch_crash_save_vmcoreinfo support
->   Documentation: kdump: describe VMCOREINFO export for RISCV64
-> 
->  .../admin-guide/kdump/vmcoreinfo.rst          | 31 +++++++++++++++++++
->  arch/riscv/kernel/Makefile                    |  1 +
->  arch/riscv/kernel/crash_core.c                | 29 +++++++++++++++++
->  arch/riscv/kernel/crash_save_regs.S           |  2 +-
->  arch/riscv/kernel/machine_kexec.c             | 28 ++++++++++++++---
->  arch/riscv/mm/init.c                          |  4 +++
->  6 files changed, 89 insertions(+), 6 deletions(-)
->  create mode 100644 arch/riscv/kernel/crash_core.c
-> 
-> --
-> 2.17.1
-> 
+Thanks, this is on for-next.
 
 _______________________________________________
 linux-riscv mailing list
