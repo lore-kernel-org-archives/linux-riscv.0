@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0298C25B0D
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 15:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C510AC25B0C
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 16:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=9VNzS5oJEinKlKg9RIarreGej6p08yG0FlRrWFl1gDY=; b=ZFhpfGibcibwBHv1aM/Vbu2hKP
-	ptG7AfM9d2na03pkMsGPN8KAu2cOalNomLXseJfdP8liKgDt+YM+FXNrlyjpRyLwcogC+3vDx2knO
-	ArQ0pl2u99vQy/VdKxLCyo0Q/Jh1Bpz8IijvZJPH8DDn0jBbvsbtzuj6vu9jqs7+FITsaolWK7GmE
-	RBEodo6nPOy9CbfobNP7HWRYjv+jRDoIst7Gg1LtipXzAOOvfvO4N15kZLU8Yc2EkmV/gaENaDVhR
-	leNPwlhcPid6oj6zhbv5Xa8dhc9MSnXBclFeJw/8IfA8rVXnhgB4fd9ujahH2eQuu86+KfWRzQmtg
-	lIgR5INQ==;
+	bh=EiorFVNpufHwnX9oR8DQtqnOiXaN3hFBoHYWz8ecMEw=; b=u6ku3wK1IVSqJnl7v+z1yPRvMp
+	d4rNLBvvAL8vI3noeBOt/T/kvHpLZBgaU2l74Qlf7iG9S/kLt2/GMTBOv0b48l+lyBjwub+jUP3Hv
+	YsVq9+Cgah39wttiZXdhyWiRVnR8jhnL3DCOgzBZGNNX+zlWeW2+XM4qTEgbkmZ0wKoHafk1nOL1R
+	2Bo9niY76f1SZL+/nE0Zs2u52PQkPYBXc1xTv1ry1ZJMsXFmruVJ85+Fj58l+5ovq6IMrbwuACLLk
+	F8FAoyxxwwaBsPTUCV4x4j7b3o89MoGNZ6momrLUMoh944El9UL7KmFInsBsc4QEIFQE2ct9sZLQO
+	uCcms10w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMANH-00EBfh-1Y; Thu, 11 Aug 2022 15:45:31 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1oMAgd-00EgWR-NL; Thu, 11 Aug 2022 16:05:31 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMAN8-00EBUg-8J
-	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 15:45:26 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id h132so17444421pgc.10
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 08:45:19 -0700 (PDT)
+	id 1oMAgS-00EgP3-LW
+	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 16:05:26 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id y141so16853419pfb.7
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 09:05:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc;
-        bh=wgIBglyDiY3KB6HM29FTTdKDZNb7OUXfe8TnmIwNm5c=;
-        b=hEH12hyFXBHshNWK8eGibGdry1CsakVDjNu7i3pW/bqNftRhuWogZ4NM2nYBBsqnfD
-         TQJ9dVd4/8GChFQtUX781cdLr7LTCIU/Wy3d2DbX3ajOEOHPlHAXUJhVmB8RdeFuHrzA
-         6yG7fcS6Wm8mzfk3tHl6AD/kfD+i9mvS04U4LagIFHsWBKJQ5ipzT7tGUvEf9cSwcDTa
-         OlBbGqqWrH8fBomBAwGDdSvjIv4ClLpo2R/tzQBqD34s6CeLSkdNz/PVSG7ctmWKav1j
-         mK9bVIwDDJKNDvfuSzkblMpa5/twB3Ukj3s4e3PM7k8S5ysGJ2yOMziuhuHeXJzfYYCS
-         In5g==
+        bh=d0u1p8R8Qde2ve36Abm6cDksJ4xjEyO5Zx7tA20Gdo4=;
+        b=72hpLRYS883vixroIwg3mFYuCWRng9p0gc9YWN4NGkrCEVdvrpuBZ+zFhXTx7lBsGt
+         jnYtHZnyAQCyUMyaXxk4n97h+3rx4La1veaOtjQ+rUT0YNDNn3XBlPXFPTVehYcv1r7m
+         KZ7V7di0uamozJzVU5PJgBMx20NCjFQ9K+zG8euY9/7J1+LLyKW4JE6TsbNOAN3gOSLY
+         GXcZ1vRV+LAkwt/oC3IcvKMpxXNaoTYVbYBGz1Carcd4E8bFRUqPN+V1aEVLzFWrBOrv
+         m/8RktYKvyDwdKiXmOVA52v5IVqzpvkztYaJYwGwr9Ywr/0lIYrSIHl4m/bK3Y3kCPmI
+         NMTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
-        bh=wgIBglyDiY3KB6HM29FTTdKDZNb7OUXfe8TnmIwNm5c=;
-        b=0HJ9kBNb1D6QAtAKipvNb0pBu7govdPTkjZLXvbVm9zdXwN3U/cYxsYmlPj+m9rhuT
-         BQQhQnISq/8zLj8iUbJpA7zdavBJd61WN+XMr2F/rb4LvlJ+uf8yWVEpt0DIeGRHusom
-         aWTAlcuVVU3BYd+83C1q7Dc9g4Rt1e83RBdRnhVYzw7z/PwCzuDGIpi2qok7RRce2yic
-         Z+I3AKYij+vU9NTk2ForbVjNxvr9izgXSarEMju9TfwkLQGEuQbza+wsNci9fMkeFf1h
-         EjpzK/dZRhiLXLAkuLjAo7PK4P2vkzexFdJ8Qee0wDTYlxcomnnVm8JIktw2N7+G60Sp
-         sFWw==
-X-Gm-Message-State: ACgBeo1vGW8BkXGhBDtPkWOlNkhpsiPC4alkVnrGxJYgLLEcdC4skQcL
-	5Ns2lHLZ1Ch8ZBSj7s0OqwUP9g==
-X-Google-Smtp-Source: AA6agR6dd1fRyPM1u3MobTledxZFhW9GS+asncCvV3rmn0Yv9hX3pp+Q4CJy55kWLkFI5sXYjqblIQ==
-X-Received: by 2002:a63:1d1d:0:b0:41c:3d54:b123 with SMTP id d29-20020a631d1d000000b0041c3d54b123mr27197433pgd.357.1660232718650;
-        Thu, 11 Aug 2022 08:45:18 -0700 (PDT)
+        bh=d0u1p8R8Qde2ve36Abm6cDksJ4xjEyO5Zx7tA20Gdo4=;
+        b=haDR343GdbtmOGltvuCEOw0rOIvI/0QVi6dMEejg4y7tm7Z2Ti7WQ5Agg0pj7UUsxI
+         bmE2ix5xB7Gg/MFrWt8hbnz3oqxL7SKrcHD8hGzsFq5tREfWWDBye4MnEaIULbTp+xNK
+         fhdMSIVM/kN0E+qb3bQFKx9YtjQaBSKeS++tZ7hwTNSlw1jwQ2AyWMJvZlQdM9LzuqaX
+         KNQqi4TTj3eXZL5uuyXwkPZXwXtzsem1BZjawWZD9+TSWpjQyaVoQZFQVjVMiAhR0woB
+         hV76KkL+l5WcYbx56A5lA3/EEBsIzR89YUHkvi9C4NZ8UXQjJxpc1ImNHly6DlDofYfI
+         GV4Q==
+X-Gm-Message-State: ACgBeo1MpP/n/Xet3VPDSWAPuJfJzhexE3j8eO7UCfe2n+mUbaPiGmlU
+	59ciGyFYQFzDPNJSpmAQOgZqJg==
+X-Google-Smtp-Source: AA6agR6isMDGVMr7bmbSvX20FFwxSxUuQ6z8kvqSth7ginkx17kOTN5fQHEz08/ycUABZvTvf+rhqA==
+X-Received: by 2002:a63:905:0:b0:415:fcde:2423 with SMTP id 5-20020a630905000000b00415fcde2423mr27906416pgj.374.1660233918463;
+        Thu, 11 Aug 2022 09:05:18 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id y67-20020a623246000000b0052acb753b8bsm4182857pfy.158.2022.08.11.08.45.18
+        by smtp.gmail.com with ESMTPSA id f20-20020a635554000000b0041a716cec9esm11458346pgm.62.2022.08.11.09.05.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Aug 2022 08:45:18 -0700 (PDT)
-Date: Thu, 11 Aug 2022 08:45:18 -0700 (PDT)
-X-Google-Original-Date: Thu, 11 Aug 2022 08:38:56 PDT (-0700)
+        Thu, 11 Aug 2022 09:05:18 -0700 (PDT)
+Date: Thu, 11 Aug 2022 09:05:18 -0700 (PDT)
+X-Google-Original-Date: Thu, 11 Aug 2022 09:05:16 PDT (-0700)
 Subject: Re: [PATCH] RISC-V: use __smp_processor_id() instead of smp_processor_id()
-In-Reply-To: <20220623074315.3814826-1-xianting.tian@linux.alibaba.com>
+In-Reply-To: <mhng-34326299-6545-4626-b804-0b2bcf02ba4a@palmer-mbp2014>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, alex@ghiti.fr,
   liaochang1@huawei.com, mick@ics.forth.gr, guoren@kernel.org, linux-riscv@lists.infradead.org,
   linux-kernel@vger.kernel.org, xianting.tian@linux.alibaba.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
 To: xianting.tian@linux.alibaba.com
-Message-ID: <mhng-34326299-6545-4626-b804-0b2bcf02ba4a@palmer-mbp2014>
+Message-ID: <mhng-3d40a456-c1da-41c8-9234-0ea16a2c7d09@palmer-mbp2014>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220811_084522_375514_F7CFEAE6 
-X-CRM114-Status: GOOD (  18.84  )
+X-CRM114-CacheID: sfid-20220811_090520_821442_B4235835 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,76 +88,80 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jun 2022 00:43:15 PDT (-0700), xianting.tian@linux.alibaba.com wrote:
-> Use __smp_processor_id() to avoid check the preemption context when
-> CONFIG_DEBUG_PREEMPT enabled, as we will enter crash kernel and no
-> return.
+On Thu, 11 Aug 2022 08:45:18 PDT (-0700), Palmer Dabbelt wrote:
+> On Thu, 23 Jun 2022 00:43:15 PDT (-0700), xianting.tian@linux.alibaba.com wrote:
+>> Use __smp_processor_id() to avoid check the preemption context when
+>> CONFIG_DEBUG_PREEMPT enabled, as we will enter crash kernel and no
+>> return.
+>>
+>> Without the patch,
+>> [  103.781044] sysrq: Trigger a crash
+>> [  103.784625] Kernel panic - not syncing: sysrq triggered crash
+>> [  103.837634] CPU1: off
+>> [  103.889668] CPU2: off
+>> [  103.933479] CPU3: off
+>> [  103.939424] Starting crashdump kernel...
+>> [  103.943442] BUG: using smp_processor_id() in preemptible [00000000] code: sh/346
+>> [  103.950884] caller is debug_smp_processor_id+0x1c/0x26
+>> [  103.956051] CPU: 0 PID: 346 Comm: sh Kdump: loaded Not tainted 5.10.113-00002-gce03f03bf4ec-dirty #149
+>> [  103.965355] Call Trace:
+>> [  103.967805] [<ffffffe00020372a>] walk_stackframe+0x0/0xa2
+>> [  103.973206] [<ffffffe000bcf1f4>] show_stack+0x32/0x3e
+>> [  103.978258] [<ffffffe000bd382a>] dump_stack_lvl+0x72/0x8e
+>> [  103.983655] [<ffffffe000bd385a>] dump_stack+0x14/0x1c
+>> [  103.988705] [<ffffffe000bdc8fe>] check_preemption_disabled+0x9e/0xaa
+>> [  103.995057] [<ffffffe000bdc926>] debug_smp_processor_id+0x1c/0x26
+>> [  104.001150] [<ffffffe000206c64>] machine_kexec+0x22/0xd0
+>> [  104.006463] [<ffffffe000291a7e>] __crash_kexec+0x6a/0xa4
+>> [  104.011774] [<ffffffe000bcf3fa>] panic+0xfc/0x2b0
+>> [  104.016480] [<ffffffe000656ca4>] sysrq_reset_seq_param_set+0x0/0x70
+>> [  104.022745] [<ffffffe000657310>] __handle_sysrq+0x8c/0x154
+>> [  104.028229] [<ffffffe0006577e8>] write_sysrq_trigger+0x5a/0x6a
+>> [  104.034061] [<ffffffe0003d90e0>] proc_reg_write+0x58/0xd4
+>> [  104.039459] [<ffffffe00036cff4>] vfs_write+0x7e/0x254
+>> [  104.044509] [<ffffffe00036d2f6>] ksys_write+0x58/0xbe
+>> [  104.049558] [<ffffffe00036d36a>] sys_write+0xe/0x16
+>> [  104.054434] [<ffffffe000201b9a>] ret_from_syscall+0x0/0x2
+>> [  104.067863] Will call new kernel at ecc00000 from hart id 0
+>> [  104.074939] FDT image at fc5ee000
+>> [  104.079523] Bye...
+>>
+>> With the patch we can got clear output,
+>> [   67.740553] sysrq: Trigger a crash
+>> [   67.744166] Kernel panic - not syncing: sysrq triggered crash
+>> [   67.809123] CPU1: off
+>> [   67.865210] CPU2: off
+>> [   67.909075] CPU3: off
+>> [   67.919123] Starting crashdump kernel...
+>> [   67.924900] Will call new kernel at ecc00000 from hart id 0
+>> [   67.932045] FDT image at fc5ee000
+>> [   67.935560] Bye...
+>>
+>> Fixes: 0e105f1d0037 ("riscv: use hart id instead of cpu id on machine_kexec")
+>> Co-developed-by: Guo Ren <guoren@kernel.org>
+>> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+>> ---
+>>  arch/riscv/kernel/machine_kexec.c | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
+>> index df8e24559035..86d1b5f9dfb5 100644
+>> --- a/arch/riscv/kernel/machine_kexec.c
+>> +++ b/arch/riscv/kernel/machine_kexec.c
+>> @@ -171,7 +171,7 @@ machine_kexec(struct kimage *image)
+>>  	struct kimage_arch *internal = &image->arch;
+>>  	unsigned long jump_addr = (unsigned long) image->start;
+>>  	unsigned long first_ind_entry = (unsigned long) &image->head;
+>> -	unsigned long this_cpu_id = smp_processor_id();
+>> +	unsigned long this_cpu_id = __smp_processor_id();
+>>  	unsigned long this_hart_id = cpuid_to_hartid_map(this_cpu_id);
+>>  	unsigned long fdt_addr = internal->fdt_addr;
+>>  	void *control_code_buffer = page_address(image->control_code_page);
 >
-> Without the patch,
-> [  103.781044] sysrq: Trigger a crash
-> [  103.784625] Kernel panic - not syncing: sysrq triggered crash
-> [  103.837634] CPU1: off
-> [  103.889668] CPU2: off
-> [  103.933479] CPU3: off
-> [  103.939424] Starting crashdump kernel...
-> [  103.943442] BUG: using smp_processor_id() in preemptible [00000000] code: sh/346
-> [  103.950884] caller is debug_smp_processor_id+0x1c/0x26
-> [  103.956051] CPU: 0 PID: 346 Comm: sh Kdump: loaded Not tainted 5.10.113-00002-gce03f03bf4ec-dirty #149
-> [  103.965355] Call Trace:
-> [  103.967805] [<ffffffe00020372a>] walk_stackframe+0x0/0xa2
-> [  103.973206] [<ffffffe000bcf1f4>] show_stack+0x32/0x3e
-> [  103.978258] [<ffffffe000bd382a>] dump_stack_lvl+0x72/0x8e
-> [  103.983655] [<ffffffe000bd385a>] dump_stack+0x14/0x1c
-> [  103.988705] [<ffffffe000bdc8fe>] check_preemption_disabled+0x9e/0xaa
-> [  103.995057] [<ffffffe000bdc926>] debug_smp_processor_id+0x1c/0x26
-> [  104.001150] [<ffffffe000206c64>] machine_kexec+0x22/0xd0
-> [  104.006463] [<ffffffe000291a7e>] __crash_kexec+0x6a/0xa4
-> [  104.011774] [<ffffffe000bcf3fa>] panic+0xfc/0x2b0
-> [  104.016480] [<ffffffe000656ca4>] sysrq_reset_seq_param_set+0x0/0x70
-> [  104.022745] [<ffffffe000657310>] __handle_sysrq+0x8c/0x154
-> [  104.028229] [<ffffffe0006577e8>] write_sysrq_trigger+0x5a/0x6a
-> [  104.034061] [<ffffffe0003d90e0>] proc_reg_write+0x58/0xd4
-> [  104.039459] [<ffffffe00036cff4>] vfs_write+0x7e/0x254
-> [  104.044509] [<ffffffe00036d2f6>] ksys_write+0x58/0xbe
-> [  104.049558] [<ffffffe00036d36a>] sys_write+0xe/0x16
-> [  104.054434] [<ffffffe000201b9a>] ret_from_syscall+0x0/0x2
-> [  104.067863] Will call new kernel at ecc00000 from hart id 0
-> [  104.074939] FDT image at fc5ee000
-> [  104.079523] Bye...
->
-> With the patch we can got clear output,
-> [   67.740553] sysrq: Trigger a crash
-> [   67.744166] Kernel panic - not syncing: sysrq triggered crash
-> [   67.809123] CPU1: off
-> [   67.865210] CPU2: off
-> [   67.909075] CPU3: off
-> [   67.919123] Starting crashdump kernel...
-> [   67.924900] Will call new kernel at ecc00000 from hart id 0
-> [   67.932045] FDT image at fc5ee000
-> [   67.935560] Bye...
->
-> Fixes: 0e105f1d0037 ("riscv: use hart id instead of cpu id on machine_kexec")
-> Co-developed-by: Guo Ren <guoren@kernel.org>
-> Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
-> ---
->  arch/riscv/kernel/machine_kexec.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/kernel/machine_kexec.c b/arch/riscv/kernel/machine_kexec.c
-> index df8e24559035..86d1b5f9dfb5 100644
-> --- a/arch/riscv/kernel/machine_kexec.c
-> +++ b/arch/riscv/kernel/machine_kexec.c
-> @@ -171,7 +171,7 @@ machine_kexec(struct kimage *image)
->  	struct kimage_arch *internal = &image->arch;
->  	unsigned long jump_addr = (unsigned long) image->start;
->  	unsigned long first_ind_entry = (unsigned long) &image->head;
-> -	unsigned long this_cpu_id = smp_processor_id();
-> +	unsigned long this_cpu_id = __smp_processor_id();
->  	unsigned long this_hart_id = cpuid_to_hartid_map(this_cpu_id);
->  	unsigned long fdt_addr = internal->fdt_addr;
->  	void *control_code_buffer = page_address(image->control_code_page);
+> Thanks, this is on for-next.
 
-Thanks, this is on for-next.
+Connor pointed out that there's a series with more fixes, so I'm going 
+to take that instead.
 
 _______________________________________________
 linux-riscv mailing list
