@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 276B7C25B06
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 16:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46227C19F2A
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 17:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=HJz9c53ss9ajP0/y5X55eliXLg88hl4oroXZMsDdE3s=; b=SFvPLEUjBAQtP2IIWApOoh6wVt
-	7uD3pya+OoBK/IcENJuSGvt/hiPQCQSfbTf+tkz25YItDlD8ZFqgNAR+TsbuDCmGkfKKjmH6YpIvX
-	ec1NemS8bVDXyFfBOgh8CeeDo1dyab2HzChrZOKEzW2dDaBTRiaucCm/hJDxavUmuomtOGyHaETw3
-	GVowB36/cIEkUwmcKA42iFBjaAMPCgWG/DRhEId2AqAF3yH2V3GhaEQaNkDmJCtKrLaEd1KsN/PPd
-	qNDHDVyQ/6H/L0aMlOLIXzNXYTv4oIzLD7Hx/p/0kSfWGsJIyVpf3Q/gg0ZXViHqQX0AJ8RU4qRP6
-	thWiALQw==;
+	bh=Jz9xfnTf+kpQa8sssN3RJZvZdJXwNzrJ9++leaVPOgw=; b=iLQoQ6uljQaWVlNHDiSgxmKkR/
+	+edg0P1KNNzG+Lnd0HWPRlE2aJjV+i958Q15BFzbFqLiSU9BEGVOm/3VrWWfojdFKEptD2SN/W+Wz
+	w5ajsYdXoapYO5ADiM12JvKWzGXmxh2tvmBR4jeVJZEqaqrxjrRcBPg9k60q4Kz44uVAXZC5cIi6A
+	ht692d/QIPHx4gZYM66kYCyYWG2KPnA3A9JKl46ps9E519N+E1BGwdMVv/friuBVO1kAGBakWMvQ8
+	jAdbdYymU+EfZ2Hl9yX+CKOn/aWxTBjMwitwG1bh2ULBVCQCClw2zRsU/3Ji20UQI6UJoyTJCCB/O
+	WYuTDVsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMBR6-00FML7-6D; Thu, 11 Aug 2022 16:53:32 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1oMBgp-00Fh3o-GD; Thu, 11 Aug 2022 17:09:47 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMBR2-00FME3-T7
-	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 16:53:30 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id q9-20020a17090a2dc900b001f58bcaca95so5930379pjm.3
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 09:53:25 -0700 (PDT)
+	id 1oMBgm-00FgwN-Vl
+	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 17:09:46 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id q7-20020a17090a7a8700b001f300db8677so5675930pjf.5
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 10:09:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc;
-        bh=QSpm1V+Ji47xL0bb4a9x9poHrFEc/OWZ59EiV9Me3Jo=;
-        b=X/u+FLkyzkuFdNfRE6blckihWwEe3TVdXw9DwZWy9d6NmFNRbqRIMZgNpQ1i0+5NZ+
-         HPCExhGijUIVKwqUQvCM/RCTK4WG5knu0PEDJ9mGHGpczh44JzBRSUghHAWbo/eWjGPV
-         Y5kpLfcGXHCvhDMnVbfnZ5P5cfwe3A90NsBHWuwDFuWDUmJQFI8MKy828C5d0EyH7/TZ
-         DqM1l1lG1PyonBhq57LVAXrlmrNHbbXFrJ9VbfNXPDknsOO7UZb413p43bbnDNXvjPqx
-         B7FTCG68mGzEE6eA/M3LwJKiSEFGOTkQLkGoKZT907VWu6GVat1dOmnn81YUEoBi8QPE
-         D5tQ==
+        bh=Ck/kSylQVms5JwCJbdw3zQuUtzcZAeiGwMiy/xk3l3k=;
+        b=5aM73j+gOKbnY2lxMUT5Vubsy9iseUG+jj5ulQc40FakpvcG4Etg70cohFi7yy9FwD
+         5GLf1dEUDz2X3wE4fKvCrqOGZbVEMuXTdk7AmMOKCyxVhnOpcfgop1Ql3sGPp0UH3Luf
+         kKnx0VimcbJvFpNenMwXqhfGbE+WTIUXpk+xIhbLv4MmQZWXPfx3yPCLiZVe6n7o9ZmY
+         NVlYQrQbpPON9U7V66978npspef+CJkYNhrbCQ+twSrrFiy/TWPAd47JYl6TH6jRes3p
+         F9CpdF87weDVAe4ugx5o1Dv85llM7BxakVF3eVRivYRoknUTLTYh3FcDAx30ajZoH9Vt
+         CZxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
-        bh=QSpm1V+Ji47xL0bb4a9x9poHrFEc/OWZ59EiV9Me3Jo=;
-        b=x3zvAqoKbHBvp+/1peWOhK9kT/1Dbs4aiaqfwFRr10uhSGxHQX1hbjZGcknOFtw8Su
-         koD6XWHnhBMgom+khef4URoFo1HACzd8FBdCu7VhDsSTcLkACDcAn+KlKg9IjPKWwvrm
-         Z1Y9DpEtMVIzV348xZDWnPRP0VI8nFHt72xE2Jf8gqfBnDSu5G/4z3L2/RlElhKBJaao
-         umQJr3C/Lbz6Kc+Pte3Am7Fs/9mQD0rAfZe8OonbJCNOZqqUGseDvAnzJPaXIPyd4q8F
-         kVu+eqros134hqUabGxNfeSFfyoxnGb6/fRL5C9SFE0zrZHX3qpiAt+9oGxNQ6RwYhwx
-         o6Bw==
-X-Gm-Message-State: ACgBeo1/QGgDoNFbgjfDQJ0TNqjP7fzqAt8XnKUO2kI0GMqzJfr9bcNR
-	rzJbos0RZGPpSfU76hq/61S58w==
-X-Google-Smtp-Source: AA6agR5ueu1dLkkrusSuI3DsSk9yaavTbdaR+6RE9jVrGKdK+odMpnXIKdJ10mwvIfyJbJqa43rTNg==
-X-Received: by 2002:a17:902:dac5:b0:16f:63c:3e91 with SMTP id q5-20020a170902dac500b0016f063c3e91mr66920plx.169.1660236805100;
-        Thu, 11 Aug 2022 09:53:25 -0700 (PDT)
+        bh=Ck/kSylQVms5JwCJbdw3zQuUtzcZAeiGwMiy/xk3l3k=;
+        b=zmQKxVPf1sJAFUJt/4mXLeE0ON7giVQojs3rC2dXXPw/QAtszevzl16+M7jecwhPWE
+         Qan9mOFPJ7hfE9YtaeTuq7+7OXWQM2byAS6ac2xj+VxoD66n9gQ9DAoS7imFGumH4DvD
+         jDfMTSwUMMAriQ6X6sevxpsWEGQSGi5yv/E/2IVOsNNR/TfbElTZui7WFYzKuYfdHWdL
+         fIGoieHFQZl8flLHOeNNVar/tgyx7Ydd6rKkuZHKhhPd6Qv/VobJUe/t0xNVk9cPM0TX
+         WgNC7NyCxsk+bh1yoU54L9GfOiDE0w8L0PkiipBEqnJyMImfGJeposULNQ60Kj0UTY3D
+         3A4Q==
+X-Gm-Message-State: ACgBeo1udVOTIS8juRpstFKub8OnYJm4ZMcl1fRuoj8UCDbQ26GJY4S5
+	3ldvfkIBUJpbqXrbOtk1WuCGhw==
+X-Google-Smtp-Source: AA6agR7HztU5aHFmk889S5mE0ZrMU7TcZuua217HAGdwZ+A2bijuXbm3lOJbpJ0coxigOaHrJxS4nQ==
+X-Received: by 2002:a17:902:f283:b0:16f:c46:dc1f with SMTP id k3-20020a170902f28300b0016f0c46dc1fmr144542plc.162.1660237783367;
+        Thu, 11 Aug 2022 10:09:43 -0700 (PDT)
 Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id c11-20020aa7952b000000b00528c22fbb45sm4441125pfp.141.2022.08.11.09.53.24
+        by smtp.gmail.com with ESMTPSA id e12-20020a170902b78c00b0017154ae6265sm83497pls.211.2022.08.11.10.09.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Aug 2022 09:53:24 -0700 (PDT)
-Date: Thu, 11 Aug 2022 09:53:24 -0700 (PDT)
-X-Google-Original-Date: Thu, 11 Aug 2022 09:53:07 PDT (-0700)
-Subject: Re: [PATCH v2 1/2] riscv/purgatory: hard-code obj-y in Makefile
-In-Reply-To: <20220725021902.625630-1-masahiroy@kernel.org>
+        Thu, 11 Aug 2022 10:09:42 -0700 (PDT)
+Date: Thu, 11 Aug 2022 10:09:42 -0700 (PDT)
+X-Google-Original-Date: Thu, 11 Aug 2022 10:09:41 PDT (-0700)
+Subject: Re: [PATCH] riscv/kprobes: allocate detour buffer from module area
+In-Reply-To: <20220629011317.259986-1-liaochang1@huawei.com>
 CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  linux-riscv@lists.infradead.org, masahiroy@kernel.org, bp@suse.de, lizhengyu3@huawei.com,
-  ndesaulniers@google.com, linux-kernel@vger.kernel.org
+  mhiramat@kernel.org, rostedt@goodmis.org, liaochang1@huawei.com, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: masahiroy@kernel.org
-Message-ID: <mhng-e4e57be3-7448-411f-9633-af8a320edf45@palmer-mbp2014>
+To: liaochang1@huawei.com
+Message-ID: <mhng-0e2f7f49-2680-4341-83dc-0e7cd042a3fa@palmer-mbp2014>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220811_095328_973140_458EF4EF 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20220811_100945_042147_924F94CB 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,33 +88,72 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 24 Jul 2022 19:19:01 PDT (-0700), masahiroy@kernel.org wrote:
-> The purgatory/ directory is entirely guarded in arch/riscv/Kbuild.
-> CONFIG_ARCH_HAS_KEXEC_PURGATORY is bool type.
+On Tue, 28 Jun 2022 18:13:17 PDT (-0700), liaochang1@huawei.com wrote:
+> To address the limitation of PC-relative branch instruction
+> on riscv architecture, detour buffer slot is allocated from
+> a area, the distance of which from kernel should be less than 4GB.
 >
-> $(CONFIG_ARCH_HAS_KEXEC_PURGATORY) is always 'y' when Kbuild visits
-> this Makefile for building.
+> For the time being, Modules region always live before the kernel.
+> But Vmalloc region reside far away from kernel, the distance is
+> half of the kernel address space.
 >
-> Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
+> Signed-off-by: Liao Chang <liaochang1@huawei.com>
 > ---
+>  arch/riscv/kernel/probes/kprobes.c | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
 >
-> (no changes since v1)
+> diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
+> index e6e950b7cf32..bc027a663b17 100644
+> --- a/arch/riscv/kernel/probes/kprobes.c
+> +++ b/arch/riscv/kernel/probes/kprobes.c
+> @@ -6,12 +6,14 @@
+>  #include <linux/extable.h>
+>  #include <linux/slab.h>
+>  #include <linux/stop_machine.h>
+> +#include <linux/moduleloader.h>
+>  #include <asm/ptrace.h>
+>  #include <linux/uaccess.h>
+>  #include <asm/sections.h>
+>  #include <asm/cacheflush.h>
+>  #include <asm/bug.h>
+>  #include <asm/patch.h>
+> +#include <asm/set_memory.h>
 >
->  arch/riscv/purgatory/Makefile | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  #include "decode-insn.h"
 >
-> diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-> index d4df200f7edf..c2d14e2f345d 100644
-> --- a/arch/riscv/purgatory/Makefile
-> +++ b/arch/riscv/purgatory/Makefile
-> @@ -92,4 +92,4 @@ quiet_cmd_bin2c = BIN2C   $@
->  $(obj)/kexec-purgatory.c: $(obj)/purgatory.ro $(obj)/purgatory.chk FORCE
->  	$(call if_changed,bin2c)
->
-> -obj-$(CONFIG_ARCH_HAS_KEXEC_PURGATORY)	+= kexec-purgatory.o
-> +obj-y += kexec-purgatory.o
+> @@ -86,10 +88,28 @@ int __kprobes arch_prepare_kprobe(struct kprobe *p)
+>  #ifdef CONFIG_MMU
+>  void *alloc_insn_page(void)
+>  {
+> +#if defined(CONFIG_MODULES) && defined(CONFIG_64BIT)
+> +	void *page;
+> +
+> +	page = module_alloc(PAGE_SIZE);
+> +	if (!page)
+> +		return NULL;
+> +
+> +	set_vm_flush_reset_perms(page);
+> +	/*
+> +	 * First make the page read-only, and only then make it executable to
+> +	 * prevent it from being W+X in between.
+> +	 */
+> +	set_memory_ro((unsigned long)page, 1);
+> +	set_memory_x((unsigned long)page, 1);
+> +
+> +	return page;
+> +#else
+>  	return  __vmalloc_node_range(PAGE_SIZE, 1, VMALLOC_START, VMALLOC_END,
+>  				     GFP_KERNEL, PAGE_KERNEL_READ_EXEC,
+>  				     VM_FLUSH_RESET_PERMS, NUMA_NO_NODE,
+>  				     __builtin_return_address(0));
+> +#endif
+>  }
+>  #endif
 
-Thanks, these are on for-next.
+This probably shouldn't depend on CONFIG_MODULES, it's just as broken to 
+assume we can jump to the vmalloc region regardless of whether modules 
+are enabled or disabled.  We should be able to just allocate from the 
+jump-safe region either way.
 
 _______________________________________________
 linux-riscv mailing list
