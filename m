@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5842AC25B07
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 21:50:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45B1C19F2A
+	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 21:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=l9FI/2p/mrFY5b3Zkliad95fSs+9l2UVpPks0u0i8Pw=; b=t4Z1DQHa0Yhbq1joBq7MNZ1yjH
-	+LwIb+LaOj4oVBHMSZ2a3JYW9pZLnQHO75Co6x/E1xME4AP6q3xTwDAPBRE/I5kM3y+8zR12dsrfh
-	C3uMTdq5dnkxlJtbZoNGkCl7hGGKOqyG0lIDRExPaNLV9go6JD2YdW5gjiUw7Fh4mSQsHKCNux9YQ
-	d+q17nCGhpb2hNlukYZeFXFZqsCJk+0zf1d3RQWqe3zqpBE04WHiH/HkGOZIy1fG/y+sjbsAqocI/
-	q/+z5GHkzy5XVbEvKMwLbUoc4LFgjR46H5tRN1sJAAFcHOgx1cADdEIuTxH/CNnqiRuhkfgRc0Xfk
-	V/fV1OOA==;
+	bh=Q2XXP/3N4k3b6PbdXi4k8SjGHzFt/HABVO13cGmyzqw=; b=oY41UNWmjBmpLexm1R1lStFJte
+	Q024A7tM3ma1EqGGQBakDA8+4ipODk3Ic03qmUMJxm0Gdzg7sKCYvEQSeFCfFgN6XLdSCoJxcIj0P
+	PmvLdQJRvCfTq5eaIJIIGkiSxlprLtlqrbMw3qfN1e+34AGvCHOppN6DZYi1uxWUHG989RYjemetm
+	1YBNz6gTz93bxfoupgWlcyuqJ7QPh/9rR7R3uKC5JUfmhoILZll1koGpk72f5ONGePDhgQMJbTo9a
+	jCy8ypxm18UlTnuX1afOGYers3tcZ5Fo3BCjLdMaCdauP0urhBS7JIHJnZVOQBjKZX5p4cQsOPEMT
+	t/PEtuWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMG3w-005o8H-6B; Thu, 11 Aug 2022 21:49:56 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1oMG40-005oBM-6W; Thu, 11 Aug 2022 21:50:00 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMG3r-005o4c-Ll
-	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 21:49:53 +0000
-Received: by mail-pl1-x631.google.com with SMTP id p8so17995706plq.13
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 14:49:50 -0700 (PDT)
+	id 1oMG3t-005o5G-4n
+	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 21:49:55 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id s206so18232309pgs.3
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 14:49:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc;
-        bh=INwC/ZxYjgEo52Q2Pg1ee1AN4T0Zn+PUGThlCNO5CP8=;
-        b=AFv7NN6x3wDKSuF+l+O/0oTtjeqdnkphV/p2FY9khtx2aC2wSujyDjIF1Auz25BtTo
-         DtJ6xFPJhiXmlywp9M953eEyGkimY/pGGf7DmhvKhKIxU//6zPYGlDUiEYDHUPjvqeuC
-         pbpSYWt9oVWjqix0cGiVSUKJMFK2TO9YjIdCmNwBlbxchjuw7xppSVECtfoOKXRDglOo
-         Rm66jKKKPSUsWf4o7RhF2nhiVQE6HefZPYtS6j5NG2pPGdDTS8wv4VixmMz2N+ePwslY
-         83zGmz6m4x2WT9vmW4KLfi2WWc0epRNCp4XyEzyTv4Gd01ubM4leNiscAtC5ryOYYMZo
-         7GGw==
+        bh=a6547274K2iHeQNpwwXuIMlyGaHvz13NtJhgq6J2+CU=;
+        b=0eEqkfey7J4G19PaVOI/piHoBJuBvI0VNHZvD59Ma+ludVEtEC8D3xz5dU8dWCU861
+         WNxZnA83yYBS2kbC0O8fsTwoCR5QpFaCZB8pHTnCAZ0h/eoofy5djcnzBjZVA/I82OOL
+         UVZ/nF3TmDov/7R5SfGsqn94Ms8wGGaVLDBt1ULekYRHENIKuUNBC1nnBq+up9Q4rnia
+         oyAyidS17Hm3JkJK8fWY6UXioTj3jErFXKs/lFSlucN39J0YgySyLzeZAWrcML+FBQIU
+         DY0MZZ0KeGCIxXcYFMN7EmUFGmH4XTRxTEk9yevc58KuX/iGdWnnaZEoHBMKycNAdft/
+         Dtyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
-        bh=INwC/ZxYjgEo52Q2Pg1ee1AN4T0Zn+PUGThlCNO5CP8=;
-        b=KPsM1GSrmHLE90MHcpu5yvhlp0y3YA4kjqytViYuiWhODpta+2OP/VQ+Wthg0lc4tL
-         N/OZrMNvdHNOohYroxdenXHeM5V2Day78ecFXrKtgP7V2V0hsFGtno7Ep9prxSM08K2J
-         nt37kt+bmB0GjrrEy3U/YgXnAayZp11PtOamcKnBL5hIcw77WF/l1uMnEMhS6dpeKjtU
-         zcwCkE47SQ1Txmh7qqVnEi2hLY8mAEQo0/psiBpdpY4ZbVgHF9QApQSy1b09s7qst8YW
-         ycLpG4Oh2WxSsZkUTO1JWSkXYUx7Jr3Yte8L9ej7v1ZNgFNt/lcZKr9gfUbt+lt9zMDk
-         ytVw==
-X-Gm-Message-State: ACgBeo3cWOqKbEYtETvvDfAieqPGitBtax5FcNh7W1Mwdj/j2c3eX2fJ
-	yoCegcwapsiO5i2E+irwDzN5mmrjoWns6zOV
-X-Google-Smtp-Source: AA6agR6iMqNSQuylUmra+omyTyvV0IztnoH0kX7QRhURBqt0u0AOTlCaptbdQQIQ+l9VQUrrRXGFwg==
-X-Received: by 2002:a17:903:324f:b0:171:3bc1:ccf5 with SMTP id ji15-20020a170903324f00b001713bc1ccf5mr1047961plb.148.1660254589568;
-        Thu, 11 Aug 2022 14:49:49 -0700 (PDT)
+        bh=a6547274K2iHeQNpwwXuIMlyGaHvz13NtJhgq6J2+CU=;
+        b=XeeUHlwfWL+1gnl/hzGF5YHFxOZctf+bDCFuKDeVoUJk5+BUGv/jP3mIISlFn+POfT
+         /jhC3BEXwaCIsRhWSs0F92JSMJsEBSqU2hE+9QCqfKpGRiWM7yU+NXyBVjK+TFbzZSKp
+         C7jKS8elw6o7OKoTUZdAKqfDDnZD64Wr5oElTmznhSe2aHdUUa61LQvYkcwXuU7SemN+
+         RQdXkc22TCvQFMF6LpAwozovbdaKzu8jPNVfBnawz+B6U3UCB3BQ6EoOEOYu5s+4Opgq
+         nlMP0rZ8jlR+Nhk1e0z+nBcRdO3cgzBLyhjmfpsnHillqSXGYNFiCeum7rPI3Jpa4YJR
+         24Iw==
+X-Gm-Message-State: ACgBeo2H9xkNbdf6mMSn1v6DHjglODxmqulIixm0nBjMX1Q0AmGPfqP+
+	j1ZYitaeiZB9PIVRKhr0+aTEgg==
+X-Google-Smtp-Source: AA6agR4dInN19yKFsA3LGylGiOASG3Dp6LBKaYH3f0WnCSF91Nk9WeBWvRzf+9+x0ZP4WM+mrQ0b1A==
+X-Received: by 2002:a63:5947:0:b0:41d:d4ea:6c87 with SMTP id j7-20020a635947000000b0041dd4ea6c87mr752298pgm.528.1660254591255;
+        Thu, 11 Aug 2022 14:49:51 -0700 (PDT)
 Received: from localhost ([50.221.140.186])
-        by smtp.gmail.com with ESMTPSA id n5-20020a622705000000b0052ea306a1e8sm151019pfn.210.2022.08.11.14.49.48
+        by smtp.gmail.com with ESMTPSA id r1-20020aa79ec1000000b0053249b67215sm161690pfq.131.2022.08.11.14.49.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Aug 2022 14:49:49 -0700 (PDT)
-Date: Thu, 11 Aug 2022 14:49:49 -0700 (PDT)
-X-Google-Original-Date: Thu, 11 Aug 2022 14:31:44 PDT (-0700)
-Subject: Re: [PATCH v4] riscv:uprobe fix SR_SPIE set/clear handling
-In-Reply-To: <20220721065820.245755-1-zouyipeng@huawei.com>
-CC: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, guoren@kernel.org, penberg@kernel.org, zouyipeng@huawei.com
+        Thu, 11 Aug 2022 14:49:50 -0700 (PDT)
+Date: Thu, 11 Aug 2022 14:49:50 -0700 (PDT)
+X-Google-Original-Date: Thu, 11 Aug 2022 14:49:38 PDT (-0700)
+Subject: Re: [PATCH v7 0/4] Add Sstc extension support
+In-Reply-To: <CAAhSdy2UDwZYK+EaKHPXLxyKUMv-OX02EdaBDBgjNF0jdDJ7xQ@mail.gmail.com>
+CC: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org,
+  aou@eecs.berkeley.edu, atishp@atishpatra.org, daniel.lezcano@linaro.org, guoren@kernel.org,
+  heiko@sntech.de, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
+  linux-riscv@lists.infradead.org, pbonzini@redhat.com, Paul Walmsley <paul.walmsley@sifive.com>, robh@kernel.org,
+  tglx@linutronix.de, research_trasio@irq.a4lg.com, wefu@redhat.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: zouyipeng@huawei.com
-Message-ID: <mhng-01d4b462-bf0a-4182-bb49-248db4cf0f8e@palmer-ri-x1c9>
+To: anup@brainfault.org
+Message-ID: <mhng-368a1ddb-43d3-4d61-934b-3916c63005d4@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220811_144951_736826_0BD035BA 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20220811_144953_237318_72D68C16 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,75 +90,114 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Jul 2022 23:58:20 PDT (-0700), zouyipeng@huawei.com wrote:
-> In riscv the process of uprobe going to clear spie before exec
-> the origin insn,and set spie after that.But When access the page
-> which origin insn has been placed a page fault may happen and
-> irq was disabled in arch_uprobe_pre_xol function,It cause a WARN
-> as follows.
-> There is no need to clear/set spie in arch_uprobe_pre/post/abort_xol.
-> We can just remove it.
+On Fri, 22 Jul 2022 21:47:06 PDT (-0700), anup@brainfault.org wrote:
+> Hi Palmer,
 >
-> [   31.684157] BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1488
-> [   31.684677] in_atomic(): 0, irqs_disabled(): 1, non_block: 0, pid: 76, name: work
-> [   31.684929] preempt_count: 0, expected: 0
-> [   31.685969] CPU: 2 PID: 76 Comm: work Tainted: G
-> [   31.686542] Hardware name: riscv-virtio,qemu (DT)
-> [   31.686797] Call Trace:
-> [   31.687053] [<ffffffff80006442>] dump_backtrace+0x30/0x38
-> [   31.687699] [<ffffffff80812118>] show_stack+0x40/0x4c
-> [   31.688141] [<ffffffff8081817a>] dump_stack_lvl+0x44/0x5c
-> [   31.688396] [<ffffffff808181aa>] dump_stack+0x18/0x20
-> [   31.688653] [<ffffffff8003e454>] __might_resched+0x114/0x122
-> [   31.688948] [<ffffffff8003e4b2>] __might_sleep+0x50/0x7a
-> [   31.689435] [<ffffffff80822676>] down_read+0x30/0x130
-> [   31.689728] [<ffffffff8000b650>] do_page_fault+0x166/x446
-> [   31.689997] [<ffffffff80003c0c>] ret_from_exception+0x0/0xc
+> On Fri, Jul 22, 2022 at 10:20 PM Atish Patra <atishp@rivosinc.com> wrote:
+>>
+>> This series implements Sstc extension support which was ratified recently.
+>> Before the Sstc extension, an SBI call is necessary to generate timer
+>> interrupts as only M-mode have access to the timecompare registers. Thus,
+>> there is significant latency to generate timer interrupts at kernel.
+>> For virtualized enviornments, its even worse as the KVM handles the SBI call
+>> and uses a software timer to emulate the timecomapre register.
+>>
+>> Sstc extension solves both these problems by defining a stimecmp/vstimecmp
+>> at supervisor (host/guest) level. It allows kernel to program a timer and
+>> recieve interrupt without supervisor execution enviornment (M-mode/HS mode)
+>> intervention.
+>>
+>> KVM directly updates the vstimecmp as well if the guest kernel invokes the SBI
+>> call instead of updating stimecmp directly. This is required because KVM will
+>> enable sstc extension if the hardware supports it unless the VMM explicitly
+>> disables it for that guest. The hardware is expected to compare the
+>> vstimecmp at every cycle if sstc is enabled and any stale value in vstimecmp
+>> will lead to spurious timer interrupts. This also helps maintaining the
+>> backward compatibility with older kernels.
+>>
+>> Similary, the M-mode firmware(OpenSBI) uses stimecmp for older kernel
+>> without sstc support as STIP bit in mip is read only for hardware with sstc.
+>>
+>> The PATCH 1 & 2 enables the basic infrastructure around Sstc extension while
+>> PATCH 3 lets kernel use the Sstc extension if it is available in hardware.
+>> PATCH 4 implements the Sstc extension in KVM.
+>>
+>> This series has been tested on Qemu(RV32 & RV64) with additional patches in
+>> Qemu[2]. This series can also be found at [3].
+>>
+>> Changes from v6->v7:
+>> 1. Fixed a compilation error reported by 0-day bot.
+>>
+>> Changes from v5->v6:
+>> 1. Moved SSTC extension enum below SVPBMT.
+>>
+>> Changes from v4->v5:
+>> 1. Added RB tag.
+>> 2. Changed the pr-format.
+>> 3. Rebased on 5.19-rc7 and kvm-queue.
+>> 4. Moved the henvcfg modification from hardware enable to vcpu_load.
+>>
+>> Changes from v3->v4:
+>> 1. Rebased on 5.18-rc6
+>> 2. Unified vstimemp & next_cycles.
+>> 3. Addressed comments in PATCH 3 & 4.
+>>
+>> Changes from v2->v3:
+>> 1. Dropped unrelated KVM fixes from this series.
+>> 2. Rebased on 5.18-rc3.
+>>
+>> Changes from v1->v2:
+>> 1. Separate the static key from kvm usage
+>> 2. Makde the sstc specific static key local to the driver/clocksource
+>> 3. Moved the vstimecmp update code to the vcpu_timer
+>> 4. Used function pointers instead of static key to invoke vstimecmp vs
+>>    hrtimer at the run time. This will help in future for migration of vms
+>>    from/to sstc enabled hardware to non-sstc enabled hardware.
+>> 5. Unified the vstimer & timer to 1 timer as only one of them will be used
+>>    at runtime.
+>>
+>> [1] https://drive.google.com/file/d/1m84Re2yK8m_vbW7TspvevCDR82MOBaSX/view
+>> [2] https://github.com/atishp04/qemu/tree/sstc_v6
+>> [3] https://github.com/atishp04/linux/tree/sstc_v7
+>>
+>> Atish Patra (4):
+>> RISC-V: Add SSTC extension CSR details
+>> RISC-V: Enable sstc extension parsing from DT
+>> RISC-V: Prefer sstc extension if available
+>> RISC-V: KVM: Support sstc extension
 >
-> Fixes: 74784081aac8 ("riscv: Add uprobes supported")
-> Signed-off-by: Yipeng Zou <zouyipeng@huawei.com>
-> Reviewed-by: Guo Ren <guoren@kernel.org>
-> ---
-> v2: Add Fixes tag
-> v3: Rename Subject
-> v4: Add Reviewed-by tags
+> The PATCH4 is dependent on the KVM patches in queue for 5.20.
 >
->  arch/riscv/kernel/probes/uprobes.c | 6 ------
->  1 file changed, 6 deletions(-)
+> I suggest you take PATCH1, PATCH2 and PATCH3. I will send
+> PATCH4 in second batch/PR for 5.20 assuming you will send the
+> first three patches in your first PR for 5.20
 >
-> diff --git a/arch/riscv/kernel/probes/uprobes.c b/arch/riscv/kernel/probes/uprobes.c
-> index 7a057b5f0adc..c976a21cd4bd 100644
-> --- a/arch/riscv/kernel/probes/uprobes.c
-> +++ b/arch/riscv/kernel/probes/uprobes.c
-> @@ -59,8 +59,6 @@ int arch_uprobe_pre_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
->
->  	instruction_pointer_set(regs, utask->xol_vaddr);
->
-> -	regs->status &= ~SR_SPIE;
-> -
->  	return 0;
->  }
->
-> @@ -72,8 +70,6 @@ int arch_uprobe_post_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
->
->  	instruction_pointer_set(regs, utask->vaddr + auprobe->insn_size);
->
-> -	regs->status |= SR_SPIE;
-> -
->  	return 0;
->  }
->
-> @@ -111,8 +107,6 @@ void arch_uprobe_abort_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
->  	 * address.
->  	 */
->  	instruction_pointer_set(regs, utask->vaddr);
-> -
-> -	regs->status &= ~SR_SPIE;
->  }
->
->  bool arch_uretprobe_is_alive(struct return_instance *ret, enum rp_check ctx,
+> Does this sound okay to you ?
 
-Thanks, this is on for-next.
+Sorry for being slow here, I just merged the non-KVM ones onto 
+riscv/for-next.  LMK if you want me to try and sort out the KVM bits, 
+the branch base is at palmer/riscv-sstc assuming that's easier for you 
+to just merge in locally.
+
+>
+> Regards,
+> Anup
+>
+>>
+>> arch/riscv/include/asm/csr.h            |   5 +
+>> arch/riscv/include/asm/hwcap.h          |   1 +
+>> arch/riscv/include/asm/kvm_vcpu_timer.h |   7 ++
+>> arch/riscv/include/uapi/asm/kvm.h       |   1 +
+>> arch/riscv/kernel/cpu.c                 |   1 +
+>> arch/riscv/kernel/cpufeature.c          |   1 +
+>> arch/riscv/kvm/vcpu.c                   |   8 +-
+>> arch/riscv/kvm/vcpu_timer.c             | 144 +++++++++++++++++++++++-
+>> drivers/clocksource/timer-riscv.c       |  25 +++-
+>> 9 files changed, 185 insertions(+), 8 deletions(-)
+>>
+>> --
+>> 2.25.1
+>>
 
 _______________________________________________
 linux-riscv mailing list
