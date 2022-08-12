@@ -4,94 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DAAC25B0D
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Aug 2022 03:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 390BCC25B08
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Aug 2022 03:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:Message-ID:From:
-	References:Cc:To:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ta0AVLHwwt2uHJaubUFSJLg31HHhNb4lLeD+zRNonm0=; b=sksjiEILlk33vH0/i78zbrJ1Zy
-	FFPynaD5G6/ox3Mu6Umzp0esZOYkJCxbvXTyPc7iXFhLuk9WSws1WSUgoIwys2XxCBit1w5PSPHzX
-	HnDFUJaJg5jAmarACohWx7s/3P7RrUFSw9g/svzdqCANESViIWAUD7JlStdAl0zyVXzwI7N9RAEVN
-	moy0duW/exDkqAS2aQRD5crvSS6WhsHwrJlRRYln04D5tl0kcJVg7cIPPiIHwSt0vlatFFH806QC/
-	WRo7AXqFFcvywAHUQ9ptQ9HmWq0jS34IWBOZR9lT1wwT1UWRajv9yDPjVYSD0+042Tmq5M8SdGVdc
-	F+Mi5WWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LZwo6FcfOR9qJbD6zmA/CObtqIXKYJsDVkQP9MCvu8Q=; b=RBeGvwVthzVh9b
+	yjOIZ825RbNIJ0DdM3p6sH2oVG4J+ISjw3NN1DVPvACw41S3ZCzsV9C9X6P389qntaaoD9lIBXrIO
+	hG2cQIWbdATMeRKWV+aAbvZBxy9SseHXX9RImMN2W9wSyMRgDV0s4yepqgia8Cj8WmOsIKnOz0nRR
+	pDNhZF50ueS5bZRB0ZbRPs7mniTjj36feXbbl6FwuQO98zrWocHGV5+mzEz8gdfY8rO21v3b6jQ7G
+	4v1kddeHmniRbuvAh2Sq5YxZKvS8wxDN1VPnXxmAaI0pxxt8EyVkPTJo6YKc4wfaH6eFNz64JuJwF
+	FTE6BwXbNtYNuoiep1XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMLIw-00DWqj-4L; Fri, 12 Aug 2022 03:25:46 +0000
-Received: from gproxy1-pub.mail.unifiedlayer.com ([69.89.25.95])
+	id 1oMLLZ-00DdQd-34; Fri, 12 Aug 2022 03:28:29 +0000
+Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMLHJ-00DODj-FF
-	for linux-riscv@lists.infradead.org; Fri, 12 Aug 2022 03:24:07 +0000
-Received: from cmgw10.mail.unifiedlayer.com (unknown [10.0.90.125])
-	by progateway3.mail.pro1.eigbox.com (Postfix) with ESMTP id 888CD100480A6
-	for <linux-riscv@lists.infradead.org>; Fri, 12 Aug 2022 03:23:25 +0000 (UTC)
-Received: from box5620.bluehost.com ([162.241.219.59])
-	by cmsmtp with ESMTP
-	id MLGeo0AuNCokGMLGeo1dhm; Fri, 12 Aug 2022 03:23:25 +0000
-X-Authority-Reason: nr=8
-X-Authority-Analysis: v=2.4 cv=c8Nu/Txl c=1 sm=1 tr=0 ts=62f5c7ad
- a=30941lsx5skRcbJ0JMGu9A==:117 a=30941lsx5skRcbJ0JMGu9A==:17
- a=dLZJa+xiwSxG16/P+YVxDGlgEgI=:19 a=IkcTkHD0fZMA:10:nop_charset_1
- a=biHskzXt2R4A:10:nop_rcvd_month_year
- a=-Ou01B_BuAIA:10:endurance_base64_authed_username_1 a=AlKTREwLlB48cMmJLoYA:9
- a=QEXdDO2ut3YA:10:nop_charset_2
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=w6rz.net;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:
-	Date:Message-ID:From:References:Cc:To:Subject:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=S8uYWQx3EVNMjOIyYYU61Ar0ZsFCEYlJWNWlsODwWhs=; b=vZmZS1ph27cersStAkn2wc1tXG
-	rI+FwQyPtohc4ocNEyz4LfRHEwoqTwvwH8iCae6ui2kQfEZHdrbikJQ+Y3G/aOF6ZlimrWGWWSBe9
-	WN8hjYNS5wv1magar4dZy6hGXN7ea3uH2rs/tKytLivQ20lrUpO0E8A6ZAYB/Shv9Eto5GvCGf+WE
-	r1LT2w0URrQPCq9UicARLYDpHwGkPdH//aBityTeOMqV4be1kjykrbHGG/5V3ZABEsdixP322fTN9
-	nOkxX+YtOjSyLqORLQDkj+2xjFSBR7zXDotO1vquh9eG6eMUXGLMM+kEznAkjUw1yighOjqVPa8WB
-	5hsqSy4Q==;
-Received: from c-73-162-232-9.hsd1.ca.comcast.net ([73.162.232.9]:39398 helo=[10.0.1.48])
-	by box5620.bluehost.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <re@w6rz.net>)
-	id 1oMLGd-000BFx-FM;
-	Thu, 11 Aug 2022 21:23:23 -0600
-Subject: Re: Apply f2928e224d85e7cc139009ab17cefdfec2df5d11 to 5.15 and 5.10?
-To: Nathan Chancellor <nathan@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Sasha Levin <sashal@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Dimitri John Ledkov <dimitri.ledkov@canonical.com>,
- Anup Patel <anup@brainfault.org>, stable@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <YvWduqRcPYhYZWMT@dev-arch.thelio-3990X>
-From: Ron Economos <re@w6rz.net>
-Message-ID: <9e2b9fbd-c597-f310-aad2-06c85c8ce31c@w6rz.net>
-Date: Thu, 11 Aug 2022 20:23:21 -0700
-User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
+	id 1oMLLT-00DdCd-Lp
+	for linux-riscv@lists.infradead.org; Fri, 12 Aug 2022 03:28:25 +0000
+Received: by mail-yb1-xb2d.google.com with SMTP id b144so4523195yba.13
+        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 20:28:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc;
+        bh=5txKBL9+M/Zh/dEDyh3BLW8jRi75RWSJvozBNKtl85E=;
+        b=069qPl4HFPR0BVUbNN8/t9ULIjKgDGN+8+CIKeDRlyn4Z+0BQMeAv8HLyr2A7uIRMb
+         DTYyFkBXttWNlERDv0W8QMV1+bSExeumK9pdf0jHiZfbRynKQnBG9s0d7RlLJHd9aiRe
+         V7KvazQurjutLxWB47wmRBBwJKc8RKAAWu7TOFfuTkT/VVs4ZyDqETACThuIqDowB6+u
+         OuwKcHBEpO1RhREZmY/f8xagDfdIZ2XjI2CXXbGDavFNvDT0QZxexWLjp40toZ0GM99l
+         VbaSvjoN6AzQn3P/HPXVwIFSAqMjXpDn9L85C+ak1vBLfpizvif3CJnbj7jMP78cxK2N
+         hhTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc;
+        bh=5txKBL9+M/Zh/dEDyh3BLW8jRi75RWSJvozBNKtl85E=;
+        b=rCDV6nRn8AGeY3YVzcIeMj92q6rkvb7pvy2am+ZelLEpy2XfRQm/O6RS3zJabmZrZD
+         rgqFuXBj/rQ8S1aSPBtMiNu6l7L5cxWJX9KFxETPogGbLCFuoAz2fW21pmIVl3lsERTq
+         z31BceAsQjmDq8XHHomtD+ZpdyHyPEpFNhSw+eLIenE79i9DyDuFSbGwu8YiC8nP5YSb
+         Qjr+YhpVanBedPobDJOGxCNTGZ6pFhJzg2HcA/LHs/ExYf1xMkt6BEGMCfWbKsK8s/b4
+         TlaCfV1SsH/LE8ZlKlVREwnQmd6TR1t3e3285z/1yWTFnPxBTDeTRY8acAw9wRWNXad2
+         47jQ==
+X-Gm-Message-State: ACgBeo0Uw59iD4fl1Twm4n+1H/W87kCrh8n6uvkcFjS7XEBsXhugj7RT
+	u7kBhpcFCsVrTt34k/70wTfc7DDL+WUJH8fPdkqH1A==
+X-Google-Smtp-Source: AA6agR4o4Q1raUDav8FjGV2/LTFTH8wCa9D0izlQi+GGHZVaPYYuLtkY9Pi5KQaJP1cxq2efa3eXLJ3HQqEv4F5kcsA=
+X-Received: by 2002:a5b:b49:0:b0:67c:cf0:4565 with SMTP id b9-20020a5b0b49000000b0067c0cf04565mr1934978ybr.442.1660274900107;
+ Thu, 11 Aug 2022 20:28:20 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <YvWduqRcPYhYZWMT@dev-arch.thelio-3990X>
-Content-Language: en-US
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - box5620.bluehost.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - w6rz.net
-X-BWhitelist: no
-X-Source-IP: 73.162.232.9
-X-Source-L: No
-X-Exim-ID: 1oMLGd-000BFx-FM
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: c-73-162-232-9.hsd1.ca.comcast.net ([10.0.1.48]) [73.162.232.9]:39398
-X-Source-Auth: re@w6rz.net
-X-Email-Count: 8
-X-Source-Cap: d3NpeHJ6bmU7d3NpeHJ6bmU7Ym94NTYyMC5ibHVlaG9zdC5jb20=
-X-Local-Domain: yes
+References: <CAAhSdy2UDwZYK+EaKHPXLxyKUMv-OX02EdaBDBgjNF0jdDJ7xQ@mail.gmail.com>
+ <mhng-368a1ddb-43d3-4d61-934b-3916c63005d4@palmer-ri-x1c9>
+In-Reply-To: <mhng-368a1ddb-43d3-4d61-934b-3916c63005d4@palmer-ri-x1c9>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 12 Aug 2022 08:58:08 +0530
+Message-ID: <CAAhSdy2mb6wyqy0NAn9BcTWKMYEc0Z4zU3s3j7oNqBz6eDQ9sg@mail.gmail.com>
+Subject: Re: [PATCH v7 0/4] Add Sstc extension support
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Atish Patra <atishp@rivosinc.com>, linux-kernel@vger.kernel.org, 
+	aou@eecs.berkeley.edu, atishp@atishpatra.org, daniel.lezcano@linaro.org, 
+	guoren@kernel.org, heiko@sntech.de, kvm-riscv@lists.infradead.org, 
+	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, pbonzini@redhat.com, 
+	Paul Walmsley <paul.walmsley@sifive.com>, robh@kernel.org, tglx@linutronix.de, 
+	research_trasio@irq.a4lg.com, wefu@redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220811_202405_696287_7713E1B7 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20220811_202823_805499_9AED32E1 
+X-CRM114-Status: GOOD (  34.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,51 +83,131 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 8/11/22 5:24 PM, Nathan Chancellor wrote:
-> Hi all,
->
-> Would it be reasonable to apply commit f2928e224d85 ("riscv: set default
-> pm_power_off to NULL") to 5.10 and 5.15? I see the following issue when
-> testing OpenSUSE's RISC-V configuration in QEMU and it is resolved with
-> that change.
->
-> Requesting system poweroff
-> [    4.497128][  T177] reboot: Power down
-> [   32.045207][    C0] watchdog: BUG: soft lockup - CPU#0 stuck for 26s! [init:177]
-> [   32.045785][    C0] Modules linked in:
-> [   32.046166][    C0] CPU: 0 PID: 177 Comm: init Not tainted 5.15.60-default #1 5b276f06901b1c37142db73337a1816290810c90
-> [   32.046814][    C0] Hardware name: riscv-virtio,qemu (DT)
-> [   32.047256][    C0] epc : default_power_off+0x1a/0x20
-> [   32.047667][    C0]  ra : machine_power_off+0x22/0x2a
-> [   32.047979][    C0] epc : ffffffff80004a4a ra : ffffffff80004abe sp : ffffffd000bc3d50
-> [   32.048405][    C0]  gp : ffffffff81bec160 tp : ffffffe002080000 t0 : ffffffff80490964
-> [   32.048827][    C0]  t1 : 0720072007200720 t2 : 50203a746f6f6265 s0 : ffffffd000bc3d60
-> [   32.049245][    C0]  s1 : 000000004321fedc a0 : 0000000000000004 a1 : ffffffff81b073c8
-> [   32.049676][    C0]  a2 : 0000000000000010 a3 : 00000000000000ab a4 : e0b1d187e51c7400
-> [   32.050115][    C0]  a5 : ffffffff80004a30 a6 : c0000000ffffdfff a7 : ffffffff804ea464
-> [   32.050555][    C0]  s2 : 0000000000000000 s3 : ffffffff81a20390 s4 : fffffffffee1dead
-> [   32.051009][    C0]  s5 : ffffffff81bee0c8 s6 : 0000003feff55a70 s7 : 0000002acc09bf08
-> [   32.051427][    C0]  s8 : 0000000000000001 s9 : 0000000000000000 s10: 0000002b0a4db6e0
-> [   32.051849][    C0]  s11: 0000000000000000 t3 : ffffffe001e2bf00 t4 : ffffffe001e2bf00
-> [   32.052274][    C0]  t5 : ffffffe001e2b000 t6 : ffffffd000bc3ac8
-> [   32.052604][    C0] status: 0000000000000120 badaddr: 0000000000000000 cause: 8000000000000005
-> qemu-system-riscv64: terminating on signal 15 from pid 2356237 (timeout)
->
-> I am not sure if there is any regression potential with that change,
-> hence this email. That change applies cleanly to both trees and I don't
-> see any additional problems from it.
->
-> Cheers,
-> Nathan
+Hi Palmer,
 
-Should be fine. I apply this patch to all of my 5.15.x stable builds to 
-enable warm reboot on the HiFive Unmatched.
+On Fri, Aug 12, 2022 at 3:19 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Fri, 22 Jul 2022 21:47:06 PDT (-0700), anup@brainfault.org wrote:
+> > Hi Palmer,
+> >
+> > On Fri, Jul 22, 2022 at 10:20 PM Atish Patra <atishp@rivosinc.com> wrote:
+> >>
+> >> This series implements Sstc extension support which was ratified recently.
+> >> Before the Sstc extension, an SBI call is necessary to generate timer
+> >> interrupts as only M-mode have access to the timecompare registers. Thus,
+> >> there is significant latency to generate timer interrupts at kernel.
+> >> For virtualized enviornments, its even worse as the KVM handles the SBI call
+> >> and uses a software timer to emulate the timecomapre register.
+> >>
+> >> Sstc extension solves both these problems by defining a stimecmp/vstimecmp
+> >> at supervisor (host/guest) level. It allows kernel to program a timer and
+> >> recieve interrupt without supervisor execution enviornment (M-mode/HS mode)
+> >> intervention.
+> >>
+> >> KVM directly updates the vstimecmp as well if the guest kernel invokes the SBI
+> >> call instead of updating stimecmp directly. This is required because KVM will
+> >> enable sstc extension if the hardware supports it unless the VMM explicitly
+> >> disables it for that guest. The hardware is expected to compare the
+> >> vstimecmp at every cycle if sstc is enabled and any stale value in vstimecmp
+> >> will lead to spurious timer interrupts. This also helps maintaining the
+> >> backward compatibility with older kernels.
+> >>
+> >> Similary, the M-mode firmware(OpenSBI) uses stimecmp for older kernel
+> >> without sstc support as STIP bit in mip is read only for hardware with sstc.
+> >>
+> >> The PATCH 1 & 2 enables the basic infrastructure around Sstc extension while
+> >> PATCH 3 lets kernel use the Sstc extension if it is available in hardware.
+> >> PATCH 4 implements the Sstc extension in KVM.
+> >>
+> >> This series has been tested on Qemu(RV32 & RV64) with additional patches in
+> >> Qemu[2]. This series can also be found at [3].
+> >>
+> >> Changes from v6->v7:
+> >> 1. Fixed a compilation error reported by 0-day bot.
+> >>
+> >> Changes from v5->v6:
+> >> 1. Moved SSTC extension enum below SVPBMT.
+> >>
+> >> Changes from v4->v5:
+> >> 1. Added RB tag.
+> >> 2. Changed the pr-format.
+> >> 3. Rebased on 5.19-rc7 and kvm-queue.
+> >> 4. Moved the henvcfg modification from hardware enable to vcpu_load.
+> >>
+> >> Changes from v3->v4:
+> >> 1. Rebased on 5.18-rc6
+> >> 2. Unified vstimemp & next_cycles.
+> >> 3. Addressed comments in PATCH 3 & 4.
+> >>
+> >> Changes from v2->v3:
+> >> 1. Dropped unrelated KVM fixes from this series.
+> >> 2. Rebased on 5.18-rc3.
+> >>
+> >> Changes from v1->v2:
+> >> 1. Separate the static key from kvm usage
+> >> 2. Makde the sstc specific static key local to the driver/clocksource
+> >> 3. Moved the vstimecmp update code to the vcpu_timer
+> >> 4. Used function pointers instead of static key to invoke vstimecmp vs
+> >>    hrtimer at the run time. This will help in future for migration of vms
+> >>    from/to sstc enabled hardware to non-sstc enabled hardware.
+> >> 5. Unified the vstimer & timer to 1 timer as only one of them will be used
+> >>    at runtime.
+> >>
+> >> [1] https://drive.google.com/file/d/1m84Re2yK8m_vbW7TspvevCDR82MOBaSX/view
+> >> [2] https://github.com/atishp04/qemu/tree/sstc_v6
+> >> [3] https://github.com/atishp04/linux/tree/sstc_v7
+> >>
+> >> Atish Patra (4):
+> >> RISC-V: Add SSTC extension CSR details
+> >> RISC-V: Enable sstc extension parsing from DT
+> >> RISC-V: Prefer sstc extension if available
+> >> RISC-V: KVM: Support sstc extension
+> >
+> > The PATCH4 is dependent on the KVM patches in queue for 5.20.
+> >
+> > I suggest you take PATCH1, PATCH2 and PATCH3. I will send
+> > PATCH4 in second batch/PR for 5.20 assuming you will send the
+> > first three patches in your first PR for 5.20
+> >
+> > Does this sound okay to you ?
+>
+> Sorry for being slow here, I just merged the non-KVM ones onto
+> riscv/for-next.  LMK if you want me to try and sort out the KVM bits,
+> the branch base is at palmer/riscv-sstc assuming that's easier for you
+> to just merge in locally.
 
+The KVM RISC-V changes for 5.20 are already merged in Linus's master
+so please go ahead and merge the KVM Sstc patch (i.e. PATCH4 of this
+series) in riscv/for-next with "Acked-by: Anup Patel <anup@brainfault.org>"
+
+Thanks,
+Anup
+
+>
+> >
+> > Regards,
+> > Anup
+> >
+> >>
+> >> arch/riscv/include/asm/csr.h            |   5 +
+> >> arch/riscv/include/asm/hwcap.h          |   1 +
+> >> arch/riscv/include/asm/kvm_vcpu_timer.h |   7 ++
+> >> arch/riscv/include/uapi/asm/kvm.h       |   1 +
+> >> arch/riscv/kernel/cpu.c                 |   1 +
+> >> arch/riscv/kernel/cpufeature.c          |   1 +
+> >> arch/riscv/kvm/vcpu.c                   |   8 +-
+> >> arch/riscv/kvm/vcpu_timer.c             | 144 +++++++++++++++++++++++-
+> >> drivers/clocksource/timer-riscv.c       |  25 +++-
+> >> 9 files changed, 185 insertions(+), 8 deletions(-)
+> >>
+> >> --
+> >> 2.25.1
+> >>
 
 _______________________________________________
 linux-riscv mailing list
