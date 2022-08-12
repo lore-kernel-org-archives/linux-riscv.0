@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0704FC00140
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Aug 2022 09:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E04DC00140
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Aug 2022 10:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CXGL6WSC5JnCDan0bRMYxudPOm4SyeeWZcDz3oMqyoY=; b=4RUlU8iqmdfAkc
-	ohKCmBamWkvfE3UeeO39X9u4qRDKuhlc4iQGsNetgOPKJ8+Q4KsUytTvgoXrS9hAi1CY5odshB9Xu
-	f98KSgkfCH7g99RO5eI2O607mM4AYufF3p6U6LyyyCTExBSk6LSYmtQ236PyxlZfjQe5yVYOvgyhy
-	LFrNVN6m8BFkyB0MHmBCCuNfUYNuVIc91p3MFMjxyrl7yje0bgs9G56ve0tdzsua8ko0mGf3i6uDX
-	iZ5/h7weEwIjxXJrpMEYjX2zuhgyXbGVKbksBnc3beggZqx18uwUxKrnXlVBvdmrc+OZJMdVvp5d/
-	hSPN3N3fklI35xMBh/UA==;
+	List-Owner; bh=eQ8GvxdZ8plQS2QZCAgD5dcMglRmbAUd+qSWZpth28A=; b=s7K9YpWvsPGFnh
+	H48mBCPYURGUZXd5pNYuoi+ojQppJzVwK/w7Q7LUBpzXbXYjU47Jh5Bo48umQGI/082uzYl2PTW+g
+	OjW5hQkeJHMvnzptrDODgcXw3HiPoA1g3W1Sxxy7PfVk882WJFWtv3GjV8rTukDgwCfCSeGQHQNQH
+	PqZv89A+/vIYiOvLbUWxxcLsfyJmf6fm5Q5LHIUvoTuu4G+XWlg+o8dsSmkffyWAWkiAOW00gwAO1
+	acOfvUlsFKE9HxI1Vl/ngpNX9EgL4BY35V0e7HdNUq0vEb/IGS6r8fRw63gF9HQcU7u8pwA5mc/VO
+	NYPX0zytr34GqoxpHUxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMRJ9-003yTb-5i; Fri, 12 Aug 2022 09:50:23 +0000
-Received: from mail-yb1-xb2d.google.com ([2607:f8b0:4864:20::b2d])
+	id 1oMRZi-004ZCF-NN; Fri, 12 Aug 2022 10:07:30 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMRJ6-003yQo-JH
-	for linux-riscv@lists.infradead.org; Fri, 12 Aug 2022 09:50:21 +0000
-Received: by mail-yb1-xb2d.google.com with SMTP id i62so697973yba.5
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Aug 2022 02:50:17 -0700 (PDT)
+	id 1oMRZf-004YXo-BS
+	for linux-riscv@lists.infradead.org; Fri, 12 Aug 2022 10:07:28 +0000
+Received: by mail-lf1-x132.google.com with SMTP id a9so670709lfm.12
+        for <linux-riscv@lists.infradead.org>; Fri, 12 Aug 2022 03:07:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc;
-        bh=Q5LlMwsyUspPj+LtUVoQu26MZFGsOb33CHbaqq1+4jY=;
-        b=HLc75iYp79U1+RfhEBEOhwMlcov52UCcyU+25l5nIgSE4ZPcnkp3oEkZQa1i+IqCy3
-         reG28bNyQGn7hxdj7H/0fK8bSv1k6AnOmynkI2yzau3lzhdKQW3qTM58UQD00qyUNUCh
-         eRApV/QCT8+C50xMZ/WnA9QUkmqnk0PNev9mrqEbnB8/s0Ky59r6NQC9+3bzs72p0rtl
-         wauKGWXFx/3Xfw2XRThy4QMjAJA4mdquushkxg3kt/mvmsRbul11EzI9GuUL9Jbm79Di
-         310jC6boc8ZKwICI780E0W9rybi02aINiEOR5O8CxYz8fC1YopKdcHy7cLthXX4W2G1R
-         QL6w==
+        d=linaro.org; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc;
+        bh=pGicgmrkVGpAXVpWBOOwVqoHRpuAuKtD+Wqhn/gpirk=;
+        b=MN1hOu0MvGFfVSNI3SZCMYZgGjhChvjodGSJYoVCvE2Vlkb/G85d1rwBzHEKFU7BoE
+         HNrF5VHtjbtSbVBlPWmrHGCzPLPHjYt5HXG7uLbVxTyFZwP0AzOHLXjZFICp8YmJprtC
+         gX30SbRsIPIu632N0gevqC3jhBV22xnq7p5vafKxI8sgjHiquWCcPgq61ao8BCM1ZRLy
+         fvl11FVIenCL2nYausoYZ3BTaXnAxZX5ZEy3RgIbsRCcA6U2BI3JgqfEKFq/6OYBXH2P
+         5IFQbe3/FiF9ph2qjFSK3Nc7prxcUEQrUR7BsYX/1ybOnFr7KYWEB/B3O4KvuP/4zQSt
+         qtQw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc;
-        bh=Q5LlMwsyUspPj+LtUVoQu26MZFGsOb33CHbaqq1+4jY=;
-        b=ef3rqbAdxEWYRowQ0+2MBWXKcLtfckFbB5XNBpweI2qKrAN2OtOd5NP5kKCsDAaELu
-         eAxVKhktKKlvlyjNUbcBqAlO4dBxWK8w1Zmjn4AMIP5LS+/mxd0PHzz/WEIz7GYa9RLm
-         cnw9v9GBKsVScrGftD/2ifVAPsPY6sldVNNJyl1rTOjfFgPn2pvXzAh9raGk5/dQ/Yrw
-         vydB+BcL2+/6wzJasHiePOhgEt3kHIpvkFNfUmQ/QOZo1N97T6yXhObU2BbL6AiVvr/c
-         WzYifUHAsQUgeRQW3B9ys8pCy1tHmN5uPjpniaw10n+IiE527IZDxdP2plet4qdb/Z4f
-         VYuA==
-X-Gm-Message-State: ACgBeo3WfqLHH1tSJOJdCEUIQh8DMoY4NYHiC5U8sDNXh8sSbC+uVsWX
-	0EUGVTDO/4VEdRHSNn3nzmSwqisZJFOIRXy9xmE=
-X-Google-Smtp-Source: AA6agR5Qds9HYZib7WpLaLPtA8FNj+szouC4DQXZ2jOMC4iomnaw1mEjO7ET2cQ/CJgVkEcs1O6l22bXprmAG+HAMCA=
-X-Received: by 2002:a25:2245:0:b0:67b:7758:808b with SMTP id
- i66-20020a252245000000b0067b7758808bmr2793684ybi.279.1660297816681; Fri, 12
- Aug 2022 02:50:16 -0700 (PDT)
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc;
+        bh=pGicgmrkVGpAXVpWBOOwVqoHRpuAuKtD+Wqhn/gpirk=;
+        b=f8ytfmUKMBQZGFX1c45JigV4AE9WdyGOzr3BdTMJU18O+3zR8Z8BDJGMd6rMAh2g0y
+         bDLgbQwRKZ1Z4q/s8zUibKNEI8RoyXP5Kyxsoc+cTL4s/kSaHXAJlabFEaA9y43rZhmd
+         ZaMLn7LfROdOghW6GfZvnzceTHfRTGXJB8uOuDpxj40x6nRlOCl1Z41s1Q5E7eGEJlQF
+         44ZiTGvP8tqy/zOug4OBEerQEYiAN6vhn7EOJloPaIyQsF4w2ONB7FIE7bp/THCB49AU
+         mGXrQvGT93nIBLtrIQQj8piTWn/IzDILA0kJPWvRGrk0m2/M6TTlTc+RA+c/tX1+y609
+         sNXw==
+X-Gm-Message-State: ACgBeo0D+ed72OGAV9SVAM9BNWR/OsQFy0JRyW8DFflx2vWFVr8DfCAc
+	cbbFGORkVhh6qVEacYUxGidiEg==
+X-Google-Smtp-Source: AA6agR7MhLzXhxFMHxvkBaYUjtFOzy1aQfTD91gtSyNkxDgILHvzPNc3FZ2NiCEPl+DJXfmXSUF4vg==
+X-Received: by 2002:ac2:44bc:0:b0:48a:eb48:6b78 with SMTP id c28-20020ac244bc000000b0048aeb486b78mr1152514lfm.326.1660298842630;
+        Fri, 12 Aug 2022 03:07:22 -0700 (PDT)
+Received: from [192.168.1.39] ([83.146.140.105])
+        by smtp.gmail.com with ESMTPSA id u28-20020ac251dc000000b0048a7c162bbesm155510lfm.279.2022.08.12.03.07.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Aug 2022 03:07:22 -0700 (PDT)
+Message-ID: <a21c4d34-81b2-cdc5-133e-7c7d2c0657f6@linaro.org>
+Date: Fri, 12 Aug 2022 13:07:16 +0300
 MIME-Version: 1.0
-References: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220726180623.1668-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <636e9214-4b36-e9a6-3c6b-b6edb944335e@linaro.org> <CA+V-a8sTw1qzuTeD2vb7RgDmmNdEP5qEcxXCjrFgkyrBrLrt5Q@mail.gmail.com>
- <e64cc15e-b31e-876d-b3cf-b60d255c495b@linaro.org> <CA+V-a8u1VW9xaj2KjySyMuegpisLVENO_6uJOpAFZGbKziYLYw@mail.gmail.com>
- <e31e0c1f-4755-704e-8428-93970877d8f5@linaro.org> <CA+V-a8sX=Frs_cds9MriauTFRvcZUNCvoeZ+SaC0GUpL7L6qhg@mail.gmail.com>
- <9f32a4a9-66b4-ba2e-1713-436103c2faf8@linaro.org> <OS0PR01MB5922763582B836DA45CDFF0886979@OS0PR01MB5922.jpnprd01.prod.outlook.com>
- <80f08089-e3bb-983e-313b-45613364829e@linaro.org> <CAMuHMdWOdQ5HNU8CuWYXHqYs-UfdggTuCf1AARdJC-3WMTy7Hg@mail.gmail.com>
- <1aa477b2-1d91-066e-5fcd-849ece62388d@linaro.org>
-In-Reply-To: <1aa477b2-1d91-066e-5fcd-849ece62388d@linaro.org>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 12 Aug 2022 10:49:49 +0100
-Message-ID: <CA+V-a8uK3=Ca_1O_gQOm-5hUB1L95Wh_uXm5fpbAS0cbuVJE2w@mail.gmail.com>
-Subject: Re: [PATCH 4/6] dt-bindings: riscv: Add DT binding documentation for
- Renesas RZ/Five SoC and SMARC EVK
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Biju Das <biju.das.jz@bp.renesas.com>, 
-	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	LKML <linux-kernel@vger.kernel.org>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
+Subject: Re: [PATCH 3/4] dt-bindings: PCI: microchip,pcie-host: fix incorrect
+ child node name
+Content-Language: en-US
+To: Conor.Dooley@microchip.com, mail@conchuod.ie,
+ Daire.McNamara@microchip.com, bhelgaas@google.com, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
+ greentime.hu@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ lpieralisi@kernel.org
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20220811203306.179744-1-mail@conchuod.ie>
+ <20220811203306.179744-4-mail@conchuod.ie>
+ <721ccb76-c162-30ee-68cc-3316a2d62554@linaro.org>
+ <272557c5-3e30-a873-40af-16a65c3043b2@microchip.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <272557c5-3e30-a873-40af-16a65c3043b2@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220812_025020_702922_9181650D 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20220812_030727_469375_F9951C84 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,25 +100,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof and Geert,
+On 12/08/2022 10:55, Conor.Dooley@microchip.com wrote:
+> On 12/08/2022 08:42, Krzysztof Kozlowski wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>
+>> On 11/08/2022 23:33, Conor Dooley wrote:
+>>> From: Conor Dooley <conor.dooley@microchip.com>
+>>>
+>>> v2022.08 of dt-schema improved checking of unevaluatedProperties, and
+>>> exposed a previously unseen warning for the PCIe controller's interrupt
+>>> controller node name:
+>>>
+>>> arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dtb: pcie@2000000000: Unevaluated properties are not allowed ('clock-names', 'clocks', 'legacy-interrupt-controller', 'microchip,axi-m-atr0' were unexpected)
+>>>          From schema: Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
+>>>
+>>> Make the property in the binding match the node name actually used in
+>>> the dts.
+>>>
+>>> Fixes: dcd49679fb3a ("dt-bindings: PCI: Fix 'unevaluatedProperties' warnings")
+>>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>>> ---
+>>> This is another one Rob where I feel like I'm doing the wrong thing.
+>>> The Linux driver gets the child node without using the name, but
+>>> another OS etc could in theory (or reality), right?
+>>
+>> Yes and we had such cases when renaming device nodes caused regression.
+>> My interpretation is that node name is not part of ABI, so anyone
+>> depending on it made a mistake and they need to fix their stuff. I think
+>> actually that is really poor coding and poor solution to parse device
+>> node names and expect specific name.
+>>
+>> Other folks interpretation is that we never break the users of kernel,
+>> regardless what is documented in the ABI... so it depends. :)
+>>
+>> Here however it is not a device node name, but a property name (although
+>> still a node). Bindings require these to be specific, thus such name is
+>> a part of ABI.
+> 
+> Yup, pretty much aligned to my thoughts on this.
+> 
+>> For your case, I wonder why it was called "legacy-interrupt-controller"
+>> in the first place? Node names - also for properties - should be
+>> generic, so generic name is just "interrupt-controller".
+> 
+> I don't know. It's what we had in our internal tree prior to upstreaming.
+> "We" don't rely on the name for the Linux driver, so I am not really that
+> bothered if we change the binding or the dts.
 
-On Fri, Aug 12, 2022 at 7:23 AM Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
->
-> On 11/08/2022 18:42, Geert Uytterhoeven wrote:
-> > At the DT validation level, I think the proper solution is to
-> > merge Documentation/devicetree/bindings/arm/renesas.yaml and
-> > Documentation/devicetree/bindings/riscv/renesas.yaml into a single
-> > file under Documentation/devicetree/bindings/soc/renesas/.
-> >
-> > What do other people think?
->
-> I am ok with it.
->
-Thanks, I'll move this to the soc folder in v2.
+Then I propose to change the name in DTS.
 
-Cheers,
-Prabhakar
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
