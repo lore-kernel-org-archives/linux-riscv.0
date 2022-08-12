@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A041C25B08
-	for <linux-riscv@archiver.kernel.org>; Fri, 12 Aug 2022 14:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A1EC00140
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Aug 2022 14:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ApXCbxkQL55Ffxc9owDOiG8aVjMeoK79m4LgSRZeNc0=; b=L1tDsqOFCYuxEH
-	QH+uy6OmG0yFbgm4YKaFf7qqmccIlQTM3lvMb5TbYGjm5/QfEOPBfYdLXj5MzmsAr4vWtOgNE6lda
-	kQ+DDMz8KjokKLC0UJp1ME0A4lRvj3i2sZwPw8osdnln8QwGSLmAaTBD9+ddlhaMnF9DgpYExYTpc
-	WCQP3nKHdFdyHi5Y7V1l0REygN6bkiHc2hJkBfah4xLBvr4ZrpOAnMyHsjrjtyq7f26wua8yfWnCN
-	Zhk59s9btPFFrTOyPNafx6U1B44t8E/jfGHe9BeYpP1pBTE38Nip+j9oEBJBkI/5u5gCUIGA+Pfvh
-	rAs8vb8LDbShLjDuEQSg==;
+	List-Owner; bh=IaKk4EIEun12Pg9/l7jvo/5z870BJAuHENk+wiBeYhc=; b=AoNt0hs/vRwPy5
+	R/Xwh7uJvvRW3Ce3ijapnICkRN91hi7KF0a8+vTh3MD5gLGaBbal9V1EffpbQlpsJRNO1VPx1eZAY
+	PhaNYVBEqJA2ZVFQLfOQVeofwZKp7LV3yfy32pFNQVCAyBrzL1o8LJInoATLKCvxkGnWeGB18TxIO
+	96ir3WR8LftpTUCZ4+vnlGpgAw5zkurCZ3uoZLO5b2jhBGr6+3SqcfmU+dT0UpFPGxxXa8h7GRCi7
+	32aEg9treFiLB+CMzzcEffUKB8DJwgdug9rH/SQDPD2TAPBz1dK16l+MSlXn+nyuL0sgNF/om5V+k
+	WFmb8ORUREwjAhoubjNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMVaH-008tVi-PF; Fri, 12 Aug 2022 14:24:21 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1oMVlt-008zkr-0f; Fri, 12 Aug 2022 14:36:21 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMVaE-008tTZ-7K
-	for linux-riscv@lists.infradead.org; Fri, 12 Aug 2022 14:24:20 +0000
-Received: by mail-pl1-x636.google.com with SMTP id 13so863603plo.12
-        for <linux-riscv@lists.infradead.org>; Fri, 12 Aug 2022 07:24:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:to:cc;
-        bh=3UpPx6QyEFGn3Wb0R8R3j1aJNvl0aHE+/LenbNKUiHs=;
-        b=NZqrJ7AIy/BD6Phmqc4rrwexvgC58KwTe5lXEQCvZEpXQvHsIj+c4vN621WhUm60TP
-         NawG8N4ZRAvLBTtsKsM1r+XR3hJfoun4OqaNrsVTdxgfuOJ7JKVk2g3K9esxtBHtOJJz
-         yMYT0A6N5gyLDbyiPsSIZeBHB5MhYKg1dvAKurpKADPUlZIjnP37EskTauhWjZHSdl/A
-         38e2hQxdyCauYOrO1cNLku7xkscu4tRRIalpCjsmUT/arGuPeNzDxSthKfpQdxet9e1n
-         thTJk8A4+ZZEoOSxlDvYs6iL0nbOkIxpjyPZG01Eyw6LpQI1nWhs8wBoyv5EKkz/KUQl
-         jAeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:x-gm-message-state:from:to:cc;
-        bh=3UpPx6QyEFGn3Wb0R8R3j1aJNvl0aHE+/LenbNKUiHs=;
-        b=seaVxIIu2C5XCVXIngxh2AkX0auDvxCi5Y8IJuAtvG4bLJeMfTYqdJkni9lZq83tnT
-         UfHpOWwZn2e9wrBIWB2Z236Jwz8HSb2JKPYcS0j952K0qI5ykrrOvIY4onLbi+HfgrUz
-         UKG08424igvDs2lt8Wa14nUs7POs2iPyhfZujkOdUVCRAVDkuQXC8ChhfGqitF+shXyg
-         Mds9irOx9Q8frF372CjfY6tBoHbsPzbe66mLpcVypHT1MivEG5KnR1QGpKBdraicgOS0
-         sBGRwypp0s5bTbZuuaQYyn8xUeQHsq+XQTIdJopv1Y9S5qIHPR+qQO4brAzKKy+D9b2C
-         gFyA==
-X-Gm-Message-State: ACgBeo3nudPLathTFHx601bTtYWSSLfDQkO9PXDO0R1wFYXUf1RPN4rn
-	HQE2xUmjVxTbKkvBJX9yDKYU6ZUAoG0m2w==
-X-Google-Smtp-Source: AA6agR7YfdvJyY32xaJiM/WhyG9eaDIWiwJPLHY3oFk4QvYnIvn78x2PKbhRdntcBi9d/OSGpKp/mg==
-X-Received: by 2002:a17:903:120d:b0:171:4fa0:7b4a with SMTP id l13-20020a170903120d00b001714fa07b4amr4096488plh.45.1660314255852;
-        Fri, 12 Aug 2022 07:24:15 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id f11-20020a170902f38b00b0016c4e4538c9sm1785786ple.7.2022.08.12.07.24.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Aug 2022 07:24:14 -0700 (PDT)
-Subject: [PATCH] RISC-V: Don't truncate a hartid in the cbom-block-size mismatch warning
-Date: Fri, 12 Aug 2022 07:24:00 -0700
-Message-Id: <20220812142400.7186-1-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
+	id 1oMVlp-008ziq-WC; Fri, 12 Aug 2022 14:36:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1660314978; x=1691850978;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=NZdNw4yzR3JOq1ErSTGBTEqLp6LfEi9WXswBRDEzWOM=;
+  b=yX9CYZhHSfR9XZkj5NUzjqqFJoTImtJFwPXsvmqoLLJo24qzJ/oNphIt
+   Xq97fKZ09vQGbfgpOeB2ycA9FMZ3N0Lt5BozlV9TIW6JlFUEiFeQfRv8V
+   a+hBGnJ0JZ/IMoIe4iMBQmdO+KEa+3ZZUCjlcqDqIesTZ0yCiDEWmta/0
+   OZSjGL1TjOdeCbMKF1iLrhSyqP+e7TjtZGC58v7Yx9ve7ggdMFtrFnEqC
+   xnHFJUnABNTtevl8fdZA0vl1B+6wds3PJ+8aJlBTN3mHirdY5Bn8K5MGL
+   2OF9G5EEb0g4AX6K8/lWk32pylJnGYr1ZF4E6uMufx3aPp1mV42j1aaea
+   A==;
+X-IronPort-AV: E=Sophos;i="5.93,233,1654585200"; 
+   d="scan'208";a="176006453"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 12 Aug 2022 07:36:16 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.31; Fri, 12 Aug 2022 07:35:51 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2375.17 via Frontend
+ Transport; Fri, 12 Aug 2022 07:35:49 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>
+CC: Atish Patra <atishp@atishpatra.org>, Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, "Paul
+ Walmsley" <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH] perf: riscv legacy: fix kerneldoc comment warning
+Date: Fri, 12 Aug 2022 15:35:32 +0100
+Message-ID: <20220812143532.1962623-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220812_072418_496607_401E2913 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220812_073618_058600_6B132E76 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,39 +79,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I forgot to update this when sorting out the 64-bit hartid code.
+Fix the warning:
+drivers/perf/riscv_pmu_legacy.c:76: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
 
-Fixes: 3aefb2ee5bdd ("riscv: implement Zicbom-based CMO instructions + the t-head variant")
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Fixes: 9b3e150e310e ("RISC-V: Add a simple platform driver for RISC-V legacy perf")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/mm/dma-noncoherent.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ drivers/perf/riscv_pmu_legacy.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
-index cd2225304c82..61a4337cf7b1 100644
---- a/arch/riscv/mm/dma-noncoherent.c
-+++ b/arch/riscv/mm/dma-noncoherent.c
-@@ -83,8 +83,7 @@ void riscv_init_cbom_blocksize(void)
- 	u32 val;
+diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+index 342778782359..2c20b0de8cb0 100644
+--- a/drivers/perf/riscv_pmu_legacy.c
++++ b/drivers/perf/riscv_pmu_legacy.c
+@@ -72,7 +72,7 @@ static void pmu_legacy_ctr_start(struct perf_event *event, u64 ival)
+ 	local64_set(&hwc->prev_count, initial_val);
+ }
  
- 	for_each_of_cpu_node(node) {
--		unsigned long hartid;
--		int cbom_hartid;
-+		unsigned long hartid, cbom_hartid;
- 
- 		ret = riscv_of_processor_hartid(node, &hartid);
- 		if (ret)
-@@ -103,7 +102,7 @@ void riscv_init_cbom_blocksize(void)
- 			cbom_hartid = hartid;
- 		} else {
- 			if (riscv_cbom_block_size != val)
--				pr_warn("cbom-block-size mismatched between harts %d and %lu\n",
-+				pr_warn("cbom-block-size mismatched between harts %lu and %lu\n",
- 					cbom_hartid, hartid);
- 		}
- 	}
+-/**
++/*
+  * This is just a simple implementation to allow legacy implementations
+  * compatible with new RISC-V PMU driver framework.
+  * This driver only allows reading two counters i.e CYCLE & INSTRET.
 -- 
-2.34.1
+2.36.1
 
 
 _______________________________________________
