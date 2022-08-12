@@ -4,82 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C16C25B06
-	for <linux-riscv@archiver.kernel.org>; Thu, 11 Aug 2022 23:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB4C9C25B06
+	for <linux-riscv@archiver.kernel.org>; Fri, 12 Aug 2022 00:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SjBDJ4yZxYKx4fm+HhHbJ84u6u4gE6vadB7+kQX7y1w=; b=AckjKVI/8fS4oi
-	dhvxoBG24wFoytvv3E9+LrWeUm7H/8IgOozg4WV3OGXvxRpkMyEyjFTASLeaRcEUSZroGzc+9Y/vJ
-	ldGwi+T/ymzsdlqDopB9o0ijwjeUH2AkjUdBK6PD6fj8sti3Y25RsltjiRDwyDws/pLHRxphpMLY6
-	cwSREqK4+1aKHZZDpPyKB4gdUvFYOQGG+PhqiHxJnhim+v5j6x+NvADfoGaKAYRB/4yNsM1DINdM6
-	5jDpyo9gUKZaxNaHN+Cfa0IAvS1hUV+Y74x+AMBPTLhH0IRidbrzUCDTPDEqf7AWb6iHt5lh/J9D8
-	kkjjPUb1UpwgutoYTZ7Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JcajvOXaTDvjmetCaEqW6Cb/vw8BWxIauqOEBflAC/k=; b=laNFcVJuq98OIA
+	1NMAxnjyEQNPd/JaMIwfCgrL0gcBpdM0Vjtm9A8MzpV9JEvzPAaVWIsuPRg4qpe68cCtIzPhm5ZKd
+	lDZtBGzxULIxxrx2JsoBU2DQ0U2VrI1m1/H0PTy0akV2CpD+wt/+7Fik2ljbGr8kgvYZEcHg0cnXq
+	anj/c9OFmjZjKG02435qlDiGHobLShLyBTEmWQhhloHXBIH6GIu/mDjbsPB7A6NpTvyyxA7biAMR3
+	LgX7QlOzVCjyQhsnE4iDYfmDPOxFStWrDcE2z2X6M1S6bqOQwYibgLd3eLI3td0fMyTGGJMRypj4r
+	+HgXtsp0irl8t1VG5Y2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMHkm-006lnW-2h; Thu, 11 Aug 2022 23:38:16 +0000
-Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
+	id 1oMITj-0079Em-UO; Fri, 12 Aug 2022 00:24:43 +0000
+Received: from sin.source.kernel.org ([145.40.73.55])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMHkj-006lkk-Ts
-	for linux-riscv@lists.infradead.org; Thu, 11 Aug 2022 23:38:15 +0000
-Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-32269d60830so188031587b3.2
-        for <linux-riscv@lists.infradead.org>; Thu, 11 Aug 2022 16:38:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc;
-        bh=IVeJqcWhysLWzgWUShSqLwDczoSExRUDYbSpzRpTiXQ=;
-        b=k9jTdTI8sjO6UKOTeC4As0uQK2prWT7dSWXk4grIFRnvMm8jpC71fdZnFr5SVlFie3
-         J5u9uJmgcQOpJlmDc+TH8w1teZWNMP2cwYNXmIFamQ+6Oez/W8vAph4I54W5OMxOaWi3
-         nzH8r7JhnuooVcrrlRzGUgyXwBWg/NRqQooBGrXsRw4UH8M3qym/5q98FZ1LWi/Q8gIy
-         /zQtmgyn6JIhmp/XPWJ4Df1VyBMTp6GMv1xc22OfjJDwRgldahF+FV3/Co5okfwaU45w
-         TNz2pQ/MqF4vgbz7VCz+TSEj0hjfhtVk2wGEkuFhFUsNc94jgGEMz6GSwyK20nFeGtll
-         uO2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc;
-        bh=IVeJqcWhysLWzgWUShSqLwDczoSExRUDYbSpzRpTiXQ=;
-        b=XNsZo0NlTMhha33UfBmts0GwLsOlquYX4ikSiQboXmdGcgcuY1YWydtCw6f9iKKADW
-         XKMn/EDiEomcvTIqk9jsMzZJZo2i/FInU45SS4NXtbkZU78pj79jK0B/HlqLrMx9Urz3
-         uC/t7OMWg+FJoiurihxsou0SD/6uNQVeKQx1G7VlV3m7jarguaAmRpzuQ6FHP+ybeiJj
-         FWYCL2ASynhNEH58E6+vs/dxEpiKr3oBArkBFsBLjZaqgrOmwlQfovO5o6fmPaAIcyrb
-         A9Xraxhs0QYP7vP0zXf0FfGutsKynsfKWws7p3E4Kp2a0j4uxFk/2yzIr3aItE7Zp4Xq
-         +Y0Q==
-X-Gm-Message-State: ACgBeo0Vl+68F/R3+7t/f4yvYYLAk99K3aSHy80Te/wxSnL485uDR+zB
-	J1IUHOg0gU/YQl8qk/xV1ddc8NR26FqTo4Sh9p8=
-X-Google-Smtp-Source: AA6agR53mPvsRpuEkAtKI6C+nhnmHsWN+IupElYcWWe4XANRE7IWo58pKjOW1TMETFZly0nVg2UElycZ1NeUGtGGebc=
-X-Received: by 2002:a0d:f282:0:b0:329:7da1:90e8 with SMTP id
- b124-20020a0df282000000b003297da190e8mr1535254ywf.519.1660261089750; Thu, 11
- Aug 2022 16:38:09 -0700 (PDT)
+	id 1oMITh-0079As-RY
+	for linux-riscv@lists.infradead.org; Fri, 12 Aug 2022 00:24:43 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by sin.source.kernel.org (Postfix) with ESMTPS id 95859CE2447;
+	Fri, 12 Aug 2022 00:24:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A572C433C1;
+	Fri, 12 Aug 2022 00:24:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1660263868;
+	bh=jSbBZ0Um3c6l5fVvZPYJM7WFVQuWDzh3Hm8gumiscxQ=;
+	h=Date:From:To:Cc:Subject:From;
+	b=uBXZllIRbJGF1y7H/1xVyTdaDaeS8TU9muHOfVqcTS+NQNDXP8NkILGWPOpuwmKzl
+	 /nT/cpaetvCbpbztlHdtYlfi8RneNemkUXB8R34wrekq29y4Bv1FRIxhcTuI9J5jG5
+	 b1xAMrJqLMBRcsjiAxXZPApqTsp6auwNwCy6QLgbx+PzGs5TQ8Dw0Ab/zAUKge9nnf
+	 RpHwUJCGRgyezZCTjkDOpAUoBNbkOsnd8Sxfjp2f8g7wpbE/tZwXJZbclpuA8JmfLV
+	 aEmjeJX8dyLOrQATcSsUgG8bG88H6aYzUzpCpTGmi+FUdCum625Md0Umnkcf92eJjc
+	 8CDasrstQfNBw==
+Date: Thu, 11 Aug 2022 17:24:26 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Dimitri John Ledkov <dimitri.ledkov@canonical.com>,
+	Anup Patel <anup@brainfault.org>, stable@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Apply f2928e224d85e7cc139009ab17cefdfec2df5d11 to 5.15 and 5.10?
+Message-ID: <YvWduqRcPYhYZWMT@dev-arch.thelio-3990X>
 MIME-Version: 1.0
-References: <20220726180623.1668-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220726180623.1668-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <952a85ec-d1e9-7c14-6404-bc087723252f@linaro.org> <CA+V-a8vb+za1Zckk5aTxz0hKkd5fHQk7gtfV+HR_2YMZ5JuJEQ@mail.gmail.com>
- <3e3c0c80-48eb-098d-977d-a1801036fc0c@linaro.org> <CA+V-a8tJVGz57FcJVnbksMot=pg5dXALo4QEyqO+57HnOTJLfQ@mail.gmail.com>
- <CAMuHMdWih6XiVfLT0g=k8QrMmVzb2sqv9hxqtGE1t1F1Jvj_QA@mail.gmail.com>
-In-Reply-To: <CAMuHMdWih6XiVfLT0g=k8QrMmVzb2sqv9hxqtGE1t1F1Jvj_QA@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 12 Aug 2022 00:37:42 +0100
-Message-ID: <CA+V-a8tkRJrugewfAunO7CP9H7A8H5OM2=uRQtDfk7=15Zkw4A@mail.gmail.com>
-Subject: Re: [PATCH 1/6] dt-bindings: arm: renesas: Ignore the schema for
- RISC-V arch
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	LKML <linux-kernel@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220811_163814_035372_57DC4C8F 
-X-CRM114-Status: GOOD (  24.21  )
+X-CRM114-CacheID: sfid-20220811_172442_113527_3E783F57 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,76 +73,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+Hi all,
 
-On Thu, Aug 11, 2022 at 4:26 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Prabhakar,
->
-> On Wed, Jul 27, 2022 at 11:48 AM Lad, Prabhakar
-> <prabhakar.csengg@gmail.com> wrote:
-> > On Wed, Jul 27, 2022 at 10:31 AM Krzysztof Kozlowski
-> > <krzysztof.kozlowski@linaro.org> wrote:
-> > > On 27/07/2022 11:00, Lad, Prabhakar wrote:
-> > > > On Wed, Jul 27, 2022 at 9:53 AM Krzysztof Kozlowski
-> > > > <krzysztof.kozlowski@linaro.org> wrote:
-> > > >> On 26/07/2022 20:06, Lad Prabhakar wrote:
-> > > >>> Ignore the ARM renesas.yaml schema if the board is RZ/Five SMARC EVK
-> > > >>> (RISC-V arch).
-> > > >>>
-> > > >>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-> > > >>> ---
-> > > >>>  Documentation/devicetree/bindings/arm/renesas.yaml | 9 +++++++++
-> > > >>>  1 file changed, 9 insertions(+)
-> > > >>>
-> > > >>> diff --git a/Documentation/devicetree/bindings/arm/renesas.yaml b/Documentation/devicetree/bindings/arm/renesas.yaml
-> > > >>> index ff80152f092f..f646df1a23af 100644
-> > > >>> --- a/Documentation/devicetree/bindings/arm/renesas.yaml
-> > > >>> +++ b/Documentation/devicetree/bindings/arm/renesas.yaml
-> > > >>> @@ -9,6 +9,15 @@ title: Renesas SH-Mobile, R-Mobile, and R-Car Platform Device Tree Bindings
-> > > >>>  maintainers:
-> > > >>>    - Geert Uytterhoeven <geert+renesas@glider.be>
-> > > >>>
-> > > >>> +# We want to ignore this schema if the board is of RISC-V arch
-> > > >>> +select:
-> > > >>> +  not:
-> > > >>> +    properties:
-> > > >>> +      compatible:
-> > > >>> +        contains:
-> > > >>> +          items:
-> > > >>> +            - const: renesas,r9a07g043f01
-> > > >>
-> > > >> Second issue - why not renesas,r9a07g043?
-> > > >>
-> > > > We have two R9A07G043 SOC'S one is based on ARM64 and other on RISC-V.
-> > > >
-> > > > RZ/G2UL ARM64:
-> > > > Type-1 Part Number: R9A07G043U11GBG#BC0
-> > > > Type-2 Part Number: R9A07G043U12GBG#BC0
-> > > >
-> > > > RZ/Five RISCV:
-> > > > 13 x 13 mm Package Part Number: R9A07G043F01GBG#BC0
-> > > >
-> > > > So to differentiate in ARM schema I am using  renesas,r9a07g043f01.
-> > >
-> > > What is the point to keep then r9a07g043 fallback? The two SoCs are not
-> > > compatible at all, so they must not use the same fallback.
-> > >
-> > Agreed, I wanted to keep it consistent with what was done with ARM64
-> > (since both the SoCs shared R9A07G043 part number).
-> >
-> > Geert - What are your thoughts on the above?
->
-> "renesas,r9a07g043" is the CPU-less SoC base containing I/O devices.
-> "renesas,r9a07g043f01", "renesas,r9a07g043u11", and
-> "renesas,r9a07g043u12" are SoCs built by integrating one or more
-> RV64 or ARM64 CPU cores and the related interrupt controllers with
-> the CPU-less SoC base.
->
-That's bang on! which I missed to convenience the DT maintainers.
+Would it be reasonable to apply commit f2928e224d85 ("riscv: set default
+pm_power_off to NULL") to 5.10 and 5.15? I see the following issue when
+testing OpenSUSE's RISC-V configuration in QEMU and it is resolved with
+that change.
+
+Requesting system poweroff
+[    4.497128][  T177] reboot: Power down
+[   32.045207][    C0] watchdog: BUG: soft lockup - CPU#0 stuck for 26s! [init:177]
+[   32.045785][    C0] Modules linked in:
+[   32.046166][    C0] CPU: 0 PID: 177 Comm: init Not tainted 5.15.60-default #1 5b276f06901b1c37142db73337a1816290810c90
+[   32.046814][    C0] Hardware name: riscv-virtio,qemu (DT)
+[   32.047256][    C0] epc : default_power_off+0x1a/0x20
+[   32.047667][    C0]  ra : machine_power_off+0x22/0x2a
+[   32.047979][    C0] epc : ffffffff80004a4a ra : ffffffff80004abe sp : ffffffd000bc3d50
+[   32.048405][    C0]  gp : ffffffff81bec160 tp : ffffffe002080000 t0 : ffffffff80490964
+[   32.048827][    C0]  t1 : 0720072007200720 t2 : 50203a746f6f6265 s0 : ffffffd000bc3d60
+[   32.049245][    C0]  s1 : 000000004321fedc a0 : 0000000000000004 a1 : ffffffff81b073c8
+[   32.049676][    C0]  a2 : 0000000000000010 a3 : 00000000000000ab a4 : e0b1d187e51c7400
+[   32.050115][    C0]  a5 : ffffffff80004a30 a6 : c0000000ffffdfff a7 : ffffffff804ea464
+[   32.050555][    C0]  s2 : 0000000000000000 s3 : ffffffff81a20390 s4 : fffffffffee1dead
+[   32.051009][    C0]  s5 : ffffffff81bee0c8 s6 : 0000003feff55a70 s7 : 0000002acc09bf08
+[   32.051427][    C0]  s8 : 0000000000000001 s9 : 0000000000000000 s10: 0000002b0a4db6e0
+[   32.051849][    C0]  s11: 0000000000000000 t3 : ffffffe001e2bf00 t4 : ffffffe001e2bf00
+[   32.052274][    C0]  t5 : ffffffe001e2b000 t6 : ffffffd000bc3ac8
+[   32.052604][    C0] status: 0000000000000120 badaddr: 0000000000000000 cause: 8000000000000005
+qemu-system-riscv64: terminating on signal 15 from pid 2356237 (timeout)
+
+I am not sure if there is any regression potential with that change,
+hence this email. That change applies cleanly to both trees and I don't
+see any additional problems from it.
 
 Cheers,
-Prabhakar
+Nathan
 
 _______________________________________________
 linux-riscv mailing list
