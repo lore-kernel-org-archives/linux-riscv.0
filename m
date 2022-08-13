@@ -4,41 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BF88C19F2D
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Aug 2022 17:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09A93C19F2D
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Aug 2022 22:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ub2uhBZaw9EU3kL5C+dhNbuybUZsPQgrX0zGOGHhE28=; b=HxzAvfjcCRaZ9u
-	0ZGrHD562EtMrs1j8wtcwRoaXTvDuKuuYe1TUX/OcxZPx19IgN7I8pvgbmwHH7rzMvf5m5qRd3r04
-	pDWa2iZH/lGklhsW9P+DEArfuzb2D/hwqcdkDKasQsQn5oLf5gMZDuTzT3jWK+Jgx+HzQrBNXiQHG
-	T9jsKtuaLjzfOXGkqZ3ZfsZgl543Ze9QtGVIPwnkpfJkZDSzkWPyB6eH0KLh2XtDN/091bdAHkcyV
-	4oLik1MNbRFNCeKV4GcE14syYkfUsXRdh1PAAG/qUEWZsGhnVRqvR3UGbZExkpacnOjASTdu7aPPv
-	4GxY3J0T6VoOOWSkyg0Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QhB5qokw+qlecR8Kprahyo8318k5S+WVb9bIMu2k9r4=; b=u1TKlPfXq0zgCp
+	vboIKLwgUZp6JuQjJMd/XtiyZn2M6vP8YTqXAvQjkM1qCjn6g15nSujhHG81mDG6vFDhJPVOg+59n
+	fDXIBJMszbTWXhoSfz+kID3uoDmlBgy3hR2E155rwK0w91YMM17x6PupklPbnZ8C71GkN9nuzDzUX
+	zNjo6Z9bGJDCpONf35ozgbL4iuI5gBzRsDE2Ex/q2ZNIUTXPRcYYi6eoQYXPvkO2lIMOR8VLskd8H
+	DdsskDy/KR64sNFHROt6XZZva9Cm0PR8yRO4RzJu/fNlgMBAynXeRfiH5a+sYf6cGxXa2vOdxrgM9
+	8qxVYyzjeRQkpWWRFBNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMvBp-00GJiL-VG; Sat, 13 Aug 2022 17:44:49 +0000
-Received: from [2601:1c0:6280:3f0::a6b3]
-	by bombadil.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMvBl-00GJfu-F9; Sat, 13 Aug 2022 17:44:45 +0000
-Message-ID: <7b97d66d-610a-6750-f17f-4de41a97b528@infradead.org>
-Date: Sat, 13 Aug 2022 10:44:42 -0700
+	id 1oMzBd-000TNl-I5; Sat, 13 Aug 2022 22:00:53 +0000
+Received: from mga14.intel.com ([192.55.52.115])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oMzBY-000TIE-MQ; Sat, 13 Aug 2022 22:00:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1660428048; x=1691964048;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=J2stkkYmPik2bQMds1PPTKQFWYY4K6w3/+pjsawBn4I=;
+  b=bgxIXp/xs6uqFfuM6aAWeTAoUIo1/VNWQ6sXhCQ1i4dMlgfFeE9h0qQB
+   5zs/rFahDROxg4W15UVWXO0hHmUrz8kHLF9CDRMc6hcafEqXJq1FyK+8m
+   p+dXT1NlM83o/3eDKqDGK9MZ+6RLlClAGL2FNEJanAXecp4YmHZ0lC83Q
+   QMs+bC97GQslZQouN58C80Ugw1tJEpcbNL42y/xHFOiE00cDvffvMJ2HZ
+   VYTRsIPbu+aKBA1HtjsBeIKsJ/jgtdwj4JScBynUXhl2ycUHdS1VMUaZO
+   Wg8VYDh3IwNX281LAoscoFBcV5GJCtyKch5RXH5u/h+mQIAv1UZj8e6tl
+   A==;
+X-IronPort-AV: E=McAfee;i="6400,9594,10437"; a="291778709"
+X-IronPort-AV: E=Sophos;i="5.93,236,1654585200"; 
+   d="scan'208";a="291778709"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2022 15:00:42 -0700
+X-IronPort-AV: E=Sophos;i="5.93,236,1654585200"; 
+   d="scan'208";a="635047705"
+Received: from tsaiyinl-mobl1.amr.corp.intel.com (HELO localhost) ([10.209.125.19])
+  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Aug 2022 15:00:40 -0700
+From: ira.weiny@intel.com
+To: Andy Whitcroft <apw@canonical.com>,
+	Joe Perches <joe@perches.com>
+Cc: Ira Weiny <ira.weiny@intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Fabio M . De Francesco" <fmdefrancesco@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	x86@kernel.org,
+	linux-xtensa@linux-xtensa.org,
+	keyrings@vger.kernel.org,
+	linux-ide@vger.kernel.org,
+	linux-block@vger.kernel.org,
+	linux-crypto@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-edac@vger.kernel.org,
+	linux1394-devel@lists.sourceforge.net,
+	dri-devel@lists.freedesktop.org,
+	dm-devel@redhat.com,
+	linux-raid@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-mtd@lists.infradead.org,
+	netdev@vger.kernel.org,
+	nvdimm@lists.linux.dev,
+	linux-nvme@lists.infradead.org,
+	linux-scsi@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-fsdevel@vger.kernel.org,
+	kgdb-bugreport@lists.sourceforge.net,
+	iommu@lists.linux.dev,
+	bpf@vger.kernel.org,
+	kvm@vger.kernel.org
+Subject: [PATCH] checkpatch: Add kmap and kmap_atomic to the deprecated list
+Date: Sat, 13 Aug 2022 15:00:34 -0700
+Message-Id: <20220813220034.806698-1-ira.weiny@intel.com>
+X-Mailer: git-send-email 2.35.3
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-Subject: Re: [PATCH v2] kernel/sys_ni: add compat entry for fadvise64_64
-Content-Language: en-US
-To: Conor.Dooley@microchip.com, linux-kernel@vger.kernel.org
-Cc: arnd@arndb.de, josh@joshtriplett.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
- linux-api@vger.kernel.org, akpm@linux-foundation.org, linux-mm@kvack.org
-References: <20220807220934.5689-1-rdunlap@infradead.org>
- <03c5f897-d4e2-8408-6116-ad7619ca385d@microchip.com>
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <03c5f897-d4e2-8408-6116-ad7619ca385d@microchip.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20220813_150048_831036_70734D68 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -50,77 +108,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 8/13/22 10:03, Conor.Dooley@microchip.com wrote:
-> On 07/08/2022 23:09, Randy Dunlap wrote:
->> When CONFIG_ADVISE_SYSCALLS is not set/enabled and CONFIG_COMPAT is
->> set/enabled, the riscv compat_syscall_table references
->> 'compat_sys_fadvise64_64', which is not defined:
->>
->> riscv64-linux-ld: arch/riscv/kernel/compat_syscall_table.o:(.rodata+0x6f8):
->> undefined reference to `compat_sys_fadvise64_64'
->>
->> Add 'fadvise64_64' to kernel/sys_ni.c as a conditional COMPAT function
->> so that when CONFIG_ADVISE_SYSCALLS is not set, there is a fallback
->> function available.
-> 
-> Is this in a 6.0 destined tree somewhere that I've missed?
-> Bumped into it while looking at an unrelated LKP randconfig error.
-> FWIW:
-> Tested-by: Conor Dooley <conor.dooley@microchip.com>
-> Thanks,
-> Conor.
-
-It's in Andrew's mm-hotfixes-unstable branch AFAIK.
-
-Thanks.
-
->>
->> Fixes: d3ac21cacc24 ("mm: Support compiling out madvise and fadvise")
->> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
->> Suggested-by: Arnd Bergmann <arnd@arndb.de>
->> Cc: Josh Triplett <josh@joshtriplett.org>
->> Cc: Paul Walmsley <paul.walmsley@sifive.com>
->> Cc: Palmer Dabbelt <palmer@dabbelt.com>
->> Cc: Albert Ou <aou@eecs.berkeley.edu>
->> Cc: linux-riscv@lists.infradead.org
->> Cc: Arnd Bergmann <arnd@arndb.de>
->> Cc: linux-api@vger.kernel.org
->> Cc: Andrew Morton <akpm@linux-foundation.org>
->> Cc: linux-mm@kvack.org
->> ---
->> v2: patch kernel/sys_ni.c (for any arch) instead of arch/riscv's
->>     unistd.h (Arnd)
->>
->>  kernel/sys_ni.c |    1 +
->>  1 file changed, 1 insertion(+)
->>
->> --- a/kernel/sys_ni.c
->> +++ b/kernel/sys_ni.c
->> @@ -277,6 +277,7 @@ COND_SYSCALL(landlock_restrict_self);
->>  
->>  /* mm/fadvise.c */
->>  COND_SYSCALL(fadvise64_64);
->> +COND_SYSCALL_COMPAT(fadvise64_64);
->>  
->>  /* mm/, CONFIG_MMU only */
->>  COND_SYSCALL(swapon);
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
--- 
-~Randy
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogSXJhIFdlaW55IDxpcmEud2VpbnlAaW50ZWwuY29tPgoKa21hcCgpIGFuZCBrbWFwX2F0
+b21pYygpIGFyZSBiZWluZyBkZXByZWNhdGVkIGluIGZhdm9yIG9mCmttYXBfbG9jYWxfcGFnZSgp
+LgoKVGhlcmUgYXJlIHR3byBtYWluIHByb2JsZW1zIHdpdGgga21hcCgpOiAoMSkgSXQgY29tZXMg
+d2l0aCBhbiBvdmVyaGVhZAphcyBtYXBwaW5nIHNwYWNlIGlzIHJlc3RyaWN0ZWQgYW5kIHByb3Rl
+Y3RlZCBieSBhIGdsb2JhbCBsb2NrIGZvcgpzeW5jaHJvbml6YXRpb24gYW5kICgyKSBpdCBhbHNv
+IHJlcXVpcmVzIGdsb2JhbCBUTEIgaW52YWxpZGF0aW9uIHdoZW4KdGhlIGttYXDigJlzIHBvb2wg
+d3JhcHMgYW5kIGl0IG1pZ2h0IGJsb2NrIHdoZW4gdGhlIG1hcHBpbmcgc3BhY2UgaXMgZnVsbHkK
+dXRpbGl6ZWQgdW50aWwgYSBzbG90IGJlY29tZXMgYXZhaWxhYmxlLgoKa21hcF9sb2NhbF9wYWdl
+KCkgaXMgc2FmZSBmcm9tIGFueSBjb250ZXh0IGFuZCBpcyB0aGVyZWZvcmUgcmVkdW5kYW50Cndp
+dGgga21hcF9hdG9taWMoKSB3aXRoIHRoZSBleGNlcHRpb24gb2YgYW55IHBhZ2VmYXVsdCBvciBw
+cmVlbXB0aW9uCmRpc2FibGUgcmVxdWlyZW1lbnRzLiAgSG93ZXZlciwgdXNpbmcga21hcF9hdG9t
+aWMoKSBmb3IgdGhlc2Ugc2lkZQplZmZlY3RzIG1ha2VzIHRoZSBjb2RlIGxlc3MgY2xlYXIuICBT
+byBhbnkgcmVxdWlyZW1lbnQgZm9yIHBhZ2VmYXVsdCBvcgpwcmVlbXB0aW9uIGRpc2FibGUgc2hv
+dWxkIGJlIG1hZGUgZXhwbGljaXRseS4KCldpdGgga21hcF9sb2NhbF9wYWdlKCkgdGhlIG1hcHBp
+bmdzIGFyZSBwZXIgdGhyZWFkLCBDUFUgbG9jYWwsIGNhbiB0YWtlCnBhZ2UgZmF1bHRzLCBhbmQg
+Y2FuIGJlIGNhbGxlZCBmcm9tIGFueSBjb250ZXh0IChpbmNsdWRpbmcgaW50ZXJydXB0cykuCkl0
+IGlzIGZhc3RlciB0aGFuIGttYXAoKSBpbiBrZXJuZWxzIHdpdGggSElHSE1FTSBlbmFibGVkLiBG
+dXJ0aGVybW9yZSwKdGhlIHRhc2tzIGNhbiBiZSBwcmVlbXB0ZWQgYW5kLCB3aGVuIHRoZXkgYXJl
+IHNjaGVkdWxlZCB0byBydW4gYWdhaW4sCnRoZSBrZXJuZWwgdmlydHVhbCBhZGRyZXNzZXMgYXJl
+IHJlc3RvcmVkLgoKU3VnZ2VzdGVkLWJ5OiBUaG9tYXMgR2xlaXhuZXIgPHRnbHhAbGludXRyb25p
+eC5kZT4KU3VnZ2VzdGVkLWJ5OiBGYWJpbyBNLiBEZSBGcmFuY2VzY28gPGZtZGVmcmFuY2VzY29A
+Z21haWwuY29tPgpTaWduZWQtb2ZmLWJ5OiBJcmEgV2VpbnkgPGlyYS53ZWlueUBpbnRlbC5jb20+
+CgotLS0KU3VnZ2VzdGVkIGJ5IGNyZWRpdHMuCglUaG9tYXM6IElkZWEgdG8ga2VlcCBmcm9tIGdy
+b3dpbmcgbW9yZSBrbWFwL2ttYXBfYXRvbWljIGNhbGxzLgoJRmFiaW86IFN0b2xlIHNvbWUgb2Yg
+aGlzIGJvaWxlciBwbGF0ZSBjb21taXQgbWVzc2FnZS4KCk5vdGVzIG9uIHRyZWUtd2lkZSBjb252
+ZXJzaW9uczoKCkkndmUgY2MnZWQgbWFpbGluZyBsaXN0cyBmb3Igc3Vic3lzdGVtcyB3aGljaCBj
+dXJyZW50bHkgY29udGFpbnMgZWl0aGVyIGttYXAoKQpvciBrbWFwX2F0b21pYygpIGNhbGxzLiAg
+QXMgc29tZSBvZiB5b3UgYWxyZWFkeSBrbm93IEZhYmlvIGFuZCBJIGhhdmUgYmVlbgp3b3JraW5n
+IHRocm91Z2ggY29udmVydGluZyBrbWFwKCkgY2FsbHMgdG8ga21hcF9sb2NhbF9wYWdlKCkuICBC
+dXQgdGhlcmUgaXMgYQpsb3QgbW9yZSB3b3JrIHRvIGJlIGRvbmUuICBIZWxwIGZyb20gdGhlIGNv
+bW11bml0eSBpcyBhbHdheXMgd2VsY29tZSwKZXNwZWNpYWxseSB3aXRoIGttYXBfYXRvbWljKCkg
+Y29udmVyc2lvbnMuICBUbyBrZWVwIGZyb20gc3RlcHBpbmcgb24gZWFjaApvdGhlcnMgdG9lcyBJ
+J3ZlIGNyZWF0ZWQgYSBzcHJlYWRzaGVldCBvZiB0aGUgY3VycmVudCBjYWxsc1sxXS4gIFBsZWFz
+ZSBsZXQgbWUKb3IgRmFiaW8ga25vdyBpZiB5b3UgcGxhbiBvbiB0YWNraW5nIG9uZSBvZiB0aGUg
+Y29udmVyc2lvbnMgc28gd2UgY2FuIG1hcmsgaXQKb2ZmIHRoZSBsaXN0LgoKWzFdIGh0dHBzOi8v
+ZG9jcy5nb29nbGUuY29tL3NwcmVhZHNoZWV0cy9kLzFpX2NrWjEwcDkwYkhfQ2t4RDJiWU5pMDVT
+MlF6ODRFMk9GUHY4enFfXzB3L2VkaXQjZ2lkPTE2Nzk3MTQzNTcKCi0tLQogc2NyaXB0cy9jaGVj
+a3BhdGNoLnBsIHwgMiArKwogMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKQoKZGlmZiAt
+LWdpdCBhL3NjcmlwdHMvY2hlY2twYXRjaC5wbCBiL3NjcmlwdHMvY2hlY2twYXRjaC5wbAppbmRl
+eCA3OWU3NTlhYWM1NDMuLjlmZjIxOWUwYTlkNSAxMDA3NTUKLS0tIGEvc2NyaXB0cy9jaGVja3Bh
+dGNoLnBsCisrKyBiL3NjcmlwdHMvY2hlY2twYXRjaC5wbApAQCAtODA3LDYgKzgwNyw4IEBAIG91
+ciAlZGVwcmVjYXRlZF9hcGlzID0gKAogCSJyY3VfYmFycmllcl9zY2hlZCIJCQk9PiAicmN1X2Jh
+cnJpZXIiLAogCSJnZXRfc3RhdGVfc3luY2hyb25pemVfc2NoZWQiCQk9PiAiZ2V0X3N0YXRlX3N5
+bmNocm9uaXplX3JjdSIsCiAJImNvbmRfc3luY2hyb25pemVfc2NoZWQiCQk9PiAiY29uZF9zeW5j
+aHJvbml6ZV9yY3UiLAorCSJrbWFwIgkJCQkJPT4gImttYXBfbG9jYWxfcGFnZSIsCisJImttYXBf
+YXRvbWljIgkJCQk9PiAia21hcF9sb2NhbF9wYWdlIiwKICk7CiAKICNDcmVhdGUgYSBzZWFyY2gg
+cGF0dGVybiBmb3IgYWxsIHRoZXNlIHN0cmluZ3MgdG8gc3BlZWQgdXAgYSBsb29wIGJlbG93Cgpi
+YXNlLWNvbW1pdDogNGE5MzUwNTk3YWZmNTBiYmQwZjRiODBjY2Y0OWQyZTAyZDExMTFmNQotLSAK
+Mi4zNS4zCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+bGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcK
+aHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
