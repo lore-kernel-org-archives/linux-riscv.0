@@ -4,30 +4,30 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 787F7C25B0E
-	for <linux-riscv@archiver.kernel.org>; Sat, 13 Aug 2022 03:18:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FF6C00140
+	for <linux-riscv@archiver.kernel.org>; Sat, 13 Aug 2022 03:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZQ4SF/Sxyqvf23kgSJXi1uuaMGuca8ao0G4WanN5nWo=; b=WwsvQR5AwTIGcy
-	EwNvCA9+/875nA+HdaFGZgIib+yfnIe9onmWRT9EKZ/zFFMTWIu34+jaPeGOE8BCNDRh5+7MxWTNG
-	TtFnL4HL9wRTxkKY/LMFPqHEhRyghfMgP8PiqFTkU7fRwB2pK7flZQjL9wDNm9MDgvCTMvic9Y1OQ
-	ZNnPc2A84JZ/5ITAcTJFeqi6Kwzt1HQWNi2DiaOnAG3Pg5NBxyYvvBHXXozRYCGUtJp6FDieCgZHR
-	QxoOdwV7P28HaNCPZIzV5gBvuK8JQ7cMb16v25jplCB/Xik4inMD3sCjChG/c1FHBujWpDApfzh7i
-	e+otDfLS4DuwkwAp4aYw==;
+	List-Owner; bh=xdn+fYEB1+5ueHL1MBRRb0B86s6h0QTUYFhfhzG6bIo=; b=pcFdnt0yqC67ak
+	NgP+XkOMXv6GPhXPFmRT+Qm+4vJm/92t99up/Cs3BDRsQF0mmShgW5aX1N8f5RmODhMm5bSCJKPqX
+	xNuMtKjdS+wleny6sXAqscKZTMtGzxkWaqfGHYGL4I+5hiM8K4qQ6rlXSMgFSaArKNxx4iaV2LmA6
+	+uPeHizxeseN/2eE4KO+JSWsK+1PEj5Effd/cBDvwaaNgdgMAqbD78d0J5IQbeqCy9sdokLESC9/L
+	EORSYDPpkSqEKigdnYgMcrsOYSF2Y7RLS2Fu6g1STiJF0ejScItxTlCAb0x1vtFepQpyhH3urb1LR
+	xI/9CVSucNlPCkxhQD+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMhfT-003wZj-Er; Sat, 13 Aug 2022 03:18:31 +0000
-Received: from out30-133.freemail.mail.aliyun.com ([115.124.30.133])
+	id 1oMhfb-003wlS-3X; Sat, 13 Aug 2022 03:18:39 +0000
+Received: from out30-43.freemail.mail.aliyun.com ([115.124.30.43])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oMhf3-003w2F-LT; Sat, 13 Aug 2022 03:18:10 +0000
-X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018045192;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0VM4jZkO_1660360681;
-Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VM4jZkO_1660360681)
+	id 1oMhf7-003w6e-AV; Sat, 13 Aug 2022 03:18:11 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R251e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046051;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0VM4jZl8_1660360684;
+Received: from localhost(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VM4jZl8_1660360684)
           by smtp.aliyun-inc.com;
-          Sat, 13 Aug 2022 11:18:02 +0800
+          Sat, 13 Aug 2022 11:18:05 +0800
 From: Xianting Tian <xianting.tian@linux.alibaba.com>
 To: crash-utility@redhat.com,
 	mick@ics.forth.gr,
@@ -42,15 +42,15 @@ Cc: linux-riscv@lists.infradead.org,
 	huanyi.xj@alibaba-inc.com,
 	lifang_xia@linux.alibaba.com,
 	Xianting Tian <xianting.tian@linux.alibaba.com>
-Subject: [Crash-utility][PATCH V3 6/9] RISCV64: Add 'help -r' command support
-Date: Sat, 13 Aug 2022 11:17:50 +0800
-Message-Id: <20220813031753.3097720-7-xianting.tian@linux.alibaba.com>
+Subject: [Crash-utility][PATCH V3 9/9] RISCV64: Add the implementation of symbol verify
+Date: Sat, 13 Aug 2022 11:17:53 +0800
+Message-Id: <20220813031753.3097720-10-xianting.tian@linux.alibaba.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20220813031753.3097720-1-xianting.tian@linux.alibaba.com>
 References: <20220813031753.3097720-1-xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220812_201805_909528_E84C820C 
-X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-CacheID: sfid-20220812_201809_613025_066D32CA 
+X-CRM114-Status: UNSURE (   7.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,77 +69,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support form printing out the registers from the dump file.
-
-With the patch, we can get the regs,
-crash> help -r
-CPU 0:
-epc : 00ffffffa5537400 ra : ffffffff80088620 sp : ff2000001039bb90
- gp : ffffffff810dde38 tp : ff60000002269600 t0 : ffffffff8032be5c
- t1 : 0720072007200720 t2 : 666666666666663c s0 : ff2000001039bcf0
- s1 : 0000000000000000 a0 : ff2000001039bb98 a1 : 0000000000000001
- a2 : 0000000000000010 a3 : 0000000000000000 a4 : 0000000000000000
- a5 : ff60000001c7d000 a6 : 000000000000003c a7 : ffffffff8035c998
- s2 : ffffffff810df0a8 s3 : ffffffff810df718 s4 : ff2000001039bb98
- s5 : 0000000000000000 s6 : 0000000000000007 s7 : ffffffff80c4a468
- s8 : 00fffffffde45410 s9 : 0000000000000007 s10: 00aaaaaad1640700
- s11: 0000000000000001 t3 : ff60000001218f00 t4 : ff60000001218f00
- t5 : ff60000001218000 t6 : ff2000001039b988
+Verify the symbol to accept or reject a symbol from the kernel namelist.
 
 Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
 ---
- riscv64.c | 38 ++++++++++++++++++++++++++++++++++++++
- 1 file changed, 38 insertions(+)
+ riscv64.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
 
 diff --git a/riscv64.c b/riscv64.c
-index cdeac61..2e6e6dd 100644
+index 0e5c9c6..cbb57f2 100644
 --- a/riscv64.c
 +++ b/riscv64.c
-@@ -1326,6 +1326,44 @@ riscv64_init(int when)
- void
- riscv64_display_regs_from_elf_notes(int cpu, FILE *ofp)
- {
-+	const struct machine_specific *ms = machdep->machspec;
-+	struct riscv64_register *regs;
-+
-+	if (!ms->crash_task_regs) {
-+		error(INFO, "registers not collected for cpu %d\n", cpu);
-+		return;
-+	}
-+
-+	regs = &ms->crash_task_regs[cpu];
-+	if (!regs->regs[RISCV64_REGS_SP] && !regs->regs[RISCV64_REGS_EPC]) {
-+		error(INFO, "registers not collected for cpu %d\n", cpu);
-+		return;
-+	}
-+
-+	/* Print riscv64 32 regs */
-+	fprintf(ofp,
-+		"epc : " REG_FMT " ra : " REG_FMT " sp : " REG_FMT "\n"
-+		" gp : " REG_FMT " tp : " REG_FMT " t0 : " REG_FMT "\n"
-+		" t1 : " REG_FMT " t2 : " REG_FMT " s0 : " REG_FMT "\n"
-+		" s1 : " REG_FMT " a0 : " REG_FMT " a1 : " REG_FMT "\n"
-+		" a2 : " REG_FMT " a3 : " REG_FMT " a4 : " REG_FMT "\n"
-+		" a5 : " REG_FMT " a6 : " REG_FMT " a7 : " REG_FMT "\n"
-+		" s2 : " REG_FMT " s3 : " REG_FMT " s4 : " REG_FMT "\n"
-+		" s5 : " REG_FMT " s6 : " REG_FMT " s7 : " REG_FMT "\n"
-+		" s8 : " REG_FMT " s9 : " REG_FMT " s10: " REG_FMT "\n"
-+		" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n"
-+		" t5 : " REG_FMT " t6 : " REG_FMT "\n",
-+		regs->regs[0],  regs->regs[1],  regs->regs[2],
-+		regs->regs[3],  regs->regs[4],  regs->regs[5],
-+		regs->regs[6],  regs->regs[7],  regs->regs[8],
-+		regs->regs[9],  regs->regs[10], regs->regs[11],
-+		regs->regs[12], regs->regs[13], regs->regs[14],
-+		regs->regs[15], regs->regs[16], regs->regs[17],
-+		regs->regs[18], regs->regs[19], regs->regs[20],
-+		regs->regs[21], regs->regs[22], regs->regs[23],
-+		regs->regs[24], regs->regs[25], regs->regs[26],
-+		regs->regs[27], regs->regs[28], regs->regs[29],
-+		regs->regs[30], regs->regs[31]);
+@@ -165,10 +165,23 @@ riscv64_cmd_mach(void)
+ 	riscv64_display_machine_stats();
  }
  
- #else /* !RISCV64 */
++/*
++ * Accept or reject a symbol from the kernel namelist.
++ */
+ static int
+ riscv64_verify_symbol(const char *name, ulong value, char type)
+ {
+-	/* TODO: */
++	if (CRASHDEBUG(8) && name && strlen(name))
++		fprintf(fp, "%08lx %s\n", value, name);
++
++	if (!(machdep->flags & KSYMS_START)) {
++		if (STREQ(name, "_text") || STREQ(name, "_stext"))
++			machdep->flags |= KSYMS_START;
++
++		return (name && strlen(name) && !STRNEQ(name, "__func__.") &&
++			!STRNEQ(name, "__crc_"));
++	}
++
+ 	return TRUE;
+ }
+ 
 -- 
 2.17.1
 
