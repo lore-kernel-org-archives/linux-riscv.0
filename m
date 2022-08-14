@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 031D1C25B0E
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Aug 2022 16:21:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E6BC3F6B0
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Aug 2022 16:24:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V2y9BCPEZqq2scgrQtKhGide/SrujRu93J45tT6yNgs=; b=ovubAh8btLRFLt
-	riccYnvSmWWjDdp+Q5xa7KUpmbRRhHFcpUnUp8/Df63KoHLptMNGHCWeLejR9eLcuDJq9JX5p0nU1
-	j6sbsD2JaDj1I1ceu739MT02Jr91bIkfYBqMvHh7/nfk+DN834zU5BwzPSTE9KaFkZPwW9k4XJeT2
-	X0tUMI8hTrxSKseATPaJD2tefcJ6Kqtc4sB+0xup74xiP7f5M+Ck5A9K4XfI2TG7jmNT9oU3zkSdU
-	fWVsCx30jeZ6D3aJiei65v6jPzZrQkFWauaUIpS6OtN8U3p84AIGp1E2l4mUCQoh1yplEIkjU0+lZ
-	YZJCTxkDhbXSrEHwaUOQ==;
+	List-Owner; bh=6oa92CUzGPExYtSCnwXbpwRZ0tX09GSQsx9T3b1mnOo=; b=iemOK9ugZ7fMlU
+	qBbbtsQ918umDV/y2TOyr+GQpuKXB3XuN4gK72VOZ5HMVwFe3SZo+BQTuTkquDPeXYX+J4zelDVBn
+	oY8C0Ccnqoyhrm1wHcoSJelp0Mns9Yjk4Bs/n4+IPJnhMDlViUf1MpIUY9HhRGBHAr8CiXlyhGbkV
+	02f6/l+ntwSlXi3e8zjMlj4ygCe8MXj0y+q0gh8ZDgPbxBevkjWPsbV7HIp4UrTgAB5+GK6QjSirq
+	oyl98Sy3sSAvMRkcyWy586xXWBekM/3RPY+os7nIgoXzd6nIATIjClIjZJlX81A34Q22V1iJoLVwh
+	xXKTp2Rgfk36ql0tIugA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNGMP-007ptd-2e; Sun, 14 Aug 2022 16:21:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oNGPP-007rjU-NF; Sun, 14 Aug 2022 16:24:15 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNGMH-007pq0-Ju
-	for linux-riscv@lists.infradead.org; Sun, 14 Aug 2022 16:21:03 +0000
+	id 1oNGP2-007rZG-4q
+	for linux-riscv@lists.infradead.org; Sun, 14 Aug 2022 16:23:53 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id F1EEC60F4A;
-	Sun, 14 Aug 2022 16:21:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8686C433D6;
-	Sun, 14 Aug 2022 16:20:58 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id B8585B80B79;
+	Sun, 14 Aug 2022 16:23:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EA77C43141;
+	Sun, 14 Aug 2022 16:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1660494060;
-	bh=4qKoqDDrujEnaXSp0+r96irpj98a/vp4++7pVeIYz/A=;
+	s=k20201202; t=1660494229;
+	bh=QycXXiRXYvZUqf9kFMY/DwyY1FZDeN0MoDAl5eoQP24=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nRdIZxNRIcmlDFyjcIGyZIz9m9IwXtDVqgPWLTjKzmEusWzeFHZSf9aQt/zSrjxJ7
-	 vtw3fgMS6V3O/R5845QBGWEFEz1pDORCyTW4ER+pyPZRhDRsfGgx2uZJ4hfGPaFaQi
-	 D2FvhHWdfKm7uqL5b7PSWB8GroMZtrr6wIqYcJTbYjz2IOKEFX2JNmeoQ6fYa+zrFt
-	 fRz/neum6s2wRW3SnOzYV0sqBLrZ0+ddXsEulhecW0POfS/ZM5HrCkbd8SRHZJHd/Q
-	 FVaLDXX0LVVPTfQwKMJ/l/OKEVTeYs+Dx1UkeGv4+u8KzPU2DgohrKCopH2eUXAAtS
-	 3WnEDCYb48/EQ==
+	b=UNV9lD6pr/UwkP1ZNXL01p76S6QGlTWtrIpSRf1rT2h86Orz74qEBwStR0YhajYeG
+	 KriJBvC1czCYoChBzlV9+d8uIODUu5cGyj4gQP/PlJsIiubPSjy+dzs7JLpHB0j5Ja
+	 CBODuO68X3jcnE3nJdRoLND0SipbMid3VKn9XADuC4RZWyZx2pRIo3NOIZAGtRr9nR
+	 eSaznbxKIBkMFY93dWbeqeZoc/XnjLiexp0gTY7K0lS7BH/fMwdPmS/qkZvHRlN8eT
+	 d2ub+nW+QLpoIpWbMAnC2+OXY+uhV1IkvSnyOrMyeUbqPj4bo9N8jgCxRFTmo6SHil
+	 jsvhl4/XgsbWA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Xianting Tian <xianting.tian@linux.alibaba.com>,
-	Guo Ren <guoren@kernel.org>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+	Brice Goglin <Brice.Goglin@inria.fr>,
+	Sudeep Holla <sudeep.holla@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
+	daire.mcnamara@microchip.com,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
-	heiko@sntech.de,
-	mpe@ellerman.id.au,
-	ebiederm@xmission.com,
-	wangkefeng.wang@huawei.com,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.19 21/48] RISC-V: Add fast call path of crash_kexec()
-Date: Sun, 14 Aug 2022 12:19:14 -0400
-Message-Id: <20220814161943.2394452-21-sashal@kernel.org>
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH AUTOSEL 5.18 07/39] riscv: dts: microchip: Add mpfs' topology information
+Date: Sun, 14 Aug 2022 12:22:56 -0400
+Message-Id: <20220814162332.2396012-7-sashal@kernel.org>
 X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220814161943.2394452-1-sashal@kernel.org>
-References: <20220814161943.2394452-1-sashal@kernel.org>
+In-Reply-To: <20220814162332.2396012-1-sashal@kernel.org>
+References: <20220814162332.2396012-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220814_092101_840720_006B8351 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20220814_092352_353651_6B64A18D 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,71 +86,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Xianting Tian <xianting.tian@linux.alibaba.com>
+From: Conor Dooley <conor.dooley@microchip.com>
 
-[ Upstream commit 3f1901110a89b0e2e13adb2ac8d1a7102879ea98 ]
+[ Upstream commit 88d319c6abaeb37f0e2323275eaf57a8388e0265 ]
 
-Currently, almost all archs (x86, arm64, mips...) support fast call
-of crash_kexec() when "regs && kexec_should_crash()" is true. But
-RISC-V not, it can only enter crash system via panic(). However panic()
-doesn't pass the regs of the real accident scene to crash_kexec(),
-it caused we can't get accurate backtrace via gdb,
-	$ riscv64-linux-gnu-gdb vmlinux vmcore
-	Reading symbols from vmlinux...
-	[New LWP 95]
-	#0  console_unlock () at kernel/printk/printk.c:2557
-	2557                    if (do_cond_resched)
-	(gdb) bt
-	#0  console_unlock () at kernel/printk/printk.c:2557
-	#1  0x0000000000000000 in ?? ()
+The mpfs has no cpu-map node, so tools like hwloc cannot correctly
+parse the topology. Add the node using the existing node labels.
 
-With the patch we can get the accurate backtrace,
-	$ riscv64-linux-gnu-gdb vmlinux vmcore
-	Reading symbols from vmlinux...
-	[New LWP 95]
-	#0  0xffffffe00063a4e0 in test_thread (data=<optimized out>) at drivers/test_crash.c:81
-	81             *(int *)p = 0xdead;
-	(gdb)
-	(gdb) bt
-	#0  0xffffffe00064d5c0 in test_thread (data=<optimized out>) at drivers/test_crash.c:81
-	#1  0x0000000000000000 in ?? ()
-
-Test code to produce NULL address dereference in test_crash.c,
-	void *p = NULL;
-	*(int *)p = 0xdead;
-
-Reviewed-by: Guo Ren <guoren@kernel.org>
-Tested-by: Xianting Tian <xianting.tian@linux.alibaba.com>
-Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
-Link: https://lore.kernel.org/r/20220606082308.2883458-1-xianting.tian@linux.alibaba.com
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Reported-by: Brice Goglin <Brice.Goglin@inria.fr>
+Link: https://github.com/open-mpi/hwloc/issues/536
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/kernel/traps.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ .../boot/dts/microchip/microchip-mpfs.dtsi    | 24 +++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index b40426509244..39d0f8bba4b4 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -16,6 +16,7 @@
- #include <linux/mm.h>
- #include <linux/module.h>
- #include <linux/irq.h>
-+#include <linux/kexec.h>
- 
- #include <asm/asm-prototypes.h>
- #include <asm/bug.h>
-@@ -44,6 +45,9 @@ void die(struct pt_regs *regs, const char *str)
- 
- 	ret = notify_die(DIE_OOPS, str, regs, 0, regs->cause, SIGSEGV);
- 
-+	if (regs && kexec_should_crash(current))
-+		crash_kexec(regs);
+diff --git a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+index 2f75e39d2fdd..37c05ba6e6bf 100644
+--- a/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/microchip-mpfs.dtsi
+@@ -143,6 +143,30 @@ cpu4_intc: interrupt-controller {
+ 				interrupt-controller;
+ 			};
+ 		};
 +
- 	bust_spinlocks(0);
- 	add_taint(TAINT_DIE, LOCKDEP_NOW_UNRELIABLE);
- 	spin_unlock_irq(&die_lock);
++		cpu-map {
++			cluster0 {
++				core0 {
++					cpu = <&cpu0>;
++				};
++
++				core1 {
++					cpu = <&cpu1>;
++				};
++
++				core2 {
++					cpu = <&cpu2>;
++				};
++
++				core3 {
++					cpu = <&cpu3>;
++				};
++
++				core4 {
++					cpu = <&cpu4>;
++				};
++			};
++		};
+ 	};
+ 
+ 	refclk: mssrefclk {
 -- 
 2.35.1
 
