@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D6EC25B06
-	for <linux-riscv@archiver.kernel.org>; Sun, 14 Aug 2022 16:29:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4676EC2BBC5
+	for <linux-riscv@archiver.kernel.org>; Sun, 14 Aug 2022 16:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A/gabz6o06OsWCqkNTrX9Oe7DFTxfQ57/+aeEIUslNE=; b=cwt60Wr6u1YGy3
-	AvZTkOL/xmehR3v6fSFzkxOWIEp+P94LIh0L8rs6X81OP5lwzsBc1+TRxdb42doShUiuDn9o7NnfU
-	P4Zv+zD/8xU9m8TiB1b+ixmgJIim/5cYAyqb5FkdlQDAmMkNF1X3Z951OZEZ5ArCtMdoljOhw6eGy
-	j+Aq9znZpXEz5t05m5oDwr0Wa/LmZMZPtl/ehDmki0Mc6f+j91akeg8eojxeuIP7QrRpNkJN6Pl3/
-	NZGThVTI4c3yEhmVGp3V54B23JeGW49l/QfplEaEywXniQ21nKgv9/iar231LeZObqTl/KlBb0FDS
-	j4Vop34Tk4/Ar6GXI/TA==;
+	List-Owner; bh=lEM3V3vdcnQazy0MKJrqWYoixhTQvGHa43DDHD+Czaw=; b=VsGDfKG241023B
+	PPHWqZBK5W/eArCsG6I1lrChRgwRF092j1vp7a085XvdQIC2nTpL314tPpv9/J/rvTtlJ6Doy+QYJ
+	nL0+q+h8msGwZnbW997g+Y/1IuHTmqu11IhqKkh0kk02UGQaIg1A+aYviLAPdXdzSlLUcWd64Q7/d
+	ZxnyPRsyNbB5tzRBfLhTWxH6QdPUwsDVgruvl5Pje6cpu5Zioyh4Lxk9CMA0a9RWfq2UQduCoQYdE
+	sFoW4j2mAxJa0tXwCiEeNVdvaO9x9VdrcUbZ59kyHkOUbuOTEn1ucJ+ozxO6z27O73n4X3Kesn/Hq
+	wVAhXk45Kcv7u5FJUymQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNGUc-007vjR-Hw; Sun, 14 Aug 2022 16:29:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oNGUk-007vpi-Id; Sun, 14 Aug 2022 16:29:46 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNGUY-007vfx-Jt
-	for linux-riscv@lists.infradead.org; Sun, 14 Aug 2022 16:29:36 +0000
+	id 1oNGUd-007vjN-RJ
+	for linux-riscv@lists.infradead.org; Sun, 14 Aug 2022 16:29:42 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id EC5AA60FC1;
-	Sun, 14 Aug 2022 16:29:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE780C433C1;
-	Sun, 14 Aug 2022 16:29:31 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id C258CB80AEE;
+	Sun, 14 Aug 2022 16:29:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07571C433D6;
+	Sun, 14 Aug 2022 16:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1660494573;
-	bh=DCmXxNGvaBz6sFtTaFylHbtc7R+BzWBMnvzEmB/xHtg=;
+	s=k20201202; t=1660494576;
+	bh=tJ4/GjcFTOYm1eHzzFoim4ZayD31016TtBq0nigveEE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZYiBXYxsnUXiMnqAEZQqq4U9QY3CBtekYcwS+ztiLrTplRtj4J6He2OcAtOINvgRy
-	 PxfbCfcqqcU4EcjEOxsFlUrxhv56/qDrRHDO9wa/fAamXSBP6MGN6AbPRObOX90G+B
-	 38XUTQJgPkcFkfr+z//z0Q2XwFGeLxCPn65Oay228TVivRRegPPa4S54Bp/bMkkYOx
-	 3ShODiWf/ZAjDm1G7aOOrnXUWTuhxyMxmw0NSudK+P9IeQzQQGEtBdRqxs8a+uTh8p
-	 Tg7jfZ/6MBZzehXVTOku5UaLSyvCXBrjlI6IcAIMG6Txls1khEszNQFHxwWK3DXsjn
-	 6syMI6GiHqaKg==
+	b=X7dZpjYMcvekt2nBwe7yBrK0AdWfO/qeg1BSyMGVQu0HP/7i0VPfiAB5s5GgFZRuH
+	 77WjNUG2z0T/Ev22luP0+U5mNDcdXQCtcT+4qnt5nbqPZGK9eXG0U4IMRG6EBPpfIM
+	 JJORA59D36VozPcrBgyChmA59bcWpfn68d2qfhugXIq++nwQvWA6Q7EzCIOWCq+c9c
+	 OIp/9jVkUZ6q+TxL9LJOzhV7jrK/YgU9whB7FEIusqa1kFxG2EHViGjz/hoAFGfvJD
+	 8qdLl7CPCqR3/+SI0rxoG2OURbQY/t5wUbmIl6uBxQPMIcuIVFfSFYY3ymaAMxF8Bf
+	 2qsp3K+znPJMQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Celeste Liu <coelacanthus@outlook.com>,
-	xctan <xc-tan@outlook.com>,
-	dram <dramforever@live.com>,
-	Ruizhe Pan <c141028@gmail.com>,
+Cc: Xianting Tian <xianting.tian@linux.alibaba.com>,
+	Guo Ren <guoren@kernel.org>,
 	Palmer Dabbelt <palmer@rivosinc.com>,
 	Sasha Levin <sashal@kernel.org>,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
-	guoren@kernel.org,
+	mpe@ellerman.id.au,
+	rmk+kernel@armlinux.org.uk,
+	ebiederm@xmission.com,
+	heiko@sntech.de,
+	wangkefeng.wang@huawei.com,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 4.19 05/14] riscv: mmap with PROT_WRITE but no PROT_READ is invalid
-Date: Sun, 14 Aug 2022 12:29:11 -0400
-Message-Id: <20220814162922.2398723-5-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 4.19 06/14] RISC-V: Add fast call path of crash_kexec()
+Date: Sun, 14 Aug 2022 12:29:12 -0400
+Message-Id: <20220814162922.2398723-6-sashal@kernel.org>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220814162922.2398723-1-sashal@kernel.org>
 References: <20220814162922.2398723-1-sashal@kernel.org>
@@ -66,8 +68,8 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220814_092934_820949_920382AC 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20220814_092941_240309_35D21712 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +86,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Celeste Liu <coelacanthus@outlook.com>
+From: Xianting Tian <xianting.tian@linux.alibaba.com>
 
-[ Upstream commit 2139619bcad7ac44cc8f6f749089120594056613 ]
+[ Upstream commit 3f1901110a89b0e2e13adb2ac8d1a7102879ea98 ]
 
-As mentioned in Table 4.5 in RISC-V spec Volume 2 Section 4.3, write
-but not read is "Reserved for future use.". For now, they are not valid.
-In the current code, -wx is marked as invalid, but -w- is not marked
-as invalid.
-This patch refines that judgment.
+Currently, almost all archs (x86, arm64, mips...) support fast call
+of crash_kexec() when "regs && kexec_should_crash()" is true. But
+RISC-V not, it can only enter crash system via panic(). However panic()
+doesn't pass the regs of the real accident scene to crash_kexec(),
+it caused we can't get accurate backtrace via gdb,
+	$ riscv64-linux-gnu-gdb vmlinux vmcore
+	Reading symbols from vmlinux...
+	[New LWP 95]
+	#0  console_unlock () at kernel/printk/printk.c:2557
+	2557                    if (do_cond_resched)
+	(gdb) bt
+	#0  console_unlock () at kernel/printk/printk.c:2557
+	#1  0x0000000000000000 in ?? ()
 
-Reported-by: xctan <xc-tan@outlook.com>
-Co-developed-by: dram <dramforever@live.com>
-Signed-off-by: dram <dramforever@live.com>
-Co-developed-by: Ruizhe Pan <c141028@gmail.com>
-Signed-off-by: Ruizhe Pan <c141028@gmail.com>
-Signed-off-by: Celeste Liu <coelacanthus@outlook.com>
-Link: https://lore.kernel.org/r/PH7PR14MB559464DBDD310E755F5B21E8CEDC9@PH7PR14MB5594.namprd14.prod.outlook.com
+With the patch we can get the accurate backtrace,
+	$ riscv64-linux-gnu-gdb vmlinux vmcore
+	Reading symbols from vmlinux...
+	[New LWP 95]
+	#0  0xffffffe00063a4e0 in test_thread (data=<optimized out>) at drivers/test_crash.c:81
+	81             *(int *)p = 0xdead;
+	(gdb)
+	(gdb) bt
+	#0  0xffffffe00064d5c0 in test_thread (data=<optimized out>) at drivers/test_crash.c:81
+	#1  0x0000000000000000 in ?? ()
+
+Test code to produce NULL address dereference in test_crash.c,
+	void *p = NULL;
+	*(int *)p = 0xdead;
+
+Reviewed-by: Guo Ren <guoren@kernel.org>
+Tested-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+Link: https://lore.kernel.org/r/20220606082308.2883458-1-xianting.tian@linux.alibaba.com
 Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/kernel/sys_riscv.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ arch/riscv/kernel/traps.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index db44da32701f..516aaa19daf2 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -26,9 +26,8 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
- 	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
- 		return -EINVAL;
+diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+index 24a9333dda2c..7c65750508f2 100644
+--- a/arch/riscv/kernel/traps.c
++++ b/arch/riscv/kernel/traps.c
+@@ -22,6 +22,7 @@
+ #include <linux/mm.h>
+ #include <linux/module.h>
+ #include <linux/irq.h>
++#include <linux/kexec.h>
  
--	if ((prot & PROT_WRITE) && (prot & PROT_EXEC))
--		if (unlikely(!(prot & PROT_READ)))
--			return -EINVAL;
-+	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
-+		return -EINVAL;
+ #include <asm/processor.h>
+ #include <asm/ptrace.h>
+@@ -50,6 +51,9 @@ void die(struct pt_regs *regs, const char *str)
  
- 	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
- 			       offset >> (PAGE_SHIFT - page_shift_offset));
+ 	ret = notify_die(DIE_OOPS, str, regs, 0, regs->scause, SIGSEGV);
+ 
++	if (regs && kexec_should_crash(current))
++		crash_kexec(regs);
++
+ 	bust_spinlocks(0);
+ 	add_taint(TAINT_DIE, LOCKDEP_NOW_UNRELIABLE);
+ 	spin_unlock_irq(&die_lock);
 -- 
 2.35.1
 
