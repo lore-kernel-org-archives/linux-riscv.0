@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5632C00140
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A16C25B0D
 	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 05:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=kgtgJsid68WHKtA6Fp+5wGtk//vfqVmauBwIF4yKz+I=; b=Ad0t0NWcS/pEyM
-	BG8hM9MJiEraoVGDNKMooGiTA4G0z5+PWjGgdHrXELI3jLImsbUXPg+Ts9LUuOAvkhZ1pBrPOPZXx
-	cpdORUcXX/lgSksJATQi2V2YFdAVunTFFqyVZCqkpIWGSUki8jb6LpupOBYxfDt4hhhMzxhO7TWl5
-	O06Jebc3RN35uyf/otQR21xSaM7X4pzpHzLw4I4XMdFh5Yl1gGcu/sJs56aEfpC60mWWKNCojDpNo
-	EziwcVPz0OMPnJeoeLmH50WD6OjjoJY6/R2x65eRSVwd5yamsE1p2Hp44luiQLlbrTwzWyQWEuijg
-	HfzNSrE0g/lWlDrUjuhA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=QikwLytWi0nitk4S/1sGR58TfxC3lQ+LGyqAUGeqMMM=; b=aMPmfjzvs8dwq5
+	a/7tUw+R69fMUyHihYl6vMJ8USL9ZZBEpbOQZUhYQWXjxG5tfcbsChKnrXHOCeRaOA6O9ZKclSCVZ
+	4NQf4LOFzc9AMZfbTJh4k0AKbKhNA4MdzXv6TYtpcogdNTWfZGsRBbpdTZFTBm++0WwERn43eYKtD
+	ziN5ldqHvQIvCTwoYlWIsX9a6Zm3/yeUhgclCD0KgTQLz2VYTGx4GDsf5bXVlzgo0QHAtprdYqzlB
+	1BEhV9exMP81KOicLroY5wL6kRN91oQbe1U2MgLUUGsfrOvZ6I06hrUg9VFADAR3w+t2FMoBYM1sj
+	flGlw4NvePusAGgliy2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNSKu-00BQFY-7Y; Mon, 15 Aug 2022 05:08:24 +0000
+	id 1oNSKz-00BQJN-RQ; Mon, 15 Aug 2022 05:08:30 +0000
 Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNSKq-00BQDA-7y
-	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 05:08:22 +0000
-Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id 76CB63200065;
-	Mon, 15 Aug 2022 01:08:18 -0400 (EDT)
+	id 1oNSKv-00BQGa-Mw
+	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 05:08:27 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.west.internal (Postfix) with ESMTP id 2F79232004AE;
+	Mon, 15 Aug 2022 01:08:24 -0400 (EDT)
 Received: from mailfrontend1 ([10.202.2.162])
-  by compute5.internal (MEProxy); Mon, 15 Aug 2022 01:08:19 -0400
+  by compute3.internal (MEProxy); Mon, 15 Aug 2022 01:08:25 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
 	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
-	:message-id:mime-version:reply-to:sender:subject:subject:to:to;
-	 s=fm2; t=1660540097; x=1660626497; bh=GURiT1H4R1aPZcWdp4xxRYHra
-	9cy+uB2goooIPTc6Jg=; b=wvN7K0TQOpJiWH8IL+S7vO3APopXJvKAK+cDnKbnH
-	VclnqPhUyq0wtqcUUhEUq7AUXu9edpXtRgAJ6+KDKVaZ4wpHtdeGVZv3XuCNA8RT
-	gAM8dTiAWdcIZdMi258iKMKBgX1VsHtvimZmcCJQ+cjXgpgbcGJoLmWCnmpfEezZ
-	HeJu0Cxj5Fq2VbIEW7Hk3DRwq7YQA5wX+GEH7oMFLzHGQPHLSYAmpl7TnK1MVKk8
-	Y3hzwnmV5jBOAQT97CGSBtIm8NmU/7icO1DWM5qmvms9EFIHD1tymJV5deKucmqU
-	6OzdgmV0jvIjuCVaUR5sVoP6MHHwNFXV6+hEd9KqzUbVA==
+	:in-reply-to:message-id:mime-version:references:reply-to:sender
+	:subject:subject:to:to; s=fm2; t=1660540103; x=1660626503; bh=29
+	uAAq1TVY/O7ZEUaRe+3LcWY61wpaNsGqYURHUMEAQ=; b=Lv40otdXtr3OwindnT
+	WjgvPehS8V6WPGFcblD/hR1waOQkqGMjINtWzTvfMc9n79ZAG2e8+RN0+L3rgPTj
+	l/7hKUTjvkzNtdB1XFtc1eUgKTTecpVco3fZ/RYsB1P5m88BRDNxPoFuzqim+3D7
+	pf0eLDvwd5x9OC3PFPOHjYVR7XLyP69P3HHEUKgxAQwXp493L7cfUqqEl21gN9qx
+	zp0BT269U1qhmj/3s9Pc6HhJC0ONNyj0QvYpyGkLLuQRQt2pwslDX7KgfmSWflhK
+	pKmRPqyoaO3k//oYYrXO0ZW5zMRF4NM8Wdpe+QTj9VRW3ImjFnZBlirb7zSkFM7Y
+	swtQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:message-id
-	:mime-version:reply-to:sender:subject:subject:to:to:x-me-proxy
-	:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1660540097; x=1660626497; bh=GURiT1H4R1aPZcWdp4xxRYHra9cy+uB2goo
-	oIPTc6Jg=; b=0RJ4xJ+cEhCcoP5inwm5Ypq25K7YFtl2LQoPmHW/XG9Ez2J2QoJ
-	j6I/A5gfQ1hIogj4Av6dVP/9Qo/g2w0mYHbBQlkxeLiIettlE2BzGY4+oqhZwcjY
-	VPvFBBwXRqBCstSSmU2HhIOegWxzqTbapzxspqM8G8wZiJwVee4mm6xQfGGL2G1J
-	A6tl4dmLc0aC3qTPI+1LX1fLWw5zh1awp+T+PGGjWVKlidKgLBddBkzgNB0DszRJ
-	Qbcet+E9IL+YngK3s0gghicDbgnrGcBbNQy3AGPcJVyjEFKyhi6MLdJDK4u7cQl0
-	IwNa9Yr7C25N5cOm8RlO2n4aMPYthWNQlNA==
-X-ME-Sender: <xms:wdT5YuikaCUvUSPQoVurY7tVRd7qTM8Jw6lhxKPlZZRFdDQw_YQKkw>
-    <xme:wdT5YvDCjG95Vmz0OhqatLnkDxxIIORuu-iuGQeJXI4b2ZcFdrMbraLvBVgU_SK-o
-    jIzRRMas8cb1D9swA>
-X-ME-Received: <xmr:wdT5YmH4ssKJL0lCic0qjGq26EA6v2WbGjfhM6fSM1Xjs5lM3jlunZF_A2MqiAP6Bv6Yz3ld3lcu6XSbNhd7Rd-snfBDH1QfhRSGpdUJk0dYiV0HE24X4sQoczVn-yHfVhkEaw>
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+	:x-sasl-enc; s=fm1; t=1660540103; x=1660626503; bh=29uAAq1TVY/O7
+	ZEUaRe+3LcWY61wpaNsGqYURHUMEAQ=; b=QE0kSkO9TDbjd71LqM6FjE1EYAG82
+	eyJNBrE6n0W3mOl1qwtdGRa+GsK6dreQ0ydKJNijL8TS4mSkA+d8KCQ/Tqe9FDnU
+	a1K/Bs0LMG9BbcuJDFMygPaMjk+btMra8wcQKkLLKP5lHe5GZY7TVOb9GAlvvVRr
+	9YnKA/HP+BkVKXeMGlRgSPf99I0qEXXOlRN+efuuTy/+ctdx+kMEmP8U+ibxlliP
+	tECM8hvYyG5l8iWonuWSWgMlsNa99Upe4oMWndA/26eAXc8qtmDyjIk4gQHN6IuV
+	13+wHLL6y10Y5bUxz3EI1L9ttQGLft5g30VPBetqS44H3Taj4DLyIiqaQ==
+X-ME-Sender: <xms:x9T5YiO6IUTkHwAMlkM6Bs2tZ3oszi9Tt4Sd8f7V6lCE0yC0VLKikg>
+    <xme:x9T5Yg_P0Yln4UTTEQks2EjDfVIxPqHZM4nPwA7tBc9gVdbvwbXg40NQtC9JEohNI
+    CftQrvyS0VzGa2PgQ>
+X-ME-Received: <xmr:x9T5YpT7kAl1f7E2aoXDm1edp98oGM2g91RaFhe5Mx1mthWjkMNahjigDc4mo8sSuZIrxYgdqNInSC14XlkAaVxeU6dezAwDwQFD2SpDggWB_YuQJEBHN9tzrZTWNHauYpgB8Q>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrvdehuddgleehucetufdoteggodetrfdotf
     fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
     uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhephffvvefufffkofgggfestdekredtredttdenucfhrhhomhepufgrmhhuvghl
-    ucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecuggftrf
-    grthhtvghrnhepkeehffethedtteffgfefteetjedvfeelueevudffgfeutdejvdehledv
-    vdffhfevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiii
-    gvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsrghmuhgvlhesshhhohhllhgrnhgu
-    rdhorhhg
-X-ME-Proxy: <xmx:wdT5YnRTqg3_tDfS1yJF9u5Bl5z3o3ixHO9sD9WZtHEk2-R0H5TIBw>
-    <xmx:wdT5YryEs5s6KOAcxRp-d3ttUflU6h5Evkigh6rj939Aa7MDXiPeHA>
-    <xmx:wdT5Yl4I53rJW1wQIW3ce3HAkLDvKF4U-3s52HT3Ny9aI9ZkJ-rkLA>
-    <xmx:wdT5Ygq-NCUHbp-d6fO3CAw4gppml22q02vDy-JmYoZea-nC5ahvMA>
+    cujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepufgrmhhu
+    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
+    ftrfgrthhtvghrnhepudekteeuudehtdelteevgfduvddvjefhfedulefgudevgeeghefg
+    udefiedtveetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrh
+    homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:x9T5YiuCFd4EIQkQDy39U45BVL4gP1qnft-kynxLRcUwUfRGSpn02w>
+    <xmx:x9T5YqfSAmjtfdaXRzqr3irzB59utULy6H_i3nveU1b3FAUCq8BjYg>
+    <xmx:x9T5Ym1XUFftOcEdsAsTQyPrxQlhlHS9WurXL2rE2V16j8N-IImB6w>
+    <xmx:x9T5YrVcbxL3GRyZDRK4VkEphlWqSlJtrDKkOyV2xs7hm33VTSqaZQ>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 15 Aug 2022 01:08:16 -0400 (EDT)
+ 15 Aug 2022 01:08:22 -0400 (EDT)
 From: Samuel Holland <samuel@sholland.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -85,14 +85,17 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH 00/12] riscv: Allwinner D1 platform support
-Date: Mon, 15 Aug 2022 00:08:03 -0500
-Message-Id: <20220815050815.22340-1-samuel@sholland.org>
+Subject: [PATCH 02/12] dt-bindings: riscv: Add T-HEAD C906 and C910 compatibles
+Date: Mon, 15 Aug 2022 00:08:05 -0500
+Message-Id: <20220815050815.22340-3-samuel@sholland.org>
 X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220815050815.22340-1-samuel@sholland.org>
+References: <20220815050815.22340-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220814_220820_568154_847871AC 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20220814_220826_031131_4FC64B71 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,78 +112,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds the Kconfig/defconfig plumbing and devicetrees for a
-range of Allwinner D1-based boards. Many features are already enabled,
-including USB, Ethernet, and WiFi.
+The C906 and C910 are RISC-V CPU cores from T-HEAD Semiconductor.
+Notably, the C906 core is used in the Allwinner D1 SoC.
 
-The SoC devicetree uses bindings from the following series which have
-not yet been merged:
-- SRAM controller:
-  https://lore.kernel.org/lkml/20220815041248.53268-1-samuel@sholland.org/
-- NVMEM cell bits property change:
-  https://lore.kernel.org/lkml/20220814173656.11856-1-samuel@sholland.org/
-- In-package LDO regulators:
-  https://lore.kernel.org/lkml/20220815043436.20170-1-samuel@sholland.org/
+Signed-off-by: Samuel Holland <samuel@sholland.org>
+---
 
-All three of these are required to set the correct I/O domain voltages
-in the pin controller, which I would consider important to have in the
-initial version of the devicetree.
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-The SoC devicetree does contain one small hack to avoid a dependency on
-the audio codec binding, since that is not ready yet: the codec node
-uses a bare "simple-mfd", "syscon" compatible.
-
-
-Samuel Holland (12):
-  MAINTAINERS: Match the sun20i family of Allwinner SoCs
-  dt-bindings: riscv: Add T-HEAD C906 and C910 compatibles
-  dt-bindings: vendor-prefixes: Add Allwinner D1 board vendors
-  dt-bindings: riscv: Add Allwinner D1 board compatibles
-  riscv: Add the Allwinner SoC family Kconfig option
-  riscv: dts: allwinner: Add the D1 SoC base devicetree
-  riscv: dts: allwinner: Add Allwinner D1 Nezha devicetree
-  riscv: dts: allwinner: Add Sipeed Lichee RV devicetrees
-  riscv: dts: allwinner: Add MangoPi MQ Pro devicetree
-  riscv: dts: allwinner: Add Dongshan Nezha STU devicetree
-  riscv: dts: allwinner: Add ClockworkPi and DevTerm devicetrees
-  riscv: defconfig: Enable the Allwinner D1 platform and drivers
-
- .../devicetree/bindings/riscv/cpus.yaml       |   2 +
- .../devicetree/bindings/riscv/sunxi.yaml      |  64 ++
- .../devicetree/bindings/vendor-prefixes.yaml  |   4 +
- MAINTAINERS                                   |   2 +-
- arch/riscv/Kconfig.socs                       |   9 +
- arch/riscv/boot/dts/Makefile                  |   1 +
- arch/riscv/boot/dts/allwinner/Makefile        |  10 +
- .../allwinner/sun20i-d1-clockworkpi-v3.14.dts | 242 +++++
- .../sun20i-d1-common-regulators.dtsi          |  51 +
- .../dts/allwinner/sun20i-d1-devterm-v3.14.dts |  37 +
- .../sun20i-d1-dongshan-nezha-stu.dts          | 114 +++
- .../sun20i-d1-lichee-rv-86-panel-480p.dts     |  29 +
- .../sun20i-d1-lichee-rv-86-panel-720p.dts     |  10 +
- .../sun20i-d1-lichee-rv-86-panel.dtsi         |  92 ++
- .../allwinner/sun20i-d1-lichee-rv-dock.dts    |  74 ++
- .../dts/allwinner/sun20i-d1-lichee-rv.dts     |  84 ++
- .../allwinner/sun20i-d1-mangopi-mq-pro.dts    | 128 +++
- .../boot/dts/allwinner/sun20i-d1-nezha.dts    | 171 ++++
- arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi  | 900 ++++++++++++++++++
- arch/riscv/configs/defconfig                  |  23 +-
- 20 files changed, 2045 insertions(+), 2 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/riscv/sunxi.yaml
- create mode 100644 arch/riscv/boot/dts/allwinner/Makefile
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-clockworkpi-v3.14.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-common-regulators.dtsi
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-devterm-v3.14.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel-480p.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel-720p.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-86-panel.dtsi
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv-dock.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-lichee-rv.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-mangopi-mq-pro.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-nezha.dts
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi
-
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 873dd12f6e89..ce2161d9115a 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -38,6 +38,8 @@ properties:
+               - sifive,u5
+               - sifive,u7
+               - canaan,k210
++              - thead,c906
++              - thead,c910
+           - const: riscv
+       - items:
+           - enum:
 -- 
 2.35.1
 
