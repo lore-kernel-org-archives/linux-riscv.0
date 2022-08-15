@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D36F0C00140
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 05:09:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED160C25B0E
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 05:09:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Y4ELHg15NVrrF8qj1I3BnF6PDsXZDrza7CLxZgP0jSc=; b=oBD9IDgZxiAYPo
-	OxpImobbWMIBiRzxhLp9Q4dVhPSTj9dog2OEIIrbXSpfGSi3hQEjz8RYbpbG1w7UhRZsfnit2nh0U
-	iehl8crDREEh7i2Y5vy04lzC1Hbv/C213mC0rvsv5BGlLF0E5fnWlLFkLsVsX5cHWyrA7jDuIuB6c
-	nFT7o8yC1i4SC4ob2qy6ooGOx0arb9N/yZhx0/WtOI4X3uTmtgkhSwvhsmok0fWMV3OuaJrJzj5Ix
-	7oPNTWrU3xlDvIq52bJp+Oq+GPxLFPglGqHBwPWPKaYUVUgw6DzY0McKsnhqa0HoIlJxAEFIsqMx+
-	Cw+GAVs8KPvNTBZLoQWw==;
+	List-Owner; bh=XU6UXO8XAXGd0Sn+1a8TRhLdi3Na06REUiKfuFgGtxo=; b=m/S5Btp9p9ArLD
+	OHCA1/btpbDBWWFEVHFsU1jWdOUIkQS4Rx5Yg+fNLSOzmVM+S3c9IMv43SwiKvsjNWzgxk58NrJn9
+	tLkYbwPUON652nhJQW5JS8lvVfM/7AO+lhbCuoQ+ousijy56QUW5mhAwExbnrwYrXjZdzgXvbLDGS
+	1CaoAfxsqPSd6CeksP0ctEEC5HInXXOvakXcyQxHsWKWPCTvcJJJ8t3zOYQAMKBzG37IReco2kH3S
+	dgYzPzSBIUcsVp6w0Pt6CI7kVap2hI9ixfQGcRLD42SE+I3Qk8ZT6XR7QyF4IFi1/dDZlvNugIv7y
+	A6guVWn2LypwtFtLpBYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNSLq-00BQtz-Dp; Mon, 15 Aug 2022 05:09:22 +0000
+	id 1oNSLs-00BQwW-Rd; Mon, 15 Aug 2022 05:09:24 +0000
 Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNSLD-00BQNs-Qy
-	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 05:08:50 +0000
+	id 1oNSLJ-00BQRm-0E
+	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 05:08:51 +0000
 Received: from compute5.internal (compute5.nyi.internal [10.202.2.45])
-	by mailout.west.internal (Postfix) with ESMTP id 436183200065;
-	Mon, 15 Aug 2022 01:08:35 -0400 (EDT)
+	by mailout.west.internal (Postfix) with ESMTP id 75A8732007CF;
+	Mon, 15 Aug 2022 01:08:47 -0400 (EDT)
 Received: from mailfrontend1 ([10.202.2.162])
-  by compute5.internal (MEProxy); Mon, 15 Aug 2022 01:08:36 -0400
+  by compute5.internal (MEProxy); Mon, 15 Aug 2022 01:08:48 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
 	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
 	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1660540114; x=1660626514; bh=LR
-	yhxzc9+XafRvM9niU1BPEaijXGlQspuEydv1PgoYs=; b=T9F7wPM6xRCWK46gqG
-	NlzUbFoLwKHJb/Y9uylwIFIxxuLI1H+Fk6nLVJeHB0hUp/A4h8oOLG7p1izQux7W
-	ZbxlaoFfskls88Y1seaaD4c4Ry9bBO08LZ+xaNOb4pXnLX2etCB9xU02G+jCoFq6
-	QJnwXsTTrp/5Y3NefsLHsvjdokGA79m17vZfKSgtuwSjRryQWwcCBBbS+D37v7+N
-	wqn6dQWyMU5AuSgyDogX7tS8BjReH0iIknxfyvesjndAM54iYf98Yg2MzlbEPvqe
-	EtnjG5INj8GsUxO5T/gzqyBUFOnrgxEs9M34rbAzbvCjaMI/l5uCjxpvJBW7hBvf
-	T1Gw==
+	:subject:subject:to:to; s=fm2; t=1660540126; x=1660626526; bh=Mp
+	2QT1wJDeGU551ZuBsU28NUPyZSf6ZYCWPSZNp282o=; b=uEcpch5MyKTknvh30/
+	yO3rchgzbTdkSZiRT8QOvfHYiBHqUJSiD0i85VwTJYoC7/2Od3MO1GcIgpzCbCmc
+	+aLnoBcnKB4BmmG6GCFGfgoy0ZrGU///nIh/i0xDKddcAgSNqtZd4toVPY8rGAYu
+	Zq2ehLjdkoFQuK6OfxxcFpF+BBJsK/GEiNXQdEygRhOtbw2/M1G3lbYexk4y5FWP
+	EP8t/eSDV2sDfSguVkxks6WpRIXz0Ci5OPW3IW6SAQC3SxzzJ2ZSzthj8cqnsuC0
+	nw/CD2t+ivznlohFK/D2w32DWOKTKhCnjPkR7QSpXl1kUBEAeA8GPOpRiULyY+cV
+	BCqg==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
 	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
 	:message-id:mime-version:references:reply-to:sender:subject
 	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1660540114; x=1660626514; bh=LRyhxzc9+XafR
-	vM9niU1BPEaijXGlQspuEydv1PgoYs=; b=vLwLcXcGwtJcjFSsWIPr4ZWl/aWru
-	1Q2dqiNkddzXr7WtlB9cM5HF03IoB87su1L9A8Pk90LlJBUeQ6SFsQgB6ipNq3Tr
-	UJ6xhNbPO1JG5wlW++g5rZKcN4IAPzDacdV5vg7lBDSKxqAUL6OY8+QLa/F4CmdQ
-	74umtIrh9xPFZ2JTUVZnpbuOE18demD0MT4TOpmSpkcYBvuri5VLheiopzCCpgqr
-	U8Hcs2C0D6MqD1RGe1RjLCJC+anRqU94L93FBZLfsAhlKCDPFG9PpEOhIz1hIM+v
-	i5pfY8fyh6UQwwJZ6NlVpWPxALdTSL3n8RLpdPGM7Bo0+u+E47vA1mqpQ==
-X-ME-Sender: <xms:0tT5YheotGkVhsF_5OWnkrxXoQXXuWaBy1rp3MdA-xePrPQUiP5U6w>
-    <xme:0tT5YvNXGoAuhq7rkeGsi_qOF7AgoYP5DwMF7fy9iiHlKstyK1tz-m15rR6LlmZJh
-    8mkLvCcIcg6F6JGUA>
-X-ME-Received: <xmr:0tT5YqgcoPtliU36dI7Z-1qWQEyS4YSYuCutcpUCG3RURDZkbU8lcb6HplBWFOfvw2iC2Q5uJYSVfSmdzt0qy-UpqetpPnRRIAQ__AlfsqwjN_0hYbq8C7izBWZMVUkYX5uYpA>
+	:x-sasl-enc; s=fm1; t=1660540126; x=1660626526; bh=Mp2QT1wJDeGU5
+	51ZuBsU28NUPyZSf6ZYCWPSZNp282o=; b=B84LOjpT9frYbqDLt+ScHv8PASpWZ
+	ecChgDtNOKGpL3G0cloJSgUxkIcVPW89IPlrBcJAHFUwE6llDyZOlQQIYYAMAA1t
+	QYp7BkZN7oIrwGAeCTlcoGVFbNlhrUmY/gSbZdZOxoZ1w0WuMqi8Xcxs2cvcbA5Y
+	qN+FFMdI4zfQZMT5xSk5IkxWEztPbwppCGhSmpT6HVEN53ODuhGTzIRJoltctmNB
+	jpRe5aPnxYgN8OzEgdReJL5oFOf2IoZjzXP5h6BhD6J5MesZkgaCEooESQ2PxttX
+	+70XYOg1jIVaspS96TPxydFjPYsKNyZ0aIhOiAY3mDYkwqy5Jk71QPzZQ==
+X-ME-Sender: <xms:3tT5Yg0zE2Hd2KrDzDWlTdaVuJqKQvupp5DZ3i4d0XVhmxVbl__cnw>
+    <xme:3tT5YrGG_DIiDdXd1M57VkVwqa79AiVbcvF-TDndjyhw3xUzZymR93pw6n7C9tJow
+    8vwGn5KQyzgMlhOiQ>
+X-ME-Received: <xmr:3tT5Yo63FDcS_YGKXARPErMZbUjYdinJQ5ahwMfMCTj-Wl9HKgD-b1P6JuCjwIEZp2qu2WM1MxZVItrdFDsci_7aAX0ebRlJHA1IalwaoBfMhfp_9cCj9wQUAaaOj7M575MXIQ>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrvdehuddgleehucetufdoteggodetrfdotf
     fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
     uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
     cujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepufgrmhhu
     vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
     ftrfgrthhtvghrnhepudekteeuudehtdelteevgfduvddvjefhfedulefgudevgeeghefg
-    udefiedtveetnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehmrghilhhfrh
+    udefiedtveetnecuvehluhhsthgvrhfuihiivgepgeenucfrrghrrghmpehmrghilhhfrh
     homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:0tT5Yq-PrlxibM6xAMuGH8kqBb0hEhAwjFuiwL1ZWE1MweS7fw_VlQ>
-    <xmx:0tT5YtsrAr_i6wRbV2k3ITt9QCfWvsoSuv95wV3NhDdmucXlKM4QEw>
-    <xmx:0tT5YpEKHiDym5a6ZdTooOZcxFz_JxpEYJweKMlFU2Oo1pPvJiBozg>
-    <xmx:0tT5YulqhxOCwLkR_uGCowd01vE_bhVvuUYNupfP3ziQoEmhRCqRjw>
+X-ME-Proxy: <xmx:3tT5Yp0nh7CWJNcLhV7XXxN6lflZ8Gw9SKkV_1OnfhViQgMUDzcALQ>
+    <xmx:3tT5YjGwIn4gFcytlwbYwUd_8iocDvIKMSJeS4F28-jLSYnP6fziKA>
+    <xmx:3tT5Yi-nI0uzNh819ORYbKJA8r8y1d1ZqVRuO5LyT4-3m8TYHIrp8Q>
+    <xmx:3tT5Yr-wyRJRNiYgldXvZoN9OpvtLZgDe4lJfm3RpwGwwy5t7xSawQ>
 Feedback-ID: i0ad843c9:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 15 Aug 2022 01:08:34 -0400 (EDT)
+ 15 Aug 2022 01:08:46 -0400 (EDT)
 From: Samuel Holland <samuel@sholland.org>
 To: Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
@@ -85,16 +85,16 @@ Cc: Rob Herring <robh+dt@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
 	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH 06/12] riscv: dts: allwinner: Add the D1 SoC base devicetree
-Date: Mon, 15 Aug 2022 00:08:09 -0500
-Message-Id: <20220815050815.22340-7-samuel@sholland.org>
+Subject: [PATCH 10/12] riscv: dts: allwinner: Add Dongshan Nezha STU devicetree
+Date: Mon, 15 Aug 2022 00:08:13 -0500
+Message-Id: <20220815050815.22340-11-samuel@sholland.org>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220815050815.22340-1-samuel@sholland.org>
 References: <20220815050815.22340-1-samuel@sholland.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220814_220845_266174_0B5426F0 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20220814_220850_227897_A7A1193B 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,945 +111,151 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-D1 is a SoC containing a single-core T-HEAD Xuantie C906 CPU, as well as
-one HiFi 4 DSP. The SoC is based on a design that additionally contained
-a pair of Cortex A7's. For that reason, some peripherals are duplicated.
+The 100ask Dongshan Nezha STU is a system-on-module that can be used
+standalone or with a carrier board. The SoM provides gigabit Ethernet,
+HDMI, a USB peripheral port, and WiFi/Bluetooth via an RTL8723DS chip.
 
-This devicetree includes all of the peripherals that already have a
-documented binding.
+The "DIY" carrier board exposes almost every pin from the D1 SoC to 0.1"
+headers, but contains no digital circuitry, so it does not have its own
+devicetree.
 
 Signed-off-by: Samuel Holland <samuel@sholland.org>
 ---
 
- arch/riscv/boot/dts/Makefile                 |   1 +
- arch/riscv/boot/dts/allwinner/Makefile       |   1 +
- arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi | 900 +++++++++++++++++++
- 3 files changed, 902 insertions(+)
- create mode 100644 arch/riscv/boot/dts/allwinner/Makefile
- create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi
+ arch/riscv/boot/dts/allwinner/Makefile        |   1 +
+ .../sun20i-d1-dongshan-nezha-stu.dts          | 114 ++++++++++++++++++
+ 2 files changed, 115 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
 
-diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
-index ff174996cdfd..f292e31bdb2c 100644
---- a/arch/riscv/boot/dts/Makefile
-+++ b/arch/riscv/boot/dts/Makefile
+diff --git a/arch/riscv/boot/dts/allwinner/Makefile b/arch/riscv/boot/dts/allwinner/Makefile
+index bcc304175753..530ef8adb8b0 100644
+--- a/arch/riscv/boot/dts/allwinner/Makefile
++++ b/arch/riscv/boot/dts/allwinner/Makefile
 @@ -1,4 +1,5 @@
  # SPDX-License-Identifier: GPL-2.0
-+subdir-y += allwinner
- subdir-y += sifive
- subdir-y += starfive
- subdir-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += canaan
-diff --git a/arch/riscv/boot/dts/allwinner/Makefile b/arch/riscv/boot/dts/allwinner/Makefile
++dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-dongshan-nezha-stu.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv-86-panel-480p.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv-86-panel-720p.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun20i-d1-lichee-rv-dock.dtb
+diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts b/arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
 new file mode 100644
-index 000000000000..f66554cd5c45
+index 000000000000..c3d06dfaa7c3
 --- /dev/null
-+++ b/arch/riscv/boot/dts/allwinner/Makefile
-@@ -0,0 +1 @@
-+# SPDX-License-Identifier: GPL-2.0
-diff --git a/arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi b/arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi
-new file mode 100644
-index 000000000000..d1429274f22e
---- /dev/null
-+++ b/arch/riscv/boot/dts/allwinner/sun20i-d1.dtsi
-@@ -0,0 +1,900 @@
++++ b/arch/riscv/boot/dts/allwinner/sun20i-d1-dongshan-nezha-stu.dts
+@@ -0,0 +1,114 @@
 +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
-+// Copyright (C) 2021-2022 Samuel Holland <samuel@sholland.org>
++// Copyright (C) 2022 Samuel Holland <samuel@sholland.org>
 +
-+#include <dt-bindings/clock/sun6i-rtc.h>
-+#include <dt-bindings/clock/sun8i-de2.h>
-+#include <dt-bindings/clock/sun8i-tcon-top.h>
-+#include <dt-bindings/clock/sun20i-d1-ccu.h>
-+#include <dt-bindings/clock/sun20i-d1-r-ccu.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/reset/sun8i-de2.h>
-+#include <dt-bindings/reset/sun20i-d1-ccu.h>
-+#include <dt-bindings/reset/sun20i-d1-r-ccu.h>
-+#include <dt-bindings/thermal/thermal.h>
++/dts-v1/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
++
++#include "sun20i-d1.dtsi"
++#include "sun20i-d1-common-regulators.dtsi"
 +
 +/ {
-+	#address-cells = <1>;
-+	#size-cells = <1>;
++	model = "Dongshan Nezha STU";
++	compatible = "100ask,dongshan-nezha-stu", "allwinner,sun20i-d1";
 +
-+	cpus {
-+		timebase-frequency = <24000000>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
++	aliases {
++		ethernet0 = &emac;
++		mmc0 = &mmc0;
++		serial0 = &uart0;
++	};
 +
-+		cpu0: cpu@0 {
-+			compatible = "thead,c906", "riscv";
-+			device_type = "cpu";
-+			reg = <0>;
-+			clocks = <&ccu CLK_RISCV>;
-+			clock-frequency = <24000000>;
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <256>;
-+			d-cache-size = <32768>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <128>;
-+			i-cache-size = <32768>;
-+			mmu-type = "riscv,sv39";
-+			riscv,isa = "rv64imafdc";
-+			#cooling-cells = <2>;
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
 +
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+				#address-cells = <0>;
-+				#interrupt-cells = <1>;
-+			};
++	leds {
++		compatible = "gpio-leds";
++
++		led-0 {
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_STATUS;
++			gpios = <&pio 2 1 GPIO_ACTIVE_HIGH>; /* PC1 */
 +		};
 +	};
 +
-+	de: display-engine {
-+		compatible = "allwinner,sun20i-d1-display-engine";
-+		allwinner,pipelines = <&mixer0>, <&mixer1>;
-+		status = "disabled";
++	reg_usbvbus: usbvbus {
++		compatible = "regulator-fixed";
++		regulator-name = "usbvbus";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		gpio = <&pio 3 19 GPIO_ACTIVE_HIGH>; /* PD19 */
++		enable-active-high;
++		vin-supply = <&reg_vcc>;
 +	};
 +
-+	osc24M: osc24M-clk {
-+		compatible = "fixed-clock";
-+		clock-frequency = <24000000>;
-+		clock-output-names = "osc24M";
-+		#clock-cells = <0>;
++	/*
++	 * This regulator is PWM-controlled, but the PWM controller is not
++	 * yet supported, so fix the regulator to its default voltage.
++	 */
++	reg_vdd_cpu: vdd-cpu {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd-cpu";
++		regulator-min-microvolt = <1100000>;
++		regulator-max-microvolt = <1100000>;
++		vin-supply = <&reg_vcc>;
 +	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		ranges;
-+		interrupt-parent = <&plic>;
-+		dma-noncoherent;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		dsp_wdt: watchdog@1700400 {
-+			compatible = "allwinner,sun20i-d1-wdt";
-+			reg = <0x1700400 0x20>;
-+			interrupts = <138 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&osc24M>, <&rtc CLK_OSC32K>;
-+			clock-names = "hosc", "losc";
-+			status = "reserved";
-+		};
-+
-+		pio: pinctrl@2000000 {
-+			compatible = "allwinner,sun20i-d1-pinctrl";
-+			reg = <0x2000000 0x800>;
-+			interrupts = <85 IRQ_TYPE_LEVEL_HIGH>,
-+				     <87 IRQ_TYPE_LEVEL_HIGH>,
-+				     <89 IRQ_TYPE_LEVEL_HIGH>,
-+				     <91 IRQ_TYPE_LEVEL_HIGH>,
-+				     <93 IRQ_TYPE_LEVEL_HIGH>,
-+				     <95 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_APB0>,
-+				 <&osc24M>,
-+				 <&rtc CLK_OSC32K>;
-+			clock-names = "apb", "hosc", "losc";
-+			gpio-controller;
-+			interrupt-controller;
-+			#gpio-cells = <3>;
-+			#interrupt-cells = <3>;
-+
-+			/omit-if-no-ref/
-+			i2c0_pb10_pins: i2c0-pb10-pins {
-+				pins = "PB10", "PB11";
-+				function = "i2c0";
-+			};
-+
-+			/omit-if-no-ref/
-+			i2c2_pb0_pins: i2c2-pb0-pins {
-+				pins = "PB0", "PB1";
-+				function = "i2c2";
-+			};
-+
-+			/omit-if-no-ref/
-+			lcd_rgb666_pins: lcd-rgb666-pins {
-+				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
-+				       "PD6", "PD7", "PD8", "PD9", "PD10", "PD11",
-+				       "PD12", "PD13", "PD14", "PD15", "PD16", "PD17",
-+				       "PD18", "PD19", "PD20", "PD21";
-+				function = "lcd0";
-+			};
-+
-+			/omit-if-no-ref/
-+			mmc0_pins: mmc0-pins {
-+				pins = "PF0", "PF1", "PF2", "PF3", "PF4", "PF5";
-+				function = "mmc0";
-+			};
-+
-+			/omit-if-no-ref/
-+			mmc1_pins: mmc1-pins {
-+				pins = "PG0", "PG1", "PG2", "PG3", "PG4", "PG5";
-+				function = "mmc1";
-+			};
-+
-+			/omit-if-no-ref/
-+			mmc2_pins: mmc2-pins {
-+				pins = "PC2", "PC3", "PC4", "PC5", "PC6", "PC7";
-+				function = "mmc2";
-+			};
-+
-+			/omit-if-no-ref/
-+			rgmii_pe_pins: rgmii-pe-pins {
-+				pins = "PE0", "PE1", "PE2", "PE3", "PE4",
-+				       "PE5", "PE6", "PE7", "PE8", "PE9",
-+				       "PE11", "PE12", "PE13", "PE14", "PE15";
-+				function = "emac";
-+			};
-+
-+			/omit-if-no-ref/
-+			rmii_pe_pins: rmii-pe-pins {
-+				pins = "PE0", "PE1", "PE2", "PE3", "PE4",
-+				       "PE5", "PE6", "PE7", "PE8", "PE9";
-+				function = "emac";
-+			};
-+
-+			/omit-if-no-ref/
-+			uart0_pb8_pins: uart0-pb8-pins {
-+				pins = "PB8", "PB9";
-+				function = "uart0";
-+			};
-+
-+			/omit-if-no-ref/
-+			uart1_pg6_pins: uart1-pg6-pins {
-+				pins = "PG6", "PG7";
-+				function = "uart1";
-+			};
-+
-+			/omit-if-no-ref/
-+			uart1_pg8_rts_cts_pins: uart1-pg8-rts-cts-pins {
-+				pins = "PG8", "PG9";
-+				function = "uart1";
-+			};
-+		};
-+
-+		ccu: clock-controller@2001000 {
-+			compatible = "allwinner,sun20i-d1-ccu";
-+			reg = <0x2001000 0x1000>;
-+			clocks = <&osc24M>,
-+				 <&rtc CLK_OSC32K>,
-+				 <&rtc CLK_IOSC>;
-+			clock-names = "hosc", "losc", "iosc";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		lradc: keys@2009800 {
-+			compatible = "allwinner,sun20i-d1-lradc",
-+				     "allwinner,sun50i-r329-lradc";
-+			reg = <0x2009800 0x400>;
-+			interrupts = <77 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_LRADC>;
-+			resets = <&ccu RST_BUS_LRADC>;
-+			status = "disabled";
-+		};
-+
-+		codec: audio-codec@2030000 {
-+			compatible = "simple-mfd", "syscon";
-+			reg = <0x2030000 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			regulators@2030348 {
-+				compatible = "allwinner,sun20i-d1-analog-ldos";
-+				reg = <0x2030348 0x4>;
-+				nvmem-cells = <&bg_trim>;
-+				nvmem-cell-names = "bg_trim";
-+
-+				reg_aldo: aldo {
-+				};
-+
-+				reg_hpldo: hpldo {
-+				};
-+			};
-+		};
-+
-+		i2s0: i2s@2032000 {
-+			compatible = "allwinner,sun20i-d1-i2s",
-+				     "allwinner,sun50i-r329-i2s";
-+			reg = <0x2032000 0x1000>;
-+			interrupts = <42 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2S0>,
-+				 <&ccu CLK_I2S0>;
-+			clock-names = "apb", "mod";
-+			resets = <&ccu RST_BUS_I2S0>;
-+			dmas = <&dma 3>, <&dma 3>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#sound-dai-cells = <0>;
-+		};
-+
-+		i2s1: i2s@2033000 {
-+			compatible = "allwinner,sun20i-d1-i2s",
-+				     "allwinner,sun50i-r329-i2s";
-+			reg = <0x2033000 0x1000>;
-+			interrupts = <43 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2S1>,
-+				 <&ccu CLK_I2S1>;
-+			clock-names = "apb", "mod";
-+			resets = <&ccu RST_BUS_I2S1>;
-+			dmas = <&dma 4>, <&dma 4>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#sound-dai-cells = <0>;
-+		};
-+
-+		i2s2: i2s@2034000 {
-+			compatible = "allwinner,sun20i-d1-i2s",
-+				     "allwinner,sun50i-r329-i2s";
-+			reg = <0x2034000 0x1000>;
-+			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2S2>,
-+				 <&ccu CLK_I2S2>;
-+			clock-names = "apb", "mod";
-+			resets = <&ccu RST_BUS_I2S2>;
-+			dmas = <&dma 5>, <&dma 5>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#sound-dai-cells = <0>;
-+		};
-+
-+		timer: timer@2050000 {
-+			compatible = "allwinner,sun20i-d1-timer",
-+				     "allwinner,sun8i-a23-timer";
-+			reg = <0x2050000 0xa0>;
-+			interrupts = <75 IRQ_TYPE_LEVEL_HIGH>,
-+				     <76 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&osc24M>;
-+		};
-+
-+		wdt: watchdog@20500a0 {
-+			compatible = "allwinner,sun20i-d1-wdt-reset",
-+				     "allwinner,sun20i-d1-wdt";
-+			reg = <0x20500a0 0x20>;
-+			interrupts = <79 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&osc24M>, <&rtc CLK_OSC32K>;
-+			clock-names = "hosc", "losc";
-+			status = "reserved";
-+		};
-+
-+		uart0: serial@2500000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x2500000 0x400>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <18 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_UART0>;
-+			resets = <&ccu RST_BUS_UART0>;
-+			dmas = <&dma 14>, <&dma 14>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@2500400 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x2500400 0x400>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <19 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_UART1>;
-+			resets = <&ccu RST_BUS_UART1>;
-+			dmas = <&dma 15>, <&dma 15>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@2500800 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x2500800 0x400>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <20 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_UART2>;
-+			resets = <&ccu RST_BUS_UART2>;
-+			dmas = <&dma 16>, <&dma 16>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@2500c00 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x2500c00 0x400>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <21 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_UART3>;
-+			resets = <&ccu RST_BUS_UART3>;
-+			dmas = <&dma 17>, <&dma 17>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+		};
-+
-+		uart4: serial@2501000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x2501000 0x400>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <22 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_UART4>;
-+			resets = <&ccu RST_BUS_UART4>;
-+			dmas = <&dma 18>, <&dma 18>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+		};
-+
-+		uart5: serial@2501400 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x2501400 0x400>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			interrupts = <23 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_UART5>;
-+			resets = <&ccu RST_BUS_UART5>;
-+			dmas = <&dma 19>, <&dma 19>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+		};
-+
-+		i2c0: i2c@2502000 {
-+			compatible = "allwinner,sun20i-d1-i2c",
-+				     "allwinner,sun8i-v536-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x2502000 0x400>;
-+			interrupts = <25 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2C0>;
-+			resets = <&ccu RST_BUS_I2C0>;
-+			dmas = <&dma 43>, <&dma 43>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c1: i2c@2502400 {
-+			compatible = "allwinner,sun20i-d1-i2c",
-+				     "allwinner,sun8i-v536-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x2502400 0x400>;
-+			interrupts = <26 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2C1>;
-+			resets = <&ccu RST_BUS_I2C1>;
-+			dmas = <&dma 44>, <&dma 44>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c2: i2c@2502800 {
-+			compatible = "allwinner,sun20i-d1-i2c",
-+				     "allwinner,sun8i-v536-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x2502800 0x400>;
-+			interrupts = <27 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2C2>;
-+			resets = <&ccu RST_BUS_I2C2>;
-+			dmas = <&dma 45>, <&dma 45>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c3: i2c@2502c00 {
-+			compatible = "allwinner,sun20i-d1-i2c",
-+				     "allwinner,sun8i-v536-i2c",
-+				     "allwinner,sun6i-a31-i2c";
-+			reg = <0x2502c00 0x400>;
-+			interrupts = <28 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_I2C3>;
-+			resets = <&ccu RST_BUS_I2C3>;
-+			dmas = <&dma 46>, <&dma 46>;
-+			dma-names = "rx", "tx";
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		syscon: syscon@3000000 {
-+			compatible = "allwinner,sun20i-d1-system-control";
-+			reg = <0x3000000 0x1000>;
-+			ranges;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			regulators@3000150 {
-+				compatible = "allwinner,sun20i-d1-system-ldos";
-+				reg = <0x3000150 0x4>;
-+
-+				reg_ldoa: ldoa {
-+				};
-+
-+				reg_ldob: ldob {
-+				};
-+			};
-+		};
-+
-+		dma: dma-controller@3002000 {
-+			compatible = "allwinner,sun20i-d1-dma";
-+			reg = <0x3002000 0x1000>;
-+			interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_DMA>, <&ccu CLK_MBUS_DMA>;
-+			clock-names = "bus", "mbus";
-+			resets = <&ccu RST_BUS_DMA>;
-+			dma-channels = <16>;
-+			dma-requests = <48>;
-+			#dma-cells = <1>;
-+		};
-+
-+		sid: efuse@3006000 {
-+			compatible = "allwinner,sun20i-d1-sid";
-+			reg = <0x3006000 0x1000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			ths_calib: ths-calib@14 {
-+				reg = <0x14 0x4>;
-+			};
-+
-+			bg_trim: bg-trim@28 {
-+				reg = <0x28 0x4>;
-+				bits = <16 8>;
-+			};
-+		};
-+
-+		mbus: dram-controller@3102000 {
-+			compatible = "allwinner,sun20i-d1-mbus";
-+			reg = <0x3102000 0x1000>,
-+			      <0x3103000 0x1000>;
-+			reg-names = "mbus", "dram";
-+			interrupts = <59 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_MBUS>,
-+				 <&ccu CLK_DRAM>,
-+				 <&ccu CLK_BUS_DRAM>;
-+			clock-names = "mbus", "dram", "bus";
-+			dma-ranges = <0 0x40000000 0x80000000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			#interconnect-cells = <1>;
-+		};
-+
-+		mmc0: mmc@4020000 {
-+			compatible = "allwinner,sun20i-d1-mmc";
-+			reg = <0x4020000 0x1000>;
-+			interrupts = <56 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_MMC0>, <&ccu CLK_MMC0>;
-+			clock-names = "ahb", "mmc";
-+			resets = <&ccu RST_BUS_MMC0>;
-+			reset-names = "ahb";
-+			cap-sd-highspeed;
-+			max-frequency = <150000000>;
-+			no-mmc;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		mmc1: mmc@4021000 {
-+			compatible = "allwinner,sun20i-d1-mmc";
-+			reg = <0x4021000 0x1000>;
-+			interrupts = <57 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_MMC1>, <&ccu CLK_MMC1>;
-+			clock-names = "ahb", "mmc";
-+			resets = <&ccu RST_BUS_MMC1>;
-+			reset-names = "ahb";
-+			cap-sd-highspeed;
-+			max-frequency = <150000000>;
-+			no-mmc;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		mmc2: mmc@4022000 {
-+			compatible = "allwinner,sun20i-d1-emmc",
-+				     "allwinner,sun50i-a100-emmc";
-+			reg = <0x4022000 0x1000>;
-+			interrupts = <58 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_MMC2>, <&ccu CLK_MMC2>;
-+			clock-names = "ahb", "mmc";
-+			resets = <&ccu RST_BUS_MMC2>;
-+			reset-names = "ahb";
-+			cap-mmc-highspeed;
-+			max-frequency = <150000000>;
-+			mmc-ddr-1_8v;
-+			mmc-ddr-3_3v;
-+			no-sd;
-+			no-sdio;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		usb_otg: usb@4100000 {
-+			compatible = "allwinner,sun20i-d1-musb",
-+				     "allwinner,sun8i-a33-musb";
-+			reg = <0x4100000 0x400>;
-+			interrupts = <45 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "mc";
-+			clocks = <&ccu CLK_BUS_OTG>;
-+			resets = <&ccu RST_BUS_OTG>;
-+			extcon = <&usbphy 0>;
-+			phys = <&usbphy 0>;
-+			phy-names = "usb";
-+			status = "disabled";
-+		};
-+
-+		usbphy: phy@4100400 {
-+			compatible = "allwinner,sun20i-d1-usb-phy";
-+			reg = <0x4100400 0x100>,
-+			      <0x4101800 0x100>,
-+			      <0x4200800 0x100>;
-+			reg-names = "phy_ctrl",
-+				    "pmu0",
-+				    "pmu1";
-+			clocks = <&osc24M>,
-+				 <&osc24M>;
-+			clock-names = "usb0_phy",
-+				      "usb1_phy";
-+			resets = <&ccu RST_USB_PHY0>,
-+				 <&ccu RST_USB_PHY1>;
-+			reset-names = "usb0_reset",
-+				      "usb1_reset";
-+			status = "disabled";
-+			#phy-cells = <1>;
-+		};
-+
-+		ehci0: usb@4101000 {
-+			compatible = "allwinner,sun20i-d1-ehci",
-+				     "generic-ehci";
-+			reg = <0x4101000 0x100>;
-+			interrupts = <46 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_OHCI0>,
-+				 <&ccu CLK_BUS_EHCI0>,
-+				 <&ccu CLK_USB_OHCI0>;
-+			resets = <&ccu RST_BUS_OHCI0>,
-+				 <&ccu RST_BUS_EHCI0>;
-+			phys = <&usbphy 0>;
-+			phy-names = "usb";
-+			status = "disabled";
-+		};
-+
-+		ohci0: usb@4101400 {
-+			compatible = "allwinner,sun20i-d1-ohci",
-+				     "generic-ohci";
-+			reg = <0x4101400 0x100>;
-+			interrupts = <47 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_OHCI0>,
-+				 <&ccu CLK_USB_OHCI0>;
-+			resets = <&ccu RST_BUS_OHCI0>;
-+			phys = <&usbphy 0>;
-+			phy-names = "usb";
-+			status = "disabled";
-+		};
-+
-+		ehci1: usb@4200000 {
-+			compatible = "allwinner,sun20i-d1-ehci",
-+				     "generic-ehci";
-+			reg = <0x4200000 0x100>;
-+			interrupts = <49 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_OHCI1>,
-+				 <&ccu CLK_BUS_EHCI1>,
-+				 <&ccu CLK_USB_OHCI1>;
-+			resets = <&ccu RST_BUS_OHCI1>,
-+				 <&ccu RST_BUS_EHCI1>;
-+			phys = <&usbphy 1>;
-+			phy-names = "usb";
-+			status = "disabled";
-+		};
-+
-+		ohci1: usb@4200400 {
-+			compatible = "allwinner,sun20i-d1-ohci",
-+				     "generic-ohci";
-+			reg = <0x4200400 0x100>;
-+			interrupts = <50 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_OHCI1>,
-+				 <&ccu CLK_USB_OHCI1>;
-+			resets = <&ccu RST_BUS_OHCI1>;
-+			phys = <&usbphy 1>;
-+			phy-names = "usb";
-+			status = "disabled";
-+		};
-+
-+		emac: ethernet@4500000 {
-+			compatible = "allwinner,sun20i-d1-emac",
-+				     "allwinner,sun50i-a64-emac";
-+			reg = <0x4500000 0x10000>;
-+			interrupts = <62 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			clocks = <&ccu CLK_BUS_EMAC>;
-+			clock-names = "stmmaceth";
-+			resets = <&ccu RST_BUS_EMAC>;
-+			reset-names = "stmmaceth";
-+			syscon = <&syscon>;
-+			status = "disabled";
-+
-+			mdio: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+		};
-+
-+		display_clocks: clock-controller@5000000 {
-+			compatible = "allwinner,sun20i-d1-de2-clk",
-+				     "allwinner,sun50i-h5-de2-clk";
-+			reg = <0x5000000 0x10000>;
-+			clocks = <&ccu CLK_BUS_DE>, <&ccu CLK_DE>;
-+			clock-names = "bus", "mod";
-+			resets = <&ccu RST_BUS_DE>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		mixer0: mixer@5100000 {
-+			compatible = "allwinner,sun20i-d1-de2-mixer-0";
-+			reg = <0x5100000 0x100000>;
-+			clocks = <&display_clocks CLK_BUS_MIXER0>,
-+				 <&display_clocks CLK_MIXER0>;
-+			clock-names = "bus", "mod";
-+			resets = <&display_clocks RST_MIXER0>;
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				mixer0_out: port@1 {
-+					reg = <1>;
-+
-+					mixer0_out_tcon_top_mixer0: endpoint {
-+						remote-endpoint = <&tcon_top_mixer0_in_mixer0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		mixer1: mixer@5200000 {
-+			compatible = "allwinner,sun20i-d1-de2-mixer-1";
-+			reg = <0x5200000 0x100000>;
-+			clocks = <&display_clocks CLK_BUS_MIXER1>,
-+				 <&display_clocks CLK_MIXER1>;
-+			clock-names = "bus", "mod";
-+			resets = <&display_clocks RST_MIXER1>;
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				mixer1_out: port@1 {
-+					reg = <1>;
-+
-+					mixer1_out_tcon_top_mixer1: endpoint {
-+						remote-endpoint = <&tcon_top_mixer1_in_mixer1>;
-+					};
-+				};
-+			};
-+		};
-+
-+		tcon_top: tcon-top@5460000 {
-+			compatible = "allwinner,sun20i-d1-tcon-top";
-+			reg = <0x5460000 0x1000>;
-+			clocks = <&ccu CLK_BUS_DPSS_TOP>,
-+				 <&ccu CLK_TCON_TV>,
-+				 <&ccu CLK_TVE>,
-+				 <&ccu CLK_MIPI_DSI>;
-+			clock-names = "bus", "tcon-tv0", "tve0", "dsi";
-+			clock-output-names = "tcon-top-tv0", "tcon-top-dsi";
-+			resets = <&ccu RST_BUS_DPSS_TOP>;
-+			#clock-cells = <1>;
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				tcon_top_mixer0_in: port@0 {
-+					reg = <0>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					tcon_top_mixer0_in_mixer0: endpoint@0 {
-+						reg = <0>;
-+						remote-endpoint = <&mixer0_out_tcon_top_mixer0>;
-+					};
-+				};
-+
-+				tcon_top_mixer0_out: port@1 {
-+					reg = <1>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					tcon_top_mixer0_out_tcon_lcd0: endpoint@0 {
-+						reg = <0>;
-+						remote-endpoint = <&tcon_lcd0_in_tcon_top_mixer0>;
-+					};
-+
-+					tcon_top_mixer0_out_tcon_tv0: endpoint@2 {
-+						reg = <2>;
-+						remote-endpoint = <&tcon_tv0_in_tcon_top_mixer0>;
-+					};
-+				};
-+
-+				tcon_top_mixer1_in: port@2 {
-+					reg = <2>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					tcon_top_mixer1_in_mixer1: endpoint@1 {
-+						reg = <1>;
-+						remote-endpoint = <&mixer1_out_tcon_top_mixer1>;
-+					};
-+				};
-+
-+				tcon_top_mixer1_out: port@3 {
-+					reg = <3>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					tcon_top_mixer1_out_tcon_lcd0: endpoint@0 {
-+						reg = <0>;
-+						remote-endpoint = <&tcon_lcd0_in_tcon_top_mixer1>;
-+					};
-+
-+					tcon_top_mixer1_out_tcon_tv0: endpoint@2 {
-+						reg = <2>;
-+						remote-endpoint = <&tcon_tv0_in_tcon_top_mixer1>;
-+					};
-+				};
-+
-+				tcon_top_hdmi_in: port@4 {
-+					reg = <4>;
-+
-+					tcon_top_hdmi_in_tcon_tv0: endpoint {
-+						remote-endpoint = <&tcon_tv0_out_tcon_top_hdmi>;
-+					};
-+				};
-+
-+				tcon_top_hdmi_out: port@5 {
-+					reg = <5>;
-+				};
-+			};
-+		};
-+
-+		tcon_lcd0: lcd-controller@5461000 {
-+			compatible = "allwinner,sun20i-d1-tcon-lcd";
-+			reg = <0x5461000 0x1000>;
-+			interrupts = <106 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_TCON_LCD0>,
-+				 <&ccu CLK_TCON_LCD0>;
-+			clock-names = "ahb", "tcon-ch0";
-+			clock-output-names = "tcon-pixel-clock";
-+			resets = <&ccu RST_BUS_TCON_LCD0>,
-+				 <&ccu RST_BUS_LVDS0>;
-+			reset-names = "lcd", "lvds";
-+			#clock-cells = <0>;
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				tcon_lcd0_in: port@0 {
-+					reg = <0>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					tcon_lcd0_in_tcon_top_mixer0: endpoint@0 {
-+						reg = <0>;
-+						remote-endpoint = <&tcon_top_mixer0_out_tcon_lcd0>;
-+					};
-+
-+					tcon_lcd0_in_tcon_top_mixer1: endpoint@1 {
-+						reg = <1>;
-+						remote-endpoint = <&tcon_top_mixer1_out_tcon_lcd0>;
-+					};
-+				};
-+
-+				tcon_lcd0_out: port@1 {
-+					reg = <1>;
-+				};
-+			};
-+		};
-+
-+		tcon_tv0: lcd-controller@5470000 {
-+			compatible = "allwinner,sun20i-d1-tcon-tv";
-+			reg = <0x5470000 0x1000>;
-+			interrupts = <107 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_TCON_TV>,
-+				 <&tcon_top CLK_TCON_TOP_TV0>;
-+			clock-names = "ahb", "tcon-ch1";
-+			resets = <&ccu RST_BUS_TCON_TV>;
-+			reset-names = "lcd";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				tcon_tv0_in: port@0 {
-+					reg = <0>;
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					tcon_tv0_in_tcon_top_mixer0: endpoint@0 {
-+						reg = <0>;
-+						remote-endpoint = <&tcon_top_mixer0_out_tcon_tv0>;
-+					};
-+
-+					tcon_tv0_in_tcon_top_mixer1: endpoint@1 {
-+						reg = <1>;
-+						remote-endpoint = <&tcon_top_mixer1_out_tcon_tv0>;
-+					};
-+				};
-+
-+				tcon_tv0_out: port@1 {
-+					reg = <1>;
-+
-+					tcon_tv0_out_tcon_top_hdmi: endpoint {
-+						remote-endpoint = <&tcon_top_hdmi_in_tcon_tv0>;
-+					};
-+				};
-+			};
-+		};
-+
-+		riscv_wdt: watchdog@6011000 {
-+			compatible = "allwinner,sun20i-d1-wdt";
-+			reg = <0x6011000 0x20>;
-+			interrupts = <147 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&osc24M>, <&rtc CLK_OSC32K>;
-+			clock-names = "hosc", "losc";
-+		};
-+
-+		r_ccu: clock-controller@7010000 {
-+			compatible = "allwinner,sun20i-d1-r-ccu";
-+			reg = <0x7010000 0x400>;
-+			clocks = <&osc24M>,
-+				 <&rtc CLK_OSC32K>,
-+				 <&rtc CLK_IOSC>,
-+				 <&ccu CLK_PLL_PERIPH0_DIV3>;
-+			clock-names = "hosc", "losc", "iosc", "pll-periph";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		rtc: rtc@7090000 {
-+			compatible = "allwinner,sun20i-d1-rtc",
-+				     "allwinner,sun50i-r329-rtc";
-+			reg = <0x7090000 0x400>;
-+			interrupts = <160 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&r_ccu CLK_BUS_R_RTC>,
-+				 <&osc24M>,
-+				 <&r_ccu CLK_R_AHB>;
-+			clock-names = "bus", "hosc", "ahb";
-+			#clock-cells = <1>;
-+		};
-+
-+		plic: interrupt-controller@10000000 {
-+			compatible = "allwinner,sun20i-d1-plic",
-+				     "thead,c900-plic";
-+			reg = <0x10000000 0x4000000>;
-+			interrupts-extended = <&cpu0_intc 11>,
-+					      <&cpu0_intc 9>;
-+			interrupt-controller;
-+			riscv,ndev = <176>;
-+			#address-cells = <0>;
-+			#interrupt-cells = <2>;
-+		};
++};
++
++&cpu0 {
++	cpu-supply = <&reg_vdd_cpu>;
++};
++
++&ehci0 {
++	status = "okay";
++};
++
++&emac {
++	pinctrl-0 = <&rgmii_pe_pins>;
++	pinctrl-names = "default";
++	phy-handle = <&ext_rgmii_phy>;
++	phy-mode = "rgmii-id";
++	phy-supply = <&reg_vcc_3v3>;
++	status = "okay";
++};
++
++&mdio {
++	ext_rgmii_phy: ethernet-phy@1 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <1>;
 +	};
++};
++
++&mmc0 {
++	broken-cd;
++	bus-width = <4>;
++	disable-wp;
++	vmmc-supply = <&reg_vcc_3v3>;
++	vqmmc-supply = <&reg_vcc_3v3>;
++	pinctrl-0 = <&mmc0_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&ohci0 {
++	status = "okay";
++};
++
++&uart0 {
++	pinctrl-0 = <&uart0_pb8_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&usb_otg {
++	dr_mode = "otg";
++	status = "okay";
++};
++
++&usbphy {
++	usb0_id_det-gpios = <&pio 3 21 GPIO_ACTIVE_HIGH>; /* PD21 */
++	usb0_vbus_det-gpios = <&pio 3 20 GPIO_ACTIVE_HIGH>; /* PD20 */
++	usb0_vbus-supply = <&reg_usbvbus>;
++	status = "okay";
 +};
 -- 
 2.35.1
