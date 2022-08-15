@@ -4,97 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D132BC00140
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 05:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFDC1C00140
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 06:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/pnAe7lFMCyjihXjdXNRVDjsp6TOEx2l8Q09mNhMUrs=; b=F2iXrtj6uBGf+2
-	tW0fPlynDENHAn6h4sdGReZsks2FZxHWsa/1I3fBZMGgWPaVcTd8waOMeD436zb389wFTa6adCMNm
-	gZDGcbLum6GCCYWBr10K/hM8KyW0HHCBFmOGwQcTUq95JeHLKjndh9bhKC3MLt/hns3bxb75jVJuL
-	0OY2RKX9ClpL0+D8TH5vLsSAhj5NFgo6ytwi3w3veRTwQx1jCbb/cZcGvIY6o4g94GKS5mzhEecHM
-	bhDSRI72/T4n5F/0LLhXN2ML0fK88bshN1Skffld/vbx6Z3iS/IAWyWy32/p3AE+WJSyRWpFqlrqf
-	QgNoAlg4m5HzxulnLi3A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3SHwqXwI/DSnii+DU2IuhkvLvY7BNFoBI8WEdL+xkG8=; b=l/B10SW8s34a/L
+	LSuDlKIdECiOkJaEJ9M+h4jgYcVr/IzrVNRTddy59kKSpWLP/sA31FTJ/eY5Aq9Pf9CYk6+PF2okt
+	XwG5EzlKUKcAqZ+nVzynqVBiHI1N3KyGpa9ZEBve02p/QTKnt7xLCksLay+TqRUFN7U+Xa9l50n8S
+	b+w5v8Lcr8naqiyJcFXU52O1usILoBIuXaXhxcnlBNoy/5HJCrdSF3yPF83bwkzlJnkt7KPlwWF2R
+	+y8fixj8bOCZvc6IG3N2qzN+uHQ9vFT04YCZRI3VP4BnCaJt8fb0RrB12w5P/Lrs1JZjDN2953hHG
+	fda/vtnY+eRABrU9/Yag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNSM0-00BR5Q-7C; Mon, 15 Aug 2022 05:09:32 +0000
-Received: from wout1-smtp.messagingengine.com ([64.147.123.24])
+	id 1oNToZ-00C6oX-MJ; Mon, 15 Aug 2022 06:43:07 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNSLP-00BQWm-4y
-	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 05:08:57 +0000
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
-	by mailout.west.internal (Postfix) with ESMTP id 455E3320077A;
-	Mon, 15 Aug 2022 01:08:53 -0400 (EDT)
-Received: from mailfrontend1 ([10.202.2.162])
-  by compute4.internal (MEProxy); Mon, 15 Aug 2022 01:08:54 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
-	cc:cc:content-transfer-encoding:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:sender
-	:subject:subject:to:to; s=fm2; t=1660540132; x=1660626532; bh=CS
-	KC6w1bA8nM1A76JAooQJx5OjKisqiho6nwC7B/by4=; b=iuCNaHtsbsrq/ObZgW
-	BeoL3AQ2tDNmAJeI1WuBSsOo0NLcsu9vLNQrY+ACR/huBsc7izbAT84HcwAgRCwx
-	VeRtnajnc4qKP977d15TpsFJbRFfUzsJvS37fsv4AgZ1GPrAxRSClQHzVsYaEeW4
-	XNTYGYRGm78N7DgcvD161+TxLTBU3svoWIC4yEik/e386K+Qc2T9lJrzASvkI5xK
-	6R3MYariKi9nQGHzQYd89FwcD6+ZaqSYqv4wmdGdlObWD4HXVtbilXyGvBo6db1Q
-	/xwrVIwWQaLk8z11dOwa9DxgkjVDrnPZfluXZHYxUic2kLEuabeL5nw1onn/gYSF
-	XgLA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
-	:x-sasl-enc; s=fm1; t=1660540132; x=1660626532; bh=CSKC6w1bA8nM1
-	A76JAooQJx5OjKisqiho6nwC7B/by4=; b=VfAXbYTQDtOTY2GBYV6+TdI2xoBBR
-	59DfgJhrpWv2gI7WVVVsRE8iIcKkH+aMxX/x888aLBcGunZDnJ2QRmo8vn1fFXrv
-	bk4KvZbnqn3cGRIRvJ1Zb5iPJ8+y40NF7NlpggkyqDExKGNe2V+9z7L6JNMtWoB5
-	lz7EHOtkCDAJON8ZUZhCxKFIVq52Rr2l/aRkfm+PdNuzrS6A10fT/7uN/twqE9sw
-	ka4BMp9vWwRH5cvOp1SMxwhcuo5628VMng/RI7SKhAuCQQk3cPxj0dWsQmHiPpQa
-	wz0rQZckUGmG3IPMw7lGOK6xI6GSm2pFGCJ5rs02uxjID3rPdChMXKW2Q==
-X-ME-Sender: <xms:5NT5YkX5Wh7PGuW9RUV6kZwP6N_yMKnWfAEVih2eDHtx9JeOu7Mqkw>
-    <xme:5NT5Yok8QpIr6CEGOmUi7714-28tsjiFUj3mcaDb4hpleiqoyJ4LxHpL2efs2jzis
-    2fe2iBBlpzkQJksrw>
-X-ME-Received: <xmr:5NT5YoY0Q1zy6N4hCNUzp_IHWiCHZdKEX0TVmm6wzQmB_JuseMTRvhI7g-7o8owFGgOWJE3BlY2na_lwEtRc_RXvo6XfSmIPw8L6aKVb5Un2hyG4G0B8lnvCtcQYkcl5gTWuWw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrvdehuddgleehucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
-    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
-    cujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepufgrmhhu
-    vghlucfjohhllhgrnhguuceoshgrmhhuvghlsehshhholhhlrghnugdrohhrgheqnecugg
-    ftrfgrthhtvghrnhepudekteeuudehtdelteevgfduvddvjefhfedulefgudevgeeghefg
-    udefiedtveetnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehmrghilhhfrh
-    homhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
-X-ME-Proxy: <xmx:5NT5YjUtOY7awMJmptXshxo2_O0TqOmYI6eFIgTHQvcqj5JkqrbT7Q>
-    <xmx:5NT5YumhFcyOU9WS1QgLWf_C741yvbLBMqXBixGcZAq9-rXtmfxCmw>
-    <xmx:5NT5YofiXyZ4gjTLH7nMwZ2b4mn1QtgKBODPPjJSF2LLlL6nzbqanA>
-    <xmx:5NT5YneAvErAlT11AWkJRpqowJ5CgPA-YF6_iPHR4YWB-Bc0vLlBkQ>
-Feedback-ID: i0ad843c9:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 15 Aug 2022 01:08:52 -0400 (EDT)
-From: Samuel Holland <samuel@sholland.org>
-To: Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	linux-sunxi@lists.linux.dev,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org
-Cc: Rob Herring <robh+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Samuel Holland <samuel@sholland.org>
-Subject: [PATCH 12/12] riscv: defconfig: Enable the Allwinner D1 platform and drivers
-Date: Mon, 15 Aug 2022 00:08:15 -0500
-Message-Id: <20220815050815.22340-13-samuel@sholland.org>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220815050815.22340-1-samuel@sholland.org>
-References: <20220815050815.22340-1-samuel@sholland.org>
+	id 1oNToS-00C6hh-0E
+	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 06:43:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1660545779; x=1692081779;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=nKOegEI9cDvZlwn5DsF2hMbIEDJDgsJHsNaZmOo3K88=;
+  b=ifpEUFimwLUX5a5TyCzI8bR05MNLfn+4WIWd7GqQH0VYFXSeH21YB5Mr
+   FNkoxwqTCUKAjYS5SNZlWFcvoK6DzMXvzbA0l9e1ttd37GHJvHqgO7A1k
+   T+Z8maiqaJnwX6RcVugHDyMfufw5M/zXgrN5eIzJBQyqgJHGnh60k4TC4
+   aLj7aR3akkx+f90wpFbfoVutDb+oWfG2hhijieAViMqnRymIxnRqNnZBe
+   5GNs9SD/mjYxLCdy/Lw37+L8ZNoovcavI9kNAdCKHuWA/axu9y4PEwWwe
+   GB0huF5veimUPqU51HwJGAf5l5CGZSJE+9sZ6sh4F1Fym3AE2MQYxPQSA
+   g==;
+X-IronPort-AV: E=Sophos;i="5.93,237,1654585200"; 
+   d="scan'208";a="176374207"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Aug 2022 23:42:53 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Sun, 14 Aug 2022 23:42:53 -0700
+Received: from dev-powerhorse.microchip.com (10.10.115.15) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
+ 15.1.2507.12 via Frontend Transport; Sun, 14 Aug 2022 23:42:51 -0700
+From: <lewis.hanly@microchip.com>
+To: <linux-gpio@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linus.walleij@linaro.org>, <brgl@bgdev.pl>, <linux-kernel@vger.kernel.org>,
+	<palmer@dabbelt.com>, <maz@kernel.org>
+CC: <conor.dooley@microchip.com>, <daire.mcnamara@microchip.com>,
+	<lewis.hanly@microchip.com>
+Subject: [PATCH v4 0/1] Add Polarfire SoC GPIO support
+Date: Mon, 15 Aug 2022 07:42:43 +0100
+Message-ID: <20220815064244.1296970-1-lewis.hanly@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220814_220856_143242_2F886AB1 
-X-CRM114-Status: UNSURE (   8.49  )
+X-CRM114-CacheID: sfid-20220814_234300_171285_9A33A8BB 
+X-CRM114-Status: UNSURE (   9.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,96 +80,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Now that several D1-based boards are supported, enable the platform in
-our defconfig. Build in the drivers which are necessary to boot, such as
-the pinctrl, MMC, RTC (which provides critical clocks), SPI (for flash),
-and watchdog (which may be left enabled by the bootloader). Other common
-onboard peripherals are enabled as modules.
+From: Lewis Hanly <lewis.hanly@microchip.com>
 
-Signed-off-by: Samuel Holland <samuel@sholland.org>
----
+Add a driver to support the Polarfire SoC gpio controller.
+Tested with latest 5.19 kernel.
 
- arch/riscv/configs/defconfig | 23 ++++++++++++++++++++++-
- 1 file changed, 22 insertions(+), 1 deletion(-)
+MPFS gpio interrupts are connected to IOMUX configured by system 
+register GPIO_INTERRUPT_FAB_CR(31:0). Interrupt connection for
+some GPIO's to the PLIC (Platform Level Interrupt Controller) can be 
+shared (not directly connected) or direct if connection is available. 
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index aed332a9d4ea..8f856982da87 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -25,6 +25,7 @@ CONFIG_BLK_DEV_INITRD=y
- CONFIG_EXPERT=y
- # CONFIG_SYSFS_SYSCALL is not set
- CONFIG_PROFILING=y
-+CONFIG_ARCH_SUNXI=y
- CONFIG_SOC_MICROCHIP_POLARFIRE=y
- CONFIG_SOC_SIFIVE=y
- CONFIG_SOC_STARFIVE=y
-@@ -118,22 +119,31 @@ CONFIG_VIRTIO_NET=y
- CONFIG_MACB=y
- CONFIG_E1000E=y
- CONFIG_R8169=y
-+CONFIG_STMMAC_ETH=m
- CONFIG_MICROSEMI_PHY=y
- CONFIG_INPUT_MOUSEDEV=y
-+CONFIG_KEYBOARD_SUN4I_LRADC=m
- CONFIG_SERIAL_8250=y
- CONFIG_SERIAL_8250_CONSOLE=y
-+CONFIG_SERIAL_8250_DW=y
- CONFIG_SERIAL_OF_PLATFORM=y
- CONFIG_VIRTIO_CONSOLE=y
- CONFIG_HW_RANDOM=y
- CONFIG_HW_RANDOM_VIRTIO=y
-+CONFIG_I2C_MV64XXX=m
- CONFIG_SPI=y
- CONFIG_SPI_SIFIVE=y
-+CONFIG_SPI_SUN6I=y
- # CONFIG_PTP_1588_CLOCK is not set
--CONFIG_GPIOLIB=y
- CONFIG_GPIO_SIFIVE=y
-+CONFIG_WATCHDOG=y
-+CONFIG_SUNXI_WATCHDOG=y
-+CONFIG_REGULATOR=y
-+CONFIG_REGULATOR_FIXED_VOLTAGE=y
- CONFIG_DRM=m
- CONFIG_DRM_RADEON=m
- CONFIG_DRM_NOUVEAU=m
-+CONFIG_DRM_SUN4I=m
- CONFIG_DRM_VIRTIO_GPU=m
- CONFIG_FB=y
- CONFIG_FRAMEBUFFER_CONSOLE=y
-@@ -146,19 +156,30 @@ CONFIG_USB_OHCI_HCD=y
- CONFIG_USB_OHCI_HCD_PLATFORM=y
- CONFIG_USB_STORAGE=y
- CONFIG_USB_UAS=y
-+CONFIG_USB_MUSB_HDRC=m
-+CONFIG_USB_MUSB_SUNXI=m
-+CONFIG_NOP_USB_XCEIV=m
- CONFIG_MMC=y
- CONFIG_MMC_SDHCI=y
- CONFIG_MMC_SDHCI_PLTFM=y
- CONFIG_MMC_SDHCI_CADENCE=y
- CONFIG_MMC_SPI=y
-+CONFIG_MMC_SUNXI=y
- CONFIG_RTC_CLASS=y
-+CONFIG_RTC_DRV_SUN6I=y
-+CONFIG_DMADEVICES=y
-+CONFIG_DMA_SUN6I=m
- CONFIG_VIRTIO_PCI=y
- CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
- CONFIG_VIRTIO_MMIO=y
-+CONFIG_SUN8I_DE2_CCU=m
-+CONFIG_SUN50I_IOMMU=y
- CONFIG_RPMSG_CHAR=y
- CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
-+CONFIG_PHY_SUN4I_USB=m
-+CONFIG_NVMEM_SUNXI_SID=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
- CONFIG_EXT4_FS_SECURITY=y
+Changes in v4
+Changed the interrupt handling from Hierarchical flow to chained interrupt
+flow. The reason for the change was with hierarchical flow we requried
+a interrupt number mapping array to work with our HW and this was not acceptable.
+On reviewing the architecture the chained interrupt flow works better
+for our hardware and configurations which are not fixed in Silicon.
+Added support to read the optional DT property ngpios.
+
+Changes in v3:
+Changed order in kconfig.
+Removed blank lines in driver header/source file.
+Removed BYTE_BOUNDARY variable and use macro to do *4.
+mpfs_gpio_assign_bit parameter uses macro instead of (i * BYTE_BOUNDARY).
+Add correct definitions for direction.
+Change order of variables in mpfs_gpio_irq_set_type function.
+Return dev_err_probe instead of dev_err.
+Remove noise of dev_inf.
+Avoid using of_match_ptr.
+use devm_gpiochip_add_data(..)
+Update mpfs_gpio_remove. 
+
+Changes in v2:
+Use raw_spinlock.
+Use __assign_bit() to assign bit, added a bool variable for value.
+Remove unnecessary checking gpio_index.
+Remove default from switch statement.
+Use const for irq_chip, name updated and use mask/unmask.
+Use latest kernel api irq set_chip.
+Implemented hierarchical interrupt chip support, although
+suggested to use chained interrupt flow I believe this fits better.
+
+Lewis Hanly (1):
+  gpio: mpfs: add polarfire soc gpio support
+
+ drivers/gpio/Kconfig     |   7 +
+ drivers/gpio/Makefile    |   1 +
+ drivers/gpio/gpio-mpfs.c | 318 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 326 insertions(+)
+ create mode 100644 drivers/gpio/gpio-mpfs.c
+
 -- 
-2.35.1
+2.25.1
 
 
 _______________________________________________
