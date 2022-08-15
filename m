@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7CB5C00140
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 15:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B385C25B0E
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 15:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gA3PuNoO13MQNG3vZ9zA4cMf9dHrWHuAKIhNxScygbw=; b=gZPrjBKdNloOwK
-	hAg8uHefhEfJFWRL5A9o71Vu1cWyPNnPbljHzJJMqDQuPjFI62KeufGOgxXRaNDeun/ooVgYIQZVM
-	F2EBpj0Vn5e04ValKCHDVtWKCa12dPVadtUWWvJe9GbhrVquVX0zD7+mICEBym3gV1TH45K7F+fJ4
-	wu72XQHbMGLt5ATF9p8eD3/AC/HdiXZU3Y+bik6Q4CpiwV4Ojspqx7zQJDNKevJ1qXOCKR6h+Lfk4
-	TnsbPom8yK4Wh5ypJBKJnogzVpQYH9GCOSPuM6MlDv806R+ChoDTA2bQ5ehsgNsHsaiFXXmnzlt/T
-	CxOBPF+Zk3wakaU82PEA==;
+	List-Owner; bh=XVxsgxGR0eAFktie58WmrP420qu7rxzWIB+1BiQvdOs=; b=bjTpVhv5CYXHSm
+	4m1iWR9aBQzGIOpbHAaH+QQokpyfufVwKGcN1gtEwBr9qBndO0Z1k1k2HpI4ESrdO0pTO/E/7L+N0
+	eHMjY5cSpdqb/09xshE0VkKl2zjb1Pf8jEfO+SNOhEZssgN7sxilLzXt9OZGC3MxJgM8BvrMlvqwc
+	/GLfWQraYVuXdoXOz7xME1beUs/heGuMEkEEmNNeSP7bllWJp6OE5qA4n6G2edgo6QRlEWRlwTCQr
+	JkzbF+iEjpOHZyFB2sMMYWntBUlHfGaPOadgUZIOgsYWzS7kjzRrB517446TEmjlpvEociK86H+L6
+	RSO5wqlJTTBU/pbzzOrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNbqG-000jTB-Tc; Mon, 15 Aug 2022 15:17:25 +0000
-Received: from relmlor1.renesas.com ([210.160.252.171] helo=relmlie5.idc.renesas.com)
+	id 1oNbqE-000jRf-CT; Mon, 15 Aug 2022 15:17:22 +0000
+Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNbp1-000i6w-SF
-	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 15:16:09 +0000
+	id 1oNboz-000iAF-Lx
+	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 15:16:07 +0000
 X-IronPort-AV: E=Sophos;i="5.93,238,1654527600"; 
-   d="scan'208";a="129579693"
+   d="scan'208";a="131484137"
 Received: from unknown (HELO relmlir5.idc.renesas.com) ([10.200.68.151])
-  by relmlie5.idc.renesas.com with ESMTP; 16 Aug 2022 00:16:00 +0900
+  by relmlie6.idc.renesas.com with ESMTP; 16 Aug 2022 00:16:04 +0900
 Received: from localhost.localdomain (unknown [10.226.36.204])
-	by relmlir5.idc.renesas.com (Postfix) with ESMTP id 0297F403965B;
-	Tue, 16 Aug 2022 00:15:55 +0900 (JST)
+	by relmlir5.idc.renesas.com (Postfix) with ESMTP id BCA0A403965B;
+	Tue, 16 Aug 2022 00:16:00 +0900 (JST)
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -48,15 +48,15 @@ Cc: Conor Dooley <Conor.Dooley@microchip.com>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v2 1/8] dt-bindings: riscv: Sort the CPU core list alphabetically
-Date: Mon, 15 Aug 2022 16:14:44 +0100
-Message-Id: <20220815151451.23293-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v2 2/8] dt-bindings: riscv: Add Andes AX45MP core to the list
+Date: Mon, 15 Aug 2022 16:14:45 +0100
+Message-Id: <20220815151451.23293-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20220815151451.23293-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20220815151451.23293-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220815_081608_138046_32698C4F 
-X-CRM114-Status: UNSURE (   7.37  )
+X-CRM114-CacheID: sfid-20220815_081605_885336_A23AE002 
+X-CRM114-Status: UNSURE (   7.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,44 +75,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sort the CPU cores list alphabetically for maintenance.
+The Renesas RZ/Five microprocessor includes a RISC-V CPU Core (AX45MP
+Single) from Andes. In preparation to add support for RZ/Five SoC add
+the Andes AX45MP core to the list.
+
+More details about Andes AX45MP core can be found here:
+[0] http://www.andestech.com/en/products-solutions/andescore-processors/riscv-ax45mp/
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
 v1->v2
-* Included RB tag from Krzysztof
+* Included ack from Krzysztof
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 873dd12f6e89..2a1c5ae5b0aa 100644
+index 2a1c5ae5b0aa..1681767790c5 100644
 --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
 +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -27,17 +27,17 @@ properties:
+@@ -27,6 +27,7 @@ properties:
      oneOf:
        - items:
            - enum:
--              - sifive,rocket0
-+              - canaan,k210
++              - andestech,ax45mp
+               - canaan,k210
                - sifive,bullet0
                - sifive,e5
-               - sifive,e7
-               - sifive,e71
--              - sifive,u74-mc
--              - sifive,u54
--              - sifive,u74
-+              - sifive,rocket0
-               - sifive,u5
-+              - sifive,u54
-               - sifive,u7
--              - canaan,k210
-+              - sifive,u74
-+              - sifive,u74-mc
-           - const: riscv
-       - items:
-           - enum:
 -- 
 2.25.1
 
