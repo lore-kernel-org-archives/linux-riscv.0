@@ -4,52 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1560AC00140
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 07:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA1E1C00140
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 09:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pqopo9kg2kN4fPlgBdyDf6MnXn+3Sl6UP01S4XgGan4=; b=feDOB/uSD5rxu3
-	mQhYW+IJSXGXakvqh+1ZsWfQIlfl4cZP4be2qDEvaDl5ILpgdtOiY6NGjvYHlDQnBWHJVYJ9LKU9d
-	7a0VflbfqPncs3fwrWGg2gCpgp2518XHQXEsySZuo1N/TXvhXanMPosy+UfT0Gp9EA3bQ44gRGIZS
-	QxzT0E7QcVJqX/nRWKCcBgz4DPpbrwWjnRXhe2iIOFY5teUqYB3o+8dji3JcVRE1ZhTTqUB3EZoWh
-	FiAAlMtV01uwgDpYIK6Q+6iUkpqBPFkCS5V3kO2qcQNRqj5P68oKQ65FYz8bwqa7hplDH6lnJ56ET
-	EnbORWE/0mAbzbzyO+iA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Powb0Bj9is3LC5uqZ7MwPQszLlydv/+IS7S/IsxKo90=; b=ZI9BUqfRhvk/6z
+	Xa0pi5GeGeO90Y0K8UsGKWWr/xwtiuYJ4D1oBro8o1PYrR+UQveTJW6ZyTy1QeY+0a30olORDVpYs
+	RkQD63yxt63KESZNJYiHh6p8aM4EgFMgPWX8NuyghKJz+kM3Cq/i1VL4s2HVRpL7b6bIQbvjXEuIg
+	j4RDuXOGJ6nbMxI2UZwUjvOPHlBcJCcneuumiLOYMJTGp3hQY6PoGcNtTfjiXF1u5xr3FPR+1iaJG
+	1dngcZa04H48Yp6HX76m2LqQk/KmWEgZ56k6TRmG9qevAWKRJ7KladkOlk8q17/maNgIuhqtDjOle
+	8ksOuTAOknH92BaUTnAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNUhK-00CfHX-My; Mon, 15 Aug 2022 07:39:42 +0000
-Received: from smtp-27.smtpout.orange.fr ([80.12.242.27] helo=smtp.smtpout.orange.fr)
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNUg5-00Ce9d-FH
-	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 07:38:28 +0000
-Received: from [192.168.1.18] ([90.11.190.129])
-	by smtp.orange.fr with ESMTPA
-	id NUfsoyReCtUbyNUfsoBx0o; Mon, 15 Aug 2022 09:38:13 +0200
-X-ME-Helo: [192.168.1.18]
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Mon, 15 Aug 2022 09:38:13 +0200
-X-ME-IP: 90.11.190.129
-Message-ID: <271c00a5-fb5d-ff9e-3c4d-ec2732b991ba@wanadoo.fr>
-Date: Mon, 15 Aug 2022 09:38:11 +0200
+	id 1oNWVv-00DwDx-23; Mon, 15 Aug 2022 09:36:03 +0000
+Received: from mail-177132.yeah.net ([123.58.177.132])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oNWA4-00Dfds-FY
+	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 09:13:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=kPe+D
+	iNBqJ6/HgvpYh3VftNtWARBVb1LkIVFX20Rr64=; b=Iw3jQWLiK6+OqjsP64l8R
+	/+Y9eOYBNo/1TDZ2NEECU501knbDUGhAiHIB1KYNwJIQn0eU5Hxs4RWmW2d63EH/
+	dzLYrMKkGfn0cA/iRqKx4ywyQw6jMv/LyHBprOvHLv814Dvxv4StVzHLBcse9NMl
+	5CRZ2drtzMTG3E5J43F28U=
+Received: from localhost.localdomain (unknown [221.226.144.218])
+	by smtp2 (Coremail) with SMTP id C1UQrADXKonnDfpiueIOAA--.9104S2;
+	Mon, 15 Aug 2022 17:12:07 +0800 (CST)
+From: sugarfillet@yeah.net
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	song <sugarfillet@yeah.net>
+Subject: [PATCH] riscv : select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY
+Date: Mon, 15 Aug 2022 17:12:04 +0800
+Message-Id: <20220815091204.1629234-1-sugarfillet@yeah.net>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-Subject: Re: [PATCH v5 1/1] gpio: mpfs: add polarfire soc gpio support
-Content-Language: fr
-To: lewis.hanly@microchip.com, linux-gpio@vger.kernel.org,
- linux-riscv@lists.infradead.org, linus.walleij@linaro.org, brgl@bgdev.pl,
- linux-kernel@vger.kernel.org, palmer@dabbelt.com, maz@kernel.org
-Cc: conor.dooley@microchip.com, daire.mcnamara@microchip.com
-References: <20220815070606.1298421-1-lewis.hanly@microchip.com>
- <20220815070606.1298421-2-lewis.hanly@microchip.com>
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <20220815070606.1298421-2-lewis.hanly@microchip.com>
+X-CM-TRANSID: C1UQrADXKonnDfpiueIOAA--.9104S2
+X-Coremail-Antispam: 1Uf129KBjvdXoWrtr1kXrW8GFy7Aw1kWFWktFb_yoWDJwb_X3
+	97ta10kFWrGrW3KFZ7XF4Fgr13Wa13uFZ8Wr4xCrWDWr17Ww47Jws8Kr1qqr4Uuw40grWf
+	ZrW8tr47tw18AjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8XeOtUUUUU==
+X-Originating-IP: [221.226.144.218]
+X-CM-SenderInfo: pvxjt2xilozv3w61vtnkoqv3/1tbiDwdeSVnxatW27gAAsQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220815_003826_042802_956EF395 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20220815_021329_656212_F022A1D2 
+X-CRM114-Status: UNSURE (   4.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,34 +68,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TGUgMTUvMDgvMjAyMiDDoCAwOTowNiwgbGV3aXMuaGFubHlAbWljcm9jaGlwLmNvbSBhIMOpY3Jp
-dMKgOgo+IEZyb206IExld2lzIEhhbmx5IDxsZXdpcy5oYW5seUBtaWNyb2NoaXAuY29tPgo+IAo+
-IEFkZCBhIGRyaXZlciB0byBzdXBwb3J0IHRoZSBQb2xhcmZpcmUgU29DIGdwaW8gY29udHJvbGxl
-cgo+IAo+IFNpZ25lZC1vZmYtYnk6IExld2lzIEhhbmx5IDxsZXdpcy5oYW5seUBtaWNyb2NoaXAu
-Y29tPgo+IC0tLQo+ICAgZHJpdmVycy9ncGlvL0tjb25maWcgICAgIHwgICA3ICsKPiAgIGRyaXZl
-cnMvZ3Bpby9NYWtlZmlsZSAgICB8ICAgMSArCj4gICBkcml2ZXJzL2dwaW8vZ3Bpby1tcGZzLmMg
-fCAzMTggKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gICAzIGZpbGVz
-IGNoYW5nZWQsIDMyNiBpbnNlcnRpb25zKCspCj4gICBjcmVhdGUgbW9kZSAxMDA2NDQgZHJpdmVy
-cy9ncGlvL2dwaW8tbXBmcy5jCj4gCgo+ICtzdGF0aWMgaW50IG1wZnNfZ3Bpb19wcm9iZShzdHJ1
-Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQo+ICt7Cj4gKwlzdHJ1Y3QgY2xrICpjbGs7Cj4gKwlz
-dHJ1Y3QgZGV2aWNlICpkZXYgPSAmcGRldi0+ZGV2Owo+ICsJc3RydWN0IGRldmljZV9ub2RlICpu
-b2RlID0gcGRldi0+ZGV2Lm9mX25vZGU7Cj4gKwlzdHJ1Y3QgbXBmc19ncGlvX2NoaXAgKm1wZnNf
-Z3BpbzsKPiArCXN0cnVjdCBncGlvX2lycV9jaGlwICpnaXJxOwo+ICsJaW50IGksIHJldCwgbmdw
-aW9zLCBuaXJxczsKPiArCj4gKwltcGZzX2dwaW8gPSBkZXZtX2t6YWxsb2MoZGV2LCBzaXplb2Yo
-Km1wZnNfZ3BpbyksIEdGUF9LRVJORUwpOwo+ICsJaWYgKCFtcGZzX2dwaW8pCj4gKwkJcmV0dXJu
-IC1FTk9NRU07Cj4gKwo+ICsJbXBmc19ncGlvLT5iYXNlID0gZGV2bV9wbGF0Zm9ybV9pb3JlbWFw
-X3Jlc291cmNlKHBkZXYsIDApOwo+ICsJaWYgKElTX0VSUihtcGZzX2dwaW8tPmJhc2UpKQo+ICsJ
-CXJldHVybiBkZXZfZXJyX3Byb2JlKGRldiwgUFRSX0VSUihtcGZzX2dwaW8tPmNsayksICJpbnB1
-dCBjbG9jayBub3QgZm91bmQuXG4iKTsKClBUUl9FUlIobXBmc19ncGlvLT5iYXNlKT8KImlucHV0
-IGNsb2NrIG5vdCBmb3VuZCIgYWxzbyBsb29rcyBvZGQgYWZ0ZXIgYSAKZGV2bV9wbGF0Zm9ybV9p
-b3JlbWFwX3Jlc291cmNlKCkgY2FsbC4KCj4gKwo+ICsJY2xrID0gZGV2bV9jbGtfZ2V0KGRldiwg
-TlVMTCk7Cj4gKwlpZiAoSVNfRVJSKGNsaykpCj4gKwkJcmV0dXJuIGRldl9lcnJfcHJvYmUoZGV2
-LCBQVFJfRVJSKGNsayksICJkZXZtX2Nsa19nZXQgZmFpbGVkXG4iKTsKPiArCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: song <sugarfillet@yeah.net>
+
+riscv uses -fpatchable-function-entry with dynamic ftrace on `afc76b8b8`,
+which means we don't need recordmcount.  Select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY
+to tell that to the build system.
+
+Signed-off-by: song <sugarfillet@yeah.net>
+---
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index ed66c31e4655..d23fa73774b4 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -271,6 +271,7 @@ config ARCH_RV64I
+ 	select HAVE_DYNAMIC_FTRACE if !XIP_KERNEL && MMU && $(cc-option,-fpatchable-function-entry=8)
+ 	select HAVE_DYNAMIC_FTRACE_WITH_REGS if HAVE_DYNAMIC_FTRACE
+ 	select HAVE_FTRACE_MCOUNT_RECORD if !XIP_KERNEL
++	select FTRACE_MCOUNT_USE_PATCHABLE_FUNCTION_ENTRY if DYNAMIC_FTRACE
+ 	select HAVE_FUNCTION_GRAPH_TRACER
+ 	select HAVE_FUNCTION_TRACER if !XIP_KERNEL
+ 	select SWIOTLB if MMU
+-- 
+2.20.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
