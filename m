@@ -4,41 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA0D3C25B0E
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 13:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9CE0C00140
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 13:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/F8Leo7YDTc9XeQDSqPgk+qRpcwhnod1I3KdFb+ig9k=; b=aj5Y77O8/n+JtC
-	DCRnon4LszlgWgvQL+yT24iALzpWTSh09/99Q6rQ2R8jPTg3cb5ZVBgzXkXDOaVyKDks82M16ndEm
-	wBICqKdnciCyaGnSQTikA24wumJCvhPvFPyOOxXPfLc7hIKDS5015chpmtNpm2zoiOLlUl8DHRgdv
-	WBM+CPlQ9lCfmZBtUuBRBQEXuz76hW3iFkZNlJuP1Qolin77D8+1RL/ibM85asD0iDzul/u1FOW16
-	2b/3qLdcB0j4hzfoPbY7GSRfCFh6eZnaWNCuJCjkcd9foW309gdaYdu0FINDChFUj2lqHdpOjDL++
-	fTTQZASM+/BfpZFlaNnw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nT4uEyW8t4bII66EnhSyCXqQTe+RPD9aoqPSXRMJems=; b=c90TFJ386uyD6y
+	fhbV7uExTsPXmCL6tW4hcAFSDhm3XHn2zaMDQmh/DY3/0lxy5YENpIwlrP/inFAzjgWa9VuYPAhG4
+	vGisykLWSrEh5wFoQsQn9jKfK+M6qnH3NHlnj6iSWCCEalDlOpnjBsB3kiJXFseQvaoQ9Y3jxAaN5
+	eAKrOyzcH8tkppL3TBawJzng2ODerrCzjQduv0D7HuIiRzjRo8izEe/qA6J255+aQW9SCI8NcnjG3
+	NWo8ooOgqCyXkEP2SwEIfLfhmC4QNfeL5ybw7oPAeb+PCJg3AGpakhsxzPqoAidHyPmLb2FacrI9d
+	jz+cnJYOXOITzjYIEhhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNa9b-00GoVW-8m; Mon, 15 Aug 2022 13:29:15 +0000
-Received: from forward105j.mail.yandex.net ([2a02:6b8:0:801:2::108])
+	id 1oNa9i-00GoaG-IY; Mon, 15 Aug 2022 13:29:22 +0000
+Received: from forward108j.mail.yandex.net ([2a02:6b8:0:801:2::253])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNa3j-00Gk3s-O8
-	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 13:23:15 +0000
+	id 1oNa3l-00Gk4u-CM
+	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 13:23:16 +0000
+Received: from forward502p.mail.yandex.net (forward502p.mail.yandex.net [IPv6:2a02:6b8:0:1472:2741:0:8b7:121])
+	by forward108j.mail.yandex.net (Yandex) with ESMTP id 1E2DE3F1FC33;
+	Mon, 15 Aug 2022 16:23:09 +0300 (MSK)
 Received: from iva1-dcde80888020.qloud-c.yandex.net (iva1-dcde80888020.qloud-c.yandex.net [IPv6:2a02:6b8:c0c:7695:0:640:dcde:8088])
-	by forward105j.mail.yandex.net (Yandex) with ESMTP id DE9444EC8F72;
-	Mon, 15 Aug 2022 16:22:54 +0300 (MSK)
-Received: by iva1-dcde80888020.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA id BL0XdiM9S6-Mpi4xxLF;
-	Mon, 15 Aug 2022 16:22:53 +0300
+	by forward502p.mail.yandex.net (Yandex) with ESMTP id E0917B80F79;
+	Mon, 15 Aug 2022 16:23:05 +0300 (MSK)
+Received: by iva1-dcde80888020.qloud-c.yandex.net (smtp/Yandex) with ESMTPSA id BL0XdiM9S6-N3i4TfZ0;
+	Mon, 15 Aug 2022 16:23:04 +0300
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits))
 	(Client certificate not present)
 X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail; t=1660569773;
-	bh=nIVrrngh255xQlyPNLMT0qsuvgBZKO7rCfvaAHKtXx0=;
-	h=Message-Id:Date:Cc:Subject:To:From;
-	b=c4RdYZOP23tRHPJkalribKDnE7knA0o8myJU9Heo9WbK55Q0IiPlvF4QVPkXlYTi+
-	 AOo/KMX5aOKQxXUn8hztaBWOP6bTGhW1eMn3+6dmJnM0l3ZMYDac1fQKGSSHpZp0xl
-	 cNyIsiBpsRdkojnXyj7yxukIpsGu0hGkU0bIjmYE=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=maquefel.me; s=mail; t=1660569784;
+	bh=LGRYFPPAmfj8X4XSMNybmhYCQW3I5BPKT7pd/kdr0YI=;
+	h=Message-Id:Date:In-Reply-To:Cc:Subject:References:To:From;
+	b=Tw1DOz6d2T+nxlwDX/gXFgupKtLHGpCTcjTvOfe6K/0knM3EKAVwWaCcmfXFNCWaU
+	 s038K6Si9EPQ6YZRZmaL2xq+3S45L3PKVD3oiHz2DY2HvQxF4gIXCq4OQXRrnGR00r
+	 l+0Dql6Ce86KitGq9HGA/RKTkDK1R29+vhQKtfck=
 Authentication-Results: iva1-dcde80888020.qloud-c.yandex.net; dkim=pass header.i=@maquefel.me
 From: Nikita Shubin <nikita.shubin@maquefel.me>
 To: 
@@ -46,27 +49,29 @@ Cc: linux@yadro.com,
 	Anup Patel <anup@brainfault.org>,
 	Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Nikita Shubin <n.shubin@yadro.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Kautuk Consul <kconsul@ventanamicro.com>,
+	Peter Zijlstra <peterz@infradead.org>,
 	Ingo Molnar <mingo@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
 	Jiri Olsa <jolsa@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-kernel@vger.kernel.org,
 	linux-perf-users@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Peter Zijlstra <peterz@infradead.org>
-Subject: [PATCH v6 0/3] RISC-V: Create unique identification for SoC PMU
-Date: Mon, 15 Aug 2022 16:22:37 +0300
-Message-Id: <20220815132251.25702-1-nikita.shubin@maquefel.me>
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v6 2/3] perf arch events: riscv sbi firmware std event files
+Date: Mon, 15 Aug 2022 16:22:39 +0300
+Message-Id: <20220815132251.25702-3-nikita.shubin@maquefel.me>
 X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220815132251.25702-1-nikita.shubin@maquefel.me>
+References: <20220815132251.25702-1-nikita.shubin@maquefel.me>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220815_062312_277478_8DE1E078 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220815_062313_835369_58EAE0EB 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,90 +83,176 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogTmlraXRhIFNodWJpbiA8bi5zaHViaW5AeWFkcm8uY29tPgoKVGhpcyBzZXJpZXMgYWlt
-cyB0byBwcm92aWRlIG1hdGNoaW5nIHZlbmRvciBTb0Mgd2l0aCBjb3JyZXNwb25kZWQgSlNPTiBi
-aW5kaW5ncy4KClRoZSBJRCBzdHJpbmcgaXMgcHJvcG9zZWQgdG8gYmUgaW4gZm9ybSBvZiBNVkVO
-RE9SSUQtTUFSQ0hJRC1NSU1QSUQsIGZvciBleGFtcGxlCmZvciBTaWZpdmUgVW5tYXRjaGVkIHRo
-ZSBjb3JyZXNwb25kaW5nIHN0cmluZyB3aWxsIGJlOgoKMHg0ODktMHg4MDAwMDAwMDAwMDAwMDA3
-LTB4W1s6eGRpZ2l0Ol1dKyx2MSxzaWZpdmUvdTc0LGNvcmUKCldoZXJlIE1JTVBJRCBjYW4gdmFy
-eSBhcyBhbGwgaW1wbCBzdXBwb3J0ZWQgdGhlIHNhbWUgbnVtYmVyIG9mIGV2ZW50cywgdGhpcyBt
-aWdodCBub3QKYmUgdHJ1ZSBmb3IgYWxsIGZ1dHVyZSBTb0MgaG93ZXZlci4KCkFsc28gYWRkZWQg
-U0JJIGZpcm13YXJlIGV2ZW50cyBwcmV0dHkgbmFtZXMsIGFzIGFueSBmaXJtd2FyZSB0aGF0IHN1
-cHBvcnRzIFNCSSBQTVUKc2hvdWxkIGFsc28gc3VwcG9ydCBmaXJtYXJlIGV2ZW50cyBbMV0uCgpT
-ZXJpZXMgZGVwZW5kcyBvbiBwYXRjaCBieSBBbnVwIFBhdGVsLCBleHBvc2luZyBtdmVuZG9yLCBt
-YXJjaGlkIGFuZCBtaW1waWQKdG8gIi9wcm9jL2NwdWluZm8iIFsyXS4KClsxXSBodHRwczovL2dp
-dGh1Yi5jb20vcmlzY3Ytbm9uLWlzYS9yaXNjdi1zYmktZG9jL2Jsb2IvbWFzdGVyL3Jpc2N2LXNi
-aS5hZG9jClsyXSBodHRwczovL2xrbWwub3JnL2xrbWwvMjAyMi83LzI3LzIzCgpMaW5rIHRvIHBy
-ZXZpb3VzIHZlcnNpb246Cmh0dHBzOi8vcGF0Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51
-eC1yaXNjdi9saXN0Lz9zZXJpZXM9NjUzNjQ5CgpTZWUgb3JpZ2luYWwgY292ZXIgbGV0dGVyIGJ5
-IEpvw6NvIE3DoXJpbyBEb21pbmdvczoKaHR0cHM6Ly9wYXRjaHdvcmsua2VybmVsLm9yZy9wcm9q
-ZWN0L2xpbnV4LXJpc2N2L2NvdmVyLzIwMjExMTE2MTU0ODEyLjE3MDA4LTEtam9hby5tYXJpb0B0
-ZWNuaWNvLnVsaXNib2EucHQvCgpUZXN0ZWQgd2l0aCB0aGUgZm9sbG93aW5nIE9wZW5TQkkgZGV2
-aWNlIHRyZWUgYmluZGluZ3M6CgpgYGAKcG11IHsKICAgICAgICBjb21wYXRpYmxlID0gInJpc2N2
-LHBtdSI7CiAgICAgICAgcmlzY3YsZXZlbnQtdG8tbWhwbWNvdW50ZXJzID0KICAgICAgICAgICAg
-ICAgIDwweDAzIDB4MDYgMHgxOAogICAgICAgICAgICAgICAgMHgxMDAwMSAweDEwMDAyIDB4MTgK
-ICAgICAgICAgICAgICAgIDB4MTAwMDkgMHgxMDAwOSAweDE4CiAgICAgICAgICAgICAgICAweDEw
-MDExIDB4MTAwMTEgMHgxOAogICAgICAgICAgICAgICAgMHgxMDAxOSAweDEwMDE5IDB4MTgKICAg
-ICAgICAgICAgICAgIDB4MTAwMjEgMHgxMDAyMSAweDE4PjsKICAgICAgICByaXNjdixldmVudC10
-by1taHBtZXZlbnQgPQogICAgICAgICAgICAgICAgPDB4MDMgMHgwMDAwMDAwMCAweDE4MDEKICAg
-ICAgICAgICAgICAgIDB4MDQgMHgwMDAwMDAwMCAweDAzMDIKICAgICAgICAgICAgICAgIDB4MDUg
-MHgwMDAwMDAwMCAweDQwMDAKICAgICAgICAgICAgICAgIDB4MDYgMHgwMDAwMDAwMCAweDYwMDEK
-ICAgICAgICAgICAgICAgIDB4MTAwMDEgMHgwMDAwMDAwMCAweDAyMDIKICAgICAgICAgICAgICAg
-IDB4MTAwMDIgMHgwMDAwMDAwMCAweDA0MDIKICAgICAgICAgICAgICAgIDB4MTAwMDkgMHgwMDAw
-MDAwMCAweDAxMDIKICAgICAgICAgICAgICAgIDB4MTAwMTEgMHgwMDAwMDAwMCAweDIwMDIKICAg
-ICAgICAgICAgICAgIDB4MTAwMTkgMHgwMDAwMDAwMCAweDEwMDIKICAgICAgICAgICAgICAgIDB4
-MTAwMjEgMHgwMDAwMDAwMCAweDA4MDI+OwogICAgICAgIHJpc2N2LHJhdy1ldmVudC10by1taHBt
-Y291bnRlcnMgPQogICAgICAgICAgICAgICAgPDB4MDAwMDAwMDAgMHgwM2ZmZmYwMCAweDAgMHgw
-IDB4MTgKICAgICAgICAgICAgICAgIDB4MDAwMDAwMDAgMHgwMDA3ZmYwMSAweDAgMHgxIDB4MTgK
-ICAgICAgICAgICAgICAgIDB4MDAwMDAwMDAgMHgwMDAwM2YwMiAweDAgMHgyIDB4MTg+Owp9Owpg
-YGAKLS0tCnY1LT52NjoKV2lsbCBEZWFjb246CgktIGRyb3BwZWQgZmlyc3QgcGF0Y2ggZnJvbSB2
-NSBzZXJpZXMgaXQgaGFzIGJlZW4gbWVyZ2VkIGludG8gbWFzdGVyCk1heXVyZXNoIENoaXRhbGU6
-CgktIGZpeGVkIEZXX1NGRU5DRV9WTUFfU0VOVCBldmVudCBjb2RlCgotIGFkZGVkIFRlc3RlZC1i
-eSB0YWdzCi0tLQoKTmlraXRhIFNodWJpbiAoMyk6CiAgcGVyZiBhcmNoIGV2ZW50czogcmlzY3Yg
-c2JpIGZpcm13YXJlIHN0ZCBldmVudCBmaWxlcwogIHBlcmYgdmVuZG9yIGV2ZW50cyByaXNjdjog
-YWRkIFNpZml2ZSBVNzQgSlNPTiBmaWxlCiAgUklTQy1WOiBBZGRlZCBTeW50YWNvcmUgU0NSNyBQ
-TVUgZXZlbnRzCgogdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3YvbWFwZmlsZS5jc3Yg
-IHwgIDE4ICsrKwogLi4uL2FyY2gvcmlzY3YvcmlzY3Ytc2JpLWZpcm13YXJlLmpzb24gICAgICAg
-IHwgMTM0ICsrKysrKysrKysrKysrKysrKwogLi4uL2FyY2gvcmlzY3Yvc2lmaXZlL3U3NC9maXJt
-d2FyZS5qc29uICAgICAgIHwgIDY4ICsrKysrKysrKwogLi4uL2FyY2gvcmlzY3Yvc2lmaXZlL3U3
-NC9pbnN0cnVjdGlvbnMuanNvbiAgIHwgIDkyICsrKysrKysrKysrKwogLi4uL2FyY2gvcmlzY3Yv
-c2lmaXZlL3U3NC9tZW1vcnkuanNvbiAgICAgICAgIHwgIDMyICsrKysrCiAuLi4vYXJjaC9yaXNj
-di9zaWZpdmUvdTc0L21pY3JvYXJjaC5qc29uICAgICAgfCAgNTcgKysrKysrKysKIC4uLi9hcmNo
-L3Jpc2N2L3N5bnRhY29yZS9zY3I3L0wxRF9jYWNoZS5qc29uICB8IDEwMiArKysrKysrKysrKysr
-CiAuLi4vYXJjaC9yaXNjdi9zeW50YWNvcmUvc2NyNy9MMUlfY2FjaGUuanNvbiAgfCAgNjcgKysr
-KysrKysrCiAuLi4vYXJjaC9yaXNjdi9zeW50YWNvcmUvc2NyNy9leGNlcHRpb25zLmpzb24gfCAg
-NjcgKysrKysrKysrCiAuLi4vYXJjaC9yaXNjdi9zeW50YWNvcmUvc2NyNy9leGVjdXRpb24uanNv
-biAgfCAgOTcgKysrKysrKysrKysrKwogLi4uL2FyY2gvcmlzY3Yvc3ludGFjb3JlL3NjcjcvZmly
-bXdhcmUuanNvbiAgIHwgIDY4ICsrKysrKysrKwogLi4uL2FyY2gvcmlzY3Yvc3ludGFjb3JlL3Nj
-cjcvZ2VuZXJhbC5qc29uICAgIHwgIDQ3ICsrKysrKwogLi4uL2FyY2gvcmlzY3Yvc3ludGFjb3Jl
-L3NjcjcvaW50ZXJydXB0cy5qc29uIHwgIDMyICsrKysrCiAuLi4vYXJjaC9yaXNjdi9zeW50YWNv
-cmUvc2NyNy9wcmVkaWN0aW9uLmpzb24gfCAgNTIgKysrKysrKwogMTQgZmlsZXMgY2hhbmdlZCwg
-OTMzIGluc2VydGlvbnMoKykKIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3BtdS1ldmVu
-dHMvYXJjaC9yaXNjdi9tYXBmaWxlLmNzdgogY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYv
-cG11LWV2ZW50cy9hcmNoL3Jpc2N2L3Jpc2N2LXNiaS1maXJtd2FyZS5qc29uCiBjcmVhdGUgbW9k
-ZSAxMDA2NDQgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3Yvc2lmaXZlL3U3NC9maXJt
-d2FyZS5qc29uCiBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gv
-cmlzY3Yvc2lmaXZlL3U3NC9pbnN0cnVjdGlvbnMuanNvbgogY3JlYXRlIG1vZGUgMTAwNjQ0IHRv
-b2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3NpZml2ZS91NzQvbWVtb3J5Lmpzb24KIGNy
-ZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9zaWZpdmUv
-dTc0L21pY3JvYXJjaC5qc29uCiBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9wbXUtZXZl
-bnRzL2FyY2gvcmlzY3Yvc3ludGFjb3JlL3NjcjcvTDFEX2NhY2hlLmpzb24KIGNyZWF0ZSBtb2Rl
-IDEwMDY0NCB0b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9zeW50YWNvcmUvc2NyNy9M
-MUlfY2FjaGUuanNvbgogY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvcG11LWV2ZW50cy9h
-cmNoL3Jpc2N2L3N5bnRhY29yZS9zY3I3L2V4Y2VwdGlvbnMuanNvbgogY3JlYXRlIG1vZGUgMTAw
-NjQ0IHRvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3N5bnRhY29yZS9zY3I3L2V4ZWN1
-dGlvbi5qc29uCiBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gv
-cmlzY3Yvc3ludGFjb3JlL3NjcjcvZmlybXdhcmUuanNvbgogY3JlYXRlIG1vZGUgMTAwNjQ0IHRv
-b2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3N5bnRhY29yZS9zY3I3L2dlbmVyYWwuanNv
-bgogY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3N5
-bnRhY29yZS9zY3I3L2ludGVycnVwdHMuanNvbgogY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3Bl
-cmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3N5bnRhY29yZS9zY3I3L3ByZWRpY3Rpb24uanNvbgoK
-LS0gCjIuMzUuMQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+From: Nikita Shubin <n.shubin@yadro.com>
+
+Firmware events are defined by "RISC-V Supervisor Binary Interface
+Specification", which means they should be always available as long as
+firmware supports >= 0.3.0 SBI.
+
+Expose them to arch std events, so they can be reused by particular
+PMU bindings.
+
+Signed-off-by: Nikita Shubin <n.shubin@yadro.com>
+Tested-by: Kautuk Consul <kconsul@ventanamicro.com>
+---
+v5->v6:
+Mayuresh Chitale:
+	- fixed FW_SFENCE_VMA_SENT event code
+---
+ .../arch/riscv/riscv-sbi-firmware.json        | 134 ++++++++++++++++++
+ 1 file changed, 134 insertions(+)
+ create mode 100644 tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json
+
+diff --git a/tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json b/tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json
+new file mode 100644
+index 000000000000..a9939823b14b
+--- /dev/null
++++ b/tools/perf/pmu-events/arch/riscv/riscv-sbi-firmware.json
+@@ -0,0 +1,134 @@
++[
++  {
++    "PublicDescription": "Misaligned load trap",
++    "ConfigCode": "0x8000000000000000",
++    "EventName": "FW_MISALIGNED_LOAD",
++    "BriefDescription": "Misaligned load trap event"
++  },
++  {
++    "PublicDescription": "Misaligned store trap",
++    "ConfigCode": "0x8000000000000001",
++    "EventName": "FW_MISALIGNED_STORE",
++    "BriefDescription": "Misaligned store trap event"
++  },
++  {
++    "PublicDescription": "Load access trap",
++    "ConfigCode": "0x8000000000000002",
++    "EventName": "FW_ACCESS_LOAD",
++    "BriefDescription": "Load access trap event"
++  },
++  {
++    "PublicDescription": "Store access trap",
++    "ConfigCode": "0x8000000000000003",
++    "EventName": "FW_ACCESS_STORE",
++    "BriefDescription": "Store access trap event"
++  },
++  {
++    "PublicDescription": "Illegal instruction trap",
++    "ConfigCode": "0x8000000000000004",
++    "EventName": "FW_ILLEGAL_INSN",
++    "BriefDescription": "Illegal instruction trap event"
++  },
++  {
++    "PublicDescription": "Set timer event",
++    "ConfigCode": "0x8000000000000005",
++    "EventName": "FW_SET_TIMER",
++    "BriefDescription": "Set timer event"
++  },
++  {
++    "PublicDescription": "Sent IPI to other HART event",
++    "ConfigCode": "0x8000000000000006",
++    "EventName": "FW_IPI_SENT",
++    "BriefDescription": "Sent IPI to other HART event"
++  },
++  {
++    "PublicDescription": "Received IPI from other HART event",
++    "ConfigCode": "0x8000000000000007",
++    "EventName": "FW_IPI_RECEIVED",
++    "BriefDescription": "Received IPI from other HART event"
++  },
++  {
++    "PublicDescription": "Sent FENCE.I request to other HART event",
++    "ConfigCode": "0x8000000000000008",
++    "EventName": "FW_FENCE_I_SENT",
++    "BriefDescription": "Sent FENCE.I request to other HART event"
++  },
++  {
++    "PublicDescription": "Received FENCE.I request from other HART event",
++    "ConfigCode": "0x8000000000000009",
++    "EventName": "FW_FENCE_I_RECEIVED",
++    "BriefDescription": "Received FENCE.I request from other HART event"
++  },
++  {
++    "PublicDescription": "Sent SFENCE.VMA request to other HART event",
++    "ConfigCode": "0x800000000000000a",
++    "EventName": "FW_SFENCE_VMA_SENT",
++    "BriefDescription": "Sent SFENCE.VMA request to other HART event"
++  },
++  {
++    "PublicDescription": "Received SFENCE.VMA request from other HART event",
++    "ConfigCode": "0x800000000000000b",
++    "EventName": "FW_SFENCE_VMA_RECEIVED",
++    "BriefDescription": "Received SFENCE.VMA request from other HART event"
++  },
++  {
++    "PublicDescription": "Sent SFENCE.VMA with ASID request to other HART event",
++    "ConfigCode": "0x800000000000000c",
++    "EventName": "FW_SFENCE_VMA_RECEIVED",
++    "BriefDescription": "Sent SFENCE.VMA with ASID request to other HART event"
++  },
++  {
++    "PublicDescription": "Received SFENCE.VMA with ASID request from other HART event",
++    "ConfigCode": "0x800000000000000d",
++    "EventName": "FW_SFENCE_VMA_ASID_RECEIVED",
++    "BriefDescription": "Received SFENCE.VMA with ASID request from other HART event"
++  },
++  {
++    "PublicDescription": "Sent HFENCE.GVMA request to other HART event",
++    "ConfigCode": "0x800000000000000e",
++    "EventName": "FW_HFENCE_GVMA_SENT",
++    "BriefDescription": "Sent HFENCE.GVMA request to other HART event"
++  },
++  {
++    "PublicDescription": "Received HFENCE.GVMA request from other HART event",
++    "ConfigCode": "0x800000000000000f",
++    "EventName": "FW_HFENCE_GVMA_RECEIVED",
++    "BriefDescription": "Received HFENCE.GVMA request from other HART event"
++  },
++  {
++    "PublicDescription": "Sent HFENCE.GVMA with VMID request to other HART event",
++    "ConfigCode": "0x8000000000000010",
++    "EventName": "FW_HFENCE_GVMA_VMID_SENT",
++    "BriefDescription": "Sent HFENCE.GVMA with VMID request to other HART event"
++  },
++  {
++    "PublicDescription": "Received HFENCE.GVMA with VMID request from other HART event",
++    "ConfigCode": "0x8000000000000011",
++    "EventName": "FW_HFENCE_GVMA_VMID_RECEIVED",
++    "BriefDescription": "Received HFENCE.GVMA with VMID request from other HART event"
++  },
++  {
++    "PublicDescription": "Sent HFENCE.VVMA request to other HART event",
++    "ConfigCode": "0x8000000000000012",
++    "EventName": "FW_HFENCE_VVMA_SENT",
++    "BriefDescription": "Sent HFENCE.VVMA request to other HART event"
++  },
++  {
++    "PublicDescription": "Received HFENCE.VVMA request from other HART event",
++    "ConfigCode": "0x8000000000000013",
++    "EventName": "FW_HFENCE_VVMA_RECEIVED",
++    "BriefDescription": "Received HFENCE.VVMA request from other HART event"
++  },
++  {
++    "PublicDescription": "Sent HFENCE.VVMA with ASID request to other HART event",
++    "ConfigCode": "0x8000000000000014",
++    "EventName": "FW_HFENCE_VVMA_ASID_SENT",
++    "BriefDescription": "Sent HFENCE.VVMA with ASID request to other HART event"
++  },
++  {
++    "PublicDescription": "Received HFENCE.VVMA with ASID request from other HART event",
++    "ConfigCode": "0x8000000000000015",
++    "EventName": "FW_HFENCE_VVMA_ASID_RECEIVED",
++    "BriefDescription": "Received HFENCE.VVMA with ASID request from other HART event"
++  }
++]
+-- 
+2.35.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
