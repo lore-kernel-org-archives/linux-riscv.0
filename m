@@ -4,61 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC3DC00140
-	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 17:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF479C00140
+	for <linux-riscv@archiver.kernel.org>; Mon, 15 Aug 2022 17:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6dG4NDlflcUge1Am1coPj5TvZjqUDqhp7cml8mJnQdI=; b=QvpP0P06TtAyo1
-	T0mppI/Dhh65CsgUJ4Xqm1H0s6to2KI8x/DbegL4TQ2Vsv7EBz0Zj8zLa6dbuMzk4Qz78SxAIr/6R
-	5UPsBUgrL3B4MQxOfifFbJ0OXzVD5/zBwa8OGm+ZJzSP6lGRSz30D6FFB92te/63RmsCFLr4MmF7k
-	An2/vI/+NAUDBhfjYyJPrG2tMTdMlHsGO6yhLqH6Xn5lbnfIH7EPcXVb02sEQDMCrNUFBNbkKxxNl
-	Lwb1WthsRCzeOKY6un+oWrJfDlUpDnDELCSv1o7RcWoGLczFgsBDdn0d5D6A8rxo5QsCFIoCeCVrf
-	qatabfXjMc5kBW8jGLWQ==;
+	List-Owner; bh=8OXKxQoEHBf85hHKg5Bm0SF76QuBGNQFmzMBC2UXxlc=; b=d+A5d2Zd2HfAb2
+	uYmoPOyU+IHhNyJtrCqSBkp+kF41pwHU4iPrI+s3lWwce9udq/DnYV1aUgvW4XkOuBp9GrMQCEEF+
+	KnTx1/eAXky28m0bCByVK4fc3q43EF5u9L89ctpbG3UQuAsH+CY/R6oCvjv2v+PAZANznysxQeKqk
+	/igHX59CTkERi6ZARv4h0J0pnm6Y5e69dLvagrYZFKxR2Kt4WQWFRPmhcHf/ao45XpQM1Ohp/oxcv
+	qwDhv6axJiKp1neQwzZFkf+3DgbqJNWYfrsy6wM8NjYcs73mbdadf0s/K2uh4vkwxfjf1XF1GzggL
+	W7g85odnl+Xqv4uV0j7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNdoY-002DRu-6f; Mon, 15 Aug 2022 17:23:46 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oNdrs-002FtQ-Lc; Mon, 15 Aug 2022 17:27:13 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNd0N-001fo6-6I
-	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 16:31:57 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 5CB0AB80FD4;
-	Mon, 15 Aug 2022 16:31:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CC6CC433C1;
-	Mon, 15 Aug 2022 16:31:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1660581112;
-	bh=sH6QF9BlOX1Fn9qSqhJiL3CBY6+2Aw1phNyF9Zh0680=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XtQ7vSGavTna86t4uCLAHtyOlCF4ha3Owy7Fp8ZJupjg0q2eAFH2kDnNN3njO7FNJ
-	 ZAwfhQnCJypBIy0vhFank2WDkmXHHUlJf9VGtH1AZ8wZZdE4hoA4Qqf3vRxXKV7DOU
-	 pnFsAmABtT0XvcM2j2+mHvr4buGeMZzsScBKpF64nNrOt3Qj/4Q6baf2jvi5q0w1n+
-	 zZoyPD6bAGuzhGKeN4jErtjKIORArfsrpYLIkzhHxsaNza5wONsDmo8IZsLqg12xVN
-	 1xH8AGn+orl9o2q94EL7/igFAr44+BIpdJJQzxTG90wF87jqqV0CWD9X+by6UTqA5l
-	 EyHfoKB6uI/tw==
-Date: Mon, 15 Aug 2022 09:31:49 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Conor.Dooley@microchip.com
-Cc: palmer@dabbelt.com, gregkh@linuxfoundation.org, re@w6rz.net,
-	sashal@kernel.org, dimitri.ledkov@canonical.com,
-	anup@brainfault.org, stable@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: Apply f2928e224d85e7cc139009ab17cefdfec2df5d11 to 5.15 and 5.10?
-Message-ID: <Yvp09SBnS4md2Og0@Ryzen-9-3900X.>
-References: <mhng-f5bbfb9c-755f-4abe-affd-5c40efd11105@palmer-ri-x1c9>
- <bfd07e0f-f8e3-a904-667c-f9a69ebbd405@microchip.com>
+	id 1oNd2W-001hDm-Ak
+	for linux-riscv@lists.infradead.org; Mon, 15 Aug 2022 16:34:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1660581248; x=1692117248;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=Fc7Dxj4HIFpDFSv+DeMGYWc/9y8PNEJeR2JFyT4IO5c=;
+  b=vTRN8LVa38RjKNukS+pC5uVnm3GqX3Hnqxc3X2hDwUVlDyEDc5PH6/+Z
+   uoyzxVHWCBY+n/8DWFNikI+t6vaNlaQnzL6KRxVUh9nVECfp0+dM6sNsV
+   OdZJhUjRXxZmpeA7mR27D0d9F1zGPKpgTVubN3CDkjpnlaom0bKf+tiRn
+   VCJQP1lUS7uKfsdsnj1CPGnx15RWkGk/R1hjsDPXZNUDAGMpyle3ZKBWs
+   /wFtu1eOlou8UJGwn2LAyo138ZbvBf3p5iwTv+mooIYzGzEP5/HvuJA8F
+   4zFyfcJq+DgbSPvobl9n/chVl+LAna8JVqOhtEMFvtIvHxtsACvc4rYzN
+   g==;
+X-IronPort-AV: E=Sophos;i="5.93,238,1654585200"; 
+   d="scan'208";a="109099045"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Aug 2022 09:34:03 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Mon, 15 Aug 2022 09:34:01 -0700
+Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Mon, 15 Aug 2022 09:34:01 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=g4bSYSlF+QUFkm+ZQivGw7arpis1KkGktIew2tRqScnzqlRrnHsuFgA9GzBtSNAls9E5E04sMuo3CXQ3Z+Zq2/niMWjBAjGh5GHTKA8VhTENJ+KZ6QJYHp9qTSbpHvJYt3fE+6rRRleNhM6EPKJpGYgIW3Q+SzmFdvnCIsQ9j3MfX9VeS9caYpAa63ll56FqSu9DZxZP7Re8P1vTDlger8yM0MvfUXJlpR98thTVgO8oI9bjdYq8dcI7vWFB+kJj1oh/KJQp9bLbm2n/fXFZ1Z+H8fTTTb6/YFPuKKWqLoCY8DIzZrZ24KcmJLuIZpsi1a+TOhc1IquA+ZGYWPv/DQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Fc7Dxj4HIFpDFSv+DeMGYWc/9y8PNEJeR2JFyT4IO5c=;
+ b=J8VJkBo36A5OQSuZvW+BeKAjH4EZg+ql8+l5XFvq+zED8lUZLmxYCXNHHPTCIQfRtGqWv8OWfe6O9K4/XrieUQH6MihORhvuR9qO/NMQadn+gY65PQ5MK29djYTKYJfOkN9FwLBKcq85wwzSzS7lK3VQQ8bjK/rhXOw8zGNOak6HCl8iO6Pl6wir2YeCdA6M0nczPZkcBjq7fv6si/QL58sMweppgTPIBXFL9+ohk/pUiKXkrCADT2izAfm7wbM3JwFllQY7DhcbY4d8Th9t6OuEM2DZc4bm6j1th+gxN7GC/3YE+RuRvkb4anzGI+Y+lrJS2nICiBJyySxcuntIjw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Fc7Dxj4HIFpDFSv+DeMGYWc/9y8PNEJeR2JFyT4IO5c=;
+ b=exqXO2u5Hu+He1mPRmWJX/AWx+mlQX+zRwkQ6UCg72vXLyucH21/DBcpXLcmak9sHWTB3iJezCScpoApKOi9An/6wIwm46DnsV344+dUiCZdgP7/nYXm3P4L8q2agOfiD/KGWYlhsF4DdXm1NGNcmXCeEHDWwTbjkLH2VqyGxuU=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by PH7PR11MB6403.namprd11.prod.outlook.com (2603:10b6:510:1f9::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5504.27; Mon, 15 Aug
+ 2022 16:33:56 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::ac89:75cd:26e0:51c3%8]) with mapi id 15.20.5525.011; Mon, 15 Aug 2022
+ 16:33:56 +0000
+From: <Conor.Dooley@microchip.com>
+To: <atulkhare@rivosinc.com>
+CC: <palmer@rivosinc.com>, <linux-i2c@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mmc@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<robh@kernel.org>
+Subject: Re: [PATCH v2 0/2] dt-bindings: sifive: fix dt-schema errors
+Thread-Topic: [PATCH v2 0/2] dt-bindings: sifive: fix dt-schema errors
+Thread-Index: AQHYe5EWlaN9eJ6DkkaWySyozCpPXK1VKhaAgBTmLgCAAAMkAIAnEuWAgB9qzICAAAFlAA==
+Date: Mon, 15 Aug 2022 16:33:56 +0000
+Message-ID: <7595dda7-66db-5db0-b74e-4802e56962f4@microchip.com>
+References: <CABMhjYp3xUyQ9q6nXHvEA2zuzhYi0ETn6UETeH1apWf2n2eP7A@mail.gmail.com>
+ <7ba0c325-bc1f-f6e4-dd8a-b5d13a04ef93@microchip.com>
+ <CABMhjYrDyOoDusE4-y4VzM87Vg=NhPbow_dQ+1C4EcX50LrMHw@mail.gmail.com>
+ <fb861221-2e9d-7d4a-dd52-b16b3b581fd6@microchip.com>
+ <dd128dec-6092-7aeb-6e66-eb45cea3b0cd@microchip.com>
+ <CABMhjYrB+Qn9ZuJ3Lqpu0KVFGeg6avxkYqD=SQWyLjdQ3wSpjg@mail.gmail.com>
+In-Reply-To: <CABMhjYrB+Qn9ZuJ3Lqpu0KVFGeg6avxkYqD=SQWyLjdQ3wSpjg@mail.gmail.com>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 2c06c8e8-cc6d-4adb-c8c0-08da7edbf302
+x-ms-traffictypediagnostic: PH7PR11MB6403:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: KUlmO4Ky6NJ0vniE0JqiMFAc3/nnn3RjCzIXPCwxhu9gkaf7jOIs/rbiJQh0ovBlfK84Fg1nJAzAHUkMsqorvSVfa/Uzl4b+YvBN0NvvB77GR+CuqbKc6c+0w2qND0pVSlVAWHDZYygcuLsX6/PlftlpHQmIZGtrEhvvpZ3p4ixFcbFHkUsFekzUMAs2aGKGehCmvUvTvFAOmq1TQyUX8Xy7xoBR06dnYPQDO+OOaLTobt9vhTF75egcYReHJj8buy/EQ+/PL8VRT3vVKblUNerELnJe0gumwlvURwgbyNnYYikPK929AeolfGGGHpnzJ+iBGBeUPLdmXHlxxPKUil2aXYYKLi8eoIzqrjHm361t1CoEBf1bDw1juQwTEGYlNlhG/ELpq8DXi/53U6kFAb64o2SqfneeUArNuuVFJmbDmjZjNfqkJM12SK4585vJCoX98uLEv2YlOij8ElKFaKLsfkuPRD8gWhVyU9PSVg7YyKX/vfVdH8ED2AUa5DsxkGpGYQTeUO8P57d2dZwNfBp6yGwM0FFdA0m89kjxW20MJtagMAZxd57IK/6xZ+ZDUaezWN97S7PLTjvxmoMT2MHCQxlLfdhqIRoA4gDAfIjDLfHs3NzTuDNHzSMdPVaRoKxzinkwl/bNsP7TvQzDJ1cOp4R8qko5sVqMoP821U7IZPNCq+trC5dMontc/msLzYeLtOZJ1h2gQ66ja3jj3NMf90wf6lnSpOu7X6ozyAjUdWrmIcH4zz7+sM74PHgeo7lG/AAhAeAUgytJ3hncSLJxz0Q3ZxJH7gMfwMv83FvysgWtV2F62kHd2wQfNFND4HNz1vlJIHFmi0KGRdAx1a7hycOiB1Yp5eslKQfPs+HkV58biN0iwOWWkITQ6BfV
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(39860400002)(396003)(366004)(376002)(136003)(346002)(83380400001)(31696002)(86362001)(122000001)(38100700002)(66446008)(38070700005)(91956017)(76116006)(66556008)(66476007)(316002)(66946007)(71200400001)(478600001)(54906003)(4326008)(8676002)(6486002)(64756008)(6916009)(186003)(2906002)(41300700001)(6512007)(6506007)(26005)(31686004)(53546011)(5660300002)(8936002)(2616005)(36756003)(45980500001)(43740500002);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TjF2NDFQVWNVT291Yk1lSThlK09Sd3BtS291V0JKVHNERjBGWkJtUWJpcjdW?=
+ =?utf-8?B?SUhQZFB5Zk1PT1hXdmtvS2RpUS9BdDgweXROelhlYVZCS0diMDJicXBQMTlt?=
+ =?utf-8?B?WGNlVEhHUkVVNUI3Z3Z0aVJVeSs5RjBVYjkwSXp6NmdWM0ZNSWc0UEtHVkww?=
+ =?utf-8?B?Q1VMS25SSm9hUjlMTVpPdFZ1ZkpPMGc0STRDODBkMVdvKzFXVGZmckkrdU5t?=
+ =?utf-8?B?VnhXRkY3NFJIZ3pnYjlVdHZnUG1LZURmUWpwdFNHN0hNWHJ5dmk0TzJncU5N?=
+ =?utf-8?B?bngwN25FZjY0eU5wKzAxYTZwRFhBWjdrQW5FZmkyZ0NacER3SGNaSDk5QzJL?=
+ =?utf-8?B?UzM4MUVLbzV2OEZxMkpZQ2JPcnU2V3hDbEZKS1RDekJFSTB3NVhNUDhqbmZ5?=
+ =?utf-8?B?SlowQmtkdGx6SmNVMkRydmpnUWpmVVZLSm5vbHRCdlZldytUc2cySmdxOXcw?=
+ =?utf-8?B?WUx1V05Ic3VJeXliYmdoM0JJUm1HOXlvWlhOMk9XN2Z2U0xCM2d1T2dTZUJY?=
+ =?utf-8?B?Q1dzZFQ2bHVWM3ViOFpQdjBVRS9uSVAvaXQzSjVvcnBDZ081Rkt5bVR2dVcz?=
+ =?utf-8?B?V0pUVklFWHFqU0I0dmRVNmFXZ1g3NnRONjlTcms4WTh5VVZGRFdGNFNlV2ps?=
+ =?utf-8?B?OVlXSFMxZjd3R2hCcXliNXV1d3J0TGxnTTVhWklEdFc1c1R3OW1YMitRSGE3?=
+ =?utf-8?B?cWFteCtjZlJ3MkJiT1d2QUplVzhxQ2xDbkJ0cmF2ajdkN05NR1hEM1BQVk5K?=
+ =?utf-8?B?bkQzTWZETFBia3UrRE8vQlRwcWkyODF3TWZtSi9rSHVWRkZGdkRpSndDZGM2?=
+ =?utf-8?B?K25Ia0dDdDRpMXF2K1pNYUdPZjBrTU1oYS9sb2JvQVd5cVkzMndmaXVlbHVQ?=
+ =?utf-8?B?NlI0aTVrNGhSRStwMmNNbFV5RUhPc2h4Q0pwMTJpQnZ1RHUxcjU3MURPVWdZ?=
+ =?utf-8?B?dmFkRmZLTnZqNFAyQ3hBR1RPMW91bnRUMXJTVW5lNG85dHBycDNESkE0OHV3?=
+ =?utf-8?B?ZlNyRjlQN3lFS044VU1INEFGcncreS90L0tIOU0vcUo4SHlEMXlBOVdUVTNM?=
+ =?utf-8?B?S29XOS9ZTDJDRklXazM1VGQ3ZEpmMXQ2NzJwZnl4UFpwNWRPcTBWZWtDWmFj?=
+ =?utf-8?B?M0hOdmZmcXFKcHhpcEw5Z0JIUHRtSFUvNGRZN1AwT1pFdndzRmlDV29WK2Mr?=
+ =?utf-8?B?a0JoUUM2akxLZDJIOGcva2lnbnpXelhlWW9XVFRONkM1bEtqVml2TVFVWm92?=
+ =?utf-8?B?d3lZRVY5YTYreW4wejIvN0p4SEdsaldSc0pwSXFEL05kV2FvTzB2aDRjTXl3?=
+ =?utf-8?B?b25vYU5naFErbFBYcEkxbnBuZGljOW9DYS9jUDE5L0NYR1RnQXQreXN4cUky?=
+ =?utf-8?B?WmtqcHIycXJQblkvdjVaOU9xOGwwRUx4TURFUWtIZi93OTR0QjJ0RUFjUk9t?=
+ =?utf-8?B?M2FTeUQyd2YrUUxscUhnbmFCbkVnVDZDZWNmd0xqWVZya0tUZHI3b1VvYTMv?=
+ =?utf-8?B?ZGsxUmorS2VURTdLbm5zdW1XWmZjS1ZFZ3A4dzU4eEFpcXRERGlvNjdNTzF5?=
+ =?utf-8?B?TUh6L2IwRWJ2VlN6S0lQVmVBMlg2NDhyWHhjWUZSckpZdFNQbXFVcy9ESWhU?=
+ =?utf-8?B?d09yREYrTXJjMUlGS0RrNFZtakNDVUFiRTdyV0F6eGVReWwvdjdrVXFtTXpK?=
+ =?utf-8?B?UkU4bjR0R2RjYzZNNFlxcWs0TFAxNGVXdE9maWtOL2NUbUZ2QlFIczdkVzNS?=
+ =?utf-8?B?N2JWNHBhSlZ4L1Q1QmN5cm9tWFdhbmM5N1BCeVJkblVjV25FeUlSQytPdDgz?=
+ =?utf-8?B?VFp1QWEzamllZzZFOFp3ZUdwclFnQTU4ZlZkczk4eHJiVlpKdWRQckNQbTVk?=
+ =?utf-8?B?U2lQNFVYMzM0YTZsYjA1MkxkclpJK05VaG0xbWsvNitId0tzdERRTGZ0bUpx?=
+ =?utf-8?B?Szhia2dQYU1CeXNBOUZ3Z3hIVzJ0dWtodGdpS1RDMENkRzhHcWtDUW9hdVVm?=
+ =?utf-8?B?WXF3S0I2RUZlYmQ1b2xJd2hqelQ5bFlyWUl3T1VGa0sxR0dXZVVoL3Z1UUZL?=
+ =?utf-8?B?aCtJalFZZllsQVZ3WlRRZGl4SUZOM0Z3WDhYMTJKbHI0c3Q0cElndWVRbjZ0?=
+ =?utf-8?Q?LhnfZ/pXeo2wSLBwS6Vm48l2g?=
+Content-ID: <EC09419AD74B59498A39CA46AA0EB520@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <bfd07e0f-f8e3-a904-667c-f9a69ebbd405@microchip.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c06c8e8-cc6d-4adb-c8c0-08da7edbf302
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Aug 2022 16:33:56.5705
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: njhkmjv2UdEKAKOzDXh9ZCPBycipKlKty09IrYlnAN0CuECoEvYcn6wtIBp7iT4C7biCZT2NK5VbiwRQcoF5ZiDhZ15/gXPiMFB29dA2zns=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB6403
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220815_093155_702161_FC4D418A 
-X-CRM114-Status: GOOD (  25.85  )
+X-CRM114-CacheID: sfid-20220815_093408_590995_98A166A8 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,101 +173,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Aug 12, 2022 at 05:00:57PM +0000, Conor.Dooley@microchip.com wrote:
-> On 12/08/2022 17:40, Palmer Dabbelt wrote:
-> > On Fri, 12 Aug 2022 08:36:46 PDT (-0700), Greg KH wrote:
-> >> On Thu, Aug 11, 2022 at 08:23:21PM -0700, Ron Economos wrote:
-> >>> On 8/11/22 5:24 PM, Nathan Chancellor wrote:
-> >>> > Hi all,
-> >>> >
-> >>> > Would it be reasonable to apply commit f2928e224d85 ("riscv: set de=
-fault
-> >>> > pm_power_off to NULL") to 5.10 and 5.15? I see the following issue =
-when
-> >>> > testing OpenSUSE's RISC-V configuration in QEMU and it is resolved =
-with
-> >>> > that change.
-> >>> >
-> >>> > Requesting system poweroff
-> >>> > [=A0=A0=A0 4.497128][=A0 T177] reboot: Power down
-> >>> > [=A0=A0 32.045207][=A0=A0=A0 C0] watchdog: BUG: soft lockup - CPU#0=
- stuck for 26s! [init:177]
-> >>> > [=A0=A0 32.045785][=A0=A0=A0 C0] Modules linked in:
-> >>> > [=A0=A0 32.046166][=A0=A0=A0 C0] CPU: 0 PID: 177 Comm: init Not tai=
-nted 5.15.60-default #1 5b276f06901b1c37142db73337a1816290810c90
-> >>> > [=A0=A0 32.046814][=A0=A0=A0 C0] Hardware name: riscv-virtio,qemu (=
-DT)
-> >>> > [=A0=A0 32.047256][=A0=A0=A0 C0] epc : default_power_off+0x1a/0x20
-> >>> > [=A0=A0 32.047667][=A0=A0=A0 C0]=A0 ra : machine_power_off+0x22/0x2a
-> >>> > [=A0=A0 32.047979][=A0=A0=A0 C0] epc : ffffffff80004a4a ra : ffffff=
-ff80004abe sp : ffffffd000bc3d50
-> >>> > [=A0=A0 32.048405][=A0=A0=A0 C0]=A0 gp : ffffffff81bec160 tp : ffff=
-ffe002080000 t0 : ffffffff80490964
-> >>> > [=A0=A0 32.048827][=A0=A0=A0 C0]=A0 t1 : 0720072007200720 t2 : 5020=
-3a746f6f6265 s0 : ffffffd000bc3d60
-> >>> > [=A0=A0 32.049245][=A0=A0=A0 C0]=A0 s1 : 000000004321fedc a0 : 0000=
-000000000004 a1 : ffffffff81b073c8
-> >>> > [=A0=A0 32.049676][=A0=A0=A0 C0]=A0 a2 : 0000000000000010 a3 : 0000=
-0000000000ab a4 : e0b1d187e51c7400
-> >>> > [=A0=A0 32.050115][=A0=A0=A0 C0]=A0 a5 : ffffffff80004a30 a6 : c000=
-0000ffffdfff a7 : ffffffff804ea464
-> >>> > [=A0=A0 32.050555][=A0=A0=A0 C0]=A0 s2 : 0000000000000000 s3 : ffff=
-ffff81a20390 s4 : fffffffffee1dead
-> >>> > [=A0=A0 32.051009][=A0=A0=A0 C0]=A0 s5 : ffffffff81bee0c8 s6 : 0000=
-003feff55a70 s7 : 0000002acc09bf08
-> >>> > [=A0=A0 32.051427][=A0=A0=A0 C0]=A0 s8 : 0000000000000001 s9 : 0000=
-000000000000 s10: 0000002b0a4db6e0
-> >>> > [=A0=A0 32.051849][=A0=A0=A0 C0]=A0 s11: 0000000000000000 t3 : ffff=
-ffe001e2bf00 t4 : ffffffe001e2bf00
-> >>> > [=A0=A0 32.052274][=A0=A0=A0 C0]=A0 t5 : ffffffe001e2b000 t6 : ffff=
-ffd000bc3ac8
-> >>> > [=A0=A0 32.052604][=A0=A0=A0 C0] status: 0000000000000120 badaddr: =
-0000000000000000 cause: 8000000000000005
-> >>> > qemu-system-riscv64: terminating on signal 15 from pid 2356237 (tim=
-eout)
-> >>> >
-> >>> > I am not sure if there is any regression potential with that change,
-> >>> > hence this email. That change applies cleanly to both trees and I d=
-on't
-> >>> > see any additional problems from it.
-> >>> >
-> >>> > Cheers,
-> >>> > Nathan
-> >>>
-> >>> Should be fine. I apply this patch to all of my 5.15.x stable builds =
-to
-> >>> enable warm reboot on the HiFive Unmatched.
-> >>>
-> >>
-> >> Now queued up, thanks.
-> > =
+On 15/08/2022 17:28, Atul Khare wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> Conor,
+> 
+> Thanks -- really appreciate the help. Dell had to come out twice to
+> fix my laptop, and it's finally done (hopefully), but moving back and
+> forth between  the different distros has been really disruptive.
 
-> > Thanks, though on a sort of related note: are folks actually running
-> > 5.10-based kernels on RISC-V?=A0 I generally don't worry too much about
-> > trying to backport stuff that far.
+Ye, no worries. Not sure if you saw or Palmer told you - but I
+resubmitted the GPIO patch & a revised version of the interrupts,
+so that all made it into v6.0-rc1 :) FWIW they are:
+5cef38dd03f3 dt-bindings: gpio: sifive: add gpio-line-names
+b60cf8e59e61 dt-bindings: riscv: fix SiFive l2-cache's cache-sets
 
-I am merely doing basic QEMU boot tests, primarily to catch regressions
-in LLVM. There have been times where I see crashes or failed assertions
-in LLVM or boot problems in QEMU that are only visible when building the
-stable trees versus mainline and -next so they tend to be useful for
-that reason. I don't have any RISC-V hardware though; if I did, I'd be
-running mainline, so I wouldn't worry much about backporting past 5.15
-if that is what you do now. I can always request fixes such as this out
-of band :)
+I assume it ended up in your inbox but you weren't actually set
+up to reply properly.
 
-> For this patch itself, I think the actual effect depends on what your
-> SBI implementation does.
+Thanks,
+Conor.
 
-I am using tip-of-tree QEMU, which should have a fairly recent copy of
-SBI, which likely explains why this patch resolves the issue.
-
-Cheers,
-Nathan
+> 
+> 
+> On Tue, Jul 26, 2022 at 9:42 AM <Conor.Dooley@microchip.com> wrote:
+>>
+>> On 01/07/2022 21:00, Conor Dooley wrote:
+>>> On 01/07/2022 20:49, Atul Khare wrote:
+>>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>>>
+>>>> Conor,
+>>>>
+>>>> Apologies for the delay, but my laptop died a couple of weeks ago, and
+>>>> I have been scrambling to get things up and running on the
+>>>> replacement. I will try and get back to it ASAP.
+>>>
+>>> Nothing you can do about your laptop dying :)
+>>>
+>>>
+>>
+>> Hey Atul,
+>> Been another couple weeks so I am going to send a v3 of these
+>> patches (although without any changes to the v2) and we can
+>> resume discussion about the cache binding change there.
+>> Thanks,
+>> Conor.
 
 _______________________________________________
 linux-riscv mailing list
