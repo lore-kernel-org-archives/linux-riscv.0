@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A70A7C2BB41
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Aug 2022 18:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6A7C25B0E
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Aug 2022 19:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qaKYdSe6URs2SO2Y8STcLOgm4rfw8fA3CI+23kb76MI=; b=nIBlyPQxkPSOFf
-	0jI4yvDYqwocx8MHWrZLx/xDBKGgI0HNfb0F1qdbF3daCJTG6VGBuhOGds0o2wfRRBTan+YAoxaBo
-	poGJ/qzCbKKSIJs6buYoceauj/3wLRiGE7VXuHzDFz4Kn0vAh3/h93aBwlXi3UQKlBvswDfF8zDyY
-	wdudwypapklOzwXIkDJz2EAnFDHHijkZm22wQAXfnp3ay9nBz43HiiRktf5e+VHlxh4jgolYZyuLs
-	FgZKF9WZ8hx8SZYZpR/alL2o8nfvVvtNAmE2fk5vnFdc+6REp1o24SRfFcqTdv/iinxFfzwkdv2SD
-	fZrd+gP9jZvldvWjijTw==;
+	List-Owner; bh=JghvF8Zy8vi3SFUTgCQl7MpwdMm+q8Zwi/d23hmECwg=; b=ni6+oWNKFfkLrA
+	fccnSJJxGMrzUczE+xraTEdgC4rjnBs/RfGAsX9c4Q6H3lvO2nI4yBc+mT7R/OYI7UYiAig63HPm6
+	xy0KntUfyMISGHT7aRW/PvPWGpgG+jgpVnb9Rmx0I8YstXTozXys1ACfW1BjA9BBrCww3D/zGlse8
+	8NHaXHvg5zigXEwiPYUnOGQfV6E9dU6/WC2JrAOEl5tobramx7l6LqpERqhTjC4Xzfbu6CgH6AK8q
+	z2Z4H0Td9IShjMMCNLDdruGe+w9ncjii8Mr0wjooqn+93BfM+ofebMsuI8j7ItnvvzvByYSF6TFwC
+	pnkppF8vf2qt6gLNPdeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oO1GW-005oKY-N7; Tue, 16 Aug 2022 18:26:12 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1oO2C8-006O77-75; Tue, 16 Aug 2022 19:25:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oO1GN-005oCw-A9
-	for linux-riscv@lists.infradead.org; Tue, 16 Aug 2022 18:26:04 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id n7so2404671wrv.4
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Aug 2022 11:26:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc;
-        bh=qOyz6Sg85RbWT2/Ms96NRUeJwTK6SHK6KdVqomRoy/M=;
-        b=KrY4rxTH3L2TNT0Tj7Ea3n6H60cPP7wN7CFj0YwfZL3/tcHo7JcjAQR1cc9nCseY1Q
-         CvSDX4Df1TuJvhRh0FUuNmuoYgfcd89WAuYpiQrxgJ36llVyw9SsimpFpQWVu02nWXcT
-         GP9mZWjTux2x2gc3JPak5n3rBobhufro0EeesPdqdBTidWMJ+++fPtnXFwpd1jRaQ5uC
-         AdM9UySn5X8nhrYKXkCGiq3sgYwQu5bBzjyBUZLqbo0GGVQfxEfmjHcQYruR4qw0hSOm
-         qQQhOVUcytvQsE2/9LnFust0O3PVqEWZT76F7BbyLUy+nlQFXQ/WJkUS2M6MKFTbAD49
-         f7XA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
-        bh=qOyz6Sg85RbWT2/Ms96NRUeJwTK6SHK6KdVqomRoy/M=;
-        b=P5nBck0GtvoH8hz00y+hRHYqoCCSMyI/DNARPn97gq43PkU/AkmA/aT45EyegPnBE2
-         26dy1CLN2SwnMgAM9QDfP9i/B14w7Ixya8qoU3qh+y4hOuF5bVbpekLDtHDPhAsKDNrI
-         yZmQPUNgLxxkhdIbVc4rDv1uI9KZQFs8N8HIbb2kxFwebuOzFgTEfRV74ZECyu/O2OTE
-         J/B0I1qYlV7Np/BI25dvGFObYfPl2D8+VmWjbDsZlwLj7wXLnmxlflxsBu2bpNUSL5NT
-         AfQ/hU2ovPChxMLVkl/AoXKyX1zVuOPMDrE1FI3iHsUMOIBCEscU3SLzzTobDcUMjCCf
-         Bpmg==
-X-Gm-Message-State: ACgBeo15l/7xlTtc8drcU/5V+gpTjK0cwmXchGD9YYs8FDrWJ3Z7KlzP
-	WcNqUIRA/cnpvwFxUWeJch7ZCw==
-X-Google-Smtp-Source: AA6agR5Eq/Dh2TGsSUxt13F3p2fStw1nzu0BqbZ6aF8bKxqUzWnpGd8AlGfuE2KkOMjcylA72rOhbQ==
-X-Received: by 2002:a5d:4a84:0:b0:225:20e3:3ba6 with SMTP id o4-20020a5d4a84000000b0022520e33ba6mr881999wrq.306.1660674361600;
-        Tue, 16 Aug 2022 11:26:01 -0700 (PDT)
-Received: from henark71.. ([109.76.58.63])
-        by smtp.gmail.com with ESMTPSA id s17-20020a1cf211000000b003a603fbad5bsm4015482wmc.45.2022.08.16.11.26.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Aug 2022 11:26:00 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: Daire McNamara <daire.mcnamara@microchip.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	id 1oO2C6-006O5c-1Z
+	for linux-riscv@bombadil.infradead.org; Tue, 16 Aug 2022 19:25:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Mcm/etSCYChahClz5lPhGz680tz38qViCn2Hqn6HaAE=; b=iZi73e2RqV5lql4TiH9vUka0rR
+	Y+Q4uwJwYwtGdBv6phl/l4yrntRns9RRclpSPQlSC8I/hYAE85/W/ArEweaKO0GjCltFjrVKYRNJT
+	ouL0QeBuLDpsoTktLCYenSXNrV4B9J0uuF0KXVisDFfgAbSmvIqWGGPDYGSs1CrwGZKgjuUUzRdgQ
+	ex3r4rdrY+9w6nqal8jwPMMLvezd3z46sz0rdPkySbuABjE5uGjyNjs1ZgXfsOL8Zkg5C64/03I5j
+	OEwvPGg9Vmyk6I+A/2ZMCcqBdL21W5ac2xE3sLAMPLLsJpwxqzhxTRCZvDN17OiHib19Z1wW0j11t
+	AvmtfBFg==;
+Received: from [187.19.239.32] (helo=quaco.ghostprotocols.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oO2C3-0032kl-64; Tue, 16 Aug 2022 19:25:40 +0000
+Received: by quaco.ghostprotocols.net (Postfix, from userid 1000)
+	id CD7F64035A; Tue, 16 Aug 2022 16:25:33 -0300 (-03)
+Date: Tue, 16 Aug 2022 16:25:33 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Nikita Shubin <nikita.shubin@maquefel.me>
+Cc: Mayuresh Chitale <mchitale@ventanamicro.com>, linux@yadro.com,
+	Genevieve Chan <genevieve.chan@starfivetech.com>,
+	=?iso-8859-1?Q?Jo=E3o_M=E1rio?= Domingos <joao.mario@tecnico.ulisboa.pt>,
+	Nikita Shubin <n.shubin@yadro.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Namhyung Kim <namhyung@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>
-Cc: linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 5/6] riscv: dts: microchip: mpfs: remove bogus card-detect-delay
-Date: Tue, 16 Aug 2022 19:25:47 +0100
-Message-Id: <20220816182547.3454843-6-mail@conchuod.ie>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20220816182547.3454843-1-mail@conchuod.ie>
-References: <20220816182547.3454843-1-mail@conchuod.ie>
+	Albert Ou <aou@eecs.berkeley.edu>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Kautuk Consul <kconsul@ventanamicro.com>
+Subject: Re: [PATCH v5] perf arch events: riscv sbi firmware std event files
+Message-ID: <YvvvLUnVaO+Fvw3U@kernel.org>
+References: <20220628114625.166665-1-nikita.shubin@maquefel.me>
+ <20220628114625.166665-4-nikita.shubin@maquefel.me>
+ <18c8e9c74955c08fdbd631a35c51b30f3cff3cd3.camel@ventanamicro.com>
+ <20220811112303.4e5f0566@redslave.neermore.group>
+ <Yvas60duFUkSzuz+@kernel.org>
+ <20220815162755.7ed970c6@redslave.neermore.group>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220816_112603_430648_E523AB94 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20220815162755.7ed970c6@redslave.neermore.group>
+X-Url: http://acmel.wordpress.com
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,56 +84,20 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+Em Mon, Aug 15, 2022 at 04:27:55PM +0300, Nikita Shubin escreveu:
+> > If I get this today it may even get into v6.0. :-)
+ 
+> Well... i missed it :), on the other hand this series depends on 
+> https://lkml.org/lkml/2022/7/27/23 
+> which hasn't been merged yet.
+ 
+> Just have sent a v6 series.
+ 
+> Thank you for review!
 
-Recent versions of dt-schema warn about a previously undetected
-undocumented property:
-arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dtb: mmc@20008000: Unevaluated properties are not allowed ('card-detect-delay' was unexpected)
-        From schema: Documentation/devicetree/bindings/mmc/cdns,sdhci.yaml
+Ok! Hopefully it'll make 6.1 then. :-)
 
-There are no GPIOs connected to MSSIO6B4 pin K3 so adding the common
-cd-debounce-delay-ms property makes no sense. The Cadence IP has a
-register that sets the card detect delay as "DP * tclk". On MPFS, this
-clock frequency is not configurable (it must be 200 MHz) & the FPGA
-comes out of reset with this register already set.
-
-Fixes: bc47b2217f24 ("riscv: dts: microchip: add the sundance polarberry")
-Fixes: 0fa6107eca41 ("RISC-V: Initial DTS for Microchip ICICLE board")
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-v2022.08 or later of dt-schema is required.
----
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts | 1 -
- arch/riscv/boot/dts/microchip/mpfs-polarberry.dts | 1 -
- 2 files changed, 2 deletions(-)
-
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-index ee548ab61a2a..f3f87ed2007f 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-@@ -100,7 +100,6 @@ &mmc {
- 	disable-wp;
- 	cap-sd-highspeed;
- 	cap-mmc-highspeed;
--	card-detect-delay = <200>;
- 	mmc-ddr-1_8v;
- 	mmc-hs200-1_8v;
- 	sd-uhs-sdr12;
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-index dc11bb8fc833..c87cc2d8fe29 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-@@ -70,7 +70,6 @@ &mmc {
- 	disable-wp;
- 	cap-sd-highspeed;
- 	cap-mmc-highspeed;
--	card-detect-delay = <200>;
- 	mmc-ddr-1_8v;
- 	mmc-hs200-1_8v;
- 	sd-uhs-sdr12;
--- 
-2.37.1
-
+- Arnaldo
 
 _______________________________________________
 linux-riscv mailing list
