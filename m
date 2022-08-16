@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9CCDC32793
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Aug 2022 12:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB5CFC25B0E
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Aug 2022 12:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qWbXFV65AHpie0Rsj7GCQGYe85tdkgR+1WhAnCTJZI8=; b=Ydv3V5jQuItux8
-	uyk/mdfeAAVPB8TM8ThFk5AeNO831TZT365AZL36lGiNsVyHxuMsRgPmi7vxPFqAuGCoL2y4SAllN
-	KVF5nXKj1x3ESCm8tORvYXjW41uvLvoiiG/mU7tyUnhnFt4FK6Til1eypIiEYnHpWW5snLs1hf663
-	UK1AP0NwHNx9MYC19pbZKkPDrhG0DZ8ZHUyJMqMUGyKc2XE4UvpAXpOkF2eZMiwufVB6T4ljAov+h
-	YK8Bqa1zZ2ftPOkp4xxwgunl1dLQLXLS0/lcPjnLTarSjA5AJOIA/4O46YvCROQDL7335op2jrjTT
-	ShCnsklC4rKpVNRAoVpg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dLq/6Nr79dGHIfWuxdEQK9+M31pHfctAZg4L4ifNVus=; b=kYnLzjap4Z79Du
+	thYplaAsGm6zZb7p6DrpITQCC+nghw9X9Qgl3ZjVmUhgnL1M5UQ9PNBLXimdBntsWeDp0WmRtpIAv
+	aDeguVZskU1a9obZc6kjaQ83XN2eHhxIMMu4i56I7TWRlepbkc3L4ORihMtx/0he4+xAkxeL2x/Fp
+	g52pfRbilr1LsJzhzOtZLQGBAln6lSdvKrf0fQXVPTOfLkJ2NO1LH7xPiEsmmvhR+XlnsI9tCFTsm
+	a8WEVvdQtSyy/2QsBXTPDsJeNkaskHvFhcG9p1dN37RG9WfzQlxgcqu1UfvBzAMrunkK19s/RZpvm
+	0EC+7y3balJIw0YMOEug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNvNZ-0023sZ-3y; Tue, 16 Aug 2022 12:09:05 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oNvNh-00240L-5a; Tue, 16 Aug 2022 12:09:13 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNvNW-0023qT-Da
-	for linux-riscv@lists.infradead.org; Tue, 16 Aug 2022 12:09:04 +0000
+	id 1oNvNe-0023ur-KX
+	for linux-riscv@lists.infradead.org; Tue, 16 Aug 2022 12:09:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1660651742; x=1692187742;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Tn/qQFYz5KIe5ySlji7fQeK6RfhXsdNtBpQADNtHANI=;
-  b=cmw9sXzDoEcEwqFWEzCGkF2yC/epAVh5vGJu2VExq9hytaImWsk8PoTL
-   4VAAs+m3LNVjHBiVkbS8OAJywGUfH9kXv7J65M12CvBGkjBSxRFXfFeFx
-   N8alyzrgdcQ8OJZmomJOz+/QmWpxUQKcORuKajpByaS57sSkIpPpEPi8e
-   pfhXpgRlZLwSySRBEbAIu0tmJNA2xkArOVboU/Qn47tKWcm1/AIpV6u/X
-   AVyAtGjWjE+i/+xgRo4ZFks9ysHyOC9y54JGM35bn2/yzO8AxRZs20e4o
-   TeAesy8hjQh/MKnRFfoidDwhk9S+iJAwbVityFfP/VnWnuOWxGqNHTYCq
+  t=1660651750; x=1692187750;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=UGvCmSdLGhHwliGLCezI146iFxUX+rnhWkr8xC90Ykk=;
+  b=1m/Mji3zOo6pd43Nbb0lEzG1/dWTdTSukyIma3w9yKdfyq62Jespt8/X
+   /DYK+EDQ8SPvLMrXDzROPMeJMwBPEdf+1EVgzyTx8m0nuTN8ciddHwMdX
+   XIz+kDIT1BmhAyUrM81ONV6Vt3uKru4ydw9qROQsrwUSGf9qdlnhGIS9M
+   DA9TogloqHQQiR7EYyXsfceNBomsV1bECINCnj5hXtKJvqu4JBRuN4pzz
+   Tl6QFWPexPElujnC/tZbVhzm3B5ikF5SZSi9GPigqen8aNkZNX9tjCate
+   sB5GBp1Q22PuGuhRjaGQGGAumFjGpObGtd82f/vEkZdzKW55tRPNKI7NY
    w==;
 X-IronPort-AV: E=Sophos;i="5.93,241,1654585200"; 
-   d="scan'208";a="169493744"
+   d="scan'208";a="186657514"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 16 Aug 2022 05:08:59 -0700
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 16 Aug 2022 05:09:05 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 16 Aug 2022 05:08:58 -0700
+ 15.1.2507.12; Tue, 16 Aug 2022 05:09:00 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
  (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Tue, 16 Aug 2022 05:08:56 -0700
+ Transport; Tue, 16 Aug 2022 05:08:58 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Thierry Reding <thierry.reding@gmail.com>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>, "Rob
@@ -57,15 +57,18 @@ To: Thierry Reding <thierry.reding@gmail.com>,
 CC: Daire McNamara <daire.mcnamara@microchip.com>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-pwm@vger.kernel.org>, <linux-riscv@lists.infradead.org>, Conor Dooley
-	<conor.dooley@microchip.com>
-Subject: [PATCH v8 0/4] Microchip soft ip corePWM driver
-Date: Tue, 16 Aug 2022 13:08:26 +0100
-Message-ID: <20220816120829.719749-1-conor.dooley@microchip.com>
+	<conor.dooley@microchip.com>, Rob Herring <robh@kernel.org>
+Subject: [PATCH v8 1/4] dt-bindings: pwm: fix microchip corePWM's pwm-cells
+Date: Tue, 16 Aug 2022 13:08:27 +0100
+Message-ID: <20220816120829.719749-2-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220816120829.719749-1-conor.dooley@microchip.com>
+References: <20220816120829.719749-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220816_050902_604601_E02D2FFE 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20220816_050910_716555_1EB92927 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,71 +85,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hey Uwe, all,
+corePWM is capable of inverted operation but the binding requires
+\#pwm-cells of 2. Expand the binding to support setting the polarity.
 
-6.0-rc1 has rolled around so here is the promised v8.
-The prior cover letter/series is here:
-https://lore.kernel.org/linux-pwm/20220721172109.941900-1-mail@conchuod.ie
+Fixes: df77f7735786 ("dt-bindings: pwm: add microchip corepwm binding")
+Acked-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-I'll take the dts change myself once the rest is merged.
-
-There is one change here that is not directly from your feedback, I
-added a test for invalid PERIOD_STEPS values, in which case we abort if
-the period is locked and cannot be fixed. Hopefully the rounding is not
-ruined..
-
-Thanks,
-Conor.
-
-Changes since v7:
-- rebased on 6.0-rc1
-- reworded comments you highlighted in v7
-- fixed the overkill sleeping
-- removed the unused variables in calc_duty
-- added some extra comments to explain behaviours you questioned in v7
-- make the mutexes un-interruptible
-- fixed added the 1s you suggested for the if(period_locked) logic
-- added setup of the channel_enabled shadowing
-- fixed the period reporting for the negedge == posedge case in
-  get_state() I had to add the enabled check, as otherwise it broke
-  setting the period for the first time out of reset.
-- added a test for invalid PERIOD_STEPS values, in which case we abort
-  if we cannot fix the period
-
-Changes from v6:
-- Dropped an unused variable that I'd missed
-- Actually check the return values of the mutex lock()s
-- Re-rebased on -next for the MAINTAINERS patch (again...)
-
-Changes from v5:
-- switched to a mutex b/c we must sleep with the lock taken
-- simplified the locking in apply() and added locking to get_state()
-- reworked apply() as requested
-- removed the loop in the period calculation (thanks Uwe!)
-- add a copy of the enable registers in the driver to save on reads.
-- remove the second (useless) write to sync_update
-- added some missing rounding in get_state()
-- couple other minor cleanups as requested in:
-https://lore.kernel.org/linux-riscv/20220709160206.cw5luo7kxdshoiua@pengutronix.de/
-
-Changes from v4:
-- dropped some accidentally added files
-
-Conor Dooley (4):
-  dt-bindings: pwm: fix microchip corePWM's pwm-cells
-  riscv: dts: fix the icicle's #pwm-cells
-  pwm: add microchip soft ip corePWM driver
-  MAINTAINERS: add pwm to PolarFire SoC entry
-
- .../bindings/pwm/microchip,corepwm.yaml       |   4 +-
- MAINTAINERS                                   |   1 +
- .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |   2 +-
- drivers/pwm/Kconfig                           |  10 +
- drivers/pwm/Makefile                          |   1 +
- drivers/pwm/pwm-microchip-core.c              | 396 ++++++++++++++++++
- 6 files changed, 412 insertions(+), 2 deletions(-)
- create mode 100644 drivers/pwm/pwm-microchip-core.c
-
+diff --git a/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml b/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
+index a7fae1772a81..cd8e9a8907f8 100644
+--- a/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
+@@ -30,7 +30,9 @@ properties:
+     maxItems: 1
+ 
+   "#pwm-cells":
+-    const: 2
++    enum: [2, 3]
++    description:
++      The only flag supported by the controller is PWM_POLARITY_INVERTED.
+ 
+   microchip,sync-update-mask:
+     description: |
 -- 
 2.36.1
 
