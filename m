@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF3F3C2BB41
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Aug 2022 07:29:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C64C2BB41
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Aug 2022 07:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mMEEmGMRCYD+bs7cVL5EAT/EmkaAGzMbsR3oga571is=; b=sla1h1IaOuhciV
-	5gzu7lEBx9oaTER/7GugVJZD67+HgqoXDfhFzhKHt4Ejbi/yLTKPlxTlRoPW2KTinGp84+aDr2pJJ
-	sW9sbJDEW27Wq5UZCmH2UV8A9U681rnA6B4ECkAPpem2i4uOEyGSRcq5WoT9RDx/ms2pVgha8BgoC
-	GmLyHDY6xnwH/6Jh/6DAowXkeFEUt98sfUSBm/f8MndW6aKuMYwuHbg1AGzceHyiJIYi/pm/bIxm8
-	ZisRQuYeekPq7AQR0hajGR4dgMZCg8MzHfZAQ5Ot7kmMoUgAHJOMj150ddXbnadxFVaZ3/BAVhGY8
-	B5XmYs7qHXF7V/GsQoaw==;
+	List-Owner; bh=sMlcho2BuTs/1PQ2Zk9L31dCff88/N60oqdZKRDsVgs=; b=h4okj13SKjeZ9E
+	In/NXGDcJXYIF6kgKOR9WhFsNGMzayel/Vy9O+q/EJSkGTjTY01K/wnIdZlX1V22q61uXchHGsWXP
+	5kPmS1jbktahz1ixr8i1NGA0eyO3eyFPRB+X25WfPVOlqFr+ItKQ9l90NgoGZ4eIltgpcvj4hA/wd
+	/aa+Z8Dnjr5LCsqkcfWC6G0gSOgm7FzmQNG0wZmBsq0nPNPg8bNz/3fy/hFk7DoKhlXdj4ZWtvET4
+	Je3c2F2wydWJ18zYOwSHoXTMA0+X/fVUwGvLFBapTftSpLlbew8enzp641RE5FFyv/HtL3w0oy12+
+	GmOUPHZ9fZeweg6U0RHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNr0N-00FCQT-Jp; Tue, 16 Aug 2022 07:28:51 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1oNrAx-00FT0Q-Tc; Tue, 16 Aug 2022 07:39:47 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNqx9-00F6ZX-KE
-	for linux-riscv@lists.infradead.org; Tue, 16 Aug 2022 07:25:33 +0000
-Received: by mail-lf1-x133.google.com with SMTP id c28so9595347lfh.3
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Aug 2022 00:25:30 -0700 (PDT)
+	id 1oNrAu-00FSmS-5X
+	for linux-riscv@lists.infradead.org; Tue, 16 Aug 2022 07:39:46 +0000
+Received: by mail-lf1-x132.google.com with SMTP id c28so9635778lfh.3
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Aug 2022 00:39:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc;
-        bh=ooE16zehdw/Qev5T+ZmUnjytAB9yy5ywmdc6ijRB7DU=;
-        b=vsbEHpL2RqIY2QslVwDqFfp3XtMgHpHexPeU7C7kkWJq9Vq0XI2sRGSqgt5nWsO1hm
-         +T5H7I3m0VVO7Yygf/ziEdb826My+optK01l52i8aQPhSGBi+y4MkCZ2dLgcR1et5mGa
-         N9m32uGyTjvej0rn9DPJiXTvSL4HY4BlnKWuP+YkgjAYdqUuvC3cB1YIF4vX7rQQ4kf5
-         JWH7/zpvE4X1qvrDhyPss0d3EBSVe46JZkl5u145kQLkNV+KKV8J9E3p+uIvAcBNng/2
-         Cn2LYpunvdGkkOwInxwuCuHNobZOTstauY/+ZLjaJBZb+IKB1BisMwJKdL00sRrOkDyr
-         0Ivw==
+        bh=btyntIg+6JbLy0894fPNlZeMSSyk53Lr6h4dc4QK0Co=;
+        b=gLQxbMAXKhy40wWpKbzWV5WJdiOAFd8yiN9e/ugYXdxZgM51yId8ncUlykQBryCSFS
+         gjkk2OImTlXH1dlcpVIJXPt9/NOM4XaJ1lZWiUgrEtEca3g/adpfaEdB0mbaYHKOr8g3
+         NHCeRyWYN9fAkZQXFViueUT3z4Wf0DSGYKWwxV+11xGVdwHFXMhW0L2437v1NPhtugN5
+         S+h+zf6a7Ixtt7x+xpnz6zZQIgDXAqFlXXdiA9XOOQV5NAmdhdy3jGL7CCD3+0B5RDHE
+         uw1Z6QVDZWRSyxqAyowNEnMhk9pRXNVtf3Qcj58p/nE9g5UaPgTzfepzMdZOxSOzITxz
+         lnZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc;
-        bh=ooE16zehdw/Qev5T+ZmUnjytAB9yy5ywmdc6ijRB7DU=;
-        b=c6LVV/I15f2Nry1EkX75S+J7H/NCFu7kpxQTB5YAarU0QNRalByNLXpWKCW8uep9hn
-         AFxMfcpDnRLu82p0Gsuip0vnFiW7bGLVLZRo333zmOwy3Mpum8lGrKwbilNRAb+payOW
-         tR3PX/PZY8O2NKKO11oMLeQaLJAlN7OWSCrBi7KFjqXrm8tqVeLH0+kEMsBhOYFkoBub
-         hA2NS8GBvffTd7cXHMVmH7h7159NnK+9qgF3WI/DYCecE0B57hQSfgHrrAqUDOW0a3SF
-         J79QTxQiHVvKBr28I/rg0IvYwBVYmETen9esFDxyJvIqr9eGD7oTxu5SEFxnEvwYoYO4
-         gHxw==
-X-Gm-Message-State: ACgBeo0H7huAtNibgmuQCQCqQbdPC/e31YVF+XmVZAnRY96Hbd4yqiSZ
-	d336xx15cPU2AvdVU28MtN0pUA==
-X-Google-Smtp-Source: AA6agR4AvhM4cDhXvQ1UTG+En6e9pMhUjfadNQTORfvzlu9ebxyZUTSlog8Wr6qGvgUaMN87z3ocDA==
-X-Received: by 2002:a19:d611:0:b0:492:8e15:ba18 with SMTP id n17-20020a19d611000000b004928e15ba18mr2268836lfg.524.1660634728747;
-        Tue, 16 Aug 2022 00:25:28 -0700 (PDT)
+        bh=btyntIg+6JbLy0894fPNlZeMSSyk53Lr6h4dc4QK0Co=;
+        b=mXl4WbOKlWqXc7lVw5bJSaJFAhVzS/hQ2iSntBQ81KKpfAJ0s6l1mXYTyycDwIjAGV
+         HoX9sDBsH33vKZ86aQm36l/TanU5b89ErQ+PfPfIsT8KfE2duYzsXSCQyX5n9jKaE4pz
+         qZ5g9/BCc0mXHcv8Li0jr/9dDmDSDD+/3C1ql7triDIaHudzezlH07HJVxp3pmjiR6A3
+         ujfXZgLHjolmZbOWqEYyeEG7gCKf1IM4V3j/OAJJz260JoaRbCgNA1dhOCZ8iHc4njsv
+         0EPWc4kB3IOQn4F1Ks8u1PTaWPi39dC3hUbujCh/4RJk+umglwTt7FzFx9QlQSXudDPt
+         63hA==
+X-Gm-Message-State: ACgBeo0WJEuLue7yx8VC2TL2YKJdjssDesIhUqV/OadRcT5/r7VKIgOp
+	eF2RDJARFSirWD8HLjRkPCpEww==
+X-Google-Smtp-Source: AA6agR5Otw3L/ye4I0Fc78uHZiVk2dPD8EYKzSpl1dan6fstRqLuZDDmi8GIEb65XgKTtqZpLahfbw==
+X-Received: by 2002:a05:6512:25a3:b0:48a:e7e7:eea3 with SMTP id bf35-20020a05651225a300b0048ae7e7eea3mr6296301lfb.205.1660635580231;
+        Tue, 16 Aug 2022 00:39:40 -0700 (PDT)
 Received: from ?IPV6:2001:14bb:ae:539c:1782:dd68:b0c1:c1a4? (d15l54g8c71znbtrbzt-4.rev.dnainternet.fi. [2001:14bb:ae:539c:1782:dd68:b0c1:c1a4])
-        by smtp.gmail.com with ESMTPSA id bd18-20020a05651c169200b0025e5b5474a4sm1706639ljb.85.2022.08.16.00.25.26
+        by smtp.gmail.com with ESMTPSA id p21-20020a2ea4d5000000b0025df5f38da8sm1706327ljm.119.2022.08.16.00.39.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Aug 2022 00:25:28 -0700 (PDT)
-Message-ID: <febf654a-66ad-48e2-072c-7e1f4b521964@linaro.org>
-Date: Tue, 16 Aug 2022 10:25:26 +0300
+        Tue, 16 Aug 2022 00:39:39 -0700 (PDT)
+Message-ID: <1f84e925-1a0f-6100-c444-a8157e14ab5a@linaro.org>
+Date: Tue, 16 Aug 2022 10:39:38 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.12.0
-Subject: Re: [PATCH 2/4] dt-bindings: PCI: microchip,pcie-host: fix missing
- clocks properties
+Subject: Re: [PATCH 04/12] dt-bindings: riscv: Add Allwinner D1 board
+ compatibles
 Content-Language: en-US
-To: Conor.Dooley@microchip.com, mail@conchuod.ie,
- Daire.McNamara@microchip.com, bhelgaas@google.com, robh+dt@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
- greentime.hu@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- lpieralisi@kernel.org
-Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20220811203306.179744-1-mail@conchuod.ie>
- <20220811203306.179744-3-mail@conchuod.ie>
- <99b5bddb-4a09-a3ac-e01b-d0ae624ad2f8@linaro.org>
- <d25f8901-b9d7-ae8e-0061-2a033af16693@microchip.com>
+To: Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, linux-sunxi@lists.linux.dev,
+ Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org
+Cc: Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
+References: <20220815050815.22340-1-samuel@sholland.org>
+ <20220815050815.22340-5-samuel@sholland.org>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <d25f8901-b9d7-ae8e-0061-2a033af16693@microchip.com>
+In-Reply-To: <20220815050815.22340-5-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220816_002531_741748_4F55DA56 
-X-CRM114-Status: GOOD (  31.42  )
+X-CRM114-CacheID: sfid-20220816_003944_293661_05C14E13 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,121 +99,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/08/2022 16:47, Conor.Dooley@microchip.com wrote:
-> On 12/08/2022 08:35, Krzysztof Kozlowski wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>
->> On 11/08/2022 23:33, Conor Dooley wrote:
->>> From: Conor Dooley <conor.dooley@microchip.com>
->>>
->>> Upgrading dt-schema to v2022.08 reveals unevaluatedProperties issues
->>> that were not previously visible, such as the missing clocks and
->>> clock-names properties for PolarFire SoC's PCI controller:
->>> arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dtb: pcie@2000000000: Unevaluated properties are not allowed ('clock-names', 'clocks', 'legacy-interrupt-controller', 'microchip,axi-m-atr0' were unexpected)
->>>         From schema: Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
->>>
->>> The clocks are required to enable interfaces between the FPGA fabric
->>> and the core complex, so add them to the binding.
->>>
->>> Fixes: 6ee6c89aac35 ("dt-bindings: PCI: microchip: Add Microchip PolarFire host binding")
->>> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->>> ---
->>>  .../bindings/pci/microchip,pcie-host.yaml     | 25 +++++++++++++++++++
->>>  1 file changed, 25 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
->>> index edb4f81253c8..2a2166f09e2c 100644
->>> --- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
->>> +++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
->>> @@ -25,6 +25,31 @@ properties:
->>>        - const: cfg
->>>        - const: apb
->>>
->>> +  clocks:
->>> +    description:
->>> +      Fabric Interface Controllers, FICs, are the interface between the FPGA
->>> +      fabric and the core complex on PolarFire SoC. The FICs require two clocks,
->>> +      one from each side of the interface. The "FIC clocks" described by this
->>> +      property are on the core complex side & communication through a FIC is not
->>> +      possible unless it's corresponding clock is enabled. A clock must be
->>> +      enabled for each of the interfaces the root port is connected through.
->>> +    minItems: 1
->>> +    items:
->>> +      - description: FIC0's clock
->>> +      - description: FIC1's clock
->>> +      - description: FIC2's clock
->>> +      - description: FIC3's clock
->>> +
->>> +  clock-names:
->>> +    items:
->>> +      enum:
->>> +        - fic0
->>> +        - fic1
->>> +        - fic2
->>> +        - fic3
->>> +    minItems: 1
->>> +    maxItems: 4
->>
->> No need for maxItems.
+On 15/08/2022 08:08, Samuel Holland wrote:
+> Several SoMs and boards are available that feature the Allwinner D1 SoC.
+> Document their compatible strings.
 > 
-> I brought this up on IRC, but transferring it here since it's been
-> an (understandable!!) few days & just didn't want things to get lost
-> if my net died. Cutting out the back & forth, in summary:
-> "
-> I'm trying to remove the maxItems from the clock-names array you
-> didn't like - but I can't figure out what to do instead that doesn't
-> trigger errors. All 4 clocks are optional, the only requirement is
-> that any one of them is present. Either I seem to get complaints that
-> my property is not an array (simply removing the maxItems) or complaints
-> that because I have clock0,1,3 and not 2 that clock3 is unexpected.
+> Signed-off-by: Samuel Holland <samuel@sholland.org>
+> ---
+> 
+>  .../devicetree/bindings/riscv/sunxi.yaml      | 64 +++++++++++++++++++
+>  1 file changed, 64 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/sunxi.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/riscv/sunxi.yaml b/Documentation/devicetree/bindings/riscv/sunxi.yaml
+> new file mode 100644
+> index 000000000000..564a89499894
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/riscv/sunxi.yaml
+> @@ -0,0 +1,64 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/riscv/sunxi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Allwinner RISC-V SoC-based boards
+> +
+> +maintainers:
+> +  - Chen-Yu Tsai <wens@csie.org>
+> +  - Jernej Skrabec <jernej.skrabec@gmail.com>
+> +  - Samuel Holland <samuel@sholland.org>
+> +
+> +description:
+> +  Allwinner RISC-V SoC-based boards
+> +
+> +properties:
+> +  $nodename:
+> +    const: '/'
+> +  compatible:
+> +    oneOf:
+> +      - description: Dongshan Nezha STU SoM
+> +        items:
+> +          - const: 100ask,dongshan-nezha-stu
+> +          - const: allwinner,sun20i-d1
+> +
+> +      - description: D1 Nezha board
+> +        items:
+> +          - const: allwinner,d1-nezha
 
-Eh, I misread the code and thought that you list the items, but you just
-enumerate the schema for each item. My advice was wrong, you need maxItems.
+You grow the list unnecessary. Several entries should be an enum, unless
+platform maintainer insists on such approach for all Allwinner Riscv
+platforms. Just be aware it will grow...
 
-> The root port is physically on the opposite side of the FPGA to the cpus
-> & the AXI connection is through the FPGA fabric. There are 4 AXI
-> interconnects to the fabric  which the PCI controller could in theory be
-> connected to all 4, but it only needs to be connected to one.. I had
-> done done minItems and maxItems a la:
-> devicetree/bindings/watchdog/st,stm32-iwdg.yaml
-> b/c that seems to have two clocks that it doesnt care about the order of
-> "
-> 
-> Rob then suggested:
-> "
-> I would remove the 'items' list in 'clocks' and make the description
-> clear that any of clocks is possible. It's not ideal, but it's a case of
-> that's what is already there.
-> "
-> 
-> I'd then have something along the lines of:
->   clocks:
->     description:
->       Fabric Interface Controllers, FICs, are the interface between the FPGA
->       fabric and the core complex on PolarFire SoC. The FICs require two clocks,
->       one from each side of the interface. The "FIC clocks" described by this
->       property are on the core complex side & communication through a FIC is not
->       possible unless it's corresponding clock is enabled. A clock must be
->       enabled for each of the interfaces the root port is connected through.
->       This could in theory be all 4 interfaces, one interface or any combination
->       in between.
->     minItems: 1
->     maxItems: 4
-> 
->   clock-names:
->     items:
->       enum:
->         - fic0
->         - fic1
->         - fic2
->         - fic3
->     minItems: 1
->     maxItems: 4
-> 
-> Does that seem reasonable to you?
-
-
-Yes.
 
 Best regards,
 Krzysztof
