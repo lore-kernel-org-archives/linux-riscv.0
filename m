@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C64C2BB41
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Aug 2022 07:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 280B4C2BB41
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Aug 2022 07:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sMlcho2BuTs/1PQ2Zk9L31dCff88/N60oqdZKRDsVgs=; b=h4okj13SKjeZ9E
-	In/NXGDcJXYIF6kgKOR9WhFsNGMzayel/Vy9O+q/EJSkGTjTY01K/wnIdZlX1V22q61uXchHGsWXP
-	5kPmS1jbktahz1ixr8i1NGA0eyO3eyFPRB+X25WfPVOlqFr+ItKQ9l90NgoGZ4eIltgpcvj4hA/wd
-	/aa+Z8Dnjr5LCsqkcfWC6G0gSOgm7FzmQNG0wZmBsq0nPNPg8bNz/3fy/hFk7DoKhlXdj4ZWtvET4
-	Je3c2F2wydWJ18zYOwSHoXTMA0+X/fVUwGvLFBapTftSpLlbew8enzp641RE5FFyv/HtL3w0oy12+
-	GmOUPHZ9fZeweg6U0RHw==;
+	List-Owner; bh=rAMU3goE7mvGuYyCeyyWghqAo4pZM0/482R2GRyvtws=; b=NYOaC85QmGoMs7
+	KDZdE19ox87OisQ9b+ufoUKUvqby3jWXC6YNcvqk2peAb+pdgOkXJzQoxHMhfsox+SsPPhBe5ijpM
+	DGY6041EuzwFAYM9vVQvvJwqLOCOWenREQETHCicnCgmuvygJ/fzK8EQnaozYSmhu4D6dVBUxschz
+	Pn3h4loZe0hpQ8JUHWM7fJtp+NEwco/zjxb+6BNEYY3YL+FxPIaecLMcr3Dj6HIuSh2l0O60Fr/HZ
+	sJUPVsGEVZakcGRGSKPr/TZHXgSxZ3ZescbUa3caCVPIVOsOPjX/au/N6L/AxItDRkceomFpYblYG
+	EQZD5AkdPwixEW0W8hAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNrAx-00FT0Q-Tc; Tue, 16 Aug 2022 07:39:47 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1oNrD6-00FX77-Rd; Tue, 16 Aug 2022 07:42:01 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oNrAu-00FSmS-5X
-	for linux-riscv@lists.infradead.org; Tue, 16 Aug 2022 07:39:46 +0000
-Received: by mail-lf1-x132.google.com with SMTP id c28so9635778lfh.3
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Aug 2022 00:39:41 -0700 (PDT)
+	id 1oNrCv-00FWuh-KA
+	for linux-riscv@lists.infradead.org; Tue, 16 Aug 2022 07:41:58 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id z25so13701939lfr.2
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Aug 2022 00:41:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc;
-        bh=btyntIg+6JbLy0894fPNlZeMSSyk53Lr6h4dc4QK0Co=;
-        b=gLQxbMAXKhy40wWpKbzWV5WJdiOAFd8yiN9e/ugYXdxZgM51yId8ncUlykQBryCSFS
-         gjkk2OImTlXH1dlcpVIJXPt9/NOM4XaJ1lZWiUgrEtEca3g/adpfaEdB0mbaYHKOr8g3
-         NHCeRyWYN9fAkZQXFViueUT3z4Wf0DSGYKWwxV+11xGVdwHFXMhW0L2437v1NPhtugN5
-         S+h+zf6a7Ixtt7x+xpnz6zZQIgDXAqFlXXdiA9XOOQV5NAmdhdy3jGL7CCD3+0B5RDHE
-         uw1Z6QVDZWRSyxqAyowNEnMhk9pRXNVtf3Qcj58p/nE9g5UaPgTzfepzMdZOxSOzITxz
-         lnZQ==
+        bh=Z4YfB/AJeb982Xz2QYWpjFSws7upX3bELQnOSH90aGQ=;
+        b=XNiAZ2MhGZde1OxcLeMx6rt6sGhm0MIYRYttklKEzARCVhtOjGTS0I5VuPCcpOoZq4
+         AazIXWhkMfjWgm8AzXKS5TOFgz5lSEPLZzZ/BEUT+8Lm5H80GyoGLmJs0BSb4GWCZgoS
+         JCqkF8hGO/4+8FfYNJ9xcdWEeGg7O7tBBr24kUBYSb/BPEDblFxPKfK5Gw96lxzkFEzt
+         ER3UACt0W0pzppQyL+RJMr5S6YAkykB6raCdrkeY6SWQR/Sers/mv4s67CwuCykj4Tzi
+         Mvx2YvrL1HS2p5yB8blMpvmxW38bgtOdagu886tBN0axwkfs/RY5+yT77lu2oY8h6x/u
+         AWDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc;
-        bh=btyntIg+6JbLy0894fPNlZeMSSyk53Lr6h4dc4QK0Co=;
-        b=mXl4WbOKlWqXc7lVw5bJSaJFAhVzS/hQ2iSntBQ81KKpfAJ0s6l1mXYTyycDwIjAGV
-         HoX9sDBsH33vKZ86aQm36l/TanU5b89ErQ+PfPfIsT8KfE2duYzsXSCQyX5n9jKaE4pz
-         qZ5g9/BCc0mXHcv8Li0jr/9dDmDSDD+/3C1ql7triDIaHudzezlH07HJVxp3pmjiR6A3
-         ujfXZgLHjolmZbOWqEYyeEG7gCKf1IM4V3j/OAJJz260JoaRbCgNA1dhOCZ8iHc4njsv
-         0EPWc4kB3IOQn4F1Ks8u1PTaWPi39dC3hUbujCh/4RJk+umglwTt7FzFx9QlQSXudDPt
-         63hA==
-X-Gm-Message-State: ACgBeo0WJEuLue7yx8VC2TL2YKJdjssDesIhUqV/OadRcT5/r7VKIgOp
-	eF2RDJARFSirWD8HLjRkPCpEww==
-X-Google-Smtp-Source: AA6agR5Otw3L/ye4I0Fc78uHZiVk2dPD8EYKzSpl1dan6fstRqLuZDDmi8GIEb65XgKTtqZpLahfbw==
-X-Received: by 2002:a05:6512:25a3:b0:48a:e7e7:eea3 with SMTP id bf35-20020a05651225a300b0048ae7e7eea3mr6296301lfb.205.1660635580231;
-        Tue, 16 Aug 2022 00:39:40 -0700 (PDT)
+        bh=Z4YfB/AJeb982Xz2QYWpjFSws7upX3bELQnOSH90aGQ=;
+        b=F95bBPPT4NrVVjIO9RSnFPAp6QrLz9tzPolf7Z0GDgVE2ckZVlkVx9ts1dLnTqCBbu
+         SeeUiQZf7gwUEvdQgOIu4H8GPRvMDqg9NVqUKEeTEwvA6fp/QWduEkCgs4pGi1QGUWRq
+         MIENrFW1lSma8gHKDZdCDANxy2zWRUWzK+ksxJlazhBefgi8IOAwrsM8s2EtNQ6Q4BMW
+         mv5ITJZSlJhP2KvcBP4ZJte59YBrVW4akFgLh8TdMVUuhiqGyp69craruw3YNK8cJbNW
+         nSpxo0Xw0ibAzI5EDdxEudhnMhYbdekG1A1mNzbb9AGYlb1h1Yj6aRjE61ZZPNssIIf7
+         aF9A==
+X-Gm-Message-State: ACgBeo0Vo/Kraw+HCR92cLWEUTNu3cu0XT8ZkRVZ+8oh1+GwY2gJJxrm
+	9KZjeCv78lfJZCPZcg+jGbykUQ==
+X-Google-Smtp-Source: AA6agR7yvXIG3FQUMlg6GW8tRa6cjzG0FZZbYwcSTqvWyjhEU2eExfEr5GNYE/fJJDjnTXq1o1QwNw==
+X-Received: by 2002:a05:6512:6d3:b0:48a:e68c:15c9 with SMTP id u19-20020a05651206d300b0048ae68c15c9mr7099789lff.488.1660635706920;
+        Tue, 16 Aug 2022 00:41:46 -0700 (PDT)
 Received: from ?IPV6:2001:14bb:ae:539c:1782:dd68:b0c1:c1a4? (d15l54g8c71znbtrbzt-4.rev.dnainternet.fi. [2001:14bb:ae:539c:1782:dd68:b0c1:c1a4])
-        by smtp.gmail.com with ESMTPSA id p21-20020a2ea4d5000000b0025df5f38da8sm1706327ljm.119.2022.08.16.00.39.38
+        by smtp.gmail.com with ESMTPSA id 15-20020a2eb94f000000b0025d53cbba2bsm1704014ljs.45.2022.08.16.00.41.45
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Aug 2022 00:39:39 -0700 (PDT)
-Message-ID: <1f84e925-1a0f-6100-c444-a8157e14ab5a@linaro.org>
-Date: Tue, 16 Aug 2022 10:39:38 +0300
+        Tue, 16 Aug 2022 00:41:46 -0700 (PDT)
+Message-ID: <149eee7b-a9e9-94ad-1ab2-13812b541a8c@linaro.org>
+Date: Tue, 16 Aug 2022 10:41:45 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.12.0
-Subject: Re: [PATCH 04/12] dt-bindings: riscv: Add Allwinner D1 board
- compatibles
+Subject: Re: [PATCH 06/12] riscv: dts: allwinner: Add the D1 SoC base
+ devicetree
 Content-Language: en-US
 To: Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@csie.org>,
  Jernej Skrabec <jernej.skrabec@gmail.com>, linux-sunxi@lists.linux.dev,
@@ -77,12 +77,13 @@ Cc: Rob Herring <robh+dt@kernel.org>, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org,
  Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
 References: <20220815050815.22340-1-samuel@sholland.org>
- <20220815050815.22340-5-samuel@sholland.org>
+ <20220815050815.22340-7-samuel@sholland.org>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220815050815.22340-5-samuel@sholland.org>
+In-Reply-To: <20220815050815.22340-7-samuel@sholland.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220816_003944_293661_05C14E13 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20220816_004156_633070_0D8C4066 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,55 +101,26 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 15/08/2022 08:08, Samuel Holland wrote:
-> Several SoMs and boards are available that feature the Allwinner D1 SoC.
-> Document their compatible strings.
-> 
-> Signed-off-by: Samuel Holland <samuel@sholland.org>
-> ---
-> 
->  .../devicetree/bindings/riscv/sunxi.yaml      | 64 +++++++++++++++++++
->  1 file changed, 64 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/sunxi.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/sunxi.yaml b/Documentation/devicetree/bindings/riscv/sunxi.yaml
-> new file mode 100644
-> index 000000000000..564a89499894
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/sunxi.yaml
-> @@ -0,0 +1,64 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/sunxi.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Allwinner RISC-V SoC-based boards
+> +	de: display-engine {
+> +		compatible = "allwinner,sun20i-d1-display-engine";
+> +		allwinner,pipelines = <&mixer0>, <&mixer1>;
+> +		status = "disabled";
+> +	};
 > +
-> +maintainers:
-> +  - Chen-Yu Tsai <wens@csie.org>
-> +  - Jernej Skrabec <jernej.skrabec@gmail.com>
-> +  - Samuel Holland <samuel@sholland.org>
-> +
-> +description:
-> +  Allwinner RISC-V SoC-based boards
-> +
-> +properties:
-> +  $nodename:
-> +    const: '/'
-> +  compatible:
-> +    oneOf:
-> +      - description: Dongshan Nezha STU SoM
-> +        items:
-> +          - const: 100ask,dongshan-nezha-stu
-> +          - const: allwinner,sun20i-d1
-> +
-> +      - description: D1 Nezha board
-> +        items:
-> +          - const: allwinner,d1-nezha
+> +	osc24M: osc24M-clk {
 
-You grow the list unnecessary. Several entries should be an enum, unless
-platform maintainer insists on such approach for all Allwinner Riscv
-platforms. Just be aware it will grow...
+lowercase
+
+> +		compatible = "fixed-clock";
+> +		clock-frequency = <24000000>;
+
+This is a property of the board, not SoC.
+
+> +		clock-output-names = "osc24M";
+> +		#clock-cells = <0>;
+> +	};
+> +
 
 
 Best regards,
