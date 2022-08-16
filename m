@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE609C32792
-	for <linux-riscv@archiver.kernel.org>; Tue, 16 Aug 2022 18:26:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F01C7C2BB41
+	for <linux-riscv@archiver.kernel.org>; Tue, 16 Aug 2022 18:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RGJwJWmp9oF8Qf/CSG2H2/Z5pW5nMXtucRHfO1l3SxA=; b=Vt8eTM97pNdk0c
-	8S02OUoKtUVvFKhiKACiYoFI7eDD0l5FiHBshoknVL9u0HyFvLBlhG0+/g2lT17IKU1dWd1QmFn4Y
-	T3xYd/PMUPFWiK0NE+A2QIIDDggqPbNng/dpqTOCdV+zIb3Q7N0yUJF+quXnf6p6S0ZR+ETEnjBgk
-	QyUurJhu9DrTKgVXD0NYlJ8NWrRNeZZfoaayhJQmJFK5pZPh7cA70YMaiimgiBMFXH8onR0+urjYH
-	VgzABZg4Q84A/7CTlX2/DJbAd7ZsGhLn6ZeAV8LWvLnBBTJ3sCz+ptijxlnh/iukOOXFcyCkeLflT
-	BedsuXGNNK8FDYyAmyVQ==;
+	List-Owner; bh=Zh9h2zJUZdFJXrEsYHr0aVN1kp9Sjf3T6u0w8cvPpbY=; b=FeGzntZTxPVhXv
+	DVyYYtSDz6Xt+Zmv46WDHD06vfY6TnG0YOOYz3ipcotdeZTL1y7cHEiaoNwpxySOhtXqiu+viQiKi
+	zxpvRekGxZyj8lXQlaz4vAIZBMvSf71cestreaqptVIsobznIS/kwyF11csg/fKxeo9yq03lw7tVU
+	vBO7gIl+APQ3UbsI+jK/us7DnnmqCyjBjqh7ANj+SsZYiOsuaG3kESDN/wUu8a4XG3yM1CkoYc1xO
+	RvECtJ3XpWjtiBFTryDN+jlrPYKNAzDA3PM7wQzLk3p1XRSbbyjgQY/ctilHVwjEueGerJFuQ4AJR
+	SeyOLKuGVh1qhZBcSk3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oO1GT-005oGj-Ge; Tue, 16 Aug 2022 18:26:09 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1oO1GV-005oIW-8i; Tue, 16 Aug 2022 18:26:11 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oO1GL-005oC0-Rt
-	for linux-riscv@lists.infradead.org; Tue, 16 Aug 2022 18:26:03 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id l4so13579625wrm.13
-        for <linux-riscv@lists.infradead.org>; Tue, 16 Aug 2022 11:26:01 -0700 (PDT)
+	id 1oO1GN-005o9A-A0
+	for linux-riscv@lists.infradead.org; Tue, 16 Aug 2022 18:26:04 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id z16so13576683wrh.12
+        for <linux-riscv@lists.infradead.org>; Tue, 16 Aug 2022 11:26:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc;
-        bh=1LGGHQ6p+mDphp3bmxn1t5fZUfaS0Whf3Mk8geT3R/0=;
-        b=TiOXfR9UekVJZRu7evd3xJo1JSSbcUbx/ZgBAE+jckIRBaEzCO5PwmG3rqD5z5zN53
-         0AUtBwvF39Nfxva12oH0R9WNAVRfcWT1zluLWip42kfP2Hl7UgGxAJ6crW2lEvSFh5BH
-         nkX9NvPQ9x7JlYkKi6K9YqcEPT+ZrEhwFYF3Sh+XQk/v4JsMDMpF1KlZJMBZzl2JqKqY
-         ScVfYOAfRcm+1+wC0uA049NWyCbH8DO4s6/azpjdBZmnMp7G1Er0FoZk4zWi70CfKRvD
-         mCACPBrFGx1PgSbm7sBofXPHA98a4rFi0Ogtd/hFKf1Qc3YKLpdXqsljBHFCzwBR1hWI
-         3shg==
+        bh=0menBycPydf3OF4brxfxIM8hwmBUp4QdVL5XPrXyre0=;
+        b=cq/wfBYlh9TNFle3AyyvA6aRqw5tapsXhJ5VOkQTJzEV+SvWLBxc0M7sv8kJVNFdJ5
+         5JncrYyhkUkDXQWKF8FAx4sOG+2Ex6/MC0HoGJhU8vOvxPOwd8YhEMi9IQCLhhDbmhUD
+         5joEaePchEDaqh7S5PvvzvcmKFLRa3Wqpo562J+IcuT6DJ4Rc6YKoH3AOuH7ki/Avy3R
+         hLP2aCDDBDn0P/4xlwEI29MsDEgyaxsNArRWr+Y9os15aApcQqcS3ANBUaBPIP9sDbWh
+         yow8teObOTaeHu0HIjh+iczV/cqIcV45gESM0bCY/PkvniEAUabK6pe1YdzVVW39fcvQ
+         JHBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
-        bh=1LGGHQ6p+mDphp3bmxn1t5fZUfaS0Whf3Mk8geT3R/0=;
-        b=NgKVzK0yrU8U4tTlM4AMmSttYT39QiJaINNOVnite3HgJ+ByIPeUjR3tqduMj0EJt+
-         umANS7ZrOF7iFffD9OUJU09uqJNgsIgJl3Jr4q+D8jHdZmP3Nwq6DuQma8jfBj0SB2ai
-         PGaqnOf/koXDbLaJjXWshK7KWPIiqmvUDGditC+eoBfIUa88Zrtr8bdENQWv1TvsNMwp
-         YThldJzRDLH/+7ISfOp1XsYcaUEtbzXc6JG/u1bJUeQwFIJce+jNJbap2soRRGesnckh
-         j8gM0Z38DS+UqK/lZUSP/zfZV7G6WNeALBHuwTlrHd13EqU/J0R4p9ZcfKihaIwd+/kd
-         TmUw==
-X-Gm-Message-State: ACgBeo2XdEvxFqbycHEDXvk/u1zoy1zMBcLOA7bBkFbL2e3o4uWC7GrF
-	EIEYQ+fdD3ZbhxaGn6YEkkdhmQ==
-X-Google-Smtp-Source: AA6agR40opo+7mClW53ltFMT6yiRmc3Yot2+VJrAVQqciuJ53cfMm+Ju4S49z0oFptPwsbaT26fANQ==
-X-Received: by 2002:a5d:588d:0:b0:220:73d3:997e with SMTP id n13-20020a5d588d000000b0022073d3997emr11899733wrf.546.1660674360051;
-        Tue, 16 Aug 2022 11:26:00 -0700 (PDT)
+        bh=0menBycPydf3OF4brxfxIM8hwmBUp4QdVL5XPrXyre0=;
+        b=hlpCwrinXajEqqAtoVbt1i5JEDBzhUGXJ7TZTJfU/xGq8i4QgrKY6nompHn8FLqGwI
+         qxweN0MHXdmtIV/qmGux8Mu7M+3IH2+pXT4RLkmX56D/0Q8HwyaOodVQbPpRCiAehJKR
+         TvVQK1Bcd6oVWqDXduRcy5X+4dKBuW007aVpaD6lqdRVDuiQe2ZF5FVUZYqv6Mc64wFS
+         +uEVW3eGnaNA7VPyVRwUmYmcmSaXVn17GMErcm0FxCGbcdza5g6OCdf5+iQrLCuJ7/zn
+         hsTl8kRU+CK/aa5fD9000oUwQx9D4WAr+QnSIlF8jao5G///lOsoMQfrOjKPdSDZtrqi
+         3P6Q==
+X-Gm-Message-State: ACgBeo2OTlNJ4c0LaJ5GzNoMP9rtmGacGGjGZq4vgFDgFnk9tEiA3J6f
+	Xyhy3IlniG0abesAkj3x9L9jLQ==
+X-Google-Smtp-Source: AA6agR6kxEpAlsWHGGaIsHWoq0lgu/Z8DXmzz/tOaQf+JXZgc8EJhMGnIovPSVPfRDBgUP5kkbMmOQ==
+X-Received: by 2002:a5d:4d4d:0:b0:225:fbf:fbac with SMTP id a13-20020a5d4d4d000000b002250fbffbacmr4093198wru.623.1660674362913;
+        Tue, 16 Aug 2022 11:26:02 -0700 (PDT)
 Received: from henark71.. ([109.76.58.63])
-        by smtp.gmail.com with ESMTPSA id s17-20020a1cf211000000b003a603fbad5bsm4015482wmc.45.2022.08.16.11.25.58
+        by smtp.gmail.com with ESMTPSA id s17-20020a1cf211000000b003a603fbad5bsm4015482wmc.45.2022.08.16.11.26.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Aug 2022 11:25:59 -0700 (PDT)
+        Tue, 16 Aug 2022 11:26:02 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: Daire McNamara <daire.mcnamara@microchip.com>,
 	Bjorn Helgaas <bhelgaas@google.com>,
@@ -73,16 +73,16 @@ Cc: linux-pci@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 4/6] riscv: dts: microchip: mpfs: remove ti,fifo-depth property
-Date: Tue, 16 Aug 2022 19:25:46 +0100
-Message-Id: <20220816182547.3454843-5-mail@conchuod.ie>
+Subject: [PATCH v2 6/6] riscv: dts: microchip: mpfs: remove pci axi address translation property
+Date: Tue, 16 Aug 2022 19:25:48 +0100
+Message-Id: <20220816182547.3454843-7-mail@conchuod.ie>
 X-Mailer: git-send-email 2.37.1
 In-Reply-To: <20220816182547.3454843-1-mail@conchuod.ie>
 References: <20220816182547.3454843-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220816_112601_939887_3F150E8D 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20220816_112603_447330_CE523481 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,60 +101,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-Recent versions of dt-schema warn about a previously undetected
-undocument property on the icicle & polarberry devicetrees:
+An AXI master address translation table property was inadvertently
+added to the device tree & this was not caught by dtbs_check at the
+time. Remove the property - it should not be in mpfs.dtsi anyway as
+it would be more suitable in -fabric.dtsi nor does it actually apply
+to the version of the reference design we are using for upstream.
 
-arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dtb: ethernet@20112000: ethernet-phy@8: Unevaluated properties are not allowed ('ti,fifo-depth' was unexpected)
-        From schema: Documentation/devicetree/bindings/net/cdns,macb.yaml
-
-I know what you're thinking, the binding doesn't look to be the problem
-and I agree. I am not sure why a TI vendor property was ever actually
-added since it has no meaning... just get rid of it.
-
-Fixes: bc47b2217f24 ("riscv: dts: microchip: add the sundance polarberry")
-Fixes: 0fa6107eca41 ("RISC-V: Initial DTS for Microchip ICICLE board")
+Fixes: 528a5b1f2556 ("riscv: dts: microchip: add new peripherals to icicle kit device tree")
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-v2022.08 or later of dt-schema is required.
----
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts | 2 --
- arch/riscv/boot/dts/microchip/mpfs-polarberry.dts | 2 --
- 2 files changed, 4 deletions(-)
+ arch/riscv/boot/dts/microchip/mpfs.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-index 044982a11df5..ee548ab61a2a 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
-@@ -84,12 +84,10 @@ &mac1 {
- 
- 	phy1: ethernet-phy@9 {
- 		reg = <9>;
--		ti,fifo-depth = <0x1>;
- 	};
- 
- 	phy0: ethernet-phy@8 {
- 		reg = <8>;
--		ti,fifo-depth = <0x1>;
- 	};
- };
- 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-index 82c93c8f5c17..dc11bb8fc833 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-+++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry.dts
-@@ -54,12 +54,10 @@ &mac1 {
- 
- 	phy1: ethernet-phy@5 {
- 		reg = <5>;
--		ti,fifo-depth = <0x01>;
- 	};
- 
- 	phy0: ethernet-phy@4 {
- 		reg = <4>;
--		ti,fifo-depth = <0x01>;
- 	};
- };
- 
+diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+index e69322f56516..a1176260086a 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+@@ -485,7 +485,6 @@ pcie: pcie@2000000000 {
+ 			ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
+ 			msi-parent = <&pcie>;
+ 			msi-controller;
+-			microchip,axi-m-atr0 = <0x10 0x0>;
+ 			status = "disabled";
+ 			pcie_intc: interrupt-controller {
+ 				#address-cells = <0>;
 -- 
 2.37.1
 
