@@ -4,71 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19BBC25B08
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Aug 2022 16:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FB9C25B08
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Aug 2022 16:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yyk+anD/5omebIdCz/B9H8V/qj3wER3l0OvtPK3Mb/w=; b=DpiGP5SHIFcQ3q
-	Qam9yYiXfUAKXb/F6VXi3WIfhglxaNZnQYOZrYV8dsDVCUl4HFGlwpgz2Dahwsp8zvhrKQJXXlOHy
-	bKDGiJ8iPaV9OTqAxmdWcOU7/rd79CIDh7qDKCx4L/d9pLMGYtz3u946EkGC7aQBVpZeZqJTlgyLB
-	yo8ymfVkIN1Aq9ghdX+1CbCZu7jMAusL/LURPSQzlnjro76biX8GvCVi3QaWZGKhZTa9jTdexMYlH
-	Bvb+/QHIU/+M95WTfVljX+50NL5wfbabbxEfiPQaprVvWy8DOrfFdm9sCS1cqT9O6RNLMrMfRSygf
-	Mgv5qVqg1+sSKwtQqELw==;
+	List-Owner; bh=bKlyjhll7vxOBdLNGfrgABiqE6JAoc5pqF8AomsSq60=; b=RQKMA6N6qc8cl6
+	5DLe0SlQ/x8c03KGoLGi6SZnnKWo3MzEQkUd6C3fl/OrQmfFB/DWcwxhwIWt1HWJ6FJ71otdxiPX2
+	dpHfEJb+4aM6rrz606Qb1S7b5liVRF3q9vTx5g1OSwihhTjd/J8puh0a7zo8oSN4wkAUEcKO/cnog
+	ubQvLMETpw+K2THF+YIB9inxOkMVobqI17C9QHNVtgI50/RaOWwcshTX6T8BGuXa0KlbhBV37kBsG
+	GPZUM0SXuozDuZfb1M5V0ta0xm0nY5TX+1E2zeMQn+rdeesExZjTYKTz+LuXFY3nnDt7Hc5OZxQP8
+	KSgNAi3LLsHiztLDWg0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOLl1-003jsT-UE; Wed, 17 Aug 2022 16:19:03 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oOLsv-003nj7-Jk; Wed, 17 Aug 2022 16:27:13 +0000
+Received: from mout.kundenserver.de ([212.227.17.13])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOLky-003jpn-Gy
-	for linux-riscv@lists.infradead.org; Wed, 17 Aug 2022 16:19:02 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id F0337B81E33;
-	Wed, 17 Aug 2022 16:18:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1763C433C1;
-	Wed, 17 Aug 2022 16:18:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1660753136;
-	bh=dZtJQTvvpnveOiEslUcPtFuDI3gXU0VdPtDvQpCzkGo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GFGzX+meXJzoo7teu6Vc8jOP1yg/wg1fCbYxkfregQPBRXOSwQ0bOXfE6WOl7nnLM
-	 81XCJ/t4sRrMkppAbcmvRBgUPvPJz0qqhL0J9LQQF4YalrsYJfBYSMnRJg9LR7GTBJ
-	 QHq0ASaL9N+mvPHmKUfjsTLShJNMoZwcjB3aguYGakvNysZx7KMLE6DFc/uvmEDis8
-	 WXrLXACUxt46UAleZb9UPAm6Ryexa/+x2bXJljhWuPAmMKQcVYSzUwar5O3Ah/Wr++
-	 7/b29hv4z99oEOZ//k4tZC81pvMamVtWBCJpkS6JhdZBGLYcCLO/6UBYqVWvyqtttC
-	 hyttm3FWLJKcw==
-Date: Wed, 17 Aug 2022 09:18:54 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Conor.Dooley@microchip.com
-Cc: ndesaulniers@google.com, llvm@lists.linux.dev, mturquette@baylibre.com,
-	sboyd@kernel.org, robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, p.zabel@pengutronix.de,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	Daire.McNamara@microchip.com, palmer@dabbelt.com
-Subject: Re: [PATCH v2 00/12] PolarFire SoC reset controller & clock cleanups
-Message-ID: <Yv0U7reygngXxWzo@dev-arch.thelio-3990X>
-References: <20220704121558.2088698-1-conor.dooley@microchip.com>
- <bd14f1a2-750d-2511-df0a-85a9f5925f84@microchip.com>
- <YvP/bjh+wXihlrdG@dev-arch.thelio-3990X>
- <fc470bf4-33bb-d67b-3860-3ac775982f27@microchip.com>
- <YvQHtGObJwyBKGCQ@dev-arch.thelio-3990X>
- <3d2c56fa-8245-4992-2074-cd39677c2b3f@microchip.com>
- <d38d8b9c-45da-c464-264c-bebd084bdb17@microchip.com>
- <42354fef-8ca8-a81d-6af9-f250ecfd1924@microchip.com>
- <62bb08d7-0a14-13e4-5ca2-edb5ef3b9793@microchip.com>
+	id 1oOLst-003nfe-59
+	for linux-riscv@lists.infradead.org; Wed, 17 Aug 2022 16:27:13 +0000
+Received: from mail-ed1-f46.google.com ([209.85.208.46]) by
+ mrelayeu.kundenserver.de (mreue108 [213.165.67.113]) with ESMTPSA (Nemesis)
+ id 1MIdaF-1o9nA10Rqn-00Eh1w for <linux-riscv@lists.infradead.org>; Wed, 17
+ Aug 2022 18:27:08 +0200
+Received: by mail-ed1-f46.google.com with SMTP id o22so18172378edc.10
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Aug 2022 09:27:07 -0700 (PDT)
+X-Gm-Message-State: ACgBeo2GoKl6SeL5ROVYY8GR4Od/iKg5heaWx4btDD1pS+zr+0grgzI2
+	DBtLmVIQ3CV0mRHrJo9o2bCL+AmzmEg2hG9LQgc=
+X-Google-Smtp-Source: AA6agR6Zf7lY1qLm89sTihdpHsj0aQ4umr8ol/DRSTBvAYEQUmT2uPZZqvLUfFS8neOBi78/JbDKpYlk6svZGBrs0nY=
+X-Received: by 2002:a05:6402:520e:b0:43d:df14:fbed with SMTP id
+ s14-20020a056402520e00b0043ddf14fbedmr23980070edd.16.1660749886667; Wed, 17
+ Aug 2022 08:24:46 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <62bb08d7-0a14-13e4-5ca2-edb5ef3b9793@microchip.com>
+References: <20220802015052.10452-1-ojeda@kernel.org> <20220802015052.10452-28-ojeda@kernel.org>
+ <CAK8P3a0jqhGY9E85VC9gNem5q6-dWeq0H6-7bhJopinMnLtOKQ@mail.gmail.com> <CANiq72nNucEhXAXkXSujnGkpQrkv3-Pcn7ua8N=2XB-suAjs9w@mail.gmail.com>
+In-Reply-To: <CANiq72nNucEhXAXkXSujnGkpQrkv3-Pcn7ua8N=2XB-suAjs9w@mail.gmail.com>
+From: Arnd Bergmann <arnd@arndb.de>
+Date: Wed, 17 Aug 2022 17:24:30 +0200
+X-Gmail-Original-Message-ID: <CAK8P3a2YuGsSJY2-=npqXMHXEr+zaF36iDrM+kP=9nS85FLpbA@mail.gmail.com>
+Message-ID: <CAK8P3a2YuGsSJY2-=npqXMHXEr+zaF36iDrM+kP=9nS85FLpbA@mail.gmail.com>
+Subject: Re: [PATCH v8 27/31] Kbuild: add Rust support
+To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Miguel Ojeda <ojeda@kernel.org>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sven Van Asbroeck <thesven73@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	Miguel Cano <macanroj@gmail.com>, Paul Mackerras <paulus@samba.org>, Gary Guo <gary@garyguo.net>, 
+	Douglas Su <d0u9.su@outlook.com>, Borislav Petkov <bp@alien8.de>, linux-riscv@lists.infradead.org, 
+	Will Deacon <will@kernel.org>, Martin Rodriguez Reboredo <yakoyoku@gmail.com>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, x86@kernel.org, Russell King <linux@armlinux.org.uk>, 
+	Ingo Molnar <mingo@redhat.com>, Wedson Almeida Filho <wedsonaf@google.com>, 
+	Alex Gaynor <alex.gaynor@gmail.com>, Antonio Terceiro <antonio.terceiro@linaro.org>, 
+	Adam Bratschi-Kaye <ark.email@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	Boqun Feng <boqun.feng@gmail.com>, linux-um@lists.infradead.org, 
+	=?UTF-8?Q?Bj=C3=83B_6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+	Michal Marek <michal.lkml@markovi.net>, Daniel Xu <dxu@dxuuu.xyz>, David Gow <davidgow@google.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Dariusz Sosnowski <dsosnowski@dsosnowski.pl>, 
+	linux-arm-kernel@lists.infradead.org, Tiago Lam <tiagolam@gmail.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Nick Desaulniers <ndesaulniers@google.com>, 
+	linux-kernel@vger.kernel.org, Boris-Chengbiao Zhou <bobo1239@web.de>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Richard Weinberger <richard@nod.at>, Finn Behrens <me@kloenk.de>, Johannes Berg <johannes@sipsolutions.net>, 
+	linuxppc-dev@lists.ozlabs.org, Philip Herron <philip.herron@embecosm.com>, 
+	Arthur Cohen <arthur.cohen@embecosm.com>
+X-Provags-ID: V03:K1:Q8aDWUUMahOXhWuwhdbgSKakT9K2OsOZ9v/a2zmb2UO7O5gJfFE
+ 73SN7diDQaq0a3Nr9G02lLj7TUog0eL/mXLQybcMRAm1Do39Gu+6oJeyTJjcrwdCFoOzH30
+ YEBfYfrnuo7rd+9fNp/GwUBkItluDCozDMyPDB+i6Yo1qkiE5TPqbHaAIgAZaU9oF7ET/ln
+ /IUTTjRJs1h+U7j64YkKA==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:suaEtsLNhUw=:MuP8A4vNwiEcHPC09NCG4m
+ qRD/3nje68eAEZ80522B0mfN3H8kzMOPi6Idc3JvOGK9Pl4XqlekgAX9FQW7jVZttPkttQJC9
+ Wf9649tKMMmZapPMaKYp41QdRIiDa/8y2JBWQ2czmgd6CcR44bMLDYrfb/RZtw7K1Cu4cic1D
+ Idx+x4Ngeut45aWcAGxemfvwz1PO0p8GzmMBhIZZUXO+RQ01/UHCbouAKXKB7cz6NmZYeRuKD
+ 3F0ieT7fI43INszqbYiPau7b4rVd0sRrBlZ2GM4XxTU8PR6SHriYzNN0PladJhwqRqPGw7LDT
+ RXCXWG2PwxWArJfp0MDg8Jkvh5p+VDBVXOjcKzpPTTjdgoDB5qZh9ep2aRZhKJ1gtf8/Ua4mM
+ LuwhAiWfg3XthBft7kzP6kopM2vgigFMAeOqjMDM/fpDBf8O+nBAZJKp/4rDpcvRIyclg3SQN
+ a8A3Kw6uNUIzCRbAY+SztZ0WgADyw64JpiWatdBM80qM8vqAxXW4QljAF2RS1iR9ma91N11KA
+ uYQAqXyPLdyRRYPEJHza2mAmawPcire8hkc5GtYgxzIpXYVZuQTcCg6EupZVEMuVh8RGbqAox
+ OCmDVUc1qstC55irJy6nJPVJnVACVUzjaL7avD89q9YouXBsXyXKLth9sXccU4tz0P8hki8pd
+ i9nGi02WbW4E7PyE1x0xXm2GA7UxIRjANRI+YRue4IVZF6Xm9B1q6oEF88mFNtuJqP1CPSagF
+ Hy9Ru4GWU2oqjqQR68JzWkSbWo1Uys1oYP74DwaxpZzAB9oGv4c5mbIRZYRwx0EUedROIYP3p
+ xeBIvhjCHyJxcXWQWPXEJuaiRDPxKyXHhKG39v75Tq7+UpvelchX+FkRI6+v5lP+tFd1PsgAn
+ vxkyLalI7OZnbWdxEpdw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220817_091900_909001_0627D3C2 
-X-CRM114-Status: GOOD (  27.59  )
+X-CRM114-CacheID: sfid-20220817_092711_528146_024AB14E 
+X-CRM114-Status: GOOD (  35.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,114 +108,88 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 17, 2022 at 12:17:11PM +0000, Conor.Dooley@microchip.com wrote:
-> On 14/08/2022 12:41, Conor.Dooley@microchip.com wrote:
-> >>
-> >> Doesn't really matter since thats long enough to get past the switch
-> >> out of earlycon which is where the clang built kernel dies.
-> 
-> I had forgotten something obvious: keep_bootcon. With that, on the sbi
-> console I get a nice:
-> 
-> [    0.581754] Unable to handle kernel NULL pointer dereference at virtual address 00000000000000b1
-> [    0.591520] Oops [#1]
-> [    0.594045] Modules linked in:
-> [    0.597435] CPU: 0 PID: 1 Comm: swapper/0 Not tainted 6.0.0-rc1-00011-g8e1459cf4eca #1
-> [    0.606188] Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
-> [    0.613012] epc : __clk_register+0x4a6/0x85c
-> [    0.617759]  ra : __clk_register+0x49e/0x85c
-> [    0.622489] epc : ffffffff803faf7c ra : ffffffff803faf74 sp : ffffffc80400b720
-> [    0.630466]  gp : ffffffff810e93f8 tp : ffffffe77fe60000 t0 : ffffffe77ffb3800
-> [    0.638443]  t1 : 000000000000000a t2 : ffffffffffffffff s0 : ffffffc80400b7c0
-> [    0.646420]  s1 : 0000000000000001 a0 : 0000000000000001 a1 : 0000000000000000
-> [    0.654396]  a2 : 0000000000000001 a3 : 0000000000000000 a4 : 0000000000000000
-> [    0.662373]  a5 : ffffffff803a5810 a6 : 0000000200000022 a7 : 0000000000000006
-> [    0.670350]  s2 : ffffffff81099d48 s3 : ffffffff80d6e28e s4 : 0000000000000028
-> [    0.678327]  s5 : ffffffff810ed3c8 s6 : ffffffff810ed3d0 s7 : ffffffe77ffbc100
-> [    0.686304]  s8 : ffffffe77ffb1540 s9 : ffffffe77ffb1540 s10: 0000000000000008
-> [    0.694281]  s11: 0000000000000000 t3 : 00000000000000c6 t4 : 0000000000000007
-> [    0.702258]  t5 : ffffffff810c78c0 t6 : ffffffe77ff88cd0
-> [    0.708125] status: 0000000200000120 badaddr: 00000000000000b1 cause: 000000000000000d
-> [    0.716869] [<ffffffff803fb892>] devm_clk_hw_register+0x62/0xaa
-> [    0.723420] [<ffffffff80403412>] mpfs_clk_probe+0x1e0/0x244
-> [    0.729592] [<ffffffff80457dea>] platform_probe+0x82/0xa6
-> [    0.735581] [<ffffffff8045593c>] call_driver_probe+0x22/0xa4
-> [    0.741848] [<ffffffff804557da>] really_probe+0x13a/0x27a
-> [    0.747819] [<ffffffff804549f8>] __driver_probe_device+0xc4/0xee
-> [    0.754460] [<ffffffff804554d0>] driver_probe_device+0x3c/0x196
-> [    0.761013] [<ffffffff804552cc>] __device_attach_driver+0xa2/0x18c
-> [    0.767853] [<ffffffff8045284a>] bus_for_each_drv+0x76/0xba
-> [    0.774016] [<ffffffff804547ca>] __device_attach+0xa0/0x15a
-> [    0.780179] [<ffffffff80454896>] device_initial_probe+0x12/0x1a
-> [    0.786732] [<ffffffff804529c6>] bus_probe_device+0x2e/0x7c
-> [    0.792895] [<ffffffff8044f290>] device_add+0x21a/0x3aa
-> [    0.798693] [<ffffffff805c323a>] of_device_add+0x28/0x32
-> [    0.804578] [<ffffffff805c3c54>] of_platform_device_create_pdata+0x88/0xb2
-> [    0.812181] [<ffffffff805c3e70>] of_platform_bus_create+0x14a/0x1a8
-> [    0.819117] [<ffffffff805c3ea6>] of_platform_bus_create+0x180/0x1a8
-> [    0.826053] [<ffffffff805c3f2a>] of_platform_populate+0x5c/0x96
-> [    0.832606] [<ffffffff8082bbaa>] of_platform_default_populate_init+0xc2/0xd4
-> [    0.840400] [<ffffffff800020e8>] do_one_initcall+0xbc/0x216
-> [    0.846563] [<ffffffff8080126c>] do_initcall_level+0x82/0x94
-> [    0.852830] [<ffffffff808011ae>] do_initcalls+0x5c/0x98
-> [    0.858611] [<ffffffff8080114a>] do_basic_setup+0x20/0x28
-> [    0.864583] [<ffffffff808010e0>] kernel_init_freeable+0xba/0x104
-> [    0.871223] [<ffffffff80746856>] kernel_init+0x22/0x1ba
-> [    0.877013] [<ffffffff80003700>] ret_from_exception+0x0/0xc
-> [    0.883218] ---[ end trace 0000000000000000 ]---
-> 
-> At least I had somewhere to start. Since QEMU repros, I continued there with:
-> 	$(QEMU)/qemu-system-riscv64 -s -S -M microchip-icicle-kit \
-> 		-m 2G -smp 5 \
-> 		-kernel $(vmlinux_bin) \
-> 		-dtb $(dtb) \
-> 		-initrd $(initramfs) \
-> 		-display none -serial null \
-> 		-serial stdio
-> 
-> Dumping the backtrace at the devm_clk_hw_register() callsites shows that
-> it passes for:
-> - the main pll in mpfs_clk_register_mssplls()
-> - the "cfg" clocks in mpfs_clk_register_cfgs()
-> - the first 4 periph clocks...
-> 
-> It fails on "clk_periph_timer" - which uses a different parent, that it
-> tries to find using the macro:
-> #define PARENT_CLK(PARENT) (&mpfs_cfg_clks[CLK_##PARENT].cfg.hw)
-> 
-> If parent is RTCREF, that becomes: &mpfs_cfg_clks[33].cfg.hw
-> 
-> And yeah, thats well beyond the end of the array!
-> 
-> Booting with gcc, and looking at the clock summary:
->   mssrefclk                            1        1        0   125000000          0     0  50000         Y
->      clk_rtcref                        0        0        0     1000000          0     0  50000         Y
->         clk_periph_timer               0        0        0     1000000          0     0  50000         N
-> 
-> This is reported correctly, so how this works for either gcc or clang now, or
-> gcc with the patches applied, I am not really too sure..
-> 
-> On v6.0-rc1, gcc and clang show:
->   mssrefclk                            1        1        0   125000000          0     0  50000         Y
->      clk_rtcref                        0        0        0     1000000          0     0  50000         Y
-> 
-> I guess this may fail gracefully as the pointer is actually null, but
-> the extra level of indirection added by my patch started tripping up
-> the error checking. I must just not have noticed because I added RTCREF
-> in a bit of a hurry trying to fix a bug in time for 5.18:
-> https://lore.kernel.org/linux-clk/986c73df-9634-d18b-eed3-37584fa2ea89@conchuod.ie/#t
-> 
-> Obviously I've got to fix the bug itself now, but now I am left wondering
-> about GCC's behaviour rather than clang/llvm's!
-> 
-> Thanks Nathan - if even just for being a rubber duck :)
+On Wed, Aug 17, 2022 at 5:13 PM Miguel Ojeda
+<miguel.ojeda.sandonis@gmail.com> wrote:
+> On Wed, Aug 17, 2022 at 4:40 PM Arnd Bergmann <arnd@arndb.de> wrote:
+> >
+> > I tried enabling rust support in the gcc builds I provide at
+> > https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/arm64/12.1.0/
+>
+> Thanks for giving it a go!
+>
+> > to make this more accessible, but it appears that the command line
+> > options here are not portable:
+> >
+> >  /home/arnd/cross/x86_64/gcc-12.1.0+rust-nolibc/x86_64-linux/bin/x86_64-linux-gccrs
+>
+> So you mean with GCC Rust, right? (i.e. we have "GCC builds" working,
+> via compiling the Rust side with LLVM and linking with the GCC C side,
+> but it is not intended for production or to be supported, even if we
+> cover it in our CI, test it boots and loads modules etc.).
 
-Hey, at least it turned out to be something other than a compiler bug,
-those are not very fun :) I am definitely surprised that GCC has no
-issues, I wonder if KASAN would have exposed this problem sooner?
+Yes, I meant GCC rust, with the contents of
+https://gcc.gnu.org/git/?p=gcc.git;a=shortlog;h=refs/heads/devel/rust/master
+merged into the gcc-12.1.0 release tag.
 
-Cheers,
-Nathan
+> > I guess nobody has tried this so far. Would you think that fixing this is only
+> > a matter for fixing the build system to pass the correct flags depending on the
+> > compiler, or is this broken in a more fundamental way?
+>
+> If you meant GCC Rust, then it is a bit too early for the compiler. As
+> far as I now, they are working on compiling the `core` crate and
+> supporting more stable language features. They are also researching
+> the integration of the borrow checker, though we wouldn't need that
+> for "only" compiling the kernel.
+>
+> Now, if they decided to focus on supporting Rust for Linux early on
+> (which would be great), they would still need to work on the delta
+> between what what they target now and what we use (which includes both
+> stable and some unstable features), plus I assume infrastructure bits
+> like the platform (target spec) support, the flags / `rustc` driver
+> (though I would be happy to do as much as possible on our side to
+> help), etc.
+>
+> (We privately talked about possible timelines for all that if they
+> were to focus on Rust for Linux etc., but I let them comment or not on
+> that... Cc'ing them! :)
+
+Thanks for the explanation. My hope was that building the kernel
+would actually be easier here than building the more complicated
+rust user space.
+
+The gcc cross-compilers on kernel.org are similarly easy to build for
+all architectures the kernel supports because the complexity is
+usually in picking a working libc for the more obscure architectures,
+so I was naively thinking that this would work for building the
+rust support across all architectures in Linux.
+
+I tried one more step and just removed the unsupported command
+line flags to see what would happen, but that did not get me any
+further:
+
+/home/arnd/cross/x86_64/gcc-12.1.0+rust-nolibc/x86_64-linux/bin/x86_64-linux-gccrs
+-frust-edition=2021 -Dunsafe_op_in_unsafe_fn -Drust_2018_idioms
+-Dunreachable_pub -Dnon_ascii_idents
+-Drustdoc::missing_crate_level_docs -Dclippy::correctness
+-Dclippy::style -Dclippy::suspicious -Dclippy::complexity
+-Dclippy::perf -Dclippy::let_unit_value -Dclippy::mut_mut
+-Dclippy::needless_bitwise_bool -Dclippy::needless_continue  -O
+/git/arm-soc/scripts/generate_rust_target.rs; mv
+scripts/generate_rust_target.d scripts/.generate_rust_target.d; sed -i
+'/^#/d' scripts/.generate_rust_target.d
+rust1: internal compiler error: Segmentation fault
+0x7f37ee04b51f ???
+./signal/../sysdeps/unix/sysv/linux/x86_64/libc_sigaction.c:0
+0x7f37ee032fcf __libc_start_call_main
+../sysdeps/nptl/libc_start_call_main.h:58
+0x7f37ee03307c __libc_start_main_impl
+../csu/libc-start.c:409
+Please submit a full bug report, with preprocessed source (by using
+-freport-bug).
+Please include the complete backtrace with any bug report.
+See <https://gcc.gnu.org/bugs/> for instructions.
+
+      Arnd
 
 _______________________________________________
 linux-riscv mailing list
