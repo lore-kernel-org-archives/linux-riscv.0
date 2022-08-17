@@ -4,32 +4,32 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29EEC25B08
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Aug 2022 11:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB5CC25B08
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Aug 2022 11:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CD+V34e+sT8ZVMh9XW5oA0NgjUjEHTfwSo9IR03UJiU=; b=IBg/WPREqa47oy
-	Lo8N+Pdgm1KhBch9Ee40JKmBDwUmj1Nsvx+rba+OLvREq/XOK0u0tNDC6NUCu/lFsJe3X8g485LKY
-	IKHECsDf6jj30yi/UpnWoR5BbDorqv5lauNmkZRgoHNGChNQT8njUWXi7XAas+Bt7cDdo0nyXP6lk
-	eyLLW524cr2tS5Z0EEtpDqyXjqdS/EQ6Kjy2gxUCapZ32S+3+G9d3c6cHkX2biBrXShGGUqU/R0hD
-	gxH+SC96CV6QA2y+8Yx/e4/2q89AihlHQICFc8YboPjFWbHOkJg6JkOv0iZwJhcC8Zz2JRBzO722O
-	YmNHr2CD+TAUomgkNGBA==;
+	List-Owner; bh=VOgnHPscafQelqOTPHlzlmFpvaWR9T2R4S4EGvmQ57Y=; b=Z1hor7I+K6XaWG
+	ut5i+04Jqoh9kZIggoby6FPxzf93rlfM5lPJIhsfcqwoB/W7OYe+RpL5yxPHpclBNvC5pKf1mRitA
+	a2RozdgGfYmjGX+qO0XQTSgbHfWsOKJTtfyKYRbW3yHopM92kj+edHu6qwSWyLKqMpmK5163wzQ04
+	QpvQOzH/aEmIknVJLPCErGFLx8wZoj7PMB+STr60oMO7j2WkKvCzZxFKiT8EyhYIyaohThuycbeUw
+	rv0k+jMV4QfGABGmTvWF6A2p5b59BqNpBoJPiK4OK09ooxZPgUyiItQke0E29exUXrUWcuteQvy3E
+	utwukwLTKKg1rJugd2hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOGzu-001D7y-3y; Wed, 17 Aug 2022 11:14:06 +0000
+	id 1oOH8g-001N4K-Sm; Wed, 17 Aug 2022 11:23:10 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOGzr-001CxK-AJ
-	for linux-riscv@lists.infradead.org; Wed, 17 Aug 2022 11:14:04 +0000
+	id 1oOH8b-001N0a-5u
+	for linux-riscv@lists.infradead.org; Wed, 17 Aug 2022 11:23:06 +0000
 Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1oOGzk-0001wU-Nn; Wed, 17 Aug 2022 13:13:56 +0200
+	id 1oOH8X-000217-JK; Wed, 17 Aug 2022 13:23:01 +0200
 From: Heiko Stuebner <heiko@sntech.de>
 To: atishp@atishpatra.org,
 	anup@brainfault.org,
@@ -42,15 +42,17 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	philipp.tomsich@vrull.eu,
 	cmuellner@linux.com,
+	samuel@sholland.org,
+	guoren@kernel.org,
 	Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH] drivers/perf: riscv_pmu_sbi: add support for PMU variant on T-Head C9xx cores
-Date: Wed, 17 Aug 2022 13:13:48 +0200
-Message-Id: <20220817111348.745527-1-heiko@sntech.de>
+Subject: [PATCH RESEND] drivers/perf: riscv_pmu_sbi: add support for PMU variant on T-Head C9xx cores
+Date: Wed, 17 Aug 2022 13:22:59 +0200
+Message-Id: <20220817112259.745877-1-heiko@sntech.de>
 X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220817_041403_398289_33A19291 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20220817_042305_298569_7894DD60 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,6 +82,11 @@ The main differences are a the overflow CSR and irq number.
 
 Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
+Resend, because I missed two important people in my Cc list, sorry.
+
+openSBI-patch-series can be found on
+http://lists.infradead.org/pipermail/opensbi/2022-August/003259.html
+
  drivers/perf/riscv_pmu_sbi.c | 27 +++++++++++++++++++--------
  1 file changed, 19 insertions(+), 8 deletions(-)
 
