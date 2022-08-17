@@ -4,47 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 176A2C25B08
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Aug 2022 14:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E45C25B08
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Aug 2022 15:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R/qlgg8k0ViOFL0MZr3VwmrGhCEHE2AqNde0Y7nR8cM=; b=Eb3idgCulD3z1P
-	+y4FggGF79BuKRSH8WCooR25iZzBkSdZ9DCQMrN7o75DlQQQc0MGzIcP+P/HQ9hdX5CqeB2RvX8g6
-	q5W+ZutIjm8NXNNZOad1LTI0suVR1Yf5ar5HCfmqM9ILR4C1kgyKLe08Dxkk1p+fMDpxvm0pQL9Lz
-	39Rv/2N6IGezwO+qfi86VYE1a8Q/YTAEdJ59BLOT9CMgHQDYUocg8uClcon+5oKjDeKHrD1oFilP+
-	7nxE+PBD8ocUsqKByf2q9opD7vM+OZPbiK5FvCuEwAHXt11Uj+pdkGWWaRfdO3w2mKjCR53FkqFAn
-	4fT41rjdbwjCYjv6hFJA==;
+	List-Owner; bh=xU52CIw5UGTMYg5PlNV9b95AM32BoqApD+1KDS4k1w8=; b=tGOt3QA6WH/+aQ
+	7LfGsMSix3FB7iUixZAlpDuWlxVk+ZImID+oFBsWo3EFIfIqW7mibQBTuL3whoVJ4/s+AADUPmSpJ
+	9aHSF7F3p+eUHeIDpSUX6dFIHay8Wjw8pXP1rLzrR5xRmIx5nESXfR5GHuNJqTV6Q0u9Bq+avJQqi
+	0275PYHhOaN99mKOQnaba2kIlNe8rIUAgjQVFFh5zs5uYjWrsunTiU52+5XxEKaatHqueWsiEh1YU
+	waHLVt+WMOeTKvC4Dq6vjWGdkQ3mq7NEK0OJN2V3VvtfmRfuIuGrXlp6jz90KouoqUDnHJjJbemm/
+	xHBwVuXZST7jE6cdEdyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOKDe-002vF5-A4; Wed, 17 Aug 2022 14:40:30 +0000
-Received: from mout.kundenserver.de ([212.227.126.134])
+	id 1oOKjm-0039Tz-H4; Wed, 17 Aug 2022 15:13:42 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOKDa-002vAV-KN; Wed, 17 Aug 2022 14:40:28 +0000
-Received: from mail-ej1-f49.google.com ([209.85.218.49]) by
- mrelayeu.kundenserver.de (mreue012 [213.165.67.97]) with ESMTPSA (Nemesis) id
- 1MQy0N-1o1xhu3Qnf-00O0vE; Wed, 17 Aug 2022 16:40:17 +0200
-Received: by mail-ej1-f49.google.com with SMTP id gb36so24857899ejc.10;
-        Wed, 17 Aug 2022 07:40:13 -0700 (PDT)
-X-Gm-Message-State: ACgBeo2zrqol5c5PoMpNry9j+teTZoWNLtw1TG4vvVVS+sWXMeDqOCvv
-	P9M1i+OBbYxlv1n/TBjjkdnGcS0B9nE2Bhs/DK4=
-X-Google-Smtp-Source: AA6agR7iG7b/sKnfv3rtR0wMkiNVbuKu4gohq2MlJovs7t4zv9/h1/ech5e7m293ULb6jtgNsC4wsmH5KCjGWqjMolI=
-X-Received: by 2002:a17:907:6da8:b0:730:8ed5:2df8 with SMTP id
- sb40-20020a1709076da800b007308ed52df8mr16850681ejc.75.1660747213344; Wed, 17
- Aug 2022 07:40:13 -0700 (PDT)
+	id 1oOKjj-0039RS-8G; Wed, 17 Aug 2022 15:13:41 +0000
+Received: by mail-il1-x12b.google.com with SMTP id p9so7031532ilq.13;
+        Wed, 17 Aug 2022 08:13:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc;
+        bh=1Aw1dSa3JPytcA6jepz8LxW98jZGIVvGrbA5oXW6cF4=;
+        b=QylPRZ7po85CmoykNUCyneM7mjy0jfxW6cm0tMG76VU+SEJs1TOHYjvUgCyJ5X34Ah
+         29R7oZJhhLUIaE/wB+fpvInm0t+Qtil2d7DsxFJO50ROSKqBTc4hrnQGXwMIq6mca6hs
+         54+kXi+r5dpmDFccUSfnuFBS3sWyt6leP9lY9G9/jXs02kwOe+87RXKykgBUvBdu+VxK
+         zgC40tcbIxY+/ARk2CL5sgZZPmfoBBvLljwObz/HD90zb/2wCmgAigALmX3sUAZMaM6/
+         yYvXO5L6d8RGEEhjCx/i99yVgYsx0VSd+Ea2XG0jsxBYGj9nUTR57UcZ9Som18Y15zyH
+         eUjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc;
+        bh=1Aw1dSa3JPytcA6jepz8LxW98jZGIVvGrbA5oXW6cF4=;
+        b=Lp3g1NfvseXnQOlzNBctEHEJIIVkGy32+pRcSG+Y8VdGuKGQnIzAfyEAkj1xvyM0Se
+         ZEJk0g/ZHrppiuI0EbiwCUcRizRUnzh2WaG1GntR32YWNYmfp1O+KfyfthGAcFb2V9iY
+         g0KTjzt+3N20vt97tCy/DMUpnOTm9YrRcQB02KE99a4Zkr+0hB3WTTQDPIraJJkimXRs
+         VWhdnCuQvzJ/rxhi5Vql/zZK0AOfhPVcjro30Nl5BpomO4OeYl64D6NEt4G+2xmSXs7S
+         n6T0pO4D/kWSRGmiEv/22Pxh4umFj2mcx9kbIw8zINmsRB5z7+HNshyUoByg0JtUEXMk
+         FsOQ==
+X-Gm-Message-State: ACgBeo2E3kTH47LAVR9Vfi8QDo0IxR5bA9oJYWPpVaMGMogPB8xk8aRI
+	WQvCuBMjoeANTqvjLlkRgk1AF5WTNXFk6UN2FQI=
+X-Google-Smtp-Source: AA6agR76oTCoP2K9omiY3xisTcRhkl/VGb6FFCKu/kjjdtf4CwkBwADBK/ZOKLvdnvOPta40wh5R8EYE/TiRBIyFijg=
+X-Received: by 2002:a05:6e02:1522:b0:2e5:9e3c:a7c8 with SMTP id
+ i2-20020a056e02152200b002e59e3ca7c8mr8021588ilu.237.1660749216849; Wed, 17
+ Aug 2022 08:13:36 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220802015052.10452-1-ojeda@kernel.org> <20220802015052.10452-28-ojeda@kernel.org>
-In-Reply-To: <20220802015052.10452-28-ojeda@kernel.org>
-From: Arnd Bergmann <arnd@arndb.de>
-Date: Wed, 17 Aug 2022 16:39:57 +0200
-X-Gmail-Original-Message-ID: <CAK8P3a0jqhGY9E85VC9gNem5q6-dWeq0H6-7bhJopinMnLtOKQ@mail.gmail.com>
-Message-ID: <CAK8P3a0jqhGY9E85VC9gNem5q6-dWeq0H6-7bhJopinMnLtOKQ@mail.gmail.com>
+ <CAK8P3a0jqhGY9E85VC9gNem5q6-dWeq0H6-7bhJopinMnLtOKQ@mail.gmail.com>
+In-Reply-To: <CAK8P3a0jqhGY9E85VC9gNem5q6-dWeq0H6-7bhJopinMnLtOKQ@mail.gmail.com>
+From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
+Date: Wed, 17 Aug 2022 17:13:25 +0200
+Message-ID: <CANiq72nNucEhXAXkXSujnGkpQrkv3-Pcn7ua8N=2XB-suAjs9w@mail.gmail.com>
 Subject: Re: [PATCH v8 27/31] Kbuild: add Rust support
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sven Van Asbroeck <thesven73@gmail.com>, 
 	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
 	Miguel Cano <macanroj@gmail.com>, Paul Mackerras <paulus@samba.org>, Gary Guo <gary@garyguo.net>, 
@@ -65,28 +84,11 @@ Cc: Linus Torvalds <torvalds@linux-foundation.org>,
 	linux-kernel@vger.kernel.org, Boris-Chengbiao Zhou <bobo1239@web.de>, 
 	Jarkko Sakkinen <jarkko@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Richard Weinberger <richard@nod.at>, Finn Behrens <me@kloenk.de>, Johannes Berg <johannes@sipsolutions.net>, 
-	linuxppc-dev@lists.ozlabs.org
-X-Provags-ID: V03:K1:2lF9ChVccGiRDAjdMzgCKDfh0FsakxpU/D3HqvFgf7HE0FvRxca
- RKQzqhkAp98fEPBklSvLPpJCXtrHY0jrNIEddejw99sh4Y056MCbCKywEFtIl/ddn65J4+0
- c3CR7GcXfvdiFpG67l09sxjK1wXwLGxg6iKNeElpmQRKzMKp4BWCmdwIprSWJskuQjAyqIg
- FNOfzaAM38Nov0v581O+Q==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:i/9h7cbZbs0=:ktcEl10LaZIdKEKnwM91C8
- 3YoRMBx8aFtDGUJlQwDFMnveSdvRo1hE8HBwyoMSP01uMBBij2oBVgcmB0MB7h5GzZCv7F9kp
- /mGjC97Qwsi78UdZgCuF3IfSxzlLXvLPSxqUeXu5C4/cxGA5vXaPMkVjNknjZv++YzIoJJI/u
- CQ09eQhl46ZYj/h4+vxOas7H/Jgoax5qOnSbXcadEyrK1QDkN8TGqLSt9E7j7QXMJvwytGxER
- K3BmrumRJq9h8R+iH4DY9WCPiara5uWGNlmDBit1vbgnY2nFVmGSCY7FhCt/yJ5muRL2lvrr0
- 5slBQyGvObJyYPU3tNSYDk1FrD7R7nAmWqJFTKtzxiuz8EncCqo+faVeOGDEN+FxZmb50ugl0
- ZeaKjBPyqcC3m+ZJIGhYplxuA802N4REz1O8NibaO+aTopJC2zPZ5IaZzxB8r5D5kjLUGYL5V
- F9EoqR7BH3vLPcM0F0qMytrSFOa/izTgp3ySX23YKxAWArrmoH1Re5DhRWI7xQiBJequZ8pCQ
- 8o686gkI+6ch43aYKXFPEQkcR5SlzsHnD34rTYq+nqCSpGfhJaH0upa+fiY4F2+gO1ctdsukQ
- Rispu7bFcZZSZ1e6j1ThmQ++xfKF5MhxtCxVVkC58blNhKShvK2i6TrZdjZWCPEzHrMm5IXaP
- 8Q/jmn8vmrADwyuX/Xb9sLoEtIPiM0tE5ztbnVzdsnnftoHTxkug9Mxhlcvzkn/p9RaI0kSJS
- wz9QqeBW3MtKB67YIjyFSHFPASkZLVNJtE6f3078xE41LZITkDC4AnJYlYmWEjGb71cAnyUdd
- KW8tj/SMQ+qT6pPAX9b6PatVwNaWYdWe4xyUkV+QsZdJhaL3XNQH4po/R0xFQ7FNlwitTeAfH
- /CLTHRn7iD51iljjHU8A==
+	linuxppc-dev@lists.ozlabs.org, Philip Herron <philip.herron@embecosm.com>, 
+	Arthur Cohen <arthur.cohen@embecosm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220817_074026_971619_CA4ED170 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20220817_081339_336909_5E3A9050 
+X-CRM114-Status: GOOD (  23.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +105,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 2, 2022 at 3:50 AM Miguel Ojeda <ojeda@kernel.org> wrote:
+Hi Arnd,
+
+On Wed, Aug 17, 2022 at 4:40 PM Arnd Bergmann <arnd@arndb.de> wrote:
 >
-> +# These flags apply to all Rust code in the tree, including the kernel and
-> +# host programs.
-> +export rust_common_flags := --edition=2021 \
-> +                           -Zbinary_dep_depinfo=y \
-> +                           -Dunsafe_op_in_unsafe_fn -Drust_2018_idioms \
-> +                           -Dunreachable_pub -Dnon_ascii_idents \
-> +                           -Wmissing_docs \
-> +                           -Drustdoc::missing_crate_level_docs \
-> +                           -Dclippy::correctness -Dclippy::style \
-> +                           -Dclippy::suspicious -Dclippy::complexity \
-> +                           -Dclippy::perf \
-> +                           -Dclippy::let_unit_value -Dclippy::mut_mut \
-> +                           -Dclippy::needless_bitwise_bool \
-> +                           -Dclippy::needless_continue \
-> +                           -Wclippy::dbg_macro
+> Hi Miguel,
+>
+> I tried enabling rust support in the gcc builds I provide at
+> https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/arm64/12.1.0/
 
-Hi Miguel,
+Thanks for giving it a go!
 
-I tried enabling rust support in the gcc builds I provide at
-https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/arm64/12.1.0/
-to make this more accessible, but it appears that the command line
-options here are not portable:
+> to make this more accessible, but it appears that the command line
+> options here are not portable:
+>
+>  /home/arnd/cross/x86_64/gcc-12.1.0+rust-nolibc/x86_64-linux/bin/x86_64-linux-gccrs
 
- /home/arnd/cross/x86_64/gcc-12.1.0+rust-nolibc/x86_64-linux/bin/x86_64-linux-gccrs
---edition=2021 -Zbinary_dep_depinfo=y -Dunsafe_op_in_unsafe_fn
--Drust_2018_idioms -Dunreachable_pub -Dnon_ascii_idents -Wmissing_docs
--Drustdoc::missing_crate_level_docs -Dclippy::correctness
--Dclippy::style -Dclippy::suspicious -Dclippy::complexity
--Dclippy::perf -Dclippy::let_unit_value -Dclippy::mut_mut
--Dclippy::needless_bitwise_bool -Dclippy::needless_continue
--Wclippy::dbg_macro -O -Cstrip=debuginfo -Zallow-features=
---emit=dep-info,link --out-dir=scripts/
-/git/arm-soc/scripts/generate_rust_target.rs; mv
-scripts/generate_rust_target.d scripts/.generate_rust_target.d; sed -i
-'/^#/d' scripts/.generate_rust_target.d
-x86_64-linux-gccrs: error: unrecognized command-line option
-'--edition=2021'; did you mean '-frust-edition=2021'?
-x86_64-linux-gccrs: error: unrecognized command-line option
-'-Zbinary_dep_depinfo=y'
-x86_64-linux-gccrs: error: unrecognized command-line option
-'-Wmissing_docs'; did you mean '-Wmissing-braces'?
-x86_64-linux-gccrs: error: unrecognized command-line option
-'-Wclippy::dbg_macro'
-x86_64-linux-gccrs: error: unrecognized command-line option '-Cstrip=debuginfo'
-x86_64-linux-gccrs: error: unrecognized command-line option '-Zallow-features='
-x86_64-linux-gccrs: error: unrecognized command-line option
-'--emit=dep-info,link'
-x86_64-linux-gccrs: error: unrecognized command-line option '--out-dir=scripts/'
-make[3]: *** [/git/arm-soc/scripts/Makefile.host:157:
-scripts/generate_rust_target] Error 1
+So you mean with GCC Rust, right? (i.e. we have "GCC builds" working,
+via compiling the Rust side with LLVM and linking with the GCC C side,
+but it is not intended for production or to be supported, even if we
+cover it in our CI, test it boots and loads modules etc.).
 
-I guess nobody has tried this so far. Would you think that fixing this is only
-a matter for fixing the build system to pass the correct flags depending on the
-compiler, or is this broken in a more fundamental way?
+Indeed, `gccrs` does not support `rustc` flags yet. I am not sure if
+the GCC Rust team will eventually provide a driver for those like
+clang does for e.g. `cl` -- I would hope they do, since many projects
+would benefit from it, but maybe they plan to start simply by
+modifying Cargo to call them as they need instead.
 
-         Arnd
+If they don't support it, we will have to map the flags on our side --
+it should not be a big problem. However, see below...
+
+> I guess nobody has tried this so far. Would you think that fixing this is only
+> a matter for fixing the build system to pass the correct flags depending on the
+> compiler, or is this broken in a more fundamental way?
+
+If you meant GCC Rust, then it is a bit too early for the compiler. As
+far as I now, they are working on compiling the `core` crate and
+supporting more stable language features. They are also researching
+the integration of the borrow checker, though we wouldn't need that
+for "only" compiling the kernel.
+
+Now, if they decided to focus on supporting Rust for Linux early on
+(which would be great), they would still need to work on the delta
+between what what they target now and what we use (which includes both
+stable and some unstable features), plus I assume infrastructure bits
+like the platform (target spec) support, the flags / `rustc` driver
+(though I would be happy to do as much as possible on our side to
+help), etc.
+
+(We privately talked about possible timelines for all that if they
+were to focus on Rust for Linux etc., but I let them comment or not on
+that... Cc'ing them! :)
+
+Cheers,
+Miguel
 
 _______________________________________________
 linux-riscv mailing list
