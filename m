@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6BCCC25B08
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Aug 2022 20:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4438EC2BB41
+	for <linux-riscv@archiver.kernel.org>; Wed, 17 Aug 2022 20:06:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=AnUY7ZtOzqwKuuwKQA+Mh1kqS8pd/vuuDJFsoteuEZY=; b=cnvf9GH4s4HD1h
-	5Cpfey4PrnUIAGuYoNnD7Ni/Z5WeT/DLMaw2P88CENz/sP2zmVMRmW2kBvgRJOcHurHcv5YoET4e0
-	9kWyryRIztrTjc971oiYPUXs0GIUfl47MWpe9Hw7AV+jKjjnvArCxfoenGa2whti/aDeSt2u+F6sZ
-	unLMGWLV60iSChD3/iMKp2zBjjhDhXnIW307C1kzn3sbIZslbEvTzx313fI7AyDc1AaCOPPFsKb9R
-	/VhPufrjaVVD9xUh0pctBpgN7/RItyA+MrM4YRBHwqPC7AoIHV8ncH4Tn9KOh1X9gzJHgUN7rHr/p
-	jk30fTrMvspRtZoDIkCw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8DR7nIppwZSR/wsQ4V4hp7JNcEy5qXTLuOIGhLvkU5M=; b=Haq9y2acsG4VHM
+	AXpV4suYJnc9xfZkuNyUzxn+M9gHOH3mYqG5yQefv5oAoaxdgH23/mjZuTi4W+F5IfqvYxfH82zo3
+	F+FUpubnf35+1JO4wnJJP0IOTzQCvw5Tv+mTJxJ6aRWQearnAhIEJEyFdOLudqpTbXVUZiBECAp96
+	eoJpmGwleWQCaV8SNGwa5cjfYDovXwM1jx4NB/4oNUI/DhmZz+/rDMBiqvlwoBneENe1DTOWPEAQ/
+	AVMIb73UKK2Kl2H8tXez4fp1MS+ZaDhEUsnwGx84exQQFUMdlidW+zM/lZX0d4uDcLaC3s5slNvON
+	Thimbug/TVtTm34GFmeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOPIc-0066Rc-7V; Wed, 17 Aug 2022 20:05:58 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1oOPIo-0066cb-PY; Wed, 17 Aug 2022 20:06:10 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOPIX-0066M4-Ge
-	for linux-riscv@lists.infradead.org; Wed, 17 Aug 2022 20:05:56 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id u14so2864222wrq.9
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Aug 2022 13:05:50 -0700 (PDT)
+	id 1oOPIg-0066TS-Lw
+	for linux-riscv@lists.infradead.org; Wed, 17 Aug 2022 20:06:04 +0000
+Received: by mail-wr1-x434.google.com with SMTP id n7so6201002wrv.4
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Aug 2022 13:06:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc;
-        bh=G88Wg8efx4vUqMWMZ62OXKazA2toNV7pxgmBvPS4y7g=;
-        b=UjMVkMOhH0QDp6O/pCgKkjwAgoTr7VLaEZvWBQ+tjcd31e0GYx2VQdEmdGYONFZlBV
-         JXSoVTKAwZz2v4YW/Uizoa99V8t3dHzfTeno0mWPMNhh4igom0Bmr6ijGRVDHpyMGd7K
-         RD33fy8KrpjEF9DtfgDokOP/K0xkdEBYEZgLbmuvpjzpJ77YnXuGes8IGqUhqOEtcuTz
-         1EtmXbFWHbm8sgCgqbfJwoywVRFVNGycJiPJnMqkXnaxVeGp5CUmEstg4+UHY5j1Wvvc
-         OYe7bnF33uDXEY5dt1xkYnKlxySlYViNcOylr1RCwj3UfknSZbnUPfMlStx4kPmCFh6a
-         AtQA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc;
+        bh=1R6UrF0Wsbj6EmcSlPWRzTAwonFDames2nGAVyANWlQ=;
+        b=AeJIiHm9h3I/Eov20f5hm9jFdNKZoOB4Jm6+CCfujHehef2vYBlAHYHSx5/YrlWtGy
+         uwOBvhI96+/wdxcUYt/7toPQmj4t0R7CoZ7AyNypy40Yp4pB0wOibbFOUSqHZ/xHuZY+
+         a5AbbRHn5YtRY0D0gKPtmjm/2hkhkJrpqVZ72vi2GO26mLW9PDvv9Bybx4U6HbVZQ509
+         m8j1y5HSVzo5McL0PRSHDvNJfP4bGBEOmQ7YHJDmQ4AVZxCcIjWIUTSURamn6zVm0hYx
+         tZIvcSQZwjZOSNVtG4bAxh1Ql8CBw+SvPUU8vlL66yaGZadxHsoKbpUfyorMa/vTna1L
+         QXzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc;
-        bh=G88Wg8efx4vUqMWMZ62OXKazA2toNV7pxgmBvPS4y7g=;
-        b=y3NjiV5NvAnAmKK6FVtOqLJZksJbY9t8RXx3I4r1PQyySiBRIg89UYNL+ClDmrMgAF
-         hienFyFvdgCKyuGZDmw71lU6A5AfXV6Ia0r43HT6TjTrvsJ1V/uYHuZeUrPQrmoueFY/
-         qkogmHgYCTZRRZjfED8LjeTpOrMBklqk0DhJDpzXWWzD+QANgqylLOh5KSzvl9nxF+vI
-         JqMRZ0274y/NJrobaTLQ0wzhi46AZiDuPdx3lMPf1WzRZmVOwvqraV+1egsqDKmtFdwV
-         ztwkM8ki6SzURhOV8qT4vxIL10Kp5j5hIUzQWpI8lqIff1Up1bq7yB/kaAnWrxtijWg7
-         Peqg==
-X-Gm-Message-State: ACgBeo35l3NzgiUpEjUSQlF0styawQPDA9z9LhVdtS7ycfakCtYfnwZw
-	VQLDEfgy8dz/bZ2EzZIa03l+ag==
-X-Google-Smtp-Source: AA6agR5IgGfJqwk47mOqzOms5cJpBLn149vtKJEQDmN0sxHazUEu1rNO09FeTJ5nbKwwA4+D0l30ow==
-X-Received: by 2002:a05:6000:617:b0:225:1d23:467a with SMTP id bn23-20020a056000061700b002251d23467amr4681470wrb.692.1660766749119;
-        Wed, 17 Aug 2022 13:05:49 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
+        bh=1R6UrF0Wsbj6EmcSlPWRzTAwonFDames2nGAVyANWlQ=;
+        b=hCLh+J3co+QxUzXV76boIp+tYqe5YN9dZxK+Yh/6D1Kl5HuC5nufERuUuSJYhsVkqf
+         YrxFTXXkai0uAuPHRElrjhUA2DBdyqpdYnr7EfQ4vT2JJjJWJ43prxVGAjFmcKvUcptz
+         MTVC48JGSvEPjiA3xiHSCRW/Y9I1O7z9hoc/4ZjqKAMPRTCpWRmMyrgTld0DyFBEGnyz
+         18+dFTW5oBvaPoM2YY9p0mrlbfv+dDuIxHMmf7R+Me+c/kvk4Lfl0FVA415CfSDBNox5
+         A7O5mTEMQb4H/zTyFVnCMUpTMjQRDq/bKh8HIn7P0bPOII0rAJb9FBGU2EX6GigBPIN8
+         HPQw==
+X-Gm-Message-State: ACgBeo3ul8JjtHwHrdff3bmLtKCtXE1UpJB1STlnHIqhdMjNHHODLbXN
+	0p8Xh28r6av9M6Hkt6DKNuGXdw==
+X-Google-Smtp-Source: AA6agR5ISPAA2r8H4343y7nQ1xvi4vK0fSr9VzDNPaY5Bb1ElOubBSAalLLrbPfbH95opdbBSj6WkQ==
+X-Received: by 2002:a5d:67c7:0:b0:225:210b:21a4 with SMTP id n7-20020a5d67c7000000b00225210b21a4mr3350305wrw.677.1660766760597;
+        Wed, 17 Aug 2022 13:06:00 -0700 (PDT)
 Received: from henark71.. ([109.76.58.63])
-        by smtp.gmail.com with ESMTPSA id i133-20020a1c3b8b000000b003a531c7aa66sm3400883wma.1.2022.08.17.13.05.47
+        by smtp.gmail.com with ESMTPSA id i133-20020a1c3b8b000000b003a531c7aa66sm3400883wma.1.2022.08.17.13.05.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Aug 2022 13:05:47 -0700 (PDT)
+        Wed, 17 Aug 2022 13:05:59 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Marc Zyngier <maz@kernel.org>,
@@ -76,15 +76,18 @@ Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	qemu-riscv@nongnu.org
-Subject: [PATCH 0/4] Fix dt-validate issues on qemu dtbdumps due to dt-bindings
-Date: Wed, 17 Aug 2022 21:05:19 +0100
-Message-Id: <20220817200531.988850-1-mail@conchuod.ie>
+	qemu-riscv@nongnu.org,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v2 1/4] dt-bindings: timer: sifive,clint: add legacy riscv compatible
+Date: Wed, 17 Aug 2022 21:05:25 +0100
+Message-Id: <20220817200531.988850-7-mail@conchuod.ie>
 X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20220817200531.988850-1-mail@conchuod.ie>
+References: <20220817200531.988850-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220817_130553_649675_C28CB812 
-X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-CacheID: sfid-20220817_130602_850745_D4792660 
+X-CRM114-Status: UNSURE (   9.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,46 +107,49 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-The device trees produced automatically for the virt and spike machines
-fail dt-validate on several grounds. Some of these need to be fixed in
-the linux kernel's dt-bindings, but others are caused by bugs in QEMU.
+While "real" hardware might not use the compatible string "riscv,clint0"
+it is present in the driver & QEMU uses it for automatically generated
+virt machine dtbs. To avoid dt-validate problems with QEMU produced
+dtbs, such as the following, add it to the binding.
 
-Patches been sent that fix the QEMU issues [0], but a couple of them
-need to be fixed in the kernel's dt-bindings. The first patches add
-compatibles for "riscv,{clint,plic}0" which are present in drivers and
-the auto generated QEMU dtbs. The final patch should be ignored for all
-serious purposes unless you want to wash your eyes out afterwards, but
-JIC the versioned extensions ever come up, it's there.
+riscv-virt.dtb: clint@2000000: compatible:0: 'sifive,clint0' is not one of ['sifive,fu540-c000-clint', 'starfive,jh7100-clint', 'canaan,k210-clint']
 
-Thanks to Rob Herring for reporting these issues [1],
-Conor.
-
-To reproduce the errors:
-./build/qemu-system-riscv64 -nographic -machine virt,dumpdtb=qemu.dtb
-dt-validate -p /path/to/linux/kernel/Documentation/devicetree/bindings/processed-schema.json qemu.dtb
-(The processed schema needs to be generated first)
-
-0 - https://lore.kernel.org/linux-riscv/20220810184612.157317-1-mail@conchuod.ie/
-1 - https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
-
-Changes since v1:
-- drop the "legacy systems" bit from the binding descriptions
-- convert to a regex for the isa string
-
-Conor Dooley (4):
-  dt-bindings: timer: sifive,clint: add legacy riscv compatible
-  dt-bindings: interrupt-controller: sifive,plic: add legacy riscv
-    compatible
-  dt-bindings: riscv: add new riscv,isa strings for emulators
-  dt-bindings: riscv: isa string bonus content
-
- .../sifive,plic-1.0.0.yaml                     |  5 +++++
- .../devicetree/bindings/riscv/cpus.yaml        |  9 ++++++---
+Reported-by: Rob Herring <robh@kernel.org>
+Link: https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
  .../bindings/timer/sifive,clint.yaml           | 18 ++++++++++++------
- 3 files changed, 23 insertions(+), 9 deletions(-)
+ 1 file changed, 12 insertions(+), 6 deletions(-)
 
-
-base-commit: 568035b01cfb107af8d2e4bd2fb9aea22cf5b868
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index e64f46339079..bbad24165837 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -22,12 +22,18 @@ description:
+ 
+ properties:
+   compatible:
+-    items:
+-      - enum:
+-          - sifive,fu540-c000-clint
+-          - starfive,jh7100-clint
+-          - canaan,k210-clint
+-      - const: sifive,clint0
++    oneOf:
++      - items:
++          - enum:
++              - sifive,fu540-c000-clint
++              - starfive,jh7100-clint
++              - canaan,k210-clint
++          - const: sifive,clint0
++      - items:
++          - const: sifive,clint0
++          - const: riscv,clint0
++        deprecated: true
++        description: For the QEMU virt machine only
+ 
+     description:
+       Should be "<vendor>,<chip>-clint" and "sifive,clint<version>".
 -- 
 2.37.1
 
