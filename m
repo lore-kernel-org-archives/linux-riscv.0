@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F315C00140
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 16:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2C5CC00140
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 17:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x9Uwwo5SP4MCdSyjW1MGsIs+rlhB1N2dPCODQxR38tk=; b=ZVDV1crAy0eAnN
-	HZc9Xc6DOwj3ngEEDBUXZ5e6naAMlzXRLpRq6/p0JUCxXwTTmiRyY1/wr/s/6RQ2QTgSCX+4c9etR
-	1iYHNVGXU5ZAnejqtvN2wMlXQkQEug05NnoqFJ69N8yGzviysEshMq0TtCiXsK2cz35/4ghzJJNKf
-	wHM9gGA/8lh9nQQ2G+n8+cLk29VoMLiY9v319OItbhCEIje0kK/Nq7jDOFhaDNNb/mifmCrGFzzVB
-	j0FLd5kn2n2QGwJgFr3ezYu7UVOh3YIqk6jGEwdvm2Zn+BLvoGVwkSxGzl5feaUFOpd8L6F7kKb8c
-	wiG4kFWTAQCk1pAQq5Vw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QUfK52DbSQQ7MGwVp56RE+/7OOLlFPx46/LmyCiXZNc=; b=pml/qKBxvJiyU3
+	O02XPdkcIcY9FOa8EasffNUMNjYDVTTx1W1VDHwlOd+EbrWlZsiwssPLcpZ+JhooNPHvDuNUT0pcz
+	GLAJRa3ckqDY0eAcacg0Xxz00MCxfoNJSc1F3x//hn4d41f6Q3Rv4swTwASRwhSe6+EHsPQcbGY24
+	TnkFCRpVjTaK8YTT/FLuTvzbRxx6yB+u3RXEwtcH47tZqPAb93P9gv/77owNfAg2mSqKScl74RRr9
+	GlT4jXclLLR0yaM7l2QdVK7sMIVkt+VNBSls42Ez61zNLEl8gd69Tt3f5dwBLMUwwxBKIj8PPTNbf
+	2Q19PNxBpdZzSzsCZa6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOioS-007JVZ-AO; Thu, 18 Aug 2022 16:56:08 +0000
-Received: from mail-il1-f179.google.com ([209.85.166.179])
+	id 1oOite-007Mp5-C8; Thu, 18 Aug 2022 17:01:30 +0000
+Received: from mta-02.yadro.com ([89.207.88.252] helo=mta-01.yadro.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOiVV-007AC6-Pm
-	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 16:36:39 +0000
-Received: by mail-il1-f179.google.com with SMTP id l15so1076373ilf.4
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Aug 2022 09:36:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc;
-        bh=M8whQnh20c5DrO/g1DklkK8u4I+Jzv+7yqvteJMRnk4=;
-        b=QSoIJXeF7OeVXr8OxJ7h2RUjejbM4BBuW1ZSQqmHT3r9T23nxd6KGC6ggGpPKbAWPF
-         hIXnFa613WcvTQz0fsPCxcrhnX1TR4somPAT8GlEPXzN8GYMc3sCcHaQ4no3C+qsHHYE
-         r4980tITEdftV86KUUvug109YD7G51zoQ75dirKqM9jJFdtS9r5EhPk7jPDxOlVsgdZ8
-         6jXjwf2W/CKBrcT8GX55RDPRnZvB/OeK/+0hnzigkthTdw0HirNeFYHtwbfruGYJBILr
-         uS/FpAs//8zOCR13/3xgtXINXnPHeqhyS4/cWRndt0kHASedWFKyzi/0UpKehTyWxREM
-         uvHA==
-X-Gm-Message-State: ACgBeo055OZ2NVPkA+1SNcNZZihtUa7/uk/n3Uv1XAWzHYOU5FLtX64H
-	sO6O4aIcthdTk0EeYf2VHQ==
-X-Google-Smtp-Source: AA6agR6BO8dOlPsFEFWhj5EUY+W39h9E7U+aGdI6szZ6ee6PCPM3WFIUVT1ZpBVnS1ZlkaHZq6Da7g==
-X-Received: by 2002:a05:6e02:de2:b0:2e6:691f:eda5 with SMTP id m2-20020a056e020de200b002e6691feda5mr1785399ilj.279.1660840592441;
-        Thu, 18 Aug 2022 09:36:32 -0700 (PDT)
-Received: from robh.at.kernel.org ([2607:fb90:647:4ff2:3529:f8cd:d6cd:ac54])
-        by smtp.gmail.com with ESMTPSA id x10-20020a056e021bca00b002e9256ab3f6sm177238ilv.31.2022.08.18.09.36.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Aug 2022 09:36:31 -0700 (PDT)
-Received: (nullmailer pid 1996122 invoked by uid 1000);
-	Thu, 18 Aug 2022 16:36:26 -0000
-Date: Thu, 18 Aug 2022 10:36:26 -0600
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <mail@conchuod.ie>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel <anup@brainfault.org>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Sagar Kadam <sagar.kadam@sifive.com>, Jessica Clarke <jrtc27@jrtc27.com>, Andrew Jones <ajones@ventanamicro.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, qemu-riscv@nongnu.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: timer: sifive,clint: add legacy
- riscv compatible
-Message-ID: <20220818163626.GC1978870-robh@kernel.org>
-References: <20220817201212.990712-1-mail@conchuod.ie>
- <20220817201212.990712-2-mail@conchuod.ie>
+	id 1oOikr-007HYI-CG
+	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 16:52:27 +0000
+Received: from localhost (unknown [127.0.0.1])
+	by mta-01.yadro.com (Postfix) with ESMTP id B29CA4357D;
+	Thu, 18 Aug 2022 16:52:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=yadro.com; h=
+	content-type:content-type:content-transfer-encoding:mime-version
+	:x-mailer:message-id:date:date:subject:subject:from:from
+	:received:received:received:received; s=mta-01; t=1660841522; x=
+	1662655923; bh=md5JFpnkVl7HHH6Kay+e0eL0WmCL9HLNwA8+YmwCHyY=; b=Y
+	LxeZOgkPkOzMs7lCl1IF/6uBM0EeKt1orLOzPc4xYzfpsQRX1On5DCs3tXYtv4Jf
+	8JEoIVFBZCpBk8ra3PyZeHGEGPpBhw7Tnx7/raINh5EvlZ/cFrVVHwMi6BjBYU6d
+	uO3CNj9rKcfbOeB01s5/5kFcljR7CqFMdDiO9Vy1fs=
+X-Virus-Scanned: amavisd-new at yadro.com
+Received: from mta-01.yadro.com ([127.0.0.1])
+	by localhost (mta-01.yadro.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id w1JBDA0UCKGZ; Thu, 18 Aug 2022 19:52:02 +0300 (MSK)
+Received: from T-EXCH-02.corp.yadro.com (t-exch-02.corp.yadro.com [172.17.10.102])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mta-01.yadro.com (Postfix) with ESMTPS id E1CD6435AC;
+	Thu, 18 Aug 2022 19:51:45 +0300 (MSK)
+Received: from T-EXCH-08.corp.yadro.com (172.17.11.58) by
+ T-EXCH-02.corp.yadro.com (172.17.10.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384) id
+ 15.1.669.32; Thu, 18 Aug 2022 19:51:45 +0300
+Received: from NB-148.yadro.com (172.17.15.136) by T-EXCH-08.corp.yadro.com
+ (172.17.11.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1118.9; Thu, 18 Aug
+ 2022 19:51:45 +0300
+From: Sergei Miroshnichenko <s.miroshnichenko@yadro.com>
+To: Heiko Stuebner <heiko@sntech.de>, Samuel Holland <samuel@sholland.org>
+CC: <linux-riscv@lists.infradead.org>, <linux@yadro.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Sergei Miroshnichenko <s.miroshnichenko@yadro.com>
+Subject: [PATCH] riscv: dma-mapping: Use conventional cache operations for dma_sync*()
+Date: Thu, 18 Aug 2022 19:51:05 +0300
+Message-ID: <20220818165105.99746-1-s.miroshnichenko@yadro.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220817201212.990712-2-mail@conchuod.ie>
+X-Originating-IP: [172.17.15.136]
+X-ClientProxiedBy: T-EXCH-02.corp.yadro.com (172.17.10.102) To
+ T-EXCH-08.corp.yadro.com (172.17.11.58)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220818_093633_886679_6999125F 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20220818_095225_817270_66588D16 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,24 +84,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 17, 2022 at 09:12:10PM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> While "real" hardware might not use the compatible string "riscv,clint0"
-> it is present in the driver & QEMU uses it for automatically generated
-> virt machine dtbs. To avoid dt-validate problems with QEMU produced
-> dtbs, such as the following, add it to the binding.
-> 
-> riscv-virt.dtb: clint@2000000: compatible:0: 'sifive,clint0' is not one of ['sifive,fu540-c000-clint', 'starfive,jh7100-clint', 'canaan,k210-clint']
-> 
-> Reported-by: Rob Herring <robh@kernel.org>
-> Link: https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  .../bindings/timer/sifive,clint.yaml           | 18 ++++++++++++------
->  1 file changed, 12 insertions(+), 6 deletions(-)
+Support of arch_sync_dma_for_{device,cpu}() for RISC-V was added recently.
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+Currently, for_cpu(FROM_DEVICE) uses the flush (writeback plus invalidate)
+cache operation, which can overwrite the data (received from a device via
+DMA) with dirty cache lines. Replace it with the inval to avoid data
+corruptions.
+
+The same goes for for_cpu(BIDIRECTIONAL), it was also flushing the cache,
+but it is called after the device had owned the buffer. So in order to not
+loose the received data, stick to the inval here as well.
+
+As of for_device(FROM_DEVICE), according to the inspirational discussion
+about matching the DMA API and cache operations [1], the inval or a no-op
+should be here, and this would resonate with most other arches. But in a
+later discussion [2] it was decided that the clean (which is used now) is
+indeed preferable and safer, though slower. The arm64 has been recently
+changed in the same way [3].
+
+[1] dma_sync_*_for_cpu and direction=TO_DEVICE
+Link: https://lkml.org/lkml/2018/5/18/979
+
+[2] Cache maintenance for non-coherent DMA in arch_sync_dma_for_device()
+Link: https://lore.kernel.org/all/20220606152150.GA31568@willie-the-truck/
+
+[3] commit c50f11c6196f ("arm64: mm: Don't invalidate FROM_DEVICE buffers at start of DMA transfer")
+
+Fixes: 1631ba1259d6 ("riscv: Add support for non-coherent devices using zicbom extension")
+Signed-off-by: Sergei Miroshnichenko <s.miroshnichenko@yadro.com>
+---
+ arch/riscv/mm/dma-noncoherent.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
+index cd2225304c82..2a8f6124021f 100644
+--- a/arch/riscv/mm/dma-noncoherent.c
++++ b/arch/riscv/mm/dma-noncoherent.c
+@@ -45,7 +45,7 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+ 		break;
+ 	case DMA_FROM_DEVICE:
+ 	case DMA_BIDIRECTIONAL:
+-		ALT_CMO_OP(flush, vaddr, size, riscv_cbom_block_size);
++		ALT_CMO_OP(inval, vaddr, size, riscv_cbom_block_size);
+ 		break;
+ 	default:
+ 		break;
+-- 
+2.37.2
+
 
 _______________________________________________
 linux-riscv mailing list
