@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C035C25B08
-	for <linux-riscv@archiver.kernel.org>; Wed, 17 Aug 2022 23:14:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF38EC25B08
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 01:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3XLDvXP0KoRHewhCTWptt7kK41zwitnYZDGCkfTU0dI=; b=u+VoFqy3i8w2sm
-	Usb27EnjFUQQAulICF6XUr9GgxrwiqGP9zKyo8OjAE7iQKkLIiXMm7KPrILV1SA7oxWsJEScQtfFG
-	U9Vu8UvcmHRJ8yj5ijf/eXdPPZCwpHFDKCKBRxiVRjRPxGjWvX60nX9l5W++kRbmJCF/GNQ/TL7le
-	ng8AUoRh4tAOSqsziOxDS0sAKHC+DRJRXS9zT4YMYRUOrPwk+1U0mC66+6XYA6Fo0dSOXAJ6GYPTd
-	F5obtI1aFEXAgl9XNo4vlGSg6Od8iHSQ5BfkbaPImCbjSRIpfzLTEcC/DJxeJElKfF/KLywPNeYDu
-	LbJVxDZHpI32dG4LLxVA==;
+	List-Owner; bh=Jz8FXGdiR31JCLT9fFCrvWwMFEwur2mTEN1m5OP42aA=; b=hqH8T0D0IjKcGO
+	S12VI1UKvmtBgeqpLQrASORXLaPm3jqpo8+N8q260rJuYF1Q+Qo4RGJwfUOuCqDTD96LoaWWTwSgN
+	l7EQ29K/OlGlJH9WEFvCgmOarCGewM6xZKLc2NCyfqfrUxJoUjATAgFtGqSn/uFhzDYXFtOqcsznw
+	SkuY/EqGcwcKEPd9YUTa8IGQ3dCRVVZKKWOHEoksCybwtsvZMHaCj9ALN4H7+7ZotmWzpoXl9ntcF
+	Dsno/tnyQ73c/LKB1fygfsMn7oyLFi9QJGY2zNpn9mBiCajcwwry2WvAleWWkUjV38V6EHY4CQiSL
+	OQo3LcQgfREiy5IXflFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOSEZ-008Lb6-Lk; Wed, 17 Aug 2022 23:13:59 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1oOUQb-00AGPX-FJ; Thu, 18 Aug 2022 01:34:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOSEW-008LYi-NQ; Wed, 17 Aug 2022 23:13:58 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id v125so2284896oie.0;
-        Wed, 17 Aug 2022 16:13:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc;
-        bh=uAFZhRG94yqKesKWZYz5Nx3zn74jTlFRVSrtAcB7opM=;
-        b=k1YA1pS6Eajn7sFpOI3x8NusjBtYGTLlphQCfOr2iifQhQYUaZT4rFqmLD/dnKP9b0
-         utTJIDqQJUQkYqpDPJEQSpJJyYNfgsMs6oM0rq19CKnK4L95D5GfF+cXJl8IGJgwp3zi
-         l8/2VaIIRMi4bLQ4ldVdetEpn6sUd8H3RC0bDOEMLSdFLYf/pm6WA4p9f3FBAmB/9mNO
-         Ya+2NapCpC+1bkSFyYgo9K7XUiXikWQMDF89oUPh4N7c7kSVCLVYfHFf4RX2YmQD/BJ+
-         RHahVZppC8tmZH9/nDlRSCFUHQ2Jjbnzz15ck+oNRgTfBuH2OYcBdWAaAK8ktADD0UsG
-         Sepw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc;
-        bh=uAFZhRG94yqKesKWZYz5Nx3zn74jTlFRVSrtAcB7opM=;
-        b=JAcvb6bUrrNqJHW6u7YwPi2E/nvJttBGxtqb3tBjdOPCvKVUBecw8Aqz+v2MeOMW/o
-         3ZW2pdRckitProoOfNY6FxwcGXC/hoNK4U5i04nfd8avcpt6l2wqNl9blbLzasWvQqWS
-         tMlx2GsWESRvv6iRp0MJwsYqYX5NdWoXz9Q3b6G6zv+wXdIqbmrG3Z1dlRU8VvqIPews
-         6gB11Rtok6/Fh/jU1JlINNTI02mVnsm9kIW6dhJ6teq3V3iensSFHhhus5Tylev7yo7v
-         2fnJ2Z+7kMo00zHWfkCTnOGlLdqWjHAkrwaOyDx2zFryP5l/MzU6z9Oy5n5nTo0lF5RJ
-         oA6Q==
-X-Gm-Message-State: ACgBeo0yiymTyIuRf9xk4+MjVNHh7asWgremZYTt2DnlF75eKYj6Zp8V
-	BX9x5fBZ9vnUA0rhl5WhD5UxvGzauLE1eZQopC4=
-X-Google-Smtp-Source: AA6agR5Gpv9Ub/ZSzw8wXnuwWJOg7P877U0UYF+ZIWdllhEPLwf7oW+lHlQM1was0sDQQVbiYoikM6dK3ZGBH+jke3Q=
-X-Received: by 2002:a05:6808:4d2:b0:343:dc3:fa31 with SMTP id
- a18-20020a05680804d200b003430dc3fa31mr176406oie.120.1660778034487; Wed, 17
- Aug 2022 16:13:54 -0700 (PDT)
+	id 1oOUQY-00AGMR-5t
+	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 01:34:32 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C07CE61448
+	for <linux-riscv@lists.infradead.org>; Thu, 18 Aug 2022 01:34:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E98DC433D7
+	for <linux-riscv@lists.infradead.org>; Thu, 18 Aug 2022 01:34:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1660786468;
+	bh=kP4YOam2hByoegQxQhqeKz8KDadmZLi7KWGXkubaXe4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=R+DtF7mF4gW5JC/nQL80DCntaf5YbVpLMJHXAK6pdHS8wdsqhTF7HHv7bT8jCzFDi
+	 +Bn5fY5n/zIvD652/Yd2Q37JdsEAQBo0ex2bMTowbHgd95HBEA8H8H0l+JjS4O6wtd
+	 ZP7GmpBPu5zTyPlVqbpgPFv64d7poWENXK+uXTFtD/PlXqLYRMKP8Zum810UFhKxIs
+	 qmM82d+8WtO+dGHNrcRVbZVeT673osqqEqitSSNJX7BylANr7faWnS+s9bjstzeVyq
+	 schScVCuO9tjX3AxPNPhpndOWX9G9XiPe7qwtbS03PPG8s0I3KTH+B1kAPxNR/nIll
+	 wT9Fe4s/9bURA==
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-f2a4c51c45so259467fac.9
+        for <linux-riscv@lists.infradead.org>; Wed, 17 Aug 2022 18:34:28 -0700 (PDT)
+X-Gm-Message-State: ACgBeo0BGqiM3oc8UeDrqklCt9eNXcHpETgXMEZG5U88XD7dKxAKDmWv
+	PqBPgdnVAS9T0F+YMISYSoUhTYfJPKafx2RBVsA=
+X-Google-Smtp-Source: AA6agR4J6/us0+dWTGNwHTCn9YSwBuzEjqLrB5jaad8CPFvVq7zCyrBlCYZuLuiey4qwwj63YqloHOXjEAzz1mQNFKg=
+X-Received: by 2002:a05:6870:8a13:b0:10e:7c08:36ba with SMTP id
+ p19-20020a0568708a1300b0010e7c0836bamr3039976oaq.19.1660786467200; Wed, 17
+ Aug 2022 18:34:27 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220802015052.10452-1-ojeda@kernel.org> <20220802015052.10452-28-ojeda@kernel.org>
- <CAK8P3a0jqhGY9E85VC9gNem5q6-dWeq0H6-7bhJopinMnLtOKQ@mail.gmail.com>
- <CANiq72nNucEhXAXkXSujnGkpQrkv3-Pcn7ua8N=2XB-suAjs9w@mail.gmail.com> <CAK8P3a2YuGsSJY2-=npqXMHXEr+zaF36iDrM+kP=9nS85FLpbA@mail.gmail.com>
-In-Reply-To: <CAK8P3a2YuGsSJY2-=npqXMHXEr+zaF36iDrM+kP=9nS85FLpbA@mail.gmail.com>
-From: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Date: Thu, 18 Aug 2022 01:13:42 +0200
-Message-ID: <CANiq72mW456PbD1WTkh0f=fhgO0FVdpjpXaT5cogXGT4BmKDjw@mail.gmail.com>
-Subject: Re: [PATCH v8 27/31] Kbuild: add Rust support
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Sven Van Asbroeck <thesven73@gmail.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	Miguel Cano <macanroj@gmail.com>, Paul Mackerras <paulus@samba.org>, Gary Guo <gary@garyguo.net>, 
-	Douglas Su <d0u9.su@outlook.com>, Borislav Petkov <bp@alien8.de>, linux-riscv@lists.infradead.org, 
-	Will Deacon <will@kernel.org>, Martin Rodriguez Reboredo <yakoyoku@gmail.com>, 
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, x86@kernel.org, Russell King <linux@armlinux.org.uk>, 
-	Ingo Molnar <mingo@redhat.com>, Wedson Almeida Filho <wedsonaf@google.com>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Antonio Terceiro <antonio.terceiro@linaro.org>, 
-	Adam Bratschi-Kaye <ark.email@gmail.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	rust-for-linux@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	Boqun Feng <boqun.feng@gmail.com>, linux-um@lists.infradead.org, 
-	=?UTF-8?Q?Bj=C3=83B_6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Michal Marek <michal.lkml@markovi.net>, Daniel Xu <dxu@dxuuu.xyz>, David Gow <davidgow@google.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Dariusz Sosnowski <dsosnowski@dsosnowski.pl>, 
-	linux-arm-kernel@lists.infradead.org, Tiago Lam <tiagolam@gmail.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Nick Desaulniers <ndesaulniers@google.com>, 
-	linux-kernel@vger.kernel.org, Boris-Chengbiao Zhou <bobo1239@web.de>, 
-	Jarkko Sakkinen <jarkko@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Richard Weinberger <richard@nod.at>, Finn Behrens <me@kloenk.de>, Johannes Berg <johannes@sipsolutions.net>, 
-	linuxppc-dev@lists.ozlabs.org, Philip Herron <philip.herron@embecosm.com>, 
-	Arthur Cohen <arthur.cohen@embecosm.com>
+References: <20220817201212.990712-1-mail@conchuod.ie> <20220817201212.990712-4-mail@conchuod.ie>
+In-Reply-To: <20220817201212.990712-4-mail@conchuod.ie>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 18 Aug 2022 09:34:14 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRRjKVOnd5Yj_btfD2UhKzmXXcJCo_1-62MVkM85A=99g@mail.gmail.com>
+Message-ID: <CAJF2gTRRjKVOnd5Yj_btfD2UhKzmXXcJCo_1-62MVkM85A=99g@mail.gmail.com>
+Subject: Re: [PATCH v3 3/4] dt-bindings: riscv: add new riscv,isa strings for emulators
+To: Conor Dooley <mail@conchuod.ie>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel <anup@brainfault.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Sagar Kadam <sagar.kadam@sifive.com>, 
+	Jessica Clarke <jrtc27@jrtc27.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, qemu-riscv@nongnu.org, 
+	Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220817_161356_809531_0FEF19FB 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20220817_183430_356902_B9A2773F 
+X-CRM114-Status: GOOD (  32.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +87,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 17, 2022 at 5:51 PM Arnd Bergmann <arnd@arndb.de> wrote:
+On Thu, Aug 18, 2022 at 4:12 AM Conor Dooley <mail@conchuod.ie> wrote:
 >
-> Thanks for the explanation. My hope was that building the kernel
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> The QEMU virt and spike machines currently export a riscv,isa string of
+> "rv64imafdcsuh",
+>
+> While the RISC-V foundation has been ratifying a bunch of extenstions
+> etc, the kernel has remained relatively static with what hardware is
+> supported - but the same is not true of QEMU. Using the virt machine
+> and running dt-validate on the dumped dtb fails, partly due to the
+> unexpected isa string.
+>
+> Rather than enumerate the many many possbilities, change the pattern
+> to a regex, with the following assumptions:
+> - the single letter order is fixed & we don't care about things that
+>   can't even do "ima"
+> - the standard multi letter extensions are all in a "_z<foo>" format
+>   where the first letter of <foo> is a valid single letter extension
+> - _s & _h are used for supervisor and hyper visor extensions.
+> - after the first two chars, a standard multi letter extension name
+>   could be an english   word (ifencei anyone?) so it's not worth
+>   restricting the charset
+> - vendor ISA extensions begind with _x and have no charset restrictions
+> - we don't care about an e extension from an OS pov
+> - that attempting to validate the contents of the multiletter extensions
+>   with dt-validate beyond the formatting is a futile, massively verbose
+>   or unwieldy exercise at best.
+> - ima are required
+>
+> The following limitations also apply:
+> - multi letter extension ordering is not enforced. dt-schema does not
+>   appear to allow for named match groups, so the resulting regex would
+>   be even more of a headache.
+> - ditto for the numbered extensions.
+>
+> Finally, add me as a maintainer of the binding so that when it breaks
+> in the future, I can be held responsible!
+>
+> Reported-by: Rob Herring <robh@kernel.org>
+> Link: https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+> Palmer, feel free to drop the maintainer addition. I just mostly want
+> to clean up my own mess on this when they decide to ratify more
+> extensions & this comes back up again.
+> ---
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 5 ++---
+>  1 file changed, 2 insertions(+), 3 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> index 873dd12f6e89..c0e0bc5dce04 100644
+> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+> @@ -9,6 +9,7 @@ title: RISC-V bindings for 'cpus' DT nodes
+>  maintainers:
+>    - Paul Walmsley <paul.walmsley@sifive.com>
+>    - Palmer Dabbelt <palmer@sifive.com>
+> +  - Conor Dooley <conor@kernel.org>
+Acked-by: Guo Ren <guoren@kernel.org>
 
-Don't mention it!
+>
+>  description: |
+>    This document uses some terminology common to the RISC-V community
+> @@ -79,9 +80,7 @@ properties:
+>        insensitive, letters in the riscv,isa string must be all
+>        lowercase to simplify parsing.
+>      $ref: "/schemas/types.yaml#/definitions/string"
+> -    enum:
+> -      - rv64imac
+> -      - rv64imafdc
+> +    pattern: ^rv(?:64|32)imaf?d?q?c?b?v?k?h?(?:(?:_[zsh][imafdqcbvksh]|_x)(?:[a-z])+)*$
+>
+>    # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
+>    timebase-frequency: false
+> --
+> 2.37.1
+>
 
-> would actually be easier here than building the more complicated
-> rust user space.
 
-Yeah, the kernel is complicated for them in different ways, so I
-assume they will decide which bits to tackle first... Hopefully I will
-succeed in my attempts to convince them to focus a bit on the kernel
-at least ;)
-
-> I tried one more step and just removed the unsupported command
-> line flags to see what would happen, but that did not get me any
-> further:
-
-Thanks!
-
-It looks like it failed when compiling the target spec generator,
-which is a Rust host program. If they were to attempt the GCC Rust
-support early on, we could make things easier for them by not
-compiling host programs with gccrs.
-
-By the way, feel free to remove all the `-D` flags ("denying") when
-playing with it since they are related to diagnostics (making lints
-errors that can still be bypassed if needed), in case the crash is
-about handling those.
-
-Cheers,
-Miguel
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
