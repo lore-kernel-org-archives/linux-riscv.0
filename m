@@ -4,85 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F07C00140
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 20:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F89C00140
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 21:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kfXAWYQB6/v5d2P6Xch7ZTjLElczN0znKG5DZdUQNCs=; b=OG/hSP/tu1xlbI
-	5AJg2xYPY+8cMClZpJL3NDH8QfoBLlNj8tifXwfWLiNRs25OoMKwHsyQWHNJbUOEOtFmW+rhpAzfu
-	rkIZOArbu8nzcFNBSPqLu0IfRmR4GY7A87m8SqTq6glkH6+DqMsDC2IrTk8Nh1bYRBJtD79iQcegd
-	ss7aOt2fe58bXj+ezq3ggpON4OBu6ygIx7GWpRqXEp0N+ytItwR2ACIdhCe7Js44JR6QaeZxdjFeD
-	Koi5mxKjkkbM85w7jtDLT3W82yvPS8wTIfMVCV+MZ4Ed1K/h8wMp5iu7YIGXLPjvozW2Pq/936woH
-	AxVCARQPJF9CMwpLYF/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=EEbGcIGlNnv6fiNUdIxC7QQ0LBbkHe7jv5+nh/UGzTg=; b=TxoGorugHPm+DcqvQAY2I/TtPh
+	pzbB5KfDTViaKyAoKqxsPThgJpBsx2BiyaIKy1nnT7h20JZ/HIQsmqqBA8XXNccEow6/xiKx9p52T
+	PbelO9DewooNPkYUbuLrR5jeJ1kVAeuQBGhW3qtok8I8Z1OgcKDZsurkUMGCsUESiVKXyxCYbi8Fp
+	wLtYSipJ8MDJbC6XhlFaDBOZ5RI9B4UnzvsOBVpmqlXbCSUHfyd2WAIvLE+bEcFUZJubzzG/QbP18
+	jJh/0I8I6O18ZChcMbEsp4GeeXVEDY56Iavsk/yecJ2aVsv1UZx0SdByMCRHenf9Y5brvj/s29JSX
+	ALXzN8DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOmVc-009VMb-7s; Thu, 18 Aug 2022 20:52:56 +0000
-Received: from mta-02.yadro.com ([89.207.88.252] helo=mta-01.yadro.com)
+	id 1oOmgF-009cJ4-Ty; Thu, 18 Aug 2022 21:03:56 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOmVY-009VJn-KU
-	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 20:52:54 +0000
-Received: from localhost (unknown [127.0.0.1])
-	by mta-01.yadro.com (Postfix) with ESMTP id 0156C4359F;
-	Thu, 18 Aug 2022 20:52:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=yadro.com; h=
-	mime-version:content-transfer-encoding:content-id:content-type
-	:content-type:content-language:accept-language:in-reply-to
-	:references:message-id:date:date:subject:subject:from:from
-	:received:received:received:received:received; s=mta-01; t=
-	1660855966; x=1662670367; bh=0CuvmfWlSa0wjXgEDCRD47/iNPX9mLuZGhB
-	GtCPVZDU=; b=PAzbT42CF4a0YwXgEOwRLtDC3AnjoxQNBz9ZKioTN2q7rQQz+4I
-	5fknWt4P6v7CdPqjn+70WmCdMoS7gcv0E2Lu8du0GQz0Gx7dN5PLEy1PCwAVozvH
-	CVTzBTxtUgAmfkE6ygXE2Hr1Dg3f96pvgoVG8RH70IFpe044OM+PahGc=
-X-Virus-Scanned: amavisd-new at yadro.com
-Received: from mta-01.yadro.com ([127.0.0.1])
-	by localhost (mta-01.yadro.com [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id j1cUcN1NzEhB; Thu, 18 Aug 2022 23:52:46 +0300 (MSK)
-Received: from T-EXCH-02.corp.yadro.com (t-exch-02.corp.yadro.com [172.17.10.102])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mta-01.yadro.com (Postfix) with ESMTPS id BF0C943595;
-	Thu, 18 Aug 2022 23:52:45 +0300 (MSK)
-Received: from T-Exch-05.corp.yadro.com (172.17.10.109) by
- T-EXCH-02.corp.yadro.com (172.17.10.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384) id
- 15.1.669.32; Thu, 18 Aug 2022 23:52:45 +0300
-Received: from T-EXCH-08.corp.yadro.com (172.17.11.58) by
- T-Exch-05.corp.yadro.com (172.17.10.109) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1118.9; Thu, 18 Aug 2022 23:52:44 +0300
-Received: from T-EXCH-08.corp.yadro.com ([172.17.11.58]) by
- T-EXCH-08.corp.yadro.com ([172.17.11.58]) with mapi id 15.02.1118.009; Thu,
- 18 Aug 2022 23:52:44 +0300
-From: Sergei Miroshnichenko <s.miroshnichenko@yadro.com>
-To: "jrtc27@jrtc27.com" <jrtc27@jrtc27.com>
-CC: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"samuel@sholland.org" <samuel@sholland.org>, "linux@yadro.com"
-	<linux@yadro.com>, "heiko@sntech.de" <heiko@sntech.de>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>
-Subject: Re: [PATCH] riscv: dma-mapping: Use conventional cache operations for
- dma_sync*()
-Thread-Topic: [PATCH] riscv: dma-mapping: Use conventional cache operations
- for dma_sync*()
-Thread-Index: AQHYsyLMX3Tk8ykg506+8AwsN9WIu620w7UAgAAsp4A=
-Date: Thu, 18 Aug 2022 20:52:44 +0000
-Message-ID: <0fb64928174f49f81f4a9b97760b2771cbcdbf14.camel@yadro.com>
-References: <20220818165105.99746-1-s.miroshnichenko@yadro.com>
-	 <1B438F95-364E-4125-B2EE-D673E0B4BEB3@jrtc27.com>
-In-Reply-To: <1B438F95-364E-4125-B2EE-D673E0B4BEB3@jrtc27.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [172.17.15.136]
-Content-ID: <838ED1A93C68684FAEFE6AFC4C0F36A5@yadro.com>
-MIME-Version: 1.0
+	id 1oOmfq-009bvX-HV
+	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 21:03:32 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id o5-20020a17090a3d4500b001ef76490983so3018632pjf.2
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Aug 2022 14:03:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc;
+        bh=ELcoH5gVXXKNS9r6sQsd+O52/5TSkTBmTFm8K7ORsqw=;
+        b=WQMubBKNaph5pwkxw2tnVEU0ZXHH7pZR6cqKz2+4Y3c+DRJMOIgdDbs/2ixVID2UDH
+         L252bhKG5xAJo4hv5C6IBtfHRds9CMD8/2+vXivSdO3nGtQBlwD0QpJSPL2F0q7jDC2i
+         rSZj8Nce0eQstqKUlGuh50H7apLZ9mCKA8o5C8S/oZooXR0XcOc86Jg5x3yGTlyN4sYk
+         wSCQOcGBlIQZKHy56IPcxXtlS2ic1hlsZ1RJTn2rNtP30mQvs67WG1XR4YP0H8TtIFhh
+         cPoWKCVxqtC9WDJU0MZxBCSgc8NnQUJj+x0VNHc+WQ5d2d4nWwwcMAWE2h09J93p8hkX
+         Zsow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
+        bh=ELcoH5gVXXKNS9r6sQsd+O52/5TSkTBmTFm8K7ORsqw=;
+        b=w3uWuH9Vb+REfH2svZ8GzlIdpDq9LUeaDGJlN9nH5EjGhpRiICKLyEElYBGwfjwpci
+         0dfrC4fwyrebvuMSEuvENRIGsz5+fk/x7cCQURyZLWOadT5OWDdiHiE5eYBOINz3x9O7
+         87ZbhtB4B5KY1tPWjY0140vE6tDc6o9xyiK/1jqyrIM4T+7pM2GdudIB1gYuJGwCi0jS
+         nG/elkiE7gIfuoYjgyhowRC52B3BYQ9aAxoEvnN1mQsfjyt+4qLcHlkC7xD8YKUDdvik
+         xm1pnfDnBKnsXwuw1RjqXsuVhSDgSHC3HDbTeCgsObBRsOH9YDH4xEcbSXY5O9TBtUJi
+         ntWg==
+X-Gm-Message-State: ACgBeo3SGpJ8cFiibzFMStqqAGiEd1njXPGfP9JcNMKoZknbbC7s5HDO
+	aA8hMcdXiKp0zaTYUvMfKYu6uQ==
+X-Google-Smtp-Source: AA6agR77U4vTHE89v0SovmRRB/C5pTdUWWokk9RXeAPG/OObpqvPuOsLYN1eeILaWp+6/QyC455uOA==
+X-Received: by 2002:a17:902:c602:b0:170:bf85:8ccb with SMTP id r2-20020a170902c60200b00170bf858ccbmr4024845plr.38.1660856606246;
+        Thu, 18 Aug 2022 14:03:26 -0700 (PDT)
+Received: from localhost ([50.221.140.186])
+        by smtp.gmail.com with ESMTPSA id u16-20020a17090341d000b00172aa97b628sm1801658ple.186.2022.08.18.14.03.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Aug 2022 14:03:25 -0700 (PDT)
+Date: Thu, 18 Aug 2022 14:03:25 -0700 (PDT)
+X-Google-Original-Date: Thu, 18 Aug 2022 14:03:22 PDT (-0700)
+Subject: Re: [GIT PULL] Fix RISC-V's arch-topology reporting
+In-Reply-To: <4849490e-b362-c13a-c2e4-82acc3268a3f@microchip.com>
+CC: sudeep.holla@arm.com, catalin.marinas@arm.com, Will Deacon <will@kernel.org>,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+  atishp@atishpatra.org, Brice.Goglin@inria.fr, Greg KH <gregkh@linuxfoundation.org>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor.Dooley@microchip.com
+Message-ID: <mhng-fc4d9b57-2284-40dd-97f6-d32369b41cde@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220818_135253_068521_B75F85D0 
-X-CRM114-Status: GOOD (  38.80  )
+X-CRM114-CacheID: sfid-20220818_140330_605964_1C86590A 
+X-CRM114-Status: GOOD (  31.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,83 +83,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSmVzcywNCg0KT24gVGh1LCAyMDIyLTA4LTE4IGF0IDE5OjEyICswMTAwLCBKZXNzaWNhIENs
-YXJrZSB3cm90ZToNCj4gT24gMTggQXVnIDIwMjIsIGF0IDE3OjUxLCBTZXJnZWkgTWlyb3Nobmlj
-aGVua28NCj4gPHMubWlyb3NobmljaGVua29AeWFkcm8uY29tPiB3cm90ZToNCj4gPiANCj4gPiBT
-dXBwb3J0IG9mIGFyY2hfc3luY19kbWFfZm9yX3tkZXZpY2UsY3B1fSgpIGZvciBSSVNDLVYgd2Fz
-IGFkZGVkDQo+ID4gcmVjZW50bHkuDQo+ID4gDQo+ID4gQ3VycmVudGx5LCBmb3JfY3B1KEZST01f
-REVWSUNFKSB1c2VzIHRoZSBmbHVzaCAod3JpdGViYWNrIHBsdXMNCj4gPiBpbnZhbGlkYXRlKQ0K
-PiA+IGNhY2hlIG9wZXJhdGlvbiwgd2hpY2ggY2FuIG92ZXJ3cml0ZSB0aGUgZGF0YSAocmVjZWl2
-ZWQgZnJvbSBhDQo+ID4gZGV2aWNlIHZpYQ0KPiA+IERNQSkgd2l0aCBkaXJ0eSBjYWNoZSBsaW5l
-cy4gUmVwbGFjZSBpdCB3aXRoIHRoZSBpbnZhbCB0byBhdm9pZA0KPiA+IGRhdGENCj4gPiBjb3Jy
-dXB0aW9ucy4NCj4gPiANCj4gPiBUaGUgc2FtZSBnb2VzIGZvciBmb3JfY3B1KEJJRElSRUNUSU9O
-QUwpLCBpdCB3YXMgYWxzbyBmbHVzaGluZyB0aGUNCj4gPiBjYWNoZSwNCj4gPiBidXQgaXQgaXMg
-Y2FsbGVkIGFmdGVyIHRoZSBkZXZpY2UgaGFkIG93bmVkIHRoZSBidWZmZXIuIFNvIGluIG9yZGVy
-DQo+ID4gdG8gbm90DQo+ID4gbG9vc2UgdGhlIHJlY2VpdmVkIGRhdGEsIHN0aWNrIHRvIHRoZSBp
-bnZhbCBoZXJlIGFzIHdlbGwuDQo+ID4gDQo+ID4gQXMgb2YgZm9yX2RldmljZShGUk9NX0RFVklD
-RSksIGFjY29yZGluZyB0byB0aGUgaW5zcGlyYXRpb25hbA0KPiA+IGRpc2N1c3Npb24NCj4gPiBh
-Ym91dCBtYXRjaGluZyB0aGUgRE1BIEFQSSBhbmQgY2FjaGUgb3BlcmF0aW9ucyBbMV0sIHRoZSBp
-bnZhbCBvciBhDQo+ID4gbm8tb3ANCj4gPiBzaG91bGQgYmUgaGVyZSwgYW5kIHRoaXMgd291bGQg
-cmVzb25hdGUgd2l0aCBtb3N0IG90aGVyIGFyY2hlcy4gQnV0DQo+ID4gaW4gYQ0KPiA+IGxhdGVy
-IGRpc2N1c3Npb24gWzJdIGl0IHdhcyBkZWNpZGVkIHRoYXQgdGhlIGNsZWFuICh3aGljaCBpcyB1
-c2VkDQo+ID4gbm93KSBpcw0KPiA+IGluZGVlZCBwcmVmZXJhYmxlIGFuZCBzYWZlciwgdGhvdWdo
-IHNsb3dlci4gVGhlIGFybTY0IGhhcyBiZWVuDQo+ID4gcmVjZW50bHkNCj4gPiBjaGFuZ2VkIGlu
-IHRoZSBzYW1lIHdheSBbM10uDQo+IA0KPiBGbHVzaCBpcyBhbHdheXMgYSB2YWxpZCB3YXkgdG8g
-aW1wbGVtZW50IGludmFsaWRhdGUsIGFuZCBpZiBpdCBkb2VzDQo+IG5vdA0KPiB3b3JrIHRoZW4g
-eW91IGhhdmUgYnVncyBlbHNld2hlcmUsIHNpbmNlIHRoZSBDUFUgaXMgZnJlZSB0byB3cml0ZSBv
-dXQNCj4gdGhlIGRpcnR5IGNhY2hlIGxpbmVzIGF0IGFueSBwb2ludCBiZWZvcmUgYW4gaW52YWxp
-ZGF0ZS4gU28gd2hpbHN0DQo+IGl04oCZcw0KPiBtb3JlIGVmZmljaWVudCB0byB1c2UgaW52YWxp
-ZGF0ZSBhbmQgaGludCB0byB0aGUgY29yZSB0aGF0IGl0IGRvZXMNCj4gbm90DQo+IG5lZWQgdG8g
-ZG8gYW55IHdyaXRpbmcsIGl0IGlzIG5vIG1vcmUgY29ycmVjdCwgYW5kIHRoaXMgdGhpcyBwYXRj
-aA0KPiBkZXNjcmlwdGlvbiBpcyBtaXNndWlkZWQuIFlvdSBldmVuIG1pZ2h0IHdpc2ggdG8gdXNl
-IHRoZSBmYWN0IHRoYXQgaXQNCj4gaXMgY3VycmVudGx5IGEgZmx1c2ggYXMgYSBjb252ZW5pZW50
-IHNhbml0aXNlciBmb3Igd2hhdGV2ZXIgaXMNCj4gY3VycmVudGx5IHZpb2xhdGluZyB0aGUgbm9u
-LWNvaGVyZW50IERNQSBydWxlcyBhbmQgZml4IHRoYXQgYmVmb3JlDQo+IGl04oCZcw0KPiBzd2l0
-Y2hlZCB0byBpbnZhbGlkYXRlIGFuZCBwYXBlcnMgb3ZlciB0aGUgaXNzdWUgKGF0IGxlYXN0IGlu
-DQo+IHdoYXRldmVyDQo+IGltcGxlbWVudGF0aW9uIHlvdeKAmXJlIHJ1bm5pbmcgb24pLg0KDQpZ
-b3UgYXJlIHJpZ2h0LCB0aGFuayB5b3UsIHRoZSBkZXNjcmlwdGlvbiAqaXMqIG1pc2xlYWRpbmc6
-IGNhY2hlIGxpbmVzDQpjYW4ndCBnZXQgZGlydHkgYmVmb3JlIGZvcl9jcHUoKSwgYXMgdGhleSBh
-cmUgY2xlYW5lZCBkdXJpbmcNCmZvcl9kZXZpY2UoKSwgYW5kIGFyZSBub3Qgd3JpdHRlbiB0byBi
-eSB0aGUgQ1BVIGluIGJldHdlZW4uDQoNCkkgZ2F2ZSBpdCBhbm90aGVyIHRob3VnaHQ6IHRoZSBy
-ZWFzb24gdG8gaW52YWxpZGF0ZSBpbiBmb3JfY3B1KCkgaXMNCnRoYXQgdGhlIENQVSBjYW4gc3Bl
-Y3VsYXRpdmVseSBwcmVmZXRjaCB0aGUgYnVmZmVyIGFmdGVyDQptYXAoKS9mb3JfZGV2aWNlKCkg
-YnV0IGJlZm9yZSB0aGUgRE1BIGlzIGZpbmlzaGVkLg0KDQpFdmVuIGlmIHJlcGxhY2UgdGhlIGNs
-ZWFuIGluIGZvcl9kZXZpY2UoRlJPTV9ERVZJQ0UpIHdpdGggdGhlIGZsdXNoLCBhDQpwcmVmZXRj
-aCBzdGlsbCBtYXkgaGFwcGVuLCByZXF1aXJpbmcgYW4gaW52YWxpZGF0aW9uLg0KDQpTZXJnZQ0K
-DQo+IA0KPiBKZXNzDQo+IA0KPiA+IFsxXSBkbWFfc3luY18qX2Zvcl9jcHUgYW5kIGRpcmVjdGlv
-bj1UT19ERVZJQ0UNCj4gPiBMaW5rOiBodHRwczovL2xrbWwub3JnL2xrbWwvMjAxOC81LzE4Lzk3
-OQ0KPiA+IA0KPiA+IFsyXSBDYWNoZSBtYWludGVuYW5jZSBmb3Igbm9uLWNvaGVyZW50IERNQSBp
-bg0KPiA+IGFyY2hfc3luY19kbWFfZm9yX2RldmljZSgpDQo+ID4gTGluazoNCj4gPiBodHRwczov
-L2xvcmUua2VybmVsLm9yZy9hbGwvMjAyMjA2MDYxNTIxNTAuR0EzMTU2OEB3aWxsaWUtdGhlLXRy
-dWNrLw0KPiA+IA0KPiA+IFszXSBjb21taXQgYzUwZjExYzYxOTZmICgiYXJtNjQ6IG1tOiBEb24n
-dCBpbnZhbGlkYXRlIEZST01fREVWSUNFDQo+ID4gYnVmZmVycyBhdCBzdGFydCBvZiBETUEgdHJh
-bnNmZXIiKQ0KPiA+IA0KPiA+IEZpeGVzOiAxNjMxYmExMjU5ZDYgKCJyaXNjdjogQWRkIHN1cHBv
-cnQgZm9yIG5vbi1jb2hlcmVudCBkZXZpY2VzDQo+ID4gdXNpbmcgemljYm9tIGV4dGVuc2lvbiIp
-DQo+ID4gU2lnbmVkLW9mZi1ieTogU2VyZ2VpIE1pcm9zaG5pY2hlbmtvIDxzLm1pcm9zaG5pY2hl
-bmtvQHlhZHJvLmNvbT4NCj4gPiAtLS0NCj4gPiBhcmNoL3Jpc2N2L21tL2RtYS1ub25jb2hlcmVu
-dC5jIHwgMiArLQ0KPiA+IDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlv
-bigtKQ0KPiA+IA0KPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L21tL2RtYS1ub25jb2hlcmVu
-dC5jIGIvYXJjaC9yaXNjdi9tbS9kbWEtDQo+ID4gbm9uY29oZXJlbnQuYw0KPiA+IGluZGV4IGNk
-MjIyNTMwNGM4Mi4uMmE4ZjYxMjQwMjFmIDEwMDY0NA0KPiA+IC0tLSBhL2FyY2gvcmlzY3YvbW0v
-ZG1hLW5vbmNvaGVyZW50LmMNCj4gPiArKysgYi9hcmNoL3Jpc2N2L21tL2RtYS1ub25jb2hlcmVu
-dC5jDQo+ID4gQEAgLTQ1LDcgKzQ1LDcgQEAgdm9pZCBhcmNoX3N5bmNfZG1hX2Zvcl9jcHUocGh5
-c19hZGRyX3QgcGFkZHIsDQo+ID4gc2l6ZV90IHNpemUsDQo+ID4gwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqAgYnJlYWs7DQo+ID4gwqDCoMKgwqDCoCBjYXNlIERNQV9GUk9NX0RFVklDRToNCj4g
-PiDCoMKgwqDCoMKgIGNhc2UgRE1BX0JJRElSRUNUSU9OQUw6DQo+ID4gLcKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCBBTFRfQ01PX09QKGZsdXNoLCB2YWRkciwgc2l6ZSwNCj4gPiByaXNjdl9jYm9t
-X2Jsb2NrX3NpemUpOw0KPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgQUxUX0NNT19PUChp
-bnZhbCwgdmFkZHIsIHNpemUsDQo+ID4gcmlzY3ZfY2JvbV9ibG9ja19zaXplKTsNCj4gPiDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBicmVhazsNCj4gPiDCoMKgwqDCoMKgIGRlZmF1bHQ6DQo+
-ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgYnJlYWs7DQo+ID4gLS0NCj4gPiAyLjM3LjIN
-Cj4gPiANCj4gPiANCj4gPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXw0KPiA+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdA0KPiA+IGxpbnV4LXJpc2N2QGxp
-c3RzLmluZnJhZGVhZC5vcmcNCj4gPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2DQo+IA0KDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, 15 Aug 2022 15:14:55 PDT (-0700), Conor.Dooley@microchip.com wrote:
+> Hey Will/Palmer/Sudeep,
+> 
+> Catalin suggested [0] dropping the CC: stable for the arm64 patch and
+> instead making it a specific prereq of the RISC-V patch & making a PR,
+> so here we are.. I was still up when -rc1 came out so pushed it last
+> night to get the test coverage, but LKP seems to not have reported a
+> build success since early on the 13th so not holding my horses! I built
+> it again for both ARMs and RISC-V myself.
+> 
+> I tagged it tonight, so it's on conor/linux.git as riscv-topo-on-6.0-rc1
+> with the prereq specified.
+> 
+> Not sure if you want to merge this too Sudeep or if that's up to Greg?
+
+It's a little bit vague what you're asking for here, so I'm just going 
+to kind of guessing here but this on riscv/for-next.  I'm not sure if 
+you were looking for me to just merge the arch/riscv bits or if this 
+should be on fixes (just looking at the patch makes it look like it 
+should be), but I don't want to send up some arm64 code to fixes without 
+it being pretty explicit that I should do so
+
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com> # arch/riscv bits, for 6.0-rc
+
+in case someone else wants to send it up before I get back to this, I'm 
+fine either way.
+
+Thanks!
+
+> 
+> Thanks,
+> Conor.
+> 
+> 0 - https://lore.kernel.org/linux-riscv/Ytac7G1zlq6WW4jt@arm.com/
+> 
+> The following changes since commit 568035b01cfb107af8d2e4bd2fb9aea22cf5b868:
+> 
+>   Linux 6.0-rc1 (2022-08-14 15:50:18 -0700)
+> 
+> are available in the Git repository at:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/riscv-topo-on-6.0-rc1
+> 
+> for you to fetch changes up to fbd92809997a391f28075f1c8b5ee314c225557c:
+> 
+>   riscv: topology: fix default topology reporting (2022-08-15 22:07:34 +0100)
+> 
+> ----------------------------------------------------------------
+> Fix RISC-V's topology reporting
+> 
+> The goal here is the fix the incorrectly reported arch topology on
+> RISC-V which seems to have been broken since it was added.
+> cpu, package and thread IDs are all currently reported as -1, so tools
+> like lstopo think systems have multiple threads on the same core when
+> this is not true:
+> https://github.com/open-mpi/hwloc/issues/536
+> 
+> arm64's topology code basically applies to RISC-V too, so it has been
+> made generic along with the removal of MPIDR related code, which
+> appears to be redudant code since '3102bc0e6ac7 ("arm64: topology: Stop
+> using MPIDR for topology information")' replaced the code that actually
+> interacted with MPIDR with default values.
+> 
+> ----------------------------------------------------------------
+> Conor Dooley (2):
+>       arm64: topology: move store_cpu_topology() to shared code
+>       riscv: topology: fix default topology reporting
+> 
+>  arch/arm64/kernel/topology.c | 40 ----------------------------------------
+>  arch/riscv/Kconfig           |  2 +-
+>  arch/riscv/kernel/smpboot.c  |  3 ++-
+>  drivers/base/arch_topology.c | 19 +++++++++++++++++++
+>  4 files changed, 22 insertions(+), 42 deletions(-)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
