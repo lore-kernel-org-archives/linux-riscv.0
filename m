@@ -4,165 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E9CC00140
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 15:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB6EC00140
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 16:56:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NB7WgsD5e/OZ65QlHgfxAe9zXyEgZPh7ScRtt6FhNWg=; b=4GRzq7+4hCbj4N
-	3GxzLovJ5XVXWHN/xPX4S25sb4p9gdOsYRjwGFnGHNlcobpydrOAsZFpcpttzqZL+QziBBLnYf43y
-	JedpJnohMSaXCoU0Rutw6JZ5V8t86N/rBazVRj0rAY5PVEeXviJH+xRPtcD4JA/PPyWGIr581RWeQ
-	TwyFpvSo24mCi+LlgkOEUDTWUyEV4WOC0tuqqY3YTjl+LdtgmYc3zeMwPoMEumSHKVPHgVWloZDJ3
-	oO0E8vUWWQW6K6BGsxKe0BB70mQnCPhdmotColmclz4tlFnNv/iyQLhrWpJcw9/KTlNJ/PKbnajKe
-	liPgnAVle9Gr2nPtZxNA==;
+	List-Owner; bh=A7n31vTNNwMxfp4fNoggvmy6+YCwIufXqjlJwTf8ZnQ=; b=KBLFezzYWKU2a5
+	P7PpBZ4RozXEEnMGbExZYulZGFqVCEyJJMNeE22edtrWHgNIlpVUwIl+DcaRott0qImC6XBxcjOFs
+	GukCT9oqlJ0pDnfwmBFMNgbjGNnYHFTiSsy9hdoxD8KtKr/NxQYTNMNHDcrW3Lh3FjP3vi6SFDABG
+	uX4IIdgtxO9gjNmilou8X2HtVjbl/y07GqnP+EJ7y81uiothKISJv4YwGFrMd413Lr8GCzDrtfJzB
+	6UjFxku9yGqngzprV0jJ/ujh7lEW8zHHJGm4yCNCgsauaoWUEf5oefWhnE8ijugYF6YvzaWZvJDkz
+	QL4nxC+dlB/0B4pDDvEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOhaO-006hia-99; Thu, 18 Aug 2022 15:37:32 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oOioY-007JXy-2x; Thu, 18 Aug 2022 16:56:14 +0000
+Received: from mail-io1-f54.google.com ([209.85.166.54])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOhXF-006g1A-UU
-	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 15:34:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1660836857; x=1692372857;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=R76gBw/NRO8GN66duIy3eg/p0pnJDgZDtgiiUcrJGAY=;
-  b=lzUJlOwNveD2CVqrHwp+rfNoS7/ehjxIayOTSCDWx5pbOhLdE1N/s/VF
-   rjSPGC2mWp5twwXqbVIiSfs6Rd1CaEJZxQIPqfsIUM8R76nGCZR1j34YD
-   RInudCjzepXeu1ftN/2n9jRA59Yjx0yaV5q/62tLO8y1hjtaFDq6H5U8S
-   YN6P8GXXIyjwP8gAzHVJMjnyZc0ZCLQCtkr0LZ3Ojr6F/pGkF99E8ACBn
-   jZ1O/Ru/x/vrS1Bt03ZTZq/CzHtnWefGyiwEGrEQQ29dDLOI2U7MyFzwV
-   qzYLCvLJ5z2pCLU3neQw1zSRquOM82BhaJIxq+XRwFBqsFSV5u7RGosmj
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.93,247,1654585200"; 
-   d="scan'208";a="173062483"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 18 Aug 2022 08:34:13 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 18 Aug 2022 08:34:13 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12 via Frontend Transport; Thu, 18 Aug 2022 08:34:13 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=N8V02DA4eEE0AZ3XvWtMv3pEkLUI/jf8fccAbDO2H4/hxif53EQ/fgWyS1IumQIAeXGyPf6URVqSdvIyiqsPdJOhMaayJGA2P/veM/OB5oIunDfyvo/8RupNi3gwWTqf6FC2pcf9Q37kbUqZEiEerVBl7we9JkLFl/V3GjDHHJVzgkFxXLgbh7pZl5Bc+pZWZOm/CdE0k9t6EaIZBxqgU77r9u7ErNL+EGLHYqZ3DQpJWuJZF4SkIBsDJjWZeH/NEYLvOWYCssnIE5bbnsTwtS3f/iICktF24Oqm64pvIjCqLAhfd4VAUbsS2prgv9S2oNSXb9STbo56lmIeF94kXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R76gBw/NRO8GN66duIy3eg/p0pnJDgZDtgiiUcrJGAY=;
- b=f7jUapr9K+SjdvTu5+nWSEMhHQPz7fvZUcSlCouooV9EwPM4ZLU8uUbijrA/deEjkuTB5tvc6nSaTD30MgqlNngf0lU+bu/4FGASBLNIqFDTRJbrM8nnURcXoS0GQj0d8Ja6RBoSpKpIQdukmAmPmc2EuZJd53hlNGXHWi2cx6254ABjNqG05+qkQ2o6PsFVQ1lWn9dPwTYPI+9pq2F6MnBnrX+6w/j7ui11ej9mPZcy9IZao0rtLoC4jissz0nR9ekpll9dB/zjevTgO4p11H5Bl9syUxHhg78Fa07S9jY+vCsDUfprRpoyUPKofBROE9MZT84KVmQIm1T30dnrcw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R76gBw/NRO8GN66duIy3eg/p0pnJDgZDtgiiUcrJGAY=;
- b=QHOAw+IKYB3/CupDtQ/Cv78402fML4LFDO5OLdGPCkcs1slkfC4s0MdgFyJyDFfBhmZ8rhF5DdQzHW2TlVf9Oh93oNKtJQUbgNlv+Z7sVBONR3EyaBzOhyW0iAFUAdc+mlm1iqNiSgG66RZZ8iySdtjn/WKYwFP4DcuaXgcn714=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by BYAPR11MB2950.namprd11.prod.outlook.com (2603:10b6:a03:8f::29) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5546.16; Thu, 18 Aug
- 2022 15:34:08 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3%8]) with mapi id 15.20.5525.011; Thu, 18 Aug 2022
- 15:34:08 +0000
-From: <Conor.Dooley@microchip.com>
-To: <robh@kernel.org>, <mail@conchuod.ie>
-CC: <Daire.McNamara@microchip.com>, <bhelgaas@google.com>,
-	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
-	<greentime.hu@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<lpieralisi@kernel.org>, <linux-pci@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v2 2/6] dt-bindings: PCI: microchip,pcie-host: fix missing
- clocks properties
-Thread-Topic: [PATCH v2 2/6] dt-bindings: PCI: microchip,pcie-host: fix
- missing clocks properties
-Thread-Index: AQHYsZ2w57x2k2JvRkWEsDy3wuHtc620xQYAgAAHp4A=
-Date: Thu, 18 Aug 2022 15:34:08 +0000
-Message-ID: <006e078b-0e40-7e43-331c-97571fcc36f6@microchip.com>
-References: <20220816182547.3454843-1-mail@conchuod.ie>
- <20220816182547.3454843-3-mail@conchuod.ie>
- <20220818150644.GJ1829017-robh@kernel.org>
-In-Reply-To: <20220818150644.GJ1829017-robh@kernel.org>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 4b01f544-81d7-4459-ef8d-08da812f1763
-x-ms-traffictypediagnostic: BYAPR11MB2950:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: mkpghFERA1RgnUBV4DPUHKUxnDbi8TJR+OjXM48r3z370SSdi7NaFX/+aLvOSGKkgR++SwBt8r8Hpdxkq2LCaE7qpmP67cWpyaZLNKqfhe4aGNZpJ6jFw4cWz6QnhvfNwQJLK5T30LPbkePtfNvWqxMI3H1VXx2DBMxDnI9Wb9IejBAQ05ebwroUtuJ2h3BswjivLaxvJbBD2rPy/bSoe4WdawUFxbSF+FD4B3ELB1gg86Hj7guQLAus+5K2t91ZM6lBfaCpKAYdMUPLwQv+uTQy5Uca2+LfMUdCn4GaphhRQ+hxhbtDHA9/75aH+H9gBozOC+BcgPJQTfjwzjmwQclYGXsnl/2zP7NPdM41ZOnTuegB3EfzF4CblBVnA2NYKGQebB/Y2Utr2e0/igEJc/CjEzq4kvdsnphQQ0HrHG+pXUxfY7DUoonAPCPE+lpxjLjdbzIdIlzokM3zrBOM8Vn/izkz986DWQrdlF4TGwZDeDqUowZX2DwY1fBVRTikkTp9DgzTVV/pA/8fCNdVkUWs0GUZTxwm48draqKGm6EkcDMT5JYb50wCWf4k6HhyPTY5OEgcbcJDqZyzVvpHL8ftWeUaHZanyb7oLItnUWNjrOFvSFcRCDbVPsxfLknHU5eWx2BJgzE7ZT5iXj0ZOzp69tf5IXhG4DhEgqbCQKCc4fapUdNbTZJxJF13bHREzonr0F/a4h7rMUu4n3xo9c4IdaHd1BLvxX9MU0w8ImKu2VQe5Srbq3gIJGfJZaEjXxqbNmrlbW0h2Q8kRblsr0nievBpiAqfoWpo1O1Utz3908rRX94BKKaqVyjIhOlQ5hpsxoeYM9jAgVCL21Z6UkucVtW+cpC0Cy19mISJY5w=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(376002)(39860400002)(136003)(346002)(396003)(366004)(966005)(6506007)(53546011)(66946007)(64756008)(66556008)(7416002)(66446008)(76116006)(2616005)(66476007)(4326008)(186003)(26005)(91956017)(6486002)(8676002)(5660300002)(41300700001)(8936002)(6512007)(83380400001)(38070700005)(478600001)(2906002)(31696002)(38100700002)(86362001)(316002)(36756003)(122000001)(110136005)(31686004)(54906003)(71200400001)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aHEyY3ZVS0c1bGxIR21OR3c5d0ZYZHRMMUl3MEludElFWU93Y2cvWUhBQ3BH?=
- =?utf-8?B?Kys1WDltQ0tMTDBFYThPWGIzdmkrQU5iTm1zVURGRGY0TGE2aWFKUWxTdXBO?=
- =?utf-8?B?TXFiY3pTTjhTbVkyQm1TU0dqMHAvRlpHT3JUYWJZU1NoWFEwVUI3VkJrczhE?=
- =?utf-8?B?dzZiSEFVbHBVT0hMVDdtOW9HUVZMS0RsMUJEc0NrSWhaNnlhQldBUG5VVDdx?=
- =?utf-8?B?Q0w3aWwrSG9iSkRaQ3F3TzBIL2RBckNldlFWTGhOSnppc2hWeGRYckVINWNp?=
- =?utf-8?B?NVNvT0pDZXdVdDRlRlF0dVR5Ym1TZFo0c3lYZFFJZXplRHZXNUtKNWozaWM0?=
- =?utf-8?B?OHZOYmpwL3ZCWkIxei9NOGc5cEFZVkozc3JHeGlqTGRzWHNzOVJESStCeDVt?=
- =?utf-8?B?NlBBV3dZVXJrN2JNS21WcWhLbHR6RmFpSWIzRGhzTFI1azRxUWQwanpSZ0Ez?=
- =?utf-8?B?SXRDLzRUVlhySXBVTldQMTNnRjE0Nk5idkZGczF0eHFkOXU2bnZ1cWJZY2VB?=
- =?utf-8?B?d1NJU1c0R0R2T0t0cXYrN2NselNHR2VoSDNvdG9yRGk0QmxUU0tVeWtnbzRO?=
- =?utf-8?B?QUtPYmdBOHZ0azhhejZvTXY4SnEvdzYvR3o1OUVjREkvSk1WajNHK0g1RWRo?=
- =?utf-8?B?Y1lWUkcwYkhhblozUStMenRkUVNNRGJwSXFlRHJHOUsvdGh1OVp0Ui9teHM0?=
- =?utf-8?B?S0RhRUtBdWZYR1dKV3R4MWZpcmREeGdqeTI3ck1SbDhFcTcvTnpicWVzcXk0?=
- =?utf-8?B?YzNITjQ2Q1laam0vVTZQNS9HQ0trWmowR2ZaVG5CYklOaVNuaW40TEFuU3cw?=
- =?utf-8?B?b1lnSHVMbzNsbzRqYUwyZ282VFVNUkIzb1hScFFvcm9zaHJCcHNWWWNoYmN6?=
- =?utf-8?B?ZWdLRVJpMnFzL2NjWFBGc2ZGSE9XU29sZ20wTjdZbHpQZERybnlMZ1lqa0xh?=
- =?utf-8?B?NWZ6TVlEQy9OVWZqUE1wcGJYbU9NSGZ6UWtkYk1uUTBEYUxLbXFNRkg1dzJt?=
- =?utf-8?B?cVZjNG1HdEROMTg1S3ZpQkZWTk9Ra0s4T3JYR2VMcjc4S2MzcytaTjA5b1o3?=
- =?utf-8?B?bmVxTTNqVTE1UjQ3R21iR3o1WUdDOVlUZFdKeUpDRHhsZ21zcEtEQjI4RUVp?=
- =?utf-8?B?Q1ViVDNtR05VNEQwdFdkMC8wWU05MnI5V1dHQlF6K25LSElWMzhwekRPTjQ1?=
- =?utf-8?B?Vk91aGJuQ3pMZENiZ2hvcHRZYjhNK3ZiUElTUUM1QytnZ0dEQlVjTUxnR21t?=
- =?utf-8?B?WXdlZ1ZRYTlCRXNaOEZUdjg4SEVGNEpRVmxyN3dBTitVTXhPdnFmRkUxblZm?=
- =?utf-8?B?SzVDbE44TjhvZmxZSWJFUGg5eUhkMHJENTJjOExyYWdjZ1cyTy9mYzk2d3Fw?=
- =?utf-8?B?ZzM5NHNYMWtYTWpTMWV6a2dZdkNnSjMzNFluWkpOVTUzcC9Wb25LemlqRit6?=
- =?utf-8?B?RWZIa1QyUWt3WGdSR1l1VHJDRkZrTWJTK2RKRFNGbCtBYi9PdENPakJSKzVo?=
- =?utf-8?B?VVRtcEFKVE80bmw2eVVGTVc1YkhPcUNHbHdzYmVJMFUzZDlKZ1NybVFBUGdB?=
- =?utf-8?B?YU9KOHVpVG1LYUlzMkhncjlvcHV6cmJ0YmNxRzZjVTN3SFlHMGJ0RFF4YTBm?=
- =?utf-8?B?WHFybzhWaUoxaGtzTUlEYlNVbXVTYlBpTmNpcElaMUtuK0lXbVVJVmdOR2xB?=
- =?utf-8?B?aHhHbnBxUzV3eUptNlNPYVI5SXZLRWdhd2QyZ2xGU2ZwNlhKd1pFRTRoaU5I?=
- =?utf-8?B?VXdKT2hVUnoxYnNsWVVHTTNQMEs3LzAvYXZ0OSt6MWN3bEVMYXB5bnM0NDc3?=
- =?utf-8?B?QkpVVGhwRzdRQ3pxM2szcEZualVhenRKTVQvUnc4TlZwWnBZUGRFVkowc2tS?=
- =?utf-8?B?Ymh2eEtBdzNPOWsyM3l6a1puOFQxOFZpT2xJbDJrR0tBNnVGdE8vRjVQVXA0?=
- =?utf-8?B?dU9ad3h4V1NUZU9ZUTJMdSt1amJwU3l0MHMyQzRyR1g5ekR3MGhHd1Qrd0xU?=
- =?utf-8?B?MktscWNDVE5Qc3E0WVZhYWRMN3NSNWhWbCtXTFBmSnMrNm0rdURvRit1UlVJ?=
- =?utf-8?B?a2g3bDVTcFJ5Z3dWTW5kckYzTTBaRHZBUERaaVppY0htUlNSS0d2bFQ3eUhT?=
- =?utf-8?Q?FoEJ/pRNgVwbncX5cWaygsJwX?=
-Content-ID: <08C8CCF8BB4A494B8B796B99EFB85FFA@namprd11.prod.outlook.com>
+	id 1oOiVw-007AKE-6K
+	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 16:37:01 +0000
+Received: by mail-io1-f54.google.com with SMTP id r141so1494801iod.4
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Aug 2022 09:36:55 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc;
+        bh=EsZP3ELRo6TTGsFBmByT42JNw5wBc7RlaMRIBETg5Gc=;
+        b=EVB3/Davg0nC8z4qlQTQkxQ7PS6kzCBsjbXN20UfiecGkJi6zsPiplMoSFC/nfuyZu
+         Z7tWV4jblV0zMZOlBQR41BwgmIcZKp9KVCehd6viu2V6UAtGyvvJKV3oqm8sPXOwePbG
+         dFl/S9RsklwF/UdY7u+6eH3a0tHfCDQxzNaPuroqD5ui27CMuaKvjzVBJQHDsw7Us305
+         ekZ/egRVSYbmKAU0uEDIB/Uiek/yKv8rY6OnC4mBFQVBLVebM1pgr+iegkCM+jVKKypz
+         7jFbKknzfXQH4ml3yUVnpIeMmKUPjzEKYUoTtJl1H2+/9QK7Vn879QPNt9EB1L61deHy
+         f62g==
+X-Gm-Message-State: ACgBeo0Z01RUQIReWKZT3mgymrO8XPAsIkRTcCieXZPvpZlfvFJ7Pd0s
+	0kTADG1Q059xtIVvbD0cpVCmfty3uA==
+X-Google-Smtp-Source: AA6agR7XYb4e6JSFTnrS/q7WlPl4E2gg4SEWAy++LgChjlcloI3dnrD9XsgcrfX8E4rSums27VI5/w==
+X-Received: by 2002:a05:6602:330e:b0:67b:9fed:49db with SMTP id b14-20020a056602330e00b0067b9fed49dbmr1740842ioz.54.1660840614873;
+        Thu, 18 Aug 2022 09:36:54 -0700 (PDT)
+Received: from robh.at.kernel.org ([2607:fb90:647:4ff2:3529:f8cd:d6cd:ac54])
+        by smtp.gmail.com with ESMTPSA id b40-20020a0295ab000000b003427281824csm756542jai.128.2022.08.18.09.36.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Aug 2022 09:36:54 -0700 (PDT)
+Received: (nullmailer pid 1996636 invoked by uid 1000);
+	Thu, 18 Aug 2022 16:36:48 -0000
+Date: Thu, 18 Aug 2022 10:36:48 -0600
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <mail@conchuod.ie>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel <anup@brainfault.org>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Sagar Kadam <sagar.kadam@sifive.com>, Jessica Clarke <jrtc27@jrtc27.com>, Andrew Jones <ajones@ventanamicro.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, qemu-riscv@nongnu.org
+Subject: Re: [PATCH v3 2/4] dt-bindings: interrupt-controller: sifive,plic:
+ add legacy riscv compatible
+Message-ID: <20220818163648.GD1978870-robh@kernel.org>
+References: <20220817201212.990712-1-mail@conchuod.ie>
+ <20220817201212.990712-3-mail@conchuod.ie>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b01f544-81d7-4459-ef8d-08da812f1763
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Aug 2022 15:34:08.1749
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: WH9QbrYIGoI5xoImyxW55IJCMOcU4IcdmdIBe6Nl/+2jUA9+oUG4uLL3OHZUb0XwVlxwiQbfNaRXumO/bDiOUe631XpPOlftmizwjnvBTyM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BYAPR11MB2950
+Content-Disposition: inline
+In-Reply-To: <20220817201212.990712-3-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220818_083418_387695_A1F0157F 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20220818_093700_273462_8F350C87 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,81 +80,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 18/08/2022 16:06, Rob Herring wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+On Wed, Aug 17, 2022 at 09:12:11PM +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 > 
-> On Tue, Aug 16, 2022 at 07:25:44PM +0100, Conor Dooley wrote:
->> From: Conor Dooley <conor.dooley@microchip.com>
->>
->> Recent versions of dt-schema warn about unevaluatedProperties:
->> arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dtb: pcie@2000000000: Unevaluated properties are not allowed ('clock-names', 'clocks', 'legacy-interrupt-controller', 'microchip,axi-m-atr0' were unexpected)
->>         From schema: Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
->>
->> The clocks are required to enable interfaces between the FPGA fabric
->> and the core complex, so add them to the binding.
->>
->> Fixes: 6ee6c89aac35 ("dt-bindings: PCI: microchip: Add Microchip PolarFire host binding")
->> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
->> ---
->> dt-schema v2022.08 is required to replicate
->> ---
->>  .../bindings/pci/microchip,pcie-host.yaml     | 25 +++++++++++++++++++
->>  1 file changed, 25 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
->> index edb4f81253c8..6bbde8693ef8 100644
->> --- a/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
->> +++ b/Documentation/devicetree/bindings/pci/microchip,pcie-host.yaml
->> @@ -25,6 +25,31 @@ properties:
->>        - const: cfg
->>        - const: apb
->>
->> +  clocks:
->> +    description:
->> +      Fabric Interface Controllers, FICs, are the interface between the FPGA
->> +      fabric and the core complex on PolarFire SoC. The FICs require two clocks,
->> +      one from each side of the interface. The "FIC clocks" described by this
->> +      property are on the core complex side & communication through a FIC is not
->> +      possible unless it's corresponding clock is enabled. A clock must be
->> +      enabled for each of the interfaces the root port is connected through.
->> +      This could in theory be all 4 interfaces, one interface or any combination
->> +      in between.
->> +    minItems: 1
->> +    items:
->> +      - description: FIC0's clock
->> +      - description: FIC1's clock
->> +      - description: FIC2's clock
->> +      - description: FIC3's clock
->> +
->> +  clock-names:
->> +    description:
->> +      As any FIC connection combination is possible, the names should match the
->> +      order in the clocks property and take the form "ficN" where N is a number
->> +      0-3
->> +    minItems: 1
->> +    maxItems: 4
+> While "real" hardware might not use the compatible string "riscv,plic0"
+> it is present in the driver & QEMU uses it for automatically generated
+> virt machine dtbs. To avoid dt-validate problems with QEMU produced
+> dtbs, such as the following, add it to the binding.
 > 
-> items:
->   pattern: '^fic[0-3]$'
+> riscv-virt.dtb: plic@c000000: compatible: 'oneOf' conditional failed, one must be fixed:
+>         'sifive,plic-1.0.0' is not one of ['sifive,fu540-c000-plic', 'starfive,jh7100-plic', 'canaan,k210-plic']
+>         'sifive,plic-1.0.0' is not one of ['allwinner,sun20i-d1-plic']
+>         'sifive,plic-1.0.0' was expected
+>         'thead,c900-plic' was expected
+> riscv-virt.dtb: plic@c000000: '#address-cells' is a required property
+> 
+> Reported-by: Rob Herring <robh@kernel.org>
+> Link: https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml     | 5 +++++
+>  1 file changed, 5 insertions(+)
 
-I'm glad you wrote this one for me Rob!
-I'll send another version next week.
-Thanks,
-Conor.
-
-> 
->> +
->>    interrupts:
->>      minItems: 1
->>      items:
->> --
->> 2.37.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Reviewed-by: Rob Herring <robh@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
