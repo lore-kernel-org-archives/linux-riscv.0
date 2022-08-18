@@ -4,73 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF38EC25B08
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 01:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C05DC28B2B
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 04:39:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jz8FXGdiR31JCLT9fFCrvWwMFEwur2mTEN1m5OP42aA=; b=hqH8T0D0IjKcGO
-	S12VI1UKvmtBgeqpLQrASORXLaPm3jqpo8+N8q260rJuYF1Q+Qo4RGJwfUOuCqDTD96LoaWWTwSgN
-	l7EQ29K/OlGlJH9WEFvCgmOarCGewM6xZKLc2NCyfqfrUxJoUjATAgFtGqSn/uFhzDYXFtOqcsznw
-	SkuY/EqGcwcKEPd9YUTa8IGQ3dCRVVZKKWOHEoksCybwtsvZMHaCj9ALN4H7+7ZotmWzpoXl9ntcF
-	Dsno/tnyQ73c/LKB1fygfsMn7oyLFi9QJGY2zNpn9mBiCajcwwry2WvAleWWkUjV38V6EHY4CQiSL
-	OQo3LcQgfREiy5IXflFw==;
+	List-Owner; bh=5op8Kz7py/MJZOk36SawhJdedjxV488ZRNgHF+txtkg=; b=RKfAXy8/W7I8Pb
+	kCrHl6g4xVIItNIO8yvjwIiTQAs17oDtwAIt/sFVA+64DnI+1UZIWotbhAWykIYIfefx9Y/DUOdat
+	+WbQh+gkibXxU1nSDnWvUo2dRuUiVDWKYqzdtabOD6QxfEtPC4v2BIYGwvsRxJmircCAw0h+OzeLF
+	/zVjBPNP+TwYprgDl3Dk30k1BKkWnI7C0zLhRqWigDkAhMcF4wa0IDHg7dHJtKOELjMy/qcDFjkIM
+	wFE1DU7p/h1bS7fY7hxvTk8dJTl3hnPk+VEwJkmMECbeolke/31ElZ9JGuVXf5WCHlT+BZMZ7AL9+
+	fkw29QP226KmbxHhg9eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOUQb-00AGPX-FJ; Thu, 18 Aug 2022 01:34:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oOXIt-00EfTO-E1; Thu, 18 Aug 2022 04:38:47 +0000
+Received: from out30-43.freemail.mail.aliyun.com ([115.124.30.43])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOUQY-00AGMR-5t
-	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 01:34:32 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id C07CE61448
-	for <linux-riscv@lists.infradead.org>; Thu, 18 Aug 2022 01:34:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E98DC433D7
-	for <linux-riscv@lists.infradead.org>; Thu, 18 Aug 2022 01:34:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1660786468;
-	bh=kP4YOam2hByoegQxQhqeKz8KDadmZLi7KWGXkubaXe4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=R+DtF7mF4gW5JC/nQL80DCntaf5YbVpLMJHXAK6pdHS8wdsqhTF7HHv7bT8jCzFDi
-	 +Bn5fY5n/zIvD652/Yd2Q37JdsEAQBo0ex2bMTowbHgd95HBEA8H8H0l+JjS4O6wtd
-	 ZP7GmpBPu5zTyPlVqbpgPFv64d7poWENXK+uXTFtD/PlXqLYRMKP8Zum810UFhKxIs
-	 qmM82d+8WtO+dGHNrcRVbZVeT673osqqEqitSSNJX7BylANr7faWnS+s9bjstzeVyq
-	 schScVCuO9tjX3AxPNPhpndOWX9G9XiPe7qwtbS03PPG8s0I3KTH+B1kAPxNR/nIll
-	 wT9Fe4s/9bURA==
-Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-f2a4c51c45so259467fac.9
-        for <linux-riscv@lists.infradead.org>; Wed, 17 Aug 2022 18:34:28 -0700 (PDT)
-X-Gm-Message-State: ACgBeo0BGqiM3oc8UeDrqklCt9eNXcHpETgXMEZG5U88XD7dKxAKDmWv
-	PqBPgdnVAS9T0F+YMISYSoUhTYfJPKafx2RBVsA=
-X-Google-Smtp-Source: AA6agR4J6/us0+dWTGNwHTCn9YSwBuzEjqLrB5jaad8CPFvVq7zCyrBlCYZuLuiey4qwwj63YqloHOXjEAzz1mQNFKg=
-X-Received: by 2002:a05:6870:8a13:b0:10e:7c08:36ba with SMTP id
- p19-20020a0568708a1300b0010e7c0836bamr3039976oaq.19.1660786467200; Wed, 17
- Aug 2022 18:34:27 -0700 (PDT)
+	id 1oOXIp-00Ef3G-ID
+	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 04:38:46 +0000
+X-Alimail-AntiSpam: AC=PASS;BC=-1|-1;BR=01201311R781e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=ay29a033018046050;MF=xianting.tian@linux.alibaba.com;NM=1;PH=DS;RN=13;SR=0;TI=SMTPD_---0VMZPVz8_1660797509;
+Received: from 192.168.1.120(mailfrom:xianting.tian@linux.alibaba.com fp:SMTPD_---0VMZPVz8_1660797509)
+          by smtp.aliyun-inc.com;
+          Thu, 18 Aug 2022 12:38:31 +0800
+Message-ID: <5b7b3f1c-637c-37bf-9a32-244eb62d543d@linux.alibaba.com>
+Date: Thu, 18 Aug 2022 12:38:29 +0800
 MIME-Version: 1.0
-References: <20220817201212.990712-1-mail@conchuod.ie> <20220817201212.990712-4-mail@conchuod.ie>
-In-Reply-To: <20220817201212.990712-4-mail@conchuod.ie>
-From: Guo Ren <guoren@kernel.org>
-Date: Thu, 18 Aug 2022 09:34:14 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRRjKVOnd5Yj_btfD2UhKzmXXcJCo_1-62MVkM85A=99g@mail.gmail.com>
-Message-ID: <CAJF2gTRRjKVOnd5Yj_btfD2UhKzmXXcJCo_1-62MVkM85A=99g@mail.gmail.com>
-Subject: Re: [PATCH v3 3/4] dt-bindings: riscv: add new riscv,isa strings for emulators
-To: Conor Dooley <mail@conchuod.ie>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel <anup@brainfault.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Sagar Kadam <sagar.kadam@sifive.com>, 
-	Jessica Clarke <jrtc27@jrtc27.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, qemu-riscv@nongnu.org, 
-	Rob Herring <robh@kernel.org>
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:91.0)
+ Gecko/20100101 Thunderbird/91.12.0
+Subject: Re: [PATCH V2 1/2] riscv: kexec: Disable all interrupts in kexec
+ crash path
+To: guoren@kernel.org, palmer@dabbelt.com, heiko@sntech.de,
+ conor.dooley@microchip.com
+Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, liaochang1@huawei.com, mick@ics.forth.gr,
+ jszhang@kernel.org, Guo Ren <guoren@linux.alibaba.com>,
+ Will Deacon <will.deacon@arm.com>,
+ AKASHI Takahiro <takahiro.akashi@linaro.org>
+References: <20220817161258.748836-1-guoren@kernel.org>
+ <20220817161258.748836-2-guoren@kernel.org>
+From: Xianting Tian <xianting.tian@linux.alibaba.com>
+In-Reply-To: <20220817161258.748836-2-guoren@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220817_183430_356902_B9A2773F 
-X-CRM114-Status: GOOD (  32.99  )
+X-CRM114-CacheID: sfid-20220817_213843_841912_13BDBE23 
+X-CRM114-Status: GOOD (  18.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,96 +61,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 18, 2022 at 4:12 AM Conor Dooley <mail@conchuod.ie> wrote:
->
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> The QEMU virt and spike machines currently export a riscv,isa string of
-> "rv64imafdcsuh",
->
-> While the RISC-V foundation has been ratifying a bunch of extenstions
-> etc, the kernel has remained relatively static with what hardware is
-> supported - but the same is not true of QEMU. Using the virt machine
-> and running dt-validate on the dumped dtb fails, partly due to the
-> unexpected isa string.
->
-> Rather than enumerate the many many possbilities, change the pattern
-> to a regex, with the following assumptions:
-> - the single letter order is fixed & we don't care about things that
->   can't even do "ima"
-> - the standard multi letter extensions are all in a "_z<foo>" format
->   where the first letter of <foo> is a valid single letter extension
-> - _s & _h are used for supervisor and hyper visor extensions.
-> - after the first two chars, a standard multi letter extension name
->   could be an english   word (ifencei anyone?) so it's not worth
->   restricting the charset
-> - vendor ISA extensions begind with _x and have no charset restrictions
-> - we don't care about an e extension from an OS pov
-> - that attempting to validate the contents of the multiletter extensions
->   with dt-validate beyond the formatting is a futile, massively verbose
->   or unwieldy exercise at best.
-> - ima are required
->
-> The following limitations also apply:
-> - multi letter extension ordering is not enforced. dt-schema does not
->   appear to allow for named match groups, so the resulting regex would
->   be even more of a headache.
-> - ditto for the numbered extensions.
->
-> Finally, add me as a maintainer of the binding so that when it breaks
-> in the future, I can be held responsible!
->
-> Reported-by: Rob Herring <robh@kernel.org>
-> Link: https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Palmer, feel free to drop the maintainer addition. I just mostly want
-> to clean up my own mess on this when they decide to ratify more
-> extensions & this comes back up again.
-> ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> index 873dd12f6e89..c0e0bc5dce04 100644
-> --- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-> @@ -9,6 +9,7 @@ title: RISC-V bindings for 'cpus' DT nodes
->  maintainers:
->    - Paul Walmsley <paul.walmsley@sifive.com>
->    - Palmer Dabbelt <palmer@sifive.com>
-> +  - Conor Dooley <conor@kernel.org>
-Acked-by: Guo Ren <guoren@kernel.org>
-
->
->  description: |
->    This document uses some terminology common to the RISC-V community
-> @@ -79,9 +80,7 @@ properties:
->        insensitive, letters in the riscv,isa string must be all
->        lowercase to simplify parsing.
->      $ref: "/schemas/types.yaml#/definitions/string"
-> -    enum:
-> -      - rv64imac
-> -      - rv64imafdc
-> +    pattern: ^rv(?:64|32)imaf?d?q?c?b?v?k?h?(?:(?:_[zsh][imafdqcbvksh]|_x)(?:[a-z])+)*$
->
->    # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
->    timebase-frequency: false
-> --
-> 2.37.1
->
-
-
--- 
-Best Regards
- Guo Ren
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SXQgaXMgb2sgZm9yIG1lCgpSZXZpZXdlZC1ieTogWGlhbnRpbmcgVGlhbiA8eGlhbnRpbmcudGlh
+bkBsaW51eC5hbGliYWJhLmNvbT4KCuWcqCAyMDIyLzgvMTgg5LiK5Y2IMTI6MTIsIGd1b3JlbkBr
+ZXJuZWwub3JnIOWGmemBkzoKPiBGcm9tOiBHdW8gUmVuIDxndW9yZW5AbGludXguYWxpYmFiYS5j
+b20+Cj4KPiBJZiBhIGNyYXNoIGhhcHBlbnMgb24gY3B1MyBhbmQgYWxsIGludGVycnVwdHMgYXJl
+IGJpbmRpbmcgb24gY3B1MCwgdGhlCj4gYmFkIGlycSByb3V0aW5nIHdpbGwgY2F1c2UgYSBjcmFz
+aCBrZXJuZWwgd2hpY2ggY2FuJ3QgcmVjZWl2ZSBhbnkgaXJxLgo+IEJlY2F1c2UgY3Jhc2gga2Vy
+bmVsIHdvbid0IGNsZWFuIHVwIGFsbCBoYXJ0cycgUExJQyBlbmFibGUgYml0cyBpbgo+IGVuYWJs
+ZSByZWdpc3RlcnMuIFRoaXMgcGF0Y2ggaXMgc2ltaWxhciB0byA5MTQxYTAwM2E0OTEgKCJBUk06
+IDczMTYvMToKPiBrZXhlYzogRU9JIGFjdGl2ZSBhbmQgbWFzayBhbGwgaW50ZXJydXB0cyBpbiBr
+ZXhlYyBjcmFzaCBwYXRoIikgYW5kCj4gNzhmZDU4NGNkZWMwICgiYXJtNjQ6IGtkdW1wOiBpbXBs
+ZW1lbnQgbWFjaGluZV9jcmFzaF9zaHV0ZG93bigpIiksIGFuZAo+IFBvd2VyUEMgYWxzbyBoYXMg
+dGhlIHNhbWUgbWVjaGFuaXNtLgo+Cj4gRml4ZXM6IGZiYThhODY3NGY2OCAoIlJJU0MtVjogQWRk
+IGtleGVjIHN1cHBvcnQiKQo+IFNpZ25lZC1vZmYtYnk6IEd1byBSZW4gPGd1b3JlbkBsaW51eC5h
+bGliYWJhLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBHdW8gUmVuIDxndW9yZW5Aa2VybmVsLm9yZz4K
+PiBDYzogV2lsbCBEZWFjb24gPHdpbGwuZGVhY29uQGFybS5jb20+Cj4gQ2M6IEFLQVNISSBUYWth
+aGlybyA8dGFrYWhpcm8uYWthc2hpQGxpbmFyby5vcmc+Cj4gQ2M6IE5pY2sgS29zc2lmaWRpcyA8
+bWlja0BpY3MuZm9ydGguZ3I+Cj4gLS0tCj4gICBhcmNoL3Jpc2N2L2tlcm5lbC9tYWNoaW5lX2tl
+eGVjLmMgfCAzNSArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gICAxIGZpbGUgY2hh
+bmdlZCwgMzUgaW5zZXJ0aW9ucygrKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVs
+L21hY2hpbmVfa2V4ZWMuYyBiL2FyY2gvcmlzY3Yva2VybmVsL21hY2hpbmVfa2V4ZWMuYwo+IGlu
+ZGV4IGVlNzllNjgzOWI4Ni4uZGI0MWM2NzZlNWEyIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
+a2VybmVsL21hY2hpbmVfa2V4ZWMuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL21hY2hpbmVf
+a2V4ZWMuYwo+IEBAIC0xNSw2ICsxNSw4IEBACj4gICAjaW5jbHVkZSA8bGludXgvY29tcGlsZXIu
+aD4JLyogRm9yIHVucmVhY2hhYmxlKCkgKi8KPiAgICNpbmNsdWRlIDxsaW51eC9jcHUuaD4JCS8q
+IEZvciBjcHVfZG93bigpICovCj4gICAjaW5jbHVkZSA8bGludXgvcmVib290Lmg+Cj4gKyNpbmNs
+dWRlIDxsaW51eC9pbnRlcnJ1cHQuaD4KPiArI2luY2x1ZGUgPGxpbnV4L2lycS5oPgo+ICAgCj4g
+ICAvKgo+ICAgICoga2V4ZWNfaW1hZ2VfaW5mbyAtIFByaW50IHJlY2VpdmVkIGltYWdlIGRldGFp
+bHMKPiBAQCAtMTU0LDYgKzE1NiwzNyBAQCB2b2lkIGNyYXNoX3NtcF9zZW5kX3N0b3Aodm9pZCkK
+PiAgIAljcHVzX3N0b3BwZWQgPSAxOwo+ICAgfQo+ICAgCj4gK3N0YXRpYyB2b2lkIG1hY2hpbmVf
+a2V4ZWNfbWFza19pbnRlcnJ1cHRzKHZvaWQpCj4gK3sKPiArCXVuc2lnbmVkIGludCBpOwo+ICsJ
+c3RydWN0IGlycV9kZXNjICpkZXNjOwo+ICsKPiArCWZvcl9lYWNoX2lycV9kZXNjKGksIGRlc2Mp
+IHsKPiArCQlzdHJ1Y3QgaXJxX2NoaXAgKmNoaXA7Cj4gKwkJaW50IHJldDsKPiArCj4gKwkJY2hp
+cCA9IGlycV9kZXNjX2dldF9jaGlwKGRlc2MpOwo+ICsJCWlmICghY2hpcCkKPiArCQkJY29udGlu
+dWU7Cj4gKwo+ICsJCS8qCj4gKwkJICogRmlyc3QgdHJ5IHRvIHJlbW92ZSB0aGUgYWN0aXZlIHN0
+YXRlLiBJZiB0aGlzCj4gKwkJICogZmFpbHMsIHRyeSB0byBFT0kgdGhlIGludGVycnVwdC4KPiAr
+CQkgKi8KPiArCQlyZXQgPSBpcnFfc2V0X2lycWNoaXBfc3RhdGUoaSwgSVJRQ0hJUF9TVEFURV9B
+Q1RJVkUsIGZhbHNlKTsKPiArCj4gKwkJaWYgKHJldCAmJiBpcnFkX2lycV9pbnByb2dyZXNzKCZk
+ZXNjLT5pcnFfZGF0YSkgJiYKPiArCQkgICAgY2hpcC0+aXJxX2VvaSkKPiArCQkJY2hpcC0+aXJx
+X2VvaSgmZGVzYy0+aXJxX2RhdGEpOwo+ICsKPiArCQlpZiAoY2hpcC0+aXJxX21hc2spCj4gKwkJ
+CWNoaXAtPmlycV9tYXNrKCZkZXNjLT5pcnFfZGF0YSk7Cj4gKwo+ICsJCWlmIChjaGlwLT5pcnFf
+ZGlzYWJsZSAmJiAhaXJxZF9pcnFfZGlzYWJsZWQoJmRlc2MtPmlycV9kYXRhKSkKPiArCQkJY2hp
+cC0+aXJxX2Rpc2FibGUoJmRlc2MtPmlycV9kYXRhKTsKPiArCX0KPiArfQo+ICsKPiAgIC8qCj4g
+ICAgKiBtYWNoaW5lX2NyYXNoX3NodXRkb3duIC0gUHJlcGFyZSB0byBrZXhlYyBhZnRlciBhIGtl
+cm5lbCBjcmFzaAo+ICAgICoKPiBAQCAtMTY5LDYgKzIwMiw4IEBAIG1hY2hpbmVfY3Jhc2hfc2h1
+dGRvd24oc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4gICAJY3Jhc2hfc21wX3NlbmRfc3RvcCgpOwo+
+ICAgCj4gICAJY3Jhc2hfc2F2ZV9jcHUocmVncywgc21wX3Byb2Nlc3Nvcl9pZCgpKTsKPiArCW1h
+Y2hpbmVfa2V4ZWNfbWFza19pbnRlcnJ1cHRzKCk7Cj4gKwo+ICAgCXByX2luZm8oIlN0YXJ0aW5n
+IGNyYXNoZHVtcCBrZXJuZWwuLi5cbiIpOwo+ICAgfQo+ICAgCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
