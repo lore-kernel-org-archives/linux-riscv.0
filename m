@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117A4C00140
-	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 23:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31257C00140
+	for <linux-riscv@archiver.kernel.org>; Thu, 18 Aug 2022 23:02:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=eUcoYUOiQnh9T7jHbekLfbq7AlqIPnPbzh8Uec7eefA=; b=czV26S7brpAeahpvficVK4/GnX
-	1nMooUhWM8MgCzV60WTfUi2aBE1PzFoRsu2GFsvQ5+/9qYV1WOMfghY+xuEqXglaXRKSuc9NQGKA0
-	uPL3EBO/4uAyjDDf/S+W4WPTIv41wQHoAqSKfQ2fmvIZlOXLxx5XtZ/Eyc5PUn1zgn/gcwE2/ALuU
-	TRjJLax4NL5B6/1nWzGMdnWFlTq29J34luo/Ej3y0+ij0XIH8MM4ZuFNK+3CZl3eHkSd5PdrLTZm7
-	wPzPhwmzETue9sLfn/uwNRQHyHc4rcRwDDdEdJtyvK04IS9DMXXBoZoXI6KMFWkO8xsbFubGtOEE9
-	wATQu1tg==;
+	bh=IplRhtRC0POdKE3qwwfft6MBo+tIC8JZTJy/pynEZGY=; b=zR1BK/jFaYNlvCai+OdX/QWSRj
+	MyTfU74Oxw+V8Ee3RPNuJGsTdGOQd9HwYHEB1zeL+4r4I+WeEGN7avkvQlg8KFTRQ1sMSRUO41fuT
+	i8avLLEc8zUosS+MMUn01cl/QGvueQjBY9stCR+9bZzQfNdAUKDZgfCvdMXVUgz6lcOL0iLzN9NDO
+	AGWv4CIWM2HQrpKtVUzDPq1gzkuGCvBVTOUycN4B/vz4aMaxqpqvJ7XuksN5JFLHNCaw4d/7KKGZ0
+	2J8E/jjwjUz3ftdYhIwIuNXoIyuUMCHzMh0Jl4NefcR0ksXZGMicOgGkqobzY8P37eiVpItAUffsv
+	gZ12Vfbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOoWc-00Aw5V-VI; Thu, 18 Aug 2022 23:02:06 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1oOoWf-00Aw9R-Cp; Thu, 18 Aug 2022 23:02:09 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOoWO-00Avv5-9A
-	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 23:01:54 +0000
-Received: by mail-pf1-x436.google.com with SMTP id q19so2824312pfg.8
-        for <linux-riscv@lists.infradead.org>; Thu, 18 Aug 2022 16:01:50 -0700 (PDT)
+	id 1oOoWS-00Avw9-7u
+	for linux-riscv@lists.infradead.org; Thu, 18 Aug 2022 23:01:57 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id bf22so3030201pjb.4
+        for <linux-riscv@lists.infradead.org>; Thu, 18 Aug 2022 16:01:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc;
-        bh=SxaLsX428RZ1ZZyMkLyl/R5gnokZLMcHhNXNy7HvM88=;
-        b=4+Y1eqAiSxrv3E//VJOhwkg21D0C7aB4SuNyn+JjsLKC7DbPsOtjZWhnGw2mRfsutM
-         E1PX4UErDhJZVs/98LTU5RAjvUaEsGOHujGX2T6KDVh09ayC3+dR94khPNTnpFIdouJ0
-         lLzYwf38HARVztEwMQiEmwDSvIi/B7FG79sHmkaEPCcPmD0zh42aDtjfdYHz2rj16o8F
-         s+ZVFOrbD8ECGqHSvvnEVgTB9rta8Wi4SJjKz2igTa6HOeNHozFPDAtu/Vc+4aDXqHCS
-         BB09QsEy1rjSqkN6cxqtm6giw80SjKkQYNnlgL/DpyY9Sznb4t5OfxPAbom5ehHVNfq7
-         9t0A==
+        bh=6F0tHF/oZtPKzXhD+jVdw1jFO81d1wFdaL8SH2xhFCM=;
+        b=Jg7kDDyoFvyFkN8yuaa10Cba2/J5uDCEOww8js0kJq1QX6PElsft4GDFqrrnjqxVRE
+         h3ADoHa/Ed8N/XNTF4NZpPFQ+qcwh3IMjfeqJ7PQIqhC4fHeVRMWxel+pyRldIgOJ7Yj
+         zpJ+R2QZbkqpdzMKpqe5+BMOblTp2eeYDS53ffc/UnvhTS1L5jAhAxJfwXXVoxpD7w6w
+         ZlZn1AF70HSUDoWWDAgPYZj3D56JBjTFqkid5KeHFMqNfHJ8YXkPiqaVlwe+YMWgkC1Q
+         GfygesNOSmrtUO8VCPBsO6WGLvWjZo1jGnfDSWj5aM/jLL3DlHCbeJ+MfxLNKMTGVPdH
+         qOeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
-        bh=SxaLsX428RZ1ZZyMkLyl/R5gnokZLMcHhNXNy7HvM88=;
-        b=50enRIpntUGRUw2WbzMEiImbfkjSeqgsMU/3J9EaUOGznfRdhJezCtoWQsT/mlGSiI
-         iV21hFkBRRzoCUm1GZpJDYf5nvo4JC3Z6ldFf0LtbAa3zasULypaQINWV2aMD/v0h8hW
-         iUnmmo7ciID0GWXwE+IhwkOe6AX6jF4OaikqLX3m1ucXnQbNfMsK8kEKHzKkisLks7/c
-         fRWhSvKaHIOI7k5OmFtg661/9EG63y6V916bzk74vilvxwebLJ9Z85ddRgJYQvpu6PJb
-         GSMeMcFyOmAEYSbrqUIHgQBEj8ndwEIxoH6e5FLrh3wJm6Mibd2Hb0h0EwJqvN6/jrsl
-         sVJw==
-X-Gm-Message-State: ACgBeo1MWImhsW2p595TpfOQuqpVusFyTjTN62tQJ6x1THF5hFDIPghL
-	BFFJDXUN6Yj+8AeRpxEnEY2PNA==
-X-Google-Smtp-Source: AA6agR4QWYuIV+qJ9p70dFLi1/xjsepfLeYAl9faAJ8phNMASnzbYpPMSRRVeZfJRDtc7u1ZjwizFQ==
-X-Received: by 2002:a05:6a00:2409:b0:534:98c0:e53a with SMTP id z9-20020a056a00240900b0053498c0e53amr4995295pfh.11.1660863709462;
-        Thu, 18 Aug 2022 16:01:49 -0700 (PDT)
+        bh=6F0tHF/oZtPKzXhD+jVdw1jFO81d1wFdaL8SH2xhFCM=;
+        b=mFqqLoX+ppczxaUscJCFy0J0P4YgaGF+lcySfoSucNFnEISZ3RaJY3wZRc1CXeOsa6
+         HwxxB78+ZqFodGNX7dm+28gzAebHqi5HMjHHxCrKBhIQwhgMFTaA4n7VfEiTvqKeJoKI
+         CYYTXSY+3V1kxluQwAExX1rhHFUJhOGvLKxiRjxWEfvdd67YXjEvFXFboDtF+R+CC9gn
+         dyAdImy2geH1Yk4jCAYwD8AOXfQ0JoaihoLoxXXJy+Hb7UBkmHPT8kjqCM4TTyLiP+b5
+         7s+Tp2+ngttwkguYImv57S5nVvYe1yMoTWYVBtW/quaroHrUu7v27uaB5WZJ6+3U+Bga
+         pK4g==
+X-Gm-Message-State: ACgBeo2CAWmUKe8VdrmRuc4R1gkFL4322nILUejNvchwlnimP1fUmCUt
+	fJQOfqONF2lau6ylukF2NOQkUQ==
+X-Google-Smtp-Source: AA6agR7yRAXYc2k60DD4yr8Vnn8n7IcSqqHcY55G5LMynuepnj72MKFv/FbeFlyJNG46nWrGIgDgPA==
+X-Received: by 2002:a17:902:e80d:b0:16e:f7bf:34a7 with SMTP id u13-20020a170902e80d00b0016ef7bf34a7mr4519987plg.112.1660863712125;
+        Thu, 18 Aug 2022 16:01:52 -0700 (PDT)
 Received: from localhost ([50.221.140.186])
-        by smtp.gmail.com with ESMTPSA id b13-20020a17090a6e0d00b001f2fa09786asm2041811pjk.19.2022.08.18.16.01.48
+        by smtp.gmail.com with ESMTPSA id pw15-20020a17090b278f00b001efa332d365sm1987115pjb.33.2022.08.18.16.01.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Aug 2022 16:01:48 -0700 (PDT)
-Date: Thu, 18 Aug 2022 16:01:48 -0700 (PDT)
-X-Google-Original-Date: Thu, 18 Aug 2022 14:36:50 PDT (-0700)
-Subject: Re: [PATCH] perf: riscv legacy: fix kerneldoc comment warning
-In-Reply-To: <20220812143532.1962623-1-conor.dooley@microchip.com>
-CC: atishp@atishpatra.org, anup@brainfault.org, Will Deacon <will@kernel.org>,
-  mark.rutland@arm.com, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-  conor.dooley@microchip.com
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: conor.dooley@microchip.com
-Message-ID: <mhng-1907479c-dc4c-40c0-8cf1-4c4fb2b8a804@palmer-ri-x1c9>
+        Thu, 18 Aug 2022 16:01:51 -0700 (PDT)
+Date: Thu, 18 Aug 2022 16:01:51 -0700 (PDT)
+X-Google-Original-Date: Thu, 18 Aug 2022 16:01:45 PDT (-0700)
+Subject: Re: [PATCH 0/4] misc warning cleanup in arch/risc-v
+In-Reply-To: <20220814141237.493457-1-mail@conchuod.ie>
+CC: anup@brainfault.org, atishp@atishpatra.org,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, conor.dooley@microchip.com, guoren@kernel.org,
+  vincent.chen@sifive.com, xianting.tian@linux.alibaba.com, heiko@sntech.de, wangkefeng.wang@huawei.com,
+  tongtiangen@huawei.com, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: mail@conchuod.ie
+Message-ID: <mhng-49e49c17-7241-45f8-bea3-17188bd1d0fa@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220818_160152_625027_2E6DF74E 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20220818_160156_316769_FF84F392 
+X-CRM114-Status: GOOD (  23.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,33 +90,65 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Aug 2022 07:35:32 PDT (-0700), conor.dooley@microchip.com wrote:
-> Fix the warning:
-> drivers/perf/riscv_pmu_legacy.c:76: warning: This comment starts with '/**', but isn't a kernel-doc comment. Refer Documentation/doc-guide/kernel-doc.rst
+On Sun, 14 Aug 2022 07:12:34 PDT (-0700), mail@conchuod.ie wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
 >
-> Fixes: 9b3e150e310e ("RISC-V: Add a simple platform driver for RISC-V legacy perf")
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  drivers/perf/riscv_pmu_legacy.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Hey all,
+> Couple fixes here for most of what's left of the {sparse,} warnings in
+> arch/riscv that are still in need of patches. Ben has sent patches
+> for the VDSO issue already (although they seem to need rework).
 >
-> diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
-> index 342778782359..2c20b0de8cb0 100644
-> --- a/drivers/perf/riscv_pmu_legacy.c
-> +++ b/drivers/perf/riscv_pmu_legacy.c
-> @@ -72,7 +72,7 @@ static void pmu_legacy_ctr_start(struct perf_event *event, u64 ival)
->  	local64_set(&hwc->prev_count, initial_val);
->  }
+> VDSO aside, With this patchset applied, we are left with:
+> - cpuinfo_ops missing prototype: this likely needs to go into an
+>   asm-generic header & I'll send a separate patch for that.
+> - Complaints about an error in mm/init.c:
+>   "error inarch/riscv/mm/init.c:819:2: error: "setup_vm() is <trunc>
+>   I think this can be ignored.
+> - 600+ -Woverride-init warnings for syscall table setup where
+>   overriding seems to be the whole point of the macro.
+> - Warnings about imported kvm core code.
+> - Flexible array member warnings that look like common KVM code
+>   patterns
+> - An unexpected unlock in kvm_riscv_check_vcpu_requests that was added
+>   intentionally:
+>   https://lore.kernel.org/all/20220710151105.687193-1-apatel@ventanamicro.com/
+>   Is it worth looking into whether that's a false positive or not?
 >
-> -/**
-> +/*
->   * This is just a simple implementation to allow legacy implementations
->   * compatible with new RISC-V PMU driver framework.
->   * This driver only allows reading two counters i.e CYCLE & INSTRET.
+> Thanks,
+> Conor.
+>
+> Conor Dooley (4):
+>   riscv: kvm: vcpu_timer: fix unused variable warnings
+>   riscv: kvm: move extern sbi_ext declarations to a header
+>   riscv: signal: fix missing prototype warning
+>   riscv: traps: add missing prototype
+>
+>  arch/riscv/include/asm/kvm_vcpu_sbi.h | 12 ++++++++++++
+>  arch/riscv/include/asm/signal.h       | 12 ++++++++++++
+>  arch/riscv/include/asm/thread_info.h  |  2 ++
+>  arch/riscv/kernel/signal.c            |  1 +
+>  arch/riscv/kernel/traps.c             |  3 ++-
+>  arch/riscv/kvm/vcpu_sbi.c             | 12 +-----------
+>  arch/riscv/kvm/vcpu_timer.c           |  4 ----
+>  7 files changed, 30 insertions(+), 16 deletions(-)
+>  create mode 100644 arch/riscv/include/asm/signal.h
 
-Thanks, this is on riscv/fixes -- given how trivial the actual diff is 
-I'm OK just taking it without the Ack/Review from anyone else, doubly so 
-because I probably broke it the first place.
+These generally look good to me.  Anup handles the KVM bits so I'll let 
+him chime in there, but
+
+Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+on all of them.
+
+Happy to do some sort of shared tag thing, but it looks like these are 
+all independent enough that it'd be easier to just split them up.  I've 
+put the non-KVM bits over at palmer/riscv-variable_fixes_without_kvm, if 
+you guys are all OK splitting this up then I'll go take those onto 
+riscv/fixes.  I'll wait a bit for folks to get a chance to look, so it 
+won't be for tomorrow morning.
+
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
