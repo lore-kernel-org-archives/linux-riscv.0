@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44828C32771
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 12:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C383C32771
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 12:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xeLJUqIT/9uUb3KM5lSU/z92I+kjY0I2AGQ36PEj0og=; b=WqEUvGcU/JIzlI
-	OsnvME875F6+sQmG9p6Ok8Jm2mun0Iw0N6/TgvYXGchBZ6Fb8dHJZEN0BCm0ErMZB6Hk1C40COfml
-	/usIHwE7YjIfJ/zv0Oerv4bkHqknX5RgXjsWgyoK4iGGJgCl8cIRh2BqfxMEi2z4xvGXPJ2/+LlEU
-	jydURQTEwso66H8G5JHrMiLg7OkEIgmZD5by2ZRUPoua7TzVZ44kWyuaIxbxONjimpShy2fkxMWC0
-	BS/ibSHkZRh1WxWD/4AW7fTftqInJqPjgDCq/aYsPj3/uSdunOEyPlpsZJSllubaLcUeGr8CIQZER
-	YfPlUj16J19fJ1FxJ98A==;
+	List-Owner; bh=L1OCma8otM1v7JTFYHXqRQ13vDPndDjzd8jhvpHjpNk=; b=jOFkM3JjD6B8pA
+	VDKImuXaV4ROpdZwxDouk2f/q+zrQHIXedMSxzPNbW8HE3RVRqpWcLiOtHRMrPhoa4gJObvMTbchk
+	V77QTP90NmhXif2TcnjyyQXVIqP094DfLRK0ms/HMh9qoAjWztTbLLyUfK6WeBWwP6V1b/M5rjAv4
+	fI6xlfWDqbOFULWJLF9+EW7nw2fPXcVw4G5/evM+Ebwq+CFwxOpAuuQ7Jm6tbapJbUH0B2gTWKkZM
+	u2fkYFsYBTsbbE8C2nL8IUG4rFAfmLWP4dbJuYmkRROSdeXm4fG8f8N0QfhWZ+XGwgy3bOqBL3H/u
+	PSJeeAsnrmm53tKlH6hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oP1ND-008Bvx-Rb; Fri, 19 Aug 2022 12:45:15 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1oP1Nl-008CNA-O9; Fri, 19 Aug 2022 12:45:49 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oP1NB-008BuG-3p
-	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 12:45:14 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id u9so5944559lfg.11
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Aug 2022 05:45:12 -0700 (PDT)
+	id 1oP1Ni-008CKo-KB
+	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 12:45:48 +0000
+Received: by mail-lf1-x131.google.com with SMTP id l1so5458453lfk.8
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Aug 2022 05:45:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc;
-        bh=qqffeJ1cELkTvZi2yVxU+KEC+V9oMcB95umfP5C+/ms=;
-        b=C0gCvt6FGl2dkLGc++ML4O+KSqvWSCQnKOwA9F5j3zwkJOsDpb2jOMd2PfEsq/TyRW
-         lNxrVzNySX24r+5Vs1PXCzbOltRSDmMaCPqRv8vpqFqkDjqex2EgqF4zv5XAuO95nBDy
-         WiJcuwyKZCyjxBwDw3q8F6HTLNIPapWU63m6yXKuohaY0aD3oWRQ2svfuhijls0dSy+7
-         pZZ4t6quHgFo45JY9FIics9N+MpO670rTh/pTjPAjOP3SOAb7RYBZO4CglNALOVrhPJk
-         oQt5uxxhVE1lBLUu6tiD2WvUCkfWsqZm3zMjGOXm468VqMMUMvnFsvfKJi4ck5ZLHoK/
-         tkiQ==
+        bh=qvXDTKscAiZiFahTRl2j0TPPmgPhdbYrghX1xTrKTXQ=;
+        b=l7EYvlqAhiqET1OnR4Ql6iK5YCrtGs8RJ0ZneYjgaZ96uy1PEkRsz/Np9udIODLCeN
+         gL5O9vo+TgwBSOh0H6ojZesoClRiBFbv0j2z1KbyMehWsxcrNVMOAAP6MicRQgFDI5Tq
+         eoVHKgc3zljp+pf8+DIC/aGof0t4UjRwhdM7atuKItQ8zYkXkIqRoRkeGpwSvvG6R1Kj
+         lddvWOunO8OmDqyPGXJ/nNYfY2Zw4keKeqKVnpHdqBTZJy+ZMMLVjsErlsQyIyQ8taVm
+         BYRxn45gMrdCETjo1Ho2di1968lL3vLehYjcJrJNf1navA180MG6qI1XCFLTaz8GZ9YE
+         z2cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc;
-        bh=qqffeJ1cELkTvZi2yVxU+KEC+V9oMcB95umfP5C+/ms=;
-        b=htLUweNXGnscmx38ibV6opxjcpqW3DG4Ifa7aUT9IhjSlyYb8ImAYs132qe7oI9oGR
-         R1m/pnt+Lu7nkhy6OpjuHKs72YserNac7PpQjLJkF42j9gOmYRzg/EBQY8u9AqxMXNcO
-         t+xSKZWpe6Sr3QdktDSw2KdnMJNIaMEzGXtIMQUI1YJp64JXWmgpols3GfIvO57AEfRX
-         sUC9xJCJ1i8/fFSELEzzy2eIovIYYXFkEMyDHb/YFyyPmUVPdBW23Vu65lWMNbw3EV1G
-         LfLkM1MCEKFv4YBhXwOgGN2DOkeIUUXLxxMQHkd/KIxLmgfKpbha0vt3rMNcv5t6+kVF
-         CrVg==
-X-Gm-Message-State: ACgBeo04VysQufLZEyG8sqJ8+KTM1KKqCsP8yQQhHPSDUJCrEh0aSoyP
-	KqPAB1+mVx02/NOJ1T3k3DbY/A==
-X-Google-Smtp-Source: AA6agR7/PRkYQLtYE0l0kOSX2qoSLm7uckRWBd/nF3eYbhF9x+nTNIyBDipk1CoYBEgaYkztlr74kw==
-X-Received: by 2002:a05:6512:282c:b0:492:b415:6def with SMTP id cf44-20020a056512282c00b00492b4156defmr2503429lfb.615.1660913111394;
-        Fri, 19 Aug 2022 05:45:11 -0700 (PDT)
+        bh=qvXDTKscAiZiFahTRl2j0TPPmgPhdbYrghX1xTrKTXQ=;
+        b=C1kwVSnMdSC+nf5bXKv/bRiNMPIw30dVlko6kNCsElMbqK6lXy5L3jNT0CHbmPNIvc
+         QBsHdfvxZ+BVeXyeW5tfxcw43XYBw3kHk0YDAVDWexeH0K/wjhGGftfIcBKJFRPztMNH
+         odV5xBFdZtqdMqz8MCtC/XyLIuRyAGKrVx3O/8YJQ4v9FQyVb/63njBpufNejR0+kXDy
+         BUlWA+q7blS+BmVbeW2tS+cMNgSklt/kJBMgWp/HdnsoAq2Op9lOpFtIKGCZiPoiEe6c
+         +dM+gy2VuVX/z7MJ7Z7aT33wGsP+4pYtumerWwkMr0yoWzeyixDxIhkGUSevAEDHTBlp
+         61kw==
+X-Gm-Message-State: ACgBeo1WNv+S9q9gw9WfwG21tr/5G+HDMdAlqSXDpuPlL3ZtZv6Ei4ru
+	pE9png3d0H7zsxUvI1+KcXra7Q==
+X-Google-Smtp-Source: AA6agR6GbhxNbQO5V3790V+4FnkLBnhcICw3x9f7BqhylD85fTqQJiQHMCQLtgRZOvqMdEuFGfEM/A==
+X-Received: by 2002:a05:6512:159a:b0:492:8c61:1991 with SMTP id bp26-20020a056512159a00b004928c611991mr2231483lfb.245.1660913145156;
+        Fri, 19 Aug 2022 05:45:45 -0700 (PDT)
 Received: from ?IPV6:2001:14bb:ac:e5a8:ef73:73ed:75b3:8ed5? (d1xw6v77xrs23np8r6z-4.rev.dnainternet.fi. [2001:14bb:ac:e5a8:ef73:73ed:75b3:8ed5])
-        by smtp.gmail.com with ESMTPSA id t5-20020a195f05000000b00491734dcb89sm624998lfb.196.2022.08.19.05.45.10
+        by smtp.gmail.com with ESMTPSA id c19-20020a05651c015300b0025e59a76742sm607551ljd.14.2022.08.19.05.45.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Aug 2022 05:45:10 -0700 (PDT)
-Message-ID: <0976b1c1-a8e0-5a61-51ff-9b47f29569a5@linaro.org>
-Date: Fri, 19 Aug 2022 15:45:09 +0300
+        Fri, 19 Aug 2022 05:45:44 -0700 (PDT)
+Message-ID: <9a2bef1f-8e5c-b26b-5cee-ee6ecc6960f8@linaro.org>
+Date: Fri, 19 Aug 2022 15:45:43 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.12.0
-Subject: Re: [PATCH 2/6] dt-bindings: clk: document PolarFire SoC fabric
- clocks
+Subject: Re: [PATCH 3/6] dt-bindings: clk: add PolarFire SoC fabric clock ids
 Content-Language: en-US
 To: Conor Dooley <conor.dooley@microchip.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
@@ -79,12 +78,13 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-riscv@lists.infradead.org
 References: <20220819122259.183600-1-conor.dooley@microchip.com>
- <20220819122259.183600-3-conor.dooley@microchip.com>
+ <20220819122259.183600-4-conor.dooley@microchip.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220819122259.183600-3-conor.dooley@microchip.com>
+In-Reply-To: <20220819122259.183600-4-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220819_054513_230812_D2D1DFE1 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20220819_054546_713851_A0DB8FC5 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,38 +102,19 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 19/08/2022 15:22, Conor Dooley wrote:
-> On PolarFire SoC there are 4 PLL/DLL blocks, located in each of the
-> ordinal corners of the chip, which our documentation refers to as
-> "Clock Conditioning Circuitry". PolarFire SoC is an FPGA, these are
-> highly configurable & many of the input clocks are optional.
+> Each Clock Conditioning Circuitry block contains 2 PLLs and 2 DLLs.
+> The PLLs have 4 outputs each and the DLLs 2. Add 16 new IDs covering
+> these clocks. For more information on the CCC hardware, see the
+> "PolarFire SoC FPGA Clocking Resources" document at the link below.
 > 
+> Link: https://onlinedocs.microchip.com/pr/GUID-8F0CC4C0-0317-4262-89CA-CE7773ED1931-en-US-1/index.html
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  .../dt-bindings/clock/microchip,mpfs-clock.h  | 23 +++++++++++++++++++
 
-Thank you for your patch. There is something to discuss/improve.
+This could be also a separate header file for CCC.
 
-> +  '#clock-cells':
-> +    const: 1
-> +    description: |
-> +      The clock consumer should specify the desired clock by having the clock
-> +      ID in its "clocks" phandle cell.
-> +      See include/dt-bindings/clock/microchip,mpfs-clock.h for the full list of
-> +      PolarFire clock IDs.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - '#clock-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    ccc_nw: cccnwclk@38100000 {
-
-Node names should be generic: clock-controller
-
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 
 Best regards,
