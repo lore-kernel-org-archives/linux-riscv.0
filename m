@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FEAC32771
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 14:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED001C32772
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 14:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zzRQQ4hyKEbl64Uin6FYY/phcodrsVbk/ZR0VPWHlME=; b=vjFk1UPjCfjZ1o
-	v2GTW19zgL5KARipF2EfAlRrStMtyP/hK37MU6kV7Z0Q4Zxt9oQOxiyz8Ov7VD6DC1gbKaBSN4SBl
-	5TstUVFZkOHznGl44jH62AGB/9nu/FFOLRaABPGR/gxDlXOG/rvW/ufe/rzorsG2C4nt/tY7S+GUs
-	wFjja6eTjPHLjRypBp//ZFnxcbmwZ/UzMVeT6L5N09BJszs6AJySXfDHNFzAb5Tj+N+ZXNIyP13pE
-	ivcWecPf6/rUxDuvPZpZDcZ24D+FMVYe9mmT4cIztZOkLG1j2VcunKoaiHrr+n5jUToXWzPccPGUE
-	fJtoYOIN1KktlT5We2cw==;
+	List-Owner; bh=IDuGYev7ONW8Ya+twOxOdAwlhKsU6Mlu6/1+MZTo4sk=; b=YMKne2oHTcYWIH
+	Vtx8zUwJfYjkp9sautW+BjxSTam4Zluqp6bWg69x3CUSrIGzcdsON3w/ZcNwrP4kqjXdYSgdxDAcC
+	jbXdGiqwIiDQPhKhnrpuJRyYVb404uDXZkksFeAusikNniv7EBj4brjIx9ioxvo619+fiD21CfWJJ
+	v+IBpxH1QDi/5o6hC5m85SN18I3HweWTLWi2N6NOlvmIMCyF79/QoibYgxoLD+uXyHIvgk3ZgqxcO
+	85hifKiRzjoyr/I68k6K/yKWOOMVTI6d34EpC9kb8vpoYcEIsRVHL24bG8nObcDvYpzTyye+bNGGa
+	j67neGqwwPPXRA2nZwnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oP2tn-009Sbd-1m; Fri, 19 Aug 2022 14:22:59 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1oP2wz-009U7p-Qr; Fri, 19 Aug 2022 14:26:17 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oP2tk-009SZT-5n
-	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 14:22:57 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id b38so3719844lfv.4
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Aug 2022 07:22:54 -0700 (PDT)
+	id 1oP2ww-009U3O-P5
+	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 14:26:16 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id s11so5845984edd.13
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Aug 2022 07:26:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc;
-        bh=W6XLvvBGoke5+DVCHO7jgqha7YhANK6x+3Vpkq+XWDE=;
-        b=D8TRi6N573AdxP8uKx/TO+c6SXG/77vA7hDcrIL8d3gsE1xQJjQ699vUK+9c88fr/F
-         PAiowGh1zHmR8r4PPKnEbTlr4WpE9O0mq9qzYs9ZQ9AAkWkFvwxlKowTS0l1rl5yCQGP
-         S1qCUwCEYxBTAu/IaaflLGnomugR39kEjvFQlr8alzIst6MYdeHVmkXfldw6M0WUXGcy
-         zgaHi6WX+Tqvd6U+vtNRmAA3SgLTnygrf2nBxheJ6M/W1Ms2VFTDJSoENXq/1+T20RF/
-         RSy1Smu+6gHpoSmgLVKxkvlyaEB4fNrPBNQqwcekbL0mNQIxcqo+IuTGvhg5AZlXravn
-         pNUQ==
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc;
+        bh=fFhF+3XP6naP0ZUj4bms8XHGKJDA61lcJSZD3iKtxUw=;
+        b=GzGtS0qGqcbT3ZOUCDh9ZmEwsbXx8fJibrnq0qhJSCm6olm7FJiAhA2ANhWqaFCtfZ
+         P/F/JkZVEQ1y9QQNtyV8W7MH0lMgrz5iU3GU0DAn5L+fX5irWCOt557ANXambeB0ixww
+         Hu/UK89XLPopqAh4wdHUI7EJvZeLPfxERgYbS2WL5Il79yGntUhiLlihfCSdt7dX4NVB
+         /ost9aDlnJOT4rpuKtacFJUEn8Xgs4c21K/Samr94S0vu72uSZ0aE9nE5o8cswszZTML
+         fHER1lcOKxDVQcwnf3uDZTH8dmcicTnRIL/1gZ08mKQEAmngswTJhaCom5jG263DpqHF
+         BODA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc;
-        bh=W6XLvvBGoke5+DVCHO7jgqha7YhANK6x+3Vpkq+XWDE=;
-        b=gS7YBF+CCqvVbcSsVTHmbblnNqOSj6gFloFRPcn9RcvQgIFk2eBzamNurzfUrxtYMh
-         MnExQt0oWLrG6K08nzkwt9fWY49uH37ruu3Ucd6Q0EhpE1er5hgEMt2zWLfky8x3L04v
-         YAcVBKdyMa/GwUf9OeNfZdHzp7L4icfwLSt6nDe/csH7SFx2L37NSGbM0MSbZSO7JxXL
-         D7A0lil8EK5dQzjti8Wk+tF1R7aSXp7z4bU22jKlUBBML0ZNu81G8ppFnicVkswZN+Ec
-         65McgdQ4WMl00ZMe0re5VHbHXaFjNGOXj6MA7DeqnbauRYiJlAuWmI9kXffq5MBDigop
-         bndw==
-X-Gm-Message-State: ACgBeo0GxxBj2YC/BjyPJ+Yd1Vnty0ZoUr3i8TB81tGDF6wZz60oNP2X
-	1D7+4c21Xgf+0C4zDQfa0zsjag==
-X-Google-Smtp-Source: AA6agR6fwp6wpOn4Rzpjtks40Fom/eMSJFk8J9dE0Zc7x0M4BR6878593MBNvSYv+LbauP3H96P2tw==
-X-Received: by 2002:a05:6512:4011:b0:492:cd8a:e22 with SMTP id br17-20020a056512401100b00492cd8a0e22mr739256lfb.248.1660918973099;
-        Fri, 19 Aug 2022 07:22:53 -0700 (PDT)
-Received: from ?IPV6:2001:14bb:ac:e5a8:ef73:73ed:75b3:8ed5? (d1xw6v77xrs23np8r6z-4.rev.dnainternet.fi. [2001:14bb:ac:e5a8:ef73:73ed:75b3:8ed5])
-        by smtp.gmail.com with ESMTPSA id u3-20020a2eb803000000b0025e5a7bd522sm630556ljo.30.2022.08.19.07.22.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 19 Aug 2022 07:22:52 -0700 (PDT)
-Message-ID: <4e12e8c3-2170-eaab-d910-f674bcc93f79@linaro.org>
-Date: Fri, 19 Aug 2022 17:22:50 +0300
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc;
+        bh=fFhF+3XP6naP0ZUj4bms8XHGKJDA61lcJSZD3iKtxUw=;
+        b=4X8W+DLv6x9gpMfhWSw3tA9Dy64znDiPcojXbayIFxFSaXWVYfjhKBqCFLFNUBuVgY
+         9S+zsF28yoZZqah2eox8lCRPWsYdGs6XJ+J/N4L9ws9iF2eOLNdNTrXsQQBenUfqiXXu
+         2JxyT7gMq07+u7uKODO9fGWUsZeimgHgc0I6b4pohqEg7ZAGl9tJ0Up4BBK11hPKpLBR
+         vv1/diJaRfP3bzT/5KDV6Pt6cKvbRLf+eDu1+SAi5NLiMyaxdPkknS+o6g+RLTYdv3f7
+         poTvX0CQylOZWArp4gw+JDF5hmSajhg8iUKTS6lG+K3xa+GbAXS/7e0TzLYB9Sq+XNzA
+         R10Q==
+X-Gm-Message-State: ACgBeo3Nd2TLfzj6/HEX4j/rdHuVoTNwkeuoT5GwY3IHE3ZWJD56fuvf
+	I/dJQxzZq1Hp/Mo65EoWmoZpoOdnnIsuOw==
+X-Google-Smtp-Source: AA6agR6T8+Us3I3yAILhsdbXqW3Vr1uQ9Ap68Pb15BPdvtLCGkeCkD8ohZ3rbVdll6nmLOmqYzNa5A==
+X-Received: by 2002:a05:6402:d0b:b0:443:df38:9df with SMTP id eb11-20020a0564020d0b00b00443df3809dfmr6361959edb.9.1660919170199;
+        Fri, 19 Aug 2022 07:26:10 -0700 (PDT)
+Received: from localhost (cst2-173-67.cust.vodafone.cz. [31.30.173.67])
+        by smtp.gmail.com with ESMTPSA id kf14-20020a17090776ce00b0073851453444sm2395288ejc.60.2022.08.19.07.26.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Aug 2022 07:26:09 -0700 (PDT)
+Date: Fri, 19 Aug 2022 16:26:08 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, anup@brainfault.org,
+	mchitale@ventanamicro.com, heiko@sntech.de
+Subject: Re: [PATCH 2/4] riscv: Introduce support for defining instructions
+Message-ID: <20220819142608.uzqvtd7qfejvhzia@kamzik>
+References: <20220819140250.3892995-1-ajones@ventanamicro.com>
+ <20220819140250.3892995-3-ajones@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.12.0
-Subject: Re: [PATCH 6/6] riscv: dts: microchip: add the mpfs' fabric clock
- control
-Content-Language: en-US
-To: Conor.Dooley@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
- robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
- Daire.McNamara@microchip.com
-Cc: paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20220819122259.183600-1-conor.dooley@microchip.com>
- <20220819122259.183600-7-conor.dooley@microchip.com>
- <3df8d4bd-3d38-cecd-6589-ccc1be01b886@linaro.org>
- <3ffba600-bda9-8ffa-a435-9a6f94e072b8@microchip.com>
- <f3d8be5c-737b-8c71-9926-a4036c797769@linaro.org>
- <19ca2ca1-c678-c669-4214-e92416e37191@microchip.com>
- <138af26e-8e36-63a0-d3a0-5af866318839@linaro.org>
- <f8496006-7487-7b7e-1a53-ec38492dfe70@microchip.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <f8496006-7487-7b7e-1a53-ec38492dfe70@microchip.com>
+Content-Disposition: inline
+In-Reply-To: <20220819140250.3892995-3-ajones@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220819_072256_270023_BEC7D096 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20220819_072614_846389_7805476B 
+X-CRM114-Status: GOOD (  23.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,83 +90,146 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 19/08/2022 17:14, Conor.Dooley@microchip.com wrote:
-> On 19/08/2022 15:06, Krzysztof Kozlowski wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->>
->> On 19/08/2022 16:48, Conor.Dooley@microchip.com wrote:
->>> On 19/08/2022 14:28, Krzysztof Kozlowski wrote:
->>>>> Maybe that is me exploiting the "should", but I was not sure how to
->>>>> include the location in the devicetree.
->>>>
->>>> Neither node names nor clock names are considered an ABI, but some
->>>> pieces like to rely on them. Now you created such dependency so imagine
->>>> someone prepares a DTSI/DTS with "clock-controller" names for all four
->>>> blocks. How you driver would behave?
->>>
->>> -EEXIST, registration fails in the core.
->>>
->>>> The DTS would be perfectly valid but driver would not accept it
->>>> (conflicting names) or behave incorrect.
->>>>
->>>> I think what you need is the clock-output-names property. The core
->>>> schema dtschema/schemas/clock/clock.yaml recommends unified
->>>> interpretation of it - list of names for all the clocks - but accepts
->>>> other uses, e.g. as a prefix.
->>>
->>> So could I do `clock-output-names = "ccc_nw";`. That would work for me,
->>> with one question:
->>> How would I enforce the unique-ness of this property, since it would be
->>> a per CCC/clock-controller property? Maybe I missed something, but I
->>> gave it a shot with two different CCC nodes having "ccc_nw" & dtbs_check
->>> did not complain. Up to me to explain the restriction in the dt-bindings
->>> description?
->>
->> Uniqueness among entire DTS? I don't think you can, except of course
->> mentioning it in description. Your driver should handle such DTS -
->> minimally by gracefully failing but better behaving in some default way.
+On Fri, Aug 19, 2022 at 04:02:48PM +0200, Andrew Jones wrote:
+> When compiling with toolchains that haven't yet been taught about
+> new instructions we need to encode them ourselves. Create a new file
+> where support for instruction definitions will evolve. We initiate
+> the file with a macro called INSN_R(), which implements the R-type
+> instruction encoding. INSN_R() will use the assembler's .insn
+> directive when available, which should give the assembler a chance
+> to do some validation. When .insn is not available we fall back to
+> manual encoding.
 > 
-> It fails not-too-gracefully at the moment, but that could easily be
-> changed. Truncated base address I suppose would be a meaningful thing
-> to fall back to afterwards.
+> Not only should using instruction encoding macros improve readability
+> and maintainability of code over the alternative of inserting
+> instructions directly (e.g. '.word 0xc0de'), but we should also gain
+> potential for more optimized code after compilation because the
+> compiler will have control over the input and output registers used.
 > 
->>
->>>
->>> FWIW I would then have:
->>> ccc_sw: clock-controller@38400000 {
->>>        compatible = "microchip,mpfs-ccc";
->>>        reg = <0x0 0x38400000 0x0 0x1000>, <0x0 0x38800000 0x0 0x1000>,
->>>              <0x0 0x39400000 0x0 0x1000>, <0x0 0x39800000 0x0 0x1000>;
->>>        #clock-cells = <1>;
->>>        clock-output-names = "ccc_sw";
->>>        status = "disabled";
->>> };
->>>
->>> & in the binding:
->>>     clock-output-names:
->>>       pattern: ^ccc_[ns][ew]$
->>
->> Yes, although this won't enforce uniqueness.
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+>  arch/riscv/Kconfig                |  3 ++
+>  arch/riscv/include/asm/insn-def.h | 82 +++++++++++++++++++++++++++++++
+>  2 files changed, 85 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/insn-def.h
 > 
-> I know :( I'll respin next week I guess, thanks again.
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index ed66c31e4655..f8f3b316b838 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -227,6 +227,9 @@ config RISCV_DMA_NONCOHERENT
+>  	select ARCH_HAS_SETUP_DMA_OPS
+>  	select DMA_DIRECT_REMAP
+>  
+> +config AS_HAS_INSN
+> +	def_bool $(as-instr,.insn r 51$(comma) 0$(comma) 0$(comma) t0$(comma) t0$(comma) zero)
+> +
+>  source "arch/riscv/Kconfig.socs"
+>  source "arch/riscv/Kconfig.erratas"
+>  
+> diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
+> new file mode 100644
+> index 000000000000..4cd0208068dd
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/insn-def.h
+> @@ -0,0 +1,82 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +#ifndef __ASM_INSN_DEF_H
+> +#define __ASM_INSN_DEF_H
+> +#include <asm/asm.h>
+> +
+> +#define INSN_R_FUNC7_SHIFT		25
+> +#define INSN_R_RS2_SHIFT		20
+> +#define INSN_R_RS1_SHIFT		15
+> +#define INSN_R_FUNC3_SHIFT		12
+> +#define INSN_R_RD_SHIFT			 7
+> +#define INSN_R_OPCODE_SHIFT		 0
+> +
+> +#ifdef __ASSEMBLY__
+> +
+> +#ifdef CONFIG_AS_HAS_INSN
+> +
+> +	.macro insn_r, opcode, func3, func7, rd, rs1, rs2
+> +	.insn	r \opcode, \func3, \func7, \rd, \rs1, \rs2
+> +	.endm
+> +
+> +#else
+> +
+> +#include <asm/gpr-num.h>
+> +
+> +	.macro insn_r, opcode, func3, func7, rd, rs1, rs2
+> +	.4byte	((\opcode << INSN_R_OPCODE_SHIFT) |		\
+> +		 (\func3 << INSN_R_FUNC3_SHIFT) |		\
+> +		 (\func7 << INSN_R_FUNC7_SHIFT) |		\
+> +		 (.L__gpr_num_\rd << INSN_R_RD_SHIFT) |		\
+> +		 (.L__gpr_num_\rs1 << INSN_R_RS1_SHIFT) |	\
+> +		 (.L__gpr_num_\rs2 << INSN_R_RS2_SHIFT))
+> +        .endm
 
+Doh, checkpatch told me about the spaces vs. tabs before .endm, but I
+forgot to refresh before sending. I won't send a v2 until the series
+gets more feedback, but I've already got it fixed.
 
-The issue with this is that we are getting close to tying bindings with
-your Linux implementation. What if other implementation does not use
-these names as prefix and instead creates some other clock names (as
-clock names are not considered ABI)? Your binding would still enforce
-such property with a specific pattern.
+> +
+> +#endif
+> +
+> +#define INSN_R(...)	insn_r __VA_ARGS__
+> +
+> +#else /* ! __ASSEMBLY__ */
+> +
+> +#ifdef CONFIG_AS_HAS_INSN
+> +
+> +#define INSN_R(opcode, func3, func7, rd, rs1, rs2)	\
+> +	".insn	r " opcode ", " func3 ", " func7 ", " rd ", " rs1 ", " rs2 "\n"
+> +
+> +#else
+> +
+> +#include <linux/stringify.h>
+> +#include <asm/gpr-num.h>
+> +
+> +#define DEFINE_INSN_R							\
+> +	__DEFINE_ASM_GPR_NUMS						\
+> +"	.macro insn_r, opcode, func3, func7, rd, rs1, rs2\n"		\
+> +"	.4byte  ((\\opcode << " __stringify(INSN_R_OPCODE_SHIFT) ") |"	\
+              ^
+              ^ checkpatch didn't tell me those are spaces instead of a
+	      tab, but I found it while fixing the other tab issue.
 
-The clock names should not really matter, so if you have conflict of
-names among multiple controllers, I think driver should embed unit
-address in the name (as fallback of clock-output-name) and the binding
-should not enforce specific pattern.
+> +"		 (\\func3 << " __stringify(INSN_R_FUNC3_SHIFT) ") |"	\
+> +"		 (\\func7 << " __stringify(INSN_R_FUNC7_SHIFT) ") |"	\
+> +"		 (.L__gpr_num_\\rd << " __stringify(INSN_R_RD_SHIFT) ") |"    \
+> +"		 (.L__gpr_num_\\rs1 << " __stringify(INSN_R_RS1_SHIFT) ") |"  \
+> +"		 (.L__gpr_num_\\rs2 << " __stringify(INSN_R_RS2_SHIFT) "))\n" \
+> +"	.endm\n"
+> +
+> +#define UNDEFINE_INSN_R							\
+> +"	.purgem insn_r\n"
+> +
+> +#define INSN_R(opcode, func3, func7, rd, rs1, rs2)			\
+> +	DEFINE_INSN_R							\
+> +	"insn_r " opcode ", " func3 ", " func7 ", " rd ", " rs1 ", " rs2 "\n" \
+> +	UNDEFINE_INSN_R
+> +
+> +#endif
+> +
+> +#endif /* ! __ASSEMBLY__ */
+> +
+> +#define OPCODE(v)	__ASM_STR(v)
+> +#define FUNC3(v)	__ASM_STR(v)
+> +#define FUNC7(v)	__ASM_STR(v)
+> +#define __REG(v)	__ASM_STR(x ## v)
+> +#define RD(v)		__REG(v)
+> +#define RS1(v)		__REG(v)
+> +#define RS2(v)		__REG(v)
+> +
+> +#endif /* __ASM_INSN_DEF_H */
+> -- 
+> 2.37.1
+> 
 
-I can easily imagine a real hardware board design with
-"sexy_duck_ccc_pll1_out3" clock names. :)
-
-Best regards,
-Krzysztof
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
