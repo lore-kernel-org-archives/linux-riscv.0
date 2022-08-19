@@ -4,79 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43B5EC32771
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 11:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFA6AC32771
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 12:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kXjSDbHSZ5dTkHiliQ6kwxgEqL9UvvmtZM7j5w775nk=; b=uDR7MikoYIogPo
-	xYpQgigv06KzoQmYv0OrDeaA2N3pWU6/f6vrKp12EwhJsoH4VKwU1t7tlG0p9xIdLYa0cI9z0MCeU
-	tqBg+CIrMUfW6xUPgsFrTYxlCzPx5AScAD5AC2l0Y+OdyYlxfCCJ9c09vZEJ9E9vlTFS1MKKqR9Ni
-	o0xbduXIA36RKQUw4p703DL4CpjcTm2FOhQPU2mOFpm1OccZ7hsrOJOnwDxoGOhzenS3hvk6ln2ch
-	Y03AWQ3Y8VEs3Wg1KnvptXx3P/hOAvI2sFBUSVZkkUaMNOmKZQHvzvkmUSc2dDmTsCJAcElV6kVjq
-	dsplGkX0t8+n9eQrZxxg==;
+	List-Owner; bh=Z3hCWeFz0MqhwHGX184ezYViAl1a/vno4joR519Ufs0=; b=ffTh9qf0/O9Q8w
+	bLaV+ENl3qbx7rf4pMPAazTaVTIaXNU9vgIt7TRw/dz4zeQpHu6mMZNmLsG9JahVFee+fmVaflXCQ
+	H4wdCa3whaoa/CAeS9hmh44+JQ3mae4RT1WJACYiuecwErgJemLDDJUspH2ujpVwJVaAdLwQVxFcs
+	WdpeQW9vrZjjn5hMEtjY+DbYgq7wzoMWsu5rj1NKdg2VS6eGWrXhg3P6Fnr5ciKQ8Gt9U3/qivz7T
+	IdizxGvLI/RyGVgo41zfQNzPJ6qV30zQFzOiXE+wwZ0X5bgtjcsduOMG2jipeCvbeGBkSyV10Vk5k
+	Vb0Rp2+zO6xtxnvxueVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oP0Ok-006zh8-0U; Fri, 19 Aug 2022 11:42:46 +0000
-Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	id 1oP16j-007rRi-Nc; Fri, 19 Aug 2022 12:28:13 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oP0Og-006zfk-Io
-	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 11:42:44 +0000
-Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-335624d1e26so114271557b3.4
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Aug 2022 04:42:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc;
-        bh=JsbjkAc9nKBUwo2BV+lJuV+9wDAaqVtP+AYnXddE06M=;
-        b=iDTh499ntFuBhmhm7+PjOS+kN6/En/kCc/a8vA9tl2w1O8cLjE/Ir/vKAbzKCX8Or8
-         jpBlUTLJMWCEtu9bqL4nJsIEUdcZlmXlHj28PE1T5Smwz/+PEyhw5wOmR+kLaM0dyp+W
-         4mdXmFzMYFGg7GZbHh/eTn1fkvR1nGjW54Cmm/gTZpn0cxmmFZiVi2Czj9xL/AwAWTok
-         d3V84hpqoxNbYkA1fWOJjcObObcoKJ9N0JLDLBPzHzosukWEM/iAjGHZ79P+1AYS7uRl
-         kkRhHe0WScPj/Yn/mXzBUrdMm4u57g0Q12rYS4n47Uvg+Iv7EY6MWYLWeRxnzsUdEvt6
-         XzAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc;
-        bh=JsbjkAc9nKBUwo2BV+lJuV+9wDAaqVtP+AYnXddE06M=;
-        b=4mhi9Sp78dVbWn77GU9P6+Jwy03ZRCFjrefr9vNNN3BjNMyzJSmiNAFLh1O7H9V3pA
-         3xNc7OJBT6+uZC3akFXV2L0jbb8NDfi2mbV6MbLrQmO2JBmZIOUhumB6EaT//0sS9MPC
-         b+eUEbwkbClUmWVSOeB4wfYqIrnII7/d4geqt5IaCisa8rybAyiHwjZWUfLNAPQpErP/
-         C9ALI0H88AhrEb+9S/y1h38JWL/BIZKNRO2xg6+2Si5lBL40EhYG5NlZXDGd3yyGDu+h
-         bZW64RIamorTqGitesw1w1dfWH5PHLEJb1LFrwD3Q5/gljJYIEw1wv1pQoTt1Wc62Gus
-         mCNw==
-X-Gm-Message-State: ACgBeo3qvt210+d4V0/AifC3APPmPStyd749B6F6upxGcad44wiFfaZm
-	QAuWeg4OVI3Z4z5hfKxIb9XQc4vpBPOvNzzZf3w=
-X-Google-Smtp-Source: AA6agR64CGhHuJItOoEwYlI4Q1qKbjkazebB6e8Fjy2TxN3npFljabqR+ivGNTyMVFhoyPJuhYFBJHKQURNW/HRyAmA=
-X-Received: by 2002:a25:4689:0:b0:671:6d4f:c974 with SMTP id
- t131-20020a254689000000b006716d4fc974mr7342816yba.354.1660909359543; Fri, 19
- Aug 2022 04:42:39 -0700 (PDT)
+	id 1oP16g-007rOI-MQ
+	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 12:28:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1660912091; x=1692448091;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=qCodOvHAAWV9jjEol1BPCacoYzYl6MK5PiY5naSU1RI=;
+  b=0ttHC4JT7H228s2upJm++trP/cA7eI7hD1SLiuuPnykCv06QUP9eCGL/
+   av64RCzKZxn4DNpYaCJIKmltFg671ugjOpBBWOkvQyFvlfDF3aBkV4E5M
+   t6pDE6UZXfkP6cgjui5tMhN7ZAiv9TxOIehq6ehEVwytkfJIsylcfTgH1
+   cSILRsc9kIgpcLaW5S4i75nDwvZP3us5uYZyvbWy5KjiskqjXMFaL8Fy3
+   9zrCONpDUisisjpRRxEvmINUS66kDyL+ehkdFyrSL23gelmazy7vRl1D1
+   D1ovjvwhY6ZqxZ5APx4CQpnG6N4T7cHWR7FmGGsHS0R58SuAEwkEpOYuS
+   g==;
+X-IronPort-AV: E=Sophos;i="5.93,247,1654585200"; 
+   d="scan'208";a="176919046"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 19 Aug 2022 05:28:10 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Fri, 19 Aug 2022 05:28:08 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
+ Transport; Fri, 19 Aug 2022 05:28:06 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: [PATCH 1/6] dt-bindings: clk: rename mpfs-clkcfg binding
+Date: Fri, 19 Aug 2022 13:22:55 +0100
+Message-ID: <20220819122259.183600-2-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220819122259.183600-1-conor.dooley@microchip.com>
+References: <20220819122259.183600-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-References: <20220815151451.23293-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220815151451.23293-6-prabhakar.mahadev-lad.rj@bp.renesas.com> <CAMuHMdXHSMcrVOH+vcrdRRF+i2TkMcFisGxHMBPUEa8nTMFpzw@mail.gmail.com>
-In-Reply-To: <CAMuHMdXHSMcrVOH+vcrdRRF+i2TkMcFisGxHMBPUEa8nTMFpzw@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 19 Aug 2022 12:42:12 +0100
-Message-ID: <CA+V-a8tyvoVPctQU4Gz3FEQSCk0DBZ9=83qvh3P2UENJ5FSHAA@mail.gmail.com>
-Subject: Re: [PATCH v2 5/8] riscv: dts: renesas: Add initial devicetree for
- Renesas RZ/Five SoC
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Conor Dooley <Conor.Dooley@microchip.com>, Anup Patel <anup@brainfault.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220819_044242_662668_6F4F01CA 
-X-CRM114-Status: GOOD (  35.70  )
+X-CRM114-CacheID: sfid-20220819_052810_776712_D9BC5F4A 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,101 +86,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+The filename for a binding is supposed to match the first compatible,
+but the mpfs-clkcfg file did not follow this policy. Rename it to match
+so that when other mpfs clock bindings are added things make more sense.
 
-On Fri, Aug 19, 2022 at 9:05 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Prabhalar,
->
-> On Mon, Aug 15, 2022 at 5:17 PM Lad Prabhakar
-> <prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
-> > Add initial device tree for Renesas RZ/Five RISC-V CPU Core (AX45MP
-> > Single).
-> >
-> > Below is the list of IP blocks added in the initial SoC DTSI which can be
-> > used to boot via initramfs on RZ/Five SMARC EVK:
-> > - AX45MP CPU
-> > - CPG
-> > - PINCTRL
-> > - PLIC
-> > - SCIF0
-> > - SYSC
-> >
-> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->
-> Thanks for your patch!
->
-> > --- /dev/null
-> > +++ b/arch/riscv/boot/dts/renesas/r9a07g043.dtsi
-> > @@ -0,0 +1,121 @@
-> > +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +/*
-> > + * Device Tree Source for the RZ/Five SoC
->
-> My first thought was:
->
->     This should be arch/riscv/boot/dts/renesas/r9a07g043f01.dtsi,
->      including the common r9a07g043.dtsi, shared by
->      arch/arm64/boot/dts/renesas/r9a07g043u11.dtsi.
->
-> Then I realized this is harder than it sounds, due:
->
-Indeed, my initial thought after the comments from Conor was we could
-share the SoC dtsi, but that would be to messey due to PLIC.
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../clock/{microchip,mpfs.yaml => microchip,mpfs-clkcfg.yaml}   | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ rename Documentation/devicetree/bindings/clock/{microchip,mpfs.yaml => microchip,mpfs-clkcfg.yaml} (96%)
 
-Cheers,
-Prabhakar
+diff --git a/Documentation/devicetree/bindings/clock/microchip,mpfs.yaml b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
+similarity index 96%
+rename from Documentation/devicetree/bindings/clock/microchip,mpfs.yaml
+rename to Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
+index 016a4f378b9b..212228734ffd 100644
+--- a/Documentation/devicetree/bindings/clock/microchip,mpfs.yaml
++++ b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/clock/microchip,mpfs.yaml#
++$id: http://devicetree.org/schemas/clock/microchip,mpfs-clkcfg.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Microchip PolarFire Clock Control Module Binding
+-- 
+2.36.1
 
-> > +       soc: soc {
-> > +               compatible = "simple-bus";
-> > +               interrupt-parent = <&plic>;
->
-> vs. "interrupt-parent = <&plic>;" for r9a07g043u11, but mostly
-> due to
->
-> > +               #address-cells = <2>;
-> > +               #size-cells = <2>;
-> > +               ranges;
-> > +
-> > +               scif0: serial@1004b800 {
-> > +                       compatible = "renesas,scif-r9a07g043",
-> > +                                    "renesas,scif-r9a07g044";
-> > +                       reg = <0 0x1004b800 0 0x400>;
-> > +                       interrupts = <412 IRQ_TYPE_LEVEL_HIGH>,
-> > +                                    <414 IRQ_TYPE_LEVEL_HIGH>,
-> > +                                    <415 IRQ_TYPE_LEVEL_HIGH>,
-> > +                                    <413 IRQ_TYPE_LEVEL_HIGH>,
-> > +                                    <416 IRQ_TYPE_LEVEL_HIGH>,
-> > +                                    <416 IRQ_TYPE_LEVEL_HIGH>;
->
-> vs. "interrupts = <GIC_SPI 380 IRQ_TYPE_LEVEL_HIGH> ..." on
-> r9a07g043u11.
-> Interestingly, the actual hardware interrupt numbers are the same,
-> but the GIC DT bindings abstracts the offset of 32 by using a second
-> cell and GIC_SPI.  Unfortunately this cannot be handled by some CPP
-> magic, as dtc does not support arithmetic operations yet.
->
-> I expect this or similar issues to pop up everywhere, when more
-> RISCV-V SoCs will appear that share the non-CPU parts with ARM SoCs.
->
-> Ignoring this issue, which we probably can solve only later:
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
->
-> Gr{oetje,eeting}s,
->
->                         Geert
->
-> --
-> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
->
-> In personal conversations with technical people, I call myself a hacker. But
-> when I'm talking to journalists I just say "programmer" or something like that.
->                                 -- Linus Torvalds
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
