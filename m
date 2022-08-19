@@ -4,77 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48BAFC28B2B
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 09:09:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05796C32771
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 09:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ndgJBIHrxRg3EGhsc08KwgDnUbVNC5YvCK7eRvSN2Os=; b=NWvfJd97BT5mkr
-	U2caRWDIITwYxc1Tjjylcm2xWmaB0r81kc2l8x0FabuF5f3nCwjrMfCTtLQS92vKi5xHLHYDHHvLK
-	KlmINokV0I+VtLS4DoEjCsagPsjJdEd5W1uBKx8NLgUfzKgkVBDiFBjiBHBsDQ/YAh9PKB87jkP6+
-	APnroUytppn1BE1j7I05+gZY29W6XNum1wbRfJzVoLtY6d96rvr/SGbFHkMNnYYrWDUhHfabKjNxm
-	sJklVyS9qKi+1bi3mv5hQ3V9eB/LBTRj5xp8G08k+WDN4v/TqH7Jnm1FdfoCcWa0fNAvDImcjzklg
-	OHxyxUwE5H+LL5/blu2A==;
+	List-Owner; bh=bIY1Z23AXUdXyOJ19seK7WOB69Qw+5YJolHNQT8L6FM=; b=ZYIAd8FhZNYeYE
+	p1sVtd0EvUnufx6aYCDtadQWd7qOuUCTF1jJbgd5f/gD/xFzy8nXrvb1+A0bqHuhFBUydVenu+qr/
+	wrtJeSs+kvqyXoZTNN3kkRGN9+5ZOJI2THOAxuqFAJTEvlEfLv8s7ozth1OJgNnsmmNzmiUdAGOVl
+	7+px8azkRWzZ9ldltmRczQvaKqk3IrGZkZvCglXjDONs/iASx+NVkVN1GT7LX9yY7modQEAHK/4Xk
+	q5lYpzJ+2SQWM8WBwUA1WtVsJMnyZaJGLSVcDBSwhuwX/1b9LB8S42wIX/9/KetZX/hPj1z/3h3zr
+	61vSVcu9PFfcjfJdXt+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOy0A-004dJn-SQ; Fri, 19 Aug 2022 09:09:14 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1oOyUa-0056aH-4g; Fri, 19 Aug 2022 09:40:40 +0000
+Received: from mail-oi1-f176.google.com ([209.85.167.176])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOy08-004dGt-9b
-	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 09:09:13 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-32a09b909f6so106440797b3.0
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Aug 2022 02:09:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc;
-        bh=NFZ1eO+NL0DdpbYe+Shpj3kD0DfJq56KubQKKQcddkU=;
-        b=XOBeLUUQRjUvlmYat2FRBDjkZ7Oezy6Y3lYrO+CArd90pB4I6q5QUkoGC5nQcfN14i
-         EgsBIHm5yEOhZ2zfFy3oHod0YbGC6jShJnjlJVOpHu+/KdGFbJgMWEQm+/qBKOw03Zdp
-         QXwLPIgnLg8j3VgMuYsukvLXSR79D/hs6zVKrsky8FN1Ow8jma60W9wYfEDNm/LeBmNr
-         6G55jFueB0gjj2xxLhmZphISxmUONRvkTI/2+tcwiDiTMu7zVUHbKQGabVyY7+Z0PMYG
-         ugSa3TRs8k5iHO4Rtf+hORHq1h2KMZRWy2HurjOhUg8xuujOB6ASdlgBXRdmEOlFUYms
-         spKQ==
+	id 1oOyUW-0056Y9-SQ; Fri, 19 Aug 2022 09:40:38 +0000
+Received: by mail-oi1-f176.google.com with SMTP id w197so4229907oie.5;
+        Fri, 19 Aug 2022 02:40:36 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc;
-        bh=NFZ1eO+NL0DdpbYe+Shpj3kD0DfJq56KubQKKQcddkU=;
-        b=YAkJUlnc6UQE8+XqrGlzFQ83k+ZiluwqZViZZSi5OAUCN/MUaUJPrZQujbXQTA/Wid
-         KV48HdgdZxZ6ml7JHBE01a8WOnlfcIsg8tjQDyhpRxtHM5dVP66yV6mIWkFj/MPpSqiD
-         c3e7tocuHhgdMLHDsOzy7I33pyYkQOUlQSeKudAoraYBr1YmrNoTGMyVu7WHSRND05bc
-         e8E0GISaYRg0wl6lgPbLtopWCm3xRByrTILAGieC9JQEX5CaQt55tlJHaLlRtB7hGmCf
-         p7iIDpjzkkn1vMM865euRPgbhyurOtMAZyexJbV8LlmIY+vAA3ZjLwKR88DeFa7UvDma
-         Fz1A==
-X-Gm-Message-State: ACgBeo2upTr61L6jQ4pHwjv6FBw41sq7B/sQinREDGq1pa3gokHPZFqd
-	QK9+9Sw3qKgmeQY0SJGAVzWSrP3VoFWVHLZ93dY=
-X-Google-Smtp-Source: AA6agR4crwUZ51R3+LyOXZVR3lotoIYKMWBFupVpI0Go+holeaYaFRtNfkONddeSJ3wwGqH4Mc+IR5M14kyxudtzwnU=
-X-Received: by 2002:a81:1d09:0:b0:31d:a40:8332 with SMTP id
- d9-20020a811d09000000b0031d0a408332mr6899061ywd.138.1660900149126; Fri, 19
- Aug 2022 02:09:09 -0700 (PDT)
+        bh=bRymBzdXlfqAZ/An0FhEAiaTJ5r51uvoXyU3bQ2b9Zs=;
+        b=dmhm7PkPP4XybjOnjt1LK7mR2owOCdAYAB1LhHcbI2fG5SqUikCyTZf+lKQ1qzG9BI
+         m0BB0De3uWZWWS+Pgzvtz0iAT20E/fySH/HcpqSMfyYQm0Pm7BFST7Iq65zq1pVNhnRy
+         LkFjS/YARK1yPu/Xc+cZhTsOnZm54Hbz+n4ayyidLTslemfW95MINz7InXk1DC7x6Bjb
+         Xud8MYoYFnjTrkVtVFrifnG66aA0o0MoFBv0JFCVMqb9kCy7TfXU+Cr+nRApNA9vb3cq
+         zFZt5JacUovihzUIKd/0xfvIBWHrZliyd7TA0j3X1COHGQSmPWYGqo3HiQpWvsDBuvP9
+         Z52A==
+X-Gm-Message-State: ACgBeo1W35HSomSHbAuAZEEUVfWblDi7wBSf8CDZ6cvCOn5k/K/TY5Kq
+	31D2MZjT5P4ELy2xXHi9qxuhsPDD42Eg3xjJ
+X-Google-Smtp-Source: AA6agR5K9gqjuVMdcO0ElADvZAG0zfpvDYn+FaO336ykpcurN7VR8BI07+bx1skyyV9LSdPslQkcVw==
+X-Received: by 2002:a05:6808:170b:b0:333:53cf:8022 with SMTP id bc11-20020a056808170b00b0033353cf8022mr5468110oib.28.1660902035601;
+        Fri, 19 Aug 2022 02:40:35 -0700 (PDT)
+Received: from mail-ot1-f41.google.com (mail-ot1-f41.google.com. [209.85.210.41])
+        by smtp.gmail.com with ESMTPSA id v12-20020a056870708c00b0010e20d0b2e3sm1142190oae.44.2022.08.19.02.40.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 19 Aug 2022 02:40:35 -0700 (PDT)
+Received: by mail-ot1-f41.google.com with SMTP id a14-20020a0568300b8e00b0061c4e3eb52aso2754482otv.3;
+        Fri, 19 Aug 2022 02:40:35 -0700 (PDT)
+X-Received: by 2002:a25:250b:0:b0:68f:425b:3ee0 with SMTP id
+ l11-20020a25250b000000b0068f425b3ee0mr6898469ybl.89.1660902025045; Fri, 19
+ Aug 2022 02:40:25 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220815151451.23293-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220815151451.23293-8-prabhakar.mahadev-lad.rj@bp.renesas.com> <CAMuHMdVEVtu2zf0R5+LufxHWLtG0=aEvPkfcF=K9V025_TCTrQ@mail.gmail.com>
-In-Reply-To: <CAMuHMdVEVtu2zf0R5+LufxHWLtG0=aEvPkfcF=K9V025_TCTrQ@mail.gmail.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Fri, 19 Aug 2022 10:08:42 +0100
-Message-ID: <CA+V-a8uz1XKbbrOrGRyOyJUo-PsHUDRn7qc1X+zaakGh2dOdsA@mail.gmail.com>
-Subject: Re: [PATCH v2 7/8] MAINTAINERS: Add entry for Renesas RISC-V architecture
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Conor Dooley <Conor.Dooley@microchip.com>, 
-	Anup Patel <anup@brainfault.org>, Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Biju Das <biju.das.jz@bp.renesas.com>
+References: <20220819014406.32266-1-wangkefeng.wang@huawei.com>
+In-Reply-To: <20220819014406.32266-1-wangkefeng.wang@huawei.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 19 Aug 2022 11:40:14 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUd5Ww-mtpymykuahHWD+S62Z8qiBMVx8y4okouuzTCAg@mail.gmail.com>
+Message-ID: <CAMuHMdUd5Ww-mtpymykuahHWD+S62Z8qiBMVx8y4okouuzTCAg@mail.gmail.com>
+Subject: Re: [PATCH] kernel: exit: cleanup release_thread()
+To: Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: Richard Henderson <richard.henderson@linaro.org>, 
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>, Matt Turner <mattst88@gmail.com>, 
+	Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>, 
+	Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>, 
+	WANG Xuerui <kernel@xen0n.name>, Michal Simek <monstr@monstr.eu>, 
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Dinh Nguyen <dinguyen@kernel.org>, 
+	Jonas Bonn <jonas@southpole.se>, 
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>, Stafford Horne <shorne@gmail.com>, 
+	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>, Helge Deller <deller@gmx.de>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	"David S . Miller" <davem@davemloft.net>, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "the arch/x86 maintainers" <x86@kernel.org>, 
+	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>, 
+	alpha <linux-alpha@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, arcml <linux-snps-arc@lists.infradead.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-csky@vger.kernel.org, 
+	"open list:QUALCOMM HEXAGON..." <linux-hexagon@vger.kernel.org>, 
+	"linux-ia64@vger.kernel.org" <linux-ia64@vger.kernel.org>, loongarch@lists.linux.dev, 
+	linux-m68k <linux-m68k@lists.linux-m68k.org>, 
+	"open list:BROADCOM NVRAM DRIVER" <linux-mips@vger.kernel.org>, Openrisc <openrisc@lists.librecores.org>, 
+	Parisc List <linux-parisc@vger.kernel.org>, linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, linux-s390 <linux-s390@vger.kernel.org>, 
+	Linux-sh list <linux-sh@vger.kernel.org>, sparclinux <sparclinux@vger.kernel.org>, 
+	linux-um <linux-um@lists.infradead.org>, 
+	"open list:TENSILICA XTENSA PORT (xtensa)" <linux-xtensa@linux-xtensa.org>, Andrew Morton <akpm@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220819_020912_367104_A48A67F6 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20220819_024036_949059_EAB48E25 
+X-CRM114-Status: GOOD (  21.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,53 +112,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+Hi Kefeng,
 
-Thank you for the review.
+On Fri, Aug 19, 2022 at 3:39 AM Kefeng Wang <wangkefeng.wang@huawei.com> wrote:
+> Only x86 has own release_thread(), introduce a new weak
+> release_thread() function to clean empty definitions in
+> other ARCHs.
+>
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
 
-On Fri, Aug 19, 2022 at 9:42 AM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
->
-> Hi Prabhakar,
->
-> On Mon, Aug 15, 2022 at 5:16 PM Lad Prabhakar
-> <prabhakar.mahadev-lad.rj@bp.renesas.com> wrote:
-> > Initial Renesas RISC-V architecture support will be for the
-> > RZ/Five SMARC EVK board.
-> >
-> > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
->
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
->
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -17562,6 +17562,16 @@ F:     drivers/spi/spi-microchip-core.c
-> >  F:     drivers/usb/musb/mpfs.c
-> >  F:     include/soc/microchip/mpfs.h
-> >
-> > +RISC-V/Renesas RISC-V ARCHITECTURE
-> > +M:     Geert Uytterhoeven <geert+renesas@glider.be>
-> > +L:     linux-renesas-soc@vger.kernel.org
-> > +S:     Supported
-> > +Q:     http://patchwork.kernel.org/project/linux-renesas-soc/list/
-> > +C:     irc://irc.libera.chat/renesas-soc
-> > +T:     git git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git next
-> > +F:     Documentation/devicetree/bindings/soc/renesas/
-> > +F:     arch/riscv/boot/dts/renesas/
-> > +
-> >  RNBD BLOCK DRIVERS
-> >  M:     Md. Haris Iqbal <haris.iqbal@ionos.com>
-> >  M:     Jack Wang <jinpu.wang@ionos.com>
->
-> Perhaps we should merge them all into a single section for "Renesas
-> ARM/ARM64/RISC-V ARCHITECTURE", to follow up on "[PATCH/RFC]
-> MAINTAINERS: Merge ARM/Renesas ARM64 and ARM/SH-Mobile ARM
-> architectures" I've just ssent?
-> https://lore.kernel.org/r/a869b8afdc47aa637ebeefcc1ca7bc61244f34b9.1660898008.git.geert+renesas@glider.be/
->
-Agreed, I'll merge this on top of your changes.
+>  arch/m68k/include/asm/processor.h       | 5 -----
 
-Cheers,
-Prabhakar
+Acked-by: Geert Uytterhoeven <geert@linux-m68k.org>
+
+> --- a/kernel/exit.c
+> +++ b/kernel/exit.c
+> @@ -183,6 +183,10 @@ void put_task_struct_rcu_user(struct task_struct *task)
+>                 call_rcu(&task->rcu, delayed_put_task_struct);
+>  }
+>
+> +void __weak release_thread(struct task_struct *dead_task)
+> +{
+> +}
+
+As the default implementation is empty, it might be better to keep
+this as a static inline function, protected by #ifndef release_thread,
+and let x86 #define release_thread.
+
+> +
+>  void release_task(struct task_struct *p)
+>  {
+>         struct task_struct *leader;
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
