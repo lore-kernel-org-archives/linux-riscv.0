@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 660E6C32771
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 20:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4FB1C32771
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 21:15:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/HzUmDGEzClbbbB8G92cqO3y9T9xQ/Tr2nR6Ou0YEIs=; b=yODzl1Rs2Pb708
-	Q7kCptdzTvIR8L3uu+/et2TQeH05kRUZmrODGmt3VZQUIa56BoEPzvRP6snrX3aAW+58UM2XEdZWe
-	LdhWct/H1RMZ9PnlbH8RUQ6vqG6jZbfcq/X8UJ7Kyv0Y8xusAFfJOWvbDFPlBKoKe/Pss+ZnNoiA0
-	jyaTOj0cIqwTM7QojBKQQrbj0OpXfq+irY43C4WrJsaKDfam7oTqrhfPnjdgpzxYvvcXbXRn8xUoi
-	8h6YHG0bv7KgK7Zr44vkKbxH8b74zgLe4ETTicn5KHqFSQhESKRIHMU+QRP/wbiEmrAjtsBU+ylUi
-	PTWWFyTRKE6M3UeSs7QQ==;
+	List-Owner; bh=f8zvgtBP6oR2k+QvpH1YGrlNoD4Vm5kl45RBMJm+GR4=; b=BitVgKChlSIcmK
+	ZgL/C1/iccVRzXx4BYm/n+UHQEGcToDt2w/Wy+24kil4tqy8f5qctskhmEjfB1D6zN0aNK8lUuOQ5
+	TUvwkq/6MFOyr9lGkf0PNlkkMxfrr6DajjyPw+cglJ/kg71NoaBPIDbYR5BmKScDXDyErZLwbp8og
+	1rxTR0jCc1dn1TjsmibkqP+EXhbC8pCWG21hGZzFaqf3NLx0AoUEepztZfog3mu0Zb2LUsEcU5Q4B
+	+aBoyQ9N8z3faLwaSo/Bv0EJF07JhtWrmT3dgW/9NnN1H4T+VFB46L5tCRIsl/IjTvNl+DXC8n44r
+	SnVih2UI3FPZqrz9Ebww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oP8Ix-00Bs7p-Fx; Fri, 19 Aug 2022 20:09:19 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1oP9KT-00CJQe-CN; Fri, 19 Aug 2022 21:14:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oP8Is-00Bs2h-Uv
-	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 20:09:18 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-3375488624aso120648777b3.3
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Aug 2022 13:09:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc;
-        bh=YuF+xqYANb0UpSKdFXaPIjdGoUsETegDwAlHIfHh17s=;
-        b=SmwVsSxLi/TN3be8ePf4Zt26MSe+mpgAQ9Yj1M7BSIb+2/45bT5dcu90JsXbPBl5vH
-         caJzUu+A8tA+CqBs274jJpfoLUC/7GmPmhVg8b6otV8Dg+XUbZaq4LVnJUo5r2JnpOd1
-         oZC+HNnX9iXvL2IpKtVVL/slYa6BOXTlJ7kWQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc;
-        bh=YuF+xqYANb0UpSKdFXaPIjdGoUsETegDwAlHIfHh17s=;
-        b=r+b4oqfsORysfxaTA9e84lNbUImGbJdupkDvOPBqV8XKaIcPTK/2e4koVNCKQLI3ou
-         Su2R0aoCsIhRN1WBedjtK072R6JJGPzOurybiK+jJ0plcLRfm0YctqtBDKt9T5x7KfCX
-         9+CjvTACSqU66ZIbzpnPLs+FDFUtZ4L2jcjH/wkbAnS6e0tPkuV5EU/ypmYbjJY4wZ8x
-         pZrZXDAj4pybpR7C7VNTiS+Ycs6IWASDdMfNSEI/WRlGbHJ8UBhpDx+263VW9e3pmgPF
-         jwf6yACPL3h99Q8ic36liInGaruHw5ge3H4+4UVBREyFQzqnMVs97cQzAFZRJar9aUNM
-         r6pA==
-X-Gm-Message-State: ACgBeo3GnsHnY7DJ8LbSgHe4vsK05f93ZI90Jkb0J/N86prgZAnkyeGC
-	WW2k6A9IQzettfg+dreCvRBKmU6lp/7qKCJmeq1X
-X-Google-Smtp-Source: AA6agR7wQ8oKJPNlIuB55kWztWUPT4TZ4pt1foHS2qP00B5/o+HsUbPTDI0y9sCaodK5ZH30pxM3xwnr92xLtnZ6tlU=
-X-Received: by 2002:a25:5105:0:b0:692:17f6:62b6 with SMTP id
- f5-20020a255105000000b0069217f662b6mr8381453ybb.361.1660939752536; Fri, 19
- Aug 2022 13:09:12 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220814141237.493457-1-mail@conchuod.ie> <20220814141237.493457-2-mail@conchuod.ie>
-In-Reply-To: <20220814141237.493457-2-mail@conchuod.ie>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 19 Aug 2022 13:09:01 -0700
-Message-ID: <CAOnJCU+gvVfqN6DHQRMtJ82xU4ZajHrANfeDjt21i9Om4r43eg@mail.gmail.com>
-Subject: Re: [PATCH 1/4] riscv: kvm: vcpu_timer: fix unused variable warnings
-To: Conor Dooley <mail@conchuod.ie>
-Cc: Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, 
-	Vincent Chen <vincent.chen@sifive.com>, Xianting Tian <xianting.tian@linux.alibaba.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Kefeng Wang <wangkefeng.wang@huawei.com>, 
-	Tong Tiangen <tongtiangen@huawei.com>, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+	id 1oP9KF-00CJCu-TN
+	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 21:14:45 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 3118361741;
+	Fri, 19 Aug 2022 21:14:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 98444C433C1;
+	Fri, 19 Aug 2022 21:14:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1660943681;
+	bh=GCa0IDVBdMQYrcNjZJ2AAdGVMd7ovgaNFED0tmvuzXc=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=fK+Nw4MnjAjQzlbhmNEvvwWbi0hfkY3DUcc0+14B9mjOn/7lEyeDSl90Gl6Yhc08a
+	 QU/7KVVSaXm0TKmfyK/cxcoDi3JP5bJTGrMLzGMRaWKxGhw7CwG0MO+G8BOTrgnlnt
+	 uxT56JaiK6rfq/sfvg9h0Iy2bK5dWxJ1vS6F7hcXUv4HDVva98SCmEaiH841eg42cf
+	 kKPl+Et0F8mKUOa+KysUK5RGyDTcZGguNJ5qgUdMgecxmGCm8zI8t5rHGkjp8h8nsD
+	 9kHxAxN+NRb6BfrTwYlMycEHy2pVDzTqTSUDIPNS8207a/QA6u/XMGZxglmJhJoTys
+	 4oAa4cgXlHLYg==
+Received: from aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by aws-us-west-2-korg-oddjob-1.ci.codeaurora.org (Postfix) with ESMTP id 85C7EE2A050;
+	Fri, 19 Aug 2022 21:14:41 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Fixes for 6.0-rc2
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-74337228-62c4-40ed-b7af-0d988ff94993@palmer-mbp2014>
+References: <mhng-74337228-62c4-40ed-b7af-0d988ff94993@palmer-mbp2014>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <mhng-74337228-62c4-40ed-b7af-0d988ff94993@palmer-mbp2014>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.0-rc2
+X-PR-Tracked-Commit-Id: 96264230a6817bcd4a7ae0fc30c60bfb46499f68
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 8fd00059cc13c7f170451e9318a9a5e772b88e17
+Message-Id: <166094368154.15089.7972422322159327730.pr-tracker-bot@kernel.org>
+Date: Fri, 19 Aug 2022 21:14:41 +0000
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220819_130915_406075_A96C7777 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20220819_141444_113792_1DB1BC4A 
+X-CRM114-Status: UNSURE (   4.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,76 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Aug 14, 2022 at 7:12 AM Conor Dooley <mail@conchuod.ie> wrote:
->
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> In two places, csr is set but never used:
->
-> arch/riscv/kvm/vcpu_timer.c:302:23: warning: variable 'csr' set but not used [-Wunused-but-set-variable]
->         struct kvm_vcpu_csr *csr;
->                              ^
-> arch/riscv/kvm/vcpu_timer.c:327:23: warning: variable 'csr' set but not used [-Wunused-but-set-variable]
->         struct kvm_vcpu_csr *csr;
->                              ^
->
-> Remove the variable.
->
-> Fixes: 8f5cb44b1bae ("RISC-V: KVM: Support sstc extension")
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/riscv/kvm/vcpu_timer.c | 4 ----
->  1 file changed, 4 deletions(-)
->
-> diff --git a/arch/riscv/kvm/vcpu_timer.c b/arch/riscv/kvm/vcpu_timer.c
-> index 16f50c46ba39..185f2386a747 100644
-> --- a/arch/riscv/kvm/vcpu_timer.c
-> +++ b/arch/riscv/kvm/vcpu_timer.c
-> @@ -299,7 +299,6 @@ static void kvm_riscv_vcpu_update_timedelta(struct kvm_vcpu *vcpu)
->
->  void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu)
->  {
-> -       struct kvm_vcpu_csr *csr;
->         struct kvm_vcpu_timer *t = &vcpu->arch.timer;
->
->         kvm_riscv_vcpu_update_timedelta(vcpu);
-> @@ -307,7 +306,6 @@ void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu)
->         if (!t->sstc_enabled)
->                 return;
->
-> -       csr = &vcpu->arch.guest_csr;
->  #if defined(CONFIG_32BIT)
->         csr_write(CSR_VSTIMECMP, (u32)t->next_cycles);
->         csr_write(CSR_VSTIMECMPH, (u32)(t->next_cycles >> 32));
-> @@ -324,13 +322,11 @@ void kvm_riscv_vcpu_timer_restore(struct kvm_vcpu *vcpu)
->
->  void kvm_riscv_vcpu_timer_save(struct kvm_vcpu *vcpu)
->  {
-> -       struct kvm_vcpu_csr *csr;
->         struct kvm_vcpu_timer *t = &vcpu->arch.timer;
->
->         if (!t->sstc_enabled)
->                 return;
->
-> -       csr = &vcpu->arch.guest_csr;
->         t = &vcpu->arch.timer;
->  #if defined(CONFIG_32BIT)
->         t->next_cycles = csr_read(CSR_VSTIMECMP);
-> --
-> 2.37.1
->
+The pull request you sent on Fri, 19 Aug 2022 09:28:44 -0700 (PDT):
 
-Thanks for fixing this. Sorry for missing those.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.0-rc2
 
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/8fd00059cc13c7f170451e9318a9a5e772b88e17
 
---
-Regards,
-Atish
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
