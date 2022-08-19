@@ -4,60 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FBB5C00140
-	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 02:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B91C25B0E
+	for <linux-riscv@archiver.kernel.org>; Fri, 19 Aug 2022 05:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LgqqxivSUy9cx7C+NCZVgXo6ey6aFgfHn1JXl1dYfSo=; b=lS8Y0yBrLAVZZZ
-	gVDqpNJtkOItlHlRyUIMrDGn+CQ8G/N9R8RGo0AzZ5eru3xUhESTu2Gb1rx2S0WcQqUIses+zelYT
-	mZmV+VciXOV7jb3wmiJsnw6UnrpeFa2hmxgHyUGDjoJNM8drz51zJHK/mRMBrhDL2EGIhkgwTxequ
-	DZt4LC2orO9fY21LmE5wehB00VnTdsrK3AHgpzz/DpjqeueVdkRPaYhTnpv+g11NA3YOYwmy7XGZI
-	1eWl8LF2SibpkuYxURwjUZahnYeoJAzLg8YvuEt9FsG5uLp6TOY7c19MzqBUBOZYbCtEWz8szS9w0
-	Wb7636IP0xrEC2uDPuvQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=lGGOytJuXfzWo7+z15MEp1jLD9vHDs2u/MofqTUk/PI=; b=CfdKzldrn98e9uQ7PxL+ctU1S0
+	VPcOQRDmV19gn90dBVa5ZjETdqJCfZbN/fhg5Jq0K0Lg318JF5qDVLBtNeHSam550bt7uZhYUChwY
+	vEjsk+B+C5wVR7kR2ATlgSPJRvEqOJ0sq4wck0AHDhGbLM3gc5eI9/ahj2z0d0UvjpXFS06QHZMsM
+	98dQnfaa4djlfDvA09dh7bTIwRKLrT8aNcrX3I6trD9mySqIaHXsoVLE4CdLgBj9Roz/D3PB4RzE4
+	y/h4yyvD7KX9hAyaduhS+qALz2sNx3wlJKWWrl5XX9XFAyTANw9gMQUA2IkIAC9lTF4Ao5jvD8JsO
+	wKzULMCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOsDX-00FELa-Jl; Fri, 19 Aug 2022 02:58:39 +0000
-Received: from szxga08-in.huawei.com ([45.249.212.255])
+	id 1oOu7v-000qFY-7E; Fri, 19 Aug 2022 05:00:59 +0000
+Received: from wout4-smtp.messagingengine.com ([64.147.123.20])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oOsDR-00FE8P-6z
-	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 02:58:37 +0000
-Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.56])
-	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4M85vs3sXHz1N7HC;
-	Fri, 19 Aug 2022 10:55:05 +0800 (CST)
-Received: from kwepemm600010.china.huawei.com (7.193.23.86) by
- dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Fri, 19 Aug 2022 10:58:28 +0800
-Received: from ubuntu1804.huawei.com (10.67.174.174) by
- kwepemm600010.china.huawei.com (7.193.23.86) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Fri, 19 Aug 2022 10:58:27 +0800
-From: Li Huafei <lihuafei1@huawei.com>
-To: <guoren@kernel.org>, <mhiramat@kernel.org>, <palmer@dabbelt.com>
-CC: <rostedt@goodmis.org>, <mingo@redhat.com>, <paul.walmsley@sifive.com>,
-	<aou@eecs.berkeley.edu>, <naveen.n.rao@linux.ibm.com>,
-	<anil.s.keshavamurthy@intel.com>, <davem@davemloft.net>,
-	<jszhang@kernel.org>, <peterz@infradead.org>, <liaochang1@huawei.com>,
-	<me@packi.ch>, <penberg@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 2/2] riscv: kprobe: Allow coexistence of ftrace and kprobe
-Date: Fri, 19 Aug 2022 10:55:22 +0800
-Message-ID: <20220819025522.154189-2-lihuafei1@huawei.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220819025522.154189-1-lihuafei1@huawei.com>
-References: <20220819025522.154189-1-lihuafei1@huawei.com>
+	id 1oOu7r-000pyv-MQ
+	for linux-riscv@lists.infradead.org; Fri, 19 Aug 2022 05:00:58 +0000
+Received: from compute2.internal (compute2.nyi.internal [10.202.2.46])
+	by mailout.west.internal (Postfix) with ESMTP id 351933200657;
+	Fri, 19 Aug 2022 01:00:46 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute2.internal (MEProxy); Fri, 19 Aug 2022 01:00:48 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm2; t=1660885245; x=
+	1660971645; bh=kVazb7lt8vGXQXHDTFxGJ0FYilsP8rMovZpI7sZEpDI=; b=0
+	kPY6m+g2DIIy2Kzy3urA/JLxsuuoaJybs5wqRk15UQfoIsIz4ZyRY7af9Jm6sDND
+	YMyQO5SnRk8wWDVLXJUKS6TcouFWfVBpMy77GVgXoaB0NrZW8JekT4niwykVNvF1
+	uzXqaxmDYx4aVe2bBINBQhreOUel7frdCLAeabYVx2HkBKFtLJLCz8lFzlqRpRAf
+	rS39ijTR2GRP+1h3LUxZvZMQgEEDoKgS/Yg7FyYeBB6FY9qPtX2Ir6r1dH3RTHje
+	G6MAYcKhNKdNatUXdy12Gp/kT0HUwC8VWanJWkdn87qR2OSYzcF3A7Fr3UVPc/5p
+	Xjuge9RZNd/jiz8FKR6+Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1660885245; x=
+	1660971645; bh=kVazb7lt8vGXQXHDTFxGJ0FYilsP8rMovZpI7sZEpDI=; b=D
+	AnlOZlaGl8rVLsc1KJgS+85/Lv7roL0km+eiNlVoBAyEc9Kl+7euK3BUPSCtcuLe
+	jm/VUT8e88wp4qZUqwmuY7LXOSn7AyRoran5SF5aM6C7ILHSvsk9mS1Dld8J45l+
+	oUeQZfLvHyBzhkQqoSgeuKyDNa7K8nMHttHt+l24otYpe8EFpG2b/XCGT4xHz3Mr
+	QXXiLBvvri22V2Li5h/rJi+PE8rLUwpWN7PQdSXc/5LP4zeNAtHGuRAW/63mnar7
+	6P0C59aN4Sya6Z+satfpNXXZwWKAAfMQAZ+Od+DXDzh/K01U/G38SE+iYm25af7c
+	pK/d2WmJb8S4WGUUfhwaw==
+X-ME-Sender: <xms:_Bj_YpYid9vEvbkRFADhYxFVVFW1BcJDvUt-eFgaZxOBTAgRXkHzfw>
+    <xme:_Bj_YgaaCrl6B7ZT5PwEJNrXqTLoUUCPaAgoMFiAX7CnCqS2xz_T6LKWgz9QJYeNJ
+    PR9Ed_2yZ60rdIrFw>
+X-ME-Received: <xmr:_Bj_Yr9QzXhMdNLHJgnUJBax59sRzG9Pn6KcZvIQQK74OaRxzfI74rTj_fJqolmepcBLG4qIO7pMgUl4oeSJQmZ91_vsKu-czdvLApwdwOJz1yYB5z0DWD3qUQ>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrvdeitddgleduucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucenucfjughrpefuvfevfhfhkffffgggjggtgfesth
+    ekredttdefjeenucfhrhhomhepufgrmhhuvghlucfjohhllhgrnhguuceoshgrmhhuvghl
+    sehshhholhhlrghnugdrohhrgheqnecuggftrfgrthhtvghrnhepjeelfedutdeggeevvd
+    ekheefjeefvefgfeeiffefgeduieeutdehkeejleegueejnecuffhomhgrihhnpehkvghr
+    nhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
+    hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
+X-ME-Proxy: <xmx:_Bj_Ynpn7jwmvBKq_AClh_d6Kt2cf0qqV_dve60f5MfVzFghRt1UUA>
+    <xmx:_Bj_YkpvNY8tjzhxoWP-hRI9SorFSJ1EyFYoKItsc6OpSGqc31-1DA>
+    <xmx:_Bj_YtR620AmuDJiPGoAXenLtdhQW7XyO9Ra_ZEF8uaou6N-cT828w>
+    <xmx:_Rj_Yv9w_mz_TrQ-I1KJQVKgrWbrKcUawKLL72kN-PO6EDOlDclmPQ>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Fri,
+ 19 Aug 2022 01:00:43 -0400 (EDT)
+Subject: Re: Re: [PATCH v4] arch/riscv: add Zihintpause support
+To: Conor.Dooley@microchip.com, palmer@dabbelt.com
+Cc: daolu@rivosinc.com, linux-kernel@vger.kernel.org, heiko@sntech.de,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu, atishp@atishpatra.org,
+ anup@brainfault.org, guoren@kernel.org, jszhang@kernel.org,
+ rdunlap@infradead.org, niklas.cassel@wdc.com, panqinglin2020@iscas.ac.cn,
+ alexandre.ghiti@canonical.com, robh@kernel.org,
+ research_trasio@irq.a4lg.com, yury.norov@gmail.com,
+ linux-riscv@lists.infradead.org
+References: <mhng-1b17506c-8dd7-4868-bd58-7df010313902@palmer-ri-x1c9>
+ <73c7e97a-ebdc-5509-7e74-4b1dbb62b2bb@microchip.com>
+From: Samuel Holland <samuel@sholland.org>
+Message-ID: <ef792dc5-0a9e-7786-0c16-11d7de65f392@sholland.org>
+Date: Fri, 19 Aug 2022 00:00:42 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.174]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemm600010.china.huawei.com (7.193.23.86)
-X-CFilter-Loop: Reflected
+In-Reply-To: <73c7e97a-ebdc-5509-7e74-4b1dbb62b2bb@microchip.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220818_195833_734932_A1862EF8 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20220818_220056_257789_492D720B 
+X-CRM114-Status: GOOD (  32.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,289 +107,185 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When using ftrace and kprobe at the same time, it was found that one
-might cause the other to be unavailable. This can be reproduced by the
-following steps.
-
-  # cd /sys/kernel/debug/tracing/
-  # echo cmdline_proc_show > set_ftrace_filter
-  # echo function > current_tracer
-  # echo 'p cmdline_proc_show' > kprobe_events
-  # echo 'p cmdline_proc_show+4' >> kprobe_events
-  # ls events/kprobes/
-  enable                 p_cmdline_proc_show_0
-  filter                 p_cmdline_proc_show_4
-  # echo 1 > events/kprobes/p_cmdline_proc_show_4/enable
-  # echo 1 > events/kprobes/p_cmdline_proc_show_0/enable
-  [  129.830108] 00000000ebed457d: expected (ffdb0097 4f0080e7) but got (00100073 4f0080e7)
-  [  129.835990] ------------[ ftrace bug ]------------
-  [  129.839510] ftrace failed to modify
-  [  129.839536] [<ffffffff80258910>] cmdline_proc_show+0x0/0x46
-  [  129.845831]  actual:   23:3c:11:fe:73:00:10:00
-  [  129.849299] Updating ftrace call site to call a different ftrace function
-  [  129.853998] ftrace record flags: e0000002
-  [  129.856771]  (2) R
-  [  129.856771]  expected tramp: ffffffff80008e60
-  [  129.861688] ------------[ cut here ]------------
-  [  129.865092] WARNING: CPU: 0 PID: 14 at kernel/trace/ftrace.c:2085 ftrace_bug+0x21a/0x24c
-  [  129.870949] Modules linked in:
-  [  129.873301] CPU: 0 PID: 14 Comm: migration/0 Not tainted 5.18.0-rc3-00002-gd8bfcd250f58 #6
-  [  129.879217] Hardware name: riscv-virtio,qemu (DT)
-  [  129.882666] Stopper: multi_cpu_stop+0x0/0x168 <- stop_machine_cpuslocked+0xfa/0x12e
-  [  129.888430] epc : ftrace_bug+0x21a/0x24c
-  [  129.891254]  ra : ftrace_bug+0x21a/0x24c
-  [  129.894057] epc : ffffffff807c3bee ra : ffffffff807c3bee sp : ff20000000283c80
-  [  129.899144]  gp : ffffffff813a83b8 tp : ff60000080021600 t0 : ffffffff804155c0
-  [  129.904257]  t1 : 0720072007200720 t2 : 7420646574636570 s0 : ff20000000283cb0
-  [  129.909402]  s1 : ff6000007fe622a0 a0 : 0000000000000022 a1 : c0000000ffffefff
-  [  129.914472]  a2 : 0000000000000001 a3 : 0000000000000000 a4 : 341adec112294700
-  [  129.919487]  a5 : 341adec112294700 a6 : 0000000000000730 a7 : 0000000000000030
-  [  129.924595]  s2 : ffffffff80258910 s3 : ffffffffffffffea s4 : 0000000000000000
-  [  129.929776]  s5 : 0000000000000a35 s6 : ffffffff80d667c8 s7 : ff6000007fe04000
-  [  129.934892]  s8 : 0000000000000004 s9 : 0000000000000002 s10: 0000000000000001
-  [  129.939992]  s11: 0000000000000003 t3 : ff6000007ff20f00 t4 : ff6000007ff20f00
-  [  129.945134]  t5 : ff6000007ff20000 t6 : ff200000002839c8
-  [  129.948838] status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
-  [  129.954580] [<ffffffff800bf110>] ftrace_replace_code+0xce/0xd0
-  [  129.958771] [<ffffffff800bf280>] ftrace_modify_all_code+0xb4/0x12c
-  [  129.964420] [<ffffffff800bf30a>] __ftrace_modify_code+0x12/0x1c
-  [  129.969163] [<ffffffff800b4ea4>] multi_cpu_stop+0x9a/0x168
-  [  129.973035] [<ffffffff800b4b1c>] cpu_stopper_thread+0xb4/0x15e
-  [  129.977205] [<ffffffff8003457a>] smpboot_thread_fn+0x106/0x1e4
-  [  129.981277] [<ffffffff80030ca6>] kthread+0xee/0x108
-  [  129.984763] [<ffffffff800039ba>] ret_from_exception+0x0/0xc
-  [  129.988809] ---[ end trace 0000000000000000 ]---
-  # cat trace
-  # tracer: function
-  #
-  # WARNING: FUNCTION TRACING IS CORRUPTED
-  #          MAY BE MISSING FUNCTION EVENTS
-  # entries-in-buffer/entries-written: 0/0   #P:4
-  #
-  #                                _-----=> irqs-off/BH-disabled
-  #                               / _----=> need-resched
-  #                              | / _---=> hardirq/softirq
-  #                              || / _--=> preempt-depth
-  #                              ||| / _-=> migrate-disable
-  #                              |||| /     delay
-  #           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
-  #              | |         |   |||||     |         |
-
-As you can see, the ftrace functionality is broken. This is because
-DYNAMIC_FTRACE uses 4 instructions to make the jump from the function
-entry to the ftrace trampoline.
-
-After 'echo function > current_tracer':
-
-  <cmdline_proc_show>:
-    0xffffffff80258910 <+0>:     sd      ra,-8(sp)
-    0xffffffff80258914 <+4>:     auipc   ra,0xffdb0
-    0xffffffff80258918 <+8>:     jalr    1264(ra) # 0xffffffff80008e04 <ftrace_caller>
-    0xffffffff8025891c <+12>:    ld      ra,-8(sp)
-
-After 'echo 1 > events/kprobes/p_cmdline_proc_show_4/enable':
-
-  <cmdline_proc_show>:
-    0xffffffff80258910 <+0>:     sd      ra,-8(sp)
-    0xffffffff80258914 <+4>:     ebreak
-    0xffffffff80258918 <+8>:     jalr    1264(ra)
-    0xffffffff8025891c <+12>:    ld      ra,-8(sp)
-
-This time the second instruction is replaced with a breakpoint
-instruction and the ftrace-related instructions are broken. Then, when
-enabling 'p_cmdline_proc_show_0', a regs ftrace handler is registered
-based on KPROBES_ON_FTRACE, ftrace_modify_call() changes 'ftrace_caller'
-to 'ftrace_regs_caller', and checks for ftrace-related instructions is
-modified or not. Here it has been modified, causing ftrace to report a
-warning and disable itself.
-
-In turn, the breakpoints inserted by kprobe may be overwritten by
-ftrace.
-
-The problem is that we think that only the first instruction address at
-the function entry is needed for ftrace, but it is actually the first 4.
-As Masami mentioned in [1], we can treat the first 4 instructions as a
-16-byte virtual instruction, and func+4, func+8 and func+12 will be
-changed to func+0. This way, ftrace and kprobe do not bother each other
-and can coexist.
-
-After this patch:
-
-  # cd /sys/kernel/debug/tracing/
-  # echo cmdline_proc_show > set_ftrace_filter
-  # echo function > current_tracer
-  # echo 'p cmdline_proc_show' > kprobe_events
-  # echo 'p cmdline_proc_show+4' >> kprobe_events
-  # echo 'p cmdline_proc_show+8' >> kprobe_events
-  # echo 'p cmdline_proc_show+12' >> kprobe_events
-  # echo 'p cmdline_proc_show+16' >> kprobe_events
-  # ls events/kprobes/
-  enable                  p_cmdline_proc_show_12  p_cmdline_proc_show_8
-  filter                  p_cmdline_proc_show_16
-  p_cmdline_proc_show_0   p_cmdline_proc_show_4
-  # echo 1 > events/kprobes/enable
-  # cat ../kprobes/list
-  ffffffff8025cba4  k  cmdline_proc_show+0x0    [FTRACE]
-  ffffffff8025cba4  k  cmdline_proc_show+0x0    [FTRACE]
-  ffffffff8025cba4  k  cmdline_proc_show+0x0    [FTRACE]
-  ffffffff8025cba4  k  cmdline_proc_show+0x0    [FTRACE]
-  ffffffff8025cbb4  k  cmdline_proc_show+0x10
-  # cat /proc/cmdline
-  nokaslr rootwait root=/dev/vda rw
-  # cat trace
-  # tracer: function
-  #
-  # entries-in-buffer/entries-written: 6/6   #P:4
-  #
-  #                                _-----=> irqs-off/BH-disabled
-  #                               / _----=> need-resched
-  #                              | / _---=> hardirq/softirq
-  #                              || / _--=> preempt-depth
-  #                              ||| / _-=> migrate-disable
-  #                              |||| /     delay
-  #           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
-  #              | |         |   |||||     |         |
-               cat-144     [000] ...2.   179.164908: p_cmdline_proc_show_12: (cmdline_proc_show+0x0/0x46)
-               cat-144     [000] ...2.   179.165617: p_cmdline_proc_show_8: (cmdline_proc_show+0x0/0x46)
-               cat-144     [000] ...2.   179.165653: p_cmdline_proc_show_4: (cmdline_proc_show+0x0/0x46)
-               cat-144     [000] ...2.   179.165655: p_cmdline_proc_show_0: (cmdline_proc_show+0x0/0x46)
-               cat-144     [000] ...2.   179.165837: cmdline_proc_show <-seq_read_iter
-               cat-144     [000] d....   179.166099: p_cmdline_proc_show_16: (cmdline_proc_show+0x10/0x46)
-
-[1] https://patchwork.kernel.org/project/linux-arm-kernel/patch/20191218140622.57bbaca5@xhacker.debian/
-
-Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
-Suggested-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Li Huafei <lihuafei1@huawei.com>
----
-v1: https://lore.kernel.org/lkml/20220426015751.88582-2-lihuafei1@huawei.com/
-
-Changlog in v1 -> v2:
- - Allows probing func+offs(<16) instead of returning -EILSEQ, which
-   does not change the arch_adjust_kprobe_addr() interface convention.
- - ftrace_location(addr) is unnecessary, consistent with powerpc and
-   x86.
-
- arch/riscv/include/asm/ftrace.h    | 26 ++++++++++++++++++++++++++
- arch/riscv/kernel/ftrace.c         | 26 --------------------------
- arch/riscv/kernel/probes/kprobes.c | 20 ++++++++++++++++++++
- 3 files changed, 46 insertions(+), 26 deletions(-)
-
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index 04dad3380041..c59e4a63f1c1 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -77,6 +77,32 @@ do {									\
-  */
- #define MCOUNT_INSN_SIZE 8
- 
-+/*
-+ * Put 16 bytes at the front of the function within the patchable function
-+ * entry nops' area.
-+ *
-+ * 0: REG_S  ra, -SZREG(sp)
-+ * 1: auipc  ra, 0x?
-+ * 2: jalr   -?(ra)
-+ * 3: REG_L  ra, -SZREG(sp)
-+ *
-+ * So the opcodes is:
-+ * 0: 0xfe113c23 (sd)/0xfe112e23 (sw)
-+ * 1: 0x???????? -> auipc
-+ * 2: 0x???????? -> jalr
-+ * 3: 0xff813083 (ld)/0xffc12083 (lw)
-+ */
-+#if __riscv_xlen == 64
-+#define INSN0	0xfe113c23
-+#define INSN3	0xff813083
-+#elif __riscv_xlen == 32
-+#define INSN0	0xfe112e23
-+#define INSN3	0xffc12083
-+#endif
-+
-+#define FUNC_ENTRY_SIZE	16
-+#define FUNC_ENTRY_JMP	4
-+
- #ifndef __ASSEMBLY__
- struct dyn_ftrace;
- int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index 552088e9acc4..9d951aab662a 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -70,32 +70,6 @@ static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
- 	return 0;
- }
- 
--/*
-- * Put 16 bytes at the front of the function within the patchable function
-- * entry nops' area.
-- *
-- * 0: REG_S  ra, -SZREG(sp)
-- * 1: auipc  ra, 0x?
-- * 2: jalr   -?(ra)
-- * 3: REG_L  ra, -SZREG(sp)
-- *
-- * So the opcodes is:
-- * 0: 0xfe113c23 (sd)/0xfe112e23 (sw)
-- * 1: 0x???????? -> auipc
-- * 2: 0x???????? -> jalr
-- * 3: 0xff813083 (ld)/0xffc12083 (lw)
-- */
--#if __riscv_xlen == 64
--#define INSN0	0xfe113c23
--#define INSN3	0xff813083
--#elif __riscv_xlen == 32
--#define INSN0	0xfe112e23
--#define INSN3	0xffc12083
--#endif
--
--#define FUNC_ENTRY_SIZE	16
--#define FUNC_ENTRY_JMP	4
--
- int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
- {
- 	unsigned int call[4] = {INSN0, 0, 0, INSN3};
-diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-index e6e950b7cf32..ef7aabec9681 100644
---- a/arch/riscv/kernel/probes/kprobes.c
-+++ b/arch/riscv/kernel/probes/kprobes.c
-@@ -21,6 +21,26 @@ DEFINE_PER_CPU(struct kprobe_ctlblk, kprobe_ctlblk);
- static void __kprobes
- post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
- 
-+#ifdef CONFIG_DYNAMIC_FTRACE
-+kprobe_opcode_t *arch_adjust_kprobe_addr(unsigned long addr, unsigned long offset,
-+					 bool *on_func_entry)
-+{
-+	/*
-+	 * The first 4 instructions at the beginning of the ftraced function
-+	 * are used as a jump to ftrace trampoline, which we can think of as
-+	 * a 16-byte virtual instruction. func+4, func+8 and func+12 will be
-+	 * changed to func+0. This allows the function entry to be probed with
-+	 * the help of KPROBES_ON_FTRACE and does not break ftrace
-+	 * functionality.
-+	 */
-+	if (offset < FUNC_ENTRY_SIZE)
-+		offset = 0;
-+
-+	*on_func_entry = !offset;
-+	return (kprobe_opcode_t *)(addr + offset);
-+}
-+#endif
-+
- static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
- {
- 	unsigned long offset = GET_INSN_LENGTH(p->opcode);
--- 
-2.17.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gOC8xNi8yMiAxMTowNCBBTSwgQ29ub3IuRG9vbGV5QG1pY3JvY2hpcC5jb20gd3JvdGU6Cj4g
+T24gMTYvMDgvMjAyMiAxNjo1NCwgUGFsbWVyIERhYmJlbHQgd3JvdGU6Cj4+IE9uIEZyaSwgMTIg
+QXVnIDIwMjIgMDA6MjE6NDAgUERUICgtMDcwMCksIENvbm9yLkRvb2xleUBtaWNyb2NoaXAuY29t
+IHdyb3RlOgo+Pj4gT24gMTIvMDgvMjAyMiAwNzo1NywgQ29ub3IgRG9vbGV5IC0gTTUyNjkxIHdy
+b3RlOgo+Pj4+IE9uIDExLzA4LzIwMjIgMTY6MTcsIFBhbG1lciBEYWJiZWx0IHdyb3RlOgo+Pj4+
+PiBFWFRFUk5BTCBFTUFJTDogRG8gbm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMg
+dW5sZXNzIHlvdSBrbm93IHRoZSBjb250ZW50IGlzIHNhZmUKPj4+Pj4KPj4+Pj4gT24gTW9uLCAy
+MCBKdW4gMjAyMiAxMzoxNToyNSBQRFQgKC0wNzAwKSwgZGFvbHVAcml2b3NpbmMuY29tIHdyb3Rl
+Ogo+Pj4+Pj4gSW1wbGVtZW50IHN1cHBvcnQgZm9yIHRoZSBaaUhpbnRQYXVzZSBleHRlbnNpb24u
+Cj4+Pj4+Pgo+Pj4+Pj4gVGhlIFBBVVNFIGluc3RydWN0aW9uIGlzIGEgSElOVCB0aGF0IGluZGlj
+YXRlcyB0aGUgY3VycmVudCBoYXJ04oCZcyByYXRlCj4+Pj4+PiBvZiBpbnN0cnVjdGlvbiByZXRp
+cmVtZW50IHNob3VsZCBiZSB0ZW1wb3JhcmlseSByZWR1Y2VkIG9yIHBhdXNlZC4KPj4+Pj4+Cj4+
+Pj4+PiBSZXZpZXdlZC1ieTogSGVpa28gU3R1ZWJuZXIgPGhlaWtvQHNudGVjaC5kZT4KPj4+Pj4+
+IFRlc3RlZC1ieTogSGVpa28gU3R1ZWJuZXIgPGhlaWtvQHNudGVjaC5kZT4KPj4+Pj4+IFNpZ25l
+ZC1vZmYtYnk6IERhbyBMdSA8ZGFvbHVAcml2b3NpbmMuY29tPgo+Pj4+Pj4gLS0tCj4+Pj4+Pgo+
+Pj4+Pj4gdjEgLT4gdjI6Cj4+Pj4+PiDCoFJlbW92ZSB0aGUgdXNhZ2Ugb2Ygc3RhdGljIGJyYW5j
+aCwgdXNlIFBBVVNFIGlmIHRvb2xjaGFpbiBzdXBwb3J0cyBpdAo+Pj4+Pj4gdjIgLT4gdjM6Cj4+
+Pj4+PiDCoEFkZGVkIHRoZSBzdGF0aWMgYnJhbmNoIGJhY2ssIGNwdV9yZWxheCgpIGJlaGF2aW9y
+IGlzIGtlcHQgdGhlIHNhbWUgZm9yCj4+Pj4+PiBzeXN0ZW1zIHRoYXQgZG8gbm90IHN1cHBvcnQg
+WmlIaW50UGF1c2UKPj4+Pj4+IHYzIC0+IHY0Ogo+Pj4+Pj4gwqBBZG9wdGVkIHRoZSBuZXdseSBh
+ZGRlZCB1bmlmaWVkIHN0YXRpYyBrZXlzIGZvciBleHRlbnNpb25zCj4+Pj4+PiAtLS0KPj4+Pj4+
+IMKgYXJjaC9yaXNjdi9NYWtlZmlsZcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgfMKgIDQgKysrKwo+Pj4+Pj4gwqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2h3Y2FwLmjC
+oMKgwqDCoMKgwqDCoMKgwqAgfMKgIDUgKysrKysKPj4+Pj4+IMKgYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS92ZHNvL3Byb2Nlc3Nvci5oIHwgMjEgKysrKysrKysrKysrKysrKysrLS0tCj4+Pj4+PiDC
+oGFyY2gvcmlzY3Yva2VybmVsL2NwdS5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+fMKgIDEgKwo+Pj4+Pj4gwqBhcmNoL3Jpc2N2L2tlcm5lbC9jcHVmZWF0dXJlLmPCoMKgwqDCoMKg
+wqDCoMKgwqAgfMKgIDEgKwo+Pj4+Pj4gwqA1IGZpbGVzIGNoYW5nZWQsIDI5IGluc2VydGlvbnMo
+KyksIDMgZGVsZXRpb25zKC0pCj4+Pj4+Pgo+Pj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yv
+TWFrZWZpbGUgYi9hcmNoL3Jpc2N2L01ha2VmaWxlCj4+Pj4+PiBpbmRleCAzNGNmOGE1OTg2MTcu
+LjZkZGFjYzZmNDRiOSAxMDA2NDQKPj4+Pj4+IC0tLSBhL2FyY2gvcmlzY3YvTWFrZWZpbGUKPj4+
+Pj4+ICsrKyBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKPj4+Pj4+IEBAIC01Niw2ICs1NiwxMCBAQCBy
+aXNjdi1tYXJjaC0kKENPTkZJR19SSVNDVl9JU0FfQynCoCA6PSAkKHJpc2N2LW1hcmNoLXkpYwo+
+Pj4+Pj4gwqB0b29sY2hhaW4tbmVlZC16aWNzci16aWZlbmNlaSA6PSAkKGNhbGwgY2Mtb3B0aW9u
+LXluLCAtbWFyY2g9JChyaXNjdi1tYXJjaC15KV96aWNzcl96aWZlbmNlaSkKPj4+Pj4+IMKgcmlz
+Y3YtbWFyY2gtJCh0b29sY2hhaW4tbmVlZC16aWNzci16aWZlbmNlaSkgOj0gJChyaXNjdi1tYXJj
+aC15KV96aWNzcl96aWZlbmNlaQo+Pj4+Pj4KPj4+Pj4+ICsjIENoZWNrIGlmIHRoZSB0b29sY2hh
+aW4gc3VwcG9ydHMgWmloaW50cGF1c2UgZXh0ZW5zaW9uCj4+Pj4+PiArdG9vbGNoYWluLXN1cHBv
+cnRzLXppaGludHBhdXNlIDo9ICQoY2FsbCBjYy1vcHRpb24teW4sIC1tYXJjaD0kKHJpc2N2LW1h
+cmNoLXkpX3ppaGludHBhdXNlKQo+Pj4+Pj4gK3Jpc2N2LW1hcmNoLSQodG9vbGNoYWluLXN1cHBv
+cnRzLXppaGludHBhdXNlKSA6PSAkKHJpc2N2LW1hcmNoLXkpX3ppaGludHBhdXNlCj4+Pj4+PiAr
+Cj4+Pj4+PiDCoEtCVUlMRF9DRkxBR1MgKz0gLW1hcmNoPSQoc3Vic3QgZmQsLCQocmlzY3YtbWFy
+Y2gteSkpCj4+Pj4+PiDCoEtCVUlMRF9BRkxBR1MgKz0gLW1hcmNoPSQocmlzY3YtbWFyY2gteSkK
+Pj4+Pj4+Cj4+Pj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5o
+IGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4+Pj4+PiBpbmRleCBlNDhlZWJkZDI2
+MzEuLmRjNDcwMTlhMGIzOCAxMDA2NDQKPj4+Pj4+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vaHdjYXAuaAo+Pj4+Pj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9od2NhcC5oCj4+
+Pj4+PiBAQCAtOCw2ICs4LDcgQEAKPj4+Pj4+IMKgI2lmbmRlZiBfQVNNX1JJU0NWX0hXQ0FQX0gK
+Pj4+Pj4+IMKgI2RlZmluZSBfQVNNX1JJU0NWX0hXQ0FQX0gKPj4+Pj4+Cj4+Pj4+PiArI2luY2x1
+ZGUgPGFzbS9lcnJuby5oPgo+Pj4+Pj4gwqAjaW5jbHVkZSA8bGludXgvYml0cy5oPgo+Pj4+Pj4g
+wqAjaW5jbHVkZSA8dWFwaS9hc20vaHdjYXAuaD4KPj4+Pj4+Cj4+Pj4+PiBAQCAtNTQsNiArNTUs
+NyBAQCBleHRlcm4gdW5zaWduZWQgbG9uZyBlbGZfaHdjYXA7Cj4+Pj4+PiDCoGVudW0gcmlzY3Zf
+aXNhX2V4dF9pZCB7Cj4+Pj4+PiDCoMKgwqDCoMKgIFJJU0NWX0lTQV9FWFRfU1NDT0ZQTUYgPSBS
+SVNDVl9JU0FfRVhUX0JBU0UsCj4+Pj4+PiDCoMKgwqDCoMKgIFJJU0NWX0lTQV9FWFRfU1ZQQk1U
+LAo+Pj4+Pj4gK8KgwqDCoMKgIFJJU0NWX0lTQV9FWFRfWklISU5UUEFVU0UsCj4+Pj4+PiDCoMKg
+wqDCoMKgIFJJU0NWX0lTQV9FWFRfSURfTUFYID0gUklTQ1ZfSVNBX0VYVF9NQVgsCj4+Pj4+PiDC
+oH07Cj4+Pj4+Pgo+Pj4+Pj4gQEAgLTY0LDYgKzY2LDcgQEAgZW51bSByaXNjdl9pc2FfZXh0X2lk
+IHsKPj4+Pj4+IMKgICovCj4+Pj4+PiDCoGVudW0gcmlzY3ZfaXNhX2V4dF9rZXkgewo+Pj4+Pj4g
+wqDCoMKgwqDCoCBSSVNDVl9JU0FfRVhUX0tFWV9GUFUswqDCoMKgwqDCoMKgwqDCoMKgIC8qIEZv
+ciAnRicgYW5kICdEJyAqLwo+Pj4+Pj4gK8KgwqDCoMKgIFJJU0NWX0lTQV9FWFRfS0VZX1pJSElO
+VFBBVVNFLAo+Pj4+Pj4gwqDCoMKgwqDCoCBSSVNDVl9JU0FfRVhUX0tFWV9NQVgsCj4+Pj4+PiDC
+oH07Cj4+Pj4+Pgo+Pj4+Pj4gQEAgLTgzLDYgKzg2LDggQEAgc3RhdGljIF9fYWx3YXlzX2lubGlu
+ZSBpbnQgcmlzY3ZfaXNhX2V4dDJrZXkoaW50IG51bSkKPj4+Pj4+IMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgIHJldHVybiBSSVNDVl9JU0FfRVhUX0tFWV9GUFU7Cj4+Pj4+PiDCoMKgwqDCoMKg
+IGNhc2UgUklTQ1ZfSVNBX0VYVF9kOgo+Pj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+cmV0dXJuIFJJU0NWX0lTQV9FWFRfS0VZX0ZQVTsKPj4+Pj4+ICvCoMKgwqDCoCBjYXNlIFJJU0NW
+X0lTQV9FWFRfWklISU5UUEFVU0U6Cj4+Pj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJl
+dHVybiBSSVNDVl9JU0FfRVhUX0tFWV9aSUhJTlRQQVVTRTsKPj4+Pj4+IMKgwqDCoMKgwqAgZGVm
+YXVsdDoKPj4+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVybiAtRUlOVkFMOwo+
+Pj4+Pj4gwqDCoMKgwqDCoCB9Cj4+Pj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS92ZHNvL3Byb2Nlc3Nvci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nl
+c3Nvci5oCj4+Pj4+PiBpbmRleCAxMzQzODhjYmFhYTEuLjFlNGY4YjRhZWY3OSAxMDA2NDQKPj4+
+Pj4+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9wcm9jZXNzb3IuaAo+Pj4+Pj4g
+KysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL3Byb2Nlc3Nvci5oCj4+Pj4+PiBAQCAt
+NCwxNSArNCwzMCBAQAo+Pj4+Pj4KPj4+Pj4+IMKgI2lmbmRlZiBfX0FTU0VNQkxZX18KPj4+Pj4+
+Cj4+Pj4+PiArI2luY2x1ZGUgPGxpbnV4L2p1bXBfbGFiZWwuaD4KPj4+Pj4+IMKgI2luY2x1ZGUg
+PGFzbS9iYXJyaWVyLmg+Cj4+Pj4+PiArI2luY2x1ZGUgPGFzbS9od2NhcC5oPgo+Pj4+Pj4KPj4+
+Pj4+IMKgc3RhdGljIGlubGluZSB2b2lkIGNwdV9yZWxheCh2b2lkKQo+Pj4+Pj4gwqB7Cj4+Pj4+
+PiArwqDCoMKgwqAgaWYgKCFzdGF0aWNfYnJhbmNoX2xpa2VseSgmcmlzY3ZfaXNhX2V4dF9rZXlz
+W1JJU0NWX0lTQV9FWFRfS0VZX1pJSElOVFBBVVNFXSkpIHsKPj4+Pj4+IMKgI2lmZGVmIF9fcmlz
+Y3ZfbXVsZGl2Cj4+Pj4+PiAtwqDCoMKgwqAgaW50IGR1bW15Owo+Pj4+Pj4gLcKgwqDCoMKgIC8q
+IEluIGxpZXUgb2YgYSBoYWx0IGluc3RydWN0aW9uLCBpbmR1Y2UgYSBsb25nLWxhdGVuY3kgc3Rh
+bGwuICovCj4+Pj4+PiAtwqDCoMKgwqAgX19hc21fXyBfX3ZvbGF0aWxlX18gKCJkaXYgJTAsICUw
+LCB6ZXJvIiA6ICI9ciIgKGR1bW15KSk7Cj4+Pj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IGludCBkdW1teTsKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLyogSW4gbGlldSBv
+ZiBhIGhhbHQgaW5zdHJ1Y3Rpb24sIGluZHVjZSBhIGxvbmctbGF0ZW5jeSBzdGFsbC4gKi8KPj4+
+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgX19hc21fXyBfX3ZvbGF0aWxlX18gKCJkaXYg
+JTAsICUwLCB6ZXJvIiA6ICI9ciIgKGR1bW15KSk7Cj4+Pj4+PiDCoCNlbmRpZgo+Pj4+Pj4gK8Kg
+wqDCoMKgIH0gZWxzZSB7Cj4+Pj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIC8qCj4+Pj4+
+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgKiBSZWR1Y2UgaW5zdHJ1Y3Rpb24gcmV0aXJl
+bWVudC4KPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAqIFRoaXMgYXNzdW1lcyB0
+aGUgUEMgY2hhbmdlcy4KPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAqLwo+Pj4+
+Pj4gKyNpZmRlZiBfX3Jpc2N2X3ppaGludHBhdXNlCj4+Pj4+PiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIF9fYXNtX18gX192b2xhdGlsZV9fICgicGF1c2UiKTsKPj4+Pj4+ICsjZWxzZQo+Pj4+
+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAvKiBFbmNvZGluZyBvZiB0aGUgcGF1c2UgaW5z
+dHJ1Y3Rpb24gKi8KPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgX19hc21fXyBfX3Zv
+bGF0aWxlX18gKCIuNGJ5dGUgMHgxMDAwMDBGIik7Cj4+Pj4+PiArI2VuZGlmCj4+Pj4+PiArwqDC
+oMKgwqAgfQo+Pj4+Pj4gwqDCoMKgwqDCoCBiYXJyaWVyKCk7Cj4+Pj4+PiDCoH0KPj4+Pj4+Cj4+
+Pj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvY3B1LmMgYi9hcmNoL3Jpc2N2L2tl
+cm5lbC9jcHUuYwo+Pj4+Pj4gaW5kZXggZmJhOWU5ZjQ2YThjLi5hMTIzZTkyYjE0ZGQgMTAwNjQ0
+Cj4+Pj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHUuYwo+Pj4+Pj4gKysrIGIvYXJjaC9y
+aXNjdi9rZXJuZWwvY3B1LmMKPj4+Pj4+IEBAIC04OSw2ICs4OSw3IEBAIGludCByaXNjdl9vZl9w
+YXJlbnRfaGFydGlkKHN0cnVjdCBkZXZpY2Vfbm9kZSAqbm9kZSkKPj4+Pj4+IMKgc3RhdGljIHN0
+cnVjdCByaXNjdl9pc2FfZXh0X2RhdGEgaXNhX2V4dF9hcnJbXSA9IHsKPj4+Pj4+IMKgwqDCoMKg
+wqAgX19SSVNDVl9JU0FfRVhUX0RBVEEoc3Njb2ZwbWYsIFJJU0NWX0lTQV9FWFRfU1NDT0ZQTUYp
+LAo+Pj4+Pj4gwqDCoMKgwqDCoCBfX1JJU0NWX0lTQV9FWFRfREFUQShzdnBibXQsIFJJU0NWX0lT
+QV9FWFRfU1ZQQk1UKSwKPj4+Pj4+ICvCoMKgwqDCoCBfX1JJU0NWX0lTQV9FWFRfREFUQSh6aWhp
+bnRwYXVzZSwgUklTQ1ZfSVNBX0VYVF9aSUhJTlRQQVVTRSksCj4+Pj4+PiDCoMKgwqDCoMKgIF9f
+UklTQ1ZfSVNBX0VYVF9EQVRBKCIiLCBSSVNDVl9JU0FfRVhUX01BWCksCj4+Pj4+PiDCoH07Cj4+
+Pj4+Pgo+Pj4+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYyBi
+L2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+Pj4+Pj4gaW5kZXggMWIzZWM0NGUyNWY1
+Li43MDhkZjJjMGJjMzQgMTAwNjQ0Cj4+Pj4+PiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9jcHVm
+ZWF0dXJlLmMKPj4+Pj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2NwdWZlYXR1cmUuYwo+Pj4+
+Pj4gQEAgLTE5OCw2ICsxOTgsNyBAQCB2b2lkIF9faW5pdCByaXNjdl9maWxsX2h3Y2FwKHZvaWQp
+Cj4+Pj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfSBlbHNl
+IHsKPj4+Pj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgU0VUX0lTQV9FWFRfTUFQKCJzc2NvZnBtZiIsIFJJU0NWX0lTQV9FWFRfU1ND
+T0ZQTUYpOwo+Pj4+Pj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCBTRVRfSVNBX0VYVF9NQVAoInN2cGJtdCIsIFJJU0NWX0lTQV9FWFRf
+U1ZQQk1UKTsKPj4+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCBTRVRfSVNBX0VYVF9NQVAoInppaGludHBhdXNlIiwgUklTQ1ZfSVNB
+X0VYVF9aSUhJTlRQQVVTRSk7Cj4+Pj4+PiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgfQo+Pj4+Pj4gwqAjdW5kZWYgU0VUX0lTQV9FWFRfTUFQCj4+Pj4+PiDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB9Cj4+Pj4+Cj4+Pj4+IFRoYW5rcywgdGhpcyBpcyBvbiBm
+b3ItbmV4dC7CoCBJdCBuZWVkcyBhIHNwYXJzZSBwYXRjaCwgd2hpY2ggSSBwdXQgaW4gYXMgYSBs
+aW5rLgo+Pj4+Cj4+Pj4gVGhpcyBicmVha3MgdGhlIEM9MSBidWlsZCBmb3IgYWxsIHRvb2xjaGFp
+bnMsIG5vdCBqdXN0IG5ldyBvbmVzIGFzIHlvdXIgc3BhcnNlCj4+Pj4gcGF0Y2ggc3VnZ2VzdHMu
+IEkgYW1uJ3QgMTAwJSB3aGF0IG15IENJIGlzIHJ1bm5pbmcsIGJ1dCBJIHJlcGxpY2F0ZWQgdGhp
+cyBvbgo+Pj4+IG15IG93biBtYWNoaW5lIHdpdGg6Cj4+Pgo+Pj4gQXJnaCwgSSB3ZW50IHBva2lu
+ZyBhcm91bmQgYW5kIG15IHRvb2xjaGFpbidzIGJpbnV0aWxzIGV0YyBpcyBuZXdlciB0aGFuIEkg
+dGhvdWdodC4KPj4+IEdvb2QgZm9yIHBlb3BsZSBzZWFyY2hpbmcgb24gbG9yZSBJIHN1cHBvc2Uu
+Li4KPj4+IFNvcnJ5IQo+Pgo+PiBTbyBqdXN0IHRvIGJlIGNsZWFyOiB5b3UncmUgc2F5aW5nIHRo
+aXMgb25seSBicmVha3Mgd2l0aCBuZXcgYmludXRpbHM/Cj4gCj4gWWVzLCBzb3JyeSAtIEkgKnRo
+b3VnaHQqIHRoZSBiaW51dGlscyBpbiBvdXIgQ0kgcHJlZGF0ZWQgWmloaW50cGF1c2UgYnV0Cj4g
+aXQgZG9lc24ndC4gSXQgKGFuZCBzbyB3b3VsZCB0aGUgWmljYm9tIHN0dWZmKSBicmVha3MgdGhl
+IGJ1aWxkcyBpbiBvdXIgQ0kKPiBhcyB0aGV5IHJ1biB3aXRoIEM9MS4gSSBtYW51YWxseSBwYXRj
+aGVkIHNwYXJzZSB0byBnZXQgdGhhdCBnb2luZyBhZ2FpbiAmIEkKPiAvc3VzcGVjdC8gaXQgbWF5
+IGhhdmUgaW1wYWN0ZWQgTEtQIHRvby4KPiAKPiAiTmV3IiBpcyByZWxhdGl2ZSB0aG91Z2ggLSBp
+dCBicmVha3MgQz0xIGZvciBhbnlvbmUgcnVubmluZyBhIHRvb2xjaGFpbgo+IGZyb20gcmlzY3Yt
+Y29sbGFiL3Jpc2N2LWdudS10b29sY2hhaW4uCj4gCj4gSSBndWVzcyBpdCdzIGp1c3QgdGhhdCBa
+aWNib20gaXMgbmV3ZXIgc28gbm90IG1hbnkgcGVvcGxlIHdpbGwgYmUgb24gYQo+IHRvb2xjaGFp
+biB0aGF0IHN1cHBvcnRzIHRoYXQuIE15IEdDQyBkb2Vzbid0IG9ubHkgbXkgY2xhbmctMTUuCj4g
+Cj4+IEkgYXNrIGJlY2F1c2UgRGFvIGlzIGFsc28gc2VlaW5nIHNvbWUgY3Jhc2hlcywgaWYgaXQn
+cyBicmVha2luZyBhcmJpdHJhcnkKPj4gYnVpbGRzIHRvbyB0aGVuIGl0J3MgYSBzdHJvbmdlciBo
+aW50IHRvIHJldmVydCBpdC4KPiAKPiBJdCBpcyBicmVha2luZyBtb2R1bGUgbG9hZGluZyBvbiBS
+SVNDLVYgaW4gZ2VuZXJhbCBmcm9tIHdoYXQgaXQgc2VlbXMuCj4gU2VlOgo+IGh0dHBzOi8vbG9y
+ZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzcyOGVjYmQ1LTk3NWEtMTY4ZS1lZmFiLTNjMDAzMGJl
+MjFkNUB3NnJ6Lm5ldC8KClRoaXMgcGF0Y2ggYWxzbyBjb21wbGV0ZWx5IGJyZWFrcyB0aGUgYnVp
+bGQgd2l0aCBDT05GSUdfQ0NfT1BUSU1JWkVfRk9SX1NJWkU9eToKCkluIGZpbGUgaW5jbHVkZWQg
+ZnJvbSA8Y29tbWFuZC1saW5lPjoKLi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2p1bXBfbGFiZWwu
+aDogSW4gZnVuY3Rpb24gJ2NwdV9yZWxheCc6Ci4vLi9pbmNsdWRlL2xpbnV4L2NvbXBpbGVyX3R5
+cGVzLmg6Mjg1OjMzOiB3YXJuaW5nOiAnYXNtJyBvcGVyYW5kIDAgcHJvYmFibHkKZG9lcyBub3Qg
+bWF0Y2ggY29uc3RyYWludHMKICAyODUgfCAjZGVmaW5lIGFzbV92b2xhdGlsZV9nb3RvKHguLi4p
+IGFzbSBnb3RvKHgpCiAgICAgIHwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBefn4K
+Li9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2p1bXBfbGFiZWwuaDo0MTo5OiBub3RlOiBpbiBleHBh
+bnNpb24gb2YgbWFjcm8KJ2FzbV92b2xhdGlsZV9nb3RvJwogICA0MSB8ICAgICAgICAgYXNtX3Zv
+bGF0aWxlX2dvdG8oCiAgICAgIHwgICAgICAgICBefn5+fn5+fn5+fn5+fn5+fgouLy4vaW5jbHVk
+ZS9saW51eC9jb21waWxlcl90eXBlcy5oOjI4NTozMzogZXJyb3I6IGltcG9zc2libGUgY29uc3Ry
+YWludCBpbiAnYXNtJwogIDI4NSB8ICNkZWZpbmUgYXNtX3ZvbGF0aWxlX2dvdG8oeC4uLikgYXNt
+IGdvdG8oeCkKICAgICAgfCAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF5+fgouL2Fy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20vanVtcF9sYWJlbC5oOjQxOjk6IG5vdGU6IGluIGV4cGFuc2lv
+biBvZiBtYWNybwonYXNtX3ZvbGF0aWxlX2dvdG8nCiAgIDQxIHwgICAgICAgICBhc21fdm9sYXRp
+bGVfZ290bygKICAgICAgfCAgICAgICAgIF5+fn5+fn5+fn5+fn5+fn5+Cm1ha2VbMV06ICoqKiBb
+c2NyaXB0cy9NYWtlZmlsZS5idWlsZDoyNDk6CmFyY2gvcmlzY3Yva2VybmVsL3Zkc28vdmdldHRp
+bWVvZmRheS5vXSBFcnJvciAxCm1ha2U6ICoqKiBbYXJjaC9yaXNjdi9NYWtlZmlsZToxMjg6IHZk
+c29fcHJlcGFyZV0gRXJyb3IgMgoKUHV0dGluZyBhIHN0YXRpYyBicmFuY2ggaW4gc3VjaCBhIHdp
+ZGVseS1pbmxpbmVkIGZ1bmN0aW9uIHNlZW1zIGxpa2UgYSBiYWQgaWRlYQppbiBnZW5lcmFsLiAo
+QSBxdWljayBtZWFzdXJlbWVudCBvZiBteSBzb21ld2hhdC1taW5pbWFsIGNvbmZpZyBzaG93cyB0
+aGlzIHNpbmdsZQpzdGF0aWMgYnJhbmNoIGFzIHJlc3BvbnNpYmxlIGZvciA0MCUgb2YgdGhlIGp1
+bXAgdGFibGUuKQoKSSBkb24ndCB0aGluayBpdCdzIGV2ZW4gbmVjZXNzYXJ5IGluIHRoaXMgY2Fz
+ZS4gV2h5IGNhbid0IHdlIHVuY29uZGl0aW9uYWxseSBydW4KYm90aCBpbnN0cnVjdGlvbnM/IElm
+IFppaGludHBhdXNlIGlzIHN1cHBvcnRlZCwgd2UgdHJhZGUgdGhlIG5vcCBmcm9tIHRoZSBzdGF0
+aWMKYnJhbmNoIGZvciBhIGRpdi4gSWYgaXQgaXMgdW5zdXBwb3J0ZWQsIHdlIHRyYWRlIHRoZSBq
+dW1wIGZyb20gdGhlIHN0YXRpYyBicmFuY2gKZm9yIGEgbm9wLgoKUmVnYXJkcywKU2FtdWVsCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
+diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
+dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
