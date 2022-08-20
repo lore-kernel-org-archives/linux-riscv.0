@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74A42C25B08
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Aug 2022 12:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2359C25B08
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Aug 2022 14:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XC1BUuwI1VXcwamcn+NuaWeyz9vf77mTbaY6cHmqWoc=; b=XspQ0EN2euNX6B
-	19HRJymwKPU0RgAaVyRUY5kT54cvCHnaOifLRkr9nyUxdyIoMMlDxeLTHXhGhHKLYVAbU0mNdH3cD
-	FHousuf4SF/F1d6f+tA0ZDKlkiHgdluKdO5+uCLcFG7p+Oj8TqiLquZj5Xut9v3x8+9gbgEOle9bc
-	CopDYxal3xgZLUjwkpMhAHSW9VajF2lJ/8HuWgqTin/6Q0h0e5s8Cavh+V0xLyKfmaBVwvfIXm9cO
-	QBKgoaJqC6CeUMe43JwFkjhgYjThddqH+Wm+gywqy+R0XXNI7KBef7MYnEV06ZozM2Kljk0dduK17
-	UgZxnaEZfdBd/KgilcCQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NAIMjs3FQKvREgS0XAgXTR9E9JaaF4qKrffBInYn/Ls=; b=QvU22zKNhRPEpB0OyOt7ZajYDg
+	NauUV0mpCXW0ZFX/qww0yRShEIGlTaXXSCxfYUyG7aObIQy/T0g0O6jVydqiTFM4A5xRFKS3REE4A
+	w42aX0WtWoQF2PAgC3WqPA+xXcF2w9AcWNpTh61EuXKKTlPJzrPEiis0gGnzYLvHSamF2onql+tdw
+	2HaPBPlj1TMSAc5WnPsTs11mT844DPs9x/67cLEcpUs4O0yal0dhzDHZY27UvJMF2mkrXTUlYAmM0
+	EPnO1GaWwFSAG3FIGtLe4ywxZZGgXVTryvJXZ+VA+3BNSy0loVSeAj8cBX6991on3WbZnjAZQ9qXd
+	KL+I8mEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPNGV-009hQK-80; Sat, 20 Aug 2022 12:07:47 +0000
-Received: from mail-qv1-f44.google.com ([209.85.219.44])
+	id 1oPPXm-00Aer7-Eb; Sat, 20 Aug 2022 14:33:46 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPNGS-009hNS-2P
-	for linux-riscv@lists.infradead.org; Sat, 20 Aug 2022 12:07:45 +0000
-Received: by mail-qv1-f44.google.com with SMTP id j1so5083896qvv.8
-        for <linux-riscv@lists.infradead.org>; Sat, 20 Aug 2022 05:07:42 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc;
-        bh=ZR3FjkuW5iiRmrC3UtyKJcWdpW3MmZDZj9swwhPKMYc=;
-        b=SKubccnIJcnGkEnisl2AQK0wENEYbSw3cWvDzxqmYe/MzWbZUscCsuV1Anbndg+tEf
-         stwTqZ76lFxC6wW8DKHuSyJHLJsSG55OwB/LReHfznX4Ktz4lXb/jxV8c+w6y6NYHwWw
-         EeD9qd/SjyvGZkIHXGhFSchxLs8A6hOrYnQ+KAwaCPjsXnAW+7jjM+UmcLcO/DOGgXfo
-         ZvyWsbyfxXibxcBcrS9jKtNx4GSpU9lUC5m2oSQbtfErk6YE1e9veOZWBqy8LkLruz5w
-         Q8XzZ/VxU+GGV6PF1cgN6Ns4w2yNDL2wR9Ls4p3vqNA416rjilYaGaU6YmEPbkNIQcQ+
-         aZVA==
-X-Gm-Message-State: ACgBeo2B8JzXOdgd1ls8obAdF8O1t4tglT2hyKcMMiKuZlpmoXJ7bfS4
-	QWl2bDmtjX1b3UlBdgB955FCWLdsdrsJ1g==
-X-Google-Smtp-Source: AA6agR6/AgBxzbLsQLp+JVRsTTBo18LV6HyZqhN2IRAl8EBJguDK8HW5aRuWzrTPTjqXxAcl0Gehiw==
-X-Received: by 2002:a05:6214:226b:b0:474:7c12:ecf9 with SMTP id gs11-20020a056214226b00b004747c12ecf9mr9735167qvb.37.1660997261379;
-        Sat, 20 Aug 2022 05:07:41 -0700 (PDT)
-Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com. [209.85.128.179])
-        by smtp.gmail.com with ESMTPSA id h5-20020a05620a400500b006bbb07ebd83sm6523332qko.108.2022.08.20.05.07.39
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 20 Aug 2022 05:07:40 -0700 (PDT)
-Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-324ec5a9e97so182937127b3.7
-        for <linux-riscv@lists.infradead.org>; Sat, 20 Aug 2022 05:07:39 -0700 (PDT)
-X-Received: by 2002:a81:f47:0:b0:31f:434b:5ee with SMTP id 68-20020a810f47000000b0031f434b05eemr12132492ywp.383.1660997259528;
- Sat, 20 Aug 2022 05:07:39 -0700 (PDT)
+	id 1oPPXj-00Aeoa-8r
+	for linux-riscv@lists.infradead.org; Sat, 20 Aug 2022 14:33:44 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 54C3AB80CDE;
+	Sat, 20 Aug 2022 14:33:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E952AC433D6;
+	Sat, 20 Aug 2022 14:33:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1661006018;
+	bh=/7B/Xs/HCL3KwHGK4v8gKrA+qwU9VsmeusLYvJqdSBs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pYA1RNwP46Oqkl4EvxCL/VVLLVJ6SXm1Xo9I897g3uyZ+Y2f7a86kcbLRMsYOMlDo
+	 1fM9SkM7uvbsSbbCormVLazdZfOfxVnbD3k417++h3CdEbt4h0ptK066T0VFtGQrt7
+	 WnzmwPJRzL21+MmBBGNmSApBBiMoMQ1gvJHHjrTU6tQt6jBHhXrvm8F17SUddtPDjH
+	 4dBzSYMPrvy/kSHPjgmOSSaV9TJPwFWzp014kIZG4mkU1ZH8bEoz1qkcvzG5Emo6gE
+	 XYC62n8OH6f14eywKUEkQWkWh49qSM5ojIJG5K/Cr6aGxcEYQBSGrRAC2fl7QeksFM
+	 VUcMtQB3UpaCQ==
+Date: Sat, 20 Aug 2022 10:33:36 -0400
+From: Sasha Levin <sashal@kernel.org>
+To: Conor.Dooley@microchip.com
+Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	gregkh@linuxfoundation.org, Brice.Goglin@inria.fr,
+	sudeep.holla@arm.com, Daire.McNamara@microchip.com,
+	robh+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH AUTOSEL 5.19 08/48] riscv: dts: microchip: Add mpfs'
+ topology information
+Message-ID: <YwDwwEXgGundXB1X@sashalap>
+References: <20220814161943.2394452-1-sashal@kernel.org>
+ <20220814161943.2394452-8-sashal@kernel.org>
+ <eeee7a72-8200-a374-8038-405605e0c290@microchip.com>
 MIME-Version: 1.0
-References: <20220815151451.23293-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220815151451.23293-6-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <e9b00bb5-bb78-091f-9c10-96c156690469@microchip.com> <CAMuHMdUGttswcSGeOdrJLeoZLmoeKhm7R82L-3wLJnagmZ4dBA@mail.gmail.com>
- <47cec683-dc17-7aa2-3511-b0244020d571@microchip.com>
-In-Reply-To: <47cec683-dc17-7aa2-3511-b0244020d571@microchip.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Sat, 20 Aug 2022 14:07:28 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUSud4-0ercQe3cyg1RXqg4DKTfgvPh5wc8ibca6dyDKQ@mail.gmail.com>
-Message-ID: <CAMuHMdUSud4-0ercQe3cyg1RXqg4DKTfgvPh5wc8ibca6dyDKQ@mail.gmail.com>
-Subject: Re: [PATCH v2 5/8] riscv: dts: renesas: Add initial devicetree for
- Renesas RZ/Five SoC
-To: Conor Dooley <Conor.Dooley@microchip.com>
-Cc: "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Anup Patel <anup@brainfault.org>, Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Prabhakar Lad <prabhakar.csengg@gmail.com>, 
-	Biju Das <biju.das.jz@bp.renesas.com>
+Content-Disposition: inline
+In-Reply-To: <eeee7a72-8200-a374-8038-405605e0c290@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220820_050744_197607_8FC7CBDA 
-X-CRM114-Status: GOOD (  27.38  )
+X-CRM114-CacheID: sfid-20220820_073343_500581_0DF4C669 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,62 +74,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
-
-On Sat, Aug 20, 2022 at 10:49 AM <Conor.Dooley@microchip.com> wrote:
-> On 20/08/2022 09:45, Geert Uytterhoeven wrote:
-> > On Fri, Aug 19, 2022 at 8:40 PM <Conor.Dooley@microchip.com> wrote:
-> >> On 15/08/2022 16:14, Lad Prabhakar wrote:
-> >>> Add initial device tree for Renesas RZ/Five RISC-V CPU Core (AX45MP
-> >>> Single).
-> >>>
-> >>> Below is the list of IP blocks added in the initial SoC DTSI which can be
-> >>> used to boot via initramfs on RZ/Five SMARC EVK:
-> >>> - AX45MP CPU
-> >>> - CPG
-> >>> - PINCTRL
-> >>> - PLIC
-> >>> - SCIF0
-> >>> - SYSC
-> >>>
-> >>> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-
-> >> That aside, by convention so far we have put things like extals or
-> >> reference clocks below the /cpus node. Could you do the same here too
-> >> please?
-> >
-> > Really? We've been putting them at the root node for a long time,
-> > since the separate "clocks" grouping subnode was deprecated.
-> > The extal-clk is not even part of the SoC, so it should definitely
-> > not be under the /cpus node.
+On Sun, Aug 14, 2022 at 04:31:08PM +0000, Conor.Dooley@microchip.com wrote:
+>On 14/08/2022 17:19, Sasha Levin wrote:
+>> From: Conor Dooley <conor.dooley@microchip.com>
+>>
+>> [ Upstream commit 88d319c6abaeb37f0e2323275eaf57a8388e0265 ]
+>>
+>> The mpfs has no cpu-map node, so tools like hwloc cannot correctly
+>> parse the topology. Add the node using the existing node labels.
+>>
+>+CC Greg
 >
-> Under may have been a confusing choice of words, I meant "physically"
-> under it in the file. Maybe after would have been a better choice of
-> words? I wasn't suggesting you put it inside the CPUs node.
-> Does that make more sense?
+>Hey Sasha,
+>Technically this is an optional property so I didn't mark any of
+>the patches as CC: stable as they not really fixes. The plan to is
+>to fix the hwloc problem at the source rather than papering over it
+>with the dts:
+>https://lore.kernel.org/linux-riscv/20220715175155.3567243-1-mail@conchuod.ie/
+>
+>Those patches are delayed until after -rc1 as they weren't reviewed
+>from the riscv side prior to the arm64 tree closing, but the plan is
+>to backport those instead.
+>
+>I suppose there's no harm having these too, but I'll leave that up
+>to the better judgement of others... What do you (plural) think?
 
-Oh right, you mean the order of the nodes. Yes, "extal-clk" should
-be after "cpus", following alphabetical sort order, as the nodes have no
-unit addresses.
+I'll just drop these. Feel free to send us a note when the fix is
+ready...
 
-Sorry for missing that in my review.  I also misread "below"
-(in Dutch there is only a single word for "below" and "under" ;-)
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+-- 
+Thanks,
+Sasha
 
 _______________________________________________
 linux-riscv mailing list
