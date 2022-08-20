@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 903F3C3F6B0
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Aug 2022 06:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8312C25B08
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Aug 2022 06:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y5ZXERW4e1ZjR9cKYqRJabUHSnR2I1ZIqBIuWykrTnc=; b=tR3IzbSheOFsJw
-	alnqQcCRIx6B2MxDHAiDd45Om1HLLV+PCaiG+WWasultvJeLYTNj9HGe8uPefL1wdpL0xMIy1l4OI
-	MStYyttoypoH9af/clNHV7TfmqNpMpprYT22c80zyTuZvJp/xHhgPyziMpST47B5UiCewVovEIBr1
-	cjEzFCVVTo83w0A3av4iEpA+gMccOYEssqz8JgOx4LLrBWuxWseipO3vtJuGeB8RCbJcxi8bz8m3u
-	89eJIkqlnpuAiHvHLgHgSpXn5JV9y6sHK20AIwPBE0+NnhO0WQT7v9IBtTM2euCTxWxU99vm2LwG6
-	W2nYof961lHdfvGWzZpw==;
+	List-Owner; bh=09+RJOLysAgNDAjSFrjTZQjxHfLUiiel7jxXdN2lU5I=; b=CERnuP98qP4plH
+	lv2qaUnWTqIcJH8f3G7OOovcVfvHHBs3jRmLRELmn/scvMHPpZfVRZDxbJQoB37GiJSRv14nzReo0
+	cYAlekackR3IMMRHzRNtGtQrZgIhG+nAW1/lDsVdDCdu8AOrEJoHwZ9Hfh2l4NOEwJTJXGxpbhFeg
+	8Tqr42LD7z1Xx6QCJ/GGd2cN+TRKDGNDDX6miZxZ4Q6l14iJ4z0TDkDGDGPefYMX6nKxaa4OEFI2c
+	t4VqxRTRobCyKv4SiItgxYqumyVcrZ++Mi47CMuqRJ4K7UEu8qs5+r1j2LYq05fYblAVacJDS3U36
+	k87ySaKILp85JLwwIWcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPIOg-003uRf-C0; Sat, 20 Aug 2022 06:55:54 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1oPIOl-003uUl-E1; Sat, 20 Aug 2022 06:55:59 +0000
+Received: from mail-oi1-x22d.google.com ([2607:f8b0:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPIOd-003uQO-Ap
-	for linux-riscv@lists.infradead.org; Sat, 20 Aug 2022 06:55:52 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id w196so6948651oiw.10
-        for <linux-riscv@lists.infradead.org>; Fri, 19 Aug 2022 23:55:50 -0700 (PDT)
+	id 1oPIOi-003uSN-Au
+	for linux-riscv@lists.infradead.org; Sat, 20 Aug 2022 06:55:57 +0000
+Received: by mail-oi1-x22d.google.com with SMTP id r10so1178538oie.1
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Aug 2022 23:55:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc;
-        bh=tQCr/IgKCdRHY8LSP1T2xhus9TIrH4sruSlDTlO3guE=;
-        b=ei8+a9amYDoCpz1QI5IeR7TYam6l5ohxbZI/T1kt/X1fsxq0YHMoqW0v47Oz3RAAAg
-         xqTBjui/X0e6KsM/aQoYTgFSvGmF99FFNS9LZ9IUUFXqS+2SsqVFFtlcCCus00feE1zn
-         177JILJY5e9+mryKtBTtj6NEu3ew9G6pHpLNrGFtD75A/u7hyrlSrR2XB5HFYvS0WYpY
-         rBvo9BaAWW58MQee7u1gevoo7SGHaBNpW9Z9OEUMw7wNbhzZ6vNcgkxJLop7lKC9ir4j
-         91RjGjhY5ljxNPiJmQ7gCbcwEM4b0f+BBaOto7yzD/0WEU/f23NVdizyHYhVKRoQONRo
-         X0yw==
+        bh=7gL51KGK8h2gYdKsAsi/esrqwK4Ga0hyaEGMAaUXEgw=;
+        b=Sw04uJ3vbDVepAg/gWVJcWOV7MbzEmF8dKmsd/rb6F8inqTs1ofPx1MK09cu3sGCTc
+         0VvQSYC0ZBw+zM+SXSv1L1UObgmZzvYVFbPwoMaYQ42uWio23+ffNmsmi+dimTW8E6u5
+         8O4T4xGCd206w7/uqNwH9F5bwTQY2wNgBLDZZd9u9xxYKp7pElOD0PXM7AiAvTkAQccV
+         HsMXix2vDP8/m0hM8ddQW0m0vEPms6xLU6j7mPJ0UsUkauth3dyKJ/fDctjj3G+QGcYv
+         lgVblX5ZvzjUpFnGtjWBem/SXRb3s3wrn6p45TOr5X2AUVAdCLOYvqPSYxkWvbZjdx7f
+         b5Gg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
-        bh=tQCr/IgKCdRHY8LSP1T2xhus9TIrH4sruSlDTlO3guE=;
-        b=DsW49ndWCgqgFfxBWjDjHxrsAyUeiB073tLNup3eqgGXE6Sr2JAwWs+PonZjeFRINm
-         NWTk2o0H2hoFb4kWw37vO8PnTyeOOtDcafVPs3ycrGTlTJ8nnjDQOz/SQpJck4Xy/bg/
-         lPGuWJkersrFK7EPvaJkMMwVN8jt0E3yl9Z6kVsK8e+dAH58B4oSAQvko1axJSEYzfEC
-         sWjbUDW0aXFVZFnry/jcy836aoM/PNiMF5pLJBm+8sGxqnqKBhUlJWLm6vIANYd2Fi+Z
-         Q+SjradQt8FSkz+KNWvoMcxaxOKILp7FXM295TmgfONjnme6VY4e1pKG2LdPmMDpbQqz
-         9CbA==
-X-Gm-Message-State: ACgBeo2Z8b9chHIne92crw4doAOlH3twpPvLVZB+DSWANlyEGM9qhhqC
-	GiQ3eqrVYG6qwm8Ayj6UMlLXOw==
-X-Google-Smtp-Source: AA6agR5Oo0DXXb5svYgvBBGq7lg7ZNVbU0D0Ks8xh5M92bnwe0csVlpM4h+ggVcAl9pbcv+gygl2kA==
-X-Received: by 2002:a05:6808:19a4:b0:343:300c:a1b2 with SMTP id bj36-20020a05680819a400b00343300ca1b2mr5420429oib.253.1660978549973;
-        Fri, 19 Aug 2022 23:55:49 -0700 (PDT)
+        bh=7gL51KGK8h2gYdKsAsi/esrqwK4Ga0hyaEGMAaUXEgw=;
+        b=0xGYA4Iua2u8/74tgGb0apaJBaGIgx++96dRD7tAaD69HJUMLXazLSzEq2rD8ekucn
+         t488SI3rQ+0wRM/ylT44mkkBV684Bhzm9VV2/6hkzzNcYdRAF9p448uOrBw4antF5yoM
+         WGmHEivkJ4y2mX4cqNzZJEBtNCPtt9vhxWvRXk78d1ZIoT3RO1V+/TEhTysc8Ogts5c+
+         AiBQKN1EHNUxYNkX5I0qObhovwT2tSVN7CCunWKY2FFJudXFJe0TWGwConGb3soExqTg
+         r1MiYmRH1iRzWGMUJ7DKvVGSbrKsOzvXRlfTILMmvY0XGrY1QeVpNfgzFHJ95n7N0Ss6
+         +B7Q==
+X-Gm-Message-State: ACgBeo2vBHzagE/KDuwdviI5sv7VmEq9dqf7PFfWfYK6jSzYXzOdDP4R
+	YXvYdUp5l5Zs+9dpu94mMKH3mw==
+X-Google-Smtp-Source: AA6agR5utbHM4pipxClH5gyEYq4cq0Nm0cG2E0loDJemIx24wNgpN5lXHXqEGa8/FgPkVBgRhwGxRA==
+X-Received: by 2002:aca:5e8b:0:b0:344:d1ef:2293 with SMTP id s133-20020aca5e8b000000b00344d1ef2293mr7608063oib.158.1660978554932;
+        Fri, 19 Aug 2022 23:55:54 -0700 (PDT)
 Received: from anup-ubuntu64-vm.. ([171.76.82.68])
-        by smtp.gmail.com with ESMTPSA id h26-20020a9d641a000000b00636faf5e2d9sm1661098otl.39.2022.08.19.23.55.45
+        by smtp.gmail.com with ESMTPSA id h26-20020a9d641a000000b00636faf5e2d9sm1661098otl.39.2022.08.19.23.55.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Aug 2022 23:55:49 -0700 (PDT)
+        Fri, 19 Aug 2022 23:55:54 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -69,18 +69,17 @@ Cc: Atish Patra <atishp@atishpatra.org>,
 	Anup Patel <anup@brainfault.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>,
-	Bin Meng <bmeng.cn@gmail.com>
-Subject: [PATCH v8 1/7] RISC-V: Clear SIP bit only when using SBI IPI operations
-Date: Sat, 20 Aug 2022 12:24:40 +0530
-Message-Id: <20220820065446.389788-2-apatel@ventanamicro.com>
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v8 2/7] irqchip/riscv-intc: Allow drivers to directly discover INTC hwnode
+Date: Sat, 20 Aug 2022 12:24:41 +0530
+Message-Id: <20220820065446.389788-3-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20220820065446.389788-1-apatel@ventanamicro.com>
 References: <20220820065446.389788-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220819_235551_414683_9981AEBF 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20220819_235556_415450_B82D34DA 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,50 +96,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The software interrupt pending (i.e. [M|S]SIP) bit is writeable for
-S-mode but read-only for M-mode so we clear this bit only when using
-SBI IPI operations.
+Various RISC-V drivers (such as SBI IPI, SBI Timer, SBI PMU, and
+KVM RISC-V) don't have associated DT node but these drivers need
+standard per-CPU (local) interrupts defined by the RISC-V privileged
+specification.
+
+We add riscv_get_intc_hwnode() in arch/riscv which allows RISC-V
+drivers not having DT node to discover INTC hwnode which in-turn
+helps these drivers to map per-CPU (local) interrupts provided
+by the INTC driver.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
 ---
- arch/riscv/kernel/sbi.c | 8 +++++++-
- arch/riscv/kernel/smp.c | 2 --
- 2 files changed, 7 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/irq.h     |  4 ++++
+ arch/riscv/kernel/irq.c          | 18 ++++++++++++++++++
+ drivers/irqchip/irq-riscv-intc.c |  7 +++++++
+ 3 files changed, 29 insertions(+)
 
-diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-index 775d3322b422..fc614650a2e3 100644
---- a/arch/riscv/kernel/sbi.c
-+++ b/arch/riscv/kernel/sbi.c
-@@ -643,8 +643,14 @@ static void sbi_send_cpumask_ipi(const struct cpumask *target)
- 	sbi_send_ipi(target);
- }
+diff --git a/arch/riscv/include/asm/irq.h b/arch/riscv/include/asm/irq.h
+index e4c435509983..43b9ebfbd943 100644
+--- a/arch/riscv/include/asm/irq.h
++++ b/arch/riscv/include/asm/irq.h
+@@ -12,6 +12,10 @@
  
-+static void sbi_ipi_clear(void)
+ #include <asm-generic/irq.h>
+ 
++void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void));
++
++struct fwnode_handle *riscv_get_intc_hwnode(void);
++
+ extern void __init init_IRQ(void);
+ 
+ #endif /* _ASM_RISCV_IRQ_H */
+diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
+index 7207fa08d78f..96d3171f0ca1 100644
+--- a/arch/riscv/kernel/irq.c
++++ b/arch/riscv/kernel/irq.c
+@@ -7,9 +7,27 @@
+ 
+ #include <linux/interrupt.h>
+ #include <linux/irqchip.h>
++#include <linux/irqdomain.h>
++#include <linux/module.h>
+ #include <linux/seq_file.h>
+ #include <asm/smp.h>
+ 
++static struct fwnode_handle *(*__get_intc_node)(void);
++
++void riscv_set_intc_hwnode_fn(struct fwnode_handle *(*fn)(void))
 +{
-+	csr_clear(CSR_IP, IE_SIE);
++	__get_intc_node = fn;
 +}
 +
- static const struct riscv_ipi_ops sbi_ipi_ops = {
--	.ipi_inject = sbi_send_cpumask_ipi
-+	.ipi_inject = sbi_send_cpumask_ipi,
-+	.ipi_clear = sbi_ipi_clear
++struct fwnode_handle *riscv_get_intc_hwnode(void)
++{
++	if (__get_intc_node)
++		return __get_intc_node();
++
++	return NULL;
++}
++EXPORT_SYMBOL_GPL(riscv_get_intc_hwnode);
++
+ int arch_show_interrupts(struct seq_file *p, int prec)
+ {
+ 	show_ipi_stats(p, prec);
+diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+index 499e5f81b3fe..9066467e99e4 100644
+--- a/drivers/irqchip/irq-riscv-intc.c
++++ b/drivers/irqchip/irq-riscv-intc.c
+@@ -92,6 +92,11 @@ static const struct irq_domain_ops riscv_intc_domain_ops = {
+ 	.xlate	= irq_domain_xlate_onecell,
  };
  
- void __init sbi_init(void)
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 760a64518c58..c56d67f53ea9 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -83,8 +83,6 @@ void riscv_clear_ipi(void)
++static struct fwnode_handle *riscv_intc_hwnode(void)
++{
++	return intc_domain->fwnode;
++}
++
+ static int __init riscv_intc_init(struct device_node *node,
+ 				  struct device_node *parent)
  {
- 	if (ipi_ops && ipi_ops->ipi_clear)
- 		ipi_ops->ipi_clear();
--
--	csr_clear(CSR_IP, IE_SIE);
- }
- EXPORT_SYMBOL_GPL(riscv_clear_ipi);
+@@ -126,6 +131,8 @@ static int __init riscv_intc_init(struct device_node *node,
+ 		return rc;
+ 	}
  
++	riscv_set_intc_hwnode_fn(riscv_intc_hwnode);
++
+ 	cpuhp_setup_state(CPUHP_AP_IRQ_RISCV_STARTING,
+ 			  "irqchip/riscv/intc:starting",
+ 			  riscv_intc_cpu_starting,
 -- 
 2.34.1
 
