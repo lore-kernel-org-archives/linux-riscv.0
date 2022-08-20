@@ -4,75 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EC26C28D13
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Aug 2022 02:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9120BC25B08
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Aug 2022 06:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=S3p2mo+pCwIeFdzFjNYBh7ClY+PUjL+yjAqO52U9pD4=; b=HUrWhHYeNy4P8Y
-	yehYcJaSzevWow+EXiv4U8qUkXHPk+lRDuIVZribp/ZwT53woC6MLfAIVCSuzznViFrCw14ZsekbS
-	WOj+Ac3waycwgyx2ua0r5eVsib5M5rjHGWfrOmyFp5PF7K9fR0EKJ9WW2wCjEbGa+aNJrVfjGfnYo
-	WxUiTVEa8IBVlPvXv+TkiByhsbIxKQOuFcOszCDLe763Y75mwsgyBM67Yd0UZKZqlyhK45CEyRvam
-	e9SXYX9GDBFiFZ4KxCro+VU6oyNV51rp8nmMe7YoqBcepFrOHVr39c1JYud+nOAtAXzWeEGyymlr1
-	uTltFehPA8N4c98mGI5Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1dXeBmvixXa2crWDL7U1gmvbn17JtdXqUA3DEayvHAc=; b=4eEwQHnjz/Jyg3
+	sxBCpJ3FldwH31Jyy8HoyoqXdwTIVovN0/fpuh8q/kopXNKXOBZhsQzskZ+othYrHYcSKGiCRd7rF
+	i/o0MrovPMDFaghL+h93XGfe5txUSBEwDGDkvg/F+i4RRZQymXeB6JjiswqkN8/rRjfJ0u1RGpZaO
+	bq4slh93JLTYyCJchEzyjYVBjwuIXAHLfdfIS2+mNd7Sj+EpzCpnZe2bLV5Bjy31wuu6RpGSl7O4U
+	qKLgUQIkPyOjjIybJfwTdMYrtxyGuJ1nlRQGbWhvsuDG30d7jk+I1gtrFKpt50zt19PXJWyvMiNCx
+	wHDrPABQw6BBXINS80Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPE5G-00F08j-5s; Sat, 20 Aug 2022 02:19:34 +0000
-Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
+	id 1oPIOa-003uPk-N3; Sat, 20 Aug 2022 06:55:48 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPE5A-00F01V-Q8; Sat, 20 Aug 2022 02:19:30 +0000
-Received: by mail-ot1-x32a.google.com with SMTP id q39-20020a056830442700b0063889adc0ddso4211674otv.1;
-        Fri, 19 Aug 2022 19:19:27 -0700 (PDT)
+	id 1oPIOY-003uO4-EK
+	for linux-riscv@lists.infradead.org; Sat, 20 Aug 2022 06:55:48 +0000
+Received: by mail-ot1-x334.google.com with SMTP id a14-20020a0568300b8e00b0061c4e3eb52aso4434961otv.3
+        for <linux-riscv@lists.infradead.org>; Fri, 19 Aug 2022 23:55:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc;
-        bh=kq6vfjFZNBDSv1cVPne0kStOBJmXAhYIZ+nQEBFFCrA=;
-        b=e42+aHBNR31eV+SvF6JkAdXxPEKnw9sFB7pYNNtquQgM41tC35qhKhNHFhnU9soEM7
-         c50TRzKQobfBx0k85Q93IRU3g+e+3ywK36QCZIqDmb3yK/NL0ujHt1a24FtxyKIl/Cxs
-         vV325As6WSV/cX6a77aOqVFujfqAZbOvomoziM1GZKcg7f5lFNuuwlUutMOb71gdJJ1f
-         EC2989gQtYb5xODiL/Vsj1RM9umZ+oaj7f6ZogwMY6qTUWIXr0ahOAZEEvsRHXUAbqu/
-         zOfaCRDQyvKMMRrA9Yk58FQROrYaJ+zQKbAkW63giUQGl63HA3Cu4Okg3a9qoFrmtup7
-         /sNg==
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc;
+        bh=KPNOEhwPuKr2rNEs7Vth7fZX5wzX+lJkHQAT28oftZM=;
+        b=mnw8mo+p85WWeHD6KVAZuMFd0M9sEPZgWPeOmxyJAdVCKYqNxjY62gI1d30T3B74/0
+         sDIrWCsDeyEfF2UFPDXLPmtW6J/39+zCfB5pEGhyv84oYW8U2+EVAT6VEyTNWirYKTNm
+         iEy3aM3j/6lckKeBKE42t6siB30oD11JYGkMRTsfR2J732jSwcUoYolUzf1gWpnbspKF
+         EVP3rwcI9UnzOW3WveO/xpO/eBHN22XaGG5vJnIXmNUvTtSRpsaUTY9Hjok9XqltZB6t
+         qNGbeHndpxpZ+icJvrXq4TAKLtQoYFVWQG/4kFKAXXaQvcu1gJ6e74z50bknAMRjJkPs
+         vKqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc;
-        bh=kq6vfjFZNBDSv1cVPne0kStOBJmXAhYIZ+nQEBFFCrA=;
-        b=waSbdoDwowUb3U14cUu0eEhsGqbPQKMP8AF68RVhL4OoxwjiTZkpAArkP9ObmQXiPy
-         b+385hEmUvkezj/U8joWs1pZptnEMXM6fNaKZ1d6VfYr6iMmi79N1HYS1S3CIh2iuxg8
-         sfPUkpfiPNFFUHXw7ljRNx4WwF+8pr5V/67QoeC9DzVdcDlZt4Vy3fyviqekfID9WNGc
-         APRwTh4gE/mxJeaHsjQdC3cw3RyEdQLxrl9mVo4hLtBp6hUoMWP/UWyajIfiFtr4m4GF
-         +4lM1bNv3cXEvQ2Ui5uU/h3NTw3v/9Wa8VjHTHtZPWrDx/FODLvY6fUexbWdHVGVgFAL
-         p9hg==
-X-Gm-Message-State: ACgBeo1spmLVcsTm86RCcCR3gtn4xnAB4CCq118sReBdvabe8zFl/T22
-	OQBWCCGR+MfOP4KfrYDky3eazdfoRm0G0XJE2iw=
-X-Google-Smtp-Source: AA6agR705E38AcvqtTJs4JmmU240yY+S5k3XbAT9XgD0Ag5CRBn/kVbJTzeWLT8SNSpEcc1Mx0ayCxhWfRI9xH9vxV8=
-X-Received: by 2002:a9d:66cf:0:b0:637:1d30:d72b with SMTP id
- t15-20020a9d66cf000000b006371d30d72bmr3962024otm.35.1660961966755; Fri, 19
- Aug 2022 19:19:26 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc;
+        bh=KPNOEhwPuKr2rNEs7Vth7fZX5wzX+lJkHQAT28oftZM=;
+        b=aWGGONxEOSaMgRw+9gKUlbBFYQIYCF5KcBEwHRg21uYk2lqVl9Brevp1/ylEJ5jm12
+         QNdP1isq4am4BPkmKUYNU/UPQ2RmyO5JTsqdp3rk3fwyOW9UOR5vK5xfUqCLUD+2Mpz0
+         xnmATmJE/Jl+c8xysoDCyHVxW7urzRROZjv4XVqIflPvKImXBR7HVrsa19wG5fCZCdee
+         qfF6mbcl3L3p3mdcuU1wNfs2RS5W5cpqxvAi93U2KPAOiCBPGkv5GxagrZ4mgtq7RPTy
+         doDwfu2iqTiHuevJei5HF9um7fRSUajj2JRydA8Y5KxeXbQZxikbX+UkBaXyJx3hTIIt
+         Fp6A==
+X-Gm-Message-State: ACgBeo0tEsYxjTF9sYLb6vQyrPHN5XWtFAjCbX7SF9ad8weQZXVtnNaT
+	ilkfBwKPLF/JGG4zFTdWRXZhAQ==
+X-Google-Smtp-Source: AA6agR5ILnYcedXqGh51ZJjhO/bA6id8F/rppfMkigrZPruGOqlxzUMNW0sV5J1OdsTKvAh7Dzkbfg==
+X-Received: by 2002:a05:6830:3c1:b0:637:28be:7920 with SMTP id p1-20020a05683003c100b0063728be7920mr4268310otc.105.1660978544886;
+        Fri, 19 Aug 2022 23:55:44 -0700 (PDT)
+Received: from anup-ubuntu64-vm.. ([171.76.82.68])
+        by smtp.gmail.com with ESMTPSA id h26-20020a9d641a000000b00636faf5e2d9sm1661098otl.39.2022.08.19.23.55.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Aug 2022 23:55:44 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Marc Zyngier <maz@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: Atish Patra <atishp@atishpatra.org>,
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v8 0/7] RISC-V IPI Improvements
+Date: Sat, 20 Aug 2022 12:24:39 +0530
+Message-Id: <20220820065446.389788-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <00c521b5b872b06c9350145c7d39fe7c@mailhost.ics.forth.gr>
- <CA+zEjCs0n8KA_oaFKJbaP6kNohDA=qJHvUKhePUK+hDFJSbHig@mail.gmail.com> <CA+zEjCscL1dWASm7u20p1B7-JeJaGTXiWG=K1XiWtZj=VFX+WQ@mail.gmail.com>
-In-Reply-To: <CA+zEjCscL1dWASm7u20p1B7-JeJaGTXiWG=K1XiWtZj=VFX+WQ@mail.gmail.com>
-From: Yixun Lan <yixun.lan@gmail.com>
-Date: Sat, 20 Aug 2022 02:19:15 +0000
-Message-ID: <CALecT5gQWn0PRO4Q24b6qkrfVE5OxsCp65TuhWTb30ceK_OJ0A@mail.gmail.com>
-Subject: Re: RISC-V: patched kexec-tools on github for review/testing
-To: Alexandre Ghiti <alexandre.ghiti@canonical.com>
-Cc: Nick Kossifidis <mick@ics.forth.gr>, ebiederm@xmission.com, kexec@lists.infradead.org, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>, Alexandre ghiti <alex@ghiti.fr>, 
-	Mike Rapoport <rppt@kernel.org>, geert+renesas@glider.be, 
-	Stephano Cetola <scetola@linuxfoundation.org>, Philipp Tomsich <philipp.tomsich@vrull.eu>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup.patel@wdc.com>, 
-	Atish Patra <atish.patra@wdc.com>, Xianting Tian <xianting.tian@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220819_191928_934664_49553295 
-X-CRM114-Status: GOOD (  27.88  )
+X-CRM114-CacheID: sfid-20220819_235546_546120_C4270BA7 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,141 +94,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandre, Nick:
+This series aims to improve IPI support in Linux RISC-V in following ways:
+ 1) Treat IPIs as normal per-CPU interrupts instead of having custom RISC-V
+    specific hooks. This also makes Linux RISC-V IPI support aligned with
+    other architectures.
+ 2) Remote TLB flushes and icache flushes should prefer local IPIs instead
+    of SBI calls whenever we have specialized hardware (such as RISC-V AIA
+    IMSIC and RISC-V SWI) which allows S-mode software to directly inject
+    IPIs without any assistance from M-mode runtime firmware.
 
-On Wed, Oct 6, 2021 at 11:15 AM Alexandre Ghiti
-<alexandre.ghiti@canonical.com> wrote:
->
-> Hi Nick,
->
-> On Tue, Oct 5, 2021 at 4:07 PM Alexandre Ghiti
-> <alexandre.ghiti@canonical.com> wrote:
-> >
-> > On Tue, Oct 5, 2021 at 2:15 PM Nick Kossifidis <mick@ics.forth.gr> wrote:
-> > >
-> > > Hello all,
-> > >
-> > > I've uploaded my kexec-tools patches for riscv on github for
-> > > testing/review before sending them upstream.
-> > > https://github.com/riscv-collab/kexec-tools/tree/riscv
-> > >
-> > > Both kexec and kdump were tested on latest rv64 qemu, using for-next
-> > > branch with this patch applied:
-> > > https://patchwork.kernel.org/project/linux-riscv/patch/20211002122026.1451269-1-mick@ics.forth.gr/
-> > >
-> >
-> > I'll test that asap and review your patch too.
-> >
-> > Thanks for your time Nick!
-> >
-> > Alex
-> >
->
-> So I followed the instructions here:
-> https://documentation.suse.com/fr-fr/sles/12-SP3/html/SLES-all/cha-tuning-kexec.html#cha-tuning-kexec-basic-usage,
-> below the output on an Unmatched board using a vmlinux stored on a sd
-> card:
->
-> ubuntu@ubuntu:~$ sudo sbin/kexec -l vmlinux --append="$(cat
-> /proc/cmdline)" --initrd=/boot/initrd.img
-> Warning: No cmdline provided, using append string as cmdline
-> Warning: No dtb provided, using /sys/firmware/fdt
-> [ 1813.472671] INFO: task kworker/1:0:988 blocked for more than 120 seconds.
-> [ 1813.478751]       Not tainted 5.15.0-rc1+ #15
-> [ 1813.483110] "echo 0 > /proc/sys/kernel/hung_task_timeout_secs"
-> disables this message.
-> Could not find a free area of memory of 0x3000 bytes...
-> locate_hole failed
+These patches were originally part of the "Linux RISC-V ACLINT Support"
+series but this now a separate series so that it can be merged independently
+of the "Linux RISC-V ACLINT Support" series.
+(Refer, https://lore.kernel.org/lkml/20211007123632.697666-1-anup.patel@wdc.com/)
 
-I've finally spent some time debugging this, and found the fix:
+These patches are also a preparatory patches for the up-coming:
+ 1) Linux RISC-V AIA support
+ 2) Linux RISC-V SWI support
 
---- a/kexec/arch/riscv/kexec-riscv.c
-+++ b/kexec/arch/riscv/kexec-riscv.c
-@@ -120,7 +120,7 @@ int load_extra_segments(struct kexec_info *info,
-uint64_t kernel_base,
-                               initrd_base + initrd_size);
+These patches can also be found in riscv_ipi_imp_v8 branch at:
+https://github.com/avpatel/linux.git
 
-                dbgprintf("Base addr for initrd image: 0x%lX\n", initrd_base);
--               min_usable = initrd_base;
-+               max_usable = initrd_base;
-        }
+Changes since v7:
+ - Rebased on Linux-6.0-rc1
+ - Use atomic operations to track per-CPU pending and enabled IPIs in PATCH3.
+   (Note: this is inspired from IPI muxing implemented in
+    drivers/irqchip/irq-apple-aic.c)
+ - Made "struct ipi_mux_ops" (added by PATCH3) flexible so that
+   drivers/irqchip/irq-apple-aic.c can adopt it in future.
 
-the initrd image has been put at end of memory space( from high
-address down to low address),
-for example, my case here:
-  the crash memory: 0x90000000 - 0xA0000000
-  and the initrd base: 0x9F78F000
+Changes since v6:
+ - Rebased on Linux-5.19-rc7
+ - Added documentation for struct ipi_mux_ops in PATCH3
+ - Dropped dummy irq_mask()/unmask() in PATCH3
+ - Added const for "ipi_mux_chip" in PATCH3
+ - Removed "type" initialization from ipi_mux_domain_alloc() in PATCH3
+ - Dropped translate() from "ipi_mux_domain_ops" in PATCH3
+ - Improved barrier documentation in ipi_mux_process() of PATCH3
+ - Added percpu check in ipi_mux_create() for parent_virq of PATCH3
+ - Added nr_ipi parameter in ipi_mux_create() of PATCH3
 
-so, the max_usable address need to update
->
-> I used the Ubuntu kernel, so this is pretty large:
-> -rwxrwxr-x 1 ubuntu ubuntu 277M Oct  5 15:47 vmlinux
-> -rw-r--r-- 1 root root 98M Sep 21 03:25 /boot/initrd.img
->
-> Then if I don't load the initrd (I sometimes have the same warning as
-> above) I can at least kexec the new kernel but it fails to boot:
->
-> ubuntu@ubuntu:~$ sudo ./sbin/kexec -e
-> Warning: No cmdline or append string provided
-> Warning: No dtb provided, using /sys/firmware/fdt
-> [...]
-> [    0.000000] SBI v0.2 HSM extension detected
-> [    0.000000] CPU with hartid=0 is not available
-> [    0.000000] ------------[ cut here ]------------
-> [    0.000000] kernel BUG at arch/riscv/kernel/smpboot.c:107!
-> [    0.000000] Kernel BUG [#1]
-> [    0.000000] Modules linked in:
-> [    0.000000] CPU: 0 PID: 0 Comm: swapper Not tainted 5.15.0-rc1+ #15
-> [    0.000000] Hardware name: SiFive HiFive Unmatched A00 (DT)
-> [    0.000000] epc : setup_smp+0xcc/0x142
-> [    0.000000]  ra : setup_smp+0xc4/0x142
-> [    0.000000] epc : ffffffff80a04080 ra : ffffffff80a04078 sp :
-> ffffffff81803ec0
-> [    0.000000]  gp : ffffffff81a23220 tp : ffffffff81810500 t0 :
-> ffffffff81a3551f
-> [    0.000000]  t1 : ffffffffffffffff t2 : 0000000000000000 s0 :
-> ffffffff81803f00
-> [    0.000000]  s1 : 0000000000000000 a0 : 0000000000000000 a1 :
-> 0000000000000000
-> [    0.000000]  a2 : 0000000000000000 a3 : 0000000000000001 a4 :
-> 0000000000000000
-> [    0.000000]  a5 : ffffffff80c64500 a6 : 0000000000000004 a7 :
-> 000000000000ff00
-> [    0.000000]  s2 : 0000000000000005 s3 : 0000000000000000 s4 :
-> ffffffff8118f9a8
-> [    0.000000]  s5 : 0000000000000007 s6 : ffffffff80c0b790 s7 :
-> 0000000080000200
-> [    0.000000]  s8 : 0000000000000fff s9 : 0000000081000200 s10:
-> 0000000000000018
-> [    0.000000]  s11: 000000000000000b t3 : 0000000000ff0000 t4 :
-> ffffffffffffffff
-> [    0.000000]  t5 : ffffffff80c0b7a0 t6 : ffffffff81803bd8
-> [    0.000000] status: 0000000200000100 badaddr: 0000000000000000
-> cause: 0000000000000003
-> [    0.000000] [<ffffffff80a04080>] setup_smp+0xcc/0x142
-> [    0.000000] [<ffffffff80a03d88>] setup_arch+0x56a/0x590
-> [    0.000000] [<ffffffff80a00aa2>] start_kernel+0xaa/0xa5c
-> [    0.000000] random: get_random_bytes called from
-> oops_exit+0x44/0x70 with crng_init=0
-> [    0.000000] ---[ end trace 0000000000000000 ]---
-> [    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
-> [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill
-> the idle task! ]---
->
-> This reliably fails here.
->
-> > > Regards,
-> > > Nick
-> > >
-> > > _______________________________________________
-> > > linux-riscv mailing list
-> > > linux-riscv@lists.infradead.org
-> > > http://lists.infradead.org/mailman/listinfo/linux-riscv
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Changes since v5:
+ - Rebased on Linux-5.18-rc3
+ - Used kernel doc style in PATCH3
+ - Removed redundant loop in ipi_mux_process() of PATCH3
+ - Removed "RISC-V" prefix form ipi_mux_chip.name of PATCH3
+ - Removed use of "this patch" in PATCH3 commit description
+ - Addressed few other nit comments in PATCH3
+
+Changes since v4:
+ - Rebased on Linux-5.17
+ - Includes new PATCH3 which adds mechanism to multiplex a single HW IPI
+
+Changes since v3:
+ - Rebased on Linux-5.17-rc6
+ - Updated PATCH2 to not export riscv_set_intc_hwnode_fn()
+ - Simplified riscv_intc_hwnode() in PATCH2
+
+Changes since v2:
+ - Rebased on Linux-5.17-rc4
+ - Updated PATCH2 to not create synthetic INTC fwnode and instead provide
+   a function which allows drivers to directly discover INTC fwnode
+
+Changes since v1:
+ - Use synthetic fwnode for INTC instead of irq_set_default_host() in PATCH2
+
+Anup Patel (7):
+  RISC-V: Clear SIP bit only when using SBI IPI operations
+  irqchip/riscv-intc: Allow drivers to directly discover INTC hwnode
+  genirq: Add mechanism to multiplex a single HW IPI
+  RISC-V: Treat IPIs as normal Linux IRQs
+  RISC-V: Allow marking IPIs as suitable for remote FENCEs
+  RISC-V: Use IPIs for remote TLB flush when possible
+  RISC-V: Use IPIs for remote icache flush when possible
+
+ arch/riscv/Kconfig                |   2 +
+ arch/riscv/include/asm/irq.h      |   4 +
+ arch/riscv/include/asm/sbi.h      |   7 +
+ arch/riscv/include/asm/smp.h      |  49 ++++--
+ arch/riscv/kernel/Makefile        |   1 +
+ arch/riscv/kernel/cpu-hotplug.c   |   3 +-
+ arch/riscv/kernel/irq.c           |  21 ++-
+ arch/riscv/kernel/sbi-ipi.c       |  60 ++++++++
+ arch/riscv/kernel/sbi.c           |  11 --
+ arch/riscv/kernel/smp.c           | 164 ++++++++++----------
+ arch/riscv/kernel/smpboot.c       |   5 +-
+ arch/riscv/mm/cacheflush.c        |   5 +-
+ arch/riscv/mm/tlbflush.c          |  93 ++++++++++--
+ drivers/clocksource/timer-clint.c |  42 +++--
+ drivers/irqchip/irq-riscv-intc.c  |  60 ++++----
+ include/linux/irq.h               |  18 +++
+ kernel/irq/Kconfig                |   5 +
+ kernel/irq/Makefile               |   1 +
+ kernel/irq/ipi-mux.c              | 244 ++++++++++++++++++++++++++++++
+ 19 files changed, 628 insertions(+), 167 deletions(-)
+ create mode 100644 arch/riscv/kernel/sbi-ipi.c
+ create mode 100644 kernel/irq/ipi-mux.c
+
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
