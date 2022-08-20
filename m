@@ -4,158 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6574C25B08
-	for <linux-riscv@archiver.kernel.org>; Sat, 20 Aug 2022 17:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D334AC25B08
+	for <linux-riscv@archiver.kernel.org>; Sat, 20 Aug 2022 17:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CfpPecCCcmx2FOyoOGse/Cnz7Kv595bHliPRBoD/qEs=; b=YzGWMeXGSLVIG8
-	WS5hY67H8/TTJKN3SkDmywxbXGuDtn38cvT+RqLZZT8MTzMos7ANwkiCFaD4RhnUja4Gks7cXkf+k
-	DJ9jAIZ7ddtWSSxTJWCDVC2AM2+vAfb/3oL6lIGsQCsSkakt5Gv23gUuk7lDaDp9R+E7QH3e9L4ev
-	PLN0+ZXxEZbqw1Ha5qPNlMftnf06x9eB5ucsnflxSTOTmOgjXc6lvbtVrkCReaW09RxFDTK+xndlT
-	QKHKsVcObgvAY61uE0s005P3fMqquG0l71B92rxxZryV5vWQewR76YdBqIEASnYqnj8MxjjyQnASB
-	gp16IdcqgmrMvQVx2ZUA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=+dd0KO12O0ujG4k8rqRQLeMJiZTNakNnHvsIUxa9+KE=; b=e+1gWAfesZTbL/tVTDeAQKh3bD
+	5miydB24cnfO4QcFen7kFJ6ba/KUFmEX6M1M8Zhhol/C1XsJ7ngZ/y/Z80rOVQemFAhH5/FmJelFz
+	7p6PavjDeLzy4c6oGLbQtuSn8VZRFNdxHySx03LMINAJ8oU8FXiVxh5LXBXEiEMGP99/bhqJl5xkK
+	HvFSk2sIlFwed0kMih/CmlQDPATDFX1Li+BiV3dBtvFkulQWu/xKxKKi9QaAwoC/A9lx5T1grOVM9
+	3EANI7aeiGwgNgZw3eypvM+RP1hmAFB9pNyzTHzBeGeyYkkP37D98999miv6CJIv2w2KGQI7LIVa6
+	aUiVHqTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPRut-00BBAx-US; Sat, 20 Aug 2022 17:05:48 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oPSDZ-00BFP0-9Y; Sat, 20 Aug 2022 17:25:05 +0000
+Received: from out2-smtp.messagingengine.com ([66.111.4.26])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPRup-00BB9l-UZ
-	for linux-riscv@lists.infradead.org; Sat, 20 Aug 2022 17:05:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661015145; x=1692551145;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=KqM3iGnw37pmzPIzTaK8et9QNn7wtwu7x7LIZUHgHYM=;
-  b=gAAt+TwiZ/jsgTIhTJBuqKq4pQs8YM9SS8leRFZHeKwK59M8CAIBKRQ7
-   iQ3kMeJxlODItf4zzd0+a5cfzyFOW9QTwVBOnse1VRfEPOa9/ONJvg2/P
-   N42yx4tv+f6P8t7Mt68TJCspdBwN2DXstMOBQ47cL9Nzfw61QIDmZD2hK
-   JmPKTQn6WVsvUM1sTIH6GvtLBvre+O9947dKaxs825h6SeySdpVzW2CJT
-   atuEdjRGWPMoyRUsOdSuPHkAu7QpGhEXXrQfZOR4TAlMwJGfZ12Czjmpw
-   wmAJCO4vHFycm1pT6EP09bHDVs2hZHmXUTiIvFW6w/jJ3AQ9j7U18GokO
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.93,251,1654585200"; 
-   d="scan'208";a="177058581"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 20 Aug 2022 10:05:40 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Sat, 20 Aug 2022 10:05:38 -0700
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12 via Frontend Transport; Sat, 20 Aug 2022 10:05:38 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=ctgk7NWAHa66BV4YxSFbjz4IRD/JkQg3lAs+VuSjvg9OlQqUxonVQwpszJRSqG0YEUqDIbuoLEJfXVv2Lpvj6ZPNqLwTADv1uYUxWSnZIoqAgUXUkfGWSpP6mTXVyqFRKxdxWxOIcKrGpwTqI3Pj3pIKsR1uzPIyeTz00E5bd5+UYOA31B3HfL9UfaWoMqpvkVN0/Q6wlrOSz1MHpIoLDMf6/CqBeHKyZHQuB709BXpWK9aIuODNnwmqjriI2GXU6fZ2Zde3Soig2GL2967/GTfvVesl07hbB7pvXikd/bBSxfmWXIXHowFqLkgRlUBudA0/ZpnIkCbBeKlRO4T+hA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KqM3iGnw37pmzPIzTaK8et9QNn7wtwu7x7LIZUHgHYM=;
- b=haxZRGxrDQn7VV+EvNKx8R3hewm6/4iwHVWOJslDRaivWnEHQQGIkrigP/DOIEf/6Ry/SMNQq1MgprNMlEnmUKR6jAvBIt1yRM/uSwXBPcXMAZzqnQX61yZWpX5trEkjD7DQUU2KcQiq1NABPyiRu7FNaMRnyUlzgYeLg5dK3h0h0eeTNN4pimkIIVWN+oiIu0imV80rMhsfaOg1zlJ1bPr7nXsu7LjCRSoCDIsQoZoGLF2FqydgJRUdHaxbe/+dlp4JSMhhoR3VMHbNN442XFGTlJHW+hZVkG6PhPuvT5nhrFezfQXlWINZuWN+XQq4wj6S82GTbTnpTVGpLOzbOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KqM3iGnw37pmzPIzTaK8et9QNn7wtwu7x7LIZUHgHYM=;
- b=fEz58utbvbbuezeaBaI6I0x1TYwCyuiyOY1hePTx4tZXUsL0MGLnlzD2EmKatNpfJCKJAXtz8eU/pDhwm/6URFzEhc0Ejhq/EMhn161xOKrRZkRczrlUh+hbsnsL3VyxMVovYAvHgNeVjKEsVi6hR04nmkWt9SfPrD8V6GTKBqA=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by CY4PR11MB1910.namprd11.prod.outlook.com (2603:10b6:903:126::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5546.16; Sat, 20 Aug
- 2022 17:05:35 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3%9]) with mapi id 15.20.5546.018; Sat, 20 Aug 2022
- 17:05:35 +0000
-From: <Conor.Dooley@microchip.com>
-To: <geert+renesas@glider.be>, <Daire.McNamara@microchip.com>,
-	<a.zummo@towertech.it>, <alexandre.belloni@bootlin.com>
-CC: <linux-riscv@lists.infradead.org>, <linux-rtc@vger.kernel.org>
-Subject: Re: [PATCH] rtc: mpfs: Remove printing of stray CR
-Thread-Topic: [PATCH] rtc: mpfs: Remove printing of stray CR
-Thread-Index: AQHYsXsoFy3MJzNmoUOb8KqziB5IwK2xyA4AgAZDG4A=
-Date: Sat, 20 Aug 2022 17:05:35 +0000
-Message-ID: <76dae817-6f78-9070-cd02-c96af605148e@microchip.com>
-References: <bce2ca405ef96b1363fd1370887409d9e8468422.1660659437.git.geert+renesas@glider.be>
- <4d414583-1011-4f01-870e-5d3ad812109a@microchip.com>
-In-Reply-To: <4d414583-1011-4f01-870e-5d3ad812109a@microchip.com>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 67aabe24-99e0-4609-2932-08da82ce32e3
-x-ms-traffictypediagnostic: CY4PR11MB1910:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: KT09iNbQswPGurfLm/0uhKV2bBKCY2NBKiyJVc/p1FGwnzwyzrcIiqKFcjNxo3Tr1ml353UEtHjw9lsoa13jgBfDG5i8h3BwLqMwxP0ODGtTkQ8rjfhwfsqh8y9ddnvrgk90ZZpl4d+470x1YiZMO5AqOPuE/jaIbrzRqngxdnH1M6vgBvlH9TmpvevdMixvTW2MBDZZc/Q97AI6t4X13XOkPIG+VyIvzhQ+qGaaorSLpe3beazWkdgAjnQs4t80eWuroKDrD7SZ8bUj42oyGSHdH3IUa22/I6D5VzAYHmBlouyzMnABhvo1JHLkezM8AwKhe/MGx17D5xXCsx/p8njTFo1987sZbxCykvR5WuHdmt9TFVOalV3+DSzYf6MlQvFRXEQgJS8mdsxbLtadqs5cXl2oOv4E4gEat0kiRWM3wiHPrD3t2KnSfg1SfAteHzUpHFzyLP0yl9KywaGDxRQdjwEbovnC77E86wjpNp1Po93dIgBVO8dDghYAuPwz3N8w9maxa26l8WFrQCBtKHtoAlOTHKQYIQ4PdLl/BVxbf/5VeExRSw9+zvVOWqdaOnvJg6rX3J8mI7wHw8gmDPuZJOD2adAOUWM6E5dDdknceEYb1IYNQE277Y4eBO3JU0IRqtsX4mGmyxo9XVV3H8kDqjFUlTgse7ynvutSDR5zNoroHiSdiIHdXG9h+vZzCNS4KOMVlvmWX3eD1AL5H2/fyJXH7C8GF0ahp7FsN5VjACpZP8NGXlJQzUckVM8ibYdgB95EYYxoTnzYGsUH1RVE53ycyTjxwEHgW4M+8+RMSvw05SXEVUu8yOpfl1WUmso0/TVV7F0sbm6lRlewhw==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(396003)(366004)(39860400002)(136003)(376002)(346002)(38070700005)(122000001)(6486002)(71200400001)(478600001)(41300700001)(2906002)(86362001)(31696002)(31686004)(54906003)(36756003)(91956017)(110136005)(316002)(6506007)(6512007)(186003)(53546011)(2616005)(26005)(66446008)(8936002)(64756008)(66556008)(66946007)(76116006)(4326008)(8676002)(66476007)(38100700002)(83380400001)(5660300002)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aHZoOUhVNEZaWGpnZ3UvZkNjNWE3aWdBUU16K21Fc3lyNGNVREF5STh6UlNY?=
- =?utf-8?B?RzB0bG9kWEJmWWR6Sld2OEttWk5kVEFySjBMOW5XcFl3NmwvZEE2TnFQRnRP?=
- =?utf-8?B?ZklQN1hXNmZVSGJxT1R5YndXRy9jV0JIVzFFSm5Hb2cxZkZPTy9HRGVML3E4?=
- =?utf-8?B?clFob0kxOTRiUDdHUkxROE1IZFNleVpIZVhFaEhOdFlieS93cjI2aDVuNjhR?=
- =?utf-8?B?dzRNM1VKREFkOVZHT29mdTRmcVRvaThKZ1VmVmpvamV4WmhOcFI2M0hENzlm?=
- =?utf-8?B?VTZkdGtPQ21kNkxyNkIvelEyM29LcGoxZDc3aFo5SURkMWw0ZS9EVEdFNkpQ?=
- =?utf-8?B?a24xR1RYcWdTNjNVUWw1c0RXcExBcStZOTBIOHNKWTZHVjgzVVBYYVlpcDhu?=
- =?utf-8?B?Z2I3d1kwTTBkSFBRSjdZNGF0K3Y3cG1uVlZKeVZDUVZ2ekJjSGVJNGYrRVds?=
- =?utf-8?B?OWFocm5sOVNVZzBTd1ZseDVaYktIU29zQk5yaXFRVXdZR1poejJ3bHYxcjAy?=
- =?utf-8?B?K29sdnJFelF3WkdGaE9mSzYvN3dvU0RhZFlFTU9oR3Fsb0NxZ2dCLzRTNDFT?=
- =?utf-8?B?U1VvMmJuM05pMDBxTGhTUGI0UlB3QzZ4by9HRGRxejBGSHh2cXhjb2YvNUhp?=
- =?utf-8?B?aDVFRkRMZmpEbVRZT0wvVlFFSGhmV0xLb2tjeUR0dEgyRHVRNmh1cTgvcW1O?=
- =?utf-8?B?WCt6RDFZaWExWTJIKzloZTM3WWp0My9oTGZwNDI3Zzd3TWJFR1NWWnRqaC82?=
- =?utf-8?B?bXVyWG9TcHhmUERmT0JEanhPclcwOTJyTGV1VExkK1VRb1hDem1ZQjJqNHFS?=
- =?utf-8?B?Z1JGNmN4cHVQYWpMamNOTEN3L2E3emJPVGNrNmdnR0FPNUhUSGE0MW14MVpm?=
- =?utf-8?B?YUFPeld6NE8xNmt1eUlGU0h1djdjUTdPMlNKNTIyWW43TlVtU1VrWmtpaEpY?=
- =?utf-8?B?OFBYM0k1VU9CcDRTZFM2UkFWRGdIdmtnUkhzaUNEVmU4YVVBek9DbGNBNmtS?=
- =?utf-8?B?ejduSE5BQ1NyNURHQW5RRExwM3MxVWFLQmYxQXN2Z0ZHUHFnTUhvNUhKUFNw?=
- =?utf-8?B?S3FhR2J4MnVYNHV6R3UvRTc4OHBPdllUclVOZ2E4VUJkS0o3clRmWU1XbkRQ?=
- =?utf-8?B?b09ONUYrSkZTR2lpMU85SHVHVzBQR3F2Y05yaHk2cC8xeEhMdlZmandIaU5t?=
- =?utf-8?B?eEc1Y2pZSWlRaUQ3ZlAxaWQxVjRJTU43WThYb3ZXOXNWS2tvSkNscFkrVys2?=
- =?utf-8?B?amF1RXhSYStEZjkzbHU4Z251Umd4bmJLVURKdTgxNEIxR3lkb0NVOHRHSXFh?=
- =?utf-8?B?dEhhS3Y5aUxSRzllaXR1cjY3S2hINjhHZFphQUNlakswdzRLUkIzR2Nhdysy?=
- =?utf-8?B?ZGNMTlk1Tnl6Wlh5MzRObWlBbW9ycWZJakFkMUhhaHRYZE9xYjdhdEloZ284?=
- =?utf-8?B?cE1wVTJuOUxTMDJyRHFMYWtwQUxaSWhza1ZRKzBadXJPYkV3SVdjTTNwSXY5?=
- =?utf-8?B?cW9KWEkvMkU4S3Erc2ZOTU1HSzMwRllkWUtmR3p0dEtaazB2VUFtZVFOYXpJ?=
- =?utf-8?B?aHZ1b2lpRFhzUUFyYW9BVHdWeFp3d1hoL1V0ZzY1VXd5UWluNlZpM1IxNG5N?=
- =?utf-8?B?NnlzME1icWlJN1EvRVFOb1BFWmY0dHYvOU9wZzMyMVMyVUZVNFZ1MUJmTGhz?=
- =?utf-8?B?R0RYcEZDWVVKZkpVSkVsZEFaRFpyUUNTZ0lrWGVWQkNWYmR6VzNUL0tNU3Nw?=
- =?utf-8?B?Y2l4ZlhDeWF3amM2emhveXc4cisxTmtpOXRhbmthTGw1dnFNallndGtEd3Y0?=
- =?utf-8?B?Um9OSkhza05YL1U3dGdrSjc4REJMUmtVZzRCU3JIOXFYQTRqVE85bTV3MUVF?=
- =?utf-8?B?bUcyS0o3aTNUMUYxQldNbmJsTllqcFdySjNQZHdJWitMMFJUNUN0Q0ZMRm55?=
- =?utf-8?B?Wk5KYlFPUW5GUGY3dUZFOWszWHVVcGFrb290ajhGM0pQNDFrTGFkRGZROWpX?=
- =?utf-8?B?UHZMQXFPYVZnZzVXcDdoUGxMc1FXL1NzTGk0N0xTTFJIOXp6RGZzOEhVQXJE?=
- =?utf-8?B?Mlo3SUc4TjFuMmZyalNlNFRtUzNhanowTW5pNEZPS1djSWhIdy9RZi83Q0Na?=
- =?utf-8?Q?zgjY3Tl/vmHGvY/Ku9b9JV6EJ?=
-Content-ID: <83E0AA38B4B08A46BB04A4A7AE33C8D8@namprd11.prod.outlook.com>
+	id 1oPSDU-00BFMa-Su
+	for linux-riscv@lists.infradead.org; Sat, 20 Aug 2022 17:25:03 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailout.nyi.internal (Postfix) with ESMTP id A31565C0040;
+	Sat, 20 Aug 2022 13:24:57 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute3.internal (MEProxy); Sat, 20 Aug 2022 13:24:57 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm2; t=1661016297; x=
+	1661102697; bh=5Fma7zGYExQkO+bwyNYDf8Z3vOM0RX6XTYyF0I2rGsU=; b=W
+	lKvcgPSERJCgolbdz/GETypfPUNCvgWksfRm3H6sdJMQdCnRMESNof2kG49mujSY
+	1iY4SdZMO504xEorFUZbzSFnDsP4KKJiOd440Xx7Mgpz1166ynTEJylG4mupCUmO
+	8EFXHuxL6OEZcqf9g8W38N6wOalxumJEZNji8AHlWRcN0F9D3sKWSd/u0PATIB8k
+	iKjqBUDkiwSPf7ggD2WVDDD/10H85Phn64sw8jpMt2Bc7Ulkj2hmMEFL7LCf0txd
+	HWFnNXoopdQbfnXVSnPU2pZKMB+6J2iTNMJBEvm9fw2TuDZwQbFpySMzqZWycdPw
+	3u3BkCqUULmwsEh/ch5yA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1661016297; x=
+	1661102697; bh=5Fma7zGYExQkO+bwyNYDf8Z3vOM0RX6XTYyF0I2rGsU=; b=q
+	T6DYYNAXtipupjclWIzfxsvrYblX9n/SuIQ/QlvV9OWI2tgEGEyjPt+Q/Dv8zozD
+	kbr0ijTopaT4LjyGzxHc1i0XeCczuVDpb2S34nd3uhPYidwvsHThS9LxQFpYHuJC
+	SiKgfcMjfQ/MXvvx/4xOd2PRt3gVe+ct1hNGpy9YZsRmTyNns4opsTKsW/YFpgfb
+	i9rtkEAA408UqBoK4gowOjmFCiyDkjGPcWMx+m/JFNoz1Ol6T/eJUGCrHfW6uLjX
+	NScDecR1ikueguxic01qQqRxlFb2DO75IePRIYeDG1igaXTPjGVado5CDnQ76kNY
+	IIEt+Q+g+vbg8Gu5y8MeA==
+X-ME-Sender: <xms:6BgBYxd17tt4aZ9s18Pnxo1ew_dyPPEbdhArw2c2VwGX4LXTELWQ_A>
+    <xme:6BgBY_Og5Axxreetq2ECM8K0xyYSpSgZ60IN3iMemnOvKfYS7wHiPHpYlGtdLWK67
+    c-Q47JufROJAskV6g>
+X-ME-Received: <xmr:6BgBY6gxV_dyEx0Xh7Hfb19t4BdK-fSZ2xJ3EKsq_iGPN76iqaS1SmIrYoqqHU6tIkbTEjLqmQzqlev5N0-p2g97vTTn8cCWYG_SkKBPGeLztQgG0QkxdoV8KA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrvdeifedguddugecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecunecujfgurhepuffvvehfhffkffgfgggjtgfgse
+    htjeertddtfeejnecuhfhrohhmpefurghmuhgvlhcujfholhhlrghnugcuoehsrghmuhgv
+    lhesshhhohhllhgrnhgurdhorhhgqeenucggtffrrghtthgvrhhnpeelteejffdvgeehke
+    dtkeevueeuteffteffhedufeeujedvudefudetieeijeevleenucffohhmrghinhepkhgv
+    rhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
+    hfrhhomhepshgrmhhuvghlsehshhholhhlrghnugdrohhrgh
+X-ME-Proxy: <xmx:6BgBY6-AgGL8GQicpNUXP8F7CNZzu1BcxEmk559pKMwnt9pN7wm-pg>
+    <xmx:6BgBY9vI6wNEgSKrJxoGQw7Q5EXsJFt695CIyxxNhQh78O7dWgCenA>
+    <xmx:6BgBY5HjoxZPY-tDi3U_-obTyKr-3eqtB080j2qYNazGwcKPjkS6fA>
+    <xmx:6RgBY5H8rcO7mRAvevVMavBWMmw6HAkqBVSuWLvs_UHwPE3ND4N8Rw>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 20 Aug 2022 13:24:56 -0400 (EDT)
+Subject: Re: [PATCH 06/12] riscv: dts: allwinner: Add the D1 SoC base
+ devicetree
+To: Conor.Dooley@microchip.com, andre.przywara@arm.com
+Cc: wens@csie.org, jernej.skrabec@gmail.com, linux-sunxi@lists.linux.dev,
+ palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu,
+ linux-riscv@lists.infradead.org, robh+dt@kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ krzysztof.kozlowski+dt@linaro.org
+References: <20220815050815.22340-1-samuel@sholland.org>
+ <20220815050815.22340-7-samuel@sholland.org>
+ <20220815141159.10edeba5@donnerap.cambridge.arm.com>
+ <3cd9ed5b-8348-38ac-feb1-9a7da858cebc@microchip.com>
+From: Samuel Holland <samuel@sholland.org>
+Message-ID: <932aaefd-e2ca-ef26-bf30-e315fb271ec5@sholland.org>
+Date: Sat, 20 Aug 2022 12:24:55 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67aabe24-99e0-4609-2932-08da82ce32e3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Aug 2022 17:05:35.4499
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: OYQocbwUnSRtr6UhHwfYxgTxP9ES6TXlJ3QQCFBEGzmM3rKcNmLlv9xnWNidSOWbzw5Fkw2Ynjn2uXuqqY+sNrUUrpkgU5JQ+hSHQ9aqofY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY4PR11MB1910
+In-Reply-To: <3cd9ed5b-8348-38ac-feb1-9a7da858cebc@microchip.com>
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220820_100544_260417_FAFA7A20 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20220820_102501_609098_CA09EC26 
+X-CRM114-Status: GOOD (  15.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,39 +113,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 16/08/2022 18:27, Conor Dooley wrote:
-> On 16/08/2022 15:18, Geert Uytterhoeven wrote:
->> Apparently updating the RTC when Debian userspace starts fails, causing
->> an infinite stream of:
+On 8/15/22 12:01 PM, Conor.Dooley@microchip.com wrote:
+> On 15/08/2022 14:11, Andre Przywara wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 >>
->>     mpfs_rtc 20124000.rtc: timed out uploading time to rtc
+>> On Mon, 15 Aug 2022 00:08:09 -0500
+>> Samuel Holland <samuel@sholland.org> wrote:
 >>
->> Increasing UPLOAD_TIMEOUT_US from 50 to 50000 doesn't help.
+>> Hi,
+>>
+>> thanks for all the efforts in getting those SoC peripherals supported!
+>>
+>>> D1 is a SoC containing a single-core T-HEAD Xuantie C906 CPU, as well as
+>>> one HiFi 4 DSP. The SoC is based on a design that additionally contained
+>>> a pair of Cortex A7's. For that reason, some peripherals are duplicated.
+>>
+>> So because of this, the Allwinner R528 and T113 SoCs would share almost
+>> everything in this file. Would it be useful to already split this DT up?
+>> To have a base .dtsi, basically this file without /cpus and /soc/plic,
+>> then have a RISC-V specific file with just those, including the base?
+>> There is precedence for this across-arch(-directories) sharing with the
+>> Raspberry Pi and Allwinner H3/H5 SoCs.
 > 
-> I didn't see this once during development, nor when I tested before
-> I left work today. Tested when I got home, happened once the first
-> time I tried it & never saw it again after that...
+> For those playing along at home, one example is the arm64 bananapi m2
+> dts which looks like:
+>> /dts-v1/;
+>> #include "sun50i-h5.dtsi"
+>> #include "sun50i-h5-cpu-opp.dtsi"
+>> #include <arm/sunxi-bananapi-m2-plus-v1.2.dtsi>
+>>
+>> / {
+>> 	model = "Banana Pi BPI-M2-Plus v1.2 H5";
+>> 	compatible = "bananapi,bpi-m2-plus-v1.2", "allwinner,sun50i-h5";
+>> };
 > 
-> I'll take a look this week and see if I can figure out a cause.
-> 
-> As I mentioned on IRC, I wondered if there was an interaction between
-> the HSS you're running & the reset controller series that you applied.
-> 
-> I looked back at the the HSS, and there was a point where it did not
-> take the RTC out of reset - but that predates the version you have
-> (0.99.16) by over 6 months.
-> 
-> I would still be quite interested in seeing if it repro's without
-> the reset series.
+> I think this is a pretty good idea, and putting in the modularity up
+> front seems logical to me, so when the arm one does eventually get
+> added it can be done by only touching a single arch.
 
-I have managed to repro this intermittently on v6.0-rc1, although
-quite infrequently. I don't have the reset series applied nor am
-I on an old HSS. I don't see the stream that you do w/ my Ubuntu
-nfs, just a single timeout, when it occurs. Haven't really had a
-chance to debug yet, but I'll LYK.
+This is not feasible, due to the different #interrupt-cells. See
+https://lore.kernel.org/linux-riscv/CAMuHMdXHSMcrVOH+vcrdRRF+i2TkMcFisGxHMBPUEa8nTMFpzw@mail.gmail.com/
 
-Thanks,
-Conor.
+Even if we share some file across architectures, you still have to update files
+in both places to get the interrupts properties correct.
+
+I get the desire to deduplicate things, but we already deal with updating the
+same/similar nodes across several SoCs, so that is nothing new. I think it would
+be more confusing/complicated to have all of the interrupts properties
+overridden in a separate file.
+
+Regards,
+Samuel
+
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
