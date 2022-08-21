@@ -4,98 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E69C00140
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Aug 2022 12:45:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2ABC00140
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Aug 2022 14:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LaD2q9lBC7Ruhp30W/FnwxUJnVFEuqhyYnWC5YRxuVI=; b=xtF4N9V5rTOSoj
-	Sg9O85cf/ibesApI0e2Dl6Lg4TKKhHof8I5weHVAawvq7w5GiOVcaFfKEmms6iS/qgiq+78RT45cO
-	tLbvW/XDQTyAjjyZrVfevqyuvXkA9e7uTzJd18N3CerEFQn+kESqkv9xstHQy7rDkfxI9saXUyZsx
-	2+BcvC0aAOuZXZSyXmx+on5m6TjD6jIntv5fwe0pNl+U6f17Nrfe5gpLChSPeZx0GVjxyl+NqPgi+
-	6a34oS1yJd1sdd+HNsMrmWxQkAujr+RxJxxYvUtCwPwVY1C5O5teBIwv1BMBqkl/ksoN50649dbLi
-	RxCHMK9pO5nukWBvotSQ==;
+	List-Owner; bh=yomf3mVN/g3+lO1ZfOIHeGHuQITgI+7J7V2Wtv7cX8c=; b=KNrW4gmKbjYsb4
+	dtjBdjPbggf3tSCHaMb5oPVi24BK6VKZ9MRss9Zqkqd7B/6gJMusCK/2Z43kJoyU/X5vVSV06GhTn
+	Md+jXIIcFXTXpPkRAMfmrqiwvP0MGEm2vEii1LHucbRNDlUoOdWX2Gcr1zIuW+dVqXvLT5ZMzSZDh
+	0i1zWhw98T0Ha/f6RS/NartB8msiduNalkGDfEYX0A+xP4V8aZ95anIq8J2VKGgDdDHSU461SHnh0
+	j2k4xttTAbsXgc9bAS3FmnfkjJlJTKstNSGxbaKcmCf75zJz/U7lZGS409jz4DTMQrgCRILUbkUgg
+	QThik4grjZxlHCxZmiUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPkKb-00AJRI-35; Sun, 21 Aug 2022 12:45:33 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1oPlmh-00BCnG-T6; Sun, 21 Aug 2022 14:18:39 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPjFc-009meV-9v
-	for linux-riscv@lists.infradead.org; Sun, 21 Aug 2022 11:36:22 +0000
-Received: by mail-wr1-x430.google.com with SMTP id h24so10055687wrb.8
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Aug 2022 04:36:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc;
-        bh=tBERBJeFmsU2gk0DqsvVk7OhaA+vX7d504uAWoZh04w=;
-        b=IunUk0SKEn1nH9A85B2rFGOdzLzvhKfM0gFlEIcPkoAPXo4AzUcYqEXCcOxLXWrj1z
-         AbEUWDg+04+jy3Fu0QvCXD1xFMIRaMvfxUVnKnfrfmoXEdYXprWWC/XNOT0FPBo1vL6D
-         k/3vEXLEjiDdQGt2zOykFohvkYMDkXZWpHoMkByk2xiRiRzlTuyOA4g+ASE0gOQttgih
-         o1Sl/4dF/zhAUA2z1C2A8eUPNoNGVU/0tLRmMgf56tCheoPeqQpcK3dL+sDn3uY5JQx3
-         hmmiLwc2CcOeVdFoM49uCkFVV7nbhStM9cZTEJKNIzPUk1T632l/nVD040fstWJ8inVu
-         e1bg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc;
-        bh=tBERBJeFmsU2gk0DqsvVk7OhaA+vX7d504uAWoZh04w=;
-        b=DbDVwbhA1sVqux0wvrR+mousPkCfOclMC1nLQ98xKTxvhZepd2y0XQeaNnydkF14AV
-         d5SLcneDO2g2Ll4HSR20v1JRP+CFpXbvTR7EL/T56/p2zkeeDXVXSdu5ADsxDICiXsKa
-         MPAGfBGiE8Ex/EBXupxpfFtPwacAADEjVzdlHORuojbcw/rXPpMMcAzDi4HznGzlx39o
-         9vGEg12LtJgJeLVwI/PZnozvQa04uCasg69dHqhWitH5jLW11OwJRiyPsBka4ieDN60V
-         qIuguUMoTTfFd9skBCcnVxalY1c9NBnKkoR06KKzQD/Z4j4wxS0zp9YxcycWtiFwmSrO
-         KqYA==
-X-Gm-Message-State: ACgBeo176EyiFMHGXoaTIfROtZZq/v8yN+I+RgNpXFT2nN3ypilX/D+o
-	5qRRFGOF5Ygz/U1CPZVPZmiRVA==
-X-Google-Smtp-Source: AA6agR5cyZy9CZWot4+CBW4LaR0SdclbcYK3AcOGPU3Q+v5vUQoWQM9YfCtFYFfA5X3trYU8FH6ocQ==
-X-Received: by 2002:a5d:4882:0:b0:225:3148:9f85 with SMTP id g2-20020a5d4882000000b0022531489f85mr7667679wrq.224.1661081777100;
-        Sun, 21 Aug 2022 04:36:17 -0700 (PDT)
-Received: from henark71.. ([51.37.149.245])
-        by smtp.gmail.com with ESMTPSA id m9-20020a7bce09000000b003a3442f1229sm14071361wmc.29.2022.08.21.04.36.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Aug 2022 04:36:16 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: Michal Simek <monstr@monstr.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1oPlmd-00BCe5-4l
+	for linux-riscv@lists.infradead.org; Sun, 21 Aug 2022 14:18:37 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A3283B80D7E;
+	Sun, 21 Aug 2022 14:18:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E092C433D6;
+	Sun, 21 Aug 2022 14:18:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1661091511;
+	bh=sdwpwSSJkNEgWy/Lv/s04spV+PKzs77/UypcZYQvt/I=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ml7H9mfMsOgq3mL7UmcExeWD8n+Y/Fu0exLpwz72WBT9DFOFg6Sl7+5irG3G5jCec
+	 uwwxoO2rVndvczdIvjog9uMC0FbaSFgwDTKdSTUOWGUpuG6ttRM1DYe9Tsh3Mwmtep
+	 q9tUdgtk0t0QP7gWLlwIma22e90tluRKq4V10tbxjrx36aTv4b5zxn2+Oe1by+YTl9
+	 tgc0Mh0BGzhQIQpX5DjiPzUn6EcfyLI0fVrEe7YDSeJp6ve/JqsNIxgKgH3oS0W4KN
+	 YQeDDzQOPIGOfTdH36ZNk27tGSWDXibJ5IMI2727ebE43I/NwmzLS+fxWi26P+qFH4
+	 iAGQgJqtLD9Fg==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Kees Cook <keescook@chromium.org>,
-	Peter Zijlstra <peterz@infradead.org>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>
+Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: [PATCH 0/6] Add an asm-generic cpuinfo_op declaration
-Date: Sun, 21 Aug 2022 12:35:07 +0100
-Message-Id: <20220821113512.2056409-1-mail@conchuod.ie>
-X-Mailer: git-send-email 2.37.1
+	kasan-dev@googlegroups.com
+Subject: [PATCH v6 RESEND 0/2] use static key to optimize pgtable_l4_enabled
+Date: Sun, 21 Aug 2022 22:09:16 +0800
+Message-Id: <20220821140918.3613-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220821_043620_415688_CD5297F7 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20220821_071835_427592_A877DBF6 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,49 +79,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+The pgtable_l4|[l5]_enabled check sits at hot code path, performance
+is impacted a lot. Since pgtable_l4|[l5]_enabled isn't changed after
+boot, so static key can be used to solve the performance issue[1].
 
-RISC-V is missing a prototype for cpuinfo_op. Rather than adding yet
-another `extern const struct seq_operations cpuinfo_op;` to an arch
-specific header file, create an asm-generic variant and migrate the
-existing arch variants there too. Obv. there are other archs that use
-cpuinfo_op but don't declare it and surely also have the same warning?
-I went for the minimum change here, but would be perfectly happy to
-extend the change to all archs if this change is worthwhile. Or just
-make a header in arch/riscv, any of the three work for me!
+An unified way static key was introduced in [2], but it only targets
+riscv isa extension. We dunno whether SV48 and SV57 will be considered
+as isa extension, so the unified solution isn't used for
+pgtable_l4[l5]_enabled now.
 
-If this isn't the approach I should've gone for, any direction would
-be great :) I tried pushing this last weekend to get LKP to test it but
-I got neither a build success nor a build failure email from it, so
-I figured I may as well just send the patches..
+patch1 fixes a NULL pointer deference if static key is used a bit earlier.
+patch2 uses the static key to optimize pgtable_l4|[l5]_enabled.
 
-I wasn't too sure if this could be a single patch, so I split it out
-into a patch fixing the issue on RISC-V & copy-paste patches for each
-arch that I moved.
+[1] http://lists.infradead.org/pipermail/linux-riscv/2021-December/011164.html
+[2] https://lore.kernel.org/linux-riscv/20220517184453.3558-1-jszhang@kernel.org/T/#t
 
-Thanks,
-Conor.
+Since v5:
+ - Use DECLARE_STATIC_KEY_FALSE
 
-Conor Dooley (6):
-  asm-generic: add a cpuinfo_ops definition in shared code
-  microblaze: use the asm-generic version of cpuinfo_op
-  s390: use the asm-generic version of cpuinfo_op
-  sh: use the asm-generic version of cpuinfo_op
-  sparc: use the asm-generic version of cpuinfo_op
-  x86: use the asm-generic version of cpuinfo_op
+Since v4:
+ - rebased on v5.19-rcN
+ - collect Reviewed-by tags
+ - Fix kernel panic issue if SPARSEMEM is enabled by moving the
+   riscv_finalise_pgtable_lx() after sparse_init()
 
- arch/microblaze/include/asm/processor.h | 2 +-
- arch/riscv/include/asm/processor.h      | 1 +
- arch/s390/include/asm/processor.h       | 2 +-
- arch/sh/include/asm/processor.h         | 2 +-
- arch/sparc/include/asm/cpudata.h        | 3 +--
- arch/x86/include/asm/processor.h        | 2 +-
- include/asm-generic/processor.h         | 7 +++++++
- 7 files changed, 13 insertions(+), 6 deletions(-)
- create mode 100644 include/asm-generic/processor.h
+Since v3:
+ - fix W=1 call to undeclared function 'static_branch_likely' error
+
+Since v2:
+ - move the W=1 warning fix to a separate patch
+ - move the unified way to use static key to a new patch series.
+
+Since v1:
+ - Add a W=1 warning fix
+ - Fix W=1 error
+ - Based on v5.18-rcN, since SV57 support is added, so convert
+   pgtable_l5_enabled as well.
+
+
+Jisheng Zhang (2):
+  riscv: move sbi_init() earlier before jump_label_init()
+  riscv: turn pgtable_l4|[l5]_enabled to static key for RV64
+
+ arch/riscv/include/asm/pgalloc.h    | 16 ++++----
+ arch/riscv/include/asm/pgtable-32.h |  3 ++
+ arch/riscv/include/asm/pgtable-64.h | 60 ++++++++++++++++++---------
+ arch/riscv/include/asm/pgtable.h    |  5 +--
+ arch/riscv/kernel/cpu.c             |  4 +-
+ arch/riscv/kernel/setup.c           |  2 +-
+ arch/riscv/mm/init.c                | 64 ++++++++++++++++++-----------
+ arch/riscv/mm/kasan_init.c          | 16 ++++----
+ 8 files changed, 104 insertions(+), 66 deletions(-)
 
 -- 
-2.37.1
+2.34.1
 
 
 _______________________________________________
