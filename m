@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA11C32789
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1FE2C32772
 	for <linux-riscv@archiver.kernel.org>; Sun, 21 Aug 2022 11:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9qOrOaO26rvBLCmG6IjhRY8fGu3qmj0rUJyuWzU5Yko=; b=VLimx4JWUhHS/8
-	/xve48hGHek+AVqS4qnVD28xS6ESujswzxzELTcFomLy5sgd7xOyJFLnfsifIAGW1Rb0LTDBu77dz
-	51ed6QRYW96pjYBo1YEd+dpprErOFiPAC6692DCtaANaf7OhwHtz4mWd45XIIQG8ORdDUheUMfqpB
-	DjjVa02a2nPkHrcITqsGloWjRl7M+mOdRfluCY0PhS2z8dwLST+JzKUrch5zPk82lThjlQi4+fTVN
-	TF9d2mB5vzQDWaVUkKSgYZoIqX2fZDyNYB0XpABmyCrRCSx7VQ0zpooJ66m8NIsaaMo0c4/K8vAhO
-	++pPtoLSFp9R9i+dlJaQ==;
+	List-Owner; bh=R9rM52oJ2xKQszUbuRK0SYuwG366jWy19AVw9c7rPp8=; b=KK4XscuHC/Mhjx
+	tiIuTynD5Kr31WuGkKIv7OkMDe9upE4yhngdJIFJkA94DyRIUrkoa8+0ieRfcJSKMshg8IxwMjN98
+	1oiRfKBBvFbBHTCm7t/NCBVmG6QLVDEXN/o09SSrQ7q2Qi2CdYQLJ7HuEAMZ/pMo0xLtxfNmgf6nx
+	daoZca+CVgYoMIdTbGC19uyX0+ThG73C7jzroZqUwi3reOBWDLW7R5Hg3YwcHh7UhzJlzp0PgY4Ou
+	ie37xuqwqvVdGik0aB/m4D2sQCG8WG3O1apvbhLocOD5U/0V1gmxabMhA/BU/A5MPMdpINafYABN9
+	divF5b4pYpDx5doDopBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPjFq-009mvZ-9W; Sun, 21 Aug 2022 11:36:34 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1oPjFo-009mu8-EB; Sun, 21 Aug 2022 11:36:32 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPjFh-009mkv-Ik
+	id 1oPjFe-009miX-Dv
 	for linux-riscv@lists.infradead.org; Sun, 21 Aug 2022 11:36:27 +0000
-Received: by mail-wr1-x435.google.com with SMTP id u14so10053331wrq.9
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Aug 2022 04:36:24 -0700 (PDT)
+Received: by mail-wr1-x42f.google.com with SMTP id h5so9255300wru.7
+        for <linux-riscv@lists.infradead.org>; Sun, 21 Aug 2022 04:36:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc;
-        bh=iRydGNWOVxx1HqAigFxDEMCuXoX5Io4IU5ztqyzaPAs=;
-        b=Y1WaN5EAlXdoOlvAydRCG82PKL3F1frMO2Gueklv8Hl+oRlW3+ER52FQNA65qlT4ar
-         Z7WCuQ1OFzwV34ttvUMnnPCxnyOST7zPOvFzJnEfB+4j9LdkZRYIp6/YyrcDINihXi58
-         Mi56g3YyTvh3AlocFbuYHF9KLeRtMj+gJZRl7xjIB1eNlD6/JSYjnAvfIJHSWd6ub0ac
-         OCinSVK1v+4gLgh4cdvz9HZxI3kVUH04Zi9qadv4lPjNlRfWpHjmC5O0WECWQc0OFyyR
-         pCJxCnow4Yga7OV0QJIHOuik6NTHAoDHxEufFMcUkn3qy31H1Se8nChjkuwao431/pXh
-         hafQ==
+        bh=XFcC8WCeCDvxB/v+0OTyUBSnoJfVKZTiHSkk+ggPSsY=;
+        b=I9p8YQn3K62FrSJWSUFKpOt0UsIp+9bsVsD+oJfNVAcT5h+CZYJtepbN0KIrbvEqWC
+         CfN+volyR9bkDOtWlZbTynhimAFp9312moQA2S0Vze0jmih9oIcwdFW38pAOKUPJseBw
+         vMXObcP9ocBcIkaAz6g2imqEU6D0lOnKb5CehLfpmxYG+VEplogLacfxwfy+ksZUG/ba
+         fWhm3yt3q55nHleahnjNEgTQWqs0O1LDRCrwF1Bfp0r4mcW8zfpLSVE+W3F607TvX0XO
+         myClgiQ90dkmpbgSGL1SbcfaCzOiSRAATApsyLCyMyd3sSauWoR6ic4v0/7cwRhrog46
+         TWxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
-        bh=iRydGNWOVxx1HqAigFxDEMCuXoX5Io4IU5ztqyzaPAs=;
-        b=UJTcDufe5b8IpKC16GYrP+KCo++y71sAbrVSP9yr2BPyQfR6JEmcaIat+WUoSh83J7
-         wK1LqeYny8A+o9DGLEXfbNirVq9VeHqyDXpOp7UPiJ/3n9U7Sm/CjBEVZjoDFf5it5zm
-         gwdo8rT4P+Ub+kKi05NpM8xCjF2xhlTbBTM3w9YRAZIIYU5+p4e4HpqcVI24XR/Hdy5v
-         5dIPGRARYwSjh0A+MI4C5LkRI0AP1qBfqHwzeggQF2sCD0+9ZWW9bGCF6QuOkvVqtF/a
-         gFq1RhP0gon6yyi5RXe53K5iWZDuC2Rq0Kvgh5W9KfqiN2ce6qqfjz2wGlvF0yqiNUIP
-         x/5A==
-X-Gm-Message-State: ACgBeo3x2VQM3oJFfjc4zlUyi7JwOPGwBMW8YLS1YbmhzEr1wurtTFAh
-	NofQ7XnB4Io3rfLNj9Qp0KO72A==
-X-Google-Smtp-Source: AA6agR5T0RaXBxKPuBVBjPGUHGtJfc4tSWj3x0g4PlWZixJIT3RipsnS2LEVMZyj6NI4Nvr7MxTB/A==
-X-Received: by 2002:a05:6000:1545:b0:220:61fa:64a with SMTP id 5-20020a056000154500b0022061fa064amr8748201wry.174.1661081783798;
-        Sun, 21 Aug 2022 04:36:23 -0700 (PDT)
+        bh=XFcC8WCeCDvxB/v+0OTyUBSnoJfVKZTiHSkk+ggPSsY=;
+        b=Bjrtq9hMZbzL3MDeY19GayCMUK5Mr6haYaoTBChsjQCoVYlJ2orMjYfDtUCSLTMwrx
+         INGQ1EedzKYON7JmGgjUjSXntIoe0RuuemM6h30WlIvzh+vifYfJ/8nKqiTVTJJEbTCD
+         BSGx+s7PEYDx4QKmUqW2/T/iOkYq+heL33EWpl5j5yfQ9YQYscbOyIZ9mfSgFfI/OioL
+         gNigKqG0AoiE3Z5YUDok/AQUjFHmatJwijkI7ORNpI8udeezmsxcy2IL2s65/z1SLVmy
+         +9hW199X+B8QMUCaM+OjlqXBo1CpfBuYrMj6h8vLeiNz5UEBHOAQIvbd1kb9zBOvZ+bg
+         Bjiw==
+X-Gm-Message-State: ACgBeo1CA0aSKsRufR/tnFewLqdS86kAB8kXnCT6nJkXNGVuSIuLQ40J
+	Qy751wsYrVGpT3tsNN1JuKJ0AQ==
+X-Google-Smtp-Source: AA6agR7yQJr2EFqeBiX7zFLHOZnS6xuQZ2CSX2d2szPgHhQ8PkJnM5BxqWwAIlAcnq3r7wGuyd1j6Q==
+X-Received: by 2002:a05:6000:381:b0:221:7540:b1ee with SMTP id u1-20020a056000038100b002217540b1eemr8123300wrf.307.1661081780659;
+        Sun, 21 Aug 2022 04:36:20 -0700 (PDT)
 Received: from henark71.. ([51.37.149.245])
-        by smtp.gmail.com with ESMTPSA id m9-20020a7bce09000000b003a3442f1229sm14071361wmc.29.2022.08.21.04.36.22
+        by smtp.gmail.com with ESMTPSA id m9-20020a7bce09000000b003a3442f1229sm14071361wmc.29.2022.08.21.04.36.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Aug 2022 04:36:23 -0700 (PDT)
+        Sun, 21 Aug 2022 04:36:19 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: Michal Simek <monstr@monstr.eu>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -88,16 +88,16 @@ Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
 	linux-sh@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	linux-arch@vger.kernel.org
-Subject: [PATCH 4/6] sh: use the asm-generic version of cpuinfo_op
-Date: Sun, 21 Aug 2022 12:35:11 +0100
-Message-Id: <20220821113512.2056409-5-mail@conchuod.ie>
+Subject: [PATCH 2/6] microblaze: use the asm-generic version of cpuinfo_op
+Date: Sun, 21 Aug 2022 12:35:09 +0100
+Message-Id: <20220821113512.2056409-3-mail@conchuod.ie>
 X-Mailer: git-send-email 2.37.1
 In-Reply-To: <20220821113512.2056409-1-mail@conchuod.ie>
 References: <20220821113512.2056409-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220821_043625_655337_D287EBE3 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20220821_043623_580613_FA49ADB5 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,29 +122,25 @@ header.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/sh/include/asm/processor.h | 2 +-
+ arch/microblaze/include/asm/processor.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/sh/include/asm/processor.h b/arch/sh/include/asm/processor.h
-index 85a6c1c3c16e..4125494515c9 100644
---- a/arch/sh/include/asm/processor.h
-+++ b/arch/sh/include/asm/processor.h
-@@ -4,6 +4,7 @@
- 
- #include <asm/cpu-features.h>
- #include <asm/cache.h>
+diff --git a/arch/microblaze/include/asm/processor.h b/arch/microblaze/include/asm/processor.h
+index 7e9e92670df3..45a86692e90f 100644
+--- a/arch/microblaze/include/asm/processor.h
++++ b/arch/microblaze/include/asm/processor.h
+@@ -13,10 +13,10 @@
+ #include <asm/registers.h>
+ #include <asm/entry.h>
+ #include <asm/current.h>
 +#include <asm-generic/processor.h>
  
- #ifndef __ASSEMBLY__
- /*
-@@ -123,7 +124,6 @@ extern unsigned int mem_init_done;
- 
- /* arch/sh/kernel/setup.c */
- const char *get_cpu_subtype(struct sh_cpuinfo *c);
+ # ifndef __ASSEMBLY__
+ /* from kernel/cpu/mb.c */
 -extern const struct seq_operations cpuinfo_op;
  
- /* thread_struct flags */
- #define SH_THREAD_UAC_NOPRINT	(1 << 0)
+ # define cpu_relax()		barrier()
+ 
 -- 
 2.37.1
 
