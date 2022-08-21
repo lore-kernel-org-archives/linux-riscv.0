@@ -4,59 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7D1C00140
-	for <linux-riscv@archiver.kernel.org>; Sun, 21 Aug 2022 17:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F963C00140
+	for <linux-riscv@archiver.kernel.org>; Sun, 21 Aug 2022 17:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=62hMoY8nmC2uFiWKc2S/jvSEtlRiEXX0tB8EE6VmPFg=; b=DjmyJxqeVf8DN3
-	GSiPBhJwXjgU8wvLrDK9ARL5irLao3u034zgWzwZ011hOemJNkIJcqbIuTwXsKY948tZaqq5RhA6j
-	EKyNGYdR+FTA2W5vxjhpIyGh0RPQM/rfiNcMZEIHyD4w2dHGdgcalghkBM/R9c9/zP04Wh/2j64ej
-	txSjmOR1MfoOpDhuxBmtXL5VrqWOURhAt8/ObpOAu0P2BgkQz1a96AduRr4YR0bjHF67YSbej0Kz8
-	97x43HEe3mhoPQC9PgFjD1mA88WLcNwYmAsevOlv9dQ6RAc5WtCSlfD48301rHOlJeWGYUROaiWp1
-	h1FXv7NYKK/i04x29yhg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=sEFir1+Mhetx5vrSoB7zxMTlRJaG2n7PUJ7wPrXymcw=; b=MzIMZ0tEpdjIDG
+	Q+p07ZrK8q2Pq2Q1JALi1are0GKhPADJwvda8C18CPUv5BMG4Sre3gzMZ1xsYh948ns5hsTUzN4BL
+	5qvWKmjXX81CIHUg3/8T/0CqJLr693vUAHjBb1aZahy3GlaKL8i1SirI3CHjx3jkaLkcVqV5VMpaQ
+	0cr/1TU4fAJjJzIwS8AbcsGSLX/Q2GUSdHSYqafZ4ou/A+31VRMcJVaxI/AZrfo/nrCroZQE+mudR
+	MUHvle/aLH7gpGXiioGhs8rweeFlM9FbQD5ROGGXZb+QP+i2Mh+YZkWLynYJQsCcu5fBR4ojX48uS
+	ZnMUcLRCFQ8lRVUCgDaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPoXg-00Ck7V-EI; Sun, 21 Aug 2022 17:15:20 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1oPoyf-00Cxbg-Ns; Sun, 21 Aug 2022 17:43:14 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPoXd-00Ck59-Pu
-	for linux-riscv@lists.infradead.org; Sun, 21 Aug 2022 17:15:19 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 17A6ECE098B;
-	Sun, 21 Aug 2022 17:15:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE896C433D6;
-	Sun, 21 Aug 2022 17:15:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1661102111;
-	bh=/YxzEa9cM7Ef+kzrSskBrq6YKw82hJWi2Yi0D4j4i8E=;
-	h=From:To:Cc:Subject:Date:From;
-	b=VaMwGGMGmaGF1+8f7BA8T3jnFyN9Y3T2yRQhqcuc7RHxaIBwXZJuLHqot010sNQkd
-	 Dtv6hdBbjmTcW1p40l75tFJ5Onvn/KUl2WCeXWEtQgIuXfgY1+uO9g1Xb+iFa0aIF4
-	 I/HZzurP1wDn+2Y4l11GZvnn6nUYTHPCmMYoXpYy4yxULHbKmHdycQWxC52ROn0Oqo
-	 wcRYBRqctC135WPfKMfA+SRpB89PpJWR5QzLWW+bvk3zorwCt4ScVtQZDwonmxLKzk
-	 fJ3ertrG9karfXrM7PGTxTzhDr8wyo5uTgc/37s2wk7L/ODNoNyqyg5NugrqokcSVW
-	 ExAnTnGmale3Q==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1oPoyM-00CxP3-M5; Sun, 21 Aug 2022 17:42:56 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id h5so9866696wru.7;
+        Sun, 21 Aug 2022 10:42:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc;
+        bh=7Nrg8mvlqxFEJfzKh/tw2+dBWE8D/s98GD2ZnmZvMl4=;
+        b=F0ptjTbxLv2NJaVf2gvBlBshDMfCokLJPPMsIV35UHBlxVECPPma43FPvPitouEYuo
+         8dgtnhsmPRFBvIO948wmtVOueVdGaHu/6efegZ+eBz+dquE2oOi9XMsurik6HL7oB6MX
+         jV8pUVxH3f1RrwF0NH6pncq2tH6AwoMHlp65ZDTNCyiT6v1mar/Hou3sFmBJRov6RKag
+         O1el0UDp9u/+GhEvUUZhnnL+z+SJXn9IfDfG4Dlp/Iuz3gqoHz6wEPHD+abHkg+f2q3v
+         w/lO0XWXR94cHio73ZqXyXjLv1uGE7J2Xgag56CksB4nH92y765Uk+pyJbn+nJIZ5N3k
+         uDSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc;
+        bh=7Nrg8mvlqxFEJfzKh/tw2+dBWE8D/s98GD2ZnmZvMl4=;
+        b=jZQq5eXJV/nTbgAkY0N59CvRSvWbevxRo8rlMhTWzeol5zmsY8iO0jTlidNvdFd+c5
+         HZNNwHPCp8RZudsHGBM0ZcnjDYtrF61Ct/v1vOd9lJehIFV2zuzIOipXQNgK/cUHm7J/
+         hw5CaDOPfAXQ0LqGEiZkC6oEYhdId8rT6K73/abx19L9uvTwIymMHYyR0Q8UCtw2ir5W
+         d6OgLxMOUfXpm8PJ2fKCsO/RrGzs5HQpatIZaC3cv4MiL1XVpzNvYhuRWUwXa99I4TtD
+         K5vJMNBIEaCcTZKMG1kB0c4BCI2+ulzBKITMXidloUjjN3hsDi52a+3w2NSNNyD+gICJ
+         XCnw==
+X-Gm-Message-State: ACgBeo1BgYbNQvrtny6nH3ivle9EiuZSb/AQ4XvZacuXcCngnAHA/xyM
+	ucKNuJqxCWyeG62rot2B0fo=
+X-Google-Smtp-Source: AA6agR6ii5ETBOVbnXGvrEQ2XHp9wCOCZjRgmUsSrgmsT/hEBxdRm1IL0twc5nHL0nICTG/92OzUKA==
+X-Received: by 2002:a05:6000:993:b0:222:d509:4b5b with SMTP id by19-20020a056000099300b00222d5094b5bmr9262211wrb.52.1661103772368;
+        Sun, 21 Aug 2022 10:42:52 -0700 (PDT)
+Received: from localhost ([2a03:b0c0:1:d0::dee:c001])
+        by smtp.gmail.com with ESMTPSA id t24-20020a1c7718000000b003a643ac2b08sm6876286wmi.8.2022.08.21.10.42.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 21 Aug 2022 10:42:51 -0700 (PDT)
+Date: Sun, 21 Aug 2022 17:42:51 +0000
+From: Stafford Horne <shorne@gmail.com>
+To: Kefeng Wang <wangkefeng.wang@huawei.com>
+Cc: Richard Henderson <richard.henderson@linaro.org>,
+	Ivan Kokshaysky <ink@jurassic.park.msu.ru>,
+	Matt Turner <mattst88@gmail.com>, Vineet Gupta <vgupta@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Brian Cain <bcain@quicinc.com>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Michal Simek <monstr@monstr.eu>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Dinh Nguyen <dinguyen@kernel.org>, Jonas Bonn <jonas@southpole.se>,
+	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+	"James E . J . Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>, Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] riscv: enable THP_SWAP for RV64
-Date: Mon, 22 Aug 2022 01:05:59 +0800
-Message-Id: <20220821170559.840-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Chris Zankel <chris@zankel.net>, Max Filippov <jcmvbkbc@gmail.com>,
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org, linux-xtensa@linux-xtensa.org,
+	akpm@linux-foundation.org
+Subject: Re: [PATCH] kernel: exit: cleanup release_thread()
+Message-ID: <YwJum2c1I8JhY0B8@oscomms1>
+References: <20220819014406.32266-1-wangkefeng.wang@huawei.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220819014406.32266-1-wangkefeng.wang@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220821_101518_053569_E799E528 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220821_104255_281513_F18E1A2A 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,41 +130,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I have a Sipeed Lichee RV dock board which only has 512MB DDR, so
-memory optimizations such as swap on zram are helpful. As is seen
-in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64") and
-commit bd4c82c22c367e ("mm, THP, swap: delay splitting THP after
-swapped out"), THP_SWAP can improve the swap throughput significantly.
+On Fri, Aug 19, 2022 at 09:44:06AM +0800, Kefeng Wang wrote:
+> Only x86 has own release_thread(), introduce a new weak
+> release_thread() function to clean empty definitions in
+> other ARCHs.
+> 
+> Signed-off-by: Kefeng Wang <wangkefeng.wang@huawei.com>
+> ---
 
-Enable THP_SWAP for RV64, testing the micro-benchmark which is
-introduced by commit d0637c505f8a ("arm64: enable THP_SWAP for arm64")
-shows below numbers on the Lichee RV dock board:
+>  arch/openrisc/include/asm/processor.h   | 1 -
+>  arch/openrisc/kernel/process.c          | 4 ----
 
-thp swp throughput w/o patch: 66908 bytes/ms (mean of 10 tests)
-thp swp throughput w/ patch: 322638 bytes/ms (mean of 10 tests)
+> diff --git a/arch/openrisc/include/asm/processor.h b/arch/openrisc/include/asm/processor.h
+> index aa1699c18add..ed9efb430afa 100644
+> --- a/arch/openrisc/include/asm/processor.h
+> +++ b/arch/openrisc/include/asm/processor.h
+> @@ -72,7 +72,6 @@ struct thread_struct {
+>  
+>  
+>  void start_thread(struct pt_regs *regs, unsigned long nip, unsigned long sp);
+> -void release_thread(struct task_struct *);
+>  unsigned long __get_wchan(struct task_struct *p);
+>  
+>  #define cpu_relax()     barrier()
+> diff --git a/arch/openrisc/kernel/process.c b/arch/openrisc/kernel/process.c
+> index 52dc983ddeba..f94b5ec06786 100644
+> --- a/arch/openrisc/kernel/process.c
+> +++ b/arch/openrisc/kernel/process.c
+> @@ -125,10 +125,6 @@ void show_regs(struct pt_regs *regs)
+>  	show_registers(regs);
+>  }
+>  
+> -void release_thread(struct task_struct *dead_task)
+> -{
+> -}
+> -
+>  /*
+>   * Copy the thread-specific (arch specific) info from the current
+>   * process to the new one p
 
-Improved by 382%!
+For OpenRISC bits.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index ed66c31e4655..19088c750c7f 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -45,6 +45,7 @@ config RISCV
- 	select ARCH_WANT_FRAME_POINTERS
- 	select ARCH_WANT_GENERAL_HUGETLB
- 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-+	select ARCH_WANTS_THP_SWAP if TRANSPARENT_HUGEPAGE
- 	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
- 	select BUILDTIME_TABLE_SORT if MMU
- 	select CLONE_BACKWARDS
--- 
-2.34.1
-
+Acked-by: Stafford Horne <shorne@gmail.com>
 
 _______________________________________________
 linux-riscv mailing list
