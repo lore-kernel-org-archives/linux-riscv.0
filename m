@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A22C3F6B0
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Aug 2022 12:59:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87CDDC28D13
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Aug 2022 12:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eITFQ7Ib5jUMZFs2sL8mU3BW69zBRaFtw5iu0ItcVuE=; b=vqu1mDjdRSgOnQ
-	O3JjIml3SUmFxcV6zfs5I1wKdse07pHvuQDtPMvfajxbJThEs4+REpmhIr8ztSOqAFsdpWLqtpfrN
-	ANezo5WOi7fZLkEFEw49Kd6BURDTwK2H9G45jT8gUvm+9bd9AehenAVvwkWHSg/5nEBfnxZoI3iw7
-	PRE6u15mzVVxkQmSGHAIG5Uckqm/YcOc7a1QbysSirx9g1+lMSufub1NYjUkjeq9mX4l3vp9XSaGl
-	pAtR69cPfb//E0zOLwynFHFGuHNQ7ir5PLZHWeLmi51wbaZmbI61ugu7c6I+0stMkjaENXob3xF96
-	j+i5mAR1hTf/uycH0YbA==;
+	List-Owner; bh=OOV31rzt7eDFvYzgftHFiyZy0g9ZmBsEcnC2+fILLOE=; b=ddQ+aer+83Y9QD
+	EGqBaCCiSqGWWdyOf2BSryqGA2GlDkhzaLQ4/FUIgnbUhbBRp1VPoh/gGm7LhL1iiAqV3cUQl35+I
+	i3Q4VE15a76gxx1umDTd7SjHuAv2G09Uigp5Vu4NjcRJ5QQOfPEzlvja28bywuUnA2Y/hfvU+E+3F
+	y/kCl735/CCb8QeaGk3P7DoUGvNBM2vUctzHtgN/mGO3iNQE5tOEplNQKE7w4jm+Y+Ve+2vVJ6Ajg
+	pkQSZdJjFV2G/eQXdshb000se+5VbX7hROETBG2cyCHA3oJ49H48mEt4z93+GFMGSZ3bOobwBBwBc
+	6nZmN/LeEd4QJnvp9m/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQ71n-009Ule-OO; Mon, 22 Aug 2022 12:59:39 +0000
+	id 1oQ71p-009UoT-RN; Mon, 22 Aug 2022 12:59:41 +0000
 Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQ71h-009UaP-04
-	for linux-riscv@lists.infradead.org; Mon, 22 Aug 2022 12:59:34 +0000
+	id 1oQ71j-009Udk-3V
+	for linux-riscv@lists.infradead.org; Mon, 22 Aug 2022 12:59:37 +0000
 Received: from localhost.localdomain (unknown [124.16.141.248])
-	by APP-01 (Coremail) with SMTP id qwCowAB3vJyofQNjZxe3Cw--.3936S3;
-	Mon, 22 Aug 2022 20:59:30 +0800 (CST)
+	by APP-01 (Coremail) with SMTP id qwCowAB3vJyofQNjZxe3Cw--.3936S4;
+	Mon, 22 Aug 2022 20:59:32 +0800 (CST)
 From: panqinglin2020@iscas.ac.cn
 To: palmer@dabbelt.com,
 	linux-riscv@lists.infradead.org
 Cc: jeff@riscv.org,
 	xuyinan@ict.ac.cn,
 	Qinglin Pan <panqinglin2020@iscas.ac.cn>
-Subject: [PATCH v3 1/4] mm: modify pte format for Svnapot
-Date: Mon, 22 Aug 2022 20:59:01 +0800
-Message-Id: <20220822125904.3972860-2-panqinglin2020@iscas.ac.cn>
+Subject: [PATCH v3 2/4] mm: support Svnapot in physical page linear-mapping
+Date: Mon, 22 Aug 2022 20:59:02 +0800
+Message-Id: <20220822125904.3972860-3-panqinglin2020@iscas.ac.cn>
 X-Mailer: git-send-email 2.35.1
 In-Reply-To: <20220822125904.3972860-1-panqinglin2020@iscas.ac.cn>
 References: <20220822125904.3972860-1-panqinglin2020@iscas.ac.cn>
 MIME-Version: 1.0
-X-CM-TRANSID: qwCowAB3vJyofQNjZxe3Cw--.3936S3
-X-Coremail-Antispam: 1UD129KBjvJXoW3GF47Cr4xZF4DZFy3uw1UGFg_yoWxZr1xpr
-	4kCr9a9FZ8Gw1xC3yIvrnxWr45Ja1DWa9xKw1v9rW8J3y5Jry8Jryqya43Jw1UXFWvqa4I
-	ka95WF1ruwsxJ3JanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUPS14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jr4l82xGYIkIc2
-	x26xkF7I0E14v26r1Y6r1xM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
+X-CM-TRANSID: qwCowAB3vJyofQNjZxe3Cw--.3936S4
+X-Coremail-Antispam: 1UD129KBjvJXoWxWFy8KFyDZFWxtr18Cr45KFg_yoWruw1xpr
+	WxCr4kCF45Gr1DWFWvy34UZr15Aas7ua4ay3yUCas8Ar47Gr109wsYka4Y9r1UXF4vqayf
+	Aw4kZ3y5u3WUt3DanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPq14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2048vs2IY020E87I2jVAFwI0_Jryl82xGYIkIc2
+	x26xkF7I0E14v26r1I6r4UM28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8wA2z4x0
 	Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1l84
 	ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s0DM2vY
 	z4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c
@@ -56,14 +56,14 @@ X-Coremail-Antispam: 1UD129KBjvJXoW3GF47Cr4xZF4DZFy3uw1UGFg_yoWxZr1xpr
 	kE6xkIj40Ew7xC0wCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s02
 	6c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF
 	0_Jw1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvE
-	c7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1I6r4UMIIF0xvEx4A2jsIE14
-	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7V
-	UbaZX7UUUUU==
+	c7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14
+	v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x
+	0JUTHqxUUUUU=
 X-Originating-IP: [124.16.141.248]
-X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiCQwGDGKY1tvg0gAAsK
+X-CM-SenderInfo: 5sdq1xpqjox0asqsiq5lvft2wodfhubq/1tbiCQsGDGKY1tvg1QAAsK
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220822_055933_441538_138D6621 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20220822_055935_574155_D100F8C3 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,214 +82,158 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-This commit adds two erratas to enable/disable svnapot support, patches code
-dynamicly when "svnapot" is in the "riscv,isa" field of fdt and SVNAPOT compile
-option is set. It will influence the behavior of has_svnapot function and
-pte_pfn function. All code dependent on svnapot should make sure that has_svnapot
-return true firstly.
+Svnapot is powerful when a physical region is going to mapped to a
+virtual region. Kernel will do like this when mapping all allocable
+physical pages to kernel vm space. This commit modifies the
+create_pte_mapping function used in linear-mapping procedure, so the
+kernel can be able to use Svnapot when both address and length of
+physical region are 64KB align. Code here will be executed only when
+other size huge page is not suitable, so it can be an addition of
+PMD_SIZE and PUD_SIZE mapping.
 
-Also, this commit modifies PTE definition for Svnapot, and creates some functions in
-pgtable.h to mark a PTE as napot and check if it is a Svnapot PTE.
-Until now, only 64KB napot size is supported in draft spec, so some macros
-has only 64KB version.
+This commit also modifies the best_map_size function to give map_size
+many times instead of only once, so a memory region can be mapped by
+both PMD_SIZE and 64KB napot size.
+
+Since pging_init is called before riscv_fill_hwcap, this commit does
+linear mapping again after dynamic detection if has_svnapot.
+
+It is tested by setting qemu's memory to a 262272k region, and the
+kernel can boot successfully.
 
 Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index ed66c31e4655..c43708ae7f38 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -432,6 +432,13 @@ config FPU
+diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+index cedcf8ea3c76..395fdc922e9e 100644
+--- a/arch/riscv/include/asm/mmu.h
++++ b/arch/riscv/include/asm/mmu.h
+@@ -25,6 +25,7 @@ typedef struct {
  
- 	  If you don't know what to do here, say Y.
- 
-+config SVNAPOT
-+	bool "Svnapot support"
-+	default n
-+	help
-+	  Select if your CPU supports Svnapot and you want to enable it when
-+	  kernel is booting.
-+
- endmenu # "Platform type"
- 
- menu "Kernel features"
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 19a771085781..f22723174cd9 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -22,7 +22,8 @@
- 
- #define	CPUFEATURE_SVPBMT 0
- #define	CPUFEATURE_ZICBOM 1
--#define	CPUFEATURE_NUMBER 2
-+#define	CPUFEATURE_SVNAPOT 2
-+#define	CPUFEATURE_NUMBER 3
- 
- #ifdef __ASSEMBLY__
- 
-@@ -142,6 +143,27 @@ asm volatile(ALTERNATIVE_2(						\
- 	    "r"((unsigned long)(_start) + (_size))			\
- 	: "a0")
- 
-+#define ALT_SVNAPOT(_val)						\
-+asm(ALTERNATIVE("li %0, 0", "li %0, 1", 0,				\
-+		CPUFEATURE_SVNAPOT, CONFIG_SVNAPOT)			\
-+		: "=r"(_val) :)
-+
-+#define ALT_SVNAPOT_PTE_PFN(_val, _napot_shift, _pfn_mask, _pfn_shift)	\
-+asm(ALTERNATIVE("and %0, %1, %2\n\t"					\
-+		"srli %0, %0, %3\n\t"					\
-+		"nop\n\tnop\n\tnop",					\
-+		"srli t3, %1, %4\n\t"					\
-+		"and %0, %1, %2\n\t"					\
-+		"srli %0, %0, %3\n\t"					\
-+		"sub  t4, %0, t3\n\t"					\
-+		"and  %0, %0, t4",					\
-+		0, CPUFEATURE_SVNAPOT, CONFIG_SVNAPOT)			\
-+		: "+r"(_val)						\
-+		: "r"(_val),						\
-+		  "r"(_pfn_mask),					\
-+		  "i"(_pfn_shift),					\
-+		  "i"(_napot_shift))
-+
+ void __init create_pgd_mapping(pgd_t *pgdp, uintptr_t va, phys_addr_t pa,
+ 			       phys_addr_t sz, pgprot_t prot);
++void __init create_linear_mapping(void);
  #endif /* __ASSEMBLY__ */
  
+ #endif /* _ASM_RISCV_MMU_H */
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 95ef6e2bf45c..37e6f7044ef1 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -292,13 +292,16 @@ void __init setup_arch(char **cmdline_p)
+ 	kasan_init();
  #endif
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index 6f59ec64175e..e4c7ce5a7e1a 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -58,6 +58,7 @@ enum riscv_isa_ext_id {
- 	RISCV_ISA_EXT_ZICBOM,
- 	RISCV_ISA_EXT_ZIHINTPAUSE,
- 	RISCV_ISA_EXT_SSTC,
-+	RISCV_ISA_EXT_SVNAPOT,
- 	RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
- };
  
-diff --git a/arch/riscv/include/asm/pgtable-64.h b/arch/riscv/include/asm/pgtable-64.h
-index dc42375c2357..a23b71cf5979 100644
---- a/arch/riscv/include/asm/pgtable-64.h
-+++ b/arch/riscv/include/asm/pgtable-64.h
-@@ -74,6 +74,20 @@ typedef struct {
-  */
- #define _PAGE_PFN_MASK  GENMASK(53, 10)
- 
-+/*
-+ * [63] Svnapot definitions:
-+ * 0 Svnapot disabled
-+ * 1 Svnapot enabled
-+ */
-+#define _PAGE_NAPOT_SHIFT 63
-+#define _PAGE_NAPOT      (1UL << _PAGE_NAPOT_SHIFT)
-+#define NAPOT_CONT64KB_ORDER 4UL
-+#define NAPOT_CONT64KB_SHIFT (NAPOT_CONT64KB_ORDER + PAGE_SHIFT)
-+#define NAPOT_CONT64KB_SIZE (1UL << NAPOT_CONT64KB_SHIFT)
-+#define NAPOT_CONT64KB_MASK (NAPOT_CONT64KB_SIZE - 1)
-+#define NAPOT_64KB_PTE_NUM (1UL << NAPOT_CONT64KB_ORDER)
-+#define NAPOT_64KB_MASK (7UL << _PAGE_PFN_SHIFT)
+-#ifdef CONFIG_SMP
+-	setup_smp();
+-#endif
+-
+ 	riscv_fill_hwcap();
+ 	riscv_init_cbom_blocksize();
+ 	apply_boot_alternatives();
 +
- /*
-  * [62:61] Svpbmt Memory Type definitions:
-  *
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 7ec936910a96..8be197edaac8 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -264,10 +264,38 @@ static inline pte_t pud_pte(pud_t pud)
- 	return __pte(pud_val(pud));
++	if (has_svnapot())
++		create_linear_mapping();
++
++#ifdef CONFIG_SMP
++	setup_smp();
++#endif
  }
  
-+static inline bool has_svnapot(void) {
-+	u64 _val;
-+	ALT_SVNAPOT(_val);
-+	return _val;
-+}
-+
-+#ifdef CONFIG_SVNAPOT
-+
-+static inline unsigned long pte_napot(pte_t pte)
-+{
-+	return pte_val(pte) & _PAGE_NAPOT;
-+}
-+
-+static inline pte_t pte_mknapot(pte_t pte, unsigned int order)
-+{
-+	unsigned long napot_bits = (1UL << (order - 1)) << _PAGE_PFN_SHIFT;
-+	unsigned long lower_prot =
-+		pte_val(pte) & ((1UL << _PAGE_PFN_SHIFT) - 1UL);
-+	unsigned long upper_prot = (pte_val(pte) >> _PAGE_PFN_SHIFT)
-+				   << _PAGE_PFN_SHIFT;
-+
-+	return __pte(upper_prot | napot_bits | lower_prot | _PAGE_NAPOT);
-+}
-+#endif /* CONFIG_SVNAPOT */
-+
- /* Yields the page frame number (PFN) of a page table entry */
- static inline unsigned long pte_pfn(pte_t pte)
+ static int __init topology_init(void)
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index b56a0a75533f..db215fcf4744 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -374,8 +374,20 @@ static void __init create_pte_mapping(pte_t *ptep,
  {
--	return __page_val_to_pfn(pte_val(pte));
-+	unsigned long _val  = pte_val(pte);
-+	ALT_SVNAPOT_PTE_PFN(_val, _PAGE_NAPOT_SHIFT,
-+			_PAGE_PFN_MASK, _PAGE_PFN_SHIFT);
-+	return _val;
- }
+ 	uintptr_t pte_idx = pte_index(va);
  
- #define pte_page(x)     pfn_to_page(pte_pfn(x))
-diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
-index 0be8a2403212..d2a61122c595 100644
---- a/arch/riscv/kernel/cpu.c
-+++ b/arch/riscv/kernel/cpu.c
-@@ -96,6 +96,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
- 	__RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
- 	__RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
- 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
-+	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
- 	__RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
- };
- 
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 553d755483ed..3f20a5521acb 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -204,6 +204,7 @@ void __init riscv_fill_hwcap(void)
- 				SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
- 				SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
- 				SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
-+				SET_ISA_EXT_MAP("svnapot", RISCV_ISA_EXT_SVNAPOT);
- 			}
- #undef SET_ISA_EXT_MAP
- 		}
-@@ -283,6 +284,19 @@ static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
- 
- 	return false;
- }
-+static bool __init_or_module cpufeature_probe_svnapot(unsigned int stage)
-+{
+-	BUG_ON(sz != PAGE_SIZE);
 +#ifdef CONFIG_SVNAPOT
-+	switch (stage) {
-+	case RISCV_ALTERNATIVES_EARLY_BOOT:
-+		return false;
-+	default:
-+		return riscv_isa_extension_available(NULL, SVNAPOT);
++	pte_t pte;
++	if (has_svnapot() && sz == NAPOT_CONT64KB_SIZE) {
++		do {
++			pte = pfn_pte(PFN_DOWN(pa), prot);
++			ptep[pte_idx] = pte_mknapot(pte, NAPOT_CONT64KB_ORDER);
++			pte_idx++;
++			sz -= PAGE_SIZE;
++		} while (sz > 0);
++		return;
 +	}
 +#endif
-+
-+	return false;
-+}
  
- /*
-  * Probe presence of individual extensions.
-@@ -301,6 +315,9 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
- 	if (cpufeature_probe_zicbom(stage))
- 		cpu_req_feature |= (1U << CPUFEATURE_ZICBOM);
- 
-+	if (cpufeature_probe_svnapot(stage))
-+		cpu_req_feature |= (1U << CPUFEATURE_SVNAPOT);
++	BUG_ON(sz != PAGE_SIZE);
+ 	if (pte_none(ptep[pte_idx]))
+ 		ptep[pte_idx] = pfn_pte(PFN_DOWN(pa), prot);
+ }
+@@ -673,10 +685,18 @@ void __init create_pgd_mapping(pgd_t *pgdp,
+ static uintptr_t __init best_map_size(phys_addr_t base, phys_addr_t size)
+ {
+ 	/* Upgrade to PMD_SIZE mappings whenever possible */
+-	if ((base & (PMD_SIZE - 1)) || (size & (PMD_SIZE - 1)))
++	base &= PMD_SIZE - 1;
++	if (!base && size >= PMD_SIZE)
++		return PMD_SIZE;
 +
- 	return cpu_req_feature;
++	if (!has_svnapot())
+ 		return PAGE_SIZE;
+ 
+-	return PMD_SIZE;
++	base &= NAPOT_CONT64KB_SIZE - 1;
++	if (!base && size >= NAPOT_CONT64KB_SIZE)
++		return NAPOT_CONT64KB_SIZE;
++
++	return PAGE_SIZE;
  }
  
+ #ifdef CONFIG_XIP_KERNEL
+@@ -1090,18 +1110,12 @@ asmlinkage void __init setup_vm(uintptr_t dtb_pa)
+ 	pt_ops_set_fixmap();
+ }
+ 
+-static void __init setup_vm_final(void)
++void __init create_linear_mapping(void)
+ {
+ 	uintptr_t va, map_size;
+ 	phys_addr_t pa, start, end;
+ 	u64 i;
+ 
+-	/* Setup swapper PGD for fixmap */
+-	create_pgd_mapping(swapper_pg_dir, FIXADDR_START,
+-			   __pa_symbol(fixmap_pgd_next),
+-			   PGDIR_SIZE, PAGE_TABLE);
+-
+-	/* Map all memory banks in the linear mapping */
+ 	for_each_mem_range(i, &start, &end) {
+ 		if (start >= end)
+ 			break;
+@@ -1111,14 +1125,25 @@ static void __init setup_vm_final(void)
+ 		if (end >= __pa(PAGE_OFFSET) + memory_limit)
+ 			end = __pa(PAGE_OFFSET) + memory_limit;
+ 
+-		map_size = best_map_size(start, end - start);
+ 		for (pa = start; pa < end; pa += map_size) {
+ 			va = (uintptr_t)__va(pa);
++			map_size = best_map_size(pa, end - pa);
+ 
+ 			create_pgd_mapping(swapper_pg_dir, va, pa, map_size,
+ 					   pgprot_from_va(va));
+ 		}
+ 	}
++}
++
++static void __init setup_vm_final(void)
++{
++	/* Setup swapper PGD for fixmap */
++	create_pgd_mapping(swapper_pg_dir, FIXADDR_START,
++			   __pa_symbol(fixmap_pgd_next),
++			   PGDIR_SIZE, PAGE_TABLE);
++
++	/* Map all memory banks in the linear mapping */
++	create_linear_mapping();
+ 
+ 	/* Map the kernel */
+ 	if (IS_ENABLED(CONFIG_64BIT))
 -- 
 2.35.1
 
