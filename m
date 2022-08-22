@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E86C28D13
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Aug 2022 21:13:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71F05C28D13
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Aug 2022 21:22:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Kg6eM25+me95Wob+tfHwjnRsPwvNRakBuTnL05E0TKg=; b=RfOG8z0dCR//SJ
-	O5rB2NO+kbAOitjRh1+L2fCxi8W6fyo1vQAA6WA6Qs2OZkDSOgK+wG0NY8CnG15uAfgjaTF55TmxK
-	VjiJje9yntvTE2CoudlJV7uMYDZRHvf0W4Pvs/A67m91/mA2xqQIMhhRX8wKoS8+1rGaW8K2Uluu1
-	wEg69hXbvdmZ59eLftZ6BbH08sxu136HzleiAQFGwsCNdOx8Efq3hdGc0HkgJA3X28sEJnTK3YlEM
-	dhAfH+haAyq0j7Tg9XzhJdyDjwhJ1VkghT+ulg/VtRaLd6O+K1cR5iMyikMErinpA0KU3pHIr89qi
-	SOSm81m18GXKEboEPTyQ==;
+	List-Owner; bh=P8W/DfrYIzhVJ4kc8qHpzk/7MT3YYKV46IhkdAbC7vU=; b=cm+59ODInr0WmT
+	KGpPw712RFWSFOcvcdq02c1sV5GeXEralPLx67HlXExOnvZUnTnAKhxQsFXJ1G2qCoMf0I9ShtXhO
+	mdZukJ24ciPmUd/A531PiqtXtXUBHfX8VGYy/XPKF25NTeaahsPv0/p4nhgFXmW8FxmdlSLdpl6Ja
+	yToCp+4llc+6qtuI2Nx48QVGsGXXWVYWEcyLSj3LeldkwxApchgwE4mkQvSLFKLTlf33HmnAn+w16
+	u2VB/J6tbZTjkPfamnFawTNsjZGLE8Vql+GW+1DqeOkXtHb+cVnuPukgLar2vZ4Boh6Ickr50/2hi
+	K/eFfuyxiKPmNnkfV/CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQEjb-00EthN-JH; Mon, 22 Aug 2022 21:13:23 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oQEsS-00ExOp-Qv; Mon, 22 Aug 2022 21:22:32 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQEjY-00EtfP-Mu
-	for linux-riscv@lists.infradead.org; Mon, 22 Aug 2022 21:13:22 +0000
+	id 1oQEsO-00ExLl-Eg
+	for linux-riscv@lists.infradead.org; Mon, 22 Aug 2022 21:22:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661202800; x=1692738800;
+  t=1661203348; x=1692739348;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-id:content-transfer-encoding:
    mime-version;
-  bh=BRu0ZVYP6W/sZo30OEWbiFHEli0Gth4xwlIfiVAHAo4=;
-  b=otOtK21Gjz6UkxRSCWyiU5uXswd1quk5vqKZpnyP/KWuX7BXY+sR9uKc
-   2V1udcqBp8kowPZKlj3ptV89b1KMOGVWRdVlw5iRWjNkdz/DDZdk1kVKB
-   WYcS2jCg375did9iKzfIAv4OLXe46eADDoSJGVnMkBNF2jWJyplj6YkP5
-   B0EPHoJX/UVi0YWCVHr0GbQMCMmW+UtfQD8jWU7ve7upMiqdG4DIzYyL2
-   n7qHhrDPhDly12AdrODATT5Hqq+MI+kqp75pNwjDHjzwwknSdWnryrSKP
-   nwHuaymcFhsgaTJhFHh+aIw7mg6+Ip7co2Va1UEdSpc1/MD9XTUEIXOo2
-   w==;
+  bh=W8Is5HDEOnKPibowGQS731xLCNRiMhbm6S0atR/C1tU=;
+  b=oV3pvwChfM3fp8sS7N7fhYSEaSYO5PhKoIAZLKMWeDZe4ZYNAFOqT2DZ
+   26U6ZQuC/mDTvVRKpwJ5DSCzH5iqZlngvV5FHmGRUEVmYGPETySiplr5Z
+   oGlbLBSARWmIw2ZAMMMlW53C3yOtLTFCQDmgZ1olz+xCK5eqLO/fd6vg5
+   rGXmGQ6QPg9JXQnRKRpQcah/P1b7toUFuW2yiCqluilB0miCBhkAt6HYv
+   Qa3lUrOaurePtz4J568jVEJ16KBOMZWQbe6EenUkiFucLDqyHRyIIJ3eC
+   nGSlisipk5w4c99j7ec2dK/TYmZu1vhi6WIi2Z7mMXzN4Niv+U20fADLL
+   Q==;
 X-IronPort-AV: E=Sophos;i="5.93,255,1654585200"; 
-   d="scan'208";a="177437837"
+   d="scan'208";a="173604837"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Aug 2022 14:13:19 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Aug 2022 14:22:27 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 22 Aug 2022 14:13:17 -0700
+ 15.1.2507.12; Mon, 22 Aug 2022 14:22:26 -0700
 Received: from NAM10-MW2-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.71) with Microsoft SMTP Server (version=TLS1_2,
+ email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Mon, 22 Aug 2022 14:13:16 -0700
+ Transport; Mon, 22 Aug 2022 14:22:26 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=BFx++J2I4DYap4HpVz/K2DfD7tMbgqK3qFk619v8zJLBAtiKE+XyPDuipJn4ERO+sUdjLAibSJKDrvr5+irNkeZNwDoTRIJvwQUAryhbZ+sTijVxX4Da6rSdaAcjbaCaN06tK2TuVZ/bJJhU2XTRByl7+mow4ypa+IHlpM9AUMjAy2GlxhxExUonvHlMUZYia4sLD58/BK+A7zRdEGJH29IS2bikoGwqqrDLjQkHaxNZMNdU4XJQTw02lXzx8cSAzfi9Tjv7EXjtLk7YFztnVnL+JQLvzHlSF2aJIWEAGBMKaUfeNByezXE3J5gzk8Y2UyqEQz1y4ovzRvlj0wvzxQ==
+ b=iavBKQHEEMVOOfbF0B0vAWN+luQS6NKuZ/mUcwgicOnUy6TMduv3KCK1eMFequHue389mlBjj0FPwCIbJCP3kDskQfDhCJLoEDyRvL2dwfac9UxX4yYRuUHNpPHIQnMd+SELFL0TqWKPOZ71Zr91/dwkeKKLqd2PLnArGVyBetGTXIaa8epRu5QbGPsFmE0kJvUPukAnrE76S3ukMU3CNVnGAhpwC/WI+lPEw1JtYgYRnfj5+YoePhb3YtPbdozDm4f70U1j5lNUGDWJ1yygEnvQdk8zstMIDnuulXth6RifHrSNJim9xnoDG9Ty/wQvrFrwC7+pEz7PDki4FYZ+rQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BRu0ZVYP6W/sZo30OEWbiFHEli0Gth4xwlIfiVAHAo4=;
- b=I8z3KsO5tiLK7HwlFrfsF/BpmM+5kD3UCkeDX6VHR/DmL5KhrH1nS/gEK7fq2VqP7qyqyL1IRxNj4gH5O0gHg2cnpyRTvH+F+pJU+hot9HuuqtL2YQudbQWy5LF4biUwmqJckgwpz2gEBbg/+1y3/LZbsdMDE0HmWTGqTOTlptKsfEvE8TnGDtKVuFXhpd19HppGGJBrHBZBo/jjNUYSba/G4nEI2Cb03lTg4UZoDuDYc5X8mnnJ8HpVV/+x2IBwu1uILpZZu6F7O0CTGVJmugXI4ZgnzN3R6sB9QhDCLv3S5ZtvWQorS/Ltx2kjkQJlSOTtE1jaB/OjBKTJ1XF9Rw==
+ bh=W8Is5HDEOnKPibowGQS731xLCNRiMhbm6S0atR/C1tU=;
+ b=O3h1Z5SZz8lVfbYZOoV2eXVmUcosaRRPBrpG+RV4CETGHK029X03nr05WHUCPgr7bB4gGzxSCNGYEuiqL/r5c7iesa9Gh6ZdfojGASd5vKYg0km3L9WjAJEtEKVdevuOaBKATRuHf8abKgUqsDoL3ogJsEVV1WEtUCZWMctDWgJ+dtT/kBXY5hdK6pTZXep8vgrpdUd1Jwqg5LKjGWOa9pzs6St6ytz56wLzKLAIBed2JvQrhKhwXTKc7sHXgcTcgD795aC5UB8EC6926pxea6uevH5a2Cww6sA7ciKMKW4WX/fzObfA8eZtCJQbR0N3aflrmXXSVeA1/VOizUk+nw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -65,29 +65,28 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BRu0ZVYP6W/sZo30OEWbiFHEli0Gth4xwlIfiVAHAo4=;
- b=BalhhVDl2Umbhf3pGpOZmk+kFYuJDz2S0b3n54HZ4Wweyah2WpCR9kG9DRGiUXUn30Zj/E2xvD9nBTR2kSNU4xQ3b6uua9qfE0UwOdTuq2ccpMG5/cGlJM7DNfS2vf5ZJ1gJrwqC7JACTRRHfT0ar8R/dE+xTD2lK86Y34+u6MI=
+ bh=W8Is5HDEOnKPibowGQS731xLCNRiMhbm6S0atR/C1tU=;
+ b=e22ZYfUPY3xaOzh+YxaKTCJknQl6TxYWLrmKR6yflVmj37CcGdIxdfl+ofie1g09G45ZRlqttFVc1rUOePSlwxoqLOcP3dyUCZsEbQwAcBzEAv3vUIMJ8/V4zmw5mk6hlRatL5xSTStSYlmt6VJc+Iw2ZM8SXekWD4iKGK5D7gI=
 Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by MN2PR11MB3725.namprd11.prod.outlook.com (2603:10b6:208:f9::23) with
+ by CH0PR11MB5284.namprd11.prod.outlook.com (2603:10b6:610:bf::8) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5546.16; Mon, 22 Aug
- 2022 21:13:15 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5546.18; Mon, 22 Aug
+ 2022 21:22:21 +0000
 Received: from CO1PR11MB5154.namprd11.prod.outlook.com
  ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
  ([fe80::ac89:75cd:26e0:51c3%9]) with mapi id 15.20.5546.022; Mon, 22 Aug 2022
- 21:13:14 +0000
+ 21:22:20 +0000
 From: <Conor.Dooley@microchip.com>
 To: <panqinglin2020@iscas.ac.cn>, <palmer@dabbelt.com>,
 	<linux-riscv@lists.infradead.org>
 CC: <jeff@riscv.org>, <xuyinan@ict.ac.cn>
-Subject: Re: [PATCH v4 4/4] mm: support Svnapot in huge vmap
-Thread-Topic: [PATCH v4 4/4] mm: support Svnapot in huge vmap
-Thread-Index: AQHYtjzLSfHXDBmj6E+pYk/VRkccH627a4EA
-Date: Mon, 22 Aug 2022 21:13:14 +0000
-Message-ID: <0a6dfb2c-d4a4-7b56-6f61-339afaf1eec9@microchip.com>
+Subject: Re: [PATCH v4 0/4] riscv, mm: detect svnapot cpu support at runtime
+Thread-Topic: [PATCH v4 0/4] riscv, mm: detect svnapot cpu support at runtime
+Thread-Index: AQHYtjy7kpMXEtpP1EuwQt86HG0KbK27bgwA
+Date: Mon, 22 Aug 2022 21:22:20 +0000
+Message-ID: <58a097b2-ffbc-508a-d98e-9bb567da0f90@microchip.com>
 References: <20220822153413.4038052-1-panqinglin2020@iscas.ac.cn>
- <20220822153413.4038052-5-panqinglin2020@iscas.ac.cn>
-In-Reply-To: <20220822153413.4038052-5-panqinglin2020@iscas.ac.cn>
+In-Reply-To: <20220822153413.4038052-1-panqinglin2020@iscas.ac.cn>
 Accept-Language: en-IE, en-US
 Content-Language: en-IE
 X-MS-Has-Attach: 
@@ -97,66 +96,66 @@ user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=microchip.com;
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 3d4ea094-f2d8-44c9-4e86-08da8483209f
-x-ms-traffictypediagnostic: MN2PR11MB3725:EE_
+x-ms-office365-filtering-correlation-id: a8d6f801-fe02-4675-bc57-08da848465e8
+x-ms-traffictypediagnostic: CH0PR11MB5284:EE_
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: QH78HVeNPKSwPBoorX4T4OijxrgejV0kxw8czik9UjTf0b2lFTuh3cL5r6S+zbkswhSASOEIprxigzQebCXrEZ0r6mXOGyfMuqAKSd5S1CaJ8RSZMywuscBOZMubLhBT+BCbnY3QD9JqR0IxZmOM1xAaAYX/nlHjg1rgecbB85SsBVSrjPJPQoWMRiT1RO9Cx9qFrpqMlw0xQG1AYb84pCBvZcrpwV12dZvudJ9Qu8KKn4yhEBUKKmiL4LuO9/wk+4M2vCCF/29znKQl71+kMgoEpFbLkTWBM2Ekzic+iBWRZpzVw4bfgaelBK3H3/8ADIcysqADNiVAbRVFnh8vyAWnuheTebQaZq6sfxByiU9RHi+sfpscztl4K0wYv9eoqztqEgK32FIEaGmoT+Cujz1XX6tbVWsF9OBihyF+s/WdGfyzCUgriMYW8wOmACD1sEQ10dxbDnp8edtZW7PzCfyvrTznAw97B+KPfjkob+oqmOUDqC5FRfXkW0iSmS8WXg/zIww6C0iDp7UObAI9s0MiO9kw0cs2B5GLyYok3P1q1U+8S5osvhFRsZaqcnP2fuT29b79FnovdC7wYyPGTcht4wI70in/IGWMMBbYKJB/lZiUG9O+cWgQXiklH7XFGn2Rr10VM7Mn1G8m0eJu+mY/k2JyswGLXj5MuOvR5zgrn/pchkIFSuUT/UfSjpX0eXJtjztYlL/YLxCkCxSsPtRWv3ZYjZ6Nwdn/+6zHFbqOHhXs1gdcvbgKUZ8AkyWlPHKzMfJzq2iw3pE5hq44V7Omc6HWe6uwZgeXcEloewhu/3K0Sq4QACbseRyJ4r5df16O/EjgF1xedlpAR7YaSKlTpuhPLe4corIhDWP9liG8qpGU3BBWynA/gFRkmDsV
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(376002)(396003)(366004)(39860400002)(346002)(136003)(31686004)(64756008)(66946007)(4326008)(66556008)(66476007)(66446008)(8676002)(76116006)(86362001)(122000001)(31696002)(110136005)(54906003)(91956017)(38070700005)(36756003)(38100700002)(2616005)(26005)(6512007)(53546011)(8936002)(186003)(41300700001)(6486002)(478600001)(966005)(71200400001)(6506007)(316002)(83380400001)(2906002)(5660300002)(14583001)(45980500001)(43740500002);DIR:OUT;SFP:1101;
+x-microsoft-antispam-message-info: 1jhYY/inGORAeaWLrl3gV0uNbv3v+wvREZjjXP5NHU1kZasbx+FWpis0tvUVKJrMOJjJz1mIrTUTJln/UxRuoXO3j+q+Ub4csPxzNlyp4akCv+YOEh0KdUvZf5NXpJAMQudlJr97UyQ08js3kc6MPK6oo4JgZa8ePAzZQChkcFIvWSXSYWP2MZAMwIIQZJpI3KGtdwe/pBL1dhz6pyO+uG8Y3fU/wMfBn6rEqfyNpQkmF6vIJXT0HZbvAsuV7kexjxbJPyu4m32mJKi8cEqwJ1Q0J5KKaCZMX1gQLSF3hddAke47Mk8MP1Xo7gRqPsdePwM35NV/UYFLxPgRkQe2ADvny1YFq4ws2dutoz5W/BIYKVH/RFHPbpKhK4veiST1TSSzUMHyQRNYpE124Iv1ILbJcntWKe5/TNeKrZ57IRmfH9larh8o3YqOGMChzdwbdKU4x9xpXbXOEodHRIahHC00wy3LMEn03GaJVPSnhYagJHmkhoKgitkWRlym4eulah9gBV3TO6bvBAroKqpeIQf5Ou6hSsC/FEFt+N7Pv+0awBNPTXfDiu/mqfB5QSNs0IW9Us4h+QcNK+2wU1HDkG+Cec3bRFny39bVCn88GiWpakw1MkMmx/CBcV4QDddy2lXI3crAiTTQNQj+FhJCvA25LcYH7/6UDRR3IiFTR0QjoGjBd4bslFvMgPsFrBVG4/ymgltCt2rRL+lnQwKVS2sEBK3edX4RKoxMS0aF//EDB+qqOd4LoQ/72kR8w71TQ+mAJUGEjrSFFLVYWSMLaAETCMJjWltCl3M/phl6SO2ECiySBpcyC4XdCz7qPvquAHASHx4C3foRbsG/U4sgAcu/pU/Yy9SQ8QchIUhoV10=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(396003)(346002)(366004)(136003)(376002)(39860400002)(122000001)(5660300002)(66446008)(64756008)(66556008)(66946007)(66476007)(38070700005)(8676002)(4326008)(76116006)(91956017)(478600001)(6512007)(316002)(6506007)(6486002)(38100700002)(41300700001)(26005)(966005)(71200400001)(31686004)(8936002)(54906003)(83380400001)(53546011)(2616005)(186003)(110136005)(31696002)(2906002)(36756003)(86362001)(43740500002)(45980500001);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UTdqYnVacUpZUU5NSjNBZUVEQThBRUxFcUQyU2pROGR5ZkpwcVNGcFZDZHhw?=
- =?utf-8?B?ZGU0RWF2Nml2Z04vMnh3YytJSVlpMENueGZOVE5telRGd0dLVXUwUmRyWVZK?=
- =?utf-8?B?cVVQTnN5dlZId2tRRUlXQzhUU0tGNUxScGdjNFhjOGhjNEI3SURKbWNYY3FE?=
- =?utf-8?B?ZzFrdWU5bm0xVjU2L0NMTW9LUDQ2cGtXUXBXZFQrNVl0b0VBR3VxRnpJRnB1?=
- =?utf-8?B?VkNwQlFBMDVZVmJsdExGd3N2NHhoTFdiZGhZUUVoNkJyZmN1MmtydEJxOElj?=
- =?utf-8?B?dGQ3YUp0bnpJNnVBK01hSWJoUkx6M09HTHo5cG9LUXpUSy84YUZFcXV0Y2VL?=
- =?utf-8?B?RjhqTjRLbTlIejVwUHlmbHVEY2lkT09TQTdJQkcyR3FJUjAyOWZrMG5lQVJn?=
- =?utf-8?B?a0dkVTlCYWRlQnZINWVxU2hiK3RXYUdPWWY5U3ArTXRoa1cxZ21SVzcwZS84?=
- =?utf-8?B?aHB4bW5CbDdJOGVkMFZLaEFRdGdnd0VmZm5pQVp3dk9neER1TDhvRG8xYlZ1?=
- =?utf-8?B?Z1U4eVlXNFYrWFliS0VCS1hXMjJXYlI4TnpPWXVHK0ZxMGFad3lwcXVCNWFZ?=
- =?utf-8?B?bElHb1Vqd1J0OHFyTGhEUjVlMTNrU2xGWDNwOVJzcjF0MXFLM3R2aUZ3bktS?=
- =?utf-8?B?RFpHbzNSVGo4NkVqN3pPa2lUSzlzMjRyc20wQWZ5V091YmtTL241ejNJb3Qr?=
- =?utf-8?B?bWo5UUVubmN2UXkxUmxwSWhVKzkvVUovSFo4NEJ6NWl0TDc0TjR0S2lrdUhV?=
- =?utf-8?B?bHBjanVnYnVEMEhoa0JzeGY5c1VZNjMyTkdVMTduL3BSeDhyTnJjOEErN0Fk?=
- =?utf-8?B?WGp6MUpNWDNaQnorbUkyelJRMUlFSXFvTTJyTU55amNPZDBuYXNFallOTVJG?=
- =?utf-8?B?N1dsUmFueXZYekpXNHJmMHNScWROWmFsSDlqZHp4SFdNbkdKbzI3OXQyUllC?=
- =?utf-8?B?SWU0Vk5CaHdqQXAwakdkL1NaTy9XdGhkRmx1c281SWtDenNBU3krSzdFZkVE?=
- =?utf-8?B?WGFSZndZN3g5b2ZBdXZsTVU0WURmUGVVcUJ2NVVqSWlnVVVqSWdiRXRZajNQ?=
- =?utf-8?B?THJLZ0JteFFlNkw5WUsvWVkwbmViaU41Vi9aZWpyclJTcURlK2VKV1h2aFU5?=
- =?utf-8?B?SStRSUdjSzdVb1BabVZETk15NGhzK2wzanErK3V2aWRqZ2tHVFBDSjVQK09q?=
- =?utf-8?B?K3hUU0JMRTVmWmxxNnA3amRZUTFXQUcwdTFKLzNtcmpURWRESjN5RVpWQlhi?=
- =?utf-8?B?TnZLOURtK3ZnTTNwZmJ3V3pUdFBhNkFxUzg3M2FYKzM0a2hwbG9ROFFuSEdG?=
- =?utf-8?B?UlpYV2JCd3g1OGpPSXpaSk5mYXhHQVlCenpUcEd2RER1cWxTUzdXOUM1OXdR?=
- =?utf-8?B?ZTBwUGx0WU5MaExPZzBDN1k5aG9aeHcySjFwUmFJRndSMkdTUEEydGF2bXpC?=
- =?utf-8?B?Y1hTamZIekx3dEJZVGxvV1FBVkVXYzFvU1NKMEZKTU05YUZKWVU2Z2U3N2w0?=
- =?utf-8?B?UnljYVVGdTdBRmh5SU0rTDZwWnNDcGh1ai9ZSVVjVnVBdnFnUVkxeG9ZYVg4?=
- =?utf-8?B?RVJiZkk2dlhkeHNwMGpwZ2tiaGN4S3VKenBhcm9XdlZqL3B0U0pMMU1pNHNj?=
- =?utf-8?B?cm9pYzI2am1pNXVmMXBuUk5PV2s5SkNwbExlamhzb2x0bUxEUmZvbTgxc09B?=
- =?utf-8?B?SHEyMDhuMG15ODVJcGNlTmVNWXIyc1lkV1RkZVZ4REhrVFZwd1hCOVdGT1pl?=
- =?utf-8?B?c0U3ZGhpMGNTOXRadUR4bjNOK1FPYlcxbU5KbEZTdHkzSEk4bzF0YjVySTI3?=
- =?utf-8?B?dVcxa1MvbDJJUTlBSTNrUEVvdFZKMm9NbzAxeXJFTlNoMzlqUDZEQTlLWUJ6?=
- =?utf-8?B?djNTKzBoT29ZVGVQVTQvcDZ5WnJOOVZqa3BnQUdCT3hhUGdRMnBBcCtDQ3VW?=
- =?utf-8?B?RUpZMXpUL0haeFUyY21lTFZzY3ptSWpPLzFTWmp0dFdoYndDV2V4cXJKTDFV?=
- =?utf-8?B?MWxCdG1PcWhzbWFGRGMxNGR4eDdEVDlmVVQrdXhMQmE4V1FkcisxRTB1MnNj?=
- =?utf-8?B?OTR2TElCellCbERPVkR0OE0zemx1ekEwaldzcHMvRTh3RURnbDhOZUNRV3BF?=
- =?utf-8?B?eEpJNkJNQ1ptWkowMFlncWVVTVhsYlg2MFNpaFZqRU91UDBSZ2pjUGc5QlBM?=
- =?utf-8?B?aUE9PQ==?=
-Content-ID: <BD2CC9DDDA98224A86FFE9E7BF18A622@namprd11.prod.outlook.com>
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZkZlSWtKRElGclJaT0RWQWlrak5kS3ZpazdqcUU2eDRNelBvclJSUnRSN21O?=
+ =?utf-8?B?NnNqc2x6WnV4REdkdFd6eTYyckF3VDZINzJ0NUlEUGRVdmJESzhZQ2hoTm8v?=
+ =?utf-8?B?b3plTWQ0TnFHTVdkendYMkxDcHlLbmR2bCt4SDBiNnhjemF0a2ZLUGhRaGQv?=
+ =?utf-8?B?MWFzZnBUMFB1TVc3bWZpNjBteHRhMDBwbHJlbkRPSmVybnU4YW5NVW9waGNQ?=
+ =?utf-8?B?cjJDU3lXRXFCY3ZUcERYZFhoelBSQ1NzM1Z3akRzOEQzQUJWUVR5a1BGZFJ0?=
+ =?utf-8?B?b3Y0VjU1MDZRMFVNd3M4bHk2RW1aUFR6S1VvOW5PQ1pwTnhmRjBBbzdZWG5E?=
+ =?utf-8?B?OW91TlhPR2VuTXk3bWpoS3JwQ1RRRGZMNXRKNEVtNlp6MW9UdVgwRUdDUTgx?=
+ =?utf-8?B?Zy84NzV3S2UyT0E3YjgyUlVqT0JKNGNpUWtSUDFkblpvRXBjNEdGZnZOdEhl?=
+ =?utf-8?B?QncvZ0h2akVpTzdzUTk0ZWwzK2dLbXV2WGpsSUhKREI1eUY5eUZ2cmpUajUw?=
+ =?utf-8?B?bjB0Y3Ryenk0RlZ3ZUZIaktoc0pQd3dLMFcrUEhnenlwWmVrbnhZK2pxZUxa?=
+ =?utf-8?B?YjJMWitKV3dtS0xCaXZQVTMvRWU3MmFKN2UwRWgwU0hGaVEyRURXbTRmK25h?=
+ =?utf-8?B?Lzl5MGRlNjg1Y0krV29YdHhsSktVKzNIby9ObXI1bHUyRVRmQlduVS9aMi9L?=
+ =?utf-8?B?NHd4WndiQVdDeExDODRqVzFJVm5aUGxOK3pvVnBXQklGYllFeGlxdGNnankx?=
+ =?utf-8?B?RGVTY0Jnakg4WTlYN3UyeWlrSDBqNm9nOFdpRXRvM25UWVgyV0pJZzl0d29L?=
+ =?utf-8?B?SWJpdmpzN3ZJL3IwT1g5ai81Y0RtTC9USk13RlVXQ2cwcEYrOVJSeUtrSGdM?=
+ =?utf-8?B?UldOSjhaM2lTeWh4NFo0U1RzbmZpLzlWa2xQN2xjZlRRREluejRjZ1AzRC81?=
+ =?utf-8?B?TWNRY3NUWGJSZXB6MlZObGd0cytIYmpMQkk0QVkwc2Z5bU5Jc0ZFY3pWVWZZ?=
+ =?utf-8?B?VjRDbkdzUTZEKzcwU3ZQTUVmTm44QjF0Q25BZGtuYWhkUVpicWVSYWVRKzY5?=
+ =?utf-8?B?VFZIMWVDRE9ROWczK1lIZitwUzJGTnBkekY1MW9jS1pEbllDMG1ob29jRzll?=
+ =?utf-8?B?b1V6N0tjWGxlWi82Rnp6ajEybXA0OHZQNDF0UWEyQXpqU0pndjdxKzBpNmtJ?=
+ =?utf-8?B?cExVVzVSM3JZMEJ0QXVMeHJOSFNzd1E5d0NyUGZqMlNsN3BSQ2FXenQyRCtQ?=
+ =?utf-8?B?QXc3V2RmYXpxcjFvYlErSkFEUlZtU05qKzhpSnZtVnJLUmY3b2oyb0JRS3Js?=
+ =?utf-8?B?bFZRMW51Yng4L3BxcUh4RnA1aW9TNGtKR0FlRXQxZzZRQk5PWitVZFZCdjVj?=
+ =?utf-8?B?V3BkK3RLdFdxZE9lNmdJQThvSGRSOE5Wb0pUVG5QZG9ZRThlR1ovUG9ESkZy?=
+ =?utf-8?B?OGJoT3RZc2wzUVEzWnZoOTBnSnhWV0V4L2NIMDJxYWZYQmd5WWlpamtWSnB6?=
+ =?utf-8?B?R3RTbW5NZEg3QkF3TUs4OHR3Q0ErbXNSNFdYbnJJcDlNcjdhYzl5RjVFYkNB?=
+ =?utf-8?B?eE9vZW0xTmhCekxPUm8xbFZqVUhLYkQxMk41ZWJjUUgxTUJGd3JFb3VIcjdJ?=
+ =?utf-8?B?amZpRnFHdWlHL205QW1sVGxxS3dpb0pjRzUwYjI5Wmg5U2JzY3Q0dUwzNlFK?=
+ =?utf-8?B?UlBNMlJJVU1tSXRaYXNVeE13Zy9nV3NLbm1ydG1MVXRKenIrQkFncEVRc21H?=
+ =?utf-8?B?YzVjNWg2WTI4cUNCRzZQczVXM0dYZHdIYWhnMkJXankvQUNZYjVodWZndDRI?=
+ =?utf-8?B?TU9vVUFvaHhyaGtoOXhDdTBqWEZuaDUrVGorWGt6a2pLK3ZXNjh4ZXBDWERp?=
+ =?utf-8?B?WWlUUGx1QzA3SHpGcmxyckNoNjFNMzliMW5jYUdHNG5OelorUUIxZE5iYzBz?=
+ =?utf-8?B?d3c2L0ZiSVc3SmQxOXNKVHZaUU5mTUJKclVqRGF2TGVZcnhVZHEzdytGY0cz?=
+ =?utf-8?B?MkpYcC9nbm9sOGdWNTJteEticFV3aHFzWXRhWERSNWJya0duQXc5dWZROUF5?=
+ =?utf-8?B?MXZvZFpnekNONGw4WGtLekUxdVFoRXRRamk0MjlmckJZNnJxT0hXODZ2UjhU?=
+ =?utf-8?B?MDh2ZE43TEZGdm1XRzdlc2ZsSFlzTGttdGRDUFA5RVViakNrcWxjeWJnWFll?=
+ =?utf-8?B?WGc9PQ==?=
+Content-ID: <518D83C8E7ECD24A8599D600181B4CD7@namprd11.prod.outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3d4ea094-f2d8-44c9-4e86-08da8483209f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Aug 2022 21:13:14.8468
+X-MS-Exchange-CrossTenant-Network-Message-Id: a8d6f801-fe02-4675-bc57-08da848465e8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Aug 2022 21:22:20.6021
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0B1K2MDATfq5web11HQ3k1frFDNUQ/wpIg6L6aKBdZcM0adE14AZBHrl3DynJg5d6dQM0MNqLAcmVfsB1xC4Z80NldBEjXoXmany8sHO/Yw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR11MB3725
+X-MS-Exchange-CrossTenant-userprincipalname: tmVVcRgR4Roo7ICiteXL1Lt7n0DdrZU413YoA/0JJFsS6dSvsgcnBzMxp9XKXMeCFU14gcyPCykoC5iRXTzkq3hwYp5DqZxuc7Hf1WkekxU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR11MB5284
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220822_141320_851392_F0ABEA18 
-X-CRM114-Status: GOOD (  23.85  )
+X-CRM114-CacheID: sfid-20220822_142228_698544_93DD8109 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,126 +176,93 @@ On 22/08/2022 16:34, panqinglin2020@iscas.ac.cn wrote:
 > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
 > From: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> 
-> The HAVE_ARCH_HUGE_VMAP option can be used to help implement arch
-> special huge vmap size. This commit selects this option by default and
-> re-writes the arch_vmap_pte_range_map_size for Svnapot 64KB size.
-> 
-> It can be tested when booting kernel in qemu with pci device, which
-> will make the kernel to call pci driver using ioremap, and the
-> re-written function will be called.
-> 
-> Signed-off-by: Qinglin Pan <panqinglin2020@iscas.ac.cn>
-> 
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 9aaec147a860..a420325a24ac 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -70,6 +70,7 @@ config RISCV
->         select GENERIC_TIME_VSYSCALL if MMU && 64BIT
->         select GENERIC_VDSO_TIME_NS if HAVE_GENERIC_VDSO
->         select HAVE_ARCH_AUDITSYSCALL
-> +       select HAVE_ARCH_HUGE_VMAP
->         select HAVE_ARCH_JUMP_LABEL if !XIP_KERNEL
->         select HAVE_ARCH_JUMP_LABEL_RELATIVE if !XIP_KERNEL
->         select HAVE_ARCH_KASAN if MMU && 64BIT
-> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-> index 37547dd04010..6d5caa1a6bd9 100644
-> --- a/arch/riscv/include/asm/pgtable.h
-> +++ b/arch/riscv/include/asm/pgtable.h
-> @@ -750,6 +750,43 @@ static inline pmd_t pmdp_establish(struct vm_area_struct *vma,
->  }
->  #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
-> 
-> +static inline int pud_set_huge(pud_t *pud, phys_addr_t addr, pgprot_t prot)
-> +{
-> +       return 0;
-> +}
-> +
-> +static inline int pmd_set_huge(pmd_t *pmd, phys_addr_t addr, pgprot_t prot)
-> +{
-> +       return 0;
-> +}
-> +
-> +static inline void p4d_clear_huge(p4d_t *p4d) { }
-> +
-> +static inline int pud_clear_huge(pud_t *pud)
-> +{
-> +       return 0;
-> +}
-> +
-> +static inline int pmd_clear_huge(pmd_t *pmd)
-> +{
-> +       return 0;
-> +}
-> +
-> +static inline int p4d_free_pud_page(p4d_t *p4d, unsigned long addr)
-> +{
-> +       return 0;
-> +}
-> +
-> +static inline int pud_free_pmd_page(pud_t *pud, unsigned long addr)
-> +{
-> +       return 0;
-> +}
-> +
-> +static inline int pmd_free_pte_page(pmd_t *pmd, unsigned long addr)
-> +{
-> +       return 0;
-> +}
-> +
->  /*
->   * Encode and decode a swap entry
->   *
-> diff --git a/arch/riscv/include/asm/vmalloc.h b/arch/riscv/include/asm/vmalloc.h
-> index ff9abc00d139..d92880fbfcde 100644
-> --- a/arch/riscv/include/asm/vmalloc.h
-> +++ b/arch/riscv/include/asm/vmalloc.h
-> @@ -1,4 +1,26 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
->  #ifndef _ASM_RISCV_VMALLOC_H
->  #define _ASM_RISCV_VMALLOC_H
-> 
-> +#include <linux/pgtable.h>
-> +
-> +#ifdef CONFIG_SVNAPOT
-> +#define arch_vmap_pte_range_map_size vmap_pte_range_map_size
-> +static inline unsigned long vmap_pte_range_map_size(unsigned long addr,
-> +                                                   unsigned long end,
-> +                                                   u64 pfn,
-> +                                                   unsigned int max_page_shift)
 
-How about:
+Hey Qingling,
+Apologies for yet another mail - but I built allmodconfig
+with CONFIG_SVNAPOT=y and got a build error:
 
-static inline unsigned long
-vmap_pte_range_map_size(unsigned long addr, unsigned long end, u64 pfn,
-			unsigned int max_page_shift)
-{
-?
-> +{
-> +       bool is_napot_addr = !(addr & NAPOT_CONT64KB_MASK);
-> +       bool pfn_align_napot = !(pfn & (NAPOT_64KB_PTE_NUM - 1UL));
-> +       bool space_enough = ((end - addr) >= NAPOT_CONT64KB_SIZE);
-> +
+  CC      arch/riscv/kernel/asm-offsets.s
+In file included from /stuff/linux/arch/riscv/include/asm/tlbflush.h:12,
+                 from /stuff/linux/arch/riscv/include/asm/pgtable.h:108,
+                 from /stuff/linux/include/linux/pgtable.h:6,
+                 from /stuff/linux/include/linux/mm.h:29,
+                 from /stuff/linux/arch/riscv/kernel/asm-offsets.c:10:
+/stuff/linux/arch/riscv/include/asm/pgtable.h: In function 'pte_pfn':
+/stuff/linux/arch/riscv/include/asm/pgtable.h:299:35: error: '_PAGE_NAPOT_SHIFT' undeclared (first use in this function)
+  299 |         ALT_SVNAPOT_PTE_PFN(_val, _PAGE_NAPOT_SHIFT,
+      |                                   ^~~~~~~~~~~~~~~~~
+/stuff/linux/arch/riscv/include/asm/errata_list.h:165:23: note: in definition of macro 'ALT_SVNAPOT_PTE_PFN'
+  165 |                   "i"(_napot_shift))
+      |                       ^~~~~~~~~~~~
+/stuff/linux/arch/riscv/include/asm/pgtable.h:299:35: note: each undeclared identifier is reported only once for each function it appears in
+  299 |         ALT_SVNAPOT_PTE_PFN(_val, _PAGE_NAPOT_SHIFT,
+      |                                   ^~~~~~~~~~~~~~~~~
+/stuff/linux/arch/riscv/include/asm/errata_list.h:165:23: note: in definition of macro 'ALT_SVNAPOT_PTE_PFN'
+  165 |                   "i"(_napot_shift))
+      |                       ^~~~~~~~~~~~
+In file included from /stuff/linux/include/linux/mm.h:29,
+                 from /stuff/linux/arch/riscv/kernel/asm-offsets.c:10:
+/stuff/linux/include/linux/pgtable.h: At top level:
+/stuff/linux/include/linux/pgtable.h:1457:20: error: redefinition of 'p4d_clear_huge'
+ 1457 | static inline void p4d_clear_huge(p4d_t *p4d) { }
+      |                    ^~~~~~~~~~~~~~
+In file included from /stuff/linux/include/linux/pgtable.h:6,
+                 from /stuff/linux/include/linux/mm.h:29,
+                 from /stuff/linux/arch/riscv/kernel/asm-offsets.c:10:
+/stuff/linux/arch/riscv/include/asm/pgtable.h:763:20: note: previous definition of 'p4d_clear_huge' with type 'void(p4d_t *)'
+  763 | static inline void p4d_clear_huge(p4d_t *p4d) { }
+      |                    ^~~~~~~~~~~~~~
+make[3]: *** [/stuff/linux/scripts/Makefile.build:117: arch/riscv/kernel/asm-offsets.s] Error 1
+make[2]: *** [/stuff/linux/Makefile:1205: prepare0] Error 2
+make[2]: Leaving directory '/stuff/brsdk/work/linux'
+make[1]: *** [Makefile:222: __sub-make] Error 2
+make[1]: Leaving directory '/stuff/linux'
+make: *** [Makefile:179: allmodconfig] Error 2
 
-tbh I would rather see this early return for each of these failed
-tests rather than lump them all into the below. Prob can do the same
-for each of them.. Personally I find that more readable than what you
-have here. /shrug
-
-Thanks,
-Conor.
-
-> +       if (has_svnapot() && is_napot_addr && pfn_align_napot &&
-> +           space_enough && max_page_shift >= NAPOT_CONT64KB_SHIFT)
-> +               return NAPOT_CONT64KB_SIZE;
-
-> +
-> +       return PAGE_SIZE;
-> +}
-> +#endif /*CONFIG_SVNAPOT*/
-> +
->  #endif /* _ASM_RISCV_VMALLOC_H */
+> 
+> Svnapot is a RISC-V extension for marking contiguous 4K pages as a non-4K
+> page. This patch set is for using Svnapot in Linux Kernel's boot process
+> and hugetlb fs.
+> 
+> This patchset adds a Kconfig item for using Svnapot in
+> "Platform type"->"Svnapot support". Its default value is off, and people can set
+> it on if they allow kernel to detect Svnapot hardware support and leverage it.
+> 
+> Tested on:
+>   - qemu rv64 with "Svnapot support" off and svnapot=true.
+>   - qemu rv64 with "Svnapot support" on and svnapot=true.
+>   - qemu rv64 with "Svnapot support" off and svnapot=false.
+>   - qemu rv64 with "Svnapot support" on and svnapot=false.
+> 
+> Changes in v2:
+>   - detect Svnapot hardware support at boot time.
+> Changes in v3:
+>   - do linear mapping again if has_svnapot
+> Changes in v4:
+>   - fix some errors/warns reported by checkpatch.pl, thanks @Conor
+> 
+> Qinglin Pan (4):
+>   mm: modify pte format for Svnapot
+>   mm: support Svnapot in physical page linear-mapping
+>   mm: support Svnapot in hugetlb page
+>   mm: support Svnapot in huge vmap
+> 
+>  arch/riscv/Kconfig                   |  10 +-
+>  arch/riscv/include/asm/errata_list.h |  24 ++-
+>  arch/riscv/include/asm/hugetlb.h     |  30 +++-
+>  arch/riscv/include/asm/hwcap.h       |   1 +
+>  arch/riscv/include/asm/mmu.h         |   1 +
+>  arch/riscv/include/asm/page.h        |   2 +-
+>  arch/riscv/include/asm/pgtable-64.h  |  14 ++
+>  arch/riscv/include/asm/pgtable.h     |  70 +++++++-
+>  arch/riscv/include/asm/vmalloc.h     |  22 +++
+>  arch/riscv/kernel/cpu.c              |   1 +
+>  arch/riscv/kernel/cpufeature.c       |  18 ++
+>  arch/riscv/kernel/setup.c            |  11 +-
+>  arch/riscv/mm/hugetlbpage.c          | 250 ++++++++++++++++++++++++++-
+>  arch/riscv/mm/init.c                 |  47 +++--
+>  14 files changed, 477 insertions(+), 24 deletions(-)
+> 
 > --
 > 2.35.1
 > 
