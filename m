@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 389A6C28D13
-	for <linux-riscv@archiver.kernel.org>; Mon, 22 Aug 2022 03:35:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428B1C28D13
+	for <linux-riscv@archiver.kernel.org>; Mon, 22 Aug 2022 07:30:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hJJm6D3xE7l2jVVvLh4VecNk90TYfsp32DwmdjulqsE=; b=2Gw0oJxM0WBH4W
-	zqS+GXu7kCT6fGp6BgoC+4xreO3j5aLgXQ4ESoRTxIuh/vnGt4YkeWR4hwfxfS8Zfw0yDrD2KR5OY
-	kKXiinIcx7RRY/5V67zqd5UrL+1LagkFxRv8R4yebBxoZm0tsE3yaabBuFgb/0oUblMb0spETNypb
-	DANqRBFEQmE+60zzbiNsXrNKEtTyEySNcoMyh/vj0KRQuSdMY2++i5wYOyStCAE5mBaBz6RtumqeV
-	sVg3AVw/0feUAfnhchX5KLv/1rIdNzfRUfjaksOdH6qbNZgeZsaipUa8NdhUzLWIEaQeDgI4/hJnL
-	sIuIj4KDnZCLW/R/oPNg==;
+	List-Owner; bh=k46eO5wETdMnAAXKSBfQTTWV/YK99qcHt9n5XmlTmFw=; b=NVkJ572PmqQTsk
+	YIxZKM4EAb1icdA3H5QiAEPqpWSisg3KkrxYO9VuZ9vqXcgmIyBzoKhiOQNQBSQTqTUBNHFVywXbk
+	zQh4dCXxr1AigyWfSVdp8RqX5rxl5yTXp+i05Zjp3fiSMjuwcnUbE+Wu9MrA+bQVdMvZp8T1b1Zcy
+	8DYEVWTP5xb6ACoFL+3I8jJ6HympC4gTYkypgNDX3+j0M48Uw2+XNAqMiRWW2I9tLyd/tlx+0RNIi
+	2vBDjwTcjcG0tcoDbX0Lb7o0TtR9By6VQJQtpUo/DjKgmWnvr5CpDA9dzr3DbrdJ6va89l/AuK4Na
+	T/Vazv5c6A/cx0N8tdUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPyDs-004Re0-Rf; Mon, 22 Aug 2022 03:35:33 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1oQ1sp-005wZt-Fa; Mon, 22 Aug 2022 07:30:03 +0000
+Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oPyDn-004Rbt-Oc
-	for linux-riscv@lists.infradead.org; Mon, 22 Aug 2022 03:35:29 +0000
-Received: by mail-pl1-x636.google.com with SMTP id 20so8769569plo.10
-        for <linux-riscv@lists.infradead.org>; Sun, 21 Aug 2022 20:35:25 -0700 (PDT)
+	id 1oQ1s3-005wLb-6v; Mon, 22 Aug 2022 07:29:29 +0000
+Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-11c5ee9bf43so11885935fac.5;
+        Mon, 22 Aug 2022 00:29:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc;
-        bh=/YXgJtX1zG4Y/XEzXgjAM2Md3fX5lW2S4LUS7dbSdLk=;
-        b=l2GX2fzSLXyI87nq1OZFQ9PX3nZexbq9JA3WgTWQclOfXbsbMYdirlM1ktVMDpWmWJ
-         SdKO/4w82svkn8gTDo61LUbCK0GwesP+eNKs/pU9xwcKYHlbWdORYsXHwEbwDO5MCZN6
-         doGq+0VldV4khnU7VrA1EYCZB0eRhJufjIaAbryGSJT2kHXMzHE3GApgSw/hzoRmrK+P
-         r0METwiuagmWwuMfKdDTXPCF0R3U6EiZz9HqXOiWL0GyeHRGeW2ad80tUUhJA89u6FCH
-         3YzcJJAdwdaRtdh9GSqDChGdlbXUr1uxR4LBKN7RgiFuz2NyaQOyDPzNsDd1zEyQwYFy
-         iQvQ==
+        bh=AWMBPRr/4IoSHG6OnWgIerpaeuUvdG2MxcgosAs8QME=;
+        b=WyHlSiL/cogs/slMxPIprKWHpBEJv6mxi+qagsSNw0EQrjkWO1MadhsmS+wqxHov8J
+         emhoGrP/IxDiUp4yx6O9XSlfHFVrnjaWlDZmiThH4JpLd1a1xEr9ksbkQuaBq0o5IrRZ
+         7xWaHgqRmMeDPKk43eJdc8Q5Jg3IkmDA5Xi6gEvVN/s0Q55SJqLpqElKDG8viPdG/LDr
+         tslvl7Ia3cy8MnCjVr6gTBqfsedy4YECQytrVhO4OVfAIaDzWFXuW/9HwG2ZhiXIthy9
+         iIWB5V4wSguw8F71YsVfk611xl0cRkZ/TY0hLVf8PsA8zh9fP3f1rHjNPnbomOXy9xxA
+         2iMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc;
-        bh=/YXgJtX1zG4Y/XEzXgjAM2Md3fX5lW2S4LUS7dbSdLk=;
-        b=qlerUcUlt9zLGYLxYgmOSyCAKwknCRkKdkJMSeeKr9LWjO7pmBmd6zuU2NgLyp91Vy
-         C9V+Gmm4kDLQiBPvcnX0LG+/SPt6Nfk+or9wJCnWaMIPDUEnLlN9cw5ufmECjQxlnffJ
-         GNz24JR4awks6OzEcxp++0nKPAbpnj1s1pLBEFpq+QhU13LGgScvDf+J7wSTBrFYrVB/
-         OY7iJiO3A0bYE08tWG8vvRF6yr25/WRizyPS2OOmrKKzOTiCWDWs7vgBPKBu9ZpSzb2t
-         88Q8NqFds2ztDi/tzVgXAhzjsHAvYVmgHN+wIIEsNTyxY/7Mfu43oVxLdCmvaILBEY/y
-         8EJg==
-X-Gm-Message-State: ACgBeo32u2VxWKf48KKI6u4mxs4ybF0gpJJ9oU7tknpbExxazoM3TNjy
-	mGL3Vx33TsVdohpfm7fdlRSYmlCtNzmDOEN575A=
-X-Google-Smtp-Source: AA6agR5k7A4UV7ZDAX5IP+0c/5x94DAHUudBjlBU4Q+EhzG7bJuC/8IxTuChAUTgqiDm/nweduu+VQzNGK/MNDmZndM=
-X-Received: by 2002:a17:902:aa4a:b0:172:f24e:2e54 with SMTP id
- c10-20020a170902aa4a00b00172f24e2e54mr1101316plr.25.1661139325478; Sun, 21
- Aug 2022 20:35:25 -0700 (PDT)
+        bh=AWMBPRr/4IoSHG6OnWgIerpaeuUvdG2MxcgosAs8QME=;
+        b=mMeDISXaSvh+qZxfJWjUTjAXXZRelHHAeEAyyDQ0MRbtrMPZSZzp9vSrr1FBoq/DVJ
+         sIY3bXSL1mz9ai680Kr4B+OuYFTQiGvPgyEo1wCj4A2z4D9iLLM26geNjD49XBOsQ1/t
+         GFtvkG+zKbuUyvaNLLg5cWo/rijRqPgm8fALMtXiSaJ+AY7X1Bb+hfXomUagVzs1LaY+
+         xkEf6unEbgv3gqlo+l5xN3K8GBihOMFKgudGgSB8FJmypGcSa8jGrSMYPwPMI7RrZW5V
+         QD5osFbX1AbaQ5QfglivRU1ZxCrTvNYTLI8paOSHmM3HKIheHla1vptgjIMx6NkEHDnV
+         YHAg==
+X-Gm-Message-State: ACgBeo0+3k+ZXVrA3RFHt+MRvX28FLP2NvZvZp+hL4tLYwOIVY/tpptf
+	0kZakLn3xMCiSnZWe34avekFes3W5DYRKuSQmcw=
+X-Google-Smtp-Source: AA6agR7gdLtQHLlIczC7dHdWojf0lsvnUDwq32acFzmX4UI62LA51MXLPjl5CaaJoUOepUAgk06bIuASAx0RALfAjks=
+X-Received: by 2002:a05:6870:6086:b0:10b:8905:14c3 with SMTP id
+ t6-20020a056870608600b0010b890514c3mr11518550oae.255.1661153352781; Mon, 22
+ Aug 2022 00:29:12 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220810184612.157317-1-mail@conchuod.ie>
-In-Reply-To: <20220810184612.157317-1-mail@conchuod.ie>
-From: Alistair Francis <alistair23@gmail.com>
-Date: Mon, 22 Aug 2022 13:34:59 +1000
-Message-ID: <CAKmqyKP0Cs-cpmX2rdNfi4UACoHzA2VOrc-ejR9cDrow2-mjMw@mail.gmail.com>
-Subject: Re: [PATCH v3 0/4] QEMU: Fix RISC-V virt & spike machines' dtbs
-To: Conor Dooley <mail@conchuod.ie>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Alistair Francis <alistair.francis@wdc.com>, 
-	Bin Meng <bin.meng@windriver.com>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Jessica Clarke <jrtc27@jrtc27.com>, 
-	"open list:RISC-V" <qemu-riscv@nongnu.org>, 
-	"qemu-devel@nongnu.org Developers" <qemu-devel@nongnu.org>, linux-riscv <linux-riscv@lists.infradead.org>
+References: <20220813031753.3097720-1-xianting.tian@linux.alibaba.com> <CANU+ZyckYehZaX0uSLPiyLKq2TMmTkqs3O6i4=NerdjXGGxBDA@mail.gmail.com>
+In-Reply-To: <CANU+ZyckYehZaX0uSLPiyLKq2TMmTkqs3O6i4=NerdjXGGxBDA@mail.gmail.com>
+From: Yixun Lan <yixun.lan@gmail.com>
+Date: Mon, 22 Aug 2022 07:28:52 +0000
+Message-ID: <CALecT5g-cRDz8zwpHnoVEuZXMNRkZ9LUagEmCUJG0RM-e+_4Sw@mail.gmail.com>
+Subject: Re: [PATCH V3 0/9] Support RISCV64 arch and common commands
+To: lijiang <lijiang@redhat.com>
+Cc: Xianting Tian <xianting.tian@linux.alibaba.com>, 
+	"Discussion list for crash utility usage, maintenance and development" <crash-utility@redhat.com>, Nick Kossifidis <mick@ics.forth.gr>, 
+	heinrich.schuchardt@canonical.com, guoren@kernel.org, 
+	=?UTF-8?B?SEFHSU8gS0FaVUhJVE8o6JCp5bC+IOS4gOS7gSk=?= <k-hagio-ab@nec.com>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, kexec@lists.infradead.org, 
+	hschauhan@nulltrace.org, huanyi.xj@alibaba-inc.com, 
+	lifang_xia@linux.alibaba.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220821_203527_892781_7744BC01 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20220822_002926_597892_6D57CD01 
+X-CRM114-Status: GOOD (  25.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,58 +88,201 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 11, 2022 at 5:09 AM Conor Dooley <mail@conchuod.ie> wrote:
->
-> From: Conor Dooley <conor.dooley@microchip.com>
->
-> The device trees produced automatically for the virt and spike machines
-> fail dt-validate on several grounds. Some of these need to be fixed in
-> the linux kernel's dt-bindings, but others are caused by bugs in QEMU.
->
-> I mostly opted for what appeared to be the smallest change that would
-> fix the warnings, partly due to my inexperience with the QEMU codebase.
-> A "sister" patchset for the kernel will clear the remaining warnings.
-> Thanks to Rob Herring for reporting these issues [1],
-> Conor.
->
-> Changes since v2:
-> - move the syscon subnodes back to the top level instead of into the
->   syscon node
-> Changes since v1:
-> - drop patch 1
->
-> To reproduce the errors:
-> ./build/qemu-system-riscv64 -nographic -machine virt,dumpdtb=qemu.dtb
-> dt-validate -p /path/to/linux/kernel/Documentation/devicetree/bindings/processed-schema.json qemu.dtb
-> (The processed schema needs to be generated first)
->
-> 0 - https://lore.kernel.org/linux-riscv/20220805162844.1554247-1-mail@conchuod.ie/
-> 1 - https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
->
-> Conor Dooley (4):
->   hw/riscv: virt: fix uart node name
->   hw/riscv: virt: fix the plic's address cells
->   hw/riscv: virt: fix syscon subnode paths
->   hw/core: fix platform bus node name
+Hi lijiang
 
-Thanks!
+On Mon, Aug 22, 2022 at 3:56 AM lijiang <lijiang@redhat.com> wrote:
+>
+> Hi, Xianting
+> Thank you for the update.
+> On Sat, Aug 13, 2022 at 11:18 AM Xianting Tian <xianting.tian@linux.alibaba.com> wrote:
+>>
+>> This series of patches are for Crash-utility tool, it make crash tool support
+>> RISCV64 arch and the common commands(*, bt, p, rd, mod, log, set, struct, task,
+>> dis, help -r, help -m, and so on).
+>>
+>> To make the crash tool work normally for RISCV64 arch, we need a Linux kernel
+>> patch, which exports the kernel virtual memory layout, va_bits, phys_ram_base
+>> to vmcoreinfo, it can simplify the development of crash tool.
+>>
+>> The Linux kernel patch set:
+>> https://lore.kernel.org/linux-riscv/20220811074150.3020189-1-xianting.tian@linux.alibaba.com/
+>> [ Patch 1 ~ 4 already merged to Linux for-next branch, targeted for 5.20;
+>>   Patch 5, 6 already merged to Palmer's riscv-crash branch:
+>>   https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/log/?h=riscv-crash ]
+>>
+>
+> Can you also help to share the patch link for kexec-tools? Or share your loading steps and generate a vmcore in riscv64 system?
+>
+> I tried it with kexec-tools and got the following error:
+>
+> [root@fedora-riscv kexec-tools]# ./configure
+> checking for gcc... gcc
+> checking whether the C compiler works... yes
+> checking for C compiler default output file name... a.out
+> checking for suffix of executables...
+> checking whether we are cross compiling... no
+> checking for suffix of object files... o
+> checking whether we are using the GNU C compiler... yes
+> checking whether gcc accepts -g... yes
+> checking for gcc option to accept ISO C89... none needed
+> checking build system type... riscv64-unknown-linux-gnu
+> checking host system type... riscv64-unknown-linux-gnu
+> checking target system type... riscv64-unknown-linux-gnu
+> configure: error: unsupported architecture riscv64
+>
+> Thanks.
+> Lianbo
+>
+>> This series of patches are tested on QEMU RISCV64 env and SoC platform of
+>> T-head Xuantie 910 RISCV64 CPU.
+>>
+>> ====================================
+>>   Some test examples list as below
+>> ====================================
+>> ... ...
+>>       KERNEL: vmlinux
+>>     DUMPFILE: vmcore
+>>         CPUS: 1
+>>         DATE: Fri Jul 15 10:24:25 CST 2022
+>>       UPTIME: 00:00:33
+>> LOAD AVERAGE: 0.05, 0.01, 0.00
+>>        TASKS: 41
+>>     NODENAME: buildroot
+>>      RELEASE: 5.18.9
+>>      VERSION: #30 SMP Fri Jul 15 09:47:03 CST 2022
+>>      MACHINE: riscv64  (unknown Mhz)
+>>       MEMORY: 1 GB
+>>        PANIC: "Kernel panic - not syncing: sysrq triggered crash"
+>>          PID: 113
+>>      COMMAND: "sh"
+>>         TASK: ff60000002269600  [THREAD_INFO: ff60000002269600]
+>>          CPU: 0
+>>        STATE: TASK_RUNNING (PANIC)
+>>
+>> carsh>
+>>
+>> crash> p mem_map
+>> mem_map = $1 = (struct page *) 0xff6000003effbf00
+>>
+>> crash> p /x *(struct page *) 0xff6000003effbf00
+>> $5 = {
+>>   flags = 0x1000,
+>>   {
+>>     {
+>>       {
+>>         lru = {
+>>           next = 0xff6000003effbf08,
+>>           prev = 0xff6000003effbf08
+>>         },
+>>         {
+>>           __filler = 0xff6000003effbf08,
+>>           mlock_count = 0x3effbf08
+>>         }
+>>       },
+>>       mapping = 0x0,
+>>       index = 0x0,
+>>       private = 0x0
+>>     },
+>>   ... ...
+>>
+>> crash> mod
+>>      MODULE       NAME             BASE         SIZE  OBJECT FILE
+>> ffffffff0113e740  nvme_core  ffffffff01133000  98304  (not loaded)  [CONFIG_KALLSYMS]
+>> ffffffff011542c0  nvme       ffffffff0114c000  61440  (not loaded)  [CONFIG_KALLSYMS]
+>>
+>> crash> rd ffffffff0113e740 8
+>> ffffffff0113e740:  0000000000000000 ffffffff810874f8   .........t......
+>> ffffffff0113e750:  ffffffff011542c8 726f635f656d766e   .B......nvme_cor
+>> ffffffff0113e760:  0000000000000065 0000000000000000   e...............
+>> ffffffff0113e770:  0000000000000000 0000000000000000   ................
+>>
+>> crash> vtop ffffffff0113e740
+>> VIRTUAL           PHYSICAL
+>> ffffffff0113e740  8254d740
+>>
+>>    PGD: ffffffff810e9ff8 => 2ffff001
+>>   P4D: 0000000000000000 => 000000002fffec01
+>>   PUD: 00005605c2957470 => 0000000020949801
+>>   PMD: 00007fff7f1750c0 => 0000000020947401
+>>    PTE: 0 => 209534e7
+>>  PAGE: 000000008254d000
+>>
+>>   PTE     PHYSICAL  FLAGS
+>> 209534e7  8254d000  (PRESENT|READ|WRITE|GLOBAL|ACCESSED|DIRTY)
+>>
+>>       PAGE       PHYSICAL      MAPPING       INDEX CNT FLAGS
+>> ff6000003f0777d8 8254d000                0        0  1 0
+>>
+>> crash> bt
+>> PID: 113      TASK: ff6000000226c200  CPU: 0    COMMAND: "sh"
+>>  #0 [ff20000010333b90] riscv_crash_save_regs at ffffffff800078f8
+>>  #1 [ff20000010333cf0] panic at ffffffff806578c6
+>>  #2 [ff20000010333d50] sysrq_reset_seq_param_set at ffffffff8038c03c
+>>  #3 [ff20000010333da0] __handle_sysrq at ffffffff8038c604
+>>  #4 [ff20000010333e00] write_sysrq_trigger at ffffffff8038cae4
+>>  #5 [ff20000010333e20] proc_reg_write at ffffffff801b7ee8
+>>  #6 [ff20000010333e40] vfs_write at ffffffff80152bb2
+>>  #7 [ff20000010333e80] ksys_write at ffffffff80152eda
+>>  #8 [ff20000010333ed0] sys_write at ffffffff80152f52
+>>
+>> -------
+>> Changes V1 -> V2:
+>>  1, Do the below fixes based on HAGIO KAZUHITO's comments:
+>>     Fix build warnings,
+>>     Use MACRO for Linux version,
+>>     Add description of x86_64 binary for riscv64 in README,
+>>     Fix build error for the "sticky" target for build on x86_64,
+>>     Fix the mixed indent.
+>>  2, Add 'help -m/M' support patch to this patch set.
+>>  3, Support native compiling approach, which means the host OS distro
+>>     is also a riscv64 (lp64d) Linux, based on Yixun Lan's comments.
+>>  4, Use __riscv and __riscv_xlen instead of __riscv64__ based on Yixun Lan's comments.
+>> Changes V2 -> V3:
+>>  1, Fix coding style, avoid including the header twice, move free() to right place,
+>>     introduce VM_FLAGS and so on based on Li Jiang's comments.
+>>  2, Adjust the implementation of riscv64_verify_symbol(refer to the logic of x86_64_verify_symbol)
+>>     as KSYMS_START isn't set when verify symbol in some case.
+>>
+>>
+>> Xianting Tian (9):
+>>   Add RISCV64 framework code support
+>>   RISCV64: Make crash tool enter command line and support some commands
+>>   RISCV64: Add 'dis' command support
+>>   RISCV64: Add 'irq' command support
+>>   RISCV64: Add 'bt' command support
+>>   RISCV64: Add 'help -r' command support
+>>   RISCV64: Add 'help -m/M' command support
+>>   RISCV64: Add 'mach' command support
+>>   RISCV64: Add the implementation of symbol verify
+>>
+>>  Makefile            |    7 +-
+>>  README              |    4 +-
+>>  configure.c         |   43 +-
+>>  defs.h              |  252 +++++++-
+>>  diskdump.c          |   21 +-
+>>  help.c              |    2 +-
+>>  lkcd_vmdump_v1.h    |    8 +-
+>>  lkcd_vmdump_v2_v3.h |    8 +-
+>>  netdump.c           |   22 +-
+>>  ramdump.c           |    2 +
+>>  riscv64.c           | 1491 +++++++++++++++++++++++++++++++++++++++++++
+>>  symbols.c           |   10 +
+>>  12 files changed, 1848 insertions(+), 22 deletions(-)
+>>  create mode 100644 riscv64.c
+>>
+>> --
+>> 2.17.1
+>>
 
-Applied to riscv-to-apply.next
+FYI, take a look at
+lists.infradead.org/pipermail/linux-riscv/2021-October/008773.html
 
-Alistair
+also need this extra fix
+lists.infradead.org/pipermail/linux-riscv/2022-August/018398.html
 
->
->  hw/core/sysbus-fdt.c    | 2 +-
->  hw/riscv/virt.c         | 8 +++++---
->  include/hw/riscv/virt.h | 1 +
->  3 files changed, 7 insertions(+), 4 deletions(-)
->
->
-> base-commit: 2480f3bbd03814b0651a1f74959f5c6631ee5819
-> --
-> 2.37.1
->
->
+and just follow normal scheme to use kexec + crash, there is nothing different
+
+Yixun
 
 _______________________________________________
 linux-riscv mailing list
