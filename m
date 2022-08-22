@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D414C28D13
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB5E6C32789
 	for <linux-riscv@archiver.kernel.org>; Mon, 22 Aug 2022 11:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SBjH7LM3C8aG32wH8iq64CBfxrZDCRt5Fbxgv2onI+s=; b=QeHHteenUhK8QH
-	cDkey4PTRV+WnZ0ZDDcFos1INLzdByyngobkrL+9Pcj0tTlFc5fDmXzfiBVszxBJ2BoljmDoaNAsh
-	eShXJUqwWLBcQcxZqNeWF6eErj0Fm3V1Hs4IGucb2bJv1PQZ8lzw5maGpVPLqz/cGozB9d05mlLka
-	fllM14F6741iQliiNWbvBYO1n5eUE1d7Bp/KmbVtssGGPC38OA+Bpi4OpTL1ChJWBCaBNbvqV/r4Q
-	fjdlJUKWsm58DOKPpJIXv5S8uYOw3inbeaUNklo0QafZq6XqZilTHjTDvUGPDy1Ii9tzSEU1OD3Zl
-	X1gkrBUu+Mlij/p8cBdw==;
+	List-Owner; bh=/pAScnPwI1E5af5wedMOvjfLAtouK77VLKUC4XX/SgE=; b=KHS/yU3/j7OdpA
+	j3e/aYA2Dt32OD+w09K9G2hnXMs7v6o/d7TsR1hhk5DY3csSzKe2IiE0pm84A6XmCVfvjxoIwPX6B
+	d3WEnxYRmi6VrFdtW0pylzjByz12j6pZb5pxseMbalbVR+yMrBrcIvNtrDspuL65vPn7mIxcXfqVE
+	nBzJeGkIIRM1cKh1x3MYmKYoyqndJk9kN9mMHIGOna9sucox9b1AQ9/HM/Aku7O4U9/OLTT6nmbR+
+	2eERQra0TV5AiKrxq6xY+3Axowt0VZNPGp4HR/+yrFAd6cW/64k//blwc/fqJveIEkGOfkX4Mab4y
+	lsjgKQbqKkp3Svpck6iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQ5dY-008Fos-8r; Mon, 22 Aug 2022 11:30:32 +0000
+	id 1oQ5da-008Fqv-VU; Mon, 22 Aug 2022 11:30:35 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQ5dC-008FaN-C0
-	for linux-riscv@lists.infradead.org; Mon, 22 Aug 2022 11:30:11 +0000
+	id 1oQ5dF-008Fck-Qf
+	for linux-riscv@lists.infradead.org; Mon, 22 Aug 2022 11:30:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661167810; x=1692703810;
+  t=1661167813; x=1692703813;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=PtPjyDMFgL0ZHX2h9WihXpuRWII6SpvDspKqLWFg03Y=;
-  b=D6ZwGTJ7SGhQnvX5gQ6adVx9QHrjN9V3RpgveOVH3pE32N7KND/ZC6hF
-   jVsHjCk8JU2Zshg8uIvZdkp6bgSAObH2/aadzPzQYisRePV1TxFvJ4nEr
-   zgTWkml/xlLtfLses2wYqFvOb6rrIrM8WRU2UNAnHI/3uIPpOu+cArjaL
-   m2MuJeFri6HMLPtNFEOWzulScEdf3A50wAai8SMCjdH1IHY1wkJ5ve91o
-   FSKdPKgTpyme12ncZZMgziyDfQVawH4YQh/9mI9WOW+38Wc3mdqCa2R9t
-   MdclN+kaZHzRdV3piZ0qd+KygT871heU3wSETdVJ2mNwmwunnUmYC8JUr
-   w==;
+  bh=AoTjF84+5kjo+c9X22M8nu7imt7Yf53AM1e1Wqcdbis=;
+  b=UUNloZdQO+mPUYl/L1E4bMRnAy5YJugErUHYOmWj/RgpB8IuTJ21MXAa
+   dUZizjsRBjyDWbxGsoegghdgLey9vWcRdLLLQOWCWb5AvBAwVqwngHWup
+   xXjun3UIE0GKKNhT0EDyAp6R4mHYFd9y4GWZukSXcqX+VeUXcqAjEm5+I
+   HSrhkBhQmPLIwh54AgIM2yEbkywsCSRMenjqq3kxQkidP4xHh8R2NvU8B
+   t4fU2yHL2rfcrD1rIUqfinpH6xX1k6IRcjOLKuMSxpx8O0x6vIhd8wTW1
+   PwwbpxedBfWJ+2CehQelDyG8ashCW2YZSVQodoGf/J38lQE09lMxFJJkM
+   g==;
 X-IronPort-AV: E=Sophos;i="5.93,254,1654585200"; 
-   d="scan'208";a="177210289"
+   d="scan'208";a="187490803"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Aug 2022 04:30:10 -0700
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 22 Aug 2022 04:30:12 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 22 Aug 2022 04:30:08 -0700
+ 15.1.2507.12; Mon, 22 Aug 2022 04:30:11 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Mon, 22 Aug 2022 04:30:06 -0700
+ Transport; Mon, 22 Aug 2022 04:30:09 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
 	<sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -58,19 +58,17 @@ To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
 CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
 	<aou@eecs.berkeley.edu>, <linux-clk@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v2 5/6] dt-bindings: riscv: microchip: document icicle reference design
-Date: Mon, 22 Aug 2022 12:29:28 +0100
-Message-ID: <20220822112928.2727437-6-conor.dooley@microchip.com>
+	<linux-riscv@lists.infradead.org>
+Subject: [PATCH v2 6/6] riscv: dts: microchip: add the mpfs' fabric clock control
+Date: Mon, 22 Aug 2022 12:29:29 +0100
+Message-ID: <20220822112928.2727437-7-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220822112928.2727437-1-conor.dooley@microchip.com>
 References: <20220822112928.2727437-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220822_043010_557052_281E2EB0 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220822_043013_983255_60515A30 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +85,166 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a new compatible for the icicle kit reference design's 22.09
-release, which made some changes to the memory map - including adding
-the ability to read the CCCs via the system controller bus. Technically
-that was always possible, but the specific CC chosen could vary per
-run of the synthesis tool. Hopefully this is the last reference design
-version impacting the memory map.
+The "fabric clocks" in current PolarFire SoC device trees are not
+really fixed clocks. Their frequency is set by the bitstream, so having
+them located in -fabric.dtsi is not a problem - they're just as "fixed"
+as the IP blocks etc used in the FPGA fabric.
+However, their configuration can be read at runtime (and to an extent
+they can be controlled, although the intended usage is static
+configurations set by the bitstream) through the system controller bus.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In the v2209 reference design a single CCC (north-west corner) is
+enabled, using a 50 MHz off-chip oscillator as its reference.
+
+Updating to the v2209 reference design is required.
+
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/riscv/microchip.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ .../dts/microchip/mpfs-icicle-kit-fabric.dtsi | 27 +++++++++------
+ .../boot/dts/microchip/mpfs-icicle-kit.dts    |  4 +++
+ .../dts/microchip/mpfs-polarberry-fabric.dtsi |  5 +++
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       | 34 +++++++++++++++++--
+ 4 files changed, 58 insertions(+), 12 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
-index 1aa7336a9672..928ce4d4e087 100644
---- a/Documentation/devicetree/bindings/riscv/microchip.yaml
-+++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
-@@ -21,6 +21,7 @@ properties:
-       - enum:
-           - microchip,mpfs-icicle-kit
-           - microchip,mpfs-icicle-reference-rtlv2203
-+          - microchip,mpfs-icicle-reference-rtlv2209
-           - sundance,polarberry
-       - const: microchip,mpfs
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
+index 0d28858b83f2..f17cb00df467 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
+@@ -2,14 +2,14 @@
+ /* Copyright (c) 2020-2021 Microchip Technology Inc */
  
+ / {
+-	compatible = "microchip,mpfs-icicle-reference-rtlv2203", "microchip,mpfs";
++	compatible = "microchip,mpfs-icicle-reference-rtlv2209", "microchip,mpfs";
+ 
+ 	core_pwm0: pwm@41000000 {
+ 		compatible = "microchip,corepwm-rtl-v4";
+ 		reg = <0x0 0x41000000 0x0 0xF0>;
+ 		microchip,sync-update-mask = /bits/ 32 <0>;
+ 		#pwm-cells = <2>;
+-		clocks = <&fabric_clk3>;
++		clocks = <&ccc_nw CLK_CCC_PLL0_OUT0>;
+ 		status = "disabled";
+ 	};
+ 
+@@ -18,22 +18,29 @@ i2c2: i2c@44000000 {
+ 		reg = <0x0 0x44000000 0x0 0x1000>;
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+-		clocks = <&fabric_clk3>;
++		clocks = <&ccc_nw CLK_CCC_PLL0_OUT3>;
+ 		interrupt-parent = <&plic>;
+ 		interrupts = <122>;
+ 		clock-frequency = <100000>;
+ 		status = "disabled";
+ 	};
+ 
+-	fabric_clk3: fabric-clk3 {
++	refclk_ccc: cccrefclk {
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+-		clock-frequency = <62500000>;
+ 	};
++};
+ 
+-	fabric_clk1: fabric-clk1 {
+-		compatible = "fixed-clock";
+-		#clock-cells = <0>;
+-		clock-frequency = <125000000>;
+-	};
++&ccc_nw {
++	clocks = <&refclk_ccc>, <&refclk_ccc>, <&refclk_ccc>, <&refclk_ccc>,
++		 <&refclk_ccc>, <&refclk_ccc>;
++	clock-names = "pll0_ref0", "pll0_ref1", "pll1_ref0", "pll1_ref1",
++		      "dll0_ref", "dll1_ref";
++	status = "okay";
++};
++
++&pcie {
++	clocks = <&ccc_nw CLK_CCC_PLL0_OUT0>, <&ccc_nw CLK_CCC_PLL0_OUT1>,
++		 <&ccc_nw CLK_CCC_PLL0_OUT3>;
++	clock-names = "fic0", "fic1", "fic3";
+ };
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
+index 044982a11df5..d361d1e38b16 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
++++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts
+@@ -140,6 +140,10 @@ &refclk {
+ 	clock-frequency = <125000000>;
+ };
+ 
++&refclk_ccc {
++	clock-frequency = <50000000>;
++};
++
+ &rtc {
+ 	status = "okay";
+ };
+diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
+index 49380c428ec9..3beb450b4259 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
+@@ -14,3 +14,8 @@ fabric_clk1: fabric-clk1 {
+ 		clock-frequency = <125000000>;
+ 	};
+ };
++
++&pcie {
++	clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
++	clock-names = "fic0", "fic1", "fic3";
++};
+diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+index 499c2e63ad35..b23390e7504e 100644
+--- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
++++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
+@@ -236,6 +236,38 @@ clkcfg: clkcfg@20002000 {
+ 			#clock-cells = <1>;
+ 		};
+ 
++		ccc_se: clock-controller@38010000 {
++			compatible = "microchip,mpfs-ccc";
++			reg = <0x0 0x38010000 0x0 0x1000>, <0x0 0x38020000 0x0 0x1000>,
++			      <0x0 0x39010000 0x0 0x1000>, <0x0 0x39020000 0x0 0x1000>;
++			#clock-cells = <1>;
++			status = "disabled";
++		};
++
++		ccc_ne: clock-controller@38040000 {
++			compatible = "microchip,mpfs-ccc";
++			reg = <0x0 0x38040000 0x0 0x1000>, <0x0 0x38080000 0x0 0x1000>,
++			      <0x0 0x39040000 0x0 0x1000>, <0x0 0x39080000 0x0 0x1000>;
++			#clock-cells = <1>;
++			status = "disabled";
++		};
++
++		ccc_nw: clock-controller@38100000 {
++			compatible = "microchip,mpfs-ccc";
++			reg = <0x0 0x38100000 0x0 0x1000>, <0x0 0x38200000 0x0 0x1000>,
++			      <0x0 0x39100000 0x0 0x1000>, <0x0 0x39200000 0x0 0x1000>;
++			#clock-cells = <1>;
++			status = "disabled";
++		};
++
++		ccc_sw: clock-controller@38400000 {
++			compatible = "microchip,mpfs-ccc";
++			reg = <0x0 0x38400000 0x0 0x1000>, <0x0 0x38800000 0x0 0x1000>,
++			      <0x0 0x39400000 0x0 0x1000>, <0x0 0x39800000 0x0 0x1000>;
++			#clock-cells = <1>;
++			status = "disabled";
++		};
++
+ 		mmuart0: serial@20000000 {
+ 			compatible = "ns16550a";
+ 			reg = <0x0 0x20000000 0x0 0x400>;
+@@ -480,8 +512,6 @@ pcie: pcie@2000000000 {
+ 					<0 0 0 3 &pcie_intc 2>,
+ 					<0 0 0 4 &pcie_intc 3>;
+ 			interrupt-map-mask = <0 0 0 7>;
+-			clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
+-			clock-names = "fic0", "fic1", "fic3";
+ 			ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
+ 			msi-parent = <&pcie>;
+ 			msi-controller;
 -- 
 2.36.1
 
