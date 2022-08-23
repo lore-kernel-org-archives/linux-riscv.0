@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D217AC32789
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Aug 2022 18:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE0CC32772
+	for <linux-riscv@archiver.kernel.org>; Tue, 23 Aug 2022 18:34:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gupujcU4W/jQHwcySG/BDGhq/T+cQbwfwts9CryYGjg=; b=vA3uWmpg3KQ1p8
-	vdWU89MUugYYS+0jP3qETcpHDMhEbfdhPFlMcqxhEVR6MPUG686zlapSJGGA5BEIaLQud64LI6i7t
-	KH9PA8mw5XCCCuIYkklIXlYO05tlLujTZbF3hKNUlHcuMFNU3wPTcdgHasKVUsczCaBCagMrQPdaC
-	sFWRQAtMoOUdfhPAzeTKavz0yuT55AoGPj5cLnv9ICT2Ybaw29GgrRTN1lWsHZSyEcqRzOK5UAlJI
-	JKsF4RfbS69edzo1VdbbrvG0GR13MDw5NMbjYnjp/z/Uxf+Lwy5OpveQYz15Z8GmChE/aqmSCR8OV
-	DXdvK/0Kw65VN53qrWnA==;
+	List-Owner; bh=0u/OGtlGYp6CE37XxS7RCPtrgnWFd1HWgIaolY02E68=; b=0g8P2S9Ls+b1bQ
+	Xu0/hG8vsmLa5aoM2xubeBiDzcWTgT3ulxVLzV2bNkuS4qgDtm6mlF1RLiqfeEO2aCBdqzi8e5q2X
+	pcSRJJPvtoZFLPm9zNdqSGuhPfyI/q9ja5MLFg+U1yOk86S4OqXoeDUibZhkf3HtxCiZxUda/8Lk/
+	OYmrlxt8kslmtJFvrngn2qMNUwP0UIFjvec1o7bqkOFKTl47XQUcuXKkH+dzfgZebpN3BTlczweKb
+	cHrUxpQ2Qn/sUTstUotVD7wOtKJ8rWhWFMBqeruTEC1KWyk00gF8HzB/n8g+TLs///KdEW/kkYg5q
+	n72ccoWGGrf5I+z+2p+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQYj1-0084w2-Le; Tue, 23 Aug 2022 18:34:07 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1oQYiv-0084tt-Jo; Tue, 23 Aug 2022 18:34:01 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQYiv-0084t5-0Z
-	for linux-riscv@lists.infradead.org; Tue, 23 Aug 2022 18:34:02 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id m10-20020a05600c3b0a00b003a603fc3f81so8219109wms.0
-        for <linux-riscv@lists.infradead.org>; Tue, 23 Aug 2022 11:34:00 -0700 (PDT)
+	id 1oQYis-0084s3-R0
+	for linux-riscv@lists.infradead.org; Tue, 23 Aug 2022 18:34:00 +0000
+Received: by mail-wr1-x433.google.com with SMTP id u14so18009313wrq.9
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Aug 2022 11:33:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=conchuod.ie; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc;
-        bh=trv5fw0bTaRkhXK0X5euU+YZQIdt/hyNEtAW//ypjq4=;
-        b=SbIqnUkCy+xr3G4o41X6O/3K6TdfRJnovS+CTSQDtTxCHC12Dr2hCrLWJb14TBsmL7
-         lWBETJqBGmVPBNTdzb6i97jcciKXvfliHjaVH2WvuQDtdYipzwkytutPbIAoRIhAlXcN
-         BiUQCaIU6+VbOthEftP+Vl5EKnyq3nQH7aRyPJyD0Y8TQ4TQ3IDh9NPwlGGsozrUWCfJ
-         9gJrSfEZ9qukTVfG9ziZNXXLqbGpMFLs9oyc3pV7HHO2bLKvpzURDQZwqzvXfExw+900
-         uPyd0qqVtAXIkJRBgKgUTRT7eIJaxdLAebLlBN7VwstK5T3aghNRMyNfOP/6qHrT223r
-         mFdQ==
+        bh=gfYO45Fhrr292YriQBgq+GL0i0hKssdiRtp+ptuTmB8=;
+        b=cxhWc3M4obppLHYQ1+1dtIkL3cRvwms6r8PwhRPdHDTBOodgqvj+O9GT+FIXT+jVHM
+         cLh/Qw3HVakfK6G2nWP1Yew4MJQDEtQI7QpU+r6N0eHqbjF0wJ41mxQK6Mlb8s/QZ3fy
+         SdDOP+rFnRzP1U+moj1P99yf0KdJkXioTWpwRdqUa42HEjRci3ryA21S6QskbzqnjstD
+         jYKuJAKEa0RgEOdq0ZSHUh/D9OU86R7A5NtNLdP2Whs8V1ITPGcIIait/JWspTt/7gUn
+         VMWDd+BN7Y836i5XYRf1P+fGFGKd5HdoE2zvCUi/n6n2FMcrbn/7MFxO7ncgmhXv1wKg
+         jicA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
-        bh=trv5fw0bTaRkhXK0X5euU+YZQIdt/hyNEtAW//ypjq4=;
-        b=F4CMSp/PcJ5AzmX7nHp0gDVS/K6fO2iDkqNe0ZMpOsmN1eQRUlbfm2Dd8EXfj6ELLl
-         q91ALJoq0q3VSH64Jz6TAr7U9AiXrO2uhARu43JOyeBd1oT3JUyq9a6abPeSJApg8Pup
-         UoQAYNCtAwIJwslhrsk10p2++/5mAglxi7nqPuv1opfV/MYSskp9rjLU6CDyslcRDM+q
-         uppYk2S4+msvh20oF9708cjJSwcsje5p+m4Ev1pIWVzFFEL+/C8hrubiZjdlR2L3wDUM
-         GbE7lYBOzFjTm7k/EnhX41LjCwfFZnk2DoMQQAGnyZjJU3t3UUtVhw+vBgv7xjKgML2J
-         /fqw==
-X-Gm-Message-State: ACgBeo3Qogqomjv0j8trrzJB8cS5yRHNh2Oyvpj29bxtQKI5AuXz17Ni
-	4P03HaKzU3fY09kCZ2KaMOMw6A==
-X-Google-Smtp-Source: AA6agR5PsHa/f15Jc+wTtB6380Zen3xwCl+1v7C+oWEpfdzbxeubJb/sNC5ucLm5tjbY479QnKQpqg==
-X-Received: by 2002:a05:600c:3b92:b0:3a6:5645:5fc7 with SMTP id n18-20020a05600c3b9200b003a656455fc7mr2978623wms.148.1661279638941;
-        Tue, 23 Aug 2022 11:33:58 -0700 (PDT)
+        bh=gfYO45Fhrr292YriQBgq+GL0i0hKssdiRtp+ptuTmB8=;
+        b=hU9KByNg1Y05wScobAXpqmpApbxP62eEnT/ajXzozhtas+I8rRO+JlZnm4zOWKMsoU
+         5EPQJ5wXG7bjBYllrIyqZbEsYODwSWfPsplep06DZ0MoJNVq+URVeYo1cUitQlP6wd/n
+         tp9SOwLUVsZV+XJFBhM61AzM9c8IqfUNya+RUZyQ4QSETC7x43RGHzFE6Q8nEfxo1wKB
+         iWKijIKzevw+Z+a1wLuiTkWy2VyUZMPWDpiwx8uTtpdMvQJzJ6C6bnm4+rPF3HV8zq2o
+         KnNDQycO598Lh+SNKg1GMuwsMb5sZx8MpDXLnuOsPZMTfvnXxcQphl85WTzXVxVIhsqd
+         9+Eg==
+X-Gm-Message-State: ACgBeo3/j2es21hU1nPkUyOeh3TDE7OyOW/sWgym/vSZ98U79V5ETD7h
+	iT7n4EWOgNAUoSHpDHloeGqa6w==
+X-Google-Smtp-Source: AA6agR7bBIo4WvfaTQmBmKbZYuyKOKLHUXCNnIkzR2yMddKcJrOEa3tcvpyzuyC0FL4VN5JT0BNR4A==
+X-Received: by 2002:adf:fa0d:0:b0:225:1bd4:5d8a with SMTP id m13-20020adffa0d000000b002251bd45d8amr14077231wrr.106.1661279634905;
+        Tue, 23 Aug 2022 11:33:54 -0700 (PDT)
 Received: from henark71.. ([51.37.149.245])
-        by smtp.gmail.com with ESMTPSA id p16-20020a05600c1d9000b003a5fcae64d4sm19396556wms.29.2022.08.23.11.33.57
+        by smtp.gmail.com with ESMTPSA id p16-20020a05600c1d9000b003a5fcae64d4sm19396556wms.29.2022.08.23.11.33.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Aug 2022 11:33:58 -0700 (PDT)
+        Tue, 23 Aug 2022 11:33:54 -0700 (PDT)
 From: Conor Dooley <mail@conchuod.ie>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Marc Zyngier <maz@kernel.org>,
@@ -76,17 +76,19 @@ Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
 	linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	qemu-riscv@nongnu.org
-Subject: [PATCH v4 4/4] dt-bindings: riscv: isa string bonus content
-Date: Tue, 23 Aug 2022 19:33:20 +0100
-Message-Id: <20220823183319.3314940-5-mail@conchuod.ie>
+	qemu-riscv@nongnu.org,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH v4 1/4] dt-bindings: timer: sifive,clint: add legacy riscv compatible
+Date: Tue, 23 Aug 2022 19:33:17 +0100
+Message-Id: <20220823183319.3314940-2-mail@conchuod.ie>
 X-Mailer: git-send-email 2.37.1
 In-Reply-To: <20220823183319.3314940-1-mail@conchuod.ie>
 References: <20220823183319.3314940-1-mail@conchuod.ie>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220823_113401_073031_68FF97B4 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20220823_113358_925459_138AE0F5 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +107,50 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-**NOT FOR CONSIDERATION**
+While "real" hardware might not use the compatible string "riscv,clint0"
+it is present in the driver & QEMU uses it for automatically generated
+virt machine dtbs. To avoid dt-validate problems with QEMU produced
+dtbs, such as the following, add it to the binding.
 
-I figured, sure why not add the strings for version number validation,
-just in case we need them in the future. The commented out string is
-considered by dt-schema to be "not a regex", but regex101 thinks it
-is... Maybe dt-schema does not support named match groups, but they
-are the only way that I could trivially find to make this somewhat
-manageable. Either way, it is permissive so it allows combinations
-of "M", "MpM" & no number.
+riscv-virt.dtb: clint@2000000: compatible:0: 'sifive,clint0' is not one of ['sifive,fu540-c000-clint', 'starfive,jh7100-clint', 'canaan,k210-clint']
 
-Not-signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Reported-by: Rob Herring <robh@kernel.org>
+Link: https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
+Reviewed-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ .../bindings/timer/sifive,clint.yaml           | 18 ++++++++++++------
+ 1 file changed, 12 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 90a7cabf58fe..6c725d067846 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -80,7 +80,11 @@ properties:
-       insensitive, letters in the riscv,isa string must be all
-       lowercase to simplify parsing.
-     $ref: "/schemas/types.yaml#/definitions/string"
--    pattern: ^rv(?:64|32)imaf?d?q?c?b?v?k?h?(?:_[hsxz](?:[a-z])+)*$
-+    oneOf:
-+      - pattern: ^rv(?:64|32)imaf?d?q?c?b?v?k?h?(?:_[hsxz](?:[a-z])+)*$
-+      - pattern: ^rv(?:64|32)(?:i\d+)(?:m\d+)(?:a\d+)(?:f\d+)?(?:d\d+)?(?:q\d+)?(?:c\d+)?(?:b\d+)?(?:v\d+)?(?:k\d+)?(?:h\d+)?(?:(?:_[zsh][imafdqcbvksh]|_x)(?:[a-z])+\d+)*$
-+      - pattern: ^rv(?:64|32)(?:i\d+p\d+)(?:m\d+p\d+)(?:a\d+p\d+)(?:f\d+p\d+)?(?:d\d+p\d+)?(?:q\d+p\d+)?(?:c\d+p\d+)?(?:b\d+p\d+)?(?:v\d+p\d+)?(?:k\d+p\d+)?(?:h\d+p\d+)?(?:(?:_[zsh][imafdqcbvksh]|_x)(?:[a-z])+(?:\d+p\d+))*$
-+#      - pattern: ^rv(?:64|32)(?:i(?<num>(?:\d+|\d+p\d+)?)?)(?:m(?:\k<num>)?)(?:a(?:\k<num>)?)(?:f(?:\k<num>)?)?(?:d(?:\k<num>)?)?(?:q(?:\k<num>)?)?(?:c(?:\k<num>)?)?(?:b(?:\k<num>)?)?(?:v(?:\k<num>)?)?(?:k(?:\k<num>)?)?(?:h(?:\k<num>)?)?(?:(?:_[zsh][imafdqcbvksh]|_x)(?:[a-z])*(?:\d+|\d+p\d+)?)+$
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index e64f46339079..bbad24165837 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -22,12 +22,18 @@ description:
  
-   # RISC-V requires 'timebase-frequency' in /cpus, so disallow it here
-   timebase-frequency: false
+ properties:
+   compatible:
+-    items:
+-      - enum:
+-          - sifive,fu540-c000-clint
+-          - starfive,jh7100-clint
+-          - canaan,k210-clint
+-      - const: sifive,clint0
++    oneOf:
++      - items:
++          - enum:
++              - sifive,fu540-c000-clint
++              - starfive,jh7100-clint
++              - canaan,k210-clint
++          - const: sifive,clint0
++      - items:
++          - const: sifive,clint0
++          - const: riscv,clint0
++        deprecated: true
++        description: For the QEMU virt machine only
+ 
+     description:
+       Should be "<vendor>,<chip>-clint" and "sifive,clint<version>".
 -- 
 2.37.1
 
