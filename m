@@ -4,87 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 000AEC00140
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 16:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F74AC00140
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 16:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i/Iqr7XIig8jgqRAMP0u5QhG4vBLUeiNjP1lXVglwHk=; b=eJ+JFcTExV4VBM
-	Egtyj4PpGWejZYlEs5qgU8PhbHmzY8yH/xU/KUbaT67JuCB4Itau17mQZ7NYXMTF7yMzCS4/yvTl2
-	xatEUXJkpS6x8RG87bo4HiVg3gOKW5BgseOeHULbBRBmI8dW3PdQMiGKZwy99UutvOAPFtxRq7RTm
-	WP0qKov51A1RBpaIt0o0IlQoJtBGAQN59chRJpIW72JzPNws7fCRUxvS3ECk5SbV+HBpMwA07KiOd
-	cHWw7VcfoF12xPSxMZNyd9tmlyU69Fy9fPORFb+qTRwXgpHcaS31eeBMIHyoXHXoK7CZcVUImhIuE
-	lag0BFfBB4/YVYbPaOKA==;
+	List-Owner; bh=HBoY/pSOTsLZ7cCxS0GdZhTpvNm0MlrZB5UvOMab8IQ=; b=Ax4TSjlaJ1g/ni
+	/Yk80o5cUpGZtjS9UXvcQcFes778WJMcAfhHR4HiLIHeTRzB510M1zvzyX9H8rY4uAssQjrJKpprr
+	rwKRGCBpnqmVsbp1RRFVlKQZIUWbaYfbivdGFCXS+z87NezOkpgROD9Gvl2jWjy33FqFHlFeCitlm
+	al8WMNV2Grkjk5cCNHqzx3oUcr4CHiZT8f2YK5Fbo6iI5u72J56ZQtfTzGnnS2iD7xdAEK3jegrV8
+	HitVJi4n4giP7rrb+7r5xhNjYDoJ9xEJkup6QDR4VKPW00WjJpEPD+4x5HywxtJ5gN4P88pykGbod
+	RQ1g8Hfh7UPhm/XLH5Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQt7n-00EMhg-J1; Wed, 24 Aug 2022 16:21:03 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1oQtAZ-00ENp1-0D; Wed, 24 Aug 2022 16:23:55 +0000
+Received: from mail-yw1-x1131.google.com ([2607:f8b0:4864:20::1131])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQt7k-00EMfb-7X
-	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 16:21:01 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id u14so21382465wrq.9
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Aug 2022 09:20:59 -0700 (PDT)
+	id 1oQfHB-009qHF-Pn
+	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 01:33:52 +0000
+Received: by mail-yw1-x1131.google.com with SMTP id 00721157ae682-3376851fe13so391484767b3.6
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Aug 2022 18:33:45 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=conchuod.ie; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc;
-        bh=S2tBbgrx+25RpWaqCl+haIdlbySiWC0Xb4SRnNTuZLo=;
-        b=CaBBfJ6zzlzSH8t+T5KGfrvMzLAi5AI0eoDZAVk0yw3cSoKl5RoetN0lKoKeWRh6hP
-         r5P8edcEbxW/Ad8FhnLpgrcKO9nzODroDxn0URodX5a9zfEmMBvyQNrmKmfKBYVQHrWN
-         TOX3+urD81gS9Ih4cs9hl7+KIvMTFFBJQlmcNWfGci8wUyo2NUiyTmh4MCkSTbDEhalM
-         ccAX+7RJgQlxRHJ90k2FI02f6/m0gmf3lK0EziSkKN8eoc85597K8AE4NAwEifpHvNgV
-         APwCV35SmUdKYbIxqZ2tLbzCVxnjNZX4poPem4awdsY1nLjYErALPj0Bk98N1GnJdR3t
-         cNdg==
+        d=google.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc;
+        bh=15+zFGICN73u7PZkuVftuGFAaRqO2hNiuUPbcuB/iDw=;
+        b=ammrl+ffQIbxpXELKnFxaurs3Fbe2bx9R/IRI2+J5pQAM/wfjFh1aSFzyWG/E1RD5I
+         rshOZlmvK+Bt4a2MNbUFbSpkCeSrrxRT3zaVTQqLRUMz4elzDZb4CyvIvtQzq4jGwi+1
+         HBILJXTenmBL8ezDV/XzSltMyRVW8N5pGLVc6ZMhlIDEvl+mrwxpUc5n+db5z5Pfve4k
+         jWbqAzYB3Hyg5oa2ZHgXfW73ElDNxOwcp7mMt28pojnFNBEyD2+0HttoLOb68bdPn3gz
+         h+F5uqyOw5Q9oI+0N52Nr3XEpZ0TzyQMzlW05rWkdP3Hj3nW89n+8r+x6EjcJTcjYaCu
+         dSgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
-        bh=S2tBbgrx+25RpWaqCl+haIdlbySiWC0Xb4SRnNTuZLo=;
-        b=naM0lWOLMkrKgVvVYvbeuL9QoeQ32LvSI9SRvFZ4b6dhSkYs2LnPt/9V9hQAtb5VHw
-         +a8Z+3i1Fyv8nq+voUnsYe13FrLKzjPu51y5baymQ7EIJBjPKEjOxQmdrlBxd446vEmY
-         TPqTpIhAVwfDTSKi2CbXzoD/0R7LYVYOG8FRtVzdllFi8XgbTfwWBrFTh1WDcBYC2vOt
-         20qvIk5iy672QZNAMIF4xq0EhkFgwscfFCmzE3mxAz+JF3y7i+D/y/qTUU0dI1WcRgTH
-         PMQCB7b3a2w8Akogo5/CdUlZDmZkiNY6syMfSsWdPNTd8t6VH8oMmf35vKKx11XP0xsk
-         42YA==
-X-Gm-Message-State: ACgBeo2v3SqewgJ4jdchS0neY7pLVk6IwdIHrKp17iXY5r1gLrSTcfG1
-	cGEl4nW59bi7NlnS1eqTEm3sgQ==
-X-Google-Smtp-Source: AA6agR4/6nKKtxFMnoCc84DqrjQsVm+cjtB+x8R9A0ftf1MIYOg7bI7gO59Np7Of33NfYpXfhEp05Q==
-X-Received: by 2002:a05:6000:221:b0:225:464d:b096 with SMTP id l1-20020a056000022100b00225464db096mr24122wrz.32.1661358058303;
-        Wed, 24 Aug 2022 09:20:58 -0700 (PDT)
-Received: from henark71.. ([51.37.149.245])
-        by smtp.gmail.com with ESMTPSA id l6-20020a05600c4f0600b003a690f704absm1903582wmq.4.2022.08.24.09.20.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Aug 2022 09:20:57 -0700 (PDT)
-From: Conor Dooley <mail@conchuod.ie>
-To: Rob Herring <robh+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	Conor Dooley <mail@conchuod.ie>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>,
-	linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: (subset) [PATCH v3 0/7] Fix RISC-V/PCI dt-schema issues with dt-schema v2022.08
-Date: Wed, 24 Aug 2022 17:19:44 +0100
-Message-Id: <166135795510.3741278.5608627370699269871.b4-ty@microchip.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20220819231415.3860210-1-mail@conchuod.ie>
-References: <20220819231415.3860210-1-mail@conchuod.ie>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc;
+        bh=15+zFGICN73u7PZkuVftuGFAaRqO2hNiuUPbcuB/iDw=;
+        b=YASsOqGmHNoKh7LMzKSi5AxUU+9IXEVfiDnckY6QeDv3e/871dCC3wwQi4rqWbc+G1
+         saXvdao7fA2mDBiRE/0pfANw+uw41fXSjaFB7aPvVaJWbnk/zXfA0E9GEYZ/i0MOlHxR
+         grB88ZrSYb1UxjS8Xk/c8otue82o3DhhX76hsnCNWalMF0WGsfoLaNoXaFyPHtuMgSxZ
+         XN+PPQoy6xujQQGuVvDf83EEHuhx4SIXAGqgtw7rQrRowcUDWFxC0IMyjPjwv3IP11um
+         ucMzO/b8QJ3qADyvyi3N66NJBq75/w1tRdls9fnVPF9bDQo5YqQwtEpWj3dfWkATiVVU
+         YYow==
+X-Gm-Message-State: ACgBeo29uE92wDBLg9URT45tbKnXz+0F6YsGsXxwjM0G9ckLb7tga8G2
+	rLdIf6ZJHHs4RuNa07C06A/JYzmYnkTpdEOiEKB2YA==
+X-Google-Smtp-Source: AA6agR5VUVZnLczkpHKFOKrnd+Tscg/SlOlcCZoOHfOkTvdY9LhPO1gaSJJ+tW/v5A56NSwT8mnZVrMApq5J4jdaQcY=
+X-Received: by 2002:a25:1546:0:b0:68f:8758:7348 with SMTP id
+ 67-20020a251546000000b0068f87587348mr24825887ybv.563.1661304824786; Tue, 23
+ Aug 2022 18:33:44 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220701012647.2007122-1-saravanak@google.com> <YwS5J3effuHQJRZ5@kroah.com>
+In-Reply-To: <YwS5J3effuHQJRZ5@kroah.com>
+From: Saravana Kannan <saravanak@google.com>
+Date: Tue, 23 Aug 2022 18:33:07 -0700
+Message-ID: <CAGETcx8C_Hw588J_DsDELp2rS-UNnezpqqqvUixqGR7m2wDKaA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] Fix console probe delay when stdout-path isn't set
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Laurentiu Tudor <laurentiu.tudor@nxp.com>, 
+	Jiri Slaby <jirislaby@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>, Paul Mackerras <paulus@samba.org>, 
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>, 
+	Nicolas Saenz Julienne <nsaenz@kernel.org>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Al Cooper <alcooperx@gmail.com>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Paul Cercueil <paul@crapouillou.net>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
+	Tobias Klauser <tklauser@distanz.ch>, Russell King <linux@armlinux.org.uk>, 
+	Vineet Gupta <vgupta@kernel.org>, Richard Genoud <richard.genoud@gmail.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Claudiu Beznea <claudiu.beznea@microchip.com>, Alexander Shiyan <shc_work@mail.ru>, 
+	Baruch Siach <baruch@tkos.co.il>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, 
+	Karol Gugala <kgugala@antmicro.com>, Mateusz Holenko <mholenko@antmicro.com>, 
+	Gabriel Somlo <gsomlo@gmail.com>, Neil Armstrong <narmstrong@baylibre.com>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Taichi Sugaya <sugaya.taichi@socionext.com>, Takao Orito <orito.takao@socionext.com>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Andy Gross <agross@kernel.org>, 
+	Bjorn Andersson <bjorn.andersson@linaro.org>, Pali Rohar <pali@kernel.org>, 
+	Andreas Farber <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Laxman Dewangan <ldewangan@nvidia.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Orson Zhai <orsonzhai@gmail.com>, 
+	Baolin Wang <baolin.wang7@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+	Patrice Chotard <patrice.chotard@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, "David S. Miller" <davem@davemloft.net>, 
+	Hammer Hsieh <hammerh0314@gmail.com>, Peter Korsgaard <jacmet@sunsite.dk>, Timur Tabi <timur@kernel.org>, 
+	Michal Simek <michal.simek@xilinx.com>, Rob Herring <robh@kernel.org>, 
+	sascha hauer <sha@pengutronix.de>, peng fan <peng.fan@nxp.com>, kevin hilman <khilman@kernel.org>, 
+	ulf hansson <ulf.hansson@linaro.org>, len brown <len.brown@intel.com>, 
+	pavel machek <pavel@ucw.cz>, joerg roedel <joro@8bytes.org>, will deacon <will@kernel.org>, 
+	andrew lunn <andrew@lunn.ch>, heiner kallweit <hkallweit1@gmail.com>, 
+	eric dumazet <edumazet@google.com>, jakub kicinski <kuba@kernel.org>, paolo abeni <pabeni@redhat.com>, 
+	linus walleij <linus.walleij@linaro.org>, hideaki yoshifuji <yoshfuji@linux-ipv6.org>, 
+	david ahern <dsahern@kernel.org>, kernel-team@android.com, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, iommu@lists.linux-foundation.org, 
+	netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-serial@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, linux-actions@lists.infradead.org, 
+	linux-unisoc@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+	sparclinux@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220824_092100_328339_C2CF5C07 
-X-CRM114-Status: UNSURE (   7.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220823_183349_863989_097F5671 
+X-CRM114-Status: GOOD (  15.09  )
+X-Mailman-Approved-At: Wed, 24 Aug 2022 09:23:54 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +138,22 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
+On Tue, Aug 23, 2022 at 4:25 AM Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> On Thu, Jun 30, 2022 at 06:26:38PM -0700, Saravana Kannan wrote:
+> > These patches are on top of driver-core-next.
+> >
+> > Even if stdout-path isn't set in DT, this patch should take console
+> > probe times back to how they were before the deferred_probe_timeout
+> > clean up series[1].
+>
+> Now dropped from my queue due to lack of a response to other reviewer's
+> questions.
 
-On Sat, 20 Aug 2022 00:14:09 +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Hey all,
-> 
-> Got a few fixes for PCI dt-bindings that I noticed after upgrading my
-> dt-schema to v2022.08.
-> 
-> [...]
+Sorry, I somehow missed those emails. I'll respond later today/tomorrow.
 
-Applied to dt-fixes, RISC-V should be back to 0 warnings in the next
-linux-next. Thanks!
-
-[4/7] riscv: dts: microchip: mpfs: fix incorrect pcie child node name
-      https://git.kernel.org/conor/c/3f67e6997603
-[5/7] riscv: dts: microchip: mpfs: remove ti,fifo-depth property
-      https://git.kernel.org/conor/c/72a05748cbd2
-[6/7] riscv: dts: microchip: mpfs: remove bogus card-detect-delay
-      https://git.kernel.org/conor/c/2b55915d27dc
-[7/7] riscv: dts: microchip: mpfs: remove pci axi address translation property
-      https://git.kernel.org/conor/c/e4009c5fa77b
-
-Thanks,
-Conor.
+-Saravana
 
 _______________________________________________
 linux-riscv mailing list
