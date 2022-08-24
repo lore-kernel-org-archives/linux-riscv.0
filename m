@@ -4,56 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EB1C32793
-	for <linux-riscv@archiver.kernel.org>; Tue, 23 Aug 2022 23:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 364CAC32793
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 03:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:To:Cc:From:Subject:
-	References:In-Reply-To:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LC3TX4EgMOQ6RVXBmLaK2ExcPH+fMTZIhxEejEttpNk=; b=nayTkExzDzsWdt
-	RL1r2WYe30JH962g46O24d31q8NkgnAZJbY1p1kbdql7Q60pZMqGtRnGS8MkZ2iGv+inz5kgqe17W
-	C/tNrERdBRdc9EYy2FIpq1ogH8KOrTziMFF1Z9L+BcZj0BfoOFQJirEvviLSQFmVWZrRac/Zf75/2
-	4zbQ7pktYPeVTsyxUcajfqlVgou0rAJ+biUuyDQHck+UGNRENripouV/PjmDzHQ4D4BTo7U9c0VKJ
-	1TEmgMxtqx+efbbeCCA3nn9uqxmO52QCI6wD9gqvWYsGlH1Jlb3DW2LzCzKOIPIX2eGawPu49U/fT
-	aWfYXUjAxUHqHm5Ui1SQ==;
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:
+	Mime-Version:Message-Id:Date:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=fQyGTnB6ObX4Xkrxr+2eph2QgVV3okN0/obOPxuKkWQ=; b=zOW
+	GmwcD5d6Lt9uEcPksFWLDStlxLg9/kwBPdR298X1zMcRksGzpOkKP2oeUx3JLzVAgMQjpz44xqxca
+	crPX9ptX4zviod4P9j4hedl9iCGXXfvJ+srwT5idupXCdNKchzrarnIF8CCNTtL35qM86pG6lBfTA
+	5qVZHEShe1VFlkTYwC4mKJhAkrrwnFBV2JzIEIFreX4Xx20EXx98tBuW2hTLTUBZ92EZDdEe+ivQV
+	csC3zFSDDL0RTIMmrUjMWxtyGpVHXe72W7aml0Woi+D4C5axCIDZgGzQa26ZiosVW3NxL0AMuOpU/
+	6Xza0xln8VTJ6iSc0YvmGGKxAS20cVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQd17-0096on-JP; Tue, 23 Aug 2022 23:09:05 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1oQgxS-00ACTo-2A; Wed, 24 Aug 2022 03:21:34 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQd0w-0096km-0q; Tue, 23 Aug 2022 23:08:56 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 51C2FCE204C;
-	Tue, 23 Aug 2022 23:08:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB8BAC433C1;
-	Tue, 23 Aug 2022 23:08:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1661296122;
-	bh=etGtsQ8hpgqaYQRpo9CqjNo7mfEVd9+79g1wLm8oYME=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=AYzhj9Rv8WS0WPWOtuTrDHU/yH/cQpdgsMrIGtkaf9IidgT4AJQc84OdZmhRJd/K7
-	 uw9HKq3ikESZJaUK7GM55LxcS/qbMb8gJq2SDu+fXYSm5k8ZdLr9Ty8ULl/+L6b1CZ
-	 sXHEdPzC/+pjG67AIQNYndA8vLVTarQx56i6AM0nAQyzMh9jVixSrqjQocqe1UtH8V
-	 QbR+hSXT75zbw2BI7R4dS+/q853jcbFUYn/ziebYWRUko82Z1TGMn39MxZmttXfXVQ
-	 2Ep8kHDQKuh1UifuTNodfc7ooOrRUkwXtFbhOvFJHFo7l1+wimGxOLR/ofJXRrv31Z
-	 iDfumwWa9I06A==
-MIME-Version: 1.0
-In-Reply-To: <20220527102900.144894-1-iivanov@suse.de>
-References: <20220527102900.144894-1-iivanov@suse.de>
-Subject: Re: [PATCH v3] clk: bcm2835: Round UART input clock up
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: Ivan T. Ivanov <iivanov@suse.de>, Phil Elwell <phil@raspberrypi.org>, kernel test robot <lkp@intel.com>, linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-To: Albert Ou <aou@eecs.berkeley.edu>, Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Florian Fainelli <f.fainelli@gmail.com>, Ivan T. Ivanov <iivanov@suse.de>, Michael Turquette <mturquette@baylibre.com>, Nicolas Saenz Julienne <nsaenz@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, Stefan Wahren <stefan.wahren@i2se.com>
-Date: Tue, 23 Aug 2022 16:08:40 -0700
-User-Agent: alot/0.10
-Message-Id: <20220823230842.AB8BAC433C1@smtp.kernel.org>
+	id 1oQgxD-00ACMP-Hf
+	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 03:21:22 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id a16-20020a17090abe1000b001fad8c29b0bso200787pjs.2
+        for <linux-riscv@lists.infradead.org>; Tue, 23 Aug 2022 20:21:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=cc:to:from:subject:mime-version:message-id:date:reply-to:from:to:cc;
+        bh=0PgRhcNFQ7wUH/xHyENNgGO5Y68ff82pBwc9ifNEyXw=;
+        b=cqHjEyrC8/5Ptg3s0VemFx6Afe05DyCrV8I1WrMH2BuvEwwsDY1YsrbGXctw65VldG
+         fAmhyiPz7pkRXrbwBZ38vyCPLv5QBCP4oH+/gu1mKhgYTPOR+Ya+5b3VA+2WH98XQmBq
+         1FOvFOP3tIyLS9BehwIqIBtCj8lM/BvWhTdiI/ce9pRiN9eKP9sHPyAITpNwOJ3sO+2N
+         4YCabFxHGqjIDcC9CP17NKHtJTtA5CdGAUad7ynG0wNtC4Vfe2QJX6PECaOymuHUk10t
+         PuRSnM35P9sTAO+sSnGlTY4exlZjjiMPgXiy+eydM2ZxalQexAZSKP4RIGtkmpgCQfsB
+         7euw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:from:subject:mime-version:message-id:date:reply-to
+         :x-gm-message-state:from:to:cc;
+        bh=0PgRhcNFQ7wUH/xHyENNgGO5Y68ff82pBwc9ifNEyXw=;
+        b=CdcHoXqsKCgk/u5LVH4l0eN0DTQ2vQxdeziY8a4aHj4K9Tx3F4Axo8iWPydXJDS1fi
+         urLd1pGxKFbUMsJBHnC6Auj7BGfiOiEJzBYCIN3XhK5TFoKWT/Bq0ECrklqCj+BJsuXk
+         TYF5wngVgSm4QWE8Td9NBh1UxnVqczAofUvT5u4nxBgXIMhYm7jc9wwAKKl3RE4kFCJI
+         QxJNf2TCcv/PR77Y0xB+MJZLDKnS0UDr8lGpgxvXgreE+6uHpPtev2YhwbDkKCm0LQg7
+         vNYY+Jv3f6ndUvRSpLl9BIwZ8ZxwuFXOYx8pgeiCv3G9aayCUF2wyRsvJcmv7HVytQkW
+         H16Q==
+X-Gm-Message-State: ACgBeo2FkL150b9kNXgh+fT7dRcrbPlh1FCyLtKxizblhKpY1Hhftsvv
+	7W5zZDDPMAqI9liksNEzR/5nrhKSv6E=
+X-Google-Smtp-Source: AA6agR63ilrlfg+EIittKBqsUyfiZ4SJp+plrm1tSJz8p5Jon3Gzg8eg5LcSRgWaSK1dHMSOxMnJUkNlhh0=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a17:902:ba8e:b0:172:ddb9:fe45 with SMTP id
+ k14-20020a170902ba8e00b00172ddb9fe45mr14718860pls.86.1661311277642; Tue, 23
+ Aug 2022 20:21:17 -0700 (PDT)
+Date: Wed, 24 Aug 2022 03:21:09 +0000
+Message-Id: <20220824032115.3563686-1-seanjc@google.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.37.1.595.g718a3a8f04-goog
+Subject: [PATCH v4 0/6] KVM: selftests: Implement ucall "pool" (for SEV)
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Atish Patra <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>, Tom Rix <trix@redhat.com>, 
+	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.cs.columbia.edu, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>, 
+	Peter Gonda <pgonda@google.com>, Andrew Jones <andrew.jones@linux.dev>, 
+	Sean Christopherson <seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220823_160854_424025_82534849 
-X-CRM114-Status: GOOD (  30.60  )
+X-CRM114-CacheID: sfid-20220823_202119_612897_D29A18D4 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,139 +90,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Ivan T. Ivanov (2022-05-27 03:29:00)
-> It was reported that RPi3[1] and RPi Zero 2W boards have issues with
-> the Bluetooth. It turns out that when switching from initial to
-> operation speed host and device no longer can talk each other because
-> host uses incorrect UART baud rate.
-> 
-> The UART driver used in this case is amba-pl011. Original fix, see
-> below Github link[2], was inside pl011 module, but somehow it didn't
-> look as the right place to fix. Beside that this original rounding
-> function is not exactly perfect for all possible clock values. So I
-> deiced to move the hack to the platform which actually need it.
-> 
-> The UART clock is initialised to be as close to the requested
-> frequency as possible without exceeding it. Now that there is a
-> clock manager that returns the actual frequencies, an expected
-> 48MHz clock is reported as 47999625. If the requested baud rate
-> == requested clock/16, there is no headroom and the slight
-> reduction in actual clock rate results in failure.
-> 
-> If increasing a clock by less than 0.1% changes it from ..999..
-> to ..000.., round it up.
-> 
-> [1] https://bugzilla.suse.com/show_bug.cgi?id=1188238
-> [2] https://github.com/raspberrypi/linux/commit/ab3f1b39537f6d3825b8873006fbe2fc5ff057b7
-> 
-> Cc: Phil Elwell <phil@raspberrypi.org>
-> Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
-> ---
+This is "v4" of Peter's SEV series, minus the actual SEV tests.  My plan
+is to get this queued sooner than later so that Peter can build on top.
 
-This is waiting for someone like Stefan to review. It's customary to
-include previous reviewers on new versions of patches.
+Non-KVM folks, y'all got pulled in because of the atomic_test_and_set_bit()
+patch.
 
--Stephen
+Rework the ucall infrastructure to use a pool of ucall structs to pass
+memory instead of using the guest's stack.  For confidential VMs with
+encrypted memory, e.g. SEV, the guest's stack "needs" to be private memory
+and so can't be used to communicate with the host.
 
-> 
-> Changes since v2
-> * Added more information in commit message
-> * Changed hand crafted round function with the one form math.h
-> 
-> Changes since v1
-> Make bcm2835_clock_round() static to fix following warning
-> when compiling for riscv:
-> drivers/clk/bcm/clk-bcm2835.c:997:15: warning: no previous prototype for 'bcm2835_clock_round' [-Wmissing-prototypes]
-> Reported-by: kernel test robot <lkp@intel.com>
-> 
->  drivers/clk/bcm/clk-bcm2835.c | 32 ++++++++++++++++++++++++++++++--
->  1 file changed, 30 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
-> index 48a1eb9f2d55..cee59990a57b 100644
-> --- a/drivers/clk/bcm/clk-bcm2835.c
-> +++ b/drivers/clk/bcm/clk-bcm2835.c
-> @@ -30,6 +30,7 @@
->  #include <linux/debugfs.h>
->  #include <linux/delay.h>
->  #include <linux/io.h>
-> +#include <linux/math.h>
->  #include <linux/module.h>
->  #include <linux/of_device.h>
->  #include <linux/platform_device.h>
-> @@ -502,6 +503,8 @@ struct bcm2835_clock_data {
->         bool low_jitter;
->  
->         u32 tcnt_mux;
-> +
-> +       bool round_up;
->  };
->  
->  struct bcm2835_gate_data {
-> @@ -993,12 +996,31 @@ static long bcm2835_clock_rate_from_divisor(struct bcm2835_clock *clock,
->         return temp;
->  }
->  
-> +static unsigned long bcm2835_clock_round(unsigned long clk)
-> +{
-> +       unsigned long scaler;
-> +
-> +       scaler = 1;
-> +       while (scaler * 100000 < clk)
-> +               scaler *= 10;
-> +
-> +       /*
-> +        * If increasing a clock by less than 0.1% changes it
-> +        * from ..999.. to ..000.., round up.
-> +        */
-> +       if ((clk + scaler - 1) / scaler % 1000 == 0)
-> +               clk = roundup(clk, scaler);
-> +
-> +       return clk;
-> +}
-> +
->  static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
->                                             unsigned long parent_rate)
->  {
->         struct bcm2835_clock *clock = bcm2835_clock_from_hw(hw);
->         struct bcm2835_cprman *cprman = clock->cprman;
->         const struct bcm2835_clock_data *data = clock->data;
-> +       unsigned long rate;
->         u32 div;
->  
->         if (data->int_bits == 0 && data->frac_bits == 0)
-> @@ -1006,7 +1028,12 @@ static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
->  
->         div = cprman_read(cprman, data->div_reg);
->  
-> -       return bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
-> +       rate = bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
-> +
-> +       if (data->round_up)
-> +               rate = bcm2835_clock_round(rate);
-> +
-> +       return rate;
->  }
->  
->  static void bcm2835_clock_wait_busy(struct bcm2835_clock *clock)
-> @@ -2143,7 +2170,8 @@ static const struct bcm2835_clk_desc clk_desc_array[] = {
->                 .div_reg = CM_UARTDIV,
->                 .int_bits = 10,
->                 .frac_bits = 12,
-> -               .tcnt_mux = 28),
-> +               .tcnt_mux = 28,
-> +               .round_up = true),
->  
->         /* TV encoder clock.  Only operating frequency is 108Mhz.  */
->         [BCM2835_CLOCK_VEC]     = REGISTER_PER_CLK(
-> -- 
-> 2.35.3
->
+Convert all implementations to the pool as all of the complexity is hidden
+in common code, and supporting multiple interfaces adds its own kind of
+complexity. 
+
+Tested on x86 and ARM, compile tested on s390 and RISC-V.
+
+Peter Gonda (2):
+  tools: Add atomic_test_and_set_bit()
+  KVM: selftests: Add ucall pool based implementation
+
+Sean Christopherson (4):
+  KVM: selftests: Consolidate common code for populating ucall struct
+  KVM: selftests: Consolidate boilerplate code in get_ucall()
+  KVM: selftests: Automatically do init_ucall() for non-barebones VMs
+  KVM: selftests: Make arm64's MMIO ucall multi-VM friendly
+
+ tools/arch/x86/include/asm/atomic.h           |   7 ++
+ tools/include/asm-generic/atomic-gcc.h        |  12 ++
+ tools/testing/selftests/kvm/Makefile          |   1 +
+ .../selftests/kvm/aarch64/arch_timer.c        |   1 -
+ .../selftests/kvm/aarch64/debug-exceptions.c  |   1 -
+ .../selftests/kvm/aarch64/hypercalls.c        |   1 -
+ .../testing/selftests/kvm/aarch64/psci_test.c |   1 -
+ .../testing/selftests/kvm/aarch64/vgic_init.c |   2 -
+ .../testing/selftests/kvm/aarch64/vgic_irq.c  |   1 -
+ tools/testing/selftests/kvm/dirty_log_test.c  |   2 -
+ .../selftests/kvm/include/kvm_util_base.h     |  16 +++
+ .../selftests/kvm/include/ucall_common.h      |  13 +-
+ .../selftests/kvm/kvm_page_table_test.c       |   1 -
+ .../testing/selftests/kvm/lib/aarch64/ucall.c | 101 +++-------------
+ tools/testing/selftests/kvm/lib/kvm_util.c    |  11 ++
+ .../selftests/kvm/lib/perf_test_util.c        |   2 -
+ tools/testing/selftests/kvm/lib/riscv/ucall.c |  40 ++----
+ tools/testing/selftests/kvm/lib/s390x/ucall.c |  37 ++----
+ .../testing/selftests/kvm/lib/ucall_common.c  | 114 ++++++++++++++++++
+ .../testing/selftests/kvm/lib/x86_64/ucall.c  |  37 ++----
+ .../testing/selftests/kvm/memslot_perf_test.c |   1 -
+ tools/testing/selftests/kvm/rseq_test.c       |   1 -
+ tools/testing/selftests/kvm/steal_time.c      |   1 -
+ .../kvm/system_counter_offset_test.c          |   1 -
+ 24 files changed, 213 insertions(+), 192 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/lib/ucall_common.c
+
+
+base-commit: 372d07084593dc7a399bf9bee815711b1fb1bcf2
+-- 
+2.37.1.595.g718a3a8f04-goog
+
 
 _______________________________________________
 linux-riscv mailing list
