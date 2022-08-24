@@ -4,78 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E815C00140
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 07:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57986C00140
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 08:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YlWGxsxV2KpL0N5aFDK4kkHwlTALj2v+mAh2eZyrhPQ=; b=mabXB4hSmvh1ms
-	s8SQK4ihYvGPtLcczkD3J8dbjAA3+doTGzoAepadfN44r3RwRpuFHlelQ0oJiSaVmHXjCFS+Ke6lx
-	Pt9A0vU5EOUfjkPCLOCPn0x4vVgG3bQqinI+jbHGltv9Gt+d4KUKM5zOUGzBL0bc798q83rwbBEJu
-	EUTk4r62M7apsTuDy5+qKqvtC+QJIKQDEGcAo8dClW8zClugVDgK9CngkwUcgHwgpbnSaQ+WbCEXy
-	DYbFWJMCD0ztqjY9+ayp3IhXY57tOy2psA2OKHTKGBA1VaNEc6ft8C3+ZPkNmfhQSm+wCKjfirT7f
-	uN7bm2KaK6LQDknlaKhA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7ngWhT/Dz62AZ5+auFM0twMt0R1lig3mcUpKjaoPuIs=; b=bc9jGVd9TccFH5
+	CTVMxrH3gw5ZWFdivM6GshrTjVWcb7hSlYcqG/oe2HKSLiPzsSHoGdo7anfucEeZSmZjw498NZV6p
+	UPAAR+t3y26sd5BwXJ5Vh8xCDJRlrfL9lRy138ORqtkpdBJ9MlIA1bXBAcpw+OXfWthG+GkFW59+I
+	TID2BzXB5t86GdozGrMd195H14Xg6ls6/zGssDV7TWiHiBbezUBaqzIUGJ91XfNKvJyve1k4H//tu
+	jDr9RunVRJX98tWDLr1Lv08sUqifCgYNntqeUaFDXWi8nW81638d39DNNMMlvPjU1uOv0E5/dF1d8
+	Mns7eg5rVQjyCMXahl8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQlCQ-00BIUt-9u; Wed, 24 Aug 2022 07:53:18 +0000
-Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
+	id 1oQlau-00BQvY-1R; Wed, 24 Aug 2022 08:18:36 +0000
+Received: from smtp-17.smtpout.orange.fr ([80.12.242.17] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQlCE-00BIRL-Fs
-	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 07:53:08 +0000
-Received: by mail-io1-xd30.google.com with SMTP id 62so12768101iov.5
-        for <linux-riscv@lists.infradead.org>; Wed, 24 Aug 2022 00:53:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc;
-        bh=9r/o+kbVQuRgd3he3vY5TSCEIo6rMCGZbm88wIqFP8Q=;
-        b=eMXIxPRGdnHxWWurrEzfpDzZsVgdUEI1TRoy42m0Dzr7/LEOSVr0qgBLVn2S4cdjNg
-         8NNplilxBrpW4w2v/+0aYUstSMgr6x114Xh5WblS6A781kvgUwgoepfN2jxcjHdvN/zf
-         ieSXvQh3KEV7EdsSt/U71vN6Bxvan0bGM0hOq/3BV71XvylDtFvnoj6V6uFVeyP+ZEtF
-         7fGtUUOQa7bk3lWTEh2JROmiGw0qRkcPwjRqUO/49Lb35nrCUhS2zXshjXZoHAUdbJkW
-         nZSI5huxEmCPfjOG/GV0m8XuNP0eIZs4Kp5dOxVfAA7IYIJYUt7Lf4fZx7N1fTmGCBhc
-         UTvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc;
-        bh=9r/o+kbVQuRgd3he3vY5TSCEIo6rMCGZbm88wIqFP8Q=;
-        b=dfMJZ8xdctIeo/yiw4/W3WrwG//O9FqN0S43nNo1FoG4mqzDC4VfTKirK/ht+H086f
-         52y35lsRC20NZMjdqvOJnCwQVlNXwjaieINGQ/kXuFGHhWXFRrzNRIu9L9TF0Kmopxf0
-         jkfkBbgk4nazQe/MECkNyE5Sc25CRXs9gAr47CwOMyoIO1lMMFCgwJJzTV2ljZbtnWJn
-         SgFgh5iJidOZw3YiBn1die+mH4v2yaInwI37Hoy+unEIM0qtGoa68uq9lgAfVP8nn0cm
-         izM6ARUJ+g/eFgMErXLXCOP0MIXJMqtpLOHLcAPYZM7KOm1OZTJ4Y9+4KRLmytiumvlq
-         0PZA==
-X-Gm-Message-State: ACgBeo3pizSjvvdKbs/ZruVq2/jcMIaO6wtNnggIFqkD2FT9Zz2EERvB
-	B8wY1RQvlqpIVp365JJ0XLgcxoyyCLPvj4DtA4UuMA==
-X-Google-Smtp-Source: AA6agR4mfF2ro5+qjUp49hz4FOBZZAOyRo1US7nx2yAd8Tst61WFeQtDsY3aU2BgycMHgnUiI9L+G/cYdPQyHt3NXsQ=
-X-Received: by 2002:a02:3f63:0:b0:349:cef9:d8c2 with SMTP id
- c35-20020a023f63000000b00349cef9d8c2mr7667351jaf.231.1661327583663; Wed, 24
- Aug 2022 00:53:03 -0700 (PDT)
+	id 1oQlar-00BQtX-48
+	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 08:18:34 +0000
+Received: from pop-os.home ([90.11.190.129])
+	by smtp.orange.fr with ESMTPA
+	id QlamoIOe1ez1rQlamoU0BV; Wed, 24 Aug 2022 10:18:29 +0200
+X-ME-Helo: pop-os.home
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Wed, 24 Aug 2022 10:18:29 +0200
+X-ME-IP: 90.11.190.129
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Alessandro Zummo <a.zummo@towertech.it>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	linux-riscv@lists.infradead.org,
+	linux-rtc@vger.kernel.org
+Subject: [PATCH] rtc: mpfs: Use devm_clk_get_enabled() helper
+Date: Wed, 24 Aug 2022 10:18:25 +0200
+Message-Id: <e55c959f2821a2c367a4c5de529a638b1cc6b8cd.1661329086.git.christophe.jaillet@wanadoo.fr>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20220527102900.144894-1-iivanov@suse.de> <20220823230842.AB8BAC433C1@smtp.kernel.org>
- <20220824074443.nvrnqhpvqrtn72p4@suse>
-In-Reply-To: <20220824074443.nvrnqhpvqrtn72p4@suse>
-From: Phil Elwell <phil@raspberrypi.com>
-Date: Wed, 24 Aug 2022 08:52:53 +0100
-Message-ID: <CAMEGJJ3mh1UFTQhyDLnr1ztZccH8LKmz83_jcTYrSF11TWgbfw@mail.gmail.com>
-Subject: Re: [PATCH v3] clk: bcm2835: Round UART input clock up
-To: "Ivan T. Ivanov" <iivanov@suse.de>
-Cc: Stephen Boyd <sboyd@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Florian Fainelli <f.fainelli@gmail.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Nicolas Saenz Julienne <nsaenz@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Stefan Wahren <stefan.wahren@i2se.com>, 
-	Phil Elwell <phil@raspberrypi.org>, kernel test robot <lkp@intel.com>, linux-clk@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220824_005306_533887_DA91D6B2 
-X-CRM114-Status: GOOD (  25.32  )
+X-CRM114-CacheID: sfid-20220824_011833_327877_4829AD42 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,69 +66,72 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ivan.
+The devm_clk_get_enabled() helper:
+   - calls devm_clk_get()
+   - calls clk_prepare_enable() and registers what is needed in order to
+     call clk_disable_unprepare() when needed, as a managed resource.
 
-On Wed, 24 Aug 2022 at 08:44, Ivan T. Ivanov <iivanov@suse.de> wrote:
->
-> On 08-23 16:08, Stephen Boyd wrote:
-> > Date: Tue, 23 Aug 2022 16:08:40 -0700
-> > From: Stephen Boyd <sboyd@kernel.org>
-> > To: Albert Ou <aou@eecs.berkeley.edu>, Broadcom internal kernel review list
-> >  <bcm-kernel-feedback-list@broadcom.com>, Florian Fainelli
-> >  <f.fainelli@gmail.com>, "Ivan T. Ivanov" <iivanov@suse.de>, Michael
-> >  Turquette <mturquette@baylibre.com>, Nicolas Saenz Julienne
-> >  <nsaenz@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
-> >  <paul.walmsley@sifive.com>, Ray Jui <rjui@broadcom.com>, Scott Branden
-> >  <sbranden@broadcom.com>, Stefan Wahren <stefan.wahren@i2se.com>
-> > Cc: "Ivan T. Ivanov" <iivanov@suse.de>, Phil Elwell <phil@raspberrypi.org>,
-> >  kernel test robot <lkp@intel.com>, linux-clk@vger.kernel.org,
-> >  linux-rpi-kernel@lists.infradead.org,
-> >  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-> >  linux-riscv@lists.infradead.org
-> > Subject: Re: [PATCH v3] clk: bcm2835: Round UART input clock up
-> > Message-Id: <20220823230842.AB8BAC433C1@smtp.kernel.org>
-> >
-> > Quoting Ivan T. Ivanov (2022-05-27 03:29:00)
-> > > It was reported that RPi3[1] and RPi Zero 2W boards have issues with
-> > > the Bluetooth. It turns out that when switching from initial to
-> > > operation speed host and device no longer can talk each other because
-> > > host uses incorrect UART baud rate.
-> > >
-> > > The UART driver used in this case is amba-pl011. Original fix, see
-> > > below Github link[2], was inside pl011 module, but somehow it didn't
-> > > look as the right place to fix. Beside that this original rounding
-> > > function is not exactly perfect for all possible clock values. So I
-> > > deiced to move the hack to the platform which actually need it.
-> > >
-> > > The UART clock is initialised to be as close to the requested
-> > > frequency as possible without exceeding it. Now that there is a
-> > > clock manager that returns the actual frequencies, an expected
-> > > 48MHz clock is reported as 47999625. If the requested baud rate
-> > > == requested clock/16, there is no headroom and the slight
-> > > reduction in actual clock rate results in failure.
-> > >
-> > > If increasing a clock by less than 0.1% changes it from ..999..
-> > > to ..000.., round it up.
-> > >
-> > > [1] https://bugzilla.suse.com/show_bug.cgi?id=1188238
-> > > [2] https://github.com/raspberrypi/linux/commit/ab3f1b39537f6d3825b8873006fbe2fc5ff057b7
-> > >
-> > > Cc: Phil Elwell <phil@raspberrypi.org>
-> > > Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
-> > > ---
-> >
-> > This is waiting for someone like Stefan to review. It's customary to
-> > include previous reviewers on new versions of patches.
->
-> Thanks for fixing me mistake.
+This simplifies the code, the error handling paths and avoid the need of
+a dedicated function used with devm_add_action_or_reset().
 
-If I am going to be mentioned in the commit (and I'm not bothered
-either way), I would prefer it to be as phil@raspberrypi.com - the
-.org address will expire at some point.
+That said, mpfs_rtc_init_clk() is the same as devm_clk_get_enabled(), so
+use this function directly instead.
 
-Thanks,
+This also fixes an (unlikely) unchecked devm_add_action_or_reset() error.
 
-Phil
+Based on my test with allyesconfig, this reduces the .o size from:
+   text	   data	    bss	    dec	    hex	filename
+   5330	   2208	      0	   7538	   1d72	drivers/rtc/rtc-mpfs.o
+down to:
+   5074	   2208	      0	   7282	   1c72	drivers/rtc/rtc-mpfs.o
+
+Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+---
+devm_clk_get_enabled() is new and is part of 6.0-rc1
+---
+ drivers/rtc/rtc-mpfs.c | 19 +------------------
+ 1 file changed, 1 insertion(+), 18 deletions(-)
+
+diff --git a/drivers/rtc/rtc-mpfs.c b/drivers/rtc/rtc-mpfs.c
+index 944ad1036516..2a479d44f198 100644
+--- a/drivers/rtc/rtc-mpfs.c
++++ b/drivers/rtc/rtc-mpfs.c
+@@ -193,23 +193,6 @@ static int mpfs_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
+ 	return 0;
+ }
+ 
+-static inline struct clk *mpfs_rtc_init_clk(struct device *dev)
+-{
+-	struct clk *clk;
+-	int ret;
+-
+-	clk = devm_clk_get(dev, "rtc");
+-	if (IS_ERR(clk))
+-		return clk;
+-
+-	ret = clk_prepare_enable(clk);
+-	if (ret)
+-		return ERR_PTR(ret);
+-
+-	devm_add_action_or_reset(dev, (void (*) (void *))clk_disable_unprepare, clk);
+-	return clk;
+-}
+-
+ static irqreturn_t mpfs_rtc_wakeup_irq_handler(int irq, void *dev)
+ {
+ 	struct mpfs_rtc_dev *rtcdev = dev;
+@@ -251,7 +234,7 @@ static int mpfs_rtc_probe(struct platform_device *pdev)
+ 	/* range is capped by alarm max, lower reg is 31:0 & upper is 10:0 */
+ 	rtcdev->rtc->range_max = GENMASK_ULL(42, 0);
+ 
+-	clk = mpfs_rtc_init_clk(&pdev->dev);
++	clk = devm_clk_get_enabled(&pdev->dev, "rtc");
+ 	if (IS_ERR(clk))
+ 		return PTR_ERR(clk);
+ 
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
