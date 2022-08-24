@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31A7C32796
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 09:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C93C00140
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 09:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jFP2Ibgi4vPhaA5cehHN0uz8TFW9B7Q6+y00e7XmXqM=; b=taXAzR1NcGzkXi
-	mE81sgK9nB8SI54wNxnmx+cFhcEj50brId4NjxkcWLtloYFMz7wD43pM4zfa7t0ULzxOMLPwUNFBF
-	UM6BRfSO8QEZseMmvF9fPQHZb7mjRMxDS8so3R4Tn7NUtdiiDQgEAkjNsI9vMNLzpLDbBU0oxMxkz
-	QWRRObiZOzDfiRLPiKrX+PMLcsQjfgVUHO3QdmxYkUfPPzbuiJJ3r+2Vm7mqNlhzb71aqlz7vEEFp
-	uToNBVw2mY/Qs2i3Az95J18LXq2ORC6y0D8tL7BI8Sijk9rT6mbYXhjvBgM+XOtFaJQBaxcovDnzm
-	HmkF7+td9jCennAxgZ+A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=T1SRB2qMNA5Xvd//tS2uaHQHmb0G6O+2GGHdSSm5M5U=; b=UFXoBfyjvO4MVa
+	/DhEGGlcSdiaEzpCCKK6ZNyrxnfT6IYXeQt3r1StOmp0ag12/8sbxX3DYNLvDmMk8knvMIgQ83q9T
+	Qcy70l0Q5L7mXCsM2jsHbAwoqm1PiKbvL2u5Hv1hEazYUiWJ4kffgrNlaMH/LPuRGar6xOnHrx2Wf
+	7Qdb/wW0IW2QAIN8vM8FmSqwZ6hJw1NBBGZ5syrxOEI5cRNQuha9xDYcyV8rGByJ9sS5B/qBP9lyP
+	bHxjM1dSJyiJ15qAYiFmxFQ+WfZHMJPU4nzKk4GvB1Fw3et+CZQzWpc9nVnudITLql7SgXJFF58sm
+	swO46xKzkIA80062ORVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQmmO-00BmSh-4F; Wed, 24 Aug 2022 09:34:32 +0000
+	id 1oQmmG-00BmOV-49; Wed, 24 Aug 2022 09:34:24 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQmmL-00BmPD-12
-	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 09:34:30 +0000
+	id 1oQmmC-00BmNE-NZ
+	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 09:34:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661333668; x=1692869668;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=ggvgSTbI/3n106FcPTJ8++adTEBX7bnWFulBMj2Sqa4=;
-  b=tUve7p7TZQgCaxfcCu8FQPM83+MmdWDFY3dbZ0zEwJiD4+DFxdj1n/1m
-   EYQrgMlwKYUztkTsaHiRqvcNlI2fzuv7riTRfOrCAYNrJsIM3qgWJbG4C
-   6Q110u6Vcsye4xFU+5Zf/59S5hUORcPA8ERazGbUhm0oll4B3KvXrGFYG
-   w2hroGPDE/xQZW+nGf7HAlS1rNC1/852xp9vO1uNNXOPL9DId29xBIksl
-   4dsNpWBg2/O+wip5DFaXBTBiFwghNOgX/v+P/PMN1khM2xDn/LkM41HfN
-   syjk9y79fTzPwa8hE9bgWfXhA9OtelEto7YfvMZhhjlxsZBSWFFw9CJZc
-   A==;
+  t=1661333661; x=1692869661;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=6/9bHIY/hzWRwp2EdYp1b9h1WrFSvYNmvafvDtchgVc=;
+  b=o/e+2acQk/p8uVfownXUEMAJYyM10e3nE8CcQrrbrQRJYhRBRdFysYzn
+   WEimU2FOgk2K5a9IREWsLMO27/5EG4CkyUCs5iwS0v/rv212/gz9TcnX9
+   7ClKHxEEDNO21Rpq4S2HtqWJjr+Y3cn3g52bJ+egTtWyf6QT06L7wmsxj
+   LmorzEkBwmshIZaAYlO8z8tQ8Xu08hi75jpxrOl3TZqGCxqSeDIgbF6ZM
+   VAdbH4RzLIutvYUaTnf5POQkV/QA2EsC/4JgFJ7DL6RiMfYtvB1xPzK4m
+   sBc7tOu/GnM5/qRXT1swgiEvzuaAOvToRaNpsp4EP1+C8un27kPFDNMHx
+   Q==;
 X-IronPort-AV: E=Sophos;i="5.93,260,1654585200"; 
-   d="scan'208";a="173887594"
+   d="scan'208";a="170697507"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Aug 2022 02:34:26 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Aug 2022 02:34:19 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 24 Aug 2022 02:34:25 -0700
+ 15.1.2507.12; Wed, 24 Aug 2022 02:34:17 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Wed, 24 Aug 2022 02:34:23 -0700
+ Transport; Wed, 24 Aug 2022 02:34:14 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
 	<sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -58,19 +58,15 @@ To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
 CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
 	<aou@eecs.berkeley.edu>, <linux-clk@vger.kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v3 3/5] dt-bindings: clk: add PolarFire SoC fabric clock ids
-Date: Wed, 24 Aug 2022 10:33:41 +0100
-Message-ID: <20220824093342.187844-4-conor.dooley@microchip.com>
+	<linux-riscv@lists.infradead.org>
+Subject: [PATCH v3 0/5] Add PolarFire SoC Fabric Clock Conditioning Circuitry Support
+Date: Wed, 24 Aug 2022 10:33:38 +0100
+Message-ID: <20220824093342.187844-1-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220824093342.187844-1-conor.dooley@microchip.com>
-References: <20220824093342.187844-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220824_023429_153713_FA263929 
-X-CRM114-Status: UNSURE (   8.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220824_023420_847008_0080F2E5 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,50 +83,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Each Clock Conditioning Circuitry block contains 2 PLLs and 2 DLLs.
-The PLLs have 4 outputs each and the DLLs 2. Add 16 new IDs covering
-these clocks. For more information on the CCC hardware, see the
-"PolarFire SoC FPGA Clocking Resources" document at the link below.
+Hey all,
 
-Link: https://onlinedocs.microchip.com/pr/GUID-8F0CC4C0-0317-4262-89CA-CE7773ED1931-en-US-1/index.html
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../dt-bindings/clock/microchip,mpfs-clock.h  | 23 +++++++++++++++++++
- 1 file changed, 23 insertions(+)
+PolarFire SoC has 4 clock source blocks, each with 2 PLLs and 2 DLLs,
+in the corners of the FPGA fabric. Add bindings, a driver supporting
+the PLLs and the requisite changes to the devicetrees for PolarFire
+SoC based boards. These clocks were already in use, but which clock
+specifically was chosen was decided by the synthesis tool. In our
+end-of-September release of our FPGA reference design, constraints will
+be added to force the synthesis tool to pick the "north west" CCC,
+making it possible to read the configuration from the CCC's registers.
 
-diff --git a/include/dt-bindings/clock/microchip,mpfs-clock.h b/include/dt-bindings/clock/microchip,mpfs-clock.h
-index 4048669bf756..79775a5134ca 100644
---- a/include/dt-bindings/clock/microchip,mpfs-clock.h
-+++ b/include/dt-bindings/clock/microchip,mpfs-clock.h
-@@ -45,4 +45,27 @@
- #define CLK_RTCREF	33
- #define CLK_MSSPLL	34
- 
-+/* Clock Conditioning Circuitry Clock IDs */
-+
-+#define CLK_CCC_PLL0		0
-+#define CLK_CCC_PLL1		1
-+#define CLK_CCC_DLL0		2
-+#define CLK_CCC_DLL1		3
-+
-+#define CLK_CCC_PLL0_OUT0	4
-+#define CLK_CCC_PLL0_OUT1	5
-+#define CLK_CCC_PLL0_OUT2	6
-+#define CLK_CCC_PLL0_OUT3	7
-+
-+#define CLK_CCC_PLL1_OUT0	8
-+#define CLK_CCC_PLL1_OUT1	9
-+#define CLK_CCC_PLL1_OUT2	10
-+#define CLK_CCC_PLL1_OUT3	11
-+
-+#define CLK_CCC_DLL0_OUT0	12
-+#define CLK_CCC_DLL0_OUT1	13
-+
-+#define CLK_CCC_DLL1_OUT0	14
-+#define CLK_CCC_DLL1_OUT1	15
-+
- #endif	/* _DT_BINDINGS_CLK_MICROCHIP_MPFS_H_ */
+I am mainly looking for feedback on the dt-bindings on this version,
+so that if something dt-abi related needs to change it can be done in
+advance.
+
+There are no maintainers changes in this series, but they are required
+due to the binding rename. I am waiting for some changes queued in the
+soc tree before rebasing on a later -rc before including that patch.
+
+Thanks,
+Conor.
+
+Changes since v2:
+- Removed the unintentionaly leftover clock-output-names
+- Dropped the riscv/microchip dt-binding update. I am moving it to
+  another series for the dts, which is likely to be applied first
+  so it does not depend on this series.
+
+Changes since v1:
+- Stopped using the dt node name to generate the clk name. Rather than
+  use clock-output-names etc, I just opted to call each PLL after it's
+  individual base address:
+  cccrefclk
+    ccc@38100000_pll0
+      ccc@38100000_pll0_out3
+      ccc@38100000_pll0_out2
+      ccc@38100000_pll0_out1
+      ccc@38100000_pll0_out0
+- dt nodes are now all called "clock-controller"
+
+Conor Dooley (5):
+  dt-bindings: clk: rename mpfs-clkcfg binding
+  dt-bindings: clk: document PolarFire SoC fabric clocks
+  dt-bindings: clk: add PolarFire SoC fabric clock ids
+  clk: microchip: add PolarFire SoC fabric clock support
+  riscv: dts: microchip: add the mpfs' fabric clock control
+
+ .../bindings/clock/microchip,mpfs-ccc.yaml    |  80 +++++
+ ...p,mpfs.yaml => microchip,mpfs-clkcfg.yaml} |   2 +-
+ .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |  27 +-
+ .../boot/dts/microchip/mpfs-icicle-kit.dts    |   4 +
+ .../dts/microchip/mpfs-polarberry-fabric.dtsi |   5 +
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  34 +-
+ drivers/clk/microchip/Makefile                |   1 +
+ drivers/clk/microchip/clk-mpfs-ccc.c          | 293 ++++++++++++++++++
+ .../dt-bindings/clock/microchip,mpfs-clock.h  |  23 ++
+ 9 files changed, 456 insertions(+), 13 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml
+ rename Documentation/devicetree/bindings/clock/{microchip,mpfs.yaml => microchip,mpfs-clkcfg.yaml} (96%)
+ create mode 100644 drivers/clk/microchip/clk-mpfs-ccc.c
+
+
+base-commit: 568035b01cfb107af8d2e4bd2fb9aea22cf5b868
 -- 
 2.36.1
 
