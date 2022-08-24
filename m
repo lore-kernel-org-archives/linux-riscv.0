@@ -4,160 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B825DC00140
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 11:47:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72ACC00140
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 12:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HoKON2mTCv4xF5QD5BfGVo7GoU4s1ba+ZwS3KVR8WDs=; b=qAbRw3xQCzgswd
-	AeIWuLVgbhqOvvZnS91MkzIPew1vs6+/QGOR1xOsOH/JgvBC5QzOWWbfsqjmmVfai2iZ528BGTcFG
-	lzbJ0mnFYqNd+Ed1SAeZUQSOqbNBv1HsfrzcGA/asVGUD0eSrep7m7XbEHwsHRdwwWFh/NmRImKL8
-	onUcbhFVO9kuJSNkMG+CDn4s9Ee7NDjgApwyGnYhWyuua9TfXD5eKHQfwLW+6/KVuyTx/x5kXnviW
-	kt4F9Apmz3Nfy8Zeu1/WITkxryi9Yc9FbzBX44uapoV6vIl0uipRn8/UGk9hfPGTrmmaUzJMzaHqC
-	WZShvQ4NSVLupFKx4okA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fWFy2zybz5nRK9sOqsasohP1Eu3epDTLnhgfjG8IBZA=; b=AdJBfMbBYrUjRb
+	cwNxWhhf+iDNMoj7efu8lKn7V9ifnNZd8mcZK75sdRYNpBKueQoQzFq8nRQrJ3wjPXd2KJjJm0Bb5
+	h/QZsuJgZZYsW9qxmZuoYjVRwT7zh+Mr5J7RbeolPYkAjO9q0uynyhirjLtospY02+pZDm0f4Ky1o
+	0upHm9EkT+K8s7RmRrDnxF8jAyDidkjsr5rXcznL4CrskWBLg018qAE8Bzk/um6E21S1tf3Bbpfm7
+	FEmcSttnxIX3jvhOS9b2JET3rZ8jiMrK80dgcvCf3dVWTB1hAcOKk/hIknDyGCEW35sV2kaJHTrb1
+	OlLsLS7XjTkGDNodQsZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQoqO-00CZ3c-4v; Wed, 24 Aug 2022 11:46:48 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oQpH7-00CjIS-5y; Wed, 24 Aug 2022 12:14:25 +0000
+Received: from mail-tyzapc01on2080.outbound.protection.outlook.com ([40.107.117.80] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQoqJ-00CYyY-Lb
-	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 11:46:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661341604; x=1692877604;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=w6dtblSFOJxRhMRE0kfwmVnOZ+hfaZB+aSn/305qGWI=;
-  b=aZyYi/w5AgBV/j0GGawh6lG94CzeZBQbIn4ZLP+vzFjXKCOUxR8uOexf
-   dGWn6qSTaVeY4mHfVR2PUcT23H/KB1d7GckV4VnzTATl1lDExOCaaAnn0
-   A3Nj3Rh8FzH1pP+ez3DUqwk5kH4uHCkfizt7WLScv9RZJFjZpz5IjkB8o
-   EGqF6I5aaAuqjhn/1A0n+ZZv+DVH3gu5CHoKbKpi/GaURY/V9OvtQ8WpX
-   vlGMUZY6zYgj67t1YcHAXS05F5St6I2o7dHVkjYm2dWkALoqB5y8Q4Pvd
-   3pOZcRd8Q+iUZ2QTY4TuCrJsuQeTPOhV8POV+DkOxbWlu+Df+A5Pqxwpw
-   A==;
-X-IronPort-AV: E=Sophos;i="5.93,260,1654585200"; 
-   d="scan'208";a="177548530"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 24 Aug 2022 04:46:37 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 24 Aug 2022 04:46:36 -0700
-Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12 via Frontend Transport; Wed, 24 Aug 2022 04:46:36 -0700
+	id 1oQpH3-00CjEG-7L
+	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 12:14:24 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=F17vYnAuDYOo/VfDnGd8N1+f5nQoW+bDTkyHF5CvYgk7FnPl6E+XLZSrYXhoYTj2Bzq48pLdn2kwQWK+Ipo8jb4l7h0tcd12ZAAoxUZ+A4sLulfDkG7s2BnMbr+MERHlnSuHIYbrouV2IWXLlMj8e+GBtL4h6Nx0vaNCfU746mg4cHkyhUyohOAnszUjWCZwMxWkTZz/xtHEK71O8cUHuSYGXi8xa0LINT2TWK0a/4NuPssV+VQsfkiRZv0Cha0WEwPAnBMMypYYcYo5ld3DAwjXIknZzcPY++iMKJ4+8bZtud4AAiZS5luRJ7DCQfZ58snieOjbRS/Ss+8RTgVI3Q==
+ b=In/EuXvXDcFHopwTARDLlFIwlyOutkkRzTAZFaWlfxxim7tMXnPXkfGAA10mmWz52DSSL3ZnGtIBh09+hmippJTuEo5gwSxwIYM0qT0UYAC/vqjW7qCfvMX1im6VTwXztzO75aADezULv2CngFd7F7g9RYCRomHm0v2QddVRzrRrrdjQYwcHY+cGS353DBQbiCYDzTP4AsGW/TxrqytlcM80U6rPlqNS2kl7uYunjlcX64xKKtYF03nfpBrZbAyZMkxM7ZX++kJFdqKa4jFdYre8ihGbALvuj2zzB8VAcZskCb2uu+zsXzzGTrpsotrG4g/ZR+hOYPokn8VscXNLKA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w6dtblSFOJxRhMRE0kfwmVnOZ+hfaZB+aSn/305qGWI=;
- b=O3UdhF3UxGQ3Emitr0yhu0FLM5Nav1eM7D3A7sShs8cw8kgV8NndYMCzMmlVQBJeot6wqMBoAr3sudthyRMzxZB+YZ6+QrDw+mH444PmaxOjVT0DPqxVa7kn7kY7YFJAiTfS8y3aMpP91oTOpXKtT4Y5iasyWv9abftA4/HXnzfiLaxEnJ9chfEGBR8eXFilcWHfIcGFU3+ERxSbO9HjaQq0WR5WAIssEZKHMQ62I1dCSByUQ3h7tthrE0ygC6xeISsEf9xN077Mw82C6gJez0qybZjVd5WHzAZbCIMGoN/PT1QPwZbAlY8WpxQIzkSBjtWzFyicueSu6Cfj52yK6Q==
+ bh=aju0awfXcTeBuz+MdfCAZn9eKbGSehM4b2ZVl5JflrE=;
+ b=Dr6aKuqg/66I0xUrVx0DUmLknW9TUbhJVtpZoLS8d4FyLaBBCYVffcP+/TdhVT82+MwzVr5mAILg3lCCTwchyQdtGbgyX5LtppykPNxZZOsuBgY+zhpt6wWAIZTdhNMpzHI5b5RZtDO6wuMz91oatg+K7glV56IwbcPrVD77Cg+pU72XtY9YIAVozHUB76UhkdEiNgLXkceCbI2+MHHVsh/D4zAC25aPzylQGVmkI17aul8W6hl8L/82Ga11QdNcE64tkWWNCOZ/dbI259MJy7siiron8V5itzOtIy+R9BWUz1IZ5/jrZYEDciPxwI/HqmNa1l0mWSa4K4qg2+yPYA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
+ smtp.mailfrom=jaguarmicro.com; dmarc=pass action=none
+ header.from=jaguarmicro.com; dkim=pass header.d=jaguarmicro.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jaguarmicro.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w6dtblSFOJxRhMRE0kfwmVnOZ+hfaZB+aSn/305qGWI=;
- b=KTZkhrXJHOG/+zWyR+ZDGFcnYHMHGrRAytfCc4WgInrrOuItLzS+bgsKuQ0biJqxXg+Xt1rwE7mnnCRrad/gng6oSw4HZ1lQ10U3p+P6bVhhcfA9TiNyCMrmPALROaCP56cOEfvAom2njhgYcr8NgxPJuAemaXow8dYuDPGKPn4=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by SJ0PR11MB5816.namprd11.prod.outlook.com (2603:10b6:a03:427::18) with
+ bh=aju0awfXcTeBuz+MdfCAZn9eKbGSehM4b2ZVl5JflrE=;
+ b=i3urzpVZIGUi5FkufQ0Em7nGz5IPv9oYcmVlYRNnwlIj54/NhVkJWCIK4xc3tVZA7UpJ1dmq4ITPzPF19FdCv6OgSzXYx9HYmnVSimGgKg3Zewe9ddVN5nx9Hv2GVoBa59bt9WCHTN9+4DD40EDSOJ/fl8BR13RB++awqiawUWBXYs4dNIZSJEm+MNcvTvXRNFP5pRXPFhqnvq6E72MBB64f983rprJ0i3R9VAAxV6WFvRGpNFmGiDyV3+2NnyeqSHfXGcLg+VbA0sSJpqbUUBQ3s0XrvIWkvPfQeec7j01yI0nVZMjKLdglFd4ytKwgaNu9mfI61G+nvJKDiFyeZw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=jaguarmicro.com;
+Received: from PS2PR06MB3432.apcprd06.prod.outlook.com (2603:1096:300:62::16)
+ by PUZPR06MB5620.apcprd06.prod.outlook.com (2603:1096:301:e8::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5546.23; Wed, 24 Aug
- 2022 11:46:34 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3%9]) with mapi id 15.20.5566.015; Wed, 24 Aug 2022
- 11:46:34 +0000
-From: <Conor.Dooley@microchip.com>
-To: <christophe.jaillet@wanadoo.fr>, <Daire.McNamara@microchip.com>,
-	<a.zummo@towertech.it>, <alexandre.belloni@bootlin.com>
-CC: <linux-kernel@vger.kernel.org>, <kernel-janitors@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-rtc@vger.kernel.org>
-Subject: Re: [PATCH] rtc: mpfs: Use devm_clk_get_enabled() helper
-Thread-Topic: [PATCH] rtc: mpfs: Use devm_clk_get_enabled() helper
-Thread-Index: AQHYt5IndXqzWMJbz0OfuNYZ1M2LkK290O0AgAAYywCAAAVhgA==
-Date: Wed, 24 Aug 2022 11:46:34 +0000
-Message-ID: <3513eb2e-5e18-152f-6111-f4606a73bc2f@microchip.com>
-References: <e55c959f2821a2c367a4c5de529a638b1cc6b8cd.1661329086.git.christophe.jaillet@wanadoo.fr>
- <f76fb247-5160-61ed-a0a3-037d2f40d2f9@microchip.com>
- <c74a42f7-7d9a-6b52-85b2-d87dacd91be6@wanadoo.fr>
-In-Reply-To: <c74a42f7-7d9a-6b52-85b2-d87dacd91be6@wanadoo.fr>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.12.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 447dffc9-e655-461e-2935-08da85c64b83
-x-ms-traffictypediagnostic: SJ0PR11MB5816:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: 8k0JBU2GQNM1fNY8BP7Ff4cabdEbp/om1Mtvsrj7fzzepN+WwGeE7XmW/UKkDMPm+GK7jz0tRplj/Jja7lzFXJsaW/NDT4OjOpPvigR885trfj7ZuBc31QNRGV1SZN5kLV5VDFKwfX2YjFGO3IPBcup+JQgVRGg/Mo7Gz+w2QYgO5rsZXGJkgMnWz2qMPa9KG8Q3yNpkydxe9Hu8RaQtJUWm3VM4t/C49N5ALxlj07jVkPLDFnNL9ey1Wzs1fjBcQFHDoYCPbKwUNamvOykr2mCuiNIEydCZsSSj84jx65XIOwVHbwx2VShUf9lbJt0ppFg4vR7i92183Lxn41jpVg4vvzm81JS+i58hwFz36vWm0psrNvHG4N3RWm+lldTQsAqurw/T9C+orWinaeP/bHGWS8HYVcbKHVGZ+FLF85Vyc9taZsxUiU1ngikmXWmSyN74l2JEHdGavitECkH0UXJDTekwJOazj9Farm0ZCTS+mQkOYrvxGKHGxmSic2mm+tYDoOcPymG6bgIAAFIoy9HBdU9OcwR0i4L3EwojSTvpZMSKneZ5RvEgUvsl+ugVws5bBJj2OwVqd3e5kmZxJqWMAhohU6ZNzeFfxt8ImpYeiVkUmsGf/z/PGmRdNacJpkvsvr49UDDjNnRlLkSfXOI8G750Zz9+Vjq0uV6TXaHM1A50+dnUD729jr705SAVpKgg++zn8UKxXvCxdJLR0Rm5gAi/93IiijcEkHEixsHgCadyyBeZbkDTuqPSM05EGdZYsQ6+qBFhBaG8B1u4RovT3fV6bmrjKO0zVLpfM5X+4yxEI7+Hz34J86NJ6g5323jZXwQc3zSS+oL2ztyJRA==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(39860400002)(136003)(396003)(376002)(346002)(366004)(83380400001)(36756003)(8936002)(54906003)(110136005)(122000001)(71200400001)(316002)(38100700002)(31686004)(38070700005)(66476007)(66446008)(76116006)(66574015)(6486002)(91956017)(8676002)(6506007)(66946007)(64756008)(4326008)(186003)(53546011)(66556008)(478600001)(5660300002)(31696002)(2906002)(41300700001)(6512007)(86362001)(26005)(2616005)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TmR5VU1FYnQ1WkRlTE5YQmhuVm8rSVFqQ1FuNkVQaGVHNlZWUmJLcmRrMUxG?=
- =?utf-8?B?b0Z3RDlBR1ExbUNNSFFaRXNTOXJUOEFKQThlTnUxZk1UL2pyMTRXQkJNRGhF?=
- =?utf-8?B?dkdHQzVjVlNRSEhsVklMbVdCSHpKTDhnNlhMWG1LS3FRYnl6am1yT1k4YzZa?=
- =?utf-8?B?U0pSSTJUYmVGQUd3RVlTRVU5TGZHdmFOUEMwV2YxU3J4cWFrSmYzRmpWMHZ4?=
- =?utf-8?B?dHNYMFhkRE9oOVBoTXpPZHRXcm5DRWFWZWM4d3V3ZkJJZVpxRktJbVhvR1Rr?=
- =?utf-8?B?amtPOVc0U0ZNSmRpcHNsazArQWhzUVZObzUxMEVGVjVTaVgycUNXcjBBcDNt?=
- =?utf-8?B?eGgrTFN0YlRvditkaWo2WWdQQmFvZ0w4OXlObDhURVVaR09uaVUzQUdUcEpY?=
- =?utf-8?B?Qng3WUpxV3dsejZSZWR6UFBDODB4MTF1TU9kN1FJc3JDb3N4dWxZc0YyblpE?=
- =?utf-8?B?SSsvcW1DLzEzeTJMOHhSZEtZWDJFOFBpSXgwdWdVVXRxemZFVjJDU0s0Z295?=
- =?utf-8?B?OENkNTBpNnJmdXg4ajAyNnREeHljeUt0NFN4T2wyS0ppOUNIZHd4M2VkOG1p?=
- =?utf-8?B?cXU4UXJHODc2TS9adENNYU5YdWpGMCtQckY2SVlVU29ocTh1SHpMWWJqdTVV?=
- =?utf-8?B?TTVDU1ArS0VZN2NRTm9HbE1OK3BZSmkyaEsvN3F1QmJiYUJlR2NxMGxxa2pH?=
- =?utf-8?B?SWpLWHVsalVJektqd2xXdXlOUnZ4SVpvLy82andoeXlXMlBKMlFKazVvNlFP?=
- =?utf-8?B?UlpHc0pDZThoUE1zRkhtVzNmbHQxeVprOG5rUE56WXU2d3F6K1pFSUhaVXor?=
- =?utf-8?B?ak85TnBNZkRjdjFhaC9QYkZ5MlM1TkxNaVlyZTg3WWpjZFRhbkFSeFZJVmJS?=
- =?utf-8?B?RWNIU1lBWEQwdnlaalBNQnFnTXRaSmkwbGxkV2pWd0oxNGN1SGF0UVpzdjZm?=
- =?utf-8?B?bTcrbGhCTnZWRjVpLzNFMDJXb0srdmpZMkhQLzVOd2pRTnhMOTVEZHRDOCs0?=
- =?utf-8?B?QnpDbjdub1pzZFpKQ0VLSnl0cGhWbWVTMkRUWVJEdUFlU3RKMk9raWx3U1FM?=
- =?utf-8?B?SVN5Z1ZWNktVRjNIMk1mQjhRVWlUbWtEaVpqd2tlblQzM2ZCMXRSVlRPeTYr?=
- =?utf-8?B?RjBDTUtCYkFrVHA0ckxBVlU5OE5kSnoybXNGWWpqdkVCZW9qWDA4QndEVEZW?=
- =?utf-8?B?bnRiY1psYjhKMVB4TVJDYW0xOTFIaERLLy9EM0p2SVd6Y29ZNGJFcFArTHZF?=
- =?utf-8?B?REpqamtVUjdPNUUrZjNTc3BBWmdjTDhDbkhmVlZqNnl3Q21aVGYrMHBzb2hj?=
- =?utf-8?B?T2Z4MUNUbnFxS29qTUozdGJhLzB1UzN5dEhoRWNoemV4V25BdUNrQTlCWnhW?=
- =?utf-8?B?d09DSmYxSytPRFBYSmhMdm5XcSt6c29mTDVQd01aeGxuM0M0Z1J4dDBleWtp?=
- =?utf-8?B?bTErbHZYZjJzOFJsdXZyWmtaa3lBblR1N2xJOWxqL2hoQjM4WVhFZEtWNklE?=
- =?utf-8?B?c1BxYm1rVkVyYUt6K253VU9QNDNFREJyOUUyemZrdGJqOWpTak5JQ08zNGhH?=
- =?utf-8?B?NzVFelE0MEZ0bFMzeXYxUzM2VTRHNGNkWWN2ZTdIR2tabTNYR21kVGszT25r?=
- =?utf-8?B?YkxFcGUrc3REWjN4SklncWpRWmxFL0JoTFRPdkZkdm00OXkvRmZMMHRHWWVh?=
- =?utf-8?B?ZUduQmllcTdMQUdUcFkzY1I2d3F2QkRjSHErcStEanEwdnE2cUpHaFBBQWFN?=
- =?utf-8?B?bGdURGt1M2s5aGlaTk5yNXB3NGM2eGRBNndJM2w0NnJqbGl4QkRuOVRMaCtN?=
- =?utf-8?B?emNQMnpwT0hmRDcvWE9wSmZDQll4YlowU04zckRoNkk2OVBQMVdDdXVXbnFP?=
- =?utf-8?B?SEZmbFNxaHljdGZMYXFIcFB0c21HL0RsYklQVThsM3hRaEIzNytnSkc0bDAy?=
- =?utf-8?B?V2tNdVA4cEF2UDluSlFQbVJULzRWZlVoZENrZnFOSm9DaHhLOEh4K01CRUwv?=
- =?utf-8?B?VEd6YzlSMVFxd1o4RXZib1dvR3FLbFBsYlVIa1AyaXpoZ1ZjWXVpaW8yT0tX?=
- =?utf-8?B?Y2ZzYTNJMVF5MUJvQm9qaTkyUHI5SGREV3Q4ZXdERkxYVFo1Z1NOeU0rZFgw?=
- =?utf-8?Q?e2HkKHJHOOwQx7C5PmjT8PTdc?=
-Content-ID: <E2A9FE199BBC7346AE6E47646CE7983C@namprd11.prod.outlook.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5546.19; Wed, 24 Aug
+ 2022 12:14:11 +0000
+Received: from PS2PR06MB3432.apcprd06.prod.outlook.com
+ ([fe80::af:24bd:d4a:da52]) by PS2PR06MB3432.apcprd06.prod.outlook.com
+ ([fe80::af:24bd:d4a:da52%7]) with mapi id 15.20.5566.015; Wed, 24 Aug 2022
+ 12:14:11 +0000
+From: "xiaowu.ding" <xiaowu.ding@jaguarmicro.com>
+To: davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux@armlinux.org.uk
+Cc: nicolas.ferre@microchip.com,
+	claudiu.beznea@microchip.com,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	"xiaowu.ding" <xiaowu.ding@jaguarmicro.com>
+Subject: [PATCH net-next] driver: cadence macb driver support acpi mode
+Date: Wed, 24 Aug 2022 20:13:51 +0800
+Message-Id: <20220824121351.578-1-xiaowu.ding@jaguarmicro.com>
+X-Mailer: git-send-email 2.34.1.windows.1
+X-ClientProxiedBy: SI2PR04CA0011.apcprd04.prod.outlook.com
+ (2603:1096:4:197::10) To PS2PR06MB3432.apcprd06.prod.outlook.com
+ (2603:1096:300:62::16)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id: 24d809eb-91fc-4863-4d84-08da85ca26f8
+X-MS-TrafficTypeDiagnostic: PUZPR06MB5620:EE_
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;
+X-Microsoft-Antispam-Message-Info: 	soFtZ6Uld9++llnZO5gDgLehZD7OyOFziIn+9C1vAE8m+GB/8L4C1Hv9cPI/K49RxdpAwpRuBmAn0y/JXuy7uVh2aJm910gOhtmnajrUXk7S6mAuGV8Oe+hDoihTxtdtw0HEDgY9DFdZduNsykA4Y/+CGXDqxZH1F7FJGpDNZXJjB0pHyKWHpLo/1jkH/JGZ6GfkcCG2VCQMxJz5AWjHyuu/8VyQeNosvjiJFkgPcSHJlH1imar0oK39apSnIq9emksBYPb1O+YFmWC32VScfhjRk2QCXtmG56FTu5HujJge3v7m8sJvBLuEyOSwC/vb1aqi4LmquPMezRxARTEbVb199oI82gOfKUjqPLgo+gwmeCVFXoX8epBg/F1hXyY4+G9F4Op0Nut+6YcOIp7cPFHuMroWsf6CrWcwVX71WX5ej0kzXCsjnbyfkud7M9r3hSXsbmfbAnLXkRgqOZBOyxbvH2uQnbX3oueorD4tbwfsLtGvi+bFPDOmctk18w9Oar93ar3Ww7NytKuilZG1wGba1BmPktvz+tlVZqjCXWJorkwsGWUzIwt2nUGNVD84+Lyi4JAASXtEaSCvIn9LROBb86tZZ90OkI/2Hvwz+kDbT6VjFbxphlSqKPJAvxboZOCDm/QX3ZsnFBd3mPMzGAIxwCjQqYxgn071Zu9vpPx69Ux0wpQGoHi+aGm5+T5AtoXO29EXEOScMcrKE8j0bIYDjnGTyuD06HhBVfW8ImT3NNzArZ/1D5LAJSqkzdXO
+X-Forefront-Antispam-Report: 	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PS2PR06MB3432.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(39840400004)(396003)(346002)(136003)(366004)(376002)(86362001)(6666004)(107886003)(6512007)(41300700001)(26005)(38350700002)(38100700002)(2906002)(316002)(52116002)(6506007)(186003)(4326008)(478600001)(6486002)(1076003)(2616005)(8676002)(30864003)(7416002)(5660300002)(83380400001)(66476007)(66556008)(66946007)(36756003)(8936002);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 	=?us-ascii?Q?hUXSQ7fUXAfymNK9OaLgDj0Hi4ZfXb9+DZzf/jWP/X/ddLNgOgmtWBkQQMUI?=
+ =?us-ascii?Q?bp33RyyZCs9JZbJPHAWEX2G3oh5XN6rQs184Er+kMp8sJ1+4stTBKRz2COYp?=
+ =?us-ascii?Q?p7Y51RRz7O6KC+Jt29e/mjuXZ3JezVWxC3QpSadIWx152tb/eVJt7FQJeIJc?=
+ =?us-ascii?Q?zrWT66ffZmm6ieC1r7FcILCdIL6yshn8irdakJGbFB+3uoPa9AAE7Y5nzMvE?=
+ =?us-ascii?Q?DfCmk0p0HdKJ1tmG6auLtRmWIbO5s0z646R1F9/+as5hzkr8tFStv83tiN9S?=
+ =?us-ascii?Q?G3ktadYm/NSoPSjvH0sYuyXSw6BFUVqAKe/by4270HAV7cJw7A2NWVjYH1ci?=
+ =?us-ascii?Q?vsW+/7rRVO7+F5ybuwNP51fQofXtdHn+6ZwbnnmJQAs7lgD/sVwcMVPwfbI/?=
+ =?us-ascii?Q?6HrpI8xkxbbhylbGFfbhbi4lMDzNheyf6zAlICifmjDr5B/MDXJmbagRcYBN?=
+ =?us-ascii?Q?EoNJpYuIfnqxcck33p9rixDj+jw+2sd0diRsJFXXBgrp5DYNCchsJ9dJqOwQ?=
+ =?us-ascii?Q?YN+lM4DCZxlnQ2xPFLua0sw12QeUgOJws3S0Vwpf6dBa/UL4S4dkAHhZz04v?=
+ =?us-ascii?Q?ktlVyyQt2kzf/l/5Mz8QfOaC1039uiPNWx1+Myp1vzNzbN0W2gbSrhsYeE7F?=
+ =?us-ascii?Q?6ngpt4n8pL8syXPKm5nRaukEafI/nRn57YP/+wUQD80sxuKxV1rb/B/U+lwy?=
+ =?us-ascii?Q?B1j/XAY/BJaAh7SFnmGG7EekNf6L8d5JkF0mk9Q7CDkCcrwMIYpye9G3kfW+?=
+ =?us-ascii?Q?DjCwnF65eD4UcsfnH/QIxj22h5EELqx5DJ6sdseK6UDW1+r4oWUexbc0vJaG?=
+ =?us-ascii?Q?iGDg3vSP/6qJ0kuyqFio8b6AnzGIcJpvASNM4CaH5xBG47ypQdrIr5DkAwgW?=
+ =?us-ascii?Q?r2F/EpXwqaGh2OVz7P3glBHnk6ulXrsePX5zVyshO8M5eMShLp+CJS0AJ+0C?=
+ =?us-ascii?Q?xtE34qADfHqtZZDUFMtqbibTroY67QUeoQf4DMVk16Hdx9yENPLKk5SRhxoy?=
+ =?us-ascii?Q?rhn+vWS7IH1G/9ZMQd3F07I2j9UQ66vUoVV/xmC9M0DkpPBVK+iUuC2Zo4qF?=
+ =?us-ascii?Q?/9B2iXSkKukXy1cA1phnKB6AgeZrSCTX8Kmg1W1MxOA2jHaRG35pWhKKd8g8?=
+ =?us-ascii?Q?kbN4ALDYL/0iJaZJCqYU23FSWb3Dxz5Ivttg0sN4JSHauAHdx2eQSpImfRvi?=
+ =?us-ascii?Q?be8csbNXg55dksm/iqo3zl2+roJj4u7iYbLdVw++a1+IvT5/tabUaoaNaZIk?=
+ =?us-ascii?Q?bilWkf3U9ex9zj6T485CJKA8U7sFq/19z724cpX5t2NyXoIB4SNv0GMOFAaj?=
+ =?us-ascii?Q?pWbQxKjTyRTGXfyQA00NZwH/5+G8Ggrzco4FW+EZg61voYIctcUMkuHZFBhW?=
+ =?us-ascii?Q?VAzq4RPDthozx31/26vn6YaRPn8qXbVNgtpLzyE0IzOzbv4nxlCMtKLznthy?=
+ =?us-ascii?Q?XKwEovA5jGvtp/uwAS1f04b1fNgfPgRwlG2vTwsEgiQHdv1jIeeCYFkn06w8?=
+ =?us-ascii?Q?edVQPFbGjs8roHmc+mVx2QbAx4tzOq3iCSUue56xeT1EMV+RfJxEiAR0BDuN?=
+ =?us-ascii?Q?GojYzQTpMpH3COH8YiXdkfclypk2rgbPcnxjmZoMvmj11vzjw4XwHZQvmKp2?=
+ =?us-ascii?Q?2g=3D=3D?=
+X-OriginatorOrg: jaguarmicro.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 24d809eb-91fc-4863-4d84-08da85ca26f8
+X-MS-Exchange-CrossTenant-AuthSource: PS2PR06MB3432.apcprd06.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 447dffc9-e655-461e-2935-08da85c64b83
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Aug 2022 11:46:34.2939
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Aug 2022 12:14:11.3478
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: sCHAQoeUwgbhCeQD0DJNh+9XAiVXCORbnJaI94F3vUEyuPihV0FlAn4uOgXvFrgNo/G1i9jfxqZx3PyCDPsY8fuY5qO9DJm57aBpgQdKQOY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB5816
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 1e45a5c2-d3e1-46b3-a0e6-c5ebf6d8ba7b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vIJ7XQbhe/fzjUXHFki1Huq1L4pAe0sTARxleg+0UDTmqGgcnZan2OtWJHrzksc7cfOV25Asg/Y5IWSqHext7mPA2ep3sypHiHqTZ1hEYOw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5620
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220824_044643_740491_41A663D8 
-X-CRM114-Status: GOOD (  34.47  )
+X-CRM114-CacheID: sfid-20220824_051421_435839_3A6556FF 
+X-CRM114-Status: GOOD (  19.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,64 +135,587 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjQvMDgvMjAyMiAxMjoyNywgQ2hyaXN0b3BoZSBKQUlMTEVUIHdyb3RlOg0KPiBFWFRFUk5B
-TCBFTUFJTDogRG8gbm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW5sZXNzIHlv
-dSBrbm93IHRoZSBjb250ZW50IGlzIHNhZmUNCj4gDQo+IExlIDI0LzA4LzIwMjIgw6AgMTE6NTgs
-IENvbm9yLkRvb2xleUBtaWNyb2NoaXAuY29tIGEgw6ljcml0IDoNCj4+IEhleSBDaHJpc3RvcGUs
-DQo+PiBUaGFua3MgZm9yIHlvdXIgcGF0Y2guDQo+Pg0KPj4gT24gMjQvMDgvMjAyMiAwOToxOCwg
-Q2hyaXN0b3BoZSBKQUlMTEVUIHdyb3RlOg0KPj4+IEVYVEVSTkFMIEVNQUlMOiBEbyBub3QgY2xp
-Y2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bmxlc3MgeW91IGtub3cgdGhlIGNvbnRlbnQg
-aXMgc2FmZQ0KPj4+DQo+Pj4gVGhlIGRldm1fY2xrX2dldF9lbmFibGVkKCkgaGVscGVyOg0KPj4+
-IMKgwqDCoMKgIC0gY2FsbHMgZGV2bV9jbGtfZ2V0KCkNCj4+PiDCoMKgwqDCoCAtIGNhbGxzIGNs
-a19wcmVwYXJlX2VuYWJsZSgpIGFuZCByZWdpc3RlcnMgd2hhdCBpcyBuZWVkZWQgaW4gb3JkZXIg
-dG8NCj4+PiDCoMKgwqDCoMKgwqAgY2FsbCBjbGtfZGlzYWJsZV91bnByZXBhcmUoKSB3aGVuIG5l
-ZWRlZCwgYXMgYSBtYW5hZ2VkIHJlc291cmNlLg0KPj4+DQo+Pj4gVGhpcyBzaW1wbGlmaWVzIHRo
-ZSBjb2RlLCB0aGUgZXJyb3IgaGFuZGxpbmcgcGF0aHMgYW5kIGF2b2lkIHRoZSBuZWVkIG9mDQo+
-Pj4gYSBkZWRpY2F0ZWQgZnVuY3Rpb24gdXNlZCB3aXRoIGRldm1fYWRkX2FjdGlvbl9vcl9yZXNl
-dCgpLg0KPj4+DQo+Pj4gVGhhdCBzYWlkLCBtcGZzX3J0Y19pbml0X2NsaygpIGlzIHRoZSBzYW1l
-IGFzIGRldm1fY2xrX2dldF9lbmFibGVkKCksIHNvDQo+Pj4gdXNlIHRoaXMgZnVuY3Rpb24gZGly
-ZWN0bHkgaW5zdGVhZC4NCj4+DQo+PiBGaXJzdGx5LCBJIHRoaW5rIHNvbWV0aGluZyBpcyBtaXNz
-aW5nIGZyb20gdGhlIGNvbW1pdCBkZXNjcmlwdGlvbiBoZXJlLg0KPj4gZGV2bV9jbGtfZ2V0X2Vu
-YWJsZWQoKSBpcyBub3QganVzdCBhIGJsYW5rZXQgInVzZSB0aGlzIGluc3RlYWQgb2YgZ2V0KCks
-DQo+PiBwcmVwYXJlX2VuYWJsZSgpIiAmIGlzIG9ubHkgaW50ZW5kZWQgZm9yIGNhc2VzIHdoZXJl
-IHRoZSBjbG9jayB3b3VsZA0KPj4gYmUga2VwdCBwcmVwYXJlZCBvciBlbmFibGVkIGZvciB0aGUg
-d2hvbGUgbGlmZXRpbWUgb2YgdGhlIGRyaXZlci4gSSB0aGluaw0KPj4gaXQgaXMgd29ydGggcG9p
-bnRpbmcgdGhhdCBvdXQgdG8gaGVscCBwZW9wbGUgd2hvIGRvIG5vdCBrZWVwIHVwIHdpdGgNCj4+
-IGV2ZXJ5IGhlbHBlciB0aGF0IGlzIGFkZGVkLg0KPiANCj4gT2ssIEknbGwgdXBkYXRlIG15IGNv
-bW1pdCBsb2cgZm9yIG90aGVyIHNpbWlsYXIgcGF0Y2hlcyBvciBzaG91bGQgYSB2Mg0KPiBiZSBu
-ZWVkZWQuDQo+IA0KPj4NCj4+IEkgaGFkIGEgYml0IG9mIGEgbG9vayB0aHJvdWdoIHRoZSBkb2N1
-bWVudGF0aW9uIHRvIHNlZSBpZiB0aGUgYmxvY2sgd291bGQNCj4+IGtlZXAgdHJhY2sgb2YgdGlt
-ZSB3aXRob3V0IHRoZSBBSEIgY2xvY2sgZW5hYmxlZCwgYnV0IGl0IGRvZXMgbm90IHNlZW0gdG8u
-DQo+PiBUaGVyZSBpcyBubyByZWFzb24gdG8gdHVybiBvZmYgdGhlIGNsb2NrIGhlcmUgKGluIGZh
-Y3QgaXQgd291bGQgc2VlbQ0KPj4gY291bnRlciBwcm9kdWN0aXZlIHRvIGRpc2FibGUgaXQuLikg
-c28gaXQgbG9va3MgbGlrZSB0aGUgc2hvZSBmaXRzIGluIHRoYXQNCj4+IHJlZ2FyZC4NCj4+DQo+
-PiBIb3dldmVyLi4uDQo+Pg0KDQo+Pj4gLcKgwqDCoMKgwqDCoCBkZXZtX2FkZF9hY3Rpb25fb3Jf
-cmVzZXQoZGV2LCAodm9pZCAoKikgKHZvaWQgKikpY2xrX2Rpc2FibGVfdW5wcmVwYXJlLCBjbGsp
-Ow0KPj4NCj4+IC4uLiB0aGlzIGJpdCBoZXJlIGNvbmNlcm5zIG1lIGEgbGl0dGxlLiBJIGRvbid0
-IHRoaW5rIHdlIHNob3VsZCBiZQ0KPj4gcmVnaXN0ZXJpbmcgYSBjYWxsYmFjayBoZXJlIGF0IGFs
-bCAtIGlmIHdlIHBvd2VyIGRvd24gTGludXggdGhpcyBpcw0KPj4gZ29pbmcgdG8gZW5kIHVwIHN0
-b3BwaW5nIHRoZSBSVEMgaXNuJ3QgaXQ/DQo+Pg0KPj4gSSB0aGluayB0aGlzIGlzIGxlZnQgb3Zl
-ciBmcm9tIHRoZSB2MSBkcml2ZXIgc3VibWlzc2lvbiB0aGF0IHJlc2V0DQo+PiB0aGUgYmxvY2sg
-ZHVyaW5nIHByb2JlICYgc2hvdWxkIGJlIHJlbW92ZWQuDQo+IA0KPiBNeSBwb2ludCBpcyBvbmx5
-IHRoYXQgd2hhdCBpcyBkb25lIG11c3QgYmUgdW5kb25lIGF0IHNvbWUgcG9pbnQuDQo+IA0KPiBX
-aGF0IGlmIGFuIGVycm9yIG9jY3VycyBpbiB0aGUgcHJvYmUgYWZ0ZXIgdGhlIGNsa19nZXQoInJ0
-YyIpPw0KPiBJcyB0aGVyZSBhbnkgcG9pbnQga2VlcGluZyBpdCBwcmVwYXJlZCBhbmQgZW5hYmxl
-ZD8NCj4gDQo+IA0KPiBUaGVyZSBpcyBhIC5yZW1vdmUgZnVuY3Rpb24gaW4gdGhpcyBkcml2ZXIs
-IHNvLCBpdCBsb29rcyB0aGF0IGl0IGlzDQo+IGV4cGVjdGVkIHRoYXQgaXQgY2FuIGJlIHVubG9h
-ZGVkLg0KPiANCj4gU28gdW5kb2luZyB0aGlzIGNsayBvcGVyYXRpb25zIHZpYSBhIG1hbmFnZWQg
-cmVzb3VyY2UgbG9va3MgdGhlIGNvcnJlY3QNCj4gdGhpbmcgdG8gZG8uDQo+IA0KPiBKdXN0IG15
-IDJjLCB5b3UgbXVzdCBrbm93IHRoaXMgZHJpdmVyIGFuZCB0aGUgZXhwZWN0ZWQgYmVoYXZpb3Ig
-YmV0dGVyDQo+IHRoYW4gbWUuDQo+DQoNCkkgYW0gZG9pbmcgc29tZSBtb3JlIHRlc3Rpbmcgcm4s
-IGJlZm9yZSByZXBseWluZyB0byBBbGV4YW5kcmUgLSBJIGd1ZXNzDQpJIGFtIGp1c3Qgd29uZGVy
-aW5nIGlmIGFjdHVhbGx5IGRpc2FibGluZyB0aGUgY2xvY2sgcHJpb3IgdG8gdG8gcmVtb3ZpbmcN
-CnRoZSBkcml2ZXIgbWFrZXMgYW55IHNlbnNlLiBNYXliZSB0aGUgbG9jayBqdXN0IG5lZWRzIHRv
-IGJlIGV4cGxpY2l0bHkNCm1hcmtlZCBhcyBjcml0aWNhbCwgaW4gd2hpY2ggY2FzZSB0aGlzIHBh
-dGNoIG1ha2VzIGNvbXBsZXRlIHNlbnNlIHRvIG1lLg0KDQpUaGFua3MsDQpDb25vci4NCg0KX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3Yg
-bWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3Rz
-LmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Uefi report the device info with acpi mode.But the macb driver
+just support dts mode , So we need to add acpi mode with this driver.
+
+We add the macb_acpi_support interface to get the clock rating from
+the acpi.Because in the acpi mode ,the clock is controlled by the uefi,
+and the driver will not modify the clock anymore.So we need get the
+clock rating from the acpi
+
+And we add macb_mdiobus_register interface ,and distinction the dts mode
+and the acpi mode.Within the function, we add macb_acpi_mdiobus_register
+function to realize the acpi mdio device register function.
+
+And we also add macb_phylink_connect interface,and to distinction the dts
+and acpi mode with the phy connection function.We add the
+macb_acpi_phylink_connect function to realize the acpi phylink function.
+
+Signed-off-by: xiaowu.ding <xiaowu.ding@jaguarmicro.com>
+---
+ drivers/net/ethernet/cadence/macb.h      |  46 ++++
+ drivers/net/ethernet/cadence/macb_main.c | 330 +++++++++++++++++++++--
+ 2 files changed, 357 insertions(+), 19 deletions(-)
+
+diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
+index 9c410f93a..a92299434 100644
+--- a/drivers/net/ethernet/cadence/macb.h
++++ b/drivers/net/ethernet/cadence/macb.h
+@@ -731,6 +731,33 @@
+ #define MACB_LSO_UFO_ENABLE			0x01
+ #define MACB_LSO_TSO_ENABLE			0x02
+ 
++/*Clk name define used for acpi mode*/
++#define MACB_SYSPCLOCK             "pclk"
++#define MACB_SYSHCLOCK             "hclk"
++#define MACB_TXCLOCK               "tx_clk"
++#define MACB_RXCLOCK               "rx_clk"
++#define MACB_TSCLOCK               "tsu_clk"
++
++/*Get the pclk clock rate used for acpi*/
++#define MACB_GET_GET_PCLOCKRATE(MACB)	\
++		((MACB)->acpicfg.pclk_rate)
++
++/*Get the hclk clock rate used for acpi*/
++#define MACB_GET_GET_HCLOCKRATE(MACB)	\
++		((MACB)->acpicfg.hclk_rate)
++
++/*Get the tsuclk clock rate used for acpi*/
++#define MACB_GET_GET_TSUCLOCKRATE(MACB)	\
++		((MACB)->acpicfg.tsuclk_rate)
++
++/*Get the tsuclk clock rate used for acpi*/
++#define MACB_GET_GET_TXCLOCKRATE(MACB)	\
++		((MACB)->acpicfg.txclk_rate)
++
++/*Get the tsuclk clock rate used for acpi*/
++#define MACB_GET_GET_RXCLOCKRATE(MACB)	\
++		((MACB)->acpicfg.rxclk_rate)
++
+ /* Bit manipulation macros */
+ #define MACB_BIT(name)					\
+ 	(1 << MACB_##name##_OFFSET)
+@@ -1242,6 +1269,18 @@ struct ethtool_rx_fs_list {
+ 	unsigned int count;
+ };
+ 
++/* On ACPI platforms, clocks are controlled by firmware and/or
++ * ACPI, not by drivers.Need to store the clock value.
++ */
++struct macb_acpi_config {
++	u32 hclk_rate;          /* amba clock rate*/
++	u32 pclk_rate;          /* amba apb clock rate*/
++	u32 txclk_rate;         /* tx clock rate*/
++	u32 rxclk_rate;         /* rx clock rate*/
++	u32 tsuclk_rate;        /* tx clock rate*/
++	bool acpi_enable;       /* is acpi or not */
++};
++
+ struct macb {
+ 	void __iomem		*regs;
+ 	bool			native_io;
+@@ -1324,6 +1363,7 @@ struct macb {
+ 
+ 	struct macb_pm_data pm_data;
+ 	const struct macb_usrio_config *usrio;
++	struct macb_acpi_config acpicfg;
+ };
+ 
+ #ifdef CONFIG_MACB_USE_HWSTAMP
+@@ -1381,6 +1421,12 @@ static inline bool gem_has_ptp(struct macb *bp)
+ 	return !!(bp->caps & MACB_CAPS_GEM_HAS_PTP);
+ }
+ 
++/* macb is support acpi or not */
++static inline bool macb_has_acpi(struct macb *bp)
++{
++	return bp->acpicfg.acpi_enable;
++}
++
+ /**
+  * struct macb_platform_data - platform data for MACB Ethernet used for PCI registration
+  * @pclk:		platform clock
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 66c7d08d3..41116d4ee 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -38,6 +38,8 @@
+ #include <linux/pm_runtime.h>
+ #include <linux/ptp_classify.h>
+ #include <linux/reset.h>
++#include <linux/acpi.h>
++#include <linux/acpi_mdio.h>
+ #include "macb.h"
+ 
+ /* This structure is only used for MACB on SiFive FU540 devices */
+@@ -748,14 +750,14 @@ static const struct phylink_mac_ops macb_phylink_ops = {
+ 	.mac_link_up = macb_mac_link_up,
+ };
+ 
+-static bool macb_phy_handle_exists(struct device_node *dn)
++static bool macb_of_phy_handle_exists(struct device_node *dn)
+ {
+ 	dn = of_parse_phandle(dn, "phy-handle", 0);
+ 	of_node_put(dn);
+ 	return dn != NULL;
+ }
+ 
+-static int macb_phylink_connect(struct macb *bp)
++static int macb_of_phylink_connect(struct macb *bp)
+ {
+ 	struct device_node *dn = bp->pdev->dev.of_node;
+ 	struct net_device *dev = bp->dev;
+@@ -765,7 +767,7 @@ static int macb_phylink_connect(struct macb *bp)
+ 	if (dn)
+ 		ret = phylink_of_phy_connect(bp->phylink, dn, 0);
+ 
+-	if (!dn || (ret && !macb_phy_handle_exists(dn))) {
++	if (!dn || (ret && !macb_of_phy_handle_exists(dn))) {
+ 		phydev = phy_find_first(bp->mii_bus);
+ 		if (!phydev) {
+ 			netdev_err(dev, "no PHY found\n");
+@@ -786,6 +788,166 @@ static int macb_phylink_connect(struct macb *bp)
+ 	return 0;
+ }
+ 
++#ifdef CONFIG_ACPI
++
++static bool macb_acpi_phy_handle_exists(struct fwnode_handle *fwnd)
++{
++	struct fwnode_handle *phy_node;
++	bool flag = false;
++	/* Only phy-handle is used for ACPI */
++	phy_node = fwnode_find_reference(fwnd, "phy-handle", 0);
++	flag = !IS_ERR_OR_NULL(phy_node);
++
++	if (flag)
++		fwnode_handle_put(phy_node);
++
++	return flag;
++}
++
++static int macb_acpi_phylink_connect(struct macb *bp)
++{
++	struct fwnode_handle *fwnd = bp->pdev->dev.fwnode;
++	struct net_device *dev = bp->dev;
++	struct phy_device *phydev;
++	int ret;
++
++	if (fwnd)
++		ret = phylink_fwnode_phy_connect(bp->phylink, fwnd, 0);
++
++	if (!fwnd || (ret && !macb_acpi_phy_handle_exists(fwnd))) {
++		phydev = phy_find_first(bp->mii_bus);
++		if (!phydev) {
++			netdev_err(dev, "no PHY found\n");
++			return -ENXIO;
++		}
++
++		/* attach the mac to the phy */
++		ret = phylink_connect_phy(bp->phylink, phydev);
++	}
++
++	if (ret) {
++		netdev_err(dev, "Could not attach PHY (%d)\n", ret);
++		return ret;
++	}
++
++	phylink_start(bp->phylink);
++
++	return 0;
++}
++
++static int macb_acpi_support(struct macb *bp)
++{
++	struct device *dev = &bp->pdev->dev;
++	struct macb_acpi_config *config = &bp->acpicfg;
++	int ret;
++	u32 property;
++
++	/*acpi must be report the pclk*/
++	property = 0;
++	ret = device_property_read_u32(dev, MACB_SYSPCLOCK, &property);
++	if (ret) {
++		dev_err(dev, "unable to obtain %s property\n", MACB_SYSPCLOCK);
++		return ret;
++	}
++
++	config->pclk_rate = property;
++
++	/*acpi must be report the hclk*/
++	property = 0;
++	ret = device_property_read_u32(dev, MACB_SYSHCLOCK, &property);
++	if (ret) {
++		dev_err(dev, "unable to obtain %s property\n", MACB_SYSHCLOCK);
++		return ret;
++	}
++
++	config->hclk_rate = property;
++
++	/*acpi optional report txclk */
++	property = 0;
++	ret = device_property_read_u32(dev, MACB_TXCLOCK, &property);
++	if (ret) {
++		dev_info(dev, "unable to obtain %s property\n", MACB_TXCLOCK);
++		property = 0;
++	}
++
++	config->txclk_rate = property;
++
++	/*acpi optional report rxclk */
++	property = 0;
++	ret = device_property_read_u32(dev, MACB_RXCLOCK, &property);
++	if (ret) {
++		dev_info(dev, "unable to obtain %s property\n", MACB_RXCLOCK);
++		property = 0;
++	}
++
++	config->rxclk_rate = property;
++
++	/*acpi optional report tsuclk */
++	property = 0;
++	ret = device_property_read_u32(dev, MACB_TSCLOCK, &property);
++	if (ret) {
++		dev_info(dev, "unable to obtain %s property\n", MACB_TSCLOCK);
++		property = 0;
++	}
++
++	config->tsuclk_rate = property;
++
++	return 0;
++}
++
++static int macb_acpi_mdiobus_register(struct macb *bp)
++{
++	struct platform_device *pdev =	bp->pdev;
++	struct fwnode_handle *fwnode = pdev->dev.fwnode;
++	struct fwnode_handle *child;
++	u32 addr;
++	int ret;
++
++	if (!IS_ERR_OR_NULL(fwnode_find_reference(pdev->dev.fwnode, "fixed-link", 0)))
++		return mdiobus_register(bp->mii_bus);
++
++	fwnode_for_each_child_node(fwnode, child) {
++		ret = acpi_get_local_address(ACPI_HANDLE_FWNODE(child), &addr);
++		if (ret || addr >= PHY_MAX_ADDR)
++			continue;
++		ret = acpi_mdiobus_register(bp->mii_bus, fwnode);
++		if (!ret)
++			return ret;
++		break;
++	}
++
++	return mdiobus_register(bp->mii_bus);
++}
++
++#else
++
++static int macb_acpi_phylink_connect(struct macb *bp)
++{
++	return -EINVAL;
++}
++
++static int macb_acpi_support(struct macb *bp)
++{
++	return -EINVAL;
++}
++
++static int macb_acpi_mdiobus_register(struct macb *bp)
++{
++	return -EINVAL;
++}
++
++#endif
++
++static int macb_phylink_connect(struct macb *bp)
++{
++	if (likely(!macb_has_acpi(bp))) {
++		/* macb of device tree mode register mdiobus */
++		return macb_of_phylink_connect(bp);
++	}
++		/* macb acpi mode register mdiobus */
++	return macb_acpi_phylink_connect(bp);
++}
++
+ static void macb_get_pcs_fixed_state(struct phylink_config *config,
+ 				     struct phylink_link_state *state)
+ {
+@@ -851,7 +1013,7 @@ static int macb_mii_probe(struct net_device *dev)
+ 	return 0;
+ }
+ 
+-static int macb_mdiobus_register(struct macb *bp)
++static int macb_of_mdiobus_register(struct macb *bp)
+ {
+ 	struct device_node *child, *np = bp->pdev->dev.of_node;
+ 
+@@ -887,6 +1049,16 @@ static int macb_mdiobus_register(struct macb *bp)
+ 	return mdiobus_register(bp->mii_bus);
+ }
+ 
++static int macb_mdiobus_register(struct macb *bp)
++{
++	if (likely(!macb_has_acpi(bp))) {
++		/* macb of device tree mode register mdio bus */
++		return macb_of_mdiobus_register(bp);
++	}
++	/* macb acpi mode register mdio bus */
++	return macb_acpi_mdiobus_register(bp);
++}
++
+ static int macb_mii_init(struct macb *bp)
+ {
+ 	int err = -ENXIO;
+@@ -2578,7 +2750,12 @@ static void macb_reset_hw(struct macb *bp)
+ static u32 gem_mdc_clk_div(struct macb *bp)
+ {
+ 	u32 config;
+-	unsigned long pclk_hz = clk_get_rate(bp->pclk);
++	unsigned long pclk_hz;
++
++	if (unlikely(macb_has_acpi(bp)))
++		pclk_hz = MACB_GET_GET_PCLOCKRATE(bp);
++	else
++		pclk_hz = clk_get_rate(bp->pclk);
+ 
+ 	if (pclk_hz <= 20000000)
+ 		config = GEM_BF(CLK, GEM_CLK_DIV8);
+@@ -3263,6 +3440,8 @@ static unsigned int gem_get_tsu_rate(struct macb *bp)
+ {
+ 	struct clk *tsu_clk;
+ 	unsigned int tsu_rate;
++	if (unlikely(macb_has_acpi(bp)))
++		return MACB_GET_GET_TSUCLOCKRATE(bp);
+ 
+ 	tsu_clk = devm_clk_get(&bp->pdev->dev, "tsu_clk");
+ 	if (!IS_ERR(tsu_clk))
+@@ -3865,7 +4044,6 @@ static void macb_clks_disable(struct clk *pclk, struct clk *hclk, struct clk *tx
+ 		{ .clk = hclk, },
+ 		{ .clk = tx_clk },
+ 	};
+-
+ 	clk_bulk_disable_unprepare(ARRAY_SIZE(clks), clks);
+ }
+ 
+@@ -4811,6 +4989,94 @@ static const struct of_device_id macb_dt_ids[] = {
+ MODULE_DEVICE_TABLE(of, macb_dt_ids);
+ #endif /* CONFIG_OF */
+ 
++#ifdef CONFIG_ACPI
++
++static int jmnd_mac_clk_init(struct platform_device *pdev, struct clk **pclk,
++			     struct clk **hclk, struct clk **tx_clk,
++			     struct clk **rx_clk, struct clk **tsu_clk)
++{
++	/*On ACPI platforms, clocks are controlled by firmware and/or
++	 * ACPI, not configure by drivers.So here need to dummy here.
++	 */
++	*pclk = NULL;
++	*hclk = NULL;
++	*tx_clk = NULL;
++	*rx_clk = NULL;
++	*tsu_clk = NULL;
++	dev_info(&pdev->dev, "Jmnd Mac clock dummpy init.\n");
++	return 0;
++}
++
++static const struct macb_config jmnd_gem_rgmii_config = {
++	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_SG_DISABLED |
++			MACB_CAPS_JUMBO,
++	.dma_burst_length = 16,
++	.clk_init = jmnd_mac_clk_init,
++	.init = macb_init,
++	.jumbo_max_len = 10240,
++	.usrio = &macb_default_usrio
++};
++
++static const struct macb_config jmnd_gem_rmii_config = {
++	.caps = MACB_CAPS_SG_DISABLED | MACB_CAPS_JUMBO,
++	.dma_burst_length = 16,
++	.clk_init = jmnd_mac_clk_init,
++	.init = macb_init,
++	.jumbo_max_len = 10240,
++	.usrio = &macb_default_usrio,
++};
++
++static const struct acpi_device_id macb_acpi_ids[] = {
++	{
++		.id = "JAMC00B0",
++		.driver_data = (kernel_ulong_t)&jmnd_gem_rgmii_config
++	},
++	{
++		.id = "JAMC00BA",
++		.driver_data = (kernel_ulong_t)&jmnd_gem_rmii_config
++	},
++	{
++	},
++};
++
++MODULE_DEVICE_TABLE(acpi, macb_acpi_ids);
++
++static void macb_acpi_gdata(struct platform_device *pdev, int (**init)(struct platform_device *),
++			    int (**clk_init)(struct platform_device *, struct clk **, struct clk **,
++					     struct clk **,  struct clk **, struct clk **),
++			    const struct macb_config **macb_config)
++{
++	const struct acpi_device_id *match;
++
++	match = acpi_match_device(macb_acpi_ids, &pdev->dev);
++	if (match && match->driver_data) {
++		*macb_config = (struct macb_config *)match->driver_data;
++		*clk_init = (*macb_config)->clk_init;
++		*init = (*macb_config)->init;
++	}
++}
++
++#else
++
++static void macb_acpi_gdata(struct platform_device *pdev, int (**init)(struct platform_device *),
++			    int (**clk_init)(struct platform_device *, struct clk **, struct clk **,
++					     struct clk **,  struct clk **, struct clk **),
++			    const struct macb_config **macb_config)
++{
++}
++
++#endif
++
++/* config acpi mode ,dts priority high*/
++static inline void macb_set_acpi_mode(struct macb *bp)
++{
++	struct device *dev = &bp->pdev->dev;
++
++	bp->acpicfg.acpi_enable = dev_of_node(dev) ? false :
++		(is_acpi_node(dev->fwnode) ? true : false);
++	wmb();/* drain writebuffer */
++}
++
+ static const struct macb_config default_gem_config = {
+ 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
+ 		MACB_CAPS_JUMBO |
+@@ -4830,6 +5096,7 @@ static int macb_probe(struct platform_device *pdev)
+ 			struct clk **) = macb_config->clk_init;
+ 	int (*init)(struct platform_device *) = macb_config->init;
+ 	struct device_node *np = pdev->dev.of_node;
++	struct fwnode_handle *fwnodep = pdev->dev.fwnode;
+ 	struct clk *pclk, *hclk = NULL, *tx_clk = NULL, *rx_clk = NULL;
+ 	struct clk *tsu_clk = NULL;
+ 	unsigned int queue_mask, num_queues;
+@@ -4845,7 +5112,7 @@ static int macb_probe(struct platform_device *pdev)
+ 	if (IS_ERR(mem))
+ 		return PTR_ERR(mem);
+ 
+-	if (np) {
++	if (likely(np)) {
+ 		const struct of_device_id *match;
+ 
+ 		match = of_match_node(macb_dt_ids, np);
+@@ -4855,10 +5122,15 @@ static int macb_probe(struct platform_device *pdev)
+ 			init = macb_config->init;
+ 		}
+ 	}
++	/*add gem support acpi*/
++	else if (is_acpi_node(fwnodep))
++		macb_acpi_gdata(pdev, &init, &clk_init, &macb_config);
+ 
+-	err = clk_init(pdev, &pclk, &hclk, &tx_clk, &rx_clk, &tsu_clk);
+-	if (err)
+-		return err;
++	if (clk_init) {
++		err = clk_init(pdev, &pclk, &hclk, &tx_clk, &rx_clk, &tsu_clk);
++		if (err)
++			return err;
++	}
+ 
+ 	pm_runtime_set_autosuspend_delay(&pdev->dev, MACB_PM_TIMEOUT);
+ 	pm_runtime_use_autosuspend(&pdev->dev);
+@@ -4902,9 +5174,16 @@ static int macb_probe(struct platform_device *pdev)
+ 	if (macb_config)
+ 		bp->jumbo_max_len = macb_config->jumbo_max_len;
+ 
++	/* macb set acpi mode is enabled */
++	macb_set_acpi_mode(bp);
++
++	if (macb_has_acpi(bp))
++		macb_acpi_support(bp);
++
+ 	bp->wol = 0;
+-	if (of_get_property(np, "magic-packet", NULL))
++	if (device_property_present(&pdev->dev, "magic-packet"))
+ 		bp->wol |= MACB_WOL_HAS_MAGIC_PACKET;
++
+ 	device_set_wakeup_capable(&pdev->dev, bp->wol & MACB_WOL_HAS_MAGIC_PACKET);
+ 
+ 	bp->usrio = macb_config->usrio;
+@@ -4951,15 +5230,13 @@ static int macb_probe(struct platform_device *pdev)
+ 	if (bp->caps & MACB_CAPS_NEEDS_RSTONUBR)
+ 		bp->rx_intr_mask |= MACB_BIT(RXUBR);
+ 
+-	err = of_get_ethdev_address(np, bp->dev);
+-	if (err == -EPROBE_DEFER)
+-		goto err_out_free_netdev;
+-	else if (err)
++	if (device_get_ethdev_address(&pdev->dev, dev))
+ 		macb_get_hwaddr(bp);
+ 
+-	err = of_get_phy_mode(np, &interface);
+-	if (err)
+-		/* not found in DT, MII by default */
++	/*add gem support acpi*/
++	interface = device_get_phy_mode(&pdev->dev);
++	if (interface < 0)
++		/* not found in DT and ACPI , MII by default */
+ 		bp->phy_interface = PHY_INTERFACE_MODE_MII;
+ 	else
+ 		bp->phy_interface = interface;
+@@ -5213,6 +5490,12 @@ static int __maybe_unused macb_runtime_suspend(struct device *dev)
+ 	struct net_device *netdev = dev_get_drvdata(dev);
+ 	struct macb *bp = netdev_priv(netdev);
+ 
++	/*On ACPI platforms, clocks are controlled by firmware and/or
++	 * ACPI, not by drivers.
++	 */
++	if (unlikely(macb_has_acpi(bp)))
++		return 0;
++
+ 	if (!(device_may_wakeup(dev)))
+ 		macb_clks_disable(bp->pclk, bp->hclk, bp->tx_clk, bp->rx_clk, bp->tsu_clk);
+ 	else if (!(bp->caps & MACB_CAPS_NEED_TSUCLK))
+@@ -5226,6 +5509,12 @@ static int __maybe_unused macb_runtime_resume(struct device *dev)
+ 	struct net_device *netdev = dev_get_drvdata(dev);
+ 	struct macb *bp = netdev_priv(netdev);
+ 
++	/*On ACPI platforms, clocks are controlled by firmware and/or
++	 * ACPI, not by drivers.
++	 */
++	if (unlikely(macb_has_acpi(bp)))
++		return 0;
++
+ 	if (!(device_may_wakeup(dev))) {
+ 		clk_prepare_enable(bp->pclk);
+ 		clk_prepare_enable(bp->hclk);
+@@ -5250,7 +5539,10 @@ static struct platform_driver macb_driver = {
+ 	.driver		= {
+ 		.name		= "macb",
+ 		.of_match_table	= of_match_ptr(macb_dt_ids),
+-		.pm	= &macb_pm_ops,
++#ifdef CONFIG_ACPI
++		.acpi_match_table = ACPI_PTR(macb_acpi_ids),
++#endif
++		.pm = &macb_pm_ops,
+ 	},
+ };
+ 
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
