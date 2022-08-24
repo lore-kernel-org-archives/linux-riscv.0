@@ -4,71 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560A9C00140
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 10:05:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F816C00140
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 10:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5pXWk7LNAKM1lxNhrFWUABkO1W9ii6TmZSDzNDjfUFw=; b=NXk+7K6hTzROPx
-	ji+zU357xwSVPAofJHM+52DjLab5Dh2bdWabk1Qef+JmY9NdRJdrdBZVtQsScG3YKj1MLtmjVb2T2
-	z8fLhEUQ2ztqGBPCjl5ko6j9nxxi75T21OwGZqu+DEZL1OdNvaMlq2tXkj1YL3tEjS1I1vgtfwhWt
-	0/b0lmLv4Q7zXJZ1NrBOy/5L3gpsazP7zrSryPEQSjDX1MOgZmK0hr6aZRMtsT/1ZiJCM2l8qOalp
-	pU3z8HQPHJoYGB+03ErZNsfK1QQnCHaArIene6SLINPcO0Lwm2JnhHBcYSx2vWwviP9oTZhYXdtN0
-	pHAi21gBYT42edYxGXpg==;
+	List-Owner; bh=dYvzK0HFybe8aq9/A0ld/cOuvK8FKJ5Og3cHT2OzlrE=; b=R6aNdPWgxIu1H+
+	4MN+BKIGor+m9PV7A2TaWvPaMb+3jXnIZziJG5wPB0IBGc8/P8IQek8ZhRczaBQ8ldQpibjplbPgZ
+	x+R6qb7Zru5ZhVz9zh7bacL2R93sVkwDR9XwvZX4PdPTCci/vlNSwLZGXk1ehhw1f46IU8YwXuyfO
+	f18skqvgPKrN4WBW8ASFRh37K914uMp0M/mG7jVjEpyMj1+iPCbuk7/jqkfeQEAKHzbQXbj2+QaDa
+	5PqB/lchsD35sX4v1OIpZhyUtUykAPYUI7+uUkuDETHJCPqhDr54L11ZXBfprQJGROAGfoho0g3JU
+	23SwrBoK++0E5BlVmWtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQnFg-00BvrM-JY; Wed, 24 Aug 2022 10:04:48 +0000
-Received: from mout.kundenserver.de ([212.227.126.134])
+	id 1oQo0u-00CFDW-NP; Wed, 24 Aug 2022 10:53:36 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQnFc-00Bvp1-KN; Wed, 24 Aug 2022 10:04:46 +0000
-Received: from [192.168.1.138] ([37.4.248.80]) by mrelayeu.kundenserver.de
- (mreue011 [212.227.15.167]) with ESMTPSA (Nemesis) id
- 1MqK2d-1pDGwt1ElX-00nQRs; Wed, 24 Aug 2022 12:04:08 +0200
-Message-ID: <23a323e6-81b7-6b9a-fdfe-faddec9e7a75@i2se.com>
-Date: Wed, 24 Aug 2022 12:04:06 +0200
+	id 1oQo0o-00CF7W-9J
+	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 10:53:34 +0000
+Received: (Authenticated sender: alexandre.belloni@bootlin.com)
+	by mail.gandi.net (Postfix) with ESMTPSA id EF58A60008;
+	Wed, 24 Aug 2022 10:53:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1661338404;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wWhY07SBJoBBrYsQWckDh4HVuRXZ5NEqxZCLw/HYK4o=;
+	b=XC5u1hqmTD48Pjx9ydsP4Lkm6A6OUg420rdBtQOCgaujq4WUkcoADDxGgyOas2RM+pfva6
+	OAIn5ogyolHiDbTykHOAlnZYAochDBuolz4zh3uA928SVz1MxxpskZCYd2rjOv9TEQpGAd
+	lLv9pU2yRmc3I9+Yshytw+fw+VhMmPbK+Qf8Zwt+eiOCboDLg+PQ2pDz1fet61OdKduPt1
+	gXk8j7gp+AAbrov2ww/qWoksgiuS5me0Lb9WWv4XHiizy+Nss1FavcWH9mTp9LWGk1XZ/q
+	KIoPSSfXmc7S5nhVeTUw+rROISaJeHWeCXsvjuWLHbWoLLb5ZIeLaNmBCdlBwQ==
+Date: Wed, 24 Aug 2022 12:53:23 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Conor.Dooley@microchip.com
+Cc: christophe.jaillet@wanadoo.fr, Daire.McNamara@microchip.com,
+	a.zummo@towertech.it, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-rtc@vger.kernel.org
+Subject: Re: [PATCH] rtc: mpfs: Use devm_clk_get_enabled() helper
+Message-ID: <YwYDI04TDD0RWn2B@mail.local>
+References: <e55c959f2821a2c367a4c5de529a638b1cc6b8cd.1661329086.git.christophe.jaillet@wanadoo.fr>
+ <f76fb247-5160-61ed-a0a3-037d2f40d2f9@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-Subject: Re: [PATCH v3] clk: bcm2835: Round UART input clock up
-Content-Language: en-US
-To: "Ivan T. Ivanov" <iivanov@suse.de>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Florian Fainelli <f.fainelli@gmail.com>,
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Phil Elwell <phil@raspberrypi.org>, kernel test robot <lkp@intel.com>,
- linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20220527102900.144894-1-iivanov@suse.de>
-From: Stefan Wahren <stefan.wahren@i2se.com>
-In-Reply-To: <20220527102900.144894-1-iivanov@suse.de>
-X-Provags-ID: V03:K1:y6rJ9aKKhNo8kI15r9PCLQuQEt4hloO6g13Pi+AroxJGv69tX0g
- Z3SDdv37Wf3OsKsTbGJ9lQB/OZ93h4x9Z4P0j6NrcMLw8ZXaNGUO/itN0Yxs0vSJ3HZr84D
- 3WPKD+iJkOSwN64owlVgTpdv+sRdvBvUGuskb+3yt4w+LhWJJRGeR8NaspoFfDwmwHDW+/j
- QAV9HXYKcjbnPB/PgnTEQ==
-X-UI-Out-Filterresults: notjunk:1;V03:K0:TdSZPrQAPkA=:GahMTjw1AMlSx1QALm5iyJ
- bT2FPDePKY8xmtBQ/OSwxjLX4/R8xIVDqNudMJX6iEbEabgm745rzxH/QM6C0vfzdTclbXZ1l
- fEqEXCiY03Asv6fXx+SXP2RZgRiS2rZEgwauPUm1bSq0NHtaSRc81ppkB9AjaqiiUq3kj548c
- i7ZfZyLVWD6IDwyhxM2PCEC0BeDtosRoXtJn7V5Y8CLed9bidhcMTmCJ+pWWLXA0yaa3jG3WF
- VPm2SzWVQODK2lvSyg5BiN2rvKSwqzyU5F1Zx9n56/MEDv8n/EkekZW3HrpqWr6DDtWzxnw6f
- yK9LeNVQiK2+D/vZZeL8f1401zGQ47or2Dqt2HnujM1bVJStmxgKcztQMa3bJxLGzssG8Nrwu
- RzqRI4I1EGWRpE8n11c5Am46KPs0Y5/OcnxqgDM4IA7KiA0054JxCkgRMzANwSWIQIQKjVVxJ
- VPnsSx2lAhsf+bPqQ/DHSKSph4JCFRN6Q85VmImGbDB396INptYKSyCtR0kieS5m9Dp8AwlVl
- rpdMbLZoRrhY1SWog2JpEbcRGu3iKXwuf4ZOv9/fpKpPymfh64pR3S+xQKuIFSMwPxJAlK0vv
- K7gPPD09PirJlD/f5WMUeE0KadJP6WKgiOYZqfmQ2rvRZ2yzr0kU9TR/oe7KSY+yMbJJO7NW1
- eelgN3cmfdkbGXU+IuTUdkQ/1RlWIc3y/wFF7fBZH53yfM38GRyvT46WCZAzuTEJuTbltSHnu
- G9aOgevjQGJEfWS/Vl7cquMd1UlSHUsrrw6/DCd5tsXNIsyPdfu1ROWCulA=
+Content-Disposition: inline
+In-Reply-To: <f76fb247-5160-61ed-a0a3-037d2f40d2f9@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220824_030444_996522_B1A45BA3 
-X-CRM114-Status: GOOD (  30.13  )
+X-CRM114-CacheID: sfid-20220824_035330_691936_A37C1291 
+X-CRM114-Status: GOOD (  43.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,139 +67,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ivan,
+On 24/08/2022 09:58:35+0000, Conor.Dooley@microchip.com wrote:
+> Hey Christope,
+> Thanks for your patch.
+> 
+> On 24/08/2022 09:18, Christophe JAILLET wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> > 
+> > The devm_clk_get_enabled() helper:
+> >     - calls devm_clk_get()
+> >     - calls clk_prepare_enable() and registers what is needed in order to
+> >       call clk_disable_unprepare() when needed, as a managed resource.
+> > 
+> > This simplifies the code, the error handling paths and avoid the need of
+> > a dedicated function used with devm_add_action_or_reset().
+> > 
+> > That said, mpfs_rtc_init_clk() is the same as devm_clk_get_enabled(), so
+> > use this function directly instead.
+> 
+> Firstly, I think something is missing from the commit description here.
+> devm_clk_get_enabled() is not just a blanket "use this instead of get(),
+> prepare_enable()" & is only intended for cases where the clock would
+> be kept prepared or enabled for the whole lifetime of the driver. I think
+> it is worth pointing that out to help people who do not keep up with
+> every helper that is added.
+> 
+> I had a bit of a look through the documentation to see if the block would
+> keep track of time without the AHB clock enabled, but it does not seem to.
+> There is no reason to turn off the clock here (in fact it would seem
+> counter productive to disable it..) so it looks like the shoe fits in that
+> regard.
 
-Am 27.05.22 um 12:29 schrieb Ivan T. Ivanov:
-> It was reported that RPi3[1] and RPi Zero 2W boards have issues with
-> the Bluetooth. It turns out that when switching from initial to
-> operation speed host and device no longer can talk each other because
-> host uses incorrect UART baud rate.
->
-> The UART driver used in this case is amba-pl011. Original fix, see
-> below Github link[2], was inside pl011 module, but somehow it didn't
-> look as the right place to fix. Beside that this original rounding
-> function is not exactly perfect for all possible clock values. So I
-> deiced to move the hack to the platform which actually need it.
->
-> The UART clock is initialised to be as close to the requested
-> frequency as possible without exceeding it. Now that there is a
-> clock manager that returns the actual frequencies, an expected
-> 48MHz clock is reported as 47999625. If the requested baud rate
-> == requested clock/16, there is no headroom and the slight
-> reduction in actual clock rate results in failure.
->
-> If increasing a clock by less than 0.1% changes it from ..999..
-> to ..000.., round it up.
-i'm fine with this approach.
->
-> [1] https://bugzilla.suse.com/show_bug.cgi?id=1188238
-> [2] https://github.com/raspberrypi/linux/commit/ab3f1b39537f6d3825b8873006fbe2fc5ff057b7
->
-> Cc: Phil Elwell <phil@raspberrypi.org>
-> Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
-> ---
->
-> Changes since v2
-> * Added more information in commit message
-> * Changed hand crafted round function with the one form math.h
->
-> Changes since v1
-> Make bcm2835_clock_round() static to fix following warning
-> when compiling for riscv:
-> drivers/clk/bcm/clk-bcm2835.c:997:15: warning: no previous prototype for 'bcm2835_clock_round' [-Wmissing-prototypes]
-> Reported-by: kernel test robot <lkp@intel.com>
->
->   drivers/clk/bcm/clk-bcm2835.c | 32 ++++++++++++++++++++++++++++++--
->   1 file changed, 30 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
-> index 48a1eb9f2d55..cee59990a57b 100644
-> --- a/drivers/clk/bcm/clk-bcm2835.c
-> +++ b/drivers/clk/bcm/clk-bcm2835.c
-> @@ -30,6 +30,7 @@
->   #include <linux/debugfs.h>
->   #include <linux/delay.h>
->   #include <linux/io.h>
-> +#include <linux/math.h>
->   #include <linux/module.h>
->   #include <linux/of_device.h>
->   #include <linux/platform_device.h>
-> @@ -502,6 +503,8 @@ struct bcm2835_clock_data {
->   	bool low_jitter;
->   
->   	u32 tcnt_mux;
-> +
-> +	bool round_up;
->   };
->   
->   struct bcm2835_gate_data {
-> @@ -993,12 +996,31 @@ static long bcm2835_clock_rate_from_divisor(struct bcm2835_clock *clock,
->   	return temp;
->   }
->   
-> +static unsigned long bcm2835_clock_round(unsigned long clk)
-> +{
-> +	unsigned long scaler;
-> +
-> +	scaler = 1;
-> +	while (scaler * 100000 < clk)
-> +		scaler *= 10;
+This would be very surprising that it doesn't keep the time with the AHB
+clock disabled, this would mean the RTC loses the time when the SoC is
+not powered. or is the AHB clock also in the always-on domain?
 
-I'm not sure about overflow behavior for this loop. But it's better to 
-avoid any potential endless loops here.
+> 
+> However...
+> 
+> > 
+> > This also fixes an (unlikely) unchecked devm_add_action_or_reset() error.
+> > 
+> > Based on my test with allyesconfig, this reduces the .o size from:
+> >     text    data     bss     dec     hex filename
+> >     5330    2208       0    7538    1d72 drivers/rtc/rtc-mpfs.o
+> > down to:
+> >     5074    2208       0    7282    1c72 drivers/rtc/rtc-mpfs.o
+> > 
+> > Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+> > ---
+> > devm_clk_get_enabled() is new and is part of 6.0-rc1
+> > ---
+> >   drivers/rtc/rtc-mpfs.c | 19 +------------------
+> >   1 file changed, 1 insertion(+), 18 deletions(-)
+> > 
+> > diff --git a/drivers/rtc/rtc-mpfs.c b/drivers/rtc/rtc-mpfs.c
+> > index 944ad1036516..2a479d44f198 100644
+> > --- a/drivers/rtc/rtc-mpfs.c
+> > +++ b/drivers/rtc/rtc-mpfs.c
+> > @@ -193,23 +193,6 @@ static int mpfs_rtc_alarm_irq_enable(struct device *dev, unsigned int enabled)
+> >          return 0;
+> >   }
+> > 
+> > -static inline struct clk *mpfs_rtc_init_clk(struct device *dev)
+> > -{
+> > -       struct clk *clk;
+> > -       int ret;
+> > -
+> > -       clk = devm_clk_get(dev, "rtc");
+> > -       if (IS_ERR(clk))
+> > -               return clk;
+> > -
+> > -       ret = clk_prepare_enable(clk);
+> > -       if (ret)
+> > -               return ERR_PTR(ret);
+> > -
+> > -       devm_add_action_or_reset(dev, (void (*) (void *))clk_disable_unprepare, clk);
+> 
+> ... this bit here concerns me a little. I don't think we should be
+> registering a callback here at all - if we power down Linux this is
+> going to end up stopping the RTC isn't it?
+> 
+> I think this is left over from the v1 driver submission that reset
+> the block during probe & should be removed.
+> 
+> Thanks,
+> Conor.
+> 
+> > -       return clk;
+> > -}
+> > -
+> >   static irqreturn_t mpfs_rtc_wakeup_irq_handler(int irq, void *dev)
+> >   {
+> >          struct mpfs_rtc_dev *rtcdev = dev;
+> > @@ -251,7 +234,7 @@ static int mpfs_rtc_probe(struct platform_device *pdev)
+> >          /* range is capped by alarm max, lower reg is 31:0 & upper is 10:0 */
+> >          rtcdev->rtc->range_max = GENMASK_ULL(42, 0);
+> > 
+> > -       clk = mpfs_rtc_init_clk(&pdev->dev);
+> > +       clk = devm_clk_get_enabled(&pdev->dev, "rtc");
+> >          if (IS_ERR(clk))
+> >                  return PTR_ERR(clk);
+> > 
+> > --
+> > 2.34.1
+> > 
+> > 
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+> 
 
-Best regards
-
-> +
-> +	/*
-> +	 * If increasing a clock by less than 0.1% changes it
-> +	 * from ..999.. to ..000.., round up.
-> +	 */
-> +	if ((clk + scaler - 1) / scaler % 1000 == 0)
-> +		clk = roundup(clk, scaler);
-> +
-> +	return clk;
-> +}
-> +
->   static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
->   					    unsigned long parent_rate)
->   {
->   	struct bcm2835_clock *clock = bcm2835_clock_from_hw(hw);
->   	struct bcm2835_cprman *cprman = clock->cprman;
->   	const struct bcm2835_clock_data *data = clock->data;
-> +	unsigned long rate;
->   	u32 div;
->   
->   	if (data->int_bits == 0 && data->frac_bits == 0)
-> @@ -1006,7 +1028,12 @@ static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
->   
->   	div = cprman_read(cprman, data->div_reg);
->   
-> -	return bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
-> +	rate = bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
-> +
-> +	if (data->round_up)
-> +		rate = bcm2835_clock_round(rate);
-> +
-> +	return rate;
->   }
->   
->   static void bcm2835_clock_wait_busy(struct bcm2835_clock *clock)
-> @@ -2143,7 +2170,8 @@ static const struct bcm2835_clk_desc clk_desc_array[] = {
->   		.div_reg = CM_UARTDIV,
->   		.int_bits = 10,
->   		.frac_bits = 12,
-> -		.tcnt_mux = 28),
-> +		.tcnt_mux = 28,
-> +		.round_up = true),
->   
->   	/* TV encoder clock.  Only operating frequency is 108Mhz.  */
->   	[BCM2835_CLOCK_VEC]	= REGISTER_PER_CLK(
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 _______________________________________________
 linux-riscv mailing list
