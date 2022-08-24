@@ -4,55 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3093AC32793
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 13:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6DBC32796
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 13:27:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6jUHTMnj2YcRBT1tmJiQ4O3Dl2cEyb5wFX8IFZMkUCk=; b=piKaMQky7WRFjH
-	VEPDf40INoobgZl3IEEHMy/CTefEwswu1aIF6TKk2epEQtqV1uZBuBLmK8sOmbPbriCP/0iCBBSUM
-	NB3DVAr+OiLizW03vt7EBKF7uHCPK6HyNii6OH9IgeazXLIYM7tlD48q2M0jz6gIkayNAHZykgB4u
-	zhHPdqL5F7ddZ9aaXSEQVvM3XWHydTPFUHlNSikmE+2gyajXQu3gEUybxqks4+Z08Te4ORikBBQCG
-	HG2nflvHW5355mu6Hw1gYC8KdLjk+W5zxdhvHaag+S4jRhOeaD1V51Vd4yFG003h82FelfFmBvB7z
-	Fq/SQySieZQgqDVbpUVA==;
+	List-Owner; bh=31N23mABFxSQcweM9t4Hq5j9GXFYfQUcU8bXR1rJ2zc=; b=t0tELVzeY3mUvI
+	5IOuZtURTcoelmTiNPyb4R22nPT7RVvMLzHwl+ft3pyWQaPRHmbp5AYdeJbJVkQYpCbaID4tUKyFv
+	mPH2zsKM6NcAwJfdvk0htoPYvogNL4Ckyc937htrakNvDlRe86zRD/qmzRzKDgnYrOOrKCu7+vVLX
+	5qU8zSK3NqKFuBZp3Y80ACfYrUcVgk8XKcNoX835lPye5VFYhq5voqjKQcayM58PASBJGT4Irog1L
+	o/qKYg7n0d/Zn+wVkEVs2dmE04mM2AI5W2pEcblSacOua6v0DBfLDEi8nH8FSKUwweWaj3keFa5Nq
+	h0pgmrzzIhRea8tGNYdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQqO6-00DECK-V1; Wed, 24 Aug 2022 13:25:42 +0000
-Received: from smtp09.smtpout.orange.fr ([80.12.242.131] helo=smtp.smtpout.orange.fr)
+	id 1oQqPR-00DEh0-Af; Wed, 24 Aug 2022 13:27:05 +0000
+Received: from mail-oa1-f46.google.com ([209.85.160.46])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQqO3-00DE8d-Os
-	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 13:25:41 +0000
-Received: from [192.168.1.18] ([90.11.190.129])
-	by smtp.orange.fr with ESMTPA
-	id QqNuo0vdXtUbyQqNuoT03y; Wed, 24 Aug 2022 15:25:32 +0200
-X-ME-Helo: [192.168.1.18]
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Wed, 24 Aug 2022 15:25:32 +0200
-X-ME-IP: 90.11.190.129
-Message-ID: <c14607d5-337c-3e75-2b95-720553f40282@wanadoo.fr>
-Date: Wed, 24 Aug 2022 15:25:30 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-Subject: Re: [PATCH] rtc: mpfs: Use devm_clk_get_enabled() helper
-Content-Language: en-US
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Conor.Dooley@microchip.com, Daire.McNamara@microchip.com,
- a.zummo@towertech.it, linux-kernel@vger.kernel.org,
- kernel-janitors@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-rtc@vger.kernel.org
-References: <e55c959f2821a2c367a4c5de529a638b1cc6b8cd.1661329086.git.christophe.jaillet@wanadoo.fr>
- <f76fb247-5160-61ed-a0a3-037d2f40d2f9@microchip.com>
- <c74a42f7-7d9a-6b52-85b2-d87dacd91be6@wanadoo.fr>
- <YwYZZWu3gOBIPJeI@mail.local>
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <YwYZZWu3gOBIPJeI@mail.local>
+	id 1oQqPO-00DEdz-LY
+	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 13:27:04 +0000
+Received: by mail-oa1-f46.google.com with SMTP id 586e51a60fabf-11dca1c9c01so3708113fac.2
+        for <linux-riscv@lists.infradead.org>; Wed, 24 Aug 2022 06:26:58 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=message-id:date:subject:references:in-reply-to:cc:to:from
+         :x-gm-message-state:from:to:cc;
+        bh=viWueFiZ5OfydC+pO3bw0kvTAFJjoYrGSGQ4/iAQQVY=;
+        b=woM40ZV02g7xCYKmnYONhmIvJVO70Sqj5G9jZjYlKvBsW6Scqu7Ia7HeMeo2ScRBoL
+         61rYnwwixWKbDW2PKKCxJptOhmPgoLrwLTgUzXF3Vnh07gl2B7IL6jzFsSAA/9hR16ex
+         qib6iReEgvB8WTSSECP5R1T2CTdaAQc5cnTanQ1xXOiYkHo5qn+PStVOLcezynOIQeqX
+         vJothWfLPI+SPPLd0iedYvwizFUHzK7S/DsoUTn38ftsEBY1eqiG8vDTXYpgCY68cMDi
+         QxOIZ4/n/MFiYrgUXZxr+ob6ap7bS6muSUTCgivALo2eGt6kVZG00cnvhmEO37eR9bwV
+         bWUQ==
+X-Gm-Message-State: ACgBeo1n5A/q8sbgX4vXOpD/KYeWVm67SwI4W3P3aB62iKlOY73gkKzJ
+	xgsn+r5cvdt8O/eOnly1fw==
+X-Google-Smtp-Source: AA6agR4hiwTnYcZXZZDgaAHHGMgSYNVWUIkbngaylk2cV1PJhQLLoL7hjMUUg3zhPzICm+SbbABfWg==
+X-Received: by 2002:a05:6870:b384:b0:11c:e692:699a with SMTP id w4-20020a056870b38400b0011ce692699amr3644688oap.213.1661347618286;
+        Wed, 24 Aug 2022 06:26:58 -0700 (PDT)
+Received: from robh.at.kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
+        by smtp.gmail.com with ESMTPSA id f7-20020a9d2c07000000b0061c3753c30dsm4501465otb.17.2022.08.24.06.26.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Aug 2022 06:26:57 -0700 (PDT)
+Received: (nullmailer pid 2098939 invoked by uid 1000);
+	Wed, 24 Aug 2022 13:26:57 -0000
+From: Rob Herring <robh@kernel.org>
+To: Conor Dooley <mail@conchuod.ie>
+Cc: Thomas Gleixner <tglx@linutronix.de>, devicetree@vger.kernel.org, Sagar Kadam <sagar.kadam@sifive.com>, Paul Walmsley <paul.walmsley@sifive.com>, Marc Zyngier <maz@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh+dt@kernel.org>, Guo Ren <guoren@kernel.org>, Jessica Clarke <jrtc27@jrtc27.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, qemu-riscv@nongnu.org, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, linux-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>, linux-kernel@vger.kernel.org, Anup Patel <anup@brainfault.org>
+In-Reply-To: <20220823183319.3314940-5-mail@conchuod.ie>
+References: <20220823183319.3314940-1-mail@conchuod.ie> <20220823183319.3314940-5-mail@conchuod.ie>
+Subject: Re: [PATCH v4 4/4] dt-bindings: riscv: isa string bonus content
+Date: Wed, 24 Aug 2022 08:26:57 -0500
+Message-Id: <1661347617.007635.2098938.nullmailer@robh.at.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220824_062539_965152_13888A8A 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20220824_062702_728423_2A7B7EFB 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,27 +71,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-TGUgMjQvMDgvMjAyMiDDoCAxNDoyOCwgQWxleGFuZHJlIEJlbGxvbmkgYSDDqWNyaXTCoDoKPiAK
-PiBCVFcsIEkgdGhvdWdodCB5b3UgYWN0dWFsbHkgdGVzdGVkIHlvdXIgY2hhbmdlcyBvbiB0aGUg
-b3RoZXIgcGF0Y2ggSQo+IHRvb2ssIG5vdCB0aGF0IHlvdSB3ZXJlIGRvaW5nIGEgYmxhbmtldCBj
-b252ZXJzaW9uIG9mIHRoZSBzdWJzeXN0ZW0uCj4gVGhpcyBpcyB0aGUga2luZCBvZiBpbmZvIHRo
-YXQgbXVzdCBhcHBlYXIgaW4gdGhlIGNvbW1pdCBsb2cuIEkgd291bGQKPiBkZWZpbml0aXZlbHkg
-bm90IGhhdmUgdGFrZW4gdGhlIHBhdGNoLgo+IAoKT2ssIG5vdGVkIGZvciBmdXR1cmUgY29udHJp
-YnV0aW9uLgoKCkluIGZhY3QgSSBmaXJzdCBzZW50IG9ubHkgb25lIHBhdGNoIHRvIHNlZSBpZiBp
-dCBnb3Qgc29tZSBpbnRlcmVzdCBmb3IgCnN1Y2ggdHJhbnNmb3JtYXRpb24uCkkgb25seSBzZW50
-IHNvbWUgb3RoZXIgYWZ0ZXIgeW91ciBBY2suCgoKTm90aGluZyBpcyBuZXZlciB0cml2aWFsLCBi
-dXQgc3VjaCBwYXRjaGVzIGxvb2tzIGZpbmUgdG8gbWUuCkl0IHNhdmVzIHNvbWUgTG9DLCByZWR1
-Y2UgdGhlIHNpemUgb2YgdGhlIC5vIGFuZCBzbGlnaHRseSBzYXZlcyBzb21lIApydW50aW1lIG1l
-bW9yeS4KCkFuZCB1bmxlc3MsIEkgbWlzc2VkIHNvbWV0aGluZywgdGhlIG9yZGVyIG9mIG9wZXJh
-dGlvbiByZW1haW5zIHRoZSBzYW1lLCAKYm90aCB3aGVuIHJlc291cmNlcyBhcmUgYWxsb2NhdGVk
-IGFuZCBmcmVlZC4KCgpXaHkgd291bGRuJ3QgeW91IGhhdmUgdGFrZW4gc3VjaCBhIHBhdGNoPwoo
-anVzdCBmb3IgbXkgdW5kZXJzdGFuZGluZyBhbmQgaW4gb3JkZXIgdG8gYXZvaWQgc3BhbW1pbmcg
-b3RoZXJzIHdpdGggCnVzZWxlc3Mvcmlza3kgc3R1ZmYpCgpDSgoKX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
-bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, 23 Aug 2022 19:33:20 +0100, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+> 
+> **NOT FOR CONSIDERATION**
+> 
+> I figured, sure why not add the strings for version number validation,
+> just in case we need them in the future. The commented out string is
+> considered by dt-schema to be "not a regex", but regex101 thinks it
+> is... Maybe dt-schema does not support named match groups, but they
+> are the only way that I could trivially find to make this somewhat
+> manageable. Either way, it is permissive so it allows combinations
+> of "M", "MpM" & no number.
+> 
+> Not-signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>  Documentation/devicetree/bindings/riscv/cpus.yaml | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+
+My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
+on your patch (DT_CHECKER_FLAGS is new in v5.13):
+
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/riscv/cpus.yaml:87:111: [warning] line too long (297 > 110 characters) (line-length)
+
+dtschema/dtc warnings/errors:
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/patch/
+
+This check can fail if there are any dependencies. The base for a patch
+series is generally the most recent rc1.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
