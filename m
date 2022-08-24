@@ -4,64 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48954C32793
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 13:11:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3093AC32793
+	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 13:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dlo4Y0u+o+P9nW2JsVL+gPbHTTFklrOdgeTtSe0SwVw=; b=HxvxGA+e5UZB5p
-	JkhPmYwSMoEEn2/yqOr87CwHHkKqpoXUbFgrD+IdwDjCkl6/A0rITgiVA+eR8OW/xRZlqiLc2KpLb
-	g55/s8odm4r40zBTDz/ayxRYG7ODHWmweL5gNLwXUqamAEK6qMUFtT3tLZjPOleOFlUpTzjZmUkr1
-	9n9kV29AxDRSpI8Qms3bcMYz92bpGyzPJVfLIJGe+GQQJ7S3/RdBYde1B8UTo7sEz4ZIvizV2+YK2
-	J8kl4AjL4/x5YSZWYwobH89X+7qMNeYqxZo+pKhv4moCt4yfi5vl1PD4V7OJkfbTzd4pWwzIJho3T
-	KmG02cHct7Y/4grs80eQ==;
+	List-Owner; bh=6jUHTMnj2YcRBT1tmJiQ4O3Dl2cEyb5wFX8IFZMkUCk=; b=piKaMQky7WRFjH
+	VEPDf40INoobgZl3IEEHMy/CTefEwswu1aIF6TKk2epEQtqV1uZBuBLmK8sOmbPbriCP/0iCBBSUM
+	NB3DVAr+OiLizW03vt7EBKF7uHCPK6HyNii6OH9IgeazXLIYM7tlD48q2M0jz6gIkayNAHZykgB4u
+	zhHPdqL5F7ddZ9aaXSEQVvM3XWHydTPFUHlNSikmE+2gyajXQu3gEUybxqks4+Z08Te4ORikBBQCG
+	HG2nflvHW5355mu6Hw1gYC8KdLjk+W5zxdhvHaag+S4jRhOeaD1V51Vd4yFG003h82FelfFmBvB7z
+	Fq/SQySieZQgqDVbpUVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQq9p-00D8b7-Of; Wed, 24 Aug 2022 13:10:57 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1oQqO6-00DECK-V1; Wed, 24 Aug 2022 13:25:42 +0000
+Received: from smtp09.smtpout.orange.fr ([80.12.242.131] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQq9l-00D8Xg-2S
-	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 13:10:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=N9oJQbbnL3ZPdfQrFIR3akJaO1v/S9XNtdetroi1fvA=; b=nd6buqrEq/WpLStrEkR+1pNf4s
-	8wuhU32kQ/2Aw4VCyDQu12J576L66NpSmoH4rbKG6A69+M3JlSVGaeUGPJDrmwIaW7UCSfe2KLZjK
-	zRG0frRccNECb0nSAcHXIAqIQwzAg2zVUe7c6JJ8AHb3dqWJfGTeNF59P2MCx3CjfwkMnd3tj2xJ2
-	w6OxmMlGPIcAK4CTlXlHvX7EC4p36XnLZJAPjWRl3g0w8oYgHVm4+0UapUo5A2yD30y/n59FOZuxt
-	mFDuu4TGzDki5+V3V6tGgsEqvE9T+zh39exnxox3pl0vF86csRx00W38vWmT5qhnESimeb/li7Haj
-	ATYF4zVw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33914)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1oQq9V-0004EH-Cf; Wed, 24 Aug 2022 14:10:37 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1oQq9Q-00048p-LO; Wed, 24 Aug 2022 14:10:32 +0100
-Date: Wed, 24 Aug 2022 14:10:32 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: "xiaowu.ding" <xiaowu.ding@jaguarmicro.com>
-Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, nicolas.ferre@microchip.com,
-	claudiu.beznea@microchip.com, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH net-next] driver: cadence macb driver support acpi mode
-Message-ID: <YwYjSPl7murFFpJG@shell.armlinux.org.uk>
-References: <20220824121351.578-1-xiaowu.ding@jaguarmicro.com>
+	id 1oQqO3-00DE8d-Os
+	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 13:25:41 +0000
+Received: from [192.168.1.18] ([90.11.190.129])
+	by smtp.orange.fr with ESMTPA
+	id QqNuo0vdXtUbyQqNuoT03y; Wed, 24 Aug 2022 15:25:32 +0200
+X-ME-Helo: [192.168.1.18]
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Wed, 24 Aug 2022 15:25:32 +0200
+X-ME-IP: 90.11.190.129
+Message-ID: <c14607d5-337c-3e75-2b95-720553f40282@wanadoo.fr>
+Date: Wed, 24 Aug 2022 15:25:30 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220824121351.578-1-xiaowu.ding@jaguarmicro.com>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+Subject: Re: [PATCH] rtc: mpfs: Use devm_clk_get_enabled() helper
+Content-Language: en-US
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Conor.Dooley@microchip.com, Daire.McNamara@microchip.com,
+ a.zummo@towertech.it, linux-kernel@vger.kernel.org,
+ kernel-janitors@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-rtc@vger.kernel.org
+References: <e55c959f2821a2c367a4c5de529a638b1cc6b8cd.1661329086.git.christophe.jaillet@wanadoo.fr>
+ <f76fb247-5160-61ed-a0a3-037d2f40d2f9@microchip.com>
+ <c74a42f7-7d9a-6b52-85b2-d87dacd91be6@wanadoo.fr>
+ <YwYZZWu3gOBIPJeI@mail.local>
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+In-Reply-To: <YwYZZWu3gOBIPJeI@mail.local>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220824_061053_156684_B9326E67 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20220824_062539_965152_13888A8A 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,99 +64,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Aug 24, 2022 at 08:13:51PM +0800, xiaowu.ding wrote:
-> -static bool macb_phy_handle_exists(struct device_node *dn)
-> +static bool macb_of_phy_handle_exists(struct device_node *dn)
->  {
->  	dn = of_parse_phandle(dn, "phy-handle", 0);
->  	of_node_put(dn);
->  	return dn != NULL;
->  }
->  
-> -static int macb_phylink_connect(struct macb *bp)
-> +static int macb_of_phylink_connect(struct macb *bp)
->  {
->  	struct device_node *dn = bp->pdev->dev.of_node;
->  	struct net_device *dev = bp->dev;
-> @@ -765,7 +767,7 @@ static int macb_phylink_connect(struct macb *bp)
->  	if (dn)
->  		ret = phylink_of_phy_connect(bp->phylink, dn, 0);
->  
-> -	if (!dn || (ret && !macb_phy_handle_exists(dn))) {
-> +	if (!dn || (ret && !macb_of_phy_handle_exists(dn))) {
->  		phydev = phy_find_first(bp->mii_bus);
->  		if (!phydev) {
->  			netdev_err(dev, "no PHY found\n");
-> @@ -786,6 +788,166 @@ static int macb_phylink_connect(struct macb *bp)
->  	return 0;
->  }
->  
-> +#ifdef CONFIG_ACPI
-> +
-> +static bool macb_acpi_phy_handle_exists(struct fwnode_handle *fwnd)
-> +{
-> +	struct fwnode_handle *phy_node;
-> +	bool flag = false;
-> +	/* Only phy-handle is used for ACPI */
-> +	phy_node = fwnode_find_reference(fwnd, "phy-handle", 0);
-> +	flag = !IS_ERR_OR_NULL(phy_node);
-> +
-> +	if (flag)
-> +		fwnode_handle_put(phy_node);
-> +
-> +	return flag;
-> +}
-> +
-> +static int macb_acpi_phylink_connect(struct macb *bp)
-> +{
-> +	struct fwnode_handle *fwnd = bp->pdev->dev.fwnode;
-> +	struct net_device *dev = bp->dev;
-> +	struct phy_device *phydev;
-> +	int ret;
-> +
-> +	if (fwnd)
-> +		ret = phylink_fwnode_phy_connect(bp->phylink, fwnd, 0);
-> +
-> +	if (!fwnd || (ret && !macb_acpi_phy_handle_exists(fwnd))) {
-> +		phydev = phy_find_first(bp->mii_bus);
-> +		if (!phydev) {
-> +			netdev_err(dev, "no PHY found\n");
-> +			return -ENXIO;
-> +		}
-> +
-> +		/* attach the mac to the phy */
-> +		ret = phylink_connect_phy(bp->phylink, phydev);
-> +	}
-> +
-> +	if (ret) {
-> +		netdev_err(dev, "Could not attach PHY (%d)\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	phylink_start(bp->phylink);
-> +
-> +	return 0;
-> +}
-
-You shouldn't need this duplication. phylink_fwnode_phy_connect() can be
-used to connect DT-based PHYs just fine, so you should be able to use it
-for both cases without needing to resort to two copies. This is one of
-the reasons the fwnode API exists.
-
-The functionality of your macb_acpi_phy_handle_exists() and
-macb_of_phy_handle_exists() should also be the same. Not that
-fwnode_handle_put() is safe to call with NULL or err-pointer fwnodes.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+TGUgMjQvMDgvMjAyMiDDoCAxNDoyOCwgQWxleGFuZHJlIEJlbGxvbmkgYSDDqWNyaXTCoDoKPiAK
+PiBCVFcsIEkgdGhvdWdodCB5b3UgYWN0dWFsbHkgdGVzdGVkIHlvdXIgY2hhbmdlcyBvbiB0aGUg
+b3RoZXIgcGF0Y2ggSQo+IHRvb2ssIG5vdCB0aGF0IHlvdSB3ZXJlIGRvaW5nIGEgYmxhbmtldCBj
+b252ZXJzaW9uIG9mIHRoZSBzdWJzeXN0ZW0uCj4gVGhpcyBpcyB0aGUga2luZCBvZiBpbmZvIHRo
+YXQgbXVzdCBhcHBlYXIgaW4gdGhlIGNvbW1pdCBsb2cuIEkgd291bGQKPiBkZWZpbml0aXZlbHkg
+bm90IGhhdmUgdGFrZW4gdGhlIHBhdGNoLgo+IAoKT2ssIG5vdGVkIGZvciBmdXR1cmUgY29udHJp
+YnV0aW9uLgoKCkluIGZhY3QgSSBmaXJzdCBzZW50IG9ubHkgb25lIHBhdGNoIHRvIHNlZSBpZiBp
+dCBnb3Qgc29tZSBpbnRlcmVzdCBmb3IgCnN1Y2ggdHJhbnNmb3JtYXRpb24uCkkgb25seSBzZW50
+IHNvbWUgb3RoZXIgYWZ0ZXIgeW91ciBBY2suCgoKTm90aGluZyBpcyBuZXZlciB0cml2aWFsLCBi
+dXQgc3VjaCBwYXRjaGVzIGxvb2tzIGZpbmUgdG8gbWUuCkl0IHNhdmVzIHNvbWUgTG9DLCByZWR1
+Y2UgdGhlIHNpemUgb2YgdGhlIC5vIGFuZCBzbGlnaHRseSBzYXZlcyBzb21lIApydW50aW1lIG1l
+bW9yeS4KCkFuZCB1bmxlc3MsIEkgbWlzc2VkIHNvbWV0aGluZywgdGhlIG9yZGVyIG9mIG9wZXJh
+dGlvbiByZW1haW5zIHRoZSBzYW1lLCAKYm90aCB3aGVuIHJlc291cmNlcyBhcmUgYWxsb2NhdGVk
+IGFuZCBmcmVlZC4KCgpXaHkgd291bGRuJ3QgeW91IGhhdmUgdGFrZW4gc3VjaCBhIHBhdGNoPwoo
+anVzdCBmb3IgbXkgdW5kZXJzdGFuZGluZyBhbmQgaW4gb3JkZXIgdG8gYXZvaWQgc3BhbW1pbmcg
+b3RoZXJzIHdpdGggCnVzZWxlc3Mvcmlza3kgc3R1ZmYpCgpDSgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
