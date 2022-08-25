@@ -4,76 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EAC7ECAAA3
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Aug 2022 23:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C158ECAAA2
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Aug 2022 23:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=NjUt123zUebsoR8OPhjK9m7SgwI1RCnkG4nH+DL4JTk=; b=KoqrIwEdA/MsnwMpPr3gQ9FcVT
-	4twhHHlTNt5Kv8FqzJYgyC4n1cCBWuHsVKdSjuvvTo09Qw9zGxO6c+jR68bIUValTKzv+kkdzB5Lr
-	OlstHXLJaXulj1yxMt27DByZgYAH4NNFBCUjsLvuHHqazoGhc3XlVDYwQa/BArOiDrA44EYvhxcif
-	gQAnNgWH5ZT/COfiUW64hPVgNjZlq463OHAbd0LYVgSdVo3F2I7i5JtALajT5b6FSUsFNP5dkWl9z
-	XhvQQDOFRe1csQm1D3VF6WX3z0X0QWhicJqu5NjQwErJSjCPEsKs9LNWIDp/29gm5hdQ+5rbVAhBe
-	bIvIUZeg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0kMpiVPA0TFTjATKtmasksh6Fe8FJA/ieKHNZiqN+DE=; b=jahZQFnhAsWXEP
+	v7YIVwqTwyYpmbXNCZlnNwCOmBED5uQaIAuogBvXdlHByI1Fy8SKkjfsyFwYnih80YXlVH++p3oO9
+	3x6X25oRzg70hKpE5eAL/PUHOtA8u4RNdHVVISRdpz3gu1o3StTLP4EYgdx5S7Hqr3Y49fhDriy0S
+	5YCOHQuqUMk8slu8nhMYdkHceC4Jei1dOM4666qu9T7KXp9HlAT2FMndAxXESyr+v/qIHqHi6JqAJ
+	hwGaXwzsBQx0ieiki7RO5kWAWOuuPrZYBm8IHsilVIl8n77CjZ5PuKEY2ritYVGGG41aFQWY80zrc
+	Q5lF8YKAewlDQzradIGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRMV4-004Eo7-HO; Thu, 25 Aug 2022 23:43:02 +0000
-Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
+	id 1oRMkh-004JPt-Mi; Thu, 25 Aug 2022 23:59:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRMUz-004EkP-Va
-	for linux-riscv@lists.infradead.org; Thu, 25 Aug 2022 23:42:59 +0000
-Received: by mail-pg1-x530.google.com with SMTP id 202so19192133pgc.8
-        for <linux-riscv@lists.infradead.org>; Thu, 25 Aug 2022 16:42:54 -0700 (PDT)
+	id 1oRMkf-004JDO-6L
+	for linux-riscv@bombadil.infradead.org; Thu, 25 Aug 2022 23:59:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=gMN8DAWXzBJk9iSBUfW/QyFFZWZuY8KBpYav4gTwpSU=; b=fGww3Ane/FvA65EUzD7RV0Cn32
+	DVLPtwT/TM3cVFK3WOhC+V15Vbd5lC4GSum+oNVTrzi7evrVWm1jPe7C7+qx1X1hyO53GnrAKjkIV
+	ss6r20Lk0d0aDFlaXy9Icyudv9WrfRKaam5aYtw2IY0VqQELq8FQBGcuQDmhrK2bPvcWQu7qYlvQi
+	fua/bysyGjBm5iVkH/xEF9hTW1bPzLBgkGgpE2HMlB4LXxzMAjL4wXGkdrCz/i1SykRNGl+q/+pOD
+	sizHDZ1ikA+cI7nQlYAmLpHOG0FNSAEABiwbVfOWdM0lyOZL2+m4KdFPx1RD+ISn4Je9x6mA+SMNw
+	t+fR5Asw==;
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oRMEN-0068wy-0Z
+	for linux-riscv@lists.infradead.org; Thu, 25 Aug 2022 23:25:50 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id d16-20020a17090ad3d000b001fb42eb7467so17665pjw.9
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Aug 2022 16:25:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc;
-        bh=wiEsNvz5ZJJ1GrD/uuku1yQ6cApUWHJmUxRfgwiaX+Y=;
-        b=i1J1uRnC8rskyL9RmZ21dnnwmWJhw+hHrY/KBDKpL27AP14d3bPb8RFs+rK0TH1g92
-         5jwjQmLP821ACk0zKzFz5mlucx3x9MBDrZ9+Yi8SzR6r+kbN3AzodpFoZT0Wm4CXFfd5
-         ea3mRvVUf4dgAoDDu9DnghlOAsVsDMySxyedQZ18gdYZD0qL3vd5UT9MJ6TmorkZ3gJ0
-         VY+k1X/269JhAdYE86PXZi2+yJAm6GFE22hjB7eqGwOczwz4E6vbUSqwyYS7rrHrn6Qm
-         D2GlE7jkMVRtPng1muRhM4AP8BUtsPaQc3K1pztIHhPAscOG7378ml3G9FUSSshFsbif
-         cI+w==
+        d=google.com; s=20210112;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc;
+        bh=gMN8DAWXzBJk9iSBUfW/QyFFZWZuY8KBpYav4gTwpSU=;
+        b=k/VnPS3Avcyf8y12Dai2ATcxUmpDEFAlHtqHWSKGhxjT4Vhlo5GsmzjzRovXIQoToK
+         /cVnaYr1ykESlLVNNK+t2ufwentaza0JW4BtboHI9Qw5XauRoBxkJ/LyoQWOKOFiEGSS
+         n2G3NVh/e1Mqwx+mvIROA5QEpmujoLPwX5icVZ2O/E1FhBbbE5MyCHYy3lBaAPoGMPyB
+         Fbql0NmIiOpXf61dCJzjhY8uPTCZSQNe9T+DA4FM9plfxEWLbxHR+3oVvrcvveq/goce
+         vvXk5VPAuVoOQ8+nMdblfbru4J2Ipl2Jcjxwm/E9+nZvI14q8jW5EE1Fu7yGL6JMksCY
+         94aw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
-        bh=wiEsNvz5ZJJ1GrD/uuku1yQ6cApUWHJmUxRfgwiaX+Y=;
-        b=P28cR1vKL/ZLtr1pvKeJm77O2y8CFDvAz9LBxa6ymEf68hcZIqQGK+VWSxd1lPTfq0
-         IF92EwxHR0HDoOx/xIPrkusXQYykTMzuysuPpXYMTf93aO/EfBf76N0IFWR/+9ulVPZB
-         CPVHIQWzkbufw/BHwQ9DEjYfq/FvwaeyrvqPfBHoGmSuj0LJ8uNW3rQMcPThrKVeG+Bm
-         vC6l7qVVf5BhO3by8ryKCYdLM8ic1LTwNeJn10ST5jRXJR4nmtLIDaJFMqHWHdwIM1Sl
-         pRxSncv6DgFOnck6CxGaawaR/xdcyvsnuwIAelTNU3Jas9391EzwptxRjmUok7jLs0Tu
-         3OQg==
-X-Gm-Message-State: ACgBeo2oFtBXtJokx4Cv1kRqYPTAhbI8Uk72Bs4u8/68UlOA1mGnoPW4
-	OfOLD4MAAqBBMz2vIzE/LO0WZA==
-X-Google-Smtp-Source: AA6agR6PGWwsGBhmDj/mFX/3PJvX0zBuN/lav09rmNgS9vGADrGEKqTtG0egaYFX5YNXBjBnSU7Wsg==
-X-Received: by 2002:a63:eb02:0:b0:429:ee06:825f with SMTP id t2-20020a63eb02000000b00429ee06825fmr1138993pgh.606.1661470974202;
-        Thu, 25 Aug 2022 16:42:54 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id d17-20020a170902aa9100b00172d0c7edf4sm130808plr.106.2022.08.25.16.42.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Aug 2022 16:42:53 -0700 (PDT)
-Date: Thu, 25 Aug 2022 16:42:53 -0700 (PDT)
-X-Google-Original-Date: Thu, 25 Aug 2022 16:42:52 PDT (-0700)
-Subject: Re: [PATCH 0/4] misc warning cleanup in arch/risc-v
-In-Reply-To: <CAK9=C2UGJgu0eXHARkvftf+xbqnTaK2k9Jbz_4WVS8PQpgtaWg@mail.gmail.com>
-CC: mail@conchuod.ie, anup@brainfault.org, atishp@atishpatra.org,
-  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, conor.dooley@microchip.com, guoren@kernel.org,
-  vincent.chen@sifive.com, xianting.tian@linux.alibaba.com, heiko@sntech.de, wangkefeng.wang@huawei.com,
-  tongtiangen@huawei.com, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: apatel@ventanamicro.com
-Message-ID: <mhng-45ccfcad-b9d9-4914-8e07-c7a3581ea52b@palmer-mbp2014>
-Mime-Version: 1.0 (MHng)
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc;
+        bh=gMN8DAWXzBJk9iSBUfW/QyFFZWZuY8KBpYav4gTwpSU=;
+        b=fcckPkBZgQzYFtzC5S15K8wiLYUU4w7Rh8fwGgZwe9m0I5+YQZHSrKG0204KuDu+fz
+         OFl/htpUkBhfEP535k57Xq5h1v160UB1909ZlTq/6zK8u6xGssUb0pbOewt+VGhe/PlM
+         fHKdrMz3Kb7b9cK71U2siEpTHKuPx3rkE6uea28exUsPn1aciin22i5bVI0xYk2TiKKE
+         FGPo0TTbri9YVSEw1b6Bb63AnceYtQobiY+bxtDtV8O+FOUgDx//sRnv80wMxlXz0pky
+         XISjwusqJWp7FvxHGXuoJFI4WNcMpc+/ihZ4KXcLtRQVsJ/RjyBMPLJkMJlPhdA/ofgT
+         1ccA==
+X-Gm-Message-State: ACgBeo0VY3zs+N0COK6/pO7XFH1CDUUTeQ6kq63WXQAwj6ldNtXNf5SA
+	a0/bzctpFkF1ob8POuCg8bE1aAvVCA8=
+X-Google-Smtp-Source: AA6agR4puys/Z5jXTPDaJYPynDwF4eqnZlaLYimDxxudykXc1F+A7TB7h00cz8hneIZ8xf4MI9E8Jl/4Eh0=
+X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
+ (user=seanjc job=sendgmr) by 2002:a05:6a00:10ca:b0:536:ec31:827c with SMTP id
+ d10-20020a056a0010ca00b00536ec31827cmr1221322pfu.67.1661469933060; Thu, 25
+ Aug 2022 16:25:33 -0700 (PDT)
+Date: Thu, 25 Aug 2022 23:25:20 +0000
+In-Reply-To: <20220825232522.3997340-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20220825232522.3997340-1-seanjc@google.com>
+X-Mailer: git-send-email 2.37.2.672.g94769d06f0-goog
+Message-ID: <20220825232522.3997340-6-seanjc@google.com>
+Subject: [PATCH v5 5/7] KVM: selftests: Make arm64's MMIO ucall multi-VM friendly
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <ndesaulniers@google.com>
+Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Atish Patra <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>, Tom Rix <trix@redhat.com>, 
+	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.cs.columbia.edu, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>, 
+	Peter Gonda <pgonda@google.com>, Andrew Jones <andrew.jones@linux.dev>, 
+	Sean Christopherson <seanjc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220825_164258_184648_08359328 
-X-CRM114-Status: GOOD (  28.51  )
+X-CRM114-CacheID: sfid-20220826_002548_312156_53643DB4 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,87 +107,121 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: Sean Christopherson <seanjc@google.com>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Aug 2022 09:14:32 PDT (-0700), apatel@ventanamicro.com wrote:
-> On Fri, Aug 19, 2022 at 4:32 AM Palmer Dabbelt <palmer@dabbelt.com> wrote:
->>
->> On Sun, 14 Aug 2022 07:12:34 PDT (-0700), mail@conchuod.ie wrote:
->> > From: Conor Dooley <conor.dooley@microchip.com>
->> >
->> > Hey all,
->> > Couple fixes here for most of what's left of the {sparse,} warnings in
->> > arch/riscv that are still in need of patches. Ben has sent patches
->> > for the VDSO issue already (although they seem to need rework).
->> >
->> > VDSO aside, With this patchset applied, we are left with:
->> > - cpuinfo_ops missing prototype: this likely needs to go into an
->> >   asm-generic header & I'll send a separate patch for that.
->> > - Complaints about an error in mm/init.c:
->> >   "error inarch/riscv/mm/init.c:819:2: error: "setup_vm() is <trunc>
->> >   I think this can be ignored.
->> > - 600+ -Woverride-init warnings for syscall table setup where
->> >   overriding seems to be the whole point of the macro.
->> > - Warnings about imported kvm core code.
->> > - Flexible array member warnings that look like common KVM code
->> >   patterns
->> > - An unexpected unlock in kvm_riscv_check_vcpu_requests that was added
->> >   intentionally:
->> >   https://lore.kernel.org/all/20220710151105.687193-1-apatel@ventanamicro.com/
->> >   Is it worth looking into whether that's a false positive or not?
->> >
->> > Thanks,
->> > Conor.
->> >
->> > Conor Dooley (4):
->> >   riscv: kvm: vcpu_timer: fix unused variable warnings
->> >   riscv: kvm: move extern sbi_ext declarations to a header
->> >   riscv: signal: fix missing prototype warning
->> >   riscv: traps: add missing prototype
->> >
->> >  arch/riscv/include/asm/kvm_vcpu_sbi.h | 12 ++++++++++++
->> >  arch/riscv/include/asm/signal.h       | 12 ++++++++++++
->> >  arch/riscv/include/asm/thread_info.h  |  2 ++
->> >  arch/riscv/kernel/signal.c            |  1 +
->> >  arch/riscv/kernel/traps.c             |  3 ++-
->> >  arch/riscv/kvm/vcpu_sbi.c             | 12 +-----------
->> >  arch/riscv/kvm/vcpu_timer.c           |  4 ----
->> >  7 files changed, 30 insertions(+), 16 deletions(-)
->> >  create mode 100644 arch/riscv/include/asm/signal.h
->>
->> These generally look good to me.  Anup handles the KVM bits so I'll let
->> him chime in there, but
->>
->> Reviewed-by: Palmer Dabbelt <palmer@rivosinc.com>
->> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
->>
->> on all of them.
->>
->> Happy to do some sort of shared tag thing, but it looks like these are
->> all independent enough that it'd be easier to just split them up.  I've
->> put the non-KVM bits over at palmer/riscv-variable_fixes_without_kvm, if
->> you guys are all OK splitting this up then I'll go take those onto
->> riscv/fixes.  I'll wait a bit for folks to get a chance to look, so it
->> won't be for tomorrow morning.
->
-> Thanks Palmer. I have queued the KVM fixes (first two patches).
+Fix a mostly-theoretical bug where ARM's ucall MMIO setup could result in
+different VMs stomping on each other by cloberring the global pointer.
 
-Sounds good.  The others are in riscv/fixes.
+Fix the most obvious issue by saving the MMIO gpa into the VM.
 
->
-> Regards,
-> Anup
->
->>
->> Thanks!
->>
->> --
->> kvm-riscv mailing list
->> kvm-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/kvm-riscv
+A more subtle bug is that creating VMs in parallel (on multiple tasks)
+could result in a VM using the wrong address.  Synchronizing a global to
+a guest effectively snapshots the value on a per-VM basis, i.e. the
+"global" is already prepped to work with multiple VMs, but setting the
+global in the host is not thread-safe.  To fix that bug, add
+write_guest_global() to allow stuffing a VM's copy of a "global" without
+modifying the host value.
+
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ .../selftests/kvm/include/kvm_util_base.h     | 15 +++++++++++++++
+ .../testing/selftests/kvm/lib/aarch64/ucall.c | 19 ++++++++++++++-----
+ 2 files changed, 29 insertions(+), 5 deletions(-)
+
+diff --git a/tools/testing/selftests/kvm/include/kvm_util_base.h b/tools/testing/selftests/kvm/include/kvm_util_base.h
+index 24fde97f6121..59d52b58a1a6 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util_base.h
++++ b/tools/testing/selftests/kvm/include/kvm_util_base.h
+@@ -16,6 +16,7 @@
+ #include <linux/kvm.h>
+ #include "linux/rbtree.h"
+ 
++#include <asm/atomic.h>
+ 
+ #include <sys/ioctl.h>
+ 
+@@ -81,6 +82,7 @@ struct kvm_vm {
+ 	struct sparsebit *vpages_mapped;
+ 	bool has_irqchip;
+ 	bool pgd_created;
++	vm_paddr_t ucall_mmio_addr;
+ 	vm_paddr_t pgd;
+ 	vm_vaddr_t gdt;
+ 	vm_vaddr_t tss;
+@@ -714,6 +716,19 @@ kvm_userspace_memory_region_find(struct kvm_vm *vm, uint64_t start,
+ 	memcpy(&(g), _p, sizeof(g));				\
+ })
+ 
++/*
++ * Write a global value, but only in the VM's (guest's) domain.  Primarily used
++ * for "globals" that hold per-VM values (VMs always duplicate code and global
++ * data into their own region of physical memory), but can be used anytime it's
++ * undesirable to change the host's copy of the global.
++ */
++#define write_guest_global(vm, g, val) ({			\
++	typeof(g) *_p = addr_gva2hva(vm, (vm_vaddr_t)&(g));	\
++	typeof(g) _val = val;					\
++								\
++	memcpy(_p, &(_val), sizeof(g));				\
++})
++
+ void assert_on_unhandled_exception(struct kvm_vcpu *vcpu);
+ 
+ void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu,
+diff --git a/tools/testing/selftests/kvm/lib/aarch64/ucall.c b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
+index f02ae27c3e43..1c38bd260f90 100644
+--- a/tools/testing/selftests/kvm/lib/aarch64/ucall.c
++++ b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
+@@ -6,20 +6,29 @@
+  */
+ #include "kvm_util.h"
+ 
++/*
++ * ucall_exit_mmio_addr holds per-VM values (global data is duplicated by each
++ * VM), it must not be accessed from host code.
++ */
+ static vm_vaddr_t *ucall_exit_mmio_addr;
+ 
++static void ucall_set_mmio_addr(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
++{
++	vm->ucall_mmio_addr = mmio_gpa;
++
++	write_guest_global(vm, ucall_exit_mmio_addr, (vm_vaddr_t *)mmio_gpa);
++}
++
+ void ucall_arch_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
+ {
+ 	virt_pg_map(vm, mmio_gpa, mmio_gpa);
+ 
+-	ucall_exit_mmio_addr = (vm_vaddr_t *)mmio_gpa;
+-	sync_global_to_guest(vm, ucall_exit_mmio_addr);
++	ucall_set_mmio_addr(vm, mmio_gpa);
+ }
+ 
+ void ucall_arch_uninit(struct kvm_vm *vm)
+ {
+-	ucall_exit_mmio_addr = 0;
+-	sync_global_to_guest(vm, ucall_exit_mmio_addr);
++	ucall_set_mmio_addr(vm, (vm_paddr_t)NULL);
+ }
+ 
+ void ucall_arch_do_ucall(vm_vaddr_t uc)
+@@ -32,7 +41,7 @@ void *ucall_arch_get_ucall(struct kvm_vcpu *vcpu)
+ 	struct kvm_run *run = vcpu->run;
+ 
+ 	if (run->exit_reason == KVM_EXIT_MMIO &&
+-	    run->mmio.phys_addr == (uint64_t)ucall_exit_mmio_addr) {
++	    run->mmio.phys_addr == vcpu->vm->ucall_mmio_addr) {
+ 		vm_vaddr_t gva;
+ 
+ 		TEST_ASSERT(run->mmio.is_write && run->mmio.len == 8,
+-- 
+2.37.2.672.g94769d06f0-goog
+
 
 _______________________________________________
 linux-riscv mailing list
