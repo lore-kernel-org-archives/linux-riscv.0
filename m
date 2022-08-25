@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 674B6ECAAA2
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Aug 2022 23:28:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49793ECAAA2
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Aug 2022 23:34:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6SmBwqt+wepYa2s5a5KZajSzMZBW6EHNsmisLmP3XIM=; b=YimcnEXXJRgzyj
-	mxJ18mkId3Yni/NKpaBLr+VZVl1UllEFoBrxFJD4mCU3pSu1ck3C40TlJLTxI/3Lk+WEqMQFHOtAt
-	zAbW2PeiFJ9uDsX6zNF/X0AODKz+EBAua5MJQY/ZicRMnrs9Ybj5cI+KGk230nfnUuHug9Zl4If4n
-	ht5PRJWyinWPSSrs8UEUtuh7y4F9vTyY8eaWxY6CRd6omu9D89ua/xRFBZxa88B3RfcuM1B4pGYSN
-	gKKnXkKTffw4xx+cAMPKICEoJ1FJpzObYOuxAC96wYMekVMN7iqbGh0PCmKlHsA7WLImF5mamyul8
-	JQw0rlEmiItvmvkdZVlw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=qHsChv8wbRyyjSrR5JzMaRTcki4sdnlObLBy8sk7WCg=; b=hNgvRQC2/oS7obzXSEe537JXhD
+	4zdOMsVfa3Sm//hq84oELIEoAQ10m8ew2JJOQRPHIwTgUdNp3FnVfq0YW89o84FOzWA/KbcIkclni
+	986dgSPfzfaASX4eKVIe5JuAHF6TZ/3t4lz+sBjbktusRdnM9V7bcTzdqjPj6ri1+rkBoF2EklE+I
+	+u0EGncEZ0sj9p0TpLhLU4Zaq0W83j9s6skS4qxbrQN2b1xD0zpXm+r5V+rtURvHpQexq9Z9dnRHS
+	jWv3KUgUxjgFP5dg/643EzeBxUa+HUtB8k5d2608bK5M8WOSr/t2Rsavu5JkwUxd+q9xO/UICtLZu
+	QIFeqoNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRMGP-00497b-1M; Thu, 25 Aug 2022 23:27:53 +0000
-Received: from mail-oo1-xc4a.google.com ([2607:f8b0:4864:20::c4a])
+	id 1oRMMI-004Bxj-HI; Thu, 25 Aug 2022 23:33:58 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRMEH-0047m1-23
-	for linux-riscv@lists.infradead.org; Thu, 25 Aug 2022 23:25:42 +0000
-Received: by mail-oo1-xc4a.google.com with SMTP id q12-20020a056820028c00b0044b61786c50so68998ood.13
-        for <linux-riscv@lists.infradead.org>; Thu, 25 Aug 2022 16:25:37 -0700 (PDT)
+	id 1oRMME-004Bv6-IJ
+	for linux-riscv@lists.infradead.org; Thu, 25 Aug 2022 23:33:56 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id g8so127227plq.11
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Aug 2022 16:33:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc;
-        bh=P2RgcF+gBHFPYTEvaTfo6AUsgguGiX9tPlCot3RYgGs=;
-        b=SQlk6JoM9pPHFnCVZCc0ePWkuMHGeijaVL83mtpLkCr48WVn0+0gDXr/NuYB1zXSVO
-         GPRiPy85aSM+mIC3yV0GAUcA/pDxT4NHPXYB+k8l/pDyY0rcK6NFayKYt+lmzF4+YMLK
-         txAL8zPFasMqUjJqK1GnvSpPbY5DfVcxLT3ZUUYd8NRiael/0olsW4RcRdZBwGGB8x21
-         L/R24+VZiiccgoc/C5RvauNC9ujJknNlbnB+rtYvuJrj6wYuk/wD6iCQWgJ0FMpLLkdK
-         HG8TrVwe7K0xOMjVu9uiaeNiHKTm3rTfJGVakSCdj8sRZn7o4jm3P8cc3mUCDNSs8gWr
-         UdKw==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc;
+        bh=gD00xKTMu9pUUKx0DjES0MX650cqDlqhZMM3ktRyv+I=;
+        b=yiiI2/SKiWFiOe9wBEXZ5mLGxl03PFFtuUiaThMSnnhb7TqcqzSZgbIJhARWoFpuPC
+         uel9w2Z8TmqxYvt7GMMh8800NdWlq/YOJN6rpG3P4/Dtb3vQl4hDuJvWZkk52gcZCCsf
+         UroPu4AhHB52gswaOqJbpvpzwleYCVvnWU6UWUQrS6HYXj5IEH0jIJ1vM/ieDUrlZh+R
+         emV7Q6WwVsdJQwy4bFV3lKSPRdCQ6hbaSSuSxQuY4F+9uvLD9fja39WGrxp4pJvKuiVk
+         aG5IoY06cgm6jcQwhRTL+I2tvfuNWsqhVl8bPbrBxSSrFi+QrLRrnbk/FbOXO+Rx4xnX
+         EbGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc;
-        bh=P2RgcF+gBHFPYTEvaTfo6AUsgguGiX9tPlCot3RYgGs=;
-        b=2ROGXH8JGN8YFzM/rI/BI+ZwD0E7taiMWBGO/lklaSgl7+8O53G+7oaVp9WzIkTZsJ
-         VDwQz4DtGFU2DA+P95SJWpDSBQrQYB6as7F7F+QOcwMcpcDfhlN//1dIYXsAY59K3YTl
-         dASclJnGQe1pDFsFGtQ/mdlpvQyFscVYM30cfqnoglUhHtIZVEaUoTCSUvrl469zcIdq
-         4jJteChndRMY5w2tcEGMvdCUQ2mrRaVIy1OhBSHWtgNNGp9JMMhzP/ObNMMEQcY4Bv5O
-         gb8ydPvjSbsXpI4T1uwThUNwLSjfaB1Ys6GIN8z2gN5jutqsXzQEhseIG2tixPOkIqm2
-         RhEg==
-X-Gm-Message-State: ACgBeo2Uem7JBrIdw0mPzj/N04Bmduz7jaSNeEsNq6RaCZpx29Mz4zmg
-	60mXLywB31YV7qGXjceorUMTI5h92oI=
-X-Google-Smtp-Source: AA6agR6pzAdCDgmgO0oso/HoE5WH7WCkL3PKyA8KRrEe2RCrD5ZThqMcZM2sOfAjsU0cXCoGFEqZmqOEaDw=
-X-Received: from zagreus.c.googlers.com ([fda3:e722:ac3:cc00:7f:e700:c0a8:5c37])
- (user=seanjc job=sendgmr) by 2002:a05:6870:a90f:b0:11e:5773:84c5 with SMTP id
- eq15-20020a056870a90f00b0011e577384c5mr448463oab.75.1661469936767; Thu, 25
- Aug 2022 16:25:36 -0700 (PDT)
-Date: Thu, 25 Aug 2022 23:25:22 +0000
-In-Reply-To: <20220825232522.3997340-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20220825232522.3997340-1-seanjc@google.com>
-X-Mailer: git-send-email 2.37.2.672.g94769d06f0-goog
-Message-ID: <20220825232522.3997340-8-seanjc@google.com>
-Subject: [PATCH v5 7/7] KVM: selftests: Add ucall pool based implementation
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <ndesaulniers@google.com>
-Cc: James Morse <james.morse@arm.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Atish Patra <atishp@atishpatra.org>, David Hildenbrand <david@redhat.com>, Tom Rix <trix@redhat.com>, 
-	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.cs.columbia.edu, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>, 
-	Peter Gonda <pgonda@google.com>, Andrew Jones <andrew.jones@linux.dev>, 
-	Sean Christopherson <seanjc@google.com>
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
+        bh=gD00xKTMu9pUUKx0DjES0MX650cqDlqhZMM3ktRyv+I=;
+        b=s2EJl0XklqZbyBcztPvmB92pW7avC59mWNwJ238c0zLddv+sSdwLT/DMdZ8d6mGtbb
+         vShiQZbYoHVlUp3QTXb/oueB7iW0m1x7wf620ZvX8T8KfCncXciGC5dRTn824sIQYDwf
+         LshKMLL+DiQL5OhqjDUaiwhd8xlV7Z3ILG/oU+tOfHJQdwSHqpvFG/NiHt1K8U2lXz7w
+         SNAXVuC/DcneslfasGL8dZrnFK6ncan7OWA+yfqox5OEEBF906tXzqxQdElbE+w1YiU2
+         eCIvngcRpLdZ14TTCe99WvaGTjAAs1Xq7xU/vMEVz2MtY91HlUSW/WHKDLJG73cNk8Ny
+         N4/A==
+X-Gm-Message-State: ACgBeo1Yy+gDLVrwfiaiCsX9t0q1/y1k9OG/jY8OYI9+yjPipsORHdiZ
+	vX/5Rq5GO8Y5BR6VVw9HoR3WDdcVsbv+zA==
+X-Google-Smtp-Source: AA6agR7y7crU3XAktl8ezNLTMCi6k5jhw7mM41d71GCEf1q79k8wCyRM25VG9mL5/1kicj8TTpaxxQ==
+X-Received: by 2002:a17:903:40d2:b0:172:9a0b:f34a with SMTP id t18-20020a17090340d200b001729a0bf34amr1225526pld.105.1661470431896;
+        Thu, 25 Aug 2022 16:33:51 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id b14-20020aa78ece000000b0052d98fbf8f3sm206224pfr.56.2022.08.25.16.33.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Aug 2022 16:33:51 -0700 (PDT)
+Date: Thu, 25 Aug 2022 16:33:51 -0700 (PDT)
+X-Google-Original-Date: Thu, 25 Aug 2022 16:33:48 PDT (-0700)
+Subject: Re: [GIT PULL] Microchip RISC-V devicetree fixes for 6.0-rc3
+In-Reply-To: <c6b6cc45-f758-908d-9d27-4dbad29f50e1@microchip.com>
+CC: linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor.Dooley@microchip.com
+Message-ID: <mhng-c74292db-a17f-4fdc-90dc-3ed54b18545f@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220825_162541_164510_C2CBEBCC 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20220825_163354_843301_6CD1423B 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,226 +81,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Peter Gonda <pgonda@google.com>
+On Thu, 25 Aug 2022 11:17:45 PDT (-0700), Conor.Dooley@microchip.com wrote:
+> Hey Palmer,
+> 
+> Couple fixes here for -rc3.. Notably the patch from Heinrich as it
+> stops the console being /flooded/ by error messages from the l2
+> cache controller's interrupt handler.
+> 
+> Unfortunately, that fix brought with it another dtbs_check warning
+> for which I have submitted patches:
+> 
+> https://lore.kernel.org/linux-riscv/20220825180417.1259360-1-mail@conchuod.ie
+> 
+> On track for zero warnings in v6.1 though, patches are applied for
+> the others in the pci tree.
+> 
+> Thanks,
+> Conor.
+> 
+> The following changes since commit 69dac8e431af26173ca0a1ebc87054e01c585bcc:
+> 
+>   Merge tag 'riscv-for-linus-5.20-mw2' of git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux (2022-08-12 18:39:43 -0700)
+> 
+> are available in the Git repository at:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ tags/dt-fixes-for-palmer-6.0-rc3
+> 
+> for you to fetch changes up to e4009c5fa77b4356aa37ce002e9f9952dfd7a615:
+> 
+>   riscv: dts: microchip: mpfs: remove pci axi address translation property (2022-08-23 22:15:55 +0100)
+> 
+> ----------------------------------------------------------------
+> Microchip RISC-V devicetree fixes for 6.0-rc3
+> 
+> Two sets of fixes this time around:
+> - A fix for the interrupt ordering of the l2-cache controller. If the
+>   driver is enabled, it would spam the console /constantly/, rendering
+>   the system useless.
+> - General cleanup for some bogus properties in the dt, part of my quest
+>   for zero dtbs_check warnings.
+> 
+> On that note, the interrupt ordering adds a dtbs_check warning - but I
+> considered that fixing the potentially useless system was more of a
+> priority.
+> 
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> 
+> ----------------------------------------------------------------
+> Conor Dooley (4):
+>       riscv: dts: microchip: mpfs: fix incorrect pcie child node name
+>       riscv: dts: microchip: mpfs: remove ti,fifo-depth property
+>       riscv: dts: microchip: mpfs: remove bogus card-detect-delay
+>       riscv: dts: microchip: mpfs: remove pci axi address translation property
+> 
+> Heinrich Schuchardt (1):
+>       riscv: dts: microchip: correct L2 cache interrupts
+> 
+>  arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts | 3 ---
+>  arch/riscv/boot/dts/microchip/mpfs-polarberry.dts | 3 ---
+>  arch/riscv/boot/dts/microchip/mpfs.dtsi           | 5 ++---
+>  3 files changed, 2 insertions(+), 9 deletions(-)
 
-To play nice with guests whose stack memory is encrypted, e.g. AMD SEV,
-introduce a new "ucall pool" implementation that passes the ucall struct
-via dedicated memory (which can be mapped shared, a.k.a. as plain text).
-
-Because not all architectures have access to the vCPU index in the guest,
-use a bitmap with atomic accesses to track which entries in the pool are
-free/used.  A list+lock could also work in theory, but synchronizing the
-individual pointers to the guest would be a mess.
-
-Note, there's no need to rewalk the bitmap to ensure success.  If all
-vCPUs are simply allocating, success is guaranteed because there are
-enough entries for all vCPUs.  If one or more vCPUs are freeing and then
-reallocating, success is guaranteed because vCPUs _always_ walk the
-bitmap from 0=>N; if vCPU frees an entry and then wins a race to
-re-allocate, then either it will consume the entry it just freed (bit is
-the first free bit), or the losing vCPU is guaranteed to see the freed
-bit (winner consumes an earlier bit, which the loser hasn't yet visited).
-
-Signed-off-by: Peter Gonda <pgonda@google.com>
-Co-developed-by: Sean Christopherson <seanjc@google.com>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- .../selftests/kvm/include/ucall_common.h      |  9 ++-
- .../testing/selftests/kvm/lib/aarch64/ucall.c |  7 +-
- tools/testing/selftests/kvm/lib/riscv/ucall.c |  2 +-
- tools/testing/selftests/kvm/lib/s390x/ucall.c |  2 +-
- .../testing/selftests/kvm/lib/ucall_common.c  | 71 +++++++++++++++++--
- .../testing/selftests/kvm/lib/x86_64/ucall.c  |  2 +-
- 6 files changed, 76 insertions(+), 17 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/include/ucall_common.h b/tools/testing/selftests/kvm/include/ucall_common.h
-index 2662a4352a8c..bdd373189a77 100644
---- a/tools/testing/selftests/kvm/include/ucall_common.h
-+++ b/tools/testing/selftests/kvm/include/ucall_common.h
-@@ -22,6 +22,9 @@ enum {
- struct ucall {
- 	uint64_t cmd;
- 	uint64_t args[UCALL_MAX_ARGS];
-+
-+	/* Host virtual address of this struct. */
-+	struct ucall *hva;
- };
- 
- void ucall_arch_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa);
-@@ -30,11 +33,7 @@ void *ucall_arch_get_ucall(struct kvm_vcpu *vcpu);
- 
- void ucall(uint64_t cmd, int nargs, ...);
- uint64_t get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc);
--
--static inline void ucall_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
--{
--	ucall_arch_init(vm, mmio_gpa);
--}
-+void ucall_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa);
- 
- #define GUEST_SYNC_ARGS(stage, arg1, arg2, arg3, arg4)	\
- 				ucall(UCALL_SYNC, 6, "hello", stage, arg1, arg2, arg3, arg4)
-diff --git a/tools/testing/selftests/kvm/lib/aarch64/ucall.c b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
-index 21d73afcb14f..562c16dfbb00 100644
---- a/tools/testing/selftests/kvm/lib/aarch64/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/aarch64/ucall.c
-@@ -32,12 +32,9 @@ void *ucall_arch_get_ucall(struct kvm_vcpu *vcpu)
- 
- 	if (run->exit_reason == KVM_EXIT_MMIO &&
- 	    run->mmio.phys_addr == vcpu->vm->ucall_mmio_addr) {
--		vm_vaddr_t gva;
--
--		TEST_ASSERT(run->mmio.is_write && run->mmio.len == 8,
-+		TEST_ASSERT(run->mmio.is_write && run->mmio.len == sizeof(uint64_t),
- 			    "Unexpected ucall exit mmio address access");
--		memcpy(&gva, run->mmio.data, sizeof(gva));
--		return addr_gva2hva(vcpu->vm, gva);
-+		return (void *)(*((uint64_t *)run->mmio.data));
- 	}
- 
- 	return NULL;
-diff --git a/tools/testing/selftests/kvm/lib/riscv/ucall.c b/tools/testing/selftests/kvm/lib/riscv/ucall.c
-index 78acdb084ab0..9a3476a2dfca 100644
---- a/tools/testing/selftests/kvm/lib/riscv/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/ucall.c
-@@ -55,7 +55,7 @@ void *ucall_arch_get_ucall(struct kvm_vcpu *vcpu)
- 	    run->riscv_sbi.extension_id == KVM_RISCV_SELFTESTS_SBI_EXT) {
- 		switch (run->riscv_sbi.function_id) {
- 		case KVM_RISCV_SELFTESTS_SBI_UCALL:
--			return addr_gva2hva(vcpu->vm, run->riscv_sbi.args[0]);
-+			return (void *)run->riscv_sbi.args[0];
- 		case KVM_RISCV_SELFTESTS_SBI_UNEXP:
- 			vcpu_dump(stderr, vcpu, 2);
- 			TEST_ASSERT(0, "Unexpected trap taken by guest");
-diff --git a/tools/testing/selftests/kvm/lib/s390x/ucall.c b/tools/testing/selftests/kvm/lib/s390x/ucall.c
-index cbee520a26f2..a7f02dc372cf 100644
---- a/tools/testing/selftests/kvm/lib/s390x/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/s390x/ucall.c
-@@ -26,7 +26,7 @@ void *ucall_arch_get_ucall(struct kvm_vcpu *vcpu)
- 	    (run->s390_sieic.ipb >> 16) == 0x501) {
- 		int reg = run->s390_sieic.ipa & 0xf;
- 
--		return addr_gva2hva(vcpu->vm, run->s.regs.gprs[reg]);
-+		return (void *)run->s.regs.gprs[reg];
- 	}
- 	return NULL;
- }
-diff --git a/tools/testing/selftests/kvm/lib/ucall_common.c b/tools/testing/selftests/kvm/lib/ucall_common.c
-index ced480860746..cc79d497b6b4 100644
---- a/tools/testing/selftests/kvm/lib/ucall_common.c
-+++ b/tools/testing/selftests/kvm/lib/ucall_common.c
-@@ -1,22 +1,85 @@
- // SPDX-License-Identifier: GPL-2.0-only
- #include "kvm_util.h"
-+#include "linux/types.h"
-+#include "linux/bitmap.h"
-+#include "linux/atomic.h"
-+
-+struct ucall_header {
-+	DECLARE_BITMAP(in_use, KVM_MAX_VCPUS);
-+	struct ucall ucalls[KVM_MAX_VCPUS];
-+};
-+
-+/*
-+ * ucall_pool holds per-VM values (global data is duplicated by each VM), it
-+ * must not be accessed from host code.
-+ */
-+static struct ucall_header *ucall_pool;
-+
-+void ucall_init(struct kvm_vm *vm, vm_paddr_t mmio_gpa)
-+{
-+	struct ucall_header *hdr;
-+	struct ucall *uc;
-+	vm_vaddr_t vaddr;
-+	int i;
-+
-+	vaddr = vm_vaddr_alloc(vm, sizeof(*hdr), KVM_UTIL_MIN_VADDR);
-+	hdr = (struct ucall_header *)addr_gva2hva(vm, vaddr);
-+	memset(hdr, 0, sizeof(*hdr));
-+
-+	for (i = 0; i < KVM_MAX_VCPUS; ++i) {
-+		uc = &hdr->ucalls[i];
-+		uc->hva = uc;
-+	}
-+
-+	write_guest_global(vm, ucall_pool, (struct ucall_header *)vaddr);
-+
-+	ucall_arch_init(vm, mmio_gpa);
-+}
-+
-+static struct ucall *ucall_alloc(void)
-+{
-+	struct ucall *uc;
-+	int i;
-+
-+	GUEST_ASSERT(ucall_pool && ucall_pool->in_use);
-+
-+	for (i = 0; i < KVM_MAX_VCPUS; ++i) {
-+		if (!atomic_test_and_set_bit(i, ucall_pool->in_use)) {
-+			uc = &ucall_pool->ucalls[i];
-+			memset(uc->args, 0, sizeof(uc->args));
-+			return uc;
-+		}
-+	}
-+	GUEST_ASSERT(0);
-+	return NULL;
-+}
-+
-+static void ucall_free(struct ucall *uc)
-+{
-+	/* Beware, here be pointer arithmetic.  */
-+	clear_bit(uc - ucall_pool->ucalls, ucall_pool->in_use);
-+}
- 
- void ucall(uint64_t cmd, int nargs, ...)
- {
--	struct ucall uc = {};
-+	struct ucall *uc;
- 	va_list va;
- 	int i;
- 
--	WRITE_ONCE(uc.cmd, cmd);
-+	uc = ucall_alloc();
-+
-+	WRITE_ONCE(uc->cmd, cmd);
- 
- 	nargs = min(nargs, UCALL_MAX_ARGS);
- 
- 	va_start(va, nargs);
- 	for (i = 0; i < nargs; ++i)
--		WRITE_ONCE(uc.args[i], va_arg(va, uint64_t));
-+		WRITE_ONCE(uc->args[i], va_arg(va, uint64_t));
- 	va_end(va);
- 
--	ucall_arch_do_ucall((vm_vaddr_t)&uc);
-+	ucall_arch_do_ucall((vm_vaddr_t)uc->hva);
-+
-+	ucall_free(uc);
- }
- 
- uint64_t get_ucall(struct kvm_vcpu *vcpu, struct ucall *uc)
-diff --git a/tools/testing/selftests/kvm/lib/x86_64/ucall.c b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-index eb8bf55b359a..4d41dc63cc9e 100644
---- a/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-+++ b/tools/testing/selftests/kvm/lib/x86_64/ucall.c
-@@ -26,7 +26,7 @@ void *ucall_arch_get_ucall(struct kvm_vcpu *vcpu)
- 		struct kvm_regs regs;
- 
- 		vcpu_regs_get(vcpu, &regs);
--		return addr_gva2hva(vcpu->vm, regs.rdi);
-+		return (void *)regs.rdi;
- 	}
- 	return NULL;
- }
--- 
-2.37.2.672.g94769d06f0-goog
-
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
