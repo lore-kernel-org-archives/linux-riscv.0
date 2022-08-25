@@ -4,166 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7BDECAA27
-	for <linux-riscv@archiver.kernel.org>; Thu, 25 Aug 2022 20:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91331ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Aug 2022 21:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lI9J8EjQ5/m0KLu+fAdXJvIDzz0GwJmlvcafC8LkDWg=; b=eCN5LTlPzT7xJO
-	+FxgpOn5EWmUqBZ5yjQSfmJVrl7RwHqEcDB6dfrdy+DZ0pS67/Opces/dW3RYI7q4X0Nspyil8Q4U
-	rBs7y7EcRGhRsowVGHtfT5btdFweU8YUzMrP3udpleVBUPE1cFbTTfyO9DyGaakGLFyx7oCdJeUVs
-	vGYXUIi7jPyiZvDI6Ix6Z3nV+Hqa33RYlyBME3M9eUaeqAV1IHF4U3Ubuq6sBtaPRyQXpGZy6zLKQ
-	vU6SbqAkVOr/3Mb0Bsth7qsejX+7dNwoRZ5oI1CLH8ms5RDvLoQr24+2Y+iO+W6iI2WUjNwc+gbY+
-	o8ZSXmob969WirQSdkWA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CwjZ+oeVenELYVYGdrtYj9e5H6vUAGFQ4Kf+38vgXGs=; b=UQ0zhHZA0ijYrO
+	rTLIPgh01S1Bzd2uGjc4Hq2T4SwFDNan9oEA/RH1sPuulvmntGNBB57U8YrO/0Ip+9YceIQKgxDx7
+	T5R1SURnMBsHXzL3mVWZZkqeuWFzlp1gf/tYsAhIIf/fUO+y7V6TmHlrfYKTLlLQPag4PdJhU/myB
+	u3GGZU1Uy1bTbtgon8nU35O88bjgUQte6XVlkLIbbxr38CAJ1131ZY4/LYZ+pQ8zXrbxHVyVdB7XD
+	VbvQiBNDX7Je+yMI8juWN7jmYDovBhaY5/DTaASM3BDMqYXYGrXDAwXwqdzKX1snpk1aNrTh5UnZg
+	2pSCjaN1ewWOjv35bmgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRJ5G-002xmh-5K; Thu, 25 Aug 2022 20:04:10 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oRJyk-003IUR-GS; Thu, 25 Aug 2022 21:01:30 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRJ5C-002xjQ-Dm
-	for linux-riscv@lists.infradead.org; Thu, 25 Aug 2022 20:04:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661457846; x=1692993846;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=Q4Fy6SFPcosSZLl8fwam7RhGla+1wh+CTL2EGEKMxhc=;
-  b=cgBt9FlatU1WRq7YkFaCgAA5YStIWVKdUeaGoBv0GzXvA/+zI+VZDpbu
-   KGyWqviRt37iCVL2BlQ5yvF3UzgDnZGnoNvFC74d4LnzbhcOrly9vGbq1
-   Hq50Mgg+4oTe/VL4z1W+9A8x9BwA4g1BqKkWc4eNnaTe5mlohAW0Kca3a
-   s4A02DUDxoFyuVrc2wokhgJcTL74Cne+sT3zvG12iokUbvw53T1H5hhrn
-   MUkUtSVulmjT8+UVwoV7DoR8mwXfPO6Pgn8tnch1pZguX/I/5JnwNJpk+
-   Nmn4mCrj4mpMwA2vk/KSfriYxO2EGOmlgPP6onVt74zKu2KZqOauEkk0P
-   g==;
-X-IronPort-AV: E=Sophos;i="5.93,264,1654585200"; 
-   d="scan'208";a="188095417"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 25 Aug 2022 13:03:59 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 25 Aug 2022 13:03:59 -0700
-Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Thu, 25 Aug 2022 13:03:59 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=aj1Npt99xqcsiTv07LoNEbTrmvGpIAdeztfq31sEcb7BU8Um37qdFqelyty5J6bgFLkqFkRNWDxHSS7/HOflqOgyM/4BjGRG2AN7LYXQAz3SHGd+kzUwcID5Rvwhm6ExARX2/IXDI3jJVmUVeHdi6bBjyBiHr5tJ3dCwloihs+l8rb6mzQ9McPqAvh2TNR9KC9wgGGhnyds1kR23qnJqn+oAzEdq+DGA6Q58Gty+0Aba/U4gN/Czsrwuz/XXBsVpLY8wQ9+9SOlk0cRpuYmVbfDqNS0ZZ3QNj+GGleUOC6v6da7LPrghVOIafJo1Rvo9H6UaC8pVmzp1pTDtlGhCSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q4Fy6SFPcosSZLl8fwam7RhGla+1wh+CTL2EGEKMxhc=;
- b=HFAferyaEifXo6pi3f+HkkPmZVMNCBCpCzPvEjkIXB6kE3ihspSuTcD//4gtncW2pKUDXPYkyLeYp89jZ7HB6OyLe91tdN4JnrMPXZO10/d0SuibvlUiTvE3rfJ8Hsh+reVWuTBHzfOckke7rXdd7W5/6nycSyyUjAGQziZp7fCDBLvYNlRtzs/SF0CLjnchtTgk+6YaKkDnh+k/YJe13z9QiRgP6CRQlL4QpQee5eArFF4cUVKDH56nzvfM3QxpvsXe9cusPErHy0bfoxoLn5JgE77WW+QxB5hTxY8FgLzX8HIGJcNiWwSkJIwhgn9KYbIlicAvNeKVFFiTV2D41g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+	id 1oRJyh-003ISE-2D
+	for linux-riscv@lists.infradead.org; Thu, 25 Aug 2022 21:01:29 +0000
+Received: by mail-wr1-x430.google.com with SMTP id t12so771550wrm.8
+        for <linux-riscv@lists.infradead.org>; Thu, 25 Aug 2022 14:01:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q4Fy6SFPcosSZLl8fwam7RhGla+1wh+CTL2EGEKMxhc=;
- b=N1g/xf+wFGf0xN1n3dQb9SjisQYQUq7dtIQ+s9vt9tqjOyyjcDBcg1Yo3I9/FC+7LJjzYGs7vaGj2TT2/EWD9gBV2vKznB4sGnCeMJdraOZn1+J29GtIxgn2+6hRWkYn6Mq6MPEfBuEManEHyEy9kvDE9bHApFFkOcFwgK2aIJA=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by PH8PR11MB7000.namprd11.prod.outlook.com (2603:10b6:510:220::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5546.16; Thu, 25 Aug
- 2022 20:03:54 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3%9]) with mapi id 15.20.5566.015; Thu, 25 Aug 2022
- 20:03:54 +0000
-From: <Conor.Dooley@microchip.com>
-To: <heinrich.schuchardt@canonical.com>, <Conor.Dooley@microchip.com>
-CC: <sagar.kadam@sifive.com>, <atishp@atishpatra.org>,
-	<paul.walmsley@sifive.com>, <krzysztof.kozlowski+dt@linaro.org>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <aou@eecs.berkeley.edu>,
-	<Daire.McNamara@microchip.com>, <palmer@dabbelt.com>, <robh+dt@kernel.org>
-Subject: Re: [PATCH 1/2] dt-bindings: riscv: sifive-l2: add a PolarFire SoC
- compatible
-Thread-Topic: [PATCH 1/2] dt-bindings: riscv: sifive-l2: add a PolarFire SoC
- compatible
-Thread-Index: AQHYuK1cgpDU3PrXM02UEZyzROk5r62/8euAgAAFkACAAA7cgIAAA+gA
-Date: Thu, 25 Aug 2022 20:03:54 +0000
-Message-ID: <38981c6e-40cc-7468-b1ef-f4b3f341f3fd@microchip.com>
-References: <20220825180417.1259360-1-mail@conchuod.ie>
- <20220825180417.1259360-2-mail@conchuod.ie>
- <5f00ab85-d5ac-728d-2157-e70f2a46cc90@canonical.com>
- <2d1da51d-d5a0-bb3c-ba63-831f0efc1b3d@microchip.com>
- <7b635894-5a91-9294-75ab-2fad8f657577@canonical.com>
-In-Reply-To: <7b635894-5a91-9294-75ab-2fad8f657577@canonical.com>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 947df884-a287-4757-ee07-08da86d4f013
-x-ms-traffictypediagnostic: PH8PR11MB7000:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: +kwlDnEFOK2++ZKI1POoenLOpivPN2qxkjFmLLZx9A6EFPX3pOsRL36IrejyOQWLzOHAZZ2C+I0a6Yv5L0TrWh/EfLlBhDY0VfFMjR7hHYGN+aAp4sS+uW7fwzzrM/dPlVqxMVb+ZSUhGG0Gx3T7fbn/pU4ph5NmJ2lm5S9JxAPamOAV7WYOj2Bdn38CE8QbdI3m1387qFz9j951vmE/5aBQPxGwd6Iv5LIPqn07z7seuwuyXdFwQtRs255YpQ0jQv+znCRlL4yg36N7gWL8UuEmaKSfOnAAW4f6f5fyDsluQWQAiVYI3Fj+AUNvXLg9IjcB9+p+kk7+IpPWDW+kvAJJwc0hhy/HOTk7Wgl8pysvc3TtHe/eA/IOrYdr08RzTgGDONDFD47KS2m+cFtUpMPoWFkMftwG9KnCvvFZWgPx5gxs1ChGF/WabBAonxhjKA3mwyieXqO8yT2laTmnXC7Y+y5GMTBNGhUhGWAjFMMW9QrXC0BFUu66jUKPWFhyP4v33H7m7Y3zX16ICgTiKec9gQGtwAa2hODnb3ZRMjbYuVB9Tt6ySui/GFUajYbm9C6brmJa0ratquYLR5LIWzLxwUlZLYiZzJimjhrdhYwpVl1ULIeR2I+OBHeAf9o70bcCD/UVzOZe3zfBz8vXAbwIQ9HHobJ9SdQs74VNz9eQ/aV+MTgSwuS6OhU56yj5msGEAW3S+tqFuiOnlCMmvhpPEINPsd5QKBIYpPget1GqkvBCbw/c+i9cJdXgVgqO4nh7stk0nHDWEtPt9h9bJJ79ukRiFOg4/75nDfl8ij8QuNDmKB+kzSaB7UcKtu0UwD8ODFSv2FboPwghU3tLCg==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(39860400002)(376002)(366004)(346002)(136003)(396003)(71200400001)(186003)(316002)(2616005)(26005)(6512007)(36756003)(31686004)(53546011)(83380400001)(6506007)(2906002)(38100700002)(86362001)(110136005)(31696002)(7416002)(8936002)(41300700001)(76116006)(4326008)(8676002)(91956017)(5660300002)(6486002)(478600001)(54906003)(122000001)(38070700005)(64756008)(66476007)(66446008)(66556008)(66946007)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?M0U3VDgzdk1LNlI0aFJIQ0hhMHczSFlzY3paVmhtNURSVm5pU3JZMkdlcHl2?=
- =?utf-8?B?NEl6Y0Q5VnhmTG5hUkVZUHdHMDJaeEt6clNyTjVmL0paMVhKNnZQQU9QK2xT?=
- =?utf-8?B?eXBmTjhxMG5vbTJwSTNrVkIzakkrMllhRVg4b3ZBblVZRmxjem54YlB6Z3Q3?=
- =?utf-8?B?MzFHaXNqQmVUZWNiZXVHVTJiRHBYbFBHaHI4TFZIYWNDcmdHeXpMZWYwSXRB?=
- =?utf-8?B?OTdtV0QvRVhudFBUdGxSbWZwbEVBVFB6TXBBQm1wb0d3UU56TXEvNFQrbzY1?=
- =?utf-8?B?Qzh5SjB0Zm1sL1NEcG0xR2JTcXp0WkJxd09MejAxTTc4RnJ6SVFXK29QZXhY?=
- =?utf-8?B?OUdIV3F1bGZtYWVPT204QXBjL2NkSHl1TGd2M1FhT0dBa3RSRHhZL0NVeUZr?=
- =?utf-8?B?OU00MXhMdlZzSzZESk12bXFkd2FvMmpXYjBOZFpMNEhsZ0R1WTgzT2hKSG43?=
- =?utf-8?B?NVBUcS9ubWlwdEhxRDgzQ1BHSlFEUEN2OXZjTUlwdjM4ZXFmNW5PMUJybEdY?=
- =?utf-8?B?eGtKMkN5NktTOXRYTkl3WWI5cHZEYVBLcDR0QmFScUlYaWMvQ1JvTUVmV2Nx?=
- =?utf-8?B?Wk5PZW1FTDVva0g0Nk5ic3RHdkxheXM2ZXBwVFl0aWdCRCtDRjFDM3VwU2Ry?=
- =?utf-8?B?Zmc4MzJqMjZuZThkYVJ2QnNQQ3J3VGMrNXltU2o5RGlqVVNFbm56TXQ2OCt3?=
- =?utf-8?B?MURQYlNqM3BhSEdDUzQzZHB4TzlHWW1FUkVKS3UzOTJhK2tzZHRacHpvRHVo?=
- =?utf-8?B?UVQ2ejZQK0dkVWZHM0hYb2NJSXU5MGIybjdZbnoxTkNkSjJ4Nm9kOENsRng0?=
- =?utf-8?B?bkNsWU5uelljWEtObVNIdStLeXdkZUJuZ0RXTVJKKzhUUlRjeGtHNUpKSkNv?=
- =?utf-8?B?Vm9UMWpUeUdOYWYvdEFDMU1BYXBDQ0dJMmI0Y3FDKzFERVVtaU5UTnZqVEZt?=
- =?utf-8?B?N0FRNmRmNnZnSHY2UDdHeU5UV2tOYmR3cFpuMVhEK3hEQUw4SmxOVmhSQUE4?=
- =?utf-8?B?dGJNakxOMCtzcTF6NE5YUmpSTVhqZ2kzU1ZpVXJHTlJESDZWRGFBTE96WHdY?=
- =?utf-8?B?aDVUMWNhNzhnV3VPeUhNUEx5NGZha3AyaGRsbVJuQmczWDRqZnprZkw1UnhQ?=
- =?utf-8?B?YjZTWWFJdE5JQjFCRkkwVVJEYlF5RVZtbmcyU3NwRC9VWHNHSnQwVU9tdWd0?=
- =?utf-8?B?blVZc1BNQUVEOEVaUTZ2Tk9VYW5NZGtqYjdlMUpTZDFHM2R0endTT0ltS2Nv?=
- =?utf-8?B?ZjV5Q3N3cXdIam12bGRHZFQzMVFHOWFKb2oydGR2L3RXVVYxNkVYa3p1UUlu?=
- =?utf-8?B?bzZ1UHE1eXNYTk9rVDYwd25JWG1nbEpXcTk4MVluK1l2NmdDQld4bDJrbHJP?=
- =?utf-8?B?eVFBd0MrbEVKNlVyYThIL0FwWFVrcVk2d2Z4TlpLcDNRV3FpQXNGZkFKWHdh?=
- =?utf-8?B?d1hXTUc2VmZCZWEwZVEyM1hpakkvUDhVc1R6TzhCYXNBWWEvK09qU0tML3Ez?=
- =?utf-8?B?dU03NGJNZjlrNjJvK3M0TkEwVTgwMlR4Y1pJY2Z3bDV0TGM4RkFtb3hTV2hZ?=
- =?utf-8?B?aXhyNiswRFl1ZTNGdlQzTHJPbks1cHUwMTNETU1HdFZSd3A4TmFkWFc5dEpI?=
- =?utf-8?B?dDNiMmU5ZlM4RzFzb3pub2t5RmdWSGZrMEZYTFgwNlVPbzhCcTZvSk1BR0g1?=
- =?utf-8?B?bjdPcnJoRmpocFp3dGVIWlJIeEdGOUlZeTl0dWlOb0xTcElKUVN6Sys0d1BG?=
- =?utf-8?B?WFZZQm5IMityTTN3VWpjUktReGRLSWtHZUtEUFVkNmhVRnlGZU5uRDlKNkwy?=
- =?utf-8?B?TjAyWmJRMEl6dEdtNStLaWVUT2hxcU91RnA1Y2p4b2JjRitybkVpMkZkOTZj?=
- =?utf-8?B?NVR5RER6MU9ZTGw4QnNwWFNNUHdBOEF3dEpaYzhzQUJPMGp6eGtKdVZRM29s?=
- =?utf-8?B?UVc4RjYxOFA5VlVONW85Ykx3ODUwYloyWklhKzJIWHFadTZUWjBzUnZyeUtZ?=
- =?utf-8?B?bzVXcSt5NStESVBCM1FtMlRzcWdwREhTeXAwNEF3dXU1a3lYdWhPWUZjQnhB?=
- =?utf-8?B?eTd0NFRFTjdtUHV1WTcxZUFVUTNZNWZaNEJVYS9UQmxJVS92NWhJRFV5QkFp?=
- =?utf-8?Q?u9sSXajPY45uF6xaxIhzoaVnz?=
-Content-ID: <3080349511042449B34D69480EF5DB25@namprd11.prod.outlook.com>
+        d=conchuod.ie; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc;
+        bh=Z63zwi7cGAuKiNoBIs10Ekj9CC9KQ4p8G+KukTWva3I=;
+        b=SJaPKdEKD3cZ4U2ILmGJ7YYl8jrjkW+umstaVhULXfth/8eB87EBEKn/1mLbA1W76X
+         PzwduEhBRnRX4YqA+aiPXjDTcwdjcfx/3gAU9DBS4WBTJpRmqny0NPSmw9G9ochTOInu
+         2WeWfYenhoC74R53yv/Z0OwTJEtmrKUx6FM/amJ0sZsda7+BI8NV+YKEpXHvhWWUIQjL
+         jIvX/rug3aVUgMdrWNpc6nGPjyF4/U1BUWb17IFkiyO/CnXUmbpjEQXfrqIv9bH9Ityb
+         Jo9HX3MLhnjEaryWcsPgu/zFHTD87Za/Foj2KTeWLFsfxj4oLiPHVvekJWAPqw55D4IJ
+         wP5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc;
+        bh=Z63zwi7cGAuKiNoBIs10Ekj9CC9KQ4p8G+KukTWva3I=;
+        b=S5xvGGD28ixc+KfZEWE67cJgK7mRCU1SGsOi7zQenSVU4Kb+eRqryduqTi9gw4Wgjq
+         MYgedIX0jv+ENfKBeH7rvcc4y95c2ABEOSyMDT/g6LQd3Z2ihGgaZkQpHcU0F2B83EIS
+         cJA2zfPncaUPIXzqLEX6jPERDWQfQEmDgo2BCFu8YnM2DAweLKUbbtCrFuq4oWKhzE65
+         Hk3ab+uXQaJvowFlChXwzXqm/2FaQynymhpZwdYbzZFJD5sAqCEuUzNGX4J0IgSql+RD
+         lzqNkV4r5iqTKfBuPjrJrgAPxDLdr+vqSeu+JtL3uhZ7oStwETi32JdgDEs+erVOyCln
+         x5+Q==
+X-Gm-Message-State: ACgBeo3tDpjr/u3uUpdWXqLflHARr7+f1+jkJt7nGpRymqbSZF1tMtpO
+	vRW92xNt2/LmbUHukimLSIFA0A==
+X-Google-Smtp-Source: AA6agR6CHzaozIjR/7Q20mq4qiXqh3OzKi41CUQLkIeloF4Lpy2xCkUYlbFCvfPNRwRzxYHUk2X5VA==
+X-Received: by 2002:a5d:5b19:0:b0:225:3ed4:ff64 with SMTP id bx25-20020a5d5b19000000b002253ed4ff64mr3336331wrb.537.1661461285500;
+        Thu, 25 Aug 2022 14:01:25 -0700 (PDT)
+Received: from henark71.. ([51.37.149.245])
+        by smtp.gmail.com with ESMTPSA id i14-20020adffdce000000b00225213fd4a9sm220877wrs.33.2022.08.25.14.01.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Aug 2022 14:01:24 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: arnd@arndb.de,
+	linux-arch@vger.kernel.org
+Cc: richard.henderson@linaro.org,
+	mattst88@gmail.com,
+	vgupta@kernel.org,
+	linux@armlinux.org.uk,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	guoren@kernel.org,
+	bcain@quicinc.com,
+	chenhuacai@kernel.org,
+	geert@linux-m68k.org,
+	gerg@linux-m68k.org,
+	monstr@monstr.eu,
+	tsbogend@alpha.franken.de,
+	dinguyen@kernel.org,
+	shorne@gmail.com,
+	deller@gmx.de,
+	mpe@ellerman.id.au,
+	palmer@dabbelt.com,
+	hca@linux.ibm.com,
+	ysato@users.sourceforge.jp,
+	dalias@libc.org,
+	davem@davemloft.net,
+	richard@nod.at,
+	x86@kernel.org,
+	jcmvbkbc@gmail.com,
+	linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-xtensa@linux-xtensa.org,
+	linux-fsdevel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2] include/linux: declare cpuinfo_op in processor.h
+Date: Thu, 25 Aug 2022 21:59:43 +0100
+Message-Id: <20220825205942.1713914-1-mail@conchuod.ie>
+X-Mailer: git-send-email 2.37.1
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 947df884-a287-4757-ee07-08da86d4f013
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Aug 2022 20:03:54.4904
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: BMhCDzJkALagqsuZYrgEi3YMIALqqRcFSp9+WfgxDa7V0iHAPWpFdj6sU1QaSmrZRv1R+5Ltar66vNVP5Q8P+9e1sTo1FX/4QKoQJ3j50PA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB7000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220825_130406_736701_A81E7BD2 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20220825_140127_158725_69C9426D 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,67 +126,446 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjUvMDgvMjAyMiAyMDo0OSwgSGVpbnJpY2ggU2NodWNoYXJkdCB3cm90ZToNCj4gT24gOC8y
-NS8yMiAyMDo1NiwgQ29ub3IuRG9vbGV5QG1pY3JvY2hpcC5jb20gd3JvdGU6DQo+PiBPbiAyNS8w
-OC8yMDIyIDE5OjM2LCBIZWlucmljaCBTY2h1Y2hhcmR0IHdyb3RlOg0KPj4+IE9uIDgvMjUvMjIg
-MjA6MDQsIENvbm9yIERvb2xleSB3cm90ZToNCj4+Pj4gRnJvbTogQ29ub3IgRG9vbGV5IDxjb25v
-ci5kb29sZXlAbWljcm9jaGlwLmNvbT4NCg0KPj4+PiArYWxsT2Y6DQo+Pj4+ICvCoCAtICRyZWY6
-IC9zY2hlbWFzL2NhY2hlLWNvbnRyb2xsZXIueWFtbCMNCj4+Pj4gwqDCoCAtdGhlbjoNCj4+Pj4g
-LcKgIHByb3BlcnRpZXM6DQo+Pj4+IC3CoMKgwqAgaW50ZXJydXB0czoNCj4+Pj4gLcKgwqDCoMKg
-wqAgZGVzY3JpcHRpb246IHwNCj4+Pj4gLcKgwqDCoMKgwqDCoMKgIE11c3QgY29udGFpbiBlbnRy
-aWVzIGZvciBEaXJFcnJvciwgRGF0YUVycm9yIGFuZCBEYXRhRmFpbCBzaWduYWxzLg0KPj4+PiAt
-wqDCoMKgwqDCoCBtYXhJdGVtczogMw0KPj4+PiAtwqDCoMKgIGNhY2hlLXNldHM6DQo+Pj4+IC3C
-oMKgwqDCoMKgIGNvbnN0OiAxMDI0DQo+Pj4+IC0NCj4+Pj4gLWVsc2U6DQo+Pj4+IC3CoCBwcm9w
-ZXJ0aWVzOg0KPj4+PiAtwqDCoMKgIGludGVycnVwdHM6DQo+Pj4+IC3CoMKgwqDCoMKgIGRlc2Ny
-aXB0aW9uOiB8DQo+Pj4+IC3CoMKgwqDCoMKgwqDCoCBNdXN0IGNvbnRhaW4gZW50cmllcyBmb3Ig
-RGlyRXJyb3IsIERhdGFFcnJvciwgRGF0YUZhaWwsIERpckZhaWwgc2lnbmFscy4NCj4+Pj4gLcKg
-wqDCoMKgwqAgbWluSXRlbXM6IDQNCj4+Pj4gLcKgwqDCoCBjYWNoZS1zZXRzOg0KPj4+PiAtwqDC
-oMKgwqDCoCBjb25zdDogMjA0OA0KPj4+PiArwqAgLSBpZjoNCj4+Pj4gK8KgwqDCoMKgwqAgcHJv
-cGVydGllczoNCj4+Pj4gK8KgwqDCoMKgwqDCoMKgIGNvbXBhdGlibGU6DQo+Pj4+ICvCoMKgwqDC
-oMKgwqDCoMKgwqAgY29udGFpbnM6DQo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGVudW06
-DQo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHNpZml2ZSxmdTc0MC1jMDAwLWNj
-YWNoZQ0KPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLSBtaWNyb2NoaXAsbXBmcy1j
-Y2FjaGUNCj4+Pj4gKw0KPj4+PiArwqDCoMKgIHRoZW46DQo+Pj4+ICvCoMKgwqDCoMKgIHByb3Bl
-cnRpZXM6DQo+Pj4+ICvCoMKgwqDCoMKgwqDCoCBpbnRlcnJ1cHRzOg0KPj4+PiArwqDCoMKgwqDC
-oMKgwqDCoMKgIGRlc2NyaXB0aW9uOiB8DQo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIE11
-c3QgY29udGFpbiBlbnRyaWVzIGZvciBEaXJFcnJvciwgRGF0YUVycm9yLCBEYXRhRmFpbCwgRGly
-RmFpbCBzaWduYWxzLg0KPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgIG1pbkl0ZW1zOiA0DQo+IA0K
-PiBBYm92ZSB5b3UgaW5kaWNhdGVkIHRoYXQgeW91IHdhbnQgc3RyaWN0IGxpbWl0cyBmb3IgdGhl
-IGludGVycnVwdCBjb3VudC4NCj4gWW91IGV4cGVjdCBleGFjdGx5IDQgaXRlbXMgaGVyZS4gSGF2
-aW5nIDUgZW50cmllcyB3b3VsZCBub3QgYmUgY29ycmVjdC4NCj4gUGxlYXNlLCBhZGQgJ21heEl0
-ZW1zOiA0Jy4NCg0KT3V0c2lkZSBvZiB0aGlzIGRpZmYsIGJlY2F1c2Ugb2YgaG93IHRoZSBwYXJ0
-aWN1bGFyIGJpbmRpbmcgd2FzDQpzdHJ1Y3R1cmVkLCB0aGVyZSBpczoNCiAgaW50ZXJydXB0czoN
-CiAgICBtaW5JdGVtczogMw0KICAgIGl0ZW1zOg0KICAgICAgLSBkZXNjcmlwdGlvbjogRGlyRXJy
-b3IgaW50ZXJydXB0DQogICAgICAtIGRlc2NyaXB0aW9uOiBEYXRhRXJyb3IgaW50ZXJydXB0DQog
-ICAgICAtIGRlc2NyaXB0aW9uOiBEYXRhRmFpbCBpbnRlcnJ1cHQNCiAgICAgIC0gZGVzY3JpcHRp
-b246IERpckZhaWwgaW50ZXJydXB0DQoNCkFGQUlVLCAibWF4SXRlbXM6IDQiIGlzIHJlZHVuZGFu
-dCBiZWNhdXNlIGFsbCBwb3NzaWJsZSBpdGVtcyBhcmUgbGlzdGVkLg0KDQo+IA0KPj4+PiArDQo+
-Pj4+ICvCoMKgwqAgZWxzZToNCj4+Pj4gK8KgwqDCoMKgwqAgcHJvcGVydGllczoNCj4+Pj4gK8Kg
-wqDCoMKgwqDCoMKgIGludGVycnVwdHM6DQo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqAgZGVzY3Jp
-cHRpb246IHwNCj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgTXVzdCBjb250YWluIGVudHJp
-ZXMgZm9yIERpckVycm9yLCBEYXRhRXJyb3IgYW5kIERhdGFGYWlsIHNpZ25hbHMuDQo+Pj4+ICvC
-oMKgwqDCoMKgwqDCoMKgwqAgbWF4SXRlbXM6IDMNCj4gDQo+IFRoZSBpdGVtIGNvdW50IHNob3Vs
-ZCBiZSBleGFjdGx5IDMuIEhhdmluZyAyIGVudHJpZXMgd291bGQgbm90IGJlIGNvcnJlY3QuDQo+
-IFBsZWFzZSwgYWRkICdtaW5JdGVtczogMycuDQoNCkFnYWluLCB0aGlzIGlzIHNldCBieSB0aGUg
-c2VjdGlvbiBJIHBhc3RlZCBhYm92ZSAtIGFsdGhvdWdoIHRoaXMgdGltZQ0KZXhwbGljaXRseS4N
-Cg0KSG9wZSB0aGF0IGV4cGxhaW5zIHRoaW5ncywgbm90IHRoZSBlYXNpZXN0IGJpbmRpbmcgdG8g
-dW5kZXJzdGFuZCBmcm9tDQphIGRpZmYgYWxvbmUuIFBvc3NpYmx5IEkgc2hvdWxkIGhhdmUgcGFz
-c2VkIGEgIi1VIiBhcmd1bWVudCB3aGlsZQ0KY3JlYXRpbmcgdGhlIHBhdGNoZXMgdG8gZ2V0IGFu
-IGVhc2llci10by1mb2xsb3cgZGlmZi4NCg0KVGhhbmtzIGZvciB5b3VyIChwcm9tcHQpIHJldmll
-d3MsDQpDb25vci4NCg0KPj4+PiArDQo+Pj4+ICvCoCAtIGlmOg0KPj4+PiArwqDCoMKgwqDCoCBw
-cm9wZXJ0aWVzOg0KPj4+PiArwqDCoMKgwqDCoMKgwqAgY29tcGF0aWJsZToNCj4+Pj4gK8KgwqDC
-oMKgwqDCoMKgwqDCoCBjb250YWluczoNCj4+Pj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqAgY29u
-c3Q6IHNpZml2ZSxmdTc0MC1jMDAwLWNjYWNoZQ0KPj4+PiArDQo+Pj4+ICvCoMKgwqAgdGhlbjoN
-Cj4+Pj4gK8KgwqDCoMKgwqAgcHJvcGVydGllczoNCj4+Pj4gK8KgwqDCoMKgwqDCoMKgIGNhY2hl
-LXNldHM6DQo+Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqAgY29uc3Q6IDIwNDgNCj4+Pj4gKw0KPj4+
-PiArwqDCoMKgIGVsc2U6DQo+Pj4+ICvCoMKgwqDCoMKgIHByb3BlcnRpZXM6DQo+Pj4+ICvCoMKg
-wqDCoMKgwqDCoCBjYWNoZS1zZXRzOg0KPj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgIGNvbnN0OiAx
-MDI0DQo+Pj4+IMKgwqAgwqAgYWRkaXRpb25hbFByb3BlcnRpZXM6IGZhbHNlDQo+Pj4+IMKgwqAg
-DQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Conor Dooley <conor.dooley@microchip.com>
+
+RISC-V is missing a prototype for cpuinfo_op, triggering complaints
+from sparse. Rather than adding yet another `extern const struct
+seq_operations cpuinfo_op;` to an arch specific header file, create a
+generic variant and include it across the board.
+
+Several archs already have a declaration in asm/processor.h - migrate
+these to include linux/processor.h instead. Most archs do not declare
+cpuinfo_op so one sparse complaint off their books.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+Changes since v1:
+- Per Geert, use linux/processor.h & include it on all archs &
+- Squash to a single patch
+
+I pushed it out for LKP to take a look at, and was all good there.
+Only added one person per arch & the mailing lists to stay within a
+1024 character CC list. Please scream if I picked the wrong person.
+---
+ arch/alpha/kernel/setup.c               | 1 +
+ arch/arc/kernel/setup.c                 | 1 +
+ arch/arm/kernel/setup.c                 | 1 +
+ arch/arm64/kernel/cpuinfo.c             | 1 +
+ arch/csky/kernel/cpu-probe.c            | 1 +
+ arch/hexagon/kernel/setup.c             | 1 +
+ arch/ia64/kernel/setup.c                | 1 +
+ arch/loongarch/kernel/proc.c            | 1 +
+ arch/m68k/kernel/setup_mm.c             | 1 +
+ arch/m68k/kernel/setup_no.c             | 1 +
+ arch/microblaze/include/asm/processor.h | 2 --
+ arch/microblaze/kernel/cpu/mb.c         | 1 +
+ arch/mips/kernel/proc.c                 | 1 +
+ arch/nios2/kernel/cpuinfo.c             | 1 +
+ arch/openrisc/kernel/setup.c            | 1 +
+ arch/parisc/kernel/setup.c              | 1 +
+ arch/powerpc/kernel/setup-common.c      | 1 +
+ arch/riscv/kernel/cpu.c                 | 3 ++-
+ arch/s390/include/asm/processor.h       | 2 +-
+ arch/s390/kernel/processor.c            | 1 +
+ arch/sh/include/asm/processor.h         | 1 -
+ arch/sh/kernel/cpu/proc.c               | 1 +
+ arch/sparc/include/asm/cpudata.h        | 2 --
+ arch/sparc/kernel/cpu.c                 | 1 +
+ arch/um/kernel/um_arch.c                | 1 +
+ arch/x86/include/asm/processor.h        | 2 --
+ arch/x86/kernel/cpu/proc.c              | 1 +
+ arch/xtensa/kernel/setup.c              | 1 +
+ fs/proc/cpuinfo.c                       | 3 +--
+ include/linux/processor.h               | 2 ++
+ 30 files changed, 28 insertions(+), 11 deletions(-)
+
+diff --git a/arch/alpha/kernel/setup.c b/arch/alpha/kernel/setup.c
+index b4fbbba30aa2..d2c2546e9b1a 100644
+--- a/arch/alpha/kernel/setup.c
++++ b/arch/alpha/kernel/setup.c
+@@ -46,6 +46,7 @@
+ #include <asm/io.h>
+ #include <linux/log2.h>
+ #include <linux/export.h>
++#include <linux/processor.h>
+ 
+ static int alpha_panic_event(struct notifier_block *, unsigned long, void *);
+ static struct notifier_block alpha_panic_block = {
+diff --git a/arch/arc/kernel/setup.c b/arch/arc/kernel/setup.c
+index 41f07b3e594e..b681bdd21a0c 100644
+--- a/arch/arc/kernel/setup.c
++++ b/arch/arc/kernel/setup.c
+@@ -17,6 +17,7 @@
+ #include <linux/of_fdt.h>
+ #include <linux/of.h>
+ #include <linux/cache.h>
++#include <linux/processor.h>
+ #include <uapi/linux/mount.h>
+ #include <asm/sections.h>
+ #include <asm/arcregs.h>
+diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
+index 1e8a50a97edf..83240c3c0463 100644
+--- a/arch/arm/kernel/setup.c
++++ b/arch/arm/kernel/setup.c
+@@ -29,6 +29,7 @@
+ #include <linux/compiler.h>
+ #include <linux/sort.h>
+ #include <linux/psci.h>
++#include <linux/processor.h>
+ 
+ #include <asm/unified.h>
+ #include <asm/cp15.h>
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index d7702f39b4d3..4c1b12918aed 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -20,6 +20,7 @@
+ #include <linux/personality.h>
+ #include <linux/preempt.h>
+ #include <linux/printk.h>
++#include <linux/processor.h>
+ #include <linux/seq_file.h>
+ #include <linux/sched.h>
+ #include <linux/smp.h>
+diff --git a/arch/csky/kernel/cpu-probe.c b/arch/csky/kernel/cpu-probe.c
+index 5f15ca31d3e8..62580f5d0d74 100644
+--- a/arch/csky/kernel/cpu-probe.c
++++ b/arch/csky/kernel/cpu-probe.c
+@@ -5,6 +5,7 @@
+ #include <linux/init.h>
+ #include <linux/seq_file.h>
+ #include <linux/memblock.h>
++#include <linux/processor.h>
+ 
+ #include <abi/reg_ops.h>
+ 
+diff --git a/arch/hexagon/kernel/setup.c b/arch/hexagon/kernel/setup.c
+index 1880d9beaf2b..395d2930dbd1 100644
+--- a/arch/hexagon/kernel/setup.c
++++ b/arch/hexagon/kernel/setup.c
+@@ -13,6 +13,7 @@
+ #include <linux/seq_file.h>
+ #include <linux/console.h>
+ #include <linux/of_fdt.h>
++#include <linux/processor.h>
+ #include <asm/io.h>
+ #include <asm/sections.h>
+ #include <asm/setup.h>
+diff --git a/arch/ia64/kernel/setup.c b/arch/ia64/kernel/setup.c
+index fd6301eafa9d..973725c4ce1e 100644
+--- a/arch/ia64/kernel/setup.c
++++ b/arch/ia64/kernel/setup.c
+@@ -52,6 +52,7 @@
+ #include <linux/cpufreq.h>
+ #include <linux/kexec.h>
+ #include <linux/crash_dump.h>
++#include <linux/processor.h>
+ 
+ #include <asm/mca.h>
+ #include <asm/meminit.h>
+diff --git a/arch/loongarch/kernel/proc.c b/arch/loongarch/kernel/proc.c
+index 5c67cc4fd56d..a8cbebe839e2 100644
+--- a/arch/loongarch/kernel/proc.c
++++ b/arch/loongarch/kernel/proc.c
+@@ -6,6 +6,7 @@
+ #include <linux/kernel.h>
+ #include <linux/sched.h>
+ #include <linux/seq_file.h>
++#include <linux/processor.h>
+ #include <asm/bootinfo.h>
+ #include <asm/cpu.h>
+ #include <asm/cpu-features.h>
+diff --git a/arch/m68k/kernel/setup_mm.c b/arch/m68k/kernel/setup_mm.c
+index e62fa8f2149b..45d82a4839fc 100644
+--- a/arch/m68k/kernel/setup_mm.c
++++ b/arch/m68k/kernel/setup_mm.c
+@@ -25,6 +25,7 @@
+ #include <linux/module.h>
+ #include <linux/nvram.h>
+ #include <linux/initrd.h>
++#include <linux/processor.h>
+ 
+ #include <asm/bootinfo.h>
+ #include <asm/byteorder.h>
+diff --git a/arch/m68k/kernel/setup_no.c b/arch/m68k/kernel/setup_no.c
+index cb6def585851..86dd4b47ff43 100644
+--- a/arch/m68k/kernel/setup_no.c
++++ b/arch/m68k/kernel/setup_no.c
+@@ -33,6 +33,7 @@
+ #include <linux/initrd.h>
+ #include <linux/root_dev.h>
+ #include <linux/rtc.h>
++#include <linux/processor.h>
+ 
+ #include <asm/setup.h>
+ #include <asm/bootinfo.h>
+diff --git a/arch/microblaze/include/asm/processor.h b/arch/microblaze/include/asm/processor.h
+index 7e9e92670df3..c5877c91116a 100644
+--- a/arch/microblaze/include/asm/processor.h
++++ b/arch/microblaze/include/asm/processor.h
+@@ -15,8 +15,6 @@
+ #include <asm/current.h>
+ 
+ # ifndef __ASSEMBLY__
+-/* from kernel/cpu/mb.c */
+-extern const struct seq_operations cpuinfo_op;
+ 
+ # define cpu_relax()		barrier()
+ 
+diff --git a/arch/microblaze/kernel/cpu/mb.c b/arch/microblaze/kernel/cpu/mb.c
+index 9581d194d9e4..33f5be916121 100644
+--- a/arch/microblaze/kernel/cpu/mb.c
++++ b/arch/microblaze/kernel/cpu/mb.c
+@@ -14,6 +14,7 @@
+ #include <linux/seq_file.h>
+ #include <linux/cpu.h>
+ #include <linux/initrd.h>
++#include <linux/processor.h>
+ 
+ #include <linux/bug.h>
+ #include <asm/cpuinfo.h>
+diff --git a/arch/mips/kernel/proc.c b/arch/mips/kernel/proc.c
+index 8eba5a1ed664..54a4226cff84 100644
+--- a/arch/mips/kernel/proc.c
++++ b/arch/mips/kernel/proc.c
+@@ -8,6 +8,7 @@
+ #include <linux/kernel.h>
+ #include <linux/sched.h>
+ #include <linux/seq_file.h>
++#include <linux/processor.h>
+ #include <asm/bootinfo.h>
+ #include <asm/cpu.h>
+ #include <asm/cpu-features.h>
+diff --git a/arch/nios2/kernel/cpuinfo.c b/arch/nios2/kernel/cpuinfo.c
+index 203870c4b86d..9641ca55377e 100644
+--- a/arch/nios2/kernel/cpuinfo.c
++++ b/arch/nios2/kernel/cpuinfo.c
+@@ -12,6 +12,7 @@
+ #include <linux/seq_file.h>
+ #include <linux/string.h>
+ #include <linux/of.h>
++#include <linux/processor.h>
+ #include <asm/cpuinfo.h>
+ 
+ struct cpuinfo cpuinfo;
+diff --git a/arch/openrisc/kernel/setup.c b/arch/openrisc/kernel/setup.c
+index 0cd04d936a7a..a628c928941b 100644
+--- a/arch/openrisc/kernel/setup.c
++++ b/arch/openrisc/kernel/setup.c
+@@ -33,6 +33,7 @@
+ #include <linux/of_fdt.h>
+ #include <linux/of.h>
+ #include <linux/device.h>
++#include <linux/processor.h>
+ 
+ #include <asm/sections.h>
+ #include <asm/types.h>
+diff --git a/arch/parisc/kernel/setup.c b/arch/parisc/kernel/setup.c
+index f005ddedb50e..d00488507f49 100644
+--- a/arch/parisc/kernel/setup.c
++++ b/arch/parisc/kernel/setup.c
+@@ -25,6 +25,7 @@
+ #include <linux/sched.h>
+ #include <linux/sched/clock.h>
+ #include <linux/start_kernel.h>
++#include <linux/processor.h>
+ 
+ #include <asm/cacheflush.h>
+ #include <asm/processor.h>
+diff --git a/arch/powerpc/kernel/setup-common.c b/arch/powerpc/kernel/setup-common.c
+index dd98f43bd685..12ddcb1401be 100644
+--- a/arch/powerpc/kernel/setup-common.c
++++ b/arch/powerpc/kernel/setup-common.c
+@@ -34,6 +34,7 @@
+ #include <linux/of_platform.h>
+ #include <linux/hugetlb.h>
+ #include <linux/pgtable.h>
++#include <linux/processor.h>
+ #include <asm/io.h>
+ #include <asm/paca.h>
+ #include <asm/processor.h>
+diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
+index 0be8a2403212..f28ec528d54a 100644
+--- a/arch/riscv/kernel/cpu.c
++++ b/arch/riscv/kernel/cpu.c
+@@ -4,8 +4,9 @@
+  */
+ 
+ #include <linux/init.h>
+-#include <linux/seq_file.h>
+ #include <linux/of.h>
++#include <linux/processor.h>
++#include <linux/seq_file.h>
+ #include <asm/hwcap.h>
+ #include <asm/smp.h>
+ #include <asm/pgtable.h>
+diff --git a/arch/s390/include/asm/processor.h b/arch/s390/include/asm/processor.h
+index bd66f8e34949..55fbb4f7f7f6 100644
+--- a/arch/s390/include/asm/processor.h
++++ b/arch/s390/include/asm/processor.h
+@@ -33,6 +33,7 @@
+ #include <linux/cpumask.h>
+ #include <linux/linkage.h>
+ #include <linux/irqflags.h>
++#include <linux/processor.h>
+ #include <asm/cpu.h>
+ #include <asm/page.h>
+ #include <asm/ptrace.h>
+@@ -80,7 +81,6 @@ void s390_adjust_jiffies(void);
+ void s390_update_cpu_mhz(void);
+ void cpu_detect_mhz_feature(void);
+ 
+-extern const struct seq_operations cpuinfo_op;
+ extern void execve_tail(void);
+ extern void __bpon(void);
+ unsigned long vdso_size(void);
+diff --git a/arch/s390/kernel/processor.c b/arch/s390/kernel/processor.c
+index a194611ba88c..267886605902 100644
+--- a/arch/s390/kernel/processor.c
++++ b/arch/s390/kernel/processor.c
+@@ -17,6 +17,7 @@
+ #include <linux/mm_types.h>
+ #include <linux/delay.h>
+ #include <linux/cpu.h>
++#include <linux/processor.h>
+ 
+ #include <asm/diag.h>
+ #include <asm/facility.h>
+diff --git a/arch/sh/include/asm/processor.h b/arch/sh/include/asm/processor.h
+index 85a6c1c3c16e..10c4b4b9af46 100644
+--- a/arch/sh/include/asm/processor.h
++++ b/arch/sh/include/asm/processor.h
+@@ -123,7 +123,6 @@ extern unsigned int mem_init_done;
+ 
+ /* arch/sh/kernel/setup.c */
+ const char *get_cpu_subtype(struct sh_cpuinfo *c);
+-extern const struct seq_operations cpuinfo_op;
+ 
+ /* thread_struct flags */
+ #define SH_THREAD_UAC_NOPRINT	(1 << 0)
+diff --git a/arch/sh/kernel/cpu/proc.c b/arch/sh/kernel/cpu/proc.c
+index a306bcd6b341..f373a21c6705 100644
+--- a/arch/sh/kernel/cpu/proc.c
++++ b/arch/sh/kernel/cpu/proc.c
+@@ -2,6 +2,7 @@
+ #include <linux/seq_file.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
++#include <linux/processor.h>
+ #include <asm/machvec.h>
+ #include <asm/processor.h>
+ 
+diff --git a/arch/sparc/include/asm/cpudata.h b/arch/sparc/include/asm/cpudata.h
+index d213165ee713..f7e690a7860b 100644
+--- a/arch/sparc/include/asm/cpudata.h
++++ b/arch/sparc/include/asm/cpudata.h
+@@ -7,8 +7,6 @@
+ #include <linux/threads.h>
+ #include <linux/percpu.h>
+ 
+-extern const struct seq_operations cpuinfo_op;
+-
+ #endif /* !(__ASSEMBLY__) */
+ 
+ #if defined(__sparc__) && defined(__arch64__)
+diff --git a/arch/sparc/kernel/cpu.c b/arch/sparc/kernel/cpu.c
+index 79cd6ccfeac0..ffdc7a825b80 100644
+--- a/arch/sparc/kernel/cpu.c
++++ b/arch/sparc/kernel/cpu.c
+@@ -12,6 +12,7 @@
+ #include <linux/smp.h>
+ #include <linux/threads.h>
+ #include <linux/pgtable.h>
++#include <linux/processor.h>
+ 
+ #include <asm/spitfire.h>
+ #include <asm/oplib.h>
+diff --git a/arch/um/kernel/um_arch.c b/arch/um/kernel/um_arch.c
+index e0de60e503b9..4034f5b959f7 100644
+--- a/arch/um/kernel/um_arch.c
++++ b/arch/um/kernel/um_arch.c
+@@ -9,6 +9,7 @@
+ #include <linux/ctype.h>
+ #include <linux/module.h>
+ #include <linux/panic_notifier.h>
++#include <linux/processor.h>
+ #include <linux/seq_file.h>
+ #include <linux/string.h>
+ #include <linux/utsname.h>
+diff --git a/arch/x86/include/asm/processor.h b/arch/x86/include/asm/processor.h
+index 356308c73951..08ccd453ec4f 100644
+--- a/arch/x86/include/asm/processor.h
++++ b/arch/x86/include/asm/processor.h
+@@ -188,8 +188,6 @@ DECLARE_PER_CPU_READ_MOSTLY(struct cpuinfo_x86, cpu_info);
+ #define cpu_data(cpu)		boot_cpu_data
+ #endif
+ 
+-extern const struct seq_operations cpuinfo_op;
+-
+ #define cache_line_size()	(boot_cpu_data.x86_cache_alignment)
+ 
+ extern void cpu_detect(struct cpuinfo_x86 *c);
+diff --git a/arch/x86/kernel/cpu/proc.c b/arch/x86/kernel/cpu/proc.c
+index 099b6f0d96bd..5a0699d9ff7d 100644
+--- a/arch/x86/kernel/cpu/proc.c
++++ b/arch/x86/kernel/cpu/proc.c
+@@ -4,6 +4,7 @@
+ #include <linux/string.h>
+ #include <linux/seq_file.h>
+ #include <linux/cpufreq.h>
++#include <linux/processor.h>
+ 
+ #include "cpu.h"
+ 
+diff --git a/arch/xtensa/kernel/setup.c b/arch/xtensa/kernel/setup.c
+index 9191738f9941..d4417a174887 100644
+--- a/arch/xtensa/kernel/setup.c
++++ b/arch/xtensa/kernel/setup.c
+@@ -25,6 +25,7 @@
+ #include <linux/cpu.h>
+ #include <linux/of.h>
+ #include <linux/of_fdt.h>
++#include <linux/processor.h>
+ 
+ #if defined(CONFIG_VGA_CONSOLE) || defined(CONFIG_DUMMY_CONSOLE)
+ # include <linux/console.h>
+diff --git a/fs/proc/cpuinfo.c b/fs/proc/cpuinfo.c
+index f38bda5b83ec..ca3065dfecd9 100644
+--- a/fs/proc/cpuinfo.c
++++ b/fs/proc/cpuinfo.c
+@@ -3,10 +3,9 @@
+ #include <linux/fs.h>
+ #include <linux/init.h>
+ #include <linux/proc_fs.h>
++#include <linux/processor.h>
+ #include <linux/seq_file.h>
+ 
+-extern const struct seq_operations cpuinfo_op;
+-
+ static int cpuinfo_open(struct inode *inode, struct file *file)
+ {
+ 	return seq_open(file, &cpuinfo_op);
+diff --git a/include/linux/processor.h b/include/linux/processor.h
+index dc78bdc7079a..71bdf8626874 100644
+--- a/include/linux/processor.h
++++ b/include/linux/processor.h
+@@ -59,4 +59,6 @@ do {								\
+ 
+ #endif
+ 
++extern const struct seq_operations cpuinfo_op;
++
+ #endif /* _LINUX_PROCESSOR_H */
+-- 
+2.37.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
