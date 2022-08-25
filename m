@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F6EC32792
-	for <linux-riscv@archiver.kernel.org>; Wed, 24 Aug 2022 18:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B77C04AA5
+	for <linux-riscv@archiver.kernel.org>; Thu, 25 Aug 2022 02:05:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TuAmErCgh/WX6CjcS4CvthOT+5A4KsrWgtHTyKQR00o=; b=ApC4ZiwgqY8Rch
-	ta89LcMJMRXXZRSNla4QilThoxGnRgaJy8x+3lc3y5DK3r/G+pLbKjHRnVbyeHzB8R41bSTR/qnOI
-	3YrPwoCfl3ktuwuFnCSAs00xPQkKeqJBAjflFLitk+HEEeM/PF6yJ6xIczB1/tkO+eb8cK8ZfL/4D
-	5NgyRfXeaWiVo/8JTEAndzXDw8Ux2qcO/TkEEQUDqN3Q3z1XvhLFJIow2j6r0fyg0ij72b6XmKEYc
-	iuylsMaG5sP5zWwM+ctI9TYScETmHMQwyAAeZ4XKdBVIL8NLfqG2RnYO8phVPfDB+cwaSWMmo26/t
-	J7AzDqU3PhKi3SqkzO4w==;
+	List-Owner; bh=5xTOGfeD7AJFcSAPSNcj297396BckoQ3dwK1SuUIIAo=; b=fEJ2YbCVDXBjNP
+	8laj46Kkrsqs6etTHCv9SGAyBegVFSntgcVOscoH/WSyHxPdEG6REaLAxT+ZsxDP19G7TO7Spvt3T
+	4gmBTnKrcQ2nSQ5e/a5la0zi6TBazPpC9unrpfrn2A/sALOCYc5/Okj4rQRzc5FtuMFNLk3KDaThX
+	tKmDP7rTSp5YorYP/u872GJHdS/80o4OzJSAUwJN4PPny7VuTP0n9LN5lYbJnVUYhQ/m9QS3j8nED
+	vs8J0OnHiCm8fUnSutES+sXde5+zmglYVzU4ZdyTDDDx+yP2FxCsUGzFnHVl+lG6u66sOZaafK/2S
+	qnbcDRpBxLRr97JShrKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQui3-00F4dg-10; Wed, 24 Aug 2022 18:02:35 +0000
+	id 1oR2En-004Aou-5H; Thu, 25 Aug 2022 02:04:53 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oQui1-00F4cH-4T
-	for linux-riscv@lists.infradead.org; Wed, 24 Aug 2022 18:02:34 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	id 1oR2Ek-004AnV-US
+	for linux-riscv@lists.infradead.org; Thu, 25 Aug 2022 02:04:52 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.localnet)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1oQuhs-0004rq-S6; Wed, 24 Aug 2022 20:02:24 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Anup Patel <anup@brainfault.org>, Conor Dooley <conor.dooley@microchip.com>, Guo Ren <guoren@kernel.org>, Sagar Kadam <sagar.kadam@sifive.com>, Jessica Clarke <jrtc27@jrtc27.com>, Andrew Jones <ajones@ventanamicro.com>, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, qemu-riscv@nongnu.org, Rob Herring <robh@kernel.org>, Conor Dooley <mail@conchuod.ie>
-Subject: Re: [PATCH v4 1/4] dt-bindings: timer: sifive,clint: add legacy riscv compatible
-Date: Wed, 24 Aug 2022 20:02:23 +0200
-Message-ID: <17083799.geO5KgaWL5@diego>
-In-Reply-To: <20220823183319.3314940-2-mail@conchuod.ie>
-References: <20220823183319.3314940-1-mail@conchuod.ie> <20220823183319.3314940-2-mail@conchuod.ie>
+	id 1oR2Ee-00072W-FB; Thu, 25 Aug 2022 04:04:44 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Atish Patra <atishp@atishpatra.org>, Anup Patel <apatel@ventanamicro.com>
+Cc: anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, philipp.tomsich@vrull.eu, cmuellner@linux.com
+Subject: Re: [PATCH] drivers/perf: riscv_pmu_sbi: add support for PMU variant on T-Head C9xx cores
+Date: Thu, 25 Aug 2022 04:04:43 +0200
+Message-ID: <13084187.uLZWGnKmhe@phil>
+In-Reply-To: <CAK9=C2U3OvUZmYTJ-C0wkSp8ViPA1+Nj2L6pd4CHTCuzaVtDJg@mail.gmail.com>
+References: <20220817111348.745527-1-heiko@sntech.de> <CAOnJCUJu1fr2qxOkX4Sz-kLhB64xkcjAbBAeTkp214ZHAa0btA@mail.gmail.com> <CAK9=C2U3OvUZmYTJ-C0wkSp8ViPA1+Nj2L6pd4CHTCuzaVtDJg@mail.gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220824_110233_201494_39D3EEE8 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20220824_190451_008054_6B484144 
+X-CRM114-Status: GOOD (  33.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,22 +58,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 23. August 2022, 20:33:17 CEST schrieb Conor Dooley:
-> From: Conor Dooley <conor.dooley@microchip.com>
+Am Donnerstag, 18. August 2022, 10:24:33 CEST schrieb Anup Patel:
+> On Thu, Aug 18, 2022 at 1:03 AM Atish Patra <atishp@atishpatra.org> wrote:
+> >
+> > On Wed, Aug 17, 2022 at 4:13 AM Heiko Stuebner <heiko@sntech.de> wrote:
+> > >
+> > > With the T-HEAD C9XX cores being designed before or during the ratification
+> > > to the SSCOFPMF extension, they implement functionality very similar but
+> > > not equal to it. So add some adaptions to allow the C9XX to still handle
+> > > its PMU through the regular SBI PMU interface instead of defining new
+> > > interfaces or drivers.
+> > >
+> >
+> > IMO, vendor specific workarounds in the generic implementation is not
+> > a good idea.
+> > If we have to support it, I think we should just put the IRQ number in
+> > the DT and parse from the DT.
+> > The initial sscofpmf series was based on the DT. It was removed later
+> > as there was no need for it at that time.
+> > We can always revive it.
+> >
+> > Regarding the CSR number difference and static key enablement, can we
+> > use code patching techniques here as well ?
+> > At least all the T-HEAD C9XX core erratas are in one place.
+> >
+> > The alternate would be just to say T-HEAD C9XX support SSCOFPMF but
+> > with erratas. I don't prefer this approach
+> > but it keeps the vendor specific checks out of the generic code.
 > 
-> While "real" hardware might not use the compatible string "riscv,clint0"
-> it is present in the driver & QEMU uses it for automatically generated
-> virt machine dtbs. To avoid dt-validate problems with QEMU produced
-> dtbs, such as the following, add it to the binding.
+> Whether to have a DT node (or not) was already discussed and concluded
+> in the past.
 > 
-> riscv-virt.dtb: clint@2000000: compatible:0: 'sifive,clint0' is not one of ['sifive,fu540-c000-clint', 'starfive,jh7100-clint', 'canaan,k210-clint']
-> 
-> Reported-by: Rob Herring <robh@kernel.org>
-> Link: https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
-> Reviewed-by: Rob Herring <robh@kernel.org>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> We don't need a DT node just to get the IRQ number. The T-HEAD custom
+> IRQ number can be derived based on mvendorid.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Yeah, I remember reading that discussion and thus went with the mvendorid
+way in this patch.
+
+> Also, all these T-HEAD specific changes in SBI PMU driver should be
+> implemented as erratas using ALTERNATIVE() macros.
+
+(1) "All these T-HEAD specific changes ..."
+Actually the only T-HEAD-specific change is reading that different CSR
+for the overflow information, the rest only makes the irq-number variable
+
+(2) ALTERNATIVE macros are working on assembler instructions, so are you
+sugesting to replace the generic csr_read() for the overflow-csr with a
+custom copy like
+
+#define sbi_pmu_read_overflow(void)						\
+({								\
+	register unsigned long __v;				\
+	ALT_THEAD_PMU_OVERFLOW(__v); \
+	__v;							\
+})
+
+and then in errata_list.h
+
+#define ALT_THEAD_PMU_OVERFLOW(__ovl) \
+__asm__ __volatile__ (alternative(
+	"csrr %0, " __ASM_STR(CSR_SSCOUNTOVF),	\
+	"csrr %0, " __ASM_STR(THEAD_C9XX_CSR_SCOUNTEROF), THEAD_VENDOR_ID, \
+		ERRATA_THEAD_PMU, CONFIG_ERRATA_THEAD_PMU) \
+			      : "=r" (__ovl) :			\
+			      : "memory");
+
+I'm not yet seeing what you're gaining by going with this approach:
+- that the overflow-csr is the same bitwise but only at a different
+  address is specific to the c9xx, other deviants might implement things
+  completely different
+- you're not getting rid of the thead mention
+- and we're now duplicating the generic csr-read code
+
+Is this the preferred way or what am I overlooking?
+
+Thanks
+Heiko
 
 
 
