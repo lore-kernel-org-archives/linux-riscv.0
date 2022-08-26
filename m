@@ -4,86 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B101FECAAA3
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Aug 2022 14:47:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 075DDECAAD4
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Aug 2022 15:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=URfJZbscjp88YNb2U/33kFazC080W6xl07jPoAPVDyE=; b=GhePUPI5jRnqK0
-	2Cl5KYL1pvApgOiL+L98dFb8f3BBpg4OOqs2A6T0rf+3GfLVezW1awDFvOQH7tl49SJPLkvKOf5t4
-	2I3Ic71R0jAQ7c7RpRwWyDM68hzB0ZQD5YGWSpmF2mRjFHzPSae0OB/0WkbIyMinCdTMIAtktP82/
-	g+1gIqghhivkeP69I8gW5E9EbX7j0PS0wZ29T/TpfRW4oJobAz6acpbAemSMRi/F0A4xIaaTg/PQC
-	ewGX6YryaAZ9vdT6ojl+KFMKVPT4/ulVgOZ9WLQg5KVbSQ/8nfazkmuRqE+vgv2Byme3hlpoaOIvL
-	fKKFDZNhnYByRKYhtZew==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CEAKy8doSdeHUg6C934ZuE5/MvDzrGsVfne9aC1vl7Q=; b=vckfSMo8KGWeAl
+	jcuMn5TqPBvCYkcQOXFfhXn01MlmlbiW6HMWYwnSr2ox5oGtbD2oJFU3DEbfksDyObqZJ8lq4op4H
+	ni0LkBoCgcc8F2fhHJ9Rn/gDUD3pbgAnr93IymmcEGNCS7nIkHCcWXFWiKg9k/wHNVHo3JPKIL/Wj
+	3HMjCKpr5lv/XrL2T6EJJ/dOyt0+gfpTSJ8zzs16PkXJgXhEO1gO3Q/Me87VZsdU41FOE4n7MlKOz
+	J48v1F3slgkrkZBCQA1Exq+9D2CjEH289Rbrz8XK1zBNSjosKwdpTN6wIVXLzM4iCV55dhXkpOFNE
+	6q0v1JJc8c7+Jj8HeD5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRacL-006SmZ-NT; Fri, 26 Aug 2022 14:47:29 +0000
-Received: from mailrelay2-1.pub.mailoutpod1-cph3.one.com ([46.30.210.183])
+	id 1oRb4L-006qaz-QV; Fri, 26 Aug 2022 15:16:25 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRacE-006SQ2-Ve
-	for linux-riscv@lists.infradead.org; Fri, 26 Aug 2022 14:47:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ravnborg.org; s=rsa1;
-	h=in-reply-to:content-type:mime-version:references:message-id:subject:cc:to:
-	 from:date:from;
-	bh=pzSEnzVb4PRuwPohD2SDHsa5KY0tRkBlHuhkY0oHs0w=;
-	b=NCRe3O/xZCHJ8hDEpD57d6zrmZ/D/l0pxGva3S+GafoGTaEBI8V+8dRJcau2lXRHDYLk3R1tpxP1j
-	 3KhToFhOZVyitlnJ0xRfBBHfLRdUC92ngLyYi8++VZngl+6FIPMMSswvmOKlwmrA48SEArDfjlrrZp
-	 aLUYNtoPbfHie2QZuWN/5gmc96n89BeYnrY4HhmXJ0VYbMK/Nwimvglfg4ZslyKY8HJv9B0kGS+jUd
-	 iAj6qBZTfiE8K/3fT3d5xnIszRsKWAcgiOTrubWRizGAPwPa3VkkroaVH+3Yp57Mf7SsdGZtyGg98g
-	 yEaoCAI90mioch8sotzXt8Sz2DOGFiA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed;
-	d=ravnborg.org; s=ed1;
-	h=in-reply-to:content-type:mime-version:references:message-id:subject:cc:to:
-	 from:date:from;
-	bh=pzSEnzVb4PRuwPohD2SDHsa5KY0tRkBlHuhkY0oHs0w=;
-	b=czLkABglyklPhRImctvsIg7tPPnc0HaIPVvkP1cQzOjoIxLxHBn86D/l7MTIWNazZ6K+XJ8mOPOkH
-	 5qB81ZOBw==
-X-HalOne-Cookie: f226e6ab43f82fd861952f49718ba8a608aa1fbd
-X-HalOne-ID: f6029a30-254d-11ed-a920-d0431ea8a290
-Received: from mailproxy3.cst.dirpod4-cph3.one.com (2-105-2-98-cable.dk.customer.tdc.net [2.105.2.98])
-	by mailrelay2.pub.mailoutpod1-cph3.one.com (Halon) with ESMTPSA
-	id f6029a30-254d-11ed-a920-d0431ea8a290;
-	Fri, 26 Aug 2022 14:47:09 +0000 (UTC)
-Date: Fri, 26 Aug 2022 16:47:07 +0200
-From: Sam Ravnborg <sam@ravnborg.org>
-To: Conor Dooley <mail@conchuod.ie>
-Cc: Michal Simek <monstr@monstr.eu>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>, Arnd Bergmann <arnd@arndb.de>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Kees Cook <keescook@chromium.org>,
-	Peter Zijlstra <peterz@infradead.org>, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
-	linux-arch@vger.kernel.org
-Subject: Re: [PATCH 5/6] sparc: use the asm-generic version of cpuinfo_op
-Message-ID: <Ywjc67hcBwOkMtI/@ravnborg.org>
-References: <20220821113512.2056409-1-mail@conchuod.ie>
- <20220821113512.2056409-6-mail@conchuod.ie>
+	id 1oRb4J-006qY2-KN
+	for linux-riscv@lists.infradead.org; Fri, 26 Aug 2022 15:16:25 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1oRb44-0000j9-GB; Fri, 26 Aug 2022 17:16:08 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: atishp@atishpatra.org,
+	anup@brainfault.org,
+	will@kernel.org,
+	mark.rutland@arm.com
+Cc: palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	paul.walmsley@sifive.com,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	cmuellner@linux.com,
+	philipp.tomsich@vrull.eu,
+	Heiko Stuebner <heiko@sntech.de>
+Subject: [PATCH] drivers/perf: riscv_pmu_sbi: add perf_user_access sysctl
+Date: Fri, 26 Aug 2022 17:15:56 +0200
+Message-Id: <20220826151556.1708879-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.35.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220821113512.2056409-6-mail@conchuod.ie>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220826_074724_443033_D6CA9593 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20220826_081623_695318_A5D606AF 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,46 +68,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor.
+Add a sysctl similar to the one on arm64 to enable/disable
+access to counter CSRs from u-mode on RISC-V.
 
-Thanks for this nice simplification, but I think you can make it even
-better.
+The default is of course set to disabled keeping the current
+state of access - to only the TIME CSR.
 
-On Sun, Aug 21, 2022 at 12:35:12PM +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> There's little point in duplicating the declaration of cpuinfo_op now
-> that there's a shared version of it, so drop it & include the generic
-> header.
-> 
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/sparc/include/asm/cpudata.h | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
-> 
-> diff --git a/arch/sparc/include/asm/cpudata.h b/arch/sparc/include/asm/cpudata.h
-> index d213165ee713..af6ef3c028a9 100644
-> --- a/arch/sparc/include/asm/cpudata.h
-> +++ b/arch/sparc/include/asm/cpudata.h
-> @@ -6,8 +6,7 @@
->  
->  #include <linux/threads.h>
->  #include <linux/percpu.h>
-> -
-> -extern const struct seq_operations cpuinfo_op;
-> +#include <asm-generic/processor.h>
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/admin-guide/sysctl/kernel.rst |  6 +--
+ drivers/perf/riscv_pmu_sbi.c                | 43 ++++++++++++++++++++-
+ 2 files changed, 44 insertions(+), 5 deletions(-)
 
-Since the header file did not need <asm-generic/processor.h> then it
-should not need it now after deleting stuff.
-The better fix is to add the missing include to arch/sparc/kernel/cpu.c,
-where we have the user of it.
+diff --git a/Documentation/admin-guide/sysctl/kernel.rst b/Documentation/admin-guide/sysctl/kernel.rst
+index ee6572b1edad..efd4bc385e7a 100644
+--- a/Documentation/admin-guide/sysctl/kernel.rst
++++ b/Documentation/admin-guide/sysctl/kernel.rst
+@@ -894,15 +894,15 @@ enabled, otherwise writing to this file will return ``-EBUSY``.
+ The default value is 8.
+ 
+ 
+-perf_user_access (arm64 only)
+-=================================
++perf_user_access (arm64 and riscv only)
++=======================================
+ 
+ Controls user space access for reading perf event counters. When set to 1,
+ user space can read performance monitor counter registers directly.
+ 
+ The default value is 0 (access disabled).
+ 
+-See Documentation/arm64/perf.rst for more information.
++See Documentation/arm64/perf.rst for more information on arm64
+ 
+ 
+ pid_max
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 6f6681bbfd36..7aab8d673357 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -41,6 +41,8 @@ static const struct attribute_group *riscv_pmu_attr_groups[] = {
+ 	NULL,
+ };
+ 
++static int sysctl_perf_user_access __read_mostly;
++
+ /*
+  * RISC-V doesn't have hetergenous harts yet. This need to be part of
+  * per_cpu in case of harts with different pmu counters
+@@ -640,13 +642,22 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	return IRQ_HANDLED;
+ }
+ 
++/*
++ * Depending on the perf_user_access setting, enable the access
++ * from usermode either for all counters or for TIME csr only.
++ */
++static void riscv_pmu_update_user_access(void *info)
++{
++	csr_write(CSR_SCOUNTEREN, sysctl_perf_user_access ? GENMASK(31, 0) :
++							    0x2);
++}
++
+ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ {
+ 	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
+ 	struct cpu_hw_events *cpu_hw_evt = this_cpu_ptr(pmu->hw_events);
+ 
+-	/* Enable the access for TIME csr only from the user mode now */
+-	csr_write(CSR_SCOUNTEREN, 0x2);
++	riscv_pmu_update_user_access(NULL);
+ 
+ 	/* Stop all the counters so that they can be enabled from perf */
+ 	pmu_sbi_stop_all(pmu);
+@@ -785,6 +796,32 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
+ 	cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
+ }
+ 
++static int riscv_pmu_proc_user_access_handler(struct ctl_table *table,
++			int write, void *buffer, size_t *lenp, loff_t *ppos)
++{
++	int ret = proc_dointvec_minmax(table, write, buffer, lenp, ppos);
++
++	if (ret || !write)
++		return ret;
++
++	on_each_cpu(riscv_pmu_update_user_access, NULL, 1);
++
++	return 0;
++}
++
++static struct ctl_table sbi_pmu_sysctl_table[] = {
++	{
++		.procname       = "perf_user_access",
++		.data		= &sysctl_perf_user_access,
++		.maxlen		= sizeof(unsigned int),
++		.mode           = 0644,
++		.proc_handler	= riscv_pmu_proc_user_access_handler,
++		.extra1		= SYSCTL_ZERO,
++		.extra2		= SYSCTL_ONE,
++	},
++	{ }
++};
++
+ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ {
+ 	struct riscv_pmu *pmu = NULL;
+@@ -834,6 +871,8 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto out_unregister;
+ 
++	register_sysctl("kernel", sbi_pmu_sysctl_table);
++
+ 	return 0;
+ 
+ out_unregister:
+-- 
+2.35.1
 
-A header file should include what it needs, and no more.
-
-I looked only at this patch, this comment may also be relevant for the
-other patches.
-
-	Sam
 
 _______________________________________________
 linux-riscv mailing list
