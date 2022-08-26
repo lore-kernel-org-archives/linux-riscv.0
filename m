@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A4CECAAD6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C61AECAAD4
 	for <linux-riscv@archiver.kernel.org>; Fri, 26 Aug 2022 14:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OZW7LuQUAsFDCJElP3i6OA3aX/A3I8kW3K2Iw2Y2feo=; b=bOo191qqQJWCpE
-	wvUhXb/nnj+NIqUqV2bs8gWxo8YvjUL18ashswRV25oGMjHlzTNVCfKZxwe0/ehQEzH/CS3PdQSqT
-	UqsdOJpGat14Tn9Qb1UQmNEpmlxQ/GdoctcynMB5zGQ1shP7uSo5fTO6h0wQuLMcHRt3/IV3C3DTb
-	alf+VXX69Wq+tIUurFKr6PJP2yk3XE0LFBrVnUJdZPHu7vGS4XDbZaJZEjLFh7/Aidw+Vmkvw10we
-	VTNrYSXMYNB9I94B5HRQgS+x9XUTZ5t/ZZksnT/e/b5u/M2HiL/QAeGoTAt2yNWxKh8U12Ymm6vpe
-	HmX53NodIc2+s2er+sxw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wvNBon87wU69t5/5gk3SJVcHlyFeamYI11UsTAc04ec=; b=nB4wqVNgpxq6gx
+	ErXLp9fSKqDIxBdWIT79hhUJGUseH6bQOxYVsRSfR5v4uiVCcOfJl4mWCRszxi+RCRGo/+W7X8A5p
+	L//8aLUn+tfSHCZeWqTVo3gGA65NUbKtNDX3knFriXU1+rof0bUYgm/1R8mFTgDfM48EqbKMiB4qG
+	Hg7EB2+Xluygp9V9CO8Oj6jiYCdsfmdIUPnwsGfi2c05Pp94ZCn0by6W9PjE88SkuUlLP3Zn3DHaL
+	ncJ6kN/KRHbudOaJXDIDtqiztWkLZ1lAlbggSZg9Fjdxl2Lv6MVhYSlyXv1u+WdZEa3JxiR3Yd6LE
+	zI3Ryz2mwHRko9dFBe1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRaKM-006CYo-U0; Fri, 26 Aug 2022 14:28:54 +0000
+	id 1oRaKJ-006CUh-M0; Fri, 26 Aug 2022 14:28:51 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRaKG-006CNk-NE
+	id 1oRaKG-006CGB-Bu
 	for linux-riscv@lists.infradead.org; Fri, 26 Aug 2022 14:28:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661524128; x=1693060128;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=ekaeoHamQzWRDEGag5x7p5HDua4LhMsX4qQRAr9Esd4=;
-  b=tvfY9ZDxiePyrrpm80ckykRpMkczX8fIgCidGAlGjhyZtPhtamm8p1ay
-   0JAKc77b/8IZUT2RZQvdks4w1C5lb9+tbd+ujPdSohvGYC60LMyY/mLmp
-   evS4tC0s1PBBMJqEYhw6v2IlS+qUQN9GyHQKj34UMuUUzuYwtqDTm80XB
-   e9AIFyLgg4VhZcEYS/0LuCzNtdHtXv/sl291pjYRvFFRNvvRrKm62Oiue
-   Cni1TkRZ3zqPvWhs+2GEdlIhL1ZVqtl7KF1eaJF0Z5je+BPz+L8iwYg1p
-   BKNvDgSmgEBoKqeqF8CskEHuYIp4w9ZrQWUuJjImg8ZQdVsAhxRg2r1FK
-   g==;
+  t=1661524129; x=1693060129;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=yyk3C0tplTqm10LTuEAScqxik33o055KXg/FXYvR5QI=;
+  b=04SwnIH7Pv9bif5Ijc0afnnTU1tbOtz+NqL8Abd3Loe2AZ+HOVJJLt0s
+   s//gfwHeW51oRvAzO0DCQaf54VS3R7qICkejo2Ll/e/Up9cZ6Hx/+L3Ju
+   HopLqnEEnuvedt2NyKkjtIENGfRdhA9WfmGDeypIzxh9Md2s/XTkcWt6Z
+   PHZBulfxCSMnasbTcVlytMgMzM7NFWPbs0W6dQY52jI4GaezhdAqQuNY/
+   ZnVxoEHrCGqn9MKQjqonXSz0qs+YFGJxpHnCbG1mNjenwbpsw5nI3Ksvh
+   obQSVHq9sWPqL0ULyrLL0xWSJKC0FH3xfRwV9w+9cdtlEOE+raMUAOn7S
+   Q==;
 X-IronPort-AV: E=Sophos;i="5.93,265,1654585200"; 
-   d="scan'208";a="174335886"
+   d="scan'208";a="171133563"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Aug 2022 07:28:45 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Aug 2022 07:28:42 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Fri, 26 Aug 2022 07:28:44 -0700
+ 15.1.2507.12; Fri, 26 Aug 2022 07:28:41 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Fri, 26 Aug 2022 07:28:41 -0700
+ Transport; Fri, 26 Aug 2022 07:28:38 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
@@ -60,16 +60,14 @@ CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
 	Vattipalli Praveen <praveen.kumar@microchip.com>, Wolfgang Grandegger
 	<wg@aries-embedded.de>, <devicetree@vger.kernel.org>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 1/9] dt-bindings: riscv: microchip: document icicle reference design
-Date: Fri, 26 Aug 2022 15:27:59 +0100
-Message-ID: <20220826142806.3658434-2-conor.dooley@microchip.com>
+Subject: [PATCH 0/9] New PolarFire SoC devkit devicetrees & 22.09 reference design updates
+Date: Fri, 26 Aug 2022 15:27:58 +0100
+Message-ID: <20220826142806.3658434-1-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220826142806.3658434-1-conor.dooley@microchip.com>
-References: <20220826142806.3658434-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220826_072848_847986_556C06F8 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20220826_072848_494735_BC17CEF0 
+X-CRM114-Status: GOOD (  14.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,58 +84,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The icicle kit reference design's v2022.09 release,made some changes
-to the memory map - including adding the ability to read the fabric
-clock controllers via the system controller bus & making the PCI
-controller work with upstream Linux.
+Hey all,
 
-While the PCI was not working in the v2022.03 design, so nothing is
-broken there in terms of backwards compatibility, the fabric clocks
-used in the v2022.03 design were chosen by the individual run of the
-synthesis tool. In the v2022.09 reference design, the clocks are fixed
-to use the "north west" fabric Clock Conditioning Circuitry.
+Some 6.1 targeted changes here.
+Firstly, two new dev kits (one first-party & one from Aries Embedded).
+They've been sitting in our vendor tree, so are being sent where they
+belong.
 
-Make use of a new compatible to denote that this is not backwards
-compatible.
+Secondly, another release of our reference design for the Icicle kit
+is due in September. Usually these do not really change much for the
+devicetree, but this time around a pair of changes impact the memory
+map.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-Krzysztof: you acked this patch in another series, but I moved it here
-and reworked the patch contents to make the relationship between the
-compatibles clearer. Since it is basically a new patch just with the
-same intent, I dropped your ack.
----
- .../devicetree/bindings/riscv/microchip.yaml    | 17 +++++++++++------
- 1 file changed, 11 insertions(+), 6 deletions(-)
+The first of these is adding dma-ranges to the pcie controller. The
+controller had some issues to begin with & with the current reference
+design (v2022.05) would not work with mainline Linux nor has it since
+reference design v2021.08. A combination of the property, a change
+to the FPGA design & a small fix to the driver will get it working
+with mainline again. The other non-backwards compatible change to the
+reference design is moves of the peripherals instantiated in the
+fabric. Currently they are fairly spread out & a common complaint has
+been that this leaves little room in the fic3 section of the memory map
+for custom peripherals without removing the existing ones.
 
-diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
-index 1aa7336a9672..7cfc96c21ab0 100644
---- a/Documentation/devicetree/bindings/riscv/microchip.yaml
-+++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
-@@ -17,12 +17,17 @@ properties:
-   $nodename:
-     const: '/'
-   compatible:
--    items:
--      - enum:
--          - microchip,mpfs-icicle-kit
--          - microchip,mpfs-icicle-reference-rtlv2203
--          - sundance,polarberry
--      - const: microchip,mpfs
-+    oneOf:
-+      - items:
-+          - enum:
-+              - microchip,mpfs-icicle-reference-rtlv2203
-+              - microchip,mpfs-icicle-reference-rtlv2209
-+          - const: microchip,mpfs-icicle-kit
-+          - const: microchip,mpfs
-+
-+      - items:
-+          - const: sundance,polarberry
-+          - const: microchip,mpfs
- 
- additionalProperties: true
- 
+This series depends on [0] so as not to add dtbs_check warnings. The
+fabric clock support is added by [1].
+
+Thanks,
+Conor.
+
+0 - https://lore.kernel.org/linux-gpio/20220825143522.3102546-1-conor.dooley@microchip.com/
+1 - https://lore.kernel.org/linux-clk/20220824093342.187844-1-conor.dooley@microchip.com/
+
+Conor Dooley (7):
+  dt-bindings: riscv: microchip: document icicle reference design
+  dt-bindings: riscv: microchip: document the aries m100pfsevp
+  riscv: dts: microchip: add pci dma ranges for the icicle kit
+  riscv: dts: microchip: move the mpfs' pci node to -fabric.dtsi
+  riscv: dts: microchip: icicle: update pci address properties
+  riscv: dts: microchip: icicle: re-jig fabric peripheral addresses
+  riscv: dts: microchip: add a devicetree for aries' m100pfsevp
+
+Shravan Chippa (1):
+  dt-bindings: riscv: microchip: document the sev kit
+
+Vattipalli Praveen (1):
+  riscv: dts: microchip: add sevkit device tree
+
+ .../devicetree/bindings/riscv/microchip.yaml  |  21 ++-
+ arch/riscv/boot/dts/microchip/Makefile        |   3 +
+ .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |  42 ++++-
+ .../boot/dts/microchip/mpfs-icicle-kit.dts    |   3 +-
+ .../dts/microchip/mpfs-m100pfs-fabric.dtsi    |  45 +++++
+ .../dts/microchip/mpfs-m100pfsevp-emmc.dts    |  37 +++++
+ .../dts/microchip/mpfs-m100pfsevp-sdcard.dts  |  37 +++++
+ .../boot/dts/microchip/mpfs-m100pfsevp.dtsi   | 155 ++++++++++++++++++
+ .../dts/microchip/mpfs-polarberry-fabric.dtsi |  29 ++++
+ .../dts/microchip/mpfs-sev-kit-fabric.dtsi    |  45 +++++
+ .../riscv/boot/dts/microchip/mpfs-sev-kit.dts | 145 ++++++++++++++++
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  29 ----
+ 12 files changed, 550 insertions(+), 41 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfsevp-emmc.dts
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfsevp-sdcard.dts
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-sev-kit-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
+
 -- 
 2.36.1
 
