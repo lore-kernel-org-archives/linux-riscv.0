@@ -4,69 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4212FECAAD4
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Aug 2022 16:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10042ECAAA6
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Aug 2022 16:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5JO2EYpmQwG+OfsERM47Cdd0ZV2eHrK6KtVWogGBC+Q=; b=zTNhiDLYcr8j5H
-	tHNZLbiRegz7wx+0683eiQK/NBbXYubkQAG92v81ZvM/uMAfnCxUFQQaDqGavu6q8EhuBryr5d+UL
-	4ruXWNry7ln3pi+mcmfZGHZHTJTm3/G1NCOytWG3JSZzYybk8KiusdGs7j73/Pd5PTSuFLTSTT5cr
-	e1lfs4svrjMkoRcQsvG141nOhgoSiSNyu/Jkzv2iwMzEk1DrgsAjw8biIuyzybvhOyhmj0CDDUsB3
-	PYOixKebCTHSnL5mbIy8XqlqtI7hAGNZOO00ZsYxGDUXAbVkwwRqMXqohalmpF1O8ZOzdTxDQLWyA
-	16q7g6IEv5VIcgOqsszw==;
+	List-Owner; bh=zPmhZF+EXT546Bt21gu4zoCYfM2hGEx1iw6jDTA4vzM=; b=VubqHuJ5q6Ap9T
+	UFHYVsqv+J4cOhyA4rYSIhVn0RukurjFDW1AIpJsy5Fjj4l6Q+mZ9bySYNWpjq2KYLy/Sj+Jct5Ja
+	D4fVzQzzxLBadSXiSVd8Bw1dI2EZdzJkPif5DVgwwGRjprchNuQchEnVRBcPHoopLpBjzuDqfvt9E
+	ntIpvPEKpGGMrruvdWTJb1yS/JcJQ0cy+kFIyvR3Uwq0ZmkynGaKeiR/Wc/KwWOuR/fjd9C3qrd+V
+	3ea7Ux4u13otZVG1II0Ftse0PhQ5lvg4jp0USGJbGiJ27T4tEWvY6rGOcHwEBq9S1t0F6j4zLhhQO
+	Iq8jqpMAliNjNAylVK1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRbm3-007WiT-42; Fri, 26 Aug 2022 16:01:35 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1oRcIo-008KXv-OA; Fri, 26 Aug 2022 16:35:26 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRbm0-007WHx-3H
-	for linux-riscv@lists.infradead.org; Fri, 26 Aug 2022 16:01:33 +0000
-Received: by mail-pg1-x536.google.com with SMTP id r22so1763946pgm.5
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Aug 2022 09:01:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=message-id:to:from:cc:subject:date:from:to:cc;
-        bh=3q1mT4Zy/pS2V313QrcC7m04gHYm6T7l/MWl4Feqxmg=;
-        b=URFDI939EmBa3SgnOxIChmOhkGfBhEfWzwvuZB4Ycp0skW/8zGQKscbKZTHwOjcXcD
-         ecyI8To4SmSS6i03Kaw68b+0ixpJqAcCY0BUaOZ9ZrpyNvQZmTD/lNuCmWxZ566mXpUo
-         6QhZNImwvVrJpjrG5w185yEoG5AFLalPCJ7vV3IwcraQCOi16c5u8qOyimESMNdHs6vD
-         VriRouFqGOPy9sJNYjoxmaTK80lbOuYsd9KrHGbWnAwRksYlcGAANxD6s+Vx8QRygOjy
-         2uB60UvN2GNb7qdq2VvnF5ZPv71gS5XQoW6JR34615rctNzClhzHtJ/CBFqdPR10dUpY
-         qWKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc;
-        bh=3q1mT4Zy/pS2V313QrcC7m04gHYm6T7l/MWl4Feqxmg=;
-        b=eRzW6ScSocxlKQiy+10IMtB9GfnuNuvowqJ4IjNDa/miFpNWiuVYBlkjLDLVOqqsLe
-         N8CptWb5gz3oU2TaNl1n5OBhObFxOeVwKBmZuYrV0GxLxKkxl8BQPE0GTkBG6S778OwQ
-         0c5dd+nri39XS8jwfB4pRXIt86OpZdMas146msLcZ6cp0ablQFHq3Y8J53cRyjpxvrCc
-         QEy0WNouZSuULhY6tIlEVGya+Aitxgp42aCJITk55lsGi++4xWE89+3Eku+wgQR7LNTN
-         Dw1mLyRNOzIIVsTQkCHZ9NBnkevpNY+aLjCnFPfBTqGSy5061fm6aa7zl0zpL4YMM4n5
-         ns6Q==
-X-Gm-Message-State: ACgBeo0C0odNYJWAurxZwUMzj1TaTRxCbvDUz29nsaEf1qijW0T7Jrsk
-	Uc+L0ZGH5frAdGFgCTCshSypCU8RSCluGQ==
-X-Google-Smtp-Source: AA6agR5njmhZtIgm9xXzOQGOvZyrR3JhJAMUHehXwOk95RIGfGWL/+uMX5MZOlMDNszbIWDDrmqI7Q==
-X-Received: by 2002:a65:68cd:0:b0:42b:4214:27 with SMTP id k13-20020a6568cd000000b0042b42140027mr3747290pgt.102.1661529689248;
-        Fri, 26 Aug 2022 09:01:29 -0700 (PDT)
-Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
-        by smtp.gmail.com with ESMTPSA id p22-20020a1709028a9600b00172d0040b89sm1757675plo.132.2022.08.26.09.01.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Aug 2022 09:01:28 -0700 (PDT)
-Date: Fri, 26 Aug 2022 09:01:28 -0700 (PDT)
-X-Google-Original-Date: Fri, 26 Aug 2022 09:01:18 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 6.0-rc3
-CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-b5674eda-e816-4e5a-aea2-22f8dc6617fd@palmer-mbp2014>
+	id 1oRcIl-008KQf-FO
+	for linux-riscv@lists.infradead.org; Fri, 26 Aug 2022 16:35:25 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1oRcIf-0001BS-Mg; Fri, 26 Aug 2022 18:35:17 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: atishp@atishpatra.org,
+	anup@brainfault.org,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	philipp.tomsich@vrull.eu,
+	cmuellner@linux.com,
+	samuel@sholland.org,
+	guoren@kernel.org,
+	Heiko Stuebner <heiko@sntech.de>
+Subject: [PATCH v2] drivers/perf: riscv_pmu_sbi: add support for PMU variant on T-Head C9xx cores
+Date: Fri, 26 Aug 2022 18:35:00 +0200
+Message-Id: <20220826163500.1748653-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.35.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220826_090132_363466_D9F146A7 
-X-CRM114-Status: UNSURE (   7.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220826_093523_680753_F9D60884 
+X-CRM114-Status: GOOD (  28.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +64,246 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 96264230a6817bcd4a7ae0fc30c60bfb46499f68:
+With the T-HEAD C9XX cores being designed before or during the ratification
+to the SSCOFPMF extension, they implement functionality very similar but
+not equal to it. So add some adaptions to allow the C9XX to still handle
+its PMU through the regular SBI PMU interface instead of defining new
+interfaces or drivers.
 
-  perf: riscv legacy: fix kerneldoc comment warning (2022-08-18 14:19:26 -0700)
+To work properly, this requires a matching change in SBI, though the actual
+interface between kernel and SBI does not change.
 
-are available in the Git repository at:
+The main differences are a the overflow CSR and irq number.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.0-rc3
+As the reading of the overflow-csr is in the hot-path during irq handling
+use an errata and alternatives to not introduce new conditionals there.
 
-for you to fetch changes up to 1709c70c31e05e6e87b2ffa0a2b4cc0da4b2c513:
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+changes in v2:
+- use alternatives for the CSR access
+- make the irq num selection a bit nicer
 
-  Merge branch 'riscv-variable_fixes_without_kvm' of git://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git into fixes (2022-08-25 16:38:01 -0700)
+There is of course a matching opensbi-part whose current implementation can
+be found on [0], but as comments show, this needs some more work still.
 
-----------------------------------------------------------------
-RISC-V Fixes for 6.0-rc3
 
-* A handful of fixes for the Microchip device trees.
-* A pair of fixes to eliminate build warnings.
+[0] https://patchwork.ozlabs.org/project/opensbi/cover/20220817112004.745776-1-heiko@sntech.de/
 
-----------------------------------------------------------------
-Conor Dooley (6):
-      riscv: signal: fix missing prototype warning
-      riscv: traps: add missing prototype
-      riscv: dts: microchip: mpfs: fix incorrect pcie child node name
-      riscv: dts: microchip: mpfs: remove ti,fifo-depth property
-      riscv: dts: microchip: mpfs: remove bogus card-detect-delay
-      riscv: dts: microchip: mpfs: remove pci axi address translation property
+ arch/riscv/Kconfig.erratas           | 14 ++++++++++++
+ arch/riscv/errata/thead/errata.c     | 19 +++++++++++++++++
+ arch/riscv/include/asm/errata_list.h | 16 +++++++++++++-
+ drivers/perf/riscv_pmu_sbi.c         | 32 +++++++++++++++++++---------
+ 4 files changed, 70 insertions(+), 11 deletions(-)
 
-Heinrich Schuchardt (1):
-      riscv: dts: microchip: correct L2 cache interrupts
+diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
+index 6850e9389930..f1eaac4c0073 100644
+--- a/arch/riscv/Kconfig.erratas
++++ b/arch/riscv/Kconfig.erratas
+@@ -66,4 +66,18 @@ config ERRATA_THEAD_CMO
+ 
+ 	  If you don't know what to do here, say "Y".
+ 
++config ERRATA_THEAD_PMU
++	bool "Apply T-Head PMU errata"
++	depends on ERRATA_THEAD
++	depends on RISCV_PMU_SBI
++	default y
++	help
++	  The T-Head C9xx cores implement a PMU overflow extension very
++	  similar to the core SSCOFPMF extension.
++
++	  This will apply the overflow errata to handle the non-standard
++	  behaviour via the regular SBI PMU driver and interface.
++
++	  If you don't know what to do here, say "Y".
++
+ endmenu # "CPU errata selection"
+diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+index 202c83f677b2..e6101eab25c8 100644
+--- a/arch/riscv/errata/thead/errata.c
++++ b/arch/riscv/errata/thead/errata.c
+@@ -44,6 +44,22 @@ static bool errata_probe_cmo(unsigned int stage,
+ #endif
+ }
+ 
++static bool errata_probe_pmu(unsigned int stage,
++			     unsigned long arch_id, unsigned long impid)
++{
++#ifdef CONFIG_ERRATA_THEAD_PMU
++	if (arch_id != 0 || impid != 0)
++		return false;
++
++	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
++		return false;
++
++	return true;
++#else
++	return false;
++#endif
++}
++
+ static u32 thead_errata_probe(unsigned int stage,
+ 			      unsigned long archid, unsigned long impid)
+ {
+@@ -55,6 +71,9 @@ static u32 thead_errata_probe(unsigned int stage,
+ 	if (errata_probe_cmo(stage, archid, impid))
+ 		cpu_req_errata |= (1U << ERRATA_THEAD_CMO);
+ 
++	if (errata_probe_pmu(stage, archid, impid))
++		cpu_req_errata |= (1U << ERRATA_THEAD_PMU);
++
+ 	return cpu_req_errata;
+ }
+ 
+diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
+index 19a771085781..4180312d2a70 100644
+--- a/arch/riscv/include/asm/errata_list.h
++++ b/arch/riscv/include/asm/errata_list.h
+@@ -6,6 +6,7 @@
+ #define ASM_ERRATA_LIST_H
+ 
+ #include <asm/alternative.h>
++#include <asm/csr.h>
+ #include <asm/vendorid_list.h>
+ 
+ #ifdef CONFIG_ERRATA_SIFIVE
+@@ -17,7 +18,8 @@
+ #ifdef CONFIG_ERRATA_THEAD
+ #define	ERRATA_THEAD_PBMT 0
+ #define	ERRATA_THEAD_CMO 1
+-#define	ERRATA_THEAD_NUMBER 2
++#define	ERRATA_THEAD_PMU 2
++#define	ERRATA_THEAD_NUMBER 3
+ #endif
+ 
+ #define	CPUFEATURE_SVPBMT 0
+@@ -142,6 +144,18 @@ asm volatile(ALTERNATIVE_2(						\
+ 	    "r"((unsigned long)(_start) + (_size))			\
+ 	: "a0")
+ 
++#define THEAD_C9XX_RV_IRQ_PMU			17
++#define THEAD_C9XX_CSR_SCOUNTEROF		0x5c5
++
++#define ALT_SBI_PMU_OVERFLOW(__ovl)					\
++asm volatile(ALTERNATIVE(						\
++	"csrr %0, " __stringify(CSR_SSCOUNTOVF),			\
++	"csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),		\
++		THEAD_VENDOR_ID, ERRATA_THEAD_PMU,			\
++		CONFIG_ERRATA_THEAD_PMU)				\
++	: "=r" (__ovl) :						\
++	: "memory")
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 6f6681bbfd36..f814d3ce5ba2 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -19,6 +19,7 @@
+ #include <linux/of.h>
+ #include <linux/cpu_pm.h>
+ 
++#include <asm/errata_list.h>
+ #include <asm/sbi.h>
+ #include <asm/hwcap.h>
+ 
+@@ -46,6 +47,8 @@ static const struct attribute_group *riscv_pmu_attr_groups[] = {
+  * per_cpu in case of harts with different pmu counters
+  */
+ static union sbi_pmu_ctr_info *pmu_ctr_list;
++static bool riscv_pmu_use_irq;
++static unsigned int riscv_pmu_irq_num;
+ static unsigned int riscv_pmu_irq;
+ 
+ struct sbi_pmu_event_data {
+@@ -575,7 +578,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
+ 	event = cpu_hw_evt->events[fidx];
+ 	if (!event) {
+-		csr_clear(CSR_SIP, SIP_LCOFIP);
++		csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+ 		return IRQ_NONE;
+ 	}
+ 
+@@ -583,13 +586,13 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+ 	pmu_sbi_stop_hw_ctrs(pmu);
+ 
+ 	/* Overflow status register should only be read after counter are stopped */
+-	overflow = csr_read(CSR_SSCOUNTOVF);
++	ALT_SBI_PMU_OVERFLOW(overflow);
+ 
+ 	/*
+ 	 * Overflow interrupt pending bit should only be cleared after stopping
+ 	 * all the counters to avoid any race condition.
+ 	 */
+-	csr_clear(CSR_SIP, SIP_LCOFIP);
++	csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+ 
+ 	/* No overflow bit is set */
+ 	if (!overflow)
+@@ -651,10 +654,10 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ 	/* Stop all the counters so that they can be enabled from perf */
+ 	pmu_sbi_stop_all(pmu);
+ 
+-	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
++	if (riscv_pmu_use_irq) {
+ 		cpu_hw_evt->irq = riscv_pmu_irq;
+-		csr_clear(CSR_IP, BIT(RV_IRQ_PMU));
+-		csr_set(CSR_IE, BIT(RV_IRQ_PMU));
++		csr_clear(CSR_IP, BIT(riscv_pmu_irq_num));
++		csr_set(CSR_IE, BIT(riscv_pmu_irq_num));
+ 		enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
+ 	}
+ 
+@@ -663,9 +666,9 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+ 
+ static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
+ {
+-	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
++	if (riscv_pmu_use_irq) {
+ 		disable_percpu_irq(riscv_pmu_irq);
+-		csr_clear(CSR_IE, BIT(RV_IRQ_PMU));
++		csr_clear(CSR_IE, BIT(riscv_pmu_irq_num));
+ 	}
+ 
+ 	/* Disable all counters access for user mode now */
+@@ -681,7 +684,16 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 	struct device_node *cpu, *child;
+ 	struct irq_domain *domain = NULL;
+ 
+-	if (!riscv_isa_extension_available(NULL, SSCOFPMF))
++	if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
++		riscv_pmu_irq_num = RV_IRQ_PMU;
++		riscv_pmu_use_irq = true;
++	} else if (sbi_get_mvendorid() == THEAD_VENDOR_ID &&
++		   sbi_get_marchid() == 0 && sbi_get_mimpid() == 0) {
++		riscv_pmu_irq_num = THEAD_C9XX_RV_IRQ_PMU;
++		riscv_pmu_use_irq = true;
++	}
++
++	if (!riscv_pmu_use_irq)
+ 		return -EOPNOTSUPP;
+ 
+ 	for_each_of_cpu_node(cpu) {
+@@ -703,7 +715,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
+ 		return -ENODEV;
+ 	}
+ 
+-	riscv_pmu_irq = irq_create_mapping(domain, RV_IRQ_PMU);
++	riscv_pmu_irq = irq_create_mapping(domain, riscv_pmu_irq_num);
+ 	if (!riscv_pmu_irq) {
+ 		pr_err("Failed to map PMU interrupt for node\n");
+ 		return -ENODEV;
+-- 
+2.35.1
 
-Palmer Dabbelt (2):
-      Merge tag 'dt-fixes-for-palmer-6.0-rc3' of git://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git into fixes
-      Merge branch 'riscv-variable_fixes_without_kvm' of git://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git into fixes
-
- arch/riscv/boot/dts/microchip/mpfs-icicle-kit.dts |  3 ---
- arch/riscv/boot/dts/microchip/mpfs-polarberry.dts |  3 ---
- arch/riscv/boot/dts/microchip/mpfs.dtsi           |  5 ++---
- arch/riscv/include/asm/signal.h                   | 12 ++++++++++++
- arch/riscv/include/asm/thread_info.h              |  2 ++
- arch/riscv/kernel/signal.c                        |  1 +
- arch/riscv/kernel/traps.c                         |  3 ++-
- 7 files changed, 19 insertions(+), 10 deletions(-)
- create mode 100644 arch/riscv/include/asm/signal.h
 
 _______________________________________________
 linux-riscv mailing list
