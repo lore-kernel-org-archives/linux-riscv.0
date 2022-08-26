@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6858CECAAD7
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21D98ECAAA3
 	for <linux-riscv@archiver.kernel.org>; Fri, 26 Aug 2022 20:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Wb8aN3N+VCUZhRlOxNicsTcGiQvyE6ebUYTQN8rdcJk=; b=uK+cdnWH+00L9K
-	mZH4ZlATTC6EvLHsA0Qk2/MR/I2U+I4odWLkcDHW28zCNEOK7HDhH7D32ijG7p9SxnJfnCymYFgmy
-	4HFSVBKFe27raXn9Ht6UpA1C9YewdtR4YBewUnZ+zu1UtA1Hz804lgI/dxMDLz5p2QyJGbqNcm+BA
-	5Q7DVBST9nGQ15XdACCSiJpdOcVSVctcWwOa7w2k0elUmuyF0oeXMog0GIFdkhwS6lbd9AohKA/uy
-	YBm6nQRJfN9UHpECUem21pcj9n0nACpF2/lBuSrwpejMoEnlQYNTxb9YaBcHg8E39uRClLa2m4P8q
-	ajafduGLndmgj75WRKqw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=rfeCmuo8FvkPE1E2BGctL/gT4RYAKy1dw0dW1PGhGCs=; b=JsPiHOV8QIfQsy
+	wcitJVqULAxXrz93ckf73zhp4kvZ/Za0WLiIOl9cHNVwnsRJrb20YKzHFtS3YvIywR0JRhcKpiJPK
+	kXSNClnFzZKKFYKsCyvkRxG+TsFIsYpANxQuunRljtCUYfZ1XfUk3U9H/Q3sVBTTmRBJYYfTk57O7
+	iAW49OK0HoAMoHzLs+vSw6a0JyUcLJSwrQCPbypuivIwXSIkMGhkHrw3uVoWW22p4zvaXoTRctsOd
+	W0whNAQCbOtKjHQnRm8jn/DtAQeJY37NrdP9wRxfdt1OcuxR+QWNMo708L713zpzni3p8ID+9Ykll
+	LAV/fQir9drUI/8R8ooQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRg2b-00BtTr-Pr; Fri, 26 Aug 2022 20:34:57 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1oRg2f-00BtYX-NA; Fri, 26 Aug 2022 20:35:01 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRg2Z-00BtQh-Nz
-	for linux-riscv@lists.infradead.org; Fri, 26 Aug 2022 20:34:56 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id u24so2665685lji.0
-        for <linux-riscv@lists.infradead.org>; Fri, 26 Aug 2022 13:34:54 -0700 (PDT)
+	id 1oRg2b-00BtR7-0Q
+	for linux-riscv@lists.infradead.org; Fri, 26 Aug 2022 20:34:58 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id q7so3415318lfu.5
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Aug 2022 13:34:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc;
-        bh=GEOlHE8O2rR0vFQHXv5ex+L+HckOQPUR1Jiu0AbCYTQ=;
-        b=IS6XEBVoNuqw8vCPTt3BhrPBL2tNakwvPCv9OdDdDp2wZwGSZaei8qyV7m5EFdc/pT
-         gUi6Hv1GdDHEULHyEnsAg0bpTYNt5kwsz+wfXQYPKiKgRXPb1L9R6JtZ+AEYBSi9nsHY
-         tYLvoTPen0vGWa942DCQ3d0cA0v/CEQNVJ6PtDu/ykGxeMN43Z1Zo1c5TxBtYz9h+lVO
-         e5xX9pUPX4MW4ZYcCHe67CreJYDHdsvbKBNqJrqTfh4uXvJoWb6YyHXqI2AWvaJ3P2X6
-         i4rwdCtwrqv6V0GNrirkGgQGCkCAXQFGoVpusneeD4Rht3HGIOtmzrzIC0h52f6rBV41
-         ESxw==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc;
+        bh=5bHDZzng8yFDqxWm/MtoBzFqGf8BM/bAAov45GhFSZU=;
+        b=n0NuMEWenwMyauNjZ7JCUPipyT4Ww68x5/OTY9rwhW1Xq6OEjHp6aRpkcF/0ABJ/Cn
+         bfq7qAOAixhC1r3+n79igjQybQTazlLT8Ghe51ExBcHR8zmnTJBgh2WCBNYbqg8FoOW9
+         lS9WoAZs9NAQKnf2BY0B1k8UU4IUzjhXiIKFFu0lLaKA6Da89Eh5aX71/yinF77aLDc4
+         5Z5HbziwNoT3yIX2f2h+TYqQc+qBifc1VnQG7pxxo+6mifkNb8Rf7cMqEJdq42gfOkTP
+         CtxYbkbBWGbOs2Q/DJwai97bt4JNxb2aIP/Fq9sAdRplbC7dYBiw0QhFW0q4EeVhlPo3
+         4Ebw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc;
-        bh=GEOlHE8O2rR0vFQHXv5ex+L+HckOQPUR1Jiu0AbCYTQ=;
-        b=tjKPLc9fptebtaYJszvMQ/cfHlC/fKBJH//C7GwxH6E9AlDKmeHhDYVB7hF/Knq2FO
-         7yeQpkF0LlLeeDHAm9N34gVk7Jq5VHmM9BrLTkiNZWRPwUInZFZv6C5gp6sU/XGv6nlS
-         lAwnoXw/kIa86RL8Mw1VWwYBebe56A14yHK9DFdUH0NCTNatGZTBHF+oLKAl9+cdcVuL
-         f9gg+6bWToBt0WPhFw4lzmSwy/PahEIOGUZKXR4TbzVuj2mcA3sxdjxdU5vbUfLaUGR1
-         MIHJ+0jRvLDwJXhl9fyMXp5JkGNnr19oBRY6sW0NDX9NMC0scPrEFIXicLn77p1tiL5x
-         717g==
-X-Gm-Message-State: ACgBeo3lD+nY1Gg5RWogPAq90H8Ph2ht7gl6A/KW/K1AD1XMWo6qqcJQ
-	BT0/8tuVqoh4/5+5btwFk8BGynvKM3A=
-X-Google-Smtp-Source: AA6agR4ozOAR/KhFPD8D9EjZ3flOm1uycXtCb54T5YG9p9EfNevSfgg/Y7dUjZ30QIvMhBf1fpKqjA==
-X-Received: by 2002:a2e:1417:0:b0:261:c241:d9d3 with SMTP id u23-20020a2e1417000000b00261c241d9d3mr2875409ljd.406.1661546092445;
-        Fri, 26 Aug 2022 13:34:52 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
+        bh=5bHDZzng8yFDqxWm/MtoBzFqGf8BM/bAAov45GhFSZU=;
+        b=nODSEVDN52EJ/jWabdNKN2BCWYY+2C57gKnXicXD2B77+42pf6cP/BsqdT9xwoAZ2o
+         N3PTDyQs3SoV62xvQEuVsd8kFSezvP9XiGyP+3rzSXZxCnpMHfQEoLuc+6JT+++jDW0T
+         L6ofV4cD1SkOca4mIiQJm5frH4cz+tH/W7+KPHcGPyuzUuYsHx1i+sM36AgWuglF62WA
+         wyKsh1Lr0Ymu2eEp9ILMg/Xt49mcfKepBKAxJBq4LdHEwcy054mzciQ2kaPcPJpYzKOC
+         uh3v5ju2br10sqCZOBbwU/AgP4I1sWDquuTNo5wagDzK4CTAlSt4DwV49kEOt0Vqos1o
+         3Wyw==
+X-Gm-Message-State: ACgBeo2kL2D8hRxjgJDY4ML8di2EB4RasWA0kJdunLNjJaHOTaM8z+9h
+	tz4oacMkiS3o3bUoZHyPEejBIcmG7eA=
+X-Google-Smtp-Source: AA6agR6/rH9sbAFh5L398qBfGVa02ViPFRlfjeI4nSdTkB993TZFP310QtHq1EIqC5MUO5jhn8beDw==
+X-Received: by 2002:a05:6512:e98:b0:492:cf3c:8860 with SMTP id bi24-20020a0565120e9800b00492cf3c8860mr2935705lfb.603.1661546094535;
+        Fri, 26 Aug 2022 13:34:54 -0700 (PDT)
 Received: from localhost.localdomain ([5.188.167.245])
-        by smtp.googlemail.com with ESMTPSA id v6-20020a05651203a600b00493014c3d7csm452424lfp.309.2022.08.26.13.34.51
+        by smtp.googlemail.com with ESMTPSA id v6-20020a05651203a600b00493014c3d7csm452424lfp.309.2022.08.26.13.34.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Aug 2022 13:34:51 -0700 (PDT)
+        Fri, 26 Aug 2022 13:34:54 -0700 (PDT)
 From: Sergey Matyukevich <geomatsi@gmail.com>
 To: linux-riscv@lists.infradead.org,
 	Atish Patra <atishp@atishpatra.org>,
@@ -67,15 +67,18 @@ Cc: Anup Patel <anup@brainfault.org>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Sergey Matyukevich <geomatsi@gmail.com>
-Subject: [PATCH v3 0/3] perf: RISC-V: misc fixes and improvements
-Date: Fri, 26 Aug 2022 23:34:40 +0300
-Message-Id: <20220826203443.823906-1-geomatsi@gmail.com>
+	Sergey Matyukevich <geomatsi@gmail.com>,
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+Subject: [PATCH v3 2/3] perf: RISC-V: exclude invalid pmu counters from SBI calls
+Date: Fri, 26 Aug 2022 23:34:42 +0300
+Message-Id: <20220826203443.823906-3-geomatsi@gmail.com>
 X-Mailer: git-send-email 2.37.1
+In-Reply-To: <20220826203443.823906-1-geomatsi@gmail.com>
+References: <20220826203443.823906-1-geomatsi@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220826_133455_794133_0EFF3F88 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20220826_133457_089137_6128EBC0 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,32 +95,152 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 
-It looks like the previous revision of these patches has slipped through
-the cracks. So I am sending an updated version rebased on top of for-next
-branch in riscv kernel tree.
+SBI firmware may not provide information for some counters in response
+to SBI_EXT_PMU_COUNTER_GET_INFO call. Exclude such counters from the
+subsequent SBI requests. For this purpose use global mask to keep track
+of fully specified counters.
 
-Regards,
-Sergey
-
-v2 -> v3:
-
-- rebased on top of for-next branch in riscv kernel tree
-- added RB tag by Atish Patra to the first patch
-- added perf throttle patch
-
-
-Sergey Matyukevich (3):
-  perf: RISC-V: fix access beyond allocated array
-  perf: RISC-V: exclude invalid pmu counters from SBI calls
-  perf: RISC-V: throttle perf events
-
+Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+---
  drivers/perf/riscv_pmu_legacy.c |  4 ++--
- drivers/perf/riscv_pmu_sbi.c    | 33 +++++++++++++++++++++------------
+ drivers/perf/riscv_pmu_sbi.c    | 27 ++++++++++++++++-----------
  include/linux/perf/riscv_pmu.h  |  2 +-
- 3 files changed, 24 insertions(+), 15 deletions(-)
+ 3 files changed, 19 insertions(+), 14 deletions(-)
 
+diff --git a/drivers/perf/riscv_pmu_legacy.c b/drivers/perf/riscv_pmu_legacy.c
+index 342778782359..7d7131c47bc0 100644
+--- a/drivers/perf/riscv_pmu_legacy.c
++++ b/drivers/perf/riscv_pmu_legacy.c
+@@ -14,7 +14,6 @@
+ 
+ #define RISCV_PMU_LEGACY_CYCLE		0
+ #define RISCV_PMU_LEGACY_INSTRET	1
+-#define RISCV_PMU_LEGACY_NUM_CTR	2
+ 
+ static bool pmu_init_done;
+ 
+@@ -83,7 +82,8 @@ static void pmu_legacy_init(struct riscv_pmu *pmu)
+ {
+ 	pr_info("Legacy PMU implementation is available\n");
+ 
+-	pmu->num_counters = RISCV_PMU_LEGACY_NUM_CTR;
++	pmu->cmask = BIT(RISCV_PMU_LEGACY_CYCLE) |
++		BIT(RISCV_PMU_LEGACY_INSTRET);
+ 	pmu->ctr_start = pmu_legacy_ctr_start;
+ 	pmu->ctr_stop = NULL;
+ 	pmu->event_map = pmu_legacy_event_map;
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 8de4ca2fef21..bc7db9739d5a 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -271,7 +271,6 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ 	struct sbiret ret;
+ 	int idx;
+ 	uint64_t cbase = 0;
+-	uint64_t cmask = GENMASK_ULL(rvpmu->num_counters - 1, 0);
+ 	unsigned long cflags = 0;
+ 
+ 	if (event->attr.exclude_kernel)
+@@ -281,11 +280,12 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ 
+ 	/* retrieve the available counter index */
+ #if defined(CONFIG_32BIT)
+-	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase, cmask,
+-			cflags, hwc->event_base, hwc->config, hwc->config >> 32);
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
++			rvpmu->cmask, cflags, hwc->event_base, hwc->config,
++			hwc->config >> 32);
+ #else
+-	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase, cmask,
+-			cflags, hwc->event_base, hwc->config, 0);
++	ret = sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_CFG_MATCH, cbase,
++			rvpmu->cmask, cflags, hwc->event_base, hwc->config, 0);
+ #endif
+ 	if (ret.error) {
+ 		pr_debug("Not able to find a counter for event %lx config %llx\n",
+@@ -294,7 +294,7 @@ static int pmu_sbi_ctr_get_idx(struct perf_event *event)
+ 	}
+ 
+ 	idx = ret.value;
+-	if (idx >= rvpmu->num_counters || !pmu_ctr_list[idx].value)
++	if (!test_bit(idx, &rvpmu->cmask) || !pmu_ctr_list[idx].value)
+ 		return -ENOENT;
+ 
+ 	/* Additional sanity check for the counter id */
+@@ -463,7 +463,7 @@ static int pmu_sbi_find_num_ctrs(void)
+ 		return sbi_err_map_linux_errno(ret.error);
+ }
+ 
+-static int pmu_sbi_get_ctrinfo(int nctr)
++static int pmu_sbi_get_ctrinfo(int nctr, unsigned long *mask)
+ {
+ 	struct sbiret ret;
+ 	int i, num_hw_ctr = 0, num_fw_ctr = 0;
+@@ -478,6 +478,9 @@ static int pmu_sbi_get_ctrinfo(int nctr)
+ 		if (ret.error)
+ 			/* The logical counter ids are not expected to be contiguous */
+ 			continue;
++
++		*mask |= BIT(i);
++
+ 		cinfo.value = ret.value;
+ 		if (cinfo.type == SBI_PMU_CTR_TYPE_FW)
+ 			num_fw_ctr++;
+@@ -498,7 +501,7 @@ static inline void pmu_sbi_stop_all(struct riscv_pmu *pmu)
+ 	 * which may include counters that are not enabled yet.
+ 	 */
+ 	sbi_ecall(SBI_EXT_PMU, SBI_EXT_PMU_COUNTER_STOP,
+-		  0, GENMASK_ULL(pmu->num_counters - 1, 0), 0, 0, 0, 0);
++		  0, pmu->cmask, 0, 0, 0, 0);
+ }
+ 
+ static inline void pmu_sbi_stop_hw_ctrs(struct riscv_pmu *pmu)
+@@ -788,8 +791,9 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
+ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ {
+ 	struct riscv_pmu *pmu = NULL;
+-	int num_counters;
++	unsigned long cmask = 0;
+ 	int ret = -ENODEV;
++	int num_counters;
+ 
+ 	pr_info("SBI PMU extension is available\n");
+ 	pmu = riscv_pmu_alloc();
+@@ -803,7 +807,7 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/* cache all the information about counters now */
+-	if (pmu_sbi_get_ctrinfo(num_counters))
++	if (pmu_sbi_get_ctrinfo(num_counters, &cmask))
+ 		goto out_free;
+ 
+ 	ret = pmu_sbi_setup_irqs(pmu, pdev);
+@@ -812,8 +816,9 @@ static int pmu_sbi_device_probe(struct platform_device *pdev)
+ 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_INTERRUPT;
+ 		pmu->pmu.capabilities |= PERF_PMU_CAP_NO_EXCLUDE;
+ 	}
++
+ 	pmu->pmu.attr_groups = riscv_pmu_attr_groups;
+-	pmu->num_counters = num_counters;
++	pmu->cmask = cmask;
+ 	pmu->ctr_start = pmu_sbi_ctr_start;
+ 	pmu->ctr_stop = pmu_sbi_ctr_stop;
+ 	pmu->event_map = pmu_sbi_event_map;
+diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_pmu.h
+index bf66fe011fa8..e17e86ad6f3a 100644
+--- a/include/linux/perf/riscv_pmu.h
++++ b/include/linux/perf/riscv_pmu.h
+@@ -45,7 +45,7 @@ struct riscv_pmu {
+ 
+ 	irqreturn_t	(*handle_irq)(int irq_num, void *dev);
+ 
+-	int		num_counters;
++	unsigned long	cmask;
+ 	u64		(*ctr_read)(struct perf_event *event);
+ 	int		(*ctr_get_idx)(struct perf_event *event);
+ 	int		(*ctr_get_width)(int idx);
 -- 
 2.37.1
 
