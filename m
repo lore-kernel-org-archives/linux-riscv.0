@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15C3ECAAD5
-	for <linux-riscv@archiver.kernel.org>; Fri, 26 Aug 2022 14:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9BCECAAD4
+	for <linux-riscv@archiver.kernel.org>; Fri, 26 Aug 2022 14:33:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AtcWNME+4fD/uLto5zHxKGoYRzrHZhXDcm/osr3O2WA=; b=zYsvDWquCESdoR
-	uCZlNrNAN/yYr3pMatjEe0Pb1RsE54m1KOTYKsccwbUlCxJw6woWelWI1xzNCAE1EtiO4GncFZTFQ
-	pB4aWBD9L8B1hXXrAKAobBBkf+FHdx0o3jsljhv8LLEQfesRbU/HsqppRsQH7GXdQd7YtjLE9kPSo
-	m6v2NujDW/b5yCHTM8kD9Ab0rAhGx53+S9R9ZYIBKQ+wBD+8N/6IRiIb/zLnRg2agHNdUI5MDwa0i
-	JnfMaw5kcjOW7OtSvlvBMJJ1UdArWqgIgEW1urVwoyBzIq3iHrazJ0Nu02G0+nELN9MEDG5UZA4a0
-	F2WE27pGOyKv0nLuKgBg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=BuTQzj5pB5CALQtzqVTp/4J+SCM1yauzYwagKKuwFVs=; b=A+hAnaWFPHNXHMyOV11qJqUEqB
+	TRLSPdQj8/sBurDpbfbD/9nNux3nmFhqYWTI4Hpq4JM13w938wkp1z/dJ0Yc4VTb7YMBwWvkbOoDT
+	O6AeJcn0dbL3m/5qfUtxkY0RhL9nL52yM97m1mLWD5VABz/nEu68cecd0Mr7LF2JAIu45MzgNxj4b
+	jMK2WZu/ppPFvU9vEM98gymjRLFgrJFlBDJhf+vxOTVoZ4TXhSlEk6PI197egXRYuMFgm7pob/B8t
+	U/Nw+fRHHddm9CHFcVcnrJ5UiFdHm5Y9wqNSLm3X3lhAOkD7viKZEhUUVSjsIFGEp9QaOnowrED6R
+	8O+1HA5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRaKi-006D4T-3m; Fri, 26 Aug 2022 14:29:16 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oRaOY-006Fjj-A1; Fri, 26 Aug 2022 14:33:14 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRaKb-006CvP-Q9
-	for linux-riscv@lists.infradead.org; Fri, 26 Aug 2022 14:29:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661524149; x=1693060149;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=wYLnJ/r2/6cv7cgLTA2f55BdTU7OBp01DEfsGbye9PI=;
-  b=SrsMPfhryPA5akmULW9fKCCw0EhO5PvK+/nFdOtmIvoXArnymXcdu24x
-   9AYxYTyRPZcZCE29ZWcO3h6FpEP55IrkWdALMLzIsjpiGjHj3ju5nDerc
-   7vyjlM3HPbw7EJiuOSnoFdnoBl17LNNUHZyKBrBJgo8/vvMFaAS/Zb68s
-   lf25MH8TrycQAQTzcaNRyKq3EGlb1XVsIeDD7nNagjV11wR7XvXOSN+1a
-   HmpUdkUDJqpu2f6k32epetqTN2tFPYp/loF5NZt+akeY9lfsVpoH8Jzw7
-   +h7pcGc06Nln5Gb5PRp+ORFdw6PqXHqVvzRwqGthr4917+4lPZYz//LjN
-   w==;
-X-IronPort-AV: E=Sophos;i="5.93,265,1654585200"; 
-   d="scan'208";a="174335928"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 26 Aug 2022 07:29:08 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Fri, 26 Aug 2022 07:29:05 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
- (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Fri, 26 Aug 2022 07:29:02 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>,
-	Shravan Chippa <shravan.chippa@microchip.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Cyril Jean
-	<Cyril.Jean@microchip.com>, Lewis Hanly <lewis.hanly@microchip.com>,
-	Vattipalli Praveen <praveen.kumar@microchip.com>, Wolfgang Grandegger
-	<wg@aries-embedded.de>, <devicetree@vger.kernel.org>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 8/9] riscv: dts: microchip: add sevkit device tree
-Date: Fri, 26 Aug 2022 15:28:06 +0100
-Message-ID: <20220826142806.3658434-9-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220826142806.3658434-1-conor.dooley@microchip.com>
-References: <20220826142806.3658434-1-conor.dooley@microchip.com>
-MIME-Version: 1.0
+	id 1oRaOU-006Feq-4o
+	for linux-riscv@lists.infradead.org; Fri, 26 Aug 2022 14:33:12 +0000
+Received: by mail-pl1-x630.google.com with SMTP id m2so1739391pls.4
+        for <linux-riscv@lists.infradead.org>; Fri, 26 Aug 2022 07:33:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc;
+        bh=MoYO0aV4Sdt+1lFREzXlZRwm/vMSBTGBOAkrIfrb15g=;
+        b=CT/xwp8bf+4WnGL54CNyZVkKySUwDtUNmpjzpWsUyLOkBg8sDDdOeo80hAORi+whLq
+         sMEt6SfNb8fzZ/lW58Zxz7NMrPe/IxhVPmObYrXUNgSerKsYN4hGPzf/JSZ7hI3w1m7I
+         av7swLyoioe1Kc08F6JDrl/BvN2m6DS8uNXjLQvTyXSLVG5pOAAXF6X2LRIHR2vJxTrH
+         DtLAB/OLA+v+FlOftUF45005OE7IQES8bTIxlWWNe9+r3PDCjF5OGUmEsUCapuAgMK0S
+         jTV1SRf3gAkWtYXgEVs+sIuSK6tELwPF/xoeTn+V0fKMvXaSdzvi49AlF3HNzBLvregm
+         utcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc;
+        bh=MoYO0aV4Sdt+1lFREzXlZRwm/vMSBTGBOAkrIfrb15g=;
+        b=h0EE2LVTr11imhpQ15cDEiaiLlFsYsEOb3f3KlRQaGqqtTAYQTKhyn6DDdd9qUDoTi
+         TGwASyfgGJ/ROi2d7cI6znQ8ZIWfMWZMi3/eceFs8Tlu3gUtDIac/gpDdoSB20Uq2NHN
+         biGn3E/Fieo5TdlN73ZhihoNhTkh32bi0AQuKEZMXvAV2cO5lqvNYuyiVanuAHWkxim4
+         XaSOmOnU7/cT9smbCC0ec5kSeHblQxTc+9W4Xvba4aKuC+idjtTRzK4+48VfrEGVIB/I
+         qTxbsPf8UbZuCr4q2ZGCdpwd7/OQxr/ip+clhW1eq3tg2P1+owdebZxBC+p48aR4FHkP
+         lMYQ==
+X-Gm-Message-State: ACgBeo2szezp+2DHhnA3U/eIVoe/czcJEkHo0g8m2VS7kT/q7/kYgqu0
+	6zj1MJbI+CWLZRbma9PfijxwYA==
+X-Google-Smtp-Source: AA6agR7zB0GXZEcvFu4C6QCUUhy/MR+Rz11NBBQC8ja8lj3FFezrrr0OxS3nFw6wcE24xBi7lBRTxA==
+X-Received: by 2002:a17:902:f542:b0:173:4136:83cb with SMTP id h2-20020a170902f54200b00173413683cbmr3905017plf.4.1661524387807;
+        Fri, 26 Aug 2022 07:33:07 -0700 (PDT)
+Received: from localhost (76-210-143-223.lightspeed.sntcca.sbcglobal.net. [76.210.143.223])
+        by smtp.gmail.com with ESMTPSA id i72-20020a62874b000000b0052e987c64efsm1871933pfe.174.2022.08.26.07.33.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Aug 2022 07:33:07 -0700 (PDT)
+Date: Fri, 26 Aug 2022 07:33:07 -0700 (PDT)
+X-Google-Original-Date: Fri, 26 Aug 2022 07:33:05 PDT (-0700)
+Subject: Re: [RESEND/PULL PATCH 0/2] MAINTAINERS updates for PolarFire SoC
+In-Reply-To: <196dcae3-542a-2cf3-ebee-e7ecc4a8a330@microchip.com>
+CC: Arnd Bergmann <arnd@arndb.de>, soc@kernel.org, Daire.McNamara@microchip.com,
+  broonie@kernel.org, wsa@kernel.org, thierry.reding@gmail.com, u.kleine-koenig@pengutronix.de,
+  jassisinghbrar@gmail.com, linus.walleij@linaro.org, brgl@bgdev.pl, Greg KH <gregkh@linuxfoundation.org>,
+  Olof Johansson <olof@lixom.net>, mturquette@baylibre.com, sboyd@kernel.org, devicetree@vger.kernel.org,
+  linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Conor.Dooley@microchip.com
+Message-ID: <mhng-5a6ac7a8-1caa-433b-909b-438a1c05f320@palmer-mbp2014>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220826_072909_970317_93894599 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20220826_073310_209990_4F548A4A 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,252 +85,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Vattipalli Praveen <praveen.kumar@microchip.com>
+On Thu, 25 Aug 2022 23:22:07 PDT (-0700), Conor.Dooley@microchip.com wrote:
+> On 26/08/2022 01:15, Palmer Dabbelt wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>> 
+>> On Wed, 10 Aug 2022 07:02:42 PDT (-0700), conor.dooley@microchip.com wrote:
+>>> Hey Arnd,
+>>>
+>>> Could you please take the following two patches via the soc tree when
+>>> you get a chance?
+> 
+>> Thanks, these are on fixes.
+> 
+> I think these already were applied by Arnd. I guess the soc patchwork
+> bot does not CC the people on the original mail, only the author.
 
-Add a basic dts for the Microchip Smart Embedded Vision dev kit.
-The SEV kit is an upcoming first party board, featuring an MPFS250T and:
-- Dual Sony Camera Sensors (IMX334)
-- IEEE 802.11 b/g/n 20MHz (1x1) Wi-Fi
-- Bluetooth 5 Low Energy
-- 4 GB DDR4 x64
-- 2 GB LPDDR4 x32
-- 1 GB SPI Flash
-- 8 GB eMMC flash & SD card slot (multiplexed)
-- HDMI2.0 Video Input/Output
-- MIPI DSI Output
-- MIPI CSI-2 Input
-
-Link: https://onlinedocs.microchip.com/pr/GUID-404D3738-DC76-46BA-8683-6A77E837C2DD-en-US-1/index.html?GUID-065AEBEE-7B2C-4895-8579-B1D73D797F06
-Signed-off-by: Vattipalli Praveen <praveen.kumar@microchip.com>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- arch/riscv/boot/dts/microchip/Makefile        |   1 +
- .../dts/microchip/mpfs-sev-kit-fabric.dtsi    |  45 ++++++
- .../riscv/boot/dts/microchip/mpfs-sev-kit.dts | 145 ++++++++++++++++++
- 3 files changed, 191 insertions(+)
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-sev-kit-fabric.dtsi
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
-
-diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
-index 39aae7b04f1c..f18477b2e86d 100644
---- a/arch/riscv/boot/dts/microchip/Makefile
-+++ b/arch/riscv/boot/dts/microchip/Makefile
-@@ -1,4 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-icicle-kit.dtb
- dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-polarberry.dtb
-+dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-sev-kit.dtb
- obj-$(CONFIG_BUILTIN_DTB) += $(addsuffix .o, $(dtb-y))
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-sev-kit-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-sev-kit-fabric.dtsi
-new file mode 100644
-index 000000000000..8545baf4d129
---- /dev/null
-+++ b/arch/riscv/boot/dts/microchip/mpfs-sev-kit-fabric.dtsi
-@@ -0,0 +1,45 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/* Copyright (c) 2022 Microchip Technology Inc */
-+
-+/ {
-+	fabric_clk3: fabric-clk3 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <0>;
-+	};
-+
-+	fabric_clk1: fabric-clk1 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <125000000>;
-+	};
-+
-+	pcie: pcie@2000000000 {
-+		compatible = "microchip,pcie-host-1.0";
-+		#address-cells = <0x3>;
-+		#interrupt-cells = <0x1>;
-+		#size-cells = <0x2>;
-+		device_type = "pci";
-+		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
-+		reg-names = "cfg", "apb";
-+		bus-range = <0x0 0x7f>;
-+		interrupt-parent = <&plic>;
-+		interrupts = <119>;
-+		interrupt-map = <0 0 0 1 &pcie_intc 0>,
-+				<0 0 0 2 &pcie_intc 1>,
-+				<0 0 0 3 &pcie_intc 2>,
-+				<0 0 0 4 &pcie_intc 3>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
-+		clock-names = "fic0", "fic1", "fic3";
-+		ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
-+		msi-parent = <&pcie>;
-+		msi-controller;
-+		status = "disabled";
-+		pcie_intc: interrupt-controller {
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+			interrupt-controller;
-+		};
-+	};
-+};
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts b/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
-new file mode 100644
-index 000000000000..e810ad453452
---- /dev/null
-+++ b/arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
-@@ -0,0 +1,145 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/* Copyright (c) 2022 Microchip Technology Inc */
-+
-+/dts-v1/;
-+
-+#include "mpfs.dtsi"
-+#include "mpfs-sev-kit-fabric.dtsi"
-+
-+/* Clock frequency (in Hz) of the rtcclk */
-+#define RTCCLK_FREQ		1000000
-+
-+/ {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+	model = "Microchip PolarFire-SoC SEV Kit";
-+	compatible = "microchip,mpfs-sev-kit", "microchip,mpfs";
-+
-+	aliases {
-+		ethernet0 = &mac1;
-+		serial0 = &mmuart0;
-+		serial1 = &mmuart1;
-+		serial2 = &mmuart2;
-+		serial3 = &mmuart3;
-+		serial4 = &mmuart4;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial1:115200n8";
-+	};
-+
-+	cpus {
-+		timebase-frequency = <RTCCLK_FREQ>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		fabricbuf0ddrc: buffer@80000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x0 0x80000000 0x0 0x2000000>;
-+		};
-+
-+		fabricbuf1ddrnc: buffer@c4000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x0 0xc4000000 0x0 0x4000000>;
-+		};
-+
-+		fabricbuf2ddrncwcb: buffer@d4000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x0 0xd4000000 0x0 0x4000000>;
-+		};
-+	};
-+
-+	ddrc_cache: memory@1000000000 {
-+		device_type = "memory";
-+		reg = <0x10 0x0 0x0 0x76000000>;
-+	};
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+};
-+
-+&gpio2 {
-+	interrupts = <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>,
-+		     <53>, <53>, <53>, <53>;
-+	status = "okay";
-+};
-+
-+&mac0 {
-+	status = "okay";
-+	phy-mode = "sgmii";
-+	phy-handle = <&phy0>;
-+	phy1: ethernet-phy@9 {
-+		reg = <9>;
-+	};
-+	phy0: ethernet-phy@8 {
-+		reg = <8>;
-+	};
-+};
-+
-+&mac1 {
-+	status = "okay";
-+	phy-mode = "sgmii";
-+	phy-handle = <&phy1>;
-+};
-+
-+&mbox {
-+	status = "okay";
-+};
-+
-+&mmc {
-+	status = "okay";
-+	bus-width = <4>;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	cap-mmc-highspeed;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+};
-+
-+&mmuart1 {
-+	status = "okay";
-+};
-+
-+&mmuart2 {
-+	status = "okay";
-+};
-+
-+&mmuart3 {
-+	status = "okay";
-+};
-+
-+&mmuart4 {
-+	status = "okay";
-+};
-+
-+&refclk {
-+	clock-frequency = <125000000>;
-+};
-+
-+&rtc {
-+	status = "okay";
-+};
-+
-+&syscontroller {
-+	status = "okay";
-+};
-+
-+&usb {
-+	status = "okay";
-+	dr_mode = "otg";
-+};
--- 
-2.36.1
-
+Ok, I've dropped them.  Thanks!
 
 _______________________________________________
 linux-riscv mailing list
