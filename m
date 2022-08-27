@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A40A7ECAAD2
-	for <linux-riscv@archiver.kernel.org>; Sat, 27 Aug 2022 09:22:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FD3ECAAD2
+	for <linux-riscv@archiver.kernel.org>; Sat, 27 Aug 2022 09:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kApGgoYgDiDAlhx8Ta9zxWvtde64FRKZEWDjN3pwrgg=; b=E1GXc70wtcOOWy
-	nEmTwQF7iK48yk+eDhmi+Ybw15sqcps/B9DHCPB5QxnAUe2GIaU01js0r7DRMQRGH3UX4AeyDxKZm
-	mhJybXbT632WuN/Jgd8HE38+BnM5D8u+CxnEDG4122HqOqCxCLHtJAqyIKve8ZJPPcnnFvIUW3SqR
-	1JPZ1hJRM95U8HZOld2xwGk/BLzn28NA9WiQfvYN0mLmLThSlL4bvABF1EdBr8NFsafBn+YeiEQ0C
-	IPv8rSL4SSAGxQBjGc7HRTqapYq8miYtdbd9TrJ07fxxFPtVXwlb7wr5k7s1NE3U/griFzL10J3s9
-	CG0cS4epkWmxch/Htc7A==;
+	List-Owner; bh=RCjOj+8fyJcyE34NAQx78gJWycWXwap1Sx/asSS2RE0=; b=xC+Pt1scBSwphh
+	JVLhlXDJCdeIA9GuVCuEIBP2QGdOVekerN7y/b+PS5cBOho53+LHPJtjOLn+Et31YeC7f1pl9mzw6
+	+kY/jMwniq1VfmAmyvSnNTUpY6NRo8n9iLO5tkREr6U/z/7QDzVo7qbiTxMnVwmbBUNxM9sEHK5N1
+	Jy8z1Ep51M9YyUEkAuGF41GGMm7tg3j+Ngob19zgPLTo+4EUrzSLw9N/a4Avc8zVGH4+1WMSi6Sju
+	jE9Rj3w3h4xBgqHu6qYuOt9lXcUZxhT48i0ZBkc4EESrqvwfwm7mns/LsJVdM906ntB1weN38ovEx
+	s0qUiPtjTLKFNBhJNrTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRs1M-006kpn-OY; Sat, 27 Aug 2022 09:22:28 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1oRs27-006liy-02; Sat, 27 Aug 2022 09:23:15 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oRs1J-006kgi-9w
-	for linux-riscv@lists.infradead.org; Sat, 27 Aug 2022 09:22:26 +0000
-Received: by mail-lj1-x232.google.com with SMTP id bx38so3597271ljb.10
-        for <linux-riscv@lists.infradead.org>; Sat, 27 Aug 2022 02:22:24 -0700 (PDT)
+	id 1oRs23-006lbo-Gs
+	for linux-riscv@lists.infradead.org; Sat, 27 Aug 2022 09:23:12 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id q18so3595128ljg.12
+        for <linux-riscv@lists.infradead.org>; Sat, 27 Aug 2022 02:23:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc;
-        bh=poqSmM+AeoTfp1g4HUHnRawOxryRZkBqc2YyEx97xHw=;
-        b=c183QsYPa/ht/WxKdij7ABL6NpZMgaWfZLdKAAZjw0y7OOrTL1MwrDY2r5xoyZRirl
-         +0Uslq+R6GV/kPzwsqCbBJ/cYBDblXUlGrcThWxcbWV3m/DYeJEoL3M8rgV2uKyDzKIt
-         U9eVRI/m0k5M1blN2D789VaTb4CJa2lAve/OhDTKwPsFV7nvjLJRO3ATsSCI3JtfU459
-         0CIwI1MdjA89RhO5cZ7m13jzpRKQpCKyh9XBDAFr/tUYVyFYm9UgIxeIUZlIXN27IYMe
-         oVNVheL+4alHMQUCss/DtEqYqmjMRehE3eurMcgApOTnrKswa+L+rM3Xt+BFWkm1S+1J
-         Q53g==
+        bh=nhQRAKR4zHjEdCb0JVELtrGk2wyQLykl6TatRm0eanw=;
+        b=FZ6G0Dbx+imj+WfEdZ5oIvV3nFXHxmMjXXxuZOnoiBTegvtYnT5zYj9chduYPwToA+
+         lEaHcuAutIBJIcnG3aVaGE8nT7ejSTlQbAHTt6UZ4pC/Jf1XOOHbxXKwqegbTEg5rLNW
+         IhEdCQgTxoOFnqWiVgDsU2NoDA7g+m7ErjvCReMo8ptaDwUUSmD60A9Y2PWBui7i6f4F
+         CuPL+odQ0sJ+dXDK0cXkoL7kORkBzaVB3p2D/a3LOZlbXIOjee11HVv6C09L6yS+W6XX
+         +9pl1gQ17c5H68VeQbCf+Otk3mAaEeG28PLFOzyEnvBTrOR4/KXMx3LtkA0pTxtJ8CQX
+         ULWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc;
-        bh=poqSmM+AeoTfp1g4HUHnRawOxryRZkBqc2YyEx97xHw=;
-        b=EJZeTvoQCFd0a4YwXUDLw5cEuvV18WHH7j13Bmg7AOcnbZpj0kkTysYqGIBsCecX0Q
-         7Vs1Sy9tPWFVs73kwOJeufsJlkAjkr7GTin3r7heE7YuA7VGqLHaBgFifdIivvfETV2e
-         W6FLVI8zcCj/3sr1fVkzkT1iXISsKboeuBTKG5OGKRo4czsOrcm2UyNcZ/ky76V3cPw5
-         smOguBsewDt0FOM4RhhrF5d8PLVK9dP9WthAVS41R5+SoOnyKktst1nJXD45DMJWuce6
-         EfBygigR/nRwNsCDPbKq1944ZJWJhcXqHqD8dqZk1qtwUSwVZap3fejiRe1mrXtUFcmB
-         3VRQ==
-X-Gm-Message-State: ACgBeo2jGl2+Dst2VGp/Xmm6FiIdE7GIqIDHt0amtIaP77n9D+KpMK5l
-	7fO+iG71gih1aFHTN6h3gB3/iw==
-X-Google-Smtp-Source: AA6agR4VlP2DKSztiz5AJ521nKAFgaDJqM4XDcYtZ5oq2eD4Q95BAi4FjdQifM4U82KUR4L25Rzggw==
-X-Received: by 2002:a2e:a887:0:b0:25e:3174:fb67 with SMTP id m7-20020a2ea887000000b0025e3174fb67mr3062275ljq.337.1661592143434;
-        Sat, 27 Aug 2022 02:22:23 -0700 (PDT)
+        bh=nhQRAKR4zHjEdCb0JVELtrGk2wyQLykl6TatRm0eanw=;
+        b=jVpDeDarE1/yE4LvdGgtlrZJWSV9WTHJ06VexmWNmVM1eci4C1ZR3KX2zVcvJGCmTa
+         WPphEuEv80IO1wLxhhovVTQNg9WJL0aAnDwzRoixCIZhvRtC2FiSYivYLidOF+dT4RKj
+         NpxYF3ryafpx5vOquIDWpBQDsO9CmBMtxgLg50wetSH0htUctDtUrnm2SPF4rr1fleiO
+         ty6GKhEawrQVVMgAbb6LFN8WllR6oEFn8lcGqG3kTgAhJsH7j5kf7ZCXZIcfjl8tBPfV
+         z0lIRH8Ha/e6p6uOb4bmZUEyJHFWMlcmsZsmrvewq3TJbcHClQt1LXDg0Ha10/YEn9eW
+         zhjQ==
+X-Gm-Message-State: ACgBeo2Db4FVQk3/rJ9oA93TI5tzULv8H3cF6kARuO/ByKGDGdYv3cDt
+	PjHAPP+lVKX5RWfYRNXvrhh1rQ==
+X-Google-Smtp-Source: AA6agR4IOei6b7fi96xie1hkpHeN51u8OsJV5bD52jcUaGAHsunyWj3db6JHei0L9njsv+peuxbAwg==
+X-Received: by 2002:a05:651c:1149:b0:25e:6918:22bf with SMTP id h9-20020a05651c114900b0025e691822bfmr3242922ljo.258.1661592189285;
+        Sat, 27 Aug 2022 02:23:09 -0700 (PDT)
 Received: from [192.168.0.71] (82.131.98.15.cable.starman.ee. [82.131.98.15])
-        by smtp.gmail.com with ESMTPSA id p9-20020a05651212c900b0048aa9d67483sm38762lfg.160.2022.08.27.02.22.22
+        by smtp.gmail.com with ESMTPSA id f14-20020a05651c02ce00b00261c30d71e5sm682410ljo.67.2022.08.27.02.23.08
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 27 Aug 2022 02:22:22 -0700 (PDT)
-Message-ID: <643651ab-cca2-28f8-beca-44ad7630affe@linaro.org>
-Date: Sat, 27 Aug 2022 12:22:21 +0300
+        Sat, 27 Aug 2022 02:23:08 -0700 (PDT)
+Message-ID: <715c2639-c94c-259c-f6bb-cec80afa30ed@linaro.org>
+Date: Sat, 27 Aug 2022 12:23:07 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.13.0
-Subject: Re: [PATCH 2/9] dt-bindings: riscv: microchip: document the aries
- m100pfsevp
+Subject: Re: [PATCH 3/9] dt-bindings: riscv: microchip: document the sev kit
 Content-Language: en-US
 To: Conor Dooley <conor.dooley@microchip.com>,
  Rob Herring <robh+dt@kernel.org>,
@@ -81,12 +80,13 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
  Wolfgang Grandegger <wg@aries-embedded.de>, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20220826142806.3658434-1-conor.dooley@microchip.com>
- <20220826142806.3658434-3-conor.dooley@microchip.com>
+ <20220826142806.3658434-4-conor.dooley@microchip.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220826142806.3658434-3-conor.dooley@microchip.com>
+In-Reply-To: <20220826142806.3658434-4-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220827_022225_382121_F015604F 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20220827_022311_597079_8FF83FC4 
+X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,28 +104,18 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 26/08/2022 17:28, Conor Dooley wrote:
-> Add compatibles for both configurations of the Aries Embedded
-> M100PFSEVP SOM + EVK platform.
+> From: Shravan Chippa <shravan.chippa@microchip.com>
 > 
-> Link: https://www.aries-embedded.com/polarfire-soc-fpga-microsemi-m100pfs-som-mpfs025t-pcie-serdes
+> Update devicetree bindings document with PolarFire SoC Video Kit, known
+> by its "sev-kit" product code.
+> 
+> Link: https://onlinedocs.microchip.com/pr/GUID-404D3738-DC76-46BA-8683-6A77E837C2DD-en-US-1/index.html?GUID-065AEBEE-7B2C-4895-8579-B1D73D797F06
+> Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
->  Documentation/devicetree/bindings/riscv/microchip.yaml | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
-> index 7cfc96c21ab0..04ebd48caaa7 100644
-> --- a/Documentation/devicetree/bindings/riscv/microchip.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
-> @@ -26,9 +26,13 @@ properties:
->            - const: microchip,mpfs
->  
->        - items:
-> -          - const: sundance,polarberry
-> +          - enum:
 
-Make it an enum already in your first patch, so you won't need to change
-same lines.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 
 Best regards,
