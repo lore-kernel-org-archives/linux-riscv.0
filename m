@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B550BECAAA2
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 03:00:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D152ECAAA2
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 04:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SD3vZWBynYzGaMt16Lsa72uKLdyZNxT6ETVTeO+iTqA=; b=QWXIU8RJjBqVyX
-	ojNgzd31MzGcEriKK4rKJOvDIYFOgMCQuhDJqXHpF8u4/2ilC8YAfCcRS8eHDjFFPVzMYLWJ/Fu2g
-	lUX48xboXjIB5jTq3kIGFsL1MoIVAGcsC8pwUuQKtOTuhcffionrmKFLBvlGKsdSt7soXbbP+4ZCi
-	UAClWfE8TiSUeTjiLUOXbqh0NxlMisIMle3GPVciPjovUsPOgSrfI9TX3r7bpBeuFfNAX6swOBDcT
-	1P4SBe8u22t/qAYOY8Ecxe5accgVMX04rTGwehiJAbEo5z+gDNH/HO4e1m6tY3IuaY+6sqS0ptOiJ
-	r/EFDeTl2sphGifrLkow==;
+	List-Owner; bh=uRyTq6axWXc3rB3V0lRIlwBNsCcosJzv6xFbSEsZYv8=; b=bjr+FkvvvkHPLi
+	5cBJ5XEs0d5TmfcDo8sOrU1XbKJg0ZH+TnCp5xeFHAEJBhe8LQZ8HshvkWBCNeuKRaYaK84d7QkUG
+	J+7ufCnWoj6sg610QomUhFN91VA90sQJI+61I7ONsL3k0et6FaNuokHSTQEBR7rRjWbEqhsnASvva
+	I7L8y4Mpb1/q4ZfE728Y9hnuq8HbS+jcJC5qVNx2wGimhqHNCfyPqDqBS2rV1ri0p3aAsPuF/VqJ1
+	2h09vH9HeWwqESCo1tpM28d9Lyo4w1MEt5JF8NsjXu882TgG+ygG4ti0OGEdWUj6Ponmjz/BHryb4
+	u1LGDKhmT4k9F/yd0ibQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSV0q-003vRG-F9; Mon, 29 Aug 2022 03:00:32 +0000
-Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
+	id 1oSWcc-004aDB-Jr; Mon, 29 Aug 2022 04:43:38 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSV0m-003vOK-9V
-	for linux-riscv@lists.infradead.org; Mon, 29 Aug 2022 03:00:30 +0000
-Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-33dc31f25f9so164431817b3.11
-        for <linux-riscv@lists.infradead.org>; Sun, 28 Aug 2022 20:00:26 -0700 (PDT)
+	id 1oSWcZ-004aBg-K7
+	for linux-riscv@lists.infradead.org; Mon, 29 Aug 2022 04:43:37 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-32a09b909f6so168628627b3.0
+        for <linux-riscv@lists.infradead.org>; Sun, 28 Aug 2022 21:43:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=brainfault-org.20210112.gappssmtp.com; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc;
-        bh=FxEqGVOxWo4CfjZbtxIGb6qGKvvik/aFKVrft6obxao=;
-        b=Ls6cq9vBmUp9sU96vVz3RUD5Ups9j1qMMOUCDJGBfRwWfZmcptBunhaKBP1bY0xDRl
-         mDbPVoKd0xLW4LcA73K8vDo5iFO6JzlBT35KedPwWKWrEkrcx/W2YucdD1ef8IcsW0ra
-         aQUNRHz1fQ5eE4YiiLsGIe2rxAn5rscIPWB4xkl1Su0YzmYWD8Nj6jpRqXyloArxhfpJ
-         HVeAK84ZNeDyPtc9yxTFLqZNYQdQnGVgD37bFpWf3vndNUaJzqgiKFzDqGi/CLdT52pZ
-         f57c7IIhG0uNgW+lvvq0QpNI1ZERNGlyJyZpJQgt8EKCK0xYIxWplDx087/XyyHBNUh4
-         iJog==
+        bh=Futttwn9zMBHEcnJ92xnZayzubYJ8abufQNgWkI8XL8=;
+        b=0c4/Gwh6P+ewGDHjeN7CKC/e3WqV0xR4+oiUAJs9snTy4zYPfeQI6XGUGL2MEeLJDv
+         P3IZPbBZadZX6zKl0c2HiwbJbQxYre9WIhTJhS3bhfvZh7YkcQHs3ETAs0JF7Qx/r03E
+         7kuA2QMO2jPAtHlMYixqXt4f6QTKEqWLxNqUTprrZmaZC+wzPc1ejC0/Y4+zmy+J8cev
+         PYW58rpTSdHfdZCWR2QfNWvdm9AjjLYCPJghY8AI9GeXw6gjxtzfa6wO23UxIRCXt5fs
+         ADQ8iPnK6RcH8MOhmc7TUEqV8MOzoZdIrKkO2umW9LnKdBr/Nr/UxO2qYz+R7TGDp885
+         KAXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc;
-        bh=FxEqGVOxWo4CfjZbtxIGb6qGKvvik/aFKVrft6obxao=;
-        b=58xI/tZc7tErWFPTQIk919lyTwR8X3/T3S0kmPsRArikxWohtZBl+aH+iUDjpRkTK0
-         ycWgsdueaVTKbyeOxarpZcklvg9AN6Q402Fuc+B1mL/GdJtD/gs94qcfPtQAHLI9cyFy
-         GdYmTb/uDSuMeiNAV8tOcpZwWJVpg+h7pbiZdmCkYlNL8gwQud1iqBHCqpG7WoyVRSZg
-         J4vMZe9HVvYrqao+mp0Zv/Bus4f5lfcxzvses+NtZ491+lgPCd9INuvVFKcsaDxUyptd
-         0yV4BLEqrAXfP70y/Uds71YyWr4EvyTz/areoGGj5VEk1lRPr33HPnGIIDHwgcWJ4d8l
-         aPGA==
-X-Gm-Message-State: ACgBeo2wemu1ue+mT7rhPe8+AouZaCd0B25bz6jDx5Y4AP4Yf2vN12pp
-	XPlOpBRdyO/+L/hAzOnSZqYyY3w2bOaRMx+tBCZMzXbjaAU6tw==
-X-Google-Smtp-Source: AA6agR5RekBOHwggN87C/mXTpSYMdD1Z7xcNpSwA3k6eug2L7ykiVE/1ZIcjpE57qLb0Pv2zwkP/FZ4X0nMEJXKN9P8=
-X-Received: by 2002:a25:253:0:b0:696:4000:8844 with SMTP id
- 80-20020a250253000000b0069640008844mr7310831ybc.619.1661742025413; Sun, 28
- Aug 2022 20:00:25 -0700 (PDT)
+        bh=Futttwn9zMBHEcnJ92xnZayzubYJ8abufQNgWkI8XL8=;
+        b=NiCBGNoXMLlhN+Dtgu2gyA+w14UO7WY/vgvF4X9ngsOhQnd0ffd/4wY0HVHXQsG8bW
+         F4mYTzQnE502s/XPsvdERERtnXomhYQMqQE0+lY0YtpTEC8eukZPrrhUZLYC8I5qx7fo
+         Sr39mFsE7R345PYQIXnc8NU/R2z21IGie1F0+/kpoUI3r1J9IkoztU/lYaO02nTU2Fbj
+         6BTBqlG+7g76vi+uU2OtHbUjma/I1BUqjxG/GCsr9BYAPypjyAVF7m3PsbKWRbl1Kx5n
+         gIJeSGEfKJHicZPna2DEd7GiGTHJnSn1VR4TUA23p65v7vl83DtI07mCo6vDtO7LfISk
+         E38g==
+X-Gm-Message-State: ACgBeo0L/4FoWbvVlkygfbrYfhRDeGU3xfsazWQh5IcYjVb13shP/q4U
+	QzsbWivMg10tgcF+hShVlBGaqEYmloyXFK+kdClp6A==
+X-Google-Smtp-Source: AA6agR4y9Ejk7iQKufbJy82bBQmRG6SNQX1gdkZizGFRaPVhX0RuMqexR97KJGd5Qs5W8HOzcsLxCfW9+rU96ZEU2rA=
+X-Received: by 2002:a0d:cad1:0:b0:335:8273:e9fd with SMTP id
+ m200-20020a0dcad1000000b003358273e9fdmr8758289ywd.154.1661748213475; Sun, 28
+ Aug 2022 21:43:33 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220718084553.2056169-1-apatel@ventanamicro.com>
-In-Reply-To: <20220718084553.2056169-1-apatel@ventanamicro.com>
+References: <20220820065446.389788-1-apatel@ventanamicro.com>
+ <20220820065446.389788-5-apatel@ventanamicro.com> <8f4ae429-0f12-2096-c07b-fe43b3abb4fe@microchip.com>
+ <69e58f4dc2b74415a32a97998e862479@kernel.org>
+In-Reply-To: <69e58f4dc2b74415a32a97998e862479@kernel.org>
 From: Anup Patel <anup@brainfault.org>
-Date: Mon, 29 Aug 2022 08:29:45 +0530
-Message-ID: <CAAhSdy0zGaZXoJHVAN+2n1sP4+2rsfo+G874NeBMgrhBeEW2ZA@mail.gmail.com>
-Subject: Re: [PATCH] cpuidle: riscv-sbi: Fix CPU_PM_CPU_IDLE_ENTER_xyz() macro usage
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Atish Patra <atishp@atishpatra.org>, Alistair Francis <Alistair.Francis@wdc.com>, 
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Anup Patel <apatel@ventanamicro.com>
+Date: Mon, 29 Aug 2022 10:13:21 +0530
+Message-ID: <CAAhSdy13G2fjtVMQCMHf0vJff9i1q1Gg_WKQ942Qr9bmQ0NeBg@mail.gmail.com>
+Subject: Re: [PATCH v8 4/7] RISC-V: Treat IPIs as normal Linux IRQs
+To: Marc Zyngier <maz@kernel.org>
+Cc: Conor.Dooley@microchip.com, apatel@ventanamicro.com, palmer@dabbelt.com, 
+	paul.walmsley@sifive.com, tglx@linutronix.de, daniel.lezcano@linaro.org, 
+	atishp@atishpatra.org, Alistair.Francis@wdc.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220828_200029_001222_722460A2 
-X-CRM114-Status: GOOD (  19.10  )
+X-CRM114-CacheID: sfid-20220828_214335_870940_D5579512 
+X-CRM114-Status: GOOD (  27.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,52 +88,90 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+On Sat, Aug 27, 2022 at 12:27 AM Marc Zyngier <maz@kernel.org> wrote:
+>
+> On 2022-08-26 19:48, Conor.Dooley@microchip.com wrote:
+> > On 20/08/2022 07:54, Anup Patel wrote:
+> >> EXTERNAL EMAIL: Do not click links or open attachments unless you know
+> >> the content is safe
+> >>
+> >> Currently, the RISC-V kernel provides arch specific hooks (i.e.
+> >> struct riscv_ipi_ops) to register IPI handling methods. The stats
+> >> gathering of IPIs is also arch specific in the RISC-V kernel.
+> >>
+> >> Other architectures (such as ARM, ARM64, and MIPS) have moved away
+> >> from custom arch specific IPI handling methods. Currently, these
+> >> architectures have Linux irqchip drivers providing a range of Linux
+> >> IRQ numbers to be used as IPIs and IPI triggering is done using
+> >> generic IPI APIs. This approach allows architectures to treat IPIs
+> >> as normal Linux IRQs and IPI stats gathering is done by the generic
+> >> Linux IRQ subsystem.
+> >>
+> >> We extend the RISC-V IPI handling as-per above approach so that arch
+> >> specific IPI handling methods (struct riscv_ipi_ops) can be removed
+> >> and the IPI handling is done through the Linux IRQ subsystem.
+> >>
+> >> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> >
+> >> +void riscv_ipi_set_virq_range(int virq, int nr)
+> >> +{
+> >> +       int i, err;
+> >>
+> >> -               if (ops & (1 << IPI_IRQ_WORK)) {
+> >> -                       stats[IPI_IRQ_WORK]++;
+> >> -                       irq_work_run();
+> >> -               }
+> >> +       if (WARN_ON(ipi_virq_base))
+> >> +               return;
+> >>
+> >> -#ifdef CONFIG_GENERIC_CLOCKEVENTS_BROADCAST
+> >> -               if (ops & (1 << IPI_TIMER)) {
+> >> -                       stats[IPI_TIMER]++;
+> >> -                       tick_receive_broadcast();
+> >> -               }
+> >> -#endif
+> >> -               BUG_ON((ops >> IPI_MAX) != 0);
+> >> +       WARN_ON(nr < IPI_MAX);
+> >> +       nr_ipi = min(nr, IPI_MAX);
+> >> +       ipi_virq_base = virq;
+> >> +
+> >> +       /* Request IPIs */
+> >> +       for (i = 0; i < nr_ipi; i++) {
+> >> +               err = request_percpu_irq(ipi_virq_base + i,
+> >> handle_IPI,
+> >> +                                        "IPI", &ipi_virq_base);
+> >
+> > FWIW, ?sparse? does not like this:
+> > arch/riscv/kernel/smp.c:163:50: warning: incorrect type in argument 4
+> > (different address spaces)
+> > arch/riscv/kernel/smp.c:163:50:    expected void [noderef] __percpu
+> > *percpu_dev_id
+> > arch/riscv/kernel/smp.c:163:50:    got int *
+>
+> Huh, well spotted. This will totally give the wrong sort of
+> result, as this is used as a percpu variable from the irq
+> core code.
+>
+> The arm64 code passes instead a pointer to the CPU number, which
+> is not very useful, but at least not completely wrong.
+>
+> I'm sure the RISC-V code has some sort of semi-useful data to
+> stuff in there instead of this.
 
-On Mon, Jul 18, 2022 at 2:16 PM Anup Patel <apatel@ventanamicro.com> wrote:
->
-> Currently, we are using CPU_PM_CPU_IDLE_ENTER_PARAM() for all SBI HSM
-> suspend types so retentive suspend types are also treated non-retentive
-> and kernel will do redundant additional work for these states.
->
-> The BIT[31] of SBI HSM suspend types allows us to differentiate between
-> retentive and non-retentive suspend types so we should use this BIT
-> to call appropriate CPU_PM_CPU_IDLE_ENTER_xyz() macro.
->
-> Fixes: 6abf32f1d9c5 ("cpuidle: Add RISC-V SBI CPU idle driver")
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Unlike arm64, we don't have any percpu data in arch/riscv/kernel/smp.c
+which can be passed here.
 
-Can you please take this patch through the RISC-V tree ?
+For now, I will just add dummy percpu data to make sparse happy.
+
+I hope this is okay ?
 
 Regards,
 Anup
 
-> ---
->  drivers/cpuidle/cpuidle-riscv-sbi.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
 >
-> diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-> index 1151e5e2ba82..33c92fec4365 100644
-> --- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-> +++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-> @@ -97,8 +97,13 @@ static int sbi_cpuidle_enter_state(struct cpuidle_device *dev,
->                                    struct cpuidle_driver *drv, int idx)
->  {
->         u32 *states = __this_cpu_read(sbi_cpuidle_data.states);
-> +       u32 state = states[idx];
->
-> -       return CPU_PM_CPU_IDLE_ENTER_PARAM(sbi_suspend, idx, states[idx]);
-> +       if (state & SBI_HSM_SUSP_NON_RET_BIT)
-> +               return CPU_PM_CPU_IDLE_ENTER_PARAM(sbi_suspend, idx, state);
-> +       else
-> +               return CPU_PM_CPU_IDLE_ENTER_RETENTION_PARAM(sbi_suspend,
-> +                                                            idx, state);
->  }
->
->  static int __sbi_enter_domain_idle_state(struct cpuidle_device *dev,
+>          M.
 > --
-> 2.34.1
->
+> Jazz is not dead. It just smells funny...
 
 _______________________________________________
 linux-riscv mailing list
