@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8391DECAAD5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 18:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A75BCECAAD2
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 20:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:
-	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ollYic3kFxuhrO1HzvpjgrpYMdrMD1xxNtV8FLgzy8s=; b=fdHzXecu+fFDFG
-	AMZN1Gq6KAV43FqTzMkTHHhykZqWQ8l4oeoZA7w7zhYOodntWGZPgXNI/3K/MVYa0eYvhoKXU/KkQ
-	6zKms5CL1uOsK3USV+iY/UDlrFp3VnpMN08CCUW5sweFJ/Qo5UQKnAdeONKQBfYXrD3u3IlKykcJL
-	4+mUGr9OLhhEPFm9BolxVFg9A3MUAamx7bYzhh2Pt81ILiYUnMd7GS8nrML24H/Jot4+oY6lpT2/7
-	Oi4GeMSYLLeeyhccFcbSdPeu6+MyMgpOoez6TsVD0mELCixmlTqF/2gzc9b7DMy7kIzm9eoycAEO3
-	B3yE4Hk6Au9zxps52vEA==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oG3cfIazO9Lg77Xy1WGpvPC3p4V9ggXWeCks7fu71pU=; b=VpyrJIacYSQkgL
+	zE9+fr5FjUGPzWwoZmr41XrRoTzxQnFREdS7uPttkFfNK6EDOY6KMf4X5FWqDV9QswPnfVDJufelT
+	rFKz2xsofXhzL8TLTSTioz7+YyuYoKkgWKuzDxMrxpmDwfWgQWV4KznoLRsDToAcKEIlxxbqiE8sk
+	z+3qZtsGb5F9818hVW4w2CtZiFdmgxijc+wjl7cEEjRgnDFWPmFxZZH/b2nWhjHDkzmkgyFvan7kt
+	JzvJ3blJlNDdfAlsp5+YkwP7xCbw7ruN5zOKNBAaoGn7Ltkd8dqVUxoSGpe93nriBbsCJpDPWFoXY
+	EsUB1EethVBmcLVs0d6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSjkN-00CHwd-JM; Mon, 29 Aug 2022 18:44:31 +0000
-Received: from mail-oi1-f171.google.com ([209.85.167.171])
+	id 1oSlkF-00CgHi-KN; Mon, 29 Aug 2022 20:52:31 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSji1-00CGmg-RH
-	for linux-riscv@lists.infradead.org; Mon, 29 Aug 2022 18:42:07 +0000
-Received: by mail-oi1-f171.google.com with SMTP id o204so11387209oia.12
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Aug 2022 11:42:03 -0700 (PDT)
+	id 1oSlkC-00CgH3-Gn
+	for linux-riscv@lists.infradead.org; Mon, 29 Aug 2022 20:52:30 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id k18so2860393lji.13
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Aug 2022 13:52:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc;
+        bh=E7RreK0635SHJ4nmMLctoUcNBnNqGDxfeSoly44DNHQ=;
+        b=aeDmLdf7MSg2oBqyyVI0+vId7I5nAyLGJ9Rp5cXLslDGKgiz1P+NAQ9HWv63SqkYwB
+         P5kQIOojfWwj1ZHZ1fRBWNazK6NTVL10X3mpYKtQrR4UrD2X2WZq92utRa+ZooT2qg+c
+         dK3wZ7nffKzxLNJh6lhH9cQQYaq45Hqgu373LgcuFJN0N5PaQ6Fd1PNGoWEtr5y/lwLE
+         RUjJyxkxn207NMEAEdFuNxCdhRM/aY0GOyfZVhO8jMmTnYUHNaMVpb0opEFef+mqelQA
+         mE/HT3ivwtC/ilWAkRHmijoBKqaPIrkLHoJ8Uz0WIFmWsNaiJXXH/jF6uxiQHxIPuChE
+         BSoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=message-id:date:subject:references:in-reply-to:cc:to:from
-         :x-gm-message-state:from:to:cc;
-        bh=LXkEPrKAVM00r7oWbx73qYiaSM+RhvXxRLquIsmnm1w=;
-        b=xeLpV91+egHtg7S8d+EuS1eX4gz10WkKw6TQ8b+pKj1MZuNDwRmtyVml1xy4Vg6XEP
-         tUd+LsHB0VZuwQj6QOKTZJ8HewlVclcgxlaBzf9M4DHa0ja+fYxiMSuHKzwBFmLfHYhX
-         X/fWuze4oGHdRxzc3mI2IFSxKacVgqCKn3Gg6+G5aZ5gnnMWGG85Oi1X3OL84uKdrTLp
-         74iEjAjM4t7jAp0GSUBRRY/akET9Ieb7yXfQ69GQN7c8fAq7lnfplFsxGENsF+wGnpR8
-         lmUmgee0nTyqdeGzK0IuFrWD2a937scGzwjiK/v3R8fwu5B+CYScggFbK13h4X/Gb2r/
-         Uixg==
-X-Gm-Message-State: ACgBeo1z0ErIbyNgsrDgzKzmGWZXwYPb3YDTyhRR0zrwVoHtW6ciULgZ
-	xCrWYGN0HJNajmvpdXKdBQ==
-X-Google-Smtp-Source: AA6agR42ZU6Hvi/yKVQOmrNtnY8Z/N6ngoK1AmvM742vrzGwV1LSvyBk0CuqpQSMIwTLFyQapO6Rqg==
-X-Received: by 2002:a05:6808:21a2:b0:345:d23e:d2e2 with SMTP id be34-20020a05680821a200b00345d23ed2e2mr4725175oib.273.1661798522665;
-        Mon, 29 Aug 2022 11:42:02 -0700 (PDT)
-Received: from robh.at.kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id n29-20020a056870241d00b0011c8332922fsm691084oap.29.2022.08.29.11.42.01
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc;
+        bh=E7RreK0635SHJ4nmMLctoUcNBnNqGDxfeSoly44DNHQ=;
+        b=GtR/pVPMs3Dv5AZulYbEv6R8SV3XIfY2bkFlFLx0yzVjRT7z3aNjmGNoRGjP07ux2z
+         Qec0+PDK67akfAybwl+90eCkf25Wd2T3JZnM2uSsCnyr/YbnguNDfYxrk1J6SDXOmxR2
+         /Yj0sXtrLmF112IDJEDLAXWGM9KaF3ZgrqgcSojlEeJAF2Zjs1DLwnIsXOG4u4V4k+fR
+         j4GLa6Yb+HknMkC+34OweDtVXLYaCbjG6Hj0DC5NPn3tVZkHVMby/X6wr1b16XcPOXU0
+         LQEcFw2WRtACq+PsREm2OPYjPEcsKzT/iYapUqu9TRBU2FSxIUhumEsGBY2AOzfYNxTs
+         T8nQ==
+X-Gm-Message-State: ACgBeo1dK3gQkfMy/Ace/mGJh6JQQibi3TzDysGLkwzpfv04WpiaJQWI
+	oFAL0q1BDSdKIv3SQlxF2IuS8xw7GYawLw==
+X-Google-Smtp-Source: AA6agR7wHVgKd7Li6v5oebyF5gSGkdZ+Kd0lFiHYmA3bWYcD1GL/dv7I6MkyU9DnT8y1PX62JIr3mQ==
+X-Received: by 2002:a2e:3c13:0:b0:263:63d3:b498 with SMTP id j19-20020a2e3c13000000b0026363d3b498mr3278169lja.487.1661806343584;
+        Mon, 29 Aug 2022 13:52:23 -0700 (PDT)
+Received: from localhost.localdomain ([5.188.167.245])
+        by smtp.googlemail.com with ESMTPSA id v20-20020a056512349400b0048b05882c28sm1378874lfr.271.2022.08.29.13.52.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Aug 2022 11:42:02 -0700 (PDT)
-Received: (nullmailer pid 2118960 invoked by uid 1000);
-	Mon, 29 Aug 2022 18:42:01 -0000
-From: Rob Herring <robh@kernel.org>
-To: Zong Li <zong.li@sifive.com>
-Cc: robh+dt@kernel.org, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com, conor.dooley@microchip.com, paul.walmsley@sifive.com, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, greentime.hu@sifive.com
-In-Reply-To: <20220829062202.3287-2-zong.li@sifive.com>
-References: <20220829062202.3287-1-zong.li@sifive.com> <20220829062202.3287-2-zong.li@sifive.com>
-Subject: Re: [PATCH 1/3] dt-bindings: sifive-ccache: rename SiFive L2 cache to composible cache
-Date: Mon, 29 Aug 2022 13:42:01 -0500
-Message-Id: <1661798521.316365.2118959.nullmailer@robh.at.kernel.org>
+        Mon, 29 Aug 2022 13:52:23 -0700 (PDT)
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org
+Cc: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@rivosinc.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Guo Ren <guoren@kernel.org>,
+	Alexandre Ghiti <alexandre.ghiti@canonical.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+Subject: [RFC PATCH 1/1] riscv: mm: notify remote harts about mmu cache updates
+Date: Mon, 29 Aug 2022 23:52:19 +0300
+Message-Id: <20220829205219.283543-1-geomatsi@gmail.com>
+X-Mailer: git-send-email 2.37.1
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220829_114205_935605_AAC1D75D 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20220829_135228_584313_EA06404A 
+X-CRM114-Status: GOOD (  17.04  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,47 +89,172 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Aug 2022 06:22:00 +0000, Zong Li wrote:
-> Since composible cache may be L3 cache if private L2 cache exists, it
-> should use its original name composible cache to prevent confusion.
-> 
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Zong Li <zong.li@sifive.com>
-> ---
->  .../riscv/{sifive-l2-cache.yaml => sifive-ccache.yaml}      | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
->  rename Documentation/devicetree/bindings/riscv/{sifive-l2-cache.yaml => sifive-ccache.yaml} (92%)
-> 
+From: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
 
-My bot found errors running 'make DT_CHECKER_FLAGS=-m dt_binding_check'
-on your patch (DT_CHECKER_FLAGS is new in v5.13):
+Current implementation of update_mmu_cache function performs local TLB
+flush. It does not take into account ASID information. Besides, it does
+not take into account other harts currently running the same mm context
+or possible migration of the running context to other harts. Meanwhile
+TLB flush is not performed for every context switch if ASID support
+is enabled.
 
-yamllint warnings/errors:
+Patch [1] proposed to add ASID support to update_mmu_cache to avoid
+flushing local TLB entirely. This patch takes into account other
+harts currently running the same mm context as well as possible
+migration of this context to other harts.
 
-dtschema/dtc warnings/errors:
-./Documentation/devicetree/bindings/riscv/sifive-ccache.yaml: $id: relative path/filename doesn't match actual path or filename
-	expected: http://devicetree.org/schemas/riscv/sifive-ccache.yaml#
+For this purpose the approach from flush_icache_mm is reused. Remote
+harts currently running the same mm context are informed via SBI calls
+that they need to flush their local TLBs. All the other harts are marked
+as needing a deferred TLB flush when this mm context runs on them.
 
-doc reference errors (make refcheckdocs):
+[1] https://lore.kernel.org/linux-riscv/20220821013926.8968-1-tjytimi@163.com/
 
-See https://patchwork.ozlabs.org/patch/
+Signed-off-by: Sergey Matyukevich <sergey.matyukevich@syntacore.com>
+---
+ arch/riscv/include/asm/mmu.h      |  2 ++
+ arch/riscv/include/asm/pgtable.h  |  2 +-
+ arch/riscv/include/asm/tlbflush.h | 18 ++++++++++++++++++
+ arch/riscv/mm/context.c           | 10 ++++++++++
+ arch/riscv/mm/tlbflush.c          | 28 +++++++++++-----------------
+ 5 files changed, 42 insertions(+), 18 deletions(-)
 
-This check can fail if there are any dependencies. The base for a patch
-series is generally the most recent rc1.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit.
+diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
+index cedcf8ea3c76..86670a1b4ffd 100644
+--- a/arch/riscv/include/asm/mmu.h
++++ b/arch/riscv/include/asm/mmu.h
+@@ -20,6 +20,8 @@ typedef struct {
+ #ifdef CONFIG_SMP
+ 	/* A local icache flush is needed before user execution can resume. */
+ 	cpumask_t icache_stale_mask;
++	/* A local tlb flush is needed before user execution can resume. */
++	cpumask_t tlb_stale_mask;
+ #endif
+ } mm_context_t;
+ 
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 7ec936910a96..330f75fe1278 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -415,7 +415,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
+ 	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
+ 	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
+ 	 */
+-	local_flush_tlb_page(address);
++	flush_tlb_page(vma, address);
+ }
+ 
+ static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
+diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
+index 801019381dea..907b9efd39a8 100644
+--- a/arch/riscv/include/asm/tlbflush.h
++++ b/arch/riscv/include/asm/tlbflush.h
+@@ -22,6 +22,24 @@ static inline void local_flush_tlb_page(unsigned long addr)
+ {
+ 	ALT_FLUSH_TLB_PAGE(__asm__ __volatile__ ("sfence.vma %0" : : "r" (addr) : "memory"));
+ }
++
++static inline void local_flush_tlb_all_asid(unsigned long asid)
++{
++	__asm__ __volatile__ ("sfence.vma x0, %0"
++			:
++			: "r" (asid)
++			: "memory");
++}
++
++static inline void local_flush_tlb_page_asid(unsigned long addr,
++		unsigned long asid)
++{
++	__asm__ __volatile__ ("sfence.vma %0, %1"
++			:
++			: "r" (addr), "r" (asid)
++			: "memory");
++}
++
+ #else /* CONFIG_MMU */
+ #define local_flush_tlb_all()			do { } while (0)
+ #define local_flush_tlb_page(addr)		do { } while (0)
+diff --git a/arch/riscv/mm/context.c b/arch/riscv/mm/context.c
+index 7acbfbd14557..80ce9caba8d2 100644
+--- a/arch/riscv/mm/context.c
++++ b/arch/riscv/mm/context.c
+@@ -196,6 +196,16 @@ static void set_mm_asid(struct mm_struct *mm, unsigned int cpu)
+ 
+ 	if (need_flush_tlb)
+ 		local_flush_tlb_all();
++#ifdef CONFIG_SMP
++	else {
++		cpumask_t *mask = &mm->context.tlb_stale_mask;
++
++		if (cpumask_test_cpu(cpu, mask)) {
++			cpumask_clear_cpu(cpu, mask);
++			local_flush_tlb_all_asid(cntx & asid_mask);
++		}
++	}
++#endif
+ }
+ 
+ static void set_mm_noasid(struct mm_struct *mm)
+diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
+index 37ed760d007c..ce7dfc81bb3f 100644
+--- a/arch/riscv/mm/tlbflush.c
++++ b/arch/riscv/mm/tlbflush.c
+@@ -5,23 +5,7 @@
+ #include <linux/sched.h>
+ #include <asm/sbi.h>
+ #include <asm/mmu_context.h>
+-
+-static inline void local_flush_tlb_all_asid(unsigned long asid)
+-{
+-	__asm__ __volatile__ ("sfence.vma x0, %0"
+-			:
+-			: "r" (asid)
+-			: "memory");
+-}
+-
+-static inline void local_flush_tlb_page_asid(unsigned long addr,
+-		unsigned long asid)
+-{
+-	__asm__ __volatile__ ("sfence.vma %0, %1"
+-			:
+-			: "r" (addr), "r" (asid)
+-			: "memory");
+-}
++#include <asm/tlbflush.h>
+ 
+ void flush_tlb_all(void)
+ {
+@@ -31,6 +15,7 @@ void flush_tlb_all(void)
+ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
+ 				  unsigned long size, unsigned long stride)
+ {
++	struct cpumask *pmask = &mm->context.tlb_stale_mask;
+ 	struct cpumask *cmask = mm_cpumask(mm);
+ 	unsigned int cpuid;
+ 	bool broadcast;
+@@ -44,6 +29,15 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
+ 	if (static_branch_unlikely(&use_asid_allocator)) {
+ 		unsigned long asid = atomic_long_read(&mm->context.id);
+ 
++		/*
++		 * TLB will be immediately flushed on harts concurrently
++		 * executing this MM context. TLB flush on other harts
++		 * is deferred until this MM context migrates there.
++		 */
++		cpumask_setall(pmask);
++		cpumask_clear_cpu(cpuid, pmask);
++		cpumask_andnot(pmask, pmask, cmask);
++
+ 		if (broadcast) {
+ 			sbi_remote_sfence_vma_asid(cmask, start, size, asid);
+ 		} else if (size <= stride) {
+-- 
+2.37.1
 
 
 _______________________________________________
