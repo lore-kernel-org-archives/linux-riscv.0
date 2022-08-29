@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4ECC0502C
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 12:53:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FDBECAAD2
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 14:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WBewGTy4OM826OrlD8xL7kJmwzGN9N70oSvCyzqnMK0=; b=mNp7YVX8kSYlpM
-	Bs86Cx8Up8p2yLHxSTyw3ZLkDaVteEiXy3TYdniD35XMeXHQAGc6tTI6y30Ly7OXiLRzer8iniGs1
-	xJMM07n2qSLkvFC5j1r25brWQNbctmuI3I4UY56cYG4BNyJkPripRQrvyvVb9PguHHpBF0xuZHpV4
-	cs9drsT/uyaKI4FNAyBI+Y1FT7xOo81iCIHw5ZlXjBUSafMO2/27WN5tMMOBSXJbnjohySEmlkVBq
-	xj6ZVmCfsGJqNxzpebspWMPlmPinLE+wfQEl/Xjq2pvtnKvcu0TpSDdsM2hc/fbVxff5rwO9gfOTj
-	PMyLlkvg50QpnGr+wPkQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4AaTP2eH+ygK1fR0K12nPf7C385fHkhF6a99fdLwPiQ=; b=lV5Ao661U8EMXe
+	f77vpVauT6BiRiaBc2xVGWkOxVKguEMhz0nwa+XV4aV7IEEYrl+OEUTmyaFss2fC9LFrbWiOICI3x
+	QJ808yEK4e+dIJbqfWZwBiaWgZLT8FHIacX6CKbe327fQDv3DxcCXywHKgi+KIOG/vqc53PGCNcjl
+	PUiPV+cqTnE93k1bmmkU8jN2fyPUQU7m1m05w9SZv5cHp4TeJoxVCqs3lxbt3JZsbsI/Pp/kDM7/s
+	okt9Qug+LoL7m1B+KWAjzvrqlorm1ah7kD9w/8dOoNSWLxrYN8Ue3nSbW/kmYHrp2mdD9MYh16i1d
+	OOOwneKtIrqW3cAioO0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSeGN-009xYC-TG; Mon, 29 Aug 2022 12:53:12 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1oSfKv-00Av2h-8q; Mon, 29 Aug 2022 14:01:57 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSeGK-009xO0-6U
-	for linux-riscv@lists.infradead.org; Mon, 29 Aug 2022 12:53:09 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 202so7604076pgc.8
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Aug 2022 05:53:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc;
-        bh=Z/mBY2jgNDkWQ3lEWcoeCOwOWescKqJwUlwqGO5KuJY=;
-        b=ZrXS+/PN7MjuqSu/+/xHyffxoijmukarDdtB/3TARKB7q3BLr1Vx7T/fs09i5kfugF
-         IG3pbHjIj1TI+B5S/YOQM445Su0v1nateqtk6N7kYtOhsP3V5tr1fuC+doi9JHoSs3ip
-         QKkcw0r9fSo7tD6i5+VV/UT9qzWyi4mPSrbcxqH2ufl8dvCiPGhUvpmgRKa6iB0pXDMj
-         wPAwssvvOlhxuGtBoT0Z3eXyd53o0ZUdJUVSVQ3ClJse3sXsB0IY+smFNWvdap+CgkGt
-         L4Tvs1C2aAVcXZTcyF1QbyeHX6DffONomhBO7oBimH0a3kUfzDwEM6K+5M6x7M5nKj6W
-         gVRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
-        bh=Z/mBY2jgNDkWQ3lEWcoeCOwOWescKqJwUlwqGO5KuJY=;
-        b=nSX8ATUv52biw5p7wiXT5JfYkJIn/tDgiXF3tvkadlbx5nC3y0njleLznRGneUf56o
-         oYt/ayllr/buT9MrTg5P+8TBgsufM5Ca3bb/bdBffOc4tkdl89V0tGKhZCfIq3pyepjC
-         diAGa+udGTvwqveeyHiAEy6SpTMbz0ZV95zgHvqqM7j2mx5i5Zrkh3hZ8DqzIioiY/tF
-         B+Sjf7yuwC5F2fjrhxRCzwxfqhIllbQ14pM2jit0Ea7BNKWv7VluxeQD9rREtFrx22jW
-         SH2tx6ncObzm+jZzafoGmUEAG9eStdKxIxzGFSlsR5BgLGLGOONiBQAenhWDGtKpr/9B
-         vDAA==
-X-Gm-Message-State: ACgBeo0w9hc61d8SQ5D+Uw38fD/7BZd67Yd65KIGEygPr1pCuFWBYRcd
-	JZba4q11jju1peqEIKyoqRIwYQ==
-X-Google-Smtp-Source: AA6agR7EiSZno8PJhvukHxS/VfWScLMZXn5Vlfkr+Zp9Me2vZrYE8Ww3BqQJI+4eSdeYl9Ih2996hA==
-X-Received: by 2002:a65:6d0b:0:b0:42a:19dc:e76e with SMTP id bf11-20020a656d0b000000b0042a19dce76emr13623850pgb.6.1661777587046;
-        Mon, 29 Aug 2022 05:53:07 -0700 (PDT)
-Received: from anup-ubuntu64-vm.. ([171.76.81.110])
-        by smtp.gmail.com with ESMTPSA id a6-20020a170902ecc600b0016ed5266a5csm7517607plh.170.2022.08.29.05.53.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Aug 2022 05:53:06 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Atish Patra <atishp@atishpatra.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Anup Patel <anup@brainfault.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anup Patel <apatel@ventanamicro.com>,
-	Mayuresh Chitale <mchitale@ventanamicro.com>
-Subject: [PATCH 4/4] RISC-V: Enable PMEM drivers
-Date: Mon, 29 Aug 2022 18:22:26 +0530
-Message-Id: <20220829125226.511564-5-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220829125226.511564-1-apatel@ventanamicro.com>
-References: <20220829125226.511564-1-apatel@ventanamicro.com>
+	id 1oSf20-00Ancf-Cf
+	for linux-riscv@lists.infradead.org; Mon, 29 Aug 2022 13:42:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1661780544; x=1693316544;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Dm77TZdDOsxyEUyf3mIDyCgCwIVjRlmyzDrQ7gf/weQ=;
+  b=diTF9wP2K8xL1tboD3GgfJxHHF6kfGCBPC5oZ+w7EqzskPrbv7yWHcdW
+   hP5qg4mLEK85AO1xO/wvpyG4EEGHw2R3hjyXapIzF9BwA8ncqf9VfEs6b
+   UOU6pKjomn6ik0R4ZqrCu9zSpglL7YADt0K0CkBEBnQee3/+GQqL4BWYK
+   dEUKgJLPJLxnu628pwWMaPIE01qqxl/d7UbvzX7xCqtU9/cL5TXT3aY0M
+   cXZ5EialIw8M4sH4OMR0lagLzauPXJyU2g9JI6pDwjIqO0DVHd3DFCYqp
+   Q/IXV1pgIKRgTmF3gX2/McREhcc83kNU4l6hHYkIYPzhz7vHWtIqubzrH
+   w==;
+X-IronPort-AV: E=Sophos;i="5.93,272,1654585200"; 
+   d="scan'208";a="174633417"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Aug 2022 06:42:16 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Mon, 29 Aug 2022 06:42:16 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
+ Transport; Mon, 29 Aug 2022 06:42:13 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski+dt@linaro.org>
+CC: Cyril Jean <cyril.jean@microchip.com>, Lewis Hanly
+	<lewis.hanly@microchip.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH] dt-bindings: riscv: update microchip.yaml's maintainership
+Date: Mon, 29 Aug 2022 14:41:04 +0100
+Message-ID: <20220829134102.1248504-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220829_055308_402239_9E394ADA 
-X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-CacheID: sfid-20220829_064224_577208_6317CC90 
+X-CRM114-Status: UNSURE (   9.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,30 +83,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We now have PMEM arch support available in RISC-V kernel so let us
-enable relevant drivers in defconfig.
+Daire and I are the platform maintainers for Microchip's RISC-V
+FPGAs. Update the maintainers in microchip.yaml to reflect this and
+explicitly add the binding to the SoC's MAINTAINERS entry.
 
-Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+Two patches seemed overkill for this, but scream and I will split them.
+I figured I would take this for 6.1 myself on top of my other changes
+to microchip.yaml.
+---
+ Documentation/devicetree/bindings/riscv/microchip.yaml | 4 ++--
+ MAINTAINERS                                            | 1 +
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index aed332a9d4ea..010b673ebd11 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -159,6 +159,7 @@ CONFIG_VIRTIO_MMIO=y
- CONFIG_RPMSG_CHAR=y
- CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
-+CONFIG_LIBNVDIMM=y
- CONFIG_EXT4_FS=y
- CONFIG_EXT4_FS_POSIX_ACL=y
- CONFIG_EXT4_FS_SECURITY=y
+diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
+index 37f97ee4fe46..9eaa21769457 100644
+--- a/Documentation/devicetree/bindings/riscv/microchip.yaml
++++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
+@@ -7,8 +7,8 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ title: Microchip PolarFire SoC-based boards
+ 
+ maintainers:
+-  - Cyril Jean <Cyril.Jean@microchip.com>
+-  - Lewis Hanly <lewis.hanly@microchip.com>
++  - Conor Dooley <conor.dooley@microchip.com>
++  - Daire McNamara <daire.mcnamara@microchip.com>
+ 
+ description:
+   Microchip PolarFire SoC-based boards
+diff --git a/MAINTAINERS b/MAINTAINERS
+index cc549debe20c..7d788e064390 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -17572,6 +17572,7 @@ F:	Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml
+ F:	Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
+ F:	Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
+ F:	Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
++F:	Documentation/devicetree/bindings/riscv/microchip.yaml
+ F:	Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
+ F:	Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
+ F:	Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml
 -- 
-2.34.1
+2.36.1
 
 
 _______________________________________________
