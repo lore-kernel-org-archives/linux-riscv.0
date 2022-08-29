@@ -4,61 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8676ECAAD5
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 15:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE92CECAAD5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 16:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=F1oLkIcUEWpuwg4n3Ny8+QFjngvyZ0kUWq8m1qPaEH0=; b=Fzradx1ooV+sBL
-	fhli7oRXRyC5llYLYdG2c+VvSSxBXevj3Dw2odmq+GOkqMZn981IvH9i5Ah+eg0y1gcj/+QoIA8SW
-	9GDR9dWzC41FnI+uIJ08aMBmitfW8Ad9rARugZexUSVRxB7ATsFerEVoXEiAuh6tqgRMTT7RSkS7Z
-	WeNw3XYarEyRZTztnHQ9H8FmYRAAL4Yckz3iHXy+yJ7gqcOYla/s5fclMZtGJINnwmAHU3/fwer+1
-	R4oRIA+UYwPnExpnFQGVzzce+TXHgs/sQ/cVLrrTyk4+9TDQwhy4SzlUApZbI+WfAwEPGVShs598x
-	rts7HNIuM2SlhEXgGCMg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GUDRxx0krwaHf9j/xWh3754VxxMPmX9jENpuKgZXvqI=; b=zgqhlcxUE5btq2
+	rQFFiDkT6EprnthROAbjUMjw7g5OvIGOjO/j6nN09iWtU9fp2p78NhNa9uqsjK3bI894Ts4HUX/ur
+	CbyP3eYSsFjMzYG3HJ6QUo2Da2pn1f/WEti13/7JEXZGpJj7SRXBX/ptvUNcmvwV/uwZe15ii+XW6
+	FY5c6lhEN8jU//HpwRSPUjR1rMxYqEMvfyaC0DUlRtGUclgs8NgdTxHImMZHnt9rNvyWzQTivXOrv
+	tRKaxvVGaJS9lWF2DSsbHKOofBe0351SqGYMwDGCivxk9VyYqRT9jIvhja9ivp96qL9BQs1f3+I6A
+	94a6nVl9HLGPcdYUf7eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSgLy-00BGUW-3E; Mon, 29 Aug 2022 15:07:06 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oShVf-00BhW3-2d; Mon, 29 Aug 2022 16:21:11 +0000
+Received: from out1.migadu.com ([2001:41d0:2:863f::])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSgLu-00BGTe-OK
-	for linux-riscv@lists.infradead.org; Mon, 29 Aug 2022 15:07:04 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id B0811610FB;
-	Mon, 29 Aug 2022 15:06:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 954FDC433C1;
-	Mon, 29 Aug 2022 15:06:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1661785618;
-	bh=K2Sqs5g2tp+43xxFZspN1D8v3qOT6RryXTyaXO3QnJY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=YYXlnOUgStpRCiFT6xNptSzJyFRT4JucbhZeoUfkRrgmPajuUSeKoR2RX375IVAwW
-	 fWUicxuedS/yJYoXbHl4oSA/B2FW4Hz1VP9bGfUEJlbJX8b/18ozyR5dvuBNk65C/1
-	 0qtiP53v9e830gxaaZCnzYMnKam3CbPRjQ4nOKmzqo5F3Jj+l1hxIot9mlt3Y0BGiL
-	 fKvlG2pZGtIPoSDEMmqaV1Mh/qCP9u7wSb8asYue/vJJuJQ8Lc0UToDR4WpIVVJLP9
-	 Ew2MdR07uCX8N1dG2rJ8pMmJIueJ2b/CS8S5qxyNZBtoIJx5RjYNRLyepRzDAfq1Qb
-	 SMTZRKKlK8L/g==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1oShQT-00BezN-Lq; Mon, 29 Aug 2022 16:15:51 +0000
+Date: Mon, 29 Aug 2022 18:15:36 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1661789739;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+wStadIO0VmoiizHUtMBUV7ir4oix+OG46hCH3/9nUA=;
+	b=axsCOB4iqY8LlEIt1QM5kBid32gDCkM7tTjX+MaW67UKJMAocXMBMyQTKWkZJQuliAWCSI
+	ugfhKgH5bl8QaX3KFeeyeHQAfBD2EZSE87zo7nshwXmqu46M70v71qFDmiv34QxSkK6F98
+	iiMDGI469oRRmmLbgxzwFTpnag5/u3c=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Andrew Jones <andrew.jones@linux.dev>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v3] riscv: enable THP_SWAP for RV64
-Date: Mon, 29 Aug 2022 22:57:42 +0800
-Message-Id: <20220829145742.3139-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	James Morse <james.morse@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Atish Patra <atishp@atishpatra.org>,
+	David Hildenbrand <david@redhat.com>, Tom Rix <trix@redhat.com>,
+	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.cs.columbia.edu, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>,
+	Peter Gonda <pgonda@google.com>
+Subject: Re: [PATCH v5 3/7] KVM: selftests: Automatically do init_ucall() for
+ non-barebones VMs
+Message-ID: <20220829161536.gszp6yvgbzwnor7r@kamzik>
+References: <20220825232522.3997340-1-seanjc@google.com>
+ <20220825232522.3997340-4-seanjc@google.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220825232522.3997340-4-seanjc@google.com>
+X-Migadu-Flow: FLOW_OUT
+X-Migadu-Auth-User: linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220829_080702_926539_4D7A1605 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220829_091550_081884_1C6F1E2C 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,52 +87,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I have a Sipeed Lichee RV dock board which only has 512MB DDR, so
-memory optimizations such as swap on zram are helpful. As is seen
-in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64") and
-commit bd4c82c22c367e ("mm, THP, swap: delay splitting THP after
-swapped out"), THP_SWAP can improve the swap throughput significantly.
+On Thu, Aug 25, 2022 at 11:25:18PM +0000, Sean Christopherson wrote:
+> Do init_ucall() automatically during VM creation to kill two (three?)
+> birds with one stone.
+> 
+> First, initializing ucall immediately after VM creations allows forcing
+> aarch64's MMIO ucall address to immediately follow memslot0.  This is
+> still somewhat fragile as tests could clobber the MMIO address with a
+> new memslot, but it's safe-ish since tests have to be conversative when
+> accounting for memslot0.  And this can be hardened in the future by
+> creating a read-only memslot for the MMIO page (KVM ARM exits with MMIO
+> if the guest writes to a read-only memslot).  Add a TODO to document that
+> selftests can and should use a memslot for the ucall MMIO (doing so
+> requires yet more rework because tests assumes thay can use all memslots
+> except memslot0).
+> 
+> Second, initializing ucall for all VMs prepares for making ucall
+> initialization meaningful on all architectures.  aarch64 is currently the
+> only arch that needs to do any setup, but that will change in the future
+> by switching to a pool-based implementation (instead of the current
+> stack-based approach).
+> 
+> Lastly, defining the ucall MMIO address from common code will simplify
+> switching all architectures (except s390) to a common MMIO-based ucall
+> implementation (if there's ever sufficient motivation to do so).
+> 
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  .../selftests/kvm/aarch64/arch_timer.c        |  1 -
+>  .../selftests/kvm/aarch64/debug-exceptions.c  |  1 -
+>  .../selftests/kvm/aarch64/hypercalls.c        |  1 -
+>  .../testing/selftests/kvm/aarch64/psci_test.c |  1 -
+>  .../testing/selftests/kvm/aarch64/vgic_init.c |  2 -
+>  .../testing/selftests/kvm/aarch64/vgic_irq.c  |  1 -
+>  tools/testing/selftests/kvm/dirty_log_test.c  |  2 -
+>  .../selftests/kvm/include/ucall_common.h      |  6 +--
+>  .../selftests/kvm/kvm_page_table_test.c       |  1 -
+>  .../testing/selftests/kvm/lib/aarch64/ucall.c | 54 ++-----------------
+>  tools/testing/selftests/kvm/lib/kvm_util.c    | 11 ++++
+>  .../selftests/kvm/lib/perf_test_util.c        |  2 -
+>  tools/testing/selftests/kvm/lib/riscv/ucall.c |  2 +-
+>  tools/testing/selftests/kvm/lib/s390x/ucall.c |  2 +-
+>  .../testing/selftests/kvm/lib/x86_64/ucall.c  |  2 +-
+>  .../testing/selftests/kvm/memslot_perf_test.c |  1 -
+>  tools/testing/selftests/kvm/rseq_test.c       |  1 -
+>  tools/testing/selftests/kvm/steal_time.c      |  1 -
+>  .../kvm/system_counter_offset_test.c          |  1 -
+>  19 files changed, 20 insertions(+), 73 deletions(-)
+>
 
-Enable THP_SWAP for RV64, testing the micro-benchmark which is
-introduced by commit d0637c505f8a ("arm64: enable THP_SWAP for arm64")
-shows below numbers on the Lichee RV dock board:
+Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
 
-swp out bandwidth w/o patch: 66908 bytes/ms (mean of 10 tests)
-swp out bandwidth w/ patch: 322638 bytes/ms (mean of 10 tests)
-
-Improved by 382%!
-
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
-Since v2:
- - correct reviewed-by tag
- - update commit msg
-
-Since v1:
- - collect reviewed-by tag
- - make ARCH_WANTS_THP_SWAP rely on HAVE_ARCH_TRANSPARENT_HUGEPAGE
-   instead
-
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index ed66c31e4655..79e52441e18b 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -45,6 +45,7 @@ config RISCV
- 	select ARCH_WANT_FRAME_POINTERS
- 	select ARCH_WANT_GENERAL_HUGETLB
- 	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
-+	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
- 	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
- 	select BUILDTIME_TABLE_SORT if MMU
- 	select CLONE_BACKWARDS
--- 
-2.34.1
-
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
