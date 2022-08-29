@@ -4,85 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AA2ECAAD2
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 14:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47436ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 14:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xRrra/iQfyfqS0sX1RsD/H1VdZ+eJ8YHPZc+vn7ario=; b=WtjT3qMP42ozZC
-	uBQFiSDbrguHHkZoYQ9YqDZnqKQur5iPbK2SsUpWSItwk30jPRq70+fCq5MmEhh0T9w717Ho0OUGc
-	a2c5z2Bva6cHxh/rwsMeqyH++G0iLJFzRxk/dKh6waXOP44ZqWa2WDbZCetG+IAP6j+aZNaswg5ev
-	OyF3DVzd7unaT3Sw92b4ACw7sjAb6hMdQURjNyxOXmpdZey7v9XStRSzlETKOECkeNvNkObCyKwGp
-	5Wn4aOCO9U56GZ54VcUyU3+bMR7JJ+gYwjug3Wu9gJDx0n7hsuWxWuqiA3489IQDyCjXIs2OAOE/G
-	qpik3Qumjz+ABLppBSVQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ctoiIZhhCKai/dmNbJkEc20SjqPGE9d7vEWJHNZD2JA=; b=y0Yx4+vqM2hlFo
+	5F59GBTJiEOUIkDX8SrnL67at1AIpd9uNnzI0expANtwvMJ9ocSuba0HJk43I8S62KGAAa9i/7JkG
+	HqEDSuJCECqp4TJRl3Vg13zN99A8hZbMk18knWrEbWUfSCq97Wm4L4kZtwVu8YrF9sJ0QN8f7DMQR
+	BwkPqUKWEVhtnfwsSamUscJguP9/oVl4kpDB3GwsUPlrgAACsV93HrP8WJuxNpaUatCtUaxzuxY5/
+	7COmrUSLDKk2TGJoVBL9kcFYF9xcFVpZyEuQgNeNYtKff3+F4wnVzQXaPZGU8I0Y0gZikQSat6LkV
+	J4GXImhG+fLC7R89Zm8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSfLt-00AvXE-Mj; Mon, 29 Aug 2022 14:02:58 +0000
-Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
+	id 1oSfcc-00B34j-IV; Mon, 29 Aug 2022 14:20:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSf7U-00ApKk-Gv; Mon, 29 Aug 2022 13:48:07 +0000
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	id 1oSfcZ-00B33N-TM
+	for linux-riscv@lists.infradead.org; Mon, 29 Aug 2022 14:20:13 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id BE0571F8BA;
-	Mon, 29 Aug 2022 13:47:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1661780878; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=z8v8hIBgOnjJ8xhoD9EZ4lTuLGuumwo0j80Jmrs/kH4=;
-	b=EPsfEpnQA/yt9w/uzZ4FSOlGTAlV1iEwXHSgwP2Gnebj+GpayeHwGcxfavOpmhKAYOwiuS
-	dGBf6vLkrCQ1JguiTWnd8SPi+ItCnIyZXLceX7h+/fDW8on84c9nDEFt8m1S0W0Jo75+ur
-	qShPfRDCBna5QtE6En8xANO4bq+ErtU=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1661780878;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
-	bh=z8v8hIBgOnjJ8xhoD9EZ4lTuLGuumwo0j80Jmrs/kH4=;
-	b=QTJ+O6zePsWlRUsqsSSb39Cfna5YelOVy6xpC6fcEa4U0kXGcAiLL0tfvkQHnpOmD2Stm7
-	T4jdxCK4wyIUXmDQ==
-Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
-	(No client certificate requested)
-	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 8857C1352A;
-	Mon, 29 Aug 2022 13:47:58 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([192.168.254.65])
-	by imap2.suse-dmz.suse.de with ESMTPSA
-	id Xne7II7DDGOJWgAAMHmgww
-	(envelope-from <iivanov@suse.de>); Mon, 29 Aug 2022 13:47:58 +0000
-From: "Ivan T. Ivanov" <iivanov@suse.de>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Maxime Ripard <maxime@cerno.tech>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	"Ivan T. Ivanov" <iivanov@suse.de>,
-	Stefan Wahren <stefan.wahren@i2se.com>
-Cc: Phil Elwell <phil@raspberrypi.com>,
-	kernel test robot <lkp@intel.com>,
-	linux-clk@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4] clk: bcm2835: Round UART input clock up
-Date: Mon, 29 Aug 2022 16:29:40 +0300
-Message-Id: <20220829132943.144608-1-iivanov@suse.de>
-X-Mailer: git-send-email 2.35.3
+	by dfw.source.kernel.org (Postfix) with ESMTPS id C8BEE60E9D;
+	Mon, 29 Aug 2022 14:20:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 300DEC433C1;
+	Mon, 29 Aug 2022 14:20:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1661782809;
+	bh=5t9TYUD+7W9POaNmmtNmb01GYlGZ8fVGivHM4X+6f2M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NB0+0Mwkdgsa95TVX/0Jeji1znYOMzQXT1a70l9QbWiHgxF3iwBjcGJrprerId8tQ
+	 n/1bto5FbCQflPk49KQ54vGgbaBr7HxI7334gQxZmoyQ72qgJjrIsETi6+mzbLdAQq
+	 XDjmULvnzU433k8CSsBRjjNQAfkXzhPEV6shVbUeehBKPoqdSaF0xzr1X6fN6pzV1f
+	 pJCnB+RCRRLcH3JPXLCD3DUig7LJxnnhFwZ1Q179TDxVn4rvuTFoF/W6ZWkQ+vsXA4
+	 7v2OlutPDVQ8mJoUketumtAbUM15OQCw35WOTub+w5zZeP/3lOJD/CAaFS239UkCZ6
+	 VNfrlhqHj95kg==
+Date: Mon, 29 Aug 2022 22:10:53 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor.Dooley@microchip.com
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ajones@ventanamicro.com
+Subject: Re: [PATCH v2] riscv: enable THP_SWAP for RV64
+Message-ID: <YwzI7VmfFnOvYWgf@xhacker>
+References: <20220827095815.698-1-jszhang@kernel.org>
+ <0256a458-440c-171c-2a6f-e88a50c16f82@microchip.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <0256a458-440c-171c-2a6f-e88a50c16f82@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220829_064804_992273_A9D5825B 
-X-CRM114-Status: GOOD (  19.57  )
+X-CRM114-CacheID: sfid-20220829_072012_026473_A1B230F9 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,134 +74,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It was reported that RPi3[1] and RPi Zero 2W boards have issues with
-the Bluetooth. It turns out that when switching from initial to
-operation speed host and device no longer can talk each other because
-host uses incorrect UART baud rate.
+On Sat, Aug 27, 2022 at 09:13:03PM +0000, Conor.Dooley@microchip.com wrote:
+> Hey Jisheng,
 
-The UART driver used in this case is amba-pl011. Original fix, see
-below Github link[2], was inside pl011 module, but somehow it didn't
-look as the right place to fix. Beside that this original rounding
-function is not exactly perfect for all possible clock values. So I
-deiced to move the hack to the platform which actually need it.
+Hi Conor,
 
-The UART clock is initialised to be as close to the requested
-frequency as possible without exceeding it. Now that there is a
-clock manager that returns the actual frequencies, an expected
-48MHz clock is reported as 47999625. If the requested baud rate
-== requested clock/16, there is no headroom and the slight
-reduction in actual clock rate results in failure.
+> On 27/08/2022 10:58, Jisheng Zhang wrote:
+> > I have a Sipeed Lichee RV dock board which only has 512MB DDR, so
+> > memory optimizations such as swap on zram are helpful. As is seen
+> > in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64") and
+> > commit bd4c82c22c367e ("mm, THP, swap: delay splitting THP after
+> > swapped out"), THP_SWAP can improve the swap throughput significantly.
+> > 
+> > Enable THP_SWAP for RV64, testing the micro-benchmark which is
+> > introduced by commit d0637c505f8a ("arm64: enable THP_SWAP for arm64")
+> > shows below numbers on the Lichee RV dock board:
+> > 
+> > thp swp throughput w/o patch: 66908 bytes/ms (mean of 10 tests)
+> > thp swp throughput w/ patch: 322638 bytes/ms (mean of 10 tests)
+> 
+> I know the original commit message contains this, but it's a little
+> odd. If the patch /enables/ THP then how would there be THP swap
+> prior to the patch?
 
-If increasing a clock by less than 0.1% changes it from ..999..
-to ..000.., round it up.
+hmm, it's swap I'll send a v3 to correct the description.
 
-[1] https://bugzilla.suse.com/show_bug.cgi?id=1188238
-[2] https://github.com/raspberrypi/linux/commit/ab3f1b39537f6d3825b8873006fbe2fc5ff057b7
+> 
+> > 
+> > Improved by 382%!
+> 
+> I could not replicate the after numbers on my nezha, so I suspect
+> I am missing something in my config/setup. zswap is enabled and is
 
-Cc: Phil Elwell <phil@raspberrypi.com>
-Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
----
+swap on zram rather than zswap ;)
 
-Changes since v3
-* Rework 'scaler' calculation to avoid overflow
-* Update Phil Elwell email address
-
-Changes since v2
-* Added more information in commit message
-* Changed hand crafted round function with the one form math.h
-
-Changes since v1
-Make bcm2835_clock_round() static to fix following warning
-when compiling for riscv:
-drivers/clk/bcm/clk-bcm2835.c:997:15: warning: no previous prototype for 'bcm2835_clock_round' [-Wmissing-prototypes]
-Reported-by: kernel test robot <lkp@intel.com>
-
- drivers/clk/bcm/clk-bcm2835.c | 35 +++++++++++++++++++++++++++++++++--
- 1 file changed, 33 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
-index 48a1eb9f2d55..26a5c9a0dd34 100644
---- a/drivers/clk/bcm/clk-bcm2835.c
-+++ b/drivers/clk/bcm/clk-bcm2835.c
-@@ -30,6 +30,7 @@
- #include <linux/debugfs.h>
- #include <linux/delay.h>
- #include <linux/io.h>
-+#include <linux/math.h>
- #include <linux/module.h>
- #include <linux/of_device.h>
- #include <linux/platform_device.h>
-@@ -502,6 +503,8 @@ struct bcm2835_clock_data {
- 	bool low_jitter;
- 
- 	u32 tcnt_mux;
-+
-+	bool round_up;
- };
- 
- struct bcm2835_gate_data {
-@@ -993,12 +996,34 @@ static long bcm2835_clock_rate_from_divisor(struct bcm2835_clock *clock,
- 	return temp;
- }
- 
-+static unsigned long bcm2835_clock_round(unsigned long clk)
-+{
-+	unsigned long scaler;
-+	unsigned long limit;;
-+
-+	limit = clk / 100000;
-+
-+	scaler = 1;
-+	while (scaler < limit)
-+		scaler *= 10;
-+
-+	/*
-+	 * If increasing a clock by less than 0.1% changes it
-+	 * from ..999.. to ..000.., round up.
-+	 */
-+	if ((clk + scaler - 1) / scaler % 1000 == 0)
-+		clk = roundup(clk, scaler);
-+
-+	return clk;
-+}
-+
- static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
- 					    unsigned long parent_rate)
- {
- 	struct bcm2835_clock *clock = bcm2835_clock_from_hw(hw);
- 	struct bcm2835_cprman *cprman = clock->cprman;
- 	const struct bcm2835_clock_data *data = clock->data;
-+	unsigned long rate;
- 	u32 div;
- 
- 	if (data->int_bits == 0 && data->frac_bits == 0)
-@@ -1006,7 +1031,12 @@ static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
- 
- 	div = cprman_read(cprman, data->div_reg);
- 
--	return bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
-+	rate = bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
-+
-+	if (data->round_up)
-+		rate = bcm2835_clock_round(rate);
-+
-+	return rate;
- }
- 
- static void bcm2835_clock_wait_busy(struct bcm2835_clock *clock)
-@@ -2143,7 +2173,8 @@ static const struct bcm2835_clk_desc clk_desc_array[] = {
- 		.div_reg = CM_UARTDIV,
- 		.int_bits = 10,
- 		.frac_bits = 12,
--		.tcnt_mux = 28),
-+		.tcnt_mux = 28,
-+		.round_up = true),
- 
- 	/* TV encoder clock.  Only operating frequency is 108Mhz.  */
- 	[BCM2835_CLOCK_VEC]	= REGISTER_PER_CLK(
--- 
-2.35.3
-
+> working, TRANSPARENT_HUGEPAGE is enabled etc. Not that it matters
+> for acceptance of the patch though.
+> 
+> I gave it a try and nothing went up in flames while using zswap so:
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+> 
+> > 
+> > Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> > Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> > Since v1:
+> >  - collect reviewed-by tag
+> >  - make ARCH_WANTS_THP_SWAP rely on HAVE_ARCH_TRANSPARENT_HUGEPAGE
+> >    instead
+> > 
+> >  arch/riscv/Kconfig | 1 +
+> >  1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index ed66c31e4655..79e52441e18b 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -45,6 +45,7 @@ config RISCV
+> >  	select ARCH_WANT_FRAME_POINTERS
+> >  	select ARCH_WANT_GENERAL_HUGETLB
+> >  	select ARCH_WANT_HUGE_PMD_SHARE if 64BIT
+> > +	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
+> >  	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+> >  	select BUILDTIME_TABLE_SORT if MMU
+> >  	select CLONE_BACKWARDS
 
 _______________________________________________
 linux-riscv mailing list
