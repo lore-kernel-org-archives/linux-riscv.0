@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FDBECAAD2
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 14:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0AA2ECAAD2
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 14:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4AaTP2eH+ygK1fR0K12nPf7C385fHkhF6a99fdLwPiQ=; b=lV5Ao661U8EMXe
-	f77vpVauT6BiRiaBc2xVGWkOxVKguEMhz0nwa+XV4aV7IEEYrl+OEUTmyaFss2fC9LFrbWiOICI3x
-	QJ808yEK4e+dIJbqfWZwBiaWgZLT8FHIacX6CKbe327fQDv3DxcCXywHKgi+KIOG/vqc53PGCNcjl
-	PUiPV+cqTnE93k1bmmkU8jN2fyPUQU7m1m05w9SZv5cHp4TeJoxVCqs3lxbt3JZsbsI/Pp/kDM7/s
-	okt9Qug+LoL7m1B+KWAjzvrqlorm1ah7kD9w/8dOoNSWLxrYN8Ue3nSbW/kmYHrp2mdD9MYh16i1d
-	OOOwneKtIrqW3cAioO0Q==;
+	List-Owner; bh=xRrra/iQfyfqS0sX1RsD/H1VdZ+eJ8YHPZc+vn7ario=; b=WtjT3qMP42ozZC
+	uBQFiSDbrguHHkZoYQ9YqDZnqKQur5iPbK2SsUpWSItwk30jPRq70+fCq5MmEhh0T9w717Ho0OUGc
+	a2c5z2Bva6cHxh/rwsMeqyH++G0iLJFzRxk/dKh6waXOP44ZqWa2WDbZCetG+IAP6j+aZNaswg5ev
+	OyF3DVzd7unaT3Sw92b4ACw7sjAb6hMdQURjNyxOXmpdZey7v9XStRSzlETKOECkeNvNkObCyKwGp
+	5Wn4aOCO9U56GZ54VcUyU3+bMR7JJ+gYwjug3Wu9gJDx0n7hsuWxWuqiA3489IQDyCjXIs2OAOE/G
+	qpik3Qumjz+ABLppBSVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSfKv-00Av2h-8q; Mon, 29 Aug 2022 14:01:57 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oSfLt-00AvXE-Mj; Mon, 29 Aug 2022 14:02:58 +0000
+Received: from smtp-out2.suse.de ([2001:67c:2178:6::1d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSf20-00Ancf-Cf
-	for linux-riscv@lists.infradead.org; Mon, 29 Aug 2022 13:42:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661780544; x=1693316544;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Dm77TZdDOsxyEUyf3mIDyCgCwIVjRlmyzDrQ7gf/weQ=;
-  b=diTF9wP2K8xL1tboD3GgfJxHHF6kfGCBPC5oZ+w7EqzskPrbv7yWHcdW
-   hP5qg4mLEK85AO1xO/wvpyG4EEGHw2R3hjyXapIzF9BwA8ncqf9VfEs6b
-   UOU6pKjomn6ik0R4ZqrCu9zSpglL7YADt0K0CkBEBnQee3/+GQqL4BWYK
-   dEUKgJLPJLxnu628pwWMaPIE01qqxl/d7UbvzX7xCqtU9/cL5TXT3aY0M
-   cXZ5EialIw8M4sH4OMR0lagLzauPXJyU2g9JI6pDwjIqO0DVHd3DFCYqp
-   Q/IXV1pgIKRgTmF3gX2/McREhcc83kNU4l6hHYkIYPzhz7vHWtIqubzrH
-   w==;
-X-IronPort-AV: E=Sophos;i="5.93,272,1654585200"; 
-   d="scan'208";a="174633417"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 29 Aug 2022 06:42:16 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Mon, 29 Aug 2022 06:42:16 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Mon, 29 Aug 2022 06:42:13 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
-	<daire.mcnamara@microchip.com>, Rob Herring <robh+dt@kernel.org>, "Krzysztof
- Kozlowski" <krzysztof.kozlowski+dt@linaro.org>
-CC: Cyril Jean <cyril.jean@microchip.com>, Lewis Hanly
-	<lewis.hanly@microchip.com>, Paul Walmsley <paul.walmsley@sifive.com>,
-	"Palmer Dabbelt" <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-	<linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH] dt-bindings: riscv: update microchip.yaml's maintainership
-Date: Mon, 29 Aug 2022 14:41:04 +0100
-Message-ID: <20220829134102.1248504-1-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.36.1
+	id 1oSf7U-00ApKk-Gv; Mon, 29 Aug 2022 13:48:07 +0000
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id BE0571F8BA;
+	Mon, 29 Aug 2022 13:47:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1661780878; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=z8v8hIBgOnjJ8xhoD9EZ4lTuLGuumwo0j80Jmrs/kH4=;
+	b=EPsfEpnQA/yt9w/uzZ4FSOlGTAlV1iEwXHSgwP2Gnebj+GpayeHwGcxfavOpmhKAYOwiuS
+	dGBf6vLkrCQ1JguiTWnd8SPi+ItCnIyZXLceX7h+/fDW8on84c9nDEFt8m1S0W0Jo75+ur
+	qShPfRDCBna5QtE6En8xANO4bq+ErtU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1661780878;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=z8v8hIBgOnjJ8xhoD9EZ4lTuLGuumwo0j80Jmrs/kH4=;
+	b=QTJ+O6zePsWlRUsqsSSb39Cfna5YelOVy6xpC6fcEa4U0kXGcAiLL0tfvkQHnpOmD2Stm7
+	T4jdxCK4wyIUXmDQ==
+Received: from imap2.suse-dmz.suse.de (imap2.suse-dmz.suse.de [192.168.254.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-521) server-digest SHA512)
+	(No client certificate requested)
+	by imap2.suse-dmz.suse.de (Postfix) with ESMTPS id 8857C1352A;
+	Mon, 29 Aug 2022 13:47:58 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([192.168.254.65])
+	by imap2.suse-dmz.suse.de with ESMTPSA
+	id Xne7II7DDGOJWgAAMHmgww
+	(envelope-from <iivanov@suse.de>); Mon, 29 Aug 2022 13:47:58 +0000
+From: "Ivan T. Ivanov" <iivanov@suse.de>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Maxime Ripard <maxime@cerno.tech>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	"Ivan T. Ivanov" <iivanov@suse.de>,
+	Stefan Wahren <stefan.wahren@i2se.com>
+Cc: Phil Elwell <phil@raspberrypi.com>,
+	kernel test robot <lkp@intel.com>,
+	linux-clk@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v4] clk: bcm2835: Round UART input clock up
+Date: Mon, 29 Aug 2022 16:29:40 +0300
+Message-Id: <20220829132943.144608-1-iivanov@suse.de>
+X-Mailer: git-send-email 2.35.3
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220829_064224_577208_6317CC90 
-X-CRM114-Status: UNSURE (   9.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220829_064804_992273_A9D5825B 
+X-CRM114-Status: GOOD (  19.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +99,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Daire and I are the platform maintainers for Microchip's RISC-V
-FPGAs. Update the maintainers in microchip.yaml to reflect this and
-explicitly add the binding to the SoC's MAINTAINERS entry.
+It was reported that RPi3[1] and RPi Zero 2W boards have issues with
+the Bluetooth. It turns out that when switching from initial to
+operation speed host and device no longer can talk each other because
+host uses incorrect UART baud rate.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-Two patches seemed overkill for this, but scream and I will split them.
-I figured I would take this for 6.1 myself on top of my other changes
-to microchip.yaml.
----
- Documentation/devicetree/bindings/riscv/microchip.yaml | 4 ++--
- MAINTAINERS                                            | 1 +
- 2 files changed, 3 insertions(+), 2 deletions(-)
+The UART driver used in this case is amba-pl011. Original fix, see
+below Github link[2], was inside pl011 module, but somehow it didn't
+look as the right place to fix. Beside that this original rounding
+function is not exactly perfect for all possible clock values. So I
+deiced to move the hack to the platform which actually need it.
 
-diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
-index 37f97ee4fe46..9eaa21769457 100644
---- a/Documentation/devicetree/bindings/riscv/microchip.yaml
-+++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
-@@ -7,8 +7,8 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
- title: Microchip PolarFire SoC-based boards
+The UART clock is initialised to be as close to the requested
+frequency as possible without exceeding it. Now that there is a
+clock manager that returns the actual frequencies, an expected
+48MHz clock is reported as 47999625. If the requested baud rate
+== requested clock/16, there is no headroom and the slight
+reduction in actual clock rate results in failure.
+
+If increasing a clock by less than 0.1% changes it from ..999..
+to ..000.., round it up.
+
+[1] https://bugzilla.suse.com/show_bug.cgi?id=1188238
+[2] https://github.com/raspberrypi/linux/commit/ab3f1b39537f6d3825b8873006fbe2fc5ff057b7
+
+Cc: Phil Elwell <phil@raspberrypi.com>
+Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+---
+
+Changes since v3
+* Rework 'scaler' calculation to avoid overflow
+* Update Phil Elwell email address
+
+Changes since v2
+* Added more information in commit message
+* Changed hand crafted round function with the one form math.h
+
+Changes since v1
+Make bcm2835_clock_round() static to fix following warning
+when compiling for riscv:
+drivers/clk/bcm/clk-bcm2835.c:997:15: warning: no previous prototype for 'bcm2835_clock_round' [-Wmissing-prototypes]
+Reported-by: kernel test robot <lkp@intel.com>
+
+ drivers/clk/bcm/clk-bcm2835.c | 35 +++++++++++++++++++++++++++++++++--
+ 1 file changed, 33 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
+index 48a1eb9f2d55..26a5c9a0dd34 100644
+--- a/drivers/clk/bcm/clk-bcm2835.c
++++ b/drivers/clk/bcm/clk-bcm2835.c
+@@ -30,6 +30,7 @@
+ #include <linux/debugfs.h>
+ #include <linux/delay.h>
+ #include <linux/io.h>
++#include <linux/math.h>
+ #include <linux/module.h>
+ #include <linux/of_device.h>
+ #include <linux/platform_device.h>
+@@ -502,6 +503,8 @@ struct bcm2835_clock_data {
+ 	bool low_jitter;
  
- maintainers:
--  - Cyril Jean <Cyril.Jean@microchip.com>
--  - Lewis Hanly <lewis.hanly@microchip.com>
-+  - Conor Dooley <conor.dooley@microchip.com>
-+  - Daire McNamara <daire.mcnamara@microchip.com>
+ 	u32 tcnt_mux;
++
++	bool round_up;
+ };
  
- description:
-   Microchip PolarFire SoC-based boards
-diff --git a/MAINTAINERS b/MAINTAINERS
-index cc549debe20c..7d788e064390 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -17572,6 +17572,7 @@ F:	Documentation/devicetree/bindings/i2c/microchip,corei2c.yaml
- F:	Documentation/devicetree/bindings/mailbox/microchip,mpfs-mailbox.yaml
- F:	Documentation/devicetree/bindings/net/can/microchip,mpfs-can.yaml
- F:	Documentation/devicetree/bindings/pwm/microchip,corepwm.yaml
-+F:	Documentation/devicetree/bindings/riscv/microchip.yaml
- F:	Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-sys-controller.yaml
- F:	Documentation/devicetree/bindings/spi/microchip,mpfs-spi.yaml
- F:	Documentation/devicetree/bindings/usb/microchip,mpfs-musb.yaml
+ struct bcm2835_gate_data {
+@@ -993,12 +996,34 @@ static long bcm2835_clock_rate_from_divisor(struct bcm2835_clock *clock,
+ 	return temp;
+ }
+ 
++static unsigned long bcm2835_clock_round(unsigned long clk)
++{
++	unsigned long scaler;
++	unsigned long limit;;
++
++	limit = clk / 100000;
++
++	scaler = 1;
++	while (scaler < limit)
++		scaler *= 10;
++
++	/*
++	 * If increasing a clock by less than 0.1% changes it
++	 * from ..999.. to ..000.., round up.
++	 */
++	if ((clk + scaler - 1) / scaler % 1000 == 0)
++		clk = roundup(clk, scaler);
++
++	return clk;
++}
++
+ static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
+ 					    unsigned long parent_rate)
+ {
+ 	struct bcm2835_clock *clock = bcm2835_clock_from_hw(hw);
+ 	struct bcm2835_cprman *cprman = clock->cprman;
+ 	const struct bcm2835_clock_data *data = clock->data;
++	unsigned long rate;
+ 	u32 div;
+ 
+ 	if (data->int_bits == 0 && data->frac_bits == 0)
+@@ -1006,7 +1031,12 @@ static unsigned long bcm2835_clock_get_rate(struct clk_hw *hw,
+ 
+ 	div = cprman_read(cprman, data->div_reg);
+ 
+-	return bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
++	rate = bcm2835_clock_rate_from_divisor(clock, parent_rate, div);
++
++	if (data->round_up)
++		rate = bcm2835_clock_round(rate);
++
++	return rate;
+ }
+ 
+ static void bcm2835_clock_wait_busy(struct bcm2835_clock *clock)
+@@ -2143,7 +2173,8 @@ static const struct bcm2835_clk_desc clk_desc_array[] = {
+ 		.div_reg = CM_UARTDIV,
+ 		.int_bits = 10,
+ 		.frac_bits = 12,
+-		.tcnt_mux = 28),
++		.tcnt_mux = 28,
++		.round_up = true),
+ 
+ 	/* TV encoder clock.  Only operating frequency is 108Mhz.  */
+ 	[BCM2835_CLOCK_VEC]	= REGISTER_PER_CLK(
 -- 
-2.36.1
+2.35.3
 
 
 _______________________________________________
