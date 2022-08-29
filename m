@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27583ECAAD2
-	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 16:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84154ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Mon, 29 Aug 2022 16:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vPkhmnsj+ejgt31CDh05n0RysApL/IfxQbJ1BbgwDEI=; b=aPpSDC6jFhJHcg
-	GjCleW41Kw2Bm4MQgIAbY8o6zD49IjYi0Q03nm60XKgeR1Tkup4y3FGOHUMMVdc17+1Hs5deAsqY4
-	qcvMS7QiGbxQFkxVpPNgercMBS8ekKDyZHKXPEW8Fc0aKMevaIzqS++AxbqI/kMMAN8HMN285g6Hs
-	TZLQLv6e7imdqmdjjwqaBRNSGw7Pjt6IAaRVigqP2mi4g+AWT98IgrNhx2uKh7wM/kTSzWIcwgAiB
-	bZszjUhPJj+G42yThsO/ncPkiMkgYXKQi0Y2BI5k5b51nNvjBgR4G7aoow+1rQ6mT3Utw4Sa0qNOz
-	5EYSRm+AHMhcGGdFTlPw==;
+	List-Owner; bh=FIso5KEj7llv8mWNvws9H24NSw8cMcKbOWo4qr54KxE=; b=QEtkRVX0LAaWoB
+	Zr9lA+2ctuxdcZ/BV1wvB4SKH0nJg/dLwkbcW4Sp73MWEIICi73OITHC5XCWsEmGxNjrJnWpAreoV
+	87xfyLVJtD+J66v1q8kbnVZIOqFQmD5E1XAuE0naIwAzz61EgGz/nQWsHpVyIXgZi2fN7sqGfN5zy
+	l7AWfa5Mcz260XoDLVUzxqjqqBAsKl6JappJ12P7OisZL4qkE3FsC4plLRvNtJhbJG5L5QpDtud9o
+	X7RO2LTGzMOuXuRMX91+S3xzQ4uStAH8FmlOjtjBwFx9zVkggxBIkV49aFCISnEU0CxHAPq1s5C7l
+	a7njDGIPSanHvBEwPH4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSheX-00Bl8I-JK; Mon, 29 Aug 2022 16:30:21 +0000
+	id 1oShfo-00BliA-G7; Mon, 29 Aug 2022 16:31:40 +0000
 Received: from out0.migadu.com ([2001:41d0:2:267::])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oShUP-00Bgvn-Cj; Mon, 29 Aug 2022 16:19:54 +0000
-Date: Mon, 29 Aug 2022 18:19:41 +0200
+	id 1oShVi-00BhXo-M5; Mon, 29 Aug 2022 16:21:16 +0000
+Date: Mon, 29 Aug 2022 18:21:11 +0200
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1661789984;
+	t=1661790073;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=URd452JoMFM9JD7pYWX5aoZrRYft8Gac0hRTpx4CpB4=;
-	b=cmAaq27a2rEDvaFF7eIf/c+iEhVwMjmtSQo0G1Xqa4rr5PmoDkzJisJPTaorWXIbYYuMsN
-	+N8RcRi9Mq5LOv6cPDYQyYshMhIlPtfYGzLct3XwxIvDIbi8Tvjjnjp38np47QcYF+a9Up
-	7KTvlcfUB1wBgeGX6fRshWbeb0i2X2I=
+	bh=V84lDEZ16EblHvtM8fgyVev0owrVHxHzScy/ND3jaaQ=;
+	b=CaPKCCVzoPf4bcbSMTSpQx2lOZ5yESWOlPHBTiOGHy4YQpHkCtql8IPuRRpSByvC5hO8de
+	6xl8kO3jvz+Vdxt6cwkLhNUnQ9HU+hkqAyGXbfk+QrVReKpiqR0UixIQTF6rHD9/2AuqXA
+	G+ANmKWFLtjqyg/LGkmx1D+5lFNxgSE=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Andrew Jones <andrew.jones@linux.dev>
 To: Sean Christopherson <seanjc@google.com>
@@ -58,19 +58,18 @@ Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
 	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
 	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>,
 	Peter Gonda <pgonda@google.com>
-Subject: Re: [PATCH v5 5/7] KVM: selftests: Make arm64's MMIO ucall multi-VM
- friendly
-Message-ID: <20220829161941.c5bd6azxv7jzpwq2@kamzik>
+Subject: Re: [PATCH v5 6/7] KVM: selftest: Drop now-unnecessary ucall_uninit()
+Message-ID: <20220829162111.wl65dxexk5qtrssf@kamzik>
 References: <20220825232522.3997340-1-seanjc@google.com>
- <20220825232522.3997340-6-seanjc@google.com>
+ <20220825232522.3997340-7-seanjc@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220825232522.3997340-6-seanjc@google.com>
+In-Reply-To: <20220825232522.3997340-7-seanjc@google.com>
 X-Migadu-Flow: FLOW_OUT
 X-Migadu-Auth-User: linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220829_091953_610518_5FFBCCC5 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20220829_092114_932654_6BD45518 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,25 +86,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Aug 25, 2022 at 11:25:20PM +0000, Sean Christopherson wrote:
-> Fix a mostly-theoretical bug where ARM's ucall MMIO setup could result in
-> different VMs stomping on each other by cloberring the global pointer.
-> 
-> Fix the most obvious issue by saving the MMIO gpa into the VM.
-> 
-> A more subtle bug is that creating VMs in parallel (on multiple tasks)
-> could result in a VM using the wrong address.  Synchronizing a global to
-> a guest effectively snapshots the value on a per-VM basis, i.e. the
-> "global" is already prepped to work with multiple VMs, but setting the
-> global in the host is not thread-safe.  To fix that bug, add
-> write_guest_global() to allow stuffing a VM's copy of a "global" without
-> modifying the host value.
+On Thu, Aug 25, 2022 at 11:25:21PM +0000, Sean Christopherson wrote:
+> Drop ucall_uninit() and ucall_arch_uninit() now that ARM doesn't modify
+> the host's copy of ucall_exit_mmio_addr, i.e. now that there's no need to
+> reset the pointer before potentially creating a new VM.  The few calls to
+> ucall_uninit() are all immediately followed by kvm_vm_free(), and that is
+> likely always going to hold true, i.e. it's extremely unlikely a test
+> will want to effectively disable ucall in the middle of a test.
 > 
 > Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
->  .../selftests/kvm/include/kvm_util_base.h     | 15 +++++++++++++++
->  .../testing/selftests/kvm/lib/aarch64/ucall.c | 19 ++++++++++++++-----
->  2 files changed, 29 insertions(+), 5 deletions(-)
+>  tools/testing/selftests/kvm/dirty_log_test.c       |  1 -
+>  tools/testing/selftests/kvm/include/ucall_common.h |  6 ------
+>  tools/testing/selftests/kvm/kvm_page_table_test.c  |  1 -
+>  tools/testing/selftests/kvm/lib/aarch64/ucall.c    | 14 ++------------
+>  tools/testing/selftests/kvm/lib/perf_test_util.c   |  1 -
+>  tools/testing/selftests/kvm/lib/riscv/ucall.c      |  4 ----
+>  tools/testing/selftests/kvm/lib/s390x/ucall.c      |  4 ----
+>  tools/testing/selftests/kvm/lib/x86_64/ucall.c     |  4 ----
+>  8 files changed, 2 insertions(+), 33 deletions(-)
 >
 
 Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
