@@ -4,96 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17EFECAAD1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 04:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48A60ECAAD1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 04:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NeAjiImhTYkzEtPNRS9DIuSF8zR8wTHZ39bYuvPB1PE=; b=mP/H5gWG5VUCkc
-	MoZhf7O+1KihJc0jqhwIwqhrpnD+EPdtOy7+IOzYr7rc2GQJpLAvAaikBxdp9WOSNNonDWzHCEaaj
-	DyiBL7crsTXvN/sjfCAQ2NAcws/ba18+bVlpijv61DfxA3M0pmH71JStafO8oHmYMk10XzrfalXNL
-	go+4C4fs60ttIFGB2ZhfmNFiMjArnUMsrm/gS6NoJ4rNuDFc7o+OexWZocG5W9NpqZbHGQ9YhXPB5
-	xk4OC9PGY95/q6Hpn4qjCVe9hmazqFP7TNwOlLb2lXpnmrxrLPsIV5yzHGF34q2WHghvCkwM1ICht
-	BtQLQcgksLt5iU3Ee51A==;
+	List-Owner; bh=BFu0YHJUXniOHJlul31yhXpYqImt1dRlCDRZQkrob64=; b=QLtYrz2+yE/CCB
+	1ePYI3KOCrDHh4MyUiq82xi0FS8Qzp09hJp5xGiV7i4DsWoh0pDFICEldP27g51+FuLF0E/rc9HbV
+	yfpwG/PGepzeiRpGWRjqfgUwiK+FhFkMZi+lFMOYNMOvtThSypf8Y6k9nXMFy0HysbUaVVEF5cUuI
+	pLPgtA40wIqwSu4SSnUCOoyN1TcoiTrpDIzKgJ8VQGgfnMXHfMYyGYE9Vc6kpctrMz9WeIqBKi6CI
+	qFIMbaiojqRHtTnBDYicDbqSL7H6NYgsFZAQdAh4hOC6giWu53KFa6oauydkzbCQmRFY0IhqvbZoC
+	9hE/tjGTqVPs3RMVvOjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSsqH-00Dzkv-1M; Tue, 30 Aug 2022 04:27:13 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1oSt60-00E23m-Pp; Tue, 30 Aug 2022 04:43:28 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSsqD-00Dzif-Vg
-	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 04:27:11 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id n65-20020a17090a5ac700b001fbb4fad865so10651321pji.1
-        for <linux-riscv@lists.infradead.org>; Mon, 29 Aug 2022 21:27:09 -0700 (PDT)
+	id 1oSt5x-00E22m-9h
+	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 04:43:26 +0000
+Received: by mail-lf1-x131.google.com with SMTP id z25so13933939lfr.2
+        for <linux-riscv@lists.infradead.org>; Mon, 29 Aug 2022 21:43:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc;
-        bh=tveQCNdrcl8zzZ90FYJSAQp/xoPHwNHO3f5B145IGDY=;
-        b=jz5ryMUneNPtN7GgAbdob+y42sDrVxRuBlqA3QA9oeD1pieZtFXjP021CLo/r+B8bv
-         MYbJ7ecSXA82j8N0LGSRSWGBEUhc3gl753fZP/eq9G6cgLilZiGUBe9U0WkOOEPuzjZF
-         1K3HPtO4P5guX5tEHivGDwt+5tsoSrBpSv2YMAohOLencXK9GT5KAEjxZPzgLhtXs8hu
-         gQg912iU7/NlDTQXrg/CEmP/aR5c+40JbNsB0FzAY+4nR+pg565IYviyzm5c/PrLrHLt
-         42P316IO38WW173exoDa9F/uBYTC0uVc+zDhMVmIYiRyS2CFUFzmi4Iwz9ul83sq02Yi
-         qJsQ==
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc;
+        bh=8xaCXOqGfO+vQafsuCd8VhQH7il5VLrKJWKilF4St6M=;
+        b=GwXz5yPPgm9q+uJRWBAXBMfz9q2Z3LD2knKm+awIpyhrT0PxqlLIdd0R77flcUOhW2
+         3CEnf4yaakjY3/a5y1FLPd7WBpEBSFOAJKKJdMsrWZVfSrM6T+GK6NBssk2f53jtws+w
+         rtPF+gNYi+HMcNJNzZEW3iUkGldnNdN+JpBoQU6KUWbouwnOfqm83q+aGMj321lNitE8
+         vkgqxIP8LQZihOG0buJT+jiR7cfescw9PBAu+LiREdc92V1EcblaJRUAgovQY3cF/IIS
+         tVfvxQessHLqHZl2+HXkm5k3Suf4IbcVctAL7p7YZFOAL7QyJJD3RF2A55s0xJxOt3Ac
+         UbJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc;
-        bh=tveQCNdrcl8zzZ90FYJSAQp/xoPHwNHO3f5B145IGDY=;
-        b=v4XzsZ5wcw+9PSoATksfxUniOGmCdpgMiGs/+0zPJMscbxsLSUihx5fU1NHO1FmmxV
-         vp4WdiSFSWIoX5pd+hliaLeRP/Tbi4ga4q/QKlGx+wuIFaLotwQ0U4iTivxgqnyDJbRZ
-         YZDrRlhRO2GJPlo9f0YiV6O5lMuAojwt8XEIR3v2c4b5n7OVpBPEPi5z39P9iSy/mIe0
-         SDzNtx/ZTrdqoFcdhCGV4Q2sMHRbw2yerlhgEvDfplZrJZhh4Y1n/CN/6V9sHdQp8yEn
-         GJz389e1Z5oLtnzuUurT+JWcCc48Rmmy4YACmt6aSSdvRDo7zHgzTF0DL5wAbzfX+uhi
-         EYCg==
-X-Gm-Message-State: ACgBeo2tPapLLPfBAptggw3QRT8tepO452Mz9KSm7uZ4QKQKl0lMfvrL
-	56Sg7gCkedmjPvVIQe02w7DCew==
-X-Google-Smtp-Source: AA6agR6j3CrMGk4TPMCPwBvaE51o8QHOWIUKsxAkxuonGlXOsZKabqIh/v6aYfhgn/tTEr+AwX2Jlw==
-X-Received: by 2002:a17:902:efca:b0:174:c901:aa8d with SMTP id ja10-20020a170902efca00b00174c901aa8dmr7736459plb.164.1661833628777;
-        Mon, 29 Aug 2022 21:27:08 -0700 (PDT)
-Received: from google.com (7.104.168.34.bc.googleusercontent.com. [34.168.104.7])
-        by smtp.gmail.com with ESMTPSA id nm21-20020a17090b19d500b001eee8998f2esm7541792pjb.17.2022.08.29.21.27.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Aug 2022 21:27:08 -0700 (PDT)
-Date: Tue, 30 Aug 2022 04:27:04 +0000
-From: Sean Christopherson <seanjc@google.com>
-To: Andrew Jones <andrew.jones@linux.dev>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nick Desaulniers <ndesaulniers@google.com>,
-	James Morse <james.morse@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Atish Patra <atishp@atishpatra.org>,
-	David Hildenbrand <david@redhat.com>, Tom Rix <trix@redhat.com>,
-	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.cs.columbia.edu, kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org, llvm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>,
-	Peter Gonda <pgonda@google.com>
-Subject: Re: [PATCH v5 7/7] KVM: selftests: Add ucall pool based
- implementation
-Message-ID: <Yw2RmCujuaOczFTY@google.com>
-References: <20220825232522.3997340-1-seanjc@google.com>
- <20220825232522.3997340-8-seanjc@google.com>
- <20220829163627.qbafyl4qz5cxxue5@kamzik>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc;
+        bh=8xaCXOqGfO+vQafsuCd8VhQH7il5VLrKJWKilF4St6M=;
+        b=6Obes8TZw3g/wzFfxiBBFd/xmRNbf/rb5tbf9ioTcXe2rAkYqdSP8jb/nhB9D8BU3V
+         n7KPB21vfUXpVmUDueLFE2VWZJk2gSuS8H3RU4R3VX37joF6xqa3AsJVTZFk8befElSC
+         4EQAok5zqu90Emo4Oqt0/Kyz7BmqiCsZhEraQn4udowMST55+pARr77DHhjjHK7YCOE5
+         CKf///rvwf0xME8g6e7Xjd4I0NEAvMuw6r8mUYVKz/yeWHTBVy1bmprE3hxoR5ob6e77
+         37v3WHgUo7S/wAxogwFlrMoF35kKaezjVtdGtvOxFfLRqCvYB05aJK5hynVw6aRhMGcz
+         3pdQ==
+X-Gm-Message-State: ACgBeo2dNAox/53LHOV9pxykxEPbTb3YLo9ivtTa2oP0xnCk2Xl5cttQ
+	xxV26z1XWIp6M+f4vMH9ztp5+B567Dpx1uE/k5T/Gw==
+X-Google-Smtp-Source: AA6agR6FIH9Ge0gOMHTpvPyKFk1FkUkl+1IoM24o5dRVl1xQTe2JUeowYngO6o1DEiT2kIyUvTkO2MLvRM2Q3rTY2gk=
+X-Received: by 2002:a05:6512:68f:b0:492:cbb1:c4b2 with SMTP id
+ t15-20020a056512068f00b00492cbb1c4b2mr7774424lfe.130.1661834603011; Mon, 29
+ Aug 2022 21:43:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220829163627.qbafyl4qz5cxxue5@kamzik>
+References: <20220829125226.511564-1-apatel@ventanamicro.com> <f4b2daab-72f6-ab5a-5743-b41bd5e2c920@microchip.com>
+In-Reply-To: <f4b2daab-72f6-ab5a-5743-b41bd5e2c920@microchip.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Tue, 30 Aug 2022 10:13:11 +0530
+Message-ID: <CAK9=C2UOGR2VQao8CCJ82mRP4kL_1V=8uXyKj_vnOXW7a=Kt8A@mail.gmail.com>
+Subject: Re: [PATCH 0/4] Add PMEM support for RISC-V
+To: Conor.Dooley@microchip.com
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, atishp@atishpatra.org, 
+	heiko@sntech.de, anup@brainfault.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220829_212710_089535_A1EE779E 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20220829_214325_386372_CDC2BD00 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,29 +85,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Aug 29, 2022, Andrew Jones wrote:
-> On Thu, Aug 25, 2022 at 11:25:22PM +0000, Sean Christopherson wrote:
-> > +static struct ucall *ucall_alloc(void)
-> > +{
-> > +	struct ucall *uc;
-> > +	int i;
-> > +
-> > +	GUEST_ASSERT(ucall_pool && ucall_pool->in_use);
-> 
-> ucall_pool->in_use will never be null.
-> 
-> > +
-> > +	for (i = 0; i < KVM_MAX_VCPUS; ++i) {
-> > +		if (!atomic_test_and_set_bit(i, ucall_pool->in_use)) {
-> > +			uc = &ucall_pool->ucalls[i];
-> > +			memset(uc->args, 0, sizeof(uc->args));
-> > +			return uc;
-> > +		}
-> > +	}
-> 
-> nit: blank line
+On Mon, Aug 29, 2022 at 11:11 PM <Conor.Dooley@microchip.com> wrote:
+>
+> On 29/08/2022 13:52, Anup Patel wrote:
+> > The Linux NVDIMM PEM drivers require arch support to map and access the
+> > persistent memory device. This series adds RISC-V PMEM support using
+> > recently added Svpbmt and Zicbom support.
+> >
+> > These patches can also be found in riscv_pmem_v1 branch at:
+> > https://github.com/avpatel/linux.git
+>
+> Hey Anup, couple build errors here:
+>
+> /stuff/linux/arch/riscv/mm/cacheflush.c:99:2: error: call to undeclared function 'for_each_of_cpu_node'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+>         for_each_of_cpu_node(node) {
+>         ^
+> /stuff/linux/arch/riscv/mm/cacheflush.c:99:28: error: expected ';' after expression
+>         for_each_of_cpu_node(node) {
+>                                   ^
+>                                   ;
+> 1 warning generated.
+> /stuff/linux/arch/riscv/mm/cacheflush.c:105:4: error: 'continue' statement not in loop statement
+>                         continue;
+>                         ^
+> /stuff/linux/arch/riscv/mm/cacheflush.c:108:4: error: 'continue' statement not in loop statement
+>                         continue;
+>                         ^
+> /stuff/linux/arch/riscv/mm/cacheflush.c:111:9: error: call to undeclared function 'of_property_read_u32'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+>                 ret = of_property_read_u32(node, "riscv,cbom-block-size", &val);
+>                       ^
+> /stuff/linux/arch/riscv/mm/cacheflush.c:113:4: error: 'continue' statement not in loop statement
+>                         continue;
+>                         ^
+> 6 errors generated.
+>
+> LKP already complained about this prior to you posting & as it has
+> all the repro needed, there's not much point in me sharing my config
+> etc:
+> https://lore.kernel.org/all/202208272028.IwrNZ0Ur-lkp@intel.com/
 
-Got 'em.  Thanks for the reviews, much appreciated!
+Strange, I never got this email.
+
+I will send v2 to fix this.
+
+Regards,
+Anup
+
+>
+> Thanks,
+> Conor.
+>
+> PS: I liked the last patch, must've been a hard config option to
+> find if it took two of you! ;)
+>
+>
+> >
+> > Anup Patel (4):
+> >   RISC-V: Fix ioremap_cache() and ioremap_wc() for systems with Svpbmt
+> >   RISC-V: Move riscv_init_cbom_blocksize() to cacheflush.c
+> >   RISC-V: Implement arch specific PMEM APIs
+> >   RISC-V: Enable PMEM drivers
+> >
+> >  arch/riscv/Kconfig                  |  1 +
+> >  arch/riscv/configs/defconfig        |  1 +
+> >  arch/riscv/include/asm/cacheflush.h |  2 ++
+> >  arch/riscv/include/asm/io.h         | 10 ++++++++
+> >  arch/riscv/include/asm/pgtable.h    |  2 ++
+> >  arch/riscv/mm/Makefile              |  1 +
+> >  arch/riscv/mm/cacheflush.c          | 37 +++++++++++++++++++++++++++++
+> >  arch/riscv/mm/dma-noncoherent.c     | 36 ----------------------------
+> >  arch/riscv/mm/pmem.c                | 21 ++++++++++++++++
+> >  9 files changed, 75 insertions(+), 36 deletions(-)
+> >  create mode 100644 arch/riscv/mm/pmem.c
+> >
 
 _______________________________________________
 linux-riscv mailing list
