@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF1A5ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 18:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F547ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 19:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ia6p5GP90rYL6reXrVOxzY6ZktRG+5UUp2ESr6eclbA=; b=jHmG0YTLGtPnZ/
-	q6Hbpdk90wSh1P9q/TYHY0LKkWWGHR5YwWo7CwLS5omVF2TqtjbJzO54PaHWU5qPRyOZnp75CBC2L
-	9Y+F9HZLxu16S/ogOpHyYerFlmnKRVW9sdZLYKMKLUhk5ithcd6m07/Rzb7Qavk8/8gdpU/1SSd66
-	/KV78Z+JsmuI7BG6OjzpL4GSfzQVeBPIWxYbXdN5ydXBGmztsOEOlAOMHtt4VtvOMsfqsoxH7tQ21
-	7oWZ++25QmCJ2RaqtAwuJLd8YPQhdQtOrfe8s2/uYx6C8mPiTX/EH2h71xqqnBA9PqvizQfIii34+
-	LqJDj+pvDw47vjuQhFcQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=OeYYiQGw5WW7kHGioZRKOIBGXX5c78dqo9NCD9zZ+wg=; b=n1y
+	/0eY8tyycZB+/72TszlfzxzWSIt+zazvHEYjqpSgCfrfJXKvlCQEHB+KcfpYq9QsPuMlFE7MHCY3n
+	EoPptsr5o42mp13mwXJzCWtlRo2ylYjgx2t9v2K7Zqw+OmCl2+j4KFwboWZP/gDU8kI7tuti/H9i+
+	wbaZYEi5zUvxBrjeQPVn0KLp1t8ff2eaWMgUMTTZADnmihmAZq3395HjbyCjNXEDnUQm31cYR2/e7
+	m0nm7wz5QKDsnuSQZxwEdPYDeEBLAr40cnb8QJWFyky66Li70wcWvZShYWNPmWSoPjSt58Pdwi7lu
+	cNR3lU/gHxkoJmbFSXKZGm3mAT4ZJcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oT5aa-0014nc-Pg; Tue, 30 Aug 2022 18:03:52 +0000
-Received: from mail-ot1-f51.google.com ([209.85.210.51])
+	id 1oT72w-001U2z-K9; Tue, 30 Aug 2022 19:37:14 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oT5aW-0014jJ-2h
-	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 18:03:49 +0000
-Received: by mail-ot1-f51.google.com with SMTP id m21-20020a9d6ad5000000b00638df677850so8622184otq.5
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Aug 2022 11:03:43 -0700 (PDT)
+	id 1oT72s-001U1P-LS
+	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 19:37:12 +0000
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-31f5960500bso186349827b3.14
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Aug 2022 12:37:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc;
+        bh=HzbcF/PG+Qawg6hoRF5n8gXT8jVmH+0bSMmdlpBSH5Q=;
+        b=WpitjJHu8yxIzlhTDzfzTCcSOyFFbGrF9N7RrYOmSR07TVUgSws08DXXqfslj/EH5j
+         IsYZqhJ5K8tAhqVApAq2q/WIC/++F5MDzikJlI38OBsGNSnjrVnezaJyqELJ24AWj9oY
+         +7zvlA29KkLUGk9Uj43LWRMl4eQscf8yt8u3sVQKPxrcuFB3XdTu33eTM9AW7mrkzjHJ
+         MWB68cpxlcvUtd5L6VGzqO0qLNv4Hgt9Va3PWgaVR9ZPp1c62DtJKo0xM30WTUSA53v6
+         pG4vF6AJRUnrXSYmplq5oKz4I9od/3GkzCLSCofbWUy+mWFkhhKIj3T9xk09kAq1idXu
+         8d5w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc;
-        bh=E/aVLvibqd/b36Ng45UDa0e8w5QaN31zCJl6Jumumq4=;
-        b=g4V30hPTt12QQqV6gLQ9NjSYFjR4lvkwklSJhFFG8sptomDnDa46quM+P6ayb+f0Wi
-         GDrwjTs/s4/XTVD+T9DEbIf4JllKotfj2uP1XoxyWD9jMxMvjWyv22ibDPCTqpVcCiIT
-         gIAWgaI6RnaWvxzimvLOgoNAKOtFLCVaQNVZ6VuU9Ots8pIPbor4Tm+lWSWF6BC/AfNC
-         goWcyKBAK96sEve0Vco5H11srczfCQ/9BTmTB/VocGM0DzDaYedXfkozncuR8daBlWiT
-         BGiGjSktxdhJNcJISxlHnaIE9YMY1QYSCjIkHrd/DpHOFGoJjHOHLOaVrMplYbJL4PDd
-         A6aw==
-X-Gm-Message-State: ACgBeo0JKxWki8Bx0/7asH5u/nA6Tkc9/HzU5sKWdDT/mmmcn/WLSMDW
-	FSM0e5lE2WIw0LSO3xnoCA==
-X-Google-Smtp-Source: AA6agR5JGLNMerqnzMNRFokwD0kYQMtWsTMxX51+yE5oIJHMl04sDutLbVBGC7lLaqgSJK5sj75chQ==
-X-Received: by 2002:a9d:72d0:0:b0:638:e9cf:3e75 with SMTP id d16-20020a9d72d0000000b00638e9cf3e75mr8732407otk.289.1661882622846;
-        Tue, 30 Aug 2022 11:03:42 -0700 (PDT)
-Received: from robh.at.kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id x19-20020a9d6293000000b00616dfd2c859sm7579226otk.59.2022.08.30.11.03.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Aug 2022 11:03:42 -0700 (PDT)
-Received: (nullmailer pid 1769934 invoked by uid 1000);
-	Tue, 30 Aug 2022 18:03:41 -0000
-Date: Tue, 30 Aug 2022 13:03:41 -0500
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <mail@conchuod.ie>
-Cc: Guo Ren <guoren@kernel.org>, Rob Herring <robh+dt@kernel.org>, linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>, Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@linutronix.de>, Jessica Clarke <jrtc27@jrtc27.com>, Andrew Jones <ajones@ventanamicro.com>, Paul Walmsley <paul.walmsley@sifive.com>, Daniel Lezcano <daniel.lezcano@linaro.org>, qemu-riscv@nongnu.org, Anup Patel <anup@brainfault.org>, Albert Ou <aou@eecs.berkeley.edu>, Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, Marc Zyngier <maz@kernel.org>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, Sagar Kadam <sagar.kadam@sifive.com>
-Subject: Re: [PATCH v4 3/4] dt-bindings: riscv: add new riscv,isa strings for
- emulators
-Message-ID: <20220830180341.GA1769896-robh@kernel.org>
-References: <20220823183319.3314940-1-mail@conchuod.ie>
- <20220823183319.3314940-4-mail@conchuod.ie>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220823183319.3314940-4-mail@conchuod.ie>
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc;
+        bh=HzbcF/PG+Qawg6hoRF5n8gXT8jVmH+0bSMmdlpBSH5Q=;
+        b=eydVoYtMmIS+nyIKMaOb0I0t0RXrvOxyqu4GzVDcJdNC+6n26rLWcA7gcI9RhnmEE8
+         9iWocLJglyhc53IOjFbMki7KLcH8fcmqsMY6xLHO6mldMl8qt3rUnKEic0/VwNS1CcIy
+         zOOg5TeDNpvkl0Motn0j11t0pXiAyMkKff4py0WvzKS+VyNR3HyKqc5bMeOw5NkGr8Zt
+         NT22iEE1y5Ctfhszfd1aN9Ct4GtIQUstp+3XbC+zFH2Qiok65+6eoRQNgjx+NGwzj8VZ
+         DWJqGifd0d9cS+SO/7oqCIuNpb7LUxsjlKlkJQ35SDxX3iJDc7lqHPDYqTdw6n5tJ4js
+         719Q==
+X-Gm-Message-State: ACgBeo1HUtxhA43LbFH97a0JUy+FjVEgovpf8bD+MU2RFmjKznZsLmXB
+	ZLWR+6iTIWAb7s7hlP8xd3UDLx7hNV2P
+X-Google-Smtp-Source: AA6agR7bVRyO8OFgpLGeXzgagUQGCk3zR5h8YG1Nini2V46NdLsYk5dAFhH/q7QqcX6WfjSFE1K09uH566NU
+X-Received: from maskray1.svl.corp.google.com ([2620:15c:2ce:200:2c5:644c:c610:2bb9])
+ (user=maskray job=sendgmr) by 2002:a0d:eb4f:0:b0:341:8004:8ebd with SMTP id
+ u76-20020a0deb4f000000b0034180048ebdmr3573747ywe.396.1661888225675; Tue, 30
+ Aug 2022 12:37:05 -0700 (PDT)
+Date: Tue, 30 Aug 2022 12:37:01 -0700
+Mime-Version: 1.0
+Message-ID: <20220830193701.1702962-1-maskray@google.com>
+Subject: [PATCH] vdso: Improve cmd_vdso_check to check all dynamic relocations
+From: Fangrui Song <maskray@google.com>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-csky@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org
+Cc: Fangrui Song <maskray@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220830_110348_147798_80802480 
-X-CRM114-Status: GOOD (  26.79  )
+X-CRM114-CacheID: sfid-20220830_123710_730809_90B8310D 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,61 +85,216 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Aug 2022 19:33:19 +0100, Conor Dooley wrote:
-> From: Conor Dooley <conor.dooley@microchip.com>
-> 
-> The QEMU virt and spike machines currently export a riscv,isa string of
-> "rv64imafdcsuh",
-> 
-> While the RISC-V foundation has been ratifying a bunch of extenstions
-> etc, the kernel has remained relatively static with what hardware is
-> supported - but the same is not true of QEMU. Using the virt machine
-> and running dt-validate on the dumped dtb fails, partly due to the
-> unexpected isa string.
-> 
-> Rather than enumerate the many many possbilities, change the pattern
-> to a regex, with the following assumptions:
-> - ima are required
-> - the single letter order is fixed & we don't care about things that
->   can't even do "ima"
-> - the standard multi letter extensions are all in a "_z<foo>" format
->   where the first letter of <foo> is a valid single letter extension
-> - _s & _h are used for supervisor and hyper visor extensions
-> - convention says that after the first two chars, a standard multi
->   letter extension name could be an english word (ifencei anyone?) so
->   it's not worth restricting the charset
-> - as the above is just convention, don't apply any charset restrictions
->   to reduce future churn
-> - vendor ISA extensions begind with _x and have no charset restrictions
-> - we don't care about an e extension from an OS pov
-> - that attempting to validate the contents of the multiletter extensions
->   with dt-validate beyond the formatting is a futile, massively verbose
->   or unwieldy exercise at best
-> 
-> The following limitations also apply:
-> - multi letter extension ordering is not enforced. dt-schema does not
->   appear to allow for named match groups, so the resulting regex would
->   be even more of a headache
-> - ditto for the numbered extensions
-> 
-> Finally, add me as a maintainer of the binding so that when it breaks
-> in the future, I can be held responsible!
-> 
-> Reported-by: Rob Herring <robh@kernel.org>
-> Link: https://lore.kernel.org/linux-riscv/20220803170552.GA2250266-robh@kernel.org/
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> Acked-by: Guo Ren <guoren@kernel.org>
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
-> Palmer, feel free to drop the maintainer addition. I just mostly want
-> to clean up my own mess on this when they decide to ratify more
-> extensions & this comes back up again.
-> ---
->  Documentation/devicetree/bindings/riscv/cpus.yaml | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
-> 
+The actual intention is that no dynamic relocation exists. However, some
+GNU ld ports produce unneeded R_*_NONE. (If a port is not care enough to
+determine the exact .rel[a].dyn size, the trailing zeros become R_*_NONE
+relocations. E.g. powerpc64le ld as of 2.38 has the issue with
+defconfig.) R_*_NONE are generally no-op in the dynamic loaders. So just
+ignore them.
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+With the change, we can remove ARCH_REL_TYPE_ABS. ARCH_REL_TYPE_ABS is a
+bit misnomer as ports may check RELAVETIVE/GLOB_DAT/JUMP_SLOT which are
+not called "absolute relocations". (The patch is motivated by the arm64
+port missing R_AARCH64_RELATIVE.)
+
+While here, replace "egrep" with "grep" as "egrep" is deprecated in GNU
+grep 3.7.
+
+Signed-off-by: Fangrui Song <maskray@google.com>
+---
+ arch/arm/vdso/Makefile            |  3 ---
+ arch/arm64/kernel/vdso/Makefile   |  3 ---
+ arch/arm64/kernel/vdso32/Makefile |  3 ---
+ arch/csky/kernel/vdso/Makefile    |  3 ---
+ arch/loongarch/vdso/Makefile      |  3 ---
+ arch/mips/vdso/Makefile           |  3 ---
+ arch/powerpc/kernel/vdso/Makefile |  1 -
+ arch/riscv/kernel/vdso/Makefile   |  3 ---
+ arch/s390/kernel/vdso32/Makefile  |  2 --
+ arch/s390/kernel/vdso64/Makefile  |  2 --
+ arch/x86/entry/vdso/Makefile      |  4 ----
+ lib/vdso/Makefile                 | 13 ++++---------
+ 12 files changed, 4 insertions(+), 39 deletions(-)
+
+diff --git a/arch/arm/vdso/Makefile b/arch/arm/vdso/Makefile
+index 8ca1c9f262a2..5ebd2e6f7d46 100644
+--- a/arch/arm/vdso/Makefile
++++ b/arch/arm/vdso/Makefile
+@@ -1,8 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+-# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined before
+-# the inclusion of generic Makefile.
+-ARCH_REL_TYPE_ABS := R_ARM_JUMP_SLOT|R_ARM_GLOB_DAT|R_ARM_ABS32
+ include $(srctree)/lib/vdso/Makefile
+ 
+ hostprogs := vdsomunge
+diff --git a/arch/arm64/kernel/vdso/Makefile b/arch/arm64/kernel/vdso/Makefile
+index bafbf78fab77..66dc4f338a86 100644
+--- a/arch/arm64/kernel/vdso/Makefile
++++ b/arch/arm64/kernel/vdso/Makefile
+@@ -6,9 +6,6 @@
+ # Heavily based on the vDSO Makefiles for other archs.
+ #
+ 
+-# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined before
+-# the inclusion of generic Makefile.
+-ARCH_REL_TYPE_ABS := R_AARCH64_JUMP_SLOT|R_AARCH64_GLOB_DAT|R_AARCH64_ABS64
+ include $(srctree)/lib/vdso/Makefile
+ 
+ obj-vdso := vgettimeofday.o note.o sigreturn.o
+diff --git a/arch/arm64/kernel/vdso32/Makefile b/arch/arm64/kernel/vdso32/Makefile
+index 36c8f66cad25..48d713d59ef2 100644
+--- a/arch/arm64/kernel/vdso32/Makefile
++++ b/arch/arm64/kernel/vdso32/Makefile
+@@ -3,9 +3,6 @@
+ # Makefile for vdso32
+ #
+ 
+-# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined before
+-# the inclusion of generic Makefile.
+-ARCH_REL_TYPE_ABS := R_ARM_JUMP_SLOT|R_ARM_GLOB_DAT|R_ARM_ABS32
+ include $(srctree)/lib/vdso/Makefile
+ 
+ # Same as cc-*option, but using CC_COMPAT instead of CC
+diff --git a/arch/csky/kernel/vdso/Makefile b/arch/csky/kernel/vdso/Makefile
+index 0b6909f10667..86c8c4de1b0f 100644
+--- a/arch/csky/kernel/vdso/Makefile
++++ b/arch/csky/kernel/vdso/Makefile
+@@ -1,8 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+-# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined before
+-# the inclusion of generic Makefile.
+-ARCH_REL_TYPE_ABS := R_CKCORE_ADDR32|R_CKCORE_JUMP_SLOT
+ include $(srctree)/lib/vdso/Makefile
+ 
+ # Symbols present in the vdso
+diff --git a/arch/loongarch/vdso/Makefile b/arch/loongarch/vdso/Makefile
+index d89e2ac75f7b..1b2e0f149f55 100644
+--- a/arch/loongarch/vdso/Makefile
++++ b/arch/loongarch/vdso/Makefile
+@@ -1,9 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ # Objects to go into the VDSO.
+ 
+-# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined before
+-# the inclusion of generic Makefile.
+-ARCH_REL_TYPE_ABS := R_LARCH_32|R_LARCH_64|R_LARCH_MARK_LA|R_LARCH_JUMP_SLOT
+ include $(srctree)/lib/vdso/Makefile
+ 
+ obj-vdso-y := elf.o vgetcpu.o vgettimeofday.o sigreturn.o
+diff --git a/arch/mips/vdso/Makefile b/arch/mips/vdso/Makefile
+index f72658b3a53f..cea97abffc03 100644
+--- a/arch/mips/vdso/Makefile
++++ b/arch/mips/vdso/Makefile
+@@ -4,9 +4,6 @@
+ # Sanitizer runtimes are unavailable and cannot be linked here.
+  KCSAN_SANITIZE			:= n
+ 
+-# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined before
+-# the inclusion of generic Makefile.
+-ARCH_REL_TYPE_ABS := R_MIPS_JUMP_SLOT|R_MIPS_GLOB_DAT
+ include $(srctree)/lib/vdso/Makefile
+ 
+ obj-vdso-y := elf.o vgettimeofday.o sigreturn.o
+diff --git a/arch/powerpc/kernel/vdso/Makefile b/arch/powerpc/kernel/vdso/Makefile
+index 096b0bf1335f..d3c5be32034d 100644
+--- a/arch/powerpc/kernel/vdso/Makefile
++++ b/arch/powerpc/kernel/vdso/Makefile
+@@ -2,7 +2,6 @@
+ 
+ # List of files in the vdso, has to be asm only for now
+ 
+-ARCH_REL_TYPE_ABS := R_PPC_JUMP_SLOT|R_PPC_GLOB_DAT|R_PPC_ADDR32|R_PPC_ADDR24|R_PPC_ADDR16|R_PPC_ADDR16_LO|R_PPC_ADDR16_HI|R_PPC_ADDR16_HA|R_PPC_ADDR14|R_PPC_ADDR14_BRTAKEN|R_PPC_ADDR14_BRNTAKEN|R_PPC_REL24
+ include $(srctree)/lib/vdso/Makefile
+ 
+ obj-vdso32 = sigtramp32-32.o gettimeofday-32.o datapage-32.o cacheflush-32.o note-32.o getcpu-32.o
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index f2e065671e4d..77d6bed3a700 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -1,9 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ # Copied from arch/tile/kernel/vdso/Makefile
+ 
+-# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined before
+-# the inclusion of generic Makefile.
+-ARCH_REL_TYPE_ABS := R_RISCV_32|R_RISCV_64|R_RISCV_JUMP_SLOT
+ include $(srctree)/lib/vdso/Makefile
+ # Symbols present in the vdso
+ vdso-syms  = rt_sigreturn
+diff --git a/arch/s390/kernel/vdso32/Makefile b/arch/s390/kernel/vdso32/Makefile
+index 245bddfe9bc0..e795fdbbf484 100644
+--- a/arch/s390/kernel/vdso32/Makefile
++++ b/arch/s390/kernel/vdso32/Makefile
+@@ -2,8 +2,6 @@
+ # List of files in the vdso
+ 
+ KCOV_INSTRUMENT := n
+-ARCH_REL_TYPE_ABS := R_390_COPY|R_390_GLOB_DAT|R_390_JMP_SLOT|R_390_RELATIVE
+-ARCH_REL_TYPE_ABS += R_390_GOT|R_390_PLT
+ 
+ include $(srctree)/lib/vdso/Makefile
+ obj-vdso32 = vdso_user_wrapper-32.o note-32.o
+diff --git a/arch/s390/kernel/vdso64/Makefile b/arch/s390/kernel/vdso64/Makefile
+index 9e2b95a222a9..47dbbfdfad68 100644
+--- a/arch/s390/kernel/vdso64/Makefile
++++ b/arch/s390/kernel/vdso64/Makefile
+@@ -2,8 +2,6 @@
+ # List of files in the vdso
+ 
+ KCOV_INSTRUMENT := n
+-ARCH_REL_TYPE_ABS := R_390_COPY|R_390_GLOB_DAT|R_390_JMP_SLOT|R_390_RELATIVE
+-ARCH_REL_TYPE_ABS += R_390_GOT|R_390_PLT
+ 
+ include $(srctree)/lib/vdso/Makefile
+ obj-vdso64 = vdso_user_wrapper.o note.o
+diff --git a/arch/x86/entry/vdso/Makefile b/arch/x86/entry/vdso/Makefile
+index 12f6c4d714cd..a97f3630ca20 100644
+--- a/arch/x86/entry/vdso/Makefile
++++ b/arch/x86/entry/vdso/Makefile
+@@ -3,10 +3,6 @@
+ # Building vDSO images for x86.
+ #
+ 
+-# Absolute relocation type $(ARCH_REL_TYPE_ABS) needs to be defined before
+-# the inclusion of generic Makefile.
+-ARCH_REL_TYPE_ABS := R_X86_64_JUMP_SLOT|R_X86_64_GLOB_DAT|R_X86_64_RELATIVE|
+-ARCH_REL_TYPE_ABS += R_386_GLOB_DAT|R_386_JMP_SLOT|R_386_RELATIVE
+ include $(srctree)/lib/vdso/Makefile
+ 
+ # Sanitizer runtimes are unavailable and cannot be linked here.
+diff --git a/lib/vdso/Makefile b/lib/vdso/Makefile
+index c415a685d61b..9f031eafc465 100644
+--- a/lib/vdso/Makefile
++++ b/lib/vdso/Makefile
+@@ -5,18 +5,13 @@ GENERIC_VDSO_DIR := $(dir $(GENERIC_VDSO_MK_PATH))
+ 
+ c-gettimeofday-$(CONFIG_GENERIC_GETTIMEOFDAY) := $(addprefix $(GENERIC_VDSO_DIR), gettimeofday.c)
+ 
+-# This cmd checks that the vdso library does not contain absolute relocation
++# This cmd checks that the vdso library does not contain dynamic relocations.
+ # It has to be called after the linking of the vdso library and requires it
+ # as a parameter.
+ #
+-# $(ARCH_REL_TYPE_ABS) is defined in the arch specific makefile and corresponds
+-# to the absolute relocation types printed by "objdump -R" and accepted by the
+-# dynamic linker.
+-ifndef ARCH_REL_TYPE_ABS
+-$(error ARCH_REL_TYPE_ABS is not set)
+-endif
+-
++# As a workaround for some GNU ld ports which produce unneeded R_*_NONE
++# dynamic relocations, ignore R_*_NONE.
+ quiet_cmd_vdso_check = VDSOCHK $@
+-      cmd_vdso_check = if $(OBJDUMP) -R $@ | egrep -h "$(ARCH_REL_TYPE_ABS)"; \
++      cmd_vdso_check = if $(READELF) -rW $@ | grep -v _NONE | grep -q " R_\w*_"; \
+ 		       then (echo >&2 "$@: dynamic relocations are not supported"; \
+ 			     rm -f $@; /bin/false); fi
+-- 
+2.37.2.672.g94769d06f0-goog
+
 
 _______________________________________________
 linux-riscv mailing list
