@@ -4,44 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABD3ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 12:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B82ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 12:06:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ggR5gbgx3r1Ryn8YMH7GZy0UcDvCAPIsshSc2o9mI+8=; b=0MstGCO783JgM2
-	DY3rFW+oImZPd/6nvLpeAQgdyrDELhYw1aSbgO2wOj8xO5URsLHKJ86FGy+opZWRD2hWpkGLE+rpq
-	7pk5puBYlN/5mQNlszVD0EIP94qGDf5TBz5r+ORp3Q6Vi+a2Qj3H6u9GhqvP7bJX9QEc8L5DzjebR
-	FShIql2kJSjUEj4BXXuqL1+CqFA4ZKsOeM8qtkGsZSDAclq0CzKO9v1kGQzQvM1tDClqzKRLWg43h
-	9qQk/CSg25/7q7gy/sTANVgC108zsve3HgFldfdex9lUaUAGfBO65i4Q1oxohx3qqBqpr+KuqWthX
-	tnpZu/mkANdKPCUlfxIA==;
+	List-Owner; bh=G5MFqiOUEkLjofLzIv+F5ZoLRA8oyaANU1tEkRy0JRo=; b=vTe+BluXdzUVbt
+	IfYKqtM4HkYgaQwAjZpP7Q7qJ7ylkSQ9Wc7ptVJZntK5BaDOeHgqtKIcn0MrHgFbNQkXJVaGHsDX8
+	eNdrjZxWrB+3kKFBarIbOHsitC/XDBdKlBhsJbo0Vxqr0qTYYYvkr37NXUSCPGnwi2HnHTMXePlll
+	4BROT+RbekAU+LGI3J5A627akqf++Ngqtht1VzTORvIxGPX3rCB0Dz+OdgRbTEyy1k71gachF8htc
+	eQNEfg05i4o1wz4dlLEMMVmNkjuJV2hJCDhNIifzwQe/mlNc09/CsRakbx4YeOFNSepO4UXqwEoPA
+	ebayaVte+DQK5daBHg4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSzvL-00Ggm8-23; Tue, 30 Aug 2022 12:00:55 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1oT00r-00GiRG-8g; Tue, 30 Aug 2022 12:06:37 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSzvG-00Ggja-Oz
-	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 12:00:53 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1oSzv8-0006Z3-06; Tue, 30 Aug 2022 14:00:42 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Atish Patra <atishp@atishpatra.org>
-Cc: anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, philipp.tomsich@vrull.eu, cmuellner@linux.com, samuel@sholland.org, guoren@kernel.org
-Subject: Re: [PATCH v2] drivers/perf: riscv_pmu_sbi: add support for PMU variant on T-Head C9xx cores
-Date: Tue, 30 Aug 2022 14:00:41 +0200
-Message-ID: <3400713.q0ZmV6gNhb@diego>
-In-Reply-To: <CAOnJCUKB2xu+RST2qh2zC7=vcLzBs_x7B3i49bTnkoBWu3-0xA@mail.gmail.com>
-References: <20220826163500.1748653-1-heiko@sntech.de> <CAOnJCUKB2xu+RST2qh2zC7=vcLzBs_x7B3i49bTnkoBWu3-0xA@mail.gmail.com>
+	id 1oT00o-00GiPk-7g
+	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 12:06:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1661861194; x=1693397194;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=zGahl8DxHptGg/nKQoilE6yI4B1835Z8LgSWyNoEmg0=;
+  b=KgzC5XeWdoVIsRgHWck1qsZLcq1em4F44faO4oaVnpwSEPQvImLj8BiV
+   G1Brir4XwbwnT5G0gPnViCXM3d5yyL1k+jLq9hacybX4VCvKf/ZY1EkTA
+   uXVP2FoYsj/LQZwJxw4qg7LS4X3ozTx+4jirmrnc97FEi1p1IOXuxKnei
+   4kWnSGHoSpn8jfdSWnqyvk2vrlCmYM61cmdcncWB+T0WDbhh9HqtOKZ3d
+   5u0WNOlDvVytsOEjGksEPYeyexGv/4pSJ0M/UHXsxiZB6SmQIkXip9WWn
+   Rlp5UG84R0SiuVw3PYYX4uwM2vceJkQjq8aHlO1K3m8DDCgH/fvNEDQ/q
+   Q==;
+X-IronPort-AV: E=Sophos;i="5.93,274,1654585200"; 
+   d="scan'208";a="188633635"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Aug 2022 05:06:29 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Tue, 30 Aug 2022 05:06:28 -0700
+Received: from NAM02-SN1-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12 via Frontend Transport; Tue, 30 Aug 2022 05:06:28 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=aiEEo2dITu3xG/GqLzDvvWfQ4e8uHW5gDXldB4XX5PgQKvghlsit58iOR5Fsdg9+krDnQY1i6+3qUQbC/d4JeBbJPbG4PcldzAo9aKnX6FpsjJRsfblTmxe3japHBDNoP6Kfzw6FaxsUSFSnX2RJsm/ZMKDdrW2MXSJELCfmODu9Bwb2iODMaV36Ty7tliRIFSXxQqf8Z1V6J9QTKbLBB3NaqtxHymRvsHYXlPQLTohiBTCC/mhv/DzwrHIdmtMRD+1pQ2IOnyS1wUwzFVtNSB3CPF/hTSqPg8MpN8ZkBizf/ozMzsrBBHvMOABfCUftiQwfQZZHTQOY6O6AKR5N2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zGahl8DxHptGg/nKQoilE6yI4B1835Z8LgSWyNoEmg0=;
+ b=N4agFNi8BtYIegAJ5W1mHHJ90afiHxtIX6pDbNuDq/0p0QboAccO5QFFAaw4UhqcdRg5I1Tb7UTmYXltgDRCJtnLusQiWj4J4dBur9yd3ed+D6mRDXv9HyZHJzaAB2H8sMeELx+HCWcFlB3kD9fguhNWM1D8VhGv7ZmnV08w+ahK56v/sXs5Cbs2fAApf82EIYvoDxFS9rKnHexeis38dUs9r8gxmd8JDkiTrueYMTYwqZuEIpd8dpxsw1hjEttaIx6HN3OS5HhFDm9S6J1EgW9m/QhOl1uiUY1JJcgNk3GzQPF1Cf4TNLnXVAFqDcrH3sEayWK0OeeIzIYQF1PshQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zGahl8DxHptGg/nKQoilE6yI4B1835Z8LgSWyNoEmg0=;
+ b=klJF4hV4stxQMEWdRCGm4oGHW4eCqE3I7s50w9WcaJ96Fs70nud/w4LoA/Aa3JnO1s0J0Aqq/nVNpTY8CHCKJOjxma0L1Se4Bximu0BLP2yEezSzp5fnwx+2YtLg3o+9HwWRad04eSqDsF2NC92b+/NSO2mqdZqt1SUmF8oKEc4=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by BN6PR11MB1554.namprd11.prod.outlook.com (2603:10b6:405:b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5566.21; Tue, 30 Aug
+ 2022 12:06:23 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::ac89:75cd:26e0:51c3%9]) with mapi id 15.20.5566.021; Tue, 30 Aug 2022
+ 12:06:22 +0000
+From: <Conor.Dooley@microchip.com>
+To: <ben.dooks@codethink.co.uk>
+CC: <paul.walmsley@sifive.com>, <krzysztof.kozlowski+dt@linaro.org>,
+	<palmer@dabbelt.com>, <Shravan.Chippa@microchip.com>,
+	<aou@eecs.berkeley.edu>, <Cyril.Jean@microchip.com>,
+	<Lewis.Hanly@microchip.com>, <Praveen.Kumar@microchip.com>,
+	<wg@aries-embedded.de>, <Hugh.Breslin@microchip.com>, <robh+dt@kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <Daire.McNamara@microchip.com>
+Subject: Re: [PATCH v2 6/9] riscv: dts: microchip: icicle: update pci address
+ properties
+Thread-Topic: [PATCH v2 6/9] riscv: dts: microchip: icicle: update pci address
+ properties
+Thread-Index: AQHYvFoaNa+MnSdZ4EKp19+vC0Z5b63HQlKAgAAWvIA=
+Date: Tue, 30 Aug 2022 12:06:22 +0000
+Message-ID: <bbdb3953-eaaf-8efa-a55a-9ca083320af7@microchip.com>
+References: <20220830101803.1456180-1-conor.dooley@microchip.com>
+ <20220830101803.1456180-7-conor.dooley@microchip.com>
+ <879a6823-6651-93cf-8500-661bedb050af@codethink.co.uk>
+In-Reply-To: <879a6823-6651-93cf-8500-661bedb050af@codethink.co.uk>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 78bef4c0-c1a7-4cc8-2aa6-08da8a800e54
+x-ms-traffictypediagnostic: BN6PR11MB1554:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: FXV6tPi5y47o5fea1fRjeXNhtbT5sseC3B6t6pBkUBq0bWPPL1Omp9OJl+h1YZk+Hrnc2JMSGS70MqqM6BQL8L1JQb0GJdvhZVpXo4Boy4TCCDa1eJ1sRr9662pXVibR9WuVdZKDMamhN2FLx7/Vhj3R2xpjRNwV/9Nuvfu2VkBADpVrbqSDyB8uy4cKumtkEqRwvupFfN0KaDZeztYkxLVYDKo8XRKFZBOckfxKjgtQUYGGoiurdeGpHlRRjGIbqvWryDOj+HeKN/ZQa8xn8TfJX/mgEck12tt85hYnMM4bB1PKCWG5mkkdijrc1DCZmclpr38MMNu9uuIy9CSORPBv0aEdhfsP8lWmRSDJ9krqDFgQpVI0fRr8FJVmqKztR41BfeJEgsS23F3g8MgE2Uyau0epf1WRKLRdg0v7sT7LVdJH1Hg/kaEfU5RU7OxR1JBm8c1wGvvwqvD7ZRcUqSMmXRPKZlfGF3DiIxBtdSs7YMXMWaM8LrqAO3jmdAzLoF63sHB/ThcKm0QI+KHAhG9ocf8QA6ZEa8jXqdAyAdCvXAj4mL1dRVPnW0Fbmmqp53q5w1d64KA9yr+nAcGkFj1HdXyaRdzsLuwraf5i87yVH6I3wksnlcgqn6vY2RvMU4j64v7U8ZuH3fRdcYLisxO2h3eYyW+Yu17ol9DH5EicSilMTBQbhEESuuFdomRV+YiMO+Z0PmC4jnogWQIHpx4CPUhNuOpc1FbDvZW0xcCTYwbAByfLi436G17lkiXLi5ltzfsmPbnhgtEsie8vbQiEOGKnq2lFBLIsFpX6gPzv4yzNkw4SYAKHbFwdVbDQWcfmernZ+FQpdf69kDPQgg==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(376002)(366004)(136003)(396003)(39860400002)(346002)(5660300002)(8936002)(83380400001)(2616005)(7416002)(6486002)(478600001)(41300700001)(71200400001)(2906002)(4326008)(54906003)(6916009)(8676002)(76116006)(36756003)(66946007)(91956017)(64756008)(53546011)(107886003)(26005)(6512007)(316002)(6506007)(31686004)(38100700002)(86362001)(38070700005)(66446008)(66556008)(122000001)(186003)(66476007)(31696002)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?M0VxVEhZOGEwUkY2SmFMT3BvUFR2U3VXQ3FlVnFjVjFnNlBzYVZZa2FDYVdF?=
+ =?utf-8?B?U2hUVEVqZzQ2azEyZ2JicVlzRFUvWXNPRGJSUUd4RmxjcFc0dGtCUk5URW9K?=
+ =?utf-8?B?OWI2MEczWlN6NVJacFdIN25rVFpzM3hLU0d5VXpuZEN6TTRvbVZBSnp5VmJ2?=
+ =?utf-8?B?ZURwajcxYlh0cmFVVXhIYTlHSHFUcXIxNmZ2SDY3MHJMVVBYWGQ4UFh3YUJo?=
+ =?utf-8?B?b3dTell1QzJ1RlZ4WEtYSThiY1cyZEloRDVtOVgzR0M0WUdTTVJTTkZLZThV?=
+ =?utf-8?B?VEtERmdPNTl4alVnZnJZdmRsMzA4VUg3ZmFXOW9KYXJESk9JQUtnMkJ5Njhm?=
+ =?utf-8?B?MW55MlBpNUZrRDJSR2lydGhpL28yeTR5Um0rdTIrMy9QTUN3cjR2a3I3S1Mv?=
+ =?utf-8?B?U3dPN240b1dqT1NkZFk3S0pHWmhKYy9aa3UrZWxjWUNQcVJHejZtdGZvbTlm?=
+ =?utf-8?B?ZjFQTU1IeHlDWTM2RlJCMGZYNlJFL0hqa2liODAwdmhhQmRPcUZhL2lFU0tX?=
+ =?utf-8?B?WWpZUVBBb3N5WXZnYnI3S2RMRjN2K2VQUDhNNldRbGh5aWI1NjYxbzRRdmxL?=
+ =?utf-8?B?ZFk1QXMvTjRVcFUrazlwRzNXZWFlQlRtT3lOaS9nenlGZmdPK2V0RnRGaCtk?=
+ =?utf-8?B?blFSZDVOVjFTKzRWKyt4QmRYWGxtbFkyeDd4VHlVNm1NSENCanlQdlBWVkJt?=
+ =?utf-8?B?a01kbEhWR2p3YkxrcTFLeDBxSmUrdDUvR1liWnR6UUJiY2tEQnRrNGVnUEJy?=
+ =?utf-8?B?dVJIRlV3L1BXZTB4OTlyL0loU29vci9Jd2FJWDkxY1V5OG1xT2VxZDJPSUVQ?=
+ =?utf-8?B?N2ljSFRFdExTQ0FrZWlUeDRoU2tyTklZOHludmErNWFqRlpycEluQUMwRk13?=
+ =?utf-8?B?MjgrWXRjOVk4R1ZtUWhGemx4NHNydlZtdGZnOFpyNExpbmR2SGxtU1ZETXVm?=
+ =?utf-8?B?Q3RTWHF4c3lvL3NCbllMREhiWlBMT0FqcDJJVHpHQXZYSU50RlJSejhTR08y?=
+ =?utf-8?B?ZndOV3Y5TzRtbE1zOGsrTHZVaVRQT0FBd2FYZ2c5Unk0bnhSRyt0eGhMWWhq?=
+ =?utf-8?B?WlBseCtueEVzZGVDRzlLRFZ6cm9hNXd4TUd1Ty95MnhMYXFIMStJVkt6UFMx?=
+ =?utf-8?B?TDgyQlpEZEs1UDNWSDNKbEx5WFRLOUdhU3JnSkRsdDNYTTVORzNkQzZxUzZC?=
+ =?utf-8?B?R0tmOW56aERLVDZhak9HNWhUU1kwY2N0UnlQd1d2R2FFRmtxQ05nTEE2N29y?=
+ =?utf-8?B?VUZ6d1JPemVoWmoyYXFDVFRzWG9ucEgvemVWSGZKa2wzQU1EbGYwNFEwU2JB?=
+ =?utf-8?B?VEJCdy9ScysvQloraHo1eERlQk0wOVlJeWI5WEt6UFFFVDVYdTRQaVNYMkto?=
+ =?utf-8?B?N0RZRnE2NmU3OEJpU3BrZjg0S2NHdmJ0THg4MXR3ekt0bnBYcW9lWlRQeEpy?=
+ =?utf-8?B?UzcwTHBWaG5IczZzVjVQTjZMclJaand3N3VmT244Yld1VWtiQnVxOXBPNldQ?=
+ =?utf-8?B?T2N1OXRBUGJ1NmpsU0VYRTA3QW9NWnZxeWdySXQzNHdhMm1LeElOK2tsWEoy?=
+ =?utf-8?B?Zkl2MUwwWnJWSWlyM3I3K0h3VVZHK1g0VHFRcWxLQ25zOUc5RldrbEFiQWkz?=
+ =?utf-8?B?K2JOU04rT0YyOVNBTW9pd2dHRDQ2TjlTMXRPMGtDR3pxRmxId1FCWHIrdGwx?=
+ =?utf-8?B?MUxwNkVjOWRXQ0dKY3hXVExmY2I0S1ZkNzBnVlUyMks0K0RHK0t0S01BNlB2?=
+ =?utf-8?B?Ky9iR2V5VVlLMjdIYUFibXFZZjFDZFdxVjJ3ODRkZVg2dm9icEhDeDBzUWpO?=
+ =?utf-8?B?eGJUSlBXOXNqQTluL3JsOVkrZnV2WEJ1eTRESjl5aGRCR1NFM3BQMHhlVndF?=
+ =?utf-8?B?aTdsODhlbXR0YUpiRXFRaTkydVg3Vzk0QS9nVU1uUDRUUi95cTdnN2Ixc0Mr?=
+ =?utf-8?B?K2pXUXpjVWRUZFByMktidVYwNGZ1WG1pNzRqTTBEbWtTWTFzOUwrWEI5eVFm?=
+ =?utf-8?B?dnpZL0hQY3d2Q0JudzBrUFpMd3NtbTA4aUh0aEZ4Q292VnE0dC93YTlMV3ZV?=
+ =?utf-8?B?Qk5waEFiM2xKSEx6YlNXZ0M2a3pHUlUxajM5aUsyTk9qU0c5TFE5RUlUc09x?=
+ =?utf-8?Q?zt9A/Qs0YSpR2G+nPYuHq4lbz?=
+Content-ID: <C7FEA6C0E548314584F4194D09D4D391@namprd11.prod.outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78bef4c0-c1a7-4cc8-2aa6-08da8a800e54
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Aug 2022 12:06:22.7034
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: mOSzFElfW4WN8kn0W+wZZroiLKV8xzm6RGQ4CKHG1r9wyEAgnrvtAJBB8amdpYKS0r+SS9sTp8HnrJW1sJs22YxzPEk6pHkHbxlDrHGXJ/0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN6PR11MB1554
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220830_050051_025586_BA080973 
-X-CRM114-Status: GOOD (  50.60  )
+X-CRM114-CacheID: sfid-20220830_050634_651854_2F3F1A2D 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,296 +180,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Atish,
-
-Am Samstag, 27. August 2022, 00:39:32 CEST schrieb Atish Patra:
-> On Fri, Aug 26, 2022 at 9:35 AM Heiko Stuebner <heiko@sntech.de> wrote:
+On 30/08/2022 11:44, Ben Dooks wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> > With the T-HEAD C9XX cores being designed before or during the ratification
-> > to the SSCOFPMF extension, they implement functionality very similar but
-> > not equal to it. So add some adaptions to allow the C9XX to still handle
-> > its PMU through the regular SBI PMU interface instead of defining new
-> > interfaces or drivers.
-> >
-> >
-> It would be good to include any reference to T-HEAD C9XX PMU details
-> somewhere.
-> Does it support event filtering based on privilege mode as well ?
-
-Looking at the docs ... it does, at least for machine and supervisor mode.
-
-I.e. the mcountinhibit seems to be part of the base spec, but the c9xx
-also implement an scounterinhibit doing the same for supervisor mode.
-
-Though there is no equivalent for user-mode.
-
-> Because enabling riscv_pmu_use_irq enables the filtering too.
-
-From what I see in the current sbi-pmu driver this is just forwarded to
-the sbi-part, right? I.e. the part doing
-
-	if (event->attr.exclude_kernel)
-		cflags |= SBI_PMU_CFG_FLAG_SET_SINH;
-	if (event->attr.exclude_user)
-		cflags |= SBI_PMU_CFG_FLAG_SET_UINH;
-
-Though this is simply done independently of any kernel-side feature-
-detection it seems, so the would need to be handled on the sbi-side?
-[Which I need to update still].
-
-
-Heiko
-
-> > To work properly, this requires a matching change in SBI, though the actual
-> > interface between kernel and SBI does not change.
-> >
-> > The main differences are a the overflow CSR and irq number.
-> >
-> > As the reading of the overflow-csr is in the hot-path during irq handling
-> > use an errata and alternatives to not introduce new conditionals there.
-> >
-> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> > ---
-> > changes in v2:
-> > - use alternatives for the CSR access
-> > - make the irq num selection a bit nicer
-> >
-> > There is of course a matching opensbi-part whose current implementation can
-> > be found on [0], but as comments show, this needs some more work still.
-> >
-> >
-> > [0]
-> > https://patchwork.ozlabs.org/project/opensbi/cover/20220817112004.745776-1-heiko@sntech.de/
-> >
-> >  arch/riscv/Kconfig.erratas           | 14 ++++++++++++
-> >  arch/riscv/errata/thead/errata.c     | 19 +++++++++++++++++
-> >  arch/riscv/include/asm/errata_list.h | 16 +++++++++++++-
-> >  drivers/perf/riscv_pmu_sbi.c         | 32 +++++++++++++++++++---------
-> >  4 files changed, 70 insertions(+), 11 deletions(-)
-> >
-> > diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
-> > index 6850e9389930..f1eaac4c0073 100644
-> > --- a/arch/riscv/Kconfig.erratas
-> > +++ b/arch/riscv/Kconfig.erratas
-> > @@ -66,4 +66,18 @@ config ERRATA_THEAD_CMO
-> >
-> >           If you don't know what to do here, say "Y".
-> >
-> > +config ERRATA_THEAD_PMU
-> > +       bool "Apply T-Head PMU errata"
-> > +       depends on ERRATA_THEAD
-> > +       depends on RISCV_PMU_SBI
-> > +       default y
-> > +       help
-> > +         The T-Head C9xx cores implement a PMU overflow extension very
-> > +         similar to the core SSCOFPMF extension.
-> > +
-> > +         This will apply the overflow errata to handle the non-standard
-> > +         behaviour via the regular SBI PMU driver and interface.
-> > +
-> > +         If you don't know what to do here, say "Y".
-> > +
-> >  endmenu # "CPU errata selection"
-> > diff --git a/arch/riscv/errata/thead/errata.c
-> > b/arch/riscv/errata/thead/errata.c
-> > index 202c83f677b2..e6101eab25c8 100644
-> > --- a/arch/riscv/errata/thead/errata.c
-> > +++ b/arch/riscv/errata/thead/errata.c
-> > @@ -44,6 +44,22 @@ static bool errata_probe_cmo(unsigned int stage,
-> >  #endif
-> >  }
-> >
-> > +static bool errata_probe_pmu(unsigned int stage,
-> > +                            unsigned long arch_id, unsigned long impid)
-> > +{
-> > +#ifdef CONFIG_ERRATA_THEAD_PMU
-> > +       if (arch_id != 0 || impid != 0)
-> > +               return false;
-> > +
-> > +       if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-> > +               return false;
-> > +
-> > +       return true;
-> > +#else
-> > +       return false;
-> > +#endif
-> > +}
-> > +
-> >  static u32 thead_errata_probe(unsigned int stage,
-> >                               unsigned long archid, unsigned long impid)
-> >  {
-> > @@ -55,6 +71,9 @@ static u32 thead_errata_probe(unsigned int stage,
-> >         if (errata_probe_cmo(stage, archid, impid))
-> >                 cpu_req_errata |= (1U << ERRATA_THEAD_CMO);
-> >
-> > +       if (errata_probe_pmu(stage, archid, impid))
-> > +               cpu_req_errata |= (1U << ERRATA_THEAD_PMU);
-> > +
-> >         return cpu_req_errata;
-> >  }
-> >
-> > diff --git a/arch/riscv/include/asm/errata_list.h
-> > b/arch/riscv/include/asm/errata_list.h
-> > index 19a771085781..4180312d2a70 100644
-> > --- a/arch/riscv/include/asm/errata_list.h
-> > +++ b/arch/riscv/include/asm/errata_list.h
-> > @@ -6,6 +6,7 @@
-> >  #define ASM_ERRATA_LIST_H
-> >
-> >  #include <asm/alternative.h>
-> > +#include <asm/csr.h>
-> >  #include <asm/vendorid_list.h>
-> >
-> >  #ifdef CONFIG_ERRATA_SIFIVE
-> > @@ -17,7 +18,8 @@
-> >  #ifdef CONFIG_ERRATA_THEAD
-> >  #define        ERRATA_THEAD_PBMT 0
-> >  #define        ERRATA_THEAD_CMO 1
-> > -#define        ERRATA_THEAD_NUMBER 2
-> > +#define        ERRATA_THEAD_PMU 2
-> > +#define        ERRATA_THEAD_NUMBER 3
-> >  #endif
-> >
-> >  #define        CPUFEATURE_SVPBMT 0
-> > @@ -142,6 +144,18 @@ asm volatile(ALTERNATIVE_2(
-> >                       \
-> >             "r"((unsigned long)(_start) + (_size))                      \
-> >         : "a0")
-> >
-> > +#define THEAD_C9XX_RV_IRQ_PMU                  17
-> > +#define THEAD_C9XX_CSR_SCOUNTEROF              0x5c5
-> > +
-> > +#define ALT_SBI_PMU_OVERFLOW(__ovl)                                    \
-> > +asm volatile(ALTERNATIVE(                                              \
-> > +       "csrr %0, " __stringify(CSR_SSCOUNTOVF),                        \
-> > +       "csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),             \
-> > +               THEAD_VENDOR_ID, ERRATA_THEAD_PMU,                      \
-> > +               CONFIG_ERRATA_THEAD_PMU)                                \
-> > +       : "=r" (__ovl) :                                                \
-> > +       : "memory")
-> > +
-> >  #endif /* __ASSEMBLY__ */
-> >
-> >  #endif
-> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-> > index 6f6681bbfd36..f814d3ce5ba2 100644
-> > --- a/drivers/perf/riscv_pmu_sbi.c
-> > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > @@ -19,6 +19,7 @@
-> >  #include <linux/of.h>
-> >  #include <linux/cpu_pm.h>
-> >
-> > +#include <asm/errata_list.h>
-> >  #include <asm/sbi.h>
-> >  #include <asm/hwcap.h>
-> >
-> > @@ -46,6 +47,8 @@ static const struct attribute_group
-> > *riscv_pmu_attr_groups[] = {
-> >   * per_cpu in case of harts with different pmu counters
-> >   */
-> >  static union sbi_pmu_ctr_info *pmu_ctr_list;
-> > +static bool riscv_pmu_use_irq;
-> > +static unsigned int riscv_pmu_irq_num;
-> >  static unsigned int riscv_pmu_irq;
-> >
-> >  struct sbi_pmu_event_data {
-> > @@ -575,7 +578,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void
-> > *dev)
-> >         fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs,
-> > RISCV_MAX_COUNTERS);
-> >         event = cpu_hw_evt->events[fidx];
-> >         if (!event) {
-> > -               csr_clear(CSR_SIP, SIP_LCOFIP);
-> > +               csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
-> >                 return IRQ_NONE;
-> >         }
-> >
-> > @@ -583,13 +586,13 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void
-> > *dev)
-> >         pmu_sbi_stop_hw_ctrs(pmu);
-> >
-> >         /* Overflow status register should only be read after counter are
-> > stopped */
-> > -       overflow = csr_read(CSR_SSCOUNTOVF);
-> > +       ALT_SBI_PMU_OVERFLOW(overflow);
-> >
-> >         /*
-> >          * Overflow interrupt pending bit should only be cleared after
-> > stopping
-> >          * all the counters to avoid any race condition.
-> >          */
-> > -       csr_clear(CSR_SIP, SIP_LCOFIP);
-> > +       csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
-> >
-> >         /* No overflow bit is set */
-> >         if (!overflow)
-> > @@ -651,10 +654,10 @@ static int pmu_sbi_starting_cpu(unsigned int cpu,
-> > struct hlist_node *node)
-> >         /* Stop all the counters so that they can be enabled from perf */
-> >         pmu_sbi_stop_all(pmu);
-> >
-> > -       if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
-> > +       if (riscv_pmu_use_irq) {
-> >                 cpu_hw_evt->irq = riscv_pmu_irq;
-> > -               csr_clear(CSR_IP, BIT(RV_IRQ_PMU));
-> > -               csr_set(CSR_IE, BIT(RV_IRQ_PMU));
-> > +               csr_clear(CSR_IP, BIT(riscv_pmu_irq_num));
-> > +               csr_set(CSR_IE, BIT(riscv_pmu_irq_num));
-> >                 enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
-> >         }
-> >
-> > @@ -663,9 +666,9 @@ static int pmu_sbi_starting_cpu(unsigned int cpu,
-> > struct hlist_node *node)
-> >
-> >  static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
-> >  {
-> > -       if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
-> > +       if (riscv_pmu_use_irq) {
-> >                 disable_percpu_irq(riscv_pmu_irq);
-> > -               csr_clear(CSR_IE, BIT(RV_IRQ_PMU));
-> > +               csr_clear(CSR_IE, BIT(riscv_pmu_irq_num));
-> >         }
-> >
-> >         /* Disable all counters access for user mode now */
-> > @@ -681,7 +684,16 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu,
-> > struct platform_device *pde
-> >         struct device_node *cpu, *child;
-> >         struct irq_domain *domain = NULL;
-> >
-> > -       if (!riscv_isa_extension_available(NULL, SSCOFPMF))
-> > +       if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
-> > +               riscv_pmu_irq_num = RV_IRQ_PMU;
-> > +               riscv_pmu_use_irq = true;
-> > +       } else if (sbi_get_mvendorid() == THEAD_VENDOR_ID &&
-> > +                  sbi_get_marchid() == 0 && sbi_get_mimpid() == 0) {
-> > +               riscv_pmu_irq_num = THEAD_C9XX_RV_IRQ_PMU;
-> > +               riscv_pmu_use_irq = true;
-> > +       }
-> > +
-> > +       if (!riscv_pmu_use_irq)
-> >                 return -EOPNOTSUPP;
-> >
-> >         for_each_of_cpu_node(cpu) {
-> > @@ -703,7 +715,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu,
-> > struct platform_device *pde
-> >                 return -ENODEV;
-> >         }
-> >
-> > -       riscv_pmu_irq = irq_create_mapping(domain, RV_IRQ_PMU);
-> > +       riscv_pmu_irq = irq_create_mapping(domain, riscv_pmu_irq_num);
-> >         if (!riscv_pmu_irq) {
-> >                 pr_err("Failed to map PMU interrupt for node\n");
-> >                 return -ENODEV;
-> > --
-> > 2.35.1
-> >
-> >
+> On 30/08/2022 11:18, Conor Dooley wrote:
+>> For the v2022.09 reference design the PCI root port's data region has
+>> been moved to FIC1 from FIC0. This is a shorter path, allowing for
+>> higher clock rates and improved through-put. As a result, the address at
+>> which the PCIe's data region appears to the core complex has changed.
+>> The config region's address is unchanged.
 > 
-> 
-> 
+> Did this also fix the 32bit address apperture issue which plagued
+> getting pcie graphics cards sorted.
 
+Eh, not this specific part of what is changing in v2022.09 - this will
+just allow us to close timing using higher clock rates. But another
+change that is landing in v2022.09 will (see patch 4/9). Performance is
+not going to be great, but 32 bit devices will work again... We've got
+some more stuff in the works that should help on the performance front,
+so hopefully that makes life easier for pcie graphics cards.
+soonTM on that one though ;)
 
-
+Thanks,
+Conor.
 
 
 _______________________________________________
