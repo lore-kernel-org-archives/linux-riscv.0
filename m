@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDE15ECAAD4
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 12:48:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504F4ECAAD4
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 12:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xIX61Kacipt7QBFnBYEBxRul1t57bYcBU0Nhj7tSuLg=; b=Cn/idU8dIUzhO8
-	pMNJZY8R04zkM5c46sSy+ySNEI4Hifre3T1XE0gXPYWnE5vSAs6YZq7OyS1zFt9QZY+woSrUooMUm
-	kc9Lx/sdHnC1Fz5k4bZ5iGM4gkLChtTdnEY5lbmASuOO6qYQsbFveoLfK8Ss+eEH90vAa23UXQeYN
-	T4No/luCFnCg7vRa2fUT0QHz5P8qkur8dN4aB1cVd1utvQzWotQIoo9ycrzdwig42df7yIfeb6flN
-	Gk9Xyb4ldj2Y42R3PBXOdb2ke9Lr/yiMZW9ZC4+nafv/vygjxkjZTM0UurbLqOYNS2KD/YwzQxARx
-	HIcyc8HoacaFLZgLMteQ==;
+	List-Owner; bh=8jsKbvz+vgzMfZANaNxG3mrgE7x7BmSASLNk2Sn3hGQ=; b=XEdBnxOIJCyvIL
+	x4V2UEN4aAZW1bhZ6UYUkBzSdMl4oPfW+ItMwQ/ryYivY/nczJnWZgP7Pls3/XHKIajmvMRz7lUPw
+	OWMBbK6wB0GH0HTwr4LOg8cRkRvvfLtWLt4lKCwCAjKJaPcrpKEZ6+L3N4SPPJRAon2DmE3/PJgof
+	t1SRnlTEpCddZhycWjqIAt5KXc9lP94H4Lvjc9PMaPJv3e5CUlXXm6CkaYb/gKsotP30cuc01nQ3d
+	46anBVaCQJ/fsgmU91pSF676QIGPNuGOEY2tfblLs6ZQOZekKf1EGcjdbFb3kmFz/J0YRarx3Abpj
+	4+cDAgu+DMZGXg80xqtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oT0f5-00GwB1-Kw; Tue, 30 Aug 2022 12:48:11 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oT0iU-00GzaQ-25; Tue, 30 Aug 2022 12:51:42 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oT0f3-00Gw6i-9K
-	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 12:48:10 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 3B343B81B32
-	for <linux-riscv@lists.infradead.org>; Tue, 30 Aug 2022 12:48:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 013FDC4347C
-	for <linux-riscv@lists.infradead.org>; Tue, 30 Aug 2022 12:48:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1661863686;
-	bh=/cAJwBHtM/ZURW3cF5eFVB0hZFmtk7GamSbxXq9JtWo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=huSe1YohCQxf4H7e96UWv5Mjs28frLHyOt4kUHnkbsTPI9PHdVXBA90CE0nVX/bQE
-	 6+ROles0scsg9L0csQEvv9KqOo6vcHjhicLtcimIyF63rlJl+cYcd2YknRk6WvSTqy
-	 PQNB5BZvnI14eeJK/Lpk9Hyabjfj/6PBLls8VayuHXnmX80FRVtVH7DikPGiIW78/U
-	 hXh4CSbPjXHRTH1eO1fJbEb0afdIrPxKvrEfkiXg1ZiJYFeT6qNFWxNog4gyugHIbk
-	 8oGNDGLRR0r0OfKO40aejhv9Hpk0vDX4JqAJ4A6XG/b4U6qhZkP41DIVWR+9caYYD/
-	 n8G50TLq5B5mQ==
-Received: by mail-vs1-f46.google.com with SMTP id 67so11364815vsv.2
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Aug 2022 05:48:05 -0700 (PDT)
-X-Gm-Message-State: ACgBeo1TMRCzevu7XivYYCNFIVdb1R7Y3W/jlKkYD3tj+3AaN+8MdsDS
-	fUDaIc7Ua4+c2o7puI5WNedrWjVo6OaRcjWQFg==
-X-Google-Smtp-Source: AA6agR4BFxbKvuMHCS56CHge6iE78gvzzPulVJJ1K3ptPrTy0eibGx4WI+E7FOdKqKeTEMm2IWkL3Jc05bfWSfSp3QU=
-X-Received: by 2002:a67:b808:0:b0:388:b23e:8395 with SMTP id
- i8-20020a67b808000000b00388b23e8395mr4860489vsf.64.1661863684738; Tue, 30 Aug
- 2022 05:48:04 -0700 (PDT)
+	id 1oT0iQ-00GzUC-7n
+	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 12:51:41 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id z14-20020a7bc7ce000000b003a5db0388a8so635901wmk.1
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Aug 2022 05:51:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc;
+        bh=7s4lILp9cgE/VG98/TN3p3rL3NeB7y+YGCWWz/Ak6qo=;
+        b=L6AZHkI6qAhQKRgDVwck8jQPEP5pvVUbAewKRUe/QGZDUn6HXSmN7CBSKyiywVSxuc
+         jx+z2pZ+bS6vETgwOq+5TPiOOZd/+INHG4k09nhpsh7oO7PbPKmVWluwQhTFnH7sTb+b
+         TMfPZLKaY9wuJnFT6eo9KxVz+acW//pawvrgQZ8ioqEfagH4O9ZY4YJbhJGSmCJhEVqX
+         1LGL4eQupDP+4Yhh4q/cg3pBc1mapDtk8g7hqBfmgV4vCCm4eLh9sZ+RYQ4XWP950MEq
+         U8V5zPoQfGgNugjHqnYldO7xIy93uKBSjuZ578J8OsdSqOQs1yt4iX/9O38srfbRYIq5
+         qWrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
+        bh=7s4lILp9cgE/VG98/TN3p3rL3NeB7y+YGCWWz/Ak6qo=;
+        b=yx0ACGXr+UajjJujkqJkvtTdQAudZ3jUsaDeGjvNS0UVq5MomXPGoKmLlJBvd8uk16
+         Q65uabIG/h+Cz9zk3amZyeA3jzjR2NJdzN/KvPsncX84Ogt95IlNbGjJwbVBbiwfYnB+
+         WhESwDYkcQnpa0A6jdoXHLYz4AsmQqrwdErQVWNYL4oSKbdTuMqmgJY+Eo+2Jwp+Mr9C
+         WSYDrayFPEcLZqfc2tioy5cHqrQ3aKWztS0QUWffwLwO5iubPKVHeHhXBOV7L7WbtcbM
+         7Vb3rzbqVuda4dmHniUWGnjVsIjS9LF6RXJSjA2+KvxSyBrgLS0wCN2w1gzCpzJKNCCq
+         v3LA==
+X-Gm-Message-State: ACgBeo1VcxHOC/uYsw6XLc3lozZ371dxnW5BQDnyg1NWBcwtPFsSK74N
+	YbMN+wd8ZRSZd6GXn2jUSpJlfA==
+X-Google-Smtp-Source: AA6agR5nyN9qMCqsMR5Co7UgnLcOiBBKn7+L3agUSkd7KYHf7KNGKsjAB3LwR6t08tkeAcEr4nLWYw==
+X-Received: by 2002:a7b:cc85:0:b0:3a5:50b2:f9be with SMTP id p5-20020a7bcc85000000b003a550b2f9bemr9329439wma.18.1661863895829;
+        Tue, 30 Aug 2022 05:51:35 -0700 (PDT)
+Received: from rainbowdash.office.codethink.co.uk ([167.98.27.226])
+        by smtp.gmail.com with ESMTPSA id 14-20020a05600c020e00b003a3170a7af9sm11778784wmi.4.2022.08.30.05.51.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Aug 2022 05:51:35 -0700 (PDT)
+From: Ben Dooks <ben.dooks@sifive.com>
+To: palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	aou@eecs.berkeley.edu,
+	greentime.hu@sifive.com,
+	conor.dooley@microchip.com,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	robh+dt@kernel.org,
+	krzysztof.kozlowski+dt@linaro.org,
+	devicetree@vger.kernel.org
+Cc: Ben Dooks <ben.dooks@sifive.com>
+Subject: [RESEND PATCH] dt-bindings: sifive-ccache: fix cache level for l3 cache
+Date: Tue, 30 Aug 2022 13:51:33 +0100
+Message-Id: <20220830125133.1698781-1-ben.dooks@sifive.com>
+X-Mailer: git-send-email 2.35.1
+In-Reply-To: <20220829062202.3287-1-zong.li@sifive.com>
+References: <20220829062202.3287-1-zong.li@sifive.com>
 MIME-Version: 1.0
-References: <20220829062202.3287-1-zong.li@sifive.com> <20220830083606.1681385-1-ben.dooks@sifive.com>
-In-Reply-To: <20220830083606.1681385-1-ben.dooks@sifive.com>
-From: Rob Herring <robh+dt@kernel.org>
-Date: Tue, 30 Aug 2022 07:47:53 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqKo5puQ-nE=G9YPon2xFb7MRX5GGj11YPPjnbRJ3yVX6Q@mail.gmail.com>
-Message-ID: <CAL_JsqKo5puQ-nE=G9YPon2xFb7MRX5GGj11YPPjnbRJ3yVX6Q@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: sifive-ccache: fix cache level for l3 cache
-To: Ben Dooks <ben.dooks@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Greentime Hu <greentime.hu@sifive.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220830_054809_513917_DFE2B668 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20220830_055139_767589_DD7C7DF0 
+X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,19 +97,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 30, 2022 at 3:36 AM Ben Dooks <ben.dooks@sifive.com> wrote:
->
-> With newer cores such as the p550, the SiFive composable cache can be
-> a level 3 cache. Update the cache level to be one of 2 or 3.
->
-> Signed-off-by: Ben Dooks <ben.dooks@sifive.com>
-> ---
->  Documentation/devicetree/bindings/riscv/sifive-ccache.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+With newer cores such as the p550, the SiFive composable cache can be
+a level 3 cache. Update the cache level to be one of 2 or 3.
 
-Please send DT patches to the DT list. Resend so checks run.
+Signed-off-by: Ben Dooks <ben.dooks@sifive.com>
+---
+ Documentation/devicetree/bindings/riscv/sifive-ccache.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Rob
+diff --git a/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml b/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
+index 1a64a5384e36..6190deb65455 100644
+--- a/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
++++ b/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
+@@ -45,7 +45,7 @@ properties:
+     const: 64
+ 
+   cache-level:
+-    const: 2
++    enum: [2, 3]
+ 
+   cache-sets:
+     enum: [1024, 2048]
+-- 
+2.35.1
+
 
 _______________________________________________
 linux-riscv mailing list
