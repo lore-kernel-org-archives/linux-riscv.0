@@ -4,51 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D826EECAAA1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 08:21:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CFFC0502A
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 08:23:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fA3X7ctuLzb2Xd+roabyKDFkcNT4HzJEvwh2Xm5ndVI=; b=DbvJJhBkayS56bQU2Ye6gePyh/
-	tZ1TVkjr2kCS7FmtNQFyYer9qtv6dpkch0uYmv7E4rCYpJOUmjNbThZSJ5wBh1X7Jz8NGsc4YB376
-	BaQ5YQ0KYfIOsyoaMEVACW2Aid43nBSbHdnm9QwygPOw98ksEfTB3NwHD01S7y+ANbw+NEqGBg3zq
-	znagNU2ONYyqHNE6CnY8z6FsWTI45Ywc0U9cFtKKjXDYBXpOk8SmKixKiH4DhsiPByT+Fh0NidXW+
-	kpPE5bam1nOwRrfGiWOyu6h/reidVhv1SeX+40+nPsSmYuzwVQ/PjXGOf4wWdIMOfw/GYV5hvOLJr
-	m2HMPZHQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AEK73CP8h1+f01gBL3zv3KeR3bAmJYXsg8KGtzAyKCc=; b=lmuENcv/O8ArhK
+	zUMfwWYwg66dscLhBPH5OBfl5T+xcgxV9E2uZcPl4s9owMNLEJ/znDRJDiYiMPFWZ84JUDGcH16vq
+	Rkx3lhPGuUQvHK2ScgzJw0t7QCXUT8z8HEvNyWv2w//MNuXPeVDZrtEX+Cd+VDBWRPGGtgzV2EEB5
+	MfLLxTYdiX5bdKcXO5Tu0L/U6HabfHOo4yXH7XGEthyxVOqREM3JXiLP0hd3Tzu3q5lqaT0ZrhIdM
+	Bb7yGasx5SzfQLkR5xZMzuLbh3ugnFh25Zta7JstMv3HIzb415o33iGhUmt5Qs9jN9mOgHlGF7i+X
+	kajV28MODr1LrbemEgcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSwUL-00F9cf-Lu; Tue, 30 Aug 2022 08:20:49 +0000
-Received: from imap5.colo.codethink.co.uk ([78.40.148.171])
+	id 1oSwWi-00FAlN-47; Tue, 30 Aug 2022 08:23:16 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSwSO-00F8hM-Eb
-	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 08:18:51 +0000
-Received: from [167.98.27.226] (helo=[10.35.5.6])
-	by imap5.colo.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1oSwS4-006Nw1-61; Tue, 30 Aug 2022 09:18:28 +0100
-Message-ID: <122df8bd-bde1-01f9-49b9-a914b5d0e25c@codethink.co.uk>
-Date: Tue, 30 Aug 2022 09:18:27 +0100
+	id 1oSwUh-00F9kl-Cg
+	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 08:21:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1661847671; x=1693383671;
+  h=from:to:subject:date:message-id:references:in-reply-to:
+   content-id:content-transfer-encoding:mime-version;
+  bh=TTPn9MG4MWuSafqE3rCZqfZfqVw59DlcuKZfbUeU5WM=;
+  b=H2RDGV5ow4CJdKxzKUOeYy4Qi5nwUvtBh3NzdtEiXPI6uJcmVntcToFI
+   bemk/OnwVwM1V6DCidaMX3ogO2K+rdwY+nmXcz/auezXkEAFZEZj9P3KC
+   HnBTnT8D6H8YRC9oKVBC3BMGkn8dOqn0ZimH4RdQ/35+HU5qzbu9Qi90h
+   7x9ywQ3XNwdZsSsrqMujs0FtEr7gjC/cfhD9+aRqc8RoxyGKvD1m0+Rxf
+   cPZrBWPHuO7dsOxihl7aib/1jHb+tqVE8uZh7cLKBsx81Oj+7gVUJ5ND/
+   RwecNrODWK/bRB7uOlPGg3NNUKJeeQ3Gpq4bSI3VRO91jhXYN3fgrVVKp
+   A==;
+X-IronPort-AV: E=Sophos;i="5.93,274,1654585200"; 
+   d="scan'208";a="174769871"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Aug 2022 01:21:03 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Tue, 30 Aug 2022 01:21:02 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12 via Frontend Transport; Tue, 30 Aug 2022 01:21:02 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=CEWKZvbU9KLBqXX1KiqtgS2meiwtfSITR/MpkRvDaEKIj2eha0/BTGpWTq8mub08Oldyp6dsupYqzUczcl0DVYHyyiU3Mgx0DhfblIqhLHEZiWwqxnCjO1ux8w3ZOa03Tacq4kH/XwKq97nB3t/uwt9OlCtS/+jHSxxfvga68CQjMLZNUbyzkippSxgotWv1xrafDXdwAXWfHpaiMVIrq9v/vx2dTlUqvdQizjmnV6msH4mnuseTd2onSVgVgOlJMizEe1RW+W/vt3jVYg07qGkiZnGOe5bRH0oORNnk5z6BuauBWT0wwA8NixwVZa1Wpe7AJP4oInmEJwy9/2+ecw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TTPn9MG4MWuSafqE3rCZqfZfqVw59DlcuKZfbUeU5WM=;
+ b=Q1agpJNTusQlL1204hBQz5reql86iElmC+N1ZZXZjrC1a6/zjLKMIXk0R/fMfzmx+DQ71tPEXW8tPju4GIarpdU4xi5NyyQnOOzyaQXI30z0Q4z7rFbuBTZrqvsL0qpTH8oYkb0/feZ6XKW3y0FyKFM5f9fetiQVU8pwpT7FgnGlXFMs6IDBm2U2xnq3xMgmB4Ne3w72eMfEsR2XwCGoiiZAri4tTXotzdKyBHTZbiN3Sswjr1Vj0td+JCf1/0yk1JM0ytYDjdaNapdCvZjtJ4hDlHMPky05vG81Z0LhK49r6pdIN2eeJfzd3DWtkILivucbZBoRPN3IGUa2w6MiJg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TTPn9MG4MWuSafqE3rCZqfZfqVw59DlcuKZfbUeU5WM=;
+ b=j246F6+0dk3K7lQIw768R4bCiiz+Tg82mfWV9UzyH/bmmDmWALE3FQq+LTz1FZp1M8vMpKZV0TBYTR++pe7nOw0+qJI4w9v3xEwR6l7IlrTruxfebBXYgyfMhU3JDnTnkCzi4EYJdlTT+CXmWpLd4BDDCd6aajk7yUPTWOfYcIU=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by SA1PR11MB5921.namprd11.prod.outlook.com (2603:10b6:806:22a::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5566.15; Tue, 30 Aug
+ 2022 08:21:01 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::ac89:75cd:26e0:51c3%9]) with mapi id 15.20.5566.021; Tue, 30 Aug 2022
+ 08:21:00 +0000
+From: <Conor.Dooley@microchip.com>
+To: <vladimir.isaev@syntacore.com>, <linux-arch@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH] riscv: Fix permissions for all mm's during mm init
+Thread-Topic: [PATCH] riscv: Fix permissions for all mm's during mm init
+Thread-Index: AQHYvEa/ZCOQkPuwK0CORJxDg4lnra3HGj2A
+Date: Tue, 30 Aug 2022 08:21:00 +0000
+Message-ID: <26ec07d5-14ac-f77c-00a7-23ea77ebeef6@microchip.com>
+References: <20220830075900.510105-1-vladimir.isaev@syntacore.com>
+In-Reply-To: <20220830075900.510105-1-vladimir.isaev@syntacore.com>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.12.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 70a12797-6759-43db-6128-08da8a609289
+x-ms-traffictypediagnostic: SA1PR11MB5921:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: jRf3JmUvonEcJwTTPyf1rAtBe0KtYSBJjtaGjbseZmLfpZE5c4hVgOK+kynVIPskXlwGwG/rHXTbJj+xdWE1o5uCPofwL3+IiYbICGOn1NZSaLxrbquMJOcBNLIknIasVshFuB2tEtUnLMFbMEeKXlkBXKJNDBn4wclVmjlQ5qwYgABJQuTnD+2Y8O8nriKFciE9gUBQv+5ocElqJuPZdYztf8LeRZqFAgWdu3H0xDvw861IsH29nod0+W3EbVw25aSbG1k3vzH2JP+dBPyIp3k6M7ZJeKm+04unBEIV5qlAD44ZfNegF00nQKmlj7B6cpXZA9qs2Cqy9QKaVPvgvCqN28RlRon4+MAUPCa8pEvYuKENHp2zw+f6Ryy5n072FgpVBBe50aMGTqBm7L0aUCgSRvKakpft6WqbaY3cB4MYibikAlrtevqhXj69QnwMFcJ8pI9LbaJurKijrdeEZoOP+FqzLpd+Y2x5X7rDwpsyb95I0hWQDiHMGSQdAKUkc+ko61T0tw19VHKLdbjYS2RRaxZg2gblc2T7O3vewIBiiaTB+jJxa+gvwaQP7idJJJomSez2XWYWoEVInIkcBWopNC6dGtj6lMYPgVVJiCd+vWPz0iBsJaRQ68mdXQSp8GxWTsjg1zFXJ3XJunMWCe+Cba4ufryEShBO86rQKtx4ODQHA9y7zoMzW08mVyChLSKgRvTbpsKZ5iy8nxYku/eMnbr3fKX16lM7WMXIKE1xGYsvW+MSgQSg4pnqzq4pK0DXIBzYB2PrsvTNMfhkh515DSFAzRBnZoXoziGNsTEmrDvmR2t7NfP3W0cw9cVEHQlSCrfEH7SgQ/H3tywynHDBB/hc8rKZGzPNA+XEx0c=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(346002)(366004)(396003)(136003)(39860400002)(376002)(71200400001)(53546011)(2616005)(6506007)(316002)(83380400001)(26005)(6486002)(966005)(478600001)(6512007)(186003)(66946007)(45080400002)(41300700001)(110136005)(2906002)(86362001)(5660300002)(31686004)(31696002)(8936002)(38100700002)(76116006)(66446008)(66556008)(122000001)(8676002)(91956017)(36756003)(38070700005)(66476007)(64756008)(45980500001)(43740500002);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?d2JnaEU1S0YxVFd6OWF6TFhod080ZUVWRW1VWTdNT3JCVmYxZ2FDaktSelRU?=
+ =?utf-8?B?OVZJQ2ZSK0tKc0s5N1dFMG5WK0hmK0pmelZQazFhOGpJUlkwNUF5TXdaYVJB?=
+ =?utf-8?B?L0hOc3ZRUU9PMklXZFc4ODBWcGcxR3hsRXZQVklEbHFtQnJoNHBlWDZ6cFJ6?=
+ =?utf-8?B?QnFQS3BHYjNwTDhLRFd2V1E4THh6K05YRlp2VVlkRjI0RUNlV3g1c0dDVHVt?=
+ =?utf-8?B?TkU5T0hIOUF5SEpVcjNQaXQ4MmtzbWlZL3IyVW1mdFJUVVpCcXpqaGdmdTl3?=
+ =?utf-8?B?NmN1QktMeUJPb3MrRE1sVWwxY0wzRGNyakQ2NUNiK3poTDlpbmtDeTR6SXc1?=
+ =?utf-8?B?VTRQeU9JYmF4Z2dVYkNLb0krKzh4YVRJOHZsTUplZnRwcDd1cmZzenBzWjc1?=
+ =?utf-8?B?dUVtcXg4bkErTkZsK1g2d2VYRVVTYjFaRjJTZWY1OU5mQTAzempCM2h4bGhv?=
+ =?utf-8?B?R0QwVTBiWnM2OUJNYUVmQzlOem1uSWpYNFdrdmhHQktkVy9RUTlMc0ZhTWlG?=
+ =?utf-8?B?YWVtcElBR05QdnRVeGhPSjY4eDBtTE03WFVoRjBXNllEMzFLSXFGTkd5dFIr?=
+ =?utf-8?B?Y0RwK3N2SXpZb2t0Z2JrMktUUHN1cHV5QnlHM09XVzRhQ2l3Z3B5ZWhLM3Bj?=
+ =?utf-8?B?QXFCbHRKMDZRSmR6dGN2RXltMXRHVEkyNTkxaUF3b1RhSFpMc3FyRzJRTm5y?=
+ =?utf-8?B?TGdSajQ0Z3VVNWQxU0ZKV0I1ZTZLOFY4S0xPT0ZrdHczc1U4M1BOb0dScDh2?=
+ =?utf-8?B?cGNENE5tUjg5MS9sZDV1Zlc2eEM2U0VzMzh1QmUvYjhVVXJLVUJyWTdZbGg4?=
+ =?utf-8?B?ZjF1YTd3VFRPbTRmVERwdVVZbFczdy9vdHpub1hYYjR1bGIyOTBBRVlhQzQ5?=
+ =?utf-8?B?UGRGMTdDdGZldDF1RXhFTENnMDc1NTdkdW1kMkMrT043dVp1WWNod3JmNEYx?=
+ =?utf-8?B?MTBmMytVanJFMU5nOEhReTA5UGsrNDZ6cnVaMlNBYzQvN0VlSHAvcEpJUnFp?=
+ =?utf-8?B?RjlWSzB1VjN4WWFHVjlTRGRocDEzYnJUMURlMS9JNzFUTGFBaWZkanhjWDdk?=
+ =?utf-8?B?S1Bmb1ZRYzgxcW01SjRzSkFYMk0vNzE2dlMyVHFIUmphKzZoVklOL0pPQ0Fa?=
+ =?utf-8?B?NlpvcVVPS3ZuSEpnZ0Fka1Nna1FFMFBKVnFzUjhZSkR1M0Y2WW84K285NFlm?=
+ =?utf-8?B?VVYzYi9YdmRwcDRnUzBoWENNc204aEN3MVY4TnJRSk9mazVEblZmaGsxTU9J?=
+ =?utf-8?B?aWhZTURWcHlBNEx5eS9DbkIxOHl4R3BqNGdJZFhPQWJXSWxVZTR6bm5EMTNR?=
+ =?utf-8?B?NjBIcGVabFZXOU1ZQ2Q1NmhMVUtHUThkWnA0MW9aSnlYaG1xMVoxa0Z2V3hv?=
+ =?utf-8?B?S3dvMlFPbC9GT1BRSlFzU3FweHd2SlJ2ZHhXWEVCSy9GOHJrQ0xpS1RZYnJJ?=
+ =?utf-8?B?RlhjaXpXbU1pUXRYRkZaRU43dElKdHIvL3lUR0dEWGs4Y081cldzRXJpaXY2?=
+ =?utf-8?B?bGFrQW5sWVJzNmpoYTlnc1FIVVBNTERxaHJaWjA1bDdMVnZITTBBdVhXaU5u?=
+ =?utf-8?B?NmRsV3B2RTZ4SE5tZXdiR2k1dTNWT25ZY1dsbDZ5NlU0eXdRQkJobjFRK2Nt?=
+ =?utf-8?B?MFByaXFCSmFvaDFHaTFyNUsxcytQVXV1ZXJQL3EyZEpINHIrL0NaYUZFVUI5?=
+ =?utf-8?B?UlVQa1hlTFFRT2l0Y21NU3E2VlZ4SzRuS091Q25DOWJzMVpwUENlajNOblFl?=
+ =?utf-8?B?WDdWK25ncUl1UmRGSi9VVy9ZcVh5VjdiNlU3Vm1aM2FJQVp4a3ZkdXk4K3RS?=
+ =?utf-8?B?ZnFqWjRXakpNLzJvRlQ0U1dOQnl4bFlldkkycWgxZGZIZm50NmR0ajZtMFB0?=
+ =?utf-8?B?MHllbUtTS1lYSnQzVy8yS1FsRGVBb1Nwc3BsRWMxc0tOZU1yTmNYL2YwQmsr?=
+ =?utf-8?B?YTVrQjdKelJWNmNTRkZGYnI1RGw0LytON1JsRTJ5UmxNUDhrWCtIOWhCbC9j?=
+ =?utf-8?B?WTFnMU93YTRnUEZpMVM4Ri9kQm9lYU1VT2t1OThLbmxJS1hHN0tJVkRSdzRU?=
+ =?utf-8?B?TVhsdW1xVE5GbDFoZVJnYzJUKzNCQ1pOQzVhdFdSTzI1dG9BVUFmakZ3L2h4?=
+ =?utf-8?Q?OeDpLTbdMhod4iHJmzulneS98?=
+Content-ID: <E4B8977A17C28A4D9EEB5ED2AC90AEF0@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.1.1
-Subject: Re: [PATCH 2/3] soc: sifive: l2 cache: Rename SiFive L2 cache to
- composible cache.
-Content-Language: en-GB
-To: Zong Li <zong.li@sifive.com>, robh+dt@kernel.org,
- krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, aou@eecs.berkeley.edu, greentime.hu@sifive.com,
- conor.dooley@microchip.com, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20220829062202.3287-1-zong.li@sifive.com>
- <20220829062202.3287-3-zong.li@sifive.com>
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <20220829062202.3287-3-zong.li@sifive.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 70a12797-6759-43db-6128-08da8a609289
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Aug 2022 08:21:00.6004
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: f6zapw2wyQzOILmGeA+KqVpUhLR23KO0u2a/rnajRYrcrCsnkM9w+V3HTIFKOT7qICeDPMcXto/Ok88ddbnizSQ6R+pwGpgjejweu/m4UkI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB5921
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220830_011848_832507_D4FAD477 
-X-CRM114-Status: GOOD (  32.69  )
+X-CRM114-CacheID: sfid-20220830_012111_725661_F678310A 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,584 +164,278 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 29/08/2022 07:22, Zong Li wrote:
-> From: Greentime Hu <greentime.hu@sifive.com>
-> 
-> Since composible cache may be L3 cache if pL2 cache exists, we should use
-> its original name composible cache to prevent confusion.
+Hey Vladimir,
 
-You probably should have noted in this that you also read the cache
-level property to work out if this is an l2 or l3 cache.
-
+On 30/08/2022 08:59, Vladimir Isaev wrote:
+> [You don't often get email from vladimir.isaev@syntacore.com. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 > 
-> Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> Signed-off-by: Zong Li <zong.li@sifive.com>
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> It is possible to have more than one mm (init_mm) during memory
+> permission fixes. In my case it was caused by request_module
+> from drivers/net/phy/phy_device.c and leads to following Oops
+> during free_initmem() on RV32 platform:
+>       Unable to handle kernel paging request at virtual address c0800000
+>       Oops [#1]
+>       Modules linked in:
+>       CPU: 0 PID: 1 Comm: swapper Not tainted 5.15.45
+>       Hardware name: Syntacore SCR5 SDK board (DT)
+>       epc : __memset+0x58/0xf4
+>        ra : free_reserved_area+0xfa/0x15a
+>       epc : c02b26ac ra : c00eb588 sp : c1c1fed0
+>        gp : c1898690 tp : c1c98000 t0 : c0800000
+>        t1 : ffffffff t2 : 00000000 s0 : c1c1ff20
+>        s1 : c189a000 a0 : c0800000 a1 : cccccccc
+>        a2 : 00001000 a3 : c0801000 a4 : 00000000
+>        a5 : 00800000 a6 : fef09000 a7 : 00000000
+>        s2 : c0e57000 s3 : c10edcf8 s4 : 000000cc
+>        s5 : ffffefff s6 : c188a9f4 s7 : 00000001
+>        s8 : c0800000 s9 : fef1b000 s10: c10ee000
+>        s11: c189a000 t3 : 00000000 t4 : 00000000
+>        t5 : 00000000 t6 : 00000001
+>       status: 00000120 badaddr: c0800000 cause: 0000000f
+>       [<c0488658>] free_initmem+0x204/0x222
+>       [<c048d05a>] kernel_init+0x32/0xfc
+>       [<c0002f76>] ret_from_exception+0x0/0xc
+>       ---[ end trace 7a5e2b002350b528 ]---
+> 
+> This is because request_module attempted to modprobe module, so it created
+> new mm with the copy of kernel's page table. And this copy won't be updated
+> in case of 4M pages and RV32 (pgd is the leaf).
+> 
+> To fix this we can update protection bits for all of existing mm-s, the same as
+> ARM does, see 08925c2f124f1 ('ARM: 8464/1: Update all mm structures with section adjustments').
+> 
+> Signed-off-by: Vladimir Isaev <vladimir.isaev@syntacore.com>
+
+What is the appropriate fixes tag for this patch?
+Thanks,
+Conor.
+
 > ---
->   drivers/soc/sifive/Kconfig           |   7 +-
->   drivers/soc/sifive/Makefile          |   2 +-
->   drivers/soc/sifive/sifive_ccache.c   | 221 +++++++++++++++++++++++++
->   drivers/soc/sifive/sifive_l2_cache.c | 237 ---------------------------
->   include/soc/sifive/sifive_ccache.h   |  16 ++
->   include/soc/sifive/sifive_l2_cache.h |  16 --
->   6 files changed, 242 insertions(+), 257 deletions(-)
->   create mode 100644 drivers/soc/sifive/sifive_ccache.c
->   delete mode 100644 drivers/soc/sifive/sifive_l2_cache.c
->   create mode 100644 include/soc/sifive/sifive_ccache.h
->   delete mode 100644 include/soc/sifive/sifive_l2_cache.h
+>   arch/riscv/include/asm/set_memory.h | 20 +++--------
+>   arch/riscv/kernel/setup.c           | 11 ------
+>   arch/riscv/mm/init.c                | 29 ++++++++++++---
+>   arch/riscv/mm/pageattr.c            | 55 ++++++++++++++++++++++++-----
+>   4 files changed, 75 insertions(+), 40 deletions(-)
 > 
-> diff --git a/drivers/soc/sifive/Kconfig b/drivers/soc/sifive/Kconfig
-> index 58cf8c40d08d..3d65d2771f9a 100644
-> --- a/drivers/soc/sifive/Kconfig
-> +++ b/drivers/soc/sifive/Kconfig
-> @@ -2,9 +2,10 @@
->   
->   if SOC_SIFIVE
->   
-> -config SIFIVE_L2
-> -	bool "Sifive L2 Cache controller"
-> +config SIFIVE_CCACHE
-> +	bool "Sifive composable Cache controller"
-> +	default y
->   	help
-> -	  Support for the L2 cache controller on SiFive platforms.
-> +	  Support for the composable cache controller on SiFive platforms.
->   
->   endif
-> diff --git a/drivers/soc/sifive/Makefile b/drivers/soc/sifive/Makefile
-> index b5caff77938f..1f5dc339bf82 100644
-> --- a/drivers/soc/sifive/Makefile
-> +++ b/drivers/soc/sifive/Makefile
-> @@ -1,3 +1,3 @@
->   # SPDX-License-Identifier: GPL-2.0
->   
-> -obj-$(CONFIG_SIFIVE_L2)	+= sifive_l2_cache.o
-> +obj-$(CONFIG_SIFIVE_CCACHE)	+= sifive_ccache.o
-> diff --git a/drivers/soc/sifive/sifive_ccache.c b/drivers/soc/sifive/sifive_ccache.c
-> new file mode 100644
-> index 000000000000..46ce33db7d30
-> --- /dev/null
-> +++ b/drivers/soc/sifive/sifive_ccache.c
-> @@ -0,0 +1,221 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * SiFive composable cache controller Driver
-> + *
-> + * Copyright (C) 2018-2019 SiFive, Inc.
-> + *
-> + */
-> +#include <linux/debugfs.h>
-> +#include <linux/interrupt.h>
-> +#include <linux/of_irq.h>
-> +#include <linux/of_address.h>
-> +#include <linux/device.h>
-> +#include <asm/cacheinfo.h>
-> +#include <soc/sifive/sifive_ccache.h>
+> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+> index a2c14d4b3993..bb0f6b4ed86b 100644
+> --- a/arch/riscv/include/asm/set_memory.h
+> +++ b/arch/riscv/include/asm/set_memory.h
+> @@ -16,28 +16,16 @@ int set_memory_rw(unsigned long addr, int numpages);
+>   int set_memory_x(unsigned long addr, int numpages);
+>   int set_memory_nx(unsigned long addr, int numpages);
+>   int set_memory_rw_nx(unsigned long addr, int numpages);
+> -static __always_inline int set_kernel_memory(char *startp, char *endp,
+> -                                            int (*set_memory)(unsigned long start,
+> -                                                              int num_pages))
+> -{
+> -       unsigned long start = (unsigned long)startp;
+> -       unsigned long end = (unsigned long)endp;
+> -       int num_pages = PAGE_ALIGN(end - start) >> PAGE_SHIFT;
+> -
+> -       return set_memory(start, num_pages);
+> -}
+> +void fix_kernel_mem_early(char *startp, char *endp, pgprot_t set_mask,
+> +                         pgprot_t clear_mask);
+>   #else
+>   static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+>   static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
+>   static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+>   static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
+>   static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
+> -static inline int set_kernel_memory(char *startp, char *endp,
+> -                                   int (*set_memory)(unsigned long start,
+> -                                                     int num_pages))
+> -{
+> -       return 0;
+> -}
+> +static inline void fix_kernel_mem_early(char *startp, char *endp,
+> +                                       pgprot_t set_mask, pgprot_t clear_mask) { }
+>   #endif
+> 
+>   int set_direct_map_invalid_noflush(struct page *page);
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 95ef6e2bf45c..17eae1406092 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -27,7 +27,6 @@
+>   #include <asm/early_ioremap.h>
+>   #include <asm/pgtable.h>
+>   #include <asm/setup.h>
+> -#include <asm/set_memory.h>
+>   #include <asm/sections.h>
+>   #include <asm/sbi.h>
+>   #include <asm/tlbflush.h>
+> @@ -318,13 +317,3 @@ static int __init topology_init(void)
+>          return 0;
+>   }
+>   subsys_initcall(topology_init);
+> -
+> -void free_initmem(void)
+> -{
+> -       if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
+> -               set_kernel_memory(lm_alias(__init_begin), lm_alias(__init_end),
+> -                                 IS_ENABLED(CONFIG_64BIT) ?
+> -                                       set_memory_rw : set_memory_rw_nx);
+> -
+> -       free_initmem_default(POISON_FREE_INITMEM);
+> -}
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index b56a0a75533f..978202712535 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -16,7 +16,6 @@
+>   #include <linux/of_fdt.h>
+>   #include <linux/of_reserved_mem.h>
+>   #include <linux/libfdt.h>
+> -#include <linux/set_memory.h>
+>   #include <linux/dma-map-ops.h>
+>   #include <linux/crash_dump.h>
+>   #include <linux/hugetlb.h>
+> @@ -28,6 +27,7 @@
+>   #include <asm/io.h>
+>   #include <asm/ptdump.h>
+>   #include <asm/numa.h>
+> +#include <asm/set_memory.h>
+> 
+>   #include "../kernel/head.h"
+> 
+> @@ -714,10 +714,14 @@ static __init pgprot_t pgprot_from_va(uintptr_t va)
+> 
+>   void mark_rodata_ro(void)
+>   {
+> -       set_kernel_memory(__start_rodata, _data, set_memory_ro);
+> -       if (IS_ENABLED(CONFIG_64BIT))
+> -               set_kernel_memory(lm_alias(__start_rodata), lm_alias(_data),
+> -                                 set_memory_ro);
+> +       pgprot_t set_mask = __pgprot(_PAGE_READ);
+> +       pgprot_t clear_mask = __pgprot(_PAGE_WRITE);
 > +
-> +#define SIFIVE_CCACHE_DIRECCFIX_LOW 0x100
-> +#define SIFIVE_CCACHE_DIRECCFIX_HIGH 0x104
-> +#define SIFIVE_CCACHE_DIRECCFIX_COUNT 0x108
+> +       fix_kernel_mem_early(__start_rodata, _data, set_mask, clear_mask);
+> +       if (IS_ENABLED(CONFIG_64BIT)) {
+> +               fix_kernel_mem_early(lm_alias(__start_rodata), lm_alias(_data),
+> +                                    set_mask, clear_mask);
+> +       }
+> 
+>          debug_checkwx();
+>   }
+> @@ -1243,3 +1247,18 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>          return vmemmap_populate_basepages(start, end, node, NULL);
+>   }
+>   #endif
 > +
-> +#define SIFIVE_CCACHE_DATECCFIX_LOW 0x140
-> +#define SIFIVE_CCACHE_DATECCFIX_HIGH 0x144
-> +#define SIFIVE_CCACHE_DATECCFIX_COUNT 0x148
-> +
-> +#define SIFIVE_CCACHE_DATECCFAIL_LOW 0x160
-> +#define SIFIVE_CCACHE_DATECCFAIL_HIGH 0x164
-> +#define SIFIVE_CCACHE_DATECCFAIL_COUNT 0x168
-> +
-> +#define SIFIVE_CCACHE_CONFIG 0x00
-> +#define SIFIVE_CCACHE_WAYENABLE 0x08
-> +#define SIFIVE_CCACHE_ECCINJECTERR 0x40
-> +
-> +#define SIFIVE_CCACHE_MAX_ECCINTR 3
-> +
-> +static void __iomem *ccache_base;
-> +static int level;
-> +static int g_irq[SIFIVE_CCACHE_MAX_ECCINTR];
-> +static struct riscv_cacheinfo_ops ccache_cache_ops;
-> +
-> +enum {
-> +	DIR_CORR = 0,
-> +	DATA_CORR,
-> +	DATA_UNCORR,
-> +};
-> +
-> +#ifdef CONFIG_DEBUG_FS
-> +static struct dentry *sifive_test;
-> +
-> +static ssize_t ccache_write(struct file *file, const char __user *data,
-> +			size_t count, loff_t *ppos)
+> +void free_initmem(void)
 > +{
-> +	unsigned int val;
+> +       pgprot_t set_mask = __pgprot(_PAGE_READ | _PAGE_WRITE);
+> +       pgprot_t clear_mask = IS_ENABLED(CONFIG_64BIT) ?
+> +                             __pgprot(0) : __pgprot(_PAGE_EXEC);
 > +
-> +	if (kstrtouint_from_user(data, count, 0, &val))
-> +		return -EINVAL;
-> +	if ((val < 0xFF) || (val >= 0x10000 && val < 0x100FF))
-> +		writel(val, ccache_base + SIFIVE_CCACHE_ECCINJECTERR);
-> +	else
-> +		return -EINVAL;
-> +	return count;
+> +       if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
+> +               fix_kernel_mem_early(lm_alias(__init_begin),
+> +                                    lm_alias(__init_end),
+> +                                    set_mask, clear_mask);
+> +       }
+> +
+> +       free_initmem_default(POISON_FREE_INITMEM);
+> +}
+> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+> index 5e49e4b4a4cc..10a4ee313083 100644
+> --- a/arch/riscv/mm/pageattr.c
+> +++ b/arch/riscv/mm/pageattr.c
+> @@ -5,6 +5,7 @@
+> 
+>   #include <linux/pagewalk.h>
+>   #include <linux/pgtable.h>
+> +#include <linux/sched.h>
+>   #include <asm/tlbflush.h>
+>   #include <asm/bitops.h>
+>   #include <asm/set_memory.h>
+> @@ -104,24 +105,62 @@ static const struct mm_walk_ops pageattr_ops = {
+>          .pte_hole = pageattr_pte_hole,
+>   };
+> 
+> -static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+> -                       pgprot_t clear_mask)
+> +static int __set_memory_mm(struct mm_struct  *mm, unsigned long start,
+> +                          unsigned long end, pgprot_t set_mask,
+> +                          pgprot_t clear_mask)
+>   {
+>          int ret;
+> -       unsigned long start = addr;
+> -       unsigned long end = start + PAGE_SIZE * numpages;
+>          struct pageattr_masks masks = {
+>                  .set_mask = set_mask,
+>                  .clear_mask = clear_mask
+>          };
+> 
+> +       mmap_read_lock(mm);
+> +       ret = walk_page_range_novma(mm, start, end, &pageattr_ops, NULL,
+> +                                   &masks);
+> +       mmap_read_unlock(mm);
+> +
+> +       return ret;
 > +}
 > +
-> +static const struct file_operations ccache_fops = {
-> +	.owner = THIS_MODULE,
-> +	.open = simple_open,
-> +	.write = ccache_write
-> +};
-> +
-> +static void setup_sifive_debug(void)
+> +void fix_kernel_mem_early(char *startp, char *endp, pgprot_t set_mask,
+> +                         pgprot_t clear_mask)
 > +{
-> +	sifive_test = debugfs_create_dir("sifive_ccache_cache", NULL);
+> +       struct task_struct *t, *s;
 > +
-> +	debugfs_create_file("sifive_debug_inject_error", 0200,
-> +			    sifive_test, NULL, &ccache_fops);
-> +}
-> +#endif
+> +       unsigned long start = (unsigned long)startp;
+> +       unsigned long end = PAGE_ALIGN((unsigned long)endp);
 > +
-> +static void ccache_config_read(void)
-> +{
-> +	u32 regval, val;
+> +       __set_memory_mm(current->active_mm, start, end, set_mask, clear_mask);
+> +       __set_memory_mm(&init_mm, start, end, set_mask, clear_mask);
 > +
-> +	regval = readl(ccache_base + SIFIVE_CCACHE_CONFIG);
-> +	val = regval & 0xFF;
-> +	pr_info("CCACHE: No. of Banks in the cache: %d\n", val);
-> +	val = (regval & 0xFF00) >> 8;
-> +	pr_info("CCACHE: No. of ways per bank: %d\n", val);
-> +	val = (regval & 0xFF0000) >> 16;
-> +	pr_info("CCACHE: Sets per bank: %llu\n", (uint64_t)1 << val);
-> +	val = (regval & 0xFF000000) >> 24;
-> +	pr_info("CCACHE: Bytes per cache block: %llu\n", (uint64_t)1 << val);
+> +       rcu_read_lock();
+> +       for_each_process(t) {
+> +               if (t->flags & PF_KTHREAD)
+> +                       continue;
+> +               for_each_thread(t, s) {
+> +                       if (s->mm) {
+> +                               __set_memory_mm(s->mm, start, end, set_mask,
+> +                                               clear_mask);
+> +                       }
+> +               }
+> +       }
+> +       rcu_read_unlock();
 > +
-> +	regval = readl(ccache_base + SIFIVE_CCACHE_WAYENABLE);
-> +	pr_info("CCACHE: Index of the largest way enabled: %d\n", regval);
+> +       flush_tlb_kernel_range(start, end);
 > +}
 > +
-> +static const struct of_device_id sifive_ccache_ids[] = {
-> +	{ .compatible = "sifive,fu540-c000-ccache" },
-> +	{ .compatible = "sifive,ccache0" },
-> +	{ /* end of table */ },
-> +};
-> +
-> +static ATOMIC_NOTIFIER_HEAD(ccache_err_chain);
-> +
-> +int register_sifive_ccache_error_notifier(struct notifier_block *nb)
+> +static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+> +                       pgprot_t clear_mask)
 > +{
-> +	return atomic_notifier_chain_register(&ccache_err_chain, nb);
-> +}
-> +EXPORT_SYMBOL_GPL(register_sifive_ccache_error_notifier);
+> +       int ret;
+> +       unsigned long start = addr;
+> +       unsigned long end = start + PAGE_SIZE * numpages;
 > +
-> +int unregister_sifive_ccache_error_notifier(struct notifier_block *nb)
-> +{
-> +	return atomic_notifier_chain_unregister(&ccache_err_chain, nb);
-> +}
-> +EXPORT_SYMBOL_GPL(unregister_sifive_ccache_error_notifier);
-> +
-> +static int ccache_largest_wayenabled(void)
-> +{
-> +	return readl(ccache_base + SIFIVE_CCACHE_WAYENABLE) & 0xFF;
-> +}
-> +
-> +static ssize_t number_of_ways_enabled_show(struct device *dev,
-> +					   struct device_attribute *attr,
-> +					   char *buf)
-> +{
-> +	return sprintf(buf, "%u\n", ccache_largest_wayenabled());
-> +}
-> +
-> +static DEVICE_ATTR_RO(number_of_ways_enabled);
-> +
-> +static struct attribute *priv_attrs[] = {
-> +	&dev_attr_number_of_ways_enabled.attr,
-> +	NULL,
-> +};
-> +
-> +static const struct attribute_group priv_attr_group = {
-> +	.attrs = priv_attrs,
-> +};
-> +
-> +static const struct attribute_group *ccache_get_priv_group(struct cacheinfo *this_leaf)
-> +{
-> +	/* We want to use private group for composable cache only */
-> +	if (this_leaf->level == level)
-> +		return &priv_attr_group;
-> +	else
-> +		return NULL;
-> +}
-> +
-> +static irqreturn_t ccache_int_handler(int irq, void *device)
-> +{
-> +	unsigned int add_h, add_l;
-> +
-> +	if (irq == g_irq[DIR_CORR]) {
-> +		add_h = readl(ccache_base + SIFIVE_CCACHE_DIRECCFIX_HIGH);
-> +		add_l = readl(ccache_base + SIFIVE_CCACHE_DIRECCFIX_LOW);
-> +		pr_err("CCACHE: DirError @ 0x%08X.%08X\n", add_h, add_l);
-> +		/* Reading this register clears the DirError interrupt sig */
-> +		readl(ccache_base + SIFIVE_CCACHE_DIRECCFIX_COUNT);
-> +		atomic_notifier_call_chain(&ccache_err_chain, SIFIVE_CCACHE_ERR_TYPE_CE,
-> +					   "DirECCFix");
-> +	}
-> +	if (irq == g_irq[DATA_CORR]) {
-> +		add_h = readl(ccache_base + SIFIVE_CCACHE_DATECCFIX_HIGH);
-> +		add_l = readl(ccache_base + SIFIVE_CCACHE_DATECCFIX_LOW);
-> +		pr_err("CCACHE: DataError @ 0x%08X.%08X\n", add_h, add_l);
-> +		/* Reading this register clears the DataError interrupt sig */
-> +		readl(ccache_base + SIFIVE_CCACHE_DATECCFIX_COUNT);
-> +		atomic_notifier_call_chain(&ccache_err_chain, SIFIVE_CCACHE_ERR_TYPE_CE,
-> +					   "DatECCFix");
-> +	}
-> +	if (irq == g_irq[DATA_UNCORR]) {
-> +		add_h = readl(ccache_base + SIFIVE_CCACHE_DATECCFAIL_HIGH);
-> +		add_l = readl(ccache_base + SIFIVE_CCACHE_DATECCFAIL_LOW);
-> +		pr_err("CCACHE: DataFail @ 0x%08X.%08X\n", add_h, add_l);
-> +		/* Reading this register clears the DataFail interrupt sig */
-> +		readl(ccache_base + SIFIVE_CCACHE_DATECCFAIL_COUNT);
-> +		atomic_notifier_call_chain(&ccache_err_chain, SIFIVE_CCACHE_ERR_TYPE_UE,
-> +					   "DatECCFail");
-> +	}
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int __init sifive_ccache_init(void)
-> +{
-> +	struct device_node *np;
-> +	struct resource res;
-> +	int i, rc;
-> +
-> +	np = of_find_matching_node(NULL, sifive_ccache_ids);
-> +	if (!np)
-> +		return -ENODEV;
-> +
-> +	if (of_address_to_resource(np, 0, &res))
-> +		return -ENODEV;
-> +
-> +	if (of_property_read_u32(np, "cache-level", &level))
-> +		return -ENODEV;
-> +
-> +	ccache_base = ioremap(res.start, resource_size(&res));
-> +	if (!ccache_base)
-> +		return -ENOMEM;
-> +
-> +	for (i = 0; i < SIFIVE_CCACHE_MAX_ECCINTR; i++) {
-> +		g_irq[i] = irq_of_parse_and_map(np, i);
-> +		rc = request_irq(g_irq[i], ccache_int_handler, 0, "ccache_ecc", NULL);
-> +		if (rc) {
-> +			pr_err("CCACHE: Could not request IRQ %d\n", g_irq[i]);
-> +			return rc;
-> +		}
-> +	}
-> +
-> +	ccache_config_read();
-> +
-> +	ccache_cache_ops.get_priv_group = ccache_get_priv_group;
-> +	riscv_set_cacheinfo_ops(&ccache_cache_ops);
-> +
-> +#ifdef CONFIG_DEBUG_FS
-> +	setup_sifive_debug();
-> +#endif
-> +	return 0;
-> +}
-> +device_initcall(sifive_ccache_init);
-> diff --git a/drivers/soc/sifive/sifive_l2_cache.c b/drivers/soc/sifive/sifive_l2_cache.c
-> deleted file mode 100644
-> index 59640a1d0b28..000000000000
-> --- a/drivers/soc/sifive/sifive_l2_cache.c
-> +++ /dev/null
-> @@ -1,237 +0,0 @@
-> -// SPDX-License-Identifier: GPL-2.0
-> -/*
-> - * SiFive L2 cache controller Driver
-> - *
-> - * Copyright (C) 2018-2019 SiFive, Inc.
-> - *
-> - */
-> -#include <linux/debugfs.h>
-> -#include <linux/interrupt.h>
-> -#include <linux/of_irq.h>
-> -#include <linux/of_address.h>
-> -#include <linux/device.h>
-> -#include <asm/cacheinfo.h>
-> -#include <soc/sifive/sifive_l2_cache.h>
-> -
-> -#define SIFIVE_L2_DIRECCFIX_LOW 0x100
-> -#define SIFIVE_L2_DIRECCFIX_HIGH 0x104
-> -#define SIFIVE_L2_DIRECCFIX_COUNT 0x108
-> -
-> -#define SIFIVE_L2_DIRECCFAIL_LOW 0x120
-> -#define SIFIVE_L2_DIRECCFAIL_HIGH 0x124
-> -#define SIFIVE_L2_DIRECCFAIL_COUNT 0x128
-> -
-> -#define SIFIVE_L2_DATECCFIX_LOW 0x140
-> -#define SIFIVE_L2_DATECCFIX_HIGH 0x144
-> -#define SIFIVE_L2_DATECCFIX_COUNT 0x148
-> -
-> -#define SIFIVE_L2_DATECCFAIL_LOW 0x160
-> -#define SIFIVE_L2_DATECCFAIL_HIGH 0x164
-> -#define SIFIVE_L2_DATECCFAIL_COUNT 0x168
-> -
-> -#define SIFIVE_L2_CONFIG 0x00
-> -#define SIFIVE_L2_WAYENABLE 0x08
-> -#define SIFIVE_L2_ECCINJECTERR 0x40
-> -
-> -#define SIFIVE_L2_MAX_ECCINTR 4
-> -
-> -static void __iomem *l2_base;
-> -static int g_irq[SIFIVE_L2_MAX_ECCINTR];
-> -static struct riscv_cacheinfo_ops l2_cache_ops;
-> -
-> -enum {
-> -	DIR_CORR = 0,
-> -	DATA_CORR,
-> -	DATA_UNCORR,
-> -	DIR_UNCORR,
-> -};
-> -
-> -#ifdef CONFIG_DEBUG_FS
-> -static struct dentry *sifive_test;
-> -
-> -static ssize_t l2_write(struct file *file, const char __user *data,
-> -			size_t count, loff_t *ppos)
-> -{
-> -	unsigned int val;
-> -
-> -	if (kstrtouint_from_user(data, count, 0, &val))
-> -		return -EINVAL;
-> -	if ((val < 0xFF) || (val >= 0x10000 && val < 0x100FF))
-> -		writel(val, l2_base + SIFIVE_L2_ECCINJECTERR);
-> -	else
-> -		return -EINVAL;
-> -	return count;
-> -}
-> -
-> -static const struct file_operations l2_fops = {
-> -	.owner = THIS_MODULE,
-> -	.open = simple_open,
-> -	.write = l2_write
-> -};
-> -
-> -static void setup_sifive_debug(void)
-> -{
-> -	sifive_test = debugfs_create_dir("sifive_l2_cache", NULL);
-> -
-> -	debugfs_create_file("sifive_debug_inject_error", 0200,
-> -			    sifive_test, NULL, &l2_fops);
-> -}
-> -#endif
-> -
-> -static void l2_config_read(void)
-> -{
-> -	u32 regval, val;
-> -
-> -	regval = readl(l2_base + SIFIVE_L2_CONFIG);
-> -	val = regval & 0xFF;
-> -	pr_info("L2CACHE: No. of Banks in the cache: %d\n", val);
-> -	val = (regval & 0xFF00) >> 8;
-> -	pr_info("L2CACHE: No. of ways per bank: %d\n", val);
-> -	val = (regval & 0xFF0000) >> 16;
-> -	pr_info("L2CACHE: Sets per bank: %llu\n", (uint64_t)1 << val);
-> -	val = (regval & 0xFF000000) >> 24;
-> -	pr_info("L2CACHE: Bytes per cache block: %llu\n", (uint64_t)1 << val);
-> -
-> -	regval = readl(l2_base + SIFIVE_L2_WAYENABLE);
-> -	pr_info("L2CACHE: Index of the largest way enabled: %d\n", regval);
-> -}
-> -
-> -static const struct of_device_id sifive_l2_ids[] = {
-> -	{ .compatible = "sifive,fu540-c000-ccache" },
-> -	{ .compatible = "sifive,fu740-c000-ccache" },
-> -	{ /* end of table */ },
-> -};
-> -
-> -static ATOMIC_NOTIFIER_HEAD(l2_err_chain);
-> -
-> -int register_sifive_l2_error_notifier(struct notifier_block *nb)
-> -{
-> -	return atomic_notifier_chain_register(&l2_err_chain, nb);
-> -}
-> -EXPORT_SYMBOL_GPL(register_sifive_l2_error_notifier);
-> -
-> -int unregister_sifive_l2_error_notifier(struct notifier_block *nb)
-> -{
-> -	return atomic_notifier_chain_unregister(&l2_err_chain, nb);
-> -}
-> -EXPORT_SYMBOL_GPL(unregister_sifive_l2_error_notifier);
-> -
-> -static int l2_largest_wayenabled(void)
-> -{
-> -	return readl(l2_base + SIFIVE_L2_WAYENABLE) & 0xFF;
-> -}
-> -
-> -static ssize_t number_of_ways_enabled_show(struct device *dev,
-> -					   struct device_attribute *attr,
-> -					   char *buf)
-> -{
-> -	return sprintf(buf, "%u\n", l2_largest_wayenabled());
-> -}
-> -
-> -static DEVICE_ATTR_RO(number_of_ways_enabled);
-> -
-> -static struct attribute *priv_attrs[] = {
-> -	&dev_attr_number_of_ways_enabled.attr,
-> -	NULL,
-> -};
-> -
-> -static const struct attribute_group priv_attr_group = {
-> -	.attrs = priv_attrs,
-> -};
-> -
-> -static const struct attribute_group *l2_get_priv_group(struct cacheinfo *this_leaf)
-> -{
-> -	/* We want to use private group for L2 cache only */
-> -	if (this_leaf->level == 2)
-> -		return &priv_attr_group;
-> -	else
-> -		return NULL;
-> -}
-> -
-> -static irqreturn_t l2_int_handler(int irq, void *device)
-> -{
-> -	unsigned int add_h, add_l;
-> -
-> -	if (irq == g_irq[DIR_CORR]) {
-> -		add_h = readl(l2_base + SIFIVE_L2_DIRECCFIX_HIGH);
-> -		add_l = readl(l2_base + SIFIVE_L2_DIRECCFIX_LOW);
-> -		pr_err("L2CACHE: DirError @ 0x%08X.%08X\n", add_h, add_l);
-> -		/* Reading this register clears the DirError interrupt sig */
-> -		readl(l2_base + SIFIVE_L2_DIRECCFIX_COUNT);
-> -		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
-> -					   "DirECCFix");
-> -	}
-> -	if (irq == g_irq[DIR_UNCORR]) {
-> -		add_h = readl(l2_base + SIFIVE_L2_DIRECCFAIL_HIGH);
-> -		add_l = readl(l2_base + SIFIVE_L2_DIRECCFAIL_LOW);
-> -		/* Reading this register clears the DirFail interrupt sig */
-> -		readl(l2_base + SIFIVE_L2_DIRECCFAIL_COUNT);
-> -		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_UE,
-> -					   "DirECCFail");
-> -		panic("L2CACHE: DirFail @ 0x%08X.%08X\n", add_h, add_l);
-> -	}
-> -	if (irq == g_irq[DATA_CORR]) {
-> -		add_h = readl(l2_base + SIFIVE_L2_DATECCFIX_HIGH);
-> -		add_l = readl(l2_base + SIFIVE_L2_DATECCFIX_LOW);
-> -		pr_err("L2CACHE: DataError @ 0x%08X.%08X\n", add_h, add_l);
-> -		/* Reading this register clears the DataError interrupt sig */
-> -		readl(l2_base + SIFIVE_L2_DATECCFIX_COUNT);
-> -		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
-> -					   "DatECCFix");
-> -	}
-> -	if (irq == g_irq[DATA_UNCORR]) {
-> -		add_h = readl(l2_base + SIFIVE_L2_DATECCFAIL_HIGH);
-> -		add_l = readl(l2_base + SIFIVE_L2_DATECCFAIL_LOW);
-> -		pr_err("L2CACHE: DataFail @ 0x%08X.%08X\n", add_h, add_l);
-> -		/* Reading this register clears the DataFail interrupt sig */
-> -		readl(l2_base + SIFIVE_L2_DATECCFAIL_COUNT);
-> -		atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_UE,
-> -					   "DatECCFail");
-> -	}
-> -
-> -	return IRQ_HANDLED;
-> -}
-> -
-> -static int __init sifive_l2_init(void)
-> -{
-> -	struct device_node *np;
-> -	struct resource res;
-> -	int i, rc, intr_num;
-> -
-> -	np = of_find_matching_node(NULL, sifive_l2_ids);
-> -	if (!np)
-> -		return -ENODEV;
-> -
-> -	if (of_address_to_resource(np, 0, &res))
-> -		return -ENODEV;
-> -
-> -	l2_base = ioremap(res.start, resource_size(&res));
-> -	if (!l2_base)
-> -		return -ENOMEM;
-> -
-> -	intr_num = of_property_count_u32_elems(np, "interrupts");
-> -	if (!intr_num) {
-> -		pr_err("L2CACHE: no interrupts property\n");
-> -		return -ENODEV;
-> -	}
-> -
-> -	for (i = 0; i < intr_num; i++) {
-> -		g_irq[i] = irq_of_parse_and_map(np, i);
-> -		rc = request_irq(g_irq[i], l2_int_handler, 0, "l2_ecc", NULL);
-> -		if (rc) {
-> -			pr_err("L2CACHE: Could not request IRQ %d\n", g_irq[i]);
-> -			return rc;
-> -		}
-> -	}
-> -
-> -	l2_config_read();
-> -
-> -	l2_cache_ops.get_priv_group = l2_get_priv_group;
-> -	riscv_set_cacheinfo_ops(&l2_cache_ops);
-> -
-> -#ifdef CONFIG_DEBUG_FS
-> -	setup_sifive_debug();
-> -#endif
-> -	return 0;
-> -}
-> -device_initcall(sifive_l2_init);
-> diff --git a/include/soc/sifive/sifive_ccache.h b/include/soc/sifive/sifive_ccache.h
-> new file mode 100644
-> index 000000000000..16576d678ea8
-> --- /dev/null
-> +++ b/include/soc/sifive/sifive_ccache.h
-> @@ -0,0 +1,16 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * SiFive composable Cache Controller header file
-> + *
-> + */
-> +
-> +#ifndef __SOC_SIFIVE_CCACHE_H
-> +#define __SOC_SIFIVE_CCACHE_H
-> +
-> +extern int register_sifive_ccache_error_notifier(struct notifier_block *nb);
-> +extern int unregister_sifive_ccache_error_notifier(struct notifier_block *nb);
-> +
-> +#define SIFIVE_CCACHE_ERR_TYPE_CE 0
-> +#define SIFIVE_CCACHE_ERR_TYPE_UE 1
-> +
-> +#endif /* __SOC_SIFIVE_CCACHE_H */
-> diff --git a/include/soc/sifive/sifive_l2_cache.h b/include/soc/sifive/sifive_l2_cache.h
-> deleted file mode 100644
-> index 92ade10ed67e..000000000000
-> --- a/include/soc/sifive/sifive_l2_cache.h
-> +++ /dev/null
-> @@ -1,16 +0,0 @@
-> -/* SPDX-License-Identifier: GPL-2.0 */
-> -/*
-> - * SiFive L2 Cache Controller header file
-> - *
-> - */
-> -
-> -#ifndef __SOC_SIFIVE_L2_CACHE_H
-> -#define __SOC_SIFIVE_L2_CACHE_H
-> -
-> -extern int register_sifive_l2_error_notifier(struct notifier_block *nb);
-> -extern int unregister_sifive_l2_error_notifier(struct notifier_block *nb);
-> -
-> -#define SIFIVE_L2_ERR_TYPE_CE 0
-> -#define SIFIVE_L2_ERR_TYPE_UE 1
-> -
-> -#endif /* __SOC_SIFIVE_L2_CACHE_H */
-
--- 
-Ben Dooks				http://www.codethink.co.uk/
-Senior Engineer				Codethink - Providing Genius
-
-https://www.codethink.co.uk/privacy.html
-
+>          if (!numpages)
+>                  return 0;
+> 
+> -       mmap_read_lock(&init_mm);
+> -       ret =  walk_page_range_novma(&init_mm, start, end, &pageattr_ops, NULL,
+> -                                    &masks);
+> -       mmap_read_unlock(&init_mm);
+> +       ret = __set_memory_mm(&init_mm, start, end, set_mask, clear_mask);
+> 
+>          flush_tlb_kernel_range(start, end);
+> 
+> --
+> 2.37.2
+> 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
