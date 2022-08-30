@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504F4ECAAD4
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 12:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD59ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 12:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8jsKbvz+vgzMfZANaNxG3mrgE7x7BmSASLNk2Sn3hGQ=; b=XEdBnxOIJCyvIL
-	x4V2UEN4aAZW1bhZ6UYUkBzSdMl4oPfW+ItMwQ/ryYivY/nczJnWZgP7Pls3/XHKIajmvMRz7lUPw
-	OWMBbK6wB0GH0HTwr4LOg8cRkRvvfLtWLt4lKCwCAjKJaPcrpKEZ6+L3N4SPPJRAon2DmE3/PJgof
-	t1SRnlTEpCddZhycWjqIAt5KXc9lP94H4Lvjc9PMaPJv3e5CUlXXm6CkaYb/gKsotP30cuc01nQ3d
-	46anBVaCQJ/fsgmU91pSF676QIGPNuGOEY2tfblLs6ZQOZekKf1EGcjdbFb3kmFz/J0YRarx3Abpj
-	4+cDAgu+DMZGXg80xqtA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ku9OlZJKGmEdnzO8/ZeWv4EDTcD38STglDxSu2lg09I=; b=11KZXUBwGGxmgu
+	9UDU02VAXa/iDoQregA7VzbPl8wAXRFyIJPaocrEf5ZHy7iIR2HBeqa2Q2ObDTHPB440bSbDyywZC
+	yfTPlACNTrjermU9Ciyv8x9OTRgCzwWrWB0WLwDF1S7Nd7wfCnckgZbQxPfrCn/9Ee3eGV1mwOOv7
+	Y7LX+TD2vmRr+U9bY1uHXWvFWIxeuzom/uYoZyA09Xb4TUwfYh8FrkJmqTMtfq2U040CsEZ1rnUAj
+	pt+savLtDJ9pnImAHKyg/xIG2tE8oPrOIJUeQ6e7FS3oKf/8ONv5/RR0IHf1+X/+Ryr/E+1fgXfmQ
+	3KKUqq5sIdZO/VMhDiCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oT0iU-00GzaQ-25; Tue, 30 Aug 2022 12:51:42 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1oT0if-00Gzro-0V; Tue, 30 Aug 2022 12:51:53 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oT0iQ-00GzUC-7n
-	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 12:51:41 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id z14-20020a7bc7ce000000b003a5db0388a8so635901wmk.1
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Aug 2022 05:51:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc;
-        bh=7s4lILp9cgE/VG98/TN3p3rL3NeB7y+YGCWWz/Ak6qo=;
-        b=L6AZHkI6qAhQKRgDVwck8jQPEP5pvVUbAewKRUe/QGZDUn6HXSmN7CBSKyiywVSxuc
-         jx+z2pZ+bS6vETgwOq+5TPiOOZd/+INHG4k09nhpsh7oO7PbPKmVWluwQhTFnH7sTb+b
-         TMfPZLKaY9wuJnFT6eo9KxVz+acW//pawvrgQZ8ioqEfagH4O9ZY4YJbhJGSmCJhEVqX
-         1LGL4eQupDP+4Yhh4q/cg3pBc1mapDtk8g7hqBfmgV4vCCm4eLh9sZ+RYQ4XWP950MEq
-         U8V5zPoQfGgNugjHqnYldO7xIy93uKBSjuZ578J8OsdSqOQs1yt4iX/9O38srfbRYIq5
-         qWrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
-        bh=7s4lILp9cgE/VG98/TN3p3rL3NeB7y+YGCWWz/Ak6qo=;
-        b=yx0ACGXr+UajjJujkqJkvtTdQAudZ3jUsaDeGjvNS0UVq5MomXPGoKmLlJBvd8uk16
-         Q65uabIG/h+Cz9zk3amZyeA3jzjR2NJdzN/KvPsncX84Ogt95IlNbGjJwbVBbiwfYnB+
-         WhESwDYkcQnpa0A6jdoXHLYz4AsmQqrwdErQVWNYL4oSKbdTuMqmgJY+Eo+2Jwp+Mr9C
-         WSYDrayFPEcLZqfc2tioy5cHqrQ3aKWztS0QUWffwLwO5iubPKVHeHhXBOV7L7WbtcbM
-         7Vb3rzbqVuda4dmHniUWGnjVsIjS9LF6RXJSjA2+KvxSyBrgLS0wCN2w1gzCpzJKNCCq
-         v3LA==
-X-Gm-Message-State: ACgBeo1VcxHOC/uYsw6XLc3lozZ371dxnW5BQDnyg1NWBcwtPFsSK74N
-	YbMN+wd8ZRSZd6GXn2jUSpJlfA==
-X-Google-Smtp-Source: AA6agR5nyN9qMCqsMR5Co7UgnLcOiBBKn7+L3agUSkd7KYHf7KNGKsjAB3LwR6t08tkeAcEr4nLWYw==
-X-Received: by 2002:a7b:cc85:0:b0:3a5:50b2:f9be with SMTP id p5-20020a7bcc85000000b003a550b2f9bemr9329439wma.18.1661863895829;
-        Tue, 30 Aug 2022 05:51:35 -0700 (PDT)
-Received: from rainbowdash.office.codethink.co.uk ([167.98.27.226])
-        by smtp.gmail.com with ESMTPSA id 14-20020a05600c020e00b003a3170a7af9sm11778784wmi.4.2022.08.30.05.51.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Aug 2022 05:51:35 -0700 (PDT)
-From: Ben Dooks <ben.dooks@sifive.com>
-To: palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu,
-	greentime.hu@sifive.com,
-	conor.dooley@microchip.com,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	devicetree@vger.kernel.org
-Cc: Ben Dooks <ben.dooks@sifive.com>
-Subject: [RESEND PATCH] dt-bindings: sifive-ccache: fix cache level for l3 cache
-Date: Tue, 30 Aug 2022 13:51:33 +0100
-Message-Id: <20220830125133.1698781-1-ben.dooks@sifive.com>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220829062202.3287-1-zong.li@sifive.com>
-References: <20220829062202.3287-1-zong.li@sifive.com>
+	id 1oT0iY-00Gzjc-Sd
+	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 12:51:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1661863907; x=1693399907;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=DTTjAQM5wpLyoGhClhwQfqS/j8yy+6odf1fye7DwaoE=;
+  b=J2SRf2AVAT2T8Okko4iFvbK38EY8gZCpAAUr98mAZCZ43oArmLrFcaYL
+   DlQ8nA7VBMCPuKVtQcwSrsEMgNKkrOVYvYPGQaE/vnEUCR5pymct53169
+   AhLIlVh/9bJnM0QRZytoOLGwoSFzq4+jAJ0lM0yqAhkynPFddBh9qCSsR
+   EKjNnqYdTkYdGaB2BHuqtL2K1HfDYdnQVxCcHg/a6PEbqG+CkpvgyI8ck
+   1wF7162iWHU+0I7gsgk1OuynsMIEe88fC+Kx19casCowSIy7/UnrxWzIO
+   SI8tvDMZcAY+9XUPXwosGIemge4TmBdLY6w9rYox42sWwqHaUpafp7L/F
+   A==;
+X-IronPort-AV: E=Sophos;i="5.93,275,1654585200"; 
+   d="scan'208";a="178300984"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Aug 2022 05:51:47 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Tue, 30 Aug 2022 05:51:45 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
+ Transport; Tue, 30 Aug 2022 05:51:42 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Claudiu Beznea <claudiu.beznea@microchip.com>,
+	<linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: [PATCH v4 00/13] PolarFire SoC reset controller & clock cleanups
+Date: Tue, 30 Aug 2022 13:50:58 +0100
+Message-ID: <20220830125110.2372514-1-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220830_055139_767589_DD7C7DF0 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220830_055147_089912_4DB7C87E 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,29 +83,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-With newer cores such as the p550, the SiFive composable cache can be
-a level 3 cache. Update the cache level to be one of 2 or 3.
+Hey all,
 
-Signed-off-by: Ben Dooks <ben.dooks@sifive.com>
----
- Documentation/devicetree/bindings/riscv/sifive-ccache.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Kinda two things happening in this series, but I sent it together to
+ensure the second part would apply correctly.
 
-diff --git a/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml b/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
-index 1a64a5384e36..6190deb65455 100644
---- a/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
-+++ b/Documentation/devicetree/bindings/riscv/sifive-ccache.yaml
-@@ -45,7 +45,7 @@ properties:
-     const: 64
- 
-   cache-level:
--    const: 2
-+    enum: [2, 3]
- 
-   cache-sets:
-     enum: [1024, 2048]
+The first is the reset controller that I promised after discovering the
+issue triggered by CONFIG_PM & the phy not coming up correctly. I have
+now removed all the messing with resets from clock enable/disable
+functions & now use the aux bus to set up a reset controller driver.
+Since I needed something to test it, I hooked up the reset for the
+Cadence MACB on PolarFire SoC. This has been split into a second series
+for v2 (and is now in v6.0-rcN):
+https://lore.kernel.org/all/20220704114511.1892332-1-conor.dooley@microchip.com/
+
+The second part adds rate control for the MSS PLL clock, followed by
+some simplifications to the driver & conversions of some custom structs
+to the corresponding structs in the framework.
+
+I'll take the dts patch myself when the rest of this is okay-ed.
+Thanks,
+Conor.
+
+Changes since v3:
+- return results directly in probe() & reset_controller_register()
+
+Changes since v2:
+- reorder reset Makefile/Kconfig entries
+- fix a pre-existing bug exposed by clang with this series applied
+- add Padmarao who co-authored the original driver to the authors
+
+Conor Dooley (13):
+  clk: microchip: mpfs: fix clk_cfg array bounds violation
+  dt-bindings: clk: microchip: mpfs: add reset controller support
+  clk: microchip: mpfs: add reset controller
+  reset: add polarfire soc reset support
+  MAINTAINERS: add polarfire soc reset controller
+  riscv: dts: microchip: add mpfs specific macb reset support
+  clk: microchip: mpfs: add MSS pll's set & round rate
+  clk: microchip: mpfs: move id & offset out of clock structs
+  clk: microchip: mpfs: simplify control reg access
+  clk: microchip: mpfs: delete 2 line mpfs_clk_register_foo()
+  clk: microchip: mpfs: convert cfg_clk to clk_divider
+  clk: microchip: mpfs: convert periph_clk to clk_gate
+  clk: microchip: mpfs: update module authorship & licencing
+
+ .../bindings/clock/microchip,mpfs.yaml        |  17 +-
+ MAINTAINERS                                   |   1 +
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |   7 +-
+ drivers/clk/microchip/Kconfig                 |   1 +
+ drivers/clk/microchip/clk-mpfs.c              | 380 +++++++++---------
+ drivers/reset/Kconfig                         |   7 +
+ drivers/reset/Makefile                        |   2 +-
+ drivers/reset/reset-mpfs.c                    | 157 ++++++++
+ include/soc/microchip/mpfs.h                  |   8 +
+ 9 files changed, 384 insertions(+), 196 deletions(-)
+ create mode 100644 drivers/reset/reset-mpfs.c
+
+
+base-commit: 568035b01cfb107af8d2e4bd2fb9aea22cf5b868
 -- 
-2.35.1
+2.36.1
 
 
 _______________________________________________
