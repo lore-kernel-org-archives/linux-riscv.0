@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08D6EECAAD4
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 10:22:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0347BECAAA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 10:22:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6T11hDBKEuf07uzcIlMo6WBuyrN6IeGt77qa5+d06BI=; b=4/01Dqp/gPZM+V
-	nOlod7kHEAVI1VcdWOGTo2qZEd6/pimlKa8p+8yDP1UPsrPu+YgpOKHn32CQMinu25dUnlVj5OfwX
-	+oJWc0vxYVWRj+ql6APUJJoWw2SyLkscogq92j64skbWlNeB1VCMstgDa0GUGuECIYHyvCGM90ccB
-	fXmnW0cmrr7eGQBI6dMzFNMAq2vBv4US2iBx/J4W6qdGd3ZnzHXcfVuG7mXuHKKUqejGsnjRUGCH+
-	m17lhD1jlfCcwqxgIWsFivTLQpLuSdNjfaXUVx+Uyw89lB2ZAf0cLfFRRbLACzjEnX9TfHEY9yUdm
-	rS7SDAtmw3ugv9jOuWQQ==;
+	List-Owner; bh=G4PiJV7C58qCVYLmRMSDcTeT/dsz/rIUdT3FVZI3G/U=; b=Mn34gaLxRFwPGn
+	kt5ahWfUjcVo2F0dpa1RuUcIDiwml8S162VqfDxJAYkyJGIsgafO2q6dKmEhF5LNDNERQp2vlskjq
+	n0vvvKJnYSTTLZYnTal3AOMtLeA+k7kDcr3aUBfNi0R9yAX2gJ5KyaJzOAGDKmvPbszKjRQAS8QjY
+	aklpUT6Pw4oCKTnVrcL1BBOPR0cYnj+yZo0pZ2liu0Ae1yz2+WOhnYI3eahDizdD1n/2JoT6Qwogp
+	JToWui8P3bsXaCzetaM+W+8RiPnNqV4L7SUVocBuGeFYhTGjkfKe4A2XlhcVFtWo3ldPniHafclIH
+	ZrZHBaMnfk0GI9RquiXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSyNS-00G7bX-2y; Tue, 30 Aug 2022 10:21:50 +0000
+	id 1oSyNc-00G7hG-7l; Tue, 30 Aug 2022 10:22:00 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSyKW-00G69V-5z
-	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 10:18:49 +0000
+	id 1oSyKa-00G69V-1N
+	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 10:18:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661854728; x=1693390728;
+  t=1661854732; x=1693390732;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=5en4qBuVzdeyn5IGKXiQxzbRqw1ndSal365HolbPArY=;
-  b=uVoCIlReDe5zINvhbnhDYFNBFAFeDNg5MQbd+ZKyqCWxMA6WG2vLMfrg
-   j4sU/MAKwCx11cIWfX85GkhWVg9i+RoQlHB/aO8H6pwJEb/+v/v4X1T9V
-   QAd99IHnii5gWx84klJwYWLBBckYqfgdHQmLSmSyzXlaa3EfNPRNZhbRC
-   W2SPTScbF+nKBJyJLEmntSrPM1SL4GdFYsaUPE1CIFVmnucpGb9gjsZEp
-   0Qyp/IvzoMsce6jVJe/v6SbL5KMtjcOBcnfZQfqoP2Fkak4cQy8bemlcA
-   OaqeCI9lNVnYNNdyVtPM6rFXUDxZ3EduCnUgzw9qsHcAHHld5onMjKZVC
-   Q==;
+  bh=fKL2pKdfe49aKzGqeWYbXuxKM2r4HTWOwpLHntUQotA=;
+  b=jE4dAYYqIjTHoTKnCCGNCT8O6PScfztT5KjvaP3jx5H+IAP1DkB/bk5t
+   yVItjdvWw6ibsd8Q/cdEK4YAG9iFYWhPCho2Q8+wtISe26HlWahuxSd+r
+   AE64bl9gp/9yv57M/+yjiCrpkdM6xKLikt3IEyQ6QOBqjnhtxquRjz7DV
+   8A8lgxpP62UH4QHVN4ZiD8pfOT6sNhreaCKX62Ow/aq+6+iUTeZv8csWr
+   mRZiYGyCCmrmEYUVxCY1noxOUD5texgauUsxXFBmlJVDiRVRXA5qSllFI
+   Am1Eps5SNtVaTyy+cqfaoXswwPKY3LbAemTEutFVT++iUPd6s/iNMPwZq
+   A==;
 X-IronPort-AV: E=Sophos;i="5.93,274,1654585200"; 
-   d="scan'208";a="174786808"
+   d="scan'208";a="174786835"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Aug 2022 03:18:45 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Aug 2022 03:18:48 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 30 Aug 2022 03:18:43 -0700
+ 15.1.2507.12; Tue, 30 Aug 2022 03:18:47 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex01.mchp-main.com
  (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Tue, 30 Aug 2022 03:18:41 -0700
+ Transport; Tue, 30 Aug 2022 03:18:44 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
@@ -61,16 +61,17 @@ CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
 	<wg@aries-embedded.de>, Hugh Breslin <hugh.breslin@microchip.com>,
 	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 5/9] riscv: dts: microchip: move the mpfs' pci node to -fabric.dtsi
-Date: Tue, 30 Aug 2022 11:18:00 +0100
-Message-ID: <20220830101803.1456180-6-conor.dooley@microchip.com>
+Subject: [PATCH v2 6/9] riscv: dts: microchip: icicle: update pci address properties
+Date: Tue, 30 Aug 2022 11:18:01 +0100
+Message-ID: <20220830101803.1456180-7-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220830101803.1456180-1-conor.dooley@microchip.com>
 References: <20220830101803.1456180-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220830_031848_411396_5B5F763A 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20220830_031852_256097_7C1BEAAF 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,150 +88,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In today's edition of moving things around:
+For the v2022.09 reference design the PCI root port's data region has
+been moved to FIC1 from FIC0. This is a shorter path, allowing for
+higher clock rates and improved through-put. As a result, the address at
+which the PCIe's data region appears to the core complex has changed.
+The config region's address is unchanged.
 
-The PCIe root port on PolarFire SoC is more part of the FPGA than of
-the Core Complex. It is located on the other side of the chip and,
-apart from its interrupts, most of its configuration is determined
-by the FPGA bitstream rather. This includes:
-
-- address translation in both directions
-- the addresses at which the config and data regions appear to the
-  core complex
-- the clocks used by the AXI bus
-- the plic interrupt used
-
-Moving the PCIe node to the -fabric.dtsi makes it clearer than a
-singular configuration for root port is not correct & allows the
-base SoC dtsi to be more easily included.
+As FIC0 is no longer used, its clock can be removed too.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../dts/microchip/mpfs-icicle-kit-fabric.dtsi | 32 +++++++++++++++++--
- .../dts/microchip/mpfs-polarberry-fabric.dtsi | 29 +++++++++++++++++
- arch/riscv/boot/dts/microchip/mpfs.dtsi       | 29 -----------------
- 3 files changed, 58 insertions(+), 32 deletions(-)
+ .../boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi    | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
 
 diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-index c0fb9dd7b2c8..a21440c8ee03 100644
+index a21440c8ee03..32d51c4a5b0c 100644
 --- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
 +++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-@@ -37,8 +37,34 @@ fabric_clk1: fabric-clk1 {
- 		#clock-cells = <0>;
- 		clock-frequency = <125000000>;
- 	};
--};
+@@ -2,6 +2,7 @@
+ /* Copyright (c) 2020-2021 Microchip Technology Inc */
  
--&pcie {
--	dma-ranges = <0x02000000 0x0 0x00000000 0x0 0x00000000 0x1 0x00000000>;
-+	pcie: pcie@2000000000 {
-+		compatible = "microchip,pcie-host-1.0";
-+		#address-cells = <0x3>;
-+		#interrupt-cells = <0x1>;
-+		#size-cells = <0x2>;
-+		device_type = "pci";
-+		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
-+		reg-names = "cfg", "apb";
-+		bus-range = <0x0 0x7f>;
-+		interrupt-parent = <&plic>;
-+		interrupts = <119>;
-+		interrupt-map = <0 0 0 1 &pcie_intc 0>,
-+				<0 0 0 2 &pcie_intc 1>,
-+				<0 0 0 3 &pcie_intc 2>,
-+				<0 0 0 4 &pcie_intc 3>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
-+		clock-names = "fic0", "fic1", "fic3";
-+		ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
-+		dma-ranges = <0x02000000 0x0 0x00000000 0x0 0x00000000 0x1 0x00000000>;
-+		msi-parent = <&pcie>;
-+		msi-controller;
-+		status = "disabled";
-+		pcie_intc: interrupt-controller {
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+			interrupt-controller;
-+		};
-+	};
- };
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-index 49380c428ec9..67303bc0e451 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-@@ -13,4 +13,33 @@ fabric_clk1: fabric-clk1 {
- 		#clock-cells = <0>;
- 		clock-frequency = <125000000>;
- 	};
+ / {
 +
-+	pcie: pcie@2000000000 {
-+		compatible = "microchip,pcie-host-1.0";
-+		#address-cells = <0x3>;
-+		#interrupt-cells = <0x1>;
-+		#size-cells = <0x2>;
-+		device_type = "pci";
-+		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
-+		reg-names = "cfg", "apb";
-+		bus-range = <0x0 0x7f>;
-+		interrupt-parent = <&plic>;
-+		interrupts = <119>;
-+		interrupt-map = <0 0 0 1 &pcie_intc 0>,
-+				<0 0 0 2 &pcie_intc 1>,
-+				<0 0 0 3 &pcie_intc 2>,
-+				<0 0 0 4 &pcie_intc 3>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
-+		clock-names = "fic0", "fic1", "fic3";
-+		ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
-+		msi-parent = <&pcie>;
-+		msi-controller;
-+		status = "disabled";
-+		pcie_intc: interrupt-controller {
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+			interrupt-controller;
-+		};
-+	};
- };
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index a1176260086a..5974066298e1 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -464,35 +464,6 @@ usb: usb@20201000 {
- 			status = "disabled";
- 		};
+ 	compatible = "microchip,mpfs-icicle-reference-rtlv2209", "microchip,mpfs-icicle-kit",
+ 		     "microchip,mpfs";
  
--		pcie: pcie@2000000000 {
--			compatible = "microchip,pcie-host-1.0";
--			#address-cells = <0x3>;
--			#interrupt-cells = <0x1>;
--			#size-cells = <0x2>;
--			device_type = "pci";
--			reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
--			reg-names = "cfg", "apb";
--			bus-range = <0x0 0x7f>;
--			interrupt-parent = <&plic>;
--			interrupts = <119>;
--			interrupt-map = <0 0 0 1 &pcie_intc 0>,
--					<0 0 0 2 &pcie_intc 1>,
--					<0 0 0 3 &pcie_intc 2>,
--					<0 0 0 4 &pcie_intc 3>;
--			interrupt-map-mask = <0 0 0 7>;
--			clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
--			clock-names = "fic0", "fic1", "fic3";
--			ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
--			msi-parent = <&pcie>;
--			msi-controller;
--			status = "disabled";
--			pcie_intc: interrupt-controller {
--				#address-cells = <0>;
--				#interrupt-cells = <1>;
--				interrupt-controller;
--			};
--		};
--
- 		mbox: mailbox@37020000 {
- 			compatible = "microchip,mpfs-mailbox";
- 			reg = <0x0 0x37020000 0x0 0x1000>, <0x0 0x2000318C 0x0 0x40>;
+@@ -38,13 +39,13 @@ fabric_clk1: fabric-clk1 {
+ 		clock-frequency = <125000000>;
+ 	};
+ 
+-	pcie: pcie@2000000000 {
++	pcie: pcie@3000000000 {
+ 		compatible = "microchip,pcie-host-1.0";
+ 		#address-cells = <0x3>;
+ 		#interrupt-cells = <0x1>;
+ 		#size-cells = <0x2>;
+ 		device_type = "pci";
+-		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
++		reg = <0x30 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
+ 		reg-names = "cfg", "apb";
+ 		bus-range = <0x0 0x7f>;
+ 		interrupt-parent = <&plic>;
+@@ -54,9 +55,9 @@ pcie: pcie@2000000000 {
+ 				<0 0 0 3 &pcie_intc 2>,
+ 				<0 0 0 4 &pcie_intc 3>;
+ 		interrupt-map-mask = <0 0 0 7>;
+-		clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
+-		clock-names = "fic0", "fic1", "fic3";
+-		ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
++		clocks = <&fabric_clk1>, <&fabric_clk3>;
++		clock-names = "fic1", "fic3";
++		ranges = <0x3000000 0x0 0x8000000 0x30 0x8000000 0x0 0x80000000>;
+ 		dma-ranges = <0x02000000 0x0 0x00000000 0x0 0x00000000 0x1 0x00000000>;
+ 		msi-parent = <&pcie>;
+ 		msi-controller;
 -- 
 2.36.1
 
