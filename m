@@ -4,164 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33205ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 13:49:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C13BECAAA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 14:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MJZ2lJSJrQZYa3x6sDBCLRi8lOJJhyNJIBBdkwPK9sM=; b=ErWbBFNUm2025w
-	2TK7z4av8kTMcWXBV0rTZ4aE2cue742eSLFgHCgTAaJyIe1dU0YpKx1Y6ezoiHIrKYTgbv+QtKEIn
-	nA7mNTtvLDvEwDdi/J93c8po0wPmpw01fhhkT+gRWUMbHpVneucRMlXXhgusog+atJInyGijWKQF4
-	Wy4Sty1leFyajWG4FFT0t7n83c4a2LivKt+bPz9q/fjSCrIwjdlACipnLsEa2b6KkyqYamgsXvWaG
-	7fobsUOL4FSzHJLsSt2bcJkqtNeApOZu0rRTjT0ExyECMJICy+hpwzEZLAVQsJDO0hr2eXwN7pHFy
-	32C5bpEglz8fsnbKhAIg==;
+	List-Owner; bh=2XiBO+eqOy5NpaSYkEb6MgEizmo4b13JMF15oHqZAUY=; b=KFxeB8pJcpxqoM
+	VfIDiW06YaU8j8piA/WHN4+mUTO7bTsR7DmeRJb/gJZq5iyzYRna8sDNy8Gp+I2EvFodaiugeKcoi
+	c6R/PZUozWYnW5P2P50vIlXbkKlCrliYewFn+Qcuilio4dtIuMRa4qQGZVYdf3NxDHpURYwxfAPRK
+	+RcRE3yQiwt2gNr0ukAuSD5w9+oYxOEyPYW8B6pUi8ekrM5JCnK0+XUPRZlyGeWsYJINZnPzkVtip
+	5vhrX1qmmtr5EgVsAKnaI0vNhrGj/FVLUeb3V7Y/Z+dkMM2tsMx9ecHIYHFmRuQY1t+YO7pdqh0OT
+	hXOjiEHScevt1jZswVGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oT1cS-00HSdN-Bc; Tue, 30 Aug 2022 13:49:32 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oT1vA-00HVrr-EX; Tue, 30 Aug 2022 14:08:52 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oT1cM-00HSZs-GE
-	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 13:49:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1661867367; x=1693403367;
-  h=from:to:subject:date:message-id:references:in-reply-to:
-   content-id:content-transfer-encoding:mime-version;
-  bh=jBen5paD7gcuEP0lrrkn7LvOB7QD0K1Dvoi3iICW1qQ=;
-  b=idgYmUgKZtpdplyCb9TDd5JIxQoriatmYxJp5HYmMAF3R8NDU03gTgKH
-   hXpmnFhtlUYPd1MwmUSoSWFvYlZRhKfbT62nF/YXRYjTRXjbKctTTKvn/
-   HshtNMut1cbq8XbgSpXpOF3/OPR/kqbl8WaXXemETuym17cTaupDXTm7N
-   ggRKE0NqJ6F8+QywthePjPyJBnO1WLqYJdvA+bcNcIL3hdL64DhjJtRJO
-   gp5GBWKVGc5GiCDEM1xHoeoQnURguQO3Gb6h3vYvop9urg5JQbn1C8Uk1
-   P+vj3H2mlZeRQ6i17UnPNUErLjOQ2z2vf5pH5F2yIUmIXSKMFjVmkunPS
-   Q==;
-X-IronPort-AV: E=Sophos;i="5.93,275,1654585200"; 
-   d="scan'208";a="171597113"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 30 Aug 2022 06:49:23 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 30 Aug 2022 06:49:20 -0700
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Tue, 30 Aug 2022 06:49:20 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=CDuPkpnUFNMVmSPCAv5JXIY1u7PkeaEgKL5IYbt40CUt3WvoAKemo5DBc9b3LQSMZcRqKoakp3xJ1Ir4afoDHoIIMskdjYY2WTwFZejZ1/NSvK3CWnT+yeac0GIdxDIFkA5/c+vGoh/dYTiIxoE+fnmVwKgbbGQqpyx+RD6Nl3WdAMeb52Q74HGFk3vheexPSpBeRyaBu9br3T366DFE/C3nQAm1oYk9qM7rm/eWcEhSbGYz7rqhmDjAsddd9wFBlgttsta6t8fVtcjAOxWqEHm6xFkqXuzF3veIffSlqKjILBIwsbDn96kBfbjPqWaaOK9j0+gfyUimYoNSUG7QHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jBen5paD7gcuEP0lrrkn7LvOB7QD0K1Dvoi3iICW1qQ=;
- b=aHpkkD4i3cNqj9/m78rn5k2NUQg0U5ekUF7VHci4BTkeV/wb5t9RJIqB4NJTIfm4y++88+miaGwGYyvzHYp25kN5g1bqsIrtUwdTBrvSPFrBxvXRSQ1BxQbHdgUnM3KWM1o3nCrPC4EQ2LODy50LRD8E1fx1YyxfA8ix+Ta1lyhrWVkrKeOQNlLOUeWL6Z/waLTxATpm3lfAOiBJCOJIWzyxoO2gDYAgXEzh8oRGe3YKUi+FML+JU8XNuJ0xDVSuzeQJzi4GQrVOUwauZDZnM2FUF4AIHxTz6GPKP5+Wy+7ePejtoLOwik5/r6mwfrEIlyMLvRlNmgeQiiuKaS4/6w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jBen5paD7gcuEP0lrrkn7LvOB7QD0K1Dvoi3iICW1qQ=;
- b=naC46qQBv1aLyicK9R5j1CQfgGJ3P4O135tzGos0MkyE1A3S1GlLkSZecTlhA/BJV2iAGQgjvrBLqXQtHWM4+H6zNcRxCvbp8N2ptUc0vrfoF79/t6xwLrXtYd40OoVRrXvtMtOdYZE0Qp6sQ3rSzirGuf5W0Z48Pu1QKLJW65k=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by MWHPR11MB1245.namprd11.prod.outlook.com (2603:10b6:300:28::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5566.21; Tue, 30 Aug
- 2022 13:49:16 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::ac89:75cd:26e0:51c3%9]) with mapi id 15.20.5566.021; Tue, 30 Aug 2022
- 13:49:16 +0000
-From: <Conor.Dooley@microchip.com>
-To: <ben.dooks@sifive.com>, <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
-	<aou@eecs.berkeley.edu>, <greentime.hu@sifive.com>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
-	<devicetree@vger.kernel.org>
-Subject: Re: [RESEND PATCH] dt-bindings: sifive-ccache: fix cache level for l3
- cache
-Thread-Topic: [RESEND PATCH] dt-bindings: sifive-ccache: fix cache level for
- l3 cache
-Thread-Index: AQHYvG9DsO2L31s8JEW+tF32qWQ5gq3HZuqAgAAAiQCAAA5EgA==
-Date: Tue, 30 Aug 2022 13:49:16 +0000
-Message-ID: <8422fb34-fc05-eddd-0eaa-3e713896d05d@microchip.com>
-References: <20220829062202.3287-1-zong.li@sifive.com>
- <20220830125133.1698781-1-ben.dooks@sifive.com>
- <b810d354-18f3-9ae0-6310-57d9e36f4f9b@microchip.com>
- <6b6837c1-5a2c-567b-ba64-72a1dca38807@sifive.com>
-In-Reply-To: <6b6837c1-5a2c-567b-ba64-72a1dca38807@sifive.com>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 997fe517-8896-40cb-893c-08da8a8e6e16
-x-ms-traffictypediagnostic: MWHPR11MB1245:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: ezPPELok626k5PabdneN4aBoiZSnnRWT3PrDc/ohA5ruHGgsyNoNPmWPnrc5deN7Zi/IQkwrnYXzntZP4KyszFD+kUz/GEwyyPtcQYzhQ3WXCcVNTbXkaNI1hnu54VtUrbWxxW3fOpQeHEG39MciTkahLsphjn5ig2IROAX10yGNM7zXSiwI0OnkITEI6zy0JpBbuWr6Xvm3mRSuHLTreiqBZdSZP5Ihjr6jMEv+VeR3MrAwEMZQc/KY79azdlP88nihCE0SNEKz8E9CrzOWY8+HFrZUWNZAoKiJZdZHQSUXUMPXb7vZ0AdbmgFU2g2+Ran61hBOKmxW+EBV0IkfMFBS4Pa1iCsex7AcUfB7I4EjnORIBLbidecpW6VN0JZtmMCwxthL3tnen7K50Cmadel3VxLoGT8yGeYOUapxVg7C9sQYo4QDYLA/CbUWmI5DTcENvgQED+cn1BDvXdJ3qomdVKA6sMVHo6UYKwN6yKv04MKKgFLnSO5Lt7a1VaJFLn15pexJJyyA1ADoHN8HcDKZUZFeki8ns6wB2LuRp82ejNTpkUe7qwz46hpdz7KAHfz49Gtm9HcEuALihNjyaV11Lw7+wNKco9aWXGI/edrrugLu1bkjqdDDlKHFP2JEbJj4nfxsZ+9/VMchfgurEyBpTIbyeYXSwTgDSWj9WXojaOV3WxibR/iHwSLyO6kXOXWYyPp7JSfn460jM20eqEZ+kx3mvFkRkPKLtj5oetMS8SI/pfikWZUTMgm2tOWumqCG4eFi9GZHp5TQZY31c3Pa92uTKi+S5iqWOdR6JBg9dpMzX5jYe1VzeZ+fkr8OrKkZlTPhIof+U0SptoRG41PlZ1+hxUpEfFR9X2PUyoiqEalTvIxHwX2dhjHy51Zk
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(346002)(376002)(39860400002)(396003)(136003)(366004)(91956017)(38100700002)(122000001)(36756003)(316002)(76116006)(66446008)(66946007)(66476007)(8676002)(64756008)(66556008)(86362001)(31686004)(31696002)(38070700005)(921005)(71200400001)(83380400001)(478600001)(6506007)(26005)(53546011)(6512007)(41300700001)(966005)(6486002)(110136005)(7416002)(2906002)(2616005)(186003)(5660300002)(8936002)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MnN3RkZrUlN4YmFreXpVQkdqay9OV3JGMHBHTDlWNWp5UmpWSjBOSjR6Nkdx?=
- =?utf-8?B?di9SK3ZsSkNHdmpZUmF6ZVlzVTY0TjlrbVpiS2dWbFlCMHJmZkQzejV5RnRD?=
- =?utf-8?B?WlJhcDU0L3A1VzlHYzYxM0lYZXhFY0VaZlRadkRMZjltRFdMOUFnODc1UldL?=
- =?utf-8?B?RW11VXEyRDB1NkFiVGU4bGlhd2tXSTJDaGZHZWR6dEhqdDc4bzhxRk40cmhj?=
- =?utf-8?B?dzlZd1ZzaXgyMzJFZjdyZXMreGE3WWlhdjg4VWUyVjYwbENiTDhlK0piMGg1?=
- =?utf-8?B?YndqNmZMSHZoQkJMbWlTQm9HcFBMNlY3cnFpTElXMVhTak1xaWxGdU5oRWhy?=
- =?utf-8?B?UFJRWGVTWEtIUVgrdmk3eVRWOTVKQ1JvaWF2N2JaNnZSRm9QdnhocHYvL1lU?=
- =?utf-8?B?dkd5S1pRUUF0WWs3SkI1a2VMM2RGNENtZ1UyNnRYQXYwT1N2OXBtSEZHNlh3?=
- =?utf-8?B?UEhHSmVtRHFzdEhPcWtGOVRZZHpDd0hRdTQydkdENFlxbjdEL2RCQWF2aDZO?=
- =?utf-8?B?aHV6WmVZUlBGRFBFK3FiZTJ2ZGhhLzU4QklnTk5kbVFGZVhiT0pabkU3UnRY?=
- =?utf-8?B?NG9RNVdwOExpbUYreUVRZlNTS1VQb08rMVZwUDZtTkNQL1RsNWZERW5NTHV3?=
- =?utf-8?B?S2Q2T2UzdG9SNVdGRGtFRHE0dTdyczVSWHhhVEs3NmlDdlpvUmdZZWdQY1p4?=
- =?utf-8?B?R0lrYlpTWlBvZzYyVXQvNDA0dWZjSnBpdis4Nk5tUzJ2UzFUSm41RnlRcENt?=
- =?utf-8?B?Z2NoazRGaWlRWEhtY0FOb3BrNGs0elhOT2hQR3ZOa2R4MUlIK2tHZFNDUkc0?=
- =?utf-8?B?YjQ2SXMyQkpXVEFXYXJBNmY5cGFmZ1FlOFdYUnNSTnJ0RVRQRkhGNVRPN0hT?=
- =?utf-8?B?UmpwZ3RBM1NxbzUzY3ZJQ3ViQmF5ZGdFeTJJSE80N2ZwdWdzR3pORUhwMHJH?=
- =?utf-8?B?R0dKWnlMUnUwNnIveWIxdlpTTnAzdllvdVhycVQ4clBkSE5Ic0Z2YXo1NVNo?=
- =?utf-8?B?S3NPS002R2FwNVVEWEhKVXk5WFV3cHFTZitUQmtsYTRNNVFUT1JnblYyUzVz?=
- =?utf-8?B?d1dFVHN6YUgva2dhMWFJeVZoMzlLL2Z5b01nYmsxSW4yOCttc094Vjd0bGVp?=
- =?utf-8?B?WUVITGRZU1ozNEpUTzNpSithTjBLdHRucFRWWHNIQ2dJSEVlVnpKelRRekRR?=
- =?utf-8?B?Y1pXZXMwbzFuSENqNHBubHd6VHVMR052c2lUMG1zSklOZC9ZcHVqRS9meUF2?=
- =?utf-8?B?ZUlDbllUS3JQSTdYaXRIUUdpRll0amRjSUJ3enR6UE96U09YclV4dHdGMHJu?=
- =?utf-8?B?N2JjbWVTU3QvcS8rR1NiMzEzWFdmQTBzY2dFRFJkL292N04rZnFBeHA5Z2RV?=
- =?utf-8?B?VVNsUWNIQXdhL2o4dzA2aExEUXpuek11MXNkUFpsQzBoVHV0Rk1wMUt4RXZP?=
- =?utf-8?B?aHFITUFrR0lVUElNTXhoa3l3djlTSW9lZVJieVZ5RFBiU0wybnd6WmN4THJ2?=
- =?utf-8?B?OU9IM1I0RFJwbm40SWRTT01aUUdtalJSb0x6YUJWcXgya1FuV3llblprOXQ3?=
- =?utf-8?B?K0s3Z2NGYWw5NE5KdmlMWHZRKy9ubjhtU3kzV0VMQkk4Y3RYYThPa0p1NDhk?=
- =?utf-8?B?dVdxQWphczFILzlBdEdpN3k2OWg1VUV1ZXNkTE1uZDU2R0ZveGVtK0hrL2Jx?=
- =?utf-8?B?UW9wN294Vk83Q0Zmb2YzU3h5S2tzenR6UEpuL2R0YXRMdFA1UHB3UUdCUzNj?=
- =?utf-8?B?V1dVYUF4cUpQM3dSWlEvSjdQSkNxY0dLenVLVTdkTDY2aHViM2ovQzdISTdv?=
- =?utf-8?B?MmdLcHlPVlRveFp1RzNaUmw5S2V1NXJvbDZac2g3SWVYdUtqczRBTFpyYVRR?=
- =?utf-8?B?WExsMjRaalNQQlJ2TUp4U2Zqc01wRFc3R1Ftb0ZxRWErZkpwMEV3NEl1SFZI?=
- =?utf-8?B?SDhjNkRDUWhQZllLWEJaN0NaVDgvdHlxWVJtYXJqMnFuOE9iMXkvbHYrVFRJ?=
- =?utf-8?B?REkzUzFuQ2tGQUlSUHk0cnY3U21hZzJQWmpLT2RteXBvdHM5UjFKZ2JhUXRs?=
- =?utf-8?B?dmJnZVgySFdETjJucktIRDhacDdLR2JBK3RNWUtCa0s2UUtkOFJBMGVrUjlr?=
- =?utf-8?B?U1I1bGprcWhEeVljaUJDbGRIUi9DVnFYTmY2UzZFUnhnY1YwWXFGRW5YMnJH?=
- =?utf-8?B?YlE9PQ==?=
-Content-ID: <B37883E513CDD14C917C3F454EAD2446@namprd11.prod.outlook.com>
+	id 1oT1v7-00HVr0-Fv
+	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 14:08:51 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 04B17B81C16;
+	Tue, 30 Aug 2022 14:08:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C147C433C1;
+	Tue, 30 Aug 2022 14:08:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1661868526;
+	bh=m/u8XyF+U/qV44PkAv5tgc86ePYtwDWmP547g4BF5ZA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=THhOWVfhqu7k9+uWQ3/WwmgdvA6rsqI7C9Ha5p76pC1c0YUwr84gcNNu7VCQaUaS6
+	 eSb8tp0bzNc4rEqn54RSKGjUsXZkvn/sUF4T+DjFCGjoJosFmWbSY5/sWQCKvfmFyI
+	 nS0a9QcMfocrWVCEMER6OEW+dHqqjkf0CKYNuQyG/EdEjFZhLfIFF9BOMUyVcO3n3i
+	 /fq5qh2xrNPu0T5dUNvkXmjxsUgqX3V30Rks5rto1rk+yABEHAoUzIy8JprFlpGTVz
+	 bsqM80r9rgxXCNZDsSLEoaYCNStmKNzY1aTOclPFX0ll0yWMXF2HZpSxnW5xElTB4j
+	 NpbZE+K/gjgtg==
+Date: Tue, 30 Aug 2022 21:59:30 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor.Dooley@microchip.com
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ajones@ventanamicro.com
+Subject: Re: [PATCH v2] riscv: enable THP_SWAP for RV64
+Message-ID: <Yw4XwsVQBB1HRw04@xhacker>
+References: <20220827095815.698-1-jszhang@kernel.org>
+ <0256a458-440c-171c-2a6f-e88a50c16f82@microchip.com>
+ <YwzI7VmfFnOvYWgf@xhacker>
+ <4037b310-47c4-ca30-d4b6-a284e87da437@microchip.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 997fe517-8896-40cb-893c-08da8a8e6e16
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Aug 2022 13:49:16.2838
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: sA9wrfCcGm+lO9TmSYlKjga44gc2hirG+usvtUgcZr1cvc0jzWTlqI3wG4r7pyRdLSuUxyKsYb7ee20h9ZkVxI7a2ECmeQ8aBGsMuOtXko0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MWHPR11MB1245
+Content-Disposition: inline
+In-Reply-To: <4037b310-47c4-ca30-d4b6-a284e87da437@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220830_064926_885337_C78C88B2 
-X-CRM114-Status: GOOD (  22.61  )
+X-CRM114-CacheID: sfid-20220830_070849_833368_D4322215 
+X-CRM114-Status: GOOD (  21.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,54 +71,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMzAvMDgvMjAyMiAxMzo1OCwgQmVuIERvb2tzIHdyb3RlOg0KPiBFWFRFUk5BTCBFTUFJTDog
-RG8gbm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMgdW5sZXNzIHlvdSBrbm93IHRo
-ZSBjb250ZW50IGlzIHNhZmUNCj4gDQo+IE9uIDMwLzA4LzIwMjIgMTM6NTYsIENvbm9yLkRvb2xl
-eUBtaWNyb2NoaXAuY29tIHdyb3RlOg0KPj4gT24gMzAvMDgvMjAyMiAxMzo1MSwgQmVuIERvb2tz
-IHdyb3RlOg0KPj4+IEVYVEVSTkFMIEVNQUlMOiBEbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBh
-dHRhY2htZW50cyB1bmxlc3MgeW91IGtub3cgdGhlIGNvbnRlbnQgaXMgc2FmZQ0KPj4+DQo+Pj4g
-V2l0aCBuZXdlciBjb3JlcyBzdWNoIGFzIHRoZSBwNTUwLCB0aGUgU2lGaXZlIGNvbXBvc2FibGUg
-Y2FjaGUgY2FuIGJlDQo+Pj4gYSBsZXZlbCAzIGNhY2hlLiBVcGRhdGUgdGhlIGNhY2hlIGxldmVs
-IHRvIGJlIG9uZSBvZiAyIG9yIDMuDQo+Pj4NCj4+PiBTaWduZWQtb2ZmLWJ5OiBCZW4gRG9va3Mg
-PGJlbi5kb29rc0BzaWZpdmUuY29tPg0KPj4+IC0tLQ0KPj4+IMKgwqAgRG9jdW1lbnRhdGlvbi9k
-ZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L3NpZml2ZS1jY2FjaGUueWFtbCB8IDIgKy0NCj4+PiDC
-oMKgIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwgMSBkZWxldGlvbigtKQ0KPj4+DQo+
-Pj4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9z
-aWZpdmUtY2NhY2hlLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3Mvcmlz
-Y3Yvc2lmaXZlLWNjYWNoZS55YW1sDQo+Pj4gaW5kZXggMWE2NGE1Mzg0ZTM2Li42MTkwZGViNjU0
-NTUgMTAwNjQ0DQo+Pj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jp
-c2N2L3NpZml2ZS1jY2FjaGUueWFtbA0KPj4+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJl
-ZS9iaW5kaW5ncy9yaXNjdi9zaWZpdmUtY2NhY2hlLnlhbWwNCj4+PiBAQCAtNDUsNyArNDUsNyBA
-QCBwcm9wZXJ0aWVzOg0KPj4+IMKgwqDCoMKgwqDCoCBjb25zdDogNjQNCj4+Pg0KPj4+IMKgwqDC
-oMKgIGNhY2hlLWxldmVsOg0KPj4+IC3CoMKgwqAgY29uc3Q6IDINCj4+PiArwqDCoMKgIGVudW06
-IFsyLCAzXQ0KPj4NCj4+IERvIHdlIHdhbnQgdG8gZW5mb3JjZSB0aGUgY2FjaGUgbGV2ZWwgbGlr
-ZSB3ZSBjdXJyZW50bHkgZG8gZm9yDQo+PiBpbnRlcnJ1cHRzIGFuZCBjYWNoZS1zZXRzPw0KPiAN
-Cj4gTm90IHN1cmUgb24gdGhhdCwgZm9yIHRoZSBQNTUwIGNvcmVzIHRoZSBjY2FjaGUgaXMgZ29p
-bmcgdG8gYmUgbGV2ZWwzDQo+IGFuZCBteSBjb2xsZWFndWUgaGFzIHNhaWQgaXQgZG9lcyBjb25m
-dXNlIHNvbWUgdG9vbGluZyBpZiB0aGUgbGV2ZWwgaXMNCj4gbm90IHNldCBjb3JyZWN0bHkuDQoN
-CldoYXQgSSBtZWFudCB3YXM6DQpDdXJyZW50bHkgd2UgZW5mb3JjZSB0aGUgY29ycmVjdCBjYWNo
-ZS1zZXRzICYgaW50ZXJydXB0cyBiYXNlZCBvbiB0aGUNCmNvbXBhdGlibGUgc3RyaW5nLiBBZGRp
-bmcgZW51bTogWzIsIDNdIHJlbGF4ZXMgdGhlIGVuZm9yY2VtZW50IG9mIHRoZQ0KY2FjaGUtbGV2
-ZWwgZm9yIGV4aXN0aW5nIGNvbXBhdGlibGVzIGFuZCBkb2VzIG5vdCBwcmV2ZW50IHNvbWVvbmUg
-ZnJvbQ0Kc2V0dGluZyBhbiBpbmNvcnJlY3QgY2FjaGUgbGV2ZWwgZm9yIHA1NTAgY29yZXMuDQoN
-CkkgdGhpbmsgdGhhdCBvbiB0b3Agb2YgYWRkaW5nIHRoZSBlbnVtLCB3ZSBzaG91bGQgYWRkIHNv
-bWUgZW5mb3JjZW1lbnQNCnNvIHRoYXQgdGhlIGNhY2hlIGlzIG5vdCBpbmNvcnJlY3RseSBjb25m
-aWd1cmVkIGZvciBib3RoIGV4aXN0aW5nIGwyDQpjYWNoZXMgYW5kIGZvciB0aGUgbmV3IGwzIHZl
-cnNpb25zLg0KDQpAWm9uZywgY291bGQgeW91IHBsZWFzZSBpbmNvcnBvcmF0ZSBCZW4ncyBwYXRj
-aGVzIGludG8geW91ciBWMj8gaXQNCndvdWxkIG1ha2UgaXQgYSBsb3QgZWFzaWVyIHRvIHJldmll
-dyB3aGF0J3MgZ29pbmcgb24gaGVyZS4gSXQgbWF5DQphbHNvIG1ha2Ugc2Vuc2UgdG8gYWRkIHRo
-ZSBjb21wYXRpYmxlIGZvciB0aGUgcDU1MCBjYWNoZSB3aGlsZSB3ZSBhcmUNCmF0IGl0Li4uDQoN
-CkZZSSwgdGhlcmUgaXMgYWxzbyB0aGlzIHBhdGNoIGhlcmUgb3V0c3RhbmRpbmcgYWdhaW5zdCB0
-aGUgbDI6DQpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDIyMDgyNTE4MDQx
-Ny4xMjU5MzYwLTItbWFpbEBjb25jaHVvZC5pZS8NCg0KSSBpbnRlbmQgdGFraW5nIHRoaXMgaW50
-byA2LjAtcmM1IG9yIHNvIGFzIGEgZml4LCBzbyBpZiB5b3UgY291bGQNCnJlYmFzZSB0aGUgc2Vy
-aWVzIG9uIHRoYXQgc28gaXQgaXMgbm90IGxvc3QgaW4gdGhlIGR0LWJpbmRpbmcgcmVuYW1lDQp0
-aGF0IHdvdWxkIGJlIGdyZWF0Lg0KDQpUaGFua3MsDQpDb25vci4NCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
-aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, Aug 29, 2022 at 05:27:48PM +0000, Conor.Dooley@microchip.com wrote:
+> On 29/08/2022 15:10, Jisheng Zhang wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> > 
+> > On Sat, Aug 27, 2022 at 09:13:03PM +0000, Conor.Dooley@microchip.com wrote:
+> >> Hey Jisheng,
+> > 
+> > Hi Conor,
+> > 
+> >> On 27/08/2022 10:58, Jisheng Zhang wrote:
+> >>> I have a Sipeed Lichee RV dock board which only has 512MB DDR, so
+> >>> memory optimizations such as swap on zram are helpful. As is seen
+> >>> in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64") and
+> >>> commit bd4c82c22c367e ("mm, THP, swap: delay splitting THP after
+> >>> swapped out"), THP_SWAP can improve the swap throughput significantly.
+> >>>
+> >>> Enable THP_SWAP for RV64, testing the micro-benchmark which is
+> >>> introduced by commit d0637c505f8a ("arm64: enable THP_SWAP for arm64")
+> >>> shows below numbers on the Lichee RV dock board:
+> >>>
+> >>> thp swp throughput w/o patch: 66908 bytes/ms (mean of 10 tests)
+> >>> thp swp throughput w/ patch: 322638 bytes/ms (mean of 10 tests)
+> >>
+> >> I know the original commit message contains this, but it's a little
+> >> odd. If the patch /enables/ THP then how would there be THP swap
+> >> prior to the patch?
+> > 
+> > hmm, it's swap I'll send a v3 to correct the description.
+> > 
+> >>
+> >>>
+> >>> Improved by 382%!
+> >>
+> >> I could not replicate the after numbers on my nezha, so I suspect
+> >> I am missing something in my config/setup. zswap is enabled and is
+> > 
+> > swap on zram rather than zswap ;)
+> 
+> I think I tried about 30 different config variations, initially not
+> using zswap and later using it.
+> My zramctl looks like so (although I did try zstd too) after running
+> the demo application from that commit:
+> 
+> NAME       ALGORITHM DISKSIZE DATA COMPR TOTAL STREAMS MOUNTPOINT
+> /dev/zram0 lzo-rle       241M  22M  8.4M  9.1M       1 [SWAP]
+> 
+> I am using the default riscv defconfig + the following:
+> CONFIG_ZRAM=y
+> CONFIG_CRYPTO_DEFLATE=y
+> CONFIG_CRYPTO_LZO=y
+> CONFIG_CRYPTO_ZSTD=y
+> CONFIG_ZRAM_MEMORY_TRACKING=y
+> CONFIG_TRANSPARENT_HUGEPAGE=y
+> CONFIG_TRANSPARENT_HUGEPAGE_MADVISE=y
+> CONFIG_THP_SWAP=y
+> 
+> Am I just missing something obvious here?
+
+similar config options here. what's your rootfs? Is your board busy
+with something? I used a minimal rootfs built from buildroot.
+can you plz show your numbers w/ and w/o the patch?
+
+I also tried the simple benchmark on qemu(just for reference, since
+I have no other riscv boards except the lichee RV dock board):
+swp out w/o patch: 30066 bytes/ms (mean of 10 tests)
+swp out w/ patch: 130055 bytes/ms (mean of 10 tests)
+so improved by 332.7% 
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
