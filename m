@@ -4,90 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B58CECAAA1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 14:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C09ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 14:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YRXZW3eq6CMMwq3J6LwT3bNZRFaWEY4NbxRROOBx+4M=; b=ZwzPkEEYIX5fVr
-	BQGCanMwyDmE7FwyVobE+fo3WVTd9WV7zau9cYlOdfAuiDQ9x7+tv2WXWDu5YEB6WW3eJh1mALWxF
-	j7tFXeP+o0jlDqdosVm2M5rVb+62iPCja4/iiHKRGOlhcM/GbkgIIR0FqY5CrgU42fDE8G5yXCgvy
-	atxqDfj+i4+1ZP+GdMJUORf4xRVExAUJUPqdlnLZL8xHmNiRU3Wz+WfzERnlf0RqQIgl1l7dCdQc4
-	Pzj3aLlfuvSrmZH09ne2yW5iuHu80K5rEyfTVEutla5u1lg7nz0xU6SQFiSd8IFbtziOFSs9z8O8V
-	5OMDXx5gDWkQjP5cSd9Q==;
+	List-Owner; bh=rQn5GxqF81YrooeLr47EUaTwIPwAuwKyJYmM6ZnZMXA=; b=TuTxZWzVYdMEWf
+	5iKj5glENg+qTEo1z5qEVARLwaVO93uHOigKrey8LC12BvSZPY61S0xmdwJuEYgK1ejlK1rKLs+CX
+	66oK5rjPyzVb77Glx0ShGYvb3hfecue22eqEPmsUXkOYc2GqC898ei4wZ92DTSGyt/nRCjKfuLefc
+	+RLHOh2KQGiF+1C6GJxp9DisXIeE7hPBjT9ImMHBK3v14X+2PmEx55sHVRvNiwwW/Ho+E4/AOcrNK
+	JtgTJTUyz6yus4ZpC0fOavTRn/UxYHSFacYfBje+z7dvPxIHAQYW7wPe2EtneS8gDBPKLtYIojUX4
+	UXJ8F403fm17AcOjADWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oT2N6-0002hB-M5; Tue, 30 Aug 2022 14:37:44 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1oT2Pv-0003Pu-2E; Tue, 30 Aug 2022 14:40:39 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oT2N4-0002ft-3m
-	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 14:37:43 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id bn9so11581103ljb.6
-        for <linux-riscv@lists.infradead.org>; Tue, 30 Aug 2022 07:37:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc;
-        bh=S7F9EmKhAxxlR+AEkU5K8Cyl9dGbdduAx/ZasRGJQAw=;
-        b=kixapq35uVt4DzdUz9BbgA9n3vUIV7izZddPnm1MWYzS3VY72nTrczIB17rUlvUCxV
-         XKDOGRYQI7cwYzV4oOXMXzaKgcn0uqtrGMV+gqqkc60BylWldlJ3V1uVO2GP3JXsyoDv
-         s/QD1tdIWmdWVVuFdFM2Oef5KZXFvQnh50xnzzebENuNuztfq0bh4+9bmhXGuOVu8mjT
-         5GJ7w+YcZwqMesnfiEoxw4ZfaMcgDfmKhLZQbeXVVXMpJidc4A2iyDO8/aboHFVLT+kT
-         tEtlEGMV4wP7yUx2z3fHlL2/NUhkJuFYebQJfu26jaTNb6SGAtH30fAGyJH+TLG5vjbA
-         ln2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc;
-        bh=S7F9EmKhAxxlR+AEkU5K8Cyl9dGbdduAx/ZasRGJQAw=;
-        b=lcxfucwQyxJThQ4zSxWJA5UMarxxiFGat7LiQOk1cC02+94mHC4jwYkXtrpoUAxjeT
-         CkmiD1egBsOGkhS+AY9LVEChlmrIFUqW4e8wKDlQmSePuh4fhajJa3FC6qsrR4gsqGHi
-         ghzDh4gUpf77pcHCYJdBKl+knAiyXwJEt5HULhNWNPKrpP36UmHy3jGbKreNGE9k3pXo
-         69yIU2uREBo+7EIHObyAzNyrfnRQKCkPZLzPzQY756NBjZT0gxcmR0TBCFys9KVeN6L9
-         Rp5GuJbKRhG5GjDoGD+uGuM4u64MuIKwXvsVM7Oe5vKSYMN55oKrWxZebTrQj46Sb7yQ
-         xhcA==
-X-Gm-Message-State: ACgBeo2AORwQ4gkpHVVJpqw8pjdkV/t5rFtepHf8JkNGv3GbxCy5iB1k
-	CgLpoebCBZpnVlScMSIH4s1GCgApXtId3BsOdDw=
-X-Google-Smtp-Source: AA6agR7PccUNihvG+BB4x1t3fmKV5KUECGFzGTU7UR1DHggFInARzwQIRqnDF8wEfYC1iIDZ6xekDQ==
-X-Received: by 2002:a2e:bd8b:0:b0:264:8256:c23f with SMTP id o11-20020a2ebd8b000000b002648256c23fmr3305328ljq.508.1661870258088;
-        Tue, 30 Aug 2022 07:37:38 -0700 (PDT)
-Received: from [192.168.28.124] (balticom-73-99-134.balticom.lv. [109.73.99.134])
-        by smtp.gmail.com with ESMTPSA id f13-20020a056512092d00b00492ed031aacsm1629189lft.173.2022.08.30.07.37.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Aug 2022 07:37:37 -0700 (PDT)
-Message-ID: <a3a8e2ba-a6bd-6e66-fd04-e3a46661a34d@linaro.org>
-Date: Tue, 30 Aug 2022 17:37:36 +0300
+	id 1oT2Ps-0003P8-Nk
+	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 14:40:38 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 689F161538;
+	Tue, 30 Aug 2022 14:40:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF8B0C433C1;
+	Tue, 30 Aug 2022 14:40:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1661870434;
+	bh=/3OQPzQeZByYa7GYP7YBcP1lmtBiXFL2ZTsz2biZiMY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SU6LkW2gWKLtQ2bdjJbMq9unFMwkSW5i2oGhdrR7tO4HHRFH0MOYX2/pNxUyvQj5l
+	 Qn22IxSF5P7xPR6c7IBtGlQ2sM/fmzaQJPIwdAnTpPACmhciLhaoM9d7vFmaKNMSek
+	 1NggdkYRXC3FvqIHI3RjEODHfHjnV3SLEzMXpzVckeYNGYNiUdIDQoLdf7RsblEH/d
+	 KRTCFLDeFPGBg0Yq8x0bCa7N1TXxbQNcUSTdg9XyP/X9xKideuC6s2v2gJ3di/E4BK
+	 c2MwQUEOwMwyQd9+zVn5XVwtWqsTcZ/TBhQCBatkoWDAte8IwHU/HKF3n9lEeKIJHr
+	 vilyXuSpAHu8Q==
+Date: Tue, 30 Aug 2022 22:31:19 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Conor.Dooley@microchip.com
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	ajones@ventanamicro.com
+Subject: Re: [PATCH v2] riscv: enable THP_SWAP for RV64
+Message-ID: <Yw4fN/9L2yAsCgXk@xhacker>
+References: <20220827095815.698-1-jszhang@kernel.org>
+ <0256a458-440c-171c-2a6f-e88a50c16f82@microchip.com>
+ <YwzI7VmfFnOvYWgf@xhacker>
+ <4037b310-47c4-ca30-d4b6-a284e87da437@microchip.com>
+ <Yw4XwsVQBB1HRw04@xhacker>
+ <d9331af0-58bc-ed3b-10f5-8509795e3198@microchip.com>
+ <22c254ae-2b84-1342-4b2d-f532f34e2c94@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.0
-Subject: Re: [PATCH v2 2/9] dt-bindings: riscv: microchip: document the aries
- m100pfsevp
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Daire McNamara <daire.mcnamara@microchip.com>,
- Shravan Chippa <shravan.chippa@microchip.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Cyril Jean <Cyril.Jean@microchip.com>,
- Lewis Hanly <lewis.hanly@microchip.com>,
- Vattipalli Praveen <praveen.kumar@microchip.com>,
- Wolfgang Grandegger <wg@aries-embedded.de>,
- Hugh Breslin <hugh.breslin@microchip.com>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20220830101803.1456180-1-conor.dooley@microchip.com>
- <20220830101803.1456180-3-conor.dooley@microchip.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220830101803.1456180-3-conor.dooley@microchip.com>
+Content-Disposition: inline
+In-Reply-To: <22c254ae-2b84-1342-4b2d-f532f34e2c94@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220830_073742_188199_DB76CA83 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20220830_074036_894538_D5F91549 
+X-CRM114-Status: GOOD (  29.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,41 +79,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 30/08/2022 13:17, Conor Dooley wrote:
-> Add compatibles for both configurations of the Aries Embedded
-> M100PFSEVP SOM + EVK platform.
+On Tue, Aug 30, 2022 at 02:26:38PM +0000, Conor.Dooley@microchip.com wrote:
+> On 30/08/2022 15:15, Conor Dooley - M52691 wrote:
+> > On 30/08/2022 14:59, Jisheng Zhang wrote:
+> >> On Mon, Aug 29, 2022 at 05:27:48PM +0000, Conor.Dooley@microchip.com wrote:
+> >>> On 29/08/2022 15:10, Jisheng Zhang wrote:
+> >>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> >>>>
+> >>>> On Sat, Aug 27, 2022 at 09:13:03PM +0000, Conor.Dooley@microchip.com wrote:
+> >>>>> Hey Jisheng,
+> >>>>
+> >>>> Hi Conor,
+> >>>>
+> >>>>> On 27/08/2022 10:58, Jisheng Zhang wrote:
+> >>>>>> I have a Sipeed Lichee RV dock board which only has 512MB DDR, so
+> >>>>>> memory optimizations such as swap on zram are helpful. As is seen
+> >>>>>> in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64") and
+> >>>>>> commit bd4c82c22c367e ("mm, THP, swap: delay splitting THP after
+> >>>>>> swapped out"), THP_SWAP can improve the swap throughput significantly.
+> >>>>>>
+> >>>>>> Enable THP_SWAP for RV64, testing the micro-benchmark which is
+> >>>>>> introduced by commit d0637c505f8a ("arm64: enable THP_SWAP for arm64")
+> >>>>>> shows below numbers on the Lichee RV dock board:
+> >>>>>>
+> >>>>>> thp swp throughput w/o patch: 66908 bytes/ms (mean of 10 tests)
+> >>>>>> thp swp throughput w/ patch: 322638 bytes/ms (mean of 10 tests)
+> >>>>>
+> >>>>> I know the original commit message contains this, but it's a little
+> >>>>> odd. If the patch /enables/ THP then how would there be THP swap
+> >>>>> prior to the patch?
+> >>>>
+> >>>> hmm, it's swap I'll send a v3 to correct the description.
+> >>>>
+> >>>>>
+> >>>>>>
+> >>>>>> Improved by 382%!
+> >>>>>
+> >>>>> I could not replicate the after numbers on my nezha, so I suspect
+> >>>>> I am missing something in my config/setup. zswap is enabled and is
+> >>>>
+> >>>> swap on zram rather than zswap ;)
+> >>>
+> >>> I think I tried about 30 different config variations, initially not
+> >>> using zswap and later using it.
+> >>> My zramctl looks like so (although I did try zstd too) after running
+> >>> the demo application from that commit:
+> >>>
+> >>> NAME       ALGORITHM DISKSIZE DATA COMPR TOTAL STREAMS MOUNTPOINT
+> >>> /dev/zram0 lzo-rle       241M  22M  8.4M  9.1M       1 [SWAP]
+> >>>
+> >>> I am using the default riscv defconfig + the following:
+> >>> CONFIG_ZRAM=y
+> >>> CONFIG_CRYPTO_DEFLATE=y
+> >>> CONFIG_CRYPTO_LZO=y
+> >>> CONFIG_CRYPTO_ZSTD=y
+> >>> CONFIG_ZRAM_MEMORY_TRACKING=y
+> >>> CONFIG_TRANSPARENT_HUGEPAGE=y
+> >>> CONFIG_TRANSPARENT_HUGEPAGE_MADVISE=y
+> >>> CONFIG_THP_SWAP=y
+> >>>
+> >>> Am I just missing something obvious here?
+> >>
+> >> similar config options here. what's your rootfs? Is your board busy
+> >> with something? I used a minimal rootfs built from buildroot.
+> >> can you plz show your numbers w/ and w/o the patch?
+> > 
+> > I was using fedora for the testing, downloaded directly from
+> > koji. My before/after numbers varied, but were around 80,000
+> > bytes/ms most of the time.
+> > 
+> > If I increased the size to 500 * 1024 * 1024 I got around 130k.
 > 
-> Link: https://www.aries-embedded.com/polarfire-soc-fpga-microsemi-m100pfs-som-mpfs025t-pcie-serdes
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  Documentation/devicetree/bindings/riscv/microchip.yaml | 3 +++
->  1 file changed, 3 insertions(+)
+> 130k before & after.**
 > 
-> diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
-> index 485981fbfb4b..04ebd48caaa7 100644
-> --- a/Documentation/devicetree/bindings/riscv/microchip.yaml
-> +++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
-> @@ -27,9 +27,12 @@ properties:
->  
->        - items:
->            - enum:
-> +              - aries,m100pfsevp-emmc
-> +              - aries,m100pfsevp-sdcard
+> > 
+> > Before/after the patch, the numbers did not really change, but
+> > things did fluctuate quite wildly - from about 50k to 90k using
+> > the 400 size.
+> 
+> What I mean is: before/after the patch had visible performance
+> difference because it was always flucuating in the same range.
 
-Usually sd card is pluggable, so what is the actual difference here? For
-example this one:
-https://shop.aries-embedded.de/evaluation-kit/m/m100pfsevp/445/m100pfsevp-250baab
-has eMMC and SD card...
+I see the difference -- w/ minial buildroot rootfs, the numbers isn't
+kept the same but the difference is trivial, I even got two or three
+the same numbers during 10 times of testing. But your numbers were
+always flucuating, so I guess your system maybe busy with with
+something in a shore period, I.E the os env is full of noise. 
 
->                - sundance,polarberry
->            - const: microchip,mpfs
->  
-> +
-
-No need for line break.
-
-Best regards,
-Krzysztof
+I guess you may get similar improvement percentage when trying buildroot
+> 
+> > 
+> >>
+> >> I also tried the simple benchmark on qemu(just for reference, since
+> >> I have no other riscv boards except the lichee RV dock board):
+> >> swp out w/o patch: 30066 bytes/ms (mean of 10 tests)
+> >> swp out w/ patch: 130055 bytes/ms (mean of 10 tests)
+> >> so improved by 332.7% 
+> > 
+> > I'll give QEMU a go so :)
+> 
 
 _______________________________________________
 linux-riscv mailing list
