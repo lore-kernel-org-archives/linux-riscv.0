@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C827CECAAA1
-	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 07:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2A0ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Tue, 30 Aug 2022 08:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V7a4EFPQ0yrEki2gVDyDtiUJ0wLEXMcgwXt5Ts4zZhg=; b=ucBlDZrjWI1tPG
-	RHzSn3ig0CO5lhCbKDy59KmzFkGkYREPaLAkNShZTA1/S8lno4EVIwLXrggk9P26gbU0N3i2EmTcS
-	4sy7+AHinuDkwryuGCte7kXgj4Oe3etJBFCzAVjEHKYNhO1iCwC75hWcNHWYPWtkbHfV7mNyTqzjw
-	Doymhj9wpfnQsE/ND98fk944h4idmr0pS5ZonI86KWbScVhwvBPy754LnL+aaLn9/rtO7TQMAekJt
-	CDWDlR/ypopKWPvfyZ0CH1OHoasYmOgV4+/esCsBAumz3xTc7tRueZGxjLPkktYqcAyXW9W3/DfVM
-	uYGZQJrn5btn4izkPSDg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=72dytJ05CmsFvTUZ42+3VwoPvmZhwiWs0tjQOPO7pqg=; b=3QyJk+PAKxkZhW+y7qi1KIfTe9
+	zPwSGa04lQ5mEabQ4r8Vcvlwu10z10VBkxPJ0exADWu6skD+Mg5BaJMOxoq+WHXw28jfSy92ZqAQZ
+	NCK9HGObgXjeFGgQMZtiYCesJ9VDm8P0sVlgaaUAhioCIg9+Ay3UuXEkxngPdRXZ00ORtBc/s4fPS
+	Fsop9heWLU70n069PH3S75s4/hsunEZs8qgQd6qE8ImhXIK2R8vnCGbzXcWGjtc3WLZYql35qfYcx
+	67j6vl/Hdvy7mgIRsf9x8CN1fbJ9G7o4jH3225klxpUS3BcBUGXTfeNuRcRbBBNHpcIIRx/E5kbbe
+	cFJLGmlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSvl1-00En1o-C2; Tue, 30 Aug 2022 07:33:59 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1oSwB3-00F09K-0w; Tue, 30 Aug 2022 08:00:53 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oSvky-00Emyb-IO; Tue, 30 Aug 2022 07:33:58 +0000
-Received: by mail-wr1-x436.google.com with SMTP id u18so309546wrq.10;
-        Tue, 30 Aug 2022 00:33:53 -0700 (PDT)
+	id 1oSwA2-00Ezcb-B8
+	for linux-riscv@lists.infradead.org; Tue, 30 Aug 2022 07:59:51 +0000
+Received: by mail-wr1-x433.google.com with SMTP id bs25so13075497wrb.2
+        for <linux-riscv@lists.infradead.org>; Tue, 30 Aug 2022 00:59:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc;
-        bh=AkyiwZAyTL+qEnClAJjmshzXLVaiiWcOqi2bEVx9lPg=;
-        b=aRJmmvilCx9hvnJwsqFDPwUjBgxD5a6DXdivTL+SL6hBqXqSgsQY6k4ALeR8FvREBs
-         29wLOX4jEh7pKEjjJOucUsyR6KsAsGxnleJB90+lIKMn0lwehPN+a28RBx4XSP0JcCpb
-         tP05S/5Bl9i9PsRfB/mpmNAHJebhPrkZO8+cqakoCF0UxM+jgP8F9hdJ7m0dJy9698Hk
-         +ix5Kdnbdj6A9npKn848lfV0UW/d3if+lSSi0fLHWNgF4jDqVxiaJ2yKNijxt2ctV/jF
-         s4qgeh3LyJrpPG0ORO8pKTQBjeYKw1FdHIWS+bg0J/Hp8DM6+qamo3RDZENkCPnTqP40
-         OTEA==
+        d=sifive.com; s=google;
+        h=content-transfer-encoding:in-reply-to:from:references:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc;
+        bh=PfTHcNNyHIJD+nGjOH2sD5OMJ9tlsi2wR693y33YW1M=;
+        b=AL1GR7DB8kFqACkXykURW0f4VRsZOJ0CwBb6F4d0wHJYAKDeJNc4fKpViJM2j1VNqL
+         heOeufIjj7dspTgrPxOLLX5ZSxk6BnLuYBWkwEMrWWj9izy8yyQXlSOSylmuFLAPNcAy
+         Gf/cx+Qjs9EKPriQvTJKBFJXVNV1DfSYP8NP3A9VqL6oA6kQXytiX5HS3c0bjzw5FuUA
+         fZONx/YlfxVPd+hJp6sjRpepn3asJYXcGdPWAZkcNDa5MbRvZGxVLuk3gHkLoEAcxvjb
+         AB8Y82d68kJBpf6HGGewDsTeMLgoeSSzTaQtNpQWQy6DSMH/WSLFIPLO0WX1PN8odIcL
+         EnnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc;
-        bh=AkyiwZAyTL+qEnClAJjmshzXLVaiiWcOqi2bEVx9lPg=;
-        b=T+D4YqEsw2H/zEijwsECWdrkYssFc5M+1G/et2dBTJQCNTpGCsO/+vykK/2cW0WFy8
-         kZUF3BLTFn8CdzVvm6n/kCfme9tUeQdAqsSU3Qq8oBQaYELK74Wf/u7s3YXfDAy9/KPO
-         tthX/gA6Hqx2FgFvbc8YnAAi9TCkXJinwq2JSRiITOWNPkutipR2G2cdYLlazp81IYkp
-         q2A7bTsSxVjZaIWn15Wp1qief5mCJ8lQWUdWRvWiUpPCqW0LBFQh6JAjeviHwJvXpCCu
-         T1AaKk9g7RBuU5tGvtWS8RYu4RaXYpqfFaX/qt4KScIjajSyaQcWm/UzaFrvEex92uIU
-         llDg==
-X-Gm-Message-State: ACgBeo1fwfWGIEkQuNOnLW+JPtInT0lmt9u33r7H5c3Wz2i2s7eermwE
-	fcX5+ECrxGX6J78uiWmgudRPFfN9zFsIhg==
-X-Google-Smtp-Source: AA6agR7M6K5NpAKHxyoBknJxWk60gWpGtre/xWrzuWyDehqu9BTVBu8aAalG/O21/110w8lPoNr+Bg==
-X-Received: by 2002:a5d:59a2:0:b0:226:e6c3:a6c2 with SMTP id p2-20020a5d59a2000000b00226e6c3a6c2mr258841wrr.236.1661844832254;
-        Tue, 30 Aug 2022 00:33:52 -0700 (PDT)
-Received: from localhost ([2a03:b0c0:1:d0::dee:c001])
-        by smtp.gmail.com with ESMTPSA id l17-20020a7bc351000000b003a5ee64cc98sm10920055wmj.33.2022.08.30.00.33.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Aug 2022 00:33:51 -0700 (PDT)
-Date: Tue, 30 Aug 2022 07:33:51 +0000
-From: Stafford Horne <shorne@gmail.com>
-To: guoren@kernel.org
-Cc: oleg@redhat.com, vgupta@kernel.org, linux@armlinux.org.uk,
-	monstr@monstr.eu, dinguyen@kernel.org, palmer@dabbelt.com,
-	davem@davemloft.net, arnd@arndb.de, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-snps-arc@lists.infradead.org, sparclinux@vger.kernel.org,
-	openrisc@lists.librecores.org, Guo Ren <guoren@linux.alibaba.com>
-Subject: Re: [PATCH 2/3] openrisc: ptrace: Remove duplicate operation
-Message-ID: <Yw29XwOoUY1Foze/@oscomms1>
-References: <20220830065316.3924938-1-guoren@kernel.org>
- <20220830065316.3924938-3-guoren@kernel.org>
+        h=content-transfer-encoding:in-reply-to:from:references:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc;
+        bh=PfTHcNNyHIJD+nGjOH2sD5OMJ9tlsi2wR693y33YW1M=;
+        b=RkBiK/LAHeBfPUJfmZeq/XqFu1Jub7sitMJqf8DOydOv7DMfrzJPOFTOQNWjk3KuTC
+         +eK58yeCKKsGyLbC2WSpLibIzpaV+dklFzyImLl/75Qd+V00rEnWJnQRVZlNEw7IYKsq
+         Hm7Xc7BYfebnuYxecU8dgdBzC903/4VxO+AWc+RXKOmwsMSnu+IuZxZg3Z37L5aqKMpg
+         Tb0QcT5fQUBlEJwVmiwMQ1slM1Av65yfqNpMFcRa1RT+oVfS+u9kWQleGwI7IwWYsGW+
+         rHA3KR4EBUdpW25QTUTU4+3j2mNAH7ftIQfo37OFke/3kjHbVGbg23kbb0ivhpQLnX7G
+         C34g==
+X-Gm-Message-State: ACgBeo0wp4Cy5a3S1UDclF03FQZcObyudJ8t80hkLGrtFtepAhK683J2
+	3+RTofL78spYHJh55vsvrhwHuA==
+X-Google-Smtp-Source: AA6agR5S6blYHlG/ZQ3FKm6/GupuDMufIbUfhIkh+6zlULEaWM1DuSdjLLD/+HMPKGYT5Pndi9k2KQ==
+X-Received: by 2002:a5d:4301:0:b0:21b:8af6:4a21 with SMTP id h1-20020a5d4301000000b0021b8af64a21mr8543497wrq.296.1661846385373;
+        Tue, 30 Aug 2022 00:59:45 -0700 (PDT)
+Received: from [10.35.5.6] ([167.98.27.226])
+        by smtp.gmail.com with ESMTPSA id b8-20020a5d4d88000000b002253d865715sm5875817wru.87.2022.08.30.00.59.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 30 Aug 2022 00:59:45 -0700 (PDT)
+Message-ID: <a0425472-00ed-81dc-e98d-fbccc1e95575@sifive.com>
+Date: Tue, 30 Aug 2022 08:59:43 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220830065316.3924938-3-guoren@kernel.org>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.1.1
+Subject: Re: [PATCH 0/3] Rename sifive L2 cache to sifive CCACHE
+Content-Language: en-GB
+To: Zong Li <zong.li@sifive.com>, robh+dt@kernel.org,
+ krzysztof.kozlowski+dt@linaro.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, aou@eecs.berkeley.edu, greentime.hu@sifive.com,
+ conor.dooley@microchip.com, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20220829062202.3287-1-zong.li@sifive.com>
+From: Ben Dooks <ben.dooks@sifive.com>
+In-Reply-To: <20220829062202.3287-1-zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220830_003356_693344_8976D2D0 
-X-CRM114-Status: GOOD (  14.40  )
+X-CRM114-CacheID: sfid-20220830_005950_502730_CABA56EE 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +89,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 30, 2022 at 02:53:15AM -0400, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
+On 29/08/2022 07:21, Zong Li wrote:
+> Since composible cache may be L3 cache if private L2 cache exists, we
+> should use its original name "composible cache" to prevent confusion.
 > 
-> The TIF_SYSCALL_TRACE is controlled by a common code, see
-> kernel/ptrace.c and include/linux/thread.h.
+> This patchset contains the modification which is related to ccache, such
+> as DT binding and EDAC driver.
 > 
-> clear_task_syscall_work(child, SYSCALL_TRACE);
+> Greentime Hu (1):
+>    soc: sifive: l2 cache: Rename SiFive L2 cache to composible cache.
 > 
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
+> Zong Li (2):
+>    dt-bindings: sifive-ccache: rename SiFive L2 cache to composible cache
+>    EDAC/sifive: use sifive_ccache instead of sifive_l2
+> 
+>   ...ifive-l2-cache.yaml => sifive-ccache.yaml} |   6 +-
+>   drivers/edac/Kconfig                          |   2 +-
+>   drivers/edac/sifive_edac.c                    |  12 +-
+>   drivers/soc/sifive/Kconfig                    |   7 +-
+>   drivers/soc/sifive/Makefile                   |   2 +-
+>   drivers/soc/sifive/sifive_ccache.c            | 221 ++++++++++++++++
+>   drivers/soc/sifive/sifive_l2_cache.c          | 237 ------------------
+>   include/soc/sifive/sifive_ccache.h            |  16 ++
+>   include/soc/sifive/sifive_l2_cache.h          |  16 --
+>   9 files changed, 253 insertions(+), 266 deletions(-)
+>   rename Documentation/devicetree/bindings/riscv/{sifive-l2-cache.yaml => sifive-ccache.yaml} (92%)
+>   create mode 100644 drivers/soc/sifive/sifive_ccache.c
+>   delete mode 100644 drivers/soc/sifive/sifive_l2_cache.c
+>   create mode 100644 include/soc/sifive/sifive_ccache.h
+>   delete mode 100644 include/soc/sifive/sifive_l2_cache.h
 
-Acked-by: Stafford Horne <shorne@gmail.com>
+Is this series available on a git branch anywhere, I have at least
+one other cleanup I was doing in a similar move to rename and make
+it usable as the l3 cache.
 
-> ---
->  arch/openrisc/kernel/ptrace.c | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/arch/openrisc/kernel/ptrace.c b/arch/openrisc/kernel/ptrace.c
-> index b971740fc2aa..cc53fa676706 100644
-> --- a/arch/openrisc/kernel/ptrace.c
-> +++ b/arch/openrisc/kernel/ptrace.c
-> @@ -132,7 +132,6 @@ void ptrace_disable(struct task_struct *child)
->  	pr_debug("ptrace_disable(): TODO\n");
->  
->  	user_disable_single_step(child);
-> -	clear_tsk_thread_flag(child, TIF_SYSCALL_TRACE);
->  }
->  
->  long arch_ptrace(struct task_struct *child, long request, unsigned long addr,
-> -- 
-> 2.36.1
-> 
+I gave the series a quick review and did not find any issues so far.
+
+-- 
+Ben
+
+
 
 _______________________________________________
 linux-riscv mailing list
