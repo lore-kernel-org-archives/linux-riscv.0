@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D053ECAAD3
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Aug 2022 17:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77071ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Aug 2022 17:25:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7p3of/McULJ3HiaPBUq10292cAJc9T88MXnW4TntPFM=; b=tEJ5TJ0H4euThw
-	5t95YJ/0Tkye4Ocu0rQPTHhNJ92TDg3FHXCVcSU3HoZj6kOgK+aZKzK0gH0MqIiHkfkfoDQkKCrjk
-	k8HG/H4d96Ara39+K3v/yTzXlH2/UNUNljmJuZNF7G0h+BM9NqMd2XjccnVDg89C6tEddyOruOu7y
-	ysOP+bTXlR39ajdklxziyOKx4ohcE9juBLBo2rNVgqtxEmYMCqYKMAI8F5QhhN9JAVkdAfUNB4aDU
-	06tdQsil89uvcdSU0O4lZTq8zmSocJfpuYSx+LyhGHEjXzIhHn+cLvry9sfmyo5rN6jhEbDCaByz3
-	GUYea71sqcKWnrSNNj3w==;
+	List-Owner; bh=ZdhZs1G64IV2QHTWS4mBblGDBxcUChFt+SuaVbqoxwg=; b=Jl1LhTRjMdPk+A
+	PavCsXFqxsEfNOjTsUgBUrBDS8Ng1B57uuB5ILxIRs0VE3cI9OvhHrnU7yz5olJHqyYkuz+Tk2wZw
+	XZma2D2Io2VIl8UzqG9L5H+6nDRsbPfpA0tclvU5JG7LODjLOo9FfvGbGxKKQaFwAEnWj5FLj4d6R
+	NBSYc66i85/rUsIx9CTcZLESevnGTcjC9pw07SsxuT47QGKRn+qc8Z2nGJJCPPJaw7LwJ/Xw0ZZxA
+	UjWFOiiykOk5ltpJquhGjR8Jq01NhZsvjED0eE1h0W0i8qWbzMC+ZpCYCVXzP1OcBJ/uDladbSCa+
+	4vwSH2bdWw8VGytMSr3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTRSl-007Omm-4O; Wed, 31 Aug 2022 17:25:15 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1oTRSq-007OtC-JB; Wed, 31 Aug 2022 17:25:20 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTRSe-007OhS-4M
-	for linux-riscv@lists.infradead.org; Wed, 31 Aug 2022 17:25:09 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id ay39-20020a05600c1e2700b003a5503a80cfso8407951wmb.2
-        for <linux-riscv@lists.infradead.org>; Wed, 31 Aug 2022 10:25:06 -0700 (PDT)
+	id 1oTRSi-007OjJ-FS
+	for linux-riscv@lists.infradead.org; Wed, 31 Aug 2022 17:25:14 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id b16so11551987wru.7
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Aug 2022 10:25:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc;
-        bh=5h3L3YOiG9CNXYHQtw/et5Sc+1r6Zl/xaASBla9taYA=;
-        b=G5vxTVeX8UktfzniDjTnkLblMXMKWgBYh+R/zA8MObo5kCtHE/4HRGHqvkVm3dHKIn
-         Su2cvs50mNGPLJI790jlw1So7LyZSsduFO1NSGToSMmBvB5ocNz2Ox5thy9u2n1xK65e
-         DMewhEiPnTmFiGgwHol01Lc/Pi/tFjdFNeximileSt63NdPSFbfx3L218VWWD6NkQkXg
-         cmMZ66qsLRAc6JeYpVXYLdeg8a4BjRWRYCyRLxKEIUwjNZjmKEM+ZAOVL0GHRLJrA8vK
-         D5LM1fvMywqOpH19URp0URi/B9NDOa2UzrJyHUyu98dzsr7lbej+ThgqjmEQCuDFKa0q
-         1tLQ==
+        bh=j/4NmJqDbu56RZTur3QY16Eac2cEYz1FtNauBSCWCWQ=;
+        b=Gctht5Adjh+JJvvaLgnzQD96KymRBCoBtTYden65aDTuXUNcFIftMzaaVSVgOk89Pt
+         22s4yl//k+NA19/+1YDYlCoHsrexoj1YEfPZX0DeRQJbWRmmQBfNDg4hVwxfbLK6hcgJ
+         OMHE+huBXyktCnI7fGjm509OYEZDKqxtmo17IC57fGzapx6OZiXEgXGy6kYCF/wgwhjE
+         X+4VF0eHw9NiCuB/uXmrZl5t7qvakCQ1wABEikeyRBVGOBzMrLCzm2JN2b/VfUaFTQLn
+         J+4Ncgj/w3zBgGdeSz9X9/gMCZulUlCXxryClGDTzn8UGmGxeS767ad2OuaUw0j1ByLu
+         Ms5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc;
-        bh=5h3L3YOiG9CNXYHQtw/et5Sc+1r6Zl/xaASBla9taYA=;
-        b=U/o+038g1W7hCqBSMVmfBmcKg7hU/in8LwplNs/07lq5za/V+78eu+w9G3N+Jo34G0
-         mYMGrf0jHi4BsJvMDo9QxSMsHKUMyKHh+0G9lohx2KxHszukCeiu66MPxjCFBToAngaX
-         Kt3yoyV193p4zGZ4PJYSB+nau8d6zXWYFWSysWbCaol73FEwDr2OonSwxywGtqwm+El6
-         f266QIPHK2G9nJ4WSK2bjc/ulZ1i2az/sCjDhrZ81uD4aTva3CbVV1SEQr2HLBhgU/+e
-         a0ItfFV7SuYYZnbqBiSZT8jQG8M8zwwxTbvaJrqfhVR7m+V4aEzGIKbatF/gwsng0BF4
-         RsWw==
-X-Gm-Message-State: ACgBeo3k1r0z2nOokofyQhlHrdH7ttSe8/j574x425Df8bd4i9IXMovJ
-	MTxU186x03nsmkqS/7NAWBewrZIk/6cTSQ==
-X-Google-Smtp-Source: AA6agR7lpMuqSCKxNT4vSMdBVaSEyRIEQ+Pl2du5hdijO1YQun6REosptUuvlx9D3nXsoLSdQpx6uQ==
-X-Received: by 2002:a1c:4b01:0:b0:3a5:94e8:948e with SMTP id y1-20020a1c4b01000000b003a594e8948emr2653368wma.197.1661966705440;
-        Wed, 31 Aug 2022 10:25:05 -0700 (PDT)
+        bh=j/4NmJqDbu56RZTur3QY16Eac2cEYz1FtNauBSCWCWQ=;
+        b=DfMOLpkIbyXce8r0mk+hrXPPoT3HaaHjA/Dp5btAN6WuEBhpcCjpj0+Wo36n8MAd1V
+         yaNqsbL0MbPzHr7H5I1aTcfq6HtmzOv/OjuLc1LNjSj9dnHXKLbBfY5mej/MFttwrwTV
+         U7mSOR01TWGIS/KgAk9oHHfCIGGVQm3YDYMSnZdo0njXivAnD8e5Lziiy95d20KNfpZL
+         GPdcTKnrI7Oga6XtcNmv/pGntddAMkvhgTWingGIox3kWJODZHaCBSVRrih9grYXpUMs
+         sH/yb0WvIgVVIK1G3e2MWYM+wkHaFwuxYFmrWiP8DyBzvq0DjqBEo1MyW1K8hfcnlDM2
+         D8xw==
+X-Gm-Message-State: ACgBeo1nE/7euxBOR3aBGeIgw6FEzVr1wBEvjJruBGsakarV7kLziU9s
+	ra9GkJo6f1k+ACflkHvLHCbdlY+x4NfhyQ==
+X-Google-Smtp-Source: AA6agR6cPZwhir1oSL4FH+tlBFkccGiF2un2JQUTMvARQ3UEhDSAxmKc+ttgXP2sV/U7RLNiu1ekrg==
+X-Received: by 2002:a5d:5941:0:b0:225:3fc3:d923 with SMTP id e1-20020a5d5941000000b002253fc3d923mr12309606wri.522.1661966708622;
+        Wed, 31 Aug 2022 10:25:08 -0700 (PDT)
 Received: from localhost (cst2-173-67.cust.vodafone.cz. [31.30.173.67])
-        by smtp.gmail.com with ESMTPSA id k34-20020a05600c1ca200b003a62400724bsm3419320wms.0.2022.08.31.10.25.04
+        by smtp.gmail.com with ESMTPSA id ay21-20020a05600c1e1500b003a536d5aa2esm2838222wmb.11.2022.08.31.10.25.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Aug 2022 10:25:04 -0700 (PDT)
+        Wed, 31 Aug 2022 10:25:08 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: linux-riscv@lists.infradead.org,
 	kvm-riscv@lists.infradead.org
@@ -68,16 +68,17 @@ Cc: linux-kernel@vger.kernel.org,
 	anup@brainfault.org,
 	mchitale@ventanamicro.com,
 	heiko@sntech.de
-Subject: [PATCH v2 2/4] riscv: Introduce support for defining instructions
-Date: Wed, 31 Aug 2022 19:24:58 +0200
-Message-Id: <20220831172500.752195-3-ajones@ventanamicro.com>
+Subject: [PATCH v2 4/4] riscv: KVM: Apply insn-def to hlv encodings
+Date: Wed, 31 Aug 2022 19:25:00 +0200
+Message-Id: <20220831172500.752195-5-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20220831172500.752195-1-ajones@ventanamicro.com>
 References: <20220831172500.752195-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220831_102508_204433_6B9CB030 
-X-CRM114-Status: GOOD (  16.23  )
+X-CRM114-CacheID: sfid-20220831_102512_542915_070FA671 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,135 +95,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When compiling with toolchains that haven't yet been taught about
-new instructions we need to encode them ourselves. Create a new file
-where support for instruction definitions will evolve. We initiate
-the file with a macro called INSN_R(), which implements the R-type
-instruction encoding. INSN_R() will use the assembler's .insn
-directive when available, which should give the assembler a chance
-to do some validation. When .insn is not available we fall back to
-manual encoding.
-
-Not only should using instruction encoding macros improve readability
-and maintainability of code over the alternative of inserting
-instructions directly (e.g. '.word 0xc0de'), but we should also gain
-potential for more optimized code after compilation because the
-compiler will have control over the input and output registers used.
+Introduce hlv instruction encodings and apply them to KVM's use.
+We're careful not to introduce hlv.d to 32-bit builds. Indeed,
+we ensure the build fails if someone tries to use it.
 
 Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 Reviewed-by: Anup Patel <anup@brainfault.org>
 ---
- arch/riscv/Kconfig                |  3 ++
- arch/riscv/include/asm/insn-def.h | 86 +++++++++++++++++++++++++++++++
- 2 files changed, 89 insertions(+)
- create mode 100644 arch/riscv/include/asm/insn-def.h
+ arch/riscv/include/asm/insn-def.h | 17 +++++++++++++++++
+ arch/riscv/kvm/vcpu_exit.c        | 29 +++++------------------------
+ 2 files changed, 22 insertions(+), 24 deletions(-)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index ed66c31e4655..f8f3b316b838 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -227,6 +227,9 @@ config RISCV_DMA_NONCOHERENT
- 	select ARCH_HAS_SETUP_DMA_OPS
- 	select DMA_DIRECT_REMAP
- 
-+config AS_HAS_INSN
-+	def_bool $(as-instr,.insn r 51$(comma) 0$(comma) 0$(comma) t0$(comma) t0$(comma) zero)
-+
- source "arch/riscv/Kconfig.socs"
- source "arch/riscv/Kconfig.erratas"
- 
 diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-new file mode 100644
-index 000000000000..2dcd1d4781bf
---- /dev/null
+index 86c1f602413b..8fe9036efb68 100644
+--- a/arch/riscv/include/asm/insn-def.h
 +++ b/arch/riscv/include/asm/insn-def.h
-@@ -0,0 +1,86 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
+@@ -93,4 +93,21 @@
+ 	INSN_R(OPCODE_SYSTEM, FUNC3(0), FUNC7(49),		\
+ 	       __RD(0), RS1(gaddr), RS2(vmid))
+ 
++#define HLVX_HU(dest, addr)					\
++	INSN_R(OPCODE_SYSTEM, FUNC3(4), FUNC7(50),		\
++	       RD(dest), RS1(addr), __RS2(3))
 +
-+#ifndef __ASM_INSN_DEF_H
-+#define __ASM_INSN_DEF_H
++#define HLV_W(dest, addr)					\
++	INSN_R(OPCODE_SYSTEM, FUNC3(4), FUNC7(52),		\
++	       RD(dest), RS1(addr), __RS2(0))
 +
-+#include <asm/asm.h>
-+
-+#define INSN_R_FUNC7_SHIFT		25
-+#define INSN_R_RS2_SHIFT		20
-+#define INSN_R_RS1_SHIFT		15
-+#define INSN_R_FUNC3_SHIFT		12
-+#define INSN_R_RD_SHIFT			 7
-+#define INSN_R_OPCODE_SHIFT		 0
-+
-+#ifdef __ASSEMBLY__
-+
-+#ifdef CONFIG_AS_HAS_INSN
-+
-+	.macro insn_r, opcode, func3, func7, rd, rs1, rs2
-+	.insn	r \opcode, \func3, \func7, \rd, \rs1, \rs2
-+	.endm
-+
++#ifdef CONFIG_64BIT
++#define HLV_D(dest, addr)					\
++	INSN_R(OPCODE_SYSTEM, FUNC3(4), FUNC7(54),		\
++	       RD(dest), RS1(addr), __RS2(0))
 +#else
-+
-+#include <asm/gpr-num.h>
-+
-+	.macro insn_r, opcode, func3, func7, rd, rs1, rs2
-+	.4byte	((\opcode << INSN_R_OPCODE_SHIFT) |		\
-+		 (\func3 << INSN_R_FUNC3_SHIFT) |		\
-+		 (\func7 << INSN_R_FUNC7_SHIFT) |		\
-+		 (.L__gpr_num_\rd << INSN_R_RD_SHIFT) |		\
-+		 (.L__gpr_num_\rs1 << INSN_R_RS1_SHIFT) |	\
-+		 (.L__gpr_num_\rs2 << INSN_R_RS2_SHIFT))
-+	.endm
-+
++#define HLV_D(dest, addr)	\
++	__ASM_STR(.error "hlv.d requires 64-bit support")
 +#endif
 +
-+#define INSN_R(...)	insn_r __VA_ARGS__
-+
-+#else /* ! __ASSEMBLY__ */
-+
-+#ifdef CONFIG_AS_HAS_INSN
-+
-+#define INSN_R(opcode, func3, func7, rd, rs1, rs2)	\
-+	".insn	r " opcode ", " func3 ", " func7 ", " rd ", " rs1 ", " rs2 "\n"
-+
-+#else
-+
-+#include <linux/stringify.h>
-+#include <asm/gpr-num.h>
-+
-+#define DEFINE_INSN_R							\
-+	__DEFINE_ASM_GPR_NUMS						\
-+"	.macro insn_r, opcode, func3, func7, rd, rs1, rs2\n"		\
-+"	.4byte	((\\opcode << " __stringify(INSN_R_OPCODE_SHIFT) ") |"	\
-+"		 (\\func3 << " __stringify(INSN_R_FUNC3_SHIFT) ") |"	\
-+"		 (\\func7 << " __stringify(INSN_R_FUNC7_SHIFT) ") |"	\
-+"		 (.L__gpr_num_\\rd << " __stringify(INSN_R_RD_SHIFT) ") |"    \
-+"		 (.L__gpr_num_\\rs1 << " __stringify(INSN_R_RS1_SHIFT) ") |"  \
-+"		 (.L__gpr_num_\\rs2 << " __stringify(INSN_R_RS2_SHIFT) "))\n" \
-+"	.endm\n"
-+
-+#define UNDEFINE_INSN_R							\
-+"	.purgem insn_r\n"
-+
-+#define INSN_R(opcode, func3, func7, rd, rs1, rs2)			\
-+	DEFINE_INSN_R							\
-+	"insn_r " opcode ", " func3 ", " func7 ", " rd ", " rs1 ", " rs2 "\n" \
-+	UNDEFINE_INSN_R
-+
-+#endif
-+
-+#endif /* ! __ASSEMBLY__ */
-+
-+#define OPCODE(v)	__ASM_STR(v)
-+#define FUNC3(v)	__ASM_STR(v)
-+#define FUNC7(v)	__ASM_STR(v)
-+#define RD(v)		__ASM_STR(v)
-+#define RS1(v)		__ASM_STR(v)
-+#define RS2(v)		__ASM_STR(v)
-+#define __REG(v)	__ASM_STR(x ## v)
-+#define __RD(v)		__REG(v)
-+#define __RS1(v)	__REG(v)
-+#define __RS2(v)	__REG(v)
-+
-+#endif /* __ASM_INSN_DEF_H */
+ #endif /* __ASM_INSN_DEF_H */
+diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
+index d5c36386878a..da793f113a72 100644
+--- a/arch/riscv/kvm/vcpu_exit.c
++++ b/arch/riscv/kvm/vcpu_exit.c
+@@ -8,6 +8,7 @@
+ 
+ #include <linux/kvm_host.h>
+ #include <asm/csr.h>
++#include <asm/insn-def.h>
+ 
+ static int gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
+ 			     struct kvm_cpu_trap *trap)
+@@ -82,22 +83,12 @@ unsigned long kvm_riscv_vcpu_unpriv_read(struct kvm_vcpu *vcpu,
+ 			".option push\n"
+ 			".option norvc\n"
+ 			"add %[ttmp], %[taddr], 0\n"
+-			/*
+-			 * HLVX.HU %[val], (%[addr])
+-			 * HLVX.HU t0, (t2)
+-			 * 0110010 00011 00111 100 00101 1110011
+-			 */
+-			".word 0x6433c2f3\n"
++			HLVX_HU(%[val], %[addr])
+ 			"andi %[tmp], %[val], 3\n"
+ 			"addi %[tmp], %[tmp], -3\n"
+ 			"bne %[tmp], zero, 2f\n"
+ 			"addi %[addr], %[addr], 2\n"
+-			/*
+-			 * HLVX.HU %[tmp], (%[addr])
+-			 * HLVX.HU t1, (t2)
+-			 * 0110010 00011 00111 100 00110 1110011
+-			 */
+-			".word 0x6433c373\n"
++			HLVX_HU(%[tmp], %[addr])
+ 			"sll %[tmp], %[tmp], 16\n"
+ 			"add %[val], %[val], %[tmp]\n"
+ 			"2:\n"
+@@ -121,19 +112,9 @@ unsigned long kvm_riscv_vcpu_unpriv_read(struct kvm_vcpu *vcpu,
+ 			".option norvc\n"
+ 			"add %[ttmp], %[taddr], 0\n"
+ #ifdef CONFIG_64BIT
+-			/*
+-			 * HLV.D %[val], (%[addr])
+-			 * HLV.D t0, (t2)
+-			 * 0110110 00000 00111 100 00101 1110011
+-			 */
+-			".word 0x6c03c2f3\n"
++			HLV_D(%[val], %[addr])
+ #else
+-			/*
+-			 * HLV.W %[val], (%[addr])
+-			 * HLV.W t0, (t2)
+-			 * 0110100 00000 00111 100 00101 1110011
+-			 */
+-			".word 0x6803c2f3\n"
++			HLV_W(%[val], %[addr])
+ #endif
+ 			".option pop"
+ 		: [val] "=&r" (val),
 -- 
 2.37.2
 
