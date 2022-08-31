@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6D7BECAAD4
-	for <linux-riscv@archiver.kernel.org>; Wed, 31 Aug 2022 18:09:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA879ECAAD1
+	for <linux-riscv@archiver.kernel.org>; Wed, 31 Aug 2022 21:05:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8IpyaBpeXN9iCJOfGh3ZA2Rne1GK7PDu4dsJJuMwgBc=; b=O6P00VBMC50pnz
-	I8Vaw8JGw0ODN3Wnqpmt3Q/dF31VdtGltm3zxbUTDuBc2JGHSViMsXEhyJ4fD/TVxBKWyBnh35XdG
-	7FD/5faf5c2IAgcVtzU5s7SMlzx5oOrxUr4xx23fW2tpnBaJIO5KSkCEtxG+oqI1XrXyDd2To0DKH
-	nOktWCKzDRqdBN8ywZqy8d17WnfOyBu5AUwxdOvuwcoHccpL+rpQuII2wVaHUqxkCl3jObptSme95
-	B0QoSF8XgtBc3Jd6A8MRDkmQnqj0bXQp/5g8yWG5fq41tboQmh2oBxMB8EsQsBEqAdDK5f8YH82RP
-	afZY3Z880Zeb9J3TUWkw==;
+	List-Owner; bh=dYsrDmOFcFEeC/wR2BEwaZBLKbLbgLLzoqG0alxXN/w=; b=BaC92v1/AakK1T
+	9P7ltGo6xmgVJRjFOFtGjDxCowmQib2M+cj/t2yshGs5/4vrNreFq4Na2b3JnHuNnhwl+4oDno1Qh
+	8Fjg4NUievBbr7zKy7UCVf0nixtWj7ZlqediWaxcsjM79MOizJFLqSWdBhj7HwSr0cKeIniI/JvqP
+	Rw93Y+ZdZYg54/+Iy7o/BBIjqe/QnLlVvs/B+fBRTatz7lGQdTx41BiOEosUwILnHeOBiqE9j9MQl
+	op09lg1y7JT4ve4oAFkOOhR87NamOpVA4l72Tn2ov5bFaowBAqlYZgrmWSuyEXiFyaJnkhZbWzc36
+	zsA+aL7z48t3qy8xhpXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTS8z-007VWg-45; Wed, 31 Aug 2022 18:08:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oTUtm-008Fyr-6c; Wed, 31 Aug 2022 21:05:22 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTS8v-007VT9-Sg; Wed, 31 Aug 2022 18:08:51 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 61F6E61C19;
-	Wed, 31 Aug 2022 18:08:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6625C4315A;
-	Wed, 31 Aug 2022 18:08:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1661969329;
-	bh=xbjqcsHpZLXZwlNWH/Cbgm5wue/oCBT8GsMoqoWOFtA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=W+7gVi8yFm3V3RD6T/WGbR/vDUeIq5UBo0A6wNESq7DWzBVB49wILZoyuSgVzOCC2
-	 rnTa20DoLo7rRkJf7myG6HugA48VHkmLvis6NZ1Du7QSESk/umgnpvf2vXrs7hpfcP
-	 XziZDBydnKYKqmsb4lkoXqCo2YzHqfT3Vg0KKLdvBdR5n7ok1oBC20OV/2Jy0Nx5Xf
-	 GwT4E8whMUzEmE0dNxJVmU4FC5YW2MbREEBOpLoURCWb9WNrb4TYuXnisoNDUiVuJk
-	 gFIP+/fH7hTgzzjajJqKIIqqNdpoYbqnV6RrydBHArpNf5A7DA3vEeTsrx1Cfv5TuP
-	 g0duUCmddN/GQ==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org
-Subject: [PATCH v2 5/5] riscv: Allow to enable RT
-Date: Thu,  1 Sep 2022 01:59:20 +0800
-Message-Id: <20220831175920.2806-6-jszhang@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220831175920.2806-1-jszhang@kernel.org>
-References: <20220831175920.2806-1-jszhang@kernel.org>
+	id 1oTUtk-008FyO-1P
+	for linux-riscv@lists.infradead.org; Wed, 31 Aug 2022 21:05:21 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id d1so12076722qvs.0
+        for <linux-riscv@lists.infradead.org>; Wed, 31 Aug 2022 14:05:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=+lTGIa6eGb9hONAiLy7EzL9iAjtgjfpY29k3SCr3Lw8=;
+        b=iM7AcVcIWutz/Qg74Dp3o1RiGNUjn02FcrCIKgMYx5rUSnEQed0U2SYpcb/iFIPWVu
+         sceCKEHtFe9RPX+zQoJx4d5vFSG4jY7rPDMMnvafq9d+UVFbBCnPcNyZOj+cKoJLhoIL
+         XJMx7+lZ1Dsc/vXv1k/k4wBG6nVwmI9Iz5ADAfywHUEtZydGLOQqXu8Ua17qvmTPa9sJ
+         OOL9icmWoiKVAkA7WTFttpJkg2sNx4c4oL+nR6EoPyxsT1l2+fC3olx+qGnVZDX4qhNv
+         OLKYxmRcLwD4NwzjcGnNvmeBNVNrDn6XtGU4Z+nRcVGzZcLCVeWTtM9d7BlcNF8jVHC9
+         kHTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=+lTGIa6eGb9hONAiLy7EzL9iAjtgjfpY29k3SCr3Lw8=;
+        b=nvdFJ7nCp6fuToYuoAQAaJ0HNBTJej7c9GWAnMI+xplp/93jfvU57vOyNgXvUv8zvy
+         gyF9cl3y7kC+aC519o1n4i7X8PK3VpxQYkFg2yj+36r1cXzP/OO9yN8c9wdNSyqOObNH
+         o9ZzdM3lrzDpMMZcHT8Of8zjLklY+YOZuljn5lH7T/XFlRlqljJ8YVPbKpL0fOH610Cz
+         KjIaggohg6c7emLfHS4z3Xq5v3fnBw/vIcBw1dYYiRZF5U0reGuGmxc/c2qR+SGEjSQX
+         MnxxbPXpIwK9hBurEtYDwZinIXpEfyJCRWjnN1W73I84hWtcNfTyP+dyv2V6r6hFlo0X
+         9O6g==
+X-Gm-Message-State: ACgBeo1j3HbkkFh7IZ6dFkFMd+N4rIQWtfit4qG8gRHdBtnrTMtHznXB
+	gSQN3zp786tM7+cKoKe0GtPkO/rht3zTKEGH8rI=
+X-Google-Smtp-Source: AA6agR5qQAhLTgxav6dOwBNu1281hzGRPk4FTa0c/tyqw82+8CL4iE6OOOtudGsgpC8BavrAUE9pJg/tv0RT/T5WCjs=
+X-Received: by 2002:a05:6214:2022:b0:497:2c03:61 with SMTP id
+ 2-20020a056214202200b004972c030061mr21792656qvf.11.1661979915969; Wed, 31 Aug
+ 2022 14:05:15 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220815120834.1562544-1-lewis.hanly@microchip.com>
+ <20220815120834.1562544-2-lewis.hanly@microchip.com> <CACRpkdbk_ZqYnDzXgmbnAxhs+mEe9f2X-y++9HDS-O=UO_tUmg@mail.gmail.com>
+In-Reply-To: <CACRpkdbk_ZqYnDzXgmbnAxhs+mEe9f2X-y++9HDS-O=UO_tUmg@mail.gmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Thu, 1 Sep 2022 00:04:40 +0300
+Message-ID: <CAHp75Vc4cMGBdJpOsRMDLWU+6+eYwbsF3-Mz40-KazLGhwkHMA@mail.gmail.com>
+Subject: Re: [PATCH v6 1/1] gpio: mpfs: add polarfire soc gpio support
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: lewis.hanly@microchip.com, 
+	"open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Marc Zyngier <maz@kernel.org>, conor.dooley@microchip.com, 
+	daire.mcnamara@microchip.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220831_110849_992234_EB65E0B9 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220831_140520_133107_00CF0D38 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,28 +88,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allow to select RT.
+On Mon, Aug 22, 2022 at 2:30 PM Linus Walleij <linus.walleij@linaro.org> wrote:
+> On Mon, Aug 15, 2022 at 2:08 PM <lewis.hanly@microchip.com> wrote:
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
----
- arch/riscv/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+...
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index 9f2f1936b1b5..69cdcb3cf251 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -39,6 +39,7 @@ config RISCV
- 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC if MMU
- 	select ARCH_SUPPORTS_HUGETLBFS if MMU
- 	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
-+	select ARCH_SUPPORTS_RT
- 	select ARCH_USE_MEMTEST
- 	select ARCH_USE_QUEUED_RWLOCKS
- 	select ARCH_WANT_DEFAULT_TOPDOWN_MMAP_LAYOUT if MMU
+> This looks like  textbook example of a driver that can use
+> CONFIG_GPIO_GENERIC
+
+> See e.g. drivers/gpio/gpio-ftgpio010.c for an example
+> of how to use bgpio_init() to set up the helper library to handle
+> the GPIO side of things and combine it with an irqchip.
+> You get get/set_multiple() for free with this approach.
+> Also see documentation for bgpio_init() in
+> drivers/gpio/gpio-mmio.c.
+
+I would also suggest looking at gpio-regmap.c.
+
 -- 
-2.34.1
-
+With Best Regards,
+Andy Shevchenko
 
 _______________________________________________
 linux-riscv mailing list
