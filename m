@@ -4,73 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8EB2ECAAD3
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 13:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3003ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 13:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AJUadajNswZKpCPXTtz3uvnIXwPD1h2cLofVCGFcofM=; b=KxAC3n0HjoCodN
-	St/lAM7WVL08LChaL40FbaKSJouzjOwJcHYohiF1CaCgGvnpZ9FyTboiPJsWmuEWyoK5ZWJ0f4R3p
-	c7POkWChLdwBKGSoDEzPyLM5YNCzZ7N/hmSelwexooDedoixthnlmZoYUvv6n78+5wvASlSTluHwh
-	82oGCK88g6rVWbENrhb/dI2RH1biJUBdVjgBN8FABin5R6C+bc6B2pG8/c1zwBDjC0f+K3GtGCfhO
-	P9xZmHmJNu3baAeVvo40sLGmb2DvvF9gaFLEwwUXRvYfWGHiwetwdCib1dTjgb0eYcgLsVb+F7mjQ
-	ZZV89dzdTpaG0BXNX3tg==;
+	List-Owner; bh=uhWJ9HXZ46PhdIrQanwdp5JMoDbUrB4jKhSWwH6aP0w=; b=GxWCJxYR5tI5dX
+	lyBk3ka0H1Grt9wo3qePBXmEosZlxjOfOYvUyQIDIQwDM9QejSK426oIWFnHo36J3nop8J5R6yGpW
+	nIVn40U6XFBnkOXNPEVXFPXkKzEBhTcX+zseQNNO6nW3vMx4WRnZCT1QBuQbJ+8MYSrwDAMDuHhtK
+	jm9hDf/lF8+ESgqgim8PBIk0IlGfcwQXUExdUlHci1Uh2zdWWqHmHzGIXIeYTvtiZEBzYMeBWUfeY
+	QIOyLXW6Ohwx2QaPYcrNHpzlm3U9Z0helJGcSCoOGI/HShV+VbveyQ2g69l+JuRgTD4S+FBloMH6r
+	W/9QU/L3PinhSvDcFKjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTkPN-00C8H5-LC; Thu, 01 Sep 2022 13:39:01 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oTkdJ-00CEWI-Bf; Thu, 01 Sep 2022 13:53:25 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTkLr-00C65D-W1
-	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 13:35:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1662039323; x=1693575323;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=d2iUfrhEMIj32cIjtAG6kmTs6cmS2qn1d7T1i0Rrnpk=;
-  b=V534PUchGakl4OOriq9Y5Hyz1jIj67faXMaFmAxLCrS7oPkNcaH0tozH
-   EqAiifnx8zfe1Y10Eo/f1oAY1ypLqQAxt7rRLhWJBMf1iyoiHmfCsL2pN
-   KJrMnAPUTZEI5uZVQBEKU8uUSwMFjz3STX6hc88Labkv3fBNyO2j/fTpW
-   Cwkt+bGg89/j+S8zMG1aIyUNZHLitrbZaSvqZvH76zZT/gq8tkGTNh3ll
-   BuJ9J7n74VLZ5jlF0rj/JE8tRCaHrv0r8bplQXhpPTidYvb48jx2vxA0F
-   JNO2Fg80UP5n4KjGAPyz1HoOb+1e8DXA7qN5IbCrN0Cv91uQ0L6y0oa02
-   A==;
-X-IronPort-AV: E=Sophos;i="5.93,280,1654585200"; 
-   d="scan'208";a="111754634"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 01 Sep 2022 06:35:22 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+	id 1oTkdG-00CESg-0l
+	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 13:53:24 +0000
+Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.56])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4MJMqK4RfTzlWgC;
+	Thu,  1 Sep 2022 21:49:49 +0800 (CST)
+Received: from dggpemm500016.china.huawei.com (7.185.36.25) by
+ dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 1 Sep 2022 06:35:14 -0700
-Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Thu, 1 Sep 2022 06:35:11 -0700
-From: Conor Dooley <conor.dooley@microchip.com>
-To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
-	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
-	<conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>,
-	Shravan Chippa <shravan.chippa@microchip.com>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Cyril Jean
-	<Cyril.Jean@microchip.com>, Lewis Hanly <lewis.hanly@microchip.com>,
-	Vattipalli Praveen <praveen.kumar@microchip.com>, Wolfgang Grandegger
-	<wg@aries-embedded.de>, Hugh Breslin <hugh.breslin@microchip.com>,
-	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 9/9] riscv: dts: microchip: add a devicetree for aries' m100pfsevp
-Date: Thu, 1 Sep 2022 14:34:04 +0100
-Message-ID: <20220901133403.3392291-10-conor.dooley@microchip.com>
-X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220901133403.3392291-1-conor.dooley@microchip.com>
-References: <20220901133403.3392291-1-conor.dooley@microchip.com>
+ 15.1.2375.24; Thu, 1 Sep 2022 21:53:15 +0800
+Received: from [10.67.111.115] (10.67.111.115) by
+ dggpemm500016.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2375.24; Thu, 1 Sep 2022 21:53:15 +0800
+Message-ID: <eeb9bb24-15b1-3b8f-bc52-a2c6e4a39716@huawei.com>
+Date: Thu, 1 Sep 2022 21:53:15 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.0.3
+Subject: Re: [PATCH] riscv:lib: optimize memcmp with ld insn
+To: <Conor.Dooley@microchip.com>, <linux-riscv@lists.infradead.org>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
+CC: <liaochang1@huawei.com>, <chris.zjh@huawei.com>
+References: <20220831130754.93422-1-zouyipeng@huawei.com>
+ <594e8d95-c039-6c8f-4669-6c9a514cbc91@microchip.com>
+From: Yipeng Zou <zouyipeng@huawei.com>
+In-Reply-To: <594e8d95-c039-6c8f-4669-6c9a514cbc91@microchip.com>
+X-Originating-IP: [10.67.111.115]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ dggpemm500016.china.huawei.com (7.185.36.25)
+X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220901_063524_181338_9237E167 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20220901_065322_476854_9009BF4A 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,298 +67,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device trees for both configs used by the Aries Embedded
-M100PFSEVP. The M100OFSEVP consists of a MPFS250T on a SOM,
-featuring:
-- 2GB DDR4 SDRAM dedicated to the HMS
-- 512MB DDR4 SDRAM dedicated to the FPGA
-- 32 MB SPI NOR Flash
-- 4 GByte eMMC
-
-and a carrier board with:
-- 2x Gigabit Ethernet
-- USB
-- 2x UART
-- 2x CAN
-- TFT connector
-- HSMC extension connector
-- 3x PMOD extension connectors
-- microSD-card slot
-
-Link: https://www.aries-embedded.com/polarfire-soc-fpga-microsemi-m100pfs-som-mpfs025t-pcie-serdes
-Link: https://www.aries-embedded.com/evaluation-kit/fpga/polarfire-microchip-soc-fpga-m100pfsevp-riscv-hsmc-pmod
-Link: https://downloads.aries-embedded.de/products/M100PFS/Hardware/M100PFSEVP-Schematics.pdf
-Co-developed-by: Wolfgang Grandegger <wg@aries-embedded.de>
-Signed-off-by: Wolfgang Grandegger <wg@aries-embedded.de>
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
-Note to self:
-The amount of DDR at 0x10... is probably a fraction of what is actually there.
-
- arch/riscv/boot/dts/microchip/Makefile        |   1 +
- .../dts/microchip/mpfs-m100pfs-fabric.dtsi    |  45 +++++
- .../boot/dts/microchip/mpfs-m100pfsevp.dts    | 179 ++++++++++++++++++
- 3 files changed, 225 insertions(+)
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi
- create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
-
-diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
-index f18477b2e86d..7427a20934f3 100644
---- a/arch/riscv/boot/dts/microchip/Makefile
-+++ b/arch/riscv/boot/dts/microchip/Makefile
-@@ -1,5 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0
- dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-icicle-kit.dtb
-+dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-m100pfsevp.dtb
- dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-polarberry.dtb
- dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-sev-kit.dtb
- obj-$(CONFIG_BUILTIN_DTB) += $(addsuffix .o, $(dtb-y))
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi
-new file mode 100644
-index 000000000000..7b9ee13b6a3a
---- /dev/null
-+++ b/arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi
-@@ -0,0 +1,45 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/* Copyright (c) 2022 Microchip Technology Inc */
-+
-+/ {
-+	fabric_clk3: fabric-clk3 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <62500000>;
-+	};
-+
-+	fabric_clk1: fabric-clk1 {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <125000000>;
-+	};
-+
-+	pcie: pcie@2000000000 {
-+		compatible = "microchip,pcie-host-1.0";
-+		#address-cells = <0x3>;
-+		#interrupt-cells = <0x1>;
-+		#size-cells = <0x2>;
-+		device_type = "pci";
-+		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
-+		reg-names = "cfg", "apb";
-+		bus-range = <0x0 0x7f>;
-+		interrupt-parent = <&plic>;
-+		interrupts = <119>;
-+		interrupt-map = <0 0 0 1 &pcie_intc 0>,
-+				<0 0 0 2 &pcie_intc 1>,
-+				<0 0 0 3 &pcie_intc 2>,
-+				<0 0 0 4 &pcie_intc 3>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
-+		clock-names = "fic0", "fic1", "fic3";
-+		ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
-+		msi-parent = <&pcie>;
-+		msi-controller;
-+		status = "disabled";
-+		pcie_intc: interrupt-controller {
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+			interrupt-controller;
-+		};
-+	};
-+};
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts b/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
-new file mode 100644
-index 000000000000..184cb36a175e
---- /dev/null
-+++ b/arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
-@@ -0,0 +1,179 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Original all-in-one devicetree:
-+ * Copyright (C) 2021-2022 - Wolfgang Grandegger <wg@aries-embedded.de>
-+ * Rewritten to use includes:
-+ * Copyright (C) 2022 - Conor Dooley <conor.dooley@microchip.com>
-+ */
-+/dts-v1/;
-+
-+#include "mpfs.dtsi"
-+#include "mpfs-m100pfs-fabric.dtsi"
-+
-+/* Clock frequency (in Hz) of the rtcclk */
-+#define MTIMER_FREQ	1000000
-+
-+/ {
-+	model = "Aries Embedded M100PFEVPS";
-+	compatible = "aries,m100pfsevp", "microchip,mpfs";
-+
-+	aliases {
-+		ethernet0 = &mac0;
-+		ethernet1 = &mac1;
-+		serial0 = &mmuart0;
-+		serial1 = &mmuart1;
-+		serial2 = &mmuart2;
-+		serial3 = &mmuart3;
-+		serial4 = &mmuart4;
-+		gpio0 = &gpio0;
-+		gpio1 = &gpio2;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial1:115200n8";
-+	};
-+
-+	cpus {
-+		timebase-frequency = <MTIMER_FREQ>;
-+	};
-+
-+	ddrc_cache_lo: memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x0 0x80000000 0x0 0x40000000>;
-+	};
-+	ddrc_cache_hi: memory@1040000000 {
-+		device_type = "memory";
-+		reg = <0x10 0x40000000 0x0 0x40000000>;
-+	};
-+};
-+
-+&can0 {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	status = "okay";
-+};
-+
-+&gpio0 {
-+	interrupts = <13>, <14>, <15>, <16>,
-+		     <17>, <18>, <19>, <20>,
-+		     <21>, <22>, <23>, <24>,
-+		     <25>, <26>;
-+	ngpios = <14>;
-+	status = "okay";
-+
-+	pmic-irq-hog {
-+		gpio-hog;
-+		gpios = <13 0>;
-+		input;
-+	};
-+
-+	/* Set to low for eMMC, high for SD-card */
-+	mmc-sel-hog {
-+		gpio-hog;
-+		gpios = <12 0>;
-+		output-high;
-+	};
-+};
-+
-+&gpio2 {
-+	interrupts = <13>, <14>, <15>, <16>,
-+		     <17>, <18>, <19>, <20>,
-+		     <21>, <22>, <23>, <24>,
-+		     <25>, <26>, <27>, <28>,
-+		     <29>, <30>, <31>, <32>,
-+		     <33>, <34>, <35>, <36>,
-+		     <37>, <38>, <39>, <40>,
-+		     <41>, <42>, <43>, <44>;
-+	status = "okay";
-+};
-+
-+&mac0 {
-+	status = "okay";
-+	phy-mode = "gmii";
-+	phy-handle = <&phy0>;
-+	phy0: ethernet-phy@0 {
-+		reg = <0>;
-+	};
-+};
-+
-+&mac1 {
-+	status = "okay";
-+	phy-mode = "gmii";
-+	phy-handle = <&phy1>;
-+	phy1: ethernet-phy@0 {
-+		reg = <0>;
-+	};
-+};
-+
-+&mbox {
-+	status = "okay";
-+};
-+
-+&mmc {
-+	max-frequency = <50000000>;
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	no-1-8-v;
-+	sd-uhs-sdr12;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr104;
-+	disable-wp;
-+	status = "okay";
-+};
-+
-+&mmuart1 {
-+	status = "okay";
-+};
-+
-+&mmuart2 {
-+	status = "okay";
-+};
-+
-+&mmuart3 {
-+	status = "okay";
-+};
-+
-+&mmuart4 {
-+	status = "okay";
-+};
-+
-+&pcie {
-+	status = "okay";
-+};
-+
-+&qspi {
-+	status = "okay";
-+};
-+
-+&refclk {
-+	clock-frequency = <125000000>;
-+};
-+
-+&rtc {
-+	status = "okay";
-+};
-+
-+&spi0 {
-+	status = "okay";
-+};
-+
-+&spi1 {
-+	status = "okay";
-+};
-+
-+&syscontroller {
-+	status = "okay";
-+};
-+
-+&usb {
-+	status = "okay";
-+	dr_mode = "host";
-+};
--- 
-2.36.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CuWcqCAyMDIyLzgvMzEgMjE6MTYsIENvbm9yLkRvb2xleUBtaWNyb2NoaXAuY29tIOWGmemBkzoK
+PiBPbiAzMS8wOC8yMDIyIDE0OjA3LCBZaXBlbmcgWm91IHdyb3RlOgo+PiByaXNjdjpsaWI6IG9w
+dGltaXplIG1lbWNtcCB3aXRoIGxkIGluc24KPiBNaW5vciBuaXQ6ICJyaXNjdjogbGliOgpvawo+
+PiBFWFRFUk5BTCBFTUFJTDogRG8gbm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0YWNobWVudHMg
+dW5sZXNzIHlvdSBrbm93IHRoZSBjb250ZW50IGlzIHNhZmUKPj4KPj4gQ3VycmVudGx5IG1lbWNt
+cCB3YXMgaW1wbGVtZW50ZWQgaW4gYyBjb2RlKGxpYi9zdHJpbmcuYyksIHdoaWNoIGNvbXBhcmUK
+Pj4gbWVtb3J5IHBlciBieXRlLgo+Pgo+PiBUaGlzIHBhdGNoIHVzZSBsZCBpbnNuIGNvbXBhcmUg
+bWVtb3J5IHBlciB3b3JkIHRvIGltcHJvdmUuIEZyb20gdGhlIHRlc3QKPj4gUmVzdWx0cywgdGhp
+cyB3aWxsIHRha2Ugc2V2ZXJhbCB0aW1lcyBvcHRpbWl6ZWQuCj4gSGV5IFlpcGVuZywKPiBDb3Vs
+ZCB5b3Ugc2hhcmUgc29tZSBtb3JlIGluZm9ybWF0aW9uIGFib3V0IHRoZSB0ZXN0cyB5b3UgZGlk
+Pwo+IFRoZSB0ZXN0IHJlc3VsdHMgc2hvd2luZyB0aGUgJSBpbXByb3ZlbWVudCB3b3VsZCBiZSBu
+aWNlIDopCj4gVGhhbmtzLAo+IENvbm9yLgoKT2Zjb3Vyc2UsIEJ1dCBNeSBib2FyZCB3YXMgbm90
+IHJlYWR5LCBTbyBpIGp1c3QgdGVzdCB0aGlzIHBhdGNoIG9uIHFlbXUgClJWNjQgJiBSVjMyIC4K
+CkFsbG9jIDgsNCwxS0IgYnVmZmVyIHRvIGNvbXBhcmUsIGVhY2ggbG9vcCAxMGsgdGltZXMuCgpT
+aXplKEIpCgoJCgo4awoKCQoKNGsKCgkKCjFrCgpNaW4obnMpCgoJCgo0MDgwMAoKCQoKMjY1MDAK
+CgkKCjE1NjAwCgpNaW4obnMpCgoJCgoxNjEwMAoKCQoKMTQyMDAKCgkKCjEyNDAwCgpTaXplKEIp
+CgoJCgo4awoKCQoKNGsKCgkKCjFrCgpBVkcobnMpCgoJCgo0NjMxNgoKCQoKMzIzMDIKCgkKCjE3
+OTY1CgpBVkcobnMpCgoJCgoyMTI4MQoKCQoKMTY0NDYKCgkKCjE0MzE2Cgo+PiBTaWduZWQtb2Zm
+LWJ5OiBZaXBlbmcgWm91IDx6b3V5aXBlbmdAaHVhd2VpLmNvbT4KPj4gLS0tCj4+ICAgIGFyY2gv
+cmlzY3YvaW5jbHVkZS9hc20vc3RyaW5nLmggfCAgMyArKwo+PiAgICBhcmNoL3Jpc2N2L2xpYi9N
+YWtlZmlsZSAgICAgICAgIHwgIDEgKwo+PiAgICBhcmNoL3Jpc2N2L2xpYi9tZW1jbXAuUyAgICAg
+ICAgIHwgNTkgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4+ICAgIDMgZmlsZXMg
+Y2hhbmdlZCwgNjMgaW5zZXJ0aW9ucygrKQo+PiAgICBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9y
+aXNjdi9saWIvbWVtY21wLlMKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vc3RyaW5nLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3N0cmluZy5oCj4+IGluZGV4IDkw
+OTA0OTM2NjU1NS4uMzMzN2I0M2QzODAzIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL3N0cmluZy5oCj4+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3RyaW5nLmgK
+Pj4gQEAgLTE4LDYgKzE4LDkgQEAgZXh0ZXJuIGFzbWxpbmthZ2Ugdm9pZCAqX19tZW1jcHkodm9p
+ZCAqLCBjb25zdCB2b2lkICosIHNpemVfdCk7Cj4+ICAgICNkZWZpbmUgX19IQVZFX0FSQ0hfTUVN
+TU9WRQo+PiAgICBleHRlcm4gYXNtbGlua2FnZSB2b2lkICptZW1tb3ZlKHZvaWQgKiwgY29uc3Qg
+dm9pZCAqLCBzaXplX3QpOwo+PiAgICBleHRlcm4gYXNtbGlua2FnZSB2b2lkICpfX21lbW1vdmUo
+dm9pZCAqLCBjb25zdCB2b2lkICosIHNpemVfdCk7Cj4+ICsjZGVmaW5lIF9fSEFWRV9BUkNIX01F
+TUNNUAo+PiArZXh0ZXJuIGludCBtZW1jbXAoY29uc3Qgdm9pZCAqLCBjb25zdCB2b2lkICosIHNp
+emVfdCk7Cj4+ICsKPj4gICAgLyogRm9yIHRob3NlIGZpbGVzIHdoaWNoIGRvbid0IHdhbnQgdG8g
+Y2hlY2sgYnkga2FzYW4uICovCj4+ICAgICNpZiBkZWZpbmVkKENPTkZJR19LQVNBTikgJiYgIWRl
+ZmluZWQoX19TQU5JVElaRV9BRERSRVNTX18pCj4+ICAgICNkZWZpbmUgbWVtY3B5KGRzdCwgc3Jj
+LCBsZW4pIF9fbWVtY3B5KGRzdCwgc3JjLCBsZW4pCj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
+L2xpYi9NYWtlZmlsZSBiL2FyY2gvcmlzY3YvbGliL01ha2VmaWxlCj4+IGluZGV4IDI1ZDVjOTY2
+NGU1Ny4uNzA3NzNiZjBjNDcxIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2xpYi9NYWtlZmls
+ZQo+PiArKysgYi9hcmNoL3Jpc2N2L2xpYi9NYWtlZmlsZQo+PiBAQCAtMyw2ICszLDcgQEAgbGli
+LXkgICAgICAgICAgICAgICAgICAgKz0gZGVsYXkubwo+PiAgICBsaWIteSAgICAgICAgICAgICAg
+ICAgICs9IG1lbWNweS5vCj4+ICAgIGxpYi15ICAgICAgICAgICAgICAgICAgKz0gbWVtc2V0Lm8K
+Pj4gICAgbGliLXkgICAgICAgICAgICAgICAgICArPSBtZW1tb3ZlLm8KPj4gK2xpYi15ICAgICAg
+ICAgICAgICAgICAgKz0gbWVtY21wLm8KPj4gICAgbGliLSQoQ09ORklHX01NVSkgICAgICArPSB1
+YWNjZXNzLm8KPj4gICAgbGliLSQoQ09ORklHXzY0QklUKSAgICArPSB0aXNoaWZ0Lm8KPj4KPj4g
+ZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvbGliL21lbWNtcC5TIGIvYXJjaC9yaXNjdi9saWIvbWVt
+Y21wLlMKPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXggMDAwMDAwMDAwMDAwLi44M2Fm
+MWM0MzNlNmYKPj4gLS0tIC9kZXYvbnVsbAo+PiArKysgYi9hcmNoL3Jpc2N2L2xpYi9tZW1jbXAu
+Uwo+PiBAQCAtMCwwICsxLDU5IEBACj4+ICsvKiBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BM
+LTIuMC1vbmx5ICovCj4+ICsvKgo+PiArICogQ29weXJpZ2h0IChDKSAyMDIyIHpvdXlpcGVuZ0Bo
+dWF3ZWkuY29tCj4+ICsgKi8KPj4gKyNpbmNsdWRlIDxsaW51eC9saW5rYWdlLmg+Cj4+ICsjaW5j
+bHVkZSA8YXNtLWdlbmVyaWMvZXhwb3J0Lmg+Cj4+ICsjaW5jbHVkZSA8YXNtL2FzbS5oPgo+PiAr
+Cj4+ICsvKiBhcmdybWVudHM6Cj4+ICsqIGEwOiBhZGRyMAo+PiArKiBhMTogYWRkcjEKPj4gKyog
+YTI6IHNpemUKPj4gKyovCj4+ICsjZGVmaW5lIGFkZHIwICBhMAo+PiArI2RlZmluZSBhZGRyMSAg
+YTEKPj4gKyNkZWZpbmUgbGltaXQgIGEyCj4+ICsKPj4gKyNkZWZpbmUgZGF0YTAgIGEzCj4+ICsj
+ZGVmaW5lIGRhdGExICBhNAo+PiArI2RlZmluZSB0bXAgICAgdDMKPj4gKyNkZWZpbmUgYWFkZHIg
+IHQ0Cj4+ICsjZGVmaW5lIHJldHVybiBhMAo+PiArCj4+ICsvKiBsb2FkIGFuZCBjb21wYXJlICov
+Cj4+ICsubWFjcm8gTERfQ01QIG9wIGQwIGQxIGEwIGExIG9mZnNldAo+PiArICAgICAgIFxvcCBc
+ZDAsIDAoXGEwKQo+PiArICAgICAgIFxvcCBcZDEsIDAoXGExKQo+PiArICAgICAgIGFkZGkgXGEw
+LCBcYTAsIFxvZmZzZXQKPj4gKyAgICAgICBhZGRpIFxhMSwgXGExLCBcb2Zmc2V0Cj4+ICsgICAg
+ICAgc3ViIHRtcCwgXGQwLCBcZDEKPj4gKy5lbmRtCj4+ICsKPj4gK0VOVFJZKG1lbWNtcCkKPj4g
+KyAgICAgICAvKiB0ZXN0IGxpbWl0IGFsaWdlbmQgd2l0aCBTWlJFRyAqLwo+PiArICAgICAgIGFu
+ZGkgdG1wLCBsaW1pdCwgU1pSRUcgLSAxCj4+ICsgICAgICAgLyogbG9hZCB0YWlsICovCj4+ICsg
+ICAgICAgYWRkIGFhZGRyLCBhZGRyMCwgbGltaXQKPj4gKyAgICAgICBzdWIgYWFkZHIsIGFhZGRy
+LCB0bXAKPj4gKyAgICAgICBhZGQgbGltaXQsIGFkZHIwLCBsaW1pdAo+PiArCj4+ICsuTGxvb3BX
+b3JkOgo+PiArICAgICAgIHNsdHUgdG1wLCBhZGRyMCwgYWFkZHIKPj4gKyAgICAgICBiZXF6IHRt
+cCwgLkxsb29wQnl0ZQo+PiArCj4+ICsgICAgICAgTERfQ01QIFJFR19MIGRhdGEwIGRhdGExIGFk
+ZHIwIGFkZHIxIFNaUkVHCj4+ICsgICAgICAgYmVxeiB0bXAsIC5MbG9vcFdvcmQKPj4gKyAgICAg
+ICBqIC5McmV0dXJuCj4+ICsKPj4gKy5MbG9vcEJ5dGU6Cj4+ICsgICAgICAgc2x0dSB0bXAsIGFk
+ZHIwLCBsaW1pdAo+PiArICAgICAgIGJlcXogdG1wLCAuTHJldHVybgo+PiArCj4+ICsgICAgICAg
+TERfQ01QIGxidSBkYXRhMCBkYXRhMSBhZGRyMCBhZGRyMSAxCj4+ICsgICAgICAgYmVxeiB0bXAs
+IC5MbG9vcEJ5dGUKPj4gKy5McmV0dXJuOgo+PiArICAgICAgIG12IHJldHVybiwgdG1wCj4+ICsg
+ICAgICAgcmV0Cj4+ICtFTkQobWVtY21wKQo+PiArRVhQT1JUX1NZTUJPTChtZW1jbXApOwo+PiAt
+LQo+PiAyLjE3LjEKPj4KLS0gClJlZ2FyZHMsCllpcGVuZyBab3UKCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
