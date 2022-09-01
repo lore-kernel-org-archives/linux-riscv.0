@@ -4,53 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 354D9ECAAD2
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 22:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2E3ECAAD2
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 22:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GS4xtAd4gL1JQ6Jmj2sZjqnTrf/jOPPaZ1S6iU1adHQ=; b=XiY0w2vzIrP//q
-	0fOS+QhXGToFH6jb+vOC9X8KOgjQ0g57pSkFDDA0YCu/+5cNXCR4svhiNCULrU/wvrbtpaPJEyuu2
-	JmHcD2547ufmpHtn31xpJjRM9L45pxLj1XQ4tlI5RlFKBseupu0LzOgCHjMe97HnXHd27fl4Ld1t/
-	8I+fjhYaJ6uFUwDQm9HZGGnLz0KAWf11Gi/vgj5Sln4CsJnH68icbvA/GRWF8+qGzK9qywTJ2Ly0X
-	zgwWTezhZ29dzzR59aJU1a6CSbNZ7s42LW7qR5VvZZE26Pmctc6LQq0fSCn5kyi5gE4ugCURirWgU
-	hGzBJg82gg3KHMpv4W2A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QY9wKnSi6gCt+Z7wb4+1BuS+6lCzEM+gN4K3BfdzV4o=; b=yELpqgln/xH55O
+	0LPLFIV0KwT7zczzAYZAWCcH2GgWLeFm8a1GIPUolBX7b2LToVMVWIfuWXZ8h7T+KdcwC6m8BW8yb
+	hDEG/lPF9OSt0M0e0ZidP01vs5kMHVjiwb4kFAgKUyEqnvMrCvN5PhuRcsU08GslC2viAACoVicMw
+	6q4lpCOV4s+FoC2IM5X29NPfkfedNntgrBEPw+Ds9TUxlZRn4MKwuhQeze9iGGG8hMkiyxgO1+Zkp
+	RX+abkWGnDAuTIdJ1eCbszTtJ/OfKJe7IWBbka+FHyWjGmoAmED13c4RG4To64FgsVk8WzXWbbely
+	uZ3xwwO625UA+WmfomLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTspy-00FRp8-Gs; Thu, 01 Sep 2022 22:39:02 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1oTsuU-00FUn2-1A; Thu, 01 Sep 2022 22:43:42 +0000
+Received: from madras.collabora.co.uk ([46.235.227.172])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTsfh-00FLJE-G1
-	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 22:28:28 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=phil.lan)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1oTsfW-0007wk-5B; Fri, 02 Sep 2022 00:28:14 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: conor.dooley@microchip.com,
-	guoren@kernel.org,
-	apatel@ventanamicro.com,
-	atishp@rivosinc.com,
+	id 1oTsuR-00FUhw-1O
+	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 22:43:40 +0000
+Received: from localhost (unknown [188.27.54.142])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id C7FB96601EAE;
+	Thu,  1 Sep 2022 23:43:30 +0100 (BST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1662072210;
+	bh=Se+P/2OSMvzpNPBSCpKRrCFWILF2FxskQ8Df/RF/9Lg=;
+	h=From:To:Cc:Subject:Date:From;
+	b=LVv576YF5B6AqEwx5ElJjwCiOFMBHSLVVhBFxXTqueF9ZVLGGkSAt2AcQyQ+RNhMN
+	 q3uEgPvJGXBC8ZnuI8DkcTDvygvMmxtn4qRD9YKGceUQdNkm/3FI0kGhlCEdv0OlTS
+	 k2f1QEWXlJaXcHBFwsq/5HwMuK/5m3CStFraoTzlRtVSdd+TmUc7ktTONuBOfy2l28
+	 D1Is/8oshHQZYKa52DwMKW6g5HILCxaYU81+dffXuPKY7LwiW8nuwNyGgId5GoXzqe
+	 jNnaUzm1eUlrMVA/7auhJAm9k/0azYBRuwpr2PmNh6KlYoD+NqqgzNVmck0HeFwJwY
+	 nGoSnYe9X12wg==
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+To: Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Michael Zhu <michael.zhu@starfivetech.com>,
+	Drew Fustini <drew@beagleboard.org>,
+	Emil Renner Berthing <kernel@esmil.dk>
+Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko@sntech.de>
-Subject: [PATCH 2/4] riscv: drop some idefs from CMO initialization
-Date: Fri,  2 Sep 2022 00:27:42 +0200
-Message-Id: <20220901222744.2210215-2-heiko@sntech.de>
-X-Mailer: git-send-email 2.35.1
-In-Reply-To: <20220901222744.2210215-1-heiko@sntech.de>
-References: <20220901222744.2210215-1-heiko@sntech.de>
+	kernel@collabora.com
+Subject: [PATCH 0/3] Enable initial support for StarFive VisionFive V1 SBC
+Date: Fri,  2 Sep 2022 01:42:50 +0300
+Message-Id: <20220901224253.2353071-1-cristian.ciocaltea@collabora.com>
+X-Mailer: git-send-email 2.37.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220901_152825_663181_FD62E26B 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20220901_154339_228762_40D3F965 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,97 +79,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Wrapping things in #ifdefs makes the code harder to read
-while we also have IS_ENABLED() macros to do this in regular code
-and the extension detection is not _that_ runtime critical.
+The StarFive VisionFive V1 SBC [1] is similar with the already supported
+BeagleV Starlight Beta board, both being based on the StarFive JH7100 SoC.
 
-So define a stub for riscv_noncoherent_supported() in the
-non-CONFIG_RISCV_DMA_NONCOHERENT case and move the code to
-us IS_ENABLED.
+In addition to documenting the necessary compatibles, this patch series 
+moves most of the content from jh7100-beaglev-starlight.dts to a new file
+jh7100-common.dtsi, to be shared between the two boards.
 
-Suggested-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- arch/riscv/errata/thead/errata.c    |  7 +++----
- arch/riscv/include/asm/cacheflush.h |  2 ++
- arch/riscv/kernel/cpufeature.c      | 22 +++++++++-------------
- 3 files changed, 14 insertions(+), 17 deletions(-)
+No other changes are required in order to successfully boot the board.
 
-diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-index 202c83f677b2..bffa711aaf64 100644
---- a/arch/riscv/errata/thead/errata.c
-+++ b/arch/riscv/errata/thead/errata.c
-@@ -30,7 +30,9 @@ static bool errata_probe_pbmt(unsigned int stage,
- static bool errata_probe_cmo(unsigned int stage,
- 			     unsigned long arch_id, unsigned long impid)
- {
--#ifdef CONFIG_ERRATA_THEAD_CMO
-+	if (!IS_ENABLED(CONFIG_ERRATA_THEAD_CMO))
-+		return false;
-+
- 	if (arch_id != 0 || impid != 0)
- 		return false;
- 
-@@ -39,9 +41,6 @@ static bool errata_probe_cmo(unsigned int stage,
- 
- 	riscv_noncoherent_supported();
- 	return true;
--#else
--	return false;
--#endif
- }
- 
- static u32 thead_errata_probe(unsigned int stage,
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index a60acaecfeda..4363d0beb38a 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -50,6 +50,8 @@ static inline void riscv_init_cbom_blocksize(void) { }
- 
- #ifdef CONFIG_RISCV_DMA_NONCOHERENT
- void riscv_noncoherent_supported(void);
-+#else
-+static inline void riscv_noncoherent_supported(void) {}
- #endif
- 
- /*
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 764ea220161f..729f7a218093 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -264,21 +264,17 @@ static bool __init_or_module cpufeature_probe_svpbmt(unsigned int stage)
- 
- static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
- {
--#ifdef CONFIG_RISCV_ISA_ZICBOM
--	switch (stage) {
--	case RISCV_ALTERNATIVES_EARLY_BOOT:
-+	if (!IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM))
-+		return false;
-+
-+	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-+		return false;
-+
-+	if (!riscv_isa_extension_available(NULL, ZICBOM))
- 		return false;
--	default:
--		if (riscv_isa_extension_available(NULL, ZICBOM)) {
--			riscv_noncoherent_supported();
--			return true;
--		} else {
--			return false;
--		}
--	}
--#endif
- 
--	return false;
-+	riscv_noncoherent_supported();
-+	return true;
- }
- 
- /*
+[1] https://github.com/starfive-tech/VisionFive
+
+Cristian Ciocaltea (3):
+  dt-bindings: riscv: starfive: Add StarFive VisionFive V1 board
+  riscv: dts: starfive: Add common DT for JH7100 based boards
+  riscv: dts: starfive: Add StarFive VisionFive V1 device tree
+
+ .../devicetree/bindings/riscv/starfive.yaml   |   3 +
+ arch/riscv/boot/dts/starfive/Makefile         |   2 +-
+ .../dts/starfive/jh7100-beaglev-starlight.dts | 153 +----------------
+ .../boot/dts/starfive/jh7100-common.dtsi      | 161 ++++++++++++++++++
+ .../jh7100-starfive-visionfive-v1.dts         |  20 +++
+ 5 files changed, 186 insertions(+), 153 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
+
 -- 
-2.35.1
+2.37.2
 
 
 _______________________________________________
