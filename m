@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33ADC6FA82
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 22:43:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D636ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 22:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FSVer5AYTcBZ+nxXiNuNv9UO6jA6Zjp/31Gbs8hDWuU=; b=nNPNtjNSHW+ChQ
-	t/pBTA238ZBxFNjCp2oy2Ix1z1HgE930rd9ZtQ9KMgEyYBUwvcfOg1RzJ11VmEA80eReCARgURX7R
-	z5oHS/KkHbXH5HltMUZalHpO3QWd1NubhJw07fbEx96WuBf6jzB0ZJx8NfRMopmUuSIcEb+/idSx8
-	a8fNzzIVkBF8kt7f8eG7/UanG1bKdOVYAGiGPnegSOCEznuZjTHr8BR3KXfzRb2wtFcCQ7RrrqV47
-	OjuFNgxG4FY0F/ms4GEF8MeiqoBeZjbHmtSlGp4jFvJDJhvWJPWHuzmoDC8kLprSGzWBm6dPQttjs
-	wq6bKXhQx3BRNpDGECvA==;
+	List-Owner; bh=Go7fdsf8Y8nm+I/UE5terD3QcdnUSTuhLQ6JZqoGFlM=; b=eJzrxhn8E6VdjO
+	CDgS/tutxxDBHfxVlrI0YGopX32zJCXod7CYg4UNnRsMh15ZAuVQkntxfvNdaJSLsrJS7Bec+XPiD
+	8DSmFZXgEgcBPO4jNrJ+HyD00vlq2JB350yW0ZdRnQ4jjz5pwHXhcLCXdcS80aDO0S8C3kCb4TvRt
+	LkEANffplX3R3Aj842OKsXX6V3lVvlFmbaRZdykFlG9DLxoTrTD5dflZot1gS0wCIzEhgnj6ZvOBk
+	K7mbGiX6jFpnaAkTC1SjDdhpaiZdtCMohvpKlm90e/0JJCLe2WXeyeLbivLoRbrZNIW5j9Tk1pCb+
+	0AjGPMBszLLUwhVsRbog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTsuW-00FUoN-5t; Thu, 01 Sep 2022 22:43:44 +0000
-Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
+	id 1oTsuX-00FUp2-OH; Thu, 01 Sep 2022 22:43:45 +0000
+Received: from madras.collabora.co.uk ([46.235.227.172])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTsuS-00FUjI-6e
+	id 1oTsuR-00FUk9-Bw
 	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 22:43:42 +0000
 Received: from localhost (unknown [188.27.54.142])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id D9CD86601EBA;
-	Thu,  1 Sep 2022 23:43:33 +0100 (BST)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 64E736601EBB;
+	Thu,  1 Sep 2022 23:43:36 +0100 (BST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1662072214;
-	bh=KzKhwls9rXQht8qlDBSXnDEtPH0QZN4XnleCNhtFc2A=;
+	s=mail; t=1662072216;
+	bh=KGA9+LQHMyEoNGDJQE/5v2mw3mjNk7h79xPplUMEGys=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kpfF10M5FSXdKo0xIxEt1vC/iH6NSySzU3FZjcVe/7rN8d5OR5up1eZhQu5YiZ/fu
-	 ObJrfeJaVpEmyXLSvgR0QnPqX10nAeQavXd0fxostkX9WOE2AjGkty5OBVWlVJZ5aU
-	 jMIRPVv8OlE1Fgt4YSpIPJrZu1/TYFll/AxcVQDsFJciGJRMc+qcLcN+bEkeX8IoWW
-	 G46sX0BWmBIkaQjsbGfTQ4XxNe2NEPSSZtbKQHgd9b4QuBM7ZKdcxIPOjBcDdRG/gu
-	 M5NUuZq0JhlA5+KN/ccJew0mpr8AymDHv/mVpvbWplBb3qWGKlJcYBFOTZ5ZSFCZc6
-	 sRwNh6vOZT+qA==
+	b=oYNC0gPhRGNntWVgxqRvpobFHTmBErU/8NfI1S6J/V5jskwaZGK6nuInq/RfbuIrM
+	 V6GVSJFv6W/XGVlnRnEGLFqA9/2sNzgPagtAW1//WiRFhN5iFgykX3WXJvlz2zmC8g
+	 epjXw40l0QOFRZgJOkNPppPHIvD5oP+F6AP2AGF9MlxKVE6Um+4+Gwf++gQaPzye0G
+	 1aeb7d/9928MByXtiy/CdxSyPzkcUpd+LWJu3KKhHLCZ3jWjx7bzy0eRNP/eQvdsQP
+	 OjxPWabHl30Q/3Xe5FmFdmAi9HcYdNBulryjEFXm7lNYvPST2oDRvJaKSUrrg8rZWN
+	 mZ10su0ncWPFw==
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -55,17 +55,16 @@ Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH 1/3] dt-bindings: riscv: starfive: Add StarFive VisionFive V1 board
-Date: Fri,  2 Sep 2022 01:42:51 +0300
-Message-Id: <20220901224253.2353071-2-cristian.ciocaltea@collabora.com>
+Subject: [PATCH 2/3] riscv: dts: starfive: Add common DT for JH7100 based boards
+Date: Fri,  2 Sep 2022 01:42:52 +0300
+Message-Id: <20220901224253.2353071-3-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20220901224253.2353071-1-cristian.ciocaltea@collabora.com>
 References: <20220901224253.2353071-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220901_154340_468136_52C51BFB 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220901_154339_698216_C3E638F3 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,30 +81,351 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the compatibles for StarFive VisionFive V1 SBC [1].
-The board is based on the StarFive JH7100 SoC.
-
-[1] https://github.com/starfive-tech/VisionFive
+In preparation for adding initial device tree support for the StarFive
+VisionFive board, which is similar with BeagleV Starlight, move most
+of the content from jh7100-beaglev-starlight.dts to a new file, to be
+shared between the two boards.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- Documentation/devicetree/bindings/riscv/starfive.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ .../dts/starfive/jh7100-beaglev-starlight.dts | 153 +----------------
+ .../boot/dts/starfive/jh7100-common.dtsi      | 161 ++++++++++++++++++
+ 2 files changed, 162 insertions(+), 152 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7100-common.dtsi
 
-diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
-index 5b36243fd674..9c948b379c8f 100644
---- a/Documentation/devicetree/bindings/riscv/starfive.yaml
-+++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
-@@ -21,6 +21,9 @@ properties:
-       - items:
-           - const: beagle,beaglev-starlight-jh7100-r0
-           - const: starfive,jh7100
-+      - items:
-+          - const: starfive,visionfive-v1
-+          - const: starfive,jh7100
+diff --git a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+index c9af67f7a0d2..7cda3a89020a 100644
+--- a/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
++++ b/arch/riscv/boot/dts/starfive/jh7100-beaglev-starlight.dts
+@@ -5,160 +5,9 @@
+  */
  
- additionalProperties: true
+ /dts-v1/;
+-#include "jh7100.dtsi"
+-#include <dt-bindings/gpio/gpio.h>
+-#include <dt-bindings/leds/common.h>
+-#include <dt-bindings/pinctrl/pinctrl-starfive.h>
++#include "jh7100-common.dtsi"
  
+ / {
+ 	model = "BeagleV Starlight Beta";
+ 	compatible = "beagle,beaglev-starlight-jh7100-r0", "starfive,jh7100";
+-
+-	aliases {
+-		serial0 = &uart3;
+-	};
+-
+-	chosen {
+-		stdout-path = "serial0:115200n8";
+-	};
+-
+-	cpus {
+-		timebase-frequency = <6250000>;
+-	};
+-
+-	memory@80000000 {
+-		device_type = "memory";
+-		reg = <0x0 0x80000000 0x2 0x0>;
+-	};
+-
+-	leds {
+-		compatible = "gpio-leds";
+-
+-		led-ack {
+-			gpios = <&gpio 43 GPIO_ACTIVE_HIGH>;
+-			color = <LED_COLOR_ID_GREEN>;
+-			function = LED_FUNCTION_HEARTBEAT;
+-			linux,default-trigger = "heartbeat";
+-			label = "ack";
+-		};
+-	};
+-};
+-
+-&gpio {
+-	i2c0_pins: i2c0-0 {
+-		i2c-pins {
+-			pinmux = <GPIOMUX(62, GPO_LOW,
+-				  GPO_I2C0_PAD_SCK_OEN,
+-				  GPI_I2C0_PAD_SCK_IN)>,
+-				 <GPIOMUX(61, GPO_LOW,
+-				  GPO_I2C0_PAD_SDA_OEN,
+-				  GPI_I2C0_PAD_SDA_IN)>;
+-			bias-disable; /* external pull-up */
+-			input-enable;
+-			input-schmitt-enable;
+-		};
+-	};
+-
+-	i2c1_pins: i2c1-0 {
+-		i2c-pins {
+-			pinmux = <GPIOMUX(47, GPO_LOW,
+-				  GPO_I2C1_PAD_SCK_OEN,
+-				  GPI_I2C1_PAD_SCK_IN)>,
+-				 <GPIOMUX(48, GPO_LOW,
+-				  GPO_I2C1_PAD_SDA_OEN,
+-				  GPI_I2C1_PAD_SDA_IN)>;
+-			bias-pull-up;
+-			input-enable;
+-			input-schmitt-enable;
+-		};
+-	};
+-
+-	i2c2_pins: i2c2-0 {
+-		i2c-pins {
+-			pinmux = <GPIOMUX(60, GPO_LOW,
+-				  GPO_I2C2_PAD_SCK_OEN,
+-				  GPI_I2C2_PAD_SCK_IN)>,
+-				 <GPIOMUX(59, GPO_LOW,
+-				  GPO_I2C2_PAD_SDA_OEN,
+-				  GPI_I2C2_PAD_SDA_IN)>;
+-			bias-disable; /* external pull-up */
+-			input-enable;
+-			input-schmitt-enable;
+-		};
+-	};
+-
+-	uart3_pins: uart3-0 {
+-		rx-pins {
+-			pinmux = <GPIOMUX(13, GPO_LOW, GPO_DISABLE,
+-				  GPI_UART3_PAD_SIN)>;
+-			bias-pull-up;
+-			drive-strength = <14>;
+-			input-enable;
+-			input-schmitt-enable;
+-			slew-rate = <0>;
+-		};
+-		tx-pins {
+-			pinmux = <GPIOMUX(14, GPO_UART3_PAD_SOUT,
+-				  GPO_ENABLE, GPI_NONE)>;
+-			bias-disable;
+-			drive-strength = <35>;
+-			input-disable;
+-			input-schmitt-disable;
+-			slew-rate = <0>;
+-		};
+-	};
+-};
+-
+-&i2c0 {
+-	clock-frequency = <100000>;
+-	i2c-sda-hold-time-ns = <300>;
+-	i2c-sda-falling-time-ns = <500>;
+-	i2c-scl-falling-time-ns = <500>;
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&i2c0_pins>;
+-	status = "okay";
+-
+-	pmic@5e {
+-		compatible = "ti,tps65086";
+-		reg = <0x5e>;
+-		gpio-controller;
+-		#gpio-cells = <2>;
+-
+-		regulators {
+-		};
+-	};
+-};
+-
+-&i2c1 {
+-	clock-frequency = <400000>;
+-	i2c-sda-hold-time-ns = <300>;
+-	i2c-sda-falling-time-ns = <100>;
+-	i2c-scl-falling-time-ns = <100>;
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&i2c1_pins>;
+-	status = "okay";
+-};
+-
+-&i2c2 {
+-	clock-frequency = <100000>;
+-	i2c-sda-hold-time-ns = <300>;
+-	i2c-sda-falling-time-ns = <500>;
+-	i2c-scl-falling-time-ns = <500>;
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&i2c2_pins>;
+-	status = "okay";
+-};
+-
+-&osc_sys {
+-	clock-frequency = <25000000>;
+-};
+-
+-&osc_aud {
+-	clock-frequency = <27000000>;
+-};
+-
+-&uart3 {
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&uart3_pins>;
+-	status = "okay";
+ };
+diff --git a/arch/riscv/boot/dts/starfive/jh7100-common.dtsi b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+new file mode 100644
+index 000000000000..6a66abacb612
+--- /dev/null
++++ b/arch/riscv/boot/dts/starfive/jh7100-common.dtsi
+@@ -0,0 +1,161 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2021 StarFive Technology Co., Ltd.
++ * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
++ */
++
++/dts-v1/;
++#include "jh7100.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/pinctrl/pinctrl-starfive.h>
++
++/ {
++	aliases {
++		serial0 = &uart3;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	cpus {
++		timebase-frequency = <6250000>;
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x0 0x80000000 0x2 0x0>;
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-ack {
++			gpios = <&gpio 43 GPIO_ACTIVE_HIGH>;
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_HEARTBEAT;
++			linux,default-trigger = "heartbeat";
++			label = "ack";
++		};
++	};
++};
++
++&gpio {
++	i2c0_pins: i2c0-0 {
++		i2c-pins {
++			pinmux = <GPIOMUX(62, GPO_LOW,
++				  GPO_I2C0_PAD_SCK_OEN,
++				  GPI_I2C0_PAD_SCK_IN)>,
++				 <GPIOMUX(61, GPO_LOW,
++				  GPO_I2C0_PAD_SDA_OEN,
++				  GPI_I2C0_PAD_SDA_IN)>;
++			bias-disable; /* external pull-up */
++			input-enable;
++			input-schmitt-enable;
++		};
++	};
++
++	i2c1_pins: i2c1-0 {
++		i2c-pins {
++			pinmux = <GPIOMUX(47, GPO_LOW,
++				  GPO_I2C1_PAD_SCK_OEN,
++				  GPI_I2C1_PAD_SCK_IN)>,
++				 <GPIOMUX(48, GPO_LOW,
++				  GPO_I2C1_PAD_SDA_OEN,
++				  GPI_I2C1_PAD_SDA_IN)>;
++			bias-pull-up;
++			input-enable;
++			input-schmitt-enable;
++		};
++	};
++
++	i2c2_pins: i2c2-0 {
++		i2c-pins {
++			pinmux = <GPIOMUX(60, GPO_LOW,
++				  GPO_I2C2_PAD_SCK_OEN,
++				  GPI_I2C2_PAD_SCK_IN)>,
++				 <GPIOMUX(59, GPO_LOW,
++				  GPO_I2C2_PAD_SDA_OEN,
++				  GPI_I2C2_PAD_SDA_IN)>;
++			bias-disable; /* external pull-up */
++			input-enable;
++			input-schmitt-enable;
++		};
++	};
++
++	uart3_pins: uart3-0 {
++		rx-pins {
++			pinmux = <GPIOMUX(13, GPO_LOW, GPO_DISABLE,
++				  GPI_UART3_PAD_SIN)>;
++			bias-pull-up;
++			drive-strength = <14>;
++			input-enable;
++			input-schmitt-enable;
++			slew-rate = <0>;
++		};
++		tx-pins {
++			pinmux = <GPIOMUX(14, GPO_UART3_PAD_SOUT,
++				  GPO_ENABLE, GPI_NONE)>;
++			bias-disable;
++			drive-strength = <35>;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
++};
++
++&i2c0 {
++	clock-frequency = <100000>;
++	i2c-sda-hold-time-ns = <300>;
++	i2c-sda-falling-time-ns = <500>;
++	i2c-scl-falling-time-ns = <500>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0_pins>;
++	status = "okay";
++
++	pmic@5e {
++		compatible = "ti,tps65086";
++		reg = <0x5e>;
++		gpio-controller;
++		#gpio-cells = <2>;
++
++		regulators {
++		};
++	};
++};
++
++&i2c1 {
++	clock-frequency = <400000>;
++	i2c-sda-hold-time-ns = <300>;
++	i2c-sda-falling-time-ns = <100>;
++	i2c-scl-falling-time-ns = <100>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1_pins>;
++	status = "okay";
++};
++
++&i2c2 {
++	clock-frequency = <100000>;
++	i2c-sda-hold-time-ns = <300>;
++	i2c-sda-falling-time-ns = <500>;
++	i2c-scl-falling-time-ns = <500>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c2_pins>;
++	status = "okay";
++};
++
++&osc_sys {
++	clock-frequency = <25000000>;
++};
++
++&osc_aud {
++	clock-frequency = <27000000>;
++};
++
++&uart3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart3_pins>;
++	status = "okay";
++};
 -- 
 2.37.2
 
