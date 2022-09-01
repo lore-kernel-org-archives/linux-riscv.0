@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E10ECAAD3
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 13:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF04ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 13:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=T09wLUwiNKUcnt8tuMRy5S82NVrHWtLypjquYqGi7gQ=; b=PCjXq/AUpPzhTV
-	c9LcX4M1+WNgusM2mFO21ARg7nBNn7uF2cEE0Poeequ5duNcIC9O4EylyZPJmvXpDv7MWreYo+dET
-	VxO4SIiX0k2pHUl7vpr0HH9kHnZjWgjzH3Yf4+AXoLFRfj4OVnjTfZlyVd0Rlub+alF8yR+r5x3E+
-	tXIHQD7+lztbaSrufSfunhcoGmsIHvMSarQXqS0taYgpXBLeJiLsx2p5amERIHGDtBLoyc3arIml0
-	ikdWkV8OZ9Vcxqnf6za4Btbh1DFARr6EvKhEBet/2jIOlpStVfsrKvTcbXhd7fjDXv6anyhZ1lsgt
-	DYusq9A4wG3gAFy/KDtg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=g6nW/zRcJ0R2eBkg1BtSt3WAqRoULyZRsYrX1eQ8NbM=; b=y1c9IObDzZhGIM
+	5nRzuSB2zcfpYRsE9Kv+d5GKj1WT1gSXC9sahOpX72xc6dj9wYwCKN7r7ChE4isL7/XP/zYtEIoaz
+	GMGYU/LMz4chw7fk7Py+ixow8wMrV3Na85cjv7268hrdMtDOVicHxVG++WJxIhlZNatejGDSm6thJ
+	LSifod7oUHgrvfeAwY0blPLz368aHcXEHtPEfR58Q8SKno/77hi/wpSE/xXvfMuK/sV8uVDrOqLTD
+	OAcC/ejyzi7dok9Y1Ck2O2qZ5WRyJgHKyt1ob5C55GG95sceoJ70NpBLyCzj89PwX9pT571HVnJ67
+	IQf6uYp/sxCvqeso+HrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTkOC-00C7Tx-SM; Thu, 01 Sep 2022 13:37:49 +0000
+	id 1oTkON-00C7bI-Ob; Thu, 01 Sep 2022 13:37:59 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTkLY-00C5uU-8g
-	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 13:35:06 +0000
+	id 1oTkLY-00C5sb-8E
+	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 13:35:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1662039304; x=1693575304;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=uHxdMeV9cT2StB4AnfzN0Ak927pm3jnkLPLYp0ihHAo=;
-  b=VPFS6fQ8gukELIlWyCmSjXmLnZ8qQvJYGJmWR1TJxpRZf5zKR1HiAzD2
-   VtIPxUz24ykzL7oVxPua0NWRrJw7LmARkZ4m80bYGgYRxKbh4/NzhXDTq
-   f5R1b2wNEmTr9IooTWs+c9tUfVFCspb9zDMYmOZFsTCpN8I1fbmtMwqq4
-   whSH5oax1LFpeUqVEMgR8tMg2U3sEuEy4RMKj146NU7TwZPpH84oluAJP
-   bxK3/oLAlcZgkU8OFhDTw7/VK+Ja8zSCegzqSUeWVkrDCkRDBDYON7zcx
-   e8FQuwvXZoyOmeh+89/n3BRKWv8X49ygwHwKHkxpfhzUpbRtyvhUILlaj
-   g==;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=oIe8AzrscvcaqCgOhFdaYnxfcYRkv0jUW4Vfl5AOtxw=;
+  b=BU3Fhpq7vm5IEHR1NfC6zw/pSeaL7TA5iS4aGmmtg9dQeCLl9VT/UFIe
+   sLE/JEimgjIAv34YCVrBZTOfN1ZJLRprCnk6SlO5NoVPgKpIYY9g2tHjW
+   uGZM+XmDLYveTQpjnRSyftkNebdaFxk5YJ2ZAQh9ETgY8Q153LCrnhuez
+   zWhIc9e7urZNnryXGvi4s47ZN33dzoZRJMaLzpVyDT3ZvJH+YiRlpqqIM
+   jDXgSy4ChEOaqS5UXdq/fOE8aL0S/wse4ohFKoKQ24KJCwnoRdy3cmeL6
+   yFfCvqrV5mxfwOlHanywqtpijMiBZh5W9PrRrjgMIMppYgLoHQIKGp0Sy
+   w==;
 X-IronPort-AV: E=Sophos;i="5.93,280,1654585200"; 
-   d="scan'208";a="111754604"
+   d="scan'208";a="175197533"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 01 Sep 2022 06:35:02 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 01 Sep 2022 06:34:45 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 1 Sep 2022 06:35:01 -0700
+ 15.1.2507.12; Thu, 1 Sep 2022 06:34:45 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Thu, 1 Sep 2022 06:34:58 -0700
+ Transport; Thu, 1 Sep 2022 06:34:42 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
@@ -61,16 +61,14 @@ CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
 	<wg@aries-embedded.de>, Hugh Breslin <hugh.breslin@microchip.com>,
 	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 5/9] riscv: dts: microchip: move the mpfs' pci node to -fabric.dtsi
-Date: Thu, 1 Sep 2022 14:34:00 +0100
-Message-ID: <20220901133403.3392291-6-conor.dooley@microchip.com>
+Subject: [PATCH v3 0/9] New PolarFire SoC devkit devicetrees & 22.09 reference design updates
+Date: Thu, 1 Sep 2022 14:33:55 +0100
+Message-ID: <20220901133403.3392291-1-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
-In-Reply-To: <20220901133403.3392291-1-conor.dooley@microchip.com>
-References: <20220901133403.3392291-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220901_063504_444649_0EB12F59 
-X-CRM114-Status: GOOD (  11.83  )
+X-CRM114-CacheID: sfid-20220901_063504_446053_8D027190 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,150 +85,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In today's edition of moving things around:
+Hey all,
 
-The PCIe root port on PolarFire SoC is more part of the FPGA than of
-the Core Complex. It is located on the other side of the chip and,
-apart from its interrupts, most of its configuration is determined
-by the FPGA bitstream rather. This includes:
+Some 6.1 targeted changes here.
+Firstly, two new dev kits (one first-party & one from Aries Embedded).
+They've been sitting in our vendor tree, so are being sent where they
+belong.
 
-- address translation in both directions
-- the addresses at which the config and data regions appear to the
-  core complex
-- the clocks used by the AXI bus
-- the plic interrupt used
+Secondly, another release of our reference design for the Icicle kit
+is due in September. Usually these do not really change much for the
+devicetree, but this time around a pair of changes impact the memory
+map.
 
-Moving the PCIe node to the -fabric.dtsi makes it clearer than a
-singular configuration for root port is not correct & allows the
-base SoC dtsi to be more easily included.
+The first of these is adding dma-ranges to the pcie controller. The
+controller had some issues to begin with & with the current reference
+design (v2022.05) would not work with mainline Linux nor has it since
+reference design v2021.08. A combination of the property, a change
+to the FPGA design & a small fix to the driver will get it working
+with mainline again. The other non-backwards compatible change to the
+reference design is moves of the peripherals instantiated in the
+fabric. Currently they are fairly spread out & a common complaint has
+been that this leaves little room in the fic3 section of the memory map
+for custom peripherals without removing the existing ones.
 
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- .../dts/microchip/mpfs-icicle-kit-fabric.dtsi | 32 +++++++++++++++++--
- .../dts/microchip/mpfs-polarberry-fabric.dtsi | 29 +++++++++++++++++
- arch/riscv/boot/dts/microchip/mpfs.dtsi       | 29 -----------------
- 3 files changed, 58 insertions(+), 32 deletions(-)
+This series depends on [0] so as not to add dtbs_check warnings. The
+fabric clock support is added by [1].
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-index c0fb9dd7b2c8..a21440c8ee03 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi
-@@ -37,8 +37,34 @@ fabric_clk1: fabric-clk1 {
- 		#clock-cells = <0>;
- 		clock-frequency = <125000000>;
- 	};
--};
- 
--&pcie {
--	dma-ranges = <0x02000000 0x0 0x00000000 0x0 0x00000000 0x1 0x00000000>;
-+	pcie: pcie@2000000000 {
-+		compatible = "microchip,pcie-host-1.0";
-+		#address-cells = <0x3>;
-+		#interrupt-cells = <0x1>;
-+		#size-cells = <0x2>;
-+		device_type = "pci";
-+		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
-+		reg-names = "cfg", "apb";
-+		bus-range = <0x0 0x7f>;
-+		interrupt-parent = <&plic>;
-+		interrupts = <119>;
-+		interrupt-map = <0 0 0 1 &pcie_intc 0>,
-+				<0 0 0 2 &pcie_intc 1>,
-+				<0 0 0 3 &pcie_intc 2>,
-+				<0 0 0 4 &pcie_intc 3>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
-+		clock-names = "fic0", "fic1", "fic3";
-+		ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
-+		dma-ranges = <0x02000000 0x0 0x00000000 0x0 0x00000000 0x1 0x00000000>;
-+		msi-parent = <&pcie>;
-+		msi-controller;
-+		status = "disabled";
-+		pcie_intc: interrupt-controller {
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+			interrupt-controller;
-+		};
-+	};
- };
-diff --git a/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-index 49380c428ec9..67303bc0e451 100644
---- a/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs-polarberry-fabric.dtsi
-@@ -13,4 +13,33 @@ fabric_clk1: fabric-clk1 {
- 		#clock-cells = <0>;
- 		clock-frequency = <125000000>;
- 	};
-+
-+	pcie: pcie@2000000000 {
-+		compatible = "microchip,pcie-host-1.0";
-+		#address-cells = <0x3>;
-+		#interrupt-cells = <0x1>;
-+		#size-cells = <0x2>;
-+		device_type = "pci";
-+		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
-+		reg-names = "cfg", "apb";
-+		bus-range = <0x0 0x7f>;
-+		interrupt-parent = <&plic>;
-+		interrupts = <119>;
-+		interrupt-map = <0 0 0 1 &pcie_intc 0>,
-+				<0 0 0 2 &pcie_intc 1>,
-+				<0 0 0 3 &pcie_intc 2>,
-+				<0 0 0 4 &pcie_intc 3>;
-+		interrupt-map-mask = <0 0 0 7>;
-+		clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
-+		clock-names = "fic0", "fic1", "fic3";
-+		ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
-+		msi-parent = <&pcie>;
-+		msi-controller;
-+		status = "disabled";
-+		pcie_intc: interrupt-controller {
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+			interrupt-controller;
-+		};
-+	};
- };
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index 74493344ea41..b1b7964608e3 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -464,35 +464,6 @@ usb: usb@20201000 {
- 			status = "disabled";
- 		};
- 
--		pcie: pcie@2000000000 {
--			compatible = "microchip,pcie-host-1.0";
--			#address-cells = <0x3>;
--			#interrupt-cells = <0x1>;
--			#size-cells = <0x2>;
--			device_type = "pci";
--			reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
--			reg-names = "cfg", "apb";
--			bus-range = <0x0 0x7f>;
--			interrupt-parent = <&plic>;
--			interrupts = <119>;
--			interrupt-map = <0 0 0 1 &pcie_intc 0>,
--					<0 0 0 2 &pcie_intc 1>,
--					<0 0 0 3 &pcie_intc 2>,
--					<0 0 0 4 &pcie_intc 3>;
--			interrupt-map-mask = <0 0 0 7>;
--			clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
--			clock-names = "fic0", "fic1", "fic3";
--			ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
--			msi-parent = <&pcie>;
--			msi-controller;
--			status = "disabled";
--			pcie_intc: interrupt-controller {
--				#address-cells = <0>;
--				#interrupt-cells = <1>;
--				interrupt-controller;
--			};
--		};
--
- 		mbox: mailbox@37020000 {
- 			compatible = "microchip,mpfs-mailbox";
- 			reg = <0x0 0x37020000 0x0 0x1000>, <0x0 0x2000318C 0x0 0x40>;
+Thanks,
+Conor.
+
+Changes since v2:
+- drop the sd & emmc versions of the aries devicetree
+- remove a extra newline
+
+Changes since v1:
+- made the polarberry part of an enum in patch 1
+
+0 - https://lore.kernel.org/linux-gpio/20220825143522.3102546-1-conor.dooley@microchip.com/
+1 - https://lore.kernel.org/linux-clk/20220824093342.187844-1-conor.dooley@microchip.com/
+
+Conor Dooley (7):
+  dt-bindings: riscv: microchip: document icicle reference design
+  dt-bindings: riscv: microchip: document the aries m100pfsevp
+  riscv: dts: microchip: add pci dma ranges for the icicle kit
+  riscv: dts: microchip: move the mpfs' pci node to -fabric.dtsi
+  riscv: dts: microchip: icicle: update pci address properties
+  riscv: dts: microchip: icicle: re-jig fabric peripheral addresses
+  riscv: dts: microchip: add a devicetree for aries' m100pfsevp
+
+Shravan Chippa (1):
+  dt-bindings: riscv: microchip: document the sev kit
+
+Vattipalli Praveen (1):
+  riscv: dts: microchip: add sevkit device tree
+
+ .../devicetree/bindings/riscv/microchip.yaml  |  20 +-
+ arch/riscv/boot/dts/microchip/Makefile        |   2 +
+ .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |  42 +++-
+ .../boot/dts/microchip/mpfs-icicle-kit.dts    |   3 +-
+ .../dts/microchip/mpfs-m100pfs-fabric.dtsi    |  45 +++++
+ .../boot/dts/microchip/mpfs-m100pfsevp.dts    | 179 ++++++++++++++++++
+ .../dts/microchip/mpfs-polarberry-fabric.dtsi |  29 +++
+ .../dts/microchip/mpfs-sev-kit-fabric.dtsi    |  45 +++++
+ .../riscv/boot/dts/microchip/mpfs-sev-kit.dts | 145 ++++++++++++++
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  29 ---
+ 10 files changed, 498 insertions(+), 41 deletions(-)
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-sev-kit-fabric.dtsi
+ create mode 100644 arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
+
 -- 
 2.36.1
 
