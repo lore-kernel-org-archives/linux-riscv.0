@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2E3ECAAD2
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 22:43:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33ADC6FA82
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 22:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=QY9wKnSi6gCt+Z7wb4+1BuS+6lCzEM+gN4K3BfdzV4o=; b=yELpqgln/xH55O
-	0LPLFIV0KwT7zczzAYZAWCcH2GgWLeFm8a1GIPUolBX7b2LToVMVWIfuWXZ8h7T+KdcwC6m8BW8yb
-	hDEG/lPF9OSt0M0e0ZidP01vs5kMHVjiwb4kFAgKUyEqnvMrCvN5PhuRcsU08GslC2viAACoVicMw
-	6q4lpCOV4s+FoC2IM5X29NPfkfedNntgrBEPw+Ds9TUxlZRn4MKwuhQeze9iGGG8hMkiyxgO1+Zkp
-	RX+abkWGnDAuTIdJ1eCbszTtJ/OfKJe7IWBbka+FHyWjGmoAmED13c4RG4To64FgsVk8WzXWbbely
-	uZ3xwwO625UA+WmfomLQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=FSVer5AYTcBZ+nxXiNuNv9UO6jA6Zjp/31Gbs8hDWuU=; b=nNPNtjNSHW+ChQ
+	t/pBTA238ZBxFNjCp2oy2Ix1z1HgE930rd9ZtQ9KMgEyYBUwvcfOg1RzJ11VmEA80eReCARgURX7R
+	z5oHS/KkHbXH5HltMUZalHpO3QWd1NubhJw07fbEx96WuBf6jzB0ZJx8NfRMopmUuSIcEb+/idSx8
+	a8fNzzIVkBF8kt7f8eG7/UanG1bKdOVYAGiGPnegSOCEznuZjTHr8BR3KXfzRb2wtFcCQ7RrrqV47
+	OjuFNgxG4FY0F/ms4GEF8MeiqoBeZjbHmtSlGp4jFvJDJhvWJPWHuzmoDC8kLprSGzWBm6dPQttjs
+	wq6bKXhQx3BRNpDGECvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTsuU-00FUn2-1A; Thu, 01 Sep 2022 22:43:42 +0000
-Received: from madras.collabora.co.uk ([46.235.227.172])
+	id 1oTsuW-00FUoN-5t; Thu, 01 Sep 2022 22:43:44 +0000
+Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTsuR-00FUhw-1O
-	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 22:43:40 +0000
+	id 1oTsuS-00FUjI-6e
+	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 22:43:42 +0000
 Received: from localhost (unknown [188.27.54.142])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id C7FB96601EAE;
-	Thu,  1 Sep 2022 23:43:30 +0100 (BST)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id D9CD86601EBA;
+	Thu,  1 Sep 2022 23:43:33 +0100 (BST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1662072210;
-	bh=Se+P/2OSMvzpNPBSCpKRrCFWILF2FxskQ8Df/RF/9Lg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=LVv576YF5B6AqEwx5ElJjwCiOFMBHSLVVhBFxXTqueF9ZVLGGkSAt2AcQyQ+RNhMN
-	 q3uEgPvJGXBC8ZnuI8DkcTDvygvMmxtn4qRD9YKGceUQdNkm/3FI0kGhlCEdv0OlTS
-	 k2f1QEWXlJaXcHBFwsq/5HwMuK/5m3CStFraoTzlRtVSdd+TmUc7ktTONuBOfy2l28
-	 D1Is/8oshHQZYKa52DwMKW6g5HILCxaYU81+dffXuPKY7LwiW8nuwNyGgId5GoXzqe
-	 jNnaUzm1eUlrMVA/7auhJAm9k/0azYBRuwpr2PmNh6KlYoD+NqqgzNVmck0HeFwJwY
-	 nGoSnYe9X12wg==
+	s=mail; t=1662072214;
+	bh=KzKhwls9rXQht8qlDBSXnDEtPH0QZN4XnleCNhtFc2A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=kpfF10M5FSXdKo0xIxEt1vC/iH6NSySzU3FZjcVe/7rN8d5OR5up1eZhQu5YiZ/fu
+	 ObJrfeJaVpEmyXLSvgR0QnPqX10nAeQavXd0fxostkX9WOE2AjGkty5OBVWlVJZ5aU
+	 jMIRPVv8OlE1Fgt4YSpIPJrZu1/TYFll/AxcVQDsFJciGJRMc+qcLcN+bEkeX8IoWW
+	 G46sX0BWmBIkaQjsbGfTQ4XxNe2NEPSSZtbKQHgd9b4QuBM7ZKdcxIPOjBcDdRG/gu
+	 M5NUuZq0JhlA5+KN/ccJew0mpr8AymDHv/mVpvbWplBb3qWGKlJcYBFOTZ5ZSFCZc6
+	 sRwNh6vOZT+qA==
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -55,14 +55,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH 0/3] Enable initial support for StarFive VisionFive V1 SBC
-Date: Fri,  2 Sep 2022 01:42:50 +0300
-Message-Id: <20220901224253.2353071-1-cristian.ciocaltea@collabora.com>
+Subject: [PATCH 1/3] dt-bindings: riscv: starfive: Add StarFive VisionFive V1 board
+Date: Fri,  2 Sep 2022 01:42:51 +0300
+Message-Id: <20220901224253.2353071-2-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.37.2
+In-Reply-To: <20220901224253.2353071-1-cristian.ciocaltea@collabora.com>
+References: <20220901224253.2353071-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220901_154339_228762_40D3F965 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20220901_154340_468136_52C51BFB 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +82,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The StarFive VisionFive V1 SBC [1] is similar with the already supported
-BeagleV Starlight Beta board, both being based on the StarFive JH7100 SoC.
-
-In addition to documenting the necessary compatibles, this patch series 
-moves most of the content from jh7100-beaglev-starlight.dts to a new file
-jh7100-common.dtsi, to be shared between the two boards.
-
-No other changes are required in order to successfully boot the board.
+Document the compatibles for StarFive VisionFive V1 SBC [1].
+The board is based on the StarFive JH7100 SoC.
 
 [1] https://github.com/starfive-tech/VisionFive
 
-Cristian Ciocaltea (3):
-  dt-bindings: riscv: starfive: Add StarFive VisionFive V1 board
-  riscv: dts: starfive: Add common DT for JH7100 based boards
-  riscv: dts: starfive: Add StarFive VisionFive V1 device tree
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ Documentation/devicetree/bindings/riscv/starfive.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
- .../devicetree/bindings/riscv/starfive.yaml   |   3 +
- arch/riscv/boot/dts/starfive/Makefile         |   2 +-
- .../dts/starfive/jh7100-beaglev-starlight.dts | 153 +----------------
- .../boot/dts/starfive/jh7100-common.dtsi      | 161 ++++++++++++++++++
- .../jh7100-starfive-visionfive-v1.dts         |  20 +++
- 5 files changed, 186 insertions(+), 153 deletions(-)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7100-common.dtsi
- create mode 100644 arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
-
+diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+index 5b36243fd674..9c948b379c8f 100644
+--- a/Documentation/devicetree/bindings/riscv/starfive.yaml
++++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+@@ -21,6 +21,9 @@ properties:
+       - items:
+           - const: beagle,beaglev-starlight-jh7100-r0
+           - const: starfive,jh7100
++      - items:
++          - const: starfive,visionfive-v1
++          - const: starfive,jh7100
+ 
+ additionalProperties: true
+ 
 -- 
 2.37.2
 
