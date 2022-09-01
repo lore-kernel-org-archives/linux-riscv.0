@@ -4,65 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C38ECAAD1
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 07:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D47EECAAD3
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 07:54:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Z+w13ikqz+oVaQ4ksDivrrjX3NiN3ux597yMSmjDodE=; b=0KT3ccjw5S/Fvt
-	EGbCW/rdUDcSRLFagPGKF7snCaqY4d0K9d1rLdl003xpNjuWUsv2LoYFxouIZPEwu/oEyKgD7zCaa
-	HW3owdTVxmFa8fl/V59OvftiZ7rl7jlciwuy5nM+bCNpmT1/spKME3iVNm7B8ZU7Dy9tT9dKZpWDf
-	tEgnAsB43q54g7CAHDJlgYQkZCmzbBf+U7d4yb6Smcx2ISkEXa2QxBNPfE77iQu4LIheh3CnMdH7s
-	96DhXEzOJKtU8Lw8i63QVWVctWpiljKKfyLys3/kX1fvkm/qwGbOWF5zybPl0i0+/0e3G6fdvlocO
-	J1VV+tQLYOAuowB2zmug==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IVhi5QNwRASJ1Z9COtuwxUg+RUweERUUqqR8pa6ksN4=; b=LKALGbKQN6EfZj
+	1YIjN6DMWSeLHvzBk/dzOoEIcQUfHdSHr2vhdul5sWjhDtDEiSiX6vugMRaxqZzhczObYVn+H0dR4
+	ShL5jMTeNt5K5D5Bc5lIN11rF6V8INmBfC1XwPD4KXM+fbXERvaTGThrkWzW2H1Arcb9Lysy1Wr2k
+	Q33Jsi7Mc3KgDjwTHUjtS24V9svuAcMw3z4coNbN8LDZAX0MdRfjOiT4lJav86Y4FEnKanajUduGt
+	Hypwii3eHuAE6Uxewxr8wy0pB092AR2pnTxpznaBmcS8kHnD0Wa62UucrhxVgzN+dcWfcRcmuIIbH
+	83+CKU/zOg8iqMXS1FpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTeFL-00AAvw-4N; Thu, 01 Sep 2022 07:04:15 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1oTf1q-00APlB-KH; Thu, 01 Sep 2022 07:54:22 +0000
+Received: from mail.fadrush.pl ([54.37.225.211])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTeFI-00AAu3-Kb; Thu, 01 Sep 2022 07:04:13 +0000
-Date: Thu, 1 Sep 2022 09:04:05 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1662015847;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+6TS55y82TYJlsjJwC1/zBEVFCDtqxUms69ssI0wGGA=;
-	b=3RxOlbonJl5WFm8YJXSc0uAQRFGPk+DSXUCw++ela5eCvo5xJkEVEUbMFxjkRyt19MarwZ
-	DNPfLMrc24rrP9cADg9WhtlDUH6D5/PLLhdIz0NBges7lyBseRZRYTfcJvMhwU5BukTgcj
-	Qkk+/yYaiT1ncZcPjrLdFt457h+D1Q6GEFoPPsoEmThVEozsGEjuWS+sS3soDzXHd1a43A
-	dgejUhFMJAQ3RGqwdu3fieeFS22nB1+g+aMmCins0gGqPEumNbs5hm3ZU3rb4FW6BLdtIK
-	rfO0argpb218v1MWsH+roKH4nSfLKhYboE/AEt+Wjj88GouOyYLDeNyhzyd4LQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1662015847;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+6TS55y82TYJlsjJwC1/zBEVFCDtqxUms69ssI0wGGA=;
-	b=0lKMXKwZ85CHlGzucCsfuA1C4+BIzcDZjLS7nOki0RRQQtjslBtagCDNvKZIOeW3XCncam
-	fnw0X6HxbUgwxXAQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 0/5] riscv: add PREEMPT_RT support
-Message-ID: <YxBZZWopVftK/WBk@linutronix.de>
-References: <20220831175920.2806-1-jszhang@kernel.org>
+	id 1oTf1j-00APim-Ui
+	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 07:54:17 +0000
+Received: by mail.fadrush.pl (Postfix, from userid 1002)
+	id 7D93522F4B; Thu,  1 Sep 2022 07:46:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=fadrush.pl; s=mail;
+	t=1662018423; bh=bD6j9gIFU6CLTaCGl0Ow9oeIxtirvTfMeNZSfLEZQ+I=;
+	h=Date:From:To:Subject:From;
+	b=TljQuhTsGW4LSIJczqutiDSkIFVGXHLMDzYyQz1w0zagbFXghsWLh/q+yP5GOPn+3
+	 nFg6YhETX4E6+748DcXEynzrqOuHzhWYTsgPkbnTA4isvYkiBgCTNBwlilmnIP1QrL
+	 zC37KKQq0zxCuNHANlHRPThDsQUVmYd9axWKRxICU5tAshpTrJ89GJ+WoFJ/XIzOko
+	 iM2v9S384wYGFfQ2P2Tig6ZGYTwwhvgNVweoWd+qpjSCMM75Z+zEv+X49wSjoEJdJI
+	 HVsYRwtxI2sSLEMAjSaRnma7vHrj5g4DsSd2hnSabjNgkBFey/dBJkYCPWA/cAXtwl
+	 ut1zvKIhM3QMQ==
+Received: by mail.fadrush.pl for <linux-riscv@lists.infradead.org>; Thu,  1 Sep 2022 07:46:04 GMT
+Message-ID: <20220901064500-0.1.1d.bq42.0.9uwed7kk0t@fadrush.pl>
+Date: Thu,  1 Sep 2022 07:46:04 GMT
+From: "Jakub Olejniczak" <jakub.olejniczak@fadrush.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: =?UTF-8?Q?Zwi=C4=99kszenie_p=C5=82ynno=C5=9Bci_finansowej?=
+X-Mailer: mail.fadrush.pl
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220831175920.2806-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220901_000412_857903_0D0E98E9 
-X-CRM114-Status: UNSURE (   5.17  )
+X-CRM114-CacheID: sfid-20220901_005416_130191_9FAA02DA 
+X-CRM114-Status: UNSURE (   1.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,25 +59,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022-09-01 01:59:15 [+0800], Jisheng Zhang wrote:
-> I assume patch1, patch2 and patch3 can be reviewed and merged for
-> riscv-next, patch4 and patch5 can be reviewed and maintained in rt tree,
-> and finally merged once the remaining patches in rt tree are all
-> mainlined.
-
-I would say so, yes.
-
-What about JUMP_LABEL support? Do you halt all CPUs while patching the
-code?
-
-Sebastian
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKa29udGFrdHVqxJkgc2nEmSB6IFBhxYRzdHdlbSwgcG9uaWV3YcW8IGNo
+Y2lhxYJieW0gemFwcm9wb25vd2HEhyB3eWdvZG5lIHJvendpxIV6YW5pZSwga3TDs3JlIHVtb8W8
+bGl3aSBQYcWEc3R3YSBmaXJtaWUgc3RhYmlsbnkgcm96d8Ozai4gCgpLb25rdXJlbmN5am5lIG90
+b2N6ZW5pZSB3eW1hZ2EgY2nEhWfFgmVnbyB1bGVwc3phbmlhIGkgcG9zemVyemVuaWEgb2ZlcnR5
+LCBjbyB6IGtvbGVpIHdpxIXFvGUgc2nEmSB6IGtvbmllY3pub8WbY2nEhSBpbndlc3Rvd2FuaWEu
+IEJyYWsgb2Rwb3dpZWRuaWVnbyBrYXBpdGHFgnUgcG93YcW8bmllIG9ncmFuaWN6YSB0ZW1wbyBy
+b3p3b2p1IGZpcm15LgoKT2Qgd2llbHUgbGF0IHogcG93b2R6ZW5pZW0gcG9tYWdhbSBmaXJtb20g
+dyB1enlza2FuaXUgbmFqbGVwc3plaiBmb3JteSBmaW5hbnNvd2FuaWEgeiBiYW5rdSBvcmF6IFVF
+LiBNYW0gc3RhxYJ5Y2ggS2xpZW50w7N3LCBrdMOzcnp5IG5hZGFsIGNoxJl0bmllIGtvcnp5c3Rh
+asSFIHogbW9pY2ggdXPFgnVnLCBhIHRha8W8ZSBwb2xlY2FqxIUgamUgaW5ueW0uCgpDenkgY2hj
+aWVsaWJ5IFBhxYRzdHdvIHNrb3J6eXN0YcSHIHogcG9tb2N5IHd5a3dhbGlmaWtvd2FuZWdvIGkg
+ZG/Fm3dpYWRjem9uZWdvIGRvcmFkY3kgZmluYW5zb3dlZ28/CgoKUG96ZHJhd2lhbQpKYWt1YiBP
+bGVqbmljemFrCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
