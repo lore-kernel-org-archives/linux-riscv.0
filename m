@@ -4,159 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FBFECAAD3
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 16:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7461CECAAD1
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 Sep 2022 17:07:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+rR3RtcUc7KRERVRoFFIanCp9rMmTlec8s+3rPYJLOo=; b=J1Eg37bvrCUEDI
-	wr0Nnl3Ky0Z7JNiAbuHtXX3GUV3UMcm1HGN0I4hjoPv345RlzD5q4q8Y7D0f5Lqb+RE57t8I8Pb1f
-	n0A/6TxSsYgcsnE2CSwUIDNqFStOlYlw4K7MldWOE0R/l6m79i6r2/H4opIkfaScPmU/Fs/vi+T1k
-	+EWG1UClS7jqQx4ROdqlTdHk+qT0/WocRLrZjiTbSQ1r6S3UoLIaNhlH3Hd4SagcOIksK6ePGHgJk
-	zCSaAsetj22lbsvMh73PlHg2itG8ylaXVmWUo8yE4dxHnO05GGNvNfgYFG92u+U7r0lwsdHjqjHf2
-	pe+S0FkHYFCoav3vFHJA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=19uKuahyauczPtSUIXB0vukhaN9z56wXWNxfI3yhKb8=; b=wIMC/V6MsJrJTR
+	ItGVIWqBsrrIm6C3qYhWgEdId6EcNiqjR7fGOqSlIuFQiGAeZnLyizEGwuPN3a/j+3MossQbZ0ULL
+	5EKqmXN5Tcztdvfv+MFzOz/ySnUb4ot6p97t0risDgRrKLovrEabz3M6NU8VskLbW6e4nvpRSNnol
+	0QRscKVaDrOLDmY8ZRGi9olAyDcFbN3b/r9bqLpn7EcL9gEdk8QvCQI0+TYxTDTp0DqulzOoEUy1o
+	NQhyZEQx8H1oMYAPM3jzJK82/geEZbmBYKaUZ+jicXfp8ytxlqe+al7nTcxM0JcAHaW7Q+/+XVeG2
+	Z0+TYlw/+jMvFyyeA2CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTnGi-00DP29-8z; Thu, 01 Sep 2022 16:42:16 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oTneh-00DUm0-Tc; Thu, 01 Sep 2022 17:07:03 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oTnGf-00DP0o-5m; Thu, 01 Sep 2022 16:42:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1662050533; x=1693586533;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=/OOJf/IbuVmCXNoMeeMPjAzrIBVmDkkOgYDzXOC2FjA=;
-  b=1zBt8x2RzO8eAEzkCOIZT5qENkZxRowPvo+z10691zGBG2XI0CcAsXTf
-   aSXWfD6yJ6/Uowkg1XuiOUaV8+6AwL1baje1xexh4rp3i8rzbTlH9nb2f
-   ZjZjFijZFcb2faPo5E36+dphIw3TGSZ6eM5NumBSfscHzyIKkGnssxYo3
-   Sry7wzEwpbsu1l4HhSeISgt9XjhVs4DYawbpWJjXCzX8GvAyWiSO3KOpa
-   ttR4CKJK//SajYgHVaYnFJeXumSS5VBXB5dlvXWxj2d1IjMj4uOSiYIJZ
-   47u7FdUXW/YOGskMzh8kRVlIHT3OgRjupwr0QG3aGc5DU67JCkq0PktlK
-   g==;
-X-IronPort-AV: E=Sophos;i="5.93,281,1654585200"; 
-   d="scan'208";a="111788135"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 01 Sep 2022 09:42:07 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 1 Sep 2022 09:41:58 -0700
-Received: from NAM10-BN7-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Thu, 1 Sep 2022 09:41:58 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=VTBnWIuuyjn7s1UC3lnP7TTfBTSrtigl0Vgghb3d33FKiOEElS6u4OsM4B20urXIREa6xZ7PlFHlLcA5sDPY4niwFqNGN8Qg7VytYLC7IaplLotrr/j04mGqH9nKJVQZNVuJQODCyJmdFW1y3QeK/xuxb2+erY43ojHzryGqhYmVIY5DyyZ74RY0ZQj46GIgk/Gf9xDF2APzWVNfYt5OXScKz3nur1kOdjq0ZmAhMjYWSaE73v3SsAO49dyWAODKkx+F1UnNctFxtLQKQ92rMNWpLF/nXcjoZbKze7MWKqpB5WziYbk6j70vGzGY5/1+AcxgiqZLSultK1oxgHpOJQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/OOJf/IbuVmCXNoMeeMPjAzrIBVmDkkOgYDzXOC2FjA=;
- b=Q8h6m572I3WNTmePUvQJ5rJPFIIxOEko+k65XqgsRWpHL0j8Bcejc7es0EMeCZMPHUsPqm5kQhKaExeXFfPPBQEiGq8CTrkkGHkMB6jQrno90vVzVkhmuTznDfO5/S5xfqCq9bwjYATf2MAFTMfZO7VY960PzMlxJQNQbUe5xpa+z6V1Nt2H7XPswxmzc0FekILXhkVXVddYGP/XIvMJgWLqgEJDase3GwufeGY9FWsc0l0TBz3V6zeb5Jt2mV3SeiuQFPmGZHkdLhj+3ErlZwOVuDZSlnx8sIoz+Ak5ZtnPXch6s1hKwpZnraBvbdd7u23uKTTDIkQGuqqTbWwE1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+	id 1oTnef-00DUkX-4A
+	for linux-riscv@lists.infradead.org; Thu, 01 Sep 2022 17:07:02 +0000
+Received: by mail-wm1-x333.google.com with SMTP id z14-20020a7bc7ce000000b003a5db0388a8so3343960wmk.1
+        for <linux-riscv@lists.infradead.org>; Thu, 01 Sep 2022 10:06:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/OOJf/IbuVmCXNoMeeMPjAzrIBVmDkkOgYDzXOC2FjA=;
- b=McIFnrjxA9s3dzHk3YbXKEdivEdE4Zhua90OZslcvZdoSMZ1iJEpGsqL15YDwyn+LhWKnlcteB2f3AdKYfDH8W6QBZn4vMSVBamXockbCfLbq4M0wGl0/VbgSO2SdNyqTunu/udpIoc9FTT4MLn03IJa5bIfFtFf/E7j55avA1U=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by SN6PR11MB2925.namprd11.prod.outlook.com (2603:10b6:805:cf::25) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5566.15; Thu, 1 Sep
- 2022 16:41:53 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::545a:72f5:1940:e009]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::545a:72f5:1940:e009%3]) with mapi id 15.20.5588.010; Thu, 1 Sep 2022
- 16:41:53 +0000
-From: <Conor.Dooley@microchip.com>
-To: <jszhang@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>, <anup@brainfault.org>, <atishp@atishpatra.org>,
-	<bigeasy@linutronix.de>, <tglx@linutronix.de>, <rostedt@goodmis.org>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>
-Subject: Re: [PATCH v2 0/5] riscv: add PREEMPT_RT support
-Thread-Topic: [PATCH v2 0/5] riscv: add PREEMPT_RT support
-Thread-Index: AQHYvWTJWdidtLbFYESs6cM+7jS71q3KyLAA
-Date: Thu, 1 Sep 2022 16:41:52 +0000
-Message-ID: <4488b1ec-aa34-4be5-3b9b-c65f052f5270@microchip.com>
-References: <20220831175920.2806-1-jszhang@kernel.org>
-In-Reply-To: <20220831175920.2806-1-jszhang@kernel.org>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: f27817b7-cba8-40a4-3df4-08da8c38dffe
-x-ms-traffictypediagnostic: SN6PR11MB2925:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: MVZoOgicjx4zM/guofublhxjf24irPKvIP3KhQMSYOq8MtDSE1Mqt59hAG+u78DHjMy9wWgem+9L0IlbbU58ve0ZUSHBHZSeEKLXF1JCGvqVlJSOTrrLfEXZtXr3kBO5zwKlO63hYKIxBJ2s870j0/9bv8LHObF2RKShqgHQdPWDX4rmUCaSgtG6W3oVoROnLwAPzoEU/cH3w1CfNUkpKYYPGLzAbYTJMLkLPedMusHvTMK5dBWXCnUt80Jr/+D9PGm9J0kTJabIXV7844p6GX2ozJNg0USjTBTMBJ8qvP35f/+pDCmG/vENcmiciV0X5S1cg5PngdAT+N/0toqZ5Zu7fWkG1XqFtBzCFkn8Ir8WgrdxBfpoqogUtB3k2DtdxAhmyDhEiL1ZYI7QB+yJZNu0SuyE7QsjH4gwN2JEmK7can3ThjVIS8h0Ibt2/cmhheKmCYEXwTxc6FX17bIVN4o9F6OXXqAKg3gg1PwEuR8TxGuiF5pxd1ILp2Gs7Atw65fm0aIF25sMpHlJGta7iRyRgJLp4W7MlruA26Vx8p+5aWqRGN3Hms9yEgV28/5AbLN+G36JzxdPlIDO8fAaeTt4f7DcF6kxjs69bCP4pb6UnJflqyuTvRk3Znan5GEUZzz8et1MCUqGVyfuPmGEvaDV6jepirmeCNk2EmDOzyqmgBZlJTFWg+g8pIfCBAOiGdP/vLRoBOKlnlN7JVwwnB4HhYd0oGjIxShqdjRYKKtwd0y+c1/IFpIZ3uLiD0BEfaQeaJlVLOUlE8zggllJ2Bj1ySJEAfN+CHBIKl7O+08U3dmQMirfRbugigcqPv8kRnhF9pSEzblcBHjrJFqCg1G+McrrvyRYY9EXfyF9M+4=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(39860400002)(346002)(376002)(396003)(366004)(136003)(36756003)(83380400001)(186003)(2616005)(38070700005)(91956017)(54906003)(316002)(31686004)(966005)(71200400001)(6486002)(110136005)(26005)(6512007)(31696002)(2906002)(86362001)(53546011)(6506007)(5660300002)(7416002)(8936002)(41300700001)(478600001)(66446008)(66556008)(8676002)(66946007)(76116006)(4326008)(64756008)(66476007)(122000001)(38100700002)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Y29adkxrYUVLcGl3bDNLajhnNXoyendhSTRvTXNpa1JXZ3VTL0Fabjhic04y?=
- =?utf-8?B?WUVoQUJMMzJSMlhsQVlOLzNvQUhKY3ZnNzVQcTlxUWUzdXVOSkpUTjE0TU15?=
- =?utf-8?B?dVU1eGgyM0p1MDBQSnhTSGNIaFU5OXhibjBBYnFhRkVQQjBjQzVBU3RUQjNn?=
- =?utf-8?B?Tmp2Mm9IU2c2QWJYTXJGSkxYSlg3aS9mSzNEeC9yZC9GSVVXWGRIbkVwY1hZ?=
- =?utf-8?B?U1N5TWl2SHBNNEJDeGJFWUZiTVpCUHdyTzRTZjNHdlE5eDFQM0tNcFRrK0pP?=
- =?utf-8?B?SUErOCtPS0F6aGVtUlA4Uno0bnFYeExyWTh4S3E4NHdiVGgydTR1Q2FUTGJB?=
- =?utf-8?B?N1R6VTQxcVdpUWlUcVNoVFhuLzdqN3ZIV1ROUXM2T2lPa0U4VUhCUUFUZzhx?=
- =?utf-8?B?NW43YkpnVFRWMTdtRE1wZmpaZnErb0FQL1dLL0tYaEk0WjdodjhucVl1VTZN?=
- =?utf-8?B?MGlVMWFJYklROXZLVW9VS3pXZjBJOC9wUVFSRnJ0TDdFNDh6Y1ozM0E2WW5I?=
- =?utf-8?B?SlQzS0k4cncrOHF3MFNqeGdSeFJGL0tqSUxzOWhCcVIrU3FNWE1oSUFUWUJy?=
- =?utf-8?B?SjdYNHp2dGYvcjBVL3V3a3NwOVFvb0U1NmRQdVFGbTNpdkladUlEbExuOFI4?=
- =?utf-8?B?eWg0elNwYjRtMEpWSnZjMWVOSUdydDRvUWErWElQdzVsUlNYVEV3YURCRU8v?=
- =?utf-8?B?WnRITTZUd09wS0J2RGVrNXBOeXJCSFdjdWFkL1dJZzVoT0VqbUdUSklpQ0Jj?=
- =?utf-8?B?NmlleXZpR1hEWTlyZ0xBMm5LV3NONGdpd0xjR09tMStWR0RSaTlvK0NDcEgr?=
- =?utf-8?B?MDlUTm0za2tsaFBLeG5xWmIxUUM4UUY3dnU5ZDVWSjhMTWZrc0NXZXcxTnhE?=
- =?utf-8?B?R0VLUDdCS2FQeGc5Q3c0STQvaitRN2VEZGF2Z2xXd1BuRVM1NFE2M0VwaVkw?=
- =?utf-8?B?QTZyRndyYS9uT1RFUjR0NEpaZ2tkMDJoV01hZFpuVk5hamZwZVFidEdHUVJH?=
- =?utf-8?B?a28yVlduSU9XU0ZWQU9TMGQ2bnRLZFpxQ0lsWU50ZlRoY3JXMkRleGdCVUtp?=
- =?utf-8?B?MGJSdVloMEgvdDNSZFJmYXR2MXhCS1JvR1NqZVJWWU04bU5oU011Y28xUTlY?=
- =?utf-8?B?Q1JUVUxwMUM5c0hsdUNGbnFFRHBJTG1tRk1wZjRXSWFGK3hKQysyL1QxZ2Rp?=
- =?utf-8?B?MUw5VkFVV1ZzdkU4bSsxdDg0TTg2R1hENXJ5cjV0NTZ6RGZzUVNpL0plQU1N?=
- =?utf-8?B?T3Q1Z050ZTgyRU1yd24vdEFUY2VRL3lDRWZMcWVhSkV3RTYvNE13LzlzUHdW?=
- =?utf-8?B?N1JhVnF3MGZrdDl6V2hhY041c25hUVJYY3ljWjVPbUE5Yk5VQXIzZXR2MGV2?=
- =?utf-8?B?QWhYQzA5WW5LSTVaZ0hFWE9zdmJ0WjNpYUtSOEJJV240d3JHbVpkelRyWndx?=
- =?utf-8?B?eHhwdFY4OUlRd3FWS3BBeGpvRWgxeDI5T3Ztd0ZkZkovR0JpK1M1dk5abFZH?=
- =?utf-8?B?NVdJQ3UyaHJobzdFSUpTVitsclFvd0dmYzdPdWFwUzdYNVczeFA2cDF5Wlp5?=
- =?utf-8?B?M3dvTlBFZzZVNEpIc3VnVGFnaGxsaER0dEhkd1VHOGZReXFtaVdnaU1JOFJ3?=
- =?utf-8?B?Z0xVejVoNzFlUmFtcXBIc3BxWHJGVUo2cTFLN2pjWEtoSERvUkt1R2lzUS94?=
- =?utf-8?B?Ni8wVSsrclo4MEpVeGg4RndWQ3M5dTZCQmFpdlgySERoNnkxSy9zN3Zja284?=
- =?utf-8?B?QW1INW5qRFRJNDdyanZnZmt0TmJoNmJ6R2d4RGVDU3dPUk5CQUc5QnBSYXd0?=
- =?utf-8?B?ZUdsNGF6cnVGTXdJUHFCYXRNeXpDOGxjZzBwY01JR1R4bDQyVWdYbW1ydm43?=
- =?utf-8?B?WkN5SFdOVkJObTJ3QzFRODB2Yy9HYi9JdFBHempnNU5sTzdnYkNCMzlseWlw?=
- =?utf-8?B?WC8wWHJXRUJrMVA2eGpGaHlYcWprb0NCWDUrOHc0OGVrL25SQnZaQ09vM2Zv?=
- =?utf-8?B?SjNVRVUwcGJYNG9EUzF2Uld5NVg4bWJmV1B5bEI0MEh1YmFEbzMzYVVjT05H?=
- =?utf-8?B?QjdNZ0dxRFQ5NXdoalBhaDNOOGY1a0hISS9YOWVKYnRUbHFLSE5NU0tlTFJk?=
- =?utf-8?B?MWNmQllCTXFKeDBuWEZ4Wm9OL1UwVHdvUktwZjZqMWdlTk90aEg3R3RNanpj?=
- =?utf-8?B?L1E9PQ==?=
-Content-ID: <100FD227D367FC458DAFCC4097D47609@namprd11.prod.outlook.com>
+        d=conchuod.ie; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date;
+        bh=/iEsgNZ3zxpxlJkR6d7YtrGS/CQaCI0EY2hUj7o3h64=;
+        b=Ee1QFrzr+w2lzMP6it3D6ebBLJYAn8hfKgdayDo+Sy1oBSGhRUfB1CEhU3uDNBqvWA
+         6yQJQMFM4yqlmaiBxDV8qdZ/KlGBB3GFTSB6UVNVMP1IVyLyt4Eyo2AiP/SuN+01xmin
+         EkHEvAyPzl9PSqFFUdEr6SBTDxhaGcnZzFUb83z183+Ag5QUOSeha/epVAIP6QC7n3oL
+         Fy1AM9VaWpQqW2CkvS8tQ4/7CaxBknZNZDJF6DtxHb17qeiSB0RQM3WGe6t/evK636iO
+         RnagpUfJzkewxJSzqbKjYradEQRU5Q60jHu3YV0f/HswBaPELPbZ6vXK7EvCXw9Ed4LH
+         MMjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date;
+        bh=/iEsgNZ3zxpxlJkR6d7YtrGS/CQaCI0EY2hUj7o3h64=;
+        b=V2rcv066ZoEpRHetCFarC4mtrDrJw84c6X7X1uZVSqDFDpB8/M11VL8Kh5ItqYrT1x
+         DTkNreE768ADoYNXZecnl9DyvzVBJtyGM7h1pmLb347m/fZXudpAalu5qT61N4J2Oelw
+         87yZwXf1vRnhoFKZxyKeR0Nne6s06EDf628ibYw6lq7JW05Q+vSZKpvHo7SHGHEQbcSO
+         +aceUdYmAzhmIKzbXPyjC2SZSNfypKShh+4Hrc/7wVxT2MEsegYuMdzCpeQ0Y7oYi5l9
+         2FauLwt6nB1AZey1FVgGBCIziyWGVAqi2AWEtLzH5rNJr6AXEt7qdNFcCWoOTQ07RBSX
+         2irA==
+X-Gm-Message-State: ACgBeo2q/TCdoLl0zZ+/VtSoG545p60es48KtCZPa2VlrShD23UvaYv+
+	C3fSkKHyXiqGRNvIsWXuDCMPMw==
+X-Google-Smtp-Source: AA6agR6wVP7z9OTfACJ4zx4paCVV9QaiSFq4ViwDVIHPQ5I5xMVuz3DXsOWA1l9/+3/tBPqlf7Nwdw==
+X-Received: by 2002:a05:600c:3d93:b0:3a6:1ac3:adf8 with SMTP id bi19-20020a05600c3d9300b003a61ac3adf8mr60773wmb.125.1662052015407;
+        Thu, 01 Sep 2022 10:06:55 -0700 (PDT)
+Received: from henark71.. ([51.37.149.245])
+        by smtp.gmail.com with ESMTPSA id v12-20020adfebcc000000b00224f5bfa890sm15075807wrn.97.2022.09.01.10.06.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 01 Sep 2022 10:06:55 -0700 (PDT)
+From: Conor Dooley <mail@conchuod.ie>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Cc: Anup Patel <anup@brainfault.org>,
+	Nick Kossifidis <mick@ics.forth.gr>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+Subject: [PATCH] riscv: fix early reserved memory setup
+Date: Thu,  1 Sep 2022 18:06:28 +0100
+Message-Id: <20220901170627.2329578-1-mail@conchuod.ie>
+X-Mailer: git-send-email 2.37.1
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f27817b7-cba8-40a4-3df4-08da8c38dffe
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Sep 2022 16:41:52.9916
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: yhCF0NuxkSPYAdLGggwD97FeIeROhGrf0zdXu2nY0a6nP8lSI5Lpc/M9FUZa5eZqOt40h9GmoNqGS3CDYpRpgW7mSzTS60nyzLBS4QxCaPQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN6PR11MB2925
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220901_094213_548952_5FF4CC24 
-X-CRM114-Status: GOOD (  20.59  )
+X-CRM114-CacheID: sfid-20220901_100701_216987_3790772B 
+X-CRM114-Status: GOOD (  20.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,65 +92,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 31/08/2022 18:59, Jisheng Zhang wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> This series is to add PREEMPT_RT support to riscv:
-> patch1 adds the missing number of signal exits in vCPU stat
-> patch2 switches to the generic guest entry infrastructure
-> patch3 select HAVE_POSIX_CPU_TIMERS_TASK_WORK which is a requirement for
-> RT
-> patch4 adds lazy preempt support
-> patch5 allows to enable PREEMPT_RT
-> 
+From: Conor Dooley <conor.dooley@microchip.com>
 
-What version of the preempt_rt patch did you test this with?
+Currently, RISC-V sets up reserved memory using the "early" copy of the
+device tree. As a result, when trying to get a reserved memory region
+in a remoteproc driver using of_reserved_mem_lookup(), the pointer to
+a reserved memory region's name is using an early, pre-virtual-memory
+address which causes a kernel panic.
 
-Maybe I am missing something, but I gave this a whirl with
-v6.0-rc3 + v6.0-rc3-rt5 & was meant by a bunch of complaints.
-I am not familiar with the preempt_rt patch, so I am not sure what
-level of BUG()s or WARNING()s are to be expected, but I saw a fair
-few...
+For example, a node like so:
+  reserved-memory {
+  	ranges;
+  	#size-cells = <2>;
+  	#address-cells = <2>;
 
-Thanks,
-Conor.
+  	fabricbuf0: fabricbuf@0 {
+  		compatible = "shared-dma-pool";
+  		reg = <0x0 0xae000000 0x0 0x2000000>;
+  		label = "fabricbuf0-ddr-c";
+  	};
+  };
 
+Would lead to the following (albeit triggered here by some debug code):
 
+  OF: fdt: Ignoring memory range 0x80000000 - 0x80200000
+  Machine model: Microchip PolarFire-SoC Icicle Kit
+  earlycon: ns16550a0 at MMIO32 0x0000000020100000 (options '115200n8')
+  printk: bootconsole [ns16550a0] enabled
+  printk: debug: skip boot console de-registration.
+  efi: UEFI not found.
 
-> I assume patch1, patch2 and patch3 can be reviewed and merged for
-> riscv-next, patch4 and patch5 can be reviewed and maintained in rt tree,
-> and finally merged once the remaining patches in rt tree are all
-> mainlined.
-> 
-> Since v1:
->   - send to related maillist, I press ENTER too quickly when sending v1
->   - remove the signal_pending() handling because that's covered by
->     generic guest entry infrastructure
-> 
-> Jisheng Zhang (5):
->   RISC-V: KVM: Record number of signal exits as a vCPU stat
->   RISC-V: KVM: Use generic guest entry infrastructure
->   riscv: select HAVE_POSIX_CPU_TIMERS_TASK_WORK
->   riscv: add lazy preempt support
->   riscv: Allow to enable RT
-> 
->  arch/riscv/Kconfig                   |  3 +++
->  arch/riscv/include/asm/kvm_host.h    |  1 +
->  arch/riscv/include/asm/thread_info.h |  7 +++++--
->  arch/riscv/kernel/asm-offsets.c      |  1 +
->  arch/riscv/kernel/entry.S            |  9 +++++++--
->  arch/riscv/kvm/Kconfig               |  1 +
->  arch/riscv/kvm/vcpu.c                | 18 +++++++-----------
->  7 files changed, 25 insertions(+), 15 deletions(-)
-> 
-> --
-> 2.34.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+<initial read of the name after of_reserved_mem_lookup()>
+
+  OF: reserved mem: debug name is fabricbuf@ae000000
+
+<a tlb flush happens here>
+
+<accessing the name post flush>
+  Unable to handle kernel paging request at virtual address 00000000401c31ac
+  Oops [#1]
+  Modules linked in:
+  CPU: 0 PID: 0 Comm: swapper Not tainted 6.0.0-rc1-00001-g0d9d6953d834 #1
+  Hardware name: Microchip PolarFire-SoC Icicle Kit (DT)
+  epc : string+0x4a/0xea
+   ra : vsnprintf+0x1e4/0x336
+  epc : ffffffff80335ea0 ra : ffffffff80338936 sp : ffffffff81203be0
+   gp : ffffffff812e0a98 tp : ffffffff8120de40 t0 : 0000000000000000
+   t1 : ffffffff81203e28 t2 : 7265736572203a46 s0 : ffffffff81203c20
+   s1 : ffffffff81203e28 a0 : ffffffff81203d22 a1 : 0000000000000000
+   a2 : ffffffff81203d08 a3 : 0000000081203d21 a4 : ffffffffffffffff
+   a5 : 00000000401c31ac a6 : ffff0a00ffffff04 a7 : ffffffffffffffff
+   s2 : ffffffff81203d08 s3 : ffffffff81203d00 s4 : 0000000000000008
+   s5 : ffffffff000000ff s6 : 0000000000ffffff s7 : 00000000ffffff00
+   s8 : ffffffff80d9821a s9 : ffffffff81203d22 s10: 0000000000000002
+   s11: ffffffff80d9821c t3 : ffffffff812f3617 t4 : ffffffff812f3617
+   t5 : ffffffff812f3618 t6 : ffffffff81203d08
+  status: 0000000200000100 badaddr: 00000000401c31ac cause: 000000000000000d
+  [<ffffffff80338936>] vsnprintf+0x1e4/0x336
+  [<ffffffff80055ae2>] vprintk_store+0xf6/0x344
+  [<ffffffff80055d86>] vprintk_emit+0x56/0x192
+  [<ffffffff80055ed8>] vprintk_default+0x16/0x1e
+  [<ffffffff800563d2>] vprintk+0x72/0x80
+  [<ffffffff806813b2>] _printk+0x36/0x50
+  [<ffffffff8068af48>] print_reserved_mem+0x1c/0x24
+  [<ffffffff808057ec>] paging_init+0x528/0x5bc
+  [<ffffffff808031ae>] setup_arch+0xd0/0x592
+  [<ffffffff8080070e>] start_kernel+0x82/0x73c
+  ---[ end trace 0000000000000000 ]---
+
+Move early_init_fdt_scan_reserved_mem() further along the boot sequence
+so that the names are using the correct virtual memory addresses.
+
+Reported-by: Valentina Fernandez <valentina.fernandezalanis@microchip.com>
+Fixes: 922b0375fc93 ("riscv: Fix memblock reservation for device tree blob")
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+I mentioned this patch in [0]. We need the reserved mem lookup
+function so that we can implement remoteproc on PolarFire SoC, so since
+I hava heard nothing really on [0] I figured I would send this patch to
+at least unblock that work. The debug code to trigger the issue is
+there too.
+
+There's a very good chance that this is not the correct fix, but it is
+the most brainless fix for the problem. The probability of it being
+wrong is only increased by the other issue pointed out in [0].
+
+0 - https://lore.kernel.org/linux-riscv/7a86cf8e-f40f-29ae-bc7c-8a20cc5b9850@microchip.com/
+---
+ arch/riscv/kernel/setup.c | 1 +
+ arch/riscv/mm/init.c      | 1 -
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+index 95ef6e2bf45c..62ece4fbc92a 100644
+--- a/arch/riscv/kernel/setup.c
++++ b/arch/riscv/kernel/setup.c
+@@ -283,6 +283,7 @@ void __init setup_arch(char **cmdline_p)
+ 	else
+ 		pr_err("No DTB found in kernel mappings\n");
+ #endif
++	early_init_fdt_scan_reserved_mem();
+ 	misc_mem_init();
+ 
+ 	init_resources();
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index b56a0a75533f..50a1b6edd491 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -262,7 +262,6 @@ static void __init setup_bootmem(void)
+ 			memblock_reserve(dtb_early_pa, fdt_totalsize(dtb_early_va));
+ 	}
+ 
+-	early_init_fdt_scan_reserved_mem();
+ 	dma_contiguous_reserve(dma32_phys_limit);
+ 	if (IS_ENABLED(CONFIG_64BIT))
+ 		hugetlb_cma_reserve(PUD_SHIFT - PAGE_SHIFT);
+-- 
+2.37.1
+
 
 _______________________________________________
 linux-riscv mailing list
