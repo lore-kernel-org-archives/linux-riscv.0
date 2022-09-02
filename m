@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3763ECAAD5
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Sep 2022 16:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57071ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Sep 2022 16:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7pVwqCKo7u3uE3tHnL32prtycH2sj88jlapl372vXBg=; b=KQ7B+WMyr+yqaQ
-	q/1rUIl9GCjlYRgSHb07az8SSeSDm8BP9vEa95l4SfKFZYMuIpXhH04tvUj/2KVxhayhoGskluxP6
-	d+Ht8ILny9EhUSXh4fw3o9irKFieCkWvQ3v7wgZGwbnEzi+YA3hg4hJNqISEj5ZbtLcXtUO+AT5o+
-	R6ztJywcYjZ384JzJWL3PIncN+gRS+sx9WZe3wgoplPRFJCS8v1Yvs7SdeZRZgbS8mPu8uwqCI5TI
-	SH2DDy0Gjc90s4xkh288U82lIAGkgxUF/YEkiCIjn4tnW9UniDUQLWgZbwBMxxBCuaBciY1trAjhR
-	SBz8VasgTasjnM58WRaQ==;
+	List-Owner; bh=EJWdBuhzFPoQJV6t/xd+bdnYnziwbl5I/xzoKMvwfSA=; b=dSIOcYeNpA2q/H
+	tRyDWIatc2OedLs+oGXnyUf3JGkcjVhouvchlyaFOPkEvzUQcf4dob4sqqW1N83gTKA/8voYhM1PY
+	ZDfN0Z7mxK22EnS5GmrOg8yTfQJHx2Fj+onMYAQyUhQYSVGQxMxwiaNLFsgxLZe4phRfaJd8mAUoS
+	Kz0qLZsDRJ9Ryu0NS7hnDRWi7HO7pM8D6ynjjDalyP7f19FCvh6Y7C8azKE0S+Vyvln/FbBlzevFE
+	g1ueRedxlEpmva9R3AF5Mf3y6uKnYuX3nJQeg6kn8+T0uVIrvKEd1aYJgbG7/ZaBZjixY5wuKCCaW
+	CRaSXoAudi1BfTtNmu6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oU9sw-007LAP-Li; Fri, 02 Sep 2022 16:51:14 +0000
+	id 1oU9vv-007QNm-MU; Fri, 02 Sep 2022 16:54:19 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oU9ss-007Kw6-9m
-	for linux-riscv@lists.infradead.org; Fri, 02 Sep 2022 16:51:13 +0000
+	id 1oU9vs-007QHZ-3x
+	for linux-riscv@lists.infradead.org; Fri, 02 Sep 2022 16:54:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1662137470; x=1693673470;
+  t=1662137657; x=1693673657;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-id:content-transfer-encoding:
    mime-version;
-  bh=AvLHsp0u6E3rGZB9nF3zIrUiteseXmOOTsk8hEqgPdw=;
-  b=lLHVU6hQ+yGcLF2l+eEy2vsxaYYEjbijffcBfHUQxPxrP66cmrEc7WwO
-   W0Mr5fTLrBP4Jr0GhtohtO63CoPbUzK+lZJ3r/OfpDBLPwLWMXbRFNbr+
-   ICtGMnc+3IE1y2owzb5wM/x9ShfckAilRCQ+RdkANU5su/RvnznO+4V3H
-   mqVhr6UYeoDbCtAgLFV0s4op/2O+NI7gn/46ri0psaxZOQJHUKNfIhzS2
-   tfplZYa+5G8Xui8/P+K7LZ24Nl+u4A7KqkjayIEDVwvYz4Kw/9h8jlZXu
-   GCAnrOZwuViyD28aq7VYw/aeN7mmeCXqITr1nFMZdF1AyBjDg7qkLn0z5
-   A==;
+  bh=s0qgJowurzjwW/4luTZ81mFVcfdf8g9Iq6xDDXJ2Vv4=;
+  b=RTv3fxibz4SO+By5GHWhlt+lWYH8aC1ZhcHq0rsCUTbJMy/7j8qw/0cd
+   +qtfcVy5K4EOwruh+TNJdG5SU/r8RBTvBrf7/iSvBqHUvftl2X/GK7bd8
+   hDyKzWT62FdNYOCUO4+ae3rBvKHfBFxOZVZ8+SQDjwzM6Q+2kjmMFXVLF
+   QuuEJLe9NXHzVCOnzyzya18sFsvha2DLE2TVQzAuOW8eg/O8GB6JgQC32
+   mS1I937UFxjCYXI9Jp+TsZ8O9q4dCDY2bGAqeZ9c6dZBNmXqTUindkS0t
+   g4HxbQ7VeAKfeV6IsVuYhLlvRmEDecz78FjRcTsFifGd6UjN0LmaBXjzg
+   Q==;
 X-IronPort-AV: E=Sophos;i="5.93,283,1654585200"; 
-   d="scan'208";a="178961183"
+   d="scan'208";a="178825732"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 02 Sep 2022 09:51:05 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 02 Sep 2022 09:54:16 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Fri, 2 Sep 2022 09:51:05 -0700
+ 15.1.2507.12; Fri, 2 Sep 2022 09:54:14 -0700
 Received: from NAM12-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12 via Frontend Transport; Fri, 2 Sep 2022 09:51:04 -0700
+ email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Fri, 2 Sep 2022 09:54:14 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=NzkDR38Cg59oZGYfbrzzeuj/EkUZ3PELRlrL+bhaNouEbE0uUhxUTe9505SAZk+CREQtqb8UuegaUJ7ROr5xnZ0ooXUGH29W63jUomrRvO07n6AytQslavH7AunomGJwFE+tpxCzAqJa4TZm8rGkU+YzCpSmrCe3KZFAvYd6cQZVC+EX+G+Rv+gvjC3W8qX2JTwsLjxYkVbAA+cGjvd86cBrAyRwGjiCQg2DOsilq2RAek5cpbSFX4T7bgMwiRQ9e5ypKPIop70Fo3Zc2db+NCP7I2SzpbDuhbWEK0QI1z86iNEuLbP8YN49nuqclaJWZQ3oXePQiZlLik4jSSYJHQ==
+ b=K5dbilC9J6wYdgxvkasLYev1YVYALP9avbAjWohSBkqxGxUgpCy479TQ0YTK7vTaW7SNNjkhssQelqPFIeJbRlWwkeKoYTMkXPXL+bKKnXjD+ggVzsFDYfYaSpqg+GTTVJvWXvoYNWmnfsYYicZ83FvaOP5LZoJevHatTRMLwLgMyyt7lCk2Pk9IN4hTbbPvAq1ftXwO7D6WKjwwOESQshKZCikdIFnkQjT9ARJVoFtRW8mhUF0IyQE2Trr7k+eYuBPnaLH/7pZuNQx2GclougHB9z1WZ4TAruBLKNFYOC/ObS2g4z9nalxlkVejaZAUlJFFxr2XqBLBsFblHWjEtw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AvLHsp0u6E3rGZB9nF3zIrUiteseXmOOTsk8hEqgPdw=;
- b=QApw/oOyrNUruIHh2+p7CEJ4L50KQc7xWXICEqFDY7m3ftUSKh4ox3/YFXl96FV6YzkJddHMfDFO/Y1BG3fFFFOjQmcEtlIRaPR/5a3FUT0Bl0YNsqlHZRhOccTHDbeEC8idyWceBYOhpA05uFBDVVUvyWDlFRjxxNkRvBHfTLt3G4XkrNzmtY8Fv3tFTiPa8fb+2w1o+VtCVDvfjmAKRgFTtZKM5ZDQh2+XP++7zA6luVtiP/6UET3u+/2Foq4Y9kD1OtSk7Hc2PFQZ9+Re3Kr+hqfElVSPOH6rV9gnLX3J57lsxFMusQDV6t0P9JQYcg2bXtyEpc0knq2/8zLn6w==
+ bh=s0qgJowurzjwW/4luTZ81mFVcfdf8g9Iq6xDDXJ2Vv4=;
+ b=lUCrR8EsKEzLP4ajjfkXuCheXI2TyygEDN8fa86VPjTe5cA0vaMmKMnoX1kvvpUtF7Js13/m0iNifqHY3r7VBxjUVsD2XxPVO4kRc2WTliyxRBfTxaFReNWFrHBDV1uAWTlMdfBi2l5rT84aVKrneb9iYa9j6qlcWcby93pWW24hiLmd/OKnAOyoiqIrtPQoThWQLO6d//2RGrN0AqxNE6RLfgqNf063eOz8pydwoN8bSrDHwHf6O3dxxrTr+kZocO6eJAQrngq6wk4pMlGoGxIWpdbE+I5TmkrNmSDyCBctB+mTLE8A84Sf6M1Vy8qHuxjJFQ0UCGVxFkgsTOX65Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -65,37 +65,35 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AvLHsp0u6E3rGZB9nF3zIrUiteseXmOOTsk8hEqgPdw=;
- b=c8SqlZe8J/ZD5N81YFQDrjd3/xi+IaW8ACg5T76YHCiNW5gsl9P7FlfEUJU0FMbOXwCMcXQyf3DqGm7NC/IeS4fP/hv2ozGfCggCgotGXrLySLd1mgOP13vFM8D0rKjDe2icFnE/GPvM/PGEQ8KMZDiISV53AsJ4McNONNa44ns=
+ bh=s0qgJowurzjwW/4luTZ81mFVcfdf8g9Iq6xDDXJ2Vv4=;
+ b=kZPTPubiHFxbBZdLULoOuCF9Wq3QOq8njxYJgkDntO/WbjDNymQVVGSg/HwksbKSQv9zver+pkr3LmWoUaunqYXaX9I0ohOt3cZn8/PjLPXdcOT0ABxU7UytY4+aQgB8xeRhfyUBFzsga7paiSchsVta6OK4x618SFYUaC2q22c=
 Received: from DM6PR11MB3258.namprd11.prod.outlook.com (2603:10b6:5:e::27) by
- SJ0PR11MB4832.namprd11.prod.outlook.com (2603:10b6:a03:2dd::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5588.10; Fri, 2 Sep
- 2022 16:51:01 +0000
+ DM6PR11MB4091.namprd11.prod.outlook.com (2603:10b6:5:197::32) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.5566.16; Fri, 2 Sep 2022 16:54:08 +0000
 Received: from DM6PR11MB3258.namprd11.prod.outlook.com
  ([fe80::c8cf:c82e:e86e:2db6]) by DM6PR11MB3258.namprd11.prod.outlook.com
  ([fe80::c8cf:c82e:e86e:2db6%6]) with mapi id 15.20.5588.010; Fri, 2 Sep 2022
- 16:51:01 +0000
+ 16:54:08 +0000
 From: <Daire.McNamara@microchip.com>
-To: <robh+dt@kernel.org>
-CC: <Cyril.Jean@microchip.com>, <linux-riscv@lists.infradead.org>,
-	<kw@linux.com>, <Conor.Dooley@microchip.com>,
-	<david.abdurachmanov@gmail.com>, <devicetree@vger.kernel.org>,
-	<lpieralisi@kernel.org>, <aou@eecs.berkeley.edu>, <palmer@dabbelt.com>,
-	<paul.walmsley@sifive.com>, <linux-pci@vger.kernel.org>,
-	<Padmarao.Begari@microchip.com>, <krzysztof.kozlowski+dt@linaro.org>,
-	<bhelgaas@google.com>, <heinrich.schuchardt@canonical.com>
-Subject: Re: [PATCH v1 1/4] dt-bindings: PCI: microchip: add fabric address
- translation properties
-Thread-Topic: [PATCH v1 1/4] dt-bindings: PCI: microchip: add fabric address
- translation properties
-Thread-Index: AQHYvtd/Zgatyqml9kOZM0lssTSnuq3MVEqAgAAGYAA=
-Date: Fri, 2 Sep 2022 16:51:00 +0000
-Message-ID: <d78655c2bda14215268ee9fe3dd181a6f73d2a48.camel@microchip.com>
-References: <20220902142202.2437658-1-daire.mcnamara@microchip.com>
-	 <20220902142202.2437658-2-daire.mcnamara@microchip.com>
-	 <CAL_Jsq+5pKyOL8eu5YhQy9pLATd_gG_D71sR8bUp1GA6kif=nA@mail.gmail.com>
-In-Reply-To: <CAL_Jsq+5pKyOL8eu5YhQy9pLATd_gG_D71sR8bUp1GA6kif=nA@mail.gmail.com>
+To: <helgaas@kernel.org>
+CC: <robh@kernel.org>, <kw@linux.com>, <krzysztof.kozlowski+dt@linaro.org>,
+	<heinrich.schuchardt@canonical.com>, <aou@eecs.berkeley.edu>,
+	<palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+	<Conor.Dooley@microchip.com>, <devicetree@vger.kernel.org>,
+	<david.abdurachmanov@gmail.com>, <lpieralisi@kernel.org>,
+	<Cyril.Jean@microchip.com>, <robh+dt@kernel.org>,
+	<Padmarao.Begari@microchip.com>, <linux-pci@vger.kernel.org>,
+	<bhelgaas@google.com>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v1 3/4] PCI: microchip: add fabric address translation
+ properties
+Thread-Topic: [PATCH v1 3/4] PCI: microchip: add fabric address translation
+ properties
+Thread-Index: AQHYvteiyC8N/dtDyUyl60vya8pnLq3MWjUAgAABVoA=
+Date: Fri, 2 Sep 2022 16:54:08 +0000
+Message-ID: <3dfc10ec5e852988c624445ad08cc430451d14fc.camel@microchip.com>
+References: <20220902164920.GA349565@bhelgaas>
+In-Reply-To: <20220902164920.GA349565@bhelgaas>
 Accept-Language: en-IE, en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -104,66 +102,66 @@ user-agent: Evolution 3.36.5-0ubuntu1
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=microchip.com;
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 590f91fc-95ee-4ddd-988f-08da8d035107
-x-ms-traffictypediagnostic: SJ0PR11MB4832:EE_
+x-ms-office365-filtering-correlation-id: 26fed14f-6f8b-43ea-d92a-08da8d03c0da
+x-ms-traffictypediagnostic: DM6PR11MB4091:EE_
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: m58hGbT+4G7xS6M89pGdycTcBAKzB0L/l6XEWCQ/k9zh5SKrH7D13FcQf6aCKA7hFaehoXdys2HUEdRG3ET6BqqM84MfBCZKN8648O9VI3k2R5SCEDboUUsQs1QaG88R7K0jGhSs/TmwKqQvZK+hPxI+MCZ9xPh/N71rsrzZinJ2e1qQU3+Dol//S7oyxuM0ZOE0r+/c/ygAvDIkTepElvKC04kDrABV2aM6kq6/3es431otNIHh8UZQV5+uoi2jen6v7FN6P9wO9qpzvW4ghul6oNv/BkFidBNaYdwpgckmQ8qWEcYmvXq0HQfHB/plFvT/d9/hB33fk5dce+ZKdQimZoAforRF8vThH2ycgDjpUDcGwhs3l7uycQ8ZMwPd4bhFPxJqmQgjN8f1iSNqjUsziAwSjoC8sq3gUfYN8O7TZ7eaTxMDMt03lepvU0dCYeiUsKfXSV93jwHPJMXiZ3Q2dYdnbiLeZ9H5QTLUDaimbwIa40qsn10us3BAmAUWc1kX/hdBXYhOndJmS4PNheh9WdQBJr/wAn/SKtWqCFVJFkyzR5cFFuhRppcNRdlZ9lhIIR9YcNTW2K1oT5dmIqrNhQMcGHNpc7Jq/p1BD1fVr3Aj7lddmXAogUql82ZJ24DOe1WmWzDDeyamuLKIOKhJMnkg6G7vVkJTLT8FK+tmikWn816CjNO7P7cTm1OV/zYwvjS1trQqRPA1hNxEi/lc2UHT0yn3EZlb8DejGmitiPTrEFaQM9tiNPnqp588KWyzn3aJpNhmJfG8W1rv510SXWmIbKk4BPMR3m7P/ig=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR11MB3258.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(39860400002)(136003)(396003)(376002)(346002)(316002)(6506007)(38100700002)(53546011)(26005)(6512007)(83380400001)(71200400001)(36756003)(54906003)(122000001)(8676002)(4326008)(478600001)(38070700005)(64756008)(66446008)(6486002)(966005)(41300700001)(8936002)(5660300002)(7416002)(186003)(2906002)(86362001)(66476007)(66556008)(66946007)(76116006)(91956017)(2616005);DIR:OUT;SFP:1101;
+x-microsoft-antispam-message-info: 0pp89vBuEa/JxZ3wJ8VL34VoJsrfnZErJvEJOT+qFdWbSKrP9WKkbsuC6wREr+tt0a0uW9dgVYBsDSlsKZqDa/AlPoWz3svtvTEGkADWlBN+q5LrDvcOpw6VCRrMHRQk6VruF6w5W1ISjTDIursPmQGIjSGYYMrVuii04uAPXhYihmT7caoUBmR1P0e8tG1Txh4s1e6RQIHHzGW8xnODd+JdN+01wsSwCPpG4krGwtu+QzvCM0VeI6wcZFe1tmUzEDm/aWAdFio6g2a6bRhQpD4QtIPfLy/UN9feIRTxFLZkB3LcFtx6TziDTZuXDEdIguHFs4HXolRayNAWnbnGkTe0N1+Dv+yhv87x0ucNWvbTYZxjvhe9c7akdOYpB1nfJL9bmIyHQjGn6ZhcN2iAOidTLli7gTd9eXUTJuCShWGmZElufHhHmfYhA1xSdzxtGNsUrDcHO3EEhlV+jWEe9Fjj/0wOZItltB+mucLAfrOxl+r/NPy6LbKDSKEX1K/SdQe+gTdwLon7sWN3U3nJZMMATUh0DwwBstVjNcpJe1uT7gT626bBSrTp6i2bj5JM5euSYkL3e8/EoY4DhH7RUapJnwZvGlZcswhSnQXNASd5uSJDh+hhdvgoLcEewFs7zatZG3ABvNYvYhqGo7EgslB2NrhybyCjrCszXMDTIK6jSE1RjvTqPQFqf0R6EG8Fh2BFeg5YStbBPZuQclCCeyz/Yum3y2dj9qMb3BYKlQO9baMTReWr1JkYTwGM9/Sk0wXEU+dfOwNVllkPUU6uSw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR11MB3258.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(376002)(39860400002)(366004)(136003)(346002)(396003)(64756008)(66476007)(478600001)(91956017)(71200400001)(316002)(8676002)(76116006)(54906003)(6916009)(4326008)(6486002)(66556008)(8936002)(66446008)(38070700005)(5660300002)(7416002)(2906002)(66946007)(86362001)(38100700002)(26005)(41300700001)(6512007)(122000001)(6506007)(2616005)(186003)(36756003)(83380400001);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RUNHaEc2Y2VOZUVlTnloSFFSYXhpbzVDWGdkWDIzZEk3U1cyQVZkNzY2Tmxk?=
- =?utf-8?B?NlkwVWY3aEpCbG9hOXI4UWZsNVoyQVRma3pYTnBjMHRVcmlCMnlKcjZDMVRC?=
- =?utf-8?B?TnhPTDB0QjV5cDhWZXVmOVg3SnNLVVFDNnE4aXlnc3FZTGZkV3I0SzNzVGl2?=
- =?utf-8?B?a3JMR0ZIeG52N0ZiNmFtRWk0MkVraVFXelp0NVN5OTlrUG0yRWVVK3dXbW9n?=
- =?utf-8?B?K0xpeDI0U213ZWhLUE9xMmxrajg1aDFHUE9nMVQ4ZitMSUtxUGFUOUh2TUN3?=
- =?utf-8?B?M2JTZ1VqRkcvZHZYSkowN2U3UDlyaEMwK29WNi9SQldmbUI1WU4wRXV0ZU5o?=
- =?utf-8?B?RzRzSHJONVFOOGVmUkowdEpOS3FNYzJMMHVhTFYwQU5odTVDME14V3R3K1lr?=
- =?utf-8?B?QzlxSjlYbnlzWmhXRlU2NUM0ODFTRlFxMm9pc2dySThtOWhnUjNxRUxWU2RR?=
- =?utf-8?B?TzFmRGM1NDlBUVdUczZXVDErMCtlRi9lRkg2Nlp6bUhRM0lta1IrMXg3cVM0?=
- =?utf-8?B?TUtIMWNxMnIvenlqSmM1REFJckRkY3BPNkZOSTY1dEY0RDZvSzFJczRGbFNx?=
- =?utf-8?B?V1cvRXo3ZFVQTXlHSTBCY1ZxMGpreWt6SFFGWDFyYkhQQmx1YWlFbnFuM1VH?=
- =?utf-8?B?VmQyQ3RYcEsxaktRdzVZUFRyNHpwSlFERU9xZUVRV1c5cXVoNU9qQnlnYmpE?=
- =?utf-8?B?RG5BejYrcGl5dU4rYTMvYVcxQllSZlFhd2oxRGNNNzRHMGRQNXI1eHFTejJr?=
- =?utf-8?B?enJrVFR2Tkl5VkZvNHRuT252L2hwcU5KUThjQU1ZL2hmeUkxcUc4ZWREbHRU?=
- =?utf-8?B?RmY4ZW1JMi9pVXdJbXRVTTd0ZjVET0ZiV3VGbzkxaVRtNkdsbmh3dlBXejd6?=
- =?utf-8?B?YXc0UUxlWTVPczJuNjYwSjhvbVhhTXkxRlVrT0Nsa0RvVG5ET0NiRUN6SVRD?=
- =?utf-8?B?YUxZSytLNUU3UERhMFFRYy9tZDByWHNJTmVVeWMwMzhHOTRFWEw4QXpTRnd3?=
- =?utf-8?B?eFNBOVhNOUpHVUFLaVBIVnVWNituTkRoNVhXZ0N5b0VmUXp0Skp6R0MxMnBu?=
- =?utf-8?B?OWNGNCsvMVgvemNjOGNyazdYV24rZE5idmFxb2ppUG1SY1g4RzRXUk5YK2dy?=
- =?utf-8?B?NHcrdmgxSmZUNnJyMXZ5c2VxODIxNDRXTGhaYmJENkcybjNtRlpjVmt4Nk5W?=
- =?utf-8?B?TVZYSXdkMUZhN3l2VXdkSzZxWkFvUmtjNkRQN0hMNnZtVWt4eFZBMXQrUGZr?=
- =?utf-8?B?K0ppTzJPRGtCSjU2SjJEZWgvYktFTHliekJuejJvRkZTeGY1bkVXSWdtL3M4?=
- =?utf-8?B?RnRuSVBWSmtYNVZSS3ZLOW9zSmFRUERLT2oxdzdFR2hTZnZFVE01QWE5SERD?=
- =?utf-8?B?TUNkakZwY2k3Q21XdmIwZGV1YlVnaVh2cTdGNHhZUWN5OElNNzVkUFpraUgy?=
- =?utf-8?B?VWJFbE5IMUxPZWF5TGxEc0Z6MW1CUDdqdVBsTXRFL0pwSlBHa1g4Nk05aUFz?=
- =?utf-8?B?d2Q2UE5QYXBuR2RVOWUyR3R6Q2xnTWxxdWlsV0FyemMwdGtOU3djMzlERkM1?=
- =?utf-8?B?OGN0UzY4L0dpeldnM1loUGlHMksvVE9XaE9uZCtWUjBBU1dZWlhsU3daT3o5?=
- =?utf-8?B?c0VjYjNGcXJJYzNtemlxenBJUncvL1lyVzM4YWQvRGM5R0hrRElYMklJQTF3?=
- =?utf-8?B?RGYzcm9NeUVQTElGdmk5ZElETDhIOENESkJZVTdoRFdVYUZmS2pPTzFQeWNH?=
- =?utf-8?B?bTdENVRNREwrQTNzOXl5dmVMK21TTGVFd2JEN1ZpYmpwNmFOQktBWjN4d1Fo?=
- =?utf-8?B?VWRlcFVFN2RNOWM2TVlvQjI1U3N0S3Y0amVXMWJsMms4MEtIUEFPL1RFUVF6?=
- =?utf-8?B?eGtuUXpmclBVcWZXb2lqQStTNVhHWEI3clNFaEFjaVdvVm5LTU5CcHQzblB1?=
- =?utf-8?B?c2lTM0h3MTlYYUZKTkMyazFLMHV4TkZVUFRrN0k5ZUNQRHVjeE1hcjQ2VENP?=
- =?utf-8?B?L1VQZ2lnVEkrdlV4eFpiTTNkNlZ2SjFTRTFZN0FUVUNRR2hRWjJjNEZMblRy?=
- =?utf-8?B?bkFzQ05UeElHdjBQZDVKbWxuY3cvb2dSTmIrMDd2WndibUtuUEc0SGxPVklO?=
- =?utf-8?B?bmMxU1hyV1JyVmUyKzJqSUhZMXV1eGMvYi8wbzZJT0ZSaENLMUVFUCtQbkYx?=
- =?utf-8?B?U1E9PQ==?=
-Content-ID: <8C8148548A28674ABDB0FEA5BA3CF315@namprd11.prod.outlook.com>
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?YWJCQXVWd3hZeUVhUXV6c1VUVllMVU9OVUxLWVh0cDllSnc2V1dwaVVCZVZU?=
+ =?utf-8?B?V01NU3ljczFHMW9nOXp0clZqUHRJWmVWUGhtcG5ERmRZQXd2ZTVxaXZ1MzJ2?=
+ =?utf-8?B?am9Nci91WXR0TWh5MTVpWE4yb0NlTnBsQm5jMmM4NkNqcTgwQ0luRFY2elU2?=
+ =?utf-8?B?eGFRSFRYOVlrVXJCQ0Exb0x0cW5rRlgyZnNVbzZUbzVOR2hEaU96R3F4TS9Y?=
+ =?utf-8?B?cVJKNmF2YmRTMktPOCtBaVE4RGRZRHJKVjlEM3Ewc0JWSW5zU1p5eDlHalNp?=
+ =?utf-8?B?WDN0bFUrN1cwOGxHNEpUbHVrZlgxeXp6ODlVenAwei9BSU9USmR4N1I5K1A2?=
+ =?utf-8?B?dkF2TjF5Zm12VmlkUXRHaHJJR2VFREl4Ynl2TkJRVmRmaWt5WlluUDRMaEtH?=
+ =?utf-8?B?UGhsWjR5Zm9Gd05rWDdhV25Ea1ZpQm4yNWZBbklDYXJuMThKaDd1alVXQUx4?=
+ =?utf-8?B?L2xJWVF3YWNEaUdneFlZWTRHOE5XMUs1eFNoM0FtU05LWGtZRnhzbVQvRW5u?=
+ =?utf-8?B?TFJpNGR3dmltN1BPSmpCVzVVOHJ4NjRnTDdUb2h0TEJSVk0vN3lidnFIQWNr?=
+ =?utf-8?B?a3I0WVB3WlZvTzBwQ21xM2dmdGpxcXpmSWErSXR2VldYZzBNWk9PSzlFaVY2?=
+ =?utf-8?B?bTN3akx4WS84NnFlaU43RHgwQWswVExUdGtWTEsvSzBVQmIySFV0OXQyRHpl?=
+ =?utf-8?B?cWt3RW1sRUZzWkROWUlQNEZ2M1I4UWdlVnZvd0ZjU2dEbmtqS2NzcjI2U01S?=
+ =?utf-8?B?OS9ZVHBMQkFoOUgycCtZNzR3bWllNGdzMnFRd0xFR1hOYmx6R3ZwOVV3Qnpx?=
+ =?utf-8?B?ems0UWJTRkhLQ2xFTTNkMFNSc01JMWxaeE13bVFGYzFldXlrbStmaFMwb052?=
+ =?utf-8?B?RURXWUViNlovWXpZc2ZBbWQ1cTl3L3RTK2d4MWEzWlJqRU5aNDRoaWl3czhu?=
+ =?utf-8?B?MEdZQU85NXVpeXRhOXB2R3hydFQvOTRFYWkrVUV4dlhlNjFtL0p2OVZSM2Nr?=
+ =?utf-8?B?bGQ4QVViRlRTUHJvQytvUTExMUhBYUJVVmQyUDFqNGlqWmoyR1J6TnQ4U3A5?=
+ =?utf-8?B?Y29yQW5UOUwwTGxtRzcrbHBQZlE1OVRweVpmc0lVcklGd1FqQldQZm4yNmps?=
+ =?utf-8?B?OGV0UzNnOXNHYVR1VWJJZUcxY2pKaGVoQmZQYTV0MlY2NzZGOGhwbHBwYWxw?=
+ =?utf-8?B?Nk03QWc3NklZdnlUUzdhY2VNNG5EVzh5K2Rya3lJMUJ6K09KczBibFM3djJJ?=
+ =?utf-8?B?dXRwS2dDZENqbTdrcGwrUUdRTHI2a0RqaU9kbnByaGtRaHFqMXBHR1U5ZWpm?=
+ =?utf-8?B?Q3NZcjVHQktxY0tDM1Mzcm4zNzNvbFJlbWFDZUVhOFl4ZDFwZHRyUTZPL1Jo?=
+ =?utf-8?B?YldVcVd0SktEZFN6bFVvZmNiajMyN3h1UitGWUEzcitoR3JpOHVjRzdMNG5r?=
+ =?utf-8?B?dHJ4QkswNktnalBoODFjVGFBNFJXVUtMRDRNcEJNTVBzeHcrZE56TjNuelRR?=
+ =?utf-8?B?U0RBcFRJdUNYMmVtMDQvNEZqcURxUk85UllpQTFJWllLcTZ1ZEVrSmk0aFQ0?=
+ =?utf-8?B?T3lxY2dGQ1JRYnBQWVJoUUtJZVVVUitpRjVjMTFXYVRsRlFJZDRGdjE3dGpH?=
+ =?utf-8?B?R3BMMktSYUtEUHI2eXc3R0toNkpGdjdaclhHUUxreEdoRzJUU0tjRjVmLzNV?=
+ =?utf-8?B?cTA5UmhYRWtlb2l2Q2VSclpFWVlLcmFndVhZUEpHdlJKUW0waTdnUzZLM1Jk?=
+ =?utf-8?B?S0N2WmdZdjk3aERWcE50ZXlLdlcvMXQzTVlCMktPRm1YTm1wMm1ZMm4vUVdm?=
+ =?utf-8?B?dlRCNFVjdThyK1pwZHpHWlUxZDdQM0E4S0ZtNi9YdStDRHFjTnhRK0R6SmxT?=
+ =?utf-8?B?ZDJZSzJzNUpBdnh6bEhMbysxV2RScjRmd2o1Vndka2hjOGNsTmJ6YWJNZlRB?=
+ =?utf-8?B?eEtNK1FsVnF6bEFKRXdxbHpTUWhaMUVKWHNreGxjalgyWFRIZ3pJTXVsQmgx?=
+ =?utf-8?B?ekhkamNVKzJDWUoyVjdxSEM2VEhPTHRhaFBqbW50eXV1WUY0ZlBmcTNvL0xS?=
+ =?utf-8?B?UHlFTFhSam8zayt1am0vSmRpcGFVQ3dISHlpZnhXVjJQNXdDMlNIellqZWc2?=
+ =?utf-8?B?TEFVK3JNVHZhY2pQeHA2aXFvbVFCRnUrTGMwekJZeG9kQkNrUjlEOHV3RjlC?=
+ =?utf-8?Q?fp36iv3WU9awJ/BtS7hLcMU=3D?=
+Content-ID: <3285E135D52FB7449129E362B022351F@namprd11.prod.outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: DM6PR11MB3258.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 590f91fc-95ee-4ddd-988f-08da8d035107
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2022 16:51:00.9592
+X-MS-Exchange-CrossTenant-Network-Message-Id: 26fed14f-6f8b-43ea-d92a-08da8d03c0da
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2022 16:54:08.5864
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: dUdgfVPxJJw9x4KMAtgX+ZYH5NtD9VAMw3envc0dvwwOy0VSEQ+hdMzeMR0GiipTXCMSIqF7HDe6PUj4+vtLPuXoEDtPYiilf2NYR5BQhNU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB4832
+X-MS-Exchange-CrossTenant-userprincipalname: Ek02miPf+rLvCYIj1XWrStOPy6CObm61/y9otvKDclyBNQ0xJn4L5x5tKHZZ7oLvzvVvY0nBxLBzT/IzsJkuDhmsSFG92go3/2NQ++lLAtM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB4091
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220902_095110_388518_1863CDD2 
-X-CRM114-Status: GOOD (  33.71  )
+X-CRM114-CacheID: sfid-20220902_095416_197604_F4065B6D 
+X-CRM114-Status: GOOD (  33.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,16 +178,16 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Thanks Rob for taking the time to get back to me.  Yes, I thought 2
-levels of translation might be the way to go. If you could point me to
-a gadget that has 2-level translation working, that'd be great
+Thanks Bjorn for the feedback.  I'll follow up Rob's suggestion and see
+how I get on!
 
-On Fri, 2022-09-02 at 11:28 -0500, Rob Herring wrote:
+On Fri, 2022-09-02 at 11:49 -0500, Bjorn Helgaas wrote:
 > EXTERNAL EMAIL: Do not click links or open attachments unless you
 > know the content is safe
 > 
-> On Fri, Sep 2, 2022 at 9:22 AM <daire.mcnamara@microchip.com> wrote:
-> > From: Conor Dooley <conor.dooley@microchip.com>
+> On Fri, Sep 02, 2022 at 03:22:01PM +0100, 
+> daire.mcnamara@microchip.com wrote:
+> > From: Daire McNamara <daire.mcnamara@microchip.com>
 > > 
 > > On PolarFire SoC both in- & out-bound address translations occur in
 > > two
@@ -198,227 +196,200 @@ On Fri, 2022-09-02 at 11:28 -0500, Rob Herring wrote:
 > > stage of
 > > the translation is done by the FPGA fabric & the second by the root
 > > port.
-> > Add two properties so that the translation tables in the root
-> > port's
-> > bridge layer can be configured to account for the translation done
-> > by
-> > the FPGA fabric.
+> > Use outbound address translation information so that the
+> > translation
+> > tables in the root port's bridge layer can be configured to account
+> > for
+> > any translation done by the FPGA fabric, for example,  on Icicle
+> > Kit
+> > reference design.
 > 
-> I'm skeptical that ranges/dma-ranges can't handle what you need.
-> Anything in this area is going to need justification 'ranges doesn't
-> work because x, y, z...'.
-Cool.
+> Can you please:
 > 
-> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+>   - Make your subject follow previous convention, i.e., at least
+>     capitalize "Add".
+> 
+>   - Add a blank line between paragraphs.  Patch 2/4 also lacks this
+>     blank line.  Without the separator, it's just confusing because I
+>     can't tell whether it's supposed to be a single paragraph that
+> you
+>     forgot to wrap correctly, or two paragraphs.
+> 
 > > Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
 > > ---
-> >  .../bindings/pci/microchip,pcie-host.yaml     | 107
-> > ++++++++++++++++++
-> >  1 file changed, 107 insertions(+)
+> >  drivers/pci/controller/pcie-microchip-host.c | 59
+> > +++++++++++++++++---
+> >  1 file changed, 52 insertions(+), 7 deletions(-)
 > > 
-> > diff --git a/Documentation/devicetree/bindings/pci/microchip,pcie-
-> > host.yaml b/Documentation/devicetree/bindings/pci/microchip,pcie-
-> > host.yaml
-> > index 23d95c65acff..29bb1fe99a2e 100644
-> > --- a/Documentation/devicetree/bindings/pci/microchip,pcie-
-> > host.yaml
-> > +++ b/Documentation/devicetree/bindings/pci/microchip,pcie-
-> > host.yaml
-> > @@ -71,6 +71,113 @@ properties:
-> >      minItems: 1
-> >      maxItems: 6
+> > diff --git a/drivers/pci/controller/pcie-microchip-host.c
+> > b/drivers/pci/controller/pcie-microchip-host.c
+> > index 7263d175b5ad..d78745eaa4b4 100644
+> > --- a/drivers/pci/controller/pcie-microchip-host.c
+> > +++ b/drivers/pci/controller/pcie-microchip-host.c
+> > @@ -269,6 +269,8 @@ struct mc_pcie {
+> >       struct irq_domain *event_domain;
+> >       raw_spinlock_t lock;
+> >       struct mc_msi msi;
+> > +     u32 num_outbound_ranges;
+> > +     u64 outbound_range_adjustments[32];
+> >  };
 > > 
-> > +  microchip,outbound-fabric-translation-ranges:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> > +    minItems: 1
-> > +    maxItems: 32
-> > +    description: |
-> > +      The CPU-to-PCIe (outbound) address translation takes place
-> > in two stages.
-> > +      Depending on the FPGA bitstream, the outbound address
-> > translation tables
-> > +      in the PCIe root port's bridge layer will need to be
-> > configured to account
-> > +      for only its part of the overall outbound address
-> > translation.
-> > +
-> > +      The first stage of outbound address translation occurs
-> > between the CPU address
-> > +      and an intermediate "FPGA address". The second stage of
-> > outbound address
-> > +      translation occurs between this FPGA address and the PCIe
-> > address. Use this
-> > +      property, in conjunction with the ranges property, to divide
-> > the overall
-> > +      address translation into these two stages so that the PCIe
-> > address
-> > +      translation tables can be correctly configured.
+> >  struct cause {
+> > @@ -964,6 +966,37 @@ static void mc_pcie_setup_window(void __iomem
+> > *bridge_base_addr, u32 index,
+> >       writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
+> >  }
+> > 
+> > +static void mc_pcie_parse_outbound_range_adjustments(struct
+> > mc_pcie *port, struct device_node *np)
 > 
-> Sounds like you need 2 levels of ranges/dma-ranges.
+> Wrap to fit in 80 columns like the rest of the file.
 > 
-> / {
->     fpga-bus {
->         ranges = ...
->         dma-ranges = ...
->         pcie@... {
->             ranges = ...
->             dma-ranges = ...
->         };
->     };
-> };
+> > +{
+> > +     const __be32 *range;
+> > +     int range_len, num_ranges, range_size, i;
+> > +
+> > +     range = of_get_property(np, "microchip,outbound-fabric-
+> > translation-ranges", &range_len);
+> > +     if (!range)
+> > +             return;
+> > +
+> > +     num_ranges = of_n_addr_cells(np);
+> > +     range_size = range_len / sizeof(__be32) / num_ranges;
+> > +
+> > +     for (i = 0; i < num_ranges; i++, range += range_size) {
+> > +             u64 pcieaddr = of_read_number(range + 1, 2);
+> > +             u64 cpuaddr = of_read_number(range + 3, 2);
+> > +
+> > +             port->outbound_range_adjustments[i] = cpuaddr -
+> > pcieaddr;
+> > +             port->num_outbound_ranges++;
+> > +     }
+> > +}
+> > +
+> > +static inline u64 mc_pcie_adjust_axi(struct mc_pcie *port, int
+> > index, u64 axi_addr)
 > 
-Very possibly! I'd prefer that approach, tbh, if I can get it working. 
-I'll go back and try 2 levels again.
-
-
-> > +      If this property is present, one entry is required per
-> > range. This is so
-> > +      FPGA designers can choose to route different address ranges
-> > through different
-> > +      Fabric Interface Controllers and other logic as they see
-> > fit.
+> No need for this to be inline; it's not a performance path so the
+> "inline" annotation is just clutter and makes the line too long.
+> 
+> > +{
+> > +     u64 offset = 0;
 > > +
-> > +      If this property is not present, the entire address
-> > translation
-> > +      in any ranges property is attempted by the root port driver
-> > via its outbound
-> > +      address translation tables.
+> > +     if (index < port->num_outbound_ranges)
+> > +             offset = port->outbound_range_adjustments[index];
 > > +
-> > +      Each element in this property has three components. The
-> > first is a
-> > +      PCIe address, the second is an FPGA address, and the third
-> > is a size.
-> > +      These properties may be 32 or 64 bit values.
+> > +     return axi_addr - offset;
+> 
+>   if (index < port->num_outbound_ranges)
+>     return axi_addr - port->outbound_range_adjustments[index];
+> 
+>   return axi_addr;
+> 
+> > +}
 > > +
-> > +      In operation, the driver will expect a one-to-one
-> > correspondance between
-> > +      range properties and this property.  For each pair of range
-> > and
-> > +      outbound-fabric-translation-range properties, the root port
-> > driver will
-> > +      subtract the FPGA address in this property from the CPU
-> > address in the
-> > +      corresponding range property and use the remainder to
-> > program its
-> > +      outbound address translation tables.
+> >  static int mc_pcie_setup_windows(struct platform_device *pdev,
+> >                                struct mc_pcie *port)
+> >  {
+> > @@ -971,14 +1004,28 @@ static int mc_pcie_setup_windows(struct
+> > platform_device *pdev,
+> >               port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+> >       struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+> >       struct resource_entry *entry;
+> > +     u64 axi_addr;
+> >       u64 pci_addr;
+> > -     u32 index = 1;
+> > +     u32 index = 0;
+> > +     u32 num_outbound_ranges = 0;
 > > +
-> > +      For each range, take its PCIe address and size - these are
-> > the PCIe
-> > +      address & size for the element. The FPGA address is derived
-> > from a given
-> > +      FPGA fabric design and is the address delivered by that FPGA
-> > fabric
-> > +      design to the Core Complex. For a trivial configuration, it
-> > is likely to be the
-> > +      lower 32 bits of the PCIe address in the range property and
-> > the upper
-> > +      bits of the base address of the Fabric Interface Controller
-> > the design uses.
-> > +      Otherwise, it is tightly coupled with the data path
-> > configured in the
-> > +      FPGA fabric between the root port and the Core Complex.
+> > +     resource_list_for_each_entry(entry, &bridge->windows) {
+> > +             if (resource_type(entry->res) == IORESOURCE_MEM ||
+> > resource_type(entry->res) == 0)
+> 
+> Rewrap.
+> 
+> > +                     num_outbound_ranges++;
+> > +     }
 > > +
-> > +      For more information on the tables, see Section 1.3.3,
-> > +      "PCIe/AXI4 Address Translation" of the PolarFire SoC PCIe
-> > User Guide:
-> > +      
-> > https://www.microsemi.com/document-portal/doc_download/1245812-polarfire-fpga-and-polarfire-soc-fpga-pci-express-user-guide
-> > +
-> > +    items:
-> > +      minItems: 3
-> > +      maxItems: 6
-> > +
-> > +  microchip,inbound-fabric-translation-ranges:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32-matrix
-> > +    minItems: 1
-> > +    maxItems: 32
-> > +    description: |
-> > +      The PCIe-to-CPU (inbound) address translation takes place in
-> > two stages.
-> > +      Depending on the FPGA bitstream, the inbound address
-> > translation tables
-> > +      in the PCIe root port's bridge layer will need to be
-> > configured to account
-> > +      for only its part of the overall inbound address
-> > translation.
-> > +
-> > +      The first stage of address translation occurs between the
-> > PCIe address and
-> > +      an intermediate FPGA address. The second stage of address
-> > translation
-> > +      occurs between the FPGA address and the CPU address. Use
-> > this property
-> > +      in conjunction with the dma-ranges property to divide the
-> > address
-> > +      translation into these two stages.
-> > +
-> > +      If this property is present, one entry is required per dma-
-> > range. This is so
-> > +      FPGA designers can choose to route different address ranges
-> > through different
-> > +      Fabric Interface Controllers and other logic as they see
-> > fit.
-> > +
-> > +      If this property is not present, the entire address
-> > translation
-> > +      in any dma-ranges property is attempted by the root port
-> > driver via its
-> > +      inbound address translation tables.
-> > +
-> > +      Each element in this property has three components. The
-> > first is a
-> > +      PCIe address, the second is an FPGA address, and the third
-> > is a size.
-> > +      These properties may be 32 or 64 bit values.
-> > +
-> > +      In operation, the driver will expect a one-to-one
-> > correspondance between
-> > +      dma-range properties and this property.  For each pair of
-> > dma-range and
-> > +      inbound-fabric-translation-range properties, the root port
-> > driver will
-> > +      subtract the FPGA address in this property from the CPU
-> > address in the
-> > +      corresponding dma-range property and use the remainder to
-> > program its
-> > +      inbound address translation tables.
-> > +
-> > +      From each dma-range, take its PCIe address and size - these
-> > are the PCIe
-> > +      address & size for the element. The FPGA address is derived
-> > from a given
-> > +      FPGA fabric design and is the address delivered by that FPGA
-> > fabric
-> > +      design to the Core Complex. For a trivial configuration,
-> > this property
-> > +      is unlikely to be required (i.e. no fabric translation on
-> > the inbound
-> > +      interface).  Otherwise, it is tightly coupled with the
-> > inbound data path
-> > +      configured in the FPGA fabric between the root port and the
-> > Core Complex.
-> > +      It is expected that more than one translation range may be
-> > added to
-> > +      an FPGA fabric design, e.g. to deliver data to cached or
-> > non-cached
-> > +      DDR.
-> > +
-> > +      For more information on the tables, see Section 1.3.3,
-> > +      "PCIe/AXI4 Address Translation" of the PolarFire SoC PCIe
-> > User Guide:
-> > +      
-> > https://www.microsemi.com/document-portal/doc_download/1245812-polarfire-fpga-and-polarfire-soc-fpga-pci-express-user-guide
-> > +
-> > +    items:
-> > +      minItems: 4
-> > +      maxItems: 7
-> > +
-> >    msi-controller:
-> >      description: Identifies the node as an MSI controller.
+> > +     if (port->num_outbound_ranges && port->num_outbound_ranges !=
+> > num_outbound_ranges) {
+> 
+> Ditto.
+> 
+> > +             dev_err(&pdev->dev, "Mismatches in outbound range
+> > adjustment\n");
+> > +             return -EINVAL;
+> > +     }
 > > 
-> > --
-> > 2.25.1
+> >       resource_list_for_each_entry(entry, &bridge->windows) {
+> > -             if (resource_type(entry->res) == IORESOURCE_MEM) {
+> > +             if (resource_type(entry->res) == IORESOURCE_MEM ||
+> > resource_type(entry->res) == 0) {
+> 
+> Ditto.
+> 
+> I guess "resource_type() == 0" means config space?  I assume these
+> entries came from devm_of_pci_get_host_bridge_resources()?  From
+> gen_pci_init(), I guess there's an assumption that the resource at
+> index 0 is ECAM space?
+> 
+> > +                     axi_addr = entry->res->start;
+> > +                     axi_addr = mc_pcie_adjust_axi(port, index,
+> > axi_addr);
+> 
+> How does this address adjustment work given that
+> pci_host_common_probe() has already called gen_pci_init() to map the
+> config space?
+> 
+> Hopefully you can use Rob's suggestion to just use two levels of
+> ranges instead.
+> 
+> >                       pci_addr = entry->res->start - entry->offset;
+> >                       mc_pcie_setup_window(bridge_base_addr, index,
+> > -                                          entry->res->start,
+> > pci_addr,
+> > +                                          axi_addr, pci_addr,
+> >                                            resource_size(entry-
+> > >res));
+> >                       index++;
+> >               }
+> > @@ -1005,6 +1052,8 @@ static int mc_platform_init(struct
+> > pci_config_window *cfg)
+> >               return -ENOMEM;
+> >       port->dev = dev;
 > > 
+> > +     mc_pcie_parse_outbound_range_adjustments(port, dev->of_node);
+> > +
+> >       ret = mc_pcie_init_clks(dev);
+> >       if (ret) {
+> >               dev_err(dev, "failed to get clock resources, error
+> > %d\n", ret);
+> > @@ -1099,10 +1148,6 @@ static int mc_platform_init(struct
+> > pci_config_window *cfg)
+> >       writel_relaxed(0, bridge_base_addr + IMASK_HOST);
+> >       writel_relaxed(GENMASK(31, 0), bridge_base_addr +
+> > ISTATUS_HOST);
+> > 
+> > -     /* Configure Address Translation Table 0 for PCIe config
+> > space */
+> > -     mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start &
+> > 0xffffffff,
+> > -                          cfg->res.start, resource_size(&cfg-
+> > >res));
+> > -
+> >       return mc_pcie_setup_windows(pdev, port);
+> >  }
+> 
+> Not specifically related to *this* patch, but microchip uses the
+> pci_ecam_ops.init() method to do a whole bunch of init completely
+> unrelated to ECAM, which makes things really hard to follow.
+> 
+> It would be more readable to have an mc_pcie_probe() that does the
+> mc-specific initialization and calls pci_host_common_probe() to do
+> the
+> generic stuff.  This is what apple_pcie_probe() does.
+> 
+> Bjorn
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
