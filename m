@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F406C54EE9
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Sep 2022 10:08:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03F6C6FA83
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Sep 2022 10:08:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SMFpMSU04y2IC94nn+puwF2C9J/DM07fcZyUSsuXN1I=; b=sUbg5Loi3oICTv
-	4ZuXrK5TieXLpM5ewW24TeyaPuOAXl8z3eQTTvFrg37t1TOO1zkKt6Tpk5LXD5zNp3bb0bYx2icuo
-	qtphcNpUM0ZVICY5s150fenkK0iCHZ+45SncEt56wHhky75ESRbQt7rrvf76YeaHQXjuB52sxXamE
-	xK39P1rDjXZYez1daa466fyRJxOn2Z9U5E3pdXb75A5z/um302Yeayp+EXfthvl+v4IwbfG3wRIai
-	ETVCuqDS4fjd3C/JKjbwa1txdyqcq5sdtTWXuj1y+lLzuoEGgThpLM6ex6WAeVgBhOkIiwTsZIq5f
-	rIc2hcE8R6gIPphwgvjw==;
+	List-Owner; bh=/5ejG4cQggFyrEGev0tbXcCR9zn1DyUxgjzRbqqmGhY=; b=tG6nYUXRaoERkZ
+	G3WH7BAkbIj0MGUL0TC8lruq3OkRM4bsxAM9usMfiDMMoPt5NPUfjCiDtIO3xDq9GIX2OUdk5r/SU
+	KuzuTU5HIz7NoeHCFG0E8oUJFy04UNYVKQnNkXGIa+TaGmF485P9Wj4iaj1gYxZ22LQUFGs+WTplB
+	5LLZlAQAyft1N2nYT1VZo1GbAfPhpzyjIFKZiwJtBkM0mhXfTZkgCGTn6+h6Mu1EpwdIN9V+kqfQ9
+	s5vTlfgGd+Z89AWkTC8T7KF6wdzaMOSt42Ec8oN4B7zHOYvyZ9gWpneTzlHZR8WWEUa8bVjTu6HiP
+	JCO5aq2SDIaZuXRWDvoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oU3b0-0039Qo-8o; Fri, 02 Sep 2022 10:08:18 +0000
+	id 1oU3b7-0039Zk-9p; Fri, 02 Sep 2022 10:08:25 +0000
 Received: from madras.collabora.co.uk ([2a00:1098:0:82:1000:25:2eeb:e5ab])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oU3aw-0039Mm-Sn
-	for linux-riscv@lists.infradead.org; Fri, 02 Sep 2022 10:08:16 +0000
+	id 1oU3b2-0039TA-Q7
+	for linux-riscv@lists.infradead.org; Fri, 02 Sep 2022 10:08:23 +0000
 Received: from localhost (unknown [188.27.54.142])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id 93F9D6601F05;
-	Fri,  2 Sep 2022 11:08:13 +0100 (BST)
+	by madras.collabora.co.uk (Postfix) with ESMTPSA id 76DEF6601F05;
+	Fri,  2 Sep 2022 11:08:19 +0100 (BST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1662113293;
-	bh=2QEA+I9MjqrPeHXxdVp3wmfcnrjvvqck3Dd+MJY4pRk=;
+	s=mail; t=1662113299;
+	bh=bhtmsc4SAXx6vdsUdGvUZEFyQ91C4jgP6uCREcCIkrs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EoOmLc9nAMqaoRjp7aesPqRK6lj10ieWf9ObItk1rgnNVqDJAICSPIF7xcj/bVtAI
-	 HMJ5A88h0J0hc/cPhMi4m1cy6cvoiFAxhKa1LnhFGhC5f5D3fXI0yL4EXY62G90qDz
-	 nPiRqoKg+y61CIVj7SH1Pa3FLGg17jHHQxOCBJAhGA3fh8JJYGn15N52KoGil/u4bp
-	 9jyVh6uhq8kBE/wyv/wUkZmOZWiXt0sYvnkh7xJCt91Yt/XOTEW4mOEXyU2wzv9y/5
-	 vkNxAhvVkFoi8bySNedegH+pNFewvayjLbFk1aAcozQIweQRsZLXeH+sLIlvy1y3qb
-	 DQ1uSpNqVVXNg==
+	b=AbSY8obnO7ZuJ9omzcHHKEm3LoqQQR4j/uFHbltr9l78I9s9n+vQ81Hg1VIeyhgVC
+	 +KALrGfdopp4X9uQQEzH5WqEaPnpLj+jiRL1tzQ8jw1w5rYzHquajaa6KNH4K0DFwx
+	 SDpCcwCJNTT3mgPLWAmpDzCEbNf80fVVq10IEy7Jg4rp/GE8t7d5jpp7Ge1IXWts9z
+	 vWGbxSYp1XdLf94ubqJsDHvblCYs4hYPfmLApN5BgQyQsLg5gcJ161T6pscTqpVUhp
+	 WgvrfxS3TdZcDoVLIdlwFZuNPJHBAiq2O5nsYoqdgla/XzwW3MBuE42LUJHAJU90Sc
+	 wKEE0wwoGGhug==
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 To: Rob Herring <robh+dt@kernel.org>,
 	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
@@ -56,17 +56,16 @@ Cc: devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	kernel@collabora.com
-Subject: [PATCH v2 1/3] dt-bindings: riscv: starfive: Add StarFive VisionFive V1 board
-Date: Fri,  2 Sep 2022 13:08:04 +0300
-Message-Id: <20220902100806.2378543-2-cristian.ciocaltea@collabora.com>
+Subject: [PATCH v2 3/3] riscv: dts: starfive: Add StarFive VisionFive V1 device tree
+Date: Fri,  2 Sep 2022 13:08:06 +0300
+Message-Id: <20220902100806.2378543-4-cristian.ciocaltea@collabora.com>
 X-Mailer: git-send-email 2.37.2
 In-Reply-To: <20220902100806.2378543-1-cristian.ciocaltea@collabora.com>
 References: <20220902100806.2378543-1-cristian.ciocaltea@collabora.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220902_030815_072698_1919C0DB 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220902_030821_002281_C1E9F5F0 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +82,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the compatibles for StarFive VisionFive V1 SBC [1].
-The board is based on the StarFive JH7100 SoC.
+Add initial device tree for the StarFive VisionFive V1 SBC [1], which
+is similar with the already supported BeagleV Starlight Beta board,
+both being based on the StarFive JH7100 SoC.
 
 [1] https://github.com/starfive-tech/VisionFive
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/riscv/starfive.yaml | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/riscv/boot/dts/starfive/Makefile         |  2 +-
+ .../jh7100-starfive-visionfive-v1.dts         | 20 +++++++++++++++++++
+ 2 files changed, 21 insertions(+), 1 deletion(-)
+ create mode 100644 arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
 
-diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
-index 5b36243fd674..5d3fcee52d59 100644
---- a/Documentation/devicetree/bindings/riscv/starfive.yaml
-+++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
-@@ -19,7 +19,9 @@ properties:
-   compatible:
-     oneOf:
-       - items:
--          - const: beagle,beaglev-starlight-jh7100-r0
-+          - enum:
-+              - beagle,beaglev-starlight-jh7100-r0
-+              - starfive,visionfive-v1
-           - const: starfive,jh7100
- 
- additionalProperties: true
+diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+index 0ea1bc15ab30..039c143cba33 100644
+--- a/arch/riscv/boot/dts/starfive/Makefile
++++ b/arch/riscv/boot/dts/starfive/Makefile
+@@ -1,2 +1,2 @@
+ # SPDX-License-Identifier: GPL-2.0
+-dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb
++dtb-$(CONFIG_SOC_STARFIVE) += jh7100-beaglev-starlight.dtb jh7100-starfive-visionfive-v1.dtb
+diff --git a/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts b/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
+new file mode 100644
+index 000000000000..e82af72f1aaf
+--- /dev/null
++++ b/arch/riscv/boot/dts/starfive/jh7100-starfive-visionfive-v1.dts
+@@ -0,0 +1,20 @@
++// SPDX-License-Identifier: GPL-2.0 OR MIT
++/*
++ * Copyright (C) 2021 StarFive Technology Co., Ltd.
++ * Copyright (C) 2021 Emil Renner Berthing <kernel@esmil.dk>
++ */
++
++/dts-v1/;
++#include "jh7100-common.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++
++/ {
++	model = "StarFive VisionFive V1";
++	compatible = "starfive,visionfive-v1", "starfive,jh7100";
++
++	gpio-restart {
++		compatible = "gpio-restart";
++		gpios = <&gpio 63 GPIO_ACTIVE_HIGH>;
++		priority = <224>;
++	};
++};
 -- 
 2.37.2
 
