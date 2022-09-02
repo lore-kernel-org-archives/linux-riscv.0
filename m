@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D80BC38145
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Sep 2022 09:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F628ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Sep 2022 09:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QfH2ZBbpM+Ip1QbgHYhlZ+r/qD4IqFz4GdjM8BJETY8=; b=q3zKnMOoz037tu
-	fwy5HFC736NHSMS9Iuzp8zNoCk8OSr8DZMtETTRgRsMnoQ/daN8L35Wsj0cTFH/eA+wpJBKqD5G3O
-	5zzeBg0eIUZpvv4qbzq7ybc4UsN18Zfp1//O+aMF+W6HYX7UEoOLBq/vWhROTsWXw8OubHUlmiy1f
-	1SuMfI4SEcVSQXuQzR9QL+3J4B1NdRxYgjt7whEuJDualbcjRZnXUVSVrVBBrYYiU0ILUx1rTf8Ks
-	jHwSUOIjT856nh1ibIKo3t/xsAnHPFKce2PueVfZhGQzhR3MyslrM907krL5xwow3C4ohu2JZxJ7R
-	qhdXJSAyu+B31TK9NlrA==;
+	List-Owner; bh=2F6b9n0jNf9q7u2elC9Fi9yw5RgDyAZzi/P2X4HMJrk=; b=FhIne1B0a0rvPZ
+	gHa4WY6G9VP4Gxcp3N6FhrSszTpFH2yyL82ZeOIDB7wOSe9B0rCeOv4Wfksa/FJT25zLi3fZNq6w1
+	KHd1HxQZpQXbIde99v3CrULR0Hqfhnl2pHZIGnyvytDZTwSUW7w0Sbgt8iJ8e/t26jtZTnvgKwAFY
+	KC5+IMH8PdzHBdIP7A104BAzFBov+ZocKXGGH+/CWBnUVieraWTA5bHKPK0QE30jcelWHLwz2Tf+x
+	/lD/4Ehiabn1vwJYGfFSagttlgLsQlnO6Li8NWJ6zd7brQJlJxI2QjOnZ04dgVqhQEKuZ6XbtXVxv
+	iDfQuEKm0gvXj97kHVRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oU33S-002h0Q-15; Fri, 02 Sep 2022 09:33:38 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oU34U-002hpb-2R; Fri, 02 Sep 2022 09:34:42 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oU33O-002gxu-SL
-	for linux-riscv@lists.infradead.org; Fri, 02 Sep 2022 09:33:36 +0000
+	id 1oU34Q-002hn5-HO
+	for linux-riscv@lists.infradead.org; Fri, 02 Sep 2022 09:34:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1662111214; x=1693647214;
+  t=1662111278; x=1693647278;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-id:content-transfer-encoding:
    mime-version;
-  bh=mneCBuOkPyjCH42d3wMnu7Kwbt0RJKQ3iQw9BTqfmVQ=;
-  b=oXQLVu5FjayE1bcTFrEShuKFTqFfzY/Qx/L5rQkSHUJ/dkXqPlxHMfnW
-   twJOUOu7I+HsBqeFRvDZL6atJ7yChn24vyvmvAEtEn/qmPtvEgxHVj2DV
-   RsRbk38pPUkPCLN3LK8PHVlljGCbr/aMZAOdtLG27fdLO9nz7eSM0Xh6h
-   4/9FRiwvNC0Ws2nnCBOgb+J5xaCXk0mLnvv7hQ8OES8LZ6ie6Tg3M7igh
-   XVgy22hmvx9m82zPo82ELxAgtu1jnif5BAA1emrkNnWP3o3w9DpBmFbzV
-   Pf+Wc9yI108nOgdDD7665j2B0fFCU2zigJAIPJQcBUkmnYQEDGj2VhFzC
-   A==;
+  bh=SjUidDsK66jkKYWHzSxTlmudVcXfzE+2mYHlgiaNvac=;
+  b=I6oNSzmrIKszNV3p/RaP2SE31EYuwyPTRkZmMqlckW715lgd1SUlsoq8
+   x0U2WlOeKy/2MgmVq88EcR9Srtnkq8fdLzvtv1GQvscoylLTIhrplw3Lo
+   11m/3m6LZd/7wCBe2RHsOJ+A8utKlhzS5yzADbJxUKLM2seiR4dr2Q8Uo
+   9C2KSglmT7z0a1ZiY0BiDi6YYrKWpyamGzGK/ymziCYgmfjpC6nPSHQnZ
+   LojzlZR+ZDFVVhxaXredW0l/TizvCU5Gpz3ow3uOJktGLFWSrfrEpo7pf
+   qlp8uBiN8MqeNudFJ0GKSGxQCmCr8V9ftNSRMgVU/JD7vJZl7b7PwZ6SB
+   g==;
 X-IronPort-AV: E=Sophos;i="5.93,283,1654585200"; 
-   d="scan'208";a="175350860"
+   d="scan'208";a="178899645"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 02 Sep 2022 02:33:33 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 02 Sep 2022 02:34:36 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Fri, 2 Sep 2022 02:33:32 -0700
+ 15.1.2507.12; Fri, 2 Sep 2022 02:34:36 -0700
 Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Fri, 2 Sep 2022 02:33:32 -0700
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12 via Frontend Transport; Fri, 2 Sep 2022 02:34:36 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=BpuemnX0+/2uwCwwa5KBI6dnIO6bzd59nZ6EL08TB4BTmEMpXk6/SmVjQwfeJ6RsbJZin9+BJs891IrBvqVU4zHPi26byvpLtlDi4MzptesnDGA1UiFmcRAL2PliExVa7gJAfI/XbvuZNDl8Vb+17Kccx0JeRmx8QkpHMup89zK4MDryM/UtjichAnxn3uCcUQCdAnGQxh87t2fwndRVaiHmXeCZkTN/nGiNo4hVmjmPAG/5xOM5AJlLGxGMpm21JViS25IiNTNVMQsv+FPBSUYHKGgsdrj0xt4YQhUoUn+EYNqSSxj1DkzaEzS5so7wIQoAUoSgw733R88b7qMsfQ==
+ b=PO1svi+AghabSDZFlMt7hRf+cx+NbUaVtUly431yBdZFcDdGRzDhMLR7DLyqM5ZbQYMjcJYMlUtseMAR0+e0v/4ljEHI2tfEkDgNFGvzri3RETYThRCHzaD1VuyME4TGtYqQl9p2t+BR+N5xBugdI6WaRsEOiOk4TZXBTVnvM14ot70ighFI1vT5Gqf1BzhFanCZHSr+YM+AlJgJbftGeXkfxNVoAsrWyZS8Vuk0WJeOZacU2vZm5f7lhBXZibg8e1WO8wt2EXf0HvBjMx15j8zOoyuUdMfIOB9rMQ5d1KtoC9jawWPOORCOYOO2NVhLIELB7WhgpNc2jS77F0pYfg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mneCBuOkPyjCH42d3wMnu7Kwbt0RJKQ3iQw9BTqfmVQ=;
- b=llnr/mVOCu7pshFwAoVwiIy1dOgeA+8wSfi7IoxegTPmiWK4WrwCeZ0mCzmGmAzjLM4f0z+UYwVvHNpyxZUxAsesxRhi+XfzEwLOoWC+0ShKxRx13174GtDTTRBBywzq+oldgvfo9dbvjsy97JNY2volC3+MgVBQ73o6hMHMvoE7G3In68i4HoNHXeuESiqT5AUqJe546jEwGrsp7bte2DKXelv47pF3b+5/LFmORJlJQORv6t5RNPxX8vhAk4hexfa4k2sVxYz7VX+bnqetg78Baydm0OW4bnKKsLqBe0NhU/yP+p85i/YwvuTP5Zdl99IVxASt9rkTxEUUZUexGw==
+ bh=SjUidDsK66jkKYWHzSxTlmudVcXfzE+2mYHlgiaNvac=;
+ b=EIcLk/DOTQtHfZYRz3GXCmANUYLQpKTAQQCSSCkrRjOG+r+xsXvt5f/GLv2iolWc6kwwY6WZe8s9BOyjPZdFH07MQZTTQDgq8oNbOOpJ4DAU81BVGNffvzT6/qhWk8PFXeJxcdLHWbBjTLgb/hAbYoH2F5J+J3fMum1lNVebIL2zNaNjPIIMmd48qOxaPEtSI/SzNCsi1eMrbluE8ZA/+MQXyGINQvXW41liQ+K5For0TTyMHfDY/Y0q4BXeR8FcTe1kLCbciJKnXd9jcylxPvct2N/KTg5q1nqBl9mgSVhx8+aNGlsL9IGBygJdgc68szgpsVSIM4etWUUh3eQGDQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -65,33 +65,30 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mneCBuOkPyjCH42d3wMnu7Kwbt0RJKQ3iQw9BTqfmVQ=;
- b=BCY1ZQBTb3vvVWOKHzUD4lsP0KDOb+PsPLujaA8d9OIAsM1RzNV9r0GCC4MBWC9HS2/+k1InhFobwvq7Wx3ZKprLbrYL+oLjoG5itQI89KzK4ixTnZPtK0/u70xb4+om1dLVSZA+5aB2HpdZKxSDRroH13ogfTfxFYx8gZkdDzo=
+ bh=SjUidDsK66jkKYWHzSxTlmudVcXfzE+2mYHlgiaNvac=;
+ b=bUxIEKOPOslM0R2rXcCPLcs1nWI2zjq8CGoSuQ5Hfe5fEFum2u07URZ/7IlcdxMN07dSNOV1V6CUBgJfKNAPRtDRFBeS9BVi2hqU/DXNrfiPLTyl6Zmyp5nmWiBK7dcXzmy13p7A+s8ihtC/3ReYdJO1oecZis8XZQ+bb0qciLc=
 Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
  by DM5PR1101MB2363.namprd11.prod.outlook.com (2603:10b6:3:a7::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5588.10; Fri, 2 Sep
- 2022 09:33:27 +0000
+ 2022 09:34:35 +0000
 Received: from CO1PR11MB5154.namprd11.prod.outlook.com
  ([fe80::545a:72f5:1940:e009]) by CO1PR11MB5154.namprd11.prod.outlook.com
  ([fe80::545a:72f5:1940:e009%3]) with mapi id 15.20.5588.010; Fri, 2 Sep 2022
- 09:33:27 +0000
+ 09:34:34 +0000
 From: <Conor.Dooley@microchip.com>
-To: <guoren@kernel.org>, <heiko@sntech.de>
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-	<apatel@ventanamicro.com>, <atishp@rivosinc.com>,
+To: <heiko@sntech.de>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+	<aou@eecs.berkeley.edu>
+CC: <guoren@kernel.org>, <apatel@ventanamicro.com>, <atishp@rivosinc.com>,
 	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 4/4] riscv: check for kernel config option in t-head
- memory types errata
-Thread-Topic: [PATCH 4/4] riscv: check for kernel config option in t-head
- memory types errata
-Thread-Index: AQHYvlIzMjs1NuF9V0KyYwO1U6icxK3LU9uAgACNiAA=
-Date: Fri, 2 Sep 2022 09:33:27 +0000
-Message-ID: <6865a605-2428-e6c2-09dc-aa2a66e48c55@microchip.com>
+Subject: Re: [PATCH 2/4] riscv: drop some idefs from CMO initialization
+Thread-Topic: [PATCH 2/4] riscv: drop some idefs from CMO initialization
+Thread-Index: AQHYvlI8JmMmetiEwU67UJJvfvrvQ63L4bOA
+Date: Fri, 2 Sep 2022 09:34:34 +0000
+Message-ID: <88b6ecea-31e7-0439-b25d-6a48f43a19e3@microchip.com>
 References: <20220901222744.2210215-1-heiko@sntech.de>
- <20220901222744.2210215-4-heiko@sntech.de>
- <CAJF2gTQsXMB+igwMiya-sqyku+3iQPop1JJuHwXtTToj163h-A@mail.gmail.com>
-In-Reply-To: <CAJF2gTQsXMB+igwMiya-sqyku+3iQPop1JJuHwXtTToj163h-A@mail.gmail.com>
+ <20220901222744.2210215-2-heiko@sntech.de>
+In-Reply-To: <20220901222744.2210215-2-heiko@sntech.de>
 Accept-Language: en-IE, en-US
 Content-Language: en-IE
 X-MS-Has-Attach: 
@@ -101,65 +98,65 @@ user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=microchip.com;
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 743a2344-be57-4ae1-6177-08da8cc630ac
+x-ms-office365-filtering-correlation-id: 06868077-0a23-4d31-6be9-08da8cc658e6
 x-ms-traffictypediagnostic: DM5PR1101MB2363:EE_
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: FxoKrkforygdv4OEi6k4xSHQP/xrhuzZxs62DOg2ulCipvuaoNP21niJoTNcTXqwhFhi0hgz/7L7Y8QHH3Kz4IqbguAyvvfpFTnkBvnPrCFChdpypPMvkVFBy+tnIv+lK6peNoURnUgb5yCUJzcVDEOif+X7LOEBA4vNymN5rT+UaXwi3h91GLTcfvFXpSqv98OvvFBFfx2tTTo5lqeygngbWN9UaIyeR3xvvpHxCY0BI1ZOs8ZQYjMQB63gWcyOTRThaWBoHbn8HZHj9/0m2QYfjSTeFxniBfKs22K+q8oRbjt3rt/pubPatIvL3vMIHke8KviVOovdPST11ViQiPUgbrbiOkQLa3WHhlb/EEycmbmv60qwOTjC4AaEpsztxhrZh0+gjsa8BswVb9Wvpttrpq4b8EUngl5Y/+x1C/2d7G5JeeF499HZ1dZikogNNSU+nvD/vbF8fwo1O/yPnNVCIeHpPYUoL8+iK3hRWuHKpJb7MZt1eJkkF3Mt+vCMOuJLAGtdSNCXVL63u/R3SOkxAgmwmMKmcoDUTd0OijpCucm4Vf+8WiB3ALPVMzReQkf7zQ3qboKJ92DGeK2qC3ezD/1Kyy/7kKVLzGHhN/v/tmvWeQpKLwH9dRR4hV5+DqYJesqhfOhJEOTVL0QbKbohMNzt948iNP/+FhwlhjacwEwwTGB0xf1djcXjuXcHJWWx1ZeUS2IiQLHXkohdmcrj/lcftyTqcypPAcwDDqKosVg7FBjlZh8uu3aa30aGQh32ImwY4XC/WHutZuOrulFmQA1whWgNZG5irJLkGne3YLy63PavTUd4S2bCIqgX+iN0hx3KrT9C8AK0QEytlg==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(396003)(376002)(136003)(346002)(39860400002)(31696002)(38070700005)(122000001)(38100700002)(91956017)(76116006)(66946007)(66556008)(66476007)(66446008)(64756008)(8676002)(4326008)(110136005)(54906003)(316002)(2906002)(8936002)(5660300002)(53546011)(6512007)(26005)(6506007)(186003)(2616005)(71200400001)(6486002)(41300700001)(478600001)(86362001)(31686004)(36756003)(45980500001)(43740500002);DIR:OUT;SFP:1101;
+x-microsoft-antispam-message-info: dUxgzNTdcbrZKjd+G+p81eQsiG6L05Xkl6TrK5CN6IUkGP/dhnS3guxhmvHTNZIogdezn03k+MJITk7G4BwdnEonTWB8sYvC1cxHn7Sp1pBWcT+1/oG7OFnCcnLZSU1zzENUI1tNUKfSYkGZ8O/7fVmb3n7nsgh50hLa9EUBovFmZXNZFtoFP5zaRoKqvXTxB192KyCE88h+K4VpjdUO64gd7Iue7IE39VFwBpB1YqtKMnKlfTKddVKYjRvwB/NVwUyhau2i0CRYM4zY2DfpKGg8gsB6Dgyg1qpoSLoy8b8sVRt5AG39Zhnrnu8SW9HSZgg67oQ4LlhCUm6gj00rZZSKlcn/vwD2ZN/3VXwZ0ZJNfImy5Bk9GTaZL4jloYK9sSxuTv0Dfb884LphtKR5e6Sgqjhl0whphCg3buzf2TVyFQKvijIow6jTzLaQRNrZJzR/BBWdwIB67nJ/uDsyRne03+U1wtZct9zMXC1EUotZJ+b5Tc4WewYKanx8aV85C0Srj0KpCnFwGW4eO3EStO+iPXJpzVNUwQpkwInZblVeWIAqqEVnj9V9iCrWziUNZNS98SjBuMRpnyM3FVGDN482tcEZ0w8lBy4f5aMDvpQ0JJgoraGSiZ36l8cKdnZDGUrUh5k5Sj+FD4dP8GeSXot5XWjVwAycR7Nu3PVevKPlAKT09TgRlP70bqk9sxRkMoXNwgcB29/FcaFryBH1iSbGTYItPj8APyzZVNw6B+JYY1ZefloHAns3oc9hsyboIAKJrwMEkBC1HyWwDcdStkfEdXAAPlkgIIZ3lN4GA24sOc9wA9sz6VZlz0gGHpuzufhhc/fKxc2i1SaZn1G9mw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(396003)(376002)(136003)(346002)(39860400002)(31696002)(38070700005)(83380400001)(122000001)(38100700002)(91956017)(76116006)(66946007)(66556008)(66476007)(66446008)(64756008)(8676002)(4326008)(110136005)(54906003)(316002)(2906002)(8936002)(5660300002)(53546011)(6512007)(26005)(6506007)(186003)(2616005)(71200400001)(6486002)(41300700001)(478600001)(86362001)(31686004)(36756003)(45980500001)(43740500002);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?emNUb2VwSFdxU25VSjduMHF3d1hqZkhpV3JDVDZNZmRScFU2WnFPRlZrbTMw?=
- =?utf-8?B?UkRIT2Y2NWhvWmtrRWdmRTcwMkVCeVBJb09FVWRoTHBaSUpjUnkwb3BoQmt0?=
- =?utf-8?B?bFhXY2lHRXVFVHNDcDU1blJ6OGVFSVlQU0E4a1krcXRpMERqZHdUbXZybWxq?=
- =?utf-8?B?OXM4NDZKRkk1ZGZJZmdzS3M2dEppdXhhRHZpcnFGMnpDMkRFeHdRMWlnaDNo?=
- =?utf-8?B?WDBLajZ2RGcvekpHaXpXcC8rNTlpMXVzS01XbE1xNnlUd0VCQWpyYVVYYUtB?=
- =?utf-8?B?SkxCc2k3TVRFbTYxLzJKejJ5SWFteXVWeXAzWEp4TVJjZUNpVFhZRkVwalh5?=
- =?utf-8?B?Qysxc0RNdWRndTY5bTM3TGJVU2p5MWxCbk56cmYwT1FTamthZXlYVVBjUlBX?=
- =?utf-8?B?MjgzN0dpMTBkS3VGZFlHUU1VdDRvODNqcC84RjNZUWw5RjFNeW5RTmtCbzFv?=
- =?utf-8?B?czViK3VybHlpMWFrQndkZFRIaHJsaHpvKzFzMVNEQ3lQc1VJLzVFOUM3aG8z?=
- =?utf-8?B?ek9RK2tEYktCdkprTVZtNU5wSFNEaStxb050ODZXNG9kM29ROUtjcy9HNm02?=
- =?utf-8?B?MFVLKzNjUi8yYldlNUx3WHQ5M2NCZzhiL0sxRk1CR29VMnh2REJ3THprYlor?=
- =?utf-8?B?aHNyaXBMQVp4c2Z4ZE1HV0Q1Q3g5d2pMa1Q3VFdLbkJmeEpLMGxYMUY1QmJU?=
- =?utf-8?B?bFhqTFRIVzJ3SitSR1RqYnZ3VU95UGZVRTNuSkhueDJnYmJ3eXl0VzNKNVp2?=
- =?utf-8?B?eWRzb0tFWHh3T29DZlZmMzJiS29BbEdBRTZaMHoxdkRSWHk0bGJSR21XcUxU?=
- =?utf-8?B?ZTFIZXFUdUF4b2piendObDN0aHJiaEhYTDVsVnlibFRnOGJLdWxkMmFFeVpP?=
- =?utf-8?B?d1hWMHJ4UUJtNklBR2kxYnZzNkRvcjVhWUZ4bUthSk1kYUZ5THZIdHVpdG5i?=
- =?utf-8?B?bThPR283S0wrcFFSb01hOVhRbkg2MXRMNHkzb0sveVp3QVdaVldBVVFwQkU0?=
- =?utf-8?B?Tk05cnFDWitXMFVUY0lFdHpjM2RINWhiRUVuSXd3Ry9MdEd6SXJUTm9CUS9j?=
- =?utf-8?B?MGQ5MGRqM0MveWhQbG1IcjhTRHpCWVh2a1ljaC9CZlllek5hOXpSQWNKa1hm?=
- =?utf-8?B?ZVpTMzVFNGhpK3ZoZWd4cTg2WUorSzAvUWNySDlacDNFd0tsdkVDT3RPRjRK?=
- =?utf-8?B?Tk10WmVNcExPY05jNW5LaDhwZ0VyKzlFYjJZdWprVXhsekg2Qnc0V2p2YThD?=
- =?utf-8?B?MjNiMUJoU0ZOaTRQUFBCUWhZeFdqS1pWSUN4MU1Ba2o3czAza0E0S05Rd1ls?=
- =?utf-8?B?QzVsRW16clZya3QyNTdFVHo0YTdkcmdPcFJzMENQS0FWSllZemZFaWFoUVRa?=
- =?utf-8?B?eFprL09pbHkzcFltbHIvWVB6VitDY2FxNkhWUXQveG9aN01JOFU1aXIwc1pT?=
- =?utf-8?B?dDNPU0wwYnBDMVFPR21oelN0QXBJZVB1cFgzOTFURnc4RWk4SkFaSXFsblJ5?=
- =?utf-8?B?azlZdzhBL3RWUm5IV0JVbGdobkV6cWY2cFVDcmQ4M0tmU1R1cXcrYUliQ0Z5?=
- =?utf-8?B?WUpFVHRIeFN5d0tuK2NiQzlmVnpjbkNXWkFaRkFKRGplL01nRVJRWlByTGI3?=
- =?utf-8?B?bjdRSVd0b3ljcHVVTFhQS0paRXBMUWpNSUVMVkNFODBXUE4zc3R4WHl5RlhC?=
- =?utf-8?B?OWphd3lFcW8xSW5QMDJIMU14a2xQWWNFK290SHY2akRha1UrSFNtMGNpRmZW?=
- =?utf-8?B?em1VMHZCVUoxL0VIZG9ERkpyYU55TDNaZnFwM3V2M2FTRlFSY3MrNjgrenRU?=
- =?utf-8?B?OE9QYUs0cjNDc1E4UTE1QnFPaWYvTm5ETStyeFBBMzBvTExEcXI1djhhWnlE?=
- =?utf-8?B?RElNdDlWYjhQYXAwSitKTS8vTEhvMlRyL1RKaTNnc2haQWR2VEwvZGZjbTY2?=
- =?utf-8?B?Zm1FNGRUSnhpNkVhYXh0YjZiYXFxaEI4cHpjTzF0TndxQkIwTVN2ZWloNkRO?=
- =?utf-8?B?M3BHT1NUZEtVbDYvUExYZG1wVXJDQ2hZQU1rbkNWcTJtUm9nakNycURlUEwr?=
- =?utf-8?B?QU1TeU1KOEFmYXlpaEpIUFFvbzlUaCt4dzVqN0FYSi9DcTlvMS96bVRCWkxj?=
- =?utf-8?Q?bFuaA+dLPXpJKxNgT31PlarAG?=
-Content-ID: <F7E2F9A381DCE9449700A998E8BB449F@namprd11.prod.outlook.com>
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?OUVyQnRaV1ArSjZpWTBIUVNwRzZZZ2J3dnlDMFc4M2lCdHZpSTBmQWQxOVJx?=
+ =?utf-8?B?U3lsNklIWmxBbTBLc0NLL1R2ZHdtRGRES2JCVHp3OHNVaitrVDlvQm00NWtt?=
+ =?utf-8?B?TkRDRTFGNWsyeXk5YTNCczZTVE9MdXgyNEdBMTE4aWpQTWpMQXI0Yzgyd2ZN?=
+ =?utf-8?B?akZCdDh3cDRYLzZQdXVncjNIamEySkQxdVNLUUNPbDM5dnVLbmdQRy91VHpN?=
+ =?utf-8?B?TW9NSU8xUEZoRmJHTHMvSlpPUnVTZWhhWlVpaHVJWXBZNElQckN1cG5PQlh3?=
+ =?utf-8?B?YW0yYmdSaVFtTnZkVU9sL0xXNWZ0bXFoNGJvcnpYVnMvVldmRHpZUjlEWU0v?=
+ =?utf-8?B?ZmZtK1lLNVNlbFRHd0p4NkN2UWRxZlEyK2FTYXFoRmNmWUo4RVVzcWhKUGNs?=
+ =?utf-8?B?N0R5ZDR4MVhKSUdPWndKbHZUU3lidUZySWJLYm1iNUpYNFk3RzVDL3lHMFJn?=
+ =?utf-8?B?SkhYMGFTOC9zNFBLUy8vVXhYcE1sRjZ2elZCNzhCaVYvVzhLdS9lbUJ3SU0x?=
+ =?utf-8?B?SkM3bHZ4ZUtQb0VsK3R4ck5GUXdmdjlQUXV4NlZkL3BBYjB4eU9CUWl3cWZ2?=
+ =?utf-8?B?TnZLWnErWnZ6OVJHS0Rub0gyZ3VLeTJiOHRGbTN6OE1tVU15a05sbiszd3gx?=
+ =?utf-8?B?dC9zS0xLM0pmZDFPdVV0SEJsU01xQXUrU0lpdG1zWTUxWEdUeXpIVTgySXor?=
+ =?utf-8?B?YTlMeVZpNW93bWFUcXN2VG00Qm1yUWFiMDRrSkpYbmVoNUUwZ0NiQUtuU0dy?=
+ =?utf-8?B?SnVQYzVQQ0E0RkhQNHBaYU5IOXRSd2RaZ3pxM0RoQVVPdnN3L2xWSURiSzBO?=
+ =?utf-8?B?QmQxa3BuODREanpnQjBNMnV4Y01qZnBBaXJ1Z1ovQ3p6STRUdFhPQzJ2TURB?=
+ =?utf-8?B?Yklxdi9aV3E5dWtyTVFKaGJIUXdqUitBaWhwRHVjMmFCRUZqYTU4SzdxVGhZ?=
+ =?utf-8?B?VTlSSW53YU9CT0ZWWFJPL3MxcDc5T3d0eFVyb2pnNVpJL1NwU2dUaTU2VFoz?=
+ =?utf-8?B?WGFIazdyZmp3ZVAwOHhudVRGVFJ3TnRDZXJGWDE1TUpwUTBCS1I4YVdkdnZC?=
+ =?utf-8?B?VmdaNXI5ZkRvWHhxOVhvbmUvajFJcmdrSUtBTnMvdmJkUjRGK3JFOW9hRE5v?=
+ =?utf-8?B?USt2RFdPeDkrbW5HOHdDTVphTDJkQitGVys1cFVseWtic2MydmYwVEZ3S0F0?=
+ =?utf-8?B?Tzcwc2lUblplQlBscnFia0RQdGVPTGN0Z1JrOFRuUG1DYkdocVBGOWw0dzho?=
+ =?utf-8?B?NTFFWHI3OVlwdUdnRi9OTkg4V3hZcFN2WEFLL1pDR2p5TVM0dVlqdnpsekdp?=
+ =?utf-8?B?QnpNT0FiZFZneFBqb0s2cjc1QVNsWU9XZWptdG9hdURQMUkwYUtERHRkY3Qr?=
+ =?utf-8?B?aXhwTk9ybjdjY0Zob3g0VnZQY3lTcFNQcUZaemxMclN0YnFIVDNmdGtHdGxC?=
+ =?utf-8?B?a0l4OEF2cHdhZno3N2poaGlnNkZrVFFEK0ZWc09IT1Awd2ZIUitZYndwc1E0?=
+ =?utf-8?B?RVhUMkNHTzcvMXg0NGFrZWk1R3MxN1oyZUF3OFp4NTNhUmJodGVwMWVISkZs?=
+ =?utf-8?B?MWE2b2pEVTFkOFlONXBpUzZXbTZvNXBQdkhpdUZOQ3ljYWg4ZGRCb1IrVUpZ?=
+ =?utf-8?B?QlhwV3lubXdaeWhUTGhoZk40MTN4SGZ5T3B6NXFuK0RGeWhsVzRHSjBNZ0VT?=
+ =?utf-8?B?SkdxV0dmNEFuSk45QXc4SWFLRmYrZGdlcnZ6Z3R2OWM0R2RZdS9MaXJWdlh6?=
+ =?utf-8?B?L2c3b0l6UVozQUFmcjVRemlibHd2ZG5Dd2lhNFJZRzhSZnVXRnBwNVlYQ0pp?=
+ =?utf-8?B?ZENsYnBkNzhBQStWZEx0VkExY1RLc0hNK1Q3RUo1SHlGWUtHNkxvc0RiT2dw?=
+ =?utf-8?B?eGs0OTEzeE5ScHUvVHQ0TnEwdWU0NUZrbmwwSCtxK0k3QmNSb0dhODBhMzU0?=
+ =?utf-8?B?dDdmMGxsRXg1M3BQV2ZnaDBxNC94bzh0QjQ0UXZ3VlZzRnk5KytGSzlkZE5X?=
+ =?utf-8?B?RzV5ek9VQWhXZFNoU1JhelR0MDFoUEp4bmJxSGx6ZitqNXNXQ2ZRZkhIQ0Ny?=
+ =?utf-8?B?SmpPb0k4T0tiQTlkT01Ub240SEJhVXJlWC84YURuNUNNOThSRHJ5djZPUE51?=
+ =?utf-8?Q?FYDPB69obb86Z0Lq3qQ2Gtv3d?=
+Content-ID: <A4CFCC9906B6CA4396681A66243F00C0@namprd11.prod.outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 743a2344-be57-4ae1-6177-08da8cc630ac
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2022 09:33:27.3894
+X-MS-Exchange-CrossTenant-Network-Message-Id: 06868077-0a23-4d31-6be9-08da8cc658e6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2022 09:34:34.8942
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: xD4dl94cstug7AbjmCuJ18n8x/1YXhTFqsCdFVqW+3ecYs1MyOYGCfHBPs25eadTGY2EUzrSS11YEs6wgi8Z1WjYM9knJg2hcBsoLGMPYlI=
+X-MS-Exchange-CrossTenant-userprincipalname: wlO3+U9p+5J+7sPMAZNiz3aVRVghPTO5prf9B2vHs0aXpLJCK+Yn9awiiOvMZ9RA+CA8pvvXXb1n1VbEK9YvLSPf73+iclHc52uwVqA49jo=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR1101MB2363
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220902_023335_001841_2BC49A3B 
-X-CRM114-Status: GOOD (  18.45  )
+X-CRM114-CacheID: sfid-20220902_023438_604749_8D478973 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,48 +173,106 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 02/09/2022 02:06, Guo Ren wrote:
+On 01/09/2022 23:27, Heiko Stuebner wrote:
 > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> Is it a Fixes?
+> Wrapping things in #ifdefs makes the code harder to read
+> while we also have IS_ENABLED() macros to do this in regular code
+> and the extension detection is not _that_ runtime critical.
+> 
+> So define a stub for riscv_noncoherent_supported() in the
+> non-CONFIG_RISCV_DMA_NONCOHERENT case and move the code to
+> us IS_ENABLED.
+> 
+> Suggested-by: Conor Dooley <conor.dooley@microchip.com>
 
-Looks like one to me, seems a fixes tag would be good to
-have here... Either way:
+To my "sensitive" eyes, this looks a lot nicer!
+
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 
+> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> ---
+>   arch/riscv/errata/thead/errata.c    |  7 +++----
+>   arch/riscv/include/asm/cacheflush.h |  2 ++
+>   arch/riscv/kernel/cpufeature.c      | 22 +++++++++-------------
+>   3 files changed, 14 insertions(+), 17 deletions(-)
 > 
-> On Fri, Sep 2, 2022 at 6:28 AM Heiko Stuebner <heiko@sntech.de> wrote:
->>
->> The t-head variant of page-based memory types should also check first
->> for the enabled kernel config option.
->>
->> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
->> ---
->>   arch/riscv/errata/thead/errata.c | 3 +++
->>   1 file changed, 3 insertions(+)
->>
->> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
->> index a6f4bd8ccf3f..902e12452821 100644
->> --- a/arch/riscv/errata/thead/errata.c
->> +++ b/arch/riscv/errata/thead/errata.c
->> @@ -17,6 +17,9 @@
->>   static bool errata_probe_pbmt(unsigned int stage,
->>                                unsigned long arch_id, unsigned long impid)
->>   {
->> +       if (!IS_ENABLED(CONFIG_ERRATA_THEAD_PBMT))
->> +               return false;
->> +
->>          if (arch_id != 0 || impid != 0)
->>                  return false;
->>
->> --
->> 2.35.1
->>
+> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
+> index 202c83f677b2..bffa711aaf64 100644
+> --- a/arch/riscv/errata/thead/errata.c
+> +++ b/arch/riscv/errata/thead/errata.c
+> @@ -30,7 +30,9 @@ static bool errata_probe_pbmt(unsigned int stage,
+>   static bool errata_probe_cmo(unsigned int stage,
+>                               unsigned long arch_id, unsigned long impid)
+>   {
+> -#ifdef CONFIG_ERRATA_THEAD_CMO
+> +       if (!IS_ENABLED(CONFIG_ERRATA_THEAD_CMO))
+> +               return false;
+> +
+>          if (arch_id != 0 || impid != 0)
+>                  return false;
 > 
+> @@ -39,9 +41,6 @@ static bool errata_probe_cmo(unsigned int stage,
 > 
+>          riscv_noncoherent_supported();
+>          return true;
+> -#else
+> -       return false;
+> -#endif
+>   }
+> 
+>   static u32 thead_errata_probe(unsigned int stage,
+> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
+> index a60acaecfeda..4363d0beb38a 100644
+> --- a/arch/riscv/include/asm/cacheflush.h
+> +++ b/arch/riscv/include/asm/cacheflush.h
+> @@ -50,6 +50,8 @@ static inline void riscv_init_cbom_blocksize(void) { }
+> 
+>   #ifdef CONFIG_RISCV_DMA_NONCOHERENT
+>   void riscv_noncoherent_supported(void);
+> +#else
+> +static inline void riscv_noncoherent_supported(void) {}
+>   #endif
+> 
+>   /*
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 764ea220161f..729f7a218093 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -264,21 +264,17 @@ static bool __init_or_module cpufeature_probe_svpbmt(unsigned int stage)
+> 
+>   static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
+>   {
+> -#ifdef CONFIG_RISCV_ISA_ZICBOM
+> -       switch (stage) {
+> -       case RISCV_ALTERNATIVES_EARLY_BOOT:
+> +       if (!IS_ENABLED(CONFIG_RISCV_ISA_ZICBOM))
+> +               return false;
+> +
+> +       if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> +               return false;
+> +
+> +       if (!riscv_isa_extension_available(NULL, ZICBOM))
+>                  return false;
+> -       default:
+> -               if (riscv_isa_extension_available(NULL, ZICBOM)) {
+> -                       riscv_noncoherent_supported();
+> -                       return true;
+> -               } else {
+> -                       return false;
+> -               }
+> -       }
+> -#endif
+> 
+> -       return false;
+> +       riscv_noncoherent_supported();
+> +       return true;
+>   }
+> 
+>   /*
 > --
-> Best Regards
->   Guo Ren
+> 2.35.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
