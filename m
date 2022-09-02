@@ -4,159 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45D55ECAAD5
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Sep 2022 09:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F5EECAAD5
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Sep 2022 09:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lCl5uHcz3kRQJRpQ6jxuXIP7euNq+douDcOuIW46ubk=; b=Tk3ubOUJ3U9s+6
-	NZzBA9u/i1h9evt4KYaPGp8N+HAzAzlKObG7s2xryX9eKWoeZA1e3srYYMVlT4nNMRLwNTW4reeYN
-	ViSTPu6+jKHkCZcohfcRM2vQGvvTO/j+EOVRwQtDXxoGj9iJyTHw0HmZMIb/JQQJupcXZx9Bkb9kO
-	/V7FnZXWEaj6XSEYeUNpsFICeWbUJw7LsgYMvLskOy5aYUM/tSchzalV9HdWvm8cjrJUHaKhtqPQf
-	Q8xO1yE0tnnj8Bf5nzWEqHSq/NBfJRahrN5/qdoQzUitQhsyKZVRzyVWruTZBcnuo/WZTQl5KEXof
-	sptLpmlpWzR9/ovULqyA==;
+	List-Owner; bh=H4ZAePGfTJm2Wv2JEfVVvGUGpIaaJ8oCSwUef27CmEI=; b=awtNFVloYV1yM2
+	R8NMBlXhv2GLOJcM3+UzTpdPImmh/DG0y7iKwsAOqIj3GUUtdavNYnjleixHhKLP8F1R5s2MblDo8
+	tnddzEAqc3k6bKEfkYiNar6JuAJt7I/aUeh9ZE6C/Tb6QmrZveb+JDtdL6KEZow7AFYv74cpyaGIn
+	D+oowtijSd7UOdzRFxsJk1T0296x/Yhx4fz+ll9yKM7ASzfk9LyQfdM2XvcyhVzd9yeazDV3+HQm6
+	H4dn8c4/tsAF/T8lukXva3rlfopPeXpotrSqb/YYoOnz42bxRic+zmJviCoUYPHhIF2OOBQoaIXl6
+	nmq88XrhqJd4ybjvXUrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oU35H-002iUy-KL; Fri, 02 Sep 2022 09:35:31 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oU3J5-002wrz-Ix; Fri, 02 Sep 2022 09:49:47 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oU35F-002iTY-4W
-	for linux-riscv@lists.infradead.org; Fri, 02 Sep 2022 09:35:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1662111329; x=1693647329;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=dgV+BrIB0E3IxHcYftXKnOZDAUWy5xZSceC7sJk3IdE=;
-  b=PbDiEcTwsN5kYWR5/wHwrn7PmH4qRGd2wPut9U7dlukHj4hDpdvt95vI
-   DgB0fWW3u9iC7fH72fARMoaBfAH+ybZfuOmkRoLmmp0SdEQvdHh83JXnH
-   sxHzRe9qPHuM5DVtKnTuTKO1E7OHn0CPzMePHfjEmxX1zKNG7N13uq09j
-   zrmtbBs+5BXTusMlZA0FAdNKK+MuYrDOM3EA7cqfDwMAm2TDV73kV/Wbp
-   Ue3XXDfaKplkcPr4dhvI9Y0jWnMjKaBChvPSJsVuDFwQpYU+idKbAk6sP
-   TIdktiuUHOdK0VikQydOsbDMnhJtpp9xfe78rmbztbQHTSwidJY4N24vx
-   g==;
-X-IronPort-AV: E=Sophos;i="5.93,283,1654585200"; 
-   d="scan'208";a="172111552"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 02 Sep 2022 02:35:26 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Fri, 2 Sep 2022 02:35:25 -0700
-Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12 via Frontend Transport; Fri, 2 Sep 2022 02:35:25 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HBCQdcuiViTP9NXLoFwEZ4Dwsubr2Is5y/JUgp8qfRuikDniIkyNcXVNsG36o4/5yANQ+ISFfdlYVldN2lkn5xPk3t5PD32FHBB71cRN6zkMEGB4awzf0nhgRbkCs/H8LuC1ZHepfHFQ4Q7s7+oh1TMIFWau5er97jIMtpTmTx1mE/KfQPT8PxLn+KFCFlPU/UDBADKgtbqR5AL7cs73mxWUYcG/WBvbNKGfaN3vA/aJsVBjetWv/RVhBuBh3leEoTf05DdvTGQ9Ig0PrhKFW90+oXXyrbcs4hdwoTjQc0ZeH6I3YZU8b37ETjG2qIG2VjERkzoCgq+NUtdOAfNSyw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dgV+BrIB0E3IxHcYftXKnOZDAUWy5xZSceC7sJk3IdE=;
- b=VoUdruVEjrLM1dvI1vg8FtUiSaIipj9leq8TTP+X0RpetuBNjqBDiv2xH8/3ifBkhmNeGuRj6Oq0IadiJPUrg93L1R54aqredEaZv2cEllDqKrTI4EMSrWvLod+vzeaIRYMrqNS3osxdFCq/25Vh70bNA6pfVCwxSaIO0gYs+48n+wdaCjTbOIEtP83Ytd4ZIkgbKznPCcXsBUXrP4/QoA58C3tk/c+c+tEdpH+gbdZdSGee7nAMx8KrksBdCwHJVkhs8rlp2elM4DIjSbyhWjkjOwUA52hOxMBqMn0hjf5WsGVACOSCzolfuQdIC92IQnaMLq5O+trX9MNDHfoWvw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+	id 1oU3J2-002wj2-2r
+	for linux-riscv@lists.infradead.org; Fri, 02 Sep 2022 09:49:45 +0000
+Received: by mail-wm1-x334.google.com with SMTP id c131-20020a1c3589000000b003a84b160addso2308481wma.2
+        for <linux-riscv@lists.infradead.org>; Fri, 02 Sep 2022 02:49:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dgV+BrIB0E3IxHcYftXKnOZDAUWy5xZSceC7sJk3IdE=;
- b=UhL6LKfZkNWNRH16Zb7gKhxRkDwUgBT6oezD6XBi+KVhm6m/A9bb3dhs5N4JFGJpvnKfn5YLdXbXN/5ZTKukI3adV69uUK3oypBlQ6RgkR9m0KRUQUwQK3Mm8ql+NV7KQPqbPr2n6Jk3hPrQx0q+miy47yOp3aBBK8AaBZ66orU=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by DM5PR1101MB2363.namprd11.prod.outlook.com (2603:10b6:3:a7::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5588.10; Fri, 2 Sep
- 2022 09:35:11 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::545a:72f5:1940:e009]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::545a:72f5:1940:e009%3]) with mapi id 15.20.5588.010; Fri, 2 Sep 2022
- 09:35:11 +0000
-From: <Conor.Dooley@microchip.com>
-To: <heiko@sntech.de>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-	<aou@eecs.berkeley.edu>
-CC: <guoren@kernel.org>, <apatel@ventanamicro.com>, <atishp@rivosinc.com>,
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 3/4] riscv: use BIT macros in t-head errata init
-Thread-Topic: [PATCH 3/4] riscv: use BIT macros in t-head errata init
-Thread-Index: AQHYvlIz1Q6Z0RUZR0ytlPEcYglJ3K3L4d8A
-Date: Fri, 2 Sep 2022 09:35:11 +0000
-Message-ID: <a713cddf-871b-de0a-d408-f38eaea42085@microchip.com>
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date;
+        bh=iTtfs4ZEmz2CO0tqyShdZy5SmT8da7zI2nW4mYiBg+c=;
+        b=X4IvpiG63ejRn1EIKWvGaz7DCDnZqy0WSyVucEnSYcPk2w1QrY+gyJyFJFC08kfsaD
+         oDoVxupIZJhGur5lGQH2eM1a0R813H0MUmqu3G9RsT2CzXFdJDJwAMbcDyxkr4fxZkPu
+         NFQedKIOwRmY6j3lcsiCpBRJCjjGf+xvutAw4uh/Wy+FbkZMULs2KXGStwmShxGNSKgm
+         twUoq1+Q/uSxiLicDLNA8We0KLynTdEhxgXWSKQbHVWSUEe/Edv5eFvGC+PIXAC3C1Df
+         JEJ/lHlzwCdJTpgKkWuKGZxQIKRPk+cuFLzLYN8NoGa8asJkIAe2mBiAASKH+TAUeL6C
+         EcaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=iTtfs4ZEmz2CO0tqyShdZy5SmT8da7zI2nW4mYiBg+c=;
+        b=0kb4JkiJvHaPEi4p8uhOXLGa7N9KEJNybBpkMd8gorur3OkwuYulQWf8nUDFlMTBmy
+         oSSTiXaalshC66vfZfQzTRUsii66GTa6lx2xyGgAXSVnrhRfFqIGiQYZtNYsCUfkJhkl
+         ucsaa4wUCzTNO95Rmo4OW/ByqOGioTXeo7DhNmqE+2iPboSddJSEoDbaKMJR3EY0vIXF
+         MFJqK0CDuZbKE84NpM11j0aqPVfoCPKZ8+GrKDmcGR8xrHQW3u8SHKdJ5fQD6GFnbwnj
+         QRfjQSoNrYqdl9mVCU1n7Ke5RywPBSpI4BX8oIugbltOXmyWiERe+1S5qw3no5w2iG92
+         4eQg==
+X-Gm-Message-State: ACgBeo0kV1Bor200Dbt9BTCrRfuIMCLbtcRziVK2PFunh3vH/Ff8bU8e
+	q41KuHH5tiSCHE2h3WHdrje/7Zj6aL24bA==
+X-Google-Smtp-Source: AA6agR7g6UjnTtC54SC24/+GwV++cMHs/qNuPRNWMTUDeFLY9RsZbZndkhHBZal1E6VW66nimnslZQ==
+X-Received: by 2002:a1c:202:0:b0:3a8:4197:eec0 with SMTP id 2-20020a1c0202000000b003a84197eec0mr2204962wmc.83.1662112180473;
+        Fri, 02 Sep 2022 02:49:40 -0700 (PDT)
+Received: from localhost (cst2-173-67.cust.vodafone.cz. [31.30.173.67])
+        by smtp.gmail.com with ESMTPSA id ay19-20020a05600c1e1300b003a50924f1c0sm1700998wmb.18.2022.09.02.02.49.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 Sep 2022 02:49:40 -0700 (PDT)
+Date: Fri, 2 Sep 2022 11:49:39 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com, guoren@kernel.org,
+	apatel@ventanamicro.com, atishp@rivosinc.com,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] riscv: cleanup svpbmt cpufeature probing
+Message-ID: <20220902094939.wvzovl6ytujtjbtm@kamzik>
 References: <20220901222744.2210215-1-heiko@sntech.de>
- <20220901222744.2210215-3-heiko@sntech.de>
-In-Reply-To: <20220901222744.2210215-3-heiko@sntech.de>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.12.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 71872566-a9fe-4171-f434-08da8cc66ee3
-x-ms-traffictypediagnostic: DM5PR1101MB2363:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: y1x9mWnWxoLcjtUIYWPlMxAqDbDDUIdI8RkbiUPTtR0yU46cH7b4xkctFTy2I5AGxKxeh6knU1ctvTY58xTLEnIHL9EpP6FW7Y1TD4zPsBtjFDllRRSKIdWVGBBWDK2FAdylKTN8+WuUPpe7ZkKXyzejoFvtWg5uzpAUyrPwfkbrMsIt2HZdCzX1uIryD5B028HDncM9s728mfnJuD6nOksIzl/6CojoO4/ut480qfK5UA4zmOkK2SiuR1liseesfKOPpZEUHGW+g5kFsHKGnxZi/FEb4cuZWhIDgyNdVukOgk6V4u10Jo9R0D6x0yAeW88eAS/F88Tugum5dkxmJzgl6T7mRtgHpYoMvK4SNvzfVWPixcy0FpKXYD61qNHTlRwRiPPT+eDrOyqRjbH+EP9BLFuSFK0E2lHZU0tF6v6X50ixT8tk87A96pusOFQZGD5avIj2KAgo6rkTzCMhtVPGLzBFp11WgmypbpXz5R+G/pDyxXfxtxqbUa26qwkeoEFNxihO38rbw+xB0nAyY4pqqeeAaTmYoDAYh4U6qu6Q0gI6k2P1sJkganfrD7c9WQyfr8lTABPF5Pb37BriAwP0/+D/jlcf9eQa+FBMsSr/L/CTjhBmiVak0mxni6NnUHBxEXnA4P9DIphkCs1oh6/mJC8B4vZdnqn4jAofRYJycO3e/P/kve0msXUZt68CBXO/3X9JHO/Hvx/PeE4aBIVIndimH0rPLsxyg8XJQkxGeDAPOG6faWZKyWm727ugYNdBeCVJJF2u5JncjemzVJbyJnNsbVwDAcP2maFsjRSBjhTraaC6BWEouW3mzBhW1Qvpdnt31YBvfrgWfopXqQ==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(366004)(396003)(376002)(136003)(346002)(39860400002)(31696002)(38070700005)(83380400001)(122000001)(38100700002)(91956017)(76116006)(66946007)(66556008)(66476007)(66446008)(64756008)(8676002)(4326008)(110136005)(54906003)(316002)(2906002)(8936002)(5660300002)(53546011)(6512007)(26005)(6506007)(186003)(2616005)(71200400001)(6486002)(41300700001)(478600001)(86362001)(31686004)(36756003)(45980500001)(43740500002);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RDlEc2FVYlJCdVlQeElFZnVSRGNjdTlhRlA0aU4vcEdicWduVmpjR3FSL1d1?=
- =?utf-8?B?NTV5UDNZNTFzbXVlRVJNTXBycXZ1enRKNFkxU2xhRDlqWGlOUzN5UExYT2dk?=
- =?utf-8?B?L1laOWt6SmlYU0Vic0JnL0hlSVU2MmY2QWVmR2tWN0RIVE1DbzZVOTVpWWE4?=
- =?utf-8?B?WU1KSUtMQ2FtMk9FdExqbnNGenJNc3p4UTVMSkhDK3JuQ3F6ZHNRQTdxUHJ4?=
- =?utf-8?B?SDc0bWtkblRJSWpTRHA5SWpoZ0dlbHNvWlpEdGJxZi80bG9nRWxqOERHU0Fa?=
- =?utf-8?B?YXhTbUVhN2JHR2N3UnVBZXozWEcwNzcvajEvM2N6T2t3Q2tBOTZUZ244UDk2?=
- =?utf-8?B?YkFoR1NsUUw2b0oxVVhXWEtza3BsWnFmcnNzWStKaUtVeHc2eitJR2Rid0FV?=
- =?utf-8?B?WklMVC9mUEJxaEpRbFgreDN0Wm9TYjA1aTJrZU1oL043YmdXc2FTejlwUzVE?=
- =?utf-8?B?ZDRwWCt2UlNNNGxsbzFvMmI1K1E2K2MrbkE1bksyaXFqNi9QeDlTckJ2ZHFT?=
- =?utf-8?B?WGVEWjRNQUtqaHM1QnNFY2dJeGJYZWhEcXVJaTkrT2prcExYaTBmVEhZY3dZ?=
- =?utf-8?B?R3lJL2NIS3J5Y1hjc0RUMmp6aXFmK05NVVFjcUNTYUE1cGVhaitlVHc3UWlx?=
- =?utf-8?B?WUhCL1gvREUxbkN6b2VyTW9QYWZCcVB3U0NNYmRrRW8wdlNCZ3JBVTlOYk9S?=
- =?utf-8?B?VE5XbU1rSXJ5VytLd0FzeGlORDZHSTU3TmpkVWcxNEt3bU50dk5TUmg5SjA5?=
- =?utf-8?B?NEV1Nzd3Wmk5NDBpdDNBUFk3UFhBS2ZRVW11dG42Y1R4aXMwL1ExSHd0d1Q3?=
- =?utf-8?B?NzF2ajI3cmxpR1FGRkFVZ0lObHdZNW13Yk1YU0VCTmxRcVZxeHJEemFSRXRa?=
- =?utf-8?B?bU04Yno2TEF6R1ZWZlN0Y2FTMUQzZXFWbFVmVXF0K29yazFER25WOHRsK2o5?=
- =?utf-8?B?NE5sdGJZWWRoOGVpd3p4Q0pYWmhIQ1VFTERSRVlpZHNjRElGNTFiTm10bDBT?=
- =?utf-8?B?RFBzd2pNd1dXK2szQlU0eXRFWTBkNUxFNXFOSnlhUEh5aGM4a0NYV2NVZzlS?=
- =?utf-8?B?NFNadDZha1FzWVBCWXJRaTl3THh2d1lmVE9xM3hGV3BTRXJabncwdUo1L25E?=
- =?utf-8?B?RUZmcTY0eUNsM05aMkl2TWZoQlZIMjE4TTgwU3ppSDJYQmpsRUFLU0t0K0pU?=
- =?utf-8?B?N08xUlVEVlV6RHowYlUyN3hBYzF3Y1VoTlR1WlhYRktDNHlPK095aFU1QUUw?=
- =?utf-8?B?NWVtcE9vQXgzS0pabS9VSWFNVHRPaGhpa284Nk1TbnN2UExKMXVmR0l2ZkRn?=
- =?utf-8?B?aUpxN3R0Z2JuYUxUVmw1blgwaXA3MUtlUXlERC94bHkyc2VteVNVMkdIMDZn?=
- =?utf-8?B?V0VPOHFEZm9BVG55TUZNYUltcmFQeTVGRDZwZVg4NjFUL09scnhNV2R5aHdr?=
- =?utf-8?B?cjBwZEFDQWR4TGxQU0xzWmh3YmpsZmp4empyMUR0ZHBKWGtnUjVpT2VIb3Ro?=
- =?utf-8?B?NW9ycDVHMmlrZm1nM094UGJ4ZHJ0ejBzeHJTbi8rYmJWeTJYOFoxQ0VRaUxZ?=
- =?utf-8?B?clc5RTdXNHlKMkJEalVlM0VXN3g4TkJFTmx4VTBtQko3U3lHYklGVkxWRGpJ?=
- =?utf-8?B?WlA3cVVGYUxMMlZsT1Zmc1E4TVk5aXM4UCtQSHFlcUo0cndUeGU0RnlpMnBI?=
- =?utf-8?B?eFA0emIvV1dIa1dmQngrZnZ2M29KNUFkdFAzOHFUZU5MR0FOUTROSGwwNzh4?=
- =?utf-8?B?dlJ4SFN2ZXhzRjFOckNvd0xpRXdlVkx6ZjZIT2M1d0lURGtBenN2cVpPQ1Rj?=
- =?utf-8?B?bTRWRy92UWZ2MUlHWE5Qbkc4VzJKSUYwUXhWYS9KQWdydmo1YkEzSzRpMWNY?=
- =?utf-8?B?UHJpR0xIblZzWnIrcjM2dG5GRGpiU3pSSi9Bd016TXh3YWpJZ3JuV0JwcFlT?=
- =?utf-8?B?TWg3T2ZWbHlHdmlEbW0yemYyQUZFczVLREJPa2NwTVYySUFpdG1HSGpBNmNk?=
- =?utf-8?B?YnhNNmxLdUtQK3lFWXdTcmVXanpCQU5udmN6MWt1SmJzWjg1MnJ4MmN2ZkEx?=
- =?utf-8?B?cjBzRUVOMkQ2OUhDTnErallpbGlhQUxsb0FubTI1cUp2S1lVS09KSGpXMFlr?=
- =?utf-8?Q?Rpc5mIHfBHm3k5CfNycQ+R2es?=
-Content-ID: <646452B4E23EDB48B23D0C00C43C9782@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71872566-a9fe-4171-f434-08da8cc66ee3
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Sep 2022 09:35:11.7568
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: CJMjQRKH0zr1uf4deTxg71t18eVCO+KjxLIOXYKs2E7Z7+1oLN8Z7szbPl566ogHK0kN8yDTre4mlvV+Va4jLKaZjhneNyKAQtTk5898EVw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM5PR1101MB2363
+Content-Disposition: inline
+In-Reply-To: <20220901222744.2210215-1-heiko@sntech.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220902_023529_307007_412EC55B 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20220902_024944_151692_FDBD75E1 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,41 +90,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 01/09/2022 23:27, Heiko Stuebner wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> Using the appropriate BIT macro makes the code better readable.
+Hi Heiko,
 
-As you might imagine, I agree!
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Please use a cover-letter for a patch series. They allow the series to be
+threaded better and people can reply to the cover-letter with series-wide
+comments. For example, I'd like to reply to a cover-letter now with
 
+For the series
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+
+but now it looks like I need to go back and reply to each patch
+separately.
+
+Thanks,
+drew
+
+On Fri, Sep 02, 2022 at 12:27:41AM +0200, Heiko Stuebner wrote:
+> This can also do without the ifdef and use IS_ENABLED instead and
+> for better readability, getting rid of that switch also seems
+> waranted.
 > 
-> Suggested-by: Conor Dooley <conor.dooley@microchip.com>
 > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 > ---
->   arch/riscv/errata/thead/errata.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
+>  arch/riscv/kernel/cpufeature.c | 13 +++++--------
+>  1 file changed, 5 insertions(+), 8 deletions(-)
 > 
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-> index bffa711aaf64..a6f4bd8ccf3f 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -49,10 +49,10 @@ static u32 thead_errata_probe(unsigned int stage,
->          u32 cpu_req_errata = 0;
-> 
->          if (errata_probe_pbmt(stage, archid, impid))
-> -               cpu_req_errata |= (1U << ERRATA_THEAD_PBMT);
-> +               cpu_req_errata |= BIT(ERRATA_THEAD_PBMT);
-> 
->          if (errata_probe_cmo(stage, archid, impid))
-> -               cpu_req_errata |= (1U << ERRATA_THEAD_CMO);
-> +               cpu_req_errata |= BIT(ERRATA_THEAD_CMO);
-> 
->          return cpu_req_errata;
->   }
-> --
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index 553d755483ed..764ea220161f 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -253,16 +253,13 @@ void __init riscv_fill_hwcap(void)
+>  #ifdef CONFIG_RISCV_ALTERNATIVE
+>  static bool __init_or_module cpufeature_probe_svpbmt(unsigned int stage)
+>  {
+> -#ifdef CONFIG_RISCV_ISA_SVPBMT
+> -	switch (stage) {
+> -	case RISCV_ALTERNATIVES_EARLY_BOOT:
+> +	if (!IS_ENABLED(CONFIG_RISCV_ISA_SVPBMT))
+>  		return false;
+> -	default:
+> -		return riscv_isa_extension_available(NULL, SVPBMT);
+> -	}
+> -#endif
+>  
+> -	return false;
+> +	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
+> +		return false;
+> +
+> +	return riscv_isa_extension_available(NULL, SVPBMT);
+>  }
+>  
+>  static bool __init_or_module cpufeature_probe_zicbom(unsigned int stage)
+> -- 
 > 2.35.1
 > 
+> 
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
