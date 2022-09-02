@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A1CCC001B5
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 Sep 2022 16:47:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285EAC001B5
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 Sep 2022 16:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XHRxmX1A5dK2qLPvtpUH1D8+u7Il1E8gSQ4pAgl7xFs=; b=PFhzmtQOxca6vM
-	495qEXMXQGE6myEJYf7pNByuD/jYlAXVMlrJq8g3ALpqNx7PApyXB472WNxLUwIZRCUIOtXUE6BoW
-	x9dYswsC4oRzspLM7f3SSSNFNMsB3ltIIFc4CHGFMQlqmbi0NFQKRD/2LSdZ9jOI4yATrwq+lgg4t
-	2c4UpsjY76PWEnMozuOTKxxnlWByOhuiRfqT5/E/vig+qccXwHBEQ3Jrr9JWx1B05EuK3+rM0ocvD
-	ZBTa910/TZ6F98mJigarqs9+3PLBWpR/LVKKHJEqYYv1yJpVZutkqIW4YtnxLjkW0I91lEuXX2TYl
-	id5Pvbx4rXmZ0J8q0t0w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=RNfxuviYlksc1UOGhIcZgpQGLfphntwvTDUA3DOhgsI=; b=DUQS+tWN0e4PhS
+	ICPoizBF6TiSXOrTJOPtKmuP0kHqXWeuurGAUDy5XZaeKcfzwcrxsPhm42IiqB2drIsttJJ2gtzOJ
+	5xAEmNUK3a515+oJZ9l/nH4+Ss5tvh6V8VGbgAOmg61yc/kKVGT+5Yy6q4d5RNyKEglubhRJ/TZK6
+	ykqHPsMct/Me7wX5zxhT53sspipV2xqNBmfKtkRaPCfho0hEcqxb6uR1Psu8UtSFQ5SpUVKB4RbGL
+	cuMm/K7MPPQwXOWPB107sDeWYTsFl6VVqxgkiWloDXQdVE27BUIq1gzdbUCbfECrUIBWhSwXurIym
+	FU2I9oPhkWBwac/yA+kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oU9oy-007Fjb-HU; Fri, 02 Sep 2022 16:47:08 +0000
-Received: from hall.aurel32.net ([2001:bc8:30d7:100::1])
+	id 1oU9rF-007HqA-W5; Fri, 02 Sep 2022 16:49:30 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oU9os-007Fgb-Ut
-	for linux-riscv@lists.infradead.org; Fri, 02 Sep 2022 16:47:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=aurel32.net
-	; s=202004.hall; h=In-Reply-To:Content-Type:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Content-Transfer-Encoding:From:Reply-To:
-	Subject:Content-ID:Content-Description:X-Debbugs-Cc;
-	bh=c3C1L8ygkR4POw1lwqktfSTczjSvOPxAtxJRah3i+HI=; b=whVQWd4t2aVki+JXH3XkSZhGtC
-	PJo27LgefpRIXaqls1aW0Jiew82P9vuQJpCafjlbH4tIt109jp1wySZ41wIX3CZ85x5Ffn+QaV8vE
-	YhEhTSwqNFkL4V+7Q0y+bdeWWBGRl0/4EVyh7clygnaZn+TkEhghJ7uTmodGCd6SX1yaLA11KPmE1
-	9qr0aPDm1g9DeQ4a5qEa2193jUa69jXOPfFPJZDVmtTR+bmUhR9afrs2MWtaPOr0RwLlfSuKkZXKi
-	dkq8qqUKKqmLgKcnVucnjpeZVUGRtf4b/Yv6OytdYwG3Kcqpnne47unnomP3YMmPrZYApjn6t1251
-	cWJhUwBg==;
-Received: from [2a01:e34:ec5d:a741:8a4c:7c4e:dc4c:1787] (helo=ohm.rr44.fr)
-	by hall.aurel32.net with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1oU9oo-004uKf-03; Fri, 02 Sep 2022 18:46:58 +0200
-Received: from aurel32 by ohm.rr44.fr with local (Exim 4.96)
-	(envelope-from <aurelien@aurel32.net>)
-	id 1oU9on-00HIPa-1Y;
-	Fri, 02 Sep 2022 18:46:57 +0200
-Date: Fri, 2 Sep 2022 18:46:57 +0200
-From: Aurelien Jarno <aurelien@aurel32.net>
-To: Anup Patel <apatel@ventanamicro.com>
-Cc: Jan Wassenberg <janwas@google.com>, Anup Patel <anup@brainfault.org>,
-	Mathieu Malaterre <malat@debian.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Jan Newger <jannewger@google.com>
-Subject: Re: rdcycle from userland with RISCV_PMU_SBI=y
-Message-ID: <YxIzgYP3MujXdqwj@aurel32.net>
-References: <YxEhC/mDW1lFt36J@aurel32.net>
- <CAOnJCUJ-E-VyQOyh+psbJP4mDO9F+ShvnxDYjoCUUkH4rddJtw@mail.gmail.com>
- <CAOnJCUKDQfCD7mh-RWrq0E8a3Fmp4Xz348THrS+SmJ71GX8=PA@mail.gmail.com>
- <CA+7wUsww-CGmyNOHJw2bVfcDamq3_XD8mVDJ6pfk0UsxreEjOw@mail.gmail.com>
- <CAAhSdy2RGu9NHg0rOfiGxZYsvvcvtOr-jGWdLVt+iUkpZKgN=w@mail.gmail.com>
- <CAGRC-mj-v6RoGjCNr_TiabgqYX7H9mTXYE9tx6BhCKT5nHD-Aw@mail.gmail.com>
- <CAK9=C2W2tkmyX0x2A7iaNLGoRq4N7L0CwwNacmdtsw6OUdfODQ@mail.gmail.com>
+	id 1oU9rC-007HmP-DZ
+	for linux-riscv@lists.infradead.org; Fri, 02 Sep 2022 16:49:28 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id D0595B82C7A;
+	Fri,  2 Sep 2022 16:49:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58868C433D6;
+	Fri,  2 Sep 2022 16:49:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1662137362;
+	bh=58HmXJZ7cVwPGxzZXKN87EsF6m8uIuwgkC4Bpe+0XhU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=hcUeydZpba6DdF+3oXTEg876gtheMWDKkhPvwDd8Z9FT9VA9ibz06Cn39ER37vNpK
+	 sdtaSSQK+lEr1PQsWBcrdg0cq8k/PxjlvDdslAHMHda809w/OXgJhqCNJq4AezUprM
+	 l7Otiy7hE7igG8+Ao9/sSiYIKR6wORwIzrV80JlEfvdMp6SYTa0xMDBT+o4coJtsVV
+	 5l01j351+Auo5Fv/dXL67ls7s6W4Ii9vM09MumAcpE8e4xg+vJgb4l97tLCB5KQfLH
+	 1xzIRd+xChEU4O7iFGgm8hQa8slilbguGya1CxLpTVOQEFm1KeiMpsioG8ofIq5/EC
+	 O/DsthCc06qfQ==
+Date: Fri, 2 Sep 2022 11:49:20 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: daire.mcnamara@microchip.com
+Cc: aou@eecs.berkeley.edu, bhelgaas@google.com, conor.dooley@microchip.com,
+	devicetree@vger.kernel.org, krzysztof.kozlowski+dt@linaro.org,
+	kw@linux.com, linux-pci@vger.kernel.org,
+	linux-riscv@lists.infradead.org, lpieralisi@kernel.org,
+	palmer@dabbelt.com, paul.walmsley@sifive.com, robh+dt@kernel.org,
+	robh@kernel.org, cyril.jean@microchip.com,
+	padmarao.begari@microchip.com, heinrich.schuchardt@canonical.com,
+	david.abdurachmanov@gmail.com
+Subject: Re: [PATCH v1 3/4] PCI: microchip: add fabric address translation
+ properties
+Message-ID: <20220902164920.GA349565@bhelgaas>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAK9=C2W2tkmyX0x2A7iaNLGoRq4N7L0CwwNacmdtsw6OUdfODQ@mail.gmail.com>
-User-Agent: Mutt/2.2.6 (2022-06-05)
+In-Reply-To: <20220902142202.2437658-4-daire.mcnamara@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220902_094703_501966_B8FC199D 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20220902_094926_777131_24623809 
+X-CRM114-Status: GOOD (  33.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,42 +78,181 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022-09-02 17:34, Anup Patel wrote:
-> On Fri, Sep 2, 2022 at 3:52 PM Jan Wassenberg <janwas@google.com> wrote:
-> >
-> > OK, but even if frequency changes, a cycle counter seems more useful for benchmarking than a low-resolution wall time.
-> >
-> > FYI it's not just Highway, the Google benchmark library also uses rdcycle.
+On Fri, Sep 02, 2022 at 03:22:01PM +0100, daire.mcnamara@microchip.com wrote:
+> From: Daire McNamara <daire.mcnamara@microchip.com>
 > 
-> Since the RISC-V ecosystem is still evolving, it is best time to fix
-> things now rather
-> than later.
+> On PolarFire SoC both in- & out-bound address translations occur in two
+> stages. The specific translations are tightly coupled to the FPGA
+> designs and supplement the {dma-,}ranges properties. The first stage of
+> the translation is done by the FPGA fabric & the second by the root
+> port.
+> Use outbound address translation information so that the translation
+> tables in the root port's bridge layer can be configured to account for
+> any translation done by the FPGA fabric, for example,  on Icicle Kit
+> reference design.
 
-Fair enough.
+Can you please:
 
-> Currently, only "time" CSR is available to user-space and all other performance
-> counters should be enabled (or accessed) using Linux perf syscalls.
+  - Make your subject follow previous convention, i.e., at least
+    capitalize "Add".
 
-This is more complex in practice. For a recent kernel, the availability
-of the "cycle" CSR depends on the PMU driver being used or compiled in
-the kernel. For instance on both QEMU and a Polarfire Icicle board, the
-legacy PMU is getting used, so rdcycle is available:
+  - Add a blank line between paragraphs.  Patch 2/4 also lacks this
+    blank line.  Without the separator, it's just confusing because I
+    can't tell whether it's supposed to be a single paragraph that you
+    forgot to wrap correctly, or two paragraphs.
 
-[   34.420435] Legacy PMU implementation is available
+> Signed-off-by: Daire McNamara <daire.mcnamara@microchip.com>
+> ---
+>  drivers/pci/controller/pcie-microchip-host.c | 59 +++++++++++++++++---
+>  1 file changed, 52 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-microchip-host.c b/drivers/pci/controller/pcie-microchip-host.c
+> index 7263d175b5ad..d78745eaa4b4 100644
+> --- a/drivers/pci/controller/pcie-microchip-host.c
+> +++ b/drivers/pci/controller/pcie-microchip-host.c
+> @@ -269,6 +269,8 @@ struct mc_pcie {
+>  	struct irq_domain *event_domain;
+>  	raw_spinlock_t lock;
+>  	struct mc_msi msi;
+> +	u32 num_outbound_ranges;
+> +	u64 outbound_range_adjustments[32];
+>  };
+>  
+>  struct cause {
+> @@ -964,6 +966,37 @@ static void mc_pcie_setup_window(void __iomem *bridge_base_addr, u32 index,
+>  	writel(0, bridge_base_addr + ATR0_PCIE_WIN0_SRC_ADDR);
+>  }
+>  
+> +static void mc_pcie_parse_outbound_range_adjustments(struct mc_pcie *port, struct device_node *np)
 
-In the meantime, I upgraded QEMU and with it OpenSBI, so the SBI PMU is
-used instead, and I should also update it on the Polarfire board, but it
-is not so easy. Not that for QEMU, the value of scounteren is ignored,
-so that rdcycle is still available.
+Wrap to fit in 80 columns like the rest of the file.
 
-We should make that consistent so that all users see the same behavior.
+> +{
+> +	const __be32 *range;
+> +	int range_len, num_ranges, range_size, i;
+> +
+> +	range = of_get_property(np, "microchip,outbound-fabric-translation-ranges", &range_len);
+> +	if (!range)
+> +		return;
+> +
+> +	num_ranges = of_n_addr_cells(np);
+> +	range_size = range_len / sizeof(__be32) / num_ranges;
+> +
+> +	for (i = 0; i < num_ranges; i++, range += range_size) {
+> +		u64 pcieaddr = of_read_number(range + 1, 2);
+> +		u64 cpuaddr = of_read_number(range + 3, 2);
+> +
+> +		port->outbound_range_adjustments[i] = cpuaddr - pcieaddr;
+> +		port->num_outbound_ranges++;
+> +	}
+> +}
+> +
+> +static inline u64 mc_pcie_adjust_axi(struct mc_pcie *port, int index, u64 axi_addr)
 
-Regards
-Aurelien
+No need for this to be inline; it's not a performance path so the
+"inline" annotation is just clutter and makes the line too long.
 
--- 
-Aurelien Jarno                          GPG: 4096R/1DDD8C9B
-aurelien@aurel32.net                 http://www.aurel32.net
+> +{
+> +	u64 offset = 0;
+> +
+> +	if (index < port->num_outbound_ranges)
+> +		offset = port->outbound_range_adjustments[index];
+> +
+> +	return axi_addr - offset;
+
+  if (index < port->num_outbound_ranges)
+    return axi_addr - port->outbound_range_adjustments[index];
+
+  return axi_addr;
+
+> +}
+> +
+>  static int mc_pcie_setup_windows(struct platform_device *pdev,
+>  				 struct mc_pcie *port)
+>  {
+> @@ -971,14 +1004,28 @@ static int mc_pcie_setup_windows(struct platform_device *pdev,
+>  		port->axi_base_addr + MC_PCIE_BRIDGE_ADDR;
+>  	struct pci_host_bridge *bridge = platform_get_drvdata(pdev);
+>  	struct resource_entry *entry;
+> +	u64 axi_addr;
+>  	u64 pci_addr;
+> -	u32 index = 1;
+> +	u32 index = 0;
+> +	u32 num_outbound_ranges = 0;
+> +
+> +	resource_list_for_each_entry(entry, &bridge->windows) {
+> +		if (resource_type(entry->res) == IORESOURCE_MEM || resource_type(entry->res) == 0)
+
+Rewrap.
+
+> +			num_outbound_ranges++;
+> +	}
+> +
+> +	if (port->num_outbound_ranges && port->num_outbound_ranges != num_outbound_ranges) {
+
+Ditto.
+
+> +		dev_err(&pdev->dev, "Mismatches in outbound range adjustment\n");
+> +		return -EINVAL;
+> +	}
+>  
+>  	resource_list_for_each_entry(entry, &bridge->windows) {
+> -		if (resource_type(entry->res) == IORESOURCE_MEM) {
+> +		if (resource_type(entry->res) == IORESOURCE_MEM || resource_type(entry->res) == 0) {
+
+Ditto.
+
+I guess "resource_type() == 0" means config space?  I assume these
+entries came from devm_of_pci_get_host_bridge_resources()?  From
+gen_pci_init(), I guess there's an assumption that the resource at
+index 0 is ECAM space?
+
+> +			axi_addr = entry->res->start;
+> +			axi_addr = mc_pcie_adjust_axi(port, index, axi_addr);
+
+How does this address adjustment work given that
+pci_host_common_probe() has already called gen_pci_init() to map the
+config space?
+
+Hopefully you can use Rob's suggestion to just use two levels of
+ranges instead.
+
+>  			pci_addr = entry->res->start - entry->offset;
+>  			mc_pcie_setup_window(bridge_base_addr, index,
+> -					     entry->res->start, pci_addr,
+> +					     axi_addr, pci_addr,
+>  					     resource_size(entry->res));
+>  			index++;
+>  		}
+> @@ -1005,6 +1052,8 @@ static int mc_platform_init(struct pci_config_window *cfg)
+>  		return -ENOMEM;
+>  	port->dev = dev;
+>  
+> +	mc_pcie_parse_outbound_range_adjustments(port, dev->of_node);
+> +
+>  	ret = mc_pcie_init_clks(dev);
+>  	if (ret) {
+>  		dev_err(dev, "failed to get clock resources, error %d\n", ret);
+> @@ -1099,10 +1148,6 @@ static int mc_platform_init(struct pci_config_window *cfg)
+>  	writel_relaxed(0, bridge_base_addr + IMASK_HOST);
+>  	writel_relaxed(GENMASK(31, 0), bridge_base_addr + ISTATUS_HOST);
+>  
+> -	/* Configure Address Translation Table 0 for PCIe config space */
+> -	mc_pcie_setup_window(bridge_base_addr, 0, cfg->res.start & 0xffffffff,
+> -			     cfg->res.start, resource_size(&cfg->res));
+> -
+>  	return mc_pcie_setup_windows(pdev, port);
+>  }
+
+Not specifically related to *this* patch, but microchip uses the
+pci_ecam_ops.init() method to do a whole bunch of init completely
+unrelated to ECAM, which makes things really hard to follow.
+
+It would be more readable to have an mc_pcie_probe() that does the
+mc-specific initialization and calls pci_host_common_probe() to do the
+generic stuff.  This is what apple_pcie_probe() does.
+
+Bjorn
 
 _______________________________________________
 linux-riscv mailing list
