@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA567ECAAD4
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 Sep 2022 16:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F12FECAAD4
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 Sep 2022 16:14:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fo4uBLeY1CKENfSjbL6+jBCG+dg5CSVXAkXMz8AY260=; b=GP+e+MEefy105G
-	N4lgAZajkQL6E74a8GAnKxowPToMFjdqn8N0yrdPITW3FOoWmF0zGEYAhZm5Pgzwr9boO0a0O8wkN
-	fiyAr/SkKnNVcY3cXvwrHljsTnjs8hNXqrxKH+2D6INlKy6+2Fg64QTfvUbsToKwalO3NeAUA+VaA
-	IlLPY4GEOamfXTInumfVcSdIG76S80tZ5mNvsXSqaek4pdGdswU8SfB6z/VysuQ8MK1KRrz1suzxB
-	3pTHV+/IXPlt46yt5LYvM1ltL09C4kvoDHdUW+Epn3HVhOdb8CbgolxPREeljktK/MMw3gvRjcT1B
-	/dX8+Le/QjF83MQdJYEw==;
+	List-Owner; bh=kxcf/Kx61aeVfybbYCcYc8KKp0wo9IyoSy9fgDWOEsE=; b=pT3wqgpOPLaDYA
+	oWpRJsi5eSrVlg+CNk7XN1hmR6QERRGZauqx2k/QiunKWSs1zVU2rk4O7XC2Mw3kfymdYetYyUycx
+	5QmUx75cPnySanDT8gK4X9POzuFR3knO35rV/A/apKzlDZYfzvqd4MZCosXgFEI9rZ9UcFn0Bo3MW
+	gpPk1RQF154QFBXRW4PswV2T2e6/PjQs3kKHgJGHIm6lkbvK4F3lFSwPqUkCHnp+ocpgrQjiXRq74
+	tFPXtIHCC+Ui9VHu2l+3fjW7y2UgIIviilXVPXQIY2gyWLqb/Hr+eQ/xWI0+h3NaVW8mE7s70gEx+
+	eznLEcGRcBJQQK4ZFGxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oUVmQ-00DPML-0F; Sat, 03 Sep 2022 16:13:58 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1oUVmV-00DPQm-D6; Sat, 03 Sep 2022 16:14:03 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oUVmM-00DPI3-SB
-	for linux-riscv@lists.infradead.org; Sat, 03 Sep 2022 16:13:56 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id 199so4784473pfz.2
-        for <linux-riscv@lists.infradead.org>; Sat, 03 Sep 2022 09:13:53 -0700 (PDT)
+	id 1oUVmS-00DPMP-Nq
+	for linux-riscv@lists.infradead.org; Sat, 03 Sep 2022 16:14:02 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id ck21-20020a17090afe1500b002003ba5b71cso88082pjb.0
+        for <linux-riscv@lists.infradead.org>; Sat, 03 Sep 2022 09:13:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
-        bh=BjmiwAV+qkEddhUojBQVUbZIbS/TIGSArMUYW9Y9o7E=;
-        b=Srg2KJC/N71EQANb9rpCKaljNyHKDS7vEUW8cxdVSufvipwuHS2pXV3h9zsLGw0upK
-         JG4lKrIQZhYaxEZ5JdCBfvxdt/eBk33xYrMUb/oLh5qgnKt+2XImR6B8SkOarGSPdlhR
-         eFkvgCK55UXQz0TTua8azNxmM8zgoEL+wfNPlfRJ/7HnQbIJ20x455YKOWjbV9ZGacPG
-         3gjGP3V2mXrLb0yiMM/IBPmQT5ga+0Il8BFQGzvthPPa53BZJlH8MEX7eVAYdzYkX09d
-         AqAccjeu+iVXuUfnetkcvjFKgEmRgYu3Tnay3I2Z7/moDzkKrIHzSRsrsAz1giTHXVLt
-         F0BQ==
+        bh=c13eLILpK8GkWj7laTCqdhoKnHDkAb339eaJW9sNtYg=;
+        b=F3pJLPmaaleiWpOrar+aNNoD6kReHeL2nIkQ1y3pClTWIK/ur7vNg1ZPMpAw5jBI8X
+         zSkJ+onNFYa5GL26sFC+CF4JLGYVM/L+F5I172rOAiH9tjqPRDYanlM+84zKtG3dlXnB
+         6uSBOxWzVSAgFRve7id+WFj8XZaFgWbBvflt0ppClxSMmbwX/24JpzpcRIPTFCVzMpeQ
+         4JTvOBDVvKnxRjsS4HLwQvQ665q1P7pGxNtG4Tz1bijFxyvgsYnI0QG+8DlCOP8fXYJ2
+         RwEyvaGPaLF7TKz69h2AaGTZVrXg9JmU1Rkd7Mm2Gtkdu1euF2dzv4t55J/DHYYLV1Qo
+         mfqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date;
-        bh=BjmiwAV+qkEddhUojBQVUbZIbS/TIGSArMUYW9Y9o7E=;
-        b=ODTcc6jx3Oi2R8ZtTzRpjTy3LupXV1vPdx2xe/3gDl073Tz4fY3rkaD9DSDnPaKAic
-         vXsaeByObsV1dSUrEpM274b4UIXbayXoUJFC/R+gE95zQUq7x22re4l4PC6EjN8xMM+z
-         nCdhC7VqVx0TdqfxXyuLMbApxM3yK88ZJ2ga5seqUSYKw9R4SRuV1QhY8VBxjt7anCUp
-         DVTBeFKWNvXCgkHI3ztGwRQB/twIf0BqNLu0KBpnEsQ5GHA2w9p17dCNAWY+drnVlOwz
-         5lvjPU4dEJEf/691o32GNi/ekkj74ncJwy9Y39/xZfJz8s9r3M5Z1urXhZv3JWRpABlR
-         wJWw==
-X-Gm-Message-State: ACgBeo3RPN4odJM1gRNZ9t0ze5r9HujiPfyCaNpLtQqnSzSYpwoRkybT
-	9L4/5uStd96v2AfT0ic0JmJruw==
-X-Google-Smtp-Source: AA6agR5O50NShr8lP4Pd9wJGQ/rR/edtllWgft9wj4e0CuK20DckiSKoCR/ijA7aSsvTcN93AOl46w==
-X-Received: by 2002:a63:798c:0:b0:42a:4612:c07b with SMTP id u134-20020a63798c000000b0042a4612c07bmr35014302pgc.519.1662221632869;
-        Sat, 03 Sep 2022 09:13:52 -0700 (PDT)
+        bh=c13eLILpK8GkWj7laTCqdhoKnHDkAb339eaJW9sNtYg=;
+        b=QWpb9wwFErGHAgiqc79WhxUrSxiDBQ1z1+MJyd62LQXHmI4NUO6IkzS0+5ZLlLH5nj
+         4gOAd5TIbrEXBsgZDgJ3IJYe5II2crDcFl4q5BQm+MXFcPe+NsjAzXxLx2Sed8GCJRsH
+         9QLd9ACRuytACxUSTwh2v4ZrxCFkvPsHEkK3t4UdbHjjVz8iXp3lBzpo8Yx5TAQWQH/c
+         16Fz2hk9ev8vIoZ4cJrwuq7is4UUlKpO9Dc9uHBZtnDmdK9UEey45wVlxQeXoN2nX38f
+         B/hz+fvRjawfJg0HX0pxsYUgQt+rYuNx8z7MmY5hq5hb4RXJUZQhj4gi7SCdUrEOl9iM
+         6eLw==
+X-Gm-Message-State: ACgBeo0ZnI3xM3VpH8naWrjEbStyQr6Sxi2lzgrwlwHTJpbIVZgvBmhc
+	WhjrkFyYM+pMjc9y/kOWoCbrqg==
+X-Google-Smtp-Source: AA6agR6PtvLxGxJcxENhOmNOJYeB70nAWUBQoJLM8Ad8i0xbh9HyPThAT/ATycvrWLqkF2ekFSuJQg==
+X-Received: by 2002:a17:902:a60c:b0:171:407d:16f8 with SMTP id u12-20020a170902a60c00b00171407d16f8mr40576670plq.58.1662221637625;
+        Sat, 03 Sep 2022 09:13:57 -0700 (PDT)
 Received: from anup-ubuntu64-vm.. ([171.76.86.115])
-        by smtp.gmail.com with ESMTPSA id 4-20020a620504000000b00537b1aa9191sm4166738pff.178.2022.09.03.09.13.48
+        by smtp.gmail.com with ESMTPSA id 4-20020a620504000000b00537b1aa9191sm4166738pff.178.2022.09.03.09.13.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 03 Sep 2022 09:13:52 -0700 (PDT)
+        Sat, 03 Sep 2022 09:13:57 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
@@ -71,16 +71,16 @@ Cc: Atish Patra <atishp@atishpatra.org>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v9 6/7] RISC-V: Use IPIs for remote TLB flush when possible
-Date: Sat,  3 Sep 2022 21:43:08 +0530
-Message-Id: <20220903161309.32848-7-apatel@ventanamicro.com>
+Subject: [PATCH v9 7/7] RISC-V: Use IPIs for remote icache flush when possible
+Date: Sat,  3 Sep 2022 21:43:09 +0530
+Message-Id: <20220903161309.32848-8-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20220903161309.32848-1-apatel@ventanamicro.com>
 References: <20220903161309.32848-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220903_091354_956780_9A8CBCD1 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20220903_091400_808011_E8792342 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,159 +100,41 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 If we have specialized interrupt controller (such as AIA IMSIC) which
 allows supervisor mode to directly inject IPIs without any assistance
 from M-mode or HS-mode then using such specialized interrupt controller,
-we can do remote TLB flushes directly from supervisor mode instead of
+we can do remote icache flushe directly from supervisor mode instead of
 using the SBI RFENCE calls.
 
-This patch extends remote TLB flush functions to use supervisor mode
+This patch extends remote icache flush functions to use supervisor mode
 IPIs whenever direct supervisor mode IPIs.are supported by interrupt
 controller.
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/mm/tlbflush.c | 93 +++++++++++++++++++++++++++++++++-------
- 1 file changed, 78 insertions(+), 15 deletions(-)
+ arch/riscv/mm/cacheflush.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 37ed760d007c..27a7db8eb2c4 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -23,14 +23,62 @@ static inline void local_flush_tlb_page_asid(unsigned long addr,
- 			: "memory");
- }
- 
-+static inline void local_flush_tlb_range(unsigned long start,
-+		unsigned long size, unsigned long stride)
-+{
-+	if (size <= stride)
-+		local_flush_tlb_page(start);
-+	else
-+		local_flush_tlb_all();
-+}
-+
-+static inline void local_flush_tlb_range_asid(unsigned long start,
-+		unsigned long size, unsigned long stride, unsigned long asid)
-+{
-+	if (size <= stride)
-+		local_flush_tlb_page_asid(start, asid);
-+	else
-+		local_flush_tlb_all_asid(asid);
-+}
-+
-+static void __ipi_flush_tlb_all(void *info)
-+{
-+	local_flush_tlb_all();
-+}
-+
- void flush_tlb_all(void)
+diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+index 336c5deea870..45bcf1f635c5 100644
+--- a/arch/riscv/mm/cacheflush.c
++++ b/arch/riscv/mm/cacheflush.c
+@@ -20,7 +20,7 @@ void flush_icache_all(void)
  {
--	sbi_remote_sfence_vma(NULL, 0, -1);
-+	if (riscv_use_ipi_for_rfence())
-+		on_each_cpu(__ipi_flush_tlb_all, NULL, 1);
-+	else
-+		sbi_remote_sfence_vma(NULL, 0, -1);
-+}
-+
-+struct flush_tlb_range_data {
-+	unsigned long asid;
-+	unsigned long start;
-+	unsigned long size;
-+	unsigned long stride;
-+};
-+
-+static void __ipi_flush_tlb_range_asid(void *info)
-+{
-+	struct flush_tlb_range_data *d = info;
-+
-+	local_flush_tlb_range_asid(d->start, d->size, d->stride, d->asid);
-+}
-+
-+static void __ipi_flush_tlb_range(void *info)
-+{
-+	struct flush_tlb_range_data *d = info;
-+
-+	local_flush_tlb_range(d->start, d->size, d->stride);
- }
+ 	local_flush_icache_all();
  
--static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
--				  unsigned long size, unsigned long stride)
-+static void __flush_tlb_range(struct mm_struct *mm, unsigned long start,
-+			      unsigned long size, unsigned long stride)
- {
-+	struct flush_tlb_range_data ftd;
- 	struct cpumask *cmask = mm_cpumask(mm);
- 	unsigned int cpuid;
- 	bool broadcast;
-@@ -45,19 +93,34 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
- 		unsigned long asid = atomic_long_read(&mm->context.id);
- 
- 		if (broadcast) {
--			sbi_remote_sfence_vma_asid(cmask, start, size, asid);
--		} else if (size <= stride) {
--			local_flush_tlb_page_asid(start, asid);
-+			if (riscv_use_ipi_for_rfence()) {
-+				ftd.asid = asid;
-+				ftd.start = start;
-+				ftd.size = size;
-+				ftd.stride = stride;
-+				on_each_cpu_mask(cmask,
-+						 __ipi_flush_tlb_range_asid,
-+						 &ftd, 1);
-+			} else
-+				sbi_remote_sfence_vma_asid(cmask,
-+							   start, size, asid);
- 		} else {
--			local_flush_tlb_all_asid(asid);
-+			local_flush_tlb_range_asid(start, size, stride, asid);
- 		}
+-	if (IS_ENABLED(CONFIG_RISCV_SBI))
++	if (IS_ENABLED(CONFIG_RISCV_SBI) && !riscv_use_ipi_for_rfence())
+ 		sbi_remote_fence_i(NULL);
+ 	else
+ 		on_each_cpu(ipi_remote_fence_i, NULL, 1);
+@@ -68,7 +68,8 @@ void flush_icache_mm(struct mm_struct *mm, bool local)
+ 		 * with flush_icache_deferred().
+ 		 */
+ 		smp_mb();
+-	} else if (IS_ENABLED(CONFIG_RISCV_SBI)) {
++	} else if (IS_ENABLED(CONFIG_RISCV_SBI) &&
++		   !riscv_use_ipi_for_rfence()) {
+ 		sbi_remote_fence_i(&others);
  	} else {
- 		if (broadcast) {
--			sbi_remote_sfence_vma(cmask, start, size);
--		} else if (size <= stride) {
--			local_flush_tlb_page(start);
-+			if (riscv_use_ipi_for_rfence()) {
-+				ftd.asid = 0;
-+				ftd.start = start;
-+				ftd.size = size;
-+				ftd.stride = stride;
-+				on_each_cpu_mask(cmask,
-+						 __ipi_flush_tlb_range,
-+						 &ftd, 1);
-+			} else
-+				sbi_remote_sfence_vma(cmask, start, size);
- 		} else {
--			local_flush_tlb_all();
-+			local_flush_tlb_range(start, size, stride);
- 		}
- 	}
- 
-@@ -66,23 +129,23 @@ static void __sbi_tlb_flush_range(struct mm_struct *mm, unsigned long start,
- 
- void flush_tlb_mm(struct mm_struct *mm)
- {
--	__sbi_tlb_flush_range(mm, 0, -1, PAGE_SIZE);
-+	__flush_tlb_range(mm, 0, -1, PAGE_SIZE);
- }
- 
- void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr)
- {
--	__sbi_tlb_flush_range(vma->vm_mm, addr, PAGE_SIZE, PAGE_SIZE);
-+	__flush_tlb_range(vma->vm_mm, addr, PAGE_SIZE, PAGE_SIZE);
- }
- 
- void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 		     unsigned long end)
- {
--	__sbi_tlb_flush_range(vma->vm_mm, start, end - start, PAGE_SIZE);
-+	__flush_tlb_range(vma->vm_mm, start, end - start, PAGE_SIZE);
- }
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 			unsigned long end)
- {
--	__sbi_tlb_flush_range(vma->vm_mm, start, end - start, PMD_SIZE);
-+	__flush_tlb_range(vma->vm_mm, start, end - start, PMD_SIZE);
- }
- #endif
+ 		on_each_cpu_mask(&others, ipi_remote_fence_i, NULL, 1);
 -- 
 2.34.1
 
