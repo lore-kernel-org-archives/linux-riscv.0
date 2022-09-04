@@ -4,69 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B81EC6FA82
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Sep 2022 15:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25FCECAAD3
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Sep 2022 20:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:In-Reply-To:
+	Date:References:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=blvfHIkG9x9fsavVPNq3aA9w35goOf4tZiXqb4H0pLc=; b=LjW9k/sNy91Gyt
-	lJ2tofwQYTwSdwxyLN/dVZaaHKdRvH6VbksbKYSL9oSOfOUgkYCINbB0TOaISvzKQoPzr2Tkk6Qjj
-	S2P14nvxavdDxW8jeRbJfCNjaniwc8gfDQdhrNeaTYV9FO8kg8l3AyZAqMlQ7bcHQTXEyH9BnHgJ2
-	I9kT6duEomn3txb7btEoTtGfKr9jqZZWj9wtoDJCEE6vuws20xnjWOofa5PEPrueE+16uDolJL9dF
-	1hskxbSBEmW6RzM1j6dVunbripTtB8uhWCSQ6YDTHM+oJXCd9zUpJKUUSufN29OFXbG08QLo0hkwB
-	7sGHRjoxt5dNpI54Oghw==;
+	List-Owner; bh=5QlTORUSkbP6rtSUSPt9KBsz6Mdwje3KTr7RdpFyjgM=; b=1odTHkRmxxwHid
+	pkpnCjkhxPfJrRy0m8GU2gGrTgkGKQOgFKazoCXeRQAfGjXRg4OjSe4LfpxoVYtefJ4g7GR+fMW2x
+	j1g+TKQe0OtIkrRQK9Wxw2+jCQajsThRU2hPQCfIHDoCFlszibTBTkrU+17ZHGc25DmZ2cF609P9a
+	XbXRgKq0q3xl7acZJShB3nipt3ZokSBtihIZQ6Q1pMvtA8ceZO1V96x+PIzeiYfsnXr3bNZWtisO/
+	V7vKl/JFO32xgyb9Pb1W0PKhAFKBdufPzmN27TYjteOr2JR+TXiJDq5qkcQ7FfUlwKLVpajdu264l
+	55RuffiyZhohisD54ODQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oUrMN-007SVz-AG; Sun, 04 Sep 2022 15:16:31 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1oUwU7-00BNKj-VA; Sun, 04 Sep 2022 20:44:52 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oUrMI-007STU-Lh; Sun, 04 Sep 2022 15:16:28 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 46D1860F36;
-	Sun,  4 Sep 2022 15:16:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3FDFC433D6;
-	Sun,  4 Sep 2022 15:16:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1662304584;
-	bh=9SmY9DpW3HYOERkeThenfdvQoPY9NTr/e+0WCeGOlyw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ljWuFJkPzt/h00MO5gwzTaO933VrKuaVUcBcSlIqD3n7v7UJkN4J+f8/Br2WxVQkI
-	 LIHvvXzL8zRo0OxBqRKDhW38dTGTlHZkiwmf73VRQ8WnF4IBMeIpVwpU3ixajP+/R1
-	 Li0Vywt41drpqyzyqc8KL186pJaKun2EliazOTSDthNidjkiCCsDTCCPKBtcJtKvI9
-	 OIhHmVbuHTttigFlIDo9k66T+rVYDW/buTQBfbH6VTWx8WTOR5tKDRVuGJC1EochN6
-	 NK9rN1ZG3WhCH9AC0Wmu/uo5+VNhgBylOCAq6q9lxKod6NLTYZOMmh8xiJrJYSj2V4
-	 DrTkDmLtjFL5A==
-Received: by mail-ot1-f46.google.com with SMTP id br15-20020a056830390f00b0061c9d73b8bdso4729424otb.6;
-        Sun, 04 Sep 2022 08:16:24 -0700 (PDT)
-X-Gm-Message-State: ACgBeo0/wp6IhLazx3DYgNAYmtmApFvnor3fkvcsfXGyVNdE8/DSuj2s
-	ouaOrdYYegGF76DuF9GGs0atMySWy9iKXpnDDGo=
-X-Google-Smtp-Source: AA6agR5wIhn8kKCg4VV6TV3mg/U+V9a/5d7xG5du8TuMDdehC+mHSvyBDW01/GiEqgLKSmSU46hNMimGKI7i7bDu83c=
-X-Received: by 2002:a05:6830:3482:b0:638:92b7:f09b with SMTP id
- c2-20020a056830348200b0063892b7f09bmr17764650otu.140.1662304583737; Sun, 04
- Sep 2022 08:16:23 -0700 (PDT)
+	id 1oUvxa-00Az7u-6u
+	for linux-riscv@lists.infradead.org; Sun, 04 Sep 2022 20:11:17 +0000
+Received: (Authenticated sender: peter@korsgaard.com)
+	by mail.gandi.net (Postfix) with ESMTPSA id 74875FF804;
+	Sun,  4 Sep 2022 20:10:53 +0000 (UTC)
+Received: from peko by dell.be.48ers.dk with local (Exim 4.94.2)
+	(envelope-from <peter@korsgaard.com>)
+	id 1oUvxD-005rMX-Lq; Sun, 04 Sep 2022 22:10:51 +0200
+From: Peter Korsgaard <peter@korsgaard.com>
+To: <Conor.Dooley@microchip.com>
+Cc: <samuel@sholland.org>,  <wens@csie.org>,  <jernej.skrabec@gmail.com>,
+  <linux-sunxi@lists.linux.dev>,  <palmer@dabbelt.com>,
+  <paul.walmsley@sifive.com>,  <aou@eecs.berkeley.edu>,
+  <linux-riscv@lists.infradead.org>,  <robh+dt@kernel.org>,
+  <devicetree@vger.kernel.org>,  <linux-kernel@vger.kernel.org>,
+  <krzysztof.kozlowski+dt@linaro.org>,  <heiko@sntech.de>
+Subject: Re: [PATCH 07/12] riscv: dts: allwinner: Add Allwinner D1 Nezha
+ devicetree
+References: <20220815050815.22340-1-samuel@sholland.org>
+	<20220815050815.22340-8-samuel@sholland.org>
+	<adc4a8e2-7347-7616-99b9-59762023b2ff@microchip.com>
+Date: Sun, 04 Sep 2022 22:10:51 +0200
+In-Reply-To: <adc4a8e2-7347-7616-99b9-59762023b2ff@microchip.com> (Conor
+	Dooley's message of "Fri, 19 Aug 2022 22:10:44 +0000")
+Message-ID: <87o7vuzyr8.fsf@dell.be.48ers.dk>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/27.1 (gnu/linux)
 MIME-Version: 1.0
-References: <20220831175920.2806-1-jszhang@kernel.org> <20220831175920.2806-5-jszhang@kernel.org>
-In-Reply-To: <20220831175920.2806-5-jszhang@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Sun, 4 Sep 2022 23:16:12 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTQMM50TZZ95XOY+Rgvm2hZ3nLxkYfaSW_2MvPiJeqTtJw@mail.gmail.com>
-Message-ID: <CAJF2gTQMM50TZZ95XOY+Rgvm2hZ3nLxkYfaSW_2MvPiJeqTtJw@mail.gmail.com>
-Subject: Re: [PATCH v2 4/5] riscv: add lazy preempt support
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Thomas Gleixner <tglx@linutronix.de>, Steven Rostedt <rostedt@goodmis.org>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220904_081626_817695_99ED23DB 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20220904_131114_685923_D87BB69D 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,123 +69,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 1, 2022 at 2:08 AM Jisheng Zhang <jszhang@kernel.org> wrote:
->
-> Implement the lazy preempt for riscv.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> ---
->  arch/riscv/Kconfig                   | 1 +
->  arch/riscv/include/asm/thread_info.h | 7 +++++--
->  arch/riscv/kernel/asm-offsets.c      | 1 +
->  arch/riscv/kernel/entry.S            | 9 +++++++--
->  4 files changed, 14 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 7a8134fd7ec9..9f2f1936b1b5 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -105,6 +105,7 @@ config RISCV
->         select HAVE_PERF_REGS
->         select HAVE_PERF_USER_STACK_DUMP
->         select HAVE_POSIX_CPU_TIMERS_TASK_WORK
-> +       select HAVE_PREEMPT_LAZY
->         select HAVE_REGS_AND_STACK_ACCESS_API
->         select HAVE_FUNCTION_ARG_ACCESS_API
->         select HAVE_STACKPROTECTOR
-> diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-> index 78933ac04995..471915b179a2 100644
-> --- a/arch/riscv/include/asm/thread_info.h
-> +++ b/arch/riscv/include/asm/thread_info.h
-> @@ -56,6 +56,7 @@
->  struct thread_info {
->         unsigned long           flags;          /* low level flags */
->         int                     preempt_count;  /* 0=>preemptible, <0=>BUG */
-> +       int                     preempt_lazy_count;  /* 0=>preemptible, <0=>BUG */
->         /*
->          * These stack pointers are overwritten on every system call or
->          * exception.  SP is also saved to the stack it can be recovered when
-> @@ -90,7 +91,7 @@ struct thread_info {
->  #define TIF_NOTIFY_RESUME      1       /* callback before returning to user */
->  #define TIF_SIGPENDING         2       /* signal pending */
->  #define TIF_NEED_RESCHED       3       /* rescheduling necessary */
-> -#define TIF_RESTORE_SIGMASK    4       /* restore signal mask in do_signal() */
-> +#define TIF_NEED_RESCHED_LAZY  4       /* lazy rescheduling */
->  #define TIF_MEMDIE             5       /* is terminating due to OOM killer */
->  #define TIF_SYSCALL_TRACEPOINT  6       /* syscall tracepoint instrumentation */
->  #define TIF_SYSCALL_AUDIT      7       /* syscall auditing */
-> @@ -98,6 +99,7 @@ struct thread_info {
->  #define TIF_NOTIFY_SIGNAL      9       /* signal notifications exist */
->  #define TIF_UPROBE             10      /* uprobe breakpoint or singlestep */
->  #define TIF_32BIT              11      /* compat-mode 32bit process */
-> +#define TIF_RESTORE_SIGMASK    12      /* restore signal mask in do_signal() */
->
->  #define _TIF_SYSCALL_TRACE     (1 << TIF_SYSCALL_TRACE)
->  #define _TIF_NOTIFY_RESUME     (1 << TIF_NOTIFY_RESUME)
-> @@ -108,10 +110,11 @@ struct thread_info {
->  #define _TIF_SECCOMP           (1 << TIF_SECCOMP)
->  #define _TIF_NOTIFY_SIGNAL     (1 << TIF_NOTIFY_SIGNAL)
->  #define _TIF_UPROBE            (1 << TIF_UPROBE)
-> +#define _TIF_NEED_RESCHED_LAZY (1 << TIF_NEED_RESCHED_LAZY)
->
->  #define _TIF_WORK_MASK \
->         (_TIF_NOTIFY_RESUME | _TIF_SIGPENDING | _TIF_NEED_RESCHED | \
-> -        _TIF_NOTIFY_SIGNAL | _TIF_UPROBE)
-> +        _TIF_NEED_RESCHED_LAZY | _TIF_NOTIFY_SIGNAL | _TIF_UPROBE)
->
->  #define _TIF_SYSCALL_WORK \
->         (_TIF_SYSCALL_TRACE | _TIF_SYSCALL_TRACEPOINT | _TIF_SYSCALL_AUDIT | \
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index df9444397908..e38e33822f72 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -35,6 +35,7 @@ void asm_offsets(void)
->         OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
->         OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
->         OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
-> +       OFFSET(TASK_TI_PREEMPT_LAZY_COUNT, task_struct, thread_info.preempt_lazy_count);
->         OFFSET(TASK_TI_KERNEL_SP, task_struct, thread_info.kernel_sp);
->         OFFSET(TASK_TI_USER_SP, task_struct, thread_info.user_sp);
->
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index b9eda3fcbd6d..595100a4c2c7 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -361,9 +361,14 @@ restore_all:
->  resume_kernel:
->         REG_L s0, TASK_TI_PREEMPT_COUNT(tp)
->         bnez s0, restore_all
-> -       REG_L s0, TASK_TI_FLAGS(tp)
-> -       andi s0, s0, _TIF_NEED_RESCHED
-> +       REG_L s1, TASK_TI_FLAGS(tp)
-> +       andi s0, s1, _TIF_NEED_RESCHED
-> +       bnez s0, 1f
-> +       REG_L s0, TASK_TI_PREEMPT_LAZY_COUNT(tp)
-> +       bnez s0, restore_all
-> +       andi s0, s1, _TIF_NEED_RESCHED_LAZY
-Can you tell me, who increased/decreased the PREEMPT_LAZY_COUNT? And
-who set NEED_RESCHED_LAZY?
+>>>>>   <Conor.Dooley@microchip.com> writes:
 
+ > Hey Samuel,
+ > Finally got around to giving this a go with the fix for loading
+ > modules which is mostly what was blocking me before..
 
->         beqz s0, restore_all
-> +1:
->         call preempt_schedule_irq
->         j restore_all
->  #endif
-> --
-> 2.34.1
->
->
-> --
-> kvm-riscv mailing list
-> kvm-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/kvm-riscv
+ > On 15/08/2022 06:08, Samuel Holland wrote:
+ >> "D1 Nezha" is Allwinner's first-party development board for the D1 SoC.
+ >> It was shipped with 512M, 1G, or 2G of DDR3. It supports onboard audio,
 
+ > I am really not keen on the way you have things, with the memory
+ > nodes removed from the device tree. I know your preferred flow
+ > for booting these things might be to pass the dtb up from U-Boot,
+ > but I think the devicetree in the kernel should be usable in a
+ > standalone manner, even if that is the barest-minimum memory
+ > config.
 
+Yes, this also confused me. Part of the reason seems to be that u-boot
+on RISC-V doesn't fixup the memory node of a provided device tree like
+it is done on E.G. ARM for some reason.
 
 -- 
-Best Regards
- Guo Ren
+Bye, Peter Korsgaard
 
 _______________________________________________
 linux-riscv mailing list
