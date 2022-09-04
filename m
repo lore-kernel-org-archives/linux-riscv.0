@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF763ECAAD3
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 Sep 2022 13:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE493ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 Sep 2022 13:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jYTg7BZ9woPxP5+JIKKw/rZsKULmi8d7L6TZL7Wt4po=; b=GxvSs6dUBk3z8p
-	otsHtHOm8gl2lJ3FEMxbvxEz57IbyUiEBdW3KYEy7hEV8QdKxLDp8Ru9qmFBLFibziCTwCQXaEEJw
-	eW70IdjgRqAAynDJSv+k1k+3XHBQMx9QuPv49O1phH+3+sNUgLR5qzgYx7yIeMC+qHpaoyopfLVZM
-	Grp5rQJytuCZcRBPDxPHFmqFjzzakq1ukziA/8baeWsJRI7jBGaO+e2/vjhBl4b/5f65dBRqUBAgU
-	HIUjTSJV96Dxbu/iScYOHIJocREdIced6ZNz/yJmJMBp+fHoIM7wWBYsyF4xicPQwiwmmhjJLw4FI
-	dLprM2pdyt+Fr7OaxT5w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=jyrHnEQkSedL8QSJ1ZeIwlBl0pHopWMInVbkBi1/lRY=; b=luLDHpYQI5RPPZ
+	Ve7DcQjo9FSgN9FYueYuvxTMBE1ptTTokbQAHPd9UVd9v7ST4QDzmpM4EThGinTi9Ra5SZNF80dFL
+	nMVl8/Zkpb1Su6fp6aai37MtuXoiyCMWqijBzz8tVN3d0/eHG2EyehEbJCDweD7Kj2185jxftenXb
+	2G3nHJsahT232zxC8n8XhizXCFoMrRl86TU6K6P78JIjd3iJLwadn0fNfqxJwfX7fjd83zz9NQqhh
+	2mQY+ukXst3wVXSCvbTNZC0hYPc5ZdNXPvGYozfAyJyPv7nD1huJkrC6tVks3xQMvKv6BjK8bFbQf
+	1tavTte+qlRjI7ahyvFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oUpqq-006Tlo-4v; Sun, 04 Sep 2022 13:39:52 +0000
-Received: from m12-18.163.com ([220.181.12.18])
-	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oUpqm-006TeM-WD
-	for linux-riscv@lists.infradead.org; Sun, 04 Sep 2022 13:39:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=tF31H
-	YNBq9FEgUfHe2lhN7dhYzjH0fiHkuXz0eoXuZc=; b=FWYyyObcnG3BL8OQd43pV
-	20mqhI0KQw6TqAeeoTpa88KP0GpMcxr9Ey6TfU4o4nO4LnZxNbYkmAxdW3thnDy+
-	YI+8moT+PGWYUhynl1UDtfgYY9bsTOtQZjuUvukOy2s9W5VH+jPM/4vIm7LH5V0c
-	ofBE9WHLHwYkOqcD8kuB5o=
-Received: from whoami-VirtualBox.. (unknown [223.72.91.155])
-	by smtp14 (Coremail) with SMTP id EsCowAAHgf8IqhRjP+7qDg--.32759S2;
-	Sun, 04 Sep 2022 21:37:12 +0800 (CST)
-From: Jinyu Tang <tjytimi@163.com>
-To: anup@brainfault.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alexandre.ghiti@canonical.com,
-	guoren@kernel.org,
-	heiko@sntech.de,
-	akpm@linux-foundation.org,
-	panqinglin2020@iscas.ac.cn,
-	tongtiangen@huawei.com,
-	sunnanyong@huawei.com,
-	anshuman.khandual@arm.com,
-	atishp@rivosinc.com
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	falcon@tinylab.org,
-	tjytimi@163.com
-Subject: [PATCH v2] riscv: make update_mmu_cache to support asid
-Date: Sun,  4 Sep 2022 21:37:10 +0800
-Message-Id: <20220904133710.117263-1-tjytimi@163.com>
-X-Mailer: git-send-email 2.30.2
+	id 1oUq0K-006YV2-Dk; Sun, 04 Sep 2022 13:49:40 +0000
+Received: from mout.kundenserver.de ([212.227.126.133])
+	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oUq06-006YOT-96; Sun, 04 Sep 2022 13:49:29 +0000
+Received: from [192.168.1.138] ([37.4.248.23]) by mrelayeu.kundenserver.de
+ (mreue010 [212.227.15.167]) with ESMTPSA (Nemesis) id
+ 1MxV8b-1pJeKH3jY1-00xpCC; Sun, 04 Sep 2022 15:49:13 +0200
+Message-ID: <9afe7000-d4c7-0b67-1dfd-7200efe73c0e@i2se.com>
+Date: Sun, 4 Sep 2022 15:49:11 +0200
 MIME-Version: 1.0
-X-CM-TRANSID: EsCowAAHgf8IqhRjP+7qDg--.32759S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAFy7Cw1rtrWUWr47tw1xGrg_yoW5ZryUpF
-	srCws5K3yfGrn3Gry7Zr9I9r13Xw4qg3WayFWav3yYqrsIgFyjgr9xK340vr1rJFyrWFWS
-	kayayr15u3yYywUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pKLvugUUUUU=
-X-Originating-IP: [223.72.91.155]
-X-CM-SenderInfo: xwm13xlpl6il2tof0z/1tbiYwhyeFaEK+FoogAAsz
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+Subject: Re: [PATCH v4] clk: bcm2835: Round UART input clock up
+Content-Language: en-US
+To: "Ivan T. Ivanov" <iivanov@suse.de>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Florian Fainelli <f.fainelli@gmail.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Maxime Ripard <maxime@cerno.tech>, Nicolas Saenz Julienne <nsaenz@kernel.org>
+Cc: Phil Elwell <phil@raspberrypi.com>, kernel test robot <lkp@intel.com>,
+ linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20220829132943.144608-1-iivanov@suse.de>
+From: Stefan Wahren <stefan.wahren@i2se.com>
+In-Reply-To: <20220829132943.144608-1-iivanov@suse.de>
+X-Provags-ID: V03:K1:YOR8PzuYn1YtGuD1bVX7oiT3qrgTf+omYyvhdw/ZqL9xDSoCYBE
+ duBCBWHQLt4IqsOAASUfFThCrPFeNw09587dL2dmbn57MDbW0/a0dZQkLEgkB0huJL6yz+S
+ 1+KAZ/dVlwbSiCZmHL38WVdijHZew1gGX/Qt12rTYnhyX/7JXUNnRCd0LQE6cbHjZ0bc71w
+ Tisgjs0VduAyK3loe7fgg==
+X-UI-Out-Filterresults: notjunk:1;V03:K0:xopYdvfmTH4=:gvtCwvn2iaYlN2XuPpbNiT
+ 1WogNH/P9FxWmF+trKS87e0Fs+fHvpyJSu5CRzoFK5HI8Ho038VRqq/atYUVh92GGdlP3wkqw
+ 5srDZi+OtEuIWQLm7tO16Jyxs6KzyaSafzaHgKVGGIxG74myCHettadrjhDYPAW6+aW63BwW4
+ vBGG25FzehgMFU9ugL5hT7wE45ywORC2wDF5EpByixunDaa1NxaWcO+8r0PGIp2X//Wj0dgJP
+ xixsIGyDttQ+Mk+MA9MaPA040tzRI0hxmq5/BYY0EAwfShnnu5KOfvmiHxRHjsWJ6d+L3kgbP
+ NZS3R6ycD4Fan/2uw2doL5gkxW9LJom20LZS7cVoQYLv+nq2cTsttd1veJlZVXNsC57q/NCM4
+ D4433raH5Oi8qHC4EOSsnKhnaFOdsPdgh4JSZLPLTjOcXnteQ3RJrBh/tmhvlQiQOSQWUig0g
+ pnkTtetBVMEU7JLQdIiDvq/txUknq/xMZsKPHbKxqRUx4j+cmymslK9YUvC4nDx4eTkvnxqcB
+ A5w5ZpUSckrBevKCBQvX2+fqxOqxGZEjZAc7q1fYZneIuczp/Ebk8d74Z/oiDBRhq9vM7aiMI
+ AO9Q+SdwLrmantfZD8V9ma/pmp91fBg6kVhDK1NN2TKJdGlz+nXYCT26I9ypPBInH2oTA4oZY
+ lVH+70kgxCAi9YyYpWx3HcHb+TsS3lIQZuNN4YJs7MqZcA212UyVxr0npttSjbqESBU7zY2da
+ b3mKGSRqCC0fvyqqejz+Urxj9nym7OY+FyqmCVcL3iQgjGKERb80Ap5jFEXFxBX+iQwKaO4of
+ qSylrvI
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220904_063949_581356_061A5946 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20220904_064926_647764_7BCB5A79 
+X-CRM114-Status: GOOD (  26.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,88 +81,108 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The `update_mmu_cache` function in riscv flush tlb cache without asid
-information now, which will flush tlbs in other tasks' address space
-even if processor supports asid. So add a new function
-`flush_tlb_local_one_page` to flush local one page whether processor
-supports asid or not,for cases that need to flush local one page like
-function `update_mmu_cache`.
+Hi Ivan,
 
-Signed-off-by: Jinyu Tang <tjytimi@163.com>
----
-RFC V1 -> V2 : 
-1.Rebased on PATCH9 of IPI imporvement series as Anup Patel
-suggestion. 
-2.Make commit log more clear.
-
- arch/riscv/include/asm/pgtable.h  |  2 +-
- arch/riscv/include/asm/tlbflush.h |  2 ++
- arch/riscv/mm/tlbflush.c          | 11 +++++++++++
- 3 files changed, 14 insertions(+), 1 deletion(-)
-
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 7ec936910a96..09ccefa6b6c7 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -415,7 +415,7 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
- 	 * Relying on flush_tlb_fix_spurious_fault would suffice, but
- 	 * the extra traps reduce performance.  So, eagerly SFENCE.VMA.
- 	 */
--	local_flush_tlb_page(address);
-+	flush_tlb_local_one_page(vma, address);
- }
- 
- static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
-diff --git a/arch/riscv/include/asm/tlbflush.h b/arch/riscv/include/asm/tlbflush.h
-index 801019381dea..120aeb1c6ecf 100644
---- a/arch/riscv/include/asm/tlbflush.h
-+++ b/arch/riscv/include/asm/tlbflush.h
-@@ -30,6 +30,7 @@ static inline void local_flush_tlb_page(unsigned long addr)
- #if defined(CONFIG_SMP) && defined(CONFIG_MMU)
- void flush_tlb_all(void);
- void flush_tlb_mm(struct mm_struct *mm);
-+void flush_tlb_local_one_page(struct vm_area_struct *vma, unsigned long addr);
- void flush_tlb_page(struct vm_area_struct *vma, unsigned long addr);
- void flush_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 		     unsigned long end);
-@@ -42,6 +43,7 @@ void flush_pmd_tlb_range(struct vm_area_struct *vma, unsigned long start,
- 
- #define flush_tlb_all() local_flush_tlb_all()
- #define flush_tlb_page(vma, addr) local_flush_tlb_page(addr)
-+#define flush_tlb_local_one_page(vma, addr) local_flush_tlb_page(addr)
- 
- static inline void flush_tlb_range(struct vm_area_struct *vma,
- 		unsigned long start, unsigned long end)
-diff --git a/arch/riscv/mm/tlbflush.c b/arch/riscv/mm/tlbflush.c
-index 27a7db8eb2c4..0843e1baaf34 100644
---- a/arch/riscv/mm/tlbflush.c
-+++ b/arch/riscv/mm/tlbflush.c
-@@ -41,6 +41,17 @@ static inline void local_flush_tlb_range_asid(unsigned long start,
- 		local_flush_tlb_all_asid(asid);
- }
- 
-+void flush_tlb_local_one_page(struct vm_area_struct *vma, unsigned long addr)
-+{
-+	if (static_branch_unlikely(&use_asid_allocator)) {
-+		unsigned long asid = atomic_long_read(&vma->vm_mm->context.id);
-+
-+		local_flush_tlb_page_asid(addr, asid);
-+	} else {
-+		local_flush_tlb_page(addr);
-+	}
-+}
-+
- static void __ipi_flush_tlb_all(void *info)
- {
- 	local_flush_tlb_all();
--- 
-2.30.2
-
+Am 29.08.22 um 15:29 schrieb Ivan T. Ivanov:
+> It was reported that RPi3[1] and RPi Zero 2W boards have issues with
+> the Bluetooth. It turns out that when switching from initial to
+> operation speed host and device no longer can talk each other because
+> host uses incorrect UART baud rate.
+>
+> The UART driver used in this case is amba-pl011. Original fix, see
+> below Github link[2], was inside pl011 module, but somehow it didn't
+> look as the right place to fix. Beside that this original rounding
+> function is not exactly perfect for all possible clock values. So I
+> deiced to move the hack to the platform which actually need it.
+>
+> The UART clock is initialised to be as close to the requested
+> frequency as possible without exceeding it. Now that there is a
+> clock manager that returns the actual frequencies, an expected
+> 48MHz clock is reported as 47999625. If the requested baud rate
+> == requested clock/16, there is no headroom and the slight
+> reduction in actual clock rate results in failure.
+>
+> If increasing a clock by less than 0.1% changes it from ..999..
+> to ..000.., round it up.
+>
+> [1] https://bugzilla.suse.com/show_bug.cgi?id=1188238
+> [2] https://github.com/raspberrypi/linux/commit/ab3f1b39537f6d3825b8873006fbe2fc5ff057b7
+>
+> Cc: Phil Elwell <phil@raspberrypi.com>
+> Signed-off-by: Ivan T. Ivanov <iivanov@suse.de>
+> ---
+>
+> Changes since v3
+> * Rework 'scaler' calculation to avoid overflow
+> * Update Phil Elwell email address
+>
+> Changes since v2
+> * Added more information in commit message
+> * Changed hand crafted round function with the one form math.h
+>
+> Changes since v1
+> Make bcm2835_clock_round() static to fix following warning
+> when compiling for riscv:
+> drivers/clk/bcm/clk-bcm2835.c:997:15: warning: no previous prototype for 'bcm2835_clock_round' [-Wmissing-prototypes]
+> Reported-by: kernel test robot <lkp@intel.com>
+>
+>   drivers/clk/bcm/clk-bcm2835.c | 35 +++++++++++++++++++++++++++++++++--
+>   1 file changed, 33 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/clk/bcm/clk-bcm2835.c b/drivers/clk/bcm/clk-bcm2835.c
+> index 48a1eb9f2d55..26a5c9a0dd34 100644
+> --- a/drivers/clk/bcm/clk-bcm2835.c
+> +++ b/drivers/clk/bcm/clk-bcm2835.c
+> @@ -30,6 +30,7 @@
+>   #include <linux/debugfs.h>
+>   #include <linux/delay.h>
+>   #include <linux/io.h>
+> +#include <linux/math.h>
+>   #include <linux/module.h>
+>   #include <linux/of_device.h>
+>   #include <linux/platform_device.h>
+> @@ -502,6 +503,8 @@ struct bcm2835_clock_data {
+>   	bool low_jitter;
+>   
+>   	u32 tcnt_mux;
+> +
+> +	bool round_up;
+>   };
+>   
+>   struct bcm2835_gate_data {
+> @@ -993,12 +996,34 @@ static long bcm2835_clock_rate_from_divisor(struct bcm2835_clock *clock,
+>   	return temp;
+>   }
+>   
+> +static unsigned long bcm2835_clock_round(unsigned long clk)
+sorry, i missed this in my last mail. Please use "rate" instead of "clk" 
+here.
+> +{
+> +	unsigned long scaler;
+> +	unsigned long limit;;
+> +
+> +	limit = clk / 100000;
+> +
+> +	scaler = 1;
+> +	while (scaler < limit)
+> +		scaler *= 10;
+> +
+> +	/*
+> +	 * If increasing a clock by less than 0.1% changes it
+> +	 * from ..999.. to ..000.., round up.
+> +	 */
+> +	if ((clk + scaler - 1) / scaler % 1000 == 0)
+> +		clk = roundup(clk, scaler);
+> +
+> +	return clk;
+> +}
+> +
+>   
 
 _______________________________________________
 linux-riscv mailing list
