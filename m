@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC7BECAAD3
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 Sep 2022 10:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 047AFECAAD5
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 Sep 2022 10:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=HAuOYUIGUjJiQ5A06/ZbmZ2EnEi3zPWB3iZPua4SYBw=; b=vySPSX5O2T0haH
-	jlNH4HSDpjOf85xxPcN3H9Ys9/YzdyhfvYWzEyD09erX0LwC/Gkw4pbDJXjsXocgd/oLyvUSCpWBz
-	/F+5+BvmmRWpoSHcRoSUuaBdUr7zirpJN/5BLvEc4zuJ3AkmRCZODocPNSFPoHQix8vLgdzKdjHXS
-	JaW029FD+i/SHzyHDJvgqONTtgsqaD1Tyeq0BXQdP2dHN/b7Y6KR8EUaK6OhcydeIOAml1Y89PVYZ
-	bx6wY73iIaCnZDxpY+T3dGPGPlgJEtmYkNMOBwiDgnzimHrwFyBzk4fr/jKeWqRW3x0D9TLGC8Gje
-	NzXYGN8ZkEyMuiIk/OGg==;
+	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IdXS3NYrmyBvkokv18GLmdWmHbz+OX1bPRXGAADxjK8=; b=V2hvkKJP2J118w
+	DbGzzfEVbURAk1W6MH3LIpoanwPlDAbh9t/Z2q3nALXSJ67zpTsKDjVb2h9WhUxEwCz4Buo6hjO74
+	Di9Sq1qMOU+GYLJ5GrI2lTWI6ft7IhHOmImB/52BJZeqHIP0lhl6V2ZshnvBjIsF6+CVjiAgi7A4d
+	7M6Oii6M6BBusWFR8F1c09tuP0fn5b53xiKkLIfsHVE8C1d9rsPwG9K1RGVb+vGapOA3SUAtaS5t/
+	DUShuo2PyKE+P3MdRoVasZpY51lf4+r75ETPCKVjgT45bD9G+EDhk07EpTmpDpqlv3Lre6FR8geIs
+	xtGAmkUQBIcqVSF3ktag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oV91t-00HOEA-DK; Mon, 05 Sep 2022 10:08:33 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1oV927-00HOXy-3w; Mon, 05 Sep 2022 10:08:47 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oV7W1-00Eh7P-My
-	for linux-riscv@lists.infradead.org; Mon, 05 Sep 2022 08:31:39 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id x1so3506199plv.5
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Sep 2022 01:31:32 -0700 (PDT)
+	id 1oV7W3-00EhAR-P9
+	for linux-riscv@lists.infradead.org; Mon, 05 Sep 2022 08:31:42 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 78so7493793pgb.13
+        for <linux-riscv@lists.infradead.org>; Mon, 05 Sep 2022 01:31:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=sifive.com; s=google;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date;
-        bh=s3hOdjxXsap0YRXvjxYWIlEI0piYVKoTC0n9P5HnS8U=;
-        b=VJJzPQJ1cWBEZK1HBWOn5P3vqsLLo9JWaWwO7q2CaasS7NEA3XlpZk4YrMbS0ioQmx
-         2DUmKBWzVSo+TcyoNxbeoUPYTGV5zRpvAK88DxEdKCpeltfsC1tR14akp28UetRl3iu0
-         XeNtjMnphRjAPxDSYQYmMfiyTFe/k/YOPhufSCMz5yM9rBUupijYpLpOoiKHXN+Ke+1T
-         DFdXIBPXkmhEazPMWS9qvAiEJvTkBl2PBA98xz2lgeMQlFXLwzhpHfWCLZfcpqiafDpd
-         aY8s5bh12f0Z3IJJbQzwPfk92ut5OVuOlIm/FXXh17AZX7mPSC66s4M6bmkTNx5Nhv7J
-         b1RA==
+        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
+         :cc:subject:date;
+        bh=8+7UbJNXJr3orLEQ98ALRb5xPSJtynPRzIcD+aR5ifU=;
+        b=mHvU7S5vDDtNt6es0lrJGYL4WrYDvhag9uoc5mOXnDO/l79rg6dEdCGvvOd2jBWCI4
+         UKB6cRj2x2rjWxFjE9f/MbS92UEHg0DUrkeqleARbpidc7J7tPvPvwZ9ahge8GwRRvoD
+         hxb0TNpuElQC54MIYGW9ou5z273KuhtfxYOBvTEN+/CPKrOMI48gIu2GvviYqyv0I9LL
+         L9OTa+EWoC+MH5AyNzeZ/adJEWD+eT2Bh4jqcvokIxm5arNH/COWQFpLDtHlx5n6dLoU
+         hx5JCD0kifLVts+jeUlY54kmOb+lGK8JKNaV6nhtYc0Eno9vMuGGjcqAW0ekbsBnsYul
+         9ucQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date;
-        bh=s3hOdjxXsap0YRXvjxYWIlEI0piYVKoTC0n9P5HnS8U=;
-        b=LAleTzDkyOdIo2m1gm5nlGV9DL3r276I8IO/KMTYijZSU1AwzoUDa1s4rmcUGegLWK
-         MjtLcVqTIktNysOQq3TDr3rn5LqbdLvBT1Jc2oCBtnnzzmfgE9LQq+RySjuodDzNsB2M
-         bQbJOBW2jj/O+bmhEg3XYe0lGRGu2VG56kdj7lvvmEKEdL5qEUZZIKG5xhBM7WRdKURA
-         wh/ZQTRjlud1/qIQCegmTyJuKc2aplHvJZfajNUAwVmfT6Zw7So8cHJn8McwpdXZ401Z
-         hJWa3nH2f3iA43S8k4MHTEUHWWR9KTsK8nUJP8oqxkw10rKAOz4I12Pw99MSGTCMR7rD
-         N+kA==
-X-Gm-Message-State: ACgBeo2LAySFR+OsRalisFarIqSDJjIfC0Luyq/drXwIPYJKuR02tlH+
-	OnCN0RFEsRTy1CLydWOxql0Xsw==
-X-Google-Smtp-Source: AA6agR4nKAVKAuZX1ZISjF81oe65A4kGyO+0VV8EZk2A7ZosaG47IwTfakAHqqYoOBU8VO/tJRK1pg==
-X-Received: by 2002:a17:90b:1b52:b0:1ff:f536:1f3c with SMTP id nv18-20020a17090b1b5200b001fff5361f3cmr17807344pjb.232.1662366691713;
-        Mon, 05 Sep 2022 01:31:31 -0700 (PDT)
+        h=references:in-reply-to:message-id:date:subject:cc:to:from
+         :x-gm-message-state:from:to:cc:subject:date;
+        bh=8+7UbJNXJr3orLEQ98ALRb5xPSJtynPRzIcD+aR5ifU=;
+        b=dleYGKDqv1HidflCJePjxBnidnOQZGognqUVa8c8FbF2gP7zh+dEYcf99jvT2Kbx70
+         OJvDEdsksmcDU4Oj8SnFLalHXK1P6fKBwserYoMLHsx9pImBR/7v0JfYvu1UpoR5KBP6
+         YjIYKe/JIXk7Av/YVj7xakEsr+cQAYOOMsEi/bl05FimYq8e/wjukVJF5jKpvZMuolc6
+         BMzlTByAPuKGY2S2PEeju59T87/zvtLgCaesbcQb8r+O4JDnLA+vuMt8vMunPnD2T+Hh
+         /+v5qRK3sIuXt+KflpFmwLm34+EyhCYbYOXJOPQ7n9bhE9OTff4MB9Opv40YYoHW45OM
+         sifg==
+X-Gm-Message-State: ACgBeo3iIzk0IoO9xgu+e7k16gG5i7Sbep+YsvEW7lENFk5Q0X4TZ+v0
+	Cyz4vidMhkA/z+XjJw0azlBaHQ==
+X-Google-Smtp-Source: AA6agR7Jtc2YSMuD9owC3LWOBl2oIqLaus6IUSuHxBGJWtpC8+n2PXQ/W1Vg2dwveu+mikWtBuD3Kg==
+X-Received: by 2002:a63:8241:0:b0:42b:c6e8:d3e4 with SMTP id w62-20020a638241000000b0042bc6e8d3e4mr35721545pgd.113.1662366694748;
+        Mon, 05 Sep 2022 01:31:34 -0700 (PDT)
 Received: from localhost.localdomain (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id y3-20020aa79423000000b00537dfd6e67esm7089721pfo.48.2022.09.05.01.31.28
+        by smtp.gmail.com with ESMTPSA id y3-20020aa79423000000b00537dfd6e67esm7089721pfo.48.2022.09.05.01.31.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Sep 2022 01:31:30 -0700 (PDT)
+        Mon, 05 Sep 2022 01:31:34 -0700 (PDT)
 From: Zong Li <zong.li@sifive.com>
 To: robh+dt@kernel.org,
 	krzysztof.kozlowski+dt@linaro.org,
@@ -72,10 +73,12 @@ To: robh+dt@kernel.org,
 	linux-edac@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v2 0/6] Use composable cache instead of L2 cache
-Date: Mon,  5 Sep 2022 08:31:19 +0000
-Message-Id: <20220905083125.29426-1-zong.li@sifive.com>
+Subject: [PATCH v2 1/6] dt-bindings: sifive-ccache: change Sifive L2 cache to Composable cache
+Date: Mon,  5 Sep 2022 08:31:20 +0000
+Message-Id: <20220905083125.29426-2-zong.li@sifive.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20220905083125.29426-1-zong.li@sifive.com>
+References: <20220905083125.29426-1-zong.li@sifive.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,41 +97,94 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 Since composable cache may be L3 cache if private L2 cache exists, we
-should use its original name "composable cache" to prevent confusion.
+should use its original name Composable cache to prevent confusion.
 
-This patchset contains the modification which is related to ccache, such
-as DT binding and EDAC driver.
-
-The DT binding is based on top of Conor's patch, it has got ready for
-merging, and it looks that it would be taken into the next few 6.0-rc
-version. If there is any change, the next version of this series will be
-posted as well.
-https://lore.kernel.org/linux-riscv/20220825180417.1259360-2-mail@conchuod.ie/
-
-Ben Dooks (2):
-  soc: sifive: ccache: reduce printing on init
-  soc: sifive: ccache: use pr_fmt() to remove CCACHE: prefixes
-
-Greentime Hu (1):
-  soc: sifive: ccache: Rename SiFive L2 cache to Composable cache.
-
-Zong Li (3):
-  dt-bindings: sifive-ccache: change Sifive L2 cache to Composable cache
-  soc: sifive: ccache: determine the cache level from dts
-  EDAC/sifive: use sifive_ccache instead of sifive_l2
-
- ...five-l2-cache.yaml => sifive,ccache0.yaml} |  28 ++-
- drivers/edac/Kconfig                          |   2 +-
- drivers/edac/sifive_edac.c                    |  12 +-
- drivers/soc/sifive/Kconfig                    |   6 +-
- drivers/soc/sifive/Makefile                   |   2 +-
- .../{sifive_l2_cache.c => sifive_ccache.c}    | 183 +++++++++---------
- .../{sifive_l2_cache.h => sifive_ccache.h}    |  16 +-
- 7 files changed, 136 insertions(+), 113 deletions(-)
+Signed-off-by: Zong Li <zong.li@sifive.com>
+Suggested-by: Conor Dooley <conor.dooley@microchip.com>
+Suggested-by: Ben Dooks <ben.dooks@sifive.com>
+---
+ ...five-l2-cache.yaml => sifive,ccache0.yaml} | 28 +++++++++++++++----
+ 1 file changed, 23 insertions(+), 5 deletions(-)
  rename Documentation/devicetree/bindings/riscv/{sifive-l2-cache.yaml => sifive,ccache0.yaml} (83%)
- rename drivers/soc/sifive/{sifive_l2_cache.c => sifive_ccache.c} (34%)
- rename include/soc/sifive/{sifive_l2_cache.h => sifive_ccache.h} (12%)
 
+diff --git a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
+similarity index 83%
+rename from Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
+rename to Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
+index ca3b9be58058..bf3f07421f7e 100644
+--- a/Documentation/devicetree/bindings/riscv/sifive-l2-cache.yaml
++++ b/Documentation/devicetree/bindings/riscv/sifive,ccache0.yaml
+@@ -2,18 +2,18 @@
+ # Copyright (C) 2020 SiFive, Inc.
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/riscv/sifive-l2-cache.yaml#
++$id: http://devicetree.org/schemas/riscv/sifive,ccache0.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+-title: SiFive L2 Cache Controller
++title: SiFive Composable Cache Controller
+ 
+ maintainers:
+   - Sagar Kadam <sagar.kadam@sifive.com>
+   - Paul Walmsley  <paul.walmsley@sifive.com>
+ 
+ description:
+-  The SiFive Level 2 Cache Controller is used to provide access to fast copies
+-  of memory for masters in a Core Complex. The Level 2 Cache Controller also
++  The SiFive Composable Cache Controller is used to provide access to fast copies
++  of memory for masters in a Core Complex. The Composable Cache Controller also
+   acts as directory-based coherency manager.
+   All the properties in ePAPR/DeviceTree specification applies for this platform.
+ 
+@@ -22,6 +22,7 @@ select:
+     compatible:
+       contains:
+         enum:
++          - sifive,ccache0
+           - sifive,fu540-c000-ccache
+           - sifive,fu740-c000-ccache
+ 
+@@ -33,6 +34,7 @@ properties:
+     oneOf:
+       - items:
+           - enum:
++              - sifive,ccache0
+               - sifive,fu540-c000-ccache
+               - sifive,fu740-c000-ccache
+           - const: cache
+@@ -45,7 +47,7 @@ properties:
+     const: 64
+ 
+   cache-level:
+-    const: 2
++    enum: [2, 3]
+ 
+   cache-sets:
+     enum: [1024, 2048]
+@@ -115,6 +117,22 @@ allOf:
+         cache-sets:
+           const: 1024
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: sifive,ccache0
++
++    then:
++      properties:
++        cache-level:
++          enum: [2, 3]
++
++    else:
++      properties:
++        cache-level:
++          const: 2
++
+ additionalProperties: false
+ 
+ required:
 -- 
 2.17.1
 
