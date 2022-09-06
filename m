@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C9BC6FA8B
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 13:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD02C6FA86
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 13:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4u0NRUQKJlhd5qGitidKnteg67a3aMBKou0tIspOeOM=; b=5AsJlegWPwEqNx
-	P1KLgNoFQY/ThwVdlEyBNfJ2a2UojRDcb7PaHGQWQyg895+egVGA1QFbbOQvLDXlKM0t0AT2yzEJw
-	r+yhATmt9j1Kal9FO6fTsfKktQJv6MtMbzDDbIxK0X36gJb7RDYIKyuo3WDMuL0WJv9z7r3EBuda4
-	e8VyrlfAEoNhpHER3osMfoBC0V7ukx00XG6NL/HQJAkD3o7mWcs791qkbOgTBu9BFprLvKtmslELK
-	zBY/6wHyXBYONyYUYFfhlm+NRTNp/sru7IQwdqFLxW6nzfYZJvdANQS3DMVQww0ZxrGYyAAAYb9cz
-	G12QGhOn7yclfhdujxzw==;
+	List-Owner; bh=cBEY1M8b51Q5rhfz5J12Uih2az03br8zHokyoWXYFPk=; b=Id3xHpftlqLQQ8
+	7QCnUyq2Bl2Hp7XrT96IT4cT5jHhUVpR4gcSAk/syIX7nKQX+w1xc+ERjG9ytrWBtqfFyd7pCnJf9
+	Mvd/PnTnRXaJ3KtAZvBfFnUZGs0q56D+x8zJLQEEpycF9bGd10WgZOssFYpI8woehRaC7sk1ZYcBE
+	3/qa2H2lP/FHSRUqn4Vbbj1VfwDax61ED0zgbPx/V+iVe6bqzU3Gx3+NW4TyS7HRShA5d86ZSukZ0
+	pqG66/OO2LW1XunlOL1sQk+dqli1cgisVmSxX5kqmQPe5b1iWH0CkaqWdka6E2dO/pzd3FvZq143k
+	oW8Wj8LWakeLz9pBco2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVYKx-00Dcte-6I; Tue, 06 Sep 2022 13:09:55 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1oVYKr-00Dcpr-8Z; Tue, 06 Sep 2022 13:09:49 +0000
+Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVYKt-00DcqJ-So
-	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 13:09:53 +0000
-Received: by mail-lj1-x232.google.com with SMTP id r27so11809211ljn.0
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Sep 2022 06:09:50 -0700 (PDT)
+	id 1oVYKn-00Dckx-2x
+	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 13:09:47 +0000
+Received: by mail-lj1-x22d.google.com with SMTP id x10so12254063ljq.4
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Sep 2022 06:09:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date;
-        bh=fvyT04/Nvz6zIBROEx0pz0Zydf7Sgv0iL5DNAFgL4FU=;
-        b=Eb8korZ58eeMIMkzxU6/1wJdDv22JYU4eF2jFdj31Lh/ZwoSw3bL1z3nrSmkpE3Qwi
-         DMv9xYjP38OZHvsfkcBUxHyIOnBKOWzO7Ji3g/lh9XT9jXbx6yrSUj+3fbbqgWswuYuF
-         V1MBR1RSIW6kYFt7kFRTukEkysOo4vbGLpxju4wBxPKwA6pTGqisuU+OoUcwh1g8sHnQ
-         rY1ZB+hJL3YCtDMMQXrkxYnU/ClJOkvmCqMHc/Qd0kwZ56YRcTkRArs+kDxYuY9Uz4xH
-         ov/gw5uou4V5nItHtiC8XBCyJkGJ89rl5uKvbQsW9Rz7CWMFO0go3HtxW/RWNI3Z3GHb
-         eyIg==
+        bh=a6Lagh5/ck4cwH6T2DH+NFbKHsSQbRYpXLBzc0OL1+o=;
+        b=dXsgDRObXwmGfSxxtZAYV9lqtiKMLGuqtb+++sbfJxeuKjAE2UmnPDRJAqKVvdky2Z
+         SZQyVTNXHCf7c29DryUkS3HOC0FtZZ1sFNc8woHt+7hjnAmq93gdUlGFXNjYHDpHkap3
+         SWio2FZ4dfAqRduaWkpJe2VDQRiv6kRbRdcPr5zIxHJYmEBTR4GpfsGJSwaBRg19q3sj
+         BuRnnv3205Zv7OcbWk12OL8U9nmD18hDyZ6iCO6W0scKnmfrhsMDuEMREvhW68mmwzxG
+         SqI3jFLRwaaa7xvRgEKG4baFTHrprRYAN+2ns0LF0/CF+lE/8soEXsZyehLZR2OTncTP
+         YPRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:in-reply-to:from:references:cc:to
          :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date;
-        bh=fvyT04/Nvz6zIBROEx0pz0Zydf7Sgv0iL5DNAFgL4FU=;
-        b=ZXdNCLQ2f+3FL4m+KbGwrp8aroBkUmHwE81ZOABTu6oMTEhy6iKniPMQGyUzfV5Hcw
-         UtXbgr1zCFcNhark7fn6AuBuIH18TQ2NkeYBx4QWSrD1kZTMNH7Xnvd7V49mNH3OAsAV
-         1/m1tmzTvj1Ix4g7ZklxR4e6MYVgHn8s6vo/UZnwnOAwrx/CGmIDj/mr9t0/ZbuK1paE
-         tQewxkwdTIgg39yNiHUgWst3BhSa6oFN/6IOjAgeHh/bYH8HYGC6ATzzZDk6E3UsXnld
-         C+d+r4/YNuqmCfAs52M5uVj3v0LKoHljlDJVWGeGbHSLcb+5Rp3v4tc2uuh5qHdUpwLv
-         OIaw==
-X-Gm-Message-State: ACgBeo3cKKcMBvI2lGWZXXkEYdHkoXkLpVdFn4WcGi4UBhX8mvYFsOnR
-	V3TzoVkgrr3zuChu/9rjoi61EQ==
-X-Google-Smtp-Source: AA6agR7TPR/1qR1gU1UY2pYSeskuowrn9cvcmJrC+PYB3PBzsn9GjzfaEpEe2lc+gpGAh82YoIE12Q==
-X-Received: by 2002:a2e:b819:0:b0:26a:a531:da36 with SMTP id u25-20020a2eb819000000b0026aa531da36mr950357ljo.141.1662469789411;
-        Tue, 06 Sep 2022 06:09:49 -0700 (PDT)
+        bh=a6Lagh5/ck4cwH6T2DH+NFbKHsSQbRYpXLBzc0OL1+o=;
+        b=BU/Mwt7Vvcg9VDKojDUa30EWQiUFlymuWZbVmu9pSVShN4A27CVL2xruNe4bhn/EXJ
+         lbGfSUvTvpf5TaCFBdwrwhDV/Bb0dRKb6LrZwxmIsdv5G89heea9tAwPQZ48LlN2XmTG
+         fQNE3zqA03PuXHU5nlail9T9u48L0VapYrQ8xKts/n6BAV826kox343cctd+MqzVlWgu
+         KQcIWKbU/qUJfIZB95mJhLDsR18b5mR/xVKMdS2Ozv3VUp+Z5spjsgY5oIngzTYCWvib
+         xBh6aVRVulYURq46rDw/vpuXQFpHUh30T8YHyuPtC1+HwSmedERv7SOqJ3oFpCVH/vqL
+         M0bw==
+X-Gm-Message-State: ACgBeo3nXEK9CNo6fp/vxY+UPBAAPDJX8cwHSOvlpE4GmiDbflUMbhJB
+	bltbH1Kqc7licjb8buVcFZPq6g==
+X-Google-Smtp-Source: AA6agR5Jh2R93COOW4SLpzHSWJJOsAVNO4xiFjGMdgMEx0WOkyc6+38G776VsL/J2g791+P67sRs/g==
+X-Received: by 2002:a2e:978f:0:b0:26a:a62e:8f2c with SMTP id y15-20020a2e978f000000b0026aa62e8f2cmr995499lji.153.1662469782575;
+        Tue, 06 Sep 2022 06:09:42 -0700 (PDT)
 Received: from [192.168.0.21] (78-11-189-27.static.ip.netia.com.pl. [78.11.189.27])
-        by smtp.gmail.com with ESMTPSA id v27-20020ac258fb000000b0048b13d0b896sm1731567lfo.141.2022.09.06.06.09.47
+        by smtp.gmail.com with ESMTPSA id t8-20020a056512208800b0048ad4c718f3sm534997lfr.30.2022.09.06.06.09.38
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Sep 2022 06:09:48 -0700 (PDT)
-Message-ID: <45b6f444-b8d1-740a-81a2-b464f71f2a15@linaro.org>
-Date: Tue, 6 Sep 2022 15:09:47 +0200
+        Tue, 06 Sep 2022 06:09:40 -0700 (PDT)
+Message-ID: <6b47114b-187d-0fc1-3acb-3f1567128b8a@linaro.org>
+Date: Tue, 6 Sep 2022 15:09:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.13.0
-Subject: Re: [PATCH v1 2/3] dt-bindings: riscv: microchip: document the Aldec
- TySoM
+Subject: Re: [PATCH v1 1/3] dt-bindings: vendor-prefixes: Add entry for Aldec
 Content-Language: en-US
 To: Conor Dooley <conor.dooley@microchip.com>,
  Rob Herring <robh+dt@kernel.org>,
@@ -77,12 +76,12 @@ To: Conor Dooley <conor.dooley@microchip.com>,
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <20220906121525.3212705-1-conor.dooley@microchip.com>
- <20220906121525.3212705-3-conor.dooley@microchip.com>
+ <20220906121525.3212705-2-conor.dooley@microchip.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220906121525.3212705-3-conor.dooley@microchip.com>
+In-Reply-To: <20220906121525.3212705-2-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220906_060951_988296_9FA6550C 
-X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-CacheID: sfid-20220906_060945_213379_75DB967B 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,10 +100,14 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 06/09/2022 14:15, Conor Dooley wrote:
-> The TySOM-M-MPFS250 is a compact SoC prototyping board featuring
-> a Microchip PolarFire SoC MPFS250T-FCG1152.
+> Per their website:
+> Aldec, Inc. is an industry-leading Electronic Design Automation (EDA)
+> company delivering innovative design creation, simulation and
+> verification solutions to assist in the development of complex FPGA,
+> ASIC, SoC and embedded system designs.
 > 
-> Link: https://www.aldec.com/en/products/emulation/tysom_boards/polarfire_microchip/tysom_m_mpfs250
+> Link: https://www.aldec.com/
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
