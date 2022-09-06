@@ -4,62 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8AC4C54EE9
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 08:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91ACBECAAA1
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 08:56:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
-	Message-ID:References:To:From:Subject:CC:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=mFP+ppTt9OvMoN+Of5pWXfLkU5+E8+il09L/PserPx0=; b=HSSVJJLhXV527l+wAb7FWxUfrb
-	uptYbgY1Q/lKdQmFVW/3mhBXpByPwYFyOQw5/eb+qHqTyl/BwSRK3KRWNICG+U0qwV2JJIP32lXJJ
-	uoEF/mrrJOfIj6//EkAvtMtLYUw075B7w9AJxObLmzYqM5UzTjHAV61p2sCvArfL+iYba0u9kAEBw
-	vx4IWt/Cq1XTP6UjdTjlusd1ZXbZ+0LaKCPLf/pIXtETaLKv7sYnI75y2ZhgguYnWdL6z+/heCgbX
-	h6B4mty5Nrf6/qtPwAN0CsyrFqcNCStktbn2Znk+GeOoOuFkE5zzC6VTqIFJrfAiNQx7QpmsdLv9u
-	z5uNQ8uQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PQ+wdq8E5gRFeVfLz6VCMinJTWpnqeEXF1DjkhHPh/4=; b=ddWw4fQYQb5hz6
+	GwIzr2+syOPzwvnAIbDUbn7gOM8dy9QBRfgR+4Y7ZJHQMUVZR1AjjgogQW/lm+AAdoGdTssQtS1UB
+	gv5MAYQjtzUwB7yf7aVNiuptqsrD99sZIQQB//Puw2sF+LAwsGh9eujOfwdQ1ygzjhDDYP98ByRsC
+	1CFjEt8rVsZFGPScJIA6IiY8iO4K04ud2Z+S108oH0IKUK2cRyxqUWOQP2nwVnaxTx/YPVYSGBgWu
+	PDX5/xlbGsdhkXXQUbaGcWvXyQmp/HZbBB5TiCN2MvnEVJbBkTZMlXRe60JHxpA5nfvZeLbY+ThrC
+	kVRt27HdpLSf0/EWivsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVULX-00BVkE-9C; Tue, 06 Sep 2022 08:54:15 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1oVUMx-00BWcD-LT; Tue, 06 Sep 2022 08:55:43 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVUKk-00BVDz-CL; Tue, 06 Sep 2022 08:53:29 +0000
-Received: from canpemm500009.china.huawei.com (unknown [172.30.72.53])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4MMJwq2Zl9zmVCj;
-	Tue,  6 Sep 2022 16:49:47 +0800 (CST)
-Received: from [10.67.102.169] (10.67.102.169) by
- canpemm500009.china.huawei.com (7.192.105.203) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Tue, 6 Sep 2022 16:53:20 +0800
-CC: <corbet@lwn.net>, <peterz@infradead.org>, <arnd@arndb.de>,
-	<linux-kernel@vger.kernel.org>, <darren@os.amperecomputing.com>,
-	<yangyicong@hisilicon.com>, <huzhanyuan@oppo.com>, <lipeifeng@oppo.com>,
-	<zhangshiming@oppo.com>, <guojian@oppo.com>, <realmz6@gmail.com>,
-	<linux-mips@vger.kernel.org>, <openrisc@lists.librecores.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, Barry Song <21cnbao@gmail.com>,
-	<wangkefeng.wang@huawei.com>, <xhao@linux.alibaba.com>,
-	<prime.zeng@hisilicon.com>, <anshuman.khandual@arm.com>
-Subject: Re: [PATCH v3 0/4] mm: arm64: bring up BATCHED_UNMAP_TLB_FLUSH
-From: Yicong Yang <yangyicong@huawei.com>
-To: <akpm@linux-foundation.org>, <linux-mm@kvack.org>,
-	<linux-arm-kernel@lists.infradead.org>, <x86@kernel.org>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <linux-doc@vger.kernel.org>
-References: <20220822082120.8347-1-yangyicong@huawei.com>
-Message-ID: <34762b48-3da4-4f2e-64a7-68a44f21d4fd@huawei.com>
-Date: Tue, 6 Sep 2022 16:53:20 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:78.0) Gecko/20100101
- Thunderbird/78.5.1
+	id 1oVUMs-00BWW9-Q4
+	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 08:55:40 +0000
+Received: by mail-ed1-x533.google.com with SMTP id z8so14214261edb.6
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Sep 2022 01:55:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date;
+        bh=Ek611JgDauED29IH9RuPGo6hkw+n9gr8q7sWQYplL8w=;
+        b=QDBUrdlbcL4XY+u6CM8akb5k8SkjHa0zrFwGDtcAkrKmLkhG/4e29j/IAnGQsDUGG9
+         KmwUHECzr0YhtspkNrK4S0cmHLixxi4hgjdTtcVsr5ipPk8gV15dFmuKJDS7ajeIP9cu
+         7pmmpiQ0DX7vIcDSGpwTtzcjtoDZRaiQsgGhNXUqzz86yeBKoC0lZo9nB5DCSZotgxw0
+         Pq9LWS185ZLRephbxNYJaf4PWEVk7jcVZwhozvnIPQYe+6Drfp1QDXsdvg6xzPMMiUOV
+         M/Vl8H3Mdckby+Ss6iuhpJw5q02o77apH01BqFCNOreNs7iEGRF5hnSuatNRimzr0VoZ
+         bj6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=Ek611JgDauED29IH9RuPGo6hkw+n9gr8q7sWQYplL8w=;
+        b=IO8dxaRpt0lo4CoxBxj8NeCkKvm6waerldh55mBGbtuJMyGG4/78MAuFDZ5t2OICAR
+         PDJj8prtbq5bddZvs38xl+i/mxwqOxu/5+wL49KbV9bMb9hUILsG5z7ZJwrQSpZdd8Tg
+         CsPK5EMT4u8mezU04DWHyz7WkGWXvbUBDNJUHm6lUvMGdNuD1zKTlwiYExGyEvhAeiOj
+         97RmdYHeUpMJK0tR1iFCRtwsLU8MBTh/1HDXcErAWqoJr51Hw2El25oU7eoBrM5hbeNH
+         vSF6Un8IWr5ioaMQoXh9y8MK6JFrdoEFoEFfx47o/x4dOhMTe0tt1stflsOL7SFbLwdU
+         BMZg==
+X-Gm-Message-State: ACgBeo107NxDiZYNhAQ8Masmns+J1zJpE/F/5ZAkrSs+d21GqocprHhK
+	BXHm7blQiJMnKpV28K48Uy0wfwhWaiulUQ==
+X-Google-Smtp-Source: AA6agR7R206og2r9LYOcpuH1n5aouraP7Z2cOPqXfe/l0I+kv4xQwkjucqw9lmQdKR+OMK2w3wHLCA==
+X-Received: by 2002:a05:6402:3509:b0:43e:d80b:44a8 with SMTP id b9-20020a056402350900b0043ed80b44a8mr47655612edd.255.1662454534918;
+        Tue, 06 Sep 2022 01:55:34 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id cq22-20020a056402221600b00446783d4d02sm7977063edb.30.2022.09.06.01.55.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Sep 2022 01:55:34 -0700 (PDT)
+Date: Tue, 6 Sep 2022 10:55:33 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Conor.Dooley@microchip.com
+Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, heiko@sntech.de, anup@brainfault.org,
+	atishp@atishpatra.org
+Subject: Re: [PATCH 1/3] RISC-V: Output cbom-block-size
+Message-ID: <20220906085533.orfbu5gyeur5xj6i@kamzik>
+References: <20220906083555.931806-1-ajones@ventanamicro.com>
+ <20220906083555.931806-2-ajones@ventanamicro.com>
+ <3da2f5bd-104d-4562-3748-847b2d1c8166@microchip.com>
 MIME-Version: 1.0
-In-Reply-To: <20220822082120.8347-1-yangyicong@huawei.com>
-X-Originating-IP: [10.67.102.169]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- canpemm500009.china.huawei.com (7.192.105.203)
-X-CFilter-Loop: Reflected
+Content-Disposition: inline
+In-Reply-To: <3da2f5bd-104d-4562-3748-847b2d1c8166@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220906_015326_988260_4455BF05 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20220906_015538_921419_2C445C96 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,76 +91,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi mm and arm64 maintainers,
+On Tue, Sep 06, 2022 at 08:40:23AM +0000, Conor.Dooley@microchip.com wrote:
+> On 06/09/2022 09:35, Andrew Jones wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> > 
+> > Provide an info message with the block size when the Zicbom extension is
+> > present and the block size has been determined.
+> 
+> Why might someone care about this?
 
-a gentle ping for this..
+I was unaware of anywhere else besides hardware descriptions where this is
+published. And, while dmesg isn't really publishing it in a way that is
+useful to anything other than human readers either, it at least makes it
+easy for a user to check it for sanity purposes (which is what I used it
+for) or even for applying it if they want to write something that needs it
+and the OS provides U-mode access to CMO.
 
-Thanks.
+I'm not married to the idea, though, so if people would rather have less
+logs than this information, then I'm fine with dropping the patch.
 
-On 2022/8/22 16:21, Yicong Yang wrote:
-> From: Yicong Yang <yangyicong@hisilicon.com>
+Thanks,
+drew
+
 > 
-> Though ARM64 has the hardware to do tlb shootdown, the hardware
-> broadcasting is not free.
-> A simplest micro benchmark shows even on snapdragon 888 with only
-> 8 cores, the overhead for ptep_clear_flush is huge even for paging
-> out one page mapped by only one process:
-> 5.36%  a.out    [kernel.kallsyms]  [k] ptep_clear_flush
-> 
-> While pages are mapped by multiple processes or HW has more CPUs,
-> the cost should become even higher due to the bad scalability of
-> tlb shootdown.
-> 
-> The same benchmark can result in 16.99% CPU consumption on ARM64
-> server with around 100 cores according to Yicong's test on patch
-> 4/4.
-> 
-> This patchset leverages the existing BATCHED_UNMAP_TLB_FLUSH by
-> 1. only send tlbi instructions in the first stage -
-> 	arch_tlbbatch_add_mm()
-> 2. wait for the completion of tlbi by dsb while doing tlbbatch
-> 	sync in arch_tlbbatch_flush()
-> My testing on snapdragon shows the overhead of ptep_clear_flush
-> is removed by the patchset. The micro benchmark becomes 5% faster
-> even for one page mapped by single process on snapdragon 888.
-> 
-> -v3:
-> 1. Declare arch's tlbbatch defer support by arch_tlbbatch_should_defer() instead
->    of ARCH_HAS_MM_CPUMASK, per Barry and Kefeng
-> 2. Add Tested-by from Xin Hao
-> Link: https://lore.kernel.org/linux-mm/20220711034615.482895-1-21cnbao@gmail.com/
-> 
-> -v2:
-> 1. Collected Yicong's test result on kunpeng920 ARM64 server;
-> 2. Removed the redundant vma parameter in arch_tlbbatch_add_mm()
->    according to the comments of Peter Zijlstra and Dave Hansen
-> 3. Added ARCH_HAS_MM_CPUMASK rather than checking if mm_cpumask
->    is empty according to the comments of Nadav Amit
-> 
-> Thanks, Peter, Dave and Nadav for your testing or reviewing
-> , and comments.
-> 
-> -v1:
-> https://lore.kernel.org/lkml/20220707125242.425242-1-21cnbao@gmail.com/
-> 
-> Anshuman Khandual (1):
->   mm/tlbbatch: Introduce arch_tlbbatch_should_defer()
-> 
-> Barry Song (3):
->   Revert "Documentation/features: mark BATCHED_UNMAP_TLB_FLUSH doesn't
->     apply to ARM64"
->   mm: rmap: Extend tlbbatch APIs to fit new platforms
->   arm64: support batched/deferred tlb shootdown during page reclamation
-> 
->  Documentation/features/arch-support.txt       |  1 -
->  .../features/vm/TLB/arch-support.txt          |  2 +-
->  arch/arm64/Kconfig                            |  1 +
->  arch/arm64/include/asm/tlbbatch.h             | 12 ++++++++
->  arch/arm64/include/asm/tlbflush.h             | 28 +++++++++++++++++--
->  arch/x86/include/asm/tlbflush.h               | 15 +++++++++-
->  mm/rmap.c                                     | 19 +++++--------
->  7 files changed, 61 insertions(+), 17 deletions(-)
->  create mode 100644 arch/arm64/include/asm/tlbbatch.h
+> > 
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> > ---
+> >   arch/riscv/mm/cacheflush.c | 4 +++-
+> >   1 file changed, 3 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> > index e5b087be1577..8595baf8e403 100644
+> > --- a/arch/riscv/mm/cacheflush.c
+> > +++ b/arch/riscv/mm/cacheflush.c
+> > @@ -122,7 +122,9 @@ void riscv_init_cbom_blocksize(void)
+> >                  }
+> >          }
+> > 
+> > -       if (probed_block_size)
+> > +       if (probed_block_size) {
+> >                  riscv_cbom_block_size = probed_block_size;
+> > +               pr_info("riscv: Zicbom: Cache blocksize is %u bytes", probed_block_size);
+> > +       }
+> >   }
+> >   #endif
+> > --
+> > 2.37.2
+> > 
 > 
 
 _______________________________________________
