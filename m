@@ -4,85 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 463B9ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 13:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33AA2ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 13:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K5kI46zfzlvrZpnzDPXUBlWar/BLWsTqZg9QOVY5z1k=; b=MjyM2XU1Qgbc9O
-	g3LAjsNsKTRtFaZ0k7OKG6xReI/WVWjoELR326NjXfGKk6tk4Sh7ZWIbDdwN0HeJkyi6IN8h8M5AP
-	NeIKH2wt2o7ZQhah9Z6m+FUBMv8jVscIIR2IFGV01FYAHGS0m0dBNQctkIcAYMMZ4SK98CFGWHr7S
-	PIJgl4UfQM+7QPISkUo/5Q9wHoMaF4OmaSKamf6LJrDC4uayvce8DIZ8tsMA0jM2PyNRSbsWmtCAz
-	tctUwTBLyLaSuv+FeBJgWt+HJ6vKmh5t4DSxmLIUYi7QQuThbVfkHvmJY+qv46yFAgpk4rtAFvEYn
-	l51s69NfjuiH2Epz/5Rw==;
+	List-Owner; bh=5xz+8Fv4vSWwbXdEcwVvebjnmhyLOoHLyhfT9V71WjE=; b=moFK6IXL8tqSOk
+	YAGI/8xDGfJkYzAVjJMiwgpDYU2VoLjZzo+y8kOGpSFjW7NyuZCZnoLmNGIi8Q2p0g6Jaddg8FkOQ
+	yQd1t6YFZEkMHkD5jiiWG93lIZvrSRoEQdYP8goW95ElyYalLxHCAZa0ofI2Z8gpBS6DZSEZuK8BV
+	mstfjadZTJgTcHvbcLOJTQQL3iXxc4XSH/rfpOt3r4my4e2SoRp+W+oIR1ArknXR4M2vvlZ/MHzMy
+	K+9q+0GkzcMLZZAPHtPX175d0tCn9uGyIZ38zzgyDfP5qVkWKpiW3/1Ru1KxpvMhrRI0kgGa6mt+T
+	+JWBukv9dWJPXtTPSf2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVYNA-00DeIj-C4; Tue, 06 Sep 2022 13:12:12 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1oVYTy-00DhN8-Dz; Tue, 06 Sep 2022 13:19:14 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVYN6-00DeBz-VL
-	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 13:12:10 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id r27so11816127ljn.0
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Sep 2022 06:12:00 -0700 (PDT)
+	id 1oVYTu-00DhJR-RG
+	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 13:19:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1662470351; x=1694006351;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=vT9HrR6f3nlqd7aqU/8hmOdyRMfanjqeG0o3KxMWu8I=;
+  b=f6I0ZtDziS9ekpfzD9WeuFF/564okTHJ558L6/YDMDWrgTvof0k/BEnG
+   Z6NIrXniQBUWauRqw5pi/pO4LTgjFsmlwCRuflUFgqVFZiHAcvxa5nbq2
+   rDAeGO4k4heR5bVivJPJSruHrCPwklA3ykV10pohfafrChG63k/02YXG1
+   b6USHRF+KJqPWr1liVpRluxkmoEk1CSHiQxmdHlIHyn12VXtaxYiggVSy
+   vAGn0noEsFAvVOSvByBY98u5iAzihKdI+DS8OlpfvB2nwj+Tinbx72vJJ
+   WZrq96YBmSEu1Njl83K5oDRRu5FCP4K6NbPhDR0P6PeiDwDJksqn3AT4z
+   A==;
+X-IronPort-AV: E=Sophos;i="5.93,294,1654585200"; 
+   d="scan'208";a="172585203"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 06 Sep 2022 06:19:06 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Tue, 6 Sep 2022 06:19:05 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
+ Transport; Tue, 6 Sep 2022 06:19:04 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=oDCFlIyXJk8hicJ+fknbvmVQGeiMmSMjp3LjSuBP6+YPekTmc8jAEHV9JR3syZ15QfqStu57D65NAd+ydGjEE5A05JCY5SBz+lquy7hCiEUzFA9+bL6yJwPmMQDYcJzbjjbLvkaXdPUuFqS3gW8BegQw4imhfylDi2vwak8mr+jPNnj8MqIZpgD0d7+ugjNzbDPB9bKDwjQdaei/56s9zPYKwdK4/SKucKYRb90P89IWiolMzsHKseQ0AO7A95cZk0hIRxVpe6sdNRlvW+JEY+pwZT1I4J73U1C5ddTKBRHIoX+kN9mtcRu4rxRaQMfR2k5gBHzBtX357jkNgMYLcQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vT9HrR6f3nlqd7aqU/8hmOdyRMfanjqeG0o3KxMWu8I=;
+ b=G3oIOUWsDvQ0ntdrTjkXvrUPexqeh7Ix6PQDIkiRbTorqwEMiqYEPaQXa/CELuhJpvVf2cZcfS3MnwkG1sjPAkN13r9katu9fXMv3Y89jWbn43u7uw0xfQahDrcuBbZKLJydvqAyLbRMhyaNTdwQjMTjaSybW3gUa9rvMHua/GOJ0eDJ8du5lWQ8goyZ2qMHSfcC0fFEEj0TnIQQ0Dvq0BgRbAnlw1RU/EjLeP74UC3Hxm43NsBz2VMVMxbCkd0xO9xkWmabPlADmEAuRpYFP2BNEWsSy76gIGPLmwzI8zZUbsJMctFOCNo/9TSJ+obDX0YnaryTHkAeNgGiZhoY2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date;
-        bh=yOWqU/noN30I+JdUCdYobc9an3E9kR1qqO/vRiBd6KA=;
-        b=SwNWX/omCq1NtZCynmzSPeNoENmgdnIUCCC67r37VRQDfChD4AVnn0JPWMJsF+GmEv
-         Fyn4e/WPu7WtRzpE1hiU7B27R98P1JvlR1MHN2MVSZY3+cDzTKgHiqpx2raCKm3Rl8g2
-         FBnn6C60IOuEnWIacb9lLLbLSTcea+vvJb5MaaJfvScu0NKRZtNNUeDSzhGu2tY/QmcR
-         pNlfjJsNz+MybwL1VLAnyWmBGV7JNquC+QdzaBkNnVKssnK+ATLSYzVFx8LhHwFohEOG
-         xWjCN/+d8Aw0uelzEJTAtvJiuHCn4zpd87LqelXGQX3hg+Qcpt+ovEXEPbPG6TtMGTDK
-         oBQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date;
-        bh=yOWqU/noN30I+JdUCdYobc9an3E9kR1qqO/vRiBd6KA=;
-        b=vvBees8P2jsq5wNM5jKmi9bD/twJ02BmpGlzTpxO3ivY9ehOXJzY4zHT8qh5U1sBGD
-         s5q5/igb9YAS2c9GnxYvFkDvlyR/hi5e8o4pXw57h/QW7W7OEcCNobU7VE3PHX81CdWU
-         ys9eOsrtzaUE0SZcVSNw/2W2yPi47w5K3gvRTBiRyeNIhJutj09IKoHKDLHo+chI8Awh
-         yOse8LL40jHXoVoX5GqIonhP8VvZbXk5838byeL9Uzg/5g323J76tqi9q6NC9JPPxdeH
-         9MgCsPPstP4ev37FY9vq4gdBm7jnzOTXZ0Sxhl1QnC6oBaKA/QMJpLDVxZlomwOHxqxl
-         32Cw==
-X-Gm-Message-State: ACgBeo2dreSkhC6PKVwz/IEkHm+ldVOeaUi7LY4Fcr4iq0gxPTsNENC+
-	trxTtZcW+cm9aaIXjW5rMXJERHkCRwS9IQ==
-X-Google-Smtp-Source: AA6agR4jzQemR2LrR1WAzy6iJ5n0+xbpOl8/JFVbFCBlif7gfwSIxEQ3iWY81gAdF3TctAFAz7VNYQ==
-X-Received: by 2002:a2e:80c8:0:b0:269:6aef:b94d with SMTP id r8-20020a2e80c8000000b002696aefb94dmr4352716ljg.57.1662469918707;
-        Tue, 06 Sep 2022 06:11:58 -0700 (PDT)
-Received: from [192.168.0.21] (78-11-189-27.static.ip.netia.com.pl. [78.11.189.27])
-        by smtp.gmail.com with ESMTPSA id q27-20020a05651232bb00b0049110ba325asm1719363lfe.158.2022.09.06.06.11.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 06 Sep 2022 06:11:57 -0700 (PDT)
-Message-ID: <71dad0f0-db66-e79e-5e01-d5fc66b0cb3e@linaro.org>
-Date: Tue, 6 Sep 2022 15:11:56 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.13.0
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vT9HrR6f3nlqd7aqU/8hmOdyRMfanjqeG0o3KxMWu8I=;
+ b=D6rOQNPodM5j/yRaTTzFjUmE8KUwr2Da1ADs9cqG5Bu2UuVb8f7vbo3/OY/+CsPLddjUOD1XRyE8CBbcajTMTSPJUuihzY4t6pBE/9SX03ZYuWyGkpWgVjuQeU4bzMIGolVRlfxfvGtyqnL1bszrzjLpH/TkX3lJWU/O5+yzQUU=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by SJ0PR11MB4877.namprd11.prod.outlook.com (2603:10b6:a03:2d9::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5588.10; Tue, 6 Sep
+ 2022 13:19:03 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::545a:72f5:1940:e009]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::545a:72f5:1940:e009%3]) with mapi id 15.20.5588.018; Tue, 6 Sep 2022
+ 13:19:02 +0000
+From: <Conor.Dooley@microchip.com>
+To: <krzysztof.kozlowski@linaro.org>, <robh+dt@kernel.org>,
+	<krzysztof.kozlowski+dt@linaro.org>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <Daire.McNamara@microchip.com>
+CC: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
 Subject: Re: [PATCH v1 3/3] riscv: dts: microchip: add a devicetree for the
  Aldec TySoM
-Content-Language: en-US
-To: Conor Dooley <conor.dooley@microchip.com>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daire McNamara <daire.mcnamara@microchip.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
+Thread-Topic: [PATCH v1 3/3] riscv: dts: microchip: add a devicetree for the
+ Aldec TySoM
+Thread-Index: AQHYwep2/OhY7h1hMU6Rq5t8qhTyJ63SYKUAgAAB54A=
+Date: Tue, 6 Sep 2022 13:19:02 +0000
+Message-ID: <796f7dd4-8a72-e621-1c3a-e242f8b54631@microchip.com>
 References: <20220906121525.3212705-1-conor.dooley@microchip.com>
  <20220906121525.3212705-4-conor.dooley@microchip.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20220906121525.3212705-4-conor.dooley@microchip.com>
+ <71dad0f0-db66-e79e-5e01-d5fc66b0cb3e@linaro.org>
+In-Reply-To: <71dad0f0-db66-e79e-5e01-d5fc66b0cb3e@linaro.org>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 894b8f57-b729-4939-d26a-08da900a5e12
+x-ms-traffictypediagnostic: SJ0PR11MB4877:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: QFh0Sm2bDW9xSV0q/hFDAgEut9CMpHO44vjntbtQwydvGTWAZAuovggBaO87eswSnawhzcLiNe+ScjVjAAqUVczx8v7dP1nFNn+FkqE3mT4N7ZnGutHKpimK8rQYjJ9yodj1D9uyZmWx+3DbFzn0WAkRayjGDzBTg5amY6LwQC3DRZ7TmHdqmS66iU6SlHgjKcI3owYdxmeYZ9R2WktP3ZXbU17n+IKjyAi1iSbMxdS7sH6SH9+KnOtDGnma6Yt+B54dWzUWN5ti/IixXbRB2cNLXimHdHxmse/MklqhFmUl0j0+gj1EysJxSyevN+zPDV/4dubL+0iLgSBIQio/P8QuA5nGVkjRmCAcQd56fn99drCyB/P16ganVaxJ8HHUpdlY5vQurabm4tmtTNaFaNlgOK7feJ/XMlgWMTuO5/KcjXnK5dQwsh0R3/cDgbfcDzkdDT0kiulcg1j/RUimXrFWd34mN9a0iHXFLkR182e3gnmvlQCyCTCRfh/dLenJq8AXI0Q0MOlCCZS1pi2A71g0/6Hp+7AHiZA+YItF4hN2G3cqJUhdG44NX+8OwYa1MzqmEpi0Tzt/UVyHoxCAA/PmpqRntcjGN1jDa67jEneR93/jXE30AVSNkb39JzFgZ8IbXR4DYeE1H6fA6y2lXPrZ+u04y6DPV33Ebz2uWF3dbofZC1O4y+0vMoxrTPKuXvatTAncrlA0dvLOtBCu54m4daDgh78vX+6FHSIAdNzZmxjBLAG0nst9Pd8IP8O+UKXOxlwv7IP/bObhsQDUpLuvX/NxlLkvejvhca+ITwfgF7i3SkExJcQ6oPj5h9h8
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(6029001)(376002)(39860400002)(346002)(136003)(366004)(396003)(478600001)(36756003)(6512007)(5660300002)(41300700001)(6486002)(26005)(122000001)(8936002)(2906002)(38100700002)(66446008)(66556008)(66476007)(66946007)(76116006)(86362001)(64756008)(91956017)(8676002)(4326008)(53546011)(31696002)(6506007)(110136005)(38070700005)(31686004)(186003)(54906003)(71200400001)(316002)(2616005)(6636002)(83380400001)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eTRmeWVvd2dZUXJEZkxHR0dJc2hnOGNURExnQnVjd3c0NXp3clFCcWFLVGRT?=
+ =?utf-8?B?eStKUlpzWTQ5d0ZGOTEzV3IvWU9jUDQzeXBtZFJ4UFVnNi9QMTRrYlJUbk05?=
+ =?utf-8?B?alFYSTlyd3JReVFKWDkrMkcrNmdUVVpRR0pOUVk3RE5vcGRLbGg2SncwSG9k?=
+ =?utf-8?B?eEhVZ2hIUkdGeDhNZ2V5Tk9uaDVsQ0d2eDRXVmlDRkF4Q3AzWi9ndE9YYk1a?=
+ =?utf-8?B?bXNVSXN5L01IeTJRdnFTaGlxdVRqYXMyd0NVbGFpYW5jMzZ4THdEZ0xVTFpJ?=
+ =?utf-8?B?cEI0dzkxS2NUc1B0dEVJRENwR1FLeGVCRXhGQ2w4cXRKU3hsYVIzd3VlSldV?=
+ =?utf-8?B?dm5taFNaMitxd3ZDSXZRYVc4NGxmYU1ETVlzblZrZXNoVlcwV3UxL0p5eW5H?=
+ =?utf-8?B?SHB4KzJ5L1ZIaGh1WmdUOGRDK3BVeFlrTTkxRnBEWFVlZnBMTWJNRStFNHdK?=
+ =?utf-8?B?bmRVcTh3L3Q3aExDOHZ6dUcycHFjbzltUDd5OHVmYTFhK0FQTERHMGhOMkd2?=
+ =?utf-8?B?elB1Mk5sR2FwN1V5L0J3Nllwbm93c0twYWdrTmYzM0R5NUZ2aU1QQnU1N241?=
+ =?utf-8?B?QXk1SWg2Q3JndnNRNmtQbVNFaXU1ODJBVFVYdHNocXpaZUJVcVpoUHltNEpO?=
+ =?utf-8?B?anhqSmRGT1R1UmpDUzEzL1QxWFd5WEJOL3NBR1BqcjhaU1pnODcyWndNWi94?=
+ =?utf-8?B?enMxNXBEQ0tuNXVIRDQ1S3M0YTZnaGlUcncxMlZFU3JFb1dWM1JxUVBtUUNO?=
+ =?utf-8?B?bHNGRWowYm5kemFkcEVaVFNyWU9odEI1cVlVdGpTa05vQkprTFU1cWhRUm1B?=
+ =?utf-8?B?YnpHSHFKRk1LTlNYLzBUblRWYmFFT2RLU2dPT1dsa09xQWdGZW4vaUQ5NHBs?=
+ =?utf-8?B?UjhnZzl0NkQ1bU5pWWtjK0FWMURoZWRIRWJUamxEQzV0b1JKUE5FSzM5WjR5?=
+ =?utf-8?B?SEUxSFdNak9qZFFRbmZqZVdsVndZSThQRGRzTy9tYmgwejFnRVJZUGpDZ01C?=
+ =?utf-8?B?di82bWRTejZzdE91TGNIT1pNWW9Ec0ZWeDRQRTIxeUFjN2ROQW1UMnIyOTJx?=
+ =?utf-8?B?V2ZSWGJWNW5EbldNbmhHSjBKQTZDS0pYb0dYNEV2TFh6eGVNZjAwdnZVMjRE?=
+ =?utf-8?B?ZXhDRFdmblpzN21acnk2S2FmYy9EaTVESEY5ZVZKQndycDJueUZKQ01TUFRW?=
+ =?utf-8?B?Y01BQXdPZVQ1ZHl6RHZYejVWVGFmNHMxT0hnV3ZOT2tGaE8vcC96azg2Z0k3?=
+ =?utf-8?B?dVJ6SUhESmVtTGF4SjFoL3l6bXFsLzk5clorNXA5eVVNRlQyaHY2YS9oUkxs?=
+ =?utf-8?B?U3VJdERnQVNseGFJMXNsYlZldytQSS9ETmZOZFo4WlNHb1U5VXkwQmowMXo5?=
+ =?utf-8?B?UVFteC94Z2Q2Y1F0Nk5PeGZrVllKcTdwMU1MQ08xWjdrZ3pKeWoxWU42YzRM?=
+ =?utf-8?B?YW1MQTVLeFBUYmxVb3RNNEtDeXdnczZDdW9yZUZ1Zkxmakx6VEZjcmMxcXMz?=
+ =?utf-8?B?MHd4d3gyVGxKeVI5WStnOWNlMk9na0V5bTBvQlZ6cmEwbnM1cDJoRkJJZlVz?=
+ =?utf-8?B?eXpaWFJsbTR5ZGNzRlgzRXZLclhLZGFBbkRJa2pFRm1iRWM0bWxSRmRGa29v?=
+ =?utf-8?B?Q1hPVmtuWVdESDdGQnp1QSsvZUtZV2pudTdVcThvSXpCMlNncno4dFJZSHNh?=
+ =?utf-8?B?SnZaR1NJZkNQSjg3dGZwWHpNa0d0R2F5S054RUx1YUVrdVR2V2h6MjZpb0Y0?=
+ =?utf-8?B?QUJjVjFodk5yMVdLUG5SQWJPTkFuOGhmSTBZZmtaaDNRUG1JZTFFMVdDRm43?=
+ =?utf-8?B?TmYrNlNOWjA0NWZjdlhXL2l3NEF4bnR4dkxwMWswc3llYnpSNGs5c1dJcGdk?=
+ =?utf-8?B?VjVnSmx3WlIzelNTVWN4WDZEdVJ4eTE5NlA3aTk2WWZhNU5QVHFJb04yR3E2?=
+ =?utf-8?B?eEI5ZWRXUjlmSlRuUjFsZVY1aWRYTmlXSS8zVGFYVmpiVDg5NFpwTWdsa0Qx?=
+ =?utf-8?B?TmdWWWc0MWtNazdWWktrUDhmZVY1RjZpdWtubUUxYUhMTkRNemtmUHJHR1A0?=
+ =?utf-8?B?ZGMySTk0TkhndXdiWWZHQUk3S3l0UlRYMlo4aFh3RkJSbkxNVm9sU1BTOTN0?=
+ =?utf-8?Q?WwLL3U1TG2RNSLd1zfI5drhuB?=
+Content-ID: <147EE5DE56F3E14EB646976614A74CB7@namprd11.prod.outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 894b8f57-b729-4939-d26a-08da900a5e12
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Sep 2022 13:19:02.8398
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: /OeXz8b1q6sVqiPSjQJSIIi2FX8eARh31idW/tYFQXX75zlW6mN4HtQORSfGxz6p7XAssTR94PdVFCvCXL/K3Be/lJlW1J/rBY9xqgwK2kk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR11MB4877
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220906_061209_106196_CEC01B31 
-X-CRM114-Status: GOOD (  20.93  )
+X-CRM114-CacheID: sfid-20220906_061910_985599_C51DD23C 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,270 +177,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 06/09/2022 14:15, Conor Dooley wrote:
-> The TySOM-M-MPFS250 is a compact SoC prototyping board featuring
-> a Microchip PolarFire SoC MPFS250T-FCG1152. Features include:
-> - 16 GB FPGA DDR4
-> - 16 GB MSS DDR4 with ECC
-> - eMMC
-> - SPI flash memory
-> - 2x Ethernet 10/100/1000
-> - USB 2.0
-> - PCIe x4 Gen2
-> - HDMI OUT
-> - 2x FMC connector (HPC and LPC)
+On 06/09/2022 14:11, Krzysztof Kozlowski wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> Link: https://www.aldec.com/en/products/emulation/tysom_boards/polarfire_microchip/tysom_m_mpfs250
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  arch/riscv/boot/dts/microchip/Makefile        |   1 +
->  .../dts/microchip/mpfs-tysom-m-fabric.dtsi    |  47 +++++
->  .../riscv/boot/dts/microchip/mpfs-tysom-m.dts | 168 ++++++++++++++++++
->  3 files changed, 216 insertions(+)
->  create mode 100644 arch/riscv/boot/dts/microchip/mpfs-tysom-m-fabric.dtsi
->  create mode 100644 arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
+> On 06/09/2022 14:15, Conor Dooley wrote:
+>> The TySOM-M-MPFS250 is a compact SoC prototyping board featuring
+>> a Microchip PolarFire SoC MPFS250T-FCG1152. Features include:
+>> - 16 GB FPGA DDR4
+>> - 16 GB MSS DDR4 with ECC
+>> - eMMC
+>> - SPI flash memory
+>> - 2x Ethernet 10/100/1000
+>> - USB 2.0
+>> - PCIe x4 Gen2
+>> - HDMI OUT
+>> - 2x FMC connector (HPC and LPC)
+
+>> +
+>> +&spi1 {
+>> +     status = "okay";
+>> +     flash@0 {
+>> +             #address-cells = <1>;
+>> +             #size-cells = <1>;
 > 
-> diff --git a/arch/riscv/boot/dts/microchip/Makefile b/arch/riscv/boot/dts/microchip/Makefile
-> index 7427a20934f3..c54922a325fd 100644
-> --- a/arch/riscv/boot/dts/microchip/Makefile
-> +++ b/arch/riscv/boot/dts/microchip/Makefile
-> @@ -3,4 +3,5 @@ dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-icicle-kit.dtb
->  dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-m100pfsevp.dtb
->  dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-polarberry.dtb
->  dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-sev-kit.dtb
-> +dtb-$(CONFIG_SOC_MICROCHIP_POLARFIRE) += mpfs-tysom-m.dtb
->  obj-$(CONFIG_BUILTIN_DTB) += $(addsuffix .o, $(dtb-y))
-> diff --git a/arch/riscv/boot/dts/microchip/mpfs-tysom-m-fabric.dtsi b/arch/riscv/boot/dts/microchip/mpfs-tysom-m-fabric.dtsi
-> new file mode 100644
-> index 000000000000..51d0c5176b9e
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/microchip/mpfs-tysom-m-fabric.dtsi
-> @@ -0,0 +1,47 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/* Copyright (c) 2022 Microchip Technology Inc */
-> +
-> +// #include "dt-bindings/mailbox/miv-ihc.h"
-> +
-> +/ {
-> +	fabric_clk3: fabric-clk3 {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <62500000>;
-> +	};
-> +
-> +	fabric_clk1: fabric-clk1 {
-> +		compatible = "fixed-clock";
-> +		#clock-cells = <0>;
-> +		clock-frequency = <125000000>;
-> +	};
-> +
-> +	pcie: pcie@2000000000 {
-> +		compatible = "microchip,pcie-host-1.0";
-> +		#address-cells = <0x3>;
-> +		#interrupt-cells = <0x1>;
-> +		#size-cells = <0x2>;
-> +		device_type = "pci";
-> +		reg = <0x20 0x0 0x0 0x8000000>, <0x0 0x43000000 0x0 0x10000>;
-> +		reg-names = "cfg", "apb";
-> +		bus-range = <0x0 0x7f>;
-> +		interrupt-parent = <&plic>;
-> +		interrupts = <119>;
-> +		interrupt-map = <0 0 0 1 &pcie_intc 0>,
-> +				<0 0 0 2 &pcie_intc 1>,
-> +				<0 0 0 3 &pcie_intc 2>,
-> +				<0 0 0 4 &pcie_intc 3>;
-> +		interrupt-map-mask = <0 0 0 7>;
-> +		clocks = <&fabric_clk1>, <&fabric_clk1>, <&fabric_clk3>;
-> +		clock-names = "fic0", "fic1", "fic3";
-> +		ranges = <0x3000000 0x0 0x8000000 0x20 0x8000000 0x0 0x80000000>;
-> +		msi-parent = <&pcie>;
-> +		msi-controller;
-> +		status = "disabled";
-> +		pcie_intc: interrupt-controller {
-> +			#address-cells = <0>;
-> +			#interrupt-cells = <1>;
-> +			interrupt-controller;
-> +		};
-> +	};
-> +};
-> diff --git a/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts b/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
-> new file mode 100644
-> index 000000000000..5ad2fbd1b7ae
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/microchip/mpfs-tysom-m.dts
-> @@ -0,0 +1,168 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Original all-in-one devicetree:
-> + * Copyright (C) 2020-2022 - Aldec
-> + * Rewritten to use includes:
-> + * Copyright (C) 2022 - Conor Dooley <conor.dooley@microchip.com>
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include "mpfs.dtsi"
-> +#include "mpfs-tysom-m-fabric.dtsi"
-> +
-> +/* Clock frequency (in Hz) of the rtcclk */
-> +#define MTIMER_FREQ		1000000
-> +
-> +/ {
-> +	model = "Aldec TySOM-M-MPFS250T";
-> +	compatible = "aldec,tysom-m-mpfs250t", "microchip,mpfs";
-> +
-> +	aliases {
-> +		ethernet0 = &mac0;
-> +		ethernet1 = &mac1;
-> +		serial0 = &mmuart0;
-> +		serial1 = &mmuart1;
-> +		serial2 = &mmuart2;
-> +		serial3 = &mmuart3;
-> +		serial4 = &mmuart4;
-> +		gpio0 = &gpio0;
-> +		gpio1 = &gpio2;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial1:115200n8";
-> +	};
-> +
-> +	cpus {
-> +		timebase-frequency = <MTIMER_FREQ>;
-> +	};
-> +
-> +	ddrc_cache_lo: memory@80000000 {
-> +		device_type = "memory";
-> +		reg = <0x0 0x80000000 0x0 0x40000000>;
-> +		status = "okay";
-> +	};
-> +
-> +	ddrc_cache_hi: memory@1000000000 {
-> +		device_type = "memory";
-> +		reg = <0x10 0x00000000 0x0 0x40000000>;
-> +		status = "okay";
-> +	};
-> +
-> +	leds {
-> +		compatible = "gpio-leds";
-> +		status = "okay";
-> +
-> +		led0 {
+> Are these needed? Does it pass dtbs_check?
 
-Typically this is led-0
+It did, yea. But you're right in that they're not needed, I deleted some
+dummy flash partitions that were in the dts I received and I didn't see
+the cells too.
 
-> +			gpios = <&gpio1 23 1>;
+I'm likely going to sit on this patch for quite a while, but the various
+things you pointed out all are valid, so they'll be sorted by the
+eventual v2...
 
-Does '1' stand for some GPIO flag?
+As always, thanks!
 
-> +			default-state = "on";
-> +			linux,default-trigger = "heartbeat";
-> +		};
-> +	};
-> +};
-> +
-> +&i2c0 {
-> +	status = "okay";
-> +};
-> +
-> +&i2c1 {
-> +	status = "okay";
-> +	hwmon: hwmon@45 {
-> +		status = "okay";
+> 
+>> +             compatible = "micron,n25q128a11", "jedec,spi-nor";
+>> +             status = "okay";
+> 
+> No need for status.
 
-No need for status.
-
-> +		compatible = "ti,ina219";
-> +		reg = <0x45>;
-> +		shunt-resistor = <2000>;
-> +	};
-> +};
-> +
-> +&gpio1 {
-> +	interrupts = <27>, <28>, <29>, <30>,
-> +		     <31>, <32>, <33>, <47>,
-> +		     <35>, <36>, <37>, <38>,
-> +		     <39>, <40>, <41>, <42>,
-> +		     <43>, <44>, <45>, <46>,
-> +		     <47>, <48>, <49>, <50>;
-> +	status = "okay";
-> +};
-> +
-> +&mac0 {
-> +	status = "okay";
-> +	phy-mode = "gmii";
-> +	phy-handle = <&phy0>;
-> +
-> +};
-> +
-> +&mac1 {
-> +	status = "okay";
-> +	phy-mode = "gmii";
-> +	phy-handle = <&phy1>;
-> +	phy1: ethernet-phy@1 {
-> +		reg = <1>;
-> +	};
-> +	phy0: ethernet-phy@0 {
-> +		reg = <0>;
-> +	};
-> +};
-> +
-> +&mbox {
-> +	status = "okay";
-> +};
-> +
-> +&mmc {
-> +	max-frequency = <200000000>;
-> +	cap-mmc-highspeed;
-> +	cap-sd-highspeed;
-> +	no-1-8-v;
-> +	disable-wp;
-> +	status = "okay";
-> +};
-> +
-> +&mmuart1 {
-> +	status = "okay";
-> +};
-> +
-> +&mmuart2 {
-> +	status = "okay";
-> +};
-> +
-> +&mmuart3 {
-> +	status = "okay";
-> +};
-> +
-> +&mmuart4 {
-> +	status = "okay";
-> +};
-> +
-> +&refclk {
-> +	clock-frequency = <125000000>;
-> +};
-> +
-> +&rtc {
-> +	status = "okay";
-> +};
-> +
-> +&spi0 {
-> +	status = "okay";
-> +};
-> +
-> +&spi1 {
-> +	status = "okay";
-> +	flash@0 {
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-
-Are these needed? Does it pass dtbs_check?
-
-> +		compatible = "micron,n25q128a11", "jedec,spi-nor";
-> +		status = "okay";
-
-No need for status.
-
-Best regards,
-Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
