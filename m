@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 083FCECAAD5
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 13:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C9BC6FA8B
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 13:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P/v0kMfE4GKlslmONp/rrAg/7RoqioCVpx8ND89ZiYQ=; b=UE7ED5jDPOtmqA
-	yEBAdSDiZEdjK0fIG/TCNO2RVroHPRpzDYYkWTDV1A3gymIpnAGfWci3cL6wtyxxNGV+mQEcB9nQ5
-	ejVzCQD9896CUFtx/cT18TOmSZzYIsQuCf3IHzcuC2KbyKlc4SsgZnpsnEHcznPJI/w9DjzTvR60/
-	KBO7eCQsUlO9NfsKHmyye8LveReN4LeMxevt3Qr67sVPTBCB3mCk6K9FTa9UkjZGx9Zgr1ud7GI15
-	6EeQZVJdfnICQDtcpq+nbTJWpEcZgGwzKnStnXscsF96gvG4ng+qCHUBNX+Z3n8trd1wzLki3iAkC
-	7ola3VR36LEyrWBZI5Ig==;
+	List-Owner; bh=4u0NRUQKJlhd5qGitidKnteg67a3aMBKou0tIspOeOM=; b=5AsJlegWPwEqNx
+	P1KLgNoFQY/ThwVdlEyBNfJ2a2UojRDcb7PaHGQWQyg895+egVGA1QFbbOQvLDXlKM0t0AT2yzEJw
+	r+yhATmt9j1Kal9FO6fTsfKktQJv6MtMbzDDbIxK0X36gJb7RDYIKyuo3WDMuL0WJv9z7r3EBuda4
+	e8VyrlfAEoNhpHER3osMfoBC0V7ukx00XG6NL/HQJAkD3o7mWcs791qkbOgTBu9BFprLvKtmslELK
+	zBY/6wHyXBYONyYUYFfhlm+NRTNp/sru7IQwdqFLxW6nzfYZJvdANQS3DMVQww0ZxrGYyAAAYb9cz
+	G12QGhOn7yclfhdujxzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVYKs-00Dcqj-S6; Tue, 06 Sep 2022 13:09:50 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1oVYKx-00Dcte-6I; Tue, 06 Sep 2022 13:09:55 +0000
+Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVYKp-00Dcll-DQ
-	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 13:09:48 +0000
-Received: by mail-ed1-x532.google.com with SMTP id u6so15017166eda.12
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Sep 2022 06:09:44 -0700 (PDT)
+	id 1oVYKt-00DcqJ-So
+	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 13:09:53 +0000
+Received: by mail-lj1-x232.google.com with SMTP id r27so11809211ljn.0
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Sep 2022 06:09:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=linaro.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=88S83VgtdPyH77FG9hMS+SUCEVS9Ip7NvKSaBXxAsxM=;
-        b=mAyIh9BL6U13TF8OsThv9eGZVdT6lvAT5c+VkmlaX2Blb9QVFDnzwRqY3DlVOjnVyp
-         bF33+Zy3zElL8dojbFmG5JVyijBo+Em15s8Hjp11XZGOsBa4L1JKNshzsdSXlgY5Up3a
-         Nz1bq8y6+yl5SuqRWlAnNFwUljDjPrGqMqxqjplClzH1JQZB17kI14cEE0/HY8Ef+Wxz
-         KiPmBw815Dl4lsAJxOsiwXYaTYhfnJLsOAo8dSd95m4YSd65uVgNnkTAwSfLYDEGL+Vb
-         8lgEK+0gOlk05N5Kv2A96lZMo7AHB8Raxp9OmR4nv8ddpe44e5IcRMYMpyhdq5BLpXXI
-         ODuw==
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date;
+        bh=fvyT04/Nvz6zIBROEx0pz0Zydf7Sgv0iL5DNAFgL4FU=;
+        b=Eb8korZ58eeMIMkzxU6/1wJdDv22JYU4eF2jFdj31Lh/ZwoSw3bL1z3nrSmkpE3Qwi
+         DMv9xYjP38OZHvsfkcBUxHyIOnBKOWzO7Ji3g/lh9XT9jXbx6yrSUj+3fbbqgWswuYuF
+         V1MBR1RSIW6kYFt7kFRTukEkysOo4vbGLpxju4wBxPKwA6pTGqisuU+OoUcwh1g8sHnQ
+         rY1ZB+hJL3YCtDMMQXrkxYnU/ClJOkvmCqMHc/Qd0kwZ56YRcTkRArs+kDxYuY9Uz4xH
+         ov/gw5uou4V5nItHtiC8XBCyJkGJ89rl5uKvbQsW9Rz7CWMFO0go3HtxW/RWNI3Z3GHb
+         eyIg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=88S83VgtdPyH77FG9hMS+SUCEVS9Ip7NvKSaBXxAsxM=;
-        b=06mrFUKvAF3ISYWIDUhmJ6L4n/N7OLTA0d8iD6LkpAJFNBK4xZXfJQkL8Y/ETOxRzd
-         dmKNhQk2fGfn+8O+JQTIDPG09rncRwV/iDproyqe0KPmXLyrLBJEhiU0WvxuH+5/t171
-         80xJq7eTTpf3IXsAb54ia+DZWjTnMS+1t5WkMI0EYMHsmzy990RM/jOKptorayTXCRul
-         OMsr4kwtrmXtOu5nxH01zkbwojtteHvDn4XSdDErnqHSqnDaLFLqHWoqepZ9tp6r//vp
-         VTSBA2cJnPg/C5MUwKWpgA98zSvb/oLKZbGoI7yTJx0FgCXkaeZvkyEjxJc3SAcbDhq7
-         bYEw==
-X-Gm-Message-State: ACgBeo3bcX/tMQ+34hqPIra5yi0hSaDFOgQMu+Q2OzZ5dfsL79t7slZ2
-	0JdseP8vAaJeIMcyf4DufWkqis/wXwU+OaJa3MQbWQ==
-X-Google-Smtp-Source: AA6agR4jq9Z8dAf/3EQ95TiI0FXT5EC2lhCOyeBmcWkquxjlowspq2Bm8Wgn4darPlB5Du0MQ8kJI+uN9l2iRtOKLqE=
-X-Received: by 2002:aa7:d6d9:0:b0:44d:e1b7:d905 with SMTP id
- x25-20020aa7d6d9000000b0044de1b7d905mr11675722edr.32.1662469783678; Tue, 06
- Sep 2022 06:09:43 -0700 (PDT)
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date;
+        bh=fvyT04/Nvz6zIBROEx0pz0Zydf7Sgv0iL5DNAFgL4FU=;
+        b=ZXdNCLQ2f+3FL4m+KbGwrp8aroBkUmHwE81ZOABTu6oMTEhy6iKniPMQGyUzfV5Hcw
+         UtXbgr1zCFcNhark7fn6AuBuIH18TQ2NkeYBx4QWSrD1kZTMNH7Xnvd7V49mNH3OAsAV
+         1/m1tmzTvj1Ix4g7ZklxR4e6MYVgHn8s6vo/UZnwnOAwrx/CGmIDj/mr9t0/ZbuK1paE
+         tQewxkwdTIgg39yNiHUgWst3BhSa6oFN/6IOjAgeHh/bYH8HYGC6ATzzZDk6E3UsXnld
+         C+d+r4/YNuqmCfAs52M5uVj3v0LKoHljlDJVWGeGbHSLcb+5Rp3v4tc2uuh5qHdUpwLv
+         OIaw==
+X-Gm-Message-State: ACgBeo3cKKcMBvI2lGWZXXkEYdHkoXkLpVdFn4WcGi4UBhX8mvYFsOnR
+	V3TzoVkgrr3zuChu/9rjoi61EQ==
+X-Google-Smtp-Source: AA6agR7TPR/1qR1gU1UY2pYSeskuowrn9cvcmJrC+PYB3PBzsn9GjzfaEpEe2lc+gpGAh82YoIE12Q==
+X-Received: by 2002:a2e:b819:0:b0:26a:a531:da36 with SMTP id u25-20020a2eb819000000b0026aa531da36mr950357ljo.141.1662469789411;
+        Tue, 06 Sep 2022 06:09:49 -0700 (PDT)
+Received: from [192.168.0.21] (78-11-189-27.static.ip.netia.com.pl. [78.11.189.27])
+        by smtp.gmail.com with ESMTPSA id v27-20020ac258fb000000b0048b13d0b896sm1731567lfo.141.2022.09.06.06.09.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 Sep 2022 06:09:48 -0700 (PDT)
+Message-ID: <45b6f444-b8d1-740a-81a2-b464f71f2a15@linaro.org>
+Date: Tue, 6 Sep 2022 15:09:47 +0200
 MIME-Version: 1.0
-References: <20220815120834.1562544-1-lewis.hanly@microchip.com>
- <20220815120834.1562544-2-lewis.hanly@microchip.com> <CACRpkdbk_ZqYnDzXgmbnAxhs+mEe9f2X-y++9HDS-O=UO_tUmg@mail.gmail.com>
- <31d2bd0514652685cb87a7c9d17529b9064de2bf.camel@microchip.com>
- <CACRpkdZqvEvqjzTN3oQqrV_CNK+D2+c4FjLiC1_ZoKQ-rMMe5A@mail.gmail.com> <23d74882a69b39025005495886faec3e5b129ba7.camel@microchip.com>
-In-Reply-To: <23d74882a69b39025005495886faec3e5b129ba7.camel@microchip.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 6 Sep 2022 15:09:32 +0200
-Message-ID: <CACRpkdYiLqiK9bzYoOX-fz3cCdojDjQj-amsQYQRcF2HVUWzqg@mail.gmail.com>
-Subject: Re: [PATCH v6 1/1] gpio: mpfs: add polarfire soc gpio support
-To: Lewis.Hanly@microchip.com
-Cc: linux-riscv@lists.infradead.org, Conor.Dooley@microchip.com, brgl@bgdev.pl, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, palmer@dabbelt.com, 
-	maz@kernel.org, Daire.McNamara@microchip.com
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.0
+Subject: Re: [PATCH v1 2/3] dt-bindings: riscv: microchip: document the Aldec
+ TySoM
+Content-Language: en-US
+To: Conor Dooley <conor.dooley@microchip.com>,
+ Rob Herring <robh+dt@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daire McNamara <daire.mcnamara@microchip.com>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20220906121525.3212705-1-conor.dooley@microchip.com>
+ <20220906121525.3212705-3-conor.dooley@microchip.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20220906121525.3212705-3-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220906_060947_500973_F55F0284 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20220906_060951_988296_9FA6550C 
+X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,32 +100,18 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 5, 2022 at 12:45 PM <Lewis.Hanly@microchip.com> wrote:
-> On Wed, 2022-08-31 at 15:19 +0200, Linus Walleij wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you
-> > know the content is safe
-> >
-> > On Tue, Aug 30, 2022 at 6:51 AM <Lewis.Hanly@microchip.com> wrote:
-> >
-> > > We had looked at the bpgpio_init, our controller is not fully
-> > > memory
-> > > mapped to support the bgpio_init() and get all routines for free.
-> > > While we have in/out and intr (interrupt state) 32-bit registers,
-> > > we
-> > > would not get as much free as other generic memory mapped
-> > > controllers.
-> >
-> > You're not really saying what the problem is?
-> >
-> > Is it that some registers are not one-bit-indexed from 0 per GPIO?
-> Yes some of the registers are not one-bit-indexed per GPIO and for this
-> reason we had not implemented bgpio_init().
+On 06/09/2022 14:15, Conor Dooley wrote:
+> The TySOM-M-MPFS250 is a compact SoC prototyping board featuring
+> a Microchip PolarFire SoC MPFS250T-FCG1152.
+> 
+> Link: https://www.aldec.com/en/products/emulation/tysom_boards/polarfire_microchip/tysom_m_mpfs250
 
-OK that's a valid reason not to use that. Thanks!
-The regmap may help though, have a look!
 
-Yours,
-Linus Walleij
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
