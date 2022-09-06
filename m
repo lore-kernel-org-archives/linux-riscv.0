@@ -4,79 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 998D0C54EE9
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 08:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F05ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 08:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AMZhP438AVTfh3MRIoKDLI9KgI6pvSSAdtXYqBb2ZFU=; b=jDRnRg6ZEQYyOg
-	GTYC4nGr2NzLbwQnBnvieeWvvWQ/CHxbJibAK0jbWRhkTvVmc9ksZD2DpPKST/43mkHa4N/YzM2FD
-	ytmZQFbtuK3VMjMoACaRMvmRwqcQpUCvJfb1zxU8tZ8cwm7MFjXoxuf8msEX1fn55zGQC4QGSBPo2
-	4YNv47TrK2rgFVHmiKOSXrwGStfpIjRzTHtaMuCtYF84+7dNZMJLaReqMewtCfOaXgus/4F2Xp8Ua
-	O3xWVphgpqxCVzQwsdvrskLFnNtOKCjmqAo1b2pTcLfzY/e8ZvK3pAEFh6JZvXu9QDhxZkfzDgQ+a
-	URRTcsjOfAqX4Br1RtyA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+YPYfiIZd91lLw/aLs1SsBWx5aNrvBCmyK8kuWgx+vc=; b=OpkbxZDKbAbsxe
+	VWKLY5KspUpl1+3WYpLrwvU5wDv6Y5W9+tYwGQ09Awj8Nm6npTvO18Ls1xcNYWiS+aPZ0vx7MvqdR
+	nP3DrY8CqDdnzP9A48xJaaLglVr4w+rq0pDAl2ouHxlkrV0tVzuqewkILQlnqnA0vD012Pdh8ubb2
+	eTTxRSNZXtlEo78iSdB3KVBwbal/tdP8QJa8+gsXOuagsjcDvaOgLElYn4ZbXpF/ldRCGz8p5de1o
+	sjdbMLsFMflPuM809q5oxRR6akrrNOval9VKvjM1ATV4eIuulbwo7yiFW0P0VMlbU1mTJr0jWXGiu
+	76Pst+/yV+jxd0eXk2GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVU4I-00BJVU-OV; Tue, 06 Sep 2022 08:36:26 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1oVU4F-00BJRx-57; Tue, 06 Sep 2022 08:36:23 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVU3s-00BJGe-TQ
-	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 08:36:02 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id t5so14108450edc.11
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Sep 2022 01:35:59 -0700 (PDT)
+	id 1oVU3q-00BJF6-8H
+	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 08:36:00 +0000
+Received: by mail-ej1-x636.google.com with SMTP id u9so21518575ejy.5
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Sep 2022 01:35:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=ventanamicro.com; s=google;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
-        bh=b5AgkkZuu39oqgpGoAg3+xya9yGInCBwG5bCl7KWK4o=;
-        b=o69ti+UC3tq0qYtxG/aTtA4pPNFbM+UEtrEAOvjzIfSnOQ+WFaNHeJIj2gXBiJQR9u
-         pRqTMKxld67geyxft8CJpqcyopkBA1zeP3FSYNgLYi06fJyblOlBsH+GgAyPnWA7+5p6
-         NzIeJ3kNy+blC7sKRCrvW6E7OAsB1d/GNieZJhL9O6RTgn56cXsS9PEZmXIgxFMhr1lU
-         zxAkRR243RvMNiQ+KSowZjZHLw9ki8dCjjysq2jr0nqqBFczFqbMxMDurvU1lm71qn6v
-         tXK0KCQ618VIxXPe9ruaaOjh3XwdQerIL3+f8xoawbK2xwqBSnAnqPtCTrmkXMMjt8Bk
-         +PgQ==
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date;
+        bh=FAHlHNyJKVFw99QaoWRjho03GG47PA+i5IVujPtDAlU=;
+        b=ngtJX/4wjQcIwDM8yaJ782LwaQfGVkwOXFoI6XcrAKYncZezV63SugSYeT2XJvjvbJ
+         cOP/huRjtVtMxoOKCYM9QtEqgEPGp1BnMR4z7Oq1meH1lVTrui3lrZ9lAuvgqDE8q+9R
+         sVx41jiADc31yDvJceatVCGIy56uCENPS69C/Dlz01IUTcrK5dhbdIFO/+VSUc3TOvdO
+         88ZSBihD4snTa8Pu2T/AgEnyHnhR+dribuBdij/58druvHPZdnHmpR6VABm0lBvfaSr2
+         G/YikFKvdVxbh4VsWaV5gO9O5FxeqnImEq41X0bc4fqwwoxU6+SHYlLKQVmqKr5HOcrc
+         nULA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date;
-        bh=b5AgkkZuu39oqgpGoAg3+xya9yGInCBwG5bCl7KWK4o=;
-        b=YZqo6eRuolaoHrSkICV2Z7BXctN3s2E49hFV9mPF3xQIyiOM/13tORSxebpHulPygL
-         w7Gxz6BbBlz7SvXFUr9IcFFHHoDrLe6+OzVUYWs2UW8QrHEWvq+Fx2O0WgYo+u/V4hfl
-         0q4G3Q0tE2JmYKiuO+emJY+su1jonT5yvMG2YO+hFTefjjbG87d9Sjcjr6DZyWgwphQC
-         VqbneIy7ZQ9E18VWF7uZEQ1DKUnqX+ggS7RuYsH/ObeP95DCUnbv0hH0NkEhDC2NDoVS
-         eJ9MAoH+jOvsi18PShpeuoCg0Zuj6MG6/LTdl1YuXrEAkL424FuSnA5BxFXHnrjJu9q4
-         /Q9g==
-X-Gm-Message-State: ACgBeo3RoA/J8AuBG041N7fBsmixsEWi8soCVI/2reQ15Pkuvb2WnBoZ
-	dEXMAr9iFwRHCQkYZTC/VG3fXiXIxZlGEA==
-X-Google-Smtp-Source: AA6agR7LLBYdf0ekc/PqIrscBwg6XoOPac4XT4jqzG8W94jDRAosHbc5RLHPX4pY/EwtrBaecY4DMw==
-X-Received: by 2002:a05:6402:54b:b0:44e:ac69:c617 with SMTP id i11-20020a056402054b00b0044eac69c617mr4851073edx.64.1662453358265;
-        Tue, 06 Sep 2022 01:35:58 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date;
+        bh=FAHlHNyJKVFw99QaoWRjho03GG47PA+i5IVujPtDAlU=;
+        b=iKjE3dZ3zzk/JJy8qZwHfoQDd72Vq5SCA3qxDI1lS2WiD+P5ywfsq8wXkyiGfe2ODT
+         qoH/7ukko0J3+ZxsOKB9jmx8Bg0AUEqoyJ7/Ktq1+YPhkuvSk+QvqqwNywXwukT/TbG8
+         dRx2nzelxn6ou0MWDWRV2NRN2CTO9OIf+6c8QOsXYpM2FQGPg85DVI5HY140VfZU8lWl
+         QCmOH4CzkCdMrW3JbmGBydYFuI5FyTOkwCk6grBwGdKwRe/djluF0zQ+0ktfMsORwQ7c
+         F1LsM6JrpjZoOkvfUQioL2kIvgz2KyyL6Cja2C4SrOW9adN3q/UPZ4IXTaAHX5T+9H1k
+         5MUQ==
+X-Gm-Message-State: ACgBeo2KqrXaa25AcT719IPRI4YkSE30UKp7usj2JeTadj1Ao8xSGHxm
+	5+tCiDip/c1GEh43vBMRVCZ7PQ==
+X-Google-Smtp-Source: AA6agR6GKL8vrSj67V6OoAM1xI9r6/+xkh5Asf1a8rXe72j/6lK7S6YDHYhFZNr6H1xxdjGd9q/k5w==
+X-Received: by 2002:a17:907:6d11:b0:730:a382:d5ba with SMTP id sa17-20020a1709076d1100b00730a382d5bamr37826205ejc.371.1662453356867;
+        Tue, 06 Sep 2022 01:35:56 -0700 (PDT)
 Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id h6-20020a170906828600b0073d6234ceebsm6163235ejx.160.2022.09.06.01.35.57
+        by smtp.gmail.com with ESMTPSA id v25-20020aa7dbd9000000b0043bea0a48d0sm7812304edt.22.2022.09.06.01.35.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 Sep 2022 01:35:57 -0700 (PDT)
+        Tue, 06 Sep 2022 01:35:56 -0700 (PDT)
 From: Andrew Jones <ajones@ventanamicro.com>
 To: kvm-riscv@lists.infradead.org,
 	linux-riscv@lists.infradead.org
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Anup Patel <anup@brainfault.org>,
+Cc: Anup Patel <anup@brainfault.org>,
 	Atish Patra <atishp@atishpatra.org>
-Subject: [PATCH 1/3] RISC-V: Output cbom-block-size
-Date: Tue,  6 Sep 2022 10:35:53 +0200
-Message-Id: <20220906083555.931806-2-ajones@ventanamicro.com>
+Subject: [PATCH 0/3] riscv: KVM: Expose Zicbom to the guest
+Date: Tue,  6 Sep 2022 10:35:52 +0200
+Message-Id: <20220906083555.931806-1-ajones@ventanamicro.com>
 X-Mailer: git-send-email 2.37.2
-In-Reply-To: <20220906083555.931806-1-ajones@ventanamicro.com>
-References: <20220906083555.931806-1-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220906_013600_986916_C2A02169 
-X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-CacheID: sfid-20220906_013558_410440_8EA1F9CA 
+X-CRM114-Status: UNSURE (   9.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,29 +88,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Provide an info message with the block size when the Zicbom extension is
-present and the block size has been determined.
+Add support for exposing the Zicbom extension to guests. This has been
+tested over a QEMU including the Zicbom support [1] ([1] was rebased and
+the Zicboz support from it was dropped.) QEMU was further modified to
+ensure the cache block size was provided in the DT. kvmtool was also
+modified [2] to test the new KVM API and provide the guest the cache
+block size in its DT (The kvmtool patches are based on Anup's Svpbmt/Sstc
+series [3]). These KVM patches are based on the riscv_init_cbom_blocksize()
+cleanup patch from Palmer and the move and expose riscv_cbom_block_size
+patch from Anup which were reposted [4]. This series is also available
+here [5].
 
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
----
- arch/riscv/mm/cacheflush.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+[1] https://gitlab.com/jones-drew/qemu/-/commits/riscv/zicbom
+[2] https://github.com/jones-drew/kvmtool/commits/riscv/zicbom
+[3] https://github.com/avpatel/kvmtool/commits/riscv_svpbmt_sstc_v1
+[4] https://lore.kernel.org/linux-riscv/20220906074509.928865-1-ajones@ventanamicro.com/T/#u
+[5] https://github.com/jones-drew/linux/commits/riscv/kvm/zicbom
 
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index e5b087be1577..8595baf8e403 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -122,7 +122,9 @@ void riscv_init_cbom_blocksize(void)
- 		}
- 	}
- 
--	if (probed_block_size)
-+	if (probed_block_size) {
- 		riscv_cbom_block_size = probed_block_size;
-+		pr_info("riscv: Zicbom: Cache blocksize is %u bytes", probed_block_size);
-+	}
- }
- #endif
+Thanks,
+drew
+
+Andrew Jones (3):
+  RISC-V: Output cbom-block-size
+  RISC-V: KVM: Provide UAPI for Zicbom block size
+  RISC-V: KVM: Expose Zicbom to the guest
+
+ arch/riscv/include/uapi/asm/kvm.h |  2 ++
+ arch/riscv/kvm/vcpu.c             | 11 +++++++++++
+ arch/riscv/mm/cacheflush.c        |  5 ++++-
+ 3 files changed, 17 insertions(+), 1 deletion(-)
+
 -- 
 2.37.2
 
