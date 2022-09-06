@@ -4,78 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B886C38145
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 06:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 397B1C38145
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 06:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SYvNg8mOPRbPn7J6vDa1MbYgEe+kjV1EKUEPeJfUQLc=; b=sJZ5NzPjosYGfV
-	jB1Ky1XOB6LJkh7v/fy9NY3cyF1sry1cXhvjfOi89bmstt2z4HMhVwTK+BjJJn2TVRQuPJ5Jnve9w
-	7tIzMirlBAi6qkdZE379aaAdguU8ptBIoUQLz0G6j+okSSl7KH3cXtQzeX7zM9bQec1UPuRjJ+hL6
-	r0VgnKOFQpDpm5oca0/zaBa9ck+h1s6TEhKGWQqjcXmPTxny6M2HPKmmR2AAWq+rYuLy95Iz/Y0Bi
-	nyeLdaJrLYy8ZjYzin0WIKtqwpfRV4fB66tCmFkWFOAgiRnXww11C/6Y3h0pp3EaIaycrE3HkS7Cr
-	BkVVbtgHpJMoe7s0d6Uw==;
+	List-Owner; bh=sv/zZqgdVzhJoiBhpuUOcPDzOgEloHubUVFVqrGN2tE=; b=tFhwWumB89lde3
+	EsA3XzUqZP7z+ts+A8RbgtodB+AhQlxY+N/JJcKKdUV04nRJ8u3e2HhMTfCNyDFV+aF/YmylZT+Zn
+	xjxBj6JKN5P8xVH+NqTBYckNWRQzjS+6CUOrg+cvqm84pGx+58mV69b+3yqJrpGLY3ZRR+jxCkzn7
+	PhvgaIAZUlcd4XCem4P5tvdWaVXKxK8b4bMjRRPmPY187TEAVeoawweCjDk6rTiZdDWNG9/NTD8HP
+	9GndMMAdU9tlv5H2jSbHSv1RdZpDMciA4GKqBq0dqBpjmA8/SL9cQ4yfJb8foo/HVkp2QMVElCVaW
+	GinDpvYLSgEE/pgzYFRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVSE8-00ATa8-9s; Tue, 06 Sep 2022 06:38:28 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1oVSKa-00AWUj-MY; Tue, 06 Sep 2022 06:45:08 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVSE0-00ATUP-IA
-	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 06:38:22 +0000
-Received: by mail-ej1-x634.google.com with SMTP id qh18so20933502ejb.7
-        for <linux-riscv@lists.infradead.org>; Mon, 05 Sep 2022 23:38:19 -0700 (PDT)
+	id 1oVSKW-00AWRW-9l
+	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 06:45:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1662446704; x=1693982704;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=emPm42/hs2kQKkNailqR+Nqi5ZEYPcvAvXshTUWIy+E=;
+  b=Uqn1LQkQVfnoO47W33TRKWkmT7DOjZVi9xad2dd3cy+V37TcdWYphTky
+   3Y0lwX4hGnG88etIQAejVhR8PZKEVqnEkjhRgzqVBFZ6Qp+0Ehz1cwIe1
+   98OZlWh/9tkwKw23Pz7F+nZt2VtRyaDKeF9ij3WyydSGAProOo8gJPHiZ
+   7LJ2FmDE3LsJyagn2G9we2uIp4oeQgvHcgSIFYlRdoZFgvplOydj22YOS
+   Q3hYHiyN91bVj2HUloaOZTFQDr9mb5gXw4fmGbNGGmttx53A6VkH9BHZX
+   dRN2HQSQa2EIvycfdRfOYN0zJH01nWzDppAgQnV8LXRb1ksDIsnuZ1Y3L
+   g==;
+X-IronPort-AV: E=Sophos;i="5.93,293,1654585200"; 
+   d="scan'208";a="189553796"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 05 Sep 2022 23:44:58 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Mon, 5 Sep 2022 23:44:58 -0700
+Received: from NAM12-MW2-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12 via Frontend Transport; Mon, 5 Sep 2022 23:44:57 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=ngyjOidYMB18V1YaT2J312WtA0d4QqvW5a4yJUCO6+qQWPHlclUY9ub29A2D8EcZBIXlztS9MVy1qbH6FqXkrYi/eeQzq8Cm86OsRZ2j6v+vBv6yCSeeZ/nWboY3IMD77a7HxU2Owx1JXRvF5BmuQ7N1m5Ilmbw6BJ++vLXuu+CdC0MkTWgh2U7SUREhyQky2srUD35uaK+zLgJ2PjJjt1TviqTddt45sRxqZ8Sj0qf/EDuyJ+E/ge6HmuJqXOHcFqn3g0L7dh/N33DwFufPr8psruwuQd2jDOOgRC0ppmqVQoQOxu/DFyCbKWlxcJCo8JM7Bw0utEP5czKBD0e0wg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=emPm42/hs2kQKkNailqR+Nqi5ZEYPcvAvXshTUWIy+E=;
+ b=n63T27wyIZflUeX1MTKoz1HbBb1jZPUf2JxSuae9ChmaQe5V+9kEPPgoYYC3heqIyToZ5aTaGK3SJax1HTzQq53bsc7nrrQonWo1daiSytBLmvejBLQEsWq4ct4aLT+sOzczb/0bgXPeXppj+bRgUcHCCPHaeGNfQoePUATMhB8bJXcuV7jWbswFLcaBtuc8BjeM3xk+DjYqhz2NlzQMZAoLJuYP4tR1W08NFpZgNcRCshyocJm81pNApd9zKML44iwzf8y+U5jI/43zCLOpCnxIPQ4wbRMYzqXu7BMy75+s9QiJXgDLcYHp3fVRoDwKf7nGWtMVV8oLSmOMDZReog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date;
-        bh=Ax6yJm6LatHF3n2b4lvN8fLPa9O4r8Hbx5X16qH6eo4=;
-        b=G9WJ8/Q+fW7gVpv8wbCRg61Wee8eaR/gRZKz259RaL4DyJ/Z1iHwc22gUSmWZvmS/K
-         52RizvPdzeMGPPn0LbrLk9hsllYNrdFZxOwME1TlN9xYubc3uIqljVOytbvIMLTz9ez/
-         4UL93d9G7JhpvJlObSgtafjETEyUDeUO6iPmgI62njtgdzffYGtf+qOfBIdzhwq7uToc
-         /xPfLNyd0EBEVh555IIYpAXQa/YgAolyftf3PJTOJ7HtCvWL7w5E+JwKYhOYwUqQFXX9
-         npDcikLjFerjaTnQZ/LSw4b3S2IKe4hYOxXGcNt3/8YAUERDY6ixol7HUl5Q8X6G3gea
-         IFJA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=Ax6yJm6LatHF3n2b4lvN8fLPa9O4r8Hbx5X16qH6eo4=;
-        b=pMYp11tAsc9VEW8du1zaFZIFq2qp9nP5bOUsYNI3+Xohxj6xDfvs5AFE8U9cbEhCmY
-         opgBiNxLzhEXIIcTjKRe8PvRd/ji2kfItOc9vNNDXoq6+eUoZsplIveoU/xJT3aaUXcT
-         nE/nt0h+cavdjFUoQo0krZAi32k80Q/EtuYpqeOfpJUGJoIldIYZPeQFjLoxx9lbVnWr
-         sXzRQnv1Gm04VSTt9cjZTJHfWhTEDFtPSEBQYU58OxycFEfkQcjGB/KCuXpmHH383uyj
-         DvAumCrM7kBWTRp4V7oRCVgq4sapmwHuY2Wa9iBAvqQ11UUXLjYBM0WjE+APy6tB7vYR
-         i7iw==
-X-Gm-Message-State: ACgBeo0BL/wVMRIgcsmVj9/l7cWFqa+dMR3h15Gj1P/yJunIW8HUi1ZC
-	Xw63usNx3yI5IWSs7NhQEH0HSt69kZkryw==
-X-Google-Smtp-Source: AA6agR6Yh75VzHPeZLdsnZPvsCVBUJbGd44+5NvlNvQBlpiDx6l0JbWRZt5yZ5teOMPc6k5GEBYG/g==
-X-Received: by 2002:a17:907:a058:b0:741:72ed:5606 with SMTP id gz24-20020a170907a05800b0074172ed5606mr28777081ejc.452.1662446297771;
-        Mon, 05 Sep 2022 23:38:17 -0700 (PDT)
-Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
-        by smtp.gmail.com with ESMTPSA id o11-20020a170906768b00b0076f48f39512sm173624ejm.149.2022.09.05.23.38.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Sep 2022 23:38:17 -0700 (PDT)
-Date: Tue, 6 Sep 2022 08:38:16 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@rivosinc.com>,
-	Conor.Dooley@microchip.com,
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	kernel test robot <lkp@intel.com>
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=emPm42/hs2kQKkNailqR+Nqi5ZEYPcvAvXshTUWIy+E=;
+ b=CK3pa64jKqTymc+iI92Quk1hjfIyVk6XyocqGPVXBazeawzaCrR0df+ib+TZ9wyz3Rjo/R3FtRbyLGqlPHrSCf3R01BcpmlKMrQOEkW7pqBqs0JnsW9VG2R2W/Ef47uF5ui87Z/Kjoll24Kyxl//w5fDvFoh0prWSF+zNu91Xfs=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by PH8PR11MB6830.namprd11.prod.outlook.com (2603:10b6:510:22e::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5566.15; Tue, 6 Sep
+ 2022 06:44:53 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::545a:72f5:1940:e009]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::545a:72f5:1940:e009%3]) with mapi id 15.20.5588.018; Tue, 6 Sep 2022
+ 06:44:53 +0000
+From: <Conor.Dooley@microchip.com>
+To: <ajones@ventanamicro.com>, <linux-riscv@lists.infradead.org>,
+	<palmer@rivosinc.com>, <heiko@sntech.de>
+CC: <anup@brainfault.org>, <atishp@atishpatra.org>, <nathan@kernel.org>,
+	<jrtc27@jrtc27.com>, <lkp@intel.com>
 Subject: Re: [PATCH] RISC-V: Clean up the Zicbom block size probing
-Message-ID: <20220906063816.wyivlqenrh3ipdlg@kamzik>
+Thread-Topic: [PATCH] RISC-V: Clean up the Zicbom block size probing
+Thread-Index: AQHYwbm7PdCg7Qi43Eq1f0jf76itqq3R8wkAgAABxIA=
+Date: Tue, 6 Sep 2022 06:44:53 +0000
+Message-ID: <d68a5ee4-f008-5dd2-1a25-ea172656b3b0@microchip.com>
 References: <20220906062657.924852-1-ajones@ventanamicro.com>
+ <20220906063816.wyivlqenrh3ipdlg@kamzik>
+In-Reply-To: <20220906063816.wyivlqenrh3ipdlg@kamzik>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.13.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: fa7fb426-8be0-4427-9249-08da8fd34dd3
+x-ms-traffictypediagnostic: PH8PR11MB6830:EE_
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: t/18ofAuNy66cKhQ73ZVyESHMkNnHZ1fmqup+Maq09nqqKeR5IMU5p5jBvpPmbvTp5ygwaoyKaLE6FQZ2o/INzAS39cB1FGTFJKKW2880vsgVssNqY/ixVOLkyKZ9VO69DXfctKGzRIFEzw996wOXGt7dRthPmLnwrekRDoCHhk2N0fXV+feQ7f0ian86sww2QuqQfv8xJw2zUUxeSBAq/5Hcp9ChEaUNRTmUqvKDOEtq4iuREwgSwcs4qgrTNlon97BOv/h51l4wvCfiCyKhxQBITHGw77Q3IgJMHifb1LKi3jFl9hPBk3Zb5d3HIvMCDZ+Ij+xT+5wiwr5cDt+23NKwgSRUKfvGRfFMfoZl5uUwZnWy+5Il201gy2wtk7YNN/S+oFjeUDhf2SlVVH0aExotzeaYx4FSr8HRSaQMQjOdZe89ArlxukxLoiYmhzERrIRLfT3npKVWpctiUY+DzsBQ6LkzenZnXHoaO3T1roh6JInyz7nmd4z3Eymw+JIH6gyfhPowLX/2Ocl18tCRQra3rHTUlZcQjyaLvK9IXZdeSTwyy05sINSZXFjKImTG+FeQ5+yxRkQSIb2Mq5eYOtd26wSGmF6cjR9rWa/DrL6mlVfeB9IpqremCpAMo4yi1PPDo432KzVcyRUEZej7CXMA5duWVjEXLAptTxs0EYYuV8fEG5zSPOwFA4vtiar6I8ZbVw7xt42hSHXwhjFsn4D9SbewQfbQ56sPr32VN5Uy5TXW0wMrQaGd6FGOYlnYdhbc9O5uzvJsIbHjXnwS+wUhPqdCwkBKFGwHqkn75JHYOhxNozAyFcv2NIDNqcgThs4FH12DJgHXfz6h9XFmA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(136003)(39860400002)(376002)(366004)(396003)(346002)(66476007)(91956017)(110136005)(122000001)(6486002)(38100700002)(8676002)(66446008)(71200400001)(41300700001)(31686004)(8936002)(4744005)(316002)(478600001)(64756008)(4326008)(5660300002)(76116006)(66946007)(36756003)(2906002)(54906003)(66556008)(186003)(86362001)(6512007)(53546011)(31696002)(38070700005)(2616005)(26005)(6506007)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?WkhXTUNlam1GdFdDbTdpWExZdHkrdVpuNEFRaW5TbDN4bFh4Qnpmb2ZKdWtG?=
+ =?utf-8?B?YlFlS2xXOU9nbzZqWXN0SlVkb2NOSjFkb1FkNm5jRzlQdnhlNUJMRWRJbmJD?=
+ =?utf-8?B?TWhtbkh5MkdkbXZiTlowUUVBUkJSc3pqTGQwZUtCMTUyNzRKRWhFakJnajhM?=
+ =?utf-8?B?dVMxWVZ4U09CaXJBYTl0VlZtSVg1Z2VqTWZvVTI1aDN1VGJwUExidEJaeGw1?=
+ =?utf-8?B?Um51VlZLcmFuYlIrNnFUY1ArRkErM0tmblVVRmpBeno4dTlSYzMvZU13OHFa?=
+ =?utf-8?B?MExzTkdLVURxNlVrcjNqQndxMGx5N0lsbnpRSHVQaHJkQndsSVVaY0JrSDlI?=
+ =?utf-8?B?R2pteVZLaHA0aEJoamFVMVhHYlhNWEJjZnlaUkp5VWlSdXhPWWpHaDZxcXFw?=
+ =?utf-8?B?NFhWRnE5Y09uUlJhTDBIYTFSWnZjMW5kcDNBM2tDM1lydy8wYmlCbDlrdFc2?=
+ =?utf-8?B?VlpBOFdCVHQ5eEtnQTgwQVlpMUx0RDAxQit6OHRiNHFYYW0zNkpvd2hYU3F6?=
+ =?utf-8?B?U2Q4VXVab2t1TE1kMW9sYUtENWZDdGhZQzg3OTZiTDVaK1VCOWx3T3FHOGtM?=
+ =?utf-8?B?VVJkalJKK05UOE5YZGgvOUY5MjBOODkrcDA3TWxMTnFrMXpMQ1NuMzNldklF?=
+ =?utf-8?B?bVl4ZVd3SGVxbDEyczlVcUZqdkVBUVJkVXpPM1lOZVhYVlIwUGZhb1BJT1Fy?=
+ =?utf-8?B?UkdHRGx4WXZsYjJUdE1BY04vNWhsczVtSDVmSEhTcGY3aVlRMHVxMkR4Z2dk?=
+ =?utf-8?B?cHd4SGJDNDFLcWJuc1V5T3hrTDJmOTJvRTJGekcxcm93M296NjdoY1dPRWl4?=
+ =?utf-8?B?UUl4MkdFc204YTlQeU5jdktOaFlJKzlCcWVWNDFMY29iUVZXd3pJYWJmcUVt?=
+ =?utf-8?B?dmlpY0phM0JZdk9SUGhSQ2J5OUJmT3hYaisyRmRsWlpvS0RVTzQyT1V4bmN6?=
+ =?utf-8?B?SjdLVkZTUnZsZGN2YUNoank3NkUrdFd5aHB3NVExQ2pJaysxOHN6UnRZbmFv?=
+ =?utf-8?B?Q2o3M2V0d1ppajV5c0hmL25BWVFiSXhnRmVwbDhFMU9LWEZ0TjlFbjhVOGxP?=
+ =?utf-8?B?YTg5ZDUzT3dnZ2JncnhFSUFkd0xmWWlQSGo0UjZ5THp4dlh5Rm1sKzRGYzVU?=
+ =?utf-8?B?dG01OEVqeDV2aWVnNFVYMlMvSUs2TkhPdTZLdHVsTTlFMkJiS1lsUFlVS1FP?=
+ =?utf-8?B?OHo5bHdWTzd6YVF4NWNkbEhRT08rdE5ORCsrM2ZSQXZqcktFYWtuTHBna00y?=
+ =?utf-8?B?OVhzVU5nd1dzRHp0L0MyNlRnZVJVVmJNY2Z6UFVmNTFVdWM5ZTcvQ0tYWkhk?=
+ =?utf-8?B?am14bysxazhLTGc3YXhQZDFtQjY0MEZpUXFnTWhYTHorU0dXKytSRTBKaFJ0?=
+ =?utf-8?B?cHVSWTJnUDAvOUdFYytGMm8rSXdJcG1Dc21RTnd2ZnExQmFtNVh2and5Si9o?=
+ =?utf-8?B?M1B4VFlwOVR2aS8rRFlJeTVQWll4ZkwwbWpEZWlXVGd6NTJoY3RORERiV25k?=
+ =?utf-8?B?dGRjblNiM0lNa2lIaU51ZXc3TDBqU2psTmtwUlNXMzBLNFdSblhIaS82djVY?=
+ =?utf-8?B?WDRzdXhZTk1FbS8zbnp2a25Oa0ZrazBPR1VCVGFTTmlSWk1vd2x1NGtJSFlC?=
+ =?utf-8?B?OXcyZU1BNWR5OVNDSnVSSkxVTzVxT0pNVW5LQUo2eWgyZHVINm9ZUWJIbmdt?=
+ =?utf-8?B?N0Q2SUxDQ1hHMmJrRm1IRGtGcWd4c2NuaVMycCtOZWtneUlNL1liS0V6UlI2?=
+ =?utf-8?B?YjBQc0RZdkhyTFhHNHVGcEZMODRvdmVWTDFtckVkZjJaZEwybWVURURZb0ZS?=
+ =?utf-8?B?cUovdUZYYW56eGRyK1NXempkMTRpRFEvYW15cUVkbFRRTXEzSnNqU1h2V2N4?=
+ =?utf-8?B?TldPbU16aDJDYkhKbnBFTUROWlM5c3RWdzRYNEpTeHIrVFJZRmN1enBpMnVN?=
+ =?utf-8?B?QjZjU0pURTVsWllnSkZuS0hNQVFYZWN6VlBqVHVIRUtNUjQzcFFucTNvVFBS?=
+ =?utf-8?B?WXRjRVVKcWZrdVlHYVFaZWUvL29DSkdtRDcvQnJBdTQ5bEZuOWFDWll6bzlF?=
+ =?utf-8?B?bWMxdnJBT2VBbnNhTWlxTmY1RS9iZjRpZU1jcmhBL3Bwck1mWWYxcTh2eWt1?=
+ =?utf-8?Q?WGLhZD9SfzAFDa865vXau5Y73?=
+Content-ID: <D832C38F69CA53488291D978EA886AA3@namprd11.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220906062657.924852-1-ajones@ventanamicro.com>
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa7fb426-8be0-4427-9249-08da8fd34dd3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Sep 2022 06:44:53.2304
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: vjpd1HBDpJmzylGF40Yx31VcCCSIBqApvo1C/djsadZUsiH195yQyX5IVb61SL6Q/GDtUP4LJhP8EJKjKApNYZX3A3kCWUrGMAilDOEGG0o=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB6830
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220905_233820_657013_D27C32ED 
-X-CRM114-Status: GOOD (  26.81  )
+X-CRM114-CacheID: sfid-20220905_234504_553229_9D6E19F3 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,136 +174,15 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 06, 2022 at 08:26:57AM +0200, Andrew Jones wrote:
-> From: Palmer Dabbelt <palmer@rivosinc.com>
+On 06/09/2022 07:38, Andrew Jones wrote:
 > 
-> This fixes two issues: I truncated the warning's hart ID when porting to
-> the 64-bit hart ID code, and the original code's warning handling could
-> fire on an uninitialized hart ID.
+> Darn, of course this doesn't compile independently of Anup's move change.
+> I should have done the move first as Heiko suggested.
 > 
-> The biggest change here is that riscv_cbom_block_size is no longer
-> initialized, as IMO the default isn't sane: there's nothing in the ISA
-> that mandates any specific cache block size, so falling back to one will
-> just silently produce the wrong answer on some systems.  This also
-> changes the probing order so the cache block size is known before
-> enabling Zicbom support.
-> 
-> Fixes: 3aefb2ee5bdd ("riscv: implement Zicbom-based CMO instructions + the t-head variant")
-> Fixes: 1631ba1259d6 ("riscv: Add support for non-coherent devices using zicbom extension")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> [Applied Conor Dooley's and Heiko Stuebner's changes.]
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
->  arch/riscv/errata/thead/errata.c |  1 +
->  arch/riscv/kernel/setup.c        |  2 +-
->  arch/riscv/mm/dma-noncoherent.c  | 23 +++++++++++++----------
->  3 files changed, 15 insertions(+), 11 deletions(-)
-> 
-> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
-> index 202c83f677b2..96648c176f37 100644
-> --- a/arch/riscv/errata/thead/errata.c
-> +++ b/arch/riscv/errata/thead/errata.c
-> @@ -37,6 +37,7 @@ static bool errata_probe_cmo(unsigned int stage,
->  	if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
->  		return false;
->  
-> +	riscv_cbom_block_size = L1_CACHE_BYTES;
+> I'll try again by posting both Anup's move change and this patch
+> rebased on Anup's.
 
-Darn, of course this doesn't compile independently of Anup's move change.
-I should have done the move first as Heiko suggested.
-
-I'll try again by posting both Anup's move change and this patch
-rebased on Anup's.
-
-Thanks,
-drew
-
->  	riscv_noncoherent_supported();
->  	return true;
->  #else
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 95ef6e2bf45c..2dfc463b86bb 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -296,8 +296,8 @@ void __init setup_arch(char **cmdline_p)
->  	setup_smp();
->  #endif
->  
-> -	riscv_fill_hwcap();
->  	riscv_init_cbom_blocksize();
-> +	riscv_fill_hwcap();
->  	apply_boot_alternatives();
->  }
->  
-> diff --git a/arch/riscv/mm/dma-noncoherent.c b/arch/riscv/mm/dma-noncoherent.c
-> index cd2225304c82..8a49ea5ba01d 100644
-> --- a/arch/riscv/mm/dma-noncoherent.c
-> +++ b/arch/riscv/mm/dma-noncoherent.c
-> @@ -12,7 +12,7 @@
->  #include <linux/of_device.h>
->  #include <asm/cacheflush.h>
->  
-> -static unsigned int riscv_cbom_block_size = L1_CACHE_BYTES;
-> +static unsigned int riscv_cbom_block_size;
->  static bool noncoherent_supported;
->  
->  void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
-> @@ -79,38 +79,41 @@ void arch_setup_dma_ops(struct device *dev, u64 dma_base, u64 size,
->  void riscv_init_cbom_blocksize(void)
->  {
->  	struct device_node *node;
-> +	unsigned long cbom_hartid;
-> +	u32 val, probed_block_size;
->  	int ret;
-> -	u32 val;
->  
-> +	probed_block_size = 0;
->  	for_each_of_cpu_node(node) {
->  		unsigned long hartid;
-> -		int cbom_hartid;
->  
->  		ret = riscv_of_processor_hartid(node, &hartid);
->  		if (ret)
->  			continue;
->  
-> -		if (hartid < 0)
-> -			continue;
-> -
->  		/* set block-size for cbom extension if available */
->  		ret = of_property_read_u32(node, "riscv,cbom-block-size", &val);
->  		if (ret)
->  			continue;
->  
-> -		if (!riscv_cbom_block_size) {
-> -			riscv_cbom_block_size = val;
-> +		if (!probed_block_size) {
-> +			probed_block_size = val;
->  			cbom_hartid = hartid;
->  		} else {
-> -			if (riscv_cbom_block_size != val)
-> -				pr_warn("cbom-block-size mismatched between harts %d and %lu\n",
-> +			if (probed_block_size != val)
-> +				pr_warn("cbom-block-size mismatched between harts %lu and %lu\n",
->  					cbom_hartid, hartid);
->  		}
->  	}
-> +
-> +	if (probed_block_size)
-> +		riscv_cbom_block_size = probed_block_size;
->  }
->  #endif
->  
->  void riscv_noncoherent_supported(void)
->  {
-> +	WARN(!riscv_cbom_block_size,
-> +	     "Non-coherent DMA support enabled without a block size\n");
->  	noncoherent_supported = true;
->  }
-> -- 
-> 2.37.2
-> 
+Should prob mark the patches as v3 when you do
 
 _______________________________________________
 linux-riscv mailing list
