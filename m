@@ -4,43 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD58ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 15:24:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67EFEECAAD5
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 Sep 2022 15:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qtCyDgg7/TJXPRpppSf1ktHoTOCvV5Kj6jGGx+Z52Zg=; b=HdWWmZdptU/1md
-	ZwzZlz4E2D690EuselM1cbd/3cWnyrN6cYNAoZleRnG7NHs9E5NRAyiuz64s3CtE2iAYF709Yw2dp
-	l1tpPmgUef5geIBmxQz1Q1/aC6KVBaF9hf4USLi9XJ5v+u6LliS2xYG3j24gualHzCMzLKSAAz+ro
-	sCHQwuOhvEDwf4x4uAJ6Xw6LkEYzPkasSmaruQzgIGMfY74lXhoMhLjU7neC2Pjm0DQ8dkCrXmm11
-	mU2LSuIxj09skVRzyNERNVtqspnY4upx7gB7Nxg+I0g169qNmzDnO/uIi461Fpe2GVtM7XhPC84/t
-	/7nYxjfRwuW3pIRBPNZQ==;
+	List-Owner; bh=hoH098Ex3Zvf7mM6KfiyninWppT5a2A1EPHQ3YeLdzs=; b=MV1qKAS6CYyVGf
+	kAvLwy3v28fNtvBek2vb+GyozuXDzLQUDKmsm/+VsDF0E/mBUWC33Z2iB3uP1+pqbM4vN+2tQ+YYL
+	aEQy+zx4R43lebHLyvV+3h5w4H9tpRhgukQ4dEYZGSBzTBz3wjAiDnRlkg26AANgQ6y7eyasoZPQU
+	HwvToGIZOrV5f8jf0TNYcWXoVN3lJem7gUZkaGEr+Fv5ZB3tgxmHdFKusGTGU+6kUgleeIRSFBo54
+	Hu0Gw7lPhWhVKv4odNLDgmUzur5TkwNFvOaHPYl8/hkcltWBY8clCOzO/5BDDCrM2rSbzZyqeIICA
+	H8BBtN75JrOwdTq67XkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVaQi-00Eku3-LU; Tue, 06 Sep 2022 15:24:00 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1oVacN-00EsC5-J9; Tue, 06 Sep 2022 15:36:03 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVZfI-00EM2u-Cz; Tue, 06 Sep 2022 14:35:02 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1oVZf9-0006zb-4E; Tue, 06 Sep 2022 16:34:51 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: ajones@ventanamicro.com, Conor.Dooley@microchip.com
-Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org
-Subject: Re: [PATCH 1/3] RISC-V: Output cbom-block-size
-Date: Tue, 06 Sep 2022 16:34:49 +0200
-Message-ID: <2994956.KTMopqUuYO@diego>
-In-Reply-To: <9f46a2dc-7515-c460-002a-29d8e32562df@microchip.com>
-References: <20220906083555.931806-1-ajones@ventanamicro.com> <20220906092934.mn45eil73xh2lgel@kamzik> <9f46a2dc-7515-c460-002a-29d8e32562df@microchip.com>
+	id 1oVZla-00EOnj-FN
+	for linux-riscv@lists.infradead.org; Tue, 06 Sep 2022 14:41:31 +0000
+Received: by mail-ej1-x633.google.com with SMTP id nc14so23784879ejc.4
+        for <linux-riscv@lists.infradead.org>; Tue, 06 Sep 2022 07:41:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date;
+        bh=obQJf2HknhO5LzamvcoZsXBNmP3jnXXMiHwGcU1ms9o=;
+        b=A5Qc+A50njRhw1b0a1ZGGwu5fDE1YrtFg3Ico2zug/0A42aYG+KK8KbolxcVUBi9Bb
+         ZhCzClL+eQS5DYrAC5FPM5lebzThdjB/tYzCGO/RBUYfQ4K7RTCjmpYHCaNhPSswnqil
+         ntuyKzTa/ejN3Q6GN11yHAIxy1dYX5rsFFiMptv2jQRX/tDbP/Dqp5/eaFT9PBcXBNDC
+         3jJaj5mlij2DLvjBXYIx5UZoZmNGGKOzPUstbAjgggv30h4YMJRlnmPQIRvSzPNXApVL
+         XoClgGvta8m/TpOCQjXI9QnyaxOezSeZ088kDGPvRTzquGOd44bQe34u/+NhTAKIws5U
+         PCQA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=obQJf2HknhO5LzamvcoZsXBNmP3jnXXMiHwGcU1ms9o=;
+        b=nBJlDRMs2w3vHHGcjmmxUObT7k1A8InoF4zPCGYhgF+0OAH1cg0goFpqJvsXD6tCR2
+         eWuzZkgiFnrym4Q23I+wizOA9Iqx43NVARZfULq13bKk2HhIjr3DxDicsOP0+Sjsd+G4
+         Ex8YkO1IKPDDyrFdmpqO29A8xaS/5U4h/bUl+7XM+idBBykJZ+mb98EQ5v8qdCQ5xTja
+         WfiXlX3K+KKJ2iuBn/5CrKJ3GsJf1m1W/HJy7lJbVidFunqYqj/RTNy4+RuQChuKO2uc
+         wzFAEJNV90VG6VbZUb95mPlw4QCx5Kn5T6EKUjBtFqBE58qdMatSm0Y3My4FD+mITivr
+         InDQ==
+X-Gm-Message-State: ACgBeo0exRqGDze5nnxDY+r9sA3tiVbTySiELGS7Am+xuqyxwcZuDor3
+	wE/gnfxhrEKi4XbMGAf6s7nJqA==
+X-Google-Smtp-Source: AA6agR4M8LGhVDadjv3GI5r/7o8QPMQuVlDlgU4uWaZusJxp2iRDYJDDjLlZ+KbYRkK12sJNOWh6vQ==
+X-Received: by 2002:a17:907:9721:b0:741:5c68:a0a4 with SMTP id jg33-20020a170907972100b007415c68a0a4mr31455536ejc.81.1662475287925;
+        Tue, 06 Sep 2022 07:41:27 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id b13-20020a17090630cd00b007308812ce89sm6600708ejb.168.2022.09.06.07.41.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 Sep 2022 07:41:27 -0700 (PDT)
+Date: Tue, 6 Sep 2022 16:41:26 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Jinyu Tang <tjytimi@163.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com, anup@brainfault.org,
+	alexandre.ghiti@canonical.com, guoren@kernel.org,
+	akpm@linux-foundation.org, heiko@sntech.de, tongtiangen@huawei.com,
+	sunnanyong@huawei.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, falcon@tinylab.org
+Subject: Re: [PATCH v1] riscv : support update_mmu_tlb() for riscv
+Message-ID: <20220906144126.3enx6y2mhevrc4ur@kamzik>
+References: <20220906121921.8355-1-tjytimi@163.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220906121921.8355-1-tjytimi@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220906_073500_536763_D3A5A17E 
-X-CRM114-Status: GOOD (  37.01  )
+X-CRM114-CacheID: sfid-20220906_074130_603020_B2CED3C9 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,107 +92,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 6. September 2022, 11:42:11 CEST schrieb Conor.Dooley@microchip.com:
-> On 06/09/2022 10:29, Andrew Jones wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> > 
-> > On Tue, Sep 06, 2022 at 09:00:20AM +0000, Conor.Dooley@microchip.com wrote:
-> >> On 06/09/2022 09:55, Andrew Jones wrote:
-> >>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> >>>
-> >>> On Tue, Sep 06, 2022 at 08:40:23AM +0000, Conor.Dooley@microchip.com wrote:
-> >>>> On 06/09/2022 09:35, Andrew Jones wrote:
-> >>>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> >>>>>
-> >>>>> Provide an info message with the block size when the Zicbom extension is
-> >>>>> present and the block size has been determined.
-> >>>>
-> >>>> Why might someone care about this?
-> >>>
-> >>> I was unaware of anywhere else besides hardware descriptions where this is
-> >>> published. And, while dmesg isn't really publishing it in a way that is
-> >>> useful to anything other than human readers either, it at least makes it
-> >>> easy for a user to check it for sanity purposes (which is what I used it
-> >>> for) or even for applying it if they want to write something that needs it
-> >>> and the OS provides U-mode access to CMO.
-> >>>
-> >>> I'm not married to the idea, though, so if people would rather have less
-> >>> logs than this information, then I'm fine with dropping the patch.
-> >>
-> >> I don't really care either way about logging it, if it helps people to
-> >> be able to see it perhaps there's a better location than dmesg -
-> >> would {debug,sys}fs be overkill?
-> > 
-> > Thinking about this some more, I think sysfs would probably be the better
-> > way to go from the start. This patch should probably be dropped and I
-> > can try to add a sysfs node. The hard part of that will be the naming...
-> > How about
-> > 
-> >   /sys/devices/system/cpu/cpu*/cache/cmo_block_size
+On Tue, Sep 06, 2022 at 08:19:21PM +0800, Jinyu Tang wrote:
+> Add macro definition to support updata_mmu_tlb() for riscv,
+> this function is from commit:7df676974359 ("mm/memory.c:Update 
+> local TLB if PTE entry exists").
 > 
-> Seems sane to me, but I am oh-so-very-far from an expert here.
-> Heiko might have a more qualified opinion.
-
-I guess I'd more start with a pr_debug(). When debugging you
-get the output and regular users won't care at all anyway.
-Otherwise you can also just
-	cat /proc/device-tree/cpus/cpu\@0/riscv\,cbom-block-size | xxd -p
-
-
-Sysfs is whole different can of worms, as you create a new userspace
-facing interface, which you need to support indefinitly.
-
-
-Similar to Conor, I guess it would be interesting to me, what problem
-you're trying to solve, as in my (simple) thinking, everybody that somehow
-needs to check the block-size should have the knowledge to get it from
-any of the dt representations we already have ;-) 
-
-
-Heiko
-
-
-
-> >> I was just more interested in the motivation behind the change itself.
-> >> Maybe some of the above in the commit message wuld be nice?
-> >>
-> >>>
-> >>> Thanks,
-> >>> drew
-> >>>
-> >>>>
-> >>>>>
-> >>>>> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> >>>>> ---
-> >>>>>     arch/riscv/mm/cacheflush.c | 4 +++-
-> >>>>>     1 file changed, 3 insertions(+), 1 deletion(-)
-> >>>>>
-> >>>>> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> >>>>> index e5b087be1577..8595baf8e403 100644
-> >>>>> --- a/arch/riscv/mm/cacheflush.c
-> >>>>> +++ b/arch/riscv/mm/cacheflush.c
-> >>>>> @@ -122,7 +122,9 @@ void riscv_init_cbom_blocksize(void)
-> >>>>>                    }
-> >>>>>            }
-> >>>>>
-> >>>>> -       if (probed_block_size)
-> >>>>> +       if (probed_block_size) {
-> >>>>>                    riscv_cbom_block_size = probed_block_size;
-> >>>>> +               pr_info("riscv: Zicbom: Cache blocksize is %u bytes", probed_block_size);
-> >>>>> +       }
-> >>>>>     }
-> >>>>>     #endif
-> >>>>> --
-> >>>>> 2.37.2
-> >>>>>
-> >>>>
-> >>
+> Signed-off-by: Jinyu Tang <tjytimi@163.com>
+> ---
+>  arch/riscv/include/asm/pgtable.h | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
-> 
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 7ec936910a96..84a791d54f95 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -418,6 +418,9 @@ static inline void update_mmu_cache(struct vm_area_struct *vma,
+>  	local_flush_tlb_page(address);
+>  }
+>  
+> +#define	__HAVE_ARCH_UPDATE_MMU_TLB
+           ^ just a single space here, please, as all the other
+	     'define __HAVE's in this file
 
+> +#define update_mmu_tlb	update_mmu_cache
+> +
+>  static inline void update_mmu_cache_pmd(struct vm_area_struct *vma,
+>  		unsigned long address, pmd_t *pmdp)
+>  {
+> -- 
+> 2.30.2
 
+This seems like the right thing to do, so
 
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
+I'm curious if this patch is the result of debugging something? Or what
+led you to post it?
+
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
