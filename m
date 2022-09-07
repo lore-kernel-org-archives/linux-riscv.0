@@ -4,134 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3072C38145
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 08:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B3CC38145
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 09:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j/nDqFnpPPveus7S2VA5aEHjtkELud/SwIfAI8/cx8Y=; b=BXjETFCt7wQdUF
-	dPhxgugGvSr75j5MHxSZMV3UcKd5+uDUs5t+6E9YFM5UTlbhXQtWa2cHsv47qJ8ecxvfp+FkAPHuu
-	Ol20TVn7zCpnV2nfD1IZMNYqtR1kn5Etrrsffvf4rA6962l2Hxil1oFmTmX85WxMC/UzLtPd0u+Lu
-	E+Xxgvy0oQptDAyYC20cqCoSnN7LuTxZERlp+19dfFd/TwG4WsnecfsH+eo2DpPddLc5zsy4BAITV
-	nDmbvD4uYy9TncwZfo0dsO5BQo+WwzRd3wHnQ1L3J55dChn3fSnOKsER8z+e+P1m6NJC4TjmpUSyl
-	jzLgQIFNaEqQzCI3ACpQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Izsv29ezbj/asubnGjpERpfXDjIKzcYLl+L3YFi6QUU=; b=JkyTnz2OOwV2wtjDT6tazvDAFx
+	192U4R+A+ZCxi3RZF1x9Z/Qn0qkWUKycJVRlho3k2Atp9UOxnB2nHincCZ7W0TnLC4ehj4+wDCtve
+	nBeabNu5yhjs9/smNTKX1nuklpt/M3SqTsuxIXlDwI55pxgWhwZdUrHZdmBWSlkkkVu6vSTtiHqzR
+	4rkKz3fXGS9b/g6kj+ydtwCNSCDRagLYbLYRei8XcNgZzK9ZJDqdsij40CbZxfgbpM/JuSvtfIpc8
+	iTxB0PH6phPPvLz2+wjL2XNqBuYm6oReXz94Bbh9OQlppqMNR3phAVcgipP8gaezNIKmlBh6vxTXY
+	mY4o24bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVqSk-004Hpn-HN; Wed, 07 Sep 2022 08:31:11 +0000
-Received: from mail-os0jpn01on2118.outbound.protection.outlook.com ([40.107.113.118] helo=JPN01-OS0-obe.outbound.protection.outlook.com)
+	id 1oVrmr-00577u-Rh; Wed, 07 Sep 2022 09:56:01 +0000
+Received: from mga03.intel.com ([134.134.136.65])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVqGd-0049YL-LG
-	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 08:18:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=E8a/WHaaTOCEiwbhhCm810hUdFjr4crbNZGkZg1rBQlFgYIiITXEeif6o1UDzj7Y6B+dtSQP1PuUnRRlCjKzyCjZc1TTbr11lBTN4Zm0Joot95ENsN+rNFUsf28SOaJyd1kPzJNyP86TCMwXtFZPO2Vyl3bxDMEJMlnUeGYCh12NwGGRvfLTELBOuq/rqVkRCKK6gJgYLV7+QDxb5jsQ9h5fF9AueuofAiS5wQrUKd+NnTvMVt579pOf1/+9tVUqlMfKo1Y6I1b0PFud7OF/b+E18XrA/Ug+qFt8ZKSL2nY7QN2zQ3ViJCeLtPmHcRE6CSWassxZfLHXyF3eimAuRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MaBI8FQx2s9ki1yDubPE1ILsNLVHm3vqBO42HN/+YY4=;
- b=k/BhiPlehJCJkjddhom9IPBmpoBhSflc7GZKb7T05vHZY286JVueXj1ehMuD8bIi2LcTxAemb8reOl1CPdG5M3wa6ZmaD5COnh8i3hRSqvAC6pHRva6JSvud+K2mw4K0KCnnnFeYiZmvpfcniZVh0evCdssYicSYBxV55Gj10MyBqcDUn+XfYZIlOWAnZYJeQ6/iB+nwKPAj7YzIG4vJwmjZkevoHHwHAArrPCBAfv+rnGiHUudBGDPsmtIv4CkGAgcqrBq0MLCLMuy1fOZ/rCXaGv4BEvYwV9ejpwe3mtF0B4fI6Y3nfzodOYu0LzR+dVuaaQtif+x+mc8J2oyEJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
- dkim=pass header.d=renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MaBI8FQx2s9ki1yDubPE1ILsNLVHm3vqBO42HN/+YY4=;
- b=WMOAI6bRosG/uWSqL/XDydO+vtm/WTzCEtZIXle5wBfMDv6Ensc+5jHSVdPhhL7PAyoM+iSZNYNlDCY0DuOVT+j43BCgAsv/7JJ64zuAAqO2IfIVDHAcVs0suniYpf3nFVmUB1w6NjXUc/HHvvmhKPG4eNpYly+ffMQZX2X5L34=
-Received: from TYCPR01MB10588.jpnprd01.prod.outlook.com (2603:1096:400:309::8)
- by TYBPR01MB5407.jpnprd01.prod.outlook.com (2603:1096:404:8023::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5588.10; Wed, 7 Sep
- 2022 08:18:31 +0000
-Received: from TYCPR01MB10588.jpnprd01.prod.outlook.com
- ([fe80::5c6b:d323:4806:9b9]) by TYCPR01MB10588.jpnprd01.prod.outlook.com
- ([fe80::5c6b:d323:4806:9b9%3]) with mapi id 15.20.5588.018; Wed, 7 Sep 2022
- 08:18:31 +0000
-From: Chris Paterson <Chris.Paterson2@renesas.com>
-To: "Conor.Dooley@microchip.com" <Conor.Dooley@microchip.com>, Prabhakar
- Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>
-CC: "atishp@rivosinc.com" <atishp@rivosinc.com>, "apatel@ventanamicro.com"
-	<apatel@ventanamicro.com>, "geert+renesas@glider.be"
-	<geert+renesas@glider.be>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "linux-renesas-soc@vger.kernel.org"
-	<linux-renesas-soc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "prabhakar.csengg@gmail.com"
-	<prabhakar.csengg@gmail.com>, Biju Das <biju.das.jz@bp.renesas.com>
-Subject: RE: [RFC PATCH 1/2] riscv: vendors: andes: Add support to configure
- the PMA regions
-Thread-Topic: [RFC PATCH 1/2] riscv: vendors: andes: Add support to configure
- the PMA regions
-Thread-Index: AQHYwdrGeUEU7xo1X0C5pIjumEuYVq3SNg2AgAFpbSA=
-Date: Wed, 7 Sep 2022 08:18:31 +0000
-Message-ID:  <TYCPR01MB1058865290D9F2ACFE99086DEB7419@TYCPR01MB10588.jpnprd01.prod.outlook.com>
-References: <20220906102154.32526-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220906102154.32526-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <8ecb62b7-53c4-1c43-65b3-567d8c12e131@microchip.com>
-In-Reply-To: <8ecb62b7-53c4-1c43-65b3-567d8c12e131@microchip.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=renesas.com;
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 4c18eb28-d5ea-4579-4655-08da90a98cd7
-x-ms-traffictypediagnostic: TYBPR01MB5407:EE_
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info:  0qc2dAAGC3uqIgCoh4wWHgMFlQUJiMRXEvmHd4jRzsHqsLRJX+F7GItodYA4xYRuO2MUisRbRPDwgkRln6xjx1HY77/ure/WCb9IVg76OZW3ZenAejYE2+jphbMCvO5anjMnlSmvBO1AJ9qb1DXnvygKq5vUJsCALqQ+Y/hggvwLTFPhpBYlqOlQlcn0rLUoK58aQDaygxTFnjDj5mhtIZ4Fp6GdUWlL7j0OF8h12IO+Z+NWhd/yjAZSM9gZwjBVsnSFDZBYeSVJ5EFu6iH2r+gz75GHNG2BMcMZt/EvOVoYLnbttzb0XToNlrPgwMjG/2HIEG3qVdHLiv8gzbx5iBQItTt7iJmAQEC6L9ozwZADspCZ8Jj5sgIYgthwVyZTvEWo5k1FSGj+hzwsfqbPVOaMe2vhLTwKUBdL0QKrQzwP9b8LcmwQH6AAD8K6BWD9gb3JqWurSsFgpfV3B5JpMW+3VLHYDHOmv6qe4W+zKX1gU9nVykEBdr04UlfXeym/Ip80jeMsXFsyVxYO0aaiOp07xJb/Qhfi/zvs0QoZLa8aJLnLQ3cEMS7cQ1NbKyjNpnv7YPUqXqDNWc3vCxTBoT0NLqW172pEjdHuc93fcL08BEY4v4fqU55Ry5QRw3JatRjJ3zCpRkXsQuPdMPQFDwvBbr2yaHBvSsBK8JZF2lG7bqwlZHUzVTeuJvzeMJxFJTA/J84mMrwc4NZwXbzPaOE107fYNeWieEnPS4cvGPXB0nyFrcT37mb6f5mq3UgUVqeRfOpGUl/YRIDOgprGcfu2cyWvhRMdV683O69D9qJwY5od+doQKjj1xZ0zrFWQMAE/DQTGw0VsdfEjzBgd0g==
-x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYCPR01MB10588.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(4636009)(396003)(39860400002)(366004)(376002)(346002)(136003)(478600001)(76116006)(110136005)(2906002)(83380400001)(5660300002)(66556008)(64756008)(4326008)(66446008)(8676002)(66476007)(7416002)(316002)(54906003)(66946007)(52536014)(33656002)(8936002)(71200400001)(55016003)(26005)(41300700001)(9686003)(966005)(6506007)(7696005)(186003)(107886003)(86362001)(122000001)(38100700002)(53546011)(38070700005);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:  =?Windows-1252?Q?0FPG6G0LSbXw7kwmb+wmLSZk9fFq51H5J8QcA40kRqxBW1Te78DmTH4k?=
- =?Windows-1252?Q?E7V0t0zjlrSPhiCOkCbe3BF3zkKAgUbgdH9nLhDmNECp0hwfGgoweFft?=
- =?Windows-1252?Q?Pyn7+pRvPnA/xcAH9weYwtdWur3pbuIi3az16YRonDWUCANBrRg50xIQ?=
- =?Windows-1252?Q?LEedn03bzLxs3jDlgXKyY8kwNhtwRuGcKYEzOqhTDS9c7gs2PiPb5GMj?=
- =?Windows-1252?Q?aOUY3m2TjaEoCaNDFsY7OHyBnQGIH3hvKrlpFW5zKX49YLxCURSexcGF?=
- =?Windows-1252?Q?z2GnF0kzyiJwPzO9NOh75CzDY4j+lALd0xona2Jrz1ag8YUstNKcHYeA?=
- =?Windows-1252?Q?ZlanNwY97Mwe457DepLJDkiqkq0E5f+KPnxu0+AgiabkP8hSZE5qMgC2?=
- =?Windows-1252?Q?iblRoVlvqXX4wHQ8rS2aVxMe/ayyARJBfq2pegEEB14wP+wUHX7+1kn7?=
- =?Windows-1252?Q?8/Fj/6LLUQ4YWKK6UVy5kD8LQox/S5V18je3Zl5wj+Vce5pD1Xq2YqxG?=
- =?Windows-1252?Q?wlvHa96QgPMTctomSxbH5bMDro544eq/e5BQFH6eyiM2ezJUSEKKT/5S?=
- =?Windows-1252?Q?qeMiwn63Uw7UYwslIAktKrMmTZP5K4e0itN0oPIOi4vvapz8W+t3sEaD?=
- =?Windows-1252?Q?CQ5Zy/u508xE7Ket++XzInNGC5G/O0yzycZCER87AsaBwIK04lIae/Fh?=
- =?Windows-1252?Q?r6JZjX3D986eBxmkJuzI0c/wfk6W1TkBi6MvuCGe2k1rXzFOVGOFE47j?=
- =?Windows-1252?Q?jiQ2x5Zjd0E4eUQskCCDoz0iHG4LXLkPkR6oqgD6tKmTpEv/o5isM9L2?=
- =?Windows-1252?Q?Q6QWwr4amlT841744P7ckN0cnYtJbxzi0eGamN/AS9e4x9s1qIieFpkT?=
- =?Windows-1252?Q?kO5ar4nQAJf+2q59HvqQFgLvhtglMaXaRamd+CpA69J6koAJ5oQGye9E?=
- =?Windows-1252?Q?vZH8+f2TJ+vp+DRiPilom6ranIgJSQplwa0/u2hzx7VSLCLaoU0wfjWp?=
- =?Windows-1252?Q?LdZ753Pi31CoG4xjxj3aYuH7Oj+vQ8Gt2UPq+vrrgLrkCV8t6OJk/Q8a?=
- =?Windows-1252?Q?yfNXzTVMpq7IeXSAKuxz6bWIxmuhfByySIC1LLtPdYCDIsBUG62bZtf4?=
- =?Windows-1252?Q?qkLjcznecG6dfXZBAAjShIahTxyVE7O+vU9WXZOTEnyTAbBc6VpocOo8?=
- =?Windows-1252?Q?kyw6pzhZSVK7RbssvAdZpE4EgcxR/oz29sioqYU77GRpEiZLhE0CkekV?=
- =?Windows-1252?Q?kXb6f0mu2KPIkq2UFHc6ldSuy8sKEcUwjQxyngOiQmwm3Q3gFBaXDXRL?=
- =?Windows-1252?Q?9zzqtPpiqUfoplK5kAJ6bg76Dnx+Sgcf6JK2+uzhlHXme3rP7Ik4vv13?=
- =?Windows-1252?Q?oIfoAgvnvyvCM5vCfaQfQOpFrv5xSqO6bfkeDlaRcBRQ2GFK1EkpxDpt?=
- =?Windows-1252?Q?2mByMaFPQgW5Joz8kTWifNseTKl9sV3aPxQKzHVnQSN36oOTBREYugSH?=
- =?Windows-1252?Q?3FBrieTXqzf76d573f7qrsypcjU2qd4mXbkEhsnta/dfmOx8yvVWWZbN?=
- =?Windows-1252?Q?qJmf/L15q18I5N+HxjJGdZbGX2faWL8wqpyiNRqI6488DR/TG2S6FnFt?=
- =?Windows-1252?Q?XfZyKO6ZQwslRN4tj6H0FSx/4uhqQ+o//uwD7+Bl6TKks4ZywiRe7Ud8?=
- =?Windows-1252?Q?du/3sH+KWnkhwutOSSu4OzQCte4QxXYZ+Z9Ut6N68aK2erJttIMLhA?=
- =?Windows-1252?Q?=3D=3D?=
+	id 1oVrm4-0056eM-3M
+	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 09:55:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1662544512; x=1694080512;
+  h=date:from:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=wTz5MbuOMBDOMBq3QKGowVOjTKfUFIGm8N9GEPakT7M=;
+  b=DrVYmVhLJ51+anXjYImOzPDHXUIox4sgx87gyugQBX47PDfCrf215N1M
+   wue6IF8caGeNGJNvVEmnNOv3ONWL+4SOhCe+Bp8aYBOdFUTlWo2ZKJTfA
+   VIyJmFW++CWjFmxMVPPX9YRxGnhgTyXSxHzJbzNpTh+wMf2Bud0eYwSK9
+   15G4PX9XQ/p2FfWHxSqwAgLXCSUhQnEtdya6fzGkPF9up9TqvicSPB/EC
+   eF0LBAeEAbVzSvoZtC7n9e2HpDlbGvpFKG8jY/SRGxlFqSpeimPi7H0RW
+   P/jRewJRw0eAmsBU9eAHpvNhQ/LKXCsgT1nROA1fZrm+m0ccPcevOrROB
+   g==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10462"; a="298146718"
+X-IronPort-AV: E=Sophos;i="5.93,296,1654585200"; 
+   d="scan'208";a="298146718"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Sep 2022 02:55:06 -0700
+X-IronPort-AV: E=Sophos;i="5.93,296,1654585200"; 
+   d="scan'208";a="644551974"
+Received: from dmatouse-mobl.ger.corp.intel.com ([10.251.223.53])
+  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Sep 2022 02:54:58 -0700
+Date: Wed, 7 Sep 2022 12:54:57 +0300 (EEST)
+From: =?ISO-8859-15?Q?Ilpo_J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>
+To: Jiri Slaby <jslaby@suse.cz>
+cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+    linux-serial <linux-serial@vger.kernel.org>, 
+    LKML <linux-kernel@vger.kernel.org>, Tobias Klauser <tklauser@distanz.ch>, 
+    Richard Genoud <richard.genoud@gmail.com>, 
+    Nicolas Ferre <nicolas.ferre@microchip.com>, 
+    Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+    Claudiu Beznea <claudiu.beznea@microchip.com>, 
+    Vladimir Zapolskiy <vz@mleia.com>, Liviu Dudau <liviu.dudau@arm.com>, 
+    Sudeep Holla <sudeep.holla@arm.com>, 
+    Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>, 
+    Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+    Pengutronix Kernel Team <kernel@pengutronix.de>, 
+    Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, 
+    =?ISO-8859-15?Q?Andreas_F=E4rber?= <afaerber@suse.de>, 
+    Manivannan Sadhasivam <mani@kernel.org>, 
+    Russell King <linux@armlinux.org.uk>, 
+    Florian Fainelli <f.fainelli@gmail.com>, 
+    bcm-kernel-feedback-list@broadcom.com, 
+    =?ISO-8859-15?Q?Pali_Roh=E1r?= <pali@kernel.org>, 
+    Kevin Cernekee <cernekee@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+    Paul Walmsley <paul.walmsley@sifive.com>, Orson Zhai <orsonzhai@gmail.com>, 
+    Baolin Wang <baolin.wang7@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
+    Patrice Chotard <patrice.chotard@foss.st.com>, 
+    linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 0/4] tty: TX helpers
+In-Reply-To: <20220906104805.23211-1-jslaby@suse.cz>
+Message-ID: <e6e551fa-2347-7b17-8a62-2b28517c76e@linux.intel.com>
+References: <20220906104805.23211-1-jslaby@suse.cz>
 MIME-Version: 1.0
-X-OriginatorOrg: renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB10588.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4c18eb28-d5ea-4579-4655-08da90a98cd7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Sep 2022 08:18:31.2669
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: jem70ZjPz2E0Q/UahqvBdjp7r1QHdi450DTr1axuEz8XM/8mUQGeIWNzE0Ttu6ukLxWS5xgecEC4HaDBuwErXnQsN/CGhfh1tZzRBIuS3D0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYBPR01MB5407
+Content-Type: multipart/mixed; boundary="8323329-1229872048-1662544507=:1717"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220907_011840_217961_44E0F631 
-X-CRM114-Status: GOOD (  31.16  )
+X-CRM114-CacheID: sfid-20220907_025516_665529_90C65264 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,107 +94,112 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="windows-1252"
-Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Conor,
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Thank you for your interest.
+--8323329-1229872048-1662544507=:1717
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8BIT
 
-> From: Conor.Dooley@microchip.com <Conor.Dooley@microchip.com>
-> Sent: 06 September 2022 11:39
-> =
+On Tue, 6 Sep 2022, Jiri Slaby wrote:
 
-> On 06/09/2022 11:21, Lad Prabhakar wrote:
-> =
+> This series introduces DEFINE_UART_PORT_TX_HELPER +
+> DEFINE_UART_PORT_TX_HELPER_LIMITED TX helpers. See PATCH 2/4 for the
+> details. Comments welcome.
+> 
+> Then it switches drivers to use them. First, to
+> DEFINE_UART_PORT_TX_HELPER() in 3/4 and then
+> DEFINE_UART_PORT_TX_HELPER_LIMITED() in 4/4.
+> 
+> The diffstat of patches 3+4 is as follows:
+>  26 files changed, 191 insertions(+), 823 deletions(-)
+> which appears to be nice.
+> 
+> Cc: Tobias Klauser <tklauser@distanz.ch>
+> Cc: Richard Genoud <richard.genoud@gmail.com>
+> Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
+> Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
+> Cc: Claudiu Beznea <claudiu.beznea@microchip.com>
+> Cc: Vladimir Zapolskiy <vz@mleia.com>
+> Cc: Liviu Dudau <liviu.dudau@arm.com>
+> Cc: Sudeep Holla <sudeep.holla@arm.com>
+> Cc: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
+> Cc: Shawn Guo <shawnguo@kernel.org>
+> Cc: Sascha Hauer <s.hauer@pengutronix.de>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: NXP Linux Team <linux-imx@nxp.com>
+> Cc: "Andreas Färber" <afaerber@suse.de>
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: Russell King <linux@armlinux.org.uk>
+> Cc: Florian Fainelli <f.fainelli@gmail.com>
+> Cc: bcm-kernel-feedback-list@broadcom.com
+> Cc: "Pali Rohár" <pali@kernel.org>
+> Cc: Kevin Cernekee <cernekee@gmail.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Orson Zhai <orsonzhai@gmail.com>
+> Cc: Baolin Wang <baolin.wang7@gmail.com>
+> Cc: Chunyan Zhang <zhang.lyra@gmail.com>
+> Cc: Patrice Chotard <patrice.chotard@foss.st.com>
+> Cc: linux-riscv@lists.infradead.org
+> 
+> Jiri Slaby (4):
+>   tty: serial: move and cleanup vt8500_tx_empty()
+>   tty: serial: introduce transmit helper generators
+>   tty: serial: use DEFINE_UART_PORT_TX_HELPER()
+>   tty: serial: use DEFINE_UART_PORT_TX_HELPER_LIMITED()
+> 
+>  Documentation/driver-api/serial/driver.rst |  3 +
+>  drivers/tty/serial/21285.c                 | 33 ++-------
+>  drivers/tty/serial/altera_jtaguart.c       | 42 +++--------
+>  drivers/tty/serial/altera_uart.c           | 37 ++--------
+>  drivers/tty/serial/amba-pl010.c            | 37 ++--------
+>  drivers/tty/serial/apbuart.c               | 36 ++--------
+>  drivers/tty/serial/atmel_serial.c          | 29 ++------
+>  drivers/tty/serial/bcm63xx_uart.c          | 47 +++----------
+>  drivers/tty/serial/fsl_lpuart.c            | 38 +++-------
+>  drivers/tty/serial/lantiq.c                | 44 ++++--------
+>  drivers/tty/serial/lpc32xx_hs.c            | 38 ++--------
+>  drivers/tty/serial/mcf.c                   | 27 ++------
+>  drivers/tty/serial/mpc52xx_uart.c          | 43 +-----------
+>  drivers/tty/serial/mps2-uart.c             | 29 +-------
+>  drivers/tty/serial/mux.c                   | 46 ++++--------
+>  drivers/tty/serial/mvebu-uart.c            | 40 ++---------
+>  drivers/tty/serial/mxs-auart.c             | 31 ++-------
+>  drivers/tty/serial/omap-serial.c           | 47 ++++---------
+>  drivers/tty/serial/owl-uart.c              | 35 +---------
+>  drivers/tty/serial/pxa.c                   | 39 +++--------
+>  drivers/tty/serial/rp2.c                   | 36 ++--------
+>  drivers/tty/serial/sa1100.c                | 49 +++++--------
+>  drivers/tty/serial/serial_txx9.c           | 37 ++--------
+>  drivers/tty/serial/sifive.c                | 45 ++----------
+>  drivers/tty/serial/sprd_serial.c           | 38 ++--------
+>  drivers/tty/serial/st-asc.c                | 50 ++-----------
+>  drivers/tty/serial/vt8500_serial.c         | 40 ++---------
+>  include/linux/serial_core.h                | 81 ++++++++++++++++++++++
+>  28 files changed, 275 insertions(+), 822 deletions(-)
 
-> > diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> > index 2a0ef738695e..10a7c855d125 100644
-> > --- a/arch/riscv/include/asm/sbi.h
-> > +++ b/arch/riscv/include/asm/sbi.h
-> > @@ -37,6 +37,7 @@ enum sbi_ext_id {
-> >
-> >          /* Vendor extensions must lie within this range */
-> >          SBI_EXT_VENDOR_START =3D 0x09000000,
-> > +       SBI_EXT_ANDES =3D 0x0900031E,
-> >          SBI_EXT_VENDOR_END =3D 0x09FFFFFF,
-> >   };
-> =
+For the whole series:
 
-> Everything else aside, I am very interested in what's happening
-> here. I'll take a proper look through things later, but for now:
-> =
+Reviewed-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
 
-> For PolarFire SoC we have an InterHart Communication SBI EXT that
-> would would like to upstream support for. We are not aiming to put
-> the driver itself in arch/riscv - it's just a mailbox driver, but
-> I would like to use sbi.h for defining the vendor id etc.
-> =
+-- 
+ i.
 
-> I am not sure how this all aligns with:
-> > We=92ll only accept patches for new modules or extensions if the
-> > specifications for those modules or extensions are listed as being
-> > =93Frozen=94 or =93Ratified=94 by the RISC-V Foundation. (Developers ma=
-y, of
-> > course, maintain their own Linux kernel trees that contain code for
-> > any draft extensions that they wish.)
-> >
-> > Additionally, the RISC-V specification allows implementors to create
-> > their own custom extensions. These custom extensions aren=92t required
-> > to go through any review or ratification process by the RISC-V
-> > Foundation. To avoid the maintenance complexity and potential
-> > performance impact of adding kernel code for implementor-specific
-> > RISC-V extensions, we=92ll only to accept patches for extensions that
-> > have been officially frozen or ratified by the RISC-V Foundation.
-> > (Implementors, may, of course, maintain their own Linux kernel trees
-> > containing code for any custom extensions that they wish.)
-> =
-
-> Which is in: https://docs.kernel.org/riscv/patch-acceptance.html
-> =
-
-> It is unclear to me whether that is just for ISA extensions or if that
-> covers SBI extensions too. At least for us, since we don't touch arch
-> code there is relatively little friction & there's no concerns about
-> reducing the portability of a kernel since it is just a regular old
-> driver.
-> =
-
-> I was planning on cornering some people *cough* Palmer *cough* at
-> LPC and asking him what his thoughts were there.
-> =
-
-> FWIW this is what we have been doing:
-> https://github.com/linux4microchip/linux/blob/linux-5.15-mchp/drivers/mai=
-lbox/mailbox-miv-ihc.c#L27
-> =
-
-> The IP itself has not stabilised yet, so we have not sent any patches
-> yet, but we do intend doing so...
-> =
-
-> But yea, I'll take a properly look at what you're doing here soonTM,
-> although at this point it may be the other side of LPC.
-> =
-
-> btw, where can I get my hands on your hardware?
-
-The latest information I have is that it should be available via various di=
-stributors on the 21st Sept.
-
-Kind regards, Chris
-
-> =
-
-> Thanks,
-> Conor.
-> =
-
-
+--8323329-1229872048-1662544507=:1717
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--8323329-1229872048-1662544507=:1717--
+
