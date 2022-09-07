@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA7EC38145
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 23:15:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABB7C38145
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 23:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jp38+0ZHwvEA9U6N2n5fRYoUrrpTxpBKS7PgAqbqDMQ=; b=Bz2AwyARemJ4UJ
-	MP7UuaeOQ5Jz6bRXdCfll86LKwwVcsPppeTNmgtg3tg/lxk7MHZ+1DKz7a0y/BqGblr5gen+izGUc
-	hi1ia6763PvMiR/cv7vOAbBpzWsiplmsqKYNcOyvF9PLh7S61Ty2JSgczuyAarulL1i2ndMrJr1zI
-	Hp21QigRjFEV8oDBvORMq5AlItvBRP7Fppl78Ow9bGLrK3Y4cNYmXcggZW7TeG6JUvy+ukAOtM+hV
-	SrcFpR07K7tEtIkLu4uQsccjab0ADrPQC1FmDRQfvjJf6aEwHISvaIkgKWLk7+JgxQVXoBD7u/ycY
-	QgAdyDh3xM0alXLVlm4w==;
+	List-Owner; bh=uYwj9P8nffvNkUXlNKYN8xoAaDes5AQkiyDSSumLVj8=; b=SllGzxsL/zGTrm
+	zMk5W5kkRKGWnUcrAaPQxmQmXlHN4KHVeSbR5d9JsZb8Xk9nouo9vyGlrJb7mWYE4wBzEb0nb0snW
+	eMDGcWYgAw1weOfxJ/jRNLmfhXo2QlzqsUwKtWPfCgMPRpbY7jGbp1nzTWpqJtNI7onsXbCsBCwNq
+	kRfJKUdxX3a5m7JM/LDf/SRO7qChhIlesNMEONGCxkx/bRpXPPpVmnVZSM68dglCPeIkVI3fOlWmF
+	CcDMYR0kiLvQfQEZc46CRoGdaIDMlo0JIgodsOgr3SLE//ixcuQfetDsQCZ10cDNQyUsnQP8LKvzn
+	zEqBxXQ5e/rr6OnppLQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oW4GL-00BJEB-Tt; Wed, 07 Sep 2022 23:15:17 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1oW4K1-00BLlp-DG; Wed, 07 Sep 2022 23:19:05 +0000
+Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oW4GI-00BJ3T-QY
-	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 23:15:16 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id y187so12810464iof.0
-        for <linux-riscv@lists.infradead.org>; Wed, 07 Sep 2022 16:15:12 -0700 (PDT)
+	id 1oW4Jy-00BLjW-IE
+	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 23:19:03 +0000
+Received: by mail-io1-xd2e.google.com with SMTP id 10so12762565iou.2
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Sep 2022 16:19:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=atishpatra.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date;
-        bh=skhLfaOO9lv7TLZsn5jcW2c2pz0dmX1gkpRg+2lzHTE=;
-        b=Txi4dTrWp/O1vsqSnSs/3PzL9qYizF1mJ5Mfwyue6kYL8iCMRyLZyyIrxzyN5hzIXs
-         OdpUBnoYIJhOwbwexEg4pUJ0lBGM5ieCM9U/urm1V0bqJWcda4oUjUJkk9UsfV7reAo7
-         g2i5Dz1m+9TjFwAgtco1D/hl1WWp9pcYFstuo=
+        bh=5s+/z3LbG16phtl9JO7vOWUQlm5jNkM0JFVTs4xEW9s=;
+        b=GPQ3jJEEy5M5EX1xdIrIdhDRh7M+5SaaxpNluTRX0qdq8pZH/NFDUkT1E1cya2Gudi
+         6SYA6TWH5qyszXcE9MYGBKRGqN3dkLxtG6AZomv0IThffRJr6gYSugm54lcFzbm7HVNT
+         82Hl7LGUfM4jElD+9WDa56y8MqJqqMmiNBaF0=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=skhLfaOO9lv7TLZsn5jcW2c2pz0dmX1gkpRg+2lzHTE=;
-        b=F+yLJ3JJf95l8eOfe9lkxvMdeQRvWH9Y5e1Kjbp26FcFgG9MIl1ceOb+CLj9ETFAAp
-         MJYZmWf652Sc8+zr1jyPOgquELeJdrPcyrCJwRn0x9ledRPQCjyntvGCv63rbGolldhd
-         m63LBTS6RNai11+QfFUek0yDI1m94hY1QGdaLxiB0Ao/LoTHSpOSLnPQctv7qf9JB1EK
-         M9b664Vhuwm6oPb1nerN6tHIoyntT9TlSUaSoSxzFmIDh/aiIg1TR6rdjguIl/ilVsoN
-         wJYAtVuyZiOO14oDF2H2y2l9tD/GqUWkyzMRFE+YVfTM+kvx3vMUoKlRBjbN5HhNznZX
-         J5cA==
-X-Gm-Message-State: ACgBeo3xrZ7PfK/StY/uOFTOkp1YlYs5vRZ0eTNLza0/QJxBC4it1VHk
-	2cw0grijRFop5MnyD4OZVO4cmBVvV9DE4CssGWnfhpbW6Fx2jDc=
-X-Google-Smtp-Source: AA6agR7NM7FrEHAyOE18g3Q6533cCQQxXG4C9N4e3PGzkp86S57vj3Lkg/Qn+jVxXVp9xBCl2dKDyrMhjplQmnf1LqQ=
-X-Received: by 2002:a05:6638:25d1:b0:346:c436:6974 with SMTP id
- u17-20020a05663825d100b00346c4366974mr3230504jat.308.1662592511503; Wed, 07
- Sep 2022 16:15:11 -0700 (PDT)
+        bh=5s+/z3LbG16phtl9JO7vOWUQlm5jNkM0JFVTs4xEW9s=;
+        b=UUe/ORR5uDcgh7j/X0mqs3UmOXwaHZ/c3v3w1V7iRI+MxydH3C/iEhMHu8JoOg9glJ
+         a6763z2Imu7+ENOEY+o1Fd5rtrCGL18uf5vvCRPMfusbKrea3+LsUdX8+1HP7KQUUWGs
+         rr/xEMvzKlmz0s8O6Lwbb0eCCOp9xZ7ek9dCsVvTECOzdeYmL8KPpDC0W75RVd5tWikq
+         nF8n27kmz/JRyC1HfjnjtWI8ae+X2vxmjZAnnc03GIrSMZjuCEKnkVmRie56Avfty1dZ
+         cRLL5HevMu0870n4VD5SSL0C/UVGFrlHL0vpXJFb0XCufpNlK1+FezPDX4kecPHk/4RB
+         0tLQ==
+X-Gm-Message-State: ACgBeo2gpmNcgOtR2Xu2hxGH84tCss5GmgMuO7Op5CHSGgFPUaT89Y9h
+	8dpMU+nfTEr9feVhbtbd+fOnkX4pZIg0/N3/f2eM
+X-Google-Smtp-Source: AA6agR4qVC6K53oiD5S2CXD4kDmiPRnlO9iJamA6NEcnBmtjeBcMDgfblyBkIw2bVgVaD5cRhH8CGSB3WRcauTPh+90=
+X-Received: by 2002:a6b:c504:0:b0:68b:6802:2bfe with SMTP id
+ v4-20020a6bc504000000b0068b68022bfemr2925600iof.22.1662592741648; Wed, 07 Sep
+ 2022 16:19:01 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220905141644.2468891-1-heiko@sntech.de> <CAOnJCU+SXQsho=t1vUQFiiDVU7-F0yaAH3ae4nUdYQWEyjmsjw@mail.gmail.com>
-In-Reply-To: <CAOnJCU+SXQsho=t1vUQFiiDVU7-F0yaAH3ae4nUdYQWEyjmsjw@mail.gmail.com>
+References: <20220903161309.32848-1-apatel@ventanamicro.com> <20220903161309.32848-2-apatel@ventanamicro.com>
+In-Reply-To: <20220903161309.32848-2-apatel@ventanamicro.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Wed, 7 Sep 2022 16:15:00 -0700
-Message-ID: <CAOnJCU+djj0eee0345hHD3ioLJcssGmwV6LiVeCQMU9H8=TcAw@mail.gmail.com>
-Subject: Re: [PATCH v3] drivers/perf: riscv_pmu_sbi: add support for PMU
- variant on T-Head C9xx cores
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: anup@brainfault.org, will@kernel.org, mark.rutland@arm.com, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Conor.Dooley@microchip.com
+Date: Wed, 7 Sep 2022 16:18:51 -0700
+Message-ID: <CAOnJCUJb0cYe=fcpAi4cnNatH6ukvFP+GgEQZhmx7t=niFLcng@mail.gmail.com>
+Subject: Re: [PATCH v9 1/7] RISC-V: Clear SIP bit only when using SBI IPI operations
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Alistair Francis <Alistair.Francis@wdc.com>, 
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Bin Meng <bmeng.cn@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220907_161514_896087_8A36B07A 
-X-CRM114-Status: GOOD (  37.13  )
+X-CRM114-CacheID: sfid-20220907_161902_621540_3DEEC975 
+X-CRM114-Status: GOOD (  17.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,285 +84,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 7, 2022 at 4:09 PM Atish Patra <atishp@atishpatra.org> wrote:
+On Sat, Sep 3, 2022 at 9:13 AM Anup Patel <apatel@ventanamicro.com> wrote:
 >
+> The software interrupt pending (i.e. [M|S]SIP) bit is writeable for
+> S-mode but read-only for M-mode so we clear this bit only when using
+> SBI IPI operations.
 >
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+> ---
+>  arch/riscv/kernel/sbi.c | 8 +++++++-
+>  arch/riscv/kernel/smp.c | 2 --
+>  2 files changed, 7 insertions(+), 3 deletions(-)
 >
-> On Mon, Sep 5, 2022 at 7:16 AM Heiko Stuebner <heiko@sntech.de> wrote:
->>
->> With the T-HEAD C9XX cores being designed before or during the ratification
->> to the SSCOFPMF extension, it implements functionality very similar but
->> not equal to it.
->>
->> It implements overflow handling and also some privilege-mode filtering.
->> While SSCOFPMF supports this for all modes, the C9XX only implements the
->> filtering for M-mode and S-mode but not user-mode.
->>
->> So add some adaptions to allow the C9XX to still handle
->> its PMU through the regular SBI PMU interface instead of defining new
->> interfaces or drivers.
->>
->> To work properly, this requires a matching change in SBI, though the actual
->> interface between kernel and SBI does not change.
->>
->> The main differences are a the overflow CSR and irq number.
->>
->> As the reading of the overflow-csr is in the hot-path during irq handling,
->> use an errata and alternatives to not introduce new conditionals there.
->>
->> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
->> ---
->> changes in v3:
->> - improve commit message (Atish, Conor)
->> - IS_ENABLED and BIT() in errata probe (Conor)
->>
->> The change depends on my cpufeature/t-head errata probe cleanup series [1].
->>
->>
->> changes in v2:
->> - use alternatives for the CSR access
->> - make the irq num selection a bit nicer
->>
->> There is of course a matching opensbi-part whose current implementation can
->> be found on [0], but as comments show, this needs some more work still.
->>
->>
->> [0] https://patchwork.ozlabs.org/project/opensbi/cover/20220817112004.745776-1-heiko@sntech.de/
->> [1] https://lore.kernel.org/all/20220905111027.2463297-1-heiko@sntech.de/
->>
->>  arch/riscv/Kconfig.erratas           | 14 ++++++++++++
->>  arch/riscv/errata/thead/errata.c     | 18 ++++++++++++++++
->>  arch/riscv/include/asm/errata_list.h | 16 +++++++++++++-
->>  drivers/perf/riscv_pmu_sbi.c         | 32 +++++++++++++++++++---------
->>  4 files changed, 69 insertions(+), 11 deletions(-)
->>
->> diff --git a/arch/riscv/Kconfig.erratas b/arch/riscv/Kconfig.erratas
->> index 6850e9389930..f1eaac4c0073 100644
->> --- a/arch/riscv/Kconfig.erratas
->> +++ b/arch/riscv/Kconfig.erratas
->> @@ -66,4 +66,18 @@ config ERRATA_THEAD_CMO
->>
->>           If you don't know what to do here, say "Y".
->>
->> +config ERRATA_THEAD_PMU
->> +       bool "Apply T-Head PMU errata"
->> +       depends on ERRATA_THEAD
->> +       depends on RISCV_PMU_SBI
->> +       default y
->> +       help
->> +         The T-Head C9xx cores implement a PMU overflow extension very
->> +         similar to the core SSCOFPMF extension.
->> +
->> +         This will apply the overflow errata to handle the non-standard
->> +         behaviour via the regular SBI PMU driver and interface.
->> +
->> +         If you don't know what to do here, say "Y".
->> +
->>  endmenu # "CPU errata selection"
->> diff --git a/arch/riscv/errata/thead/errata.c b/arch/riscv/errata/thead/errata.c
->> index 902e12452821..d4b1526538ad 100644
->> --- a/arch/riscv/errata/thead/errata.c
->> +++ b/arch/riscv/errata/thead/errata.c
->> @@ -46,6 +46,21 @@ static bool errata_probe_cmo(unsigned int stage,
->>         return true;
->>  }
->>
->> +static bool errata_probe_pmu(unsigned int stage,
->> +                            unsigned long arch_id, unsigned long impid)
->> +{
->> +       if (!IS_ENABLED(CONFIG_ERRATA_THEAD_PMU))
->> +               return false;
->> +
->> +       if (arch_id != 0 || impid != 0)
->> +               return false;
->> +
->> +       if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
->> +               return false;
->> +
->> +       return true;
->> +}
->> +
->>  static u32 thead_errata_probe(unsigned int stage,
->>                               unsigned long archid, unsigned long impid)
->>  {
->> @@ -57,6 +72,9 @@ static u32 thead_errata_probe(unsigned int stage,
->>         if (errata_probe_cmo(stage, archid, impid))
->>                 cpu_req_errata |= BIT(ERRATA_THEAD_CMO);
->>
->> +       if (errata_probe_pmu(stage, archid, impid))
->> +               cpu_req_errata |= BIT(ERRATA_THEAD_PMU);
->> +
->>         return cpu_req_errata;
->>  }
->>
->> diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
->> index 19a771085781..4180312d2a70 100644
->> --- a/arch/riscv/include/asm/errata_list.h
->> +++ b/arch/riscv/include/asm/errata_list.h
->> @@ -6,6 +6,7 @@
->>  #define ASM_ERRATA_LIST_H
->>
->>  #include <asm/alternative.h>
->> +#include <asm/csr.h>
->>  #include <asm/vendorid_list.h>
->>
->>  #ifdef CONFIG_ERRATA_SIFIVE
->> @@ -17,7 +18,8 @@
->>  #ifdef CONFIG_ERRATA_THEAD
->>  #define        ERRATA_THEAD_PBMT 0
->>  #define        ERRATA_THEAD_CMO 1
->> -#define        ERRATA_THEAD_NUMBER 2
->> +#define        ERRATA_THEAD_PMU 2
->> +#define        ERRATA_THEAD_NUMBER 3
->>  #endif
->>
->>  #define        CPUFEATURE_SVPBMT 0
->> @@ -142,6 +144,18 @@ asm volatile(ALTERNATIVE_2(                                                \
->>             "r"((unsigned long)(_start) + (_size))                      \
->>         : "a0")
->>
->> +#define THEAD_C9XX_RV_IRQ_PMU                  17
->> +#define THEAD_C9XX_CSR_SCOUNTEROF              0x5c5
->> +
->> +#define ALT_SBI_PMU_OVERFLOW(__ovl)                                    \
->> +asm volatile(ALTERNATIVE(                                              \
->> +       "csrr %0, " __stringify(CSR_SSCOUNTOVF),                        \
->> +       "csrr %0, " __stringify(THEAD_C9XX_CSR_SCOUNTEROF),             \
->> +               THEAD_VENDOR_ID, ERRATA_THEAD_PMU,                      \
->> +               CONFIG_ERRATA_THEAD_PMU)                                \
->> +       : "=r" (__ovl) :                                                \
->> +       : "memory")
->> +
->>  #endif /* __ASSEMBLY__ */
->>
->>  #endif
->> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
->> index 6f6681bbfd36..f814d3ce5ba2 100644
->> --- a/drivers/perf/riscv_pmu_sbi.c
->> +++ b/drivers/perf/riscv_pmu_sbi.c
->> @@ -19,6 +19,7 @@
->>  #include <linux/of.h>
->>  #include <linux/cpu_pm.h>
->>
->> +#include <asm/errata_list.h>
->>  #include <asm/sbi.h>
->>  #include <asm/hwcap.h>
->>
->> @@ -46,6 +47,8 @@ static const struct attribute_group *riscv_pmu_attr_groups[] = {
->>   * per_cpu in case of harts with different pmu counters
->>   */
->>  static union sbi_pmu_ctr_info *pmu_ctr_list;
->> +static bool riscv_pmu_use_irq;
->> +static unsigned int riscv_pmu_irq_num;
->>  static unsigned int riscv_pmu_irq;
->>
->>  struct sbi_pmu_event_data {
->> @@ -575,7 +578,7 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
->>         fidx = find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUNTERS);
->>         event = cpu_hw_evt->events[fidx];
->>         if (!event) {
->> -               csr_clear(CSR_SIP, SIP_LCOFIP);
->> +               csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
->>                 return IRQ_NONE;
->>         }
->>
->> @@ -583,13 +586,13 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
->>         pmu_sbi_stop_hw_ctrs(pmu);
->>
->>         /* Overflow status register should only be read after counter are stopped */
->> -       overflow = csr_read(CSR_SSCOUNTOVF);
->> +       ALT_SBI_PMU_OVERFLOW(overflow);
->>
->>         /*
->>          * Overflow interrupt pending bit should only be cleared after stopping
->>          * all the counters to avoid any race condition.
->>          */
->> -       csr_clear(CSR_SIP, SIP_LCOFIP);
->> +       csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
->>
->>         /* No overflow bit is set */
->>         if (!overflow)
->> @@ -651,10 +654,10 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
->>         /* Stop all the counters so that they can be enabled from perf */
->>         pmu_sbi_stop_all(pmu);
->>
->> -       if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
->> +       if (riscv_pmu_use_irq) {
->>                 cpu_hw_evt->irq = riscv_pmu_irq;
->> -               csr_clear(CSR_IP, BIT(RV_IRQ_PMU));
->> -               csr_set(CSR_IE, BIT(RV_IRQ_PMU));
->> +               csr_clear(CSR_IP, BIT(riscv_pmu_irq_num));
->> +               csr_set(CSR_IE, BIT(riscv_pmu_irq_num));
->>                 enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
->>         }
->>
->> @@ -663,9 +666,9 @@ static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
->>
->>  static int pmu_sbi_dying_cpu(unsigned int cpu, struct hlist_node *node)
->>  {
->> -       if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
->> +       if (riscv_pmu_use_irq) {
->>                 disable_percpu_irq(riscv_pmu_irq);
->> -               csr_clear(CSR_IE, BIT(RV_IRQ_PMU));
->> +               csr_clear(CSR_IE, BIT(riscv_pmu_irq_num));
->>         }
->>
->>         /* Disable all counters access for user mode now */
->> @@ -681,7 +684,16 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
->>         struct device_node *cpu, *child;
->>         struct irq_domain *domain = NULL;
->>
->> -       if (!riscv_isa_extension_available(NULL, SSCOFPMF))
->> +       if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
->> +               riscv_pmu_irq_num = RV_IRQ_PMU;
->> +               riscv_pmu_use_irq = true;
->> +       } else if (sbi_get_mvendorid() == THEAD_VENDOR_ID &&
->> +                  sbi_get_marchid() == 0 && sbi_get_mimpid() == 0) {
->> +               riscv_pmu_irq_num = THEAD_C9XX_RV_IRQ_PMU;
->> +               riscv_pmu_use_irq = true;
->> +       }
->> +
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index 775d3322b422..fc614650a2e3 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -643,8 +643,14 @@ static void sbi_send_cpumask_ipi(const struct cpumask *target)
+>         sbi_send_ipi(target);
+>  }
 >
+> +static void sbi_ipi_clear(void)
+> +{
+> +       csr_clear(CSR_IP, IE_SIE);
+> +}
+> +
+>  static const struct riscv_ipi_ops sbi_ipi_ops = {
+> -       .ipi_inject = sbi_send_cpumask_ipi
+> +       .ipi_inject = sbi_send_cpumask_ipi,
+> +       .ipi_clear = sbi_ipi_clear
+>  };
 >
-
-Resending my response as gmail automatically switched compose format
-to HTML for some reason.
-Apologies for the spam.
-
-We already have all the vendorid/marchid/mimipid information available
-from the errata framework.
-Can we just get these from errata instead of making another 3 SBI calls ?
-
-Another option is that Anup's /proc/cpuinfo patch also makes the same
-SBI calls. Maybe cache these three
- information in the SBI layer so that all other arch code can invoke that.
-
- I also think this else check should be part of the config ERRATA_THEAD_PMU.
-
->
->>
->> +       if (!riscv_pmu_use_irq)
->>                 return -EOPNOTSUPP;
->>
->>         for_each_of_cpu_node(cpu) {
->> @@ -703,7 +715,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *pmu, struct platform_device *pde
->>                 return -ENODEV;
->>         }
->>
->> -       riscv_pmu_irq = irq_create_mapping(domain, RV_IRQ_PMU);
->> +       riscv_pmu_irq = irq_create_mapping(domain, riscv_pmu_irq_num);
->>         if (!riscv_pmu_irq) {
->>                 pr_err("Failed to map PMU interrupt for node\n");
->>                 return -ENODEV;
->> --
->> 2.35.1
->>
->
+>  void __init sbi_init(void)
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index 760a64518c58..c56d67f53ea9 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -83,8 +83,6 @@ void riscv_clear_ipi(void)
+>  {
+>         if (ipi_ops && ipi_ops->ipi_clear)
+>                 ipi_ops->ipi_clear();
+> -
+> -       csr_clear(CSR_IP, IE_SIE);
+>  }
+>  EXPORT_SYMBOL_GPL(riscv_clear_ipi);
 >
 > --
-> Regards,
-> Atish
+> 2.34.1
+>
 
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 
 
 -- 
