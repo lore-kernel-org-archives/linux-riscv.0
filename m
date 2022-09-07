@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40963C38145
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 13:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1FEC54EE9
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 14:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=E3p3rfG4joUWzYKEjCOF+EXhvCTS4hZN+Qu5kUk0RD4=; b=PCohTyoH0W+mtH
-	6S0ieBWCrckUiykN7mC9vBoUg3kbIboOxl5LuBuW4s3vSHzTt3CO5upQGuZd9J7k9oN6Ou+X3OXzL
-	6tpOOFTL9dgdY7utQ67zB921warlG7mvozDAncFu8caWeCA1Oz2UOlSJ9bmNt8NgerEQ5kNrKIjBT
-	XELgi6uZynONpvHVxdJIulsFrW4lRovg/HhW18IxoYOJPU7UNSUKNf4Uj6SO2aChPYl5if/K+ZywI
-	D4NDuK0aZoLYyQDbGH7KHsIobVbEQZwScq4upm3WIF9uuWl5RIfYXImttYYkRkBlupyRfcLPXZlYx
-	dvowvCFRIh0xabNU8wrw==;
+	List-Owner; bh=AMkG1Ccy73nfP/0VCFuNhUJPwX4fj9X223OWVI3nqzM=; b=OVvWr5BHC1aCQJ
+	9mUkNVq8qi0v3WA6BOkoBZWLlEyl1qRvETbVsrdydsgUQMJpfTuizJpJpcnx2w5WNwh+CMy2Yt3S3
+	ULPOgjE9AhqcOIzMKkyPLzhmdDEcit8ARywl8dlMOmQHkN40GVJrS+xNClhybQw4D7gHiOqccyE5A
+	Bl6ezx3Q2v1NT5gCSuKzqSejQhRg/vi70qROco3/0pprxpbfQF9cR2zMN46ONFMrqD+xgySUttidM
+	DPmIewa+vY2ze10HVXvp2bzdj+oJm/fj6k7MG5Kl8TW2nWn/csZKG8h2x6WIbcgQMRMJURfquVG0T
+	Zu7Q3f51j5r4xAsQegWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVvXU-006fDG-3X; Wed, 07 Sep 2022 13:56:24 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1oVwWm-0079Eq-56; Wed, 07 Sep 2022 14:59:44 +0000
+Received: from new4-smtp.messagingengine.com ([66.111.4.230])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVvXQ-006eSY-G5
-	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 13:56:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=tCjY/QLdprUhf7WTcDGbAKlrnkf5jVx/ryaWR+dwtH8=; b=GIwenM/qxvktpWk+ynw5s+7XBo
-	NxlXbk/3I26vSXz691UpGfggJkyclumiQG0P7Fdno0A8V7yF4hkfBMtSUnBbxCPcYkGhNrglx6VW4
-	JDP+fLL5bd5kZeEYw+zdzq3y1/WNg/rc7HnpKTnPujcHh8uHZ2r9lEZqWJPrDHL1+sS0qJZgQ5K+G
-	T5C2pNlLsN5ZnYOdW6+0TMdZC8P7Fg/OeWpOKRNxCEe+1GaQx3u7bDJG5f/y1uFUg9cV5W5/lzXJr
-	6Akgtj4N4giZsUhXhvbZeVVTqiq1ffu7wgn+/4CrODR6B1ZJRbpA5YuPKLhoSD2km2JlW4nG2smfQ
-	Rb/slnaA==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34176)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1oVvUM-0005SY-QH; Wed, 07 Sep 2022 14:53:10 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1oVvU9-00019I-RD; Wed, 07 Sep 2022 14:52:57 +0100
-Date: Wed, 7 Sep 2022 14:52:57 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>
-Cc: Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Jiri Slaby <jirislaby@kernel.org>, Johan Hovold <johan@kernel.org>,
-	linux-serial <linux-serial@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Tobias Klauser <tklauser@distanz.ch>,
-	Richard Genoud <richard.genoud@gmail.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@microchip.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Liviu Dudau <liviu.dudau@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Andreas =?iso-8859-1?Q?F=E4rber?= <afaerber@suse.de>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	bcm-kernel-feedback-list@broadcom.com,
-	Pali =?iso-8859-1?Q?Roh=E1r?= <pali@kernel.org>,
-	Kevin Cernekee <cernekee@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang7@gmail.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 0/4] tty: TX helpers
-Message-ID: <YxiiOWQxGCUz9ktF@shell.armlinux.org.uk>
+	id 1oVwTw-0077O8-2J
+	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 14:56:50 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailnew.nyi.internal (Postfix) with ESMTP id 174E0580347;
+	Wed,  7 Sep 2022 10:56:47 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute3.internal (MEProxy); Wed, 07 Sep 2022 10:56:47 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm1; t=1662562607; x=1662566207; bh=GzaX5v4M3u
+	YZGVDHmA54EWlyDj5TXPSzbZMQtn7o1Fs=; b=aUkat/PTyOzxfkwQburyZWVMDF
+	zINi9Bqjj2XPqR5mTmzwK9PzJ983akjvAiGRcJ+mXVAqSmn4wt466gsZeKIz+ADY
+	jPRHCAxfJ1NmC/vtftZ9Y8jEQl1kVZahlz/fFj0I0F9kfmNUDqIgrqbon1F7vepu
+	kHZyHd+0Z8hARWxNJP3wGVb9iX8goXOJFPLCrZnpFSFWtNtum+QA6OtlrwAm74Ug
+	5h1g0lRK6D3iHCZ7KeO/KlQx7FYYMq1UYT7IriJaF8yZ1OqNW5PPHlk3OlRLLcD3
+	b8X5A2pAYRSs884DEMxCazB1P/Iu822qLIYn5D3PIZczYB/hZLLed+Er78Ww==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1662562607; x=1662566207; bh=GzaX5v4M3uYZGVDHmA54EWlyDj5T
+	XPSzbZMQtn7o1Fs=; b=zt06cd9u9mzrt83EVzh4+WAHsSJDrO81JYvgRDVbjG4c
+	qSRNA26E2GwKSRqbY0JXqQRIsnXUirNVR83xcb6/iplF/6yldHM/OID7zmuODD5e
+	pG1OuCpwyJ24/Z4taYwLfG5mCcZj8QyAVYr9lP8cDPRFQDADKW8pctsuLnu97bjw
+	dtAPMQ1UKlQe2xIyjNmjTPWDSFGVgczhzPf/0yooUnOyguIcWz1vsNe85/Oyovn6
+	407cHGyFMuazCYDdVQnZaDQFpchf2YJYj27byUnhPDFnwaf4onOPs2nTp56rj0kx
+	1hh6jAJ7APnjQRZuNr11yNox5XujqQH/DCtO6XlWwg==
+X-ME-Sender: <xms:LbEYY0R0XEj4yDOEMvVxDW4C5GF5EkDKM5fM5a4BqZlugyg8NsUCNA>
+    <xme:LbEYYxy1eE4dXRtcAJ_Dcj4iHYsL5w1iEoXLvhg3m1I_sOx8aR4ATUZqci27n-b95
+    MD_hXhU2NDji9bL4u8>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfedttddgkedvucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
+    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:LbEYYx2dTBE22jIXfcyjTD-fdsyGl82HY25_KNX8powQgJBGPOtAtQ>
+    <xmx:LbEYY4BfZnTCJ2NIANklXIdvcvrkqWV5frmRYUfMqiW4bUckzqNS4A>
+    <xmx:LbEYY9htp88nQi1vE74onKOA4pguUjvQLc0NmRqAqX7mfWuvZZLEEw>
+    <xmx:LrEYY4PrHHi5doUy7UslZ59C8CDGdfom_mjzaz6Z4kBcqY3HCXmBLA>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id BBBD8B60083; Wed,  7 Sep 2022 10:56:45 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.7.0-alpha0-927-gf4c98c8499-fm-20220826.002-gf4c98c84
+Mime-Version: 1.0
+Message-Id: <2197faa3-0217-41e0-8ff0-b5396561c623@www.fastmail.com>
+In-Reply-To: <YxiiOWQxGCUz9ktF@shell.armlinux.org.uk>
 References: <20220906104805.23211-1-jslaby@suse.cz>
  <Yxcvbk281f/vy4vb@hovoldconsulting.com>
  <dec6d5c4-45b7-f087-95f4-bf1dae9e9d27@kernel.org>
@@ -90,13 +83,45 @@ References: <20220906104805.23211-1-jslaby@suse.cz>
  <cfd16d53-6aa0-e848-91d0-dce8ff72bb4d@linux.intel.com>
  <YxiONiDgGYp8MGQA@kroah.com>
  <c66f9c98-dcef-27c-d74a-ea826f6a799@linux.intel.com>
- <YxiQVTN/jX8AfO4L@kroah.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <YxiQVTN/jX8AfO4L@kroah.com>
+ <YxiQVTN/jX8AfO4L@kroah.com> <YxiiOWQxGCUz9ktF@shell.armlinux.org.uk>
+Date: Wed, 07 Sep 2022 16:56:03 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Russell King" <linux@armlinux.org.uk>,
+ "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>
+Cc: =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ "Jiri Slaby" <jirislaby@kernel.org>, "Johan Hovold" <johan@kernel.org>,
+ linux-serial <linux-serial@vger.kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>,
+ "Tobias Klauser" <tklauser@distanz.ch>,
+ "Richard Genoud" <richard.genoud@gmail.com>,
+ "Nicolas Ferre" <nicolas.ferre@microchip.com>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Claudiu Beznea" <claudiu.beznea@microchip.com>,
+ "Vladimir Zapolskiy" <vz@mleia.com>, "Liviu Dudau" <liviu.dudau@arm.com>,
+ "Sudeep Holla" <sudeep.holla@arm.com>,
+ "Lorenzo Pieralisi" <lorenzo.pieralisi@arm.com>,
+ "Shawn Guo" <shawnguo@kernel.org>,
+ "Sascha Hauer" <s.hauer@pengutronix.de>,
+ "Pengutronix Kernel Team" <kernel@pengutronix.de>,
+ "Fabio Estevam" <festevam@gmail.com>,
+ "NXP Linux Team" <linux-imx@nxp.com>,
+ =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>,
+ "Manivannan Sadhasivam" <mani@kernel.org>,
+ "Florian Fainelli" <f.fainelli@gmail.com>,
+ bcm-kernel-feedback-list@broadcom.com,
+ =?UTF-8?Q?Pali_Roh=C3=A1r?= <pali@kernel.org>,
+ "Kevin Cernekee" <cernekee@gmail.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Orson Zhai" <orsonzhai@gmail.com>,
+ "Baolin Wang" <baolin.wang7@gmail.com>,
+ "Chunyan Zhang" <zhang.lyra@gmail.com>,
+ "Patrice Chotard" <patrice.chotard@foss.st.com>,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v3 0/4] tty: TX helpers
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220907_065620_717762_508E17CF 
-X-CRM114-Status: GOOD (  49.58  )
+X-CRM114-CacheID: sfid-20220907_075648_642385_E7371336 
+X-CRM114-Status: GOOD (  21.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,188 +133,160 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 07, 2022 at 02:36:37PM +0200, Greg Kroah-Hartman wrote:
-> On Wed, Sep 07, 2022 at 03:32:44PM +0300, Ilpo J=E4rvinen wrote:
-> > On Wed, 7 Sep 2022, Greg Kroah-Hartman wrote:
-> > =
+On Wed, Sep 7, 2022, at 3:52 PM, Russell King (Oracle) wrote:
+> On Wed, Sep 07, 2022 at 02:36:37PM +0200, Greg Kroah-Hartman wrote:
+>
+> Of course, it would have been nicer to see the definition of this
+> macro, because then we can understand what the "ch" argument is to
+> this macro, and how that relates to the macro argument that is
+> shown in the example as a writel().
 
-> > > On Wed, Sep 07, 2022 at 03:21:28PM +0300, Ilpo J=E4rvinen wrote:
-> > > > On Wed, 7 Sep 2022, Arnd Bergmann wrote:
-> > > > =
+I pulled out the 'ch' variable from the macro to avoid having
+the macro define local variables that are then passed to the
+inner expressions. 
 
-> > > > > On Wed, Sep 7, 2022, at 12:16 PM, Ilpo J=E4rvinen wrote:
-> > > > > > On Wed, 7 Sep 2022, Jiri Slaby wrote:
-> > > > > >> On 06. 09. 22, 13:30, Johan Hovold wrote:
-> > > > > >> > On Tue, Sep 06, 2022 at 12:48:01PM +0200, Jiri Slaby wrote:
-> > > > > >> > NAK
-> > > > > >> =
+> Maybe a more complete example would help clear up the confusion?
+> Arnd?
 
-> > > > > >> I'd love to come up with something nicer. That would be a func=
-tion in
-> > > > > >> serial-core calling hooks like I had [1] for example. But prov=
-ided all those
-> > > > > >> CPU workarounds/thunks, it'd be quite expensive to call two fu=
-nctions per
-> > > > > >> character.
-> > > > > >> =
+Here is a patch on top of the series that would implement the
+uart_port_tx_helper_limited() and uart_port_tx_helper()
+macros that can be used directly from drivers in place of defining
+local functions, with the (alphabetically) first two drivers
+converted to that.
 
-> > > > > >> Or creating a static inline (having =B1 the macro content) and=
- the hooks as
-> > > > > >> parameters and hope for optimizations to eliminate thunks (als=
-o suggested in
-> > > > > >> the past [1]).
-> > > > > >> =
+I left the (now trivial) DEFINE_UART_PORT_TX_HELPER_LIMITED() and
+DEFINE_UART_PORT_TX_HELPER() macros in place to keep it building,
+but they would get removed if we decide to use something like
+my suggested approach for all drivers.
 
-> > > > > >> [1] https://lore.kernel.org/all/20220411105405.9519-1-jslaby@s=
-use.cz/
-> > > > > >
-> > > > > > I second Jiri here.
-> > > > > >
-> > > > > > Saving lines in drivers is not that important compared with all=
- removing =
+   Arnd
 
-> > > > > > all the variants of the same thing that have crept there over t=
-he years.
-> > > > > >
-> > > > > > I suspect the main reason for the variants is that everybody ju=
-st used =
+diff --git a/drivers/tty/serial/21285.c b/drivers/tty/serial/21285.c
+index 40cf1bb534f3..a0f5c59d6128 100644
+--- a/drivers/tty/serial/21285.c
++++ b/drivers/tty/serial/21285.c
+@@ -151,16 +151,14 @@ static irqreturn_t serial21285_rx_chars(int irq, void *dev_id)
+ 	return IRQ_HANDLED;
+ }
+ 
+-static DEFINE_UART_PORT_TX_HELPER_LIMITED(serial21285_do_tx_chars,
+-		!(*CSR_UARTFLG & 0x20),
+-		*CSR_UARTDR = ch,
+-		({}));
+-
+ static irqreturn_t serial21285_tx_chars(int irq, void *dev_id)
+ {
+ 	struct uart_port *port = dev_id;
++	unsigned int count = 256;
++	unsigned char ch;
+ 
+-	serial21285_do_tx_chars(port, 256);
++	uart_port_tx_helper_limited(port, !(*CSR_UARTFLG & 0x20),
++				    *CSR_UARTDR = ch, ({}), count, ch);
+ 
+ 	return IRQ_HANDLED;
+ }
+diff --git a/drivers/tty/serial/altera_uart.c b/drivers/tty/serial/altera_uart.c
+index 70c0ad431cf9..f81dd950cd39 100644
+--- a/drivers/tty/serial/altera_uart.c
++++ b/drivers/tty/serial/altera_uart.c
+@@ -246,10 +246,14 @@ static void altera_uart_rx_chars(struct altera_uart *pp)
+ 	tty_flip_buffer_push(&port->state->port);
+ }
+ 
+-static DEFINE_UART_PORT_TX_HELPER(altera_uart_tx_chars,
+-		altera_uart_readl(port, ALTERA_UART_STATUS_REG) &
+-		                ALTERA_UART_STATUS_TRDY_MSK,
+-		altera_uart_writel(port, ch, ALTERA_UART_TXDATA_REG));
++static int altera_uart_tx_chars(struct uart_port *port)
++{
++	u8 ch;
++
++	return uart_port_tx_helper(port, 
++		altera_uart_readl(port, ALTERA_UART_STATUS_REG) & ALTERA_UART_STATUS_TRDY_MSK,
++		altera_uart_writel(port, ch, ALTERA_UART_TXDATA_REG), ch);
++}
+ 
+ static irqreturn_t altera_uart_interrupt(int irq, void *data)
+ {
+diff --git a/include/linux/serial_core.h b/include/linux/serial_core.h
+index 7236fc76ba22..d48d2301d1b7 100644
+--- a/include/linux/serial_core.h
++++ b/include/linux/serial_core.h
+@@ -638,13 +638,11 @@ struct uart_driver {
+ 
+ void uart_write_wakeup(struct uart_port *port);
+ 
+-#define __DEFINE_UART_PORT_TX_HELPER(name, tx_ready, put_char, tx_done,	  \
+-		for_test, for_post, ...)				  \
+-unsigned int name(struct uart_port *port __VA_OPT__(,) __VA_ARGS__)	  \
+-{									  \
++#define __uart_port_tx_helper(port, tx_ready, put_char, tx_done,	  \
++	       	for_test, for_post, ch)					  \
++({									  \
+ 	struct circ_buf *xmit = &port->state->xmit;			  \
+ 	unsigned int pending;						  \
+-	u8 ch;								  \
+ 									  \
+ 	for (; (for_test) && (tx_ready); (for_post), port->icount.tx++) { \
+ 		if (port->x_char) {					  \
+@@ -672,8 +670,15 @@ unsigned int name(struct uart_port *port __VA_OPT__(,) __VA_ARGS__)	  \
+ 			port->ops->stop_tx(port);			  \
+ 	}								  \
+ 									  \
+-	return pending;							  \
+-}
++	pending;							  \
++})
++
++#define uart_port_tx_helper_limited(port, tx_ready, put_char, tx_done, count, ch) \
++	__uart_port_tx_helper(port, tx_ready, put_char, tx_done, count, count--, ch)
++
++#define uart_port_tx_helper(port, tx_ready, put_char, ch)		  \
++	__uart_port_tx_helper(port, tx_ready, put_char, ({}), true, ({}), ch)
++
+ 
+ /**
+  * DEFINE_UART_PORT_TX_HELPER_LIMITED -- generate transmit helper for uart_port
+@@ -703,9 +708,13 @@ unsigned int name(struct uart_port *port __VA_OPT__(,) __VA_ARGS__)	  \
+  * For all of them, @port->lock is held, interrupts are locally disabled and
+  * the expressions must not sleep.
+  */
+-#define DEFINE_UART_PORT_TX_HELPER_LIMITED(name, tx_ready, put_char, tx_done) \
+-	__DEFINE_UART_PORT_TX_HELPER(name, tx_ready, put_char, tx_done,	      \
+-			count, count--, unsigned int count)
++#define DEFINE_UART_PORT_TX_HELPER_LIMITED(name, tx_ready, put_char, tx_done)	\
++unsigned int name(struct uart_port *port, unsigned int count)			\
++{										\
++	u8 ch;									\
++	return uart_port_tx_helper_limited(port, tx_ready, put_char, tx_done,	\
++					   count, ch);				\
++}
+ 
+ /**
+  * DEFINE_UART_PORT_TX_HELPER -- generate transmit helper for uart_port
+@@ -715,9 +724,12 @@ unsigned int name(struct uart_port *port __VA_OPT__(,) __VA_ARGS__)	  \
+  *
+  * See DEFINE_UART_PORT_TX_HELPER_LIMITED() for more details.
+  */
+-#define DEFINE_UART_PORT_TX_HELPER(name, tx_ready, put_char)		\
+-	__DEFINE_UART_PORT_TX_HELPER(name, tx_ready, put_char, ({}),	\
+-			true, ({}))
++#define DEFINE_UART_PORT_TX_HELPER(name, tx_ready, put_char, ...)	  \
++unsigned int name(struct uart_port *port __VA_OPT__(,) __VA_ARGS__)	  \
++{									  \
++	u8 ch;								  \
++	return uart_port_tx_helper(port, tx_ready, put_char, ch);	  \
++}
+ 
+ /*
+  * Baud rate helpers.
 
-> > > > > > other drivers as examples and therefore we've a few "main" vari=
-ant =
-
-> > > > > > branches depending on which of the drivers was used as an examp=
-le for the =
-
-> > > > > > other. That is hardly a good enough reason to keep them differe=
-nt and as =
-
-> > > > > > long as each driver keeps its own function for this, it will ev=
-entually =
-
-> > > > > > lead to similar differentiation so e.g. a one-time band-aid sim=
-ilarization =
-
-> > > > > > would not help in the long run.
-> > > > > >
-> > > > > > Also, I don't understand why you see it unreadable when the act=
-ual code is =
-
-> > > > > > out in the open in that macro. It's formatted much better than =
-e.g. =
-
-> > > > > > read_poll_timeout() if you want an example of something that is=
- hardly =
-
-> > > > > > readable ;-). I agree though there's a learning-curve, albeit s=
-mall, that =
-
-> > > > > > it actually creates a function but that doesn't seem to me as b=
-ig of an =
-
-> > > > > > obstacle you seem to think.
-> > > > > =
-
-> > > > > I think it would help to replace the macro that defines
-> > > > > the function with a set of macros that can be used in
-> > > > > function bodies. This would avoid the __VA_ARGS__ stuff
-> > > > > and allow readers that are unfamiliar with tty drivers to
-> > > > > treat it as a function call.
-> > > > > =
-
-> > > > > So e.g. instead of =
-
-> > > > > =
-
-> > > > > static DEFINE_UART_PORT_TX_HELPER_LIMITED(altera_jtaguart_do_tx_c=
-hars,
-> > > > > 		true,
-> > > > > 		writel(ch, port->membase + ALTERA_JTAGUART_DATA_REG),
-> > > > > 		({}));
-> > > > > =
-
-> > > > > the altera_jtaguart driver would contain a function like
-> > > > > =
-
-> > > > > static int altera_jtaguart_do_tx_chars(struct uart_port *port,
-> > > > >                                        unsigned int count)
-> > > > > {
-> > > > >        char ch;
-> > > > > =
-
-> > > > >        return uart_port_tx_helper_limited(port, ch, count, true,
-> > > > >                 writel(ch, port->membase + ALTERA_JTAGUART_DATA_R=
-EG),
-> > > > >                 ({}));
-> > > > > }
-> > > > > =
-
-> > > > > or some variation of that. It's a few more lines, but those
-> > > > > extra lines would help me understand what is actually going on
-> > > > > while still avoiding the usual bugs and duplication.
-> > > > > =
-
-> > > > > If the caller of that function is itself trivial (like
-> > > > > serial21285_tx_chars), then the intermediate function can
-> > > > > be omitted in order to save some of the extra complexity.
-> > > > =
-
-> > > > I'd be ok with that. There's still a small startle factor associate=
-d to =
-
-> > > > passing that writel(...) as an argument to a "function" but it's th=
-e same =
-
-> > > > for other things such as read_poll_timeout() so not an end of the w=
-orld.
-> > > =
-
-> > > That's going to incure the function-pointer-indirection-call for every
-> > > character that Jiri's original submission had, so I don't think this =
-is
-> > > a very viable solution, sorry.
-> > =
-
-> > I don't think you got what Arnd meant. It must still be technically a =
-
-> > #define because you cannot pass
-> > 	writel(ch, port->membase + ALTERA_JTAGUART_DATA_REG)
-> > as an argument to a real function like he did in the example above.
-> > It's similar to how read_poll_timeout() and friends are #defines despit=
-e =
-
-> > being lowercased.
-> =
-
-> Ok, no, I don't understand what Arnd meant here then :(
-
-Arnd's opening sentence when proposing the new thing was:
-
-"I think it would help to replace the macro that defines
-the function with a set of macros that can be used in
-function bodies."
-
-Given "a set of macros" and the quoted example, I take
-"uart_port_tx_helper_limited" to be one of those macros - it has to be
-a macro because - as others have pointed out - you can't pass
-"writel(ch, port->membase + ALTERA_JTAGUART_DATA_REG)" to a function.
-
-Of course, it would have been nicer to see the definition of this
-macro, because then we can understand what the "ch" argument is to
-this macro, and how that relates to the macro argument that is
-shown in the example as a writel().
-
-Maybe a more complete example would help clear up the confusion?
-Arnd?
-
--- =
-
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 40Mbps down 10Mbps up. Decent connectivity at last!
 
 _______________________________________________
 linux-riscv mailing list
