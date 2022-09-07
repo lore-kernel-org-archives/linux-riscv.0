@@ -4,72 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20474ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 01:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBFBECAAD5
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 01:11:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RnygPMjlWk64h5u+2oCKNWPDk66TgNRPF+ZAIuAdizU=; b=S2M4ulzDXoSon6
-	COf7itlE9pwEyFpMcxXD6m7WX/EKpCBGHlcw0l5uCe3gDAl77NfLwT3eW+N8gHnCLbcr4yhjfGNy3
-	r2IZnto0koMEVRjDpRa6ICvT/kMN1/8hu0U1fZ4wGtRVxPqTvV3yS+Z28dK/8nk4NldZvuw+OLsZQ
-	2mB7fbnkgQzDMq4G+ENU2iVQOhRCfma6teaaAqC6w7WgymRwIrOLT2/DMDLyUNdAx1uI2XRrF7tNJ
-	yL10DGR1OUEH+xdwlYNc3brP8srEF5ttBWOJU2NWjQwuQbL/Oq1IvDnXfhQfRGDz9DrmR/cH8VYZJ
-	3fUIQEQJ1t+GFXuo7N7Q==;
+	List-Owner; bh=nqO4/rltwqd2wczKoD0d6Oc4qSeotV92TpYPDnZ7W1Q=; b=TTIH+r8P74zg3s
+	gNQrkKgnKU1nbINLq1Vdkk3yXhxce6x/VQ/bnFVj55fQSaSw5daoA7a56e6V9OCj9ypjpwgpvASdy
+	sqkfJw0ZIn7YBMstFC9DNKJvcQ/F1UpqLtSvEz8bKa5nGgQGPcWL+lU5Qozdcg45oB5d32qB0VyUM
+	TnOkSs+fwGM+lmT25fNwVO6t7pp1k+vxtWTKbxAG18eoY21nmkwD6yjcIad6SetjasVO9xLUQ7/Lo
+	Za6vTbTk3UstPeGSs/IAGfHg5PR6rTcfjjW/3S44QtIWne/hIhKD9Rud8RJhQOHG4syT0Kvputx4p
+	zDwxNU85Gn+66cDE/K5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVjPn-0017K1-4b; Wed, 07 Sep 2022 00:59:39 +0000
+	id 1oVjbR-001Bxz-RE; Wed, 07 Sep 2022 01:11:41 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVjPj-0017Hx-AC
-	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 00:59:36 +0000
+	id 1oVjbO-001BwT-JQ
+	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 01:11:40 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id CE18E615A9
-	for <linux-riscv@lists.infradead.org>; Wed,  7 Sep 2022 00:59:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B78E7C43470
-	for <linux-riscv@lists.infradead.org>; Wed,  7 Sep 2022 00:59:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1662512373;
-	bh=rRDkYK9iWCXx4wEvEXjdFzrW7V+WU51QfVdxnQR/Up4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=cnrRuv/BitCXdq86pumAdk9NrkLBO6C5804p7tNfD3ydvcRYjgKf/u2lJtuHyL4LB
-	 7ZmMNoQHTqpsyhqKEYW03c8YLCXXnD408gR/u+93zLkCFVS8ptB5c9wrE+Smuzqcxn
-	 yUKsb5//1YpnFQJSbjxvoUlVMMH6FxEvjZGoHiAOoMFh27tG1zbW51W+Ud7bfAtaOd
-	 znSf1k98U8FiecoSJaScPrUnTi+LfmLWevi411VPc2nv6wENP8u3EUJvwG9FHagc6H
-	 JOrgXafNtKL/Cq1hZE/GkSwVdvFODfDCH9ixAaQ07jV16V2Wt/Yh4Q3Tp5jSqEXJX4
-	 8ipWS734KvUbA==
-Received: by mail-ot1-f41.google.com with SMTP id v2-20020a056830090200b006397457afecso9211475ott.13
-        for <linux-riscv@lists.infradead.org>; Tue, 06 Sep 2022 17:59:33 -0700 (PDT)
-X-Gm-Message-State: ACgBeo0W9VqXv5TXoKPsfKFGV61JfS6cqDh1ZepetPyAzcT7dX3Z1tgH
-	rmJhU5vzdvHaggG/J1xXqcFU/9Ia6NXcJCi3ryc=
-X-Google-Smtp-Source: AA6agR4T+5pUb7afC0nbWNUE6t9rpyPvgc4usas9mXHv8gHcqGmB5W7iv8rmSa98jv8Ovc8tvPLbDXQ/sXx4rvotOG8=
-X-Received: by 2002:a05:6830:3482:b0:638:92b7:f09b with SMTP id
- c2-20020a056830348200b0063892b7f09bmr497235otu.140.1662512372833; Tue, 06 Sep
- 2022 17:59:32 -0700 (PDT)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id DEEF4616FD;
+	Wed,  7 Sep 2022 01:11:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 530BFC433D6;
+	Wed,  7 Sep 2022 01:11:36 +0000 (UTC)
+Date: Tue, 6 Sep 2022 21:12:15 -0400
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Yipeng Zou <zouyipeng@huawei.com>
+Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <mingo@redhat.com>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
+ <aou@eecs.berkeley.edu>, <liaochang1@huawei.com>, <chris.zjh@huawei.com>,
+ Joel Fernandes <joel@joelfernandes.org>
+Subject: Re: [PATCH 1/2] tracing: hold caller_addr to
+ hardirq_{enable,disable}_ip
+Message-ID: <20220906211215.0fe6183a@gandalf.local.home>
+In-Reply-To: <20220901104515.135162-2-zouyipeng@huawei.com>
+References: <20220901104515.135162-1-zouyipeng@huawei.com>
+	<20220901104515.135162-2-zouyipeng@huawei.com>
+X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-References: <20220906035423.634617-1-guoren@kernel.org> <20220906035423.634617-5-guoren@kernel.org>
- <YxcQ6NoPf3AH0EXe@hirez.programming.kicks-ass.net>
-In-Reply-To: <YxcQ6NoPf3AH0EXe@hirez.programming.kicks-ass.net>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 7 Sep 2022 08:59:20 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTqVc_CvxT+t4D2Z1Gy_r_nrbdgAGcELFm9tgjOaCyJYg@mail.gmail.com>
-Message-ID: <CAJF2gTTqVc_CvxT+t4D2Z1Gy_r_nrbdgAGcELFm9tgjOaCyJYg@mail.gmail.com>
-Subject: Re: [PATCH V3 4/7] riscv: convert to generic entry
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org, 
-	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org, 
-	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org, 
-	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, bigeasy@linutronix.de, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220906_175935_486071_83FC05D5 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20220906_181138_715658_CF5CD1A9 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,100 +66,66 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 6, 2022 at 5:20 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> On Mon, Sep 05, 2022 at 11:54:20PM -0400, guoren@kernel.org wrote:
->
-> > +asmlinkage void noinstr do_riscv_irq(struct pt_regs *regs)
-> > +{
-> > +     struct pt_regs *old_regs;
-> > +     irqentry_state_t state = irqentry_enter(regs);
-> > +
-> > +     irq_enter_rcu();
-> > +     old_regs = set_irq_regs(regs);
-> > +     handle_arch_irq(regs);
-> > +     set_irq_regs(old_regs);
-> > +     irq_exit_rcu();
-> > +
-> > +     irqentry_exit(regs, state);
-> > +}
->
-> The above is right in that everything that calls irqentry_enter() should
-> be noinstr; however all the below instances get it wrong:
->
-> >  #define DO_ERROR_INFO(name, signo, code, str)                                \
-> >  asmlinkage __visible __trap_section void name(struct pt_regs *regs)  \
-> >  {                                                                    \
-> > +     irqentry_state_t state = irqentry_enter(regs);                  \
-> >       do_trap_error(regs, signo, code, regs->epc, "Oops - " str);     \
-> > +     irqentry_exit(regs, state);                                     \
-> >  }
-> >
-> >  DO_ERROR_INFO(do_trap_unknown,
-> > @@ -123,18 +126,22 @@ int handle_misaligned_store(struct pt_regs *regs);
-> >
-> >  asmlinkage void __trap_section do_trap_load_misaligned(struct pt_regs *regs)
-> >  {
-> > +     irqentry_state_t state = irqentry_enter(regs);
-> >       if (!handle_misaligned_load(regs))
-> >               return;
-> >       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
-> >                     "Oops - load address misaligned");
-> > +     irqentry_exit(regs, state);
-> >  }
-> >
-> >  asmlinkage void __trap_section do_trap_store_misaligned(struct pt_regs *regs)
-> >  {
-> > +     irqentry_state_t state = irqentry_enter(regs);
-> >       if (!handle_misaligned_store(regs))
-> >               return;
-> >       do_trap_error(regs, SIGBUS, BUS_ADRALN, regs->epc,
-> >                     "Oops - store (or AMO) address misaligned");
-> > +     irqentry_exit(regs, state);
-> >  }
-> >  #endif
-> >  DO_ERROR_INFO(do_trap_store_fault,
-> > @@ -158,6 +165,8 @@ static inline unsigned long get_break_insn_length(unsigned long pc)
-> >
-> >  asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
-> >  {
-> > +     irqentry_state_t state = irqentry_enter(regs);
-> > +
-> >  #ifdef CONFIG_KPROBES
-> >       if (kprobe_single_step_handler(regs))
-> >               return;
-> > @@ -185,6 +194,8 @@ asmlinkage __visible __trap_section void do_trap_break(struct pt_regs *regs)
-> >               regs->epc += get_break_insn_length(regs->epc);
-> >       else
-> >               die(regs, "Kernel BUG");
-> > +
-> > +     irqentry_exit(regs, state);
-> >  }
-> >  NOKPROBE_SYMBOL(do_trap_break);
->
-> > +asmlinkage void do_page_fault(struct pt_regs *regs)
-> > +{
-> > +     irqentry_state_t state = irqentry_enter(regs);
-> > +
-> > +     __do_page_fault(regs);
-> > +
-> > +     irqentry_exit(regs, state);
-> > +}
-> >  NOKPROBE_SYMBOL(do_page_fault);
->
-> Without noinstr the compiler is free to insert instrumentation (think
-> all the k*SAN, KCov, GCov, ftrace etc..) which can call code we're not
-> yet ready to run this early in the entry path, for instance it could
-> rely on RCU which isn't on yet, or expect lockdep state.
-I'll add a patch to fix it in the next version. Thx for pointing it out.
+On Thu, 1 Sep 2022 18:45:14 +0800
+Yipeng Zou <zouyipeng@huawei.com> wrote:
 
->
->
+> Currently, The arguments passing to lockdep_hardirqs_{on,off} was fixed
+> in CALLER_ADDR0.
+> The function trace_hardirqs_on_caller should have been intended to use
+> caller_addr to represent the address that caller wants to be traced.
+> 
+> For example, lockdep log in riscv showing the last {enabled,disabled} at
+> __trace_hardirqs_{on,off} all the time(if called by):
+> [   57.853175] hardirqs last  enabled at (2519): __trace_hardirqs_on+0xc/0x14
+> [   57.853848] hardirqs last disabled at (2520): __trace_hardirqs_off+0xc/0x14
+> 
+> After use trace_hardirqs_xx_caller, we can get more effective information:
+> [   53.781428] hardirqs last  enabled at (2595): restore_all+0xe/0x66
+> [   53.782185] hardirqs last disabled at (2596): ret_from_exception+0xa/0x10
+
+I'm going to mark this as stable and send it in my next push to Linus.
+
+I'll also add:
+
+Fixes: c3bc8fd637a96 ("tracing: Centralize preemptirq tracepoints and unify their usage")
+
+The code was copied from functions that were originally called directly,
+but now that they are called indirectly, CALLER_ADDR0 is not the right
+thing to use.
+
+Thanks!
+
+-- Steve
 
 
--- 
-Best Regards
- Guo Ren
+> 
+> Signed-off-by: Yipeng Zou <zouyipeng@huawei.com>
+> ---
+>  kernel/trace/trace_preemptirq.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/kernel/trace/trace_preemptirq.c b/kernel/trace/trace_preemptirq.c
+> index 95b58bd757ce..1e130da1b742 100644
+> --- a/kernel/trace/trace_preemptirq.c
+> +++ b/kernel/trace/trace_preemptirq.c
+> @@ -95,14 +95,14 @@ __visible void trace_hardirqs_on_caller(unsigned long caller_addr)
+>  	}
+>  
+>  	lockdep_hardirqs_on_prepare();
+> -	lockdep_hardirqs_on(CALLER_ADDR0);
+> +	lockdep_hardirqs_on(caller_addr);
+>  }
+>  EXPORT_SYMBOL(trace_hardirqs_on_caller);
+>  NOKPROBE_SYMBOL(trace_hardirqs_on_caller);
+>  
+>  __visible void trace_hardirqs_off_caller(unsigned long caller_addr)
+>  {
+> -	lockdep_hardirqs_off(CALLER_ADDR0);
+> +	lockdep_hardirqs_off(caller_addr);
+>  
+>  	if (!this_cpu_read(tracing_irq_cpu)) {
+>  		this_cpu_write(tracing_irq_cpu, 1);
+
 
 _______________________________________________
 linux-riscv mailing list
