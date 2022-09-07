@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04105C54EE9
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 22:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D624C38145
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 23:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RpWpXkIuFaRwEObbx53KqU/6Ke04bpqtxHV6bFoqBYc=; b=aX3WGRut8E5fQW
-	zJ1T0yAnenm6pTAO0Hlb4IPlTpupz2BUv7aVCxX1OlfUF/T/+IHgp/3bBNz3xrT8f7VYPawVMCCz+
-	KSy8xg5DYss8v+I+wLW9sR18NLF/smuGbEGmDkY0aMHais2Xx2z4us8fQoK4WOkC94UNxIoY2iCCC
-	oxlvQrSxE6soYN+U6tv0B8vnqcQ/JJ4IWh0tx7ZN7Dt8uGZF5xFn4l24APthZj1d8z89nNENg61QZ
-	u9MJqk4ACFdI510YIW/k9BKRd9C7vX/9w4ECPOrvRLdzLcTgIhkeoYLKImCx8sRGHO6o3je4V0Uw0
-	QJFKUIOCd3jUbX8/rhCw==;
+	List-Owner; bh=vIp1wgBkmT4xhLN7nQMYisKDyjj2M3ZuBuJ6IcebHVs=; b=uAA2rx5eZceg/Q
+	Z0rf3vV8C3OUbIzAF93MyxL1lRP5PfUH29XK/T4Segv6sZdIPcFwgpsyYOZL0tAlLvwdKJn8cov4c
+	OWmUOMg2CciQ0Ih3ePkuheL6rQPBt11yM5MtvRtnTlncwPWExeUpy69/6dQhqBJOjtW07mS1sQ1z4
+	BplVFIx6cVJVbU5nUeo7yIKJvFv3T3iKM7B+ZdVOw00/m97cmJFoLgazuam62YL1neMRdOvbsGuT9
+	DcYWOyHuS/+4NyPZ9eo3d8yHMqbziSVxXAC6uJL2EyX2ARe90lXPvqxQtue7IhKu1kzUfBNC78bz/
+	JOGgP/GEo/GNyFYJtVxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oW3hu-00Amxb-8V; Wed, 07 Sep 2022 22:39:42 +0000
-Received: from mga07.intel.com ([134.134.136.100])
+	id 1oW4EQ-00BEer-IZ; Wed, 07 Sep 2022 23:13:18 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oW3hr-00Amuu-QQ
-	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 22:39:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1662590379; x=1694126379;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=u54noPh3UJK+FX3vhqTKecLP1gkZmovHd5fX22CdVUs=;
-  b=ckuq0upqNaKF9iPsWrFw2vTQ/CSQoN/boqHxHY/z4N4txPwP6B4yx3al
-   2fWVH5qx4taBKs0aVdal0Vbq4+rDOIqJ2Xd/sERxi8jnHBOiBfqm29FeE
-   oIzKXveOnEgvk85/4bU3UdZhsW60Ctk+bkKWbt7oxtHjNoTknypHzRL+s
-   UZC3hJs7nCvjUc9TOBqCKacu/hgGrP+bSpKknPv3wsM+OhZKuuHnQI9rB
-   lXPoBq37nfZCjy8I4PtbecoVa7MiAxW2jqEWAzx5IVw3hNbzp3zkeP8or
-   Kxs58/NCKonNtN+UbDuDrY4IKD32QT39wESkH9NVNceQVY85oE2RyPbf3
-   A==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10463"; a="360977889"
-X-IronPort-AV: E=Sophos;i="5.93,298,1654585200"; 
-   d="scan'208";a="360977889"
-Received: from orsmga003.jf.intel.com ([10.7.209.27])
-  by orsmga105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Sep 2022 15:39:36 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.93,298,1654585200"; 
-   d="scan'208";a="565703478"
-Received: from lkp-server02.sh.intel.com (HELO 95dfd251caa2) ([10.239.97.151])
-  by orsmga003.jf.intel.com with ESMTP; 07 Sep 2022 15:39:34 -0700
-Received: from kbuild by 95dfd251caa2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1oW3hl-000722-1d;
-	Wed, 07 Sep 2022 22:39:33 +0000
-Date: Thu, 8 Sep 2022 06:38:39 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jisheng Zhang <jszhang@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>
-Cc: kbuild-all@lists.01.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] vdso: fix NULL deference in vdso_join_timens() when vfork
-Message-ID: <202209080625.DOtyS4G0-lkp@intel.com>
-References: <20220907165831.457-1-jszhang@kernel.org>
+	id 1oW4EM-00BEbG-MF
+	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 23:13:16 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 4C586B81E8D
+	for <linux-riscv@lists.infradead.org>; Wed,  7 Sep 2022 23:13:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0445AC433D6
+	for <linux-riscv@lists.infradead.org>; Wed,  7 Sep 2022 23:13:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1662592392;
+	bh=G3Kwfw6T/4eq7w7+tSEG/rt/8cNRggabZvdgJ8K8jVQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=IaEKHEJ4Y/H/AQUlpUWV4ze842sN+hC6Gsu6NTdTUQguAPNr3tCuFTwt3+baSAIft
+	 v61lR+XSlU4uRNQKinOam8faVgET/UrnzhiCV8wz4FoCzDm+gZ7aSP0cbLCwL6Dk5q
+	 h9r2QsUMJDasfcs/nfT0GOnkMbWULzBau7aqv13VsgngXkZci/jjb3a0w+/EBhfCYh
+	 OSDFVSpQjmE3ufwaBHBdsxayhJ9o2zFOB5qkYkmU3izMuHl4M9m6182sWwbfeVzLB2
+	 l4fV3W0jZDm1Nh6u/9NxE6rJozm3OrxEUUm9/h7Xu/wo/uGAiQbq0i9Hc465f/roGF
+	 v/rXHVGhLa0NQ==
+Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-1280590722dso6391015fac.1
+        for <linux-riscv@lists.infradead.org>; Wed, 07 Sep 2022 16:13:11 -0700 (PDT)
+X-Gm-Message-State: ACgBeo0+bOY8ggltFWusdBAerwS5ez5qWBMoZvrL4ZLGzta+zhQR1bEG
+	tYse7iQ4YBml9JBTyKoZbQ9ERUJvP7hvzSfPhI8=
+X-Google-Smtp-Source: AA6agR6EUvI484CIZrlEo84tOagm6hHSjYZeWoaJRcu++RhG5L5/01Uq0OQUqqUYMmTw0LqxMpSyj9Bp5oVeiMRlJHs=
+X-Received: by 2002:a05:6870:c596:b0:101:6409:ae62 with SMTP id
+ ba22-20020a056870c59600b001016409ae62mr405514oab.112.1662592391107; Wed, 07
+ Sep 2022 16:13:11 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220907165831.457-1-jszhang@kernel.org>
+References: <20220905111027.2463297-1-heiko@sntech.de> <20220905111027.2463297-5-heiko@sntech.de>
+ <CAOnJCUJ9hC2xhoxuBPCNHEEZACeWckEL-Tc7xS6ECWrfx5KXhg@mail.gmail.com>
+In-Reply-To: <CAOnJCUJ9hC2xhoxuBPCNHEEZACeWckEL-Tc7xS6ECWrfx5KXhg@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 8 Sep 2022 07:12:57 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTTbfdUQEGDnosKaZrFLh58UVdnDRQUXc-N5p+11aLPT7w@mail.gmail.com>
+Message-ID: <CAJF2gTTbfdUQEGDnosKaZrFLh58UVdnDRQUXc-N5p+11aLPT7w@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] riscv: use BIT() marco for cpufeature probing
+To: Atish Patra <atishp@atishpatra.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, apatel@ventanamicro.com, atishp@rivosinc.com, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220907_153939_942378_9C89A55A 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20220907_161315_034702_C96D8C07 
+X-CRM114-Status: GOOD (  15.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +83,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jisheng,
+Reviewed-by: Guo Ren <guoren@kernel.org>
 
-I love your patch! Yet something to improve:
+On Thu, Sep 8, 2022 at 6:50 AM Atish Patra <atishp@atishpatra.org> wrote:
+>
+>
+>
+> On Mon, Sep 5, 2022 at 7:15 AM Heiko Stuebner <heiko@sntech.de> wrote:
+>>
+>> Using the appropriate BIT macro makes the code better readable.
+>>
+>> Suggested-by: Conor Dooley <conor.dooley@microchip.com>
+>> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+>> ---
+>>  arch/riscv/kernel/cpufeature.c | 4 ++--
+>>  1 file changed, 2 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+>> index 729f7a218093..08f7445985dc 100644
+>> --- a/arch/riscv/kernel/cpufeature.c
+>> +++ b/arch/riscv/kernel/cpufeature.c
+>> @@ -289,10 +289,10 @@ static u32 __init_or_module cpufeature_probe(unsigned int stage)
+>>         u32 cpu_req_feature = 0;
+>>
+>>         if (cpufeature_probe_svpbmt(stage))
+>> -               cpu_req_feature |= (1U << CPUFEATURE_SVPBMT);
+>> +               cpu_req_feature |= BIT(CPUFEATURE_SVPBMT);
+>>
+>>         if (cpufeature_probe_zicbom(stage))
+>> -               cpu_req_feature |= (1U << CPUFEATURE_ZICBOM);
+>> +               cpu_req_feature |= BIT(CPUFEATURE_ZICBOM);
+>>
+>>         return cpu_req_feature;
+>>  }
+>> --
+>> 2.35.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
+>
+>
+>
+> Reviewed-by: Atish Patra <atishp@rivosinc.com>
+>
+> --
+> Regards,
+> Atish
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.0-rc4]
-[cannot apply to next-20220907]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jisheng-Zhang/vdso-fix-NULL-deference-in-vdso_join_timens-when-vfork/20220908-011001
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 0066f1b0e27556381402db3ff31f85d2a2265858
-config: riscv-randconfig-r006-20220907 (https://download.01.org/0day-ci/archive/20220908/202209080625.DOtyS4G0-lkp@intel.com/config)
-compiler: riscv64-linux-gcc (GCC) 12.1.0
-reproduce (this is a W=1 build):
-        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
-        chmod +x ~/bin/make.cross
-        # https://github.com/intel-lab-lkp/linux/commit/247635b442c42937dc9f0c0a04711fb3f86df2a9
-        git remote add linux-review https://github.com/intel-lab-lkp/linux
-        git fetch --no-tags linux-review Jisheng-Zhang/vdso-fix-NULL-deference-in-vdso_join_timens-when-vfork/20220908-011001
-        git checkout 247635b442c42937dc9f0c0a04711fb3f86df2a9
-        # save the config file
-        mkdir build_dir && cp config build_dir/.config
-        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-12.1.0 make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/kernel/
-
-If you fix the issue, kindly add following tag where applicable
-Reported-by: kernel test robot <lkp@intel.com>
-
-All errors (new ones prefixed by >>):
-
->> arch/riscv/kernel/vdso.c:158:24: error: 'rv_compat_vdso_maps' undeclared here (not in a function); did you mean 'rv_vdso_maps'?
-     158 |                 .dm = &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
-         |                        ^~~~~~~~~~~~~~~~~~~
-         |                        rv_vdso_maps
-   arch/riscv/kernel/vdso.c:165:34: warning: 'rv_compat_vdso_maps' defined but not used [-Wunused-variable]
-     165 | static struct vm_special_mapping rv_compat_vdso_maps[] __ro_after_init = {
-         |                                  ^~~~~~~~~~~~~~~~~~~
-
-
-vim +158 arch/riscv/kernel/vdso.c
-
-   144	
-   145	static struct __vdso_info vdso_info[] __ro_after_init = {
-   146		[VDSO_ABI_RV64] = {
-   147			.name = "vdso",
-   148			.vdso_code_start = vdso_start,
-   149			.vdso_code_end = vdso_end,
-   150			.dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
-   151			.cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
-   152		},
-   153	#ifdef CONFIG_COMPAT
-   154		[VDSO_ABI_RV32] = {
-   155			.name = "compat_vdso",
-   156			.vdso_code_start = compat_vdso_start,
-   157			.vdso_code_end = compat_vdso_end,
- > 158			.dm = &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
-   159			.cm = &rv_compat_vdso_maps[RV_VDSO_MAP_VDSO],
-   160		},
-   161	#endif
-   162	};
-   163	
 
 -- 
-0-DAY CI Kernel Test Service
-https://01.org/lkp
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
