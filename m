@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B3CC38145
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 09:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B28C38145
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 10:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Izsv29ezbj/asubnGjpERpfXDjIKzcYLl+L3YFi6QUU=; b=JkyTnz2OOwV2wtjDT6tazvDAFx
-	192U4R+A+ZCxi3RZF1x9Z/Qn0qkWUKycJVRlho3k2Atp9UOxnB2nHincCZ7W0TnLC4ehj4+wDCtve
-	nBeabNu5yhjs9/smNTKX1nuklpt/M3SqTsuxIXlDwI55pxgWhwZdUrHZdmBWSlkkkVu6vSTtiHqzR
-	4rkKz3fXGS9b/g6kj+ydtwCNSCDRagLYbLYRei8XcNgZzK9ZJDqdsij40CbZxfgbpM/JuSvtfIpc8
-	iTxB0PH6phPPvLz2+wjL2XNqBuYm6oReXz94Bbh9OQlppqMNR3phAVcgipP8gaezNIKmlBh6vxTXY
-	mY4o24bA==;
+	bh=iclZ55AsnWecpxvyJPNH4lQEbZdJpSALbUobLgBMK6A=; b=CeFkKu+TidiTvU470shmUXzjmM
+	uZ76rk4XqME9vAVttLDxSDZXrOhRdS4dBPFK+z5wVqtBLmrJkmEKrlV65OZ0GkS1hyrABJ01Pfl7u
+	O2Yfs7FVXNxpKYCMfziYXthCQNL2oePEoqvTjlo69JBoN7famMMIhJcsYv429W5UcjR6G9Ug5umum
+	dS7BRNaKcxYYC2XKJsFRYbwff44oLje5u+nV1vrAdTTrATQqD0ZjGQQrcKZCynRJmri3ZlF2N5w9P
+	I5wrj0NFi/G1yLem/+klQPkLtZL7gJTe69ENRqmBg6daEM5M46dN1fN4TAVYAFWB9vghqGVbCoIKK
+	OHtA9wtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVrmr-00577u-Rh; Wed, 07 Sep 2022 09:56:01 +0000
-Received: from mga03.intel.com ([134.134.136.65])
+	id 1oVs6p-005FnQ-B9; Wed, 07 Sep 2022 10:16:39 +0000
+Received: from mga14.intel.com ([192.55.52.115])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVrm4-0056eM-3M
-	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 09:55:19 +0000
+	id 1oVs6m-005FlG-0d
+	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 10:16:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1662544512; x=1694080512;
+  t=1662545796; x=1694081796;
   h=date:from:to:cc:subject:in-reply-to:message-id:
    references:mime-version;
-  bh=wTz5MbuOMBDOMBq3QKGowVOjTKfUFIGm8N9GEPakT7M=;
-  b=DrVYmVhLJ51+anXjYImOzPDHXUIox4sgx87gyugQBX47PDfCrf215N1M
-   wue6IF8caGeNGJNvVEmnNOv3ONWL+4SOhCe+Bp8aYBOdFUTlWo2ZKJTfA
-   VIyJmFW++CWjFmxMVPPX9YRxGnhgTyXSxHzJbzNpTh+wMf2Bud0eYwSK9
-   15G4PX9XQ/p2FfWHxSqwAgLXCSUhQnEtdya6fzGkPF9up9TqvicSPB/EC
-   eF0LBAeEAbVzSvoZtC7n9e2HpDlbGvpFKG8jY/SRGxlFqSpeimPi7H0RW
-   P/jRewJRw0eAmsBU9eAHpvNhQ/LKXCsgT1nROA1fZrm+m0ccPcevOrROB
-   g==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10462"; a="298146718"
+  bh=oG/rTyJfL3+KZX6K/6NP9h6bWZE1yxt+UXbMI1HplF8=;
+  b=eT/CuDBl9RVY/9Ul5NuvZ+oRZFnw5BPyTjR6dDfWsQMJYwtCseTny0sP
+   rNXxs02idgTjV/+mz+Q49wr4J52iznVyqb5GjYn8F0C/EZL5qQRAxmuZV
+   XlVCVC0PhLp+H4znDD0Y4K0Ot8F0HofivOntunwZLo1XKVMMCUvwCO8mT
+   aR0GLWKkDs177BoC2Mbka0mIqKuFSsQn9MNEBkPrEAmOjryo1mHPMaLDc
+   H8aqJGXPVgRBC5ZSn+H2cXxJEUTGlYfTQxkd6+UtkDOvUUV2d1Vy4A4Ge
+   IvOGr8z65+l97kuycLhliXOF3k7tVmkXAdJ/29NBdBOfMzWI0fbPZKNLj
+   Q==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10462"; a="296834351"
 X-IronPort-AV: E=Sophos;i="5.93,296,1654585200"; 
-   d="scan'208";a="298146718"
-Received: from orsmga008.jf.intel.com ([10.7.209.65])
-  by orsmga103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Sep 2022 02:55:06 -0700
+   d="scan'208";a="296834351"
+Received: from fmsmga008.fm.intel.com ([10.253.24.58])
+  by fmsmga103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Sep 2022 03:16:31 -0700
 X-IronPort-AV: E=Sophos;i="5.93,296,1654585200"; 
-   d="scan'208";a="644551974"
+   d="scan'208";a="676121421"
 Received: from dmatouse-mobl.ger.corp.intel.com ([10.251.223.53])
-  by orsmga008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Sep 2022 02:54:58 -0700
-Date: Wed, 7 Sep 2022 12:54:57 +0300 (EEST)
+  by fmsmga008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Sep 2022 03:16:24 -0700
+Date: Wed, 7 Sep 2022 13:16:23 +0300 (EEST)
 From: =?ISO-8859-15?Q?Ilpo_J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>
-To: Jiri Slaby <jslaby@suse.cz>
+To: Jiri Slaby <jirislaby@kernel.org>, Johan Hovold <johan@kernel.org>
 cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
     linux-serial <linux-serial@vger.kernel.org>, 
     LKML <linux-kernel@vger.kernel.org>, Tobias Klauser <tklauser@distanz.ch>, 
@@ -75,14 +75,14 @@ cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
     Patrice Chotard <patrice.chotard@foss.st.com>, 
     linux-riscv@lists.infradead.org
 Subject: Re: [PATCH v3 0/4] tty: TX helpers
-In-Reply-To: <20220906104805.23211-1-jslaby@suse.cz>
-Message-ID: <e6e551fa-2347-7b17-8a62-2b28517c76e@linux.intel.com>
-References: <20220906104805.23211-1-jslaby@suse.cz>
+In-Reply-To: <dec6d5c4-45b7-f087-95f4-bf1dae9e9d27@kernel.org>
+Message-ID: <4e9b4471-a6f2-4b16-d830-67d253ae4e6a@linux.intel.com>
+References: <20220906104805.23211-1-jslaby@suse.cz> <Yxcvbk281f/vy4vb@hovoldconsulting.com> <dec6d5c4-45b7-f087-95f4-bf1dae9e9d27@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-1229872048-1662544507=:1717"
+Content-Type: multipart/mixed; boundary="8323329-1625185259-1662545792=:1717"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220907_025516_665529_90C65264 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20220907_031636_312059_25A79C60 
+X-CRM114-Status: GOOD (  28.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,97 +100,79 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
   This message is in MIME format.  The first part should be readable text,
   while the remaining parts are likely unreadable without MIME-aware tools.
 
---8323329-1229872048-1662544507=:1717
+--8323329-1625185259-1662545792=:1717
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8BIT
 
-On Tue, 6 Sep 2022, Jiri Slaby wrote:
+On Wed, 7 Sep 2022, Jiri Slaby wrote:
 
-> This series introduces DEFINE_UART_PORT_TX_HELPER +
-> DEFINE_UART_PORT_TX_HELPER_LIMITED TX helpers. See PATCH 2/4 for the
-> details. Comments welcome.
+> On 06. 09. 22, 13:30, Johan Hovold wrote:
+> > On Tue, Sep 06, 2022 at 12:48:01PM +0200, Jiri Slaby wrote:
+> > > This series introduces DEFINE_UART_PORT_TX_HELPER +
+> > > DEFINE_UART_PORT_TX_HELPER_LIMITED TX helpers. See PATCH 2/4 for the
+> > > details. Comments welcome.
+> > > 
+> > > Then it switches drivers to use them. First, to
+> > > DEFINE_UART_PORT_TX_HELPER() in 3/4 and then
+> > > DEFINE_UART_PORT_TX_HELPER_LIMITED() in 4/4.
+> > > 
+> > > The diffstat of patches 3+4 is as follows:
+> > >   26 files changed, 191 insertions(+), 823 deletions(-)
+> > > which appears to be nice.
+> > 
+> > Not really. This is horrid. Quality can't be measured in LoC (only).
+> > 
+> > The resulting code is unreadable. And for no good reason.
 > 
-> Then it switches drivers to use them. First, to
-> DEFINE_UART_PORT_TX_HELPER() in 3/4 and then
-> DEFINE_UART_PORT_TX_HELPER_LIMITED() in 4/4.
+> IMO, it's much more readable than the original ~ 30 various (and buggy -- see
+> Ilpo's fixes) copies of this code. Apart from that, it makes further rework
+> much easier (I have switch to kfifo in my mind for example).
 > 
-> The diffstat of patches 3+4 is as follows:
->  26 files changed, 191 insertions(+), 823 deletions(-)
-> which appears to be nice.
+> > [ And note that you're "saving" something like 20 lines per driver:
 > 
-> Cc: Tobias Klauser <tklauser@distanz.ch>
-> Cc: Richard Genoud <richard.genoud@gmail.com>
-> Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
-> Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
-> Cc: Claudiu Beznea <claudiu.beznea@microchip.com>
-> Cc: Vladimir Zapolskiy <vz@mleia.com>
-> Cc: Liviu Dudau <liviu.dudau@arm.com>
-> Cc: Sudeep Holla <sudeep.holla@arm.com>
-> Cc: Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Sascha Hauer <s.hauer@pengutronix.de>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: NXP Linux Team <linux-imx@nxp.com>
-> Cc: "Andreas Färber" <afaerber@suse.de>
-> Cc: Manivannan Sadhasivam <mani@kernel.org>
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: Florian Fainelli <f.fainelli@gmail.com>
-> Cc: bcm-kernel-feedback-list@broadcom.com
-> Cc: "Pali Rohár" <pali@kernel.org>
-> Cc: Kevin Cernekee <cernekee@gmail.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Orson Zhai <orsonzhai@gmail.com>
-> Cc: Baolin Wang <baolin.wang7@gmail.com>
-> Cc: Chunyan Zhang <zhang.lyra@gmail.com>
-> Cc: Patrice Chotard <patrice.chotard@foss.st.com>
-> Cc: linux-riscv@lists.infradead.org
+> It's not about saving, it's about deduplicating and unifying.
+>
+> > 	 12 files changed, 84 insertions(+), 349 deletions(-)
+> > ]
+> > 
+> > NAK
 > 
-> Jiri Slaby (4):
->   tty: serial: move and cleanup vt8500_tx_empty()
->   tty: serial: introduce transmit helper generators
->   tty: serial: use DEFINE_UART_PORT_TX_HELPER()
->   tty: serial: use DEFINE_UART_PORT_TX_HELPER_LIMITED()
+> I'd love to come up with something nicer. That would be a function in
+> serial-core calling hooks like I had [1] for example. But provided all those
+> CPU workarounds/thunks, it'd be quite expensive to call two functions per
+> character.
 > 
->  Documentation/driver-api/serial/driver.rst |  3 +
->  drivers/tty/serial/21285.c                 | 33 ++-------
->  drivers/tty/serial/altera_jtaguart.c       | 42 +++--------
->  drivers/tty/serial/altera_uart.c           | 37 ++--------
->  drivers/tty/serial/amba-pl010.c            | 37 ++--------
->  drivers/tty/serial/apbuart.c               | 36 ++--------
->  drivers/tty/serial/atmel_serial.c          | 29 ++------
->  drivers/tty/serial/bcm63xx_uart.c          | 47 +++----------
->  drivers/tty/serial/fsl_lpuart.c            | 38 +++-------
->  drivers/tty/serial/lantiq.c                | 44 ++++--------
->  drivers/tty/serial/lpc32xx_hs.c            | 38 ++--------
->  drivers/tty/serial/mcf.c                   | 27 ++------
->  drivers/tty/serial/mpc52xx_uart.c          | 43 +-----------
->  drivers/tty/serial/mps2-uart.c             | 29 +-------
->  drivers/tty/serial/mux.c                   | 46 ++++--------
->  drivers/tty/serial/mvebu-uart.c            | 40 ++---------
->  drivers/tty/serial/mxs-auart.c             | 31 ++-------
->  drivers/tty/serial/omap-serial.c           | 47 ++++---------
->  drivers/tty/serial/owl-uart.c              | 35 +---------
->  drivers/tty/serial/pxa.c                   | 39 +++--------
->  drivers/tty/serial/rp2.c                   | 36 ++--------
->  drivers/tty/serial/sa1100.c                | 49 +++++--------
->  drivers/tty/serial/serial_txx9.c           | 37 ++--------
->  drivers/tty/serial/sifive.c                | 45 ++----------
->  drivers/tty/serial/sprd_serial.c           | 38 ++--------
->  drivers/tty/serial/st-asc.c                | 50 ++-----------
->  drivers/tty/serial/vt8500_serial.c         | 40 ++---------
->  include/linux/serial_core.h                | 81 ++++++++++++++++++++++
->  28 files changed, 275 insertions(+), 822 deletions(-)
+> Or creating a static inline (having ± the macro content) and the hooks as
+> parameters and hope for optimizations to eliminate thunks (also suggested in
+> the past [1]).
+> 
+> [1] https://lore.kernel.org/all/20220411105405.9519-1-jslaby@suse.cz/
 
-For the whole series:
+I second Jiri here.
 
-Reviewed-by: Ilpo Järvinen <ilpo.jarvinen@linux.intel.com>
+Saving lines in drivers is not that important compared with all removing 
+all the variants of the same thing that have crept there over the years.
+
+I suspect the main reason for the variants is that everybody just used 
+other drivers as examples and therefore we've a few "main" variant 
+branches depending on which of the drivers was used as an example for the 
+other. That is hardly a good enough reason to keep them different and as 
+long as each driver keeps its own function for this, it will eventually 
+lead to similar differentiation so e.g. a one-time band-aid similarization 
+would not help in the long run.
+
+Also, I don't understand why you see it unreadable when the actual code is 
+out in the open in that macro. It's formatted much better than e.g. 
+read_poll_timeout() if you want an example of something that is hardly 
+readable ;-). I agree though there's a learning-curve, albeit small, that 
+it actually creates a function but that doesn't seem to me as big of an 
+obstacle you seem to think.
+
 
 -- 
  i.
 
---8323329-1229872048-1662544507=:1717
+--8323329-1625185259-1662545792=:1717
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -201,5 +183,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---8323329-1229872048-1662544507=:1717--
+--8323329-1625185259-1662545792=:1717--
 
