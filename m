@@ -4,52 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BBFBECAAD5
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 01:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B75ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 Sep 2022 01:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nqO4/rltwqd2wczKoD0d6Oc4qSeotV92TpYPDnZ7W1Q=; b=TTIH+r8P74zg3s
-	gNQrkKgnKU1nbINLq1Vdkk3yXhxce6x/VQ/bnFVj55fQSaSw5daoA7a56e6V9OCj9ypjpwgpvASdy
-	sqkfJw0ZIn7YBMstFC9DNKJvcQ/F1UpqLtSvEz8bKa5nGgQGPcWL+lU5Qozdcg45oB5d32qB0VyUM
-	TnOkSs+fwGM+lmT25fNwVO6t7pp1k+vxtWTKbxAG18eoY21nmkwD6yjcIad6SetjasVO9xLUQ7/Lo
-	Za6vTbTk3UstPeGSs/IAGfHg5PR6rTcfjjW/3S44QtIWne/hIhKD9Rud8RJhQOHG4syT0Kvputx4p
-	zDwxNU85Gn+66cDE/K5Q==;
+	List-Owner; bh=E1F2ZVWezUHvgXlJyBjLpdyQu7wkHPs3uYbXpYVtlyY=; b=0FtZyoVU02IJ6m
+	lt/ZGcTE8at1g4eIIFBhP2lCU42mmQC6woucq7T54+uGDM1jilQKf/JGC8TwZehcHbn4j/Lf1d3Z9
+	/OREFx3Lwk8iYzdfVBDF2AoJEt2/GaUlcFTnziehahteoW14CgbCVdL5DgFHspCcNhQOqtVrYLDaQ
+	eLOFyXOWYNmgRB2XjOZOAUMxwyPDOWNa0/SO1rdytnuuR28+SoxqawdrzMQFfMVk6ok+oZ5YCSPrL
+	V7hRJHn8yz6tdMGCq7uvukHdGzKje+z9fyDQKx0UCq2qFqqx6cUYW44bMlatvoI9MWgOL2Vxvs+sv
+	bZOijc3GQ51AXlaO5BwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVjbR-001Bxz-RE; Wed, 07 Sep 2022 01:11:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oVkEf-001PuG-B7; Wed, 07 Sep 2022 01:52:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oVjbO-001BwT-JQ
-	for linux-riscv@lists.infradead.org; Wed, 07 Sep 2022 01:11:40 +0000
+	id 1oVkEJ-001Pod-2K; Wed, 07 Sep 2022 01:51:52 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id DEEF4616FD;
-	Wed,  7 Sep 2022 01:11:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 530BFC433D6;
-	Wed,  7 Sep 2022 01:11:36 +0000 (UTC)
-Date: Tue, 6 Sep 2022 21:12:15 -0400
-From: Steven Rostedt <rostedt@goodmis.org>
-To: Yipeng Zou <zouyipeng@huawei.com>
-Cc: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <mingo@redhat.com>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
- <aou@eecs.berkeley.edu>, <liaochang1@huawei.com>, <chris.zjh@huawei.com>,
- Joel Fernandes <joel@joelfernandes.org>
-Subject: Re: [PATCH 1/2] tracing: hold caller_addr to
- hardirq_{enable,disable}_ip
-Message-ID: <20220906211215.0fe6183a@gandalf.local.home>
-In-Reply-To: <20220901104515.135162-2-zouyipeng@huawei.com>
-References: <20220901104515.135162-1-zouyipeng@huawei.com>
-	<20220901104515.135162-2-zouyipeng@huawei.com>
-X-Mailer: Claws Mail 3.17.8 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 62A2F61648;
+	Wed,  7 Sep 2022 01:51:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC431C43470;
+	Wed,  7 Sep 2022 01:51:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1662515509;
+	bh=ALcTG3mOVuLLio4WhI2L2jJkbp5XvNqkTSaJ5wmwyeM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=KD4YkRAGIO3nhCBJBkD2pwrs2ava5BAoX9wtcgu3IFRoQVjrtiZuB4R9MgbpEzsxq
+	 KW4AFCVtiUZlgB2+cstExwawru05w/BuMHDhwnpc7WjQGj+QVhkknLUVfBDmKGedGD
+	 99jvlAe7BYgLqXHlUmDho9+hJ1g+JDEgK63SfRqWTf36g22O56vOPdF29EpBYq/p8b
+	 dtek3UzHb1QYIE+Jy4pecoCJYlNRkpFOMwxlx+Mb+1LMdMCgPvlJIOZQE3xh2MIUwq
+	 tR/PZy8WV7Tq4lJxm3DRN05aNFEm2H8PKdO2xzn+gkLKBPu+bFQhwgcCWo9JIcLYAj
+	 kJ4OnuZ6o3Ctw==
+Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-11e9a7135easo32644580fac.6;
+        Tue, 06 Sep 2022 18:51:49 -0700 (PDT)
+X-Gm-Message-State: ACgBeo3KhsiiEmPHQdw8ZvqTiLoV1QvhvEy76r4ksEF8umOx55KUHyw5
+	g9Nm3oAp1G6ja9O+SST41+BxpQ88/mG57HdxamY=
+X-Google-Smtp-Source: AA6agR5wU71q9oB13ta4xOEzTPcP8MJegkjW8lQNxzqUr3gEPcisWNIZ8cv6sJH9sEHuSDJ+obWgGJ+KHlsomjMI+dE=
+X-Received: by 2002:a05:6808:150f:b0:343:3202:91cf with SMTP id
+ u15-20020a056808150f00b00343320291cfmr10871221oiw.112.1662515508882; Tue, 06
+ Sep 2022 18:51:48 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220903162328.1952477-1-guoren@kernel.org> <20220828135407.3897717-1-xianting.tian@linux.alibaba.com>
+ <6c48657c-04df-132d-6167-49ed293dea44@microchip.com>
+In-Reply-To: <6c48657c-04df-132d-6167-49ed293dea44@microchip.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Wed, 7 Sep 2022 09:51:36 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQvPpXwrfS_fTo+Pn=nufeCWE_tCcmPB-YZAZjdt9GbvA@mail.gmail.com>
+Message-ID: <CAJF2gTQvPpXwrfS_fTo+Pn=nufeCWE_tCcmPB-YZAZjdt9GbvA@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: Add STACKLEAK erasing the kernel stack at the end
+ of syscalls
+To: Conor.Dooley@microchip.com
+Cc: oleg@redhat.com, vgupta@kernel.org, linux@armlinux.org.uk, 
+	monstr@monstr.eu, dinguyen@kernel.org, palmer@dabbelt.com, 
+	davem@davemloft.net, arnd@arndb.de, shorne@gmail.com, 
+	paul.walmsley@sifive.com, aou@eecs.berkeley.edu, ardb@kernel.org, 
+	heiko@sntech.de, daolu@rivosinc.com, linux-arch@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-snps-arc@lists.infradead.org, 
+	sparclinux@vger.kernel.org, openrisc@lists.librecores.org, 
+	xianting.tian@linux.alibaba.com, linux-efi@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220906_181138_715658_CF5CD1A9 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20220906_185151_212943_94E13FC3 
+X-CRM114-Status: GOOD (  26.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,66 +88,85 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 1 Sep 2022 18:45:14 +0800
-Yipeng Zou <zouyipeng@huawei.com> wrote:
+Hi all,
 
-> Currently, The arguments passing to lockdep_hardirqs_{on,off} was fixed
-> in CALLER_ADDR0.
-> The function trace_hardirqs_on_caller should have been intended to use
-> caller_addr to represent the address that caller wants to be traced.
-> 
-> For example, lockdep log in riscv showing the last {enabled,disabled} at
-> __trace_hardirqs_{on,off} all the time(if called by):
-> [   57.853175] hardirqs last  enabled at (2519): __trace_hardirqs_on+0xc/0x14
-> [   57.853848] hardirqs last disabled at (2520): __trace_hardirqs_off+0xc/0x14
-> 
-> After use trace_hardirqs_xx_caller, we can get more effective information:
-> [   53.781428] hardirqs last  enabled at (2595): restore_all+0xe/0x66
-> [   53.782185] hardirqs last disabled at (2596): ret_from_exception+0xa/0x10
+How about the generic_entry version:
 
-I'm going to mark this as stable and send it in my next push to Linus.
+https://lore.kernel.org/lkml/20220907014809.919979-1-guoren@kernel.org/
 
-I'll also add:
+On Wed, Sep 7, 2022 at 1:35 AM <Conor.Dooley@microchip.com> wrote:
+>
+> On 03/09/2022 17:23, guoren@kernel.org wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> >
+> > From: Xianting Tian <xianting.tian@linux.alibaba.com>
+> >
+> > This adds support for the STACKLEAK gcc plugin to RISC-V and disables
+> > the plugin in EFI stub code, which is out of scope for the protection.
+> >
+> > For the benefits of STACKLEAK feature, please check the commit
+> > afaef01c0015 ("x86/entry: Add STACKLEAK erasing the kernel stack at the end of syscalls")
+> >
+> > Performance impact (tested on qemu env with 1 riscv64 hart, 1GB mem)
+> >     hackbench -s 512 -l 200 -g 15 -f 25 -P
+> >     2.0% slowdown
+> >
+> > Signed-off-by: Xianting Tian <xianting.tian@linux.alibaba.com>
+>
+> What changed since Xianting posted it himself a week ago:
+> https://lore.kernel.org/linux-riscv/20220828135407.3897717-1-xianting.tian@linux.alibaba.com/
+>
+> There's an older patch from Du Lao adding STACKLEAK too:
+> https://lore.kernel.org/linux-riscv/20220615213834.3116135-1-daolu@rivosinc.com/
+>
+> But since there's been no activity there since June...
+>
+> > ---
+> >  arch/riscv/Kconfig                    | 1 +
+> >  arch/riscv/include/asm/processor.h    | 4 ++++
+> >  arch/riscv/kernel/entry.S             | 3 +++
+> >  drivers/firmware/efi/libstub/Makefile | 2 +-
+> >  4 files changed, 9 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> > index ed66c31e4655..61fd0dad4463 100644
+> > --- a/arch/riscv/Kconfig
+> > +++ b/arch/riscv/Kconfig
+> > @@ -85,6 +85,7 @@ config RISCV
+> >         select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+> >         select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+> >         select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
+> > +       select HAVE_ARCH_STACKLEAK
+> >         select HAVE_ASM_MODVERSIONS
+> >         select HAVE_CONTEXT_TRACKING_USER
+> >         select HAVE_DEBUG_KMEMLEAK
+> > diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
+> > index d0537573501e..5e1fc4f82883 100644
+> > --- a/drivers/firmware/efi/libstub/Makefile
+> > +++ b/drivers/firmware/efi/libstub/Makefile
+> > @@ -25,7 +25,7 @@ cflags-$(CONFIG_ARM)          := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+> >                                    -fno-builtin -fpic \
+> >                                    $(call cc-option,-mno-single-pic-base)
+> >  cflags-$(CONFIG_RISCV)         := $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) \
+> > -                                  -fpic
+> > +                                  -fpic $(DISABLE_STACKLEAK_PLUGIN)
+> >
+> >  cflags-$(CONFIG_EFI_GENERIC_STUB) += -I$(srctree)/scripts/dtc/libfdt
+> >
+> > --
+> > 2.17.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+>
 
-Fixes: c3bc8fd637a96 ("tracing: Centralize preemptirq tracepoints and unify their usage")
 
-The code was copied from functions that were originally called directly,
-but now that they are called indirectly, CALLER_ADDR0 is not the right
-thing to use.
-
-Thanks!
-
--- Steve
-
-
-> 
-> Signed-off-by: Yipeng Zou <zouyipeng@huawei.com>
-> ---
->  kernel/trace/trace_preemptirq.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/kernel/trace/trace_preemptirq.c b/kernel/trace/trace_preemptirq.c
-> index 95b58bd757ce..1e130da1b742 100644
-> --- a/kernel/trace/trace_preemptirq.c
-> +++ b/kernel/trace/trace_preemptirq.c
-> @@ -95,14 +95,14 @@ __visible void trace_hardirqs_on_caller(unsigned long caller_addr)
->  	}
->  
->  	lockdep_hardirqs_on_prepare();
-> -	lockdep_hardirqs_on(CALLER_ADDR0);
-> +	lockdep_hardirqs_on(caller_addr);
->  }
->  EXPORT_SYMBOL(trace_hardirqs_on_caller);
->  NOKPROBE_SYMBOL(trace_hardirqs_on_caller);
->  
->  __visible void trace_hardirqs_off_caller(unsigned long caller_addr)
->  {
-> -	lockdep_hardirqs_off(CALLER_ADDR0);
-> +	lockdep_hardirqs_off(caller_addr);
->  
->  	if (!this_cpu_read(tracing_irq_cpu)) {
->  		this_cpu_write(tracing_irq_cpu, 1);
-
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
