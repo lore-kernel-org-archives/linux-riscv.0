@@ -4,139 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51D9C38145
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 13:01:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DE7C38145
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 13:20:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0yjGqJAJcYRWmLtEah7kAstKFmPs0roUYh6LIy070ec=; b=IZcvffIygwVqDQ
-	nQyE6es+Sxhn0g6AhOdwRPwBYCdqqRiuli/WA7eWaqyG+QMEl6kpE3h87ImIr3hhK7+LXfhC36Y+N
-	IG2YYGd8slFOeTcKLZP1NaSDx3H2plRapaYW1ht3AbKIEUhD1X1QIEfI+plO9KVeP2HC5SD5eWfHd
-	mQIWNo52/rgpmUtuoEyccB9A+1TapYYTGe1o+ybbUxPI6P5iLVobz7e5HAWuaU/ZHlHz89CdByxtl
-	aOitZSkA+4ClVBh/g5n+FJHwgL3UvNW2irBqxqdwwswLz6OAY0fjAmwBNyOu6vRYv5joxjnXkWFmX
-	/+6Ih/P8wsKIlcj7xHMA==;
+	List-Owner; bh=sCHJO3hcozkGSOrjvkYJ9GWThJ49lmEPSJnVi2I//Rk=; b=3XLxqYzyh1Rkm1
+	Pl3ychAcpbwstyfB7YxcciwPckSGhOEqo+crKEZnsro/JARZsYR0KeAMhEusM6wxi3cPBnqLV4gFT
+	ZLRUb++k39Uq6g1+0dNfMQZLCvSnWOKe0jz+M86kI83EJWcExi4IbVp+YxhSXq6IFQ7RrLGecwPYA
+	fSN+UVpmVp4IQQF5d8gGM+Ho4Qi7GvkIbDveASGg5EVkO4r7ySvNzpDT9+W+CHhaGV4O61CtvLZ0m
+	POGyF7t9DL1ZMu7Sxrd5QSCTSYu7iWUoKudVWvA2y2TPBAw268ItGuFxLBAsJ8M4eWtM8g5UAKx5R
+	Qu3BiA9VT/u9lpAOUubA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWH9i-003XBm-LB; Thu, 08 Sep 2022 13:01:18 +0000
-Received: from mail-tycjpn01on2106.outbound.protection.outlook.com ([40.107.114.106] helo=JPN01-TYC-obe.outbound.protection.outlook.com)
+	id 1oWHSK-003ip3-NS; Thu, 08 Sep 2022 13:20:32 +0000
+Received: from mail-qk1-f172.google.com ([209.85.222.172])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWH9e-003X9m-Gc
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 13:01:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=Trclaks5eqXhPDyJgZ1YhJ2K8TVAlDMiqkx04aL+TaNut0hFhub9YKe+22Wooyoq9PVoGt1LkNv3oiRj5Hd5Qv83wTG0+WA9nc+8qwY+YbpAbFTyDNtwTJSWPfLZD4cHY+5kFKJTfndCIbPPtDqGThWl96FQl7pSc8qmHC22I9KPtOKDrmLI4QiBTV0dWbWqRnLWw1nTi+s38xS0E8e1tynwWsks4jTXUWjYqv2r0uaX0WNFOOHE8SAFDZEXa1Tn28HHEhT6d5IBlg13vY3x90WdzfkNVvRXTy/Qfe8nPQ7frc8K0JFYyz55alFOl/shZOJCTIG1S6U1yiqWOri4Sw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dG5xwTw24HRMQsZ8Wlj+X+1rEHTEHt1lAJLkGTbpStE=;
- b=dNURqx6eSdhr8zTzgizGuB2qxMJSderkjZzX25r1DYf86PetAHpDL/AUsu4vugjEV6SmriPT6VOb79IfakX/VgY4eeUWIuiKHHQRV9aS3bxbNc8ODaf2+vGw07DprqmvtpAUregqyAYXInyoZbdfYaWX/OKsufnqFTzRwNc6E0xBWNK8rm8+BTlncPlrnG4ww0OOVwBzONuQQyNl2jxD7cXPNcMKXJwUbjFaAhO1BE3+FbeJAOJWfAOWtgBDV4uac1vI5HKOFvxHZQULlZnzg8z5o4DA0St02q+DnHeE1+sXsl+cIgFPj9o7bsjbO4M9x62bN4/tNlYgm/0M4EtVcA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
- header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dG5xwTw24HRMQsZ8Wlj+X+1rEHTEHt1lAJLkGTbpStE=;
- b=ivtPkFa6tKscX4Zj7sKCtdgbMYKfpA7Ozi6u24sIjkkQc4RKrmcPSRlg5tgkOCJNu/dFXxL+JXWp1ysIAr0KOlnlbOvatu0pzXhJQutBWG7DY5+P2JGGLl+6TucZeos2vtWrzS+vTv9w2QFJS/1NuKK0bUQ952BWr8D3OBHeF7A=
-Received: from OS0PR01MB5922.jpnprd01.prod.outlook.com (2603:1096:604:bb::5)
- by TYWPR01MB8396.jpnprd01.prod.outlook.com (2603:1096:400:177::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5612.14; Thu, 8 Sep
- 2022 13:01:08 +0000
-Received: from OS0PR01MB5922.jpnprd01.prod.outlook.com
- ([fe80::c502:8f9f:ec5e:8e3f]) by OS0PR01MB5922.jpnprd01.prod.outlook.com
- ([fe80::c502:8f9f:ec5e:8e3f%3]) with mapi id 15.20.5612.014; Thu, 8 Sep 2022
- 13:01:08 +0000
-From: Biju Das <biju.das.jz@bp.renesas.com>
-To: "Conor.Dooley@microchip.com" <Conor.Dooley@microchip.com>,
-	"atishp@atishpatra.org" <atishp@atishpatra.org>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "guoheyi@linux.alibaba.com"
-	<guoheyi@linux.alibaba.com>, "guoren@linux.alibaba.com"
-	<guoren@linux.alibaba.com>
-CC: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, "atishp@rivosinc.com"
-	<atishp@rivosinc.com>, "apatel@ventanamicro.com" <apatel@ventanamicro.com>,
-	"geert+renesas@glider.be" <geert+renesas@glider.be>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"prabhakar.csengg@gmail.com" <prabhakar.csengg@gmail.com>
-Subject: RE: [RFC PATCH 1/2] riscv: vendors: andes: Add support to configure
- the PMA regions
-Thread-Topic: [RFC PATCH 1/2] riscv: vendors: andes: Add support to configure
- the PMA regions
-Thread-Index:  AQHYwdqJJqv+SV7oQUWARHgAT75zHa3SNg6AgAJOjgCAAB1VgIAAlHqggABG7gCAAACJQA==
-Date: Thu, 8 Sep 2022 13:01:08 +0000
-Message-ID:  <OS0PR01MB5922F6CC81114BCE7696BEDB86409@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+	id 1oWHSH-003imu-60
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 13:20:31 +0000
+Received: by mail-qk1-f172.google.com with SMTP id k12so133050qkj.8
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 06:20:27 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=nH7L3KimhWKQ6v9V2FWln1JYYf97pWD4ktksM0pFeVE=;
+        b=uI3if9SInHPz7E7ITA1tCNnAKBW8/roRq1mEV/jdbAJo2RWEo6QVUCvIkgkM1SAxrx
+         VnqYOQus4tO9WxqLC6sulyFISj/Pw4PLnkQQrEjCKUQfcdLsn5Slr6ttrVrVJqFqI0Im
+         rs0mO9OXQyCUVoh5zLQbHSkUQeS5U37mAmW3VaXbg5VBJV/K4mknJTW4iZQx0AiZ7frJ
+         7JCPuFQ4c/OKtt45UOhkjfzAuMM+gPYW6k5YJfPqj7qEx5Mp0rI856jN/MQ6tMhLuHBq
+         ayn7KX4EAoa7GwLkh/l1VCYhWuIKEOKM91UAPNDMKKmqbjKFfSW00vnjW7PADnfyHN8C
+         DgkQ==
+X-Gm-Message-State: ACgBeo2RxZQEpX3hSqNTKqxYTUeifI+s4UfGuQ7PyLOl0RsJI9+SIXRF
+	c3ICOJ2LjWHXxU8Ws7L7S0dk52HEa5z1NQ==
+X-Google-Smtp-Source: AA6agR5VyMUW07uPyalLfpB/WkTBemm9GsNAGlC4TFZl8yoDscUWAojnjYVQZPbr0g+jZ5BzPz0lfQ==
+X-Received: by 2002:a37:c84:0:b0:6bc:2562:d756 with SMTP id 126-20020a370c84000000b006bc2562d756mr6332262qkm.556.1662643226836;
+        Thu, 08 Sep 2022 06:20:26 -0700 (PDT)
+Received: from mail-yb1-f178.google.com (mail-yb1-f178.google.com. [209.85.219.178])
+        by smtp.gmail.com with ESMTPSA id y14-20020a05620a25ce00b006af3f3b385csm17843087qko.98.2022.09.08.06.20.25
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 Sep 2022 06:20:25 -0700 (PDT)
+Received: by mail-yb1-f178.google.com with SMTP id t184so26401611yba.4
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 06:20:25 -0700 (PDT)
+X-Received: by 2002:a25:8247:0:b0:6a9:443a:cc0b with SMTP id
+ d7-20020a258247000000b006a9443acc0bmr7305634ybn.89.1662643225008; Thu, 08 Sep
+ 2022 06:20:25 -0700 (PDT)
+MIME-Version: 1.0
 References: <20220906102154.32526-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
  <20220906102154.32526-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <8ecb62b7-53c4-1c43-65b3-567d8c12e131@microchip.com>
- <CAOnJCUKLpRz4Fbx1XiMnap-ELw2k1c8E9V8bZiSP+x7z9Z5QrA@mail.gmail.com>
- <f362eaeb-6ccd-4392-a346-55fa5ae25e13@microchip.com>
- <OS0PR01MB5922833FDCA60892191B211A86409@OS0PR01MB5922.jpnprd01.prod.outlook.com>
- <5e894d87-8abb-540d-fbd6-8a1d6f9d0e91@microchip.com>
-In-Reply-To: <5e894d87-8abb-540d-fbd6-8a1d6f9d0e91@microchip.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=bp.renesas.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: OS0PR01MB5922:EE_|TYWPR01MB8396:EE_
-x-ms-office365-filtering-correlation-id: 0519b484-aa3b-4ff7-3899-08da919a3258
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info:  mFCpIw5IcfDto1SK2G1CfzusiAwBWLhEzXUdi5C6Lczs0z33hrD9HwRvL6+WCKXjOcE5ExIhFn7doZ1U/uEeqX8ofBSaXqMJuK6YrTu8hsucfdZfgHUzb0/Kov8rI2G4cv9h2TQrGNv1S/+X9BZj8jYg9fsoUuUw7gzx6DNr5jnkEGiMDVT/kXjbd/JIRUHAJIz00kOt5RdP/I5B51P40rL8e7cLU3MjXTEpRfR6cc8g96x6PW++YvtYDy+YOCEmzuJ37UCEXX+efVekiMHR+jzfvDD2YJSmo+C3+Sd7yKW95L5fT+vcXdXcaPyeV7UDWsxpoqQWExEtJ8mhYuptC8h1d20Fsd7bGhk9zYCimUPJypwxQjVKd2CZSxQN1lkp6GnUy0Qk9eDfKq1VjVS9RKwTm1wr3C33945ni2UC8ftjXrK7Z9KMrl4QzhiiZKE04ccJwp6St12sSD6+3myHSQRW/SwJnds1/Q7441jefw9Sw8oUNH8v7AXt762ZVb22CxCmcAcsFUFGSF4ivKr8n49C5KUSoc1XPnfexGvVDNF30i5claxDk1ZD4P6Qab5n9Ndw0ysXXJDEE5prlsKr8SMibAVmJL4kSD5mIFs8nD8ZOgEffLdvubacWVVBFhfIxBYJLDAUpHJiVmIQf2ly3Cg8+IeaSzVZMu9UyRFSh5Lcu4CCJGbgaJdsiD3vS6hidS9WRS9jus4gUlHFQWVCHH/bZ+Cn04fyavLWUyPnjkqQia7cITSHKLf+wf5Fl+xjj8GjVryzk6atpjtDDT1GSt218n2Idhy4Y5LWEEQo8RE=
-x-forefront-antispam-report:  CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS0PR01MB5922.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(4636009)(396003)(376002)(346002)(366004)(136003)(39860400002)(41300700001)(5660300002)(8936002)(33656002)(26005)(9686003)(2906002)(53546011)(52536014)(7416002)(7696005)(38100700002)(86362001)(55016003)(6506007)(122000001)(38070700005)(66946007)(64756008)(186003)(83380400001)(966005)(8676002)(71200400001)(66446008)(54906003)(110136005)(66556008)(76116006)(478600001)(66476007)(4326008)(316002);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:  =?us-ascii?Q?DA3Xnx07nW6SgXATDD+20W2ZUt+wZ0/Yn/1tGT87Pfjlx1BiclwtY+1431kz?=
- =?us-ascii?Q?cG4slI+y9FZtky4XZhflx+xlTpVRwBfrijk57c4mKuYnjHwts5CZaJQ8zyq8?=
- =?us-ascii?Q?vSB45HEz8JVSTgqx6KVI5x2P5ec3NbEGq+EwcjuMNGEAP+oUC+Qvtw/zDZbq?=
- =?us-ascii?Q?Zv7ux5wuycMHe6w9ITV+qKqvqm7qZbJqcU+OMn00+03H7TtBc0e4Z4be+PPN?=
- =?us-ascii?Q?0xBxMV0+d9Wu03AtIsc/ZkJm5+izll8W3clFNdTlgB2V9T3bImmzbSMYpnD5?=
- =?us-ascii?Q?Iwi5VRpgZ+WmzbzGZSL/ihl9Hzcvhv/NCaObxemqcdXZAQQEqmyX1ZqhSkUb?=
- =?us-ascii?Q?QNdNqOosRFaXydThqyzSsf+SyN5T9omlt50+iuL54iMpKWG8CJMBQudw64KM?=
- =?us-ascii?Q?spvzVxHPq76eWSMHqF+Sh48mxIvMYa36fP4xiqABIQ16s/uqKZzmzKobCICu?=
- =?us-ascii?Q?D4UdUVFg9t5O/w8f04MQwFoTIJ1/G/J1HxwA4ULCFp7HRVJHJdPwfQo8Jewz?=
- =?us-ascii?Q?aOl6OpRT+FfkEnHC9R5qcsVwzcT6vL1pj6f3VDX1Lur9uh3j4IU0qfz9/3XJ?=
- =?us-ascii?Q?gE1CPmDkYG03DQciBXCFq7aAhlIE7FyC2aQgJJ/0EPH0GsZ6NYwUVDCAAxKh?=
- =?us-ascii?Q?0AYiXiwYGWPZGvEsCswNYUL4iwC/5/VKFl1g3b4HsF5Kf/E3ZNIyZkjTsBG2?=
- =?us-ascii?Q?6KpKBKGdckv+WhpMYWtTBgbwr5gx7RlYo+Yx/Ry2k4fzj/Gr9QAO818wvbj/?=
- =?us-ascii?Q?K3wiWUoxkUZfmyntDKQ6v69FCfOJ/jO33hnby314xq1YpOKgTwdgGOObezVV?=
- =?us-ascii?Q?YZcAzvvFYKPDeszB7VDCdnH8xIXRSsUkSE6n2skjmT9xc5kG5EC/EG6qclFT?=
- =?us-ascii?Q?+ft97BTGgLztdwR3WdnDCK7pLOpbL5w5uzRbbVOfdhV3yC2/689YQpnqRvz5?=
- =?us-ascii?Q?5EC1qTykRKa55ejKQ9N5gDhEqo6pTUZIvmLTzFEfO1QIiqeO4p+FTCwJfahN?=
- =?us-ascii?Q?VWsIP7/mU1RH/9RVYdLxFNJPA5Y3aDGol29g7kDkgE0PbV05a/2r7qIMFarV?=
- =?us-ascii?Q?6Xy8W080DCpT7jRsN5KR91VuKr7bmCEVXoNk2zyFCxx/wlqBmSjKWEH3OCAK?=
- =?us-ascii?Q?VlPz9S7XCsotbZWw5aFUVRfswJ03KnxPvHVzPQzYtU6a3x93CSJ8qUqGs2/3?=
- =?us-ascii?Q?/QyD+MZ7yBEeqkncXdTHLjXAlNtJolyXHglDVtRxNOn6E/klr1U4jYTv/Na+?=
- =?us-ascii?Q?yabEwfLenVtjjV2oiV+AFilvVr++7xFBp++agrHmdVi6SGKhFV3RMLBPYjQT?=
- =?us-ascii?Q?5lkO+In02K+hw5A2hjqzzJ7dMuscZ96kapygVeP60y7abCkHpQoSiguozcWp?=
- =?us-ascii?Q?crcihVkqNrxNBHny9Y1W/nULZ9GF/JY3QYroKzl743eZuLvkVY8qaB5Xc1pP?=
- =?us-ascii?Q?Q9HvrGZsCdZJZOAnuOFAuApdlpWJzaUnrr9HzZ9n6ys9BZtZqMJorhqg82bM?=
- =?us-ascii?Q?OKBKsMjlUIKev4Od16230yhG/vNEBZJL2B0rkO2KHK9JzNhw2S5W0TUY7iZ8?=
- =?us-ascii?Q?K+/HSQhRrZkST7zhFHBCIGV9qNt5QRmvdIS0xCYRbOnWO7KG+YxgXJSl+fZP?=
- =?us-ascii?Q?rw=3D=3D?=
-MIME-Version: 1.0
-X-OriginatorOrg: bp.renesas.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: OS0PR01MB5922.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0519b484-aa3b-4ff7-3899-08da919a3258
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Sep 2022 13:01:08.1668
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 2R58zOmp5y9BE46XNse8ZJ0Jqcq/O7LH9dBVANw67BgirW0vYCxG90zPijCUmq/lKxZDLipwGED8Zjn/mXuok+ClAm2XBIcFaoiYV7KmtxY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYWPR01MB8396
+ <8ecb62b7-53c4-1c43-65b3-567d8c12e131@microchip.com> <CAOnJCUKLpRz4Fbx1XiMnap-ELw2k1c8E9V8bZiSP+x7z9Z5QrA@mail.gmail.com>
+ <f362eaeb-6ccd-4392-a346-55fa5ae25e13@microchip.com> <OS0PR01MB5922833FDCA60892191B211A86409@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+ <5e894d87-8abb-540d-fbd6-8a1d6f9d0e91@microchip.com> <OS0PR01MB5922F6CC81114BCE7696BEDB86409@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+In-Reply-To: <OS0PR01MB5922F6CC81114BCE7696BEDB86409@OS0PR01MB5922.jpnprd01.prod.outlook.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 8 Sep 2022 15:20:11 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXyvVas51e1ozxyYG4_NnVYAMZ1B30raGgaj=FDPeOL2Q@mail.gmail.com>
+Message-ID: <CAMuHMdXyvVas51e1ozxyYG4_NnVYAMZ1B30raGgaj=FDPeOL2Q@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/2] riscv: vendors: andes: Add support to configure
+ the PMA regions
+To: Biju Das <biju.das.jz@bp.renesas.com>
+Cc: "Conor.Dooley@microchip.com" <Conor.Dooley@microchip.com>, 
+	"atishp@atishpatra.org" <atishp@atishpatra.org>, "palmer@dabbelt.com" <palmer@dabbelt.com>, 
+	"guoheyi@linux.alibaba.com" <guoheyi@linux.alibaba.com>, 
+	"guoren@linux.alibaba.com" <guoren@linux.alibaba.com>, 
+	Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>, "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>, 
+	"atishp@rivosinc.com" <atishp@rivosinc.com>, "apatel@ventanamicro.com" <apatel@ventanamicro.com>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, 
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"prabhakar.csengg@gmail.com" <prabhakar.csengg@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_060115_242745_E957E0D1 
-X-CRM114-Status: GOOD (  47.91  )
+X-CRM114-CacheID: sfid-20220908_062029_251360_2AD26883 
+X-CRM114-Status: GOOD (  23.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,175 +97,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+Hi Biju,
 
-Thanks for the feedback.
-
-> Subject: Re: [RFC PATCH 1/2] riscv: vendors: andes: Add support to
-> configure the PMA regions
-> 
-> On 08/09/2022 09:39, Biju Das wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know
-> > the content is safe
+On Thu, Sep 8, 2022 at 3:01 PM Biju Das <biju.das.jz@bp.renesas.com> wrote:
+> > Subject: Re: [RFC PATCH 1/2] riscv: vendors: andes: Add support to
+> > configure the PMA regions
 > >
-> > Hi Conor, Atish,
+> > On 08/09/2022 09:39, Biju Das wrote:
+> > > EXTERNAL EMAIL: Do not click links or open attachments unless you know
+> > > the content is safe
+> > >
+> > > Hi Conor, Atish,
+> > >
+> > > What RISC-V devices you have?
 > >
-> > What RISC-V devices you have?
-> 
-> A bunch ;)
-> 
-> A __couple__ PolarFire SoC boards, HiFive Unleashed, D1 Nezha, Canaan
-> k210 MAIX something & the VisionFive.
-
-If standard DMA api works without any issue means, on these platforms
-IO Coherence port is enabled in the hardware. So all peripherals
-involving DMA work as expected.
-
-> > Ours is RISC-V uniprocessor without IO Coherence Port.
-> 
-> What does "IO Coherence Port" mean? Zicbo*?
-
-The HW will provide coherency between CPU and peripheral.
-
-If Zibco* is uniprocessor, then highly it may not have IO coherence
-Port enabled in their design.
-
-Guo, Please confirm.
-
-> 
-> > Currently USB, ethernet, SDHI/eMMC doesn't work with standard DMA
-> > api's.
-> 
-> Sounds pretty similar to the D1 so.
-> 
-> > On RISC-V world, how do we handle DMA api for uniprocessor without IO
-> > Coherence Port?
-> 
-> If you do mean Zicbo* you're into errata territory there & I don't know
-> if that'll be acceptable upstream - not for me to make that call...
-
-It is not errata for sure. It is a HW design where we don't have
-IO cache coherency port enabled in the HW. So looks like it is not
-an extension or errata but it is core stuff.
-
-Something similar to incoherency mentioned in below [1] for uniprocessor
-Systems.
-[1] https://elinux.org/images/8/80/Initializing-riscv.pdf
-
-Cheers,
-Biju
-
+> > A bunch ;)
 > >
+> > A __couple__ PolarFire SoC boards, HiFive Unleashed, D1 Nezha, Canaan
+> > k210 MAIX something & the VisionFive.
+>
+> If standard DMA api works without any issue means, on these platforms
+> IO Coherence port is enabled in the hardware. So all peripherals
+> involving DMA work as expected.
+>
+> > > Ours is RISC-V uniprocessor without IO Coherence Port.
 > >
-> >
-> >> -----Original Message-----
-> >> From: Conor.Dooley@microchip.com <Conor.Dooley@microchip.com>
-> >> Sent: 08 September 2022 00:38
-> >> To: atishp@atishpatra.org
-> >> Cc: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>;
-> >> paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
-> >> atishp@rivosinc.com; apatel@ventanamicro.com;
-> >> geert+renesas@glider.be; linux-riscv@lists.infradead.org;
-> >> linux-renesas-soc@vger.kernel.org;
-> >> linux-kernel@vger.kernel.org; prabhakar.csengg@gmail.com; Biju Das
-> >> <biju.das.jz@bp.renesas.com>
-> >> Subject: Re: [RFC PATCH 1/2] riscv: vendors: andes: Add support to
-> >> configure the PMA regions
-> >>
-> >> On 07/09/2022 22:52, Atish Patra wrote:
-> >>> EXTERNAL EMAIL: Do not click links or open attachments unless you
-> >>> know the content is safe
-> >>>
-> >>>
-> >>> On Tue, Sep 6, 2022 at 3:40 AM <Conor.Dooley@microchip.com
-> >>> <mailto:Conor.Dooley@microchip.com>> wrote:
-> >>>
-> >>> On 06/09/2022 11:21, Lad Prabhakar wrote:
-> >>>
-> >>>> diff --git a/arch/riscv/include/asm/sbi.h
-> >>>> b/arch/riscv/include/asm/sbi.h index 2a0ef738695e..10a7c855d125
-> >>>> 100644 --- a/arch/riscv/include/asm/sbi.h +++
-> >>>> b/arch/riscv/include/asm/sbi.h @@ -37,6 +37,7 @@ enum sbi_ext_id {
-> >>>>
-> >>>> /* Vendor extensions must lie within this range */
-> >>>> SBI_EXT_VENDOR_START = 0x09000000, +       SBI_EXT_ANDES =
-> >>>> 0x0900031E, SBI_EXT_VENDOR_END = 0x09FFFFFF, };
-> >>>
-> >>> Everything else aside, I am very interested in what's happening here.
-> >>> I'll take a proper look through things later, but for now:
-> >>>
-> >>> For PolarFire SoC we have an InterHart Communication SBI EXT that
-> >>> would would like to upstream support for. We are not aiming to put
-> >>> the driver itself in arch/riscv - it's just a mailbox driver, but I
-> >>> would like to use sbi.h for defining the vendor id etc.
-> >>>
-> >>> I am not sure how this all aligns with:
-> >>>> We'll only accept patches for new modules or extensions if the
-> >>>> specifications for those modules or extensions are listed as being
-> >>>> "Frozen" or "Ratified" by the RISC-V Foundation. (Developers may,
-> >>>> of course, maintain their own Linux kernel trees that contain code
-> >>>> for any draft extensions that they wish.)
-> >>>>
-> >>>> Additionally, the RISC-V specification allows implementors to
-> >>>> create their own custom extensions. These custom extensions aren't
-> >>>> required to go through any review or ratification process by the
-> >>>> RISC-V Foundation. To avoid the maintenance complexity and
-> >>>> potential performance impact of adding kernel code for
-> >>>> implementor-specific RISC-V extensions, we'll only to accept
-> >>>> patches for extensions that have been officially frozen or ratified
-> by the RISC-V Foundation.
-> >>>> (Implementors, may, of course, maintain their own Linux kernel
-> >>>> trees containing code for any custom extensions that they wish.)
-> >>>
-> >>> Which is in:
-> >>>
-> >>> It is unclear to me whether that is just for ISA extensions or if
-> >>> that covers SBI extensions too. At least for us, since we don't
-> >>> touch arch code there is relatively little friction & there's no
-> >>> concerns about reducing the portability of a kernel since it is just
-> >>> a regular old driver.
-> >>>
-> >>>
-> >>> It covers the standard SBI extensions as well. However, I don't
-> >>> think this includes a vendor extension as there is no freeze or
-> >>> ratification associated with vendor extensions.
-> >>>
-> >>> It would be good to discuss the policy around vendor SBI extensions
-> >>> during LPC as well. We also need to discuss the ACPI policy as well.
-> >>> We most likely need a BoF to discuss these adhoc topics. I will
-> >>> check if we can schedule a BoF in advance.
-> >>
-> >> I did briefly mention this to Palmer on IRC last night, just was busy
-> >> today & didn't get a chance to reply here. The indication there was
-> >> that yes, this paragraph did cover SBI extensions - which would make
-> >> vendor extensions not permitted upstream.
-> >>
-> >> We (microchip) are "only" doing a few ecalls in a driver but this
-> >> seems a fair bit more intrusive since it is in arch code. Even if the
-> >> answer is a "no" - a no from the horses mouth rather than on IRC &
-> >> maybe some rewording of that doc to be clearer would be nice.
-> >>
-> >> I'd be down for a BoF, even if just to get a "no" in person haha
-> >>
-> >> Conor.
-> >>
-> >>>
-> >>> I was planning on cornering some people *cough* Palmer *cough* at
-> >>> LPC and asking him what his thoughts were there.
-> >>>
-> >>> FWIW this is what we have been doing:
-> >>>
-> >>>   The IP itself has not stabilised yet, so we have not sent any
-> >>> patches yet, but we do intend doing so...
-> >>>
-> >>> But yea, I'll take a properly look at what you're doing here soonTM,
-> >>> although at this point it may be the other side of LPC.
-> >>>
-> >>> btw, where can I get my hands on your hardware?
-> >>>
-> >>> Thanks, Conor.
-> >
+> > What does "IO Coherence Port" mean? Zicbo*?
+>
+> The HW will provide coherency between CPU and peripheral.
+>
+> If Zibco* is uniprocessor, then highly it may not have IO coherence
+> Port enabled in their design.
 
+Zicbo* is a set of extensions for the instructions.
+These cannot be retrofitted to existing silicon, but perhaps they can
+be trapped and emulated?
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
