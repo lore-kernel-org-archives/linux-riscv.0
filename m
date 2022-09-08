@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7635C38145
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 06:47:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7126FECAAD5
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 06:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R4Ll+RMTls0424FXyhli6rMRmCisBm5XI0ZT9Q7Ytoc=; b=KZ7+tQj6BMoei4
-	APtNdRSFCDQEjXp/gEOjvqaCdonxu3byZ4Nc/gBKaXaJy1JPPQtV6r864qZQWWp320o36CdwWiLXP
-	/ojspyaY8qHGwNF55OijYOrVfitWV4KJYvEjDLZCtqovUYjghIQOoGTTknGb4U69ZVq0nThKd51Y3
-	cTOK0xeT1F0iyGKGgCmkxwgvzRwGNqcI6smB7SaVtdY0LR6Ze8xKqD0GmRAowRFm6EaUFs+tXDSIg
-	Zkh6orMYK0XE124neS+KoFwXnG1MhE03ilUmwbNCYIHRn8AmmyJHe0gHpzFktLMYOr+Lp2fPuXDFw
-	B23rzapflVarBIOEi7FA==;
+	List-Owner; bh=W+TI4Z6cVKMG8cvq/0/Bg0EpKYpJjpvsbkRqIsLkWLE=; b=JAPzMAk7ijuHPo
+	Kd7mLsOVvQws35b3F5tKHMVftUvOzhaj59yClpNfP+bNXALaY2XLQ6xCjqh2GOkw7Gv/TobvNcNmk
+	h53Q1X+rs2cTuaoMSIblQ06GuXyNWn3zdNtPrCfi2LdOQVn1VWzGxW+YiGCylTswbraT3yH2asP6I
+	lQ7j6bAZUSUBGDAf+dcXTgNMF0qKRQXq/GwfO/vrmeUe46UpfMqmlZoaMFgKfBVf/3/t5wKSo1nmA
+	8E3rEqvVPjFT1pkcGx5tGskqcuJgXMD3nWABdtbV19SE8x+Xr3e3wIZn+ao+xx5OMmSarSLYacrZa
+	Pv5XU0fOHiKMgxwrI+HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWBJh-00HXKC-Lb; Thu, 08 Sep 2022 06:47:14 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oWBJz-00HXUD-62; Thu, 08 Sep 2022 06:47:31 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWBJd-00HXHU-WA
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 06:47:11 +0000
+	id 1oWBJt-00HXQs-SE
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 06:47:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1662619630; x=1694155630;
+  t=1662619645; x=1694155645;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-id:content-transfer-encoding:
    mime-version;
-  bh=ZjqtsF450Qdg9iGW/mqEISK33RhzoHVIR8+aRiid/iE=;
-  b=RW38c+nrhUYr8gfROSpMdjnnp+SbImSwHXB3hdCz3hSQEaMgu0d2W/Lf
-   RF8zuly8581AXOsmCyxJpZ/BsYRnm2h3j5XGzRCnZtJpwvdedujlhKjHq
-   Cjb+AGL5o0a25ja26GQRuivM640Ux3AGSGdsMagcr8IA+6xuVEH+8sjWe
-   diLxxGWNiaJqDIclUfy6NFlJm/IpBvwSQlAG2a7fHI/xE6KIzMpMdLcoW
-   toNCjKI4pQTvTSozigK2jixsuxSSKZcPeS6hRmnFnA7p8zGkZw1EY5yxl
-   f1UVwy9VaOJmoaqOzZjpjmnhPoHoD3AO2Hj6eoQHZ8txhPdgbQbT6TOzT
-   g==;
+  bh=3gtdWlKVtU+pBjXCqs/RB53FB0EU+8jCwGkjP9t0PU8=;
+  b=B1WIcUWcbMTqxiUnBigF+ixMoOr50ueCQcu78Xh6doTSF74vunDpdMgT
+   YsyLjNeU61ZDmS0YveeyCDtcEIDf7W5E0l/bne/xa8BkaDdbT6WbAmKYN
+   FBUswRCxVDUJub2b5w0XpxFM7qluPAeEe3tEuKaMQJsMy5FJcjPK/XiKX
+   PclD36t7i9D+lDZ7X3DSwETYrk4+um0dK3nhA89iDzH/UtlYddDFFDx8W
+   s9Uq7wZ8joQH10MUzqzBb/2ILhKppGFFLQevMkuGYMw21dw5APibMqolU
+   ZYLW1hxJOk382jhOLT/ReNQhBVsfPzPykKH/VtdkrY6rTRCMtMjyuymSX
+   A==;
 X-IronPort-AV: E=Sophos;i="5.93,299,1654585200"; 
-   d="scan'208";a="179519178"
+   d="scan'208";a="112686629"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Sep 2022 23:47:10 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Sep 2022 23:47:22 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 7 Sep 2022 23:47:09 -0700
+ 15.1.2507.12; Wed, 7 Sep 2022 23:47:19 -0700
 Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
  email.microchip.com (10.10.87.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12 via Frontend Transport; Wed, 7 Sep 2022 23:47:08 -0700
+ 15.1.2507.12 via Frontend Transport; Wed, 7 Sep 2022 23:47:19 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=U7Q7c6HimiwUQ2215V3pyk6U3ixQqA6A2ylgyCePB21JfiGgqFqnzzms6yrVPd5A3snxWZBJx8zi4cWdtg/8SzgHBiOpp0q3p14zDDI1XW82x1hq7H0otMDclZ/DG0T/0zUrCWZqEtQ37AfpNK4zXXErlsZ/aXFe8PrMEmNZtaTpgRDszu3VfvTzd8pX7w7seZvshg9FfILThXABrcY/j+Z+c0Pf6M43bktEinbi6np1bHToNK/ig3h0Nv5PbhH7VaRqUah27JAas237bJFyNFA09/Q5eQfqwzj2Rn9q2nPCzije/24MxZ9L/0vBmez+wECvXPfkLavOwOhV8ai28w==
+ b=fHaNwCvl71caK+e6jBRKlAhYqgHuBvu95ibHec+KHPKhz+XDRQqiUPl4dlyi/ftUM/jlRAPU5nFtY3d1pQIS6bfNypMROLcnRlVlV552847KiKZyPf0axrNWTVZETJiJYIe8KaTmTrN4rXsp5zgxqt7n/pejE8eMbHu3lZeTIrv4n2IEImHKzaYTohb6tjqlyNeCZ45dGiOH8XLSfJNbRzBlZ6scdeuKR77KIz0YdBnBhLEAhEL+L+EyXkVC+R6B7xehguhmmRU7rOSBlFTKqKIXlGGhTm2Ux6QFLi1391DSDD8GwyLkrPEkAJ2UP8A8VtGjD3ltquaOjM6rIK5YzQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZjqtsF450Qdg9iGW/mqEISK33RhzoHVIR8+aRiid/iE=;
- b=foSIx1PyWlHXIiDQy5jD/WWS2YdAPogHK9RTcRitIww/HHXRPB16AwUc4MTuvDyfjkAhZ7g1s4SfpraAdY+o4yOdhieHWdhaZXJd10/XVwPJUU6qDX4FAGBQ0b/BVTKnpOstVFdrdZoRqLnIOmyVmzKelfo62mh56CAQ5AmdYBEd1fIvKGbKAZPC2CwUW3d6dXeL9cyM7YOVOsupRsXtgJibRnGc7/cb5HNkUlwgEc/j90WILvyMPvRUHVGrq5McV2Y01vwTzOSQAzt8RJoa4FwjSVlDu6JLtYfqCQBvWFfQm8Qv2+NlJGgQBIXEumn5aidcN6apYae4Yfhk04XjmA==
+ bh=3gtdWlKVtU+pBjXCqs/RB53FB0EU+8jCwGkjP9t0PU8=;
+ b=RucY2+aTq0Qs8ZdD9j6rR6nCcmUtE6jB4O8//51VZsY0xxGsjzYtgk+6B/eY++d5SFMG6bpXVL3oNQIx2+Pnk2AntKZwgVVe+2eIeHchCOhQbaTXb/hzD9IRRP6IUia/vkj5F5uKoE4sb7V9XT2mVt1USCRUG7WSuPxvzqEKCjW4pC6x17jVtfhJPp0UkwpCRDnzo/L/SiETvhH0cQ96mpMgyIXOtJ0fPmMM2Pwb5uMNfH4KDyKXZjA5QFXIKNcAkEwCm/CRxJf7qk+m3Chg3tyIG7bsqY8R+0DcMtnGQZ5pBA01AWJedXWt/apku0DQk4qj0joW5GxPzt1TI9RJVw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -65,17 +65,17 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZjqtsF450Qdg9iGW/mqEISK33RhzoHVIR8+aRiid/iE=;
- b=O6DU3pUIjYW7scwFevmrG1t7xJ2H9FUO6n8wq3+nL5iW4TvMOZvbkORAqvQQMPqJJeza1fpP5WaRC/egJ/MHq8ZcO0dtQmvwi3sEogFAXkdpq7UsiJziwPzDAXIXuSIC5QQGVQVEBH9nO4yWg629C1Ltk885vi8bbd8N73gyWzk=
+ bh=3gtdWlKVtU+pBjXCqs/RB53FB0EU+8jCwGkjP9t0PU8=;
+ b=TuKj9t1jHkjcGRPRhCwR8+NiHqMknazxGdVt7EufxafW5d+FJRSRX/TqojX3J0e9zyq3a8Ot6oL4xBsbAZdMdc9FPUOqppdYrUTMIjZm8x4qh3/jONt6w89SiCafNL1T8FXtnOjP1baS9dp+PYbF0K+HRUPOXEapgNpbX9Mn5LQ=
 Received: from BN6PR11MB1953.namprd11.prod.outlook.com (2603:10b6:404:105::14)
  by PH7PR11MB5766.namprd11.prod.outlook.com (2603:10b6:510:130::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5588.17; Thu, 8 Sep
- 2022 06:47:04 +0000
+ 2022 06:47:14 +0000
 Received: from BN6PR11MB1953.namprd11.prod.outlook.com
  ([fe80::a159:97ec:24bc:6610]) by BN6PR11MB1953.namprd11.prod.outlook.com
  ([fe80::a159:97ec:24bc:6610%11]) with mapi id 15.20.5588.014; Thu, 8 Sep 2022
- 06:47:04 +0000
+ 06:47:14 +0000
 From: <Claudiu.Beznea@microchip.com>
 To: <Conor.Dooley@microchip.com>, <mturquette@baylibre.com>,
 	<sboyd@kernel.org>, <robh+dt@kernel.org>,
@@ -84,16 +84,16 @@ To: <Conor.Dooley@microchip.com>, <mturquette@baylibre.com>,
 CC: <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
 	<linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: Re: [PATCH v4 10/13] clk: microchip: mpfs: delete 2 line
- mpfs_clk_register_foo()
-Thread-Topic: [PATCH v4 10/13] clk: microchip: mpfs: delete 2 line
- mpfs_clk_register_foo()
-Thread-Index: AQHYw07OWw/as+GhH0+GX4/bCdS+hg==
-Date: Thu, 8 Sep 2022 06:47:04 +0000
-Message-ID: <ac348009-97bd-919c-3b1a-b12c4d7d5153@microchip.com>
+Subject: Re: [PATCH v4 11/13] clk: microchip: mpfs: convert cfg_clk to
+ clk_divider
+Thread-Topic: [PATCH v4 11/13] clk: microchip: mpfs: convert cfg_clk to
+ clk_divider
+Thread-Index: AQHYw07UZ0PbuV0vJUa1xA2NaCuUtw==
+Date: Thu, 8 Sep 2022 06:47:14 +0000
+Message-ID: <5719c8a9-1c15-fc66-7747-6e029a15b4c6@microchip.com>
 References: <20220830125110.2372514-1-conor.dooley@microchip.com>
- <20220830125249.2373416-10-conor.dooley@microchip.com>
-In-Reply-To: <20220830125249.2373416-10-conor.dooley@microchip.com>
+ <20220830125249.2373416-11-conor.dooley@microchip.com>
+In-Reply-To: <20220830125249.2373416-11-conor.dooley@microchip.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -103,66 +103,66 @@ user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=microchip.com;
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: edbd3699-bfb6-4280-67f6-08da9165f0e7
+x-ms-office365-filtering-correlation-id: 2618d600-a456-47cd-1ed3-08da9165f6e9
 x-ms-traffictypediagnostic: PH7PR11MB5766:EE_
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: in80HUn4Xwx9Gbag5MpHrxACBv0WQeH45vxemAH7GIkKOfo9mRzjTIfZnvFHjLMg4Oy0Oe2lpBG/C/IugPsc+jafvQkOg488YIX28wtgNJuXYsJsv0Zv8Mr1ciJjt7B3OKzq2S0blKVoMhi7feM/LAXVqt6La1QLLqp/bRkP5+J0d2kGYGo1S39ocgviT8u1/L128feJbvchLOvJh99dK9v9x9wqCCb0Mxlq+gYv8fpsKV8f26BtDmQNZ4/E14T4X2JoW0NscMIy3OJ9UHbxGV5+warKB43VY71wSvg/ENinlakFeDmH17KAKEsqd+nMITWHvRMfEuhyclr5hZhEgnUoPhSfgUsE/qEugSqyfd7TWXrEBR4P8VMxVzDsQzErFkD7/huVxvYGJ12vUIdpWZqcB/Y6KNqwP5DtT5p60MTCcptzqFSZO1zVnsEiwubM5/5bDzfUdE15HSv8rOR9X0k4J51vAzsO+EK7vJ9O006U+ezCsnYF/oi/saWQqAnwh8Hq5IINtmZBwk2MupUi3RKoYx8+pQpwK2nJI84ZsTaSUXERa/iDvtf1j/UVNJQN5F+DPbJIubCl4v3x/gkHuE3zE5c8yhsjYwbIadr3PLlqRrARUs9nJBomp9J7sOx0Du6a9/I9r8hQ45k535Qg/7u8qD4f8tAnVMuBXx0wZzfN+KZlKmaFC8NSJw+P3VATq5j+kFrZ2YaoMYwJobg5IDoJrKaxLt/nRiaq1mBhUpulfnl3FMZ04ZL+uOvE2x939NnNCHvnw5jJ4poLSUF5Mu50tdumLh8HR28dGrzhb2Ye2ZFe8TnvqhHIoFK9K4vW4lqlMpcgmMCrXArQn5+WEw==
+x-microsoft-antispam-message-info: Co233hQQrwv/YGB0736Ml3178KxlEkGJnbon3Ke3tAih+PY9Jy6St0y1CMnjmNxDrHNcOExr6uJRXeAFgLu/XYJVeci0jStuGbW9ZpOht1cEuE5nv5CWmdtccmHj8rJn5JnopzmRLsoHRCiMexGvHnUJEYF14bxHVLwZ4MVriv7cnNLy1YmZd+03dq45DwInPzr+2JE7DrElZKd7Cv5VaxTjZcYoJlPm5LLvK79U00Zuvva/16kLtwMQkEnaFjPwUIySts89QYvoDi137k71JtIlpRiDSPwsrXwn98Qd+N6MfqqyaQrOCf6tBZRsCcfa1Hc85bjFaClk/c4LH/hudPpNYCNz0RHVHzZZvL8MglugAG3J+EuTEMD0i0UmRIb/atdDrWSLaP7V35NXX+CdYXPm5c2wYkYmIiH8/hvzkx3XtF4MpQyTwXJbq+DIFgClRSiNYz9dEQ35APE8vPAiTheEy9V+DxXZJDumVmNtJCYfbrkPBKFywneJLwgK3SQwDiimx5A15dfLnZq3ySSW2+o4dZyziK6OfGwT9/370do0BjBOSmCjtaA38HX14GJjgV59l8gogxVDSAMl6Am7oZXcqg1mU9XqlB76dBcGDUw6nqsVqDQKC/GFVyHzM2oQ78sfdC7bguGJ7u6PlG5xKHTO3DY+IJqq/WdFeYN3UqmF0+0SELC0Vo5mO7tdxVt1cOHpLixojekMiuXS1/XtW6dFHUILxllrtV0iYB5U8K64tj9t3V+M1mrpem7j2cai1PA7gIwgXc0b2DT8NmWgjssqyyNiBpa+gXrAa7MibGvKL87JtQxTO7sNtufSx46WSHwgpyb1fanCZD6nnHX4Sg==
 x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN6PR11MB1953.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(136003)(366004)(39860400002)(396003)(376002)(346002)(66556008)(110136005)(316002)(2906002)(6636002)(83380400001)(6512007)(53546011)(6506007)(478600001)(54906003)(26005)(7416002)(5660300002)(38070700005)(31696002)(36756003)(86362001)(8936002)(66476007)(91956017)(66446008)(66946007)(64756008)(8676002)(31686004)(122000001)(4326008)(186003)(71200400001)(41300700001)(38100700002)(76116006)(2616005)(6486002)(45980500001)(43740500002);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Z21wZXZDdDFUL2ZpWnh3MkJDZzJnTDhWcVp1eEVlM04vSnpod283Q0FCbjRV?=
- =?utf-8?B?bXRvQWV3aVZ3bmQ3Ym1YNVRLdWpVdFEzTzFvRnVtOHVCSVlQcFZxOGNwVjBW?=
- =?utf-8?B?dnk4YXN5ZXhuTWN2ZFVkUVhlN3JVZ3Myd21sSXpDelcydXBldWd2L0hscnR0?=
- =?utf-8?B?RFZleFk3QVR1UVlKYUdxSzZwUGF2VTh6ZWwrUWFFcWRKWjdlbFF1ZjgyUU9p?=
- =?utf-8?B?VDN0SmpJaGlGZHBqM3NaeWlCUkYvRy9sYWFwbnM3endPeUpGMzV4TWh6aDdS?=
- =?utf-8?B?NGFqdWtvYmFyZzU1M0pmbVFsak5nQkFpZ1FpZEx6MTlYQTZldm94RGVZQ2J0?=
- =?utf-8?B?RExvSTNZZm8xb0pmVVhmVnZUTklsYzZMODZMc1A3bkR4MWN1YUwyODBYZksx?=
- =?utf-8?B?QW5CN0FVeWFXMHIraERCeFlsZTM4ZjNtT1lpUlIwY2xZcUMrNHlFdWFrK3Na?=
- =?utf-8?B?UjlUcVdSellNeWxOOGRWSmVvSHY4KzBSdjNkVi9odDJNUjA1dkJnNTJwS2Nn?=
- =?utf-8?B?eXZuVTd3VmkxOVFHQWptM2Z3TEY0blVoSkd3WjFhRTdjYXUzSlN2QWpEU014?=
- =?utf-8?B?Wmo4NksvWXk3NVd2ZWxvODQzSFJwaXNJWnhRdElNaTFCeWFXOWwwc21GSFFG?=
- =?utf-8?B?aW1uNEdMSXoxSXAra1hBd2M3eWVldFdwR3BYNzJCNm1nS3FrOFVoZ0lRRlZm?=
- =?utf-8?B?NXRnNU8wSnRPM3pWeDY2S1F6NmtKR2c0VW5WblAwaVI2OXJWMTRpbGZGMWlx?=
- =?utf-8?B?ZjZheTV5UkJHcUE1djh3eWJuNHhpN0pQbk5SbXczWFlCNDE3R0J1SzBTWUdE?=
- =?utf-8?B?ZSt0eStQYWE4ZnJ6ckpyZGNUQmt4V2tNZUhRazBmOS9TZVpLSWhNODQ2eUk4?=
- =?utf-8?B?elB6dUlLY1krUmc4T0hmSXNIV0J3eXBKd3NuZFBWNFJCYkJlZHpLL3RiTWU2?=
- =?utf-8?B?eHQ4WFViN1AxcWVEUnBXVGJCMkNuT0Y3L0Ntd0JaeEtWajNiQ0pjeTRDT243?=
- =?utf-8?B?Y2VlZGUyb1JiTmlESnZaS3BJWDhjd3VKOXZva3dXVWkycFhkYTFSQTBCZlEx?=
- =?utf-8?B?SDY0bUxvd0dkbHptNGhWT212QWlwYnVsZGdleFZ2VWdDNUZmRzdNN1pVZmJG?=
- =?utf-8?B?bSszTGcva3JGZUFZajU1NzRvcWJnY2s0T2dIQ1RaazJXbEFMcVg1bUIrYk1V?=
- =?utf-8?B?YjByN0dOa1YwMDZ5OVVKZzNseVA1SHd0eUNZdUZmRHExa1UzT1E4NFFGNmFk?=
- =?utf-8?B?QTlENlFzQTEvNC9ZbVpReGdJSzFXb3RhYlovZmpvVmdrdzJZQk9BMjZOdTVk?=
- =?utf-8?B?TklOSDdHQUtuNDQ0eUVuVmRsdlEyejFVVStxWWh0Q2JwaE1sWjE5SUlySkZB?=
- =?utf-8?B?ZHNnMVhYVTlYODJGMENob1VtVmQ0OCtoR2pXWTVXTEw5RkRDcUhkUVk3T3pL?=
- =?utf-8?B?bmVKeFREcnE3TFFOb2dRZVpRSUpnQUp1WU5QaS8wUml1ZW00bSt2WDVBbUlH?=
- =?utf-8?B?ZUJRYTBCaTJQVDFxY05jY2ZlRlFFRk1JMHk3VjVoQnFkUkZIclRHQ1JPaTNP?=
- =?utf-8?B?SU1NRVJBSlF5Y2p2cmtQVGFIa2xkU2JzVTZlSDQyWEFkcE5QZEdBOWk5QlZL?=
- =?utf-8?B?N1dvdGFJejlIUVFTQWNrOWRmNVVvek1UOXdWcmRlUEVzYlpzY2tCVFBVT0I3?=
- =?utf-8?B?ZnRRWDZYb1dWWkYzS2dFejN4RkZEODJ4b1JQRW43MkR0TkwyRWJmSlNYMWVB?=
- =?utf-8?B?RjhaK0xuMnhGcmFLUldsV0xCcEU0S0w5RUVvWU84S3VudXo2bVJMaG40M05Z?=
- =?utf-8?B?OWhZdDFvZVVMNUhSUFN4K0htbXU2TVU3Y29VLzN4OEtwQ2lCcCsxYkM5SWYy?=
- =?utf-8?B?R1dLY29VSXMycWhlK2o4dkZILy95cGNMYUx2YTVQN0xnRUdXK3I1NUo2T29o?=
- =?utf-8?B?VjFvQ1NTWlZCb2dnR0NqTFVSY0hoT0orcWs2MVpFTVE1WWJaZXlXR2hldlRy?=
- =?utf-8?B?djRaa0Rld1cvWGRod0dZZ0R2RTZvZXRHOFB2cFdwcmxVOXBKRWZqTHpJdFJM?=
- =?utf-8?B?UWdaSithWWdhcXJWTlg2M1o3c3RRbDRvSEJzY0p0VWNtRWhYc3ZWRXYvUWtR?=
- =?utf-8?B?TkNrcUZ0LzRZYUs0WVV3cnFPVTRDZ2x3dHBmTnFrNmJqVGxMYTBhcGZkaXRr?=
- =?utf-8?B?eVE9PQ==?=
-Content-ID: <37BDF25920C0A34AA2FA4804A32B752D@namprd11.prod.outlook.com>
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Q1lERjNIZXY4MFR0aWxiNWQrdWZ1Y09ibi9leWRPMW8vQyt2WkJTT1VPdWJN?=
+ =?utf-8?B?bkZpRXJqRW5RL0UrUE01NlNTNnRobFo0djlMbE1saktDL3k1ejdjZHBpRzVj?=
+ =?utf-8?B?Zk5JSmdMRGU2UTVxSDFBa1htR0pmNlpaeGFrY1hZMjRjS1JmS1prM3dYcm9L?=
+ =?utf-8?B?Tnh6L1FUVndxZVkzRFpvSGpOZ1NzV1BucUlBbU5WWVo4RThNWW1uTlVjY3RT?=
+ =?utf-8?B?S3NJbjhEUysxZkE0VzJDSDNyZUxkK2EyOHN3WEFQSGNZTDNwTTQzYkxKTWxr?=
+ =?utf-8?B?RFQvUW5HeTRUUTlDcjdIbkptd0s5ZkJ2NHEwekx4WXJpK3diazNQbXZwWXJ4?=
+ =?utf-8?B?OVZ4Z3VFV256R0FPTUJsdUhiUHpxcXBRUTExWGg0akpjdytKWTd2TVFHazVu?=
+ =?utf-8?B?Z0hvNzlBcTc4amtXMVpKOFVUcDIwdGZWeTl0bVFWd2dPLy9aTXJ6OHNvQUcv?=
+ =?utf-8?B?OFowdkFUMWlPUVBLY3NMRDNmWUdkWWppMzIzSm9JaXBPZThGMzNkNTVIZUxX?=
+ =?utf-8?B?Zi9mOEhaWm5mZkFNL2FSKzdMeXlHbUxURjZ4NjdXbU53d2ZqMEJMcXl2UGls?=
+ =?utf-8?B?VVN6bkZvWmZVVWs2ekpTK0JDZHlPb01yWnFFeUwzd2gvOWhwME1HNFRvc25B?=
+ =?utf-8?B?Z1dIcHdCQzFSZzEramlUZW55a3RxQ2MzYU5EencxbXlMZFZ0ZVlOUFUxcklm?=
+ =?utf-8?B?R3VmU0dNU0FhcUcyaUg5OC84cEgzYTFVUmtOdDVFc0cvbWF4SFgxdkk1WndV?=
+ =?utf-8?B?SCtwWWhJaGd1SDlnSy93dHFCOGEzWFBhYzdqSHlvakZ3ekxDcVIvdEl5OWUz?=
+ =?utf-8?B?Mk5FTVE0T3VtcFFGK3JsVkErNkUzUDFBQlkrZUQ1SjEzS0hHbzlUQldoWmFE?=
+ =?utf-8?B?YVVJZ0ZTMHhQWXhLWXZWMytxOFBMcW4wUHdTRjZMeEtjSHhHQUY2TUJybTJJ?=
+ =?utf-8?B?NUU2b3MvZjJKRUdVTDhDOXMxeVJSR3dIREhicFRLTUZvY2RobnRLT0JxVmVs?=
+ =?utf-8?B?Z1NDUVJPS05INHVraU83OXNsYVl0amdPS1hsQUV6ZzBSQnRlTjU0TUhVNGJX?=
+ =?utf-8?B?ZE9GL0U1VnJLRzBhZ2xrZnVSZ0RNbTdNM3dOY3NYQTI5WVFTOTV4ODRvUDNE?=
+ =?utf-8?B?ZHlHLzZQTGkvUlcxZk5KVE9JZEthQnY0RDF6UXBGdDNIR0R3eE42VGR5dWhq?=
+ =?utf-8?B?b00wUURKWUpFaVRsb3RGZEdUdGVla2IzMEgzRjEzNXk5VnE1bHlXcHR0cUZl?=
+ =?utf-8?B?MkZnUzJBOVpLNFdNSitWVEJ2b3ZVNmI3VWNpNWsyVkVlRHpacEhJcVBFdk1B?=
+ =?utf-8?B?dkMrYzlQMVhLeFQrTG1mdWpWREY3TVY3R3JyR2o5d1hFeHZTN2ltaXdORmUx?=
+ =?utf-8?B?Zk9hQlVZLzk3UlpGMkFMcG5TQlAvVkFPWGZ0b0tmZVROMlBFVEhvQXV2bHlR?=
+ =?utf-8?B?SkJPY0NIMG8xOXpXS09lVlB0Z1ZaUlMrbjNiNUZneGFaZFc0VEVrcnJCa1dn?=
+ =?utf-8?B?d0VnOFNEUS9Yajd3TGJpUCszNDlyNWNKbVVYTHRoS1hCc25CUnVDd0VEOXln?=
+ =?utf-8?B?cWhUbWtVKzVMalg3Yi9FYWVCdFFNSzZvSFZGNjlYREIvdkR0Q2tsMGd0eXlO?=
+ =?utf-8?B?MDZKOGpFQnBzYWJwVktZRHBXajJNMlpLaEpkVy81dmN2WWE4MlhVV3J0bnhK?=
+ =?utf-8?B?Q0FURktNKzNndWFFT3UreXF1azdxc0ltMTk3Qm9QbXVLOVpIcGU1aVRoTDNI?=
+ =?utf-8?B?QUJveW9maHVmTGh3UkVCYjlEUWlMZnpSa2grODRmUC8xUkRHd0R3TzdudHlO?=
+ =?utf-8?B?STlwL1NmRmNtZG5WRnpvd2pzT2tYdDNzVmdTenc5c0FscnNZSG94SDFYM1ZZ?=
+ =?utf-8?B?UGd1K25kbXJjSXRYdzhEcnduUE9CNktCcnN5TEZlY1BXR010MS8rdkg2SUpx?=
+ =?utf-8?B?YWt1MXJ5U0ZlS2pKWm5XNVgzay9yQ3NhU0YreUF0czZIeTRQWjBLZmVhc3JB?=
+ =?utf-8?B?YUFyTUVQMitWZFJIMU9JcDVTbnpVakl2RnBFZTFEZ2pjUkg2RTUyYVIxTHdJ?=
+ =?utf-8?B?QU81SW5TS0xML1JmNUNzVGFTRUs4bmJrcmRhNU9QVmlzcEVyMlJpd0FlR0FI?=
+ =?utf-8?B?UUY0dmJ0NUt3SEVObWVCUTduRzFWUzUxcDBHRVhKSXFibEo3Z3U4dno4ckhs?=
+ =?utf-8?B?Unc9PQ==?=
+Content-ID: <3B2B9130C7066046B2255BEB81FC0229@namprd11.prod.outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: BN6PR11MB1953.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: edbd3699-bfb6-4280-67f6-08da9165f0e7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Sep 2022 06:47:04.5299
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2618d600-a456-47cd-1ed3-08da9165f6e9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Sep 2022 06:47:14.6075
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: qjdGMbBlE+k7yI/jJMf+wuTob01Od/m/Wuk5pqCGqGgBFDqz28OsXAaiVWrJJTBJoQ4hqcWg85ofedMAhujKM40j0k7H4vNwiTEdA2p3WTY=
+X-MS-Exchange-CrossTenant-userprincipalname: Kq8Lj0s7Xr63EBApSo5nVp0mh/Tm3p5wyiumF3N6NtbocglHL+wn008qCSpPuK/sKr3EvumIAwGzwMkgqqP/mGp5HrwtLcrZkeztvSrDy9Y=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB5766
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220907_234710_097667_F27C65A2 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20220907_234726_048423_67C8904B 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,8 +180,9 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 30.08.2022 15:52, Conor Dooley wrote:
-> The register functions are now comprised of only a single operation
-> each and no longer add anything to the driver. Delete them.
+> The cfg_clk struct is now just a redefinition of the clk_divider struct
+> with custom implentations of the ops, that implement an extra level of
+> redirection. Remove the custom struct and replace it with clk_divider.
 > 
 > Reviewed-by: Daire McNamara <daire.mcnamara@microchip.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
@@ -190,88 +191,151 @@ Reviewed-by: Claudiu Beznea <claudiu.beznea@microchip.com>
 
 
 > ---
->  drivers/clk/microchip/clk-mpfs.c | 33 ++++++--------------------------
->  1 file changed, 6 insertions(+), 27 deletions(-)
+>  drivers/clk/microchip/clk-mpfs.c | 78 ++++----------------------------
+>  1 file changed, 9 insertions(+), 69 deletions(-)
 > 
 > diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
-> index 60e1e82912fe..538cb589d232 100644
+> index 538cb589d232..88a200e88e54 100644
 > --- a/drivers/clk/microchip/clk-mpfs.c
 > +++ b/drivers/clk/microchip/clk-mpfs.c
-> @@ -203,14 +203,6 @@ static struct mpfs_msspll_hw_clock mpfs_msspll_clks[] = {
->  		MSSPLL_FBDIV_WIDTH, 0, REG_MSSPLL_SSCG_2_CR),
+> @@ -51,24 +51,13 @@ struct mpfs_msspll_hw_clock {
+>  
+>  #define to_mpfs_msspll_clk(_hw) container_of(_hw, struct mpfs_msspll_hw_clock, hw)
+>  
+> -struct mpfs_cfg_clock {
+> -	void __iomem *reg;
+> -	const struct clk_div_table *table;
+> -	u8 shift;
+> -	u8 width;
+> -	u8 flags;
+> -};
+> -
+>  struct mpfs_cfg_hw_clock {
+> -	struct mpfs_cfg_clock cfg;
+> -	struct clk_hw hw;
+> +	struct clk_divider cfg;
+>  	struct clk_init_data init;
+>  	unsigned int id;
+>  	u32 reg_offset;
 >  };
 >  
-> -static int mpfs_clk_register_msspll(struct device *dev, struct mpfs_msspll_hw_clock *msspll_hw,
-> -				    void __iomem *base)
-> -{
-> -	msspll_hw->base = base;
+> -#define to_mpfs_cfg_clk(_hw) container_of(_hw, struct mpfs_cfg_hw_clock, hw)
 > -
-> -	return devm_clk_hw_register(dev, &msspll_hw->hw);
+>  struct mpfs_periph_clock {
+>  	void __iomem *reg;
+>  	u8 shift;
+> @@ -228,56 +217,6 @@ static int mpfs_clk_register_mssplls(struct device *dev, struct mpfs_msspll_hw_c
+>   * "CFG" clocks
+>   */
+>  
+> -static unsigned long mpfs_cfg_clk_recalc_rate(struct clk_hw *hw, unsigned long prate)
+> -{
+> -	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
+> -	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
+> -	u32 val;
+> -
+> -	val = readl_relaxed(cfg->reg) >> cfg->shift;
+> -	val &= clk_div_mask(cfg->width);
+> -
+> -	return divider_recalc_rate(hw, prate, val, cfg->table, cfg->flags, cfg->width);
 > -}
 > -
->  static int mpfs_clk_register_mssplls(struct device *dev, struct mpfs_msspll_hw_clock *msspll_hws,
->  				     unsigned int num_clks, struct mpfs_clock_data *data)
->  {
-> @@ -220,7 +212,8 @@ static int mpfs_clk_register_mssplls(struct device *dev, struct mpfs_msspll_hw_c
->  	for (i = 0; i < num_clks; i++) {
->  		struct mpfs_msspll_hw_clock *msspll_hw = &msspll_hws[i];
+> -static long mpfs_cfg_clk_round_rate(struct clk_hw *hw, unsigned long rate, unsigned long *prate)
+> -{
+> -	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
+> -	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
+> -
+> -	return divider_round_rate(hw, rate, prate, cfg->table, cfg->width, 0);
+> -}
+> -
+> -static int mpfs_cfg_clk_set_rate(struct clk_hw *hw, unsigned long rate, unsigned long prate)
+> -{
+> -	struct mpfs_cfg_hw_clock *cfg_hw = to_mpfs_cfg_clk(hw);
+> -	struct mpfs_cfg_clock *cfg = &cfg_hw->cfg;
+> -	unsigned long flags;
+> -	u32 val;
+> -	int divider_setting;
+> -
+> -	divider_setting = divider_get_val(rate, prate, cfg->table, cfg->width, 0);
+> -
+> -	if (divider_setting < 0)
+> -		return divider_setting;
+> -
+> -	spin_lock_irqsave(&mpfs_clk_lock, flags);
+> -	val = readl_relaxed(cfg->reg);
+> -	val &= ~(clk_div_mask(cfg->width) << cfg_hw->cfg.shift);
+> -	val |= divider_setting << cfg->shift;
+> -	writel_relaxed(val, cfg->reg);
+> -
+> -	spin_unlock_irqrestore(&mpfs_clk_lock, flags);
+> -
+> -	return 0;
+> -}
+> -
+> -static const struct clk_ops mpfs_clk_cfg_ops = {
+> -	.recalc_rate = mpfs_cfg_clk_recalc_rate,
+> -	.round_rate = mpfs_cfg_clk_round_rate,
+> -	.set_rate = mpfs_cfg_clk_set_rate,
+> -};
+> -
+>  #define CLK_CFG(_id, _name, _parent, _shift, _width, _table, _flags, _offset) {		\
+>  	.id = _id,									\
+>  	.cfg.shift = _shift,								\
+> @@ -285,7 +224,8 @@ static const struct clk_ops mpfs_clk_cfg_ops = {
+>  	.cfg.table = _table,								\
+>  	.reg_offset = _offset,								\
+>  	.cfg.flags = _flags,								\
+> -	.hw.init = CLK_HW_INIT(_name, _parent, &mpfs_clk_cfg_ops, 0),			\
+> +	.cfg.hw.init = CLK_HW_INIT(_name, _parent, &clk_divider_ops, 0),		\
+> +	.cfg.lock = &mpfs_clk_lock,							\
+>  }
 >  
-> -		ret = mpfs_clk_register_msspll(dev, msspll_hw, data->msspll_base);
-> +		msspll_hw->base = data->msspll_base;
-> +		ret = devm_clk_hw_register(dev, &msspll_hw->hw);
->  		if (ret)
->  			return dev_err_probe(dev, ret, "failed to register msspll id: %d\n",
->  					     CLK_MSSPLL);
-> @@ -314,14 +307,6 @@ static struct mpfs_cfg_hw_clock mpfs_cfg_clks[] = {
+>  static struct mpfs_cfg_hw_clock mpfs_cfg_clks[] = {
+> @@ -302,8 +242,8 @@ static struct mpfs_cfg_hw_clock mpfs_cfg_clks[] = {
+>  		.cfg.table = mpfs_div_rtcref_table,
+>  		.reg_offset = REG_RTC_CLOCK_CR,
+>  		.cfg.flags = CLK_DIVIDER_ONE_BASED,
+> -		.hw.init =
+> -			CLK_HW_INIT_PARENTS_DATA("clk_rtcref", mpfs_ext_ref, &mpfs_clk_cfg_ops, 0),
+> +		.cfg.hw.init =
+> +			CLK_HW_INIT_PARENTS_DATA("clk_rtcref", mpfs_ext_ref, &clk_divider_ops, 0),
 >  	}
 >  };
 >  
-> -static int mpfs_clk_register_cfg(struct device *dev, struct mpfs_cfg_hw_clock *cfg_hw,
-> -				 void __iomem *base)
-> -{
-> -	cfg_hw->cfg.reg = base + cfg_hw->reg_offset;
-> -
-> -	return devm_clk_hw_register(dev, &cfg_hw->hw);
-> -}
-> -
->  static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *cfg_hws,
->  				  unsigned int num_clks, struct mpfs_clock_data *data)
->  {
-> @@ -331,7 +316,8 @@ static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *
->  	for (i = 0; i < num_clks; i++) {
+> @@ -317,13 +257,13 @@ static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *
 >  		struct mpfs_cfg_hw_clock *cfg_hw = &cfg_hws[i];
 >  
-> -		ret = mpfs_clk_register_cfg(dev, cfg_hw, data->base);
-> +		cfg_hw->cfg.reg = data->base + cfg_hw->reg_offset;
-> +		ret = devm_clk_hw_register(dev, &cfg_hw->hw);
+>  		cfg_hw->cfg.reg = data->base + cfg_hw->reg_offset;
+> -		ret = devm_clk_hw_register(dev, &cfg_hw->hw);
+> +		ret = devm_clk_hw_register(dev, &cfg_hw->cfg.hw);
 >  		if (ret)
 >  			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
 >  					     cfg_hw->id);
-> @@ -454,14 +440,6 @@ static struct mpfs_periph_hw_clock mpfs_periph_clks[] = {
->  	CLK_PERIPH(CLK_CFM, "clk_periph_cfm", PARENT_CLK(AHB), 29, 0),
->  };
 >  
-> -static int mpfs_clk_register_periph(struct device *dev, struct mpfs_periph_hw_clock *periph_hw,
-> -				    void __iomem *base)
-> -{
-> -	periph_hw->periph.reg = base + REG_SUBBLK_CLOCK_CR;
-> -
-> -	return devm_clk_hw_register(dev, &periph_hw->hw);
-> -}
-> -
->  static int mpfs_clk_register_periphs(struct device *dev, struct mpfs_periph_hw_clock *periph_hws,
->  				     int num_clks, struct mpfs_clock_data *data)
->  {
-> @@ -471,7 +449,8 @@ static int mpfs_clk_register_periphs(struct device *dev, struct mpfs_periph_hw_c
->  	for (i = 0; i < num_clks; i++) {
->  		struct mpfs_periph_hw_clock *periph_hw = &periph_hws[i];
+>  		id = cfg_hw->id;
+> -		data->hw_data.hws[id] = &cfg_hw->hw;
+> +		data->hw_data.hws[id] = &cfg_hw->cfg.hw;
+>  	}
 >  
-> -		ret = mpfs_clk_register_periph(dev, periph_hw, data->base);
-> +		periph_hw->periph.reg = data->base + REG_SUBBLK_CLOCK_CR;
-> +		ret = devm_clk_hw_register(dev, &periph_hw->hw);
->  		if (ret)
->  			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
->  					     periph_hw->id);
+>  	return 0;
+> @@ -393,7 +333,7 @@ static const struct clk_ops mpfs_periph_clk_ops = {
+>  				  _flags),					\
+>  }
+>  
+> -#define PARENT_CLK(PARENT) (&mpfs_cfg_clks[CLK_##PARENT].hw)
+> +#define PARENT_CLK(PARENT) (&mpfs_cfg_clks[CLK_##PARENT].cfg.hw)
+>  
+>  /*
+>   * Critical clocks:
+> @@ -413,7 +353,7 @@ static struct mpfs_periph_hw_clock mpfs_periph_clks[] = {
+>  	CLK_PERIPH(CLK_MAC1, "clk_periph_mac1", PARENT_CLK(AHB), 2, 0),
+>  	CLK_PERIPH(CLK_MMC, "clk_periph_mmc", PARENT_CLK(AHB), 3, 0),
+>  	CLK_PERIPH(CLK_TIMER, "clk_periph_timer",
+> -		   &mpfs_cfg_clks[CLK_RTCREF - RTCREF_OFFSET].hw, 4, 0),
+> +		   &mpfs_cfg_clks[CLK_RTCREF - RTCREF_OFFSET].cfg.hw, 4, 0),
+>  	CLK_PERIPH(CLK_MMUART0, "clk_periph_mmuart0", PARENT_CLK(AHB), 5, CLK_IS_CRITICAL),
+>  	CLK_PERIPH(CLK_MMUART1, "clk_periph_mmuart1", PARENT_CLK(AHB), 6, 0),
+>  	CLK_PERIPH(CLK_MMUART2, "clk_periph_mmuart2", PARENT_CLK(AHB), 7, 0),
 
 _______________________________________________
 linux-riscv mailing list
