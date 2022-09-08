@@ -4,59 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ACCFC54EE9
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 15:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD40C6FA86
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 15:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rKEPDLeE/9AZuRV43UEfy46MsO0yAFF1EF1v3o9jQFA=; b=n9lnHaqZeyE9dm
-	0e8BZomFT7OcputQg+t9q3mStY5jZIfO4x6BvbefcKsgeOw26EqQ0mzbGJqXCyrkIyDeB3C3cqdwU
-	1R11k7ARdQ77N63gg8AujfHCSNlNQv+2nMyIP0Aey8GRHGgTE3rlKBzjKmZDtzXV3oB5iaXa1PUns
-	52iR8TdrwUmOiS+Bo8jPNXXA9ldRcwdLQ0L3Vk7380tVsO/PRopA13i80iPMA43vwBjdCurbKWS16
-	VG5w6wxnjL9+szKwS4FCPrJ7tluFl1Fu2/ir1HvNmCfCWDFObhaUkyYvW2Cuk1UK+g+TI0LUC+q9/
-	A1GhGqOuubslGrmGyyJQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XAQpF6PYkmI08tcsUfzYtxvRMZhRyHZLwWmv8r+kumM=; b=fs2owUUHEo+nNA
+	BuELG6Uh0dskcunsAAOTgPSSP8zXCIUtM3DxaaRhdD46ZOM1ocYLLImKb5vI9n2dpIyxfn/VKcWH7
+	mlnPaNmDVSutFINx4cldlpgL0If6CZvWvC1sQFg2KNXMQlDjaI75NSVpY/kBcfXs7yRaczp6kZqNa
+	StjMNzqCpZeiUZtgk2LqFPz0XJzYURHmDuNWPYwKGS39HUCDfOetQzExCwpcQ34TQlT8gb/LMfRlN
+	jwIpC1VARfQQWU2nRPC7S1HFxd5fvs8sCzvvMutiuu0bGdLiI6jLEFD6FeHgQQ/hCXSnTS7HC9XlE
+	FtFZxBAG1z6EYd1K/Cuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWJSG-005CnI-RC; Thu, 08 Sep 2022 15:28:37 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1oWJq7-005R9D-3Q; Thu, 08 Sep 2022 15:53:15 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWJDv-0056CJ-RG
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 15:13:50 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 16C99CE1F91;
-	Thu,  8 Sep 2022 15:13:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF541C433C1;
-	Thu,  8 Sep 2022 15:13:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1662650020;
-	bh=+dMQIFu4jwN7+1Pm5MUc2HmC+QhaEBeuiN3tG7+C0rg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=CrLtnknTkb35ZsrOfTPPw+aOQ/nuwKBFV9ZTn2VswZYMOgitjj6mYdStweZeCvLqN
-	 iyhGlY4e/Ng3De0AW3Y7ylIBLAmEhLNWU7qgkGwVbSAPC6Az+FuGNABSj7/jmjFaiY
-	 ncQjgH2I3YVCRUJGVy+ziCAee9svQx2TvbnE82WANuU33WgS+uFdT1fw939Vk9fypT
-	 iZVg73fi9zZTfaw/AryHjoG/Q+54f0UwwmannvHIaw0//EOENdGeoWmVo+gqCeg8qw
-	 Rss6FOtATKPmVOzT86/uh5/memug/Wz37sCj2JdAI4nBzT9xeIl6ckhtibkC0VupV3
-	 RhtPWiO6P2aww==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Guo Ren <guoren@kernel.org>
-Cc: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] riscv: vdso: fix NULL deference in vdso_join_timens() when vfork
-Date: Thu,  8 Sep 2022 23:04:21 +0800
-Message-Id: <20220908150421.323-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	id 1oWJmo-005P67-KW; Thu, 08 Sep 2022 15:49:54 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1oWJmj-0006hF-KI; Thu, 08 Sep 2022 17:49:45 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: linux-riscv@lists.infradead.org, kvm-riscv@lists.infradead.org, Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-kernel@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, anup@brainfault.org, mchitale@ventanamicro.com
+Subject: Re: [PATCH v2 2/4] riscv: Introduce support for defining instructions
+Date: Thu, 08 Sep 2022 17:49:44 +0200
+Message-ID: <3006889.o7ts2hSHzF@diego>
+In-Reply-To: <20220831172500.752195-3-ajones@ventanamicro.com>
+References: <20220831172500.752195-1-ajones@ventanamicro.com> <20220831172500.752195-3-ajones@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_081348_273241_E284D3CC 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20220908_084950_735903_A3A40F74 
+X-CRM114-Status: GOOD (  24.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,331 +57,153 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Testing tools/testing/selftests/timens/vfork_exec.c got below
-kernel log:
+Am Mittwoch, 31. August 2022, 19:24:58 CEST schrieb Andrew Jones:
+> When compiling with toolchains that haven't yet been taught about
+> new instructions we need to encode them ourselves. Create a new file
+> where support for instruction definitions will evolve. We initiate
+> the file with a macro called INSN_R(), which implements the R-type
+> instruction encoding. INSN_R() will use the assembler's .insn
+> directive when available, which should give the assembler a chance
+> to do some validation. When .insn is not available we fall back to
+> manual encoding.
+> 
+> Not only should using instruction encoding macros improve readability
+> and maintainability of code over the alternative of inserting
+> instructions directly (e.g. '.word 0xc0de'), but we should also gain
+> potential for more optimized code after compilation because the
+> compiler will have control over the input and output registers used.
+> 
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> Reviewed-by: Anup Patel <anup@brainfault.org>
+> ---
+>  arch/riscv/Kconfig                |  3 ++
+>  arch/riscv/include/asm/insn-def.h | 86 +++++++++++++++++++++++++++++++
+>  2 files changed, 89 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/insn-def.h
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index ed66c31e4655..f8f3b316b838 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -227,6 +227,9 @@ config RISCV_DMA_NONCOHERENT
+>  	select ARCH_HAS_SETUP_DMA_OPS
+>  	select DMA_DIRECT_REMAP
+>  
+> +config AS_HAS_INSN
+> +	def_bool $(as-instr,.insn r 51$(comma) 0$(comma) 0$(comma) t0$(comma) t0$(comma) zero)
+> +
+>  source "arch/riscv/Kconfig.socs"
+>  source "arch/riscv/Kconfig.erratas"
+>  
+> diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
+> new file mode 100644
+> index 000000000000..2dcd1d4781bf
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/insn-def.h
+> @@ -0,0 +1,86 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +
+> +#ifndef __ASM_INSN_DEF_H
+> +#define __ASM_INSN_DEF_H
+> +
+> +#include <asm/asm.h>
+> +
+> +#define INSN_R_FUNC7_SHIFT		25
+> +#define INSN_R_RS2_SHIFT		20
+> +#define INSN_R_RS1_SHIFT		15
+> +#define INSN_R_FUNC3_SHIFT		12
+> +#define INSN_R_RD_SHIFT			 7
+> +#define INSN_R_OPCODE_SHIFT		 0
+> +
+> +#ifdef __ASSEMBLY__
+> +
+> +#ifdef CONFIG_AS_HAS_INSN
+> +
+> +	.macro insn_r, opcode, func3, func7, rd, rs1, rs2
+> +	.insn	r \opcode, \func3, \func7, \rd, \rs1, \rs2
+> +	.endm
+> +
+> +#else
+> +
+> +#include <asm/gpr-num.h>
+> +
+> +	.macro insn_r, opcode, func3, func7, rd, rs1, rs2
+> +	.4byte	((\opcode << INSN_R_OPCODE_SHIFT) |		\
+> +		 (\func3 << INSN_R_FUNC3_SHIFT) |		\
+> +		 (\func7 << INSN_R_FUNC7_SHIFT) |		\
+> +		 (.L__gpr_num_\rd << INSN_R_RD_SHIFT) |		\
+> +		 (.L__gpr_num_\rs1 << INSN_R_RS1_SHIFT) |	\
+> +		 (.L__gpr_num_\rs2 << INSN_R_RS2_SHIFT))
+> +	.endm
+> +
+> +#endif
+> +
+> +#define INSN_R(...)	insn_r __VA_ARGS__
+> +
+> +#else /* ! __ASSEMBLY__ */
+> +
+> +#ifdef CONFIG_AS_HAS_INSN
+> +
+> +#define INSN_R(opcode, func3, func7, rd, rs1, rs2)	\
+> +	".insn	r " opcode ", " func3 ", " func7 ", " rd ", " rs1 ", " rs2 "\n"
+> +
+> +#else
+> +
+> +#include <linux/stringify.h>
+> +#include <asm/gpr-num.h>
+> +
+> +#define DEFINE_INSN_R							\
+> +	__DEFINE_ASM_GPR_NUMS						\
+> +"	.macro insn_r, opcode, func3, func7, rd, rs1, rs2\n"		\
+> +"	.4byte	((\\opcode << " __stringify(INSN_R_OPCODE_SHIFT) ") |"	\
+> +"		 (\\func3 << " __stringify(INSN_R_FUNC3_SHIFT) ") |"	\
+> +"		 (\\func7 << " __stringify(INSN_R_FUNC7_SHIFT) ") |"	\
+> +"		 (.L__gpr_num_\\rd << " __stringify(INSN_R_RD_SHIFT) ") |"    \
+> +"		 (.L__gpr_num_\\rs1 << " __stringify(INSN_R_RS1_SHIFT) ") |"  \
+> +"		 (.L__gpr_num_\\rs2 << " __stringify(INSN_R_RS2_SHIFT) "))\n" \
+> +"	.endm\n"
+> +
+> +#define UNDEFINE_INSN_R							\
+> +"	.purgem insn_r\n"
+> +
+> +#define INSN_R(opcode, func3, func7, rd, rs1, rs2)			\
+> +	DEFINE_INSN_R							\
+> +	"insn_r " opcode ", " func3 ", " func7 ", " rd ", " rs1 ", " rs2 "\n" \
+> +	UNDEFINE_INSN_R
+> +
+> +#endif
+> +
+> +#endif /* ! __ASSEMBLY__ */
+> +
+> +#define OPCODE(v)	__ASM_STR(v)
+> +#define FUNC3(v)	__ASM_STR(v)
+> +#define FUNC7(v)	__ASM_STR(v)
+> +#define RD(v)		__ASM_STR(v)
+> +#define RS1(v)		__ASM_STR(v)
+> +#define RS2(v)		__ASM_STR(v)
 
-[    6.838454] Unable to handle kernel access to user memory without uaccess routines at virtual address 0000000000000020
-[    6.842255] Oops [#1]
-[    6.842871] Modules linked in:
-[    6.844249] CPU: 1 PID: 64 Comm: vfork_exec Not tainted 6.0.0-rc3-rt15+ #8
-[    6.845861] Hardware name: riscv-virtio,qemu (DT)
-[    6.848009] epc : vdso_join_timens+0xd2/0x110
-[    6.850097]  ra : vdso_join_timens+0xd2/0x110
-[    6.851164] epc : ffffffff8000635c ra : ffffffff8000635c sp : ff6000000181fbf0
-[    6.852562]  gp : ffffffff80cff648 tp : ff60000000fdb700 t0 : 3030303030303030
-[    6.853852]  t1 : 0000000000000030 t2 : 3030303030303030 s0 : ff6000000181fc40
-[    6.854984]  s1 : ff60000001e6c000 a0 : 0000000000000010 a1 : ffffffff8005654c
-[    6.856221]  a2 : 00000000ffffefff a3 : 0000000000000000 a4 : 0000000000000000
-[    6.858114]  a5 : 0000000000000000 a6 : 0000000000000008 a7 : 0000000000000038
-[    6.859484]  s2 : ff60000001e6c068 s3 : ff6000000108abb0 s4 : 0000000000000000
-[    6.860751]  s5 : 0000000000001000 s6 : ffffffff8089dc40 s7 : ffffffff8089dc38
-[    6.862029]  s8 : ffffffff8089dc30 s9 : ff60000000fdbe38 s10: 000000000000005e
-[    6.863304]  s11: ffffffff80cc3510 t3 : ffffffff80d1112f t4 : ffffffff80d1112f
-[    6.864565]  t5 : ffffffff80d11130 t6 : ff6000000181fa00
-[    6.865561] status: 0000000000000120 badaddr: 0000000000000020 cause: 000000000000000d
-[    6.868046] [<ffffffff8008dc94>] timens_commit+0x38/0x11a
-[    6.869089] [<ffffffff8008dde8>] timens_on_fork+0x72/0xb4
-[    6.870055] [<ffffffff80190096>] begin_new_exec+0x3c6/0x9f0
-[    6.871231] [<ffffffff801d826c>] load_elf_binary+0x628/0x1214
-[    6.872304] [<ffffffff8018ee7a>] bprm_execve+0x1f2/0x4e4
-[    6.873243] [<ffffffff8018f90c>] do_execveat_common+0x16e/0x1ee
-[    6.874258] [<ffffffff8018f9c8>] sys_execve+0x3c/0x48
-[    6.875162] [<ffffffff80003556>] ret_from_syscall+0x0/0x2
-[    6.877484] ---[ end trace 0000000000000000 ]---
+you might want some sort of prefix here
+	RISCV_RS1(v) ?
 
-This is because the mm->context.vdso_info is NULL in vfork case. From
-another side, mm->context.vdso_info either points to vdso info
-for RV64 or vdso info for compat, there's no need to bloat riscv's
-mm_context_t, we can handle the difference when setup the additional
-page for vdso.
+While trying to adapt this for the cmo stuff I ran into the issue
+of bpf complaining that "IMM" is already defined there.
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-Fixes: 3092eb456375 ("riscv: compat: vdso: Add setup additional pages implementation")
----
+And names above are generic enough that these also
+might conflict with other stuff.
 
-since v1:
- - add "Fixes" tag
- - fix build error when CONFIG_COMPAT is enabled.
 
- arch/riscv/include/asm/mmu.h |   1 -
- arch/riscv/kernel/vdso.c     | 178 +++++++++++++++++++----------------
- 2 files changed, 95 insertions(+), 84 deletions(-)
 
-diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-index cedcf8ea3c76..0099dc116168 100644
---- a/arch/riscv/include/asm/mmu.h
-+++ b/arch/riscv/include/asm/mmu.h
-@@ -16,7 +16,6 @@ typedef struct {
- 	atomic_long_t id;
- #endif
- 	void *vdso;
--	void *vdso_info;
- #ifdef CONFIG_SMP
- 	/* A local icache flush is needed before user execution can resume. */
- 	cpumask_t icache_stale_mask;
-diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-index 69b05b6c181b..8ca3b821e1b5 100644
---- a/arch/riscv/kernel/vdso.c
-+++ b/arch/riscv/kernel/vdso.c
-@@ -27,6 +27,11 @@ extern char vdso_start[], vdso_end[];
- extern char compat_vdso_start[], compat_vdso_end[];
- #endif
- 
-+enum vdso_abi {
-+	VDSO_ABI_RV64,
-+	VDSO_ABI_RV32,
-+};
-+
- enum vvar_pages {
- 	VVAR_DATA_PAGE_OFFSET,
- 	VVAR_TIMENS_PAGE_OFFSET,
-@@ -68,67 +73,7 @@ static int vdso_mremap(const struct vm_special_mapping *sm,
- 	return 0;
- }
- 
--static void __init __vdso_init(struct __vdso_info *vdso_info)
--{
--	unsigned int i;
--	struct page **vdso_pagelist;
--	unsigned long pfn;
--
--	if (memcmp(vdso_info->vdso_code_start, "\177ELF", 4))
--		panic("vDSO is not a valid ELF object!\n");
--
--	vdso_info->vdso_pages = (
--		vdso_info->vdso_code_end -
--		vdso_info->vdso_code_start) >>
--		PAGE_SHIFT;
--
--	vdso_pagelist = kcalloc(vdso_info->vdso_pages,
--				sizeof(struct page *),
--				GFP_KERNEL);
--	if (vdso_pagelist == NULL)
--		panic("vDSO kcalloc failed!\n");
--
--	/* Grab the vDSO code pages. */
--	pfn = sym_to_pfn(vdso_info->vdso_code_start);
--
--	for (i = 0; i < vdso_info->vdso_pages; i++)
--		vdso_pagelist[i] = pfn_to_page(pfn + i);
--
--	vdso_info->cm->pages = vdso_pagelist;
--}
--
- #ifdef CONFIG_TIME_NS
--struct vdso_data *arch_get_vdso_data(void *vvar_page)
--{
--	return (struct vdso_data *)(vvar_page);
--}
--
--/*
-- * The vvar mapping contains data for a specific time namespace, so when a task
-- * changes namespace we must unmap its vvar data for the old namespace.
-- * Subsequent faults will map in data for the new namespace.
-- *
-- * For more details see timens_setup_vdso_data().
-- */
--int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
--{
--	struct mm_struct *mm = task->mm;
--	struct vm_area_struct *vma;
--	struct __vdso_info *vdso_info = mm->context.vdso_info;
--
--	mmap_read_lock(mm);
--
--	for (vma = mm->mmap; vma; vma = vma->vm_next) {
--		unsigned long size = vma->vm_end - vma->vm_start;
--
--		if (vma_is_special_mapping(vma, vdso_info->dm))
--			zap_page_range(vma, vma->vm_start, size);
--	}
--
--	mmap_read_unlock(mm);
--	return 0;
--}
--
- static struct page *find_timens_vvar_page(struct vm_area_struct *vma)
- {
- 	if (likely(vma->vm_mm == current->mm))
-@@ -197,13 +142,6 @@ static struct vm_special_mapping rv_vdso_maps[] __ro_after_init = {
- 	},
- };
- 
--static struct __vdso_info vdso_info __ro_after_init = {
--	.name = "vdso",
--	.vdso_code_start = vdso_start,
--	.vdso_code_end = vdso_end,
--	.dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
--	.cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
--};
- 
- #ifdef CONFIG_COMPAT
- static struct vm_special_mapping rv_compat_vdso_maps[] __ro_after_init = {
-@@ -216,21 +154,97 @@ static struct vm_special_mapping rv_compat_vdso_maps[] __ro_after_init = {
- 		.mremap = vdso_mremap,
- 	},
- };
-+#endif
- 
--static struct __vdso_info compat_vdso_info __ro_after_init = {
--	.name = "compat_vdso",
--	.vdso_code_start = compat_vdso_start,
--	.vdso_code_end = compat_vdso_end,
--	.dm = &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
--	.cm = &rv_compat_vdso_maps[RV_VDSO_MAP_VDSO],
-+static struct __vdso_info vdso_info[] __ro_after_init = {
-+	[VDSO_ABI_RV64] = {
-+		.name = "vdso",
-+		.vdso_code_start = vdso_start,
-+		.vdso_code_end = vdso_end,
-+		.dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
-+		.cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
-+	},
-+#ifdef CONFIG_COMPAT
-+	[VDSO_ABI_RV32] = {
-+		.name = "compat_vdso",
-+		.vdso_code_start = compat_vdso_start,
-+		.vdso_code_end = compat_vdso_end,
-+		.dm = &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
-+		.cm = &rv_compat_vdso_maps[RV_VDSO_MAP_VDSO],
-+	},
-+#endif
- };
-+
-+static void __init __vdso_init(enum vdso_abi abi)
-+{
-+	unsigned int i;
-+	struct page **vdso_pagelist;
-+	unsigned long pfn;
-+
-+	if (memcmp(vdso_info[abi].vdso_code_start, "\177ELF", 4))
-+		panic("vDSO is not a valid ELF object!\n");
-+
-+	vdso_info[abi].vdso_pages = (
-+		vdso_info[abi].vdso_code_end -
-+		vdso_info[abi].vdso_code_start) >>
-+		PAGE_SHIFT;
-+
-+	vdso_pagelist = kcalloc(vdso_info[abi].vdso_pages,
-+				sizeof(struct page *),
-+				GFP_KERNEL);
-+	if (vdso_pagelist == NULL)
-+		panic("vDSO kcalloc failed!\n");
-+
-+	/* Grab the vDSO code pages. */
-+	pfn = sym_to_pfn(vdso_info[abi].vdso_code_start);
-+
-+	for (i = 0; i < vdso_info[abi].vdso_pages; i++)
-+		vdso_pagelist[i] = pfn_to_page(pfn + i);
-+
-+	vdso_info[abi].cm->pages = vdso_pagelist;
-+}
-+
-+#ifdef CONFIG_TIME_NS
-+struct vdso_data *arch_get_vdso_data(void *vvar_page)
-+{
-+	return (struct vdso_data *)(vvar_page);
-+}
-+
-+/*
-+ * The vvar mapping contains data for a specific time namespace, so when a task
-+ * changes namespace we must unmap its vvar data for the old namespace.
-+ * Subsequent faults will map in data for the new namespace.
-+ *
-+ * For more details see timens_setup_vdso_data().
-+ */
-+int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
-+{
-+	struct mm_struct *mm = task->mm;
-+	struct vm_area_struct *vma;
-+
-+	mmap_read_lock(mm);
-+
-+	for (vma = mm->mmap; vma; vma = vma->vm_next) {
-+		unsigned long size = vma->vm_end - vma->vm_start;
-+
-+		if (vma_is_special_mapping(vma, vdso_info[VDSO_ABI_RV64].dm))
-+			zap_page_range(vma, vma->vm_start, size);
-+#ifdef CONFIG_COMPAT
-+		if (vma_is_special_mapping(vma, vdso_info[VDSO_ABI_RV32].dm))
-+			zap_page_range(vma, vma->vm_start, size);
-+#endif
-+	}
-+
-+	mmap_read_unlock(mm);
-+	return 0;
-+}
- #endif
- 
- static int __init vdso_init(void)
- {
--	__vdso_init(&vdso_info);
-+	__vdso_init(VDSO_ABI_RV64);
- #ifdef CONFIG_COMPAT
--	__vdso_init(&compat_vdso_info);
-+	__vdso_init(VDSO_ABI_RV32);
- #endif
- 
- 	return 0;
-@@ -240,14 +254,14 @@ arch_initcall(vdso_init);
- static int __setup_additional_pages(struct mm_struct *mm,
- 				    struct linux_binprm *bprm,
- 				    int uses_interp,
--				    struct __vdso_info *vdso_info)
-+				    enum vdso_abi abi)
- {
- 	unsigned long vdso_base, vdso_text_len, vdso_mapping_len;
- 	void *ret;
- 
- 	BUILD_BUG_ON(VVAR_NR_PAGES != __VVAR_PAGES);
- 
--	vdso_text_len = vdso_info->vdso_pages << PAGE_SHIFT;
-+	vdso_text_len = vdso_info[abi].vdso_pages << PAGE_SHIFT;
- 	/* Be sure to map the data page */
- 	vdso_mapping_len = vdso_text_len + VVAR_SIZE;
- 
-@@ -258,18 +272,17 @@ static int __setup_additional_pages(struct mm_struct *mm,
- 	}
- 
- 	ret = _install_special_mapping(mm, vdso_base, VVAR_SIZE,
--		(VM_READ | VM_MAYREAD | VM_PFNMAP), vdso_info->dm);
-+		(VM_READ | VM_MAYREAD | VM_PFNMAP), vdso_info[abi].dm);
- 	if (IS_ERR(ret))
- 		goto up_fail;
- 
- 	vdso_base += VVAR_SIZE;
- 	mm->context.vdso = (void *)vdso_base;
--	mm->context.vdso_info = (void *)vdso_info;
- 
- 	ret =
- 	   _install_special_mapping(mm, vdso_base, vdso_text_len,
- 		(VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC),
--		vdso_info->cm);
-+		vdso_info[abi].cm);
- 
- 	if (IS_ERR(ret))
- 		goto up_fail;
-@@ -291,8 +304,7 @@ int compat_arch_setup_additional_pages(struct linux_binprm *bprm,
- 	if (mmap_write_lock_killable(mm))
- 		return -EINTR;
- 
--	ret = __setup_additional_pages(mm, bprm, uses_interp,
--							&compat_vdso_info);
-+	ret = __setup_additional_pages(mm, bprm, uses_interp, VDSO_ABI_RV32);
- 	mmap_write_unlock(mm);
- 
- 	return ret;
-@@ -307,7 +319,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
- 	if (mmap_write_lock_killable(mm))
- 		return -EINTR;
- 
--	ret = __setup_additional_pages(mm, bprm, uses_interp, &vdso_info);
-+	ret = __setup_additional_pages(mm, bprm, uses_interp, VDSO_ABI_RV64);
- 	mmap_write_unlock(mm);
- 
- 	return ret;
--- 
-2.34.1
+
+> +#define __REG(v)	__ASM_STR(x ## v)
+> +#define __RD(v)		__REG(v)
+> +#define __RS1(v)	__REG(v)
+> +#define __RS2(v)	__REG(v)
+> +
+> +#endif /* __ASM_INSN_DEF_H */
+> 
+
+
+
 
 
 _______________________________________________
