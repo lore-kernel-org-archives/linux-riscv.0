@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB09C54EE9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5173C38145
 	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 14:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,43 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vD9kukk7szL5zllgfKFzu7VzC0nCQ2Z0wI8vIRR6pfo=; b=ld0IQBtQpSm9A7
-	O6nNefRG1gu2JtJHG2OqjbsHAdhCZUCFW4w1ym2UnAMYFVkYgWx1XkEGgZxfTQs+v7wPwAmx3u88U
-	Jb02FLL2ABWoOn2fs7QdhyklNx5O82xFor2goCtLGpw3I7Gg65sC6DFzK+Q7AjSgrrQ9asHf5eGGU
-	CU9U8zq/132jwOxSAKBoUJ/9hPqb93q/wklLJsN6RgRSjRKKnQufrwU8pSFZ25eH3VgJ/S8OdBxNm
-	iItDfLNTm71wbEYIJNViUcuu+dum+vCQfRd3iFnIGjs0gVE6I05ItcSr+5w9uQbLoPwKSpP8ckYap
-	/PeB86AsO1atW/+GoXFg==;
+	List-Owner; bh=jFP2Ibgi4vPhaA5cehHN0uz8TFW9B7Q6+y00e7XmXqM=; b=4HNRimsU04DFmD
+	mpRekxNhIMJBxEFb5I29vDaWMx8jju1pZagaW9um4YtUFZax1Tr6DgyTaE+/lGtbf2tWS1cYe2rj4
+	mUJZPRdTa8IiIn2XOgkhjZnXQ0atxqk/SZ9f3aD2Aglzw6phqb2iEtk6bq/n8y4RTdh6jh16a78Ts
+	+5RzF1Y/WBdth68JnaKs93wcmGmylKdR5MrHaC9mPW2oZfLxZni/Muv4xkdcQixO3pZKotRWW2U2e
+	KWNQnobzdgKHCKZ2tM2NGxn4DjbaSokPdtHGS2K46pFZ0EhFErb1eBe6WMYR/GxJVw3sshPpl4pTk
+	hxmie3R/j6G/bWkrkRrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWIew-004mE9-Ep; Thu, 08 Sep 2022 14:37:38 +0000
+	id 1oWIey-004mEy-2I; Thu, 08 Sep 2022 14:37:40 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWIes-004mAJ-1W
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 14:37:35 +0000
+	id 1oWIeu-004mCu-FW
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 14:37:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1662647854; x=1694183854;
+  t=1662647857; x=1694183857;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=TbYbqd7aTZtP9BqkPjjohaCeNbROPSiKKPHy/M7Hh8s=;
-  b=TqLEULktnytIVYTxcJdDaaGZu6kkKP3U0Yz2+8pJTve71tF1ViaXzS7F
-   rveg8Yh7hpQEedLbY1oNfliYID4Kc+D2vNu9md3it6zDc5bfKDLuEf4qP
-   Oi04DtSCGLBSaQAhGFXvqFv9jz67OM/omVyWiwjZzN6nQz3vHxQ1IPQXU
-   /LUKqXnJNAuX5wPV4ct71Izb4olubIEuOhF+ntYdG5p9UJUssOGp/w+8M
-   1iCcmNcWw9PUsqodoiQYx3+yiHNFzPyOHvDf4x0WGnrvGTzbhZohyA5bl
-   0zvfOh28Q2IYiP15e01ONGynj9dECH7kzxd2ysljfPmXuTVc8kE4y3txu
-   w==;
+  bh=ggvgSTbI/3n106FcPTJ8++adTEBX7bnWFulBMj2Sqa4=;
+  b=PRxkv8xQkCeZ9ax3M2Psa99MWuL7Khbj8iQ+6QaEqy0SXYI9BmQgisWv
+   v0OYQvj92jrV2rDmE5O+C5yHl4V5PpNlBAQ6N5G1+WnZJESYP80iiR0+d
+   AYyr3vxQpgyv1NrkJbby9sdQHROLE5Z2AUjATr7OtPg+TFMFlpOrxplMs
+   Ej2VhkJCbM3O+IAw68SnzTz2Cj60t5hDFumvx5dGYzZrF2H+TmqPQjIG5
+   aTJNhoOeRa6R72BzKa7w4eL8GB4RjdPTV9P00ZIy/I43c5qHXGmQbqvn8
+   6m+2FQb2nQcx1HmFqx2K0jf8PpiBTkpoFxeR8W7uMuAIapVsI4ZLKjtTM
+   A==;
 X-IronPort-AV: E=Sophos;i="5.93,300,1654585200"; 
-   d="scan'208";a="112762318"
+   d="scan'208";a="172970687"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 08 Sep 2022 07:37:33 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 08 Sep 2022 07:37:36 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 8 Sep 2022 07:37:31 -0700
+ 15.1.2507.12; Thu, 8 Sep 2022 07:37:35 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
  (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Thu, 8 Sep 2022 07:37:29 -0700
+ Transport; Thu, 8 Sep 2022 07:37:32 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
 	<sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -60,16 +60,17 @@ CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
 	<linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Krzysztof
  Kozlowski" <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v5 2/5] dt-bindings: clk: document PolarFire SoC fabric clocks
-Date: Thu, 8 Sep 2022 15:36:49 +0100
-Message-ID: <20220908143651.1252601-3-conor.dooley@microchip.com>
+Subject: [PATCH v5 3/5] dt-bindings: clk: add PolarFire SoC fabric clock ids
+Date: Thu, 8 Sep 2022 15:36:50 +0100
+Message-ID: <20220908143651.1252601-4-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220908143651.1252601-1-conor.dooley@microchip.com>
 References: <20220908143651.1252601-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_073734_196925_DEEB3D58 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20220908_073736_596147_9737748F 
+X-CRM114-Status: UNSURE (   7.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,104 +87,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On PolarFire SoC there are 4 PLL/DLL blocks, located in each of the
-ordinal corners of the chip, which our documentation refers to as
-"Clock Conditioning Circuitry". PolarFire SoC is an FPGA, these are
-highly configurable & many of the input clocks are optional.
+Each Clock Conditioning Circuitry block contains 2 PLLs and 2 DLLs.
+The PLLs have 4 outputs each and the DLLs 2. Add 16 new IDs covering
+these clocks. For more information on the CCC hardware, see the
+"PolarFire SoC FPGA Clocking Resources" document at the link below.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Link: https://onlinedocs.microchip.com/pr/GUID-8F0CC4C0-0317-4262-89CA-CE7773ED1931-en-US-1/index.html
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/clock/microchip,mpfs-ccc.yaml    | 80 +++++++++++++++++++
- 1 file changed, 80 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml
+ .../dt-bindings/clock/microchip,mpfs-clock.h  | 23 +++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml b/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml
-new file mode 100644
-index 000000000000..f1770360798f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/microchip,mpfs-ccc.yaml
-@@ -0,0 +1,80 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/microchip,mpfs-ccc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/include/dt-bindings/clock/microchip,mpfs-clock.h b/include/dt-bindings/clock/microchip,mpfs-clock.h
+index 4048669bf756..79775a5134ca 100644
+--- a/include/dt-bindings/clock/microchip,mpfs-clock.h
++++ b/include/dt-bindings/clock/microchip,mpfs-clock.h
+@@ -45,4 +45,27 @@
+ #define CLK_RTCREF	33
+ #define CLK_MSSPLL	34
+ 
++/* Clock Conditioning Circuitry Clock IDs */
 +
-+title: Microchip PolarFire SoC Fabric Clock Conditioning Circuitry
++#define CLK_CCC_PLL0		0
++#define CLK_CCC_PLL1		1
++#define CLK_CCC_DLL0		2
++#define CLK_CCC_DLL1		3
 +
-+maintainers:
-+  - Conor Dooley <conor.dooley@microchip.com>
++#define CLK_CCC_PLL0_OUT0	4
++#define CLK_CCC_PLL0_OUT1	5
++#define CLK_CCC_PLL0_OUT2	6
++#define CLK_CCC_PLL0_OUT3	7
 +
-+description: |
-+  Microchip PolarFire SoC has 4 Clock Conditioning Circuitry blocks. Each of
-+  these blocks contains two PLLs and 2 DLLs & are located in the four corners of
-+  the FPGA. For more information see "PolarFire SoC FPGA Clocking Resources" at:
-+  https://onlinedocs.microchip.com/pr/GUID-8F0CC4C0-0317-4262-89CA-CE7773ED1931-en-US-1/index.html
++#define CLK_CCC_PLL1_OUT0	8
++#define CLK_CCC_PLL1_OUT1	9
++#define CLK_CCC_PLL1_OUT2	10
++#define CLK_CCC_PLL1_OUT3	11
 +
-+properties:
-+  compatible:
-+    const: microchip,mpfs-ccc
++#define CLK_CCC_DLL0_OUT0	12
++#define CLK_CCC_DLL0_OUT1	13
 +
-+  reg:
-+    items:
-+      - description: PLL0's control registers
-+      - description: PLL1's control registers
-+      - description: DLL0's control registers
-+      - description: DLL1's control registers
++#define CLK_CCC_DLL1_OUT0	14
++#define CLK_CCC_DLL1_OUT1	15
 +
-+  clocks:
-+    description:
-+      The CCC PLL's have two input clocks. It is required that even if the input
-+      clocks are identical that both are provided.
-+    minItems: 2
-+    items:
-+      - description: PLL0's refclk0
-+      - description: PLL0's refclk1
-+      - description: PLL1's refclk0
-+      - description: PLL1's refclk1
-+      - description: DLL0's refclk
-+      - description: DLL1's refclk
-+
-+  clock-names:
-+    minItems: 2
-+    items:
-+      - const: pll0_ref0
-+      - const: pll0_ref1
-+      - const: pll1_ref0
-+      - const: pll1_ref1
-+      - const: dll0_ref
-+      - const: dll1_ref
-+
-+  '#clock-cells':
-+    const: 1
-+    description: |
-+      The clock consumer should specify the desired clock by having the clock
-+      ID in its "clocks" phandle cell.
-+      See include/dt-bindings/clock/microchip,mpfs-clock.h for the full list of
-+      PolarFire clock IDs.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - '#clock-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    clock-controller@38100000 {
-+        compatible = "microchip,mpfs-ccc";
-+        reg = <0x38010000 0x1000>, <0x38020000 0x1000>,
-+              <0x39010000 0x1000>, <0x39020000 0x1000>;
-+        #clock-cells = <1>;
-+        clocks = <&refclk_ccc>, <&refclk_ccc>, <&refclk_ccc>, <&refclk_ccc>,
-+                  <&refclk_ccc>, <&refclk_ccc>;
-+        clock-names = "pll0_ref0", "pll0_ref1", "pll1_ref0", "pll1_ref1",
-+                      "dll0_ref", "dll1_ref";
-+    };
+ #endif	/* _DT_BINDINGS_CLK_MICROCHIP_MPFS_H_ */
 -- 
 2.36.1
 
