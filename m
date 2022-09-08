@@ -4,80 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0FDFC54EE9
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 12:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8EBC54EE9
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 12:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+Uiq4CUa8IZVXiDzmf2xsvXhuONY5d/cwBHkmoBpsdw=; b=fVspH8SSkO4GHv
-	Mm+clazuq+zFl7f/trZZcWT8tMx8uVFwX6NkNDAXUGXB0bnqDVpz9JlfVWwgEogVTwKt/g3TsTJDu
-	AOIBIk7yZtxfRY5+AnpcVt/o4/LHZNXI6n2ysviish34GN5xZwIyKvt6YJg+3qxS3X26hEc0NqRVJ
-	EBAXZVrh0aM/Rj8BLoj75Pu/L4tTfKJoqkendln/J7Ctc7xwBYCdXhX6bgCVF2u8a1TfnGSmW2TRS
-	4Wb0f9TCxbYgWJSq41eRqrsbcMNTpNcaRjESBiIsg22a2ZX3ZED3JuLh95gije+GuOadWzTa1cLCo
-	uEqgu/4cyP128ZLSfjZA==;
+	List-Owner; bh=ACWMp+MvAlO2HsdPGqlHaHoiYmMNY7z+TFNV5Trcno8=; b=qkrsp+zXAu1yoV
+	cWW8pbFOiJW6k2RYEWg+Yg38Y7PdZf/HwVSAwIJtywR/DATT4HtuX7nB+moAsyaOALz8lonjNVn6x
+	nDbDhrE+heq13XpHozpFuTXSwGJaLyLPNIwUqKsdVSjlWjaljgG2LQYuE2abCYUhdFO1A89P4aYC0
+	cUUOiecTMG+ndOVKRII78oAkrMtSF05/9Nr/UYTTdNuFCKkoXHZrK9MeILcIqVpg05wKqpvQ0IilI
+	KoiyFEY1vkJp4r5fH7Ov3KLGVCiSQdNjc6+5iM2gptdPhFLpQEBAjjSzA+oODUHTa1eiOcCfWfI1O
+	pW7yOe7tANz/8tA1cLhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWGPv-0036pN-7e; Thu, 08 Sep 2022 12:13:59 +0000
-Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
+	id 1oWGmn-003Lyr-Dc; Thu, 08 Sep 2022 12:37:37 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWGPs-0036m1-F7
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 12:13:57 +0000
-Received: by mail-yb1-xb31.google.com with SMTP id 130so26079819ybw.8
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 05:13:54 -0700 (PDT)
+	id 1oWGmj-003Lsg-IZ
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 12:37:34 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id z20so19721019ljq.3
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 05:37:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
+        d=ventanamicro.com; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date;
-        bh=SAM3mkegdCeaGVQgcXVVpthAb6ElEKSQcT12XxK/rDg=;
-        b=UYY6e5y5Giua61QzsVGiSq6DQZmkmftZ5Wb4Q3NhvE1cm4x9K/cpS0diwQNlJYBYOM
-         MVqzw7cWdy2dJ3NeACQF5z23xfaE7WFpktSAzkfjgLTVY63bPZt0cQNjugQMveKVF13r
-         uxGJTiQKmgPL39oAuTkrmi1TJFAdA7yZaQLIYVSvi54x6VSj98lW0HPjlFER2DfiauNU
-         lnA10QQoeF7QMS8e+f29qG33KPzOfvgObyjZ9uXJuSvrg6QKANfFrvE7LCmRgkYtLtFd
-         ycaHI7Dt7tw1tSrFu880GPKa1Rz5PeYCelMR7JAo001c6e3TwrifFoHBrw/+khYPdwSi
-         kxaQ==
+        bh=o5O/OUn4ND6Nkl8BKpExq+lYQmh2k3ZSbRAegZyWLfE=;
+        b=U0ea1MgmbtJg7EPMaAeokRg8E1yUEKF09EyIPjzHOpIwSmlc2QYXJIkjNknB2N8JR7
+         7LKVhCmJ/riLU03xoWDcBxzH80HF/DQpUYBfcV5hPNRjX2cP3e/CL+A23/LnIS+jS8Jp
+         cKSrj4NxS6tnNRQGq3Y+ubf4pleeCOUeU8W+qPcZilTWirlGUbQr1gL0R3h8S9AeBOLc
+         ajntXlubMYfVHRAsDp4wkJNlgmp+W3t8HoPc0ukhJNadp6LEIippdkv/pqNknu7vZoAZ
+         OPuZ2jW9DcJHQUJKHPVd7Yto6XPKCIBMSyFuV9XTjkWhBt6hmYVvVQHUBYpIGy3CxZJ4
+         xvBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=SAM3mkegdCeaGVQgcXVVpthAb6ElEKSQcT12XxK/rDg=;
-        b=sAjHKMlukBO/V/3d56IKMMJcuvr7bQgL5kmjdQ3tlXYMwEmZ4qOs5FOgyCe9rqvFFS
-         3eDdCkdairqDmE294q708OeMggmw44HDjxA1mfuyy2W+fxiFX3u4gu5/76kS5g0hGYVY
-         9VZsZIjYVPzn9c0/o5q/3/Xp9kwu7zJPJ8YZixkq6CPAsYZcUzaK1an/DzOAH4Vb11Q2
-         CIqRcPat332E64q2+uD0WVsx2rENLRApkUGfJ83+IV+bLY/wGAonHevx/BGnt2mZjz5b
-         Z6NDqYzxjDe4kA/t2tVcJnbyZ+mRfJROznLHa2e94CfMau8Tar5YKUwL9a9j6cdZi9pJ
-         7glw==
-X-Gm-Message-State: ACgBeo1ak1FCofz6wY1nqi+yZTAh1PAHE2/bC6qWqqg4XwX2pJtF1/bd
-	Rxr8/5otpYrIKcOwzPlCuhN3nk2Gf3vJrKbyxNE=
-X-Google-Smtp-Source: AA6agR6A54qH3lxmUpYHnW0X+bo5fGo16klKJB94RRqUN+vA9dsVtSbx9UghA4lAdjeptmty+EzDNfWxIYmbPjPMWiY=
-X-Received: by 2002:a25:99c5:0:b0:6a9:6c30:a67d with SMTP id
- q5-20020a2599c5000000b006a96c30a67dmr6851545ybo.117.1662639234282; Thu, 08
- Sep 2022 05:13:54 -0700 (PDT)
+        bh=o5O/OUn4ND6Nkl8BKpExq+lYQmh2k3ZSbRAegZyWLfE=;
+        b=Lr6xJQUoJOhWZ0Iv0rI2mb4g0uMV2k23apOEzScfBKW8vow9MitRIDXepdkAvsVfl5
+         Uj2qGNOWP5BQiyQSFw4pyPJyf3Y4R4gOhR5g/IRFiM2KrKJ886BcWH+or5KUE6KUrogQ
+         BM15jDb/RJjk9Uo2GKC4ye8hJeHo88DfGkG+CKzG4/sNfWuU6Pdn0DSkH6q6lh0Hrbfw
+         S1woZApzVt3vHD2j+sDtoarURjUJ+EsgWDwzaBjIQSVZk57tyTjLuY/CMn7wM4O7mAzZ
+         lECR20pJCbqiXHx3eSFTcg9rRikMWKR8B3+VjxoS0fdEkZIWrN2WXJkEYxJp4iWUlibo
+         S8+A==
+X-Gm-Message-State: ACgBeo0W5XAeQ5yGO0Ye3KS2U/qH9Sgo7rOwBaRF+5jqe5Hy9uazRYeQ
+	fG9TsO7hrtDQnaDT/U2biSOCn6EI1HuOhstTMmjBLsXoEPsd8w==
+X-Google-Smtp-Source: AA6agR6BUDP+a7mQbQzTOVRDYC9UhafLHjiWSikXczQSEEdRl0tk3qrNLsIRRtmqmO1R3AGXhBe+GAwGRoGoEk9RgZ8=
+X-Received: by 2002:a05:651c:b2c:b0:261:d82f:75b8 with SMTP id
+ b44-20020a05651c0b2c00b00261d82f75b8mr2307820ljr.266.1662640650496; Thu, 08
+ Sep 2022 05:37:30 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220906102154.32526-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <20220906102154.32526-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
- <8ecb62b7-53c4-1c43-65b3-567d8c12e131@microchip.com> <CAOnJCUKLpRz4Fbx1XiMnap-ELw2k1c8E9V8bZiSP+x7z9Z5QrA@mail.gmail.com>
- <f362eaeb-6ccd-4392-a346-55fa5ae25e13@microchip.com> <OS0PR01MB5922833FDCA60892191B211A86409@OS0PR01MB5922.jpnprd01.prod.outlook.com>
- <CA+V-a8uttuVd5_UXvNjXU6yG-GpmxG-BuEAm9pWxx13PjZ-h5w@mail.gmail.com> <e72263ee-10af-1249-5f0d-7e90e8e88441@microchip.com>
-In-Reply-To: <e72263ee-10af-1249-5f0d-7e90e8e88441@microchip.com>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Thu, 8 Sep 2022 13:13:27 +0100
-Message-ID: <CA+V-a8vS_ozrbEC=JmRwMTQxwqsciPdoaVU=rbPK-=DpkhfP7A@mail.gmail.com>
-Subject: Re: [RFC PATCH 1/2] riscv: vendors: andes: Add support to configure
- the PMA regions
-To: Conor Dooley <Conor.Dooley@microchip.com>
-Cc: guoren@linux.alibaba.com, atishp@atishpatra.org, 
-	"Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Biju Das <biju.das.jz@bp.renesas.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, atishp@rivosinc.com, 
-	apatel@ventanamicro.com, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	linux-riscv <linux-riscv@lists.infradead.org>, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>
+References: <20220903161309.32848-1-apatel@ventanamicro.com>
+ <20220903161309.32848-2-apatel@ventanamicro.com> <87czc6uupf.wl-maz@kernel.org>
+In-Reply-To: <87czc6uupf.wl-maz@kernel.org>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Thu, 8 Sep 2022 18:07:18 +0530
+Message-ID: <CAK9=C2XMgRAwu4ALhcRkJJnsCdms6rR7DqG3Nz7ZJa9cX+RP8Q@mail.gmail.com>
+Subject: Re: [PATCH v9 1/7] RISC-V: Clear SIP bit only when using SBI IPI operations
+To: Marc Zyngier <maz@kernel.org>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Atish Patra <atishp@atishpatra.org>, Alistair Francis <Alistair.Francis@wdc.com>, 
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Bin Meng <bmeng.cn@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_051356_524908_1CBA74C3 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20220908_053733_642292_D97A8E5B 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,60 +88,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 8, 2022 at 1:00 PM <Conor.Dooley@microchip.com> wrote:
+On Thu, Sep 8, 2022 at 2:08 PM Marc Zyngier <maz@kernel.org> wrote:
 >
-> On 08/09/2022 12:50, Lad, Prabhakar wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> On Sat, 03 Sep 2022 17:13:03 +0100,
+> Anup Patel <apatel@ventanamicro.com> wrote:
 > >
-> > Hi Guo,
+> > The software interrupt pending (i.e. [M|S]SIP) bit is writeable for
+> > S-mode but read-only for M-mode so we clear this bit only when using
+> > SBI IPI operations.
 > >
-> >>> -----Original Message-----
-> >>> From: Conor.Dooley@microchip.com <Conor.Dooley@microchip.com>
-> >>> Sent: 08 September 2022 00:38
-> >>> To: atishp@atishpatra.org
-> >>> Cc: Prabhakar Mahadev Lad <prabhakar.mahadev-lad.rj@bp.renesas.com>;
-> >>> paul.walmsley@sifive.com; palmer@dabbelt.com; aou@eecs.berkeley.edu;
-> >>> atishp@rivosinc.com; apatel@ventanamicro.com; geert+renesas@glider.be;
-> >>> linux-riscv@lists.infradead.org; linux-renesas-soc@vger.kernel.org;
-> >>> linux-kernel@vger.kernel.org; prabhakar.csengg@gmail.com; Biju Das
-> >>> <biju.das.jz@bp.renesas.com>
-> >>> Subject: Re: [RFC PATCH 1/2] riscv: vendors: andes: Add support to
-> >>> configure the PMA regions
-> >>>
-> >>> On 07/09/2022 22:52, Atish Patra wrote:
-> >>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know
-> >>>> the content is safe
-> >>>>
-> >>>>
-> >>>> On Tue, Sep 6, 2022 at 3:40 AM <Conor.Dooley@microchip.com
-> >>>> <mailto:Conor.Dooley@microchip.com>> wrote:
-> >>>>
-> >>>> On 06/09/2022 11:21, Lad Prabhakar wrote:
-> >>>>
-> >>>>> diff --git a/arch/riscv/include/asm/sbi.h
-> >>>>> b/arch/riscv/include/asm/sbi.h index 2a0ef738695e..10a7c855d125
-> >>>>> 100644 --- a/arch/riscv/include/asm/sbi.h +++
-> >>>>> b/arch/riscv/include/asm/sbi.h @@ -37,6 +37,7 @@ enum sbi_ext_id {
-> >>>>>
-> >>>>> /* Vendor extensions must lie within this range */
-> >>>>> SBI_EXT_VENDOR_START = 0x09000000, +       SBI_EXT_ANDES =
-> >>>>> 0x0900031E, SBI_EXT_VENDOR_END = 0x09FFFFFF, };
-> >>>>
-> > I am interested to know what is the status of your patch series [0].
+> > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> > Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+> > ---
+> >  arch/riscv/kernel/sbi.c | 8 +++++++-
+> >  arch/riscv/kernel/smp.c | 2 --
+> >  2 files changed, 7 insertions(+), 3 deletions(-)
 > >
-> > [0] https://lore.kernel.org/lkml/20210606143848.GA5983@lst.de/T/#m7f4c4cdfb92d6c8672bbfabebda729ce4700e177
+> > diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> > index 775d3322b422..fc614650a2e3 100644
+> > --- a/arch/riscv/kernel/sbi.c
+> > +++ b/arch/riscv/kernel/sbi.c
+> > @@ -643,8 +643,14 @@ static void sbi_send_cpumask_ipi(const struct cpumask *target)
+> >       sbi_send_ipi(target);
+> >  }
+> >
+> > +static void sbi_ipi_clear(void)
+> > +{
+> > +     csr_clear(CSR_IP, IE_SIE);
+> > +}
+> > +
+> >  static const struct riscv_ipi_ops sbi_ipi_ops = {
+> > -     .ipi_inject = sbi_send_cpumask_ipi
+> > +     .ipi_inject = sbi_send_cpumask_ipi,
+> > +     .ipi_clear = sbi_ipi_clear
+> >  };
+> >
+> >  void __init sbi_init(void)
+> > diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> > index 760a64518c58..c56d67f53ea9 100644
+> > --- a/arch/riscv/kernel/smp.c
+> > +++ b/arch/riscv/kernel/smp.c
+> > @@ -83,8 +83,6 @@ void riscv_clear_ipi(void)
+> >  {
+> >       if (ipi_ops && ipi_ops->ipi_clear)
+> >               ipi_ops->ipi_clear();
+> > -
+> > -     csr_clear(CSR_IP, IE_SIE);
+> >  }
+> >  EXPORT_SYMBOL_GPL(riscv_clear_ipi);
 >
-> Heh, take a look at:
-> git grep "ERRATA_THEAD*"
->
-> This is all can-of-worms territory that we are heading to here, as
-> the Zicbo* extensions is what is meant to be doing these sorts of
-> things..
->
-Aha thanks for the pointer.
+> This really begs the question: why on Earth are these things exported
+> to *modules*? I cannot see a good reason why they should be...
 
-Cheers,
-Prabhakar
+I agree, the riscv_clear_ipi() should not be exported but the PATCH4
+("RISC-V: Treat IPIs as normal Linux IRQs") of this series removes
+this function.
+
+Regards,
+Anup
+
+>
+>         M>
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
