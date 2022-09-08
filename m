@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F09AC38145
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 06:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1738C6FA83
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 06:46:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
 	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gb3X1Z7gWfTIwDiOlCX/T/Fb0z1IL9wesrStCZ1vnx0=; b=d8Ky5NNfKxqoOu
-	vCtPMaCocoh819sWc1ZlXGFiFn3MCcq77e8ssOPS5nl8sTt6v/GI2heHGwBtX9nCjS48hgt9xD8N4
-	xcH7CgFbPRtyWjxYFhx2Y3wfrIFDiC+O2Oa1XAoT8UrhBikAGjEvmMBhIMGjwMK0QDI0v9S90Ge5S
-	OF3jnhInm49Zyy6arKHc/XsHqxGgJ321cFUrwXXGBBPHRLL0Z4q6Z3GV8euj330Jpo+nQEs3Y3cIa
-	69oFe3zTkyVcbccXpmsLMDE4ClBzY6Q+YLq/+W2DVk7jPUvZC90/S3pimlEB0Z4yZK9NllMxTjq8e
-	UogRtGZqyIfRaQcpZXzQ==;
+	List-Owner; bh=uMQ2CrV2sn0KUZjBC5comdKU/sdoxE7XvP6c2MfKJDw=; b=Ab1fQR3TRACgpZ
+	tW8q21a19n/WHozI2Bss4Swvrs/ZIm2JKvIXpcUa81o0dXj2I3CWF0dWeI0P9oy8G2lZU0CFEiYxf
+	cfA7tXfcKEHm5kwv+n+ECu6eCshufMhNBQbqfWXsv7j5npKTXvR4jZHuFySIvrwOMJBpqRLBq/ZMq
+	bORdaHbWymaePgFoGGoL1LxY83AQvSK2B5t198AK9ESnUcegBm8b+cPdqGqijdXkxP4E+n34OUSAu
+	3pSSrqIoQbK2Ym5RLPbgY88xa9sI8uLfkuhc4fQOc9ah1D7zacXkx1bOtwfZttuc6LnqSKRYCBKSl
+	HJRgVFEFluXSzcdSSNbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWBHr-00HWgx-4M; Thu, 08 Sep 2022 06:45:19 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oWBIc-00HWtT-NZ; Thu, 08 Sep 2022 06:46:06 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWBHn-00HWg3-Ul
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 06:45:17 +0000
+	id 1oWBIZ-00HWqv-I8
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 06:46:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1662619516; x=1694155516;
+  t=1662619563; x=1694155563;
   h=from:to:cc:subject:date:message-id:references:
    in-reply-to:content-id:content-transfer-encoding:
    mime-version;
-  bh=k5nHV4wJVTMfvmZZ4toaFB5yMeg7uTyD5TSJ2Eh4WWY=;
-  b=djU+QCYSp/w4dpF2uvfEv4NIdAV8ElTalXwwVGW0AOSmp3ynQzULTiVI
-   RGZyFvmATB/tJcU9EDRheJR35pOur5AyIKG/Kqh7XCjJsiqyf0Gj2W/Xs
-   W/3knXkJeRFb5zKfkEZhFQAikRnUten7qNFExzKKlcIBgsGNGYMNbKngY
-   XlCXo6qpAJ6c/IjndKAX0RN9CWEsQ6XzF1pav6A9uFLopcC1ivKg9I66O
-   AzG79jq4v/Z+x0SUCl9n477ap+lPgQwNf1zp2JyUnCWxX2oBauG1+Y7tL
-   e/545XqPkIAJvgfOsdIlrNp01NPyaO0nDJhk0SYT8MU1+K/KCvCyJw5TZ
+  bh=P1Lojcx2YWOVInHtw+eKe1yMvkeY2d52VtorRTd8cxY=;
+  b=BF7hBULsa8ntOzzEFNW9PSA/7kZS8O5LvYWGXDhrrf1wwxqE0w9xYqEB
+   gYUGHYw3Q/rtsT0JFbyl+Nb+BQLLDpzmO2g4xh7gWKjWoh7MOX5Vwg5pS
+   0VNhznHCmvmbXPHtnluM3CJbCHZGoD6ouiJHAxtbKZb9ggM6pkq7ZBfqF
+   NSk1AQBq7H4ATiGKZvF2ZF5AMgVqylTUWEqjDLg/165CUJ+yyCsT8ykOB
+   3EsBqklLz+aby7iWuHwXhB3I5YEloVS2c1C2H3SSqDd1EwFp3pkzbI3zN
+   ZkOd6MnPguR+bT9J6G1rR55gAW6q03tLvbsq/PWqAg7yLftIPW+Eni5To
    w==;
 X-IronPort-AV: E=Sophos;i="5.93,299,1654585200"; 
-   d="scan'208";a="179519055"
+   d="scan'208";a="112686443"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Sep 2022 23:45:04 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 07 Sep 2022 23:45:54 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 7 Sep 2022 23:45:02 -0700
+ 15.1.2507.12; Wed, 7 Sep 2022 23:45:52 -0700
 Received: from NAM10-DM6-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.72) with Microsoft SMTP Server (version=TLS1_2,
+ email.microchip.com (10.10.87.71) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.12 via Frontend
- Transport; Wed, 7 Sep 2022 23:45:02 -0700
+ Transport; Wed, 7 Sep 2022 23:45:52 -0700
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=HaZ1R5egh7ieei5PYXPL95KCEl2VZ71r6SJqiaVvlaWv5nlIs31HVrFwzxaVlQb6kVXGAL/cUwcs6PFRVr78khEWenDuIp+semGhXn3Zc9rENNYuIp2ixR8VVrsxgQG1UYSYd23Ce+k5PXuqMtX+DvjitORl2/1nMhAgWCJjHxtpcenXVlOaPmMvRxmRD0A0I9ndYOCcqzfjW/JgOF+yNVDe21Y7pCiJsV/6/8uyfnRRbw/sDqn6iWzj9d09BRAewVrfXUKWX9XJkDjEPX8Eoqy9GB0FofN0DKO5JE1R8b0djr5BfRmEjPSdEdKa/lqCQfVDM4wjbjHxsHuKrRXG4w==
+ b=GUvJtWqqAzOC8JrnmLG6E/aZ6r1IJ5f3Y59GaKOGTApz5+UPaMdyf0IyKD2HtaFuatSQn7ff/c3HFRvZwDLCGj0kBA6E1oofiD+RrxHNB4p+3GyYLk0IoGe/9S9stGXuCHNBngSr6Tq+/92q0kHnXljMEcyjtylOH6blS8ZSMcgzn0DYH/uYs5sHOzVnxcKL0C48sEzayHlbCOGNgFLoIdYFt7eCKnOWyBtfU/+rEK9Op6Wt3YKoAzsqQE2eygd33XQQU7t2yi0FAn2N6bapVgSFUMxBHSNdNHWUCTTn8j/cs29VZFPQPMFlUK5tqCVHD8fJntSV+qMxpHoBeqx2BA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector9901;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=k5nHV4wJVTMfvmZZ4toaFB5yMeg7uTyD5TSJ2Eh4WWY=;
- b=AlXs5jZOB2Jk7WK3EurekH/TqcP72GRGZ125J3gtcjrveV81x7xnvxmhtjxPo0Ys2XYF7B/bixwsS3xHoS8+bxl8y6DpF87E+A+CXgEy2/oYH7pFUmsPP908E8Z19CICZqXzi4DMhRdLpvlg6mlVZKoR0JNRa7jqATsMbJa7roxjK8jnlqTIPUOLvqxgnv7hab4buPbAEU4NXnUhxcpu8hxiyzbu70KN4l9cUwWMeDPR7oL6yNCfvZpSaEfLlioJ4p8hCSKVhSv1zrCm5lm7tbkBq9q54OrIblb0Ontv7yWGIRwbKI0oKbDu+XlyjLtPQiN8O4KDtSWDbKKRj8hSVg==
+ bh=P1Lojcx2YWOVInHtw+eKe1yMvkeY2d52VtorRTd8cxY=;
+ b=G3PQ2GeJV6r5LcCRXWlbBnpfI56iwGP5ePMfN3sX8g2HdBxV1u16Gy6IYlHC2tkqpXLQAyzo22VyXx4U017FN+VnC+kgT2PY4cynGZveitUg6EkhHJ8pjsa38aa31dfQq+/6m2ODKkf8oZrKLdmRRqrtphwGmUUniZ+uFSGebkVBBn7e8AdZwEEiiVoN2RzuSkWsYd/jWo8rYJqXKP2btlU7IwU69kz1Yt0HGSkXME6NG7nU7JWV/lQsDrEykz1U9V8qWfMCS5uR/i7JAmhtPHaXniFmss6h1b4S41dAtpMVEhoqhh9aRvFjDYtCDA/dVy0MLUUuvo0fFiheDsAsgw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=microchip.com; dmarc=pass action=none
  header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
@@ -65,17 +65,17 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=microchiptechnology.onmicrosoft.com;
  s=selector2-microchiptechnology-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=k5nHV4wJVTMfvmZZ4toaFB5yMeg7uTyD5TSJ2Eh4WWY=;
- b=RYkdqvKEZYOjGPpk5vdVBrSikZ5N76R22cClvFlN7/gpZxRucy3Mj2cjeHWTE5Ji90XaY4Qc7divQDMOvzjs31XryhH+ZCheiR7DGNkbl3oq9Igt7NhoG2lQOVBY9n8zlG3lvGBubLT85xOcGjCC0L9rGsBIJkFvuYRXmskuoVg=
+ bh=P1Lojcx2YWOVInHtw+eKe1yMvkeY2d52VtorRTd8cxY=;
+ b=GFQk+gt+0X9Vv236OoGKdzg1x0IkoA2GuJhSF9vlVYyjVkRUd3hzrdnGeI2loRCYllCLtnktCqiJIihfS/Vhj00qObMF7Ehzluzx6vlyG85IxXAliWb41Umc05ZhNsRK0Y5XDXQMjc0t6s3p2K5xSjdFHa8AsBzvniIYTk4hRMk=
 Received: from BN6PR11MB1953.namprd11.prod.outlook.com (2603:10b6:404:105::14)
  by PH7PR11MB5766.namprd11.prod.outlook.com (2603:10b6:510:130::5) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5588.17; Thu, 8 Sep
- 2022 06:44:58 +0000
+ 2022 06:45:48 +0000
 Received: from BN6PR11MB1953.namprd11.prod.outlook.com
  ([fe80::a159:97ec:24bc:6610]) by BN6PR11MB1953.namprd11.prod.outlook.com
  ([fe80::a159:97ec:24bc:6610%11]) with mapi id 15.20.5588.014; Thu, 8 Sep 2022
- 06:44:56 +0000
+ 06:45:48 +0000
 From: <Claudiu.Beznea@microchip.com>
 To: <Conor.Dooley@microchip.com>, <mturquette@baylibre.com>,
 	<sboyd@kernel.org>, <robh+dt@kernel.org>,
@@ -83,16 +83,15 @@ To: <Conor.Dooley@microchip.com>, <mturquette@baylibre.com>,
 	<Daire.McNamara@microchip.com>
 CC: <paul.walmsley@sifive.com>, <aou@eecs.berkeley.edu>,
 	<linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<p.zabel@pengutronix.de>
-Subject: Re: [PATCH v4 04/13] reset: add polarfire soc reset support
-Thread-Topic: [PATCH v4 04/13] reset: add polarfire soc reset support
-Thread-Index: AQHYw06Bq0bWR/4jpUiKQh8SMHzPyw==
-Date: Thu, 8 Sep 2022 06:44:56 +0000
-Message-ID: <2005988c-56ac-fb9d-ef58-1b67e0c0fafe@microchip.com>
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v4 03/13] clk: microchip: mpfs: add reset controller
+Thread-Topic: [PATCH v4 03/13] clk: microchip: mpfs: add reset controller
+Thread-Index: AQHYw06gcYslIcMXbkKmEr2H/zkOIQ==
+Date: Thu, 8 Sep 2022 06:45:48 +0000
+Message-ID: <ed347cdc-ca39-000c-8386-376dd833154f@microchip.com>
 References: <20220830125110.2372514-1-conor.dooley@microchip.com>
- <20220830125249.2373416-4-conor.dooley@microchip.com>
-In-Reply-To: <20220830125249.2373416-4-conor.dooley@microchip.com>
+ <20220830125249.2373416-3-conor.dooley@microchip.com>
+In-Reply-To: <20220830125249.2373416-3-conor.dooley@microchip.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
@@ -102,66 +101,66 @@ user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
 authentication-results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=microchip.com;
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 112b4c9e-8dce-445e-9f24-08da9165a49f
+x-ms-office365-filtering-correlation-id: 4cd74170-defc-4d04-0016-08da9165c35b
 x-ms-traffictypediagnostic: PH7PR11MB5766:EE_
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
 x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: +pGJnE1X5vfVU7X63IfDNn1fO9Mz6myoEkn0Gx53JDDN0VFrqXhLPfX6EFepJBhYDivfrajp+sgIZx1AM3oK6UqgWc1IvMRZIWtnhdgcjqsd5Ibu+qoS4MZZb7ol9FRyhEoWa0qZ2/imZ/PGcSoWmpZ2Er9Tv1IbOwA+5w+utKBhGaYxLeZvOAjzmJO7Bab4AC2i/q6pzVB9eUOjsQsJ2cuVI3zte3jn8lh6sacT1ThADgsADtQaNeAGQ81LhQW47jDLG/x7/g/S+BlFQOP8z5BNB4kYPmE2vMiFkFZXbr2HBywIGCEYCmKNP+j0Ar+BDUFpjDqnQT5BTXSHxSVT4baf0AUAyXduseME7HtUMIKoixTptINamxEjrqxC3Cz2cTCZasSD+VDkEfAMUnp3Hd6iW3pqFaqb/2CYnnAUJKm/1ivBhKhgqTQz4hzg6W/BSKfZiHLiCx5TYYTg4oRsW3BInpg2Y+AbOxXil05etmxLzxz2/p4ICLEAwcCnHQKYCdMvMdrwRyx5dHpPaUTslzsVmx3x9E63rEhmrzqNk4kIlB12/LgPk6121M8SK2laXlVWaFLnxzIqaw5emOp4dNSShzTg0bwcylfa9KDbZDrkRT8XI1Du/10YlgbyyEh3VxMDHfDJUSWuE76gQLlmt7PfEt0XgBsxzBIXLOPlFxpLHAkD1Su/Bvtl0iXpApDcFprac5lz2txbCKAQaQOg2y2vyNj80ftcK4NJm+jSG1b+R1+dUFvJCcTXxPr6ITLBCkZDLdMRA4de0vaFnPjqD4wA5eZcvpfiS6vM7oF9LqLlxrjQ9wg1k5O8FuO56XvRZ9mBufNqN2gN3TTkWrhdxQ==
+x-microsoft-antispam-message-info: 5eHqo3CEfaoG22d2Rgmia8qoEL6+tLKHlGO189nkiVTZp3Op0+f13iNW4Au7owdyGdS4wAd7eEBWplDSK6b6Kr+E+Tnm+7brpU+R21+nAC0NVwBDA/9bdrQSW4its9V1z/vKQFeuzGuZqhuEQL42luBoIJEvE7H0HOVx+r1oLLXvA17xpHNEKF1fLY9K5le6sHdg9nBdIvrKxQqfthdzW9Jc+5WIq3B4kM8ZnwAwXk81VdfHlJBY/AHIHKLXNrHzBpz0byJeEAcOEC/RNXAJ9/3PAHsiEcdGEy2jg25PolZillKYX0X3MsLWuJgr0UlIyFYEUKW7FhFOBRx4t8A8OU+4X79kjbmkNRLbURkkDvUpRXPLu5aPVXvy7EeRo4d7/+CR9bbs6yRPrXx0o6M8Px2AjUOUyJElKK5+hV08grZ5dpgY7ExGcW4UfNsxsqiclImtlX/6VYsWXokliJot3/Tl5Z5xAxf9bxSaSECbIVJE70IWXN4AAhM40Jjwub9qQ2BR5p5paa8QKJiGVcrmdlhBXESS2iy3UgAk4uEpvJIdw2yD/POsIIFABHFDNOSpdH6zNVQXQBZQvZAnNz6heDo0EY5TkNPOXkuCyqNg0oJNaBci/jjgqnnOWYWOzMZ28WMQdHHF3aCPF9r3N6kCIHlCpR2JPNYEYhYW+E7F4snd2K6N3QEa4XBK+EIvwqKj2tSQT2XhwB26g4irwocCOUrlPoUh6DxsXsENpepH6hFZjhvOe07ATbsJq4t/TeuS8kquwWmD11CvYTG7uXDExhP8kO2M6K7JmJZ7lftpWQqBjgYzyKOTU8nwafKewhdiaDu9+ayNH+l5Bap4sKObmA==
 x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN6PR11MB1953.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230016)(136003)(366004)(39860400002)(396003)(376002)(346002)(66556008)(110136005)(316002)(2906002)(6636002)(83380400001)(6512007)(53546011)(6506007)(478600001)(54906003)(26005)(7416002)(5660300002)(38070700005)(31696002)(36756003)(86362001)(8936002)(66476007)(91956017)(66446008)(66946007)(64756008)(8676002)(31686004)(122000001)(4326008)(186003)(71200400001)(41300700001)(38100700002)(76116006)(2616005)(6486002)(45980500001)(43740500002);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aVRlNndIMUczNVNRSm1FT2dnbWJqZ2NnTlEwRmNZak5IMFVNd1QyOTd5UHA4?=
- =?utf-8?B?Tmo0eHY4L3NQWDNkSDNIMUx5bmZabHRLVHVtaGk5aDY0MTVwdndtK3pIajZp?=
- =?utf-8?B?akVnaXp4cXlZRjhIVTNpTTV0T3dpc3F2TlAxY1hJbjdVRXM2eDl4bHoveXU4?=
- =?utf-8?B?SlhHaVBUOWZKQ2d6OEFjekVhb25CSEs0NmZIakJoM2xVUEdSb09PUndPanhm?=
- =?utf-8?B?QTZEU1J6U01MUVFDd3BHKzJna0NwOStBZXBYVUx2eXJ5Z1lGU1ZnejVuYmlJ?=
- =?utf-8?B?SzBhZDB2Ni9SeEkvbUFHbDNZM3FmQjhDcVIyUmtJNGs2c0NZRmZURW1TRFpY?=
- =?utf-8?B?YWZJcGlBWGtpamVjdVp2OE9teEZqem9hK2tPeWY5RXZRU1YvUzQzMVUya2V2?=
- =?utf-8?B?QVp4TVVydm55cVdUMmRzdjVIbnQ0VW9aUU1mc1hBSGl3RTc1aUxQMUk4MFhp?=
- =?utf-8?B?Z25vcEVsNnBCMmwvMEl4MnpCKzViTmFBUEl4YWN1ZElhQW5EM2pXcnVlSmM0?=
- =?utf-8?B?bCtjay9sOEpiMC9OblV3cnp6TW9EQnJvYWFhMzUxb3l4RC9vYlZqS04xS1ND?=
- =?utf-8?B?WFZ1SDk0V2JsVEF1a0d6Wm5kZ2F6QTR3WmY3OUszMkpjRlR3VmxESVhJRjNs?=
- =?utf-8?B?VGRNNWVmNlI4a1hRSVZPQkZyNTVzZkhFN1l2bnZpWDltYjVrbG5DYUJWS3R2?=
- =?utf-8?B?anNVQWp6U0R1TVdrT2ErYld2S3lObmRMZ0dwNktOZk5mRG1JTmJRQXBEQ0Iz?=
- =?utf-8?B?Vk5mK1NCdm51bEcwZFE1T1pxRjFFSUszSk12dlNqWVJCTDd1Wm91OXoyUnp0?=
- =?utf-8?B?VEh6cXhLaWpzaFVWVTN0YzJWZExjQ1orNVR0NjYvNU9vTTlGZGxOZ21ZVGlo?=
- =?utf-8?B?eGRHZ2RtS1NtMWROSE14WUZyV0gzcWdhR2hGbDdkTDUyWVdDVGFPNGZCSVNK?=
- =?utf-8?B?cFpLV1hzYVdoL2k3U01qSWZINTdaVnZGMVl5RitVRHBVanVBcUpzdHhCbzZI?=
- =?utf-8?B?WVlJNTJqK2hhUGwwU2tISzlRTDZIMUtHRytmd2EzU2hDOUw3cDVhY0d6MS9B?=
- =?utf-8?B?emZYRDg1Z0NVeTdGL1Y2S3cxTjJHMVVkdnQxUVY3M2k4cGFTbStBd1hWZzhC?=
- =?utf-8?B?T1p0QjhiaUFDakRkNjhwcmpyWWV1RlZ0OHpUbmpHaXh3RGFoL1ZWOEFXbnBM?=
- =?utf-8?B?dk1GVGNYUVBmYnhKVCtXMlYzZzNNTVpITjJuRDBoR3ZuVnoxc1pGNWxnN250?=
- =?utf-8?B?Y3BXNHFMUVdjOENNM2QvM1doOWIyQXIva09wUUttMnByTkhvZ1oxTXk4clVa?=
- =?utf-8?B?SWZTbVY0eWZzc0NYYnRyQWV3S0xPR0ZvbXA3b0FHNEE3TlBPTWdSOUZnUVVt?=
- =?utf-8?B?SHN1a2hXa2V6WHRtYlAxK0F2S1Q3L2VFTExkOVJuUnJUWmxubmVaMVBzd1BK?=
- =?utf-8?B?SnpuOFhQZEd6RWNrU1lIUldpVW5qWmVXYi9pYUVrU0xVWDlOMUFwNG1wU0s3?=
- =?utf-8?B?aWdMSTMwaGdORUlRVmFEMEpONTZ1bnIxNnNXbmlxYjRzRVZEWGJwSlJZZjA2?=
- =?utf-8?B?QnJTWGpPc1NQOE9CZytlYjR5NC8rLzN5ckxFblJteUkxOHhtUjNlZzg1RHl6?=
- =?utf-8?B?LzJPZ2x4eGE5enh0US9sVzZ1U2Fmc3hmRVFoTW94ZlVsRDJzV1NlQS9GZWwy?=
- =?utf-8?B?OEhXVGJSUW5QRi94dXg3UjJkQVFtdWtHWjE1Tm5BVUJTS1VadjltWFduU3hm?=
- =?utf-8?B?bmkwYUxrYlhLTFV6ajYyVUl2c2ZFdi9GRUJrbWJuSVAvazVzUC9saG15REdW?=
- =?utf-8?B?dkZmcXB0NW9DYXdTSjh0anBycTVWUHZzbkN6VmNIWFg2ekZ1dmdMRWhYclNx?=
- =?utf-8?B?dDF6a0JsVldIRTZDbXNqZ1kwRWtXWnlWY0lkb05JMGZSaUdxY1BTalZ5dlFm?=
- =?utf-8?B?SloyRldQMnBRUEl2SjczZ3hzZzJLd1laUVcvYjM1dUFpWm1MNTUxbzdIMkNH?=
- =?utf-8?B?Z2IzU3NMQTNTeURXKzJjd3pYeUZyTkJSTjFsUEliMm5NR2hzeFY4Rkx2eUxn?=
- =?utf-8?B?ZERGanZpMXo0ZGlPQ2JpWDE1bk9DUUFhUzRSUWE1WGF6QnUvQXFGZ2xycVNj?=
- =?utf-8?B?cXdqOFdTVXJKNHQrTUtiUStPR2VqL0I2TUJyTTJFeVNWV1REazhJZ242QjVQ?=
- =?utf-8?B?L3c9PQ==?=
-Content-ID: <E896461B0744694E8D21D2C664FC8EA9@namprd11.prod.outlook.com>
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Y0tkcEoreGFmTkpMVmZtREFNV0xkT3VTUnJNSUlDUUdMWUt5OGdER01SRnFI?=
+ =?utf-8?B?VWpENE82ZUNQbDR4VjVUSGNyVHIxbldiVHZVMFpQZ1NwZ2FLd0tEMFcyVWdV?=
+ =?utf-8?B?RXNpdmVmWnZ1VURQYU1hbjZ5cGVGR2tJZDRqaTRCVjZQd01Jc1dmbnVUOFdN?=
+ =?utf-8?B?QS9nQTVFYXpMMXNhSzBPbFlxQ1RNNENqUGUxRkpUa0VmNGpnR1JvZWVRSnYr?=
+ =?utf-8?B?NU1QYWhiSDgvemlXN0VTQzJrU0JhYXd0d0dZS0VmV0EvSG50SVplSkZseDJW?=
+ =?utf-8?B?V1o5RDAvR1FyaWYvTGxlVFpUZG9lZHpodWtOZXV4Q2N1d21ONExiZUpvLzBY?=
+ =?utf-8?B?VVgyMVJrUS9TL2pKa1FuNThuTjJxQi9UMEdnMjlxNGgyTkcydStWY1pKZWtM?=
+ =?utf-8?B?MndqOW1SY21mYzRya0NYTVdyZmorYmY0WGtxdlNybUtiaUFUciswa3ZXTy9L?=
+ =?utf-8?B?NEJoTitsQVliSGFjMHhOWndvdURiN1dZQ29lUkdnRDhyRDlNWCtEa1o2RWt5?=
+ =?utf-8?B?NGpWaDNRaThmRDZMR3dYbWp5US91YU01R3VIVEV6NUM3NlYzY3B0Ulc3MUZJ?=
+ =?utf-8?B?ZUI0b29JWksrVmUxWmZ4QnVMQ1F3OEJveHFSVFl3RzVjRHZsVkl5REJTRUdT?=
+ =?utf-8?B?YUk1ZFZpMTd2QW5laXJpY1NhSGRjWDkvamNnb1YveTFvbGtxR0V3Wk12K3ds?=
+ =?utf-8?B?WVRBL1VKTmNhWVpxRkVERFBrdWc2aHkvN3pKNTVHTU9xeUUvTGNraGpURGhJ?=
+ =?utf-8?B?dVUzVHBrK2lUbnFXTTJia0lGL3ZkYXphVjdhYXZ3SFFLcDdISDFaNUUvOTRF?=
+ =?utf-8?B?MmVobGJ5emJiV1Frb1Y1V0RyamJLLzlMUzl6a1VQQXY1VDRNNUZoUU1RSnZ2?=
+ =?utf-8?B?QzBNNkE4SkpCL0NaWUtiRmc3b3kxZGE5L2pDdkFicWV4b0lmdy9sYjB1RDU2?=
+ =?utf-8?B?S2thNzRrdUNxdjltRmFTdWxrNlNUWFNFWkRSMGZrNGo3WGhlVi9JSno2UVhU?=
+ =?utf-8?B?WS9OZU9SRXFLN0o2eWdVeEpmVXQ3MjZ6SnJQdHdVMC9UbGpmaWVQVUpxVlhI?=
+ =?utf-8?B?VkcrM01WcTB5eG5ObW8yNUdaaG5NYWRGNVRLVHZrYTdDcWhUL0NqUy94OVpq?=
+ =?utf-8?B?NXRkVmlhVW5EZ2RseFUwSDRvZTZPS0FjcmNUV3Q0V3U2ODZLVVhlRlhhWkl0?=
+ =?utf-8?B?OEZDbUNjSDEvSDRaSklUNDFiUEVUdUZSVkJTZ1l3Wm5Ib1E0U2dDMmVSQi92?=
+ =?utf-8?B?Z2F6ZklDWTRoaXhIcmtIc1FrV3JhK3ZsQ2tGSXFQQmtEL2REVXowNTFMbmo4?=
+ =?utf-8?B?dWxnamZSS21YUFlTbDlibmJRRjBkOU0ySURsS0Qvais4RVF5L1dEOXNjbW1H?=
+ =?utf-8?B?TkcrSUUyYWxSK0JFaUMwRmRKR3Jwejl2bHJRRE45Zm9vWlVDbk5UalMvVEhq?=
+ =?utf-8?B?ay9QQkJhNWRZcFp3dHd4cVFVdDh1ckZScHVEMHZxakFXdGpGWW9ucUMrL2l3?=
+ =?utf-8?B?YlB2UUFoWGsreklleHpqZzBiQytnYVBUZXpFWVNUL2F0TEk2b3FPNFp6VzNF?=
+ =?utf-8?B?ZHIvQlJVa0tFWm16RDIxbllzUVFQaUxPMVUzMHRsQVFURUdHQ21rU0dnQlA5?=
+ =?utf-8?B?Sm1KbkpZRE9PWTBHU2dra001U2Yvd3VBWHdMd0I0NHBsMnZJaTdPWjNhWXdZ?=
+ =?utf-8?B?UXJIRm1Ec3VrNmJXcm8zV0VJRi9iNkpxc1lNZDRLOUV6NEpjcTZQUDFLVmQ3?=
+ =?utf-8?B?cFlYVDBwc1BjZnFPa1ZWbWNBQ1AySDJjVUZTSGVHakFVZ0ZEbzN4cDcvUmZZ?=
+ =?utf-8?B?cEROZkxBd1MxMnBMb3pnZXlrQ1NzdE9xK1JlTm12SVY1MTlTWmR0OTlYQzBP?=
+ =?utf-8?B?UmxSRnc0cGhlbVNTa2JkNEU2NXpFTldsdkI0S1V2QnkvS2ZBcVBiQVVZNnZ3?=
+ =?utf-8?B?ZHpCai84NW5STGEza1pGWkU5NVQvYlpSNjFBYUxqVmw0cUpEb0NMR243ekxX?=
+ =?utf-8?B?NkRBVGdyczNZL0h6ellHOXVRSE1sT3hYQTh4QXpQWmpQaTQwcmtkUy9SUmFL?=
+ =?utf-8?B?QzBxelBQVEFRcFpYV0ljUUw5cVlJMldMUCtUQjRyc012dHB2QjFHaFp5OW9U?=
+ =?utf-8?B?Q2s1bHBBc0h0MnlxU1F1SFFYbGZsNnpvT0VKUENVTkoyR3Z0ekN4MW10bWRF?=
+ =?utf-8?B?TFE9PQ==?=
+Content-ID: <8844859FF1558D4682EB2D953AB8C886@namprd11.prod.outlook.com>
 MIME-Version: 1.0
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: BN6PR11MB1953.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 112b4c9e-8dce-445e-9f24-08da9165a49f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Sep 2022 06:44:56.5526
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4cd74170-defc-4d04-0016-08da9165c35b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Sep 2022 06:45:48.0966
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: CXHZ6qAmndM5B1woVea/RrKyRcGPsXy+zxZk7IWu986MvBAyQs5xh0GGh011YL8VRst8M6wtTaNcMQMN4vnoTCj/8NH5zeL6KAYeake/wss=
+X-MS-Exchange-CrossTenant-userprincipalname: vftewdXEkQB5odSvOuAkAKs8tOEbUeyQzFRgc0eKaTp2l53lzExno6Yae8NLnKdh6Y+CUGjJeM5QwjDV3hgcVzjIYEHe95I+8LNmOW4iMKE=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB5766
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220907_234516_027700_A45702F3 
-X-CRM114-Status: GOOD (  25.99  )
+X-CRM114-CacheID: sfid-20220907_234603_770565_9C08748C 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,229 +178,231 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 30.08.2022 15:52, Conor Dooley wrote:
-> Add support for the resets on Microchip's PolarFire SoC (MPFS).
-> Reset control is a single register, wedged in between registers for
-> clock control. To fit with existed DT etc, the reset controller is
-> created using the aux device framework & set up in the clock driver.
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-> Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
+> Add a reset controller to PolarFire SoC's clock driver. This reset
+> controller is registered as an aux device and read/write functions
+> exported to the drivers namespace so that the reset controller can
+> access the peripheral device reset register.
+> 
 > Reviewed-by: Daire McNamara <daire.mcnamara@microchip.com>
 > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  drivers/reset/Kconfig      |   7 ++
->  drivers/reset/Makefile     |   2 +-
->  drivers/reset/reset-mpfs.c | 157 +++++++++++++++++++++++++++++++++++++
->  3 files changed, 165 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/reset/reset-mpfs.c
-> 
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index 806773e88832..85f7abde3766 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -152,6 +152,13 @@ config RESET_PISTACHIO
->  	help
->  	  This enables the reset driver for ImgTec Pistachio SoCs.
->  
-> +config RESET_POLARFIRE_SOC
-> +	bool "Microchip PolarFire SoC (MPFS) Reset Driver"
-> +	depends on AUXILIARY_BUS && MCHP_CLK_MPFS
-> +	default MCHP_CLK_MPFS
-> +	help
-> +	  This driver supports peripheral reset for the Microchip PolarFire SoC
-> +
->  config RESET_QCOM_AOSS
->  	tristate "Qcom AOSS Reset Driver"
->  	depends on ARCH_QCOM || COMPILE_TEST
-> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-> index cd5cf8e7c6a7..3e7e5fd633a8 100644
-> --- a/drivers/reset/Makefile
-> +++ b/drivers/reset/Makefile
-> @@ -22,6 +22,7 @@ obj-$(CONFIG_RESET_MESON_AUDIO_ARB) += reset-meson-audio-arb.o
->  obj-$(CONFIG_RESET_NPCM) += reset-npcm.o
->  obj-$(CONFIG_RESET_OXNAS) += reset-oxnas.o
->  obj-$(CONFIG_RESET_PISTACHIO) += reset-pistachio.o
-> +obj-$(CONFIG_RESET_POLARFIRE_SOC) += reset-mpfs.o
->  obj-$(CONFIG_RESET_QCOM_AOSS) += reset-qcom-aoss.o
->  obj-$(CONFIG_RESET_QCOM_PDC) += reset-qcom-pdc.o
->  obj-$(CONFIG_RESET_RASPBERRYPI) += reset-raspberrypi.o
-> @@ -40,4 +41,3 @@ obj-$(CONFIG_RESET_UNIPHIER) += reset-uniphier.o
->  obj-$(CONFIG_RESET_UNIPHIER_GLUE) += reset-uniphier-glue.o
->  obj-$(CONFIG_RESET_ZYNQ) += reset-zynq.o
->  obj-$(CONFIG_ARCH_ZYNQMP) += reset-zynqmp.o
-> -
-> diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
-> new file mode 100644
-> index 000000000000..1580d1b68d61
-> --- /dev/null
-> +++ b/drivers/reset/reset-mpfs.c
-> @@ -0,0 +1,157 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * PolarFire SoC (MPFS) Peripheral Clock Reset Controller
-> + *
-> + * Author: Conor Dooley <conor.dooley@microchip.com>
-> + * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
-> + *
-> + */
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/delay.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/reset-controller.h>
-> +#include <dt-bindings/clock/microchip,mpfs-clock.h>
-> +#include <soc/microchip/mpfs.h>
-> +
-> +/*
-> + * The ENVM reset is the lowest bit in the register & I am using the CLK_FOO
-> + * defines in the dt to make things easier to configure - so this is accounting
-> + * for the offset of 3 there.
-> + */
-> +#define MPFS_PERIPH_OFFSET	CLK_ENVM
-> +#define MPFS_NUM_RESETS		30u
-> +#define MPFS_SLEEP_MIN_US	100
-> +#define MPFS_SLEEP_MAX_US	200
-> +
-> +/* block concurrent access to the soft reset register */
-> +static DEFINE_SPINLOCK(mpfs_reset_lock);
-> +
-> +/*
-> + * Peripheral clock resets
-> + */
-> +
-> +static int mpfs_assert(struct reset_controller_dev *rcdev, unsigned long id)
-> +{
-> +	unsigned long flags;
-> +	u32 reg;
-> +
-> +	spin_lock_irqsave(&mpfs_reset_lock, flags);
-> +
-> +	reg = mpfs_reset_read(rcdev->dev);
-> +	reg |= BIT(id);
-> +	mpfs_reset_write(rcdev->dev, reg);
-> +
-> +	spin_unlock_irqrestore(&mpfs_reset_lock, flags);
-> +
-> +	return 0;
-> +}
-> +
-> +static int mpfs_deassert(struct reset_controller_dev *rcdev, unsigned long id)
-> +{
-> +	unsigned long flags;
-> +	u32 reg, val;
-
-Using either reg or val in this function should be enough.
-
-Other than this:
 
 Reviewed-by: Claudiu Beznea <claudiu.beznea@microchip.com>
 
 
-
+> ---
+>  drivers/clk/microchip/Kconfig    |   1 +
+>  drivers/clk/microchip/clk-mpfs.c | 110 +++++++++++++++++++++++++++----
+>  include/soc/microchip/mpfs.h     |   8 +++
+>  3 files changed, 107 insertions(+), 12 deletions(-)
+> 
+> diff --git a/drivers/clk/microchip/Kconfig b/drivers/clk/microchip/Kconfig
+> index a5a99873c4f5..b46e864b3bd8 100644
+> --- a/drivers/clk/microchip/Kconfig
+> +++ b/drivers/clk/microchip/Kconfig
+> @@ -6,5 +6,6 @@ config COMMON_CLK_PIC32
+>  config MCHP_CLK_MPFS
+>         bool "Clk driver for PolarFire SoC"
+>         depends on (RISCV && SOC_MICROCHIP_POLARFIRE) || COMPILE_TEST
+> +       select AUXILIARY_BUS
+>         help
+>           Supports Clock Configuration for PolarFire SoC
+> diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
+> index 9e41f07b3fa6..43cc9583cd14 100644
+> --- a/drivers/clk/microchip/clk-mpfs.c
+> +++ b/drivers/clk/microchip/clk-mpfs.c
+> @@ -3,12 +3,14 @@
+>   * Daire McNamara,<daire.mcnamara@microchip.com>
+>   * Copyright (C) 2020 Microchip Technology Inc.  All rights reserved.
+>   */
+> +#include <linux/auxiliary_bus.h>
+>  #include <linux/clk-provider.h>
+>  #include <linux/io.h>
+>  #include <linux/module.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/slab.h>
+>  #include <dt-bindings/clock/microchip,mpfs-clock.h>
+> +#include <soc/microchip/mpfs.h>
+> 
+>  /* address offset of control registers */
+>  #define REG_MSSPLL_REF_CR      0x08u
+> @@ -30,6 +32,7 @@
+>  #define RTCREF_OFFSET          (CLK_RTCREF - CLK_ENVM)
+> 
+>  struct mpfs_clock_data {
+> +       struct device *dev;
+>         void __iomem *base;
+>         void __iomem *msspll_base;
+>         struct clk_hw_onecell_data hw_data;
+> @@ -304,10 +307,6 @@ static int mpfs_periph_clk_enable(struct clk_hw *hw)
+> 
+>         spin_lock_irqsave(&mpfs_clk_lock, flags);
+> 
+> -       reg = readl_relaxed(base_addr + REG_SUBBLK_RESET_CR);
+> -       val = reg & ~(1u << periph->shift);
+> -       writel_relaxed(val, base_addr + REG_SUBBLK_RESET_CR);
+> -
+>         reg = readl_relaxed(base_addr + REG_SUBBLK_CLOCK_CR);
+>         val = reg | (1u << periph->shift);
+>         writel_relaxed(val, base_addr + REG_SUBBLK_CLOCK_CR);
+> @@ -341,12 +340,9 @@ static int mpfs_periph_clk_is_enabled(struct clk_hw *hw)
+>         void __iomem *base_addr = periph_hw->sys_base;
+>         u32 reg;
+> 
+> -       reg = readl_relaxed(base_addr + REG_SUBBLK_RESET_CR);
+> -       if ((reg & (1u << periph->shift)) == 0u) {
+> -               reg = readl_relaxed(base_addr + REG_SUBBLK_CLOCK_CR);
+> -               if (reg & (1u << periph->shift))
+> -                       return 1;
+> -       }
+> +       reg = readl_relaxed(base_addr + REG_SUBBLK_CLOCK_CR);
+> +       if (reg & (1u << periph->shift))
+> +               return 1;
+> 
+>         return 0;
+>  }
+> @@ -441,6 +437,94 @@ static int mpfs_clk_register_periphs(struct device *dev, struct mpfs_periph_hw_c
+>         return 0;
+>  }
+> 
+> +/*
+> + * Peripheral clock resets
+> + */
 > +
-> +	spin_lock_irqsave(&mpfs_reset_lock, flags);
+> +#if IS_ENABLED(CONFIG_RESET_CONTROLLER)
 > +
-> +	reg = mpfs_reset_read(rcdev->dev);
-> +	val = reg & ~BIT(id);
-> +	mpfs_reset_write(rcdev->dev, val);
-> +
-> +	spin_unlock_irqrestore(&mpfs_reset_lock, flags);
-> +
-> +	return 0;
-> +}
-> +
-> +static int mpfs_status(struct reset_controller_dev *rcdev, unsigned long id)
+> +u32 mpfs_reset_read(struct device *dev)
 > +{
-> +	u32 reg = mpfs_reset_read(rcdev->dev);
+> +       struct mpfs_clock_data *clock_data = dev_get_drvdata(dev->parent);
 > +
-> +	/*
-> +	 * It is safe to return here as MPFS_NUM_RESETS makes sure the sign bit
-> +	 * is never hit.
-> +	 */
-> +	return (reg & BIT(id));
+> +       return readl_relaxed(clock_data->base + REG_SUBBLK_RESET_CR);
 > +}
+> +EXPORT_SYMBOL_NS_GPL(mpfs_reset_read, MCHP_CLK_MPFS);
 > +
-> +static int mpfs_reset(struct reset_controller_dev *rcdev, unsigned long id)
+> +void mpfs_reset_write(struct device *dev, u32 val)
 > +{
-> +	mpfs_assert(rcdev, id);
+> +       struct mpfs_clock_data *clock_data = dev_get_drvdata(dev->parent);
 > +
-> +	usleep_range(MPFS_SLEEP_MIN_US, MPFS_SLEEP_MAX_US);
-> +
-> +	mpfs_deassert(rcdev, id);
-> +
-> +	return 0;
+> +       writel_relaxed(val, clock_data->base + REG_SUBBLK_RESET_CR);
 > +}
+> +EXPORT_SYMBOL_NS_GPL(mpfs_reset_write, MCHP_CLK_MPFS);
 > +
-> +static const struct reset_control_ops mpfs_reset_ops = {
-> +	.reset = mpfs_reset,
-> +	.assert = mpfs_assert,
-> +	.deassert = mpfs_deassert,
-> +	.status = mpfs_status,
-> +};
-> +
-> +static int mpfs_reset_xlate(struct reset_controller_dev *rcdev,
-> +			    const struct of_phandle_args *reset_spec)
+> +static void mpfs_reset_unregister_adev(void *_adev)
 > +{
-> +	unsigned int index = reset_spec->args[0];
+> +       struct auxiliary_device *adev = _adev;
 > +
-> +	/*
-> +	 * CLK_RESERVED does not map to a clock, but it does map to a reset,
-> +	 * so it has to be accounted for here. It is the reset for the fabric,
-> +	 * so if this reset gets called - do not reset it.
-> +	 */
-> +	if (index == CLK_RESERVED) {
-> +		dev_err(rcdev->dev, "Resetting the fabric is not supported\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (index < MPFS_PERIPH_OFFSET || index >= (MPFS_PERIPH_OFFSET + rcdev->nr_resets)) {
-> +		dev_err(rcdev->dev, "Invalid reset index %u\n", index);
-> +		return -EINVAL;
-> +	}
-> +
-> +	return index - MPFS_PERIPH_OFFSET;
+> +       auxiliary_device_delete(adev);
 > +}
 > +
-> +static int mpfs_reset_probe(struct auxiliary_device *adev,
-> +			    const struct auxiliary_device_id *id)
+> +static void mpfs_reset_adev_release(struct device *dev)
 > +{
-> +	struct device *dev = &adev->dev;
-> +	struct reset_controller_dev *rcdev;
+> +       struct auxiliary_device *adev = to_auxiliary_dev(dev);
 > +
-> +	rcdev = devm_kzalloc(dev, sizeof(*rcdev), GFP_KERNEL);
-> +	if (!rcdev)
-> +		return -ENOMEM;
+> +       auxiliary_device_uninit(adev);
 > +
-> +	rcdev->dev = dev;
-> +	rcdev->dev->parent = dev->parent;
-> +	rcdev->ops = &mpfs_reset_ops;
-> +	rcdev->of_node = dev->parent->of_node;
-> +	rcdev->of_reset_n_cells = 1;
-> +	rcdev->of_xlate = mpfs_reset_xlate;
-> +	rcdev->nr_resets = MPFS_NUM_RESETS;
-> +
-> +	return devm_reset_controller_register(dev, rcdev);
+> +       kfree(adev);
 > +}
 > +
-> +static const struct auxiliary_device_id mpfs_reset_ids[] = {
-> +	{
-> +		.name = "clk_mpfs.reset-mpfs",
-> +	},
-> +	{ }
-> +};
-> +MODULE_DEVICE_TABLE(auxiliary, mpfs_reset_ids);
+> +static struct auxiliary_device *mpfs_reset_adev_alloc(struct mpfs_clock_data *clk_data)
+> +{
+> +       struct auxiliary_device *adev;
+> +       int ret;
 > +
-> +static struct auxiliary_driver mpfs_reset_driver = {
-> +	.probe		= mpfs_reset_probe,
-> +	.id_table	= mpfs_reset_ids,
-> +};
+> +       adev = kzalloc(sizeof(*adev), GFP_KERNEL);
+> +       if (!adev)
+> +               return ERR_PTR(-ENOMEM);
 > +
-> +module_auxiliary_driver(mpfs_reset_driver);
+> +       adev->name = "reset-mpfs";
+> +       adev->dev.parent = clk_data->dev;
+> +       adev->dev.release = mpfs_reset_adev_release;
+> +       adev->id = 666u;
 > +
-> +MODULE_DESCRIPTION("Microchip PolarFire SoC Reset Driver");
-> +MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-> +MODULE_LICENSE("GPL");
-> +MODULE_IMPORT_NS(MCHP_CLK_MPFS);
+> +       ret = auxiliary_device_init(adev);
+> +       if (ret) {
+> +               kfree(adev);
+> +               return ERR_PTR(ret);
+> +       }
+> +
+> +       return adev;
+> +}
+> +
+> +static int mpfs_reset_controller_register(struct mpfs_clock_data *clk_data)
+> +{
+> +       struct auxiliary_device *adev;
+> +       int ret;
+> +
+> +       adev = mpfs_reset_adev_alloc(clk_data);
+> +       if (IS_ERR(adev))
+> +               return PTR_ERR(adev);
+> +
+> +       ret = auxiliary_device_add(adev);
+> +       if (ret) {
+> +               auxiliary_device_uninit(adev);
+> +               return ret;
+> +       }
+> +
+> +       return devm_add_action_or_reset(clk_data->dev, mpfs_reset_unregister_adev, adev);
+> +}
+> +
+> +#else /* !CONFIG_RESET_CONTROLLER */
+> +
+> +static int mpfs_reset_controller_register(struct mpfs_clock_data *clk_data)
+> +{
+> +       return 0;
+> +}
+> +
+> +#endif /* !CONFIG_RESET_CONTROLLER */
+> +
+>  static int mpfs_clk_probe(struct platform_device *pdev)
+>  {
+>         struct device *dev = &pdev->dev;
+> @@ -465,6 +549,8 @@ static int mpfs_clk_probe(struct platform_device *pdev)
+>                 return PTR_ERR(clk_data->msspll_base);
+> 
+>         clk_data->hw_data.num = num_clks;
+> +       clk_data->dev = dev;
+> +       dev_set_drvdata(dev, clk_data);
+> 
+>         ret = mpfs_clk_register_mssplls(dev, mpfs_msspll_clks, ARRAY_SIZE(mpfs_msspll_clks),
+>                                         clk_data);
+> @@ -484,14 +570,14 @@ static int mpfs_clk_probe(struct platform_device *pdev)
+>         if (ret)
+>                 return ret;
+> 
+> -       return ret;
+> +       return mpfs_reset_controller_register(clk_data);
+>  }
+> 
+>  static const struct of_device_id mpfs_clk_of_match_table[] = {
+>         { .compatible = "microchip,mpfs-clkcfg", },
+>         {}
+>  };
+> -MODULE_DEVICE_TABLE(of, mpfs_clk_match_table);
+> +MODULE_DEVICE_TABLE(of, mpfs_clk_of_match_table);
+> 
+>  static struct platform_driver mpfs_clk_driver = {
+>         .probe = mpfs_clk_probe,
+> diff --git a/include/soc/microchip/mpfs.h b/include/soc/microchip/mpfs.h
+> index 6466515262bd..f916dcde457f 100644
+> --- a/include/soc/microchip/mpfs.h
+> +++ b/include/soc/microchip/mpfs.h
+> @@ -40,4 +40,12 @@ struct mpfs_sys_controller *mpfs_sys_controller_get(struct device *dev);
+> 
+>  #endif /* if IS_ENABLED(CONFIG_POLARFIRE_SOC_SYS_CTRL) */
+> 
+> +#if IS_ENABLED(CONFIG_MCHP_CLK_MPFS)
+> +
+> +u32 mpfs_reset_read(struct device *dev);
+> +
+> +void mpfs_reset_write(struct device *dev, u32 val);
+> +
+> +#endif /* if IS_ENABLED(CONFIG_MCHP_CLK_MPFS) */
+> +
+>  #endif /* __SOC_MPFS_H__ */
+> --
+> 2.36.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
