@@ -4,44 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94E3ECAAD5
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 08:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8938C38145
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 08:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Drg1EO2bZ2ipDOBxMdmz/pzOVz7xSm880c9ILM82zbA=; b=LlKX6irLBd14+r
-	49gKbnQUQRJRg4fmC6oErSS09ist1ONnAnLAG/VETIFNhgq9vsSrN5uYiHj26pBrIX3DZvgSscbpW
-	U58u0CgkK2HlMZmG0Kx31Ueq6PQzlYYto7sZ5KZCcCYtZSZhC3IJE08Ux1ScunLGaQyHpbuqqyLCo
-	pwfpogljQgllKGxJ4aFBNhD8t6hIBnNSdqEPqS7dke+1vyxUrSzW2J1cga51zXqsg5+HuzqNP81ZW
-	3pbtSDMkkMgSRt44SQB+XjHWlKm2HOQypXgY9SyYYBy5tw6YyGbj7hT6G23VpCe5Dxd1PVqnZ4uF+
-	nwRvh/qtNiDmzzMmImpQ==;
+	List-Owner; bh=SwYJvqjGRNDv4JKbn5J3yJkTz6IOUu4dE7Psj0+Le+w=; b=ExHK9k4kUpibLx
+	YeeEpiUqe42xooBLYu387R1aLrKHr0HerBd0pifJ0VRe2DzVlNwoalQk4/AtQZ6UexKWXVSX+V8vD
+	TQaQ8weWckOABzV7LAPZ82Be39EppJ8yTsFHe9KBBg5OC50qFOZICAFOGKHJz8igVWQ2yLnv5Bg8t
+	u9Jhy4Vn4gmYkI5jnsrSUmkHRiGemKrDSsX4nF3nlw027PUO23cK4aiyPpa3fZzIsN2oOm8jfT5qz
+	s6JNDm+CEpl+C0jnl0VQ8zKaqS8nEow5S72nS75kpwVXPt3wZx/aqM4MpNaL6l79FYSXloVoVSilp
+	Cv1By8nXaIPxzALevk+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWCcs-000xIM-Oo; Thu, 08 Sep 2022 08:11:06 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1oWD3a-0015PD-Qw; Thu, 08 Sep 2022 08:38:42 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWCcc-000xCS-Cz
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 08:10:53 +0000
-Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1oWCcV-0003SJ-4L; Thu, 08 Sep 2022 10:10:43 +0200
-From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
-To: Atish Patra <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Anup Patel <anup@brainfault.org>, Mayuresh Chitale <mchitale@ventanamicro.com>, Nathan Chancellor <nathan@kernel.org>, Jessica Clarke <jrtc27@jrtc27.com>, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH v3 2/2] RISC-V: Clean up the Zicbom block size probing
-Date: Thu, 08 Sep 2022 10:10:42 +0200
-Message-ID: <5505900.JsnAkG3lO3@diego>
-In-Reply-To: <20220908071157.ajjascv5ebhbwhv4@kamzik>
-References: <20220906074509.928865-1-ajones@ventanamicro.com> <CAOnJCULO-pSNgsvXMbCiOi72jJmOvB_UGGw87psynbXgo1K_3A@mail.gmail.com> <20220908071157.ajjascv5ebhbwhv4@kamzik>
-MIME-Version: 1.0
+	id 1oWD3Y-0015N8-3m
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 08:38:41 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 79FB061AEF;
+	Thu,  8 Sep 2022 08:38:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF448C433D6;
+	Thu,  8 Sep 2022 08:38:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1662626318;
+	bh=7/+/Q28WsetQxkcMxruLY3ElubDT89XUfj2VYbo4/Bw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=o2TWfZxfRwChwIciVNqQ8Cii9kyXjlRbrHzpaAMzFX21ApBVz/jWIYTP+hxPCFvmB
+	 EFPJUH5ERd9fQXCkkX9sK2ahCeivchkQYTKYfEISZttcu2iZdYcI/AO3rb2iJkA7bT
+	 LIY7ewG48Vl3hhKd6ePuJ4iXrlz2ooiZDHla55ri0swVsIXTiW0yiTPEIr5YqF9zQ+
+	 szny0RaV9O3wlUAGoTZ/eoxw993L0BAA9fQQl4WjoFtbFAxWQk1GHYByXMss+PZHlo
+	 ym7mFpMYJ+mIsagDyV0r1I6pivl/N+JRDVkNhSzqIOSsOOmOR71wIlg7I4FGuSIjDX
+	 h7HWi6TZlNObQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=why.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1oWD3U-008r0K-It;
+	Thu, 08 Sep 2022 09:38:36 +0100
+Date: Thu, 08 Sep 2022 09:38:36 +0100
+Message-ID: <87czc6uupf.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Alistair Francis <Alistair.Francis@wdc.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Bin Meng <bmeng.cn@gmail.com>
+Subject: Re: [PATCH v9 1/7] RISC-V: Clear SIP bit only when using SBI IPI operations
+In-Reply-To: <20220903161309.32848-2-apatel@ventanamicro.com>
+References: <20220903161309.32848-1-apatel@ventanamicro.com>
+	<20220903161309.32848-2-apatel@ventanamicro.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/27.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: apatel@ventanamicro.com, palmer@dabbelt.com, paul.walmsley@sifive.com, tglx@linutronix.de, daniel.lezcano@linaro.org, atishp@atishpatra.org, Alistair.Francis@wdc.com, anup@brainfault.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, bmeng.cn@gmail.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_011050_681872_94F9603A 
-X-CRM114-Status: GOOD (  42.10  )
+X-CRM114-CacheID: sfid-20220908_013840_286670_89CABD90 
+X-CRM114-Status: GOOD (  24.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,202 +93,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 8. September 2022, 09:11:57 CEST schrieb Andrew Jones:
-> On Wed, Sep 07, 2022 at 03:47:09PM -0700, Atish Patra wrote:
-> > On Tue, Sep 6, 2022 at 12:45 AM Andrew Jones <ajones@ventanamicro.com>
-> > wrote:
-> > 
-> > > From: Palmer Dabbelt <palmer@rivosinc.com>
-> > >
-> > > This fixes two issues: I truncated the warning's hart ID when porting to
-> > > the 64-bit hart ID code, and the original code's warning handling could
-> > > fire on an uninitialized hart ID.
-> > >
-> > > The biggest change here is that riscv_cbom_block_size is no longer
-> > > initialized, as IMO the default isn't sane: there's nothing in the ISA
-> > > that mandates any specific cache block size, so falling back to one will
-> > > just silently produce the wrong answer on some systems.  This also
-> > > changes the probing order so the cache block size is known before
-> > > enabling Zicbom support.
-> > >
-> > > Fixes: 3aefb2ee5bdd ("riscv: implement Zicbom-based CMO instructions + the
-> > > t-head variant")
-> > > Fixes: 1631ba1259d6 ("riscv: Add support for non-coherent devices using
-> > > zicbom extension")
-> > > Reported-by: kernel test robot <lkp@intel.com>
-> > > Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> > > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> > > [Rebased on Anup's move patch and applied Conor Dooley's and Heiko
-> > >  Stuebner's changes.]
-> > > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-> > > ---
-> > >  arch/riscv/errata/thead/errata.c |  1 +
-> > >  arch/riscv/kernel/setup.c        |  2 +-
-> > >  arch/riscv/mm/cacheflush.c       | 21 +++++++++++----------
-> > >  arch/riscv/mm/dma-noncoherent.c  |  2 ++
-> > >  4 files changed, 15 insertions(+), 11 deletions(-)
-> > >
-> > > diff --git a/arch/riscv/errata/thead/errata.c
-> > > b/arch/riscv/errata/thead/errata.c
-> > > index 202c83f677b2..96648c176f37 100644
-> > > --- a/arch/riscv/errata/thead/errata.c
-> > > +++ b/arch/riscv/errata/thead/errata.c
-> > > @@ -37,6 +37,7 @@ static bool errata_probe_cmo(unsigned int stage,
-> > >         if (stage == RISCV_ALTERNATIVES_EARLY_BOOT)
-> > >                 return false;
-> > >
-> > > +       riscv_cbom_block_size = L1_CACHE_BYTES;
-> > >         riscv_noncoherent_supported();
-> > >         return true;
-> > >  #else
-> > > diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> > > index 95ef6e2bf45c..2dfc463b86bb 100644
-> > > --- a/arch/riscv/kernel/setup.c
-> > > +++ b/arch/riscv/kernel/setup.c
-> > > @@ -296,8 +296,8 @@ void __init setup_arch(char **cmdline_p)
-> > >         setup_smp();
-> > >  #endif
-> > >
-> > > -       riscv_fill_hwcap();
-> > >         riscv_init_cbom_blocksize();
-> > > +       riscv_fill_hwcap();
-> > >         apply_boot_alternatives();
-> > >  }
-> > >
-> > > diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-> > > index 336c5deea870..e5b087be1577 100644
-> > > --- a/arch/riscv/mm/cacheflush.c
-> > > +++ b/arch/riscv/mm/cacheflush.c
-> > > @@ -89,39 +89,40 @@ void flush_icache_pte(pte_t pte)
-> > >  }
-> > >  #endif /* CONFIG_MMU */
-> > >
-> > > -unsigned int riscv_cbom_block_size = L1_CACHE_BYTES;
-> > > +unsigned int riscv_cbom_block_size;
-> > >
-> > >  #ifdef CONFIG_RISCV_ISA_ZICBOM
-> > >  void riscv_init_cbom_blocksize(void)
-> > >  {
-> > >         struct device_node *node;
-> > > +       unsigned long cbom_hartid;
-> > > +       u32 val, probed_block_size;
-> > >         int ret;
-> > > -       u32 val;
-> > >
-> > > +       probed_block_size = 0;
-> > >         for_each_of_cpu_node(node) {
-> > >                 unsigned long hartid;
-> > > -               int cbom_hartid;
-> > >
-> > >                 ret = riscv_of_processor_hartid(node, &hartid);
-> > >                 if (ret)
-> > >                         continue;
-> > >
-> > > -               if (hartid < 0)
-> > > -                       continue;
-> > > -
-> > >                 /* set block-size for cbom extension if available */
-> > >                 ret = of_property_read_u32(node, "riscv,cbom-block-size",
-> > > &val);
-> > >                 if (ret)
-> > >                         continue;
-> > >
-> > > -               if (!riscv_cbom_block_size) {
-> > > -                       riscv_cbom_block_size = val;
-> > > +               if (!probed_block_size) {
-> > > +                       probed_block_size = val;
-> > >                         cbom_hartid = hartid;
-> > >                 } else {
-> > > -                       if (riscv_cbom_block_size != val)
-> > > -                               pr_warn("cbom-block-size mismatched
-> > > between harts %d and %lu\n",
-> > > +                       if (probed_block_size != val)
-> > > +                               pr_warn("cbom-block-size mismatched
-> > > between harts %lu and %lu\n",
-> > >                                         cbom_hartid, hartid);
-> > >
-> > 
-> > Maybe add more info saying the first one will be selected in that case as
-> > it is just a warning.
+On Sat, 03 Sep 2022 17:13:03 +0100,
+Anup Patel <apatel@ventanamicro.com> wrote:
 > 
-> If we detect a mismatch then should we disable the CMO extension?
-
-From a user's pov I'd think their system might stop working with disabled
-cmo - for things like networking / mass storage or so.
-
-Also the amount of misbehaviour might depend on weather the value is
-shrinking or expanding.
-
-Going from block_size x -> x/2 will "just" result in some areas being
-handled twice, where going from x -> 2x will leave out some areas,
-when the cpu itself still just does "x" .
-
-
-An experiment on the D1 supports that thought ;-)
-with L1_CACHE_BYTES / 2, networking keeps working
-with L1_CACHE_BYTES * 2 (plus adapting MINALIGN) breaks networking.
-
-
-So I'd think, we should loudly warn about misconfiguration anyway,
-but could just use the smallest value as block_size (in a future patch)
-to keep the most amounts of systems running in such a case.
-
-
-Heiko
-
-
-> The
-> current spec says "size of a cache block shall be uniform throughout the
-> system", even though that may be relaxed in later extensions. I also now
-> recall you suggested that when DT parsing ends up with a zero block size
-> we should disable the CMO extension. riscv_init_cbom_blocksize() still
-> doesn't handle zeros in the DT correctly, even with this patch, though.
-> For example, if the first harts parsed are zero, but the latter harts
-> all match, we won't even get the mismatch warning.
+> The software interrupt pending (i.e. [M|S]SIP) bit is writeable for
+> S-mode but read-only for M-mode so we clear this bit only when using
+> SBI IPI operations.
 > 
-> But, for now, my preference would be to merge this patch, as it's an
-> improvement on its own. I can try to write another patch which handles
-> zeros and mismatches by disabling the feature. What do you think?
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> Reviewed-by: Bin Meng <bmeng.cn@gmail.com>
+> ---
+>  arch/riscv/kernel/sbi.c | 8 +++++++-
+>  arch/riscv/kernel/smp.c | 2 --
+>  2 files changed, 7 insertions(+), 3 deletions(-)
 > 
-> Thanks,
-> drew
-> 
-> > 
-> > 
-> > >                 }
-> > >         }
-> > > +
-> > > +       if (probed_block_size)
-> > > +               riscv_cbom_block_size = probed_block_size;
-> > >  }
-> > >  #endif
-> > > diff --git a/arch/riscv/mm/dma-noncoherent.c
-> > > b/arch/riscv/mm/dma-noncoherent.c
-> > > index 3f502a1a68b1..d919efab6eba 100644
-> > > --- a/arch/riscv/mm/dma-noncoherent.c
-> > > +++ b/arch/riscv/mm/dma-noncoherent.c
-> > > @@ -74,5 +74,7 @@ void arch_setup_dma_ops(struct device *dev, u64
-> > > dma_base, u64 size,
-> > >
-> > >  void riscv_noncoherent_supported(void)
-> > >  {
-> > > +       WARN(!riscv_cbom_block_size,
-> > > +            "Non-coherent DMA support enabled without a block size\n");
-> > >         noncoherent_supported = true;
-> > >  }
-> > > --
-> > > 2.37.2
-> > >
-> > >
-> > Otherwise, LGTM.
-> > 
-> > Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> > 
-> 
+> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
+> index 775d3322b422..fc614650a2e3 100644
+> --- a/arch/riscv/kernel/sbi.c
+> +++ b/arch/riscv/kernel/sbi.c
+> @@ -643,8 +643,14 @@ static void sbi_send_cpumask_ipi(const struct cpumask *target)
+>  	sbi_send_ipi(target);
+>  }
+>  
+> +static void sbi_ipi_clear(void)
+> +{
+> +	csr_clear(CSR_IP, IE_SIE);
+> +}
+> +
+>  static const struct riscv_ipi_ops sbi_ipi_ops = {
+> -	.ipi_inject = sbi_send_cpumask_ipi
+> +	.ipi_inject = sbi_send_cpumask_ipi,
+> +	.ipi_clear = sbi_ipi_clear
+>  };
+>  
+>  void __init sbi_init(void)
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index 760a64518c58..c56d67f53ea9 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -83,8 +83,6 @@ void riscv_clear_ipi(void)
+>  {
+>  	if (ipi_ops && ipi_ops->ipi_clear)
+>  		ipi_ops->ipi_clear();
+> -
+> -	csr_clear(CSR_IP, IE_SIE);
+>  }
+>  EXPORT_SYMBOL_GPL(riscv_clear_ipi);
 
+This really begs the question: why on Earth are these things exported
+to *modules*? I cannot see a good reason why they should be...
 
+	M>
 
-
+-- 
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
