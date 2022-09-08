@@ -4,81 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64DA2C38145
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 18:50:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96B2C54EE9
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 18:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8bpZq63tMrumLgHseBXL/OYozAHbPW0c7OjE25ardJk=; b=4T46ScciCqs0MU
-	SC2wQRJavz37Ldklc3Si2paZy7OW+Y7FBYWDU1ivWf6IUke6HXJQMEU2xVQ4a7Lc0SD6baM8ZNHWR
-	qhWFLvm5HHFcLOBtRcpiUR/zIOWTvK0kSJCD+c8c1mEXU/3LsjyBGz27hmQdkHY3QUkwl+jLi8PC1
-	tb36iIX2wv13JjDXuQXFeTcUu8amedxR6elhgGI5aLr9uiPAstbjCQc6h12ZHX+FFuVaPOOe1oNIt
-	pdAVVxk9xfnqSTR8g3FJ1JY35xphEBkof/zCrCBoqMB8GY8PIFg6xqjvqcs9CFMbakUEebnWaYZQH
-	H4N66pFzI0hqvTLbsmIw==;
+	List-Owner; bh=m5aOgGflwyxyokj63ni+AxWQ3RBY565BAgEMspdyQLE=; b=UT2kpyuAA9MqF4
+	2w0pF+gVDVVOfMAF1HCb0v8r9IxfCkfALn4TC0wXFL2CAkr5UYteKStpHJPGufhIfPFodPshTJIpK
+	j1xUvzFLaMLlmt7ilm7vYIkCTWy7ktUQ4rK4x0cIAY+cUTaSc492YT1qnYmGTpx35isuVy2+2JeI+
+	PoNKuEvWA2H1t2T3THmu0cUKqVqDzLTtmVG+5U/S3GVTG3U9M0Go+vv2pQIv5V5BRdQvx7lyr29bK
+	kbTbTpzbsJwJFFLdOlj5AmQtS6oUe3DIJBA2LmAtndz979F3sGOEI/2+rq46IsDmJ+cPSsOJB09+t
+	mOp5d9e+egAEN4Pzvz0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWMbS-006xiR-Ir; Thu, 08 Sep 2022 18:50:18 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1oWMiA-0071ua-G4; Thu, 08 Sep 2022 18:57:14 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWMbO-006xed-BB
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 18:50:16 +0000
-Received: by mail-qt1-x832.google.com with SMTP id h22so13634233qtu.2
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 11:50:11 -0700 (PDT)
+	id 1oWMi8-0071mt-L4
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 18:57:13 +0000
+Received: by mail-pf1-x436.google.com with SMTP id c198so8984603pfc.13
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 11:57:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
-        bh=uAG7ulv3u8Y25koSZZsiniMQVBTMhkhOscGn2ifRLkY=;
-        b=8WoRFZkMD3Ij/8DnQt4Z7AsLmwPoBQy64SVQIrUpqVI+xI5Dl5BiIL0Bi3/ZrqQlxe
-         Ka+9wW8bkGx0BRbTK1551bdLodCTt4Uh6JykjgnuQrr7WA1JSXjuMtGZOo4rMWPXncTH
-         mmin5qOTQVgJI77mZUg8qPQsbiyT6JNe5yicOqFc2ffckMiNVfozy1CSZNV9+VueuFjE
-         YoqgkapQAWXqTkIIJ+e4c609h52nE4RPgrYdzdndBlDp7rJPheFY9VO/z04NnuBaV69S
-         Id0p0PT7FfU9P2kq6uuv2zWGoO/dJ0g0pSOsKXgd/00n/OsyRU79xqiAIy9VUtRbk1GD
-         s90A==
+        d=gmail.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=Pm28BmGQbrW5Gi0MeI52+kjIwgWThKQThYJFme0LBgA=;
+        b=fBSZPfGc/DVDWJvkB24mLjrwq2DPhyoU3WiqW9rmLQu8Cm9UMsp5TxezenEhz1eClA
+         0Xe2hCH07b9SOO89K4rSo/x91qCANkwordHm3BWHzPjnNKDVEn6fCSPsHQXLKKc/v+J+
+         1peBSLTKnwgAM4Z8Ucy0A8+mmcTo8dTvvXrI3rgkZG8kvkPnXeOdASCRR7Css1igEuq7
+         t3RVbfRwH83XwGpHxj7Ylt4qT/ZOiBOJbc4nTPgg+s/JAiESHaHnry42KPXoRVKme8wR
+         msgZJnqTDRbBVQklV+Ch2CgbVPDX8zi8fAc8/f2PWPPE5me2juDMWUPP2prjfefMiqBS
+         C4Cw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date;
-        bh=uAG7ulv3u8Y25koSZZsiniMQVBTMhkhOscGn2ifRLkY=;
-        b=LdHcgnVerpDxnfziTw6LN51ZRSI74eIk3JBtje0vcJ8gIA0pHcL5ScBXX088i8ovH9
-         Okn8VOu+r76eIfxzqvbhP+PcuUNF23fafgEtWUChhX+Bg6YvwAgrZ6KzhNz3Q3boMhcG
-         ytal+EzkYa0b0qRCGRVjtBscfAVUP6UmAx2ZlQ82H55VINFWbPaQHvXoKSddVTftG/6G
-         I4rrFMfIuPPqevq1EM2vRJD/acI/HfseEQnLHfzwqbQW25q5bgB4kKCyyrMz5iUVCaNA
-         H0ocOv3/ebMyBAeGuIgdSLCWo/Yta0/no52PLKtnH0d/PL456GWz5JWphBoKCYdWDV39
-         7B8g==
-X-Gm-Message-State: ACgBeo107kiVcQwPODOC0GKV1cNKudGl9CPLzIzRFbdgOJj2qC5oYXJ6
-	FaGxRkLv8Qv941MIegXyPaIpiV4QJ1J+rBNA
-X-Google-Smtp-Source: AA6agR46EWg/wwqjKx2a7Lq2jf5/fruCQbQ+V5iY3CMI11uCyd0j42+GeFE9aSfjGyYeUih5L+r/Zw==
-X-Received: by 2002:a05:622a:11c6:b0:344:54b8:6382 with SMTP id n6-20020a05622a11c600b0034454b86382mr8762938qtk.571.1662663011004;
-        Thu, 08 Sep 2022 11:50:11 -0700 (PDT)
-Received: from abrestic-xps.ba.rivosinc.com (pool-71-105-112-35.nycmny.fios.verizon.net. [71.105.112.35])
-        by smtp.gmail.com with ESMTPSA id z4-20020ac84544000000b00343057845f7sm14304453qtn.20.2022.09.08.11.50.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Sep 2022 11:50:10 -0700 (PDT)
-From: Andrew Bresticker <abrestic@rivosinc.com>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Celeste Liu <coelacanthus@outlook.com>,
-	dram <dramforever@live.com>,
-	Ruizhe Pan <c141028@gmail.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andrew Bresticker <abrestic@rivosinc.com>
-Subject: [PATCH v2] riscv: Make mmap() with PROT_WRITE imply PROT_READ
-Date: Thu,  8 Sep 2022 14:50:06 -0400
-Message-Id: <20220908185006.1212126-1-abrestic@rivosinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20220908170133.1159747-1-abrestic@rivosinc.com>
-References: <20220908170133.1159747-1-abrestic@rivosinc.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=Pm28BmGQbrW5Gi0MeI52+kjIwgWThKQThYJFme0LBgA=;
+        b=fKWciKV86SuuORT5djz6u95M9cuaumuQqP6qip3tBOasCPGcgOxR37TnEPpRexr63D
+         lkmn/TXAwbLWFGb+Kta44SsBPHVNuoYK0hNVknescSopiyzz/BoRAag2tP3aUwOwdFlt
+         k4NZq94yy9m8BzxEuKe2ppDT6mNK1SUzamYfmmenO+Fbbcm20YhnfOiuvoXWj6Us5uZb
+         rZbTUYcNy8QCeJ2DV8d2OOSldcyAYeqToA/OLxNfb2mar3abLKtKxG3/sN+VTb2HFndG
+         GUuGbmkwQ6tx80cjx2v2CR2Twr2yhvvw7OjedVi4rln7JWojQvsG0DoEwhaSV8ebhREu
+         zUcg==
+X-Gm-Message-State: ACgBeo1d5AhpeQQq84S2J+Qbe8Iah59EFQ7agt0H3PZN1dqNFtQ3QuLn
+	dP+8xaY+JfJm7MGfbI1yaB5dB7oOO+bbeAa/zQM=
+X-Google-Smtp-Source: AA6agR4pgBZYnKG3vwyCLaggnelUQXBntY88YO+ElYymgdXYZ4p55XxyCTzF0I0V4JOhd50PbXV7j0iDDcsQC+A0g1c=
+X-Received: by 2002:a63:5d4e:0:b0:41d:2966:74e7 with SMTP id
+ o14-20020a635d4e000000b0041d296674e7mr8860484pgm.526.1662663427960; Thu, 08
+ Sep 2022 11:57:07 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220908170133.1159747-1-abrestic@rivosinc.com> <20220908185006.1212126-1-abrestic@rivosinc.com>
+In-Reply-To: <20220908185006.1212126-1-abrestic@rivosinc.com>
+From: SS JieJi <c141028@gmail.com>
+Date: Fri, 9 Sep 2022 02:56:57 +0800
+Message-ID: <CANaf2sf=W=X0aEpj5haN3ns3XVqZt2si+Q=xFdhaK6GwNR7Tnw@mail.gmail.com>
+Subject: Re: [PATCH v2] riscv: Make mmap() with PROT_WRITE imply PROT_READ
+To: Andrew Bresticker <abrestic@rivosinc.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Atish Patra <atishp@atishpatra.org>, Celeste Liu <coelacanthus@outlook.com>, 
+	dram <dramforever@live.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_115014_422558_11717C6F 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20220908_115712_727381_41D8DB0E 
+X-CRM114-Status: UNSURE (   6.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,61 +87,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is
-invalid") made mmap() return EINVAL if PROT_WRITE was set wihtout
-PROT_READ with the justification that a write-only PTE is considered a
-reserved PTE permission bit pattern in the privileged spec. This check
-is unnecessary since RISC-V defines its protection_map such that PROT_WRITE
-maps to the same PTE permissions as PROT_WRITE|PROT_READ, and it is
-inconsistent with other architectures that don't support write-only PTEs,
-creating a potential software portability issue. Just remove the check
-altogether and let PROT_WRITE imply PROT_READ as is the case on other
-architectures.
-
-Note that this also allows PROT_WRITE|PROT_EXEC mappings which were
-disallowed prior to the aforementioned commit; PROT_READ is implied in
-such mappings as well.
-
-Fixes: 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is invalid")
-Signed-off-by: Andrew Bresticker <abrestic@rivosinc.com>
----
-v1 -> v2: Update access_error() to account for write-implies-read
----
- arch/riscv/kernel/sys_riscv.c | 3 ---
- arch/riscv/mm/fault.c         | 3 ++-
- 2 files changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-index 571556bb9261..5d3f2fbeb33c 100644
---- a/arch/riscv/kernel/sys_riscv.c
-+++ b/arch/riscv/kernel/sys_riscv.c
-@@ -18,9 +18,6 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
- 	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
- 		return -EINVAL;
- 
--	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
--		return -EINVAL;
--
- 	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
- 			       offset >> (PAGE_SHIFT - page_shift_offset));
- }
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index f2fbd1400b7c..d86f7cebd4a7 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -184,7 +184,8 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
- 		}
- 		break;
- 	case EXC_LOAD_PAGE_FAULT:
--		if (!(vma->vm_flags & VM_READ)) {
-+		/* Write implies read */
-+		if (!(vma->vm_flags & (VM_READ | VM_WRITE))) {
- 			return true;
- 		}
- 		break;
--- 
-2.25.1
-
+The v2 patch looks great,
+> -       if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
+> -               return -EINVAL;
+> -
+This also removes the check for --x pages, which used to be present in
+previous versions (before the submission of the to-be-reverted patch).
+Is this intended? Thanks!
 
 _______________________________________________
 linux-riscv mailing list
