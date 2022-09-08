@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 210DEC38145
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 21:00:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9420C38145
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 21:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Iu16OZKOwJ1xhnbso/YV1fvr3ZZU6wCz89VHm+Dt6FM=; b=DawnQ6ijASoexF
-	i/2skKr0u9O4v9wrQzb9dg8sbJdI1napWtgvqG79JL1zEnWBBHnXnA+sT8x0ffD9AAiJRzX7B7FGC
-	brNHuNUzLeXce11nnGSX3RD/gRQvCn1SS96SilJCt+bzPmWtIspWGqd8dAg4+bXxJasrJGtA0Y2tx
-	QKm92vr1+3W7WhDI2UPDb7uHxSBhz/XsTIkvzw/zsg3WTGysiQVDLWw1KnK/xdU8HlLRumiYWzY0j
-	WlgSddJRYuhYqUf3x1ULXxoW8crIwjWjbk8lExFtG4JUau8sVGehqT8AtshYsz8LmFW2Ifq9Q/d6s
-	ZsbATykjWrkeUQMZXHuQ==;
+	List-Owner; bh=uPDMBSDYIGF/KNzR82m/bfElPQOY6tIQWAeAK2T0ZAY=; b=pSYq8vaPlawfKX
+	Kctu8PjBVoo1OW6d7g4mVuO0aBbOERzMxccd/1Pgjmm7rRX5bB3/5C47JVo3GhZwzAtptzp88t/J3
+	FKBN4LOQYSuBQACAyGNkMRvi7KywK1yjcKxNQnT4uAF/sj/TRscNtfYaCC+5np6ahu7RiddTKVHzi
+	bbzVzFUMkgpF94ZzwvonwXY9v3zD9CzPKpugIl9o8CsdbZWmmG37GB37DD3S7HZT2RpT/w2fkMAjR
+	sPG6aGG5KNge8/wGNtoApm2zL+oZteg5gPLhuMe5OW5UHkV/3JzDk6XAsKavOd/PPmln3nvbdAZ/L
+	d52kuE10pBRIUykZ3YZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWOd2-008nwG-Et; Thu, 08 Sep 2022 21:00:04 +0000
-Received: from mail-oa1-f51.google.com ([209.85.160.51])
+	id 1oWOvz-008zUe-B2; Thu, 08 Sep 2022 21:19:39 +0000
+Received: from mga05.intel.com ([192.55.52.43])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWOd0-008nuD-5V
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 21:00:03 +0000
-Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-1225219ee46so47799002fac.2
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 13:59:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=Ht96cST8yQVzZBwVWRMco1CmpG7NqtflpXw8c4bPalc=;
-        b=0yX0h2MO+ViiKkMbjGChPiRfAPsbt8GuokBgtvJPhTRVywa2wPNMXPIOAgg3CQ95ul
-         3sKftwZO5J305yN+PwWNlMKCcxEhhFit8fQJbFSy90HJB0j1Mj5WdQMzTPwfmJVfMyh6
-         dWtvO3BGfzz+nPKAm/sKxMHMZr3XX7H7pny4/Yqk55ePc7A9+cKq7eqW+x2iiffCXXFJ
-         b7fkxapZCpioHj+kovruRwaNxUahYKDWhsUjJRcWeNsB93I8zgE6SIgpuQCW/o2cTyoD
-         ktdOQVI97KT2y8WCjx98cMsOCG5DCQ8b1D2LlZ9CkazgPzKIohBf1mnX60yDNpI9JRMc
-         q/qQ==
-X-Gm-Message-State: ACgBeo3dBeS2TvEiOdqV/7KoP+HjzeNzDjh7XonjZ0oNz79Zll2h2uOU
-	DE7mTFPkSZqA+PXhOrl8lQ==
-X-Google-Smtp-Source: AA6agR6skDdRn/PXQvtpF4wFOybY+PCqKSviHzZig+83x2LieXx6i5By8KhuwT1kbLOGTGYdrWiC0g==
-X-Received: by 2002:aca:acc6:0:b0:34d:1b3b:6437 with SMTP id v189-20020acaacc6000000b0034d1b3b6437mr1669384oie.286.1662670798794;
-        Thu, 08 Sep 2022 13:59:58 -0700 (PDT)
-Received: from robh.at.kernel.org (66-90-144-107.dyn.grandenetworks.net. [66.90.144.107])
-        by smtp.gmail.com with ESMTPSA id h18-20020a056870d35200b0010e3cb4c98fsm117130oag.9.2022.09.08.13.59.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 Sep 2022 13:59:58 -0700 (PDT)
-Received: (nullmailer pid 3332296 invoked by uid 1000);
-	Thu, 08 Sep 2022 20:59:57 -0000
-Date: Thu, 8 Sep 2022 15:59:57 -0500
-From: Rob Herring <robh@kernel.org>
-To: daire.mcnamara@microchip.com
-Cc: aou@eecs.berkeley.edu, bhelgaas@google.com, conor.dooley@microchip.com, devicetree@vger.kernel.org, krzysztof.kozlowski+dt@linaro.org, kw@linux.com, linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org, lpieralisi@kernel.org, palmer@dabbelt.com, paul.walmsley@sifive.com, cyril.jean@microchip.com, padmarao.begari@microchip.com, heinrich.schuchardt@canonical.com, david.abdurachmanov@gmail.com
-Subject: Re: [PATCH v1 4/4] of: PCI: tidy up logging of ranges containing
- configuration space type
-Message-ID: <20220908205957.GB3240357-robh@kernel.org>
-References: <20220902142202.2437658-1-daire.mcnamara@microchip.com>
- <20220902142202.2437658-5-daire.mcnamara@microchip.com>
+	id 1oWOvv-008zTH-L0
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 21:19:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1662671975; x=1694207975;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hPK/Pv0LGYyLuxyhio+4Qw0tsqTk3tEa/oIwXYx8sWg=;
+  b=dFGU4zLdlLmoVyKxBEGP20HC3NlVjGGtAlsmSH0JRQY9HsbwRg3Z1JCQ
+   cAzv7X/s7kOu7qZfAJ/ly+ZSBY0yjCFFcBTYQLe1EUgFiboZmBIUoQMXB
+   +gEcVZHTYKIiQyj2r9bFqnZOE3M4nqqk7K0fbMuW/KEFsaFJp648v8RmW
+   WRJjcjI+rYXNkWGNmfcVlihK9sqbkI+WKKPli8NJkMkymqKamCcilZ4Ll
+   xiORSOC2JLIvL7vWmfzblCdl+KZwmp4SqxoOtJTOf87p9592vchrIxh4p
+   86Bj4Kz5WKlTcB9YztjPpulZr6ElIa/rHKH7feNBbeWmsObGPsoLppMGV
+   g==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10464"; a="383621831"
+X-IronPort-AV: E=Sophos;i="5.93,300,1654585200"; 
+   d="scan'208";a="383621831"
+Received: from orsmga003.jf.intel.com ([10.7.209.27])
+  by fmsmga105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Sep 2022 14:19:33 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.93,300,1654585200"; 
+   d="scan'208";a="566108806"
+Received: from lkp-server02.sh.intel.com (HELO b2938d2e5c5a) ([10.239.97.151])
+  by orsmga003.jf.intel.com with ESMTP; 08 Sep 2022 14:19:31 -0700
+Received: from kbuild by b2938d2e5c5a with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1oWOvq-0000KL-0R;
+	Thu, 08 Sep 2022 21:19:30 +0000
+Date: Fri, 9 Sep 2022 05:18:54 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jisheng Zhang <jszhang@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>
+Cc: llvm@lists.linux.dev, kbuild-all@lists.01.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] vdso: fix NULL deference in vdso_join_timens() when vfork
+Message-ID: <202209090531.SgtAsnCi-lkp@intel.com>
+References: <20220907165831.457-1-jszhang@kernel.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220902142202.2437658-5-daire.mcnamara@microchip.com>
+In-Reply-To: <20220907165831.457-1-jszhang@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_140002_227568_3D2FEC07 
-X-CRM114-Status: UNSURE (   7.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220908_141935_739954_DC018979 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,18 +85,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 02, 2022 at 03:22:02PM +0100, daire.mcnamara@microchip.com wrote:
-> From: Daire McNamara <daire.mcnamara@microchip.com>
-> 
-> PCI ranges can contain addresses where phys.high part can have a type
-> of 0, signifying 'configuration space'.  Change
-> devm_of_pci_get_host_bridge_resources() to print 'CFG' instead of 'err'
-> for a PCI range containing such a 'configuration space' type.
+Hi Jisheng,
 
-Generally, putting config space into ranges is wrong. It should be in 
-'reg'
+I love your patch! Yet something to improve:
 
-Rob
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.0-rc4]
+[cannot apply to next-20220908]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Jisheng-Zhang/vdso-fix-NULL-deference-in-vdso_join_timens-when-vfork/20220908-011001
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git 0066f1b0e27556381402db3ff31f85d2a2265858
+config: riscv-randconfig-r012-20220907 (https://download.01.org/0day-ci/archive/20220909/202209090531.SgtAsnCi-lkp@intel.com/config)
+compiler: clang version 16.0.0 (https://github.com/llvm/llvm-project 1546df49f5a6d09df78f569e4137ddb365a3e827)
+reproduce (this is a W=1 build):
+        wget https://raw.githubusercontent.com/intel/lkp-tests/master/sbin/make.cross -O ~/bin/make.cross
+        chmod +x ~/bin/make.cross
+        # install riscv cross compiling tool for clang build
+        # apt-get install binutils-riscv64-linux-gnu
+        # https://github.com/intel-lab-lkp/linux/commit/247635b442c42937dc9f0c0a04711fb3f86df2a9
+        git remote add linux-review https://github.com/intel-lab-lkp/linux
+        git fetch --no-tags linux-review Jisheng-Zhang/vdso-fix-NULL-deference-in-vdso_join_timens-when-vfork/20220908-011001
+        git checkout 247635b442c42937dc9f0c0a04711fb3f86df2a9
+        # save the config file
+        mkdir build_dir && cp config build_dir/.config
+        COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang make.cross W=1 O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/kernel/
+
+If you fix the issue, kindly add following tag where applicable
+Reported-by: kernel test robot <lkp@intel.com>
+
+All errors (new ones prefixed by >>):
+
+>> arch/riscv/kernel/vdso.c:158:10: error: use of undeclared identifier 'rv_compat_vdso_maps'
+                   .dm = &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
+                          ^
+   arch/riscv/kernel/vdso.c:159:10: error: use of undeclared identifier 'rv_compat_vdso_maps'
+                   .cm = &rv_compat_vdso_maps[RV_VDSO_MAP_VDSO],
+                          ^
+   2 errors generated.
+
+
+vim +/rv_compat_vdso_maps +158 arch/riscv/kernel/vdso.c
+
+   144	
+   145	static struct __vdso_info vdso_info[] __ro_after_init = {
+   146		[VDSO_ABI_RV64] = {
+   147			.name = "vdso",
+   148			.vdso_code_start = vdso_start,
+   149			.vdso_code_end = vdso_end,
+   150			.dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
+   151			.cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
+   152		},
+   153	#ifdef CONFIG_COMPAT
+   154		[VDSO_ABI_RV32] = {
+   155			.name = "compat_vdso",
+   156			.vdso_code_start = compat_vdso_start,
+   157			.vdso_code_end = compat_vdso_end,
+ > 158			.dm = &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
+   159			.cm = &rv_compat_vdso_maps[RV_VDSO_MAP_VDSO],
+   160		},
+   161	#endif
+   162	};
+   163	
+
+-- 
+0-DAY CI Kernel Test Service
+https://01.org/lkp
 
 _______________________________________________
 linux-riscv mailing list
