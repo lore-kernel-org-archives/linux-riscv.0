@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0502C54EE9
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 14:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 685AFC38145
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 14:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X3lwguYuZ6R37f+xppKLxlgxn1NMUh4S/8Xb5FS+pUs=; b=iGTC8uEzJg+hoB
-	h9WPWzsp7fv7aYSx3JiH2CgJJhcr9rcg/nARB1CcEdGSyrW+Ig87e5tq3fTLskN8rcHDc+oc4PAZO
-	BTQtRlE+06b9y2J77wI9BCPTM9fOYMnAvhSgbMrPcTdvnr6haAPtqLdqik8pP3AxmvJNjqVwKh87I
-	j+gatkw7l8qqqics14JIgf1haza5f5KCX5G557MpvTc3w2YHTPygGwrDxGEo+ci/a4cL2qU1Rh+FK
-	x371x41SoCflNMq95dWLvPSUpx2JX8g1j5EIQH1zsc9Xod3KTgMaPFLkGOe38kR7ARjJJj+E+fzhx
-	t1fSsJUkq/4VkBVBwqrA==;
+	List-Owner; bh=Z6bHcN32CUyYKQU2SM/Oe2KFq6ZLj85MlfL9Pwe0jGg=; b=OVXnS2mH0uHLLq
+	ijok7i4JSLNik3LRXl8GuZbIe4isyYGa1/Jk05C3ubieHbPhBlKfzbahURmgPC+HqAE5a9R5+5WQI
+	4I9faAwjQC7mtbUiARpF4ANpmn1T4l5Zj3UAwV1+sff032/52wU9NTWXzLNTRV4+4nEpZjj1E8Ww0
+	2P3WBkY8FVZxW3vxiy24CHALEWbq3U7Q8OBY1BG1gZOqJc/7s8bK1wpYlHiF93lFzfMO3YUJvUddJ
+	jGsx114mby2yxY254XcfRbAb/TeCwjOfj20FEr4wQwWqor275Rx62huWuUhcnqhb9IjwxHGgRTfs8
+	BL6KSnG/p4xpTuD+GYsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWIdN-004lUM-TF; Thu, 08 Sep 2022 14:36:01 +0000
-Received: from madras.collabora.co.uk ([46.235.227.172])
+	id 1oWIet-004mCW-IC; Thu, 08 Sep 2022 14:37:35 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWIdL-004lSZ-Bz
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 14:36:00 +0000
-Received: from [192.168.1.90] (unknown [188.27.54.142])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by madras.collabora.co.uk (Postfix) with ESMTPSA id F064E6601F95;
-	Thu,  8 Sep 2022 15:35:56 +0100 (BST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1662647757;
-	bh=yxWthJQQFVyrsOLPbde9GuvBF4vIyWDhHqgg0BlNRAk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NtBdI5kJn9GypI1bNaHxCRe/R2YNffP8X2c0sCP9yx+FWWt/ukEaWS7En7VQA6dC8
-	 fza9h27A/mPIRJzU57eYPSITn/593dRZEzUH8qFW0sUjGLkDJE1iTWjbxvX77SSYen
-	 /U+4CUqzswlEi/nh0I29vdHaxdpxjR8JFA5jSFYBKY9fHE1YtqevvgzsISxOVPv221
-	 /+f7peI9RWaC8/XZ42sa6HSUntdlQEIgO299oe7t3bg9uyAv24tgStoM+B6MFiDEdS
-	 TDh94n0TEjjlTSrpyEDGXRW9S++Hda8k7uNk3vd/+Jcoml5KOccyVNlRC8StsARvZ2
-	 Btkbwm1r+gM2Q==
-Message-ID: <958a72a9-9594-32d2-3a90-780cef92109e@collabora.com>
-Date: Thu, 8 Sep 2022 17:35:53 +0300
+	id 1oWIep-004mAJ-3N
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 14:37:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1662647851; x=1694183851;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=ug90OKgSPt4wB/1ZmaIV7HmjkMf+svSqXqp/wpq5qsQ=;
+  b=c66UVUH42WWjNF/40P6s2gyqvOdkdzNTHUwe6tnnrdOfst03UA2y7prT
+   kgT/6x34BH8DIliBXWM9MozvJuRt0UQaTQfNLPWJH2v7zHUjsoJlXcPQg
+   fP6xNtIDYWcU9w8/HFCnKugRFUDQVnPzS3FwR+RkhrWXifqUrDV2uyJV6
+   kaKiXgRBK5xKX21xkObBU+llfbkEMaLdhp4oUFkH07si9CNqpjUGw7JLH
+   WQPjS/TZ21/pdPpeMafd/kecNAiNYXqN5W2rVvwDRYbAFzG6HSsDyjqgk
+   V1YMxotdIa2WZTWGd/guux0Jzj+Gah15AphnCIPdzwikPOxio2VJTe4tq
+   g==;
+X-IronPort-AV: E=Sophos;i="5.93,300,1654585200"; 
+   d="scan'208";a="112762304"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 08 Sep 2022 07:37:29 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Thu, 8 Sep 2022 07:37:28 -0700
+Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
+ Transport; Thu, 8 Sep 2022 07:37:26 -0700
+From: Conor Dooley <conor.dooley@microchip.com>
+To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski+dt@linaro.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara
+	<daire.mcnamara@microchip.com>, Hugh Breslin <hugh.breslin@microchip.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Claudiu Beznea <claudiu.beznea@microchip.com>,
+	<linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Krzysztof
+ Kozlowski" <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v5 1/5] dt-bindings: clk: rename mpfs-clkcfg binding
+Date: Thu, 8 Sep 2022 15:36:48 +0100
+Message-ID: <20220908143651.1252601-2-conor.dooley@microchip.com>
+X-Mailer: git-send-email 2.36.1
+In-Reply-To: <20220908143651.1252601-1-conor.dooley@microchip.com>
+References: <20220908143651.1252601-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v2 2/3] riscv: dts: starfive: Add common DT for JH7100
- based boards
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Michael Zhu <michael.zhu@starfivetech.com>,
- Drew Fustini <drew@beagleboard.org>, Emil Renner Berthing <kernel@esmil.dk>,
- Conor Dooley <conor.dooley@microchip.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, kernel@collabora.com
-References: <20220902100806.2378543-1-cristian.ciocaltea@collabora.com>
- <20220902100806.2378543-3-cristian.ciocaltea@collabora.com>
- <8528d39e-c03a-7d83-d8e7-5191d3110015@linaro.org>
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <8528d39e-c03a-7d83-d8e7-5191d3110015@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_073559_574394_9FEB4A5A 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20220908_073731_223750_E47CBB5D 
+X-CRM114-Status: UNSURE (   8.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +82,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 9/8/22 14:33, Krzysztof Kozlowski wrote:
-> On 02/09/2022 12:08, Cristian Ciocaltea wrote:
->> In preparation for adding initial device tree support for the StarFive
->> VisionFive board, which is similar with BeagleV Starlight, move most
->> of the content from jh7100-beaglev-starlight.dts to a new file, to be
->> shared between the two boards.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> 
-> Use proper arguments to git format-patch, so that the copy is properly
-> detected.
+The filename for a binding is supposed to match the first compatible,
+but the mpfs-clkcfg file did not follow this policy. Rename it to match
+so that when other mpfs clock bindings are added things make more sense.
 
-Right, handled this in v3:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ .../clock/{microchip,mpfs.yaml => microchip,mpfs-clkcfg.yaml}   | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ rename Documentation/devicetree/bindings/clock/{microchip,mpfs.yaml => microchip,mpfs-clkcfg.yaml} (96%)
 
-https://lore.kernel.org/all/20220908142914.359777-1-cristian.ciocaltea@collabora.com/
+diff --git a/Documentation/devicetree/bindings/clock/microchip,mpfs.yaml b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
+similarity index 96%
+rename from Documentation/devicetree/bindings/clock/microchip,mpfs.yaml
+rename to Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
+index 016a4f378b9b..212228734ffd 100644
+--- a/Documentation/devicetree/bindings/clock/microchip,mpfs.yaml
++++ b/Documentation/devicetree/bindings/clock/microchip,mpfs-clkcfg.yaml
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/clock/microchip,mpfs.yaml#
++$id: http://devicetree.org/schemas/clock/microchip,mpfs-clkcfg.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Microchip PolarFire Clock Control Module Binding
+-- 
+2.36.1
 
-Thanks for reviewing,
-Cristian
-
-> Best regards,
-> Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
