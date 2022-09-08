@@ -4,96 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2450EC6FA86
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 07:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BFE5ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 07:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
-	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FuWeRyzTOYsV9gGbWNLPz/oMZC8DRL0XbNSGkjyViuo=; b=XF6lIj1TjfV6RL
-	Njjpaj95MpZ5HipxfM08mmg7ZtTFtaG/JzJ7bEXqJ4updeTwkh2fBdj/K4IguwZ2UlgfUgXY783Pn
-	yKEk25QfCSUc5p8UKk6dzc4javILoP9yFB74cLDaeXGg+w26d/A6f5ZvgmVCYPIsFovYiB9m8tKbt
-	2WKtZGt1kdaOvzpci5DvATXXPwQOgCdRM6pqqE8mrPn5hifg6xlHUZaVwNN21FC5xxlr1ofKk//sa
-	ca9AtfYIrytHKlvxy5p4bgTnNdAbcxuF2tUeyoi9Qdg8xew7oQY+qvZaQ/ZSOy7bfgzUCsWeQNGHp
-	4H7okVAFkLQ7BXycz2jQ==;
+	List-Owner; bh=LVwJmAIK8sZRUDELwYkZlcryuBSL9jx6cZ1ROYOj+ys=; b=K3Ithu99Bar/5l
+	ypJzUjwyXRHWqf6TmrQAitTKWsRtVICMoMGCrlUA8Flwoja7sZQYD+AmroSROQjm7SjX6AMonRx4k
+	szB35MKojrQgaw9hd+z0twGamf7C0mcviPMgdqmMWpgj5lHYKeonm02Z4Vr4myio5UgY+1gAqKX2F
+	moeoZOIOvdRordLFefKhiLoNjGeQ33MZsqIrHg9iBWOqvmwP5hMQrMRmLetBoJR5Aw7gjG+v6YWsW
+	wdTt8LHnrSC+/OTQHUJb0wzdGbf20NF1YKlh6pntrsgn0jhXgPYA13O96tqVMKdj9md+X8Sh4CdKQ
+	Vhf82dy3CZs7zBz/ds1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWC69-000SnB-Ur; Thu, 08 Sep 2022 07:37:17 +0000
-Received: from wnew1-smtp.messagingengine.com ([64.147.123.26])
+	id 1oWCCN-000Th0-U3; Thu, 08 Sep 2022 07:43:43 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWC66-000Siu-OA
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 07:37:16 +0000
-Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
-	by mailnew.west.internal (Postfix) with ESMTP id B11592B05F1B;
-	Thu,  8 Sep 2022 03:36:55 -0400 (EDT)
-Received: from imap51 ([10.202.2.101])
-  by compute3.internal (MEProxy); Thu, 08 Sep 2022 03:36:57 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:sender:subject
-	:subject:to:to; s=fm1; t=1662622615; x=1662626215; bh=fczRBUafZA
-	b4RaXJzlTRQu/tA13OrDvjbdcplYkYK0Q=; b=KYC9GwDVAiDSqJoafeGR6xgqIn
-	u2V5ZePsZlHt04gAtkSEZNWPe+Vr0ia3erf2Ac0RxEheFHfFv8yS5kFB8CKcFmOa
-	P+f+Mk7oqEgzxx74Kli6kSlFVKElrrUUYIzuER839ay3Z8I7x1EmBZjwyf4w3NbJ
-	p2efCDw7/pdjmuQN0sUaZi9wI5F/AyND9toXg6SLiLRM4a/UBLKOE4KyJFt+KReP
-	DoizUMe0iKnr1OBAFMVbLv7Rz8B9FSikbe5RWDFgKerNqkv5WjsjpfsUPgOTtT7b
-	OQVCyXbF6jsJjf65pnSGXNYKW3CUwl/ysKC1hAHRvOdhWv0dUJZbJluUyyOw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
-	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:sender:subject:subject:to:to
-	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1662622615; x=1662626215; bh=fczRBUafZAb4RaXJzlTRQu/tA13O
-	rDvjbdcplYkYK0Q=; b=GAN/KmWUPR3xfVYijN3Pa0JG8akP4pFFH6QV0xgZbuxx
-	QD7qMzoSeZN8JivaxtILausWbCAEWc4DZdEaY3aXqOpJg7I+lEtxCtWVS5GGq8DR
-	IEZybaN9fCu16aUcJa1PR2wdjtFdDWWDzwoFIN6mc+zask/5TffpHKFYuAx3Zi6u
-	377Wy/R+ySpTyg+87XAOm+GGXnfXTJF2AWkKMWzW7wQCuhj3iqOiSZCC9qJLshjZ
-	bhuh5vUXoDvu+z2FpgVYVQL0JE0VqbqMIybBqTm2kdaVHG3nGKUKTU6KXmaWAsJE
-	k1KyDjgqq9TmIltMFzMpZgxKLL3F9D1lS0h4uqV5fg==
-X-ME-Sender: <xms:lpsZY1Jpv4sBdOdHa8r2gDqOF7pmxBMX8zNwbUKITFR_tmon5oF6Eg>
-    <xme:lpsZYxKgrfR4QP2GXNvXtx_7r-uUFOwDmkoDaYns8Oo2taq94IX4sQkVro6drr298
-    rBImXk5qwTRpTe7pRA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfedtuddguddvhecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
-    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
-    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
-    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
-    htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
-    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
-    grrhhnugesrghrnhgusgdruggv
-X-ME-Proxy: <xmx:lpsZY9urtU-0GbZPLpopELSKTHkdA0YMKCEE1P7EkBO5otcHsDd-Rw>
-    <xmx:lpsZY2ZaiMVDhLSJeBsE0z4pGDppm9txfP0UPhizkLApD1Hk_Oajhg>
-    <xmx:lpsZY8blkaL1SFxluXrdBwOiut7Q3H5nnaq_SNjj-LanjlcxQK_zQA>
-    <xmx:l5sZY5QF1DahoZrrWG2qX-8E4zYYVF5Pwjx8qFCQxJTjou-qMXmYH-PU1AdcEv6y>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.nyi.internal (Postfix, from userid 501)
-	id 1A49FB60083; Thu,  8 Sep 2022 03:36:53 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-User-Agent: Cyrus-JMAP/3.7.0-alpha0-927-gf4c98c8499-fm-20220826.002-gf4c98c84
-Mime-Version: 1.0
-Message-Id: <4babce64-e96d-454c-aa35-243b3f2dc315@www.fastmail.com>
-In-Reply-To: <20220908022506.1275799-9-guoren@kernel.org>
-References: <20220908022506.1275799-1-guoren@kernel.org>
- <20220908022506.1275799-9-guoren@kernel.org>
-Date: Thu, 08 Sep 2022 09:35:48 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: guoren@kernel.org, palmer@rivosinc.com,
- "Thomas Gleixner" <tglx@linutronix.de>,
- "Peter Zijlstra" <peterz@infradead.org>, luto@kernel.org,
- conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org,
- lazyparser@gmail.com, falcon@tinylab.org,
- "Huacai Chen" <chenhuacai@kernel.org>, apatel@ventanamicro.com,
- atishp@atishpatra.org, "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>, bigeasy@linutronix.de
-Cc: Linux-Arch <linux-arch@vger.kernel.org>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, "Guo Ren" <guoren@linux.alibaba.com>,
- "Andreas Schwab" <schwab@suse.de>
-Subject: Re: [PATCH V4 8/8] riscv: Add config of thread stack size
+	id 1oWCCL-000Tg5-IL
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 07:43:43 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id r18so8833966eja.11
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 00:43:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date;
+        bh=s+wdYvBGkWFw8GKxXD1LOmw8mLPf4VgGkpb36tkONuI=;
+        b=h3vMPlY+4h/RJNKRFO2A3FdbOGcWz6L4FWjkcG/O7J9H8gjTaE74I+hbXI9YTY2Gz8
+         uM/0TSA8jYB9i9lpx7JkPutnNkvAWG4CnZMxG48ZZxGDVDE16hPrVRQyXQJL/A0Pc2SA
+         xTMeCL7XiJkzpXbZ0Jr9LRUR8quNOhhf6s3PQxIXU73KB7EPPy8KDaOtrj33EBjlD4RV
+         L1ZzYGaD8p7skZDarNLUsu5cYY6OW38SbZwE5G53pG9S3wX6+PrIEVcQNSApK+jZWDkI
+         mC1LUHGiK4zfrNEHeHyJWKq9BDhJEVsZSU4AFQv2BFy8fc6ou/6eiARffiif4s/GqmCZ
+         Dkng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=s+wdYvBGkWFw8GKxXD1LOmw8mLPf4VgGkpb36tkONuI=;
+        b=3pzg0wjyB8Gz+VnsaaykEr0JtMx7wu75cdhvOPTRrg5Hcw7lRIIUZSJFxOYJwL+lRK
+         M2egx+DLjC7ty8oj4q8KAdlmqNYyFZaz7qPYF/m241Ur7ba9jnqfP5sSHKF9M5xzogIi
+         myd1sauqMoGa6CYBSaENB7MEQ1f63bmyeSaaQRTQw2fGiEqZXfGXUYezr0FTKZNapTib
+         pxuI3A0Zj7mFjTF/fG3Aun2QtKliqy8qidFIDPUwPn2zmrEbglG6MtZKgZ6q06BhU9dw
+         7DeWyRklV1PE4IbmAqHD6WEcpEfj5NM4nouXG40aU+w5KH9XMAfKBIor9YIK4TrZnpye
+         XlIg==
+X-Gm-Message-State: ACgBeo32RmM4BTsJH+Qxu7f9dd10LjaQjZ76h4s2wJg9QESvNSGO7uwJ
+	Wg3e+Y8pDfRUo2sQzh3McKpEHg==
+X-Google-Smtp-Source: AA6agR46a989OfYBcmaTAmzgP7L2eh/DehstoR0AxS/MMKSxJiDq/JKi3lrJbKhqozah1otssDlEKQ==
+X-Received: by 2002:a17:907:2ccc:b0:741:990f:fe48 with SMTP id hg12-20020a1709072ccc00b00741990ffe48mr4971182ejc.390.1662623019350;
+        Thu, 08 Sep 2022 00:43:39 -0700 (PDT)
+Received: from localhost (cst2-173-61.cust.vodafone.cz. [31.30.173.61])
+        by smtp.gmail.com with ESMTPSA id l9-20020a1709060cc900b00764a76d5888sm884712ejh.27.2022.09.08.00.43.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 Sep 2022 00:43:38 -0700 (PDT)
+Date: Thu, 8 Sep 2022 09:43:37 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Anup Patel <anup@brainfault.org>
+Cc: Atish Patra <atishp@atishpatra.org>, kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] RISC-V: KVM: Provide UAPI for Zicbom block size
+Message-ID: <20220908074337.qsipcynxrvuj4fhg@kamzik>
+References: <20220906145842.965488-1-ajones@ventanamicro.com>
+ <20220906145842.965488-2-ajones@ventanamicro.com>
+ <CAOnJCUJDoAiDhavwisxj4QVGruTb67STb_WqQ5NuojzDwLLqng@mail.gmail.com>
+ <CAAhSdy3Bun6wE1wH=n9JejSwoMMzt5wPCMQD=GehQq0eD-Ni5Q@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <CAAhSdy3Bun6wE1wH=n9JejSwoMMzt5wPCMQD=GehQq0eD-Ni5Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_003714_837614_1CBFB8BC 
-X-CRM114-Status: GOOD (  22.64  )
+X-CRM114-CacheID: sfid-20220908_004341_632118_24553806 
+X-CRM114-Status: GOOD (  28.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,94 +91,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 8, 2022, at 4:25 AM, guoren@kernel.org wrote:
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> 0cac21b02ba5 ("risc v: use 16KB kernel stack on 64-bit") increase the
-> thread size mandatory, but some scenarios, such as D1 with a small
-> memory footprint, would suffer from that. After independent irq stack
-> support, let's give users a choice to determine their custom stack size.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Andreas Schwab <schwab@suse.de>
-> ---
->  arch/riscv/Kconfig                   | 9 +++++++++
->  arch/riscv/include/asm/thread_info.h | 4 ++--
->  2 files changed, 11 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index da548ed7d107..e436b5793ab6 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -442,6 +442,15 @@ config IRQ_STACKS
->  	  Add independent irq & softirq stacks for percpu to prevent kernel stack
->  	  overflows. We may save some memory footprint by disabling IRQ_STACKS.
+On Thu, Sep 08, 2022 at 08:24:32AM +0530, Anup Patel wrote:
+> On Thu, Sep 8, 2022 at 4:19 AM Atish Patra <atishp@atishpatra.org> wrote:
+> >
+> >
+> >
+> > On Tue, Sep 6, 2022 at 7:58 AM Andrew Jones <ajones@ventanamicro.com> wrote:
+> >>
+> >> We're about to allow guests to use the Zicbom extension. KVM
+> >> userspace needs to know the cache block size in order to
+> >> properly advertise it to the guest. Provide a virtual config
+> >> register for userspace to get it with the GET_ONE_REG API, but
+> >> setting it cannot be supported, so disallow SET_ONE_REG.
+> >>
+> >> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> >> ---
+> >>  arch/riscv/include/uapi/asm/kvm.h | 1 +
+> >>  arch/riscv/kvm/vcpu.c             | 6 ++++++
+> >>  arch/riscv/mm/cacheflush.c        | 1 +
+> >>  3 files changed, 8 insertions(+)
+> >>
+> >> diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+> >> index 7351417afd62..b9a4cf36be4b 100644
+> >> --- a/arch/riscv/include/uapi/asm/kvm.h
+> >> +++ b/arch/riscv/include/uapi/asm/kvm.h
+> >> @@ -48,6 +48,7 @@ struct kvm_sregs {
+> >>  /* CONFIG registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+> >>  struct kvm_riscv_config {
+> >>         unsigned long isa;
+> >> +       unsigned long zicbom_block_size;
+> >>  };
+> >>
+> >>  /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+> >> diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+> >> index d0f08d5b4282..3f36e79876e7 100644
+> >> --- a/arch/riscv/kvm/vcpu.c
+> >> +++ b/arch/riscv/kvm/vcpu.c
+> >> @@ -18,6 +18,7 @@
+> >>  #include <linux/fs.h>
+> >>  #include <linux/kvm_host.h>
+> >>  #include <asm/csr.h>
+> >> +#include <asm/cacheflush.h>
+> >>  #include <asm/hwcap.h>
+> >>
+> >>  const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
+> >> @@ -254,6 +255,9 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+> >>         case KVM_REG_RISCV_CONFIG_REG(isa):
+> >>                 reg_val = vcpu->arch.isa[0] & KVM_RISCV_BASE_ISA_MASK;
+> >>                 break;
+> >> +       case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+> >> +               reg_val = riscv_cbom_block_size;
+> >> +               break;
+> >
+> >
+> > Don't we need CONFIG_RISCV_ISA_ZICBOM here ? This one reg interface should only return riscv_cbom_block_size if we enable the parsing. Isn't it ?
 > 
-> +config THREAD_SIZE_ORDER
-> +	int "Pages of thread stack size (as a power of 2)"
-> +	range 1 4
-> +	default "1" if 32BIT
-> +	default "2" if 64BIT
-> +	help
-> +	  Specify the Pages of thread stack size (from 8KB to 64KB), which also
-> +	  affects irq stack size, which is equal to thread stack size.
+> The riscv_cbom_block_size is in the wrong location. This global variable
+> should always be available irrespective CONFIG_RISCV_ISA_ZICBOM
+> is enabled or not.
 
-I would suggest hiding this under 'depends on EXPERT', no
-need to bother normal users with that question because the
-defaults are probably what everyone should use unless they are
-extremely limited.
+Just to clarify, riscv_cbom_block_size *was* in the wrong location, but
+after Anup's move patch, which this patch is based on, it's in the right
+location.
 
-> #ifdef CONFIG_64BIT
-> -#define THREAD_SIZE_ORDER	(2 + KASAN_STACK_ORDER)
-> +#define THREAD_SIZE_ORDER	(CONFIG_THREAD_SIZE_ORDER + KASAN_STACK_ORDER)
->  #else
-> -#define THREAD_SIZE_ORDER	(1 + KASAN_STACK_ORDER)
-> +#define THREAD_SIZE_ORDER	(CONFIG_THREAD_SIZE_ORDER + KASAN_STACK_ORDER)
->  #endif
+> 
+> Better to check ISA feature flag instead of CONFIG_RISCV_ISA_ZICBOM.
 
-The two sides of the #ifdef are now the same, so you no longer
-need both. You could also consider expressing the KASAN_STACK_ORDER
-bit in Kconfig logic for consistency, and put those into the
-defaults as well. Unless you actually use CONFIG_KASAN_STACK,
-the stack requirements of KASAN are not too bad, so that way one
-could decide to still use a smaller stack even with KASAN.
+Good suggestion. It does seem reasonable that reading a virtual register,
+which is dependent on an ISA feature, should return EINVAL when the ISA
+feature isn't present. If that isn't yet documented somewhere, then I'll
+add it to my TODO list to document it as well, but I'm not sure we want
+to hold up this patch on a documentation patch. For now I'll just spin a
+v3 which adds the check.
 
-If you want to make the setting really useful, you can add two
-more ideas:
-
-- When VMAP_STACK is set, make it possible to select non-power-of-two
-  stack sizes. Most importantly, 12KB should be a really interesting
-  choice as 8KB is probably still not enough for many 64-bit workloads,
-  but 16KB is often more than what you need. You probably don't
-  want to allow 64BIT/8KB without VMAP_STACK anyway since that just
-  makes it really hard to debug, so hiding the option when VMAP_STACK
-  is disabled may also be a good idea.
-
-- For testing purposes, you can even allow byte-exact stack sizes
-  that allow finding out what the actual minimum is by adding a
-  fixed offset during kernel entry. See add_random_kstack_offset()
-  for how to adjust the stack.
-
-With all those ideas added in, the Kconfig logic would be
-something like (assuming you can use 
-
-config THREAD_SIZE
-       int "Kernel stack size (in bytes)" if VMAP_STACK && EXPERT
-       range 4096 65536
-       default 8192 if 32BIT && !KASAN
-       default 32768 if 64BIT && KASAN
-       default 16384
-
-config THREAD_SIZE_ORDER
-       int
-       default 0 if THREAD_SIZE = 4096
-       default 1 if THREAD_SIZE <= 8192 
-       default 2 if THREAD_SIZE <= 16384
-       default 3 if THREAD_SIZE <= 32768
-       default 4
-
-      Arnd
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
