@@ -4,71 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23DB5ECAAD5
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 07:54:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94E3ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 08:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DR5rb4lYkObpTscIG2DUV61+2u6G2EUyhZ1XPObh8jo=; b=0Kj++91mmq21uM
-	dDGgHkylR6KaIjFT7eIhZqAJuWAaB5SW3gJiuv0JYcrdUhBZMXcTvboxpLSiOsI5KIC+amBZH0SF1
-	W7Cpt4cmdKoGAJ2rkpW/hljykS2iaZlKVmEI6WXoq324oov3Vy8yKEtY5/329vVGdd0/lgOWQdmU/
-	m1CLMiGwv8eK4tI3guogOGGc8f+KJvE2T/MpmhMm9E98WZSMj+5HNTc+7AoiRzsr76BnCvSnqyNvo
-	gYrm6BQGtB4MwJov4d8HdzeN08JDYlyfpwNoFp+qw+5b5TgMFccm/uVvjOqq+R17GR+varGmWExsW
-	qRI0dp9Hj7bGGTCYY8XQ==;
+	List-Owner; bh=Drg1EO2bZ2ipDOBxMdmz/pzOVz7xSm880c9ILM82zbA=; b=LlKX6irLBd14+r
+	49gKbnQUQRJRg4fmC6oErSS09ist1ONnAnLAG/VETIFNhgq9vsSrN5uYiHj26pBrIX3DZvgSscbpW
+	U58u0CgkK2HlMZmG0Kx31Ueq6PQzlYYto7sZ5KZCcCYtZSZhC3IJE08Ux1ScunLGaQyHpbuqqyLCo
+	pwfpogljQgllKGxJ4aFBNhD8t6hIBnNSdqEPqS7dke+1vyxUrSzW2J1cga51zXqsg5+HuzqNP81ZW
+	3pbtSDMkkMgSRt44SQB+XjHWlKm2HOQypXgY9SyYYBy5tw6YyGbj7hT6G23VpCe5Dxd1PVqnZ4uF+
+	nwRvh/qtNiDmzzMmImpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWCMY-000WBD-Jq; Thu, 08 Sep 2022 07:54:14 +0000
-Received: from mail-io1-xd2d.google.com ([2607:f8b0:4864:20::d2d])
+	id 1oWCcs-000xIM-Oo; Thu, 08 Sep 2022 08:11:06 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWCMV-000W5n-Nq
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 07:54:13 +0000
-Received: by mail-io1-xd2d.google.com with SMTP id i77so13424095ioa.7
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 00:54:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=atishpatra.org; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=V15tNs76FIBdL6ICeOc2Y5s2dx2wMsfR5jTrTb84qfc=;
-        b=Jnsk4FgaSjNLg6k3hpK0j95hsZJk1g6W6jHM2NL6vKIyfiCD5Hnv7x1SpahBPAMpBM
-         x0ijJIOC/oERIs8hpwHI74/uWUQHUdlxWJ6aScEQ6lAyWMle6Mqkbi8SMhgfqsqE5Wx6
-         NcDnVez5zb5sdX5M1heP5V9pGrQ8F6uL3xKMI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=V15tNs76FIBdL6ICeOc2Y5s2dx2wMsfR5jTrTb84qfc=;
-        b=3iuEgF8yrXCkTX0WhbPlzICOnQDVmJkk0FtWEFwy9ymwGnyapOapRRKsvBjc/A4JvP
-         uLApmXtcs8DNzQz0W63CNognWSGE3TBIwX4E8CPGlQAOIwdBqkVtv7trn4keUECSfDna
-         OluP9i5uckZIJiCm0WasfX1Cr9sOKq9NkVOoIlSeZAtBCryS+1B7KUXSn5uH+iP2WxLZ
-         eG+4qSP7xZ97JyV9zyGkAv9kDXbhoTZ4BvKaR2DBORgbfvXpAy5ozC+Eh8He/QrW0Ldm
-         nwfRAp1age2XJqjcMgEIN/N581N5L+c3VDLgdXowSgvJw0scVCKXlQ8DBgUhO7O2fGYH
-         LCXQ==
-X-Gm-Message-State: ACgBeo23UhYjLsm0TUnvAq3WMcrqi0wKMvGmAUdEJpixWhxMi0c3sBlV
-	cbiD5BFRWZ6YUzeWekKOSh7lDEovGXEZwVd6WP6X
-X-Google-Smtp-Source: AA6agR4kttmue2Ju1D3OglXn0lMSQ8qklWMP3mDvqhlAdgh1ZhTm6H6w9xWSg01HLhbQfwKNm+Ds0Kk7HupT1ioZ6xs=
-X-Received: by 2002:a6b:c504:0:b0:68b:6802:2bfe with SMTP id
- v4-20020a6bc504000000b0068b68022bfemr3634552iof.22.1662623647504; Thu, 08 Sep
- 2022 00:54:07 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220906074509.928865-1-ajones@ventanamicro.com>
- <20220906074509.928865-3-ajones@ventanamicro.com> <CAOnJCULO-pSNgsvXMbCiOi72jJmOvB_UGGw87psynbXgo1K_3A@mail.gmail.com>
- <20220908071157.ajjascv5ebhbwhv4@kamzik>
-In-Reply-To: <20220908071157.ajjascv5ebhbwhv4@kamzik>
-From: Atish Patra <atishp@atishpatra.org>
-Date: Thu, 8 Sep 2022 00:53:56 -0700
-Message-ID: <CAOnJCU+WJVLkprxSRdRqWt=PasMankOfrbOGf4-m6VW8xGR=BQ@mail.gmail.com>
+	id 1oWCcc-000xCS-Cz
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 08:10:53 +0000
+Received: from ip5b412258.dynamic.kabel-deutschland.de ([91.65.34.88] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1oWCcV-0003SJ-4L; Thu, 08 Sep 2022 10:10:43 +0200
+From: Heiko =?ISO-8859-1?Q?St=FCbner?= <heiko@sntech.de>
+To: Atish Patra <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, Anup Patel <anup@brainfault.org>, Mayuresh Chitale <mchitale@ventanamicro.com>, Nathan Chancellor <nathan@kernel.org>, Jessica Clarke <jrtc27@jrtc27.com>, kernel test robot <lkp@intel.com>
 Subject: Re: [PATCH v3 2/2] RISC-V: Clean up the Zicbom block size probing
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Anup Patel <anup@brainfault.org>, Mayuresh Chitale <mchitale@ventanamicro.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Jessica Clarke <jrtc27@jrtc27.com>, kernel test robot <lkp@intel.com>
+Date: Thu, 08 Sep 2022 10:10:42 +0200
+Message-ID: <5505900.JsnAkG3lO3@diego>
+In-Reply-To: <20220908071157.ajjascv5ebhbwhv4@kamzik>
+References: <20220906074509.928865-1-ajones@ventanamicro.com> <CAOnJCULO-pSNgsvXMbCiOi72jJmOvB_UGGw87psynbXgo1K_3A@mail.gmail.com> <20220908071157.ajjascv5ebhbwhv4@kamzik>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_005412_057016_8D217E09 
-X-CRM114-Status: GOOD (  41.67  )
+X-CRM114-CacheID: sfid-20220908_011050_681872_94F9603A 
+X-CRM114-Status: GOOD (  42.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,12 +58,11 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 8, 2022 at 12:11 AM Andrew Jones <ajones@ventanamicro.com> wrote:
->
+Am Donnerstag, 8. September 2022, 09:11:57 CEST schrieb Andrew Jones:
 > On Wed, Sep 07, 2022 at 03:47:09PM -0700, Atish Patra wrote:
 > > On Tue, Sep 6, 2022 at 12:45 AM Andrew Jones <ajones@ventanamicro.com>
 > > wrote:
-> >
+> > 
 > > > From: Palmer Dabbelt <palmer@rivosinc.com>
 > > >
 > > > This fixes two issues: I truncated the warning's hart ID when porting to
@@ -200,46 +172,54 @@ On Thu, Sep 8, 2022 at 12:11 AM Andrew Jones <ajones@ventanamicro.com> wrote:
 > > > between harts %lu and %lu\n",
 > > >                                         cbom_hartid, hartid);
 > > >
-> >
+> > 
 > > Maybe add more info saying the first one will be selected in that case as
 > > it is just a warning.
->
-> If we detect a mismatch then should we disable the CMO extension? The
+> 
+> If we detect a mismatch then should we disable the CMO extension?
+
+From a user's pov I'd think their system might stop working with disabled
+cmo - for things like networking / mass storage or so.
+
+Also the amount of misbehaviour might depend on weather the value is
+shrinking or expanding.
+
+Going from block_size x -> x/2 will "just" result in some areas being
+handled twice, where going from x -> 2x will leave out some areas,
+when the cpu itself still just does "x" .
+
+
+An experiment on the D1 supports that thought ;-)
+with L1_CACHE_BYTES / 2, networking keeps working
+with L1_CACHE_BYTES * 2 (plus adapting MINALIGN) breaks networking.
+
+
+So I'd think, we should loudly warn about misconfiguration anyway,
+but could just use the smallest value as block_size (in a future patch)
+to keep the most amounts of systems running in such a case.
+
+
+Heiko
+
+
+> The
 > current spec says "size of a cache block shall be uniform throughout the
 > system", even though that may be relaxed in later extensions. I also now
-
-I did not mean that. We don't support hetergenous capabilities anyways.
-For the mismatched ISA strings, we pick the common across all the harts.
-I think we are okay with the patch as it is. I was just suggesting a
-more verbose warning message
-to the user indicating the chosen block size was the discovered first
-one so that user at least knows
-which block size is in use.
-
 > recall you suggested that when DT parsing ends up with a zero block size
 > we should disable the CMO extension. riscv_init_cbom_blocksize() still
 > doesn't handle zeros in the DT correctly, even with this patch, though.
 > For example, if the first harts parsed are zero, but the latter harts
 > all match, we won't even get the mismatch warning.
->
-
-Yes. That was a completely different context. I am not yet sure what
-should be the expected behavior
-for zero block size. I did not find anything specific about it in the
-Zicbom spec.
-
-If it is expected to be disabled, we should do it. It can definitely
-in a follow up patch.
-
+> 
 > But, for now, my preference would be to merge this patch, as it's an
 > improvement on its own. I can try to write another patch which handles
 > zeros and mismatches by disabling the feature. What do you think?
->
+> 
 > Thanks,
 > drew
->
-> >
-> >
+> 
+> > 
+> > 
 > > >                 }
 > > >         }
 > > > +
@@ -266,18 +246,14 @@ in a follow up patch.
 > > >
 > > >
 > > Otherwise, LGTM.
-> >
+> > 
 > > Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> >
-> > --
-> > Regards,
-> > Atish
+> > 
+> 
 
 
 
--- 
-Regards,
-Atish
+
 
 _______________________________________________
 linux-riscv mailing list
