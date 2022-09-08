@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29783C54EE9
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 11:18:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305B9C38145
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 Sep 2022 11:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6+uTiNJoIO99aCv6n40QiBU78qvNqHtPWO/pC2DGui0=; b=OHdldAsUuhUszF
-	IRFGfgiXy35hkSXgPj3GxwW+7h3/ezLh5ya8JvYoceBqHJI8J0pQ1DSZ3ZDHaN/OYT6zLXzZLqGLa
-	Bl4g6I+Z589XtRgDrSdzach20ywxdE7aOTWikvzvdHXdoC7sTCbSesCxrBs29Nd+9pJPhz7lxonSn
-	otsXaOC4wOvRdZfO44AAFZL7T1Fubtgo1KuHaaBv4UarGWl8qtWrBzExgbbL9a0L8OTFTmBJ9Fiaq
-	XULCcyow1f3dKi11Wbkc+7/Qh9CPtLhVTiaUJThZiHdfCkN8rK6TLAWibh9vQyUDCjNmHXgP+T4QV
-	eFcRAQX58zuzYHsLmQqg==;
+	List-Owner; bh=3etXuJUlKWMxLHfn4Es6AwD/fhIQe5oSoUdrIOz9JZQ=; b=r6OjwQwg49a1uG
+	zvR+pKiLv/DF8CHFEebM4J57P5C/rfQLc28VJ8UIYt5qFcLUOKObE+8Cp5c+e2r1ciM6933Zf6gkX
+	EHo2m+wAgFgqCj5R7cS1RTryxcU7UiUMOZSmUy0Zh7wuNGcbgeiVrOgQq8z6PzrRCrsrmW7C6IHlG
+	XwIqLB7XSSJb+9IRNiHVkhlOSJ3WnpNzg8y8qJqNQRAwzcusBSZ0cNtZz62+FLBzTorV8NRJVG0cX
+	2ZDjbWNvHhcvWHubHDunZeW7iiWBhUV7++Vrm79TOew0CFTS76Sjd5pEITW34E1UXm0J6VAQH6wiF
+	9SUW057TQ2glP/L0cSuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWFXu-002dVx-Tj; Thu, 08 Sep 2022 11:18:10 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oWFXz-002dZ2-LI; Thu, 08 Sep 2022 11:18:15 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWFXp-002dTJ-Kf
-	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 11:18:07 +0000
+	id 1oWFXv-002dWH-Ks
+	for linux-riscv@lists.infradead.org; Thu, 08 Sep 2022 11:18:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1662635885; x=1694171885;
+  t=1662635892; x=1694171892;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=gHwrhdKNh2gRti7y/1xovElw2DRB4M7uCFirk9to6l4=;
-  b=cuwOcCGj12/rnQILGyOlmXN3QfsPhzKjwCEbEhdnapCfYqutoeaWQ7DA
-   Gx75jPOTE+bGTbLw8m+UqMLNoSMgoS23nLnVljseoSWo8F4KixDCsQ0m/
-   /L5p6SkGpnS5bmjCz+KjCGMiYHRA18H7+jWSS4SsEEGCiOWlb6AhFYj1g
-   9M13NWGk5itE/d1UB71TSXxc356DLuvEVtD7iNVjRpob51XqUxuFo26Kr
-   8RvdGPWdjiRT2dmzA5cbfuJxnaAS0Nqgbw6WAaB7HUhzZARESRm/olT1q
-   Wdki2yjqdnJeraXFXPlGW5n+xGbr3UZbXdUm9ZikvsCLzIspXu2qsk2pv
-   w==;
+  bh=VqcEjdujxakv3noDHpoHtBuaB79FIa784j+2h1ikqjc=;
+  b=cgZKy+i1w6vSCHtWcsFAsRWmMMaY/sFz0WJLwQhf7dU1cm7wczFKawKb
+   4E0w5mX5GAYpjyfaLcUqzj70aXJl3n2E5pMVwkE5CeaTwOe+Efe1mjVsk
+   +jndXwmwhSp1WBA9YOjGUjV1E7xT4SFriskgM09IYjJ2togncuZrn/63i
+   WEY6WnPDxFUIr+9ST7AaT+fmcFzt2AUcEB9OMnyNC3s28Bo+1QODGamUQ
+   WezAh9QtRBPriQKek83cSiSYmr6nGj5kc8U6wDmDDRKsZuJ0qfGXAfo6Q
+   uf8HDVKffKXYI7WCMD6LJcz2ZPs+SVCYW5oWmAa2+cacLIq0OW+Uf371b
+   Q==;
 X-IronPort-AV: E=Sophos;i="5.93,299,1654585200"; 
-   d="scan'208";a="179549600"
+   d="scan'208";a="172932944"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 08 Sep 2022 04:18:05 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 08 Sep 2022 04:18:11 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Thu, 8 Sep 2022 04:18:04 -0700
+ 15.1.2507.12; Thu, 8 Sep 2022 04:18:07 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex03.mchp-main.com
  (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Thu, 8 Sep 2022 04:18:01 -0700
+ Transport; Thu, 8 Sep 2022 04:18:04 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
@@ -60,17 +60,18 @@ CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
 	Vattipalli Praveen <praveen.kumar@microchip.com>, Wolfgang Grandegger
 	<wg@aries-embedded.de>, Hugh Breslin <hugh.breslin@microchip.com>,
 	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Rob Herring <robh@kernel.org>
-Subject: [PATCH v4 02/10] dt-bindings: riscv: microchip: document the aries m100pfsevp
-Date: Thu, 8 Sep 2022 12:17:05 +0100
-Message-ID: <20220908111712.665287-3-conor.dooley@microchip.com>
+	<linux-kernel@vger.kernel.org>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v4 03/10] dt-bindings: riscv: microchip: document the sev kit
+Date: Thu, 8 Sep 2022 12:17:06 +0100
+Message-ID: <20220908111712.665287-4-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220908111712.665287-1-conor.dooley@microchip.com>
 References: <20220908111712.665287-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_041805_709862_77C96340 
-X-CRM114-Status: UNSURE (   6.87  )
+X-CRM114-CacheID: sfid-20220908_041811_770655_61E575C5 
+X-CRM114-Status: UNSURE (   6.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,24 +89,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a compatible for the Aries Embedded M100PFSEVP SOM + EVK platform.
+From: Shravan Chippa <shravan.chippa@microchip.com>
 
-Link: https://www.aries-embedded.com/polarfire-soc-fpga-microsemi-m100pfs-som-mpfs025t-pcie-serdes
+Update devicetree bindings document with PolarFire SoC Video Kit, known
+by its "sev-kit" product code.
+
+Link: https://onlinedocs.microchip.com/pr/GUID-404D3738-DC76-46BA-8683-6A77E837C2DD-en-US-1/index.html?GUID-065AEBEE-7B2C-4895-8579-B1D73D797F06
+Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-Acked-by: Rob Herring <robh@kernel.org>
 ---
  Documentation/devicetree/bindings/riscv/microchip.yaml | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
-index 485981fbfb4b..630f82c85a0c 100644
+index 630f82c85a0c..ab0a64cd5386 100644
 --- a/Documentation/devicetree/bindings/riscv/microchip.yaml
 +++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
-@@ -27,6 +27,7 @@ properties:
- 
+@@ -28,6 +28,7 @@ properties:
        - items:
            - enum:
-+              - aries,m100pfsevp
+               - aries,m100pfsevp
++              - microchip,mpfs-sev-kit
                - sundance,polarberry
            - const: microchip,mpfs
  
