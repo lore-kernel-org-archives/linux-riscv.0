@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB35ECAAD3
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 07:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79888ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 08:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gQEzEHgcRvn+tuh4O8rrpFG3bYAxt7kL9/nL62ABCXU=; b=URdwPgIGoAnBeo
-	tqoVqO4akTSO+27lM1hPbk9zKQMItNMET7SKSc4ON6lT3wT7iH+h/dSaeRym8+/GXLYoKjPzd5iEB
-	TTCoD5E0D4rDG2m8ccAAJrK/of2fBv1O8QxY1p1rre9QEDoEgaxnxMb+r8yTG3uXeUT6gNNzb6g0S
-	l4z3KHhvqZH8OKiTA+DidC8aiqPXz1hjLnQI5PX4PoCokuQKL7Y5Jt6XHQ0QuUigigjv2IPjCc3eJ
-	3g/TvDAjCll7clNts38hNcJp5o+fLvDxkszWHaSXWcWSl3u0VumbcE1GzU+82+vPpdyg3gEYw5Zmw
-	5zMnmoNvpiv2WZjY3j1A==;
+	List-Owner; bh=lbnhbuHI9ZYI/x62bYuUMTeQdRgczkGLBTBi7a5X1rs=; b=0OZkSrakqVWRRY
+	DA/3RVmuq3qMevvutY2vsPii3l/ynhSUJEC3upxHCsXkgvomBxCPH9BQpFIv/xu+PbwSlheNZAC1Y
+	8gXxU+ffEBA/qR8b+PemcBZ8Gxmk/dGt5sEMFxW1ieLIKDRjkPWDhEAqpm2RA9Sez+6I2XYzKIIVY
+	utFYn6ZiCQbk4Z8R2QzXq693NJwcLP9mWfdvnAUcl1S7gTt6a8Yz4NVVjuZRuPRO7IGnoiEAid/dO
+	qWi6Dzhj5VTaAmWNYTl5sZdwOaHJXgkZ/lHV8M+eQcyNcXHzvV/ecNHIRPfPLTQK8FLae/Fcm458b
+	39A5i+2GNw05l2R1hIgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWYTS-00DwQF-3E; Fri, 09 Sep 2022 07:30:50 +0000
-Received: from eu-smtp-delivery-151.mimecast.com ([185.58.85.151])
+	id 1oWZ5s-00EREy-9m; Fri, 09 Sep 2022 08:10:32 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWYTO-00DwN7-Ll
-	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 07:30:48 +0000
-Received: from AcuMS.aculab.com (156.67.243.121 [156.67.243.121]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id
- uk-mta-160-2rEwkm9hOGSozGWzT6J91w-1; Fri, 09 Sep 2022 08:30:39 +0100
-X-MC-Unique: 2rEwkm9hOGSozGWzT6J91w-1
-Received: from AcuMS.Aculab.com (10.202.163.4) by AcuMS.aculab.com
- (10.202.163.4) with Microsoft SMTP Server (TLS) id 15.0.1497.38; Fri, 9 Sep
- 2022 08:30:30 +0100
-Received: from AcuMS.Aculab.com ([::1]) by AcuMS.aculab.com ([::1]) with mapi
- id 15.00.1497.040; Fri, 9 Sep 2022 08:30:30 +0100
-From: David Laight <David.Laight@ACULAB.COM>
-To: 'Sebastian Andrzej Siewior' <bigeasy@linutronix.de>, "guoren@kernel.org"
-	<guoren@kernel.org>
-CC: "arnd@arndb.de" <arnd@arndb.de>, "palmer@rivosinc.com"
-	<palmer@rivosinc.com>, "tglx@linutronix.de" <tglx@linutronix.de>,
-	"peterz@infradead.org" <peterz@infradead.org>, "luto@kernel.org"
-	<luto@kernel.org>, "conor.dooley@microchip.com" <conor.dooley@microchip.com>,
-	"heiko@sntech.de" <heiko@sntech.de>, "jszhang@kernel.org"
-	<jszhang@kernel.org>, "lazyparser@gmail.com" <lazyparser@gmail.com>,
-	"falcon@tinylab.org" <falcon@tinylab.org>, "chenhuacai@kernel.org"
-	<chenhuacai@kernel.org>, "apatel@ventanamicro.com" <apatel@ventanamicro.com>,
-	"atishp@atishpatra.org" <atishp@atishpatra.org>, "palmer@dabbelt.com"
-	<palmer@dabbelt.com>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Guo Ren
-	<guoren@linux.alibaba.com>
-Subject: RE: [PATCH V4 6/8] riscv: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
-Thread-Topic: [PATCH V4 6/8] riscv: Support HAVE_IRQ_EXIT_ON_IRQ_STACK
-Thread-Index: AQHYw51MXnnvxJJMF0u4mqq9TNC6Qa3Wsk0g
-Date: Fri, 9 Sep 2022 07:30:30 +0000
-Message-ID: <0ff315c978d24215b00c42df51f51b2d@AcuMS.aculab.com>
-References: <20220908022506.1275799-1-guoren@kernel.org>
- <20220908022506.1275799-7-guoren@kernel.org> <YxoTdxk772vneG53@linutronix.de>
-In-Reply-To: <YxoTdxk772vneG53@linutronix.de>
-Accept-Language: en-GB, en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-exchange-transport-fromentityheader: Hosted
-x-originating-ip: [10.202.205.107]
+	id 1oWZ5p-00ER6e-LF
+	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 08:10:31 +0000
+Received: by mail-lf1-x134.google.com with SMTP id i26so1371617lfp.11
+        for <linux-riscv@lists.infradead.org>; Fri, 09 Sep 2022 01:10:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=vZD+gMtJr5SdrYBTfgqz2rRaCIKo/6GRB7Drz3aUesE=;
+        b=Pj3YOuMGkiXSpfOjSnO+KXpjdE28hS1iM3EoxzMDozvIthzzWYTZNsCgNNMOBVOxZI
+         x0nzdtbtnTWcQWEAjQ6t/Bdgd/ceOQOrw3+6yt0Ir5Sn8uKIE25N2GT1H59e96TAYYTM
+         weBjUmYAlW5dtgwgzIg9g+EvWfh1fQ76pKNfQ0u+0dnxjd1muWB6bc2rCKYqyUI2umWY
+         fME4X+2sFAT5ChqMMX0p5icC69W1gPBxfglb2VVFpnEq7jWAOZYe47WgB/eeOtY+uhSe
+         rDKYoiOHNJ1UoMwZY3Vnv5nOsjjBcPmWIXNom3hVdWPGB42CgstSytU9lygnUgC7tQAk
+         dqbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=vZD+gMtJr5SdrYBTfgqz2rRaCIKo/6GRB7Drz3aUesE=;
+        b=LhwUINpT4M03YY6VpszTQtPi6fFv7zoNoGLzbRuCH4BUE4QqnNOS4nZ8hYquCEk2tw
+         MKgKdfNiQPuNREClCIjHfy5+bRo7HL8t3Ry3m5vtkk3f4oyP70y2s+jwOS/w7VV7cInr
+         2yY8JXnTgQlEhkWyc/sqZzgLeAmkPaoqRMP2G1nYQEbuIsh5p46/S56GL+cOSXAlB4sm
+         uBUfVYzWyTrhdMnWguhwPvwky75cVHsV++R92ntdPLi9afvXTPDZfwK6Fycw9xtERec7
+         sA4lPO858bnogcqlNFqLvVDaDvByv/neiNibR3KNapzKW0z8FBgn09t+wJ/eOfjqJaNX
+         KrHA==
+X-Gm-Message-State: ACgBeo2rnnOVK0VwyuO6yQpVed3C9901a/6qFitvuzHVHFhZ7NgUFhfz
+	yL1uLZ9imEpW59Jb1hHrA7ut3S7/R5Sktu2ign2W/Q==
+X-Google-Smtp-Source: AA6agR69LoysOIZEWgWOLuREJRHdaOc5MXE/9NDBKz8yuTyIoKzrUuaTovANov7dc3gNTGz2aXhLOy0Aav34Ihx9UlE=
+X-Received: by 2002:a19:6505:0:b0:497:9225:4e90 with SMTP id
+ z5-20020a196505000000b0049792254e90mr3893587lfb.497.1662711022062; Fri, 09
+ Sep 2022 01:10:22 -0700 (PDT)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: aculab.com
-Content-Language: en-US
+References: <20220830044642.566769-1-apatel@ventanamicro.com> <20220830044642.566769-2-apatel@ventanamicro.com>
+In-Reply-To: <20220830044642.566769-2-apatel@ventanamicro.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Fri, 9 Sep 2022 13:40:10 +0530
+Message-ID: <CAK9=C2VXsc4oBK5MxjAQnH5eX-wGbt0cb59Uc=z5xeLRY+j7sg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] RISC-V: Fix ioremap_cache() and ioremap_wc() for
+ systems with Svpbmt
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Atish Patra <atishp@atishpatra.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Anup Patel <anup@brainfault.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Mayuresh Chitale <mchitale@ventanamicro.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220909_003047_011672_9FA272FD 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20220909_011029_720190_8064422E 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,55 +87,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sebastian Andrzej Siewior
-> Sent: 08 September 2022 17:08
-> 
-> On 2022-09-07 22:25:04 [-0400], guoren@kernel.org wrote:
-> > diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> > index a07bb3b73b5b..a8a12b4ba1a9 100644
-> > --- a/arch/riscv/Kconfig
-> > +++ b/arch/riscv/Kconfig
-> > @@ -433,6 +433,14 @@ config FPU
-> >
-> >  	  If you don't know what to do here, say Y.
-> >
-> > +config IRQ_STACKS
-> > +	bool "Independent irq stacks"
-> > +	default y
-> > +	select HAVE_IRQ_EXIT_ON_IRQ_STACK
-> > +	help
-> > +	  Add independent irq stacks for percpu to prevent kernel stack overflows.
-> > +	  We may save some memory footprint by disabling IRQ_STACKS.
-> 
-> Do you really think that it is needed to save memory here? Avoiding
-> stack overflows in deep call chains is probably more important than
-> saving ~8KiB per CPU.
+Hi Palmer,
 
-Particularly if a 64bit build is using small stacks.
+On Tue, Aug 30, 2022 at 10:17 AM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> Currently, all flavors of ioremap_xyz() function maps to the generic
+> ioremap() which means any ioremap_xyz() call will always map the
+> target memory as IO using _PAGE_IOREMAP page attributes. This breaks
+> ioremap_cache() and ioremap_wc() on systems with Svpbmt because memory
+> remapped using ioremap_cache() and ioremap_wc() will use _PAGE_IOREMAP
+> page attributes.
+>
+> To address above (just like other architectures), we implement RISC-V
+> specific ioremap_cache() and ioremap_wc() which maps memory using page
+> attributes as defined by the Svpbmt specification.
+>
+> Fixes: ff689fd21cb1 ("riscv: add RISC-V Svpbmt extension support")
+> Co-developed-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 
-Without static analysis of actual call chain depth it is
-really difficult to trim the stack size.
+Can you please consider this patch for Linux-6.0-rc5 ?
 
-I'd bet (a few beers) that the deepest stack use in inside
-the console print code form a printk() (eg warn_on_once)
-in an obscure error path somewhere.
-This won't be hit during any normal testing.
+Regards,
+Anup
 
-I think that the analysis objtool does is getting close
-to be able to generate the raw data that can be used for
-static stack depth analysis.
-You need the 'CFI' constants for indirect calls and
-some assumptions about depth of recursive calls.
-But apart from that the code to process the raw output
-isn't that complex.
+> ---
+>  arch/riscv/include/asm/io.h      | 10 ++++++++++
+>  arch/riscv/include/asm/pgtable.h |  2 ++
+>  2 files changed, 12 insertions(+)
+>
+> diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+> index 69605a474270..07ac63999575 100644
+> --- a/arch/riscv/include/asm/io.h
+> +++ b/arch/riscv/include/asm/io.h
+> @@ -133,6 +133,16 @@ __io_writes_outs(outs, u64, q, __io_pbr(), __io_paw())
+>  #define outsq(addr, buffer, count) __outsq((void __iomem *)addr, buffer, count)
+>  #endif
+>
+> +#ifdef CONFIG_MMU
+> +#define ioremap_wc(addr, size)         \
+> +       ioremap_prot((addr), (size), _PAGE_IOREMAP_WC)
+> +#endif
+> +
+>  #include <asm-generic/io.h>
+>
+> +#ifdef CONFIG_MMU
+> +#define ioremap_cache(addr, size)      \
+> +       ioremap_prot((addr), (size), _PAGE_KERNEL)
+> +#endif
+> +
+>  #endif /* _ASM_RISCV_IO_H */
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 7ec936910a96..346b7c1a3eeb 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -182,6 +182,8 @@ extern struct pt_alloc_ops pt_ops __initdata;
+>  #define PAGE_TABLE             __pgprot(_PAGE_TABLE)
+>
+>  #define _PAGE_IOREMAP  ((_PAGE_KERNEL & ~_PAGE_MTMASK) | _PAGE_IO)
+> +#define _PAGE_IOREMAP_WC       ((_PAGE_KERNEL & ~_PAGE_MTMASK) | \
+> +                                _PAGE_NOCACHE)
+>  #define PAGE_KERNEL_IO         __pgprot(_PAGE_IOREMAP)
+>
+>  extern pgd_t swapper_pg_dir[];
+> --
+> 2.34.1
+>
 
-A nice task for someone with some spare time.
-
-	David
-
--
-Registered Address Lakeside, Bramley Road, Mount Farm, Milton Keynes, MK1 1PT, UK
-Registration No: 1397386 (Wales)
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
