@@ -4,82 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E39ECAAD5
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 03:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 796D8ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 03:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
-	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JtUOJZHbupNmi7HglMiztkp1H26e8NvpwiwQa/YKpco=; b=OQ/MM612NoxHao
-	BFZAFNPbhWlqRTDiFnKqgge/gIdZbp8u9cR1KQ4+dWsjhm3fGROmiRLoG/0l7TGadWxIIUWf9YgcD
-	Ks21FHHdVi31RSh/70kMl8okc1Exvzb+J1YyM+nSe1f5iCwAet0/vjGwE6tehBCVMxqKgY6V4VgrW
-	KverBQFkWy/E5OJGuE/0IvDq+nI7s/2DQ9mwpyH4IKFvik1EGOMNbZGIYqsBDNjB5DlW7Lgt65Fv9
-	Gd+62qNwj3nojt2+RtJ5ZNunVLXtDr2EKoRdd9Eq7AfOaJJWavkEcq078QCNq3+nv/lLoyEa9fcdf
-	dmvxQtmZ7rUryjKkbfiQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Date:
+	Message-ID:From:References:Cc:To:Subject:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=J622ccv/JtDn2c69Yk6VpsY/rzioQvjk/hT66yTgE6c=; b=th5hFFluksPOpyZcbFFz8WKpLL
+	7tLr67jesZdITSCKOiOJhvI/VpZVu9oAOjci5rO02ntjadj9tyv07HUgcCifyV+r/ajI8+BH9b6N4
+	/6i+rmfI3bmNLIwRVB0EHYO6iaUYZpi/8qyoGoooDhr4PEPB+mOHqyabZsoGcFV1Uh8OlRkBET/xs
+	ijvX8m94dVUxMgjTJ2zs3GrDAM1nF2OFGGAavumZ22pBEv7gl05cCXTATOPCYoDj7JHUuQdqDzMhG
+	xgjkAGRpATEhQ0EfiiI9o+9sUJpHWRs2KBMv/s1pEEFB0QRx11bbN+UmrZxGufpRou6f//UACXLjg
+	8M45aWyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWUGu-00BRu7-GG; Fri, 09 Sep 2022 03:01:36 +0000
-Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
+	id 1oWUuC-00BqiU-3A; Fri, 09 Sep 2022 03:42:12 +0000
+Received: from out2-smtp.messagingengine.com ([66.111.4.26])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWUGs-00BRtQ-0o
-	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 03:01:35 +0000
-Received: by mail-pg1-x542.google.com with SMTP id s206so350518pgs.3
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 20:01:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date;
-        bh=HZ7iHA7xMAEoAPtblB3FVSlF1lX9PITPk5qO4yPymKg=;
-        b=L0O3+0bxx2+Tc0FIjMnfn2Xw4PEOeZ+bdp5+Eflv7jmcsarFtLdNBXHVh2am3EqYPl
-         bnbE7/0yEctzVHuNaTmlht4vM0uYQI4i8+w8pyfVG/HrTYv3xFfrisYO8MI2YurSTnIh
-         dSQVaXsWArbr+nJi1ulqYaTRu+kwLYTKu5lcGrHr/ge593LmGhrQoPmttfcH4RwE5VsA
-         wacuAr1tJxYfQxQHMw7dm46j1RdLh+W8U4DCLolWu6miBpfuqp3MbzAYJV/5adVf8FGc
-         Wja4E5Oa5ns25CIDRzOYp0jveZbOgBucVdiJB9WyoOaqwCCuCTStF31X0cFwFhGzuGj0
-         YQGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
-         :content-language:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date;
-        bh=HZ7iHA7xMAEoAPtblB3FVSlF1lX9PITPk5qO4yPymKg=;
-        b=4dz6Nze8hHX8ADJtVILWl3xhhBvGeumgRKhKzm+UkF0uWnCzyQkp1RF8t7AFnpnY7I
-         ndMGQsUIRcmyPpWOrLmWXa2u1FB56RBMP0Ia8KJfpplhSrS/feWWpCkTnMbl87rw4kYC
-         AAbCgN0hqy+Cv7cAz63cVPmafsHtwBIdJaAEiub9rsAdvHvJwzgj2Bl6lJtj0AENKSR/
-         UAc+2/EhyHRnkTagQHL055x6TZdg8fxHpx1uyMvwxcdoIs2vw86aV7i8+Z3y2f3sGt5O
-         Qa2Xy86pzD3bSZ8DYGhYmnHMzCftCFKC+DCF+JplNh5MBEvvB4XO0xfpBd2rYaxskAV8
-         cpyQ==
-X-Gm-Message-State: ACgBeo2PfTlR14ZirAsOBAxWi4iGeXFO8okksRrFUCzR2m7F3YWu5Gyy
-	B9yE8w/6V1BuRnQDaqq3hmE=
-X-Google-Smtp-Source: AA6agR6nAQK4qAIe6WVZ/X6taIbU4yO4AI1xV8TV1YrPX18GR2HGEA0bfFRXqpjRQkVetow3XzDvyA==
-X-Received: by 2002:a63:1051:0:b0:434:b4ff:11e9 with SMTP id 17-20020a631051000000b00434b4ff11e9mr10362090pgq.377.1662692492281;
-        Thu, 08 Sep 2022 20:01:32 -0700 (PDT)
-Received: from [127.0.0.1] ([38.94.111.108])
-        by smtp.gmail.com with ESMTPSA id v15-20020a65460f000000b00434bead2a8csm208402pgq.13.2022.09.08.20.01.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 Sep 2022 20:01:31 -0700 (PDT)
-Message-ID: <2f5059f6-b024-1ee8-b961-5aa0b4e4c116@gmail.com>
-Date: Fri, 9 Sep 2022 11:01:25 +0800
+	id 1oWUu8-00Bqfm-Tj
+	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 03:42:10 +0000
+Received: from compute1.internal (compute1.nyi.internal [10.202.2.41])
+	by mailout.nyi.internal (Postfix) with ESMTP id F3A575C0087;
+	Thu,  8 Sep 2022 23:42:07 -0400 (EDT)
+Received: from mailfrontend2 ([10.202.2.163])
+  by compute1.internal (MEProxy); Thu, 08 Sep 2022 23:42:08 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sholland.org; h=
+	cc:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to; s=fm3; t=1662694927; x=
+	1662781327; bh=hHcRVaJDud/Kkwj96NHPi6sduLW48zHvi95z05DrcZM=; b=R
+	yzDn6bSgQ9fyqJoqSbrYu/CpkvLBdEPqdFYHDGTVbGmED49rI51HW9+pJ4J/0C8n
+	2AIuXjp4KvGDAEpuAhFEqKJZUrvl2V/iWoaRL6EReOfkmcVaGFZ86fnRjnOMNnsn
+	GVYgBwdiOO2yzy6pfKoVlTaghkZ7bWMthnZWahTzmoHitrOEZPF2h2HjFP10HUTa
+	zEebWXQArm+TXyOFsWxOa2p121mlrl2lTuwBI3C3nIlmL+/Z1Va8hshgg/im3nwt
+	o+DqGuFbXpdT6VOUuHvk/bHJ67zCp0rXPP7SgdSlDE+IEPmzipGWRoZJBM+xbVLP
+	+HxYQvxAXCJGgr66gz94w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:sender:subject:subject:to:to:x-me-proxy:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1662694927; x=
+	1662781327; bh=hHcRVaJDud/Kkwj96NHPi6sduLW48zHvi95z05DrcZM=; b=f
+	rV/SjL4XvIfnU4Dzej6LrZmJJMuw/hFjTcei3tVYxch/RbPsjItXbRFO4y+xNFYz
+	Qr4NMxj902kv76XLcvXXo/CBJZbxcc4DoMv+rPP1KZaHcPL4QUVEkLd7V6wvdLSh
+	SaVJIoTAVwkDo/VV8/oY7f9b0gg3Y2gsqAd34DzyA0koZDvhmpzeZMgyNWEyWv1N
+	lHNtlehWE8uw045FigZCYudf51G3NANIVkg5zDknxsYc1777YYocNBL9OZjOLCm4
+	KV8qr9ALacd3xgej3Q3yQnuLPMYt3Di94+pLfMDLCy9TaIOBHgydAlbD1dYjU5fv
+	LPQGIO/7QK7NmJWlMo/xg==
+X-ME-Sender: <xms:D7YaY9LYwZ3ckTY5KkEq3d2eF7SQOJkzifwqeDRSkXn5msoDRrQIIA>
+    <xme:D7YaY5IZ5JmeCsWYe6COcwqhKTSB1ms6gUm59tdBTyJax_LODBa7Q6tQpvyFLWgJK
+    PDMEYD7bI3elMMUXg>
+X-ME-Received: <xmr:D7YaY1tnEJseTRlxT0hJ4zdX_QDf3UlOgrUSklA5cGXJIXEIngqDn3JPp4pf7harkenpSVl9QTtyI2RkE2Q0yuK1Yaory8Aipmk6wC6ojoKFtzJpwXVyJTJ_GA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfedtgedgjeehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepuffvvehfhffkffgfgggjtgfgsehtkeertddtfeejnecuhfhrohhmpefurghm
+    uhgvlhcujfholhhlrghnugcuoehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgqeenuc
+    ggtffrrghtthgvrhhnpedtvefhheehgfdvkeetffeludeuudehudeuvddtveelleekvedv
+    uedviefhkeeuheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfh
+    hrohhmpehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhg
+X-ME-Proxy: <xmx:D7YaY-Yvnzk6zVR-NXRj6mzK98B9YiRu2pRq7_logQEU-yrIwa__uw>
+    <xmx:D7YaY0bNG2buxhBr6ZBqCdIvb3Ta1rnHfoAtq74qoydD2o3v08eV9w>
+    <xmx:D7YaYyDnseUnCj0dWMLyBT0z9zNTBxXGwvuD3_6QxepPX6NA5o-0QA>
+    <xmx:D7YaY6wdmXnEKB-Zwp3yftpPOhXQUT05jscMzhvCoheKxfZ4xlthuw>
+Feedback-ID: i0ad843c9:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 8 Sep 2022 23:42:06 -0400 (EDT)
+Subject: Re: [PATCH 06/12] riscv: dts: allwinner: Add the D1 SoC base
+ devicetree
+To: Conor Dooley <conor.dooley@microchip.com>, andre.przywara@arm.com
+Cc: Jessica Clarke <jrtc27@jrtc27.com>,
+ Geert Uytterhoeven <geert@linux-m68k.org>,
+ devicetree <devicetree@vger.kernel.org>, Albert Ou <aou@eecs.berkeley.edu>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ jernej.skrabec@gmail.com, prabhakar.mahadev-lad.rj@bp.renesas.com,
+ wens@csie.org, robh+dt@kernel.org, palmer@dabbelt.com,
+ krzysztof.kozlowski+dt@linaro.org, paul.walmsley@sifive.com,
+ linux-riscv@lists.infradead.org, linux-sunxi@lists.linux.dev
+References: <20220815050815.22340-1-samuel@sholland.org>
+ <20220815050815.22340-7-samuel@sholland.org>
+ <20220815141159.10edeba5@donnerap.cambridge.arm.com>
+ <3cd9ed5b-8348-38ac-feb1-9a7da858cebc@microchip.com>
+ <932aaefd-e2ca-ef26-bf30-e315fb271ec5@sholland.org>
+ <ff9e8bd3-c5f7-6319-060e-250151087a8e@microchip.com>
+ <c6cba83ea9eea7fc41a9e78d0e45487b21f0f560.camel@icenowy.me>
+ <c7599abd-c4cf-9ddd-1e74-e47dec9366d4@microchip.com>
+ <CAMuHMdUHVpj9ikE2NxpBSBtTG8K6v92vGdbw3GLmEYUoVzatvg@mail.gmail.com>
+ <538ae41e-664f-2efb-f941-9a063b727b6a@microchip.com>
+ <CAMuHMdWWbR+Y=bJ7gdqV3d+ffHE1-hwQf-Owb8FAvZAaScdOgA@mail.gmail.com>
+ <44b6f601-1a11-aacf-5592-5b61550afb9f@microchip.com>
+ <C0B4F750-1C99-408A-A2DA-B72BBF7361B4@jrtc27.com>
+From: Samuel Holland <samuel@sholland.org>
+Message-ID: <b3fdb3cc-a8fc-b980-c8f4-f96d4733ce56@sholland.org>
+Date: Thu, 8 Sep 2022 22:42:06 -0500
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
+In-Reply-To: <C0B4F750-1C99-408A-A2DA-B72BBF7361B4@jrtc27.com>
 Content-Language: en-US
-To: Andrew Bresticker <abrestic@rivosinc.com>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Atish Patra <atishp@atishpatra.org>, dram <dramforever@live.com>,
- Ruizhe Pan <c141028@gmail.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20220908170133.1159747-1-abrestic@rivosinc.com>
- <20220908185006.1212126-1-abrestic@rivosinc.com>
-From: Celeste Liu <coelacanthushex@gmail.com>
-Subject: Re: [PATCH v2] riscv: Make mmap() with PROT_WRITE imply PROT_READ
-In-Reply-To: <20220908185006.1212126-1-abrestic@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_200134_106276_05F974C7 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20220908_204209_055468_568B6981 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,86 +120,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2022/9/9 02:50, Andrew Bresticker wrote:
-> Commit 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is
-> invalid") made mmap() return EINVAL if PROT_WRITE was set wihtout
-> PROT_READ with the justification that a write-only PTE is considered a
-> reserved PTE permission bit pattern in the privileged spec. This check
-> is unnecessary since RISC-V defines its protection_map such that PROT_WRITE
-> maps to the same PTE permissions as PROT_WRITE|PROT_READ, and it is
-> inconsistent with other architectures that don't support write-only PTEs,
-> creating a potential software portability issue. Just remove the check
-> altogether and let PROT_WRITE imply PROT_READ as is the case on other
-> architectures.
-> 
-> Note that this also allows PROT_WRITE|PROT_EXEC mappings which were
-> disallowed prior to the aforementioned commit; PROT_READ is implied in
-> such mappings as well.
-> 
-> Fixes: 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is invalid")
-> Signed-off-by: Andrew Bresticker <abrestic@rivosinc.com>
-> ---
-> v1 -> v2: Update access_error() to account for write-implies-read
-> ---
->  arch/riscv/kernel/sys_riscv.c | 3 ---
->  arch/riscv/mm/fault.c         | 3 ++-
->  2 files changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-> index 571556bb9261..5d3f2fbeb33c 100644
-> --- a/arch/riscv/kernel/sys_riscv.c
-> +++ b/arch/riscv/kernel/sys_riscv.c
-> @@ -18,9 +18,6 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
->  	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
->  		return -EINVAL;
->  
-> -	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
-> -		return -EINVAL;
-> -
->  	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
->  			       offset >> (PAGE_SHIFT - page_shift_offset));
->  }
-> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-> index f2fbd1400b7c..d86f7cebd4a7 100644
-> --- a/arch/riscv/mm/fault.c
-> +++ b/arch/riscv/mm/fault.c
-> @@ -184,7 +184,8 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
->  		}
->  		break;
->  	case EXC_LOAD_PAGE_FAULT:
-> -		if (!(vma->vm_flags & VM_READ)) {
-> +		/* Write implies read */
-> +		if (!(vma->vm_flags & (VM_READ | VM_WRITE))) {
->  			return true;
->  		}
->  		break;
-
-Hi, this did solve the problem and achieved consistency between
-architectures, but I have a question.
-
-Such a change specifies behavior for a state that should not exist,
-and if, in the future, RISC-V spec specifies a different behavior
-for that state (I mean, RVI itself has a history of not caring about
-downstream, like Zicsr and Zifencei), it will create inconsistencies,
-which is bad.
-
-If we reject the "write but not read" state, the user gets the most direct
-response: the state is not allowed so that they do not and cannot rely
-on the behavior of the state. This will bring better time consistency
-to the application if the spec specifies the behavior in the future.
-But it lost architecture consistency.
-
-How do you think this situation should be handled properly?
-
-Yours,
-Celeste Liu
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gOC8yMi8yMiAxMDoyOSBBTSwgSmVzc2ljYSBDbGFya2Ugd3JvdGU6Cj4gT24gMjIgQXVnIDIw
+MjIsIGF0IDE0OjU2LCBjb25vci5kb29sZXlAbWljcm9jaGlwLmNvbSB3cm90ZToKPj4KPj4gT24g
+MjIvMDgvMjAyMiAxMzozMSwgR2VlcnQgVXl0dGVyaG9ldmVuIHdyb3RlOgo+Pj4gRVhURVJOQUwg
+RU1BSUw6IERvIG5vdCBjbGljayBsaW5rcyBvciBvcGVuIGF0dGFjaG1lbnRzIHVubGVzcyB5b3Ug
+a25vdyB0aGUgY29udGVudCBpcyBzYWZlCj4+Pgo+Pgo+Pgo+Pj4+IERvIHlvdSB0aGluayB0aGlz
+IGlzIHdvcnRoIGRvaW5nPyBPciBhcmUgeW91IGp1c3QgcHJvdmlkaW5nIGFuCj4+Pj4gZXhhbXBs
+ZSBvZiB3aGF0IGNvdWxkIGJlIGRvbmU/Cj4+Pgo+Pj4gSnVzdCBzb21lIGJyYWluc3Rvcm1pbmcu
+Li4KPj4+Cj4+Pj4gV2hlcmUgd291bGQgeW91IGVudmlzYWdlIHB1dHRpbmcgdGhlc2UgbWFjcm9z
+PyBJIGZvcmdldCB0aGUgb3JkZXIKPj4+PiBvZiB0aGUgQ1BQIG9wZXJhdGlvbnMgdGhhdCBhcmUg
+ZG9uZSwgY2FuIHRoZXkgYmUgcHV0IGluIHRoZSBkdHM/Cj4+Pgo+Pj4gVGhlIFNPQ19QRVJJUEhF
+UkFMX0lSUSgpIG1hY3JvIHNob3VsZCBiZSBkZWZpbmVkIGluIHRoZQo+Pj4gQVJNLWJhc2VkIFNv
+Qy5kdHNpIGZpbGUgYW5kIHRoZSBSSVNDLVYtYmFzZWQgU29DLmR0c2kgZmlsZS4KPj4KPj4gUmln
+aHQsIG9uZSBsZXZlbCB1cCBidXQgfnRoZSBzYW1lIHJlc3VsdC4KPj4KPj4KPj4+Pj4gTmljZSEg
+QnV0IGl0J3MgZ29ubmEgYmUgYSB2ZXJ5IGxhcmdlIGludGVycnVwdC1tYXAuCj4+Pj4KPj4+PiBJ
+IHF1aXRlIGxpa2UgdGhlIGlkZWEgb2Ygbm90IGR1cGxpY2F0aW5nIGZpbGVzIGFjcm9zcyB0aGUg
+YXJjaHMKPj4+PiBpZiBpdCBjYW4gYmUgaGVscGVkLCBidXQgbm90IGF0IHRoZSBleHBlbnNlIG9m
+IG1ha2luZyB0aGVtIGhhcmQgdG8KPj4+PiB1bmRlcnN0YW5kICYgSSBmZWVsIGxpa2UgdW5mb3J0
+dW5hdGVseSB0aGUgbGFyZ2UgaW50ZXJydXB0IG1hcCBpcwo+Pj4+IGluIHRoYXQgdGVycml0b3J5
+Lgo+Pj4KPj4+IEkgZmVlbCB0aGUgc2FtZS4KPj4+IEV2ZW4gbGlzdGluZyBib3RoIGludGVycnVw
+dCBudW1iZXJzIGluIFNPQ19QRVJJUEhFUkFMX0lSUShuYSwgbnIpCj4+PiBpcyBhIHJpc2sgZm9y
+IG1ha2luZyBtaXN0YWtlcy4KPj4+Cj4+PiBTbyBwZXJzb25hbGx5LCBJJ20gaW4gZmF2b3Igb2Yg
+dGVhY2hpbmcgZHRjIGFyaXRobWV0aWMsIHNvIHdlIGNhbgo+Pj4gaGFuZGxlIHRoZSBvZmZzZXQg
+aW4gU09DX1BFUklQSEVSQUxfSVJRKCkuCj4+Cj4+IFl1cCwgaW4gdGhlIHNhbWUgYm9hdCBoZXJl
+LiBtYXliIEknbGwgZ2V0IGJvcmVkIGVub3VnaCB0byBiaXRlLi4KPiAKPiBOb3RlIHRoYXQgR1BM
+4oCZZWQgZHRjIGlzbuKAmXQgdGhlIG9ubHkgaW1wbGVtZW50YXRpb24uIEZyZWVCU0QgdXNlcyBh
+Cj4gQlNELWxpY2Vuc2VkIGltcGxlbWVudGF0aW9uWzFdIGFuZCBzbyBhZGRpbmcgbmV3IGZlYXR1
+cmVzIGxpa2UgdGhpcyB0bwo+IEdQTCBkdGMgdGhhdCBhY3R1YWxseSBnZXQgdXNlZCB3b3VsZCBy
+ZXF1aXJlIHVzIHRvIHJlaW1wbGVtZW50IGl0IHRvby4KPiBJIGRvbuKAmXQga25vdyBob3cgbXVj
+aCBlZmZvcnQgaXQgd291bGQgYmUgYnV0IHBsZWFzZSBrZWVwIHRoaXMgaW4gbWluZC4KCkkgcGxh
+biB0byBnbyB3aXRoIHRoZSAiU09DX1BFUklQSEVSQUxfSVJRKG5hLCBucikiIGltcGxlbWVudGF0
+aW9uIGZvciB2Mi4gSSBsaWtlCnRoYXQgaXQgb25seSBhZmZlY3RzIHRoZSBEVCBzb3VyY2UsIGFu
+ZCBkb2VzIG5vdCBsZWFrIGludG8gdGhlIERUQi4gV2Ugc3RpbGwKaGF2ZSB0aGUgZnJlZWRvbSB0
+byBzd2l0Y2ggdG8gdXNpbmcgYXJpdGhtZXRpYyBsYXRlciB3aGVuIGFsbCBvZiB0aGUgdG9vbHMK
+c3VwcG9ydCBpdC4KCk15IG90aGVyIGNvbmNlcm4gaXMgdGhhdCB0aGUgYmlnIGludGVycnVwdC1t
+YXAgcHJvcGVydHkgd291bGQgbWFrZSBEVCBvdmVybGF5cwpldmVuIG1vcmUgcGFpbmZ1bCB0byBk
+ZWFsIHdpdGguIEkgZG9uJ3QgdGhpbmsgb3ZlcmxheXMgY2FuIGFwcGVuZCB0byBhIHByb3BlcnR5
+LApvbmx5IHJlcGxhY2UgaXQuCgpSZWdhcmRzLApTYW11ZWwKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
