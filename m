@@ -4,60 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC0FECAAD5
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 02:40:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E39ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 03:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Subject:From:References:Cc:
+	To:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aqmPDcRhFI3EpOMmgHLRcRKHrE2lsI3o0MkcklgdcnI=; b=KirwR+nu1ey/rH
-	GOxgRWokUPUoyEBENZmJiCQ0VrqMbBWBTCp+zJ36v5MKsVK6piKulEYNXoVdVTwm2XQh5s9q9yitE
-	MlrPIwQnzgisORNUEi5eWdH0/Rigcz2yrAaCLQ+/xUJikFW73BkrtOBl231J6WXvamvvZOPVl46RG
-	oEkgdOMis3j+WijI9xdstF+7aE3Vpc/9THc84g3sG75x5NGXH2HkAMDH5ajWl8f0Z4xKrd+pmX22b
-	v3InYNnCwzXZjbILfr11O8FMurTJwrRIVONQ7SJ7UIrD06/Yc+KY7/1+pB9Hf02bdtIpmywSPCm9D
-	mShw0l9U4PEc3if6O2qQ==;
+	List-Owner; bh=JtUOJZHbupNmi7HglMiztkp1H26e8NvpwiwQa/YKpco=; b=OQ/MM612NoxHao
+	BFZAFNPbhWlqRTDiFnKqgge/gIdZbp8u9cR1KQ4+dWsjhm3fGROmiRLoG/0l7TGadWxIIUWf9YgcD
+	Ks21FHHdVi31RSh/70kMl8okc1Exvzb+J1YyM+nSe1f5iCwAet0/vjGwE6tehBCVMxqKgY6V4VgrW
+	KverBQFkWy/E5OJGuE/0IvDq+nI7s/2DQ9mwpyH4IKFvik1EGOMNbZGIYqsBDNjB5DlW7Lgt65Fv9
+	Gd+62qNwj3nojt2+RtJ5ZNunVLXtDr2EKoRdd9Eq7AfOaJJWavkEcq078QCNq3+nv/lLoyEa9fcdf
+	dmvxQtmZ7rUryjKkbfiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWTw8-00BH2t-V6; Fri, 09 Sep 2022 02:40:08 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1oWUGu-00BRu7-GG; Fri, 09 Sep 2022 03:01:36 +0000
+Received: from mail-pg1-x542.google.com ([2607:f8b0:4864:20::542])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWTw5-00BGxL-9n
-	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 02:40:07 +0000
-Received: from dggemv704-chm.china.huawei.com (unknown [172.30.72.54])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4MP0Wd30vqznV80;
-	Fri,  9 Sep 2022 10:37:17 +0800 (CST)
-Received: from kwepemm600010.china.huawei.com (7.193.23.86) by
- dggemv704-chm.china.huawei.com (10.3.19.47) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Fri, 9 Sep 2022 10:39:53 +0800
-Received: from ubuntu1804.huawei.com (10.67.174.174) by
- kwepemm600010.china.huawei.com (7.193.23.86) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Fri, 9 Sep 2022 10:39:52 +0800
-From: Li Huafei <lihuafei1@huawei.com>
-To: <guoren@kernel.org>, <mhiramat@kernel.org>, <palmer@dabbelt.com>
-CC: <rostedt@goodmis.org>, <mingo@redhat.com>, <paul.walmsley@sifive.com>,
-	<aou@eecs.berkeley.edu>, <naveen.n.rao@linux.ibm.com>,
-	<anil.s.keshavamurthy@intel.com>, <davem@davemloft.net>,
-	<jszhang@kernel.org>, <peterz@infradead.org>, <liaochang1@huawei.com>,
-	<me@packi.ch>, <penberg@kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <lihuafei1@huawei.com>
-Subject: [PATCH RESEND v2 2/2] riscv: kprobe: Allow coexistence of ftrace and kprobe
-Date: Fri, 9 Sep 2022 10:36:25 +0800
-Message-ID: <20220909023625.149651-2-lihuafei1@huawei.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220909023625.149651-1-lihuafei1@huawei.com>
-References: <20220909023625.149651-1-lihuafei1@huawei.com>
+	id 1oWUGs-00BRtQ-0o
+	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 03:01:35 +0000
+Received: by mail-pg1-x542.google.com with SMTP id s206so350518pgs.3
+        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 20:01:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
+         :content-language:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date;
+        bh=HZ7iHA7xMAEoAPtblB3FVSlF1lX9PITPk5qO4yPymKg=;
+        b=L0O3+0bxx2+Tc0FIjMnfn2Xw4PEOeZ+bdp5+Eflv7jmcsarFtLdNBXHVh2am3EqYPl
+         bnbE7/0yEctzVHuNaTmlht4vM0uYQI4i8+w8pyfVG/HrTYv3xFfrisYO8MI2YurSTnIh
+         dSQVaXsWArbr+nJi1ulqYaTRu+kwLYTKu5lcGrHr/ge593LmGhrQoPmttfcH4RwE5VsA
+         wacuAr1tJxYfQxQHMw7dm46j1RdLh+W8U4DCLolWu6miBpfuqp3MbzAYJV/5adVf8FGc
+         Wja4E5Oa5ns25CIDRzOYp0jveZbOgBucVdiJB9WyoOaqwCCuCTStF31X0cFwFhGzuGj0
+         YQGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:in-reply-to:subject:from:references:cc:to
+         :content-language:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date;
+        bh=HZ7iHA7xMAEoAPtblB3FVSlF1lX9PITPk5qO4yPymKg=;
+        b=4dz6Nze8hHX8ADJtVILWl3xhhBvGeumgRKhKzm+UkF0uWnCzyQkp1RF8t7AFnpnY7I
+         ndMGQsUIRcmyPpWOrLmWXa2u1FB56RBMP0Ia8KJfpplhSrS/feWWpCkTnMbl87rw4kYC
+         AAbCgN0hqy+Cv7cAz63cVPmafsHtwBIdJaAEiub9rsAdvHvJwzgj2Bl6lJtj0AENKSR/
+         UAc+2/EhyHRnkTagQHL055x6TZdg8fxHpx1uyMvwxcdoIs2vw86aV7i8+Z3y2f3sGt5O
+         Qa2Xy86pzD3bSZ8DYGhYmnHMzCftCFKC+DCF+JplNh5MBEvvB4XO0xfpBd2rYaxskAV8
+         cpyQ==
+X-Gm-Message-State: ACgBeo2PfTlR14ZirAsOBAxWi4iGeXFO8okksRrFUCzR2m7F3YWu5Gyy
+	B9yE8w/6V1BuRnQDaqq3hmE=
+X-Google-Smtp-Source: AA6agR6nAQK4qAIe6WVZ/X6taIbU4yO4AI1xV8TV1YrPX18GR2HGEA0bfFRXqpjRQkVetow3XzDvyA==
+X-Received: by 2002:a63:1051:0:b0:434:b4ff:11e9 with SMTP id 17-20020a631051000000b00434b4ff11e9mr10362090pgq.377.1662692492281;
+        Thu, 08 Sep 2022 20:01:32 -0700 (PDT)
+Received: from [127.0.0.1] ([38.94.111.108])
+        by smtp.gmail.com with ESMTPSA id v15-20020a65460f000000b00434bead2a8csm208402pgq.13.2022.09.08.20.01.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 Sep 2022 20:01:31 -0700 (PDT)
+Message-ID: <2f5059f6-b024-1ee8-b961-5aa0b4e4c116@gmail.com>
+Date: Fri, 9 Sep 2022 11:01:25 +0800
 MIME-Version: 1.0
-X-Originating-IP: [10.67.174.174]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- kwepemm600010.china.huawei.com (7.193.23.86)
-X-CFilter-Loop: Reflected
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Content-Language: en-US
+To: Andrew Bresticker <abrestic@rivosinc.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Atish Patra <atishp@atishpatra.org>, dram <dramforever@live.com>,
+ Ruizhe Pan <c141028@gmail.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20220908170133.1159747-1-abrestic@rivosinc.com>
+ <20220908185006.1212126-1-abrestic@rivosinc.com>
+From: Celeste Liu <coelacanthushex@gmail.com>
+Subject: Re: [PATCH v2] riscv: Make mmap() with PROT_WRITE imply PROT_READ
+In-Reply-To: <20220908185006.1212126-1-abrestic@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_194005_721325_7292EAE0 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20220908_200134_106276_05F974C7 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,286 +96,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When using ftrace and kprobe at the same time, it was found that one
-might cause the other to be unavailable. This can be reproduced by the
-following steps.
+On 2022/9/9 02:50, Andrew Bresticker wrote:
+> Commit 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is
+> invalid") made mmap() return EINVAL if PROT_WRITE was set wihtout
+> PROT_READ with the justification that a write-only PTE is considered a
+> reserved PTE permission bit pattern in the privileged spec. This check
+> is unnecessary since RISC-V defines its protection_map such that PROT_WRITE
+> maps to the same PTE permissions as PROT_WRITE|PROT_READ, and it is
+> inconsistent with other architectures that don't support write-only PTEs,
+> creating a potential software portability issue. Just remove the check
+> altogether and let PROT_WRITE imply PROT_READ as is the case on other
+> architectures.
+> 
+> Note that this also allows PROT_WRITE|PROT_EXEC mappings which were
+> disallowed prior to the aforementioned commit; PROT_READ is implied in
+> such mappings as well.
+> 
+> Fixes: 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is invalid")
+> Signed-off-by: Andrew Bresticker <abrestic@rivosinc.com>
+> ---
+> v1 -> v2: Update access_error() to account for write-implies-read
+> ---
+>  arch/riscv/kernel/sys_riscv.c | 3 ---
+>  arch/riscv/mm/fault.c         | 3 ++-
+>  2 files changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+> index 571556bb9261..5d3f2fbeb33c 100644
+> --- a/arch/riscv/kernel/sys_riscv.c
+> +++ b/arch/riscv/kernel/sys_riscv.c
+> @@ -18,9 +18,6 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+>  	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
+>  		return -EINVAL;
+>  
+> -	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
+> -		return -EINVAL;
+> -
+>  	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
+>  			       offset >> (PAGE_SHIFT - page_shift_offset));
+>  }
+> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+> index f2fbd1400b7c..d86f7cebd4a7 100644
+> --- a/arch/riscv/mm/fault.c
+> +++ b/arch/riscv/mm/fault.c
+> @@ -184,7 +184,8 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
+>  		}
+>  		break;
+>  	case EXC_LOAD_PAGE_FAULT:
+> -		if (!(vma->vm_flags & VM_READ)) {
+> +		/* Write implies read */
+> +		if (!(vma->vm_flags & (VM_READ | VM_WRITE))) {
+>  			return true;
+>  		}
+>  		break;
 
-  # cd /sys/kernel/debug/tracing/
-  # echo cmdline_proc_show > set_ftrace_filter
-  # echo function > current_tracer
-  # echo 'p cmdline_proc_show' > kprobe_events
-  # echo 'p cmdline_proc_show+4' >> kprobe_events
-  # ls events/kprobes/
-  enable                 p_cmdline_proc_show_0
-  filter                 p_cmdline_proc_show_4
-  # echo 1 > events/kprobes/p_cmdline_proc_show_4/enable
-  # echo 1 > events/kprobes/p_cmdline_proc_show_0/enable
-  [  129.830108] 00000000ebed457d: expected (ffdb0097 4f0080e7) but got (00100073 4f0080e7)
-  [  129.835990] ------------[ ftrace bug ]------------
-  [  129.839510] ftrace failed to modify
-  [  129.839536] [<ffffffff80258910>] cmdline_proc_show+0x0/0x46
-  [  129.845831]  actual:   23:3c:11:fe:73:00:10:00
-  [  129.849299] Updating ftrace call site to call a different ftrace function
-  [  129.853998] ftrace record flags: e0000002
-  [  129.856771]  (2) R
-  [  129.856771]  expected tramp: ffffffff80008e60
-  [  129.861688] ------------[ cut here ]------------
-  [  129.865092] WARNING: CPU: 0 PID: 14 at kernel/trace/ftrace.c:2085 ftrace_bug+0x21a/0x24c
-  [  129.870949] Modules linked in:
-  [  129.873301] CPU: 0 PID: 14 Comm: migration/0 Not tainted 5.18.0-rc3-00002-gd8bfcd250f58 #6
-  [  129.879217] Hardware name: riscv-virtio,qemu (DT)
-  [  129.882666] Stopper: multi_cpu_stop+0x0/0x168 <- stop_machine_cpuslocked+0xfa/0x12e
-  [  129.888430] epc : ftrace_bug+0x21a/0x24c
-  [  129.891254]  ra : ftrace_bug+0x21a/0x24c
-  [  129.894057] epc : ffffffff807c3bee ra : ffffffff807c3bee sp : ff20000000283c80
-  [  129.899144]  gp : ffffffff813a83b8 tp : ff60000080021600 t0 : ffffffff804155c0
-  [  129.904257]  t1 : 0720072007200720 t2 : 7420646574636570 s0 : ff20000000283cb0
-  [  129.909402]  s1 : ff6000007fe622a0 a0 : 0000000000000022 a1 : c0000000ffffefff
-  [  129.914472]  a2 : 0000000000000001 a3 : 0000000000000000 a4 : 341adec112294700
-  [  129.919487]  a5 : 341adec112294700 a6 : 0000000000000730 a7 : 0000000000000030
-  [  129.924595]  s2 : ffffffff80258910 s3 : ffffffffffffffea s4 : 0000000000000000
-  [  129.929776]  s5 : 0000000000000a35 s6 : ffffffff80d667c8 s7 : ff6000007fe04000
-  [  129.934892]  s8 : 0000000000000004 s9 : 0000000000000002 s10: 0000000000000001
-  [  129.939992]  s11: 0000000000000003 t3 : ff6000007ff20f00 t4 : ff6000007ff20f00
-  [  129.945134]  t5 : ff6000007ff20000 t6 : ff200000002839c8
-  [  129.948838] status: 0000000000000100 badaddr: 0000000000000000 cause: 0000000000000003
-  [  129.954580] [<ffffffff800bf110>] ftrace_replace_code+0xce/0xd0
-  [  129.958771] [<ffffffff800bf280>] ftrace_modify_all_code+0xb4/0x12c
-  [  129.964420] [<ffffffff800bf30a>] __ftrace_modify_code+0x12/0x1c
-  [  129.969163] [<ffffffff800b4ea4>] multi_cpu_stop+0x9a/0x168
-  [  129.973035] [<ffffffff800b4b1c>] cpu_stopper_thread+0xb4/0x15e
-  [  129.977205] [<ffffffff8003457a>] smpboot_thread_fn+0x106/0x1e4
-  [  129.981277] [<ffffffff80030ca6>] kthread+0xee/0x108
-  [  129.984763] [<ffffffff800039ba>] ret_from_exception+0x0/0xc
-  [  129.988809] ---[ end trace 0000000000000000 ]---
-  # cat trace
-  # tracer: function
-  #
-  # WARNING: FUNCTION TRACING IS CORRUPTED
-  #          MAY BE MISSING FUNCTION EVENTS
-  # entries-in-buffer/entries-written: 0/0   #P:4
-  #
-  #                                _-----=> irqs-off/BH-disabled
-  #                               / _----=> need-resched
-  #                              | / _---=> hardirq/softirq
-  #                              || / _--=> preempt-depth
-  #                              ||| / _-=> migrate-disable
-  #                              |||| /     delay
-  #           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
-  #              | |         |   |||||     |         |
+Hi, this did solve the problem and achieved consistency between
+architectures, but I have a question.
 
-As you can see, the ftrace functionality is broken. This is because
-DYNAMIC_FTRACE uses 4 instructions to make the jump from the function
-entry to the ftrace trampoline.
+Such a change specifies behavior for a state that should not exist,
+and if, in the future, RISC-V spec specifies a different behavior
+for that state (I mean, RVI itself has a history of not caring about
+downstream, like Zicsr and Zifencei), it will create inconsistencies,
+which is bad.
 
-After 'echo function > current_tracer':
+If we reject the "write but not read" state, the user gets the most direct
+response: the state is not allowed so that they do not and cannot rely
+on the behavior of the state. This will bring better time consistency
+to the application if the spec specifies the behavior in the future.
+But it lost architecture consistency.
 
-  <cmdline_proc_show>:
-    0xffffffff80258910 <+0>:     sd      ra,-8(sp)
-    0xffffffff80258914 <+4>:     auipc   ra,0xffdb0
-    0xffffffff80258918 <+8>:     jalr    1264(ra) # 0xffffffff80008e04 <ftrace_caller>
-    0xffffffff8025891c <+12>:    ld      ra,-8(sp)
+How do you think this situation should be handled properly?
 
-After 'echo 1 > events/kprobes/p_cmdline_proc_show_4/enable':
-
-  <cmdline_proc_show>:
-    0xffffffff80258910 <+0>:     sd      ra,-8(sp)
-    0xffffffff80258914 <+4>:     ebreak
-    0xffffffff80258918 <+8>:     jalr    1264(ra)
-    0xffffffff8025891c <+12>:    ld      ra,-8(sp)
-
-This time the second instruction is replaced with a breakpoint
-instruction and the ftrace-related instructions are broken. Then, when
-enabling 'p_cmdline_proc_show_0', a regs ftrace handler is registered
-based on KPROBES_ON_FTRACE, ftrace_modify_call() changes 'ftrace_caller'
-to 'ftrace_regs_caller', and checks for ftrace-related instructions is
-modified or not. Here it has been modified, causing ftrace to report a
-warning and disable itself.
-
-In turn, the breakpoints inserted by kprobe may be overwritten by
-ftrace.
-
-The problem is that we think that only the first instruction address at
-the function entry is needed for ftrace, but it is actually the first 4.
-As Masami mentioned in [1], we can treat the first 4 instructions as a
-16-byte virtual instruction, and func+4, func+8 and func+12 will be
-changed to func+0. This way, ftrace and kprobe do not bother each other
-and can coexist.
-
-After this patch:
-
-  # cd /sys/kernel/debug/tracing/
-  # echo cmdline_proc_show > set_ftrace_filter
-  # echo function > current_tracer
-  # echo 'p cmdline_proc_show' > kprobe_events
-  # echo 'p cmdline_proc_show+4' >> kprobe_events
-  # echo 'p cmdline_proc_show+8' >> kprobe_events
-  # echo 'p cmdline_proc_show+12' >> kprobe_events
-  # echo 'p cmdline_proc_show+16' >> kprobe_events
-  # ls events/kprobes/
-  enable                  p_cmdline_proc_show_12  p_cmdline_proc_show_8
-  filter                  p_cmdline_proc_show_16
-  p_cmdline_proc_show_0   p_cmdline_proc_show_4
-  # echo 1 > events/kprobes/enable
-  # cat ../kprobes/list
-  ffffffff8025cba4  k  cmdline_proc_show+0x0    [FTRACE]
-  ffffffff8025cba4  k  cmdline_proc_show+0x0    [FTRACE]
-  ffffffff8025cba4  k  cmdline_proc_show+0x0    [FTRACE]
-  ffffffff8025cba4  k  cmdline_proc_show+0x0    [FTRACE]
-  ffffffff8025cbb4  k  cmdline_proc_show+0x10
-  # cat /proc/cmdline
-  nokaslr rootwait root=/dev/vda rw
-  # cat trace
-  # tracer: function
-  #
-  # entries-in-buffer/entries-written: 6/6   #P:4
-  #
-  #                                _-----=> irqs-off/BH-disabled
-  #                               / _----=> need-resched
-  #                              | / _---=> hardirq/softirq
-  #                              || / _--=> preempt-depth
-  #                              ||| / _-=> migrate-disable
-  #                              |||| /     delay
-  #           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
-  #              | |         |   |||||     |         |
-               cat-144     [000] ...2.   179.164908: p_cmdline_proc_show_12: (cmdline_proc_show+0x0/0x46)
-               cat-144     [000] ...2.   179.165617: p_cmdline_proc_show_8: (cmdline_proc_show+0x0/0x46)
-               cat-144     [000] ...2.   179.165653: p_cmdline_proc_show_4: (cmdline_proc_show+0x0/0x46)
-               cat-144     [000] ...2.   179.165655: p_cmdline_proc_show_0: (cmdline_proc_show+0x0/0x46)
-               cat-144     [000] ...2.   179.165837: cmdline_proc_show <-seq_read_iter
-               cat-144     [000] d....   179.166099: p_cmdline_proc_show_16: (cmdline_proc_show+0x10/0x46)
-
-[1] https://patchwork.kernel.org/project/linux-arm-kernel/patch/20191218140622.57bbaca5@xhacker.debian/
-
-Fixes: c22b0bcb1dd0 ("riscv: Add kprobes supported")
-Suggested-by: Guo Ren <guoren@kernel.org>
-Signed-off-by: Li Huafei <lihuafei1@huawei.com>
----
-v1: https://lore.kernel.org/lkml/20220426015751.88582-1-lihuafei1@huawei.com/
-v2: https://lore.kernel.org/lkml/20220819025522.154189-2-lihuafei1@huawei.com/
-
-v2 RESEND:
- - Rebase onto v6.0-rc4.
-
-Changlog in v1 -> v2:
- - Allows probing func+offs(<16) instead of returning -EILSEQ, which
-   does not change the arch_adjust_kprobe_addr() interface convention.
- - ftrace_location(addr) is unnecessary, consistent with powerpc and
-   x86.
-
- arch/riscv/include/asm/ftrace.h    | 26 ++++++++++++++++++++++++++
- arch/riscv/kernel/ftrace.c         | 26 --------------------------
- arch/riscv/kernel/probes/kprobes.c | 20 ++++++++++++++++++++
- 3 files changed, 46 insertions(+), 26 deletions(-)
-
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index 04dad3380041..c59e4a63f1c1 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -77,6 +77,32 @@ do {									\
-  */
- #define MCOUNT_INSN_SIZE 8
- 
-+/*
-+ * Put 16 bytes at the front of the function within the patchable function
-+ * entry nops' area.
-+ *
-+ * 0: REG_S  ra, -SZREG(sp)
-+ * 1: auipc  ra, 0x?
-+ * 2: jalr   -?(ra)
-+ * 3: REG_L  ra, -SZREG(sp)
-+ *
-+ * So the opcodes is:
-+ * 0: 0xfe113c23 (sd)/0xfe112e23 (sw)
-+ * 1: 0x???????? -> auipc
-+ * 2: 0x???????? -> jalr
-+ * 3: 0xff813083 (ld)/0xffc12083 (lw)
-+ */
-+#if __riscv_xlen == 64
-+#define INSN0	0xfe113c23
-+#define INSN3	0xff813083
-+#elif __riscv_xlen == 32
-+#define INSN0	0xfe112e23
-+#define INSN3	0xffc12083
-+#endif
-+
-+#define FUNC_ENTRY_SIZE	16
-+#define FUNC_ENTRY_JMP	4
-+
- #ifndef __ASSEMBLY__
- struct dyn_ftrace;
- int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index 552088e9acc4..9d951aab662a 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -70,32 +70,6 @@ static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
- 	return 0;
- }
- 
--/*
-- * Put 16 bytes at the front of the function within the patchable function
-- * entry nops' area.
-- *
-- * 0: REG_S  ra, -SZREG(sp)
-- * 1: auipc  ra, 0x?
-- * 2: jalr   -?(ra)
-- * 3: REG_L  ra, -SZREG(sp)
-- *
-- * So the opcodes is:
-- * 0: 0xfe113c23 (sd)/0xfe112e23 (sw)
-- * 1: 0x???????? -> auipc
-- * 2: 0x???????? -> jalr
-- * 3: 0xff813083 (ld)/0xffc12083 (lw)
-- */
--#if __riscv_xlen == 64
--#define INSN0	0xfe113c23
--#define INSN3	0xff813083
--#elif __riscv_xlen == 32
--#define INSN0	0xfe112e23
--#define INSN3	0xffc12083
--#endif
--
--#define FUNC_ENTRY_SIZE	16
--#define FUNC_ENTRY_JMP	4
--
- int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
- {
- 	unsigned int call[4] = {INSN0, 0, 0, INSN3};
-diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-index e6e950b7cf32..ef7aabec9681 100644
---- a/arch/riscv/kernel/probes/kprobes.c
-+++ b/arch/riscv/kernel/probes/kprobes.c
-@@ -21,6 +21,26 @@ DEFINE_PER_CPU(struct kprobe_ctlblk, kprobe_ctlblk);
- static void __kprobes
- post_kprobe_handler(struct kprobe *, struct kprobe_ctlblk *, struct pt_regs *);
- 
-+#ifdef CONFIG_DYNAMIC_FTRACE
-+kprobe_opcode_t *arch_adjust_kprobe_addr(unsigned long addr, unsigned long offset,
-+					 bool *on_func_entry)
-+{
-+	/*
-+	 * The first 4 instructions at the beginning of the ftraced function
-+	 * are used as a jump to ftrace trampoline, which we can think of as
-+	 * a 16-byte virtual instruction. func+4, func+8 and func+12 will be
-+	 * changed to func+0. This allows the function entry to be probed with
-+	 * the help of KPROBES_ON_FTRACE and does not break ftrace
-+	 * functionality.
-+	 */
-+	if (offset < FUNC_ENTRY_SIZE)
-+		offset = 0;
-+
-+	*on_func_entry = !offset;
-+	return (kprobe_opcode_t *)(addr + offset);
-+}
-+#endif
-+
- static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
- {
- 	unsigned long offset = GET_INSN_LENGTH(p->opcode);
--- 
-2.17.1
-
+Yours,
+Celeste Liu
 
 _______________________________________________
 linux-riscv mailing list
