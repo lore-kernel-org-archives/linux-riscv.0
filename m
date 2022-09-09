@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E0BECAAD3
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 03:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31972ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 04:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H83WxzkPIiE/hhRqChEC3hCl4gR3S7N/OnkmMnAFmrk=; b=kPjt/jNgcuG2Xm
-	K7YZjTMld6mk6QYy/2e4JLvEat0dRD+iXGSJBlRha/mDSDABrFhGSlzdvuSDsEYxJA6qU1G+tD91Y
-	xCac6vasGMA5gWg3bNVqpurbcN7RB0o+JNlo9zNli9svuDh7v/qb9z87LKjk/FeDt86wx420v6VJR
-	EdONJ8YggZVeJDgaeZs4QPj7ymPRkOCkgqt0PH/ANpDYkL2JjKlKmYeZEqkHMwIplb3sUNwtblHWA
-	dJAr6PBzOwk+lVRFSVtTNp/gWptIF05v9J88aLe+A2a8swilHkngviWcas4F1RKJY1nlBRWR7jh20
-	/kGVV+Q4rMyzJNCmTq/g==;
+	List-Owner; bh=+ZjiNRjnKJUaKkQFCkis44hiw2KXhA86elbE7Kwio7U=; b=mM97LVCrZZVW8J
+	c8S0ftY5sS/Gu0UyarC5S8vDUuDWE4QaKRvLsBjoiwXjiHJ4962f9mbUiqf3hNFoxV6BsDdQcCeoZ
+	ly7bG+MDpjNZZktBfNoAvoj9DG+Xo3aLSPUaKbFVa/AlTT4chrWx42/rWJhMkiSJcJDJ58TavUSZN
+	yNpX+J2/4apcEIdC1f1s3IK4dXpJ7qs0etmYOJaiGUOAWwvwkFbvvFEpt7lulZJh6WnJTPSpUjAvI
+	Bt9AaQX+dgg1s1WXdFW7UnHFURE2JK8DEuSFjfXDE0CwOGt6HCDEXWc7r1aSkMAKyBY51c7B4dK8x
+	Lnm5kh/R/UHcMWjEbaAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWV0E-00BtAX-Dp; Fri, 09 Sep 2022 03:48:26 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
-	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWV0B-00Bt9S-1Y
-	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 03:48:25 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 7CB50B82348
-	for <linux-riscv@lists.infradead.org>; Fri,  9 Sep 2022 03:48:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FEFFC4347C
-	for <linux-riscv@lists.infradead.org>; Fri,  9 Sep 2022 03:48:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1662695297;
-	bh=PX3ihAO3NKjkC40uj7ai/McUKZqNLhwG6Yyy59W8/fI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=grqr98PFbFMNPRXQBg2JfLMLtHMNDaLnPd95myEtneiWyON4sYMv/BBcD+Egf2jWK
-	 9Wp9LSG0Ar1pTRlHdDJykgr3XmTJKyoV7Kg7zFV8rkoF7N8/v/C3DaWYDyrxpVgCYF
-	 JXyzWB8p2nG2F3R0b7SE6CR77QP0F8FfNoTbw9OUfiWueAK9vNILgOBg34T0uQljSw
-	 6ealkbqy+E/zUCxWFo52wPUKaKoYP0KGqTA2hqLrrIkaW4Yz0eftsrPiSovcUjqCvf
-	 LF6kF7BlO03XVnhDpFmrUJ20AlOqw+LiCKtoZVJkMd9liBo+I9EnGFdCv8TGN+EdGk
-	 HEYRUKg5zHbCQ==
-Received: by mail-oa1-f44.google.com with SMTP id 586e51a60fabf-12ab0eaa366so826233fac.13
-        for <linux-riscv@lists.infradead.org>; Thu, 08 Sep 2022 20:48:17 -0700 (PDT)
-X-Gm-Message-State: ACgBeo3v9THPvRo0hlaLjJrUPjIu6ezqO9w1yMahCwIoNcPyQaR7QC0A
-	mgcumOjRXGguOye2S+xWbLMW/MOCSb5MWnnUpZ0=
-X-Google-Smtp-Source: AA6agR7jc6we2MFCGtOIzPSfnjtgcz1GjDfE0+sEHOCUyzoouo0XAAN17Zq+2bKgcnj778KEVzSejik31ZoLdtS/iAQ=
-X-Received: by 2002:a05:6808:2028:b0:344:246d:2bed with SMTP id
- q40-20020a056808202800b00344246d2bedmr2706690oiw.19.1662695296022; Thu, 08
- Sep 2022 20:48:16 -0700 (PDT)
+	id 1oWVRO-00C7NF-Lt; Fri, 09 Sep 2022 04:16:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oWVRC-00C786-P0; Fri, 09 Sep 2022 04:16:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09453153B;
+	Thu,  8 Sep 2022 21:16:23 -0700 (PDT)
+Received: from [10.162.41.8] (unknown [10.162.41.8])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F33023F71A;
+	Thu,  8 Sep 2022 21:16:07 -0700 (PDT)
+Message-ID: <46b8a713-64bf-9c00-9001-3196238d1482@arm.com>
+Date: Fri, 9 Sep 2022 09:46:04 +0530
 MIME-Version: 1.0
-References: <20220908150421.323-1-jszhang@kernel.org>
-In-Reply-To: <20220908150421.323-1-jszhang@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Fri, 9 Sep 2022 11:48:03 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTSFjqPW9ZLCehucJsv+4RJ9-0V+4qO3EVpzW-MW=oVNMw@mail.gmail.com>
-Message-ID: <CAJF2gTSFjqPW9ZLCehucJsv+4RJ9-0V+4qO3EVpzW-MW=oVNMw@mail.gmail.com>
-Subject: Re: [PATCH v2] riscv: vdso: fix NULL deference in vdso_join_timens()
- when vfork
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: Re: [PATCH v3 2/4] mm/tlbbatch: Introduce
+ arch_tlbbatch_should_defer()
+To: Yicong Yang <yangyicong@huawei.com>, akpm@linux-foundation.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, linux-doc@vger.kernel.org
+Cc: corbet@lwn.net, peterz@infradead.org, arnd@arndb.de,
+ linux-kernel@vger.kernel.org, darren@os.amperecomputing.com,
+ yangyicong@hisilicon.com, huzhanyuan@oppo.com, lipeifeng@oppo.com,
+ zhangshiming@oppo.com, guojian@oppo.com, realmz6@gmail.com,
+ linux-mips@vger.kernel.org, openrisc@lists.librecores.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, Barry Song <21cnbao@gmail.com>,
+ wangkefeng.wang@huawei.com, xhao@linux.alibaba.com,
+ prime.zeng@hisilicon.com, Anshuman Khandual <khandual@linux.vnet.ibm.com>
+References: <20220822082120.8347-1-yangyicong@huawei.com>
+ <20220822082120.8347-3-yangyicong@huawei.com>
+Content-Language: en-US
+In-Reply-To: <20220822082120.8347-3-yangyicong@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_204823_421105_D4171E23 
-X-CRM114-Status: GOOD (  37.70  )
+X-CRM114-CacheID: sfid-20220908_211618_953993_09AF7190 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,343 +73,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Great job! I've tested it on rv32-rootfs, and everything seems to be working.
+On 8/22/22 13:51, Yicong Yang wrote:
+> From: Anshuman Khandual <khandual@linux.vnet.ibm.com>
+> 
+> The entire scheme of deferred TLB flush in reclaim path rests on the
+> fact that the cost to refill TLB entries is less than flushing out
+> individual entries by sending IPI to remote CPUs. But architecture
+> can have different ways to evaluate that. Hence apart from checking
+> TTU_BATCH_FLUSH in the TTU flags, rest of the decision should be
+> architecture specific.
+> 
+> Signed-off-by: Anshuman Khandual <khandual@linux.vnet.ibm.com>
+> [https://lore.kernel.org/linuxppc-dev/20171101101735.2318-2-khandual@linux.vnet.ibm.com/]
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> [Rebase and fix incorrect return value type]
 
-Tested-by: Guo Ren <guoren@kernel.org>
+From semantics perspective, this patch still makes sense, even on its own.
 
-On Thu, Sep 8, 2022 at 11:13 PM Jisheng Zhang <jszhang@kernel.org> wrote:
->
-> Testing tools/testing/selftests/timens/vfork_exec.c got below
-> kernel log:
->
-> [    6.838454] Unable to handle kernel access to user memory without uaccess routines at virtual address 0000000000000020
-> [    6.842255] Oops [#1]
-> [    6.842871] Modules linked in:
-> [    6.844249] CPU: 1 PID: 64 Comm: vfork_exec Not tainted 6.0.0-rc3-rt15+ #8
-> [    6.845861] Hardware name: riscv-virtio,qemu (DT)
-> [    6.848009] epc : vdso_join_timens+0xd2/0x110
-> [    6.850097]  ra : vdso_join_timens+0xd2/0x110
-> [    6.851164] epc : ffffffff8000635c ra : ffffffff8000635c sp : ff6000000181fbf0
-> [    6.852562]  gp : ffffffff80cff648 tp : ff60000000fdb700 t0 : 3030303030303030
-> [    6.853852]  t1 : 0000000000000030 t2 : 3030303030303030 s0 : ff6000000181fc40
-> [    6.854984]  s1 : ff60000001e6c000 a0 : 0000000000000010 a1 : ffffffff8005654c
-> [    6.856221]  a2 : 00000000ffffefff a3 : 0000000000000000 a4 : 0000000000000000
-> [    6.858114]  a5 : 0000000000000000 a6 : 0000000000000008 a7 : 0000000000000038
-> [    6.859484]  s2 : ff60000001e6c068 s3 : ff6000000108abb0 s4 : 0000000000000000
-> [    6.860751]  s5 : 0000000000001000 s6 : ffffffff8089dc40 s7 : ffffffff8089dc38
-> [    6.862029]  s8 : ffffffff8089dc30 s9 : ff60000000fdbe38 s10: 000000000000005e
-> [    6.863304]  s11: ffffffff80cc3510 t3 : ffffffff80d1112f t4 : ffffffff80d1112f
-> [    6.864565]  t5 : ffffffff80d11130 t6 : ff6000000181fa00
-> [    6.865561] status: 0000000000000120 badaddr: 0000000000000020 cause: 000000000000000d
-> [    6.868046] [<ffffffff8008dc94>] timens_commit+0x38/0x11a
-> [    6.869089] [<ffffffff8008dde8>] timens_on_fork+0x72/0xb4
-> [    6.870055] [<ffffffff80190096>] begin_new_exec+0x3c6/0x9f0
-> [    6.871231] [<ffffffff801d826c>] load_elf_binary+0x628/0x1214
-> [    6.872304] [<ffffffff8018ee7a>] bprm_execve+0x1f2/0x4e4
-> [    6.873243] [<ffffffff8018f90c>] do_execveat_common+0x16e/0x1ee
-> [    6.874258] [<ffffffff8018f9c8>] sys_execve+0x3c/0x48
-> [    6.875162] [<ffffffff80003556>] ret_from_syscall+0x0/0x2
-> [    6.877484] ---[ end trace 0000000000000000 ]---
->
-> This is because the mm->context.vdso_info is NULL in vfork case. From
-> another side, mm->context.vdso_info either points to vdso info
-> for RV64 or vdso info for compat, there's no need to bloat riscv's
-> mm_context_t, we can handle the difference when setup the additional
-> page for vdso.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Fixes: 3092eb456375 ("riscv: compat: vdso: Add setup additional pages implementation")
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+
 > ---
->
-> since v1:
->  - add "Fixes" tag
->  - fix build error when CONFIG_COMPAT is enabled.
->
->  arch/riscv/include/asm/mmu.h |   1 -
->  arch/riscv/kernel/vdso.c     | 178 +++++++++++++++++++----------------
->  2 files changed, 95 insertions(+), 84 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-> index cedcf8ea3c76..0099dc116168 100644
-> --- a/arch/riscv/include/asm/mmu.h
-> +++ b/arch/riscv/include/asm/mmu.h
-> @@ -16,7 +16,6 @@ typedef struct {
->         atomic_long_t id;
->  #endif
->         void *vdso;
-> -       void *vdso_info;
->  #ifdef CONFIG_SMP
->         /* A local icache flush is needed before user execution can resume. */
->         cpumask_t icache_stale_mask;
-> diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
-> index 69b05b6c181b..8ca3b821e1b5 100644
-> --- a/arch/riscv/kernel/vdso.c
-> +++ b/arch/riscv/kernel/vdso.c
-> @@ -27,6 +27,11 @@ extern char vdso_start[], vdso_end[];
->  extern char compat_vdso_start[], compat_vdso_end[];
->  #endif
->
-> +enum vdso_abi {
-> +       VDSO_ABI_RV64,
-> +       VDSO_ABI_RV32,
-> +};
-> +
->  enum vvar_pages {
->         VVAR_DATA_PAGE_OFFSET,
->         VVAR_TIMENS_PAGE_OFFSET,
-> @@ -68,67 +73,7 @@ static int vdso_mremap(const struct vm_special_mapping *sm,
->         return 0;
+>  arch/x86/include/asm/tlbflush.h | 12 ++++++++++++
+>  mm/rmap.c                       |  9 +--------
+>  2 files changed, 13 insertions(+), 8 deletions(-)
+> 
+> diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
+> index cda3118f3b27..8a497d902c16 100644
+> --- a/arch/x86/include/asm/tlbflush.h
+> +++ b/arch/x86/include/asm/tlbflush.h
+> @@ -240,6 +240,18 @@ static inline void flush_tlb_page(struct vm_area_struct *vma, unsigned long a)
+>  	flush_tlb_mm_range(vma->vm_mm, a, a + PAGE_SIZE, PAGE_SHIFT, false);
 >  }
->
-> -static void __init __vdso_init(struct __vdso_info *vdso_info)
-> -{
-> -       unsigned int i;
-> -       struct page **vdso_pagelist;
-> -       unsigned long pfn;
-> -
-> -       if (memcmp(vdso_info->vdso_code_start, "\177ELF", 4))
-> -               panic("vDSO is not a valid ELF object!\n");
-> -
-> -       vdso_info->vdso_pages = (
-> -               vdso_info->vdso_code_end -
-> -               vdso_info->vdso_code_start) >>
-> -               PAGE_SHIFT;
-> -
-> -       vdso_pagelist = kcalloc(vdso_info->vdso_pages,
-> -                               sizeof(struct page *),
-> -                               GFP_KERNEL);
-> -       if (vdso_pagelist == NULL)
-> -               panic("vDSO kcalloc failed!\n");
-> -
-> -       /* Grab the vDSO code pages. */
-> -       pfn = sym_to_pfn(vdso_info->vdso_code_start);
-> -
-> -       for (i = 0; i < vdso_info->vdso_pages; i++)
-> -               vdso_pagelist[i] = pfn_to_page(pfn + i);
-> -
-> -       vdso_info->cm->pages = vdso_pagelist;
-> -}
-> -
->  #ifdef CONFIG_TIME_NS
-> -struct vdso_data *arch_get_vdso_data(void *vvar_page)
-> -{
-> -       return (struct vdso_data *)(vvar_page);
-> -}
-> -
-> -/*
-> - * The vvar mapping contains data for a specific time namespace, so when a task
-> - * changes namespace we must unmap its vvar data for the old namespace.
-> - * Subsequent faults will map in data for the new namespace.
-> - *
-> - * For more details see timens_setup_vdso_data().
-> - */
-> -int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
-> -{
-> -       struct mm_struct *mm = task->mm;
-> -       struct vm_area_struct *vma;
-> -       struct __vdso_info *vdso_info = mm->context.vdso_info;
-> -
-> -       mmap_read_lock(mm);
-> -
-> -       for (vma = mm->mmap; vma; vma = vma->vm_next) {
-> -               unsigned long size = vma->vm_end - vma->vm_start;
-> -
-> -               if (vma_is_special_mapping(vma, vdso_info->dm))
-> -                       zap_page_range(vma, vma->vm_start, size);
-> -       }
-> -
-> -       mmap_read_unlock(mm);
-> -       return 0;
-> -}
-> -
->  static struct page *find_timens_vvar_page(struct vm_area_struct *vma)
->  {
->         if (likely(vma->vm_mm == current->mm))
-> @@ -197,13 +142,6 @@ static struct vm_special_mapping rv_vdso_maps[] __ro_after_init = {
->         },
->  };
->
-> -static struct __vdso_info vdso_info __ro_after_init = {
-> -       .name = "vdso",
-> -       .vdso_code_start = vdso_start,
-> -       .vdso_code_end = vdso_end,
-> -       .dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
-> -       .cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
-> -};
->
->  #ifdef CONFIG_COMPAT
->  static struct vm_special_mapping rv_compat_vdso_maps[] __ro_after_init = {
-> @@ -216,21 +154,97 @@ static struct vm_special_mapping rv_compat_vdso_maps[] __ro_after_init = {
->                 .mremap = vdso_mremap,
->         },
->  };
-> +#endif
->
-> -static struct __vdso_info compat_vdso_info __ro_after_init = {
-> -       .name = "compat_vdso",
-> -       .vdso_code_start = compat_vdso_start,
-> -       .vdso_code_end = compat_vdso_end,
-> -       .dm = &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
-> -       .cm = &rv_compat_vdso_maps[RV_VDSO_MAP_VDSO],
-> +static struct __vdso_info vdso_info[] __ro_after_init = {
-> +       [VDSO_ABI_RV64] = {
-> +               .name = "vdso",
-> +               .vdso_code_start = vdso_start,
-> +               .vdso_code_end = vdso_end,
-> +               .dm = &rv_vdso_maps[RV_VDSO_MAP_VVAR],
-> +               .cm = &rv_vdso_maps[RV_VDSO_MAP_VDSO],
-> +       },
-> +#ifdef CONFIG_COMPAT
-> +       [VDSO_ABI_RV32] = {
-> +               .name = "compat_vdso",
-> +               .vdso_code_start = compat_vdso_start,
-> +               .vdso_code_end = compat_vdso_end,
-> +               .dm = &rv_compat_vdso_maps[RV_VDSO_MAP_VVAR],
-> +               .cm = &rv_compat_vdso_maps[RV_VDSO_MAP_VDSO],
-> +       },
-> +#endif
->  };
-> +
-> +static void __init __vdso_init(enum vdso_abi abi)
+>  
+> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
 > +{
-> +       unsigned int i;
-> +       struct page **vdso_pagelist;
-> +       unsigned long pfn;
+> +	bool should_defer = false;
 > +
-> +       if (memcmp(vdso_info[abi].vdso_code_start, "\177ELF", 4))
-> +               panic("vDSO is not a valid ELF object!\n");
+> +	/* If remote CPUs need to be flushed then defer batch the flush */
+> +	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
+> +		should_defer = true;
+> +	put_cpu();
 > +
-> +       vdso_info[abi].vdso_pages = (
-> +               vdso_info[abi].vdso_code_end -
-> +               vdso_info[abi].vdso_code_start) >>
-> +               PAGE_SHIFT;
-> +
-> +       vdso_pagelist = kcalloc(vdso_info[abi].vdso_pages,
-> +                               sizeof(struct page *),
-> +                               GFP_KERNEL);
-> +       if (vdso_pagelist == NULL)
-> +               panic("vDSO kcalloc failed!\n");
-> +
-> +       /* Grab the vDSO code pages. */
-> +       pfn = sym_to_pfn(vdso_info[abi].vdso_code_start);
-> +
-> +       for (i = 0; i < vdso_info[abi].vdso_pages; i++)
-> +               vdso_pagelist[i] = pfn_to_page(pfn + i);
-> +
-> +       vdso_info[abi].cm->pages = vdso_pagelist;
+> +	return should_defer;
 > +}
 > +
-> +#ifdef CONFIG_TIME_NS
-> +struct vdso_data *arch_get_vdso_data(void *vvar_page)
-> +{
-> +       return (struct vdso_data *)(vvar_page);
-> +}
-> +
-> +/*
-> + * The vvar mapping contains data for a specific time namespace, so when a task
-> + * changes namespace we must unmap its vvar data for the old namespace.
-> + * Subsequent faults will map in data for the new namespace.
-> + *
-> + * For more details see timens_setup_vdso_data().
-> + */
-> +int vdso_join_timens(struct task_struct *task, struct time_namespace *ns)
-> +{
-> +       struct mm_struct *mm = task->mm;
-> +       struct vm_area_struct *vma;
-> +
-> +       mmap_read_lock(mm);
-> +
-> +       for (vma = mm->mmap; vma; vma = vma->vm_next) {
-> +               unsigned long size = vma->vm_end - vma->vm_start;
-> +
-> +               if (vma_is_special_mapping(vma, vdso_info[VDSO_ABI_RV64].dm))
-> +                       zap_page_range(vma, vma->vm_start, size);
-> +#ifdef CONFIG_COMPAT
-> +               if (vma_is_special_mapping(vma, vdso_info[VDSO_ABI_RV32].dm))
-> +                       zap_page_range(vma, vma->vm_start, size);
-> +#endif
-> +       }
-> +
-> +       mmap_read_unlock(mm);
-> +       return 0;
-> +}
->  #endif
->
->  static int __init vdso_init(void)
+>  static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
 >  {
-> -       __vdso_init(&vdso_info);
-> +       __vdso_init(VDSO_ABI_RV64);
->  #ifdef CONFIG_COMPAT
-> -       __vdso_init(&compat_vdso_info);
-> +       __vdso_init(VDSO_ABI_RV32);
->  #endif
->
->         return 0;
-> @@ -240,14 +254,14 @@ arch_initcall(vdso_init);
->  static int __setup_additional_pages(struct mm_struct *mm,
->                                     struct linux_binprm *bprm,
->                                     int uses_interp,
-> -                                   struct __vdso_info *vdso_info)
-> +                                   enum vdso_abi abi)
+>  	/*
+> diff --git a/mm/rmap.c b/mm/rmap.c
+> index edc06c52bc82..a17a004550c6 100644
+> --- a/mm/rmap.c
+> +++ b/mm/rmap.c
+> @@ -687,17 +687,10 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
+>   */
+>  static bool should_defer_flush(struct mm_struct *mm, enum ttu_flags flags)
 >  {
->         unsigned long vdso_base, vdso_text_len, vdso_mapping_len;
->         void *ret;
->
->         BUILD_BUG_ON(VVAR_NR_PAGES != __VVAR_PAGES);
->
-> -       vdso_text_len = vdso_info->vdso_pages << PAGE_SHIFT;
-> +       vdso_text_len = vdso_info[abi].vdso_pages << PAGE_SHIFT;
->         /* Be sure to map the data page */
->         vdso_mapping_len = vdso_text_len + VVAR_SIZE;
->
-> @@ -258,18 +272,17 @@ static int __setup_additional_pages(struct mm_struct *mm,
->         }
->
->         ret = _install_special_mapping(mm, vdso_base, VVAR_SIZE,
-> -               (VM_READ | VM_MAYREAD | VM_PFNMAP), vdso_info->dm);
-> +               (VM_READ | VM_MAYREAD | VM_PFNMAP), vdso_info[abi].dm);
->         if (IS_ERR(ret))
->                 goto up_fail;
->
->         vdso_base += VVAR_SIZE;
->         mm->context.vdso = (void *)vdso_base;
-> -       mm->context.vdso_info = (void *)vdso_info;
->
->         ret =
->            _install_special_mapping(mm, vdso_base, vdso_text_len,
->                 (VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC),
-> -               vdso_info->cm);
-> +               vdso_info[abi].cm);
->
->         if (IS_ERR(ret))
->                 goto up_fail;
-> @@ -291,8 +304,7 @@ int compat_arch_setup_additional_pages(struct linux_binprm *bprm,
->         if (mmap_write_lock_killable(mm))
->                 return -EINTR;
->
-> -       ret = __setup_additional_pages(mm, bprm, uses_interp,
-> -                                                       &compat_vdso_info);
-> +       ret = __setup_additional_pages(mm, bprm, uses_interp, VDSO_ABI_RV32);
->         mmap_write_unlock(mm);
->
->         return ret;
-> @@ -307,7 +319,7 @@ int arch_setup_additional_pages(struct linux_binprm *bprm, int uses_interp)
->         if (mmap_write_lock_killable(mm))
->                 return -EINTR;
->
-> -       ret = __setup_additional_pages(mm, bprm, uses_interp, &vdso_info);
-> +       ret = __setup_additional_pages(mm, bprm, uses_interp, VDSO_ABI_RV64);
->         mmap_write_unlock(mm);
->
->         return ret;
-> --
-> 2.34.1
->
-
-
--- 
-Best Regards
- Guo Ren
+> -	bool should_defer = false;
+> -
+>  	if (!(flags & TTU_BATCH_FLUSH))
+>  		return false;
+>  
+> -	/* If remote CPUs need to be flushed then defer batch the flush */
+> -	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
+> -		should_defer = true;
+> -	put_cpu();
+> -
+> -	return should_defer;
+> +	return arch_tlbbatch_should_defer(mm);
+>  }
+>  
+>  /*
 
 _______________________________________________
 linux-riscv mailing list
