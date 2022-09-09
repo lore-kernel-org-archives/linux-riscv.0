@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0923FECAAA1
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 18:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF34AECAAA1
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 18:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VZq44ngLBh5Vxb9BvX49XqX4v31/jFAFF1l5P5XXO2M=; b=w/mVAUuVSLvXW1
-	BD1oZZFplRIfIMTFMrF6lU6g8gCSOJM+mSKGTyUg3LKwEKIrb1psCMW7clZKuqd7hIQpEfAWKeVwE
-	XzS844YFN4tBEj+vKSroZVSK6DQdkGM//BwV4AY3fkegZ12esSoDM8pLbcKx1PQeXNIdMByv5/EgY
-	plue/U7tq0miTS6WsY7dJeDKcS2Q3WUbhPZMX0hkylKER/Qys3fcZ4EAh5mUJLQQW9LmgDoBuucE5
-	qy1psE0HSXLQj0CDPBiJ6vbsK00uF/YN42dbsQlTRKUliZAFf3ksZ2+lrqDy86NDLyzos2VIUSdNp
-	8c5qtBAq3iVo7LDmk3LA==;
+	List-Owner; bh=9IOu34H87hyRPbOfouVQLedttnk4B+r/A/pKga6mWpE=; b=QQG/DOZXieNe9h
+	nSinQJIvBK4mMojS38wXoVCjgD0N4d/4FjN3uAPnTc5vEj2yVQaGBWnCpIwC+TVp7arFz4uRPXWDx
+	DiJ5I5pIYDmLWWtozcQ6BH74F4YEiYnY80/0bR2zkBoyzYodU8fXflN7dYy99hYxZXtmHQarwsF0p
+	zS1dPSeJKqfFSEoWnywQKHr/EHEsxP8lK+QwJ3xH+1+fL6A6Hl8JCP8eA+dok6zy32qSsRXEjl4jd
+	ezPEmGX80wqH+z29R3UClTXr0/1jsHKlPUMEfDUkpRbzpID/+8jH+/xA16pu3ZPmPpO54b1rj6su7
+	xubDWcQC6Ozq9wu0CXmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWisf-001I8R-GK; Fri, 09 Sep 2022 18:37:33 +0000
-Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
+	id 1oWiwN-001KX2-FU; Fri, 09 Sep 2022 18:41:23 +0000
+Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWisc-001Hx3-3S
-	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 18:37:31 +0000
-Received: by mail-il1-x12d.google.com with SMTP id m16so1259050ilg.3
-        for <linux-riscv@lists.infradead.org>; Fri, 09 Sep 2022 11:37:28 -0700 (PDT)
+	id 1oWiwL-001KVI-5w
+	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 18:41:22 +0000
+Received: by mail-io1-xd2a.google.com with SMTP id d68so2130866iof.11
+        for <linux-riscv@lists.infradead.org>; Fri, 09 Sep 2022 11:41:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=atishpatra.org; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date;
-        bh=kghJ1b085rNUYsmH/YICo8BzBq1CQoiPzLrByiYFnKU=;
-        b=mLGXeRORx88c+OrK4h6NCtEU4TayydrwoFyVOQVJVd9avpgj8t5d7pn6U0c1OnQd5M
-         FPrCGea/ni6oshhn1Wj0OIEFBfMk5hiBC2nhu6Ot2rAtFlMneYCdBrHKKVPfP0zCB2a+
-         BKioIOr0GgdX0WgexE7aTPi9Badk6EWZU/QpI=
+        bh=DmeNuQpBHB7aqjM/udksATzePHFCNiKGvkPvOqLhHsQ=;
+        b=al9EbWKIw1OiaKoWW7AQpAsAwOXKO1KnPbpv+Z0WOhWzShbzRPFRObWQO3IUT2Bdzk
+         Gx3Qgn5E+9s8Z2Z2dSDB9m2LX2LWtQ6r77Z9hzXylcAM1DPDKqVS6IYdekfTnuLzk+8D
+         hwzvVLlXgeJv4WP6OJ73FRVELdd2GYpXUV9nY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=kghJ1b085rNUYsmH/YICo8BzBq1CQoiPzLrByiYFnKU=;
-        b=1Q0kyuqjjAd0FwKTBNu5Pdqy/lxx1wiqpHmomvSiKbIKJR1oviM7/FWp5yHcwRS6EK
-         /sTfZopEOyl8ICFBTQ6u2yYf3B2zobXI4QGMMesoLEfmdbXMb1BBaHoK96F5cBKcbuQZ
-         iHUGCuY+IRhgx+8FvGXt/GvqED/Q1TQ/I7cD5sS61DB/HMogfhnw8ya1+QsxcuQ7M8Sx
-         CThdFRMwrVNL7IBGiibodz9wCGQjIcrv5REqWgIBh5rWD37n0yHuImbo2uSLa8DJz8PC
-         68gua1hoBdhi5MJ3sRiF9V6Z7e8FO2PzHS8tyvWKgZr9LF2RzGskNnb7t163opu61RDI
-         6/jA==
-X-Gm-Message-State: ACgBeo1FqaKrO0l/dE5i2kPLXyLaVzDBfPKz1DsyBjTMpqM+vElJifKw
-	G8yfrGZckaF860x+uftS9Q9SlB2IQct9CTw3wy0G
-X-Google-Smtp-Source: AA6agR6sshRKqLx6mk1YA9/bV7RToRdp9jAavsoFHIdNPzXaT1DlCL3rwgnKevbYIp2C6T+dmxhHJoDFlHXXMAhqLVE=
-X-Received: by 2002:a05:6e02:2166:b0:2eb:4c28:50d6 with SMTP id
- s6-20020a056e02216600b002eb4c2850d6mr4704488ilv.213.1662748647553; Fri, 09
- Sep 2022 11:37:27 -0700 (PDT)
+        bh=DmeNuQpBHB7aqjM/udksATzePHFCNiKGvkPvOqLhHsQ=;
+        b=cdBgrP1RasJfeacmfp0R/3aubcP7Qqnro0ykeKkLarn+XNWK/+qIvc1tD3xgs2R2tp
+         O/e5yzxcHxn4Gf0HyKGh8Lwr7F1sN87EuXKCEMTL45Tdbuqe/vahDZhsL0CFSzApLnXN
+         78Lav4C1cqE3Okha9oGJuXGgLrOTjX+1erhfNzePPUyJeUoEcFLrCvTyeWHoEF0E0wlM
+         C2LsGHMc1Eor0HTJbj8kjXTTequCBlGCgFzH/k7lyXev6Qj0DJ1hu0abUm22yC2jWt6b
+         enq36qqw6hwed6uVDMSzDGC/1bOtn8Jwp8KaS7wBHWeGdKdpsheeFaGXoTD3w20GVMKv
+         Z0GQ==
+X-Gm-Message-State: ACgBeo0hORjTdKvygZaSIDHakaFmuB/tqYCQF6ee6h8ghgbAy0h4ygDU
+	IFBt9hEC4PZnMs/MgFaAEMFyBWS5ZHkSpbyFb3mr
+X-Google-Smtp-Source: AA6agR6g0bqA/4Wf2B5aiGgDwYNpViulDvPJUULIG3E5AxHzdAqhFBBgK5rf1jcjiyw/clt7ixAXjK0KU6nsa4pAJr0=
+X-Received: by 2002:a05:6638:2045:b0:35a:f41:d1a3 with SMTP id
+ t5-20020a056638204500b0035a0f41d1a3mr1340643jaj.75.1662748879421; Fri, 09 Sep
+ 2022 11:41:19 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220909144400.1114485-1-ajones@ventanamicro.com> <20220909144400.1114485-3-ajones@ventanamicro.com>
-In-Reply-To: <20220909144400.1114485-3-ajones@ventanamicro.com>
+References: <20220909144400.1114485-1-ajones@ventanamicro.com> <20220909144400.1114485-2-ajones@ventanamicro.com>
+In-Reply-To: <20220909144400.1114485-2-ajones@ventanamicro.com>
 From: Atish Patra <atishp@atishpatra.org>
-Date: Fri, 9 Sep 2022 11:37:16 -0700
-Message-ID: <CAOnJCU+meVE_A=ki1bTMNCf-CHMwCQvTn-0aaHydREAH=OdcFw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] RISC-V: KVM: Expose Zicbom to the guest
+Date: Fri, 9 Sep 2022 11:41:08 -0700
+Message-ID: <CAOnJCULo_5OROypyBaq3chQDf2p4wFfP7kYsWuBz9V=8sy_ABg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/2] RISC-V: KVM: Provide UAPI for Zicbom block size
 To: Andrew Jones <ajones@ventanamicro.com>
 Cc: kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	Anup Patel <anup@brainfault.org>, Conor Dooley <conor.dooley@microchip.com>, 
-	Atish Patra <atishp@rivosinc.com>
+	Anup Patel <anup@brainfault.org>, Conor Dooley <conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220909_113730_477638_6CC5E9AD 
-X-CRM114-Status: GOOD (  18.81  )
+X-CRM114-CacheID: sfid-20220909_114121_248353_0CAE13F2 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,76 +83,84 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 On Fri, Sep 9, 2022 at 7:44 AM Andrew Jones <ajones@ventanamicro.com> wrote:
 >
-> Guests may use the cbo.inval,clean,flush instructions when the
-> CPU has the Zicbom extension and the hypervisor sets henvcfg.CBIE
-> (for cbo.inval) and henvcfg.CBCFE (for cbo.clean,flush).
->
-> Add Zicbom support for KVM guests which may be enabled and
-> disabled from KVM userspace using the ISA extension ONE_REG API.
->
-> Also opportunistically switch the other isa extension checks in
-> kvm_riscv_vcpu_update_config() to riscv_isa_extension_available().
+> We're about to allow guests to use the Zicbom extension. KVM
+> userspace needs to know the cache block size in order to
+> properly advertise it to the guest. Provide a virtual config
+> register for userspace to get it with the GET_ONE_REG API, but
+> setting it cannot be supported, so disallow SET_ONE_REG.
 >
 > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 > Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Atish Patra <atishp@rivosinc.com>
 > ---
 >  arch/riscv/include/uapi/asm/kvm.h | 1 +
->  arch/riscv/kvm/vcpu.c             | 9 +++++++--
->  2 files changed, 8 insertions(+), 2 deletions(-)
+>  arch/riscv/kvm/vcpu.c             | 8 ++++++++
+>  arch/riscv/mm/cacheflush.c        | 1 +
+>  3 files changed, 10 insertions(+)
 >
 > diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
-> index b9a4cf36be4b..ed37a4a6e5cf 100644
+> index 7351417afd62..b9a4cf36be4b 100644
 > --- a/arch/riscv/include/uapi/asm/kvm.h
 > +++ b/arch/riscv/include/uapi/asm/kvm.h
-> @@ -99,6 +99,7 @@ enum KVM_RISCV_ISA_EXT_ID {
->         KVM_RISCV_ISA_EXT_M,
->         KVM_RISCV_ISA_EXT_SVPBMT,
->         KVM_RISCV_ISA_EXT_SSTC,
-> +       KVM_RISCV_ISA_EXT_ZICBOM,
->         KVM_RISCV_ISA_EXT_MAX,
+> @@ -48,6 +48,7 @@ struct kvm_sregs {
+>  /* CONFIG registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
+>  struct kvm_riscv_config {
+>         unsigned long isa;
+> +       unsigned long zicbom_block_size;
 >  };
 >
+>  /* CORE registers for KVM_GET_ONE_REG and KVM_SET_ONE_REG */
 > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 2ef33d5d94d1..74d1532b26c0 100644
+> index d0f08d5b4282..2ef33d5d94d1 100644
 > --- a/arch/riscv/kvm/vcpu.c
 > +++ b/arch/riscv/kvm/vcpu.c
-> @@ -54,6 +54,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
->         RISCV_ISA_EXT_m,
->         RISCV_ISA_EXT_SVPBMT,
->         RISCV_ISA_EXT_SSTC,
-> +       RISCV_ISA_EXT_ZICBOM,
->  };
+> @@ -18,6 +18,7 @@
+>  #include <linux/fs.h>
+>  #include <linux/kvm_host.h>
+>  #include <asm/csr.h>
+> +#include <asm/cacheflush.h>
+>  #include <asm/hwcap.h>
 >
->  static unsigned long kvm_riscv_vcpu_base2isa_ext(unsigned long base_ext)
-> @@ -792,11 +793,15 @@ static void kvm_riscv_vcpu_update_config(const unsigned long *isa)
->  {
->         u64 henvcfg = 0;
+>  const struct _kvm_stats_desc kvm_vcpu_stats_desc[] = {
+> @@ -254,6 +255,11 @@ static int kvm_riscv_vcpu_get_reg_config(struct kvm_vcpu *vcpu,
+>         case KVM_REG_RISCV_CONFIG_REG(isa):
+>                 reg_val = vcpu->arch.isa[0] & KVM_RISCV_BASE_ISA_MASK;
+>                 break;
+> +       case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+> +               if (!riscv_isa_extension_available(vcpu->arch.isa, ZICBOM))
+> +                       return -EINVAL;
+> +               reg_val = riscv_cbom_block_size;
+> +               break;
+>         default:
+>                 return -EINVAL;
+>         }
+> @@ -311,6 +317,8 @@ static int kvm_riscv_vcpu_set_reg_config(struct kvm_vcpu *vcpu,
+>                         return -EOPNOTSUPP;
+>                 }
+>                 break;
+> +       case KVM_REG_RISCV_CONFIG_REG(zicbom_block_size):
+> +               return -EOPNOTSUPP;
+>         default:
+>                 return -EINVAL;
+>         }
+> diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
+> index e5b087be1577..f318b2553612 100644
+> --- a/arch/riscv/mm/cacheflush.c
+> +++ b/arch/riscv/mm/cacheflush.c
+> @@ -90,6 +90,7 @@ void flush_icache_pte(pte_t pte)
+>  #endif /* CONFIG_MMU */
 >
-> -       if (__riscv_isa_extension_available(isa, RISCV_ISA_EXT_SVPBMT))
-> +       if (riscv_isa_extension_available(isa, SVPBMT))
->                 henvcfg |= ENVCFG_PBMTE;
+>  unsigned int riscv_cbom_block_size;
+> +EXPORT_SYMBOL_GPL(riscv_cbom_block_size);
 >
-> -       if (__riscv_isa_extension_available(isa, RISCV_ISA_EXT_SSTC))
-> +       if (riscv_isa_extension_available(isa, SSTC))
->                 henvcfg |= ENVCFG_STCE;
-> +
-
-Ideally, these should be in a separate patch.
-
-> +       if (riscv_isa_extension_available(isa, ZICBOM))
-> +               henvcfg |= (ENVCFG_CBIE | ENVCFG_CBCFE);
-> +
->         csr_write(CSR_HENVCFG, henvcfg);
->  #ifdef CONFIG_32BIT
->         csr_write(CSR_HENVCFGH, henvcfg >> 32);
+>  #ifdef CONFIG_RISCV_ISA_ZICBOM
+>  void riscv_init_cbom_blocksize(void)
 > --
 > 2.37.2
 >
 
-Otherwise, LGTM.
+
 Reviewed-by: Atish Patra <atishp@rivosinc.com>
--- 
+--
 Regards,
 Atish
 
