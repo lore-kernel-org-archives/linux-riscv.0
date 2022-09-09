@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31972ECAAD3
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 04:16:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B30AECAAD3
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 04:26:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+ZjiNRjnKJUaKkQFCkis44hiw2KXhA86elbE7Kwio7U=; b=mM97LVCrZZVW8J
-	c8S0ftY5sS/Gu0UyarC5S8vDUuDWE4QaKRvLsBjoiwXjiHJ4962f9mbUiqf3hNFoxV6BsDdQcCeoZ
-	ly7bG+MDpjNZZktBfNoAvoj9DG+Xo3aLSPUaKbFVa/AlTT4chrWx42/rWJhMkiSJcJDJ58TavUSZN
-	yNpX+J2/4apcEIdC1f1s3IK4dXpJ7qs0etmYOJaiGUOAWwvwkFbvvFEpt7lulZJh6WnJTPSpUjAvI
-	Bt9AaQX+dgg1s1WXdFW7UnHFURE2JK8DEuSFjfXDE0CwOGt6HCDEXWc7r1aSkMAKyBY51c7B4dK8x
-	Lnm5kh/R/UHcMWjEbaAQ==;
+	List-Owner; bh=Ysp4GOL0y1ONy2VMQ+MyVQLQ0XkipHIYt7h09VxWnSU=; b=gEJ5lpDLEeaRka
+	tugBvUgo7ihSpKjmLhLhp13527I+n6X9/A4+jWZVEmTyz2CN86oOsDziQ8+Az5/2JcayPw7KQblDa
+	tkiMAKjzSLZz/1tt8kDuP7XcOtWFkBnqnWq/mIiLuRjoyrRr0wLs3T8mWNYdu4NmqH+mA07izG+Yt
+	F4/1UoKVm3DNTUFyrT03XDX4dL2/c3LDZbbnV2BvLgzGiHcWdckMeHHAAJWaHahqf5zyy64oFyfqL
+	mwfhAjWDiV6GL83qo6HYqR3KTxjw7EuAl+Du0CLIcTW4UjPXczZZrgoQPtmJeiCYRQjHHpyFAJGlN
+	Agkp24TPaAyAqoj0Ieew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWVRO-00C7NF-Lt; Fri, 09 Sep 2022 04:16:30 +0000
+	id 1oWVbL-00CFLq-9m; Fri, 09 Sep 2022 04:26:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWVRC-00C786-P0; Fri, 09 Sep 2022 04:16:20 +0000
+	id 1oWVb9-00CFGj-R3; Fri, 09 Sep 2022 04:26:37 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 09453153B;
-	Thu,  8 Sep 2022 21:16:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C014153B;
+	Thu,  8 Sep 2022 21:26:39 -0700 (PDT)
 Received: from [10.162.41.8] (unknown [10.162.41.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F33023F71A;
-	Thu,  8 Sep 2022 21:16:07 -0700 (PDT)
-Message-ID: <46b8a713-64bf-9c00-9001-3196238d1482@arm.com>
-Date: Fri, 9 Sep 2022 09:46:04 +0530
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3D5263F71A;
+	Thu,  8 Sep 2022 21:26:23 -0700 (PDT)
+Message-ID: <cc68c8c0-0db1-1678-2095-54383c1383ad@arm.com>
+Date: Fri, 9 Sep 2022 09:56:21 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
  Thunderbird/91.11.0
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-Subject: Re: [PATCH v3 2/4] mm/tlbbatch: Introduce
- arch_tlbbatch_should_defer()
+Subject: Re: [PATCH v3 1/4] Revert "Documentation/features: mark
+ BATCHED_UNMAP_TLB_FLUSH doesn't apply to ARM64"
+Content-Language: en-US
 To: Yicong Yang <yangyicong@huawei.com>, akpm@linux-foundation.org,
  linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, x86@kernel.org,
  catalin.marinas@arm.com, will@kernel.org, linux-doc@vger.kernel.org
@@ -49,14 +49,14 @@ Cc: corbet@lwn.net, peterz@infradead.org, arnd@arndb.de,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-s390@vger.kernel.org, Barry Song <21cnbao@gmail.com>,
  wangkefeng.wang@huawei.com, xhao@linux.alibaba.com,
- prime.zeng@hisilicon.com, Anshuman Khandual <khandual@linux.vnet.ibm.com>
+ prime.zeng@hisilicon.com, Barry Song <v-songbaohua@oppo.com>
 References: <20220822082120.8347-1-yangyicong@huawei.com>
- <20220822082120.8347-3-yangyicong@huawei.com>
-Content-Language: en-US
-In-Reply-To: <20220822082120.8347-3-yangyicong@huawei.com>
+ <20220822082120.8347-2-yangyicong@huawei.com>
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20220822082120.8347-2-yangyicong@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220908_211618_953993_09AF7190 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20220908_212635_996749_E949A0A2 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,76 +73,58 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+
+
 On 8/22/22 13:51, Yicong Yang wrote:
-> From: Anshuman Khandual <khandual@linux.vnet.ibm.com>
+> From: Barry Song <v-songbaohua@oppo.com>
 > 
-> The entire scheme of deferred TLB flush in reclaim path rests on the
-> fact that the cost to refill TLB entries is less than flushing out
-> individual entries by sending IPI to remote CPUs. But architecture
-> can have different ways to evaluate that. Hence apart from checking
-> TTU_BATCH_FLUSH in the TTU flags, rest of the decision should be
-> architecture specific.
+> This reverts commit 6bfef171d0d74cb050112e0e49feb20bfddf7f42.
 > 
-> Signed-off-by: Anshuman Khandual <khandual@linux.vnet.ibm.com>
-> [https://lore.kernel.org/linuxppc-dev/20171101101735.2318-2-khandual@linux.vnet.ibm.com/]
+> I was wrong. Though ARM64 has hardware TLB flush, but it is not free
+> and it is still expensive.
+> We still have a good chance to enable batched and deferred TLB flush
+> on ARM64 for memory reclamation. A possible way is that we only queue
+> tlbi instructions in hardware's queue. When we have to broadcast TLB,
+> we broadcast it by dsb. We just need to get adapted the existing
+> BATCHED_UNMAP_TLB_FLUSH.
+> 
+> Tested-by: Xin Hao <xhao@linux.alibaba.com>
+> Signed-off-by: Barry Song <v-songbaohua@oppo.com>
 > Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> [Rebase and fix incorrect return value type]
-
-From semantics perspective, this patch still makes sense, even on its own.
-
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-
 > ---
->  arch/x86/include/asm/tlbflush.h | 12 ++++++++++++
->  mm/rmap.c                       |  9 +--------
->  2 files changed, 13 insertions(+), 8 deletions(-)
+>  Documentation/features/arch-support.txt        | 1 -
+>  Documentation/features/vm/TLB/arch-support.txt | 2 +-
+>  2 files changed, 1 insertion(+), 2 deletions(-)
 > 
-> diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
-> index cda3118f3b27..8a497d902c16 100644
-> --- a/arch/x86/include/asm/tlbflush.h
-> +++ b/arch/x86/include/asm/tlbflush.h
-> @@ -240,6 +240,18 @@ static inline void flush_tlb_page(struct vm_area_struct *vma, unsigned long a)
->  	flush_tlb_mm_range(vma->vm_mm, a, a + PAGE_SIZE, PAGE_SHIFT, false);
->  }
+> diff --git a/Documentation/features/arch-support.txt b/Documentation/features/arch-support.txt
+> index 118ae031840b..d22a1095e661 100644
+> --- a/Documentation/features/arch-support.txt
+> +++ b/Documentation/features/arch-support.txt
+> @@ -8,5 +8,4 @@ The meaning of entries in the tables is:
+>      | ok |  # feature supported by the architecture
+>      |TODO|  # feature not yet supported by the architecture
+>      | .. |  # feature cannot be supported by the hardware
+> -    | N/A|  # feature doesn't apply to the architecture
 >  
-> +static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
-> +{
-> +	bool should_defer = false;
-> +
-> +	/* If remote CPUs need to be flushed then defer batch the flush */
-> +	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
-> +		should_defer = true;
-> +	put_cpu();
-> +
-> +	return should_defer;
-> +}
-> +
->  static inline u64 inc_mm_tlb_gen(struct mm_struct *mm)
->  {
->  	/*
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index edc06c52bc82..a17a004550c6 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -687,17 +687,10 @@ static void set_tlb_ubc_flush_pending(struct mm_struct *mm, bool writable)
->   */
->  static bool should_defer_flush(struct mm_struct *mm, enum ttu_flags flags)
->  {
-> -	bool should_defer = false;
-> -
->  	if (!(flags & TTU_BATCH_FLUSH))
->  		return false;
->  
-> -	/* If remote CPUs need to be flushed then defer batch the flush */
-> -	if (cpumask_any_but(mm_cpumask(mm), get_cpu()) < nr_cpu_ids)
-> -		should_defer = true;
-> -	put_cpu();
-> -
-> -	return should_defer;
-> +	return arch_tlbbatch_should_defer(mm);
->  }
->  
->  /*
+> diff --git a/Documentation/features/vm/TLB/arch-support.txt b/Documentation/features/vm/TLB/arch-support.txt
+> index 039e4e91ada3..1c009312b9c1 100644
+> --- a/Documentation/features/vm/TLB/arch-support.txt
+> +++ b/Documentation/features/vm/TLB/arch-support.txt
+> @@ -9,7 +9,7 @@
+>      |       alpha: | TODO |
+>      |         arc: | TODO |
+>      |         arm: | TODO |
+> -    |       arm64: | N/A  |
+> +    |       arm64: | TODO |
+>      |        csky: | TODO |
+>      |     hexagon: | TODO |
+>      |        ia64: | TODO |
+
+I believe this patch is not needed, which explicitly reverts an
+older commit. Instead when ARCH_WANT_BATCHED_UNMAP_TLB_FLUSH
+framework gets enabled on arm64, the same patch could just drop
+'NA' as possible values for arch support for a give feature in
+file Documentation/features/arch-support.txt.
 
 _______________________________________________
 linux-riscv mailing list
