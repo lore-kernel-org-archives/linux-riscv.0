@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8259ECAAD3
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 09:40:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA052ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 09:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J4yznSTU57QtTLc+JrgP/bay1KWtHVqxB5FWiHxK5qg=; b=DJ7+lKfuz22fHd
-	rUBGl+jmY1kEdhjbSpa6c9bam+bfEZD1VCKFV3HVrBSvAVfzYifaNil0TmQ5M9yBZ5a0I+EN/iSx0
-	HqIy3x1noGBeEXIxHlwv+dcMSdIHokVvM+6GGylSY/LKjvoXLgJBouMGLkMB/X66fUh93AuH8lp8M
-	Mj7rQC0bGLHicJFok6emqgFiM8ZCOeFW047EWQd+q428uddAsGX8Ma920QduFUAaD7GeQg+8raEOh
-	jrMl7nr3goyeJghVGnZYC39gclPv4l8k6+VPBytHLHKFZeUNab+zp3Fb7X9+z8aeh5Lwk/LQTdjdb
-	uu8LCbqSLaUso2vX7AMQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vs1mEFcavAzjNlwWaNc29oJbEpDo+nukp2Q1GkQ7bPU=; b=hKfQbQrkq/X4O0
+	DxbFL/xP3dP8vDrJGGTWtqExaHEBIpYNy8P4oq/DUgrBF/cQGLV2r5T+X1iqyPBmCwu0PrCl1QqyD
+	2CwOAH0y1gx2lzoOpx6O6UnmFUNfoUL6FPxPqkslRMm4+0DdopKalOTXZmEAKCsLNtN/Rx/6I1jeH
+	/vjW1aCqqdqsTuquttDPuZ4spLoK3gExVRwsfABRpaWa2irB+WJAeQmDSbgLCJIRdPSkbxKrRU7Zz
+	jINsB+6DyjuX8BQ7lYirJKdi4WBIDp7fmHKImi53SnB5jNbxuf9v6ZN29IaFqHIPe+ONc2CEzyBlr
+	/Iwg5i/evcOEFgXc53dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWaUo-00F6mj-AD; Fri, 09 Sep 2022 09:40:22 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1oWaam-00F8lk-JO; Fri, 09 Sep 2022 09:46:32 +0000
+Received: from szxga08-in.huawei.com ([45.249.212.255])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWaUk-00F6cV-H8
-	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 09:40:20 +0000
-Received: from dggpemm500023.china.huawei.com (unknown [172.30.72.54])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4MP9rX5PpWznV9y;
-	Fri,  9 Sep 2022 17:37:32 +0800 (CST)
+	id 1oWaak-00F8j2-8N
+	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 09:46:32 +0000
+Received: from dggpemm500021.china.huawei.com (unknown [172.30.72.54])
+	by szxga08-in.huawei.com (SkyGuard) with ESMTP id 4MP9yL39Zkz14QXZ;
+	Fri,  9 Sep 2022 17:42:34 +0800 (CST)
 Received: from dggpemm500016.china.huawei.com (7.185.36.25) by
- dggpemm500023.china.huawei.com (7.185.36.83) with Microsoft SMTP Server
+ dggpemm500021.china.huawei.com (7.185.36.109) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Fri, 9 Sep 2022 17:40:08 +0800
-Received: from [10.67.111.115] (10.67.111.115) by
- dggpemm500016.china.huawei.com (7.185.36.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.24; Fri, 9 Sep 2022 17:40:08 +0800
-Message-ID: <9d070742-8a82-3cb0-cea0-8ecce01c06b6@huawei.com>
-Date: Fri, 9 Sep 2022 17:40:08 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.0.3
-Subject: Re: [PATCH 2/2] riscv: tracing: Improve hardirq tracing message
-To: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<rostedt@goodmis.org>, <mingo@redhat.com>, <paul.walmsley@sifive.com>,
-	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
-CC: <liaochang1@huawei.com>, <chris.zjh@huawei.com>
-References: <20220901104515.135162-1-zouyipeng@huawei.com>
- <20220901104515.135162-3-zouyipeng@huawei.com>
+ 15.1.2375.24; Fri, 9 Sep 2022 17:46:25 +0800
+Received: from huawei.com (10.67.175.41) by dggpemm500016.china.huawei.com
+ (7.185.36.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2375.24; Fri, 9 Sep
+ 2022 17:46:25 +0800
 From: Yipeng Zou <zouyipeng@huawei.com>
-In-Reply-To: <20220901104515.135162-3-zouyipeng@huawei.com>
-X-Originating-IP: [10.67.111.115]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+To: <paul.walmsley@sifive.com>, <linux-riscv@lists.infradead.org>,
+	<palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <guoren@kernel.org>,
+	<mark.rutland@arm.com>, <frederic@kernel.org>, <nsaenzju@redhat.com>,
+	<paulmck@kernel.org>
+CC: <zouyipeng@huawei.com>, <liaochang1@huawei.com>, <chris.zjh@huawei.com>
+Subject: [PATCH] riscv: Fix TRACE_IRQFLAGS call points in entry.S
+Date: Fri, 9 Sep 2022 17:42:30 +0800
+Message-ID: <20220909094230.252031-1-zouyipeng@huawei.com>
+X-Mailer: git-send-email 2.17.1
+MIME-Version: 1.0
+X-Originating-IP: [10.67.175.41]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  dggpemm500016.china.huawei.com (7.185.36.25)
 X-CFilter-Loop: Reflected
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220909_024018_784772_C427192D 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20220909_024630_669540_923894FC 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,48 +66,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UGluZy4KCuWcqCAyMDIyLzkvMSAxODo0NSwgWWlwZW5nIFpvdSDlhpnpgZM6Cj4gVXNlIHRyYWNl
-X2hhcmRpcnFzX29uX2NhbGxlciB0byBpbXByb3ZlIGlycV90cmFjaW5nIG1lc3NhZ2UuCj4KPiBs
-b2NrZGVwIGxvZyBpbiByaXNjdiBzaG93aW5nIHRoZSBsYXN0IHtlbmFibGVkLGRpc2FibGVkfSBh
-dAo+IF9fdHJhY2VfaGFyZGlycXNfe29uLG9mZn0gYWxsIHRoZSB0aW1lKGlmIGNhbGxlZCBieSku
-Cj4gQnV0IHRoYXQncyBub3Qgd2hhdCB3ZSB3YW50IHRvIHNlZSwgdGhlIGNhbGxlciBpcyB3aGF0
-IHdlIHdhbnQuCj4KPiBCZWZvcmUgdGhpcyBjb21taXQ6Cj4gWyAgIDU3Ljg1MzE3NV0gaGFyZGly
-cXMgbGFzdCAgZW5hYmxlZCBhdCAoMjUxOSk6IF9fdHJhY2VfaGFyZGlycXNfb24rMHhjLzB4MTQK
-PiBbICAgNTcuODUzODQ4XSBoYXJkaXJxcyBsYXN0IGRpc2FibGVkIGF0ICgyNTIwKTogX190cmFj
-ZV9oYXJkaXJxc19vZmYrMHhjLzB4MTQKPgo+IEFmdGVyIHRoaXMgY29tbWl0Cj4gWyAgIDUzLjc4
-MTQyOF0gaGFyZGlycXMgbGFzdCAgZW5hYmxlZCBhdCAoMjU5NSk6IHJlc3RvcmVfYWxsKzB4ZS8w
-eDY2Cj4gWyAgIDUzLjc4MjE4NV0gaGFyZGlycXMgbGFzdCBkaXNhYmxlZCBhdCAoMjU5Nik6IHJl
-dF9mcm9tX2V4Y2VwdGlvbisweGEvMHgxMAo+Cj4gU2lnbmVkLW9mZi1ieTogWWlwZW5nIFpvdSA8
-em91eWlwZW5nQGh1YXdlaS5jb20+Cj4gLS0tCj4gICBhcmNoL3Jpc2N2L2tlcm5lbC90cmFjZV9p
-cnEuYyB8IDQgKystLQo+ICAgaW5jbHVkZS9saW51eC9pcnFmbGFncy5oICAgICAgfCAyICsrCj4g
-ICAyIGZpbGVzIGNoYW5nZWQsIDQgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRp
-ZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC90cmFjZV9pcnEuYyBiL2FyY2gvcmlzY3Yva2Vy
-bmVsL3RyYWNlX2lycS5jCj4gaW5kZXggMDk1YWM5NzZkN2RhLi43Y2EyNGIyNmUxOWYgMTAwNjQ0
-Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhY2VfaXJxLmMKPiArKysgYi9hcmNoL3Jpc2N2
-L2tlcm5lbC90cmFjZV9pcnEuYwo+IEBAIC0xNiwxMiArMTYsMTIgQEAKPiAgIAo+ICAgdm9pZCBf
-X3RyYWNlX2hhcmRpcnFzX29uKHZvaWQpCj4gICB7Cj4gLQl0cmFjZV9oYXJkaXJxc19vbigpOwo+
-ICsJdHJhY2VfaGFyZGlycXNfb25fY2FsbGVyKENBTExFUl9BRERSMCk7Cj4gICB9Cj4gICBOT0tQ
-Uk9CRV9TWU1CT0woX190cmFjZV9oYXJkaXJxc19vbik7Cj4gICAKPiAgIHZvaWQgX190cmFjZV9o
-YXJkaXJxc19vZmYodm9pZCkKPiAgIHsKPiAtCXRyYWNlX2hhcmRpcnFzX29mZigpOwo+ICsJdHJh
-Y2VfaGFyZGlycXNfb2ZmX2NhbGxlcihDQUxMRVJfQUREUjApOwo+ICAgfQo+ICAgTk9LUFJPQkVf
-U1lNQk9MKF9fdHJhY2VfaGFyZGlycXNfb2ZmKTsKPiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51
-eC9pcnFmbGFncy5oIGIvaW5jbHVkZS9saW51eC9pcnFmbGFncy5oCj4gaW5kZXggNWVjMGZhNzEz
-OTllLi40Njc3NGZhODVjZGUgMTAwNjQ0Cj4gLS0tIGEvaW5jbHVkZS9saW51eC9pcnFmbGFncy5o
-Cj4gKysrIGIvaW5jbHVkZS9saW51eC9pcnFmbGFncy5oCj4gQEAgLTUzLDYgKzUzLDggQEAgZXh0
-ZXJuIHZvaWQgdHJhY2VfaGFyZGlycXNfb25fcHJlcGFyZSh2b2lkKTsKPiAgIGV4dGVybiB2b2lk
-IHRyYWNlX2hhcmRpcnFzX29mZl9maW5pc2godm9pZCk7Cj4gICBleHRlcm4gdm9pZCB0cmFjZV9o
-YXJkaXJxc19vbih2b2lkKTsKPiAgIGV4dGVybiB2b2lkIHRyYWNlX2hhcmRpcnFzX29mZih2b2lk
-KTsKPiArZXh0ZXJuIHZvaWQgdHJhY2VfaGFyZGlycXNfb25fY2FsbGVyKHVuc2lnbmVkIGxvbmcg
-Y2FsbGVyX2FkZHIpOwo+ICtleHRlcm4gdm9pZCB0cmFjZV9oYXJkaXJxc19vZmZfY2FsbGVyKHVu
-c2lnbmVkIGxvbmcgY2FsbGVyX2FkZHIpOwo+ICAgCj4gICAjIGRlZmluZSBsb2NrZGVwX2hhcmRp
-cnFfY29udGV4dCgpCShyYXdfY3B1X3JlYWQoaGFyZGlycV9jb250ZXh0KSkKPiAgICMgZGVmaW5l
-IGxvY2tkZXBfc29mdGlycV9jb250ZXh0KHApCSgocCktPnNvZnRpcnFfY29udGV4dCkKCi0tIApS
-ZWdhcmRzLApZaXBlbmcgWm91CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+TRACE_IRQFLAGS need trace all {Enable,Disable} hard interrupts points
+in entry.S.
+We miss a path(work_notifysig) that cause an WARN as shown below.
+
+[   50.362431] ------------[ cut here ]------------
+[   50.363607] DEBUG_LOCKS_WARN_ON(!lockdep_hardirqs_enabled())
+[   50.367229] WARNING: CPU: 3 PID: 74 at kernel/locking/lockdep.c:5510 check_flags+0x10a/0x1e0
+[   50.368905] Modules linked in:
+[   50.369440] CPU: 3 PID: 74 Comm: rcS Tainted: G
+[   50.370225] Hardware name: riscv-virtio,qemu (DT)
+[   50.370632] epc : check_flags+0x10a/0x1e0
+[   50.371015]  ra : check_flags+0x10a/0x1e0
+[   50.371751] epc : ffffffff808e2670 ra : ffffffff808e2670 sp : ff20000000c3bca0
+[   50.372721]  gp : ffffffff817e2188 tp : ff60000002fe1800 t0 : ffffffff8162a2a8
+[   50.373321]  t1 : 0000000000000001 t2 : 2d2d2d2d2d2d2d2d s0 : ff20000000c3bcc0
+[   50.373903]  s1 : ffffffff817e3340 a0 : 0000000000000030 a1 : ffffffff81693fa8
+[   50.374476]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 : 083151a422b8df00
+[   50.375039]  a5 : 083151a422b8df00 a6 : ffffffff8006891e a7 : 083151a422b8df00
+[   50.376028]  s2 : ffffffff817e54e0 s3 : ffffffff81695070 s4 : ff600000027d7800
+[   50.376978]  s5 : ffffffff80c22770 s6 : 0000000200000022 s7 : ffffffffffffffff
+[   50.377779]  s8 : ffffffff82301ed0 s9 : 0000000000001000 s10: 00000000001a9905
+[   50.378335]  s11: 000000000014f3e8 t3 : ffffffff822d714f t4 : ffffffff822d714f
+[   50.378955]  t5 : ffffffff822d7150 t6 : ff20000000c3ba98
+[   50.379783] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+[   50.380810] [<ffffffff808e27be>] lock_is_held_type+0x78/0x14e
+[   50.381477] [<ffffffff8003e850>] __might_resched+0x26/0x22c
+[   50.382006] [<ffffffff8003ea92>] __might_sleep+0x3c/0x66
+[   50.382477] [<ffffffff8002324e>] get_signal+0xaa/0x912
+[   50.382947] [<ffffffff80005368>] do_notify_resume+0x82/0x434
+[   50.383839] [<ffffffff80003bec>] ret_from_exception+0x0/0x10
+
+Fixes: 3c4697982982 ("riscv: Enable LOCKDEP_SUPPORT & fixup TRACE_IRQFLAGS_SUPPORT")
+Signed-off-by: Yipeng Zou <zouyipeng@huawei.com>
+---
+ arch/riscv/kernel/entry.S | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index b9eda3fcbd6d..f4d23995a4f1 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -370,16 +370,20 @@ resume_kernel:
+ 
+ work_pending:
+ 	/* Enter slow path for supplementary processing */
+-	la ra, ret_from_exception
+ 	andi s1, s0, _TIF_NEED_RESCHED
+ 	bnez s1, work_resched
+ work_notifysig:
++#ifdef CONFIG_TRACE_IRQFLAGS
++	call __trace_hardirqs_on
++#endif
++	la ra, ret_from_exception
+ 	/* Handle pending signals and notify-resume requests */
+ 	csrs CSR_STATUS, SR_IE /* Enable interrupts for do_notify_resume() */
+ 	move a0, sp /* pt_regs */
+ 	move a1, s0 /* current_thread_info->flags */
+ 	tail do_notify_resume
+ work_resched:
++	la ra, ret_from_exception
+ 	tail schedule
+ 
+ /* Slow paths for ptrace. */
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
