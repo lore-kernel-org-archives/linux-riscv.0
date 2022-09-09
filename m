@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EE37C6FA82
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 12:32:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8390AECAAD3
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 Sep 2022 12:32:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bn+URSXKfZFENiyqWCShpzkxrd7SFx6wOBkRWZe4oKY=; b=cMrK5XjW8due5J
-	HKsRrWJhFAORi0noUwXeAQgQeemsBmbEO46o8NQVBgUVwLJRBufWcUVohLOvEMl3QaPoHo5O3IBp4
-	4GIUGv1mpUo5AZf2VlD+/AULOw789j3teTgeDkQcc0+cRgt77iDBhIabpm+Gza2TBytrZyWoMVRAB
-	j9W7eND9pWemwVRPRu4Cdl/IMSYOyTZ6LnY+8BJ53IAdxPHRwczX+qRNyszLa0H3Y5TDiOljqBkL2
-	R5LRSFBj9zFvGyF3b1vrAEF+5vEH5AQoaq9AuBzQD56Dk82sUxBGzbfklQSXId6Y4qK0VNFCMo4IU
-	vcJqm9ugM30phFsGL2ng==;
+	List-Owner; bh=eizjfbMXFn1wci/7SuiqxC/T/WHtjisPkUDJDqdmOFk=; b=AL8tp5k4OrWDEO
+	eLDrb/lp4XMJZEHTvrv/OUUZyd/D8D0Z5ewpvXcoWQ/U6oM0yBIa6yan+K9/iFlNxj5ZBJT4XaD4x
+	AYYc/W5f3gOiu7uwHGmWBAj3G3WUcBSHGEkaJGhc3kp2oBaXvLaHe4fCvzVBIb8sj2iae0vfcdcGs
+	YZJqoooVyluoSfT47oxxtRa0q670PZHL7IuBRoCSYR4b00cPZwRfSUKpqew3aYA6wF8wr3otvjngl
+	mFLlF7osNzdGMkpu1II0T1L6SQTFOI8UTep/voYo8ZqqC+xCrxapazrGHrl+hznNjM+kaXarwhnVA
+	zlVsS7QMl5mcO3ojUJag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWdBJ-00G2Oy-LQ; Fri, 09 Sep 2022 12:32:25 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1oWdBM-00G2Rn-Gg; Fri, 09 Sep 2022 12:32:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oWdBB-00G2Fp-68
-	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 12:32:18 +0000
+	id 1oWdBD-00G2IS-K9
+	for linux-riscv@lists.infradead.org; Fri, 09 Sep 2022 12:32:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1662726737; x=1694262737;
+  t=1662726739; x=1694262739;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=22sX6hdQWVNBlKUnAfqAl8ZrlZKUVg33klYFVGAaHB0=;
-  b=UoLmJJ9NKTeWXxK3TYrJy66UzbMXOh7RKK9MSTN7OkBhSXgJ01d8ZC32
-   hP5uFkT6jka4WK0SmhhOfN1WIaobP7PwJr7WKCYD5FLbaSDm9txEJWXZc
-   4wmE3PpCAMu4cTNblb/fuoqbrlXLDdx6jEYc6irYEjQBI6pqpxsfFHM8r
-   S0R53kdn3S9SvUtR6smRNhy05Jni0pZHM8+9guZIc8wbku3sitnmLI5Rv
-   mIHjqdJg/5cmnNHyNNhAkuhVURq9fPOupyJz1T9eKDuGMUAvX0fb8mSWs
-   9KqiJff22g2Gc6Fw61hmkEFyPJ+g0Rs0gcqPy980+wn/P7E0GRSGyZqDq
-   g==;
+  bh=EsBl3c2pAJpnmMw9iJUlkGwn2OEqdLbHzd7DxAcqqc0=;
+  b=zHE0L4A9pOj2shIBJ839O1EfyWIKqm0dQ2YEKiuaB0OLpwQSvRkAtRW6
+   1y1NyeyBU0dEBVCRaFWMmJqkmRd2ngXqNktpj8TTENmppZeU6wtQUcayw
+   coMm/XWqVQHyam9CGHHZxHlawms+IAo9ghqe/xLSQKyVB4xouNCXliAy1
+   hUw8fETjpI6nraD9hhXQXhUdvnJKYCkwqRclmviCLlhSlDDIRAO3qhtPF
+   P3gPjXF8VpoivAUy/W4QxtRnYpxXsG83UvZA2E94haxV8oM43YCmeOErE
+   hXZcAItmiqMB9qNMLE4yTWeUZevFMHykI3yOrcpKAI7jqDMUPHEATjB7O
+   A==;
 X-IronPort-AV: E=Sophos;i="5.93,303,1654585200"; 
-   d="scan'208";a="173130618"
+   d="scan'208";a="179835590"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 09 Sep 2022 05:32:12 -0700
+  by esa3.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 09 Sep 2022 05:32:18 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Fri, 9 Sep 2022 05:32:06 -0700
+ 15.1.2507.12; Fri, 9 Sep 2022 05:32:17 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex04.mchp-main.com
  (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Fri, 9 Sep 2022 05:32:03 -0700
+ Transport; Fri, 9 Sep 2022 05:32:15 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
 	<sboyd@kernel.org>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
@@ -59,17 +59,16 @@ CC: Paul Walmsley <paul.walmsley@sifive.com>, Albert Ou
 	<aou@eecs.berkeley.edu>, Claudiu Beznea <claudiu.beznea@microchip.com>,
 	<linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>
-Subject: [PATCH v5 07/14] riscv: dts: microchip: add mpfs specific macb reset support
-Date: Fri, 9 Sep 2022 13:31:16 +0100
-Message-ID: <20220909123123.2699583-8-conor.dooley@microchip.com>
+Subject: [PATCH v5 11/14] clk: microchip: mpfs: delete 2 line mpfs_clk_register_foo()
+Date: Fri, 9 Sep 2022 13:31:20 +0100
+Message-ID: <20220909123123.2699583-12-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220909123123.2699583-1-conor.dooley@microchip.com>
 References: <20220909123123.2699583-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220909_053217_316116_EAFA8BF1 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220909_053219_738508_D914A343 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,60 +85,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The macb on PolarFire SoC has reset support which the generic compatible
-does not use. Add the newly introduced MPFS specific compatible as the
-primary compatible to avail of this support & wire up the reset to the
-clock controllers devicetree entry.
+The register functions are now comprised of only a single operation
+each and no longer add anything to the driver. Delete them.
 
 Reviewed-by: Daire McNamara <daire.mcnamara@microchip.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Claudiu Beznea <claudiu.beznea@microchip.com>
 ---
- arch/riscv/boot/dts/microchip/mpfs.dtsi | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ drivers/clk/microchip/clk-mpfs.c | 33 ++++++--------------------------
+ 1 file changed, 6 insertions(+), 27 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index 499c2e63ad35..ae5839534d9c 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -234,6 +234,7 @@ clkcfg: clkcfg@20002000 {
- 			reg = <0x0 0x20002000 0x0 0x1000>, <0x0 0x3E001000 0x0 0x1000>;
- 			clocks = <&refclk>;
- 			#clock-cells = <1>;
-+			#reset-cells = <1>;
- 		};
+diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
+index 4ee894d58ea9..5c29313363f2 100644
+--- a/drivers/clk/microchip/clk-mpfs.c
++++ b/drivers/clk/microchip/clk-mpfs.c
+@@ -201,14 +201,6 @@ static struct mpfs_msspll_hw_clock mpfs_msspll_clks[] = {
+ 		MSSPLL_FBDIV_WIDTH, 0, REG_MSSPLL_SSCG_2_CR),
+ };
  
- 		mmuart0: serial@20000000 {
-@@ -383,7 +384,7 @@ can1: can@2010d000 {
- 		};
+-static int mpfs_clk_register_msspll(struct device *dev, struct mpfs_msspll_hw_clock *msspll_hw,
+-				    void __iomem *base)
+-{
+-	msspll_hw->base = base;
+-
+-	return devm_clk_hw_register(dev, &msspll_hw->hw);
+-}
+-
+ static int mpfs_clk_register_mssplls(struct device *dev, struct mpfs_msspll_hw_clock *msspll_hws,
+ 				     unsigned int num_clks, struct mpfs_clock_data *data)
+ {
+@@ -218,7 +210,8 @@ static int mpfs_clk_register_mssplls(struct device *dev, struct mpfs_msspll_hw_c
+ 	for (i = 0; i < num_clks; i++) {
+ 		struct mpfs_msspll_hw_clock *msspll_hw = &msspll_hws[i];
  
- 		mac0: ethernet@20110000 {
--			compatible = "cdns,macb";
-+			compatible = "microchip,mpfs-macb", "cdns,macb";
- 			reg = <0x0 0x20110000 0x0 0x2000>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -392,11 +393,12 @@ mac0: ethernet@20110000 {
- 			local-mac-address = [00 00 00 00 00 00];
- 			clocks = <&clkcfg CLK_MAC0>, <&clkcfg CLK_AHB>;
- 			clock-names = "pclk", "hclk";
-+			resets = <&clkcfg CLK_MAC0>;
- 			status = "disabled";
- 		};
+-		ret = mpfs_clk_register_msspll(dev, msspll_hw, data->msspll_base);
++		msspll_hw->base = data->msspll_base;
++		ret = devm_clk_hw_register(dev, &msspll_hw->hw);
+ 		if (ret)
+ 			return dev_err_probe(dev, ret, "failed to register msspll id: %d\n",
+ 					     CLK_MSSPLL);
+@@ -317,14 +310,6 @@ static struct mpfs_cfg_hw_clock mpfs_cfg_clks[] = {
+ 	}
+ };
  
- 		mac1: ethernet@20112000 {
--			compatible = "cdns,macb";
-+			compatible = "microchip,mpfs-macb", "cdns,macb";
- 			reg = <0x0 0x20112000 0x0 0x2000>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-@@ -405,6 +407,7 @@ mac1: ethernet@20112000 {
- 			local-mac-address = [00 00 00 00 00 00];
- 			clocks = <&clkcfg CLK_MAC1>, <&clkcfg CLK_AHB>;
- 			clock-names = "pclk", "hclk";
-+			resets = <&clkcfg CLK_MAC1>;
- 			status = "disabled";
- 		};
+-static int mpfs_clk_register_cfg(struct device *dev, struct mpfs_cfg_hw_clock *cfg_hw,
+-				 void __iomem *base)
+-{
+-	cfg_hw->cfg.reg = base + cfg_hw->reg_offset;
+-
+-	return devm_clk_hw_register(dev, &cfg_hw->hw);
+-}
+-
+ static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *cfg_hws,
+ 				  unsigned int num_clks, struct mpfs_clock_data *data)
+ {
+@@ -334,7 +319,8 @@ static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *
+ 	for (i = 0; i < num_clks; i++) {
+ 		struct mpfs_cfg_hw_clock *cfg_hw = &cfg_hws[i];
  
+-		ret = mpfs_clk_register_cfg(dev, cfg_hw, data->base);
++		cfg_hw->cfg.reg = data->base + cfg_hw->reg_offset;
++		ret = devm_clk_hw_register(dev, &cfg_hw->hw);
+ 		if (ret)
+ 			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
+ 					     cfg_hw->id);
+@@ -458,14 +444,6 @@ static struct mpfs_periph_hw_clock mpfs_periph_clks[] = {
+ 	CLK_PERIPH(CLK_CFM, "clk_periph_cfm", PARENT_CLK(AHB), 29, 0),
+ };
+ 
+-static int mpfs_clk_register_periph(struct device *dev, struct mpfs_periph_hw_clock *periph_hw,
+-				    void __iomem *base)
+-{
+-	periph_hw->periph.reg = base + REG_SUBBLK_CLOCK_CR;
+-
+-	return devm_clk_hw_register(dev, &periph_hw->hw);
+-}
+-
+ static int mpfs_clk_register_periphs(struct device *dev, struct mpfs_periph_hw_clock *periph_hws,
+ 				     int num_clks, struct mpfs_clock_data *data)
+ {
+@@ -475,7 +453,8 @@ static int mpfs_clk_register_periphs(struct device *dev, struct mpfs_periph_hw_c
+ 	for (i = 0; i < num_clks; i++) {
+ 		struct mpfs_periph_hw_clock *periph_hw = &periph_hws[i];
+ 
+-		ret = mpfs_clk_register_periph(dev, periph_hw, data->base);
++		periph_hw->periph.reg = data->base + REG_SUBBLK_CLOCK_CR;
++		ret = devm_clk_hw_register(dev, &periph_hw->hw);
+ 		if (ret)
+ 			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
+ 					     periph_hw->id);
 -- 
 2.36.1
 
