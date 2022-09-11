@@ -4,74 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D51C6FA83
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 Sep 2022 16:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92184C54EE9
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Sep 2022 18:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dmmi5Wk6au6r6/LUw0QehQzMowLDBcF6PtWdVEdtFt4=; b=jRxSR0plbvce5+
-	YDG9xacqCgblvy64jhzXVshDoedV0OKTzdfJhgQ6Z312iF1O8qdHHNMFT4DsfumrTArYn+NYVxwQ2
-	HHGHkFHCov64My7OAGt+OIcjopKHpbK+N+Q5Iy+K4Vgc0cloFvlio7rBUY2XLY1gn0323YKubjlq2
-	5dc9XVVvxZ+YUYmMiJXedADrLC7IVaPk8LtVi+DaTZSPTsTe8JBxwmldcwJ7Tug/mK7mcEFIt1BwI
-	c/T+96WoZK18BpWGxqLv7jeBkTDVMjkNi1uOrGIC/0kuM5F0JvwV7oq9QLHrdKGmMIQ4YWTAVO4gF
-	XvOoPQ1ZnRPJYISSdOWA==;
+	List-Owner; bh=jTOlJsQQgoWf0zCsyjtS5JPgpDDBQPPeWWosEep5P3U=; b=JtHj+hU8FKASdi
+	15RnsVDYO5FVyjWFWcraoMZJ4j6o7p9KEQumgA1BtTdO9QpQ648IaQPx9yE419lPyB50NlwT1dQlN
+	8ikeP+gW4ErsXqCFZEi2qK4Qf9cmN8zPeEHNZicSBhJ40ES+o3UuSTP/PBrhx3uRHVHBVo7u8eJGH
+	7WqUir6/ekFCyT0G5yTEf3Jx4PLYa6mAnmNqD6jMG/cSiZiq9BC5k0ENDOxdxApeCmJNPCWB7w3hG
+	BFedJvNaNPP6w7dn+zxFKlCq/Dg5ZUklKPyn+CA4nvBsRx9qu2rP8ooeqFTBlKuJjqJ6z1TiJLdB7
+	5V0K1z9tLmBPQU3KFWjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXPhs-00386d-1l; Sun, 11 Sep 2022 16:21:16 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oXRsI-003r5U-Kx; Sun, 11 Sep 2022 18:40:10 +0000
+Received: from wnew2-smtp.messagingengine.com ([64.147.123.27])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXPhp-00384Z-9k
-	for linux-riscv@lists.infradead.org; Sun, 11 Sep 2022 16:21:14 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id A8A116100A
-	for <linux-riscv@lists.infradead.org>; Sun, 11 Sep 2022 16:21:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA02AC4314A
-	for <linux-riscv@lists.infradead.org>; Sun, 11 Sep 2022 16:21:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1662913269;
-	bh=cGfWdjsunVGfPSZnLvUn5+vhKZzaMGDo1120Cm21tzk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=OJZM7TB1QZmLpOAIyyPwJcx8NRaqx5j+pAjfCr2xcwoE3+zV1aGr5/cE6kV6WqVR7
-	 0wAVfPHFVmmQGbgSjhbD9YEoHs1XPMlYbdzvjB+MUiWh3QMzuiAXfqGQ9J7LeKw1DW
-	 TVq1O8kp+Bic50n3bgVUlHhwK/klb0T0OGWMckWabjgqMSIOyyFh1r/9e6x4I9WEmC
-	 Jo0ge8oYF0f11+slT29Sd0CUc2G1i6QQJmoRs5T8Y9IwTH5YaMjTLVfrm45kvfp5be
-	 xiezNqH4HuB0gn95EKH7crldsJqvAMFBH8k1Akwo44F9fqheyF2AX5IgWGg4GSWssM
-	 QajM4oqxmC1fg==
-Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-12803ac8113so17318510fac.8
-        for <linux-riscv@lists.infradead.org>; Sun, 11 Sep 2022 09:21:09 -0700 (PDT)
-X-Gm-Message-State: ACgBeo3fFYtwo1tTFs5NJv4pipJmCjCpcZfGr+o6ycDk47tGTo3Iq7Wp
-	F/ivAfCmRmehgNncIgJ3NapvxpGr2bVx5+wdaB0=
-X-Google-Smtp-Source: AA6agR4WxSXlbU7Po+4Z/ivfavMWvRhtAeEpn4FFnOVslawINbxBs1npyJelq94Jp0sGwlqNn9hCLLS7FNwOfa+P5tA=
-X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
- x14-20020a056870a78e00b0012b542be5b2mr2811184oao.112.1662913268609; Sun, 11
- Sep 2022 09:21:08 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220908022506.1275799-1-guoren@kernel.org> <20220908022506.1275799-5-guoren@kernel.org>
- <Yxmaz7wJPEBQ7Vki@hirez.programming.kicks-ass.net> <CAJF2gTSs4Ycu52DH6NUzdMXQGMT51XU6x-fgQ-_OpRne+vkTqQ@mail.gmail.com>
- <Yx36JRG64DtuDrRz@hirez.programming.kicks-ass.net>
-In-Reply-To: <Yx36JRG64DtuDrRz@hirez.programming.kicks-ass.net>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 12 Sep 2022 00:20:56 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRKJmn_+Otg4NMG0rGU6zziOgfcpsFwBcE=nEKb9s9jTg@mail.gmail.com>
-Message-ID: <CAJF2gTRKJmn_+Otg4NMG0rGU6zziOgfcpsFwBcE=nEKb9s9jTg@mail.gmail.com>
-Subject: Re: [PATCH V4 4/8] riscv: traps: Add noinstr to prevent
- instrumentation inserted
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org, 
-	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org, 
-	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org, 
-	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com, 
-	paul.walmsley@sifive.com, bigeasy@linutronix.de, linux-arch@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Guo Ren <guoren@linux.alibaba.com>
+	id 1oXRsG-003r20-IB
+	for linux-riscv@lists.infradead.org; Sun, 11 Sep 2022 18:40:09 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailnew.west.internal (Postfix) with ESMTP id 947732B05927;
+	Sun, 11 Sep 2022 14:39:59 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute3.internal (MEProxy); Sun, 11 Sep 2022 14:40:01 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm1; t=1662921599; x=1662925199; bh=UfGN9EkXoT
+	86oWuOWRB8qaSDzpqIdiSsLF8lJ30Qpio=; b=V0XLIuSmvv94NFAKfH+ekuPdli
+	P+JePexh7RLuNLA6ZGNbKbWjP39O9kyp/hlE6APlUB5DOUbygulX3KR0XFx9XAue
+	TL0ra5DvtzHx3Lol4lm4F+ESUKZ2bTIDmQo1K0HgKQmUUVqjyaCRIy+BMNDoBdLN
+	Cy9KhpBg6x35/owc/S9y8Bk9pAiE63mHeHMW/9yxWSc/TeKdDswZeE6tIEjm8qoI
+	qQPuMJJoMZM8bbmmhE9pW6c/yk0W3bl25wNkhnjtTf8Px3ZJHnx57a2bId6htXNx
+	VGV6BSArH5nZ+GgDRWwxpQSkSBngEq1qQvxo51VHeiEn+dYVLH9o/F/zlWfQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1662921599; x=1662925199; bh=UfGN9EkXoT86oWuOWRB8qaSDzpqI
+	diSsLF8lJ30Qpio=; b=sN6Da89eKJbI/7HCzPENwcVL5wfrpK/ZoS53TBDBVHm1
+	qLeBXLv3rAfohOTKwNNmrGnQfZHkpmGKkLmlJOF1Q4tN5pTkq8WPiFMHxMlxTGWw
+	Fy/PrUPvo2RVtLf9VpQ7NGd++U1QtjW9m8xPGYfgHdTwhwjUgU7xHUSjkQGrGmmJ
+	Ca63zRo/OEifl1RYQvu2NaVnHjIlC7AXIQU4Ny6WHWbgj8bnonuZ7JrFnWeAAFbr
+	1r2sZPzDaXKyFLh0ZhQZg+frhjis+W6dAm52rLfArt0cJnYVw6EK4gOT2+D7Hwyw
+	hJgRn3o7Jvgj/eKhG7zZBrzCJWANvtCXp3x4qVO6Uw==
+X-ME-Sender: <xms:fCseY1Sl4Uc_QMc34bInOkJzBGYxvylgRzNFJyXwblsPyi_RJcpXAg>
+    <xme:fCseY-z4At9dK_MzOlSKE23eBCRl3RhCtYTDYWFIu7Kx1yc-3mi9qv9XSlfCqSVYT
+    -d9lskEHwscf85jkes>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfedutddgudefudcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpqfgfvfdpuffrtefokffrpgfnqfgh
+    necuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmd
+    enucfjughrpefofgggkfgjfhffhffvvefutgesthdtredtreertdenucfhrhhomhepfdet
+    rhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrg
+    htthgvrhhnpeffheeugeetiefhgeethfejgfdtuefggeejleehjeeutefhfeeggefhkedt
+    keetffenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpe
+    grrhhnugesrghrnhgusgdruggv
+X-ME-Proxy: <xmx:fCseY61c2LgvvwOgFWbY4yYrADhkrBgT55GXFE51fdxmDajdaGdx9A>
+    <xmx:fCseY9BPwtHaIYWwM8JVH7zjO7pYzYOsOoR4ubiUcEMNP9y-nrb2HQ>
+    <xmx:fCseY-ifdBPVu3ot44Ot2ehGdzvGFGVKi_KSi6l4D9VvcC1lqf1QFA>
+    <xmx:fyseY3b--qSqUQDwplz8JtdqNhyXKGy_vBf8CnDi1cFOOGnkw7HatWNGHCg4MbrD>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id CD899B60086; Sun, 11 Sep 2022 14:39:56 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.7.0-alpha0-927-gf4c98c8499-fm-20220826.002-gf4c98c84
+Mime-Version: 1.0
+Message-Id: <7409c92a-68df-4406-bd86-835d9a959ef5@www.fastmail.com>
+In-Reply-To:  <CAJF2gTRnY+vc2nKbqubTZvv+FWVgO3yCK4LcwpeNgx51JuETzw@mail.gmail.com>
+References: <20220908022506.1275799-1-guoren@kernel.org>
+ <20220908022506.1275799-9-guoren@kernel.org>
+ <4babce64-e96d-454c-aa35-243b3f2dc315@www.fastmail.com>
+ <CAJF2gTQAMCjNyqrSOvqDAKR5Z-PZiTVxmoK9cvNAVQs+k2fZBg@mail.gmail.com>
+ <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com>
+ <CAJF2gTRnY+vc2nKbqubTZvv+FWVgO3yCK4LcwpeNgx51JuETzw@mail.gmail.com>
+Date: Sun, 11 Sep 2022 20:39:35 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: guoren <guoren@kernel.org>
+Cc: "Palmer Dabbelt" <palmer@rivosinc.com>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "Peter Zijlstra" <peterz@infradead.org>, "Andy Lutomirski" <luto@kernel.org>,
+ "Conor.Dooley" <conor.dooley@microchip.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ "Jisheng Zhang" <jszhang@kernel.org>, lazyparser@gmail.com,
+ falcon@tinylab.org, "Huacai Chen" <chenhuacai@kernel.org>,
+ "Anup Patel" <apatel@ventanamicro.com>,
+ "Atish Patra" <atishp@atishpatra.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>,
+ Linux-Arch <linux-arch@vger.kernel.org>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, "Guo Ren" <guoren@linux.alibaba.com>,
+ "Andreas Schwab" <schwab@suse.de>
+Subject: Re: [PATCH V4 8/8] riscv: Add config of thread stack size
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220911_092113_458612_847F8EBC 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20220911_114008_656437_F9A1BA89 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,50 +118,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 11, 2022 at 11:09 PM Peter Zijlstra <peterz@infradead.org> wrote:
->
-> On Sat, Sep 10, 2022 at 05:17:44PM +0800, Guo Ren wrote:
->
-> > > > -asmlinkage __visible __trap_section void name(struct pt_regs *regs)  \
-> > > > +asmlinkage __visible __trap_section void noinstr name(struct pt_regs *regs)  \
-> > >
-> > > But now you have __trap_section and noinstr both adding a section
-> > > attribute.
-> >
-> > Oops, thx for correcting. Here is my solution.
-> >
-> > diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-> > index 635e6ec26938..eba744caa711 100644
-> > --- a/arch/riscv/kernel/traps.c
-> > +++ b/arch/riscv/kernel/traps.c
-> > @@ -92,9 +92,11 @@ static void do_trap_error(struct pt_regs *regs, int
-> > signo, int code,
-> >  }
-> >
-> >  #if defined(CONFIG_XIP_KERNEL) && defined(CONFIG_RISCV_ALTERNATIVE)
-> > -#define __trap_section         __section(".xip.traps")
-> > +#define __trap_section                                                 \
-> > +       noinline notrace __attribute((__section__(".xip.traps")))       \
-> > +       __no_kcsan __no_sanitize_address __no_profile __no_sanitize_coverage
-> >  #else
-> > -#define __trap_section
-> > +#define __trap_section noinstr
-> >  #endif
->
-> This is almost guaranteed to get out of sync when the compiler guys add
-> yet another sanitizier. Please consider picking up this patch:
->
->   https://lore.kernel.org/all/20211110115736.3776-7-jiangshanlai@gmail.com/
-Thx, that is what I want.
-
->
-> and using __noinstr_section(".xip.traps")
 
 
+On Sun, Sep 11, 2022, at 1:35 AM, Guo Ren wrote:
+> On Sun, Sep 11, 2022 at 12:07 AM Arnd Bergmann <arnd@arndb.de> wrote:
+>>
+>> On Sat, Sep 10, 2022, at 2:52 PM, Guo Ren wrote:
+>> > On Thu, Sep 8, 2022 at 3:37 PM Arnd Bergmann <arnd@arndb.de> wrote:
+>> >> On Thu, Sep 8, 2022, at 4:25 AM, guoren@kernel.org wrote:
+>> >> > From: Guo Ren <guoren@linux.alibaba.com>
+>> >> - When VMAP_STACK is set, make it possible to select non-power-of-two
+>> >>   stack sizes. Most importantly, 12KB should be a really interesting
+>> >>   choice as 8KB is probably still not enough for many 64-bit workloads,
+>> >>   but 16KB is often more than what you need. You probably don't
+>> >>   want to allow 64BIT/8KB without VMAP_STACK anyway since that just
+>> >>   makes it really hard to debug, so hiding the option when VMAP_STACK
+>> >>   is disabled may also be a good idea.
+>> > I don't want this config to depend on VMAP_STACK. Some D1 chips would
+>> > run with an 8K stack size and !VMAP_STACK.
+>>
+>> That sounds like a really bad idea, why would you want to risk
+>> using such a small stack without CONFIG_VMAP_STACK?
+>>
+>> Are you worried about increased memory usage or something else?
+> The requirement is from [1], and I think disabling CONFIG_VMAP_STACK
+> would be the last step after serious testing.
 
--- 
-Best Regards
- Guo Ren
+I still don't see why you need to turn off VMAP_STACK at all
+if it works. The only downside I can see with using VMAP_STACK
+on a 64-bit system is that it may expose bugs with device
+drivers that do DMA to stack data. Once you have tested the
+system successfully, you can also assume that you have no such
+drivers.
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
