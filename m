@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C43C6FA82
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 Sep 2022 23:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A112ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 Sep 2022 00:46:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eGZMUZ9mqNyi9wmsC8aJEgmDxajk5fLkz8SF4hyWpaY=; b=R1hpFkXZsPAYD0
-	YkD1lN/W/hbfg57/dAryKanP7FPkR23Ruqc2c06V8E/8JWkKtG4b1cIV8m7ru9eeXCUEDTiTsQD2f
-	4is71WuKwHqLX2k0ax+ISdArN2ox1He61duT3O1ey4us9679P9WT8o/EKlTM+yv1bCSLRBt1CadYk
-	zymkgzDCM2whduoeDSEbbczvpfgC3zolgQBWccNA6stXHa2/qsUis0FQm0zHl5lCE9mmbjL60uwrl
-	iB6A1MmyyHugQmTOhwramZkwG4sbNVXhfYRZspAI9cil7EUrXqKD7Jh7Fq9nyXq4epyyDG5I0jkGk
-	afc73lpl5x+9eyQBhyow==;
+	List-Owner; bh=OtyIOWnDuQfVz3E50CsOlNZuuArRSpljWsmmCj3siE4=; b=oViCeK4kGLrusT
+	n2X1n08dJ6GmhYyQwv4uzKjzaDLFflEdMw1vmzHCblSvHjeck6TrXy5slBZnw/xdkX+oNoNZCAx1F
+	ofk5MK89aSYAprX5HxnBIogLqKJA6e2BVkx8/g2MthA/2dlXBhoMlGAWMl9jisETECLsYJgtzJfrd
+	7IBMkPKx/94T4j8rTe6h2NlE9kSuSIayadFC/bHe1w6Va8ZqdANWh4np1EVVnk/KhoNQcK5nw/zRu
+	+Gw6JVEBGCh1BvzRgq9dp56WJOaoHcNcwiTG1Jja9nhASVwlOBApYKEPq4Q6MQt0OmNsSxVRO5Ihz
+	I6xJJO2wmTk4sKHq1hUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXA10-00EQMu-SZ; Sat, 10 Sep 2022 23:35:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oXB73-00Eq2O-PD; Sun, 11 Sep 2022 00:46:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXA0x-00EQLW-9L
-	for linux-riscv@lists.infradead.org; Sat, 10 Sep 2022 23:35:56 +0000
+	id 1oXB71-00Eq1e-8O
+	for linux-riscv@lists.infradead.org; Sun, 11 Sep 2022 00:46:16 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 80D1760DF0
-	for <linux-riscv@lists.infradead.org>; Sat, 10 Sep 2022 23:35:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5BA0C433D6
-	for <linux-riscv@lists.infradead.org>; Sat, 10 Sep 2022 23:35:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 9EC9060EF4
+	for <linux-riscv@lists.infradead.org>; Sun, 11 Sep 2022 00:46:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1053EC4347C
+	for <linux-riscv@lists.infradead.org>; Sun, 11 Sep 2022 00:46:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1662852951;
-	bh=Jyry0XnrQIPqshqAkfeJHzTrGEg9eXK2L5XeBnmM7CM=;
+	s=k20201202; t=1662857172;
+	bh=egFE5bc3jJed2LPjs3SzwOeonR5PE+KCyUTwartSPdo=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=OsfSqYt5l9fd4iMfoFsDotSaKztUTUbh3zc6xN1Sg74aXG1SrUTyOsv5rJ3Gn7F+W
-	 ugXrsV9/RUnl+gOJfHDYsHODdqipCWQ6u4RbAH0/qozcaEndKW421Er2hfTL35YlGO
-	 f8wOWSlg4znvqGeFIPm2fGYKMyieXHhMQwJHQkNsZwerkIvENITqoesUEa1Y/Zy7nt
-	 p8MU0ZKFw8CFZI+QPT8WLErdMPXHNc+mP6HVtxEFLpyC45DUyaSslzXCF1VBPn2M34
-	 ULdZJK+R4+ZDjYtjGz1tbby/rqv/EooteWgk7CdTcfQg4j05Y852D/HpvYlQVrbHT1
-	 pcdOsmdEcboTA==
-Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-1274ec87ad5so13843595fac.0
-        for <linux-riscv@lists.infradead.org>; Sat, 10 Sep 2022 16:35:51 -0700 (PDT)
-X-Gm-Message-State: ACgBeo1pTQyDq9FaUCZcNE2FVxuSp+GjDuj+c0hKQ9LMzifk27eWWBMh
-	uo8/Zlt/iqFt+2h42qr1Xo24PDKzDKRQwyZReZA=
-X-Google-Smtp-Source: AA6agR7RtqaOODDWYKkxH5TzeX1qOCOc/G9NUqz5ZalFaE3cf1czgLZCSlqReaiO2M/LgeXi3fx7b5MFvk6FSovIaXs=
+	b=g/JYwG8363Y2WZzxZfaG2GDIHL5M5svtO/O/cdlzyFziIObEHuOtXm2VkD6KvAfRI
+	 BHgvZ6PNaGrew+wG+2Je1ZQRFs5qoIYCGBO0JW61bc/psEhB7s0hj+poWtJ6PHzjDq
+	 p/BZ/r88ILyk6Nv4J928SsFVsK2Uj9c9edn6/jMRAKofDx0WRdvHTAjvYEig46lc6n
+	 agcmiUpdjoOyHfF5fzr3fYzcEPqaeKT/ptg6yozHetemWlZ9aSgTW63D3NHoHsjBxs
+	 gGqzkYiO+3GdI9HusKdTfmiSEk16XtA9tExy05DU1EMcE0wTz40QATH1halKNJgiZD
+	 bTu+v0ikZkLEA==
+Received: by mail-oa1-f48.google.com with SMTP id 586e51a60fabf-127d10b4f19so13994620fac.9
+        for <linux-riscv@lists.infradead.org>; Sat, 10 Sep 2022 17:46:11 -0700 (PDT)
+X-Gm-Message-State: ACgBeo1GFuoY9bg+F7y3rH2tI+tvN7K55EaR04KDBZ1vSCOXGxg91/sI
+	Vab/8StAEi0ySC9OTVSR/dZyDkKvt3rSFh14PNo=
+X-Google-Smtp-Source: AA6agR74cG50V8jrijbMpgwAUxcejt9uQFhcLDrFpKyhqA55p7eImIIzJKi9r2NpJN+cbS3X+evaLeq2vuLDs2Dci5A=
 X-Received: by 2002:a05:6808:2028:b0:344:246d:2bed with SMTP id
- q40-20020a056808202800b00344246d2bedmr6134101oiw.19.1662852950944; Sat, 10
- Sep 2022 16:35:50 -0700 (PDT)
+ q40-20020a056808202800b00344246d2bedmr6206055oiw.19.1662857171122; Sat, 10
+ Sep 2022 17:46:11 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220908022506.1275799-1-guoren@kernel.org> <20220908022506.1275799-9-guoren@kernel.org>
- <4babce64-e96d-454c-aa35-243b3f2dc315@www.fastmail.com> <CAJF2gTQAMCjNyqrSOvqDAKR5Z-PZiTVxmoK9cvNAVQs+k2fZBg@mail.gmail.com>
- <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com>
-In-Reply-To: <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com>
+References: <20220909094230.252031-1-zouyipeng@huawei.com>
+In-Reply-To: <20220909094230.252031-1-zouyipeng@huawei.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Sun, 11 Sep 2022 07:35:38 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRnY+vc2nKbqubTZvv+FWVgO3yCK4LcwpeNgx51JuETzw@mail.gmail.com>
-Message-ID: <CAJF2gTRnY+vc2nKbqubTZvv+FWVgO3yCK4LcwpeNgx51JuETzw@mail.gmail.com>
-Subject: Re: [PATCH V4 8/8] riscv: Add config of thread stack size
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, 
-	"Conor.Dooley" <conor.dooley@microchip.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Jisheng Zhang <jszhang@kernel.org>, lazyparser@gmail.com, falcon@tinylab.org, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <apatel@ventanamicro.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Linux-Arch <linux-arch@vger.kernel.org>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Guo Ren <guoren@linux.alibaba.com>, Andreas Schwab <schwab@suse.de>
+Date: Sun, 11 Sep 2022 08:45:58 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQhUFBGb7yXJ71=soGxXgNRXzBz6Da-EaXQYR9Y-FS2kw@mail.gmail.com>
+Message-ID: <CAJF2gTQhUFBGb7yXJ71=soGxXgNRXzBz6Da-EaXQYR9Y-FS2kw@mail.gmail.com>
+Subject: Re: [PATCH] riscv: Fix TRACE_IRQFLAGS call points in entry.S
+To: Yipeng Zou <zouyipeng@huawei.com>
+Cc: paul.walmsley@sifive.com, linux-riscv@lists.infradead.org, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, mark.rutland@arm.com, 
+	frederic@kernel.org, nsaenzju@redhat.com, paulmck@kernel.org, 
+	liaochang1@huawei.com, chris.zjh@huawei.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220910_163555_428251_9954A981 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20220910_174615_393254_B3AAA59A 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,60 +82,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 11, 2022 at 12:07 AM Arnd Bergmann <arnd@arndb.de> wrote:
->
-> On Sat, Sep 10, 2022, at 2:52 PM, Guo Ren wrote:
-> > On Thu, Sep 8, 2022 at 3:37 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> >> On Thu, Sep 8, 2022, at 4:25 AM, guoren@kernel.org wrote:
-> >> > From: Guo Ren <guoren@linux.alibaba.com>
-> >> - When VMAP_STACK is set, make it possible to select non-power-of-two
-> >>   stack sizes. Most importantly, 12KB should be a really interesting
-> >>   choice as 8KB is probably still not enough for many 64-bit workloads,
-> >>   but 16KB is often more than what you need. You probably don't
-> >>   want to allow 64BIT/8KB without VMAP_STACK anyway since that just
-> >>   makes it really hard to debug, so hiding the option when VMAP_STACK
-> >>   is disabled may also be a good idea.
-> > I don't want this config to depend on VMAP_STACK. Some D1 chips would
-> > run with an 8K stack size and !VMAP_STACK.
->
-> That sounds like a really bad idea, why would you want to risk
-> using such a small stack without CONFIG_VMAP_STACK?
->
-> Are you worried about increased memory usage or something else?
-The requirement is from [1], and I think disabling CONFIG_VMAP_STACK
-would be the last step after serious testing.
+I think it would be fixed by GENERIC_ENTRY. You could have a try.
 
-[1] https://www.cnx-software.com/2021/10/25/allwinner-d1s-f133-risc-v-processor-64mb-ddr2/
+https://lore.kernel.org/linux-riscv/20220908022506.1275799-1-guoren@kernel.org/
 
-
-
+On Fri, Sep 9, 2022 at 5:46 PM Yipeng Zou <zouyipeng@huawei.com> wrote:
 >
-> >  /* thread information allocation */
-> > -#ifdef CONFIG_64BIT
-> > -#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
-> > -#else
-> > -#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
-> > -#endif
-> > +#define THREAD_SIZE_ORDER      CONFIG_THREAD_SIZE_ORDER
-> >  #define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
+> TRACE_IRQFLAGS need trace all {Enable,Disable} hard interrupts points
+> in entry.S.
+> We miss a path(work_notifysig) that cause an WARN as shown below.
 >
-> This doesn't actually allow additional THREAD_SIZE values, as you
-> still round up to the nearest power of two.
+> [   50.362431] ------------[ cut here ]------------
+> [   50.363607] DEBUG_LOCKS_WARN_ON(!lockdep_hardirqs_enabled())
+> [   50.367229] WARNING: CPU: 3 PID: 74 at kernel/locking/lockdep.c:5510 check_flags+0x10a/0x1e0
+> [   50.368905] Modules linked in:
+> [   50.369440] CPU: 3 PID: 74 Comm: rcS Tainted: G
+> [   50.370225] Hardware name: riscv-virtio,qemu (DT)
+> [   50.370632] epc : check_flags+0x10a/0x1e0
+> [   50.371015]  ra : check_flags+0x10a/0x1e0
+> [   50.371751] epc : ffffffff808e2670 ra : ffffffff808e2670 sp : ff20000000c3bca0
+> [   50.372721]  gp : ffffffff817e2188 tp : ff60000002fe1800 t0 : ffffffff8162a2a8
+> [   50.373321]  t1 : 0000000000000001 t2 : 2d2d2d2d2d2d2d2d s0 : ff20000000c3bcc0
+> [   50.373903]  s1 : ffffffff817e3340 a0 : 0000000000000030 a1 : ffffffff81693fa8
+> [   50.374476]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 : 083151a422b8df00
+> [   50.375039]  a5 : 083151a422b8df00 a6 : ffffffff8006891e a7 : 083151a422b8df00
+> [   50.376028]  s2 : ffffffff817e54e0 s3 : ffffffff81695070 s4 : ff600000027d7800
+> [   50.376978]  s5 : ffffffff80c22770 s6 : 0000000200000022 s7 : ffffffffffffffff
+> [   50.377779]  s8 : ffffffff82301ed0 s9 : 0000000000001000 s10: 00000000001a9905
+> [   50.378335]  s11: 000000000014f3e8 t3 : ffffffff822d714f t4 : ffffffff822d714f
+> [   50.378955]  t5 : ffffffff822d7150 t6 : ff20000000c3ba98
+> [   50.379783] status: 0000000200000100 badaddr: 0000000000000000 cause: 0000000000000003
+> [   50.380810] [<ffffffff808e27be>] lock_is_held_type+0x78/0x14e
+> [   50.381477] [<ffffffff8003e850>] __might_resched+0x26/0x22c
+> [   50.382006] [<ffffffff8003ea92>] __might_sleep+0x3c/0x66
+> [   50.382477] [<ffffffff8002324e>] get_signal+0xaa/0x912
+> [   50.382947] [<ffffffff80005368>] do_notify_resume+0x82/0x434
+> [   50.383839] [<ffffffff80003bec>] ret_from_exception+0x0/0x10
 >
-> I think all the non-arch code can deal with non-power-of-2
-> sizes, so you'd just need
+> Fixes: 3c4697982982 ("riscv: Enable LOCKDEP_SUPPORT & fixup TRACE_IRQFLAGS_SUPPORT")
+> Signed-off-by: Yipeng Zou <zouyipeng@huawei.com>
+> ---
+>  arch/riscv/kernel/entry.S | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
 >
-> #define THREAD_SIZE round_up(CONFIG_THREAD_SIZE, PAGE_SIZE)
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index b9eda3fcbd6d..f4d23995a4f1 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -370,16 +370,20 @@ resume_kernel:
 >
-> and fix up the risc-v specific code to do the right thing
-> as well. I now see that THREAD_SIZE_ORDER is not actually
-> used anywhere with CONFIG_VMAP_STACK, so I suppose that
-> definition can be skipped, but you still need a THREAD_ALIGN
-> definition that is a power of two and at least a page larger
-> than THREAD_SIZE.
+>  work_pending:
+>         /* Enter slow path for supplementary processing */
+> -       la ra, ret_from_exception
+>         andi s1, s0, _TIF_NEED_RESCHED
+>         bnez s1, work_resched
+>  work_notifysig:
+> +#ifdef CONFIG_TRACE_IRQFLAGS
+> +       call __trace_hardirqs_on
+> +#endif
+> +       la ra, ret_from_exception
+>         /* Handle pending signals and notify-resume requests */
+>         csrs CSR_STATUS, SR_IE /* Enable interrupts for do_notify_resume() */
+>         move a0, sp /* pt_regs */
+>         move a1, s0 /* current_thread_info->flags */
+>         tail do_notify_resume
+>  work_resched:
+> +       la ra, ret_from_exception
+>         tail schedule
 >
->      Arnd
-
+>  /* Slow paths for ptrace. */
+> --
+> 2.17.1
+>
 
 
 -- 
