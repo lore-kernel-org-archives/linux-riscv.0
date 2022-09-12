@@ -4,84 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A985ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Sep 2022 08:01:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E48BECAAA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Sep 2022 08:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:References:
+	In-Reply-To:Message-Id:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=umcYFFw+WWy6r1OSwM+Liivra1kOWdHw6ZTZfIkWX4c=; b=HLwNnQ20u5q3BI
-	TflyJrGe2KWIFRlaZaCD0fmfh5mqKJ0Zq9qT0clwuQNTrHkD0Msyor9g3gTJpohh+EVsxHxtVoSoS
-	9/NBcwvHfIpfoRY0SIVGAtloqPuQ4mrHdT0Wr2ZmhjQbdHtK/MSanWIEWUvgcp0dc4DDacb3F9Z7G
-	joHjcBDZoiiuy+4xDGf5umHuCshwrDs6UsWF8AgqYfjRvz6b4Lko9oA0lQ9BZZxbp7pvuMl9F7gUr
-	xIpr7irwefE8Jfijwrh7PmeRYbl86MgfRxBZ9dSRTiXFbFdQCzshIWFJznELz5x8JkP/88sR7KHiF
-	dEGWHUs9TN1pBeyaP47A==;
+	List-Owner; bh=9VcS9p9oP968MhyV2rX0d1pAT1SwRkCWWdQw5AHHO6g=; b=mrOJddpWcS4NOM
+	gjcCoKv/4+nMi5F2PGdtXleDkiFgD2SW7IuiA9hvXAZOU1G4ardlF+UOhgZiyJRWiigguT28Ca5g3
+	wwAid4Qh0z+AvNnH9ql3mZzGPzqt+GMIzJ5tbTa3NHY9GHr/CV0rdfKvzJ8NFLd78sHAoKTSwpYwk
+	drsb7pyZiNSMPqhSHSlUnmhoorR2U4wJECfQPhi+u+0J5/R2YyPCo29xPDTx1FPjGYSUOpsNsejF3
+	EXLfa98Th4hX1hAYbN2KuiQjWZYCdrY/ZhTKMf1lDdkNyuVc9Vcx8iO5W6pPFxL+PaZ28Rhj09PK6
+	U9vU4c8uOkD8507oXDaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXeMv-007esW-0a; Mon, 12 Sep 2022 08:00:37 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1oXer2-007oGL-SE; Mon, 12 Sep 2022 08:31:45 +0000
+Received: from wnew2-smtp.messagingengine.com ([64.147.123.27])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXdHN-007Jor-D5
-	for linux-riscv@lists.infradead.org; Mon, 12 Sep 2022 06:50:51 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id z187so7675822pfb.12
-        for <linux-riscv@lists.infradead.org>; Sun, 11 Sep 2022 23:50:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date;
-        bh=6Xe3R/apOfj9yPTgHstXk1duLFBJjDM/Rtwt0f9H5Eo=;
-        b=LanQLFvf6RQo3FztPxAXUGZuOt8XUCf0383mzuu7l36i5lBuVM7bi3iPqfx+wzmfyi
-         uAlDr3GoCXquZqHzwvBrhDMXi0YtylvsZwA7YId+/ApLY1U5XJj0rN/I5QmWb3MuF4mC
-         m9sgzjS2xK2t+nt4fHR7dRPUE0LxTuedAV6S5+a94szVmhw/tch7jvfdX5N8jMUoRye8
-         xz0O7JnDIoV3PayCrYsZ7jYT5OP6Jd7Kh3ndLlupvIYW7p5AByJ1ucJyzKvsKrhNusWC
-         NcDZRyT4fxBkMHfgo6RQKyXC7/+Yo59BMEgUpZLNG2E3VKWnxuV+cKwjSztuqIOtiR48
-         ElmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date;
-        bh=6Xe3R/apOfj9yPTgHstXk1duLFBJjDM/Rtwt0f9H5Eo=;
-        b=7w34EAtFV6O4cP8ZD/Qpw6jR/Kb0sDhrPMpaZFPA67FaH4zGNO7+cQzawbSIonAPwi
-         uGixkaINM7cR3Mzzk9Ep6t64L/lBWSuPRo37Ebg+qmNkRi5rcowroDohwioINBycHmU3
-         TM2b+xH5BfrrBl1yPGihkzpOQJ9BX728VBJBzbmj9Y8z3g7y8zS1PB7NECqJXX8OUvO7
-         OquitjPZ5EcULToEs17dnXeb/ZbpxkqTu6eU7mu2Hi2H8tExZhAO9HPAVPklTHRuae0H
-         jb9J56iaFyATFyImflBCPdpRCVuAGcUlCbcfDNcf9+hwdDkxHw/l2NZYGLqzFYfOgiKi
-         I+Pg==
-X-Gm-Message-State: ACgBeo1cmNHHq8vLvolfitFf4KbFjj2DUqZFAH1gQbH/WYjOtPdlL+yw
-	CqV6bXoK3+btCYv3JRbo1ks4Uw==
-X-Google-Smtp-Source: AA6agR4JOxDScrdlY2QeBhFk8ibiBQ+YL8tlBtJH7FnoTf9lRCe8Mq0poUexl6SesZaolsHcCoBjjA==
-X-Received: by 2002:a65:6cc4:0:b0:412:35fa:5bce with SMTP id g4-20020a656cc4000000b0041235fa5bcemr21758036pgw.466.1662965448405;
-        Sun, 11 Sep 2022 23:50:48 -0700 (PDT)
-Received: from localhost.localdomain (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id v62-20020a632f41000000b00430c6fd7ffbsm4705716pgv.84.2022.09.11.23.50.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Sep 2022 23:50:47 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu,
-	greentime.hu@sifive.com,
-	conor.dooley@microchip.com,
-	ben.dooks@sifive.com,
-	bp@alien8.de,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-edac@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v4 4/6] soc: sifive: ccache: reduce printing on init
-Date: Mon, 12 Sep 2022 06:50:27 +0000
-Message-Id: <20220912065029.1793-5-zong.li@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220912065029.1793-1-zong.li@sifive.com>
-References: <20220912065029.1793-1-zong.li@sifive.com>
+	id 1oXeku-007lWw-U7
+	for linux-riscv@lists.infradead.org; Mon, 12 Sep 2022 08:25:29 +0000
+Received: from compute3.internal (compute3.nyi.internal [10.202.2.43])
+	by mailnew.west.internal (Postfix) with ESMTP id C00962B0599F;
+	Mon, 12 Sep 2022 04:25:17 -0400 (EDT)
+Received: from imap51 ([10.202.2.101])
+  by compute3.internal (MEProxy); Mon, 12 Sep 2022 04:25:19 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-type:date:date:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:sender:subject
+	:subject:to:to; s=fm1; t=1662971117; x=1662974717; bh=tsNPVOrPcn
+	bS/ZtizYvmEykCmDXx6k4ciLrQUuedWiI=; b=Ntsn5SbES6EvgQeQsPMsOgnpyy
+	G1wg6+2tTqt8u7pcPWo4HycB4vtrwNQqN1wUvaUH4s2QiyKdXEns08R9KHWYPYTW
+	ZMkh0ltcAk7gnQjDoh8RczGZ3i2f0e4KcYLAI7QvtBXnKokmS/f+Cl9v8qBnTOiL
+	R+7phj+x3+QvbiU5+zLhLZlSiTlu+x3U1t/AVac+u7IGXM7ogXAhyGkBIXg/yys9
+	FO4GDTFV9Pt5TzvqCqKd7xyPj5NvUJ3igQySSRgw/7a9R26VMalIdN1sv09cSQXg
+	sU3Xu0fbcL7+L1NXCE/DNQkwWeROh2QHwNNaGASh6cHaJin76TNC6i7zdHpw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:date:date:feedback-id
+	:feedback-id:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:sender:subject:subject:to:to
+	:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1662971117; x=1662974717; bh=tsNPVOrPcnbS/ZtizYvmEykCmDXx
+	6k4ciLrQUuedWiI=; b=gZFYA7C7XpqI8oikRw6gFjvdTmsK8blFN7aEZ9BkW2KD
+	Gy0sGBp3k+JxX/0ZZGsEwJkIuRpogo5qa232ZlslX/cy3r8AaAhrRQb1AzEOOZQN
+	U7dkqegeV2yrW0QgBLWaWLx5HMiA/EbyouiMb8EHVw8fyVUA+oxJs7wTwmgSkwxJ
+	pvy62Mcfy3re/oOeAWxWncUJlVVkCl2KWeSv/kv/yXrHlAdYtJ90TV+axxI0jEf1
+	CY8eSp65wVaEXcTv983dfYMTprEufiMjM5EpmdhbnM+2Ps9BkZv+EOQevEJa6AuM
+	dzKE2gW56DS2vq/yPHqPevBuBYBZz4wxGeB3EiZSdA==
+X-ME-Sender: <xms:6uweY_c-Qe93cpCldYEWl9cKDFEoZ4P80bTaFYWeJX74SlyuZLq9lw>
+    <xme:6uweY1PVAwPdPWdQ4dXdzYcuE7eKmBYVzY1ciDsuKzT8B-wW-CsQC24Yg0-lebWhE
+    2-VK88jUfdk4e7f6Ps>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvfedrfeduvddgtdehucetufdoteggodetrfdotf
+    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+    uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+    cujfgurhepofgfggfkjghffffhvfevufgtsehttdertderredtnecuhfhrohhmpedftehr
+    nhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrth
+    htvghrnhepffehueegteeihfegtefhjefgtdeugfegjeelheejueethfefgeeghfektdek
+    teffnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprg
+    hrnhgusegrrhhnuggsrdguvg
+X-ME-Proxy: <xmx:6uweY4i-LlTYQXjRERyQWY03TxhGbZ7lZ0NsIXugRwasEvw1IMpgFA>
+    <xmx:6uweYw-8WLFwEoOnES6vRTYhZMnbXSppF9wL6h8E2Ez9iYCYDR-n5w>
+    <xmx:6uweY7tQ1dcB1UyBVuPIpxxxwGwk9iTVa2TKoL1e0_5Gi6nzGS9OJQ>
+    <xmx:7eweY2lJxrkLUlZc8HSKt-q5I-T7sxWECpks6hvSbuFVwVLMtSvo-DMzG4vJ4IlM>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+	id 7FB9AB60086; Mon, 12 Sep 2022 04:25:14 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.7.0-alpha0-927-gf4c98c8499-fm-20220826.002-gf4c98c84
+Mime-Version: 1.0
+Message-Id: <2b06f28d-a13d-4c86-af04-39e383aaf07b@www.fastmail.com>
+In-Reply-To:  <CAJF2gTRxt_b2TswE6YJgmFZeRyVzV7fQdMX+7Ptrfa_k=auSjg@mail.gmail.com>
+References: <20220908022506.1275799-1-guoren@kernel.org>
+ <20220908022506.1275799-9-guoren@kernel.org>
+ <4babce64-e96d-454c-aa35-243b3f2dc315@www.fastmail.com>
+ <CAJF2gTQAMCjNyqrSOvqDAKR5Z-PZiTVxmoK9cvNAVQs+k2fZBg@mail.gmail.com>
+ <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com>
+ <CAJF2gTRnY+vc2nKbqubTZvv+FWVgO3yCK4LcwpeNgx51JuETzw@mail.gmail.com>
+ <7409c92a-68df-4406-bd86-835d9a959ef5@www.fastmail.com>
+ <CAJF2gTRxt_b2TswE6YJgmFZeRyVzV7fQdMX+7Ptrfa_k=auSjg@mail.gmail.com>
+Date: Mon, 12 Sep 2022 10:23:03 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: guoren <guoren@kernel.org>
+Cc: "Palmer Dabbelt" <palmer@rivosinc.com>,
+ "Thomas Gleixner" <tglx@linutronix.de>,
+ "Peter Zijlstra" <peterz@infradead.org>, "Andy Lutomirski" <luto@kernel.org>,
+ "Conor.Dooley" <conor.dooley@microchip.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ "Jisheng Zhang" <jszhang@kernel.org>, lazyparser@gmail.com,
+ falcon@tinylab.org, "Huacai Chen" <chenhuacai@kernel.org>,
+ "Anup Patel" <apatel@ventanamicro.com>,
+ "Atish Patra" <atishp@atishpatra.org>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Sebastian Andrzej Siewior" <bigeasy@linutronix.de>,
+ Linux-Arch <linux-arch@vger.kernel.org>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, "Guo Ren" <guoren@linux.alibaba.com>,
+ "Andreas Schwab" <schwab@suse.de>
+Subject: Re: [PATCH V4 8/8] riscv: Add config of thread stack size
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220911_235049_623861_CD023F13 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20220912_012525_612194_047B40C0 
+X-CRM114-Status: GOOD (  20.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,67 +115,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ben Dooks <ben.dooks@sifive.com>
+On Mon, Sep 12, 2022, at 6:14 AM, Guo Ren wrote:
+> On Mon, Sep 12, 2022 at 2:40 AM Arnd Bergmann <arnd@arndb.de> wrote:
+>> On Sun, Sep 11, 2022, at 1:35 AM, Guo Ren wrote:
+>> > On Sun, Sep 11, 2022 at 12:07 AM Arnd Bergmann <arnd@arndb.de> wrote:
+>> >>
+>> >> That sounds like a really bad idea, why would you want to risk
+>> >> using such a small stack without CONFIG_VMAP_STACK?
+>> >>
+>> >> Are you worried about increased memory usage or something else?
+>> > The requirement is from [1], and I think disabling CONFIG_VMAP_STACK
+>> > would be the last step after serious testing.
+>>
+>> I still don't see why you need to turn off VMAP_STACK at all
+>> if it works. The only downside I can see with using VMAP_STACK
+>> on a 64-bit system is that it may expose bugs with device
+>> drivers that do DMA to stack data. Once you have tested the
+>> system successfully, you can also assume that you have no such
+>> drivers.
+> 1st, VMAP_STACK could be enabled&disabled in arch/Kconfig. If we don't
+> force users to enable VMAP_STACK, why couldn't user adjust
+> THREAD_SIZE?
 
-The driver prints out 6 lines on startup, which can easily be redcued
-to two lines without losing any information.
+Turning off VMAP_STACK is harmless and may help debug issues
+with VMAP_STACK itself. It's also required on architectures
+that don't have KASAN_VMALLOC or something else that conflicts
+with it.
 
-Note, to make the types work better, uint64_t has been replaced with
-ULL to make the unsigned long long match the format in the print
-statement.
+Changing THREAD_SIZE is also fine, as long as VMAP_STACK catches
+the inevitable overflows. I would not object to having an
+option that allows setting the stack size larger than the
+default without VMAP_STACK, as long as setting it lower requires
+using VMAP_STACK. That would however add a lot more complexity
+and probably doesn't do what you want either.
 
-Signed-off-by: Ben Dooks <ben.dooks@sifive.com>
-Signed-off-by: Zong Li <zong.li@sifive.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/soc/sifive/sifive_ccache.c | 25 +++++++++++--------------
- 1 file changed, 11 insertions(+), 14 deletions(-)
+> 2nd, VMAP_STACK is not free, we still need 1KB shadow_stack.
+> The EXPERT is enough for your concern.
 
-diff --git a/drivers/soc/sifive/sifive_ccache.c b/drivers/soc/sifive/sifive_ccache.c
-index b361b661ea09..17080af7dfa0 100644
---- a/drivers/soc/sifive/sifive_ccache.c
-+++ b/drivers/soc/sifive/sifive_ccache.c
-@@ -81,20 +81,17 @@ static void setup_sifive_debug(void)
- 
- static void ccache_config_read(void)
- {
--	u32 regval, val;
--
--	regval = readl(ccache_base + SIFIVE_CCACHE_CONFIG);
--	val = regval & 0xFF;
--	pr_info("CCACHE: No. of Banks in the cache: %d\n", val);
--	val = (regval & 0xFF00) >> 8;
--	pr_info("CCACHE: No. of ways per bank: %d\n", val);
--	val = (regval & 0xFF0000) >> 16;
--	pr_info("CCACHE: Sets per bank: %llu\n", (uint64_t)1 << val);
--	val = (regval & 0xFF000000) >> 24;
--	pr_info("CCACHE: Bytes per cache block: %llu\n", (uint64_t)1 << val);
--
--	regval = readl(ccache_base + SIFIVE_CCACHE_WAYENABLE);
--	pr_info("CCACHE: Index of the largest way enabled: %d\n", regval);
-+	u32 cfg;
-+
-+	cfg = readl(ccache_base + SIFIVE_CCACHE_CONFIG);
-+
-+	pr_info("CCACHE: %u banks, %u ways, sets/bank=%llu, bytes/block=%llu\n",
-+		(cfg & 0xff), (cfg >> 8) & 0xff,
-+		BIT_ULL((cfg >> 16) & 0xff),
-+		BIT_ULL((cfg >> 24) & 0xff));
-+
-+	cfg = readl(ccache_base + SIFIVE_CCACHE_WAYENABLE);
-+	pr_info("CCACHE: Index of the largest way enabled: %u\n", cfg);
- }
- 
- static const struct of_device_id sifive_ccache_ids[] = {
--- 
-2.17.1
+It's actually more than the 1KB: you need both 1KB of shadow
+stack and 4KB per CPU for the actual overflow_stack. If you
+are micro-optimizing at this level, then a possible option
+may be to change the handle_kernel_stack_overflow() function
+to not preserve the task stack and just panic() without
+showing the backtrace. That way you don't see which code
+caused the issue, but at least you avoid corrupting random
+data.
 
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
