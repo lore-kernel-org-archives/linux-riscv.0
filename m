@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D2EECAAA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Sep 2022 01:38:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB2D9ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Sep 2022 01:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0JkcwDIpTsWTpkd6qZBAM/s8MH1HGOB8eYyTTV9syvA=; b=M5Zmc81C2mxCsG
-	sDFn4x0MVKZ5KLOd1QK/D+LgAHZ8Zsgw7CPjB97DIN92vj0BD64yYJZwWtuOaG+zMLfFeRvTlLrms
-	PuKpTVrZrRwIMQgqNZk7RrxiF9/GX9QcgnBBNvwjPoxvE75XElkxSD/0MTjH4Ulw4Jk6dHsCJC546
-	408k15h/mrsXHYjUSbTM5iks9g3NofP/cz/Q1wAJ2g819o4LjmnHcHlgPdF4CU76jv4UOLOhQRBd1
-	BGbVXkvncJ/IBAhbCeQUZcfBhKXu5GfB12Pq1J0gn6XiJo3dBUcsB5sCFcW+qG4265e7jy0M/dgdG
-	+afKABHUbC9ATZTxsRug==;
+	List-Owner; bh=Vc2yQIB4hKauuyoA9q4QwnT03qnMT8s2fxVo9EP08bg=; b=uELpF7bl0Wqmvd
+	VNyCzkxVQTcG+A+5xCK9xWmkT+s/hzMf7EcSW2pOgjgUQIWM5Ts+7pqa3aQdoblvp3Sh4Wj7iZyNu
+	gSYT5iOVfTDugJoCEhK4HO+dtjSSSCQjq/XSCw0omGjal9o8fcX4klsqyshytSv+KLSC1V0azsGnn
+	8F8PRed7Prp0emLjgDzJM0kiAhDTBVTVYCFbH09TtE9P7HAJSylpu9nRIwQLW3JRtzbayizIeO1zd
+	JW7gNhK0YKovmjCjbAPcMZTNafL9KEK4B/GcjWqSSilCpnPFrCRpQ98n40JB5wOHUqGuwx3jHGT7y
+	T5VhO/9g4Mi0C+lzFriw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXYPF-005xh9-M6; Mon, 12 Sep 2022 01:38:37 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1oXYPP-005xl0-LB; Mon, 12 Sep 2022 01:38:47 +0000
+Received: from sender4-op-o18.zoho.com ([136.143.188.18])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXYP9-005xe7-J6
-	for linux-riscv@lists.infradead.org; Mon, 12 Sep 2022 01:38:34 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id s6so1243982lfo.7
-        for <linux-riscv@lists.infradead.org>; Sun, 11 Sep 2022 18:38:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=GvNEDi68QBwoLC5mjP6RdCAK3dzOEKZ0NDWUYWy8CL0=;
-        b=XHOtlY8uno1QGrMqT8KqVxpGQkmA6EIAOyB3DverZZdaRDwOW6K8XA9uEQfdpRY4C5
-         7/fTJ2aAtcUc2VEaJVCSTAr86OFTTTWdG3v7APq1lWgtxmE8nkmFGVPMs1PhAkqwCqv3
-         ptogYeasle8YjGdz0G+7iWLsli4OMMEmF8IH07TKcL0pdLxeiBbWrSZla+dQMzMb3JXQ
-         5/Omyp9UlSTAHf3t6+XigRVjp6WjIktpqueFr90LP4+QN6PSgzCurgFCsZ11EuEuMGXp
-         Fh/g9amsH0oPL11aSa7tnYIJujOCyYRuhWt6/L5Bu8fVQceT/SD4P6ZZTFEEtg3gNPlg
-         KIeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=GvNEDi68QBwoLC5mjP6RdCAK3dzOEKZ0NDWUYWy8CL0=;
-        b=LfDt3sHWgfYPx7spGLYO+2r5nFjlS/JTa2i78pvg2YGKGKbx88QlU1reONLaHDRX9E
-         7pEmsRmN40rQWwAvmf1GudfhTEWgxZMDcj/PaLMosrFjonLV72uoCga0monGafWvJh03
-         RXzxi6W81znDp1wacZ6VXv/kL+S4GnTxZpvVEMl5Ph/MUWlqsZ7ReiudWCP0/O9nShvn
-         xaIZ4SNu9NYQ0hUArKRX0Xn1+bRuZ1s6/YoKEMn7FOcyYBsqzH50D2jcJNKghr/oRSYN
-         53zpBDUEZftdAk1TR5TWw2oqpMy8PJdM+hoVtdX3Ue9G6crAIn5Gz950HtGKdIfRT8dM
-         iScw==
-X-Gm-Message-State: ACgBeo3NCoxq7Nfl3wAC5afxGRZHoEUsVoB5rWskPBhPEnPrFmSvJ7jY
-	30Tdz/mSQpxR86JA/yZPV6r6m0XXpfhPjJargUhw+g==
-X-Google-Smtp-Source: AA6agR74+jZ1FbqXX5SlsIpMd99GFeUjy85rEC7ISb7WjiF2Vf7ykZY5nCzC+g4aGuQWgfgpnXDuFKWRssWxZ3FnE1Q=
-X-Received: by 2002:a05:6512:3b24:b0:498:f399:86e3 with SMTP id
- f36-20020a0565123b2400b00498f39986e3mr5396065lfv.53.1662946707948; Sun, 11
- Sep 2022 18:38:27 -0700 (PDT)
+	id 1oXYPJ-005xi2-Q1
+	for linux-riscv@lists.infradead.org; Mon, 12 Sep 2022 01:38:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1662946715; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=nmoULEJNVVyhcxfPz0c930xHqEoELXOWTgTMys221E+FNMQa501Y9cpnRq+f+5Gr+7wgE2wmRMpcDCnLCKbMmXo5N1826h0A61qjiC92cRA9HEWdiN2ZKd9pOQUeAbK5tUgDmfI0H8w3HPkHZHCKZs5VBT21Ih8cCEf8qjfCm1o=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1662946715; h=Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:To; 
+	bh=gITTsAelrgqAVvbvWxgmltU1PS5HhOC1zITbPK6fu0g=; 
+	b=JSUDmJ8wL402368k3QCl7Lh5Q8iPxwJa+Tp7MJYCuhLe2qLXYvLXo3b4ORgnhbqxFYQrXaow0ppaxbAXwnwex+2IZGPqPuHltNelqtoqvVcxSAkIWOHI7XBkNuktBeM4iaSy98m+4pcEBMcieQicWqds/if57HOpV7RzcRl5060=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1662946715;
+	s=zmail; d=icenowy.me; i=uwu@icenowy.me;
+	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=gITTsAelrgqAVvbvWxgmltU1PS5HhOC1zITbPK6fu0g=;
+	b=Yke6a9TpB426+bzCB66za6yzYg0z/1k5luMmdoH2GxZkItv5RSdjc7qi5CDTIPHu
+	3ELKnGqi/Ai9c3nL8LE5x0Q++vVtrTOd0gTW6YWZpzehkUIPx0Ih+z/G5sEFiD+YnTM
+	ASkcB9jOo8JOu6IPZjai/gXwAu7Em+yNYccHeiQQ=
+Received: from edelgard.icenowy.me (112.94.103.212 [112.94.103.212]) by mx.zohomail.com
+	with SMTPS id 1662946713737839.7941793140751; Sun, 11 Sep 2022 18:38:33 -0700 (PDT)
+Message-ID: <b1a3f887fd037fd18c45ac020c6142cedba58ca7.camel@icenowy.me>
+Subject: Re: [PATCH] PCI: fu740: do not use clock name when requesting clock
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Conor.Dooley@microchip.com, paul.walmsley@sifive.com, 
+ greentime.hu@sifive.com, lpieralisi@kernel.org, robh@kernel.org,
+ kw@linux.com,  bhelgaas@google.com
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Date: Mon, 12 Sep 2022 09:38:28 +0800
+In-Reply-To: <8d7b8514-efe0-d3e3-8458-f4f003f10154@microchip.com>
+References: <20220907054020.745672-1-uwu@icenowy.me>
+	 <8d7b8514-efe0-d3e3-8458-f4f003f10154@microchip.com>
+Organization: Anthon Open-Source Community
+User-Agent: Evolution 3.40.4 
 MIME-Version: 1.0
-References: <20220908144424.4232-1-zong.li@sifive.com> <20220908144424.4232-3-zong.li@sifive.com>
- <ca7d8e75-1823-05d9-6196-1d0ae14e2ec9@microchip.com>
-In-Reply-To: <ca7d8e75-1823-05d9-6196-1d0ae14e2ec9@microchip.com>
-From: Zong Li <zong.li@sifive.com>
-Date: Mon, 12 Sep 2022 09:38:15 +0800
-Message-ID: <CANXhq0o0ZZhhgBx=WRkx_9AHgguS81XajpgUE1=Emok8n+=oiw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/6] soc: sifive: ccache: rename SiFive L2 cache to
- Composable cache.
-To: Conor Dooley <Conor.Dooley@microchip.com>
-Cc: Rob Herring <robh+dt@kernel.org>, krzysztof.kozlowski+dt@linaro.org, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Greentime Hu <greentime.hu@sifive.com>, 
-	Ben Dooks <ben.dooks@sifive.com>, bp@alien8.de, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
-	linux-edac@vger.kernel.org, 
-	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220911_183831_816115_B7FD47E1 
-X-CRM114-Status: GOOD (  34.39  )
+X-CRM114-CacheID: sfid-20220911_183842_378039_CA12278F 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,502 +75,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 9, 2022 at 2:34 AM <Conor.Dooley@microchip.com> wrote:
->
-> On 08/09/2022 15:44, Zong Li wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> >
-> > Since composable cache may be L3 cache if there is a L2 cache, we should
-> > use its original name composable cache to prevent confusion.
-> >
-> > Apart from renaming, we also add the compatible "sifive,ccache0" into ID
-> > table.
-> >
-> > The sifive L2 has been renamed to sifive CCACHE, EDAC driver needs to
-> > apply the change as well.
-> >
-> > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
-> > Signed-off-by: Zong Li <zong.li@sifive.com>
->
-> SoB chain here is odd still, if Greentime co-authored they need to have
-> a Co-developed-by tag.
->
-> Otherwise:
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
->
-
-I guess I messed it up in this version, let me fix it, Thanks.
-
-> > ---
-> >  drivers/edac/Kconfig                          |   2 +-
-> >  drivers/edac/sifive_edac.c                    |  12 +-
-> >  drivers/soc/sifive/Kconfig                    |   6 +-
-> >  drivers/soc/sifive/Makefile                   |   2 +-
-> >  .../{sifive_l2_cache.c => sifive_ccache.c}    | 174 +++++++++---------
-> >  .../{sifive_l2_cache.h => sifive_ccache.h}    |  16 +-
-> >  6 files changed, 110 insertions(+), 102 deletions(-)
-> >  rename drivers/soc/sifive/{sifive_l2_cache.c => sifive_ccache.c} (34%)
-> >  rename include/soc/sifive/{sifive_l2_cache.h => sifive_ccache.h} (12%)
-> >
-> > diff --git a/drivers/edac/Kconfig b/drivers/edac/Kconfig
-> > index 17562cf1fe97..456602d373b7 100644
-> > --- a/drivers/edac/Kconfig
-> > +++ b/drivers/edac/Kconfig
-> > @@ -473,7 +473,7 @@ config EDAC_ALTERA_SDMMC
-> >
-> >  config EDAC_SIFIVE
-> >         bool "Sifive platform EDAC driver"
-> > -       depends on EDAC=y && SIFIVE_L2
-> > +       depends on EDAC=y && SIFIVE_CCACHE
-> >         help
-> >           Support for error detection and correction on the SiFive SoCs.
-> >
-> > diff --git a/drivers/edac/sifive_edac.c b/drivers/edac/sifive_edac.c
-> > index ee800aec7d47..b844e2626fd5 100644
-> > --- a/drivers/edac/sifive_edac.c
-> > +++ b/drivers/edac/sifive_edac.c
-> > @@ -2,7 +2,7 @@
-> >  /*
-> >   * SiFive Platform EDAC Driver
-> >   *
-> > - * Copyright (C) 2018-2019 SiFive, Inc.
-> > + * Copyright (C) 2018-2022 SiFive, Inc.
-> >   *
-> >   * This driver is partially based on octeon_edac-pc.c
-> >   *
-> > @@ -10,7 +10,7 @@
-> >  #include <linux/edac.h>
-> >  #include <linux/platform_device.h>
-> >  #include "edac_module.h"
-> > -#include <soc/sifive/sifive_l2_cache.h>
-> > +#include <soc/sifive/sifive_ccache.h>
-> >
-> >  #define DRVNAME "sifive_edac"
-> >
-> > @@ -32,9 +32,9 @@ int ecc_err_event(struct notifier_block *this, unsigned long event, void *ptr)
-> >
-> >         p = container_of(this, struct sifive_edac_priv, notifier);
-> >
-> > -       if (event == SIFIVE_L2_ERR_TYPE_UE)
-> > +       if (event == SIFIVE_CCACHE_ERR_TYPE_UE)
-> >                 edac_device_handle_ue(p->dci, 0, 0, msg);
-> > -       else if (event == SIFIVE_L2_ERR_TYPE_CE)
-> > +       else if (event == SIFIVE_CCACHE_ERR_TYPE_CE)
-> >                 edac_device_handle_ce(p->dci, 0, 0, msg);
-> >
-> >         return NOTIFY_OK;
-> > @@ -67,7 +67,7 @@ static int ecc_register(struct platform_device *pdev)
-> >                 goto err;
-> >         }
-> >
-> > -       register_sifive_l2_error_notifier(&p->notifier);
-> > +       register_sifive_ccache_error_notifier(&p->notifier);
-> >
-> >         return 0;
-> >
-> > @@ -81,7 +81,7 @@ static int ecc_unregister(struct platform_device *pdev)
-> >  {
-> >         struct sifive_edac_priv *p = platform_get_drvdata(pdev);
-> >
-> > -       unregister_sifive_l2_error_notifier(&p->notifier);
-> > +       unregister_sifive_ccache_error_notifier(&p->notifier);
-> >         edac_device_del_device(&pdev->dev);
-> >         edac_device_free_ctl_info(p->dci);
-> >
-> > diff --git a/drivers/soc/sifive/Kconfig b/drivers/soc/sifive/Kconfig
-> > index 58cf8c40d08d..ed4c571f8771 100644
-> > --- a/drivers/soc/sifive/Kconfig
-> > +++ b/drivers/soc/sifive/Kconfig
-> > @@ -2,9 +2,9 @@
-> >
-> >  if SOC_SIFIVE
-> >
-> > -config SIFIVE_L2
-> > -       bool "Sifive L2 Cache controller"
-> > +config SIFIVE_CCACHE
-> > +       bool "Sifive Composable Cache controller"
-> >         help
-> > -         Support for the L2 cache controller on SiFive platforms.
-> > +         Support for the composable cache controller on SiFive platforms.
-> >
-> >  endif
-> > diff --git a/drivers/soc/sifive/Makefile b/drivers/soc/sifive/Makefile
-> > index b5caff77938f..1f5dc339bf82 100644
-> > --- a/drivers/soc/sifive/Makefile
-> > +++ b/drivers/soc/sifive/Makefile
-> > @@ -1,3 +1,3 @@
-> >  # SPDX-License-Identifier: GPL-2.0
-> >
-> > -obj-$(CONFIG_SIFIVE_L2)        += sifive_l2_cache.o
-> > +obj-$(CONFIG_SIFIVE_CCACHE)    += sifive_ccache.o
-> > diff --git a/drivers/soc/sifive/sifive_l2_cache.c b/drivers/soc/sifive/sifive_ccache.c
-> > similarity index 34%
-> > rename from drivers/soc/sifive/sifive_l2_cache.c
-> > rename to drivers/soc/sifive/sifive_ccache.c
-> > index 59640a1d0b28..949b824e89ad 100644
-> > --- a/drivers/soc/sifive/sifive_l2_cache.c
-> > +++ b/drivers/soc/sifive/sifive_ccache.c
-> > @@ -1,8 +1,8 @@
-> >  // SPDX-License-Identifier: GPL-2.0
-> >  /*
-> > - * SiFive L2 cache controller Driver
-> > + * SiFive composable cache controller Driver
-> >   *
-> > - * Copyright (C) 2018-2019 SiFive, Inc.
-> > + * Copyright (C) 2018-2022 SiFive, Inc.
-> >   *
-> >   */
-> >  #include <linux/debugfs.h>
-> > @@ -11,33 +11,33 @@
-> >  #include <linux/of_address.h>
-> >  #include <linux/device.h>
-> >  #include <asm/cacheinfo.h>
-> > -#include <soc/sifive/sifive_l2_cache.h>
-> > +#include <soc/sifive/sifive_ccache.h>
-> >
-> > -#define SIFIVE_L2_DIRECCFIX_LOW 0x100
-> > -#define SIFIVE_L2_DIRECCFIX_HIGH 0x104
-> > -#define SIFIVE_L2_DIRECCFIX_COUNT 0x108
-> > +#define SIFIVE_CCACHE_DIRECCFIX_LOW 0x100
-> > +#define SIFIVE_CCACHE_DIRECCFIX_HIGH 0x104
-> > +#define SIFIVE_CCACHE_DIRECCFIX_COUNT 0x108
-> >
-> > -#define SIFIVE_L2_DIRECCFAIL_LOW 0x120
-> > -#define SIFIVE_L2_DIRECCFAIL_HIGH 0x124
-> > -#define SIFIVE_L2_DIRECCFAIL_COUNT 0x128
-> > +#define SIFIVE_CCACHE_DIRECCFAIL_LOW 0x120
-> > +#define SIFIVE_CCACHE_DIRECCFAIL_HIGH 0x124
-> > +#define SIFIVE_CCACHE_DIRECCFAIL_COUNT 0x128
-> >
-> > -#define SIFIVE_L2_DATECCFIX_LOW 0x140
-> > -#define SIFIVE_L2_DATECCFIX_HIGH 0x144
-> > -#define SIFIVE_L2_DATECCFIX_COUNT 0x148
-> > +#define SIFIVE_CCACHE_DATECCFIX_LOW 0x140
-> > +#define SIFIVE_CCACHE_DATECCFIX_HIGH 0x144
-> > +#define SIFIVE_CCACHE_DATECCFIX_COUNT 0x148
-> >
-> > -#define SIFIVE_L2_DATECCFAIL_LOW 0x160
-> > -#define SIFIVE_L2_DATECCFAIL_HIGH 0x164
-> > -#define SIFIVE_L2_DATECCFAIL_COUNT 0x168
-> > +#define SIFIVE_CCACHE_DATECCFAIL_LOW 0x160
-> > +#define SIFIVE_CCACHE_DATECCFAIL_HIGH 0x164
-> > +#define SIFIVE_CCACHE_DATECCFAIL_COUNT 0x168
-> >
-> > -#define SIFIVE_L2_CONFIG 0x00
-> > -#define SIFIVE_L2_WAYENABLE 0x08
-> > -#define SIFIVE_L2_ECCINJECTERR 0x40
-> > +#define SIFIVE_CCACHE_CONFIG 0x00
-> > +#define SIFIVE_CCACHE_WAYENABLE 0x08
-> > +#define SIFIVE_CCACHE_ECCINJECTERR 0x40
-> >
-> > -#define SIFIVE_L2_MAX_ECCINTR 4
-> > +#define SIFIVE_CCACHE_MAX_ECCINTR 4
-> >
-> > -static void __iomem *l2_base;
-> > -static int g_irq[SIFIVE_L2_MAX_ECCINTR];
-> > -static struct riscv_cacheinfo_ops l2_cache_ops;
-> > +static void __iomem *ccache_base;
-> > +static int g_irq[SIFIVE_CCACHE_MAX_ECCINTR];
-> > +static struct riscv_cacheinfo_ops ccache_cache_ops;
-> >
-> >  enum {
-> >         DIR_CORR = 0,
-> > @@ -49,83 +49,84 @@ enum {
-> >  #ifdef CONFIG_DEBUG_FS
-> >  static struct dentry *sifive_test;
-> >
-> > -static ssize_t l2_write(struct file *file, const char __user *data,
-> > -                       size_t count, loff_t *ppos)
-> > +static ssize_t ccache_write(struct file *file, const char __user *data,
-> > +                           size_t count, loff_t *ppos)
-> >  {
-> >         unsigned int val;
-> >
-> >         if (kstrtouint_from_user(data, count, 0, &val))
-> >                 return -EINVAL;
-> >         if ((val < 0xFF) || (val >= 0x10000 && val < 0x100FF))
-> > -               writel(val, l2_base + SIFIVE_L2_ECCINJECTERR);
-> > +               writel(val, ccache_base + SIFIVE_CCACHE_ECCINJECTERR);
-> >         else
-> >                 return -EINVAL;
-> >         return count;
-> >  }
-> >
-> > -static const struct file_operations l2_fops = {
-> > +static const struct file_operations ccache_fops = {
-> >         .owner = THIS_MODULE,
-> >         .open = simple_open,
-> > -       .write = l2_write
-> > +       .write = ccache_write
-> >  };
-> >
-> >  static void setup_sifive_debug(void)
-> >  {
-> > -       sifive_test = debugfs_create_dir("sifive_l2_cache", NULL);
-> > +       sifive_test = debugfs_create_dir("sifive_ccache_cache", NULL);
-> >
-> >         debugfs_create_file("sifive_debug_inject_error", 0200,
-> > -                           sifive_test, NULL, &l2_fops);
-> > +                           sifive_test, NULL, &ccache_fops);
-> >  }
-> >  #endif
-> >
-> > -static void l2_config_read(void)
-> > +static void ccache_config_read(void)
-> >  {
-> >         u32 regval, val;
-> >
-> > -       regval = readl(l2_base + SIFIVE_L2_CONFIG);
-> > +       regval = readl(ccache_base + SIFIVE_CCACHE_CONFIG);
-> >         val = regval & 0xFF;
-> > -       pr_info("L2CACHE: No. of Banks in the cache: %d\n", val);
-> > +       pr_info("CCACHE: No. of Banks in the cache: %d\n", val);
-> >         val = (regval & 0xFF00) >> 8;
-> > -       pr_info("L2CACHE: No. of ways per bank: %d\n", val);
-> > +       pr_info("CCACHE: No. of ways per bank: %d\n", val);
-> >         val = (regval & 0xFF0000) >> 16;
-> > -       pr_info("L2CACHE: Sets per bank: %llu\n", (uint64_t)1 << val);
-> > +       pr_info("CCACHE: Sets per bank: %llu\n", (uint64_t)1 << val);
-> >         val = (regval & 0xFF000000) >> 24;
-> > -       pr_info("L2CACHE: Bytes per cache block: %llu\n", (uint64_t)1 << val);
-> > +       pr_info("CCACHE: Bytes per cache block: %llu\n", (uint64_t)1 << val);
-> >
-> > -       regval = readl(l2_base + SIFIVE_L2_WAYENABLE);
-> > -       pr_info("L2CACHE: Index of the largest way enabled: %d\n", regval);
-> > +       regval = readl(ccache_base + SIFIVE_CCACHE_WAYENABLE);
-> > +       pr_info("CCACHE: Index of the largest way enabled: %d\n", regval);
-> >  }
-> >
-> > -static const struct of_device_id sifive_l2_ids[] = {
-> > +static const struct of_device_id sifive_ccache_ids[] = {
-> >         { .compatible = "sifive,fu540-c000-ccache" },
-> >         { .compatible = "sifive,fu740-c000-ccache" },
-> > -       { /* end of table */ },
-> > +       { .compatible = "sifive,ccache0" },
-> > +       { /* end of table */ }
-> >  };
-> >
-> > -static ATOMIC_NOTIFIER_HEAD(l2_err_chain);
-> > +static ATOMIC_NOTIFIER_HEAD(ccache_err_chain);
-> >
-> > -int register_sifive_l2_error_notifier(struct notifier_block *nb)
-> > +int register_sifive_ccache_error_notifier(struct notifier_block *nb)
-> >  {
-> > -       return atomic_notifier_chain_register(&l2_err_chain, nb);
-> > +       return atomic_notifier_chain_register(&ccache_err_chain, nb);
-> >  }
-> > -EXPORT_SYMBOL_GPL(register_sifive_l2_error_notifier);
-> > +EXPORT_SYMBOL_GPL(register_sifive_ccache_error_notifier);
-> >
-> > -int unregister_sifive_l2_error_notifier(struct notifier_block *nb)
-> > +int unregister_sifive_ccache_error_notifier(struct notifier_block *nb)
-> >  {
-> > -       return atomic_notifier_chain_unregister(&l2_err_chain, nb);
-> > +       return atomic_notifier_chain_unregister(&ccache_err_chain, nb);
-> >  }
-> > -EXPORT_SYMBOL_GPL(unregister_sifive_l2_error_notifier);
-> > +EXPORT_SYMBOL_GPL(unregister_sifive_ccache_error_notifier);
-> >
-> > -static int l2_largest_wayenabled(void)
-> > +static int ccache_largest_wayenabled(void)
-> >  {
-> > -       return readl(l2_base + SIFIVE_L2_WAYENABLE) & 0xFF;
-> > +       return readl(ccache_base + SIFIVE_CCACHE_WAYENABLE) & 0xFF;
-> >  }
-> >
-> >  static ssize_t number_of_ways_enabled_show(struct device *dev,
-> >                                            struct device_attribute *attr,
-> >                                            char *buf)
-> >  {
-> > -       return sprintf(buf, "%u\n", l2_largest_wayenabled());
-> > +       return sprintf(buf, "%u\n", ccache_largest_wayenabled());
-> >  }
-> >
-> >  static DEVICE_ATTR_RO(number_of_ways_enabled);
-> > @@ -139,99 +140,106 @@ static const struct attribute_group priv_attr_group = {
-> >         .attrs = priv_attrs,
-> >  };
-> >
-> > -static const struct attribute_group *l2_get_priv_group(struct cacheinfo *this_leaf)
-> > +static const struct attribute_group *ccache_get_priv_group(struct cacheinfo
-> > +                                                          *this_leaf)
-> >  {
-> > -       /* We want to use private group for L2 cache only */
-> > +       /* We want to use private group for composable cache only */
-> >         if (this_leaf->level == 2)
-> >                 return &priv_attr_group;
-> >         else
-> >                 return NULL;
-> >  }
-> >
-> > -static irqreturn_t l2_int_handler(int irq, void *device)
-> > +static irqreturn_t ccache_int_handler(int irq, void *device)
-> >  {
-> >         unsigned int add_h, add_l;
-> >
-> >         if (irq == g_irq[DIR_CORR]) {
-> > -               add_h = readl(l2_base + SIFIVE_L2_DIRECCFIX_HIGH);
-> > -               add_l = readl(l2_base + SIFIVE_L2_DIRECCFIX_LOW);
-> > -               pr_err("L2CACHE: DirError @ 0x%08X.%08X\n", add_h, add_l);
-> > +               add_h = readl(ccache_base + SIFIVE_CCACHE_DIRECCFIX_HIGH);
-> > +               add_l = readl(ccache_base + SIFIVE_CCACHE_DIRECCFIX_LOW);
-> > +               pr_err("CCACHE: DirError @ 0x%08X.%08X\n", add_h, add_l);
-> >                 /* Reading this register clears the DirError interrupt sig */
-> > -               readl(l2_base + SIFIVE_L2_DIRECCFIX_COUNT);
-> > -               atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
-> > +               readl(ccache_base + SIFIVE_CCACHE_DIRECCFIX_COUNT);
-> > +               atomic_notifier_call_chain(&ccache_err_chain,
-> > +                                          SIFIVE_CCACHE_ERR_TYPE_CE,
-> >                                            "DirECCFix");
-> >         }
-> >         if (irq == g_irq[DIR_UNCORR]) {
-> > -               add_h = readl(l2_base + SIFIVE_L2_DIRECCFAIL_HIGH);
-> > -               add_l = readl(l2_base + SIFIVE_L2_DIRECCFAIL_LOW);
-> > +               add_h = readl(ccache_base + SIFIVE_CCACHE_DIRECCFAIL_HIGH);
-> > +               add_l = readl(ccache_base + SIFIVE_CCACHE_DIRECCFAIL_LOW);
-> >                 /* Reading this register clears the DirFail interrupt sig */
-> > -               readl(l2_base + SIFIVE_L2_DIRECCFAIL_COUNT);
-> > -               atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_UE,
-> > +               readl(ccache_base + SIFIVE_CCACHE_DIRECCFAIL_COUNT);
-> > +               atomic_notifier_call_chain(&ccache_err_chain,
-> > +                                          SIFIVE_CCACHE_ERR_TYPE_UE,
-> >                                            "DirECCFail");
-> > -               panic("L2CACHE: DirFail @ 0x%08X.%08X\n", add_h, add_l);
-> > +               panic("CCACHE: DirFail @ 0x%08X.%08X\n", add_h, add_l);
-> >         }
-> >         if (irq == g_irq[DATA_CORR]) {
-> > -               add_h = readl(l2_base + SIFIVE_L2_DATECCFIX_HIGH);
-> > -               add_l = readl(l2_base + SIFIVE_L2_DATECCFIX_LOW);
-> > -               pr_err("L2CACHE: DataError @ 0x%08X.%08X\n", add_h, add_l);
-> > +               add_h = readl(ccache_base + SIFIVE_CCACHE_DATECCFIX_HIGH);
-> > +               add_l = readl(ccache_base + SIFIVE_CCACHE_DATECCFIX_LOW);
-> > +               pr_err("CCACHE: DataError @ 0x%08X.%08X\n", add_h, add_l);
-> >                 /* Reading this register clears the DataError interrupt sig */
-> > -               readl(l2_base + SIFIVE_L2_DATECCFIX_COUNT);
-> > -               atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_CE,
-> > +               readl(ccache_base + SIFIVE_CCACHE_DATECCFIX_COUNT);
-> > +               atomic_notifier_call_chain(&ccache_err_chain,
-> > +                                          SIFIVE_CCACHE_ERR_TYPE_CE,
-> >                                            "DatECCFix");
-> >         }
-> >         if (irq == g_irq[DATA_UNCORR]) {
-> > -               add_h = readl(l2_base + SIFIVE_L2_DATECCFAIL_HIGH);
-> > -               add_l = readl(l2_base + SIFIVE_L2_DATECCFAIL_LOW);
-> > -               pr_err("L2CACHE: DataFail @ 0x%08X.%08X\n", add_h, add_l);
-> > +               add_h = readl(ccache_base + SIFIVE_CCACHE_DATECCFAIL_HIGH);
-> > +               add_l = readl(ccache_base + SIFIVE_CCACHE_DATECCFAIL_LOW);
-> > +               pr_err("CCACHE: DataFail @ 0x%08X.%08X\n", add_h, add_l);
-> >                 /* Reading this register clears the DataFail interrupt sig */
-> > -               readl(l2_base + SIFIVE_L2_DATECCFAIL_COUNT);
-> > -               atomic_notifier_call_chain(&l2_err_chain, SIFIVE_L2_ERR_TYPE_UE,
-> > +               readl(ccache_base + SIFIVE_CCACHE_DATECCFAIL_COUNT);
-> > +               atomic_notifier_call_chain(&ccache_err_chain,
-> > +                                          SIFIVE_CCACHE_ERR_TYPE_UE,
-> >                                            "DatECCFail");
-> >         }
-> >
-> >         return IRQ_HANDLED;
-> >  }
-> >
-> > -static int __init sifive_l2_init(void)
-> > +static int __init sifive_ccache_init(void)
-> >  {
-> >         struct device_node *np;
-> >         struct resource res;
-> >         int i, rc, intr_num;
-> >
-> > -       np = of_find_matching_node(NULL, sifive_l2_ids);
-> > +       np = of_find_matching_node(NULL, sifive_ccache_ids);
-> >         if (!np)
-> >                 return -ENODEV;
-> >
-> >         if (of_address_to_resource(np, 0, &res))
-> >                 return -ENODEV;
-> >
-> > -       l2_base = ioremap(res.start, resource_size(&res));
-> > -       if (!l2_base)
-> > +       ccache_base = ioremap(res.start, resource_size(&res));
-> > +       if (!ccache_base)
-> >                 return -ENOMEM;
-> >
-> >         intr_num = of_property_count_u32_elems(np, "interrupts");
-> >         if (!intr_num) {
-> > -               pr_err("L2CACHE: no interrupts property\n");
-> > +               pr_err("CCACHE: no interrupts property\n");
-> >                 return -ENODEV;
-> >         }
-> >
-> >         for (i = 0; i < intr_num; i++) {
-> >                 g_irq[i] = irq_of_parse_and_map(np, i);
-> > -               rc = request_irq(g_irq[i], l2_int_handler, 0, "l2_ecc", NULL);
-> > +               rc = request_irq(g_irq[i], ccache_int_handler, 0, "ccache_ecc",
-> > +                                NULL);
-> >                 if (rc) {
-> > -                       pr_err("L2CACHE: Could not request IRQ %d\n", g_irq[i]);
-> > +                       pr_err("CCACHE: Could not request IRQ %d\n", g_irq[i]);
-> >                         return rc;
-> >                 }
-> >         }
-> >
-> > -       l2_config_read();
-> > +       ccache_config_read();
-> >
-> > -       l2_cache_ops.get_priv_group = l2_get_priv_group;
-> > -       riscv_set_cacheinfo_ops(&l2_cache_ops);
-> > +       ccache_cache_ops.get_priv_group = ccache_get_priv_group;
-> > +       riscv_set_cacheinfo_ops(&ccache_cache_ops);
-> >
-> >  #ifdef CONFIG_DEBUG_FS
-> >         setup_sifive_debug();
-> >  #endif
-> >         return 0;
-> >  }
-> > -device_initcall(sifive_l2_init);
-> > +
-> > +device_initcall(sifive_ccache_init);
-> > diff --git a/include/soc/sifive/sifive_l2_cache.h b/include/soc/sifive/sifive_ccache.h
-> > similarity index 12%
-> > rename from include/soc/sifive/sifive_l2_cache.h
-> > rename to include/soc/sifive/sifive_ccache.h
-> > index 92ade10ed67e..4d4ed49388a0 100644
-> > --- a/include/soc/sifive/sifive_l2_cache.h
-> > +++ b/include/soc/sifive/sifive_ccache.h
-> > @@ -1,16 +1,16 @@
-> >  /* SPDX-License-Identifier: GPL-2.0 */
-> >  /*
-> > - * SiFive L2 Cache Controller header file
-> > + * SiFive Composable Cache Controller header file
-> >   *
-> >   */
-> >
-> > -#ifndef __SOC_SIFIVE_L2_CACHE_H
-> > -#define __SOC_SIFIVE_L2_CACHE_H
-> > +#ifndef __SOC_SIFIVE_CCACHE_H
-> > +#define __SOC_SIFIVE_CCACHE_H
-> >
-> > -extern int register_sifive_l2_error_notifier(struct notifier_block *nb);
-> > -extern int unregister_sifive_l2_error_notifier(struct notifier_block *nb);
-> > +extern int register_sifive_ccache_error_notifier(struct notifier_block *nb);
-> > +extern int unregister_sifive_ccache_error_notifier(struct notifier_block *nb);
-> >
-> > -#define SIFIVE_L2_ERR_TYPE_CE 0
-> > -#define SIFIVE_L2_ERR_TYPE_UE 1
-> > +#define SIFIVE_CCACHE_ERR_TYPE_CE 0
-> > +#define SIFIVE_CCACHE_ERR_TYPE_UE 1
-> >
-> > -#endif /* __SOC_SIFIVE_L2_CACHE_H */
-> > +#endif /* __SOC_SIFIVE_CCACHE_H */
-> > --
-> > 2.17.1
-> >
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+5ZyoIDIwMjItMDktMDjmmJ/mnJ/lm5vnmoQgMTg6MTQgKzAwMDDvvIxDb25vci5Eb29sZXlAbWlj
+cm9jaGlwLmNvbeWGmemBk++8mgo+IE9uIDA3LzA5LzIwMjIgMDY6NDAsIEljZW5vd3kgWmhlbmcg
+d3JvdGU6Cj4gPiBFWFRFUk5BTCBFTUFJTDogRG8gbm90IGNsaWNrIGxpbmtzIG9yIG9wZW4gYXR0
+YWNobWVudHMgdW5sZXNzIHlvdQo+ID4ga25vdyB0aGUgY29udGVudCBpcyBzYWZlCj4gPiAKPiA+
+IFRoZSBEVCBiaW5kaW5nIG9mIEZVNzQwIFBDSWUgZG9lcyBub3QgZW5mb3JjZSBhIGNsb2NrLW5h
+bWVzIHByb3BlcnR5LAo+ID4gYW5kIHRoZXJlIGV4aXN0IHNvbWUgZGV2aWNlIHRyZWUgdGhhdCBo
+YXMgYSBjbG9jayBuYW1lIHRoYXQgZG9lcyBub3QKPiA+IHN0aWNrIHRvIHRoZSBvbmUgdXNlZCBi
+eSBMaW51eCBEVCAoZS5nLiB0aGUgb25lIHNoaXBwZWQgd2l0aCBjdXJyZW50Cj4gPiBVLUJvb3Qg
+bWFpbmxpbmUpLgo+IAo+IEkgcmVjZW50bHkgYWRkZWQgdGhlIG1pc3NpbmcgZW5mb3JjZW1lbnQ6
+Cj4gaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvbHBpZXJh
+bGlzaS9wY2kuZ2l0L2NvbW1pdC8/aD1wY2kvZHQmaWQ9YjQwOGZhZDYxZDM0Yzc2NWMzZTAxODk1
+Mjg2MzMyYWYyZDUwNDAyYQoKVW5mb3J0dW5hdGVseSBiaW5kaW5nIHcvbyBjbG9jay1uYW1lcyBl
+bmZvcmNlbWVudCBoYXMgYWxyZWFkeSBlbnRlcmVkIGEKc3RhYmxlIHJlbGVhc2UgKDUuMTkpLCBh
+bmQgdGhlIHJlYWwgY2xvY2sgbmFtZSAicGNpZV9hdXgiIGlzIG5ldmVyCmVuZm9yY2VkIGJlZm9y
+ZSAodGhlcmUncyBhIERUIGluIFUtQm9vdCB0aGF0IHVzZXMgInBjaWVhdXgiIGluc3RlYWQpLApz
+aG91bGQgdGhpcyBiZSBjb25zaWRlcmVkIGFzIGJyZWFrYWdlIHRvIHN0YWJsZSBEVCBiaW5kaW5n
+PwoKQW55d2F5LCBJIGhhZCBzZW50IG91dCBhIHBhdGNoIHRoYXQgc3luY2hvcml6ZXMgYWxsIEZV
+NzQwLXJlbGF0ZWQgRFQKZmlsZXMgdG8gVS1Cb290LCBzZWUgWzFdLgoKWzFdCmh0dHBzOi8vbG9y
+ZS5rZXJuZWwub3JnL2FsbC8yMDIyMDgyNTA4MTExOS4xNjk0MDA3LTItdXd1QGljZW5vd3kubWUv
+Cgo+IAo+IFNpbmNlIHRoZXJlJ3Mgb25seSBvbmUgY2xvY2sgdGhvdWdoLCBJJ2QgaW1hZ2luZSBp
+dCBtYWtlcyBsaXR0bGUgdG8gbm8KPiByZWFsIGRpZmZlcmVuY2UgaWYgdGhlIGNoZWNrIGhlcmUg
+aXMgcmVsYXhlZC4KPiAKPiBSZXZpZXdlZC1ieTogQ29ub3IgRG9vbGV5IDxjb25vci5kb29sZXlA
+bWljcm9jaGlwLmNvbT4KPiAKPiA+IAo+ID4gRHJvcCB0aGUgbmFtZSBpbiB0aGUgY2xvY2sgcmVx
+dWVzdCwgaW5zdGVhZCBqdXN0IHBhc3MgTlVMTCAoYmVjYXVzZQo+ID4gdGhpcyBkZXZpY2Ugc2hv
+dWxkIGhhdmUgb25seSBhIHNpbmdsZSBjbG9jaykuCj4gPiAKPiA+IFNpZ25lZC1vZmYtYnk6IElj
+ZW5vd3kgWmhlbmcgPHV3dUBpY2Vub3d5Lm1lPgo+ID4gLS0tCj4gPiDCoGRyaXZlcnMvcGNpL2Nv
+bnRyb2xsZXIvZHdjL3BjaWUtZnU3NDAuYyB8IDIgKy0KPiA+IMKgMSBmaWxlIGNoYW5nZWQsIDEg
+aW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4gPiAKPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJz
+L3BjaS9jb250cm9sbGVyL2R3Yy9wY2llLWZ1NzQwLmMKPiA+IGIvZHJpdmVycy9wY2kvY29udHJv
+bGxlci9kd2MvcGNpZS1mdTc0MC5jCj4gPiBpbmRleCAwYzkwNTgzYzA3OGIuLmVkYjIxOGEzN2E0
+ZiAxMDA2NDQKPiA+IC0tLSBhL2RyaXZlcnMvcGNpL2NvbnRyb2xsZXIvZHdjL3BjaWUtZnU3NDAu
+Ywo+ID4gKysrIGIvZHJpdmVycy9wY2kvY29udHJvbGxlci9kd2MvcGNpZS1mdTc0MC5jCj4gPiBA
+QCAtMzE1LDcgKzMxNSw3IEBAIHN0YXRpYyBpbnQgZnU3NDBfcGNpZV9wcm9iZShzdHJ1Y3QKPiA+
+IHBsYXRmb3JtX2RldmljZSAqcGRldikKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCByZXR1cm4gZGV2X2Vycl9wcm9iZShkZXYsIFBUUl9FUlIoYWZwLT5wd3JlbiksCj4gPiAidW5h
+YmxlIHRvIGdldCBwd3Jlbi1ncGlvc1xuIik7Cj4gPiAKPiA+IMKgwqDCoMKgwqDCoMKgIC8qIEZl
+dGNoIGNsb2NrcyAqLwo+ID4gLcKgwqDCoMKgwqDCoCBhZnAtPnBjaWVfYXV4ID0gZGV2bV9jbGtf
+Z2V0KGRldiwgInBjaWVfYXV4Iik7Cj4gPiArwqDCoMKgwqDCoMKgIGFmcC0+cGNpZV9hdXggPSBk
+ZXZtX2Nsa19nZXQoZGV2LCBOVUxMKTsKPiA+IMKgwqDCoMKgwqDCoMKgIGlmIChJU19FUlIoYWZw
+LT5wY2llX2F1eCkpCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmV0dXJuIGRl
+dl9lcnJfcHJvYmUoZGV2LCBQVFJfRVJSKGFmcC0+cGNpZV9hdXgpLAo+ID4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCAicGNpZV9hdXggY2xvY2sgc291cmNlCj4gPiBtaXNzaW5nIG9y
+IGludmFsaWRcbiIpOwo+ID4gLS0KPiA+IDIuMzcuMQo+ID4gCj4gCgoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
