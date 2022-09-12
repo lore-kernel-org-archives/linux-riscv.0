@@ -4,98 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80935ECAAD5
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Sep 2022 06:51:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22461ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Sep 2022 07:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/sf66vtAr42uf9eGnRNvLS1zvlb6omLbxagZOj3WyBQ=; b=2uZ5qQ+NfqcofH
-	lz0Ak0Gt8UCUFNWpmYcLuOKVS36lqMiutsf1NjlA+SYg81LqxR5KXXvttAMryCRiJZWs4gCFSulZW
-	sfo5hLEQKyFvyogy+u7pUoB3P+QuSPCX00irrj30BricT2s7Se3MbWiYNzGE0bliVrn8HaUWCw70n
-	h1h4Gjp0M0E3mpqbaOKuD+NpbBan02d0F7feXTcZRlh/ByzYI6FHWYnZFyNZIRHGZwjMIs3LFLTMX
-	Q6nBqDNTuvkXTcLwAB+R2nfwMdFOzo+Pj3KdAqYBFAqOoutZoa06KZIz+hyIO6NyGiONaEDw9DypS
-	fTXx2NjZkh+qSEC58UMQ==;
+	List-Owner; bh=nTk3e88pugGuN98/vIe7bsUV33KSOgP0kLMZfx44y5E=; b=GWFYtuwrEO6LGr
+	4HsW5KQhonTS2og0e94gyt5ghZvXGxybAju34cMyv2MpaPNggVAcofk90lnypjkQtP8HANiMbTNX6
+	LdH1wPjLNuwUg1Sy/XBkhNTGJjX7WJqKdHuxDTZFZ/aphBMufEBCET9voEXnu8lNYieBltJQZXDd/
+	A1rK+w+tAxkk+lfkpxN6kqMfbw+xPQenZAWtaLD5m+k2fSDARhW/2EHqQ8GGU3jcMe5ZyatC9CXr/
+	J2B945nS5RHn25VH5S8VlkL98ZrS9vRvZKMQJKimNFpRnriNXEZdQNMuXe4xrpmq1YiKrh8lvTvB+
+	lucChqyjXOGj4QngCjpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXdHm-007K2F-9z; Mon, 12 Sep 2022 06:51:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1oXdtb-007Yfv-MF; Mon, 12 Sep 2022 07:30:19 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXdHk-007K0x-Ba
-	for linux-riscv@bombadil.infradead.org; Mon, 12 Sep 2022 06:51:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=5bvvWd4WtFmP4+rZD5AyV+ZxO3T7wivPuDP2w82MTho=; b=EmI88BsEDKUzLrN9kfPlcROLKe
-	nT+p5LWRyhUJ4HKLhNpBLqhLVny4JKdG3YsthUBgOgXmjO/QvJBB5+C2XrW2CjKKfe+c24xWBaa5T
-	0ERujrU/TOCyaHMG45TynrGTa4/f69KZIuwXNv2jVZnlfgagm1inVMwml5sDI2Y+yQX9AuDYVng45
-	WK5EzKm92Tf5qaPWNHVl4AzLn20v/TYpHPSXS7nHj7FwAqZ4i7Smr5UHBfibXmGy6BuqfEaPNcX/J
-	7m58r7kUq/JENNVFNPxhoyXa1+S/5pTz/N1tVwmsb1nYmOIvk7ItszMizEQTAlSH87uWGV5v0wq4Y
-	hyyp87pw==;
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
-	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXdHe-00Bk57-R3
-	for linux-riscv@lists.infradead.org; Mon, 12 Sep 2022 06:51:10 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id q15-20020a17090a304f00b002002ac83485so7262214pjl.0
-        for <linux-riscv@lists.infradead.org>; Sun, 11 Sep 2022 23:50:56 -0700 (PDT)
+	id 1oXdpU-007WFN-VJ
+	for linux-riscv@lists.infradead.org; Mon, 12 Sep 2022 07:26:07 +0000
+Received: by mail-lf1-x130.google.com with SMTP id u18so13363853lfo.8
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Sep 2022 00:26:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date;
-        bh=5bvvWd4WtFmP4+rZD5AyV+ZxO3T7wivPuDP2w82MTho=;
-        b=FP9hdz+N9C/PONsacP63b61e/uNXZATGo+NRzmt/BylcfobvcSASL5nQQa+6oOb5Lr
-         kr2XyLjdEHilcKvSzSLUxyBIcjObULVXS/DfpXb/7o6LceKQ8DB6C4wrtcy/ENLG+vJA
-         meM+ZRxMdNkP6sTTqADSPH1FbB1BVgiDr3uIo/3ll7E2emaSZBVOI2uSk2CcfPPYkk2p
-         qSj3IhyOy5mkICecsju6GUnSQfRrn5p1FG5nOa0Pv5WIHeZmLE63bSuRv4YDHOG3bm0J
-         a1vCeDqnNmQLzulII4+Bnf8jHTPrXjspXTg3Q7nIPkfHs1FSmeykmodRycRazcm7AOFc
-         gG/Q==
+        d=gmail.com; s=20210112;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date;
+        bh=S7qsMOJyMlwVuf8eNuNOSDhJ270g0hn497r6PO6XbXw=;
+        b=Krnw8ElDk+wm306zYuf/qgqXG4VO9Aq8d+XWE2tq44Qx8y/W7EMY2m2//i7kIbEaU9
+         nINjTyDNCFXLJOoBWwNwv1eCp7RzFaprzqaPyWvfFXIaze7+qNWSUdJV5w7HhgYEcdQa
+         Mwket2fkauYFMfkZGaS4LHLkZg+X4l2dHIY7v6WdPkYV08d5Wa/WElHflGvNGPIDE6eP
+         Y/RssHUwKL9D9PVWSJxVbIYlHldJ8LVfo0m1eRl2AhtrjUV57xOfGcWB/IYJYHXA1tPD
+         quLvQbMVye2moBnXy9FWMGQTleum59k8x9Rn6V5Y8dzTMZgF6MfDgnqPuNchpHLTBTtB
+         00jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date;
-        bh=5bvvWd4WtFmP4+rZD5AyV+ZxO3T7wivPuDP2w82MTho=;
-        b=Gr7M3bL0iBem7qyiEqWKRD4XuraGwg3yAUQJXI1e52rZCxBSM/fhHyP0hsF1xW41Z7
-         /r7+/r1b+MroFTFH46QQkY+N9eQz0BkgwYHR03sX06oS1gItjUL+pIjwBk477sP34R9Y
-         8PvzyA9+gNTKaTazc+ywUjqyLS9XQdv81E1HWWyqjAoh6BNqvNkIlUyJz80mnqqINTaL
-         6uk76au3FzGxkcY+SinFra3OLh61RP9HE/SIj7ve+YXbYUuYYDOzqP+pZN5yJmEhTDPA
-         5L6t4rlShwPDNLX1MYQje2iVI/7xOLf2Rsu2M+WObW5D5u/s0WnGjqSFs5Kw99XHgiXZ
-         HJhw==
-X-Gm-Message-State: ACgBeo3v6K9gCkK1xbz/k/uJnyhc2MoFJxImYV+NacYi8C0BjGExYPcL
-	yYTmEQRQF/Z2uJNtmMi88xaQlg==
-X-Google-Smtp-Source: AA6agR7768wxpg0BWBnut+gOBLkDMgBOyzVmCR1vQg/Yp6BRsdW/kl+DoZcjtTlnwkyxI6fdXHU8tA==
-X-Received: by 2002:a17:903:22cc:b0:178:18a1:d16c with SMTP id y12-20020a17090322cc00b0017818a1d16cmr11282283plg.155.1662965454516;
-        Sun, 11 Sep 2022 23:50:54 -0700 (PDT)
-Received: from localhost.localdomain (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id v62-20020a632f41000000b00430c6fd7ffbsm4705716pgv.84.2022.09.11.23.50.51
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=S7qsMOJyMlwVuf8eNuNOSDhJ270g0hn497r6PO6XbXw=;
+        b=fkzLRBnCnaIE0R2xJxkMJhmv4P/xUaUfnQ63AdfVVqM2hlZmKGBT4cPBzgGfvDxFK+
+         F7mTBgIcnyBLLOc0PvdFPWm6iTkuFFDKH9BCIezVX3GnLcv0+ZNITmW5CEB+hc5oSmZj
+         XSs0d2vr9RgxoWNOYc2OKKLNBjlXjYx8NWSgBINt0PcuywjfCHE1lHGpwrDIv4ph/r/c
+         1N7r02hxsdkx54Kz/Jyr9g8qI3C8RcLNXOV9al9FX/aKORoAOTWRgRWW4/RVEyV+Z/pq
+         faKzAq9JuX/C3BMwsLWHUXVlLtx7N0O9ib2oiV7c25Mt82aO34CXKLyBoHG8+gtdmQlA
+         sAsg==
+X-Gm-Message-State: ACgBeo2Y1seZhKlBIUdiywVb7xJx1qTfTaOaKaBn9wa4plNj9pxjrwDg
+	FARjLTWURqkcIRgPy4U7JTQ=
+X-Google-Smtp-Source: AA6agR5F5pOWPsyydsoOnGUkI7IVqKKI0+x0s+O/0hyuEBgA03Rryq1NyCLoDy0+w7swkWktbMuodg==
+X-Received: by 2002:a19:441a:0:b0:498:2943:a34 with SMTP id r26-20020a19441a000000b0049829430a34mr7502148lfa.238.1662967562276;
+        Mon, 12 Sep 2022 00:26:02 -0700 (PDT)
+Received: from curiosity ([5.188.167.245])
+        by smtp.gmail.com with ESMTPSA id d29-20020ac25edd000000b0048a83336343sm897065lfq.252.2022.09.12.00.26.01
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 Sep 2022 23:50:53 -0700 (PDT)
-From: Zong Li <zong.li@sifive.com>
-To: robh+dt@kernel.org,
-	krzysztof.kozlowski+dt@linaro.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	aou@eecs.berkeley.edu,
-	greentime.hu@sifive.com,
-	conor.dooley@microchip.com,
-	ben.dooks@sifive.com,
-	bp@alien8.de,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-edac@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v4 6/6] soc: sifive: ccache: define the macro for the register shifts
-Date: Mon, 12 Sep 2022 06:50:29 +0000
-Message-Id: <20220912065029.1793-7-zong.li@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20220912065029.1793-1-zong.li@sifive.com>
-References: <20220912065029.1793-1-zong.li@sifive.com>
+        Mon, 12 Sep 2022 00:26:01 -0700 (PDT)
+Date: Mon, 12 Sep 2022 10:26:00 +0300
+From: Sergey Matyukevich <geomatsi@gmail.com>
+To: Jinyu Tang <tjytimi@163.com>
+Cc: anup@brainfault.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alexandre.ghiti@canonical.com,
+	guoren@kernel.org, heiko@sntech.de, akpm@linux-foundation.org,
+	panqinglin2020@iscas.ac.cn, tongtiangen@huawei.com,
+	sunnanyong@huawei.com, anshuman.khandual@arm.com,
+	atishp@rivosinc.com, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, falcon@tinylab.org
+Subject: Re: [PATCH v2] riscv: make update_mmu_cache to support asid
+Message-ID: <Yx7fCL3rMgT4Uh96@curiosity>
+References: <20220904133710.117263-1-tjytimi@163.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20220904133710.117263-1-tjytimi@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220912_075107_257863_3E254696 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20220912_002605_065136_8AF99EB9 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,65 +88,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define the macro for the register shifts, it could make the code be
-more readable
+Hi Jinyu,
 
-Signed-off-by: Zong Li <zong.li@sifive.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/soc/sifive/sifive_ccache.c | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+> The `update_mmu_cache` function in riscv flush tlb cache without asid
+> information now, which will flush tlbs in other tasks' address space
+> even if processor supports asid. So add a new function
+> `flush_tlb_local_one_page` to flush local one page whether processor
+> supports asid or not,for cases that need to flush local one page like
+> function `update_mmu_cache`.
+> 
+> Signed-off-by: Jinyu Tang <tjytimi@163.com>
+> ---
+> RFC V1 -> V2 : 
+> 1.Rebased on PATCH9 of IPI imporvement series as Anup Patel
+> suggestion. 
+> 2.Make commit log more clear.
+> 
+>  arch/riscv/include/asm/pgtable.h  |  2 +-
+>  arch/riscv/include/asm/tlbflush.h |  2 ++
+>  arch/riscv/mm/tlbflush.c          | 11 +++++++++++
+>  3 files changed, 14 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/soc/sifive/sifive_ccache.c b/drivers/soc/sifive/sifive_ccache.c
-index 91f0c2b32ea2..1c171150e878 100644
---- a/drivers/soc/sifive/sifive_ccache.c
-+++ b/drivers/soc/sifive/sifive_ccache.c
-@@ -13,6 +13,7 @@
- #include <linux/of_irq.h>
- #include <linux/of_address.h>
- #include <linux/device.h>
-+#include <linux/bitfield.h>
- #include <asm/cacheinfo.h>
- #include <soc/sifive/sifive_ccache.h>
- 
-@@ -33,6 +34,11 @@
- #define SIFIVE_CCACHE_DATECCFAIL_COUNT 0x168
- 
- #define SIFIVE_CCACHE_CONFIG 0x00
-+#define SIFIVE_CCACHE_CONFIG_BANK_MASK GENMASK_ULL(7, 0)
-+#define SIFIVE_CCACHE_CONFIG_WAYS_MASK GENMASK_ULL(15, 8)
-+#define SIFIVE_CCACHE_CONFIG_SETS_MASK GENMASK_ULL(23, 16)
-+#define SIFIVE_CCACHE_CONFIG_BLKS_MASK GENMASK_ULL(31, 24)
-+
- #define SIFIVE_CCACHE_WAYENABLE 0x08
- #define SIFIVE_CCACHE_ECCINJECTERR 0x40
- 
-@@ -87,11 +93,11 @@ static void ccache_config_read(void)
- 	u32 cfg;
- 
- 	cfg = readl(ccache_base + SIFIVE_CCACHE_CONFIG);
--
--	pr_info("%u banks, %u ways, sets/bank=%llu, bytes/block=%llu\n",
--		(cfg & 0xff), (cfg >> 8) & 0xff,
--		BIT_ULL((cfg >> 16) & 0xff),
--		BIT_ULL((cfg >> 24) & 0xff));
-+	pr_info("%llu banks, %llu ways, sets/bank=%llu, bytes/block=%llu\n",
-+		FIELD_GET(SIFIVE_CCACHE_CONFIG_BANK_MASK, cfg),
-+		FIELD_GET(SIFIVE_CCACHE_CONFIG_WAYS_MASK, cfg),
-+		BIT_ULL(FIELD_GET(SIFIVE_CCACHE_CONFIG_SETS_MASK, cfg)),
-+		BIT_ULL(FIELD_GET(SIFIVE_CCACHE_CONFIG_BLKS_MASK, cfg)));
- 
- 	cfg = readl(ccache_base + SIFIVE_CCACHE_WAYENABLE);
- 	pr_info("Index of the largest way enabled: %u\n", cfg);
--- 
-2.17.1
+Just FYI: I have been looking into the same function w.r.t. to its
+ASID/SMP handling. In addition to what your patch is doing with ASID,
+I posted experimental change following flush_icache_mm approach. That
+patch takes into account other concurrently running harts as well as
+possible migration to other harts later on, see:
 
+https://lore.kernel.org/linux-riscv/20220829205219.283543-1-geomatsi@gmail.com/
+
+Regards,
+Sergey
 
 _______________________________________________
 linux-riscv mailing list
