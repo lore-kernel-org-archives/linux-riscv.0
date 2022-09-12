@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 489E1ECAAD5
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 Sep 2022 04:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A82C8ECAAD5
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 Sep 2022 06:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BNFttFgyVODnH24nt2/q6Rjug6gg43fBI1NsZhW0aMY=; b=ZegtVq5zq7Gtwj
-	WnRJY0LXFYMku0lnCvXVpHl0KvnisvC2Lo9Wg+Vh8a5xwzo3I7WXaT1v+1qjg40FpLwwz2ReNQ6Df
-	CuUeTFMZ4Jo23f4cA13e9H6vh6/PPr25upKob8gnuJf7hbbPimE3582vLa7pe+Dut6f9My4JFMjVO
-	5JcZY2jg+McDhfcTmlvkDAFq+UsUDs7v5haNd9rtxrfIvymd0VRH/N28ZOM1v/rtlyAflCAPwxhIv
-	P2hrx/3kqRUPwzkZMjh/5oPLXtNPjF0wqYeaYAAqA+5H6rU3qcqUZW7JMYqN6s7v4xM8C2OSHOOjm
-	+hrA8Z1HSXz3/+FfUibg==;
+	List-Owner; bh=Brg2B7utbQ1ftlvWqvbEeYYMJcSDS4KdiUz7eEJ6d8E=; b=i16aCajUi+oeqU
+	V4+9nUWHh1T5xgFpPe194prtp6v00thRbgg0Wh1c34mjSCskgdhejK1DGqYqa2Ruwi9MNafkyW/m6
+	69NfX7G3irseCRjZDMzRMUZYkHa6cqAZa6ZNMi2d4+M5JKqyZSjjvfDHJg+rTiNEz08imsN6tACMJ
+	IKp2M6lpbMF77CW0Xb85FllPw5zMwUu1iaAwC0YNOv7kuJQoMm7niizBkxsFUdNRP979gbrE+yRxf
+	jjZazKTxc6+l5UAUkXHIK5RcEH48R9LZ9kyKwBjuYoC8hyaTI2wQoCtswWF58WL0uS2HqI8icv4Ii
+	ijK1QFxLO9pj6MO9RvAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXaqQ-006nIw-4N; Mon, 12 Sep 2022 04:14:50 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oXd55-007Gmv-QB; Mon, 12 Sep 2022 06:38:07 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXaqN-006nHr-9Q
-	for linux-riscv@lists.infradead.org; Mon, 12 Sep 2022 04:14:48 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 588C1B80B52
-	for <linux-riscv@lists.infradead.org>; Mon, 12 Sep 2022 04:14:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D83C9C433D7
-	for <linux-riscv@lists.infradead.org>; Mon, 12 Sep 2022 04:14:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1662956083;
-	bh=sZp87uk/tgN5rqc5QTzYD9Bq4Rq7LlVl4d9+OQDuWd0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=UgoRQxD0s6lK7qtaFUSqXDNuE0arJ53kQ2ul9tpM07RE6H1tjrgNLFUULlEXrD80G
-	 +DJPbA8bz/tKv/niKn48unroySBPwGrhyYohZeCCmFgy9Oy9HoenUi6oe8lysPkRQb
-	 +Q62rtjrB2JB1iR16BIlPg1c2v6qUzMfGQoFPT92vt+ncWRQAktrj6nItLzsKv+crS
-	 rapCYE6A+NFgmLiLW24GpCO8zqdopIJzEpg6u1g23rNP5Hq6WSHn8pQPsm0P/dToyn
-	 iwOFj4pGnzO66h6zvqMmDzcSPzPRDRD3cyx8knhGQyg+ixXHanKwogd6EQRF5HSO4w
-	 T625AHkWgdpLA==
-Received: by mail-oo1-f52.google.com with SMTP id d74-20020a4a524d000000b004755f8aae16so530458oob.11
-        for <linux-riscv@lists.infradead.org>; Sun, 11 Sep 2022 21:14:43 -0700 (PDT)
-X-Gm-Message-State: ACgBeo33vZL+1cmQ6k6WzEKtwhW0DFtMyDXKUda22gyQ0W1frOZFM32L
-	obxPGonEizoNpR2vkRqto+3uOAeTz5MNrXwof0s=
-X-Google-Smtp-Source: AA6agR7uDujU33x2bd2IE9CjZsZh6lUsGTAK6HB7wAtIzyneeQRmIZl02YvTJ1zW3uuOI+4PPRCPIWutLY0xxHp6Bb4=
-X-Received: by 2002:a4a:d8cc:0:b0:475:5c7e:eb3e with SMTP id
- c12-20020a4ad8cc000000b004755c7eeb3emr2387976oov.48.1662956082996; Sun, 11
- Sep 2022 21:14:42 -0700 (PDT)
+	id 1oXd53-007GlY-0O
+	for linux-riscv@lists.infradead.org; Mon, 12 Sep 2022 06:38:06 +0000
+Received: by mail-lf1-x130.google.com with SMTP id q21so13298552lfo.0
+        for <linux-riscv@lists.infradead.org>; Sun, 11 Sep 2022 23:38:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=6MMFOsdik3pOVxza5iFw67+zQvf/yIVZHtdOoLDh9XA=;
+        b=WBHyt8tStNEomzn+/msR7XqF/ADGnzCqlpOgYyuTl9iS4felZamXZBRCDP0wkg8l4R
+         fV0ajIesocWpV+qkZk7ucUVPVljcFmi1gppGcQ39zw/MdY3OaKKpXa2+KAEzcCDsWJCb
+         YBFw+HGsnM+pYVt73fG5IHj4mit/jgCc+fc82ai5AYNJ6x38I5qethpk/vJg07qVRFs8
+         HZC1Ev/RjvySyWmKUC46gT5n+2+94pblkCEqx98gZ6P4t1Cvz3eLBfjp37QJqhEkr4Zx
+         +YlPi400FroQQTn0yRA7lE9kfYLTg7gd4xDoXrAn56m7jJac34t5p/lCI9l10F4KwMHz
+         z4jg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=6MMFOsdik3pOVxza5iFw67+zQvf/yIVZHtdOoLDh9XA=;
+        b=REVq4LDGXFmsAU5+N3iORYBPg+QGiTzQrKndu2dFIqy3rYbiL5L04DRn1HKk3FiFnC
+         Jkfc5qLIFRh9xeoXfCP1BG7bpGBXCfbpFRXOsepEKu78qduMkkbtjyhFobIrDYFTyhpP
+         U+umk+CBtVxwmTRCfwHWBSc8uZjuJMsoEr2rS9vavYMff5wrDWYwHXIgRX0wkoZHkh6H
+         5C1UnDLvizGs1XnfUCfLDB82wsuVuQ17/LUfV2ZUdIyrbJEhxhGnu/CHvl3S05bHvmSc
+         acR+nK9GzstE9EAWg7ROK6lQyPtQYEJQ54ybVR5oDETQuvXHkHjiklCc/2m/vGHvvTdW
+         FMZA==
+X-Gm-Message-State: ACgBeo2W+Z+3pRzjW7JpMBS3iiS5pL7jOzEYRRDcUy/z1U82eeEVCS+A
+	JplLIVWVPYRhCx3fLajq7ByA2/drehj1Ydhm0zvFizp/X+0=
+X-Google-Smtp-Source: AA6agR4TNG/RUu6QvTb9n6GXwBlk0k8cBa5EHKOtjXVmvbElP2VBINK++CQPC2Fa7/4D5YPELdVxUs9VgUcSmTm1/68=
+X-Received: by 2002:ac2:5681:0:b0:498:f58f:c006 with SMTP id
+ 1-20020ac25681000000b00498f58fc006mr5016032lfr.428.1662964679707; Sun, 11 Sep
+ 2022 23:37:59 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220908022506.1275799-1-guoren@kernel.org> <20220908022506.1275799-9-guoren@kernel.org>
- <4babce64-e96d-454c-aa35-243b3f2dc315@www.fastmail.com> <CAJF2gTQAMCjNyqrSOvqDAKR5Z-PZiTVxmoK9cvNAVQs+k2fZBg@mail.gmail.com>
- <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com> <CAJF2gTRnY+vc2nKbqubTZvv+FWVgO3yCK4LcwpeNgx51JuETzw@mail.gmail.com>
- <7409c92a-68df-4406-bd86-835d9a959ef5@www.fastmail.com>
-In-Reply-To: <7409c92a-68df-4406-bd86-835d9a959ef5@www.fastmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Mon, 12 Sep 2022 12:14:29 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRxt_b2TswE6YJgmFZeRyVzV7fQdMX+7Ptrfa_k=auSjg@mail.gmail.com>
-Message-ID: <CAJF2gTRxt_b2TswE6YJgmFZeRyVzV7fQdMX+7Ptrfa_k=auSjg@mail.gmail.com>
-Subject: Re: [PATCH V4 8/8] riscv: Add config of thread stack size
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, 
-	Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, 
-	"Conor.Dooley" <conor.dooley@microchip.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Jisheng Zhang <jszhang@kernel.org>, lazyparser@gmail.com, falcon@tinylab.org, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <apatel@ventanamicro.com>, 
-	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Linux-Arch <linux-arch@vger.kernel.org>, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Guo Ren <guoren@linux.alibaba.com>, Andreas Schwab <schwab@suse.de>
+References: <20220908144424.4232-1-zong.li@sifive.com> <20220908144424.4232-4-zong.li@sifive.com>
+ <632b2853-1543-e3ba-b34f-39f3f4fdaddc@microchip.com>
+In-Reply-To: <632b2853-1543-e3ba-b34f-39f3f4fdaddc@microchip.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Mon, 12 Sep 2022 14:37:48 +0800
+Message-ID: <CANXhq0rUzyFOF_pShoPf18VrN2YH8AfgKRg438ak_3iMcRfSGA@mail.gmail.com>
+Subject: Re: [PATCH v3 3/6] soc: sifive: ccache: determine the cache level
+ from dts
+To: Conor Dooley <Conor.Dooley@microchip.com>
+Cc: Rob Herring <robh+dt@kernel.org>, krzysztof.kozlowski+dt@linaro.org, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Greentime Hu <greentime.hu@sifive.com>, 
+	Ben Dooks <ben.dooks@sifive.com>, bp@alien8.de, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, linux-riscv <linux-riscv@lists.infradead.org>, 
+	linux-edac@vger.kernel.org, 
+	"linux-kernel@vger.kernel.org List" <linux-kernel@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220911_211447_672082_3EE232E6 
-X-CRM114-Status: GOOD (  27.69  )
+X-CRM114-CacheID: sfid-20220911_233805_129262_33F07591 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +91,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 12, 2022 at 2:40 AM Arnd Bergmann <arnd@arndb.de> wrote:
+On Fri, Sep 9, 2022 at 2:28 AM <Conor.Dooley@microchip.com> wrote:
 >
+> On 08/09/2022 15:44, Zong Li wrote:
+> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> >
+> > Composable cache could be L2 or L3 cache, use 'cache-level' property of
+> > device node to determine the level.
+> >
+> > Signed-off-by: Zong Li <zong.li@sifive.com>
+> > Signed-off-by: Greentime Hu <greentime.hu@sifive.com>
+> > ---
+> >  drivers/soc/sifive/sifive_ccache.c | 6 +++++-
+> >  1 file changed, 5 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/soc/sifive/sifive_ccache.c b/drivers/soc/sifive/sifive_ccache.c
+> > index 949b824e89ad..690c19489317 100644
+> > --- a/drivers/soc/sifive/sifive_ccache.c
+> > +++ b/drivers/soc/sifive/sifive_ccache.c
+> > @@ -38,6 +38,7 @@
+> >  static void __iomem *ccache_base;
+> >  static int g_irq[SIFIVE_CCACHE_MAX_ECCINTR];
+> >  static struct riscv_cacheinfo_ops ccache_cache_ops;
+> > +static int level;
+> >
+> >  enum {
+> >         DIR_CORR = 0,
+> > @@ -144,7 +145,7 @@ static const struct attribute_group *ccache_get_priv_group(struct cacheinfo
+> >                                                            *this_leaf)
+> >  {
+> >         /* We want to use private group for composable cache only */
+> > -       if (this_leaf->level == 2)
+> > +       if (this_leaf->level == level)
+> >                 return &priv_attr_group;
+> >         else
+> >                 return NULL;
+> > @@ -215,6 +216,9 @@ static int __init sifive_ccache_init(void)
+> >         if (!ccache_base)
+> >                 return -ENOMEM;
+> >
+> > +       if (of_property_read_u32(np, "cache-level", &level))
+> > +               return -ENODEV;
 >
+> I think ENOENT or EINVAL are more comment patterns here?
 >
-> On Sun, Sep 11, 2022, at 1:35 AM, Guo Ren wrote:
-> > On Sun, Sep 11, 2022 at 12:07 AM Arnd Bergmann <arnd@arndb.de> wrote:
-> >>
-> >> On Sat, Sep 10, 2022, at 2:52 PM, Guo Ren wrote:
-> >> > On Thu, Sep 8, 2022 at 3:37 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> >> >> On Thu, Sep 8, 2022, at 4:25 AM, guoren@kernel.org wrote:
-> >> >> > From: Guo Ren <guoren@linux.alibaba.com>
-> >> >> - When VMAP_STACK is set, make it possible to select non-power-of-two
-> >> >>   stack sizes. Most importantly, 12KB should be a really interesting
-> >> >>   choice as 8KB is probably still not enough for many 64-bit workloads,
-> >> >>   but 16KB is often more than what you need. You probably don't
-> >> >>   want to allow 64BIT/8KB without VMAP_STACK anyway since that just
-> >> >>   makes it really hard to debug, so hiding the option when VMAP_STACK
-> >> >>   is disabled may also be a good idea.
-> >> > I don't want this config to depend on VMAP_STACK. Some D1 chips would
-> >> > run with an 8K stack size and !VMAP_STACK.
-> >>
-> >> That sounds like a really bad idea, why would you want to risk
-> >> using such a small stack without CONFIG_VMAP_STACK?
-> >>
-> >> Are you worried about increased memory usage or something else?
-> > The requirement is from [1], and I think disabling CONFIG_VMAP_STACK
-> > would be the last step after serious testing.
+> Either way,
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 >
-> I still don't see why you need to turn off VMAP_STACK at all
-> if it works. The only downside I can see with using VMAP_STACK
-> on a 64-bit system is that it may expose bugs with device
-> drivers that do DMA to stack data. Once you have tested the
-> system successfully, you can also assume that you have no such
-> drivers.
-1st, VMAP_STACK could be enabled&disabled in arch/Kconfig. If we don't
-force users to enable VMAP_STACK, why couldn't user adjust
-THREAD_SIZE?
-2nd, VMAP_STACK is not free, we still need 1KB shadow_stack.
-The EXPERT is enough for your concern.
 
+I will fix it in V4 patch. Thanks
 
+> > +
+> >         intr_num = of_property_count_u32_elems(np, "interrupts");
+> >         if (!intr_num) {
+> >                 pr_err("CCACHE: no interrupts property\n");
+> > --
+> > 2.17.1
+> >
 >
->      Arnd
-
-
-
---
-Best Regards
- Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
