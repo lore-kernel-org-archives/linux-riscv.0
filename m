@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F477C6FA8B
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 Sep 2022 06:19:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B909C6FA86
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 Sep 2022 06:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=umcYFFw+WWy6r1OSwM+Liivra1kOWdHw6ZTZfIkWX4c=; b=mXaLG2DblfFILs
-	6RDhJRL0ddzS1e1ePhwTNXjV1Yf3GqRY1iZ4t/R7ieHBvMo8i2EyEdvInlvVleNptsNBFZ+zvUuVw
-	8zoE8Jc0rLTdvm1Cj/RM1/ojAq6bkEy2vVSysUybK0rylCp2rDCh0LCINHMfzsen7I4IWU42d9bVS
-	VJ4jOgZntwzH35/WScEbViTKidJNG6FLVsmzOVWI1/ogLDnOcnqdpl1yK4I/rJJYvmm412cMi3jX6
-	Ok6DgFIQJJpKAG7t/olVSFqmFs7e0+4kv1q0W/op6wo5b4fUwO58FGjToPjvPhVp4fUcTgXJ/+9J5
-	46SBqMELlHwDhdViLmug==;
+	List-Owner; bh=ETVQ6K+E0MeJ6oe+pMNDxriWOu00SMWDc9v50o4Bzzk=; b=zlVCECE0DS2c/Q
+	GR7SCP/VpYKHHA0Iz1CvVcdkGYsbHcq8OcatdbMI3sA/0MtNM1jgQanP24kBqASR6lnnSFngehAGY
+	wehjTk8od5yFOlNgTqoImOkpl1mNc6o0VoShahL9ht3u6UiBT2M2OPsh1MxoomC9TShYgdR4P/dkv
+	ClpNe/RKizi69IVlnkAODtA+sHZuVricAhwBH6uqbTXnHcSh2SjSL2BHRS6GhJWEAx6O6ZhuNLBXv
+	+yc1/T+MRGW//PJk8WLWkZDq+KOqZ/vxVfREnAqr+iFq0HIIgMpMuzNDVgU5oYB7QvI2WHFmhuvGE
+	25TYSsQi1e+BrI3OmpqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXzFo-002saW-N3; Tue, 13 Sep 2022 06:18:40 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1oXzFt-002sfj-U3; Tue, 13 Sep 2022 06:18:46 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oXzFk-002sXL-U0
-	for linux-riscv@lists.infradead.org; Tue, 13 Sep 2022 06:18:38 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id q63so10379216pga.9
-        for <linux-riscv@lists.infradead.org>; Mon, 12 Sep 2022 23:18:36 -0700 (PDT)
+	id 1oXzFq-002sZa-LD
+	for linux-riscv@lists.infradead.org; Tue, 13 Sep 2022 06:18:44 +0000
+Received: by mail-pf1-x435.google.com with SMTP id b75so5541299pfb.7
+        for <linux-riscv@lists.infradead.org>; Mon, 12 Sep 2022 23:18:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=sifive.com; s=google;
         h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
          :cc:subject:date;
-        bh=6Xe3R/apOfj9yPTgHstXk1duLFBJjDM/Rtwt0f9H5Eo=;
-        b=IgoMd+u3Sm/bJS7kCMLfQkYbB0LDum24SEmPzf81Dli83n/7DWclAijuMnc2ag70Dj
-         C8p4BqoBvQuAuLEz6gUs8vSbA5gGTEafAglSpKreyZuFw2ZX63tqtZ8U/dHkSyygD5fG
-         Yfo0PXzP7PvU5CVP8Ddfrlgksld0VirTSAP30glA91Q7ZhFXwsMMUkR+d+JY/qB5+GQL
-         qIYUs5FVpgRIWY72xdriOzcJKiXQ4/I12hNhcpWveBIPHQRhS/psJkE7lT/37q9dZy0R
-         fmI1kyNum/HPtVCrJwaXU+M8o9K8EWxGWltQfz24RbeL/+YS/FYNF9qYVxz9lESgCbWr
-         yu/A==
+        bh=KI8GGOYVJ30lpXYNmzlWaq92ei+up8qB7deF01pAkE4=;
+        b=CZ+teBhlhis5wFUYdxdcaWhEgOEww+/Db4CC4fbPu9/xi2buOMzifHhDyLjViSrSW1
+         4LEDGvKRsB2t1fX4qyDlRaKfszPSOC/JDYqLVU13V9CibT1P5fsjYuhA8wnc/mELjdpQ
+         p3R2r+ZZ363BoLJp8AxyyyDCp47W1fDmTPKVMvLjTjR/IEUss0jXx0A3DUjNgiR9hxM6
+         TizW5hVag/yLzs2dSsnA8MGIZOwz4mXxfAYXQedGlQHwoj4Fjs5WlhZXxPI9UJ9bKaTu
+         ovjYEDVdshxcAJ8+0xgV58BiFJAuLTX1xNFPtSerANdu5gbUK0BBkdJVMbOvLrXPUAVb
+         Y4Gw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=references:in-reply-to:message-id:date:subject:cc:to:from
          :x-gm-message-state:from:to:cc:subject:date;
-        bh=6Xe3R/apOfj9yPTgHstXk1duLFBJjDM/Rtwt0f9H5Eo=;
-        b=u981qASwsdpCJlrI8boQD08mMSsPOT914bwjYDXNWF3lyby+MZRgfajkN71gyI+B+K
-         pkvNdk2WUvNjmXdXQniILXCd89Zza+sM2JKBfPMV0dkW0Nr11oL6eYeJeE7xqrdXrcYQ
-         NXPdpXoFmQGwL1ZPc5X7RievOWAoVwpjYmcZiwBxM5BjZHnvX2BOsDesP40M93HBH9oE
-         t7sqAMwfXTxZZuXjkUT8GDjoxlEqqmtiRKr57WmN2WdXE+zxriJnomPL/TKZq3s7T1Lj
-         ofwe/rF+6/Mvfl0bCHxvOf2337a+u6UsQM01fQp4X0mc4Qa/sN4JH65NjT+2Nirhdu1s
-         A/wQ==
-X-Gm-Message-State: ACgBeo3pidyIeb6MCv2OfkcIea7fHasCcpujfR+RF5oUY4/6oDUbyfWW
-	bMVBem8d7XUCd2ZT0vQoy1FPQg==
-X-Google-Smtp-Source: AA6agR4wJMWC1gO3gMaes8hVyStuNQfqovIqF+q7yPPAeBfyztWmRp9gIz2JfroB/V12MFPD76hGfQ==
-X-Received: by 2002:a05:6a00:2181:b0:51b:560b:dd30 with SMTP id h1-20020a056a00218100b0051b560bdd30mr31748430pfi.44.1663049916137;
-        Mon, 12 Sep 2022 23:18:36 -0700 (PDT)
+        bh=KI8GGOYVJ30lpXYNmzlWaq92ei+up8qB7deF01pAkE4=;
+        b=3NPv6x9gKrHlxTBBKM1xmNrz0qM0dklSb1wYmdjwVhiUdn74p/4YPk4mIwZFDDFtXc
+         IAW6L1T9BJBocYS1v+l1Aq52huETmj23RnbFZS/PoHroDaDf1DDNGo1bPZD0Jsvo0QIV
+         LxNwPIooIeq4yTtAI2mWqaOlCvfFjpLx1egYmGBkU1aLh/TJUvuV6DvN8PV+LztJ35Cg
+         RFx4/SPW6f2/3uncEQPk3wSUauKmoMIe+JsURqaiD7DgfMT1ZW/2+be7mjzXLYfbsSeh
+         cCVCnLdriiAZSISCpNH7xtS3JtswrGkVTkSZdBX1aKU7uHEqAfwxNIBuviuGgEBs1iVx
+         DSlA==
+X-Gm-Message-State: ACgBeo3V8N1wSgxykvNg+86hbFreE3gvoF+Ps++gmAdg3yeTFtcgYHbb
+	1T5YSkTPiYShqcIuuM8WV9Wggw==
+X-Google-Smtp-Source: AA6agR5lAPSERiuwyxmqPgFoLJ1TQBeoJcDfyodPk4tCaG6Q3ueHdqIL7Mw7gf8jctkZyHhapVK8Tw==
+X-Received: by 2002:a05:6a00:1ac7:b0:537:4186:c106 with SMTP id f7-20020a056a001ac700b005374186c106mr31355839pfv.76.1663049919084;
+        Mon, 12 Sep 2022 23:18:39 -0700 (PDT)
 Received: from localhost.localdomain (59-124-168-89.hinet-ip.hinet.net. [59.124.168.89])
-        by smtp.gmail.com with ESMTPSA id z11-20020a170902cccb00b00173cfaed233sm7296332ple.62.2022.09.12.23.18.33
+        by smtp.gmail.com with ESMTPSA id z11-20020a170902cccb00b00173cfaed233sm7296332ple.62.2022.09.12.23.18.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 Sep 2022 23:18:35 -0700 (PDT)
+        Mon, 12 Sep 2022 23:18:38 -0700 (PDT)
 From: Zong Li <zong.li@sifive.com>
 To: robh+dt@kernel.org,
 	krzysztof.kozlowski+dt@linaro.org,
@@ -73,15 +73,15 @@ To: robh+dt@kernel.org,
 	linux-edac@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Zong Li <zong.li@sifive.com>
-Subject: [PATCH v5 4/7] soc: sifive: ccache: reduce printing on init
-Date: Tue, 13 Sep 2022 06:18:14 +0000
-Message-Id: <20220913061817.22564-5-zong.li@sifive.com>
+Subject: [PATCH v5 5/7] soc: sifive: ccache: use pr_fmt() to remove CCACHE: prefixes
+Date: Tue, 13 Sep 2022 06:18:15 +0000
+Message-Id: <20220913061817.22564-6-zong.li@sifive.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20220913061817.22564-1-zong.li@sifive.com>
 References: <20220913061817.22564-1-zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220912_231836_991899_6FB3B7A7 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20220912_231842_739392_7B724F97 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,56 +101,92 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Ben Dooks <ben.dooks@sifive.com>
 
-The driver prints out 6 lines on startup, which can easily be redcued
-to two lines without losing any information.
-
-Note, to make the types work better, uint64_t has been replaced with
-ULL to make the unsigned long long match the format in the print
-statement.
+Use the pr_fmt() macro to prefix all the output with "CCACHE:"
+to avoid having to write it out each time, or make a large diff
+when the next change comes along.
 
 Signed-off-by: Ben Dooks <ben.dooks@sifive.com>
 Signed-off-by: Zong Li <zong.li@sifive.com>
 Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- drivers/soc/sifive/sifive_ccache.c | 25 +++++++++++--------------
- 1 file changed, 11 insertions(+), 14 deletions(-)
+ drivers/soc/sifive/sifive_ccache.c | 17 ++++++++++-------
+ 1 file changed, 10 insertions(+), 7 deletions(-)
 
 diff --git a/drivers/soc/sifive/sifive_ccache.c b/drivers/soc/sifive/sifive_ccache.c
-index b361b661ea09..17080af7dfa0 100644
+index 17080af7dfa0..91f0c2b32ea2 100644
 --- a/drivers/soc/sifive/sifive_ccache.c
 +++ b/drivers/soc/sifive/sifive_ccache.c
-@@ -81,20 +81,17 @@ static void setup_sifive_debug(void)
+@@ -5,6 +5,9 @@
+  * Copyright (C) 2018-2022 SiFive, Inc.
+  *
+  */
++
++#define pr_fmt(fmt) "CCACHE: " fmt
++
+ #include <linux/debugfs.h>
+ #include <linux/interrupt.h>
+ #include <linux/of_irq.h>
+@@ -85,13 +88,13 @@ static void ccache_config_read(void)
  
- static void ccache_config_read(void)
- {
--	u32 regval, val;
--
--	regval = readl(ccache_base + SIFIVE_CCACHE_CONFIG);
--	val = regval & 0xFF;
--	pr_info("CCACHE: No. of Banks in the cache: %d\n", val);
--	val = (regval & 0xFF00) >> 8;
--	pr_info("CCACHE: No. of ways per bank: %d\n", val);
--	val = (regval & 0xFF0000) >> 16;
--	pr_info("CCACHE: Sets per bank: %llu\n", (uint64_t)1 << val);
--	val = (regval & 0xFF000000) >> 24;
--	pr_info("CCACHE: Bytes per cache block: %llu\n", (uint64_t)1 << val);
--
--	regval = readl(ccache_base + SIFIVE_CCACHE_WAYENABLE);
--	pr_info("CCACHE: Index of the largest way enabled: %d\n", regval);
-+	u32 cfg;
-+
-+	cfg = readl(ccache_base + SIFIVE_CCACHE_CONFIG);
-+
-+	pr_info("CCACHE: %u banks, %u ways, sets/bank=%llu, bytes/block=%llu\n",
-+		(cfg & 0xff), (cfg >> 8) & 0xff,
-+		BIT_ULL((cfg >> 16) & 0xff),
-+		BIT_ULL((cfg >> 24) & 0xff));
-+
-+	cfg = readl(ccache_base + SIFIVE_CCACHE_WAYENABLE);
-+	pr_info("CCACHE: Index of the largest way enabled: %u\n", cfg);
+ 	cfg = readl(ccache_base + SIFIVE_CCACHE_CONFIG);
+ 
+-	pr_info("CCACHE: %u banks, %u ways, sets/bank=%llu, bytes/block=%llu\n",
++	pr_info("%u banks, %u ways, sets/bank=%llu, bytes/block=%llu\n",
+ 		(cfg & 0xff), (cfg >> 8) & 0xff,
+ 		BIT_ULL((cfg >> 16) & 0xff),
+ 		BIT_ULL((cfg >> 24) & 0xff));
+ 
+ 	cfg = readl(ccache_base + SIFIVE_CCACHE_WAYENABLE);
+-	pr_info("CCACHE: Index of the largest way enabled: %u\n", cfg);
++	pr_info("Index of the largest way enabled: %u\n", cfg);
  }
  
  static const struct of_device_id sifive_ccache_ids[] = {
+@@ -155,7 +158,7 @@ static irqreturn_t ccache_int_handler(int irq, void *device)
+ 	if (irq == g_irq[DIR_CORR]) {
+ 		add_h = readl(ccache_base + SIFIVE_CCACHE_DIRECCFIX_HIGH);
+ 		add_l = readl(ccache_base + SIFIVE_CCACHE_DIRECCFIX_LOW);
+-		pr_err("CCACHE: DirError @ 0x%08X.%08X\n", add_h, add_l);
++		pr_err("DirError @ 0x%08X.%08X\n", add_h, add_l);
+ 		/* Reading this register clears the DirError interrupt sig */
+ 		readl(ccache_base + SIFIVE_CCACHE_DIRECCFIX_COUNT);
+ 		atomic_notifier_call_chain(&ccache_err_chain,
+@@ -175,7 +178,7 @@ static irqreturn_t ccache_int_handler(int irq, void *device)
+ 	if (irq == g_irq[DATA_CORR]) {
+ 		add_h = readl(ccache_base + SIFIVE_CCACHE_DATECCFIX_HIGH);
+ 		add_l = readl(ccache_base + SIFIVE_CCACHE_DATECCFIX_LOW);
+-		pr_err("CCACHE: DataError @ 0x%08X.%08X\n", add_h, add_l);
++		pr_err("DataError @ 0x%08X.%08X\n", add_h, add_l);
+ 		/* Reading this register clears the DataError interrupt sig */
+ 		readl(ccache_base + SIFIVE_CCACHE_DATECCFIX_COUNT);
+ 		atomic_notifier_call_chain(&ccache_err_chain,
+@@ -185,7 +188,7 @@ static irqreturn_t ccache_int_handler(int irq, void *device)
+ 	if (irq == g_irq[DATA_UNCORR]) {
+ 		add_h = readl(ccache_base + SIFIVE_CCACHE_DATECCFAIL_HIGH);
+ 		add_l = readl(ccache_base + SIFIVE_CCACHE_DATECCFAIL_LOW);
+-		pr_err("CCACHE: DataFail @ 0x%08X.%08X\n", add_h, add_l);
++		pr_err("DataFail @ 0x%08X.%08X\n", add_h, add_l);
+ 		/* Reading this register clears the DataFail interrupt sig */
+ 		readl(ccache_base + SIFIVE_CCACHE_DATECCFAIL_COUNT);
+ 		atomic_notifier_call_chain(&ccache_err_chain,
+@@ -218,7 +221,7 @@ static int __init sifive_ccache_init(void)
+ 
+ 	intr_num = of_property_count_u32_elems(np, "interrupts");
+ 	if (!intr_num) {
+-		pr_err("CCACHE: no interrupts property\n");
++		pr_err("No interrupts property\n");
+ 		return -ENODEV;
+ 	}
+ 
+@@ -227,7 +230,7 @@ static int __init sifive_ccache_init(void)
+ 		rc = request_irq(g_irq[i], ccache_int_handler, 0, "ccache_ecc",
+ 				 NULL);
+ 		if (rc) {
+-			pr_err("CCACHE: Could not request IRQ %d\n", g_irq[i]);
++			pr_err("Could not request IRQ %d\n", g_irq[i]);
+ 			return rc;
+ 		}
+ 	}
 -- 
 2.17.1
 
