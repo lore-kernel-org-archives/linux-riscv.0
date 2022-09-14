@@ -4,161 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D09AEC6FA82
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 Sep 2022 19:32:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 497DCECAAD3
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 Sep 2022 19:52:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
-	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4wiT3ULdby/GCT57chj5G12NC84VO+/vwuZMwzot+NY=; b=Go5D0g0l9ARiVs
-	aaUQvoyp4UDXPZvVZizcTJSymrvVRKA5OgZQZlG5ZZhgtG0OVhbylCXkZGzrllgCgsLxVATsxJePy
-	xu66flB2Smrd2XPnM1OXBIDGDPrjIKtx4fEj7/80TR6q3xYiiTdHbz6TFfYIQYNAFcbf9pJqrMvQT
-	l3pJorQjE3Aq79Lgcry0KfsyiYVNGIpz8yNQDFJAXoEpKfgxzM+ASeRApzfR3i2Y3NdTPXV4Pxqbp
-	j1U+0OejQ8zuPFPYemxP8zhJG43Pqve2lMLS2rh3rfexT9AUwu+X6LJL6glXj8i4YfFMtKgPA4eyI
-	WzY2927Qa64InePed6qg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZToajrXNwMswyoxyAqqWtEJupK+r6e/LYJAVSzZd3v4=; b=xKDuJWKln8BCVk
+	pAwUSFRcvyK8kNKj5Pb+XC2/zcUFDB6861tYzHzF+bdM6X+9CkL8cTbiqdLaoQlcLyt+KoMt426w7
+	F0NfSCtdiYqaTF3pp0vzBSEtk2zqi4PZkwkdeA0ToHV65Ah0TbiSdeEH/YCwhaVX+XTbbXDanrhiG
+	rFvD+r6Vy/JGhQNIqjlNdjbdUgNP6D8/OHQWJ2ceRmbHveySrWHKJotTcZRkW3jRzOZuv+wLdR8aX
+	d5Fz2HVEH9O1xi1xNbYz3qmg48uWzHIQYtaK80i7lIYzecATc0lBm0ofS7WWyABjxEO/i35x1ZMgZ
+	wvA2YjfDPck2hIzQ+bpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYY7M-008Pv7-76; Wed, 14 Sep 2022 19:32:16 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1oYYR4-008con-6X; Wed, 14 Sep 2022 19:52:38 +0000
+Received: from mga09.intel.com ([134.134.136.24])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYY7I-008Paf-G0
-	for linux-riscv@lists.infradead.org; Wed, 14 Sep 2022 19:32:14 +0000
+	id 1oYYR0-008cfS-Uk; Wed, 14 Sep 2022 19:52:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1663183933; x=1694719933;
-  h=from:to:cc:subject:date:message-id:references:
-   in-reply-to:content-id:content-transfer-encoding:
-   mime-version;
-  bh=5PzsC09ezsw9opr10H9WRNLA78jaGmbQCO4DOAw8q9Q=;
-  b=jgJPdtR/i/G9GLarvVMMLHMJH/jbeaW/0ScQbKxHn8X+VBT2Nnv3JUwp
-   eyV4gB9Q7t5ywpjykPox5g7brGjYhMeqff0X/XGtW0OHFeVS70MZ3waQW
-   xSw+VlXYeO+YC1xO+3Xa+uLl9cKbVNodKoFAzcpTnkI6wc7qiikAdHpnR
-   qBvYQXu9u+1kRQKvJCKJkwWxUPVB46UBGMn/YEbEj95JkrNTrzXTJ1PEK
-   arys9WbyRVl89rO1bXmhjCOGJxPffzKRsp/tCqgq7b90L7zGGfbRkX+yX
-   bJFSb9XzNv93vyMwWQh0n3zuyi49zacOt3fEeYT9AYR/1c3qWEHPlVkpc
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1663185154; x=1694721154;
+  h=date:from:to:cc:subject:message-id:mime-version:
+   content-transfer-encoding;
+  bh=jZqDuUhr02I6XM8gbXAnzYh6mgvieDOasy2R0lTbdVk=;
+  b=QMdPpXYDlrmWwhF9gI7M8oN9GblfUyCxKlDYzzWynZFbwpHPippwprH1
+   FgRhG5k70RZgCMgtFjl5ORpXYQY4I/+quqU4C7peeC1VluY/8DElUe+CR
+   6SCoBfBqB2Eo0EwGbezPsRc5VrF+OKjffZ9Zy+Cwbm9SlmJn73syN2sSN
+   phVvR4ZhM/DWnj8Q02LYTIzIJmqlDu9JgGuSDsW0urVBrt9j2uio97nop
+   jUXaZz7XgUjoDxv++ZTZbAR3VcOVu4NaLRSSp+ysWboBW52hQe6h/URRw
+   Fr0rZ67DPxq3zSqJMMMqDUgu6kPa0pzsfGiDcWPqiZTNNWjU7Jpg7YVhb
    g==;
+X-IronPort-AV: E=McAfee;i="6500,9779,10470"; a="299341011"
 X-IronPort-AV: E=Sophos;i="5.93,315,1654585200"; 
-   d="scan'208";a="180414213"
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 14 Sep 2022 12:32:07 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Wed, 14 Sep 2022 12:32:06 -0700
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (10.10.215.89) by
- email.microchip.com (10.10.87.151) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12 via Frontend Transport; Wed, 14 Sep 2022 12:32:06 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=U5EFQ8m1JpHeUUWO+tQ/Y6IDYg0Ty1GTgQLm7vCWwSpDX6l6DQNdt7Y1vMP3aSEcvA7wil2wSEEoPT/UwdVLxlBUPFzef3+neuxrSm16p9p/VDRM/9b++CtdWWONVF/yycuwNT1yggS3vMCgEnp40bbZXxL1Ddn+aBf5R1D/bT0dOjDSF8LNhyVgVjl+NoL39S2GhvEu60nX4o7BybJ8Dm3p9Q+nZbJQ1p83G4YvCRWtUto37TujdGS/0wFOWf+bQ5Q6KKTCoHlR3Mp2wCkl41605ogio/jomc4Cea9h1Ztih489OWUp1kGWlhVsayJomu5oo4dTXd0FoKjv9+Tcew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5PzsC09ezsw9opr10H9WRNLA78jaGmbQCO4DOAw8q9Q=;
- b=m7cxJpn2QE2Y3VQL7XkajokwK5GAutIpHCzdEyoWUY08CuOeB05xPn3Q1yW3OJwfmdRaZqsXZehu6SucAlgfYECfDYGZ7AfFC9fnZHnTJb3ZQiXjD2L8YBWEtGy9spdij946DH90X2R/Fhjr5c47FtzdUQo3Q2mKMY5jfAjrqKle0rME0Sa5gNDG9G170Uddp+a4dB3X2bMfkk8tlWWH8Xr9bvBEE2eKkqBksqE/3lQcKkyZxuxmle6jE3zLsM5V1OK6DJQQLh+LbWDkkBhgo5Je9r0RNPh0MSd177zFKIIE5fAjjFYNPyQjAYG+Cx7O5n0PqETcrfGjv9p07tZuIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=microchiptechnology.onmicrosoft.com;
- s=selector2-microchiptechnology-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5PzsC09ezsw9opr10H9WRNLA78jaGmbQCO4DOAw8q9Q=;
- b=hBCAD5FNR8Rpmo2UVnsunL/59/yxkCA1rl9DMAHISZdCgqjjpL3mBPb4/U9DjUBZymjj+LUND2m/pZywRzWaVZCOKmcQlHCozlicElzhYm9+d9O2oUjf5BufaH4J+mayjB/U7rxBZcaqkgTLLpnGUnB/GaRarfTSGp0BN7P9HvA=
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
- by BN9PR11MB5307.namprd11.prod.outlook.com (2603:10b6:408:118::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5612.14; Wed, 14 Sep
- 2022 19:32:01 +0000
-Received: from CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::545a:72f5:1940:e009]) by CO1PR11MB5154.namprd11.prod.outlook.com
- ([fe80::545a:72f5:1940:e009%3]) with mapi id 15.20.5612.022; Wed, 14 Sep 2022
- 19:32:01 +0000
-From: <Conor.Dooley@microchip.com>
-To: <heiko@sntech.de>, <palmer@rivosinc.com>
-CC: <linux-riscv@lists.infradead.org>, <nathan@kernel.org>,
-	<mail@conchuod.ie>, <atishp@atishpatra.org>, <ajones@ventanamicro.com>,
-	<anup@brainfault.org>, <lkp@intel.com>
-Subject: Re: [PATCH] RISC-V: move riscv_cbom_block_size to the correct #ifdef
- block
-Thread-Topic: [PATCH] RISC-V: move riscv_cbom_block_size to the correct #ifdef
- block
-Thread-Index: AQHYyEeGuo8Fx4+tsUK8Avc6BmWIUq3fUMIA
-Date: Wed, 14 Sep 2022 19:32:01 +0000
-Message-ID: <e7e5a415-e097-a56e-880b-fa0488d2b73a@microchip.com>
-References: <20220914143648.74022-1-heiko@sntech.de>
-In-Reply-To: <20220914143648.74022-1-heiko@sntech.de>
-Accept-Language: en-IE, en-US
-Content-Language: en-IE
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CO1PR11MB5154:EE_|BN9PR11MB5307:EE_
-x-ms-office365-filtering-correlation-id: 642be515-a154-4512-9807-08da9687cc03
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: cb0W/Va0YQvQ401mz9lxfvlL/5KSdVTR3t+I00jqZwgyfiJj7HP1NKO3QLmMhiCfyos+FWpuqdDDAR0maYecyjHrJuggp4mqnhkh6Ep8WN41BykEsl5SQKMue07epq+BEfI1wy4/5sfgb2C0g3Rlg5JJzrnHLuKqdbTv8cxFSzmozkwNR2KeBVb9vJ0G/yF/9XrhBuSoSnqHUyZlcGNlpYhDbEHowgGD6wY/Ruj2mQTsuCpIg7qVES9ZvajBTpD+RbSue0EBEbwr2V4upSZhiu7xEYwNy8k/Prw7x4L0wCf/wHvdgNmaZrOe+J/ilXu7fOr1RJ6PGEUKh/x3fttaqXogTD95Hn+1rC13Gukdm16eCgL2t9W5zs3wAjoxF2R9XWVq3ajaC7d/UNQbo8yNxgEDrcquPR2BpTEjsHUGoJJniSo48vbBi2BGndOnNHuevHTXTTLhUBOH3pztZyPspXIcE3TtJ1ywSkvrpC72TRtfilF8fF4MTmeOm9B6ss393ZgXrn3LsPDyNoPeLQVG4MAwJjgB1fqzAQrrDBrWo5HLhplpY4YHeezQlaGv6942OGwe5GJ3p02WzMSrpRtwO0lGsi/McnuJ4PvBVvLVT8GlbTCXfrH97e1pier8TICGQytNpGPrunKWG5BgHQ7P+EkHpsdt976nJ6zlNL2w2gIc95pHghIgqJHGz/OWZ+AIwFG1+2i7nPTBsi6UiAmTIG9bd2SKim2u6j4drTt299JrIkrSdV9QKEYBeqWpYbDZvWGotgPBgUMG1qd3pry6mlb6mNo4qe74fyqU1rhy3JULUqp+qLkrwnjc6iMIWgFcjytb5UXWQETMQnWOq6kFjBZ48/zi31bfIP8Y+Uu2J8OHf/lMzOJFkxof9sMZk3ER5fdP2vRDbGn2qCJSCPEFig==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(366004)(396003)(376002)(39860400002)(136003)(346002)(451199015)(66446008)(66946007)(54906003)(26005)(6506007)(36756003)(38100700002)(31686004)(6512007)(91956017)(966005)(5660300002)(316002)(8936002)(8676002)(76116006)(110136005)(4326008)(31696002)(86362001)(64756008)(66476007)(38070700005)(6486002)(2906002)(186003)(83380400001)(71200400001)(66556008)(53546011)(122000001)(41300700001)(478600001)(2616005)(43740500002)(45980500001);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NUliQzUzcG93anZiOWxFcUYrK2lRWGdLa3lsc2pVK3o2em1BdzFPRGgvSjRB?=
- =?utf-8?B?MjllRnlHa0tFK0Z5YmRZUVZ1dUVxTVhCMkdJZ29tU1laZURZb2Q5TlMxc1I3?=
- =?utf-8?B?eHhjSDRkc1hpbGxneG1wb2pQWUttU3p3RU0xa3g4dVFNS2FyTTZOUkdJeVJp?=
- =?utf-8?B?b0gzRm5mSmhLYUM1blRvKzN6clZUWFMzRWN3S3pnVDMyYVNyQjRjVHdxeUF0?=
- =?utf-8?B?WVNQTTIvSjFocFp3cU10N01QSHIybXRONkRHZDE3NHRqUnlwU1pqcElodFpU?=
- =?utf-8?B?THljSU1zYnd5WjM1SS9VazlzVnhWb1IyT0VBYktadm1GbjJVejRBbFRyOUVZ?=
- =?utf-8?B?Q1NuOFhqTHhKdm4ySEtlTndZa0FFTzJYYzNtSVdaSSt0L1pTTGs2YWlvejFR?=
- =?utf-8?B?RHk2Y0VCdzRwUXN6Q0crWmdkcitLWGhKVjc2N2NnSU82UVBqTlNyWFZIQjNw?=
- =?utf-8?B?SWhhR3dXSENxSitWcUdpdVlRRWRhSGl5dVBLWGlwT0pXelFCK1RkTG1sVC9I?=
- =?utf-8?B?N2p0QmdlUGJtZm5icHlJcUFUL3BvTkRjeGNyNW83TS8zTGNnRDlUR2dwb3E5?=
- =?utf-8?B?ZS83UkllNitYdFFpZEJxVHhRRkl3RGpkY2RwaTMvbFlzQXhOVlRQSlZUUVM4?=
- =?utf-8?B?NTV5eC9pNVNGbDQ2dVZTYUFya2VuaHJiMzNLNkNNcEd2UVBUS0RjM2l6N2hL?=
- =?utf-8?B?WUgxWGFaeWJUQU8rd20zVmF5a1c2a2NEcW1vd0NwdnAydk1oYWJKaXMxMmF0?=
- =?utf-8?B?Q3ZWQko0eVVlYnlEaFVmcy9zR1ZmZzFBL3NRdVEwT1JlbXpwVTJxbi9CWEJW?=
- =?utf-8?B?T09ScjVYcU5OaEtseFBIVXh3dmpzb09sdmtXdmhrZGtmcjJvZ0doSEJnUW1Z?=
- =?utf-8?B?TWkwbEhmRjFxU2plMDhwWkl1UEJ0bzZ3VHpXdE04OWtlRTFEbXlvRWp6U2hN?=
- =?utf-8?B?UVN3SDNDYzh1NWRiaUZTTm1IVUorQ21YQ01jUXZCNGp6dVVaMCtBcjdUVUp4?=
- =?utf-8?B?dkdVOGMwaHVqQ3haVjE5OC8vOGxlZUo0WElBd0Fqd3FFdm1LT0NVd3FxaEt5?=
- =?utf-8?B?WlBTSHNYb09hd1FBQzNYRjNrbk9XeWxGcGFDTUhBVHBCQnpkbmR2Nm9TRUlR?=
- =?utf-8?B?a0dFSVM3d0xmQTJ0aEc3eXBwS3pkSlFnZnhDU3F1K3FVUm1WelI1a0FrbStt?=
- =?utf-8?B?bHIvOXVFSGloOU55Lzk2MHZUbFkyOEVRWUdNYVJ2TTBLYTRWZVU4YlRQN05J?=
- =?utf-8?B?OFZwemNsZ2k0RXNhWHI5aHFZMG1yWFd2UUtPU1lUQ2lJcE51Y3EreUtkaXFY?=
- =?utf-8?B?a0sxZGZ0aGY2MUh2WXV6SjV4eVZzMWlsRUJyUXhFcjZpblQybjhrdUZBQmZ1?=
- =?utf-8?B?V0ZWdmVRYkRPdXI2bzdwNmRlODhzWFp4TFlQZHJRckxBN0dOZmt4REFrMU9S?=
- =?utf-8?B?YUtNbDJOcVkwUUNKTHg0RExhM1ZVbFo0ZExvMnJBNFE1MTltbzNyZlYrN0lx?=
- =?utf-8?B?TndYcmptY3U2TjFPdDFzdi9TSTNOVklNOUViWUt6ODYxV3BzN08yZHI5MmVE?=
- =?utf-8?B?UXhVRW1RQ1kzSnpDclF4dlJNZW5uM0k1bVFmZzZSbjVqa0RQRmxGZlpvd3A5?=
- =?utf-8?B?WXNpcS9MaUUrQXQ2cVY0eDRxR25GdWM2Y1IxQjRQY2dqUFI1MVVUYWRselUy?=
- =?utf-8?B?NUZLV1JJQkdKN2FwWmtKc0R0aWZYamxXOHFNb0x2a21RbHJ4cjBmQmo2RWVR?=
- =?utf-8?B?RUFlTkVSZ3pxWWNZNlR6UUxLTE1iQnV3ZEJ1M01qRGROZXQ5MzJkVG5tWEt1?=
- =?utf-8?B?MTF2Z1hiWTJMb3pJekhJSUhSaEt5VytWNnB2VzladEZEVzVCUHhMVytXMmFr?=
- =?utf-8?B?ZFQ0Nnp6TGtvQ0o3VjhaMjg0Z2wzeUYwdEZjMHFLaW1xV1VIV2JzcldqK0Qw?=
- =?utf-8?B?QlRZYml4dGIyc0FTN1RVWnJDdDJ0YzVWU3VwVk83MlpmcUwrOTFJb2xVb3dO?=
- =?utf-8?B?TTZWOFF4elVoQTRxV2NlTGFtTEJmbDg0THByYkVBSmE2SjZ4OFNQUmJSMEE2?=
- =?utf-8?B?NG45d1A5NW84bE53WU0wK3NPSmlyNnRmc1d0aEg1NjdlRzdzZTlaelRYUURO?=
- =?utf-8?B?bTBYZm9RdzNrYzNKdDVJMFJhMTV0czJWckVLSisvdmJWVndpZDN4UElIR3c4?=
- =?utf-8?B?cUE9PQ==?=
-Content-ID: <0A4ABF0ADA453C46A23D4431034FED77@namprd11.prod.outlook.com>
+   d="scan'208";a="299341011"
+Received: from orsmga008.jf.intel.com ([10.7.209.65])
+  by orsmga102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Sep 2022 12:52:31 -0700
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="5.93,315,1654585200"; 
+   d="scan'208";a="647527197"
+Received: from lkp-server01.sh.intel.com (HELO d6e6b7c4e5a2) ([10.239.97.150])
+  by orsmga008.jf.intel.com with ESMTP; 14 Sep 2022 12:52:28 -0700
+Received: from kbuild by d6e6b7c4e5a2 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1oYYQu-0000XM-0a;
+	Wed, 14 Sep 2022 19:52:28 +0000
+Date: Thu, 15 Sep 2022 03:51:28 +0800
+From: kernel test robot <lkp@intel.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-scsi@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-parisc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ dri-devel@lists.freedesktop.org, alsa-devel@alsa-project.org,
+ Linux Memory Management List <linux-mm@kvack.org>
+Subject: [linux-next:master] BUILD REGRESSION
+ f117c01187301a087412bd6697fcf5463cb427d8
+Message-ID: <632230c0.yN3SHeeFUHUYU1ys%lkp@intel.com>
+User-Agent: Heirloom mailx 12.5 6/20/10
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 642be515-a154-4512-9807-08da9687cc03
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Sep 2022 19:32:01.3416
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: kivucI3prcCY+X6rrd+hxRfzuWgEEXwTS4UOPf1XuTvFFicz3BshigRb7fuGatnjKa3//ikkkOiUZ8f+PEg8lVJZQ6nR+JNo4QPXWxmey9k=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN9PR11MB5307
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220914_123212_798661_8B38D846 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20220914_125235_099006_D12A5689 
+X-CRM114-Status: UNSURE (   6.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,54 +83,184 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/09/2022 15:36, Heiko Stuebner wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> riscv_cbom_block_size is used by all current non-coherent dma operations,
-> not only the zicbom variant. So move it over the block also containing
-> the riscv_noncoherent_supported() prototype.
-> 
-> Fixes: 8f7e001e0325 ("RISC-V: Clean up the Zicbom block size probing")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
+branch HEAD: f117c01187301a087412bd6697fcf5463cb427d8  Add linux-next specific files for 20220914
 
-I accidentally fetched palmers repo rather than riscv & noticed he
-pushed a fix there for this too:
-https://git.kernel.org/pub/scm/linux/kernel/git/palmer/linux.git/commit/?h=zicbom-fix
+Error/Warning reports:
 
-I think Palmer's solution is slightly nicer, but to me either makes
-little difference, just getting things squared away for 6.0 is all
-I care about at this point.
+https://lore.kernel.org/linux-mm/202209150141.WgbAKqmX-lkp@intel.com
+https://lore.kernel.org/llvm/202209141913.Nxzv3hwM-lkp@intel.com
 
-Either this or the one on Palmer's branch is:
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Error/Warning: (recently discovered and may have been fixed)
 
-> ---
->  arch/riscv/include/asm/cacheflush.h | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-> index a89c005b4bbf..5c16d901d3da 100644
-> --- a/arch/riscv/include/asm/cacheflush.h
-> +++ b/arch/riscv/include/asm/cacheflush.h
-> @@ -43,13 +43,13 @@ void flush_icache_mm(struct mm_struct *mm, bool local);
->  #endif /* CONFIG_SMP */
-> 
->  #ifdef CONFIG_RISCV_ISA_ZICBOM
-> -extern unsigned int riscv_cbom_block_size;
->  void riscv_init_cbom_blocksize(void);
->  #else
->  static inline void riscv_init_cbom_blocksize(void) { }
->  #endif
-> 
->  #ifdef CONFIG_RISCV_DMA_NONCOHERENT
-> +extern unsigned int riscv_cbom_block_size;
->  void riscv_noncoherent_supported(void);
->  #endif
-> 
-> --
-> 2.35.1
-> 
+ERROR: modpost: "devm_ioremap_resource" [drivers/dma/fsl-edma.ko] undefined!
+ERROR: modpost: "devm_memremap" [drivers/misc/open-dice.ko] undefined!
+ERROR: modpost: "devm_memunmap" [drivers/misc/open-dice.ko] undefined!
+ERROR: modpost: "devm_platform_ioremap_resource" [drivers/char/xillybus/xillybus_of.ko] undefined!
+ERROR: modpost: "devm_platform_ioremap_resource" [drivers/clk/xilinx/clk-xlnx-clock-wizard.ko] undefined!
+ERROR: modpost: "ioremap" [drivers/tty/ipwireless/ipwireless.ko] undefined!
+ERROR: modpost: "iounmap" [drivers/net/ethernet/8390/pcnet_cs.ko] undefined!
+ERROR: modpost: "iounmap" [drivers/tty/ipwireless/ipwireless.ko] undefined!
+arch/parisc/lib/iomap.c:363:5: warning: no previous prototype for 'ioread64_lo_hi' [-Wmissing-prototypes]
+arch/parisc/lib/iomap.c:373:5: warning: no previous prototype for 'ioread64_hi_lo' [-Wmissing-prototypes]
+arch/parisc/lib/iomap.c:448:6: warning: no previous prototype for 'iowrite64_lo_hi' [-Wmissing-prototypes]
+arch/parisc/lib/iomap.c:454:6: warning: no previous prototype for 'iowrite64_hi_lo' [-Wmissing-prototypes]
+drivers/gpu/drm/drm_atomic_helper.c:802: warning: expecting prototype for drm_atomic_helper_check_wb_connector_state(). Prototype was for drm_atomic_helper_check_wb_encoder_state() instead
+drivers/scsi/qla2xxx/qla_os.c:2854:23: warning: assignment to 'struct trace_array *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+drivers/scsi/qla2xxx/qla_os.c:2854:25: error: implicit declaration of function 'trace_array_get_by_name'; did you mean 'trace_array_set_clr_event'? [-Werror=implicit-function-declaration]
+drivers/scsi/qla2xxx/qla_os.c:2869:9: error: implicit declaration of function 'trace_array_put' [-Werror=implicit-function-declaration]
+sound/soc/codecs/tas2562.c:442:13: warning: variable 'ret' set but not used [-Wunused-but-set-variable]
+
+Error/Warning ids grouped by kconfigs:
+
+gcc_recent_errors
+|-- alpha-allyesconfig
+|   |-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|   |-- drivers-scsi-qla2xxx-qla_os.c:error:implicit-declaration-of-function-trace_array_get_by_name
+|   |-- drivers-scsi-qla2xxx-qla_os.c:error:implicit-declaration-of-function-trace_array_put
+|   |-- drivers-scsi-qla2xxx-qla_os.c:warning:assignment-to-struct-trace_array-from-int-makes-pointer-from-integer-without-a-cast
+|   `-- sound-soc-codecs-tas2562.c:warning:variable-ret-set-but-not-used
+|-- arc-allyesconfig
+|   |-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|   `-- sound-soc-codecs-tas2562.c:warning:variable-ret-set-but-not-used
+|-- arc-randconfig-r043-20220914
+|   |-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|   `-- sound-soc-codecs-tas2562.c:warning:variable-ret-set-but-not-used
+|-- arm-allyesconfig
+|   |-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|   `-- sound-soc-codecs-tas2562.c:warning:variable-ret-set-but-not-used
+|-- arm-buildonly-randconfig-r003-20220914
+|   |-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|   `-- sound-soc-codecs-tas2562.c:warning:variable-ret-set-but-not-used
+|-- arm-defconfig
+|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|-- arm64-allyesconfig
+|   |-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|   `-- sound-soc-codecs-tas2562.c:warning:variable-ret-set-but-not-used
+|-- arm64-randconfig-r036-20220914
+|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|-- i386-allyesconfig
+|   |-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|   `-- sound-soc-codecs-tas2562.c:warning:variable-ret-set-but-not-used
+|-- i386-defconfig
+|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|-- i386-randconfig-a003
+|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|-- i386-randconfig-a012
+|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|-- i386-randconfig-a014
+|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|-- i386-randconfig-a016
+|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|-- ia64-allmodconfig
+|   |-- drivers-scsi-qla2xxx-qla_os.c:error:implicit-declaration-of-function-trace_array_get_by_name
+|   |-- drivers-scsi-qla2xxx-qla_os.c:error:implicit-declaration-of-function-trace_array_put
+|   `-- drivers-scsi-qla2xxx-qla_os.c:warning:assignment-to-struct-trace_array-from-int-makes-pointer-from-integer-without-a-cast
+|-- ia64-randconfig-r013-20220914
+|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|-- loongarch-randconfig-r026-20220914
+|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|-- m68k-allmodconfig
+|   |-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
+|   `-- sound-soc-codecs-tas2562.c:warning:variable-ret-set-but-not-used
+|-- m68k-allyesconfig
+clang_recent_errors
+|-- arm-randconfig-r032-20220914
+|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
+|-- arm64-randconfig-r021-20220914
+|   `-- arch-arm64-kernel-alternative.c:warning:no-previous-prototype-for-function-apply_alternatives_vdso
+|-- i386-randconfig-a002
+|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
+|-- i386-randconfig-a015
+|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
+|-- powerpc-randconfig-r022-20220914
+|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
+|-- riscv-randconfig-r042-20220914
+|   |-- arch-riscv-errata-thead-errata.c:error:use-of-undeclared-identifier-riscv_cbom_block_size
+|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
+|-- s390-randconfig-r044-20220914
+|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
+|-- x86_64-randconfig-a003
+|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
+|-- x86_64-randconfig-a012
+|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
+`-- x86_64-randconfig-a016
+    `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
+
+elapsed time: 726m
+
+configs tested: 62
+configs skipped: 2
+
+gcc tested configs:
+x86_64                              defconfig
+x86_64                               rhel-8.3
+x86_64                           allyesconfig
+i386                          randconfig-a001
+i386                          randconfig-a003
+x86_64                        randconfig-a004
+um                             i386_defconfig
+x86_64                        randconfig-a002
+i386                          randconfig-a005
+arc                                 defconfig
+um                           x86_64_defconfig
+x86_64                        randconfig-a006
+s390                             allmodconfig
+i386                                defconfig
+powerpc                          allmodconfig
+alpha                               defconfig
+s390                                defconfig
+mips                             allyesconfig
+s390                             allyesconfig
+powerpc                           allnoconfig
+sh                               allmodconfig
+arc                  randconfig-r043-20220914
+arm                                 defconfig
+x86_64                        randconfig-a013
+x86_64                        randconfig-a011
+i386                          randconfig-a014
+x86_64                          rhel-8.3-func
+x86_64                         rhel-8.3-kunit
+i386                          randconfig-a012
+i386                             allyesconfig
+x86_64                           rhel-8.3-kvm
+i386                          randconfig-a016
+x86_64                        randconfig-a015
+x86_64                    rhel-8.3-kselftests
+x86_64                           rhel-8.3-syz
+arc                              allyesconfig
+alpha                            allyesconfig
+m68k                             allmodconfig
+m68k                             allyesconfig
+ia64                             allmodconfig
+arm                              allyesconfig
+arm64                            allyesconfig
+arc                               allnoconfig
+alpha                             allnoconfig
+riscv                             allnoconfig
+csky                              allnoconfig
+
+clang tested configs:
+i386                          randconfig-a002
+i386                          randconfig-a004
+x86_64                        randconfig-a001
+x86_64                        randconfig-a003
+i386                          randconfig-a006
+x86_64                        randconfig-a005
+riscv                randconfig-r042-20220914
+hexagon              randconfig-r045-20220914
+hexagon              randconfig-r041-20220914
+i386                          randconfig-a013
+x86_64                        randconfig-a016
+s390                 randconfig-r044-20220914
+i386                          randconfig-a011
+x86_64                        randconfig-a012
+i386                          randconfig-a015
+x86_64                        randconfig-a014
+
+-- 
+0-DAY CI Kernel Test Service
+https://01.org/lkp
 
 _______________________________________________
 linux-riscv mailing list
