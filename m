@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481B4ECAAD3
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 07:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A151ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 13:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6eyw23d8xnDcUB9jfua6rNgNwEp1Lg8S7S3i0k7rEGU=; b=k/Qxw9mWi/999Z+ILmnNSNRL38
-	PL3pGkc+Zm4NoNiHM9f16g7u6enm9WtiZWQMEwE/qYU9FKIVJ1Q18C361ExlQkTo0lRnW2C3zOVtF
-	R/a/kj5UeYwAvkC4IUjpMMW8aEktswit7n52//la95bVG3CcpB27w0ZdHjiiSB9Fw4NEiA2HAMueK
-	Zg1VQteLYZM8WYNN26cRtTg3PUp3M4PzX1qR+V3UJit0BoaKWS27+sjWBloY9WDJg7CcRtrQDAGcW
-	n7jisdYKBp9PrZq6Yg0C7MZS2xi7RS4jEHTZdow3FE3ftk6Di80jkpcv7/RAze1+r6WhjOMxh1SLT
-	LWQmYu3A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=iU6JwKtDZ2b3Kn3eCA+7+fjmDXV8kQtCjOVMYG9QuqU=; b=BHAcVex2kMm0Bp
+	7dBIyPc0x4N7lA+f0dt5+zErx/BTJ5SVDgqF1A+GmXCc7yEf9LGF4CZvXr28Dd55+Nk4yffHXG0sM
+	qRUPFlhlw/r8tEwqpR6BNS/XgeUHUdGWvBko5OKbxWh/7lCYjSA8KwchHvxXqvGjoM/hVhoL+QS60
+	HlSZeKGmv9c4WXF8TL3ZE6/ZyWzfWtJsb2n9Q6JIrH9nyi2ccMPKuhO4Bjw106p7NYQUPbX00Oa+E
+	412OgMFp8X1s3JFjjPY9mo9vFb65V4lnVTqi/JzTREzdhCDP9JBBvhhpCKpei9YVBVpubce8JqJKq
+	AcgYc6QJdBSiI4nXlwEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYjCX-002gVW-VM; Thu, 15 Sep 2022 07:22:22 +0000
-Received: from metis.ext.pengutronix.de ([2001:67c:670:201:290:27ff:fe1d:cc33])
+	id 1oYoxT-009PmH-MA; Thu, 15 Sep 2022 13:31:11 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYjCT-002gHE-2W
-	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 07:22:20 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.ext.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oYjC9-0003VR-O8; Thu, 15 Sep 2022 09:21:57 +0200
-Received: from [2a0a:edc0:0:900:1d::77] (helo=ptz.office.stw.pengutronix.de)
-	by drehscheibe.grey.stw.pengutronix.de with esmtp (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oYjC9-000qe9-Qn; Thu, 15 Sep 2022 09:21:56 +0200
-Received: from ukl by ptz.office.stw.pengutronix.de with local (Exim 4.94.2)
-	(envelope-from <ukl@pengutronix.de>)
-	id 1oYjC7-00128B-Jj; Thu, 15 Sep 2022 09:21:55 +0200
-Date: Thu, 15 Sep 2022 09:21:52 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v10 3/4] pwm: add microchip soft ip corePWM driver
-Message-ID: <20220915072152.y346csakn7wetpz5@pengutronix.de>
-References: <20220824091215.141577-1-conor.dooley@microchip.com>
- <20220824091215.141577-4-conor.dooley@microchip.com>
+	id 1oYoxP-009Ph5-9p
+	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 13:31:09 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 823B6623D9
+	for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 13:31:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1A35C433D7
+	for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 13:31:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663248665;
+	bh=BBF0buSo7aGyR3Z1SCGqvooTlWf8plj3gZPRRAbr9mk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=gxi92yuPRsTcHF9LGFQo7S5oBakr5U3j8yex7coSwPiNleErBIT7foyJjrhMAgQin
+	 LIcXz3uDKhR/zWXkJ9CI3ALfioph4ce/n0V848psGVcGQO15CF8UYcFFBnsfQ5afuH
+	 ouaSb6kV+R3Ejk2uWPJawpBjpPgk5WBJQZ0Ip56jvYCXdH3QiP0kjp/BI5MuHfOfKp
+	 bzQ4JBN550upQ+DsjZzuFcO4Bd0adoDuQnWUO0zZdEU469Lh5Cesr0AMXHhbHusWLg
+	 K6t7YVaux8lO1FHYucRQzkH/KGC0Rgo8b80bb07qm9xAyQVtOoBLDa3rLn7YNZOCcX
+	 WAP+jKwWk7xHQ==
+Received: by mail-oi1-f169.google.com with SMTP id n124so2217205oih.7
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 06:31:05 -0700 (PDT)
+X-Gm-Message-State: ACgBeo1YvIKUd3tfIbsv0Aa9Eck2aRkPM28kr7vMNZoVV4vKZfiwgy8c
+	so19poPp44vUfZ2ujUj+CwQ66QJbSpbZTzG2Pco=
+X-Google-Smtp-Source: AA6agR4iC9VWKx4KIhRAG1Qs5FNCmgd1sJIqPiBqiKbOa2KWa7OssZMHOa1h/T6X2PRxu6T1DViOAKCDz6WwmnZTGN4=
+X-Received: by 2002:a05:6808:201f:b0:34f:9fdf:dbbf with SMTP id
+ q31-20020a056808201f00b0034f9fdfdbbfmr4096225oiw.19.1663248664783; Thu, 15
+ Sep 2022 06:31:04 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20220824091215.141577-4-conor.dooley@microchip.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: ukl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.ext.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <20220913094252.3555240-1-andy.chiu@sifive.com>
+ <20220913094252.3555240-4-andy.chiu@sifive.com> <CAJF2gTSn3_cDYsF9D8dt-br2Wf_M8y02A09xgRq8kXi91sN3Aw@mail.gmail.com>
+In-Reply-To: <CAJF2gTSn3_cDYsF9D8dt-br2Wf_M8y02A09xgRq8kXi91sN3Aw@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Thu, 15 Sep 2022 21:30:52 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQ3UEcX6rzakrwKe9QtAT=J-G04iQaxHO9rnCviSE4Lmw@mail.gmail.com>
+Message-ID: <CAJF2gTQ3UEcX6rzakrwKe9QtAT=J-G04iQaxHO9rnCviSE4Lmw@mail.gmail.com>
+Subject: Re: [PATCH RFC v2 riscv/for-next 3/5] riscv: ftrace: use indirect
+ jump to work with kernel preemption
+To: Andy Chiu <andy.chiu@sifive.com>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
+	rostedt@goodmis.org, mingo@redhat.com, peterz@infradead.org, 
+	jpoimboe@kernel.org, jbaron@akamai.com, ardb@kernel.org, 
+	greentime.hu@sifive.com, zong.li@sifive.com, kernel@esmil.dk, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220915_002217_480057_45929957 
-X-CRM114-Status: GOOD (  57.28  )
+X-CRM114-CacheID: sfid-20220915_063107_454707_52BE6A6D 
+X-CRM114-Status: GOOD (  49.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,734 +80,554 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0450906789653370052=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 14, 2022 at 9:45 PM Guo Ren <guoren@kernel.org> wrote:
+>
+> I really appreciate you finding the bug, great job.
+>
+> On Tue, Sep 13, 2022 at 5:44 PM Andy Chiu <andy.chiu@sifive.com> wrote:
+> >
+> > In RISCV, we must use an AUIPC + JALR pair to encode an immediate,
+> > forming a jump that jumps to an address over 4K. This may cause errors
+> > if we want to enable kernel preemption and remove dependency from
+> > patching code with stop_machine(). For example, if a task was switched
+> > out on auipc. And, if we changed the ftrace function before it was
+> > switched back, then it would jump to an address that has updated 11:0
+> > bits mixing with previous XLEN:12 part.
+> >
+> > p: patched area performed by dynamic ftrace
+> > ftrace_prologue:
+> > p|      REG_S   ra, -SZREG(sp)
+> > p|      auipc   ra, 0x? ------------> preempted
+> >                                         ...
+> >                                 change ftrace function
+> >                                         ...
+> > p|      jalr    -?(ra) <------------- switched back
+>
+> When auipc + jalr -> nop, is safe, right? Because when switched back,
+> jalr -> nop.
+> When nop -> auipc + jalr, is buggy, right? Because when switched back,
+> nop -> jalr, the ra's value is not expected.
+>
+> Some machines with instruction fusion won't be affected, because they
+> would merge auipc + jalr into one macro-op.
+> Qemu shouldn't be broken, because auipc + jalr is always in the same
+> tcg block, so no chance for interruption between them.
+>
+> But anyway, we need to fix it.
+>
+> > p|      REG_L   ra, -SZREG(sp)
+> > func:
+> >         xxx
+> >         ret
+> >
+> > To prevent such condition, we proposed a way to load or store target
+> > addresses atomically. We store a 8 bytes aligned full-width absolute
+> > address into each ftrace prologue and use a jump at front to decide
+> > whether we should take ftrace detour. To reduce footprint of ftrace
+> > prologues, we clobber t0, and we move ra (re-)storing into
+> > ftrace_{regs_}caller. This is similar to ARM64, which also clobbers x9 at
+> > each prologue.
+> >
+> > Also, we initialize the target at startup to take care of a case where
+> > REG_L happened before the update of the ftrace target.
+> >
+> > .align 2  # if it happen to be 8B-aligned
+> > ftrace_prologue:
+> > p|      {j      func} | {auipc  t0}
+> >         j       ftrace_cont
+> > p|      .dword  0x? <=== storing the address to a 8B aligned space can be
+> >                          considered atomic to read sides using REG_L
+> > ftrace_cont:
+> >         REG_L   t0, 8(t0) <=== read side
+> >         jalr    t0, t0
+> > func:
+> >         xxx
+> >         ret
+> >
+> > .align 2  # if it is 4B but not 8B-aligned
+> > ftrace_prologue:
+> > p|      {j      func} | {auipc  t0}
+> >         REG_L   t0, 0xc(t0) <=== read side
+> >         j       ftrace_cont
+> > p|      .dword  0x? <=== the target address
+> > ftrace_cont:
+> >         jalr    t0, t0
+> > func:
+> >         xxx
+> >         ret
+> >
+> > Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
+> > Reviewed-by: Greentime Hu <greentime.hu@sifive.com>
+> > ---
+> >  arch/riscv/include/asm/ftrace.h |  24 -----
+> >  arch/riscv/kernel/ftrace.c      | 173 ++++++++++++++++++++++----------
+> >  arch/riscv/kernel/mcount-dyn.S  |  69 ++++++++++---
+> >  3 files changed, 176 insertions(+), 90 deletions(-)
+> >
+> > diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
+> > index 04dad3380041..eaa611e491fc 100644
+> > --- a/arch/riscv/include/asm/ftrace.h
+> > +++ b/arch/riscv/include/asm/ftrace.h
+> > @@ -47,30 +47,6 @@ struct dyn_arch_ftrace {
+> >   */
+> >
+> >  #define MCOUNT_ADDR            ((unsigned long)MCOUNT_NAME)
+> > -#define JALR_SIGN_MASK         (0x00000800)
+> > -#define JALR_OFFSET_MASK       (0x00000fff)
+> > -#define AUIPC_OFFSET_MASK      (0xfffff000)
+> > -#define AUIPC_PAD              (0x00001000)
+> > -#define JALR_SHIFT             20
+> > -#define JALR_BASIC             (0x000080e7)
+> > -#define AUIPC_BASIC            (0x00000097)
+> > -#define NOP4                   (0x00000013)
+> > -
+> > -#define make_call(caller, callee, call)                                        \
+> > -do {                                                                   \
+> > -       call[0] = to_auipc_insn((unsigned int)((unsigned long)callee -  \
+> > -                               (unsigned long)caller));                \
+> > -       call[1] = to_jalr_insn((unsigned int)((unsigned long)callee -   \
+> > -                              (unsigned long)caller));                 \
+> > -} while (0)
+> > -
+> > -#define to_jalr_insn(offset)                                           \
+> > -       (((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_BASIC)
+> > -
+> > -#define to_auipc_insn(offset)                                          \
+> > -       ((offset & JALR_SIGN_MASK) ?                                    \
+> > -       (((offset & AUIPC_OFFSET_MASK) + AUIPC_PAD) | AUIPC_BASIC) :    \
+> > -       ((offset & AUIPC_OFFSET_MASK) | AUIPC_BASIC))
+> >
+> >  /*
+> >   * Let auipc+jalr be the basic *mcount unit*, so we make it 8 bytes here.
+> > diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
+> > index 2086f6585773..84b9e280dd1f 100644
+> > --- a/arch/riscv/kernel/ftrace.c
+> > +++ b/arch/riscv/kernel/ftrace.c
+> > @@ -23,31 +23,29 @@ void ftrace_arch_code_modify_post_process(void) __releases(&text_mutex)
+> >  }
+> >
+> >  static int ftrace_check_current_call(unsigned long hook_pos,
+> > -                                    unsigned int *expected)
+> > +                                    unsigned long expected_addr)
+> >  {
+> > -       unsigned int replaced[2];
+> > -       unsigned int nops[2] = {NOP4, NOP4};
+> > +       unsigned long replaced;
+> >
+> > -       /* we expect nops at the hook position */
+> > -       if (!expected)
+> > -               expected = nops;
+> > +       /* we expect ftrace_stub at the hook position */
+> > +       if (!expected_addr)
+> > +               expected_addr = (unsigned long) ftrace_stub;
+> >
+> >         /*
+> >          * Read the text we want to modify;
+> >          * return must be -EFAULT on read error
+> >          */
+> > -       if (copy_from_kernel_nofault(replaced, (void *)hook_pos,
+> > -                       MCOUNT_INSN_SIZE))
+> > +       if (copy_from_kernel_nofault(&replaced, (void *)hook_pos,
+> > +                       (sizeof(unsigned long))))
+> >                 return -EFAULT;
+> >
+> >         /*
+> >          * Make sure it is what we expect it to be;
+> >          * return must be -EINVAL on failed comparison
+> >          */
+> > -       if (memcmp(expected, replaced, sizeof(replaced))) {
+> > -               pr_err("%p: expected (%08x %08x) but got (%08x %08x)\n",
+> > -                      (void *)hook_pos, expected[0], expected[1], replaced[0],
+> > -                      replaced[1]);
+> > +       if (expected_addr != replaced) {
+> > +               pr_err("%p: expected (%016lx) but got (%016lx)\n",
+> > +                      (void *)hook_pos, expected_addr, replaced);
+> >                 return -EINVAL;
+> >         }
+> >
+> > @@ -57,55 +55,96 @@ static int ftrace_check_current_call(unsigned long hook_pos,
+> >  static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
+> >                                 bool enable)
+> >  {
+> > -       unsigned int call[2];
+> > -       unsigned int nops[2] = {NOP4, NOP4};
+> > +       unsigned long call = target;
+> > +       unsigned long nops = (unsigned long)ftrace_stub;
+> >
+> > -       make_call(hook_pos, target, call);
+> > -
+> > -       /* Replace the auipc-jalr pair at once. Return -EPERM on write error. */
+> > +       /* Replace the target address at once. Return -EPERM on write error. */
+> >         if (patch_text_nosync
+> > -           ((void *)hook_pos, enable ? call : nops, MCOUNT_INSN_SIZE))
+> > +           ((void *)hook_pos, enable ? &call : &nops, sizeof(unsigned long)))
+> >                 return -EPERM;
+> >
+> >         return 0;
+> >  }
+> >
+> >  /*
+> > - * Put 5 instructions with 16 bytes at the front of function within
+> > - * patchable function entry nops' area.
+> > - *
+> > - * 0: REG_S  ra, -SZREG(sp)
+> > - * 1: auipc  ra, 0x?
+> > - * 2: jalr   -?(ra)
+> > - * 3: REG_L  ra, -SZREG(sp)
+> > + * Place 4 instructions and a destination address in the patchable function
+> > + * entry.
+> >   *
+> >   * So the opcodes is:
+> > - * 0: 0xfe113c23 (sd)/0xfe112e23 (sw)
+> > - * 1: 0x???????? -> auipc
+> > - * 2: 0x???????? -> jalr
+> > - * 3: 0xff813083 (ld)/0xffc12083 (lw)
+> > + * INSN_SKIPALL  : J     PC + 0x18 (when disabled, jump to the function)
+> > + * INSN_AUIPC    : AUIPC T0, 0 (when enabled, load address of trampoline)
+> > + * INSN_LOAD(off): REG_L T0, off(T0) (load address stored in the tramp)
+> > + * INSN_SKIPTRAMP: J     PC + 0x10 (skip tramp since they are not instructions)
+> > + * INSN_JALR     : JALR  T0, T0 (jump to the destination)
+> > + *
+> > + * At runtime, we want to patch the jump target atomically in order to work with
+> > + * kernel preemption. If we patched with a pair of AUIPC + JALR and a task was
+> > + * preempted after loading upper bits with AUIPC. Then things would mess up if
+> > + * we updated the jump target before the task were switched back.
+> > + *
+> > + * We also want to align all patchable function entries to 4-byte boundaries and,
+> > + * the jump target to a 8 Bytes aligned address so that each of them could be
+> > + * natually updated and observed by patching and running cores.
+> > + *
+> > + * To make sure target addresses are 8-byte aligned, we have to consider
+> > + * following scenarios:
+> > + *
+> > + * First if the starting address of the patchable entry is aligned to an 8-byte
+> > + * boundary:
+> > + * | ADDR   | COMPILED | DISABLED         | ENABLED                |
+> > + * +--------+----------+------------------+------------------------+
+> > + * | 0x00   | NOP      | J     FUNC       | AUIPC T0, 0            |
+> If we only add a J FUNC in current code, can we solve the problem?
+>     DISABLED | ENABLED
+> 0: J FUNC      | REG_S  ra, -SZREG(sp)
+> 1: auipc  ra, 0x?
+> 2: jalr   -?(ra)
+> 3: REG_L  ra, -SZREG(sp)
+> FUNC:
+Ah..., it can't. The auipc + jalr is broken, we need directly detour
+from A to B in ftrace_modify_call.
 
---===============0450906789653370052==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="s27i4bbymvcnc6ny"
-Content-Disposition: inline
-
-
---s27i4bbymvcnc6ny
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-Hello,
-
-On Wed, Aug 24, 2022 at 10:12:14AM +0100, Conor Dooley wrote:
-> Add a driver that supports the Microchip FPGA "soft" PWM IP core.
->=20
-> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-> ---
->  drivers/pwm/Kconfig              |  10 +
->  drivers/pwm/Makefile             |   1 +
->  drivers/pwm/pwm-microchip-core.c | 402 +++++++++++++++++++++++++++++++
->  3 files changed, 413 insertions(+)
->  create mode 100644 drivers/pwm/pwm-microchip-core.c
->=20
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index 60d13a949bc5..e4de8c02c3c0 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -393,6 +393,16 @@ config PWM_MEDIATEK
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called pwm-mediatek.
-> =20
-> +config PWM_MICROCHIP_CORE
-> +	tristate "Microchip corePWM PWM support"
-> +	depends on SOC_MICROCHIP_POLARFIRE || COMPILE_TEST
-> +	depends on HAS_IOMEM && OF
-> +	help
-> +	  PWM driver for Microchip FPGA soft IP core.
-> +
-> +	  To compile this driver as a module, choose M here: the module
-> +	  will be called pwm-microchip-core.
-> +
->  config PWM_MXS
->  	tristate "Freescale MXS PWM support"
->  	depends on ARCH_MXS || COMPILE_TEST
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index 7bf1a29f02b8..a65625359ece 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -34,6 +34,7 @@ obj-$(CONFIG_PWM_LPSS_PCI)	+=3D pwm-lpss-pci.o
->  obj-$(CONFIG_PWM_LPSS_PLATFORM)	+=3D pwm-lpss-platform.o
->  obj-$(CONFIG_PWM_MESON)		+=3D pwm-meson.o
->  obj-$(CONFIG_PWM_MEDIATEK)	+=3D pwm-mediatek.o
-> +obj-$(CONFIG_PWM_MICROCHIP_CORE)	+=3D pwm-microchip-core.o
->  obj-$(CONFIG_PWM_MTK_DISP)	+=3D pwm-mtk-disp.o
->  obj-$(CONFIG_PWM_MXS)		+=3D pwm-mxs.o
->  obj-$(CONFIG_PWM_NTXEC)		+=3D pwm-ntxec.o
-> diff --git a/drivers/pwm/pwm-microchip-core.c b/drivers/pwm/pwm-microchip=
--core.c
-> new file mode 100644
-> index 000000000000..4ec2f1fce600
-> --- /dev/null
-> +++ b/drivers/pwm/pwm-microchip-core.c
-> @@ -0,0 +1,402 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * corePWM driver for Microchip "soft" FPGA IP cores.
-> + *
-> + * Copyright (c) 2021-2022 Microchip Corporation. All rights reserved.
-> + * Author: Conor Dooley <conor.dooley@microchip.com>
-> + * Documentation:
-> + * https://www.microsemi.com/document-portal/doc_download/1245275-corepw=
-m-hb
-> + *
-> + * Limitations:
-> + * - If the IP block is configured without "shadow registers", all regis=
-ter
-> + *   writes will take effect immediately, causing glitches on the output.
-> + *   If shadow registers *are* enabled, a write to the "SYNC_UPDATE" reg=
-ister
-> + *   notifies the core that it needs to update the registers defining the
-> + *   waveform from the contents of the "shadow registers".
-> + * - The IP block has no concept of a duty cycle, only rising/falling ed=
-ges of
-> + *   the waveform. Unfortunately, if the rising & falling edges register=
-s have
-> + *   the same value written to them the IP block will do whichever of a =
-rising
-> + *   or a falling edge is possible. I.E. a 50% waveform at twice the req=
-uested
-> + *   period. Therefore to get a 0% waveform, the output is set the max h=
-igh/low
-> + *   time depending on polarity.
-> + * - The PWM period is set for the whole IP block not per channel. The d=
-river
-> + *   will only change the period if no other PWM output is enabled.
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/math.h>
-> +#include <linux/module.h>
-> +#include <linux/mutex.h>
-> +#include <linux/of_device.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/pwm.h>
-> +
-> +#define PREG_TO_VAL(PREG) ((PREG) + 1)
-> +
-> +#define MCHPCOREPWM_PRESCALE_MAX	0x100
-> +#define MCHPCOREPWM_PERIOD_STEPS_MAX	0xff
-> +#define MCHPCOREPWM_PERIOD_MAX		0xff00
-> +
-> +#define MCHPCOREPWM_PRESCALE	0x00
-> +#define MCHPCOREPWM_PERIOD	0x04
-> +#define MCHPCOREPWM_EN(i)	(0x08 + 0x04 * (i)) /* 0x08, 0x0c */
-> +#define MCHPCOREPWM_POSEDGE(i)	(0x10 + 0x08 * (i)) /* 0x10, 0x18, ..., 0=
-x88 */
-> +#define MCHPCOREPWM_NEGEDGE(i)	(0x14 + 0x08 * (i)) /* 0x14, 0x1c, ..., 0=
-x8c */
-> +#define MCHPCOREPWM_SYNC_UPD	0xe4
-> +
-> +struct mchp_core_pwm_chip {
-> +	struct pwm_chip chip;
-> +	struct clk *clk;
-> +	struct mutex lock; /* protect the shared period */
-> +	void __iomem *base;
-> +	u32 sync_update_mask;
-> +	u16 channel_enabled;
-> +};
-> +
-> +static inline struct mchp_core_pwm_chip *to_mchp_core_pwm(struct pwm_chi=
-p *chip)
-> +{
-> +	return container_of(chip, struct mchp_core_pwm_chip, chip);
-> +}
-> +
-> +static void mchp_core_pwm_enable(struct pwm_chip *chip, struct pwm_devic=
-e *pwm,
-> +				 bool enable, u64 period)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u8 channel_enable, reg_offset, shift;
-> +
-> +	/*
-> +	 * There are two adjacent 8 bit control regs, the lower reg controls
-> +	 * 0-7 and the upper reg 8-15. Check if the pwm is in the upper reg
-> +	 * and if so, offset by the bus width.
-> +	 */
-> +	reg_offset =3D MCHPCOREPWM_EN(pwm->hwpwm >> 3);
-> +	shift =3D pwm->hwpwm & 7;
-> +
-> +	channel_enable =3D readb_relaxed(mchp_core_pwm->base + reg_offset);
-> +	channel_enable &=3D ~(1 << shift);
-> +	channel_enable |=3D (enable << shift);
-> +
-> +	writel_relaxed(channel_enable, mchp_core_pwm->base + reg_offset);
-> +	mchp_core_pwm->channel_enabled &=3D ~BIT(pwm->hwpwm);
-> +	mchp_core_pwm->channel_enabled |=3D enable << pwm->hwpwm;
-> +
-> +	/*
-> +	 * Notify the block to update the waveform from the shadow registers.
-> +	 * The updated values will not appear on the bus until they have been
-> +	 * applied to the waveform at the beginning of the next period. We must
-> +	 * write these registers and wait for them to be applied before
-> +	 * considering the channel enabled.
-> +	 * If the delay is under 1 us, sleep for at least 1 us anyway.
-> +	 */
-> +	if (mchp_core_pwm->sync_update_mask & (1 << pwm->hwpwm)) {
-> +		u64 delay;
-> +
-> +		delay =3D div_u64(period, 1000u) ? : 1u;
-> +		writel_relaxed(1U, mchp_core_pwm->base + MCHPCOREPWM_SYNC_UPD);
-> +		usleep_range(delay, delay * 2);
-> +	}
-> +}
-> +
-> +static u64 mchp_core_pwm_calc_duty(struct pwm_chip *chip, struct pwm_dev=
-ice *pwm,
-> +				   const struct pwm_state *state, u8 prescale, u8 period_steps)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u64 duty_steps, tmp;
-> +	u16 prescale_val =3D PREG_TO_VAL(prescale);
-> +
-> +	/*
-> +	 * Calculate the duty cycle in multiples of the prescaled period:
-> +	 * duty_steps =3D duty_in_ns / step_in_ns
-> +	 * step_in_ns =3D (prescale * NSEC_PER_SEC) / clk_rate
-> +	 * The code below is rearranged slightly to only divide once.
-> +	 */
-> +	duty_steps =3D state->duty_cycle * clk_get_rate(mchp_core_pwm->clk);
-> +	tmp =3D prescale_val * NSEC_PER_SEC;
-> +	return div64_u64(duty_steps, tmp);
-> +}
-> +
-> +static void mchp_core_pwm_apply_duty(struct pwm_chip *chip, struct pwm_d=
-evice *pwm,
-> +				     const struct pwm_state *state, u64 duty_steps, u8 period_steps)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u8 posedge, negedge;
-> +	u8 period_steps_val =3D PREG_TO_VAL(period_steps);
-> +
-> +	/*
-> +	 * Setting posedge =3D=3D negedge doesn't yield a constant output,
-> +	 * so that's an unsuitable setting to model duty_steps =3D 0.
-> +	 * In that case set the unwanted edge to a value that never
-> +	 * triggers.
-> +	 */
-> +	if (state->polarity =3D=3D PWM_POLARITY_INVERSED) {
-> +		negedge =3D !duty_steps ? period_steps_val : 0u;
-> +		posedge =3D duty_steps;
-> +	} else {
-> +		posedge =3D !duty_steps ? period_steps_val : 0u;
-> +		negedge =3D duty_steps;
-> +	}
-> +
-> +	writel_relaxed(posedge, mchp_core_pwm->base + MCHPCOREPWM_POSEDGE(pwm->=
-hwpwm));
-> +	writel_relaxed(negedge, mchp_core_pwm->base + MCHPCOREPWM_NEGEDGE(pwm->=
-hwpwm));
-> +}
-> +
-> +static int mchp_core_pwm_calc_period(struct pwm_chip *chip, const struct=
- pwm_state *state,
-> +				     u8 *prescale, u8 *period_steps)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u64 tmp, clk_rate;
-> +
-> +	/*
-> +	 * Calculate the period cycles and prescale values.
-> +	 * The registers are each 8 bits wide & multiplied to compute the period
-> +	 * using the formula:
-> +	 * (clock_period) * (prescale + 1) * (period_steps + 1)
-> +	 * so the maximum period that can be generated is 0x10000 times the
-> +	 * period of the input clock.
-> +	 * However, due to the design of the "hardware", it is not possible to
-> +	 * attain a 100% duty cycle if the full range of period_steps is used.
-> +	 * Therefore period_steps is restricted to 0xFE and the maximum multiple
-> +	 * of the clock period attainable is 0xFF00.
-> +	 */
-> +	clk_rate =3D clk_get_rate(mchp_core_pwm->clk);
-> +
-> +	/*
-> +	 * If clk_rate is too big, the following multiplication might overflow.
-> +	 * However this is implausible, as the fabric of current FPGAs cannot
-> +	 * provide clocks at a rate high enough.
-> +	 */
-> +	if (clk_rate >=3D NSEC_PER_SEC)
-> +		return -EINVAL;
-> +
-> +	tmp =3D mul_u64_u64_div_u64(state->period, clk_rate, NSEC_PER_SEC);
-> +
-> +	/*
-> +	 * The hardware adds one to the register value, so decrement by one to
-> +	 * account for the offset
-> +	 */
-> +	if (tmp >=3D MCHPCOREPWM_PERIOD_MAX) {
-> +		*prescale =3D MCHPCOREPWM_PRESCALE_MAX - 1;
-> +		*period_steps =3D MCHPCOREPWM_PERIOD_STEPS_MAX - 1;
-> +		return 0;
-> +	}
-> +
-> +	*prescale =3D div_u64(tmp, MCHPCOREPWM_PERIOD_STEPS_MAX);
-> +	/* PREG_TO_VAL() can produce a value larger than UINT8_MAX */
-> +	*period_steps =3D div_u64(tmp, PREG_TO_VAL(*prescale)) - 1;
-> +
-> +	return 0;
-> +}
-> +
-> +static inline void mchp_core_pwm_apply_period(struct mchp_core_pwm_chip =
-*mchp_core_pwm,
-> +					      u8 prescale, u8 period_steps)
-> +{
-> +	writel_relaxed(prescale, mchp_core_pwm->base + MCHPCOREPWM_PRESCALE);
-> +	writel_relaxed(period_steps, mchp_core_pwm->base + MCHPCOREPWM_PERIOD);
-> +}
-> +
-> +static int mchp_core_pwm_apply(struct pwm_chip *chip, struct pwm_device =
-*pwm,
-> +			       const struct pwm_state *state)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	struct pwm_state current_state =3D pwm->state;
-> +	bool period_locked;
-> +	u64 duty_steps;
-> +	u16 prescale;
-> +	u8 period_steps;
-> +	int ret;
-> +
-> +	mutex_lock(&mchp_core_pwm->lock);
-> +
-> +	if (!state->enabled) {
-> +		mchp_core_pwm_enable(chip, pwm, false, current_state.period);
-> +		mutex_unlock(&mchp_core_pwm->lock);
-> +		return 0;
-> +	}
-> +
-> +	/*
-> +	 * If the only thing that has changed is the duty cycle or the polarity,
-> +	 * we can shortcut the calculations and just compute/apply the new duty
-> +	 * cycle pos & neg edges
-> +	 * As all the channels share the same period, do not allow it to be
-> +	 * changed if any other channels are enabled.
-> +	 * If the period is locked, it may not be possible to use a period
-> +	 * less than that requested. In that case, we just abort.
-> +	 */
-> +	period_locked =3D mchp_core_pwm->channel_enabled & ~(1 << pwm->hwpwm);
-> +
-> +	if (period_locked) {
-> +		u16 hw_prescale;
-> +		u8 hw_period_steps;
-> +
-> +		mchp_core_pwm_calc_period(chip, state, (u8 *)&prescale, &period_steps);
-
-Huh, if (u8 *)&prescale works depends on endianness.
-
-> +		hw_prescale =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PRESCA=
-LE);
-> +		hw_period_steps =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PE=
-RIOD);
-> +
-> +		if ((period_steps + 1) * (prescale + 1) <
-> +		    (hw_period_steps + 1) * (hw_prescale + 1)) {
-> +			mutex_unlock(&mchp_core_pwm->lock);
-> +			return -EINVAL;
-> +		}
-> +
-> +		/*
-> +		 * It is possible that something could have set the period_steps
-
-My German feel for the English language says s/could have/has/
-> +		 * register to 0xff, which would prevent us from setting a 100%
-
-For my understanding: It would also prevent a 0% relative duty, right?
-
-> +		 * duty cycle, as explained in the mchp_core_pwm_calc_period()
-
-s/duty/relative duty/; s/the //
-
-> +		 * above.
-> +		 * The period is locked and we cannot change this, so we abort.
-> +		 */
-> +		if (period_steps =3D=3D MCHPCOREPWM_PERIOD_STEPS_MAX) {
-
-Don't you need to check hw_period_steps =3D=3D MCHPCOREPWM_PERIOD_STEPS_MAX
-here?
-
-> +			mutex_unlock(&mchp_core_pwm->lock);
-> +			return -EINVAL;
-> +		}
-> +
-> +		prescale =3D hw_prescale;
-> +		period_steps =3D hw_period_steps;
-> +	} else if (!current_state.enabled || current_state.period !=3D state->p=
-eriod) {
-> +		ret =3D mchp_core_pwm_calc_period(chip, state, (u8 *)&prescale, &perio=
-d_steps);
-
-ret is only used in this block, so the declaration can go into here,
-too.
-
-> +		if (ret) {
-> +			mutex_unlock(&mchp_core_pwm->lock);
-> +			return ret;
-> +		}
-> +		mchp_core_pwm_apply_period(mchp_core_pwm, prescale, period_steps);
-> +	} else {
-> +		prescale =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PRESCALE);
-> +		period_steps =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PERIO=
-D);
-> +		/*
-> +		 * As above, it is possible that something could have set the
-> +		 * period_steps register to 0xff, which would prevent us from
-> +		 * setting a 100% duty cycle, as explained above.
-> +		 * As the period is not locked, we are free to fix this.
-> +		 */
-
-Are you sure this is safe? I think it isn't. Consider:
-
-	pwm_apply_state(mypwm, { .duty =3D 0, .period =3D A, .enabled =3D true, });
-	pwm_apply_state(mypwm, { .duty =3D 0, .period =3D B, .enabled =3D false, }=
-);
-	pwm_apply_state(mypwm, { .duty =3D 0, .period =3D B, .enabled =3D true, });
-
-Then you have in the third call prescale and period_steps still
-corresponding to A because you didn't update these registers in the 2nd
-call as you exited early.
-
-> +		if (period_steps =3D=3D MCHPCOREPWM_PERIOD_STEPS_MAX) {
-> +			period_steps -=3D 1;
-> +			mchp_core_pwm_apply_period(mchp_core_pwm, prescale, period_steps);
-> +		}
-> +	}
-> +
-> +	duty_steps =3D mchp_core_pwm_calc_duty(chip, pwm, state, prescale, peri=
-od_steps);
-> +
-> +	/*
-> +	 * Because the period is per channel, it is possible that the requested
-> +	 * duty cycle is longer than the period, in which case cap it to the
-> +	 * period, IOW a 100% duty cycle.
-> +	 */
-> +	if (duty_steps > period_steps)
-> +		duty_steps =3D period_steps + 1;
-> +
-> +	mchp_core_pwm_apply_duty(chip, pwm, state, duty_steps, period_steps);
-> +
-> +	mchp_core_pwm_enable(chip, pwm, true, state->period);
-> +
-> +	mutex_unlock(&mchp_core_pwm->lock);
-> +
-> +	return 0;
-
-Locking could be a bit simplified by doing:
-
-diff --git a/drivers/pwm/pwm-microchip-core.c b/drivers/pwm/pwm-microchip-c=
-ore.c
-index 4ec2f1fce600..d1578d73818f 100644
---- a/drivers/pwm/pwm-microchip-core.c
-+++ b/drivers/pwm/pwm-microchip-core.c
-@@ -197,8 +197,8 @@ static inline void mchp_core_pwm_apply_period(struct mc=
-hp_core_pwm_chip *mchp_co
- 	writel_relaxed(period_steps, mchp_core_pwm->base + MCHPCOREPWM_PERIOD);
- }
-=20
--static int mchp_core_pwm_apply(struct pwm_chip *chip, struct pwm_device *p=
-wm,
--			       const struct pwm_state *state)
-+static int mchp_core_pwm_apply_locked(struct pwm_chip *chip, struct pwm_de=
-vice *pwm,
-+				      const struct pwm_state *state)
- {
- 	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
- 	struct pwm_state current_state =3D pwm->state;
-@@ -208,11 +208,8 @@ static int mchp_core_pwm_apply(struct pwm_chip *chip, =
-struct pwm_device *pwm,
- 	u8 period_steps;
- 	int ret;
-=20
--	mutex_lock(&mchp_core_pwm->lock);
--
- 	if (!state->enabled) {
- 		mchp_core_pwm_enable(chip, pwm, false, current_state.period);
--		mutex_unlock(&mchp_core_pwm->lock);
- 		return 0;
- 	}
-=20
-@@ -236,10 +233,8 @@ static int mchp_core_pwm_apply(struct pwm_chip *chip, =
-struct pwm_device *pwm,
- 		hw_period_steps =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PERI=
-OD);
-=20
- 		if ((period_steps + 1) * (prescale + 1) <
--		    (hw_period_steps + 1) * (hw_prescale + 1)) {
-+		    (hw_period_steps + 1) * (hw_prescale + 1))
--			mutex_unlock(&mchp_core_pwm->lock);
- 			return -EINVAL;
--		}
-=20
- 		/*
- 		 * It is possible that something could have set the period_steps
-@@ -248,19 +243,16 @@ static int mchp_core_pwm_apply(struct pwm_chip *chip,=
- struct pwm_device *pwm,
- 		 * above.
- 		 * The period is locked and we cannot change this, so we abort.
- 		 */
--		if (period_steps =3D=3D MCHPCOREPWM_PERIOD_STEPS_MAX) {
-+		if (period_steps =3D=3D MCHPCOREPWM_PERIOD_STEPS_MAX)
--			mutex_unlock(&mchp_core_pwm->lock);
- 			return -EINVAL;
--		}
-=20
- 		prescale =3D hw_prescale;
- 		period_steps =3D hw_period_steps;
- 	} else if (!current_state.enabled || current_state.period !=3D state->per=
-iod) {
- 		ret =3D mchp_core_pwm_calc_period(chip, state, (u8 *)&prescale, &period_=
-steps);
--		if (ret) {
-+		if (ret)
--			mutex_unlock(&mchp_core_pwm->lock);
- 			return ret;
--		}
-+
- 		mchp_core_pwm_apply_period(mchp_core_pwm, prescale, period_steps);
- 	} else {
- 		prescale =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_PRESCALE);
-@@ -292,11 +284,24 @@ static int mchp_core_pwm_apply(struct pwm_chip *chip,=
- struct pwm_device *pwm,
-=20
- 	mchp_core_pwm_enable(chip, pwm, true, state->period);
-=20
--	mutex_unlock(&mchp_core_pwm->lock);
--
- 	return 0;
- }
-=20
-+static int mchp_core_pwm_apply(struct pwm_chip *chip, struct pwm_device *p=
-wm,
-+			       const struct pwm_state *state)
-+{
-+	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-+	int ret;
-+
-+	mutex_lock(&mchp_core_pwm->lock);
-+
-+	ret =3D mchp_core_pwm_apply_locked(chip, pwm, state);
-+
-+	mutex_unlock(&mchp_core_pwm->lock);
-+
-+	return ret;
-+}
-+
- static void mchp_core_pwm_get_state(struct pwm_chip *chip, struct pwm_devi=
-ce *pwm,
- 				    struct pwm_state *state)
- {
-
-The diffstat is negative, so maybe that's subjective.
-
-> +}
-> +
-> +static void mchp_core_pwm_get_state(struct pwm_chip *chip, struct pwm_de=
-vice *pwm,
-> +				    struct pwm_state *state)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_core_pwm =3D to_mchp_core_pwm(chip);
-> +	u16 prescale;
-> +	u8 period_steps, duty_steps, posedge, negedge;
-> +
-> +	mutex_lock(&mchp_core_pwm->lock);
-> +
-> +	if (mchp_core_pwm->channel_enabled & (1 << pwm->hwpwm))
-> +		state->enabled =3D true;
-> +	else
-> +		state->enabled =3D false;
-> +
-> +	prescale =3D PREG_TO_VAL(readb_relaxed(mchp_core_pwm->base + MCHPCOREPW=
-M_PRESCALE));
-> +
-> +	period_steps =3D PREG_TO_VAL(readb_relaxed(mchp_core_pwm->base + MCHPCO=
-REPWM_PERIOD));
-> +	state->period =3D period_steps * prescale * NSEC_PER_SEC;
-
-This is broken on 32 bit archs (here: arm):
-
-$ cat test.c
-#include <inttypes.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-int main(int argc, char *argv[])
-{
-	uint8_t period_steps =3D atoi(argv[1]);
-	uint16_t prescale =3D atoi(argv[2]);
-	uint64_t period;
-
-	period =3D period_steps * prescale * 1000000000L;
-
-	printf("period_steps =3D %" PRIu8 "\n", period_steps);
-	printf("prescale =3D %" PRIu16 "\n", prescale);
-	printf("period =3D %" PRIu64 "\n", period);
-
-	return 0;
-}
-
-$ make test
-cc     test.c   -o test
-
-$ ./test 255 65535
-period_steps =3D 255
-prescale =3D 65535
-period =3D 18446744073018591744
-
-The problem is that the result of 16711425 * 1000000000L isn't affected
-by the type of period and so it's promoted to L which isn't big enough
-to hold 16711425000000000 where longs are only 32 bit wide.
-
-> +	state->period =3D DIV64_U64_ROUND_UP(state->period, clk_get_rate(mchp_c=
-ore_pwm->clk));
-> +
-> +	posedge =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_POSEDGE(pwm=
-->hwpwm));
-> +	negedge =3D readb_relaxed(mchp_core_pwm->base + MCHPCOREPWM_NEGEDGE(pwm=
-->hwpwm));
-> +
-> +	if ((negedge =3D=3D posedge) && state->enabled) {
-
-Why do you need that state->enabled?
-
-> +		state->duty_cycle =3D state->period;
-> +		state->period *=3D 2;
-> +	} else {
-> +		duty_steps =3D abs((s16)posedge - (s16)negedge);
-> +		state->duty_cycle =3D duty_steps * prescale * NSEC_PER_SEC;
-> +		state->duty_cycle =3D DIV64_U64_ROUND_UP(state->duty_cycle,
-> +						       clk_get_rate(mchp_core_pwm->clk));
-
-Micro optimisation: Call clk_get_rate() only once.
-
-> +	}
-> +
-> +	state->polarity =3D negedge < posedge ? PWM_POLARITY_INVERSED : PWM_POL=
-ARITY_NORMAL;
-> +
-> +	mutex_unlock(&mchp_core_pwm->lock);
-
-You could release the lock a bit earlier.
-
-> +}
-> +
-> +static const struct pwm_ops mchp_core_pwm_ops =3D {
-> +	.apply =3D mchp_core_pwm_apply,
-> +	.get_state =3D mchp_core_pwm_get_state,
-> +	.owner =3D THIS_MODULE,
-> +};
-> +
-> +static const struct of_device_id mchp_core_of_match[] =3D {
-> +	{
-> +		.compatible =3D "microchip,corepwm-rtl-v4",
-> +	},
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, mchp_core_of_match);
-> +
-> +static int mchp_core_pwm_probe(struct platform_device *pdev)
-> +{
-> +	struct mchp_core_pwm_chip *mchp_pwm;
-> +	struct resource *regs;
-> +	int ret;
-> +
-> +	mchp_pwm =3D devm_kzalloc(&pdev->dev, sizeof(*mchp_pwm), GFP_KERNEL);
-> +	if (!mchp_pwm)
-> +		return -ENOMEM;
-> +
-> +	mchp_pwm->base =3D devm_platform_get_and_ioremap_resource(pdev, 0, &reg=
-s);
-> +	if (IS_ERR(mchp_pwm->base))
-> +		return PTR_ERR(mchp_pwm->base);
-> +
-> +	mchp_pwm->clk =3D devm_clk_get_enabled(&pdev->dev, NULL);
-> +	if (IS_ERR(mchp_pwm->clk))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(mchp_pwm->clk),
-> +				     "failed to get PWM clock\n");
-> +
-> +	if (of_property_read_u32(pdev->dev.of_node, "microchip,sync-update-mask=
-",
-> +				 &mchp_pwm->sync_update_mask))
-> +		mchp_pwm->sync_update_mask =3D 0u;
-
-That u suffix is unusual. I'd drop it.
-
-> +	mutex_init(&mchp_pwm->lock);
-> +
-> +	mchp_pwm->chip.dev =3D &pdev->dev;
-> +	mchp_pwm->chip.ops =3D &mchp_core_pwm_ops;
-> +	mchp_pwm->chip.npwm =3D 16;
-> +
-> +	mchp_pwm->channel_enabled =3D readb_relaxed(mchp_pwm->base + MCHPCOREPW=
-M_EN(0));
-> +	mchp_pwm->channel_enabled |=3D readb_relaxed(mchp_pwm->base + MCHPCOREP=
-WM_EN(1)) << 8;
-> +
-> +	ret =3D devm_pwmchip_add(&pdev->dev, &mchp_pwm->chip);
-> +	if (ret < 0)
-> +		return dev_err_probe(&pdev->dev, ret, "failed to add PWM chip\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static struct platform_driver mchp_core_pwm_driver =3D {
-> +	.driver =3D {
-> +		.name =3D "mchp-core-pwm",
-> +		.of_match_table =3D mchp_core_of_match,
-> +	},
-> +	.probe =3D mchp_core_pwm_probe,
-> +};
-> +module_platform_driver(mchp_core_pwm_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_AUTHOR("Conor Dooley <conor.dooley@microchip.com>");
-> +MODULE_DESCRIPTION("corePWM driver for Microchip FPGAs");
-
-Best regards
-Uwe
-
---=20
-Pengutronix e.K.                           | Uwe Kleine-K=F6nig            |
-Industrial Linux Solutions                 | https://www.pengutronix.de/ |
-
---s27i4bbymvcnc6ny
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEfnIqFpAYrP8+dKQLwfwUeK3K7AkFAmMi0o0ACgkQwfwUeK3K
-7AmHigf+OK4CW6QoqlGQwB5uR+EuBJa9T5NQZ2GdzZubRGJIVfgSFf3AnfLpxSlk
-dNXLb+uEC5W08WChw/Oyr5iL+MbzLogJqTghekMps6regvVANE/Ia9VgKJ45DTU/
-dCgE9HqnpmbkqvP3aLhnXAZrDXYxu6hZu3EEdTvISr5OpnrDplnN+gxlncVYyjhI
-5aUQcjrKxmrgrp4b4Mn/64pQ1NuwITl6WOknI6yh4osWY/UPBhzRn8sUKENcwg47
-Znd/NIpni/dLsA5KaFjcOEAcYC8RWqHBU+b6lmuYhaBONAdaKGLY2lbne7tw5Syf
-eHvH4pEEHKJPxHaNkB4Sm6O9W4qiKw==
-=bTyK
------END PGP SIGNATURE-----
-
---s27i4bbymvcnc6ny--
+>
+>
+> > + * | 0x04   | NOP      | J     0x10                                |
+> > + * | 0x08   | NOP      | 8-byte aligned target address (low)       |
+> > + * | 0x0C   | NOP      |                               (high)      |
+> > + * | 0x10   | NOP      | REG_L T0, 8(T0)                           |
+> > + * | 0x14   | NOP      | JALR  T0, T0                              |
+> > + * | FUNC   | X                                                    |
+> > + *
+> > + * If not, then it starts at a 4- but not 8-byte aligned address. In such cases,
+> > + * We re-arrange code and the trampoline in order to natually align it.
+> > + * | ADDR   | COMPILED | DISABLED         | ENABLED                |
+> > + * +--------+----------+------------------+------------------------+
+> > + * | 0x04   | NOP      | J     FUNC       | AUIPC T0, 0            |
+> > + * | 0x08   | NOP      | REG_L T0, 0xC(T0)                         |
+> > + * | 0x0C   | NOP      | J     0x18                                |
+> > + * | 0x10   | NOP      | 8-byte aligned target address (low)       |
+> > + * | 0x14   | NOP      |                               (high)      |
+> > + * | 0x18   | NOP      | JALR  T0, T0                              |
+> > + * | FUNC   | X                                                    |
+> >   */
+> > +
+> >  #if __riscv_xlen == 64
+> > -#define INSN0  0xfe113c23
+> > -#define INSN3  0xff813083
+> > -#elif __riscv_xlen == 32
+> > -#define INSN0  0xfe112e23
+> > -#define INSN3  0xffc12083
+> > +#define INSN_LD_T0_OFF(off) ((0x2b283) | ((off) << 20))
+> > +# elif __riscv_xlen == 32
+> > +#define INSN_LD_T0_OFF(off) ((0x2a283) | ((off) << 20))
+> >  #endif
+> >
+> > -#define FUNC_ENTRY_SIZE        16
+> > -#define FUNC_ENTRY_JMP 4
+> > +#define INSN_SKIPALL   0x0180006f
+> > +#define INSN_AUIPC     0x00000297
+> > +#define INSN_LOAD(off) INSN_LD_T0_OFF(off)
+> > +#define INSN_SKIPTRAMP 0x00c0006f
+> > +#define INSN_JALR      0x000282e7
+> > +#define INSN_SIZE      4
+> >
+> >  int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+> >  {
+> > -       unsigned int call[4] = {INSN0, 0, 0, INSN3};
+> > -       unsigned long target = addr;
+> > -       unsigned long caller = rec->ip + FUNC_ENTRY_JMP;
+> > -
+> > -       call[1] = to_auipc_insn((unsigned int)(target - caller));
+> > -       call[2] = to_jalr_insn((unsigned int)(target - caller));
+> > +       unsigned int call[1] = {INSN_AUIPC};
+> > +       void *tramp;
+> > +       unsigned long patch_addr = rec->ip;
+> > +
+> > +       if (IS_ALIGNED(patch_addr, 8)) {
+> > +               tramp = (void *) (patch_addr + 0x8);
+> > +       } else if (IS_ALIGNED(patch_addr, 4)) {
+> > +               tramp = (void *) (patch_addr + 0xc);
+> > +       } else {
+> > +               pr_warn("cannot patch: function must be 4-Byte or 8-Byte aligned\n");
+> > +               return -EINVAL;
+> > +       }
+> > +       WARN_ON(!IS_ALIGNED((unsigned long)tramp, 8));
+> > +       patch_insn_write(tramp, &addr, sizeof(unsigned long));
+> >
+> > -       if (patch_text_nosync((void *)rec->ip, call, FUNC_ENTRY_SIZE))
+> > +       if (patch_text_nosync((void *)patch_addr, &call, INSN_SIZE))
+> >                 return -EPERM;
+> >
+> >         return 0;
+> > @@ -114,14 +153,49 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
+> >  int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
+> >                     unsigned long addr)
+> >  {
+> > -       unsigned int nops[4] = {NOP4, NOP4, NOP4, NOP4};
+> > +       unsigned int nops[1] = {INSN_SKIPALL};
+> > +       unsigned long patch_addr = rec->ip;
+> >
+> > -       if (patch_text_nosync((void *)rec->ip, nops, FUNC_ENTRY_SIZE))
+> > +       if (patch_text_nosync((void *)patch_addr, nops, INSN_SIZE))
+> >                 return -EPERM;
+> >
+> >         return 0;
+> >  }
+> >
+> > +extern void ftrace_no_caller(void);
+> > +static void ftrace_make_default_tramp(unsigned int *tramp)
+> > +{
+> > +       *((unsigned long *)tramp) = (unsigned long) &ftrace_no_caller;
+> > +}
+> > +
+> > +int __ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec,
+> > +                   unsigned long addr)
+> > +{
+> > +       unsigned int nops[6];
+> > +       unsigned int *tramp;
+> > +       unsigned long patch_addr = rec->ip;
+> > +
+> > +       nops[0] = INSN_SKIPALL;
+> > +       if (IS_ALIGNED(patch_addr, 8)) {
+> > +               nops[1] = INSN_SKIPTRAMP;
+> > +               nops[4] = INSN_LOAD(0x8);
+> > +               tramp = &nops[2];
+> > +       } else if (IS_ALIGNED(patch_addr, 4)) {
+> > +               nops[1] = INSN_LOAD(0xc);
+> > +               nops[2] = INSN_SKIPTRAMP;
+> > +               tramp = &nops[3];
+> > +       } else {
+> > +               pr_warn("start address must be 4-Byte aligned\n");
+> > +               return -EINVAL;
+> > +       }
+> > +       ftrace_make_default_tramp(tramp);
+> > +       nops[5] = INSN_JALR;
+> > +
+> > +       if (patch_text_nosync((void *)patch_addr, nops, sizeof(nops)))
+> > +               return -EPERM;
+> > +
+> > +       return 0;
+> > +}
+> >
+> >  /*
+> >   * This is called early on, and isn't wrapped by
+> > @@ -135,7 +209,7 @@ int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec)
+> >         int out;
+> >
+> >         ftrace_arch_code_modify_prepare();
+> > -       out = ftrace_make_nop(mod, rec, MCOUNT_ADDR);
+> > +       out = __ftrace_init_nop(mod, rec, MCOUNT_ADDR);
+> >         ftrace_arch_code_modify_post_process();
+> >
+> >         return out;
+> > @@ -158,17 +232,14 @@ int ftrace_update_ftrace_func(ftrace_func_t func)
+> >  int ftrace_modify_call(struct dyn_ftrace *rec, unsigned long old_addr,
+> >                        unsigned long addr)
+> >  {
+> > -       unsigned int call[2];
+> > -       unsigned long caller = rec->ip + FUNC_ENTRY_JMP;
+> >         int ret;
+> >
+> > -       make_call(caller, old_addr, call);
+> > -       ret = ftrace_check_current_call(caller, call);
+> > +       ret = ftrace_check_current_call(rec->ip, old_addr);
+> >
+> >         if (ret)
+> >                 return ret;
+> >
+> > -       return __ftrace_modify_call(caller, addr, true);
+> > +       return __ftrace_modify_call(rec->ip, addr, true);
+> >  }
+> >  #endif
+> >
+> > diff --git a/arch/riscv/kernel/mcount-dyn.S b/arch/riscv/kernel/mcount-dyn.S
+> > index d171eca623b6..f8ee63e4314b 100644
+> > --- a/arch/riscv/kernel/mcount-dyn.S
+> > +++ b/arch/riscv/kernel/mcount-dyn.S
+> > @@ -13,7 +13,7 @@
+> >
+> >         .text
+> >
+> > -#define FENTRY_RA_OFFSET       12
+> > +#define FENTRY_RA_OFFSET       24
+> >  #define ABI_SIZE_ON_STACK      72
+> >  #define ABI_A0                 0
+> >  #define ABI_A1                 8
+> > @@ -25,7 +25,12 @@
+> >  #define ABI_A7                 56
+> >  #define ABI_RA                 64
+> >
+> > +# t0 points to return of ftrace
+> > +# ra points to the return address of traced function
+> > +
+> >         .macro SAVE_ABI
+> > +       REG_S   ra, -SZREG(sp)
+> > +       mv      ra, t0
+> >         addi    sp, sp, -SZREG
+> >         addi    sp, sp, -ABI_SIZE_ON_STACK
+> >
+> > @@ -53,10 +58,14 @@
+> >
+> >         addi    sp, sp, ABI_SIZE_ON_STACK
+> >         addi    sp, sp, SZREG
+> > +       mv      t0, ra
+> > +       REG_L   ra, -SZREG(sp)
+> >         .endm
+> >
+> >  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
+> >         .macro SAVE_ALL
+> > +       REG_S   ra, -SZREG(sp)
+> > +       mv      ra, t0
+> >         addi    sp, sp, -SZREG
+> >         addi    sp, sp, -PT_SIZE_ON_STACK
+> >
+> > @@ -138,9 +147,18 @@
+> >
+> >         addi    sp, sp, PT_SIZE_ON_STACK
+> >         addi    sp, sp, SZREG
+> > +       mv      t0, ra # t0 is equal to ra here
+> > +       REG_L   ra, -SZREG(sp)
+> >         .endm
+> >  #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+> >
+> > +# perform a full fence before re-running the ftrae entry if we run into this
+> > +ENTRY(ftrace_no_caller)
+> > +       fence   rw, rw
+> > +       fence.i
+> > +       jr      -FENTRY_RA_OFFSET(t0)
+> > +ENDPROC(ftrace_no_caller)
+> > +
+> >  ENTRY(ftrace_caller)
+> >         SAVE_ABI
+> >
+> > @@ -150,9 +168,9 @@ ENTRY(ftrace_caller)
+> >         REG_L   a1, ABI_SIZE_ON_STACK(sp)
+> >         mv      a3, sp
+> >
+> > -ftrace_call:
+> > -       .global ftrace_call
+> > -       call    ftrace_stub
+> > +ftrace_call_site:
+> > +       REG_L   ra, ftrace_call
+> > +       jalr    0(ra)
+> >
+> >  #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+> >         addi    a0, sp, ABI_SIZE_ON_STACK
+> > @@ -161,12 +179,12 @@ ftrace_call:
+> >  #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+> >         mv      a2, s0
+> >  #endif
+> > -ftrace_graph_call:
+> > -       .global ftrace_graph_call
+> > -       call    ftrace_stub
+> > +ftrace_graph_call_site:
+> > +       REG_L   ra, ftrace_graph_call
+> > +       jalr    0(ra)
+> >  #endif
+> >         RESTORE_ABI
+> > -       ret
+> > +       jr      t0
+> >  ENDPROC(ftrace_caller)
+> >
+> >  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_REGS
+> > @@ -179,9 +197,9 @@ ENTRY(ftrace_regs_caller)
+> >         REG_L   a1, PT_SIZE_ON_STACK(sp)
+> >         mv      a3, sp
+> >
+> > -ftrace_regs_call:
+> > -       .global ftrace_regs_call
+> > -       call    ftrace_stub
+> > +ftrace_regs_call_site:
+> > +       REG_L   ra, ftrace_regs_call
+> > +       jalr    0(ra)
+> >
+> >  #ifdef CONFIG_FUNCTION_GRAPH_TRACER
+> >         addi    a0, sp, PT_RA
+> > @@ -190,12 +208,33 @@ ftrace_regs_call:
+> >  #ifdef HAVE_FUNCTION_GRAPH_FP_TEST
+> >         mv      a2, s0
+> >  #endif
+> > -ftrace_graph_regs_call:
+> > -       .global ftrace_graph_regs_call
+> > -       call    ftrace_stub
+> > +ftrace_graph_regs_call_site:
+> > +       REG_L   ra, ftrace_graph_regs_call
+> > +       jalr    0(ra)
+> >  #endif
+> >
+> >         RESTORE_ALL
+> > -       ret
+> > +       jr      t0
+> >  ENDPROC(ftrace_regs_caller)
+> >  #endif /* CONFIG_DYNAMIC_FTRACE_WITH_REGS */
+> > +
+> > +.align RISCV_LGPTR
+> > +ftrace_call:
+> > +       .global ftrace_call
+> > +       RISCV_PTR ftrace_stub
+> > +
+> > +.align RISCV_LGPTR
+> > +ftrace_graph_call:
+> > +       .global ftrace_graph_call
+> > +       RISCV_PTR ftrace_stub
+> > +
+> > +.align RISCV_LGPTR
+> > +ftrace_regs_call:
+> > +       .global ftrace_regs_call
+> > +       RISCV_PTR ftrace_stub
+> > +
+> > +.align RISCV_LGPTR
+> > +ftrace_graph_regs_call:
+> > +       .global ftrace_graph_regs_call
+> > +       RISCV_PTR ftrace_stub
+> > +
+> > --
+> > 2.36.0
+> >
+>
+>
+> --
+> Best Regards
+>  Guo Ren
 
 
---===============0450906789653370052==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+
+--
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0450906789653370052==--
-
