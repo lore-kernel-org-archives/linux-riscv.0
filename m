@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635EFC6FA86
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 17:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C685C6FA86
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 17:33:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SCaGu8z30z1C3k69LQd50a3kuZPGGEdlY27KO9FfKQ8=; b=B8ljZqRpKhIFPt
-	WoULq2G54SYMjjJ3pM3lOgbKlBPG/MyZGDnXYlx7KDdBr53A01Utwp2fuXGqzT9cTYbNJUEUAyssE
-	Y4zq3V+ZL5OoTnmPYEF7MNcFS41JMN56yYA2voRzSfOKVgLww9P/BG2RTssLcG7hEp8xYFPGjz/W6
-	XaKCrDslHHj444z2dFMzZW0wsqrjiSHmrPWNBN5TNi7LczUMq67SE6RXU525xHiBwb8QHIWUP1DBG
-	mTmSAEEtvtiX8F+3XyMRoJYlltR4HzHGxqa0JFsniODKibsPV4oZarEn1ID9C7/05nDQnZATshrpz
-	BAl+CK5j21IEoBgNc9nQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=xAmV8LZG6KC9JozO0+Jkm4InodhZZNtF6bSgPRhMLUE=; b=pErkWfbV/xNTxTBcCuT2XBVYyn
+	n1IVeupebU27M0QBpz4+5EW2O5sO0HGn4z4TfaFJD/jFqakdJ6JrWOC9NniO3foS6+dJV/UEW3Cn6
+	/zxBJoYhkHZkq4mwEhMPX2tiLwbB8AYMY8r2UrXuRzAXPZrXLy/E+KX+KxWogv6f9taif3dmjumIP
+	DDxMtA03xgZzSOk8VS2QYm9jkp2dkb7Or99HQj0wSLxLb7dMtLMTKLqHQerIe+rNEvf+vWK+9oLqN
+	AK8MVnHBXBKtX3tfGukkCN4eUhnNXyK39b8Y6bxCMWJgimEFgZo1J/hqKR5hz8veh+jktLeCssMhV
+	2KDhG3MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYsdx-00EFcK-5K; Thu, 15 Sep 2022 17:27:17 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1oYsjf-00EMxz-HV; Thu, 15 Sep 2022 17:33:11 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYsdu-00EFVG-5S
-	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 17:27:16 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id o70-20020a17090a0a4c00b00202f898fa86so8631353pjo.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 10:27:13 -0700 (PDT)
+	id 1oYsjb-00EMe2-93
+	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 17:33:09 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id m10-20020a17090a730a00b001fa986fd8eeso23106059pjk.0
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 10:33:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=2byv70u9LxFyqg2KEOTjIwO2wrYAaSWdRlHkqPRd+W0=;
-        b=L8REomJAnSSsKQQzOccREDQKI9QUe7j4kqYbUwlEK63BVvueOkP7HwF3Tg7LnN/LFo
-         /EJAwjeIXrHCEfKGogFKKN0yGLPkwTBQnm9MmJGlA1fR1a2sOP3pwqi5j7AEZxerVynj
-         n2GoZqNPHjwjRRmK9irk4vWQt+me36EeVoTpY5suYkVKLl8qjhzWR2VmAvcgYG+GHw2V
-         dTgyxZGRdRtKxHDMny3JQhLtWvT/1gfQJzuTQqC6Kmpkwg53qGC5Oa9+HxCA29o9lDIq
-         hJsZbmL5odvBBr+4xDP0KjoZ8KCmRsCUtVhF7lRUBWk1Nq0L0KpnW5dRkVide/uMppBb
-         HYMQ==
+        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date;
+        bh=sr7hwhZfKrYujB3B5b+32vmS9Z7fF9HgAf8Lx4+c5Ag=;
+        b=cZFnx4BQ4JQVvLPQOd//WK6FFjng+42TW9mUi2vpaXccX/abDjd+Rk4hSYIPdwmlos
+         9zy5b0nLmAClkDvEGsOgyyvoJJcxm2vU3K9p+XRviqE1xZaTUpPik2Lnri7I1VvpzF+a
+         bf7XMTOIWihTwKxM0NswgQ91fFp+4XhW9qVatIQluGuz9gw08yYunkJRWiMncMqTe77y
+         gRrTI7lZGRNBQc1xXq+cSJAxQQMCjAI3krlaaGqmrWfwgKif1QYHpJVudoYQhUHq1/wp
+         fSB2Hy23gck//sjv4LVkQyFhh1YaPtfIzNIlhM4gvyRmI9sdM3KkVpOpkb7ZG6U9ujhm
+         6U2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=2byv70u9LxFyqg2KEOTjIwO2wrYAaSWdRlHkqPRd+W0=;
-        b=CXkL3/SFUdJ1AnJ4fWN0rBVh17hUvg1j2KbrCocH2mb0ELpLF9anh3GF5zdDpnOVHN
-         leyQI0O5cEbJlu1ZufCwi3h2amOu34m93qKNj5cT1WUJyZqcA71qg0LBhkLy5zb3fRlZ
-         cnXwJyIy1IUUm6orlLl6i4X28cnNnl+dNG638m+hl279BgeMNYmR1Fan/108P8e6dA29
-         mBpsNfM6q8p9jcwDZdQEHub9IkEv/a5KmSseCY5iz2t4+J6tUNOofKkkzlvAYDKuAFL7
-         8r2CCOeJGB4VnYvEcWh8qHzsI39dn+o2DunApTLl/6Vbb5K3rcSSaiwwp0ktxTZxNx7q
-         hqeQ==
-X-Gm-Message-State: ACrzQf1KGyZJmo6Rae8BQVbHD8jeAlHXq8YjQsedkZyhKpT4lOYDk9u/
-	J9tOEhoXD4BQ7wEBTdS9IfgTI5Rkn17xtm7EppW1TQ==
-X-Google-Smtp-Source: AMsMyM6NIYvHuwjX471io4e8+lQbWL/2ToJ7/PZZC2/QexT0xHLfXzLeG5FwGJ2J+L4EXsdAsFPIUSfE6VQunsm8W0Y=
-X-Received: by 2002:a17:902:bb97:b0:175:6721:2c34 with SMTP id
- m23-20020a170902bb9700b0017567212c34mr621209pls.146.1663262832597; Thu, 15
- Sep 2022 10:27:12 -0700 (PDT)
-MIME-Version: 1.0
-References: <20220909212731.1373355-1-abrestic@rivosinc.com>
- <20220909212731.1373355-2-abrestic@rivosinc.com> <d46d6340-b985-49b2-babb-0082f1759c7b@microchip.com>
-In-Reply-To: <d46d6340-b985-49b2-babb-0082f1759c7b@microchip.com>
-From: Andrew Bresticker <abrestic@rivosinc.com>
-Date: Thu, 15 Sep 2022 13:27:01 -0400
-Message-ID: <CALE4mHrBC-ni3HunRzxRzM8QJDHb=FuJquccum6OcnB4jZ6KbQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] riscv: Allow PROT_WRITE-only mmap()
-To: Conor.Dooley@microchip.com
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Celeste Liu <coelacanthus@outlook.com>, dram <dramforever@live.com>, 
-	Ruizhe Pan <c141028@gmail.com>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Atish Kumar Patra <atishp@rivosinc.com>
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=sr7hwhZfKrYujB3B5b+32vmS9Z7fF9HgAf8Lx4+c5Ag=;
+        b=d4AVJ6HWQbVss4I+jeJdnzlg/TyxgED6gUk+n/4goqp/sxzy7uMSiuNzsfVXXKD7qj
+         3IF+2gQAbVta3j0qi+zMs0bG2gRs8I8Y2sCL31EsH0JZtxRZ2x0Y1n632XXXhLDpOAkJ
+         kfRr4K4lyC9z60NRo3KWEGm9DX5V/ptQv7DYVnLn6xhcBNFzVW9osOpFNjM68nkXBYZT
+         5whMSeQXuWjbSqBwaM7d6YPxrMTWl2XvrDBtBH0ihnyZLF4/Jt/xxw/oE7YqCr7o9Hlu
+         09B/xARMUWO+mxLikmZqwAsBT7AeEKCGMtvIbuqpzUEbtbgC+a4oANPzO6QcJKPYXFf0
+         jXVA==
+X-Gm-Message-State: ACrzQf0tnYgoU3xd/5mzBa1o9ghhw/MNtho30flcWkq/BkkOoiPzAc36
+	kEKLoInJSYvCWo0JCq263dTcjg==
+X-Google-Smtp-Source: AMsMyM6+wrm4SqnXVpm4S1q4D6KKRSgrBChvlPrSDoyae4Ca+1w2/0kvaH5CXfNrNPUqh8eOpTAt5A==
+X-Received: by 2002:a17:902:ef82:b0:178:72bc:983b with SMTP id iz2-20020a170902ef8200b0017872bc983bmr537272plb.0.1663263182561;
+        Thu, 15 Sep 2022 10:33:02 -0700 (PDT)
+Received: from localhost ([172.58.30.147])
+        by smtp.gmail.com with ESMTPSA id bo24-20020a17090b091800b0020329c95779sm1884000pjb.45.2022.09.15.10.33.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Sep 2022 10:33:01 -0700 (PDT)
+Date: Thu, 15 Sep 2022 10:33:01 -0700 (PDT)
+X-Google-Original-Date: Thu, 15 Sep 2022 10:32:50 PDT (-0700)
+Subject: Re: [PATCH v3] riscv: Fix permissions for all mm's during mm init
+In-Reply-To: <20220902101312.220350-1-vladimir.isaev@syntacore.com>
+CC: linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
+  Conor.Dooley@microchip.com, atishp@atishpatra.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  aou@eecs.berkeley.edu, anup@brainfault.org, vladimir.isaev@syntacore.com, ajones@ventanamicro.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: vladimir.isaev@syntacore.com
+Message-ID: <mhng-4e92ce8a-c981-441f-b6f2-e5609e8a224f@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220915_102714_236783_A317514F 
-X-CRM114-Status: GOOD (  28.76  )
+X-CRM114-CacheID: sfid-20220915_103307_352713_E586C050 
+X-CRM114-Status: GOOD (  32.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,76 +83,279 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 15, 2022 at 12:56 PM <Conor.Dooley@microchip.com> wrote:
+On Fri, 02 Sep 2022 03:13:12 PDT (-0700), vladimir.isaev@syntacore.com wrote:
+> It is possible to have more than one mm (init_mm) during memory
+> permission fixes. In my case it was caused by request_module
+> from drivers/net/phy/phy_device.c and leads to following Oops
+> during free_initmem() on RV32 platform:
+>      Unable to handle kernel paging request at virtual address c0800000
+>      Oops [#1]
+>      Modules linked in:
+>      CPU: 0 PID: 1 Comm: swapper Not tainted 5.15.45
+>      Hardware name: Syntacore SCR5 SDK board (DT)
+>      epc : __memset+0x58/0xf4
+>       ra : free_reserved_area+0xfa/0x15a
+>      epc : c02b26ac ra : c00eb588 sp : c1c1fed0
+>       gp : c1898690 tp : c1c98000 t0 : c0800000
+>       t1 : ffffffff t2 : 00000000 s0 : c1c1ff20
+>       s1 : c189a000 a0 : c0800000 a1 : cccccccc
+>       a2 : 00001000 a3 : c0801000 a4 : 00000000
+>       a5 : 00800000 a6 : fef09000 a7 : 00000000
+>       s2 : c0e57000 s3 : c10edcf8 s4 : 000000cc
+>       s5 : ffffefff s6 : c188a9f4 s7 : 00000001
+>       s8 : c0800000 s9 : fef1b000 s10: c10ee000
+>       s11: c189a000 t3 : 00000000 t4 : 00000000
+>       t5 : 00000000 t6 : 00000001
+>      status: 00000120 badaddr: c0800000 cause: 0000000f
+>      [<c0488658>] free_initmem+0x204/0x222
+>      [<c048d05a>] kernel_init+0x32/0xfc
+>      [<c0002f76>] ret_from_exception+0x0/0xc
+>      ---[ end trace 7a5e2b002350b528 ]---
 >
-> On 09/09/2022 22:27, Andrew Bresticker wrote:
-> > EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> >
-> > Commit 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is
-> > invalid") made mmap() return EINVAL if PROT_WRITE was set wihtout
-> > PROT_READ with the justification that a write-only PTE is considered a
-> > reserved PTE permission bit pattern in the privileged spec. This check
-> > is unnecessary since we let VM_WRITE imply VM_READ on RISC-V, and it is
-> > inconsistent with other architectures that don't support write-only PTEs,
-> > creating a potential software portability issue. Just remove the check
-> > altogether and let PROT_WRITE imply PROT_READ as is the case on other
-> > architectures.
-> >
-> > Note that this also allows PROT_WRITE|PROT_EXEC mappings which were
-> > disallowed prior to the aforementioned commit; PROT_READ is implied in
-> > such mappings as well.
-> >
-> > Fixes: 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is invalid")
+> This is because request_module attempted to modprobe module, so it created
+> new mm with the copy of kernel's page table. And this copy won't be updated
+> in case of 4M pages and RV32 (pgd is the leaf).
 >
-> For the naive members of the audience such as myself, this patch
-> came after a non-fixes patch in the series. What is the dependence
-> of this patch on the other one (if any)?
+> To fix this we can update protection bits for all of existing mm-s, the
+> same as ARM does, see commit 08925c2f124f
+> ("ARM: 8464/1: Update all mm structures with section adjustments").
+>
+> Fixes: 19a00869028f ("RISC-V: Protect all kernel sections including init early")
+> Signed-off-by: Vladimir Isaev <vladimir.isaev@syntacore.com>
+> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> ---
+> Changes for v3:
+>   - Add WARN_ON(state != SYSTEM_FREEING_INITMEM) to fix_kernel_mem_early()
+>     to make sure that the function used only during permission fixes.
+>   - Add comment to fix_kernel_mem_early().
+>
+> Changes for v2:
+>   - Fix commit message format.
+>   - Add 'Fixes' tag.
+> ---
+>  arch/riscv/include/asm/set_memory.h | 20 ++--------
+>  arch/riscv/kernel/setup.c           | 11 -----
+>  arch/riscv/mm/init.c                | 29 +++++++++++---
+>  arch/riscv/mm/pageattr.c            | 62 +++++++++++++++++++++++++----
+>  4 files changed, 82 insertions(+), 40 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
+> index a2c14d4b3993..bb0f6b4ed86b 100644
+> --- a/arch/riscv/include/asm/set_memory.h
+> +++ b/arch/riscv/include/asm/set_memory.h
+> @@ -16,28 +16,16 @@ int set_memory_rw(unsigned long addr, int numpages);
+>  int set_memory_x(unsigned long addr, int numpages);
+>  int set_memory_nx(unsigned long addr, int numpages);
+>  int set_memory_rw_nx(unsigned long addr, int numpages);
+> -static __always_inline int set_kernel_memory(char *startp, char *endp,
+> -					     int (*set_memory)(unsigned long start,
+> -							       int num_pages))
+> -{
+> -	unsigned long start = (unsigned long)startp;
+> -	unsigned long end = (unsigned long)endp;
+> -	int num_pages = PAGE_ALIGN(end - start) >> PAGE_SHIFT;
+> -
+> -	return set_memory(start, num_pages);
+> -}
+> +void fix_kernel_mem_early(char *startp, char *endp, pgprot_t set_mask,
+> +			  pgprot_t clear_mask);
+>  #else
+>  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
+>  static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
+>  static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
+>  static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
+>  static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
+> -static inline int set_kernel_memory(char *startp, char *endp,
+> -				    int (*set_memory)(unsigned long start,
+> -						      int num_pages))
+> -{
+> -	return 0;
+> -}
+> +static inline void fix_kernel_mem_early(char *startp, char *endp,
+> +					pgprot_t set_mask, pgprot_t clear_mask) { }
+>  #endif
+>
+>  int set_direct_map_invalid_noflush(struct page *page);
+> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
+> index 95ef6e2bf45c..17eae1406092 100644
+> --- a/arch/riscv/kernel/setup.c
+> +++ b/arch/riscv/kernel/setup.c
+> @@ -27,7 +27,6 @@
+>  #include <asm/early_ioremap.h>
+>  #include <asm/pgtable.h>
+>  #include <asm/setup.h>
+> -#include <asm/set_memory.h>
+>  #include <asm/sections.h>
+>  #include <asm/sbi.h>
+>  #include <asm/tlbflush.h>
+> @@ -318,13 +317,3 @@ static int __init topology_init(void)
+>  	return 0;
+>  }
+>  subsys_initcall(topology_init);
+> -
+> -void free_initmem(void)
+> -{
+> -	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
+> -		set_kernel_memory(lm_alias(__init_begin), lm_alias(__init_end),
+> -				  IS_ENABLED(CONFIG_64BIT) ?
+> -					set_memory_rw : set_memory_rw_nx);
+> -
+> -	free_initmem_default(POISON_FREE_INITMEM);
+> -}
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index b56a0a75533f..978202712535 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -16,7 +16,6 @@
+>  #include <linux/of_fdt.h>
+>  #include <linux/of_reserved_mem.h>
+>  #include <linux/libfdt.h>
+> -#include <linux/set_memory.h>
+>  #include <linux/dma-map-ops.h>
+>  #include <linux/crash_dump.h>
+>  #include <linux/hugetlb.h>
+> @@ -28,6 +27,7 @@
+>  #include <asm/io.h>
+>  #include <asm/ptdump.h>
+>  #include <asm/numa.h>
+> +#include <asm/set_memory.h>
+>
+>  #include "../kernel/head.h"
+>
+> @@ -714,10 +714,14 @@ static __init pgprot_t pgprot_from_va(uintptr_t va)
+>
+>  void mark_rodata_ro(void)
+>  {
+> -	set_kernel_memory(__start_rodata, _data, set_memory_ro);
+> -	if (IS_ENABLED(CONFIG_64BIT))
+> -		set_kernel_memory(lm_alias(__start_rodata), lm_alias(_data),
+> -				  set_memory_ro);
+> +	pgprot_t set_mask = __pgprot(_PAGE_READ);
+> +	pgprot_t clear_mask = __pgprot(_PAGE_WRITE);
+> +
+> +	fix_kernel_mem_early(__start_rodata, _data, set_mask, clear_mask);
+> +	if (IS_ENABLED(CONFIG_64BIT)) {
+> +		fix_kernel_mem_early(lm_alias(__start_rodata), lm_alias(_data),
+> +				     set_mask, clear_mask);
+> +	}
+>
+>  	debug_checkwx();
+>  }
+> @@ -1243,3 +1247,18 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>  	return vmemmap_populate_basepages(start, end, node, NULL);
+>  }
+>  #endif
+> +
+> +void free_initmem(void)
+> +{
+> +	pgprot_t set_mask = __pgprot(_PAGE_READ | _PAGE_WRITE);
+> +	pgprot_t clear_mask = IS_ENABLED(CONFIG_64BIT) ?
+> +			      __pgprot(0) : __pgprot(_PAGE_EXEC);
+> +
+> +	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
+> +		fix_kernel_mem_early(lm_alias(__init_begin),
+> +				     lm_alias(__init_end),
+> +				     set_mask, clear_mask);
+> +	}
+> +
+> +	free_initmem_default(POISON_FREE_INITMEM);
+> +}
+> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
+> index 5e49e4b4a4cc..74b8107ac743 100644
+> --- a/arch/riscv/mm/pageattr.c
+> +++ b/arch/riscv/mm/pageattr.c
+> @@ -5,6 +5,7 @@
+>
+>  #include <linux/pagewalk.h>
+>  #include <linux/pgtable.h>
+> +#include <linux/sched.h>
+>  #include <asm/tlbflush.h>
+>  #include <asm/bitops.h>
+>  #include <asm/set_memory.h>
+> @@ -104,24 +105,69 @@ static const struct mm_walk_ops pageattr_ops = {
+>  	.pte_hole = pageattr_pte_hole,
+>  };
+>
+> -static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+> -			pgprot_t clear_mask)
+> +static int __set_memory_mm(struct mm_struct *mm, unsigned long start,
+> +			   unsigned long end, pgprot_t set_mask,
+> +			   pgprot_t clear_mask)
+>  {
+>  	int ret;
+> -	unsigned long start = addr;
+> -	unsigned long end = start + PAGE_SIZE * numpages;
+>  	struct pageattr_masks masks = {
+>  		.set_mask = set_mask,
+>  		.clear_mask = clear_mask
+>  	};
+>
+> +	mmap_read_lock(mm);
+> +	ret = walk_page_range_novma(mm, start, end, &pageattr_ops, NULL,
+> +				    &masks);
+> +	mmap_read_unlock(mm);
+> +
+> +	return ret;
+> +}
+> +
+> +void fix_kernel_mem_early(char *startp, char *endp, pgprot_t set_mask,
+> +			  pgprot_t clear_mask)
+> +{
+> +	struct task_struct *t, *s;
+> +
+> +	unsigned long start = (unsigned long)startp;
+> +	unsigned long end = PAGE_ALIGN((unsigned long)endp);
+> +
+> +	/*
+> +	 * In the SYSTEM_FREEING_INITMEM state we expect that all async code
+> +	 * is done and no new userspace task can be created.
+> +	 * So rcu_read_lock() should be enough here.
+> +	 */
+> +	WARN_ON(system_state != SYSTEM_FREEING_INITMEM);
+> +
+> +	__set_memory_mm(current->active_mm, start, end, set_mask, clear_mask);
+> +	__set_memory_mm(&init_mm, start, end, set_mask, clear_mask);
+> +
+> +	rcu_read_lock();
+> +	for_each_process(t) {
+> +		if (t->flags & PF_KTHREAD)
+> +			continue;
+> +		for_each_thread(t, s) {
+> +			if (s->mm) {
+> +				__set_memory_mm(s->mm, start, end, set_mask,
+> +						clear_mask);
+> +			}
+> +		}
+> +	}
+> +	rcu_read_unlock();
+> +
+> +	flush_tlb_kernel_range(start, end);
+> +}
+> +
+> +static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
+> +			pgprot_t clear_mask)
+> +{
+> +	int ret;
+> +	unsigned long start = addr;
+> +	unsigned long end = start + PAGE_SIZE * numpages;
+> +
+>  	if (!numpages)
+>  		return 0;
+>
+> -	mmap_read_lock(&init_mm);
+> -	ret =  walk_page_range_novma(&init_mm, start, end, &pageattr_ops, NULL,
+> -				     &masks);
+> -	mmap_read_unlock(&init_mm);
+> +	ret = __set_memory_mm(&init_mm, start, end, set_mask, clear_mask);
+>
+>  	flush_tlb_kernel_range(start, end);
 
-This patch is dependent on the first. Happy to re-spin with a "Fixes"
-tag on the first patch (or maybe Palmer can add when applying).
-
--Andrew
-
-> Thanks,
-> Conor.
->
-> > Reviewed-by: Atish Patra <atishp@rivosinc.com>
-> > Signed-off-by: Andrew Bresticker <abrestic@rivosinc.com>
-> > ---
-> > v1 -> v2: Update access_error() to account for write-implies-read
-> > v2 -> v3: Separate into two commits
-> > ---
-> >  arch/riscv/kernel/sys_riscv.c | 3 ---
-> >  1 file changed, 3 deletions(-)
-> >
-> > diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
-> > index 571556bb9261..5d3f2fbeb33c 100644
-> > --- a/arch/riscv/kernel/sys_riscv.c
-> > +++ b/arch/riscv/kernel/sys_riscv.c
-> > @@ -18,9 +18,6 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
-> >         if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
-> >                 return -EINVAL;
-> >
-> > -       if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
-> > -               return -EINVAL;
-> > -
-> >         return ksys_mmap_pgoff(addr, len, prot, flags, fd,
-> >                                offset >> (PAGE_SHIFT - page_shift_offset));
-> >  }
-> > --
-> > 2.25.1
-> >
-> >
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
->
+Thanks, this is on fixes.
 
 _______________________________________________
 linux-riscv mailing list
