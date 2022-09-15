@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FC9EC6FA89
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 18:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF5CC6FA8D
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 18:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lGySIbrjZ06C/x1arXOmHWuA+ZCPDXsuWaMuGIlL9BQ=; b=4Yd8diWq81pniL
-	4lrQr89t9G+vTYw2Z6fCmRbjFbvfiXWSl5wt9hOIltnpAvoUo8J9EnFFRP0QjMtoG8+GMK3rHOzPf
-	GU0nP+abJEvKEk45ILASdbQv0yTyHgIbwIi5ZeataNciEmrrxeCQtTzb6k/UB3jsroLqiF7Qho2dp
-	fYw72KT7QD1lcqGQfZQbVlo6Bake5eInVEWXRIAdDrKt2MWolh1pIjWrpYOa5qKa35x2MghV+NrnV
-	jha1xZHT2XK7P2a04fnMbRmII0e/iZ/pLIfaYvWEkBD9AcQH9EkcLwVokpSAZ08S/bTvaVjTaYHTM
-	YD7yO3bl+lOfbHK05oYA==;
+	List-Owner; bh=R0U4w5NR/dgE/meJg+11vKBxuPYzZx7a211m+GdVz6I=; b=JkLdvyIk7eP3Pa
+	eHblA3HHOim8PFQzZPbAMp1FrA8Mw+UxefsrTEkNBoYerPBBVvTXZFTE/nLZbA+HKpSG6I5Sms4q9
+	Xxe24gYOKsylP20puTowAKXJ4OhZZgtCSIJCuaq8wHBYyC4rCFbjhaOp4T9ODx4hMeboxe95Yxi2k
+	rGgWQV9UqoLVyQezZZQ93Pi3algB8AQFKSQ7zLqUfs4/OmIjFNQoI8SduVCQCCSWt67MapjsiWk/0
+	wEfoTvGr7yMZwdjmTmZpBeuTl2cBkk66G6TSvmNBs3GO9TGVmXOM9Zapzlv1ZGhihXLsC7SjVlgd2
+	wf9GVofkrrYvw2v6hr1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYtQs-00FUU2-9Y; Thu, 15 Sep 2022 18:17:50 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1oYtQu-00FUVn-9m; Thu, 15 Sep 2022 18:17:52 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYtQk-00FU7y-OZ
+	id 1oYtQk-00FU9J-PD
 	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 18:17:46 +0000
-Received: by mail-wr1-x436.google.com with SMTP id g3so11214110wrq.13
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 11:17:36 -0700 (PDT)
+Received: by mail-wm1-x329.google.com with SMTP id i203-20020a1c3bd4000000b003b3df9a5ecbso13497671wma.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 11:17:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
-        bh=O2VLizPOFB8Cw4tUD1XPYg1pr+6HOsBm1gy7frAi+N8=;
-        b=WjEv3HYvp+P8hT/A+r1RHj7K0WdkUmFxq4Bph7B8aE9nk4YmAVR9Vtjz/ZxaZ/PgLb
-         L1oReoZcG1UW51RdkDI6kB74J1mO0ellGTLUMWnfInG8EE8wayZCH/xablk2X+MAk6he
-         UZKTly33tWVbNozQhmhTiyQ0c+U1xruHTxKVB/H3q5vMRRAxI8GSp6vmjDw/o/fDYV5C
-         BcK73vgZCXhaswM6xzcG/7PyQfAg3Wz3HX8Juf319Vs1RmZL3MkjXaD4bgSt2E6tnqW/
-         1vuOjUF6Cgoapvz2zrDrd9AR7nJwL+YPuf/iSQCwB1gvFvDJKpSgm1cYS5uA1vW/PXgV
-         Ouog==
+        bh=9s/CP7W96ES5VqAZt40rb7ebkGJqwcyexra6FnDdBm4=;
+        b=PE89wCmeFqwCzQWhhn3ZmWfNZ7rGskKL4Irvmk+xnBDWcvWjPrIy4Dz8pKOnBPvqDD
+         64PQ8ARWVUXDEZGyVTVWAUNdiSNeaNlyxaQ81g/w6n5yPMpTOJTQXwHh4k9MZj3chUJh
+         dp4TfPUfpk7gQaon4ZRdUQEUjFrbKnghNNDmlsK26M0cpUmwzpyxovzmuty5Vf7vOppb
+         MwqmZNQvhoahP6azxLGLwKTxBj0vzrAU4fnuLZnpPbmyX1FcEBxRbFJMpVaKnCpSEEoQ
+         p9Y1YsDCaMxBBTQr9rY351wHLhsICoiRUWSRo/jz34ysf4Ul6dxA0Cfml862k8aTbqDa
+         A5bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date;
-        bh=O2VLizPOFB8Cw4tUD1XPYg1pr+6HOsBm1gy7frAi+N8=;
-        b=wOPUI/+jFoV3ukFPkINYXiy1fqZILsX8oYsQgO2I2sKRAPRqko9vGQ+UxjOHSZlyM9
-         tsODDrRcQ2I7NkOqzs/u5eY/Hlho1iEb+i1oSi6P5JAriwF6ahDa1frBQdmNZieI+BYr
-         WCUZey5iK790pMBQPD5EFfq360Ta9whft7HW3BNVN5PtzGQ6ppwsu/+3RiCOffF4Yu0O
-         xOQx6L4tvMWX9sTRU9JmddeLSLP2zZaJEYcn7PcRmAKQKI0TkV2e2gy359Sv3fy3N2yU
-         Yl38K3qp03SdlcYmtGk9OnmWaKKvgKpotN4cYo7pFRgNKMTbWkIIC8I5+S3zIiM3Hu8h
-         2zaw==
-X-Gm-Message-State: ACrzQf2FqolL1lJRBbkLITUbCCo0Zspf7/oUdVg94lTC77GmPEGTUTkl
-	6rhLCE42UZk1XiYbR7nFXoU=
-X-Google-Smtp-Source: AMsMyM4GZLek6Dbkaa0Gg6W0uuQfJsrc32TNRUf+JpBGN81tL3eR5A97hx5L6vwOK3q4FrzRhi6RpA==
-X-Received: by 2002:a05:6000:178c:b0:222:f8ec:9977 with SMTP id e12-20020a056000178c00b00222f8ec9977mr569349wrg.509.1663265854886;
-        Thu, 15 Sep 2022 11:17:34 -0700 (PDT)
+        bh=9s/CP7W96ES5VqAZt40rb7ebkGJqwcyexra6FnDdBm4=;
+        b=ZAqrqxLaM9TBKAfQ68CZVvjg9al/2yANi20vXYmP2l/2B4vuGjI/8S1IgXTeCUQOcY
+         fvr+RvsYoQbYIzm4w/jIPUIwlBO1jGhhyxjJwss1kHgm3zQBUiufdG7Dnf6Lql2QkFgl
+         PGQM6rmjaZLOPAMBhx+tsWB1L5sG1gLVZh0kBtRyW5Mc2wxd1sFJ/QuJuYF2qE9EVAZn
+         0NqrTT7TJM8kh1G5xbAl5v2rs10viuYY1SR9XVSwIAutYMdnNKtmxUCs6Js2vvev7G8+
+         PTSdNOxoAgMp6DSKM6KZCUP2kIYM13joBCuEKUwC+QlJ7zmdghGamZAHCSTPQ1QKJDoI
+         HiAA==
+X-Gm-Message-State: ACrzQf16hhoIFol99BTduVSeb5rKy4wPgKcNMOtYzYrTqzSTugQ84JhS
+	zoXAnDBbsi0loM2JeQhviSEaCCAkxRvOdg==
+X-Google-Smtp-Source: AMsMyM70ZmPPYK+FQLW2Pf4DXNNy9eAb7VvwpOkcQhZ+RdDrJgsAsWS1BDFxditUJ6b+qJqHEoPqWw==
+X-Received: by 2002:a7b:ce97:0:b0:3b3:4136:59fe with SMTP id q23-20020a7bce97000000b003b3413659femr812119wmj.24.1663265858196;
+        Thu, 15 Sep 2022 11:17:38 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:d411:a48b:4035:3d98])
-        by smtp.gmail.com with ESMTPSA id c11-20020a05600c0a4b00b003b47e8a5d22sm4243151wmq.23.2022.09.15.11.17.33
+        by smtp.gmail.com with ESMTPSA id c11-20020a05600c0a4b00b003b47e8a5d22sm4243151wmq.23.2022.09.15.11.17.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Sep 2022 11:17:33 -0700 (PDT)
+        Thu, 15 Sep 2022 11:17:37 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -77,16 +77,16 @@ Cc: Heiko Stuebner <heiko@sntech.de>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v3 06/10] riscv: dts: renesas: Add initial devicetree for Renesas RZ/Five SoC
-Date: Thu, 15 Sep 2022 19:15:54 +0100
-Message-Id: <20220915181558.354737-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v3 08/10] riscv: dts: renesas: Add minimal DTS for Renesas RZ/Five SMARC EVK
+Date: Thu, 15 Sep 2022 19:15:56 +0100
+Message-Id: <20220915181558.354737-9-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220915_111742_948772_EFA0BE31 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20220915_111743_082533_2FBC1E9C 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,162 +105,203 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Add initial device tree for Renesas RZ/Five RISC-V CPU Core (AX45MP
-Single).
+Enable the minimal blocks required for booting the Renesas RZ/Five
+SMARC EVK with initramfs.
 
-Below is the list of IP blocks added in the initial SoC DTSI which can be
-used to boot via initramfs on RZ/Five SMARC EVK:
-- AX45MP CPU
+Below are the blocks enabled:
 - CPG
+- CPU0
+- DDR (memory regions)
 - PINCTRL
 - PLIC
 - SCIF0
-- SYSC
+
+Note we have deleted the nodes from the DT for which support needs to be
+added for RZ/Five SoC and are enabled by RZ/G2UL SMARC EVK SoM/carrier
+board DTS/I.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
 v2->v3
-* Fixed clock entry for CPU core
-* Fixed timebase frequency to 12MHz
-* Fixed sorting of the nodes
-* Included RB tags
+* Dropped RB tags from Conor and Geert
+* Now re-using the SoM and carrier board DTS/I from RZ/G2UL
 
 v1->v2
-* Dropped including makefile change
-* Updated ndev count
+* New patch
 ---
- arch/riscv/boot/dts/renesas/r9a07g043.dtsi | 120 +++++++++++++++++++++
- 1 file changed, 120 insertions(+)
- create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043.dtsi
+ arch/riscv/boot/dts/Makefile                  |  1 +
+ arch/riscv/boot/dts/renesas/Makefile          |  2 +
+ .../boot/dts/renesas/r9a07g043f01-smarc.dts   | 27 +++++++++
+ .../boot/dts/renesas/rzfive-smarc-som.dtsi    | 42 ++++++++++++++
+ arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi | 56 +++++++++++++++++++
+ 5 files changed, 128 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/renesas/Makefile
+ create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dts
+ create mode 100644 arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
+ create mode 100644 arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
 
-diff --git a/arch/riscv/boot/dts/renesas/r9a07g043.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043.dtsi
+diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+index ff174996cdfd..b0ff5fbabb0c 100644
+--- a/arch/riscv/boot/dts/Makefile
++++ b/arch/riscv/boot/dts/Makefile
+@@ -3,5 +3,6 @@ subdir-y += sifive
+ subdir-y += starfive
+ subdir-$(CONFIG_SOC_CANAAN_K210_DTB_BUILTIN) += canaan
+ subdir-y += microchip
++subdir-y += renesas
+ 
+ obj-$(CONFIG_BUILTIN_DTB) := $(addsuffix /, $(subdir-y))
+diff --git a/arch/riscv/boot/dts/renesas/Makefile b/arch/riscv/boot/dts/renesas/Makefile
 new file mode 100644
-index 000000000000..fb6733f3cc2b
+index 000000000000..2d3f5751a649
 --- /dev/null
-+++ b/arch/riscv/boot/dts/renesas/r9a07g043.dtsi
-@@ -0,0 +1,120 @@
++++ b/arch/riscv/boot/dts/renesas/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_ARCH_R9A07G043) += r9a07g043f01-smarc.dtb
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dts b/arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dts
+new file mode 100644
+index 000000000000..9747f30c5db5
+--- /dev/null
++++ b/arch/riscv/boot/dts/renesas/r9a07g043f01-smarc.dts
+@@ -0,0 +1,27 @@
 +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +/*
-+ * Device Tree Source for the RZ/Five SoC
++ * Device Tree Source for the RZ/Five SMARC EVK
 + *
 + * Copyright (C) 2022 Renesas Electronics Corp.
 + */
 +
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/clock/r9a07g043-cpg.h>
++/dts-v1/;
++
++/*
++ * DIP-Switch SW1 setting
++ * 1 : High; 0: Low
++ * SW1-2 : SW_SD0_DEV_SEL	(0: uSD; 1: eMMC)
++ * SW1-3 : SW_ET0_EN_N		(0: ETHER0; 1: CAN0, CAN1, SSI1, RSPI1)
++ * Please change below macros according to SW1 setting on SoM
++ */
++#define SW_SW0_DEV_SEL	1
++#define SW_ET0_EN_N	1
++
++#include "r9a07g043.dtsi"
++#include "rzfive-smarc-som.dtsi"
++#include "rzfive-smarc.dtsi"
 +
 +/ {
-+	compatible = "renesas,r9a07g043";
-+	#address-cells = <2>;
-+	#size-cells = <2>;
++	model = "Renesas SMARC EVK based on r9a07g043f01";
++	compatible = "renesas,smarc-evk", "renesas,r9a07g043f01", "renesas,r9a07g043";
++};
+diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
+new file mode 100644
+index 000000000000..8547c273f140
+--- /dev/null
++++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
+@@ -0,0 +1,42 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++/*
++ * Device Tree Source for the RZ/Five SMARC EVK SOM
++ *
++ * Copyright (C) 2022 Renesas Electronics Corp.
++ */
 +
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		timebase-frequency = <12000000>;
++#include <arm64/renesas/rzg2ul-smarc-som.dtsi>
 +
-+		ax45mp: cpu@0 {
-+			compatible = "andestech,ax45mp", "riscv";
-+			device_type = "cpu";
-+			reg = <0x0>;
-+			status = "okay";
-+			riscv,isa = "rv64imafdc";
-+			mmu-type = "riscv,sv39";
-+			i-cache-size = <0x8000>;
-+			i-cache-line-size = <0x40>;
-+			d-cache-size = <0x8000>;
-+			d-cache-line-size = <0x40>;
-+			clocks = <&cpg CPG_CORE R9A07G043_CLK_I>;
-+
-+			cpu0_intc: interrupt-controller {
-+				#interrupt-cells = <1>;
-+				compatible = "riscv,cpu-intc";
-+				interrupt-controller;
-+			};
-+		};
++/ {
++	aliases {
++		/delete-property/ ethernet0;
++		/delete-property/ ethernet1;
 +	};
 +
-+	/* clock can be either from exclk or crystal oscillator (XIN/XOUT) */
-+	extal_clk: extal-clk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		/* This value must be overridden by the board */
-+		clock-frequency = <0>;
-+	};
-+
-+	soc: soc {
-+		compatible = "simple-bus";
-+		interrupt-parent = <&plic>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		scif0: serial@1004b800 {
-+			compatible = "renesas,scif-r9a07g043",
-+				     "renesas,scif-r9a07g044";
-+			reg = <0 0x1004b800 0 0x400>;
-+			interrupts = <412 IRQ_TYPE_LEVEL_HIGH>,
-+				     <414 IRQ_TYPE_LEVEL_HIGH>,
-+				     <415 IRQ_TYPE_LEVEL_HIGH>,
-+				     <413 IRQ_TYPE_LEVEL_HIGH>,
-+				     <416 IRQ_TYPE_LEVEL_HIGH>,
-+				     <416 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "eri", "rxi", "txi",
-+					  "bri", "dri", "tei";
-+			clocks = <&cpg CPG_MOD R9A07G043_SCIF0_CLK_PCK>;
-+			clock-names = "fck";
-+			power-domains = <&cpg>;
-+			resets = <&cpg R9A07G043_SCIF0_RST_SYSTEM_N>;
-+			status = "disabled";
-+		};
-+
-+		cpg: clock-controller@11010000 {
-+			compatible = "renesas,r9a07g043-cpg";
-+			reg = <0 0x11010000 0 0x10000>;
-+			clocks = <&extal_clk>;
-+			clock-names = "extal";
-+			#clock-cells = <2>;
-+			#reset-cells = <1>;
-+			#power-domain-cells = <0>;
-+		};
-+
-+		sysc: system-controller@11020000 {
-+			compatible = "renesas,r9a07g043-sysc";
-+			reg = <0 0x11020000 0 0x10000>;
-+			status = "disabled";
-+		};
-+
-+		pinctrl: pinctrl@11030000 {
-+			compatible = "renesas,r9a07g043-pinctrl";
-+			reg = <0 0x11030000 0 0x10000>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			#interrupt-cells = <2>;
-+			interrupt-controller;
-+			gpio-ranges = <&pinctrl 0 0 152>;
-+			clocks = <&cpg CPG_MOD R9A07G043_GPIO_HCLK>;
-+			power-domains = <&cpg>;
-+			resets = <&cpg R9A07G043_GPIO_RSTN>,
-+				 <&cpg R9A07G043_GPIO_PORT_RESETN>,
-+				 <&cpg R9A07G043_GPIO_SPARE_RESETN>;
-+		};
-+
-+		plic: interrupt-controller@12c00000 {
-+			compatible = "renesas,r9a07g043-plic", "andestech,nceplic100";
-+			#interrupt-cells = <2>;
-+			#address-cells = <0>;
-+			riscv,ndev = <512>;
-+			interrupt-controller;
-+			reg = <0x0 0x12c00000 0 0x400000>;
-+			clocks = <&cpg CPG_MOD R9A07G043_NCEPLIC_ACLK>;
-+			power-domains = <&cpg>;
-+			resets = <&cpg R9A07G043_NCEPLIC_ARESETN>;
-+			interrupts-extended = <&cpu0_intc 11 &cpu0_intc 9>;
-+		};
++	chosen {
++		bootargs = "ignore_loglevel";
 +	};
 +};
++
++#if (SW_SW0_DEV_SEL)
++/delete-node/ &adc;
++#endif
++
++#if (!SW_ET0_EN_N)
++/delete-node/ &eth0;
++#endif
++/delete-node/ &eth1;
++
++/delete-node/ &ostm1;
++/delete-node/ &ostm2;
++
++/delete-node/ &reg_1p8v;
++/delete-node/ &reg_3p3v;
++
++/delete-node/ &sdhi0;
++
++#if !(SW_SW0_DEV_SEL)
++/delete-node/ &vccq_sdhi0;
++#endif
++
++/delete-node/ &wdt0;
+diff --git a/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi b/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
+new file mode 100644
+index 000000000000..3fde7192241e
+--- /dev/null
++++ b/arch/riscv/boot/dts/renesas/rzfive-smarc.dtsi
+@@ -0,0 +1,56 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++/*
++ * Device Tree Source for the RZ/Five SMARC EVK carrier board
++ *
++ * Copyright (C) 2022 Renesas Electronics Corp.
++ */
++
++#include <arm64/renesas/rzg2ul-smarc.dtsi>
++
++/ {
++	aliases {
++		/delete-property/ i2c0;
++		/delete-property/ i2c1;
++	};
++};
++
++/delete-node/ &audio_clk1;
++/delete-node/ &audio_clk2;
++/delete-node/ &audio_mclock;
++
++/delete-node/ &canfd;
++
++/delete-node/ &cpu_dai;
++
++/delete-node/ &ehci0;
++/delete-node/ &ehci1;
++
++/delete-node/ &hsusb;
++
++/delete-node/ &i2c0;
++/delete-node/ &i2c1;
++
++/delete-node/ &ohci0;
++/delete-node/ &ohci1;
++
++&pinctrl {
++	/delete-property/ pinctrl-0;
++	/delete-property/ pinctrl-names;
++};
++
++/delete-node/ &phyrst;
++
++/delete-node/ &sdhi1;
++
++/delete-node/ &snd_rzg2l;
++
++/delete-node/ &spi1;
++
++/delete-node/ &ssi1;
++
++/delete-node/ &usb0_vbus_otg;
++
++/delete-node/ &usb2_phy0;
++/delete-node/ &usb2_phy1;
++
++/delete-node/ &vccq_sdhi1;
 -- 
 2.25.1
 
