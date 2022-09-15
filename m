@@ -4,70 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E81CCC32771
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 21:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38CBFC6FA82
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 21:13:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2/NVQBHFovqFAoFD+Y1/72ulUyc3MwTlYBwlFgsGRHE=; b=SeC/xyVbH+9EK+
-	WhKcIH0dXMyUdYE85lLCO7naOnDPHUaLdBzNsAIv5mcR5q+A+ODW2B+giAGhNSLsSTQvMpqfMnb/c
-	QlnFwPgbXvwH9D6m0NXX5c60yklUrAYJ3Cp/9b1ynVRzjxs136R0t5Qn5PGq59A1537xEKiTD3yrc
-	Vs8GJbPFunLHtuHiNo2GEwc/ahg2wfVyfeyI5C6EUcPDQapHvTDw7eR8euehgfzfODkdoCLzIK1p5
-	hUHo0xrrOqcq5sGOY3A9TROEiS7PQlgp2bU/+VW+rDPco3V6NQ7p29RS676My+Y/64qYk5X0Y8tS3
-	4mSoURDsLLdSfQOCb5IQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=wGX5pu3ho2zKFjf29hpgAOFLnsliEj2FWAlaG9jvJLU=; b=RZEpkSyFF1wSvF
+	7kQh84UVf/yyo8IIrSquGvjO7k+LSNgSf7796qyN8xi2JYZlHpW3QAPJEJweE8qDxDhs6Ip3CJBi5
+	r3ynVtQSccwYwjuuwtqf58YZeA0d7LhpzoAn03I6MVv40GXkISl6q/hxn6y7mw1Ji/gVaUK3nBfQX
+	CB9yELBGJPBcfa5vg48lvYQfP3+hnujs6VsodDlNoyF3xJyeLynobDbtjk/VIKvGx7yTVFLHKkVwd
+	PMs2/oYahRxthZMULpZiL77su0CSjWXx9hUBtclJKMdXwXnI3pPZ6qFiurHGqQ4/Us2q+M0kvGsxu
+	LWhs1xh4BdvsC2CS64fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYwAI-00HS5r-QC; Thu, 15 Sep 2022 21:12:54 +0000
-Received: from mga01.intel.com ([192.55.52.88])
+	id 1oYwAq-00HSV2-0i; Thu, 15 Sep 2022 21:13:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYwAE-00HS1C-DA; Thu, 15 Sep 2022 21:12:52 +0000
+	id 1oYwAn-00HSRt-Dg
+	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 21:13:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1663276370; x=1694812370;
-  h=date:from:to:cc:subject:message-id:mime-version:
-   content-transfer-encoding;
-  bh=Kvh2AgwaqrMB4C+nQ1e/wLqAn9QuX+E5zGP034cyICY=;
-  b=OBXyUmcr3KiWfMFimf0s9eXcMuzqpmhXC++BqNhpJntEGYN1WdLDGd7Z
-   P7f9k+prOM9Tc1lu55JbAA33hGM1plR5Ehz44M4obRWsNrSXTpQ8Wu6YQ
-   XjsFiR+Vo+sfZuaZ4Elj52Q1KNhA8ZaIefB18zDvIoaUJFFQFkE2XtYgQ
-   49UhrdCzuBlfN4g6E4MfMN4LRqk8NWf4UwPQtb0ch81t9t9EyneRmY0YS
-   DgNQcLlh4Gggr8s36nyjtXVLvQP5SfLraBmHPa32ohiJXpugBEaYot/HP
-   ebs/zs/B6EhJUr/DtFehf+t/6XKnNaZfrD1vdXe7kL5gNLYB/tRhCBcSw
-   g==;
-X-IronPort-AV: E=McAfee;i="6500,9779,10471"; a="325104004"
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1663276405; x=1694812405;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=p8uUSaKkZQtyTfZW12hqOFY2v4Nwm09OmOLh9kL71n8=;
+  b=0O0gUgl8XXhlKDAj34to8F9HIHfQaEUe+oTEDU+nW88Vp+WDTqZhzsav
+   AZWPAcD0mgjVPZVjIJfAbCLhs06KnNVuhAu/3jQX0KPqgYHAaHcEXMQ+d
+   o/NYzERVU/eTDEf142wDStqDyJBSXi4plKJ5SI3ANGD5vWabxXcMGDL3L
+   HYjs1g4CBcibnIg12BBDhWJIuHrNeCqm+oKkTmgEZ80y6Qd6tzlqjXILy
+   EZYeRa8+b28gJMeSIGK3PuhbuphFb3yi1akyU9B0G11nZCwp17iBRj8+u
+   pGm9PTWBk5C2DwtUg+dVkRJZVxs8r04g/vEn7yyxZKRVCR/8QeJR+MCbG
+   Q==;
 X-IronPort-AV: E=Sophos;i="5.93,319,1654585200"; 
-   d="scan'208";a="325104004"
-Received: from fmsmga003.fm.intel.com ([10.253.24.29])
-  by fmsmga101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Sep 2022 14:12:48 -0700
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="5.93,319,1654585200"; 
-   d="scan'208";a="706515815"
-Received: from lkp-server02.sh.intel.com (HELO 41300c7200ea) ([10.239.97.151])
-  by FMSMGA003.fm.intel.com with ESMTP; 15 Sep 2022 14:12:46 -0700
-Received: from kbuild by 41300c7200ea with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1oYwA9-000115-1c;
-	Thu, 15 Sep 2022 21:12:45 +0000
-Date: Fri, 16 Sep 2022 05:11:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andrew Morton <akpm@linux-foundation.org>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-scsi@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-parisc@vger.kernel.org, linux-hwmon@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- Linux Memory Management List <linux-mm@kvack.org>
-Subject: [linux-next:master] BUILD REGRESSION
- 6ce5d01e7011b32600656bf90a626b1e51fb192a
-Message-ID: <63239512.gzJmoh0vIZ1pxX6C%lkp@intel.com>
-User-Agent: Heirloom mailx 12.5 6/20/10
+   d="scan'208";a="180603788"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Sep 2022 14:13:24 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Thu, 15 Sep 2022 14:13:15 -0700
+Received: from NAM02-BN1-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12 via Frontend Transport; Thu, 15 Sep 2022 14:13:14 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=WmKCh9NXEMPeUWO2MJ/dcYLMFqZWbuvXWRFs4/iC/pY6W8u4vJa+SFEJHQu3NE/vQL8cXHyTcMpsKPotvb1K7DEw8WpQ0QVqQ/bQyz+Ff9aknSSuASLQ/eyYLbQNLXtyMwOZJWSDFBIW3jYFFn/xZBPBiXwB324UiObzJCP1qFrSRRmg7gAF1urxOmq6jF9vD1CrzIyV7e+2jIwUxR8hdgY2qRu3Bj5p5GqC7Bybxc0K8QWgEv097fOB4zpZydW9ng2s+58gVYZqT40hroRKv+srjAbdWMqdCrxxpxUElRP/D4DHRCKiu3IxrEu6ujeTgeNsFzDuL/qRCXhy+hffgg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=p8uUSaKkZQtyTfZW12hqOFY2v4Nwm09OmOLh9kL71n8=;
+ b=VpkqxY01OOK3Or2Qw5eWF698GRuZnt3sRHBiKSloJF50JVcidGoPI9AShPSOVTPlc7TOTswNaW13kU8D0MQhuH6JXdWJm4N8rBiF9vHPOkDgecdp1SzEZJMsTPs93LAiPDDwoaLDplfeboohDO7JHm+hiFagjPIOcuKRq9sPXRbYfDCTzKznbU+llX2jHjQY3JLkrvyFL37nq6b4hLgY230Qs1WGEcBLSKh067X6mvI0t0Aneua6jy6W+xPe4Mtp73k486lJeSdGaPTPjicuWZly/8xIDfrV1MiwEwmrxrPavhMMm4Lw/SqhjTsns94nqeV5EybEHczZgAMTBlLE+A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=p8uUSaKkZQtyTfZW12hqOFY2v4Nwm09OmOLh9kL71n8=;
+ b=KMvyQS/O65YFP+dXfZu1oVIBBFguKgHSyr+y9KX5L3ztsMznmFFjss/vO5863IRvp2tempuMnGkeQJCKHbNMjsghEbJdzglQ2qji2pfE/CSQE0vM8NDPgjRk1YN4g0VJfZKr9JVcx3j5+hR3UwXDkz/pT2h9c0Vmq9kMtIGZEjs=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by MW3PR11MB4554.namprd11.prod.outlook.com (2603:10b6:303:5d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5632.15; Thu, 15 Sep
+ 2022 21:13:10 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::545a:72f5:1940:e009]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::545a:72f5:1940:e009%3]) with mapi id 15.20.5632.015; Thu, 15 Sep 2022
+ 21:13:10 +0000
+From: <Conor.Dooley@microchip.com>
+To: <prabhakar.csengg@gmail.com>, <geert+renesas@glider.be>,
+	<robh+dt@kernel.org>, <krzysztof.kozlowski+dt@linaro.org>,
+	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>
+CC: <heiko@sntech.de>, <atishp@rivosinc.com>, <devicetree@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <linux-renesas-soc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <biju.das.jz@bp.renesas.com>,
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: Re: [PATCH v3 01/10] dt-bindings: soc: renesas: Move renesas.yaml
+ from arm to soc
+Thread-Topic: [PATCH v3 01/10] dt-bindings: soc: renesas: Move renesas.yaml
+ from arm to soc
+Thread-Index: AQHYyS90Mq9ZsRyXKkGcPo9UEDEP+a3g/YqA
+Date: Thu, 15 Sep 2022 21:13:10 +0000
+Message-ID: <10896a74-5875-a083-846f-eed5f457ba1b@microchip.com>
+References: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20220915181558.354737-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20220915181558.354737-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CO1PR11MB5154:EE_|MW3PR11MB4554:EE_
+x-ms-office365-filtering-correlation-id: 56349e30-c1be-4c76-a689-08da975f17c3
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: rvKf97Jgq6oc6KACaQ7yQ3Nwp7wzUN3/LWwlyBpC7gPyWkSMH5B2EfmXD+qsNcPqXPPITcBWJaO6a1vvqZvgZ+7jO6tlR5j32N+QX5ppWA5PKP5RbLpZwMG37d7E3MKclZ+FrV63h2X8vbQuJ7wLbmIPl+zkornvzq6F/pideA4xYaIscG8AwAMc7UNtIqQ/kcOVjy4bjqX3gZasKMCzLDfhGik2s2/szhVRvonG4yHm5yYTe8yYalBPr10kg2s1VcHK+3eQenhyI79k3tjgvilE+0yNQFOveSAPHfeKGLKbmncfq7M3tYIkMjlL8i/JvCXlge2Q3hkCcITQ0Y/s3jfgPsiJODCcxbXUC3nOL8zi02MZiSJ5mZYOInMJInJM/BP7YPYJgVLSb7DW5TfvBZ44SdAfbe0383MFw2S/qmkXBfdz7vsTWdMKxkdrIb0RJhZ2ePF40DA07IFpE1Pzm+fQBt3XYZBNToH+f+pLQ5W6egQs7ujKoHubagL6FhDV90vPqpRNU4chnrWFOBme08GJkxI+/3pa9lEPOQtqwXZoA8Z+h8GAePc0g3in5ToO8avVqk6qwmWO4GvMlbuj2hbleGFDVtm1RdbV0CkF6FKPp9eN//1St3p2lUOwr7iTIrmCPvb+Z+4IFGhGPvIiJxusRWyBms+5nHmuGwLmvjba6hOm5TnfvPctyyGxDXxWMbJP5eHH4mtSVDyvSc8pnENMXysANV6oi9wPbueIyGbj09yhce9Yomc9zSDnWftZb3GBKEyv/nwouTlhxztodmDo+TOJo5d4jmzbcHFTS53ZRzJAPX8cFvpV3g8Tg8bWBmPdzHgRI4aN3Vk08exZmgVkh6O7hRNQCB+gS6Q/85BkJ9UzQFPxV1bIKHUjR/vpWJdhDF1758FauvweFZYaPw==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(346002)(396003)(366004)(39860400002)(136003)(376002)(451199015)(86362001)(41300700001)(5660300002)(8676002)(2616005)(7416002)(38070700005)(66946007)(76116006)(4326008)(8936002)(91956017)(66476007)(26005)(66556008)(66446008)(83380400001)(316002)(110136005)(54906003)(31696002)(6512007)(36756003)(186003)(64756008)(2906002)(6506007)(53546011)(6486002)(122000001)(38100700002)(966005)(478600001)(71200400001)(31686004)(45980500001)(43740500002);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?T2cvcHlyc2ZTVlZiN2ptbWVDTkZtV2lXbHBXUzVuVWIwOStXTk9ZQlkwUXRk?=
+ =?utf-8?B?U01pTXNHU0dhL1lvMU5BYWpQVENFckdMY2Z0eDFFOGhSV2JnY1JyUnlzY3li?=
+ =?utf-8?B?L29uVjRHYjloakpmQjNRaHh4THVHcTB6bWUvVzM5V0FIY1ZqRHFsbU4rbFpu?=
+ =?utf-8?B?bXJLYThwby9KbUVIMGJIbDhSRElSQjFWVjE0NWxzbG1COTJNS21wODZxaUkx?=
+ =?utf-8?B?a0ZPV29ZYmtvazZabTVRNFBnQUV1c09oYzg0WGE5ZGpCY0U1QlJWREdMaDBi?=
+ =?utf-8?B?SFNXck42Q28yYWxNamljZVFNNXhrUE02dE5oYlBiY1hJcnBHWStRNHlEdzZ2?=
+ =?utf-8?B?NVJkN1BIMytwUVQxc1UrOHFXeUJJdWdLa29qbDVabDR5S1IvQW16bnpxbm9N?=
+ =?utf-8?B?NHQrNzRnRjdTNGNYVndDS2Foa1FJZlI4WGdqdnZiSFlWOXVpckRaU1ZSQlZL?=
+ =?utf-8?B?dHdGdWhKcXI0U0Jsc1hwandWNXdSa1FHNEh1VU1tZFMraCtJbXZSK0tRQ0R6?=
+ =?utf-8?B?Zk50bTZ5bStCeUJLOXBiVkpHczRiejZFdE5UOWlXOVVzVzdSbitOcTdnWEd2?=
+ =?utf-8?B?Y3Q4YU1kbDB6M2w5QUZSS01KM1FEc2NPaFZlUm1wdzgxSDVsTkdOTEZPdGtQ?=
+ =?utf-8?B?VTMyekpCTGlkS1lEcWZoUHFDZkVnMHJHTFBiYy9sQm9GcFUyeHA4TGVMMENJ?=
+ =?utf-8?B?V3ljdFdvMm5uYlhScmIvWnk1cWRPZE5mcWxaNmdmZEdLMGlJdlVkbmNRSHBx?=
+ =?utf-8?B?SUg5Rm91NTBnNkp0SHhhMDVwNU5DbVlJRG1SQWthYVZzTml6ZXROTGJkeDRn?=
+ =?utf-8?B?SVk1cGhUTUM0dkdJRmxTcDZqVFFlcHVRQndSQUVOTncrczFQblkvR3U4Qm5J?=
+ =?utf-8?B?bjEyZjdpYm1LSXNNTDBnL1hFUDBPcU1tOFkxQmg2TjNXUDRKeHB6VURteU1y?=
+ =?utf-8?B?azdvKzVnZUZiUUx5cVhRWlBrcXlabytKWGo2WXpjL0ovVHhXVldrWXN2M2FH?=
+ =?utf-8?B?aXVPNFNmV2xyc1dZaGhOUnFzWmNKa2JReXVDZjBQdDZZbnFCVWVUaXV1aHZU?=
+ =?utf-8?B?bTVRNHlNMTVrU0pBNjQwVmFtaWwvUDJTMGFnbWhkYzArRmk4cEVWWFB3YXhU?=
+ =?utf-8?B?Y3hWL1FKQ3NiMFVHa3diNGZXejlWT2RoK0xnZmc2TWovdGhJMVlQUmhqeE0y?=
+ =?utf-8?B?b2I0ZHpFb0F6ODBaRHozNU1ENHBzZU5tbDNQVXhpYnh3SnBsT3NCd1VGdm9J?=
+ =?utf-8?B?dEhOTXEyb3k4TWN1S3RpY2pVbzdLSE5uZzlPK3A1Q3N0TFhDdUYwUVZ0S21t?=
+ =?utf-8?B?bmpCOGRhbWsyaUlRSkZrU3FUQ0lLaDR6Z2pUcGVRTVpMZDAxZitoU0hINDFt?=
+ =?utf-8?B?bmgrMGFxcDBsbDh5SWpCUFplOEhvNTBOUENKSW1oWEEyRkJndG5ZbUZNdVE0?=
+ =?utf-8?B?eG5pUVFITEJRUFdsczlKbm1zTk9FWHBhUENSMHVGa2dWOTNNRk9MamxzK09o?=
+ =?utf-8?B?ZUdVUy9GUU4ydzJVaDU0T0IvOXc1NHN1cVprV2tvV3BRcUxKU08rU2ZlVlY2?=
+ =?utf-8?B?ZUd6K0UzY3oyd2ZVVkx4S1lPa0p1TGhSeUlGZlFCMXZlVUdxQUc1RGh2b1Vu?=
+ =?utf-8?B?ZHNiSkd6TlZJclpjNUppOGh2ZEJub1ZPaUpBTFIycENoZExxTDR2a3hXbkth?=
+ =?utf-8?B?bjB4T01DUjl0L3Y0RzI4NzdlR3dNL2haNlREMExWR080R1p6dFd1VzBFNVRo?=
+ =?utf-8?B?dnJvbDBrOVhkckdCL0w4Zk1FM01KVVVJenFvdHhpRUtoaEltSzkzWUZ4RTZn?=
+ =?utf-8?B?YStNYVlEK0QrWXRodXpsNEdwKy9rK1NRNVNhQXVSdXRLYjZEWmpNdzE4Q25u?=
+ =?utf-8?B?MllLRGlYOW5JMXFCSURaWW5DKzVMNWluTTRWL1lBMWpWZi9tYkxDbTZTMWxq?=
+ =?utf-8?B?MWFSWThjTk4yckE0Q2FNZTMzOHUzdmtmNUNoeGVZUVdMRWhqbmRTdEVIQjhx?=
+ =?utf-8?B?WGJYWlM4SHJpTVVwUXk1RExYRFAybmxQTHJUQ3dVT3FvbXpTVmd2dklTRDIv?=
+ =?utf-8?B?WVZMSkp5bklKKzQyQlYzV0RrWkVGK1Ywa3E0UXA3OXRpUS8yYnhZU0tMODUy?=
+ =?utf-8?B?MnNGdDlKNG5JYU1CNUxDZTNYaElvL3M4OTF3VkdUbGp0OXBPaUluNEJWY2w3?=
+ =?utf-8?B?NUE9PQ==?=
+Content-ID: <47F701E42FA75F4BB22490856066D2AF@namprd11.prod.outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56349e30-c1be-4c76-a689-08da975f17c3
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Sep 2022 21:13:10.2094
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ozBHBKoSH/YixVdzyp2pJEy8nB3ileQ00ZDcA6+kWV07Z12JD1XRIJruTcb256f7kZrS7HsCP6C6XuZNwOvOQyEXb/Nv0UWktDitx5GGs1g=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR11MB4554
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220915_141250_544264_8DB09513 
-X-CRM114-Status: UNSURE (   7.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20220915_141325_488515_9CDFA395 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,223 +179,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git master
-branch HEAD: 6ce5d01e7011b32600656bf90a626b1e51fb192a  Add linux-next specific files for 20220915
+On 15/09/2022 19:15, Prabhakar wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+> 
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> 
+> renesas.yaml lists out all the Renesas SoC's and the platforms/EVK's which
+> is either ARM32/ARM64. It would rather make sense if we move renesas.yaml
+> to the soc/renesas folder instead. This is in preparation for adding a new
+> SoC (RZ/Five) from Renesas which is based on RISC-V.
+> 
+> While at it drop the old entry for renesas.yaml from MAINTAINERS file and
+> there is no need to update the new file path of renesas.yaml as we already
+> have an entry for Documentation/devicetree/bindings/soc/renesas/ folder.
+> 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> ---
+> v3:
+> * New patch along with this series previously posted as a standalone
+> patch [0].
+> 
+> [0] https://patchwork.kernel.org/project/linux-renesas-soc/patch/20220815111708.22302-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+> ---
+>  .../devicetree/bindings/{arm => soc/renesas}/renesas.yaml        | 0
+>  MAINTAINERS                                                      | 1 -
+>  2 files changed, 1 deletion(-)
+>  rename Documentation/devicetree/bindings/{arm => soc/renesas}/renesas.yaml (100%)
 
-Error/Warning reports:
+Got one error from the rename:
+/stuff/linux/Documentation/devicetree/bindings/soc/renesas/renesas.yaml: $id: relative path/filename doesn't match actual path or filename
+        expected: http://devicetree.org/schemas/soc/renesas/renesas.yaml#
 
-https://lore.kernel.org/linux-mm/202209150141.WgbAKqmX-lkp@intel.com
-https://lore.kernel.org/linux-mm/202209150959.hEWCNjXH-lkp@intel.com
-https://lore.kernel.org/llvm/202209141913.Nxzv3hwM-lkp@intel.com
-
-Error/Warning: (recently discovered and may have been fixed)
-
-ERROR: modpost: "devm_ioremap_resource" [drivers/dma/fsl-edma.ko] undefined!
-ERROR: modpost: "devm_memremap" [drivers/misc/open-dice.ko] undefined!
-ERROR: modpost: "devm_memunmap" [drivers/misc/open-dice.ko] undefined!
-ERROR: modpost: "devm_platform_ioremap_resource" [drivers/char/xillybus/xillybus_of.ko] undefined!
-ERROR: modpost: "devm_platform_ioremap_resource" [drivers/clk/xilinx/clk-xlnx-clock-wizard.ko] undefined!
-ERROR: modpost: "ioremap" [drivers/net/ethernet/8390/pcnet_cs.ko] undefined!
-ERROR: modpost: "ioremap" [drivers/tty/ipwireless/ipwireless.ko] undefined!
-ERROR: modpost: "iounmap" [drivers/net/ethernet/8390/pcnet_cs.ko] undefined!
-ERROR: modpost: "iounmap" [drivers/tty/ipwireless/ipwireless.ko] undefined!
-arch/parisc/lib/iomap.c:363:5: warning: no previous prototype for 'ioread64_lo_hi' [-Wmissing-prototypes]
-arch/parisc/lib/iomap.c:373:5: warning: no previous prototype for 'ioread64_hi_lo' [-Wmissing-prototypes]
-arch/parisc/lib/iomap.c:448:6: warning: no previous prototype for 'iowrite64_lo_hi' [-Wmissing-prototypes]
-arch/parisc/lib/iomap.c:454:6: warning: no previous prototype for 'iowrite64_hi_lo' [-Wmissing-prototypes]
-drivers/gpu/drm/drm_atomic_helper.c:802: warning: expecting prototype for drm_atomic_helper_check_wb_connector_state(). Prototype was for drm_atomic_helper_check_wb_encoder_state() instead
-drivers/hwmon/emc2305.c:194 emc2305_set_cur_state() warn: impossible condition '(val > 255) => (0-255 > 255)'
-drivers/scsi/qla2xxx/qla_os.c:2854:23: warning: assignment to 'struct trace_array *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
-drivers/scsi/qla2xxx/qla_os.c:2854:25: error: implicit declaration of function 'trace_array_get_by_name'; did you mean 'trace_array_set_clr_event'? [-Werror=implicit-function-declaration]
-drivers/scsi/qla2xxx/qla_os.c:2869:9: error: implicit declaration of function 'trace_array_put' [-Werror=implicit-function-declaration]
-make[4]: *** No rule to make target 'drivers/crypto/aspeed/aspeed_crypto.o', needed by 'drivers/crypto/aspeed/built-in.a'.
-
-Unverified Error/Warning (likely false positive, please contact us if interested):
-
-ERROR: modpost: "__tsan_memcpy" [arch/arm64/crypto/sha512-arm64.ko] undefined!
-ERROR: modpost: "__tsan_memcpy" [arch/arm64/crypto/sha512-ce.ko] undefined!
-ERROR: modpost: "__tsan_memcpy" [fs/binfmt_misc.ko] undefined!
-ERROR: modpost: "__tsan_memcpy" [kernel/kcsan/kcsan_test.ko] undefined!
-ERROR: modpost: "__tsan_memcpy" [mm/zsmalloc.ko] undefined!
-ERROR: modpost: "__tsan_memset" [arch/arm64/crypto/sha512-arm64.ko] undefined!
-ERROR: modpost: "__tsan_memset" [arch/arm64/crypto/sha512-ce.ko] undefined!
-ERROR: modpost: "__tsan_memset" [fs/binfmt_misc.ko] undefined!
-ERROR: modpost: "__tsan_memset" [kernel/scftorture.ko] undefined!
-ERROR: modpost: "__tsan_memset" [mm/zsmalloc.ko] undefined!
-
-Error/Warning ids grouped by kconfigs:
-
-gcc_recent_errors
-|-- alpha-allyesconfig
-|   |-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|   |-- drivers-scsi-qla2xxx-qla_os.c:error:implicit-declaration-of-function-trace_array_get_by_name
-|   |-- drivers-scsi-qla2xxx-qla_os.c:error:implicit-declaration-of-function-trace_array_put
-|   `-- drivers-scsi-qla2xxx-qla_os.c:warning:assignment-to-struct-trace_array-from-int-makes-pointer-from-integer-without-a-cast
-|-- alpha-randconfig-r013-20220914
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- arc-allyesconfig
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- arc-randconfig-r043-20220914
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- arm-allyesconfig
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- arm-defconfig
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- arm-randconfig-r016-20220914
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- arm64-allyesconfig
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- i386-allyesconfig
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- i386-defconfig
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- i386-randconfig-a003
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- i386-randconfig-a012
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- i386-randconfig-a014
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- i386-randconfig-a016
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- ia64-allmodconfig
-|   |-- drivers-scsi-qla2xxx-qla_os.c:error:implicit-declaration-of-function-trace_array_get_by_name
-|   |-- drivers-scsi-qla2xxx-qla_os.c:error:implicit-declaration-of-function-trace_array_put
-|   `-- drivers-scsi-qla2xxx-qla_os.c:warning:assignment-to-struct-trace_array-from-int-makes-pointer-from-integer-without-a-cast
-|-- loongarch-buildonly-randconfig-r005-20220914
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- m68k-allmodconfig
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- m68k-allyesconfig
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- m68k-randconfig-c042-20220915
-|   `-- make:No-rule-to-make-target-drivers-crypto-aspeed-aspeed_crypto.o-needed-by-drivers-crypto-aspeed-built-in.a-.
-|-- m68k-randconfig-r026-20220914
-|   `-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|-- microblaze-randconfig-m031-20220915
-|   |-- drivers-gpu-drm-display-drm_dp_helper.c-drm_dp_phy_name()-warn:unsigned-dp_phy-is-never-less-than-zero.
-|   |-- drivers-gpu-drm-drm_atomic_helper.c:warning:expecting-prototype-for-drm_atomic_helper_check_wb_connector_state().-Prototype-was-for-drm_atomic_helper_check_wb_encoder_state()-instead
-|   `-- drivers-hwmon-emc2305.c-emc2305_set_cur_state()-warn:impossible-condition-(val-)-(-)
-|-- microblaze-randconfig-r006-20220914
-clang_recent_errors
-|-- arm64-randconfig-r006-20220915
-|   |-- ERROR:__tsan_memcpy-arch-arm64-crypto-sha512-arm64.ko-undefined
-|   |-- ERROR:__tsan_memcpy-arch-arm64-crypto-sha512-ce.ko-undefined
-|   |-- ERROR:__tsan_memcpy-fs-binfmt_misc.ko-undefined
-|   |-- ERROR:__tsan_memcpy-kernel-kcsan-kcsan_test.ko-undefined
-|   |-- ERROR:__tsan_memcpy-mm-zsmalloc.ko-undefined
-|   |-- ERROR:__tsan_memset-arch-arm64-crypto-sha512-arm64.ko-undefined
-|   |-- ERROR:__tsan_memset-arch-arm64-crypto-sha512-ce.ko-undefined
-|   |-- ERROR:__tsan_memset-fs-binfmt_misc.ko-undefined
-|   |-- ERROR:__tsan_memset-kernel-scftorture.ko-undefined
-|   `-- ERROR:__tsan_memset-mm-zsmalloc.ko-undefined
-|-- arm64-randconfig-r023-20220914
-|   `-- arch-arm64-kernel-alternative.c:warning:no-previous-prototype-for-function-apply_alternatives_vdso
-|-- i386-randconfig-a002
-|   |-- ERROR:___ratelimit-arch-x86-kvm-kvm-intel.ko-undefined
-|   |-- ERROR:__per_cpu_offset-arch-x86-kvm-kvm-intel.ko-undefined
-|   |-- ERROR:__phys_addr-arch-x86-kvm-kvm-intel.ko-undefined
-|   |-- ERROR:__ubsan_handle_out_of_bounds-arch-x86-kvm-kvm-intel.ko-undefined
-|   |-- ERROR:__warn_printk-arch-x86-kvm-kvm-intel.ko-undefined
-|   |-- ERROR:_printk-arch-x86-kvm-kvm-intel.ko-undefined
-|   |-- ERROR:cpu_number-arch-x86-kvm-kvm-intel.ko-undefined
-|   |-- ERROR:kvm_find_user_return_msr-arch-x86-kvm-kvm-intel.ko-undefined
-|   |-- ERROR:kvm_spurious_fault-arch-x86-kvm-kvm-intel.ko-undefined
-|   |-- ERROR:smp_call_function_single-arch-x86-kvm-kvm-intel.ko-undefined
-|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
-|-- i386-randconfig-a015
-|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
-|-- powerpc-mpc832x_mds_defconfig
-|   |-- arch-powerpc-math-emu-fcmpu.c:error:variable-A_c-set-but-not-used-Werror-Wunused-but-set-variable
-|   |-- arch-powerpc-math-emu-fcmpu.c:error:variable-B_c-set-but-not-used-Werror-Wunused-but-set-variable
-|   |-- arch-powerpc-math-emu-fcmpu.c:error:variable-_fex-set-but-not-used-Werror-Wunused-but-set-variable
-|   |-- arch-powerpc-math-emu-fctiw.c:error:variable-_fex-set-but-not-used-Werror-Wunused-but-set-variable
-|   |-- arch-powerpc-math-emu-fctiwz.c:error:variable-_fex-set-but-not-used-Werror-Wunused-but-set-variable
-|   `-- arch-powerpc-math-emu-fsel.c:error:variable-_fex-set-but-not-used-Werror-Wunused-but-set-variable
-|-- powerpc-tqm8560_defconfig
-|   |-- arch-powerpc-math-emu-fcmpu.c:error:variable-A_c-set-but-not-used-Werror-Wunused-but-set-variable
-|   |-- arch-powerpc-math-emu-fcmpu.c:error:variable-B_c-set-but-not-used-Werror-Wunused-but-set-variable
-|   |-- arch-powerpc-math-emu-fcmpu.c:error:variable-_fex-set-but-not-used-Werror-Wunused-but-set-variable
-|   |-- arch-powerpc-math-emu-fctiw.c:error:variable-_fex-set-but-not-used-Werror-Wunused-but-set-variable
-|   |-- arch-powerpc-math-emu-fctiwz.c:error:variable-_fex-set-but-not-used-Werror-Wunused-but-set-variable
-|   `-- arch-powerpc-math-emu-fsel.c:error:variable-_fex-set-but-not-used-Werror-Wunused-but-set-variable
-|-- riscv-randconfig-r042-20220914
-|   |-- arch-riscv-errata-thead-errata.c:error:use-of-undeclared-identifier-riscv_cbom_block_size
-|   `-- drivers-extcon-extcon-usbc-tusb320.c:warning:expecting-prototype-for-drivers-extcon-extcon-tusb320c().-Prototype-was-for-TUSB320_REG8()-instead
-|-- s390-buildonly-randconfig-r002-20220914
-|   |-- arch-s390-mm-maccess.c:warning:no-previous-prototype-for-function-memcpy_real
-|   |-- arch-s390-mm-maccess.c:warning:no-previous-prototype-for-function-memcpy_real_init
-|   `-- arch-s390-mm-maccess.c:warning:no-previous-prototype-for-function-memcpy_real_iter
-|-- s390-randconfig-r012-20220914
-|   |-- arch-s390-mm-maccess.c:warning:no-previous-prototype-for-function-memcpy_real
-
-elapsed time: 728m
-
-configs tested: 56
-configs skipped: 3
-
-gcc tested configs:
-arc                                 defconfig
-um                             i386_defconfig
-um                           x86_64_defconfig
-alpha                               defconfig
-x86_64                        randconfig-a004
-x86_64                        randconfig-a002
-x86_64                        randconfig-a006
-m68k                             allmodconfig
-s390                                defconfig
-arc                  randconfig-r043-20220914
-arc                              allyesconfig
-powerpc                           allnoconfig
-s390                             allmodconfig
-alpha                            allyesconfig
-i386                                defconfig
-x86_64                    rhel-8.3-kselftests
-i386                          randconfig-a001
-i386                          randconfig-a014
-m68k                             allyesconfig
-x86_64                          rhel-8.3-func
-i386                          randconfig-a003
-i386                          randconfig-a012
-x86_64                              defconfig
-arm                                 defconfig
-i386                          randconfig-a016
-x86_64                         rhel-8.3-kunit
-x86_64                           rhel-8.3-kvm
-s390                             allyesconfig
-x86_64                           rhel-8.3-syz
-i386                          randconfig-a005
-arm                              allyesconfig
-arc                               allnoconfig
-alpha                             allnoconfig
-riscv                             allnoconfig
-csky                              allnoconfig
-x86_64                               rhel-8.3
-sh                               allmodconfig
-x86_64                           allyesconfig
-mips                             allyesconfig
-powerpc                          allmodconfig
-arm64                            allyesconfig
-i386                             allyesconfig
-ia64                             allmodconfig
-
-clang tested configs:
-x86_64                        randconfig-a005
-x86_64                        randconfig-a001
-x86_64                        randconfig-a003
-riscv                randconfig-r042-20220914
-hexagon              randconfig-r045-20220914
-i386                          randconfig-a013
-i386                          randconfig-a015
-i386                          randconfig-a011
-i386                          randconfig-a002
-hexagon              randconfig-r041-20220914
-i386                          randconfig-a004
-i386                          randconfig-a006
-s390                 randconfig-r044-20220914
-
--- 
-0-DAY CI Kernel Test Service
-https://01.org/lkp
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/renesas.yaml b/Documentation/devicetree/bindings/soc/renesas/renesas.yaml
+> similarity index 100%
+> rename from Documentation/devicetree/bindings/arm/renesas.yaml
+> rename to Documentation/devicetree/bindings/soc/renesas/renesas.yaml
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index c26a5c573a5d..f5f17c50dac3 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -2673,7 +2673,6 @@ S:        Supported
+>  Q:     http://patchwork.kernel.org/project/linux-renesas-soc/list/
+>  C:     irc://irc.libera.chat/renesas-soc
+>  T:     git git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git next
+> -F:     Documentation/devicetree/bindings/arm/renesas.yaml
+>  F:     Documentation/devicetree/bindings/hwinfo/renesas,prr.yaml
+>  F:     Documentation/devicetree/bindings/soc/renesas/
+>  F:     arch/arm/boot/dts/emev2*
+> --
+> 2.25.1
+> 
 
 _______________________________________________
 linux-riscv mailing list
