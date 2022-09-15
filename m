@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E19C6FA86
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 18:17:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E16C6FA89
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 18:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1IDCkItETNLwAsTOLqr3g1CXOg7IhU6Jxajxn5UvT5s=; b=RAzddcvGY67BCC
-	AapUzjBn5fqnozMjiYmeKZJZ2nZepxpNQyZwcsoJxHniagPL9mMJ7QCJOrAu/Pmv4MftXcSx0M3et
-	mxzgTYS0QdocwPKMaIHv7qQa+23kXn6uwKY2irOSUCp0ztQq0ha3RCtYDjylRx6zG4X9jpkYMGAe9
-	Rxj+bawQq1NKX/BhC9IQ0GnCsD3idf68lugs1dDEYBd8krdipA9cWKboeF/sY7Ohvm+NMtYddKYIK
-	vAWjKL7B1tJyJyeWTTZ30ir95BOUsvC9OQBXZd6SADbNegvxOkC3CU3r8cf5YK8aY1fdFDGIQ0W6p
-	BgXsy3QZQj+9ZyAqrtSg==;
+	List-Owner; bh=wPJlFNft2C4O1yLJj+T9drA6lvRNZsdV5b7PZuXrr3A=; b=RcxZHsSk94yHFF
+	gFkjyupdPqzZWDOvTgJLw5k0i3DurEUdjpXTZgFpKoRLMpZD2LPEiZKErJ87L4W36XzWS2YjBV8CH
+	ZEyL0TVALCpDYMfe1OWjaDLzOEwt9gahCSpwJyYlmdRURLNl3e1Gi55Z+IDayaTFwWwEtQ05wPLjE
+	18L1y8P6a563441M9BnOJPYtJbnzYnVcLi9t+ew3vXF/OojdldFwKMQVDsav8jJCcV0Bv+UN93eNJ
+	A2MhWRlZezR9zb1nzier0MrVo3BW4Y0GpUou/VbTf72/I1EUWcv7XIiaukIISbMZCKUNUdw024XhC
+	ZPuLGi19SD+dlYVMdc9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYtQh-00FU9y-9K; Thu, 15 Sep 2022 18:17:39 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1oYtQf-00FU8c-Mr; Thu, 15 Sep 2022 18:17:37 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYtQd-00FU6j-1f
-	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 18:17:36 +0000
-Received: by mail-wr1-x434.google.com with SMTP id cc5so22279881wrb.6
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 11:17:32 -0700 (PDT)
+	id 1oYtQZ-00FU5J-5n
+	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 18:17:32 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id f13so1403212wrs.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 11:17:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
-        bh=DlfLNEnJzkppJftCUUhFQByphbHbOmAnWdcgiohRW60=;
-        b=hM0I9QdqQtIUxR1qSRvsjFP2FzHyMjgIs+Ic+QKjwiZg/1fs8IwOb3pjMsL/OqwJ8l
-         Inqnkukb8OvL2yqEynuvwieYpmgh8DDxvEUcCbqNSyf3Xd10mw2vlq4tMAIp1R3ovKfj
-         TunWBD953JGKSahmnTCq2I2QCocacbvER871aKS4Twb44HwhdvDmI6LpCU/+OsrzE/7i
-         qG5MUo6qBQj5zl+8/pSDwwnqIdnJkRZ/b+/EG6sOhPn55aD7WNY70g7t6rJ+epxdW7HJ
-         LNqv8iOfzmfV6jIJZcJtXrSrnmsrt3t/oE1Sj8cjGHVmcZOlaDX5+ZZ66iK2oyBwDa/H
-         RF3Q==
+        bh=X4rbQc4oV+bydO7a6rZsBq97B2o4NMxj4PuPki8DHnc=;
+        b=DKBfGOmBjJRLAHPa7vSIJ3W2YqFaciMatHj7CvSQ+8kNOwzWtnVpg+yZkqhtnvq0Gu
+         v6x+l2l7RX0XEuc/WWce27FaeRA3j+KZH6hucoGoWka/j9DVYFbdnSq51GP/GFU6GUfj
+         qjExGIcIQKeSd8KCJYe0nVkNpNAn0gokqAJkunaDKV36uRNpm8tib6E3ZGmoZzTGoU95
+         9s8e5CsPblzhiqFir1Q2H8aS7vj6H0ZvHvjvB4pAe3jjrTWf1dUZMDurELXLMek6Jp3Z
+         psZAlgxMcW2sp87DDoskCWC+wv/7wJC2qTHCZyezhfbxSJDi2lmtHN4dCmOdthoEKS17
+         CQzQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date;
-        bh=DlfLNEnJzkppJftCUUhFQByphbHbOmAnWdcgiohRW60=;
-        b=X8j0SZOoNw7KCl84U1dFrp1+DB/+PgVoken2EI2eU8ja6Wz7uGbKklG/+10rFU+rfk
-         2WdGrii1GX6S1EfijBeZM1ZggDdMZNA2LISX2xfgtyrXnZVQ4+IiU7nT06p0mZBD+D4t
-         M++LKjljcL+W7tWPMOAitB8IwYkjd1gl6ZC/rG3IdPIbIqA+hc/+h8DOLj3Rf3iDIMO6
-         GxdhUP2m/+c9f/jzAMyg27EqxLtnZJmao5mygmlS00PttEsv8In8tM9D6/TyTmq/2JDe
-         RXzkoTn7Q3W20H4IY8q8ipR4kOn6nEs/YVhIslhFAoQfaLlM6twrpfK6xeJHEbXfVnKZ
-         TWog==
-X-Gm-Message-State: ACrzQf2J36Fpv7ySbMeJUVbgP/K/R2UilIsX+5kD4bAUdqC0aUFBQGvV
-	fhQVmSKw5m1GiLFIsbhPa7U=
-X-Google-Smtp-Source: AMsMyM72fYaxbw/fQj9d07nNHvdmzMbmevob6z4j1zFc2p/Qm9ONBBcoYLu19erjaE+mJ0Qsua3FWg==
-X-Received: by 2002:a05:6000:2ad:b0:228:cf8f:fe85 with SMTP id l13-20020a05600002ad00b00228cf8ffe85mr649664wry.94.1663265851515;
-        Thu, 15 Sep 2022 11:17:31 -0700 (PDT)
+        bh=X4rbQc4oV+bydO7a6rZsBq97B2o4NMxj4PuPki8DHnc=;
+        b=IRxA0ukr85UJaNkkCg6VLU8/vXf9C7SxJJ5mLzXNvTnt40zeDw+u63rICm3gK8qdTh
+         rOGY9H4dpln1PMHSxqrEwEUV3FCQaBa1d2P1Mu9gSxA32arsBVltqvl3JzwM5zBJsSej
+         SiZD4YdOAPS/WBjd0DQSIzGqT0ABMJUqyjcL2gsAXFCETblAK8BCWxw+XJGilJcmXuDa
+         41uxD2GSb/MOV+2tp7cfCPGyyEGciowCuHuXvF6uMfuITHTrR9Ba3b9m8u5MvqkaPYva
+         cid6OVVHvMRjHj7GQodapePlQ3LFJbh0B280DEbv3Q1scLZ3MTvngccdULq9xNw46ZBV
+         dIOg==
+X-Gm-Message-State: ACrzQf2fhjAYT2VjsLZmdZYkoy1jO8qhiMNgfsG85cFr6dE+w0jNakEg
+	JNu3Fiz9Jv+wnAjkrqTJAvY=
+X-Google-Smtp-Source: AMsMyM5pqUAeIdN0oGRgLAL7M1T6tb/7Rj3jvQ7XAGensk0RvonnF1DbHnxRv6txUMRjnPcThNDhDw==
+X-Received: by 2002:a5d:468a:0:b0:226:d78a:6af with SMTP id u10-20020a5d468a000000b00226d78a06afmr615780wrq.339.1663265847537;
+        Thu, 15 Sep 2022 11:17:27 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:d411:a48b:4035:3d98])
-        by smtp.gmail.com with ESMTPSA id c11-20020a05600c0a4b00b003b47e8a5d22sm4243151wmq.23.2022.09.15.11.17.29
+        by smtp.gmail.com with ESMTPSA id c11-20020a05600c0a4b00b003b47e8a5d22sm4243151wmq.23.2022.09.15.11.17.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Sep 2022 11:17:30 -0700 (PDT)
+        Thu, 15 Sep 2022 11:17:26 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Geert Uytterhoeven <geert+renesas@glider.be>,
@@ -78,16 +78,16 @@ Cc: Heiko Stuebner <heiko@sntech.de>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v3 04/10] dt-bindings: soc: renesas: renesas.yaml: Document Renesas RZ/Five SoC
-Date: Thu, 15 Sep 2022 19:15:52 +0100
-Message-Id: <20220915181558.354737-5-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v3 02/10] dt-bindings: riscv: Sort the CPU core list alphabetically
+Date: Thu, 15 Sep 2022 19:15:50 +0100
+Message-Id: <20220915181558.354737-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220915_111735_114693_9984286B 
-X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-CacheID: sfid-20220915_111731_239953_47B54925 
+X-CRM114-Status: UNSURE (   9.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,43 +107,48 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Document Renesas RZ/Five (R9A07G043) SoC.
-
-More info about RZ/Five SoC:
-https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rz-mpus/rzfive-risc-v-general-purpose-microprocessors-risc-v-cpu-core-andes-ax45mp-single-10-ghz-2ch-gigabit-ethernet
+Sort the CPU cores list alphabetically for maintenance.
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
 v2->v3
-* Dropped "(RISC-V core)" comment
-* Included ACK and RB tags
+* included RB tag from Geert
 
 v1->v2
-* New patch
+* Included RB tag from Krzysztof
 ---
- Documentation/devicetree/bindings/soc/renesas/renesas.yaml | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/riscv/cpus.yaml | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/soc/renesas/renesas.yaml b/Documentation/devicetree/bindings/soc/renesas/renesas.yaml
-index f51464a08aff..34050e7be637 100644
---- a/Documentation/devicetree/bindings/soc/renesas/renesas.yaml
-+++ b/Documentation/devicetree/bindings/soc/renesas/renesas.yaml
-@@ -431,11 +431,12 @@ properties:
-               - renesas,rzn1d400-db # RZN1D-DB (RZ/N1D Demo Board for the RZ/N1D 400 pins package)
-           - const: renesas,r9a06g032
- 
--      - description: RZ/G2UL (R9A07G043)
-+      - description: RZ/Five and RZ/G2UL (R9A07G043)
-         items:
+diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
+index 873dd12f6e89..2a1c5ae5b0aa 100644
+--- a/Documentation/devicetree/bindings/riscv/cpus.yaml
++++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
+@@ -27,17 +27,17 @@ properties:
+     oneOf:
+       - items:
            - enum:
-               - renesas,smarc-evk # SMARC EVK
+-              - sifive,rocket0
++              - canaan,k210
+               - sifive,bullet0
+               - sifive,e5
+               - sifive,e7
+               - sifive,e71
+-              - sifive,u74-mc
+-              - sifive,u54
+-              - sifive,u74
++              - sifive,rocket0
+               - sifive,u5
++              - sifive,u54
+               - sifive,u7
+-              - canaan,k210
++              - sifive,u74
++              - sifive,u74-mc
+           - const: riscv
+       - items:
            - enum:
-+              - renesas,r9a07g043f01 # RZ/Five
-               - renesas,r9a07g043u11 # RZ/G2UL Type-1
-               - renesas,r9a07g043u12 # RZ/G2UL Type-2
-           - const: renesas,r9a07g043
 -- 
 2.25.1
 
