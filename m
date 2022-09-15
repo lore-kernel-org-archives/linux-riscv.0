@@ -4,74 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C685C6FA86
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 17:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BDC2ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 17:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=xAmV8LZG6KC9JozO0+Jkm4InodhZZNtF6bSgPRhMLUE=; b=pErkWfbV/xNTxTBcCuT2XBVYyn
-	n1IVeupebU27M0QBpz4+5EW2O5sO0HGn4z4TfaFJD/jFqakdJ6JrWOC9NniO3foS6+dJV/UEW3Cn6
-	/zxBJoYhkHZkq4mwEhMPX2tiLwbB8AYMY8r2UrXuRzAXPZrXLy/E+KX+KxWogv6f9taif3dmjumIP
-	DDxMtA03xgZzSOk8VS2QYm9jkp2dkb7Or99HQj0wSLxLb7dMtLMTKLqHQerIe+rNEvf+vWK+9oLqN
-	AK8MVnHBXBKtX3tfGukkCN4eUhnNXyK39b8Y6bxCMWJgimEFgZo1J/hqKR5hz8veh+jktLeCssMhV
-	2KDhG3MA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-ID:In-Reply-To:
+	References:Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=9Qgfgnx7KXP39jCh4MrWWgKb5pPwylWFDaqpSisqaNg=; b=PhYEVvd1JlOnTI
+	hsy8x9FzRsxdsradJI8wWbv0+IDqT4s0mCmkjC2Ob2EkqqPuMhjmRaBnUUtrn/hSTiYKe0P34EAYH
+	DsC08Hqo4SeRxY2ZBTIGhVJYn52CGCHdWwHboP8lyaQxKm2Aa+j6bggkQwhDnVTFInjIQgaxX0J6w
+	kbDgwMdsxF+Nsgwfrwwk5WQcXsJMACV6fLwLvB2s0ddNwq+xyFSbdZ0mpIZwoww/9Z/ajqP32yLLi
+	sfhBkgD+imApIEXLOLMQu+xZXwb6vnVr3YdKBlTig6/7JSbT9dUV5JDp1xfCGriXytJGVmxPzx2G9
+	gnP2dKbKO0ZqbSRnXUDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYsjf-00EMxz-HV; Thu, 15 Sep 2022 17:33:11 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1oYsqy-00EVge-Dw; Thu, 15 Sep 2022 17:40:44 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYsjb-00EMe2-93
-	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 17:33:09 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id m10-20020a17090a730a00b001fa986fd8eeso23106059pjk.0
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 10:33:03 -0700 (PDT)
+	id 1oYsqu-00EVZx-ES
+	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 17:40:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1663263640; x=1694799640;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-id:content-transfer-encoding:
+   mime-version;
+  bh=P1aTFhylKfVUcenMTseMO98tTk6Stdzyh3deG+naL7I=;
+  b=AiL15jxDX3HySn9BF9B+wAPMi0JxpAEhUGBaHSfu/lgYNr8qaB13EhIP
+   yt/RG5xVEx93nldybkMEso7tsNsvxGFdo+mZn6L3iWf0lOs+4QMMbUeSI
+   ht7eraC4RdAtevlHuPrdsRvkG/ZQ9TdQArYjb+fCOOMMzBqpqv43LsBS0
+   szK7cgsAA9ND03paSwoO1P1KYBVL5XUGo1eTF1rn3ypBt15ySYFJ/oC/1
+   hI5rK5geuI+7kHaSpR+nio7UZ9Qtm7KfSTr3L5y0I/p6dBjrnRc9uvkDJ
+   QSw+fyWCv5xz2eycuk0kytfb+r3dnc0HEcaC0Ngg9YsT9+SyCNuN58Z6c
+   w==;
+X-IronPort-AV: E=Sophos;i="5.93,318,1654585200"; 
+   d="scan'208";a="191029549"
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 15 Sep 2022 10:40:39 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12; Thu, 15 Sep 2022 10:40:25 -0700
+Received: from NAM12-BN8-obe.outbound.protection.outlook.com (10.10.215.89) by
+ email.microchip.com (10.10.87.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.12 via Frontend Transport; Thu, 15 Sep 2022 10:40:25 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=KwCm7F2yh6WZ3yS1DVC+Qwx6j1KvozRW9UZ4G5f9opGRqZOOqYVuEOBgMAgL2iuBRnCq5Ne1LU+5SNyB1xVOd3TcWA86qqV6/KypUi7p9RXAum+gOjjqZzOeluut3e5Z0iU6EZ9xzPkR8E0ZGPnPAYbjopu3FIEya86G6sTfZl9t4MyMjvg/4RovaZSOp5aOtHPH2Ixd6eF9Tofa11Xw822vB+L2ja0QK+cPKVs02F9qLekrGEuJySNf+wcO/DMzs2gzYZdw2I7upuCqJ37hQOMHIvzvLHjyxHef57wDtOE5YNYGZrpsVBYSxVIMTubxcwjuaAaWEQNIO7hAGDq/yA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=P1aTFhylKfVUcenMTseMO98tTk6Stdzyh3deG+naL7I=;
+ b=lswi74jCAkFbowMrlCladfQXxjOyNSL6ajrup8l5o0oa2YUL0alQkIhpj2fA8tFkU5dazxg278hT3U8lso/lXdBnWj39zflD5C4ZCcT0XXH0M9Ryel3AdaEBjFqf1f0ExGSIvYIKoURcwkXfTG8DnlfddSE8dBP7pIuNU7gznUb3zBKQQzlSIWFLRbK5P+zOgx7Gk7Tv06MXb3kRaBCqbON4DjNGRpLwOvLtZ123lS4NZOsPQScTSebk8vJ+c1G6ko4K12rjjEMdYPB6P9Xhapm6pwMJM5E3NKXCwyZ1GL+QXzvmWMsuprkLZcgxnGhweuM/5F0jc+RcpV70fjI+IA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=microchip.com; dmarc=pass action=none
+ header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date;
-        bh=sr7hwhZfKrYujB3B5b+32vmS9Z7fF9HgAf8Lx4+c5Ag=;
-        b=cZFnx4BQ4JQVvLPQOd//WK6FFjng+42TW9mUi2vpaXccX/abDjd+Rk4hSYIPdwmlos
-         9zy5b0nLmAClkDvEGsOgyyvoJJcxm2vU3K9p+XRviqE1xZaTUpPik2Lnri7I1VvpzF+a
-         bf7XMTOIWihTwKxM0NswgQ91fFp+4XhW9qVatIQluGuz9gw08yYunkJRWiMncMqTe77y
-         gRrTI7lZGRNBQc1xXq+cSJAxQQMCjAI3krlaaGqmrWfwgKif1QYHpJVudoYQhUHq1/wp
-         fSB2Hy23gck//sjv4LVkQyFhh1YaPtfIzNIlhM4gvyRmI9sdM3KkVpOpkb7ZG6U9ujhm
-         6U2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=sr7hwhZfKrYujB3B5b+32vmS9Z7fF9HgAf8Lx4+c5Ag=;
-        b=d4AVJ6HWQbVss4I+jeJdnzlg/TyxgED6gUk+n/4goqp/sxzy7uMSiuNzsfVXXKD7qj
-         3IF+2gQAbVta3j0qi+zMs0bG2gRs8I8Y2sCL31EsH0JZtxRZ2x0Y1n632XXXhLDpOAkJ
-         kfRr4K4lyC9z60NRo3KWEGm9DX5V/ptQv7DYVnLn6xhcBNFzVW9osOpFNjM68nkXBYZT
-         5whMSeQXuWjbSqBwaM7d6YPxrMTWl2XvrDBtBH0ihnyZLF4/Jt/xxw/oE7YqCr7o9Hlu
-         09B/xARMUWO+mxLikmZqwAsBT7AeEKCGMtvIbuqpzUEbtbgC+a4oANPzO6QcJKPYXFf0
-         jXVA==
-X-Gm-Message-State: ACrzQf0tnYgoU3xd/5mzBa1o9ghhw/MNtho30flcWkq/BkkOoiPzAc36
-	kEKLoInJSYvCWo0JCq263dTcjg==
-X-Google-Smtp-Source: AMsMyM6+wrm4SqnXVpm4S1q4D6KKRSgrBChvlPrSDoyae4Ca+1w2/0kvaH5CXfNrNPUqh8eOpTAt5A==
-X-Received: by 2002:a17:902:ef82:b0:178:72bc:983b with SMTP id iz2-20020a170902ef8200b0017872bc983bmr537272plb.0.1663263182561;
-        Thu, 15 Sep 2022 10:33:02 -0700 (PDT)
-Received: from localhost ([172.58.30.147])
-        by smtp.gmail.com with ESMTPSA id bo24-20020a17090b091800b0020329c95779sm1884000pjb.45.2022.09.15.10.33.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Sep 2022 10:33:01 -0700 (PDT)
-Date: Thu, 15 Sep 2022 10:33:01 -0700 (PDT)
-X-Google-Original-Date: Thu, 15 Sep 2022 10:32:50 PDT (-0700)
-Subject: Re: [PATCH v3] riscv: Fix permissions for all mm's during mm init
-In-Reply-To: <20220902101312.220350-1-vladimir.isaev@syntacore.com>
-CC: linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
-  Conor.Dooley@microchip.com, atishp@atishpatra.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, anup@brainfault.org, vladimir.isaev@syntacore.com, ajones@ventanamicro.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: vladimir.isaev@syntacore.com
-Message-ID: <mhng-4e92ce8a-c981-441f-b6f2-e5609e8a224f@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+ d=microchiptechnology.onmicrosoft.com;
+ s=selector2-microchiptechnology-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=P1aTFhylKfVUcenMTseMO98tTk6Stdzyh3deG+naL7I=;
+ b=qw8bj1g76tcPHAduxlrogg+v/jtqZ/Y3de8PJXFDIlV90tNAm6UbRFPAQYbBbCsyrCkGX/IDtoWXjp9EVnE/kp2dY8fynl69jMHQr/dFOjkTcCHrQJhrEkzdVYL78LWzIx9yerRgM6J4ZAXjE9zUHuv7bvFhdDVElLKm0dEUjyM=
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com (2603:10b6:303:99::15)
+ by MN0PR11MB6059.namprd11.prod.outlook.com (2603:10b6:208:377::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.5588.16; Thu, 15 Sep
+ 2022 17:40:24 +0000
+Received: from CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::545a:72f5:1940:e009]) by CO1PR11MB5154.namprd11.prod.outlook.com
+ ([fe80::545a:72f5:1940:e009%3]) with mapi id 15.20.5632.015; Thu, 15 Sep 2022
+ 17:40:23 +0000
+From: <Conor.Dooley@microchip.com>
+To: <abrestic@rivosinc.com>, <Conor.Dooley@microchip.com>
+CC: <palmer@dabbelt.com>, <paul.walmsley@sifive.com>,
+	<coelacanthus@outlook.com>, <dramforever@live.com>, <c141028@gmail.com>,
+	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<atishp@rivosinc.com>
+Subject: Re: [PATCH v3 2/2] riscv: Allow PROT_WRITE-only mmap()
+Thread-Topic: [PATCH v3 2/2] riscv: Allow PROT_WRITE-only mmap()
+Thread-Index: AQHYxJMWnJEOeg8890KCWf/MA/STJq3gvxUAgAAIf4CAAAO8gA==
+Date: Thu, 15 Sep 2022 17:40:23 +0000
+Message-ID: <aba1be51-6951-6251-0802-9db573ea2aef@microchip.com>
+References: <20220909212731.1373355-1-abrestic@rivosinc.com>
+ <20220909212731.1373355-2-abrestic@rivosinc.com>
+ <d46d6340-b985-49b2-babb-0082f1759c7b@microchip.com>
+ <CALE4mHrBC-ni3HunRzxRzM8QJDHb=FuJquccum6OcnB4jZ6KbQ@mail.gmail.com>
+In-Reply-To: <CALE4mHrBC-ni3HunRzxRzM8QJDHb=FuJquccum6OcnB4jZ6KbQ@mail.gmail.com>
+Accept-Language: en-IE, en-US
+Content-Language: en-IE
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=microchip.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CO1PR11MB5154:EE_|MN0PR11MB6059:EE_
+x-ms-office365-filtering-correlation-id: 60aeff8d-483f-40e8-982d-08da97415e4f
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: DWHRLQZSzdZVg5yCQQKUXl5/3sJa4fd69CPJz439aR06cwCzBbQ3R7hTMBul3td31J6vEFxidtlxl86Rg8a36b/pywXLyO+H7JKUIR23NGSEODCBtuuY9LzH6sf0475SZ5pmlQExtIdDnE3kRfLdSv1fkOG3qDvp2kxLTQ2v4G3ns96VqgnpMKdSItxSehSQhk8adiV0JuVowDMtSqhT6xfRTzi+tQLKOSFyR909GDkB1IjM3yIpAovBiwVtZpqdpmr5DNHBeyUF/37iIL5HVGx/iZhOsfmkRma6z6VfqABqG93lDQ/eW+UKaZtIyiT4czfNY4J1a+pWr/ld8Qq04y9eEBgKqu8HsSJWCaJvqDkCcJw0hYokQwkI5Vuhkpdjq8dvlVk1JbCCs3/czBkYvu1I7nereKrzZ7iCW3hj1Uk8HX+kECoEs3J9Bmho2cj81PjmqNRCLZva8LS2WLQJYZQy5dzozE91VSz65cExu5dSk//CYeITGI+sB1QlSUl+nZyMQrQ/f4qPRjcQonN7Wpe8dOE+I9U7VZtptQq/FvtnQy5mR6e6zKRR6geugGH/spI/CWkfGHsiMWR/sCQ1ilHwOyzDwyMoAMF0KSbHEfWVbZM4a716wbB6AqobA8BdFEtSH7DRTnNkCay9jqLxVEwJGMGIUeEyXov4eg9jlsALpL465FXtdHz3zduVbLH3eeWesAjAvc7p5pa0Qte6P1ACaQpPVnXd5fGjANw3cNt486MpBxbOrDy4lRdIazZ7h6dG3/T3vDOK/mDM/+ylWo90ft48HXaY26jhme14s2RVkMAi7OTG/Q2zkzG/jkWk2rcW7nQohC+eehC1kxPOBGkp+FJsJBXHZWO7Z76B8z0=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5154.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230022)(396003)(366004)(376002)(136003)(346002)(39860400002)(451199015)(36756003)(53546011)(5660300002)(186003)(478600001)(54906003)(316002)(83380400001)(6486002)(86362001)(38100700002)(64756008)(71200400001)(91956017)(76116006)(26005)(66946007)(31696002)(122000001)(66476007)(8936002)(66446008)(2616005)(8676002)(66556008)(4326008)(41300700001)(6512007)(966005)(38070700005)(31686004)(2906002)(110136005)(6506007)(43740500002)(45980500001);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dGhXVDgwVDRrOCswTjNWY2FiRSsxdzVOKzJvRlhEWUFCS3krQUZ4ZmhQM2Ur?=
+ =?utf-8?B?MDNPSHJYN001T3R0OCtwSDJwUWN3UUtYQ1pLdXlHelRKL3ZHL2R6L0N0bDdV?=
+ =?utf-8?B?NUowbGZNRkVHMFBrUUdpSUF5TjlaWnNZS1BYazlDNUNEb01xdWtYVTBTQ2NW?=
+ =?utf-8?B?aWhrOWdzWkIySGpFY2xPQlhPRzBXTC9XVVY3VGZaTWV0dkllK1hGTjFYdWlP?=
+ =?utf-8?B?VUtFZ1U2enJQa3B0cjRLNUcvRnA4T1I1VlRCQTM2cjgvWFdQQ1g1L1BRTWZt?=
+ =?utf-8?B?cXlKMmxpN0ZrN29Ja2JPRGo1dXd0ZHA4NWhPaHBmVi8zN2VhVEpYYnRGek1X?=
+ =?utf-8?B?NkhKQnpTWUlCNVZwQ1huMjNtVDBlUWVOKzJnemwrWUt2aklqSyt5SmtWWll1?=
+ =?utf-8?B?VXE4NmRHT0x4ekx2aU9KWTNXK2RwdEozK0RFTmtJYWNteTVaclRvTTRLWjQz?=
+ =?utf-8?B?bE4vWkVBcWhzcm8ycG1CbWVObnN3MHZEZ0I0TzBVbHJiNVgreFpmK0Nxbnhm?=
+ =?utf-8?B?OUpQK1YvdERJTVU1ZjlqdTZiQ0xhbGlaZTNYWGwwTC82cXIrY0lnTkFuRHVq?=
+ =?utf-8?B?QWtiV1pkMVVhUjFvaXNYYnQvNkZVZGhYSFZsc3ZndG5ac29KWmZmdU1PNnFr?=
+ =?utf-8?B?TlMzRFQwd29JanE5UVpjKzhkRG04czlMYkx3cFhLd3lnK29qYWJsZnNlSkRX?=
+ =?utf-8?B?UWVBcEt6dGFwNUdtRmRHekhPSzBJVHdtTlgvWjVyVCtqNVZuT0V3cEtwclo1?=
+ =?utf-8?B?OVdQSmhRSFB1WkQ4MXZGcXZ5R0orRDZmZWRFcDJvQzJJSWRtaUZDWW1rUmpQ?=
+ =?utf-8?B?K2RiVlNQUDByazZSc2ZzNG9xN2duS1FXaTArT2dvcDZ6K2NDTm5xYlFqNGsv?=
+ =?utf-8?B?OVFTd2MxWGJxamF1TnRZV2R2c3BpNk03c3dRTzB3R3YxeE05YVpGL1M4aTVL?=
+ =?utf-8?B?WE5rU1cwTXpuaDM2WDBGcXFteURwNytubmk5Y2hteTBqTDVsSEgvditxMG5Y?=
+ =?utf-8?B?RlY4WEZjcHFjb3BDSWJEb2lYYXMzWmk0WmszYko5UTBCMWVoUFFWbmtQd3Q3?=
+ =?utf-8?B?cjM2K3lUdW84RWNCKzlZcURPL2Q2Q2M3TGw1M1JxdWQ1NzlpeklsOHdXUGpt?=
+ =?utf-8?B?MnN4NGd2WEZvSGdaQUlqS0xaMkJMcmZYNUNWcTQzMWc5Y3VPWkVvdFNibFls?=
+ =?utf-8?B?Qm5jTFFuWXIrQldvY0tCcTd6Y1FMbTQ3a2szSDNTZWM4c2RFVVFLTEFMczlL?=
+ =?utf-8?B?WkF0UC92a0hTVjR6U2tKRHE4aW9IUWpuWERNbVB0LzBiMDVVVWVqNGdHRWpS?=
+ =?utf-8?B?aUliVlFTeEljUFZtWE5hcm4zNDRvQTZTS0NIcURjK2UrOEdITlFKVWh3bmlj?=
+ =?utf-8?B?ZlQyNllNbUFyS2kxc1FkMTIwNkNCSHdDWkxtaHUxRmJwcFV1N2ppLzV4bGp2?=
+ =?utf-8?B?VytscndJLzBURTArd0pQMmVTMFlNSHJBTzZxRmdFTEFXVTY3cU9VbFFvbFFr?=
+ =?utf-8?B?Mk5VNTBXM1grZTVMMWw5TlhQRHFaaDVDYlpGbGd0NWJCRUhON1cxUlRUdWcr?=
+ =?utf-8?B?Nm92blhSUWkxbVpkZ3ZPQnQyZU8rUlNkYVA3WExYMVRwbEo4OW81QnY2bmFR?=
+ =?utf-8?B?Y2dnalhocTAyMnFOaHBUY2xadnRWcS93eklqSU1wdkljZXZDZFFXWkpQVzlS?=
+ =?utf-8?B?QTRTZWkzbXRBNi82TFlyTGgxcGY2UDJ3c1lsSzJKdGhqTFF5U1F3SVczZ2VR?=
+ =?utf-8?B?cTV0SDloUXowdms1QU1MSkFDS3REdDRUVDVrNzMwU0U0Wk1qL2F0VkZObitU?=
+ =?utf-8?B?MG56K2cwT09qVXFIcWxRdUh6N2JTMmQvUWZjU3F2aFh5WUpZUVdxL3d0MGNz?=
+ =?utf-8?B?eG9jckU2RGtlb3BZRVVXVzUxOFFzSXNyQUZhT0czY0YyaWV2QlNUbzArSStl?=
+ =?utf-8?B?QjhIRXlBeFZadStvUVFKZko2bkYvcW1kTkx2dUcvbU13UVBCYU9sRVIwN0s2?=
+ =?utf-8?B?VWYzSndGcUhJc1hpMjQySjhzcEtKTkxjVmoxUkc4aW41ODc4Skk1SlJ4UEx4?=
+ =?utf-8?B?NUx3U2tRZGdRWHBKbFRXdGs5NmhBNUR3ZDM0TnEydk1abFgrbll5TkR0VHBo?=
+ =?utf-8?B?ekI5aldQeWh4TXFodjZBaGg2M0gxcHpwY21KNndPU3VRaFRKYzdkWW51bXEz?=
+ =?utf-8?B?OHc9PQ==?=
+Content-ID: <C1C31D282CFF4B43B1E2959E58DCF06A@namprd11.prod.outlook.com>
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5154.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 60aeff8d-483f-40e8-982d-08da97415e4f
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Sep 2022 17:40:23.7133
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: TcE5GpYRAeS/OU+ZRteSATQ3xBJSurHFsAJdScJ4blDk64E/1Bbjh3LlgklN6U5oZs6kHJSR4n4YO8YWLvXvbvjJ7wozzdNSTv8RaXLXUqw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR11MB6059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220915_103307_352713_E586C050 
-X-CRM114-Status: GOOD (  32.42  )
+X-CRM114-CacheID: sfid-20220915_104040_519794_132BB37E 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,280 +172,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 Sep 2022 03:13:12 PDT (-0700), vladimir.isaev@syntacore.com wrote:
-> It is possible to have more than one mm (init_mm) during memory
-> permission fixes. In my case it was caused by request_module
-> from drivers/net/phy/phy_device.c and leads to following Oops
-> during free_initmem() on RV32 platform:
->      Unable to handle kernel paging request at virtual address c0800000
->      Oops [#1]
->      Modules linked in:
->      CPU: 0 PID: 1 Comm: swapper Not tainted 5.15.45
->      Hardware name: Syntacore SCR5 SDK board (DT)
->      epc : __memset+0x58/0xf4
->       ra : free_reserved_area+0xfa/0x15a
->      epc : c02b26ac ra : c00eb588 sp : c1c1fed0
->       gp : c1898690 tp : c1c98000 t0 : c0800000
->       t1 : ffffffff t2 : 00000000 s0 : c1c1ff20
->       s1 : c189a000 a0 : c0800000 a1 : cccccccc
->       a2 : 00001000 a3 : c0801000 a4 : 00000000
->       a5 : 00800000 a6 : fef09000 a7 : 00000000
->       s2 : c0e57000 s3 : c10edcf8 s4 : 000000cc
->       s5 : ffffefff s6 : c188a9f4 s7 : 00000001
->       s8 : c0800000 s9 : fef1b000 s10: c10ee000
->       s11: c189a000 t3 : 00000000 t4 : 00000000
->       t5 : 00000000 t6 : 00000001
->      status: 00000120 badaddr: c0800000 cause: 0000000f
->      [<c0488658>] free_initmem+0x204/0x222
->      [<c048d05a>] kernel_init+0x32/0xfc
->      [<c0002f76>] ret_from_exception+0x0/0xc
->      ---[ end trace 7a5e2b002350b528 ]---
->
-> This is because request_module attempted to modprobe module, so it created
-> new mm with the copy of kernel's page table. And this copy won't be updated
-> in case of 4M pages and RV32 (pgd is the leaf).
->
-> To fix this we can update protection bits for all of existing mm-s, the
-> same as ARM does, see commit 08925c2f124f
-> ("ARM: 8464/1: Update all mm structures with section adjustments").
->
-> Fixes: 19a00869028f ("RISC-V: Protect all kernel sections including init early")
-> Signed-off-by: Vladimir Isaev <vladimir.isaev@syntacore.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-> ---
-> Changes for v3:
->   - Add WARN_ON(state != SYSTEM_FREEING_INITMEM) to fix_kernel_mem_early()
->     to make sure that the function used only during permission fixes.
->   - Add comment to fix_kernel_mem_early().
->
-> Changes for v2:
->   - Fix commit message format.
->   - Add 'Fixes' tag.
-> ---
->  arch/riscv/include/asm/set_memory.h | 20 ++--------
->  arch/riscv/kernel/setup.c           | 11 -----
->  arch/riscv/mm/init.c                | 29 +++++++++++---
->  arch/riscv/mm/pageattr.c            | 62 +++++++++++++++++++++++++----
->  4 files changed, 82 insertions(+), 40 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-> index a2c14d4b3993..bb0f6b4ed86b 100644
-> --- a/arch/riscv/include/asm/set_memory.h
-> +++ b/arch/riscv/include/asm/set_memory.h
-> @@ -16,28 +16,16 @@ int set_memory_rw(unsigned long addr, int numpages);
->  int set_memory_x(unsigned long addr, int numpages);
->  int set_memory_nx(unsigned long addr, int numpages);
->  int set_memory_rw_nx(unsigned long addr, int numpages);
-> -static __always_inline int set_kernel_memory(char *startp, char *endp,
-> -					     int (*set_memory)(unsigned long start,
-> -							       int num_pages))
-> -{
-> -	unsigned long start = (unsigned long)startp;
-> -	unsigned long end = (unsigned long)endp;
-> -	int num_pages = PAGE_ALIGN(end - start) >> PAGE_SHIFT;
-> -
-> -	return set_memory(start, num_pages);
-> -}
-> +void fix_kernel_mem_early(char *startp, char *endp, pgprot_t set_mask,
-> +			  pgprot_t clear_mask);
->  #else
->  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
-> -static inline int set_kernel_memory(char *startp, char *endp,
-> -				    int (*set_memory)(unsigned long start,
-> -						      int num_pages))
-> -{
-> -	return 0;
-> -}
-> +static inline void fix_kernel_mem_early(char *startp, char *endp,
-> +					pgprot_t set_mask, pgprot_t clear_mask) { }
->  #endif
->
->  int set_direct_map_invalid_noflush(struct page *page);
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 95ef6e2bf45c..17eae1406092 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -27,7 +27,6 @@
->  #include <asm/early_ioremap.h>
->  #include <asm/pgtable.h>
->  #include <asm/setup.h>
-> -#include <asm/set_memory.h>
->  #include <asm/sections.h>
->  #include <asm/sbi.h>
->  #include <asm/tlbflush.h>
-> @@ -318,13 +317,3 @@ static int __init topology_init(void)
->  	return 0;
->  }
->  subsys_initcall(topology_init);
-> -
-> -void free_initmem(void)
-> -{
-> -	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
-> -		set_kernel_memory(lm_alias(__init_begin), lm_alias(__init_end),
-> -				  IS_ENABLED(CONFIG_64BIT) ?
-> -					set_memory_rw : set_memory_rw_nx);
-> -
-> -	free_initmem_default(POISON_FREE_INITMEM);
-> -}
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index b56a0a75533f..978202712535 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -16,7 +16,6 @@
->  #include <linux/of_fdt.h>
->  #include <linux/of_reserved_mem.h>
->  #include <linux/libfdt.h>
-> -#include <linux/set_memory.h>
->  #include <linux/dma-map-ops.h>
->  #include <linux/crash_dump.h>
->  #include <linux/hugetlb.h>
-> @@ -28,6 +27,7 @@
->  #include <asm/io.h>
->  #include <asm/ptdump.h>
->  #include <asm/numa.h>
-> +#include <asm/set_memory.h>
->
->  #include "../kernel/head.h"
->
-> @@ -714,10 +714,14 @@ static __init pgprot_t pgprot_from_va(uintptr_t va)
->
->  void mark_rodata_ro(void)
->  {
-> -	set_kernel_memory(__start_rodata, _data, set_memory_ro);
-> -	if (IS_ENABLED(CONFIG_64BIT))
-> -		set_kernel_memory(lm_alias(__start_rodata), lm_alias(_data),
-> -				  set_memory_ro);
-> +	pgprot_t set_mask = __pgprot(_PAGE_READ);
-> +	pgprot_t clear_mask = __pgprot(_PAGE_WRITE);
-> +
-> +	fix_kernel_mem_early(__start_rodata, _data, set_mask, clear_mask);
-> +	if (IS_ENABLED(CONFIG_64BIT)) {
-> +		fix_kernel_mem_early(lm_alias(__start_rodata), lm_alias(_data),
-> +				     set_mask, clear_mask);
-> +	}
->
->  	debug_checkwx();
->  }
-> @@ -1243,3 +1247,18 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->  	return vmemmap_populate_basepages(start, end, node, NULL);
->  }
->  #endif
-> +
-> +void free_initmem(void)
-> +{
-> +	pgprot_t set_mask = __pgprot(_PAGE_READ | _PAGE_WRITE);
-> +	pgprot_t clear_mask = IS_ENABLED(CONFIG_64BIT) ?
-> +			      __pgprot(0) : __pgprot(_PAGE_EXEC);
-> +
-> +	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
-> +		fix_kernel_mem_early(lm_alias(__init_begin),
-> +				     lm_alias(__init_end),
-> +				     set_mask, clear_mask);
-> +	}
-> +
-> +	free_initmem_default(POISON_FREE_INITMEM);
-> +}
-> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> index 5e49e4b4a4cc..74b8107ac743 100644
-> --- a/arch/riscv/mm/pageattr.c
-> +++ b/arch/riscv/mm/pageattr.c
-> @@ -5,6 +5,7 @@
->
->  #include <linux/pagewalk.h>
->  #include <linux/pgtable.h>
-> +#include <linux/sched.h>
->  #include <asm/tlbflush.h>
->  #include <asm/bitops.h>
->  #include <asm/set_memory.h>
-> @@ -104,24 +105,69 @@ static const struct mm_walk_ops pageattr_ops = {
->  	.pte_hole = pageattr_pte_hole,
->  };
->
-> -static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
-> -			pgprot_t clear_mask)
-> +static int __set_memory_mm(struct mm_struct *mm, unsigned long start,
-> +			   unsigned long end, pgprot_t set_mask,
-> +			   pgprot_t clear_mask)
->  {
->  	int ret;
-> -	unsigned long start = addr;
-> -	unsigned long end = start + PAGE_SIZE * numpages;
->  	struct pageattr_masks masks = {
->  		.set_mask = set_mask,
->  		.clear_mask = clear_mask
->  	};
->
-> +	mmap_read_lock(mm);
-> +	ret = walk_page_range_novma(mm, start, end, &pageattr_ops, NULL,
-> +				    &masks);
-> +	mmap_read_unlock(mm);
-> +
-> +	return ret;
-> +}
-> +
-> +void fix_kernel_mem_early(char *startp, char *endp, pgprot_t set_mask,
-> +			  pgprot_t clear_mask)
-> +{
-> +	struct task_struct *t, *s;
-> +
-> +	unsigned long start = (unsigned long)startp;
-> +	unsigned long end = PAGE_ALIGN((unsigned long)endp);
-> +
-> +	/*
-> +	 * In the SYSTEM_FREEING_INITMEM state we expect that all async code
-> +	 * is done and no new userspace task can be created.
-> +	 * So rcu_read_lock() should be enough here.
-> +	 */
-> +	WARN_ON(system_state != SYSTEM_FREEING_INITMEM);
-> +
-> +	__set_memory_mm(current->active_mm, start, end, set_mask, clear_mask);
-> +	__set_memory_mm(&init_mm, start, end, set_mask, clear_mask);
-> +
-> +	rcu_read_lock();
-> +	for_each_process(t) {
-> +		if (t->flags & PF_KTHREAD)
-> +			continue;
-> +		for_each_thread(t, s) {
-> +			if (s->mm) {
-> +				__set_memory_mm(s->mm, start, end, set_mask,
-> +						clear_mask);
-> +			}
-> +		}
-> +	}
-> +	rcu_read_unlock();
-> +
-> +	flush_tlb_kernel_range(start, end);
-> +}
-> +
-> +static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
-> +			pgprot_t clear_mask)
-> +{
-> +	int ret;
-> +	unsigned long start = addr;
-> +	unsigned long end = start + PAGE_SIZE * numpages;
-> +
->  	if (!numpages)
->  		return 0;
->
-> -	mmap_read_lock(&init_mm);
-> -	ret =  walk_page_range_novma(&init_mm, start, end, &pageattr_ops, NULL,
-> -				     &masks);
-> -	mmap_read_unlock(&init_mm);
-> +	ret = __set_memory_mm(&init_mm, start, end, set_mask, clear_mask);
->
->  	flush_tlb_kernel_range(start, end);
+On 15/09/2022 18:27, Andrew Bresticker wrote:
+> On Thu, Sep 15, 2022 at 12:56 PM <Conor.Dooley@microchip.com> wrote:
+>>
+>> On 09/09/2022 22:27, Andrew Bresticker wrote:
+>>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>>
+>>> Commit 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is
+>>> invalid") made mmap() return EINVAL if PROT_WRITE was set wihtout
+>>> PROT_READ with the justification that a write-only PTE is considered a
+>>> reserved PTE permission bit pattern in the privileged spec. This check
+>>> is unnecessary since we let VM_WRITE imply VM_READ on RISC-V, and it is
+>>> inconsistent with other architectures that don't support write-only PTEs,
+>>> creating a potential software portability issue. Just remove the check
+>>> altogether and let PROT_WRITE imply PROT_READ as is the case on other
+>>> architectures.
+>>>
+>>> Note that this also allows PROT_WRITE|PROT_EXEC mappings which were
+>>> disallowed prior to the aforementioned commit; PROT_READ is implied in
+>>> such mappings as well.
+>>>
+>>> Fixes: 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is invalid")
+>>
+>> For the naive members of the audience such as myself, this patch
+>> came after a non-fixes patch in the series. What is the dependence
+>> of this patch on the other one (if any)?
+> 
+> This patch is dependent on the first. Happy to re-spin with a "Fixes"
+> tag on the first patch (or maybe Palmer can add when applying).
 
-Thanks, this is on fixes.
+If it is a fix, then it should have a fixes tag. If it's cosmetic reorg
+to make the fix easier then no & it should be moved after the fix. If
+it is neither then you should prob mention it in the cover or under the
+--- /shrug
 
+Thanks,
+Conor.
+
+>>> Reviewed-by: Atish Patra <atishp@rivosinc.com>
+>>> Signed-off-by: Andrew Bresticker <abrestic@rivosinc.com>
+>>> ---
+>>> v1 -> v2: Update access_error() to account for write-implies-read
+>>> v2 -> v3: Separate into two commits
+>>> ---
+>>>  arch/riscv/kernel/sys_riscv.c | 3 ---
+>>>  1 file changed, 3 deletions(-)
+>>>
+>>> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+>>> index 571556bb9261..5d3f2fbeb33c 100644
+>>> --- a/arch/riscv/kernel/sys_riscv.c
+>>> +++ b/arch/riscv/kernel/sys_riscv.c
+>>> @@ -18,9 +18,6 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+>>>         if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
+>>>                 return -EINVAL;
+>>>
+>>> -       if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
+>>> -               return -EINVAL;
+>>> -
+>>>         return ksys_mmap_pgoff(addr, len, prot, flags, fd,
+>>>                                offset >> (PAGE_SHIFT - page_shift_offset));
+>>>  }
+>>> --
+>>> 2.25.1
+>>>
+>>>
+>>> _______________________________________________
+>>> linux-riscv mailing list
+>>> linux-riscv@lists.infradead.org
+>>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>>
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
