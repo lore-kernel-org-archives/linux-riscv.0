@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BAC8C32771
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 19:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB9AECAAA1
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 Sep 2022 19:37:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JmLZQUmfgANmt25PBUue9CGf71TqZso6Nfc7jTPFnsQ=; b=WsVh4RPijOqf7b
-	GuKh4QSBik1XNSmx6I4/ETyXzdjKMb2atwP976zuEmAmU1p0HwPbRZVEsr+NBZtIDbhH2e8jmNJgt
-	88DinijCQSslzOS64tojEK21uf4OkvrLaFNCf0viX/syAbb9Z9fDch+UHvPIwSbMd0C+H9a+lrG/f
-	T8FDnN8HUUMYOQc89k86fFviRqdSKPOuXmfPD8Odw1lGpWtZRw/by2niLIUsKwipr+BfvogCQ54wW
-	I5/t85H+CkkXC9TcaPWaCBz93l6jZXUXaA38MhyXlXHif7r67ixid7Cd7AedgPLYFDOmbSvQcfHO2
-	SKF8UiNdJ9ohNS+F1kWA==;
+	List-Owner; bh=geAiFZ2Qp+xT5XicuMCZ6SjeISbSakj4W/qbE1LJDng=; b=HDnL7x43aBFxR1
+	7hGEjshJLp8wFGT0SC9dDirF8t9IEz09h+DdXWnXRwNMkMEYRRvBcSbCbpbYufK7kdKDuclsEGKoO
+	bhMXaNA1a5ZNisCXZysgjjBMPV9XGNpfnKXk1xrb2WI35kmqAVjdYT9xsYsrTh6/mU+6VmE8QxlT5
+	0ylVjoSf5tV9otuImj5+J8deIsTeBf+DhMUOH98GFRwTeQP8uW+bVzAJ1Lut1Re9fbBEi75Sh0lKN
+	hSdVNR3drcT13wE/yi8EH8zRKcJPbL4LhOOMprVHqHYbu7hiaX09qlmaLs1QH7KZ1zvGZerDB7Rz2
+	y1xuCYdtMCJannfkoFCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYufp-00FytK-6g; Thu, 15 Sep 2022 19:37:21 +0000
-Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
+	id 1oYufq-00Fyte-Hi; Thu, 15 Sep 2022 19:37:22 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oYufl-00Fyqm-Hr
-	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 19:37:18 +0000
-Received: by mail-qk1-x734.google.com with SMTP id k12so14135875qkj.8
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 12:37:16 -0700 (PDT)
+	id 1oYufm-00Fyr7-SK
+	for linux-riscv@lists.infradead.org; Thu, 15 Sep 2022 19:37:20 +0000
+Received: by mail-qt1-x831.google.com with SMTP id cj27so2271427qtb.7
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 12:37:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
-        bh=VhWltIWQGr4otQw1ais9xJMa50uESeMiXqro3LvTwg8=;
-        b=ZOzER003YVUI0wX40DWwfYnP8PmDaWJ1GUNNHRfVg+RBqRnDWZhobIt10jbRXG8ikP
-         34RlHzRathp0u9FK7XGi0BLgao/yNkGHKjbQLgAQez8U/Fhwf9EYBjieRXyIlHh6xXY2
-         OevX6u1otUPcmldEFrNI5xLckhnjUCJ0SfDqAcm4iJwRkTv239iIvcgO2kRWb8jlWWs5
-         5j9nX8N+bM4li1mPoUvQv3damgywG3DWnKZ/rNZkmx3EnWm9jeo6MomLeWsIqSY88BrG
-         D2mcSfMSddHnyLQjz6qPki3X548HVK9mZUvsHKjjIfayptk1JD4au5JFBBJkao5Oi76J
-         ro+w==
+        bh=zpt9GCRbl8GSu+mNKxtCSxN/ut26bIT0MJANl4282eY=;
+        b=3dVH8/YoiU0dPRG8tjjiauIameUd3EPLECdbMuaVAgYEeXgQqnkOWsfagAVQj4AyhE
+         rYDwsvzV8Anf9tgVloy2RgFUI8qZHyJxKyKeESW9yc9Ud+AzAuvo4N8MnGjaops3ajsK
+         lkR9nQ1iz+2cWO6g49vHE0hJjzduH94Gni1CbaKzWXGPhGn+PyeLPw5KecGYJZGqvfmR
+         HlnUCYFrrY7x0NIpiHg6H4mXck0En0bXbhNMDnkT/2pSkphAQ8ChMha+nK2l92MIW0E/
+         agPr54IRRiHhKHgWkiB6uJ0fGrgrFuYVWngrJTCctsLAkCNXUsh4t+4Xm0QY6i+cO3/e
+         WcaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date;
-        bh=VhWltIWQGr4otQw1ais9xJMa50uESeMiXqro3LvTwg8=;
-        b=wWqZSkXFPfqS64nfJRyS+DcP5rf9OVIG3iId59kGcIjFRlXRAG21aR32G/pcBnXgVF
-         5YHDH2+V30j+0HYaItzwm9XFBrdbYalALJ+ubqllSrAjrMHrfHcwo2tLIAbmKl5cJvCa
-         DylakWCl1qj+j0jqU/j8DFJECB3xmn+ZqNh9jWqjHNnJVlGxEBPmrxQ8lFcg688LopK6
-         076t0dY7INDRGbDgxUmgVYPZ8gEyFiy5EnDdKggZUcr4PzT9Q+eu+SDbA747SPMZYRXZ
-         DRIIpTsUrNab1oi/K7f2pWG8PUmrDwPBqCjmC0e5Z6n9VdDoPIemImLrQkH4bq843MGF
-         mr0w==
-X-Gm-Message-State: ACrzQf0L6FCVBscK711YvDS+DTKtHm394AFeVycOZT+HmBwdyUl9/bsM
-	y+LWymDp5FGVLbBF7hQ1qv8fXQ==
-X-Google-Smtp-Source: AMsMyM5HYNnkqQFryIhusPOXnsW0KKQfhvLYBxoxwi2MA6hkWp7FXfscczo+CSe0KbEGeI/30Dqumg==
-X-Received: by 2002:a05:620a:40c6:b0:6bb:3d30:735 with SMTP id g6-20020a05620a40c600b006bb3d300735mr1394165qko.653.1663270635403;
-        Thu, 15 Sep 2022 12:37:15 -0700 (PDT)
+        bh=zpt9GCRbl8GSu+mNKxtCSxN/ut26bIT0MJANl4282eY=;
+        b=QmPbzmkdGWrXOlwW+xwkbUR2YFNddb7M04lZo1KlcGqxOWDY0TUPmgHKHCRvPTcpoq
+         TTNN8pNL79BWXIWD83stv3IJ706kzMPpczpvDMTi8jME/21Npg8tjrEd2i8HKBh6RlUt
+         jgpDDvMjFy01fdVn29zmBu91qA5Y34TkMvZJ0GnoEYL6ohCNVrlyun7DNjYiVMP3NNz8
+         0vVYrwxxX4OST2oKdMbYLoSX8JNp81OQgx2DQWhrqIUtfse0XS59ZGE+ro00+XbipB+v
+         IFprJPQmPZge153WVL8+Lp4jUW2ArgwleIpRG6rypm8KQO6/Eg5BT5DvsfdPiANwxl17
+         pdfQ==
+X-Gm-Message-State: ACrzQf0m0U0FZQszIKGS9EI196ziNvbZNYIx/XboKD/PuPJ2wpz0WPki
+	AoXgZz1IKVcQH3FjOVU6H+wyHQ==
+X-Google-Smtp-Source: AMsMyM4c71Uqf0BRj1ggV8j8fTpOR+nYbBIzPF9iB2m0Ng7RmJeprdOZ115YIqybBqbxLXqHItL9uQ==
+X-Received: by 2002:a05:622a:296:b0:35c:c846:d714 with SMTP id z22-20020a05622a029600b0035cc846d714mr1430238qtw.58.1663270636969;
+        Thu, 15 Sep 2022 12:37:16 -0700 (PDT)
 Received: from abrestic-xps.ba.rivosinc.com (pool-71-105-112-35.nycmny.fios.verizon.net. [71.105.112.35])
-        by smtp.gmail.com with ESMTPSA id r1-20020ae9d601000000b006b872b606b1sm4596459qkk.128.2022.09.15.12.37.14
+        by smtp.gmail.com with ESMTPSA id r1-20020ae9d601000000b006b872b606b1sm4596459qkk.128.2022.09.15.12.37.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Sep 2022 12:37:15 -0700 (PDT)
+        Thu, 15 Sep 2022 12:37:16 -0700 (PDT)
 From: Andrew Bresticker <abrestic@rivosinc.com>
 To: Palmer Dabbelt <palmer@dabbelt.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -71,16 +71,16 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Andrew Bresticker <abrestic@rivosinc.com>,
 	stable@vger.kernel.org,
 	Atish Patra <atishp@rivosinc.com>
-Subject: [PATCH v4 1/2] riscv: Make VM_WRITE imply VM_READ
-Date: Thu, 15 Sep 2022 15:37:01 -0400
-Message-Id: <20220915193702.2201018-2-abrestic@rivosinc.com>
+Subject: [PATCH v4 2/2] riscv: Allow PROT_WRITE-only mmap()
+Date: Thu, 15 Sep 2022 15:37:02 -0400
+Message-Id: <20220915193702.2201018-3-abrestic@rivosinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220915193702.2201018-1-abrestic@rivosinc.com>
 References: <20220915193702.2201018-1-abrestic@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220915_123717_605841_E2C8B11F 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20220915_123718_939108_7C9099FF 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,36 +97,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V does not presently have write-only mappings as that PTE bit pattern
-is considered reserved in the privileged spec, so allow handling of read
-faults in VMAs that have VM_WRITE without VM_READ in order to be consistent
-with other architectures that have similar limitations.
+Commit 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is
+invalid") made mmap() return EINVAL if PROT_WRITE was set wihtout
+PROT_READ with the justification that a write-only PTE is considered a
+reserved PTE permission bit pattern in the privileged spec. This check
+is unnecessary since we let VM_WRITE imply VM_READ on RISC-V, and it is
+inconsistent with other architectures that don't support write-only PTEs,
+creating a potential software portability issue. Just remove the check
+altogether and let PROT_WRITE imply PROT_READ as is the case on other
+architectures.
+
+Note that this also allows PROT_WRITE|PROT_EXEC mappings which were
+disallowed prior to the aforementioned commit; PROT_READ is implied in
+such mappings as well.
 
 Fixes: 2139619bcad7 ("riscv: mmap with PROT_WRITE but no PROT_READ is invalid")
 Cc: <stable@vger.kernel.org> # v4.19+
 Reviewed-by: Atish Patra <atishp@rivosinc.com>
 Signed-off-by: Andrew Bresticker <abrestic@rivosinc.com>
 ---
-new in v3
-v3 -> v4: add Fixes tag
+v1 -> v2: Update access_error() to account for write-implies-read
+v2 -> v3: Separate into two commits
 ---
- arch/riscv/mm/fault.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/riscv/kernel/sys_riscv.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index f2fbd1400b7c..d86f7cebd4a7 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -184,7 +184,8 @@ static inline bool access_error(unsigned long cause, struct vm_area_struct *vma)
- 		}
- 		break;
- 	case EXC_LOAD_PAGE_FAULT:
--		if (!(vma->vm_flags & VM_READ)) {
-+		/* Write implies read */
-+		if (!(vma->vm_flags & (VM_READ | VM_WRITE))) {
- 			return true;
- 		}
- 		break;
+diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+index 571556bb9261..5d3f2fbeb33c 100644
+--- a/arch/riscv/kernel/sys_riscv.c
++++ b/arch/riscv/kernel/sys_riscv.c
+@@ -18,9 +18,6 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+ 	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
+ 		return -EINVAL;
+ 
+-	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
+-		return -EINVAL;
+-
+ 	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
+ 			       offset >> (PAGE_SHIFT - page_shift_offset));
+ }
 -- 
 2.25.1
 
