@@ -4,72 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F8CC54EE9
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 14:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD5BECAAA1
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 15:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=W80Zmuth0x9kfIBi3RctzMy51edRm/roNueCrqC1UFI=; b=CD+ISeIQOw+rCBkgxtCm4eOBO9
-	Wcf65hAZeFOsSBgCkNjbQUDw9gqIim0wxwKrkvgIqchtdZwYWdi9advqdY9rYCZcEkLCDL4yTzFNK
-	PoeGToY3Amq8PcPXsFLp8becjag/ZvhxHLFJCZauPpZF2dtkHDk7uWRJnOozB2PdheFoKS5E69mYO
-	/0ac4VYho/jpxu4FbTWrwwlZeZLtFcrOroiRAap4NyrwDVqtWs4rrf5AewO8s7n2MeJI+2BbgSi0D
-	yx3zjGXGIpuVBQ8nl8jvY39Zlv4rp/cKL4jwRFsPzIi7+AHceJKCM2NyF4E2bxVW+wKRmjpH6mC2J
-	eJOPQAMw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+ttShEAD3jAycjHxbo8oen1FjBzQ7wHRG9x0ClzGV+A=; b=uvw1WPCH7QhrCV
+	8KQKTSTdw3/JF5OAN6MGa9JKdDPgt52C4MNJXFCuO8sBkdd7+ZlObpJFfMLfJxZ41Fdvkzfwx+iUT
+	aK+jnXw5d2kbZa9q+CO4KgDKq/2Vn9EbD93N4EZyMeZWD80DtsqiNRbgorxE5kUB5YD7fXjoqoEKD
+	MIlJWIr2sZe4nGE9yRk+sIpxK4P8ZtWDg76APqpdCNyduo/Scvb1urbu9iiStRiX6wVQvb1yfq/od
+	9+qfhlKHBWvFWn3BfB/KurCmmjetSswsMwr9Nw1HzBUnJiMprIutgT2N7aX7P14e/1ncWq7Lt/Koq
+	KouEUYpWVtPxbArb5NbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZC8f-00E36D-6C; Fri, 16 Sep 2022 14:16:17 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1oZDJh-00EcAo-LD; Fri, 16 Sep 2022 15:31:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZC8F-00E2pI-59
-	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 14:16:09 +0000
-Received: by mail-ej1-x636.google.com with SMTP id 13so20761000ejn.3
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Sep 2022 07:15:47 -0700 (PDT)
+	id 1oZDJQ-00Ec4B-Vd
+	for linux-riscv@bombadil.infradead.org; Fri, 16 Sep 2022 15:31:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Message-ID:To:From:CC:Subject:Date:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=J3xtITp+FBk+leJje4oS/ahkcyhlokVvO9Au9VXbS3o=; b=k6EszBRCcx26dGBnt6jG7Q6iRd
+	xvd2MkdAQ9TyEp27PJOjCtNytvQDq3uhKKBF/GPCHGb5nUpFsDvcyLkNoEju3cPQFKex/i/q+d0xV
+	ryc2TGsYr9owh6fYG/oLcF6HrlSFvcE5T6F6n4466/BvMSu2wqHJYYcVogLxO80Kisz60IFQL36yh
+	aWKfn9cNc/aSW6W2Fe8Sdy1nJBrNmVw0QhMBBQrLLO/E3LXoBGkzldzFQkLolJ6ujU1QfCU+3kFX6
+	3/DdbsfmmTx+1Rb3WSFfGAjTlCPfu1Uasr7wcgxbZGh6mPNb45SFgGHscpNN4A2rF0G+PbkZHY/FH
+	4bUKJoWw==;
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oZDJL-00D7ZG-7W
+	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 15:31:27 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id p18so21763272plr.8
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Sep 2022 08:31:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date;
-        bh=Ir+BLopUwMae4hyCKJHf8kYy9kAcLo6FPxRV1rAoBNk=;
-        b=EJShOwezEcTa43N3+fJ+AuO8nLGPxienzEt4uq3GEkqN6A/dAv5HFngIo4wCtpYOHR
-         jLAy4JyKS25ocVLges3mx4EfOHxIbusWtgSrkWcq09Vx0Snkpo16RSOAHrrMJtFBeq3L
-         10iwAjdnTxYGKSlJo7BuP4cYL8ThZxVJsvfqqNiHs+QYJATEqk9+VSGqp6E+r5UeLgcP
-         jMs6JMhYxRvpTsiVNpvSbQfz6W3ymiTdytghP8WjtA75soHxI35KveSoFq6WK9OVjzYF
-         8QBl+h3cPpf9GfHkahWHytuaARr/GIL0AhRBCDoMFyeyj0aBix+CKgAVuH8RbWDbzdYv
-         p+uA==
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date;
+        bh=J3xtITp+FBk+leJje4oS/ahkcyhlokVvO9Au9VXbS3o=;
+        b=APflXrQEeSAodR3aW/lHhrwTb0mv3QkoUrwkaCnf/Ud/yluQnz5uHcshFadb2HNBE/
+         djbfv95JFohSBTsE5jxKqvazVEkKwRv2XIdt6vCzrywIdfttazkSDbngEQa5xp6FhPpL
+         wyl3kCEqZ4tI+ztRYolMLRr9Idle/BtYCpfN0tB8U0VjXuqyl8GAt4PBTyZVOOfMT/6k
+         A5V+K4jHZMWwAtpoBPriW9iuKaHcDcTszC9IlQhaSv8YbXOLtif8xW5FQ8161MCR22aZ
+         i5Zz7WiI6zyVH6AJzrwRHgCF47s/6hKMa79Jx03cU98aAyZ47bqk8Qd6zWigc/OoAyjV
+         Zvig==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=Ir+BLopUwMae4hyCKJHf8kYy9kAcLo6FPxRV1rAoBNk=;
-        b=ftEkzgmP03TMSXozd/2AiYKiITbBKT0FKy11woY3YPyk4xJw1V1azmixtFkuDbPNmI
-         E/cZxgDa7OqBfZABZ3ISvH6Nokp62E1eDHYQ/8xrZbnuL/1zyoocawmSQjnpnMUsySuG
-         sLdKOa2MWsjgvXtWkfH8AGLvoHcyjekm5RY0P2K9+ptqt4epqNugAxj+BLg8Gm67hDKr
-         znvjykxrXXMhZLujW5AVIhqSYU7IiDQAPHvVe4qPseQ3EfyiTt4UpOZ0SnOp+lJg54EU
-         EAAJxcjINHo8SpFziWt33QcKSoB5R8n+9ImnIYDGLPz5IhrLdzckm01SnGVU1vvWAd4L
-         RIcw==
-X-Gm-Message-State: ACrzQf1Dc9zM3LAVD9XrVdB5CbaW/hPHU8XsPWPgxHz5+FjkCaaj7Ebj
-	46IGE4u+DQUUm1JppSKCMyWMhOGCCXxMnN2TB5s=
-X-Google-Smtp-Source: AMsMyM7w/qd0IXChRueoiH7MYPItjuEi+s5SoZsvwkgzz3PSOvSZ3Gp4jAKb5ImgOZawfjKFZn5UtQ==
-X-Received: by 2002:a17:907:628f:b0:72f:57da:c33d with SMTP id nd15-20020a170907628f00b0072f57dac33dmr3810002ejc.374.1663337746516;
-        Fri, 16 Sep 2022 07:15:46 -0700 (PDT)
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date;
+        bh=J3xtITp+FBk+leJje4oS/ahkcyhlokVvO9Au9VXbS3o=;
+        b=uqeYbHxWgDCoCzScN/k/pmk4iKIqeq0kF+4QrLrAlPkiUx07ptb6hW0ZnEV7smnleH
+         ccmPpc9+AtZAYU+lIueB/FlWS101ALMdoOCvJDY6fEToqTJ8n7lSUduIBmhQzUvqsGMb
+         jMIfpgg48Tf8t0uXs4PBfGbED+IPXjJDWn5rls7Qdr40U5brJuhnKMp4B5Rk0hAaGj3n
+         FLQKehEhi2Yjhk3+kI39QtpRTpq408pATpul3zSZmC7pvyGTlXzwm2oPu1k0NQrlr4oM
+         EDoI2fp2RCeelPXy0wTlCKLNnSsSTuNIDdZehdtZVB5zkPNtUhn07itvrI8765TfJmwM
+         bNdQ==
+X-Gm-Message-State: ACrzQf0lNdYa7hi1BS/E41bFUL4OpZprqNqb6GeDXiV4SGRLgFunIWG3
+	bONPOQ+OaYrdFUQQ43dzmgeIDQ==
+X-Google-Smtp-Source: AMsMyM4Ns3o4TFKs5G1Mi+Ut5fApuqBRUPOUPJZktW5nwF6kbMgiaWfy2K/4RD98XhshOQ5nyfY+hQ==
+X-Received: by 2002:a17:902:b194:b0:176:d229:83bd with SMTP id s20-20020a170902b19400b00176d22983bdmr380983plr.174.1663342279425;
+        Fri, 16 Sep 2022 08:31:19 -0700 (PDT)
 Received: from localhost (vpn-konference.ms.mff.cuni.cz. [195.113.20.101])
-        by smtp.gmail.com with ESMTPSA id r1-20020a1709061ba100b0076f53f66e33sm10482609ejg.194.2022.09.16.07.15.45
+        by smtp.gmail.com with ESMTPSA id n18-20020a170903111200b00174d4fabe76sm14979760plh.214.2022.09.16.08.31.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Sep 2022 07:15:46 -0700 (PDT)
-Date: Fri, 16 Sep 2022 07:15:46 -0700 (PDT)
-X-Google-Original-Date: Fri, 16 Sep 2022 07:15:39 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: Add support for Ztso
-In-Reply-To: <CAAhSdy1Sn3xyKnuUgSNGwfYB0Nvuh9EVe+E23kzMb=Q=adhmMg@mail.gmail.com>
-CC: linux-riscv@lists.infradead.org
+        Fri, 16 Sep 2022 08:31:19 -0700 (PDT)
+Date: Fri, 16 Sep 2022 08:31:19 -0700 (PDT)
+X-Google-Original-Date: Fri, 16 Sep 2022 08:31:08 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.0-rc6
+CC: linux-kernel@vger.kernel.org,         linux-riscv@lists.infradead.org
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: anup@brainfault.org
-Message-ID: <mhng-2dd3498e-b6f5-4ea8-b97e-632b1c5bbd82@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-f5d21762-1321-4d35-927c-d47e0749abc0@palmer-ri-x1c9>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220916_071551_291853_3FB76C71 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20220916_163124_816169_244E9359 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,142 +93,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 01 Sep 2022 23:50:50 PDT (-0700), anup@brainfault.org wrote:
-> On Fri, Sep 2, 2022 at 9:17 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
->>
->> The Ztso extension was recently frozen, this adds support for running
->> binaries that depend on TSO on systems that support Ztso.
->>
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->>
->> ---
->>
->> This is very minimaly tested: I can run no-Ztso binaries on both
->> yes-Ztso and no-Ztso QEMU instances, but I don't have a yes-Ztso
->> userspace together in order to make sure that works.
->> ---
->>  arch/riscv/include/asm/elf.h   | 18 ++++++++++++++++--
->>  arch/riscv/include/asm/hwcap.h |  3 +++
->>  arch/riscv/kernel/cpu.c        |  1 +
->>  arch/riscv/kernel/cpufeature.c |  3 +++
->>  4 files changed, 23 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
->> index 14fc7342490b..7a17d2275b76 100644
->> --- a/arch/riscv/include/asm/elf.h
->> +++ b/arch/riscv/include/asm/elf.h
->> @@ -14,6 +14,7 @@
->>  #include <asm/auxvec.h>
->>  #include <asm/byteorder.h>
->>  #include <asm/cacheinfo.h>
->> +#include <asm/hwcap.h>
->>
->>  /*
->>   * These are used to set parameters in the core dumps.
->> @@ -31,10 +32,23 @@
->>  #define ELF_DATA       ELFDATA2LSB
->>
->>  /*
->> - * This is used to ensure we don't load something for the wrong architecture.
->> + * Binaries that assume TSO cannot be correctly run on non-TSO systems, so
->> + * prevent them from even being loaded.
->> + */
->> +#define EF_RISCV_TSO   0x0010
->> +
->> +static inline int riscv_elf_tso_ok(long eflags)
->> +{
->> +       return likely(!(eflags & EF_RISCV_TSO)) || riscv_tso_hw;
->> +}
->> +
->> +/*
->> + * This is used to ensure we don't load something for the wrong architecture or
->> + * variant.
->>   */
->>  #define elf_check_arch(x) (((x)->e_machine == EM_RISCV) && \
->> -                          ((x)->e_ident[EI_CLASS] == ELF_CLASS))
->> +                          ((x)->e_ident[EI_CLASS] == ELF_CLASS) && \
->> +                          riscv_elf_tso_ok((x)->e_flags))
->>
->>  extern bool compat_elf_check_arch(Elf32_Ehdr *hdr);
->>  #define compat_elf_check_arch  compat_elf_check_arch
->> diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
->> index 6f59ec64175e..4e1d94c43d51 100644
->> --- a/arch/riscv/include/asm/hwcap.h
->> +++ b/arch/riscv/include/asm/hwcap.h
->> @@ -36,6 +36,8 @@ extern unsigned long elf_hwcap;
->>  #define RISCV_ISA_EXT_s                ('s' - 'a')
->>  #define RISCV_ISA_EXT_u                ('u' - 'a')
->>
->> +extern bool riscv_tso_hw;
->> +
->>  /*
->>   * Increse this to higher value as kernel support more ISA extensions.
->>   */
->> @@ -58,6 +60,7 @@ enum riscv_isa_ext_id {
->>         RISCV_ISA_EXT_ZICBOM,
->>         RISCV_ISA_EXT_ZIHINTPAUSE,
->>         RISCV_ISA_EXT_SSTC,
->> +       RISCV_ISA_EXT_ZTSO,
->>         RISCV_ISA_EXT_ID_MAX = RISCV_ISA_EXT_MAX,
->>  };
->>
->> diff --git a/arch/riscv/kernel/cpu.c b/arch/riscv/kernel/cpu.c
->> index 0be8a2403212..d8371c249cc8 100644
->> --- a/arch/riscv/kernel/cpu.c
->> +++ b/arch/riscv/kernel/cpu.c
->> @@ -95,6 +95,7 @@ static struct riscv_isa_ext_data isa_ext_arr[] = {
->>         __RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
->>         __RISCV_ISA_EXT_DATA(zicbom, RISCV_ISA_EXT_ZICBOM),
->>         __RISCV_ISA_EXT_DATA(zihintpause, RISCV_ISA_EXT_ZIHINTPAUSE),
->> +       __RISCV_ISA_EXT_DATA(ztso, RISCV_ISA_EXT_ZTSO),
->>         __RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
->>         __RISCV_ISA_EXT_DATA("", RISCV_ISA_EXT_MAX),
->>  };
->> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->> index 3b5583db9d80..b8ab2b0a9e78 100644
->> --- a/arch/riscv/kernel/cpufeature.c
->> +++ b/arch/riscv/kernel/cpufeature.c
->> @@ -25,6 +25,8 @@
->>
->>  unsigned long elf_hwcap __read_mostly;
->>
->> +bool riscv_tso_hw __read_mostly;
->
-> This is not set anywhere. Maybe riscv_fill_hwcap() should set it ?
+The following changes since commit 20e0fbab16003ae23a9e86a64bcb93e3121587ca:
 
-Even worse: I got half way through writing the code, realized I should 
-have just used a static branch, got distracted, wrote the QEMU code, and 
-then forgot about it.  I'll fix it for the v2.
+  perf: RISC-V: fix access beyond allocated array (2022-09-08 13:50:25 -0700)
 
->
->> +
->>  /* Host ISA bitmap */
->>  static DECLARE_BITMAP(riscv_isa, RISCV_ISA_EXT_MAX) __read_mostly;
->>
->> @@ -204,6 +206,7 @@ void __init riscv_fill_hwcap(void)
->>                                 SET_ISA_EXT_MAP("zicbom", RISCV_ISA_EXT_ZICBOM);
->>                                 SET_ISA_EXT_MAP("zihintpause", RISCV_ISA_EXT_ZIHINTPAUSE);
->>                                 SET_ISA_EXT_MAP("sstc", RISCV_ISA_EXT_SSTC);
->> +                               SET_ISA_EXT_MAP("ztso", RISCV_ISA_EXT_ZTSO);
->>                         }
->>  #undef SET_ISA_EXT_MAP
->>                 }
->> --
->> 2.34.1
->>
->>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
->
-> Regards,
-> Anup
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.0-rc6
+
+for you to fetch changes up to 5b5f6556027ccb04c731988923c051fd2b2bad18:
+
+  RISC-V: Avoid coupling the T-Head CMOs and Zicbom (2022-09-16 02:59:06 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 6.0-rc6
+
+* A handful of build fixes for the T-Head errata, including some
+  functional issues the compilers found.
+* A fix to avoid bad page permission initialization, which manifests on
+  systems that may load modules early.
+* A fix for a nasty sigreturn bug.
+
+----------------------------------------------------------------
+I have one merge conflict as a result of a treewide fix, I'm getting some odd
+output from just showing the merge (it's showing some of the fix too), but I
+think the merge itself is OK.  My fix is to keep the write lock
+
+-       mmap_read_lock(mm);
+++      mmap_write_lock(mm);
+ +      ret = walk_page_range_novma(mm, start, end, &pageattr_ops, NULL,
+ +                                  &masks);
+-       mmap_read_unlock(mm);
+++      mmap_write_unlock(mm);
+
+----------------------------------------------------------------
+Al Viro (1):
+      riscv: fix a nasty sigreturn bug...
+
+Heiko Stuebner (1):
+      riscv: make t-head erratas depend on MMU
+
+Palmer Dabbelt (2):
+      RISC-V: Clean up the Zicbom block size probing
+      RISC-V: Avoid coupling the T-Head CMOs and Zicbom
+
+Randy Dunlap (1):
+      riscv: fix RISCV_ISA_SVPBMT kconfig dependency warning
+
+Vladimir Isaev (1):
+      riscv: Fix permissions for all mm's during mm init
+
+ arch/riscv/Kconfig                  |  1 +
+ arch/riscv/Kconfig.erratas          |  4 +--
+ arch/riscv/errata/thead/errata.c    |  1 +
+ arch/riscv/include/asm/cacheflush.h |  5 +++
+ arch/riscv/include/asm/set_memory.h | 20 +++---------
+ arch/riscv/kernel/setup.c           | 13 +-------
+ arch/riscv/kernel/signal.c          |  2 ++
+ arch/riscv/mm/dma-noncoherent.c     | 23 ++++++++------
+ arch/riscv/mm/init.c                | 29 ++++++++++++++---
+ arch/riscv/mm/pageattr.c            | 62 ++++++++++++++++++++++++++++++++-----
+ 10 files changed, 107 insertions(+), 53 deletions(-)
 
 _______________________________________________
 linux-riscv mailing list
