@@ -4,78 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEDC4C54EE9
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 04:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C9DFC54EE9
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 04:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fdOHtytxSZoyUmhDrFm5msvQpb5lImOP+h/M4Is/vSk=; b=4+DlZ+hASY+JUl
-	mwMEa9PgojPEjZq1rFPb3zB6ZwblDqTtLICOYhKHVQ7xEsh8Xby9kN3UA+w6BGqvw381WEscsFPFj
-	pO+AfLC4pVW27rEbkmwICgibzM4WDngLY5vWzpmh5eWNk79DJATLVmRHTlWsIOeAsG/U3KgTlTFo4
-	HRnXKkQDLLYWPV9yl5iV79+fmkAzQRJaCGcN90TBwFV7n2ukQZuaKr5nXAwO+g0wz54BZ0+xaHBP8
-	6rWRyslw7HUtL6/2AMnT0K1lvkYKvN4GXxzwlRxAElOutM3JpKctT9EC8nGcg6YagFjfCN6aeuwi6
-	IwIh1zlGaQn/JzhocTqQ==;
+	List-Owner; bh=5ZxqHulmdfInYR/yio/vvo1vUnm7Vbk0/gQCuXA4e5g=; b=4fqOUhVfUvfS0p
+	un3qTHz0ED4bp+K+O5EQpCv33lmDwd/RZPjhH+j0nEX5ptAOftEbKyMPoglC2wUAQoJ0mq43eDGO0
+	UHZSxl9jPWGtaPx3km+2JsWu4hluBVB1VnmE8oSsHzxq3UVVOV8p8k5N0WGLQHGieBmUQvBoeTopN
+	se8swrDvSpsJwL/s8cT33o9BjA8+9CwKWI3AwuBbD0WC/7JmeWjsIuzlNMJeNjh8+YsChr/+mDbuA
+	QLhkDBUXdRsFrWFaH/Ybg6g2p5YRzaksvS/6EjLPkqJiLGEH3oKqFHXa2/kB5l5Jp+O43XdyvhJeX
+	0n0aCHmZDR5Nr+amjEzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZ2tB-006nPu-9q; Fri, 16 Sep 2022 04:23:41 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1oZ3Rb-007rcq-IK; Fri, 16 Sep 2022 04:59:15 +0000
+Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZ2t8-006nLR-38
-	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 04:23:39 +0000
-Received: by mail-pf1-x429.google.com with SMTP id 9so8970233pfz.12
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 21:23:35 -0700 (PDT)
+	id 1oZ3RY-007rYU-Na
+	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 04:59:14 +0000
+Received: by mail-io1-xd36.google.com with SMTP id v128so16589541ioe.12
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 21:59:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
-        bh=gvdjpHS/YRkH0vho3frtzgK80BilJG2+eEXjf2bW/zQ=;
-        b=JcV1gWeBnsQpr8IFqM1+cNtK3uJZja8fNUZDQ9YI32sLk50HAJeJHl8CtuLS0PXkF1
-         bt8oDuJ+JN1bl77ccVAq5lwZQNC7l++U2iAztTCBPnoSxu1cTU+6Dr9hs2glfYM4yf09
-         8kmNhFJRFeOsax8NwX9CBfSKXbeMXz2OHU3cGE3e9PbAsbQTZ0v8JoOO+0yHnQXU5OtV
-         GDf+DQDJjUGr4ucmj+WbBhKV8+M03WKpLvZR68yhxLFN6GhWtkPbT5jhahFYTtdPE2SX
-         BYRR6rco9AMkf69xO+CGlY/878xxKJA3DNg3hv8A+uZwjXcyp64zU/wnKB7rLAqunwgu
-         cBBg==
+        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date;
+        bh=9wX0Os/v3fWWsqmWeRj6d/WnVKZOSdCwMBBhNWRxR70=;
+        b=Zsq7Sluoau0Y8EpRoGjXEFmrki9+nCAvyXbkwbUsj1GZWAINsUoO2X3jW5YQxpWD+H
+         arWfeMPFscfb/P6b+WvdXfdmnZy9NTj0/PCTy7yijgkOUCOC/+kQB+YhfAzlfoDvbiNs
+         6bup61heaUz3XJgBcTW5V4ubRkY7MYkAPt1qp3EEjYNunDAXEFqZPkx3Fud/zLDhaAny
+         hNIvmbVe8zwa7pRlMrNdQVZwsl9hzznP6piNGuhgraDCph7oKU9fmxRn//8NIsNfcLhZ
+         at2naX0NQAeOHDTF5BCF9KgZ4GUVjSu4+sS7SdERQDePG3HScSsuBZTmxK7LD8v7t9Zb
+         zInQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date;
-        bh=gvdjpHS/YRkH0vho3frtzgK80BilJG2+eEXjf2bW/zQ=;
-        b=w9LdUoNuOHFhvCnrbiviXXApGHaf6sm8VW8CMN7D2ReHSTaS+9DpHUMrZmIYoMXnoJ
-         gch0RH4Z32H9zdvIGl1wbw9vchmLpJZAULNXBVa+hQVi3TwI3XYp2hEEnBjjlMT/2wzi
-         I0NXBJvLlXfceJUUhvb90VhOdMTNJ9Ub/oKzfSpfOM7Rr1shWn1eayRH5V9NsY+qgcwE
-         gcQuzy+iLDcJYJ0R5baL9hf1OqAL4GCEhnUdrvbzsSXwHCgX12fvS7Co0jZiTC7rTPE2
-         1Al15rjkUD2T/x8YH85Lgjy4OXyv+NAUD0R7S++4YEE92qZdzv4O9ZzKvO+ZTNtUPogS
-         GeXQ==
-X-Gm-Message-State: ACrzQf0K/gG3+1e3wjQyrjcEVvV5kjTR6rq7GMxShls2gruPjyRkWYlk
-	scD1+qKsnJDhxNhi114dVNCSiseb29dPHw==
-X-Google-Smtp-Source: AMsMyM4cNNU9y7eTJK5lmnGYbYr9GG/UfHslV3Qdx3TRxlr05zTuKGANPDIp17c/0MkdgUZJJIB8Jw==
-X-Received: by 2002:a65:56ca:0:b0:439:169f:f027 with SMTP id w10-20020a6556ca000000b00439169ff027mr2792866pgs.580.1663302214959;
-        Thu, 15 Sep 2022 21:23:34 -0700 (PDT)
-Received: from vineet-framework.ba.rivosinc.com (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
-        by smtp.gmail.com with ESMTPSA id x4-20020a623104000000b0053e6eae9668sm13257286pfx.2.2022.09.15.21.23.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Sep 2022 21:23:34 -0700 (PDT)
-From: Vineet Gupta <vineetg@rivosinc.com>
-To: linux-riscv@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Christoph Muellner <cmuellner@ventanamicro.com>,
-	linux@rivosinc.com,
-	Vineet Gupta <vineetg@rivosinc.com>
-Subject: [PATCH v2] riscv: ztso: disallow elf binaries needing TSO
-Date: Thu, 15 Sep 2022 21:23:31 -0700
-Message-Id: <20220916042331.1398823-1-vineetg@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220916030552.1396820-1-vineetg@rivosinc.com>
-References: <20220916030552.1396820-1-vineetg@rivosinc.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=9wX0Os/v3fWWsqmWeRj6d/WnVKZOSdCwMBBhNWRxR70=;
+        b=xOBYcwi3+yAB3utEcIWNQy+2HuqHZIrG62bkpuxQVA9P0xKHC6H+hpZMX8KMyX7pge
+         Y+dJos3hwmi+vWuRzMd0/2I1CD8MbYbhDBTorcyx7riyLAGs4fQPFUrfvV4+iyqB3GFS
+         n/1xcbpe2lvxV/uUBKps0ZnMlsUtvLxtjXop3meFzWjWqVeX6YqkvSC3TkGRjgJv+0Bw
+         pZ33s35dompfUVdvgh4les66ZoJstXqkmKnFwBf1JsgIu+epssg3Qc4JalRLNwaYMk0a
+         8COgZ4KP7UbhS7iKZie6k8xywxR37cQKn4A+1I+5yRZmX83KUFdvPUXzECX3JlvWlDNj
+         f7YA==
+X-Gm-Message-State: ACrzQf1Nh9PdK+UAfFT9XTNlA96H1eJpYtNBqJylC5UAhhqsICSKEBtt
+	RLsjhdkTYjljKfpBnCM9GWidxKN4f/AOzdiTz9KnDg==
+X-Google-Smtp-Source: AMsMyM5izN6DIFJa0XyJ9EbNwioGVgvdO48cBsD4pTMfjEZje20lI/t2JQnMc5Gs7iZWgkq88k9bwa0WD7YaiVcyAMY=
+X-Received: by 2002:a05:6638:270d:b0:35a:6246:ba76 with SMTP id
+ m13-20020a056638270d00b0035a6246ba76mr1633632jav.263.1663304348836; Thu, 15
+ Sep 2022 21:59:08 -0700 (PDT)
 MIME-Version: 1.0
+References: <20220902170131.32334-1-apatel@ventanamicro.com>
+In-Reply-To: <20220902170131.32334-1-apatel@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Fri, 16 Sep 2022 10:28:56 +0530
+Message-ID: <CAAhSdy1iDXMhE_MVdj9JDu8XHXiV_Ci=aLVqQG7r-m6d28aAdw@mail.gmail.com>
+Subject: Re: [PATCH 0/3] Svinval support for KVM RISC-V
+To: Anup Patel <apatel@ventanamicro.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Atish Patra <atishp@atishpatra.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220915_212338_375650_3E9235D1 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20220915_215912_793975_236E2924 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,63 +86,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As of now the software stack needs work to support ztso. Until that work
-is finished, disallow binaries needing TSO.
+On Fri, Sep 2, 2022 at 10:31 PM Anup Patel <apatel@ventanamicro.com> wrote:
+>
+> This series adds Svinval extension support for both Host hypervisor
+> and Guest.
+>
+> These patches can also be found in riscv_kvm_svinval_v1 branch at:
+> https://github.com/avpatel/linux.git
+>
+> The corresponding KVMTOOL patches are available in riscv_svinval_v1
+> branch at: https://github.com/avpatel/kvmtool.git
+>
+> Anup Patel (2):
+>   RISC-V: KVM: Use Svinval for local TLB maintenance when available
+>   RISC-V: KVM: Allow Guest use Svinval extension
+>
+> Mayuresh Chitale (1):
+>   RISC-V: Probe Svinval extension form ISA string
 
-This patch is needed to help ztso ratification and prolifiration of tso
-bits in tooling.
+I have queued this series for 6.1
 
-Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
----
-Changes since v1
-  - Build error (and boot tested on qemu)
-  - Improved the comments a bit
----
- arch/riscv/include/asm/elf.h      | 11 ++++++++++-
- arch/riscv/include/uapi/asm/elf.h |  2 ++
- 2 files changed, 12 insertions(+), 1 deletion(-)
+Thanks,
+Anup
 
-diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-index f53c40026c7a..b6b4542b3039 100644
---- a/arch/riscv/include/asm/elf.h
-+++ b/arch/riscv/include/asm/elf.h
-@@ -26,10 +26,19 @@
- 
- #define ELF_DATA	ELFDATA2LSB
- 
-+/*
-+ * Make sure the elf being loaded is compatible with extensions.
-+ *
-+ * In the final incarnation this will get the extension list from DT and
-+ * make sure elf can run on given hardware+kernel.
-+ * For now disallow TSO built binaries.
-+ */
-+#define rv_ext_ok(x)	(!((x)->e_flags & EF_RISCV_TSO))
-+
- /*
-  * This is used to ensure we don't load something for the wrong architecture.
-  */
--#define elf_check_arch(x) ((x)->e_machine == EM_RISCV)
-+#define elf_check_arch(x) ((x)->e_machine == EM_RISCV && rv_ext_ok(x))
- 
- #define CORE_DUMP_USE_REGSET
- #define ELF_EXEC_PAGESIZE	(PAGE_SIZE)
-diff --git a/arch/riscv/include/uapi/asm/elf.h b/arch/riscv/include/uapi/asm/elf.h
-index d696d6610231..fa9e4c52c7ac 100644
---- a/arch/riscv/include/uapi/asm/elf.h
-+++ b/arch/riscv/include/uapi/asm/elf.h
-@@ -32,6 +32,8 @@ typedef union __riscv_fp_state elf_fpregset_t;
- #define ELF_RISCV_R_TYPE(r_info)	ELF32_R_TYPE(r_info)
- #endif
- 
-+#define EF_RISCV_TSO		(1 << 3)
-+
- /*
-  * RISC-V relocation types
-  */
--- 
-2.34.1
-
+>
+>  arch/riscv/include/asm/hwcap.h    |  4 +++
+>  arch/riscv/include/asm/insn-def.h | 20 +++++++++++
+>  arch/riscv/include/uapi/asm/kvm.h |  1 +
+>  arch/riscv/kernel/cpu.c           |  1 +
+>  arch/riscv/kernel/cpufeature.c    |  1 +
+>  arch/riscv/kvm/tlb.c              | 60 ++++++++++++++++++++++++-------
+>  arch/riscv/kvm/vcpu.c             |  2 ++
+>  7 files changed, 77 insertions(+), 12 deletions(-)
+>
+> --
+> 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
