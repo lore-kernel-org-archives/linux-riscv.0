@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B77ECAAD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 20:10:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50EFAC54EE9
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 23:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=D4lx11bWH3OmwrKxoxU69IiqvshJKhRCjoqIrfCiiwI=; b=hER7krFJC3Guk6
-	srVij/C8Db3MZV3G/fSs5T++aqvwmLdefS4HZhXmhE/x9Ua5TpE0Ud7bezIaWLF1ntuSDXaI6Y2Ih
-	3TIkaZNYPCvMySmZVmEWkiAW5CvXuDWQGhbo6a8cXk6n+ACom7239v8aXakBx58Hk7ieV94/uV2tw
-	7nZYZhj67bc79WFyWGh5uU3W0m9FtKuCeU26pvuVClNK5wn2F7V2Y2w7Ph4ToibmFBRm/aqZgwEKc
-	psziJEs2dRGbvP7w4YXNE5oFJL3aE+xcpipCQJBBNVt9GaOXGSwZYJyX9rd3n2C9eKyb6PkdC+rIY
-	czn+mJkEuOLFD9Kfg6tw==;
+	List-Owner; bh=mvN8pTxbuO7IU5y7XC69jyFW5rDO7wTU49xmmy6njQw=; b=3bx+l7PKD6z3sm
+	qMCBdALvivkuApX5QqZj4wpQ0uY3eEuWWgBjLhy7/lQ+aHlf1Vt2t09BzQNQ662+3KhQhTUuqg2Sx
+	QBXP8v6iwLnnzkl0HXVeTnL4C2E3+CtdvU/I6oFdbOuyKofNUaX6aeUp1T2k4jtz8UOLRmgJFGyEu
+	+U8avJLZJGcu1KTLt/a4epVEG91TMsZJ0FR9sOvqgdkKYMrdlZvXGoV9IZSdv3xm/joBgy2wlwAXw
+	mCXIXZOBbh7TJWjgnil4zGzmky1Bm7EewI9ooKbmSp05yh48MZ0ijDk18HRnfl5GcHCRmejiw+Uuc
+	EwCus4RkEkQ1gTT7sB7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZHeo-00GZIg-IE; Fri, 16 Sep 2022 20:09:50 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1oZLAT-000d1i-7O; Fri, 16 Sep 2022 23:54:45 +0000
+Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZHel-00GZGP-9L
-	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 20:09:48 +0000
-Received: by mail-lj1-x234.google.com with SMTP id l12so27210548ljg.9
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Sep 2022 13:09:45 -0700 (PDT)
+	id 1oZLAP-000czO-Qd
+	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 23:54:43 +0000
+Received: by mail-oi1-x232.google.com with SMTP id w125so7972202oig.3
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Sep 2022 16:54:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google;
+        d=sifive.com; s=google;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date;
-        bh=TsMblmh+whw0Y6G/T+5phEJp9Ji8yHMxQQQ7u1lRyXY=;
-        b=Ncmgb346gJscq3aycEEXnWjiY0CHuVAHV0RlaoWLU+j1MTRJpDoAsoEjr92c1ImEQE
-         wUR2uXMmhrSr2EcRxP/0WQVj2BSKwChTvWjlVAhXdp87Y7fbMjzsZxXfpGgOfEtIIVq+
-         iI+UrAMASxvdzeBx3yA0yusS+tMecl61oCiMU=
+        bh=bNu9U/LBqMRQt3SzqzkiSAT9uWT1Ee0AqooPT62yzkg=;
+        b=axVlvMDUC9C+6dy1iWDj4Lh/OefIO6yZWpLiTXuYH6ACZxai7vYOz32xRawpwf5O7H
+         eDhgWJ0Q8DGIDBNNu4ueHAN9tPifSpO1UrntyJshQy60VkflG2kQUsdQwkmlzVivvWCT
+         o3fAUxuNgBPrtGHqQ91lFfxMegsmfKLv0Z9Dqsw+sDzk1cBVudKs+qoG03kIf2k4D9Kl
+         GswDD3jAIfcE/cf7PwgU7foxVQCVpQLnexj9Dg4gGzoIEpwrrgb+kN/gRBOJnUF0O0B5
+         Ee5SyuszgAXwMsl3hUzt7Ds7Bnbdxx4k/EO1968ROTUq2Dih0w2G3S3zNx4CHaDvvvVc
+         +efg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=TsMblmh+whw0Y6G/T+5phEJp9Ji8yHMxQQQ7u1lRyXY=;
-        b=k38QgsvQq22W4sMbbTW2RCzVbcg0NWGYocfeSO0gFE+D+kCAQzflWK83P3yK2Mbulp
-         p+bL349kTZtZ9+zF1zknk95VI+ArjrWkmEWPrOfy+SL5LDAwtoN55Wyw9B2FN/DlQb8p
-         vsr/vq04cpCklY+SSDaxOzljwfcU5jpTTtX5+zzpaYwhQSbl+A5LOvC+mN2n6M1jml35
-         bv0BRi4A7hAMV7/EGCgmigFArRCfaTqqkx+EZkMF+jmmBTGQ2awqEjW+6NJJ24dWhGGy
-         Tg8Nz4MAQET5l/Bhiz/PwVXCFBsFJMVDOUDUsbEZ9EddV3GnuSth3Moxcv3xYNS271tV
-         w29g==
-X-Gm-Message-State: ACrzQf3A8PxdknSe/zg1+T/C4OXJtEDuS6kNtw35ZZlVZwf650z2ICFW
-	+I2L/SrKwazBrS9jWr3Gizo7UxQW+3mEhRHI9ug=
-X-Google-Smtp-Source: AMsMyM6mrGUv1KlzLhI6+A/9dsoe52RYA27XIKb+Ax83wngsXjl/9YgyippK7o/vNkTqTEPosZHVtQ==
-X-Received: by 2002:a2e:818f:0:b0:26b:e97e:d830 with SMTP id e15-20020a2e818f000000b0026be97ed830mr1845401ljg.420.1663358980642;
-        Fri, 16 Sep 2022 13:09:40 -0700 (PDT)
-Received: from mail-lf1-f48.google.com (mail-lf1-f48.google.com. [209.85.167.48])
-        by smtp.gmail.com with ESMTPSA id n4-20020a05651203e400b00492d064e8f8sm3653655lfq.263.2022.09.16.13.09.39
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 16 Sep 2022 13:09:40 -0700 (PDT)
-Received: by mail-lf1-f48.google.com with SMTP id i26so37266805lfp.11
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Sep 2022 13:09:39 -0700 (PDT)
-X-Received: by 2002:a19:4f45:0:b0:49a:63c9:190d with SMTP id
- a5-20020a194f45000000b0049a63c9190dmr2001777lfk.61.1663358979664; Fri, 16 Sep
- 2022 13:09:39 -0700 (PDT)
+        bh=bNu9U/LBqMRQt3SzqzkiSAT9uWT1Ee0AqooPT62yzkg=;
+        b=iKQ5RmObF3yVpLjm2P4/gkpStPjxtt7ZOU10hGRA/lYiXMoBO7Q+qaxQpQLtxsK2UA
+         9dU04EY3TGOvInNQf0xAGcsUAZ0UiAr2wPev7OXQ87/XH8zTryJK8BchYmHrlvjtP4LJ
+         Mo1dFiYH9CvnYQ1zuKpwN5tf4DpIZECG1ZsQxy2ZyBxL4VsHaF5tYPqY9T+T0zHZI84Q
+         nVjnUkCt1pYuJcwaGTBGGrMiufPgD5afJSe0Rty9UddhmnoGMNajK0S3Abwv56z02YrL
+         2fVQEB0CIEeoG4rwxnyrhHUoEwysneDUJh3SBeJw1qD0NuP/Rd4fkozSc9V9crBjOyuY
+         RWRQ==
+X-Gm-Message-State: ACrzQf0sDmV2eWUEX2gxtKke63Kmg9kb0+u08jKfrTvUrDMkdwwwMnQC
+	+3EkIr77aRO/5l7vwmuGH+agUj5BZdSa5tJ1QlU5cQ==
+X-Google-Smtp-Source: AMsMyM57H6wgptD93sv07JwBhDq8Z+Y2iB/I1DDpheQxuN6sT9sUmxI+Oi3h2FftZA8DOgJrLG1m78WmHWpT8UEbppk=
+X-Received: by 2002:a05:6808:49:b0:350:77ce:3368 with SMTP id
+ v9-20020a056808004900b0035077ce3368mr831321oic.195.1663372480499; Fri, 16 Sep
+ 2022 16:54:40 -0700 (PDT)
 MIME-Version: 1.0
-References: <mhng-f5d21762-1321-4d35-927c-d47e0749abc0@palmer-ri-x1c9>
-In-Reply-To: <mhng-f5d21762-1321-4d35-927c-d47e0749abc0@palmer-ri-x1c9>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Fri, 16 Sep 2022 13:09:21 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wihdDOSVVi1gBYo+rcJ7dG6tvN7mEU=XLir8WiEdR1kQQ@mail.gmail.com>
-Message-ID: <CAHk-=wihdDOSVVi1gBYo+rcJ7dG6tvN7mEU=XLir8WiEdR1kQQ@mail.gmail.com>
-Subject: Re: [GIT PULL] RISC-V Fixes for 6.0-rc6
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+References: <20220913094252.3555240-1-andy.chiu@sifive.com>
+ <20220913094252.3555240-6-andy.chiu@sifive.com> <CAJF2gTRntKCD-Ou0cDtyCQhvSKq7iOqyo7+pxk7NO88UVi3nOg@mail.gmail.com>
+In-Reply-To: <CAJF2gTRntKCD-Ou0cDtyCQhvSKq7iOqyo7+pxk7NO88UVi3nOg@mail.gmail.com>
+From: Andy Chiu <andy.chiu@sifive.com>
+Date: Sat, 17 Sep 2022 00:54:29 +0100
+Message-ID: <CABgGipUwUv8e2yKmPYdHgNk1w8UuE=zmb_d_eZS1Qq2+41FtOg@mail.gmail.com>
+Subject: Re: [PATCH RFC v2 riscv/for-next 5/5] riscv: align arch_static_branch function
+To: Guo Ren <guoren@kernel.org>
+Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
+	rostedt@goodmis.org, mingo@redhat.com, peterz@infradead.org, 
+	jpoimboe@kernel.org, jbaron@akamai.com, ardb@kernel.org, 
+	greentime.hu@sifive.com, zong.li@sifive.com, kernel@esmil.dk, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220916_130947_349372_75F6AE14 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20220916_165441_990872_CEDE8125 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,37 +88,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 16, 2022 at 8:31 AM Palmer Dabbelt <palmer@rivosinc.com> wrote:
+Hi Guo,
+
+Sorry for sending it again, I forgot to send in plain-text on the last mail.
+
+On Wed, Sep 14, 2022 at 3:06 PM Guo Ren <guoren@kernel.org> wrote:
 >
-> I have one merge conflict as a result of a treewide fix, I'm getting some odd
-> output from just showing the merge (it's showing some of the fix too), but I
-> think the merge itself is OK.  My fix is to keep the write lock
+> Is this patch related to this series?
 >
-> -       mmap_read_lock(mm);
-> ++      mmap_write_lock(mm);
->  +      ret = walk_page_range_novma(mm, start, end, &pageattr_ops, NULL,
->  +                                  &masks);
-> -       mmap_read_unlock(mm);
-> ++      mmap_write_unlock(mm);
 
-Yes, thatr's the proper merge resolution.
+This is related to dynamic code patching but not the mechanism of
+"function tracer" itself. You are right, I should submit another patch
+for that.
 
-HOWEVER.
+> On Tue, Sep 13, 2022 at 5:44 PM Andy Chiu <andy.chiu@sifive.com> wrote:
+> >
+> > runtime code patching must be done at a naturally aligned address, or we
+> > may execute on a partial instruction.
+> If it's true, we can't use static branches at all. Have you
+> encountered a problem?
+>
+> If you are right, arm64 ... csky all need the patch.
+>
+In fact we have run into problems that traced back to static jump
+functions during the test. We switched tracer randomly for every 1~5
+seconds on a dual-core QEMU setup and found the kernel stucking at a
+static branch where it jumps to itself. The reason is that the static
+branch was 2-byte but not 4-byte aligned. Then, the kernel would patch
+the instruction, either J or NOP, with 2 half-word stores, if the
+machine does not have efficient unaligned accesses. Thus, there exists
+moments where a half of the NOP mixes with the other half of the J
+when transitioning the branch. In our particular case, on a
+little-endian machine, the upper half of the NOP was mixed with the
+lower part of the J when enabling the branch, resulting in a jump that
+jumped to itself. On the other way, it would result in a HINT
+instruction when disabling the branch, but it might not be observable.
 
-Looking at the *callers* of this new __set_memory_mm(), this is all
-completely bogus and broken.
+ARM64 does not have this problem since all instructions must be 4-byte aligned.
 
-In particular, fix_kernel_mem_early() does that call under rcu_read_lock().
-
-You can't do that. Not with the read-lock, and not with the
-write-lock. You simply cannot (and must not) block while in a
-read-side critical section, and trying to take any sleeping lock -
-whether for reading or for writing - is just completely wrong.
-
-So I'm not doing this pull. The merge resolution is trivial, but the
-code is simply wrong.
-
-                Linus
+Regards,
+Andy
 
 _______________________________________________
 linux-riscv mailing list
