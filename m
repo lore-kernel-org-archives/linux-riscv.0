@@ -4,83 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD5BECAAA1
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 15:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CD5BECAAD8
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 16:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:To:From:CC:Subject
-	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+ttShEAD3jAycjHxbo8oen1FjBzQ7wHRG9x0ClzGV+A=; b=uvw1WPCH7QhrCV
-	8KQKTSTdw3/JF5OAN6MGa9JKdDPgt52C4MNJXFCuO8sBkdd7+ZlObpJFfMLfJxZ41Fdvkzfwx+iUT
-	aK+jnXw5d2kbZa9q+CO4KgDKq/2Vn9EbD93N4EZyMeZWD80DtsqiNRbgorxE5kUB5YD7fXjoqoEKD
-	MIlJWIr2sZe4nGE9yRk+sIpxK4P8ZtWDg76APqpdCNyduo/Scvb1urbu9iiStRiX6wVQvb1yfq/od
-	9+qfhlKHBWvFWn3BfB/KurCmmjetSswsMwr9Nw1HzBUnJiMprIutgT2N7aX7P14e/1ncWq7Lt/Koq
-	KouEUYpWVtPxbArb5NbA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=TvKOw7nIhyrV16ABTwBQEui/2n5KJKHyvnpU55FFAKk=; b=tfV3pEibBiLseU
+	Ow3EQVUBAbjYFRR0g/aRZRHvPLZzUanVjAwiFChhr3WElEjvaqvIqJ0LgPypvfXR6+RhbCd8RN+Nn
+	2eF6k4faMQxVMRyqzixo22Ojw1XY2Fi7QzpN2DjaF3UkqjafPxQ6b5iWdnWT7k/+IYXDPbWUqmlVz
+	niumY6mBuVkwMuAjbrYoPHEbgdVwDcx7TNyAc8dWZ41hWf3nXdU1hfxROycb1aJ1r2zXL6MO+iY/Z
+	K+SFwa2n20aA63iMSWC5yIzQ6uUxo261jpa7SfkMS7ngoaVBlr3mHtnmObIAzkY1yieQ06d8QAj61
+	xbLTV0+hwlTOziDcAfZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZDJh-00EcAo-LD; Fri, 16 Sep 2022 15:31:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1oZECu-00F19y-PU; Fri, 16 Sep 2022 16:28:48 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZDJQ-00Ec4B-Vd
-	for linux-riscv@bombadil.infradead.org; Fri, 16 Sep 2022 15:31:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Message-ID:To:From:CC:Subject:Date:
-	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=J3xtITp+FBk+leJje4oS/ahkcyhlokVvO9Au9VXbS3o=; b=k6EszBRCcx26dGBnt6jG7Q6iRd
-	xvd2MkdAQ9TyEp27PJOjCtNytvQDq3uhKKBF/GPCHGb5nUpFsDvcyLkNoEju3cPQFKex/i/q+d0xV
-	ryc2TGsYr9owh6fYG/oLcF6HrlSFvcE5T6F6n4466/BvMSu2wqHJYYcVogLxO80Kisz60IFQL36yh
-	aWKfn9cNc/aSW6W2Fe8Sdy1nJBrNmVw0QhMBBQrLLO/E3LXoBGkzldzFQkLolJ6ujU1QfCU+3kFX6
-	3/DdbsfmmTx+1Rb3WSFfGAjTlCPfu1Uasr7wcgxbZGh6mPNb45SFgGHscpNN4A2rF0G+PbkZHY/FH
-	4bUKJoWw==;
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by desiato.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZDJL-00D7ZG-7W
-	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 15:31:27 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id p18so21763272plr.8
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Sep 2022 08:31:20 -0700 (PDT)
+	id 1oZECr-00F18M-7b
+	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 16:28:47 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id s14-20020a17090a6e4e00b0020057c70943so199125pjm.1
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Sep 2022 09:28:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date;
-        bh=J3xtITp+FBk+leJje4oS/ahkcyhlokVvO9Au9VXbS3o=;
-        b=APflXrQEeSAodR3aW/lHhrwTb0mv3QkoUrwkaCnf/Ud/yluQnz5uHcshFadb2HNBE/
-         djbfv95JFohSBTsE5jxKqvazVEkKwRv2XIdt6vCzrywIdfttazkSDbngEQa5xp6FhPpL
-         wyl3kCEqZ4tI+ztRYolMLRr9Idle/BtYCpfN0tB8U0VjXuqyl8GAt4PBTyZVOOfMT/6k
-         A5V+K4jHZMWwAtpoBPriW9iuKaHcDcTszC9IlQhaSv8YbXOLtif8xW5FQ8161MCR22aZ
-         i5Zz7WiI6zyVH6AJzrwRHgCF47s/6hKMa79Jx03cU98aAyZ47bqk8Qd6zWigc/OoAyjV
-         Zvig==
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date;
+        bh=Yuo6+cdkzpbtvDqxmCi4dS+f4ldcDL0jhsTFqbGT6Zg=;
+        b=AZnn0bm7v9VrAGIqi0cZog9gB1fZPBmiBz5bgTsc4qpivvqHwktAJJZLu8kunxu+Tt
+         TtlXzw9bNgd92FQEoutvuMOqvC2fi84q5x0DmzM32sKMm/6Qb14t8z6gQ+071EyA6aBX
+         p4eeYERfTUjhUJ/MIBSqwiQpCoUdHqYWMxzfNMtXW/k2rIxES+TtiFR2W5i2q4P9EM4h
+         lmcP18faVMsoB8f3dTXfzd6+BlcvJrPikwz/3zo4VQsEq/9lsT9uUTtsqKUl0ZA++Hop
+         ixrVwkJ3WBEvPyf4OARJS+7XxUXsl1nuD+M+LMRRkVeszrV4nQu2fRCjmzEN6L9AWKeb
+         7PrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
-         :subject:date;
-        bh=J3xtITp+FBk+leJje4oS/ahkcyhlokVvO9Au9VXbS3o=;
-        b=uqeYbHxWgDCoCzScN/k/pmk4iKIqeq0kF+4QrLrAlPkiUx07ptb6hW0ZnEV7smnleH
-         ccmPpc9+AtZAYU+lIueB/FlWS101ALMdoOCvJDY6fEToqTJ8n7lSUduIBmhQzUvqsGMb
-         jMIfpgg48Tf8t0uXs4PBfGbED+IPXjJDWn5rls7Qdr40U5brJuhnKMp4B5Rk0hAaGj3n
-         FLQKehEhi2Yjhk3+kI39QtpRTpq408pATpul3zSZmC7pvyGTlXzwm2oPu1k0NQrlr4oM
-         EDoI2fp2RCeelPXy0wTlCKLNnSsSTuNIDdZehdtZVB5zkPNtUhn07itvrI8765TfJmwM
-         bNdQ==
-X-Gm-Message-State: ACrzQf0lNdYa7hi1BS/E41bFUL4OpZprqNqb6GeDXiV4SGRLgFunIWG3
-	bONPOQ+OaYrdFUQQ43dzmgeIDQ==
-X-Google-Smtp-Source: AMsMyM4Ns3o4TFKs5G1Mi+Ut5fApuqBRUPOUPJZktW5nwF6kbMgiaWfy2K/4RD98XhshOQ5nyfY+hQ==
-X-Received: by 2002:a17:902:b194:b0:176:d229:83bd with SMTP id s20-20020a170902b19400b00176d22983bdmr380983plr.174.1663342279425;
-        Fri, 16 Sep 2022 08:31:19 -0700 (PDT)
-Received: from localhost (vpn-konference.ms.mff.cuni.cz. [195.113.20.101])
-        by smtp.gmail.com with ESMTPSA id n18-20020a170903111200b00174d4fabe76sm14979760plh.214.2022.09.16.08.31.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Sep 2022 08:31:19 -0700 (PDT)
-Date: Fri, 16 Sep 2022 08:31:19 -0700 (PDT)
-X-Google-Original-Date: Fri, 16 Sep 2022 08:31:08 PDT (-0700)
-Subject: [GIT PULL] RISC-V Fixes for 6.0-rc6
-CC: linux-kernel@vger.kernel.org,         linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Message-ID: <mhng-f5d21762-1321-4d35-927c-d47e0749abc0@palmer-ri-x1c9>
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date;
+        bh=Yuo6+cdkzpbtvDqxmCi4dS+f4ldcDL0jhsTFqbGT6Zg=;
+        b=R3Qar1OpslFrYDM8eM+KSxl9hH7gMvPaa0V+CB6tfim8F3YRIGeF7qxz1Y8P8AhBua
+         Ncc2HODRAV/DdJwuZWYV6m5WSvx7gIks32P+mSh9Oof8vZW8m6mIOL5la5HzaLYa9hx4
+         MNP+ptHRKLQFaga5ghkUmJmjutSLfxJ5JQu82aRJJvqgG3vop7qzLyR3DsBE5fhA2wUX
+         MK2XZR6GrOKtEbeXQKlPk57VsICCXItbtupo5GAjCe+5FEgNfVKzO+A0lAtBtwviM8LI
+         r88evKre8gR63NS68v0VVRJ3gUWXlNxoKp/dWifRdJybR0Tk9NgzaazPOY+6gaKiC4CK
+         /unQ==
+X-Gm-Message-State: ACrzQf0rCC4sPBs13+MtXSPsKBAwan5dA5qk9Iy3RlxljLnp5gT/F1df
+	oFIAhOaG0nDrSnivhE9+2je0dL9/Y99Ml12F
+X-Google-Smtp-Source: AMsMyM72ED8ZzC6JbgRFl+31ZVja5BhZrsH/70T4xMBkWdMiLzJ5TL9IGhGG5lH6skvbJG2SNM4Xhw==
+X-Received: by 2002:a17:902:ea11:b0:176:b283:9596 with SMTP id s17-20020a170902ea1100b00176b2839596mr604676plg.69.1663345723538;
+        Fri, 16 Sep 2022 09:28:43 -0700 (PDT)
+Received: from [192.168.50.116] (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
+        by smtp.gmail.com with ESMTPSA id h16-20020a17090adb9000b001f5513f6fb9sm1740742pjv.14.2022.09.16.09.28.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 16 Sep 2022 09:28:43 -0700 (PDT)
+Message-ID: <adf840d4-b5f1-4b1f-faac-d735465028e9@rivosinc.com>
+Date: Fri, 16 Sep 2022 09:28:42 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
+ Thunderbird/91.11.0
+Subject: Re: [PATCH v2] riscv: ztso: disallow elf binaries needing TSO
+Content-Language: en-US
+To: Conor.Dooley@microchip.com, linux-riscv@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org, palmer@rivosinc.com,
+ cmuellner@ventanamicro.com, linux@rivosinc.com
+References: <20220916030552.1396820-1-vineetg@rivosinc.com>
+ <20220916042331.1398823-1-vineetg@rivosinc.com>
+ <67a3aba3-68bb-5e8b-4e4e-869c8e99e879@microchip.com>
+ <9b9ff287-75e5-3ee5-e6c5-1daca6c562dc@microchip.com>
+From: Vineet Gupta <vineetg@rivosinc.com>
+In-Reply-To: <9b9ff287-75e5-3ee5-e6c5-1daca6c562dc@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220916_163124_816169_244E9359 
-X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-CacheID: sfid-20220916_092845_316126_715A097D 
+X-CRM114-Status: UNSURE (   9.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -93,73 +91,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 20e0fbab16003ae23a9e86a64bcb93e3121587ca:
 
-  perf: RISC-V: fix access beyond allocated array (2022-09-08 13:50:25 -0700)
 
-are available in the Git repository at:
+On 9/15/22 23:58, Conor.Dooley@microchip.com wrote:
+> Also, since this is not marked as a fix, why would we not just apply the
+> patchset from Palmer that looks like a more complete version of this
+> patch:
+> https://lore.kernel.org/linux-riscv/20220902034352.8825-1-palmer@rivosinc.com/
+>
+> Maybe you could offer an R-b or some comments on that patch instead?
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.0-rc6
+Sure I didn't know about that patch and my idea was just to get the ball 
+rolling so tooling at least can start having tso bits as last time 
+around that was the blocker to getting stuff in binutils and gcc etc.
 
-for you to fetch changes up to 5b5f6556027ccb04c731988923c051fd2b2bad18:
-
-  RISC-V: Avoid coupling the T-Head CMOs and Zicbom (2022-09-16 02:59:06 -0700)
-
-----------------------------------------------------------------
-RISC-V Fixes for 6.0-rc6
-
-* A handful of build fixes for the T-Head errata, including some
-  functional issues the compilers found.
-* A fix to avoid bad page permission initialization, which manifests on
-  systems that may load modules early.
-* A fix for a nasty sigreturn bug.
-
-----------------------------------------------------------------
-I have one merge conflict as a result of a treewide fix, I'm getting some odd
-output from just showing the merge (it's showing some of the fix too), but I
-think the merge itself is OK.  My fix is to keep the write lock
-
--       mmap_read_lock(mm);
-++      mmap_write_lock(mm);
- +      ret = walk_page_range_novma(mm, start, end, &pageattr_ops, NULL,
- +                                  &masks);
--       mmap_read_unlock(mm);
-++      mmap_write_unlock(mm);
-
-----------------------------------------------------------------
-Al Viro (1):
-      riscv: fix a nasty sigreturn bug...
-
-Heiko Stuebner (1):
-      riscv: make t-head erratas depend on MMU
-
-Palmer Dabbelt (2):
-      RISC-V: Clean up the Zicbom block size probing
-      RISC-V: Avoid coupling the T-Head CMOs and Zicbom
-
-Randy Dunlap (1):
-      riscv: fix RISCV_ISA_SVPBMT kconfig dependency warning
-
-Vladimir Isaev (1):
-      riscv: Fix permissions for all mm's during mm init
-
- arch/riscv/Kconfig                  |  1 +
- arch/riscv/Kconfig.erratas          |  4 +--
- arch/riscv/errata/thead/errata.c    |  1 +
- arch/riscv/include/asm/cacheflush.h |  5 +++
- arch/riscv/include/asm/set_memory.h | 20 +++---------
- arch/riscv/kernel/setup.c           | 13 +-------
- arch/riscv/kernel/signal.c          |  2 ++
- arch/riscv/mm/dma-noncoherent.c     | 23 ++++++++------
- arch/riscv/mm/init.c                | 29 ++++++++++++++---
- arch/riscv/mm/pageattr.c            | 62 ++++++++++++++++++++++++++++++++-----
- 10 files changed, 107 insertions(+), 53 deletions(-)
+-Vineet
 
 _______________________________________________
 linux-riscv mailing list
