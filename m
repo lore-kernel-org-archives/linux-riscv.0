@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A166C54EE9
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 11:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E70F5C6FA8B
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 11:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ux6o4dTt4McF6An8cUyun3P4Yp0A/3RYjNdd5ckLYa4=; b=Pk5SvAgnBpcqfz
-	Cin17AuKE076dIlO585jHVYkWb7qc4qOJwiflfpn8YwVchmcMa7EJs1S08ifiFk5BtxTVIWBfkRbW
-	8rqeKlXF2+pkzVtpD8omLGxIz0BJ64LUURWKW9Ie+8Qw8x5OopTwxM4+c3fMn9V1b8Obt7flUmRgL
-	dr0NDr+rPkhYWZdZ94vgEPPy6r834/kOGnc6xwQ20Wac27iKXZRCqxWyt3u/9Oy5eh7R5QVMgJJ/P
-	7N0rxKlRjFJdBfnTxkRqphqKx0V37tOWSWlpZ6Tvm20TqEDxfhIjoKdTBYYAg9k6ngvuSBHPQ8Vnh
-	lHEXWIR7kWGCbklHvzbA==;
+	List-Owner; bh=3etXuJUlKWMxLHfn4Es6AwD/fhIQe5oSoUdrIOz9JZQ=; b=ell3OfPS7Ajd2f
+	MZvOZW0sRihFUvZLyPSX1ip3nfuRkQ0jXj9DUU3vsxRDANpIL6uyK3k9kF+AQ6bSgnDT+XN/G8mM2
+	SBI3LUX2DDMWo1AqhsxZyFDpVNUr9XEV7HuWLCyKxwqqT/svNZXI1jQc9dyImN7T+OBhsIB6baBPr
+	nCQKQNozbfazxvs7XsTgbfLYCcR/auKvRV/INySCAjJKv5CW2wH+RyZ5UdyliaRofOSZxcjnnWQlZ
+	OALb+TNaVxNj5nx3RQqH4HdAtEkzy4S5vteFFLXmihkKS6Pq4mw3SvdiiWX3SNMvdlZ/LKaz08HbH
+	tpTgjkL6xGC8BSkVZZYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZ9VE-00CfeP-J4; Fri, 16 Sep 2022 11:27:24 +0000
+	id 1oZ9VJ-00Cfhg-WB; Fri, 16 Sep 2022 11:27:30 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZ9V8-00CfYh-Ks
-	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 11:27:22 +0000
+	id 1oZ9VD-00CfdU-Bm
+	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 11:27:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1663327639; x=1694863639;
+  t=1663327643; x=1694863643;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=jmjzFPLTzirPRRdjytSXcGvB/NkyTEAOoOOffWQqE6s=;
-  b=PgLdNTWIfxF2QUP4NXpTDihz7jmRYwF0/dPh5AGx5eOZzq2yo8ewd5e+
-   4+A0WtUC2NzXzNwCYLzKhrlVdkYX/vVzB1iIYEWVwhTGluY4JTlc9B4j3
-   hGhbAuS0apcvloSf6QW3UAqWRsKotcqydRNrNkwiJDqt5KnWovbzx1k0q
-   f6242qS9b5kFAfHbQzcGeBQUu9HmmLeCsFyw0bVC4QGf4IhkwAiNJPrrP
-   mt1577sMLr2NW7pO4fXu8BuJ34ilWyPWmt6RXvNNyzX6ifs1mPbNgO8AJ
-   5p4U99pjukGGvXvO8gn4by/9OqKUJL9IaNneH0JCmrbPwNU+RzJrdfSqt
+  bh=VqcEjdujxakv3noDHpoHtBuaB79FIa784j+2h1ikqjc=;
+  b=RKOA0hvf3E/8FWa/aNzpyCMN7HilEHrPwc7CfaltYEEjmzX87IuuQCG8
+   kGl8aAjc+tAsMjkfekhMV+P2SKBE92pH7inwB7OXsZeuzVi9qhvHKw9Zs
+   pSbjafGRx6/lEsP7GKKeA4DRWzGpA6SobWdoTGh38B5ySeQNXj9xzorUP
+   HjRWvsH2hqeEevw7oJZgOCQ3KyXirSHzy5E690R8BlOYpdGhsgWtApOnx
+   7EOAkIJumYXDHYGRnqStZW6BD4xNlak+5+tj0ISo2Cp6Y/yWIEZPVgC/R
+   DUzX1B/m1NWjRK2DRGgA9tJk0MEiTXF4VPm+9RDunPI5OgM3QYmWILwuf
    g==;
 X-IronPort-AV: E=Sophos;i="5.93,320,1654585200"; 
-   d="scan'208";a="174187630"
+   d="scan'208";a="114001499"
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 16 Sep 2022 04:27:17 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/AES256-SHA256; 16 Sep 2022 04:27:22 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Fri, 16 Sep 2022 04:27:16 -0700
+ 15.1.2507.12; Fri, 16 Sep 2022 04:27:22 -0700
 Received: from wendy.microchip.com (10.10.115.15) by chn-vm-ex02.mchp-main.com
  (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.12 via Frontend
- Transport; Fri, 16 Sep 2022 04:27:13 -0700
+ Transport; Fri, 16 Sep 2022 04:27:19 -0700
 From: Conor Dooley <conor.dooley@microchip.com>
 To: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski+dt@linaro.org>, Conor Dooley
@@ -62,16 +62,16 @@ CC: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
 	<devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Krzysztof Kozlowski
 	<krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v5 01/10] dt-bindings: riscv: microchip: document icicle reference design
-Date: Fri, 16 Sep 2022 12:26:37 +0100
-Message-ID: <20220916112645.567794-2-conor.dooley@microchip.com>
+Subject: [PATCH v5 03/10] dt-bindings: riscv: microchip: document the sev kit
+Date: Fri, 16 Sep 2022 12:26:39 +0100
+Message-ID: <20220916112645.567794-4-conor.dooley@microchip.com>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <20220916112645.567794-1-conor.dooley@microchip.com>
 References: <20220916112645.567794-1-conor.dooley@microchip.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220916_042718_795768_0A79511A 
-X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-CacheID: sfid-20220916_042723_496812_101C55C9 
+X-CRM114-Status: UNSURE (   6.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,54 +89,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The icicle kit reference design's v2022.09 release,made some changes
-to the memory map - including adding the ability to read the fabric
-clock controllers via the system controller bus & making the PCI
-controller work with upstream Linux.
+From: Shravan Chippa <shravan.chippa@microchip.com>
 
-While the PCI was not working in the v2022.03 design, so nothing is
-broken there in terms of backwards compatibility, the fabric clocks
-used in the v2022.03 design were chosen by the individual run of the
-synthesis tool. In the v2022.09 reference design, the clocks are fixed
-to use the "north west" fabric Clock Conditioning Circuitry.
+Update devicetree bindings document with PolarFire SoC Video Kit, known
+by its "sev-kit" product code.
 
-Make use of a new compatible to denote that this is not backwards
-compatible.
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Link: https://onlinedocs.microchip.com/pr/GUID-404D3738-DC76-46BA-8683-6A77E837C2DD-en-US-1/index.html?GUID-065AEBEE-7B2C-4895-8579-B1D73D797F06
+Signed-off-by: Shravan Chippa <shravan.chippa@microchip.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/riscv/microchip.yaml   | 18 ++++++++++++------
- 1 file changed, 12 insertions(+), 6 deletions(-)
+ Documentation/devicetree/bindings/riscv/microchip.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/Documentation/devicetree/bindings/riscv/microchip.yaml b/Documentation/devicetree/bindings/riscv/microchip.yaml
-index 1aa7336a9672..485981fbfb4b 100644
+index 630f82c85a0c..ab0a64cd5386 100644
 --- a/Documentation/devicetree/bindings/riscv/microchip.yaml
 +++ b/Documentation/devicetree/bindings/riscv/microchip.yaml
-@@ -17,12 +17,18 @@ properties:
-   $nodename:
-     const: '/'
-   compatible:
--    items:
--      - enum:
--          - microchip,mpfs-icicle-kit
--          - microchip,mpfs-icicle-reference-rtlv2203
--          - sundance,polarberry
--      - const: microchip,mpfs
-+    oneOf:
-+      - items:
-+          - enum:
-+              - microchip,mpfs-icicle-reference-rtlv2203
-+              - microchip,mpfs-icicle-reference-rtlv2209
-+          - const: microchip,mpfs-icicle-kit
-+          - const: microchip,mpfs
-+
-+      - items:
-+          - enum:
-+              - sundance,polarberry
-+          - const: microchip,mpfs
- 
- additionalProperties: true
+@@ -28,6 +28,7 @@ properties:
+       - items:
+           - enum:
+               - aries,m100pfsevp
++              - microchip,mpfs-sev-kit
+               - sundance,polarberry
+           - const: microchip,mpfs
  
 -- 
 2.36.1
