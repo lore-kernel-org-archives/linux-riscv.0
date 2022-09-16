@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90276C54EE9
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 05:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 456A0C54EE9
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 05:47:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4BvivBEqmj0XxRg7hvEQJJJLFWttWW/yb4aXStiyH5k=; b=1yqwYmD+3qHeVp
-	3hcqkS+Yxt6ZDmBeTgwP6XmbKxvrobmsI4KVPa9a2RIVbMR2iEA12dBkc2lwgRcn29gA/CFwNAguA
-	NwyYNDW63VvPbo1yccs2jQMCCy+0ltTPxtpIsFX5wbsL2HyqqPKB77U5W6RxfQBDgjFdkkxdEbo9S
-	Ak0UY791PTzzQQRkg5Nj2m0BwxV1ww2Rco2fn9bLMYUCA1Z7X83OrqMJ9p9bk8akWiwiN2pF4vym1
-	LQ+6Y/I4Hb2iWv+90inUD5ogA3YF6TDLT3nbhVLLn05xyHsA8V6t2viFpRZkrRvdRM8t1r3q9UizA
-	g7NRsjLDi1Pn60Kapung==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=vBo+IwJg+fylrmnw6dDpD5B/0OYALSz04n2DQyGbIAM=; b=Ipn4H3QjghBa1w
+	R/qYVpT875tXp11FI6ytawE1y7DJGcLwjR4/S2PTnH+4VomuAn4iwT+bWHZqUl25suNQGe5lmAJ3J
+	26XLzVAxNtekZw/k3iLjqHAngBiarRv3vEecJS9ispQIsuSpmSnQV73UMNPV0iZVWY4CHL66EzHuG
+	FVYF2v3MqIqVjU/6o/8xZdgRq5h9y0W9g2LH+i3rWFqrgkOVfr5vklIs3f4c6lFcnCPMV2qa8iHF1
+	aDsGxvh7woBxp7REgkPXqXLbmDdLgbtXs8xboTVH22qMXrpccqsGVCyHToFNzs6kQsjBBBfP+Hzxa
+	qFAKEvil2uRIwyGEnTjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZ3aQ-0083Eo-2k; Fri, 16 Sep 2022 05:08:22 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1oZ4Br-008XE7-RM; Fri, 16 Sep 2022 05:47:03 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZ3aE-00833I-7a
-	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 05:08:11 +0000
-Received: by mail-il1-x135.google.com with SMTP id d16so10803867ils.8
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 22:08:06 -0700 (PDT)
+	id 1oZ4Bo-008WvY-KE
+	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 05:47:02 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id s14-20020a17090a6e4e00b0020057c70943so24595335pjm.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 22:46:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=yP5XHXLcK+UX9e2N5YzbTl9a4h8ihKkfwEUan36DPrg=;
-        b=yAWumhzewMa3eEP3CnaMNUvAKmgC8eanQ3L4jWiwdGCcIzPkhFrQzQw0wwV9+O9C/s
-         pWA8px3RR32jSQRkZ724RUliMw1N1pJV7uypHBZtXw/s45KvAkUFFBkjDay0fezO6Q1H
-         n/OjWEaMaEvHTgl1WjFIQhvNgjxtHZeYZXfVlqejl77Y0na9OV31a8qO4TRydLDh9b1J
-         NF1Fubd/swhKTWFgEXpw3HK96R4pCPPNOYmiQOe7Bp9RLaM6/LZ/umsF8xY1IvG5Kb40
-         CBEv7FTQftTVcumiWuAZRwOn7ym/68hjz6J2lRqkwYLZ2FbLbPgjYRH/Tm0ZHhOzbqfn
-         INxg==
+        d=ventanamicro.com; s=google;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date;
+        bh=KR++kMsMWKOlc+go1l1Yf8GVj8KL9Cb61pjIboyyqR8=;
+        b=Fsj5zXLtgwH/YZdlmfmkLFEPytAU1NquWJW8OQgjDyPxeRbtlhcW3+1Sa9n9LoEz2I
+         NJD5/hmDPbgcTXEuKOk9adR/ws5N30EhCBhRkoir9JwMUMyHtYuLWGkd/D6iMPAXMEDf
+         V4KlSCrDceX65VEDuaQyJm0ERVc/K8j43Nbj/sk9ZJv6/5SUwBj9ZpucRa5/p41yHhdq
+         ljm61ZpCDMq5ERFu7NBe09WfMLrkIRWHykT6kAueXQiXTs6+VHUSHdJftASW6azzgDdg
+         8lWnJgsEOpvqrLBoCmPK9SQvPrzQBlDA8qSI+9q89YDHBfTL0jP58Y09etUNMd9eOQuF
+         E5Tg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=yP5XHXLcK+UX9e2N5YzbTl9a4h8ihKkfwEUan36DPrg=;
-        b=B8XdGl/dxGvUiejKumpd6ilf6nF/ypu/IPxwQ6koWIpyGczdBHAf9Sq9toxogYCTao
-         P89vZS689HgW5FjVzLpkHSPWdako0XQY+QbZwoVEs7q9DQ91Azpl8vuvl/nfA//sl6LW
-         rbKGlwpxFP4WfBOEOCPAHRMzNBmcKBY3j65EszbzEqYw6lcDJnPncyO6L2kFG3CcncYM
-         LBKSj0f/uQcY+Kgz6OY4cg+taeUFbniKATiv7hKwA/ZrAhOTb+tSp6q99tgFvlIGr1hV
-         YkR4sUR3Pwiob7KIcHOs2o3jXN4PIfNoHKZjqw40eflWWCKxl2XQ1OL2ykaHiRo3vMiN
-         QIIg==
-X-Gm-Message-State: ACrzQf34qKUfZeHkejufsp2vVmaqD1BNmnLmBIxSxQmKPc9LOV3eFg/Z
-	7z3cj2iMnpWoHhIJbgRK9raMA0BzM59ygKFbxKhvbQ==
-X-Google-Smtp-Source: AMsMyM5GqgO04FmX/wur2Jt+8ypcoEU8eotcYd1jKm89jw9hQAj1ZhLfSUj5pD6zTUMTtw3xNbjyMSejcFd/JFYW8jo=
-X-Received: by 2002:a05:6e02:164d:b0:2f1:869c:c45b with SMTP id
- v13-20020a056e02164d00b002f1869cc45bmr1488365ilu.212.1663304885797; Thu, 15
- Sep 2022 22:08:05 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date;
+        bh=KR++kMsMWKOlc+go1l1Yf8GVj8KL9Cb61pjIboyyqR8=;
+        b=23yyzOW4aXwKvpAE/5cBuNINaDLKWdCoRYw3xOOzxH3SROnEjKAt/iJVojow3jqZwF
+         wFDNmBu5KydfG+c2Q03zP3HnlCYtnHNJRRCwqw1DM+Hbx7rdp+89bM93ULZkKy+c9IDI
+         JOtcYplzf8Bis/7QNIl3Pyn11c9cU7qh/qN/g1nsp9+GVp6kZ9cnPE79GgWWFCQIn9tJ
+         FtEg5ylb0jX1Lan4schp3tTpjI6u0mCmRYL9/D6iocG7l7hNcC0xvpiIjpFbovKAM5P6
+         lEB85AJd+gCkgwjk6IGbQkLKnQvI015UQHbk3tQBPTdO9vGmbQ96qNsKM75g6WYTUSDE
+         aUHQ==
+X-Gm-Message-State: ACrzQf0gUNBPI2HSGXmPKlfw2ge3FQYLGko9IKyRMDtLolzklmEx0TNy
+	Fa3kUFkidy+k2I/VIUh83H9hIw==
+X-Google-Smtp-Source: AMsMyM4JBGvTNh7fQE8NpCvxngyrCkqFd4GiiY6UYjLCpIUP4L1QeuUxrbS9VFy/56AEnLRQg/hg4Q==
+X-Received: by 2002:a17:902:c950:b0:178:4544:55c1 with SMTP id i16-20020a170902c95000b00178454455c1mr3048836pla.168.1663307211793;
+        Thu, 15 Sep 2022 22:46:51 -0700 (PDT)
+Received: from ThinkPad-T490.dc1.ventanamicro.com ([182.70.62.242])
+        by smtp.googlemail.com with ESMTPSA id t20-20020a62d154000000b0053e7d3b8d6dsm13400601pfl.1.2022.09.15.22.46.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 15 Sep 2022 22:46:51 -0700 (PDT)
+From: Mayuresh Chitale <mchitale@ventanamicro.com>
+To: Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>
+Cc: Mayuresh Chitale <mchitale@ventanamicro.com>,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v1] RISC-V: KVM: Allow Guest use Zihintpause extension
+Date: Fri, 16 Sep 2022 11:16:37 +0530
+Message-Id: <20220916054637.24133-1-mchitale@ventanamicro.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20220504074807.3616813-1-aik@ozlabs.ru>
-In-Reply-To: <20220504074807.3616813-1-aik@ozlabs.ru>
-From: Anup Patel <anup@brainfault.org>
-Date: Fri, 16 Sep 2022 10:37:53 +0530
-Message-ID: <CAAhSdy0hxHjQkVj8TLPh4j=vBrX1QoZcJXNeRBPtf5ozdjQaTQ@mail.gmail.com>
-Subject: Re: [PATCH kernel] KVM: PPC: Make KVM_CAP_IRQFD_RESAMPLE platform dependent
-To: Alexey Kardashevskiy <aik@ozlabs.ru>
-Cc: kvm-ppc@vger.kernel.org, x86@kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-s390@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	Alex Williamson <alex.williamson@redhat.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Fabiano Rosas <farosas@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220915_220810_303592_E55F0F82 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20220915_224700_711125_DE35AA40 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,141 +89,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 4, 2022 at 1:18 PM Alexey Kardashevskiy <aik@ozlabs.ru> wrote:
->
-> When introduced, IRQFD resampling worked on POWER8 with XICS. However
-> KVM on POWER9 has never implemented it - the compatibility mode code
-> ("XICS-on-XIVE") misses the kvm_notify_acked_irq() call and the native
-> XIVE mode does not handle INTx in KVM at all.
->
-> This moved the capability support advertising to platforms and stops
-> advertising it on XIVE, i.e. POWER9 and later.
->
-> Signed-off-by: Alexey Kardashevskiy <aik@ozlabs.ru>
-> ---
->
->
-> Or I could move this one together with KVM_CAP_IRQFD. Thoughts?
+We should advertise Zihintpause ISA extension to KVM user-space whenever
+host supports it. This will allow KVM user-space (i.e. QEMU or KVMTOOL)
+to pass on this information to Guest via ISA string.
 
-For KVM RISC-V:
-Acked-by: Anup Patel <anup@brainfault.org>
+Signed-off-by: Mayuresh Chitale <mchitale@ventanamicro.com>
+---
+ arch/riscv/include/uapi/asm/kvm.h | 1 +
+ arch/riscv/kvm/vcpu.c             | 2 ++
+ 2 files changed, 3 insertions(+)
 
-Thanks,
-Anup
+diff --git a/arch/riscv/include/uapi/asm/kvm.h b/arch/riscv/include/uapi/asm/kvm.h
+index b6770ee08872..9085b90cf324 100644
+--- a/arch/riscv/include/uapi/asm/kvm.h
++++ b/arch/riscv/include/uapi/asm/kvm.h
+@@ -99,6 +99,7 @@ enum KVM_RISCV_ISA_EXT_ID {
+ 	KVM_RISCV_ISA_EXT_SVPBMT,
+ 	KVM_RISCV_ISA_EXT_SSTC,
+ 	KVM_RISCV_ISA_EXT_SVINVAL,
++	KVM_RISCV_ISA_EXT_ZIHINTPAUSE,
+ 	KVM_RISCV_ISA_EXT_MAX,
+ };
+ 
+diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
+index 901bb5c0cb50..0de0dd22e734 100644
+--- a/arch/riscv/kvm/vcpu.c
++++ b/arch/riscv/kvm/vcpu.c
+@@ -54,6 +54,7 @@ static const unsigned long kvm_isa_ext_arr[] = {
+ 	RISCV_ISA_EXT_SVPBMT,
+ 	RISCV_ISA_EXT_SSTC,
+ 	RISCV_ISA_EXT_SVINVAL,
++	RISCV_ISA_EXT_ZIHINTPAUSE,
+ };
+ 
+ static unsigned long kvm_riscv_vcpu_base2isa_ext(unsigned long base_ext)
+@@ -89,6 +90,7 @@ static bool kvm_riscv_vcpu_isa_disable_allowed(unsigned long ext)
+ 	case KVM_RISCV_ISA_EXT_M:
+ 	case KVM_RISCV_ISA_EXT_SSTC:
+ 	case KVM_RISCV_ISA_EXT_SVINVAL:
++	case KVM_RISCV_ISA_EXT_ZIHINTPAUSE:
+ 		return false;
+ 	default:
+ 		break;
+-- 
+2.34.1
 
->
-> ---
->  arch/arm64/kvm/arm.c       | 3 +++
->  arch/mips/kvm/mips.c       | 3 +++
->  arch/powerpc/kvm/powerpc.c | 6 ++++++
->  arch/riscv/kvm/vm.c        | 3 +++
->  arch/s390/kvm/kvm-s390.c   | 3 +++
->  arch/x86/kvm/x86.c         | 3 +++
->  virt/kvm/kvm_main.c        | 1 -
->  7 files changed, 21 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 523bc934fe2f..092f0614bae3 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -210,6 +210,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->         case KVM_CAP_SET_GUEST_DEBUG:
->         case KVM_CAP_VCPU_ATTRIBUTES:
->         case KVM_CAP_PTP_KVM:
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +       case KVM_CAP_IRQFD_RESAMPLE:
-> +#endif
->                 r = 1;
->                 break;
->         case KVM_CAP_SET_GUEST_DEBUG2:
-> diff --git a/arch/mips/kvm/mips.c b/arch/mips/kvm/mips.c
-> index a25e0b73ee70..0f3de470a73e 100644
-> --- a/arch/mips/kvm/mips.c
-> +++ b/arch/mips/kvm/mips.c
-> @@ -1071,6 +1071,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->         case KVM_CAP_READONLY_MEM:
->         case KVM_CAP_SYNC_MMU:
->         case KVM_CAP_IMMEDIATE_EXIT:
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +       case KVM_CAP_IRQFD_RESAMPLE:
-> +#endif
->                 r = 1;
->                 break;
->         case KVM_CAP_NR_VCPUS:
-> diff --git a/arch/powerpc/kvm/powerpc.c b/arch/powerpc/kvm/powerpc.c
-> index 875c30c12db0..87698ffef3be 100644
-> --- a/arch/powerpc/kvm/powerpc.c
-> +++ b/arch/powerpc/kvm/powerpc.c
-> @@ -591,6 +591,12 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->                 break;
->  #endif
->
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +       case KVM_CAP_IRQFD_RESAMPLE:
-> +               r = !xive_enabled();
-> +               break;
-> +#endif
-> +
->         case KVM_CAP_PPC_ALLOC_HTAB:
->                 r = hv_enabled;
->                 break;
-> diff --git a/arch/riscv/kvm/vm.c b/arch/riscv/kvm/vm.c
-> index c768f75279ef..b58579b386bb 100644
-> --- a/arch/riscv/kvm/vm.c
-> +++ b/arch/riscv/kvm/vm.c
-> @@ -63,6 +63,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->         case KVM_CAP_READONLY_MEM:
->         case KVM_CAP_MP_STATE:
->         case KVM_CAP_IMMEDIATE_EXIT:
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +       case KVM_CAP_IRQFD_RESAMPLE:
-> +#endif
->                 r = 1;
->                 break;
->         case KVM_CAP_NR_VCPUS:
-> diff --git a/arch/s390/kvm/kvm-s390.c b/arch/s390/kvm/kvm-s390.c
-> index 156d1c25a3c1..85e093fc8d13 100644
-> --- a/arch/s390/kvm/kvm-s390.c
-> +++ b/arch/s390/kvm/kvm-s390.c
-> @@ -564,6 +564,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->         case KVM_CAP_SET_GUEST_DEBUG:
->         case KVM_CAP_S390_DIAG318:
->         case KVM_CAP_S390_MEM_OP_EXTENSION:
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +       case KVM_CAP_IRQFD_RESAMPLE:
-> +#endif
->                 r = 1;
->                 break;
->         case KVM_CAP_SET_GUEST_DEBUG2:
-> diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
-> index 0c0ca599a353..a0a7b769483d 100644
-> --- a/arch/x86/kvm/x86.c
-> +++ b/arch/x86/kvm/x86.c
-> @@ -4273,6 +4273,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->         case KVM_CAP_SYS_ATTRIBUTES:
->         case KVM_CAP_VAPIC:
->         case KVM_CAP_ENABLE_CAP:
-> +#ifdef CONFIG_HAVE_KVM_IRQFD
-> +       case KVM_CAP_IRQFD_RESAMPLE:
-> +#endif
->                 r = 1;
->                 break;
->         case KVM_CAP_EXIT_HYPERCALL:
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 70e05af5ebea..885e72e668a5 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -4293,7 +4293,6 @@ static long kvm_vm_ioctl_check_extension_generic(struct kvm *kvm, long arg)
->  #endif
->  #ifdef CONFIG_HAVE_KVM_IRQFD
->         case KVM_CAP_IRQFD:
-> -       case KVM_CAP_IRQFD_RESAMPLE:
->  #endif
->         case KVM_CAP_IOEVENTFD_ANY_LENGTH:
->         case KVM_CAP_CHECK_EXTENSION_VM:
-> --
-> 2.30.2
->
 
 _______________________________________________
 linux-riscv mailing list
