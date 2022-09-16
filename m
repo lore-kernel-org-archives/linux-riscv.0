@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6287EECAAD3
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 03:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEDC4C54EE9
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 04:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7nkkhx6NL3hEec9fEqFrJJednZf5c0UV6UJhWO0llQE=; b=w4yYrFUWLb6DbJ
-	bl/Kg0gv4jVok/naKmZzTRlPUJxCN7UucTNeiTjkxSR/HRJFUfIe5UB6nsTuZPt7wxpeqoC4psqwa
-	uYv12IIO1V7jW6acAQJeg229LQjygeSnfLWll0QWPq9TPUT4D7zuLBX5H+ZiDLtcZiPfCsUBlh1NW
-	Qt//3Ac3Ubc5T5oFsPj6BY0Uv0g6JAT0YfknWvJpqpu7Ba23vqlza5ES/7U5y00lQk9NLOgijK8ai
-	YrRoZ4SK4QkLManWFAjVSoJesZwZPEOoVf7fV5mrNQYto6dn16mWAfFA5HdZAnhZLJVk4kSBPuL8p
-	2XMtVYjXSmwm+3HAmsZw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fdOHtytxSZoyUmhDrFm5msvQpb5lImOP+h/M4Is/vSk=; b=4+DlZ+hASY+JUl
+	mwMEa9PgojPEjZq1rFPb3zB6ZwblDqTtLICOYhKHVQ7xEsh8Xby9kN3UA+w6BGqvw381WEscsFPFj
+	pO+AfLC4pVW27rEbkmwICgibzM4WDngLY5vWzpmh5eWNk79DJATLVmRHTlWsIOeAsG/U3KgTlTFo4
+	HRnXKkQDLLYWPV9yl5iV79+fmkAzQRJaCGcN90TBwFV7n2ukQZuaKr5nXAwO+g0wz54BZ0+xaHBP8
+	6rWRyslw7HUtL6/2AMnT0K1lvkYKvN4GXxzwlRxAElOutM3JpKctT9EC8nGcg6YagFjfCN6aeuwi6
+	IwIh1zlGaQn/JzhocTqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZ1gA-0069da-SL; Fri, 16 Sep 2022 03:06:10 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1oZ2tB-006nPu-9q; Fri, 16 Sep 2022 04:23:41 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZ1g6-0069bq-EQ
-	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 03:06:09 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id q3so19683131pjg.3
-        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 20:06:03 -0700 (PDT)
+	id 1oZ2t8-006nLR-38
+	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 04:23:39 +0000
+Received: by mail-pf1-x429.google.com with SMTP id 9so8970233pfz.12
+        for <linux-riscv@lists.infradead.org>; Thu, 15 Sep 2022 21:23:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date;
-        bh=FiKTe8Q+mkTmykXyhObB1oFwfgvUMBsktlVZrzooRCs=;
-        b=R9C8eSFRs6joqTEO2h/L1RdY1JKj0nMTZECQsHTHnH64wBgqPmGGb4Dp33SRbI4Hv0
-         OptYZh62jSWuzrh/GoQCvnPj+4IswqwFBUp0ZbocUm/NInGbMPX93uFv0iOHQgh07IPi
-         6cmgqUDiiBUV0ZaznQ2xnWsC3H/SNBfQQkJljJeAOp8IdDWyTC1VtTCuecgdI59firWO
-         Z66CqesK4qwtUtAVgO6fYqaGJ3pPl4jcu1sq65RmpbrDsO0mHtbn2sV0j6xn36Re9KMV
-         GPfJQUBhbwglvcqOstujo0Ebnfq5J6y+p099HChg+UzwRv2PYqUNgxsVchgeP2PfMYIe
-         pjsA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
+        bh=gvdjpHS/YRkH0vho3frtzgK80BilJG2+eEXjf2bW/zQ=;
+        b=JcV1gWeBnsQpr8IFqM1+cNtK3uJZja8fNUZDQ9YI32sLk50HAJeJHl8CtuLS0PXkF1
+         bt8oDuJ+JN1bl77ccVAq5lwZQNC7l++U2iAztTCBPnoSxu1cTU+6Dr9hs2glfYM4yf09
+         8kmNhFJRFeOsax8NwX9CBfSKXbeMXz2OHU3cGE3e9PbAsbQTZ0v8JoOO+0yHnQXU5OtV
+         GDf+DQDJjUGr4ucmj+WbBhKV8+M03WKpLvZR68yhxLFN6GhWtkPbT5jhahFYTtdPE2SX
+         BYRR6rco9AMkf69xO+CGlY/878xxKJA3DNg3hv8A+uZwjXcyp64zU/wnKB7rLAqunwgu
+         cBBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date;
-        bh=FiKTe8Q+mkTmykXyhObB1oFwfgvUMBsktlVZrzooRCs=;
-        b=HqKoeHVf9+FjtX3Hw4Oej2bEf4qeiyyHfqm0QcKjzTb12IFCtDFf3IL8cUxOqrKKHd
-         OmvIfQRWFAereL6DUPIeeHn5/+ZRW8qqdLGrJOE2HvF33LCBuG4JJ301zqAq39IxYCkP
-         iVQlKVK6AW0E7bMpglRQSbNg3frhgbiHeIIXX33AqhkJ3iQ2fXq+wBlaug/NpAnNTii4
-         y1lbWcAJr5OhHc4Ji3Hrz9V9TEyTK4kLL/OvIHFeTiueOrB1Pml/2AWup3fF7m1+YAwY
-         cvoDjzLBHIXNz3okmf1rAp8N9JtSof5npRUykIMVIGes7kX8rNiHlCUU/t287w4BGouZ
-         yLrQ==
-X-Gm-Message-State: ACrzQf3tx5wP2rAwCw7rXP2a7/uD66bDpxkpbClURq9SNUnGtNhvUa46
-	Bw3YSXs+oC41dMkZY0ctMgrqe57QagvDqQ==
-X-Google-Smtp-Source: AMsMyM5Rvlb83UyNtOwLareUqsGwv3iM1I/eh9HRlOh/vlLu/kt3jxbJPpZgXvukl2uiUtkJXmYltw==
-X-Received: by 2002:a17:90b:38cb:b0:203:100:bb53 with SMTP id nn11-20020a17090b38cb00b002030100bb53mr3164068pjb.107.1663297562360;
-        Thu, 15 Sep 2022 20:06:02 -0700 (PDT)
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date;
+        bh=gvdjpHS/YRkH0vho3frtzgK80BilJG2+eEXjf2bW/zQ=;
+        b=w9LdUoNuOHFhvCnrbiviXXApGHaf6sm8VW8CMN7D2ReHSTaS+9DpHUMrZmIYoMXnoJ
+         gch0RH4Z32H9zdvIGl1wbw9vchmLpJZAULNXBVa+hQVi3TwI3XYp2hEEnBjjlMT/2wzi
+         I0NXBJvLlXfceJUUhvb90VhOdMTNJ9Ub/oKzfSpfOM7Rr1shWn1eayRH5V9NsY+qgcwE
+         gcQuzy+iLDcJYJ0R5baL9hf1OqAL4GCEhnUdrvbzsSXwHCgX12fvS7Co0jZiTC7rTPE2
+         1Al15rjkUD2T/x8YH85Lgjy4OXyv+NAUD0R7S++4YEE92qZdzv4O9ZzKvO+ZTNtUPogS
+         GeXQ==
+X-Gm-Message-State: ACrzQf0K/gG3+1e3wjQyrjcEVvV5kjTR6rq7GMxShls2gruPjyRkWYlk
+	scD1+qKsnJDhxNhi114dVNCSiseb29dPHw==
+X-Google-Smtp-Source: AMsMyM4cNNU9y7eTJK5lmnGYbYr9GG/UfHslV3Qdx3TRxlr05zTuKGANPDIp17c/0MkdgUZJJIB8Jw==
+X-Received: by 2002:a65:56ca:0:b0:439:169f:f027 with SMTP id w10-20020a6556ca000000b00439169ff027mr2792866pgs.580.1663302214959;
+        Thu, 15 Sep 2022 21:23:34 -0700 (PDT)
 Received: from vineet-framework.ba.rivosinc.com (c-24-4-73-83.hsd1.ca.comcast.net. [24.4.73.83])
-        by smtp.gmail.com with ESMTPSA id l16-20020a17090a071000b00200b2894648sm330518pjl.52.2022.09.15.20.06.01
+        by smtp.gmail.com with ESMTPSA id x4-20020a623104000000b0053e6eae9668sm13257286pfx.2.2022.09.15.21.23.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 Sep 2022 20:06:02 -0700 (PDT)
+        Thu, 15 Sep 2022 21:23:34 -0700 (PDT)
 From: Vineet Gupta <vineetg@rivosinc.com>
 To: linux-riscv@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org,
 	Palmer Dabbelt <palmer@rivosinc.com>,
 	Christoph Muellner <cmuellner@ventanamicro.com>,
-	linu@rivosinc.com,
+	linux@rivosinc.com,
 	Vineet Gupta <vineetg@rivosinc.com>
-Subject: [PATCH] riscv: ztso: disallow elf binaries needing TSO
-Date: Thu, 15 Sep 2022 20:05:52 -0700
-Message-Id: <20220916030552.1396820-1-vineetg@rivosinc.com>
+Subject: [PATCH v2] riscv: ztso: disallow elf binaries needing TSO
+Date: Thu, 15 Sep 2022 21:23:31 -0700
+Message-Id: <20220916042331.1398823-1-vineetg@rivosinc.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20220916030552.1396820-1-vineetg@rivosinc.com>
+References: <20220916030552.1396820-1-vineetg@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220915_200606_695765_74DF38D7 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20220915_212338_375650_3E9235D1 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,12 +100,16 @@ bits in tooling.
 
 Signed-off-by: Vineet Gupta <vineetg@rivosinc.com>
 ---
+Changes since v1
+  - Build error (and boot tested on qemu)
+  - Improved the comments a bit
+---
  arch/riscv/include/asm/elf.h      | 11 ++++++++++-
  arch/riscv/include/uapi/asm/elf.h |  2 ++
  2 files changed, 12 insertions(+), 1 deletion(-)
 
 diff --git a/arch/riscv/include/asm/elf.h b/arch/riscv/include/asm/elf.h
-index f53c40026c7a..37a47352f633 100644
+index f53c40026c7a..b6b4542b3039 100644
 --- a/arch/riscv/include/asm/elf.h
 +++ b/arch/riscv/include/asm/elf.h
 @@ -26,10 +26,19 @@
@@ -110,10 +117,10 @@ index f53c40026c7a..37a47352f633 100644
  #define ELF_DATA	ELFDATA2LSB
  
 +/*
-+ * Make sure the extensions are compatible.
++ * Make sure the elf being loaded is compatible with extensions.
 + *
-+ * In the final incarnation this will get the features as provided by DT and
-+ * make sure kernel build is compatible.
++ * In the final incarnation this will get the extension list from DT and
++ * make sure elf can run on given hardware+kernel.
 + * For now disallow TSO built binaries.
 + */
 +#define rv_ext_ok(x)	(!((x)->e_flags & EF_RISCV_TSO))
@@ -122,7 +129,7 @@ index f53c40026c7a..37a47352f633 100644
   * This is used to ensure we don't load something for the wrong architecture.
   */
 -#define elf_check_arch(x) ((x)->e_machine == EM_RISCV)
-+#define elf_check_arch(x) ((x)->e_machine == EM_RISCV && rv_ext_ok())
++#define elf_check_arch(x) ((x)->e_machine == EM_RISCV && rv_ext_ok(x))
  
  #define CORE_DUMP_USE_REGSET
  #define ELF_EXEC_PAGESIZE	(PAGE_SIZE)
