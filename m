@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFE1C54EE9
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 14:10:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F11C6FA82
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 Sep 2022 14:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=YwmQFuc3CgUk1nMTXWKW4i/t0UmLsQHAycPs/YO/zfs=; b=bCEyHeKWJdyldPiSTlsnY0arEA
-	+sSHCNAuEZ4TZ/aZ27DmYqZCEUiBrqLhcWfYY/O7BYTG8s2DXh22HGu0Zoepdu5D8039HArEZ3as7
-	pI8izCZsawyccq2VFy11d62N8qESl3lYzqDIRuB9Av6LUFbo8REY3SkkGegbKQxmPy5BCCXEWKPiX
-	0LE03cdMStjWQ5InShZcFTLYExJkTjVPPDnV5p2hvLUKTc1ktDgGvvbqDUZQBKCsgFMSM2Wtu2+Jo
-	+p49qchwl4hMt93yxyPe5U4YKAHAY2+/GrjjRY+8hFR29k+/SLk5g26SP3UeRx+C+x6n53NkFd85V
-	1lMjH8Ww==;
+	bh=jCMIOHLDW4H8v23tfqEhR0GMtkmMiQ3YObz1dVQjkh8=; b=iN4DGmvLtXYTpBpAfzVuY4Ujp9
+	Kb9fp88gZ+D8FkFUltu0K5cm9VZ22cU7+s17ejlrzX/NJK1+K9rFIOI8yInKEerR6BBtXL50Gb3tv
+	aPZUVHDzTbJXQhRPIrx3X+cwTMVMT7WMja/d5kq2oBD2a3X501shEJCTpgSnoEoFu4OEA5kcgnc54
+	36qBI+nQgeahi1sz1TO8vaCX4xnr/dudfPAddhNFfcQwx7/ISdCfx+2IfJ0XrxYFUONfoKL7Z6wYp
+	0sUpVabpKrT+oMtdSQH89UZL+Eqwas/s3jNBxJcyB7puFIrnIEhvQS3aacN2rXMBU13TnuCdBQuEI
+	B3/BytOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZC2U-00DzXB-Ij; Fri, 16 Sep 2022 14:09:54 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1oZC2a-00Dzby-C9; Fri, 16 Sep 2022 14:10:00 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZC2R-00DzRT-9b
-	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 14:09:53 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id dv25so49640251ejb.12
-        for <linux-riscv@lists.infradead.org>; Fri, 16 Sep 2022 07:09:48 -0700 (PDT)
+	id 1oZC2T-00DzRo-4O
+	for linux-riscv@lists.infradead.org; Fri, 16 Sep 2022 14:09:54 +0000
+Received: by mail-ed1-x534.google.com with SMTP id b35so31706399edf.0
+        for <linux-riscv@lists.infradead.org>; Fri, 16 Sep 2022 07:09:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date;
-        bh=mWuOEb39dsrifbXR5pI+6YOaYogeAHZY8tuH0kRdIyo=;
-        b=T84bpsh+ew5HakL1aCzNIjOBAe9cqHvCCuWPPY37eky7gKn86AHHbjomV+ZHe0Ce2q
-         xEAjwYZ64rv7bAtwDx3NWNbZP6MYI110ZwKbZIXTN3Bz902vmtZKlsMJ2koZN+i8riaJ
-         pILdaWrq25NXiLuFw9bp5n9FKT1qjDdBbdhdLdkoge0IAa3PZX9RANUbpYtRH3fj+VIF
-         o9agexMYFUPurF7uZFXtimX6eHaNJNSSY3wJbjwqBsiBOtRMy6BoaRq3Go/Eyfe09ku+
-         2BS1be41z+ttA4ZE6mVpNUWJqlm/1y1qttpOXjaKUfA4QD8PSa5EESAXNtzoZqQVkpg2
-         P7ag==
+        bh=Wbo6PeFzbTslDNAkmvCAMMHbZD+/6vO1ee0ScMdwLlM=;
+        b=mL7L1d9mfkWKJpZOnl7BMgFKqdXPtJ/YjfD11NySW0RzBwLJTDFvckUXSJR9fiTOVF
+         uVzinfgsRbyHd0XBE3MfsFqyscwzNb7ju/t58XBUeyXM3N6mCulXDDbyC2VGTKLYRymJ
+         n4qYmbmRGFNEO7He1ElhqG6/8nsK2MHZP6vqz0itMBSOEtyFELsc3btGHIAz4UBW86nV
+         cwoclkDSB68+6WmGkXw8Zi05D22aH6RHSbPrzEE4WWnjL7qIaQEVqs85/JgEzivBOueH
+         jPA7TTqn8hiGnuXSk+qyQwKojslpX4+dj9TuqwMrUIxpD4UrDB43j6AlOCsZx2akviWs
+         OgrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=mWuOEb39dsrifbXR5pI+6YOaYogeAHZY8tuH0kRdIyo=;
-        b=VIIXHGsoKpoAGF/yyYB6Zo5C5AZaseF52YD3YKLkXAr9hlLbLwU1BgDtneTJPzbPEu
-         aJg2CUtcZ7M03uVoVEeGkSUbgQI9S5ESRjqSEA9UkjCYVo6rpnM/i16fN+57Moj9W+Jh
-         1r6l7CdzyEJ+VdiIznh29L0Q5ukbU6svHSfI+3vNsrAYwyPkcLW/+M9FQhZbYTOrKnN9
-         RvhpnqY8NmAChq2k9rokjus7WoDexiQI1sCxZ/+WdOlzz+fEdMheKmnOu4jVMvlo7w96
-         Uv+ii/cHj8so6iR+UEnucWzbSih1JZ2FbHwJI6/5BZAtUy6VO66n79+3HMz4D4rD9UJ1
-         vupQ==
-X-Gm-Message-State: ACrzQf3659fNXhqp7/+mqTxsykmoJ4wXql6+APgSvk1JfPU+A+aVBWrj
-	X42KlUCBss0ADGO/8cSe8yvrnIPVjIzGoWD+7+Q=
-X-Google-Smtp-Source: AMsMyM7bYQxVSNBFmEk0qjaFwUXtddEICwBNpO1xWfqInXyk5N4QjD+BMrrwjG+Uhw6cRJTLmLd+0A==
-X-Received: by 2002:a17:906:7621:b0:750:c4a3:8fcd with SMTP id c1-20020a170906762100b00750c4a38fcdmr3928686ejn.180.1663337387335;
-        Fri, 16 Sep 2022 07:09:47 -0700 (PDT)
+        bh=Wbo6PeFzbTslDNAkmvCAMMHbZD+/6vO1ee0ScMdwLlM=;
+        b=hDvksJ5deaG6t34G3Ljeymk9GvHRrdFqrfDMveGMnEQ1ECCi0kvqvOXQQuU90HVdY/
+         Pusj7oJN/MtzkKPslwpqWgBFYlS3naz7bduhYOsD1G1uMyk9bS4SfF5SzJVeDumYMF/z
+         t3m/gGjpieHp94hJ7CrVxVhoandWYOVrhCWq5rVpIiNI/yFg+sbmfTo7Ft4eIBmXukWP
+         mt3e7W6u4azKJ3IQm86PUZPmkZNhMvygbgQwpuN3WpU2TRrkzjCk7CGY3d50wrbSH+1J
+         8LYOkeUiKfvjAtktNNMUniEco+b+n0MOfLItJIqgAnZsJUSamzknV5EdF09nyVzfgGKZ
+         SwVg==
+X-Gm-Message-State: ACrzQf0ZyfshtQIZ//R0JfGBlcgJC5Fob4r8CpjclyS0SrOzIEoBO8FY
+	TcvdwPaG3bjzxbj01GBHAhsiBovD10YJYT/ePxk=
+X-Google-Smtp-Source: AMsMyM53rj+iu3IcwCiwPiJNGueY0NkEiccJUi0x9cT+LfaO46nx2rbTvb/qK05kvfvK8IMFr4aNKQ==
+X-Received: by 2002:a05:6402:1911:b0:451:6e0b:7eee with SMTP id e17-20020a056402191100b004516e0b7eeemr4164047edz.170.1663337388483;
+        Fri, 16 Sep 2022 07:09:48 -0700 (PDT)
 Received: from localhost (vpn-konference.ms.mff.cuni.cz. [195.113.20.101])
-        by smtp.gmail.com with ESMTPSA id ju19-20020a17090798b300b00741a251d9e8sm10703614ejc.171.2022.09.16.07.09.46
+        by smtp.gmail.com with ESMTPSA id cx24-20020a05640222b800b0044ec3285b23sm13640306edb.58.2022.09.16.07.09.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 16 Sep 2022 07:09:46 -0700 (PDT)
-Date: Fri, 16 Sep 2022 07:09:46 -0700 (PDT)
-X-Google-Original-Date: Fri, 16 Sep 2022 07:08:33 PDT (-0700)
+        Fri, 16 Sep 2022 07:09:48 -0700 (PDT)
+Date: Fri, 16 Sep 2022 07:09:48 -0700 (PDT)
+X-Google-Original-Date: Fri, 16 Sep 2022 07:09:37 PDT (-0700)
 Subject: Re: [PATCH] RISC-V: Add support for Ztso
-In-Reply-To: <c8004a8f-235e-083c-2dcb-7fa746bad421@microchip.com>
+In-Reply-To: <87ler21drg.fsf@linux-m68k.org>
 CC: linux-riscv@lists.infradead.org
 From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Conor.Dooley@microchip.com
-Message-ID: <mhng-b0281abb-e0db-4cbc-a38e-e87aa26a26de@palmer-ri-x1c9>
+To: schwab@linux-m68k.org
+Message-ID: <mhng-3bec4d12-b497-4db7-9a9a-5fd2ede32efe@palmer-ri-x1c9>
 Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220916_070951_550995_EA57D9FE 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20220916_070953_200250_EB144C25 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +86,24 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 16 Sep 2022 03:00:35 PDT (-0700), Conor.Dooley@microchip.com wrote:
-> On 02/09/2022 04:43, Palmer Dabbelt wrote:
->> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
->> 
->> The Ztso extension was recently frozen, this adds support for running
->> binaries that depend on TSO on systems that support Ztso.
->> 
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> 
->>   /*
+On Thu, 01 Sep 2022 23:39:15 PDT (-0700), schwab@linux-m68k.org wrote:
+> On Sep 01 2022, Palmer Dabbelt wrote:
+>
+>> @@ -31,10 +32,23 @@
+>>  #define ELF_DATA	ELFDATA2LSB
+>>
+>>  /*
 >> - * This is used to ensure we don't load something for the wrong architecture.
 >> + * Binaries that assume TSO cannot be correctly run on non-TSO systems, so
 >> + * prevent them from even being loaded.
 >> + */
->> +#define EF_RISCV_TSO   0x0010
-> 
-> My only comment, and I asked this on the other patch too, is why is this
-> not s/EF/ELF like the other defines in the file?
+>> +#define EF_RISCV_TSO	0x0010
+>
+> That should probably be defined in <asm/elf.h>.
 
-It's EF_RISCV_TSO in the ELF spec, and that's what other ports do (see 
-EF_ARM, for example).
-
-> 
-> Thanks,
-> Conor.
-> 
+Sorry, not sure if I'm missing something here?  This is 
+<arch/riscv/include/asm/elf.h>, we just don't have any ELF flags defined 
+for RISC-V yet in the kernel because we don't use them.
 
 _______________________________________________
 linux-riscv mailing list
