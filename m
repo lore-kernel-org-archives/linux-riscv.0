@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03AE1ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Sep 2022 23:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4D22ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Sep 2022 23:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I7BZCGVYRAEia1fThy6HOumYxcUoDoIP0oS558AT2Ks=; b=v2fxCyQhKVWZWH
-	jfs4S4YXWuu3iYUfbZwUsf5zQzTtffDN4J2E6hSiNaDDlaVVqLXpkId5J88LZwZ5tKlWr3mltV4Rk
-	SlGogDxCrPm+XTzQ+wA8lt0WxVlCoybSL8boemBw6Vx8N3UhC1y3HNPqPV+FHO5R8+OF/ZdYxAreI
-	TQh6lMvYxH/a+GuUphY6O/yN6mJc16SGDZtpDXEdCPQ1HtqIamOQMo4zw5+y8rMBvLAJuGuixeFIu
-	eh6vbQ7ZcBSsjahJ/N4VgyQNbdNC8Th3IQ388HFrKWA4FnTYVccAxH/aB/LEzyDPPw9wRXyRn+AHb
-	b6qqq3qN3oPgyD9PsSCg==;
+	List-Owner; bh=KpgMY/126FTFWvogyGQGzicqDoqR+Lh/B5Iof4m6gtQ=; b=1O1pZa5ZqfK9pr
+	6bYFnHoR4RWuZbllLVZvzvO0Lej00kQNlHM1mFMzORTVnbd8dBkTlT3F9xrQcdZJzwoohpRqg2L8C
+	q/BPDvOi4dIwMeFXPPfp5Hi12t5b7XKOzciDgLmgd2WAvi7fxEL4/NhFfUZJ56RxEwxIOOxLR0cWJ
+	x6Au7aGLVJ/lTQ+2gMXLGyD3fbLU5z+Jk5q0+Z5d9aFez36A5S6t9+qAfEA62OphYgh7hkpTNWeHv
+	NPk0Ry533Us9suKVR+n5sEWIEe5Xc6crpB7NN7iYuqT7dWUM27xMeLU+CXFgDVqEAV88vKO1NYB3g
+	HrPQirMBMIeRXwPd3hLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZhZF-00AgYG-W1; Sat, 17 Sep 2022 23:49:50 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oZhic-00AixH-N7; Sat, 17 Sep 2022 23:59:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZhZD-00AgWp-7s
-	for linux-riscv@lists.infradead.org; Sat, 17 Sep 2022 23:49:48 +0000
+	id 1oZhiZ-00AiwB-Io
+	for linux-riscv@lists.infradead.org; Sat, 17 Sep 2022 23:59:29 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id A85B8B80E29
-	for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 23:49:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D6AEC433B5
-	for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 23:49:43 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id D1E0D61231
+	for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 23:59:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E73CC43140
+	for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 23:59:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663458583;
-	bh=JLxzWgqW+PGmKf2Rh84bOuLU/hkYwXAgeSp4bKIIIsc=;
+	s=k20201202; t=1663459166;
+	bh=SOyAx3uO6Ij43egFNjlPCu3aKVH8OQF5a5pVD/Xr/D0=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=uKhHHzz1xAsuP7rn3+Tk7JeF7vyRu4tIXkHuITZpjK/x7h4qUDl56rgpE6Uu1+Z+H
-	 jiFTjq5YvZUdwWFCM0m17Y0ECsj7GjDQIzMV/wWVNsYsVPpu/95V4zCuyaNmIRptwP
-	 VkI/CGzzxFJz1qxaxDIjbtPaeEnfzCI8rUhAbch0b38GAlhS56bwffbjlngF2habej
-	 WPRlW7HNeUa7fvPOBMJX8HYP6SczPJIZdrAjwmzK6+c1GSdqG+g+fI3jpT8yLfCCBA
-	 MdR71NiJFfg9OsKcXoV1DquTUBpcTXkV2lPZ1KHbBjMJXCq71p++j0ze4AVcUYWuV/
-	 Prt2v15ymMz4g==
-Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-11e9a7135easo57229677fac.6
-        for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 16:49:43 -0700 (PDT)
-X-Gm-Message-State: ACrzQf12ufeo7u2q6INIkAD/hpcJzs0B8A7ikW53EY5z4hvBWSIy16t4
-	/v4GM9Did2RrNmll+ZOWe3IMXq/0lDqceDHrw/s=
-X-Google-Smtp-Source: AMsMyM4eO4wJD1Tph72cpS3Tu4WeRCNsKKNFJvG9INUyvNlGo/V8rCuQUxp3UVMSI2sC08JyA1nOZIKcSHKmcw0K64I=
-X-Received: by 2002:a05:6870:5803:b0:12c:c3e0:99dc with SMTP id
- r3-20020a056870580300b0012cc3e099dcmr1729011oap.19.1663458582351; Sat, 17 Sep
- 2022 16:49:42 -0700 (PDT)
+	b=XItGQYK/4Q/7VfqdyVGOlmBNtUMM0JwA5OeDWTkEZzcJATny2EjhiERgPjFvvdP3Z
+	 8zV51DvPFhnwN4rRZvzQMCBWSE+ckn0bb60ZAM6oSbg3poS8OXBqZrSQzVdvHhB5F7
+	 2cR0AKQDpv1Al4u8YWKo1Fm0rraly4cd3XqlPq8++S0pAUKtqXjL2tYNq+2LCfsj99
+	 eloLEuDAbDaSlcU/gGq/xEZS39U8gRVqOWnnSvE7zBx1wEBuN0NOy+jDcI/CxoODtE
+	 u8jAAV4nJrEzj4a3jk4eR9eeilI6l+7TSHwnK3GkVXCn2QSwJSr/GKWYbvDVemeqDF
+	 ftguQt9SaqAEQ==
+Received: by mail-oa1-f48.google.com with SMTP id 586e51a60fabf-11e9a7135easo57245065fac.6
+        for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 16:59:26 -0700 (PDT)
+X-Gm-Message-State: ACgBeo0adDXXfAaEgV8FqqKc0b4b3Q9uvtH4pbdu+ZA612Vl6I5ju40g
+	F00DuzrHZPRhPy7k1lwMyBBR40vH6ICj0nNQOKE=
+X-Google-Smtp-Source: AA6agR5NQ79T9y9MuR5qQaz074qLN4YPCrc0PAnqULwyaGD2i9ueXJSKR9U6r0TISLJPw/lpnTwkpV7qLH/xM4Z2a7E=
+X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
+ x14-20020a056870a78e00b0012b542be5b2mr11810209oao.112.1663459165300; Sat, 17
+ Sep 2022 16:59:25 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAJF2gTRCkNHdE+JoLV=T7_D0eTaxDdjzoJ5fCJnUB_-ED+CrfA@mail.gmail.com>
  <20220917183849.589593-1-guoren@kernel.org>
 In-Reply-To: <20220917183849.589593-1-guoren@kernel.org>
 From: Guo Ren <guoren@kernel.org>
-Date: Sun, 18 Sep 2022 07:49:29 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRwH33CcRDOy3ngQ6KCTOLAR6VNdBOOT+eykBCoLojjQg@mail.gmail.com>
-Message-ID: <CAJF2gTRwH33CcRDOy3ngQ6KCTOLAR6VNdBOOT+eykBCoLojjQg@mail.gmail.com>
+Date: Sun, 18 Sep 2022 07:59:12 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTQE-ihzkYGf6QwfbT=WZPrTabc0SRet4N1w+5E-9esw3A@mail.gmail.com>
+Message-ID: <CAJF2gTQE-ihzkYGf6QwfbT=WZPrTabc0SRet4N1w+5E-9esw3A@mail.gmail.com>
 Subject: Re: [PATCH RFC v2 riscv/for-next 5/5] riscv: align arch_static_branch function
 To: guoren@kernel.org
 Cc: andy.chiu@sifive.com, aou@eecs.berkeley.edu, ardb@kernel.org, 
@@ -66,8 +66,8 @@ Cc: andy.chiu@sifive.com, aou@eecs.berkeley.edu, ardb@kernel.org,
 	palmer@dabbelt.com, paul.walmsley@sifive.com, peterz@infradead.org, 
 	rostedt@goodmis.org, zong.li@sifive.com, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220917_164947_577503_346F622E 
-X-CRM114-Status: GOOD (  20.00  )
+X-CRM114-CacheID: sfid-20220917_165927_724419_4AFB8E23 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,6 +127,9 @@ On Sun, Sep 18, 2022 at 2:39 AM <guoren@kernel.org> wrote:
 >                 "       .pushsection    __jump_table, \"aw\"    \n\t"
 >                 "       .align          " RISCV_LGPTR "         \n\t"
 >                 "       .long           1b - ., %l[label] - .   \n\t"
+We should check the range during compile time, here. Run-time checking
+is the last and most painful method to prevent some errors.
+
 > @@ -39,11 +43,14 @@ static __always_inline bool arch_static_branch_jump(struct static_key *key,
 >                                                     bool branch)
 >  {
@@ -193,9 +196,9 @@ On Sun, Sep 18, 2022 at 2:39 AM <guoren@kernel.org> wrote:
 > +#else
 >                 if (WARN_ON(offset & 1 || offset < -524288 || offset >= 524288))
 For the unify, it also should be:
-if (WARN_ON(offset & 1 || offset < -2048 || offset >= 2048))
+                   if (WARN_ON(offset & 1 || offset < -2048 || offset >= 2048))
 
-
+After some tests, 2048 is enough for the current riscv Linux.
 
 >                         return;
 >
