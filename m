@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57F1ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Sep 2022 18:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E082EECAAA1
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Sep 2022 18:39:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iLLo4HFbidSCuWbPpG1yN/2sveV2mbk6SBx7wdFZexQ=; b=wd1moEZ80pCJqa
-	1j4vi0dxuZpkGIvfvBKvsoXkXrXJdsBO1pvadXdb+bxPBomM0qzB2RsCau0U6Rte9QocvXbsCkxdW
-	R0LXuhQwY8flbHF0LS0h3DiqL97vSESAk+cfOn1tmjzrEG9kdtgnEw7BEIN73O7Sm8z8czGJyct1U
-	eMYVyfFC/HT//6vkYPa9/Q9NkByh8zSdcx0ThoUDq5U2uHlXCBWyIevp5M7WMgvacftB/dWjT9k3I
-	8aoT+hMXoWdDKX8fhxpDYQKxkN0Lq+1nurVpBQcZhdytZEFIJiLeaNZBb1Ym+strHZK6J57qtY5G0
-	M5dxNvSj/8S1AI7zUDww==;
+	List-Owner; bh=iLLo4HFbidSCuWbPpG1yN/2sveV2mbk6SBx7wdFZexQ=; b=DveACb0heKIdTf
+	QaDWru7m8P1tfOKcUxi7UIy7XkPrsvDjJx82UgSnO1LDAWbzATGAIjV9wttXJzoCXapfs9auENrSK
+	+H7EcvKFDPGIquuTt43kBWpKjI0C8/X+8uOTj6Abmd63RuDiAj+VFkXQ1zt5GCO7cfxGIr9ufyOak
+	X8HklISXIYhulBbEDXt+Fl6XpZ9YwgvOIjQlyZZOurKIoN2wtmHnlMkzx8D2AVZwp96pgeVqp9EJz
+	itePt+S646dEf7ga2Z05feOgu5p9AERlaH30N/69M7sQIyIbLOaVvSsCA4C/6HqiWyK7IqlDxG7e0
+	PSZ7RZlEHWdQHln4UqlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZcO7-007w4a-Rx; Sat, 17 Sep 2022 18:17:59 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oZciV-0086P2-J8; Sat, 17 Sep 2022 18:39:03 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZcO4-007w1f-3z
-	for linux-riscv@lists.infradead.org; Sat, 17 Sep 2022 18:17:57 +0000
+	id 1oZciS-0086M2-Sq
+	for linux-riscv@lists.infradead.org; Sat, 17 Sep 2022 18:39:02 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 8D33DB80DE0;
-	Sat, 17 Sep 2022 18:17:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B72CC433D6;
-	Sat, 17 Sep 2022 18:17:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 5799F61163;
+	Sat, 17 Sep 2022 18:39:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEF98C433D6;
+	Sat, 17 Sep 2022 18:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663438673;
+	s=k20201202; t=1663439939;
 	bh=BFhTJIaY5iL/O+vCW81qnWIxQzhVpNEShFGJEkjT6p4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CrkNL9ktieI1Nu3Xy97E9SeHT3ygNmFYKsGZ9TiweDTPcsoFg9ZLgeFU8z9YiyzbN
-	 pVVHHXUfReeB/0aHNPr/+Fl+Ne/LiuYGod8EpYe+d7hYLK3S8eyrcB21vktgNkYOYb
-	 t6j/UqtMlJZ889F6iP8vYd/IV0HEhjIbZmHcxzOpKoJr4aUaqacQ55JHdc3W2UNQgS
-	 q201EZjrrxn5WCmQMMbU81AnwoaRVyL3caZJrDLrhe/5ttJFZu++1ZyyZoHOUuwkun
-	 qng979BDAThDrGPuKrntB1iJOvYahWBiOeD5/LW8agFyhXmIIzmk4D3HXxSCMcMcgH
-	 UrlBGAaV9RUuw==
+	b=bJlzlaVpShpV7imargwlxIv5YMxDWXGajpzCuYUEip2iumf/cHyWZC0OnJEmB87KN
+	 nKAiMKpw3WGraPoMNDOu3xxbifHWZhmTlc/OJdbwzeRcjJF11V/wlqy9c7RXwMUK3W
+	 OhQQ6Uk/9AJYd9WiJxHF/Db3l3n67ztj3KvlxrC+6Hes4jWZXAVrmiO+GOcc5sHhdx
+	 PnQ8eEwiLq4ns/JqA/0z3F/ETqkJxX60I/1eCQW0NNm7SCu6U39mej7Xv0LyH+1wdW
+	 OCzyBRsorCgl6EeZe/nKD6o/BR/xLd2GW1I7C2apOns+/m2756g1z15y7U2deHjK3a
+	 Zra7H12o7ptlw==
 From: guoren@kernel.org
 To: guoren@kernel.org
 Cc: andy.chiu@sifive.com,
@@ -59,16 +59,16 @@ Cc: andy.chiu@sifive.com,
 	rostedt@goodmis.org,
 	zong.li@sifive.com,
 	Guo Ren <guoren@linux.alibaba.com>
-Subject: [PATCH] riscv: jump_label: Optimize size with RISCV_ISA_C
-Date: Sat, 17 Sep 2022 14:17:42 -0400
-Message-Id: <20220917181743.585512-1-guoren@kernel.org>
+Subject: Re: [PATCH RFC v2 riscv/for-next 5/5] riscv: align arch_static_branch function
+Date: Sat, 17 Sep 2022 14:38:49 -0400
+Message-Id: <20220917183849.589593-1-guoren@kernel.org>
 X-Mailer: git-send-email 2.36.1
 In-Reply-To: <CAJF2gTRCkNHdE+JoLV=T7_D0eTaxDdjzoJ5fCJnUB_-ED+CrfA@mail.gmail.com>
 References: <CAJF2gTRCkNHdE+JoLV=T7_D0eTaxDdjzoJ5fCJnUB_-ED+CrfA@mail.gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220917_111756_494180_CB23B34D 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20220917_113901_014255_D5FF603D 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
