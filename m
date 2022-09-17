@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F11ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Sep 2022 21:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03AE1ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Sep 2022 23:50:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=btdsVs0640wJPqosAGQ1MFKX/xN4pTLNqKHaGWA4pls=; b=06VrtHwhFjsUb4zPbi7DVME+eD
-	uUbiUKu4/bkF0bwTJ1tiQS3oFR6FM0qQD1Zcihlejdv+R9Vb+fc5sHhJMY5Y3ztuRVObQaFr86gdL
-	hVix4C44C3ZGk4s3YhQvHCPYgF7OcTDi/QIIBFsSxbnAKEfmNOWXpLegVxoIFIXf91lDlwWnDQjKR
-	2+1/lBwe23QhF13wlxXapc2gBB4cbyC6V4Ao2RLHmmYu9IzrBkq3Wk1eEvf1rWLJ0+JfBmGaHctwd
-	6QFGAuE1psCpYamQ9h2aJXYvzx6pv59z7M2FyzFRMWZyCxxlpDQ4fPtqy3Co1gfByiII48LU4pMnl
-	XF7EYvfw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=I7BZCGVYRAEia1fThy6HOumYxcUoDoIP0oS558AT2Ks=; b=v2fxCyQhKVWZWH
+	jfs4S4YXWuu3iYUfbZwUsf5zQzTtffDN4J2E6hSiNaDDlaVVqLXpkId5J88LZwZ5tKlWr3mltV4Rk
+	SlGogDxCrPm+XTzQ+wA8lt0WxVlCoybSL8boemBw6Vx8N3UhC1y3HNPqPV+FHO5R8+OF/ZdYxAreI
+	TQh6lMvYxH/a+GuUphY6O/yN6mJc16SGDZtpDXEdCPQ1HtqIamOQMo4zw5+y8rMBvLAJuGuixeFIu
+	eh6vbQ7ZcBSsjahJ/N4VgyQNbdNC8Th3IQ388HFrKWA4FnTYVccAxH/aB/LEzyDPPw9wRXyRn+AHb
+	b6qqq3qN3oPgyD9PsSCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZfB0-009XWj-Hp; Sat, 17 Sep 2022 21:16:38 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1oZhZF-00AgYG-W1; Sat, 17 Sep 2022 23:49:50 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZfAx-009XSl-85
-	for linux-riscv@lists.infradead.org; Sat, 17 Sep 2022 21:16:37 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id b35so36175451edf.0
-        for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 14:16:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20210112.gappssmtp.com; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date;
-        bh=6mcoWuUt2xRPPD1zBnnnDMsVlHSxxct1pkX+w+RDhlo=;
-        b=j6nLsE2aFWmxQz8ZGLbtMjHYx6DVDoaOgSVoFup25E0+5oSCh9qjOEdYMHu7Oik51V
-         ddAbQZKPKMBCZRb+eY2k2aLNKhqDcpcumAlC/wEOb7jE4ub3SchjubhjLSUzHDTg+D9c
-         AlH9iaVmMRDjQucvXOu7PNaYnBPVKU02ggfpG87R05tD1sYkrpZzFE6IThDXVXfGoUGm
-         gtiSPBy84nus69P8Ht3AkvwVJnQ+ehgjK/fSC/xN6JG1pb6taaF3Jm/Z0KNRB8ahaQc9
-         e+8v4/zOJS0F2F6Yj/mhq2mEbiKyi+pq1ud388dwKXXiK71gl/toxLmCyFTQeVN9PHyA
-         4s7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
-        bh=6mcoWuUt2xRPPD1zBnnnDMsVlHSxxct1pkX+w+RDhlo=;
-        b=4f6ADoYTtz3iwsmNWkStTR94X98fzV1YGnryzlIe1hjNhf/9gETfYUrfBYo5dH9WnF
-         dh91QnnxPqVdb1DqQYo+YHLOfuyu/mLlLurUgUK3Bwo7Dni8pvrdTXq1mOAZLmua9vqg
-         V5Hx+YsqIpSYlUrQTmIqHOkFN9AnOsUzgr3iKsJbmObk5nLL00JiU+37vsly/2mD13BQ
-         gMpxpyQ2rkuCaFH4xYQWcJK2TKoBhxhJGIJe3wJdjoq8GixBJvdcN8kqpc2Xn92TEgyx
-         lEI0TD+usBsuivAxm6cu3dNOp/V9nDM9a92VysZ892Fk4d8SAq3DlRSy6wXEoia18HXS
-         RRSA==
-X-Gm-Message-State: ACrzQf0+HvQBNGJXutxculiX2aml/ibriOdhdstGbhaXwy/FIMJWSVVl
-	LLwg6CJ7M+5e1HkdWt6Bn8ipXQ==
-X-Google-Smtp-Source: AMsMyM5MnPKs2D6XTUzKNr61FFWZRZPsbzem/ZsxU2WEYFP1arBi+XQKws+jodV98GGF4ALzERa/4g==
-X-Received: by 2002:aa7:cd49:0:b0:451:e570:8a82 with SMTP id v9-20020aa7cd49000000b00451e5708a82mr9090083edw.369.1663449389395;
-        Sat, 17 Sep 2022 14:16:29 -0700 (PDT)
-Received: from localhost ([185.176.138.242])
-        by smtp.gmail.com with ESMTPSA id h16-20020aa7c610000000b00452ff2c203asm6379463edq.92.2022.09.17.14.16.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 17 Sep 2022 14:16:28 -0700 (PDT)
-Date: Sat, 17 Sep 2022 14:16:28 -0700 (PDT)
-X-Google-Original-Date: Sat, 17 Sep 2022 14:16:26 PDT (-0700)
-Subject: Re: [PATCH v3] riscv: Fix permissions for all mm's during mm init
-In-Reply-To: <20220902101312.220350-1-vladimir.isaev@syntacore.com>
-CC: linux-arch@vger.kernel.org, linux-riscv@lists.infradead.org,
-  Conor.Dooley@microchip.com, atishp@atishpatra.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  aou@eecs.berkeley.edu, anup@brainfault.org, vladimir.isaev@syntacore.com, ajones@ventanamicro.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: vladimir.isaev@syntacore.com
-Message-ID: <mhng-79b8356b-605a-485b-b547-ae4a44d3ea2a@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1oZhZD-00AgWp-7s
+	for linux-riscv@lists.infradead.org; Sat, 17 Sep 2022 23:49:48 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id A85B8B80E29
+	for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 23:49:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D6AEC433B5
+	for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 23:49:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663458583;
+	bh=JLxzWgqW+PGmKf2Rh84bOuLU/hkYwXAgeSp4bKIIIsc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=uKhHHzz1xAsuP7rn3+Tk7JeF7vyRu4tIXkHuITZpjK/x7h4qUDl56rgpE6Uu1+Z+H
+	 jiFTjq5YvZUdwWFCM0m17Y0ECsj7GjDQIzMV/wWVNsYsVPpu/95V4zCuyaNmIRptwP
+	 VkI/CGzzxFJz1qxaxDIjbtPaeEnfzCI8rUhAbch0b38GAlhS56bwffbjlngF2habej
+	 WPRlW7HNeUa7fvPOBMJX8HYP6SczPJIZdrAjwmzK6+c1GSdqG+g+fI3jpT8yLfCCBA
+	 MdR71NiJFfg9OsKcXoV1DquTUBpcTXkV2lPZ1KHbBjMJXCq71p++j0ze4AVcUYWuV/
+	 Prt2v15ymMz4g==
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-11e9a7135easo57229677fac.6
+        for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 16:49:43 -0700 (PDT)
+X-Gm-Message-State: ACrzQf12ufeo7u2q6INIkAD/hpcJzs0B8A7ikW53EY5z4hvBWSIy16t4
+	/v4GM9Did2RrNmll+ZOWe3IMXq/0lDqceDHrw/s=
+X-Google-Smtp-Source: AMsMyM4eO4wJD1Tph72cpS3Tu4WeRCNsKKNFJvG9INUyvNlGo/V8rCuQUxp3UVMSI2sC08JyA1nOZIKcSHKmcw0K64I=
+X-Received: by 2002:a05:6870:5803:b0:12c:c3e0:99dc with SMTP id
+ r3-20020a056870580300b0012cc3e099dcmr1729011oap.19.1663458582351; Sat, 17 Sep
+ 2022 16:49:42 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAJF2gTRCkNHdE+JoLV=T7_D0eTaxDdjzoJ5fCJnUB_-ED+CrfA@mail.gmail.com>
+ <20220917183849.589593-1-guoren@kernel.org>
+In-Reply-To: <20220917183849.589593-1-guoren@kernel.org>
+From: Guo Ren <guoren@kernel.org>
+Date: Sun, 18 Sep 2022 07:49:29 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRwH33CcRDOy3ngQ6KCTOLAR6VNdBOOT+eykBCoLojjQg@mail.gmail.com>
+Message-ID: <CAJF2gTRwH33CcRDOy3ngQ6KCTOLAR6VNdBOOT+eykBCoLojjQg@mail.gmail.com>
+Subject: Re: [PATCH RFC v2 riscv/for-next 5/5] riscv: align arch_static_branch function
+To: guoren@kernel.org
+Cc: andy.chiu@sifive.com, aou@eecs.berkeley.edu, ardb@kernel.org, 
+	greentime.hu@sifive.com, jbaron@akamai.com, jpoimboe@kernel.org, 
+	kernel@esmil.dk, linux-riscv@lists.infradead.org, mingo@redhat.com, 
+	palmer@dabbelt.com, paul.walmsley@sifive.com, peterz@infradead.org, 
+	rostedt@goodmis.org, zong.li@sifive.com, Guo Ren <guoren@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220917_141635_315298_D973060B 
-X-CRM114-Status: GOOD (  32.89  )
+X-CRM114-CacheID: sfid-20220917_164947_577503_346F622E 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,284 +79,148 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 Sep 2022 03:13:12 PDT (-0700), vladimir.isaev@syntacore.com wrote:
-> It is possible to have more than one mm (init_mm) during memory
-> permission fixes. In my case it was caused by request_module
-> from drivers/net/phy/phy_device.c and leads to following Oops
-> during free_initmem() on RV32 platform:
->      Unable to handle kernel paging request at virtual address c0800000
->      Oops [#1]
->      Modules linked in:
->      CPU: 0 PID: 1 Comm: swapper Not tainted 5.15.45
->      Hardware name: Syntacore SCR5 SDK board (DT)
->      epc : __memset+0x58/0xf4
->       ra : free_reserved_area+0xfa/0x15a
->      epc : c02b26ac ra : c00eb588 sp : c1c1fed0
->       gp : c1898690 tp : c1c98000 t0 : c0800000
->       t1 : ffffffff t2 : 00000000 s0 : c1c1ff20
->       s1 : c189a000 a0 : c0800000 a1 : cccccccc
->       a2 : 00001000 a3 : c0801000 a4 : 00000000
->       a5 : 00800000 a6 : fef09000 a7 : 00000000
->       s2 : c0e57000 s3 : c10edcf8 s4 : 000000cc
->       s5 : ffffefff s6 : c188a9f4 s7 : 00000001
->       s8 : c0800000 s9 : fef1b000 s10: c10ee000
->       s11: c189a000 t3 : 00000000 t4 : 00000000
->       t5 : 00000000 t6 : 00000001
->      status: 00000120 badaddr: c0800000 cause: 0000000f
->      [<c0488658>] free_initmem+0x204/0x222
->      [<c048d05a>] kernel_init+0x32/0xfc
->      [<c0002f76>] ret_from_exception+0x0/0xc
->      ---[ end trace 7a5e2b002350b528 ]---
+On Sun, Sep 18, 2022 at 2:39 AM <guoren@kernel.org> wrote:
 >
-> This is because request_module attempted to modprobe module, so it created
-> new mm with the copy of kernel's page table. And this copy won't be updated
-> in case of 4M pages and RV32 (pgd is the leaf).
+> From: Guo Ren <guoren@linux.alibaba.com>
 >
-> To fix this we can update protection bits for all of existing mm-s, the
-> same as ARM does, see commit 08925c2f124f
-> ("ARM: 8464/1: Update all mm structures with section adjustments").
+> Reduce size of static branch.
 >
-> Fixes: 19a00869028f ("RISC-V: Protect all kernel sections including init early")
-> Signed-off-by: Vladimir Isaev <vladimir.isaev@syntacore.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
 > ---
-> Changes for v3:
->   - Add WARN_ON(state != SYSTEM_FREEING_INITMEM) to fix_kernel_mem_early()
->     to make sure that the function used only during permission fixes.
->   - Add comment to fix_kernel_mem_early().
+>  arch/riscv/include/asm/jump_label.h | 17 ++++++++++-----
+>  arch/riscv/kernel/jump_label.c      | 32 +++++++++++++++++++++++++++++
+>  2 files changed, 44 insertions(+), 5 deletions(-)
 >
-> Changes for v2:
->   - Fix commit message format.
->   - Add 'Fixes' tag.
-> ---
->  arch/riscv/include/asm/set_memory.h | 20 ++--------
->  arch/riscv/kernel/setup.c           | 11 -----
->  arch/riscv/mm/init.c                | 29 +++++++++++---
->  arch/riscv/mm/pageattr.c            | 62 +++++++++++++++++++++++++----
->  4 files changed, 82 insertions(+), 40 deletions(-)
+> diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
+> index 38af2ec7b9bf..78f747dfa8a2 100644
+> --- a/arch/riscv/include/asm/jump_label.h
+> +++ b/arch/riscv/include/asm/jump_label.h
+> @@ -12,17 +12,21 @@
+>  #include <linux/types.h>
+>  #include <asm/asm.h>
 >
-> diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-> index a2c14d4b3993..bb0f6b4ed86b 100644
-> --- a/arch/riscv/include/asm/set_memory.h
-> +++ b/arch/riscv/include/asm/set_memory.h
-> @@ -16,28 +16,16 @@ int set_memory_rw(unsigned long addr, int numpages);
->  int set_memory_x(unsigned long addr, int numpages);
->  int set_memory_nx(unsigned long addr, int numpages);
->  int set_memory_rw_nx(unsigned long addr, int numpages);
-> -static __always_inline int set_kernel_memory(char *startp, char *endp,
-> -					     int (*set_memory)(unsigned long start,
-> -							       int num_pages))
-> -{
-> -	unsigned long start = (unsigned long)startp;
-> -	unsigned long end = (unsigned long)endp;
-> -	int num_pages = PAGE_ALIGN(end - start) >> PAGE_SHIFT;
-> -
-> -	return set_memory(start, num_pages);
-> -}
-> +void fix_kernel_mem_early(char *startp, char *endp, pgprot_t set_mask,
-> +			  pgprot_t clear_mask);
->  #else
->  static inline int set_memory_ro(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_rw(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_x(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_nx(unsigned long addr, int numpages) { return 0; }
->  static inline int set_memory_rw_nx(unsigned long addr, int numpages) { return 0; }
-> -static inline int set_kernel_memory(char *startp, char *endp,
-> -				    int (*set_memory)(unsigned long start,
-> -						      int num_pages))
-> -{
-> -	return 0;
-> -}
-> +static inline void fix_kernel_mem_early(char *startp, char *endp,
-> +					pgprot_t set_mask, pgprot_t clear_mask) { }
->  #endif
+> +#ifdef CONFIG_RISCV_ISA_C
+> +#define JUMP_LABEL_NOP_SIZE 2
+> +#else
+>  #define JUMP_LABEL_NOP_SIZE 4
+> +#endif
 >
->  int set_direct_map_invalid_noflush(struct page *page);
-> diff --git a/arch/riscv/kernel/setup.c b/arch/riscv/kernel/setup.c
-> index 95ef6e2bf45c..17eae1406092 100644
-> --- a/arch/riscv/kernel/setup.c
-> +++ b/arch/riscv/kernel/setup.c
-> @@ -27,7 +27,6 @@
->  #include <asm/early_ioremap.h>
->  #include <asm/pgtable.h>
->  #include <asm/setup.h>
-> -#include <asm/set_memory.h>
->  #include <asm/sections.h>
->  #include <asm/sbi.h>
->  #include <asm/tlbflush.h>
-> @@ -318,13 +317,3 @@ static int __init topology_init(void)
->  	return 0;
->  }
->  subsys_initcall(topology_init);
-> -
-> -void free_initmem(void)
-> -{
-> -	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX))
-> -		set_kernel_memory(lm_alias(__init_begin), lm_alias(__init_end),
-> -				  IS_ENABLED(CONFIG_64BIT) ?
-> -					set_memory_rw : set_memory_rw_nx);
-> -
-> -	free_initmem_default(POISON_FREE_INITMEM);
-> -}
-> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
-> index b56a0a75533f..978202712535 100644
-> --- a/arch/riscv/mm/init.c
-> +++ b/arch/riscv/mm/init.c
-> @@ -16,7 +16,6 @@
->  #include <linux/of_fdt.h>
->  #include <linux/of_reserved_mem.h>
->  #include <linux/libfdt.h>
-> -#include <linux/set_memory.h>
->  #include <linux/dma-map-ops.h>
->  #include <linux/crash_dump.h>
->  #include <linux/hugetlb.h>
-> @@ -28,6 +27,7 @@
->  #include <asm/io.h>
->  #include <asm/ptdump.h>
->  #include <asm/numa.h>
-> +#include <asm/set_memory.h>
->
->  #include "../kernel/head.h"
->
-> @@ -714,10 +714,14 @@ static __init pgprot_t pgprot_from_va(uintptr_t va)
->
->  void mark_rodata_ro(void)
+>  static __always_inline bool arch_static_branch(struct static_key *key,
+>                                                bool branch)
 >  {
-> -	set_kernel_memory(__start_rodata, _data, set_memory_ro);
-> -	if (IS_ENABLED(CONFIG_64BIT))
-> -		set_kernel_memory(lm_alias(__start_rodata), lm_alias(_data),
-> -				  set_memory_ro);
-> +	pgprot_t set_mask = __pgprot(_PAGE_READ);
-> +	pgprot_t clear_mask = __pgprot(_PAGE_WRITE);
-> +
-> +	fix_kernel_mem_early(__start_rodata, _data, set_mask, clear_mask);
-> +	if (IS_ENABLED(CONFIG_64BIT)) {
-> +		fix_kernel_mem_early(lm_alias(__start_rodata), lm_alias(_data),
-> +				     set_mask, clear_mask);
-> +	}
->
->  	debug_checkwx();
->  }
-> @@ -1243,3 +1247,18 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->  	return vmemmap_populate_basepages(start, end, node, NULL);
->  }
->  #endif
-> +
-> +void free_initmem(void)
-> +{
-> +	pgprot_t set_mask = __pgprot(_PAGE_READ | _PAGE_WRITE);
-> +	pgprot_t clear_mask = IS_ENABLED(CONFIG_64BIT) ?
-> +			      __pgprot(0) : __pgprot(_PAGE_EXEC);
-> +
-> +	if (IS_ENABLED(CONFIG_STRICT_KERNEL_RWX)) {
-> +		fix_kernel_mem_early(lm_alias(__init_begin),
-> +				     lm_alias(__init_end),
-> +				     set_mask, clear_mask);
-> +	}
-> +
-> +	free_initmem_default(POISON_FREE_INITMEM);
-> +}
-> diff --git a/arch/riscv/mm/pageattr.c b/arch/riscv/mm/pageattr.c
-> index 5e49e4b4a4cc..74b8107ac743 100644
-> --- a/arch/riscv/mm/pageattr.c
-> +++ b/arch/riscv/mm/pageattr.c
-> @@ -5,6 +5,7 @@
->
->  #include <linux/pagewalk.h>
->  #include <linux/pgtable.h>
-> +#include <linux/sched.h>
->  #include <asm/tlbflush.h>
->  #include <asm/bitops.h>
->  #include <asm/set_memory.h>
-> @@ -104,24 +105,69 @@ static const struct mm_walk_ops pageattr_ops = {
->  	.pte_hole = pageattr_pte_hole,
->  };
->
-> -static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
-> -			pgprot_t clear_mask)
-> +static int __set_memory_mm(struct mm_struct *mm, unsigned long start,
-> +			   unsigned long end, pgprot_t set_mask,
-> +			   pgprot_t clear_mask)
+>         asm_volatile_goto(
+> -               "       .option push                            \n\t"
+> -               "       .option norelax                         \n\t"
+> -               "       .option norvc                           \n\t"
+> +#ifdef CONFIG_RISCV_ISA_C
+> +               "1:     c.nop                                   \n\t"
+> +#else
+>                 "1:     nop                                     \n\t"
+> -               "       .option pop                             \n\t"
+> +#endif
+>                 "       .pushsection    __jump_table, \"aw\"    \n\t"
+>                 "       .align          " RISCV_LGPTR "         \n\t"
+>                 "       .long           1b - ., %l[label] - .   \n\t"
+> @@ -39,11 +43,14 @@ static __always_inline bool arch_static_branch_jump(struct static_key *key,
+>                                                     bool branch)
 >  {
->  	int ret;
-> -	unsigned long start = addr;
-> -	unsigned long end = start + PAGE_SIZE * numpages;
->  	struct pageattr_masks masks = {
->  		.set_mask = set_mask,
->  		.clear_mask = clear_mask
->  	};
+>         asm_volatile_goto(
+> +#ifdef CONFIG_RISCV_ISA_C
+> +               "1:     c.j             %l[label]               \n\t"
+> +#else
+>                 "       .option push                            \n\t"
+>                 "       .option norelax                         \n\t"
+> -               "       .option norvc                           \n\t"
+>                 "1:     jal             zero, %l[label]         \n\t"
+>                 "       .option pop                             \n\t"
+> +#endif
+>                 "       .pushsection    __jump_table, \"aw\"    \n\t"
+>                 "       .align          " RISCV_LGPTR "         \n\t"
+>                 "       .long           1b - ., %l[label] - .   \n\t"
+> diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
+> index e6694759dbd0..64a4e5df093d 100644
+> --- a/arch/riscv/kernel/jump_label.c
+> +++ b/arch/riscv/kernel/jump_label.c
+> @@ -11,21 +11,52 @@
+>  #include <asm/bug.h>
+>  #include <asm/patch.h>
 >
-> +	mmap_read_lock(mm);
-> +	ret = walk_page_range_novma(mm, start, end, &pageattr_ops, NULL,
-> +				    &masks);
-> +	mmap_read_unlock(mm);
-> +
-> +	return ret;
-> +}
-> +
-> +void fix_kernel_mem_early(char *startp, char *endp, pgprot_t set_mask,
-> +			  pgprot_t clear_mask)
-> +{
-> +	struct task_struct *t, *s;
-> +
-> +	unsigned long start = (unsigned long)startp;
-> +	unsigned long end = PAGE_ALIGN((unsigned long)endp);
-> +
-> +	/*
-> +	 * In the SYSTEM_FREEING_INITMEM state we expect that all async code
-> +	 * is done and no new userspace task can be created.
-> +	 * So rcu_read_lock() should be enough here.
-> +	 */
-> +	WARN_ON(system_state != SYSTEM_FREEING_INITMEM);
-> +
-> +	__set_memory_mm(current->active_mm, start, end, set_mask, clear_mask);
-> +	__set_memory_mm(&init_mm, start, end, set_mask, clear_mask);
-> +
-> +	rcu_read_lock();
+> +#ifdef CONFIG_RISCV_ISA_C
+> +#define RISCV_INSN_C_NOP 0x0001U
+> +#define RISCV_INSN_C_JAL 0xa001U
+> +#else
+>  #define RISCV_INSN_NOP 0x00000013U
+>  #define RISCV_INSN_JAL 0x0000006fU
+> +#endif
+>
+>  void arch_jump_label_transform(struct jump_entry *entry,
+>                                enum jump_label_type type)
+>  {
+>         void *addr = (void *)jump_entry_code(entry);
+> +#ifdef CONFIG_RISCV_ISA_C
+> +       u16 insn;
+> +#else
+>         u32 insn;
+> +#endif
+>
+>         if (type == JUMP_LABEL_JMP) {
+>                 long offset = jump_entry_target(entry) - jump_entry_code(entry);
+> +#ifdef CONFIG_RISCV_ISA_C
+> +               if (WARN_ON(offset & 1 || offset < -2048 || offset >= 2048))
+> +                       return;
+>
+> +               /*
+> +                * 001 | imm[11|4|9:8|10|6|7|3:1|5] 01 - C.JAL
+> +                */
+> +               insn = RISCV_INSN_C_JAL |
+> +                       (((u16)offset & GENMASK(5, 5)) >> (5 - 2)) |
+> +                       (((u16)offset & GENMASK(3, 1)) << (3 - 1)) |
+> +                       (((u16)offset & GENMASK(7, 7)) >> (7 - 6)) |
+> +                       (((u16)offset & GENMASK(6, 6)) << (7 - 6)) |
+> +                       (((u16)offset & GENMASK(10, 10)) >> (10 - 8)) |
+> +                       (((u16)offset & GENMASK(9, 8)) << (9 - 8)) |
+> +                       (((u16)offset & GENMASK(4, 4)) << (11 - 4)) |
+> +                       (((u16)offset & GENMASK(11, 11)) << (12 - 11));
+> +       } else {
+> +               insn = RISCV_INSN_C_NOP;
+> +       }
+> +#else
+>                 if (WARN_ON(offset & 1 || offset < -524288 || offset >= 524288))
+For the unify, it also should be:
+if (WARN_ON(offset & 1 || offset < -2048 || offset >= 2048))
 
-Sorry for missing this earlier, but as Linus pointed out this doesn't 
-work: taking the mmap lock can sleep, which is illegal in an RCU read 
-critical section.  Given that we're not really worried about the 
-concurrency of this one because nothing else is really running, I don't 
-see any reason we can't just take tasklist_lock for reading.
 
-> +	for_each_process(t) {
-> +		if (t->flags & PF_KTHREAD)
-> +			continue;
-> +		for_each_thread(t, s) {
-> +			if (s->mm) {
-> +				__set_memory_mm(s->mm, start, end, set_mask,
-> +						clear_mask);
-> +			}
-> +		}
-> +	}
-> +	rcu_read_unlock();
-> +
-> +	flush_tlb_kernel_range(start, end);
-> +}
-> +
-> +static int __set_memory(unsigned long addr, int numpages, pgprot_t set_mask,
-> +			pgprot_t clear_mask)
-> +{
-> +	int ret;
-> +	unsigned long start = addr;
-> +	unsigned long end = start + PAGE_SIZE * numpages;
-> +
->  	if (!numpages)
->  		return 0;
+
+>                         return;
 >
-> -	mmap_read_lock(&init_mm);
-> -	ret =  walk_page_range_novma(&init_mm, start, end, &pageattr_ops, NULL,
-> -				     &masks);
-> -	mmap_read_unlock(&init_mm);
-> +	ret = __set_memory_mm(&init_mm, start, end, set_mask, clear_mask);
+> +               /*
+> +                * imm[20|10:1|11|19:12] | rd | 1101111 - JAL
+> +                */
+>                 insn = RISCV_INSN_JAL |
+>                         (((u32)offset & GENMASK(19, 12)) << (12 - 12)) |
+>                         (((u32)offset & GENMASK(11, 11)) << (20 - 11)) |
+> @@ -34,6 +65,7 @@ void arch_jump_label_transform(struct jump_entry *entry,
+>         } else {
+>                 insn = RISCV_INSN_NOP;
+>         }
+> +#endif
 >
->  	flush_tlb_kernel_range(start, end);
+>         mutex_lock(&text_mutex);
+>         patch_text_nosync(addr, &insn, sizeof(insn));
+> --
+> 2.36.1
+>
+
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
