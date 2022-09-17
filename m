@@ -4,73 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE10C54EE9
-	for <linux-riscv@archiver.kernel.org>; Sat, 17 Sep 2022 10:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D080C54EE9
+	for <linux-riscv@archiver.kernel.org>; Sat, 17 Sep 2022 10:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0EKSbR14x2SnHP45EszrvHn58PQ34+0U4TgjCdiGMNA=; b=KSTvkqNUPGe2IQ
-	huVJuLgZ99BhYdHEn2ttZZURuC3zqrMondpWTC+RRtAAK2qDhv4Yq1x0LTL+AIMD5Ug99wRwqxe3h
-	5KWw7+taeGLFs0wyuIk/ID1byI/qBwcpZLPqJQHg2dJGeKvJxCW/a6b3kTzmin6VuVEjuuTYTBIhC
-	7j2STo+cW0PmRJ9JZrtvtmzuJQrUhMpJ+SpnL1lzOoYKWXHHJYqw895jJXsrPacLmgzdf3vBIR0uZ
-	fVLf2Y85Rgwm417OzByXmtNZO141JqZ+d20sVTdBV39ozDMYGSLDv7EuOUo6YnIUti7t/8QvvVXHY
-	jEoKlYJkE5NXlTwwO7zg==;
+	List-Owner; bh=Z0xTWN5eLOcF+LaGs2DJz6oS2qMgxaM1fjm9McVHFmU=; b=qzOHV/aa6Nlwu6
+	xX+6MkyIBHN8y0povXCm0ZuWt6qpgsDpeaglOA3DpUjVjlXSXGHzyppNckkrNttewEi1vwhaYxIGF
+	JHg7oKykyra4cZzTnuq9BOWitdH3ER+2Fteqyl9FRSBrmspDfRPWGlOabgPDwXhkeLkL7JAYog3sL
+	Y3ulKQVCjMQMGay2tme2PK5eThbTUNU+8X/mIMUkLEfYOr/4sy6yiTJhfciZROdkJis6aCzoG1LCG
+	oatmpZh+VNiGjGQ1aawq8AZrRuzgbyVCMLmMSiAhuRBZ6wagiJq3RB3hkgq6I86ZBbHFDYxw3KXbt
+	/aGmZZt2kTdeFf4+qRuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZVUo-005JOp-Bg; Sat, 17 Sep 2022 10:56:26 +0000
-Received: from sin.source.kernel.org ([2604:1380:40e1:4800::1])
+	id 1oZVXh-005KJE-6t; Sat, 17 Sep 2022 10:59:25 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZVUk-005JMK-Vm
-	for linux-riscv@lists.infradead.org; Sat, 17 Sep 2022 10:56:25 +0000
+	id 1oZVXW-005KFP-BB; Sat, 17 Sep 2022 10:59:15 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 08BC1CE0B21
-	for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 10:56:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BCBDC433D6
-	for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 10:56:15 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 004F7B80D35;
+	Sat, 17 Sep 2022 10:59:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 655C9C43144;
+	Sat, 17 Sep 2022 10:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663412175;
-	bh=imPkTwUr/BJknZB2Of6dkP+YETKo59vkUK5b7mZx40Y=;
+	s=k20201202; t=1663412350;
+	bh=4YhfXXVITaxyZ7ickgJk1+TK+jaPswSVW817YmzQetg=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=GPnajZa3X911IWCzcYDWL54oXUK9TAIaaA6YWhzvsfXLtgP9/xklrxl+/XARqEKOp
-	 tbHOnvSH6UlqocOlIrGikdqvy4alaHZnSu6K+r9s/OOeMu3LBtix2Ld29n1WFu0B/g
-	 jJILG8VBJt6nNn9k5yyfLNHIXlMPLjWEnIU6PwSe4Yixd2X36mvk6kUQye+WkgmOTc
-	 Jw67DvbeIbZPbK/TYsJRiLt/USTsgvU1s1XLRbtQ6PvAWDlE4W9qq8Cnu1bDsZcdbO
-	 0hKErahlGmUN/DkiAKcwEfIeezfO4DLvYcdGJBQFd/u6s8UQUJo+pGD+fRxDJctTYL
-	 e0uD03MFa7tGA==
-Received: by mail-ot1-f51.google.com with SMTP id r22-20020a9d7516000000b00659ef017e34so1032006otk.13
-        for <linux-riscv@lists.infradead.org>; Sat, 17 Sep 2022 03:56:15 -0700 (PDT)
-X-Gm-Message-State: ACrzQf0clbokbutrCXDY/kvmVikds57hHzHe5nWbThO+6rzvW/1zqzCb
-	RqCIxkFI4YOCsPYuOJuqHkfJmu/epI1D7JU8R5c=
-X-Google-Smtp-Source: AMsMyM4ilhxVbaH4N8EuXOD33ZASVM4Nzjqzm/UuQPAAtY80oY5L0rg7eGn4lYZ+Cde8P3sejGm59av/ODO2Ev9LJX0=
-X-Received: by 2002:a05:6830:348f:b0:659:e2e4:54f8 with SMTP id
- c15-20020a056830348f00b00659e2e454f8mr2411156otu.140.1663412174504; Sat, 17
- Sep 2022 03:56:14 -0700 (PDT)
+	b=mlHCnKP0WB2uWbChrk4q6RL0Qx2r/gHQDC9oSJpxW2EbflDButPVeikbnLPDqRuAa
+	 uMBNIAxUK9YP6cJ8t088PZToAtuG+fNjSjR1cCN+UFjy1NSR4Fe+vii3eIQ++5/J2t
+	 G32gzhZbqibD7HIndba0d3nwaO6DhkgEj8JWwI484H7lSPNjcKiuf+lKgZzp145UKc
+	 /rWyFp393Jz382lw1mp0vKr2MFARtOSXzRJp2N2/VdtnThMFXTJB+055ZPSba5Qla3
+	 eNal325u2+WTwCZYezJX9gJTu2HlqZJ1v6xPyr5h7svm/gR+KopGdwkenk6Ht9hg4Y
+	 p3TMKbSRfTsXg==
+Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-1279948d93dso55519465fac.10;
+        Sat, 17 Sep 2022 03:59:10 -0700 (PDT)
+X-Gm-Message-State: ACgBeo2+E6sNbZYScfyvqhRp3UnY+fFbfmb2t8IhVWcMpaHAqQumMkjx
+	qZKlVmk6oY6zf0b5umvEWvlHmKGIq2PEcGnHh6s=
+X-Google-Smtp-Source: AA6agR4sClFlGuDsJqtKaYj0hkDas61Hr4pLmOYJ+LWicDByGyz5Jc5/SoMTyBglnH1gA6Au8ZBBCEB98KwdYTTgtGU=
+X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
+ x14-20020a056870a78e00b0012b542be5b2mr10590424oao.112.1663412349408; Sat, 17
+ Sep 2022 03:59:09 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220913094252.3555240-1-andy.chiu@sifive.com>
- <20220913094252.3555240-4-andy.chiu@sifive.com> <CAJF2gTSn3_cDYsF9D8dt-br2Wf_M8y02A09xgRq8kXi91sN3Aw@mail.gmail.com>
- <CABgGipWBOZx+c0i5B9xArTRxa6-4yAbeByWXr7v8MSf7AATfxg@mail.gmail.com>
-In-Reply-To: <CABgGipWBOZx+c0i5B9xArTRxa6-4yAbeByWXr7v8MSf7AATfxg@mail.gmail.com>
+References: <20220917015522.44583-1-zouyipeng@huawei.com>
+In-Reply-To: <20220917015522.44583-1-zouyipeng@huawei.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Sat, 17 Sep 2022 18:56:02 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTBcUma_umYg_3HxoQsZgPuPVZP0L1mpdkm9-x3LuhNoQ@mail.gmail.com>
-Message-ID: <CAJF2gTTBcUma_umYg_3HxoQsZgPuPVZP0L1mpdkm9-x3LuhNoQ@mail.gmail.com>
-Subject: Re: [PATCH RFC v2 riscv/for-next 3/5] riscv: ftrace: use indirect
- jump to work with kernel preemption
-To: Andy Chiu <andy.chiu@sifive.com>
-Cc: palmer@dabbelt.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu, 
-	rostedt@goodmis.org, mingo@redhat.com, peterz@infradead.org, 
-	jpoimboe@kernel.org, jbaron@akamai.com, ardb@kernel.org, 
-	greentime.hu@sifive.com, zong.li@sifive.com, kernel@esmil.dk, 
-	linux-riscv@lists.infradead.org, Jim Shu <jim.shu@sifive.com>, 
-	Ruinland Tsai <ruinland.tsai@sifive.com>
+Date: Sat, 17 Sep 2022 18:58:56 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRDspQZUZk=KAC_P+YCr=86o4EgOGAVGcB1kdgsymhyVQ@mail.gmail.com>
+Message-ID: <CAJF2gTRDspQZUZk=KAC_P+YCr=86o4EgOGAVGcB1kdgsymhyVQ@mail.gmail.com>
+Subject: Re: [PATCH 0/2] make weak attributes in {k,u}probes
+To: Yipeng Zou <zouyipeng@huawei.com>
+Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-csky@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-s390@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	hca@linux.ibm.com, gor@linux.ibm.com, borntraeger@linux.ibm.com, 
+	dave.hansen@linux.intel.com, hpa@zytor.com, naveen.n.rao@linux.ibm.com, 
+	anil.s.keshavamurthy@intel.com, mhiramat@kernel.org, namit@vmware.com, 
+	catalin.marinas@arm.com, peterz@infradead.org, mark.rutland@arm.com, 
+	liaochang1@huawei.com, chris.zjh@huawei.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220917_035623_899600_54295841 
-X-CRM114-Status: GOOD (  23.38  )
+X-CRM114-CacheID: sfid-20220917_035914_540430_EBA018F8 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,59 +86,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Sep 17, 2022 at 9:04 AM Andy Chiu <andy.chiu@sifive.com> wrote:
->
-> Hi Guo,
->
-> On Wed, Sep 14, 2022 at 2:45 PM Guo Ren <guoren@kernel.org> wrote:
-> >
-> > I really appreciate you finding the bug, great job.
->
-> Thanks, :)
->
-> >
-> > On Tue, Sep 13, 2022 at 5:44 PM Andy Chiu <andy.chiu@sifive.com> wrote:
->
-> Consider this case happens on a preemptive kernel, with stop_machine.
-> And all of stop_machine's sub-functions were marked as no trace.
->
-> > > p: patched area performed by dynamic ftrace
-> > > ftrace_prologue:
-> > > p|      REG_S   ra, -SZREG(sp)
-> > > p|      auipc   ra, 0x? ------------> preempted
-> > >                                         ...
-> > >                                 change ftrace function
-> > >                                         ...
-> > > p|      jalr    -?(ra) <------------- switched back
-> >
-> > When auipc + jalr -> nop, is safe, right? Because when switched back,
-> > jalr -> nop.
-> > When nop -> auipc + jalr, is buggy, right? Because when switched back,
-> > nop -> jalr, the ra's value is not expected.
-> >
-> > Some machines with instruction fusion won't be affected, because they
-> > would merge auipc + jalr into one macro-op.
->
-> This might not be safe as well, if auipc and jalr happened to sit on a
-> different cache line. And if there were a cache hit for the line
-> having the auipc and miss for the jalr after switching back. I do not
-> really sure if this is possible in practice.
-That's mico-arch bug, hardware should guarantee it. IFU always emits
-the macro-op after getting "auipc + <next insn>" or emits separately.
+It's a riskless cleanup.
 
->
-> > Qemu shouldn't be broken, because auipc + jalr is always in the same
-> > tcg block, so no chance for interruption between them.
->
-> In fact, qemu is broken. I had not thought of that before I got your
-> reply. But I believe that there is a size limit for each tcg block,
-> and the auipc and jalr just locate in a separate tcg block.
-Yes, you are right. They could be located in different TCG blocks.
+Acked-by: Guo Ren <guoren@kernel.org>
 
+On Sat, Sep 17, 2022 at 9:59 AM Yipeng Zou <zouyipeng@huawei.com> wrote:
 >
-> Regards,
-> Andy
-
+> We have some function implementation under some arch does nothing.
+> We can mark it with weak attributes to improve.
+> 1. arch_init_kprobes in kprobes
+> 2. arch_uprobe_exception_notify in uprobes
+>
+> Yipeng Zou (2):
+>   kprobes: make arch_init_kprobes as weak
+>   uprobes: make arch_uprobe_exception_notify as weak
+>
+>  arch/arm/probes/uprobes/core.c     | 6 ------
+>  arch/arm64/kernel/probes/uprobes.c | 6 ------
+>  arch/csky/kernel/probes/kprobes.c  | 5 -----
+>  arch/csky/kernel/probes/uprobes.c  | 6 ------
+>  arch/riscv/kernel/probes/kprobes.c | 5 -----
+>  arch/riscv/kernel/probes/uprobes.c | 6 ------
+>  arch/s390/kernel/kprobes.c         | 5 -----
+>  arch/x86/kernel/kprobes/core.c     | 5 -----
+>  kernel/events/uprobes.c            | 6 ++++++
+>  kernel/kprobes.c                   | 5 +++++
+>  10 files changed, 11 insertions(+), 44 deletions(-)
+>
+> --
+> 2.17.1
+>
 
 
 -- 
