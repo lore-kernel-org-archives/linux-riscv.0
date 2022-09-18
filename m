@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22B97C54EE9
-	for <linux-riscv@archiver.kernel.org>; Sun, 18 Sep 2022 09:57:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25AE4C32771
+	for <linux-riscv@archiver.kernel.org>; Sun, 18 Sep 2022 10:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xllt7QjqmqZ6ADrrAJ54xYA+EPnTUlEr1qORPYB4MRs=; b=kwD1WYCPInEflM
-	t0Qkcf8NfdEH4+U5c2I2H16I1PSyCEq2xHyHv91nGPowLHg8xDsSQJkbqW8uiEuaY1++QPh966BGg
-	nhECErwPZ+Pm6GC5snmvAA4MwSpIWtcAEZpGxL5lBBKE+5SU+n/YMfpMI5ko1eaybbtzNC66/opJd
-	KIv2qKSQ57tkNLqUPaP0uZylzTv/G1plge122Pj6Df0OQdj33bwhHgpOeE6nlMBQFX1AzfLdeW4SU
-	dRv2Bo30bnoKRCvTtF94aajBkY+jyr3T1DyXHx2UAA4CU9Y49Ijt1C00LnQxUidQfYHg8J/Aiz55f
-	4XUXLmzI9HhtIWNUotCg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=hLElIX7As+1E2NgQnciVFljQcZKWQugYb1yHyOj7Qqw=; b=wyWaR8qo0+8WIb1qNIcXruIRbx
+	y13b+mOtuoJXhqR7C2tswKN+cLHOz5Ntb/P5BxlS48CP4EDYzkyz/w+hFpMaKQRgDlPW7MfggHuMh
+	P3xbcQjymyjTJfVHmW4cWl0BEYljumZr1Xbo+gRfbFhxLZDnNwW9EyYjukv1VNTVp5Bl4LvPpLieq
+	l9aC1Buanl1uyAbaaUFmfeKM+NzUb3izh5Jxp3yPoCigEbZ/TkWTDpXJPsVTWUP7k4dIpfyNoiJX9
+	zf2a487boru7B6j2KGMDA1ABvju2+bXjkocSjEIqhe9kly3FxaUK7MF4DTjzOO9revU/Kyu4yjddF
+	Rhb9QekA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZr3C-00EZUG-RK; Sun, 18 Sep 2022 09:57:22 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oZrBQ-00Eeg1-9k; Sun, 18 Sep 2022 10:05:52 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oZr39-00EZR8-O2
-	for linux-riscv@lists.infradead.org; Sun, 18 Sep 2022 09:57:21 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 1B95CB80EBB;
-	Sun, 18 Sep 2022 09:57:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD0BEC433D6;
-	Sun, 18 Sep 2022 09:57:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663495035;
-	bh=662Chcy7L1akvQ6aW/SpBa6YwTlLykZLOmsj/8yptWg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qiit0wz0ORWfshCnngu5Iun9zHJ8WFOyqilV1S3mjMVm05Ujce61eO67vuNG4IQBI
-	 U7X8BFBqAKzLShKbSAH7rZObvsTkZPAuMuqDnLDdtzE9EaLH2ngD2TrE23QbJ5aAwm
-	 2i/9LsMy6sg46qzI0n4WYHq+gbl/UhqTMwQCLPMzG8mUGEjCs09Tf2GfUpiHgQuq5g
-	 6h01masG+04iw0dJOkQ72NpeZAysTjKp5aOIhcks1C82e3YaIyY4dQoP/eMlxCNPB6
-	 GVARzokGTJPA/TUpJ3d/pY7yHsgyOS6fNwJUoAaMn0+48TPOdBlBHAMSeSd7cqeDSY
-	 Y/H9ySiYXa/vw==
-Date: Sun, 18 Sep 2022 10:57:11 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@rivosinc.com>,
-	Nathan Chancellor <nathan@kernel.org>
-Cc: maskray@google.com, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2/RESEND] riscv: Pass -mno-relax only on lld < 15.0.0
-Message-ID: <Yybrd99HuLs3ulmy@spud>
-References: <20220918092933.19943-1-palmer@rivosinc.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220918092933.19943-1-palmer@rivosinc.com>
+	id 1oZrBN-00Eed5-GT
+	for linux-riscv@lists.infradead.org; Sun, 18 Sep 2022 10:05:51 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id c24so3784571plo.3
+        for <linux-riscv@lists.infradead.org>; Sun, 18 Sep 2022 03:05:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date;
+        bh=d/wxx4iWyVgQOkswP2hVsavkLpdK+7bXx+tSZhX51o0=;
+        b=peuct5ZyDpnnGsosOiZzuaf8D7N7LI9gIpMPjlEX0FzOOn1+dmtES5ugGR9SKR3W3L
+         /TggSWme2mTnAhoPHbeXtejFdeZPetfRCOuvhEY4mVOtJgv8ym0vQQhBcijQUpoGKdq+
+         dz/dSZaRy6ZqfXA4vcPVPGmGGYr8PZ2YMEo6DuFYIdjX7mMKRUKIQB/D6qHeIy+LniCD
+         jyLC0vZEpa5lEt8KGQw7jDIW0LEnKItXHz2aDqrGt94mdqs4tPk2Y4gWsPgRzr2elhAd
+         PB80l1yNzo2MPYC3WUDxRG00sASezsW9ys8Cri9yeTZ+G4NudGAdi1/xsjybe4R3iaC5
+         Yq2Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date;
+        bh=d/wxx4iWyVgQOkswP2hVsavkLpdK+7bXx+tSZhX51o0=;
+        b=mj/wzgjJyraPfayBQdG9sqp5482sC9zq8A5Q3Gk3AQ/MA6l1GsCG/VNKITzhA9MDIk
+         4iZPKA4MC3VSLr7z3UjLbVRJ6weLrPmRfbY5YhMH9DOjDQQAKQ4rvM3mXjOWEsfnGU9Q
+         0dqOVLD4hR3RT2Kq/0W38nts5zm8DZwbSqH0eStFVtzRg2PUPRqZHbIxZfZImbYv2EoR
+         4w9yozITIy9Vc261I0FfeNanxZAlnVkKvh+39fFg361Qz2veakOrZsbOZgGwvVTktn/Y
+         QfFbhuFMWoJ3NNt3OLdqFQ6XfV2twqjjb5uQx43aZsFrbwA92Zb2AxcRYVcUFVlEaSSS
+         L2LA==
+X-Gm-Message-State: ACrzQf28GgEuCiyVCKVAb1K5RWKAMJEnOjCtCl3TyS+s9tD2MX7zQ+I1
+	NbuyaSGXrabn9yfmjSC56AFCtg==
+X-Google-Smtp-Source: AMsMyM4h5IDMu3QiJCBrIJE4G+mnm4sAC9KP0Nq9Z8Mg3ntGP4YB4fk85xdOHPGP1W3cMesVpzRCLA==
+X-Received: by 2002:a17:903:124e:b0:178:6946:a2ba with SMTP id u14-20020a170903124e00b001786946a2bamr7891419plh.89.1663495548260;
+        Sun, 18 Sep 2022 03:05:48 -0700 (PDT)
+Received: from localhost (vpn-konference.ms.mff.cuni.cz. [195.113.20.101])
+        by smtp.gmail.com with ESMTPSA id d2-20020a170902cec200b0015e8d4eb219sm18366335plg.99.2022.09.18.03.05.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 18 Sep 2022 03:05:47 -0700 (PDT)
+Date: Sun, 18 Sep 2022 03:05:47 -0700 (PDT)
+X-Google-Original-Date: Sun, 18 Sep 2022 03:05:41 PDT (-0700)
+Subject: Re: [PATCH v4] riscv: Fix permissions for all mm's during mm init
+In-Reply-To: <CAHk-=wg0vQFgiBEuJKHzxrS8JB=CxJFNf5WgtaofRn+bqs65oA@mail.gmail.com>
+CC: vladimir.isaev@syntacore.com, linux-riscv@lists.infradead.org,
+  linux-arch@vger.kernel.org, ajones@ventanamicro.com, conor.dooley@microchip.com
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-16e91ca9-0ee8-4103-845e-56e9b394cae0@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220918_025720_087168_E31A1E34 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20220918_030549_572539_7F2EB298 
+X-CRM114-Status: GOOD (  16.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,79 +82,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 18, 2022 at 02:29:34AM -0700, Palmer Dabbelt wrote:
-> From: Fangrui Song <maskray@google.com>
-> 
-> lld since llvm:6611d58f5bbc ("[ELF] Relax R_RISCV_ALIGN"), which will be
-> included in the 15.0.0 release, has implemented some RISC-V linker
-> relaxation.  -mno-relax is no longer needed in
-> KBUILD_CFLAGS/KBUILD_AFLAGS to suppress R_RISCV_ALIGN which older lld
-> can not handle:
-> 
->     ld.lld: error: capability.c:(.fixup+0x0): relocation R_RISCV_ALIGN
->     requires unimplemented linker relaxation; recompile with -mno-relax
->     but the .o is already compiled with -mno-relax
-> 
-> Signed-off-by: Fangrui Song <maskray@google.com>
-> Link: https://lore.kernel.org/r/20220710071117.446112-1-maskray@google.com/
-> Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
-> Tested-by: Nick Desaulniers <ndesaulniers@google.com>
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
-> Fanguri poked me about this one on IRC, I'm not sure what happened but
-> it didn't make it to my inbox (and neither did the replies, which is
-> kind of scary).  Rather that trying to resurrect that thread from lore,
-> I figured it would be best to just send the v2 as the commit message
-> needed a bit of cleanup.
+On Sat, 17 Sep 2022 11:58:48 PDT (-0700), Linus Torvalds wrote:
+> Sorry for html crud, I'm afk right now.
+>
+> But no, this does not help at all.
+>
+> Now you're doing a blocking semaphore operation under a spinning rwlock
+> instead.
+>
+> Which also is completely invalid.
+>
+> Your can't do blocking locks in atomic context, and it doesn't matter
+> whether the atomic context is a rcu read section or a spin lock.
 
-One of the replies was a T-b from Nathan:
-https://lore.kernel.org/linux-riscv/YsxfiKC%2FZBr7U7qI@dev-arch.thelio-3990X/
-dunno if you wanna pick that up or he wants to resend..
+OK, sorry for screwing up a second time.  I'll go try and make sure we 
+get this right before sending anything up.  Vladimir: I'll just take 
+this one over and send a v5, I'll find some time this week to make sure 
+I can get it right this time.
 
-I gave it a whirl too, so:
-Tested-by: Conor Dooley <conor.dooley@microchip.com>
+Sorry for the mess!
 
-> 
-> Changes since v1 <20220710071117.446112-1-maskray@google.com>:
-> 
-> * Clean up the commit message a bit.
-> ---
->  arch/riscv/Makefile | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 3fa8ef336822..e7d52a2301e2 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -37,6 +37,7 @@ else
->  endif
->  
->  ifeq ($(CONFIG_LD_IS_LLD),y)
-> +ifeq ($(shell test $(CONFIG_LLD_VERSION) -lt 150000; echo $$?),0)
->  	KBUILD_CFLAGS += -mno-relax
->  	KBUILD_AFLAGS += -mno-relax
->  ifndef CONFIG_AS_IS_LLVM
-> @@ -44,6 +45,7 @@ ifndef CONFIG_AS_IS_LLVM
->  	KBUILD_AFLAGS += -Wa,-mno-relax
->  endif
->  endif
-> +endif
->  
->  # ISA string setting
->  riscv-march-$(CONFIG_ARCH_RV32I)	:= rv32ima
-> -- 
-> 2.34.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> Stop making random locking changes like this. And enable lockdep and the
+> lock verification that would have told you all this immediately.
+>
+>        Linus
+>
+>
+> On Sat, Sep 17, 2022, 11:48 Vladimir Isaev <vladimir.isaev@syntacore.com>
+> wrote:
+>
+>> );
+>> +
+>> +       read_lock(&tasklist_lock);
+>> +       for_each_process(t) {
+>> +               if (t->flags & PF_KTHREAD)
+>> +                       continue;
+>> +               for_each_thread(t, s) {
+>> +                       if (s->mm) {
+>> +                               __set_memory_mm(s->mm, start, end,
+>> set_mask,
+>> +                                               clear_mask);
+>> +                       }
+>> +               }
+>> +       }
+>> +       read_unlock(&tasklist_lock);
+>>
 
 _______________________________________________
 linux-riscv mailing list
