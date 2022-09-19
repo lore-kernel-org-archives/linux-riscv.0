@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5184C54EE9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:11:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A75F9ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=myWSMPOorSrJQ7AYlaubPyLeCjXV+kU6hIEXm2Lenr4=; b=zvTVBwndHe1qYP
-	92urXqu8B2C5/2Q5JAH37tEunrLcJlo+Aao7ludSguYqMuyB7jwEe1ZbKJGfpHgM3zl8dyT2JiaB7
-	FjRthp6BxIR0/Ae1YnLd7xjnffjiHB5sxifiUGOhrkQUhz4SyBeO5qqqbBw7ZM4fILOlg/tO7rmXr
-	lEDJfA/Qj/XZ5swnrvSosFIFiYmBXVY1bqxLI65eChEl0PLE7spiWMrNOrl5ctlZCQWJ/AlIlqn08
-	iEaEdZEYmhActYmzoEjyPkZPurHzQWsSJNtGelfI0mX0dASOMwWyEMTjlVn2Qx/8xs/aniZ7m4ck1
-	7PZoYVfSR0VnYfbDNEHw==;
+	List-Owner; bh=39QGt3G/LtDyCjRnvpbFTT6qrDPVanevv02UuYOXD2c=; b=r41c9vnbbFb8dc
+	eQUomp3KSUFK96aKhYT0AyPbe0L+vE3US4rtMn9gbZ4pzgClf8iVDMWFEmi7cy9UvMzVn3ydFYpGB
+	0y42SqTtuZMQB58yhvhrOjZ0SPEB6U8Gwc0mgDTSq9mcWzI7Paho6jrWdCPRcL6OzQv2+SJKkUpqz
+	HsPb2M8HBIU+kkf6SRcS2k+5MqjHHxEsK/uu2RpOzN7qwvKgFZRG++pQXnVGnqKyioMpR4YZyDUCa
+	67b0ENf6r90gBwQ4Y/OGKl+oizyMSpqNhCD4IYVuOipx75dwtXOJw3Iff9jDKRWqaxK/9w+FRCTms
+	7ahBQfRX1mTWXxRd0gNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaIQs-00CH93-V8; Mon, 19 Sep 2022 15:11:39 +0000
+	id 1oaIR2-00CHH9-Aw; Mon, 19 Sep 2022 15:11:48 +0000
 Received: from casper.infradead.org ([90.155.50.34])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaDxk-00BKh3-GV; Mon, 19 Sep 2022 10:25:16 +0000
+	id 1oaDxl-00BKh3-1M; Mon, 19 Sep 2022 10:25:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=lz2MUgDITA4yYb0U+PMz5bsqmEWyVbYbLXt1grP5wdc=; b=Ar3SSe6jGzhlo51swtos76SPi5
-	KuXiRdUWOAjPO/7yHktzfu7OKsDupFAe1VyTEvf67R959dkaj3lnutywtrGNQ0FzD/kNFsrr509Ol
-	zCeztFFINukgQV77MStFwTBM6NB5gODfSAMQV0ab4J8PYg50wlMVVWpd1kiGu7U8DRaIp+zHcs+RC
-	PjkRcfkfDYWB0AK6OHFlYRr5i/D8rJ2O9Fn8FR5c9e91JSkQQbvYD04el9uJ6G/zT187YlaZEV6+6
-	ydgW5aWT5A6QsIVhzK5tAMASoG08AhjIZeNftBw/Sz9H57WdXd5ra4ngtoCCTH6Mr/DQhofJt1LqB
-	c7+wxSkw==;
+	bh=VPG6Pv8mWlQqWm+kW/xAIKtiRyMjOEN9R6RnNMCwxdw=; b=Ca5aS96cYfllCWW4NedYRctlyO
+	gIiKYs+tVjR65pA5uFipueivu4K8pqduCvewON4kFVB2LMS+i5eIb/U6nldhQIDn+r9QASPUyZC4c
+	GF32lSiMSA+Mhiewzh5F0g4wZwjk2l8xxnNGJnBVrz2MY26bzXbcmRBe2lb1RihVg4t8zc71zZR1Z
+	2IfJ3S+ZOlX+uF+fmc+aV4GTYcoglXITJVkDuZAYu2b+tj6JJHtARlfxly/vNboY4Vlaph4FJyVQS
+	Es6vtcgbyiH1mH5tISei+3HknX1+gpXNt7RYeujjLEjPx5O3nVTnio6SmEtDdkPxQ6iL6qwNlbTuN
+	0w/UxONg==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaDq9-004bCZ-RO; Mon, 19 Sep 2022 10:17:26 +0000
+	id 1oaDq6-004b8S-I6; Mon, 19 Sep 2022 10:17:22 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 80174302F6C;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 32DFE302F27;
 	Mon, 19 Sep 2022 12:16:25 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 96B742BA49032; Mon, 19 Sep 2022 12:16:22 +0200 (CEST)
-Message-ID: <20220919101522.975285117@infradead.org>
+	id 4F9B32BABC0C9; Mon, 19 Sep 2022 12:16:22 +0200 (CEST)
+Message-ID: <20220919101522.021681292@infradead.org>
 User-Agent: quilt/0.66
-Date: Mon, 19 Sep 2022 12:00:18 +0200
+Date: Mon, 19 Sep 2022 12:00:04 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -186,7 +186,7 @@ Cc: richard.henderson@linaro.org,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
  kasan-dev@googlegroups.com
-Subject: [PATCH v2 39/44] cpuidle,clk: Remove trace_.*_rcuidle()
+Subject: [PATCH v2 25/44] printk: Remove trace_.*_rcuidle() usage
 References: <20220919095939.761690562@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Mon, 19 Sep 2022 08:09:27 -0700
@@ -206,45 +206,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-OMAP was the one and only user.
+The problem, per commit fc98c3c8c9dc ("printk: use rcuidle console
+tracepoint"), was printk usage from the cpuidle path where RCU was
+already disabled.
+
+Per the patches earlier in this series, this is no longer the case.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Reviewed-by: Sergey Senozhatsky <senozhatsky@chromium.org>
+Acked-by: Petr Mladek <pmladek@suse.com>
 ---
- drivers/clk/clk.c |    8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ kernel/printk/printk.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---- a/drivers/clk/clk.c
-+++ b/drivers/clk/clk.c
-@@ -978,12 +978,12 @@ static void clk_core_disable(struct clk_
- 	if (--core->enable_count > 0)
- 		return;
+--- a/kernel/printk/printk.c
++++ b/kernel/printk/printk.c
+@@ -2238,7 +2238,7 @@ static u16 printk_sprint(char *text, u16
+ 		}
+ 	}
  
--	trace_clk_disable_rcuidle(core);
-+	trace_clk_disable(core);
+-	trace_console_rcuidle(text, text_len);
++	trace_console(text, text_len);
  
- 	if (core->ops->disable)
- 		core->ops->disable(core->hw);
- 
--	trace_clk_disable_complete_rcuidle(core);
-+	trace_clk_disable_complete(core);
- 
- 	clk_core_disable(core->parent);
+ 	return text_len;
  }
-@@ -1037,12 +1037,12 @@ static int clk_core_enable(struct clk_co
- 		if (ret)
- 			return ret;
- 
--		trace_clk_enable_rcuidle(core);
-+		trace_clk_enable(core);
- 
- 		if (core->ops->enable)
- 			ret = core->ops->enable(core->hw);
- 
--		trace_clk_enable_complete_rcuidle(core);
-+		trace_clk_enable_complete(core);
- 
- 		if (ret) {
- 			clk_core_disable(core->parent);
 
 
 
