@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA6CCECAAD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D316FECAAD3
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=xZBhRXHzqZEE5DeVrPqdbyvDR/QH/N90fP8FEMDpslY=; b=nouqIDHfYpc/Pk
-	AkQw7vstbVlmqVj8t1ZYS02U76awkNao3RNUhQub9fOuUL66f6y6nDWai4PJzrCKMrw0kFQoRzKuj
-	ZjoXi1sDHp/FLtNuIbJfZg8IP5iPd7/YmcytUn/cUhoFID4yiIYiUw8cEqYi/wwRgiu34Ylf4ki9i
-	RGfcxR2e8EmPbqWgfpxgXRDztWmhvTpMw6cEmpv+jyyUH/SBZq61CCiW+EgbbJbWPs5JMWP897Ey7
-	ZjRWNhhNrYPchjDVxVCZ2+zu2+RXqDNEWpIdIOFpJaTW7LVizYNar5yrXgHKkonKb2NMBkWxqLjvY
-	eXHEg+tNiNoLs70D0czA==;
+	List-Owner; bh=47P1Vn+j3dZ0Ugau9PBGbmOt7VQZKRR0lkK9SV1arlo=; b=TrotHT9vEEaZty
+	srhy5ztqrNeOP2TPbas7k5F12qxKHoAgOg2xHbgNmSdCWcNNcDZHY2hYknOScMB62vG14XyZyodRE
+	c/szLBXE7pZl/Fzj25cVqT4AdlzWRVJbx8aOO5ffMd7pA8kviwkfIjkV3mmo4WSjE0ziLynTg+e05
+	ybO5CJLNSO4cgq8Y5/R2yxvWSIwl3PBBT+iAx2AXg/j+BBWluj0iIx11fjRR7fj7j9CBTQt/W9Ycw
+	UeMSe9dpWiaKh35UQW6nXxDjtyVdiwSb8zBE3tEdJvuCWJl+XGXdRfCW7j2o1591CXsJaXQcq5786
+	S9iE93Xf6veI+Ttg9P4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaIPK-00CFl0-E5; Mon, 19 Sep 2022 15:10:02 +0000
+	id 1oaIPM-00CFmM-He; Mon, 19 Sep 2022 15:10:04 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaDq5-00BGYF-IA; Mon, 19 Sep 2022 10:17:21 +0000
+	id 1oaDq5-00BGYB-G9; Mon, 19 Sep 2022 10:17:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=egsvZxpcWuzc2m7IwsV6/F25N5YaTkcmJRSjKuAk/t4=; b=IPV8VEqSgHchJfg2hSrgllHxXW
-	Nixh1jiWbQyQ/la6ihzR25T5PV0cXxvPR93OjBdL7QE8u6vDBRQBdU72SeqgLekhxT4VBD/C1tCf5
-	1ixvrk8hLr6XSD8uTkw18PWmXzgWcpSCrr7YDmhCU04xZ2iQaIwe73Pq4WhROraVFV/jtWm107aTT
-	tcxQuztAAVL8QUeUEIE4P2VT18nFQwfVwgsW7Tdzp+0Yo+UgZpVZDsYxfcUaZUFh+gYi7jljrAq7h
-	7iRkUJLC+OfIwriNcFBZ8n/OuDQ1JtjlkefcE6nWlQjTQGIbNegXQTlshVUv0QzzIep1MikBhlvr1
-	UEMraAZA==;
+	bh=2qey3zLroBQku0zom/Uqdc2w/ejv7qE6fMvFqUVfz0c=; b=RlUJ2AwCdpPblbfQP0YMvc7OXS
+	vypLks6wgtcgloMSsvVlfS4RXNb3cZ0pXhJNi4ixKXVkWOTr0JWkhccmDyvtgo89daT6S3vWq6fz5
+	VJzntwGG+I/tKhwN1gXnU10VZf6Y2oBh+TZtCcBfNHoWSvo7CdW+wkU/J6FYAtOuMh9cU+iZfzo32
+	ueJIGOFL/qwA0/Lhvytsoucamxio8Km/dW5jH6jiWy13xWNatkE4MBjgvPPYAw+ddArxtKXq3YvaG
+	gF3XSzXuFVmf4E8UBdDETDVhHmKRxQcPulKjX3yVJj2EwPrVOE6EJWXDWrwQYGJN3PgMWDcDgEXt3
+	DLPFGGag==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaDq5-004b7Y-6Y; Mon, 19 Sep 2022 10:17:21 +0000
+	id 1oaDq5-004b7X-5b; Mon, 19 Sep 2022 10:17:21 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id EBA40302EE0;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id E7DDC302ED9;
 	Mon, 19 Sep 2022 12:16:24 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 1966F2BA4ABC6; Mon, 19 Sep 2022 12:16:22 +0200 (CEST)
-Message-ID: <20220919101521.407822201@infradead.org>
+	id 144C32BA49048; Mon, 19 Sep 2022 12:16:22 +0200 (CEST)
+Message-ID: <20220919101521.340781451@infradead.org>
 User-Agent: quilt/0.66
-Date: Mon, 19 Sep 2022 11:59:55 +0200
+Date: Mon, 19 Sep 2022 11:59:54 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -185,9 +185,8 @@ Cc: richard.henderson@linaro.org,
  linux-arm-msm@vger.kernel.org,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
- kasan-dev@googlegroups.com,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
-Subject: [PATCH v2 16/44] cpuidle: Annotate poll_idle()
+ kasan-dev@googlegroups.com
+Subject: [PATCH v2 15/44] acpi_idle: Remove tracing
 References: <20220919095939.761690562@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Mon, 19 Sep 2022 08:09:27 -0700
@@ -207,37 +206,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The __cpuidle functions will become a noinstr class, as such they need
-explicit annotations.
+All the idle routines are called with RCU disabled, as such there must
+not be any tracing inside.
+
+While there; clean-up the io-port idle thing.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Reviewed-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- drivers/cpuidle/poll_state.c |    6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ drivers/acpi/processor_idle.c |   24 +++++++++++++-----------
+ 1 file changed, 13 insertions(+), 11 deletions(-)
 
---- a/drivers/cpuidle/poll_state.c
-+++ b/drivers/cpuidle/poll_state.c
-@@ -13,7 +13,10 @@
- static int __cpuidle poll_idle(struct cpuidle_device *dev,
- 			       struct cpuidle_driver *drv, int index)
+--- a/drivers/acpi/processor_idle.c
++++ b/drivers/acpi/processor_idle.c
+@@ -108,8 +108,8 @@ static const struct dmi_system_id proces
+ static void __cpuidle acpi_safe_halt(void)
  {
--	u64 time_start = local_clock();
-+	u64 time_start;
-+
-+	instrumentation_begin();
-+	time_start = local_clock();
- 
- 	dev->poll_time_limit = false;
- 
-@@ -39,6 +42,7 @@ static int __cpuidle poll_idle(struct cp
- 	raw_local_irq_disable();
- 
- 	current_clr_polling();
-+	instrumentation_end();
- 
- 	return index;
+ 	if (!tif_need_resched()) {
+-		safe_halt();
+-		local_irq_disable();
++		raw_safe_halt();
++		raw_local_irq_disable();
+ 	}
  }
+ 
+@@ -524,16 +524,21 @@ static int acpi_idle_bm_check(void)
+ 	return bm_status;
+ }
+ 
+-static void wait_for_freeze(void)
++static __cpuidle void io_idle(unsigned long addr)
+ {
++	/* IO port based C-state */
++	inb(addr);
++
+ #ifdef	CONFIG_X86
+ 	/* No delay is needed if we are in guest */
+ 	if (boot_cpu_has(X86_FEATURE_HYPERVISOR))
+ 		return;
+ #endif
+-	/* Dummy wait op - must do something useless after P_LVL2 read
+-	   because chipsets cannot guarantee that STPCLK# signal
+-	   gets asserted in time to freeze execution properly. */
++	/*
++	 * Dummy wait op - must do something useless after P_LVL2 read
++	 * because chipsets cannot guarantee that STPCLK# signal
++	 * gets asserted in time to freeze execution properly.
++	 */
+ 	inl(acpi_gbl_FADT.xpm_timer_block.address);
+ }
+ 
+@@ -553,9 +558,7 @@ static void __cpuidle acpi_idle_do_entry
+ 	} else if (cx->entry_method == ACPI_CSTATE_HALT) {
+ 		acpi_safe_halt();
+ 	} else {
+-		/* IO port based C-state */
+-		inb(cx->address);
+-		wait_for_freeze();
++		io_idle(cx->address);
+ 	}
+ 
+ 	perf_lopwr_cb(false);
+@@ -577,8 +580,7 @@ static int acpi_idle_play_dead(struct cp
+ 		if (cx->entry_method == ACPI_CSTATE_HALT)
+ 			safe_halt();
+ 		else if (cx->entry_method == ACPI_CSTATE_SYSTEMIO) {
+-			inb(cx->address);
+-			wait_for_freeze();
++			io_idle(cx->address);
+ 		} else
+ 			return -ENODEV;
+ 
 
 
 
