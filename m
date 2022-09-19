@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A42C54EE9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 08:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD97C54EE9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 08:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NaqAORnO2dQ0COwyx/MIMCUB/PbZYIJxJH3dF/Tel4g=; b=W00vywCFgRf3Ha
-	FNr3Nb/nkAhMwO9rhZZwkSaNH+LXjtYofCCOYWvS4D+WqFR73EgNEdvAMs765iRPWA15txV8OfBvQ
-	RZHGitos3Nx/vMjY/cQ+vf1HSuzPujkeMH43fJCqlbKpHEKB5Y1Nr6RnNVfxqzCVW28EoeUlV/hm6
-	25M+OG7FiAokp1b89/d8rlGMYsI+SlFtrp2eLwNWmRqu79m4ZK2wD8mgMvjiHH58IJhjgATQwLGLv
-	tlQvZmnVjpKHwZhxlzFJqFMXmHyYVzop0UAGcd4M+yy0WPLQOtUa2Eq8122J7QjX59RKuzPOKpVbR
-	oiQKbYTv+4ab2sHkFtOg==;
+	List-Owner; bh=2cJbCEpavDf+hN1Ni/Hod0wpdVh5jbVku+kw65nM27Q=; b=N3DcWYtsTscnDr
+	G1M0FVCO04RZFlQ2gtCGKyh+QLQEAOo8QWDVtlbNKvFQEA4kMyxyzXPMsAHFIvyUiwd2UAkCfb2CZ
+	eGU1/eMgegQa6RS7vNAGYjFzbHzuIgO4twJvx03/GYD3QZG1WSehJCwXBJmr3Og6SJjCI1OSA+D3o
+	FvYeg/ppvze4cBQpJGDbTsxal8F0XGB931uo9sagkF9Nx9+JR8WiFB013YA4cDBSOUy0A85aNpYLD
+	aioNXqaBYo9PYbAKzRgW0JK46lKSmDSGr7Mv3KmPjrNsbXYWIoQqSBGkJlvmlRlN8Y3tJ1PHL9IO1
+	eWVL7Tn0GAla3zc7GAIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaCFl-00AAKP-9U; Mon, 19 Sep 2022 08:35:45 +0000
+	id 1oaCIH-00ACFr-47; Mon, 19 Sep 2022 08:38:21 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaCFL-00AA0v-Gg
-	for linux-riscv@lists.infradead.org; Mon, 19 Sep 2022 08:35:25 +0000
+	id 1oaCIE-00ACDY-EI
+	for linux-riscv@lists.infradead.org; Mon, 19 Sep 2022 08:38:19 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 0E6DB6182A
-	for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 08:35:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDE64C43143
-	for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 08:35:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTPS id 0F0646182C
+	for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 08:38:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD8C9C43149
+	for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 08:38:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663576517;
-	bh=NDnqlZhtaXp4aa68lUPaptwqfteRjFznv1jId6XcsS8=;
+	s=k20201202; t=1663576695;
+	bh=heo7YO9Z/Mn7auLgacdl566kMb7P9+5y2s1cnvWWhNs=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=FwYz92tNSMouuBkIr5MB0ikWNhkT/ojXPVaqBFo9x9Qw3AXpQX6EkpNmq951GANP0
-	 B3ExHYccC0OeCAXhQJNx/NZEmoIsrh0R7SFhbWr150UmDA5LTSqL6Tt+IJu8SH1OXD
-	 Yhf7sBYd1MELMeun3wN9cfGTH0sQa5yCwugRti/T36YHMfV5oFbGSWkixlQfDH578O
-	 h2o+cGoqTG2kyd8EPEB4gcrGSbT8Ogq2c8ldeYoB90/RfqO8UPZV9ozspdXOhhG8zy
-	 vXQdfurH6njPs1BbzxIxa3r81/RpXmOczYU6+hZiUGYsAceYNwtJJrp9zz2f6WBwCk
-	 5wufF9xkOWJTA==
-Received: by mail-oi1-f178.google.com with SMTP id m81so12084465oia.1
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 01:35:17 -0700 (PDT)
-X-Gm-Message-State: ACgBeo1fo7vooDCkjgSpSjAtcGp+Ewk2j8oRIuWABk7AbvlBr0Ff5G+P
-	IRf2nKpS+DOh7f7BG4MAD2rE0DIVz756+aREBHo=
-X-Google-Smtp-Source: AA6agR5ITfiPWZ9F9F5lkDqO0GA/3OeLcDmqgx/nf0vJ/sBZgtsKJFlK/BPu0y1OEMjk0otXRqR3awY0W+PQUuOvZvM=
-X-Received: by 2002:a05:6808:201f:b0:34f:9fdf:dbbf with SMTP id
- q31-20020a056808201f00b0034f9fdfdbbfmr11418144oiw.19.1663576516813; Mon, 19
- Sep 2022 01:35:16 -0700 (PDT)
+	b=uTRUGIbB/a+yr6sQn5wS+gyN3Xv7qSHcczusIx9S/VcHwA5TeOBrrF+FMvoksUBR3
+	 Meu+wDm+BNyFMTCU0sJjW+FF6K/137aKqFQzjILAgO1SKBofcOQK7rigqkcBYbSmzS
+	 AjA3QmvYiO+ivlH1Fzjcqq8IgyXMaX+zMwxuFKsUrmFpiWGit83q41mSrjZzZc73g0
+	 d2jtyoNBgZXoHOH7M3qSD263CD4BfK4y1I/oRek25g1Ern3INBBBr+qyZFnrm/9awY
+	 Ix3dRl55JGnY6Zd7RpsPK7Lhk17DY1GNoc+G+PovFICRqooNDJVq+sDjzQblFcAgYs
+	 cDQnrzv3JgQog==
+Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-127dca21a7dso60834816fac.12
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 01:38:15 -0700 (PDT)
+X-Gm-Message-State: ACrzQf1USmsaSWE2AyW1S7LQ30J/KoQAc+JvSHQmSdi3LfYIr9VLjKcL
+	31T8X9tooTnniv/W0OCbJLD0XUlZIPLpxXIpCJY=
+X-Google-Smtp-Source: AMsMyM7ABtP0qSS4TeNjY3/uJch3CvccZb+T2Wqml4QNq4ZCaawYjQENTRVHMje/Mc+dM1SGFVjGsCi0SpAccjiDCdc=
+X-Received: by 2002:a05:6870:5803:b0:12c:c3e0:99dc with SMTP id
+ r3-20020a056870580300b0012cc3e099dcmr4442166oap.19.1663576694922; Mon, 19 Sep
+ 2022 01:38:14 -0700 (PDT)
 MIME-Version: 1.0
 References: <20220908022506.1275799-1-guoren@kernel.org> <20220908022506.1275799-9-guoren@kernel.org>
  <4babce64-e96d-454c-aa35-243b3f2dc315@www.fastmail.com> <CAJF2gTQAMCjNyqrSOvqDAKR5Z-PZiTVxmoK9cvNAVQs+k2fZBg@mail.gmail.com>
- <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com>
-In-Reply-To: <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com>
+ <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com> <CAJF2gTRnY+vc2nKbqubTZvv+FWVgO3yCK4LcwpeNgx51JuETzw@mail.gmail.com>
+ <7409c92a-68df-4406-bd86-835d9a959ef5@www.fastmail.com> <CAJF2gTRxt_b2TswE6YJgmFZeRyVzV7fQdMX+7Ptrfa_k=auSjg@mail.gmail.com>
+ <2b06f28d-a13d-4c86-af04-39e383aaf07b@www.fastmail.com>
+In-Reply-To: <2b06f28d-a13d-4c86-af04-39e383aaf07b@www.fastmail.com>
 From: Guo Ren <guoren@kernel.org>
-Date: Mon, 19 Sep 2022 16:35:04 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRoKfJ25brnA=_CqNw9DPt8XKhcyNzmCbD6wX1q-jiR1w@mail.gmail.com>
-Message-ID: <CAJF2gTRoKfJ25brnA=_CqNw9DPt8XKhcyNzmCbD6wX1q-jiR1w@mail.gmail.com>
+Date: Mon, 19 Sep 2022 16:38:02 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRzC9ES1EK3X4tHchTZMfbGJk2QLbD8VG=5x5bWD7Er0w@mail.gmail.com>
+Message-ID: <CAJF2gTRzC9ES1EK3X4tHchTZMfbGJk2QLbD8VG=5x5bWD7Er0w@mail.gmail.com>
 Subject: Re: [PATCH V4 8/8] riscv: Add config of thread stack size
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -72,8 +74,8 @@ Cc: Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	Guo Ren <guoren@linux.alibaba.com>, Andreas Schwab <schwab@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_013519_668810_2C941B29 
-X-CRM114-Status: GOOD (  27.45  )
+X-CRM114-CacheID: sfid-20220919_013818_669177_DAEEB882 
+X-CRM114-Status: GOOD (  35.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,58 +92,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 11, 2022 at 12:07 AM Arnd Bergmann <arnd@arndb.de> wrote:
+On Mon, Sep 12, 2022 at 4:25 PM Arnd Bergmann <arnd@arndb.de> wrote:
 >
-> On Sat, Sep 10, 2022, at 2:52 PM, Guo Ren wrote:
-> > On Thu, Sep 8, 2022 at 3:37 PM Arnd Bergmann <arnd@arndb.de> wrote:
-> >> On Thu, Sep 8, 2022, at 4:25 AM, guoren@kernel.org wrote:
-> >> > From: Guo Ren <guoren@linux.alibaba.com>
-> >> - When VMAP_STACK is set, make it possible to select non-power-of-two
-> >>   stack sizes. Most importantly, 12KB should be a really interesting
-> >>   choice as 8KB is probably still not enough for many 64-bit workloads,
-> >>   but 16KB is often more than what you need. You probably don't
-> >>   want to allow 64BIT/8KB without VMAP_STACK anyway since that just
-> >>   makes it really hard to debug, so hiding the option when VMAP_STACK
-> >>   is disabled may also be a good idea.
-> > I don't want this config to depend on VMAP_STACK. Some D1 chips would
-> > run with an 8K stack size and !VMAP_STACK.
+> On Mon, Sep 12, 2022, at 6:14 AM, Guo Ren wrote:
+> > On Mon, Sep 12, 2022 at 2:40 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> >> On Sun, Sep 11, 2022, at 1:35 AM, Guo Ren wrote:
+> >> > On Sun, Sep 11, 2022 at 12:07 AM Arnd Bergmann <arnd@arndb.de> wrote:
+> >> >>
+> >> >> That sounds like a really bad idea, why would you want to risk
+> >> >> using such a small stack without CONFIG_VMAP_STACK?
+> >> >>
+> >> >> Are you worried about increased memory usage or something else?
+> >> > The requirement is from [1], and I think disabling CONFIG_VMAP_STACK
+> >> > would be the last step after serious testing.
+> >>
+> >> I still don't see why you need to turn off VMAP_STACK at all
+> >> if it works. The only downside I can see with using VMAP_STACK
+> >> on a 64-bit system is that it may expose bugs with device
+> >> drivers that do DMA to stack data. Once you have tested the
+> >> system successfully, you can also assume that you have no such
+> >> drivers.
+> > 1st, VMAP_STACK could be enabled&disabled in arch/Kconfig. If we don't
+> > force users to enable VMAP_STACK, why couldn't user adjust
+> > THREAD_SIZE?
 >
-> That sounds like a really bad idea, why would you want to risk
-> using such a small stack without CONFIG_VMAP_STACK?
+> Turning off VMAP_STACK is harmless and may help debug issues
+> with VMAP_STACK itself. It's also required on architectures
+> that don't have KASAN_VMALLOC or something else that conflicts
+> with it.
 >
-> Are you worried about increased memory usage or something else?
+> Changing THREAD_SIZE is also fine, as long as VMAP_STACK catches
+> the inevitable overflows. I would not object to having an
+> option that allows setting the stack size larger than the
+> default without VMAP_STACK, as long as setting it lower requires
+> using VMAP_STACK. That would however add a lot more complexity
+> and probably doesn't do what you want either.
+Thx for the detailed clarification, I agree with the point. I've put
+an EXPERT on config.
+
 >
-> >  /* thread information allocation */
-> > -#ifdef CONFIG_64BIT
-> > -#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
-> > -#else
-> > -#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
-> > -#endif
-> > +#define THREAD_SIZE_ORDER      CONFIG_THREAD_SIZE_ORDER
-> >  #define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
+> > 2nd, VMAP_STACK is not free, we still need 1KB shadow_stack.
+> > The EXPERT is enough for your concern.
 >
-> This doesn't actually allow additional THREAD_SIZE values, as you
-> still round up to the nearest power of two.
->
-> I think all the non-arch code can deal with non-power-of-2
-> sizes, so you'd just need
->
-> #define THREAD_SIZE round_up(CONFIG_THREAD_SIZE, PAGE_SIZE)
->
-> and fix up the risc-v specific code to do the right thing
-> as well. I now see that THREAD_SIZE_ORDER is not actually
-> used anywhere with CONFIG_VMAP_STACK, so I suppose that
-> definition can be skipped, but you still need a THREAD_ALIGN
-> definition that is a power of two and at least a page larger
-> than THREAD_SIZE.
-Sorry, I missed this part. I would RESEND v5
+> It's actually more than the 1KB: you need both 1KB of shadow
+> stack and 4KB per CPU for the actual overflow_stack. If you
+> are micro-optimizing at this level, then a possible option
+> may be to change the handle_kernel_stack_overflow() function
+> to not preserve the task stack and just panic() without
+> showing the backtrace. That way you don't see which code
+> caused the issue, but at least you avoid corrupting random
+> data.
+Thx for the detailed explanation, the handle_kernel_stack_overflow()
+is a novel idea, which I will consider later.
 
 >
 >      Arnd
 
 
 
--- 
+--
 Best Regards
  Guo Ren
 
