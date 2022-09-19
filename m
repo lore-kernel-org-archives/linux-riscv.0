@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3794ECAAD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC56CC6FA86
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=rDY1ObTaObOaDjws0Q2zn7V6bvhxREhK+GOiElLAtg8=; b=oENCFZNzVlei16
-	NO3utcHEHZDYr+pn+WiSNPG1R3VW7QzJQUP1dxkbMovrwTlQ58MzLMCYwuZiVZVqWccvyeyONZik8
-	7oZZdfayuINfnxGLoTc1lMUoAmQ9ZBnuBTalZq1p1fXZfFJM7hmtQwJK1YKTvrjw8vU/kBHESF05T
-	TcKxh7umfF1pOHcTN5B0kylY2w24hCmyv/Iyse2T3MpCYuzsazfrlRAlo6TsbGgNQ7mts8xppUqai
-	gOi+LmewYfItKRbnVy5VzhVJ9k/MOxa2nuQHNG7ywDvP7VCL827EzWlzhUtvZ7zILaUII9uila7Kn
-	S3mn+yxZqtKN+69uWYFg==;
+	List-Owner; bh=pB1imXmOrz/ezgoV8Pd3VdfFDF98X2OrcnuZG2mZoso=; b=ZDY8o35EXnx6M4
+	z8FVQNh0V1PrIXg4f5MmXcQrImrssDj2tjFirmPzzxKuj3UiUUcNWERBQ2NYxPnkCrvyz51NwDA1R
+	blymIJnRa+GU1/QGJ4nz7OlWVsr4yf5U0qHLfF4Q+sL/9XxDLRDYiO/GsdNclS9FoZQ6UjittgBBB
+	ois9ilCw+eYiyJB7PoDUO/IU108htKYj3dcvXDVm8xOyCSDbW+4Y2UJ1Msvj69W9Votn2FhFNwkKS
+	1k3RrcWgLIPgpA4rgDVxgWhnKYIbGU1ewUJ0FARcS7DfHtZk+ZdkghWuSfuipYh7HwfCVN9Cp4cIg
+	GseaigHFeJIjyZjRWcZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaIOu-00CFS7-Cv; Mon, 19 Sep 2022 15:09:36 +0000
+	id 1oaIOx-00CFTf-8A; Mon, 19 Sep 2022 15:09:39 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaDpO-00BFwH-72; Mon, 19 Sep 2022 10:16:38 +0000
+	id 1oaDpO-00BFw9-7q; Mon, 19 Sep 2022 10:16:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=wztoayxqdaRhc3fzwYQuz0RAh5ZT6y7bJFX0CXMuNy8=; b=ADXtthd/kB2UkNVNsBZX3mcAgx
-	eb1wSA1egq4M07Od+XfETtj3lhd4iMNEvYwcU9NzeS13eZKp+mowXOQTzEFZK7CeroXVfNcUNAucm
-	DFEs4ENnbXNf93/JuDzTXaj8dDvpaoObTItrP5rfAcPTaGTUO9u17CB7M9lBwSzhZqApt31copOyD
-	THHS1zzgB7BqCqSJl0DeM5JLgmoPtje3pC9taSIf0jDAy3NiwNozoFE6k7Aa6gH0axWhSw0Ae2Kln
-	k7+RKfh2KfpdBiXJ6godhy6Y1cfSrmD10KmQxJ5TbTEnSM6kxy+r95TYqIDfTireSwql4ofArgV57
-	wDOwI0dQ==;
+	bh=74awPgmRWnz6TtiKDYLgK7Deo1BdG7DroGRjfVtm8U0=; b=SFQYA3jAmhFq40VYZM68Tl2w5i
+	ZXRBNgbLC3acA/1Dm/ZTH0pKngpyZarrHO2urIBRGd1SFXtlBVsxBG5w3GvcNlPbnMiIzGgnA+Y8t
+	dXazbL2lngg+xVaLeVvXkenThdUDjpquoAohkyV4ZdsIELsDdK/l8RS1n5Tz50U++NJCb4r09fRIs
+	kieZ0CsOt3gPv2NZizNIQhY8xJqq2RCg52cWnS+fYBZiVJ6uU3u4gx57qQdc9RSVuVE+VOTiNE5qY
+	bUCPNJ6Ogw6hQFEH7tWJhnIsvwMUvNInJslCtzYuuDdwYWXhLCJ6oMb7pHkM31N8il9TbGM5YnHUV
+	95FWEVpQ==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaDpF-004ahk-Dm; Mon, 19 Sep 2022 10:16:29 +0000
+	id 1oaDpF-004ahi-DF; Mon, 19 Sep 2022 10:16:29 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 99768302218;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 8F591301C5E;
 	Mon, 19 Sep 2022 12:16:24 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id D336C2BA49039; Mon, 19 Sep 2022 12:16:21 +0200 (CEST)
-Message-ID: <20220919101520.602636221@infradead.org>
+	id CE9192BA49038; Mon, 19 Sep 2022 12:16:21 +0200 (CEST)
+Message-ID: <20220919101520.534233547@infradead.org>
 User-Agent: quilt/0.66
-Date: Mon, 19 Sep 2022 11:59:43 +0200
+Date: Mon, 19 Sep 2022 11:59:42 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -185,8 +185,9 @@ Cc: richard.henderson@linaro.org,
  linux-arm-msm@vger.kernel.org,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
- kasan-dev@googlegroups.com
-Subject: [PATCH v2 04/44] cpuidle: Move IRQ state validation
+ kasan-dev@googlegroups.com,
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
+Subject: [PATCH v2 03/44] cpuidle/poll: Ensure IRQ state is invariant
 References: <20220919095939.761690562@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Mon, 19 Sep 2022 08:09:26 -0700
@@ -206,42 +207,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Make cpuidle_enter_state() consistent with the s2idle variant and
-verify ->enter() always returns with interrupts disabled.
+cpuidle_state::enter() methods should be IRQ invariant
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Reviewed-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- drivers/cpuidle/cpuidle.c |   10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ drivers/cpuidle/poll_state.c |    4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
---- a/drivers/cpuidle/cpuidle.c
-+++ b/drivers/cpuidle/cpuidle.c
-@@ -236,7 +236,11 @@ int cpuidle_enter_state(struct cpuidle_d
- 	stop_critical_timings();
- 	if (!(target_state->flags & CPUIDLE_FLAG_RCU_IDLE))
- 		ct_idle_enter();
-+
- 	entered_state = target_state->enter(dev, drv, index);
-+	if (WARN_ONCE(!irqs_disabled(), "%ps leaked IRQ state", target_state->enter))
-+		raw_local_irq_disable();
-+
- 	if (!(target_state->flags & CPUIDLE_FLAG_RCU_IDLE))
- 		ct_idle_exit();
- 	start_critical_timings();
-@@ -248,12 +252,8 @@ int cpuidle_enter_state(struct cpuidle_d
- 	/* The cpu is no longer idle or about to enter idle. */
- 	sched_idle_set_state(NULL);
+--- a/drivers/cpuidle/poll_state.c
++++ b/drivers/cpuidle/poll_state.c
+@@ -17,7 +17,7 @@ static int __cpuidle poll_idle(struct cp
  
--	if (broadcast) {
--		if (WARN_ON_ONCE(!irqs_disabled()))
--			local_irq_disable();
--
-+	if (broadcast)
- 		tick_broadcast_exit();
--	}
+ 	dev->poll_time_limit = false;
  
- 	if (!cpuidle_state_is_coupled(drv, index))
- 		local_irq_enable();
+-	local_irq_enable();
++	raw_local_irq_enable();
+ 	if (!current_set_polling_and_test()) {
+ 		unsigned int loop_count = 0;
+ 		u64 limit;
+@@ -36,6 +36,8 @@ static int __cpuidle poll_idle(struct cp
+ 			}
+ 		}
+ 	}
++	raw_local_irq_disable();
++
+ 	current_clr_polling();
+ 
+ 	return index;
 
 
 
