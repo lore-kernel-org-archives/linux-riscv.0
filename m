@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3547AECAAD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:12:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B3BDECAAD3
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:12:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=Cq3iZ6R2f5JqG17Bff+T/lrgacDOrkJZmGfk41W881g=; b=dy4gCauEu6rKVO
-	7f1G6VKhrGOipzRPmcRr2D5yDvK/QtOxjuOwhP17OXFcvEWcRIVuMVzVVGPKnyCmjPfi7o0EYLYVw
-	CjIq/PvAXnQMfsd1BvuWff0Q1Zut/jH8/JqkqY7ZQVkjKigdcAa0riIUWXdpJB6OeHBswz2WzTGdN
-	as03kiePp2i3LJiLbNElqN/wWdX6ilPLBHjHSvRlGvqNHr/+915cJUiuC83bxxj5dYc/3BGz/JeZo
-	Z6N33Qo3hnoH1/V7gGVSfTY30mVf7I1f7ld9eYnhZDDFKz189XqdCBZ1vtMszB3X/hX02F4XlAUc0
-	1lU/cUKPNWkoSbGS7tDA==;
+	List-Owner; bh=yAYvbrLZt82YJ08kNfUHHlI9g8uZD05twvpwfIASZQI=; b=mPr2yJhNPglD9x
+	Z1uPMvrw45CmtwtSgTtvz5zBaHHrmJtZ4ZZm6qY1USSUCi8djfms7nt4V6pAdUzpRO4SCvrSAKsTN
+	BYMA2Gl06IObUaFZglUJrLbrpAaiR4OhXI5hvRYq+0ckA2GJzUljGlk4A/xAAyeUZo0RbkHoICgu4
+	zcQjF51BOwwruafLlhxH1QcmSJ+S6LWU7UnwatEnu7SJxUoDfMZR6sHnomqSR2vI7W8GI9obtZjBo
+	iBMNiTyZzXc1rzSjNOH1uYLc+wtJpNayDVfztEkRf95hLx5nspeYqun+DX7UG5trFxlALbCeJH76C
+	P2N6ckdda1QjLTX4vjYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaIRn-00CHyV-4T; Mon, 19 Sep 2022 15:12:35 +0000
+	id 1oaIRy-00CI9B-RF; Mon, 19 Sep 2022 15:12:47 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaEaq-00BRm8-KD; Mon, 19 Sep 2022 11:05:40 +0000
+	id 1oaEar-00BRm8-6D; Mon, 19 Sep 2022 11:05:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=jlMVapcDkKa+q5r/dVIZrQzWqwQOPh4aNsx9pv05CFo=; b=buhX52S0N8GfdrpPROTvjfDI65
-	vo2N72F8ANzTI8iX5yZu4448eTVjHyPggkwJJfRKxs1txYZ+DUykF1keHi9dJ3FYJIVgjO+Dv7BtO
-	JXYwk6PDa0+sp3kc5Rvvb8/Ozy1R5v2F0Ol45g7fuR3UdZWhBnqCsW78Po84SfQbz64I7hort1cFr
-	g13XSo10LkBMNLAyuExTJtjyY46T4cXU/beQLLdxRHU6aP5d+5hLJXADRxRrHdk/ecdvH0VaVvyLT
-	ehnX8ZndOukmUSwZ46v+BOtBKQRM0tk1W3kROcANilt30UO816DEUkSwR0/b0qiDh5Is5urKmLXW+
-	Bw+kCTLg==;
+	bh=rveYe0whW8HL+t/HGSaazkf4IJzq2XAc7vdeRKjh+gA=; b=eDRmeX8n8KBUn6/CAr9rKpy/RP
+	2UJXTWSy9Z5hbIlL+Y6yo0LWkUZm1nFVVk0qgHKpQWM9+mi6/uumgd0hvjnMAn3XSVpZxWzD8m+74
+	JXBp+z4yXIwfYDRZUAs3OZnRMmPjEIXxm+y8lmvo6cAM8EXbFG0XxYBS/Qgd9MoowJrgyt4+6rd8d
+	zj5sYNjaG7FxjQ49N6+Lnd95idPaT1s+5VG/BByjgLeZD+rMnz31Zul5NKFlGosM11YW0NCf20GGn
+	k/69f9ALqsPoW6rpNDxkzlxkZkdxlPYq25PvApPNCIfeE0FIawzbekVyy/XMjyx0JlunPKd8sOvH0
+	xy17ZOgA==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaDq3-00E2Ai-EI; Mon, 19 Sep 2022 10:17:20 +0000
+	id 1oaDq3-00E2Av-Qj; Mon, 19 Sep 2022 10:17:20 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 17458302F05;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 211D8302F16;
 	Mon, 19 Sep 2022 12:16:25 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 29E9C2BA7B0FB; Mon, 19 Sep 2022 12:16:22 +0200 (CEST)
-Message-ID: <20220919101521.609602902@infradead.org>
+	id 45A1B2BABC0C2; Mon, 19 Sep 2022 12:16:22 +0200 (CEST)
+Message-ID: <20220919101521.886766952@infradead.org>
 User-Agent: quilt/0.66
-Date: Mon, 19 Sep 2022 11:59:58 +0200
+Date: Mon, 19 Sep 2022 12:00:02 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -186,7 +186,7 @@ Cc: richard.henderson@linaro.org,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
  kasan-dev@googlegroups.com
-Subject: [PATCH v2 19/44] cpuidle,intel_idle: Fix CPUIDLE_FLAG_INIT_XSTATE
+Subject: [PATCH v2 23/44] arm,smp: Remove trace_.*_rcuidle() usage
 References: <20220919095939.761690562@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Mon, 19 Sep 2022 08:09:27 -0700
@@ -206,65 +206,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-vmlinux.o: warning: objtool: intel_idle_s2idle+0xd5: call to fpu_idle_fpregs() leaves .noinstr.text section
-vmlinux.o: warning: objtool: intel_idle_xstate+0x11: call to fpu_idle_fpregs() leaves .noinstr.text section
-vmlinux.o: warning: objtool: fpu_idle_fpregs+0x9: call to xfeatures_in_use() leaves .noinstr.text section
+None of these functions should ever be ran with RCU disabled anymore.
+
+Specifically, do_handle_IPI() is only called from handle_IPI() which
+explicitly does irq_enter()/irq_exit() which ensures RCU is watching.
+
+The problem with smp_cross_call() was, per commit 7c64cc0531fa ("arm: Use
+_rcuidle for smp_cross_call() tracepoints"), that
+cpuidle_enter_state_coupled() already had RCU disabled, but that's
+long been fixed by commit 1098582a0f6c ("sched,idle,rcu: Push rcu_idle
+deeper into the idle path").
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 ---
- arch/x86/include/asm/fpu/xcr.h       |    4 ++--
- arch/x86/include/asm/special_insns.h |    2 +-
- arch/x86/kernel/fpu/core.c           |    4 ++--
- 3 files changed, 5 insertions(+), 5 deletions(-)
+ arch/arm/kernel/smp.c |    6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
---- a/arch/x86/include/asm/fpu/xcr.h
-+++ b/arch/x86/include/asm/fpu/xcr.h
-@@ -5,7 +5,7 @@
- #define XCR_XFEATURE_ENABLED_MASK	0x00000000
- #define XCR_XFEATURE_IN_USE_MASK	0x00000001
+--- a/arch/arm/kernel/smp.c
++++ b/arch/arm/kernel/smp.c
+@@ -639,7 +639,7 @@ static void do_handle_IPI(int ipinr)
+ 	unsigned int cpu = smp_processor_id();
  
--static inline u64 xgetbv(u32 index)
-+static __always_inline u64 xgetbv(u32 index)
- {
- 	u32 eax, edx;
+ 	if ((unsigned)ipinr < NR_IPI)
+-		trace_ipi_entry_rcuidle(ipi_types[ipinr]);
++		trace_ipi_entry(ipi_types[ipinr]);
  
-@@ -27,7 +27,7 @@ static inline void xsetbv(u32 index, u64
-  *
-  * Callers should check X86_FEATURE_XGETBV1.
-  */
--static inline u64 xfeatures_in_use(void)
-+static __always_inline u64 xfeatures_in_use(void)
- {
- 	return xgetbv(XCR_XFEATURE_IN_USE_MASK);
- }
---- a/arch/x86/include/asm/special_insns.h
-+++ b/arch/x86/include/asm/special_insns.h
-@@ -295,7 +295,7 @@ static inline int enqcmds(void __iomem *
- 	return 0;
- }
- 
--static inline void tile_release(void)
-+static __always_inline void tile_release(void)
- {
- 	/*
- 	 * Instruction opcode for TILERELEASE; supported in binutils
---- a/arch/x86/kernel/fpu/core.c
-+++ b/arch/x86/kernel/fpu/core.c
-@@ -856,12 +856,12 @@ int fpu__exception_code(struct fpu *fpu,
-  * Initialize register state that may prevent from entering low-power idle.
-  * This function will be invoked from the cpuidle driver only when needed.
-  */
--void fpu_idle_fpregs(void)
-+noinstr void fpu_idle_fpregs(void)
- {
- 	/* Note: AMX_TILE being enabled implies XGETBV1 support */
- 	if (cpu_feature_enabled(X86_FEATURE_AMX_TILE) &&
- 	    (xfeatures_in_use() & XFEATURE_MASK_XTILE)) {
- 		tile_release();
--		fpregs_deactivate(&current->thread.fpu);
-+		__this_cpu_write(fpu_fpregs_owner_ctx, NULL);
+ 	switch (ipinr) {
+ 	case IPI_WAKEUP:
+@@ -686,7 +686,7 @@ static void do_handle_IPI(int ipinr)
  	}
+ 
+ 	if ((unsigned)ipinr < NR_IPI)
+-		trace_ipi_exit_rcuidle(ipi_types[ipinr]);
++		trace_ipi_exit(ipi_types[ipinr]);
  }
+ 
+ /* Legacy version, should go away once all irqchips have been converted */
+@@ -709,7 +709,7 @@ static irqreturn_t ipi_handler(int irq,
+ 
+ static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
+ {
+-	trace_ipi_raise_rcuidle(target, ipi_types[ipinr]);
++	trace_ipi_raise(target, ipi_types[ipinr]);
+ 	__ipi_send_mask(ipi_desc[ipinr], target);
+ }
+ 
 
 
 
