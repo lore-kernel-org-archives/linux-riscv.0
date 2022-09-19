@@ -4,124 +4,192 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F9A9C6FA90
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE71C6FA86
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fuAFWaakJwHmAqOZKI9b9/lU9iAkSnZ/c7zLsBegrNo=; b=Q+SqREkGGUWkpM
-	zom7ehvsaJstdyoswE2yAICbkQ8CzERryIPxo83p4KS0MtP/GC8RgBadyrxOVPlJZKvXvo3dm7fTy
-	ijcO6bpiuGGow94uEq3aU1ZQJOZyaMFQJOpuiiy2SY6Mr3nJze4u/DRuyPWm/hWIB+ZArCHoECzy8
-	3TA+ZH7x9u9o6YuVVPiPihECloAgY91njEn+K2op4hR8FXkEwdpxmpHZzEIkS5+VUJl5qTm0himeb
-	oShRCaQBCXj3EFWtLA1o+rn0Wzmyf7xI0o3/VpmGrKutqygS7tt5Vh7hMjli+U74e69Xn5ydMBoi2
-	jH4mBy4J+iJQOn7C7jIQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
+	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=EmQYOapOGgWAJ9KvyclOIWFa5Xu8b9+eooDcUfJrj1U=; b=vZd2W+bkw51Wy2
+	ioMP31sVVWtya/Fu7TAZfn8nN7Asn4qwuJjPPd7J4XMVd+xPQQvBgrYXS5hg28tTDJ6AzxyfMydi8
+	6c9kYEAJuZkZuYR1kUOKU1Zlg7+MjJvPhXBHXXsds8qL/GCwa/xMTgG3hAyU8yDCEVG72Sxn7PpES
+	3EVQiA5meFxK8cVqcvFsJPW+YlqhZOtAT3K9J2RMjK9iUIoSBi5QQvH4HZFyRbOpdsDuSLC/yPtfv
+	hw3embVnnoM1m5ndYjHa+zQk3z2SYlb5c1clDdpj+vveQ6SG+/YTT73N8W+3YZ4wMiqHz7GI6b00f
+	H5ZG9XdEoR+X8qVAXc6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaIOp-00CFQF-Nk; Mon, 19 Sep 2022 15:09:31 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1oaIP3-00CFXm-PP; Mon, 19 Sep 2022 15:09:45 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oa7i6-006yw2-5l
-	for linux-riscv@lists.infradead.org; Mon, 19 Sep 2022 03:44:45 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id x94so22140747ede.11
-        for <linux-riscv@lists.infradead.org>; Sun, 18 Sep 2022 20:44:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lixom-net.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=8wzd/IsQMAz4yliZb1FsJ3OfMRVNZc5tTLnz3lR7QHQ=;
-        b=EuFCJAkszMPKPtxQSyMQ0NoboaeVB7t96eFw9rPXwH9oSHUro5o77bxEeYAtANDzyR
-         I9BMOm4HMiosCb0pcsiSHEAZo2qSCtvZawUq0/zPNIdwAvDvQAPS+8+0uFrWbUJgoTtd
-         ExLo8MeQP7GyQ+rW2rlFvIPPT75kqxCAKPhOGjeDjYZZFhuAOfywggSn5a+jZu6mJGBr
-         cWVHHoToy9UWA6nPxBqZcAZLzmJoxjkbRc1yLhwZYNZgNQEBRnr86m6GI/e/+J8MoRAT
-         suDLw8ILYZpcoPAOh+pvz4Lu/zfiYh6RXQKy+jZAxuRvjXsVxLmt63JqorCueNp9TEEJ
-         9kQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=8wzd/IsQMAz4yliZb1FsJ3OfMRVNZc5tTLnz3lR7QHQ=;
-        b=l43u4xwQVheQepcEwg4oGEr7sw9EjVWmGhCGejAjOZ0okli84PbO6C1SkUU3/y+en0
-         0dhMBpBuuV0WeSkpu8feJ8aQuG3rFwoq9Tn2ha2YSZKvJ/G5ipaJzQaXveLwz1o5LC3E
-         9xvcNtu6mca+caab9NLDaH2GGuyzaeysOcxQBNJflM1dP+PxMInrxpWjVEy0z0C7xHh/
-         DzLdJJxQ2DBlf7JG/B6gijuN2kjbJBG6x2BuOhx/ztRqo8NFeUfl78fcAVh+4RV1fXip
-         3/mw4drQdkMmEZfVbMQ7QgzQYTtkGJmjxqR+Hw+JuEoPaZ55S8z8yVRnFgnZffMYWxkM
-         pbig==
-X-Gm-Message-State: ACrzQf1pTMXkyRCPtxXUeguvuqeAvI4ps3e+bROoJcQZT2FJZTiXsWyG
-	dQCIPN2u0liNOHdc50/Je8NE6mqPy1YGz0wZN/aZBA==
-X-Google-Smtp-Source: AMsMyM67X4fHgNHGRzRNZ0AalOVh8oZlYNRkDoycvf7zBAcHx4qOwSpxEraLAwYUCmYCoDnGs0xLR1B5pb/N312tK3I=
-X-Received: by 2002:aa7:cc8a:0:b0:446:7668:2969 with SMTP id
- p10-20020aa7cc8a000000b0044676682969mr13821510edt.206.1663559079248; Sun, 18
- Sep 2022 20:44:39 -0700 (PDT)
+	id 1oaDpO-00BFwJ-7B; Mon, 19 Sep 2022 10:16:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:MIME-Version:References:
+	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To;
+	bh=0408VWH2WFH9JXFcPPgwTxDvr1YxbJ2d7rq21E3aJ8U=; b=kHVZnfdiABvtjPyXMTuvXb/Qm9
+	09AKDvXlLmYco5rg5+lKhXzEfXaXLMAXiaXS6AjhRnHqScyUaTO2iINZvbgs8N78kwSfXMIpTU5WQ
+	YbJDFfF895gdEVMmc6BsVajHcmDOKTDGJ8T+HnVoRXF2kkgnjxdOPEU4hgBjokhzRU8d5p+B5crjC
+	/yiyfR6F5TpqK5jk8cvfleteP3e/jL/baMBCBbPynD9WUAl/ZQlsUs9qYKHEeSSf4RkeeRCfDBrOU
+	SconuiF3R/DV9ndlHterUE8RIAQz9f77EQkpfOFe7OEu5IK5h7kvKhzF9SsjBWsyb2Q1kTUxmhYjA
+	Jijh1grA==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oaDpG-004aiB-Uy; Mon, 19 Sep 2022 10:16:31 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id CB314302E76;
+	Mon, 19 Sep 2022 12:16:24 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
+	id EBD782BA4903E; Mon, 19 Sep 2022 12:16:21 +0200 (CEST)
+Message-ID: <20220919101520.936337959@infradead.org>
+User-Agent: quilt/0.66
+Date: Mon, 19 Sep 2022 11:59:48 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: peterz@infradead.org
+Cc: richard.henderson@linaro.org,
+ ink@jurassic.park.msu.ru,
+ mattst88@gmail.com,
+ vgupta@kernel.org,
+ linux@armlinux.org.uk,
+ ulli.kroll@googlemail.com,
+ linus.walleij@linaro.org,
+ shawnguo@kernel.org,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ kernel@pengutronix.de,
+ festevam@gmail.com,
+ linux-imx@nxp.com,
+ tony@atomide.com,
+ khilman@kernel.org,
+ catalin.marinas@arm.com,
+ will@kernel.org,
+ guoren@kernel.org,
+ bcain@quicinc.com,
+ chenhuacai@kernel.org,
+ kernel@xen0n.name,
+ geert@linux-m68k.org,
+ sammy@sammy.net,
+ monstr@monstr.eu,
+ tsbogend@alpha.franken.de,
+ dinguyen@kernel.org,
+ jonas@southpole.se,
+ stefan.kristiansson@saunalahti.fi,
+ shorne@gmail.com,
+ James.Bottomley@HansenPartnership.com,
+ deller@gmx.de,
+ mpe@ellerman.id.au,
+ npiggin@gmail.com,
+ christophe.leroy@csgroup.eu,
+ paul.walmsley@sifive.com,
+ palmer@dabbelt.com,
+ aou@eecs.berkeley.edu,
+ hca@linux.ibm.com,
+ gor@linux.ibm.com,
+ agordeev@linux.ibm.com,
+ borntraeger@linux.ibm.com,
+ svens@linux.ibm.com,
+ ysato@users.sourceforge.jp,
+ dalias@libc.org,
+ davem@davemloft.net,
+ richard@nod.at,
+ anton.ivanov@cambridgegreys.com,
+ johannes@sipsolutions.net,
+ tglx@linutronix.de,
+ mingo@redhat.com,
+ bp@alien8.de,
+ dave.hansen@linux.intel.com,
+ x86@kernel.org,
+ hpa@zytor.com,
+ acme@kernel.org,
+ mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com,
+ jolsa@kernel.org,
+ namhyung@kernel.org,
+ jgross@suse.com,
+ srivatsa@csail.mit.edu,
+ amakhalov@vmware.com,
+ pv-drivers@vmware.com,
+ boris.ostrovsky@oracle.com,
+ chris@zankel.net,
+ jcmvbkbc@gmail.com,
+ rafael@kernel.org,
+ lenb@kernel.org,
+ pavel@ucw.cz,
+ gregkh@linuxfoundation.org,
+ mturquette@baylibre.com,
+ sboyd@kernel.org,
+ daniel.lezcano@linaro.org,
+ lpieralisi@kernel.org,
+ sudeep.holla@arm.com,
+ agross@kernel.org,
+ bjorn.andersson@linaro.org,
+ konrad.dybcio@somainline.org,
+ anup@brainfault.org,
+ thierry.reding@gmail.com,
+ jonathanh@nvidia.com,
+ jacob.jun.pan@linux.intel.com,
+ atishp@atishpatra.org,
+ Arnd Bergmann <arnd@arndb.de>,
+ yury.norov@gmail.com,
+ andriy.shevchenko@linux.intel.com,
+ linux@rasmusvillemoes.dk,
+ dennis@kernel.org,
+ tj@kernel.org,
+ cl@linux.com,
+ rostedt@goodmis.org,
+ pmladek@suse.com,
+ senozhatsky@chromium.org,
+ john.ogness@linutronix.de,
+ juri.lelli@redhat.com,
+ vincent.guittot@linaro.org,
+ dietmar.eggemann@arm.com,
+ bsegall@google.com,
+ mgorman@suse.de,
+ bristot@redhat.com,
+ vschneid@redhat.com,
+ fweisbec@gmail.com,
+ ryabinin.a.a@gmail.com,
+ glider@google.com,
+ andreyknvl@gmail.com,
+ dvyukov@google.com,
+ vincenzo.frascino@arm.com,
+ Andrew Morton <akpm@linux-foundation.org>,
+ jpoimboe@kernel.org,
+ linux-alpha@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-snps-arc@lists.infradead.org,
+ linux-omap@vger.kernel.org,
+ linux-csky@vger.kernel.org,
+ linux-hexagon@vger.kernel.org,
+ linux-ia64@vger.kernel.org,
+ loongarch@lists.linux.dev,
+ linux-m68k@lists.linux-m68k.org,
+ linux-mips@vger.kernel.org,
+ openrisc@lists.librecores.org,
+ linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org,
+ linux-sh@vger.kernel.org,
+ sparclinux@vger.kernel.org,
+ linux-um@lists.infradead.org,
+ linux-perf-users@vger.kernel.org,
+ virtualization@lists.linux-foundation.org,
+ linux-xtensa@linux-xtensa.org,
+ linux-acpi@vger.kernel.org,
+ linux-pm@vger.kernel.org,
+ linux-clk@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org,
+ linux-tegra@vger.kernel.org,
+ linux-arch@vger.kernel.org,
+ kasan-dev@googlegroups.com
+Subject: [PATCH v2 09/44] cpuidle,omap3: Push RCU-idle into driver
+References: <20220919095939.761690562@infradead.org>
 MIME-Version: 1.0
-References: <20220701012647.2007122-1-saravanak@google.com> <YwS5J3effuHQJRZ5@kroah.com>
-In-Reply-To: <YwS5J3effuHQJRZ5@kroah.com>
-From: Olof Johansson <olof@lixom.net>
-Date: Sun, 18 Sep 2022 20:44:27 -0700
-Message-ID: <CAOesGMivJ5Q-jdeGKw32yhjmNiYctHjpEAnoMMRghYqWD2m2tw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] Fix console probe delay when stdout-path isn't set
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Saravana Kannan <saravanak@google.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Paul Mackerras <paulus@samba.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>, 
-	Nicolas Saenz Julienne <nsaenz@kernel.org>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Al Cooper <alcooperx@gmail.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Paul Cercueil <paul@crapouillou.net>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Tobias Klauser <tklauser@distanz.ch>, Russell King <linux@armlinux.org.uk>, 
-	Vineet Gupta <vgupta@kernel.org>, Richard Genoud <richard.genoud@gmail.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Claudiu Beznea <claudiu.beznea@microchip.com>, Alexander Shiyan <shc_work@mail.ru>, 
-	Baruch Siach <baruch@tkos.co.il>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, 
-	Karol Gugala <kgugala@antmicro.com>, Mateusz Holenko <mholenko@antmicro.com>, 
-	Gabriel Somlo <gsomlo@gmail.com>, Neil Armstrong <narmstrong@baylibre.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Taichi Sugaya <sugaya.taichi@socionext.com>, Takao Orito <orito.takao@socionext.com>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Andy Gross <agross@kernel.org>, 
-	Bjorn Andersson <bjorn.andersson@linaro.org>, Pali Rohar <pali@kernel.org>, 
-	Andreas Farber <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Laxman Dewangan <ldewangan@nvidia.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang7@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Patrice Chotard <patrice.chotard@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, "David S. Miller" <davem@davemloft.net>, 
-	Hammer Hsieh <hammerh0314@gmail.com>, Peter Korsgaard <jacmet@sunsite.dk>, Timur Tabi <timur@kernel.org>, 
-	Michal Simek <michal.simek@xilinx.com>, Rob Herring <robh@kernel.org>, 
-	sascha hauer <sha@pengutronix.de>, peng fan <peng.fan@nxp.com>, kevin hilman <khilman@kernel.org>, 
-	ulf hansson <ulf.hansson@linaro.org>, len brown <len.brown@intel.com>, 
-	pavel machek <pavel@ucw.cz>, joerg roedel <joro@8bytes.org>, will deacon <will@kernel.org>, 
-	andrew lunn <andrew@lunn.ch>, heiner kallweit <hkallweit1@gmail.com>, 
-	eric dumazet <edumazet@google.com>, jakub kicinski <kuba@kernel.org>, paolo abeni <pabeni@redhat.com>, 
-	linus walleij <linus.walleij@linaro.org>, hideaki yoshifuji <yoshfuji@linux-ipv6.org>, 
-	david ahern <dsahern@kernel.org>, kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, iommu@lists.linux-foundation.org, 
-	netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-serial@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-actions@lists.infradead.org, 
-	linux-unisoc@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
-	sparclinux@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220918_204442_486728_60CAE761 
-X-CRM114-Status: GOOD (  20.77  )
-X-Mailman-Approved-At: Mon, 19 Sep 2022 08:09:28 -0700
+X-Mailman-Approved-At: Mon, 19 Sep 2022 08:09:26 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,38 +206,142 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 23, 2022 at 8:37 AM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
-> On Thu, Jun 30, 2022 at 06:26:38PM -0700, Saravana Kannan wrote:
-> > These patches are on top of driver-core-next.
-> >
-> > Even if stdout-path isn't set in DT, this patch should take console
-> > probe times back to how they were before the deferred_probe_timeout
-> > clean up series[1].
->
-> Now dropped from my queue due to lack of a response to other reviewer's
-> questions.
+Doing RCU-idle outside the driver, only to then teporarily enable it
+again before going idle is daft.
 
-What happened to this patch? I have a 10 second timeout on console
-probe on my SiFive Unmatched, and I don't see this flag being set for
-the serial driver. In fact, I don't see it anywhere in-tree. I can't
-seem to locate another patchset from Saravana around this though, so
-I'm not sure where to look for a missing piece for the sifive serial
-driver.
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Reviewed-by: Tony Lindgren <tony@atomide.com>
+Tested-by: Tony Lindgren <tony@atomide.com>
+---
+ arch/arm/mach-omap2/cpuidle34xx.c |   16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-This is the second boot time regression (this one not fatal, unlike
-the Layerscape PCIe one) from the fw_devlink patchset.
+--- a/arch/arm/mach-omap2/cpuidle34xx.c
++++ b/arch/arm/mach-omap2/cpuidle34xx.c
+@@ -133,7 +133,9 @@ static int omap3_enter_idle(struct cpuid
+ 	}
+ 
+ 	/* Execute ARM wfi */
++	ct_idle_enter();
+ 	omap_sram_idle();
++	ct_idle_exit();
+ 
+ 	/*
+ 	 * Call idle CPU PM enter notifier chain to restore
+@@ -265,6 +267,7 @@ static struct cpuidle_driver omap3_idle_
+ 	.owner            = THIS_MODULE,
+ 	.states = {
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 2 + 2,
+ 			.target_residency = 5,
+@@ -272,6 +275,7 @@ static struct cpuidle_driver omap3_idle_
+ 			.desc		  = "MPU ON + CORE ON",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 10 + 10,
+ 			.target_residency = 30,
+@@ -279,6 +283,7 @@ static struct cpuidle_driver omap3_idle_
+ 			.desc		  = "MPU ON + CORE ON",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 50 + 50,
+ 			.target_residency = 300,
+@@ -286,6 +291,7 @@ static struct cpuidle_driver omap3_idle_
+ 			.desc		  = "MPU RET + CORE ON",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 1500 + 1800,
+ 			.target_residency = 4000,
+@@ -293,6 +299,7 @@ static struct cpuidle_driver omap3_idle_
+ 			.desc		  = "MPU OFF + CORE ON",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 2500 + 7500,
+ 			.target_residency = 12000,
+@@ -300,6 +307,7 @@ static struct cpuidle_driver omap3_idle_
+ 			.desc		  = "MPU RET + CORE RET",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 3000 + 8500,
+ 			.target_residency = 15000,
+@@ -307,6 +315,7 @@ static struct cpuidle_driver omap3_idle_
+ 			.desc		  = "MPU OFF + CORE RET",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 10000 + 30000,
+ 			.target_residency = 30000,
+@@ -328,6 +337,7 @@ static struct cpuidle_driver omap3430_id
+ 	.owner            = THIS_MODULE,
+ 	.states = {
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 110 + 162,
+ 			.target_residency = 5,
+@@ -335,6 +345,7 @@ static struct cpuidle_driver omap3430_id
+ 			.desc		  = "MPU ON + CORE ON",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 106 + 180,
+ 			.target_residency = 309,
+@@ -342,6 +353,7 @@ static struct cpuidle_driver omap3430_id
+ 			.desc		  = "MPU ON + CORE ON",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 107 + 410,
+ 			.target_residency = 46057,
+@@ -349,6 +361,7 @@ static struct cpuidle_driver omap3430_id
+ 			.desc		  = "MPU RET + CORE ON",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 121 + 3374,
+ 			.target_residency = 46057,
+@@ -356,6 +369,7 @@ static struct cpuidle_driver omap3430_id
+ 			.desc		  = "MPU OFF + CORE ON",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 855 + 1146,
+ 			.target_residency = 46057,
+@@ -363,6 +377,7 @@ static struct cpuidle_driver omap3430_id
+ 			.desc		  = "MPU RET + CORE RET",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 7580 + 4134,
+ 			.target_residency = 484329,
+@@ -370,6 +385,7 @@ static struct cpuidle_driver omap3430_id
+ 			.desc		  = "MPU OFF + CORE RET",
+ 		},
+ 		{
++			.flags		  = CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter		  = omap3_enter_idle_bm,
+ 			.exit_latency	  = 7505 + 15274,
+ 			.target_residency = 484329,
 
-Greg, can you revert the whole set for 6.0, please? It's obviously
-nowhere near tested enough to go in and I expect we'll see a bunch of
--stable fixups due to this if we let it remain in.
 
-This seems to be one of the worst releases I've encountered in recent
-years on my hardware here due to this patchset. :-(
-
-
--Olof
 
 _______________________________________________
 linux-riscv mailing list
