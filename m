@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 098D0ECAAD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA829ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WuZgg8DQGh3F4V8s+XHYC2AaZMVDbi0IL3Ns0sr+cZM=; b=09pCPLjfT0P6fK
-	N4BCE6FBA1sebWFqj/V7Z64Md6fp8HfpaKBbZlehyF6g2i61gVNWoH7yREa1js6VoC89z3UGP8Sta
-	fNFJLFpwFl6X8BfThA7TIj+aH3xMpoTYYJU58Rpz0HiTO/tgSqvJxLFbJd4z28VNiOfZZ7x7w4yFZ
-	Ektipk4frt5FOELl1+QMJaDaxnv8uWONPFDTDLfy6lUrqZ+cZ96z4VlbADL+YgqxKruPxHyRl97ls
-	5G6Et76+REcuj2Si6IdacqJ8zN2DvwfKu96xUZeGss24ps4edlajUd1pJd544HBy+5TmoVjMKFoHV
-	jt/rS6qq969J4eyV5ejQ==;
+	List-Owner; bh=QFSPWm7pVYlD9xXO+IBTJHRHktm6lKq1SVS9dIo0Fk0=; b=fiUW0dz82WjYUM
+	nTlZ2nql2b5+pGY9hqsFhs0dzGwUEssP+Cqf2bcQjILvIGprorf/OUOroKUl/4jLmRY+2EnXR4GBZ
+	SxucG4DJmRP7hbTuj6vuYbCopKel1ztwBvjzcVXnjZsKw2xQ+lq34PBgy5uFIKZqI9ncaWC9rnaaZ
+	y4MLwXKMXwo7pvX/+nofq9TNVLQr25pZyrnTdOnolluQW4bwEgsUl2QSkqOeUWYPf9ecyN8ZyGkIQ
+	my8/wUkM4JsryYBeMiEJ9vkuheDURUR6FavVuMFGLIt2bogdIFTdY4Ue2vvBVENKeiNu1/jduLMur
+	ED5UgP9dMx/iZ63/y4cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaIV1-00CKvP-BQ; Mon, 19 Sep 2022 15:15:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1oaIVC-00CL5v-Az; Mon, 19 Sep 2022 15:16:07 +0000
+Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaGgP-00Bq5t-0M; Mon, 19 Sep 2022 13:19:34 +0000
+	id 1oaH6k-00BvrL-NA; Mon, 19 Sep 2022 13:46:50 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by dfw.source.kernel.org (Postfix) with ESMTPS id 9422761C77;
-	Mon, 19 Sep 2022 13:19:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D334CC433D6;
-	Mon, 19 Sep 2022 13:19:29 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 0972FB81A9C;
+	Mon, 19 Sep 2022 13:46:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFD1BC433D7;
+	Mon, 19 Sep 2022 13:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663593571;
-	bh=CWxeSKy8kiP3vLBtnTdjMO9HxV48EKwdW/OqmPtC6l0=;
+	s=k20201202; t=1663595201;
+	bh=AeMivRW0JQnrwZYyjaQlcAH3jO881DUdn8V4CSVqYy8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QSt/tYd0fqkRxl3AMLkOfW8jOo29uPNAUTrqCEiKcW4GPIFYazQI+7GdaoR9WjHP/
-	 C3f1Cn90J1fcSJRomBPO2R4SafD0GeCOnjMu8GrC0DI9SRc41HhHQAuGu6/ePf7CIl
-	 1tpNMlSYxVEEkgVVGnt9sORkREiG3UwgD6k+rAvp+k8Ymdzy6EmONNUtQQ0FPwJrZz
-	 E4kynvoBow0vT5f8AL2kEtRjwbRixVHhtNIY4x7IXbFVctpkPsLDVFZ3AmASNufD84
-	 LJuwBz9RlC4vCLjpY3pQPKjt4W7RUs6cFBM07ypkDZ4M4AFgldiHx3H7zbxKMROjNw
-	 AklJSa90tpIbg==
-Date: Mon, 19 Sep 2022 15:19:27 +0200
+	b=BBg87/yLwMZ9eT1BeUjhxJ+7dwNsR/5RpM+ZBJJa8SG/75nIEU7j6PxxCQGGA+MCG
+	 fEz6jjqm0upeEknbVQVTbNNOFA3P4Fz3oLukyiPJGTLq/oF5z7C2TJlNYZklHW2vy+
+	 M3wAK3fuWQUEX8ycFR/BZYXlfQeGgJukXEeTXFbI1GqGvEKgiCuX1qAcCp4cb88BCr
+	 u9/v3lrFiAErKNSv5GYp2jo2o6Fdkh0P1QUkG7ezjC4Hr3U+qtfmMTwtOYDCqHlf3R
+	 IZQA8vPm0m9Bt2whXm4+0BzRLxGYNJM9CdDVmuPwVXVOXcmwjMR2yTHw4WE1qWnn2N
+	 OShXczUrpfuYg==
+Date: Mon, 19 Sep 2022 15:46:38 +0200
 From: Frederic Weisbecker <frederic@kernel.org>
 To: Peter Zijlstra <peterz@infradead.org>
 Cc: richard.henderson@linaro.org, ink@jurassic.park.msu.ru,
@@ -101,18 +101,18 @@ Cc: richard.henderson@linaro.org, ink@jurassic.park.msu.ru,
 	linux-xtensa@linux-xtensa.org, linux-acpi@vger.kernel.org,
 	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
 	linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-arch@vger.kernel.org, kasan-dev@googlegroups.com,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
-Subject: Re: [PATCH v2 03/44] cpuidle/poll: Ensure IRQ state is invariant
-Message-ID: <20220919131927.GA58444@lothringen>
+	linux-arch@vger.kernel.org, kasan-dev@googlegroups.com
+Subject: Re: [PATCH v2 05/44] cpuidle,riscv: Push RCU-idle into driver
+Message-ID: <20220919134638.GB58444@lothringen>
 References: <20220919095939.761690562@infradead.org>
- <20220919101520.534233547@infradead.org>
+ <20220919101520.669962810@infradead.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20220919101520.534233547@infradead.org>
+In-Reply-To: <20220919101520.669962810@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_061933_170541_D3ABF756 
-X-CRM114-Status: GOOD (  18.40  )
+X-CRM114-CacheID: sfid-20220919_064647_060133_9FD23DEF 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-Mailman-Approved-At: Mon, 19 Sep 2022 08:09:28 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -130,45 +130,13 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 19, 2022 at 11:59:42AM +0200, Peter Zijlstra wrote:
-> cpuidle_state::enter() methods should be IRQ invariant
-
-Got a bit confused with the invariant thing since the first chunck I
-see in this patch is a conversion to an non-traceable local_irq_enable().
-
-Maybe just add a short mention about that and why?
-
-Thanks.
-
+On Mon, Sep 19, 2022 at 11:59:44AM +0200, Peter Zijlstra wrote:
+> Doing RCU-idle outside the driver, only to then temporarily enable it
+> again, at least twice, before going idle is daft.
 > 
 > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-> Reviewed-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
-> ---
->  drivers/cpuidle/poll_state.c |    4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> --- a/drivers/cpuidle/poll_state.c
-> +++ b/drivers/cpuidle/poll_state.c
-> @@ -17,7 +17,7 @@ static int __cpuidle poll_idle(struct cp
->  
->  	dev->poll_time_limit = false;
->  
-> -	local_irq_enable();
-> +	raw_local_irq_enable();
->  	if (!current_set_polling_and_test()) {
->  		unsigned int loop_count = 0;
->  		u64 limit;
-> @@ -36,6 +36,8 @@ static int __cpuidle poll_idle(struct cp
->  			}
->  		}
->  	}
-> +	raw_local_irq_disable();
-> +
->  	current_clr_polling();
->  
->  	return index;
-> 
-> 
+
+Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
 
 _______________________________________________
 linux-riscv mailing list
