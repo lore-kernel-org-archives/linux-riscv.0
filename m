@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72BE0C54EE9
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677E7C6FA86
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:12:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=LblR0HW/TShMfhaXWv+UD08AQLo9tx7m4e+W6sIGOi0=; b=LPSsYI36DjEfsK
-	+AtuEL+uPDoovS0KYsQfPuk5XeNuvh1Q3dcAlGSKrAqHE3s3nKMmneo6o5Oc2nAvYfTPaGij8bFle
-	UUMOyUl/YaedITPavv8clhnvh7y2qKID4B0Pcfy76dxOQy3KaUYos47jTUI1/Ebrn3tkSkE4Hi+JV
-	6JQMC3QaYqPQCIIrfI1y/K8yxQjGq9AYeCTTfOnTtJtLfj8Ye+y61CV4NfyWqQgViyzGY761fxL9V
-	KhT9qgKXpYyKoT5dZpuUihm48ELpidVcjkm8TGwiZVFu98J71uxZGNXwd/daB6yaVsGo4tjk+q8gh
-	pazZDU1dCzeDC7BPSbDA==;
+	List-Owner; bh=/E5jJNTT2HAlHGqcSCCbTQgKNEh/iPAsU3sv3lHl6GY=; b=3eI3kC6FmoL0AT
+	RF5qglZTWejY0+dQr6hqpoySI+8LA6s2OQoLfoUC3ecgDnCoXKDoDRXns6B9XheW2sYpTcNQdLo92
+	qt/FL2cqtM1c+FVK3x0L2zEU9Jb8NWDXw4EtahR3rylTz6nxLburkG5BM358Y2NB0NI7yZ/H0AnCu
+	6DPkqxu8Qg7czU/xdT8CrfY0VXMt6/s9SP2F/mvyIow1xkWIp6Dy+kZj8r0Au74nEi3T+0kzJycWj
+	KXzA+u1XYP0JGH7P4aDunQcOLWSD1upwdfTrSY3RU3FTgWPKlXo55dr3t2TnjK3A3cYYXmLTwnZrh
+	ihEGmSGPOB9FeKN371SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaIRI-00CHW5-NW; Mon, 19 Sep 2022 15:12:04 +0000
+	id 1oaIRW-00CHiW-HU; Mon, 19 Sep 2022 15:12:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaEao-00BRm8-J1; Mon, 19 Sep 2022 11:05:38 +0000
+	id 1oaEaq-00BRm8-0r; Mon, 19 Sep 2022 11:05:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=pxqjaMyXYMAIciLaWxKe0qnmRXZim+cyW3iOuZrk594=; b=pJappe5zW7K5a0uM2up4iM5Wnb
-	/MjE8rbu9WAnugdJ3vNctbRmg6M6msdadl7GrRu8gtVBhdKcEL1q01gUbAuGRo0F0P7TCfvPJh4j2
-	OEm2Vu3lZCTKtlIjZJSadch35O1K0Zbwq+z8RJTY6sDBfrl7cZthsF+xPgMYt5cDvWZZf4P4AlFVc
-	zdM/BHKKGCIjNj47BoFPAVho93RY3tnAP/cuTaLSHb+Kf058fSlXO4SLAuEKfsIyz0WEgg5U4frRu
-	X+6ypv7mNDlcFlPVnLutEGlC5ervzvG7OJqcv/JCTvTdx7I88hj7iNzDWL0LLFMDZwMu/BFg/DVkL
-	/eEjmWnw==;
+	bh=RR6lW9yNo9DZO38N/e4p2MZQ6Q7RTpDFv4YAvZRPRqw=; b=dhBNASMjq9JKam0WFAPScBiUEC
+	31XDK+h8qwhTq5EYT0SjwEcio54RYo3YXNJzL9qp8vVRkHyfJsQdQcJ5Pti5d6ymG6v5YR3rrgpSe
+	4XQcuWxDsJ1q6ovVgaQ+SzZulVoRGlSkSN5mw4EvYN4P6fE8HKs2maYkCA13mRDRuD64OLEBGUXNF
+	/Qgic1QrUIq2i79qFoP0kCFY/irIFSIMyGshswJWaLZxBi5W3PBUL9nwY5VACRXQbvXsyeiTIa0ch
+	J7yjXG2VyjwvJ2v3SrZKjK45QEL7p9TWkv0I41FozhTFdQrt5gfJGZDLrunBCNqm7Jycvz/5X9SYw
+	ljUFiqLQ==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaDq5-00E2B6-Tl; Mon, 19 Sep 2022 10:17:23 +0000
+	id 1oaDq8-00E2Bs-F5; Mon, 19 Sep 2022 10:17:25 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 4659D302F3C;
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 9592E302F78;
 	Mon, 19 Sep 2022 12:16:25 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 6042A2BA49034; Mon, 19 Sep 2022 12:16:22 +0200 (CEST)
-Message-ID: <20220919101522.224759912@infradead.org>
+	id A2A092BAC75A3; Mon, 19 Sep 2022 12:16:22 +0200 (CEST)
+Message-ID: <20220919101523.110221113@infradead.org>
 User-Agent: quilt/0.66
-Date: Mon, 19 Sep 2022 12:00:07 +0200
+Date: Mon, 19 Sep 2022 12:00:20 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -186,7 +186,7 @@ Cc: richard.henderson@linaro.org,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
  kasan-dev@googlegroups.com
-Subject: [PATCH v2 28/44] cpuidle,mwait: Make noinstr clean
+Subject: [PATCH v2 41/44] intel_idle: Add force_irq_on module param
 References: <20220919095939.761690562@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Mon, 19 Sep 2022 08:09:27 -0700
@@ -206,78 +206,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-vmlinux.o: warning: objtool: intel_idle_s2idle+0x6e: call to __monitor.constprop.0() leaves .noinstr.text section
-vmlinux.o: warning: objtool: intel_idle_irq+0x8c: call to __monitor.constprop.0() leaves .noinstr.text section
-vmlinux.o: warning: objtool: intel_idle+0x73: call to __monitor.constprop.0() leaves .noinstr.text section
-
-vmlinux.o: warning: objtool: mwait_idle+0x88: call to clflush() leaves .noinstr.text section
+For testing purposes.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 ---
- arch/x86/include/asm/mwait.h         |   12 ++++++------
- arch/x86/include/asm/special_insns.h |    2 +-
- 2 files changed, 7 insertions(+), 7 deletions(-)
+ drivers/idle/intel_idle.c |    7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
---- a/arch/x86/include/asm/mwait.h
-+++ b/arch/x86/include/asm/mwait.h
-@@ -25,7 +25,7 @@
- #define TPAUSE_C01_STATE		1
- #define TPAUSE_C02_STATE		0
- 
--static inline void __monitor(const void *eax, unsigned long ecx,
-+static __always_inline void __monitor(const void *eax, unsigned long ecx,
- 			     unsigned long edx)
- {
- 	/* "monitor %eax, %ecx, %edx;" */
-@@ -33,7 +33,7 @@ static inline void __monitor(const void
- 		     :: "a" (eax), "c" (ecx), "d"(edx));
+--- a/drivers/idle/intel_idle.c
++++ b/drivers/idle/intel_idle.c
+@@ -1787,6 +1787,9 @@ static bool __init intel_idle_verify_cst
+ 	return true;
  }
  
--static inline void __monitorx(const void *eax, unsigned long ecx,
-+static __always_inline void __monitorx(const void *eax, unsigned long ecx,
- 			      unsigned long edx)
++static bool force_irq_on __read_mostly;
++module_param(force_irq_on, bool, 0444);
++
+ static void __init intel_idle_init_cstates_icpu(struct cpuidle_driver *drv)
  {
- 	/* "monitorx %eax, %ecx, %edx;" */
-@@ -41,7 +41,7 @@ static inline void __monitorx(const void
- 		     :: "a" (eax), "c" (ecx), "d"(edx));
- }
+ 	int cstate;
+@@ -1838,8 +1841,10 @@ static void __init intel_idle_init_cstat
+ 		/* Structure copy. */
+ 		drv->states[drv->state_count] = cpuidle_state_table[cstate];
  
--static inline void __mwait(unsigned long eax, unsigned long ecx)
-+static __always_inline void __mwait(unsigned long eax, unsigned long ecx)
- {
- 	mds_idle_clear_cpu_buffers();
+-		if (cpuidle_state_table[cstate].flags & CPUIDLE_FLAG_IRQ_ENABLE)
++		if ((cpuidle_state_table[cstate].flags & CPUIDLE_FLAG_IRQ_ENABLE) || force_irq_on) {
++			printk("intel_idle: forced intel_idle_irq for state %d\n", cstate);
+ 			drv->states[drv->state_count].enter = intel_idle_irq;
++		}
  
-@@ -76,8 +76,8 @@ static inline void __mwait(unsigned long
-  * EAX                     (logical) address to monitor
-  * ECX                     #GP if not zero
-  */
--static inline void __mwaitx(unsigned long eax, unsigned long ebx,
--			    unsigned long ecx)
-+static __always_inline void __mwaitx(unsigned long eax, unsigned long ebx,
-+				     unsigned long ecx)
- {
- 	/* No MDS buffer clear as this is AMD/HYGON only */
- 
-@@ -86,7 +86,7 @@ static inline void __mwaitx(unsigned lon
- 		     :: "a" (eax), "b" (ebx), "c" (ecx));
- }
- 
--static inline void __sti_mwait(unsigned long eax, unsigned long ecx)
-+static __always_inline void __sti_mwait(unsigned long eax, unsigned long ecx)
- {
- 	mds_idle_clear_cpu_buffers();
- 	/* "mwait %eax, %ecx;" */
---- a/arch/x86/include/asm/special_insns.h
-+++ b/arch/x86/include/asm/special_insns.h
-@@ -196,7 +196,7 @@ static inline void load_gs_index(unsigne
- 
- #endif /* CONFIG_PARAVIRT_XXL */
- 
--static inline void clflush(volatile void *__p)
-+static __always_inline void clflush(volatile void *__p)
- {
- 	asm volatile("clflush %0" : "+m" (*(volatile char __force *)__p));
- }
+ 		if (cpu_feature_enabled(X86_FEATURE_KERNEL_IBRS) &&
+ 		    cpuidle_state_table[cstate].flags & CPUIDLE_FLAG_IBRS) {
 
 
 
