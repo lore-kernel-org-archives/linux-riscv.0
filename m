@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37582ECAAA1
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 18:22:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB1A2ECAAA1
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 22:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6G+2DqzzT9cBTdjSEvJ2uXevTlTYzr+dSb671RR4ynM=; b=rK50KKVVxKReUb
-	UTl0b1kwjLt4BgY49y7GaXWhqZi50N7wr8NSgOtrGOksSbpWxdUgisJo7o5DhaPydrtyjjRKoWGX3
-	qqjBojgJdb3OVSCT3zTIspCDl9pyCBiEyPdXxaYtI7b/hjFzCyYz72o2qRSoJJCfRaz6uhrujsOCN
-	6yCy2AdbphMU6qfFqUdBJw6CbxOS/po3er4lcMD2I1Waejaj2Scr8CmljLQeDi+yb05Qz3GcAZkq7
-	mWL9kz6P2hl9DdjQ4P/szj9poWEkM25LQPJzxg6CSBL20RU2ijaOBj4BdoowfyGTEUlA54+Yk9sQn
-	zpaBzWPnj0DhBIPvTQAA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=M4x7Z6R09/afjiErkAgOJ/mu/alcAKe+h04cR80jizo=; b=afnr6DzqTRpvsA
+	SyjsOjMusX6y3g8GnyCXRUn/hqfYHCaSkMI/0p/kvejjNoe1GXuLb026uEY1wtjn3Zn7/q5sTb3jp
+	xhC4Zv3e9F+N+2sbR9QPAzfQ6ssFXRHyllgMNXzVK6vmdTUl4VdzVzfpY1/Uf1bdoteBBRtYf7bps
+	VpqVena3sPEQZk7vN5ZHmzNuA6DO8KcT1TFlnhc5itqG6tdax7DPuapDnY2olfBNvxEcLnnjdaJf3
+	rLvd/+5bH2Zz7ctNSc7Rpn6MVBOxEW4cF1bSjjepQaCh7GQhKb8EvS3WmnpTips8YvIwbU28pB01M
+	Hf+QhLFv9j1eOBNQNccA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaLPk-00Djcr-EN; Mon, 19 Sep 2022 18:22:40 +0000
-Received: from ams.source.kernel.org ([145.40.68.75])
+	id 1oaPQN-00FvIY-3Z; Mon, 19 Sep 2022 22:39:35 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaLPg-00DjWn-F5
-	for linux-riscv@lists.infradead.org; Mon, 19 Sep 2022 18:22:38 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id E0101B81189;
-	Mon, 19 Sep 2022 18:22:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F320C433D6;
-	Mon, 19 Sep 2022 18:22:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663611752;
-	bh=U1+SDYKggiG8jAFpjC++cQPT78CN9my3T9nFCzeYXmU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CRx9/KWPJhJxfSFZGsoHudD/h0kFRSOHLcAzPSeVZBatKL03gAH8vD3cygOGjuKhi
-	 DceFV4xj40t6W/BGkvlhUeZ7rYZjMujKhu2c7UGdcBcgzU8E8ci1uMbieHbdeTGVlf
-	 +vHuvXECmcBx2cLITyhFpK7r7A6PUnmEUHzfdVG3aL95UHNHDG4VBgklunZ/BedAj3
-	 My4dZCKPSkWn+KfMs8U2Q8/PDMY5lSC1fYw0/ymn9wOlRw2sflBA9szU4kHlkpuAkE
-	 okeNojUoaSFvuJw0QSfTj9EHpRz5+X5/JpIo66uHfXXTRy6L8dtvw3IOAGPJUYKHBA
-	 yTBnz+4L31ukQ==
-Date: Mon, 19 Sep 2022 19:22:26 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Shravan Chippa <shravan.chippa@microchip.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1oaPQJ-00FvIF-71
+	for linux-riscv@lists.infradead.org; Mon, 19 Sep 2022 22:39:32 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 3so718815pga.1
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 15:39:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lixom-net.20210112.gappssmtp.com; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date;
+        bh=fFcLaIdKXlgDGkA95O0lHl/2ZQsYb6rituY3HQNR/Cw=;
+        b=KYcfCDEi4vF8hV/a+u7f57iqAAJ4vl/lQfGYkx27RywtgANIRwbfXfN5pAkDZs2F6N
+         o1or1G779iRYXIfEL+QSHX9L9DzHSjh8QQv1wptf1THJA09U3hqVpHWBsh9GcY0PizSN
+         zRXb8gMxH3ECXOPMRLdYAUL/7BbMtDyv8b8T1CgqRKOpGjnStB9MUUQfUeQ45Q75P9Vb
+         eFxOkF3sns5d29ooDP09ItoyeViXWsIdfLM48+AzcIX5KoxOFXYur8/Jv6ZgoR2UceN4
+         FQXK3bKK0+CfigkDXfsNUo6Z+pUguhpB5a9Jzf+8aC0SkDSoh0zwyjc8sfEgqMhDCxId
+         52fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date;
+        bh=fFcLaIdKXlgDGkA95O0lHl/2ZQsYb6rituY3HQNR/Cw=;
+        b=B5tUExj6V3F1elK6SSBK9DFq5BX2lRlRu5dISO04COch4F9tOMtqEiw8flD0HwWxcv
+         6CDVxgxuIDJXvEC3ShdOHW6t2T4kYUXVZ9qzUmKFOSBSGyNZ9/mySMZdOCtppPrUYDIP
+         NhM2K9+EmBHTWcirJQv/g//NGW1DM0mNc9xR9k3O2XSxksCFkWGxPrf0u/Fn8dtWDOFT
+         HyN1nxRXxYL5iFg5Uv+kHh9hkzRliZ5Z3V1u2QcIWmRDpf87vcRnM2YyRAvbOqvjcVTB
+         hUVP/teAiTcNBPRE2Vk1F2vUuLiBYepuJOaCsSNggeiltd2jCtuJOiDx9t5jn9MpPpsh
+         tFpA==
+X-Gm-Message-State: ACrzQf2rg26XC8XQL9GMtLlYqPPPRVRs2Jlr/4zOCnkQ1o5aLAF1rerQ
+	T0JKuqnenvQlNLBaOKIi9ocqbQ==
+X-Google-Smtp-Source: AMsMyM7DR/q1kUqDv3ej5C4oQEc0xUujKbwn4sZlKKHP//4c/iOs4jcquF4XZadj+kHrp9ciHVQrhw==
+X-Received: by 2002:a63:4243:0:b0:439:2031:be87 with SMTP id p64-20020a634243000000b004392031be87mr17659366pga.592.1663627170148;
+        Mon, 19 Sep 2022 15:39:30 -0700 (PDT)
+Received: from lx2k.lixom.net (99-152-116-91.lightspeed.sntcca.sbcglobal.net. [99.152.116.91])
+        by smtp.gmail.com with ESMTPSA id l5-20020a170903244500b00177f32b1a32sm21074410pls.271.2022.09.19.15.39.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 Sep 2022 15:39:29 -0700 (PDT)
+From: Olof Johansson <olof@lixom.net>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Jiri Slaby <jirislaby@kernel.org>,
+	linux-serial@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Olof Johansson <olof@lixom.net>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Cyril Jean <Cyril.Jean@microchip.com>,
-	Lewis Hanly <lewis.hanly@microchip.com>,
-	Vattipalli Praveen <praveen.kumar@microchip.com>,
-	Wolfgang Grandegger <wg@aries-embedded.de>,
-	Hugh Breslin <hugh.breslin@microchip.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 00/10] New PolarFire SoC devkit devicetrees & 22.09
- reference design updates
-Message-ID: <YyizYqHFG3vKrKFU@spud>
-References: <20220916112645.567794-1-conor.dooley@microchip.com>
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: [PATCH] serial: sifive: enable clocks for UART when probed
+Date: Mon, 19 Sep 2022 15:39:15 -0700
+Message-Id: <20220919223915.5146-1-olof@lixom.net>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220916112645.567794-1-conor.dooley@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_112236_825783_EFA47CB1 
-X-CRM114-Status: GOOD (  29.59  )
+X-CRM114-CacheID: sfid-20220919_153931_484398_3F1326F3 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,103 +88,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 16, 2022 at 12:26:36PM +0100, Conor Dooley wrote:
-> Hey all,
-> 
-> Some 6.1 targeted changes here.
-> Firstly, two new dev kits (one first-party & one from Aries Embedded).
-> They've been sitting in our vendor tree, so are being sent where they
-> belong.
-> 
-> Secondly, another release of our reference design for the Icicle kit
-> is due in September. Usually these do not really change much for the
-> devicetree, but this time around a pair of changes impact the memory
-> map.
-> 
-> The first of these is adding dma-ranges to the pcie controller. The
-> controller had some issues to begin with & with the current reference
-> design (v2022.05) would not work with mainline Linux nor has it since
-> reference design v2021.08. A combination of the property, a change
-> to the FPGA design & a small fix to the driver will get it working
-> with mainline again. The other non-backwards compatible change to the
-> reference design is moves of the peripherals instantiated in the
-> fabric. Currently they are fairly spread out & a common complaint has
-> been that this leaves little room in the fic3 section of the memory map
-> for custom peripherals without removing the existing ones.
-> 
-> This series depends on [0] so as not to add dtbs_check warnings. The
-> fabric clock support is added by [1].
-
-I've pushed this series to dt-for-next:
-https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/log/?h=dt-for-next
-
-There's a minor conflict with dt-fixes as that branch deletes a property
-from the pcie dt node which is moved in this series. I deleted the
-property as I moved it in this series so the fix will be to take the
-version in dt-for-next instead.
-
-> 
-> Thanks,
-> Conor.
-> 
-> Changes since v4:
-> - fix the incompatible interrupts on m100pfsevp
-> 
-> Changes since v3:
-> - add an extra patch reducing the fic3 clock rate
-> 
-> Changes since v2:
-> - drop the sd & emmc versions of the aries devicetree
-> - remove a extra newline
-> 
-> Changes since v1:
-> - made the polarberry part of an enum in patch 1
-> 
-> 0 - https://lore.kernel.org/linux-gpio/20220825143522.3102546-1-conor.dooley@microchip.com/
-> 1 - https://lore.kernel.org/linux-clk/20220824093342.187844-1-conor.dooley@microchip.com/
-> 
-> Conor Dooley (8):
->   dt-bindings: riscv: microchip: document icicle reference design
->   dt-bindings: riscv: microchip: document the aries m100pfsevp
->   riscv: dts: microchip: add pci dma ranges for the icicle kit
->   riscv: dts: microchip: move the mpfs' pci node to -fabric.dtsi
->   riscv: dts: microchip: icicle: update pci address properties
->   riscv: dts: microchip: icicle: re-jig fabric peripheral addresses
->   riscv: dts: microchip: reduce the fic3 clock rate
->   riscv: dts: microchip: add a devicetree for aries' m100pfsevp
-> 
-> Shravan Chippa (1):
->   dt-bindings: riscv: microchip: document the sev kit
-> 
-> Vattipalli Praveen (1):
->   riscv: dts: microchip: add sevkit device tree
-> 
->  .../devicetree/bindings/riscv/microchip.yaml  |  20 +-
->  arch/riscv/boot/dts/microchip/Makefile        |   2 +
->  .../dts/microchip/mpfs-icicle-kit-fabric.dtsi |  44 ++++-
->  .../boot/dts/microchip/mpfs-icicle-kit.dts    |   3 +-
->  .../dts/microchip/mpfs-m100pfs-fabric.dtsi    |  45 +++++
->  .../boot/dts/microchip/mpfs-m100pfsevp.dts    | 179 ++++++++++++++++++
->  .../dts/microchip/mpfs-polarberry-fabric.dtsi |  29 +++
->  .../dts/microchip/mpfs-sev-kit-fabric.dtsi    |  45 +++++
->  .../riscv/boot/dts/microchip/mpfs-sev-kit.dts | 145 ++++++++++++++
->  arch/riscv/boot/dts/microchip/mpfs.dtsi       |  29 ---
->  10 files changed, 499 insertions(+), 42 deletions(-)
->  create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfs-fabric.dtsi
->  create mode 100644 arch/riscv/boot/dts/microchip/mpfs-m100pfsevp.dts
->  create mode 100644 arch/riscv/boot/dts/microchip/mpfs-sev-kit-fabric.dtsi
->  create mode 100644 arch/riscv/boot/dts/microchip/mpfs-sev-kit.dts
-> 
-> -- 
-> 2.36.1
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+V2hlbiB0aGUgUFdNIGRyaXZlciB3YXMgY2hhbmdlZCB0byBkaXNhYmxlIGNsb2NrcyBpZiBubyBQ
+V01zIGFyZSBlbmFibGVkLAppdCBlbmRlZCB1cCBhbHNvIGRpc2FibGluZyB0aGUgc2hhcmVkIHBh
+cmVudCB3aXRoIHRoZSBVQVJULCBzaW5jZSB0aGUKVUFSVCBkb2Vzbid0IGRvIGFueSBjbG9jayBl
+bmFibGVtZW50IG9uIGl0cyBvd24uCgpUbyBhdm9pZCB0aGVzZSBzdXJwcmlzZXMsIGFkZCBjbGtf
+cHJlcGFyZV9lbmFibGUvY2xrX2Rpc2FibGVfdW5wcmVwYXJlCmNhbGxzLgoKRml4ZXM6IGFjZTQx
+ZDc1NjRlNjU1ICgicHdtOiBzaWZpdmU6IEVuc3VyZSB0aGUgY2xrIGlzIGVuYWJsZWQgZXhhY3Rs
+eSBvbmNlIHBlciBydW5uaW5nIFBXTSIpCkNjOiBVd2UgS2xlaW5lLUvDtm5pZyA8dS5rbGVpbmUt
+a29lbmlnQHBlbmd1dHJvbml4LmRlPgpDYzogRW1pbCBSZW5uZXIgQmVydGhpbmcgPGVtaWwucmVu
+bmVyLmJlcnRoaW5nQGNhbm9uaWNhbC5jb20+CkNjOiBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQGRh
+YmJlbHQuY29tPgpDYzogUGF1bCBXYWxtc2xleSA8cGF1bC53YWxtc2xleUBzaWZpdmUuY29tPgpT
+aWduZWQtb2ZmLWJ5OiBPbG9mIEpvaGFuc3NvbiA8b2xvZkBsaXhvbS5uZXQ+Ci0tLQogZHJpdmVy
+cy90dHkvc2VyaWFsL3NpZml2ZS5jIHwgMTQgKysrKysrKysrKy0tLS0KIDEgZmlsZSBjaGFuZ2Vk
+LCAxMCBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQoKZGlmZiAtLWdpdCBhL2RyaXZlcnMv
+dHR5L3NlcmlhbC9zaWZpdmUuYyBiL2RyaXZlcnMvdHR5L3NlcmlhbC9zaWZpdmUuYwppbmRleCA1
+YzNhMDc1NDZhNTguLjc1MWY5ODA2ODgwNiAxMDA2NDQKLS0tIGEvZHJpdmVycy90dHkvc2VyaWFs
+L3NpZml2ZS5jCisrKyBiL2RyaXZlcnMvdHR5L3NlcmlhbC9zaWZpdmUuYwpAQCAtOTUwLDIzICs5
+NTAsMjggQEAgc3RhdGljIGludCBzaWZpdmVfc2VyaWFsX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9k
+ZXZpY2UgKnBkZXYpCiAJCWRldl9lcnIoJnBkZXYtPmRldiwgInVuYWJsZSB0byBmaW5kIGNvbnRy
+b2xsZXIgY2xvY2tcbiIpOwogCQlyZXR1cm4gUFRSX0VSUihjbGspOwogCX0KKwljbGtfcHJlcGFy
+ZV9lbmFibGUoY2xrKTsKIAogCWlkID0gb2ZfYWxpYXNfZ2V0X2lkKHBkZXYtPmRldi5vZl9ub2Rl
+LCAic2VyaWFsIik7CiAJaWYgKGlkIDwgMCkgewogCQlkZXZfZXJyKCZwZGV2LT5kZXYsICJtaXNz
+aW5nIGFsaWFzZXMgZW50cnlcbiIpOwotCQlyZXR1cm4gaWQ7CisJCXIgPSBpZDsKKwkJZ290byBw
+cm9iZV9vdXQxOwogCX0KIAogI2lmZGVmIENPTkZJR19TRVJJQUxfU0lGSVZFX0NPTlNPTEUKIAlp
+ZiAoaWQgPiBTSUZJVkVfU0VSSUFMX01BWF9QT1JUUykgewogCQlkZXZfZXJyKCZwZGV2LT5kZXYs
+ICJ0b28gbWFueSBVQVJUcyAoJWQpXG4iLCBpZCk7Ci0JCXJldHVybiAtRUlOVkFMOworCQlyID0g
+LUVJTlZBTDsKKwkJZ290byBwcm9iZV9vdXQxOwogCX0KICNlbmRpZgogCiAJc3NwID0gZGV2bV9r
+emFsbG9jKCZwZGV2LT5kZXYsIHNpemVvZigqc3NwKSwgR0ZQX0tFUk5FTCk7Ci0JaWYgKCFzc3Ap
+Ci0JCXJldHVybiAtRU5PTUVNOworCWlmICghc3NwKSB7CisJCXIgPSAtRU5PTUVNOworCQlnb3Rv
+IHByb2JlX291dDE7CisJfQogCiAJc3NwLT5wb3J0LmRldiA9ICZwZGV2LT5kZXY7CiAJc3NwLT5w
+b3J0LnR5cGUgPSBQT1JUX1NJRklWRV9WMDsKQEAgLTEwMjgsNiArMTAzMyw3IEBAIHN0YXRpYyBp
+bnQgc2lmaXZlX3NlcmlhbF9wcm9iZShzdHJ1Y3QgcGxhdGZvcm1fZGV2aWNlICpwZGV2KQogcHJv
+YmVfb3V0MjoKIAljbGtfbm90aWZpZXJfdW5yZWdpc3Rlcihzc3AtPmNsaywgJnNzcC0+Y2xrX25v
+dGlmaWVyKTsKIHByb2JlX291dDE6CisJY2xrX2Rpc2FibGVfdW5wcmVwYXJlKGNsayk7CiAJcmV0
+dXJuIHI7CiB9CiAKLS0gCjIuMzAuMgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0
+cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGlu
+Zm8vbGludXgtcmlzY3YK
