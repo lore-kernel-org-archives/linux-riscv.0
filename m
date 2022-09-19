@@ -4,71 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D62FC6FA82
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 00:12:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D28E8C6FA82
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 00:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KAIr/+vbYC/HhLUtcYp0HeeTFmjpO3YDqbWMRmhcSkU=; b=HWPnHtsz2RpWCc
-	hk7+VZqMvVtyU3xyLJYK1B7VAyqoNBZo9VUX/Irq8cf68ThpRN3+2ccxBvqV60gO4q+YNuirtlGag
-	+dQ9JRF+VyDw07W/z8zPoycEyENn6DORxneAQRML56F1pji8LRdXMv+MSBPM210omtJDQuO3yWQ37
-	oSHlGIRJSHpmnAzAPJvTT5knBs+02G9i6SiqvXA6dt3SIMqG5C2XjIy6+ge/TsG2Bkw+J6TNQ7dpi
-	g0n6Vs+Ma2ESFbI/UBkXNkEeAik+0iL2xlCiF5Cadhj1y5r+7Oi2zIuj1Mk43xBcJuU/kThDXR63l
-	trMozi2dC3U9PvqZTX5Q==;
+	List-Owner; bh=8/h+IQnyeT/kv5iM6esN9jWLXq3zYwbfUeDNJ/t3x0Y=; b=06VIp+HNUdCmKz
+	9HQEOuFR90ix7eFwsNiNJDE6XXpomQdRRpSEttxrpMDYxwOpsDsdNp/mmR8xXCE5VIKJC3nqdDGGC
+	wqrk0kPMSRNpCwDJ2iOHOVox1jY/wEMS7LaFrhX3WJB2wHjEYGt/2I54pKJJgre2dweHNKcXUrepQ
+	OxKAmqC1ZbAnCnNqhPsjDAh/wuoHNKmhLvK0H5OthLMXrDvczvLzCW6paqGGRr6b328N56Cj4rZod
+	Y6YfBKDYmj52AHoEb3RU2CXVfu4YlAyZoC4ybC/bWM6zhZO+OjrW9Wj8UoomLBrPJcPlaGG+NO1nF
+	iSmb9ZmH8cIc+6q0ODHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaQs8-00GgWi-4H; Tue, 20 Sep 2022 00:12:20 +0000
-Received: from ams.source.kernel.org ([2604:1380:4601:e00::1])
+	id 1oaRHB-00GkbX-O5; Tue, 20 Sep 2022 00:38:13 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaQs4-00GgU9-KF
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 00:12:18 +0000
+	id 1oaIWi-00CMSO-Lq; Mon, 19 Sep 2022 15:17:42 +0000
 Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by ams.source.kernel.org (Postfix) with ESMTPS id 96E3BB81C99
-	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 00:12:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 390ACC4347C
-	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 00:12:09 +0000 (UTC)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 2B61BB81622;
+	Mon, 19 Sep 2022 15:17:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D47AEC433D6;
+	Mon, 19 Sep 2022 15:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663632729;
-	bh=jGh6Z/8o8phkxD6Q5ZaClfS96enuq/pckZpmt/gSUKw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=QxfSf0QTdMROv8kOD4YiiscBiAFwlo9PR57pV30gJmTUhrNpU/yWDrH7eLYMgP6jK
-	 4AElYiaGpjieblpx1ymUfRCCwpdsuhxmRdDBBVCtNUk0JULVG7i6Tk8r8czAHGn08j
-	 MBBSR5x1J3eJKDggrNpdTb7tjQ+pjnSxHlCwGTWe7w/PYA2UXRli85h6LKs+fhbjT6
-	 VZx80+WFkDW30LgD7SETB2DCnkd6Krj0/cFx3zmmtk+SNp1YtBxiso4SFiIgiNvkte
-	 uR3c+udyxrbhe308ZeBZELRHAlq41d1lMahVvd0r8cqTN3VJ1uvQ0eiLq32Q/8wMfa
-	 Sl8TXtoN4T7og==
-Received: by mail-oi1-f169.google.com with SMTP id u131so1661535oie.5
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 17:12:09 -0700 (PDT)
-X-Gm-Message-State: ACrzQf3JPTD7xwzOcC96MtRelw/KxinrTHynb+Hbsald9YQwc5BFjoQ3
-	z/DI4sWqnOzqaXOu/A+bL/nefm9XEhgr6ZRAjow=
-X-Google-Smtp-Source: AMsMyM7q6m74X81UqNxrOeCx3Dxj/WxoLF1r3ltRRUbJziqD0ESkxDrh6zD8VT0RsW27eG0Uex4S1P+7jPii4oPq1r0=
-X-Received: by 2002:a05:6808:201f:b0:34f:9fdf:dbbf with SMTP id
- q31-20020a056808201f00b0034f9fdfdbbfmr356862oiw.19.1663632728293; Mon, 19 Sep
- 2022 17:12:08 -0700 (PDT)
+	s=k20201202; t=1663600657;
+	bh=SGRWSsWxhYnFNcVdXVanCp7r8VhObbFain7vrJ2pf9o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fxVxz+v2ZKRYGR2RcB+jwqcdhOAyWFuA63mrtcEpyRTpMkbyS6WHs4N4WpL6wD55y
+	 MEw4vseCOHKlzHluXBoBp/tNbhBozucjByJQwggqB8cSL766iSR/fB5p7HP2XX3V5a
+	 W432aviHiF1CtVbY9+02lVZyqI6r7f0Y+oEmkgLbQeCLJ6mZ8QHUtL9Cb1Rt7pnsGN
+	 oU9BgJeognmYR5a7tpyKmtArG/qTrOVW6g6oNhiIq3bF6GOaiMj1jdkgNeNp7u/R+2
+	 PWnZiOvApDwvdE77MAQCyvfpVSOU+ZSH1CmsYL840fIy4Yva2osOuqdAr10RKbdLw3
+	 uLMmSqj+LM5sA==
+Date: Mon, 19 Sep 2022 17:17:34 +0200
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: richard.henderson@linaro.org, ink@jurassic.park.msu.ru,
+	mattst88@gmail.com, vgupta@kernel.org, linux@armlinux.org.uk,
+	ulli.kroll@googlemail.com, linus.walleij@linaro.org,
+	shawnguo@kernel.org, Sascha Hauer <s.hauer@pengutronix.de>,
+	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
+	tony@atomide.com, khilman@kernel.org, catalin.marinas@arm.com,
+	will@kernel.org, guoren@kernel.org, bcain@quicinc.com,
+	chenhuacai@kernel.org, kernel@xen0n.name, geert@linux-m68k.org,
+	sammy@sammy.net, monstr@monstr.eu, tsbogend@alpha.franken.de,
+	dinguyen@kernel.org, jonas@southpole.se,
+	stefan.kristiansson@saunalahti.fi, shorne@gmail.com,
+	James.Bottomley@hansenpartnership.com, deller@gmx.de,
+	mpe@ellerman.id.au, npiggin@gmail.com, christophe.leroy@csgroup.eu,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
+	borntraeger@linux.ibm.com, svens@linux.ibm.com,
+	ysato@users.sourceforge.jp, dalias@libc.org, davem@davemloft.net,
+	richard@nod.at, anton.ivanov@cambridgegreys.com,
+	johannes@sipsolutions.net, tglx@linutronix.de, mingo@redhat.com,
+	bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org,
+	hpa@zytor.com, acme@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	namhyung@kernel.org, jgross@suse.com, srivatsa@csail.mit.edu,
+	amakhalov@vmware.com, pv-drivers@vmware.com,
+	boris.ostrovsky@oracle.com, chris@zankel.net, jcmvbkbc@gmail.com,
+	rafael@kernel.org, lenb@kernel.org, pavel@ucw.cz,
+	gregkh@linuxfoundation.org, mturquette@baylibre.com,
+	sboyd@kernel.org, daniel.lezcano@linaro.org, lpieralisi@kernel.org,
+	sudeep.holla@arm.com, agross@kernel.org, bjorn.andersson@linaro.org,
+	konrad.dybcio@somainline.org, anup@brainfault.org,
+	thierry.reding@gmail.com, jonathanh@nvidia.com,
+	jacob.jun.pan@linux.intel.com, atishp@atishpatra.org,
+	Arnd Bergmann <arnd@arndb.de>, yury.norov@gmail.com,
+	andriy.shevchenko@linux.intel.com, linux@rasmusvillemoes.dk,
+	dennis@kernel.org, tj@kernel.org, cl@linux.com, rostedt@goodmis.org,
+	pmladek@suse.com, senozhatsky@chromium.org,
+	john.ogness@linutronix.de, juri.lelli@redhat.com,
+	vincent.guittot@linaro.org, dietmar.eggemann@arm.com,
+	bsegall@google.com, mgorman@suse.de, bristot@redhat.com,
+	vschneid@redhat.com, fweisbec@gmail.com, ryabinin.a.a@gmail.com,
+	glider@google.com, andreyknvl@gmail.com, dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	Andrew Morton <akpm@linux-foundation.org>, jpoimboe@kernel.org,
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org, linux-omap@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
+	linux-ia64@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	openrisc@lists.librecores.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	virtualization@lists.linux-foundation.org,
+	linux-xtensa@linux-xtensa.org, linux-acpi@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-clk@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, linux-tegra@vger.kernel.org,
+	linux-arch@vger.kernel.org, kasan-dev@googlegroups.com
+Subject: Re: [PATCH v2 08/44] cpuidle,imx6: Push RCU-idle into driver
+Message-ID: <20220919151734.GB62211@lothringen>
+References: <20220919095939.761690562@infradead.org>
+ <20220919101520.869531945@infradead.org>
+ <20220919144941.GA62211@lothringen>
+ <YyiEqDSJVOZrQYg8@hirez.programming.kicks-ass.net>
 MIME-Version: 1.0
-References: <20220918155246.1203293-1-guoren@kernel.org> <20220918155246.1203293-10-guoren@kernel.org>
-In-Reply-To: <20220918155246.1203293-10-guoren@kernel.org>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 20 Sep 2022 08:11:55 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRtRzeDqr3=AUkGadPMmMA6kwU86+zSNn8+0qXSk8zmVQ@mail.gmail.com>
-Message-ID: <CAJF2gTRtRzeDqr3=AUkGadPMmMA6kwU86+zSNn8+0qXSk8zmVQ@mail.gmail.com>
-Subject: Re: [PATCH V5 09/11] riscv: Support HAVE_SOFTIRQ_ON_OWN_STACK
-To: arnd@arndb.de, guoren@kernel.org, palmer@rivosinc.com, tglx@linutronix.de, 
-	peterz@infradead.org, luto@kernel.org, conor.dooley@microchip.com, 
-	heiko@sntech.de, jszhang@kernel.org, lazyparser@gmail.com, falcon@tinylab.org, 
-	chenhuacai@kernel.org, apatel@ventanamicro.com, atishp@atishpatra.org, 
-	palmer@dabbelt.com, paul.walmsley@sifive.com, mark.rutland@arm.com, 
-	zouyipeng@huawei.com, bigeasy@linutronix.de, David.Laight@aculab.com
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Guo Ren <guoren@linux.alibaba.com>
+Content-Disposition: inline
+In-Reply-To: <YyiEqDSJVOZrQYg8@hirez.programming.kicks-ass.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_171216_962516_36C88935 
-X-CRM114-Status: GOOD (  23.17  )
+X-CRM114-CacheID: sfid-20220919_081741_038005_6B720A2C 
+X-CRM114-Status: GOOD (  19.06  )
+X-Mailman-Approved-At: Mon, 19 Sep 2022 17:38:11 -0700
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,88 +131,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Sep 18, 2022 at 11:53 PM <guoren@kernel.org> wrote:
->
-> From: Guo Ren <guoren@linux.alibaba.com>
->
-> Add the HAVE_SOFTIRQ_ON_OWN_STACK feature for the IRQ_STACKS config. The
-> irq and softirq use the same independent irq_stack of percpu by time
-> division multiplexing.
->
-> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-> Signed-off-by: Guo Ren <guoren@kernel.org>
-> Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> ---
->  arch/riscv/Kconfig      |  7 ++++---
->  arch/riscv/kernel/irq.c | 16 ++++++++++++++++
->  2 files changed, 20 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 75db47a983f2..dfe600f3526c 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -434,12 +434,13 @@ config FPU
->           If you don't know what to do here, say Y.
->
->  config IRQ_STACKS
-> -       bool "Independent irq stacks" if EXPERT
-> +       bool "Independent irq & softirq stacks" if EXPERT
->         default y
->         select HAVE_IRQ_EXIT_ON_IRQ_STACK
-> +       select HAVE_SOFTIRQ_ON_OWN_STACK
->         help
-> -         Add independent irq stacks for percpu to prevent kernel stack overflows.
-> -         We may save some memory footprint by disabling IRQ_STACKS.
-> +         Add independent irq & softirq stacks for percpu to prevent kernel stack
-> +         overflows. We may save some memory footprint by disabling IRQ_STACKS.
->
->  endmenu # "Platform type"
->
-> diff --git a/arch/riscv/kernel/irq.c b/arch/riscv/kernel/irq.c
-> index 5ad4952203c5..6dc9ccd01470 100644
-> --- a/arch/riscv/kernel/irq.c
-> +++ b/arch/riscv/kernel/irq.c
-> @@ -11,6 +11,7 @@
->  #include <linux/seq_file.h>
->  #include <asm/smp.h>
->  #include <asm/vmap_stack.h>
-> +#include <asm/softirq_stack.h>
->
->  #ifdef CONFIG_IRQ_STACKS
->  static DEFINE_PER_CPU(ulong *, irq_stack_ptr);
-> @@ -38,6 +39,21 @@ static void init_irq_stacks(void)
->                 per_cpu(irq_stack_ptr, cpu) = per_cpu(irq_stack, cpu);
->  }
->  #endif /* CONFIG_VMAP_STACK */
-> +
-> +#ifdef CONFIG_SOFTIRQ_ON_OWN_STACK
-Sorry, it should be. If you compiled an error, please modify it manually,
-+#ifdef CONFIG_HAVE_SOFTIRQ_ON_OWN_STACK
+On Mon, Sep 19, 2022 at 05:03:04PM +0200, Peter Zijlstra wrote:
+> On Mon, Sep 19, 2022 at 04:49:41PM +0200, Frederic Weisbecker wrote:
+> > On Mon, Sep 19, 2022 at 11:59:47AM +0200, Peter Zijlstra wrote:
+> > > Doing RCU-idle outside the driver, only to then temporarily enable it
+> > > again, at least twice, before going idle is daft.
+> > > 
+> > > Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+> > > ---
+> > >  arch/arm/mach-imx/cpuidle-imx6sx.c |    5 ++++-
+> > >  1 file changed, 4 insertions(+), 1 deletion(-)
+> > > 
+> > > --- a/arch/arm/mach-imx/cpuidle-imx6sx.c
+> > > +++ b/arch/arm/mach-imx/cpuidle-imx6sx.c
+> > > @@ -47,7 +47,9 @@ static int imx6sx_enter_wait(struct cpui
+> > >  		cpu_pm_enter();
+> > >  		cpu_cluster_pm_enter();
+> > >  
+> > > +		ct_idle_enter();
+> > >  		cpu_suspend(0, imx6sx_idle_finish);
+> > > +		ct_idle_exit();
+> > >  
+> > >  		cpu_cluster_pm_exit();
+> > >  		cpu_pm_exit();
+> > > @@ -87,7 +89,8 @@ static struct cpuidle_driver imx6sx_cpui
+> > >  			 */
+> > >  			.exit_latency = 300,
+> > >  			.target_residency = 500,
+> > > -			.flags = CPUIDLE_FLAG_TIMER_STOP,
+> > > +			.flags = CPUIDLE_FLAG_TIMER_STOP |
+> > > +				 CPUIDLE_FLAG_RCU_IDLE,
+> > >  			.enter = imx6sx_enter_wait,
+> > 
+> > There is a second one below that also uses imx6sx_enter_wait.
+> 
+> Oh, above you mean; but only @index==2 gets us into the whole PM crud.
+> @index==1 is fine afaict.
 
-> +static void do_riscv_softirq(struct pt_regs *regs)
-> +{
-> +       __do_softirq();
-> +}
-> +
-> +void do_softirq_own_stack(void)
-> +{
-> +       ulong *sp = per_cpu(irq_stack_ptr, smp_processor_id());
-> +
-> +       call_on_stack(NULL, sp, do_riscv_softirq, 0);
-> +}
-> +#endif /* CONFIG_SOFTIRQ_ON_OWN_STACK */
-> +
->  #else
->  static void init_irq_stacks(void) {}
->  #endif /* CONFIG_IRQ_STACKS */
-> --
-> 2.36.1
->
+Ah ok, got it, hence why you didn't touch cpu_do_idle()...
+May need to comment that somewhere...
 
+Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
 
--- 
-Best Regards
- Guo Ren
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
