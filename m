@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FECCECAAD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 11:57:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D699ECAAD3
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 11:59:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BPZVXM0OdIvAiTN1uyHVV7DE64A8ddHvldAIoVghW6E=; b=SU+nkSk/QZDLQd
-	6vkq/vOi7/IiB2HCn1e1SIrvcaI38GXAhiE6YqvEP6P1SOpJLjp7SgUi55+9E4NAnG9jAp9KP4hh8
-	Qt7ZzfijtlSqzdgypQ68dCVvp4sLDiD2OEInj3AHJqEYxrMwlxL1HNpf6qaPmwCJ6+nUvKEnwBleI
-	vgNLmaAfg0JU7245BFYOGDSs0Oznq7C7M9vR2ZCG6hgiECRyGP0VoX7Bjl23tiTSpGf4gMMmlNrBl
-	CW0Yp7zL+gDYM/gAnsvsrokg2V1sYtocO6TSYEbb47YpQrqlDlytPcLphS+a2MM/iXsa3zYtqX0WK
-	WCGRQJKnpXmbw99WBsdg==;
+	List-Owner; bh=6ZyI9RhPXFHitwkyeLvgOYm5h57m5+iVCxiWyB8PZNw=; b=tNEpHsAZMz9T1s
+	CTM985Fif7jneCZ7DOEu5Hv82vvBHIpZu50zHtyuS6ThSCaMR2Bci5la0mH3xMfQYcFCfi74iXfhu
+	nUCzeOrx7tBy6RgooodKKFgz3sMUcE/JQEX46Ik+dAndG3/NHWs4HX0WYO3rypEZ3kSAKyn0ta6Xv
+	LQJ8OcchNLr52EotPodn6bo8RbhwUpESVK/QfWQtmZv896sAsjgpwqWSoqiyLop5+6horEkCuEO7H
+	DtrZb+G2uEOOUTqCS9Peqx5LsRF2kCAnB8KUBzD9tVX9pMveeR2DV/ntSIXXIoUiWLSWgNOnUPqDs
+	ZjVnwMlszAeaCdtyRp5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaFOx-00BcKf-8x; Mon, 19 Sep 2022 11:57:27 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1oaFQk-00BcpO-Fm; Mon, 19 Sep 2022 11:59:18 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaFOs-00BcII-U4
-	for linux-riscv@lists.infradead.org; Mon, 19 Sep 2022 11:57:25 +0000
-Received: from dggpemm500022.china.huawei.com (unknown [172.30.72.54])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4MWNPy1MKdzpT0J;
-	Mon, 19 Sep 2022 19:54:30 +0800 (CST)
-Received: from [10.174.179.163] (10.174.179.163) by
- dggpemm500022.china.huawei.com (7.185.36.162) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2375.31; Mon, 19 Sep 2022 19:57:16 +0800
-Message-ID: <3ddf7351-b39f-daa7-e46d-bc6db6284f5d@huawei.com>
-Date: Mon, 19 Sep 2022 19:57:16 +0800
+	id 1oaFQe-00BcnO-9m
+	for linux-riscv@bombadil.infradead.org; Mon, 19 Sep 2022 11:59:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=mNJykaajNGSUnYywN9R7hRPV8WnJzioOZeSYuIwMLL8=; b=v4IYEVZn1r6bcOev3ZKb2JWvyz
+	OsrznONVcuJ76ILzsbOsHS9mT3IChSB+4qYaOLtmdSzT2DAz86f5FH3/A6eRcNsxf7s5pTaTdvdgG
+	fXMa4qDQRbbMJsX5XaH//Kf3VJUjEAuVI4LGU6QQL7rrnD2B9PQPJGGPNmb7cdW7fpglGcsTGyNFU
+	66eCvvgOih3TqaYkKrsyze0xGc034DPpaSnTkHjvFcmW3DnIuAqpPH8yworjJXq0Bq1ZlRJac/s03
+	W3kVntIhxuOId3a0QtXfXvODTWhRG7OV5OrT2+uRQkQQwAghXZyRuH6u+3BU48Q0z946P4nBwI+4l
+	Xwq2MAIA==;
+Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
+	id 1oaFQU-004fuR-3e; Mon, 19 Sep 2022 11:59:02 +0000
+Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(Client did not present a certificate)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 26912300202;
+	Mon, 19 Sep 2022 13:58:53 +0200 (CEST)
+Received: by hirez.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 39FC02BA49034; Mon, 19 Sep 2022 13:58:53 +0200 (CEST)
+Date: Mon, 19 Sep 2022 13:58:53 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: guoren@kernel.org
+Cc: arnd@arndb.de, palmer@rivosinc.com, tglx@linutronix.de, luto@kernel.org,
+	conor.dooley@microchip.com, heiko@sntech.de, jszhang@kernel.org,
+	lazyparser@gmail.com, falcon@tinylab.org, chenhuacai@kernel.org,
+	apatel@ventanamicro.com, atishp@atishpatra.org, palmer@dabbelt.com,
+	paul.walmsley@sifive.com, mark.rutland@arm.com,
+	zouyipeng@huawei.com, bigeasy@linutronix.de,
+	David.Laight@aculab.com, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	Guo Ren <guoren@linux.alibaba.com>
+Subject: Re: [PATCH V5 06/11] entry: Prevent DEBUG_PREEMPT warning
+Message-ID: <YyhZfUi17TEaOLWv@hirez.programming.kicks-ass.net>
+References: <20220918155246.1203293-1-guoren@kernel.org>
+ <20220918155246.1203293-7-guoren@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.1.2
-Subject: =?UTF-8?B?UmU6IFtQQVRDSCAtbmV4dF0gcmlzY3Y6IGVycmF0YTogZml4IOKAmHJp?=
- =?UTF-8?Q?scv=5fcbom=5fblock=5fsize=e2=80=99_variable_undeclared?=
-To: Conor Dooley <mail@conchuod.ie>
-CC: <liwei391@huawei.com>, <sfr@canb.auug.org.au>,
-	<linux-riscv@lists.infradead.org>, <paul.walmsley@sifive.com>,
-	<aou@eecs.berkeley.edu>, <palmer@dabbelt.com>
-References: <20220919094426.860040-1-zengheng4@huawei.com>
- <9D6D4DE8-084C-48AC-8103-0C86FD000DD1@conchuod.ie>
-From: Zeng Heng <zengheng4@huawei.com>
-In-Reply-To: <9D6D4DE8-084C-48AC-8103-0C86FD000DD1@conchuod.ie>
-X-Originating-IP: [10.174.179.163]
-X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
- dggpemm500022.china.huawei.com (7.185.36.162)
-X-CFilter-Loop: Reflected
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_045723_187678_1B518BFF 
-X-CRM114-Status: GOOD (  10.41  )
+Content-Disposition: inline
+In-Reply-To: <20220918155246.1203293-7-guoren@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,43 +76,76 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T29wcywgZ290IGl0LiBJIHdvdWxkIHRha2UgYSBsb29rIGluIHJpc2N2L2xpbnV4LmdpdCB3aGVu
-IHRoZSBwYXRjaCAKY29uY2VybnMgYWJvdXQgcmlzY3YgYXJjaCBhZnRlcndhcmRzLgoKU28ganVz
-dCBwYXNzIHRoZSBwYXRjaC4KCgrlnKggMjAyMi85LzE5IDE3OjQ1LCBDb25vciBEb29sZXkg5YaZ
-6YGTOgo+Cj4gT24gMTkgU2VwdGVtYmVyIDIwMjIgMTA6NDQ6MjUgSVNULCBaZW5nIEhlbmcgPHpl
-bmdoZW5nNEBodWF3ZWkuY29tPiB3cm90ZToKPj4gYXJjaC9yaXNjdi9lcnJhdGEvdGhlYWQvZXJy
-YXRhLmM6IEluIGZ1bmN0aW9uIOKAmGVycmF0YV9wcm9iZV9jbW/igJk6Cj4+IGFyY2gvcmlzY3Yv
-ZXJyYXRhL3RoZWFkL2VycmF0YS5jOjQwOjI6IGVycm9yOiDigJhyaXNjdl9jYm9tX2Jsb2NrX3Np
-emXigJkgdW5kZWNsYXJlZCAoZmlyc3QgdXNlIGluIHRoaXMgZnVuY3Rpb24pOyBkaWQgeW91IG1l
-YW4g4oCYcmlzY3ZfaW5pdF9jYm9tX2Jsb2Nrc2l6ZeKAmT8KPj4gICAgNDAgfCAgcmlzY3ZfY2Jv
-bV9ibG9ja19zaXplID0gTDFfQ0FDSEVfQllURVM7Cj4+ICAgICAgIHwgIF5+fn5+fn5+fn5+fn5+
-fn5+fn5+fgo+PiAgICAgICB8ICByaXNjdl9pbml0X2Nib21fYmxvY2tzaXplCj4+Cj4+ICdyaXNj
-dl9jYm9tX2Jsb2NrX3NpemUnIHZhcmlhYmxlIHNob3VsZCBiZSBkZWNsYXJlZAo+PiB3aXRob3V0
-IHRoZSBsaW1pdGF0aW9uIHdoZXRoZXIgQ09ORklHX1JJU0NWX0lTQV9aSUNCT00KPj4gaXMgZW5h
-YmxlZCBvciBub3QuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IFplbmcgSGVuZyA8emVuZ2hlbmc0QGh1
-YXdlaS5jb20+Cj4gVGhpcyBzaG91bGQgYWxyZWFkeSBiZSBmaXhlZCBpbiBuZXh0LCBubz8KPgo+
-IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3Jpc2N2L2xp
-bnV4LmdpdC9jb21taXQvP2g9Zml4ZXMKPgo+PiAtLS0KPj4gYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9jYWNoZWZsdXNoLmggfCAyICstCj4+IDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwg
-MSBkZWxldGlvbigtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9j
-YWNoZWZsdXNoLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaAo+PiBpbmRl
-eCBhODljMDA1YjRiYmYuLjdlYzYwMGE3MTYzNCAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9jYWNoZWZsdXNoLmgKPj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9j
-YWNoZWZsdXNoLmgKPj4gQEAgLTQyLDggKzQyLDggQEAgdm9pZCBmbHVzaF9pY2FjaGVfbW0oc3Ry
-dWN0IG1tX3N0cnVjdCAqbW0sIGJvb2wgbG9jYWwpOwo+Pgo+PiAjZW5kaWYgLyogQ09ORklHX1NN
-UCAqLwo+Pgo+PiAtI2lmZGVmIENPTkZJR19SSVNDVl9JU0FfWklDQk9NCj4+IGV4dGVybiB1bnNp
-Z25lZCBpbnQgcmlzY3ZfY2JvbV9ibG9ja19zaXplOwo+PiArI2lmZGVmIENPTkZJR19SSVNDVl9J
-U0FfWklDQk9NCj4+IHZvaWQgcmlzY3ZfaW5pdF9jYm9tX2Jsb2Nrc2l6ZSh2b2lkKTsKPj4gI2Vs
-c2UKPj4gc3RhdGljIGlubGluZSB2b2lkIHJpc2N2X2luaXRfY2JvbV9ibG9ja3NpemUodm9pZCkg
-eyB9Cj4+IC0tIAo+PiAyLjI1LjEKPj4KPj4KPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KPj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4+IGxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
-bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9s
-aXN0aW5mby9saW51eC1yaXNjdgo=
+On Sun, Sep 18, 2022 at 11:52:41AM -0400, guoren@kernel.org wrote:
+> From: Guo Ren <guoren@linux.alibaba.com>
+> 
+> When DEBUG_PREEMPT=y,
+> 	exit_to_user_mode_prepare
+> 	->tick_nohz_user_enter_prepare
+> 	  ->tick_nohz_full_cpu(smp_processor_id())
+> 	    ->smp_processor_id()
+> 	      ->debug_smp_processor_id()
+> 		->check preempt_count() then:
+> 
+> [    5.717610] BUG: using smp_processor_id() in preemptible [00000000]
+> code: S20urandom/94
+> [    5.718111] caller is debug_smp_processor_id+0x24/0x38
+> [    5.718417] CPU: 1 PID: 94 Comm: S20urandom Not tainted
+> 6.0.0-rc3-00010-gfd0a0d619c63-dirty #238
+> [    5.718886] Hardware name: riscv-virtio,qemu (DT)
+> [    5.719136] Call Trace:
+> [    5.719281] [<ffffffff800055fc>] dump_backtrace+0x2c/0x3c
+> [    5.719566] [<ffffffff80ae6cb0>] show_stack+0x44/0x5c
+> [    5.720023] [<ffffffff80aee870>] dump_stack_lvl+0x74/0xa4
+> [    5.720557] [<ffffffff80aee8bc>] dump_stack+0x1c/0x2c
+> [    5.721033] [<ffffffff80af65c0>]
+> check_preemption_disabled+0x104/0x108
+> [    5.721538] [<ffffffff80af65e8>] debug_smp_processor_id+0x24/0x38
+> [    5.722001] [<ffffffff800aee30>] exit_to_user_mode_prepare+0x48/0x178
+> [    5.722355] [<ffffffff80af5bf4>] irqentry_exit_to_user_mode+0x18/0x30
+> [    5.722685] [<ffffffff80af5c70>] irqentry_exit+0x64/0xa4
+> [    5.722953] [<ffffffff80af52f4>] do_page_fault+0x1d8/0x544
+> [    5.723291] [<ffffffff80003310>] ret_from_exception+0x0/0xb8
+> 
+> (Above is found in riscv platform with generic_entry)
+> 
+> The smp_processor_id() needs irqs disable or preempt_disable, so use
+> preempt dis/in protecting the tick_nohz_user_enter_prepare().
+> 
+> Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+> Signed-off-by: Guo Ren <guoren@kernel.org>
+> ---
+>  kernel/entry/common.c | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
+> diff --git a/kernel/entry/common.c b/kernel/entry/common.c
+> index 063068a9ea9b..36e4cd50531c 100644
+> --- a/kernel/entry/common.c
+> +++ b/kernel/entry/common.c
+> @@ -194,8 +194,10 @@ static void exit_to_user_mode_prepare(struct pt_regs *regs)
+>  
+>  	lockdep_assert_irqs_disabled();
+
+    Observe ^^^^
+
+>  
+> +	preempt_disable();
+>  	/* Flush pending rcuog wakeup before the last need_resched() check */
+>  	tick_nohz_user_enter_prepare();
+> +	preempt_enable();
+
+This makes no sense; if IRQs are disabled, check_preemption_disabled()
+should bail early per:
+
+	if (irqs_disabled())
+		goto out;
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
