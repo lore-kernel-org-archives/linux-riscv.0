@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59C4EECAAD3
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85933C54EE9
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 Sep 2022 15:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Subject:Cc:To:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=SMErU/v9u/nnFyWbHcvx73Q/y1+8MtrBI92mhyVq3kA=; b=XUfvErvEkRKnQw
-	qQ4NK9zSnfUzgkS+cx1jib4ORiXYFTLxkLdezuSwxAr+xMsx+f6HrLm4peAUhNezoliQApXbhKVud
-	xIakscnKdZ3FFD1twh9LWRGK7db3thQI0VS4GhI3DUCRE9l9ahE3CmLF/Wp3chKdaq7KamwcIHYMx
-	NNKgHuEQsEdgQ6E+8ovPcGtQzspVV8kXDRFwdpy+EnojIgUAipojjbVPDVpxe60CHryD00j5cY8Ky
-	rg3DTGPP0oXeVAhSR5apjX/MGCXRgXxcySm2EWLWKFxy+0LtPM/abKhBCxanuSG+57tNE47tCw2XD
-	J+ASEJqFEPBpPs9CvS+w==;
+	List-Owner; bh=w7EapRvm2FBIZE5aAvhUphVn1KT0ywdOhONKxLP0dF4=; b=OERQ9TI17fbzbN
+	xWEicW7mi/McKjxx/bxybPA6NjLL4LQpidu+EaNzGhEMEhKYe2dyCeOwziLnBMYsUjCIZxVn+Tcn2
+	IOn8hrAV5Ds7SlTJRi4kZDUg+0rRRe394qV7PC0/BcRB4wz3SvrwHajXN3aP1ZXBxa7bEAXfVxuKV
+	3V1j0cC3nR/55Ar/dhXJFtiTvC8g7pnvRSs8y4OQfyGlB+Cui3/sr2CsNzetpSbi7oiod21pUMaVq
+	+++o9LiL205cMFDEFcLgN0ZneM0Iogl5QPNKnmVfYAPTTysuSVvhc1phbMubbVWZxjrUZpNV74/e2
+	CXQ+aQyym4ekXsKvn61g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaISn-00CIqX-3q; Mon, 19 Sep 2022 15:13:37 +0000
+	id 1oaISu-00CIvs-5F; Mon, 19 Sep 2022 15:13:44 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaEat-00BRm8-9D; Mon, 19 Sep 2022 11:05:43 +0000
+	id 1oaEat-00BRm8-Pe; Mon, 19 Sep 2022 11:05:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=Vr6T2clVTCKzoOuqPun2LzaBPyz9xLY6Bd2T3LwNb5Y=; b=gTZLKFFU3PbNHuvpqf0alW/moq
-	WOJRsM9nfFYtxQhk8/r9783KstgkIz0J20zUv+apeasAoT/KNpZOts0MEPuEXsKAe63jIxl+gnu4R
-	vdgOuoAadYbF2F2SnwryK/X0i1QUOT4m0mvB4vcooIDyFsKwvCzVBm8KFtDDsip/DD3lmlIFf3qdA
-	kL5bMozrRw6qeDh120irB034YQuLmYNU3ADFfzdC7TNMaFTr491d09ceDRkWsZyuzRynwQ0Wp0CTE
-	GRzN4zPve/iD+BmNJ4sy0CEgduJOwYp162kynxT1aWCbKNKZ/RB4bCDVP6NkUodDbM4SZ0sG4PwqK
-	rXFgvylw==;
+	bh=tHnqBkdMyvYunYXYVYlgcgUQQIKSwssAZ5pz8qcqKQY=; b=oSOjRfybQB1HzLh07ntiJBNX3L
+	HCd3QPPtrX2QpGBXGbkBp9vQo4MERxRRPotEASyVSOGtrGzi6xNMUR5QE40aFO9aXcbWMyZPKxKCg
+	+wyqR4j1pBZ1KAvHJsgrFZu24J0uZlXnXRxeKgNwBtvP97hLTlu8ONkMdU3VomQscJ5JQqiVpIqsL
+	grmaQTNcBE6IJLkquRyNCK+Zc0Q86XeOhzRwwOuL/HDx9X/1zR0fJ1VVlfk8rtpuQwRSn3fPewrIh
+	C8QpN4vcgz2I2hZicsgDEBP0cZ3VeYHsqdJVL6mjIk/rtYeyIqWpmxknZKAbxK/xrZC6RRcbWzEpf
+	TCmLdkUw==;
 Received: from j130084.upc-j.chello.nl ([24.132.130.84] helo=noisy.programming.kicks-ass.net)
 	by desiato.infradead.org with esmtpsa (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaDq3-00E2Aw-UN; Mon, 19 Sep 2022 10:17:21 +0000
+	id 1oaDpE-00E28v-2E; Mon, 19 Sep 2022 10:17:18 +0000
 Received: from hirez.programming.kicks-ass.net (hirez.programming.kicks-ass.net [192.168.1.225])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(Client did not present a certificate)
-	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id 28186302F1E;
-	Mon, 19 Sep 2022 12:16:25 +0200 (CEST)
+	by noisy.programming.kicks-ass.net (Postfix) with ESMTPS id C4397302DF5;
+	Mon, 19 Sep 2022 12:16:24 +0200 (CEST)
 Received: by hirez.programming.kicks-ass.net (Postfix, from userid 0)
-	id 4AD7D2BA9210F; Mon, 19 Sep 2022 12:16:22 +0200 (CEST)
-Message-ID: <20220919101521.953707131@infradead.org>
+	id E6E592BA4903D; Mon, 19 Sep 2022 12:16:21 +0200 (CEST)
+Message-ID: <20220919101520.869531945@infradead.org>
 User-Agent: quilt/0.66
-Date: Mon, 19 Sep 2022 12:00:03 +0200
+Date: Mon, 19 Sep 2022 11:59:47 +0200
 From: Peter Zijlstra <peterz@infradead.org>
 To: peterz@infradead.org
 Cc: richard.henderson@linaro.org,
@@ -185,9 +185,8 @@ Cc: richard.henderson@linaro.org,
  linux-arm-msm@vger.kernel.org,
  linux-tegra@vger.kernel.org,
  linux-arch@vger.kernel.org,
- kasan-dev@googlegroups.com,
- Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 24/44] arm64,smp: Remove trace_.*_rcuidle() usage
+ kasan-dev@googlegroups.com
+Subject: [PATCH v2 08/44] cpuidle,imx6: Push RCU-idle into driver
 References: <20220919095939.761690562@infradead.org>
 MIME-Version: 1.0
 X-Mailman-Approved-At: Mon, 19 Sep 2022 08:09:28 -0700
@@ -207,36 +206,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ever since commit d3afc7f12987 ("arm64: Allow IPIs to be handled as
-normal interrupts") this function is called in regular IRQ context.
+Doing RCU-idle outside the driver, only to then temporarily enable it
+again, at least twice, before going idle is daft.
 
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-Acked-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kernel/smp.c |    4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm/mach-imx/cpuidle-imx6sx.c |    5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -865,7 +865,7 @@ static void do_handle_IPI(int ipinr)
- 	unsigned int cpu = smp_processor_id();
+--- a/arch/arm/mach-imx/cpuidle-imx6sx.c
++++ b/arch/arm/mach-imx/cpuidle-imx6sx.c
+@@ -47,7 +47,9 @@ static int imx6sx_enter_wait(struct cpui
+ 		cpu_pm_enter();
+ 		cpu_cluster_pm_enter();
  
- 	if ((unsigned)ipinr < NR_IPI)
--		trace_ipi_entry_rcuidle(ipi_types[ipinr]);
-+		trace_ipi_entry(ipi_types[ipinr]);
++		ct_idle_enter();
+ 		cpu_suspend(0, imx6sx_idle_finish);
++		ct_idle_exit();
  
- 	switch (ipinr) {
- 	case IPI_RESCHEDULE:
-@@ -914,7 +914,7 @@ static void do_handle_IPI(int ipinr)
- 	}
- 
- 	if ((unsigned)ipinr < NR_IPI)
--		trace_ipi_exit_rcuidle(ipi_types[ipinr]);
-+		trace_ipi_exit(ipi_types[ipinr]);
- }
- 
- static irqreturn_t ipi_handler(int irq, void *data)
+ 		cpu_cluster_pm_exit();
+ 		cpu_pm_exit();
+@@ -87,7 +89,8 @@ static struct cpuidle_driver imx6sx_cpui
+ 			 */
+ 			.exit_latency = 300,
+ 			.target_residency = 500,
+-			.flags = CPUIDLE_FLAG_TIMER_STOP,
++			.flags = CPUIDLE_FLAG_TIMER_STOP |
++				 CPUIDLE_FLAG_RCU_IDLE,
+ 			.enter = imx6sx_enter_wait,
+ 			.name = "LOW-POWER-IDLE",
+ 			.desc = "ARM power off",
 
 
 
