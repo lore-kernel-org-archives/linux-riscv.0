@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CDFC6FA93
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 18:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15623C6FA82
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 18:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Pu0bRZgaPoErwhv9Ajru9bWHDATVuqdjx8cVO6VTlGA=; b=u15AdyOrjtsxyk
-	0E4nJF/dRrLPs9JEda8OukeQUFEwuTHq5trQKXy+r0sPBIYmN5N7CGhTfYOBJIaTCtTt42i6wTb9m
-	gh651w6Cozf91lLw2loyaDzoFX6BPWxay3sm2bM3nPiqRaOk/GBuZL3YxDdvlUoO01Xtb50u8Ja30
-	a75WQX2E7Gmka8xYJA+TgR4zekAT9cdmSnGqXLrkYUDdR5FdVI0ZgpBRNW071oMJapJk+Ji3XdUVF
-	DNYo83va6tiOgrVQVDsx2PKidDui3WmybOVjq5BHm6WqMZ8O+FVhq+GA7zGNNZW+4V8YSOzDMlYhV
-	7fDMkMoMsBApw9dcOlGA==;
+	List-Owner; bh=Rkk0ui29eSGcxAz6XkcbFXyhC5KGthRHXhbe6JrdPGQ=; b=idDvZ/Sl6HPULP
+	LGfyeGmhW3bux7lDEHDBGFpmST22fr3zaZjA07/yh/vrBzaUAp4cr0LbTREyJnrLXYF5chlVWMQDC
+	XUiUunw96+SB6F5WVyrTaJ6nej+90FYsrDfrWuABYn2ZsZCAQPHjlzZ4ezG8eB1QSZHZK3XUos1B/
+	upZMxHyNfgS+GsaFMDzIghPTEPqhu2gCnqLdfn406nL3WSu9reE+ZpUblEdo+yhPEo/8yidGOiPtt
+	d5z+LEhoF0M1ivOZAqxRjHjznImKqIp+Rv4a50Kbt0ZO1/PQliEGHC6fzwgWtU5vIfmI7hfRO2LQx
+	j2aSGTFgQeqF2QJhlFrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaiKI-005pgZ-Jf; Tue, 20 Sep 2022 18:50:34 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1oaiKL-005pjE-Iu; Tue, 20 Sep 2022 18:50:37 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaiK1-005pSw-EX
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 18:50:18 +0000
-Received: by mail-wr1-x430.google.com with SMTP id g3so5875025wrq.13
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 11:50:14 -0700 (PDT)
+	id 1oaiK3-005pTf-An
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 18:50:22 +0000
+Received: by mail-wr1-x433.google.com with SMTP id g3so5875142wrq.13
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 11:50:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date;
-        bh=BUW4gOYp/pXvxRdjMx+H4oGpfR74YdeU/jQctJIUObE=;
-        b=VgJBCzZSWWvGQX9E9GzjZGOpU4hKxrxrtei/ntzf7fQTpq1XhSpjFZnjmkFwj/gWRb
-         sVF0T2vYzVBl2RX+vevLdV0lwQDUqo7ZZpZfRAKX5KCfOGs9cDPue5o+bLLFyuEWAykM
-         kaK0X8Wd7Mg8vwjRLWKLEl4QeqG9MPNz97/Pw4NTpSIwY3APQRGIAnpFU2aYVBt58R5L
-         o8L+tvojSBRYYbJoTDSXI4iU6KmaUOAp23Zc7ARzris6AKSgO6m2n1rfevcGttjt6Fbe
-         o/4TTERQ55AZXFoEwD/RKA4apdIAxGK+4CMsHm6wrkTO3P4pMAMJcHviZ+mXja/i9CbA
-         TWEA==
+        bh=/czCMHsS4vvXvkOouApY9xijO1GWSVmIcmtJMgUaxJs=;
+        b=DSrA5MSKP7QNxVSvySg6B5TdyGFsncWvZ3Cq3Qf3fvO84vzUiGQn58JQm+uHwGHg1c
+         m9H07XS18aVmy3FzpeoUz2NNVcoIhBUHl/bXKM8vsuLJwZKNmYX3/2axyHYnTsWxB7An
+         qvAjTd+mCTEtEmZJzeDHnfTfsdDs80OUBUydZe9Yt7YAbjWsY2mHVfRV2fCjpAt5INth
+         MEs216TOBDJhFOK4AwM4CzM5qeQ3ARuN8PP9dDN2QaiBVkoO/Sh01uh6FnOdZxie6We5
+         u14AsVyz8Klhgo4Y2Jotz50GOS5cgzi3nMc3PyyqgV4X4+mltPMpySmgj+agG5ag1S4V
+         BLJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date;
-        bh=BUW4gOYp/pXvxRdjMx+H4oGpfR74YdeU/jQctJIUObE=;
-        b=QTPE7Bvgupf5iP1xFRubOlixWyApCkPgMXbarmdOK+oMGGEAIOBTGTEGT99V4M5unb
-         E9+FlgwqNCJqw6Czb9yXnsIVLyVSKA3ShpSjrYeoBQzvMqX3/tK3RpPzUTxgNA1TPOba
-         1vzvI7KPAPX2iF26Jrq+2N+upV+C/22dBVjjvUzDj8QEvTPfg6AMHprhL+PAARC4TMlh
-         xubZylcRlH1ir81WN57cUYc2KwpbbE0P0ofee5hADulo+t+tgLJlSAwaWH6cxPuQyHXQ
-         XAcJPwt+Y+A0kDNX+NRuBUikx8miQvI1NzTLpwhEKY74CV5zF9mvCoOr+FuQDmjTdBqY
-         ZaiA==
-X-Gm-Message-State: ACrzQf1ykfZoKH2ovnnvjeCORXlAdtMurHbfhL5Hqsi5T4/usdTeLCu2
-	x6K3tE016lDQCikNjkJCr/E=
-X-Google-Smtp-Source: AMsMyM53j1tfWe4rRV/yOYx41751jvFLwqQWHbJd13UU1u7cdlpuhMqQE623NK+uLtEX3oHpV2SpBw==
-X-Received: by 2002:a05:6000:1a87:b0:22a:56da:9a2b with SMTP id f7-20020a0560001a8700b0022a56da9a2bmr15342036wry.433.1663699813775;
-        Tue, 20 Sep 2022 11:50:13 -0700 (PDT)
+        bh=/czCMHsS4vvXvkOouApY9xijO1GWSVmIcmtJMgUaxJs=;
+        b=7ccHaxpli0Gvuwww1QvUAtCRrUQ6QbfegSE/lNN1X3gl89OfKlTCIg8OR7NsqnFgR6
+         6I4mWQKH8lZW1892kickbuXSG69J7msY9XVQ5YnYmZqsDN5hEQm0AVagS8+ez03Bz61K
+         0zaRiJPfuT6Y6zYMmKe2TF+9Jnul7e2rfZIo1kuQ0OmGNYUG66GtLwGIgtdqJoR8U4LG
+         ixxW7t3K4b+CEnY96McNQDiu+EYqM1kWXjxBeJq2HO8L+Wg7EH34I8zrqtoy4cKRK8qq
+         ak5ESw9sG1I2jebj5pW2l/06419TxUZJ6YPot3C12d6KzMc8pixoTWAlcWoXWUnqPSOK
+         j7JQ==
+X-Gm-Message-State: ACrzQf3ndjnO3wrHS/aNovoocob+Mibl2gYxVawGaAVUVp3XVHFFwXVk
+	isRzG2yPMBchRW7+WBhtONQ=
+X-Google-Smtp-Source: AMsMyM6TIUnRVx7XB2qJ2mmjne6k5QKjIga4gmXbwECy51kPgyQH/B33V3OT4aPEiMRcsEDn/wfQLA==
+X-Received: by 2002:a5d:5010:0:b0:22a:4247:3be4 with SMTP id e16-20020a5d5010000000b0022a42473be4mr15707462wrt.270.1663699814810;
+        Tue, 20 Sep 2022 11:50:14 -0700 (PDT)
 Received: from prasmi.home ([2a00:23c8:2501:c701:e9a4:d6c9:505d:20d0])
-        by smtp.gmail.com with ESMTPSA id cc4-20020a5d5c04000000b00228de351fc0sm582722wrb.38.2022.09.20.11.50.12
+        by smtp.gmail.com with ESMTPSA id cc4-20020a5d5c04000000b00228de351fc0sm582722wrb.38.2022.09.20.11.50.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Sep 2022 11:50:13 -0700 (PDT)
+        Tue, 20 Sep 2022 11:50:14 -0700 (PDT)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: Rob Herring <robh+dt@kernel.org>,
@@ -79,16 +79,16 @@ Cc: Heiko Stuebner <heiko@sntech.de>,
 	Prabhakar <prabhakar.csengg@gmail.com>,
 	Biju Das <biju.das.jz@bp.renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v4 05/10] riscv: Kconfig.socs: Add ARCH_RENESAS kconfig option
-Date: Tue, 20 Sep 2022 19:48:59 +0100
-Message-Id: <20220920184904.90495-6-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH v4 06/10] riscv: dts: renesas: Add initial devicetree for Renesas RZ/Five SoC
+Date: Tue, 20 Sep 2022 19:49:00 +0100
+Message-Id: <20220920184904.90495-7-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20220920184904.90495-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_115017_551857_04565715 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20220920_115020_729519_A9B94B36 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,42 +107,165 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Add ARCH_RENESAS config option to allow selecting the Renesas RISC-V SoCs.
-We currently have the newly added RZ/Five (R9A07G043) RISC-V based SoC.
+Add initial device tree for Renesas RZ/Five RISC-V CPU Core (AX45MP
+Single).
+
+Below is the list of IP blocks added in the initial SoC DTSI which can be
+used to boot via initramfs on RZ/Five SMARC EVK:
+- AX45MP CPU
+- CPG
+- PINCTRL
+- PLIC
+- SCIF0
+- SYSC
 
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
 v3 -> v4
-* Dropped SOC_RENESAS_RZFIVE config option
-* Dropped explicitly selecting SOC_BUS/GPIOLIB/PINCTRL configs
-  under ARCH_RENESAS
-* Updated commit message
-* Dropped RB tag
-* Used riscv instead of RISC-V in subject line
+* No change
 
 v2 -> v3
-* Included RB tag from Geert
+* Fixed clock entry for CPU core
+* Fixed timebase frequency to 12MHz
+* Fixed sorting of the nodes
+* Included RB tags
 
 v1 -> v2
-* No Change
+* Dropped including makefile change
+* Updated ndev count
 ---
- arch/riscv/Kconfig.socs | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/riscv/boot/dts/renesas/r9a07g043.dtsi | 120 +++++++++++++++++++++
+ 1 file changed, 120 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/renesas/r9a07g043.dtsi
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 69774bb362d6..5c420ed55ef9 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -80,4 +80,9 @@ config SOC_CANAAN_K210_DTB_SOURCE
- 
- endif # SOC_CANAAN
- 
-+config ARCH_RENESAS
-+	bool "Renesas RISC-V SoCs"
-+	help
-+	  This enables support for the RISC-V based Renesas SoCs.
+diff --git a/arch/riscv/boot/dts/renesas/r9a07g043.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043.dtsi
+new file mode 100644
+index 000000000000..fb6733f3cc2b
+--- /dev/null
++++ b/arch/riscv/boot/dts/renesas/r9a07g043.dtsi
+@@ -0,0 +1,120 @@
++// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++/*
++ * Device Tree Source for the RZ/Five SoC
++ *
++ * Copyright (C) 2022 Renesas Electronics Corp.
++ */
 +
- endmenu # "SoC selection"
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/clock/r9a07g043-cpg.h>
++
++/ {
++	compatible = "renesas,r9a07g043";
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <12000000>;
++
++		ax45mp: cpu@0 {
++			compatible = "andestech,ax45mp", "riscv";
++			device_type = "cpu";
++			reg = <0x0>;
++			status = "okay";
++			riscv,isa = "rv64imafdc";
++			mmu-type = "riscv,sv39";
++			i-cache-size = <0x8000>;
++			i-cache-line-size = <0x40>;
++			d-cache-size = <0x8000>;
++			d-cache-line-size = <0x40>;
++			clocks = <&cpg CPG_CORE R9A07G043_CLK_I>;
++
++			cpu0_intc: interrupt-controller {
++				#interrupt-cells = <1>;
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++			};
++		};
++	};
++
++	/* clock can be either from exclk or crystal oscillator (XIN/XOUT) */
++	extal_clk: extal-clk {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		/* This value must be overridden by the board */
++		clock-frequency = <0>;
++	};
++
++	soc: soc {
++		compatible = "simple-bus";
++		interrupt-parent = <&plic>;
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		scif0: serial@1004b800 {
++			compatible = "renesas,scif-r9a07g043",
++				     "renesas,scif-r9a07g044";
++			reg = <0 0x1004b800 0 0x400>;
++			interrupts = <412 IRQ_TYPE_LEVEL_HIGH>,
++				     <414 IRQ_TYPE_LEVEL_HIGH>,
++				     <415 IRQ_TYPE_LEVEL_HIGH>,
++				     <413 IRQ_TYPE_LEVEL_HIGH>,
++				     <416 IRQ_TYPE_LEVEL_HIGH>,
++				     <416 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "eri", "rxi", "txi",
++					  "bri", "dri", "tei";
++			clocks = <&cpg CPG_MOD R9A07G043_SCIF0_CLK_PCK>;
++			clock-names = "fck";
++			power-domains = <&cpg>;
++			resets = <&cpg R9A07G043_SCIF0_RST_SYSTEM_N>;
++			status = "disabled";
++		};
++
++		cpg: clock-controller@11010000 {
++			compatible = "renesas,r9a07g043-cpg";
++			reg = <0 0x11010000 0 0x10000>;
++			clocks = <&extal_clk>;
++			clock-names = "extal";
++			#clock-cells = <2>;
++			#reset-cells = <1>;
++			#power-domain-cells = <0>;
++		};
++
++		sysc: system-controller@11020000 {
++			compatible = "renesas,r9a07g043-sysc";
++			reg = <0 0x11020000 0 0x10000>;
++			status = "disabled";
++		};
++
++		pinctrl: pinctrl@11030000 {
++			compatible = "renesas,r9a07g043-pinctrl";
++			reg = <0 0x11030000 0 0x10000>;
++			gpio-controller;
++			#gpio-cells = <2>;
++			#interrupt-cells = <2>;
++			interrupt-controller;
++			gpio-ranges = <&pinctrl 0 0 152>;
++			clocks = <&cpg CPG_MOD R9A07G043_GPIO_HCLK>;
++			power-domains = <&cpg>;
++			resets = <&cpg R9A07G043_GPIO_RSTN>,
++				 <&cpg R9A07G043_GPIO_PORT_RESETN>,
++				 <&cpg R9A07G043_GPIO_SPARE_RESETN>;
++		};
++
++		plic: interrupt-controller@12c00000 {
++			compatible = "renesas,r9a07g043-plic", "andestech,nceplic100";
++			#interrupt-cells = <2>;
++			#address-cells = <0>;
++			riscv,ndev = <512>;
++			interrupt-controller;
++			reg = <0x0 0x12c00000 0 0x400000>;
++			clocks = <&cpg CPG_MOD R9A07G043_NCEPLIC_ACLK>;
++			power-domains = <&cpg>;
++			resets = <&cpg R9A07G043_NCEPLIC_ARESETN>;
++			interrupts-extended = <&cpu0_intc 11 &cpu0_intc 9>;
++		};
++	};
++};
 -- 
 2.25.1
 
