@@ -4,57 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8802C54EE9
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 16:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B5DDC6FA90
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 17:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iTei7+1jesHzBTzakF09RsjJEjxR8g+TJS8TXQ//7CU=; b=T0ezFG3sstmfRM
-	X8Qh7MzaHx+vGEwRdo6WUksZ0XMn45hDsHlO+T3FApYl1nQtXMjactth3qm00uBit2V7bdqmy+ENR
-	L9Tdz00s0NknWVCnFN2akZx2m+bpJ6PAH/aDo9K+I+Cscv+mDj5IMhpqCZPI8u5uxBb4t9cH+pqRy
-	PYXVH7x4Sd+Evy4atdPen6QZUgcdsCDZ2TRUpmvAHFgm9C8Bd9ftZw3odXnXCuNV05hc3hwZPhPvy
-	zzxn5MFQoe1b4CUYsEW+/s247uav6NzofYMAAPfOIISYpRUGd920jApKEQIqQuZeu8DsPwY3luYRW
-	T0PCKxEyl1SNwOKsautQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:Message-Id:In-Reply-To:References:Cc:To
+	:Subject:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uRNbn/tIKDY2PY2jAu4fya31PRDquYehUx4PXQumKzU=; b=YlIwnBEj3XHEnNgBX8ZhAskW+Q
+	dDBGf5icvJdCPO00nvJvFptqekSAUOxbrT0h3gmg9cy0cBa5JjmU6IMDXSR/GmPKqPtcL/TYqh8Pp
+	PYpt8OrBhE+N/2wU+h3yuyTAdYKvVXjAEgOKXhb9AFiITgWaEgtm14AouxPPrFYRBHwg/bDYKTooG
+	jgsJjtOdgLzdtI2SYVkJGwthNP40LqwjCbifbxhW5UrPE/KTzR9fnoXX6uKTidGjMB97diXoD0ec5
+	hIVhXPr19xbeX2QK1z7mlg0npbLsWgB/nNMeKNKZbRtt0Kul+s2RAHjnoJi4lO+ABVWJNuQeGndBD
+	olYutmzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oagYb-005HK9-FE; Tue, 20 Sep 2022 16:57:13 +0000
-Received: from sin.source.kernel.org ([145.40.73.55])
+	id 1oageb-005IZ7-Fj; Tue, 20 Sep 2022 17:03:25 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oagYY-005HIU-8e
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 16:57:11 +0000
-Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by sin.source.kernel.org (Postfix) with ESMTPS id 15D63CE19CD;
-	Tue, 20 Sep 2022 16:57:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF674C433C1;
-	Tue, 20 Sep 2022 16:57:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1663693023;
-	bh=90qrbtTDZSrLP+0IRejeJNo4OYKsU9a720uvmW8b7UM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rc79zwJmsfbix8+q++BIS5ydiePVNvX84CMPmGRtpu+h+dS/XS8wz/eqKPuHMI0yP
-	 AKmNliPVlbMECRsG6AwfOAjQjO3U6t360mW0IcaC8BEzkq0+7oeQpF1/DJsYuz6Of8
-	 2pQd+kJGzhvUDnb5fT/amu0uj8CfOSHPbU1Ww49XUwiAm9ufo2JMwzYSEWjcswA94f
-	 uAXl2Sb2ksR2cjt/nPuEdPEDnqh8kR8QEuumU9SYtKt1evHHN2+EockhHdix+TLtlN
-	 kM4CVGRddtkyHBhV2/6qjnlmGK4ORGmxzoxOGLrwO459pM+x0SnDE18DSjYMtDTKnk
-	 KhION+L0SvCYA==
-Date: Tue, 20 Sep 2022 17:56:59 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Palmer Dabbelt <palmer@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 1/3] Documentation: RISC-V: Fix a typo in patch-acceptance
-Message-ID: <Yynw26jVIvHSSQ+6@spud>
-References: <20220920140138.27210-1-palmer@rivosinc.com>
+	id 1oageY-005IYC-Eb; Tue, 20 Sep 2022 17:03:24 +0000
+Received: from pps.filterd (m0098409.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.17.1.5/8.17.1.5) with ESMTP id 28KH2VNZ031286;
+	Tue, 20 Sep 2022 17:02:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=date : from : subject :
+ to : cc : references : in-reply-to : message-id : content-type :
+ content-transfer-encoding : mime-version; s=pp1;
+ bh=fQCvxPU61NHYx0I3QmM1H3vlAIyZOE2m1uOWdTdchJ4=;
+ b=mf8cvIizT4KVk3Wd13JhpU+v5Q3vdjgCILM6O/ECQCioNVqlrCneyCRlazCnIYCH0ied
+ AZ1OvVq1r0uPMKN6PZxDbM6NJQdIcTvnshFsIlRRYFKzZtdqoVWfL5uTEpt5CdV0xDNY
+ c6oamHg9XNrrSJsFMQWFCVAbs2Yriin7w7viwJGZDtI5TB3gwMfrZNsCX41yY5NVSQxB
+ WlCJu3oys8EtPD65pmNORlHq4z6piklcIYdTxcsRp3SKvaMpPyeovyox5L1lPNeVsnt/
+ xzpFpHjO4JOF0yLq7I7Bq19LpOU9YS6zlUT2jr/AjLoxt0Ixxg43ct9T20qmzxfTL4oM GQ== 
+Received: from ppma04ams.nl.ibm.com (63.31.33a9.ip4.static.sl-reverse.com [169.51.49.99])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 3jqhjs80h1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 20 Sep 2022 17:02:54 +0000
+Received: from pps.filterd (ppma04ams.nl.ibm.com [127.0.0.1])
+	by ppma04ams.nl.ibm.com (8.16.1.2/8.16.1.2) with SMTP id 28KGp8ir020400;
+	Tue, 20 Sep 2022 17:02:51 GMT
+Received: from b06avi18878370.portsmouth.uk.ibm.com (b06avi18878370.portsmouth.uk.ibm.com [9.149.26.194])
+	by ppma04ams.nl.ibm.com with ESMTP id 3jn5v8m6u6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 20 Sep 2022 17:02:51 +0000
+Received: from d06av26.portsmouth.uk.ibm.com (d06av26.portsmouth.uk.ibm.com [9.149.105.62])
+	by b06avi18878370.portsmouth.uk.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 28KH3EsG52691370
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 20 Sep 2022 17:03:14 GMT
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 47A13AE04D;
+	Tue, 20 Sep 2022 17:02:48 +0000 (GMT)
+Received: from d06av26.portsmouth.uk.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C22B1AE051;
+	Tue, 20 Sep 2022 17:02:47 +0000 (GMT)
+Received: from localhost (unknown [9.43.42.171])
+	by d06av26.portsmouth.uk.ibm.com (Postfix) with ESMTP;
+	Tue, 20 Sep 2022 17:02:47 +0000 (GMT)
+Date: Tue, 20 Sep 2022 22:32:46 +0530
+From: "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>
+Subject: Re: [PATCH 0/2] make weak attributes in {k,u}probes
+To: anil.s.keshavamurthy@intel.com, borntraeger@linux.ibm.com,
+        catalin.marinas@arm.com, dave.hansen@linux.intel.com,
+        gor@linux.ibm.com, guoren@kernel.org, hca@linux.ibm.com, hpa@zytor.com,
+        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        mark.rutland@arm.com, mhiramat@kernel.org, namit@vmware.com,
+        palmer@dabbelt.com, paul.walmsley@sifive.com, peterz@infradead.org,
+        x86@kernel.org, Yipeng Zou <zouyipeng@huawei.com>
+Cc: chris.zjh@huawei.com, liaochang1@huawei.com
+References: <20220917015522.44583-1-zouyipeng@huawei.com>
+In-Reply-To: <20220917015522.44583-1-zouyipeng@huawei.com>
+User-Agent: astroid/4d6b06ad (https://github.com/astroidmail/astroid)
+Message-Id: <1663692878.h3l8c563n8.naveen@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: yRFZ6NnVwkeJV_6MthdEmUtO_Y_I2tyz
+X-Proofpoint-GUID: yRFZ6NnVwkeJV_6MthdEmUtO_Y_I2tyz
+X-Proofpoint-UnRewURL: 0 URL was un-rewritten
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20220920140138.27210-1-palmer@rivosinc.com>
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.205,Aquarius:18.0.895,Hydra:6.0.528,FMLib:17.11.122.1
+ definitions=2022-09-20_07,2022-09-20_02,2022-06-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
+ priorityscore=1501 malwarescore=0 impostorscore=0 spamscore=0
+ mlxlogscore=677 bulkscore=0 clxscore=1011 adultscore=0 mlxscore=0
+ phishscore=0 lowpriorityscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.12.0-2209130000 definitions=main-2209200098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_095710_513783_1B12B045 
-X-CRM114-Status: GOOD (  20.37  )
+X-CRM114-CacheID: sfid-20220920_100322_698612_1DD43069 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,43 +104,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 20, 2022 at 07:01:37AM -0700, Palmer Dabbelt wrote:
-> I just stumbled on this when modifying the docs.
-> 
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
->  Documentation/riscv/patch-acceptance.rst | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/riscv/patch-acceptance.rst b/Documentation/riscv/patch-acceptance.rst
-> index dfe0ac5624fb..5da6f9b273d6 100644
-> --- a/Documentation/riscv/patch-acceptance.rst
-> +++ b/Documentation/riscv/patch-acceptance.rst
-> @@ -29,7 +29,7 @@ their own custom extensions.  These custom extensions aren't required
->  to go through any review or ratification process by the RISC-V
->  Foundation.  To avoid the maintenance complexity and potential
->  performance impact of adding kernel code for implementor-specific
+Yipeng Zou wrote:
+> We have some function implementation under some arch does nothing.
+> We can mark it with weak attributes to improve.
 
-s/implementor/implementer no? Or is this an American spelling?
+That's not always an improvement. See [1] for an example, among many 
+other patches to reduce use of __weak functions in the kernel.
 
-> -RISC-V extensions, we'll only to accept patches for extensions that
-> +RISC-V extensions, we'll only accept patches for extensions that
->  have been officially frozen or ratified by the RISC-V Foundation.
->  (Implementors, may, of course, maintain their own Linux kernel trees
->  containing code for any custom extensions that they wish.)
-> -- 
-> 2.34.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+As an alternative, please consider the approach used in [1].
+
+
+- Naveen
+
+[1] https://lore.kernel.org/all/20220519091237.676736-1-naveen.n.rao@linux.vnet.ibm.com/
+
 
 _______________________________________________
 linux-riscv mailing list
