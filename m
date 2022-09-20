@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D589DECAAD8
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 14:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 837F3ECAAD8
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 15:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:References:
-	In-Reply-To:Message-Id:Date:Subject:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xxZ62Qw2AR8ENPtnL2Kzp/0dPvNhL0lndsZkvgyMCFE=; b=uMrkJx7M2FhaWn
-	juD0Bt80PO1beQJWOAF5ZrVqkOTxIRZtoivAP5UeHg5m1V8qkY2kT417bEzk1fzTHBVhjfQykc3n5
-	B7IxYwFxx4KqeQS75AyjOeOIXFS/gmtQ/O23bTGekUTa11TqzhuNQyKttxyUScO38gUyoCcDjooFp
-	f/V2g3EklQPNT2NU1F5VozDeW1rvaNxZ+bMCUKhFK2dJ1t4eiZLX41bE0HHCwCsJjmyzOi+vbtyPA
-	0lBXc4uIrxm9lrw5LUBCMTNUn1/FMniJChOOnJg3vU5sST3RA7uXg5hZVBJvpmL3H5H+1cI70O4Bm
-	bbCy5CRrwiRKORlBdzjg==;
+	List-Owner; bh=+34DBrj2/aW3nwojG+HCOLyriTbrJCYtcvJQT5Zpezg=; b=t+UZ6tfUEmPCJ1
+	zi1OoaMxkb/pmMdCgJpRkQZKARrypkeyBz8VBPiHASKoKNj/x9reepFDEK1vjEpyObRuZa+eEaFL+
+	s56C1n1pozwq7MIV26HhQu0w0rvcv+8BnjmruhhChb4Apx6avFHgwtZjCIpYP+Igy1/b24E/OCoTu
+	Qm42O6G9/RLtFRNSgEPdPHJlYDVcATTNKZbFtE4OMZLDTDGLR7hwqkF5A2Whtp/3jnCOz4FFQ6A4y
+	bqbSov2nOnaywPRpjhoHzfvE7oAGNkPjOm5qfGA5aOK4G5AnYont+ZcTkPPgARWbgPMVkuzRNUjjF
+	lETGvL2NsTN69uykAbdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaeHP-004Uta-OH; Tue, 20 Sep 2022 14:31:19 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1oaeqY-004ihR-IO; Tue, 20 Sep 2022 15:07:38 +0000
+Received: from mail-qk1-f176.google.com ([209.85.222.176])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaeHL-004UqC-Cq
-	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 14:31:16 +0000
-Received: by mail-wr1-x429.google.com with SMTP id b5so4612698wrr.5
-        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 07:31:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20210112.gappssmtp.com; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:from:to:cc:subject:date;
-        bh=faWpDpOOacfF16swLlrumbVqmNSSXoww8DJTwPdODDA=;
-        b=Mu0ng8OwsthD5wJgVrC5rMw5M0oJo1wL7h1c4pAQiYTrGJo2yT/fkSdsgbwYxWA1cb
-         pKtpr/TP9Bkt2InMdwz3uxTmUpxwwikGAKBjjPkajM+MeFIPowKFaF8D7OOxnkW55Faj
-         eBg3isx8os+0AvCHk6Gubvtk3W4unC1J8fbq00Sd9lmDMZOiA2Xv95676Vkd0WDgDLE7
-         deKIs0RoGSnGDZ9rNlNfaeMy/p74BRdwqyj+FIoPD19H+euoy+NtNClgZrCZBR8iqke6
-         l4fKdQfF+kdWNRBAtfehQjewGFNopeYSJRgM+x4dLsJFqG0ODER5MPSbL9M6AwnwQsGS
-         SBzQ==
+	id 1oaeqV-004ieg-Re
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 15:07:37 +0000
+Received: by mail-qk1-f176.google.com with SMTP id o7so1790794qkj.10
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 08:07:33 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20210112;
-        h=to:from:cc:content-transfer-encoding:mime-version:references
-         :in-reply-to:message-id:date:subject:x-gm-message-state:from:to:cc
-         :subject:date;
-        bh=faWpDpOOacfF16swLlrumbVqmNSSXoww8DJTwPdODDA=;
-        b=qs/jMoZodaxvflyxaB0Qs1FgYD0Rh1/DxDhv9ENahxBOQYJhzi/R3NOlcqghZO6wPf
-         Wdg7Ffb5EVJiFreOfE0JrrDu9hlaT0Ya7kkOoxqky0W1ZCiLFgI6NUoyxvkrqpT6Sdr8
-         W/sOFGjZilK2LPKPtFvMNU8RZbNYUJhJAPCSx5AHt3opcojhR5SUVup1EjvSa4KZgStw
-         0HVKv+Od8HSRbnY5XBGI7TUFXXIY2bLCcYM7+HkCMCO0Sxq0+GHhM9q9ZvuMW6UAw3aU
-         W1gO9SxNKwk2pvrKQZNANaYq9mAXUD6jKihgUD3+2RGbFbuHgQnELWpaZcD1OLtQ6/D+
-         i5zg==
-X-Gm-Message-State: ACrzQf034XPysnfWhfsGUk2/I5/i8oRBTKwaC5fbgEO2hAGecHvZZyiQ
-	QILtET8jk7Sd9s0rATRJfKy5NmEW3MJDJeG5ssU=
-X-Google-Smtp-Source: AMsMyM7pq5Eklz5W1NRLqRNucjZmgo0o2EZi+79Qc+/yTelNvSWjnOLBseSP+W3C3sOJv75eO00ZTA==
-X-Received: by 2002:adf:a50e:0:b0:22a:ede1:57e with SMTP id i14-20020adfa50e000000b0022aede1057emr10156972wrb.63.1663684272990;
-        Tue, 20 Sep 2022 07:31:12 -0700 (PDT)
-Received: from localhost (p57a238e9.dip0.t-ipconnect.de. [87.162.56.233])
-        by smtp.gmail.com with ESMTPSA id f9-20020a1c6a09000000b003b3401f1e24sm177282wmc.28.2022.09.20.07.31.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 Sep 2022 07:31:11 -0700 (PDT)
-Subject: [PATCH 3/3] Documentation: RISC-V: Mention the UEFI Standards
-Date: Tue, 20 Sep 2022 07:01:41 -0700
-Message-Id: <20220920140138.27210-3-palmer@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20220920140138.27210-1-palmer@rivosinc.com>
-References: <20220920140138.27210-1-palmer@rivosinc.com>
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date;
+        bh=beo87QLkKwCHQVFvRevjYmIvSu6gsEO9BIku51wSlXE=;
+        b=xPnDa3ZFaimyvrOxe6LA+slTD7UKl1TYq5Qk7d42ZWvG1XSDg1Mv7jZ2RWbaukaPcX
+         4h5QzpM9+z7oAQ162N7N4x2UsTh8phgG6CDdSlZAN1YGqtoE+qwk2hnFLjUKfVyf++5i
+         IlaK45AXtFwdHmoZ5GMWkI5idlC4HWVlwJaCX/FjYfIMJ54XfPCYB0d+wTcXEo6lI94d
+         LkTydcXkTolOuArT62FvrgwBSZfpUHrBqIrT6jAE8df3749Ou7biV5At/92tWtNPUgEd
+         WinU1xz7Y4RmQmMAxPcKmg0hQaMJ8ISbeeVnKRJHZIMnvzrlMfYWJG9AZdnOSr+4WGSe
+         A5Ow==
+X-Gm-Message-State: ACrzQf2fOirZ5BWmJmlKbOCmKH4jOk6OKaqmTMkC/PHMEyuw02+ksafl
+	o6SasP/TpZfpuKieedu6G548m6f1p6uP6g==
+X-Google-Smtp-Source: AMsMyM7DSbFBWeavGdtmDmC4eI5ntcBYAo1XUy7+z8RWgEbOAKL2pevPMMtcuYjl5yORL8XWuPCZfw==
+X-Received: by 2002:a05:620a:424f:b0:6b6:7a9d:c5c7 with SMTP id w15-20020a05620a424f00b006b67a9dc5c7mr16407133qko.479.1663686451968;
+        Tue, 20 Sep 2022 08:07:31 -0700 (PDT)
+Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com. [209.85.128.173])
+        by smtp.gmail.com with ESMTPSA id y16-20020ac85250000000b0035badb499c7sm136531qtn.21.2022.09.20.08.07.31
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 20 Sep 2022 08:07:31 -0700 (PDT)
+Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-3450990b0aeso30169887b3.12
+        for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 08:07:31 -0700 (PDT)
+X-Received: by 2002:a81:8d3:0:b0:34d:1215:fb4b with SMTP id
+ 202-20020a8108d3000000b0034d1215fb4bmr7135561ywi.383.1663686450814; Tue, 20
+ Sep 2022 08:07:30 -0700 (PDT)
 MIME-Version: 1.0
-Cc: Palmer Dabbelt <palmer@rivosinc.com>
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: linux-riscv@lists.infradead.org
+References: <20220915181558.354737-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20220915181558.354737-9-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <CAMuHMdW99EutciosPtOTU9AztfvfMdKTaS+YRmpmS4VnhZ9KAA@mail.gmail.com> <CA+V-a8s9y0Jq4TJk9E_ptsZTW3iCoysaBSrUeQV8qfDFO3wzeQ@mail.gmail.com>
+In-Reply-To: <CA+V-a8s9y0Jq4TJk9E_ptsZTW3iCoysaBSrUeQV8qfDFO3wzeQ@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 20 Sep 2022 16:07:18 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWy=uU-QQgkz+-sBHfuK9tE-E4LijVLrYX7Efh9=C9vLg@mail.gmail.com>
+Message-ID: <CAMuHMdWy=uU-QQgkz+-sBHfuK9tE-E4LijVLrYX7Efh9=C9vLg@mail.gmail.com>
+Subject: Re: [PATCH v3 08/10] riscv: dts: renesas: Add minimal DTS for Renesas
+ RZ/Five SMARC EVK
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Heiko Stuebner <heiko@sntech.de>, 
+	Atish Patra <atishp@rivosinc.com>, Conor Dooley <conor.dooley@microchip.com>, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220920_073115_535867_93F85A21 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20220920_080735_916735_F5E73332 
+X-CRM114-Status: GOOD (  27.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +93,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current patch acceptance policy requires that specifications are
-approved by the RISC-V foundation, but we rely on external
-specifications as well.  This explicitly calls out the UEFI
-specifications that we're starting to depend on.
+Hi Prabhakar,
 
-Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
----
-This also came up during the Plumbers BoF.  The other discussed options
-were to wait for an ACPI/UEFI specification to be published or to just
-not wait at all, but this middle ground matches how we handle the RISC-V
-specifications and it seems like there was broad agreement on it.
+On Tue, Sep 20, 2022 at 3:05 PM Lad, Prabhakar
+<prabhakar.csengg@gmail.com> wrote:
+> On Tue, Sep 20, 2022 at 1:32 PM Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+> > On Thu, Sep 15, 2022 at 8:17 PM Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > >
+> > > Enable the minimal blocks required for booting the Renesas RZ/Five
+> > > SMARC EVK with initramfs.
+> > >
+> > > Below are the blocks enabled:
+> > > - CPG
+> > > - CPU0
+> > > - DDR (memory regions)
+> > > - PINCTRL
+> > > - PLIC
+> > > - SCIF0
+> > >
+> > > Note we have deleted the nodes from the DT for which support needs to be
+> > > added for RZ/Five SoC and are enabled by RZ/G2UL SMARC EVK SoM/carrier
+> > > board DTS/I.
+> > >
+> > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-As usual with policy stuff I'll wait a bit for others to have a chance
-to chime in, but I think the wording on this one is at least easier to
-reason about than some of the others.
----
- Documentation/riscv/patch-acceptance.rst | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+> > > --- /dev/null
+> > > +++ b/arch/riscv/boot/dts/renesas/rzfive-smarc-som.dtsi
+> > > @@ -0,0 +1,42 @@
+> > > +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +/*
+> > > + * Device Tree Source for the RZ/Five SMARC EVK SOM
+> > > + *
+> > > + * Copyright (C) 2022 Renesas Electronics Corp.
+> > > + */
+> > > +
+> > > +#include <arm64/renesas/rzg2ul-smarc-som.dtsi>
+> > > +
+> > > +/ {
+> > > +       aliases {
+> > > +               /delete-property/ ethernet0;
+> > > +               /delete-property/ ethernet1;
+> >
+> > OK
+> >
+> I assume you are OK with dropping the above too?
 
-diff --git a/Documentation/riscv/patch-acceptance.rst b/Documentation/riscv/patch-acceptance.rst
-index 8087718556da..08cb92324eaf 100644
---- a/Documentation/riscv/patch-acceptance.rst
-+++ b/Documentation/riscv/patch-acceptance.rst
-@@ -20,9 +20,11 @@ Submit Checklist Addendum
- -------------------------
- We'll only accept patches for new modules or extensions if the
- specifications for those modules or extensions are listed as being
--"Frozen" or "Ratified" by the RISC-V Foundation.  (Developers may, of
--course, maintain their own Linux kernel trees that contain code for
--any draft extensions that they wish.)
-+unlikely to make incompatible changes in the future.  For
-+specifications from the RISC-V foundation this means "Frozen" or
-+"Ratified", for the UEFI specifications this means a published ECR.
-+(Developers may, of course, maintain their own Linux kernel trees that
-+contain code for any draft extensions that they wish.)
- 
- Additionally, the RISC-V specification allows implementors to create
- their own custom extensions.  These custom extensions aren't required
--- 
-2.34.1
+I did intend to delete these properties (hence the "OK"), as their
+presence may confuse U-Boot.
 
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
