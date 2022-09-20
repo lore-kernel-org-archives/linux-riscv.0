@@ -4,126 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F333C6FA8E
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 00:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0857EC6FA8B
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 Sep 2022 00:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vAx7dx6dZYGMgSVri1KdOKvv8IXLD/dek5D4fNlK2zY=; b=dSqlyj3Lj5zrCY
-	GSdRtKaLEFJUJLwy4ztle5S/b63OU0SW2xbqLoqwbv5UKaDvwWb5n33ziiBIDPqMvpt1pk0OxrPbw
-	MJsWEtVzneHjAg12d5wX65VJlhqLs7sZqaHGYVesJaduCGITOwvbFFZNPrVc5yhRGFqqbIdInjCKi
-	gNyQGjpqph/EiIkbfbicfvdM2ucC47auGMLNN4whPP0pT4Y4IhgHCyyQ9kwKwEuScBRDGDTcX/I43
-	qMXUvgeUQIc3X9BOJF3Bz9+4HcJq8CxRUsou8lnWTsCsnOm1tmlFr0yRQZBiJSmcXWn/V4oZX1qYV
-	zlsFAxrfj0aAZDl2UhGw==;
+	List-Owner; bh=xs+pifBLvPMi6njUo0tGliwxHXXULLHTdKmjk4Ya7xk=; b=S3XgqGjHx3myi5
+	O3Gb1EhvV2ibiLrKJ9c3pwSeYm/me948NvLVa8Gm07sFtC65ml66mukB1v9WlpY7hRIdohr1Acuak
+	QTJTJp6IbZ/d42+54SLfXl8zA23pgBK4RN+HyPo5K2CEW9nPgWg9q4BWse/TW0zpekshIj011IMrU
+	AqyFvM9tdsjN9Ok8b7VDCnIndkzAskBmtU2eiUkTiGO/2g2e6X8aUY9gow20LhuZsMTrHRYPQwiaC
+	MtS2nItCPD1cIqeT2A48/40DVxmukxfObDu1iEPIJog6r+Sgj+Lv3nZewZfZRT8QosCL2ZTTnvrCq
+	rMuXF2XTsmlYGJBByTUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaRHF-00Gkea-Rf; Tue, 20 Sep 2022 00:38:17 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1oaRQ2-00GoDG-AG; Tue, 20 Sep 2022 00:47:22 +0000
+Received: from ams.source.kernel.org ([145.40.68.75])
 	by bombadil.infradead.org with esmtps (Exim 4.94.2 #2 (Red Hat Linux))
-	id 1oaPge-00G3iE-9P
-	for linux-riscv@lists.infradead.org; Mon, 19 Sep 2022 22:56:27 +0000
-Received: by mail-ej1-x636.google.com with SMTP id y17so2095676ejo.6
-        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 15:56:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lixom-net.20210112.gappssmtp.com; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date;
-        bh=5S9VBftUHA8Ab+AfT1DhnDF/jWnQCvfphMhw9w+YVhc=;
-        b=pT3AVw/XaQKfMJa28M67X6CWfwalI0Uvo6unsRjOTD2Z+d/hMLJagRy91+fB9mWt/H
-         RvjlLsn+3FsNx74QkbruJHKtTQ+30w35PYmoN36zBZvRhmzaaut2t/ejO0VHEYQ77EDj
-         OXDYFEqkBBbGSPaGws21i+7eNFUtsVpC10Ocfp53V0C+AqpxtnC2gWLf09NvoZb8DNZe
-         nefkWz5Q2xpTnqPE/9sJZpmszdShkKibcjHKjjaL4N2+oQKOJucjE0sZV5m8l2gxJQLL
-         eUTG5Bs9Z5UoBJW4L2zlLkhjGsOc0HVn5guvp/vsJvOqjFnEQJHDOGaHy7aMupntX7WF
-         7vTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20210112;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date;
-        bh=5S9VBftUHA8Ab+AfT1DhnDF/jWnQCvfphMhw9w+YVhc=;
-        b=Gidg2Lum1JtOALvAyDcnj29xDsSqSUi0MTtXqq0KGWDC7NcxDRxLdNNdBIEQY15miq
-         GwInSGeavmZ+pPG0ZwuzrUkuSdHTcsN9s9vI0v/mm1FSnuw+vGv336B5wOkCBjK11dZu
-         GwSg7ybAooP+tWiryz2K7dDw4RCcPKbkUbl8LQof5WP+idrq0badAUwTbyxusEShKmcI
-         2a4iAnbV816wBm0IP3s7IasWyfYAZ3Ouibv9mfW+g6H/bLI2whSipDQPRw87gWFfXuoW
-         J+1qsr5WEmZqNy6izCo6uYPtT+OJ/VQwulIM/y5Vq2+Hdt4nfeH1tWnfQdzQwcEpU4zp
-         ogmg==
-X-Gm-Message-State: ACrzQf0nb3btWLjr6f8iH5sSxXmplGeWzpuNQK+6VV25e4NaXuw1mdIT
-	6Oeo8ZXRpyaNtLFalOPJ7OryAMtAKaKDz9pJPEyIwQ==
-X-Google-Smtp-Source: AMsMyM5kdxcAfNB78ChbidtnpNAMschNYMIGpvHRr7zgKTZ4CCEGx6bhJgHHTNr9SAgKH+LAmfDCBtvH2R9hQBackB8=
-X-Received: by 2002:a17:906:ef8c:b0:77c:8f77:330 with SMTP id
- ze12-20020a170906ef8c00b0077c8f770330mr14503775ejb.604.1663628181793; Mon, 19
- Sep 2022 15:56:21 -0700 (PDT)
+	id 1oaRPy-00Go8Y-Ub
+	for linux-riscv@lists.infradead.org; Tue, 20 Sep 2022 00:47:20 +0000
+Received: from smtp.kernel.org (relay.kernel.org [52.25.139.140])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ams.source.kernel.org (Postfix) with ESMTPS id 0F7F4B80AC0
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 00:47:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7260C43143
+	for <linux-riscv@lists.infradead.org>; Tue, 20 Sep 2022 00:47:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1663634829;
+	bh=xP/qeVjxP9D7WAylNWjp5M1UVyW3ePRF51jsVQNhb6M=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=QQPHDA/rmZeGmg4vRVdL3NsKvKD3TaRcKVna3BdM9JeoVwJ6pke7eJjtIOObQLXBA
+	 dE5ROwWuXKUWG7GOnz04IIjOyMupp2IFSCY1Qan2zdiKbx2FGE9jerCSbvTDFu1xM8
+	 O1kHOBLOteHXQZUqVd+UVtNVlh7OPQ1/moZMl0j6u2oIX9zbuCmnPdBzr8u/ywNvC8
+	 85vzoTPsiDHQR1yy5Grq5sc9gXaMGfiQxx76yRqq4p/6QsRSFAA8K43CeYIpmdXQgN
+	 /pTP6BTHaYfm+DQjfDIFPgU6bOYKu37RyUbGQB1BueeYM1IuKOo17bnnCuocyvX5n9
+	 fEDuwptUghy0g==
+Received: by mail-oa1-f43.google.com with SMTP id 586e51a60fabf-1274ec87ad5so2068219fac.0
+        for <linux-riscv@lists.infradead.org>; Mon, 19 Sep 2022 17:47:09 -0700 (PDT)
+X-Gm-Message-State: ACrzQf14w5ya1A7libHedSjBN9wwWlfrnXrY9PiwYEjbcl00Pxwm1rjk
+	JA8fqTkSYF+cZ227pXw8CpRkarY0hUenIE+AfB8=
+X-Google-Smtp-Source: AMsMyM6SzMrhnEnurC88o5RK3FSySIO2geSRWmUq+5Zhq2V6q1TFt+qBpX29RTKP8TzwzNGJDD/k5Zn/L7dXo+SaQoU=
+X-Received: by 2002:a05:6870:a78e:b0:12b:542b:e5b2 with SMTP id
+ x14-20020a056870a78e00b0012b542be5b2mr557154oao.112.1663634828649; Mon, 19
+ Sep 2022 17:47:08 -0700 (PDT)
 MIME-Version: 1.0
-References: <20220701012647.2007122-1-saravanak@google.com>
- <YwS5J3effuHQJRZ5@kroah.com> <CAOesGMivJ5Q-jdeGKw32yhjmNiYctHjpEAnoMMRghYqWD2m2tw@mail.gmail.com>
- <YygsEtxKz8dsEstc@kroah.com>
-In-Reply-To: <YygsEtxKz8dsEstc@kroah.com>
-From: Olof Johansson <olof@lixom.net>
-Date: Mon, 19 Sep 2022 15:56:09 -0700
-Message-ID: <CAOesGMh5GHCONTQ9M1Ro7zW-hkL_1F7Xt=xRV0vYSfPY=7LYkQ@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] Fix console probe delay when stdout-path isn't set
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Saravana Kannan <saravanak@google.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Paul Mackerras <paulus@samba.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>, 
-	Nicolas Saenz Julienne <nsaenz@kernel.org>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Florian Fainelli <f.fainelli@gmail.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Al Cooper <alcooperx@gmail.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Paul Cercueil <paul@crapouillou.net>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Tobias Klauser <tklauser@distanz.ch>, Russell King <linux@armlinux.org.uk>, 
-	Vineet Gupta <vgupta@kernel.org>, Richard Genoud <richard.genoud@gmail.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Claudiu Beznea <claudiu.beznea@microchip.com>, Alexander Shiyan <shc_work@mail.ru>, 
-	Baruch Siach <baruch@tkos.co.il>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, NXP Linux Team <linux-imx@nxp.com>, 
-	Karol Gugala <kgugala@antmicro.com>, Mateusz Holenko <mholenko@antmicro.com>, 
-	Gabriel Somlo <gsomlo@gmail.com>, Neil Armstrong <narmstrong@baylibre.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
-	Taichi Sugaya <sugaya.taichi@socionext.com>, Takao Orito <orito.takao@socionext.com>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Andy Gross <agross@kernel.org>, 
-	Bjorn Andersson <bjorn.andersson@linaro.org>, Pali Rohar <pali@kernel.org>, 
-	Andreas Farber <afaerber@suse.de>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Laxman Dewangan <ldewangan@nvidia.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Orson Zhai <orsonzhai@gmail.com>, 
-	Baolin Wang <baolin.wang7@gmail.com>, Chunyan Zhang <zhang.lyra@gmail.com>, 
-	Patrice Chotard <patrice.chotard@foss.st.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, "David S. Miller" <davem@davemloft.net>, 
-	Hammer Hsieh <hammerh0314@gmail.com>, Peter Korsgaard <jacmet@sunsite.dk>, Timur Tabi <timur@kernel.org>, 
-	Michal Simek <michal.simek@xilinx.com>, Rob Herring <robh@kernel.org>, 
-	sascha hauer <sha@pengutronix.de>, peng fan <peng.fan@nxp.com>, kevin hilman <khilman@kernel.org>, 
-	ulf hansson <ulf.hansson@linaro.org>, len brown <len.brown@intel.com>, 
-	pavel machek <pavel@ucw.cz>, joerg roedel <joro@8bytes.org>, will deacon <will@kernel.org>, 
-	andrew lunn <andrew@lunn.ch>, heiner kallweit <hkallweit1@gmail.com>, 
-	eric dumazet <edumazet@google.com>, jakub kicinski <kuba@kernel.org>, paolo abeni <pabeni@redhat.com>, 
-	linus walleij <linus.walleij@linaro.org>, hideaki yoshifuji <yoshfuji@linux-ipv6.org>, 
-	david ahern <dsahern@kernel.org>, kernel-team@android.com, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, iommu@lists.linux-foundation.org, 
-	netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-serial@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-tegra@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, linux-actions@lists.infradead.org, 
-	linux-unisoc@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
-	sparclinux@vger.kernel.org
+References: <20220908022506.1275799-1-guoren@kernel.org> <20220908022506.1275799-9-guoren@kernel.org>
+ <4babce64-e96d-454c-aa35-243b3f2dc315@www.fastmail.com> <CAJF2gTQAMCjNyqrSOvqDAKR5Z-PZiTVxmoK9cvNAVQs+k2fZBg@mail.gmail.com>
+ <8817af55-de0d-4e8f-a41b-25d01d5fa968@www.fastmail.com> <CAJF2gTRoKfJ25brnA=_CqNw9DPt8XKhcyNzmCbD6wX1q-jiR1w@mail.gmail.com>
+In-Reply-To: <CAJF2gTRoKfJ25brnA=_CqNw9DPt8XKhcyNzmCbD6wX1q-jiR1w@mail.gmail.com>
+From: Guo Ren <guoren@kernel.org>
+Date: Tue, 20 Sep 2022 08:46:55 +0800
+X-Gmail-Original-Message-ID: <CAJF2gTRVH6pVqBn+n+wbccBcMWraRP3m4CbXz4g_y+=nPEU=Yw@mail.gmail.com>
+Message-ID: <CAJF2gTRVH6pVqBn+n+wbccBcMWraRP3m4CbXz4g_y+=nPEU=Yw@mail.gmail.com>
+Subject: Re: [PATCH V4 8/8] riscv: Add config of thread stack size
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Palmer Dabbelt <palmer@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, 
+	"Conor.Dooley" <conor.dooley@microchip.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Jisheng Zhang <jszhang@kernel.org>, lazyparser@gmail.com, falcon@tinylab.org, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <apatel@ventanamicro.com>, 
+	Atish Patra <atishp@atishpatra.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Linux-Arch <linux-arch@vger.kernel.org>, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Guo Ren <guoren@linux.alibaba.com>, Andreas Schwab <schwab@suse.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20220919_155624_352961_87EE169B 
-X-CRM114-Status: GOOD (  38.94  )
-X-Mailman-Approved-At: Mon, 19 Sep 2022 17:38:11 -0700
+X-CRM114-CacheID: sfid-20220919_174719_297566_6B42E2E5 
+X-CRM114-Status: GOOD (  39.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,75 +90,167 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 19, 2022 at 1:44 AM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
+On Mon, Sep 19, 2022 at 4:35 PM Guo Ren <guoren@kernel.org> wrote:
 >
-> On Sun, Sep 18, 2022 at 08:44:27PM -0700, Olof Johansson wrote:
-> > On Tue, Aug 23, 2022 at 8:37 AM Greg Kroah-Hartman
-> > <gregkh@linuxfoundation.org> wrote:
-> > >
-> > > On Thu, Jun 30, 2022 at 06:26:38PM -0700, Saravana Kannan wrote:
-> > > > These patches are on top of driver-core-next.
-> > > >
-> > > > Even if stdout-path isn't set in DT, this patch should take console
-> > > > probe times back to how they were before the deferred_probe_timeout
-> > > > clean up series[1].
-> > >
-> > > Now dropped from my queue due to lack of a response to other reviewer's
-> > > questions.
+> On Sun, Sep 11, 2022 at 12:07 AM Arnd Bergmann <arnd@arndb.de> wrote:
 > >
-> > What happened to this patch? I have a 10 second timeout on console
-> > probe on my SiFive Unmatched, and I don't see this flag being set for
-> > the serial driver. In fact, I don't see it anywhere in-tree. I can't
-> > seem to locate another patchset from Saravana around this though, so
-> > I'm not sure where to look for a missing piece for the sifive serial
-> > driver.
+> > On Sat, Sep 10, 2022, at 2:52 PM, Guo Ren wrote:
+> > > On Thu, Sep 8, 2022 at 3:37 PM Arnd Bergmann <arnd@arndb.de> wrote:
+> > >> On Thu, Sep 8, 2022, at 4:25 AM, guoren@kernel.org wrote:
+> > >> > From: Guo Ren <guoren@linux.alibaba.com>
+> > >> - When VMAP_STACK is set, make it possible to select non-power-of-two
+> > >>   stack sizes. Most importantly, 12KB should be a really interesting
+> > >>   choice as 8KB is probably still not enough for many 64-bit workloads,
+> > >>   but 16KB is often more than what you need. You probably don't
+> > >>   want to allow 64BIT/8KB without VMAP_STACK anyway since that just
+> > >>   makes it really hard to debug, so hiding the option when VMAP_STACK
+> > >>   is disabled may also be a good idea.
+> > > I don't want this config to depend on VMAP_STACK. Some D1 chips would
+> > > run with an 8K stack size and !VMAP_STACK.
 > >
-> > This is the second boot time regression (this one not fatal, unlike
-> > the Layerscape PCIe one) from the fw_devlink patchset.
+> > That sounds like a really bad idea, why would you want to risk
+> > using such a small stack without CONFIG_VMAP_STACK?
 > >
-> > Greg, can you revert the whole set for 6.0, please? It's obviously
-> > nowhere near tested enough to go in and I expect we'll see a bunch of
-> > -stable fixups due to this if we let it remain in.
+> > Are you worried about increased memory usage or something else?
+> >
+> > >  /* thread information allocation */
+> > > -#ifdef CONFIG_64BIT
+> > > -#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
+> > > -#else
+> > > -#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
+> > > -#endif
+> > > +#define THREAD_SIZE_ORDER      CONFIG_THREAD_SIZE_ORDER
+> > >  #define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
+> >
+> > This doesn't actually allow additional THREAD_SIZE values, as you
+> > still round up to the nearest power of two.
+> >
+> > I think all the non-arch code can deal with non-power-of-2
+> > sizes, so you'd just need
+> >
+> > #define THREAD_SIZE round_up(CONFIG_THREAD_SIZE, PAGE_SIZE)
+> >
+> > and fix up the risc-v specific code to do the right thing
+> > as well. I now see that THREAD_SIZE_ORDER is not actually
+> > used anywhere with CONFIG_VMAP_STACK, so I suppose that
+> > definition can be skipped, but you still need a THREAD_ALIGN
+> > definition that is a power of two and at least a page larger
+> > than THREAD_SIZE.
+> Sorry, I missed this part. I would RESEND v5
+
+Hi Arnd,
+
+How about this one: (only THREAD_SIZE, no THREAD_ORDER&SHIFT.)
+
+commit 447cddede7898c35a9a3b8ab3d7bdb7b0de0714d (HEAD)
+Author: Guo Ren <guoren@kernel.org>
+Date:   Mon Sep 5 22:53:06 2022 -0400
+
+    riscv: Add config of thread stack size
+
+    0cac21b02ba5 ("riscv: use 16KB kernel stack on 64-bit") increase the
+    thread size mandatory, but some scenarios, such as D1 with a small
+    memory footprint, would suffer from that. After independent irq stack
+    support, let's give users a choice to determine their custom stack size.
+
+    Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
+    Signed-off-by: Guo Ren <guoren@kernel.org>
+    Cc: Andreas Schwab <schwab@suse.de>
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index dfe600f3526c..8def456f328c 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -442,6 +442,16 @@ config IRQ_STACKS
+          Add independent irq & softirq stacks for percpu to prevent
+kernel stack
+          overflows. We may save some memory footprint by disabling IRQ_STACKS.
+
++config THREAD_SIZE
++       int "Kernel stack size (in bytes)" if EXPERT
++       range 4096 65536
++       default 8192 if 32BIT && !KASAN
++       default 32768 if 64BIT && KASAN
++       default 16384
++       help
++         Specify the Pages of thread stack size (from 4KB to 64KB), which also
++         affects irq stack size, which is equal to thread stack size.
++
+ endmenu # "Platform type"
+
+ menu "Kernel features"
+diff --git a/arch/riscv/include/asm/thread_info.h
+b/arch/riscv/include/asm/thread_info.h
+index 043da8ccc7e6..181fdfbd5e99 100644
+--- a/arch/riscv/include/asm/thread_info.h
++++ b/arch/riscv/include/asm/thread_info.h
+@@ -11,24 +11,12 @@
+ #include <asm/page.h>
+ #include <linux/const.h>
+
+-#ifdef CONFIG_KASAN
+-#define KASAN_STACK_ORDER 1
+-#else
+-#define KASAN_STACK_ORDER 0
+-#endif
+-
+ /* thread information allocation */
+-#ifdef CONFIG_64BIT
+-#define THREAD_SIZE_ORDER      (2 + KASAN_STACK_ORDER)
+-#else
+-#define THREAD_SIZE_ORDER      (1 + KASAN_STACK_ORDER)
+-#endif
+-#define THREAD_SIZE            (PAGE_SIZE << THREAD_SIZE_ORDER)
++#define THREAD_SIZE            CONFIG_THREAD_SIZE
+
+ /*
+  * By aligning VMAP'd stacks to 2 * THREAD_SIZE, we can detect overflow by
+- * checking sp & (1 << THREAD_SHIFT), which we can do cheaply in the entry
+- * assembly.
++ * checking sp & THREAD_SIZE, which we can do cheaply in the entry assembly.
+  */
+ #ifdef CONFIG_VMAP_STACK
+ #define THREAD_ALIGN            (2 * THREAD_SIZE)
+@@ -36,7 +24,6 @@
+ #define THREAD_ALIGN            THREAD_SIZE
+ #endif
+
+-#define THREAD_SHIFT            (PAGE_SHIFT + THREAD_SIZE_ORDER)
+ #define OVERFLOW_STACK_SIZE     SZ_4K
+ #define SHADOW_OVERFLOW_STACK_SIZE (1024)
+
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 426529b84db0..1e35fb3bdae5 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -29,8 +29,8 @@ _restore_kernel_tpsp:
+
+ #ifdef CONFIG_VMAP_STACK
+        addi sp, sp, -(PT_SIZE_ON_STACK)
+-       srli sp, sp, THREAD_SHIFT
+-       andi sp, sp, 0x1
++       srli sp, sp, PAGE_SHIFT
++       andi sp, sp, (THREAD_SIZE >> PAGE_SHIFT)
+        bnez sp, handle_kernel_stack_overflow
+        REG_L sp, TASK_TI_KERNEL_SP(tp)
+ #endif
+
+
 >
-> What exactly is "the whole set"?  I have the default option fix queued
-> up and will send that to Linus later this week (am traveling back from
-> Plumbers still), but have not heard any problems about any other issues
-> at all other than your report.
-
-I stand corrected in this case, the issue on the Hifive Unmatched was
-a regression due to a PWM clock change -- I just sent a patch for that
-(serial driver fix).
-
-So it seems like as long as the fw_devlink.strict=1 patch is reverted,
-things are back to a working state here.
-
-I still struggle with how the fw_devlink patchset is expected to work
-though, since DT is expected to describe the hardware configuration,
-and it has no knowledge of whether there are drivers that will be
-bound to any referenced supplier devnodes. It's not going to work well
-to assume that they will always be bound, and to add 10 second
-timeouts for those cases isn't a good solution. Seems like the number
-of special cases will keep adding up.
-
-The whole design feels like it's falling short, and it's been patched
-here and there to deal with the shortcomings, instead of revisiting
-the full solution. (The patches are the console one, and another to
-deal with nfsroot boots).
-
-As long as it doesn't keep regressing others, I suppose the work to
-redesign it can happen in-tree, but it's not usually how we try to do
-it for new functionality. Especially since it's still being iterated
-on (with active patch sets posted around -rc1 for improvements).
-
-Oh, and one more thing for the future -- the main patch that changes
-behavior due to dependency tracking is 2f8c3ae8288e, named "driver
-core: Add wait_for_init_devices_probe helper function". It's easy to
-overlook this when looking at a list of patches since it's said to
-just introduce a helper.
+> >
+> >      Arnd
+>
+>
+>
+> --
+> Best Regards
+>  Guo Ren
 
 
--Olof
+
+-- 
+Best Regards
+ Guo Ren
 
 _______________________________________________
 linux-riscv mailing list
